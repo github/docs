@@ -1,7 +1,7 @@
 ---
-title: Creating a support ticket
-intro: 'You can use the {% ifversion ghae %}{% data variables.contact.ae_azure_portal %}{% else %}{% data variables.contact.support_portal %}{% endif %} to create a support ticket and speak to {% data variables.contact.github_support %}.'
-shortTitle: Creating a ticket
+title: Crear un ticket de soporte
+intro: 'Puedes utilizar el {% ifversion ghae %}{% data variables.contact.ae_azure_portal %}{% else %}{% data variables.contact.support_portal %}{% endif %} para crear un ticket de soporte y hablar con {% data variables.contact.github_support %}.'
+shortTitle: Crear un ticket
 versions:
   fpt: '*'
   ghec: '*'
@@ -26,7 +26,7 @@ topics:
 
 {% ifversion fpt or ghec or ghes %}
 
-## About support tickets
+## Acerca de los tickets de soporte
 
 {% data reusables.support.zendesk-old-tickets %}
 
@@ -39,22 +39,22 @@ topics:
 {% endif %}
 
 {% ifversion ghes %}
-You can create your ticket using the {% data variables.contact.support_portal %} or, if you would like to include diagnostics with your support ticket, you can use the GitHub Enterprise Server Management Console.
+Puedes crear tu ticket utilizando el {% data variables.contact.support_portal %} o, en caso de que quieras incluir el diagnóstico con tu ticket de soporte, puedes utilizar la Consola de Administración de GitHub Enterprise Server.
 {% endif %}
 
-After you create your ticket, you can view your ticket and the responses from {% data variables.contact.github_support %} on the {% data variables.contact.contact_landing_page_portal %}. For more information, see "[Viewing and updating support tickets](/support/contacting-github-support/viewing-and-updating-support-tickets)."
+Después de crear tu ticket, puedes verlo, así como las respuestas de {% data variables.contact.github_support %} en el {% data variables.contact.contact_landing_page_portal %}. Para obtener más información, consulta la sección "[Ver y actualizar los tickets de soporte](/support/contacting-github-support/viewing-and-updating-support-tickets)".
 
-## What to include in your support ticket
+## Qué incluir en tu ticket de soporte
 
-Providing {% data variables.contact.github_support %} with everything they need to understand, locate, and reproduce an issue will allow for a faster resolution and less back-and-forth between yourself and the support team. To ensure {% data variables.contact.github_support %} can assist you, consider the following points when you write your ticket:
+El proporcionar a {% data variables.contact.github_support %} todo lo que necesita para entender, ubicar y reproducir un problema permitirá que exista una resolución más rápida y menos juego entre tú y el equipo de soporte. Para garantizar que {% data variables.contact.github_support %} puede darte asistencia, considera los siguientes puntos cuando escribes tu ticket:
 
 - Obtener información que pueda ayudar a que {% data variables.contact.github_support %} rastree, priorice, reproduzca o investigue el problema.
-- Include full URLs, repository names, and usernames wherever possible.
+- Incluye las URL, nombres de repositorio y de usuario completos cada que sea posible.
 - Reproducir el problema, en caso de que sea posible, y prepararte para compartir los pasos.
 - Estar preparado para brindar una descripción completa de la propuesta y los resultados esperados.
 - Copiar de manera exacta, palabra por palabra, todos los mensajes del error relacionados con tu problema.
 - Determinar si existe un número de ticket en cualquier comunicación con {% data variables.contact.github_support %} que se encuentre en curso.
-- Include relevant logs and attach any screenshots that demonstrate the issue.
+- Incluye las bitácoras relevantes y adjunta cualquier captura de pantalla que demuestre el problema.
 
 {% ifversion ghes %}
 ## Elegir una persona de contacto
@@ -68,21 +68,21 @@ Especialmente para los tickets con prioridad {% data variables.product.support_t
 
 {% endif %}
 
-## Creating a support ticket{% ifversion ghes %} using the support portal{% endif %}
+## Crea un ticket de soporte{% ifversion ghes %} utilizando el portal de soporte{% endif %}
 
 1. Navega por el {% data variables.contact.contact_support_portal %}.
 {% data reusables.support.submit-a-ticket %}
 
 {% ifversion ghes %}
 
-## Creating a ticket using the GitHub Enterprise Server Management Console
+## Crear un ticket utilizando la Consola de Administración de GitHub Enterprise Server
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.type-management-console-password %}
 {% data reusables.enterprise_management_console.support-link %}
-1. Si deseas incluir los diagnósticos con tu ticket de soporte, en "Diagnostics" (Diagnóstico), haz clic en **Download diagnostic info** (Descargar información de diagnóstico) y guarda el archivo localmente. Adjuntarás este archivo a tu ticket de soporte posteriormente. ![Screenshot of button labelled "Download diagnostics info" on Management Console Support page.](/assets/images/enterprise/support/download-diagnostics-info-button.png)
-1. Para completar tu ticket y mostrar el {% data variables.contact.enterprise_portal %}, debajo de "Abrir Solicitud de Soporte", haz clic en **Solicitud de soporte nueva**. ![Screenshot of button labelled "New support request" on Management Console Support page.](/assets/images/enterprise/management-console/open-support-request.png)
+1. Si deseas incluir los diagnósticos con tu ticket de soporte, en "Diagnostics" (Diagnóstico), haz clic en **Download diagnostic info** (Descargar información de diagnóstico) y guarda el archivo localmente. Adjuntarás este archivo a tu ticket de soporte posteriormente. ![Captura de pantalla del botón etiquetado como "Descargar información de diagnóstico" en la página de Soporte de la Consola de Administración.](/assets/images/enterprise/support/download-diagnostics-info-button.png)
+1. Para completar tu ticket y mostrar el {% data variables.contact.enterprise_portal %}, debajo de "Abrir Solicitud de Soporte", haz clic en **Solicitud de soporte nueva**. ![Captura de pantalla del botón etiquetado como "Solilcitud de soporte nueva" en la página de Soporte de la Consola de Admnistración.](/assets/images/enterprise/management-console/open-support-request.png)
 {% data reusables.support.submit-a-ticket %}
 
 {% endif %}

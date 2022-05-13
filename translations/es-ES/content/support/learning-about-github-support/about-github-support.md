@@ -73,7 +73,7 @@ To report account, security, and abuse issues, or to receive assisted support fo
 {% ifversion fpt %}
 If you have any paid product or are a member of an organization with a paid product, you can contact {% data variables.contact.github_support %} in English.
 {% else %} 
-With {% data variables.product.product_name %}, you have access to support in English{% ifversion ghes %} and Japanese{% endif %}.
+With {% data variables.product.product_name %}, you have access to support in English and Japanese.
 {% endif %}
 
 {% ifversion ghes or ghec %}
@@ -135,18 +135,24 @@ To learn more about training options, including customized trainings, see [{% da
 
 {% endif %}
 
-{% ifversion ghes %}
+{% ifversion ghes or ghec %}
 ## Hours of operation
 
 ### Support in English
 
 For standard non-urgent issues, we offer support in English 24 hours per day, 5 days per week, excluding weekends and national U.S. holidays. The standard response time is 24 hours.
 
+{% ifversion ghes %}
 For urgent issues, we are available 24 hours per day, 7 days per week, even during national U.S. holidays.
+{% endif %}
 
 ### Support in Japanese
 
-For non-urgent issues, support in Japanese is available Monday through Friday from 9:00 AM to 5:00 PM JST, excluding national holidays in Japan. For urgent issues, we offer support in English 24 hours per day, 7 days per week, even during national U.S. holidays.
+For standard non-urgent issues, support in Japanese is available Monday through Friday from 9:00 AM to 5:00 PM JST, excluding national holidays in Japan. 
+
+{% ifversion ghes %}
+For urgent issues, we offer support in English 24 hours per day, 7 days per week, even during national U.S. holidays.
+{% endif %}
 
 For a complete list of U.S. and Japanese national holidays observed by {% data variables.contact.enterprise_support %}, see "[Holiday schedules](#holiday-schedules)."
 
@@ -164,7 +170,7 @@ For urgent issues, we can help you in English 24 hours per day, 7 days per week,
 
 {% data variables.contact.enterprise_support %} does not provide Japanese-language support on December 28th through January 3rd as well as on the holidays listed in [国民の祝日について - 内閣府](https://www8.cao.go.jp/chosei/shukujitsu/gaiyou.html).
 
-{% data reusables.enterprise_enterprise_support.installing-releases %}
+{% ifversion ghes %}{% data reusables.enterprise_enterprise_support.installing-releases %}{% endif %}
 
 {% endif %}
 

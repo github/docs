@@ -25,7 +25,7 @@ Para acessar seu quadro pessoal assim que se conectar, clique no {% octicon "mar
 
 ## Encontrar sua atividade recente
 
-Na seção "Recent activity" (Atividade recente) do feed de notícias, você pode encontrar e acompanhar problemas e pull requests recém-atualizados nos quais você está trabalhando, além de visualizar até 12 atualizações recentes feitas nas últimas duas semanas.
+Na seção "Recent activity" (Atividade recente) do feed de notícias, você pode encontrar e acompanhar problemas e pull requests recém-atualizados nos quais você está trabalhando, além de visualizar até 4 atualizações recentes feitas nas últimas duas semanas.
 
 {% data reusables.dashboard.recent-activity-qualifying-events %}
 
@@ -42,17 +42,17 @@ Também é possível encontrar uma lista de seus repositórios, equipes e quadro
 ## Permanecer atualizado com as atividades da comunidade
 
 {% if for-you-feed %}
-The main section of your dashboard has two activity feeds:
+A seção principal do seu painel tem dois feeds de atividades:
 
-- Following: Activity by people you follow and from repositories you watch.
-- For you: Activity and recommendations based on your {% data variables.product.product_name %} network.
+- Seguindo: Atividades de pessoas que você segue e dos repositórios que você inspeciona.
+- Para você: Atividade e recomendações com base na sua rede de {% data variables.product.product_name %}.
 
-### Following feed
+### Seguindo o feed
 
-This feed shows activity from repositories and users you have shown a direct interest in, by following a user or watching a repository. For example, you'll see updates when a user you follow:
+Este feed mostra a atividade dos repositórios e usuários nos quais você mostrou interesse direto, seguindo um usuário ou inspecionando um repositório. Por exemplo, você verá atualizações quando um usuário que você segue:
 
 {% else %}
-In the "All activity" section of your news feed, you can view updates from repositories you watch and users you follow.
+Na seção "Todas as atividades" do feed de notícias, você pode ver as atualizações dos repositórios que você inspeciona e de usuários que você segue.
 
 Atualizações serão exibidas no feed de notícias quando um usuário que você segue:
 {% endif %}
@@ -66,24 +66,24 @@ Atualizações serão exibidas no feed de notícias quando um usuário que você
 - Bifurca um repositório público.{% endif %}
 - Publica uma nova versão.
 
-For more information about following people and watching repositories, see "[Following people](/get-started/exploring-projects-on-github/following-people)" and "[Be social](/get-started/quickstart/be-social)."
+Para obter mais informações sobre as seguir pessoas e inspecionar repositórios, consulte "[Seguindo as pessoas](/get-started/exploring-projects-on-github/following-people)" e "[Ser social](/get-started/quickstart/be-social)".
 
 {% if for-you-feed %}
-### For you feed
+### Para o feed
 
 {% note %}
 
-**Note:** This new tab is currently in public beta and subject to change.
+**Observação:** Esta nova guia está atualmente na versão beta pública e sujeita a alterações.
 
 {% endnote %}
 
-This feed shows activity and recommendations based on your network on {% data variables.product.product_name %}. It's designed to provide updates that inspire you, keep you up-to-date, and help you find new communities you want to participate in. Your network includes:
+Este feed mostra a atividade e as recomendações com base na sua rede em {% data variables.product.product_name %}. El foi projetado para fornecer atualizações que inspiram, mantém você atualizaro e ajuda a encontrar novas comunidades das quais deseja participar. Sua rede inclui:
 
-- Repositories you have starred
-- Repositories you've contributed to
-- Users you follow or sponsor
-- Users you've collaborated with
-- Organizations you follow
+- Repositórios que você favoritou
+- Repositórios para os quais você contribuiu
+- Usuários que você segue ou patrocina
+- Usuários com os quais você colaborou
+- Organizações que você segue
 
 {% endif %}
 

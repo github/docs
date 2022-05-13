@@ -21,7 +21,7 @@ The main difference between the products is that {% data variables.product.prodn
 
 With {% data variables.product.prodname_ghe_cloud %}, you have the option of using {% data variables.product.prodname_emus %}. {% data reusables.enterprise-accounts.emu-short-summary %}
 
-If you choose to let your members create and manage their own user accounts instead, there are two types of accounts you can use with {% data variables.product.prodname_ghe_cloud %}:
+If you choose to let your members create and manage their own personal accounts instead, there are two types of accounts you can use with {% data variables.product.prodname_ghe_cloud %}:
 
 - A single organization account
 - An enterprise account that contains multiple organizations
@@ -67,7 +67,7 @@ To get an enterprise account created for you, contact [{% data variables.product
 An enterprise account allows you to centrally manage policy and settings for multiple {% data variables.product.prodname_dotcom %} organizations, including member access, billing and usage and security. 詳細は「[Enterprise アカウントについて](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts)」を参照してください。
 #### 2. Enterprise アカウントに Organization を追加する
 
-Enterprise アカウント内に、新しい Organization を作成して管理できます。 For more information, see "[Adding organizations to your enterprise](/enterprise-cloud@latest/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise)."
+Enterprise アカウント内に、新しい Organization を作成して管理できます。 詳しい情報については「[EnterpriseへのOrganizationの追加](/enterprise-cloud@latest/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise)」を参照してください。
 
 Contact your {% data variables.product.prodname_dotcom %} sales account representative if you want to transfer an existing organization to your enterprise account.
 #### 3. Enterprise アカウントのプランおよび利用状況を表示する
@@ -179,7 +179,7 @@ To manage and moderate your enterprise, you can set policies for organizations w
 
 You can choose to enforce a number of policies for all organizations owned by your enterprise, or choose to allow these policies to be set in each organization. Types of policies you can enforce include repository management, project board, and team policies. For more information, see "[Setting policies for your enterprise](/enterprise-cloud@latest/admin/policies)."
 #### 2. Viewing audit logs, configuring webhooks, and restricting email notifications for your enterprise
-You can view actions from all of the organizations owned by your enterprise account in the enterprise audit log. You can also configure webhooks to receive events from organizations owned by your enterprise account. For more information, see "[Viewing the audit logs for organizations in your enterprise](/enterprise-cloud@latest/admin/user-management/managing-organizations-in-your-enterprise/viewing-the-audit-logs-for-organizations-in-your-enterprise)" and "[Managing global webhooks](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/managing-global-webhooks)."
+You can view actions from all of the organizations owned by your enterprise account in the enterprise audit log. You can also configure webhooks to receive events from organizations owned by your enterprise account. For more information, see "[Reviewing audit logs for your enterprise](/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise)" and "[Monitoring your enterprise](/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise)."
 
 You can also restrict email notifications for your enterprise account so that enterprise members can only use an email address in a verified or approved domain to receive notifications. For more information, see "[Restricting email notifications for your enterprise](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/restricting-email-notifications-for-your-enterprise)."
 

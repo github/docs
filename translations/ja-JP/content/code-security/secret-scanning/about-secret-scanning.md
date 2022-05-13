@@ -33,10 +33,16 @@ If your project communicates with an external service, you might use a token or 
 
 1. **{% data variables.product.prodname_secret_scanning_partner_caps %}.** Runs automatically on all public repositories. Any strings that match patterns that were provided by secret scanning partners are reported directly to the relevant partner.
 
-2. **{% data variables.product.prodname_secret_scanning_GHAS_caps %}.** You can enable and configure additional scanning for repositories owned by organizations that use {% data variables.product.prodname_ghe_cloud %} and have a license for {% data variables.product.prodname_GH_advanced_security %}. Any strings that match patterns provided by secret scanning partners, by other service providers, or defined by your organization, are reported as alerts in the "Security" tab of repositories. If a string in a public repository matches a partner pattern, it is also reported to the partner. 
-{% endif %}
+2. **{% data variables.product.prodname_secret_scanning_GHAS_caps %}.** {% ifversion fpt %}Organizations using {% data variables.product.prodname_ghe_cloud %} with a license for {% data variables.product.prodname_GH_advanced_security %} can enable and configure additional scanning for repositories owned by the organization.{% elsif ghec %}You can enable and configure additional scanning for repositories owned by organizations that use {% data variables.product.prodname_ghe_cloud %} and have a license for {% data variables.product.prodname_GH_advanced_security %}.{% endif %} Any strings that match patterns provided by secret scanning partners, by other service providers, or defined by your organization, are reported as alerts in the "Security" tab of repositories. If a string in a public repository matches a partner pattern, it is also reported to the partner.{% endif %}{% ifversion fpt %} For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/code-security/secret-security/about-secret-scanning#about-secret-scanning-for-advanced-security).{% endif %}
 
 Service providers can partner with {% data variables.product.company_short %} to provide their secret formats for scanning. {% data reusables.secret-scanning.partner-program-link %}
+
+{% if secret-scanning-push-protection %}
+
+You can also enable {% data variables.product.prodname_secret_scanning %} as a push protection for a repository or an organization. When you enable this feature, {% data variables.product.prodname_secret_scanning %} prevents contributors from pushing code with a detected secret. To proceed, contributors must either remove the secret(s) from the push or, if needed, bypass the protection. For more information, see "[Protecting pushes with {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
+
+{% endif %}
+
 
 {% ifversion fpt or ghec %}
 ## About {% data variables.product.prodname_secret_scanning_partner %}

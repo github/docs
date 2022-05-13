@@ -35,7 +35,7 @@ shortTitle: 将 PR 链接到议题
 
 ## 使用关键词将拉取请求链接到议题
 
-您可以在拉取请求说明或提交消息中使用支持的关键字将拉取请求链接到议题（请注意，拉取请求必须在默认分支上）。
+You can link a pull request to an issue by using a supported keyword in the pull request's description or in a commit message. The pull request **must be** on the default branch.
 
 * close
 * closes
@@ -47,7 +47,7 @@ shortTitle: 将 PR 链接到议题
 * resolves
 * resolved
 
-如果使用关键字在另一个拉取请求中引用拉取请求注释，则将链接拉取请求。 合并引用拉取请求也会关闭引用的拉取请求。
+如果使用关键字在另一个拉取请求中引用拉取请求注释，则将链接拉取请求。 Merging the referencing pull request also closes the referenced pull request.
 
 关闭关键词的语法取决于议题是否与拉取请求在同一仓库中。
 
@@ -60,7 +60,6 @@ shortTitle: 将 PR 链接到议题
 {% ifversion fpt or ghes or ghae or ghec %}只有手动链接的拉取请求才能手动取消链接。 要取消链接您使用关键词链接的议题，必须编辑拉取请求说明以删除该关键词。{% endif %}
 
 您也可以在提交消息中使用关闭关键词。 议题将在提交合并到默认分支时关闭，但包含提交的拉取请求不会列为链接的拉取请求。
-
 
 {% ifversion fpt or ghes or ghae or ghec %}
 ## 手动将拉取请求链接到议题

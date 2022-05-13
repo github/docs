@@ -4,4 +4,4 @@ In addition to all of the benefits of {% data variables.contact.enterprise_suppo
   - 保证初始响应时间的服务等级协议 (SLA)
   - 高级内容访问权限
   - Scheduled Health Checks
-  - Administration assistance hours
+  - Administration assistance hours ({% data variables.product.premium_plus_support_plan %} only)

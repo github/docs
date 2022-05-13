@@ -18,6 +18,12 @@ redirect_from:
   - /codespaces/working-with-your-codespace/managing-access-and-security-for-codespaces
 ---
 
+{% warning %}
+
+**Deprecation note**: The access and security setting is now deprecated. To enable expanded access to other repositories, add the requested permissions to your dev container definition. For more information, see "[Managing access to other repositories within your codespace](/codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces)."
+
+{% endwarning %}
+
 デフォルト設定では、Codespace は作成されたリポジトリにのみアクセスできます。 When you enable access and security for a repository owned by your organization, any codespaces that are created for that repository will also have read permissions to all other repositories the organization owns and the codespace creator has permissions to access. If you want to restrict the repositories a codespace can access, you can limit it to either the repository where the codespace was created, or to specific repositories. 信頼するリポジトリに対してのみ、アクセスとセキュリティを有効にしてください。
 
 Organization 内のどのユーザが {% data variables.product.prodname_codespaces %} を使用できるかを管理するには、「[Organization のユーザ権限を管理する](/codespaces/managing-codespaces-for-your-organization/managing-user-permissions-for-your-organization)」を参照してください。

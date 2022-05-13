@@ -46,7 +46,7 @@ A sua conta pessoal pode ter recursos próprios, como repositórios, pacotes e p
 {% endtip %}
 
 {% ifversion fpt or ghec %}
-A maioria das pessoas usará uma conta pessoal para todo seu trabalho em {% data variables.product.prodname_dotcom_the_website %}, incluindo projetos de código aberto e trabalho remunerado. Se você está usando atualmente mais de uma conta pessoal criada por você, sugerimos que você combine as contas. Para obter mais informações, consulte "[Fazer merge de várias contas de usuário](/articles/merging-multiple-user-accounts)".
+A maioria das pessoas usará uma conta pessoal para todo seu trabalho em {% data variables.product.prodname_dotcom_the_website %}, incluindo projetos de código aberto e trabalho remunerado. Se você está usando atualmente mais de uma conta pessoal criada por você, sugerimos que você combine as contas. Para obter mais informações, consulte "[Fazer merge de várias contas pessoais](/articles/merging-multiple-user-accounts)".
 {% endif %}
 
 ## Contas da organização

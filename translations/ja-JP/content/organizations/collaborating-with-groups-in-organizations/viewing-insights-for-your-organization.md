@@ -1,22 +1,27 @@
 ---
 title: Organization のインサイトを表示する
 intro: Organization のインサイトは、Organization のアクティビティ、コントリビューション、および依存関係についてのデータを提供します。
-product: '{% data reusables.gated-features.org-insights %}'
 redirect_from:
   - /articles/viewing-insights-for-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/viewing-insights-for-your-organization
 versions:
-  fpt: '*'
   ghec: '*'
 topics:
   - Organizations
   - Teams
 shortTitle: Organizationインサイトの表示
+permissions: Organization members can view organization insights.
 ---
 
-Organization のメンバー全員が Organization のインサイトを表示できます。 詳しい情報については「[Organization内のロール](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)」を参照してください。
+## Organizationインサイトについて
 
 Organization のメンバーが、コードについてコラボレートや作業をするため {% data variables.product.product_name %} をどう使っているかについて、より深く理解するために、Organization activity insights を使用できます。 dependency insights は、Organization のオープンソース利用について追跡、レポート、および行動するため役立ちます。
+
+{% note %}
+
+**ノート:** Organizationインサイトを表示するには、Organizationは{% data variables.product.prodname_ghe_cloud %}を使っていなければなりません。 {% data reusables.enterprise.link-to-ghec-trial %}
+
+{% endnote %}
 
 ## Organization activity insights を表示する
 
@@ -38,7 +43,7 @@ Organization activity insights を使えば、Issue やプルリクエストア�
 
 {% note %}
 
-**ノート:** 必ず[依存関係グラフ](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph)を有効化しておいてください。
+**ノート:** 必ず[依存関係グラフ](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-the-dependency-graph)を有効化しておいてください。
 
 {% endnote %}
 

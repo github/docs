@@ -1,6 +1,6 @@
 ---
 title: Criar um token de acesso pessoal
-intro: Você deve criar um token de acesso pessoal para usar no lugar de uma senha com a linha de comando ou com a API.
+intro: You can create a personal access token to use in place of a password with the command line or with the API.
 redirect_from:
   - /articles/creating-an-oauth-token-for-command-line-use
   - /articles/creating-an-access-token-for-command-line-use
@@ -22,7 +22,10 @@ shortTitle: Criar um PAT
 
 {% note %}
 
-**Observação:** Se você usar {% data variables.product.prodname_cli %} para efetuar a autenticação para {% data variables.product.product_name %} na linha de comando você poderá ignorar a geração de um token de acesso pessoal e efetuar a autenticação por meio da web. Para mais informações sobre a autenticação com {% data variables.product.prodname_cli %}, consulte [`login gh`](https://cli.github.com/manual/gh_auth_login).
+**Notas:**
+
+- If you use {% data variables.product.prodname_cli %} to authenticate to {% data variables.product.product_name %} on the command line, you can skip generating a personal access token and authenticate via the web browser instead. Para mais informações sobre a autenticação com {% data variables.product.prodname_cli %}, consulte [`login gh`](https://cli.github.com/manual/gh_auth_login).
+-  [Git Credential Manager](https://github.com/GitCredentialManager/git-credential-manager/blob/main/README.md) is a secure, cross-platform alternative to using personal access tokens (PATs) and eliminates the need to manage PAT scope and expiration. For installation instructions, see [Download and install](https://github.com/GitCredentialManager/git-credential-manager/blob/main/README.md#download-and-install) in the GitCredentialManager/git-credential-manager repository.
 
 {% endnote %}
 
@@ -77,5 +80,5 @@ Em vez de inserir manualmente seu PAT para cada operação de HTTPS do Git, voc�
 
 ## Leia mais
 
-- "[Sobre a autenticação no GitHub](/github/authenticating-to-github/about-authentication-to-github)"{% ifversion fpt or ghae-issue-4374 or ghes > 3.2 or ghec %}
+- "[About authentication to GitHub](/github/authenticating-to-github/about-authentication-to-github)"{% ifversion fpt or ghae-issue-4374 or ghes > 3.2 or ghec %}
 - "[Vencimento e revogação do Token](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation)"{% endif %}

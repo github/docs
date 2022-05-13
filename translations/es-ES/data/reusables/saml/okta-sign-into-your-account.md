@@ -1,1 +1,1 @@
-1. Sign into your [Okta account](https://login.okta.com/).
+1. Inicia sesión en tu [Cuenta de okta](https://login.okta.com/).

@@ -1,6 +1,6 @@
 {% data reusables.actions.registry-credentials %}
 
-#### Example: Defining credentials for a container registry
+#### Ejemplo: definir las credenciales para un registro de contenedores
 
 {% raw %}
 ```yaml

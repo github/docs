@@ -5,20 +5,24 @@ name: 'Orphaned assets check'
 # **Who does it impact**: Docs content.
 
 on:
-  pull_request:
-  push:
-    branches:
-      - gh-readonly-queue/main/**
+  workflow_dispatch:
+  schedule:
+    - cron: '13 10 * * *' # Once a day at 10:13 UTC
 
 permissions:
   contents: read
 
 jobs:
   orphaned-assets-check:
+    if: ${{ github.repository == 'github/docs-internal' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
+        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
+        with:
+          # Using a PAT is necessary so that the new commit will trigger the
+          # CI in the PR. (Events from GITHUB_TOKEN don't trigger new workflows.)
+          token: ${{ secrets.DOCUBOT_REPO_PAT }}
 
       - name: Setup node
         uses: actions/setup-node@1f8c6b94b26d0feae1e387ca63ccbdc44d27b561
@@ -30,4 +34,30 @@ jobs:
         run: npm ci
 
       - name: Check for orphaned assets
-        run: ./script/find-orphaned-assets.mjs --verbose --exit
+        env:
+          # Needed for gh
+          GITHUB_TOKEN: ${{ secrets.DOCUBOT_REPO_PAT }}
+        run: |
+          set -e
+
+          ./script/find-orphaned-assets.mjs | xargs git rm
+
+          # If nothing to commit, exit now. It's fine. No orphans.
+          git status | grep 'nothing to commit' && exit 0
+
+          # Replicated from the translation pipeline PR-maker Action
+          git config --global user.name "docubot"
+          git config --global user.email "67483024+docubot@users.noreply.github.com"
+
+          date=$(date '+%Y-%m-%d-%H-%M')
+          branchname=orphaned-assets-$date-$GITHUB_RUN_ID
+
+          git checkout -b $branchname
+          git commit -m "Delete orphaned assets $date"
+          git push origin $branchname
+
+          gh pr create \
+            --title "Delete orphaned assets ($date)" \
+            --body "Found with the find-orphaned-assets.mjs script" \
+            --repo github/docs-internal \
+            --label docs-content-fr

@@ -1,6 +1,5 @@
 # Tracking deprecation of CodeQL runner
+# https://github.blog/changelog/2022-04-05-codeql-runner-is-now-deprecated/
+
 versions:
-  fpt: '*'
-  ghec: '*'
-  ghes: '*'
-  ghae: '*'
+  ghes: '<=3.3'

@@ -16,9 +16,11 @@ shortTitle: GitHub Advanced Security
 ---
 ## About {% data variables.product.prodname_GH_advanced_security %}
 
-{% data variables.product.prodname_dotcom %} has many features that help you improve and maintain the quality of your code. Some of these are included in all plans{% ifversion not ghae %}, such as dependency graph and {% data variables.product.prodname_dependabot_alerts %}{% endif %}. Other security features require {% data variables.product.prodname_GH_advanced_security %}{% ifversion fpt or ghec %} to run on repositories apart from public repositories on {% data variables.product.prodname_dotcom_the_website %}{% endif %}.
+{% data variables.product.prodname_dotcom %} has many features that help you improve and maintain the quality of your code. Some of these are included in all plans{% ifversion not ghae %}, such as dependency graph and {% data variables.product.prodname_dependabot_alerts %}{% endif %}. Other security features require a {% data variables.product.prodname_GH_advanced_security %}{% ifversion fpt or ghec %} license to run on repositories apart from public repositories on {% data variables.product.prodname_dotcom_the_website %}{% endif %}.{% ifversion fpt %} For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/get-started/learning-about-github/about-github-advanced-security).{% endif %}
 
 {% ifversion ghes or ghec %}For information about buying a license for {% data variables.product.prodname_GH_advanced_security %}, see "[About billing for {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)."{% elsif ghae %}There is no charge for {% data variables.product.prodname_GH_advanced_security %} on {% data variables.product.prodname_ghe_managed %} during the beta release.{% elsif fpt %}To purchase a {% data variables.product.prodname_GH_advanced_security %} license, you must be using {% data variables.product.prodname_enterprise %}. For information about upgrading to {% data variables.product.prodname_enterprise %} with {% data variables.product.prodname_GH_advanced_security %}, see "[GitHub's products](/get-started/learning-about-github/githubs-products)" and "[About billing for {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)."{% endif %}
+
+{% ifversion not fpt %}
 
 ## About {% data variables.product.prodname_advanced_security %} features
 
@@ -26,7 +28,7 @@ A {% data variables.product.prodname_GH_advanced_security %} license provides th
 
 - **{% data variables.product.prodname_code_scanning_capc %}** - Search for potential security vulnerabilities and coding errors in your code. For more information, see "[About {% data variables.product.prodname_code_scanning %}](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)."
 
-- **{% data variables.product.prodname_secret_scanning_caps %}** - Detect secrets, for example keys and tokens, that have been checked into the repository. For more information, see "[About {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/about-secret-scanning)."
+- **{% data variables.product.prodname_secret_scanning_caps %}** - Detect secrets, for example keys and tokens, that have been checked into the repository.{% if secret-scanning-push-protection %} If push protection is enabled, also detects secrets when they are pushed to your repository. For more information, see "[About {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/about-secret-scanning)" and "[Protecting pushes with {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."{% else %} For more information, see "[About {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/about-secret-scanning)."{% endif %}
 
 {% ifversion fpt or ghes > 3.1 or ghec or ghae-issue-4864 %}
 - **Dependency review** - Show the full impact of changes to dependencies and see details of any vulnerable versions before you merge a pull request. For more information, see "[About dependency review](/code-security/supply-chain-security/about-dependency-review)."
@@ -110,4 +112,5 @@ For more information on starter workflows, see "[Setting up {% data variables.pr
 
 - "[Enforcing policies for {% data variables.product.prodname_advanced_security %} in your enterprise account](/admin/policies/enforcing-policies-for-advanced-security-in-your-enterprise)"
 
+{% endif %}
 {% endif %}

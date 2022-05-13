@@ -1,6 +1,6 @@
 ---
 title: 过滤拉取请求中的文件
-intro: 'To help you quickly review changes in a large pull request, you can filter changed files{% if pr-tree-view %} or use the file tree to navigate between files{% endif %}.'
+intro: '为了帮助您快速查看大型拉取请求中的更改，可以筛选更改的文件{% if pr-tree-view %} 或使用文件树在文件之间导航{% endif %}。'
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/reviewing-changes-in-pull-requests/filtering-files-in-a-pull-request
   - /articles/filtering-files-in-a-pull-request-by-file-type
@@ -17,9 +17,9 @@ topics:
 shortTitle: 筛选文件
 ---
 
-You can filter files in a pull request by file extension type, such as `.html` or `.js`, lack of an extension, code ownership, or dotfiles.{% if pr-tree-view %} You can also use the file tree to filter by file path, navigate between files, or see a high level view of the changed files.{% endif %}
+您可以按文件扩展名类型（如 `.html` 或 `.js`）、缺少扩展名、代码所有权或 dotfile）筛选拉取请求中的文件。{% if pr-tree-view %} 您还可以使用文件树按文件路径进行筛选、在文件之间导航或查看已更改文件的高级视图。{% endif %}
 
-## Using the file filter dropdown
+## 使用文件筛选器下拉列表
 
 {% tip %}
 
@@ -34,21 +34,21 @@ You can filter files in a pull request by file extension type, such as `.html` o
 5. （可选）要清除过滤器选择，请在 **Files changed（已更改文件）**选项卡下，单击 **Clear（清除）**。 ![清除文件过滤器选择](/assets/images/help/pull_requests/clear-file-filter.png)
 
 {% if pr-tree-view %}
-## Using the file tree
+## 使用文件树
 
 {% data reusables.repositories.sidebar-pr %}
 1. 在拉取请求列表中，单击要过滤的拉取请求。
 {% data reusables.repositories.changed-files %}
-1. If the file tree is hidden, click **Show file tree** to display the file tree.
+1. 如果文件树处于隐藏状态，请单击 **Show file tree（显示文件树）**以显示文件树。
 
    {% note %}
 
-   **Note**: The file tree will not display if your screen width is too narrow or if the pull request only includes one file.
+   **注意**：如果您的屏幕太窄或拉取请求仅包含一个文件，则不会显示文件树。
 
    {% endnote %}
 
-1. Click on a file in the file tree to view the corresponding file diff. ![Pull request file tree](/assets/images/help/pull_requests/pr-file-tree.png)
-1. To filter by file path, enter part or all of the file path in the **Filter changed files** search box. Alternatively, use the file filter dropdown. For more information, see "[Using the file filter dropdown](#using-the-file-filter-dropdown)."
+1. 单击文件树中的文件可查看相应的文件差异 ![拉取请求文件树](/assets/images/help/pull_requests/pr-file-tree.png)
+1. 要按文件路径进行筛选，请在 **Filter changed files（筛选已更改的文件）**搜索框中输入部分或全部文件路径。 或者，使用文件筛选器下拉列表。 更多信息请参阅“[使用文件筛选器下拉列表](#using-the-file-filter-dropdown)”。
 
 {% endif %}
 

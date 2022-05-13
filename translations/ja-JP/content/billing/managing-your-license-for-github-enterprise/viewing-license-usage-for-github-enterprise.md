@@ -38,9 +38,10 @@ You can view the license usage for your enterprise and download a file with lice
 
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
 {% data reusables.enterprise-accounts.settings-tab %}
-1. 左のサイドバーで、** Enterprise licensing（Enterpriseライセンス）**をクリックしてください。 ![[Enterprise account settings] サイトバーの "Enterprise licensing"](/assets/images/help/enterprises/enterprise-licensing-tab.png)
-1. 現在の {% data variables.product.prodname_enterprise %} ライセンスと、使用済みで利用可能なユーザライセンスを確認します。
-    - If your license includes {% data variables.product.prodname_GH_advanced_security %}, you can review your total seat use. 詳細については、「[{% data variables.product.prodname_GH_advanced_security %} の使用状況を表示する](/billing/managing-billing-for-github-advanced-security/viewing-your-github-advanced-security-usage)」を参照してください。
+1. In the left sidebar, click **Enterprise licensing**.
+  !["Enterprise licensing" tab in the enterprise account settings sidebar](/assets/images/help/enterprises/enterprise-licensing-tab.png)
+1. Review your current {% data variables.product.prodname_enterprise %} license, as well as consumed and available user licenses.
+    - If your license includes {% data variables.product.prodname_GH_advanced_security %}, you can review your total seat use. For more information, see "[Viewing your {% data variables.product.prodname_GH_advanced_security %} usage](/billing/managing-billing-for-github-advanced-security/viewing-your-github-advanced-security-usage)."
 
 {% elsif ghes %}
 

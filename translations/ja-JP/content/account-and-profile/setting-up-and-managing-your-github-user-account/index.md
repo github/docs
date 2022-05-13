@@ -1,7 +1,7 @@
 ---
 title: GitHub ユーザアカウントの設定と管理
-intro: 'You can manage settings in your GitHub user account including email preferences, collaborator access for personal repositories, and organization memberships.'
-shortTitle: ユーザアカウント
+intro: 'You can manage settings in your GitHub personal account including email preferences, collaborator access for personal repositories, and organization memberships.'
+shortTitle: Personal accounts
 redirect_from:
   - /categories/setting-up-and-managing-your-github-user-account
   - /github/setting-up-and-managing-your-github-user-account

@@ -17,9 +17,11 @@ shortTitle: GitHub Advanced Security
 
 ## Acerca de {% data variables.product.prodname_GH_advanced_security %}
 
-{% data variables.product.prodname_dotcom %} tiene muchas características que te ayudan a mejorar y mantener la calidad de tu código. Algunas de estas se incluyen en todos los planes{% ifversion not ghae %}, tales como la gráfica de dependencias y las {% data variables.product.prodname_dependabot_alerts %}{% endif %}. Otras características de seguridad requieren que la {% data variables.product.prodname_GH_advanced_security %}{% ifversion fpt or ghec %} se ejecute en otros repositorios aparte de aquellos públicos de {% data variables.product.prodname_dotcom_the_website %}{% endif %}.
+{% data variables.product.prodname_dotcom %} tiene muchas características que te ayudan a mejorar y mantener la calidad de tu código. Algunas de estas se incluyen en todos los planes{% ifversion not ghae %}, tales como la gráfica de dependencias y las {% data variables.product.prodname_dependabot_alerts %}{% endif %}. Otras características de seguridad requieren una licencia de {% data variables.product.prodname_GH_advanced_security %}{% ifversion fpt or ghec %} para ejecutarse en los repositorios diferentes a aquellos públicos en {% data variables.product.prodname_dotcom_the_website %}{% endif %}.{% ifversion fpt %} Para obtener más información, consulta la [documentación de {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/get-started/learning-about-github/about-github-advanced-security).{% endif %}
 
 {% ifversion ghes or ghec %}Para obtener más información sobre cómo comprar una licencia de {% data variables.product.prodname_GH_advanced_security %}, consulta la sección "[Acerca de la facturación para {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)".{% elsif ghae %}No se cobra por {% data variables.product.prodname_GH_advanced_security %} en {% data variables.product.prodname_ghe_managed %} durante el lanzamiento beta.{% elsif fpt %}Para comprar una licencia de {% data variables.product.prodname_GH_advanced_security %}, debes estar utilizando {% data variables.product.prodname_enterprise %}. Para obtener más información sobre cómo mejorar a {% data variables.product.prodname_enterprise %} con {% data variables.product.prodname_GH_advanced_security %}, consulta las secciones "[Productos de GitHub](/get-started/learning-about-github/githubs-products)" y "[Acerca de la facturación de {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)".{% endif %}
+
+{% ifversion not fpt %}
 
 ## Acerca de las características de {% data variables.product.prodname_advanced_security %}
 
@@ -27,7 +29,7 @@ Una licencia de {% data variables.product.prodname_GH_advanced_security %} propo
 
 - **{% data variables.product.prodname_code_scanning_capc %}** - Busca vulnerabilidades de seguridad potenciales y errores dentro de tu código. Para obtener más información, consulta la sección "[Acerca del {% data variables.product.prodname_code_scanning %}](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)".
 
-- **{% data variables.product.prodname_secret_scanning_caps %}** - Detecta secretos, por ejemplo claves y tokens, que se han dado de alta en el repositorio. Para obtener más información, consulta la sección "[Acerca del {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/about-secret-scanning)".
+- **{% data variables.product.prodname_secret_scanning_caps %}** - Detecta secretos, por ejemplo claves y tokens, que se han verificado en el repositorio.{% if secret-scanning-push-protection %} Si se habilita la protección de subida, también detecta secretos cuando se suben a tu repositorio. Para obtener más información, consulta las secciones "[Acerca del {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/about-secret-scanning)" y "[Proteger las subidas con el {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)".{% else %} Para obtener más información, consulta la sección "[Acerca del {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/about-secret-scanning)".{% endif %}
 
 {% ifversion fpt or ghes > 3.1 or ghec or ghae-issue-4864 %}
 - **Revisión de dependencias** - Muestra todo el impacto de los cambios a las dependencias y vee los detalles de las versiones vulnerables antes de que fusiones una solicitud de cambios. Para obtener más información, consulta la sección "[Acerca de la revisión de dependencias](/code-security/supply-chain-security/about-dependency-review)".
@@ -109,4 +111,5 @@ Para obtener más información sobre los flujos de trabajo iniciales, consulta l
 
 - "[Requerir políticas para la {% data variables.product.prodname_advanced_security %} en tu cuenta empresarial](/admin/policies/enforcing-policies-for-advanced-security-in-your-enterprise)"
 
+{% endif %}
 {% endif %}

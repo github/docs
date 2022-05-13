@@ -28,11 +28,11 @@ O GitHub anunciou os seguintes planos e mudanças de preços:
 
 ## Como posso melhorar meu plano?
 
-Para atualizar o plano da sua conta de usuário, consulte "[Atualizando a assinatura de sua conta pessoal](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription#upgrading-your-personal-accounts-subscription)." Para atualizar o plano da sua organização, consulte "[Atualizando a assinatura da sua organização](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription#upgrading-your-organizations-subscription)."
+Para atualizar o plano da sua pessoal, consulte "[Atualizando a assinatura de sua conta pessoal](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription#upgrading-your-personal-accounts-subscription)." Para atualizar o plano da sua organização, consulte "[Atualizando a assinatura da sua organização](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription#upgrading-your-organizations-subscription)."
 
 ## Como posso rebaixar meu plano?
 
-Para rebaixar o plano da sua conta de usuário, consulte "[Rebaixando a assinatura de sua conta de usuário](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription#downgrading-your-user-accounts-subscription)." Para rebaixar o plano da sua organização, consulte "[Rebaixando a assinatura da sua organização](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription#downgrading-your-organizations-subscription)."
+Para rebaixar o plano da sua pessoal, consulte "[Rebaixando a assinatura da sua conta pessoal](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription#downgrading-your-personal-accounts-subscription)." Para rebaixar o plano da sua organização, consulte "[Rebaixando a assinatura da sua organização](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription#downgrading-your-organizations-subscription)."
 
 ## Se eu rebaixar do GitHub Team ou de um plano antigo para o GitHub Free, quais recursos perderei?
 - Revisores necessários em repositórios privados

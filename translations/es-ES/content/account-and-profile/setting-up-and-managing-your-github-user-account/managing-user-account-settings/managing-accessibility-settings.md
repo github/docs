@@ -15,5 +15,5 @@ Todos los atajos de teclado se habilitan predeterminadamente en {% data variable
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.accessibility_settings %}
-1. Select or deselect the **Enable character key shortcuts** checkbox. ![Captura de pantalla de la casilla de verificación de 'Habilitar los atajos de tecla de carácter'](/assets/images/help/settings/disable-character-key-shortcuts.png)
+1. Selecciona o deselecciona la casilla de verificación **Habilitar las teclas de atajo**. ![Captura de pantalla de la casilla de verificación de 'Habilitar los atajos de tecla de carácter'](/assets/images/help/settings/disable-character-key-shortcuts.png)
 2. Haz clic en **Save ** (guardar).

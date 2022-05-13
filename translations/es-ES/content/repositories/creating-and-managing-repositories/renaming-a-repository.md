@@ -39,7 +39,7 @@ Si planeas renombrar un repositorio que tenga un sitio {% data variables.product
 
 {% note %}
 
-**Note:** {% data variables.product.prodname_dotcom %} will not redirect calls to an action hosted by a renamed repository. Any workflow that uses that action will fail with the error `repository not found`. Instead, create a new repository and action with the new name and archive the old repository. Para obtener más información, consulta la sección "[Archivar los repositorios](/repositories/archiving-a-github-repository/archiving-repositories)".
+**Nota:** {% data variables.product.prodname_dotcom %} no redireccionará las llamadas a una acción hospedada en un repositorio renombrado. Cualquier flujo de trabajo que utilice esa acción fallará con el error `repository not found`. En vez de esto, crea un repositorio y acción nuevos con el nombre nuevo y archiva el repositorio antiguo. Para obtener más información, consulta la sección "[Archivar los repositorios](/repositories/archiving-a-github-repository/archiving-repositories)".
 
 {% endnote %}
 

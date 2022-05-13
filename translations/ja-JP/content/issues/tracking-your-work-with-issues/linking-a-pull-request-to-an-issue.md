@@ -35,7 +35,7 @@ Pull Requestが対処するIssueにそのPull Requestをリンクすると、コ
 
 ## キーワードを使用してPull RequestをIssueにリンクする
 
-Pull Requestの説明またはコミットメッセージで、サポートされているキーワードを使用すれば、Pull RequestをIssueにリンクできます (Pull Requestはデフォルトブランチになければなりません)。
+You can link a pull request to an issue by using a supported keyword in the pull request's description or in a commit message. The pull request **must be** on the default branch.
 
 * close
 * closes
@@ -47,7 +47,7 @@ Pull Requestの説明またはコミットメッセージで、サポートさ�
 * resolves
 * resolved
 
-他のPull RequestでPull Requestのコメントを参照するためにキーワードを使用すると、Pull Requestはリンクされます。 参照元のPull Requestをマージすると、参照先のPull Requestもクローズされます。
+他のPull RequestでPull Requestのコメントを参照するためにキーワードを使用すると、Pull Requestはリンクされます。 Merging the referencing pull request also closes the referenced pull request.
 
 クローズするキーワードの構文は、IssueがPull Requestと同じリポジトリにあるかどうかによって異なります。
 
@@ -60,7 +60,6 @@ Pull Requestの説明またはコミットメッセージで、サポートさ�
 {% ifversion fpt or ghes or ghae or ghec %}手動でリンクを解除できるのは、手動でリンクされたPull Requestだけです。 キーワードを使用してリンクしたIssueのリンクを解除するには、Pull Requestの説明を編集してそのキーワードを削除する必要があります。{% endif %}
 
 クローズするキーワードは、コミットメッセージでも使用できます。 デフォルトブランチにコミットをマージするとIssueはクローズされますが、そのコミットを含むPull Requestは、リンクされたPull Requestとしてリストされません。
-
 
 {% ifversion fpt or ghes or ghae or ghec %}
 ## 手動でPull RequestをIssueにリンクする

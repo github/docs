@@ -61,10 +61,10 @@ shortTitle: Gerenciamento de projetos com Jira
 
 5. No modal **Add New Account** (Adicionar nova conta), defina as configurações do {% data variables.product.prodname_enterprise %}:
     - No menu suspenso **Host**, selecione **{% data variables.product.prodname_enterprise %}**.
-    - No campo **Team or User Account** (Conta de equipe ou usuário), digite o nome da sua organização ou conta pessoal do {% data variables.product.prodname_enterprise %}.
+    - No campo **Conta de equipe ou usuário**, digite o nome da sua organização ou conta de usuário do {% data variables.product.prodname_enterprise %}.
     - No campo **OAuth Key** (Chave OAuth), informe o Client ID (ID do cliente) do seu aplicativo de desenvolvedor do {% data variables.product.prodname_enterprise %}.
     - No campo **OAuth Secret** (Segredo OAuth), informe o Client Secret (Segredo do cliente) do seu aplicativo de desenvolvedor do {% data variables.product.prodname_enterprise %}.
-    - Se você não desejar vincular novos repositórios que pertencem à sua organização de {% data variables.product.prodname_enterprise %} ou conta pessoal, desmarque a opção **Vincular novos repositórios automaticamente**.
+    - Se você não desejar vincular novos repositórios que pertencem à sua organização de {% data variables.product.prodname_enterprise %} ou conta de usuário, desmarque a opção **Vincular novos repositórios automaticamente**.
     - Se você não quiser ativar commits inteligentes, desmarque **Habilitar commits inteligentes**.
     - Clique em **Salvar**.
 6. Revise as permissões que você vai conceder à sua conta do {% data variables.product.prodname_enterprise %} e clique em **Authorize application** (Autorizar aplicativo).

@@ -59,9 +59,9 @@ Travis CI 可以使用 `stages` 并行运行作业。 同样，{% data variables
 
 Travis CI 和 {% data variables.product.prodname_actions %} 都支持状态徽章，用于表示构建是通过还是失败。 更多信息请参阅“[将工作流程状态徽章添加到仓库](/actions/managing-workflow-runs/adding-a-workflow-status-badge)”。
 
-### 使用构建矩阵
+### 使用矩阵
 
-Travis CI和 {% data variables.product.prodname_actions %} 都支持构建矩阵，允许您使用操作系统和软件包的组合进行测试。 更多信息请参阅“[使用构建矩阵](/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix)”。
+Travis CI和 {% data variables.product.prodname_actions %} 都支持矩阵，允许您使用操作系统和软件包的组合进行测试。 更多信息请参阅“[对作业使用矩阵](/actions/using-jobs/using-a-matrix-for-your-jobs)”。
 
 下面是比较每个系统的语法示例：
 
@@ -164,13 +164,13 @@ git:
 {% endraw %}
 </td>
 <td class="d-table-cell v-align-top">
-{% raw %}
+
 ```yaml
-- uses: actions/checkout@v2
+- uses: {% data reusables.actions.action-checkout %}
   with:
     submodules: false
 ```
-{% endraw %}
+
 </td>
 </tr>
 </table>
@@ -283,26 +283,30 @@ script:
 {% endraw %}
 </td>
 <td class="d-table-cell v-align-top">
-{% raw %}
+
 ```yaml
 jobs:
   run_python:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/setup-python@v2
+      - uses: {% data reusables.actions.action-setup-python %}
         with:
           python-version: '3.7'
           architecture: 'x64'
       - run: python script.py
 ```
-{% endraw %}
+
 </td>
 </tr>
 </table>
 
 ## 缓存依赖项
 
-Travis CI 和 {% data variables.product.prodname_actions %} 可让您手动缓存依赖供以后使用。 此示例说明每个系统的缓存语法。
+Travis CI 和 {% data variables.product.prodname_actions %} 可让您手动缓存依赖供以后使用。
+
+{% if actions-caching %}
+
+此示例说明每个系统的缓存语法。
 
 <table>
 <tr>
@@ -323,21 +327,25 @@ cache: npm
 {% endraw %}
 </td>
 <td class="d-table-cell v-align-top">
-{% raw %}
+
 ```yaml
 - name: Cache node modules
-  uses: actions/cache@v2
+  uses: {% data reusables.actions.action-cache %}
   with:
     path: ~/.npm
-    key: v1-npm-deps-${{ hashFiles('**/package-lock.json') }}
+    key: {% raw %}v1-npm-deps-${{ hashFiles('**/package-lock.json') }}{% endraw %}
     restore-keys: v1-npm-deps-
 ```
-{% endraw %}
+
 </td>
 </tr>
 </table>
 
-{% data variables.product.prodname_actions %} 缓存仅适用于 {% data variables.product.prodname_dotcom_the_website %} 托管的仓库。 更多信息请参阅“<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">缓存依赖项以加快工作流程</a>”。
+{% else %}
+
+{% data reusables.actions.caching-availability %}
+
+{% endif %}
 
 ## 常见任务示例
 
@@ -402,7 +410,7 @@ script:
 {% endraw %}
 </td>
 <td>
-{% raw %}
+
 ```yaml
 name: Node.js CI
 on: [push]
@@ -410,16 +418,16 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Use Node.js
-        uses: actions/setup-node@v2
+        uses: {% data reusables.actions.action-setup-node %}
         with:
           node-version: '12.x'
       - run: npm install
       - run: npm run build
       - run: npm test
 ```
-{% endraw %}
+
 </td>
 </tr>
 </table>

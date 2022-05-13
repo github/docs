@@ -1,6 +1,6 @@
 ---
 title: 将 Jira 与个人项目集成
-intro: 您可以将 Jira Cloud 与您的用户帐户集成，以扫描提交和拉取请求，在任何提及的 Jira 议题中创建相关的元数据和超链接。
+intro: 您可以将 Jira Cloud 与您的个人帐户集成，以扫描提交和拉取请求，在任何提及的 Jira 议题中创建相关的元数据和超链接。
 redirect_from:
   - /articles/integrating-jira-with-your-personal-projects
   - /github/setting-up-and-managing-your-github-user-account/integrating-jira-with-your-personal-projects

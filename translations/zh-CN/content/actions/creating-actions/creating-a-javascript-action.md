@@ -238,7 +238,6 @@ jobs:
 
 将工作流程代码复制到操作仓库中的 `.github/workflows/main.yml` 文件。 您还可以将 `who-to-greet` 输入替换为您的名称。
 
-{% raw %}
 **.github/workflows/main.yml**
 ```yaml{:copy}
 on: [push]
@@ -251,7 +250,7 @@ jobs:
       # To use this repository's private action,
       # you must check out the repository
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: {% data reusables.actions.action-checkout %}
       - name: Hello world action step
         uses: ./ # Uses an action in the root directory
         id: hello
@@ -259,9 +258,8 @@ jobs:
           who-to-greet: 'Mona the Octocat'
       # Use the output from the `hello` step
       - name: Get the output time
-        run: echo "The time was ${{ steps.hello.outputs.time }}"
+        run: echo "The time was {% raw %}${{ steps.hello.outputs.time }}{% endraw %}"
 ```
-{% endraw %}
 
 从您的仓库中，单击 **Actions（操作）**选项卡，然后选择最新的工作流程来运行。 在 **Jobs（作业）**下或可视化图形中，单击 **A job to say hello（打招呼的作业）**。 您应看到 "Hello Mona the Octocat" 或您用于 `who-to-greet` 输入的姓名和时间戳在日志中打印。
 

@@ -26,7 +26,7 @@ shortTitle: 部署到 Google Kubernetes Engine
 
 GKE 是 Google Cloud 的托管 Kubernetes 群集服务，可以在云中或您自己的数据中心中托管您的容器化工作负载。 更多信息请参阅 [Google Kubernetes Engine](https://cloud.google.com/kubernetes-engine)。
 
-{% ifversion fpt or ghec or ghae-issue-4856 %}
+{% ifversion fpt or ghec or ghae-issue-4856 or ghes > 3.4 %}
 
 {% note %}
 
@@ -159,7 +159,7 @@ jobs:
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: {% data reusables.actions.action-checkout %}
 
     # Setup gcloud CLI
     - uses: google-github-actions/setup-gcloud@94337306dda8180d967a56932ceb4ddcf01edae7

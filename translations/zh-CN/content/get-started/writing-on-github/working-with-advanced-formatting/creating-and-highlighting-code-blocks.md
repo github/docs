@@ -50,7 +50,7 @@ Look! You can see my backticks.
 
 ## 语法突显
 
-<!-- If you make changes to this feature, update /getting-started-with-github/github-language-support to reflect any changes to supported languages. -->
+<!-- If you make changes to this feature, check whether any of the changes affect languages listed in /get-started/learning-about-github/github-language-support. If so, please update the language support article accordingly. -->
 
 您可以添加可选的语言标识符，以在围栏代码块中启用语法突显。
 
@@ -68,9 +68,9 @@ Look! You can see my backticks.
 我们使用 [Linguist](https://github.com/github/linguist) 来执行语言检测并选择[第三方语法](https://github.com/github/linguist/blob/master/vendor/README.md)进行语法突显。 您可以在[语言 YAML 文件](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml)中找出哪些关键词有效。
 
 {% if mermaid %}
-## Creating diagrams
+## 创建图表
 
-You can also use code blocks to create diagrams in Markdown. GitHub supports Mermaid, geoJSON, topoJSON, and ASCII STL syntax. For more information, see "[Creating diagrams](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams)."
+您还可以使用代码块在 Markdown 中创建关系图。 GitHub 支持 Mermaid、geoJSON、topoJSON 和 ASCII STL 语法。 更多信息请参阅“[创建示意图](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams)”。
 
 {% endif %}
 ## 延伸阅读

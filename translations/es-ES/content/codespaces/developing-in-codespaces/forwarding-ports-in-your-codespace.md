@@ -25,6 +25,12 @@ When an application running inside a codespace prints output to the terminal tha
 
 You can also forward a port manually, label forwarded ports, share forwarded ports with members of your organization, share forwarded ports publicly, and add forwarded ports to the codespace configuration.
 
+{% note %}
+
+**Note**: {% data reusables.codespaces.restrict-port-visibility %}
+
+{% endnote %}
+
 ## Forwarding a port
 
 You can manually forward a port that wasn't forwarded automatically.
@@ -85,11 +91,17 @@ To see details of forwarded ports enter `gh codespace ports` and then choose a c
 
 {% note %}
 
-**Note:** You can only make a port private to an organization if your organization uses {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %}. This feature is not currently available in the beta version of {% data variables.product.prodname_codespaces %}.
+**Note:** You can only make a port private to an organization if your organization uses {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %}.
 
 {% endnote %}
 
 If you want to share a forwarded port with others, you can either make the port private to your organization or make the port public. After you make a port private to your organization, anyone in the organization with the port's URL can view the running application. After you make a port public, anyone who knows the URL and port number can view the running application without needing to authenticate.
+
+{% note %}
+
+**Note:** Your choice of port visibility options may be limited by a policy configured for your organization. For more information, see "[Restricting the visibility of forwarded ports](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)."
+
+{% endnote %}
 
 {% webui %}
 
@@ -105,7 +117,7 @@ If you want to share a forwarded port with others, you can either make the port 
 {% vscode %}
 
 {% data reusables.codespaces.navigate-to-ports-tab %}
-1. Right click the port you want to share, then click **Make Public**.
+1. Right click the port that you want to share, select the "Port Visibility" menu, then click **Private to Organization** or **Public**.
   ![Option to make port public in right-click menu](/assets/images/help/codespaces/make-public-option.png)
 1. To the right of the local address for the port, click the copy icon.
   ![Copy icon for port URL](/assets/images/help/codespaces/copy-icon-port-url.png)
@@ -144,7 +156,7 @@ You can label a port to make the port more easily identifiable in a list.
 
 ## Adding a port to the codespace configuration
 
-You can add a forwarded port to the {% data variables.product.prodname_codespaces %} configuration for the repository, so the port will automatically be forwarded for all codespaces created from the repository. After you update the configuration, any previously created codespaces must be rebuilt for the change to apply. For more information, see "[Configuring {% data variables.product.prodname_codespaces %} for your project](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project#applying-changes-to-your-configuration)."
+You can add a forwarded port to the {% data variables.product.prodname_codespaces %} configuration for the repository, so the port will automatically be forwarded for all codespaces created from the repository. After you update the configuration, any previously created codespaces must be rebuilt for the change to apply. For more information, see "[Configuring {% data variables.product.prodname_codespaces %} for your project](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project#applying-configuration-changes-to-a-codespace)."
 
 You can manually configure forwarded ports in a `.devcontainer.json` file using the `forwardPorts` property, or you can use the "Ports" panel in your codespace.
 

@@ -22,10 +22,10 @@ Depois de {% data variables.product.company_short %} criar a conta do proprietá
 É possível configurar uma lista de permissões para endereços IP específicos para restringir o acesso a ativos pertencentes a organizações na sua conta corporativa. Para obter mais informações, consulte "[Restringir tráfego de rede para a sua empresa](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise)".
 
 ### 4. Gerenciando a identidade e o acesso para {% data variables.product.product_location %}
-Você pode gerenciar centralmente o acesso a {% data variables.product.product_location %} em {% data variables.product.product_name %} a partir de um provedor de identidade (IdP) usando o logon único SAML (SSO) para autenticação de usuário e o sistema para gerenciamento de identidade de domínio cruzado (SCIM) para provisionamento de usuários. Depois de configurar o provisionamento, você poderá atribuir ou remover usuários para o aplicativo a partir do IdP, criando ou desabilitando as contas de usuários na empresa. Para obter mais informações, consulte "[Sobre identidade e gerenciamento de acesso para sua empresa](/admin/authentication/managing-identity-and-access-for-your-enterprise/about-identity-and-access-management-for-your-enterprise)".
+Você pode gerenciar centralmente o acesso a {% data variables.product.product_location %} em {% data variables.product.product_name %} a partir de um provedor de identidade (IdP) usando o logon único SAML (SSO) para autenticação de usuário e o sistema para gerenciamento de identidade de domínio cruzado (SCIM) para provisionamento de usuários. Depois de configurar o provisionamento, você poderá atribuir ou remover usuários para o aplicativo a partir do IdP, criando ou desabilitando as contas de usuários na empresa. Para obter mais informações, consulte "[Sobre identidade e gerenciamento de acesso para sua empresa](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-identity-and-access-management-for-your-enterprise)".
 
 ### 5. Gerenciando cobrança para {% data variables.product.product_location %}
-Os proprietários da assinatura de {% data variables.product.product_location %} em {% data variables.product.product_name %} podem ver informações de cobrança para {% data variables.product.product_name %} no portal do Azure. Para obter mais informações, consulte "[Gerenciando a cobrança da sua empresa](/admin/overview/managing-billing-for-your-enterprise)".
+Os proprietários da assinatura de {% data variables.product.product_location %} em {% data variables.product.product_name %} podem ver informações de cobrança para {% data variables.product.product_name %} no portal do Azure. Para obter mais informações, consulte "[Gerenciando a cobrança da sua empresa](/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise)".
 
 ## Parte 2: Organização e gestão dos integrantes da empresa
 Como proprietário corporativo de {% data variables.product.product_name %}, você pode gerenciar as configurações nos níveis do usuário, repositório, equipe e organização. Você pode gerenciar os integrantes de {% data variables.product.product_location %}, criar e gerenciar organizações, definir políticas para o gerenciamento do repositório e criar e gerenciar equipes.
@@ -52,7 +52,7 @@ Como proprietário corporativo de {% data variables.product.product_name %}, voc
 Para aumentar a segurança de {% data variables.product.product_location %}, você pode monitorar {% data variables.product.product_location %} e configurar as funcionalidades de segurança e análise das suas organizações.
 
 ### 1. Monitorando {% data variables.product.product_location %}
-Você pode monitorar {% data variables.product.product_location %} com o seu painel de atividade e log de auditoria. Para obter mais informações, consulte "[Atividade de monitoramento na sua empresa](/admin/user-management/monitoring-activity-in-your-enterprise)".
+Você pode monitorar {% data variables.product.product_location %} com o seu painel de atividade e log de auditoria. Para obter mais informações, consulte "[Atividade de monitoramento na sua empresa](/admin/monitoring-activity-in-your-enterprise)".
 
 ### 2. Configurar as funcionalidades de segurança para as suas organizações
 {% data reusables.getting-started.configuring-security-features %}
@@ -66,7 +66,7 @@ Você pode personalizar e automatizar o trabalho em organizações em {% data va
 ### 2. Criando {% data variables.product.prodname_actions %}
 {% data reusables.getting-started.actions %}
 
-Para obter mais informações sobre como habilitar e configurar {% data variables.product.prodname_actions %} para {% data variables.product.product_name %}, consulte "[Primeiros passos com {% data variables.product.prodname_actions %} para {% data variables.product.prodname_ghe_managed %}](/admin/github-actions/using-github-actions-in-github-ae/getting-started-with-github-actions-for-github-ae)".
+Para obter mais informações sobre como habilitar e configurar {% data variables.product.prodname_actions %} para {% data variables.product.product_name %}, consulte "[Primeiros passos com {% data variables.product.prodname_actions %} para {% data variables.product.prodname_ghe_managed %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-ae)".
 
 ### 3. Usar {% data variables.product.prodname_pages %}
 {% data reusables.getting-started.github-pages-enterprise %}

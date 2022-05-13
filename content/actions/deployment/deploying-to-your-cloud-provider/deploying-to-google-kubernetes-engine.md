@@ -26,7 +26,7 @@ This guide explains how to use {% data variables.product.prodname_actions %} to 
 
 GKE is a managed Kubernetes cluster service from Google Cloud that can host your containerized workloads in the cloud or in your own datacenter. For more information, see [Google Kubernetes Engine](https://cloud.google.com/kubernetes-engine).
 
-{% ifversion fpt or ghec or ghae-issue-4856 %}
+{% ifversion fpt or ghec or ghae-issue-4856 or ghes > 3.4 %}
 
 {% note %}
 
@@ -159,7 +159,7 @@ jobs:
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: {% data reusables.actions.action-checkout %}
 
     # Setup gcloud CLI
     - uses: google-github-actions/setup-gcloud@94337306dda8180d967a56932ceb4ddcf01edae7

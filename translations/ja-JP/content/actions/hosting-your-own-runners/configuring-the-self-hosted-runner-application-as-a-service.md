@@ -81,7 +81,7 @@ Windowsでは、ランナーサービスは**サービス**アプリケーショ
 The command takes an optional `user` argument to install the service as a different user.
 
 ```shell
-./svc.sh install --user <em>USERNAME</em>
+./svc.sh install <em>USERNAME</em>
 ```
 
 ## サービスの起動

@@ -22,12 +22,15 @@ topics:
 shortTitle: Acerca del resumen de seguridad
 ---
 
+{% ifversion ghes < 3.5 or ghae-issue-4554 %}
 {% data reusables.security-center.beta %}
+{% endif %}
 
 ## Acerca del resumen de seguridad
 
-Puedes utilizar el resumen de seguirdad para tener una vista de nivel alto del estado de seguridad de tu organización o para identificar repositorios problemáticos que requieren intervención. Puedes ver la información de seguridad agregada o específica del repositorio en el resumen de seguridad. También puedes utilizar el resumen de seguridad para ver qué características de seguridad se habilitaron para tus repositorios y configurar cualquier característica de seguridad disponible que no se encuentre en uso actualmente.
+{% ifversion ghes or ghec or ghae %}Puedes{% elsif fpt %}Las organizaciones que utilizan {% data variables.product.prodname_ghe_cloud %} pueden{% endif %} utilizar el resumen de seguridad para una vista de alto nivel del estado de seguridad de {% ifversion ghes or ghec or ghae %}tu {% elsif fpt %}su{% endif %} organización o para identificar los repositorios problemáticos que requieren intervención. {% ifversion ghes or ghec or ghae %}Puedes {% elsif fpt %}Estas organizaciones pueden{% endif %} ver la información de seguridad agregada o específica de los repositorios en el resumen de seguridad. {% ifversion ghes or ghec or ghae %}También puedes {% elsif fpt %} Las organizaciones que utilizan {% data variables.product.prodname_ghe_cloud %} también pueden{% endif %} utilizar el resumen de seguridad para ver qué características de seguridad se habilitaron para {% ifversion ghes or ghec or ghae %}tus {% elsif fpt %}sus {% endif %} repositorios y para configurar cualquier característica de seguridad disponible que no se esté utilizando actualmente. {% ifversion fpt %}Para obtener más información, consulta la [documentación de {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/code-security/security-overview/about-the-security-overview).{% endif %}
 
+{% ifversion ghec or ghes or ghae %}
 El resumen de seguridad indica si están habilitadas las características de {% ifversion fpt or ghes > 3.1 or ghec %}seguridad{% endif %}{% ifversion ghae %}{% data variables.product.prodname_GH_advanced_security %}{% endif %} para los repositorios que pertenecen a tu organización y consolida las alertas para cada característica.{% ifversion fpt or ghes > 3.1 or ghec %} Las características de seguridad incluyen características de la {% data variables.product.prodname_GH_advanced_security %}, tales como el {% data variables.product.prodname_code_scanning %} y el {% data variables.product.prodname_secret_scanning %}, tanto como las {% data variables.product.prodname_dependabot_alerts %}.{% endif %} Para obtener más información sobre las características de la {% data variables.product.prodname_GH_advanced_security %}, consulta la sección "[Acerca de la {% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security)".{% ifversion fpt or ghes > 3.1 or ghec %} Para obtener más información sobre las {% data variables.product.prodname_dependabot_alerts %}, consulta la sección "[Acerca de las {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies#dependabot-alerts-for-vulnerable-dependencies)".{% endif %}
 
 Para obtener más información sobre cómo proteger tu código a nivel de repositorio u organización, consulta las secciones "[Proteger tu repositorio](/code-security/getting-started/securing-your-repository)" y "[Proteger tu organización](/code-security/getting-started/securing-your-organization)".
@@ -77,6 +80,4 @@ A nivel empresarial, el resumen de seguridad muestra información agregada y esp
 
 ### Acerca del resumen de seguridad a nivel de equipo
 A nivel de equipo, el resumen de seguridad muestra la información de seguridad específica del repositorio para aquellos en los que el equipo tenga privilegios de administración. Para obtener más información, consulta la sección "[Administrar el acceso de un equipo a un repositorio organizacional](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)".
-
-### Acerca del resumen de seguridad a nivel de repositorio
-A nivel de repositorio, el resumen de seguridad muestra qué características de seguridad se habilitan para el repositorio y ofrece la opción de configurar cualquier característica de seguridad que no se encuentre habilitada actualmente.
+{% endif %}

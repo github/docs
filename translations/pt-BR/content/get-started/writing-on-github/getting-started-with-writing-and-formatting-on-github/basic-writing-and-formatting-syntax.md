@@ -190,6 +190,12 @@ Para criar uma lista aninhada usando o editor web do {% data variables.product.p
      - Segundo item de lista aninhada
 ```
 
+{% tip %}
+
+**Note**: In the web-based editor, you can indent or dedent one or more lines of text by first highlighting the desired lines and then using <kbd>Tab</kbd> or <kbd>Shift</kbd>+<kbd>Tab</kbd> respectively.
+
+{% endtip %}
+
 ![Lista aninhada com alinhamento destacado](/assets/images/help/writing/nested-list-alignment.png)
 
 ![Lista com dois níveis de itens aninhados](/assets/images/help/writing/nested-list-example-1.png)
@@ -230,6 +236,12 @@ Para obter mais informações, consulte "[Sobre listas de tarefas](/articles/abo
 ## Mencionar pessoas e equipes
 
 Você pode mencionar uma pessoa ou [equipe](/articles/setting-up-teams/) no {% data variables.product.product_name %} digitando <kbd>@</kbd> mais o nome de usuário ou nome da equipe. Isto desencadeará uma notificação e chamará a sua atenção para a conversa. As pessoas também receberão uma notificação se você editar um comentário para mencionar o respectivo nome de usuário ou da equipe. Para obter mais informações, sobre notificações, consulte {% ifversion fpt or ghes or ghae or ghec %}"[Sobre notificações](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[Sobre notificações](/github/receiving-notifications-about-activity-on-github/about-notifications)"{% endif %}."
+
+{% note %}
+
+**Note:** A person will only be notified about a mention if the person has read access to the repository and, if the repository is owned by an organization, the person is a member of the organization.
+
+{% endnote %}
 
 `@github/suporte O que você acha dessas atualizações?`
 
@@ -311,6 +323,8 @@ A nota de rodapé será interpretada da seguinte forma:
 {% tip %}
 
 **Observação**: A posição de uma nota de rodapé no seu Markdown não influencia o lugar onde a nota de rodapé será interpretada. Você pode escrever uma nota de rodapé logo após sua referência à nota de rodapé, e ela continuará sendo interpretada na parte inferior do Markdown.
+
+Notas de rodapé não são compatíveis nos wikis.
 
 {% endtip %}
 {% endif %}

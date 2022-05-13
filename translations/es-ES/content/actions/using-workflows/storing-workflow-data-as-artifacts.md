@@ -56,13 +56,21 @@ Para compartir datos entre puestos:
 
 Los pasos de un job comparten el mismo ambiente en la máquina ejecutora, pero se ejecutan en su propio proceso individual. Para pasar datos entre pasos en un trabajo, puedes usar entradas y salidas. Para obtener más información sobre entradas y salidas, consulta "[Sintaxis de metadatos para {% data variables.product.prodname_actions %}](/articles/metadata-syntax-for-github-actions)".
 
+{% if actions-caching %}
+
+{% data reusables.actions.comparing-artifacts-caching %}
+
+For more information on dependency caching, see "[Caching dependencies to speed up workflows](/actions/using-workflows/caching-dependencies-to-speed-up-workflows#comparing-artifacts-and-dependency-caching)."
+
+{% endif %}
+
 ## Cargar artefactos de construcción y prueba
 
 Puedes crear un flujo de trabajo de integración continua (CI) para construir y probar tu código. Para obtener más información acerca de cómo utilizar {% data variables.product.prodname_actions %} para realizar la IC, consulta la sección "[Acerca de la integración contínua](/articles/about-continuous-integration)".
 
 El resultado de la construcción y la prueba de tu código frecuentemente produce archivos que puedes usar para depurar fallas de prueba y códigos de producción que puedes implementar. Puedes configurar un flujo de trabajo para construir y probar el código subido a tu repositorio e informar un estado satisfactorio o de falla. Puedes cargar los resultados de construcción y prueba para usar en implementaciones, pruebas de depuración fallidas o fallos, y para visualizar la cobertura del conjunto de prueba.
 
-Puedes usar la acción `upload-Artifact` para cargar artefactos. Cuando cargues un artefacto, puedes especificar un archivo sencillo o un directorio, o varios archivos o directorios. También puedes excluir ciertos archivos o directorios y utilizar patrones de comodín. Te recomendamos que proporciones un nombre para cada artefacto pero, si no se lo das, entonces el nombre predeterminado que se utilizará será `artifact`. Para obtener más información sobre la sintaxis, consulta la acción {% ifversion fpt or ghec %}[actions/upload-artifact](https://github.com/actions/upload-artifact){% else %} `actions/upload-artifact` en {% data variables.product.product_location %}{% endif %}.
+Puedes usar la acción `upload-Artifact` para cargar artefactos. Cuando cargues un artefacto, puedes especificar un archivo sencillo o un directorio, o varios archivos o directorios. También puedes excluir ciertos archivos o directorios y utilizar patrones de comodín. Te recomendamos que proporciones un nombre para cada artefacto pero, si no se lo das, entonces el nombre predeterminado que se utilizará será `artifact`. For more information on syntax, see the {% ifversion fpt or ghec %}[actions/upload-artifact](https://github.com/actions/upload-artifact) action{% else %} `actions/upload-artifact` action on {% data variables.product.product_location %}{% endif %}.
 
 ### Ejemplo
 
@@ -80,7 +88,7 @@ Por ejemplo, tu repositorio o una aplicación web podrían contener archivos de 
 |   
 ```
 
-En este ejemplo se muestra cómo crear un flujo de trabajo para un proyecto Node.js que construye el código en el directorio `src` y ejecuta las pruebas en el directorio `tests`. Puedes suponer que la ejecución `npm test` produce un informe de cobertura de código denominado `code-coverage.html` almacenada en el directorio `output/test/`.
+This example shows you how to create a workflow for a Node.js project that builds the code in the `src` directory and runs the tests in the `tests` directory. Puedes suponer que la ejecución `npm test` produce un informe de cobertura de código denominado `code-coverage.html` almacenada en el directorio `output/test/`.
 
 El flujo de trabajo carga los artefactos de producción en el directorio `dist`, pero excluye cualquier archivo de markdown. También carga el reporte de `code-coverage.html` como otro artefacto.
 
@@ -94,21 +102,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: {% data reusables.actions.action-checkout %}
       - name: npm install, build, and test
         run: |
           npm install
           npm run build --if-present
           npm test
       - name: Archive production artifacts
-        uses: actions/upload-artifact@v3
+        uses: {% data reusables.actions.action-upload-artifact %}
         with:
           name: dist-without-markdown
           path: |
             dist
             !dist/**/*.md
       - name: Archive code coverage results
-        uses: actions/upload-artifact@v3
+        uses: {% data reusables.actions.action-upload-artifact %}
         with:
           name: code-coverage-report
           path: output/test/code-coverage.html
@@ -120,7 +128,7 @@ Puedes definir un periodo de retención personalizado para los artefactos indivu
 
 ```yaml{:copy}
   - name: 'Upload Artifact'
-    uses: actions/upload-artifact@v3
+    uses: {% data reusables.actions.action-upload-artifact %}
     with:
       name: my-artifact
       path: my_file.txt
@@ -133,7 +141,7 @@ El valor `retention-days` no puede exceder el límite de retención que configur
 
 Durante una ejecución de flujo de trabajo, puedes utilizar la acción [`download-artifact`](https://github.com/actions/download-artifact) para descargar artefactos que se hayan cargado previamente en la misma ejecución de flujo de trabajo.
 
-Después de que se haya completado una ejecución de flujo de trabajo, puedes descargar o borrar los artefactos en {% data variables.product.prodname_dotcom %} o utilizando la API de REST. Para obtener más información, consulta las secciones "[Descargar los artefactos de un flujo de trabajo](/actions/managing-workflow-runs/downloading-workflow-artifacts)", "[eliminar los artefactos de un flujo de trabajo](/actions/managing-workflow-runs/removing-workflow-artifacts)", y la "[API de REST de Artefactos](/rest/reference/actions#artifacts)".
+Después de que se haya completado una ejecución de flujo de trabajo, puedes descargar o borrar los artefactos en {% data variables.product.prodname_dotcom %} o utilizando la API de REST. For more information, see "[Downloading workflow artifacts](/actions/managing-workflow-runs/downloading-workflow-artifacts)," "[Removing workflow artifacts](/actions/managing-workflow-runs/removing-workflow-artifacts)," and the "[Artifacts REST API](/rest/reference/actions#artifacts)."
 
 ### Descargar artefactos durante una ejecución de flujo de trabajo
 
@@ -149,7 +157,7 @@ Especificar el nombre de un artefacto para descargar un artefacto individual. Si
 
 ```yaml
 - name: Download a single artifact
-  uses: actions/download-artifact@v3
+  uses: {% data reusables.actions.action-download-artifact %}
   with:
     name: my-artifact
 ```
@@ -158,12 +166,12 @@ También puedes descargar todos los artefactos en una ejecución de flujo de tra
 
 ```yaml
 - name: Download all workflow run artifacts
-  uses: actions/download-artifact@v3
+  uses: {% data reusables.actions.action-download-artifact %}
 ```
 
 Si descargas todos los artefactos de una ejecución de flujo de trabajo, se creará un directorio para cada uno de ellos utilizando su nombre.
 
-Para obtener más información sobre la sintaxis, consulta la acción {% ifversion fpt or ghec %}[actions/download-artifact](https://github.com/actions/download-artifact){% else %} `actions/download-artifact` en {% data variables.product.product_location %}{% endif %}.
+For more information on syntax, see the {% ifversion fpt or ghec %}[actions/download-artifact](https://github.com/actions/download-artifact) action{% else %} `actions/download-artifact` action on {% data variables.product.product_location %}{% endif %}.
 
 ## Pasar datos entre puestos en un flujo de trabajo
 
@@ -200,7 +208,7 @@ jobs:
         run: |
           expr 3 + 7 > math-homework.txt
       - name: Upload math result for job 1
-        uses: actions/upload-artifact@v3
+        uses: {% data reusables.actions.action-upload-artifact %}
         with:
           name: homework
           path: math-homework.txt
@@ -211,7 +219,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Download math result for job 1
-        uses: actions/download-artifact@v3
+        uses: {% data reusables.actions.action-download-artifact %}
         with:
           name: homework
       - shell: bash
@@ -219,7 +227,7 @@ jobs:
           value=`cat math-homework.txt`
           expr $value \* 9 > math-homework.txt
       - name: Upload math result for job 2
-        uses: actions/upload-artifact@v3
+        uses: {% data reusables.actions.action-upload-artifact %}
         with:
           name: homework
           path: math-homework.txt
@@ -230,7 +238,7 @@ jobs:
     runs-on: macOS-latest
     steps:
       - name: Download math result for job 2
-        uses: actions/download-artifact@v3
+        uses: {% data reusables.actions.action-download-artifact %}
         with:
           name: homework
       - name: Print the final result

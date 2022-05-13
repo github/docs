@@ -1,7 +1,7 @@
 ---
-title: Choosing the runner for a job
-shortTitle: Choosing the runner for a job
-intro: Define the type of machine that will process a job in your workflow.
+title: 选择作业的运行器
+shortTitle: 选择作业的运行器
+intro: 定义将在工作流程中处理作业的计算机类型。
 versions:
   fpt: '*'
   ghes: '*'

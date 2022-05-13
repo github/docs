@@ -365,7 +365,7 @@ Additionally, the Search API has dedicated limits. For more information, see "[S
 
 {% data reusables.rest-api.always-check-your-limit %}
 
-### Requests from user accounts
+### Requests from personal accounts
 
 Direct API requests that you authenticate with a personal access token are user-to-server requests. An OAuth App or GitHub App can also make a user-to-server request on your behalf after you authorize the app. For more information, see "[Creating a personal access token](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)," "[Authorizing OAuth Apps](/authentication/keeping-your-account-and-data-secure/authorizing-oauth-apps)," and "[Authorizing GitHub Apps](/authentication/keeping-your-account-and-data-secure/authorizing-github-apps)."
 
@@ -449,7 +449,7 @@ If you exceed the rate limit, an error response returns:
 If your OAuth App needs to make unauthenticated calls with a higher rate limit, you can pass your app's client ID and secret before the endpoint route.
 
 ```shell
-$ curl -u my_client_id:my_client_secret {% data variables.product.api_url_pre %}/user/repos
+$ curl -u my_client_id:my_client_secret -I {% data variables.product.api_url_pre %}/user/repos
 > HTTP/2 200
 > Date: Mon, 01 Jul 2013 17:27:06 GMT
 > x-ratelimit-limit: 5000

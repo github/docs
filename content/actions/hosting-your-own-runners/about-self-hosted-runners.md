@@ -21,14 +21,20 @@ A self-hosted runner is a system that you deploy and manage to execute jobs from
 
 {% data reusables.actions.self-hosted-runner-description %} {% data reusables.actions.self-hosted-runner-locations %}
 
-{% data reusables.actions.self-hosted-runner-architecture %} {% data reusables.actions.runner-app-open-source %} When a new version is released, the runner application automatically updates itself when a job is assigned to the runner, or within a week of release if the runner hasn't been assigned any jobs.
-
 You can add self-hosted runners at various levels in the management hierarchy:
 - Repository-level runners are dedicated to a single repository.
 - Organization-level runners can process jobs for multiple repositories in an organization.
 - Enterprise-level runners can be assigned to multiple organizations in an enterprise account.
 
-Your runner machine connects to {% data variables.product.product_name %} using the {% data variables.product.prodname_actions %} self-hosted runner application. {% data reusables.actions.runner-app-open-source %} When a new version is released, the runner application automatically updates itself when a job is assigned to the runner, or within a week of release if the runner hasn't been assigned any jobs.
+{% data reusables.actions.self-hosted-runner-architecture %} {% data reusables.actions.runner-app-open-source %} When a new version is released, the runner application automatically updates itself when a job is assigned to the runner, or within a week of release if the runner hasn't been assigned any jobs.
+
+{% ifversion ghes %} 
+{% note %}
+
+**Note:** {% data reusables.actions.upgrade-runners-before-upgrade-ghes %}
+
+{% endnote %}
+{% endif %}
 
 {% data reusables.actions.self-hosted-runner-auto-removal %}
 
@@ -47,7 +53,7 @@ For more information about installing and using self-hosted runners, see "[Addin
 - Use free minutes on your {% data variables.product.prodname_dotcom %} plan, with per-minute rates applied after surpassing the free minutes.
 
 **Self-hosted runners:**{% endif %}
-- Receive automatic updates for the self-hosted runner application only{% ifversion fpt or ghec or ghes > 3.2 %}, though you may disable automatic updates of the runner. For more information about controlling runner software updates on self-hosted runners, see "[Autoscaling with self-hosted runners](/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners#controlling-runner-software-updates-on-self-hosted-runners)."{% else %}.{% endif %} You are responsible for updating the operating system and all other software.
+- Receive automatic updates for the self-hosted runner application only{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6143 %}, though you may disable automatic updates of the runner. For more information about controlling runner software updates on self-hosted runners, see "[Autoscaling with self-hosted runners](/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners#controlling-runner-software-updates-on-self-hosted-runners)."{% else %}.{% endif %} You are responsible for updating the operating system and all other software.
 - Can use cloud services or local machines that you already pay for.
 - Are customizable to your hardware, operating system, software, and security requirements.
 - Don't need to have a clean instance for every job execution.
@@ -106,7 +112,6 @@ The following operating systems are supported for the self-hosted runner applica
 - Windows 8.1 64-bit
 - Windows 10 64-bit
 - Windows Server 2012 R2 64-bit
-- Windows Server 2016 64-bit
 - Windows Server 2019 64-bit
 
 ### macOS

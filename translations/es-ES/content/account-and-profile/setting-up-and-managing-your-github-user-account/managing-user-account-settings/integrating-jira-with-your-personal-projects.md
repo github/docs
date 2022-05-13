@@ -1,6 +1,6 @@
 ---
 title: Integrar Jira con tus proyectos personales
-intro: 'Puedes integrar Jira Cloud a tu cuenta de usuario para escanear confirmaciones y solicitudes de extracción, creando los metadatos e hipervínculos correspondientes en cualquier propuesta de Jira mencionada.'
+intro: 'Puedes integrar a Jira Cloud con tu cuenta personal para escanear confirmaciones y solicitudes de cambio, crear metadatos e hipervínculos relevantes en cualquier propuesta de Jira.'
 redirect_from:
   - /articles/integrating-jira-with-your-personal-projects
   - /github/setting-up-and-managing-your-github-user-account/integrating-jira-with-your-personal-projects

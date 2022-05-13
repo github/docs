@@ -78,24 +78,6 @@ redirect_from:
 | <code>comments:<em>n</em></code> | [**comments:&gt;100**](https://github.com/search?q=comments%3A%3E100&type=Discussions) 匹配超过 100 条评论的讨论。        |
 |                           | [**comments:500..1000**](https://github.com/search?q=comments%3A500..1000&type=Discussions) 匹配具有 500 到 1,000 条评论的讨论。 |
 
-## 按交互数量搜索
-
-您可以使用 `interactions` 限定符以及大于、小于和范围限定符按交互数量过滤讨论。 交互数量是对讨论的反应和评论数量。 更多信息请参阅“[了解搜索语法](/github/searching-for-information-on-github/understanding-the-search-syntax)”。
-
-| 限定符                       | 示例                                                                                                            |
-|:------------------------- |:------------------------------------------------------------------------------------------------------------- |
-| <code>interactions:<em>n</em></code> | [** interactions:&gt;2000**](https://github.com/search?q=interactions%3A%3E2000) 匹配超过 2,000 个交互的讨论。 |
-|                           | [**interactions:500..1000**](https://github.com/search?q=interactions%3A500..1000) 匹配 500 至 1,000 个交互的讨论。     |
-
-## 按反应数量搜索
-
-您可以使用 `reactions` 限定符以及大于、小于和范围限定符按反应数量过滤讨论。 更多信息请参阅“[了解搜索语法](/github/searching-for-information-on-github/understanding-the-search-syntax)”。
-
-| 限定符                       | 示例                                                                                                   |
-|:------------------------- |:---------------------------------------------------------------------------------------------------- |
-| <code>reactions:<em>n</em></code> | [** reactions:&gt;1000**](https://github.com/search?q=reactions%3A%3E500) 匹配超过 500 个反应的讨论。 |
-|                           | [**reactions:500..1000**](https://github.com/search?q=reactions%3A500..1000) 匹配 500 至 1,000 个反应的讨论。  |
-
 ## 按讨论创建或上次更新时间搜索
 
 您可以基于创建时间或上次更新时间过滤讨论。 对于讨论创建，您可以使用 `created` 限定符；要了解讨论上次更新的时间，请使用 `updated` 限定符。
@@ -104,9 +86,9 @@ redirect_from:
 
 {% data reusables.search.date_gt_lt %}
 
-| 限定符                        | 示例                                                                                                                                                                        |
-|:-------------------------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>created:<em>YYYY-MM-DD</em></code>  | [**created:>2020-11-15**](https://github.com/search?q=created%3A%3E%3D2020-11-15&type=discussions) 匹配 2020 年 11 月 15 日之后创建的讨论。                                            |
+| 限定符                       | 示例                                                                                                                                                                        |
+|:------------------------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>created:<em>YYYY-MM-DD</em></code> | [**created:>2020-11-15**](https://github.com/search?q=created%3A%3E%3D2020-11-15&type=discussions) 匹配 2020 年 11 月 15 日之后创建的讨论。                                            |
 | <code>updated:<em>YYYY-MM-DD</em></code> | [**weird in:body updated:>=2020-02-01**](https://github.com/search?q=weird+in%3Abody+updated%3A%3E%3D2020-12-01&type=Discussions) 匹配 2020 年 12 月之后更新的正文中含有单词 "weird" 的讨论。 |
 
 ## 延伸阅读
