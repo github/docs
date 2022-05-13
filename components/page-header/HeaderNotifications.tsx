@@ -69,7 +69,7 @@ export const HeaderNotifications = () => {
     ...translationNotices,
     ...releaseNotices,
     // ONEOFF EARLY ACCESS NOTICE
-    (relativePath || '').includes('early-access/') && !page.hiddenNoBanner
+    (relativePath || '').includes('early-access/') && !page.noEarlyAccessBanner
       ? {
           type: NotificationType.EARLY_ACCESS,
           content: t('notices.early_access'),
