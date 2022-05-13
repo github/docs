@@ -12,6 +12,12 @@ shortTitle: Ignorar execução de fluxo de trabalho
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
+{% note %}
+
+**Note:** If a workflow is skipped due to [path filtering](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore), [branch filtering](/actions/using-workflows/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore) or a commit message (see below), then checks associated with that workflow will remain in a "Pending" state. A pull request that requires those checks to be successful will be blocked from merging.
+
+{% endnote %}
+
 Os fluxos de trabalho que seriam acionados usando `on: push` ou `on: pull_request` não serão acionado se você adicionar qualquer uma das strings a seguir para a mensagem de commit em um push ou o commit HEAD de um pull request:
 
 * `[skip ci]`
