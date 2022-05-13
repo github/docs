@@ -28,15 +28,11 @@ The security log lists all actions performed within the last 90 days.
   ![Security log tab](/assets/images/help/settings/audit-log-tab.png)
 {% endif %}
 
-{% ifversion fpt or ghae or ghes or ghec %}
 ## Searching your security log
 
 {% data reusables.audit_log.audit-log-search %}
 
 ### Search based on the action performed
-{% else %}
-## Understanding events in your security log
-{% endif %}
 
 The events listed in your security log are triggered by your actions. Actions are grouped into the following categories:
 

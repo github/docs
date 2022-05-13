@@ -35,7 +35,7 @@ For more information about projects, see {% ifversion fpt or ghec %}"[About proj
 
 ## Stay up to date
 
-To stay updated on the most recent comments in an issue, you can subscribe to an issue to receive notifications about the latest comments. To quickly find links to recently updated issues you're subscribed to, visit your dashboard. For more information, see {% ifversion fpt or ghes or ghae or ghec %}"[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[About notifications](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}" and "[About your personal dashboard](/articles/about-your-personal-dashboard)."
+To stay updated on the most recent comments in an issue, you can subscribe to an issue to receive notifications about the latest comments. To quickly find links to recently updated issues you're subscribed to, visit your dashboard. For more information, see "[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications)" and "[About your personal dashboard](/articles/about-your-personal-dashboard)."
 
 ## Community management
 
