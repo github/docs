@@ -146,6 +146,7 @@ export default function removeLiquidStatements(content, release, nextOldestRelea
       }
 
       // ----- UPDATE RANGE AND KEEP `GHES` -----
+      let containsAllSupportedVersions
       if (versionBlock.action.updateRangeKeepGhes) {
         const replacement = versionBlock.action.updateRangeKeepGhes.replace(/ghes.+$/, 'ghes')
 
@@ -157,7 +158,7 @@ export default function removeLiquidStatements(content, release, nextOldestRelea
         // If the new conditional contains all the currently supported versions, no conditional
         // is actually needed, and it can be removed. Any `else` statements and their content should
         // also be removed.
-        const containsAllSupportedVersions = supportedShortVersions.every(
+        containsAllSupportedVersions = supportedShortVersions.every(
           (v) => newCondWithLiquid.includes(v) && !newCondWithLiquid.includes('issue')
           // The writers are using "issue" versions for upcoming GHAE releases
         )
@@ -168,14 +169,63 @@ export default function removeLiquidStatements(content, release, nextOldestRelea
             newCondWithLiquid
           )
         }
-
-        if (containsAllSupportedVersions) {
-          removeConditionalsFromContent(versionBlock)
-        }
       }
 
-      if (removeConditionals) {
-        removeConditionalsFromContent(versionBlock)
+      if (containsAllSupportedVersions || versionBlock.action.removeConditionals) {
+        versionBlock.newContent = versionBlock.content
+
+        // If this block does not contain else/elsifs, start by removing the final endif.
+        // (We'll handle the endif separately in those scenarios.)
+        if (!versionBlock.hasElse && !versionBlock.hasElsif) {
+          const indexOfLastEndif = lastIndexOfRegex(versionBlock.content, /{%-? endif -?%}/g)
+
+          versionBlock.newContent = versionBlock.newContent.slice(0, indexOfLastEndif)
+
+          if (versionBlock.endTagColumn1 && versionBlock.newContent.endsWith('\n'))
+            versionBlock.newContent = versionBlock.newContent.slice(0, -1)
+        }
+
+        // If start tag is on it's own line, remove line ending (\\n?)
+        // and remove white space (//s*) after line ending to
+        // preserve indentation of next line
+        const removeStartTagRegex = versionBlock.startTagColumn1
+          ? new RegExp(`${versionBlock.condWithLiquid}\\n?\\s*`)
+          : new RegExp(`${versionBlock.condWithLiquid}`)
+
+        // For ALL scenarios, remove the start tag.
+        versionBlock.newContent = versionBlock.newContent.replace(removeStartTagRegex, '')
+
+        // If the block has an elsif, change the elsif to an if (or leave it an elsif this this block is itself an elsif),
+        // leaving the content inside the elsif block as is. Also leave the endif in this scenario.
+        if (versionBlock.hasElsif) {
+          versionBlock.newContent = versionBlock.newContent.replace(
+            /({%-) elsif/,
+            `$1 ${versionBlock.condKeyword}`
+          )
+        }
+
+        // If the block has an else, remove the else, its content, and the endif.
+        if (versionBlock.hasElse) {
+          let elseStartIndex
+          let ifCondFlag = false
+          // tokenize the content including the nested conditionals to find
+          // the unmatched else tag. Remove content from the start of the
+          // else tag to the end of the content. The tokens return have different
+          // `kind`s and can be liquid tags, HTML, and a variety of things.
+          // A value of 4 is a liquid tag. See https://liquidjs.com/api/enums/parser_token_kind_.tokenkind.html.
+          tokenize(versionBlock.newContent)
+            .filter((elem) => elem.kind === 4)
+            .forEach((tag) => {
+              if (tag.name === 'ifversion' || tag.name === 'if') {
+                ifCondFlag = true
+              } else if (tag.name === 'endif' && ifCondFlag === true) {
+                ifCondFlag = false
+              } else if (tag.name === 'else' && ifCondFlag === false) {
+                elseStartIndex = tag.begin
+              }
+            })
+          versionBlock.newContent = versionBlock.newContent.slice(0, elseStartIndex)
+        }
       }
     })
 
@@ -199,65 +249,6 @@ export default function removeLiquidStatements(content, release, nextOldestRelea
   return newContent
 }
 
-function removeConditionalsFromContent(versionBlock) {
-  versionBlock.newContent = versionBlock.content
-
-  // If this block does not contain else/elsifs, start by removing the final endif.
-  // (We'll handle the endif separately in those scenarios.)
-  if (!versionBlock.hasElse && !versionBlock.hasElsif) {
-    const indexOfLastEndif = lastIndexOfRegex(versionBlock.content, /{%-? endif -?%}/g)
-
-    versionBlock.newContent = versionBlock.newContent.slice(0, indexOfLastEndif)
-
-    if (versionBlock.endTagColumn1 && versionBlock.newContent.endsWith('\n'))
-      versionBlock.newContent = versionBlock.newContent.slice(0, -1)
-  }
-
-  // If start tag is on it's own line, remove line ending (\\n?)
-  // and remove white space (//s*) after line ending to
-  // preserve indentation of next line
-  const removeStartTagRegex = versionBlock.startTagColumn1
-    ? new RegExp(`${versionBlock.condWithLiquid}\\n?\\s*`)
-    : new RegExp(`${versionBlock.condWithLiquid}`)
-
-  // For ALL scenarios, remove the start tag.
-  versionBlock.newContent = versionBlock.newContent.replace(removeStartTagRegex, '')
-
-  // If the block has an elsif, change the elsif to an if (or leave it an elsif this this block is itself an elsif),
-  // leaving the content inside the elsif block as is. Also leave the endif in this scenario.
-  if (versionBlock.hasElsif) {
-    versionBlock.newContent = versionBlock.newContent.replace(
-      /({%-) elsif/,
-      `$1 ${versionBlock.condKeyword}`
-    )
-  }
-
-  // If the block has an else, remove the else, its content, and the endif.
-  if (versionBlock.hasElse) {
-    let elseStartIndex
-    let ifCondFlag = false
-    // tokenize the content including the nested conditionals to find
-    // the unmatched else tag. Remove content from the start of the
-    // else tag to the end of the content. The tokens return have different
-    // `kind`s and can be liquid tags, HTML, and a variety of things.
-    // A value of 4 is a liquid tag. See https://liquidjs.com/api/enums/parser_token_kind_.tokenkind.html.
-    tokenize(versionBlock.newContent)
-      .filter((elem) => elem.kind === 4)
-      .forEach((tag) => {
-        if (tag.name === 'ifversion' || tag.name === 'if') {
-          ifCondFlag = true
-        } else if (tag.name === 'endif' && ifCondFlag === true) {
-          ifCondFlag = false
-        } else if (tag.name === 'else' && ifCondFlag === false) {
-          elseStartIndex = tag.begin
-        }
-      })
-    versionBlock.newContent = versionBlock.newContent.slice(0, elseStartIndex)
-  }
-}
-
-// Hack to use a regex with lastIndexOf.
-// Inspired by https://stackoverflow.com/a/21420210
 function lastIndexOfRegex(str, regex, fromIndex) {
   const myStr = fromIndex ? str.substring(0, fromIndex) : str
   const match = myStr.match(regex)
