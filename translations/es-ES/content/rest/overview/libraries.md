@@ -42,7 +42,7 @@ Advertencia: Desde la segunda mitad de octubre del 2021, ya no se están manteni
 
 | Nombre de la librería | Repositorio                                                             |
 | --------------------- | ----------------------------------------------------------------------- |
-| **github.dart**       | [DirectMyFile/github.dart](https://github.com/DirectMyFile/github.dart) |
+| **github.dart**       | [SpinlockLabs/github.dart](https://github.com/SpinlockLabs/github.dart) |
 
 ### Emacs Lisp
 
