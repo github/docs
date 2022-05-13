@@ -42,7 +42,7 @@ Warning: As of late October 2021, the offical Octokit libraries are not currentl
 
 | Nome da Biblioteca | Repositório                                                             |
 | ------------------ | ----------------------------------------------------------------------- |
-| **github.dart**    | [DirectMyFile/github.dart](https://github.com/DirectMyFile/github.dart) |
+| **github.dart**    | [SpinlockLabs/github.dart](https://github.com/SpinlockLabs/github.dart) |
 
 ### Emacs Lisp
 

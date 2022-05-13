@@ -55,22 +55,22 @@ To cache dependencies for a job, you can use {% data variables.product.prodname_
 
 **Warning**: {% ifversion fpt or ghec %}Be mindful of the following when using caching with {% data variables.product.prodname_actions %}:
 
-* {% endif %}We recommend that you don't store any sensitive information in the cache. Por exemplo, as informações confidenciais podem incluir tokens de acesso ou credenciais de login armazenadas em um arquivo no caminho da cache. Além disso, os programas de interface da linha de comando (CLI) como o `login do Docker` pode salvar as credenciais de acesso em um arquivo de configuração. Anyone with read access can create a pull request on a repository and access the contents of a cache. As bifurcações de um repositório também podem criar pull requests no branch-base e acessar as caches no branch-base.
+* {% endif %}Recomendamos que você não armazene nenhuma informação confidencial no cache. Por exemplo, as informações confidenciais podem incluir tokens de acesso ou credenciais de login armazenadas em um arquivo no caminho da cache. Além disso, os programas de interface da linha de comando (CLI) como o `login do Docker` pode salvar as credenciais de acesso em um arquivo de configuração. Qualquer pessoa com acesso de leitura pode criar um pull request em um repositório e acessar o conteúdo do cache. As bifurcações de um repositório também podem criar pull requests no branch-base e acessar as caches no branch-base.
 {%- ifversion fpt or ghec %}
-* When using self-hosted runners, caches from workflow runs are stored on {% data variables.product.company_short %}-owned cloud storage. A customer-owned storage solution is only available with {% data variables.product.prodname_ghe_server %}.
+* Ao usar executores auto-hospedados, os caches de execução de fluxo de trabalho são armazenados na nuvem pertencente a {% data variables.product.company_short %}. Uma solução de armazenamento pertencente ao cliente só está disponível com {% data variables.product.prodname_ghe_server %}.
 {%- endif %}
 
 {% endwarning %}
 
 {% data reusables.actions.comparing-artifacts-caching %}
 
-For more information on workflow run artifacts, see "[Persisting workflow data using artifacts](/github/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)."
+Para obter mais informações sobre artefatos da execução do fluxo de trabalho, consulte "[Persistir dados de fluxo de trabalho usando artefatos](/github/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)".
 
 ## Restrições para acessar uma cache
 
 Um fluxo de trabalho pode acessar e restaurar um cache criado no branch atual, no branch de base (incluindo branches base de repositórios bifurcados) ou no branch-padrão (geralmente `principal`). Por exemplo, um cache criado no branch-padrão pode ser acessado a partir de qualquer pull request. Além disso, se o branch `feature-b` tiver o branch de base `feature-a`, um fluxo de trabalho acionado em `feature-b` teria acesso a caches criados no branch-padrão (`principal`), `feature-a` e `feature-b`.
 
-As restrições de acesso fornecem o isolamento da cache e a segurança ao criar um limite lógico entre os diferentes branches. For example, a cache created for the branch `feature-a` (with the base `main`) would not be accessible to a pull request for the branch `feature-c` (with the base `main`).
+As restrições de acesso fornecem o isolamento da cache e a segurança ao criar um limite lógico entre os diferentes branches. Por exemplo, um cache criado para o branch `feature-a` (com a base no `principal`) não seria acessível para um pull request para o branch `feature-b` (com a base no `principal`).
 
 Vários fluxos de trabalho dentro de um repositório compartilham entradas de cache. Uma cache criada para um branch de um fluxo de trabalho pode ser acessada e restaurada a partir de outro fluxo de trabalho para o mesmo repositório e branch.
 
@@ -78,15 +78,15 @@ Vários fluxos de trabalho dentro de um repositório compartilham entradas de ca
 
 The [`cache` action](https://github.com/actions/cache) will attempt to restore a cache based on the `key` you provide. Quando a ação encontrar uma cache, ela irá restaurar os arquivos memorizados no `caminho` que você configurar.
 
-If there is no exact match, the action automatically creates a new cache if the job completes successfully. The new cache will use the `key` you provided and contains the files you specify in `path`.
+Se não houver correspondência exata, a ação criará automaticamente um novo cache se o trabalho for concluído com sucesso. O novo cache usará a `chave` que você forneceu e que contém os arquivos que você especificar no `caminho`.
 
 Como alternativa, você pode fornecer uma lista de `chaves de restauração` a serem usadas quando a `chave` não corresponder à cache existente. Uma lista de `chaves de restauração` é importante quando você está tentando restaurar uma cache de outro branch, pois `as chaves de restauração`<code podem corresponder parcialmente às chaves da cache. Para obter mais informações sobre a correspondência das `chaves de restauração`, consulte "[Correspondendo uma chave da cache](#matching-a-cache-key)".
 
 ### Parâmetros de entrada para a ação da `cache`
 
-- `key`: **Obrigatório** A chave criada ao salvar uma cache e a chave usada para pesquisar uma cache. It can be any combination of variables, context values, static strings, and functions. As chaves têm um tamanho máximo de 512 caracteres e as chaves maiores que o tamanho máximo gerarão uma falha na ação.
+- `key`: **Obrigatório** A chave criada ao salvar uma cache e a chave usada para pesquisar uma cache. Pode ser qualquer combinação de variáveis, valores de contexto, strings estáticas e funções. As chaves têm um tamanho máximo de 512 caracteres e as chaves maiores que o tamanho máximo gerarão uma falha na ação.
 - `path`: **Required** The path(s) on the runner to cache or restore.
-  - You can specify a single path, or you can add multiple paths on separate lines. Por exemplo:
+  - É possível especificar um caminho único ou adicionar vários caminhos em linhas separadas. Por exemplo:
 
     ```
     - name: Cache Gradle packages
@@ -96,8 +96,8 @@ Como alternativa, você pode fornecer uma lista de `chaves de restauração` a s
           ~/.gradle/caches
           ~/.gradle/wrapper
     ```
-  - You can specify either directories or single files, and glob patterns are supported.
-  - You can specify absolute paths, or paths relative to the workspace directory.
+  - Você pode especificar diretórios ou arquivos únicos e padrões glob são compatíveis.
+  - Você pode especificar caminhos absolutos ou caminhos relativos ao diretório do espaço de trabalho.
 - `restore-keys`: **Opcional** Uma string que contêm chaves de restauração alternativas, com cada uma colocada em uma nova linha. If no cache hit occurs for `key`, these restore keys are used sequentially in the order provided to find and restore a cache. Por exemplo:
 
   {% raw %}
@@ -159,12 +159,12 @@ When `key` matches an existing cache, it's called a _cache hit_, and the action 
 
 When `key` doesn't match an existing cache, it's called a _cache miss_, and a new cache is automatically created if the job completes successfully.
 
-When a cache miss occurs, the action also searches your specified `restore-keys` for any matches:
+Quando a falha de um cache ocorrer, a ação também pesquisa `restore-keys` para quaisquer correspondências:
 
 1. Se você fornecer `chaves de restauração`, a ação da `cache` pesquisará, em seguida, todas as caches que correspondem à lista de `chaves de restauração`.
    - Se houver uma correspondência exata, a ação irá restaurar os arquivos na cache para o diretório do `caminho`.
    - Se não houver correspondências exatas, a ação pesquisará correspondências parciais das chaves de restauração. Quando uma ação encontra uma correspondência parcial, a última cache é restaurada para o diretório do `caminho`.
-1. The `cache` action completes and the next step in the job runs.
+1. A ação `cache` é concluída e a próxima etapa do trabalho é executada.
 1. If the job completes successfully, the action automatically creates a new cache with the contents of the `path` directory.
 
 For a more detailed explanation of the cache matching process, see "[Matching a cache key](#matching-a-cache-key)." Após criar uma cache, você não poderá alterar o conteúdo de uma cache existente, mas você poderá criar uma nova cache com uma nova chave.

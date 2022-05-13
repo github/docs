@@ -111,15 +111,15 @@ Finalmente, você deve considerar o fortalecimento da segurança para os executo
 
 {% data reusables.actions.about-artifacts %} Para obter mais informações, consulte "[Armazenar dados do fluxo de trabalho como artefatos](/actions/advanced-guides/storing-workflow-data-as-artifacts)".
 
-{% if actions-caching %}{% data variables.product.prodname_actions %} also has a caching system that you can use to cache dependencies to speed up workflow runs. For more information, see "[Caching dependencies to speed up workflows](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."{% endif %}
+{% if actions-caching %}{% data variables.product.prodname_actions %} também tem um sistema de cache que você pode usar para armazenar dependências de cache a fim de acelerar as execuções do fluxo de trabalho. Para obter mais informações, consulte "[Armazenando as dependências em cache para acelerar fluxos de trabalho](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)".{% endif %}
 
 {% ifversion ghes %}
-You must configure external blob storage for workflow artifacts{% if actions-caching %}, caches,{% endif %} and other workflow logs. Escolha qual provedor de armazenamento compatível a sua empresa irá usar. Para obter mais informações, consulte "[Primeiros passos com {% data variables.product.prodname_actions %} para {% data variables.product.product_name %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#external-storage-requirements)".
+Você deve configurar o armazenamento externo de blob para artefatos de fluxo de trabalho{% if actions-caching %}, caches,{% endif %} e outros logs de fluxo de trabalho. Escolha qual provedor de armazenamento compatível a sua empresa irá usar. Para obter mais informações, consulte "[Primeiros passos com {% data variables.product.prodname_actions %} para {% data variables.product.product_name %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#external-storage-requirements)".
 {% endif %}
 
 {% ifversion ghec or ghes %}
 
-You can use policy settings for {% data variables.product.prodname_actions %} to customize the storage of workflow artifacts{% if actions-caching %}, caches,{% endif %} and log retention. Para obter mais informações, consulte "[Aplicar políticas para {% data variables.product.prodname_actions %} na sua empresa](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise)".
+Você pode usar as configurações de política para {% data variables.product.prodname_actions %} para personalizar o armazenamento de artefatos de fluxo de trabalho{% if actions-caching %}, caches,{% endif %} e retenção de logs. Para obter mais informações, consulte "[Aplicar políticas para {% data variables.product.prodname_actions %} na sua empresa](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise)".
 
 {% endif %}
 
