@@ -48,13 +48,17 @@ Por vezes, os resultados das verificações de status para o commit de mescla te
 
 ## Manipulação ignorada, mas verificações necessárias
 
-Às vezes, uma verificação de status exigida é ignorada nos pull requests devido ao filtro de caminho. Por exemplo, um teste do Node.JS será ignorado em um pull request que apenas corrige um erro no seu arquivo README e não faz alterações nos arquivos JavaScript e TypeScript no diretório `scripts`.
+{% note %}
 
-Se esta verificação é necessária e for ignorada, o status da verificação é exibido como pendente, porque é necessário. Nesse caso, você não poderá de fazer o merge do pull request.
+**Note:** If a workflow is skipped due to [path filtering](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore), [branch filtering](/actions/using-workflows/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore) or a [commit message](/actions/managing-workflow-runs/skipping-workflow-runs), then checks associated with that workflow will remain in a "Pending" state. A pull request that requires those checks to be successful will be blocked from merging.
+
+If a job in a workflow is skipped due to a conditional, it will report its status as "Success". For more information see [Skipping workflow runs](/actions/managing-workflow-runs/skipping-workflow-runs) and [Using conditions to control job execution](/actions/using-jobs/using-conditions-to-control-job-execution).
+
+{% endnote %}
 
 ### Exemplo
 
-Neste exemplo, você tem um fluxo de trabalho necessário para passar.
+The following example shows a workflow that requires a "Successful" completion status for the `build` job, but the workflow will be skipped if the pull request does not change any files in the `scripts` directory.
 
 ```yaml
 name: ci
@@ -62,7 +66,6 @@ on:
   pull_request:
     paths:
       - 'scripts/**'
-      - 'middleware/**'
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -81,7 +84,7 @@ jobs:
     - run: npm test
 ```
 
-Se alguém enviar um pull request que altere um arquivo de markdown na raiz do repositório, o fluxo de trabalho acima não será executado devido ao filtro de caminho. Como resultado, você não poderá fazer o merge do pull request. Você verá o seguinte status no pull request:
+Due to [path filtering](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore), a pull request that only changes a file in the root of the repository will not trigger this workflow and is blocked from merging. Você verá o seguinte status no pull request:
 
 ![Verificação obrigatória ignorada mas mostrada como pendente](/assets/images/help/repository/PR-required-check-skipped.png)
 
