@@ -44,7 +44,6 @@ import archivedEnterpriseVersions from './archived-enterprise-versions.js'
 import robots from './robots.js'
 import earlyAccessLinks from './contextualizers/early-access-links.js'
 import categoriesForSupport from './categories-for-support.js'
-import loaderio from './loaderio-verification.js'
 import triggerError from './trigger-error.js'
 import releaseNotes from './contextualizers/release-notes.js'
 import whatsNewChangelog from './contextualizers/whats-new-changelog.js'
@@ -304,7 +303,6 @@ export default function (app) {
     '/categories.json',
     asyncMiddleware(instrument(categoriesForSupport, './categories-for-support'))
   )
-  app.use(instrument(loaderio, './loaderio-verification'))
   app.get('/_500', asyncMiddleware(instrument(triggerError, './trigger-error')))
 
   // Check for a dropped connection before proceeding (again)
