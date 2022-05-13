@@ -1,5 +1,5 @@
 ---
-title: Greater Than Version To Deprecate
+title: Remove unnecessary conditionals including nested
 intro: Remove liquid only
 ---
 
