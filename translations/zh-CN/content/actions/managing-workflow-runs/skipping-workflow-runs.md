@@ -12,6 +12,12 @@ shortTitle: 跳过工作流程运行
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
+{% note %}
+
+**Note:** If a workflow is skipped due to [path filtering](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore), [branch filtering](/actions/using-workflows/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore) or a commit message (see below), then checks associated with that workflow will remain in a "Pending" state. A pull request that requires those checks to be successful will be blocked from merging.
+
+{% endnote %}
+
 本来会触发使用 `on: push` 或 `on: pull_request` 的工作流程，如果您将以下任何字符串添加到推送中的提交消息或者拉取请求的 HEAD 提交，则不会触发：
 
 * `[skip ci]`

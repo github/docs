@@ -84,6 +84,7 @@ translations/zh-CN/content/admin/identity-and-access-management/using-saml-for-e
 translations/zh-CN/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/index.md,broken liquid tags
 translations/zh-CN/content/admin/index.md,broken liquid tags
 translations/zh-CN/content/admin/installation/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-aws.md,broken liquid tags
+translations/zh-CN/content/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/requesting-server-statistics-using-the-rest-api.md,broken liquid tags
 translations/zh-CN/content/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise.md,broken liquid tags
 translations/zh-CN/content/admin/overview/about-enterprise-accounts.md,Listed in localization-support#489
 translations/zh-CN/content/admin/overview/about-enterprise-accounts.md,rendering error
