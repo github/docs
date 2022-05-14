@@ -1,6 +1,6 @@
 ---
-title: GitHub Codespaces overview
-shortTitle: Overview
+title: Hacking Codespaces overview
+shortTitle: System
 product: '{% data reusables.gated-features.codespaces %}'
 intro: 'This guide introduces {% data variables.product.prodname_codespaces %} and provides details on how it works and how to use it.'
 allowTitleToDifferFromFilename: true
