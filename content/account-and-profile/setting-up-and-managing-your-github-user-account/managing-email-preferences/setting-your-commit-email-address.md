@@ -24,7 +24,7 @@ shortTitle: Set commit email address
 ---
 ## About commit email addresses
 
-{% data variables.product.prodname_dotcom %} uses your commit email address to associate commits with your account on {% data variables.product.product_location %}. You can choose the email address that will be associated with the commits you push from the command line as well as web-based Git operations you make.
+{% data variables.product.prodname_dotcom %} uses your commit email address to associate commits with your account on {% data variables.product.product_dotcom %}. You can choose the email address that will be associated with the commits you push from the command line as well as web-based Git operations you make.
 
 For web-based Git operations, you can set your commit email address on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}. For commits you push from the command line, you can set your commit email address in Git.
 
