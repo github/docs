@@ -10,10 +10,10 @@ redirect_from:
   - /github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token
   - /github/extending-github/git-automation-with-oauth-tokens
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
+  fpt: 'tere wabnxj'
+  ghes: 'xnncnjxnz'
+  ghae: 'xhxjnccnizndnc'
+  ghec: 'dnjxn'
 topics:
   - Identity
   - Access management
