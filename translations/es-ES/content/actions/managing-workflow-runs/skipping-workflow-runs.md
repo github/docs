@@ -12,6 +12,12 @@ shortTitle: Omitir ejecuciones de flujo de trabajo
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
+{% note %}
+
+**Note:** If a workflow is skipped due to [path filtering](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore), [branch filtering](/actions/using-workflows/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore) or a commit message (see below), then checks associated with that workflow will remain in a "Pending" state. A pull request that requires those checks to be successful will be blocked from merging.
+
+{% endnote %}
+
 Los flujos de trabajo que comúnmente se activarían utilizando `on: push` o `on: pull_request`, no se activarán si agregas cualquiera de las siguientes secuencias al mensaje de confirmación en una subida o a la confirmación PRINCIPAL (HEAD) de una solicitud de cambios:
 
 * `[skip ci]`

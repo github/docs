@@ -322,7 +322,7 @@ updates:
 
 可以使用 `ignore` 选项自定义更新哪些依赖项。 `ignore` 选项支持以下选项。
 
-- `dependency-name`—用于忽略名称匹配的依赖项，可以选择使用 `*` 来匹配零个或更多字符。 对于 Java 依赖项，`dependency-name` 属性的格式为：`groupId:artifactId`（例如：`org.kohsuke:github-api`）。
+- `dependency-name`—用于忽略名称匹配的依赖项，可以选择使用 `*` 来匹配零个或更多字符。 对于 Java 依赖项，`dependency-name` 属性的格式为：`groupId:artifactId`（例如：`org.kohsuke:github-api`）。 {% if dependabot-grouped-dependencies %} To prevent {% data variables.product.prodname_dependabot %} from automatically updating TypeScript type definitions from DefinitelyTyped, use `@types/*`.{% endif %}
 - `versions`—用于忽略特定版本或版本范围。 如果要定义范围，请使用包管理器的标准模式（例如：对 npm 使用 `^1.0.0`，对 Bundler 使用 `~> 2.0`）。
 - `update-types`—用于忽略更新类型，如关于版本更新的 semver `major`、`minor` 或 `patch` 更新（例如：`version-update:semver-patch` 将忽略补丁更新）。 您可以将此与 `dependency-name: "*"` 结合，以忽略所有依赖项的特定 `update-types`。 目前，`version-update:semver-major`、`version-update:semver-minor` 和 `version-update:semver-patch` 是唯一支持的选项。 安全更新不受此设置的影响。
 
