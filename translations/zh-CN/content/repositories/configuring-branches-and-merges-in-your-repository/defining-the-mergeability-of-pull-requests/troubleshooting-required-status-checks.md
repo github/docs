@@ -48,13 +48,17 @@ remote: error: Required status check "ci-build" is failing
 
 ## 处理已跳过但需要检查
 
-有时，由于路径筛选，在拉取请求上会跳过所需的状态检查。 例如，Node.JS 测试在仅修复自述文件中拼写错误的拉取请求上将跳过，并且不会更改 `scripts` 目录中的 JavaScript 和 TypeScript 文件。
+{% note %}
 
-如果此检查是必需的，并且被跳过，则检查的状态将显示为挂起，因为它是必需的。 在此情况下，您将无法合并拉取请求。
+**Note:** If a workflow is skipped due to [path filtering](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore), [branch filtering](/actions/using-workflows/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore) or a [commit message](/actions/managing-workflow-runs/skipping-workflow-runs), then checks associated with that workflow will remain in a "Pending" state. A pull request that requires those checks to be successful will be blocked from merging.
+
+If a job in a workflow is skipped due to a conditional, it will report its status as "Success". For more information see [Skipping workflow runs](/actions/managing-workflow-runs/skipping-workflow-runs) and [Using conditions to control job execution](/actions/using-jobs/using-conditions-to-control-job-execution).
+
+{% endnote %}
 
 ### 示例
 
-在此示例中，您有一个需要通过的工作流程。
+The following example shows a workflow that requires a "Successful" completion status for the `build` job, but the workflow will be skipped if the pull request does not change any files in the `scripts` directory.
 
 ```yaml
 name: ci
@@ -62,7 +66,6 @@ on:
   pull_request:
     paths:
       - 'scripts/**'
-      - 'middleware/**'
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -81,7 +84,7 @@ jobs:
     - run: npm test
 ```
 
-如果有人提交更改存储库根目录中 Markdown 文件的拉取请求，则上述工作流程将因路径筛选而完全不会运行。 因此，您将无法合并拉取请求。 您将在拉取请求上看到以下状态：
+Due to [path filtering](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore), a pull request that only changes a file in the root of the repository will not trigger this workflow and is blocked from merging. 您将在拉取请求上看到以下状态：
 
 ![必需的检查已跳过，但显示为挂起](/assets/images/help/repository/PR-required-check-skipped.png)
 

@@ -106,20 +106,40 @@ miniTocMaxHeadingLevel: 3
 
 {% data reusables.actions.workflow-permissions-intro %}
 
-默认权限也可以在组织设置中配置。 如果在组织设置中选择了更受限制的默认值，则在仓库设置中自动选择相同的选项，并禁用许可的选项。
+默认权限也可以在组织设置中配置。 If your repository belongs to an organization and a more restrictive default has been selected in the organization settings, the same option is selected in your repository settings and the permissive option is disabled.
 
 {% data reusables.actions.workflow-permissions-modifying %}
 
 ### 配置默认 `GITHUB_TOKENN` 权限
 
+{% if allow-actions-to-approve-pr-with-ent-repo %}
+By default, when you create a new repository in your personal account, `GITHUB_TOKEN` only has read access for the `contents` scope. If you create a new repository in an organization, the setting is inherited from what is configured in the organization settings.
+{% endif %}
+
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.settings-sidebar-actions-general %}
-1. 在 **Workflow permissions（工作流程权限）**下，选择您是否想要 `GITHUB_TOKENN` 读写所有范围限， 或者只读`内容`范围。
+1. Under "Workflow permissions", choose whether you want the `GITHUB_TOKEN` to have read and write access for all scopes, or just read access for the `contents` scope.
 
-  ![为此仓库设置 GITHUB_TOKENN 权限](/assets/images/help/settings/actions-workflow-permissions-repository.png)
+   ![为此仓库设置 GITHUB_TOKENN 权限](/assets/images/help/settings/actions-workflow-permissions-repository{% if allow-actions-to-approve-pr-with-ent-repo %}-with-pr-approval{% endif %}.png)
 
 1. 单击 **Save（保存）**以应用设置。
+
+{% if allow-actions-to-approve-pr-with-ent-repo %}
+### Preventing {% data variables.product.prodname_actions %} from creating or approving pull requests
+
+{% data reusables.actions.workflow-pr-approval-permissions-intro %}
+
+By default, when you create a new repository in your personal account, workflows are not allowed to create or approve pull requests. If you create a new repository in an organization, the setting is inherited from what is configured in the organization settings.
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.settings-sidebar-actions-general %}
+1. Under "Workflow permissions", use the **Allow GitHub Actions to create and approve pull requests** setting to configure whether `GITHUB_TOKEN` can create and approve pull requests.
+
+   ![为此仓库设置 GITHUB_TOKENN 权限](/assets/images/help/settings/actions-workflow-permissions-repository-with-pr-approval.png)
+1. 单击 **Save（保存）**以应用设置。
+{% endif %}
 {% endif %}
 
 {% ifversion ghes > 3.3 or ghae-issue-4757 or ghec %}

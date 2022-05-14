@@ -10,7 +10,7 @@ redirect_from:
 
 {% data reusables.server-statistics.release-phase %}
 
-You can download up to the last 365 days of {% data variables.product.prodname_server_statistics %} data in a CSV or JSON file. This data, which includes aggregate metrics on repositories, issues, and pull requests, can help you anticipate the needs of your organization, understand how your team works, and show the value you get from {% data variables.product.prodname_ghe_server %}.
+You can download up to the last 365 days of {% data variables.product.prodname_server_statistics %} data in a CSV or JSON file. 此数据（包括有关存储库、问题和拉取请求的汇总指标）可以帮助您预测组织的需求，了解团队的工作方式，并显示您从 {% data variables.product.prodname_ghe_server %} 中获得的价值。
 
 Before you can download this data, you must enable {% data variables.product.prodname_server_statistics %}. 更多信息请参阅“[为企业启用 {% data variables.product.prodname_server_statistics %}](/admin/configuration/configuring-github-connect/enabling-server-statistics-for-your-enterprise)”。
 
