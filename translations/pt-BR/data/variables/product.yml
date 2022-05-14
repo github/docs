@@ -159,7 +159,7 @@ prodname_copilot_short: 'Copilot'
 #Command Palette
 prodname_command_palette: 'Paleta de comando do GitHub'
 #Server Statistics
-prodname_server_statistics: 'Server Statistics'
+prodname_server_statistics: 'Estatísticas do servidor'
 #Links
 product_url: >-
   {% ifversion fpt or ghec %}github.com{% else %}[hostname]{% endif %}

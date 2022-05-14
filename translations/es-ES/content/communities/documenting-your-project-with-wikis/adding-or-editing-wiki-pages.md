@@ -44,7 +44,7 @@ Las wikis son parte de los repositorios Gift, de manera que puedes hacer cambios
 
 ### Clonar wikis en tu computadora
 
-Cada wiki brinda una manera sencilla de clonar sus contenidos en tu computadora. Puedes clonar el repositorio a tu computadora con la URL proporcionada:
+Cada wiki brinda una manera sencilla de clonar sus contenidos en tu computadora. Once you've created an initial page on {% data variables.product.product_name %}, you can clone the repository to your computer with the provided URL:
 
 ```shell
 $ git clone https://github.com/<em>YOUR_USERNAME</em>/<em>YOUR_REPOSITORY</em>.wiki.git

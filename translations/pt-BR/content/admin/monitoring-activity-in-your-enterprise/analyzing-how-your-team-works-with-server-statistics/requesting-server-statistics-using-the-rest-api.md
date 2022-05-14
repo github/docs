@@ -1,7 +1,7 @@
 ---
-title: Requesting Server Statistics using the REST API
-shortTitle: Server Statistics and REST API
-intro: 'You can use your own tools to analyze your {% data variables.product.prodname_ghe_server %} usage over time by requesting the {% data variables.product.prodname_server_statistics %} metrics collected using the REST API.'
+title: Solicitando as estatísticas do servidor usando a API REST
+shortTitle: Estatísticas do servidor e API REST
+intro: 'Você pode usar suas próprias ferramentas para analisar seu uso de {% data variables.product.prodname_ghe_server %} ao longo do tempo, solicitando as métricas de {% data variables.product.prodname_server_statistics %} coletadas usando a API REST.'
 versions:
   feature: server-statistics
 redirect_from:
@@ -10,8 +10,8 @@ redirect_from:
 
 {% data reusables.server-statistics.release-phase %}
 
-You can request up to 365 days of metrics in a single {% data variables.product.prodname_server_statistics %} REST API request. This data, which includes aggregate metrics on repositories, issues, and pull requests, can help you anticipate the needs of your organization, understand how your team works, and show the value you get from {% data variables.product.prodname_ghe_server %}. For a list of the metrics collected, see "[{% data variables.product.prodname_server_statistics %} data collected](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/about-server-statistics#server-statistics-data-collected)."
+Você pode solicitar até 365 dias de métricas em um único pedido da API REST de {% data variables.product.prodname_server_statistics %}. Estes dados, que incluem métricas agregadas em repositórios, problemas e pull requests, podem ajudar você a antecipar as necessidades da sua organização, entender como sua equipe funciona e mostrar o valor que você obtém de {% data variables.product.prodname_ghe_server %}. Para ver uma lista das métricas coletadas, consulte "[ dados coletdos de {% data variables.product.prodname_server_statistics %}"](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/about-server-statistics#server-statistics-data-collected)".
 
-Before you can use the {% data variables.product.prodname_server_statistics %} REST API, you must enable {% data variables.product.prodname_server_statistics %}. Para obter mais informações, consulte "[Habilitar {% data variables.product.prodname_server_statistics %} para a sua empresa](/admin/configuration/configuring-github-connect/enabling-server-statistics-for-your-enterprise)."
+Antes de poder usar a API REST {% data variables.product.prodname_server_statistics %}, você deve habilitar {% data variables.product.prodname_server_statistics %}. Para obter mais informações, consulte "[Habilitar {% data variables.product.prodname_server_statistics %} para a sua empresa](/admin/configuration/configuring-github-connect/enabling-server-statistics-for-your-enterprise)."
 
-For more information about using the REST API to request server statistics, see "[Get {% data variables.product.prodname_ghe_server %} statistics](/enterprise-cloud@latest/rest/enterprise-admin/admin-stats#get-github-enterprise-server-statistics)" in the {% data variables.product.prodname_ghe_cloud %} REST API documentation.
+Para obter mais informações sobre o uso da API REST para solicitar estatísticas do servidor, consulte "[Obter estatísticas de {% data variables.product.prodname_ghe_server %}](/enterprise-cloud@latest/rest/enterprise-admin/admin-stats#get-github-enterprise-server-statistics)" na documentação da API REST de {% data variables.product.prodname_ghe_cloud %}.
