@@ -34,7 +34,7 @@ You need to use specific syntax to tell {% data variables.product.prodname_dotco
 ```yaml
 steps:
   - uses: actions/hello-world-javascript-action@v1.1
-    if: {% raw %}${{ <expression> }}{% endraw %}
+    if: <expression>
 ```
 
 #### Example setting an environment variable
