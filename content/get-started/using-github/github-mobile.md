@@ -49,7 +49,7 @@ To use {% data variables.product.prodname_mobile %} with {% data variables.produ
 
 During the beta for {% data variables.product.prodname_mobile %} with {% data variables.product.prodname_ghe_server %}, you must be signed in with a personal account on {% data variables.product.prodname_dotcom_the_website %}.
 
-### Adding, switching, or signing out of accounts
+### Adding, switching, deleting or signing out of accounts
 
 You can sign into mobile with a personal account on {% data variables.product.prodname_ghe_server %}. At the bottom of the app, long-press {% octicon "person" aria-label="The person icon" %} **Profile**, then tap {% octicon "plus" aria-label="The plus icon" %} **Add Enterprise Account**. Follow the prompts to sign in.
 
