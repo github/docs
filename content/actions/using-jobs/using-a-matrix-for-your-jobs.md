@@ -35,7 +35,7 @@ redirect_from:
 
 {% data reusables.actions.jobs.matrix-from-context %}
 
-## Expanding or adding matrix configurations
+## Expanding or adding or removing matrix configurations
 
 {% data reusables.actions.jobs.matrix-include %}
 
