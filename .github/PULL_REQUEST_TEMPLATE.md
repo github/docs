@@ -1,11 +1,11 @@
 <!--
-Thank you for contributing to this project! You must fill out the information below before we can review this pull request. By explaining why you're making a change (or linking to a pull request) and what changes you've made, we can triage your pull request to the best possible team for review.
+Thank you for contributing to this project! You must fill out the information below before we can review this pull request. By explaining why you're making a change (or linking to an issue) and what changes you've made, we can triage your pull request to the best possible team for review.
 
-See our [CONTRIBUTING.md](/main/CONTRIBUTING.md) for information how to contribute.
+See our [CONTRIBUTING.md](https://github.com/github/docs/blob/main/CONTRIBUTING.md) for information how to contribute.
 
 For changes to content in [site policy](https://github.com/github/docs/tree/main/content/github/site-policy), see the [CONTRIBUTING guide in the site-policy repo](https://github.com/github/site-policy/blob/main/CONTRIBUTING.md).
 
-We cannot accept changes to our translated content right now. See the [types-of-contributions.md](/main/contributing/types-of-contributions.md#earth_asia-translations) for more information.
+We cannot accept changes to our translated content right now. See the [types-of-contributions.md](https://github.com/github/docs/blob/main/contributing/types-of-contributions.md#earth_asia-translations) for more information.
 
 Thanks again!
 -->
@@ -24,7 +24,7 @@ Closes [issue link]
 
 ### Check off the following:
 
-- [ ] I have reviewed my changes in staging (look for "Automatically generated comment" and click **Modified** to view your latest changes).
+- [ ] I have reviewed my changes in staging (look for "Automatically generated comment" and click **Preview** links of each file changed to view your latest changes rendered).
 - [ ] For content changes, I have completed the [self-review checklist](https://github.com/github/docs/blob/main/contributing/self-review.md#self-review).
 
 ### Writer impact (This section is for GitHub staff members only):
