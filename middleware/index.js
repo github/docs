@@ -122,7 +122,7 @@ export default function (app) {
   // Only used in production because our tests can overload the server
   if (
     process.env.NODE_ENV === 'production' &&
-    !JSON.parse(process.env.DISABLE_OVERLOAD_PROTECTION | 'false')
+    !JSON.parse(process.env.DISABLE_OVERLOAD_PROTECTION || 'false')
   ) {
     app.use(protect)
   }
