@@ -52,12 +52,12 @@ Windows virtual machines are configured to run as administrators with User Accou
 ## Supported runners and hardware resources
 
 Hardware specification for Windows and Linux virtual machines:
-- 2-core CPU
+- 2-core CPU having `amd64` architecture.
 - 7 GB of RAM memory
 - 14 GB of SSD disk space
 
 Hardware specification for macOS virtual machines:
-- 3-core CPU
+- 3-core CPU having `Intel x86_64` architecture.
 - 14 GB of RAM memory
 - 14 GB of SSD disk space
 
