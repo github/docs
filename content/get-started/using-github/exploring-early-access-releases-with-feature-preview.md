@@ -25,7 +25,7 @@ shortTitle: Feature preview
 ## Exploring beta releases with feature preview
 
 You can see a list of features that are available in beta and a brief description for each feature. Each feature includes a link to give feedback.
-
+H
 {% data reusables.feature-preview.feature-preview-setting  %}
 2. Optionally, to the right of a feature, click **Enable** or **Disable**.
   ![Enable button in feature preview](/assets/images/help/settings/enable-feature-button.png)
