@@ -31,7 +31,7 @@ shortTitle: リポジトリロール
 
 {% ifversion fpt %}
 Organizationが{% data variables.product.prodname_ghe_cloud %}を使っているなら、カスタムのリポジトリロールを作成できます。 詳しい情報については、{% data variables.product.prodname_ghe_cloud %}のドキュメンテーションの「[Organizationのカスタムリポジトリロールの管理](/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)」を参照してください。
-{% elsif ghec %}
+{% elsif ghec or ghes > 3.4 or ghae-issue-6271 %}
 カスタムのリポジトリロールを作成できます。 詳しい情報については「[Organizationのカスタムリポジトリロールの管理](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)」を参照してください。
 {% endif %}
 

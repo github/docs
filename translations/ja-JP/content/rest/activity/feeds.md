@@ -1,5 +1,5 @@
 ---
-title: Feeds
+title: フィード
 intro: ''
 versions:
   fpt: '*'
@@ -11,13 +11,17 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-### Example of getting an Atom feed
+## Feeds APIについて
 
-To get a feed in Atom format, you must specify the `application/atom+xml` type in the `Accept` header. For example, to get the Atom feed for GitHub security advisories:
+利用できるフィードを見るには、[Get feeds](#get-feeds)操作を使います。 そして、フィードURLの1つにリクエストを送信することによって、フィードを取得できます。
+
+### Atomフィードの取得例
+
+Atom 形式のフィードを取得するには、`Accept` ヘッダで `application/atom+xml` タイプを指定する必要があります。 たとえば、GitHub のセキュリティアドバイザリの Atom フィードを取得するには、次のように記述します。
 
     curl -H "Accept: application/atom+xml" https://github.com/security-advisories
 
-#### Response
+#### レスポンス
 
 ```shell
 HTTP/2 200

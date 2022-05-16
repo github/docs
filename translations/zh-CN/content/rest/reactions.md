@@ -1,6 +1,6 @@
 ---
-title: Reactions
-intro: 'The Reactions API enables you to create, list and delete the reactions on comments.'
+title: 反应
+intro: 反应 API 使您能够创建、列出和删除评论中的反应。
 versions:
   fpt: '*'
   ghes: '*'
@@ -13,8 +13,8 @@ redirect_from:
   - /rest/reference/reactions
 ---
 
-### Reaction types
+## 关于反应 API
 
-When creating a reaction, the allowed values for the `content` parameter are as follows (with the corresponding emoji for reference):
+您可以使用反应 API 创建和管理对评论的反应。 创建反应时，`content` 参数的允许值如下（带有相应的表情符号供参考）：
 
 {% data reusables.repositories.reaction_list %}

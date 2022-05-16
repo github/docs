@@ -52,7 +52,7 @@ export const Header = () => {
   return (
     <div
       className={cx(
-        'border-bottom d-unset color-border-muted no-print z-3 color-bg-default position-sticky top-0',
+        'border-bottom d-unset color-border-muted no-print z-3 color-bg-default',
         styles.header
       )}
     >

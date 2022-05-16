@@ -1,6 +1,8 @@
 ---
-title: Columns
-intro: ''
+title: プロジェクトボードの列
+shortTitle: カラム
+allowTitleToDifferFromFilename: true
+intro: Project board columns APIを使うと、プロジェクトボード上の列の作成及び管理ができます。
 versions:
   fpt: '*'
   ghes: '*'
@@ -10,3 +12,5 @@ topics:
   - API
 miniTocMaxHeadingLevel: 3
 ---
+
+{% data reusables.projects.projects-api %}

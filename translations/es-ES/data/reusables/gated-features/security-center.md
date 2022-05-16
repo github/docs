@@ -3,4 +3,4 @@ El resumen de seguridad de tu organización se encuentra disponible si tienes un
 {% elsif ghec or ghes %}
 El resumen de seguridad de tu organización se encuentra disponible si tienes una licencia para la {% data variables.product.prodname_GH_advanced_security %}. {% data reusables.advanced-security.more-info-ghas %}
 {% elsif fpt %}
-The security overview is available for organizations that use {% data variables.product.prodname_enterprise %} and have a license for {% data variables.product.prodname_GH_advanced_security %}. For more information, see "[About {% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security)." {% endif %}
+El resumen de seguridad se encuentra disponible para las organizaciones que utilizan {% data variables.product.prodname_enterprise %} y tienen una licencia para {% data variables.product.prodname_GH_advanced_security %}. Para obtener más información, consulta la sección "[Acerca de la {% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security)". {% endif %}

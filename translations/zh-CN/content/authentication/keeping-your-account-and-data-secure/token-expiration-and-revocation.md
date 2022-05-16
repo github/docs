@@ -54,6 +54,8 @@ redirect_from:
 
 {% data variables.product.prodname_oauth_app %} 的所有者可以撤销帐户对其应用程序的授权，这也会吊销与授权关联的任何令牌。 有关撤销 OAuth 应用程序的授权的详细信息，请参阅“[删除应用程序授权](/rest/reference/apps#delete-an-app-authorization)”。
 
+{% data variables.product.prodname_oauth_app %} 所有者还可以吊销与授权关联的单个令牌。 有关吊销 OAuth 应用的单个令牌的详细信息，请参阅“[删除应用令牌](/rest/apps/oauth-applications#delete-an-app-token)”。
+
 ## 令牌由于具有相同作用域的 {% data variables.product.prodname_oauth_app %} 的令牌过多而被吊销
 
 {% data reusables.apps.oauth-token-limit %}

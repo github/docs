@@ -1,7 +1,7 @@
 ---
-title: Identifying vulnerabilities in your project's dependencies with Dependabot alerts
+title: Dependabotアラートによるプロジェクトの依存関係が持つ脆弱性の特定
 shortTitle: Dependabotアラート
-intro: '{% data variables.product.prodname_dependabot %} generates {% data variables.product.prodname_dependabot_alerts %} when known vulnerabilites are detected in dependencies that your project uses.'
+intro: '{% data variables.product.prodname_dependabot %}は、既知の脆弱性がプロジェクトが使用している依存関係に検出されたときに、{% data variables.product.prodname_dependabot_alerts %}を生成します。'
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'

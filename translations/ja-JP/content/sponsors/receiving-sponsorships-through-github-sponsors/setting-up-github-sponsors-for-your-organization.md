@@ -73,8 +73,6 @@ Open Collective を使用して Stripe Connect を設定する方法について
 {% data reusables.sponsors.tax-form-information-org %}
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
-{% data reusables.sponsors.settings-tab %}
-{% data reusables.sponsors.country-of-residence %}
 {% data reusables.sponsors.overview-tab %}
 {% data reusables.sponsors.tax-form-link %}
 
@@ -90,5 +88,6 @@ Before your organization can become a sponsored organization, you must enable 2F
 {% data reusables.sponsors.github-review-app %}
 
 ## 参考リンク
+
 - [{% data variables.product.prodname_sponsors %} について](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)
 - 「[{% data variables.product.prodname_sponsors %} を通じてスポンサーシップを獲得する](/sponsors/receiving-sponsorships-through-github-sponsors)」

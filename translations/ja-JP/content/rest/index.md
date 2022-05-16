@@ -1,7 +1,7 @@
 ---
-title: GitHub REST API
+title: GitHubのREST API
 shortTitle: REST API
-intro: 'To create integrations, retrieve data, and automate your workflows, build with the {% data variables.product.prodname_dotcom %} REST API.'
+intro: 'インテグレーションを作成し、データを取り出し、ワークフローを自動化するために、{% data variables.product.prodname_dotcom %}のREST APIで構築してください。'
 introLinks:
   quickstart: /rest/guides/getting-started-with-the-rest-api
 featuredLinks:
@@ -24,6 +24,7 @@ changelog:
 layout: product-landing
 redirect_from:
   - /v3
+  - /rest/reference
 versions:
   fpt: '*'
   ghes: '*'

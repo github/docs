@@ -309,7 +309,7 @@ You can filter pull requests based on whether they're merged or unmerged using t
 | Qualifier        | Example
 | ------------- | -------------
 | `is:merged` | [**bug is:pr is:merged**](https://github.com/search?utf8=%E2%9C%93&q=bugfix+is%3Apr+is%3Amerged&type=) matches merged pull requests with the word "bug."
-| `is:unmerged` | [**error is:unmerged**](https://github.com/search?utf8=%E2%9C%93&q=error+is%3Aunmerged&type=) matches closed issues and pull requests with the word "error."
+| `is:unmerged` | [**error is:unmerged**](https://github.com/search?utf8=%E2%9C%93&q=error+is%3Aunmerged&type=) matches pull requests with the word "error" that are either open or were closed without being merged.
 
 ## Search based on whether a repository is archived
 

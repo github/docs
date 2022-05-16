@@ -21,10 +21,11 @@ redirect_from:
 
 {% data variables.product.prodname_classroom %} 支持以下 IDE。 您可以详细了解每个 IDE 的学生体验。
 
-| IDE                       | 更多信息                                                                                                                                                                               |
-|:------------------------- |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Microsoft MakeCode Arcade | "[关于结合使用 MakeCode Arcade 与 {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/about-using-makecode-arcade-with-github-classroom)" |
-| Visual Studio Code        | Visual Studio Marketplace 中的 [{% data variables.product.prodname_classroom %} 扩展](http://aka.ms/classroom-vscode-ext)                                                              |
+| IDE                                                       | 更多信息                                                                                                                                                                                                                                                            |
+|:--------------------------------------------------------- |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| {% data variables.product.prodname_github_codespaces %} | “[将 {% data variables.product.prodname_github_codespaces %} 与 {% data variables.product.prodname_classroom %} 一起使用](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/using-github-codespaces-with-github-classroom)” |
+| Microsoft MakeCode Arcade                                 | "[关于结合使用 MakeCode Arcade 与 {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/about-using-makecode-arcade-with-github-classroom)"                                                                              |
+| Visual Studio Code                                        | Visual Studio Marketplace 中的 [{% data variables.product.prodname_classroom %} 扩展](http://aka.ms/classroom-vscode-ext)                                                                                                                                           |
 
 我们知道云 IDE 集成对您的课堂非常重要，正在努力提供更多选择。
 
@@ -32,11 +33,13 @@ redirect_from:
 
 创建作业时，您可以选择要用于作业的 IDE。 要了解如何创建使用 IDE 的新作业，请参阅“[创建个人作业](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)”或“[创建小组作业](/education/manage-coursework-with-github-classroom/create-a-group-assignment)”。
 
-## 为 IDE 授权 OAuth 应用程序
+## 在新 IDE 中设置任务
 
-第一次使用 IDE 配置作业时，必须为组织的 IDE 授权 OAuth 应用程序。
+首次使用其他 IDE 配置分配时，必须确保设置正确。
 
-对于所有仓库，授予应用程序**读取**元数据、管理和代码的权限，以及**写入**问管理和代码的权限。 更多信息请参阅“[授权 OAuth 应用程序](/github/authenticating-to-github/authorizing-oauth-apps)”。
+除非使用 {% data variables.product.prodname_github_codespaces %}，否则必须为组织的 IDE 授权 OAuth 应用程序。 对于所有仓库，授予应用程序**读取**元数据、管理和代码的权限，以及**写入**问管理和代码的权限。 更多信息请参阅“[授权 OAuth 应用程序](/github/authenticating-to-github/authorizing-oauth-apps)”。
+
+{% data variables.product.prodname_github_codespaces %} 不需要 OAuth 应用程序，但需要启用 {% data variables.product.prodname_github_codespaces %}，以便组织能够使用 {% data variables.product.prodname_codespaces %} 配置作业。 更多信息请参阅“[将 {% data variables.product.prodname_github_codespaces %} 与 {% data variables.product.prodname_classroom %} 一起使用](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/using-github-codespaces-with-github-classroom#enabling-codespaces-for-your-organization)”。
 
 ## 延伸阅读
 

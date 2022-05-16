@@ -104,7 +104,7 @@ jobs:
 
 {% endnote %}
 
-使用 {% data variables.product.prodname_dotcom %} 托管的运行器时，您还可以缓存依赖项以加速工作流程。 更多信息请参阅“<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">缓存依赖项以加快工作流程</a>”。
+{% if actions-caching %}您也可以缓存依赖项来加快工作流程。 更多信息请参阅“[缓存依赖项以加快工作流程](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)”。{% endif %}
 
 例如，以下作业将安装 `SqlServer` 和 `PSScriptAnalyzer` 模块：
 
@@ -128,9 +128,11 @@ jobs:
 
 {% endnote %}
 
+{% if actions-caching %}
+
 ### 缓存依赖项
 
-使用 {% data variables.product.prodname_dotcom %} 托管的运行器时，您可以使用唯一密钥缓存 PowerShell 依赖项， 这样在使用 [`cache`](https://github.com/marketplace/actions/cache) 操作运行未来的工作流程时可以恢复依赖项。 更多信息请参阅“<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">缓存依赖项以加快工作流程</a>”。
+您可以使用唯一密钥缓存 PowerShell 依赖项，以在使用 [`cache`](https://github.com/marketplace/actions/cache) 操作运行未来的工作流程时恢复依赖项。 更多信息请参阅“[缓存依赖项以加快工作流程](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)”。
 
 PowerShell 根据运行器的操作系统将其依赖项缓存在不同的位置。 例如，以下 Ubuntu 示例中使用的 `path` 位置在 Windows 操作系统中是不同的。
 
@@ -150,6 +152,8 @@ steps:
       Set-PSRepository PSGallery -InstallationPolicy Trusted
       Install-Module SqlServer, PSScriptAnalyzer -ErrorAction Stop
 ```
+
+{% endif %}
 
 ## 测试代码
 

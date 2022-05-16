@@ -7,6 +7,7 @@ versions:
   fpt: '*'
   ghae: issue-4856
   ghec: '*'
+  ghes: '>=3.5'
 type: tutorial
 topics:
   - Security
@@ -66,11 +67,14 @@ topics:
   "jti": "example-id",
   "sub": "repo:octo-org/octo-repo:environment:prod",
   "environment": "prod",
-  "aud": "https://github.com/octo-org",
+  "aud": "{% ifversion ghes %}https://HOSTNAME{% else %}https://github.com{% endif %}/octo-org",
   "ref": "refs/heads/main",
   "sha": "example-sha",
   "repository": "octo-org/octo-repo",
   "repository_owner": "octo-org",
+  "actor_id": "12",
+  "repository_id": "74",
+  "repository_owner_id": "65",
   "run_id": "example-run-id",
   "run_number": "10",
   "run_attempt": "2",
@@ -81,22 +85,25 @@ topics:
   "event_name": "workflow_dispatch",
   "ref_type": "branch",
   "job_workflow_ref": "octo-org/octo-automation/.github/workflows/oidc.yml@refs/heads/main",
-  "iss": "https://token.actions.githubusercontent.com",
+  "iss": "{% ifversion ghes %}https://HOSTNAME/_services/token{% else %}https://token.actions.githubusercontent.com{% endif %}",
   "nbf": 1632492967,
   "exp": 1632493867,
   "iat": 1632493567
 }
 ```
 
-要查看 {% data variables.product.prodname_dotcom %} 的 OIDC 提供商支持的所有声明，请查看 https://token.actions.githubusercontent.com/.well-known/openid-configuration 中的 `claims_supported` 条目。
+要查看 {% data variables.product.prodname_dotcom %} 的 OIDC 提供商支持的所有声明，请查看以下位置的 `claims_supported` 条目：
+{% ifversion ghes %}`https://HOSTNAME/_services/token/.well-known/openid-configuration`{% else %}https://token.actions.githubusercontent.com/.well-known/openid-configuration{% endif %}。
 
 令牌包括标准受众、颁发者和主题声明：
 
-| 声明    | 描述                                                                                                                                                        |
-| ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `aud` | _（受众）_ 默认情况下，这是存储库所有者（如拥有存储库的组织）的 URL。 这是唯一可以自定义的声明。 您可以使用工具包命令设置自定义受众：[`core.getIDToken(audience)`](https://www.npmjs.com/package/@actions/core/v/1.6.0) |
-| `iss` | _（发行人）_ OIDC 令牌的发行人：`https://token.actions.githubusercontent.com`                                                                                         |
-| `sub` | _（主题）_ 定义要由云提供商验证的主题声明。 此设置对于确保仅以可预测的方式分配访问令牌至关重要。                                                                                                        |
+| 声明                                                                                                                       | 描述                                                                                                                                                        |
+| ------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `aud`                                                                                                                    | _（受众）_ 默认情况下，这是存储库所有者（如拥有存储库的组织）的 URL。 这是唯一可以自定义的声明。 您可以使用工具包命令设置自定义受众：[`core.getIDToken(audience)`](https://www.npmjs.com/package/@actions/core/v/1.6.0) |
+| `iss`                                                                                                                    | _(Issuer)_ OIDC 令牌的发行人：                                                                                                                                   |
+| {% ifversion ghes %}`https://HOSTNAME/_services/token`{% else %}`https://token.actions.githubusercontent.com`{% endif %} |                                                                                                                                                           |
+|                                                                                                                          |                                                                                                                                                           |
+| `sub`                                                                                                                    | _（主题）_ 定义要由云提供商验证的主题声明。 此设置对于确保仅以可预测的方式分配访问令牌至关重要。                                                                                                        |
 
 OIDC 令牌还包括其他标准声明：
 
@@ -112,22 +119,25 @@ OIDC 令牌还包括其他标准声明：
 
 令牌还包括 {% data variables.product.prodname_dotcom %} 提供的自定义声明：
 
-| 声明                 | 描述                                                                                                                                                           |
-| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `actor`            | 发起工作流程运行的个人帐户。                                                                                                                                               |
-| `base_ref`         | 工作流程运行中拉取请求的目标分支。                                                                                                                                            |
-| `environment`      | 作业使用的环境的名称。                                                                                                                                                  |
-| `event_name`       | 触发工作流程运行的事件的名称。                                                                                                                                              |
-| `head_ref`         | 工作流程运行中拉取请求的来源分支。                                                                                                                                            |
-| `job_workflow_ref` | 这是此作业使用的可重用工作流程的引用路径。 更多信息请参阅“[使用 OpenID 连接和可重用工作流程](/actions/deployment/security-hardening-your-deployments/using-openid-connect-with-reusable-workflows)”。 |
-| `ref`              | _（引用）_ 触发工作流程运行的 git 引用。                                                                                                                                     |
-| `ref_type`         | `ref` 的类型，例如："branch"。                                                                                                                                       |
-| `仓库`               | 运行工作流程的存储库。                                                                                                                                                  |
-| `repository_owner` | 存储 `repository` 的组织的名称。                                                                                                                                      |
-| `run_id`           | 触发工作流程的工作流程运行的 ID。                                                                                                                                           |
-| `run_number`       | 此工作流程已运行的次数。                                                                                                                                                 |
-| `run_attempt`      | 此工作流程运行的重试次数。                                                                                                                                                |
-| `工作流程`             | 工作流程的名称。                                                                                                                                                     |
+| 声明                    | 描述                                                                                                                                                           |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `actor`               | 发起工作流程运行的个人帐户。                                                                                                                                               |
+| `actor_id`            | 发起工作流程运行的个人帐户的 ID。                                                                                                                                           |
+| `base_ref`            | 工作流程运行中拉取请求的目标分支。                                                                                                                                            |
+| `environment`         | 作业使用的环境的名称。                                                                                                                                                  |
+| `event_name`          | 触发工作流程运行的事件的名称。                                                                                                                                              |
+| `head_ref`            | 工作流程运行中拉取请求的来源分支。                                                                                                                                            |
+| `job_workflow_ref`    | 这是此作业使用的可重用工作流程的引用路径。 更多信息请参阅“[使用 OpenID 连接和可重用工作流程](/actions/deployment/security-hardening-your-deployments/using-openid-connect-with-reusable-workflows)”。 |
+| `ref`                 | _（引用）_ 触发工作流程运行的 git 引用。                                                                                                                                     |
+| `ref_type`            | `ref` 的类型，例如："branch"。                                                                                                                                       |
+| `仓库`                  | 运行工作流程的存储库。                                                                                                                                                  |
+| `repository_id`       | 运行工作流程的存储库的 ID。                                                                                                                                              |
+| `repository_owner`    | 存储 `repository` 的组织的名称。                                                                                                                                      |
+| `repository_owner_id` | 存储 `repository` 的组织的 ID。                                                                                                                                     |
+| `run_id`              | 触发工作流程的工作流程运行的 ID。                                                                                                                                           |
+| `run_number`          | 此工作流程已运行的次数。                                                                                                                                                 |
+| `run_attempt`         | 此工作流程运行的重试次数。                                                                                                                                                |
+| `工作流程`                | 工作流程的名称。                                                                                                                                                     |
 
 ### 使用 OIDC 声明定义云角色的信任条件
 
@@ -199,12 +209,12 @@ OIDC 令牌中还支持许多其他声明，这些声明也可用于设置这些
 
 要在云提供商的信任关系中配置主题，必须将主题字符串添加到其信任配置中。 以下示例演示了各种云提供商如何以不同的方式接受相同的 `repo:octo-org/octo-repo:ref:refs/heads/demo-branch` 主题：
 
-|                     |                                                                                                   |
-| ------------------- | ------------------------------------------------------------------------------------------------- |
-| Amazon Web Services | `"token.actions.githubusercontent.com:sub": "repo:octo-org/octo-repo:ref:refs/heads/demo-branch"` |
-| Azure               | `repo:octo-org/octo-repo:ref:refs/heads/demo-branch`                                              |
-| Google Cloud 平台     | `(assertion.sub=='repo:octo-org/octo-repo:ref:refs/heads/demo-branch')`                           |
-| HashiCorp Vault     | `bound_subject="repo:octo-org/octo-repo:ref:refs/heads/demo-branch"`                              |
+|                     |                                                                                                                                                                    |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Amazon Web Services | `"{% ifversion ghes %}HOSTNAME/_services/token{% else %}token.actions.githubusercontent.com{% endif %}:sub": "repo:octo-org/octo-repo:ref:refs/heads/demo-branch"` |
+| Azure               | `repo:octo-org/octo-repo:ref:refs/heads/demo-branch`                                                                                                               |
+| Google Cloud 平台     | `(assertion.sub=='repo:octo-org/octo-repo:ref:refs/heads/demo-branch')`                                                                                            |
+| HashiCorp Vault     | `bound_subject="repo:octo-org/octo-repo:ref:refs/heads/demo-branch"`                                                                                               |
 
 更多信息请参阅“[为云提供商启用 OpenID Connect](#enabling-openid-connect-for-your-cloud-provider)”中列出的指南。
 

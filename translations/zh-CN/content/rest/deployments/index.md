@@ -1,6 +1,6 @@
 ---
-title: Deployments
-intro: 'The deployments API allows you to create and delete deploy keys, deployments, and deployment environments.'
+title: 部署
+intro: 部署 API 允许您创建和删除部署密钥、部署和部署环境。
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
@@ -17,3 +17,4 @@ children:
 redirect_from:
   - /rest/reference/deployments
 ---
+

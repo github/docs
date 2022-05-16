@@ -1,5 +1,5 @@
 ---
-title: Repository Webhook Configuration
+title: リポジトリwebhookの設定
 intro: ''
 versions:
   fpt: '*'
@@ -11,3 +11,4 @@ topics:
 miniTocMaxHeadingLevel: 3
 allowTitleToDifferFromFilename: true
 ---
+

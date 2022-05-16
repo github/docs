@@ -1,6 +1,6 @@
 ---
-title: Branches
-intro: The branches API allows you to modify branches and their protection settings.
+title: 分支
+intro: 分支 API 允许您修改分支及其保护设置。
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
@@ -16,3 +16,4 @@ children:
 redirect_from:
   - /rest/reference/branches
 ---
+

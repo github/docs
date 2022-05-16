@@ -101,9 +101,11 @@ describe('featuredLinks', () => {
 
       // Confirm that the following Dotcom-only links are NOT included on this Enterprise page.
       msg = `Dotcom-only article link is rendered, but should not be, on ${enterpriseVersionedLandingPage}`
-      expect($productArticlesLinks.text().includes('Working with the Container registry')).toBe(
-        false
-      )
+      expect(
+        $productArticlesLinks
+          .text()
+          .includes('Allowing your codespace to access a private image registry')
+      ).toBe(false)
       expect(
         $productArticlesLinks
           .text()

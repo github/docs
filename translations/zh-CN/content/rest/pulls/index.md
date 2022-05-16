@@ -1,6 +1,6 @@
 ---
-title: Pulls
-intro: 'The Pulls API allows you to list, view, edit, create, and even merge pull requests.'
+title: 拉取
+intro: 拉取 API 允许您列出、查看、编辑、创建甚至合并拉取请求。
 redirect_from:
   - /v3/pulls
   - /rest/reference/pulls
@@ -18,3 +18,4 @@ children:
   - /review-requests
   - /reviews
 ---
+

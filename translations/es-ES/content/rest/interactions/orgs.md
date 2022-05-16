@@ -1,6 +1,7 @@
 ---
-title: Organization
-intro: "The Organization Interactions API allows organization owners to temporarily restrict which type of user can comment, open issues, or create pull requests in the organization's public repositories."
+title: Organization interactions
+shortTitle: Organización
+intro: 'The Organization interactions API allows organization owners to temporarily restrict which type of user can comment, open issues, or create pull requests in the organization''s public repositories.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -10,10 +11,12 @@ miniTocMaxHeadingLevel: 3
 allowTitleToDifferFromFilename: true
 ---
 
-{% data reusables.interactions.interactions-detail %} Here's more about the types of {% data variables.product.product_name %} users:
+## About the Organization interactions API
 
-* {% data reusables.interactions.existing-user-limit-definition %} in the organization.
-* {% data reusables.interactions.contributor-user-limit-definition %} in the organization.
-* {% data reusables.interactions.collaborator-user-limit-definition %} in the organization.
+The Organization interactions API allows organization owners to temporarily restrict which type of user can comment, open issues, or create pull requests in the organization's public repositories. {% data reusables.interactions.interactions-detail %} Aquí puedes aprender más sobre los tipos de usuario de {% data variables.product.product_name %}:
 
-Setting the interaction limit at the organization level will overwrite any interaction limits that are set for individual repositories owned by the organization. To set different interaction limits for individual repositories owned by the organization, use the [Repository](#repository) interactions endpoints instead.
+* {% data reusables.interactions.existing-user-limit-definition %} en la organización.
+* {% data reusables.interactions.contributor-user-limit-definition %} en la organización.
+* {% data reusables.interactions.collaborator-user-limit-definition %} en la organización.
+
+Configurar el límite de interacciones a nivel organizacional sobreescribirá cualquier límite de interacción que se haya configurado para los repositorios individuales que pertenezcan a la organización. Para configurar los límites de interacción para los repositorios individuales que pertenezcan a la organización, mejor utiliza la terminal de interaciones del [Repositorio](#repository).

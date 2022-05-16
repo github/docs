@@ -26,7 +26,7 @@ topics:
 
 {% warning %}
 
-警告: 2021年の10月下旬の時点では、公式のOctokitライブラリはメンテナンスされていません。 For more information, see [this discussion in the octokit.js repository](https://github.com/octokit/octokit.js/discussions/620).
+警告: 2021年の10月下旬の時点では、公式のOctokitライブラリはメンテナンスされていません。 詳しい情報については[octokit.jsリポジトリのこのディスカッション](https://github.com/octokit/octokit.js/discussions/620)を参照してください。
 
 {% endwarning %}
 
@@ -42,7 +42,7 @@ topics:
 
 | ライブラリ名          | リポジトリ                                                                   |
 | --------------- | ----------------------------------------------------------------------- |
-| **github.dart** | [DirectMyFile/github.dart](https://github.com/DirectMyFile/github.dart) |
+| **github.dart** | [SpinlockLabs/github.dart](https://github.com/SpinlockLabs/github.dart) |
 
 ### Emacs Lisp
 

@@ -136,7 +136,7 @@ Si no especificas una versión de Node.js, {% data variables.product.prodname_do
 
 Los ejecutores alojados en {% data variables.product.prodname_dotcom %} tienen instalados administradores de dependencias de npm y Yarn. Puedes usar npm y Yarn para instalar dependencias en tu flujo de trabajo antes de construir y probar tu código. Los ejecutores Windows y Linux alojados en {% data variables.product.prodname_dotcom %} también tienen instalado Grunt, Gulp y Bower.
 
-Cuando utilizas ejecutores hospedados en {% data variables.product.prodname_dotcom %}, también puedes guardar las dependencias en el caché para acelerar tu flujo de trabajo. Para obtener más información, consulta la sección "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Almacenar las dependencias en caché para agilizar los flujos de trabajo</a>".
+{% if actions-caching %}You can also cache dependencies to speed up your workflow. For more information, see "[Caching dependencies to speed up workflows](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."{% endif %}
 
 ### Ejemplo con npm
 
@@ -228,9 +228,11 @@ El ejemplo anterior crea un archivo *.npmrc* con el siguiente contenido:
 always-auth=true
 ```
 
+{% if actions-caching %}
+
 ### Ejemplo de dependencias en caché
 
-Cuando utilices ejecutores hospedados en {% data variables.product.prodname_dotcom %}, puedes guardarlos en caché y restablecer las dependencias utilizando la [acción `setup-node`](https://github.com/actions/setup-node).
+You can cache and restore the dependencies using the [`setup-node` action](https://github.com/actions/setup-node).
 
 El siguiente ejemplo guarda las dependencias en caché para npm.
 
@@ -278,7 +280,9 @@ steps:
 - run: pnpm test
 ```
 
-Si tienes un requisito personalizado o necesitas controles más exactos para almacenar en caché, puedes utilizar la [acción `cache`](https://github.com/marketplace/actions/cache). Para obtener más información, consulta la sección "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Almacenar las dependencias en caché para agilizar los flujos de trabajo</a>".
+Si tienes un requisito personalizado o necesitas controles más exactos para almacenar en caché, puedes utilizar la [acción `cache`](https://github.com/marketplace/actions/cache). Para obtener más información, consulta la sección "[Almacenar las dependencias en caché para agilizar los flujos de trabajo](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)".
+
+{% endif %}
 
 ## Construir y probar tu código
 

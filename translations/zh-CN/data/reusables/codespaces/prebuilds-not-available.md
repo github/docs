@@ -1,1 +1,1 @@
-Prebuilds are not available if you choose to use a `devcontainer.json` file from a `.devcontainer/SUBDIRECTORY` location when you create a codespace. For information about choosing a `devcontainer.json` file, see "[Creating a codespace](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)."
+如果在创建代码空间时选择使用 `.devcontainer/SUBDIRECTORY` 位置的 `devcontainer.json` 文件，则预构建不可用。 有关选择 `devcontainer.json` 文件的信息，请参阅“[创建代码空间](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)”。

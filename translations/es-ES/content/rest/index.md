@@ -1,7 +1,7 @@
 ---
-title: GitHub REST API
-shortTitle: REST API
-intro: 'To create integrations, retrieve data, and automate your workflows, build with the {% data variables.product.prodname_dotcom %} REST API.'
+title: API de REST de GitHub
+shortTitle: API de REST
+intro: 'Para crear integraciones, recuperar datos y automatizar tus flujos de trabajo, compila con la API de REST de {% data variables.product.prodname_dotcom %}.'
 introLinks:
   quickstart: /rest/guides/getting-started-with-the-rest-api
 featuredLinks:
@@ -24,6 +24,7 @@ changelog:
 layout: product-landing
 redirect_from:
   - /v3
+  - /rest/reference
 versions:
   fpt: '*'
   ghes: '*'

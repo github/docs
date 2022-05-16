@@ -1,6 +1,6 @@
 ---
-title: Managing categories for discussions
-intro: 'You can categorize discussions to organize conversations for your community members, and you can choose a format for each category.'
+title: 管理讨论的类别
+intro: 您可以对讨论进行分类以组织社区成员的对话，并且可以为每个类别选择格式。
 permissions: Repository administrators and people with write or greater access to a repository can manage categories for discussions in the repository. Repository administrators and people with write or greater access to the source repository for organization discussions can manage categories for discussions in the organization.
 versions:
   fpt: '*'
@@ -21,18 +21,18 @@ redirect_from:
 
 ## 默认类别
 
-| 分类      | 目的                                                                    | 格式    |
-|:------- |:--------------------------------------------------------------------- |:----- |
-| 📣 公告    | 项目维护者提供的最新消息和新闻                                                       | 公告    |
-| #️⃣ 常规  | 与项目相关的任何及所有内容                                                         | 开放式讨论 |
-| 💡 想法    | 改变或改进项目的想法                                                            | 开放式讨论 |
-| 🗳 Polls | Polls with multiple options for the community to vote for and discuss | Polls |
-| 🙏 问答    | 供社区回答的问题，使用问题/回答的形式                                                   | 问题及解答 |
-| 🙌 展示和说明 | 与项目有关的创作、试验或测试                                                        | 开放式讨论 |
+| 分类      | 目的                  | 格式    |
+|:------- |:------------------- |:----- |
+| 📣 公告    | 项目维护者提供的最新消息和新闻     | 公告    |
+| #️⃣ 常规  | 与项目相关的任何及所有内容       | 开放式讨论 |
+| 💡 想法    | 改变或改进项目的想法          | 开放式讨论 |
+| 🗳 投票    | 具有多种选项的投票，供社区投票和讨论  | 投票    |
+| 🙏 问答    | 供社区回答的问题，使用问题/回答的形式 | 问题及解答 |
+| 🙌 展示和说明 | 与项目有关的创作、试验或测试      | 开放式讨论 |
 
 ## 创建类别
 
-1. On {% data variables.product.product_location %}, navigate to the main page of the repository or organization where you want to create a category.
+1. 在 {% data variables.product.product_location %} 上，导航到要在其中创建类别的存储库或组织的主页。
 {% data reusables.discussions.discussions-tab %}
 {% data reusables.discussions.edit-categories %}
 1. 单击 **New category（新类别）**。 ![仓库讨论类别列表上方的"新类别"按钮](/assets/images/help/discussions/click-new-category-button.png)
@@ -43,7 +43,7 @@ redirect_from:
 
 您可以编辑类别以更改类别的表情符号、标题、说明和讨论格式。
 
-1. On {% data variables.product.product_location %}, navigate to the main page of the repository or organization where you want to create a category.
+1. 在 {% data variables.product.product_location %} 上，导航到要在其中创建类别的存储库或组织的主页。
 {% data reusables.discussions.discussions-tab %}
 1. 在列表中类别右侧，单击 {% octicon "pencil" aria-label="The pencil icon" %}。 ![仓库类别列表中类别右侧的编辑按钮](/assets/images/help/discussions/click-edit-for-category.png)
 1. {% data reusables.discussions.edit-category-details %}
@@ -54,7 +54,7 @@ redirect_from:
 
 删除类别时，{% data variables.product.product_name %} 会将已删除类别中的所有讨论移到您选择的现有类别。
 
-1. On {% data variables.product.product_location %}, navigate to the main page of the repository or organization where you want to create a category.
+1. 在 {% data variables.product.product_location %} 上，导航到要在其中创建类别的存储库或组织的主页。
 {% data reusables.discussions.discussions-tab %}
 1. 在列表中类别右侧，单击 {% octicon "trash" aria-label="The trash icon" %}。 ![仓库类别列表中类别右侧的垃圾桶按钮](/assets/images/help/discussions/click-delete-for-category.png)
 1. 使用下拉菜单，为要删除的类别中的任何讨论选择新类别。 ![删除现有类别时用于选择新类别的下拉菜单](/assets/images/help/discussions/choose-new-category.png)

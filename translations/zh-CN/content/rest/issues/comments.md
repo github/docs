@@ -1,6 +1,8 @@
 ---
-title: Comments
-intro: 'The Issue Comments API supports listing, viewing, editing, and creating comments on issues and pull requests.'
+title: 问题评论
+allowTitleToDifferFromFilename: true
+shortTitle: 评论
+intro: 议题评论 API 支持管理对议题和拉取请求的评论。
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,4 +13,8 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-Issue Comments use [these custom media types](#custom-media-types). You can read more about the use of media types in the API [here](/rest/overview/media-types).
+## 关于议题评论 API
+
+议题评论 API 支持管理对议题和拉取请求的评论。 {% data reusables.pull_requests.issues-pr-shared-api %} 若要管理拉取请求审查评论，请改用[拉取请求审查评论 API](/rest/pulls/comments)。
+
+{% data reusables.pull_requests.issues-media-types %}

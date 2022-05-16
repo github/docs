@@ -1,6 +1,7 @@
 ---
-title: Review Comments
-intro: 'Pull request review comments are comments on a portion of the unified diff made during a pull request review.'
+title: Comentários das revisões de pull request
+shortTitle: Comentários de revisão
+intro: ''
 versions:
   fpt: '*'
   ghes: '*'
@@ -12,15 +13,17 @@ miniTocMaxHeadingLevel: 3
 allowTitleToDifferFromFilename: true
 ---
 
-Commit comments and issue comments are different from pull request review comments. You apply commit comments directly to a commit and you apply issue comments without referencing a portion of the unified diff. For more information, see "[Create a commit comment](/rest/reference/commits#create-a-commit-comment)" and "[Create an issue comment](/rest/reference/issues#create-an-issue-comment)."
+## About the Pull request review comments API
 
-### Custom media types for pull request review comments
+Os comentários de revisão de pull request são comentários em uma parte do diff unificado feitos durante uma revisão de pull request. Comentários de commit e comentários de problemas são são diferentes dos comentários de revisão de pull request. Você aplica comentários de submissão diretamente para um commit e aplica comentários de problema sem fazer referência a uma parte do diff unificado. Para obter mais informações, consulte "[Criar um comentário de commit](/rest/reference/commits#create-a-commit-comment)" e "[Criar um comentário de problema](/rest/reference/issues#create-an-issue-comment)".
 
-These are the supported media types for pull request review comments.
+### Tipos de mídia personalizados para comentários de revisão de pull request
+
+Estes são os tipos de mídia compatíveis com os comentários de revisão de pull request.
 
     application/vnd.github.VERSION.raw+json
     application/vnd.github.VERSION.text+json
     application/vnd.github.VERSION.html+json
     application/vnd.github.VERSION.full+json
 
-For more information, see "[Custom media types](/rest/overview/media-types)."
+Para obter mais informações, consulte "[tipos de mídia personalizados](/rest/overview/media-types)".

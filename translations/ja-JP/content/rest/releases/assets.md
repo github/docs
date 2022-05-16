@@ -1,5 +1,5 @@
 ---
-title: Release Assets 
+title: リリースアセット
 intro: ''
 versions:
   fpt: '*'
@@ -11,3 +11,4 @@ topics:
 miniTocMaxHeadingLevel: 3
 allowTitleToDifferFromFilename: true
 ---
+

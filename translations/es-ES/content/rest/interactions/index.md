@@ -1,6 +1,6 @@
 ---
-title: Interactions
-intro: 'With the Interactions API, people with owner or admin access can set the interaction limit for the users in their organizations and repositories.'
+title: Interacciones
+intro: 'Con la API de interacciones, las personas con acceso administrativo o de propietario pueden configurar el límite de interacciones para los usuarios en sus organizaciones y repositorios.'
 redirect_from:
   - /v3/interactions
   - /rest/reference/interactions
@@ -16,4 +16,4 @@ children:
   - /user
 ---
 
-Users interact with repositories by commenting, opening issues, and creating pull requests. The Interactions APIs allow people with owner or admin access to temporarily restrict interaction with public repositories to a certain type of user.
+Los usuarios interactuan con los repositorios al comentar, abrir informes de problemas y crear solicitudes de extracción. La API de interacciones permite a las personas con acceso de propietario o de administrador restringir la interacción con los repositorios públicos temporalmente a un tipo específico de usuario.

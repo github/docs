@@ -1,6 +1,8 @@
 ---
-title: User
-intro: 'The User Interactions API allows you to temporarily restrict which type of user can comment, open issues, or create pull requests on your public repositories.'
+title: ユーザインタラクション
+shortTitle: ユーザ
+allowTitleToDifferFromFilename: true
+intro: User interactions APIを使用すると、自分のパブリックリポジトリでコメント、Issueのオープン、プルリクエストの作成ができるユーザのタイプを一時的に制限することができます。
 versions:
   fpt: '*'
   ghec: '*'
@@ -9,10 +11,12 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-{% data reusables.interactions.interactions-detail %} Here's more about the types of {% data variables.product.product_name %} users:
+## User interactions APIについて
 
-* {% data reusables.interactions.existing-user-limit-definition %} from interacting with your repositories.
-* {% data reusables.interactions.contributor-user-limit-definition %} from interacting with your repositories.
-* {% data reusables.interactions.collaborator-user-limit-definition %} from interacting with your repositories.
+User interactions APIを使用すると、自分のパブリックリポジトリでコメント、Issueのオープン、プルリクエストの作成ができるユーザのタイプを一時的に制限することができます。 {% data reusables.interactions.interactions-detail %} {% data variables.product.product_name %} ユーザのタイプについては以下を参照してください。
 
-Setting the interaction limit at the user level will overwrite any interaction limits that are set for individual repositories owned by the user. To set different interaction limits for individual repositories owned by the user, use the [Repository](#repository) interactions endpoints instead.
+* {% data reusables.interactions.existing-user-limit-definition %}によるリポジトリの操作を制限します。
+* {% data reusables.interactions.contributor-user-limit-definition %}によるリポジトリの操作を制限します。
+* {% data reusables.interactions.collaborator-user-limit-definition %}によるリポジトリの操作を制限します。
+
+ユーザレベルでインタラクション制限を設定すると、ユーザが所有する個々のリポジトリに設定されているインタラクション制限は上書きされます。 ユーザが所有する個々のリポジトリに対して異なるインタラクション制限を設定するには、かわりに[リポジトリ](#repository)インタラクションエンドポイントを使用してください。

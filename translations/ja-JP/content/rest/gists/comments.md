@@ -1,6 +1,8 @@
 ---
-title: Comments
-intro: ''
+title: Gistコメント
+allowTitleToDifferFromFilename: true
+shortTitle: コメント
+intro: Gist comments APIを使うと、Gist上のコメントの表示と修正が行えます。
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,11 +13,15 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-### Custom media types for Gist comments
+## Gist comments APIについて
 
-These are the supported media types for gist comments.
+Gist comments APIを使うと、Gist上のコメントの表示と修正が行えます。 Gistに関する詳しい情報については「[Gistとのコンテンツの編集と共有](/get-started/writing-on-github/editing-and-sharing-content-with-gists)」を参照してください。
+
+### Gist コメントのカスタムメディアタイプ
+
+これらは、Gist コメントでサポートされているメディアタイプです。
 
     application/vnd.github.VERSION.raw
     application/vnd.github.VERSION.base64
 
-For more information about media types, see "[Custom media types](/rest/overview/media-types)."
+メディアタイプの詳しい情報については、「[カスタムメディアタイプ](/rest/overview/media-types)」を参照してください。

@@ -1,5 +1,5 @@
 ---
-title: Feeds
+title: 馈送
 intro: ''
 versions:
   fpt: '*'
@@ -11,13 +11,17 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-### Example of getting an Atom feed
+## 关于馈送 API
 
-To get a feed in Atom format, you must specify the `application/atom+xml` type in the `Accept` header. For example, to get the Atom feed for GitHub security advisories:
+要查看哪些源可供您使用，请使用[获取馈送](#get-feeds)操作。 然后，您可以通过向其中一个馈送 URL 发送请求来获取馈送。
+
+### 获取 Atom 馈送的示例
+
+要获取 Atom 格式的馈送，您必须在 `Accept` 标头中指定 `application/atom+xml` 类型。 例如，要获取 GitHub 安全通告的 Atom 馈送：
 
     curl -H "Accept: application/atom+xml" https://github.com/security-advisories
 
-#### Response
+#### 响应
 
 ```shell
 HTTP/2 200

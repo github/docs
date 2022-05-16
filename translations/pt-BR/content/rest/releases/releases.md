@@ -1,7 +1,6 @@
 ---
-title: Releases
-intro: 'The Releases API allows you to create, modify, and delete releases and release assets.
-'
+title: Versões
+intro: 'The Releases API allows you to create, modify, and delete releases and release assets.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -14,6 +13,6 @@ miniTocMaxHeadingLevel: 3
 
 {% note %}
 
-**Note:** The Releases API replaces the Downloads API. You can retrieve the download count and browser download URL from the endpoints in this API that return releases and release assets.
+**Observação:** A API de versões substitui a API de Downloads. Você pode recuperar a contagem de download e a URL de download do navegador a partir dos pontos de extremidades nesta API que retornam versões e liberam ativos.
 
 {% endnote %}
