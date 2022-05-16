@@ -1,15 +1,16 @@
 ---
-title: Repository Secrets
-intro: 'The Repository Secrets API allows a user to create, list, and delete secrets (such as access tokens for cloud services) for repositories that the user has access to.'
+title: Codespacesリポジトリシークレット
+allowTitleToDifferFromFilename: true
+shortTitle: リポジトリのシークレット
+intro: Codespaces repository secrets APIを使うと、ユーザはcodespace中で自分がアクセスできるリポジトリのためのシークレット（クラウドサービスのためのアクセストークンなど）の作成、リスト、削除ができます。
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>=3.5'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
 ---
 
-## Repository Secrets
+## Codespaces repository secrets APIについて
 
-The Repository Secrets API allows a user to create, list, and delete secrets (such as access tokens for cloud services) for repositories that the user has access to. These secrets are made available to the codespace at runtime. For more information, see "[Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)."
+Codespaces repository secrets APIを使うと、ユーザは自分がアクセスできるリポジトリのためのシークレット（クラウドサービスのためのアクセストークンなど）の作成、リスト、削除ができます。 これらのシークレットは、実行時にcodespaceで利用できるようになります。 詳しい情報については「[codespaceのための暗号化されたシークレットの管理](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)」を参照してください。

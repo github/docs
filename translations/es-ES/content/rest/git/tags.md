@@ -1,6 +1,8 @@
 ---
-title: Tags
-intro: 'A Git tag is similar to a [Git reference](/rest/reference/git#refs), but the Git commit that it points to never changes.'
+title: Git tags
+shortTitle: Etiquetas
+allowTitleToDifferFromFilename: true
+intro: 'The Git tags API lets you read and write tag objects to your Git database on {% data variables.product.product_name %}.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,4 +13,6 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-Git tags are helpful when you want to point to specific releases. These endpoints allow you to read and write [tag objects](https://git-scm.com/book/en/v1/Git-Internals-Git-References#Tags) to your Git database on {% data variables.product.product_name %}. The Git tags API only supports [annotated tag objects](https://git-scm.com/book/en/v1/Git-Internals-Git-References#Tags), not lightweight tags.
+## About the Git tags API
+
+Una etiqueta de git es similar a una [referencia de Git](/rest/reference/git#refs), pero la confirmación de Git a la que apunta jamás cambia. Las etiquetas de git son útiles cuando quieres apuntar a algún lanzamiento específico. Estas terminales te permiten leer y escribir [objetos de etiquetas](https://git-scm.com/book/en/v1/Git-Internals-Git-References#Tags)en tu base de datos de Git en {% data variables.product.product_name %}. La API de etiquetas de Git son compatibles únicamente con los [objetos de etiqueta anotados](https://git-scm.com/book/en/v1/Git-Internals-Git-References#Tags), no con etiquetas ligeras.

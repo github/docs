@@ -1,6 +1,6 @@
 ---
-title: Branches
-intro: 'The Branches API allows you to modify branches and their protection settings.'
+title: 分支
+intro: 分支 API 允许你修改分支及其保护设置。
 versions:
   fpt: '*'
   ghes: '*'
@@ -10,3 +10,4 @@ topics:
   - API
 miniTocMaxHeadingLevel: 3
 ---
+

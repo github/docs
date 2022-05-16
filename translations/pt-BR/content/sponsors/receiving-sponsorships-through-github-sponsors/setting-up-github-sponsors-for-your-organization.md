@@ -73,8 +73,6 @@ Para obter mais informações sobre como configurar o Stripe Connect usando o Op
 {% data reusables.sponsors.tax-form-information-org %}
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
-{% data reusables.sponsors.settings-tab %}
-{% data reusables.sponsors.country-of-residence %}
 {% data reusables.sponsors.overview-tab %}
 {% data reusables.sponsors.tax-form-link %}
 
@@ -90,5 +88,6 @@ Antes que sua organização possa se tornar uma organização patrocinada, você
 {% data reusables.sponsors.github-review-app %}
 
 ## Leia mais
+
 - [Sobre o {% data variables.product.prodname_sponsors %}](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)"
 - "[Recebendo patrocínio por meio de {% data variables.product.prodname_sponsors %}](/sponsors/receiving-sponsorships-through-github-sponsors)"

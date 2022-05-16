@@ -57,6 +57,10 @@ cat /workspaces/.codespaces/shared/environment-variables.json | jq '.ACTION_NAME
 * 检查最近是否将对开发容器配置的更改推送到启用了预构建的分支。 如果是这样，通常必须等到为此推送运行的预构建工作流程完成，然后预构建才会再次可用。
 * 如果最近未进行任何配置更改，请转到存储库的“ **操作** ”选项卡，单击工作流程列表中的 **{% octicon "codespaces" aria-label="The Codespaces icon" %} {% data variables.product.prodname_codespaces %} 预构建** ，然后检查分支的预构建工作流程运行是否成功。 如果工作流程的最新运行失败，并且其中一个或多个失败的运行包含对开发容器配置的更改，则关联分支将没有可用的预构建。
 
+## 预构建工作流程运行失败疑难解答
+
+如果为预构建配置运行的工作流程失败，则可以在调查时暂时禁用预构建配置。 更多信息请参阅“[管理预构建](/codespaces/prebuilding-your-codespaces/managing-prebuilds#disabling-a-prebuild-configuration)”。
+
 ## 延伸阅读
 
 - “[配置预构建](/codespaces/prebuilding-your-codespaces/configuring-prebuilds)”

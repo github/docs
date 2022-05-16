@@ -1,6 +1,8 @@
 ---
-title: Invitations
-intro: 'The Repository Invitations API allows users or external services to invite other users to collaborate on a repo.'
+title: リポジトリの招待
+allowTitleToDifferFromFilename: true
+shortTitle: 招待
+intro: Repository invitations APIを使うと、リポジトリでコラボレーションするための招待の表示と管理ができます。
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,12 +13,10 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-The invited users (or external services on behalf of invited users) can choose to accept or decline the invitations.
+## Repository invitations APIについて
 
-Note that the `repo:invite` [OAuth scope](/developers/apps/scopes-for-oauth-apps) grants targeted
-access to invitations **without** also granting access to repository code, while the
-`repo` scope grants permission to code as well as invitations.
+Repository invitations APIを使うと、リポジトリでコラボレーションするための招待の表示と管理ができます。 招待されたユーザ (または招待されたユーザを代行する外部サービス) は、招待を受諾または拒否できます。
 
-### Invite a user to a repository		
+ユーザをコラボレータとして追加するには、代わりにCollaborators APIを使ってください。 詳しい情報については「[リポジトリコラボレータを追加する](/rest/collaborators/collaborators#add-a-repository-collaborator)」を参照してください。
 
-Use the API endpoint for adding a collaborator. For more information, see "[Add a repository collaborator](/rest/collaborators/collaborators#add-a-repository-collaborator)."
+`repo` スコープはコードにも招待にもアクセス権を付与するのに対し、`repo:invite` [OAuth scope](/developers/apps/scopes-for-oauth-apps) は招待のみに絞ってアクセス権を付与し、リポジトリのコードにはアクセス権を付与**しない**ことに注意してください。

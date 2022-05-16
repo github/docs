@@ -1,6 +1,8 @@
 ---
-title: Timeline
-intro: 'The Timeline Events API can return different types of events triggered by timeline activity in issues and pull requests.'
+title: タイムラインイベント
+allowTitleToDifferFromFilename: true
+shortTitle: タイムライン
+intro: Timeline events APIは、Issue及びPull Request中のタイムラインアクティビティによってトリガーされる様々なタイプのイベントを返します。
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,6 +13,10 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-For more information about the specific events that you can receive from the Issue Events API, see "[Issue event types](/developers/webhooks-and-events/issue-event-types)." An events API for GitHub activity outside of issues and pull requests is also available. For more information, see the "[GitHub Events API](/developers/webhooks-and-events/github-event-types)."
+## Timeline events APIについて
 
-You can use this API to display information about issues and pull request or determine who should be notified of issue comments.
+Timeline events APIは、Issue及びPull Request中のタイムラインアクティビティによってトリガーされる様々なタイプのイベントを返します。 Issue Events APIから受信できる特定のイベントに関する詳しい情報については「[Issueイベントタイプ](/developers/webhooks-and-events/issue-event-types)」を参照してください。 Issue及びPull Request以外のGitHubアクティビリティに対するイベントAPIも利用できます。 詳細は、「[GitHub イベント API](/developers/webhooks-and-events/github-event-types)」を参照してください。
+
+この API を使用すると、Issue およびPull Requestに関する情報を表示したり、Issue コメントを通知する相手を決定したりできます。
+
+{% data reusables.pull_requests.issues-pr-shared-api %}

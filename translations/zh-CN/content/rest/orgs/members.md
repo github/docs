@@ -1,5 +1,7 @@
 ---
-title: Members
+title: 组织成员
+allowTitleToDifferFromFilename: true
+shortTitle: 成员
 intro: ''
 versions:
   fpt: '*'
@@ -10,3 +12,4 @@ topics:
   - API
 miniTocMaxHeadingLevel: 3
 ---
+

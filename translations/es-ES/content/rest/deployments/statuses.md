@@ -1,5 +1,5 @@
 ---
-title: Deployment Statuses
+title: Estados de Despliegue
 intro: ''
 versions:
   fpt: '*'
@@ -11,3 +11,4 @@ topics:
 miniTocMaxHeadingLevel: 3
 allowTitleToDifferFromFilename: true
 ---
+

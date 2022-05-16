@@ -1,6 +1,6 @@
 ---
-title: Commits
-intro: 'The commits API allows you to list, view, and compare commits in a repository. You can also interact with commit comments and commit statuses.'
+title: Confirmaciones
+intro: 'La API de confirmaciones te permite listar, ver y comparar confirmaciones en un repositorio. También puedes interactuar con los comentarios y estados de las confirmaciones.'
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
@@ -17,3 +17,4 @@ children:
 redirect_from:
   - /rest/reference/commits
 ---
+

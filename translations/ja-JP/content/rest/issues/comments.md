@@ -1,6 +1,8 @@
 ---
-title: Comments
-intro: 'The Issue Comments API supports listing, viewing, editing, and creating comments on issues and pull requests.'
+title: Issueのコメント
+allowTitleToDifferFromFilename: true
+shortTitle: コメント
+intro: Issue comments APIは、IssueやPull Requestのコメントの管理を支援します。
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,4 +13,8 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-Issue Comments use [these custom media types](#custom-media-types). You can read more about the use of media types in the API [here](/rest/overview/media-types).
+## Issue comments APIについて
+
+Issue comments APIは、IssueやPull Requestのコメントの管理を支援します。 {% data reusables.pull_requests.issues-pr-shared-api %} Pull Requestのレビューコメントを管理するには、[Pull request review comments API](/rest/pulls/comments)を使ってください。
+
+{% data reusables.pull_requests.issues-media-types %}

@@ -27,7 +27,7 @@ As funções funcionam de forma diferente para diferentes tipos de contas. Para 
 
 ## Contas pessoais
 
-A repository owned by a personal account has two permission levels: the *repository owner* and *collaborators*. For more information, see "[Permission levels for a personal account repository](/articles/permission-levels-for-a-user-account-repository)."
+Um repositório pertencente a uma conta pessoal tem dois níveis de permissão: o *proprietário do repositório* e *colaboradores*. Para obter mais informações, consulte "[Níveis de permissão para um repositório da conta pessoal](/articles/permission-levels-for-a-user-account-repository)".
 
 ## Contas da organização
 
@@ -47,7 +47,7 @@ Para obter mais informações sobre as permissões das contas corporativas, cons
 *Os proprietários de empresas* tem poder definitivo sobre a conta corporativa e pode tomar todas as ações na conta corporativa.{% ifversion ghec or ghes %} *Os gerentes de cobrança* podem gerenciar as configurações de cobrança da conta corporativa.{% endif %} Os integrantes e colaboradores externos de organizações pertencentes à conta da empresa são automaticamente integrantes da conta corporativa, embora não tenham acesso à conta corporativa propriamente dita ou às suas configurações. Para obter mais informações, consulte "[Funções em uma empresa](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)".
 
 {% ifversion ghec %}
-If an enterprise uses {% data variables.product.prodname_emus %}, members are provisioned as new personal accounts on {% data variables.product.prodname_dotcom %} and are fully managed by the identity provider. O {% data variables.product.prodname_managed_users %} tem acesso somente leitura a repositórios que não fazem parte da sua empresa e não podem interagir com usuários que não são também integrantes da empresa. Nas organizações pertencentes à empresa, é possível conceder ao {% data variables.product.prodname_managed_users %} os mesmos níveis de acesso granular disponíveis para organizações regulares. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_emus %}](/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)."
+Se uma empresa usar {% data variables.product.prodname_emus %}, serão fornecidos novos os integrantes como novas contas pessoais em {% data variables.product.prodname_dotcom %} e serão totalmente gerenciados pelo provedor de identidade. O {% data variables.product.prodname_managed_users %} tem acesso somente leitura a repositórios que não fazem parte da sua empresa e não podem interagir com usuários que não são também integrantes da empresa. Nas organizações pertencentes à empresa, é possível conceder ao {% data variables.product.prodname_managed_users %} os mesmos níveis de acesso granular disponíveis para organizações regulares. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_emus %}](/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)."
 {% endif %}
 {% endif %}
 

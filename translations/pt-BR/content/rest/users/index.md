@@ -1,6 +1,6 @@
 ---
-title: Users
-intro: The Users API allows to get public and private information about the authenticated user.
+title: Usuários
+intro: A API de Usuários permite obter informações públicas e privadas sobre o usuário autenticado.
 redirect_from:
   - /v3/users
   - /rest/reference/users
@@ -20,3 +20,4 @@ children:
   - /gpg-keys
   - /keys
 ---
+

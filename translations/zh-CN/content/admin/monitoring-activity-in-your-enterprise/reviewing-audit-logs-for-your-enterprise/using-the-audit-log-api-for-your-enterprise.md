@@ -1,7 +1,7 @@
 ---
-title: Using the audit log API for your enterprise
-intro: 'You can programmatically retrieve enterprise events with the{% ifversion ghec or ghes > 3.2 %} REST or{% endif %} GraphQL API.'
-shortTitle: Audit log API
+title: 使用企业的审核日志 API
+intro: '您可以使用{% ifversion ghec or ghes > 3.2 %} REST 或{% endif %} GraphQL API 以编程方式检索企业事件。'
+shortTitle: 审核日志 API
 permissions: 'Enterprise owners {% ifversion ghes %}and site administrators {% endif %}can use the audit log API.'
 miniTocMaxHeadingLevel: 3
 versions:
@@ -20,23 +20,23 @@ topics:
 
 您可以使用 GraphQL API{% ifversion ghec or ghes > 3.2 or ghae-issue-6648 %} 或 REST API{% endif %} 与审核日志交互。
 
-Timestamps and date fields in the API response are measured in [UTC epoch milliseconds](http://en.wikipedia.org/wiki/Unix_time).
+API 响应中的时间戳和日期字段以 [UTC 纪元毫秒](http://en.wikipedia.org/wiki/Unix_time)为单位进行度量。
 
 {% ifversion ghec or ghes > 3.0 or ghae %}
-## Querying the audit log GraphQL API
+## 查询审核日志 GraphQL API
 
-To ensure your intellectual property is secure, and you maintain compliance for your enterprise, you can use the audit log GraphQL API to keep copies of your audit log data and monitor:
+为确保知识产权得到保护并保持企业的合规，您可以使用审核日志 GraphQL API 保留审核日志数据的副本并监控：
 {% data reusables.audit_log.audit-log-api-info %}
 
-Note that you can't retrieve Git events using the {% ifversion not ghec %}audit log API.{% else %}GraphQL API. 要检索 Git 事件，请改为使用 REST API。 For more information, see `git` category actions in "[Audit log actions for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#git-category-actions)", and also the "[Enterprise administration](/rest/reference/enterprise-admin#audit-log)" and "[Organizations](/rest/reference/orgs#get-the-audit-log-for-an-organization) audit log endpoints in the REST API documentation."{% endif %}
+请注意，无法使用 {% ifversion not ghec %}审核日志 API{% else %}GraphQL API 检索 Git 事件。 要检索 Git 事件，请改为使用 REST API。 更多信息请参阅“[审核企业的日志操作](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#git-category-actions)”中的 `git` 类操作，以及 REST API 文档中的“[企业管理](/rest/reference/enterprise-admin#audit-log)”和“[组织](/rest/reference/orgs#get-the-audit-log-for-an-organization)审核日志端点”。{% endif %}
 
 GraphQL 响应可包含长达 90 至 120 天的数据。
 
-### Example 1: Members added to or removed from organizations in an enterprise
+### 示例 1：在企业中的组织中添加或删除的成员
 
-The query below fetches the audit logs for the `avocado-corp` enterprise and returns the first 10 organizations in the enterprise, where the only actions performed were adding or removing a member from an organization. The first 20 audit log entries for each organization are returned.
+下面的查询获取 `avocado-corp` 企业的审核日志，并返回企业中的前 10 个组织，其中执行的唯一操作是在组织中添加或删除成员。 将返回每个组织的前 20 个审核日志条目。
 
-This query uses the [auditlog](/graphql/reference/objects) field from the Organization object, and the [OrgAddMemberAuditEntry](/graphql/reference/objects#orgaddmemberauditentry) and [OrgRemoveMemberAuditEntry](/graphql/reference/objects#orgremovememberauditentry) objects. The  {% data variables.product.prodname_dotcom %} account querying the enterprise audit log must be an organization owner for each organization within the enterprise.
+此查询使用组织对象中的 [auditlog](/graphql/reference/objects) 字段，以及 [OrgAddMemberAuditEntry](/graphql/reference/objects#orgaddmemberauditentry) 和 [OrgRemoveMemberAuditEntry](/graphql/reference/objects#orgremovememberauditentry) 对象。 查询企业审核日志的 {% data variables.product.prodname_dotcom %} 帐户必须是企业内每个组织的组织所有者。
 
 ```shell
 {
@@ -70,14 +70,14 @@ This query uses the [auditlog](/graphql/reference/objects) field from the Organi
 }
 ```
 
-The GraphQL API will return at most 100 nodes per query. To retrieve additional results, you'll need to implement pagination. For more information, see "[Resource limitations](/graphql/overview/resource-limitations#node-limit)" in the GraphQL API documentation and [Pagination](https://graphql.org/learn/pagination/) in the official GraphQL documentation.
-### Example 2: Events in an organization, for a specific date and actor
+GraphQL API 对每个查询最多返回 100 个节点。 要检索其他结果，需要实现分页。 更多信息请参阅 GraphQL API 文档中的“[资源限制](/graphql/overview/resource-limitations#node-limit)”和官方 GraphQL 文档中的[分页](https://graphql.org/learn/pagination/)。
+### 示例 2：组织中特定日期和参与者的事件
 
-You can specify multiple search phrases, such as `created` and `actor`, by separating them in your query string with a space.
+您可以通过在查询字符串中用空格分隔多个搜索短语（ 如 `created` 和 `actor`）来指定这些搜索短语。
 
-The query below fetches all the audit logs for the `avocado-corp` enterprise that relate to the `octo-org` organization, where the actions were performed by the `octocat` user on or after the 1 Jan, 2022. The first 20 audit log entries are returned, with the newest log entry appearing first.
+下面的查询获取与 `octo-org` 组织相关的 `avocado-corp` 企业的所有审核日志，其中操作由 `octocat` 用户在 2022 年 1 月 1 日当天或之后执行。 将返回前 20 个审核日志条目，最新的日志条目首先显示。
 
-This query uses the [AuditEntry](/graphql/reference/interfaces#auditentry) interface. The {% data variables.product.prodname_dotcom %} account querying the enterprise audit log must be an owner of the `octo-org` organization.
+此查询使用 [AuditEntry](/graphql/reference/interfaces#auditentry) 接口。 查询企业审核日志的 {% data variables.product.prodname_dotcom %} 帐户必须是 `octo-org` 组织的所有者。
 
 ```shell
 {
@@ -105,22 +105,22 @@ This query uses the [AuditEntry](/graphql/reference/interfaces#auditentry) inter
 }
 ```
 
-For more query examples, see the [platform-samples repository](https://github.com/github/platform-samples/blob/master/graphql/queries).
+有关更多查询示例，请参阅 [platform-samples存储库](https://github.com/github/platform-samples/blob/master/graphql/queries)。
 
 {% endif %}
 {% ifversion ghec or ghes > 3.2 or ghae-issue-6648 %}
-## Querying the audit log REST API
+## 查询审核日志 REST API
 
-To ensure your intellectual property is secure, and you maintain compliance for your enterprise, you can use the audit log REST API to keep copies of your audit log data and monitor:
+为确保知识产权得到保护并保持企业的合规，您可以使用审核日志 REST API 保留审核日志数据的副本并监控：
 {% data reusables.audit_log.audited-data-list %}
 
 {% data reusables.audit_log.retention-periods %}
 
-For more information about the audit log REST API, see "[Enterprise administration](/rest/reference/enterprise-admin#audit-log)" and "[Organizations](/rest/reference/orgs#get-the-audit-log-for-an-organization)."
+有关审核日志 REST API 的详细信息，请参阅“[企业管理](/rest/reference/enterprise-admin#audit-log)”和“[组织](/rest/reference/orgs#get-the-audit-log-for-an-organization)”。
 
-### Example 1: All events in an enterprise, for a specific date, with pagination
+### 示例 1：企业中特定日期的所有事件，并带有分页
 
-The query below searches for audit log events created on Jan 1st, 2022 in the `avocado-corp` enterprise, and return the first page with a maximum of 100 items per page using [REST API pagination](/rest/overview/resources-in-the-rest-api#pagination):
+下面的查询搜索在 `avocado-corp` 企业中搜索 2022 年 1 月 1 日创建的审核日志事件，并使用 [REST API 分页](/rest/overview/resources-in-the-rest-api#pagination)返回第一页，每页最多包含 100 个项：
 
 ```shell
 curl -H "Authorization: token <em>TOKEN</em>" \
@@ -128,11 +128,11 @@ curl -H "Authorization: token <em>TOKEN</em>" \
 "https://api.github.com/enterprises/avocado-corp/audit-log?phrase=created:2022-01-01&page=1&per_page=100"
 ```
 
-### Example 2: Events for pull requests in an enterprise, for a specific date and actor
+### 示例 2：企业中特定日期和参与者的拉取请求事件
 
-You can specify multiple search phrases, such as `created` and `actor`, by separating them in your formed URL with the `+` symbol or ASCII character code `%20`.
+您可以指定多个搜索短语，例如 `created` 和 `actor`，方法是在形成的 URL 中使用 `+` 符号或 ASCII 字符代码 `%20`分隔这些短语。
 
-The query below searches for audit log events for pull requests, where the event occurred on or after Jan 1st, 2022 in the `avocado-corp` enterprise, and the action was performed by the `octocat` user:
+下面的查询搜索拉取请求的审核日志事件，其中事件发生在 `avocado-corp` 企业中的 2022 年 1 月 1 日或之后，并且该操作由 `octocat` 用户执行：
 
 ```shell
 curl -H "Authorization: token <em>TOKEN</em>" \

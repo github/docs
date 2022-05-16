@@ -43,6 +43,6 @@ Os proprietários e moderadores da organização também podem bloquear usuário
 ## Leia mais
 - "[Denunciar abuso ou spam](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"
 - "[Gerenciar o acesso de um indivíduo a um repositório da organização](/articles/managing-an-individual-s-access-to-an-organization-repository)"
-- "[Permission levels for a personal account repository](/articles/permission-levels-for-a-user-account-repository)"
+- "[Níveis de permissão para o repositório de uma conta pessoal](/articles/permission-levels-for-a-user-account-repository)"
 - "[Funções do repositório para uma organização](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"
 - "[Gerenciando moderadores na sua organização](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-moderators-in-your-organization)"

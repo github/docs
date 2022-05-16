@@ -4,7 +4,7 @@ intro: Puedes utilizar las vistas previas de la API para probar características
 redirect_from:
   - /v3/previews
 versions:
-  ghes: '*'
+  ghes: <3.4
   ghae: '*'
 topics:
   - API
@@ -47,14 +47,6 @@ Obtén una [lista de eventos](/rest/reference/issues#timeline) para un informe d
 
 {% endif %}
 
-{% ifversion ghes %}
-## Ambientes de pre-recepción
-
-Crea, lista, actualiza y borra ambientes para los ganchos de pre-recepción.
-
-**Tipo de medios personalizados:** `eye-scream-preview` **Anunciado en:**[2015-07-29](/rest/reference/enterprise-admin#pre-receive-environments)
-{% endif %}
-
 {% ifversion ghes < 3.3 %}
 ## Proyectos
 
@@ -88,7 +80,7 @@ Ver todos los [códigos de conducta](/rest/reference/codes-of-conduct) u obtener
 
 {% endif %}
 
-{% ifversion ghae or ghes %}
+{% ifversion ghes < 3.3 %}
 
 ## Webhooks globales
 

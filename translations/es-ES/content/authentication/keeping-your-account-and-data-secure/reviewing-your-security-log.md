@@ -1,6 +1,6 @@
 ---
 title: Revisar tu registro de seguridad
-intro: You can review the security log for your personal account to better understand actions you've performed and actions others have performed that involve you.
+intro: 'Puedes revisar la bitácora de seguridad de tu cuenta personal para entender mejor las acciones que has realizado y las que otros han realizado, las cuales te involucran.'
 miniTocMaxHeadingLevel: 3
 redirect_from:
   - /articles/reviewing-your-security-log
@@ -81,13 +81,13 @@ Un resumen de algunas de las acciones más frecuentes que se registran como even
 
 ### acciones de la categoría `codespaces`
 
-| Acción                               | Descripción                                                                                                                                                                                                                  |
-| ------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `create (crear)`                     | Se activa cuando [creas un codespace](/github/developing-online-with-codespaces/creating-a-codespace).                                                                                                                       |
-| `resume`                             | Se activa cuando reanudas un codespace suspendido.                                                                                                                                                                           |
-| `delete`                             | Se activa cuando [borras un codespace](/github/developing-online-with-codespaces/deleting-a-codespace).                                                                                                                      |
-| `manage_access_and_security`         | Se activa cuando actualizas [los repositorios a los que puede acceder un codespace](/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces).                                                  |
-| `trusted_repositories_access_update` | Triggered when you change your personal account's [access and security setting for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces). |
+| Acción                               | Descripción                                                                                                                                                                                                                      |
+| ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `create (crear)`                     | Se activa cuando [creas un codespace](/github/developing-online-with-codespaces/creating-a-codespace).                                                                                                                           |
+| `resume`                             | Se activa cuando reanudas un codespace suspendido.                                                                                                                                                                               |
+| `delete`                             | Se activa cuando [borras un codespace](/github/developing-online-with-codespaces/deleting-a-codespace).                                                                                                                          |
+| `manage_access_and_security`         | Se activa cuando actualizas [los repositorios a los que puede acceder un codespace](/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces).                                                      |
+| `trusted_repositories_access_update` | Se activa cuando cambias los [ajustes de acceso y seguridad para {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces) en tu cuenta personal. |
 
 ### acciones de la categoría `marketplace_agreement_signature`
 
@@ -166,6 +166,7 @@ Un resumen de algunas de las acciones más frecuentes que se registran como even
 | `create (crear)`                                                                        | Se activa cuando [se crea un repositorio nuevo](/articles/creating-a-new-repository).                                                                                                                                                                                                                                                          |
 | `destroy (destruir)`                                                                    | Se activa cuando [se elimina un repositorio](/articles/deleting-a-repository).{% ifversion fpt or ghec %}
 | `inhabilitar`                                                                           | Se activa cuando un repositorio se inhabilita (por ejemplo, por [fondos insuficientes](/articles/unlocking-a-locked-account)).{% endif %}{% ifversion fpt or ghec %}
+| `download_zip`                                                                          | Se activa cuando se descarga un archivo ZIP o TAR de un repositorio.                                                                                                                                                                                                                                                                           |
 | `habilitar`                                                                             | Se activa cuando se vuelve a habilitar un repositorio.{% endif %}
 | `remove_member (eliminar miembro)`                                                      | Se activa cuando se elimina {% data variables.product.product_name %} un usuario [de un repositorio como colaborador](/articles/removing-a-collaborator-from-a-personal-repository).                                                                                                                                                           |
 | `remove_topic (eliminar tema)`                                                          | Se activa cuando un propietario del repositorio elimina un tema de un repositorio.                                                                                                                                                                                                                                                             |

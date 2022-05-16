@@ -24,10 +24,10 @@ shortTitle: 编辑公告数据库
 ## 在 GitHub Advisory 数据库中编辑通告
 
 1. 导航到 https://github.com/advisories。
-2. Select the security advisory you would like to contribute to.
-3. On the right-hand side of the page, click the **Suggest improvements for this vulnerability** link. ![Suggest improvements link](/assets/images/help/security/suggest-improvements-to-advisory.png)
-4. In the contribution form, make the desired improvements. You can edit or add any detail.
-5. When you finish editing the advisory, click **Submit improvements**.
-6. Once you submit your improvements, a pull request containing your changes will be created for review in [github/advisory-database](https://github.com/github/advisory-database) by the {% data variables.product.prodname_security %} curation team. If the advisory originated from a {% data variables.product.prodname_dotcom %} repository, we will also tag the original publisher for optional commentary. You can view the pull request and get notifications when it is updated or closed.
+2. 选择您要参与的安全公告。
+3. 在页面右侧，单击 **Suggest improvements for this vulnerability（建议对此漏洞的改进）**链接。 ![建议改进链接](/assets/images/help/security/suggest-improvements-to-advisory.png)
+4. 在贡献表单中，进行所需的改进。 您可以编辑或添加任何详细信息。
+5. 完成对公告的编辑后，单击 **Submit improvements（提交改进）**。
+6. 提交改进后，将创建一个包含您的更改的拉取请求，以供 {% data variables.product.prodname_security %} 策展团队在 [github/advisory-database](https://github.com/github/advisory-database) 中进行审核。 如果公告源自 {% data variables.product.prodname_dotcom %} 存储库，我们还将标记原始发布者以提供可选评论。 您可以查看拉取请求，并在其更新或关闭时收到通知。
 
-You can also open a pull request directly on an advisory file in the [github/advisory-database](https://github.com/github/advisory-database) repository. For more information, see the [contribution guidelines](https://github.com/github/advisory-database/blob/main/CONTRIBUTING.md). 
+您还可以直接在 [github/advisory-database](https://github.com/github/advisory-database) 存储库中的公告文件上打开拉取请求。 更多信息请参阅[参与指南](https://github.com/github/advisory-database/blob/main/CONTRIBUTING.md)。 

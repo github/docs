@@ -1,6 +1,6 @@
 ---
-title: Commit comments
-intro: ''
+title: コミットのコメント
+intro: コミットコメントAPIを使用すると、特定のコミットに関連するコメントの作成と編集ができます。
 versions:
   fpt: '*'
   ghes: '*'
@@ -12,14 +12,17 @@ miniTocMaxHeadingLevel: 3
 allowTitleToDifferFromFilename: true
 ---
 
-### Custom media types for commit comments
+## コミットコメントAPIについて
 
-These are the supported media types for commit comments. You can read more
-about the use of media types in the API [here](/rest/overview/media-types).
+コミットコメントAPIを使用すると、特定のコミットに関連するコメントの作成と編集ができます。
+
+### コミットコメントのカスタムメディアタイプ
+
+以下がコミットコメントでサポートされているメディアタイプです。 API におけるメディアタイプの使用に関する詳細は、[こちら](/rest/overview/media-types)を参照してください。
 
     application/vnd.github-commitcomment.raw+json
     application/vnd.github-commitcomment.text+json
     application/vnd.github-commitcomment.html+json
     application/vnd.github-commitcomment.full+json
 
-For more information, see "[Custom media types](/rest/overview/media-types)."
+詳しい情報については、「[カスタムメディアタイプ](/rest/overview/media-types)」を参照してください。

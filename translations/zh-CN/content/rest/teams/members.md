@@ -1,5 +1,7 @@
 ---
-title: Members
+title: 团队成员
+allowTitleToDifferFromFilename: true
+shortTitle: 成员
 intro: ''
 versions:
   fpt: '*'
@@ -11,12 +13,14 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-This API is only available to authenticated members of the team's organization. OAuth access tokens require the `read:org` [scope](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
+## 关于团队成员 API
+
+{% data reusables.organizations.team-api %}
 
 {% ifversion fpt or ghes or ghec %}
 {% note %}
 
-**Note:** When you have team synchronization set up for a team with your organization's identity provider (IdP), you will see an error if you attempt to use the API for making changes to the team's membership. If you have access to manage group membership in your IdP, you can manage GitHub team membership through your identity provider, which automatically adds and removes team members in an organization. For more information, see "<a href="/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization" class="dotcom-only">Synchronizing teams between your identity provider and GitHub</a>."
+**注：**当您为具有组织身份提供程序 (IdP) 的团队设置了团队同步时，如果尝试使用 API 更改团队的成员身份，则会看到错误。 如果您有权访问 IdP 中的组成员身份，可以通过身份提供程序管理 GitHub 团队成员身份，该提供程序会自动添加和删除组织的成员。 更多信息请参阅“<a href="/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization" class="dotcom-only">在身份提供程序与 GitHub 之间同步团队</a>”。
 
 {% endnote %}
 

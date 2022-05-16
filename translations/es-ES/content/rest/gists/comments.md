@@ -1,6 +1,8 @@
 ---
-title: Comments
-intro: ''
+title: Gist comments
+allowTitleToDifferFromFilename: true
+shortTitle: Comentarios
+intro: The Gist comments API lets you view and modify comments on a gist.
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,11 +13,15 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-### Custom media types for Gist comments
+## About the Gist comments API
 
-These are the supported media types for gist comments.
+The Gist comments API lets you view and modify comments on a gist. For more information about gists, see "[Editing and sharing content with gists](/get-started/writing-on-github/editing-and-sharing-content-with-gists)."
+
+### Tipos de medios personalizados para los comentarios de los Gists
+
+Estos son los tipos de medios compatibles para los comentarios de los gists.
 
     application/vnd.github.VERSION.raw
     application/vnd.github.VERSION.base64
 
-For more information about media types, see "[Custom media types](/rest/overview/media-types)."
+Para obtener más información acerca de los tipos de medios, consulta la sección "[Tipos de medios personalizados](/rest/overview/media-types)".

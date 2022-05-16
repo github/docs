@@ -20,14 +20,6 @@ You may want to use a dark theme to reduce power consumption on certain devices,
 
 {% ifversion fpt or ghes > 3.2 or ghae-issue-4618 or ghec %}If you have low vision, you may benefit from a high contrast theme, with greater contrast between foreground and background elements.{% endif %}{% ifversion fpt or ghae-issue-4619 or ghec %} If you have colorblindness, you may benefit from our light and dark colorblind themes.
 
-{% ifversion fpt or ghec %}
-{% note %}
-
-**Note:** The colorblind themes are currently in public beta. For more information on enabling features in public beta, see "[Exploring early access releases with feature preview](/get-started/using-github/exploring-early-access-releases-with-feature-preview)."
-
-{% endnote %}
-{% endif %}
-
 {% endif %}
 
 {% data reusables.user-settings.access_settings %}

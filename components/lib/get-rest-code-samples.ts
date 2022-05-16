@@ -83,9 +83,9 @@ export function getGHExample(operation: Operation, codeSample: CodeSample) {
     requestBodyParams = Object.keys(codeSample.request.bodyParameters)
       .map((key) => {
         if (typeof codeSample.request.bodyParameters[key] === 'string') {
-          return `-f ${key}='${codeSample.request.bodyParameters[key]}'`
+          return `-f ${key}='${codeSample.request.bodyParameters[key]}'\n`
         } else {
-          return `-F ${key}=${codeSample.request.bodyParameters[key]}`
+          return `-F ${key}=${codeSample.request.bodyParameters[key]}\n`
         }
       })
       .join(' ')
@@ -97,7 +97,9 @@ export function getGHExample(operation: Operation, codeSample: CodeSample) {
     requestPath,
     requestBodyParams,
   ].filter(Boolean)
-  return `gh api \\\n  ${args.join(' \\\n  ')}`
+  return `# GitHub CLI api\n# https://cli.github.com/manual/gh_api\n\ngh api \\\n  ${args.join(
+    ' \\\n  '
+  )}`
 }
 
 /*
@@ -135,8 +137,14 @@ export function getJSExample(operation: Operation, codeSample: CodeSample) {
       queryParameters = `{?${queryParms.join(',')}}`
     }
   }
+  const comment = `// Octokit.js\n// https://github.com/octokit/core.js#readme\n`
+  const require = `const octokit = new Octokit(${stringify(
+    { auth: 'personal-access-token123' },
+    null,
+    2
+  )})\n\n`
 
-  return `await octokit.request('${operation.verb.toUpperCase()} ${
+  return `${comment}${require}await octokit.request('${operation.verb.toUpperCase()} ${
     operation.requestPath
   }${queryParameters}', ${stringify(parameters, null, 2)})`
 }

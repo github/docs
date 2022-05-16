@@ -237,6 +237,12 @@ git commit
 
 您可以在 {% data variables.product.product_name %} 上提及人员或[团队](/articles/setting-up-teams/)，方法是键入 <kbd>@</kbd> 加上其用户名或团队名称。 这将触发通知并提请他们注意对话。 如果您在编辑的评论中提及某人的用户名或团队名称，该用户也会收到通知。 有关通知的更多信息，请参阅{% ifversion fpt or ghes or ghae or ghec %}"[关于通知](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}“[关于通知](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}”。
 
+{% note %}
+
+**注意：**某人仅在其对存储库具有读取权限以及为组织成员（如果存储库归组织所有）时，才会收到有关提及的通知。
+
+{% endnote %}
+
 `@github/support 您如何看待这些更新？`
 
 ![渲染的 @提及](/assets/images/help/writing/mention-rendered.png)
@@ -317,6 +323,8 @@ You can also use words, to fit your writing style more closely[^note].
 {% tip %}
 
 **注意**：Markdown 中脚注的位置不会影响该脚注的呈现位置。 您可以在引用脚注后立即写脚注，脚注仍将呈现在 Markdown 的底部。
+
+维基不支持脚注。
 
 {% endtip %}
 {% endif %}

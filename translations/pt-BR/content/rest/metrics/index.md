@@ -1,6 +1,6 @@
 ---
-title: Metrics
-intro: 'The repository metrics API allows you to retrieve community profile, statistics, and traffic for your repository.'
+title: Métricas
+intro: 'A API de métricas do repositório permite que você recupere o perfil da comunidade, estatísticas e tráfego para seu repositório.'
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /rest/reference/repository-metrics
@@ -18,3 +18,4 @@ children:
   - /statistics
   - /traffic
 ---
+

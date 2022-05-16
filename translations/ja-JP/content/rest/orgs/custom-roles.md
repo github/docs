@@ -1,5 +1,5 @@
 ---
-title: Custom Repository Roles
+title: カスタムリポジトリロール
 intro: ''
 versions:
   fpt: '*'
@@ -12,3 +12,4 @@ allowTitleToDifferFromFilename: true
 redirect_from:
   - /rest/orgs/custom_roles
 ---
+

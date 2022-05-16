@@ -1,5 +1,7 @@
 ---
-title: Webhooks
+title: Webhooks da organização
+allowTitleToDifferFromFilename: true
+shortTitle: Webhooks
 intro: ''
 versions:
   fpt: '*'
@@ -11,25 +13,27 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-Organization webhooks allow you to receive HTTP `POST` payloads whenever certain events happen in an organization. {% data reusables.webhooks.webhooks-rest-api-links %}
+## About the Organization webhooks API
 
-For more information on actions you can subscribe to, see "[{% data variables.product.prodname_dotcom %} event types](/developers/webhooks-and-events/github-event-types)."
+Os webhooks da organização permitem que você receba cargas de HTTP do tipo `POST` sempre que certos eventos ocorrerem dentro da organização. {% data reusables.webhooks.webhooks-rest-api-links %}
 
-### Scopes & Restrictions
+Para obter mais informações sobre ações que você pode assinar, consulte "[ tipos de evento de {% data variables.product.prodname_dotcom %}](/developers/webhooks-and-events/github-event-types)".
 
-All actions against organization webhooks require the authenticated user to be an admin of the organization being managed. Additionally, OAuth tokens require the `admin:org_hook` scope. For more information, see "[Scopes for OAuth Apps](/developers/apps/scopes-for-oauth-apps)."
+### Scopes and restrictions
 
-In order to protect sensitive data which may be present in webhook configurations, we also enforce the following access control rules:
+Todas as ações contra webhooks da organização exigem que o usuário autenticado seja um administrador da organização que está sendo gerenciada. Além disso, os tokens do OAuth requerem o escopo `admin:org_hook`. Para obter mais informações, consulte "[Escopos para aplicativos OAuth](/developers/apps/scopes-for-oauth-apps)."
 
-- OAuth applications cannot list, view, or edit webhooks which they did not create.
-- Users cannot list, view, or edit webhooks which were created by OAuth applications.
+Para proteger dados sensíveis que podem estar presentes nas configurações do webhook, também aplicamos as seguintes regras de controle de acesso:
 
-### Receiving Webhooks
+- Os aplicativos OAuth não podem listar, visualizar ou editar webhooks que não criaram.
+- Os usuários não podem listar, visualizar ou editar webhooks que foram criados por aplicativos OAuth.
 
-In order for {% data variables.product.product_name %} to send webhook payloads, your server needs to be accessible from the Internet. We also highly suggest using SSL so that we can send encrypted payloads over HTTPS.
+### Receber Webhooks
 
-For more best practices, [see our guide](/guides/best-practices-for-integrators/).
+Para que {% data variables.product.product_name %} envie cargas de webhook, seu servidor deve ser acessível pela internet. É altamente recomendável o uso de SSL para que possamos enviar cargas criptografadas por HTTPS.
 
-#### Webhook headers
+Para obter mais práticas recomendadas, [consulte nosso guia](/guides/best-practices-for-integrators/).
 
-{% data variables.product.product_name %} will send along several HTTP headers to differentiate between event types and payload identifiers. See [webhook headers](/webhooks/event-payloads/#delivery-headers) for details.
+#### Cabeçalhos de webhook
+
+{% data variables.product.product_name %} enviará ao longo de vários cabeçalhos de HTTP para diferenciar entre tipos de evento e identificadores de carga. Consulte [cabeçalhos de webhook](/webhooks/event-payloads/#delivery-headers) para obter informações.

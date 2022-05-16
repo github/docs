@@ -26,7 +26,7 @@ topics:
 
 {% warning %}
 
-Warning: As of late October 2021, the offical Octokit libraries are not currently maintained. For more information, see [this discussion in the octokit.js repository](https://github.com/octokit/octokit.js/discussions/620).
+Advertencia: Desde la segunda mitad de octubre del 2021, ya no se están manteniendo las librerías oficiales de Octokit. Para obtener más información, consulta [este debate en el repositorio de octokit.js](https://github.com/octokit/octokit.js/discussions/620).
 
 {% endwarning %}
 
@@ -42,7 +42,7 @@ Warning: As of late October 2021, the offical Octokit libraries are not currentl
 
 | Nombre de la librería | Repositorio                                                             |
 | --------------------- | ----------------------------------------------------------------------- |
-| **github.dart**       | [DirectMyFile/github.dart](https://github.com/DirectMyFile/github.dart) |
+| **github.dart**       | [SpinlockLabs/github.dart](https://github.com/SpinlockLabs/github.dart) |
 
 ### Emacs Lisp
 

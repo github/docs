@@ -1,6 +1,8 @@
 ---
-title: Statistics
-intro: 'The Repository Statistics API allows you to fetch the data that {% data variables.product.product_name %} uses for visualizing different types of repository activity.'
+title: Repository statistics
+shortTitle: Estadísticas
+allowTitleToDifferFromFilename: true
+intro: 'The Repository statistics API allows you to fetch the data that {% data variables.product.product_name %} uses for visualizing different types of repository activity.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,21 +13,20 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-### A word about caching
+## About the Repository statistics API
 
-Computing repository statistics is an expensive operation, so we try to return cached
-data whenever possible.  If the data hasn't been cached when you query a repository's
-statistics, you'll receive a `202` response; a background job is also fired to
-start compiling these statistics. Give the job a few moments to complete, and
-then submit the request again. If the job has completed, that request will receive a
-`200` response with the statistics in the response body.
+The Repository statistics API allows you to fetch the data that {% data variables.product.product_name %} uses for visualizing different types of repository activity.
 
-Repository statistics are cached by the SHA of the repository's default branch; pushing to the default branch resets the statistics cache.
+### Unas palabras sobre el almacenamiento en caché
 
-### Statistics exclude some types of commits
+El calcular las estadísitcas del repositorio es una operación costosa, así que intentamos devolver los datos almacenados en caché cuando nos es posible.  Si los datos no se han almacenado en caché cuando consultas la estadística de un repositorio, recibirás una respuesta `202`; también se dispara un job en segundo plano para comenzar a compilar estas estadísticas. Permite que el job se complete, y luego emite la solicitud nuevamente. Si el job ya terminó, esa solicitud recibirá una respuesta `200` con la estadística en el cuerpo de la respuesta.
 
-The statistics exposed by the API match the statistics shown by [different repository graphs](/github/visualizing-repository-data-with-graphs/about-repository-graphs).
+El SHA de la rama predeterminada del repositorio guarda en caché las estadísticas del repositorio; el subir información a la rama predeterminada restablece el caché de de las estadísticas.
 
-To summarize:
-- All statistics exclude merge commits.
-- Contributor statistics also exclude empty commits.
+### Las estadísticas excluyen algunos tipos de confirmaciones
+
+Las estadísticas que expone la API empatan con aquellas que muestran [diversas gráficas del repositorio](/github/visualizing-repository-data-with-graphs/about-repository-graphs).
+
+Para resumir:
+- Todas las estadísticas excluyen las confirmaciones de fusión.
+- Las estadísticas del colaborador también excluyen a las confirmaciones vacías.

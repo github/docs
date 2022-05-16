@@ -10,47 +10,23 @@ redirect_from:
   - /github/searching-for-information-on-github/enabling-githubcom-repository-search-in-github-enterprise-server
   - /github/searching-for-information-on-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-in-github-enterprise-server
 versions:
-  fpt: '*'
   ghes: '*'
   ghae: '*'
-  ghec: '*'
 topics:
   - GitHub search
 ---
 
-## Sobre a pesquisa de repositórios de {% data variables.product.prodname_dotcom_the_website %} a partir do {% ifversion fpt or ghec %}seu ambiente empresarial privado{% else %}{% data variables.product.product_name %}{% endif %}
+## About search for {% data variables.product.prodname_dotcom_the_website %} repositories from {% data variables.product.product_name %}
 
-Você pode pesquisar repositórios privados designados em {% data variables.product.prodname_ghe_cloud %} a partir do {% ifversion fpt or ghec %} seu {% data variables.product.prodname_enterprise %} ambiente{% else %}{% data variables.product.product_location %}{% ifversion ghae %} em {% data variables.product.prodname_ghe_managed %}{% endif %}{% endif %}. {% ifversion fpt or ghec %}, por exemplo, se você usar {% data variables.product.prodname_ghe_server %}, você pode pesquisar repositórios privados da sua empresa a partir de {% data variables.product.prodname_ghe_cloud %} na interface web por {% data variables.product.prodname_ghe_server %}.{% endif %}
+You can search for designated private repositories on {% data variables.product.prodname_ghe_cloud %} from {% data variables.product.product_location %}{% ifversion ghae %} on {% data variables.product.prodname_ghe_managed %}{% endif %}. For more information about searching across environments, see "[About searching on GitHub](/github/searching-for-information-on-github/getting-started-with-searching-on-github/about-searching-on-github#searching-repositories-on-githubcom-from-your-private-enterprise-environment)."
 
 ## Pré-requisitos
 
-- Um proprietário de empresa para {% ifversion fpt or ghec %}seu ambiente {% data variables.product.prodname_enterprise %} privado{% else %}{% data variables.product.product_name %}{% endif %} deve habilitar {% data variables.product.prodname_github_connect %} e {% data variables.product.prodname_unified_search %} para repositórios privados. Para obter mais informações, consulte o seguinte.
-{% ifversion fpt %}
-  - "[Enabling {% data variables.product.prodname_unified_search %} for your enterprise](/enterprise-server@latest/admin/configuration/configuring-github-connect/enabling-unified-search-for-your-enterprise)" in the {% data variables.product.prodname_ghe_server %} documentation{% endif %}{% ifversion ghec %}
-  - "[Enabling {% data variables.product.prodname_unified_search %} for your enterprise](/enterprise-server@latest/admin/configuration/configuring-github-connect/enabling-unified-search-for-your-enterprise)" in the {% data variables.product.prodname_ghe_server %} documentation{% endif %}{% ifversion ghes %}
-  - "[Enabling {% data variables.product.prodname_unified_search %} for your enterprise](/admin/configuration/configuring-github-connect/enabling-unified-search-for-your-enterprise)"{% endif %}{% ifversion fpt or ghec or ghae %}
-  - "[Enabling {% data variables.product.prodname_unified_search %} for your enterprise](/github-ae@latest/admin/configuration/configuring-github-connect/enabling-unified-search-for-your-enterprise)"{% ifversion fpt or ghec %} in the {% data variables.product.prodname_ghe_managed %} documentation{% endif %}
-{% endif %}
+An enterprise owner for {% data variables.product.product_name %} must enable {% data variables.product.prodname_github_connect %} and {% data variables.product.prodname_unified_search %} for private repositories. Para obter mais informações, consulte "[Habilitar {% data variables.product.prodname_unified_search %} para a sua empresa](/admin/configuration/configuring-github-connect/enabling-unified-search-for-your-enterprise)."
 
-- Você já deve ter acesso aos repositórios privados e conectar sua conta {% ifversion fpt or ghec %}no seu ambiente privado de {% data variables.product.prodname_enterprise %}{% else %}em {% data variables.product.product_name %}{% endif %} com sua conta em {% data variables.product.prodname_dotcom_the_website %}. Para obter mais informações sobre os repositórios que você pode pesquisar, consulte "[Sobre pesquisa no GitHub](/github/searching-for-information-on-github/getting-started-with-searching-on-github/about-searching-on-github#searching-repositories-on-githubcom-from-your-private-enterprise-environment)".
-
-## Habilitar a pesquisa de repositório no GitHub.com a partir do {% ifversion fpt or ghec %}seu ambiente {% data variables.product.prodname_enterprise %} privado{% else %}{% data variables.product.product_name %}{% endif %}
-
-{% ifversion fpt or ghec %}
-
-Para obter mais informações, consulte o seguinte.
-
-| Seu ambiente corporativo                            | Mais informações                                                                                                                                                                                                                                                                                                                                                                        |
-|:--------------------------------------------------- |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| {% data variables.product.prodname_ghe_server %}  | "[Habilitando a pesquisa de repositório de {% data variables.product.prodname_dotcom_the_website %} a partir do seu ambiente corporativo privado](/enterprise-server@latest/search-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-from-your-private-enterprise-environment#enabling-githubcom-repository-search-from-github-enterprise-server)" |
-| {% data variables.product.prodname_ghe_managed %} | "[Habilitando a pesquisa de repositório de {% data variables.product.prodname_dotcom_the_website %} a partir do seu ambiente corporativo privado](/github-ae@latest//search-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-from-your-private-enterprise-environment#enabling-githubcom-repository-search-from-github-ae)"                       |
-
-{% elsif ghes or ghae %}
+## Enabling {% data variables.product.prodname_dotcom_the_website %} repository search from {% data variables.product.product_name %}
 
 1. Efetue o login em {% data variables.product.product_name %} e {% data variables.product.prodname_dotcom_the_website %}.
 1. No canto superior direito de qualquer página do {% data variables.product.product_name %}, clique na sua foto do perfil e em **Configurações**. ![Ícone Settings (Configurações) na barra de usuário](/assets/images/help/settings/userbar-account-settings.png)
 {% data reusables.github-connect.github-connect-tab-user-settings %}
 {% data reusables.github-connect.connect-dotcom-and-enterprise %}
-{% data reusables.github-connect.connect-dotcom-and-enterprise %}
-
-{% endif %}

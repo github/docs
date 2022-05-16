@@ -1,5 +1,5 @@
 ---
-title: Check Suites
+title: Conjuntos de Verificaciones
 intro: ''
 versions:
   fpt: '*'
@@ -14,6 +14,6 @@ allowTitleToDifferFromFilename: true
 
 {% note %}
 
-  **Note:** A GitHub App only receives one [`check_suite`](/webhooks/event-payloads/#check_suite) event per commit SHA, even if you push the commit SHA to more than one branch. To find out when a commit SHA is pushed to a branch, you can subscribe to branch [`create`](/webhooks/event-payloads/#create) events.
+  **Nota:** Una GitHub App solo recibe un evento de [`check_suite`](/webhooks/event-payloads/#check_suite) por SHA de confirmación, aún si cargas este SHA en más de una rama. Para saber cuándo se carga un SHA de confirmación a una rama, puedes suscribirte a los eventos de [`create`](/webhooks/event-payloads/#create) de la misma.
 
 {% endnote %}

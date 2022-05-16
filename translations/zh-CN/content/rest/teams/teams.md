@@ -1,6 +1,6 @@
 ---
-title: Teams
-intro: 'With the Teams API, you can create and manage teams in your GitHub organization.'
+title: 团队
+intro: 通过团队 API，您可以在您的 GitHub 组织中创建和管理团队。
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,4 +11,6 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-This API is only available to authenticated members of the team's [organization](/rest/reference/orgs). OAuth access tokens require the `read:org` [scope](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). {% data variables.product.prodname_dotcom %}  generates the team's `slug` from the team `name`.
+## 关于团队 API
+
+{% data reusables.organizations.team-api %}

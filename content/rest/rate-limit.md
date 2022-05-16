@@ -1,6 +1,6 @@
 ---
 title: Rate limit
-intro: 'With the Rate Limit API, you can check the current rate limit status of various REST APIs.'
+intro: 'With the Rate limit API, you can check the current rate limit status of various REST APIs.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -12,6 +12,8 @@ miniTocMaxHeadingLevel: 3
 redirect_from:
   - /rest/reference/rate-limit
 ---
+
+## About the Rate limit API
 
 The REST API overview documentation describes the [rate limit rules](/rest/overview/resources-in-the-rest-api#rate-limiting). You can check your current rate limit status at any time using the Rate Limit API described below.
 

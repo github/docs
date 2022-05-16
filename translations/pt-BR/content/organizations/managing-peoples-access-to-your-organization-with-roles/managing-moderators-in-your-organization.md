@@ -32,9 +32,9 @@ Você pode adicionar até 10 pessoas ou equipes, como moderadores. Se você já 
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.security-and-analysis %}
 1. Na seção "Acesso" da barra lateral, selecione **Moderação de {% octicon "report" aria-label="The report icon" %}** e, em seguida, clique em **Moderadores**.
-1. Em **moderadores**, pesquise e selecione a pessoa ou equipe à qual você deseja atribuir o papel de moderador. Each person or team you select will appear in a list below the search bar. ![The Moderators search field and list](/assets/images/help/organizations/add-moderators.png)
+1. Em **moderadores**, pesquise e selecione a pessoa ou equipe à qual você deseja atribuir o papel de moderador. Cada pessoa ou equipe que você selecionar aparecerá na lista abaixo da barra de pesquisa. ![The Moderators search field and list](/assets/images/help/organizations/add-moderators.png)
 
 
-## Removing an organization moderator
+## Removendo um moderador da organização
 
-Follow steps 1-4 above, then click **Remove moderator** beside the person or team you want to remove as a moderator.
+Siga os passos 1 a 4 acima e, em seguida, clique em **Remover moderador** ao lado da pessoa ou equipe que você deseja remover como moderador.

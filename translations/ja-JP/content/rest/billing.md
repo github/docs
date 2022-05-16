@@ -1,6 +1,6 @@
 ---
-title: Billing
-intro: ''
+title: 支払い
+intro: Billing APIを使うと、Enterpriseの支払い情報を取得できます。
 topics:
   - API
 miniTocMaxHeadingLevel: 3
@@ -12,4 +12,6 @@ redirect_from:
   - /rest/reference/billing
 ---
 
-You can get billing information for an enterprise. For more information, see the "[{% data variables.product.prodname_dotcom %} Enterprise administration](/rest/reference/enterprise-admin#billing)" REST API.
+## Billing APIについて
+
+Enterprise の支払情報を取得できます。 詳しい情報については、「[{% data variables.product.prodname_dotcom %} Enterprise 管理](/rest/reference/enterprise-admin#billing)」REST API を参照してください。

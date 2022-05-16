@@ -88,8 +88,9 @@ For more information about each of the available branch protection settings, see
 {%- endif %}
 1. Optionally, select **Apply the rules above to administrators**. ![Apply the rules above to administrators checkbox](/assets/images/help/repository/include-admins-protected-branches.png)
 1. 必要に応じて、{% ifversion fpt or ghec %}{% data variables.product.prodname_team %} または {% data variables.product.prodname_ghe_cloud %} を使用する Organization がリポジトリを所有している場合には、{% endif %}ブランチ制限を有効化します。
-   - [**Restrict who can push to matching branches**] を選択します。 ![ブランチ制限のチェックボックス](/assets/images/help/repository/restrict-branch.png)
-   - 保護されたブランチにプッシュできる権限を持つユーザ、Team、またはアプリを検索し、選択します。 ![ブランチ制限の検索](/assets/images/help/repository/restrict-branch-search.png)
+   - [**Restrict who can push to matching branches**] を選択します。 ![Branch restriction checkbox](/assets/images/help/repository/restrict-branch.png){% if restrict-pushes-create-branch %}
+   - Optionally, to also restrict the creation of matching branches, select **Restrict pushes that create matching branches**. ![Branch creation restriction checkbox](/assets/images/help/repository/restrict-branch-create.png){% endif %}
+   - Search for and select the people, teams, or apps who will have permission to push to the protected branch or create a matching branch. ![Branch restriction search]{% if restrict-pushes-create-branch %}(/assets/images/help/repository/restrict-branch-search-with-create.png){% else %}(/assets/images/help/repository/restrict-branch-search.png){% endif %}
 1. 必要に応じて、[Rules applied to everyone including administrators] で [**Allow force pushes**] を選択します。 ![フォースプッシュオプションを許可する](/assets/images/help/repository/allow-force-pushes.png)
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5624 %}
   Then, choose who can force push to the branch.

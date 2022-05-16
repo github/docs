@@ -65,6 +65,7 @@ redirect_from:
   - /admin/configuration/configuring-your-enterprise/configuring-data-encryption-for-your-enterprise
 introLinks:
   overview: '{% ifversion ghes %}/admin/overview/system-overview{% elsif ghae %}/admin/overview/about-github-ae{% elsif ghec %}/admin/overview/about-enterprise-accounts{% endif %}'
+  Releases: '{% ifversion ghes %}/admin/all-releases{% endif %}'
 changelog:
   label: enterprise
 featuredLinks:
