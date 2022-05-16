@@ -1,3 +1,4 @@
+[Update_Standards_January_2022_Edition.pdf](https://github.com/github/docs/files/8652514/Update_Standards_January_2022_Edition.pdf)
 ---
 title: Authentication
 intro: 'Keep your account and data secure with features like {% ifversion not ghae %}two-factor authentication, {% endif %}SSH{% ifversion not ghae %},{% endif %} and commit signature verification.'
