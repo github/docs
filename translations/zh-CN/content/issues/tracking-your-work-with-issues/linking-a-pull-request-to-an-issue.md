@@ -35,7 +35,7 @@ shortTitle: 将 PR 链接到议题
 
 ## 使用关键词将拉取请求链接到议题
 
-You can link a pull request to an issue by using a supported keyword in the pull request's description or in a commit message. The pull request **must be** on the default branch.
+您可以通过在拉取请求说明或提交消息中使用支持的关键词将拉取请求链接到议题。 拉取请求**必须**在默认分支上。
 
 * close
 * closes
@@ -47,7 +47,7 @@ You can link a pull request to an issue by using a supported keyword in the pull
 * resolves
 * resolved
 
-如果使用关键字在另一个拉取请求中引用拉取请求注释，则将链接拉取请求。 Merging the referencing pull request also closes the referenced pull request.
+如果使用关键字在另一个拉取请求中引用拉取请求注释，则将链接拉取请求。 合并引用拉取请求也会关闭引用的拉取请求。
 
 关闭关键词的语法取决于议题是否与拉取请求在同一仓库中。
 

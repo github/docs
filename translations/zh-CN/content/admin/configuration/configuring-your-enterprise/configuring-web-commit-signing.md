@@ -1,7 +1,7 @@
 ---
-title: Configuring web commit signing
-shortTitle: Configure web commit signing
-intro: 'You can enable auto-signing of commits made in the web interface of {% data variables.product.product_name %}.'
+title: 配置 Web 提交签名
+shortTitle: 配置 Web 提交签名
+intro: '您可以启用自动签名在 {% data variables.product.product_name %} Web 界面中进行的提交。'
 versions:
   ghes: '>=3.5'
 type: how_to
@@ -14,16 +14,16 @@ topics:
 permissions: 'Site administrators can configure web commit signing for {% data variables.product.product_location %}.'
 ---
 
-## About web commit signing
+## 关于 Web 提交签名
 
-If you enable web commit signing, {% data variables.product.product_name %} will automatically use GPG to sign commits users make on the web interface of {% data variables.product.product_location %}. Commits signed by {% data variables.product.product_name %} will have a verified status. 更多信息请参阅“[关于提交签名验证](/authentication/managing-commit-signature-verification/about-commit-signature-verification)”。
+如果启用 Web 提交签名，{% data variables.product.product_name %} 将自动使用 GPG 对用户在 {% data variables.product.product_location %} Web 界面上的提交进行签名。 由 {% data variables.product.product_name %} 签名的提交将具有已验证状态。 更多信息请参阅“[关于提交签名验证](/authentication/managing-commit-signature-verification/about-commit-signature-verification)”。
 
-You can enable web commit signing, rotate the private key used for web commit signing, and disable web commit signing.
+您可以启用 Web 提交签名、轮换用于 Web 提交签名的私钥以及禁用 Web 提交签名。
 
-## Enabling web commit signing
+## 启用 Web 提交签名
 
 {% data reusables.enterprise_site_admin_settings.create-pgp-key-web-commit-signing %}
-   - If you have a no-reply email address defined in the {% data variables.enterprise.management_console %}, use that email address. If not, use any email address, such as `web-flow@my-company.com`. 电子邮件地址不需要有效。
+   - 如果您在 {% data variables.enterprise.management_console %} 中定义了无回复电子邮件地址，请使用该电子邮件地址。 如果没有，可使用任何电子邮件地址，例如 `web-flow@my-company.com`。 电子邮件地址不需要有效。
 {% data reusables.enterprise_site_admin_settings.pgp-key-no-passphrase %}
 {% data reusables.enterprise_site_admin_settings.pgp-key-env-variable %}
 {% data reusables.enterprise_site_admin_settings.update-commit-signing-service %}
@@ -54,17 +54,17 @@ You can enable web commit signing, rotate the private key used for web commit si
 ## 轮换用于 Web 提交签名的私钥
 
 {% data reusables.enterprise_site_admin_settings.create-pgp-key-web-commit-signing %}
-   - Use the no-reply email address defined in the {% data variables.enterprise.management_console %}, which should be the same as the email address of the `web-flow` user.
+   - 使用 {% data variables.enterprise.management_console %} 中定义的无回复电子邮件地址，该地址应与 `web-flow` 用户的电子邮件地址相同。
 {% data reusables.enterprise_site_admin_settings.pgp-key-no-passphrase %}
 {% data reusables.enterprise_site_admin_settings.pgp-key-env-variable %}
 {% data reusables.enterprise_site_admin_settings.update-commit-signing-service %}
 {% data reusables.enterprise_site_admin_settings.add-key-to-web-flow-user %}
 
-## Disabling web commit signing
+## 禁用 Web 提交签名
 
-You can disable web commit signing for {% data variables.product.product_location %}.
+您可以对 {% data variables.product.product_location %} 禁用 web 提交签名。
 
-1. In the administrative shell, run the following command.
+1. 在管理 shell 中，运行以下命令。
 
    ```bash{:copy}
    ghe-config app.github.web-commit-signing-enabled false
