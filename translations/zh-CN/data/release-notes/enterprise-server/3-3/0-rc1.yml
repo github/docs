@@ -5,52 +5,52 @@ deprecated: true
 intro: |
   {% note %}
 
-  **Note:** If {% data variables.product.product_location %} is running a release candidate build, you can't upgrade with a hotpatch. We recommend only running release candidates on test environments.
+  **注意：** 如果 {% data variables.product.product_location %} 正在运行候选发行版，则无法使用热补丁进行升级。我们建议仅在测试环境中运行候选版本。
 
   {% endnote %}
 
-  For upgrade instructions, see "[Upgrading {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)."
+  有关升级说明，请参阅“[升级 {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)”。
 sections:
   features:
     - 
-      heading: Security Manager role
+      heading: 安全管理员角色
       notes:
         - |
-          Organization owners can now grant teams the access to manage security alerts and settings on their repositories. The "security manager" role can be applied to any team and grants the team's members the following access:
+          组织所有者现在可以授予团队管理其存储库上的安全警报和设置的权限。“安全管理员”角色可以应用于任何团队，并向团队成员授予以下访问权限：
 
-          - Read access on all repositories in the organization.
-          - Write access on all security alerts in the organization.
-          - Access to the organization-level security tab.
-          - Write access on security settings at the organization level.
-          - Write access on security settings at the repository level.
+          - 对组织中所有存储库的读取访问权限。
+          - 对组织中所有安全警报的写入访问权限。
+          - 对组织级别安全选项卡的访问权限。
+          - 对组织级别安全设置的写入访问权限。
+          - 对存储库级别安全设置的写入访问权限。
 
-          For more information, see "[Managing security managers in your organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)."
+          更多信息请参阅“[管理组织中的安全管理员](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)”。
     - 
-      heading: 'Ephemeral self-hosted runners for GitHub Actions & new webhooks for auto-scaling'
+      heading: '用于 GitHub Actions 的临时自托管运行器和用于自动缩放的新 web 挂钩'
       notes:
         - |
-          {% data variables.product.prodname_actions %} now supports ephemeral (single job) self-hosted runners and a new [`workflow_job`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job) webhook to make autoscaling runners easier.
+          {% data variables.product.prodname_actions %} 现在支持临时（单个作业）自托管运行器和新的 ['workflow_job'](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job) web 挂钩，使自动缩放运行器更容易。
 
-          Ephemeral runners are good for self-managed environments where each job is required to run on a clean image. After a job is run, ephemeral runners are automatically unregistered from {% data variables.product.product_location %}, allowing you to perform any post-job management.
+          临时运行器适用于需要每个作业在干净映像上运行的自我管理环境。运行作业后，临时运行器会自动从 {% data variables.product.product_location %} 中取消注册，从而允许您执行任何作业后管理。
 
-          You can combine ephemeral runners with the new `workflow_job` webhook to automatically scale self-hosted runners in response to {% data variables.product.prodname_actions %} job requests.
+          您可以将临时运行器与新的 `workflow_job` web 挂钩组合在一起，以自动缩放自托管运行器来响应 {% data variables.product.prodname_actions %} 作业请求。
 
-          For more information, see "[Autoscaling with self-hosted runners](/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners)" and "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job)."
+          更多信息请参阅“[使用自托管运行器自动缩放](/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners)”和“[web 挂钩事件和有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job)”。
     - 
-      heading: 'Dark high contrast theme'
+      heading: '深色高对比度主题'
       notes:
         - |
-          A dark high contrast theme, with greater contrast between foreground and background elements, is now available on {% data variables.product.prodname_ghe_server %} 3.3. This release also includes improvements to the color system across all {% data variables.product.company_short %} themes.
+          深色高对比度主题的前景和背景元素之间对比度更高，现在 {% data variables.product.prodname_ghe_server %} 3.3 上可用。此版本还包括对所有 {% data variables.product.company_short %} 主题的颜色系统的改进。
 
-          ![Animated image of switching between dark default theme and dark high contrast on the appearance settings page](https://user-images.githubusercontent.com/334891/123645834-ad096c00-d7f4-11eb-85c9-b2c92b00d70a.gif)
+          ！[在外观设置页面上在深色默认主题和深色高对比度之间切换的动画图像](https://user-images.githubusercontent.com/334891/123645834-ad096c00-d7f4-11eb-85c9-b2c92b00d70a.gif)
 
-          For more information about changing your theme, see "[Managing your theme settings](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-your-theme-settings)."
+          有关更改主题的更多信息，请参阅“[管理主题设置](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-your-theme-settings)”。
   changes:
     - 
       heading: 管理更改
       notes:
-        - '{% data variables.product.prodname_ghe_server %} 3.3 includes improvements to the maintenance of repositories, especially for repositories that contain many unreachable objects. Note that the first maintenance cycle after upgrading to {% data variables.product.prodname_ghe_server %} 3.3 may take longer than usual to complete.'
-        - '{% data variables.product.prodname_ghe_server %} 3.3 includes the public beta of a repository cache for geographically-distributed teams and CI infrastructure. The repository cache keeps a read-only copy of your repositories available in additional geographies, which prevents clients from downloading duplicate Git content from your primary instance. For more information, see "[About repository caching](/admin/enterprise-management/caching-repositories/about-repository-caching)."'
+        - '{% data variables.product.prodname_ghe_server %} 3.3 包括对存储库维护的改进，特别是对于包含许多无法访问的对象的存储库。请注意，升级到 {% data variables.product.prodname_ghe_server %} 3.3 后的第一个维护周期可能需要比平时更长的时间才能完成。'
+        - '{% data variables.product.prodname_ghe_server %} 3.3 包括用于地理位置分散团队和 CI 基础结构的存储库缓存的公共测试版。存储库缓存将存储库的只读副本保存在其他地理位置，从而防止客户端从主实例下载重复的 Git 内容。更多信息请参阅“[关于存储库缓存](/admin/enterprise-management/caching-repositories/about-repository-caching)”。'
         - '{% data variables.product.prodname_ghe_server %} 3.3 includes improvements to the user impersonation process. An impersonation session now requires a justification for the impersonation, actions are recorded in the audit log as being performed as an impersonated user, and the user who is impersonated will receive an email notification that they have been impersonated by an enterprise administrator. For more information, see "[Impersonating a user](/enterprise-server@3.3/admin/user-management/managing-users-in-your-enterprise/impersonating-a-user)."'
         - A new stream processing service has been added to facilitate the growing set of events that are published to the audit log, including events associated with Git and {% data variables.product.prodname_actions %} activity.
     - 
