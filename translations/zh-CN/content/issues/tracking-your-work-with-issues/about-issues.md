@@ -22,7 +22,7 @@ topics:
 
 议题让您可以在进行开发的 {% data variables.product.company_short %} 上跟踪您的工作。 当您在议题中提到另一个议题或拉取请求时，该议题的时间表会反映交叉参考，以便你能够跟踪相关的工作。 要表示工作正在进行中，您可以将议题链接到拉取请求。 当拉取请求合并时，链接的议题会自动关闭。
 
-For more information on keywords, see "[Linking a pull request to an issue](issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword)."
+有关关键词的更多信息，请参阅“[将拉取请求链接到议题](issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword)”。
 
 ## 快速创建议题
 
