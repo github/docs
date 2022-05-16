@@ -20,14 +20,6 @@ shortTitle: 管理主题设置
 
 {% ifversion fpt or ghes > 3.2 or ghae-issue-4618 or ghec %}如果您视力不佳，则可以从前景和背景元素之间对比度更高的高对比度主题中受益。{% endif %}{% ifversion fpt or ghae-issue-4619 or ghec %} 如果您有色盲，可能会从我们的浅色盲和深色盲主题中受益。
 
-{% ifversion fpt or ghec %}
-{% note %}
-
-**注意：**色盲主题目前处于公开测试阶段。 有关在公开测试版中启用功能的更多信息，请参阅“[使用功能预览版探索抢先体验版本](/get-started/using-github/exploring-early-access-releases-with-feature-preview)”。
-
-{% endnote %}
-{% endif %}
-
 {% endif %}
 
 {% data reusables.user-settings.access_settings %}

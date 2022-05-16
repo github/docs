@@ -106,20 +106,40 @@ miniTocMaxHeadingLevel: 3
 
 {% data reusables.actions.workflow-permissions-intro %}
 
-默认权限也可以在组织设置中配置。 如果在组织设置中选择了更受限制的默认值，则在仓库设置中自动选择相同的选项，并禁用许可的选项。
+默认权限也可以在组织设置中配置。 如果您的存储库属于某个组织，并且在组织设置中选择了限制性更强的默认值，则会在存储库设置中选择相同的选项，并禁用允许选项。
 
 {% data reusables.actions.workflow-permissions-modifying %}
 
 ### 配置默认 `GITHUB_TOKENN` 权限
 
+{% if allow-actions-to-approve-pr-with-ent-repo %}
+默认情况下，当您在个人帐户中创建新存储库时，`GITHUB_TOKEN` 仅对 `contents` 范围具有读取访问权限。 如果您在组织中创建新存储库，则该设置将继承自组织设置中的配置。
+{% endif %}
+
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.settings-sidebar-actions-general %}
-1. 在 **Workflow permissions（工作流程权限）**下，选择您是否想要 `GITHUB_TOKENN` 读写所有范围限， 或者只读`内容`范围。
+1. 在“Workflow permissions（工作流程权限）”下，选择您是否想要 `GITHUB_TOKENN` 读写所有范围限， 或者只读`内容`范围。
 
-  ![为此仓库设置 GITHUB_TOKENN 权限](/assets/images/help/settings/actions-workflow-permissions-repository.png)
+   ![为此仓库设置 GITHUB_TOKENN 权限](/assets/images/help/settings/actions-workflow-permissions-repository{% if allow-actions-to-approve-pr-with-ent-repo %}-with-pr-approval{% endif %}.png)
 
 1. 单击 **Save（保存）**以应用设置。
+
+{% if allow-actions-to-approve-pr-with-ent-repo %}
+### 阻止 {% data variables.product.prodname_actions %} 创建或批准拉取请求
+
+{% data reusables.actions.workflow-pr-approval-permissions-intro %}
+
+默认情况下，当您在个人帐户中创建新存储库时，不允许工作流程创建或批准拉取请求。 如果您在组织中创建新存储库，则该设置将继承自组织设置中的配置。
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.settings-sidebar-actions-general %}
+1. 在“Workflow permissions（工作流程权限）”下，使用 **允许 GitHub Actions 创建和批准拉取请求**设置来配置 `GITHUB_TOKEN` 是否可以创建和批准拉取请求。
+
+   ![为此仓库设置 GITHUB_TOKENN 权限](/assets/images/help/settings/actions-workflow-permissions-repository-with-pr-approval.png)
+1. 单击 **Save（保存）**以应用设置。
+{% endif %}
 {% endif %}
 
 {% ifversion ghes > 3.3 or ghae-issue-4757 or ghec %}
@@ -156,3 +176,20 @@ miniTocMaxHeadingLevel: 3
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.settings-sidebar-actions-general %}
 {% data reusables.actions.change-retention-period-for-artifacts-logs  %}
+
+{% if actions-cache-policy-apis %}
+
+## 为存储库配置缓存存储
+
+{% data reusables.actions.cache-default-size %} 但是，如果企业所有者更改了这些默认大小，则这些默认大小可能会有所不同。 {% data reusables.actions.cache-eviction-process %}
+
+可以将存储库的总缓存存储大小设置为企业策略设置允许的最大大小。
+
+{% data variables.product.prodname_actions %} 缓存存储的存储库设置目前只能使用 REST API 进行修改：
+
+* 要查看存储库的当前缓存存储限制，请参阅“[获取存储库的 GitHub 操作缓存使用策略](/rest/actions/cache#get-github-actions-cache-usage-policy-for-a-repository)”。
+* 要更改存储库的缓存存储限制，请参阅“[设置存储库的 GitHub 操作缓存使用策略](/rest/actions/cache#set-github-actions-cache-usage-policy-for-a-repository)”。
+
+{% data reusables.actions.cache-no-org-policy %}
+
+{% endif %}

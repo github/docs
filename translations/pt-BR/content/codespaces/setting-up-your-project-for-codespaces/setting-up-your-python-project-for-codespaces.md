@@ -17,8 +17,6 @@ hasExperimentalAlternative: true
 hidden: true
 ---
 
-
-
 ## Introdução
 
 Este guia mostra como configurar seu projeto Python em {% data variables.product.prodname_codespaces %}. Ele irá apresentar a você um exemplo de abertura de seu projeto em um codespace e adicionar e modificar uma configuração de contêiner de desenvolvimento a partir de um modelo.
@@ -30,37 +28,31 @@ Este guia mostra como configurar seu projeto Python em {% data variables.product
 
 ## Etapa 1: Abra o seu projeto em um codespace
 
-1. No nome do repositório, use o menu suspenso **Código de {% octicon "code" aria-label="The code icon" %}** e na aba **Codespaces** de código, clique em {% octicon "plus" aria-label="The plus icon" %} **Novo codespace**.
+1. No nome do repositório, use o menu suspenso **Código de {% octicon "code" aria-label="The code icon" %}** e na guia **Codespaces**, clique em **Criar codespace no principal**.
 
   ![Botão de codespace novo](/assets/images/help/codespaces/new-codespace-button.png)
 
   Se você não vir esta opção, significa que {% data variables.product.prodname_codespaces %} não está disponível para o seu projeto. Consulte [Acesso a {% data variables.product.prodname_codespaces %}](/codespaces/developing-in-codespaces/creating-a-codespace#access-to-codespaces) para mais informações.
 
-
-
 Ao criar um código, seu projeto será criado em uma VM remota dedicada a você. Por padrão, o contêiner para o seu código possui muitas linguagens e tempos de execução, incluindo Node.js, JavaScript, Typescript, nvm, npm e yarn. Ele também inclui um conjunto comum de ferramentas, como git, wget, rsync, openssh e nano.
 
-Você pode personalizar o seu codespace ajustando a quantidade de vCPUs e RAM, [adicionando dotfiles para personalizar seu ambiente](/codespaces/setting-up-your-codespace/personalizing-codespaces-for-your-account)ou modificando as ferramentas e scripts instalados.
+{% data reusables.codespaces.customize-vcpus-and-ram %}
 
-{% data variables.product.prodname_codespaces %} usa um arquivo denominado `devcontainer.json` para armazenar configurações. Ao iniciar, {% data variables.product.prodname_codespaces %} usa o arquivo para instalar quaisquer ferramentas, dependências ou outro conjunto que possa ser necessário para o projeto. Para obter mais informações, consulte "[Introdução a contêineres de desenvolvimento](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)".
+## Etapa 2: Adicionar uma configuração de contêiner de desenvolvimento ao repositório a partir de um modelo
 
+O contêiner de desenvolvimento padrão ou "contêiner dev" para {% data variables.product.prodname_github_codespaces %} vem com a versão mais recente do Python, gerentes de pacotes (pip, Miniconda) e outras ferramentas comuns pré-instaladas. No entanto, recomendamos que você configure seu próprio contêiner de desenvolvimento para incluir todas as ferramentas e scripts de que seu projeto precisa. Isso garantirá um ambiente reprodutível para todos os usuários de {% data variables.product.prodname_github_codespaces %} do seu repositório.
 
-## Etapa 2: Adicione um contêiner de desenvolvimento ao seu codespace a partir de um modelo
-
-O contêiner de códigos padrão vem com a versão mais recente do Python, gerenciadores de pacotes (pip, Miniconda) e outras ferramentas comuns pré-instaladas. No entanto, recomendamos que você configure um contêiner personalizado para definir as ferramentas e scripts de que seu projeto precisa. Isso garantirá um ambiente reprodutível para todos os usuários de {% data variables.product.prodname_codespaces %} do seu repositório.
-
-Para configurar seu projeto com um contêiner personalizado, você deverá usar um arquivo `devcontainer.json` para definir o ambiente. Em {% data variables.product.prodname_codespaces %}, você pode adicionar isto a partir de um modelo ou você pode criar o seu próprio. Para obter mais informações sobre contêineres de desenvolvimento, consulte "[Introdução a contêineres de desenvolvimento](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)".
-
+{% data reusables.codespaces.setup-custom-devcontainer %}
 
 {% data reusables.codespaces.command-palette-container %}
-2. Para este exemplo, clique em **Python 3**. Se precisar de funcionalidades adicionais, você poderá selecionar qualquer contêiner específico para Python ou uma combinação de ferramentas como Python 3 e PostgreSQL. ![Selecione a opção Python na lista](/assets/images/help/codespaces/add-python-prebuilt-container.png)
-3. Clique na versão recomendada do Python. ![Seleção de versão Python](/assets/images/help/codespaces/add-python-version.png)
-4. Aceite a opção padrão para adicionar Node.js à sua personalização. ![Adicionar seleção de Node.js](/assets/images/help/codespaces/add-nodejs-selection.png)
+1. Para este exemplo, clique em **Python 3**. Se precisar de funcionalidades adicionais, você poderá selecionar qualquer contêiner específico para Python ou uma combinação de ferramentas como Python 3 e PostgreSQL. ![Selecione a opção Python na lista](/assets/images/help/codespaces/add-python-prebuilt-container.png)
+1. Clique na versão recomendada do Python. ![Seleção de versão Python](/assets/images/help/codespaces/add-python-version.png)
+1. Aceite a opção padrão para adicionar Node.js à sua personalização. ![Adicionar seleção de Node.js](/assets/images/help/codespaces/add-nodejs-selection.png)
 {% data reusables.codespaces.rebuild-command %}
 
 ### Anatomia do seu contêiner de desenvolvimento
 
-A adição do modelo de contêiner de desenvolvimento do Python adiciona uma pasta `.devcontainer` à raiz do repositório do seu projeto com os seguintes arquivos:
+A adição do modelo de contêiner de desenvolvimento do Node.js adiciona uma diretório `.devcontainer` à raiz do repositório do seu projeto com os seguintes arquivos:
 
 - `devcontainer.json`
 - arquivo Docker
@@ -103,7 +95,7 @@ O arquivo recém-adicionado `devcontainer.json` define algumas propriedades que 
 
     // Add the IDs of extensions you want installed when the container is created.
     "extensions": [
-        "ms-python.python",
+        "ms-python.python"
     ],
 
     // Use 'forwardPorts' to make a list of ports inside the container available locally.
@@ -117,17 +109,17 @@ O arquivo recém-adicionado `devcontainer.json` define algumas propriedades que 
 }
 ```
 
-- **Nome** - Você pode dar qualquer nome ao nosso contêiner de desenvolvimento. Este é apenas o padrão.
-- **Build** - As propriedades de compilação.
-  - **Arquivo Docker** - No objeto de compilação, `arquivo Docker` é uma referência ao arquivo arquivo Docker que também foi adicionado a partir do template.
-  - **Args**
-    - **Variante**: Este arquivo contém apenas um argumento de compilação, que é a variante de nó que queremos usar e que é passada para o arquivo Docker.
-- **Configurações** - Estas são as configurações de {% data variables.product.prodname_vscode %}.
-  - **Terminal.integrated.shell.linux** - Embora o bash seja o padrão, você pode usar outros shells do terminal, fazendo a modificação.
-- **Extensões** - Estas são extensões incluídas por padrão.
+- **nome** - Você pode dar qualquer nome ao nosso contêiner de desenvolvimento. Este é apenas o padrão.
+- **build** - As propriedades de compilação.
+  - **Arquivo Docker** - No objeto `construir`, `Arquivo Docker` contém o caminho para o arquivo Dockerfile que também foi adicionado a partir do modelo.
+  - **args**
+    - **variante**: Este arquivo contém apenas um argumento de compilação, que é a variante de nó que queremos usar e que é passada para o arquivo Docker.
+- **configurações** - Estas são as configurações de {% data variables.product.prodname_vscode %}.
+  - **terminal.integrated.shell.linux** - Embora o bash seja o padrão, você pode usar outros shells do terminal, fazendo a modificação.
+- **extensões** - Estas são extensões incluídas por padrão.
   - **ms-python. ython** - A extensão Microsoft Python fornece um amplo suporte para a linguagem do Python (para todas as versões ativamente compatíveis da linguagem: >=3.), incluindo recursos como IntelliSense, linting, depuração, navegação de código, formatação de código, refatoração, explorador de variáveis, explorador de teste e muito mais.
 - **forwardPorts** - Todas as portas listadas aqui serão encaminhadas automaticamente. Para obter mais informações, consulte "[Encaminhando portas no seu codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)".
-- **postCreateCommand** - Se você quiser executar qualquer coisa depois de pousar no seu codespace, isso não está definido no arquivo Docker como `pip3 install -r requirements`. Você pode fazer isso aqui.
+- **postCreateCommand** - Use isto para executar comandos que não estão definidos no arquivo Docker como `pip3 install -r requirements`, depois que seu codespace for criado.
 - **remoteUser** - Por padrão, você está executando como usuário do `vscode`, mas, opcionalmente, você pode definir isso como `root`.
 
 #### arquivo Docker
@@ -159,7 +151,7 @@ Você pode usar o arquivo Docker para adicionar camadas adicionais de contêiner
 
 ## Etapa 3: Modifique seu arquivo devcontainer.json
 
-Com o seu contêiner de desenvolvimento adicionado e um entendimento básico do que tudo faz, agora você pode fazer alterações para configurá-lo para o seu ambiente. Neste exemplo, você irá adicionar propriedades para instalar extensões e dependências do seu projeto quando seu codespace for iniciado.
+Com a configuração do contêiner de desenvolvimento adicionada e um entendimento básico do que tudo faz, agora você pode fazer alterações para personalizar ainda mais seu ambiente. Neste exemplo, você irá adicionar propriedades para instalar extensões e dependências do seu projeto quando seu codespace for iniciado.
 
 1. No Explorador, expanda a pasta `.devcontainer` e selecione o arquivo `devcontainer.json` a partir da árvore para abri-lo.
 
@@ -171,7 +163,7 @@ Com o seu contêiner de desenvolvimento adicionado e um entendimento básico do 
   "extensions": [
           "ms-python.python",
           "cstrap.flask-snippets",
-          "streetsidesoftware.code-spell-checker",
+          "streetsidesoftware.code-spell-checker"
       ],
   ```
 
@@ -184,11 +176,11 @@ Com o seu contêiner de desenvolvimento adicionado e um entendimento básico do 
 
 {% data reusables.codespaces.rebuild-command %}
 
-  A reconstrução dentro do seu codespace garante que as suas alterações funcionem conforme o esperado antes de realizar o commit das alterações no repositório. Se algo falhar, você será colocado em um codespace com um contêiner de recuperação que você pode reconstruir para continuar ajustando o seu contêiner.
+   {% data reusables.codespaces.rebuild-reason %}
 
 5. Verifique se suas alterações foram aplicadas com sucesso verificando se as extensões Code Spell Checker e Flask Snippet foram instaladas.
 
-    ![Lista de extensões](/assets/images/help/codespaces/python-extensions.png)
+   ![Lista de extensões](/assets/images/help/codespaces/python-extensions.png)
 
 ## Etapa 4: Execute o seu aplicativo
 
@@ -208,6 +200,4 @@ Na seção anterior, você usou o `postCreateCommand` para instalar um conjunto 
 
 Agora você deve estar pronto para começar a desenvolver seu projeto Python em {% data variables.product.prodname_codespaces %}. Aqui estão alguns recursos adicionais para cenários mais avançados.
 
-- [Gerenciar segredos criptografados para {% data variables.product.prodname_codespaces %}](/codespaces/working-with-your-codespace/managing-encrypted-secrets-for-codespaces)
-- [Gerenciar a verificação de GPG para {% data variables.product.prodname_codespaces %}](/codespaces/working-with-your-codespace/managing-gpg-verification-for-codespaces)
-- [Encaminhar portas no seu código](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)
+{% data reusables.codespaces.next-steps-adding-devcontainer %}

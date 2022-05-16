@@ -54,14 +54,16 @@ O serviço {% data variables.product.prodname_actions %} irá cancelar o resgist
 
 {% endnote %}
 
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6143 %}
+
 ## Controlando atualizações de software dos executores em executores auto-hospedados
 
 Por padrão, os executores auto-hospedados realizarão automaticamente uma atualização de software sempre que uma nova versão do executor estiver disponível.  Se você usar executoresefêmeros em contêineres, isso pode gerar a atualizações de software repetidas quando uma nova versão do executor for lançada.  A desabilitação das atualizações automáticas permite que você atualize a versão do executor na imagem do contêiner diretamente no seu próprio agendamento.
 
-Se você deseja desativar as atualizações automáticas de software e instalar as atualizações de software, você poderá especificar o parâmetro `--disableupdate` ao iniciar o executor.  Por exemplo:
+Para desabilitar a atualização automática de software e instalar atualizações, especifique o sinalizador `--disableupdate` quando registrar seu executor usando a configuração `config.sh`. Por exemplo:
 
 ```shell
-./run.sh --disableupdate
+./config.sh --url <em>https://github.com/octo-org</em> --token <em>example-token</em> --disableupdate
 ```
 
 Se você desabilitar as atualizações automáticas, você ainda deverá atualizar sua versão do executor regularmente.  A nova funcionalidade em {% data variables.product.prodname_actions %} exige alterações no serviço de {% data variables.product.prodname_actions %} service _e_ no software do executor.  O executor pode não conseguir de processar corretamente os trabalhos que aproveitam novas funcioanlidades em {% data variables.product.prodname_actions %} sem a atualização de um software.
@@ -75,6 +77,8 @@ Para obter instruções sobre como instalar a versão mais recente do executor, 
 **Observação:** Se você não executar uma atualização de software em 30 dias, o serviço de {% data variables.product.prodname_actions %} não irá colocar trabalhos na fila para o seu executor.  Além disso, se uma atualização crítica de segurança for necessária, o serviço de {% data variables.product.prodname_actions %} não colocará os trabalhos na fila do seu executor até que ele seja atualizado.
 
 {% endnote %}
+
+{% endif %}
 
 ## Usando webhooks para dimensionamento automático
 
@@ -91,7 +95,7 @@ Seu token de acesso exigirá o seguinte escopo:
 
 - Para repositórios privados, use um token de acesso com o escopo [`repo`](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/#available-scopes).
 - Para repositórios públicos, use um token de acesso com o escopo [`public_repo`](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/#available-scopes).
-- For organizations, use an access token with the [`admin:org` scope](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/#available-scopes).
+- Para as organizações, use um token de acesso com o escopo [`admin:org`](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/#available-scopes).
 
 Para efetuar a autenticação usando um aplicativo de {% data variables.product.prodname_dotcom %}, este deverá ter as seguintes permissões:
 - Para repositórios, atribua a permissão de `administração`.

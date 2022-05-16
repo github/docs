@@ -42,6 +42,14 @@ Para apagar las notificaciones para los debates del equipo, puedes cancelar la s
 
 Para obtener más información, consulta la sección {% ifversion fpt or ghae or ghes or ghec %}"[Visualizar tus suscripciones](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions){% else %}"[Suscribirte y desuscribirte de las notificaciones](/github/receiving-notifications-about-activity-on-github/subscribing-to-and-unsubscribing-from-notifications){% endif %}" y "[Equipos anidados](/articles/about-teams/#nested-teams)".
 
+{% ifversion fpt or ghec %}
+
+## Debates de organización
+
+También puedes utilizar los debates de la organización para facilitar las conversaciones en ella. Para obtener más información, consulta la sección "[Habilitar o inhabilitar los debates de GitHub en una organización](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization)".
+
+{% endif %}
+
 ## Leer más
 
 - "[Inicio rápido para comunicarte con {% data variables.product.prodname_dotcom %}](/github/collaborating-with-issues-and-pull-requests/quickstart-for-communicating-on-github)"

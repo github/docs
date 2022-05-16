@@ -23,7 +23,7 @@ miniTocMaxHeadingLevel: 3
 
 上下文是一种访问工作流程运行、运行器环境、作业及步骤相关信息的方式。 每个上下文都是一个包含属性的对象，属性可以是字符串或其他对象。
 
-{% data reusables.actions.context-contents %} 例如，`matrix` 上下文中仅填充 [build matrix](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix) 中的作业。
+{% data reusables.actions.context-contents %} 例如，`matrix` 上下文中仅填充 [matrix](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix) 中的作业。
 
 您可以使用表达式语法访问上下文。 更多信息请参阅“[表达式](/actions/learn-github-actions/expressions)”。
 
@@ -56,6 +56,8 @@ miniTocMaxHeadingLevel: 3
 
 - 以 `a-Z` 或 `_` 开头。
 - 后跟 `a-Z` `0-9` `-` 或 `_`。
+
+如果尝试取消引用不存在的属性，则该属性的计算结果将为空字符串。
 
 ### 确定何时使用上下文
 
@@ -257,7 +259,7 @@ jobs:
   normal_ci:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Run normal CI
         run: ./run-tests
 
@@ -265,7 +267,7 @@ jobs:
     runs-on: ubuntu-latest
     if: {% raw %}${{ github.event_name == 'pull_request' }}{% endraw %}
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Run PR CI
         run: ./run-additional-pr-ci
 ```
@@ -367,7 +369,6 @@ jobs:
 
 此示例工作流程配置 PostgreSQL 服务容器，并自动将服务容器中的端口 5432 映射到主机上随机选择的可用端口。 `job` 上下文用于访问在主机上分配的端口号。
 
-{% raw %}
 ```yaml{:copy}
 name: PostgreSQL Service Example
 on: push
@@ -385,11 +386,10 @@ jobs:
           - 5432
 
     steps:
-      - uses: actions/checkout@v2
-      - run: pg_isready -h localhost -p ${{ job.services.postgres.ports[5432] }}
+      - uses: {% data reusables.actions.action-checkout %}
+      - run: pg_isready -h localhost -p {% raw %}${{ job.services.postgres.ports[5432] }}{% endraw %}
       - run: ./run-tests
 ```
-{% endraw %}
 
 ## `steps` 上下文
 
@@ -428,7 +428,6 @@ jobs:
 
 此示例工作流程在一个步骤中生成一个随机数作为输出，后面的步骤使用 `steps` 上下文来读取该输出的值。
 
-{% raw %}
 ```yaml{:copy}
 name: Generate random failure
 on: push
@@ -437,15 +436,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - id: checkout
-        uses: actions/checkout@v2
+        uses: {% data reusables.actions.action-checkout %}
       - name: Generate 0 or 1
         id: generate_number
         run:  echo "::set-output name=random_number::$(($RANDOM % 2))"
       - name: Pass or fail
         run: |
-          if [[ ${{ steps.generate_number.outputs.random_number }} == 0 ]]; then exit 0; else exit 1; fi
+          if [[ {% raw %}${{ steps.generate_number.outputs.random_number }}{% endraw %} == 0 ]]; then exit 0; else exit 1; fi
 ```
-{% endraw %}
 
 ## `runner` 上下文
 
@@ -486,7 +484,6 @@ jobs:
 
 此示例工作流程使用 `runner` 上下文来设置临时目录的路径以写入日志，如果工作流程失败，它将这些日志上传为构件。
 
-{% raw %}
 ```yaml{:copy}
 name: Build
 on: push
@@ -495,19 +492,18 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Build with logs
         run: |
-          mkdir ${{ runner.temp }}/build_logs
-          ./build.sh --log-path ${{ runner.temp }}/build_logs
+          mkdir {% raw %}${{ runner.temp }}{% endraw %}/build_logs
+          ./build.sh --log-path {% raw %}${{ runner.temp }}{% endraw %}/build_logs
       - name: Upload logs on fail
-        if: ${{ failure() }}
-        uses: actions/upload-artifact@v3
+        if: {% raw %}${{ failure() }}{% endraw %}
+        uses: {% data reusables.actions.action-upload-artifact %}
         with:
           name: Build failure logs
-          path: ${{ runner.temp }}/build_logs
+          path: {% raw %}${{ runner.temp }}{% endraw %}/build_logs
 ```
-{% endraw %}
 
 ## `secrets` 上下文
 
@@ -541,19 +537,19 @@ jobs:
 
 ## `strategy` 上下文
 
-对于具有生成矩阵的工作流程，`strategy` 上下文包含有关当前作业的矩阵执行策略的信息。
+对于具有矩阵的工作流程，`strategy` 上下文包含有关当前作业的矩阵执行策略的信息。
 
-| 属性名称                    | 类型    | 描述                                                                                                                                                                                                        |
-| ----------------------- | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `strategy`              | `对象`  | 此上下文针对工作流程运行中的每项作业而改变。 您可以从工作流程中的任何作业或步骤访问此上下文。 此对象包含下面列出的所有属性。                                                                                                                                           |
-| `strategy.fail-fast`    | `字符串` | 为 `true` 时，如果构建矩阵中的任何作业失败，所有正在进行的作业都将被取消。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategyfail-fast)”。 |
-| `strategy.job-index`    | `字符串` | 生成矩阵中当前作业的索引。 **注意：** 此数字是零基数字。 生成矩阵中第一个作业的索引是 `0`。                                                                                                                                                       |
-| `strategy.job-total`    | `字符串` | 生成矩阵中的作业总数。 **注意：** 此数字 **不是**从零基数字。 例如，对于具有四个作业的生成矩阵，`job-total` 的值为 `4`。                                                                                                                                |
-| `strategy.max-parallel` | `字符串` | 使用 `matrix` 作业策略时可同时运行的最大作业数。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymax-parallel)”。          |
+| 属性名称                    | 类型    | 描述                                                                                                                                                                                                      |
+| ----------------------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `strategy`              | `对象`  | 此上下文针对工作流程运行中的每项作业而改变。 您可以从工作流程中的任何作业或步骤访问此上下文。 此对象包含下面列出的所有属性。                                                                                                                                         |
+| `strategy.fail-fast`    | `字符串` | 为 `true` 时，如果矩阵中的任何作业失败，所有正在进行的作业都将被取消。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategyfail-fast)”。 |
+| `strategy.job-index`    | `字符串` | 矩阵中当前作业的索引。 **注意：** 此数字是零基数字。 矩阵中第一个作业的索引是 `0`。                                                                                                                                                         |
+| `strategy.job-total`    | `字符串` | 矩阵中的作业总数。 **注意：** 此数字 **不是**从零基数字。 例如，对于具有四个作业的矩阵，`job-total` 的值为 `4`。                                                                                                                                  |
+| `strategy.max-parallel` | `字符串` | 使用 `matrix` 作业策略时可同时运行的最大作业数。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymax-parallel)”。        |
 
 ### `strategy` 上下文的示例内容
 
-`strategy` 上下文的以下示例内容来自具有四个作业的生成矩阵，取自最终作业。 请注意零基 `job-index` 数字与 `job-total` （非零基）之间的差异。
+`strategy` 上下文的以下示例内容来自具有四个作业的矩阵，取自最终作业。 请注意零基 `job-index` 数字与 `job-total` （非零基）之间的差异。
 
 ```yaml
 {
@@ -566,9 +562,8 @@ jobs:
 
 ### `strategy` 上下文的示例用法
 
-此示例工作流程使用 `strategy.job-index` 属性为生成矩阵中每个作业的日志文件设置唯一名称。
+此示例工作流程使用 `strategy.job-index` 属性为矩阵中每个作业的日志文件设置唯一名称。
 
-{% raw %}
 ```yaml{:copy}
 name: Test matrix
 on: push
@@ -581,30 +576,29 @@ jobs:
         test-group: [1, 2]
         node: [14, 16]
     steps:
-      - uses: actions/checkout@v2
-      - run: npm test > test-job-${{ strategy.job-index }}.txt
+      - uses: {% data reusables.actions.action-checkout %}
+      - run: npm test > test-job-{% raw %}${{ strategy.job-index }}{% endraw %}.txt
       - name: Upload logs
-        uses: actions/upload-artifact@v3
+        uses: {% data reusables.actions.action-upload-artifact %}
         with:
-          name: Build log for job ${{ strategy.job-index }}
-          path: test-job-${{ strategy.job-index }}.txt
+          name: Build log for job {% raw %}${{ strategy.job-index }}{% endraw %}
+          path: test-job-{% raw %}${{ strategy.job-index }}{% endraw %}.txt
 ```
-{% endraw %}
 
 ## `matrix` 上下文
 
-对于具有生成矩阵的工作流程，`matrix` 上下文包含工作流程文件中定义的适用于当前作业的矩阵属性。 例如，如果使用 `os` 和 `node` 键配置生成矩阵，则 `matrix` 上下文对象将包括 `os` 和 `node` 属性，具有用于当前作业的值。
+对于具有矩阵的工作流程，`matrix` 上下文包含工作流程文件中定义的适用于当前作业的矩阵属性。 例如，如果使用 `os` 和 `node` 键配置矩阵，则 `matrix` 上下文对象将包括 `os` 和 `node` 属性，具有用于当前作业的值。
 
 `matrix` 上下文中没有标准属性，只有工作流程文件中定义的属性。
 
-| 属性名称                           | 类型    | 描述                                                                             |
-| ------------------------------ | ----- | ------------------------------------------------------------------------------ |
-| `matrix`                       | `对象`  | 此上下文仅适用于生成矩阵中的作业，并且对于工作流运行中的每个作业都会发生更改。 您可以从工作流程中的任何作业或步骤访问此上下文。 此对象包含下面列出的属性。 |
-| `matrix.<property_name>` | `字符串` | 矩阵属性的值。                                                                        |
+| 属性名称                           | 类型    | 描述                                                                            |
+| ------------------------------ | ----- | ----------------------------------------------------------------------------- |
+| `matrix`                       | `对象`  | 此上下文仅适用于矩阵中的作业，并且对于工作流程运行中的每个作业都会发生更改。 您可以从工作流程中的任何作业或步骤访问此上下文。 此对象包含下面列出的属性。 |
+| `matrix.<property_name>` | `字符串` | 矩阵属性的值。                                                                       |
 
 ### `matrix` 上下文的示例内容
 
-`matrix` 上下文的以下示例内容来自生成矩阵中的作业，该生成矩阵具有工作流中定义的 `os` 和 `node` 矩阵属性。 该作业执行 `ubuntu-latest` OS 和 Node.js 版本 `16` 的矩阵组合。
+`matrix` 上下文的以下示例内容来自矩阵中的作业，该矩阵具有工作流中定义的 `os` 和 `node` 矩阵属性。 该作业执行 `ubuntu-latest` OS 和 Node.js 版本 `16` 的矩阵组合。
 
 ```yaml
 {
@@ -615,31 +609,29 @@ jobs:
 
 ### `matrix` 上下文的示例用法
 
-此示例工作流程创建一个包含 `os` 和 `node` 键的生成矩阵。 它使用 `matrix.os` 属性为每个作业设置运行器类型，并使用 `matrix.node` 属性为每个作业设置 Node.js 版本。
+此示例工作流程创建一个包含 `os` 和 `node` 键的矩阵。 它使用 `matrix.os` 属性为每个作业设置运行器类型，并使用 `matrix.node` 属性为每个作业设置 Node.js 版本。
 
-{% raw %}
 ```yaml{:copy}
 name: Test matrix
 on: push
 
 jobs:
   build:
-    runs-on: ${{ matrix.os }}
+    runs-on: {% raw %}${{ matrix.os }}{% endraw %}
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest]
         node: [14, 16]
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: {% data reusables.actions.action-checkout %}
+      - uses: {% data reusables.actions.action-setup-node %}
         with:
-          node-version: ${{ matrix.node }}
+          node-version: {% raw %}${{ matrix.node }}{% endraw %}
       - name: Install dependencies
         run: npm ci
       - name: Run tests
         run: npm test
 ```
-{% endraw %}
 
 ## `needs` 上下文
 
@@ -676,7 +668,6 @@ jobs:
 
 此示例工作流程有三个作业：执行生成的 `build` 作业，执行生成；需要 `build` 作业的 `deploy` 作业，以及需要 `build` 和 `deploy` 作业并且仅工作流程中出现失败时运行的 `debug` 作业。 `deploy` 作业还使用 `needs` 上下文来访问 `build` 作业的输出。
 
-{% raw %}
 ```yaml{:copy}
 name: Build and deploy
 on: push
@@ -685,9 +676,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     outputs:
-      build_id: ${{ steps.build_step.outputs.build_id }}
+      build_id: {% raw %}${{ steps.build_step.outputs.build_id }}{% endraw %}
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Build
         id: build_step
         run: |
@@ -697,17 +688,16 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - run: ./deploy --build ${{ needs.build.outputs.build_id }}
+      - uses: {% data reusables.actions.action-checkout %}
+      - run: ./deploy --build {% raw %}${{ needs.build.outputs.build_id }}{% endraw %}
   debug:
     needs: [build, deploy]
     runs-on: ubuntu-latest
-    if: ${{ failure() }}
+    if: {% raw %}${{ failure() }}{% endraw %}
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - run: ./debug
 ```
-{% endraw %}
 
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4757 %}
 ## `inputs` 上下文

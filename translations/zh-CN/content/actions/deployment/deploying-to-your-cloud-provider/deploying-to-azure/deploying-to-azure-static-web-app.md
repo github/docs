@@ -20,7 +20,7 @@ topics:
 
 本指南说明如何使用 {% data variables.product.prodname_actions %} 构建 Web 应用并将其部署到 [Azure Static Web App](https://azure.microsoft.com/services/app-service/static/)。
 
-{% ifversion fpt or ghec or ghae-issue-4856 %}
+{% ifversion fpt or ghec or ghae-issue-4856 or ghes > 3.4 %}
 
 {% note %}
 
@@ -79,7 +79,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Build and Deploy
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
         with:
           submodules: true
       - name: Build And Deploy

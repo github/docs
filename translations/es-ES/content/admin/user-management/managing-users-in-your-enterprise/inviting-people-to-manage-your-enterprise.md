@@ -45,6 +45,10 @@ Si tu empresa utiliza {% data variables.product.prodname_emus %}, solo se pueden
 
 {% ifversion ghec %}Después de que invites a alguien para que se una a la cuenta empresarial, esta persona debe aceptar la invitación que le llegó por correo electrónico antes de que pueda acceder a la cuenta empresarial. Las invitaciones pendientes vencerán después de 7 días.{% endif %}
 
+{% if enterprise-membership-view-improvements %}
+Puedes ver las invitaciones pendientes para convertirte en administrador de tu cuenta empresarial. Para obtener más información, consulta la sección "[Visualizar a las personas en tu empresa](/admin/user-management/managing-users-in-your-enterprise/viewing-people-in-your-enterprise#viewing-pending-invitations)".
+{% endif %}
+
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
 {% data reusables.enterprise-accounts.administrators-tab %}
@@ -63,10 +67,14 @@ Si tu empresa utiliza {% data variables.product.prodname_emus %}, solo se pueden
 
 Solo los propietarios de empresa pueden eliminar a otros administradores de empresa de la cuenta de empresa.
 
+{% ifversion ghec %}
+Si el administrador que quieres eliminar es un miembro de cualquier organización que le pertenezca a la empresa, puedes elegir **Convertirlo en miembro**, lo cual eliminará su rol administrativo pero retendrá sus membrecías de organización o **Eliminarlo de la empresa**, lo cual eliminará tanto sus roles administrativos como sus membrecías de organización.
+{% endif %}
+
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
 {% data reusables.enterprise-accounts.administrators-tab %}
-1. Junto al nombre de usuario de la persona que te gustaría eliminar, haz clic en {% octicon "gear" aria-label="The Settings gear" %} y luego en {% ifversion ghes %}**Eliminar propietario**{% elsif ghec %}**Convertir en miembro**{% endif %}.
+1. Junto al nombre de usuario de la persona que te gustaría eliminar, haz clic en {% octicon "gear" aria-label="The Settings gear" %} y luego en {% ifversion ghes %}**Eliminar propietario**{% elsif ghec %}**Convertir en miembro** o **Eliminar de la empresa**.{% endif %}.
   {% ifversion ghec %}
   ![Parámetros con opción del menú para eliminar un administrador de empresa](/assets/images/help/business-accounts/remove-admin.png)
   {% elsif ghes %}

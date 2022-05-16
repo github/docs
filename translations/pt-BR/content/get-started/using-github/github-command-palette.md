@@ -14,7 +14,7 @@ Você pode navegar, pesquisar e executar comandos em {% data variables.product.p
 
 ### Navegação rápida
 
-Ao abrira paleta de comando, as sugestões são otimizadas para facilitar o acesso a partir de qualquer lugar em um repositório, conta de usuário, ou organização para páginas de nível superior, como a página de problemas. Se o local que você deseja não estiver listado, comece a digitar o nome ou número para a localização refinar as sugestões.
+Ao abrira paleta de comando, as sugestões são otimizadas para facilitar o acesso a partir de qualquer lugar em um repositório, conta pessoal, ou organização para páginas de nível superior, como a página de problemas. Se o local que você deseja não estiver listado, comece a digitar o nome ou número para a localização refinar as sugestões.
 
 ![Sugestões da paleta de comandos](/assets/images/help/command-palette/command-palette-navigation-repo-default.png)
 
@@ -192,10 +192,10 @@ Estes comandos só estão disponíveis quando você abre a paleta de comandos em
 
 | Comando                         | Comportamento                                                                                                                                                                                                                                               |
 |:------------------------------- |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Excluir discussão...`          | Excluir permanentemente a discussão. Para obter mais informações, consulte "[Gerenciar discussões no seu repositório](/discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository#deleting-a-discussion)".                 |
+| `Excluir discussão...`          | Excluir permanentemente a discussão. Para obter mais informações, consulte "[Gerenciando discussões](/discussions/managing-discussions-for-your-community/managing-discussions#deleting-a-discussion)".                                                     |
 | `Editar texto da discussão`     | Abra o texto principal da discussão que está pronto para edição.                                                                                                                                                                                            |
 | `Assinar`/`Cancelar assinatura` | Opte por participar ou não receber notificações de adições à discussão. Para obter mais informações, consulte "[Sobre notificações](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications)". |
-| `Transferir discussão...`       | Mover a discussão para um repositório diferente. Para obter mais informações, consulte "[Gerenciar discussões no seu repositório](/discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository#transferring-a-discussion)". |
+| `Transferir discussão...`       | Mover a discussão para um repositório diferente. Para obter mais informações, consulte "[Gerenciando discussões](/discussions/managing-discussions-for-your-community/managing-discussions#transferring-a-discussion)".                                     |
 
 ### Comandos de problemas
 

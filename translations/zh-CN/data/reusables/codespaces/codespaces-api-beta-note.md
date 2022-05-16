@@ -1,5 +1,5 @@
 {% note %}
 
-**Note**: The {% data variables.product.prodname_codespaces %} API is currently in public beta and subject to change.
+**注：**{% data variables.product.prodname_codespaces %} API 目前处于公测阶段，可能会更改。
 
 {% endnote %}

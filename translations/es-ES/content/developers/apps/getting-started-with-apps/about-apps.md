@@ -28,7 +28,7 @@ Para obtener una guía detallada del proceso de creación de una {% data variabl
 
 Las {% data variables.product.prodname_github_apps %} son actores de primera clase dentro de GitHub. Una {% data variables.product.prodname_github_app %} actúa por si misma, tomando las acciones a través de la API y utilizando directamente su propia identidad, lo que significa que no necesitas mantener un bot o cuenta de servicio como un usuario separado.
 
-Las {% data variables.product.prodname_github_apps %} se pueden instalar directamente en las cuentas de organización y de usuario, y se les puede dar acceso a repositorios diferentes. Vienen con webhooks integrados y con permisos específicos y delimitados. Cuando configuras tu {% data variables.product.prodname_github_app %}, puedes seleccionar los repositorios a los cuales quieres acceder. Por ejemplo, puedes configurar una app llamada `MyGitHub` que escribe informes de problemas en el repositorio `octocat` y _únicamente_ en dicho repositorio. Para instalar una {% data variables.product.prodname_github_app %}, necesitas ser propietario de la organización o tener permisos administrativos en el repositorio.
+Las {% data variables.product.prodname_github_apps %} se pueden instalar en las organizaciones y cuentas personales y se les puede otorgar acceso a repositorios específicos. Vienen con webhooks integrados y con permisos específicos y delimitados. Cuando configuras tu {% data variables.product.prodname_github_app %}, puedes seleccionar los repositorios a los cuales quieres acceder. Por ejemplo, puedes configurar una app llamada `MyGitHub` que escribe informes de problemas en el repositorio `octocat` y _únicamente_ en dicho repositorio. Para instalar una {% data variables.product.prodname_github_app %}, necesitas ser propietario de la organización o tener permisos administrativos en el repositorio.
 
 {% data reusables.apps.app_manager_role %}
 
@@ -85,7 +85,7 @@ Considera estas ideas cuando utilices tokens de acceso personal:
 * Puedes realizar solicitudes cURL de una sola ocasión.
 * Puedes ejecutar scripts personales.
 * No configures un script para que lo utilice todo tu equipo o compañía.
-* No configures una cuenta de usuario compartida para que actúe como un usuario bot.{% ifversion fpt or ghes > 3.2 or ghae-issue-4374 or ghec %}
+* No configures una cuenta personal para que actúe como un usuario bot.{% ifversion fpt or ghes > 3.2 or ghae-issue-4374 or ghec %}
 * Sí debes establecer un vencimiento para tus tokens de acceso personal para que te ayuden a mantener tu información segura.{% endif %}
 
 ## Determinar qué integración debes crear

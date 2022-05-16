@@ -38,6 +38,7 @@ shortTitle: 支出限额
 {% data reusables.dotcom_billing.monthly-spending-limit-codespaces %}
 {% data reusables.dotcom_billing.update-spending-limit %}
 
+{% ifversion ghec %}
 ## 管理企业帐户的 {% data variables.product.prodname_codespaces %} 支出限额
 
 企业所有者和帐单管理员可管理企业帐户的 {% data variables.product.prodname_codespaces %} 支出限额。
@@ -48,6 +49,7 @@ shortTitle: 支出限额
 1. 在“{% data variables.product.prodname_codespaces %} 每月使用”上方，单击 **Spending Limit（支出限制）**。 ![支出限制选项卡](/assets/images/help/settings/spending-limit-tab-enterprise.png)
 {% data reusables.dotcom_billing.monthly-spending-limit %}
 {% data reusables.dotcom_billing.update-spending-limit %}
+{% endif %}
 
 ## 在达到支出限制时导出更改
 
@@ -56,7 +58,7 @@ shortTitle: 支出限额
 
 当支出达到帐户支出限制的 50%、75%、90% 和 100% 时，系统会向帐户所有者和帐单管理员发送电子邮件通知。
 
-You can disable these notifications anytime by navigating to the bottom of the **Spending Limit** page.
+您可以随时通过导航到**支出限额**页面底部禁用这些通知。
 
 ![帐单邮箱通知设置的屏幕截图](/assets/images/help/billing/codespaces-spending-limit-notifications.png)
 

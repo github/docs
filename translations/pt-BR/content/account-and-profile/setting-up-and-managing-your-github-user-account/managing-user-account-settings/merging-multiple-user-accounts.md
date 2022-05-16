@@ -12,18 +12,18 @@ versions:
   ghec: '*'
 topics:
   - Accounts
-shortTitle: Fazer merge de várias contas de usuário
+shortTitle: Fazer merge de várias contas pessoais
 ---
 
 {% tip %}
 
 {% ifversion ghec %}
 
-**Dica:** {% data variables.product.prodname_emus %} permite que uma empresa forneça contas únicas de usuário para seus integrantes por meio de um provedor de identidade (IdP). Para obter mais informações, consulte[Sobre usuários gerenciados pela empresa](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/about-enterprise-managed-users)". Para outros casos de uso, recomendamos usar apenas uma conta de usuário para gerenciar repositórios pessoais e profissionais.
+**Dica:** {% data variables.product.prodname_emus %} permite que uma empresa forneça contas pessoais únicas para seus integrantes por meio de um provedor de identidade (IdP). Para obter mais informações, consulte[Sobre usuários gerenciados pela empresa](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/about-enterprise-managed-users)". Para outros casos de uso, recomendamos usar apenas uma conta pessoal para gerenciar repositórios pessoais e profissionais.
 
 {% else %}
 
-**Dicas::** recomendamos que você use apenas uma conta de usuário para gerenciar os repositórios pessoal e profissional.
+**Dica:** Recomendamos usar apenas uma conta pessoal para gerenciar repositórios pessoais e profissionais.
 
 {% endif %}
 
@@ -32,8 +32,8 @@ shortTitle: Fazer merge de várias contas de usuário
 {% warning %}
 
 **Aviso:**
-- Organization and repository access permissions aren't transferable between accounts. Se a conta que você deseja excluir tiver uma permissão de acesso existente, um proprietário ou administrador de repositório da organização precisará convidar a conta que você deseja manter.
-- Any commits authored with a GitHub-provided `noreply` email address cannot be transferred from one account to another. If the account you want to delete used the **Keep my email address private** option, it won't be possible to transfer the commits authored by the account you are deleting to the account you want to keep.
+- As permissões de organização e acesso ao repositório não podem ser transferidas entre contas. Se a conta que você deseja excluir tiver uma permissão de acesso existente, um proprietário ou administrador de repositório da organização precisará convidar a conta que você deseja manter.
+- Qualquer commit criado com um endereço de e-mail `noreply` fornecido pelo GitHub não pode ser transferido de uma conta para outra. Se a conta que você deseja excluir usou a opção **Manter o meu endereço de e-mail privado** opção, não será possível transferir os commits criados pela conta que você está excluindo para a conta que você deseja manter.
 
 {% endwarning %}
 

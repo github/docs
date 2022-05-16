@@ -89,7 +89,7 @@ Después de que emites tu solicitud de soporte, podríamos pedirte que compartas
 - `collectd/logs/collectd.log`: registros Collectd
 - `mail-logs/mail.log`: registros de entrega por correo electrónico SMTP
 
-Para obtener más información, consulta "[Audit logging](/enterprise/{{ currentVersion }}/admin/guides/installation/audit-logging) (Registro de auditoría".
+For more information, see "[About the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise)."
 
 Los paquetes de soporte incluyen registros de los dos últimos días. Para obtener registros de los últimos siete días, puedes descargar un paquete de soporte extendido. Para obtener más información, consulta "[Crear y compartir paquete de soporte extendido](#creating-and-sharing-extended-support-bundles)".
 

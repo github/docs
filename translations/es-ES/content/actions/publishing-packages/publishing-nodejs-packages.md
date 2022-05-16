@@ -61,7 +61,6 @@ Si estás publicando un paquete que incluye un prefijo de alcance, incluye el á
 
 Este ejemplo almacena el secreto `NPM_TOKEN` en la variable de entorno `NODE_AUTH_TOKEN`. Cuando la acción `setup-node` crea un archivo *.npmrc*, hace referencia al token de la variable de entorno `NODE_AUTH_TOKEN`.
 
-{% raw %}
 ```yaml{:copy}
 name: Publish Package to npmjs
 on:
@@ -71,18 +70,17 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       # Setup .npmrc file to publish to npm
-      - uses: actions/setup-node@v2
+      - uses: {% data reusables.actions.action-setup-node %}
         with:
           node-version: '16.x'
           registry-url: 'https://registry.npmjs.org'
       - run: npm ci
       - run: npm publish
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: {% raw %}${{ secrets.NPM_TOKEN }}{% endraw %}
 ```
-{% endraw %}
 
 En el ejemplo anterior, la acción `setup-node` crea un archivo *.npmrc* en el ejecutor con el siguiente contenido:
 
@@ -96,7 +94,7 @@ Toma en cuenta que necesitas configurar la `registry-url` como `https://registry
 
 ## Sube paquetes al {% data variables.product.prodname_registry %}
 
-Cada vez que creas un lanzamiento nuevo, puedes desencadenar un flujo de trabajo para publicar tu paquete. El flujo de trabajo en el ejemplo a continuación se ejecuta cada vez que se produce el evento `lanzamiento` con tipo `creado`. El flujo de trabajo publica el paquete en el {% data variables.product.prodname_registry %} si se superan las pruebas de CI.
+Cada vez que creas un lanzamiento nuevo, puedes desencadenar un flujo de trabajo para publicar tu paquete. El flujo de trabajo del siguiente ejemplo se ejecuta cada vez que se produce el evento `release` con tipo `created`. El flujo de trabajo publica el paquete en el {% data variables.product.prodname_registry %} si se superan las pruebas de CI.
 
 ### Configurar el repositorio de destino
 
@@ -115,7 +113,7 @@ Sin embargo, si no proporcionas la clave del `repository`, entonces el repositor
 
 ### Autenticarse en el repositorio de destino
 
-Para realizar operaciones autenticadas en el registro {% data variables.product.prodname_registry %} de tu flujo de trabajo, puedes utilizar el `GITHUB_TOKEN`. {% data reusables.actions.github-token-permissions %}
+Para realizar operaciones autenticadas contra el registro {% data variables.product.prodname_registry %} en tu flujo de trabajo, puedes utilizar el `GITHUB_TOKEN`. {% data reusables.actions.github-token-permissions %}
 
 Si quieres publicar tu paquete en un repositorio diferente, debes utilizar un token de acceso personal (PAT) que tenga permisos de escritura en los paquetes del repositorio destino. Para obtener más información, consulta las secciones "[Crear un token de acceso personal](/github/authenticating-to-github/creating-a-personal-access-token)" y "[Secretos cifrados](/actions/reference/encrypted-secrets)".
 
@@ -135,9 +133,9 @@ jobs:
       contents: read
       packages: write {% endif %}
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       # Setup .npmrc file to publish to GitHub Packages
-      - uses: actions/setup-node@v2
+      - uses: {% data reusables.actions.action-setup-node %}
         with:
           node-version: '16.x'
           registry-url: 'https://npm.pkg.github.com'
@@ -161,7 +159,6 @@ always-auth=true
 
 Si usas el gestor de paquetes Yarn, puedes instalar y publicar paquetes mediante Yarn.
 
-{% raw %}
 ```yaml{:copy}
 name: Publish Package to npmjs
 on:
@@ -171,9 +168,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       # Setup .npmrc file to publish to npm
-      - uses: actions/setup-node@v2
+      - uses: {% data reusables.actions.action-setup-node %}
         with:
           node-version: '16.x'
           registry-url: 'https://registry.npmjs.org'
@@ -182,6 +179,5 @@ jobs:
       - run: yarn
       - run: yarn publish
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: {% raw %}${{ secrets.NPM_TOKEN }}{% endraw %}
 ```
-{% endraw %}

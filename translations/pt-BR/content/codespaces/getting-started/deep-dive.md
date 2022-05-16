@@ -24,7 +24,7 @@ Há uma série de pontos de entrada para criar um codespace.
 
 Seu codespace pode ser efêmero se você tiver de fazer algum teste ou você pode retornar ao mesmo codespace para fazer um trabalho de recurso de longo prazo. Para obter mais informações, consulte "[Criar um codespace](/codespaces/developing-in-codespaces/creating-a-codespace)".
 
-Uma vez selecionada a opção de criar um novo codespace e escolhido um tipo de máquina para o seu codespace, algumas etapas irão acontecer em segundo plano antes que o corespace esteja disponível para você.
+Uma vez selecionada a opção de criar um novo codespace, e opcionalmente selecionada a partir das várias opções de configuração do seu codespace, algumas etapas acontecem em segundo plano antes que o codespace esteja disponível para você.
 
 ![Botão de abrir com codespaces](/assets/images/help/codespaces/new-codespace-button.png)
 
@@ -97,7 +97,7 @@ O Git está disponível por padrão no seu codespace. Portanto, você pode confi
 
 ![Executando o status do git no terminal do codespaces](/assets/images/help/codespaces/git-status.png)
 
-Você pode criar um codespace a partir de qualquer branch, commit ou pull request no seu projeto, ou você pode mudar para branch novo branch ou branch existente de dentro do seu codespace ativo. Uma vez que {% data variables.product.prodname_codespaces %} foi projetado para ser efêmero, você pode usá-lo como um ambiente isolado para experimentar, verificar o pull request de um amigo de equipe ou corrigir os conflitos de merge. Você pode criar mais de um código de espaço por repositório ou até mesmo por branch. No entanto, cada conta de usuário tem um limite de 10 codespaces. Se você atingiu o limite e deseja criar um novo espaço de código, você deve primeiro excluir um código.
+Você pode criar um codespace a partir de qualquer branch, commit ou pull request no seu projeto, ou você pode mudar para branch novo branch ou branch existente de dentro do seu codespace ativo. Uma vez que {% data variables.product.prodname_codespaces %} foi projetado para ser efêmero, você pode usá-lo como um ambiente isolado para experimentar, verificar o pull request de um amigo de equipe ou corrigir os conflitos de merge. Você pode criar mais de um código de espaço por repositório ou até mesmo por branch. No entanto, cada conta pessoal tem um limite de 10 codespaces. Se você atingiu o limite e deseja criar um novo espaço de código, você deve primeiro excluir um código.
 
 {% note %}
 

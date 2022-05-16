@@ -1,0 +1,114 @@
+---
+upcoming_changes:
+  - 
+    location: LegacyMigration.uploadUrlTemplate
+    description: '`uploadUrlTemplate`は削除されます。代わりに`uploadUrl` を使ってください。'
+    reason: '`uploadUrlTemplate`は、標準のURLではなく、ユーザーの手順を余分に追加することになるので、削除されています。'
+    date: '2019-04-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: tambling
+  - 
+    location: AssignedEvent.user
+    description: '`user`は削除されます。代わりに`assignee`フィールドを使ってください。'
+    reason: アサインされた人を、マネキンにできるようになりました。
+    date: '2020-01-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: tambling
+  - 
+    location: EnterpriseBillingInfo.availableSeats
+    description: '`availableSeats`は削除されます。代わりにEnterpriseBillingInfo.totalAvailableLicensesを使ってください。'
+    reason: '`availableSeats`は、返される値をより明確にするために`totalAvailableLicenses`に置き換えられます。'
+    date: '2020-01-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: BlakeWilliams
+  - 
+    location: EnterpriseBillingInfo.seats
+    description: '`seats`は削除されます。代わりにEnterpriseBillingInfo.totalLicensesを使ってください。'
+    reason: '`seats` は、返される値をより明確にするために`totalLicenses`に置き換えられます。'
+    date: '2020-01-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: BlakeWilliams
+  - 
+    location: UnassignedEvent.user
+    description: '`user`は削除されます。代わりに`assignee`フィールドを使ってください。'
+    reason: アサインされた人を、マネキンにできるようになりました。
+    date: '2020-01-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: tambling
+  - 
+    location: EnterprisePendingMemberInvitationEdge.isUnlicensed
+    description: '`isUnlicensed`は削除されます。'
+    reason: 保留中の全メンバーはライセンスを消費します
+    date: '2020-07-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: BrentWheeldon
+  - 
+    location: Issue.timeline
+    description: '`timeline`は削除されます。代わりにIssue.timelineItemsを使ってください。'
+    reason: '`timeline`は削除されます。'
+    date: '2020-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: mikesea
+  - 
+    location: PullRequest.timeline
+    description: '`timeline`は削除されます。代わりにPullRequest.timelineItemsを使ってください。'
+    reason: '`timeline`は削除されます。'
+    date: '2020-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: mikesea
+  - 
+    location: EnterpriseMemberEdge.isUnlicensed
+    description: '`isUnlicensed`は削除されます。'
+    reason: すべてのメンバーはライセンスを消費します
+    date: '2021-01-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: BrentWheeldon
+  - 
+    location: EnterpriseOutsideCollaboratorEdge.isUnlicensed
+    description: '`isUnlicensed`は削除されます。'
+    reason: すべての外部コラボレータはライセンスを消費します
+    date: '2021-01-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: BrentWheeldon
+  - 
+    location: MergeStateStatus.DRAFT
+    description: '`DRAFT`は削除されます。代わりにPullRequest.isDraftを使ってください。'
+    reason: DRAFTの状態はこのenumから削除されるので、代わりに`isDraft`を使わなければなりません。
+    date: '2021-01-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: nplasterer
+  - 
+    location: PackageType.DOCKER
+    description: '`DOCKER`は削除されます。'
+    reason: DOCKERは、Packages REST APIでのみ使われるように移行されるので、このenumから削除されます。
+    date: '2021-06-21'
+    criticality: 破壊的
+    owner: reybard
+  - 
+    location: ReactionGroup.users
+    description: '`users`は削除されます。代わりに`reactors`フィールドを使ってください。'
+    reason: リアクターは、マネキン、ボット、Organizationになることができます。
+    date: '2021-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: synthead
+  - 
+    location: Repository.defaultMergeQueue
+    description: '`defaultMergeQueue`は削除されます。代わりに`Repository.mergeQueue`を使用してください。'
+    reason: '`defaultMergeQueue`は削除されます。'
+    date: '2022-04-01'
+    criticality: 破壊的
+    owner: colinshum
+  - 
+    location: AddPullRequestToMergeQueueInput.branch
+    description: '`branch`は削除されます。'
+    reason: PRsはベースブランチのマージキューに追加されます。引数`branch`はno-opになりました。
+    date: '2022-07-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: jhunschejones
+  - 
+    location: Enterprise.userAccounts
+    description: '`userAccounts`は削除されます。代わりに`Enterprise.members`フィールドを使用してください。'
+    reason: '`Enterprise.userAccounts`フィールドは削除されています。'
+    date: '2022-07-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: jdennes

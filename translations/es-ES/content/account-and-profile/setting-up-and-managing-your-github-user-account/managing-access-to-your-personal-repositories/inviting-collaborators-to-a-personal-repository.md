@@ -55,7 +55,7 @@ Si eres un miembro de una {% data variables.product.prodname_emu_enterprise %}, 
 
 ## Leer más
 
-- "[Niveles de permiso para el repositorio de una cuenta de usuario](/articles/permission-levels-for-a-user-account-repository/#collaborator-access-for-a-repository-owned-by-a-user-account)"
+- "[Niveles de permiso para un repositorio de una cuenta personal](/articles/permission-levels-for-a-user-account-repository/#collaborator-access-for-a-repository-owned-by-a-personal-account)"
 - "[Eliminar un colaborador de un repositorio personal](/articles/removing-a-collaborator-from-a-personal-repository)"
 - "[Eliminarte a ti mismo del repositorio de un colaborador](/articles/removing-yourself-from-a-collaborator-s-repository)"
 - "[Organizar los miembros en equipos](/organizations/organizing-members-into-teams)"

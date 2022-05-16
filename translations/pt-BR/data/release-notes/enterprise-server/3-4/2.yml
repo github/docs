@@ -1,0 +1,77 @@
+---
+date: '2022-04-20'
+sections:
+  security_fixes:
+    - Os pacotes foram atualizados para as últimas versões de segurança.
+  bugs:
+    - Resolved a regression that could lead to consistent failures to retrieve artifacts and download log archives for {% data variables.product.prodname_actions %}. In some circumstances we stopped resolving URLs for internal communications that used `localhost`, and instead incorrectly used the instance hostname.
+    - When a manifest file was deleted from a repository, the manifest would not be removed from the repository's "Dependency graph" page.
+    - Upgrading the nodes in a high availability pair with an upgrade package could cause Elasticsearch to enter an inconsistent state in some cases.
+    - Rotated log files with the extension `.backup` would accumulate in directories containing system logs.
+    - In some cluster topologies, the command line utilities `ghe-spokesctl` and `ghe-btop` failed to run.
+    - Elasticsearch indices could be duplicated during a package upgrade, due to an `elasticsearch-upgrade` service running multiple times in parallel.
+    - Repository cache servers could serve data from non-cache locations even when the data was available in the local cache location.
+    - When converting a user account to an organization, if the user account was an owner of the {% data variables.product.prodname_ghe_server %} enterprise account, the converted organization would incorrectly appear in the enterprise owner list.
+    - The `/stafftools/users/ip_addresses/:address` page responded with a `500 Internal Server Error` when attempting to display the page for an IPv6 address.
+    - Creating an impersonation OAuth token using the Enterprise Administration REST API resulted in an error when an integration matching the OAuth Application ID already existed.
+  changes:
+    - Added support for replica domain names that are more than 63 characters.
+    - Configuration errors that halt a config apply run are now output to the terminal in addition to the configuration log.
+    - If {% data variables.product.prodname_GH_advanced_security %} features are enabled on your instance, the performance of background jobs has improved when processing batches for repository contributions.
+  known_issues:
+    - Em uma instância de {% data variables.product.prodname_ghe_server %} recém-configurada sem usuários, um invasor pode criar o primeiro usuário administrador.
+    - As regras de firewall personalizadas são removidas durante o processo de atualização.
+    - Arquivos LFS do Git [enviados através da interface web](https://github.com/blog/2105-upload-files-to-your-repositories) são adicionados diretamente ao repositório e de forma incorreta.
+    - Os problemas não podem ser fechados se contiverem um permalink para um blob no mesmo repositório, onde o caminho do arquivo blob's é maior que 255 caracteres.
+    - When "Users can search GitHub.com" is enabled with {% data variables.product.prodname_github_connect %}, issues in private and internal repositories are not included in {% data variables.product.prodname_dotcom_the_website %} search results.
+    - O registro npm de {% data variables.product.prodname_registry %} não retorna mais o valor de tempo em respostas de metadados. Isso foi feito para permitir melhorias substanciais de desempenho. Continuamos a ter todos os dados necessários para devolver um valor de tempo como parte da resposta aos metadados e retomaremos o retorno desse valor no futuro, assim que tivermos resolvido os problemas de desempenho existentes.
+    - Os limites de recursos que são específicos para processamento de hooks pre-receive podem causar falha em alguns hooks pre-receive.
+    - |
+      When using SAML encrypted assertions with {% data variables.product.prodname_ghe_server %} 3.4.0 and 3.4.1, a new XML attribute `WantAssertionsEncrypted` in the `SPSSODescriptor` contains an invalid attribute for SAML metadata. IdPs that consume this SAML metadata endpoint may encounter errors when validating the SAML metadata XML schema. A fix will be available in the next patch release. [Updated: 2022-04-11]
+
+      To work around this problem, you can take one of the two following actions.
+      - Reconfigure the IdP by uploading a static copy of the SAML metadata without the `WantAssertionsEncrypted` attribute.
+      - Copy the SAML metadata, remove `WantAssertionsEncrypted` attribute, host it on a web server, and reconfigure the IdP to point to that URL.
+  deprecations:
+    - 
+      heading: Obsoletização do GitHub Enterprise Server 3.0
+      notes:
+        - '**{% data variables.product.prodname_ghe_server %} 3.0 tornou-se obsoleto em 16 de fevereiro de 2022**. Isso significa que não serão feitas versões de patch, mesmo para questões essenciais de segurança, após esta data. Para obter melhor desempenho, melhorar a segurança e novas funcionalidades, [faça a atualização para a versão mais recente de {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.4/admin/enterprise-management/upgrading-github-enterprise-server) assim que possível.'
+    - 
+      heading: Obsolescência do GitHub Enterprise Server 3.1
+      notes:
+        - '**{% data variables.product.prodname_ghe_server %} 3.1 irá tornar-se obsoleto em 3 de junho de 2022**. Isso significa que não serão feitas versões de patch, mesmo para questões essenciais de segurança, após esta data. Para obter melhor desempenho, melhorar a segurança e novas funcionalidades, [faça a atualização para a versão mais recente de {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.4/admin/enterprise-management/upgrading-github-enterprise-server) assim que possível.'
+    - 
+      heading: Obsolescência do suporte para Hypervisor XenServer
+      notes:
+        - Começando com {% data variables.product.prodname_ghe_server %} 3.3, {% data variables.product.prodname_ghe_server %} no XenServer tornou-se obsoleto e não é mais compatível. Entre em contato com o [suporte do GitHub](https://support.github.com) em caso de dúvidas.
+    - 
+      heading: Obsolescência da visualização dos anexos do conteúdo da API
+      notes:
+        - Devido a baixo uso, nós descontinuamos a visualização da API de Referências de Conteúdo em {% data variables.product.prodname_ghe_server %} 3.4. Anteriormente, a API podia ser acessada com o cabeçalho `corsair-preview`. Os usuários podem continuar acessando os URLs externos sem esta API. Qualquer uso registrado da API de Referências de Conteúdo não receberá mais uma notificação de webhook para os URLs do(s) seu(s) domínio(s) registrado(s) e não retornaremos mais códigos de resposta válidos para tentativas de atualizar anexos de conteúdo existentes.
+    - 
+      heading: Obsolescência da visualização da API dos códigos de conduta
+      notes:
+        - 'A visualização da API dos códigos de conduta, que podia ser acessada com o cabeçalho `scarlet-witch-preview`, foi descontinuada e não pode ser mais acessada em {% data variables.product.prodname_ghe_server %} 3.4. Em vez disso, recomendamos usar o ponto de extremidade "[Obter métricas do perfil da comunidade](/rest/reference/repos#get-community-profile-metrics)" para obter informações sobre o código de conduta de um repositório. Para obter mais informações, consulte "[Aviso de obsolescência: Visualização da API dos códigos de conduta](https://github.blog/changelog/2021-10-06-deprecation-notice-codes-of-conduct-api-preview/)" no registro de alterações de {% data variables.product.prodname_dotcom %}.'
+    - 
+      heading: A obsolescência dos pontos de extremidade da API do aplicativo OAuth e autenticação da API usando parâmetros de consulta
+      notes:
+        - |
+          A partir de {% data variables.product.prodname_ghe_server %} 3.4, a [versão obsoleta dos pontos da API dos aplicativos OAuth](https://developer.github.com/changes/2020-02-14-deprecating-oauth-app-endpoint/#endpoints-affected) foi removida. Se você encontrar mensagens de erro 404 nesses pontos de extremidade, converta o seu código para as versões da API do aplicativo OAuth que não tem `access_tokens` no URL. Nós também desabilitamos o uso da autenticação API usando parâmetros de consulta. Em vez disso, recomendamos usar [autenticação de API no cabeçalho de solicitação](https://developer.github.com/changes/2020-02-10-deprecating-auth-through-query-param/#changes-to-make).
+    - 
+      heading: Obosolescência do executor do CodeQL
+      notes:
+        - O executor de {% data variables.product.prodname_codeql %} foi descontinuado em {% data variables.product.prodname_ghe_server %} 3.4 e não é mais compatível. A obsolescência afeta apenas usuários que usam a digitalização de código de {% data variables.product.prodname_codeql %} em sistemas de terceiros CI/CD; os usuários de {% data variables.product.prodname_actions %} não são afetados. É altamente recomendável que os clientes migrem para a CLI de {% data variables.product.prodname_codeql %}, que é um substituto com recursos completos para o executor de {% data variables.product.prodname_codeql %}. Para obter mais informações, consulte o [registro de alterações de {% data variables.product.prodname_dotcom %}](https://github.blog/changelog/2021-09-21-codeql-runner-deprecation/).
+    - 
+      heading: Obsolescência das extensões personalizadas do bit-cache
+      notes:
+        - |
+          Começando em {% data variables.product.prodname_ghe_server %} 3.1, o suporte para extensões de bit-cache de {% data variables.product.company_short %} começou a ser eliminado gradualmente. Essas extensões estão obsoletas a partir de {% data variables.product.prodname_ghe_server %} 3.3.
+
+          Todos os repositórios que já estavam presentes e ativos na {% data variables.product.product_location %} versão 3.1 ou 3.2 serão atualizados automaticamente.
+
+          Os repositórios que não estavam presentes e ativos antes de atualizar para {% data variables.product.prodname_ghe_server %} 3.3 podem não ser executados da forma ideal até que uma tarefa de manutenção de repositório seja executada e concluída com sucesso.
+
+          Para iniciar uma tarefa de manutenção do repositório manualmente, acesse https://<hostname>/stafftools/repositórios/<owner>/<repository>/network` para cada repositório afetado e clique no botão Cronograma.
+  backups:
+    - '{% data variables.product.prodname_ghe_server %} 3.4 exige pelo menos [GitHub Enterprise Backup Utilities 3.4.0](https://github.com/github/backup-utils) para [Backups e recuperação de desastre](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance).'

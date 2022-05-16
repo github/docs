@@ -31,16 +31,16 @@ shortTitle: Bajar una suscripción de categoría
 
 ## Bajar de nivel tu suscripción de {% data variables.product.product_name %}
 
-Cuando bajas de nivel tu suscricpión de cuenta de usuario o de organización, los precios y características cambian y toman efecto en tu siguiente fecha de facturación. Los cambios a tu suscripción de cuenta de usuario u organización no afectan aquellas suscripciones o pagos para otras características pagadas de {% data variables.product.prodname_dotcom %}. Para obtener más información, consulta "[¿Cómo afecta subir o bajar de categoría el proceso de facturación?](/articles/how-does-upgrading-or-downgrading-affect-the-billing-process)."
+Cuando bajas de nivel tu suscripción de cuenta personal o de organización, los precios y características cambian y toman efecto en tu siguiente fecha de facturación. Los cambios a la suscripción de pago de tu cuenta personal u organizacional no afectan a las suscripciones o pagos de otras características de {% data variables.product.prodname_dotcom %}. Para obtener más información, consulta "[¿Cómo afecta subir o bajar de categoría el proceso de facturación?](/articles/how-does-upgrading-or-downgrading-affect-the-billing-process)."
 
-## Bajar de nivel tu suscripción de cuenta de usuario
+## Bajar de nivel la suscripción de tu cuenta personal
 
-Si bajas tu cuenta de usuario de nivel desde {% data variables.product.prodname_pro %} a {% data variables.product.prodname_free_user %}, esta perderá acceso a las herramientas avanzadas de revisión de código en los repositorios privados. {% data reusables.gated-features.more-info %}
+Si bajas de nivel tu cuenta personal de {% data variables.product.prodname_pro %} a {% data variables.product.prodname_free_user %}, la cuenta perderá acceso a las herramientas de revisión de código avanzadas en los repositorios privados. {% data reusables.gated-features.more-info %}
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.billing_plans %}
 1. Debajo de "Plan actual", utiliza el menú desplegable **Editar** y haz clic en **Bajar de categoría a gratuito**. ![Botón Downgrade to free (Bajar de categoría a gratis)](/assets/images/help/billing/downgrade-to-free.png)
-5. Lee la información sobre de las características a las cuales perderá acceso tu cuenta de usuario en tu siguiente fecha de facturación, y luego da clic en **Entiendo. Bajar de nivel**. ![Botón de proceder con la baja de categoría](/assets/images/help/billing/continue-with-downgrade.png)
+5. Lee la información sobre las características a las que ya no tendrá acceso tu cuenta personal en tu siguiente fecha de facturación y luego haz lic en **Entiendo. Bajar de nivel**. ![Botón de proceder con la baja de categoría](/assets/images/help/billing/continue-with-downgrade.png)
 
 Si publicaste un sitio de {% data variables.product.prodname_pages %} en un repositorio privado y añadiste un dominio personalizado, retira o actualiza tus registros de DNS antes de bajarlo de nivel desde {% data variables.product.prodname_pro %} a {% data variables.product.prodname_free_user %}, para evitar el riesgo de que te ganen el dominio. Para obtener más información, consulta "[Administrar un dominio personalizado para tu sitio de {% data variables.product.prodname_pages %}](/articles/managing-a-custom-domain-for-your-github-pages-site)".
 

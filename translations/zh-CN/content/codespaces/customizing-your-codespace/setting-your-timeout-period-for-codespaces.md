@@ -12,6 +12,8 @@ shortTitle: 设置超时
 
 代码空间将在一段时间不活动后停止运行。 您可以指定此超时期限的长度。 更新后的设置将应用于任何新创建的代码空间。
 
+某些组织可能有最大空闲超时策略。 如果组织策略设置的最大超时小于您设置的默认超时，则将使用组织的超时而不是您的设置，并且在创建代码空间后，您将收到通知。 更多信息请参阅“[限制空闲超时期限](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)”。
+
 {% warning %}
 
 **警告**：代码空间按分钟计费。 如果您未主动使用代码空间，但代码空间尚未超时，则仍需为代码空间运行的时间付费。 更多信息请参阅“[关于代码空间的计费](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces#codespaces-pricing)”。

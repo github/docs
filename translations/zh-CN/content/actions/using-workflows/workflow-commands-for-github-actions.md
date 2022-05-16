@@ -111,13 +111,10 @@ core.setOutput('SELECTED_COLOR', 'green');
 | `core.getInput`       | 可使用环境变量 `INPUT_{NAME}` 访问                                             |
 | `core.getState`       | 可使用环境变量 `STATE_{NAME}` 访问                                             |
 | `core.isDebug`        | 可使用环境变量 `RUNNER_DEBUG` 访问                                             |
-| `core.saveState`      | `save-state`                                                          |
-| `core.setCommandEcho` | `echo`                                                                |
-| `core.setFailed`      | 用作 `::error` 和 `exit 1` 的快捷方式                                         |
-| `core.setOutput`      | `set-output`                                                          |
-| `core.setSecret`      | `add-mask`                                                            |
-| `core.startGroup`     | `组`                                                                   |
-| `core.warning`        | `警告`                                                                  |
+{%- if actions-job-summaries %}
+| `core.summary` | 可使用环境变量 `GITHUB_STEP_SUMMARY` 访问 |
+{%- endif %}
+| `core.saveState`  | `save-state` | | `core.setCommandEcho` | `echo` | | `core.setFailed`  | Used as a shortcut for `::error` and `exit 1` | | `core.setOutput`  | `set-output` | | `core.setSecret`  | `add-mask` | | `core.startGroup` | `group` | | `core.warning`    | `warning` |
 
 ## 设置输出参数
 
@@ -563,14 +560,16 @@ echo "{environment_variable_name}={value}" >> $GITHUB_ENV
 {% powershell %}
 
 - 使用 PowerShell 版本 6 及更高版本：
-```pwsh{:copy}
-"{environment_variable_name}={value}" >> $env:GITHUB_ENV
-```
+
+  ```pwsh{:copy}
+  "{environment_variable_name}={value}" >> $env:GITHUB_ENV
+  ```
 
 - 使用 PowerShell 版本 5.1 及更低版本：
-```powershell{:copy}
-"{environment_variable_name}={value}" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
-```
+
+  ```powershell{:copy}
+  "{environment_variable_name}={value}" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+  ```
 
 {% endpowershell %}
 
@@ -657,6 +656,150 @@ steps:
 
 {% endpowershell %}
 
+{% if actions-job-summaries %}
+
+## 添加作业摘要
+
+{% bash %}
+
+```bash{:copy}
+echo "{markdown content}" >> $GITHUB_STEP_SUMMARY
+```
+
+{% endbash %}
+
+{% powershell %}
+
+```pwsh{:copy}
+"{markdown content}" >> $env:GITHUB_STEP_SUMMARY
+```
+
+{% endpowershell %}
+
+您可以为每个作业设置一些自定义 Markdown，以便将其显示在工作流程运行的摘要页面上。 可以使用作业摘要来显示和分组唯一内容（如测试结果摘要），以便查看工作流程运行结果的用户无需进入日志即可查看与运行相关的重要信息（如失败）。
+
+作业摘要支持 [{% data variables.product.prodname_dotcom %} 样式的 Markdown](https://github.github.com/gfm/)，您可以将某个步骤的 Markdown 内容添加到 `GITHUB_STEP_SUMMARY` 环境文件中。 `GITHUB_STEP_SUMMARY` 对于作业中的每个步骤都是唯一的。 有关 `GITHUB_STEP_SUMMARY` 引用的每个步骤的文件的详细信息，请参阅“[环境文件](#environment-files)”。
+
+作业完成后，作业中所有步骤的摘要将组合到单个作业摘要中，并显示在工作流程运行摘要页上。 如果多个作业生成摘要，则作业摘要按作业完成时间排序。
+
+### 示例
+
+{% bash %}
+
+```bash{:copy}
+echo "### Hello world! :rocket:" >> $GITHUB_STEP_SUMMARY
+```
+
+{% endbash %}
+
+{% powershell %}
+
+```pwsh{:copy}
+"### Hello world! :rocket:" >> $env:GITHUB_STEP_SUMMARY
+```
+
+{% endpowershell %}
+
+![Markdown 摘要示例](/assets/images/actions-job-summary-simple-example.png)
+
+### 多行 Markdown 内容
+
+对于多行 Markdown 内容，可以使用 `>>` 连续附加当前步骤的内容。 每个附加操作都会自动添加换行符。
+
+#### 示例
+
+{% bash %}
+
+```yaml
+- name: Generate list using Markdown
+  run: |
+    echo "This is the lead in sentence for the list" >> $GITHUB_STEP_SUMMARY
+    echo "" >> $GITHUB_STEP_SUMMARY # this is a blank line
+    echo "- Lets add a bullet point" >> $GITHUB_STEP_SUMMARY
+    echo "- Lets add a second bullet point" >> $GITHUB_STEP_SUMMARY
+    echo "- How about a third one?" >> $GITHUB_STEP_SUMMARY
+```
+
+{% endbash %}
+
+{% powershell %}
+
+```yaml
+- name: Generate list using Markdown
+  run: |
+    "This is the lead in sentence for the list" >> $env:GITHUB_STEP_SUMMARY
+    "" >> $env:GITHUB_STEP_SUMMARY # this is a blank line
+    "- Lets add a bullet point" >> $env:GITHUB_STEP_SUMMARY
+    "- Lets add a second bullet point" >> $env:GITHUB_STEP_SUMMARY
+    "- How about a third one?" >> $env:GITHUB_STEP_SUMMARY
+```
+
+{% endpowershell %}
+
+### 覆盖作业摘要
+
+要清除当前步骤的所有内容，可以使用 `>` 覆盖以前添加的任何内容。
+
+#### 示例
+
+{% bash %}
+
+```yaml
+- name: Overwrite Markdown
+  run: |
+    echo "Adding some Markdown content" >> $GITHUB_STEP_SUMMARY
+    echo "There was an error, we need to clear the previous Markdown with some new content." > $GITHUB_STEP_SUMMARY
+```
+
+{% endbash %}
+
+{% powershell %}
+
+```yaml
+- name: Overwrite Markdown
+  run: |
+    "Adding some Markdown content" >> $env:GITHUB_STEP_SUMMARY
+    "There was an error, we need to clear the previous Markdown with some new content." > $env:GITHUB_STEP_SUMMARY
+```
+
+{% endpowershell %}
+
+### 删除作业摘要
+
+要完全删除当前步骤的摘要，可以删除 `GITHUB_STEP_SUMMARY` 引用的文件。
+
+#### 示例
+
+{% bash %}
+
+```yaml
+- name: Delete all summary content
+  run: |
+    echo "Adding Markdown content that we want to remove before the step ends" >> $GITHUB_STEP_SUMMARY
+    rm $GITHUB_STEP_SUMMARY
+```
+
+{% endbash %}
+
+{% powershell %}
+
+```yaml
+- name: Delete all summary content
+  run: |
+    "Adding Markdown content that we want to remove before the step ends" >> $env:GITHUB_STEP_SUMMARY
+    rm $env:GITHUB_STEP_SUMMARY
+```
+
+{% endpowershell %}
+
+步骤完成后，将上传作业摘要，后续步骤无法修改以前上传的 Markdown 内容。 摘要会自动屏蔽可能意外添加的任何机密。 如果作业摘要包含必须删除的敏感信息，则可以删除整个工作流程运行以删除其所有作业摘要。 更多信息请参阅“[删除工作流程运行](/actions/managing-workflow-runs/deleting-a-workflow-run)”。
+
+### 步骤分隔和限制
+
+作业摘要在步骤之间分隔，每个步骤的最大大小限制为 1MiB。 在步骤之间执行分隔，以便单个步骤中可能格式错误的 Markdown 无法破坏后续步骤的 Markdown 呈现。 如果为某个步骤添加的内容超过 1MiB，则该步骤的上传将失败，并且会创建错误注释。 作业摘要的上传失败不影响步骤或作业的整体状态。 每个作业最多显示 20 个步骤中的作业摘要。
+
+{% endif %}
+
 ## 添加系统路径
 
 为系统 `PATH` 变量预先设置一个目录，并自动使其可用于当前作业中的所有后续操作；当前运行的操作无法访问更新的路径变量。 要查看作业的当前定义路径，您可以在步骤或操作中使用 `echo "$PATH"`。
@@ -678,9 +821,9 @@ echo "{path}" >> $GITHUB_PATH
 
 ### 示例
 
-此示例演示如何将用户 `$HOME/.local/bin` 目录添加到 `PATH`：
-
 {% bash %}
+
+此示例演示如何将用户 `$HOME/.local/bin` 目录添加到 `PATH`：
 
 ```bash{:copy}
 echo "$HOME/.local/bin" >> $GITHUB_PATH
@@ -688,10 +831,9 @@ echo "$HOME/.local/bin" >> $GITHUB_PATH
 
 {% endbash %}
 
+{% powershell %}
 
 此示例演示如何将用户 `$env:HOMEPATH/.local/bin` 目录添加到 `PATH`：
-
-{% powershell %}
 
 ```pwsh{:copy}
 "$env:HOMEPATH/.local/bin" >> $env:GITHUB_PATH

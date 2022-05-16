@@ -29,7 +29,7 @@ shortTitle: 代表客户
 
 您将使用您的个人帐户来设置组织。 以后续订或更改客户的订阅时也需要登录此帐户。
 
-如果您已有 {% data variables.product.prodname_dotcom %} 用户帐户，请跳至 [第 2 步](#step-2-create-the-organization)。
+如果您已有 {% data variables.product.prodname_dotcom %} 个人帐户，请跳至[第 2 步](#step-2-create-the-organization)。
 
 1. 转到[Join GitHub（加入 GitHub）](https://github.com/join) 页面。
 2. 在“Create your personal account（创建个人帐户）”下，输入您的用户名、电子邮件地址和密码，然后单击 **Create an account（创建帐户）**。 ![创建个人帐户登记表](/assets/images/help/billing/billing_create_your_personal_account_form.png)
