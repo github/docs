@@ -17,12 +17,12 @@ miniTocMaxHeadingLevel: 4
 
 {% note %}
 
-**Note:** A job that is skipped will report its status as "Success". It will not prevent a pull request from merging, even if it is a required check.
+**注意：** 跳过的作业将报告其状态为“成功”。 它不会阻止拉取请求合并，即使它是必需的检查。
 
 {% endnote %}
 
 {% data reusables.actions.jobs.section-using-conditions-to-control-job-execution %}
 
-You would see the following status on a skipped job:
+您将在跳过的作业上看到以下状态：
 
 ![Skipped-required-run-details](/assets/images/help/repository/skipped-required-run-details.png)

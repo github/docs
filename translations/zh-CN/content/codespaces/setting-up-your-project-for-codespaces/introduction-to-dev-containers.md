@@ -114,7 +114,7 @@ RUN apt-get update && bash /tmp/library-scripts/github-debian.sh
 
 ## 使用默认开发容器配置
 
-如果未在存储库中定义配置，{% data variables.product.prodname_dotcom %} 使用默认 Linux 映像创建代码空间。 This Linux image includes a number of runtime versions for popular languages like Python, Node, PHP, Java, Go, C++, Ruby, and .NET Core/C#. The latest or LTS releases of these languages are used. There are also tools to support data science and machine learning, such as JupyterLab and Conda. The image also includes other developer tools and utilities like Git, GitHub CLI, yarn, openssh, and vim. 要查看包含的所有语言、运行时和工具，请在代码空间终端内使用 `devcontainer-info content-url` 命令，然后遵循命令输出的 URL。
+如果未在存储库中定义配置，{% data variables.product.prodname_dotcom %} 使用默认 Linux 映像创建代码空间。 此 Linux 映像包括许多流行语言的运行时版本，如 Python、Node、PHP、Java、Go、C++、Ruby 和 .NET Core/C#。 使用这些语言的最新版本或 LTS 版本。 还有一些工具可以支持数据科学和机器学习，例如 JupyterLab 和 Conda。 该映像还包括其他开发人员工具和实用程序，如 Git、GitHub CLI、yarn、openssh 和 vim。 要查看包含的所有语言、运行时和工具，请在代码空间终端内使用 `devcontainer-info content-url` 命令，然后遵循命令输出的 URL。
 
 或者，要详细了解默认 Linux 映像中包含的所有内容，请参阅 [`microsoft/vscode-dev-containers`](https://github.com/microsoft/vscode-dev-containers/tree/main/containers/codespaces-linux) 仓库中的最新文件。
 
