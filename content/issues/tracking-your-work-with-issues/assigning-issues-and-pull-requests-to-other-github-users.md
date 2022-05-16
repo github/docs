@@ -21,7 +21,7 @@ shortTitle: Assign issues & PRs
 
 You can assign multiple people to each issue or pull request, including yourself, anyone who has commented on the issue or pull request, anyone with write permissions to the repository, and organization members with read permissions to the repository. For more information, see "[Access permissions on {% data variables.product.prodname_dotcom %}](/articles/access-permissions-on-github)."
 
-All Public repositories and private repositories on a paid account can have up to 10 people assigned. Private repoistories on the Free plan are limited to one person per issue.
+Issues and pull requests in public repositories, and in private repositories for a paid account, can have up to 10 people assigned. Private repositories on the free plan are limited to one person per issue or pull request.
 
 ## Assigning an individual issue or pull request
 
