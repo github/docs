@@ -48,7 +48,7 @@ Se uma versão consertar uma vulnerabilidade de segurança, você deverá public
 Você pode visualizar a aba **Dependentes** do gráfico de dependências para ver quais repositórios e pacotes dependem do código no repositório e pode, portanto, ser afetado por uma nova versão. Para obter mais informações, consulte "[Sobre o gráfico de dependência](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)".
 {% endif %}
 
-Você também pode usar a API de Releases para reunir informações, tais como o número de vezes que as pessoas baixam um ativo de versão. Para obter mais informações, consulte "[Versões](/rest/reference/repos#releases)".
+Você também pode usar a API de Releases para reunir informações, tais como o número de vezes que as pessoas baixam um ativo de versão. Para obter mais informações, consulte "[Versões](/rest/reference/releases)".
 
 {% ifversion fpt or ghec %}
 ## Cotas de armazenamento e banda
