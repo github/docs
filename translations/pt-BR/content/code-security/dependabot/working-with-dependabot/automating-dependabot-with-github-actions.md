@@ -452,9 +452,9 @@ jobs:
 
 ### Habilitar o merge automático em um pull request
 
-If you want to allow maintainers to mark certain pull requests for auto-merge, you can use {% data variables.product.prodname_dotcom %}'s auto-merge functionality. Isto permite que o pull request seja mesclado quando todos os testes e aprovações forem cumpridos com sucesso. Para obter mais informações sobre merge automático, consulte "[Fazer merge automático de um pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request)".
+Se você quiser permitir que os mantenedores marquem certos pull requests para o merge automático, você pode usar a funcionalidade de merge automático de {% data variables.product.prodname_dotcom %}. Isto permite que o pull request seja mesclado quando todos os testes e aprovações forem cumpridos com sucesso. Para obter mais informações sobre merge automático, consulte "[Fazer merge automático de um pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request)".
 
-You can instead use {% data variables.product.prodname_actions %} and the {% data variables.product.prodname_cli %}. Here is an example that auto merges all patch updates to `my-dependency`:
+Em vez disso, você pode usar {% data variables.product.prodname_actions %} e {% data variables.product.prodname_cli %}. Aqui está um exemplo que faz o merge automático de todas as atualizações do patch para `my-dependency`:
 
 {% ifversion ghes = 3.3 %}
 

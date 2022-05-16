@@ -14,7 +14,7 @@ shortTitle: Ignorar execução de fluxo de trabalho
 
 {% note %}
 
-**Note:** If a workflow is skipped due to [path filtering](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore), [branch filtering](/actions/using-workflows/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore) or a commit message (see below), then checks associated with that workflow will remain in a "Pending" state. A pull request that requires those checks to be successful will be blocked from merging.
+**Observação:** Se um fluxo de trabalho for ignorado devido ao [filtro de branch](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore) [branch filtering](/actions/using-workflows/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore) ou uma mensagem de commit (veja abaixo), as verificações associadas a esse fluxo de trabalho permanecerão em um estado "Pendente". A pull request that requires those checks to be successful will be blocked from merging.
 
 {% endnote %}
 
