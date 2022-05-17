@@ -20,14 +20,14 @@
     - 选择 **{% data variables.product.support_ticket_priority_low %}** 以提出一般问题和提交有关新功能、购买、培训或状态检查的请求。
 {%- endif %}
 {%- ifversion ghes or ghec %}
-1. Optionally, if your account includes {% data variables.contact.premium_support %} and your ticket is {% ifversion ghes %}urgent or high{% elsif ghec %}high{% endif %} priority, you can request a callback in English. Select **Request a callback from GitHub Support**, select the country code dropdown menu to choose your country, and enter your phone number. !["请求回叫"复选框、 "国家/地区代码"下拉菜单和"电话号码"文本框的屏幕截图。](/assets/images/help/support/request-callback.png)
+1. （可选）如果您的帐户包含 {% data variables.contact.premium_support %} 并且您的事件单为 {% ifversion ghes %}紧急或高{% elsif ghec %}高{% endif %} 优先级，则可以请求英语回电。 选择 **Request a callback from GitHub Support（请求 GitHub 支持回电）**，选择国家/地区代码下拉菜单以选择您所在的国家/地区，然后输入您的电话号码。 !["请求回叫"复选框、 "国家/地区代码"下拉菜单和"电话号码"文本框的屏幕截图。](/assets/images/help/support/request-callback.png)
 {%- endif %}
-1. 在“Subject（主题）”下，为您遇到的问题输入描述性标题。 ![Screenshot of the "Subject" text box.](/assets/images/help/support/subject-field.png)
-1. 在“How can we help（我们如何提供帮助）”下，提供将帮助支持团队对问题进行故障排除的任何其他信息。 You can use markdown to format your message. ![Screenshot of the "How can we help" text area.](/assets/images/help/support/how-can-we-help-field.png) Helpful information may include:
+1. 在“Subject（主题）”下，为您遇到的问题输入描述性标题。 !["主题"文本框的屏幕截图。](/assets/images/help/support/subject-field.png)
+1. 在“How can we help（我们如何提供帮助）”下，提供将帮助支持团队对问题进行故障排除的任何其他信息。 您可以使用 Markdown 格式化消息。 ![Screenshot of the "How can we help" text area.](/assets/images/help/support/how-can-we-help-field.png) 有用的信息可能包括：
     - 重现问题的步骤
     - 与发现问题相关的任何特殊情况（例如，首次发生或特定活动后发生、发生频率、问题的业务影响以及建议的紧迫程度）
     - 错误消息的准确表述
 {%- ifversion ghes %}
-1. Optionally, attach diagnostics files and other files by dragging and dropping, uploading, or pasting from the clipboard.
+1. （可选）通过拖放、上传或从剪贴板粘贴来附加诊断文件及其他文件。
 {%- endif %}
-1. 单击 **Send request（发送请求）**。 ![Screenshot of the "Send request" button.](/assets/images/help/support/send-request-button.png)
+1. 单击 **Send request（发送请求）**。 !["发送请求"按钮的屏幕截图。](/assets/images/help/support/send-request-button.png)

@@ -1051,7 +1051,7 @@ on:
 
 {% endnote %}
 
-Runs your workflow when release activity in your repository occurs. For information about the release APIs, see "[Release](/graphql/reference/objects#release)" in the GraphQL API documentation or "[Releases](/rest/reference/repos#releases)" in the REST API documentation.
+Runs your workflow when release activity in your repository occurs. For information about the release APIs, see "[Release](/graphql/reference/objects#release)" in the GraphQL API documentation or "[Releases](/rest/reference/releases)" in the REST API documentation.
 
 たとえば、リリースが `published` だったときにワークフローを実行する例は、次のとおりです。
 

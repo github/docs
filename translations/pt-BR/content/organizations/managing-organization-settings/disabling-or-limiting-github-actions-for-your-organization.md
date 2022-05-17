@@ -117,13 +117,13 @@ By default, when you create a new organization, `GITHUB_TOKEN` only has read acc
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions-general %}
-1. Under "Workflow permissions", choose whether you want the `GITHUB_TOKEN` to have read and write access for all scopes, or just read access for the `contents` scope.
+1. Em "Permissões do fluxo de trabalho", escolha se você quer o `GITHUB_TOKEN` para ter acesso de leitura e escrita para todos os escopos, ou apenas ler acesso para o escopo `conteúdo`.
 
    ![Definir permissões do GITHUB_TOKEN para esta organização](/assets/images/help/settings/actions-workflow-permissions-organization{% if allow-actions-to-approve-pr %}-with-pr-{% if allow-actions-to-approve-pr-with-ent-repo %}creation-{% endif %}approval{% endif %}.png)
 1. Clique em **Salvar** para aplicar as configurações.
 
 {% if allow-actions-to-approve-pr %}
-### Preventing {% data variables.product.prodname_actions %} from {% if allow-actions-to-approve-pr-with-ent-repo %}creating or {% endif %}approving pull requests
+### Impedindo que {% data variables.product.prodname_actions %} de {% if allow-actions-to-approve-pr-with-ent-repo %}crie ou {% endif %}aprove pull requests
 
 {% data reusables.actions.workflow-pr-approval-permissions-intro %}
 
