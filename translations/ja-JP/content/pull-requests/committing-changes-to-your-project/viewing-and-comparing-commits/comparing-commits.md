@@ -31,9 +31,9 @@ compare の最も一般的な使い方は、新しいプルリクエストを開
 
 ## タグを比較する
 
-リリースタグを比較すると、前回のリリース以降のリポジトリへの変更が表示されます。 {% ifversion fpt or ghae or ghes or ghec %} 詳しい情報については、「[リリースを比較する](/github/administering-a-repository/comparing-releases)」を参照してください。{% endif %}
+リリースタグを比較すると、前回のリリース以降のリポジトリへの変更が表示されます。 For more information, see "[Comparing releases](/github/administering-a-repository/comparing-releases)."
 
-{% ifversion fpt or ghae or ghes or ghec %}タグを比較するには、ページ上部の `compare` ドロップダウンメニューからタグ名を選択できます。{% else %}ブランチ名を入力する代わりに、`compare` ドロップダウンメニューにタグの名前を入力します。{% endif %}
+To compare tags, you can select a tag name from the `compare` drop-down menu at the top of the page.
 
 2 つのタグ間を比較する例については、[こちらをクリック](https://github.com/octocat/linguist/compare/v2.2.0...octocat:v2.3.3)してください。
 
