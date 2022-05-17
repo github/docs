@@ -294,7 +294,7 @@ For a full list of available emoji and codes, check out [the Emoji-Cheat-Sheet](
 
 You can create a new paragraph by leaving a blank line between lines of text.
 
-{% ifversion fpt or ghae-issue-5180 or ghes > 3.2 or ghec %}
+{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
 ## Footnotes
 
 You can add footnotes to your content by using this bracket syntax:

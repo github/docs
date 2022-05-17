@@ -5,11 +5,11 @@ deprecated: false
 intro: |
   {% note %}
 
-  **Note:** If {% data variables.product.product_location %} is running a release candidate build, you can't upgrade with a hotpatch. We recommend only running release candidates on test environments.
+  **注意：** 如果 {% data variables.product.product_location %} 正在运行候选发行版，则无法使用热补丁进行升级。我们建议仅在测试环境中运行候选版本。
 
   {% endnote %}
 
-  For upgrade instructions, see "[Upgrading {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)."
+  有关升级说明，请参阅“[升级 {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)”。
 sections:
   features:
     - 
@@ -46,7 +46,7 @@ sections:
       heading: Server Statistics in public beta
       notes:
         - |
-          You can now analyze how your team works, understand the value you get from GitHub Enterprise Server, and help us improve our products by reviewing your instance's usage data and sharing this aggregate data with GitHub. You can use your own tools to analyze your usage over time by downloading your data in a CSV or JSON file or by accessing it using the REST API. To see the list of aggregate metrics collected, see "[About Server Statistics](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/about-server-statistics#server-statistics-data-collected)." **Server Statistics data includes no personal data nor GitHub content, such as code, issues, comments, or pull requests content.  For a better understanding of how we store and secure Server Statistics data, see "[GitHub Security](https://github.com/security)."**  For more information about Server Statistics, see "[Analyzing how your team works with Server Statistics](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics)." This feature is available in public beta.
+          You can now analyze how your team works, understand the value you get from GitHub Enterprise Server, and help us improve our products by reviewing your instance's usage data and sharing this aggregate data with GitHub. You can use your own tools to analyze your usage over time by downloading your data in a CSV or JSON file or by accessing it using the REST API. To see the list of aggregate metrics collected, see "[About Server Statistics](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/about-server-statistics#server-statistics-data-collected)." Server Statistics data includes no personal data nor GitHub content, such as code, issues, comments, or pull requests content.  For a better understanding of how we store and secure Server Statistics data, see "[GitHub Security](https://github.com/security)."  For more information about Server Statistics, see "[Analyzing how your team works with Server Statistics](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics)." This feature is available in public beta.
     - 
       heading: GitHub Actions rate limiting is now configurable
       notes:

@@ -22,6 +22,10 @@
 | Sistemas Contribuidos     | Credenciales de los sistemas contribuidos                   |
 | Databricks                | Token de Acceso de Databricks                               |
 | Datadog                   | Clave de API de Datadog                                     |
+| DigitalOcean              | DigitalOcean Personal Access Token                          |
+| DigitalOcean              | DigitalOcean OAuth Token                                    |
+| DigitalOcean              | DigitalOcean Refresh Token                                  |
+| DigitalOcean              | DigitalOcean System Token                                   |
 | Discord                   | Token de Bot de Discord                                     |
 | Doppler                   | Token Personal de Doppler                                   |
 | Doppler                   | Token de Servicio de Doppler                                |

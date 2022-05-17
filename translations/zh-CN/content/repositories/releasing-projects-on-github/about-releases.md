@@ -48,7 +48,7 @@ topics:
 您可以查看依赖项图的 **Dependents（依赖项）**选项卡，了解哪些仓库和包依赖于您仓库中的代码，并因此可能受到新发行版的影响。 更多信息请参阅“[关于依赖关系图](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)”。
 {% endif %}
 
-您也可以使用发行版 API 来收集信息，例如人们下载发行版资产的次数。 更多信息请参阅“[发行版](/rest/reference/repos#releases)”。
+您也可以使用发行版 API 来收集信息，例如人们下载发行版资产的次数。 更多信息请参阅“[发行版](/rest/reference/releases)”。
 
 {% ifversion fpt or ghec %}
 ## 存储和带宽配额

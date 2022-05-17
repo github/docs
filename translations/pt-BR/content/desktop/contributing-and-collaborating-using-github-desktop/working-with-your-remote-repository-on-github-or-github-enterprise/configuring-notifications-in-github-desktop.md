@@ -1,27 +1,27 @@
 ---
-title: Configuring notifications in GitHub Desktop
+title: Configurando notificações no GitHub Desktop
 shortTitle: Configurar notificações
-intro: '{% data variables.product.prodname_desktop %} will keep you up-to-date with notifications about events that occur in your pull request branch.'
+intro: '{% data variables.product.prodname_desktop %} manterá você atualizado com notificações sobre eventos que ocorram no branch do seu pull request.'
 versions:
   fpt: '*'
 ---
 
-## About notifications in {% data variables.product.prodname_desktop %}
+## Sobre notificações em {% data variables.product.prodname_desktop %}
 
-{% data variables.product.prodname_desktop %} will show a system notification for events that occur in the currently selected repository. Notifications will be shown when:
+{% data variables.product.prodname_desktop %} mostrará uma notificação de sistema para eventos que ocorrem no repositório selecionado atualmente. As notificações serão exibidas quando:
 
-- Pull request checks have failed.
-- A pull request review is left with a comment, approval, or requested changes.
+- Ocorreu uma falha nas verificações de pull request.
+- Deixou-se um comentário, aprovação ou alterações solicitadas em uma uma revisão do pull request.
 
-Clicking the notification will switch application focus to {% data variables.product.prodname_desktop %} and provide more detailed information.
+Clicar na notificação mudará o foco do aplicativo para {% data variables.product.prodname_desktop %} e fornecerá informações mais detalhadas.
 
-## Notifications about pull request check failures
+## Notificações sobre falhas de verificação de pull request
 
-When changes are made to a pull request branch, you will receive a notification if the checks fail.
+Quando forem feitas alterações em um branch de pull request, você receberá uma notificação se a verificação falhar.
 
-![pull request checks failed notification](/assets/images/help/desktop/pull-request-checks-failed-notification.png)
+![o pull request verifica a notificação falha](/assets/images/help/desktop/pull-request-checks-failed-notification.png)
 
-Clicking the notification will display a dialog with details about the checks. Once you've reviewed why the checks have failed, you can re-run the checks, or quickly switch to the pull request branch to get started on fixing the errors. For more information, see "[Viewing and re-running checks in GitHub Desktop](/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/viewing-and-re-running-checks-in-github-desktop)."
+Clicar na notificação irá exibir uma caixa de diálogo com detalhes sobre as verificações. Depois de analisar por que as verificações falharam, você pode voltar a executar a verificação, ou mudar rapidamente para o branch de pull request para começar a corrigir os erros. For more information, see "[Viewing and re-running checks in GitHub Desktop](/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/viewing-and-re-running-checks-in-github-desktop)."
 
 ![checks failed dialog](/assets/images/help/desktop/checks-failed-dialog.png)
 ## Notifications for pull request reviews

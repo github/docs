@@ -103,16 +103,40 @@ Puedes configurar este comportamiento de una organización utilizando los siguie
 
 {% data reusables.actions.workflow-permissions-intro %}
 
-Puedes configurar los permisos predeterminados para el `GITHUB_TOKEN` en la configuración de tu organización o tus repositorios. Si eliges la opción restringida como la predeterminada en tu configuración de organización, la misma opción se auto-seleccionará en la configuración de los repositorios dentro de dicha organización y se inhabilitará la opción permisiva. Si tu organización le pertenece a una cuenta {% data variables.product.prodname_enterprise %} y la configuración predeterminada más restringida se seleccionó en la configuración de dicha empresa, no podrás elegir la opción predeterminada permisiva en la configuración de tu organización.
+Puedes configurar los permisos predeterminados para el `GITHUB_TOKEN` en la configuración de tu organización o tus repositorios. If you select a restrictive option as the default in your organization settings, the same option is selected in the settings for repositories within your organization, and the permissive option is disabled. If your organization belongs to a {% data variables.product.prodname_enterprise %} account and a more restrictive default has been selected in the enterprise settings, you won't be able to select the more permissive default in your organization settings.
 
 {% data reusables.actions.workflow-permissions-modifying %}
 
 ### Configuring the default `GITHUB_TOKEN` permissions
 
+{% if allow-actions-to-approve-pr-with-ent-repo  %}
+By default, when you create a new organization, `GITHUB_TOKEN` only has read access for the `contents` scope.
+{% endif %}
+
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions-general %}
-1. Debajo de **Permisos del flujo de trabajo**, elige si quieres que el `GITHUB_TOKEN` tenga permisos de lectura y escritura para todos los alcances o solo acceso de lectura para el alcance `contents`. ![Configurar los permisos del GITHUB_TOKEN para esta organización](/assets/images/help/settings/actions-workflow-permissions-organization.png)
+1. Under "Workflow permissions", choose whether you want the `GITHUB_TOKEN` to have read and write access for all scopes, or just read access for the `contents` scope.
+
+   ![Configurar los permisos del GITHUB_TOKEN para esta organización](/assets/images/help/settings/actions-workflow-permissions-organization{% if allow-actions-to-approve-pr %}-with-pr-{% if allow-actions-to-approve-pr-with-ent-repo %}creation-{% endif %}approval{% endif %}.png)
 1. Da clic en **Guardar** para aplicar la configuración.
+
+{% if allow-actions-to-approve-pr %}
+### Preventing {% data variables.product.prodname_actions %} from {% if allow-actions-to-approve-pr-with-ent-repo %}creating or {% endif %}approving pull requests
+
+{% data reusables.actions.workflow-pr-approval-permissions-intro %}
+
+By default, when you create a new organization, workflows are not allowed to {% if allow-actions-to-approve-pr-with-ent-repo %}create or {% endif %}approve pull requests.
+
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.settings-sidebar-actions-general %}
+1. Under "Workflow permissions", use the **Allow GitHub Actions to {% if allow-actions-to-approve-pr-with-ent-repo %}create and {% endif %}approve pull requests** setting to configure whether `GITHUB_TOKEN` can {% if allow-actions-to-approve-pr-with-ent-repo %}create and {% endif %}approve pull requests.
+
+   ![Set GITHUB_TOKEN pull request approval permission for this organization](/assets/images/help/settings/actions-workflow-permissions-organization{% if allow-actions-to-approve-pr %}-with-pr-{% if allow-actions-to-approve-pr-with-ent-repo %}creation-{% endif %}approval{% endif %}.png)
+1. Da clic en **Guardar** para aplicar la configuración.
+
+{% endif %}
 {% endif %}

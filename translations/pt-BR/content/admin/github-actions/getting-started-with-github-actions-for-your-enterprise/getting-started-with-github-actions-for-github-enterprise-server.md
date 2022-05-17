@@ -85,11 +85,11 @@ A simultaneidade máxima foi medida usando vários repositórios, a duração do
 
 {% data reusables.actions.hardware-requirements-3.5 %}
 
-{% data variables.product.company_short %} measured maximum concurrency using multiple repositories, job duration of approximately 10 minutes, and 10 MB artifact uploads. Você pode ter um desempenho diferente dependendo dos níveis gerais de atividade na sua instância.
+{% data variables.product.company_short %} mediu a concorrência máxima usando vários repositórios, a duração do trabalho de aproximadamente 10 minutos e o upload do artefato de 10 MB. Você pode ter um desempenho diferente dependendo dos níveis gerais de atividade na sua instância.
 
 {% note %}
 
-**Note:** Beginning with {% data variables.product.prodname_ghe_server %} 3.5, {% data variables.product.company_short %}'s internal testing uses 3rd generation CPUs to better reflect a typical customer configuration. This change in CPU represents a small portion of the changes to performance targets in this version of {% data variables.product.prodname_ghe_server %}.
+**Observação:** Começando com o {% data variables.product.prodname_ghe_server %} 3.5, o teste interno de {% data variables.product.company_short %} usa CPUs de terceira geração para refletir melhor uma configuração típica do cliente. Essa alteração na CPU representa uma pequena parte das alterações nos objetivos de desempenho nesta versão de {% data variables.product.prodname_ghe_server %}.
 
 {% endnote %}
 

@@ -21,31 +21,44 @@ Para manter sua conta protegida, você deve efetuar a autenticação antes de po
 
 Você pode acessar seus recursos em {% data variables.product.product_name %} de várias formas: no navegador, por meio do {% data variables.product.prodname_desktop %} ou outro aplicativo da área de trabalho, com a API ou por meio da linha de comando. Cada forma de acessar o {% data variables.product.product_name %} é compatível com diferentes modos de autenticação.
 {%- ifversion not fpt %}
-- Your identity provider (IdP){% endif %}{% ifversion not ghae %}
-- Username and password with two-factor authentication{% endif %}
+- Seu provedor de identidade (IdP){% endif %}{% ifversion not ghae %}
+- Nome de usuário e senha com autenticação de dois fatores{% endif %}
 - Token de acesso de pessoal
 - Chave SSH
 
 ## Efetuar a autenticação no seu navegador
 
-Você pode efetuar a autenticação no {% data variables.product.product_name %} no navegador {% ifversion ghae %}usando o seu IdP. Para obter mais informações, consulte "[Sobre a autenticação com o logon único SAML](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)."{% else %}de formas diferentes.
+{% ifversion ghae %}
+
+Você pode efetuar a autenticação no {% data variables.product.product_name %} no navegador usando o seu IdP. Para obter mais informações, consulte "[Sobre a autenticação com logon único SAML](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)".
+
+{% else %}
 
 {% ifversion fpt or ghec %}
-- Se você for um integrante de um {% data variables.product.prodname_emu_enterprise %}, você irá efetuar a autenticação em {% data variables.product.product_name %} no seu navegador usando seu IdP. For more information, see "[Authenticating as a managed user](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users#authenticating-as-a-managed-user){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
 
-   If you're not a member of an {% data variables.product.prodname_emu_enterprise %}, you will authenticate using your {% data variables.product.prodname_dotcom_the_website %} username and password. You may also be required to enable two-factor authentication.
+Se você for um integrante de um {% data variables.product.prodname_emu_enterprise %}, você irá efetuar a autenticação em {% data variables.product.product_name %} no seu navegador usando seu IdP. Para obter mais informações, consulte "[Efetuando a autenticação como um usuário gerenciado](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users#authenticating-as-a-managed-user){% ifversion fpt %}" na documentação de {% data variables.product.prodname_ghe_cloud %}.{% else %}".{% endif %}
+
+Se você não for um integrante de um {% data variables.product.prodname_emu_enterprise %}, você irá efetuar a autenticação usando seu nome de usuário e senha do {% data variables.product.prodname_dotcom_the_website %}. You may also use two-factor authentication and SAML single sign-on, which can be required by organization and enterprise owners.
+
+{% else %}
+
+You can authenticate to {% data variables.product.product_name %} in your browser in a number of ways.
+
 {% endif %}
 
 - **Apenas nome de usuário e senha**
-    - You'll create a password when you create your account on {% data variables.product.product_name %}. Recomendamos que você use um gerenciador de senhas para gerar uma senha aleatória e única. For more information, see "[Creating a strong password](/github/authenticating-to-github/creating-a-strong-password)."{% ifversion fpt or ghec %}
-  - If you have not enabled 2FA, {% data variables.product.product_name %} will ask for additional verification when you first sign in from an unrecognized device, such as a new browser profile, a browser where the cookies have been deleted, or a new computer.
+    - Você criará uma senha ao criar sua conta em {% data variables.product.product_name %}. Recomendamos que você use um gerenciador de senhas para gerar uma senha aleatória e única. Para obter mais informações, consulte "[Criando uma senha forte](/github/authenticating-to-github/creating-a-strong-password)."{% ifversion fpt or ghec %}
+  - Se você não tiver habilitado a 2FA, {% data variables.product.product_name %} irá pedir verificação adicional quando você efetuar o login a partir de um dispositivo não reconhecido, como um novo perfil de navegador, um navegador onde os cookies foram excluídos ou um novo computador.
 
-   After providing your username and password, you will be asked to provide a verification code that we will send to you via email. If you have the GitHub Mobile application installed, you'll receive a notification there instead.{% endif %}
+   Depois de fornecer seu nome de usuário e senha, será solicitado que você forneça um código de verificação que enviaremos para você por e-mail. Se você tiver o aplicativo para dispositivos móveis do GitHub Mobile, você receberá uma notificação pelo aplicativo.{% endif %}
 - **Autenticação de dois fatores (2FA)** (recomendado)
     - If you enable 2FA, after you successfully enter your username and password, we'll also prompt you to provide a code that's generated by a time-based one time password (TOTP) application on your mobile device{% ifversion fpt or ghec %} or sent as a text message (SMS){% endif %}. Para obter mais informações, consulte "[Acessar o {% data variables.product.prodname_dotcom %} usando a autenticação de dois fatores](/github/authenticating-to-github/accessing-github-using-two-factor-authentication#providing-a-2fa-code-when-signing-in-to-the-website)".
-    - In addition to authentication with a TOTP application{% ifversion fpt or ghec %} or a text message{% endif %}, you can optionally add an alternative method of authentication with {% ifversion fpt or ghec %}{% data variables.product.prodname_mobile %} or{% endif %} a security key using WebAuthn. For more information, see {% ifversion fpt or ghec %}"[Configuring two-factor authentication with {% data variables.product.prodname_mobile %}](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication#configuring-two-factor-authentication-using-github-mobile)" and {% endif %}"[Configuring two-factor authentication using a security key](/github/authenticating-to-github/configuring-two-factor-authentication#configuring-two-factor-authentication-using-a-security-key)."{% endif %}{% ifversion ghes %}
-- **Identity provider (IdP) authentication**
-  - Your site administrator may configure {% data variables.product.product_location %} to use authentication with an IdP instead of a username and password. For more information, see "[External authentication methods](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#external-authentication)."
+    - Além de autenticação com um aplicativo TOTP{% ifversion fpt or ghec %} ou uma mensagem de texto{% endif %}, você pode opcionalmente adicionar um método alternativo de autenticação com {% ifversion fpt or ghec %}{% data variables.product.prodname_mobile %} ou{% endif %} uma chave de segurança usando WebAuthn. For more information, see {% ifversion fpt or ghec %}"[Configuring two-factor authentication with {% data variables.product.prodname_mobile %}](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication#configuring-two-factor-authentication-using-github-mobile)" and {% endif %}"[Configuring two-factor authentication using a security key](/github/authenticating-to-github/configuring-two-factor-authentication#configuring-two-factor-authentication-using-a-security-key)."{% ifversion ghes %}
+- **Autenticação externa**
+  - Your site administrator may configure {% data variables.product.product_location %} to use external authentication instead of a username and password. For more information, see "[External authentication methods](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#external-authentication)."{% endif %}{% ifversion fpt or ghec %}
+- **logon único SAML**
+  - Before you can access resources owned by an organization or enterprise account that uses SAML single sign-on, you may need to also authenticate through an IdP. For more information, see "[About authentication with SAML single sign-on](/authentication/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}{% endif %}
+
 {% endif %}
 
 ## Efetuar a autenticação com {% data variables.product.prodname_desktop %}
@@ -98,7 +111,7 @@ Se você efetuar a autenticação sem {% data variables.product.prodname_cli %},
 
 ### Autorizando para logon único SAML
 
-To use a personal access token or SSH key to access resources owned by an organization that uses SAML single sign-on, you must also authorize the personal token or SSH key. Para mais informações, consulte "[Autorizando um token de acesso pessoal para usar com logon único SAML ](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)" ou "[Autorizando uma chave SSH para usar com o logon único SAML](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on){% ifversion fpt %}" na documentação de {% data variables.product.prodname_ghe_cloud %}.{% else %}."{% endif %}{% endif %}
+Para usar um token de acesso pessoal ou chave SSH para acessar recursos pertencentes a uma organização que usa o logon único SAML, você também deve autorizar o token pessoal ou chave SSH. Para mais informações, consulte "[Autorizando um token de acesso pessoal para usar com logon único SAML ](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)" ou "[Autorizando uma chave SSH para usar com o logon único SAML](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on){% ifversion fpt %}" na documentação de {% data variables.product.prodname_ghe_cloud %}.{% else %}."{% endif %}{% endif %}
 
 {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 

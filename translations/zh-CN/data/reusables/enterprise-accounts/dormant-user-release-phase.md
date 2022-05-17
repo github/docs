@@ -1,5 +1,5 @@
 {% note %}
 
-**Note:** The Dormant Users report is currently in beta and subject to change. During the beta, ongoing improvements to the report download feature may limit its availability.
+**注意：** “休眠用户”报告目前处于测试阶段，可能会有所变化。 在测试期间，对报告下载功能的持续改进可能会限制其可用性。
 
 {% endnote %}

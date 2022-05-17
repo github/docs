@@ -143,8 +143,8 @@ Antes de definir um padrão personalizado, você deverá garantir que você habi
 
 {% if secret-scanning-enterprise-dry-runs %}
 **Notas:**
-- At the enterprise level, only the creator of a custom pattern can edit the pattern, and use it in a dry run.
-- Enterprise owners can only make use of dry runs on repositories that they have access to, and enterprise owners do not necessarily have access to all the organizations or repositories within the enterprise.
+- No nível corporativo, apenas o criador de um padrão personalizado pode editar o padrão e usá-lo em um teste.
+- Os proprietários de empresas só podem usar testes em repositórios aos quais têm acesso, e os proprietários de empresas não têm necessariamente acesso a todas as organizações ou repositórios da empresa.
 {% else %}
 **Observação:** Como não há nenhuma funcionalidade de teste, recomendamos que você teste seus padrões personalizados em um repositório antes de defini-los para toda sua empresa. Dessa forma, você pode evitar criar alertas falsos-positivos de {% data variables.product.prodname_secret_scanning %}.
 

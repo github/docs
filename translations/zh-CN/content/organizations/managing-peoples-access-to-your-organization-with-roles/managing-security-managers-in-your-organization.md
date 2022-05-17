@@ -2,8 +2,6 @@
 title: 管理组织中的安全管理员
 intro: 通过将团队分配给安全管理员角色，您可以为安全团队提供他们对组织所需的最少访问权限。
 versions:
-  fpt: '*'
-  ghes: '>=3.3'
   feature: security-managers
 topics:
   - Organizations
@@ -30,7 +28,7 @@ permissions: Organization owners can assign the security manager role.
 其他功能（包括组织的安全概述）在将 {% data variables.product.prodname_ghe_cloud %} 与 {% data variables.product.prodname_advanced_security %} 一起使用的组织中可用。 更多信息请参阅 [{% data variables.product.prodname_ghe_cloud %} 文档](/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)。
 {% endif %}
 
-如果团队具有安全管理员角色，则对团队和特定存储库具有管理员访问权限的人员可以更改团队对该存储库的访问级别，但不能删除访问权限。 更多信息请参阅“[管理团队对组织存储库的访问](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository){% ifversion ghes %}”。{% else %} 和“[管理可以访问存储库的团队和人员](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository)”。{% endif %}
+如果团队具有安全管理员角色，则对团队和特定存储库具有管理员访问权限的人员可以更改团队对该存储库的访问级别，但不能删除访问权限。 For more information, see "[Managing team access to an organization repository](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository){% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5974 %}" and "[Managing teams and people with access to your repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository)."{% else %}."{% endif %}
 
   ![使用安全管理器管理存储库访问 UI](/assets/images/help/organizations/repo-access-security-managers.png)
 

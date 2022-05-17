@@ -38,7 +38,7 @@ Para obter uma melhor compreensão de como armazenamos e protegemos os dados de 
 
 {% data variables.product.company_short %} coleta dados de {% data variables.product.prodname_server_statistics %} enquanto a licença do seu {% data variables.product.prodname_ghe_server %} estiver ativa e o recurso de {% data variables.product.prodname_server_statistics %} estiver habilitado.
 
-If you would like to delete your data, you may do so by contacting GitHub Support, your {% data variables.product.prodname_dotcom %} account representative, or your Customer Success Manager.  Geralmente, excluímos dados no período de tempo especificado na nossa declaração de privacidade. Para obter mais informações, consulte [Declaração de privacidade de {% data variables.product.company_short %}](/free-pro-team@latest/site-policy/privacy-policies/github-privacy-statement#data-retention-and-deletion-of-data) na documentação do {% data variables.product.prodname_dotcom_the_website %}.
+Se você quiser excluir seus dados, entre em contato com o suporte do GitHub, o representnate da sua conta de {% data variables.product.prodname_dotcom %} ou seu administrador de sucesso do cliente.  Geralmente, excluímos dados no período de tempo especificado na nossa declaração de privacidade. Para obter mais informações, consulte [Declaração de privacidade de {% data variables.product.company_short %}](/free-pro-team@latest/site-policy/privacy-policies/github-privacy-statement#data-retention-and-deletion-of-data) na documentação do {% data variables.product.prodname_dotcom_the_website %}.
 
 ### Sobre a portabilidade de dados
 
