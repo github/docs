@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+  <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+
+  <channel>
+  	<title>Ads Transparency Status</title>
+  	<link>https://status.fb.com/ads-transparency</link>
+  	<atom:link href="https://status.fb.com/outage-events-feed-ads-transparency.rss" rel="self" type="application/rss+xml" />
+  	<description>Status updates for Ads Transparency</description>
+  	<lastBuildDate>Wed, 20 Apr 2022 18:12:54 GMT</lastBuildDate>
+  	<item>
+        		<title>[Resolved]: Ad Library Report</title>
+        		<link>https://status.fb.com/ads-transparency</link>
+        		<guid isPermaLink="false">Ad Library Report update at: Wed, 20 Apr 2022 18:12:54 GMT</guid>
+        		<description>Weve recovered from an earlier outage that caused a delay in the Ad Library Report. We apologize for any inconvenience.</description>
+        		<pubDate>Wed, 20 Apr 2022 18:12:54 GMT</pubDate>
+        	</item>
+        
+  </channel>
+
+  </rss>
+  
