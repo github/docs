@@ -572,7 +572,7 @@ While most of your API interaction should occur using your server-to-server inst
 
 #### Reactions
 
-* [Delete a reaction](/rest/reference/reactions#delete-a-reaction-legacy)
+* [Delete a reaction](/rest/reference/reactions)
 * [List reactions for a commit comment](/rest/reference/reactions#list-reactions-for-a-commit-comment)
 * [Create reaction for a commit comment](/rest/reference/reactions#create-reaction-for-a-commit-comment)
 * [List reactions for an issue](/rest/reference/reactions#list-reactions-for-an-issue)
