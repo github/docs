@@ -37,14 +37,11 @@ remote: error: Required status check "ci-build" is failing
 
 {% endnote %}
 
-{% ifversion fpt or ghae or ghes or ghec %}
-
 ## Conflicts between head commit and test merge commit
 
 テストマージコミットと head コミットのステータスチェックの結果が競合する場合があります。 テストマージコミットにステータスがある場合、そのテストマージコミットは必ずパスする必要があります。 それ以外の場合、ヘッドコミットのステータスは、ブランチをマージする前にパスする必要があります。 テストマージコミットに関する詳しい情報については、「[プル](/rest/reference/pulls#get-a-pull-request)」を参照してください。
 
 ![マージコミットが競合しているブランチ](/assets/images/help/repository/req-status-check-conflicting-merge-commits.png)
-{% endif %}
 
 ## Handling skipped but required checks
 

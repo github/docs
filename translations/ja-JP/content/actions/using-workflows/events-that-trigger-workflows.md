@@ -24,7 +24,7 @@ Workflow triggers are events that cause a workflow to run. For more information 
 
 Some events have multiple activity types. For these events, you can specify which activity types will trigger a workflow run. For more information about what each activity type means, see "[Webhook events and payloads](/developers/webhooks-and-events/webhook-events-and-payloads)." Note that not all webhook events trigger workflows.
 
-{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4968  %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae  %}
 ### `branch_protection_rule`
 
 | webhook イベントのペイロード                                                                                                      | アクティビティタイプ                                             | `GITHUB_SHA`      | `GITHUB_REF` |

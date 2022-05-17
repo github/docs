@@ -21,6 +21,7 @@ translations/ja-JP/content/actions/using-github-hosted-runners/about-github-host
 translations/ja-JP/content/actions/using-workflows/storing-workflow-data-as-artifacts.md,broken liquid tags
 translations/ja-JP/content/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance.md,broken liquid tags
 translations/ja-JP/content/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-secret-scanning-for-your-appliance.md,broken liquid tags
+translations/ja-JP/content/admin/configuration/configuring-github-connect/about-github-connect.md,broken liquid tags
 translations/ja-JP/content/admin/configuration/configuring-network-settings/network-ports.md,broken liquid tags
 translations/ja-JP/content/admin/configuration/configuring-your-enterprise/accessing-the-management-console.md,broken liquid tags
 translations/ja-JP/content/admin/configuration/configuring-your-enterprise/command-line-utilities.md,broken liquid tags

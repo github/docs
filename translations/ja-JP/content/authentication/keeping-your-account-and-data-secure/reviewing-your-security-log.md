@@ -28,15 +28,11 @@ The security log lists all actions performed within the last 90 days.
 1. ユーザ設定サイドバーで [**Security log**] をクリックします。 ![セキュリティログのタブ](/assets/images/help/settings/audit-log-tab.png)
 {% endif %}
 
-{% ifversion fpt or ghae or ghes or ghec %}
 ## セキュリティログを検索する
 
 {% data reusables.audit_log.audit-log-search %}
 
 ### 実行されたアクションに基づく検索
-{% else %}
-## セキュリティログでのイベントを理解する
-{% endif %}
 
 セキュリティログにリストされているイベントは、アクションによってトリガーされます。 アクションは次のカテゴリに分類されます。
 
@@ -109,10 +105,10 @@ The security log lists all actions performed within the last 90 days.
 
 ### `oauth_authorization` category actions
 
-| アクション     | 説明                                                                                                                                                                                                                                                                                                                                                                                                    |
-| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `create`  | Triggered when you [grant access to an {% data variables.product.prodname_oauth_app %}](/github/authenticating-to-github/keeping-your-account-and-data-secure/authorizing-oauth-apps).                                                                                                                                                                                                              |
-| `destroy` | Triggered when you [revoke an {% data variables.product.prodname_oauth_app %}'s access to your account](/articles/reviewing-your-authorized-integrations){% ifversion fpt or ghae-issue-4374 or ghes > 3.2 or ghec %} and when [authorizations are revoked or expire](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation).{% else %}.{% endif %}
+| アクション     | 説明                                                                                                                                                                                                                                                                                                                                                                                         |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `create`  | Triggered when you [grant access to an {% data variables.product.prodname_oauth_app %}](/github/authenticating-to-github/keeping-your-account-and-data-secure/authorizing-oauth-apps).                                                                                                                                                                                                   |
+| `destroy` | Triggered when you [revoke an {% data variables.product.prodname_oauth_app %}'s access to your account](/articles/reviewing-your-authorized-integrations){% ifversion fpt or ghae or ghes > 3.2 or ghec %} and when [authorizations are revoked or expire](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation).{% else %}.{% endif %}
 
 {% ifversion fpt or ghec %}
 

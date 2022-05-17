@@ -119,14 +119,14 @@ By default, when you create a new repository in your personal account, `GITHUB_T
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.settings-sidebar-actions-general %}
-1. Under "Workflow permissions", choose whether you want the `GITHUB_TOKEN` to have read and write access for all scopes, or just read access for the `contents` scope.
+1. [Workflow permissions]の下で、`GITHUB_TOKEN`にすべてのスコープに対する読み書きアクセスを持たせたいか、あるいは`contents`スコープに対する読み取りアクセスだけを持たせたいかを選択してください。
 
    ![Set GITHUB_TOKEN permissions for this repository](/assets/images/help/settings/actions-workflow-permissions-repository{% if allow-actions-to-approve-pr-with-ent-repo %}-with-pr-approval{% endif %}.png)
 
 1. **Save（保存）**をクリックして、設定を適用してください。
 
 {% if allow-actions-to-approve-pr-with-ent-repo %}
-### Preventing {% data variables.product.prodname_actions %} from creating or approving pull requests
+### {% data variables.product.prodname_actions %}がPull Requestの作成もしくは承認をできないようにする
 
 {% data reusables.actions.workflow-pr-approval-permissions-intro %}
 

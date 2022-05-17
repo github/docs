@@ -120,7 +120,7 @@ curl -u my_client_id:my_client_secret '{% data variables.product.api_url_pre %}/
 
 {% ifversion fpt or ghec %}
 
-[認証されていないレート制限の詳細](#increasing-the-unauthenticated-rate-limit-for-oauth-applications)をお読みください。
+Read [more about unauthenticated rate limiting](#increasing-the-unauthenticated-rate-limit-for-oauth-apps).
 
 {% endif %}
 

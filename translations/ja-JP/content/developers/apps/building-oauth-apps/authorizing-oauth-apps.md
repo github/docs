@@ -338,7 +338,7 @@ To build this link, you'll need your OAuth Apps `client_id` that you received fr
 
 * "[Troubleshooting authorization request errors](/apps/managing-oauth-apps/troubleshooting-authorization-request-errors)"
 * "[Troubleshooting OAuth App access token request errors](/apps/managing-oauth-apps/troubleshooting-oauth-app-access-token-request-errors)"
-* "[Device flow errors](#error-codes-for-the-device-flow)"{% ifversion fpt or ghae-issue-4374 or ghes > 3.2 or ghec %}
+* "[Device flow errors](#error-codes-for-the-device-flow)"{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
 * "[Token expiration and revocation](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation)"{% endif %}
 
 ## Further reading

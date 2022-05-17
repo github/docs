@@ -64,7 +64,7 @@ shortTitle: Connections between repositories
 {% data reusables.repositories.accessing-repository-graphs %}
 3. 左サイトバーで [**Forks**] をクリックします。 ![[Forks] タブ](/assets/images/help/graphs/graphs-sidebar-forks-tab.png)
 
-{% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
+{% ifversion fpt or ghes or ghae or ghec %}
 ## リポジトリの依存関係を表示する
 
 依存関係グラフを使用して、リポジトリが依存するコードを調べることができます。
