@@ -28,11 +28,11 @@ versions:
 
 ## 站点快捷键
 
-| 键盘快捷键                       | 描述                                                                                                                                                                                                                                                            |
-| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <kbd>S</kbd> 或 <kbd>/</kbd> | 聚焦于搜索栏。 更多信息请参阅“[关于在 {% data variables.product.company_short %} 上搜索](/search-github/getting-started-with-searching-on-github/about-searching-on-github)”。                                                                                                     |
-| <kbd>G</kbd> <kbd>N</kbd>   | 转到您的通知。 更多信息请参阅{% ifversion fpt or ghes or ghae or ghec %}"[关于通知](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}“[关于通知](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}”。 |
-| <kbd>Esc</kbd>              | 当聚焦于用户、议题或拉取请求悬停卡时，关闭悬停卡并重新聚焦于悬停卡所在的元素                                                                                                                                                                                                                        |
+| 键盘快捷键                       | 描述                                                                                                                                                        |
+| --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <kbd>S</kbd> 或 <kbd>/</kbd> | 聚焦于搜索栏。 更多信息请参阅“[关于在 {% data variables.product.company_short %} 上搜索](/search-github/getting-started-with-searching-on-github/about-searching-on-github)”。 |
+| <kbd>G</kbd> <kbd>N</kbd>   | 转到您的通知。 更多信息请参阅“[关于通知](/github/managing-subscriptions-and-notifications-on-github/about-notifications)”。                                                  |
+| <kbd>Esc</kbd>              | 当聚焦于用户、议题或拉取请求悬停卡时，关闭悬停卡并重新聚焦于悬停卡所在的元素                                                                                                                    |
 
 {% if command-palette %}
 
@@ -106,7 +106,6 @@ versions:
 {% endif %}
 | <kbd>R</kbd>                                                                                                                 | 在您的回复中引用所选的文本。 更多信息请参阅“[基本撰写和格式语法](/articles/basic-writing-and-formatting-syntax#quoting-text)”。                                                                             |
 
-
 ## 议题和拉取请求列表
 
 | 键盘快捷键                                                                                      | 描述                                                                                                                                    |
@@ -135,16 +134,15 @@ versions:
 
 ## 拉取请求中的更改
 
-| 键盘快捷键                                                | 描述                                                                                                                                                                                                          |
-| ---------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <kbd>C</kbd>                                         | 在拉取请求中打开提交列表                                                                                                                                                                                                |
-| <kbd>T</kbd>                                         | 在拉取请求中打开已更改文件列表                                                                                                                                                                                             |
-| <kbd>J</kbd>                                         | 将所选内容在列表中向下移动                                                                                                                                                                                               |
-| <kbd>K</kbd>                                         | 将所选内容在列表中向上移动                                                                                                                                                                                               |
-| <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>Enter</kbd> | 添加一条有关拉取请求差异的评论                                                                                                                                                                                             |
-| <kbd>Alt</kbd> 并单击                                   | 通过按下 <kbd>Alt</kbd> 并单击 **Show outdated（显示已过期）**或 **Hide outdated（隐藏已过期）**，在折叠和展开拉取请求中所有过期的审查评论之间切换。{% ifversion fpt or ghes or ghae or ghec %}
-| 单击，然后按住 <kbd>Shift</kbd> 并单击                         | 单击一个行号，按住 <kbd>Shift</kbd>，然后单击另一行号，便可对拉取请求的多行发表评论。 更多信息请参阅“[评论拉取请求](/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request#adding-line-comments-to-a-pull-request)。”
-{% endif %}
+| 键盘快捷键                                                | 描述                                                                                                                                                                                              |
+| ---------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <kbd>C</kbd>                                         | 在拉取请求中打开提交列表                                                                                                                                                                                    |
+| <kbd>T</kbd>                                         | 在拉取请求中打开已更改文件列表                                                                                                                                                                                 |
+| <kbd>J</kbd>                                         | 将所选内容在列表中向下移动                                                                                                                                                                                   |
+| <kbd>K</kbd>                                         | 将所选内容在列表中向上移动                                                                                                                                                                                   |
+| <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>Enter</kbd> | 添加一条有关拉取请求差异的评论                                                                                                                                                                                 |
+| <kbd>Alt</kbd> 并单击                                   | Toggle between collapsing and expanding all outdated review comments in a pull request by holding down <kbd>Alt</kbd> and clicking **Show outdated** or **Hide outdated**.                      |
+| 单击，然后按住 <kbd>Shift</kbd> 并单击                         | 单击一个行号，按住 <kbd>Shift</kbd>，然后单击另一行号，便可对拉取请求的多行发表评论。 更多信息请参阅“[评论拉取请求](/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request#adding-line-comments-to-a-pull-request)”。 |
 
 ## 项目板
 
@@ -200,7 +198,7 @@ versions:
 {% endif %}
 
 ## 通知
-{% ifversion fpt or ghes or ghae or ghec %}
+
 | 键盘快捷键                         | 描述    |
 | ----------------------------- | ----- |
 | <kbd>E</kbd>                  | 标记为完成 |
@@ -208,13 +206,6 @@ versions:
 | <kbd>Shift</kbd>+<kbd>I</kbd> | 标记为已读 |
 | <kbd>Shift</kbd>+<kbd>M</kbd> | 取消订阅  |
 
-{% else %}
-
-| 键盘快捷键                                      | 描述    |
-| ------------------------------------------ | ----- |
-| <kbd>E</kbd> 或 <kbd>I</kbd> 或 <kbd>Y</kbd> | 标记为已读 |
-| <kbd>Shift</kbd>+<kbd>M</kbd>              | 静音线程  |
-{% endif %}
 
 ## 网络图
 
