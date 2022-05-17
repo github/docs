@@ -173,8 +173,8 @@ on:
 
 jobs:
   pass-secrets-to-workflow:
-      uses: ./.github/workflows/called-workflow.yml
-      secrets: inherit
+    uses: ./.github/workflows/called-workflow.yml
+    secrets: inherit
 ```
 
 ```yaml
@@ -186,7 +186,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Use a repo or org secret from the calling workflow.
-        uses: echo ${{ secrets.CALLING_WORKFLOW_SECRET }}
+        run: echo ${{ secrets.CALLING_WORKFLOW_SECRET }}
 ```
 
 {% endraw %}
