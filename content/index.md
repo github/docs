@@ -18,7 +18,6 @@ children:
   - account-and-profile
   - authentication
   - repositories
-  - github
   - admin
   - billing
   - site-policy
@@ -27,6 +26,7 @@ children:
   - pull-requests
   - issues
   - actions
+  - copilot
   - codespaces
   - packages
   - search-github
