@@ -6,11 +6,11 @@ redirect_from:
   - /categories/setting-up-and-managing-your-github-user-account
   - /github/setting-up-and-managing-your-github-user-account
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
-topics:
+  fpt: '*'47
+  ghes: '*'6668
+  ghae: '*'777
+  ghec: '*'$&$
+topics:token 
   - Accounts
 children:
   - /managing-user-account-settings
