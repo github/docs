@@ -2,7 +2,7 @@
 title: Audit log events for your enterprise
 intro: Learn about audit log events recorded for your enterprise.
 shortTitle: Audit log events
-permissions: Enterprise owners {% ifversion ghes %}and site administrators {% endif %}can interact with the audit log.
+permissions: 'Enterprise owners {% ifversion ghes %}and site administrators {% endif %}can interact with the audit log.'
 miniTocMaxHeadingLevel: 4
 redirect_from:
   - /enterprise/admin/articles/audited-actions
@@ -202,7 +202,7 @@ Action                        | Description
 | `config_entry.update` | A configuration setting was edited. These events are only visible in the site admin audit log. The type of events recorded relate to:</br>- Enterprise settings and policies</br>- Organization and repository permissions and settings</br>- Git, Git LFS, {% data variables.product.prodname_github_connect %}, {% data variables.product.prodname_registry %}, project, and code security settings.
 {%- endif %}
 
-{%- ifversion fpt or ghec or ghes > 3.2 or ghae-issue-4864 %}
+{%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
 ### `dependabot_alerts` category actions
 
 | Action | Description
@@ -240,7 +240,7 @@ Action                        | Description
 | `dependabot_security_updates_new_repos.enable` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} enabled {% data variables.product.prodname_dependabot_security_updates %} for all new repositories.
 {%- endif %}
 
-{%- ifversion fpt or ghec or ghes or ghae-issue-4864 %}
+{%- ifversion fpt or ghec or ghes or ghae %}
 ### `dependency_graph` category actions
 
 | Action | Description
@@ -1145,7 +1145,7 @@ Action                        | Description
 | `repository_visibility_change.disable` | The ability for enterprise members to update a repository's visibility was disabled. Members are unable to change repository visibilities in an organization, or all organizations in an enterprise.
 | `repository_visibility_change.enable` | The ability for enterprise members to update a repository's visibility was enabled. Members are able to change repository visibilities in an organization, or all organizations in an enterprise.
 
-{%- ifversion fpt or ghec or ghes or ghae-issue-4864 %}
+{%- ifversion fpt or ghec or ghes or ghae %}
 ### `repository_vulnerability_alert` category actions
 
 | Action | Description

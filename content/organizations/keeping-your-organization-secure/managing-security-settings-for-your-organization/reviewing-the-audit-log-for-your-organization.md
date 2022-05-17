@@ -41,7 +41,7 @@ To search for specific events, use the `action` qualifier in your query. Actions
 | [`advisory_credit`](#advisory_credit-category-actions) | Contains all activities related to crediting a contributor for a security advisory in the {% data variables.product.prodname_advisory_database %}. For more information, see "[About {% data variables.product.prodname_dotcom %} Security Advisories](/github/managing-security-vulnerabilities/about-github-security-advisories)."
 | [`billing`](#billing-category-actions) | Contains all activities related to your organization's billing.
 | [`business`](#business-category-actions) | Contains activities related to business settings for an enterprise. |
-| [`codespaces`](#codespaces-category-actions) | Contains all activities related to your organization's codespaces. |{% endif %}{% ifversion fpt or ghec or ghes > 3.2 or ghae-issue-4864 %}
+| [`codespaces`](#codespaces-category-actions) | Contains all activities related to your organization's codespaces. |{% endif %}{% ifversion fpt or ghec or ghes > 3.2 or ghae %}
 | [`dependabot_alerts`](#dependabot_alerts-category-actions) | Contains organization-level configuration activities for {% data variables.product.prodname_dependabot_alerts %} in existing repositories. For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)."
 | [`dependabot_alerts_new_repos`](#dependabot_alerts_new_repos-category-actions) | Contains organization-level configuration activities for {% data variables.product.prodname_dependabot_alerts %} in new repositories created in the organization.{% endif %}{% ifversion fpt or ghec or ghes > 3.2 %}
 | [`dependabot_security_updates`](#dependabot_security_updates-category-actions) | Contains organization-level configuration activities for {% data variables.product.prodname_dependabot_security_updates %} in existing repositories. For more information, see "[Configuring {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-dependabot-security-updates)."
@@ -75,7 +75,7 @@ To search for specific events, use the `action` qualifier in your query. Actions
 | [`repository_dependency_graph`](#repository_dependency_graph-category-actions) | Contains repository-level activities related to enabling or disabling the dependency graph for a {% ifversion fpt or ghec %}private {% endif %}repository. For more information, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)."{% endif %}{% ifversion ghes or ghae or ghec %}
 | [`repository_secret_scanning`](#repository_secret_scanning-category-actions) | Contains repository-level activities related to secret scanning. For more information, see "[About secret scanning](/github/administering-a-repository/about-secret-scanning)." {% endif %}{% if secret-scanning-audit-log-custom-patterns %}
 | [`repository_secret_scanning_custom_pattern`](#respository_secret_scanning_custom_pattern-category-actions) | Contains repository-level activities related to secret scanning custom patterns. For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)." {% endif %}{% if secret-scanning-audit-log-custom-patterns %}
-| [`repository_secret_scanning_push_protection`](#respository_secret_scanning_push_protection) | Contains repository-level activities related to secret scanning custom patterns. For more information, see "[Protecting pushes with secert scanning](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)." {% endif %}{% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
+| [`repository_secret_scanning_push_protection`](#respository_secret_scanning_push_protection) | Contains repository-level activities related to secret scanning custom patterns. For more information, see "[Protecting pushes with secert scanning](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)." {% endif %}{% ifversion fpt or ghes or ghae or ghec %}
 | [`repository_vulnerability_alert`](#repository_vulnerability_alert-category-actions) | Contains all activities related to [{% data variables.product.prodname_dependabot_alerts %} for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies).{% endif %}{% ifversion fpt or ghec %}
 | [`repository_vulnerability_alerts`](#repository_vulnerability_alerts-category-actions) | Contains repository-level configuration activities for {% data variables.product.prodname_dependabot_alerts %}.{% endif %}{% if custom-repository-roles %}
 | [`role`](#role-category-actions) | Contains all activities related to [custom repository roles](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization).{% endif %}{% ifversion ghes or ghae or ghec %}
@@ -236,7 +236,7 @@ An overview of some of the most common actions that are recorded as events in th
 | `manage_access_and_security` | Triggered when a user updates [which repositories a codespace can access](/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces).
 {% endif %}
 
-{% ifversion fpt or ghec or ghes > 3.2 or ghae-issue-4864 %}
+{% ifversion fpt or ghec or ghes > 3.2 or ghae %}
 ### `dependabot_alerts` category actions
 
 | Action | Description
@@ -707,7 +707,7 @@ For more information, see "[Managing the publication of {% data variables.produc
 | `disable` | Triggered when a repository owner or person with admin access to the repository disables secret scanning for a repository. For more information, see "[Protecting pushes with secret scanning](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
 | `enable` | Triggered when a repository owner or person with admin access to the repository enables secret scanning for a repository.
 
-{% endif %}{% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
+{% endif %}{% ifversion fpt or ghes or ghae or ghec %}
 ### `repository_vulnerability_alert` category actions
 
 | Action | Description

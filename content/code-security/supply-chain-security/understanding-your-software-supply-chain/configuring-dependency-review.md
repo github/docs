@@ -1,11 +1,11 @@
 ---
 title: Configuring dependency review
-intro: 'You can use dependency review to catch vulnerabilities before they are added to your project.'
+intro: You can use dependency review to catch vulnerabilities before they are added to your project.
 shortTitle: Configure dependency review
 versions:
   fpt: '*'
   ghes: '>= 3.2'
-  ghae: issue-4864
+  ghae: '*'
   ghec: '*'
 type: how_to
 topics:
