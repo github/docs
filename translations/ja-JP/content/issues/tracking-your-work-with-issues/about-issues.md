@@ -22,7 +22,7 @@ topics:
 
 Issueを使って、開発が行われる{% data variables.product.company_short %}上での作業を追跡できます。 他のIssueもしくはPull Request内のIssueにメンションすると、そのIssueのタイムラインにはクロスリファレンスが反映され、関連する作業を追跡できるようになります。 作業が進行中であることを示すために、Pull RequestにIssueをリンクできます。 Pull Requestがマージされると、リンクされたIssueは自動的にクローズされます。
 
-For more information on keywords, see "[Linking a pull request to an issue](issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword)."
+キーワードに関する詳しい情報については「[Pull RequestのIssueへのリンク](issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword)」を参照してください。
 
 ## 素早いIssueの作成
 

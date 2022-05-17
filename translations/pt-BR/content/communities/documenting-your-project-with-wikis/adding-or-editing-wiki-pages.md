@@ -44,7 +44,7 @@ Os wikis fazem parte dos repositórios Git, de modo que é possível fazer alter
 
 ### Clonar wikis para seu computador
 
-Cada wiki fornece uma maneira fácil de clonar o respectivo conteúdo para seu computador. Once you've created an initial page on {% data variables.product.product_name %}, you can clone the repository to your computer with the provided URL:
+Cada wiki fornece uma maneira fácil de clonar o respectivo conteúdo para seu computador. Depois de criar uma página inicial em {% data variables.product.product_name %}, você pode clonar o repositório para o seu computador com o URL fornecido:
 
 ```shell
 $ git clone https://github.com/<em>YOUR_USERNAME</em>/<em>YOUR_REPOSITORY</em>.wiki.git

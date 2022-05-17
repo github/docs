@@ -540,3 +540,8 @@
 - /github/searching-for-information-on-github/enabling-githubcom-repository-search-in-github-enterprise-server
 - /github/searching-for-information-on-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-in-github-enterprise-server
 - /enterprise-cloud@latest/search-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-from-your-private-enterprise-environment
+
+/enterprise-cloud@latest/organizations/managing-membership-in-your-organization/exporting-member-information-for-your-organization
+- /enterprise-server@3.3/organizations/managing-membership-in-your-organization/exporting-member-information-for-your-organization
+- /enterprise-server@3.4/organizations/managing-membership-in-your-organization/exporting-member-information-for-your-organization
+- /enterprise-server@3.5/organizations/managing-membership-in-your-organization/exporting-member-information-for-your-organization
