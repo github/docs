@@ -55,7 +55,7 @@ Other supply chain features on {% data variables.product.prodname_dotcom %} rely
  {% endif %}
 
 {% ifversion fpt or ghec or ghes %}
-For best practice guides on complete end-to-end supply chain security including personal accounts, code, and build processes, see "[Securing your end-to-end supply chain](/code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview)."
+For best practice guides on end-to-end supply chain security including the protection of personal accounts, code, and build processes, see "[Securing your end-to-end supply chain](/code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview)."
 {% endif %}
 
 ## Feature overview
