@@ -41,9 +41,7 @@ A check run is an individual test that is part of a check suite. Each run includ
 
 ![Check runs workflow](/assets/images/check_runs.png)
 
-{% ifversion fpt or ghes or ghae or ghec %}
 If a check run is in a incomplete state for more than 14 days, then the check run's `conclusion` becomes `stale` and appears on {% data variables.product.prodname_dotcom %} as stale with {% octicon "issue-reopened" aria-label="The issue-reopened icon" %}. Only {% data variables.product.prodname_dotcom %} can mark check runs as `stale`. For more information about possible conclusions of a check run, see the [`conclusion` parameter](/rest/reference/checks#create-a-check-run--parameters).
-{% endif %}
 
 As soon as you receive the [`check_suite`](/webhooks/event-payloads/#check_suite) webhook, you can create the check run, even if the check is not complete. You can update the `status` of the check run as it completes with the values `queued`, `in_progress`, or `completed`, and you can update the `output` as more details become available. A check run can contain timestamps, a link to more details on your external site, detailed annotations for specific lines of code, and information about the analysis performed.
  
