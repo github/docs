@@ -19,7 +19,9 @@ shortTitle: 分配议题和 PR
 
 ## 关于议题和拉取请求受理人
 
-每个议题和拉取请求最多可分配给 10 个人，包括您自己、 任何评论了议题或拉取请求的人、任何对仓库有写入权限的人以及对仓库有读取权限的组织成员 。 更多信息请参阅“[{% data variables.product.prodname_dotcom %} 上的访问权限](/articles/access-permissions-on-github)”。
+You can assign multiple people to each issue or pull request, including yourself, anyone who has commented on the issue or pull request, anyone with write permissions to the repository, and organization members with read permissions to the repository. 更多信息请参阅“[{% data variables.product.prodname_dotcom %} 上的访问权限](/articles/access-permissions-on-github)”。
+
+Issues and pull requests in public repositories, and in private repositories for a paid account, can have up to 10 people assigned. Private repositories on the free plan are limited to one person per issue or pull request.
 
 ## 分配单个议题或拉取请求
 

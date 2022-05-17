@@ -35,7 +35,7 @@ topics:
 {% data reusables.dependabot.enabling-disabling-dependency-graph-private-repo %}
 1. 如果未启用“{% data variables.product.prodname_GH_advanced_security %}”，请单击该功能旁边的 **Enable（启用）**。 ![强调显示"启用"按钮的 GitHub Advanced Security 功能的屏幕截图](/assets/images/help/security/enable-ghas-private-repo.png)
 
-{% elsif ghes or ghae %}
+{% elsif ghes %}
 为 {% data variables.product.product_location %} 启用依赖关系图并为组织或仓库启用{% data variables.product.prodname_advanced_security %} 时，依赖项审查可用。 更多信息请参阅“[为企业启用 {% data variables.product.prodname_GH_advanced_security %}](/admin/code-security/managing-github-advanced-security-for-your-enterprise/enabling-github-advanced-security-for-your-enterprise)”。
 
 ### 检查是否启用了依赖关系图
