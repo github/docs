@@ -48,6 +48,12 @@ If you plan to enable {% data variables.product.prodname_actions %} for the user
 
 {%- endif %}
 
+{%- ifversion ghes = 3.5 %}
+
+{% data reusables.actions.hardware-requirements-3.5 %}
+
+{%- endif %}
+
 For more information about these requirements, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-considerations)."
 
 {% endif %}

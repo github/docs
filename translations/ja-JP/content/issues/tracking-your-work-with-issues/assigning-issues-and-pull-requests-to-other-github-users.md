@@ -19,7 +19,9 @@ shortTitle: Issue及びPRのアサイン
 
 ## Issue およびPull Requestをアサインされた人について
 
-自身、該当する Issue またはプルリクエストにコメントした任意の人、リポジトリへの書き込み権限がある任意の人、およびリポジトリの読み取り権限がある Organization メンバーを含めて、最大 10 人まで各 Issue またはプルリクエストにアサインできます。 詳細は「[{% data variables.product.prodname_dotcom %} 上のアクセス権限](/articles/access-permissions-on-github)」を参照してください。
+You can assign multiple people to each issue or pull request, including yourself, anyone who has commented on the issue or pull request, anyone with write permissions to the repository, and organization members with read permissions to the repository. 詳細は「[{% data variables.product.prodname_dotcom %} 上のアクセス権限](/articles/access-permissions-on-github)」を参照してください。
+
+Issues and pull requests in public repositories, and in private repositories for a paid account, can have up to 10 people assigned. Private repositories on the free plan are limited to one person per issue or pull request.
 
 ## 個別の Issue またはPull Requestを割り当てる
 

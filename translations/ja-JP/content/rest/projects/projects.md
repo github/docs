@@ -1,6 +1,8 @@
 ---
-title: プロジェクト
-intro: Projects APIを使うと、リポジトリ内のプロジェクトの作成、リスト、更新、削除、カスタマイズができます。
+title: プロジェクトボード
+shortTitle: ボード
+allowTitleToDifferFromFilename: true
+intro: Project boards APIを使うと、リポジトリ中のプロジェクトの作成及び管理ができます。
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,3 +13,4 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
+{% data reusables.projects.projects-api %}

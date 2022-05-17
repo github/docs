@@ -25,7 +25,6 @@ translations/ja-JP/content/admin/configuration/configuring-network-settings/netw
 translations/ja-JP/content/admin/configuration/configuring-your-enterprise/accessing-the-management-console.md,broken liquid tags
 translations/ja-JP/content/admin/configuration/configuring-your-enterprise/command-line-utilities.md,broken liquid tags
 translations/ja-JP/content/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance.md,broken liquid tags
-translations/ja-JP/content/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications.md,broken liquid tags
 translations/ja-JP/content/admin/configuration/configuring-your-enterprise/configuring-rate-limits.md,broken liquid tags
 translations/ja-JP/content/admin/configuration/configuring-your-enterprise/initializing-github-ae.md,broken liquid tags
 translations/ja-JP/content/admin/configuration/configuring-your-enterprise/site-admin-dashboard.md,broken liquid tags
@@ -35,9 +34,6 @@ translations/ja-JP/content/admin/enterprise-management/updating-the-virtual-mach
 translations/ja-JP/content/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrade-requirements.md,broken liquid tags
 translations/ja-JP/content/admin/github-actions/advanced-configuration-and-troubleshooting/index.md,broken liquid tags
 translations/ja-JP/content/admin/github-actions/advanced-configuration-and-troubleshooting/troubleshooting-github-actions-for-your-enterprise.md,broken liquid tags
-translations/ja-JP/content/admin/github-actions/enabling-github-actions-for-github-enterprise-server/enabling-github-actions-with-amazon-s3-storage.md,broken liquid tags
-translations/ja-JP/content/admin/github-actions/enabling-github-actions-for-github-enterprise-server/enabling-github-actions-with-azure-blob-storage.md,broken liquid tags
-translations/ja-JP/content/admin/github-actions/enabling-github-actions-for-github-enterprise-server/enabling-github-actions-with-minio-gateway-for-nas-storage.md,broken liquid tags
 translations/ja-JP/content/admin/github-actions/enabling-github-actions-for-github-enterprise-server/index.md,broken liquid tags
 translations/ja-JP/content/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises.md,broken liquid tags
 translations/ja-JP/content/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-ae.md,broken liquid tags
@@ -117,13 +113,19 @@ translations/ja-JP/content/code-security/dependabot/dependabot-alerts/about-depe
 translations/ja-JP/content/code-security/dependabot/dependabot-alerts/browsing-security-vulnerabilities-in-the-github-advisory-database.md,broken liquid tags
 translations/ja-JP/content/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates.md,broken liquid tags
 translations/ja-JP/content/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates.md,broken liquid tags
+translations/ja-JP/content/code-security/dependabot/index.md,broken liquid tags
+translations/ja-JP/content/code-security/dependabot/working-with-dependabot/automating-dependabot-with-github-actions.md,broken liquid tags
 translations/ja-JP/content/code-security/dependabot/working-with-dependabot/keeping-your-actions-up-to-date-with-dependabot.md,broken liquid tags
 translations/ja-JP/content/code-security/dependabot/working-with-dependabot/troubleshooting-the-detection-of-vulnerable-dependencies.md,broken liquid tags
+translations/ja-JP/content/code-security/getting-started/github-security-features.md,broken liquid tags
 translations/ja-JP/content/code-security/getting-started/securing-your-organization.md,broken liquid tags
 translations/ja-JP/content/code-security/getting-started/securing-your-repository.md,broken liquid tags
 translations/ja-JP/content/code-security/index.md,broken liquid tags
 translations/ja-JP/content/code-security/secret-scanning/about-secret-scanning.md,broken liquid tags
 translations/ja-JP/content/code-security/secret-scanning/protecting-pushes-with-secret-scanning.md,broken liquid tags
+translations/ja-JP/content/code-security/secret-scanning/secret-scanning-patterns.md,broken liquid tags
+translations/ja-JP/content/code-security/security-overview/about-the-security-overview.md,broken liquid tags
+translations/ja-JP/content/code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts.md,broken liquid tags
 translations/ja-JP/content/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security.md,broken liquid tags
 translations/ja-JP/content/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph.md,Listed in localization-support#489
 translations/ja-JP/content/code-security/supply-chain-security/understanding-your-software-supply-chain/troubleshooting-the-dependency-graph.md,broken liquid tags
@@ -155,6 +157,7 @@ translations/ja-JP/content/education/explore-the-benefits-of-teaching-and-learni
 translations/ja-JP/content/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-at-your-educational-institution/index.md,broken liquid tags
 translations/ja-JP/content/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork/why-wasnt-my-application-for-a-student-developer-pack-approved.md,broken liquid tags
 translations/ja-JP/content/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/about-using-makecode-arcade-with-github-classroom.md,broken liquid tags
+translations/ja-JP/content/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/integrate-github-classroom-with-an-ide.md,broken liquid tags
 translations/ja-JP/content/education/manage-coursework-with-github-classroom/learn-with-github-classroom/view-autograding-results.md,broken liquid tags
 translations/ja-JP/content/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-an-assignment-from-a-template-repository.md,broken liquid tags
 translations/ja-JP/content/education/manage-coursework-with-github-classroom/teach-with-github-classroom/manage-classrooms.md,broken liquid tags
@@ -183,6 +186,7 @@ translations/ja-JP/content/packages/learn-github-packages/publishing-a-package.m
 translations/ja-JP/content/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions.md,broken liquid tags
 translations/ja-JP/content/packages/quickstart.md,broken liquid tags
 translations/ja-JP/content/packages/working-with-a-github-packages-registry/working-with-the-apache-maven-registry.md,broken liquid tags
+translations/ja-JP/content/packages/working-with-a-github-packages-registry/working-with-the-container-registry.md,broken liquid tags
 translations/ja-JP/content/packages/working-with-a-github-packages-registry/working-with-the-docker-registry.md,broken liquid tags
 translations/ja-JP/content/packages/working-with-a-github-packages-registry/working-with-the-gradle-registry.md,broken liquid tags
 translations/ja-JP/content/packages/working-with-a-github-packages-registry/working-with-the-npm-registry.md,broken liquid tags
@@ -202,6 +206,7 @@ translations/ja-JP/content/repositories/working-with-files/managing-files/deleti
 translations/ja-JP/content/repositories/working-with-files/managing-large-files/about-git-large-file-storage.md,broken liquid tags
 translations/ja-JP/content/repositories/working-with-files/managing-large-files/about-storage-and-bandwidth-usage.md,broken liquid tags
 translations/ja-JP/content/rest/activity/events.md,broken liquid tags
+translations/ja-JP/content/rest/apps/oauth-applications.md,broken liquid tags
 translations/ja-JP/content/rest/enterprise-admin/index.md,broken liquid tags
 translations/ja-JP/content/rest/guides/getting-started-with-the-rest-api.md,broken liquid tags
 translations/ja-JP/content/sponsors/getting-started-with-github-sponsors/about-github-sponsors.md,broken liquid tags
@@ -216,6 +221,7 @@ translations/ja-JP/data/release-notes/enterprise-server/2-21/6.yml,Listed in loc
 translations/ja-JP/data/release-notes/enterprise-server/2-22/22.yml,broken liquid tags
 translations/ja-JP/data/release-notes/enterprise-server/3-0/0.yml,broken liquid tags
 translations/ja-JP/data/release-notes/enterprise-server/3-0/16.yml,broken liquid tags
+translations/ja-JP/data/release-notes/enterprise-server/3-0/19.yml,broken liquid tags
 translations/ja-JP/data/release-notes/enterprise-server/3-1/0.yml,broken liquid tags
 translations/ja-JP/data/release-notes/enterprise-server/3-1/1.yml,broken liquid tags
 translations/ja-JP/data/release-notes/enterprise-server/3-1/10.yml,broken liquid tags
@@ -239,6 +245,7 @@ translations/ja-JP/data/release-notes/enterprise-server/3-1/8.yml,broken liquid 
 translations/ja-JP/data/release-notes/enterprise-server/3-1/9.yml,broken liquid tags
 translations/ja-JP/data/release-notes/enterprise-server/3-2/0-rc1.yml,broken liquid tags
 translations/ja-JP/data/release-notes/enterprise-server/3-2/0.yml,broken liquid tags
+translations/ja-JP/data/release-notes/enterprise-server/3-2/3.yml,broken liquid tags
 translations/ja-JP/data/release-notes/github-ae/2021-03/2021-03-03.yml,broken liquid tags
 translations/ja-JP/data/reusables/actions/allow-specific-actions-intro.md,broken liquid tags
 translations/ja-JP/data/reusables/actions/disabling-github-actions.md,broken liquid tags
@@ -250,6 +257,7 @@ translations/ja-JP/data/reusables/actions/self-hosted-runner-architecture.md,bro
 translations/ja-JP/data/reusables/actions/self-hosted-runner-auto-removal.md,broken liquid tags
 translations/ja-JP/data/reusables/actions/self-hosted-runners-prerequisites.md,broken liquid tags
 translations/ja-JP/data/reusables/advanced-security/about-committer-numbers-ghec-ghes.md,broken liquid tags
+translations/ja-JP/data/reusables/classroom/classroom-codespaces-link.md,broken liquid tags
 translations/ja-JP/data/reusables/code-scanning/enterprise-enable-code-scanning-actions.md,broken liquid tags
 translations/ja-JP/data/reusables/code-scanning/enterprise-enable-code-scanning.md,broken liquid tags
 translations/ja-JP/data/reusables/code-scanning/upload-sarif-ghas.md,broken liquid tags

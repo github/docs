@@ -302,7 +302,11 @@ jobs:
 
 ## Almacenar dependencias en caché
 
-Travis CI y {% data variables.product.prodname_actions %} te permiten guardar dependencias en caché manualmente para reutilizarlas posteriormente. Este ejemplo ilustra la sintaxis de caché para cada sistema.
+Travis CI y {% data variables.product.prodname_actions %} te permiten guardar dependencias en caché manualmente para reutilizarlas posteriormente.
+
+{% if actions-caching %}
+
+Este ejemplo ilustra la sintaxis de caché para cada sistema.
 
 <table>
 <tr>
@@ -337,7 +341,11 @@ cache: npm
 </tr>
 </table>
 
-El almacenamiento en caché de las {% data variables.product.prodname_actions %} solo se aplica a los repositorios que se hospedan en {% data variables.product.prodname_dotcom_the_website %}. Para obtener más información, consulta la sección "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Almacenar las dependencias en caché para agilizar los flujos de trabajo</a>".
+{% else %}
+
+{% data reusables.actions.caching-availability %}
+
+{% endif %}
 
 ## Ejemplos de tareas comunes
 

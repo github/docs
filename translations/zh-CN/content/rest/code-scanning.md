@@ -1,5 +1,5 @@
 ---
-title: Code Scanning
+title: 代码扫描
 intro: '{% data variables.product.prodname_code_scanning %} API 可让您从仓库检索和更新 {% data variables.product.prodname_code_scanning %} 警报。'
 versions:
   fpt: '*'
@@ -17,7 +17,7 @@ redirect_from:
 
 {% data reusables.code-scanning.beta %}
 
-## About the Code scanning API
+## 关于代码扫描 API
 
 {% data variables.product.prodname_code_scanning %} API 可让您从仓库检索和更新 {% data variables.product.prodname_code_scanning %} 警报。 您可以使用端点为组织中的 {% data variables.product.prodname_code_scanning %} 警报创建自动报告，或上传使用离线 {% data variables.product.prodname_code_scanning %} 工具生成的分析结果。 更多信息请参阅“[查找代码中的安全漏洞和错误](/github/finding-security-vulnerabilities-and-errors-in-your-code)”。
 

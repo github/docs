@@ -19,7 +19,9 @@ shortTitle: Asignar propuestas & solicitudes de cambio
 
 ## Acerca de los asignatarios de las propuestas y solicitudes de cambios
 
-Puedes asignar hasta 10 personas a cada propuesta o solicitud de cambios, incluyéndote a ti mismo, a cualquiera que haya comentado en la propuesta o solicitud de cambios, a cualquiera con permisos de escritura en el repositorio y a los miembros de la organización con permisos de lectura en el repositorio. Para obtener más información, consulta "[Permisos de acceso en {% data variables.product.prodname_dotcom %}](/articles/access-permissions-on-github)".
+You can assign multiple people to each issue or pull request, including yourself, anyone who has commented on the issue or pull request, anyone with write permissions to the repository, and organization members with read permissions to the repository. Para obtener más información, consulta "[Permisos de acceso en {% data variables.product.prodname_dotcom %}](/articles/access-permissions-on-github)".
+
+Issues and pull requests in public repositories, and in private repositories for a paid account, can have up to 10 people assigned. Private repositories on the free plan are limited to one person per issue or pull request.
 
 ## Asignar una propuesta o solicitud de cambios individual
 

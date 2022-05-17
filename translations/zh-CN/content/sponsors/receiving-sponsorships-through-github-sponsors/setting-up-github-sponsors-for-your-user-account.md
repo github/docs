@@ -70,8 +70,6 @@ shortTitle: 设置个人帐户
 {% data reusables.sponsors.tax-form-information-dev %}
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
-{% data reusables.sponsors.settings-tab %}
-{% data reusables.sponsors.country-of-residence %}
 {% data reusables.sponsors.overview-tab %}
 {% data reusables.sponsors.tax-form-link %}
 

@@ -15,7 +15,7 @@ redirect_from:
 
 ## Introduction
 
-In this guide, you'll create a codespace from a [template repository](https://github.com/2percentsilk/haikus-for-codespaces) and explore some of the essential features available to you within the codespace.
+In this guide, you'll create a codespace from a [template repository](https://github.com/github/haikus-for-codespaces) and explore some of the essential features available to you within the codespace.
 
 From this quickstart, you will learn how to create a codespace, connect to a forwarded port to view your running application, use version control in a codespace, and personalize your setup with extensions.
 
@@ -23,7 +23,7 @@ For more information on exactly how {% data variables.product.prodname_codespace
 
 ## Creating your codespace
 
-1. Navigate to the [template repository](https://github.com/2percentsilk/haikus-for-codespaces) and select **Use this template**. 
+1. Navigate to the [template repository](https://github.com/github/haikus-for-codespaces) and select **Use this template**. 
 
 2. Name your repository, select your preferred privacy setting, and click **Create repository from template**.
 

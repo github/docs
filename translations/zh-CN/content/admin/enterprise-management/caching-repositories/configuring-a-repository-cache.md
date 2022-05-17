@@ -33,12 +33,13 @@ topics:
 
 ## 配置存储库缓存
 
-1. 在测试期间，您必须为主 {% data variables.product.prodname_ghe_server %} 设备上的存储库缓存启用功能标志。
+{% ifversion ghes = 3.3 %}
+1. On your primary {% data variables.product.prodname_ghe_server %} appliance, enable the feature flag for repository caching.
 
    ```
    $ ghe-config cluster.cache-enabled true
    ```
-
+{%- endif %}
 1. 在所需平台上设置新的 {% data variables.product.prodname_ghe_server %} 设备。 此设备将是您的存储库缓存。 更多信息请参阅“[设置 {% data variables.product.prodname_ghe_server %} 实例](/admin/guides/installation/setting-up-a-github-enterprise-server-instance)”。
 {% data reusables.enterprise_installation.replica-steps %}
 1. 使用 SSH 连接到存储库缓存的 IP 地址。
@@ -46,7 +47,13 @@ topics:
    ```shell
    $ ssh -p 122 admin@<em>REPLICA IP</em>
    ```
+{%- ifversion ghes = 3.3 %}
+1. On your cache replica, enable the feature flag for repository caching.
 
+   ```
+   $ ghe-config cluster.cache-enabled true
+   ```
+{%- endif %}
 {% data reusables.enterprise_installation.generate-replication-key-pair %}
 {% data reusables.enterprise_installation.add-ssh-key-to-primary %}
 1. 要验证与主缓存的连接并为存储库缓存启用副本模式，请再次运行 `ghe-repl-setup`。

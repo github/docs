@@ -309,6 +309,8 @@ Para obter mais informações, consulte "[Variáveis de ambiente](/actions/refer
 
 GitLab CI/CD e {% data variables.product.prodname_actions %} fornecem um método no arquivo de configuração para armazenar os arquivos do fluxo de trabalho manualmente.
 
+{% if actions-caching %}
+
 Abaixo, há um exemplo da sintaxe para cada sistema:
 
 <table class="d-block">
@@ -359,7 +361,11 @@ jobs:
 </tr>
 </table>
 
-O cache de {% data variables.product.prodname_actions %} só é aplicável para repositórios hospedados em {% data variables.product.prodname_dotcom_the_website %}. Para obter mais informações, consulte "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Memorizar dependências para acelerar fluxos de trabalho</a>".
+{% else %}
+
+{% data reusables.actions.caching-availability %}
+
+{% endif %}
 
 ## Artefatos
 

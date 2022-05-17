@@ -11,6 +11,8 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
+## 关于拉取 API
+
 拉取请求 API 允许您列出、查看、编辑、创建甚至合并拉取请求。 可以通过[议题评论 API](/rest/reference/issues#comments) 管理对拉取请求的评论。
 
 每个拉取请求都是一个议题，但并非每个议题都是拉取请求。 因此，在[议题 API](/rest/reference/issues) 中为这两项功能提供了“共享”操作，如操作受理人、标签和里程碑。

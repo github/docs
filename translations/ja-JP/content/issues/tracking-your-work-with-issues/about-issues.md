@@ -22,6 +22,8 @@ topics:
 
 Issueを使って、開発が行われる{% data variables.product.company_short %}上での作業を追跡できます。 他のIssueもしくはPull Request内のIssueにメンションすると、そのIssueのタイムラインにはクロスリファレンスが反映され、関連する作業を追跡できるようになります。 作業が進行中であることを示すために、Pull RequestにIssueをリンクできます。 Pull Requestがマージされると、リンクされたIssueは自動的にクローズされます。
 
+キーワードに関する詳しい情報については「[Pull RequestのIssueへのリンク](issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword)」を参照してください。
+
 ## 素早いIssueの作成
 
 Issueは様々な方法で作成できるので、ワークフローで最も便利な方法を選択できます。 Issueの作成は、たとえばリポジトリから、{% ifversion fpt or ghec %}タスクリストのアイテムから、{% endif %}プロジェクトのノート、IssueあるいはPull Requestのコメント、コードの特定の行、URLクエリから作成できます。 Issueは、Web UI、{% data variables.product.prodname_desktop %}、{% data variables.product.prodname_cli %}、GraphQL及びREST API、{% data variables.product.prodname_mobile %}といった好きなプラットフォームから作成することもできます。 詳しい情報については、「[Issue を作成する](/issues/tracking-your-work-with-issues/creating-issues/creating-an-issue)」を参照してください。

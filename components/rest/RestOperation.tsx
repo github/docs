@@ -32,9 +32,9 @@ export function RestOperation({ operation }: Props) {
         <a href={`#${slug}`}>{operation.title}</a>
       </h2>
       {operation.enabledForGitHubApps && (
-        <>
-          <span className="mr-2">
-            <CheckCircleFillIcon size={18} />
+        <div className="d-flex">
+          <span className="mr-2 d-flex flex-items-center">
+            <CheckCircleFillIcon size={16} />
           </span>
           <span>
             {t('rest.reference.works_with') + ' '}
@@ -42,7 +42,7 @@ export function RestOperation({ operation }: Props) {
               GitHub Apps
             </Link>
           </span>
-        </>
+        </div>
       )}
       <div className={cx(styles.restOperation, 'd-flex flex-wrap gutter mt-4')}>
         <div className="col-md-12 col-lg-6">

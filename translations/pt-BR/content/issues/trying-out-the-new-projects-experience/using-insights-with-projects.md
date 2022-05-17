@@ -36,8 +36,8 @@ Você pode aplicar filtros ao gráfico padrão e também criar seus próprios gr
 {% data reusables.projects.access-insights %}
 1. No menu à esquerda, clique no gráfico que deseja configurar.
 1. No lado direito da página, clique em **Configurar**. Será aberto um painel à direita.
-2. Para alterar o tipo de gráfico, selecione a lista suspensa do **Layout** e clique no tipo de gráfico que você deseja usar.
-3. Para alterar o campo usado no eixo X do gráfico, selecione o menu suspenso **Eixo X** e clique no campo que você deseja usar. Se você selecionar "Horário", "Agrupar por" irá mudar para "Status" e "Eixo Y" irá mudar para "Contagem de itens"
-4. Optionally, to group the items on your X-axis by another field, select **Group by** and click on the field you want to use, or click "None" to disable grouping.
-5. Optionally, if your project contains number fields and you want the Y-axis to display the sum, average, minimum, or maximum of one of those number fields, select **Y-axis** and click an option. Then, select the dropdown that appears beneath and click on the number field you want to use.
-6. To save your chart, click **Save changes**.
+1. Para alterar o tipo de gráfico, selecione a lista suspensa do **Layout** e clique no tipo de gráfico que você deseja usar.
+1. Para alterar o campo usado no eixo X do gráfico, selecione o menu suspenso **Eixo X** e clique no campo que você deseja usar.
+1. Optionally, to group the items on your X-axis by another field, select **Group by** and click on the field you want to use, or click "None" to disable grouping.
+1. Optionally, if your project contains number fields and you want the Y-axis to display the sum, average, minimum, or maximum of one of those number fields, select **Y-axis** and click an option. Then, select the dropdown that appears beneath and click on the number field you want to use.
+1. To save your chart, click **Save changes**.

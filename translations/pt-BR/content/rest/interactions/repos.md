@@ -1,6 +1,7 @@
 ---
-title: Repositório
-intro: 'A API de Interações do Repositório permite que pessoas com acesso de proprietário ou administrador restrinjam temporariamente qual tipo de usuário pode comentar, abrir problemas ou criar pull requests em um repositório público.'
+title: Repository interactions
+shortTitle: Repositório
+intro: 'The Repository interactions API allows people with owner or admin access to temporarily restrict which type of user can comment, open issues, or create pull requests in a public repository.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -10,7 +11,9 @@ miniTocMaxHeadingLevel: 3
 allowTitleToDifferFromFilename: true
 ---
 
-{% data reusables.interactions.interactions-detail %} Veja mais sobre os tipos de usuários de {% data variables.product.product_name %}:
+## About the Repository interactions API
+
+The Repository interactions API allows people with owner or admin access to temporarily restrict which type of user can comment, open issues, or create pull requests in a public repository. {% data reusables.interactions.interactions-detail %} Veja mais sobre os tipos de usuários de {% data variables.product.product_name %}:
 
 * {% data reusables.interactions.existing-user-limit-definition %} in the respository.
 * {% data reusables.interactions.contributor-user-limit-definition %} in the respository.

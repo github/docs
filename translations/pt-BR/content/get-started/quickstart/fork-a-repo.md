@@ -154,7 +154,7 @@ Ao bifurcar um projeto para propor mudanças no repositório original, é possí
 
 6. Digite `git remote add upstream`, cole o URL que você copiou na etapa 3 e pressione **Enter**. Ficará assim:
   ```shell
-  $ git remote add upstream https://{% data variables.command_line.codeblock %}/octocat/Spoon-Knife.git
+  $ git remote add upstream https://{% data variables.command_line.codeblock %}/YOUR_USERNAME/Spoon-Knife.git
   ```
 
 7. Para verificar o novo repositório upstream que você especificou para sua bifurcação, digite novamente `git remote -v`. Você deverá visualizar a URL da sua bifurcação como `origin` (origem) e a URL do repositório original como `upstream`.
@@ -210,6 +210,6 @@ Você já bifurcou um repositório, treinou clonar sua bifurcação e configurou
 
 * Você também pode criar um novo repositório onde você pode colocar todos os seus projetos e compartilhar o código em {% data variables.product.prodname_dotcom %}. {% data reusables.getting-started.create-a-repository %}"
 
-* Cada repositório em {% data variables.product.product_name %} pertence a uma pessoa ou organização. Você pode interagir com usuários, repositórios e organizações, conectando-os e seguindo-os em {% data variables.product.product_name %}. {% data reusables.getting-started.being-social %}
+* {% data reusables.getting-started.being-social %}
 
 * {% data reusables.support.connect-in-the-forum-bootcamp %}

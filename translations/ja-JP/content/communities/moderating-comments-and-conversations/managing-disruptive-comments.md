@@ -47,11 +47,13 @@ shortTitle: コメントの管理
 
 会話に関係がない、コミュニティの行動規範{% ifversion fpt or ghec %}または GitHub の[コミュニティ ガイドライン](/free-pro-team@latest/github/site-policy/github-community-guidelines){% endif %}に違反している場合は、コメントを編集して内容を削除するのが妥当です。
 
-コメントを編集する際には、削除した内容があった元の場所がわかるように記録し、オプションで削除の理由を示します。
+Sometimes it may make sense to clearly indicate edits and their justification.
 
-リポジトリの読み取りアクセスがあれば、誰でもコミットの編集履歴を見ることができます。 コメントの上部にある [**edited**] ドロップダウンには編集履歴があり、編集したユーザとタイムスタンプが表示されます。
+That said, anyone with read access to a repository can view a comment's edit history. コメントの上部にある [**edited**] ドロップダウンには編集履歴があり、編集したユーザとタイムスタンプが表示されます。
 
 ![内容を削除編集したというメモを追加したコメント](/assets/images/help/repository/content-redacted-comment.png)
+
+## Redacting sensitive information
 
 コメントの作者とリポジトリの書き込みアクセスがあるユーザは、コメントの編集履歴から機密情報を削除できます。 詳しい情報については、「[コメントの変更を追跡する](/communities/moderating-comments-and-conversations/tracking-changes-in-a-comment)」を参照してください。
 
@@ -65,19 +67,21 @@ shortTitle: コメントの管理
 
 リポジトリに対する書き込み権限があるユーザは、Issue、プルリクエスト、 およびコミットに対するコメントを削除することができます。 Organization オーナー、チームメンテナ、コメント作成者は、チームのページのコメントを削除することもできます。
 
+Issue やプルリクエストで、会話に役立つ建設的な内容が部分的に含まれているコメントは、削除せず編集してください。
+
 コメントの削除は、モデレーターとしての最終手段です。 コメント全体が会話にとって建設的な内容ではない場合や、コミュニティの行動規範{% ifversion fpt or ghec %}または GitHub の[コミュニティ ガイドライン](/free-pro-team@latest/github/site-policy/github-community-guidelines){% endif %}に違反している場合は、コメントを削除するのが妥当です。
 
 コメントを削除すると、リポジトリに対する読み取りアクセスを持つユーザなら誰でも見ることのできるタイムラインイベントが作成されます。 ただし、コメントを削除したユーザの名前は、リポジトリへの書き込みアクセスを持つユーザにしか見えません。 書き込みアクセスを持たないユーザから見ると、タイムラインイベントは匿名化されています。
 
 ![削除したコメントについて匿名化されたタイムラインイベント](/assets/images/help/issues/anonymized-timeline-entry-for-deleted-comment.png)
 
-Issue やプルリクエストで、会話に役立つ建設的な内容が部分的に含まれているコメントは、削除せず編集してください。
-
 {% note %}
 
 **メモ:** Issue またはプルリクエストの最初のコメント (本文) は削除できません。 かわりに、Issue やプルリクエストの本文を編集して、不要な内容を削除してください。
 
 {% endnote %}
+
+### Steps to delete a comment
 
 1. 削除したいコメントに移動します。
 2. コメントの右上隅にある {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} をクリックしてから、[**Delete**] をクリックします。 ![編集、非表示、削除、レポートのオプションが表示されている水平の kebab アイコンとコメント モデレーション メニュー](/assets/images/help/repository/comment-menu.png)

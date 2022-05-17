@@ -4,4 +4,4 @@ In addition to all of the benefits of {% data variables.contact.enterprise_suppo
   - 初回応答時間が保証されるサービスレベルアグリーメント (SLA)
   - プレミアムコンテンツへのアクセス
   - Scheduled Health Checks
-  - Administration assistance hours
+  - Administration assistance hours ({% data variables.product.premium_plus_support_plan %} only)
