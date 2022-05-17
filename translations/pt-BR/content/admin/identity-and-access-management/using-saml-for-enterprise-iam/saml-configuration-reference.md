@@ -93,9 +93,9 @@ Para especificar mais de um valor para um atributo, use múltiplos elementos de 
 </saml2:Attribute>
 ```
 
-## SAML response requirements
+## Requisitos de resposta do SAML
 
-{% data variables.product.product_name %} requires that the response message from your IdP fulfill the following requirements.
+{% data variables.product.product_name %} exige que a mensagem de resposta do seu IdP atenda aos seguintes requisitos.
 
 - Seu IdP deve fornecer o elemento `<Destination>` no documento de resposta raiz e corresponder ao URL do ACS somente quando o documento de resposta raiz for assinado. Se seu IdP assinar a declaração, {% data variables.product.product_name %} irá ignorar a verificação.
 - Seu IdP deve sempre fornecer o elemento `<Audience>` como parte do elemento `<AudienceRestriction>`. O valor deve corresponder ao seu `EntityId` para {% data variables.product.product_name %}.{% ifversion ghes or ghae %} Este valor é o URL onde você pode acessar {% data variables.product.product_location %}, such as {% ifversion ghes %}`http(s)://HOSTNAME`{% elsif ghae %}`https://SUBDOMAIN.githubenterprise.com`, `https://SUBDOMAIN.github.us` ou `https://SUBDOMAIN.ghe.com`{% endif %}.{% endif %}
@@ -130,13 +130,13 @@ Para especificar mais de um valor para um atributo, use múltiplos elementos de 
 
 Para impedir que uma pessoa efetue a autenticação com o seu IdP e permaneça indefinidamente autorizada, {% data variables.product.product_name %} invalida periodicamente a sessão para cada conta de usuário com acesso aos {% ifversion ghec or ghae %} recursos da sua empresa{% elsif ghes %}{% data variables.product.product_location %}{% endif %}. Depois da invalidação, a pessoa deverá efetuar a autenticação com seu IdP novamente. By default, if your IdP does not assert a value for the `SessionNotOnOrAfter` attribute, {% data variables.product.product_name %} invalidates a session {% ifversion ghec %}24 hours{% elsif ghes or ghae %}one week{% endif %} after successful authentication with your IdP.
 
-To customize the session duration, you may be able to define the value of the `SessionNotOnOrAfter` attribute on your IdP. If you define a value less than 24 hours, {% data variables.product.product_name %} may prompt people to authenticate every time {% data variables.product.product_name %} initiates a redirect.
+Para personalizar a duração da sessão, talvez você possa definir o valor do atributo `SessionNotOnOrAfter` no seu IdP. Se você definir um valor em menos de 24 horas, {% data variables.product.product_name %} poderá solicitar a autenticação das pessoas toda vez que {% data variables.product.product_name %} iniciar um redirecionamento.
 
 {% note %}
 
 **Atenção**:
 
-- For Azure AD, the configurable lifetime policy for SAML tokens does not control session timeout for {% data variables.product.product_name %}.
-- Okta does not currently send the `SessionNotOnOrAfter` attribute during SAML authentication with {% data variables.product.product_name %}. For more information, contact Okta.
+- Para Azure AD, a política de tempo de vida configurável para tokens do SAML não controla o tempo limite de sessão para {% data variables.product.product_name %}.
+- O Okta não envia atualmente o atributo `SessionNotOnOrAfter` durante a autenticação do SAML com {% data variables.product.product_name %}. Para mais informações, entre em contato com Okta.
 
 {% endnote %}

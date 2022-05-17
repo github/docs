@@ -28,11 +28,11 @@ O {% data variables.product.prodname_command_palette %} também fornece acesso r
 
 ## Atalhos para o site
 
-| Atalho                       | Descrição                                                                                                                                                                                                                                                                                                                                     |
-| ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <kbd>S</kbd> or <kbd>/</kbd> | Evidencia a barra de pesquisa. Para obter mais informações, consulte "[Sobre pesquisar no {% data variables.product.company_short %}](/search-github/getting-started-with-searching-on-github/about-searching-on-github)".                                                                                                                    |
-| <kbd>G</kbd> <kbd>N</kbd>    | Vai para suas notificações. Para obter mais informações, consulte {% ifversion fpt or ghes or ghae or ghec %}"[Sobre notificações](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[Sobre notificações](/github/receiving-notifications-about-activity-on-github/about-notifications)"{% endif %}." |
-| <kbd>Esc</kbd>               | Quando direcionado a um hovercard de usuário, problema ou pull request, fecha o hovercard e redireciona para o elemento no qual o hovercard está                                                                                                                                                                                              |
+| Atalho                       | Descrição                                                                                                                                                                                                                  |
+| ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <kbd>S</kbd> or <kbd>/</kbd> | Evidencia a barra de pesquisa. Para obter mais informações, consulte "[Sobre pesquisar no {% data variables.product.company_short %}](/search-github/getting-started-with-searching-on-github/about-searching-on-github)". |
+| <kbd>G</kbd> <kbd>N</kbd>    | Vai para suas notificações. Para obter mais informações, consulte "[Sobre notificações](/github/managing-subscriptions-and-notifications-on-github/about-notifications)".                                                  |
+| <kbd>Esc</kbd>               | Quando direcionado a um hovercard de usuário, problema ou pull request, fecha o hovercard e redireciona para o elemento no qual o hovercard está                                                                           |
 
 {% if command-palette %}
 
@@ -106,7 +106,6 @@ Para mais atalhos de teclado, consulte a [Documentação CodeMirror](https://cod
 {% endif %}
 | <kbd>R</kbd>                                                                                                                  | Cita o texto selecionado em sua resposta. Para obter mais informações, consulte "[Sintaxe básica de gravação e formatação](/articles/basic-writing-and-formatting-syntax#quoting-text)".                                                                       |
 
-
 ## Listas de problemas e pull requests
 
 | Atalho                                                                                      | Descrição                                                                                                                                                                                                                                                        |
@@ -135,16 +134,15 @@ Para mais atalhos de teclado, consulte a [Documentação CodeMirror](https://cod
 
 ## Alterações em pull requests
 
-| Atalho                                               | Descrição                                                                                                                                                                                                                                                                                                                                                                  |
-| ---------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <kbd>C</kbd>                                         | Abre a lista de commits na pull request                                                                                                                                                                                                                                                                                                                                    |
-| <kbd>T</kbd>                                         | Abre a lista de arquivos alterados na pull request                                                                                                                                                                                                                                                                                                                         |
-| <kbd>J</kbd>                                         | Move a seleção para baixo na lista                                                                                                                                                                                                                                                                                                                                         |
-| <kbd>K</kbd>                                         | Move a seleção para cima na lista                                                                                                                                                                                                                                                                                                                                          |
-| <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>Enter</kbd> | Adiciona um comentário único no diff da pull request                                                                                                                                                                                                                                                                                                                       |
-| <kbd>Alt</kbd> e clique                              | Alterna entre opções de recolhimento e expansão de todos os comentários de revisão desatualizados em uma pull request ao manter pressionada a tecla <kbd>Alt</kbd> e clicar em **Mostrar desatualizados** ou **Ocultar desatualizados**.|{% ifversion fpt or ghes or ghae or ghec %}
-| Clique, em seguida <kbd>Shift</kbd> e clique         | Comente em várias linhas de uma pull request clicando em um número de linha, mantendo pressionado <kbd>Shift</kbd>, depois clique em outro número de linha. Para obter mais informações, consulte "[Comentando em uma pull request](/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request#adding-line-comments-to-a-pull-request)."
-{% endif %}
+| Atalho                                               | Descrição                                                                                                                                                                                                                                                                                                                                                      |
+| ---------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <kbd>C</kbd>                                         | Abre a lista de commits na pull request                                                                                                                                                                                                                                                                                                                        |
+| <kbd>T</kbd>                                         | Abre a lista de arquivos alterados na pull request                                                                                                                                                                                                                                                                                                             |
+| <kbd>J</kbd>                                         | Move a seleção para baixo na lista                                                                                                                                                                                                                                                                                                                             |
+| <kbd>K</kbd>                                         | Move a seleção para cima na lista                                                                                                                                                                                                                                                                                                                              |
+| <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>Enter</kbd> | Adiciona um comentário único no diff da pull request                                                                                                                                                                                                                                                                                                           |
+| <kbd>Alt</kbd> e clique                              | Alterna entre opções de recolhimento e expansão de todos os comentários de revisão desatualizados em uma pull request ao manter pressionada a tecla <kbd>Alt</kbd> e clicar em **Mostrar desatualizados** ou **Ocultar desatualizados**.                                                                                                                       |
+| Clique, em seguida <kbd>Shift</kbd> e clique         | Comente em várias linhas de uma pull request clicando em um número de linha, mantendo pressionado <kbd>Shift</kbd>, depois clique em outro número de linha. Para obter mais informações, consulte "[Comentando em uma pull request](/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request#adding-line-comments-to-a-pull-request)." |
 
 ## Quadros de projeto
 
@@ -200,7 +198,7 @@ Para mais atalhos de teclado, consulte a [Documentação CodeMirror](https://cod
 {% endif %}
 
 ## Notificações
-{% ifversion fpt or ghes or ghae or ghec %}
+
 | Atalho                        | Descrição            |
 | ----------------------------- | -------------------- |
 | <kbd>E</kbd>                  | Marcar como pronto   |
@@ -208,13 +206,6 @@ Para mais atalhos de teclado, consulte a [Documentação CodeMirror](https://cod
 | <kbd>Shift</kbd>+<kbd>I</kbd> | Marca como lido      |
 | <kbd>Shift</kbd>+<kbd>M</kbd> | Cancelar assinatura  |
 
-{% else %}
-
-| Atalho                                       | Descrição       |
-| -------------------------------------------- | --------------- |
-| <kbd>E</kbd> ou <kbd>I</kbd> ou <kbd>Y</kbd> | Marca como lido |
-| <kbd>Shift</kbd>+<kbd>M</kbd>                | Desativa o som  |
-{% endif %}
 
 ## gráfico de rede
 
