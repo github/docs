@@ -1,3 +1,3 @@
-{% data variables.product.prodname_code_scanning_capc %} alerts integrate with task lists in {% data variables.product.prodname_github_issues %} to make it easy for you to prioritize and track alerts with all your development work. 有关议题的更多信息，请参阅“[关于议题](/issues/tracking-your-work-with-issues/about-issues)”。
+{% data variables.product.prodname_code_scanning_capc %} 警报与 {% data variables.product.prodname_github_issues %} 中的任务列表集成，可让您轻松地在所有开发工作中确定警报的优先级并进行跟踪。 有关议题的更多信息，请参阅“[关于议题](/issues/tracking-your-work-with-issues/about-issues)”。
 
-To track a code scanning alert in an issue, add the URL for the alert as a task list item in the issue. For more information about task lists, see "[About tasks lists](/issues/tracking-your-work-with-issues/about-task-lists)."
+要跟踪议题中的代码扫描警报，请将警报的 URL 添加为议题中的任务列表项。 有关任务列表的更多信息，请参阅“[关于任务列表](/issues/tracking-your-work-with-issues/about-task-lists)”。

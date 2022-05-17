@@ -22,7 +22,7 @@ shortTitle: 关于 PR 审查
 
 {% if pull-request-approval-limit %}{% data reusables.pull_requests.code-review-limits %}{% endif %}
 
-仓库所有者和协作者可向具体的个人申请拉取请求审查。 组织成员也可向具有仓库读取权限的团队申请拉取请求审查。 更多信息请参阅“[申请拉取请求审查](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/requesting-a-pull-request-review)”。 {% ifversion fpt or ghae or ghes or ghec %}您可以指定自动分配一部分团队成员，而不是分配整个团队。 更多信息请参阅“[管理团队的代码审查设置](/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team)”。{% endif %}
+仓库所有者和协作者可向具体的个人申请拉取请求审查。 组织成员也可向具有仓库读取权限的团队申请拉取请求审查。 更多信息请参阅“[申请拉取请求审查](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/requesting-a-pull-request-review)”。 You can specify a subset of team members to be automatically assigned in the place of the whole team. 更多信息请参阅“[管理团队的代码审查设置](/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team)”。
 
 审查允许讨论提议的更改，帮助确保更改符合仓库的参与指南及其他质量标准。 您可以在 CODEOWNERS 文件中定义哪些个人或团队拥有代码的特定类型或区域。 当拉取请求修改定义了所有者的代码时，该个人或团队将自动被申请为审查者。 更多信息请参阅“[关于代码所有者](/articles/about-code-owners/)”。
 

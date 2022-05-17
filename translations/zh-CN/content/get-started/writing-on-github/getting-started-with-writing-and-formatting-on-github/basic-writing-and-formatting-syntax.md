@@ -29,7 +29,6 @@ shortTitle: 基本格式语法
 
 ![突出显示目录图标的屏幕截图](/assets/images/help/repository/headings_toc.png)
 
-
 ## 样式文本
 
 您可以在评论字段和 `.md` 文件中以粗体、斜体或删除线的文字表示强调。
@@ -235,7 +234,7 @@ git commit
 
 ## 提及人员和团队
 
-您可以在 {% data variables.product.product_name %} 上提及人员或[团队](/articles/setting-up-teams/)，方法是键入 <kbd>@</kbd> 加上其用户名或团队名称。 这将触发通知并提请他们注意对话。 如果您在编辑的评论中提及某人的用户名或团队名称，该用户也会收到通知。 有关通知的更多信息，请参阅{% ifversion fpt or ghes or ghae or ghec %}"[关于通知](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}“[关于通知](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}”。
+您可以在 {% data variables.product.product_name %} 上提及人员或[团队](/articles/setting-up-teams/)，方法是键入 <kbd>@</kbd> 加上其用户名或团队名称。 这将触发通知并提请他们注意对话。 如果您在编辑的评论中提及某人的用户名或团队名称，该用户也会收到通知。 有关通知的详细信息，请参阅“[关于通知](/github/managing-subscriptions-and-notifications-on-github/about-notifications)”。
 
 {% note %}
 
@@ -296,7 +295,7 @@ git commit
 
 通过在文本行之间留一个空白行，可创建新段落。
 
-{% ifversion fpt or ghae-issue-5180 or ghes > 3.2 or ghec %}
+{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
 ## 脚注
 
 您可以使用此括号语法为您的内容添加脚注：
