@@ -19,9 +19,9 @@ shortTitle: Atribuir problemas & PRs
 
 ## Sobre o problema e os responsáveis por pull request
 
-You can assign multiple people to each issue or pull request, including yourself, anyone who has commented on the issue or pull request, anyone with write permissions to the repository, and organization members with read permissions to the repository. Para obter mais informações, consulte "[Permissões de acesso no {% data variables.product.prodname_dotcom %}](/articles/access-permissions-on-github)".
+Você pode atribuir várias pessoas a cada problema ou pull request, incluindo a si mesmo, qualquer pessoa que comentou sobre o problema ou pull request, qualquer pessoa com permissões de gravação no repositório e integrantes da organização com permissões de leitura no repositório. Para obter mais informações, consulte "[Permissões de acesso no {% data variables.product.prodname_dotcom %}](/articles/access-permissions-on-github)".
 
-Issues and pull requests in public repositories, and in private repositories for a paid account, can have up to 10 people assigned. Private repositories on the free plan are limited to one person per issue or pull request.
+Os problemas e pull requests em repositórios públicos e em repositórios privados de uma conta paga podem ter até 10 pessoas atribuídas. Os repositórios privados no plano grátis estão limitados a uma pessoa por problema ou pull request.
 
 ## Atribuir um problema individual ou pull request
 

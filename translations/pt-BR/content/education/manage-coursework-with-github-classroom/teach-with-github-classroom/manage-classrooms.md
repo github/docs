@@ -47,7 +47,7 @@ Você deve autorizar o aplicativo OAuth {% data variables.product.prodname_class
 1. Clique em **Nova sala de aula**. ![Botão "Nova sala de aula"](/assets/images/help/classroom/click-new-classroom-button.png)
 {% data reusables.classroom.guide-create-new-classroom %}
 
-Depois de criar uma sala de aula, você pode começar a criar atividades para os alunos. For more information, see "[Use the Git and {% data variables.product.company_short %} starter assignment](/education/manage-coursework-with-github-classroom/use-the-git-and-github-starter-assignment)," "[Create an individual assignment](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)," "[Create a group assignment](/education/manage-coursework-with-github-classroom/create-a-group-assignment)," or "[Reuse an assignment](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/reuse-an-assignment)."
+Depois de criar uma sala de aula, você pode começar a criar atividades para os alunos. Para obter mais informações, consulte "[Use o Git e as atividades iniciais de {% data variables.product.company_short %}](/education/manage-coursework-with-github-classroom/use-the-git-and-github-starter-assignment)," "[Crie uma atividade individual](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)," "[Crie uma atividade em grupo](/education/manage-coursework-with-github-classroom/create-a-group-assignment)," ou "[Reutilize uma atividade](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/reuse-an-assignment)."
 
 ## Criando uma lista para sua sala de aula
 

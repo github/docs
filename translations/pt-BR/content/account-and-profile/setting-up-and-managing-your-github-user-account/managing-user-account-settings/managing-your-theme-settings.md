@@ -18,7 +18,7 @@ Por escolha e flexibilidade sobre como e quando você usa {% data variables.prod
 
 Você pode querer usar um tema escuro para reduzir o consumo de energia em certos dispositivos, reduzir o cansaço da vista em condições com pouca luz, ou porque você prefere o tema.
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4618 or ghec %}Se você tiver baixa visão, você poderá aproveitar um tema de alto contraste, com maior contraste entre o primeiro plano e os elementos de segundo plano.{% endif %}{% ifversion fpt or ghae-issue-4619 or ghec %} se você for daltônico, você poderá beneficiar-se dos nossos temas de cor clara e escura.
+{% ifversion fpt or ghes > 3.2 or ghae or ghec %}Se você tiver baixa visão, você poderá aproveitar um tema de alto contraste, com maior contraste entre o primeiro plano e os elementos de segundo plano.{% endif %}{% ifversion fpt or ghae or ghec %} se você for daltônico, você poderá beneficiar-se dos nossos temas de cor clara e escura.
 
 {% endif %}
 
@@ -31,10 +31,10 @@ Você pode querer usar um tema escuro para reduzir o consumo de energia em certo
 1. Clique no tema que deseja usar.
     - Se você escolheu um único tema, clique em um tema.
 
-      {% ifversion fpt or ghes > 3.2 or ghae-issue-4618 or ghec %}![Radio buttons for the choice of a single theme](/assets/images/help/settings/theme-choose-a-single-theme-highcontrast.png){% else %}![Radio buttons for the choice of a single theme](/assets/images/help/settings/theme-choose-a-single-theme.png){% endif %}
+      {% ifversion fpt or ghes > 3.2 or ghae or ghec %}![Radio buttons for the choice of a single theme](/assets/images/help/settings/theme-choose-a-single-theme-highcontrast.png){% else %}![Radio buttons for the choice of a single theme](/assets/images/help/settings/theme-choose-a-single-theme.png){% endif %}
     - Se você escolheu seguir as configurações do sistema, clique em um tema diurno e um tema noturno.
 
-      {% ifversion fpt or ghes > 3.2 or ghae-issue-4618 or ghec %}![Buttons for the choice of a theme to sync with the system setting](/assets/images/help/settings/theme-choose-a-day-and-night-theme-to-sync-highcontrast.png){% else %}![Buttons for the choice of a theme to sync with the system setting](/assets/images/help/settings/theme-choose-a-day-and-night-theme-to-sync.png){% endif %}
+      {% ifversion fpt or ghes > 3.2 or ghae or ghec %}![Buttons for the choice of a theme to sync with the system setting](/assets/images/help/settings/theme-choose-a-day-and-night-theme-to-sync-highcontrast.png){% else %}![Buttons for the choice of a theme to sync with the system setting](/assets/images/help/settings/theme-choose-a-day-and-night-theme-to-sync.png){% endif %}
     {% ifversion fpt or ghec %}
     - Se você quiser escolher um tema que esteja atualmente em beta público, primeiro você deverá habilitá-lo com pré-visualização de recursos. Para obter mais informações, consulte "[Explorar versões de acesso antecipado com visualização de recursos em](/get-started/using-github/exploring-early-access-releases-with-feature-preview)".{% endif %}
 
