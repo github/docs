@@ -35,7 +35,7 @@ Pull Requestが対処するIssueにそのPull Requestをリンクすると、コ
 
 ## キーワードを使用してPull RequestをIssueにリンクする
 
-You can link a pull request to an issue by using a supported keyword in the pull request's description or in a commit message. The pull request **must be** on the default branch.
+Pull Requestの説明もしくはコミットメッセージ中でサポートされているキーワードを使い、Pull RequestをIssueへリンクできます。 Pull Requestはデフォルトブランチに**ある必要があります**。
 
 * close
 * closes
@@ -47,7 +47,7 @@ You can link a pull request to an issue by using a supported keyword in the pull
 * resolves
 * resolved
 
-他のPull RequestでPull Requestのコメントを参照するためにキーワードを使用すると、Pull Requestはリンクされます。 Merging the referencing pull request also closes the referenced pull request.
+他のPull RequestでPull Requestのコメントを参照するためにキーワードを使用すると、Pull Requestはリンクされます。 参照元のPull Requestをマージすると、参照先のPull Requestもクローズされます。
 
 クローズするキーワードの構文は、IssueがPull Requestと同じリポジトリにあるかどうかによって異なります。
 

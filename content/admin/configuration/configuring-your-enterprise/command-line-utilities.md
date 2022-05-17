@@ -673,6 +673,12 @@ This utility manually repackages a repository network to optimize pack storage. 
 
 You can add the optional `--prune` argument to remove unreachable Git objects that aren't referenced from a branch, tag, or any other ref. This is particularly useful for immediately removing [previously expunged sensitive information](/enterprise/user/articles/remove-sensitive-data/).
 
+{% warning %}
+
+**Warning**: Before using the `--prune` argument to remove unreachable Git objects, put {% data variables.product.product_location %} into maintenance mode, or ensure the repository is offline. For more information, see "[Enabling and scheduling maintenance mode](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode)."
+
+{% endwarning %}
+
 ```shell
 ghe-repo-gc <em>username</em>/<em>reponame</em>
 ```

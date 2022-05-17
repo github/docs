@@ -21,7 +21,7 @@ type Notif = {
 export const HeaderNotifications = () => {
   const router = useRouter()
   const { currentVersion } = useVersion()
-  const { relativePath, allVersions, data, userLanguage, currentPathWithoutLanguage } =
+  const { relativePath, allVersions, data, userLanguage, currentPathWithoutLanguage, page } =
     useMainContext()
   const { languages } = useLanguages()
   const { t } = useTranslation('header')
@@ -69,7 +69,7 @@ export const HeaderNotifications = () => {
     ...translationNotices,
     ...releaseNotices,
     // ONEOFF EARLY ACCESS NOTICE
-    (relativePath || '').includes('early-access/')
+    (relativePath || '').includes('early-access/') && !page.noEarlyAccessBanner
       ? {
           type: NotificationType.EARLY_ACCESS,
           content: t('notices.early_access'),

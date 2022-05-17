@@ -1051,7 +1051,7 @@ on:
 
 {% endnote %}
 
-在存储库中发生发布活动时运行工作流程。 有关发行版 API 的信息，请参阅 GraphQL API 文档中的“[发行版](/graphql/reference/objects#release)”或 REST API 文档中的“[发行版](/rest/reference/repos#releases)”。
+在存储库中发生发布活动时运行工作流程。 有关发行版 API 的信息，请参阅 GraphQL API 文档中的“[发行版](/graphql/reference/objects#release)”或 REST API 文档中的“[发行版](/rest/reference/releases)”。
 
 例如，您可以在版本发布为 `published` 时运行工作流程。
 
