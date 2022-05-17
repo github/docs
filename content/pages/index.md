@@ -21,6 +21,7 @@ featuredLinks:
     - '{% ifversion fpt or ghec %}/pages/getting-started-with-github-pages/securing-your-github-pages-site-with-https{% endif %}'
     - '{% ifversion ghes or ghae %}/pages/getting-started-with-github-pages/unpublishing-a-github-pages-site{% endif %}'
     - '{% ifversion ghes or ghae %}/pages/setting-up-a-github-pages-site-with-jekyll/testing-your-github-pages-site-locally-with-jekyll{% endif %}'
+    - '{% ifversion ghes or ghae %}/pages/setting-up-a-github-pages-site-with-jekyll/adding-a-theme-to-your-github-pages-site-using-jekyll{% endif %}'
   guideCards:
     - /pages/getting-started-with-github-pages/creating-a-custom-404-page-for-your-github-pages-site
     - /pages/setting-up-a-github-pages-site-with-jekyll/adding-a-theme-to-your-github-pages-site-using-jekyll
