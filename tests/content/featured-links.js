@@ -45,9 +45,9 @@ describe('featuredLinks', () => {
 
       expect($featuredLinks.eq(8).attr('href')).toBe('/en/pages')
       expect($featuredLinks.eq(8).children('h3').text().startsWith('GitHub Pages')).toBe(true)
-      expect($featuredLinks.eq(8).children('p').text().startsWith('You can create a website')).toBe(
-        true
-      )
+      expect(
+        $featuredLinks.eq(8).children('p').text().startsWith('Learn how to create a website')
+      ).toBe(true)
     })
 
     test('localized intro links link to localized pages', async () => {
