@@ -99,18 +99,18 @@ Puedes utilizar el comando `set-output` en tu flujo de trabajo para configurar e
 
 La siguiente tabla muestra qué funciones del toolkit se encuentran disponibles dentro de un flujo de trabajo:
 
-| Funcion del Toolkit   | Comando equivalente del flujo de trabajo                              |
-| --------------------- | --------------------------------------------------------------------- |
-| `core.addPath`        | Accesible utilizando el archivo de ambiente `GITHUB_PATH`             |
-| `core.debug`          | `debug` |{% ifversion fpt or ghes > 3.2 or ghae-issue-4929 or ghec %}
+| Funcion del Toolkit   | Comando equivalente del flujo de trabajo                    |
+| --------------------- | ----------------------------------------------------------- |
+| `core.addPath`        | Accesible utilizando el archivo de ambiente `GITHUB_PATH`   |
+| `core.debug`          | `debug` |{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 | `core.notice`         | `notice` 
 {% endif %}
-| `core.error`          | `error`                                                               |
-| `core.endGroup`       | `endgroup`                                                            |
-| `core.exportVariable` | Accesible utilizando el archivo de ambiente `GITHUB_ENV`              |
-| `core.getInput`       | Accesible utilizando la variable de ambiente `INPUT_{NAME}`           |
-| `core.getState`       | Accesible utilizando la variable de ambiente`STATE_{NAME}`            |
-| `core.isDebug`        | Accesible utilizando la variable de ambiente `RUNNER_DEBUG`           |
+| `core.error`          | `error`                                                     |
+| `core.endGroup`       | `endgroup`                                                  |
+| `core.exportVariable` | Accesible utilizando el archivo de ambiente `GITHUB_ENV`    |
+| `core.getInput`       | Accesible utilizando la variable de ambiente `INPUT_{NAME}` |
+| `core.getState`       | Accesible utilizando la variable de ambiente`STATE_{NAME}`  |
+| `core.isDebug`        | Accesible utilizando la variable de ambiente `RUNNER_DEBUG` |
 {%- if actions-job-summaries %}
 | `core.summary` | Accessible using environment variable `GITHUB_STEP_SUMMARY` |
 {%- endif %}
@@ -170,7 +170,7 @@ Write-Output "::debug::Set the Octocat variable"
 
 {% endpowershell %}
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4929 or ghec %}
+{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 
 ## Configurar un mensaje de aviso
 
