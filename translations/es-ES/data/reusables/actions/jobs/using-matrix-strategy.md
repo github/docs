@@ -1,4 +1,4 @@
-Utiliza `jobs.<job_id>.strategy.matrix` para definir una matriz de configuraciones de jobs diferentes. Within your matrix, define one or more variables followed by an array of values. For example, the following matrix has a veriable called `version` with the value `[10, 12, 14]` and a variable called `os` with the value `[ubuntu-latest, windows-latest]`:
+Utiliza `jobs.<job_id>.strategy.matrix` para definir una matriz de configuraciones de jobs diferentes. Within your matrix, define one or more variables followed by an array of values. For example, the following matrix has a variable called `version` with the value `[10, 12, 14]` and a variable called `os` with the value `[ubuntu-latest, windows-latest]`:
 
 ```yaml
 jobs:

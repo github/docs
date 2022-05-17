@@ -120,7 +120,7 @@ No podrás autenticarte utilizndo tu llave y secreto de OAuth2 si estás en modo
 
 {% ifversion fpt or ghec %}
 
-Lee [más acerca de limitar la tasa de no autenticación](#increasing-the-unauthenticated-rate-limit-for-oauth-applications).
+Read [more about unauthenticated rate limiting](#increasing-the-unauthenticated-rate-limit-for-oauth-apps).
 
 {% endif %}
 

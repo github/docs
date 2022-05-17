@@ -30,7 +30,7 @@ The {% data variables.product.prodname_command_palette %} also gives you quick a
 | Keyboard shortcut | Description
 |-----------|------------
 |<kbd>S</kbd> or <kbd>/</kbd> | Focus the search bar. For more information, see "[About searching on {% data variables.product.company_short %}](/search-github/getting-started-with-searching-on-github/about-searching-on-github)."
-|<kbd>G</kbd> <kbd>N</kbd> | Go to your notifications. For more information, see {% ifversion fpt or ghes or ghae or ghec %}"[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[About notifications](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}."
+|<kbd>G</kbd> <kbd>N</kbd> | Go to your notifications. For more information, see "[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications)."
 |<kbd>Esc</kbd> | When focused on a user, issue, or pull request hovercard, closes the hovercard and refocuses on the element the hovercard is in
 {% if command-palette %}|<kbd>Command</kbd>+<kbd>K</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>K</kbd> (Windows/Linux) | Opens the {% data variables.product.prodname_command_palette %}. If you are editing Markdown text, open the command palette with <kbd>Command</kbd>+<kbd>Option</kbd>+<kbd>K</kbd> or <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>K</kbd>. For more information, see "[{% data variables.product.prodname_command_palette %}](/get-started/using-github/github-command-palette)."{% endif %}
 
@@ -101,7 +101,6 @@ For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirr
 |<kbd>Command</kbd>+<kbd>G</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>G</kbd> (Windows/Linux) | Insert a suggestion. For more information, see "[Reviewing proposed changes in a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)." |{% endif %}
 |<kbd>R</kbd> | Quote the selected text in your reply. For more information, see "[Basic writing and formatting syntax](/articles/basic-writing-and-formatting-syntax#quoting-text)." |
 
-
 ## Issue and pull request lists
 
 | Keyboard shortcut | Description
@@ -137,8 +136,8 @@ For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirr
 |<kbd>J</kbd> | Move selection down in the list
 |<kbd>K</kbd> | Move selection up in the list
 |<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>Enter</kbd> | Add a single comment on a pull request diff |
-|<kbd>Alt</kbd> and click | Toggle between collapsing and expanding all outdated review comments in a pull request by holding down <kbd>Alt</kbd> and clicking **Show outdated** or **Hide outdated**.|{% ifversion fpt or ghes or ghae or ghec %}
-|Click, then <kbd>Shift</kbd> and click | Comment on multiple lines of a pull request by clicking a line number, holding <kbd>Shift</kbd>, then clicking another line number. For more information, see "[Commenting on a pull request](/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request#adding-line-comments-to-a-pull-request)."|{% endif %}
+|<kbd>Alt</kbd> and click | Toggle between collapsing and expanding all outdated review comments in a pull request by holding down <kbd>Alt</kbd> and clicking **Show outdated** or **Hide outdated**.|
+|Click, then <kbd>Shift</kbd> and click | Comment on multiple lines of a pull request by clicking a line number, holding <kbd>Shift</kbd>, then clicking another line number. For more information, see "[Commenting on a pull request](/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request#adding-line-comments-to-a-pull-request)."|
 
 ## Project boards
 
@@ -195,7 +194,6 @@ For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirr
 
 ## Notifications
 
-{% ifversion fpt or ghes or ghae or ghec %}
 | Keyboard shortcut | Description
 |-----------|------------
 |<kbd>E</kbd> | Mark as done
@@ -203,13 +201,6 @@ For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirr
 |<kbd>Shift</kbd>+<kbd>I</kbd>| Mark as read
 |<kbd>Shift</kbd>+<kbd>M</kbd> | Unsubscribe
 
-{% else %}
-
-| Keyboard shortcut | Description
-|-----------|------------
-|<kbd>E</kbd> or <kbd>I</kbd> or <kbd>Y</kbd> | Mark as read
-|<kbd>Shift</kbd>+<kbd>M</kbd> | Mute thread
-{% endif %}
 
 ## Network graph
 
