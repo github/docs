@@ -2,10 +2,10 @@
 date: '2021-10-28'
 sections:
   security_fixes:
-    - 'Several known weak SSH public keys have been added to the deny list and can no longer be registered. In addition, versions of GitKraken known to generate weak SSH keys (7.6.x, 7.7.x and 8.0.0) have been blocked from registering new public keys.'
+    - 'いくつかの既知の弱いSSH公開鍵が拒否リストに追加され、登録できなくなりました。加えて、弱いSSHキーを生成することが知られているGitKrakenのバージョン（7.6.x、7.7.x、8.0.0）による新しい公開鍵の登録がブロックされました。'
     - 'パッケージは最新のセキュリティバージョンにアップデートされました。'
   bugs:
-    - 'Several parts of the application were unusable for users who are owners of many organizations.'
+    - '多くのOrganizationのオーナーであるユーザは、アプリケーションの一部を使用できませんでした。'
   known_issues:
     - 新しくセットアップされたユーザを持たない{% data variables.product.prodname_ghe_server %}で、攻撃者が最初の管理ユーザを作成できました。
     - アップグレードの過程で、カスタムのファイアウォールのルールが削除されます。

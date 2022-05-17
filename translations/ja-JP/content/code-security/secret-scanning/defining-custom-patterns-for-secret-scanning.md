@@ -143,8 +143,8 @@ aAAAe9
 
 {% if secret-scanning-enterprise-dry-runs %}
 **ノート:**
-- At the enterprise level, only the creator of a custom pattern can edit the pattern, and use it in a dry run.
-- Enterprise owners can only make use of dry runs on repositories that they have access to, and enterprise owners do not necessarily have access to all the organizations or repositories within the enterprise.
+- Enterpriseレベルでは、カスタムパターンを編集でき、dry runで使えるのはカスタムパターンの作者だけです。
+- Enterpriseオーナーは、アクセスできるリポジトリ上でのみdry runを利用できますが、必ずしもEnterprise内のすべてのOrganizationやリポジトリにアクセスできるわけではありません。
 {% else %}
 **ノート:** dry-runの機能は無いので、カスタムパターンをEnterprise全体で定義する前に、1つのリポジトリ内でテストすることをおすすめします。 そうすれば、過剰な偽陽性の{% data variables.product.prodname_secret_scanning %}アラートを発生させることを防げます。
 

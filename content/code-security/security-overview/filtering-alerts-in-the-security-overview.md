@@ -1,7 +1,7 @@
 ---
 title: Filtering alerts in the security overview
 intro: Use filters to view specific categories of alerts
-permissions: Organization owners and security managers can access the security overview for organizations. Members of a team can see the security overview for repositories that the team has admin privileges for.
+permissions: '{% data reusables.security-center.permissions %}'
 product: '{% data reusables.gated-features.security-center %}'
 versions:
   ghae: issue-4554
