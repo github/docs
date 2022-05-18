@@ -71,6 +71,6 @@ jobs:
       - if: ${{ github.repository != 'github/docs-internal' }}
         name: Run build script
         run: npm run build
-The Apps Script project is not ready yet. Try again once you have successfully executed a script function.
+
       - name: Run tests
         run: npm test -- tests/${{ matrix.test-group }}/
