@@ -21182,6 +21182,12 @@
         "requestPath": "/orgs/{org}"
       },
       {
+        "slug": "get-the-audit-log-for-an-organization",
+        "subcategory": "orgs",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/audit-log"
+      },
+      {
         "slug": "list-organization-webhooks",
         "subcategory": "webhooks",
         "verb": "get",
