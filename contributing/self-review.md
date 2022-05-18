@@ -11,3 +11,17 @@ For content changes, make sure that you:
 - [ ] Copy-edit the changes for grammar, spelling, and adherence to the [style guide](https://github.com/github/docs/blob/main/contributing/content-style-guide.md).
 - [ ] Check new or updated Liquid statements to confirm that versioning is correct.
 - [ ] If there are any failing checks in your PR, troubleshoot them until they're all passing.
+string containerName = "...";
+BlobContainerClient container = new BlobContainerClient(connectionString, containerName);
+
+var blobs = container.GetBlobs();
+foreach (var blob in blobs)
+{
+    Console.WriteLine($"{blob.Name} --> Created On: {blob.Properties.CreatedOn:YYYY-MM-dd HH:mm:ss}  Size: {blob.Properties.ContentLength}");
+}const containerName = '...';
+const containerClient = blobServiceClient.getContainerClient(containerName);
+
+let blobs = containerClient.listBlobsFlat();
+for await (const blob of blobs) {
+  console.log(`${blob.name} --> Created: ${blob.properties.createdOn}   Size: ${blob.properties.contentLength}`);
+}GET https://[url-for-service-account]/?comp=list&include=metadata
