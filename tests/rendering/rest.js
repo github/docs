@@ -78,6 +78,6 @@ function formatErrors(differences) {
     }
   }
   errorMessage +=
-    'This means the categories and subcategories in the content/rest directory do not match the decorated files in lib/static/decorated directory from the OpenAPI schema. Please run ./script/rest/update-files.js --decorated-only and push up the file changes with your updates.\n'
+    'This means the categories and subcategories in the content/rest directory do not match the decorated files in lib/static/decorated directory from the OpenAPI schema. Please run `./script/rest/update-files.js --decorate-only` and push up the file changes with your updates.\n'
   return errorMessage
 }
