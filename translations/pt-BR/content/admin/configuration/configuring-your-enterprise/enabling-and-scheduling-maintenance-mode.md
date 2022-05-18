@@ -33,11 +33,19 @@ Alguns tipos de operações requerem que a {% data variables.product.product_loc
 
 É recomendável programar um período de manutenção de no mínimo 30 minutos para que os usuários tenham tempo de se preparar. Quando houver um período de manutenção programado, todos os usuários verão um banner ao acessar o site.
 
+
+
 ![Banner para usuário final sobre manutenção programada](/assets/images/enterprise/maintenance/maintenance-scheduled.png)
 
 Quando a instância estiver em modo de manutenção, todos os acessos regulares por HTTP e Git serão recusados. Operações de fetch, clonagem e push também são rejeitadas, e uma mensagem de erro indicará que o site está temporariamente indisponível. Em configurações de alta disponibilidade, a replicação do Git será pausada. Os trabalhos com GitHub Actions não serão executados. O acesso ao site por navegador levará a uma página de manutenção.
 
 ![Tela inicial do modo de manutenção](/assets/images/enterprise/maintenance/maintenance-mode-maintenance-page.png)
+
+{% if ip-exception-list %}
+
+Você pode executar a validação inicial da sua operação de manutenção configurando uma lista de exceção de IP para permitir acesso a {% data variables.product.product_location %} apenas dos endereços IP e das faixas fornecidas. As tentativas de acessar {% data variables.product.product_location %} de endereços IP não especificados na lista de exceções IP receverão uma resposta consistente com aquelas enviadas quando a instância estiver em modo de manutenção.
+
+{% endif %}
 
 ## Habilitar o modo de manutenção imediatamente ou programar um período de manutenção mais tarde
 
@@ -49,6 +57,23 @@ Quando a instância estiver em modo de manutenção, todos os acessos regulares 
     - Para programar um período de manutenção depois, use o menu suspenso e clique no horário em que você pretende iniciar o período de manutenção.![Menu suspenso com a opção para habilitar o modo de manutenção em duas horas](/assets/images/enterprise/maintenance/schedule-maintenance-mode-two-hours.png)
 4. Selecione **Enable maintenance mode** (Habilitar modo de manutenção). ![Caixa de seleção para habilitar ou programar o modo de manutenção](/assets/images/enterprise/maintenance/enable-maintenance-mode-checkbox.png)
 {% data reusables.enterprise_management_console.save-settings %}
+
+{% if ip-exception-list %}
+
+## Validando alterações no modo de manutenção usando a lista de exceção de IP
+
+A lista de exceções de IP fornece acesso controlado e restrito a {% data variables.product.product_location %}, o que é ideal para validação inicial de saúde do servidor após uma operação de manutenção. Uma vez habilitado, {% data variables.product.product_location %} será retirado do modo de manutenção e disponibilizado apenas para os endereços IP configurados. A caixa de seleção do modo de manutenção será atualizada para refletir a alteração no estado.
+
+Se você reabilitar o modo de manutenção, a lista de exceções de IP será desabilitada e {% data variables.product.product_location %} retornará ao modo de manutenção. Se você desabilitar a lista de exceção de IP, {% data variables.product.product_location %} retornará para a operação normal.
+
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.management-console %}
+1. Na parte superior do {% data variables.enterprise.management_console %}, clique em **Manutenção** e confirme que o modo de manutenção já está habilitado. ![Guia de manutenção](/assets/images/enterprise/management-console/maintenance-tab.png)
+1. Selecione **Habilitar lista de exceção de IP**. ![Caixa de seleção para habilitar lista de exceções de IP](/assets/images/enterprise/maintenance/enable-ip-exception-list.png)
+1. Na caixa de texto, digite uma lista válida de endereços IP separados por espaço ou blocos CIDR que devem ter permissão para acessar {% data variables.product.product_location %}. ![campo concluído para endereços IP](/assets/images/enterprise/maintenance/ip-exception-list-ip-addresses.png)
+1. Clique em **Salvar**. ![após a lista de excetpion IP ter salvo](/assets/images/enterprise/maintenance/ip-exception-save.png)
+
+{% endif %}
 
 ## Programar o modo de manutenção com a {% data variables.product.prodname_enterprise_api %}
 

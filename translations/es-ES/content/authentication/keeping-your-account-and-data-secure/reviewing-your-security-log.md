@@ -1,6 +1,6 @@
 ---
 title: Revisar tu registro de seguridad
-intro: You can review the security log for your personal account to better understand actions you've performed and actions others have performed that involve you.
+intro: 'Puedes revisar la bitácora de seguridad de tu cuenta personal para entender mejor las acciones que has realizado y las que otros han realizado, las cuales te involucran.'
 miniTocMaxHeadingLevel: 3
 redirect_from:
   - /articles/reviewing-your-security-log
@@ -28,15 +28,11 @@ La bitácora de seguridad lista todas las acciones que se llevaron a cabo en los
 1. En la barra lateral de la configuración de usuario, da clic en **Registro de Seguridad**. ![Pestaña de registro de seguridad](/assets/images/help/settings/audit-log-tab.png)
 {% endif %}
 
-{% ifversion fpt or ghae or ghes or ghec %}
 ## Buscar tu registro de seguridad
 
 {% data reusables.audit_log.audit-log-search %}
 
 ### Búsqueda basada en la acción realizada
-{% else %}
-## Entender los eventos en tu registro de seguridad
-{% endif %}
 
 Tus acciones activan los eventos que se listan en tu bitácora de seguridad. Las acciones se agrupan en las siguientes categorías:
 
@@ -81,13 +77,13 @@ Un resumen de algunas de las acciones más frecuentes que se registran como even
 
 ### acciones de la categoría `codespaces`
 
-| Acción                               | Descripción                                                                                                                                                                                                                  |
-| ------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `create (crear)`                     | Se activa cuando [creas un codespace](/github/developing-online-with-codespaces/creating-a-codespace).                                                                                                                       |
-| `resume`                             | Se activa cuando reanudas un codespace suspendido.                                                                                                                                                                           |
-| `delete`                             | Se activa cuando [borras un codespace](/github/developing-online-with-codespaces/deleting-a-codespace).                                                                                                                      |
-| `manage_access_and_security`         | Se activa cuando actualizas [los repositorios a los que puede acceder un codespace](/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces).                                                  |
-| `trusted_repositories_access_update` | Triggered when you change your personal account's [access and security setting for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces). |
+| Acción                               | Descripción                                                                                                                                                                                                                      |
+| ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `create (crear)`                     | Se activa cuando [creas un codespace](/github/developing-online-with-codespaces/creating-a-codespace).                                                                                                                           |
+| `resume`                             | Se activa cuando reanudas un codespace suspendido.                                                                                                                                                                               |
+| `delete`                             | Se activa cuando [borras un codespace](/github/developing-online-with-codespaces/deleting-a-codespace).                                                                                                                          |
+| `manage_access_and_security`         | Se activa cuando actualizas [los repositorios a los que puede acceder un codespace](/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces).                                                      |
+| `trusted_repositories_access_update` | Se activa cuando cambias los [ajustes de acceso y seguridad para {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces) en tu cuenta personal. |
 
 ### acciones de la categoría `marketplace_agreement_signature`
 
@@ -109,10 +105,10 @@ Un resumen de algunas de las acciones más frecuentes que se registran como even
 
 ### Acciones de la categoría `oauth_authorization`
 
-| Acción               | Descripción                                                                                                                                                                                                                                                                                                                                                                                            |
-| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `create (crear)`     | Se activa cuando [obtienes acceso a una {% data variables.product.prodname_oauth_app %}](/github/authenticating-to-github/keeping-your-account-and-data-secure/authorizing-oauth-apps).                                                                                                                                                                                                              |
-| `destroy (destruir)` | Se activa cuando [revocas el acceso de una {% data variables.product.prodname_oauth_app %} a tu cuenta](/articles/reviewing-your-authorized-integrations){% ifversion fpt or ghae-issue-4374 or ghes > 3.2 or ghec %} y cuando[las autorizaciones se revocan o vencen](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation).{% else %}.{% endif %}
+| Acción               | Descripción                                                                                                                                                                                                                                                                                                                                                                                |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `create (crear)`     | Se activa cuando [obtienes acceso a una {% data variables.product.prodname_oauth_app %}](/github/authenticating-to-github/keeping-your-account-and-data-secure/authorizing-oauth-apps).                                                                                                                                                                                                  |
+| `destroy (destruir)` | Triggered when you [revoke an {% data variables.product.prodname_oauth_app %}'s access to your account](/articles/reviewing-your-authorized-integrations){% ifversion fpt or ghae or ghes > 3.2 or ghec %} and when [authorizations are revoked or expire](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation).{% else %}.{% endif %}
 
 {% ifversion fpt or ghec %}
 
@@ -166,7 +162,7 @@ Un resumen de algunas de las acciones más frecuentes que se registran como even
 | `create (crear)`                                                                        | Se activa cuando [se crea un repositorio nuevo](/articles/creating-a-new-repository).                                                                                                                                                                                                                                                          |
 | `destroy (destruir)`                                                                    | Se activa cuando [se elimina un repositorio](/articles/deleting-a-repository).{% ifversion fpt or ghec %}
 | `inhabilitar`                                                                           | Se activa cuando un repositorio se inhabilita (por ejemplo, por [fondos insuficientes](/articles/unlocking-a-locked-account)).{% endif %}{% ifversion fpt or ghec %}
-| `download_zip`                                                                          | Triggered when a ZIP or TAR archive of a repository is downloaded.                                                                                                                                                                                                                                                                             |
+| `download_zip`                                                                          | Se activa cuando se descarga un archivo ZIP o TAR de un repositorio.                                                                                                                                                                                                                                                                           |
 | `habilitar`                                                                             | Se activa cuando se vuelve a habilitar un repositorio.{% endif %}
 | `remove_member (eliminar miembro)`                                                      | Se activa cuando se elimina {% data variables.product.product_name %} un usuario [de un repositorio como colaborador](/articles/removing-a-collaborator-from-a-personal-repository).                                                                                                                                                           |
 | `remove_topic (eliminar tema)`                                                          | Se activa cuando un propietario del repositorio elimina un tema de un repositorio.                                                                                                                                                                                                                                                             |

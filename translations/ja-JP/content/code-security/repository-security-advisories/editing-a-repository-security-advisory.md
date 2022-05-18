@@ -1,6 +1,6 @@
 ---
-title: Editing a repository security advisory
-intro: You can edit the metadata and description for a repository security advisory if you need to update details or correct errors.
+title: リポジトリセキュリティアドバイザリの編集
+intro: 詳細を更新したり、間違いを修正したりする必要がある場合、リポジトリセキュリティアドバイザリのメタデータと説明を編集できます。
 redirect_from:
   - /github/managing-security-vulnerabilities/editing-a-security-advisory
   - /code-security/security-advisories/editing-a-security-advisory
@@ -11,10 +11,10 @@ type: how_to
 topics:
   - Security advisories
   - Vulnerabilities
-shortTitle: Edit repository advisories
+shortTitle: リポジトリアドバイザリの編集
 ---
 
-People with admin permissions to a repository security advisory can edit the security advisory.
+リポジトリセキュリティアドバイザリの管理権限を持つ人は、そのセキュリティアドバイザリを編集できます。
 
 {% data reusables.security-advisory.repository-level-advisory-note %}
 
@@ -38,9 +38,9 @@ People with admin permissions to a repository security advisory can edit the sec
 {% data reusables.repositories.security-advisory-edit-cwe-cve %}
 {% data reusables.repositories.security-advisory-edit-description %}
 11. 必要に応じて、セキュリティアドバイザリの [Credits] を編集します。 ![セキュリティアドバイザリのクレジット](/assets/images/help/security/security-advisory-credits.png)
-12. [**Update security advisory**] をクリックします。 !["Update security advisory" button](/assets/images/help/security/update-advisory-button.png)
+12. [**Update security advisory**] をクリックします。 !["セキュリティアドバイザリの更新"ボタン](/assets/images/help/security/update-advisory-button.png)
 13. [Credits] セクションに記載されているユーザは、クレジットを受け入れるように勧めるメールまたは Web 通知を受信します。 受け入れた場合、セキュリティアドバイザリが公開されると、そのユーザ名が公開されます。
 
 ## 参考リンク
 
-- "[Withdrawing a repository security advisory](/code-security/repository-security-advisories/withdrawing-a-repository-security-advisory)"
+- 「[リポジトリセキュリティアドバイザリの撤回](/code-security/repository-security-advisories/withdrawing-a-repository-security-advisory)」

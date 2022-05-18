@@ -28,15 +28,11 @@ O log de segurança lista todas as ações realizadas nos últimos 90 dias.
 1. Na barra lateral de configurações do usuário, clique em **log de segurança**. ![Aba do log de segurança](/assets/images/help/settings/audit-log-tab.png)
 {% endif %}
 
-{% ifversion fpt or ghae or ghes or ghec %}
 ## Pesquisar no seu registro de segurança
 
 {% data reusables.audit_log.audit-log-search %}
 
 ### Pesquisar com base na ação
-{% else %}
-## Entender eventos no seu log de segurança
-{% endif %}
 
 Os eventos listados no seu registro de segurança são acionados por suas ações. As ações são agrupadas nas seguintes categorias:
 
@@ -109,10 +105,10 @@ Uma visão geral de algumas das ações mais comuns que são registradas como ev
 
 ### Ações da categoria `oauth_authorization`
 
-| Ação      | Descrição                                                                                                                                                                                                                                                                                                                                                                                              |
-| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `create`  | Acionada quando você [concede acesso a um {% data variables.product.prodname_oauth_app %}](/github/authenticating-to-github/keeping-your-account-and-data-secure/authorizing-oauth-apps).                                                                                                                                                                                                            |
-| `destroy` | Acionada quando você [revoga o acesso de {% data variables.product.prodname_oauth_app %} à sua conta](/articles/reviewing-your-authorized-integrations){% ifversion fpt or ghae-issue-4374 or ghes > 3.2 or ghec %} e quando [as autorizações são revogadas ou vencem](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation).{% else %}.{% endif %}
+| Ação      | Descrição                                                                                                                                                                                                                                                                                                                                                                                  |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `create`  | Acionada quando você [concede acesso a um {% data variables.product.prodname_oauth_app %}](/github/authenticating-to-github/keeping-your-account-and-data-secure/authorizing-oauth-apps).                                                                                                                                                                                                |
+| `destroy` | Triggered when you [revoke an {% data variables.product.prodname_oauth_app %}'s access to your account](/articles/reviewing-your-authorized-integrations){% ifversion fpt or ghae or ghes > 3.2 or ghec %} and when [authorizations are revoked or expire](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation).{% else %}.{% endif %}
 
 {% ifversion fpt or ghec %}
 
@@ -166,7 +162,7 @@ Uma visão geral de algumas das ações mais comuns que são registradas como ev
 | `create`                              | Acionada quando [um repositório é criado](/articles/creating-a-new-repository).                                                                                                                                                                                                                                                             |
 | `destroy`                             | Acionada quando [um repositório é excluído](/articles/deleting-a-repository).{% ifversion fpt or ghec %}
 | `desabilitar`                         | Acionada quando um repositório é desabilitado (por exemplo, por [fundos insuficientes](/articles/unlocking-a-locked-account)).{% endif %}{% ifversion fpt or ghec %}
-| `download_zip`                        | Triggered when a ZIP or TAR archive of a repository is downloaded.                                                                                                                                                                                                                                                                          |
+| `download_zip`                        | Acionada quando é feito o download de um arquivo ZIP ou TAR de um repositório.                                                                                                                                                                                                                                                              |
 | `habilitar`                           | Acionada quando um repositório é habilitado novamente.{% endif %}
 | `remove_member`                       | Acionada quando um usuário do {% data variables.product.product_name %} é [removido de um repositório como um colaborador](/articles/removing-a-collaborator-from-a-personal-repository).                                                                                                                                                   |
 | `remove_topic`                        | Acionada quando um proprietário do repositório remove um tópico de um repositório.                                                                                                                                                                                                                                                          |

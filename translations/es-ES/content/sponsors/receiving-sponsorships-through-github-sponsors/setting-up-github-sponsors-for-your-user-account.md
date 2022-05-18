@@ -70,8 +70,6 @@ Si vives en una región compatible, puedes seguir estas instrucciones para emiti
 {% data reusables.sponsors.tax-form-information-dev %}
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
-{% data reusables.sponsors.settings-tab %}
-{% data reusables.sponsors.country-of-residence %}
 {% data reusables.sponsors.overview-tab %}
 {% data reusables.sponsors.tax-form-link %}
 

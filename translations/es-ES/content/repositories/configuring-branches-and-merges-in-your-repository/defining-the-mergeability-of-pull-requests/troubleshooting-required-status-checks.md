@@ -37,24 +37,25 @@ remote: error: Required status check "ci-build" is failing
 
 {% endnote %}
 
-{% ifversion fpt or ghae or ghes or ghec %}
-
 ## Conflictos entre confirmaciones de encabezado y confirmaciones de fusiones de prueba
 
 Algunas veces, los resultados de las verificaciones de estado para la confirmación de la prueba de fusión y de la confirmación principal entrarán en conflicto. Si la confirmación de fusión de prueba tiene un estado, ésta pasará. De otra manera, el estado de la confirmación principal deberá pasar antes de que puedas fusionar la rama. Para obtener más información sobre las confirmaciones de fusiones de prueba, consulta la sección "[Extracciones](/rest/reference/pulls#get-a-pull-request)".
 
 ![Ramas con conflictos en las confirmaciones de fusión](/assets/images/help/repository/req-status-check-conflicting-merge-commits.png)
-{% endif %}
 
 ## Se salta el manejo pero se requieren las verificaciones
 
-Algunas veces, se salta una verificación de estado requerida en las solicitudes de cambios debido al filtrado de rutas. Por ejemplo, una prueba de Node.JS podría saltarse en una solicitud de cambios que solo arregla un error de dedo en tu archivo README y no hace cambios a los archivos de JavaScript y TypeScript en el directorio de `scripts`.
+{% note %}
 
-Si esta verificación es requerida y se salta, entonces el estado de verificación se mostrará como pendiente, dado que es requerida. En esta situación no podrás fusionar la solicitud de cambios.
+**Note:** If a workflow is skipped due to [path filtering](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore), [branch filtering](/actions/using-workflows/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore) or a [commit message](/actions/managing-workflow-runs/skipping-workflow-runs), then checks associated with that workflow will remain in a "Pending" state. A pull request that requires those checks to be successful will be blocked from merging.
+
+If a job in a workflow is skipped due to a conditional, it will report its status as "Success". For more information see [Skipping workflow runs](/actions/managing-workflow-runs/skipping-workflow-runs) and [Using conditions to control job execution](/actions/using-jobs/using-conditions-to-control-job-execution).
+
+{% endnote %}
 
 ### Ejemplo
 
-En este ejemplo, tienes un flujo de trabajo que se requiere para pasar.
+The following example shows a workflow that requires a "Successful" completion status for the `build` job, but the workflow will be skipped if the pull request does not change any files in the `scripts` directory.
 
 ```yaml
 name: ci
@@ -62,7 +63,6 @@ on:
   pull_request:
     paths:
       - 'scripts/**'
-      - 'middleware/**'
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -81,7 +81,7 @@ jobs:
     - run: npm test
 ```
 
-Si alguien emite una solicitud de cambios que cambie un archivo de lenguaje de marcado en la raíz del repositorio, entonces el flujo de trabajo anterior no se ejecutará para nada debido al filtrado de ruta. Como resultado, no podrás fusionar la solicitud de cambios. Verías el siguiente estado en la solicitud de cambios:
+Due to [path filtering](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore), a pull request that only changes a file in the root of the repository will not trigger this workflow and is blocked from merging. Verías el siguiente estado en la solicitud de cambios:
 
 ![Verificación requerida omitida, pero mostrada como pendiente](/assets/images/help/repository/PR-required-check-skipped.png)
 

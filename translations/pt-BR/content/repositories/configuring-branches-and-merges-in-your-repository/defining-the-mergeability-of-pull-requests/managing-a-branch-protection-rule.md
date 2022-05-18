@@ -84,12 +84,13 @@ Ao criar uma regra de branch, o branch que você especificar ainda não existe n
   {% endtip %}
 {%- endif %}
 {%- if required-deployments %}
-1. Optionally, to choose which environments the changes must be successfully deployed to before merging, select **Require deployments to succeed before merging**, then select the environments. ![Require successful deployment option](/assets/images/help/repository/require-successful-deployment.png)
+1. Opcionalmente, para escolher em quais ambientes as alterações devem ser implantadas com sucesso antes de fazer merge, selecione **Exigir implantações para ser bem-sucedidas antes do merge** e, em seguida, selecione os ambientes. ![Exigir uma opção de implantação bem-sucedida](/assets/images/help/repository/require-successful-deployment.png)
 {%- endif %}
 1. Opcionalmente, selecione **Aplicar as regras acima aos administradores**. ![Aplicar as regras acima à caixa de seleção dos administradores](/assets/images/help/repository/include-admins-protected-branches.png)
 1. Opcionalmente, {% ifversion fpt or ghec %} se o repositório pertencer a uma organização que usa {% data variables.product.prodname_team %} ou {% data variables.product.prodname_ghe_cloud %},{% endif %} habilitar as restrições de branches.
-   - Selecione **Restringir quem pode fazer push para os branches correspondentes**. ![Caixa de seleção Branch restriction (Restrição de branch)](/assets/images/help/repository/restrict-branch.png)
-   - Procurar e selecionar pessoas, equipes ou aplicativos que tenham permissão para fazer push para o branch protegido. ![Pesquisa de restrição de branch](/assets/images/help/repository/restrict-branch-search.png)
+   - Selecione **Restringir quem pode fazer push para os branches correspondentes**. ![Branch restriction checkbox](/assets/images/help/repository/restrict-branch.png){% if restrict-pushes-create-branch %}
+   - Opcionalmente, para também restringir a criação de branches correspondentes, selecione **Restringir pushes que criam branches correspondentes**. ![Branch creation restriction checkbox](/assets/images/help/repository/restrict-branch-create.png){% endif %}
+   - Pesquise e selecione pessoas, equipes ou apps que tenham permissão para fazer push para o branch protegido ou crie um branch correspondente. ![Branch restriction search]{% if restrict-pushes-create-branch %}(/assets/images/help/repository/restrict-branch-search-with-create.png){% else %}(/assets/images/help/repository/restrict-branch-search.png){% endif %}
 1. Opcionalmente, em "Regras aplicadas a todos incluindo administradores", selecione **Permitir pushes forçados**. ![Permitir opção push forçado](/assets/images/help/repository/allow-force-pushes.png)
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5624 %}
   Em seguida, escolha quem pode fazer push forçado no branch.

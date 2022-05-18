@@ -22,7 +22,7 @@ shortTitle: 构建和测试 Java & Gradle
 
 ## 简介
 
-本指南介绍如何使用 Gradle 构建系统为 Java 项目创建执行持续集成 (CI) 的工作流程。 您创建的工作流程将允许您查看拉取请求提交何时会在默认分支上导致构建或测试失败； 这个方法可帮助确保您的代码始终是健康的。 您可以扩展 CI 工作流程以缓存文件并且从工作流程运行上传构件。
+本指南介绍如何使用 Gradle 构建系统为 Java 项目创建执行持续集成 (CI) 的工作流程。 您创建的工作流程将允许您查看拉取请求提交何时会在默认分支上导致构建或测试失败； 这个方法可帮助确保您的代码始终是健康的。 您可以扩展 CI 工作流程以{% if actions-caching %}缓存文件并且{% endif %}从工作流程运行上传构件。
 
 {% ifversion ghae %}
 {% data reusables.actions.self-hosted-runners-software %}
@@ -110,11 +110,15 @@ steps:
       arguments: -b ci.gradle package
 ```
 
+{% if actions-caching %}
+
 ## 缓存依赖项
 
-使用 {% data variables.product.prodname_dotcom %} 托管的运行器时，可以缓存构建依赖项以加快工作流程运行速度。 成功运行后， `gradle/gradle-build-action` 会缓存 Gradle 用户主目录的重要部分。 在将来的作业中，将还原缓存，这样就不需要重新编译构建脚本，也不需要从远程包存储库下载依赖项。
+可以缓存构建依赖项以加快工作流程运行速度。 成功运行后， `gradle/gradle-build-action` 会缓存 Gradle 用户主目录的重要部分。 在将来的作业中，将还原缓存，这样就不需要重新编译构建脚本，也不需要从远程包存储库下载依赖项。
 
 使用 `gradle/gradle-build-action` 操作时，缓存默认启用。 更多信息请参阅 [`gradle/gradle-build-action`](https://github.com/gradle/gradle-build-action#caching)。
+
+{% endif %}
 
 ## 将工作流数据打包为构件
 

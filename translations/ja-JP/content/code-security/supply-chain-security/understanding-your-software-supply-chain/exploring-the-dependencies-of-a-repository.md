@@ -12,7 +12,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: issue-4864
+  ghae: '*'
   ghec: '*'
 type: how_to
 topics:
@@ -34,13 +34,13 @@ shortTitle: 依存関係の調査
 4. オプションとして、[Dependency graph] で [**Dependents**] をクリックします。 ![Dependents tab on the dependency graph page](/assets/images/help/graphs/dependency-graph-dependents-tab.png){% endif %}
 
 {% ifversion ghes %}
-Enterprise owners can configure the dependency graph at an enterprise level. For more information, see "[Enabling the dependency graph for your enterprise](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise)."
+Enterpriseのオーナーは、Enterpriseのレベルで依存関係グラフを設定できます。 詳しい情報については「[Enterpriseでの依存関係グラフの有効化](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise)」を参照してください。
 {% endif %}
 
 ### 依存関係ビュー
 
 {% ifversion fpt or ghec %}
-依存関係はエコシステム別にグループ化されます。 依存関係を拡張すると、その依存関係を表示できます。  プライベートリポジトリ、プライベートパッケージ、認識できないファイルの依存関係は、プレーンテキストで表示されます。 If the package manager for the dependency is in a public repository, {% data variables.product.product_name %} will display a link to that repository.
+依存関係はエコシステム別にグループ化されます。 依存関係を拡張すると、その依存関係を表示できます。  プライベートリポジトリ、プライベートパッケージ、認識できないファイルの依存関係は、プレーンテキストで表示されます。 依存関係のパッケージマネージャがパブリックリポジトリ中にある場合、{% data variables.product.product_name %}はそのリポジトリへのリンクを表示します。
 
 リポジトリで脆弱性が検出された場合は、{% data variables.product.prodname_dependabot_alerts %}にアクセスできるユーザに、ビューの上部で表示されます。
 
@@ -74,10 +74,10 @@ Enterprise owners can configure the dependency graph at an enterprise level. For
 
 ## "Used by"パッケージの変更
 
-You may notice some repositories have a "Used by" section in the sidebar of the **Code** tab. Your repository will have a "Used by" section if:
-  * The dependency graph is enabled for the repository (see the above section for more details).
-  * Your repository contains a package that is published on a [supported package ecosystem](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems).
-  * Within the ecosystem, your package has a link to a _public_ repository where the source is stored.
+リポジトリの中には、**Code**タブのサイドバーに"Used by"セクションを持つものがあることに気づくかもしれません。 以下の場合、リポジトリは"Used by"を持ちます:
+  * そのリポジトリで依存関係グラフが有効になっている（詳細については上のセクションを参照）。
+  * リポジトリに、[サポートされているパッケージエコシステム](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems)で公開されているパッケージが含まれている。
+  * そのエコシステム内で、ソースが保存されている_パブリック_リポジトリへのリンクがパッケージ内にある。
 
 "Used by"セクションは、見つかったパッケージに対する公開参照数を示し、依存物のプロジェクトのオーナーのアバターを表示します。
 
@@ -90,7 +90,7 @@ You may notice some repositories have a "Used by" section in the sidebar of the 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
-4. Under "Code security and analysis", click the drop-down menu in the "Used by counter" section and choose a package. !["Used by"パッケージの選択](/assets/images/help/repository/choose-used-by-package.png)
+4. "Code security and analysis（コードのセキュリティと分析）"の下で、"Used by counter"セクション内のドロップダウンメニューをクリックしてください。 !["Used by"パッケージの選択](/assets/images/help/repository/choose-used-by-package.png)
 
 {% endif %}
 
@@ -107,6 +107,6 @@ You may notice some repositories have a "Used by" section in the sidebar of the 
 
 - [依存関係グラフについて](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)
 - 「[脆弱性のある依存関係に対する{% data variables.product.prodname_dependabot_alerts %}の表示](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)」{% ifversion ghec %}
-- "[Viewing insights for your organization](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-your-organization)"{% endif %}{% ifversion fpt or ghec %}
+- 「[Organizationのインサイトの表示](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-your-organization)」{% endif %}{% ifversion fpt or ghec %}
 - [{% data variables.product.prodname_dotcom %}によるデータの利用と保護の方法の理解](/get-started/privacy-on-github)
 {% endif %}

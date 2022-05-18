@@ -1,7 +1,7 @@
 ---
 title: 使用内置身份验证
-shortTitle: Built-in authentication
-intro: 'If you don''t use a centralized, external system for your users'' identity, you can use built-in authentication to allow {% data variables.product.prodname_ghe_server %} to manage accounts and perform local authentication.'
+shortTitle: 内置身份验证
+intro: '如果不对用户身份使用集中式外部系统，则可以使用内置身份验证来允许 {% data variables.product.prodname_ghe_server %} 管理帐户和执行本地身份验证。'
 versions:
   ghes: '*'
 topics:

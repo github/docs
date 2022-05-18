@@ -87,7 +87,7 @@ Para criar codespaces com permissões personalizadas definidas, você deve usar 
   }
   ```
 
-  Para definir todas as permissões para um determinado repositório, use `read-all` ou `write-all` no objeto `permissões`
+  Para definir todas as permissões para um determinado repositório, use `"permissions": "read-all"` ou `"permissions": "write-all"` no objeto repositório.
 
   ```json
   {
@@ -95,9 +95,7 @@ Para criar codespaces com permissões personalizadas definidas, você deve usar 
       "codespaces": {
         "repositories": {
           "my_org/my_repo": {
-            "permissions": {
-              "write-all"
-            }
+            "permissions": "write-all"
           }
         }
       }

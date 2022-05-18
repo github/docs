@@ -3,7 +3,7 @@ title: Gerenciando as funções de repositórios personalizados para uma organiz
 intro: 'Você pode controlar o acesso aos repositórios da sua organização de forma mais granular, criando funções de repositório personalizadas.'
 permissions: Organization owners can manage custom repository roles.
 versions:
-  ghec: '*'
+  feature: custom-repository-roles
 topics:
   - Organizations
   - Teams
@@ -11,8 +11,6 @@ shortTitle: Funções de repositório personalizadas
 redirect_from:
   - /early-access/github/articles/managing-custom-repository-roles-for-an-organization
 ---
-
-{% data reusables.pre-release-program.custom-roles-public-beta %}
 
 ## Sobre as funções personalizadas do repositório
 
@@ -51,6 +49,17 @@ Depois de escolher uma função herdada, você poderá selecionar as permissões
 
 Você só pode escolher uma permissão adicional se já não estiver incluída na função herdada. Por exemplo, se a função herdada oferece acesso de **Gravação** a um repositório, a permissão "Fechar uma pull request" já estará incluída na função herdada.
 
+{% ifversion ghec %}
+### Discussions
+
+- **Criar uma categoria de discussão**: Capacidade de criar uma nova categoria de discussão. Para obter mais informações, consulte "[Criando uma nova categoria de discussão](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions#creating-a-category)".
+- **Editar uma categoria de discussão**: Capacidade de editar uma categoria de discussão. Para obter mais informações, consulte "[Editando uma categoria de discussão](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions#editing-a-category). "
+- **Excluir uma categoria de discussão**: Capacidade de excluir uma categoria de discussão. Para obter mais informações, consulte "format@@0[Excluindo uma categoria de discussão "](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions#deleting-a-category)".
+- **Marcar ou desmarcar as respostas da discussão**: Capacidade de marcar respostas para uma discussão, se a categoria para a discussão aceitar respostas. Para obter mais informações, consulte "[Marcar ou desmarcar comentários em uma discussão como a resposta](/discussions/managing-discussions-for-your-community/moderating-discussions#marking-a-comment-as-an-answer).
+- **Ocultar ou exibir comentários de discussão**: Capacidade de ocultar e exibir comentários em uma discussão.  Para obter mais informações, consulte "[Moderação de discussões](/communities/moderating-comments-and-conversations/managing-disruptive-comments#hiding-a-comment)".
+- **Converter problemas em discussões**: Capacidade de converter um problema em uma discussão.  Para obter mais informações, consulte "[Convertendo problemas em discussões](/discussions/managing-discussions-for-your-community/moderating-discussions#converting-an-issue-to-a-discussion). "
+{% endif %}
+
 ### Problemas e Pull Requests
 
 - **Atribuir ou remover um usuário**: Atribua um usuário a um problema ou pull request ou remova um usuário de um problema ou pull request.
@@ -79,7 +88,9 @@ Você só pode escolher uma permissão adicional se já não estiver incluída n
 - **Gerenciar webhooks**: Adicione webhooks ao repositório.
 - **Gerenciar chaves de implantação**: Adicione chaves de deploy ao repositório.
 - **Editar os metadados do repositório**: Atualize a descrição do repositório, bem como os tópicos do repositório.
+{%- ifversion ghec %}
 - **Definir limites de interação**: Restrinja temporariamente certos usuários de comentários, problemas de abertura ou criação de pull requests no seu repositório público para aplicar um período de atividade limitada. Para obter mais informações, consulte "[Restringir interações no seu repositório](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)".
+{%- endif %}
 - **Defina a visualização social**: Adicione uma imagem de identificação ao repositório que aparece nas plataformas de mídia social quando seu repositório é vinculado. Para obter mais informações, consulte "[Personalizar a exibição das redes sociais do repositório](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/customizing-your-repositorys-social-media-preview)".
 - **Faça push commits para branches protegidos**: Faça push para um branch que é marcado como um branch protegido.
 - **Crie etiquetas protegidas**: Crie etiquetas que correspondam a uma regra de proteção de tags. Para obter mais informações, consulte "[Configurando regras de proteção de tagsde](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-tag-protection-rules)".

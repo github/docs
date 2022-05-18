@@ -1,6 +1,6 @@
 ---
-title: OAuth authorizations
-intro: The OAuth authorizations lets you manage the access OAuth applications have to your account.
+title: OAuth 授权
+intro: 通过 OAuth 授权，您可以管理 OAuth 应用程序对您的帐户的访问权限。
 versions:
   fpt: '*'
   ghec: '*'
@@ -12,7 +12,7 @@ redirect_from:
   - /rest/reference/oauth-authorizations
 ---
 
-## About the OAuth authorizations API
+## 关于 OAuth 授权 API
 
 您可以使用此 API 来管理 OAuth 应用程序对您帐户的访问权限。 您只能使用您的用户名和密码（而不是令牌），通过[基本身份验证](/rest/overview/other-authentication-methods#basic-authentication)访问此 API。
 

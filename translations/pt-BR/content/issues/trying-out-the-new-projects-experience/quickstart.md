@@ -142,7 +142,7 @@ Para indicar o propósito da visão, dê um nome descritivo.
 
 Por fim, adicione um fluxo de trabalho construído para definir o status como **Todo** quando um item for adicionado ao seu projeto.
 
-1. In your project, click {% octicon "workflow" aria-label="the workflow icon" %}.
+1. No seu projeto, clique em {% octicon "workflow" aria-label="the workflow icon" %}.
 2. Em **Fluxos de trabalho padrão**, clique em **Item adicionado ao projeto**.
 3. Ao lado de **Quando**, certifique-se de que `problemas` e `pull requests` estejam selecionados.
 4. Ao lado de **Definir**, selecione **Status:Todo**.

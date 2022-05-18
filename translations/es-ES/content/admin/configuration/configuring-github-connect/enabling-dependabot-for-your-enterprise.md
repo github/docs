@@ -15,7 +15,7 @@ redirect_from:
 permissions: 'Enterprise owners can enable {% data variables.product.prodname_dependabot %}.'
 versions:
   ghes: '*'
-  ghae: issue-4864
+  ghae: '*'
 type: how_to
 topics:
   - Enterprise
@@ -43,7 +43,7 @@ También puedes elegir sincronizar manualmente los datos de vulnerabilidad en cu
 
 {% note %}
 
-**Note:** When you enable enable {% data variables.product.prodname_dependabot_alerts %}, no code or information about code from {% data variables.product.product_location %} is uploaded to {% data variables.product.prodname_dotcom_the_website %}.
+**Note:** When you enable {% data variables.product.prodname_dependabot_alerts %}, no code or information about code from {% data variables.product.product_location %} is uploaded to {% data variables.product.prodname_dotcom_the_website %}.
 
 {% endnote %}
 

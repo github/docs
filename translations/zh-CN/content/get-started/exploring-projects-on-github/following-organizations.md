@@ -1,6 +1,6 @@
 ---
-title: 关注组织
-intro: '您可以关注 {% data variables.product.product_name %} 上的组织，以接收有关其活动的通知。'
+title: Following organizations
+intro: 'You can follow organizations on {% data variables.product.product_name %} to receive notifications about their activity.'
 versions:
   feature: for-you-feed
 topics:
@@ -9,42 +9,42 @@ topics:
 
 {% note %}
 
-**注意：** 关注组织的功能目前处于公开测试阶段，可能会发生变化。
+**Note:** The ability to follow organizations is currently in public beta and subject to change.
 
 {% endnote %}
 
-## 关于 {% data variables.product.product_name %} 上的关注者
+## About followers on {% data variables.product.product_name %}
 
-当您关注组织时，您将在个人仪表板上看到他们的公共活动。 更多信息请参阅“[关于个人仪表板](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/about-your-personal-dashboard#staying-updated-with-activity-from-the-community)”。
+When you follow organizations, you'll see their public activity on your personal dashboard. For more information, see "[About your personal dashboard](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/about-your-personal-dashboard#staying-updated-with-activity-from-the-community)."
 
-如果您不希望在 {% data variables.product.product_name %} 上看到某个组织的公开活动，则可以取消关注该组织。
+You can unfollow an organization if you do not wish to see their {% ifversion fpt or ghec %}public{% endif %} activity on {% data variables.product.product_name %}.
 
-## 在 {% data variables.product.product_name %} 上关注组织
+## Following an organization on {% data variables.product.product_name %}
 
-1. 转到要关注的组织页面
-2. 点击标题右上角的 **Follow（关注）**
+1. Go to the organization page you want to follow
+2. Click **Follow** in the top-right corner of the header
 
-  ![组织标题的屏幕截图，突出显示了“关注”按钮](/assets/images/help/profile/organization-profile-following.png)
+  ![Screenshot of the organization header, with the follow button highlighted](/assets/images/help/profile/organization-profile-following.png)
 
-## 在 {% data variables.product.product_name %} 上取消关注组织
+## Unfollowing an organization on {% data variables.product.product_name %}
 
-1. 转到要取消关注的组织页面
-2. 点击标题右上角的 **Unfollow（取消关注）**。
+1. Go to the organization page you want to unfollow
+2. Click **Unfollow** in the top-right corner of the header.
 
-  ![组织标题的屏幕截图，突出显示了“取消关注”按钮](/assets/images/help/profile/organization-profile-unfollowing.png)
+  ![Screenshot of the organization header, with the unfollow button highlighted](/assets/images/help/profile/organization-profile-unfollowing.png)
 
-## 查看用户在 {% data variables.product.product_name %} 上关注的人员和组织
+## Viewing people and organizations a user follows on {% data variables.product.product_name %}
 
-1. 单击用户图像以显示该用户的配置文件。
+1. Click a user image to display that user's profile.
 
-  ![用户图像](/assets/images/help/profile/user-profile-image.png)
+  ![User image](/assets/images/help/profile/user-profile-image.png)
 
-2. 在其个人资料图片下点击**关注**。
+2. Click **following** under their profile image.
 
-  ![用户关注](/assets/images/help/profile/user-profile-following.png)
+  ![User following](/assets/images/help/profile/user-profile-following.png)
 
 {% ifversion fpt or ghec %}
-## 延伸阅读
+## Further reading
 
-- “[关注人员](/get-started/exploring-projects-on-github/following-people)”
+- "[Following people](/get-started/exploring-projects-on-github/following-people)"
 {% endif %}

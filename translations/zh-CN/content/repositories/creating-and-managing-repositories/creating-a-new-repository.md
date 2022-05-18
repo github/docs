@@ -26,17 +26,15 @@ topics:
 
 {% endtip %}
 
-{% ifversion fpt or ghae or ghes or ghec %}
 {% tip %}
 
 **提示**：您也可以使用 {% data variables.product.prodname_cli %} 创建仓库。 更多信息请参阅 {% data variables.product.prodname_cli %} 文档中的“[`gh 仓库创建`](https://cli.github.com/manual/gh_repo_create)”。
 
 {% endtip %}
-{% endif %}
 
 {% data reusables.repositories.create_new %}
-2. （可选）要创建具有现有仓库的目录结构和文件的仓库，请使用 **Choose a template（选择模板）**下拉菜单并选择一个模板仓库。 您将看到由您和您所属组织拥有的模板仓库，或者您以前使用过的模板仓库。 更多信息请参阅“[从模板创建仓库](/articles/creating-a-repository-from-a-template)”。 ![Template drop-down menu](/assets/images/help/repository/template-drop-down.png){% ifversion fpt or ghae or ghes or ghec %}
-3. （可选）如果您选择使用模板，要包括模板中所有分支的目录结构和文件，而不仅仅是默认分支，请选择 **Include all branches（包括所有分支）**。 ![Include all branches checkbox](/assets/images/help/repository/include-all-branches.png){% endif %}
+2. （可选）要创建具有现有仓库的目录结构和文件的仓库，请使用 **Choose a template（选择模板）**下拉菜单并选择一个模板仓库。 您将看到由您和您所属组织拥有的模板仓库，或者您以前使用过的模板仓库。 更多信息请参阅“[从模板创建仓库](/articles/creating-a-repository-from-a-template)”。 ![Template drop-down menu](/assets/images/help/repository/template-drop-down.png)
+3. （可选）如果您选择使用模板，要包括模板中所有分支的目录结构和文件，而不仅仅是默认分支，请选择 **Include all branches（包括所有分支）**。 ![Include all branches checkbox](/assets/images/help/repository/include-all-branches.png)
 3. 在“Owner（所有者）”下拉菜单中，选择要在其上创建仓库的帐户。 ![所有者下拉菜单](/assets/images/help/repository/create-repository-owner.png)
 {% data reusables.repositories.repo-name %}
 {% data reusables.repositories.choose-repo-visibility %}

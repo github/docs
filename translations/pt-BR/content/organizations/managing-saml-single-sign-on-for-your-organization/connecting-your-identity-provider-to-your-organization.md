@@ -1,6 +1,6 @@
 ---
 title: Conectar o provedor de identidade à organização
-intro: 'To use SAML single sign-on and SCIM, you must connect your identity provider (IdP) to your organization on {% data variables.product.product_name %}.'
+intro: 'Para usar o logon único SAML e o SCIM, você deve conectar seu provedor de identidade (IdP) à sua organização em {% data variables.product.product_name %}.'
 redirect_from:
   - /articles/connecting-your-identity-provider-to-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/connecting-your-identity-provider-to-your-organization
@@ -13,7 +13,7 @@ topics:
 shortTitle: Conectar um IdP
 ---
 
-## About connection of your IdP to your organization
+## Sobre a conexão do seu IdP à sua organização
 
 Ao habilitar o SAML SSO para sua organização de {% data variables.product.product_name %}, você conecta seu provedor de identidade (IdP) à sua organização. Para obter mais informações, consulte "[Habilitar e testar logon único de SAML para sua organização](/organizations/managing-saml-single-sign-on-for-your-organization/enabling-and-testing-saml-single-sign-on-for-your-organization)".
 
@@ -29,7 +29,7 @@ Você pode encontrar as informações de implementação do SAML e SCIM para seu
 
 {% note %}
 
-**Observação:** os provedores de identidade aceitos pelo {% data variables.product.product_name %} para SCIM são Azure AD, Okta e OneLogin. For more information about SCIM, see "[About SCIM for organizations](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)."
+**Observação:** os provedores de identidade aceitos pelo {% data variables.product.product_name %} para SCIM são Azure AD, Okta e OneLogin. Para obter mais informações sobre o SCIM, consulte "[Sobre o SCIM para as organizações](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)".
 
 {% data reusables.scim.enterprise-account-scim %}
 
@@ -37,4 +37,4 @@ Você pode encontrar as informações de implementação do SAML e SCIM para seu
 
 ## Metadados SAML
 
-For more information about SAML metadata for your organization, see "[SAML configuration reference](/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference)."
+Para obter mais informações sobre metadados do SAML para a sua organização, consulte "[Referência de configuração do SAML](/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference)".
