@@ -2,11 +2,11 @@
 title: Configuring the dependency graph
 intro: You can allow users to identify their projects' dependencies by enabling the dependency graph.
 redirect_from:
-   - /code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph
+  - /code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: issue-4864
+  ghae: '*'
   ghec: '*'
 type: how_to
 topics:
@@ -24,7 +24,7 @@ For more information, see "[About the dependency graph](/code-security/supply-ch
 {% ifversion fpt or ghec %} ## About configuring the dependency graph {% endif %}
 {% ifversion fpt or ghec %}To generate a dependency graph, {% data variables.product.product_name %} needs read-only access to the dependency manifest and lock files for a repository. The dependency graph is automatically generated for all public repositories and you can choose to enable it for private repositories. For more information on viewing the dependency graph, see "[Exploring the dependencies of a repository](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository)."{% endif %}
 
-{% ifversion ghes or ghae %} ## Enabling the dependency graph
+{% ifversion ghes %} ## Enabling the dependency graph
 {% data reusables.dependabot.ghes-ghae-enabling-dependency-graph %}{% endif %}{% ifversion fpt or ghec %}
 
 ### Enabling and disabling the dependency graph for a private repository

@@ -10,7 +10,7 @@ export function RestPreviewNotice({ slug, previews }: Props) {
   return (
     <>
       <h3 className="h4" id={`${slug}-preview-notices`}>
-        <a href={`${slug}-preview-notices`}>
+        <a href={`#${slug}-preview-notices`}>
           {previews.length > 1
             ? `${t('rest.reference.preview_notices')}`
             : `${t('rest.reference.preview_notice')}`}

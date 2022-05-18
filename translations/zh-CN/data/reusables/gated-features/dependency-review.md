@@ -7,7 +7,7 @@
 {%- elsif ghes > 3.1 %}
 依赖项审查适用于 {% data variables.product.product_name %} 中的组织拥有的存储库。 此功能需要 {% data variables.product.prodname_GH_advanced_security %} 的许可证。
 
-{%- elsif ghae-issue-4864 %}
+{%- elsif ghae %}
 依赖项审查适用于 {% data variables.product.product_name %} 中的组织拥有的存储库。 这是一项 {% data variables.product.prodname_GH_advanced_security %} 功能（在测试版期间免费）。
 
 {%- endif %} {% data reusables.advanced-security.more-info-ghas %}

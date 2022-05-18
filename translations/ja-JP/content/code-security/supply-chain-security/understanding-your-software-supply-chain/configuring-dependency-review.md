@@ -5,7 +5,7 @@ shortTitle: 依存関係レビューの設定
 versions:
   fpt: '*'
   ghes: '>= 3.2'
-  ghae: issue-4864
+  ghae: '*'
   ghec: '*'
 type: how_to
 topics:
@@ -35,7 +35,7 @@ topics:
 {% data reusables.dependabot.enabling-disabling-dependency-graph-private-repo %}
 1. "{% data variables.product.prodname_GH_advanced_security %}"が有効化されていない場合、その隣の**Enable（有効化）**をクリックしてください。 !["Enable" ボタンが強調されたGitHub Advanced Security機能のスクリーンショット](/assets/images/help/security/enable-ghas-private-repo.png)
 
-{% elsif ghes or ghae %}
+{% elsif ghes %}
 依存関係レビューは、依存関係グラフが{% data variables.product.product_location %}で有効化されており、Organizationもしくはリポジトリで{% data variables.product.prodname_advanced_security %}が有効化されている場合に利用できます。 詳しい情報については「[Enterpriseでの{% data variables.product.prodname_GH_advanced_security %}の有効化](/admin/code-security/managing-github-advanced-security-for-your-enterprise/enabling-github-advanced-security-for-your-enterprise)」を参照してください。
 
 ### 依存関係グラフが有効化されているかの確認

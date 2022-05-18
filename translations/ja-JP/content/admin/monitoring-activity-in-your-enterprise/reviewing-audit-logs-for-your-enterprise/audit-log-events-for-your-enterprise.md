@@ -188,7 +188,7 @@ topics:
 | `config_entry.update`  | A configuration setting was edited. These events are only visible in the site admin audit log. The type of events recorded relate to:</br>- Enterprise settings and policies</br>- Organization and repository permissions and settings</br>- Git, Git LFS, {% data variables.product.prodname_github_connect %}, {% data variables.product.prodname_registry %}, project, and code security settings.  |
 {%- endif %}
 
-{%- ifversion fpt or ghec or ghes > 3.2 or ghae-issue-4864 %}
+{%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
 ### `dependabot_alerts` カテゴリアクション
 
 | アクション                       | 説明                                                                                                                                                                                                                                                                                                                                                                                             |
@@ -226,7 +226,7 @@ topics:
 | `dependabot_security_updates_new_repos.enable`  | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} enabled {% data variables.product.prodname_dependabot_security_updates %} for all new repositories.                                                                                                                                                                        |
 {%- endif %}
 
-{%- ifversion fpt or ghec or ghes or ghae-issue-4864 %}
+{%- ifversion fpt or ghec or ghes or ghae %}
 ### `dependency_graph` カテゴリアクション
 
 | アクション                      | 説明                                                                                                                                                                                                                                                                                                          |
@@ -1014,7 +1014,7 @@ topics:
 | `repository_visibility_change.disable` | The ability for enterprise members to update a repository's visibility was disabled. Members are unable to change repository visibilities in an organization, or all organizations in an enterprise.                                                                                                                                                                                                                                                                                                                                                              |
 | `repository_visibility_change.enable`  | The ability for enterprise members to update a repository's visibility was enabled. Members are able to change repository visibilities in an organization, or all organizations in an enterprise.                                                                                                                                                                                                                                                                                                                                                                 |
 
-{%- ifversion fpt or ghec or ghes or ghae-issue-4864 %}
+{%- ifversion fpt or ghec or ghes or ghae %}
 ### `repository_vulnerability_alert` カテゴリアクション
 
 | アクション                                    | 説明                                                                                                                                                                                                                                                                                                   |

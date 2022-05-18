@@ -146,7 +146,7 @@ Organizationでの{% data variables.product.prodname_github_app %}マネージ�
 {% endif %}
 | OrganizationのPull Requestレビューを管理（[OrganizationでのPull Requestのレビューの管理](/organizations/managing-organization-settings/managing-pull-request-reviews-in-your-organization)」を参照）                                                                                          | **X** |       |        |           |                             |
 
-{% elsif ghes > 3.2 or ghae-issue-4999 %}
+{% elsif ghes > 3.2 or ghae %}
 <!-- GHES 3.3+ and eventual GHAE release don't have the extra columns for Moderators and Billing managers. -->
 
 | Organization のアクション                                                                                                                                                                                                                                                   | オーナー  | メンバー  |                 セキュリティマネージャー                 |

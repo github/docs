@@ -15,7 +15,7 @@ redirect_from:
 permissions: 'Enterprise owners can enable {% data variables.product.prodname_dependabot %}.'
 versions:
   ghes: '*'
-  ghae: issue-4864
+  ghae: '*'
 type: how_to
 topics:
   - Enterprise

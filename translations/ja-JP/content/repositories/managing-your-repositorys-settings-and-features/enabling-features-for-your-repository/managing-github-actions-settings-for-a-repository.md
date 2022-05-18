@@ -106,20 +106,40 @@ If a policy is disabled for an {% ifversion ghec or ghae or ghes %}enterprise or
 
 {% data reusables.actions.workflow-permissions-intro %}
 
-The default permissions can also be configured in the organization settings. If the more restricted default has been selected in the organization settings, the same option is auto-selected in your repository settings and the permissive option is disabled.
+The default permissions can also be configured in the organization settings. If your repository belongs to an organization and a more restrictive default has been selected in the organization settings, the same option is selected in your repository settings and the permissive option is disabled.
 
 {% data reusables.actions.workflow-permissions-modifying %}
 
 ### デフォルトの`GITHUB_TOKEN`権限の設定
 
+{% if allow-actions-to-approve-pr-with-ent-repo %}
+By default, when you create a new repository in your personal account, `GITHUB_TOKEN` only has read access for the `contents` scope. If you create a new repository in an organization, the setting is inherited from what is configured in the organization settings.
+{% endif %}
+
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.settings-sidebar-actions-general %}
-1. [**Workflow permissions**]の下で、`GITHUB_TOKEN`にすべてのスコープに対する読み書きアクセスを持たせたいか、あるいは`contents`スコープに対する読み取りアクセスだけを持たせたいかを選択してください。
+1. [Workflow permissions]の下で、`GITHUB_TOKEN`にすべてのスコープに対する読み書きアクセスを持たせたいか、あるいは`contents`スコープに対する読み取りアクセスだけを持たせたいかを選択してください。
 
-  ![Set GITHUB_TOKEN permissions for this repository](/assets/images/help/settings/actions-workflow-permissions-repository.png)
+   ![Set GITHUB_TOKEN permissions for this repository](/assets/images/help/settings/actions-workflow-permissions-repository{% if allow-actions-to-approve-pr-with-ent-repo %}-with-pr-approval{% endif %}.png)
 
 1. **Save（保存）**をクリックして、設定を適用してください。
+
+{% if allow-actions-to-approve-pr-with-ent-repo %}
+### {% data variables.product.prodname_actions %}がPull Requestの作成もしくは承認をできないようにする
+
+{% data reusables.actions.workflow-pr-approval-permissions-intro %}
+
+By default, when you create a new repository in your personal account, workflows are not allowed to create or approve pull requests. If you create a new repository in an organization, the setting is inherited from what is configured in the organization settings.
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.settings-sidebar-actions-general %}
+1. Under "Workflow permissions", use the **Allow GitHub Actions to create and approve pull requests** setting to configure whether `GITHUB_TOKEN` can create and approve pull requests.
+
+   ![Set GITHUB_TOKEN permissions for this repository](/assets/images/help/settings/actions-workflow-permissions-repository-with-pr-approval.png)
+1. **Save（保存）**をクリックして、設定を適用してください。
+{% endif %}
 {% endif %}
 
 {% ifversion ghes > 3.3 or ghae-issue-4757 or ghec %}

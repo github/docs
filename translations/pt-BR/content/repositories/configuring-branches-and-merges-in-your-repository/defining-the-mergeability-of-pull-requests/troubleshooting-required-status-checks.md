@@ -37,28 +37,25 @@ remote: error: Required status check "ci-build" is failing
 
 {% endnote %}
 
-{% ifversion fpt or ghae or ghes or ghec %}
-
 ## Conflitos entre o título do commit e o commit de merge do teste
 
 Por vezes, os resultados das verificações de status para o commit de mescla teste e o commit principal entrarão em conflito. Se o commit de merge de testes tem status, o commit de merge de testes deve passar. Caso contrário, o status do commit principal deve passar antes de você poder mesclar o branch. Para obter mais informações sobre commits de merge de teste, consulte "[Pulls](/rest/reference/pulls#get-a-pull-request)".
 
 ![Branch com commits de mescla conflitantes](/assets/images/help/repository/req-status-check-conflicting-merge-commits.png)
-{% endif %}
 
 ## Manipulação ignorada, mas verificações necessárias
 
 {% note %}
 
-**Note:** If a workflow is skipped due to [path filtering](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore), [branch filtering](/actions/using-workflows/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore) or a [commit message](/actions/managing-workflow-runs/skipping-workflow-runs), then checks associated with that workflow will remain in a "Pending" state. A pull request that requires those checks to be successful will be blocked from merging.
+**Observação:** Se um fluxo de trabalho for ignorado devido à [filtragem do caminho](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore), a [filtragem do caminho](/actions/using-workflows/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore) ou [mensagem de commit](/actions/managing-workflow-runs/skipping-workflow-runs) as verificações associadas a esse fluxo de trabalho permanecerão em um estado "Pendente". Um pull request que requer que essas verificações sejam bem sucedidas será bloqueado do merge.
 
-If a job in a workflow is skipped due to a conditional, it will report its status as "Success". For more information see [Skipping workflow runs](/actions/managing-workflow-runs/skipping-workflow-runs) and [Using conditions to control job execution](/actions/using-jobs/using-conditions-to-control-job-execution).
+Se um trabalho em um fluxo de trabalho for ignorado devido a uma condicional, ele informará seu status como "Sucesso". Para obter mais informações, consulte [Ignorando as execuções do fluxo de trabalho](/actions/managing-workflow-runs/skipping-workflow-runs) e [Usando condições para controlar a execução do trabalho](/actions/using-jobs/using-conditions-to-control-job-execution).
 
 {% endnote %}
 
 ### Exemplo
 
-The following example shows a workflow that requires a "Successful" completion status for the `build` job, but the workflow will be skipped if the pull request does not change any files in the `scripts` directory.
+O exemplo a seguir mostra um fluxo de trabalho que exige um status de conclusão de "Sucesso" para o trabalho de `criação`, mas o fluxo de trabalho será ignorado se o pull request não alterar quaisquer arquivos no diretório de `scripts`.
 
 ```yaml
 name: ci
@@ -84,7 +81,7 @@ jobs:
     - run: npm test
 ```
 
-Due to [path filtering](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore), a pull request that only changes a file in the root of the repository will not trigger this workflow and is blocked from merging. Você verá o seguinte status no pull request:
+Devido à [filtragem do caminho](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore), um pull request que apenas altera um arquivo na raiz do repositório não acionará esse fluxo de trabalho e está bloqueada de fazer merge. Você verá o seguinte status no pull request:
 
 ![Verificação obrigatória ignorada mas mostrada como pendente](/assets/images/help/repository/PR-required-check-skipped.png)
 
