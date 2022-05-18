@@ -34,7 +34,7 @@ jobs:
     environment:
       # TODO: Update name and url to point to a specific slot for the branch/PR
       name: staging-env
-      url: ${{ secrets.STAGING_APP_URL }}
+      url: ${{ env.APP_URL }}
     env:
       PR_NUMBER: ${{ github.event.number || github.event.inputs.PR_NUMBER || github.run_id }}
       COMMIT_REF: ${{ github.event.pull_request.head.sha || github.event.inputs.COMMIT_REF }}
@@ -72,6 +72,8 @@ jobs:
 
       - name: 'Set env vars'
         run: |
+          # Set APP_URL
+          echo "APP_URL=${{ secrets.STAGING_APP_URL }}" >> $GITHUB_ENV
           # Image tag is unique to each workflow run so that it always triggers a new deployment
           echo "DOCKER_IMAGE=${{ secrets.NONPROD_REGISTRY_SERVER }}/${{ env.IMAGE_REPO }}:${{ env.COMMIT_REF }}-${{ github.run_number }}-${{ github.run_attempt }}" >> $GITHUB_ENV
 
