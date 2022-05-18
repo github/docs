@@ -12,7 +12,7 @@ versions:
   ghae: '*'
   ghec: '*'
 topics:
-  - Accounts
+  - Accounts  
   - CLI
   - Mobile
   - Desktop
