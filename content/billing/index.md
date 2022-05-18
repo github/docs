@@ -46,6 +46,7 @@ children:
   - /managing-billing-for-github-actions
   - /managing-billing-for-github-codespaces
   - /managing-billing-for-github-packages
+  - /managing-billing-for-github-copilot
   - /managing-your-license-for-github-enterprise
   - /managing-licenses-for-visual-studio-subscriptions-with-github-enterprise
   - /managing-billing-for-github-advanced-security
