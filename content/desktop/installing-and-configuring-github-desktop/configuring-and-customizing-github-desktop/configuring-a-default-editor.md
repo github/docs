@@ -16,7 +16,7 @@ shortTitle: Configure default editor
 
 - [Atom](https://atom.io/)
 - [MacVim](https://macvim-dev.github.io/macvim/)
-- [Visual Studio Code](https://code.visualstudio.com/)
+- [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/)
 - [Visual Studio Codium](https://vscodium.com/)
 - [Sublime Text](https://www.sublimetext.com/)
 - [BBEdit](http://www.barebones.com/products/bbedit/)
@@ -43,7 +43,7 @@ shortTitle: Configure default editor
 {% windows %}
 
 - [Atom](https://atom.io/)
-- [Visual Studio Code](https://code.visualstudio.com/)
+- [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/)
 - [Visual Studio Codium](https://vscodium.com/)
 - [Sublime Text](https://www.sublimetext.com/)
 - [ColdFusion Builder](https://www.adobe.com/products/coldfusion-builder.html)
