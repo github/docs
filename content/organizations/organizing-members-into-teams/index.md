@@ -1,5 +1,5 @@
 ---
-title: Organizing members into teams
+: Organizing members into teams
 intro: You can group organization members into teams that reflect your company or group's structure with cascading access permissions and mentions.
 redirect_from:
   - /articles/setting-up-teams-improved-organization-permissions
