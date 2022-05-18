@@ -39,6 +39,10 @@ Anyone with read access to a repository can view and compare releases, but only 
 You can manually create release notes while managing a release. Alternatively, you can automatically generate release notes from a default template, or customize your own release notes template. For more information, see "[Automatically generated release notes](/repositories/releasing-projects-on-github/automatically-generated-release-notes)."
 {% endif %}
 
+{% ifversion fpt or ghec or ghes > 3.6 or ghae-issue-7054 %}
+When viewing the details for a release, the creation date for each release asset is shown next to the release asset.
+{% endif %}
+
 {% ifversion fpt or ghec %}
 People with admin permissions to a repository can choose whether {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) objects are included in the ZIP files and tarballs that {% data variables.product.product_name %} creates for each release. For more information, see "[Managing {% data variables.large_files.product_name_short %} objects in archives of your repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-git-lfs-objects-in-archives-of-your-repository)."
 
