@@ -27,3 +27,5 @@ If you believe someone's account is violating your trademark rights, you can fin
 ## Name Squatting Policy
 
 GitHub prohibits account name squatting, and account names may not be reserved or inactively held for future use. Accounts violating this name squatting policy may be removed or renamed without notice. Attempts to sell, buy, or solicit other forms of payment in exchange for account names are prohibited and may result in permanent account suspension.
+
+Please note that GitHub Support no longer reviews individual requests to release dormant or inactive usernames.
