@@ -6,7 +6,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: issue-4864
+  ghae: '*'
   ghec: '*'
 type: how_to
 topics:
@@ -25,7 +25,7 @@ Para obter mais informações, consulte "[Sobre o gráfico de dependência](/cod
 {% ifversion fpt or ghec %} ## Sobre a configuração do gráfico de dependências {% endif %}
 {% ifversion fpt or ghec %}Para gerar um gráfico de dependência, o {% data variables.product.product_name %} precisa de acesso somente leitura ao manifesto dependência e aos arquivos de bloqueio em um repositório. O gráfico de dependências é gerado automaticamente para todos os repositórios públicos e você pode optar por habilitá-lo para repositórios privados. Para obter mais informações sobre a visualização do gráfico de dependências, consulte "[Explorando as dependências de um repositório](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository)".{% endif %}
 
-{% ifversion ghes or ghae %} ## Habilitando o gráfico de dependências
+{% ifversion ghes %} ## Habilitando o gráfico de dependências
 {% data reusables.dependabot.ghes-ghae-enabling-dependency-graph %}{% endif %}{% ifversion fpt or ghec %}
 
 ### Habilitar e desabilitar o gráfico de dependências para um repositório privado

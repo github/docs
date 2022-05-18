@@ -29,9 +29,10 @@ translations/zh-CN/content/admin/code-security/managing-github-advanced-security
 translations/zh-CN/content/admin/code-security/managing-github-advanced-security-for-your-enterprise/deploying-github-advanced-security-in-your-enterprise.md,broken liquid tags
 translations/zh-CN/content/admin/code-security/managing-supply-chain-security-for-your-enterprise/about-supply-chain-security-for-your-enterprise.md,broken liquid tags
 translations/zh-CN/content/admin/code-security/managing-supply-chain-security-for-your-enterprise/viewing-the-vulnerability-data-for-your-enterprise.md,broken liquid tags
-translations/zh-CN/content/admin/configuration/configuring-github-connect/about-github-connect.md,rendering error
+translations/zh-CN/content/admin/configuration/configuring-github-connect/about-github-connect.md,broken liquid tags
 translations/zh-CN/content/admin/configuration/configuring-github-connect/enabling-automatic-user-license-sync-for-your-enterprise.md,broken liquid tags
 translations/zh-CN/content/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise.md,broken liquid tags
+translations/zh-CN/content/admin/configuration/configuring-github-connect/enabling-server-statistics-for-your-enterprise.md,broken liquid tags
 translations/zh-CN/content/admin/configuration/configuring-github-connect/enabling-unified-contributions-for-your-enterprise.md,broken liquid tags
 translations/zh-CN/content/admin/configuration/configuring-github-connect/enabling-unified-search-for-your-enterprise.md,broken liquid tags
 translations/zh-CN/content/admin/configuration/configuring-github-connect/managing-github-connect.md,broken liquid tags
@@ -84,6 +85,9 @@ translations/zh-CN/content/admin/identity-and-access-management/using-saml-for-e
 translations/zh-CN/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/index.md,broken liquid tags
 translations/zh-CN/content/admin/index.md,broken liquid tags
 translations/zh-CN/content/admin/installation/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-aws.md,broken liquid tags
+translations/zh-CN/content/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/about-server-statistics.md,broken liquid tags
+translations/zh-CN/content/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/exporting-server-statistics.md,broken liquid tags
+translations/zh-CN/content/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/requesting-server-statistics-using-the-rest-api.md,broken liquid tags
 translations/zh-CN/content/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise.md,broken liquid tags
 translations/zh-CN/content/admin/overview/about-enterprise-accounts.md,Listed in localization-support#489
 translations/zh-CN/content/admin/overview/about-enterprise-accounts.md,rendering error
@@ -195,6 +199,7 @@ translations/zh-CN/content/developers/github-marketplace/github-marketplace-over
 translations/zh-CN/content/developers/github-marketplace/using-the-github-marketplace-api-in-your-app/handling-new-purchases-and-free-trials.md,broken liquid tags
 translations/zh-CN/content/developers/overview/secret-scanning-partner-program.md,broken liquid tags
 translations/zh-CN/content/developers/webhooks-and-events/webhooks/about-webhooks.md,broken liquid tags
+translations/zh-CN/content/developers/webhooks-and-events/webhooks/webhook-events-and-payloads.md,rendering error
 translations/zh-CN/content/discussions/collaborating-with-your-community-using-discussions/about-discussions.md,broken liquid tags
 translations/zh-CN/content/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-at-your-educational-institution/about-campus-advisors.md,broken liquid tags
 translations/zh-CN/content/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-at-your-educational-institution/about-github-campus-program.md,broken liquid tags
@@ -290,6 +295,7 @@ translations/zh-CN/data/release-notes/enterprise-server/2-21/6.yml,Listed in loc
 translations/zh-CN/data/release-notes/enterprise-server/2-22/22.yml,broken liquid tags
 translations/zh-CN/data/release-notes/enterprise-server/3-0/0.yml,broken liquid tags
 translations/zh-CN/data/release-notes/enterprise-server/3-0/16.yml,broken liquid tags
+translations/zh-CN/data/release-notes/enterprise-server/3-0/19.yml,broken liquid tags
 translations/zh-CN/data/release-notes/enterprise-server/3-1/0.yml,broken liquid tags
 translations/zh-CN/data/release-notes/enterprise-server/3-1/1.yml,broken liquid tags
 translations/zh-CN/data/release-notes/enterprise-server/3-1/10.yml,broken liquid tags
@@ -313,6 +319,9 @@ translations/zh-CN/data/release-notes/enterprise-server/3-1/8.yml,broken liquid 
 translations/zh-CN/data/release-notes/enterprise-server/3-1/9.yml,broken liquid tags
 translations/zh-CN/data/release-notes/enterprise-server/3-2/0-rc1.yml,broken liquid tags
 translations/zh-CN/data/release-notes/enterprise-server/3-2/0.yml,broken liquid tags
+translations/zh-CN/data/release-notes/enterprise-server/3-2/3.yml,broken liquid tags
+translations/zh-CN/data/release-notes/enterprise-server/3-3/0-rc1.yml,broken liquid tags
+translations/zh-CN/data/release-notes/enterprise-server/3-3/0.yml,broken liquid tags
 translations/zh-CN/data/release-notes/github-ae/2021-03/2021-03-03.yml,broken liquid tags
 translations/zh-CN/data/reusables/actions/actions-use-policy-settings.md,broken liquid tags
 translations/zh-CN/data/reusables/actions/enterprise-common-prereqs.md,broken liquid tags
@@ -331,6 +340,7 @@ translations/zh-CN/data/reusables/code-scanning/enterprise-enable-code-scanning.
 translations/zh-CN/data/reusables/code-scanning/run-additional-queries.md,broken liquid tags
 translations/zh-CN/data/reusables/code-scanning/upload-sarif-ghas.md,broken liquid tags
 translations/zh-CN/data/reusables/dependabot/dependabot-alerts-dependency-graph-enterprise.md,broken liquid tags
+translations/zh-CN/data/reusables/dependabot/enterprise-enable-dependabot.md,broken liquid tags
 translations/zh-CN/data/reusables/dotcom_billing/downgrade-org-to-free.md,broken liquid tags
 translations/zh-CN/data/reusables/enterprise-accounts/emu-password-reset-session.md,broken liquid tags
 translations/zh-CN/data/reusables/enterprise-accounts/emu-short-summary.md,rendering error

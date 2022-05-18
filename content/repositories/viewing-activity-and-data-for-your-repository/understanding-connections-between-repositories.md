@@ -66,7 +66,7 @@ Forks are listed alphabetically by the username of the person who forked the rep
 3. In the left sidebar, click **Forks**.
 ![Forks tab](/assets/images/help/graphs/graphs-sidebar-forks-tab.png)
 
-{% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
+{% ifversion fpt or ghes or ghae or ghec %}
 ## Viewing the dependencies of a repository
 
 You can use the dependency graph to explore the code your repository depends on.

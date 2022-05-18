@@ -86,7 +86,6 @@ If your search query contains whitespace, you will need to surround it with quot
 
 Some non-alphanumeric symbols, such as spaces, are dropped from code search queries within quotation marks, so results can be unexpected.
 
-{% ifversion fpt or ghes or ghae or ghec %}
 ## Queries with usernames
 
 If your search query contains a qualifier that requires a username, such as `user`, `actor`, or `assignee`, you can use any {% data variables.product.product_name %} username, to specify a specific person, or `@me`, to specify the current user.
@@ -97,4 +96,3 @@ Query  | Example
 `QUALIFIER:@me` | [`is:issue assignee:@me`](https://github.com/search?q=is%3Aissue+assignee%3A%40me&type=Issues) matches issues assigned to the person viewing the results
 
 You can only use `@me` with a qualifier and not as search term, such as `@me main.workflow`.
-{% endif %}

@@ -21,6 +21,7 @@ translations/ja-JP/content/actions/using-github-hosted-runners/about-github-host
 translations/ja-JP/content/actions/using-workflows/storing-workflow-data-as-artifacts.md,broken liquid tags
 translations/ja-JP/content/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance.md,broken liquid tags
 translations/ja-JP/content/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-secret-scanning-for-your-appliance.md,broken liquid tags
+translations/ja-JP/content/admin/configuration/configuring-github-connect/about-github-connect.md,broken liquid tags
 translations/ja-JP/content/admin/configuration/configuring-network-settings/network-ports.md,broken liquid tags
 translations/ja-JP/content/admin/configuration/configuring-your-enterprise/accessing-the-management-console.md,broken liquid tags
 translations/ja-JP/content/admin/configuration/configuring-your-enterprise/command-line-utilities.md,broken liquid tags
@@ -221,6 +222,7 @@ translations/ja-JP/data/release-notes/enterprise-server/2-21/6.yml,Listed in loc
 translations/ja-JP/data/release-notes/enterprise-server/2-22/22.yml,broken liquid tags
 translations/ja-JP/data/release-notes/enterprise-server/3-0/0.yml,broken liquid tags
 translations/ja-JP/data/release-notes/enterprise-server/3-0/16.yml,broken liquid tags
+translations/ja-JP/data/release-notes/enterprise-server/3-0/19.yml,broken liquid tags
 translations/ja-JP/data/release-notes/enterprise-server/3-1/0.yml,broken liquid tags
 translations/ja-JP/data/release-notes/enterprise-server/3-1/1.yml,broken liquid tags
 translations/ja-JP/data/release-notes/enterprise-server/3-1/10.yml,broken liquid tags
@@ -244,6 +246,7 @@ translations/ja-JP/data/release-notes/enterprise-server/3-1/8.yml,broken liquid 
 translations/ja-JP/data/release-notes/enterprise-server/3-1/9.yml,broken liquid tags
 translations/ja-JP/data/release-notes/enterprise-server/3-2/0-rc1.yml,broken liquid tags
 translations/ja-JP/data/release-notes/enterprise-server/3-2/0.yml,broken liquid tags
+translations/ja-JP/data/release-notes/enterprise-server/3-2/3.yml,broken liquid tags
 translations/ja-JP/data/release-notes/github-ae/2021-03/2021-03-03.yml,broken liquid tags
 translations/ja-JP/data/reusables/actions/allow-specific-actions-intro.md,broken liquid tags
 translations/ja-JP/data/reusables/actions/disabling-github-actions.md,broken liquid tags

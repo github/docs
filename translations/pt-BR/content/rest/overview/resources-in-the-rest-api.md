@@ -120,7 +120,7 @@ Você não conseguirá efetuar a autenticação usando sua chave e segredo do OA
 
 {% ifversion fpt or ghec %}
 
-Leia [Mais informações sobre limitação da taxa não autenticada](#increasing-the-unauthenticated-rate-limit-for-oauth-applications).
+Read [more about unauthenticated rate limiting](#increasing-the-unauthenticated-rate-limit-for-oauth-apps).
 
 {% endif %}
 

@@ -28,15 +28,11 @@ The security log lists all actions performed within the last 90 days.
   ![Security log tab](/assets/images/help/settings/audit-log-tab.png)
 {% endif %}
 
-{% ifversion fpt or ghae or ghes or ghec %}
 ## Searching your security log
 
 {% data reusables.audit_log.audit-log-search %}
 
 ### Search based on the action performed
-{% else %}
-## Understanding events in your security log
-{% endif %}
 
 The events listed in your security log are triggered by your actions. Actions are grouped into the following categories:
 
@@ -112,7 +108,7 @@ An overview of some of the most common actions that are recorded as events in th
 | Action | Description
 |------------------|-------------------
 | `create` | Triggered when you [grant access to an {% data variables.product.prodname_oauth_app %}](/github/authenticating-to-github/keeping-your-account-and-data-secure/authorizing-oauth-apps).
-| `destroy` | Triggered when you [revoke an {% data variables.product.prodname_oauth_app %}'s access to your account](/articles/reviewing-your-authorized-integrations){% ifversion fpt or ghae-issue-4374 or ghes > 3.2 or ghec %} and when [authorizations are revoked or expire](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation).{% else %}.{% endif %}
+| `destroy` | Triggered when you [revoke an {% data variables.product.prodname_oauth_app %}'s access to your account](/articles/reviewing-your-authorized-integrations){% ifversion fpt or ghae or ghes > 3.2 or ghec %} and when [authorizations are revoked or expire](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation).{% else %}.{% endif %}
 
 {% ifversion fpt or ghec %}
 

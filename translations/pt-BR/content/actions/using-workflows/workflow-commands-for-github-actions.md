@@ -99,18 +99,18 @@ Você pode usar o comando `set-output` no seu fluxo de trabalho para definir o m
 
 A tabela a seguir mostra quais funções do conjunto de ferramentas estão disponíveis dentro de um fluxo de trabalho:
 
-| Função do kit de ferramentas | Comando equivalente do fluxo de trabalho                              |
-| ---------------------------- | --------------------------------------------------------------------- |
-| `core.addPath`               | Acessível usando o arquivo de ambiente `GITHUB_PATH`                  |
-| `core.debug`                 | `debug` |{% ifversion fpt or ghes > 3.2 or ghae-issue-4929 or ghec %}
+| Função do kit de ferramentas | Comando equivalente do fluxo de trabalho                         |
+| ---------------------------- | ---------------------------------------------------------------- |
+| `core.addPath`               | Acessível usando o arquivo de ambiente `GITHUB_PATH`             |
+| `core.debug`                 | `debug` |{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 | `core.notice`                | `notice` 
 {% endif %}
-| `core.error`                 | `erro`                                                                |
-| `core.endGroup`              | `endgroup`                                                            |
-| `core.exportVariable`        | Acessível usando o arquivo de ambiente `GITHUB_ENV`                   |
-| `core.getInput`              | Acessível por meio do uso da variável de ambiente `INPUT_{NAME}`      |
-| `core.getState`              | Acessível por meio do uso da variável de ambiente `STATE_{NAME}`      |
-| `core.isDebug`               | Acessível por meio do uso da variável de ambiente `RUNNER_DEBUG`      |
+| `core.error`                 | `erro`                                                           |
+| `core.endGroup`              | `endgroup`                                                       |
+| `core.exportVariable`        | Acessível usando o arquivo de ambiente `GITHUB_ENV`              |
+| `core.getInput`              | Acessível por meio do uso da variável de ambiente `INPUT_{NAME}` |
+| `core.getState`              | Acessível por meio do uso da variável de ambiente `STATE_{NAME}` |
+| `core.isDebug`               | Acessível por meio do uso da variável de ambiente `RUNNER_DEBUG` |
 {%- if actions-job-summaries %}
 | `core.summary` | Pode ser acessado usando a variável de ambiente `GITHUB_STEP_SUMMARY` |
 {%- endif %}
@@ -170,7 +170,7 @@ Write-Output "::debug::Set the Octocat variable"
 
 {% endpowershell %}
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4929 or ghec %}
+{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 
 ## Configurando uma mensagem de aviso
 
@@ -678,7 +678,7 @@ echo "{markdown content}" >> $GITHUB_STEP_SUMMARY
 
 Você pode definir algum Markdown personalizado para cada trabalho para que seja exibido na página de resumo da execução de um fluxo de trabalho. Você pode usar resumos de trabalho para exibir e agrupar conteúdo único, como resumos de resultados de teste, para que alguém que visualizar o resultado da uma execução de um fluxo de trabalho não precise entrar nos registros para ver informações importantes relacionadas à execução como, por exemplo, falhas.
 
-Job summaries support [{% data variables.product.prodname_dotcom %} flavored Markdown](https://github.github.com/gfm/), and you can add your Markdown content for a step to the `GITHUB_STEP_SUMMARY` environment file. `GITHUB_STEP_SUMMARY` é único para cada etapa de um trabalho. Para obter mais informações sobre o arquivo por etapa, ao qual o `GITHUB_STEP_SUMMARY` faz referência, consulte "[Arquivos do ambiente](#environment-files)".
+Os resumos de trabalho são compatíveis com o [markdown em estilo {% data variables.product.prodname_dotcom %} em Markdown](https://github.github.com/gfm/), e você pode adicionar seu conteúdo de Markdown a uma etapa no arquivo de ambiente `GITHUB_STEP_SUMMARY`. `GITHUB_STEP_SUMMARY` é único para cada etapa de um trabalho. Para obter mais informações sobre o arquivo por etapa, ao qual o `GITHUB_STEP_SUMMARY` faz referência, consulte "[Arquivos do ambiente](#environment-files)".
 
 Quando um trabalho é concluído, os resumos de todas as etapas de um trabalho é agrupado em um único resumo do trabalho e exibido na página de resumo do fluxo de trabalho. Se vários trabalhos gerarem resumos, os resumos dos trabalhos serão ordenados por tempo de conclusão do trabalho.
 
@@ -702,9 +702,9 @@ echo "### Hello world! :rocket:" >> $GITHUB_STEP_SUMMARY
 
 ![Exemplo de resumo de Markdown](/assets/images/actions-job-summary-simple-example.png)
 
-### Multiline Markdown content
+### Conteúdo de markdown de múltiplas linhas
 
-For multiline Markdown content, you can use `>>` to continuously append content for the current step. A cada operação adicionada, um caractere de nova linha é adicionado automaticamente.
+Para conteúdo Markdown de múltiplas linhas, você pode usar `>>` para anexar continuamente conteúdo à etapa atual. A cada operação adicionada, um caractere de nova linha é adicionado automaticamente.
 
 #### Exemplo
 

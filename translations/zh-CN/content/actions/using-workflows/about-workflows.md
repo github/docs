@@ -127,7 +127,7 @@ jobs:
 {% if actions-caching %}
 ### 缓存依赖项
 
-If your jobs regularly reuse dependencies, you can consider caching these files to help improve performance. 缓存一旦创建，就可用于同一仓库中的所有工作流程。
+如果您的作业经常重复使用依赖项，则可以考虑缓存这些文件以帮助提高性能。 缓存一旦创建，就可用于同一仓库中的所有工作流程。
 
 此示例演示如何缓存 `~/.npm` 目录：
 

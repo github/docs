@@ -1,7 +1,7 @@
 ---
 title: セキュリティの概要の表示
 intro: セキュリティの概要で利用できる様々なビューへのアクセス
-permissions: Organization owners and security managers can access the security overview for organizations. Members of a team can see the security overview for repositories that the team has admin privileges for.
+permissions: '{% data reusables.security-center.permissions %}'
 product: '{% data reusables.gated-features.security-center %}'
 versions:
   ghae: issue-5503
@@ -17,7 +17,7 @@ topics:
 shortTitle: セキュリティの概要の表示
 ---
 
-{% ifversion ghes < 3.5 or ghae-issue-4554 %}
+{% ifversion ghes < 3.5 or ghae %}
 {% data reusables.security-center.beta %}
 {% endif %}
 
@@ -28,7 +28,8 @@ shortTitle: セキュリティの概要の表示
 1. アラートの種類に対する集約された情報を見るには、**Show more（さらに表示）**をクリックしてください。 ![さらに表示ボタン](/assets/images/help/organizations/security-overview-show-more-button.png)
 {% data reusables.organizations.filter-security-overview %}
 {% if security-overview-views %}
-1. あるいは、左のサイドバーを使ってセキュリティ機能ごとに情報をフィルタリングすることもできます。 それぞれのページで、各機能に固有のフィルタを使って検索を微調整できます。 ![Code scanning固有のページのスクリーンショット](/assets/images/help/organizations/security-overview-code-scanning-alerts.png)
+{% data reusables.organizations.security-overview-feature-specific-page %}
+  ![Code scanning固有のページのスクリーンショット](/assets/images/help/organizations/security-overview-code-scanning-alerts.png)
 
 ## Organizationに渡るアラートの表示
 
@@ -42,6 +43,9 @@ shortTitle: セキュリティの概要の表示
 
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
 1. ひだりのサイドバーで{% octicon "shield" aria-label="The shield icon" %}**Code Security（コードセキュリティ）**をクリックしてください。
+{% if security-overview-feature-specific-alert-page %}
+{% data reusables.organizations.security-overview-feature-specific-page %}
+{% endif %}
 {% endif %}
 
 ## リポジトリのアラートの表示

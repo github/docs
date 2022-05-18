@@ -59,13 +59,13 @@ Se você tiver instalado e conectado a {% data variables.product.prodname_mobile
 
 ## Usar a autenticação de dois fatores com a linha de comando
 
-After you've enabled 2FA, you will no longer use your password to access {% data variables.product.product_name %} on the command line. Instead, use Git Credential Manager, a personal access token, or an SSH key.
+Depois ativada a 2FA, você não usará mais a sua senha para acessar {% data variables.product.product_name %} na linha de comando. Em vez disso, use o Gestor de Credenciais do Git, um token de acesso pessoal ou uma chave SSH.
 
-### Authenticating on the command line using Git Credential Manager
+### Efetuando a autenticação na linha de comando usando o Gestor de Credenciais do Git
 
-[Git Credential Manager](https://github.com/GitCredentialManager/git-credential-manager/blob/main/README.md) is a secure Git credential helper that runs on Windows, macOS, and Linux. For more information about Git credential helpers, see [Avoiding repetition](https://git-scm.com/docs/gitcredentials#_avoiding_repetition) in the Pro Git book.
+[Gerenciador de Credenciais Git](https://github.com/GitCredentialManager/git-credential-manager/blob/main/README.md) é um auxiliar de credenciais do Git seguro que é executado no Windows, macOS e Linux. Para obter mais informações sobre auxiliares de credenciais do Git, consulte [Evitar a repetição](https://git-scm.com/docs/gitcredentials#_avoiding_repetition) no livro Pro Git.
 
-Setup instructions vary based on your computer's operating system. For more information, see [Download and install](https://github.com/GitCredentialManager/git-credential-manager/blob/main/README.md#download-and-install) in the GitCredentialManager/git-credential-manager repository.
+As instruções de instalação variam de acordo no sistema operacional do seu computador. Para obter mais informações, consulte [Download e instalação](https://github.com/GitCredentialManager/git-credential-manager/blob/main/README.md#download-and-install) no repositório do GitCredentialManager/git-credential-manager.
 
 ### Autenticar na linha de comando usando HTTPS
 

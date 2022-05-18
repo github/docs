@@ -15,10 +15,10 @@ sections:
     - In a cluster environment, Git LFS operations could fail with failed internal API calls that crossed multiple web nodes.
     - Pre-receive hooks that used `gpg --import` timed out due to insufficient `syscall` privileges.
     - In some cluster topologies, webhook delivery information was not available.
-    - In HA configurations, tearing down a replica would fail if {% data variables.product.prodname_actions %} had previously been enabled.
+    - HA設定では、{% data variables.product.prodname_actions %}が以前に有効化されていた場合、レプリカの破棄が失敗します。
     - Elasticsearch health checks would not allow a yellow cluster status when running migrations.
     - Organizations created as a result of a user transforming their user account into an organization were not added to the global enterprise account.
-    - When using `ghe-migrator` or exporting from {% data variables.product.prodname_dotcom_the_website %}, a long-running export would fail when data was deleted mid-export.
+    - '`ghe-migrator`を使う場合、もしくは{% data variables.product.prodname_dotcom_the_website %}からエクスポートする場合、データがエクスポート中に削除されると実行に長時間かかるエクスポートが失敗します。'
     - The {% data variables.product.prodname_actions %} deployment graph would display an error when rendering a pending job.
     - Links to inaccessible pages were removed.
     - Navigating away from a comparison of two commits in the web UI would have the diff persist in other pages.

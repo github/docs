@@ -51,7 +51,7 @@ If you define a branch with the `!` character, you must also define at least one
 - 肯定匹配后的匹配否定模式（前缀为 `!`）将排除 Git 引用。
 - 否定匹配后的匹配肯定模式将再次包含 Git 引用。
 
-The following workflow will run on `pull_request` events for pull requests that target `releases/10` or `releases/beta/mona`, but for pull requests that target `releases/10-alpha` or `releases/beta/3-alpha` because the negative pattern `!releases/**-alpha` follows the positive pattern.
+The following workflow will run on `pull_request` events for pull requests that target `releases/10` or `releases/beta/mona`, but not for pull requests that target `releases/10-alpha` or `releases/beta/3-alpha` because the negative pattern `!releases/**-alpha` follows the positive pattern.
 
 ```yaml
 on:

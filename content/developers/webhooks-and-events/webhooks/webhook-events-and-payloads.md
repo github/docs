@@ -353,8 +353,8 @@ Webhook events are triggered based on the specificity of the domain you register
 ### Webhook payload object
 
 Key | Type | Description
-----|------|-------------{% ifversion fpt or ghes or ghae or ghec %}
-`action` |`string` | The action performed. Can be `created`.{% endif %}
+----|------|-------------
+`action` |`string` | The action performed. Can be `created`.
 `deployment` |`object` | The [deployment](/rest/reference/deployments#list-deployments).
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
@@ -378,8 +378,8 @@ Key | Type | Description
 ### Webhook payload object
 
 Key | Type | Description
-----|------|-------------{% ifversion fpt or ghes or ghae or ghec %}
-`action` |`string` | The action performed. Can be `created`.{% endif %}
+----|------|-------------
+`action` |`string` | The action performed. Can be `created`.
 `deployment_status` |`object` | The [deployment status](/rest/reference/deployments#list-deployment-statuses).
 `deployment_status["state"]` |`string` | The new state. Can be `pending`, `success`, `failure`, or `error`.
 `deployment_status["target_url"]` |`string` | The optional link added to the status.
@@ -1152,7 +1152,6 @@ Key | Type | Description
 
 {{ webhookPayloadsForCurrentVersion.release.published }}
 
-{% ifversion fpt or ghes or ghae or ghec %}
 ## repository_dispatch
 
 This event occurs when a {% data variables.product.prodname_github_app %} sends a `POST` request to the "[Create a repository dispatch event](/rest/reference/repos#create-a-repository-dispatch-event)" endpoint.
@@ -1164,7 +1163,6 @@ This event occurs when a {% data variables.product.prodname_github_app %} sends 
 ### Webhook payload example
 
 {{ webhookPayloadsForCurrentVersion.repository_dispatch }}
-{% endif %}
 
 ## repository
 
@@ -1488,7 +1486,7 @@ This event occurs when someone triggers a workflow run on GitHub or sends a `POS
 {{ webhookPayloadsForCurrentVersion.workflow_dispatch }}
 {% endif %}
 
-{% ifversion fpt or ghes > 3.2 or ghec or ghae-issue-4462 %}
+{% ifversion fpt or ghes > 3.2 or ghec or ghae %}
 
 ## workflow_job
 
