@@ -30,7 +30,9 @@ Number of commits | Summary | Description |
 One commit | The title of the commit message for the single commit, followed by the pull request number | The body text of the commit message for the single commit
 More than one commit | The pull request title, followed by the pull request number | A list of the commit messages for all of the squashed commits, in date order
 
+{% ifversion fpt or ghec or ghes > 3.5 or ghae-issue-7042 %}
 People with admin access to a repository can configure the repository to use the title of the pull request as the default merge message for all squashed commits. For more information, see "[Configure commit squashing](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/configuring-commit-squashing-for-pull-requests)".
+{% endif %}
 
 ### Squashing and merging a long-running branch
 
