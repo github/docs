@@ -1,4 +1,4 @@
----
+git-and-github-learning-resources.md---
 title: Git and GitHub learning resources
 redirect_from:
   - /articles/good-resources-for-learning-git-and-github
