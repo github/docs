@@ -11,13 +11,11 @@ versions:
   ghae: '*'
   ghec: '*'
 type: tutorial
-hidden: true
 topics:
   - CI
   - Node
   - JavaScript
 shortTitle: Criar & testar Node.js
-hasExperimentalAlternative: true
 ---
 
 {% data reusables.actions.enterprise-beta %}
