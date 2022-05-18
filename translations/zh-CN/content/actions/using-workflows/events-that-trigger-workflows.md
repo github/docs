@@ -24,7 +24,7 @@ shortTitle: 触发工作流程的事件
 
 某些事件具有多种活动类型。 对于这些事件，您可以指定将触发工作流程运行的活动类型。 有关每个活动类型的含义的详细信息，请参阅“[web 挂钩事件和有效负载](/developers/webhooks-and-events/webhook-events-and-payloads)”。 请注意，并非所有 web 挂钩事件都会触发工作流程。
 
-{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4968  %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae  %}
 ### `branch_protection_rule`
 
 | Web 挂钩事件有效负载                                                                                                            | 活动类型                                                   | `GITHUB_SHA` | `GITHUB_REF` |

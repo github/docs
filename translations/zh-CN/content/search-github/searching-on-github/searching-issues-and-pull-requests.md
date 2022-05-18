@@ -55,14 +55,11 @@ shortTitle: 搜索议题和 PR
 
 {% data reusables.pull_requests.large-search-workaround %}
 
-
 | 限定符                       | 示例                                                                                                                                                                                       |
 | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | <code>user:<em>USERNAME</em></code> | [**user:defunkt ubuntu**](https://github.com/search?q=user%3Adefunkt+ubuntu&type=Issues) 匹配含有 "ubuntu" 字样、来自 @defunkt 拥有的仓库的议题。                                                          |
 | <code>org:<em>ORGNAME</em></code> | [**org:github**](https://github.com/search?q=org%3Agithub&type=Issues&utf8=%E2%9C%93) 匹配 GitHub 组织拥有的仓库中的议题。                                                                             |
 | <code>repo:<em>USERNAME/REPOSITORY</em></code> | [**repo:mozilla/shumway created:<2012-03-01**](https://github.com/search?q=repo%3Amozilla%2Fshumway+created%3A%3C2012-03-01&type=Issues) 匹配来自 @mozilla 的 shumway 项目、在 2012 年 3 月之前创建的议题。 |
-
-
 
 ## 按开放或关闭状态搜索
 
@@ -133,17 +130,15 @@ shortTitle: 搜索议题和 PR
 | <code>involves:<em>USERNAME</em></code> | **[involves:defunkt involves:jlord](https://github.com/search?q=involves%3Adefunkt+involves%3Ajlord&type=Issues)** 匹配涉及 @defunkt 或 @jlord 的议题。                |
 |                           | [**NOT bootstrap in:body involves:mdo**](https://github.com/search?q=NOT+bootstrap+in%3Abody+involves%3Amdo&type=Issues) 匹配涉及 @mdo 且正文中未包含 "bootstrap" 字样的议题。 |
 
-{% ifversion fpt or ghes or ghae or ghec %}
 ## 搜索链接的议题和拉取请求
 您可以将结果缩小到仅包括通过关闭引用链接到拉取请求的议题，或者链接到拉取请求可能关闭的议题的拉取请求。
 
-| 限定符             | 示例                                                                                                                                                                                            |
-| --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `linked:pr`     | [**repo:desktop/desktop is:open linked:pr**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aopen+linked%3Apr) 匹配 `desktop/desktop` 仓库中通过关闭引用链接到拉取请求的开放议题。                          |
-| `linked:issue`  | [**repo:desktop/desktop is:closed linked:issue**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aclosed+linked%3Aissue) 匹配 `desktop/desktop` 仓库中链接到拉取请求可能已关闭的议题的已关闭拉取请求。           |
-| `-linked:pr`    | [**repo:desktop/desktop is:open -linked:pr**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aopen+-linked%3Apr) 匹配 `desktop/desktop` 仓库中未通过关闭引用链接到拉取请求的开放议题。                       |
-| `-linked:issue` | [**repo:desktop/desktop is:open -linked:issue**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aopen+-linked%3Aissue) 匹配 `desktop/desktop` 仓库中未链接至拉取请求可能关闭的议题的开放拉取请求。 
-{% endif %}
+| 限定符             | 示例                                                                                                                                                                                  |
+| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `linked:pr`     | [**repo:desktop/desktop is:open linked:pr**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aopen+linked%3Apr) 匹配 `desktop/desktop` 仓库中通过关闭引用链接到拉取请求的开放议题。                |
+| `linked:issue`  | [**repo:desktop/desktop is:closed linked:issue**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aclosed+linked%3Aissue) 匹配 `desktop/desktop` 仓库中链接到拉取请求可能已关闭的议题的已关闭拉取请求。 |
+| `-linked:pr`    | [**repo:desktop/desktop is:open -linked:pr**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aopen+-linked%3Apr) 匹配 `desktop/desktop` 仓库中未通过关闭引用链接到拉取请求的开放议题。             |
+| `-linked:issue` | [**repo:desktop/desktop is:open -linked:issue**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aopen+-linked%3Aissue) 匹配 `desktop/desktop` 仓库中未链接至拉取请求可能关闭的议题的开放拉取请求。    |
 
 ## 按标签搜索
 
@@ -212,7 +207,7 @@ shortTitle: 搜索议题和 PR
 
 ## 按评论数量搜索
 
-您可以使用 `comments` 限定符以及[大于、小于和范围限定符](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax)以按评论数量搜索。
+You can use the `comments` qualifier along with [greater than, less than, and range qualifiers](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax) to search by the number of comments.
 
 | 限定符                        | 示例                                                                                                                                        |
 | -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
@@ -221,7 +216,7 @@ shortTitle: 搜索议题和 PR
 
 ## 按交互数量搜索
 
-您可以使用 `interactions` 限定符以及[大于、小于和范围限定符](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax)按交互数量过滤议题和拉取请求。 交互数量是对议题或拉取请求的反应和评论数量。
+You can filter issues and pull requests by the number of interactions with the `interactions` qualifier along with [greater than, less than, and range qualifiers](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax). 交互数量是对议题或拉取请求的反应和评论数量。
 
 | 限定符                        | 示例                                                                                                                |
 | -------------------------- | ----------------------------------------------------------------------------------------------------------------- |
@@ -230,7 +225,7 @@ shortTitle: 搜索议题和 PR
 
 ## 按反应数量搜索
 
-您可以使用 `reactions` 限定符以及 [大于、小于和范围限定符](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax)按反应数量过滤议题和拉取请求。
+You can filter issues and pull requests by the number of reactions using the `reactions` qualifier along with [greater than, less than, and range qualifiers](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax).
 
 | 限定符                        | 示例                                                                                                                 |
 | -------------------------- | ------------------------------------------------------------------------------------------------------------------ |
@@ -238,24 +233,27 @@ shortTitle: 搜索议题和 PR
 |                            | [**reactions:500..1000**](https://github.com/search?q=reactions%3A500..1000) 匹配 500 至 1000 个反应的议题。                 |
 
 ## 搜索草稿拉取请求
-您可以过滤草稿拉取请求。 更多信息请参阅“[关于拉取请求](/articles/about-pull-requests#draft-pull-requests)”。
+您可以过滤草稿拉取请求。 For more information, see "[About pull requests](/articles/about-pull-requests#draft-pull-requests)."
 
-| 限定符        | 示例 | ------------- | -------------{% ifversion fpt or ghes or ghae or ghec %} | `draft:true` | [**draft:true**](https://github.com/search?q=draft%3Atrue) 匹配拉取请求草稿。 | `draft:false` | [**draft:false**](https://github.com/search?q=draft%3Afalse) 匹配可供审查的拉取请求。{% else %} | `is:draft` | [**is:draft**](https://github.com/search?q=is%3Adraft) 匹配拉取请求草稿。{% endif %}
+| 限定符           | 示例                                                                                                            |
+| ------------- | ------------------------------------------------------------------------------------------------------------- |
+| `draft:true`  | [**draft:true**](https://github.com/search?q=draft%3Atrue) matches draft pull requests.                       |
+| `draft:false` | [**draft:false**](https://github.com/search?q=draft%3Afalse) matches pull requests that are ready for review. |
 
 ## 按拉取请求审查状态和审查者搜索
 
-您可以基于拉取请求的[审查状态](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)（_无_、_必需_、_批准_或_请求更改_）、按审查者和请求的审查者过滤拉取请求。
+You can filter pull requests based on their [review status](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews) (_none_, _required_, _approved_, or _changes requested_), by reviewer, and by requested reviewer.
 
-| 限定符                        | 示例                                                                                                                                                                                                                                                                                    |
-| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `review:none`              | [**type:pr review:none**](https://github.com/search?utf8=%E2%9C%93&q=type%3Apr+review%3Anone&type=Issues) 匹配尚未审查的拉取请求。                                                                                                                                                                |
-| `review:required`          | [**type:pr review:required**](https://github.com/search?utf8=%E2%9C%93&q=type%3Apr+review%3Arequired&type=Issues) 匹配需要审查然后才能合并的拉取请求。                                                                                                                                                  |
-| `review:approved`          | [**type:pr review:approved**](https://github.com/search?utf8=%E2%9C%93&q=type%3Apr+review%3Aapproved&type=Issues) 匹配审查者已批准的拉取请求。                                                                                                                                                      |
-| `review:changes_requested` | [**type:pr review:changes_requested**](https://github.com/search?utf8=%E2%9C%93&q=type%3Apr+review%3Achanges_requested&type=Issues) 匹配审查者已请求更改的拉取请求。                                                                                                                                  |
-| <code>reviewed-by:<em>USERNAME</em></code> | [**type:pr reviewed-by:gjtorikian**](https://github.com/search?utf8=%E2%9C%93&q=type%3Apr+reviewed-by%3Agjtorikian&type=Issues) 匹配特定人员审查的拉取请求。                                                                                                                                        |
-| <code>review-requested:<em>USERNAME</em></code> | [**type:pr review-requested:benbalter**](https://github.com/search?utf8=%E2%9C%93&q=type%3Apr+review-requested%3Abenbalter&type=Issues) 匹配特定人员申请审查的拉取请求。 申请的审查者在其审查拉取请求后不再在搜索结果中列出。 如果请求的人员属于请求审核的团队，则该团队的审核请求也会显示在搜索结果中。{% ifversion fpt or ghae-issue-5181 or ghes > 3.2 or ghec %}
+| 限定符                        | 示例                                                                                                                                                                                                                                                                                                                                          |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `review:none`              | [**type:pr review:none**](https://github.com/search?utf8=%E2%9C%93&q=type%3Apr+review%3Anone&type=Issues) matches pull requests that have not been reviewed.                                                                                                                                                                                |
+| `review:required`          | [**type:pr review:required**](https://github.com/search?utf8=%E2%9C%93&q=type%3Apr+review%3Arequired&type=Issues) matches pull requests that require a review before they can be merged.                                                                                                                                                    |
+| `review:approved`          | [**type:pr review:approved**](https://github.com/search?utf8=%E2%9C%93&q=type%3Apr+review%3Aapproved&type=Issues) matches pull requests that a reviewer has approved.                                                                                                                                                                       |
+| `review:changes_requested` | [**type:pr review:changes_requested**](https://github.com/search?utf8=%E2%9C%93&q=type%3Apr+review%3Achanges_requested&type=Issues) matches pull requests in which a reviewer has asked for changes.                                                                                                                                        |
+| <code>reviewed-by:<em>USERNAME</em></code> | [**type:pr reviewed-by:gjtorikian**](https://github.com/search?utf8=%E2%9C%93&q=type%3Apr+reviewed-by%3Agjtorikian&type=Issues) matches pull requests reviewed by a particular person.                                                                                                                                                      |
+| <code>review-requested:<em>USERNAME</em></code> | [**type:pr review-requested:benbalter**](https://github.com/search?utf8=%E2%9C%93&q=type%3Apr+review-requested%3Abenbalter&type=Issues) matches pull requests where a specific person is requested for review. 申请的审查者在其审查拉取请求后不再在搜索结果中列出。 如果请求的人员属于请求审核的团队，则该团队的审核请求也会显示在搜索结果中。{% ifversion fpt or ghae-issue-5181 or ghes > 3.2 or ghec %}
 | <code>user-review-requested:@me</code> | [**type:pr user-review-requested:@me**](https://github.com/search?q=is%3Apr+user-review-requested%3A%40me+) 匹配直接要求您审核的拉取请求。{% endif %}
-| <code>team-review-requested:<em>TEAMNAME</em></code> | [**type:pr team-review-requested:atom/design**](https://github.com/search?q=type%3Apr+team-review-requested%3Aatom%2Fdesign&type=Issues) 匹配已审查团队 `atom/design` 请求的拉取请求。 申请的审查者在其审查拉取请求后不再在搜索结果中列出。                                                                                    |
+| <code>team-review-requested:<em>TEAMNAME</em></code> | [**type:pr team-review-requested:atom/design**](https://github.com/search?q=type%3Apr+team-review-requested%3Aatom%2Fdesign&type=Issues) matches pull requests that have review requests from the team `atom/design`. 申请的审查者在其审查拉取请求后不再在搜索结果中列出。                                                                                            |
 
 ## 按议题或拉取请求创建或上次更新的时间搜索
 

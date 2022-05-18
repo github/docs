@@ -5,7 +5,7 @@ shortTitle: Configurar a revisão de dependências
 versions:
   fpt: '*'
   ghes: '>= 3.2'
-  ghae: issue-4864
+  ghae: '*'
   ghec: '*'
 type: how_to
 topics:

@@ -28,15 +28,11 @@ La bitácora de seguridad lista todas las acciones que se llevaron a cabo en los
 1. En la barra lateral de la configuración de usuario, da clic en **Registro de Seguridad**. ![Pestaña de registro de seguridad](/assets/images/help/settings/audit-log-tab.png)
 {% endif %}
 
-{% ifversion fpt or ghae or ghes or ghec %}
 ## Buscar tu registro de seguridad
 
 {% data reusables.audit_log.audit-log-search %}
 
 ### Búsqueda basada en la acción realizada
-{% else %}
-## Entender los eventos en tu registro de seguridad
-{% endif %}
 
 Tus acciones activan los eventos que se listan en tu bitácora de seguridad. Las acciones se agrupan en las siguientes categorías:
 
@@ -109,10 +105,10 @@ Un resumen de algunas de las acciones más frecuentes que se registran como even
 
 ### Acciones de la categoría `oauth_authorization`
 
-| Acción               | Descripción                                                                                                                                                                                                                                                                                                                                                                                            |
-| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `create (crear)`     | Se activa cuando [obtienes acceso a una {% data variables.product.prodname_oauth_app %}](/github/authenticating-to-github/keeping-your-account-and-data-secure/authorizing-oauth-apps).                                                                                                                                                                                                              |
-| `destroy (destruir)` | Se activa cuando [revocas el acceso de una {% data variables.product.prodname_oauth_app %} a tu cuenta](/articles/reviewing-your-authorized-integrations){% ifversion fpt or ghae-issue-4374 or ghes > 3.2 or ghec %} y cuando[las autorizaciones se revocan o vencen](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation).{% else %}.{% endif %}
+| Acción               | Descripción                                                                                                                                                                                                                                                                                                                                                                                |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `create (crear)`     | Se activa cuando [obtienes acceso a una {% data variables.product.prodname_oauth_app %}](/github/authenticating-to-github/keeping-your-account-and-data-secure/authorizing-oauth-apps).                                                                                                                                                                                                  |
+| `destroy (destruir)` | Triggered when you [revoke an {% data variables.product.prodname_oauth_app %}'s access to your account](/articles/reviewing-your-authorized-integrations){% ifversion fpt or ghae or ghes > 3.2 or ghec %} and when [authorizations are revoked or expire](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation).{% else %}.{% endif %}
 
 {% ifversion fpt or ghec %}
 

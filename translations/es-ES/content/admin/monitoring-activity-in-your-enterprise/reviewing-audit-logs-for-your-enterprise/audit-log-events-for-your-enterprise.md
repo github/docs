@@ -188,7 +188,7 @@ topics:
 | `config_entry.update`  | A configuration setting was edited. Estos eventos solo se pueden ver en la bitácora de auditoría del administrador de sitio. El tipo de eventos registrado se relaciona con:</br>- Políticas y ajustes de empresa</br>- Permisos y ajustes de repositorio y organización</br>- Git, LFS de Git, {% data variables.product.prodname_github_connect %}, {% data variables.product.prodname_registry %}, proyecto, y ajustes de seguridad de código.  |
 {%- endif %}
 
-{%- ifversion fpt or ghec or ghes > 3.2 or ghae-issue-4864 %}
+{%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
 ### Acciones de la categoría `dependabot_alerts`
 
 | Acción                      | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
@@ -226,7 +226,7 @@ topics:
 | `dependabot_security_updates_new_repos.enable`  | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} enabled {% data variables.product.prodname_dependabot_security_updates %} for all new repositories.                                                                                                                                                                                                                                                  |
 {%- endif %}
 
-{%- ifversion fpt or ghec or ghes or ghae-issue-4864 %}
+{%- ifversion fpt or ghec or ghes or ghae %}
 ### Acciones de la categoría `dependency_graph`
 
 | Acción                     | Descripción                                                                                                                                                                                                                                                                                                                                                                           |
@@ -1014,7 +1014,7 @@ topics:
 | `repository_visibility_change.disable` | The ability for enterprise members to update a repository's visibility was disabled. Members are unable to change repository visibilities in an organization, or all organizations in an enterprise.                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | `repository_visibility_change.enable`  | The ability for enterprise members to update a repository's visibility was enabled. Members are able to change repository visibilities in an organization, or all organizations in an enterprise.                                                                                                                                                                                                                                                                                                                                                                                                                          |
 
-{%- ifversion fpt or ghec or ghes or ghae-issue-4864 %}
+{%- ifversion fpt or ghec or ghes or ghae %}
 ### acciones de la categoría `repository_vulnerability_alert`
 
 | Acción                                   | Descripción                                                                                                                                                                                                                                                                                                                                                         |

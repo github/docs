@@ -15,7 +15,7 @@ topics:
 
 ## Pull RequestをIssueにリンクする
 
-To link a pull request to an issue to{% ifversion fpt or ghes or ghae or ghec %} show that a fix is in progress and to{% endif %} automatically close the issue when someone merges the pull request, type one of the following keywords followed by a reference to the issue. For example, `Closes #10` or `Fixes octo-org/octo-repo#100`.
+To link a pull request to an issue to show that a fix is in progress and to automatically close the issue when someone merges the pull request, type one of the following keywords followed by a reference to the issue. For example, `Closes #10` or `Fixes octo-org/octo-repo#100`.
 
 * close
 * closes
