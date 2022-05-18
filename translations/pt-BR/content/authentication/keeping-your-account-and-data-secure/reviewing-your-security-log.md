@@ -28,15 +28,11 @@ O log de segurança lista todas as ações realizadas nos últimos 90 dias.
 1. Na barra lateral de configurações do usuário, clique em **log de segurança**. ![Aba do log de segurança](/assets/images/help/settings/audit-log-tab.png)
 {% endif %}
 
-{% ifversion fpt or ghae or ghes or ghec %}
 ## Pesquisar no seu registro de segurança
 
 {% data reusables.audit_log.audit-log-search %}
 
 ### Pesquisar com base na ação
-{% else %}
-## Entender eventos no seu log de segurança
-{% endif %}
 
 Os eventos listados no seu registro de segurança são acionados por suas ações. As ações são agrupadas nas seguintes categorias:
 
@@ -109,10 +105,10 @@ Uma visão geral de algumas das ações mais comuns que são registradas como ev
 
 ### Ações da categoria `oauth_authorization`
 
-| Ação      | Descrição                                                                                                                                                                                                                                                                                                                                                                                              |
-| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `create`  | Acionada quando você [concede acesso a um {% data variables.product.prodname_oauth_app %}](/github/authenticating-to-github/keeping-your-account-and-data-secure/authorizing-oauth-apps).                                                                                                                                                                                                            |
-| `destroy` | Acionada quando você [revoga o acesso de {% data variables.product.prodname_oauth_app %} à sua conta](/articles/reviewing-your-authorized-integrations){% ifversion fpt or ghae-issue-4374 or ghes > 3.2 or ghec %} e quando [as autorizações são revogadas ou vencem](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation).{% else %}.{% endif %}
+| Ação      | Descrição                                                                                                                                                                                                                                                                                                                                                                                  |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `create`  | Acionada quando você [concede acesso a um {% data variables.product.prodname_oauth_app %}](/github/authenticating-to-github/keeping-your-account-and-data-secure/authorizing-oauth-apps).                                                                                                                                                                                                |
+| `destroy` | Triggered when you [revoke an {% data variables.product.prodname_oauth_app %}'s access to your account](/articles/reviewing-your-authorized-integrations){% ifversion fpt or ghae or ghes > 3.2 or ghec %} and when [authorizations are revoked or expire](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation).{% else %}.{% endif %}
 
 {% ifversion fpt or ghec %}
 

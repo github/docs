@@ -173,11 +173,9 @@ gh pr list --search "team:octo-org/octo-team"
 {% endtip %}
 {% endif %}
 
-{% ifversion fpt or ghes or ghae or ghec %}
 对于议题，您还可以使用搜索来：
 
 - 通过关闭引用过滤链接到拉取请求的议题：`linked:pr`
-{% endif %}
 
 对于拉取请求，您还可以使用搜索来：
 - 过滤[草稿](/articles/about-pull-requests#draft-pull-requests)拉取请求：`is:draft`
@@ -188,8 +186,8 @@ gh pr list --search "team:octo-org/octo-team"
 - 按[审查者](/articles/about-pull-request-reviews/)过滤拉取请求：`state:open type:pr reviewed-by:octocat`
 - 按[请求审查](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/requesting-a-pull-request-review)的特定用户过滤拉取请求：`state:open type:pr review-requested:octocat`{% ifversion fpt or ghae-issue-5181 or ghes > 3.2 or ghec %}
 - 过滤有人直接要求您审核的拉取请求：`state:open type:pr user-review-requested:@me`{% endif %}
-- 按申请审查的团队过滤拉取请求：`state:open type:pr team-review-requested:github/atom`{% ifversion fpt or ghes or ghae or ghec %}
-- 过滤链接到拉取请求可能关闭的议题的拉取请求：`linked:issue`{% endif %}
+- 按请求审查的团队过滤拉取请求：`state:open type:pr team-review-requested:github/atom`
+- 过滤链接到拉取请求可能关闭的议题的拉取请求：`linked:issue`
 
 ## 排序议题和拉取请求
 
@@ -210,7 +208,6 @@ gh pr list --search "team:octo-org/octo-team"
 1. 在右上角，选择 Sort（排序）下拉菜单。 ![使用排序下拉菜单选项卡](/assets/images/help/issues/issues_sort_dropdown.png)
 
 要清除您的排序选择，请单击 **Sort（排序）<**>**Newest（最新）**。
-
 
 ## 共享过滤器
 

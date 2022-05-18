@@ -16,13 +16,13 @@ shortTitle: Definir política de alterações de visibilidade
 permissions: Organization owners can restrict repository visibility changes for an organization.
 ---
 
-You can restrict who has the ability to change the visibility of repositories in your organization, such as changing a repository from private to public. For more information about repository visibility, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)."
+É possível restringir quem tem a capacidade de alterar a visibilidade dos repositórios na organização, como a alteração de um repositório privado para público. Para obter mais informações sobre a visibilidade do repositório, consulte "[Sobre repositórios](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)".
 
-You can restrict the ability to change repository visibility to organization owners only, or you can allow anyone with admin access to a repository to change visibility.
+Você pode restringir a capacidade de alterar a visibilidade do repositório apenas para os proprietários da organização ou você pode permitir que qualquer pessoa com acesso de administrador a um repositório altere a visibilidade.
 
 {% warning %}
 
-**Warning**: If enabled, this setting allows people with admin access to choose any visibility for an existing repository, even if you do not allow that type of repository to be created. Para obter mais informações sobre restringir a visibilidade de repositórios existentes durante a criação, consulte "[Restringindo a criação do repositório na sua organização](/articles/restricting-repository-creation-in-your-organization)".
+**Aviso**: Se habilitada, esta configuração permite que pessoas com acesso de administrador escolham qualquer visibilidade de um repositório existente, mesmo que você não permita que esse tipo de repositório seja criado. Para obter mais informações sobre restringir a visibilidade de repositórios existentes durante a criação, consulte "[Restringindo a criação do repositório na sua organização](/articles/restricting-repository-creation-in-your-organization)".
 
 {% endwarning %}
 

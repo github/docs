@@ -44,7 +44,7 @@ Na página principal do seu repositório, clique em **{% octicon "gear" aria-lab
 
 Para obter mais informações, consulte "[Adicionar uma política de segurança ao seu repositório](/code-security/getting-started/adding-a-security-policy-to-your-repository)".
 
-{% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
+{% ifversion fpt or ghes or ghae or ghec %}
 ## Gerenciar o gráfico de dependências
 
 {% ifversion fpt or ghec %}
@@ -61,7 +61,7 @@ Para obter mais informações, consulte "[Explorar as dependências de um reposi
 
 {% endif %}
 
-{% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
+{% ifversion fpt or ghes or ghae or ghec %}
 ## Gerenciar {% data variables.product.prodname_dependabot_alerts %}
 
 {% data variables.product.prodname_dependabot_alerts %} são gerados quando {% data variables.product.prodname_dotcom %} identifica uma dependência no gráfico de dependências com uma vulnerabilidade. {% ifversion fpt or ghec %}Você pode habilitar {% data variables.product.prodname_dependabot_alerts %} para qualquer repositório.{% endif %}
@@ -79,7 +79,7 @@ Para obter mais informações, consulte "[Sobre {% data variables.product.prodna
 
 {% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghae-issue-4864 or ghec %}
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 ## Gerenciando revisão de dependências
 
 A revisão de dependências permite visualizar alterações de dependência em pull requests antes de serem mescladas nos seus repositórios. Para obter mais informações, consulte "[Sobre a revisão de dependências](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review)".

@@ -26,7 +26,7 @@ shortTitle: Link PR to issue
 
 ## About linked issues and pull requests
 
-You can link an issue to a pull request {% ifversion fpt or ghes or ghae or ghec %}manually or {% endif %}using a supported keyword in the pull request description.
+You can link an issue to a pull request manually or using a supported keyword in the pull request description.
 
 When you link a pull request to the issue the pull request addresses, collaborators can see that someone is working on the issue.
 
@@ -56,11 +56,10 @@ Issue in the same repository | *KEYWORD* #*ISSUE-NUMBER* | `Closes #10`
 Issue in a different repository | *KEYWORD* *OWNER*/*REPOSITORY*#*ISSUE-NUMBER* | `Fixes octo-org/octo-repo#100`
 Multiple issues | Use full syntax for each issue | `Resolves #10, resolves #123, resolves octo-org/octo-repo#100`
 
-{% ifversion fpt or ghes or ghae or ghec %}Only manually linked pull requests can be manually unlinked. To unlink an issue that you linked using a keyword, you must edit the pull request description to remove the keyword.{% endif %}
+Only manually linked pull requests can be manually unlinked. To unlink an issue that you linked using a keyword, you must edit the pull request description to remove the keyword.
 
 You can also use closing keywords in a commit message. The issue will be closed when you merge the commit into the default branch, but the pull request that contains the commit will not be listed as a linked pull request.
 
-{% ifversion fpt or ghes or ghae or ghec %}
 ## Manually linking a pull request to an issue
 
 Anyone with write permissions to a repository can manually link a pull request to an issue.
@@ -78,7 +77,6 @@ You can manually link up to ten issues to each pull request. The issue and pull 
 {% endif %}
 5. Click the issue you want to link to the pull request.
   ![Drop down to link issue](/assets/images/help/pull_requests/link-issue-drop-down.png)
-{% endif %}
 
 ## Further reading
 
