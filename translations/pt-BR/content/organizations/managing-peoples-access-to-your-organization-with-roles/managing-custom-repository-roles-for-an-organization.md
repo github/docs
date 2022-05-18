@@ -52,12 +52,12 @@ Você só pode escolher uma permissão adicional se já não estiver incluída n
 {% ifversion ghec %}
 ### Discussions
 
-- **Create a discussion category**: Ability to create a new discussion category. For more information, see "[Creating a new discussion category](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions#creating-a-category)".
-- **Edit a discussion category**: Ability to edit a discussion category. For more information, see "[Editing a discussion category](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions#editing-a-category)."
-- **Delete a discussion category**: Ability to delete a discussion category. For more information, see "[Deleting a discussion category](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions#deleting-a-category)."
-- **Mark or unmark discussion answers**: Ability to mark answers to a discussion, if the category for the discussion accepts answers. For more information, see "[Mark or unmark comments in a discussion as the answer](/discussions/managing-discussions-for-your-community/moderating-discussions#marking-a-comment-as-an-answer)".
-- **Hide or unhide discussion comments**: Ability to hide and unhide comments in a discussion.  Para obter mais informações, consulte "[Moderação de discussões](/communities/moderating-comments-and-conversations/managing-disruptive-comments#hiding-a-comment)".
-- **Convert issues to discussions**: Ability to convert an issue into a discussion.  For more information, see "[Converting issues to discussions](/discussions/managing-discussions-for-your-community/moderating-discussions#converting-an-issue-to-a-discussion)."
+- **Criar uma categoria de discussão**: Capacidade de criar uma nova categoria de discussão. Para obter mais informações, consulte "[Criando uma nova categoria de discussão](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions#creating-a-category)".
+- **Editar uma categoria de discussão**: Capacidade de editar uma categoria de discussão. Para obter mais informações, consulte "[Editando uma categoria de discussão](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions#editing-a-category). "
+- **Excluir uma categoria de discussão**: Capacidade de excluir uma categoria de discussão. Para obter mais informações, consulte "format@@0[Excluindo uma categoria de discussão "](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions#deleting-a-category)".
+- **Marcar ou desmarcar as respostas da discussão**: Capacidade de marcar respostas para uma discussão, se a categoria para a discussão aceitar respostas. Para obter mais informações, consulte "[Marcar ou desmarcar comentários em uma discussão como a resposta](/discussions/managing-discussions-for-your-community/moderating-discussions#marking-a-comment-as-an-answer).
+- **Ocultar ou exibir comentários de discussão**: Capacidade de ocultar e exibir comentários em uma discussão.  Para obter mais informações, consulte "[Moderação de discussões](/communities/moderating-comments-and-conversations/managing-disruptive-comments#hiding-a-comment)".
+- **Converter problemas em discussões**: Capacidade de converter um problema em uma discussão.  Para obter mais informações, consulte "[Convertendo problemas em discussões](/discussions/managing-discussions-for-your-community/moderating-discussions#converting-an-issue-to-a-discussion). "
 {% endif %}
 
 ### Problemas e Pull Requests

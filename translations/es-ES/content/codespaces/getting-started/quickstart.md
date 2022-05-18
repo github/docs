@@ -72,7 +72,7 @@ Ahora que hiciste algunos cambios, puedes utilizar la terminal integrada o la vi
 
 ## Personalizar con una extensión
 
-Dentro de un codespace, tienes acceso al Visual Studio Code Marketplace. Para este ejemplo, instalarás una extensión que altera el tema, pero puedes instalar cualquier extensión que sea útil para tu flujo de trabajo.
+Within a codespace, you have access to the {% data variables.product.prodname_vscode_marketplace %}. Para este ejemplo, instalarás una extensión que altera el tema, pero puedes instalar cualquier extensión que sea útil para tu flujo de trabajo.
 
 1. En la barra lateral, haz clic en el icono de extensiones.
 
@@ -84,7 +84,7 @@ Dentro de un codespace, tienes acceso al Visual Studio Code Marketplace. Para es
 
   ![Seleccionar el tema de fairyfloss](/assets/images/help/codespaces/fairyfloss.png)
 
-4. Los cambios que hagas en la configuración de tu editor en el codespace actual, tales como el tema y las uniones de teclado, se sincronizarán automáticamente a través de [la Syncronización de ajustes](https://code.visualstudio.com/docs/editor/settings-sync) en cualquier otro codespace que abras y en cualquier instancia de Visual Studio Code que se firmen en tu cuenta de GitHub.
+4. Changes you make to your editor setup in the current codespace, such as theme and keyboard bindings, are synced automatically via [Settings Sync](https://code.visualstudio.com/docs/editor/settings-sync) to any other codespaces you open and any instances of {% data variables.product.prodname_vscode %} that are signed into your GitHub account.
 
 ## Siguientes pasos
 

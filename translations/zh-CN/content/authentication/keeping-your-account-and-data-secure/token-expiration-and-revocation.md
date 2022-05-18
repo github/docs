@@ -14,7 +14,7 @@ redirect_from:
   - /github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation
 ---
 
-当令牌 {% ifversion fpt or ghae-issue-4374 or ghes > 3.2 or ghec %}已过期或 {% endif %} 已被吊销时，它不能再用于对 Git 和 API 请求进行身份验证。 无法还原过期或已吊销的令牌，您或应用程序将需要创建新令牌。
+当令牌 {% ifversion fpt or ghae or ghes > 3.2 or ghec %}已过期或 {% endif %} 已被吊销时，它不能再用于对 Git 和 API 请求进行身份验证。 无法还原过期或已吊销的令牌，您或应用程序将需要创建新令牌。
 
 本文介绍了 {% data variables.product.product_name %} 令牌可能被吊销或过期的可能原因。
 
@@ -24,7 +24,7 @@ redirect_from:
 
 {% endnote %}
 
-{% ifversion fpt or ghae-issue-4374 or ghes > 3.2 or ghec %}
+{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
 ## 令牌在到达其到期日期后被吊销
 
 创建个人访问令牌时，建议为令牌设置过期时间。 到达令牌的到期日期后，令牌将自动吊销。 更多信息请参阅“[创建个人访问令牌](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)”。

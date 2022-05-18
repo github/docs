@@ -181,7 +181,7 @@ GitHub Actions
 </tr>
 </table>
 
-For more information, see "[Persisting workflow data using artifacts](/actions/configuring-and-managing-workflows/persisting-workflow-data-using-artifacts)."
+Para obtener más información, consulta la sección "[Datos de flujo de trabajo persistentes que utilizan artefactos](/actions/configuring-and-managing-workflows/persisting-workflow-data-using-artifacts)".
 
 ## Usar bases de datos y contenedores de servicio
 
