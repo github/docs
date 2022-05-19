@@ -8,14 +8,14 @@
 // NOTE: This middleware is intended to be removed once testing is complete!
 //
 export default function fastlyCacheTest(req, res, next) {
-  // If CACHE_TEST_ERROR is set, simulate the site being down (regardless of URL)
-  if (process.env.CACHE_TEST_ERROR) {
-    res.status(parseInt(process.env.CACHE_TEST_ERROR)).end()
+  // If X-CacheTest-Error is set, simulate the site being down (regardless of URL)
+  if (req.get('X-CacheTest-Error')) {
+    res.status(parseInt(req.get('X-CacheTest-Error'))).end()
     return
   }
 
-  const staleIfErrorParam = process.env.CACHE_TEST_STALE_IF_ERROR ?? '300'
-  const staleWhileRevalidateParam = process.env.CACHE_TEST_STALE_WHILE_REVALIDATE ?? '60'
+  const staleIfErrorParam = req.get('X-CacheTest-StaleIfError') ?? '300'
+  const staleWhileRevalidateParam = req.get('X-CacheTest-StaleWhileRevalidate') ?? '60'
 
   const path = req.params[0]
 
