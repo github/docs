@@ -24,12 +24,16 @@ topics:
 
 ### 合并压缩合并的消息
 
-在压缩与合并时，{% data variables.product.prodname_dotcom %} 生成提交消息，您可以根据需要更改该消息。 消息默认值取决于拉取请求是包含多个提交还是只包含一个。 在计算提交总数时，我们不包括合并提交。
+When you squash and merge, {% data variables.product.prodname_dotcom %} generates a default commit message, which you can edit. The default message depends on the number of commits in the pull request, not including merge commits.
 
 | 提交数  | 摘要                   | 描述                  |
 | ---- | -------------------- | ------------------- |
 | 一个提交 | 单个提交的提交消息标题，后接拉取请求编号 | 单个提交的提交消息正文         |
 | 多个提交 | 拉取请求标题，后接拉取请求编号      | 按日期顺序列出所有被压缩提交的提交消息 |
+
+{% ifversion fpt or ghec or ghes > 3.5 or ghae-issue-7042 %}
+People with admin access to a repository can configure the repository to use the title of the pull request as the default merge message for all squashed commits. For more information, see "[Configure commit squashing](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/configuring-commit-squashing-for-pull-requests)".
+{% endif %}
 
 ### 压缩与合并长运行分支
 

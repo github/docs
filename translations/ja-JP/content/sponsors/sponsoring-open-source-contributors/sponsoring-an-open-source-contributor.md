@@ -43,7 +43,7 @@ You can choose whether to display your sponsorship publicly. One-time sponsorshi
 
 スポンサードアカウントがあなたのスポンサー層を廃止した場合、あなたが別の層を選択するか、プランをキャンセルするまで、あなたはその層にそのままとどまります。 詳細は「[スポンサーシップをアップグレードする](/articles/upgrading-a-sponsorship)」および「[スポンサーシップをダウングレードする](/articles/downgrading-a-sponsorship)」を参照してください。
 
-スポンサーしたいアカウントが {% data variables.product.prodname_sponsors %} にプロフィールを持っていない場合は、アカウント参加を推奨できます。 For more information, see "[Setting up {% data variables.product.prodname_sponsors %} for your personal account](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account)" and "[Setting up {% data variables.product.prodname_sponsors %} for your organization](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)."
+スポンサーしたいアカウントが {% data variables.product.prodname_sponsors %} にプロフィールを持っていない場合は、アカウント参加を推奨できます。 For more information, see "[Setting up {% data variables.product.prodname_sponsors %} for your personal account](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account)" and "[Setting up {% data variables.product.prodname_sponsors %} for your organization](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)."
 
 {% data reusables.sponsors.sponsorships-not-tax-deductible %}
 

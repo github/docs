@@ -110,7 +110,7 @@ RUN apt-get update && bash /tmp/library-scripts/github-debian.sh
 }
 ```
 
-有关在开发容器配置中使用 Dockerfile 的详细信息，请参阅 {% data variables.product.prodname_vscode %} 文档“[创建开发容器](https://code.visualstudio.com/docs/remote/create-dev-container#_dockerfile)”。
+For more information about using a Dockerfile in a dev container configuration, see the {% data variables.product.prodname_vscode_shortname %} documentation "[Create a development container](https://code.visualstudio.com/docs/remote/create-dev-container#_dockerfile)."
 
 ## 使用默认开发容器配置
 
@@ -122,7 +122,7 @@ RUN apt-get update && bash /tmp/library-scripts/github-debian.sh
 
 ## 使用预定义的开发容器配置
 
-可以从预定义配置列表中进行选择，以便为存储库创建开发容器配置。 这些配置为特定项目类型提供了常见设置，并可以帮助您快速开始使用已具有相应容器选项、{% data variables.product.prodname_vscode %} 设置和应安装的 {% data variables.product.prodname_vscode %} 扩展的配置。
+可以从预定义配置列表中进行选择，以便为存储库创建开发容器配置。 These configurations provide common setups for particular project types, and can help you quickly get started with a configuration that already has the appropriate container options, {% data variables.product.prodname_vscode_shortname %} settings, and {% data variables.product.prodname_vscode_shortname %} extensions that should be installed.
 
 如果您需要一些额外的扩展性，使用预先定义的配置是一个好主意。 您也可以从预定义的配置开始，然后根据项目的需要对其进行修改。
 
@@ -192,9 +192,9 @@ RUN apt-get update && bash /tmp/library-scripts/github-debian.sh
 
 ### 编辑 devcontainer.json 文件
 
-您可以在 `devcontainer.json` 文件中添加和编辑支持的配置键，以指定代码空间环境的各个方面，例如将安装哪些 {% data variables.product.prodname_vscode %} 扩展。 {% data reusables.codespaces.more-info-devcontainer %}
+You can add and edit the supported configuration keys in the `devcontainer.json` file to specify aspects of the codespace's environment, like which {% data variables.product.prodname_vscode_shortname %} extensions will be installed. {% data reusables.codespaces.more-info-devcontainer %}
 
-`devcontainer.json` 文件是使用 JSONC 格式编写的。 这允许您在配置文件中包含注释。 更多信息请参阅 {% data variables.product.prodname_vscode %} 文档中的“[使用 Visual Studio Code 编辑 JSON](https://code.visualstudio.com/docs/languages/json#_json-with-comments)”。
+`devcontainer.json` 文件是使用 JSONC 格式编写的。 这允许您在配置文件中包含注释。 For more information, see "[Editing JSON with {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/languages/json#_json-with-comments)" in the {% data variables.product.prodname_vscode_shortname %} documentation.
 
 {% note %}
 
@@ -202,11 +202,11 @@ RUN apt-get update && bash /tmp/library-scripts/github-debian.sh
 
 {% endnote %}
 
-### Visual Studio Code 的编辑器设置
+### Editor settings for {% data variables.product.prodname_vscode_shortname %}
 
 {% data reusables.codespaces.vscode-settings-order %}
 
-您可以在两个地方定义 {% data variables.product.prodname_vscode %} 的默认编辑器设置。
+You can define default editor settings for {% data variables.product.prodname_vscode_shortname %} in two places.
 
 * 在存储库的 `.vscode/settings.json` 文件中定义的编辑器设置将作为代码空间中_工作区_范围的设置进行应用。
 * `devcontainer.json` 文件的 `settings` 键中定义的编辑器设置在代码空间中用作 _Remote [Codespaces]_ 范围的设置。

@@ -55,7 +55,7 @@ topics:
 
 {% note %}
 
-**注意：** 在测试版期间，此功能仅适用于在 2022 年 4 月 14 日*之后*创建的新 Python 公告，以及历史 Python 公告的子集。 {% data variables.product.prodname_dotcom %} is working to backfill data across additional historical Python advisories, which are added on a rolling basis. 有漏洞的调用仅在 {% data variables.product.prodname_dependabot_alerts %} 页面上突出显示。
+**注意：** 在测试版期间，此功能仅适用于在 2022 年 4 月 14 日*之后*创建的新 Python 公告，以及历史 Python 公告的子集。 {% data variables.product.prodname_dotcom %} 正在努力回填其他历史 Python 公告的数据，这些公告是滚动添加的。 有漏洞的调用仅在 {% data variables.product.prodname_dependabot_alerts %} 页面上突出显示。
 
 {% endnote %}
 
@@ -65,7 +65,7 @@ topics:
 
 对于检测到有漏洞的调用的警报，警报详细信息页面将显示其他信息：
 
-- One or more code blocks showing where the function is used.
+- 一个或多个代码块，显示函数的使用位置。
 - 列出函数本身以及指向调用函数的行的链接的注释。
 
 ![显示警报的并带有"有漏洞的调用"标签的警报详细信息页面屏幕截图](/assets/images/help/repository/review-calls-to-vulnerable-functions.png)

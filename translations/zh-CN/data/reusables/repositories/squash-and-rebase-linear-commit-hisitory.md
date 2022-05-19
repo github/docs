@@ -1,1 +1,1 @@
-If there is a protected branch rule in your repository that requires a linear commit history, you must allow squash merging, rebase merging, or both. 更多信息请参阅“[关于受保护分支](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)”。
+如果你的仓库中有需要线性提交历史记录的受保护分支规则，必须允许压缩合并和/或变基合并。 更多信息请参阅“[关于受保护分支](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)”。

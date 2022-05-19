@@ -42,7 +42,7 @@ topics:
 
 对于 {% data variables.product.prodname_code_scanning %} 的所有配置，包含 {% data variables.product.prodname_code_scanning %} 结果的检查为：**{% data variables.product.prodname_code_scanning_capc %} 结果**。 所使用的每个分析工具的结果将单独显示。 由拉取请求中的更改引起的任何新警报都显示为注释。
 
-{% ifversion fpt or ghes > 3.2 or ghae or ghec %} To see the full set of alerts for the analyzed branch, click **View all branch alerts**. 这将打开完整的警报视图，您可以在其中按类型、严重性、标记等筛选分支上的所有警报。 更多信息请参阅“[管理仓库的代码扫描警报](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#filtering-and-searching-for-code-scanning-alerts)”。
+{% ifversion fpt or ghes > 3.2 or ghae or ghec %} 要查看所分析分支的完整警报集，请单击“**查看所有分支警报**”。 这将打开完整的警报视图，您可以在其中按类型、严重性、标记等筛选分支上的所有警报。 更多信息请参阅“[管理仓库的代码扫描警报](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#filtering-and-searching-for-code-scanning-alerts)”。
 
 ![拉取请求的 {% data variables.product.prodname_code_scanning_capc %} 结果检查](/assets/images/help/repository/code-scanning-results-check.png)
 {% endif %}

@@ -40,6 +40,10 @@ topics:
 您可以在管理版本时手动创建发行说明。 或者，您可以从默认模板自动生成发行说明，或自定义您自己的发行说明模板。 更多信息请参阅“[自动生成的发行说明](/repositories/releasing-projects-on-github/automatically-generated-release-notes)”。
 {% endif %}
 
+{% ifversion fpt or ghec or ghes > 3.6 or ghae-issue-7054 %}
+When viewing the details for a release, the creation date for each release asset is shown next to the release asset.
+{% endif %}
+
 {% ifversion fpt or ghec %}
 对仓库具有管理员权限的人可以选择是否将 {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) 对象包含在 {% data variables.product.product_name %} 为每个发行版创建的 ZIP 文件和 tarball 中。 更多信息请参阅“[管理仓库存档中的 {% data variables.large_files.product_name_short %} 对象](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-git-lfs-objects-in-archives-of-your-repository)”。
 
