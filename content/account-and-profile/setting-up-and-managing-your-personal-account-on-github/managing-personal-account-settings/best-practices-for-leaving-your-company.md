@@ -15,7 +15,7 @@ shortTitle: Leaving your company
 ---
 Before you leave your company, make sure you update the following information in your personal account:
 
-- Unverify your company email address by [deleting it in your Email settings](/articles/changing-your-primary-email-address). You can then re-add it without verifying to keep any associated commits linked to your account.
+- Unverify your company email address by [deleting it in your Email settings](/articles/changing-your-primary-email-address). You can then re-add it without verifying to keep any associated commits linked to your account. Unverified email addresses cannot receive further notifications or be used to reset your password though.
 - [Change your primary email address](/articles/changing-your-primary-email-address) from your company email to your personal email.
 {% ifversion fpt or ghec %}
 - [Verify your new primary email address](/articles/verifying-your-email-address).
