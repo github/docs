@@ -34,7 +34,7 @@ Em seguida, quando for dito para buscar `https://github.example.com/myorg/myrepo
 ## Configurando um cache de repositório
 
 {% ifversion ghes = 3.3 %}
-1. On your primary {% data variables.product.prodname_ghe_server %} appliance, enable the feature flag for repository caching.
+1. No seu dispositivo primário de {% data variables.product.prodname_ghe_server %}, habilite o sinalizador do recurso para o cache do repositório.
 
    ```
    $ ghe-config cluster.cache-enabled true
@@ -48,7 +48,7 @@ Em seguida, quando for dito para buscar `https://github.example.com/myorg/myrepo
    $ ssh -p 122 admin@<em>REPLICA IP</em>
    ```
 {%- ifversion ghes = 3.3 %}
-1. On your cache replica, enable the feature flag for repository caching.
+1. Na réplica do seu cache, habilite o sinalizador do recurso para o cache do repositório.
 
    ```
    $ ghe-config cluster.cache-enabled true

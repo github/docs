@@ -1,5 +1,5 @@
 {% note %}
 
-**Note:** Repository caching is currently in beta and subject to change.
+**注意：** 存储库缓存目前处于测试阶段，可能会发生更改。
 
 {% endnote %}

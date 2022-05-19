@@ -163,7 +163,7 @@ Os campos personalizados podem ser texto, número, data, seleção única ou ite
 6. Se você especificou **Seleção única** como o tipo, insira as opções.
 7. Se você especificou **Iteração** como o tipo, digite a data de início da primeira iteração e a duração da iteração. Três iterações são criadas automaticamente, e você pode adicionar iterações adicionais na página de configurações do projeto.
 
-You can also edit your custom fields.
+Você também pode editar seus campos personalizados.
 
 {% data reusables.projects.project-settings %}
 1. Em **Campos**, selecione o campo que deseja editar.

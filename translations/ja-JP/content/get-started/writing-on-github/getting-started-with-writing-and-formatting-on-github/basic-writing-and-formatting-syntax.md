@@ -29,7 +29,6 @@ When you use two or more headings, GitHub automatically generates a table of con
 
 ![Screenshot highlighting the table of contents icon](/assets/images/help/repository/headings_toc.png)
 
-
 ## スタイル付きテキスト
 
 コメントフィールドと `.md` ファイルでは、太字、斜体、または取り消し線のテキストで強調を示すことができます。
@@ -235,7 +234,7 @@ If a task list item description begins with a parenthesis, you'll need to escape
 
 ## 人や Team のメンション
 
-{% data variables.product.product_name %}上の人あるいは [Team](/articles/setting-up-teams/) は、<kbd>@</kbd> に加えてユーザ名もしくは Team 名を入力することでメンションできます。 これにより通知がトリガーされ、会話に注意が向けられます。 コメントを編集してユーザ名や Team 名をメンションすれば、人々に通知を受信してもらえます。 通知の詳細は、{% ifversion fpt or ghes or ghae or ghec %}「[通知について](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}「[通知について](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}」を参照してください。
+{% data variables.product.product_name %}上の人あるいは [Team](/articles/setting-up-teams/) は、<kbd>@</kbd> に加えてユーザ名もしくは Team 名を入力することでメンションできます。 これにより通知がトリガーされ、会話に注意が向けられます。 コメントを編集してユーザ名や Team 名をメンションすれば、人々に通知を受信してもらえます。 通知に関する詳しい情報については「[通知について](/github/managing-subscriptions-and-notifications-on-github/about-notifications)」を参照してください。
 
 {% note %}
 
@@ -296,7 +295,7 @@ For more information about building a {% data variables.product.prodname_github_
 
 テキスト行の間に空白行を残すことで、新しいパラグラフを作成できます。
 
-{% ifversion fpt or ghae-issue-5180 or ghes > 3.2 or ghec %}
+{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
 ## Footnotes
 
 You can add footnotes to your content by using this bracket syntax:

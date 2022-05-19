@@ -22,7 +22,7 @@ topics:
 
 议题让您可以在进行开发的 {% data variables.product.company_short %} 上跟踪您的工作。 当您在议题中提到另一个议题或拉取请求时，该议题的时间表会反映交叉参考，以便你能够跟踪相关的工作。 要表示工作正在进行中，您可以将议题链接到拉取请求。 当拉取请求合并时，链接的议题会自动关闭。
 
-有关关键词的更多信息，请参阅“[将拉取请求链接到议题](issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword)”。
+有关关键词的更多信息，请参阅“[将拉取请求链接到议题](/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword)”。
 
 ## 快速创建议题
 
@@ -36,7 +36,7 @@ topics:
 
 ## 保持更新
 
-为保持更新议题中的最新评论，您可以订阅议题以接收关于最新评论的通知。 要快速查找指向您订阅的最新议题的链接，请访问仪表板。 更多信息请参阅 {% ifversion fpt or ghes or ghae or ghec %}“[关于通知](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}”[关于通知](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}”和“[关于个人仪表板](/articles/about-your-personal-dashboard)”。
+为保持更新议题中的最新评论，您可以订阅议题以接收关于最新评论的通知。 要快速查找指向您订阅的最新议题的链接，请访问仪表板。 For more information, see "[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications)" and "[About your personal dashboard](/articles/about-your-personal-dashboard)."
 
 ## 社区管理
 

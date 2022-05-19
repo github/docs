@@ -9,7 +9,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: issue-4864
+  ghae: '*'
   ghec: '*'
 type: how_to
 topics:
@@ -31,7 +31,7 @@ topics:
 {% ifversion fpt or ghec %}如果您是组织所有者，您可以对组织中的所有仓库一键启用或禁用 {% data variables.product.prodname_dependabot_alerts %}。 您也可以设置是否对新建的仓库启用或禁用有漏洞依赖项检测。 更多信息请参阅“[管理组织的安全和分析设置](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization#enabling-or-disabling-a-feature-for-all-new-repositories-when-they-are-added)”。
 {% endif %}
 
-{% ifversion ghes or ghae-issue-4864 %}
+{% ifversion ghes or ghae %}
 默认情况下，如果您的企业所有者已配置电子邮件以获取有关企业的通知，您将收到 {% data variables.product.prodname_dependabot_alerts %} 电子邮件。
 
 企业所有者也可以在没有通知的情况下启用 {% data variables.product.prodname_dependabot_alerts %}。 更多信息请参阅“[为企业启用 {% data variables.product.prodname_dependabot %}](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)”。

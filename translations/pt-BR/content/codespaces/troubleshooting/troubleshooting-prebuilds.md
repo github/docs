@@ -22,11 +22,11 @@ Ao criar um codespace, você pode escolher o tipo de máquina virtual que deseja
 
 ![Uma lista dos tipos de máquina disponíveis](/assets/images/help/codespaces/choose-custom-machine-type.png)
 
-Se você tiver sua preferência de editor de {% data variables.product.prodname_codespaces %} definida como "Visual Studio Code para Web", a página "Configurando seu codespace" mostrará a mensagem "Prebuilt codespace found" se uma pré-compilação estiver sendo utilizada.
+If you have your {% data variables.product.prodname_codespaces %} editor preference set to "{% data variables.product.prodname_vscode %} for Web" then the "Setting up your codespace" page will show the message "Prebuilt codespace found" if a prebuild is being used.
 
 ![A mensagem "codespaces da pre-criação encontrados"](/assets/images/help/codespaces/prebuilt-codespace-found.png)
 
-Da mesma forma, se sua preferência de editor for "Visual Studio Code", o terminal integrado conterá a mensagem "Você está em um codespace pré-compilado efinido pela configuração de pré-compilação do seu repositório" ao criar um novo codespace. Para obter mais informações, consulte "[Definindo seu editor padrão para codespaces](/codespaces/customizing-your-codespace/setting-your-default-editor-for-codespaces)".
+Similarly, if your editor preference is "{% data variables.product.prodname_vscode_shortname %}" then the integrated terminal will contain the message "You are on a prebuilt codespace defined by the prebuild configuration for your repository" when you create a new codespace. Para obter mais informações, consulte "[Definindo seu editor padrão para codespaces](/codespaces/customizing-your-codespace/setting-your-default-editor-for-codespaces)".
 
 Depois de criar um codespace, você pode verificar se ele foi criado a partir de uma pré-compilação executando o seguinte comando {% data variables.product.prodname_cli %} no terminal:
 
