@@ -1,6 +1,6 @@
 ---
 title: テンプレートリポジトリを作成する
-intro: '既存のリポジトリをテンプレートにして、自分や他の人が同じディレクトリ構造{% ifversion fpt or ghae or ghes or ghec %}、ブランチ、{% endif %}およびファイルで新しいリポジトリを生成できるようにすることができます。'
+intro: 'You can make an existing repository a template, so you and others can generate new repositories with the same directory structure, branches, and files.'
 permissions: Anyone with admin permissions to a repository can make the repository a template.
 redirect_from:
   - /articles/creating-a-template-repository
@@ -24,7 +24,7 @@ shortTitle: Create a template repo
 
 テンプレートリポジトリを作成するには、リポジトリを作成して、そのリポジトリをテンプレート化する必要があります。 リポジトリの作成に関する詳細は「[新しいリポジトリの作成](/articles/creating-a-new-repository)」を参照してください。
 
-After you make your repository a template, anyone with access to the repository can generate a new repository with the same directory structure and files as your default branch.{% ifversion fpt or ghae or ghes or ghec %} They can also choose to include all the other branches in your repository. Branches created from a template have unrelated histories, so you cannot create pull requests or merge between the branches.{% endif %} For more information, see "[Creating a repository from a template](/articles/creating-a-repository-from-a-template)."
+After you make your repository a template, anyone with access to the repository can generate a new repository with the same directory structure and files as your default branch. They can also choose to include all the other branches in your repository. Branches created from a template have unrelated histories, so you cannot create pull requests or merge between the branches. 詳細は「[テンプレートからリポジトリを作成する](/articles/creating-a-repository-from-a-template)」を参照してください。
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}

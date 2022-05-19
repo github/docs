@@ -16,13 +16,13 @@ shortTitle: 设置可见性更改策略
 permissions: Organization owners can restrict repository visibility changes for an organization.
 ---
 
-You can restrict who has the ability to change the visibility of repositories in your organization, such as changing a repository from private to public. For more information about repository visibility, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)."
+您可以限制谁能够更改组织中存储库的可见性，例如将存储库从私有更改为公共存储库。 有关存储库可见性的更多信息，请参阅“[关于存储库](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)”。
 
-You can restrict the ability to change repository visibility to organization owners only, or you can allow anyone with admin access to a repository to change visibility.
+您可以将更改存储库可见性的功能限制为仅组织所有者，也可以允许对存储库具有管理员访问权限的任何人更改可见性。
 
 {% warning %}
 
-**Warning**: If enabled, this setting allows people with admin access to choose any visibility for an existing repository, even if you do not allow that type of repository to be created. 有关在创建过程中限制仓库可见性的更多信息，请参阅“[限制组织中的仓库创建](/articles/restricting-repository-creation-in-your-organization)”。
+**警告**：如果启用，则此设置允许具有管理员访问权限的人员选择现有存储库的任何可见性，即使您不允许创建该类型的存储库也是如此。 有关在创建过程中限制仓库可见性的更多信息，请参阅“[限制组织中的仓库创建](/articles/restricting-repository-creation-in-your-organization)”。
 
 {% endwarning %}
 

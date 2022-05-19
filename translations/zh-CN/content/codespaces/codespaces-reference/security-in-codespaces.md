@@ -34,7 +34,7 @@ shortTitle: 代码空间中的安全性
 
 ### 身份验证
 
-您可以使用 Web 浏览器或从 Visual Studio Code 连接到代码空间。 如果从 Visual Studio Code 进行连接，系统将提示您使用 {% data variables.product.product_name %} 进行身份验证。
+You can connect to a codespace using a web browser or from {% data variables.product.prodname_vscode %}. If you connect from {% data variables.product.prodname_vscode_shortname %}, you are prompted to authenticate with {% data variables.product.product_name %}.
 
 每次创建或重新启动代码空间时，都会为其分配一个具有自动到期期的新 {% data variables.product.company_short %} 令牌。 此时间段允许您在代码空间中工作，而无需在典型的工作日内重新进行身份验证，但降低了在停止使用代码空间时使连接保持打开状态的可能性。
 
@@ -109,4 +109,4 @@ shortTitle: 代码空间中的安全性
 
 #### 使用扩展
 
-您安装的任何其他 {% data variables.product.prodname_vscode %} 扩展都可能带来更多风险。 为了帮助降低此风险，请确保仅安装受信任的扩展，并使它们始终保持最新。
+您安装的任何其他 {% data variables.product.prodname_vscode_shortname %} 扩展都可能带来更多风险。 为了帮助降低此风险，请确保仅安装受信任的扩展，并使它们始终保持最新。

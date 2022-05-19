@@ -29,8 +29,13 @@ describe('server', () => {
   test('supports HEAD requests', async () => {
     const res = await head('/en')
     expect(res.statusCode).toBe(200)
-    expect(res.headers).not.toHaveProperty('content-length')
+    expect(res.headers['content-length']).toBe('0')
     expect(res.text).toBe('')
+    // Because the HEAD requests can't be different no matter what's
+    // in the request headers (Accept-Language or Cookies)
+    // it's safe to let it cache. The only key is the URL.
+    expect(res.headers['cache-control']).toContain('public')
+    expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
   })
 
   test('renders the homepage', async () => {

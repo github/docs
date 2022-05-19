@@ -11,12 +11,10 @@ versions:
   ghae: '*'
   ghec: '*'
 type: tutorial
-hidden: true
 topics:
   - CI
   - Python
 shortTitle: Criar & testar o Python
-hasExperimentalAlternative: true
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -197,7 +195,7 @@ Recomendamos usar `setup-python` para configurar a versão do Python usada nos s
 
 Os executores hospedados em {% data variables.product.prodname_dotcom %} têm instalado o gerenciador do pacote pip. Você pode usar o pip para instalar dependências do registro de pacotes do PyPI antes de criar e testar o seu código. Por exemplo, o YAML abaixo instala ou atualiza o instalador de pacotes `pip` e as os pacotes `setuptools` e `wheel`.
 
-{% if actions-caching %}You can also cache dependencies to speed up your workflow. For more information, see "[Caching dependencies to speed up workflows](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."{% endif %}
+{% if actions-caching %}Você também pode armazenar dependências em cache para acelerar seu fluxo de trabalho. Para obter mais informações, consulte "[Armazenando as dependências em cache para acelerar fluxos de trabalho](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)".{% endif %}
 
 ```yaml{:copy}
 steps:
@@ -231,7 +229,7 @@ steps:
 
 ### Memorizar dependências
 
-You can cache and restore the dependencies using the [`setup-python` action](https://github.com/actions/setup-python).
+Você pode armazenar em cache e restaurar as dependências usando a ação [`setup-python`](https://github.com/actions/setup-python).
 
 O exemplo a seguir armazena dependências para pip.
 
@@ -246,7 +244,7 @@ steps:
 - run: pip test
 ```
 
-Por padrão, a ação `setup-python` busca o arquivo de dependência (`requirements.txt` para pip ou `Pipfile.lock` para pipenv) em todo o repositório. For more information, see "[Caching packages dependencies](https://github.com/actions/setup-python#caching-packages-dependencies)" in the `setup-python` README.
+By default, the `setup-python` action searches for the dependency file (`requirements.txt` for pip, `Pipfile.lock` for pipenv or `poetry.lock` for poetry) in the whole repository. Para obter mais informações, consulte "[Armazenando em cache as dependências de pacotes](https://github.com/actions/setup-python#caching-packages-dependencies)" no README do `setup-python`.
 
 Se você tiver um requisito personalizado ou precisar de melhores controles para cache, você poderá usar a ação [`cache`](https://github.com/marketplace/actions/cache). O Pip armazena dependências em diferentes locais, dependendo do sistema operacional do executor. O caminho que você precisa efetuar o armazenamento em cache pode ser diferente do exemplo do Ubuntu acima, dependendo do sistema operacional que você usa. Para obter mais informações, consulte [Exemplos de armazenamento em cache do Python](https://github.com/actions/cache/blob/main/examples.md#python---pip) no repositório de ação `cache`.
 

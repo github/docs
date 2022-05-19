@@ -29,18 +29,19 @@ When you use two or more headings, GitHub automatically generates a table of con
 
 ![Screenshot highlighting the table of contents icon](/assets/images/help/repository/headings_toc.png)
 
-
 ## Estilo de texto
 
-Puedes indicar énfasis con texto en negritas, itálicas o tachadas en los campos de comentario y archivos `.md`.
+You can indicate emphasis with bold, italic, strikethrough, subscript, or superscript text in comment fields and `.md` files.
 
-| Estilo                       | Sintaxis           | Atajo del teclado                                                                     | Ejemplo                                         | Resultado                                     |
-| ---------------------------- | ------------------ | ------------------------------------------------------------------------------------- | ----------------------------------------------- | --------------------------------------------- |
-| Negrita                      | `** **` o `__ __`  | <kbd>Command</kbd>+<kbd>B</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>B</kbd> (Windows/Linux) | `**Este texto está en negrita**`                | **Este texto está en negrita**                |
-| Cursiva                      | `* *` o `_ _`      | <kbd>Command</kbd>+<kbd>I</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>I</kbd> (Windows/Linux) | `*Este texto está en cursiva*`                  | *Este texto está en cursiva*                  |
-| Tachado                      | `~~ ~~`            |                                                                                       | `~~Este texto está equivocado~~`                | ~~Este texto está equivocado~~                |
-| Cursiva en negrita y anidada | `** **` y `_ _`    |                                                                                       | `**Este texto es _extremadamente_ importante**` | **Este texto es _extremadamente_ importante** |
-| Todo en negrita y cursiva    | `*** ***`          |                                                                                       | `***Todo este texto es importante***`           | ***Todo este texto es importante***           |
+| Estilo                       | Sintaxis                   | Atajo del teclado                                                                     | Ejemplo                                             | Resultado                                     |
+| ---------------------------- | -------------------------- | ------------------------------------------------------------------------------------- | --------------------------------------------------- | --------------------------------------------- |
+| Negrita                      | `** **` o `__ __`          | <kbd>Command</kbd>+<kbd>B</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>B</kbd> (Windows/Linux) | `**Este texto está en negrita**`                    | **Este texto está en negrita**                |
+| Cursiva                      | `* *` o `_ _`              | <kbd>Command</kbd>+<kbd>I</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>I</kbd> (Windows/Linux) | `*Este texto está en cursiva*`                      | *Este texto está en cursiva*                  |
+| Tachado                      | `~~ ~~`                    |                                                                                       | `~~Este texto está equivocado~~`                    | ~~Este texto está equivocado~~                |
+| Cursiva en negrita y anidada | `** **` y `_ _`            |                                                                                       | `**Este texto es _extremadamente_ importante**`     | **Este texto es _extremadamente_ importante** |
+| Todo en negrita y cursiva    | `*** ***`                  |                                                                                       | `***Todo este texto es importante***`               | ***Todo este texto es importante***           |
+| Subscript                    | `<sub> </sub>` |                                                                                       | `<sub>This is a subscript text</sub>`   | <sub>This is a subscript text</sub>           |
+| Superscript                  | `<sup> </sup>` |                                                                                       | `<sup>This is a superscript text</sup>` | <sup>This is a superscript text</sup>         |
 
 ## Cita de texto
 
@@ -235,7 +236,7 @@ Para obtener más información, consulta "[Acerca de las listas de tareas](/arti
 
 ## Mencionar personas y equipos
 
-Puedes mencionar a una persona o [equipo](/articles/setting-up-teams/) en {% data variables.product.product_name %} al escribir <kbd>@</kbd> más el nombre de usuario o el nombre del equipo. Esto activará una notificación y llamará su atención hacia la conversación. Las personas también recibirán una notificación si editas un comentario para mencionar su nombre de usuario o el nombre del equipo. Para obtener más información acerca de las notificaciones, consulta la sección {% ifversion fpt or ghes or ghae or ghec %}"[Acerca de las notificaciones](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[Acerca de las notificaciones](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}".
+Puedes mencionar a una persona o [equipo](/articles/setting-up-teams/) en {% data variables.product.product_name %} al escribir <kbd>@</kbd> más el nombre de usuario o el nombre del equipo. Esto activará una notificación y llamará su atención hacia la conversación. Las personas también recibirán una notificación si editas un comentario para mencionar su nombre de usuario o el nombre del equipo. For more information about notifications, see "[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications)."
 
 {% note %}
 
@@ -296,7 +297,7 @@ Para encontrar una lista completa de emojis y códigos disponibles, consulta el 
 
 Puedes crear un nuevo párrafo al dejar una línea en blanco entre las líneas de texto.
 
-{% ifversion fpt or ghae-issue-5180 or ghes > 3.2 or ghec %}
+{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
 ## Notas al pie
 
 Puedes agregar notas al pie para tu contenido si utilizas esta sintaxis de corchetes:

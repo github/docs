@@ -208,7 +208,8 @@ Los jobs simultáneos y los tiempos de ejecución de los flujos de trabajo en {%
 ### Utilizar lenguajes diferentes en {% data variables.product.prodname_actions %}
 
 Cuando trabajas con lenguajes diferentes en {% data variables.product.prodname_actions %}, pueeds crear un paso en tu job para configurar tus dependencias de lenguaje. Para obtener más información acerca de cómo trabajar con un lenguaje en particular, consulta la guía específica:
-  - [Crear y probar Node.js o Python](/actions/guides/building-and-testing-nodejs-or-python)
+  - [Crear y probar en Node.js](/actions/guides/building-and-testing-nodejs)
+  - [Crear y probar en Python](/actions/guides/building-and-testing-python)
   - [Compilar y probar PowerShell](/actions/guides/building-and-testing-powershell)
   - [Construir y probar Java con Maven](/actions/guides/building-and-testing-java-with-maven)
   - [Construir y probar Java con Gradle](/actions/guides/building-and-testing-java-with-gradle)

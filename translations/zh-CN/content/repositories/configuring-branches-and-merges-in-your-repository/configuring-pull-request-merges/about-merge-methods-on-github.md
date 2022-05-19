@@ -27,8 +27,7 @@ shortTitle: 关于合并方法
 
 {% data reusables.pull_requests.default_merge_option %}
 
-{% ifversion fpt or ghae or ghes or ghec %}
-默认合并方法创建合并提交。 通过强制实施线性提交历史记录，可以防止任何人将合并提交推送到受保护分支。 更多信息请参阅“[关于受保护分支](/github/administering-a-repository/about-protected-branches#require-linear-history)”。{% endif %}
+默认合并方法创建合并提交。 通过强制实施线性提交历史记录，可以防止任何人将合并提交推送到受保护分支。 更多信息请参阅“[关于受保护分支](/github/administering-a-repository/about-protected-branches#require-linear-history)”。
 
 ## 压缩合并提交
 

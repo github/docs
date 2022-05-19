@@ -47,13 +47,13 @@ shortTitle: 管理评论
 
 编辑评论和删除无助于促进对话以及违反社区行为准则{% ifversion fpt or ghec %} 或 GitHub [社区指导方针](/free-pro-team@latest/github/site-policy/github-community-guidelines){% endif %} 的内容是明智之举。
 
-Sometimes it may make sense to clearly indicate edits and their justification.
+有时，明确指出编辑及其理由可能是有意义的。
 
-That said, anyone with read access to a repository can view a comment's edit history. 评论顶部的 **edited（已编辑）**下拉菜单包含编辑历史记录，其中会显示每次编辑的用户和时间戳。
+也就是说，对存储库具有读取访问权限的任何人都可以查看评论的编辑历史记录。 评论顶部的 **edited（已编辑）**下拉菜单包含编辑历史记录，其中会显示每次编辑的用户和时间戳。
 
 ![添加了表示内容编辑过的注释的评论](/assets/images/help/repository/content-redacted-comment.png)
 
-## Redacting sensitive information
+## 编辑敏感信息
 
 评论作者和具有仓库写入权限的任何人也都可以删除评论编辑历史记录中的敏感信息。 更多信息请参阅“[跟踪评论中的更改](/communities/moderating-comments-and-conversations/tracking-changes-in-a-comment)”。
 
@@ -81,7 +81,7 @@ That said, anyone with read access to a repository can view a comment's edit his
 
 {% endnote %}
 
-### Steps to delete a comment
+### 删除评论的步骤
 
 1. 导航到您要删除的评论。
 2. 在评论的右上角，单击 {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}，然后单击 **Delete（删除）**。 ![显示编辑、隐藏、删除和报告选项的水平烤肉串图标和评论调解菜单](/assets/images/help/repository/comment-menu.png)

@@ -53,7 +53,7 @@ Para obter informações sobre como escolher sua configuração preferida de con
 
 It's useful to think of the `devcontainer.json` file as providing "customization" rather than "personalization." Você só deve incluir coisas que todos que trabalham em sua base de código precisam como elementos padrão do ambiente de desenvolvimento, não coisas que são preferências pessoais. Coisas como os linters estão corretas para padronizar e exigir que todos realizaram a instalação. Portanto, são boas para incluir no seu arquivo `devcontainer.json`. Coisas como decoradores ou temas de interface de usuário são escolhas pessoais que não devem ser colocadas no arquivo `devcontainer.json`.
 
-You can personalize your codespaces by using dotfiles and Settings Sync. Para obter mais informações, consulte "[Personalizando os codespaces para a sua conta](/codespaces/customizing-your-codespace/personalizing-codespaces-for-your-account). "
+Você pode personalizar seus codespaces usando dotfiles e Settings Sync. Para obter mais informações, consulte "[Personalizando os codespaces para a sua conta](/codespaces/customizing-your-codespace/personalizing-codespaces-for-your-account). "
 
 ### arquivo Docker
 
@@ -110,19 +110,19 @@ Para usar um arquivo Dockerfile como parte de uma configuração de contêiner d
 }
 ```
 
-Para obter mais informações sobre como usar um arquivo Docker em uma configuração de contêiner de desenvolvimento, consulte a documentação de {% data variables.product.prodname_vscode %} "[Criar um contêiner de desenvolvimento](https://code.visualstudio.com/docs/remote/create-dev-container#_dockerfile). "
+For more information about using a Dockerfile in a dev container configuration, see the {% data variables.product.prodname_vscode_shortname %} documentation "[Create a development container](https://code.visualstudio.com/docs/remote/create-dev-container#_dockerfile)."
 
 ## Usando a configuração padrão do contêiner de desenvolvimento
 
-Se você não definir uma configuração no repositório, o {% data variables.product.prodname_dotcom %} criará um codespace que usa uma imagem padrão do Linux. This Linux image includes languages and runtimes like Python, Node.js, JavaScript, TypeScript, C++, Java, .NET, PHP, PowerShell, Go, Ruby, and Rust. It also includes other developer tools and utilities like Git, GitHub CLI, yarn, openssh, and vim. To see all the languages, runtimes, and tools that are included use the `devcontainer-info content-url` command inside your codespace terminal and follow the URL that the command outputs.
+Se você não definir uma configuração no repositório, o {% data variables.product.prodname_dotcom %} criará um codespace que usa uma imagem padrão do Linux. Esta imagem do Linux inclui um número de versões de tempo de execução para linguagens populares como Python, Node, PHP, Java, Go, C++, Ruby e .NET Core/C#. São utilizadas as versões mais recentes ou LTS dessas linguagens. Além disso, há ferramentas para apoiar a ciência de dados e a aprendizagem de máquinas, como JupyterLab e Conda. A imagem também inclui outras ferramentas e utilitários para desenvolvedores como Git, CLI do GitHub, yarn, openssh e vim. Para ver todas as linguagens, tempos de execução e as ferramentas que são incluídas, use o comando `devcontainer-info content-url` dentro do seu terminal de código e siga o URL que o comando emite.
 
-Alternatively, for more information about everything that's included in the default Linux image, see the latest file in the [`microsoft/vscode-dev-containers`](https://github.com/microsoft/vscode-dev-containers/tree/main/containers/codespaces-linux) repository.
+Como alternativa, para obter mais informações sobre tudo o que está incluído na imagem padrão do Linux, consulte o arquivo mais recente no repositório [`microsoft/vscode-dev-containers`](https://github.com/microsoft/vscode-dev-containers/tree/main/containers/codespaces-linux).
 
-The default configuration is a good option if you're working on a small project that uses the languages and tools that {% data variables.product.prodname_github_codespaces %} provides.
+A configuração padrão é uma boa opção se você estiver trabalhando em um pequeno projeto que usa as linguagens e ferramentas que {% data variables.product.prodname_github_codespaces %} fornece.
 
-## Using a predefined dev container configuration
+## Usando uma configuração de contêiner predefinida
 
-É possível escolher uma lista de configurações predefinidas para criar uma configuração de contêiner de desenvolvimento para o seu repositório. Essas configurações fornecem configurações comuns para determinados tipos de projeto e podem ajudar você rapidamente a começar com uma configuração que já tem as opções de contêiner apropriadas, configurações do {% data variables.product.prodname_vscode %} e extensões do {% data variables.product.prodname_vscode %} que devem ser instaladas.
+É possível escolher uma lista de configurações predefinidas para criar uma configuração de contêiner de desenvolvimento para o seu repositório. These configurations provide common setups for particular project types, and can help you quickly get started with a configuration that already has the appropriate container options, {% data variables.product.prodname_vscode_shortname %} settings, and {% data variables.product.prodname_vscode_shortname %} extensions that should be installed.
 
 Usar uma configuração predefinida é uma ótima ideia se você precisa de uma extensão adicional. Você também pode começar com uma configuração predefinida e alterá-la conforme necessário para o seu projeto.
 
@@ -138,7 +138,7 @@ Usar uma configuração predefinida é uma ótima ideia se você precisa de uma 
 
    ![Botão OK](/assets/images/help/codespaces/prebuilt-container-ok-button.png)
 
-1. Se você estiver trabalhando em um codespace, aplique suas alterações clicando em **Reconstruir agora** na mensagem na parte inferior direita da janela. For more information about rebuilding your container, see "[Applying changes to your configuration](#applying-configuration-changes-to-a-codespace)."
+1. Se você estiver trabalhando em um codespace, aplique suas alterações clicando em **Reconstruir agora** na mensagem na parte inferior direita da janela. Para obter mais informações sobre a reconstrução do seu contêiner, consulte "[Aplicar alterações na sua configuração](#applying-configuration-changes-to-a-codespace)".
 
    !["Códigos: Recriar contêiner" em {% data variables.product.prodname_vscode_command_palette %}](/assets/images/help/codespaces/rebuild-prompt.png)
 
@@ -163,7 +163,7 @@ Você pode adicionar algumas das características mais comuns selecionando-as na
 
    ![O menu de seleção de funcionalidades adicionais durante a configuração do contêiner](/assets/images/help/codespaces/select-additional-features.png)
 
-1. Para aplicar as alterações, no canto inferior direito da tela, clique em **Reconstruir agora**. For more information about rebuilding your container, see "[Applying changes to your configuration](#applying-configuration-changes-to-a-codespace)."
+1. Para aplicar as alterações, no canto inferior direito da tela, clique em **Reconstruir agora**. Para obter mais informações sobre a reconstrução do seu contêiner, consulte "[Aplicar alterações na sua configuração](#applying-configuration-changes-to-a-codespace)".
 
    !["Codespaces: Reconstruir contêiner" na paleta de comandos](/assets/images/help/codespaces/rebuild-prompt.png)
 
@@ -171,7 +171,7 @@ Você pode adicionar algumas das características mais comuns selecionando-as na
 
 Se nenhuma das configurações predefinidas atender às suas necessidades, você poderá criar uma configuração personalizada escrevendo seu próprio arquivo `devcontainer.json`.
 
-* If you're adding a single `devcontainer.json` file that will be used by everyone who creates a codespace from your repository, create the file within a `.devcontainer` directory at the root of the repository.
+* Se você estiver adicionando um único arquivo `devcontainer.json` que será usado por todos que criarem um código a partir do seu repositório, crie o arquivo dentro de um diretório `.devcontainer` na raiz do repositório.
 * If you want to offer users a choice of configuration, you can create multiple custom `devcontainer.json` files, each located within a separate subdirectory of the `.devcontainer` directory.
 
    {% note %}
@@ -192,9 +192,9 @@ If `.devcontainer/devcontainer.json` or `.devcontainer.json` exists, it will be 
 
 ### Editando o arquivo devcontainer.json
 
-Você pode adicionar e editar as chaves de configuração compatíveis no arquivo `devcontainer.json` para especificar aspectos do ambiente do codespace como, por exemplo, quais extensões de {% data variables.product.prodname_vscode %} serão instaladas. {% data reusables.codespaces.more-info-devcontainer %}
+You can add and edit the supported configuration keys in the `devcontainer.json` file to specify aspects of the codespace's environment, like which {% data variables.product.prodname_vscode_shortname %} extensions will be installed. {% data reusables.codespaces.more-info-devcontainer %}
 
-The `devcontainer.json` file is written using the JSONC format. Isso permite que você inclua comentários no arquivo de configuração. For more information, see "[Editing JSON with Visual Studio Code](https://code.visualstudio.com/docs/languages/json#_json-with-comments)" in the {% data variables.product.prodname_vscode %} documentation.
+The `devcontainer.json` file is written using the JSONC format. Isso permite que você inclua comentários no arquivo de configuração. For more information, see "[Editing JSON with {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/languages/json#_json-with-comments)" in the {% data variables.product.prodname_vscode_shortname %} documentation.
 
 {% note %}
 
@@ -202,11 +202,11 @@ The `devcontainer.json` file is written using the JSONC format. Isso permite que
 
 {% endnote %}
 
-### Editor settings for Visual Studio Code
+### Editor settings for {% data variables.product.prodname_vscode_shortname %}
 
 {% data reusables.codespaces.vscode-settings-order %}
 
-Você pode definir as configurações de editor-padrão para {% data variables.product.prodname_vscode %} em dois lugares.
+You can define default editor settings for {% data variables.product.prodname_vscode_shortname %} in two places.
 
 * Editor settings defined in the `.vscode/settings.json` file in your repository are applied as _Workspace_-scoped settings in the codespace.
 * Editor settings defined in the `settings` key in the `devcontainer.json` file are applied as _Remote [Codespaces]_-scoped settings in the codespace.

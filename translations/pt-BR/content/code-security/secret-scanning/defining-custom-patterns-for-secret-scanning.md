@@ -124,8 +124,7 @@ Antes de definir um padrão personalizado, você deverá habilitar {% data varia
 {% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}
 {%- if secret-scanning-org-dry-runs %}
 1. Quando você estiver pronto para testar seu novo padrão personalizado, para identificar correspondências em repositórios selecionados sem criar alertas, clique em **Salvar e testar**.
-1. Pesquise e selecione os repositórios onde você deseja executar o teste. Você pode selecionar até 10 repositórios. ![Captura de tela que mostra os repositórios selecionados para o teste](/assets/images/help/repository/secret-scanning-dry-run-custom-pattern-select-repo.png)
-1. Quando estiver pronto para testar seu novo padrão personalizado, clique em **Testar**.
+{% data reusables.advanced-security.secret-scanning-dry-run-select-repos %}
 {% data reusables.advanced-security.secret-scanning-dry-run-results %}
 {%- endif %}
 {% data reusables.advanced-security.secret-scanning-create-custom-pattern %}
@@ -142,7 +141,14 @@ Antes de definir um padrão personalizado, você deverá garantir que você habi
 
 {% note %}
 
+{% if secret-scanning-enterprise-dry-runs %}
+**Notas:**
+- No nível corporativo, apenas o criador de um padrão personalizado pode editar o padrão e usá-lo em um teste.
+- Os proprietários de empresas só podem usar testes em repositórios aos quais têm acesso, e os proprietários de empresas não têm necessariamente acesso a todas as organizações ou repositórios da empresa.
+{% else %}
 **Observação:** Como não há nenhuma funcionalidade de teste, recomendamos que você teste seus padrões personalizados em um repositório antes de defini-los para toda sua empresa. Dessa forma, você pode evitar criar alertas falsos-positivos de {% data variables.product.prodname_secret_scanning %}.
+
+{% endif %}
 
 {% endnote %}
 
@@ -152,6 +158,11 @@ Antes de definir um padrão personalizado, você deverá garantir que você habi
 {% data reusables.enterprise-accounts.advanced-security-security-features %}
 1. Em "Padrões de personalização de digitalização de segredos", clique em {% ifversion ghes = 3.2 %}**Novo padrão personalizado**{% else %}**Novo padrão**{% endif %}.
 {% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}
+{%- if secret-scanning-enterprise-dry-runs %}
+1. Quando estiver pronto para testar seu novo padrão personalizado, para identificar correspondências no repositório sem criar alertas, clique em **Salvar testar**.
+{% data reusables.advanced-security.secret-scanning-dry-run-select-repos %}
+{% data reusables.advanced-security.secret-scanning-dry-run-results %}
+{%- endif %}
 {% data reusables.advanced-security.secret-scanning-create-custom-pattern %}
 
 Depois que o seu padrão for criado, {% data variables.product.prodname_secret_scanning %} irá digitalizar qualquer segredo em repositórios nas organizações da sua empresa com {% data variables.product.prodname_GH_advanced_security %} habilitado, incluindo todo seu histórico do Git em todos os branches. Os proprietários da organização e administradores do repositório receberão um alerta sobre todos os segredos encontrados e poderão revisar o alerta no repositório onde o segredo for encontrado. Para obter mais informações sobre a visualização de alertas de {% data variables.product.prodname_secret_scanning %}, consulte "[Gerenciar alertas de {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/managing-alerts-from-secret-scanning)".

@@ -223,7 +223,7 @@ runs:
 
 ### `runs.steps`
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 or ghec %}
+{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 **Required** The steps that you plan to run in this action. These can be either `run` steps or `uses` steps.
 {% else %}
 **Required** The steps that you plan to run in this action.
@@ -231,7 +231,7 @@ runs:
 
 #### `runs.steps[*].run`
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 or ghec %}
+{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 **Optional** The command you want to run. これは、インラインでも、アクションリポジトリ内のスクリプトでもかまいません。
 {% else %}
 **必須** 実行するコマンド。 これは、インラインでも、アクションリポジトリ内のスクリプトでもかまいません。
@@ -261,7 +261,7 @@ runs:
 
 #### `runs.steps[*].shell`
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 or ghec %}
+{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 **Optional** The shell where you want to run the command. [こちら](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsshell)にリストされている任意のシェルを使用できます。 Required if `run` is set.
 {% else %}
 **必須** コマンドを実行するシェル。 [こちら](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsshell)にリストされている任意のシェルを使用できます。 Required if `run` is set.
@@ -314,7 +314,7 @@ steps:
 
 **オプション**  コマンドを実行する作業ディレクトリを指定します。
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 or ghec %}
+{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 #### `runs.steps[*].uses`
 
 **Optional**  Selects an action to run as part of a step in your job. アクションとは、再利用可能なコードの単位です。 ワークフロー、パブリックリポジトリ、または[公開されているDockerコンテナイメージ](https://hub.docker.com/)と同じリポジトリで定義されているアクションを使用できます。
