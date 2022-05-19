@@ -244,7 +244,7 @@ steps:
 - run: pip test
 ```
 
-Por padrão, a ação `setup-python` busca o arquivo de dependência (`requirements.txt` para pip ou `Pipfile.lock` para pipenv) em todo o repositório. Para obter mais informações, consulte "[Armazenando em cache as dependências de pacotes](https://github.com/actions/setup-python#caching-packages-dependencies)" no README do `setup-python`.
+By default, the `setup-python` action searches for the dependency file (`requirements.txt` for pip, `Pipfile.lock` for pipenv or `poetry.lock` for poetry) in the whole repository. Para obter mais informações, consulte "[Armazenando em cache as dependências de pacotes](https://github.com/actions/setup-python#caching-packages-dependencies)" no README do `setup-python`.
 
 Se você tiver um requisito personalizado ou precisar de melhores controles para cache, você poderá usar a ação [`cache`](https://github.com/marketplace/actions/cache). O Pip armazena dependências em diferentes locais, dependendo do sistema operacional do executor. O caminho que você precisa efetuar o armazenamento em cache pode ser diferente do exemplo do Ubuntu acima, dependendo do sistema operacional que você usa. Para obter mais informações, consulte [Exemplos de armazenamento em cache do Python](https://github.com/actions/cache/blob/main/examples.md#python---pip) no repositório de ação `cache`.
 

@@ -54,6 +54,10 @@ As outras funcionalidades da cadeia de suprimentos em {% data variables.product.
 Os dados de dependência de referência cruzada de {% data variables.product.prodname_dependabot %} fornecidos pelo gráfico de dependências com a lista de vulnerabilidades conhecidas publicadas no {% data variables.product.prodname_advisory_database %}, verifica suas dependências e gera {% data variables.product.prodname_dependabot_alerts %} quando uma potencial vulnerabilidade é detectada.
  {% endif %}
 
+{% ifversion fpt or ghec or ghes %}
+For best practice guides on end-to-end supply chain security including the protection of personal accounts, code, and build processes, see "[Securing your end-to-end supply chain](/code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview)."
+{% endif %}
+
 ## Visão geral de recursos
 
 ### Qual é o gráfico de dependências
