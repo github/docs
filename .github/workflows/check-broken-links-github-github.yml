@@ -57,6 +57,8 @@ jobs:
         env:
           NODE_ENV: production
           PORT: 4000
+          DISABLE_OVERLOAD_PROTECTION: true
+          DISABLE_RENDER_CACHING: true
         run: |
 
           node server.mjs &
