@@ -13,7 +13,7 @@ shortTitle: Visualizar ideias da organização
 permissions: Organization members can view organization insights.
 ---
 
-## About organization insights
+## Sobre insights da organização
 
 Você pode usar informações de atividade da organização para entender melhor como os integrantes da sua organização estão usando o {% data variables.product.product_name %} para colaborar e trabalhar no código. As informações de dependência podem ajudar você a monitorar, reportar e agir de acordo com o uso de código aberto da organização.
 

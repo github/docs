@@ -11,12 +11,10 @@ versions:
   ghae: '*'
   ghec: '*'
 type: tutorial
-hidden: true
 topics:
   - CI
   - Python
 shortTitle: Build & test Python
-hasExperimentalAlternative: true
 ---
 
 {% data reusables.actions.enterprise-beta %}

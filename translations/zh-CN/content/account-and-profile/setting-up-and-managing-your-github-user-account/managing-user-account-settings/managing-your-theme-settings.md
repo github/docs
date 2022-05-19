@@ -18,7 +18,7 @@ shortTitle: 管理主题设置
 
 您可能需要使用深色主题来减少某些设备的功耗，以在低光条件下减小眼睛的压力，或者因为您更喜欢主题的外观。
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4618 or ghec %}如果您视力不佳，则可以从前景和背景元素之间对比度更高的高对比度主题中受益。{% endif %}{% ifversion fpt or ghae-issue-4619 or ghec %} 如果您有色盲，可能会从我们的浅色盲和深色盲主题中受益。
+{% ifversion fpt or ghes > 3.2 or ghae or ghec %}如果您视力不佳，则可以从前景和背景元素之间对比度更高的高对比度主题中受益。{% endif %}{% ifversion fpt or ghae or ghec %} 如果您有色盲，可能会从我们的浅色盲和深色盲主题中受益。
 
 {% endif %}
 
@@ -31,10 +31,10 @@ shortTitle: 管理主题设置
 1. 单击想要使用的主题。
     - 如果您选择单个主题，请单击一个主题。
 
-      {% ifversion fpt or ghes > 3.2 or ghae-issue-4618 or ghec %}![Radio buttons for the choice of a single theme](/assets/images/help/settings/theme-choose-a-single-theme-highcontrast.png){% else %}![Radio buttons for the choice of a single theme](/assets/images/help/settings/theme-choose-a-single-theme.png){% endif %}
+      {% ifversion fpt or ghes > 3.2 or ghae or ghec %}![Radio buttons for the choice of a single theme](/assets/images/help/settings/theme-choose-a-single-theme-highcontrast.png){% else %}![Radio buttons for the choice of a single theme](/assets/images/help/settings/theme-choose-a-single-theme.png){% endif %}
     - 如果您选择遵循系统设置，请单击白天主题和夜间主题。
 
-      {% ifversion fpt or ghes > 3.2 or ghae-issue-4618 or ghec %}![Buttons for the choice of a theme to sync with the system setting](/assets/images/help/settings/theme-choose-a-day-and-night-theme-to-sync-highcontrast.png){% else %}![Buttons for the choice of a theme to sync with the system setting](/assets/images/help/settings/theme-choose-a-day-and-night-theme-to-sync.png){% endif %}
+      {% ifversion fpt or ghes > 3.2 or ghae or ghec %}![Buttons for the choice of a theme to sync with the system setting](/assets/images/help/settings/theme-choose-a-day-and-night-theme-to-sync-highcontrast.png){% else %}![Buttons for the choice of a theme to sync with the system setting](/assets/images/help/settings/theme-choose-a-day-and-night-theme-to-sync.png){% endif %}
     {% ifversion fpt or ghec %}
     - 如果您想选择当前处于公开测试阶段的主题，则首先需要通过功能预览启用它。 更多信息请参阅“[通过功能预览了解早期访问版本](/get-started/using-github/exploring-early-access-releases-with-feature-preview)”。{% endif %}
 

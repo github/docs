@@ -44,7 +44,6 @@ import archivedEnterpriseVersions from './archived-enterprise-versions.js'
 import robots from './robots.js'
 import earlyAccessLinks from './contextualizers/early-access-links.js'
 import categoriesForSupport from './categories-for-support.js'
-import loaderio from './loaderio-verification.js'
 import triggerError from './trigger-error.js'
 import releaseNotes from './contextualizers/release-notes.js'
 import whatsNewChangelog from './contextualizers/whats-new-changelog.js'
@@ -65,6 +64,7 @@ import archivedAssetRedirects from './archived-asset-redirects.js'
 import favicons from './favicons.js'
 import setStaticAssetCaching from './static-asset-caching.js'
 import protect from './overload-protection.js'
+import fastHead from './fast-head.js'
 
 const { DEPLOYMENT_ENV, NODE_ENV } = process.env
 const isDevelopment = NODE_ENV === 'development'
@@ -120,7 +120,10 @@ export default function (app) {
 
   // *** Overload Protection ***
   // Only used in production because our tests can overload the server
-  if (process.env.NODE_ENV === 'production') {
+  if (
+    process.env.NODE_ENV === 'production' &&
+    !JSON.parse(process.env.DISABLE_OVERLOAD_PROTECTION || 'false')
+  ) {
     app.use(protect)
   }
 
@@ -303,11 +306,14 @@ export default function (app) {
     '/categories.json',
     asyncMiddleware(instrument(categoriesForSupport, './categories-for-support'))
   )
-  app.use(instrument(loaderio, './loaderio-verification'))
   app.get('/_500', asyncMiddleware(instrument(triggerError, './trigger-error')))
 
   // Check for a dropped connection before proceeding (again)
   app.use(haltOnDroppedConnection)
+
+  // Specifically deal with HEAD requests before doing the slower
+  // full page rendering.
+  app.head('/*', fastHead)
 
   // *** Preparation for render-page: contextualizers ***
   app.use(asyncMiddleware(instrument(releaseNotes, './contextualizers/release-notes')))

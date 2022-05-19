@@ -143,8 +143,8 @@ aAAAe9
 
 {% if secret-scanning-enterprise-dry-runs %}
 **注意：**
-- At the enterprise level, only the creator of a custom pattern can edit the pattern, and use it in a dry run.
-- Enterprise owners can only make use of dry runs on repositories that they have access to, and enterprise owners do not necessarily have access to all the organizations or repositories within the enterprise.
+- 在企业级别，只有自定义模式的创建者才能编辑该模式，并在试运行中使用它。
+- 企业所有者只能使用他们有权访问的存储库上的试运行，而企业所有者不一定有权访问企业内的所有组织或存储库。
 {% else %}
 **注意：** 由于没有试运行功能，我们建议您先在存储库中测试自定义模式，然后再为整个企业定义它们。 这样，可以避免创建过多的误报 {% data variables.product.prodname_secret_scanning %} 警报。
 

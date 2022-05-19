@@ -25,9 +25,12 @@ Con {% data variables.product.prodname_mobile %} puedes:
 - Leer, revisar y colaborar en informes de problemas y solicitudes de extracción
 - Buscar, navegar e interactuar con usuarios, repositorios y organizaciones
 - Recibir notificaciones para subir información cuando alguien menciona tu nombre de usuario
-{% ifversion fpt or ghec %}- Asegura tu cuenta de GitHub.com con la autenticación bifactorial{% endif %}
+{% ifversion fpt or ghec %}- Asegura tu cuenta de GitHub.com con la autenticación bifactorial
+- Verify your sign in attempts on unrecognized devices{% endif %}
 
 Para obtener más información sobre las notificaciones de {% data variables.product.prodname_mobile %}, consulta "[Configurando notificaciones](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#enabling-push-notifications-with-github-mobile)."
+
+{% ifversion fpt or ghec %}- For more information on two-factor authentication using {% data variables.product.prodname_mobile %}, see "[Configuring {% data variables.product.prodname_mobile %}](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication#configuring-two-factor-authentication-using-github-mobile) and [Authenticating using {% data variables.product.prodname_mobile %}](/authentication/securing-your-account-with-two-factor-authentication-2fa/accessing-github-using-two-factor-authentication##verifying-with-github-mobile)." {% endif %}
 
 ## Instalar {% data variables.product.prodname_mobile %}
 
@@ -45,7 +48,7 @@ You can be simultaneously signed into mobile with one personal account on {% dat
 
 Debes instalar {% data variables.product.prodname_mobile %} 1.4 o posterior en tu dispositivo para utilizar {% data variables.product.prodname_mobile %} con {% data variables.product.prodname_ghe_server %}.
 
-Para utilizar {% data variables.product.prodname_mobile %} con {% data variables.product.prodname_ghe_server %}, {% data variables.product.product_location %} debe estar en su versión 3.0 o posterior, y tu propietario de empresa debe habilitar la compatibilidad con la versión móvil en tu empresa. Para obtener más información, consulta las secciones {% ifversion ghes %}"[Notas de lanzamiento](/enterprise-server/admin/release-notes)" y {% endif %}"[Administrar {% data variables.product.prodname_mobile %} para tu empresa]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/configuration/configuring-your-enterprise/managing-github-mobile-for-your-enterprise){% ifversion not ghes %}" en la documentación de {% data variables.product.prodname_ghe_server %}.{% else %}".{% endif %}
+Para utilizar {% data variables.product.prodname_mobile %} con {% data variables.product.prodname_ghe_server %}, {% data variables.product.product_location %} debe estar en su versión 3.0 o posterior, y tu propietario de empresa debe habilitar la compatibilidad con la versión móvil en tu empresa. For more information, see {% ifversion ghes %}"[Release notes](/enterprise-server/admin/release-notes)" and {% endif %}"[Managing {% data variables.product.prodname_mobile %} for your enterprise]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/configuration/configuring-your-enterprise/managing-github-mobile-for-your-enterprise){% ifversion not ghes %}" in the {% data variables.product.prodname_ghe_server %} documentation.{% else %}."{% endif %}
 
 During the beta for {% data variables.product.prodname_mobile %} with {% data variables.product.prodname_ghe_server %}, you must be signed in with a personal account on {% data variables.product.prodname_dotcom_the_website %}.
 
@@ -73,9 +76,9 @@ Si configuras el idioma en tu dispositivo para que sea uno de los compatibles, {
 
 {% data variables.product.prodname_mobile %} habilita automáticamente los Enlaces Universales para iOS. Cuando tocas en cualquier enlace de {% data variables.product.product_name %}, la URL destino se abrirá en {% data variables.product.prodname_mobile %} en vez de en Safari. Para obtener más información, consulta la sección[Enlaces Universales](https://developer.apple.com/ios/universal-links/) en el sitio para Desarrolladores de Apple.
 
-Para inhabilitar los Enlaces Universales, presiona sostenidamente cualquier enlace de {% data variables.product.product_name %} y luego toca en **Abrir**. Cada vez que toques en un enlace de {% data variables.product.product_name %} posteriormente, la URL destino se abrirá en Safari en vez de en {% data variables.product.prodname_mobile %}.
+To disable Universal Links, long-press any {% data variables.product.product_name %} link, then tap **Open**. Every time you tap a {% data variables.product.product_name %} link in the future, the destination URL will open in Safari instead of {% data variables.product.prodname_mobile %}.
 
-Para volver a habilitar los Enlaces Universales, sostén cualquier enlace de {% data variables.product.product_name %} y luego toca en **Abrir en {% data variables.product.prodname_dotcom %}**.
+To re-enable Universal Links, long-press any {% data variables.product.product_name %} link, then tap **Open in {% data variables.product.prodname_dotcom %}**.
 
 ## Compartir retroalimentación
 

@@ -13,9 +13,9 @@ Adobe | Adobe JSON Web Token | adobe_jwt{% endif %} Alibaba Cloud | Alibaba Clou
 Amazon | Amazon OAuth 客户端 ID | amazon_oauth_client_id{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5845 %}
 Amazon | Amazon OAuth 客户端机密 | amazon_oauth_client_secret{% endif %} Amazon Web Services (AWS) | Amazon AWS 访问密钥 ID | aws_access_key_id Amazon Web Services (AWS) | Amazon AWS 机密访问密钥 | aws_secret_access_key
-{%- ifversion fpt or ghec or ghes > 3.2 or ghae-issue-5844 %}
+{%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
 Amazon Web Services (AWS) | Amazon AWS Session Token | aws_session_token{% endif %}
-{%- ifversion fpt or ghec or ghes > 3.2 or ghae-issue-5844 %}
+{%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
 Amazon Web Services (AWS) | Amazon AWS Temporary Access Key ID | aws_temporary_access_key_id{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
 Asana | Asana 个人访问令牌 | asana_personal_access_token{% endif %} Atlassian | Atlassian API 令牌 | atlassian_api_token Atlassian | Atlassian JSON Web 令牌 | atlassian_jwt
@@ -27,7 +27,7 @@ Azure | Azure Active Directory 应用程序密钥 | azure_active_directory_appli
 Azure | Azure Cache for Redis 访问密钥 | azure_cache_for_redis_access_key{% endif %} Azure | Azure DevOps 个人访问令牌 | azure_devops_personal_access_token Azure | Azure SAS 令牌 | azure_sas_token Azure | Azure 服务管理凭证 | azure_management_certificate
 {%- ifversion ghes < 3.4 or ghae or ghae-issue-5342 %}
 Azure | Azure SQL 连接字符串 | azure_sql_connection_string{% endif %} Azure | Azure 存储帐户密钥 | azure_storage_account_key
-{%- ifversion fpt or ghec or ghes > 3.2 or ghae-issue-5844 %}
+{%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
 Beamer | Beamer API Key | beamer_api_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
 Checkout.com | Checkout.com Production Secret Key | checkout_production_secret_key{% endif %}
@@ -35,7 +35,7 @@ Checkout.com | Checkout.com Production Secret Key | checkout_production_secret_k
 Checkout.com | Checkout.com 测试密钥 | checkout_test_secret_key{% endif %} Clojars | Clojars 部署令牌 | clojars_deploy_token
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
 CloudBees CodeShip | CloudBees CodeShip Credential | codeship_credential{% endif %}
-{%- ifversion fpt or ghec or ghes > 3.2 or ghae-issue-5844 %}
+{%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
 Contentful | Contentful 个人访问令牌 | contentful_personal_access_token{% endif %} Databricks | Databricks 访问令牌 | databricks_access_token
 {%- ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6944 %}
 DigitalOcean | DigitalOcean 个人访问令牌 | digitalocean_personal_access_token DigitalOcean | DigitalOcean OAuth 令牌 | digitalocean_oauth_token DigitalOcean | DigitalOcean 更新令牌 | digitalocean_refresh_token DigitalOcean | DigitalOcean 系统令牌 | digitalocean_system_token{% endif %} Discord | Discord Bot 令牌 | discord_bot_token Doppler | Doppler 个人令牌 | doppler_personal_token Doppler | Doppler 服务令牌 | doppler_service_token Doppler | Doppler CLI 令牌 | doppler_cli_token Doppler | Doppler SCIM 令牌 | doppler_scim_token
@@ -55,7 +55,7 @@ Fastly | Fastly API 令牌 | fastly_api_token{% endif %} Finicity | Finicity App
 Flutterwave | Flutterwave Live API Secret Key | flutterwave_live_api_secret_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
 Flutterwave | Flutterwave 测试 API 密钥 | flutterwave_test_api_secret_key{% endif %} Frame.io | Frame.io JSON Web 令牌 | frameio_jwt Frame.io| Frame.io Developer 令牌 | frameio_developer_token
-{%- ifversion fpt or ghec or ghes > 3.2 or ghae-issue-5844 %}
+{%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
 FullStory | FullStory API Key | fullstory_api_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
 GitHub | GitHub Personal Access Token | github_personal_access_token{% endif %}
@@ -67,13 +67,13 @@ GitHub | GitHub Refresh Token | github_refresh_token{% endif %}
 GitHub | GitHub App 安装访问令牌 | github_app_installation_access_token{% endif %} GitHub | GitHub SSH 私钥 | github_ssh_private_key
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5845 %}
 GitLab | GitLab 访问令牌 | gitlab_access_token{% endif %} GoCardless | GoCardless Live 访问令牌 | gocardless_live_access_token GoCardless | GoCardless Sandbox 访问令牌 | gocardless_sandbox_access_token
-{%- ifversion fpt or ghec or ghes > 3.2 or ghae-issue-5844 %}
+{%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
 Google | Firebase Cloud Messaging Server 密钥 | firebase_cloud_messaging_server_key{% endif %} Google | Google API 密钥 | google_api_key Google | Google Cloud 私钥 ID | google_cloud_private_key_id
-{%- ifversion fpt or ghec or ghes > 3.2 or ghae-issue-5844 %}
+{%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
 Google | Google Cloud Storage Access Key Secret | google_cloud_storage_access_key_secret{% endif %}
-{%- ifversion fpt or ghec or ghes > 3.2 or ghae-issue-5844 %}
+{%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
 Google | Google Cloud Storage Service Account Access Key ID | google_cloud_storage_service_account_access_key_id{% endif %}
-{%- ifversion fpt or ghec or ghes > 3.2 or ghae-issue-5844 %}
+{%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
 Google | Google Cloud Storage User Access Key ID | google_cloud_storage_user_access_key_id{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5845 %}
 Google | Google OAuth 访问令牌 | google_oauth_access_token{% endif %}
@@ -93,9 +93,9 @@ Ionic | Ionic Personal Access Token | ionic_personal_access_token{% endif %}
 Ionic | Ionic Refresh Token | ionic_refresh_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6944 %}
 JD Cloud | JD Cloud 访问密钥 | jd_cloud_access_key{% endif %}
-{%- ifversion fpt or ghec or ghes > 3.2 or ghae-issue-5844 %}
+{%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
 JFrog | JFrog Platform Access Token | jfrog_platform_access_token{% endif %}
-{%- ifversion fpt or ghec or ghes > 3.2 or ghae-issue-5844 %}
+{%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
 JFrog | JFrog Platform API Key | jfrog_platform_api_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
 Linear | Linear API Key | linear_api_key{% endif %}
@@ -115,13 +115,13 @@ Meta | Facebook 访问令牌 | facebook_access_token{% endif %}
 Midtrans | Midtrans Production Server 密钥 | midtrans_production_server_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5845 %}
 Midtrans | Midtrans Sandbox Server 密钥 | midtrans_sandbox_server_key{% endif %}
-{%- ifversion fpt or ghec or ghes > 3.2 or ghae-issue-5844 %}
+{%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
 New Relic | New Relic Personal API Key | new_relic_personal_api_key{% endif %}
-{%- ifversion fpt or ghec or ghes > 3.2 or ghae-issue-5844 %}
+{%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
 New Relic | New Relic REST API Key | new_relic_rest_api_key{% endif %}
-{%- ifversion fpt or ghec or ghes > 3.2 or ghae-issue-5844 %}
+{%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
 New Relic | New Relic Insights Query Key | new_relic_insights_query_key{% endif %}
-{%- ifversion fpt or ghec or ghes > 3.2 or ghae-issue-5844 %}
+{%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
 New Relic | New Relic License Key | new_relic_license_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5845 %}
 Notion | Notion 集成令牌 | notion_integration_token{% endif %}
@@ -135,15 +135,15 @@ Onfido | Onfido Live API Token | onfido_live_api_token{% endif %}
 Onfido | Onfido Sandbox API Token | onfido_sandbox_api_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
 OpenAI | OpenAI API 密钥 | openai_api_key{% endif %} Palantir | Palantir JSON Web 令牌 | palantir_jwt
-{%- ifversion fpt or ghec or ghes > 3.2 or ghae-issue-5844 %}
+{%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
 PlanetScale | PlanetScale Database Password | planetscale_database_password{% endif %}
-{%- ifversion fpt or ghec or ghes > 3.2 or ghae-issue-5844 %}
+{%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
 PlanetScale | PlanetScale OAuth Token | planetscale_oauth_token{% endif %}
-{%- ifversion fpt or ghec or ghes > 3.2 or ghae-issue-5844 %}
+{%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
 PlanetScale | PlanetScale Service Token | planetscale_service_token{% endif %}
-{%- ifversion fpt or ghec or ghes > 3.2 or ghae-issue-5844 %}
+{%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
 Plivo | Plivo Auth ID | plivo_auth_id{% endif %}
-{%- ifversion fpt or ghec or ghes > 3.2 or ghae-issue-5844 %}
+{%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
 Plivo | Plivo 验证令牌 | plivo_auth_token{% endif %} Postman | Postman API 密钥 | postman_api_key Proctorio | Proctorio 消费者密钥 | proctorio_consumer_key Proctorio | Proctorio 链接密钥 | proctorio_linkage_key Proctorio | Proctorio 注册密钥 | proctorio_registration_key Proctorio | Proctorio 密钥 | proctorio_secret_key Pulumi | Pulumi 访问令牌 | pulumi_access_token
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
 PyPI | PyPI API Token | pypi_api_token{% endif %}
@@ -153,9 +153,9 @@ RubyGems | RubyGems API 密钥 | rubygems_api_key{% endif %} Samsara | Samsara A
 Segment | Segment 公共 API 令牌 | segment_public_api_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
 SendGrid | SendGrid API Key | sendgrid_api_key{% endif %}
-{%- ifversion fpt or ghec or ghes > 3.2 or ghae-issue-5844 %}
+{%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
 Sendinblue | Sendinblue API Key | sendinblue_api_key{% endif %}
-{%- ifversion fpt or ghec or ghes > 3.2 or ghae-issue-5844 %}
+{%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
 Sendinblue | Sendinblue SMTP Key | sendinblue_smtp_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
 Shippo | Shippo Live API Token | shippo_live_api_token{% endif %}

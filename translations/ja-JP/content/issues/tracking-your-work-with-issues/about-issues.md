@@ -22,7 +22,7 @@ topics:
 
 Issueを使って、開発が行われる{% data variables.product.company_short %}上での作業を追跡できます。 他のIssueもしくはPull Request内のIssueにメンションすると、そのIssueのタイムラインにはクロスリファレンスが反映され、関連する作業を追跡できるようになります。 作業が進行中であることを示すために、Pull RequestにIssueをリンクできます。 Pull Requestがマージされると、リンクされたIssueは自動的にクローズされます。
 
-For more information on keywords, see "[Linking a pull request to an issue](issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword)."
+キーワードに関する詳しい情報については「[Pull RequestのIssueへのリンク](/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword)」を参照してください。
 
 ## 素早いIssueの作成
 
@@ -36,7 +36,7 @@ Issueは様々な方法で作成できるので、ワークフローで最も便
 
 ## 最新情報の確認
 
-Issueの最新のコメントの情報を得ておきたい場合には、Issueをサブスクライブして最新のコメントに関する通知を受け取ることができます。 サブスクライブした Issue の最新の更新へのリンクを素早く見つけるには、ダッシュボードにアクセスしてください。 詳しい情報については{% ifversion fpt or ghes or ghae or ghec %}「[通知について](/github/managing-subscriptions-and-notifications-on-github/about-notifications)」{% else %}「[通知について](/github/receiving-notifications-about-activity-on-github/about-notifications)」{% endif %}及び「[個人ダッシュボードについて](/articles/about-your-personal-dashboard)」を参照してください。
+Issueの最新のコメントの情報を得ておきたい場合には、Issueをサブスクライブして最新のコメントに関する通知を受け取ることができます。 サブスクライブした Issue の最新の更新へのリンクを素早く見つけるには、ダッシュボードにアクセスしてください。 For more information, see "[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications)" and "[About your personal dashboard](/articles/about-your-personal-dashboard)."
 
 ## コミュニティの管理
 

@@ -1,7 +1,7 @@
 ---
 title: 查看安全性概述
 intro: 导航到安全概述中可用的不同视图
-permissions: Organization owners and security managers can access the security overview for organizations. Members of a team can see the security overview for repositories that the team has admin privileges for.
+permissions: '{% data reusables.security-center.permissions %}'
 product: '{% data reusables.gated-features.security-center %}'
 versions:
   ghae: issue-5503
@@ -17,7 +17,7 @@ topics:
 shortTitle: 查看安全性概述
 ---
 
-{% ifversion ghes < 3.5 or ghae-issue-4554 %}
+{% ifversion ghes < 3.5 or ghae %}
 {% data reusables.security-center.beta %}
 {% endif %}
 
@@ -28,7 +28,8 @@ shortTitle: 查看安全性概述
 1. 要查看有关警报类型的汇总信息，请单击 **Show more（显示更多）**。 ![显示更多按钮](/assets/images/help/organizations/security-overview-show-more-button.png)
 {% data reusables.organizations.filter-security-overview %}
 {% if security-overview-views %}
-1. 或者，也可以使用左侧边栏按安全功能筛选信息。 在每个页面上，您可以使用特定于每个功能的筛选器来微调搜索。 ![代码扫描特定页面的截图](/assets/images/help/organizations/security-overview-code-scanning-alerts.png)
+{% data reusables.organizations.security-overview-feature-specific-page %}
+  ![代码扫描特定页面的截图](/assets/images/help/organizations/security-overview-code-scanning-alerts.png)
 
 ## 查看整个组织中的警报
 
@@ -42,6 +43,9 @@ shortTitle: 查看安全性概述
 
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
 1. 在左侧边栏中，单击 {% octicon "shield" aria-label="The shield icon" %} **代码安全性**。
+{% if security-overview-feature-specific-alert-page %}
+{% data reusables.organizations.security-overview-feature-specific-page %}
+{% endif %}
 {% endif %}
 
 ## 查看仓库的警报

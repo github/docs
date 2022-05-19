@@ -80,7 +80,7 @@ Os seguintes atributos o SAML estão disponíveis para {% data variables.product
 | `NameID`              | Sim          | Identificador de usuário persistente. Qualquer formato de identificador de nome persistente pode ser usado. {% ifversion ghec %}Se você usa uma empresa com {% data variables.product.prodname_emus %}, {% endif %}{% data variables.product.product_name %} irá normalizar o elemento `NameID` para usar como um nome de usuário, a menos que seja fornecida uma das declarações alternativas. Para obter mais informações, consulte "[Considerações de nome de usuário para autenticação externa](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication)". |
 | `SessionNotOnOrAfter` | Não          | A data que {% data variables.product.product_name %} invalida a sessão associada. Após a invalidação, a pessoa deve efetuar a autenticação novamente para acessar {% ifversion ghec or ghae %}os recursos da sua empresa{% elsif ghes %}{% data variables.product.product_location %}{% endif %}. Para obter mais informações, consulte "[Duração da sessão e fim do tempo](#session-duration-and-timeout)".                                                                                                                                                                                                                      |
 {%- ifversion ghes or ghae %}
-| `administrator` | No | When the value is `true`, {% data variables.product.product_name %} will automatically promote the user to be a {% ifversion ghes %}site administrator{% elsif ghae %}enterprise owner{% endif %}. Any other value or a non-existent value will demote the account and remove administrative access. | | `username` | No | The username for {% data variables.product.product_location %}. |
+| `administrator` | No | When the value is `true`, {% data variables.product.product_name %} will automatically promote the user to be a {% ifversion ghes %}site administrator{% elsif ghae %}enterprise owner{% endif %}. Qualquer outro valor ou um valor inexistente irá rebaixar a conta e remover o acesso administrativo. | | `username` | Não | O nome de usuário para {% data variables.product.product_location %}. |
 {%- endif %}
 | `full_name` | No | {% ifversion ghec %}If you configure SAML SSO for an enterprise and you use {% data variables.product.prodname_emus %}, the{% else %}The{% endif %} full name of the user to display on the user's profile page. | | `emails` | No | The email addresses for the user.{% ifversion ghes or ghae %} You can specify more than one address.{% endif %}{% ifversion ghec or ghes %} If you sync license usage between {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %}, {% data variables.product.prodname_github_connect %} uses `emails` to identify unique users across products. For more information, see "[Syncing license usage between {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %}](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud)."{% endif %} | | `public_keys` | No | {% ifversion ghec %}If you configure SAML SSO for an enterprise and you use {% data variables.product.prodname_emus %}, the{% else %}The{% endif %} public SSH keys for the user. You can specify more than one key. | | `gpg_keys` | No | {% ifversion ghec %}If you configure SAML SSO for an enterprise and you use {% data variables.product.prodname_emus %}, the{% else %}The{% endif %} GPG keys for the user. You can specify more than one key. |
 
@@ -93,20 +93,20 @@ Para especificar mais de um valor para um atributo, use múltiplos elementos de 
 </saml2:Attribute>
 ```
 
-## SAML response requirements
+## Requisitos de resposta do SAML
 
-{% data variables.product.product_name %} requires that the response message from your IdP fulfill the following requirements.
+{% data variables.product.product_name %} exige que a mensagem de resposta do seu IdP atenda aos seguintes requisitos.
 
-- Your IdP must provide the `<Destination>` element on the root response document and match the ACS URL only when the root response document is signed. If your IdP signs the assertion, {% data variables.product.product_name %} will ignore the assertion.
-- Your IdP must always provide the `<Audience>` element as part of the `<AudienceRestriction>` element. The value must match your `EntityId` for {% data variables.product.product_name %}.{% ifversion ghes or ghae %} This value is the URL where you access {% data variables.product.product_location %}, such as {% ifversion ghes %}`http(s)://HOSTNAME`{% elsif ghae %}`https://SUBDOMAIN.githubenterprise.com`, `https://SUBDOMAIN.github.us`, or `https://SUBDOMAIN.ghe.com`{% endif %}.{% endif %}
+- Seu IdP deve fornecer o elemento `<Destination>` no documento de resposta raiz e corresponder ao URL do ACS somente quando o documento de resposta raiz for assinado. Se seu IdP assinar a declaração, {% data variables.product.product_name %} irá ignorar a verificação.
+- Seu IdP deve sempre fornecer o elemento `<Audience>` como parte do elemento `<AudienceRestriction>`. O valor deve corresponder ao seu `EntityId` para {% data variables.product.product_name %}.{% ifversion ghes or ghae %} Este valor é o URL onde você pode acessar {% data variables.product.product_location %}, such as {% ifversion ghes %}`http(s)://HOSTNAME`{% elsif ghae %}`https://SUBDOMAIN.githubenterprise.com`, `https://SUBDOMAIN.github.us` ou `https://SUBDOMAIN.ghe.com`{% endif %}.{% endif %}
 
   {%- ifversion ghec %}
-  - If you configure SAML for an organization, this value is `https://github.com/orgs/ORGANIZATION`.
-  - If you configure SAML for an enterprise, this URL is `https://github.com/enterprises/ENTERPRISE`.
+  - Se você configurar o SAML para uma organização, este valor será `https://github.com/orgs/ORGANIZAÇÃO`.
+  - Se você configurar o SAML para uma empresa, essa URL será `https://github.com/enterprises/ENTERPRISE`.
   {%- endif %}
-- Your IdP must protect each assertion in the response with a digital signature. You can accomplish this by signing each individual `<Assertion>` element or by signing the `<Response>` element.
-- Your IdP must provide a `<NameID>` element as part of the `<Subject>` element. You may use any persistent name identifier format.
-- Your IdP must include the `Recipient` attribute, which must be set to the ACS URL. The following example demonstrates the attribute.
+- Seu IdP deve proteger cada declaração na resposta com uma assinatura digital. Você pode realizar isso assinando cada elemento individual `<Assertion>` ou assinando o `elemento<Response>`.
+- Seu IdP deve fornecer um elemento `<NameID>` como parte do elemento `<Subject>`. Você pode usar qualquer formato de identificador de nome persistente.
+- Seu IdP deve incluir o atributo `Destinatário`, que deve ser definido como o URL do ACS. O exemplo a seguir demonstra o atributo.
 
      ```xml
      <samlp:Response ...>
@@ -126,17 +126,17 @@ Para especificar mais de um valor para um atributo, use múltiplos elementos de 
      </samlp:Response>
      ```
 
-## Session duration and timeout
+## Duração da sessão e tempo limite
 
-To prevent a person from authenticating with your IdP and staying authorized indefinitely, {% data variables.product.product_name %} periodically invalidates the session for each user account with access to {% ifversion ghec or ghae %}your enterprise's resources{% elsif ghes %}{% data variables.product.product_location %}{% endif %}. After invalidation, the person must authenticate with your IdP once again. By default, if your IdP does not assert a value for the `SessionNotOnOrAfter` attribute, {% data variables.product.product_name %} invalidates a session {% ifversion ghec %}24 hours{% elsif ghes or ghae %}one week{% endif %} after successful authentication with your IdP.
+Para impedir que uma pessoa efetue a autenticação com o seu IdP e permaneça indefinidamente autorizada, {% data variables.product.product_name %} invalida periodicamente a sessão para cada conta de usuário com acesso aos {% ifversion ghec or ghae %} recursos da sua empresa{% elsif ghes %}{% data variables.product.product_location %}{% endif %}. Depois da invalidação, a pessoa deverá efetuar a autenticação com seu IdP novamente. By default, if your IdP does not assert a value for the `SessionNotOnOrAfter` attribute, {% data variables.product.product_name %} invalidates a session {% ifversion ghec %}24 hours{% elsif ghes or ghae %}one week{% endif %} after successful authentication with your IdP.
 
-To customize the session duration, you may be able to define the value of the `SessionNotOnOrAfter` attribute on your IdP. If you define a value less than 24 hours, {% data variables.product.product_name %} may prompt people to authenticate every time {% data variables.product.product_name %} initiates a redirect.
+Para personalizar a duração da sessão, talvez você possa definir o valor do atributo `SessionNotOnOrAfter` no seu IdP. Se você definir um valor em menos de 24 horas, {% data variables.product.product_name %} poderá solicitar a autenticação das pessoas toda vez que {% data variables.product.product_name %} iniciar um redirecionamento.
 
 {% note %}
 
 **Atenção**:
 
-- For Azure AD, the configurable lifetime policy for SAML tokens does not control session timeout for {% data variables.product.product_name %}.
-- Okta does not currently send the `SessionNotOnOrAfter` attribute during SAML authentication with {% data variables.product.product_name %}. For more information, contact Okta.
+- Para Azure AD, a política de tempo de vida configurável para tokens do SAML não controla o tempo limite de sessão para {% data variables.product.product_name %}.
+- O Okta não envia atualmente o atributo `SessionNotOnOrAfter` durante a autenticação do SAML com {% data variables.product.product_name %}. Para mais informações, entre em contato com Okta.
 
 {% endnote %}
