@@ -6,7 +6,7 @@ versions:
 miniTocMaxHeadingLevel: 3
 ---
 
-## About the Dependency review API
+## About the Dependency submission API
 
 {% data reusables.dependency-submission.dependency-submission-api-beta %}
 
