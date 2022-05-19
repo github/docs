@@ -56,7 +56,7 @@ O {% data variables.product.prodname_managed_users_caps %} só pode contribuir p
 * Outros usuários de {% data variables.product.prodname_dotcom %} não podem ver, mencionar ou convidar um {% data variables.product.prodname_managed_user %} para colaborar.
 * {% data variables.product.prodname_managed_users_caps %} só pode criar repositórios privados e {% data variables.product.prodname_managed_users %} só pode convidar outros integrantes da empresa para colaborar nos seus próprios repositórios.
 * Apenas repositórios privados e internos podem ser criados em organizações pertencentes a um {% data variables.product.prodname_emu_enterprise %}, dependendo das configurações de visibilidade da organização e do repositório corporativo.
-* {% data variables.product.prodname_managed_users_caps %} are limited in their use of {% data variables.product.prodname_pages %}. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#limitations-for-enterprise-managed-users)".
+* {% data variables.product.prodname_managed_users_caps %} são limitados em seu uso de {% data variables.product.prodname_pages %}. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#limitations-for-enterprise-managed-users)".
 
 ## Sobre empresas com usuários gerenciados
 
@@ -88,8 +88,8 @@ O nome do usuário de configuração é o código curto da sua empresa com o suf
 
 ## Nome de usuário e informações de perfil
 
-{% data variables.product.product_name %} automatically creates a username for each person by normalizing an identifier provided by your IdP. Para obter mais informações, consulte "[Considerações de nome de usuário para autenticação externa](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication)".
+{% data variables.product.product_name %} cria automaticamente um nome de usuário para cada pessoa normalizando um identificador fornecido pelo seu IdP. Para obter mais informações, consulte "[Considerações de nome de usuário para autenticação externa](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication)".
 
-A conflict may occur when provisioning users if the unique parts of the identifier provided by your IdP are removed during normalization. If you're unable to provision a user due to a username conflict, you should modify the username provided by your IdP. For more information, see "[Resolving username conflicts](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication#resolving-username-conflicts)."
+Um conflito pode ocorrer quando os usuários de provisionamento das partes únicas do identificador fornecido pelo IdP são removidos durante a normalização. Se você não puder provisionar um usuário devido a um conflito de nome de usuário, você deverá modificar o nome de usuário fornecido pelo seu IdP. Para obter mais informações, consulte "[Resolvendo conflitos de nome de usuário](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication#resolving-username-conflicts). "
 
 O nome do perfil e endereço de email de um {% data variables.product.prodname_managed_user %} também é fornecido pelo IdP. {% data variables.product.prodname_managed_users_caps %} não pode alterar seu nome de perfil ou endereço de e-mail em {% data variables.product.prodname_dotcom %}.

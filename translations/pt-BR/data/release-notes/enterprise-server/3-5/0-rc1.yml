@@ -46,7 +46,7 @@ sections:
       heading: Server Statistics in public beta
       notes:
         - |
-          You can now analyze how your team works, understand the value you get from GitHub Enterprise Server, and help us improve our products by reviewing your instance's usage data and sharing this aggregate data with GitHub. You can use your own tools to analyze your usage over time by downloading your data in a CSV or JSON file or by accessing it using the REST API. To see the list of aggregate metrics collected, see "[About Server Statistics](/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/about-server-statistics#server-statistics-data-collected)." **Server Statistics data includes no personal data nor GitHub content, such as code, issues, comments, or pull requests content.  For a better understanding of how we store and secure Server Statistics data, see "[GitHub Security](https://github.com/security)."**  For more information about Server Statistics, see "[Analyzing how your team works with Server Statistics](/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics)." This feature is available in public beta.
+          You can now analyze how your team works, understand the value you get from GitHub Enterprise Server, and help us improve our products by reviewing your instance's usage data and sharing this aggregate data with GitHub. You can use your own tools to analyze your usage over time by downloading your data in a CSV or JSON file or by accessing it using the REST API. To see the list of aggregate metrics collected, see "[About Server Statistics](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/about-server-statistics#server-statistics-data-collected)." Server Statistics data includes no personal data nor GitHub content, such as code, issues, comments, or pull requests content.  For a better understanding of how we store and secure Server Statistics data, see "[GitHub Security](https://github.com/security)."  For more information about Server Statistics, see "[Analyzing how your team works with Server Statistics](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics)." This feature is available in public beta.
     - 
       heading: GitHub Actions rate limiting is now configurable
       notes:
@@ -101,7 +101,6 @@ sections:
           - You can pass environment secrets to reusable workflows.
           - The audit log includes information about which reusable workflows are used.
           - Reusable workflows in the same repository as the calling repository can be referenced with just the path and filename (`PATH/FILENAME`). The called workflow will be from the same commit as the caller workflow.
-          - Reusable workflows are subject to your organization's actions access policy. Previously, even if your organization had configured the "Allow select actions" policy, you were still able to use a reusable workflow from any location. Now if you use a reusable workflow that falls outside of that policy, your run will fail. For more information, see "[Enforcing policies for GitHub Actions in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-to-restrict-the-use-of-actions-in-your-enterprise)."
     - 
       heading: Self-hosted runners for GitHub Actions can now disable automatic updates
       notes:
@@ -334,6 +333,11 @@ sections:
       notes:
         - |
           The CodeQL runner is deprecated in favor of the CodeQL CLI. GitHub Enterprise Server 3.4 and later no longer include the CodeQL runner. This deprecation only affects users who use CodeQL code scanning in 3rd party CI/CD systems. GitHub Actions users are not affected. GitHub strongly recommends that customers migrate to the CodeQL CLI, which is a feature-complete replacement for the CodeQL runner and has many additional features. For more information, see "[Migrating from the CodeQL runner to CodeQL CLI](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/migrating-from-the-codeql-runner-to-codeql-cli)."
+    - 
+      heading: Theme picker for GitHub Pages has been removed
+      notes:
+        - |
+          The theme picker for GitHub Pages has been removed from the Pages settings. For more information about configuration of themes for GitHub Pages, see "[Adding a theme to your GitHub Pages site using Jekyll](/pages/setting-up-a-github-pages-site-with-jekyll/adding-a-theme-to-your-github-pages-site-using-jekyll)."
   known_issues:
     - Em uma instância de {% data variables.product.prodname_ghe_server %} recém-configurada sem usuários, um invasor pode criar o primeiro usuário administrador.
     - As regras de firewall personalizadas são removidas durante o processo de atualização.

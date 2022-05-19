@@ -201,6 +201,14 @@ El mismo principio que se describió anteriormente para utilizar acciones de ter
 {% data reusables.actions.outside-collaborators-internal-actions %} Para obtener más información, consulta la sección "[Compartir acciones y flujos de trabajo con tu empresa](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)".
 {% endif %}
 
+{% if allow-actions-to-approve-pr %}
+## Preventing {% data variables.product.prodname_actions %} from {% if allow-actions-to-approve-pr-with-ent-repo %}creating or {% endif %}approving pull requests
+
+{% data reusables.actions.workflow-pr-approval-permissions-intro %} Allowing workflows, or any other automation, to {% if allow-actions-to-approve-pr-with-ent-repo %}create or {% endif %}approve pull requests could be a security risk if the pull request is merged without proper oversight.
+
+For more information on how to configure this setting, see {% if allow-actions-to-approve-pr-with-ent-repo %}{% ifversion ghes or ghec or ghae %}"[Enforcing policies for {% data variables.product.prodname_actions %} in your enterprise](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#preventing-github-actions-from-creating-or-approving-pull-requests)",{% endif %}{% endif %} "[Disabling or limiting {% data variables.product.prodname_actions %} for your organization](/github/setting-up-and-managing-organizations-and-teams/disabling-or-limiting-github-actions-for-your-organization#preventing-github-actions-from-{% if allow-actions-to-approve-pr-with-ent-repo %}creating-or-{% endif %}approving-pull-requests)"{% if allow-actions-to-approve-pr-with-ent-repo %}, and "[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#preventing-github-actions-from-creating-or-approving-pull-requests)"{% endif %}.
+{% endif %}
+
 ## Utilizar las tarjetas de puntuación para asegurar los flujos de trabajo
 
 [Las tarjetas de puntuación](https://github.com/ossf/scorecard) son una herramienta de seguridad automatizada que resalta las prácticas riesgosas en la cadena de suministro. Puedes utilizar la [Acción de tarjetas de puntuación](https://github.com/marketplace/actions/ossf-scorecard-action) y el [flujo de trabajo inicial](https://github.com/actions/starter-workflows) para seguir las mejores prácticas de seguridad. Una vez que se configure, la acción de tarjetas de puntuación se ejecutará automáticamente en los cambios de repositorio y alertará a los desarrolladores sobre las prácticas riesgosas en la cadena de suministro utilizando la experiencia de escaneo en el código integrado. El proyecto de tarjetas de puntuación ejecuta varias verificaciones, incluyendo las de ataques de inyección de scripts, permisos de tokens y acciones fijadas.

@@ -11,12 +11,10 @@ versions:
   ghae: '*'
   ghec: '*'
 type: tutorial
-hidden: true
 topics:
   - CI
   - Python
 shortTitle: 构建和测试 Python
-hasExperimentalAlternative: true
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -246,7 +244,7 @@ steps:
 - run: pip test
 ```
 
-默认情况下， `setup-python` 操作会在整个存储库中搜索依赖项文件（对于 pip 为`requirements.txt`，对于 pipenv 为 `Pipfile.lock`）。 更多信息请参阅 `setup-python` 自述文件中的“[缓存包依赖项](https://github.com/actions/setup-python#caching-packages-dependencies)”。
+By default, the `setup-python` action searches for the dependency file (`requirements.txt` for pip, `Pipfile.lock` for pipenv or `poetry.lock` for poetry) in the whole repository. 更多信息请参阅 `setup-python` 自述文件中的“[缓存包依赖项](https://github.com/actions/setup-python#caching-packages-dependencies)”。
 
 如果您有自定义要求或需要更精确的缓存控制，则可以使用 [`cache` 操作](https://github.com/marketplace/actions/cache)。 Pip 根据运行器的操作系统将依赖项缓存在不同的位置。 您需要缓存的路径可能不同于上面的 Ubuntu 示例，具体取决于您使用的操作系统。 更多信息请参阅 `cache` 操作存储库中的 [Python 缓存示例](https://github.com/actions/cache/blob/main/examples.md#python---pip)。
 

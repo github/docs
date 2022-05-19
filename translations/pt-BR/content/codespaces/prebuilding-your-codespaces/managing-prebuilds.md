@@ -58,20 +58,20 @@ Exibe o histórico de execução de fluxo de trabalho para pré-compilações pa
 
 1. Faça as alterações necessárias na configuração de pré-compilação e, em seguida, clique em **Atualizar**.
 
-### Disabling a prebuild configuration
+### Desabilitando configuração de pré-compilação
 
-To pause the update of prebuild templates for a configuration, you can disable workflow runs for the configuration. Disabling the workflow runs for a prebuild configuration does not delete any previously created prebuild templates for that configuration and, as a result, codespaces will continue to be generated from an existing prebuild template.
+Para pausar a atualização dos modelos de pré-compilação para uma configuração, você pode desabilitar as execuções de fluxo de trabalho para a configuração. Desabilitar as execuções de fluxo de trabalho para uma configuração de pré-compilação não exclui nenhum modelo de pré-compilação previamente criado para essa configuração e, como resultado, os codespaces continuarão sendo gerados a partir de um modelo de pré-compilação existente.
 
-Disabling the workflow runs for a prebuild configuration is useful if you need to investigate template creation failures.
+Desabilitar as execuções de fluxo de trabalho para uma configuração de pré-compilação é útil se você precisar investigar as falhas de criação de modelo.
 
-1. On the {% data variables.product.prodname_codespaces %} page of your repository settings, click the ellipsis to the right of the prebuild configuration you want to disable.
-1. In the dropdown menu, click **Disable runs**.
+1. Na página de {% data variables.product.prodname_codespaces %} das configurações do repositório, clique nas reticências à direita da configuração de pré-compilação que você deseja desabilitar.
+1. No menu suspenso, clique em **Desabilitar execuções**.
 
-   ![The 'Disable runs' option in the drop-down menu](/assets/images/help/codespaces/prebuilds-disable.png)
+   ![A opção "Desabilitar execuções" no menu suspenso](/assets/images/help/codespaces/prebuilds-disable.png)
 
-1. To confirm that you want to disable this configuration, click **OK**.
+1. Para confirmar que você deseja desabilitar esta configuração, clique em **OK**.
 
-### Deleting a prebuild configuration
+### Excluindo a configuração de uma pré-compilação
 
 A exclusão de uma configuração de pré-compilação também exclui todos os modelos de pré-compilação criados anteriormente para essa configuração. Como resultado, logo após você excluir uma configuração, as pré-compilações geradas por essa configuração não estarão disponíveis ao criar um novo codespace.
 

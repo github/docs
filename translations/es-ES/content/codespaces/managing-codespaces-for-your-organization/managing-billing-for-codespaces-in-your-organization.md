@@ -41,7 +41,7 @@ Puedes limitar la elección de tipos de máquina que se encuentra disponible par
 
 ## Borrar los codespaces sin utilizar
 
-Tus usuarios pueden borrar sus codespaces en https://github.com/codespaces y desde dentro de Visual Studio Code. Para reducir el tamaño de un codespace, los usuarios pueden borrar archivos manualmente en la terminal o desde Visual Studio Code.
+Your users can delete their codespaces in https://github.com/codespaces and from within {% data variables.product.prodname_vscode %}. To reduce the size of a codespace, users can manually delete files using the terminal or from within {% data variables.product.prodname_vscode_shortname %}.
 
 {% note %}
 

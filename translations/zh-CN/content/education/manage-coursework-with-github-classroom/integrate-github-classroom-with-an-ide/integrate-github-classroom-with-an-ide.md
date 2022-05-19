@@ -25,7 +25,7 @@ redirect_from:
 |:--------------------------------------------------------- |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | {% data variables.product.prodname_github_codespaces %} | “[将 {% data variables.product.prodname_github_codespaces %} 与 {% data variables.product.prodname_classroom %} 一起使用](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/using-github-codespaces-with-github-classroom)” |
 | Microsoft MakeCode Arcade                                 | "[关于结合使用 MakeCode Arcade 与 {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/about-using-makecode-arcade-with-github-classroom)"                                                                              |
-| Visual Studio Code                                        | Visual Studio Marketplace 中的 [{% data variables.product.prodname_classroom %} 扩展](http://aka.ms/classroom-vscode-ext)                                                                                                                                           |
+| {% data variables.product.prodname_vscode %}              | Visual Studio Marketplace 中的 [{% data variables.product.prodname_classroom %} 扩展](http://aka.ms/classroom-vscode-ext)                                                                                                                                           |
 
 我们知道云 IDE 集成对您的课堂非常重要，正在努力提供更多选择。
 

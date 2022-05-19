@@ -19,6 +19,8 @@ topics:
 
 端到端软件供应链安全的核心是确保您分发的代码未被篡改。 以前，攻击者专注于针对您使用的依赖项，例如库和框架。 攻击者现在已经扩大了他们的关注点，包括针对用户帐户和构建过程，因此这些系统也必须得到保护。
 
+For information about features in {% data variables.product.prodname_dotcom %} that can help you secure dependencies, see "[About supply chain security](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security)."
+
 ## 关于这些指南
 
 本系列指南介绍了如何考虑保护端到端供应链：个人帐户、代码和构建流程。 每本指南都解释了该领域的风险，并介绍可帮助您解决该风险的 {% data variables.product.product_name %} 功能。

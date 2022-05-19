@@ -131,7 +131,7 @@ $ ghe-restore -c 169.154.1.1
 ```
 
 {% if ip-exception-list %}
-Optionally, to validate the restore, configure an IP exception list to allow access to a specified list of IP addresses. For more information, see "[Validating changes in maintenance mode using the IP exception list](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode#validating-changes-in-maintenance-mode-using-the-ip-exception-list)."
+Opcionalmente, para validar a restauração, configure uma lista de exceções IP para permitir o acesso a uma lista especificada de endereços IP. Para obter mais informações, consulte "[Validando as alterações no modo de manutenção usando a lista de exceção de IP](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode#validating-changes-in-maintenance-mode-using-the-ip-exception-list)".
 {% endif %}
 
 {% note %}

@@ -24,7 +24,7 @@ Los activadores de los flujos de trabajo son eventos que ocasionan que se ejecut
 
 Algunos eventos tienen tipos de actividad múltiple. Para ellos, puedes especificar qué tipos de actividad activarán una ejecución de flujo de trabajo. Para obtener más información sobre qué significa cada tipo de actividad, consulta la sección "[Cargas útiles y eventos de webhook](/developers/webhooks-and-events/webhook-events-and-payloads)". Nota que no todos los eventos de webhook activan flujos de trabajo.
 
-{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4968  %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae  %}
 ### `branch_protection_rule`
 
 | Carga del evento Webhook                                                                                                | Tipos de actividad                                     | `GITHUB_SHA`                                  | `GITHUB_REF`        |
@@ -1051,7 +1051,7 @@ on:
 
 {% endnote %}
 
-Ejecuta tu flujo de trabajo cuando ocurre una actividad de lanzamiento en tu repositorio. Para obtener más información sobre las API de lanzamiento, consulta la sección de "[Lanzamiento](/graphql/reference/objects#release)" en la documentación de la API de GraphQL o "[Lanzamientos](/rest/reference/repos#releases)" en la documentación de la API de REST.
+Ejecuta tu flujo de trabajo cuando ocurre una actividad de lanzamiento en tu repositorio. Para obtener más información sobre las API de lanzamiento, consulta la sección de "[Lanzamiento](/graphql/reference/objects#release)" en la documentación de la API de GraphQL o "[Lanzamientos](/rest/reference/releases)" en la documentación de la API de REST.
 
 Por ejemplo, puedes ejecutar un flujo de trabajo cuando un lanzamiento ha sido `publicado`.
 

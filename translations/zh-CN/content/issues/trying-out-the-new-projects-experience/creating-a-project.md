@@ -163,7 +163,7 @@ topics:
 6. 如果您指定**单选**为类型，请输入选项。
 7. 如果指定**迭代**为类型，请输入第一个迭代的开始日期和迭代的持续时间。 将自动创建三个迭代，您可以在项目的设置页上添加其他迭代。
 
-You can also edit your custom fields.
+您还可以编辑自定义字段。
 
 {% data reusables.projects.project-settings %}
 1. 在 **Fields（字段）**下，选择要编辑的字段。

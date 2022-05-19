@@ -4,18 +4,18 @@ sections:
   security_fixes:
     - 'パッケージが最新のセキュリティバージョンに更新されました。{% comment %} https://github.com/github/enterprise2/pull/27034, https://github.com/github/enterprise2/pull/27010 {% endcomment %}'
   bugs:
-    - 'Custom pre-receive hooks could have failed due to too restrictive virtual memory or CPU time limits. {% comment %} https://github.com/github/enterprise2/pull/26971, https://github.com/github/enterprise2/pull/26955 {% endcomment %}'
-    - 'Attempting to wipe all existing configuration settings with `ghe-cleanup-settings` failed to restart the Management Console service. {% comment %} https://github.com/github/enterprise2/pull/26986, https://github.com/github/enterprise2/pull/26901 {% endcomment %}'
-    - 'During replication teardown via `ghe-repl-teardown` Memcached failed to be restarted. {% comment %} https://github.com/github/enterprise2/pull/26992, https://github.com/github/enterprise2/pull/26983 {% endcomment %}'
-    - 'During periods of high load, users would receive HTTP 503 status codes when upstream services failed internal healthchecks. {% comment %} https://github.com/github/enterprise2/pull/27081, https://github.com/github/enterprise2/pull/26999 {% endcomment %}'
-    - 'Pre-receive hook environments were forbidden from calling the cat command via BusyBox on Alpine. {% comment %} https://github.com/github/enterprise2/pull/27114, https://github.com/github/enterprise2/pull/27094 {% endcomment %}'
-    - 'The external database password was logged in plaintext. {% comment %} https://github.com/github/enterprise2/pull/27172, https://github.com/github/enterprise2/pull/26413 {% endcomment %}'
-    - 'An erroneous `jq` error message may have been displayed when running `ghe-config-apply`. {% comment %} https://github.com/github/enterprise2/pull/27203, https://github.com/github/enterprise2/pull/26784 {% endcomment %}'
-    - 'Failing over from a primary Cluster datacenter to a secondary Cluster datacenter succeeds, but then failing back over to the original primary Cluster datacenter failed to promote Elasticsearch indicies. {% comment %} https://github.com/github/github/pull/193180, https://github.com/github/github/pull/192447 {% endcomment %}'
-    - 'The Site Admin page for repository self-hosted runners returned an HTTP 500. {% comment %} https://github.com/github/github/pull/194205 {% endcomment %}'
-    - 'In some cases, GitHub Enterprise Administrators attempting to view the `Dormant users` page received `502 Bad Gateway` or `504 Gateway Timeout` response. {% comment %} https://github.com/github/github/pull/194259, https://github.com/github/github/pull/193609 {% endcomment %}'
+    - 'カスタムのpre-receive フックが、制約の厳しすぎる仮想メモリもしくはCPU時間の制限のために失敗することがありました。{% comment %}https://github.com/github/enterprise2/pull/26971, https://github.com/github/enterprise2/pull/26955 {% endcomment %}'
+    - '`ghe-cleanup-settings`で既存のすべての設定を消去しようとすると、Management Consoleサービスの再起動に失敗しました。{% comment %} https://github.com/github/enterprise2/pull/26986, https://github.com/github/enterprise2/pull/26901 {% endcomment %}'
+    - '`ghe-repl-teardown` でのレプリケーションのティアダウンの間に、Memcachedが再起動に失敗しました。{% comment %} https://github.com/github/enterprise2/pull/26992, https://github.com/github/enterprise2/pull/26983 {% endcomment %}'
+    - '高負荷の間、上流のサービスが内部的なヘルスチェックに失敗した際に、ユーザがHTTPステータスコード503を受信することになります。{% comment %} https://github.com/github/enterprise2/pull/27081, https://github.com/github/enterprise2/pull/26999 {% endcomment %}'
+    - 'pre-receiveフック環境環境が、Alpine上のBusyBoxからcatコマンドを呼び出すことが禁じられていました。{% comment %} https://github.com/github/enterprise2/pull/27114, https://github.com/github/enterprise2/pull/27094 {% endcomment %}'
+    - '外部のデータベースパスワードが平文でログに記録されていました。{% comment %} https://github.com/github/enterprise2/pull/27172, https://github.com/github/enterprise2/pull/26413 {% endcomment %}'
+    - '`ghe-config-apply`を実行した際に、誤った`jq`のエラーメッセージが表示されることがありました。{% comment %} https://github.com/github/enterprise2/pull/27203, https://github.com/github/enterprise2/pull/26784 {% endcomment %}'
+    - 'プライマリのクラスタデータセンターからセカンダリのクラスタデータセンターへのフェイルオーバーは成功しますが、その後オリジナルのプライマリクラスタデータセンターへのフェイルバックがElasticsearchインデックスの昇格に失敗しました。{% comment %} https://github.com/github/github/pull/193180, https://github.com/github/github/pull/192447 {% endcomment %}'
+    - 'リポジトリのセルフホストランナーのサイトアドミンページがHTTP 500を返します。{% comment %} https://github.com/github/github/pull/194205 {% endcomment %}'
+    - '場合によって、`Dormant users` ページを閲覧しようとしたGitHub Enterpriseの管理者が`502 Bad Gateway`もしくは`504 Gateway Timeout`レスポンスを受信しました。{% comment %} https://github.com/github/github/pull/194259, https://github.com/github/github/pull/193609 {% endcomment %}'
   changes:
-    - 'More effectively delete Webhook logs that fall out of the Webhook log retention window. {% comment %} https://github.com/github/enterprise2/pull/27157 {% endcomment %}'
+    - 'webhookログのリテンションウィンドウから外れたwebhookログを、より効率的に削除します。{% comment %} https://github.com/github/enterprise2/pull/27157 {% endcomment %}'
   known_issues:
     - 新しくセットアップされたユーザを持たない{% data variables.product.prodname_ghe_server %}で、攻撃者が最初の管理ユーザを作成できました。
     - アップグレードの過程で、カスタムのファイアウォールのルールが削除されます。

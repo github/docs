@@ -12,7 +12,7 @@ shortTitle: Definir o tempo limite
 
 Um codespace irá parar de funcionar após um período de inatividade. Você pode especificar a duração deste período de tempo limite. A configuração atualizada será aplicada a qualquer código recém-criado.
 
-Some organizations may have a maximum idle timeout policy. If an organization policy sets a maximum timeout which is less than the default timeout you have set, the organization's timeout will be used instead of your setting, and you will be notified of this after the codespace is created. For more information, see "[Restricting the idle timeout period](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)."
+Algumas organizações podem ter uma política máxima de tempo ocioso. Se a política de uma organização definir um tempo limite máximo que seja menor do que o tempo limite padrão definido o tempo limite da organização será usado em vez da sua configuração, e você será notificado disso após a criação do codespace. Para obter mais informações, consulte "[Restringindo o período de tempo ocioso de](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)".
 
 {% warning %}
 

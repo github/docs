@@ -11,13 +11,11 @@ versions:
   ghae: '*'
   ghec: '*'
 type: tutorial
-hidden: true
 topics:
   - CI
   - Node
   - JavaScript
 shortTitle: Criar & testar Node.js
-hasExperimentalAlternative: true
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -136,7 +134,7 @@ Se você não especificar uma versão do Node.js, o {% data variables.product.pr
 
 Executores hospedados em {% data variables.product.prodname_dotcom %} têm gerenciadores de dependências npm e Yarn instalados. Você pode usar o npm e o Yarn para instalar dependências no seu fluxo de trabalho antes de criar e testar seu código. Os executores do Windows e Linux hospedados em {% data variables.product.prodname_dotcom %} também têm o Grunt, Gulp, e Bower instalado.
 
-{% if actions-caching %}You can also cache dependencies to speed up your workflow. For more information, see "[Caching dependencies to speed up workflows](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."{% endif %}
+{% if actions-caching %}Você também pode armazenar dependências em cache para acelerar seu fluxo de trabalho. Para obter mais informações, consulte "[Armazenando as dependências em cache para acelerar fluxos de trabalho](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)".{% endif %}
 
 ### Exemplo de uso do npm
 
@@ -232,7 +230,7 @@ always-auth=true
 
 ### Exemplo de memorização de dependências
 
-You can cache and restore the dependencies using the [`setup-node` action](https://github.com/actions/setup-node).
+Você pode armazenar em cache e restaurar as dependências usando a ação [`setup-node`](https://github.com/actions/setup-node).
 
 O exemplo a seguir armazena dependências do npm.
 
