@@ -14,7 +14,7 @@ redirect_from:
   - /github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation
 ---
 
-Cuando un token {% ifversion fpt or ghae-issue-4374 or ghes > 3.2 or ghec %}venció o {% endif %}se revocó, ya no puede utilizarse para autenticar solicitudes de Git y de las API. No es posible restablecer un token revocado o vencido, ya seas tú o la aplicación necesitarán crear un token nuevo.
+Cuando un token {% ifversion fpt or ghae or ghes > 3.2 or ghec %}venció o {% endif %}se revocó, ya no puede utilizarse para autenticar solicitudes de Git y de las API. No es posible restablecer un token revocado o vencido, ya seas tú o la aplicación necesitarán crear un token nuevo.
 
 Este artículo te explica las posibles razones por las cuales tu token de {% data variables.product.product_name %} podría revocarse o vencer.
 
@@ -24,7 +24,7 @@ Este artículo te explica las posibles razones por las cuales tu token de {% dat
 
 {% endnote %}
 
-{% ifversion fpt or ghae-issue-4374 or ghes > 3.2 or ghec %}
+{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
 ## El token se revocó después de llegar a su fecha de vencimiento
 
 Cuando creas un token de acceso personal, te recomendamos que configures una fecha de vencimiento para este. Al alcanzar la fecha de vencimiento de tu token, este se revocará automáticamente. Para obtener más información, consulta la sección "[Crear un token de acceso personal](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)".

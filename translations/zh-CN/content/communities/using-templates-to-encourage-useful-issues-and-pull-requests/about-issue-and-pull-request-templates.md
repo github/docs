@@ -36,9 +36,7 @@ shortTitle: 关于模板
 通过议题表单，您可以使用 {% data variables.product.prodname_dotcom %} 表单架构创建具有 Web 表单字段的模板。 当贡献者使用议题表单打开议题时，表单输入将转换为标准 Markdown 议题评论。 您可以指定不同的输入类型并根据需要设置输入，以帮助贡献者打开仓库中可操作的议题。 更多信息请参阅“[为仓库配置议题模板](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository#creating-issue-forms)”和“[议题表单的语法](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms)”。
 {% endif %}
 
-{% ifversion fpt or ghae or ghes or ghec %}
 {% data reusables.repositories.issue-template-config %}更多信息请参阅“[为仓库配置议题模板](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository#configuring-the-template-chooser)”。
-{% endif %}
 
 议题模板存储在仓库的默认分支的隐藏目录 `.github/ISSUE_TEMPLATE` 中。 如果您在另一个分支中创建模板，协作者将无法使用。 议题模板文件名不区分大小写，并且需要 *.md* 扩展名。{% ifversion fpt or ghec %} 使用议题表单创建的议题模板需要 *.yml* 扩展名。{% endif %} {% data reusables.repositories.valid-community-issues %}
 

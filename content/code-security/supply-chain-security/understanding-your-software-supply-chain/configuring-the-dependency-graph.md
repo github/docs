@@ -2,11 +2,11 @@
 title: Configuring the dependency graph
 intro: You can allow users to identify their projects' dependencies by enabling the dependency graph.
 redirect_from:
-   - /code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph
+  - /code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: issue-4864
+  ghae: '*'
   ghec: '*'
 type: how_to
 topics:

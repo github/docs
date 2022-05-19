@@ -239,8 +239,8 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 
 * [列出部署](/rest/reference/deployments#list-deployments)
 * [创建部署](/rest/reference/deployments#create-a-deployment)
-* [获取部署](/rest/reference/deployments#get-a-deployment){% ifversion fpt or ghes or ghae or ghec %}
-* [删除部署](/rest/reference/deployments#delete-a-deployment){% endif %}
+* [Get a deployment](/rest/reference/deployments#get-a-deployment)
+* [Delete a deployment](/rest/reference/deployments#delete-a-deployment)
 
 #### 事件
 
@@ -422,14 +422,12 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 * [删除组织的预接收挂钩实施](/enterprise/user/rest/reference/enterprise-admin#remove-pre-receive-hook-enforcement-for-an-organization)
 {% endif %}
 
-{% ifversion fpt or ghes or ghae or ghec %}
 #### 组织团队项目
 
 * [列出团队项目](/rest/reference/teams#list-team-projects)
 * [检查项目的团队权限](/rest/reference/teams#check-team-permissions-for-a-project)
 * [添加或更新团队项目权限](/rest/reference/teams#add-or-update-team-project-permissions)
 * [从团队删除项目](/rest/reference/teams#remove-a-project-from-a-team)
-{% endif %}
 
 #### 组织团队仓库
 
@@ -575,7 +573,7 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 
 #### 反应
 
-{% ifversion fpt or ghes or ghae or ghec %}* [删除反应](/rest/reference/reactions#delete-a-reaction-legacy){% else %}* [删除反应](/rest/reference/reactions#delete-a-reaction){% endif %}
+* [Delete a reaction](/rest/reference/reactions)
 * [列出提交注释的反应](/rest/reference/reactions#list-reactions-for-a-commit-comment)
 * [创建提交注释的反应](/rest/reference/reactions#create-reaction-for-a-commit-comment)
 * [列出议题的反应](/rest/reference/reactions#list-reactions-for-an-issue)
@@ -587,13 +585,13 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 * [列出团队讨论注释的反应](/rest/reference/reactions#list-reactions-for-a-team-discussion-comment)
 * [创建团队讨论注释的反应](/rest/reference/reactions#create-reaction-for-a-team-discussion-comment)
 * [列出团队讨论的反应](/rest/reference/reactions#list-reactions-for-a-team-discussion)
-* [创建团队讨论的反应](/rest/reference/reactions#create-reaction-for-a-team-discussion){% ifversion fpt or ghes or ghae or ghec %}
+* [Create reaction for a team discussion](/rest/reference/reactions#create-reaction-for-a-team-discussion)
 * [删除提交注释反应](/rest/reference/reactions#delete-a-commit-comment-reaction)
 * [删除议题反应](/rest/reference/reactions#delete-an-issue-reaction)
 * [删除对提交注释的反应](/rest/reference/reactions#delete-an-issue-comment-reaction)
 * [删除拉取请求注释反应](/rest/reference/reactions#delete-a-pull-request-comment-reaction)
 * [删除团队讨论反应](/rest/reference/reactions#delete-team-discussion-reaction)
-* [删除团队讨论注释反应](/rest/reference/reactions#delete-team-discussion-comment-reaction){% endif %}
+* [Delete team discussion comment reaction](/rest/reference/reactions#delete-team-discussion-comment-reaction)
 
 #### 仓库
 
@@ -707,11 +705,9 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 * [获取仓库自述文件](/rest/reference/repos#get-a-repository-readme)
 * [获取仓库许可](/rest/reference/licenses#get-the-license-for-a-repository)
 
-{% ifversion fpt or ghes or ghae or ghec %}
 #### 仓库事件调度
 
 * [创建仓库调度事件](/rest/reference/repos#create-a-repository-dispatch-event)
-{% endif %}
 
 #### 仓库挂钩
 

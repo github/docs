@@ -9,7 +9,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: issue-4864
+  ghae: '*'
   ghec: '*'
 type: how_to
 topics:
@@ -36,7 +36,7 @@ topics:
 *   {% data variables.product.prodname_dependabot %} escanea cualquier subida a la rama predeterminada que contenga un archivo de manifiesto. Cuando se agrega un registro de vulnerabilidad nuevo, este escanea todos los repositorios existentes y genera una alerta para cada repositorio vulnerable. Las {% data variables.product.prodname_dependabot_alerts %} se agregan a nivel del repositorio, en vez de crear una alerta por cada vulnerabilidad. Para obtener más información, consulta la sección "[Acerca de las {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)".
 *   {% ifversion fpt or ghec or ghes > 3.2 %}{% data variables.product.prodname_dependabot_security_updates %} se activa cuando recibes una alerta sobre una dependencia vulnerable en tu repositorio. Cuando sea posible, el {% data variables.product.prodname_dependabot %} creará una solicitud de cambios en tu repositorio para actualizar la dependencia vulnerable a la versión segura mínima posible que se requiere para evitar la vulnerabilidad. Para obtener más información, consulta las secciones "[Acerca de las {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)" y "[Solucionar problemas en los errores del {% data variables.product.prodname_dependabot %}](/github/managing-security-vulnerabilities/troubleshooting-dependabot-errors)".
 
-    {% endif %}El {% data variables.product.prodname_dependabot %} no escanea los repositorios para encontrar dependencias vulnerables en horarios específicos, sino cuando algo cambia. Por ejemplo, se activará un escaneo cuando se agregue una dependencia nueva ({% data variables.product.prodname_dotcom %} verifica esto en cada subida) o cuando se agrega una vulnerabilidad a la base de datos de las asesorías {% ifversion ghes or ghae-issue-4864 %} y se sincroniza con {% data variables.product.product_location %}{% endif %}. Para obtener más información, consulta la sección "[Acerca de las {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies#detection-of-vulnerable-dependencies)".
+    {% endif %}El {% data variables.product.prodname_dependabot %} no escanea los repositorios para encontrar dependencias vulnerables en horarios específicos, sino cuando algo cambia. Por ejemplo, se activará un escaneo cuando se agregue una dependencia nueva ({% data variables.product.prodname_dotcom %} verifica esto en cada subida) o cuando se agrega una vulnerabilidad a la base de datos de las asesorías {% ifversion ghes or ghae %} y se sincroniza con {% data variables.product.product_location %}{% endif %}. Para obtener más información, consulta la sección "[Acerca de las {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies#detection-of-vulnerable-dependencies)".
 
 ## Do {% data variables.product.prodname_dependabot_alerts %} only relate to vulnerable dependencies in manifests and lockfiles?
 

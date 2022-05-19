@@ -44,7 +44,7 @@ Un token sin alcances asignados solo puede acceder a información pública. Para
 {% data reusables.user-settings.developer_settings %}
 {% data reusables.user-settings.personal_access_tokens %}
 {% data reusables.user-settings.generate_new_token %}
-5. Asígnale a tu token un nombre descriptivo. ![Token description field](/assets/images/help/settings/token_description.png){% ifversion fpt or ghes > 3.2 or ghae-issue-4374 or ghec %}
+5. Asígnale a tu token un nombre descriptivo. ![Token description field](/assets/images/help/settings/token_description.png){% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 6. Para dar un vencimiento a tu token, selecciona el menú desplegable de **Vencimiento** y luego haz clic en uno predeterminado o utiliza el selector de calendario. ![Token expiration field](/assets/images/help/settings/token_expiration.png){% endif %}
 7. Selecciona los alcances o permisos que deseas otorgarle a este token. Para usar tu token para acceder a repositorios desde la línea de comando, selecciona **repo**.
    {% ifversion fpt or ghes or ghec %}
@@ -80,5 +80,5 @@ En vez de ingresar tu PAT manualmente para cada operación de HTTPS de Git, pued
 
 ## Leer más
 
-- "[About authentication to GitHub](/github/authenticating-to-github/about-authentication-to-github)"{% ifversion fpt or ghae-issue-4374 or ghes > 3.2 or ghec %}
+- "[About authentication to GitHub](/github/authenticating-to-github/about-authentication-to-github)"{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
 - "[Vencimiento y revocación de token](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation)"{% endif %}

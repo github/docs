@@ -25,4 +25,4 @@ type: how_to
 
 ## 延伸阅读
 
-- {% ifversion fpt or ghes or ghae or ghec %}”[查看您的订阅](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions#reviewing-repositories-that-youre-watching){% else %}”[列出您关注的仓库](/github/receiving-notifications-about-activity-on-github/listing-the-repositories-youre-watching){% endif %}"
+- "[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions#reviewing-repositories-that-youre-watching)"

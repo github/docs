@@ -34,7 +34,7 @@ topics:
 ## 配置存储库缓存
 
 {% ifversion ghes = 3.3 %}
-1. On your primary {% data variables.product.prodname_ghe_server %} appliance, enable the feature flag for repository caching.
+1. 在主 {% data variables.product.prodname_ghe_server %} 设备上，为存储库缓存启用功能标志。
 
    ```
    $ ghe-config cluster.cache-enabled true
@@ -48,7 +48,7 @@ topics:
    $ ssh -p 122 admin@<em>REPLICA IP</em>
    ```
 {%- ifversion ghes = 3.3 %}
-1. On your cache replica, enable the feature flag for repository caching.
+1. 在缓存副本上，为存储库缓存启用功能标志。
 
    ```
    $ ghe-config cluster.cache-enabled true

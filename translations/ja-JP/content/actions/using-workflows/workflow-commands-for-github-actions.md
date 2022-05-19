@@ -99,18 +99,18 @@ core.setOutput('SELECTED_COLOR', 'green');
 
 以下の表は、ワークフロー内で使えるツールキット関数を示しています。
 
-| ツールキット関数              | 等価なワークフローのコマンド                                                        |
-| --------------------- | --------------------------------------------------------------------- |
-| `core.addPath`        | Accessible using environment file `GITHUB_PATH`                       |
-| `core.debug`          | `debug` |{% ifversion fpt or ghes > 3.2 or ghae-issue-4929 or ghec %}
+| ツールキット関数              | 等価なワークフローのコマンド                                             |
+| --------------------- | ---------------------------------------------------------- |
+| `core.addPath`        | Accessible using environment file `GITHUB_PATH`            |
+| `core.debug`          | `debug` |{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 | `core.notice`         | `notice` 
 {% endif %}
-| `core.error`          | `error`                                                               |
-| `core.endGroup`       | `endgroup`                                                            |
-| `core.exportVariable` | Accessible using environment file `GITHUB_ENV`                        |
-| `core.getInput`       | 環境変数の`INPUT_{NAME}`を使ってアクセス可能                                         |
-| `core.getState`       | 環境変数の`STATE_{NAME}`を使ってアクセス可能                                         |
-| `core.isDebug`        | 環境変数の`RUNNER_DEBUG`を使ってアクセス可能                                         |
+| `core.error`          | `error`                                                    |
+| `core.endGroup`       | `endgroup`                                                 |
+| `core.exportVariable` | Accessible using environment file `GITHUB_ENV`             |
+| `core.getInput`       | 環境変数の`INPUT_{NAME}`を使ってアクセス可能                              |
+| `core.getState`       | 環境変数の`STATE_{NAME}`を使ってアクセス可能                              |
+| `core.isDebug`        | 環境変数の`RUNNER_DEBUG`を使ってアクセス可能                              |
 {%- if actions-job-summaries %}
 | `core.summary` | Accessible using environment variable `GITHUB_STEP_SUMMARY` |
 {%- endif %}
@@ -170,7 +170,7 @@ Write-Output "::debug::Set the Octocat variable"
 
 {% endpowershell %}
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4929 or ghec %}
+{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 
 ## Setting a notice message
 
