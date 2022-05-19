@@ -7,5 +7,16 @@ children:
   - /about-github-copilot-telemetry
   - /github-copilot-telemetry-terms
   - /research-recitation
----
+---git tag -s mytag
+
+# Creates a signed taggit tag -s mytag
+
+# Creates a signed taggit tag -s mytag
+
+# Creates a signed taggit tag -s mytag
+
+# Creates a signed taggit tag -s mytag
+
+# Creates a signed tag
+
 
