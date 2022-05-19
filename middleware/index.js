@@ -66,6 +66,8 @@ import setStaticAssetCaching from './static-asset-caching.js'
 import protect from './overload-protection.js'
 import fastHead from './fast-head.js'
 
+import fastlyCacheTest from './fastly-cache-test.js'
+
 const { DEPLOYMENT_ENV, NODE_ENV } = process.env
 const isDevelopment = NODE_ENV === 'development'
 const isAzureDeployment = DEPLOYMENT_ENV === 'azure'
@@ -329,6 +331,8 @@ export default function (app) {
 
   app.use(asyncMiddleware(instrument(featuredLinks, './featured-links')))
   app.use(asyncMiddleware(instrument(learningTrack, './learning-track')))
+
+  app.use('/fastly-cache-test/*', fastlyCacheTest)
 
   // *** Headers for pages only ***
   app.use(setFastlyCacheHeaders)
