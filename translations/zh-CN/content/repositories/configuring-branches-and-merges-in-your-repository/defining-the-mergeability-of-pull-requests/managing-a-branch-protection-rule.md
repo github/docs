@@ -79,7 +79,7 @@ shortTitle: 分支保护规则
 1. （可选）要使用合并队列合并拉取请求，请选择 **Require merge queue（需要合并队列）**。 {% data reusables.pull_requests.merge-queue-references %} ![需要合并队列选项](/assets/images/help/repository/require-merge-queue.png)
   {% tip %}
 
-  **提示：** 拉取请求合并队列功能目前处于有限公测阶段，可能会发生更改。 Organizations owners can request early access to the beta by joining the [waitlist](https://github.com/features/merge-queue/signup).
+  **提示：** 拉取请求合并队列功能目前处于有限公测阶段，可能会发生更改。 组织所有者可以通过加入[等待列表](https://github.com/features/merge-queue/signup)来请求提前访问测试版。
 
   {% endtip %}
 {%- endif %}
@@ -88,8 +88,9 @@ shortTitle: 分支保护规则
 {%- endif %}
 1. （可选）选择 **Apply the rules above to administrators（将上述规则应用于管理员）**。 ![将上述规则应用于管理员复选框](/assets/images/help/repository/include-admins-protected-branches.png)
 1. （可选）{% ifversion fpt or ghec %}如果仓库由组织拥有，可使用 {% data variables.product.prodname_team %} 或 {% data variables.product.prodname_ghe_cloud %}{% endif %} 启用分支限制。
-   - 选择 **Restrict who can push to matching branches（限制谁可以推送到匹配分支）**。 ![分支限制复选框](/assets/images/help/repository/restrict-branch.png)
-   - 搜索并选择有权限推送到受保护分支的人员、团队或应用程序。 ![分支限制搜索](/assets/images/help/repository/restrict-branch-search.png)
+   - 选择 **Restrict who can push to matching branches（限制谁可以推送到匹配分支）**。 ![Branch restriction checkbox](/assets/images/help/repository/restrict-branch.png){% if restrict-pushes-create-branch %}
+   - （可选）要同时限制创建匹配分支，请选择 **Restrict pushes that create matching branches（限制创建匹配分支的推送）**。 ![Branch creation restriction checkbox](/assets/images/help/repository/restrict-branch-create.png){% endif %}
+   - 搜索并选择将有权推送到受保护分支或创建匹配分支的人员、团队或应用。 ![分支限制搜索]{% if restrict-pushes-create-branch %}(/assets/images/help/repository/restrict-branch-search-with-create.png){% else %}(/assets/images/help/repository/restrict-branch-search.png){% endif %}
 1. （可选）在“Rules applied to everyone including administrators（适用于包括管理员在内的所有人规则）”下，选择 **Allow force pushes（允许强制推送）**。 ![允许强制推送选项](/assets/images/help/repository/allow-force-pushes.png)
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5624 %}
   然后，选择谁可以强制推送到分支。

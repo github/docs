@@ -66,7 +66,7 @@ Puedes elegir inhabilitar {% data variables.product.prodname_actions %} para tod
 1. Debajo de "Políticas", selecciona {% data reusables.actions.policy-label-for-select-actions-workflows %} y agrega tus acciones{% if actions-workflow-policy %} y flujos de trabajo reutilizables{% endif %} requeridos a la lista.
    {% if actions-workflow-policy %}
    ![Agrega acciones y flujos de trabajo reutilizables a la lista de elementos permitidos](/assets/images/help/organizations/enterprise-actions-policy-allow-list-with-workflows.png)
-   {%- elsif ghes or ghae-issue-5094 %}
+   {%- elsif ghes or ghae %}
    ![Agregar acciones a la lista de elementos permitidos](/assets/images/help/organizations/enterprise-actions-policy-allow-list.png)
    {%- elsif ghae %}
    ![Agregar acciones a la lista de elementos permitidos](/assets/images/enterprise/github-ae/enterprise-actions-policy-allow-list.png)
@@ -121,14 +121,57 @@ Si se habilita una política para una empresa, esta puede inhabilitarse selectiv
 
 {% data reusables.actions.workflow-permissions-intro %}
 
-Puedes configurar los permisos predeterminados para del `GITHUB_TOKEN` en la configuración de tu empresa, organización o repositorio. Si eliges la opción restringida como lo predeterminado en la configuración de tu empresa, esto previene que puedas elegir más configuraciones permisivas en la configuración de tu organización o repositorio.
+Puedes configurar los permisos predeterminados para del `GITHUB_TOKEN` en la configuración de tu empresa, organización o repositorio. If you choose a restricted option as the default in your enterprise settings, this prevents the more permissive setting being chosen in the organization or repository settings.
 
 {% data reusables.actions.workflow-permissions-modifying %}
+
+### Configuring the default `GITHUB_TOKEN` permissions
+
+{% if allow-actions-to-approve-pr-with-ent-repo %}
+By default, when you create a new enterprise, `GITHUB_TOKEN` only has read access for the `contents` scope.
+{% endif %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
-1. Debajo de **Permisos del flujo de trabajo**, elige si quieres que el `GITHUB_TOKEN` tenga permisos de lectura y escritura para todos los alcances o solo acceso de lectura para el alcance `contents`. ![Configurar los permisos del GITHUB_TOKEN para esta empresa](/assets/images/help/settings/actions-workflow-permissions-enterprise.png)
+1. Under "Workflow permissions", choose whether you want the `GITHUB_TOKEN` to have read and write access for all scopes, or just read access for the `contents` scope.
+
+   ![Configurar los permisos del GITHUB_TOKEN para esta empresa](/assets/images/help/settings/actions-workflow-permissions-enterprise{% if allow-actions-to-approve-pr-with-ent-repo %}-with-pr-approval{% endif %}.png)
 1. Da clic en **Guardar** para aplicar la configuración.
+
+{% if allow-actions-to-approve-pr-with-ent-repo %}
+### Preventing {% data variables.product.prodname_actions %} from creating or approving pull requests
+
+{% data reusables.actions.workflow-pr-approval-permissions-intro %}
+
+By default, when you create a new enterprise, workflows are not allowed to create or approve pull requests.
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.policies-tab %}
+{% data reusables.enterprise-accounts.actions-tab %}
+1. Under "Workflow permissions", use the **Allow GitHub Actions to create and approve pull requests** setting to configure whether `GITHUB_TOKEN` can create and approve pull requests.
+
+   ![Configurar los permisos del GITHUB_TOKEN para esta empresa](/assets/images/help/settings/actions-workflow-permissions-enterprise-with-pr-approval.png)
+1. Da clic en **Guardar** para aplicar la configuración.
+
+{% endif %}
+{% endif %}
+
+{% if actions-cache-policy-apis %}
+
+## Enforcing a policy for cache storage in your enterprise
+
+{% data reusables.actions.cache-default-size %} {% data reusables.actions.cache-eviction-process %}
+
+However, you can set an enterprise policy to customize both the default total cache size for each repository, as well as the maximum total cache size allowed for a repository. For example, you might want the default total cache size for each repository to be 5 GB, but also allow repository administrators to configure a total cache size up to 15 GB if necessary.
+
+People with admin access to a repository can set a total cache size for their repository up to the maximum cache size allowed by the enterprise policy setting.
+
+The policy settings for {% data variables.product.prodname_actions %} cache storage can currently only be modified using the REST API:
+
+* To view the current enterprise policy settings, see "[Get GitHub Actions cache usage policy for an enterprise](/rest/actions/cache#get-github-actions-cache-usage-policy-for-an-enterprise)."
+* To change the enterprise policy settings, see "[Set GitHub Actions cache usage policy for an enterprise](/rest/actions/cache#get-github-actions-cache-usage-policy-for-an-enterprise)."
+
+{% data reusables.actions.cache-no-org-policy %}
 
 {% endif %}

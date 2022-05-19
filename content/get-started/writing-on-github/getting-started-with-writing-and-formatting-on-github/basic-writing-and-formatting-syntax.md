@@ -28,7 +28,6 @@ When you use two or more headings, GitHub automatically generates a table of con
 
 ![Screenshot highlighting the table of contents icon](/assets/images/help/repository/headings_toc.png)
 
-
 ## Styling text
 
 You can indicate emphasis with bold, italic, strikethrough, subscript, or superscript text in comment fields and `.md` files.  
@@ -236,7 +235,7 @@ For more information, see "[About task lists](/articles/about-task-lists)."
 
 ## Mentioning people and teams
 
-You can mention a person or [team](/articles/setting-up-teams/) on {% data variables.product.product_name %} by typing <kbd>@</kbd> plus their username or team name. This will trigger a notification and bring their attention to the conversation. People will also receive a notification if you edit a comment to mention their username or team name. For more information about notifications, see {% ifversion fpt or ghes or ghae or ghec %}"[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[About notifications](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}."
+You can mention a person or [team](/articles/setting-up-teams/) on {% data variables.product.product_name %} by typing <kbd>@</kbd> plus their username or team name. This will trigger a notification and bring their attention to the conversation. People will also receive a notification if you edit a comment to mention their username or team name. For more information about notifications, see "[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications)."
 
 {% note %}
 
@@ -297,7 +296,7 @@ For a full list of available emoji and codes, check out [the Emoji-Cheat-Sheet](
 
 You can create a new paragraph by leaving a blank line between lines of text.
 
-{% ifversion fpt or ghae-issue-5180 or ghes > 3.2 or ghec %}
+{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
 ## Footnotes
 
 You can add footnotes to your content by using this bracket syntax:

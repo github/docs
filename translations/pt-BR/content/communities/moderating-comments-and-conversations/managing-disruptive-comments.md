@@ -47,13 +47,13 @@ Qualquer pessoa com acesso de gravação em um repositório pode editar comentá
 
 Considera-se apropriado editar um comentário e remover o conteúdo que não contribui para a conversa e viole o código de conduta da sua comunidade{% ifversion fpt or ghec %} ou as diretrizes [da Comunidade do GitHub](/free-pro-team@latest/github/site-policy/github-community-guidelines){% endif %}.
 
-Sometimes it may make sense to clearly indicate edits and their justification.
+Por vezes, pode fazer sentido indicar claramente as edições e a sua justificativa.
 
-That said, anyone with read access to a repository can view a comment's edit history. O menu suspenso **edited** (editado) na parte superior do comentário tem um histório de edições mostrando o usuário e o horário de cada edição.
+Dito isso, qualquer pessoa com acesso de leitura a um repositório pode ver o histórico de edição de um comentário. O menu suspenso **edited** (editado) na parte superior do comentário tem um histório de edições mostrando o usuário e o horário de cada edição.
 
 ![Comentário com observação adicional que o conteúdo foi redacted (suprimido)](/assets/images/help/repository/content-redacted-comment.png)
 
-## Redacting sensitive information
+## Redação de informações confidenciais
 
 Autores do comentário e pessoas com acesso de gravação a um repositório podem excluir informações confidenciais do histórico de edição de um comentário. Para obter mais informações, consulte "[Controlar as alterações em um comentário](/communities/moderating-comments-and-conversations/tracking-changes-in-a-comment)".
 
@@ -81,7 +81,7 @@ Excluir um comentário cria um evento na linha do tempo visível a qualquer um c
 
 {% endnote %}
 
-### Steps to delete a comment
+### Etapas para excluir um comentário
 
 1. Navegue até o comentário que deseja excluir.
 2. No canto superior direito do comentário, clique em {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} e em **Delete** (Excluir). ![Ícone horizontal kebab e menu comment moderation (moderação de comentários) mostrando as opções edit, hide, delete e report (editar, ocultar, excluir e denunciar)](/assets/images/help/repository/comment-menu.png)

@@ -124,8 +124,7 @@ aAAAe9
 {% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}
 {%- if secret-scanning-org-dry-runs %}
 1. 新しいカスタムパターンをテストする準備ができたら、アラートを作成することなく選択したリポジトリ内のマッチを特定するために、**Save and dry run（保存してdry run）**をクリックしてください。
-1. dry runを実行したいリポジトリを検索して選択してください。 最大で10個のリポジトリを選択できます。 ![dry runのために選択したリポジトリを表示しているスクリーンショット](/assets/images/help/repository/secret-scanning-dry-run-custom-pattern-select-repo.png)
-1. カスタムパターンをテストする準備ができたら、**Dry run**をクリックしてください。
+{% data reusables.advanced-security.secret-scanning-dry-run-select-repos %}
 {% data reusables.advanced-security.secret-scanning-dry-run-results %}
 {%- endif %}
 {% data reusables.advanced-security.secret-scanning-create-custom-pattern %}
@@ -142,7 +141,14 @@ aAAAe9
 
 {% note %}
 
+{% if secret-scanning-enterprise-dry-runs %}
+**ノート:**
+- Enterpriseレベルでは、カスタムパターンを編集でき、dry runで使えるのはカスタムパターンの作者だけです。
+- Enterpriseオーナーは、アクセスできるリポジトリ上でのみdry runを利用できますが、必ずしもEnterprise内のすべてのOrganizationやリポジトリにアクセスできるわけではありません。
+{% else %}
 **ノート:** dry-runの機能は無いので、カスタムパターンをEnterprise全体で定義する前に、1つのリポジトリ内でテストすることをおすすめします。 そうすれば、過剰な偽陽性の{% data variables.product.prodname_secret_scanning %}アラートを発生させることを防げます。
+
+{% endif %}
 
 {% endnote %}
 
@@ -152,6 +158,11 @@ aAAAe9
 {% data reusables.enterprise-accounts.advanced-security-security-features %}
 1. "Secret scanning custom patterns（シークレットスキャンニングのカスタムパターン）"の下で、{% ifversion ghes = 3.2 %}**New custom pattern（新規カスタムパターン）**{% else %}**New pattern（新規パターン）**{% endif %}をクリックしてください。
 {% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}
+{%- if secret-scanning-enterprise-dry-runs %}
+1. 新しいカスタムパターンをテストする準備ができたら、アラートを作成することなくリポジトリ内のマッチを特定するために、**Save and dry run（保存してdry run）**をクリックしてください。
+{% data reusables.advanced-security.secret-scanning-dry-run-select-repos %}
+{% data reusables.advanced-security.secret-scanning-dry-run-results %}
+{%- endif %}
 {% data reusables.advanced-security.secret-scanning-create-custom-pattern %}
 
 パターンを作成すると、{% data variables.product.prodname_secret_scanning %}はすべてのブランチのGit履歴全体を含めて、{% data variables.product.prodname_GH_advanced_security %}が有効化されたEnterpriseのOrganization内のリポジトリでシークレットをスキャンします。 Organizationのオーナーとリポジトリの管理者は、シークレットが見つかるとアラートを受け、シークレットが見つかったリポジトリでアラートをレビューできます。 {% data variables.product.prodname_secret_scanning %}アラートの表示に関する詳しい情報については「[{% data variables.product.prodname_secret_scanning %}空のアラートの管理](/code-security/secret-security/managing-alerts-from-secret-scanning)」を参照してください。

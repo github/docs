@@ -59,7 +59,13 @@ Se você tiver instalado e conectado a {% data variables.product.prodname_mobile
 
 ## Usar a autenticação de dois fatores com a linha de comando
 
-Após habilitação da 2FA, você deverá usar um token de acesso pessoal ou uma chave SSH em vez da senha ao acessar o {% data variables.product.product_name %} na linha de comando.
+Depois ativada a 2FA, você não usará mais a sua senha para acessar {% data variables.product.product_name %} na linha de comando. Em vez disso, use o Gestor de Credenciais do Git, um token de acesso pessoal ou uma chave SSH.
+
+### Efetuando a autenticação na linha de comando usando o Gestor de Credenciais do Git
+
+[Gerenciador de Credenciais Git](https://github.com/GitCredentialManager/git-credential-manager/blob/main/README.md) é um auxiliar de credenciais do Git seguro que é executado no Windows, macOS e Linux. Para obter mais informações sobre auxiliares de credenciais do Git, consulte [Evitar a repetição](https://git-scm.com/docs/gitcredentials#_avoiding_repetition) no livro Pro Git.
+
+As instruções de instalação variam de acordo no sistema operacional do seu computador. Para obter mais informações, consulte [Download e instalação](https://github.com/GitCredentialManager/git-credential-manager/blob/main/README.md#download-and-install) no repositório do GitCredentialManager/git-credential-manager.
 
 ### Autenticar na linha de comando usando HTTPS
 

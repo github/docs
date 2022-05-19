@@ -48,7 +48,7 @@ shortTitle: GitHub Actions 的计费
 
 仓库使用的存储空间是 {% data variables.product.prodname_actions %} 构件和 {% data variables.product.prodname_registry %} 使用的存储空间总计。 您的存储成本是您帐户拥有的所有帐户的总使用量。 有关 {% data variables.product.prodname_registry %} 定价的更多信息，请参阅“[关于 {% data variables.product.prodname_registry %} 的计费](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)”。
 
- 如果您的帐户使用量超出了这些限额，并且您设置的支出限额高于 0 美元，则每月的每 GB 存储用量和每分钟用量需要支付 0.25 美元，具体取决于 {% data variables.product.prodname_dotcom %} 托管运行器使用的操作系统。 {% data variables.product.prodname_dotcom %} 将每个作业使用的分钟数舍入到最接近的分钟整数。
+ If your account's usage surpasses these limits and you have set a spending limit above $0 USD, you will pay $0.008 USD per GB of storage per day and per-minute usage depending on the operating system used by the {% data variables.product.prodname_dotcom %}-hosted runner. {% data variables.product.prodname_dotcom %} 将每个作业使用的分钟数舍入到最接近的分钟整数。
 
 {% note %}
 

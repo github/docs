@@ -31,9 +31,9 @@ versions:
 
 ## 比较标记
 
-比较发行版标记将显示自上次发布以来您对仓库的更改。 {% ifversion fpt or ghae or ghes or ghec %} 更多信息请参阅“[比较发行版](/github/administering-a-repository/comparing-releases)”。{% endif %}
+比较发行版标记将显示自上次发布以来您对仓库的更改。 For more information, see "[Comparing releases](/github/administering-a-repository/comparing-releases)."
 
-{% ifversion fpt or ghae or ghes or ghec %}要比较标记，可以从页面顶部的 `compare` 下拉菜单选择标记名称。{% else %} 不是键入分支名称，而是键入 `compare` 下拉菜单中的标记名称。{% endif %}
+To compare tags, you can select a tag name from the `compare` drop-down menu at the top of the page.
 
 此处是[在两个标记之间进行比较](https://github.com/octocat/linguist/compare/v2.2.0...octocat:v2.3.3)的示例。
 

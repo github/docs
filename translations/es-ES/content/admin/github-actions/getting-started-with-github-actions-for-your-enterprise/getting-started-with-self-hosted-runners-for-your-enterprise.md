@@ -32,7 +32,7 @@ This guide shows you how to apply a centralized management approach to self-host
 1. Deploy a self-hosted runner for your enterprise
 1. Create a group to manage access to the runners available to your enterprise
 1. Optionally, further restrict the repositories that can use the runner
-{%- ifversion ghec or ghae-issue-4462 or ghes > 3.2 %}
+{%- ifversion ghec or ghae or ghes > 3.2 %}
 1. Optionally, build custom tooling to automatically scale your self-hosted runners
 {% endif %}
 
@@ -59,7 +59,7 @@ Primero, habilita las {% data variables.product.prodname_actions %} para todas l
 1. Select {% data reusables.actions.policy-label-for-select-actions-workflows %} and **Allow actions created by GitHub** to allow local actions{% if actions-workflow-policy %} and reusable workflows{% endif %}, and actions created by {% data variables.product.company_short %}.
 
    {% if actions-workflow-policy %}
-   ![Screenshot of "Allow select actions" and "Allow actions created by {% data variables.product.company_short %}" for {% data variables.product.prodname_actions %}](/assets/images/help/settings/actions-policy-allow-select-actions-and-actions-from-github-with-workflows.png)
+   ![Captura de pantalla de "Permitir acciones seleccionadas" y "Permitir acciones creadas por {% data variables.product.company_short %}" para las {% data variables.product.prodname_actions %}](/assets/images/help/settings/actions-policy-allow-select-actions-and-actions-from-github-with-workflows.png)
    {%- else %}
    ![Captura de pantalla de "Permitir acciones seleccionadas" y "Permitir acciones creadas por {% data variables.product.company_short %}" para las {% data variables.product.prodname_actions %}](/assets/images/help/settings/actions-policy-allow-select-actions-and-actions-from-github.png)
    {%- endif %}
@@ -122,7 +122,7 @@ Optionally, organization owners can further restrict the access policy of the ru
 
 Para obtener más información, consulta la sección "[Administrar el acceso a los ejecutores auto-hospedados](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#changing-the-access-policy-of-a-self-hosted-runner-group)".
 
-{% ifversion ghec or ghae-issue-4462 or ghes > 3.2 %}
+{% ifversion ghec or ghae or ghes > 3.2 %}
 
 ## 5. Automatically scale your self-hosted runners
 

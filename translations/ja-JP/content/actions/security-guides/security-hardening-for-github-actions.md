@@ -201,6 +201,14 @@ The same principles described above for using third-party actions also apply to 
 {% data reusables.actions.outside-collaborators-internal-actions %} For more information, see "[Sharing actions and workflows with your enterprise](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)."
 {% endif %}
 
+{% if allow-actions-to-approve-pr %}
+## Preventing {% data variables.product.prodname_actions %} from {% if allow-actions-to-approve-pr-with-ent-repo %}creating or {% endif %}approving pull requests
+
+{% data reusables.actions.workflow-pr-approval-permissions-intro %} Allowing workflows, or any other automation, to {% if allow-actions-to-approve-pr-with-ent-repo %}create or {% endif %}approve pull requests could be a security risk if the pull request is merged without proper oversight.
+
+For more information on how to configure this setting, see {% if allow-actions-to-approve-pr-with-ent-repo %}{% ifversion ghes or ghec or ghae %}"[Enforcing policies for {% data variables.product.prodname_actions %} in your enterprise](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#preventing-github-actions-from-creating-or-approving-pull-requests)",{% endif %}{% endif %} "[Disabling or limiting {% data variables.product.prodname_actions %} for your organization](/github/setting-up-and-managing-organizations-and-teams/disabling-or-limiting-github-actions-for-your-organization#preventing-github-actions-from-{% if allow-actions-to-approve-pr-with-ent-repo %}creating-or-{% endif %}approving-pull-requests)"{% if allow-actions-to-approve-pr-with-ent-repo %}, and "[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#preventing-github-actions-from-creating-or-approving-pull-requests)"{% endif %}.
+{% endif %}
+
 ## Using OpenSSF Scorecards to secure workflows
 
 [Scorecards](https://github.com/ossf/scorecard) is an automated security tool that flags risky supply chain practices. You can use the [Scorecards action](https://github.com/marketplace/actions/ossf-scorecard-action) and [starter workflow](https://github.com/actions/starter-workflows) to follow best security practices. Once configured, the Scorecards action runs automatically on repository changes, and alerts developers about risky supply chain practices using the built-in code scanning experience. The Scorecards project runs a number of checks, including script injection attacks, token permissions, and pinned actions.

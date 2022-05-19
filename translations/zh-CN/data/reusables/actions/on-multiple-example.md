@@ -1,7 +1,7 @@
-You can specify a single event or multiple events. For example, a workflow with the following `on` value will run when a push is made to any branch in the repository or when someone forks the repository:
+您可以指定单个事件或多个事件。 例如，当向存储库中的任何分支进行推送或有人复刻存储库时，将运行具有以下 `on` 值的工作流程：
 
 ```yaml
 on: [push, fork]
 ```
 
-If you specify multiple events, only one of those events needs to occur to trigger your workflow. If multiple triggering events for your workflow occur at the same time, multiple workflow runs will be triggered.
+如果指定多个事件，则只需发生其中一个事件即可触发工作流程。 如果工作流程的多个触发事件同时发生，则将触发多个工作流程运行。

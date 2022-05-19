@@ -25,7 +25,7 @@ Cuando los permisos se listan en el archivo `devcontainer.json`, se te pedirá r
 Para crear codespaces con permisos personalizados definidos, debes utilizar uno de los siguientes:
 * La IU web de {% data variables.product.prodname_dotcom %}
 * [{% data variables.product.prodname_dotcom %} CLI](https://github.com/cli/cli/releases/latest) 2.5.2 o posterior
-* [{% data variables.product.prodname_github_codespaces %} extensión de Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces) 1.5.3 o posterior
+* [{% data variables.product.prodname_github_codespaces %} {% data variables.product.prodname_vscode %} extension](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces) 1.5.3 or later
 
 ## Configurar los permisos adicionales de los repositorios
 
@@ -87,7 +87,7 @@ Para crear codespaces con permisos personalizados definidos, debes utilizar uno 
   }
   ```
 
-  Para configurar todos los permisos para un repositorio específico, utiliza `read-all` i `write-all` en el objeto `permissions`
+  To set all permissions for a given repository, use `"permissions": "read-all"` or `"permissions": "write-all"` in the repository object.
 
   ```json
   {
@@ -95,9 +95,7 @@ Para crear codespaces con permisos personalizados definidos, debes utilizar uno 
       "codespaces": {
         "repositories": {
           "my_org/my_repo": {
-            "permissions": {
-              "write-all"
-            }
+            "permissions": "write-all"
           }
         }
       }

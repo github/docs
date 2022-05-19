@@ -1,4 +1,4 @@
-1. Navigate to your project.
+1. 导航到您的项目。
 2. In the top-right, to access insights, click {% octicon "graph" aria-label="the graph icon" %}.
 
     {% note %}

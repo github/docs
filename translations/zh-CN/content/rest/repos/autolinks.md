@@ -1,5 +1,7 @@
 ---
-title: 自动链接
+title: 存储库自动链接
+allowTitleToDifferFromFilename: true
+shortTitle: 自动链接
 intro: 为了帮助简化您的工作流程，您可以使用 API 向外部资源（如 JIRA 问题和 Zendesk 事件单）添加自动链接。
 versions:
   fpt: '*'
@@ -10,6 +12,8 @@ topics:
   - API
 miniTocMaxHeadingLevel: 3
 ---
+
+## 关于存储库自动链接 API
 
 更多信息请参阅“[配置自动链接以引用外部资源](/github/administering-a-repository/configuring-autolinks-to-reference-external-resources)”。
 

@@ -43,7 +43,7 @@ Quando a instância estiver em modo de manutenção, todos os acessos regulares 
 
 {% if ip-exception-list %}
 
-You can perform initial validation of your maintenance operation by configuring an IP exception list to allow access to {% data variables.product.product_location %} from only the IP addresses and ranges provided. Attempts to access {% data variables.product.product_location %} from IP addresses not specified on the IP exception list will receive a response consistent with those sent when the instance is in maintenance mode.
+Você pode executar a validação inicial da sua operação de manutenção configurando uma lista de exceção de IP para permitir acesso a {% data variables.product.product_location %} apenas dos endereços IP e das faixas fornecidas. As tentativas de acessar {% data variables.product.product_location %} de endereços IP não especificados na lista de exceções IP receverão uma resposta consistente com aquelas enviadas quando a instância estiver em modo de manutenção.
 
 {% endif %}
 
@@ -60,18 +60,18 @@ You can perform initial validation of your maintenance operation by configuring 
 
 {% if ip-exception-list %}
 
-## Validating changes in maintenance mode using the IP exception list
+## Validando alterações no modo de manutenção usando a lista de exceção de IP
 
-The IP exception list provides controlled and restricted access to {% data variables.product.product_location %}, which is ideal for initial validation of server health following a maintenance operation. Once enabled, {% data variables.product.product_location %} will be taken out of maintenance mode and available only to the configured IP addresses. The maintenance mode checkbox will be updated to reflect the change in state.
+A lista de exceções de IP fornece acesso controlado e restrito a {% data variables.product.product_location %}, o que é ideal para validação inicial de saúde do servidor após uma operação de manutenção. Uma vez habilitado, {% data variables.product.product_location %} será retirado do modo de manutenção e disponibilizado apenas para os endereços IP configurados. A caixa de seleção do modo de manutenção será atualizada para refletir a alteração no estado.
 
-If you re-enable maintenance mode, the IP exception list will be disabled and {% data variables.product.product_location %} will return to maintenance mode. If you just disable the IP exception list, {% data variables.product.product_location %} will return to normal operation.
+Se você reabilitar o modo de manutenção, a lista de exceções de IP será desabilitada e {% data variables.product.product_location %} retornará ao modo de manutenção. Se você desabilitar a lista de exceção de IP, {% data variables.product.product_location %} retornará para a operação normal.
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
-1. At the top of the {% data variables.enterprise.management_console %}, click **Maintenance**, and confirm maintenance mode is already enabled. ![Guia de manutenção](/assets/images/enterprise/management-console/maintenance-tab.png)
-1. Select **Enable IP exception list**. ![Checkbox for enabling ip exception list](/assets/images/enterprise/maintenance/enable-ip-exception-list.png)
-1. In the text box, type a valid list of space-separated IP addresses or CIDR blocks that should be allowed to access {% data variables.product.product_location %}. ![completed field for IP addresses](/assets/images/enterprise/maintenance/ip-exception-list-ip-addresses.png)
-1. Clique em **Salvar**. ![after IP excetpion list has saved](/assets/images/enterprise/maintenance/ip-exception-save.png)
+1. Na parte superior do {% data variables.enterprise.management_console %}, clique em **Manutenção** e confirme que o modo de manutenção já está habilitado. ![Guia de manutenção](/assets/images/enterprise/management-console/maintenance-tab.png)
+1. Selecione **Habilitar lista de exceção de IP**. ![Caixa de seleção para habilitar lista de exceções de IP](/assets/images/enterprise/maintenance/enable-ip-exception-list.png)
+1. Na caixa de texto, digite uma lista válida de endereços IP separados por espaço ou blocos CIDR que devem ter permissão para acessar {% data variables.product.product_location %}. ![campo concluído para endereços IP](/assets/images/enterprise/maintenance/ip-exception-list-ip-addresses.png)
+1. Clique em **Salvar**. ![após a lista de excetpion IP ter salvo](/assets/images/enterprise/maintenance/ip-exception-save.png)
 
 {% endif %}
 

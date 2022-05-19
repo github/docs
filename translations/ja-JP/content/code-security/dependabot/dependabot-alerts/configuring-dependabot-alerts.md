@@ -5,7 +5,7 @@ shortTitle: Dependabotアラートの設定
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: issue-4864
+  ghae: '*'
   ghec: '*'
 type: how_to
 topics:

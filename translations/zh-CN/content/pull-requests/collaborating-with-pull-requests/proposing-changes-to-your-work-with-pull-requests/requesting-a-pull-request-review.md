@@ -21,7 +21,7 @@ shortTitle: 请求 PR 审查
 
 要将审阅者分配给拉取请求，您需要对存储库具有写入权限。 有关仓库访问权限的更多信息，请参阅“[组织的仓库角色](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)”。 如果您具有写入权限，则可以将具有读取访问权限的任何人分配到存储库作为审阅者。
 
-具有写入权限的组织成员还可以将拉取请求审阅分配给对存储库具有读取访问权限的任何人员或团队。 被请求的审查者或团队将收到您请求他们审查拉取请求的通知。 {% ifversion fpt or ghae or ghes or ghec %}如果您请求团队审查，并且启用了代码审查分配，则会向特定成员发出申请，并且取消团队作为审查者。 更多信息请参阅“[管理团队的代码审查设置](/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team)”。{% endif %}
+具有写入权限的组织成员还可以将拉取请求审阅分配给对存储库具有读取访问权限的任何人员或团队。 被请求的审查者或团队将收到您请求他们审查拉取请求的通知。 If you request a review from a team and code review assignment is enabled, specific members will be requested and the team will be removed as a reviewer. 更多信息请参阅“[管理团队的代码审查设置](/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team)”。
 
 {% note %}
 
