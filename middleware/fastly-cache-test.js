@@ -5,6 +5,9 @@ export default function fastlyCacheTest(req, res, next) {
     return
   }
 
+  const staleIfErrorParam = process.env.CACHE_TEST_STALE_IF_ERROR ?? '300'
+  const staleWhileRevalidateParam = process.env.CACHE_TEST_STALE_WHILE_REVALIDATE ?? '60'
+
   const path = req.params[0]
 
   let status = 200
@@ -16,9 +19,11 @@ export default function fastlyCacheTest(req, res, next) {
   if (path.includes('private')) surrogateControlValues.push('private')
   if (path.includes('proxy-revalidate')) surrogateControlValues.push('proxy-revalidate')
   if (path.includes('public')) surrogateControlValues.push('public')
-  if (path.includes('stale-if-error')) surrogateControlValues.push('stale-if-error=300')
+
+  if (path.includes('stale-if-error'))
+    surrogateControlValues.push(`stale-if-error=${staleIfErrorParam}`)
   if (path.includes('stale-while-revalidate'))
-    surrogateControlValues.push('stale-while-revalidate=60')
+    surrogateControlValues.push(`stale-while-revalidate=${staleWhileRevalidateParam}`)
 
   if (path.includes('no-cookies')) {
     res.removeHeader('Set-Cookie')
