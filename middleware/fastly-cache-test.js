@@ -1,3 +1,12 @@
+//
+// This middleware function is intended to be used for testing caching behavior with Fastly.
+// It will intercept ALL URLs that are routed to it and respond with a simple HTML body
+//   containing a timestamp.
+// The logic will detect certain values in the path and set the HTTP status and/or the
+//   Surrogate-Control header value.
+//
+// NOTE: This middleware is intended to be removed once testing is complete!
+//
 export default function fastlyCacheTest(req, res, next) {
   // If CACHE_TEST_ERROR is set, simulate the site being down (regardless of URL)
   if (process.env.CACHE_TEST_ERROR) {
