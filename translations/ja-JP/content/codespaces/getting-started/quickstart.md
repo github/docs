@@ -72,7 +72,7 @@ Now that you've made a few changes, you can use the integrated terminal or the s
 
 ## Personalizing with an extension
 
-codespace 内で、Visual Studio Code Marketplace にアクセスできます。 For this example, you'll install an extension that alters the theme, but you can install any extension that is useful for your workflow.
+Within a codespace, you have access to the {% data variables.product.prodname_vscode_marketplace %}. For this example, you'll install an extension that alters the theme, but you can install any extension that is useful for your workflow.
 
 1. 左サイトバーで、[Extensions] アイコンをクリックします。
 
@@ -84,7 +84,7 @@ codespace 内で、Visual Studio Code Marketplace にアクセスできます。
 
   ![fairyfloss のテーマを選択](/assets/images/help/codespaces/fairyfloss.png)
 
-4. Changes you make to your editor setup in the current codespace, such as theme and keyboard bindings, are synced automatically via [Settings Sync](https://code.visualstudio.com/docs/editor/settings-sync) to any other codespaces you open and any instances of Visual Studio Code that are signed into your GitHub account.
+4. Changes you make to your editor setup in the current codespace, such as theme and keyboard bindings, are synced automatically via [Settings Sync](https://code.visualstudio.com/docs/editor/settings-sync) to any other codespaces you open and any instances of {% data variables.product.prodname_vscode %} that are signed into your GitHub account.
 
 ## 次のステップ
 

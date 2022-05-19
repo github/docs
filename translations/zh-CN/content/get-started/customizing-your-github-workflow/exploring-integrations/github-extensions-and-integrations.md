@@ -14,7 +14,7 @@ shortTitle: 扩展和集成
 
 ## 编辑器工具
 
-您可以在第三方编辑器工具中连接到 {% data variables.product.product_name %} 仓库，例如 Atom、Unity 和 Visual Studio 等工具。
+You can connect to {% data variables.product.product_name %} repositories within third-party editor tools, such as Atom, Unity, and {% data variables.product.prodname_vs %}.
 
 ### {% data variables.product.product_name %} for Atom
 
@@ -24,13 +24,13 @@ shortTitle: 扩展和集成
 
 使用 {% data variables.product.product_name %} for Unity 编辑器扩展，您可以在开源游戏开发平台 Unity 上进行开发，在 {% data variables.product.product_name %} 查看您的工作。 更多信息请参阅官方 Unity 编辑器扩展[站点](https://unity.github.com/)或[文档](https://github.com/github-for-unity/Unity/tree/master/docs)。
 
-### {% data variables.product.product_name %} for Visual Studio
+### {% data variables.product.product_name %} for {% data variables.product.prodname_vs %}
 
-使用 {% data variables.product.product_name %} for Visual Studio 扩展，您可以 Visual Studio 中处理 {% data variables.product.product_name %} 仓库。 更多信息请参阅官方 Visual Studio 扩展[站点](https://visualstudio.github.com/)或[文档](https://github.com/github/VisualStudio/tree/master/docs)。
+With the {% data variables.product.product_name %} for {% data variables.product.prodname_vs %} extension, you can work in {% data variables.product.product_name %} repositories without leaving {% data variables.product.prodname_vs %}. For more information, see the official {% data variables.product.prodname_vs %} extension [site](https://visualstudio.github.com/) or [documentation](https://github.com/github/VisualStudio/tree/master/docs).
 
-### {% data variables.product.prodname_dotcom %} for Visual Studio Code
+### {% data variables.product.prodname_dotcom %} for {% data variables.product.prodname_vscode %}
 
-使用 {% data variables.product.prodname_dotcom %} for Visual Studio Code 扩展，您可以在 Visual Studio Code 中审查和管理 {% data variables.product.product_name %} 拉取请求。 更多信息请参阅官方 Visual Studio Code 扩展[站点](https://vscode.github.com/)或[文档](https://github.com/Microsoft/vscode-pull-request-github)。
+With the {% data variables.product.prodname_dotcom %} for {% data variables.product.prodname_vscode %} extension, you can review and manage {% data variables.product.product_name %} pull requests in {% data variables.product.prodname_vscode_shortname %}. For more information, see the official {% data variables.product.prodname_vscode_shortname %} extension [site](https://vscode.github.com/) or [documentation](https://github.com/Microsoft/vscode-pull-request-github).
 
 ## 项目管理工具
 

@@ -1,4 +1,4 @@
-当前不在代码空间中工作时，可以从 {% data variables.product.prodname_vscode %} 中删除代码空间。
+当前不在代码空间中工作时，可以从 {% data variables.product.prodname_vscode_shortname %} 中删除代码空间。
 
 {% data reusables.codespaces.click-remote-explorer-icon-vscode %}
 1. 在“GITHUB CODESPACES”下，右键单击要删除的代码空间。
