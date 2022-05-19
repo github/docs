@@ -26,8 +26,8 @@ shortTitle: 将组织转换为用户
 2. [将用户的角色更改为所有者](/articles/changing-a-person-s-role-to-owner)。
 3. {% data variables.product.signin_link %} 到新个人帐户。
 4. [将每个组织仓库转让](/articles/how-to-transfer-a-repository)给新个人帐户。
-5. [重命名组织](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/changing-your-github-username)以使当前用户名可用。
-6. [将用户重命名](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/changing-your-github-username)为组织的名称。
+5. [重命名组织](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/changing-your-github-username)以使当前用户名可用。
+6. [将用户重命名](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/changing-your-github-username)为组织的名称。
 7. [删除组织](/organizations/managing-organization-settings/deleting-an-organization-account)。
 
 

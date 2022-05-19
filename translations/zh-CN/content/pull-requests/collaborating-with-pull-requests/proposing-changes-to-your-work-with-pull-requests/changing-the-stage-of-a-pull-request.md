@@ -1,6 +1,6 @@
 ---
 title: 更改拉取请求的阶段
-intro: You can mark a draft pull request as ready for review or convert a pull request to a draft.
+intro: 您可以将草稿拉取请求标记为已准备好进行审查，或将拉取请求转换为草稿。
 permissions: People with write permissions to a repository and pull request authors can change the stage of a pull request.
 product: '{% data reusables.gated-features.draft-prs %}'
 redirect_from:
