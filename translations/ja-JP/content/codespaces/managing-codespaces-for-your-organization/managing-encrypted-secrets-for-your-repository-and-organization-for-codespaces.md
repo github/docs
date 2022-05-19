@@ -74,4 +74,4 @@ Organization 内のシークレットに適用されているアクセスポリ�
 
 ## 参考リンク
 
-- "[Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)"
+- 「[codespacesのための暗号化されたシークレットの管理](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)」
