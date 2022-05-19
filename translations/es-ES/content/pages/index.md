@@ -1,7 +1,7 @@
 ---
 title: Documentación de GitHub Pages
 shortTitle: Páginas de GitHub
-intro: 'Learn how to create a website directly from a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}. Explore website building tools like Jekyll and troubleshoot issues with your {% data variables.product.prodname_pages %} site.'
+intro: 'Aprende cómo crear un sitio web directamente desde un repositorio en{% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}. Explora las herramientas de creación de sitios web como Jekyll y soluciona los problemas de tu sitio de {% data variables.product.prodname_pages %}.'
 introLinks:
   quickstart: /pages/quickstart
   overview: /pages/getting-started-with-github-pages/about-github-pages
