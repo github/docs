@@ -1,13 +1,13 @@
 ---
 title: Acerca del resumen de seguridad
 intro: 'Puedes ver, filtrar y clasificar las alertas de seguridad para los repositorios que pertenezcan a tu organización o equipo en un solo lugar: la página de Resumen de Seguridad.'
-permissions: Organization owners and security managers can access the security overview for organizations. Members of a team can see the security overview for repositories that the team has admin privileges for.
+permissions: '{% data reusables.security-center.permissions %}'
 product: '{% data reusables.gated-features.security-center %}'
 redirect_from:
   - /code-security/security-overview/exploring-security-alerts
 versions:
   fpt: '*'
-  ghae: issue-4554
+  ghae: '*'
   ghes: '>3.1'
   ghec: '*'
 type: how_to
@@ -22,13 +22,16 @@ topics:
 shortTitle: Acerca del resumen de seguridad
 ---
 
+{% ifversion ghes < 3.5 or ghae %}
 {% data reusables.security-center.beta %}
+{% endif %}
 
 ## Acerca del resumen de seguridad
 
-Puedes utilizar el resumen de seguirdad para tener una vista de nivel alto del estado de seguridad de tu organización o para identificar repositorios problemáticos que requieren intervención. You can view aggregate or repository-specific security information in the security overview. You can also use the security overview to see which security features are enabled for your repositories and to configure any available security features that are not currently in use.
+{% ifversion ghes or ghec or ghae %}Puedes{% elsif fpt %}Las organizaciones que utilizan {% data variables.product.prodname_ghe_cloud %} pueden{% endif %} utilizar el resumen de seguridad para una vista de alto nivel del estado de seguridad de {% ifversion ghes or ghec or ghae %}tu {% elsif fpt %}su{% endif %} organización o para identificar los repositorios problemáticos que requieren intervención. {% ifversion ghes or ghec or ghae %}Puedes {% elsif fpt %}Estas organizaciones pueden{% endif %} ver la información de seguridad agregada o específica de los repositorios en el resumen de seguridad. {% ifversion ghes or ghec or ghae %}También puedes {% elsif fpt %} Las organizaciones que utilizan {% data variables.product.prodname_ghe_cloud %} también pueden{% endif %} utilizar el resumen de seguridad para ver qué características de seguridad se habilitaron para {% ifversion ghes or ghec or ghae %}tus {% elsif fpt %}sus {% endif %} repositorios y para configurar cualquier característica de seguridad disponible que no se esté utilizando actualmente. {% ifversion fpt %}Para obtener más información, consulta la [documentación de {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/code-security/security-overview/about-the-security-overview).{% endif %}
 
-El resumen de seguridad indica si se encuentran habilitadas las características de {% ifversion fpt or ghes > 3.1 or ghec %}seguridad{% endif %}{% ifversion ghae %}{% data variables.product.prodname_GH_advanced_security %}{% endif %} para los repositorios que pertenecen a tu organización y consolida las alertas para cada característica.{% ifversion fpt or ghes > 3.1 or ghec %} Las características de seguridad incluyen aquellas de {% data variables.product.prodname_GH_advanced_security %}, como el {% data variables.product.prodname_code_scanning %} y el {% data variables.product.prodname_secret_scanning %}, así como las {% data variables.product.prodname_dependabot_alerts %}.{% endif %} Para obtener más información sobre las características de la {% data variables.product.prodname_GH_advanced_security %}, consulta la sección "[Acerca de la {% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security)".{% ifversion fpt or ghes > 3.1 or ghec %} Para obtener más información sobre las {% data variables.product.prodname_dependabot_alerts %}, consulta la sección "[Acerca de las alertas para las dependencias vulnerables](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies#dependabot-alerts-for-vulnerable-dependencies)".{% endif %}
+{% ifversion ghec or ghes or ghae %}
+El resumen de seguridad indica si están habilitadas las características de {% ifversion fpt or ghes > 3.1 or ghec %}seguridad{% endif %}{% ifversion ghae %}{% data variables.product.prodname_GH_advanced_security %}{% endif %} para los repositorios que pertenecen a tu organización y consolida las alertas para cada característica.{% ifversion fpt or ghes > 3.1 or ghec %} Las características de seguridad incluyen características de la {% data variables.product.prodname_GH_advanced_security %}, tales como el {% data variables.product.prodname_code_scanning %} y el {% data variables.product.prodname_secret_scanning %}, tanto como las {% data variables.product.prodname_dependabot_alerts %}.{% endif %} Para obtener más información sobre las características de la {% data variables.product.prodname_GH_advanced_security %}, consulta la sección "[Acerca de la {% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security)".{% ifversion fpt or ghes > 3.1 or ghec %} Para obtener más información sobre las {% data variables.product.prodname_dependabot_alerts %}, consulta la sección "[Acerca de las {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies#dependabot-alerts-for-vulnerable-dependencies)".{% endif %}
 
 Para obtener más información sobre cómo proteger tu código a nivel de repositorio u organización, consulta las secciones "[Proteger tu repositorio](/code-security/getting-started/securing-your-repository)" y "[Proteger tu organización](/code-security/getting-started/securing-your-organization)".
 
@@ -50,33 +53,31 @@ Para cada repositorio en el resumen de seguridad, verás iconos de cada tipo de 
 
 ![Los iconos en el resumen de seguridad](/assets/images/help/organizations/security-overview-icons.png)
 
-| Icono                                                         | Significado                                                                                                                                                                                                                                               |
-| ------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| {% octicon "code-square" aria-label="Code scanning alerts" %} | Alertas de {% data variables.product.prodname_code_scanning_capc %}. Para obtener más información, consulta la sección "[Acerca del {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/about-code-scanning)".          |
-| {% octicon "key" aria-label="Secret scanning alerts" %}       | alertas del {% data variables.product.prodname_secret_scanning_caps %}. Para obtener más información, consulta la sección "[Acerca del {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/about-secret-scanning)". |
-| {% octicon "hubot" aria-label="Dependabot alerts" %}          | {% data variables.product.prodname_dependabot_alerts %}. Para obtener más información, consulta la sección "[Acerca de las alertas para las dependencias vulnerables](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)".  |
-| {% octicon "check" aria-label="Check" %}                      | La característica de seguridad se habilitó pero no levanta alertas en este repositorio.                                                                                                                                                                   |
-| {% octicon "x" aria-label="x" %}                              | La característica de seguridad no es compatible con este repositorio.                                                                                                                                                                                     |
+| Icono                                                         | Significado                                                                                                                                                                                                                                                              |
+| ------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| {% octicon "code-square" aria-label="Code scanning alerts" %} | Alertas de {% data variables.product.prodname_code_scanning_capc %}. Para obtener más información, consulta la sección "[Acerca del {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/about-code-scanning)".                         |
+| {% octicon "key" aria-label="Secret scanning alerts" %}       | alertas del {% data variables.product.prodname_secret_scanning_caps %}. Para obtener más información, consulta la sección "[Acerca del {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/about-secret-scanning)".                |
+| {% octicon "hubot" aria-label="Dependabot alerts" %}          | {% data variables.product.prodname_dependabot_alerts %}. Para obtener más información, consulta la sección "[Acerca de las {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)". |
+| {% octicon "check" aria-label="Check" %}                      | La característica de seguridad se habilitó pero no levanta alertas en este repositorio.                                                                                                                                                                                  |
+| {% octicon "x" aria-label="x" %}                              | La característica de seguridad no es compatible con este repositorio.                                                                                                                                                                                                    |
 
 El resumen de seguridad muestra alertas activas que levantan las características de seguridad. Si no hay alertas en el resumen de seguridad de un repositorio, las vulnerabilidades de seguridad no detectadas o los errores de código podrían aún existir.
 
-### About the organization-level security overview
+### Acerca del resumen de seguridad a nivel organizacional
 
-A nivel organizacional, el resumen de seguridad muestra seguridad agregada y específica del repositorio para aquellos que pertenezcan a tu organización. You can filter information by security features at the organization-level.
+A nivel organizacional, el resumen de seguridad muestra seguridad agregada y específica del repositorio para aquellos que pertenezcan a tu organización. Puedes filtrar información por características de seguridad a nivel organizacional.
 
 {% ifversion ghec or ghes > 3.4 or ghae-issue-6199 %}
-### About the enterprise-level security overview
-At the enterprise-level, the security overview displays aggregate and repository-specific security information for your enterprise. You can view repositories owned by your enterprise that have security alerts or view all {% data variables.product.prodname_secret_scanning %} alerts from across your enterprise.
+### Acerca del resumen de seguridad a nivel empresarial
+En el nivel empresarial, el resumen de seguridad muestra información de seguridad agregada y específica del repositorio para tu empresa. You can view repositories owned by your enterprise that have security alerts, view all security alerts, or security feature-specific alerts from across your enterprise.
 
-Organization owners and security managers for organizations in your enterprise also have limited access to the enterprise-level security overview. They can only view repositories and alerts for the organizations that they have full access to.
+Los propietarios de organizaciones y administradores de seguridad para las organizaciones de tu empresa también tienen acceso limitado al resumen de seguridad a nivel empresarial. Solo pueden ver los repositorios y alertas de las organizaciones a las cuales tienen acceso completo.
 
 {% elsif fpt %}
-### About the enterprise-level security overview
-At the enterprise-level, the security overview displays aggregate and repository-specific information for an enterprise. For more information, see "[About the enterprise-level security overview](/enterprise-cloud@latest/code-security/security-overview/about-the-security-overview#about-the-enterprise-level-security-overview)" in the {% data variables.product.prodname_ghe_cloud %} documentation.
+### Acerca del resumen de seguridad a nivel empresarial
+A nivel empresarial, el resumen de seguridad muestra información agregada y específica del repositorio de una empresa. Para obtener más información, consulta la sección "[Acerca del resumen de seguridad a nivel empresarial](/enterprise-cloud@latest/code-security/security-overview/about-the-security-overview#about-the-enterprise-level-security-overview)" en la documentación de {% data variables.product.prodname_ghe_cloud %}.
 {% endif %}
 
-### About the team-level security overview
+### Acerca del resumen de seguridad a nivel de equipo
 A nivel de equipo, el resumen de seguridad muestra la información de seguridad específica del repositorio para aquellos en los que el equipo tenga privilegios de administración. Para obtener más información, consulta la sección "[Administrar el acceso de un equipo a un repositorio organizacional](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)".
-
-### About the repository-level security overview
-At the repository-level, the security overview shows which security features are enabled for the repository, and offers the option to configure any available security features that are not currently enabled.
+{% endif %}

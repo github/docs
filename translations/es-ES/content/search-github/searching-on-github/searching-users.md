@@ -68,7 +68,7 @@ Utilizando el calificador `language` (lenguaje) puedes buscar usuarios en base a
 | <code>language:<em>LANGUAGE</em></code> | [**language:javascript location:russia**](https://github.com/search?q=language%3Ajavascript+location%3Arussia&type=Users) encuentra usuarios en Rusia con una mayoría de sus repositorios escritos en JavaScript.                     |
 |                           | [**jenny language:javascript in:fullname**](https://github.com/search?q=jenny+language%3Ajavascript+in%3Afullname&type=Users) encuentra usuarios con repositorios en JavaScript cuyos nombres completos contienen la palabra "jenny." |
 
-## Buscar por cuándo fue creada la cuenta del usuario
+## Buscar por cuándo se creó una cuenta personal
 
 Puedes filtrar usuarios en base a cuándo se unieron a {% data variables.product.product_name %} con el calificador `created` (creada). Este calificador toma una fecha como su parámetro. {% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
 

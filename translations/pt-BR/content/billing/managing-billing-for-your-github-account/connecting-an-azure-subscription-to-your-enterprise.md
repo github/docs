@@ -1,6 +1,6 @@
 ---
 title: Conectar uma assinatura do Azure à sua empresa
-intro: 'Você pode usar o Contrato da Microsoft Enterprise para habilitar e pagar por {% data variables.product.prodname_actions %} e pelo uso de {% data variables.product.prodname_registry %}, além dos valores incluídos para a sua empresa.'
+intro: 'Use o seu Contrato da Microsoft Enterprise para habilitar e pagar {% data variables.product.prodname_actions %}, {% data variables.product.prodname_registry %} e pelo uso de {% data variables.product.prodname_codespaces %}.'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-account/connecting-an-azure-subscription-to-your-enterprise
   - /github/setting-up-and-managing-billing-and-payments-on-github/connecting-an-azure-subscription-to-your-enterprise
@@ -14,7 +14,17 @@ shortTitle: Conectar uma assinatura do Azure
 
 {% data reusables.enterprise-accounts.billing-microsoft-ea-overview %} Para obter mais informações, consulte "[Sobre a cobrança para {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/about-billing-for-github-actions) e "[Sobre cobrança para {% data variables.product.prodname_registry %}](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)."
 
-Após conectar a uma assinatura do Azure, você também poderá gerenciar seu limite de gastos. Para informações sobre como gerenciar e alterar o limite de gastos da sua conta, consulte "[Gerenciar o seu limite de gastos para {% data variables.product.prodname_registry %}](/billing/managing-billing-for-github-packages/managing-your-spending-limit-for-github-packages)" e "[Gerenciar o seu limite de gastos para {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/managing-your-spending-limit-for-github-actions)".
+{% note %}
+
+**Obserrvação:** Se a conta corporativa estiver em um Contrato da Microsoft Enterprise, conectar a uma assinatura do Azure é a única maneira de usar {% data variables.product.prodname_actions %} e {% data variables.product.prodname_registry %} além do valor incluído ou usar {% data variables.product.prodname_codespaces %}.
+
+{% endnote %}
+
+Após conectar uma assinatura do Azure, você também pode gerenciar seus limites de gastos.
+
+- "[Gerenciando seu limite de gastos para {% data variables.product.prodname_registry %}](/billing/managing-billing-for-github-packages/managing-your-spending-limit-for-github-packages)"
+- "[Gerenciando seu limite de gastos para {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/managing-your-spending-limit-for-github-actions)"
+- "[Gerenciando seu limite de gastos para {% data variables.product.prodname_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)"
 
 ## Conectar a sua assinatura do Azure à sua conta corporativa
 

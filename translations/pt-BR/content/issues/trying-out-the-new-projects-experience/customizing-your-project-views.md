@@ -136,7 +136,7 @@ Como alternativa, use a paleta de comando.
 
 No layout da tabela, você pode clicar nos dados de item para filtrar para itens com esse valor. Por exemplo, clique em um responsável para mostrar apenas itens para ele. Para remover o filtro, clique nos dados do item novamente.
 
-For more information, see "[Filtering projects](/issues/trying-out-the-new-projects-experience/filtering-projects)."
+Para obter mais informações, consulte "[Filtrando projetos](/issues/trying-out-the-new-projects-experience/filtering-projects)".
 
 ## Criando uma visualização do projeto
 

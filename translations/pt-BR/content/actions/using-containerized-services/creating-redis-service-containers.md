@@ -41,54 +41,52 @@ Também pode ser útil ter um entendimento básico de YAML, a sintaxe para {% da
 
 {% data reusables.actions.copy-workflow-file %}
 
-{% raw %}
 ```yaml{:copy}
-nome: exemplo do contêiner Redis
-em: push
+name: Redis container example
+on: push
 
-trabalhos:
-  # Etiqueta do trabalho do contêiner
+jobs:
+  # Label of the container job
   container-job:
-    # Os contêineres devem ser executados em sistemas operacionais baseados no Linux
+    # Containers must run in Linux based operating systems
     runs-on: ubuntu-latest
-    # Imagem do Docker Hub em que o `container-job` é executado
-    contêiner: node:10.18-jessie
+    # Docker Hub image that `container-job` executes in
+    container: node:10.18-jessie
 
-    # Contêineres de serviço a serem executados com `container-job`
-    serviços:
-      # Etiqueta usada para acessar o contêiner de serviço
+    # Service containers to run with `container-job`
+    services:
+      # Label used to access the service container
       redis:
-        # Imagem do Docker Hub
-        imagem: redis
-        # Define verificações gerais até a inicialização do redis
-        opções: >-
+        # Docker Hub image
+        image: redis
+        # Set health checks to wait until redis has started
+        options: >-
           --health-cmd "redis-cli ping"
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
 
-    etapas:
-      # Faz o download de uma cópia do código no seu repositório antes de executar os testes de CI
-      - nome: Verifica o código do repositório
-        usa: actions/checkout@v2
+    steps:
+      # Downloads a copy of the code in your repository before running CI tests
+      - name: Check out repository code
+        uses: {% data reusables.actions.action-checkout %}
 
-      # Realiza uma instalação limpa de todas as dependências no arquivo `package.json`
-      # Para obter mais informações, consulte https://docs.npmjs.com/cli/ci.html
-      - nome: Instalar dependências
-        executar: npm ci
+      # Performs a clean installation of all dependencies in the `package.json` file
+      # For more information, see https://docs.npmjs.com/cli/ci.html
+      - name: Install dependencies
+        run: npm ci
 
-      - nome: Conectar-se ao Redis
-        # Executa um script que cria um cliente Redis, preenche
-        # os dados do cliente e recupera dados
-        executar: node client.js
-        # Variável do ambiente usada pelo script `client.js` para criar um novo Redis.
+      - name: Connect to Redis
+        # Runs a script that creates a Redis client, populates
+        # the client with data, and retrieves data
+        run: node client.js
+        # Environment variable used by the `client.js` script to create a new Redis client.
         env:
           # O nome do host usado para comunicar-se com o contêiner de serviço do Redis
           REDIS_HOST: redis
           # The default Redis port
           REDIS_PORT: 6379
 ```
-{% endraw %}
 
 ### Configurar o trabalho do contêiner
 
@@ -124,21 +122,21 @@ trabalhos:
 {% data reusables.actions.service-template-steps %}
 
 ```yaml{:copy}
-etapas:
-  # Faz o download de uma cópia do código no seu repositório antes de executar testes de CI
-  - nome: Verifica o código do repositório
-    usa: actions/checkout@v2
+steps:
+  # Downloads a copy of the code in your repository before running CI tests
+  - name: Check out repository code
+    uses: {% data reusables.actions.action-checkout %}
 
-  # Realiza uma instalação limpa de todas as dependências do arquivo `package.json`
-  # Para obter mais informações, consulte https://docs.npmjs.com/cli/ci.html
-  - nome: Instalar dependências
-    executar: npm ci
+  # Performs a clean installation of all dependencies in the `package.json` file
+  # For more information, see https://docs.npmjs.com/cli/ci.html
+  - name: Install dependencies
+    run: npm ci
 
-  - nome: Conectar-se ao Redis
-    # Executa um script que cria um cliente Redis client, preenche
-    # os dados do cliente e recupera dados
-    executar: node client.js
-    # Variável do ambiente usada pelo script `client.js` para criar um novo cliente Redis.
+  - name: Connect to Redis
+    # Runs a script that creates a Redis client, populates
+    # the client with data, and retrieves data
+    run: node client.js
+    # Environment variable used by the `client.js` script to create a new Redis client.
     env:
       # O nome do host usado para comunicar-se com o contêiner de serviço do Redis
       REDIS_HOST: redis
@@ -156,56 +154,54 @@ Ao executar um trabalho diretamente na máquina executora, você deverá mapear 
 
 {% data reusables.actions.copy-workflow-file %}
 
-{% raw %}
 ```yaml{:copy}
-nome: Exemplo do executor do Redis
-em: push
+name: Redis runner example
+on: push
 
-trabalhos:
-  # Etiqueta do trabalho executor
+jobs:
+  # Label of the runner job
   runner-job:
-    # Você deve usar um ambiente do Linux ao usar contêineres de serviço ou trabalhos de contêiner
+    # You must use a Linux environment when using service containers or container jobs
     runs-on: ubuntu-latest
 
-    # Contêineres de serviço a serem executados com `runner-job`
-    serviços:
-      # Etiqueta usada para acessar o contêiner de serviço
+    # Service containers to run with `runner-job`
+    services:
+      # Label used to access the service container
       redis:
-        # Imagem do Docker Hub
-        imagem: redis
-        # Define verificações gerais até a inicialização do redis
-        opções: >-
+        # Docker Hub image
+        image: redis
+        # Set health checks to wait until redis has started
+        options: >-
           --health-cmd "redis-cli ping"
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
-        portas:
-          # Mapeia a porta port 6379 no contêiner de serviço com o host
+        ports:
+          # Maps port 6379 on service container to the host
           - 6379:6379
 
-    etapas:
-      # Faz um download de uma cópia do código no seu repositório antes de executar testes de CI
-      - nome: Verifica o código do repositório
-        usa: actions/checkout@v2
+    steps:
+      # Downloads a copy of the code in your repository before running CI tests
+      - name: Check out repository code
+        uses: {% data reusables.actions.action-checkout %}
 
-      # Realiza uma instalação limpa de todas as dependências no arquivo `package.json`
-      # Para obter mais informações, consulte https://docs.npmjs.com/cli/ci.html
-      - nome: Instalar dependências
-        executar: npm ci
+      # Performs a clean installation of all dependencies in the `package.json` file
+      # For more information, see https://docs.npmjs.com/cli/ci.html
+      - name: Install dependencies
+        run: npm ci
 
-      - nome: Conectar-se ao Redis
-        # Executa um script que cria um cliente Redis, preenche
-        # os dados do cliente e recupera dados
-        executar: node client.js
-        # Variável do ambiente usada pelo script `client.js` para criar
-        # um novo cliente Redis.
+      - name: Connect to Redis
+        # Runs a script that creates a Redis client, populates
+        # the client with data, and retrieves data
+        run: node client.js
+        # Environment variable used by the `client.js` script to create
+        # a new Redis client.
         env:
           # O nome do host usado para comunicar-se com o contêiner de serviço Reds
           REDIS_HOST: localhost
           # A porta-padrão do Redis
           REDIS_PORT: 6379
 ```
-{% endraw %}
 
 ### Configurar o trabalho executor
 
@@ -244,22 +240,22 @@ trabalhos:
 {% data reusables.actions.service-template-steps %}
 
 ```yaml{:copy}
-etapas:
-  # Faz o download de uma cópia do código no seu repositório antes de executar os testes de CI
-  - nome: Verifica o código do repositório
-    usa: actions/checkout@v2
+steps:
+  # Downloads a copy of the code in your repository before running CI tests
+  - name: Check out repository code
+    uses: {% data reusables.actions.action-checkout %}
 
-  # Realiza uma instalação limpa de todas as dependências no arquivo `package.json`
-  # Para obter mais informações, consulte https://docs.npmjs.com/cli/ci.html
-  - nome: Instalar dependências
-    executar: npm ci
+  # Performs a clean installation of all dependencies in the `package.json` file
+  # For more information, see https://docs.npmjs.com/cli/ci.html
+  - name: Install dependencies
+    run: npm ci
 
-  - nome: Conectar-se ao Redis
-    # Executa um script que cria um cliente Redis, preenche
-    # os dados do cliente e recupera os dados
-    executar: node client.js
-    # Variável do ambiente usada pelo script `client.js` para criar
-    # um novo cliente Redis.
+  - name: Connect to Redis
+    # Runs a script that creates a Redis client, populates
+    # the client with data, and retrieves data
+    run: node client.js
+    # Environment variable used by the `client.js` script to create
+    # a new Redis client.
     env:
       # O nome do host usado para comunicar-se com o contêiner de serviço Redis
       REDIS_HOST: localhost

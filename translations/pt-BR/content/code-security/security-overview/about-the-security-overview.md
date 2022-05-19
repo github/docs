@@ -1,13 +1,13 @@
 ---
 title: Sobre a visão geral de segurança
 intro: 'Você pode visualizar, filtrar e classificar alertas de segurança para repositórios pertencentes à sua organização ou equipe em um só lugar: a página de Visão Geral de Segurança.'
-permissions: Organization owners and security managers can access the security overview for organizations. Members of a team can see the security overview for repositories that the team has admin privileges for.
+permissions: '{% data reusables.security-center.permissions %}'
 product: '{% data reusables.gated-features.security-center %}'
 redirect_from:
   - /code-security/security-overview/exploring-security-alerts
 versions:
   fpt: '*'
-  ghae: issue-4554
+  ghae: '*'
   ghes: '>3.1'
   ghec: '*'
 type: how_to
@@ -22,13 +22,16 @@ topics:
 shortTitle: Sobre a visão geral de segurança
 ---
 
+{% ifversion ghes < 3.5 or ghae %}
 {% data reusables.security-center.beta %}
+{% endif %}
 
 ## Sobre a visão geral de segurança
 
-Você pode usar a visão geral de segurança para uma visão de alto nível do status de segurança da sua organização ou para identificar repositórios problemáticos que exigem intervenção. É possível visualizar as informações de segurança de tipo agregado ou específico do repositório na visão geral de segurança. Você também pode usar a visão geral de segurança para ver quais funcionalidades de segurança são habilitadas para os repositórios e para configurar quaisquer funcionalidades de segurança disponíveis que não estão em uso atualmente.
+{% ifversion ghes or ghec or ghae %}Você{% elsif fpt %}As organizações que usam {% data variables.product.prodname_ghe_cloud %}{% endif %} podem usar a visão geral de segurança para uma visão geral de alto nível do status de segurança da {% ifversion ghes or ghec or ghae %}sua  {% elsif fpt %}sua organização{% endif %} ou para identificar repositórios problemáticos que exigem intervenção. {% ifversion ghes or ghec or ghae %}Você {% elsif fpt %}Essas organizações{% endif %} podem ver informações de segurança específicas para o repositório ou agregadas na visão geral de segurança. {% ifversion ghes or ghec or ghae %}Você {% elsif fpt %} As organizações que usam {% data variables.product.prodname_ghe_cloud %}{% endif %} também podem usar a visão geral de segurança para ver quais funcionalidades de segurança estão habilitadas para {% ifversion ghes or ghec or ghae %}seus {% elsif fpt %}repositórios {% endif %} e para configurar quaisquer funcionalidades de segurança disponíveis que atualmente não estejam em uso. {% ifversion fpt %}Para obter mais informações, consulte [a documentação de {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/code-security/security-overview/about-the-security-overview).{% endif %}
 
-A visão geral de segurança indica se {% ifversion fpt or ghes > 3.1 or ghec %}os recursos de segurança{% endif %}{% ifversion ghae %}{% data variables.product.prodname_GH_advanced_security %}{% endif %} estão habilitados para os repositórios pertencentes à sua organização e consolida os alertas para cada recurso.{% ifversion fpt or ghes > 3.1 or ghec %} As funcionalidades de segurança incluem funcionalidaes de {% data variables.product.prodname_GH_advanced_security %} como, por exemplo, {% data variables.product.prodname_code_scanning %} e {% data variables.product.prodname_secret_scanning %}, bem como {% data variables.product.prodname_dependabot_alerts %}.{% endif %} Para obter mais informações sobre as funcionalidades de {% data variables.product.prodname_GH_advanced_security %} conuslte "[Sobre {% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security)."{% ifversion fpt or ghes > 3.1 or ghec %} Para obter mais informações sobre {% data variables.product.prodname_dependabot_alerts %}, consulte "[Sobre alertas para dependências de vulnerabilidade](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies#dependabot-alerts-for-vulnerable-dependencies)."{% endif %}
+{% ifversion ghec or ghes or ghae %}
+A visão geral de segurança indica se {% ifversion fpt or ghes > 3.1 or ghec %}os recursos de segurança{% endif %}{% ifversion ghae %}{% data variables.product.prodname_GH_advanced_security %}{% endif %} estão habilitados para os repositórios pertencentes à sua organização e consolida os alertas para cada recurso.{% ifversion fpt or ghes > 3.1 or ghec %} As funcionalidades de segurança incluem funcionalidaes de {% data variables.product.prodname_GH_advanced_security %} como, por exemplo, {% data variables.product.prodname_code_scanning %} e {% data variables.product.prodname_secret_scanning %}, bem como {% data variables.product.prodname_dependabot_alerts %}.{% endif %} Para obter mais informações sobre as funcionalidades de {% data variables.product.prodname_GH_advanced_security %} conuslte "[Sobre {% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security)."{% ifversion fpt or ghes > 3.1 or ghec %} Para obter mais informações sobre {% data variables.product.prodname_dependabot_alerts %}, consulte "[Sobre {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies#dependabot-alerts-for-vulnerable-dependencies)."{% endif %}
 
 Para obter mais informações sobre como proteger seu código nos níveis do repositório e da organização, consulte "[Protegendo seu repositório](/code-security/getting-started/securing-your-repository)" e "[Protegendo sua organização](/code-security/getting-started/securing-your-organization)".
 
@@ -50,13 +53,13 @@ Para cada repositório na visão de segurança, você verá ícones para cada ti
 
 ![Ícones na visão geral de segurança](/assets/images/help/organizations/security-overview-icons.png)
 
-| Ícone                                                         | Significado                                                                                                                                                                                                                           |
-| ------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| {% octicon "code-square" aria-label="Code scanning alerts" %} | Alertas de {% data variables.product.prodname_code_scanning_capc %}. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/about-code-scanning)         |
-| {% octicon "key" aria-label="Secret scanning alerts" %}       | Alertas de {% data variables.product.prodname_secret_scanning_caps %}. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/about-secret-scanning) |
-| {% octicon "hubot" aria-label="Dependabot alerts" %}          | {% data variables.product.prodname_dependabot_alerts %}. Para obter mais informações, consulte "[Sobre alertas para dependências vulneráveis](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)"       |
-| {% octicon "check" aria-label="Check" %}                      | O recurso de segurança está habilitado, mas não envia alertas neste repositório.                                                                                                                                                      |
-| {% octicon "x" aria-label="x" %}                              | O recurso de segurança não é compatível com este repositório.                                                                                                                                                                         |
+| Ícone                                                         | Significado                                                                                                                                                                                                                                          |
+| ------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| {% octicon "code-square" aria-label="Code scanning alerts" %} | Alertas de {% data variables.product.prodname_code_scanning_capc %}. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/about-code-scanning)                        |
+| {% octicon "key" aria-label="Secret scanning alerts" %}       | Alertas de {% data variables.product.prodname_secret_scanning_caps %}. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/about-secret-scanning)                |
+| {% octicon "hubot" aria-label="Dependabot alerts" %}          | {% data variables.product.prodname_dependabot_alerts %}. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)". |
+| {% octicon "check" aria-label="Check" %}                      | O recurso de segurança está habilitado, mas não envia alertas neste repositório.                                                                                                                                                                     |
+| {% octicon "x" aria-label="x" %}                              | O recurso de segurança não é compatível com este repositório.                                                                                                                                                                                        |
 
 A visão geral de segurança exibe alertas ativos criados por funcionalidades de segurança. Se não houver alertas na visão geral de segurança de um repositório, as vulnerabilidades de segurança não detectadas ou erros de código ainda poderão existir.
 
@@ -66,7 +69,7 @@ A nível da organização, a visão geral de segurança exibe informações de s
 
 {% ifversion ghec or ghes > 3.4 or ghae-issue-6199 %}
 ### Sobre a visão geral de segurança do nível da empresa
-A nível da empresa, a visão geral de segurança exibe informações de segurança agregadas e específicas ao repositório para sua empresa. Você pode visualizar repositórios pertencentes à sua empresa que tenham alertas de segurança ou ver todos os alertas de {% data variables.product.prodname_secret_scanning %} de toda a sua empresa.
+A nível da empresa, a visão geral de segurança exibe informações de segurança agregadas e específicas ao repositório para sua empresa. You can view repositories owned by your enterprise that have security alerts, view all security alerts, or security feature-specific alerts from across your enterprise.
 
 Os proprietários da organização e os gerentes de segurança das organizações da sua empresa também têm acesso limitado à visão geral de segurança no nível da empresa. Eles só podem ver repositórios e alertas das organizações aos quais têm acesso total.
 
@@ -77,6 +80,4 @@ A nível da empresa, a visão geral de segurança exibe informações agregadas 
 
 ### Sobre a visão geral de segurança da equipe
 No nível da equipe, a visão geral de segurança exibe informações de segurança específicas para repositórios para os quais a equipe tem privilégios de administrador. Para obter mais informações, consulte "[Gerenciando o acesso da equipe ao repositório de uma organização](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)".
-
-### Sobre a visão geral de segurança do repositório
-No nível do repositório, a visão geral de segurança mostra quais funcionalidades de segurança são habilitados para o repositório e oferece a opção de configurar todos os funcionalidades de segurança disponíveis que não estejam habilitadas atualmente.
+{% endif %}

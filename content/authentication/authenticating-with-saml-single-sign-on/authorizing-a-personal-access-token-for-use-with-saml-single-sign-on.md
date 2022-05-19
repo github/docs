@@ -14,6 +14,8 @@ shortTitle: PAT with SAML
 ---
 You can authorize an existing personal access token, or [create a new personal access token](/github/authenticating-to-github/creating-a-personal-access-token) and then authorize it.
 
+{% data reusables.saml.must-authorize-linked-identity %}
+
 {% data reusables.saml.authorized-creds-info %}
 
 {% data reusables.user-settings.access_settings %}

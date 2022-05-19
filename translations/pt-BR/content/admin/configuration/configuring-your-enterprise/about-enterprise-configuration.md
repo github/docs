@@ -23,7 +23,7 @@ shortTitle: Sobre a configuração
 {% endif %}
 
 {% ifversion ghae %}
-To get started with {% data variables.product.product_name %}, you first need to deploy {% data variables.product.product_name %}. For more information, see "[Deploying {% data variables.product.product_name %}](/admin/configuration/configuring-your-enterprise/deploying-github-ae)."
+Para dar os primeiros passos com {% data variables.product.product_name %}, primeiro você precisa implantar o {% data variables.product.product_name %}. Para obter mais informações, consulte "[Implantando {% data variables.product.product_name %}](/admin/configuration/configuring-your-enterprise/deploying-github-ae)".
 
 Na primeira vez que você acessar a sua empresa, você realizará uma configuração inicial para preparar {% data variables.product.product_name %} para ser usado. A configuração inicial inclui conectar a sua empresa a um provedor de identidade (IdP), efetuando a autenticação com SAML SSO, configurando políticas para repositórios e organizações na sua empresa e configurando SMTP para e-mails de saída. Para obter mais informações, consulte "[Inicializar {% data variables.product.prodname_ghe_managed %}](/admin/configuration/initializing-github-ae)".
 

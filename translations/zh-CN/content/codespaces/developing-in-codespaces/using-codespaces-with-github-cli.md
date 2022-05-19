@@ -13,7 +13,7 @@ topics:
   - Developer
 ---
 
-## 关于 {% data variables.product.prodname_cli %}
+## About {% data variables.product.prodname_cli %} 
 
 {% data reusables.cli.about-cli %} For more information, see "[About {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)."
 
@@ -28,22 +28,26 @@ You can work with {% data variables.product.prodname_codespaces %} in the  {% da
 - [Modify ports in a codespace](#modify-ports-in-a-codespace)
 - [Access codespace logs](#access-codespace-logs)
 
-## 安装 {% data variables.product.prodname_cli %}
+## Installing {% data variables.product.prodname_cli %}
 
 {% data reusables.cli.cli-installation %}
+ 
+## Using {% data variables.product.prodname_cli %}
 
-## 使用 {% data variables.product.prodname_cli %}
-
-If you have not already done so, run `gh auth login` to authenticate with your {% data variables.product.prodname_dotcom %} account.
+If you have not already done so, run `gh auth login` to authenticate with your {% data variables.product.prodname_dotcom %} account. 
 
 To use `gh` to work with {% data variables.product.prodname_codespaces %}, type `gh codespace <COMMAND>` or its alias `gh cs <COMMAND>`.
 
-As an example of a series of commands you might use to work with {% data variables.product.prodname_github_codespaces %}, you could:
+As an example of a series of commands you might use to work with {% data variables.product.prodname_github_codespaces %}, you could: 
 
-* List your current codespaces, to check whether you have a codespace for a particular repository:<br> `gh codespace list`
-* Create a new codespace for the required repository branch:<br> `gh codespace create -r github/docs -b main`
-* SSH into the new codespace:<br> `gh codespace ssh -c mona-github-docs-v4qxrv7rfwv9w`
-* Forward a port to your local machine:<br> `gh codespace ports forward 8000:8000 -c mona-github-docs-v4qxrv7rfwv9w`
+* List your current codespaces, to check whether you have a codespace for a particular repository:<br>
+  `gh codespace list`
+* Create a new codespace for the required repository branch:<br>
+  `gh codespace create -r github/docs -b main`
+* SSH into the new codespace:<br>
+  `gh codespace ssh -c mona-github-docs-v4qxrv7rfwv9w`
+* Forward a port to your local machine:<br>
+  `gh codespace ports forward 8000:8000 -c mona-github-docs-v4qxrv7rfwv9w`
 
 ## `gh` commands for {% data variables.product.prodname_github_codespaces %}
 
@@ -71,7 +75,7 @@ The list includes the unique name of each codespace, which you can use in other 
 gh codespace create -r <em>owner/repository</em> [-b <em>branch</em>]
 ```
 
-更多信息请参阅“[创建代码空间](/codespaces/developing-in-codespaces/creating-a-codespace)”。
+For more information, see "[Creating a codespace](/codespaces/developing-in-codespaces/creating-a-codespace)."
 
 ### Stop a codespace
 
@@ -119,7 +123,7 @@ Use the prefix `remote:` on a file or directory name to indicate that it's on th
 
 The location of files and directories on the codespace is relative to the home directory of the remote user.
 
-#### 示例
+#### Examples
 
 * Copy a file from the local machine to the `$HOME` directory of a codespace:
 
@@ -167,13 +171,13 @@ You can set the visibility of a forwarded port. {% data reusables.codespaces.por
 gh codespace ports visibility <em>codespace-port</em>:<em>private|org|public</em> -c <em>codespace-name</em>
 ```
 
-You can set the visibility for multiple ports with one command. 例如：
+You can set the visibility for multiple ports with one command. For example:
 
 ```shell
 gh codespace ports visibility 80:private 3000:public 3306:org -c <em>codespace-name</em>
 ```
 
-更多信息请参阅“[在代码空间中转发端口](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)”。
+For more information, see "[Forwarding ports in your codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)."
 
 ### Access codespace logs
 

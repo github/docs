@@ -18,7 +18,7 @@ shortTitle: Aplicar para un paquete de estudiante
 Para ser elegible para el {% data variables.product.prodname_student_pack %}, debes:
 - Estar inscrito actualmente en un curso que otorgue un título o diploma que garantice un curso de estudio como colegio, escuela secundaria, facultad, universidad, escolarización en casa o institución educativa similar
 - Tener una dirección de correo electrónico verificable suministrada por la escuela o cargar documentos que demuestren tu situación de estudiante actual
-- Tener una cuenta de usuario de [{% data variables.product.prodname_dotcom %}](/articles/signing-up-for-a-new-github-account)
+- Tener una [cuenta personal de {% data variables.product.prodname_dotcom %}](/articles/signing-up-for-a-new-github-account)
 - Tener al menos 13 años
 
 Entre los documentos que comprueban tu estado actual de alumno se incluye una foto de la ID de tu escuela con la fecha de inscripción actual, horario de clases, transcripción y carta de verificación de inscripción o de afiliación.
@@ -27,7 +27,7 @@ Es posible que se te pida periódicamente que vuelvas a verificar tu estado acad
 
 {% note %}
 
-**Nota:** No puedes transferir tus descuentos académicos de una cuenta a otra. Si tienes más de una cuenta a la que deseas aplicarle el descuenta, considera [fusionar](/articles/merging-multiple-user-accounts) tus cuentas de usuario y [cambiar el nombre](/articles/changing-your-github-username) a la cuenta retenida si así lo deseas.
+**Nota:** No puedes transferir tus descuentos académicos de una cuenta a otra. Si tienes más de una cuenta para la cual quieras aplicar el descuento, considera [fusionar](/articles/merging-multiple-user-accounts) tus cuentas personales y [renombrar](/articles/changing-your-github-username) la cuenta retenida si así lo quieres.
 
 {% endnote %}
 

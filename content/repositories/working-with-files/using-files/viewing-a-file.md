@@ -49,3 +49,39 @@ In a file or pull request, you can also use the {% octicon "kebab-horizontal" ar
 ![Blame button](/assets/images/help/repository/blame-button.png)
 4. To see earlier revisions of a specific line, or reblame, click {% octicon "versions" aria-label="The prior blame icon" %} until you've found the changes you're interested in viewing.
 ![Prior blame button](/assets/images/help/repository/prior-blame-button.png)
+
+{% if blame-ignore-revs %}
+
+## Ignore commits in the blame view
+{% note %}
+
+**Note:** Ignoring commits in the blame view is currently in public beta and subject to change.
+
+{% endnote %}
+
+All revisions specified in the `.git-blame-ignore-revs` file, which must be in the root directory of your repository, are hidden from the blame view using Git's `git blame --ignore-revs-file` configuration setting. For more information, see [`git blame --ignore-revs-file`](https://git-scm.com/docs/git-blame#Documentation/git-blame.txt---ignore-revs-fileltfilegt) in the Git documentation.
+
+1. In the root directory of your repository, create a file named `.git-blame-ignore-revs`.
+2. Add the commit hashes you want to exclude from the blame view to that file. We recommend the file to be structured as follows, including comments:
+
+    ```ini
+    # .git-blame-ignore-revs
+    # Removed semi-colons from the entire codebase
+    a8940f7fbddf7fad9d7d50014d4e8d46baf30592
+    # Converted all JavaScript to TypeScript
+    69d029cec8337c616552756310748c4a507bd75a
+    ```
+
+3. Commit and push the changes.
+
+Now when you visit the blame view, the listed revisions will not be included in the blame. You'll see an **Ignoring revisions in .git-blame-ignore-revs** banner indicating that some commits may be hidden:
+
+![Screenshot of a banner on the blame view linking to the .git-blame-ignore-revs file](/assets/images/help/repository/blame-ignore-revs-file.png)
+
+This can be useful when a few commits make extensive changes to your code. You can use the file when running `git blame` locally as well:
+
+```shell
+git blame --ignore-revs-file .git-blame-ignore-revs
+```
+
+{% endif %}

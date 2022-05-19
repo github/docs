@@ -78,15 +78,15 @@ topics:
 
 {% data reusables.cli.cli-learn-more %}
 
-To merge a pull request, use the `gh pr merge` subcommand. Replace `pull-request` with the number, URL, or head branch of the pull request.
+要合并拉取请求，请使用 `gh pr merge` 子命令。 将 `pull-request` 替换为拉取请求的编号、URL 或头部分支。
 
 ```shell
 gh pr merge <em>pull-request</em>
 ```
 
-Follow the interactive prompts to complete the merge. For more information about the merge methods that you can choose, see "[About pull request merges](/github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)."
+按照交互式提示完成合并。 有关可以选择的合并方法的详细信息，请参阅“[关于拉取请求合并](/github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)”。
 
-Alternatively, you can use flags to skip the interactive prompts. For example, this command will squash the commits into a single commit with the commit message "my squash commit", merge the squashed commit into the base branch, and then delete the local and remote branch.
+或者，您可以使用标志跳过交互式提示。 例如，此命令会将提交压缩为带有提交消息“我的压缩提交”的单个提交，将压缩的提交合并到基本分支，然后删除本地和远程分支。
 
 ```shell
 gh pr merge 523 --squash --body "my squash commit" --delete-branch

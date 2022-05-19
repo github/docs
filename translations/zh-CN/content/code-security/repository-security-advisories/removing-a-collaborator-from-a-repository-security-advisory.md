@@ -1,6 +1,6 @@
 ---
-title: Removing a collaborator from a repository security advisory
-intro: 'When you remove a collaborator from a repository security advisory, they lose read and write access to the security advisory''s discussion and metadata.'
+title: 从仓库安全通告删除协作者
+intro: 协作者从仓库安全通告中删除后，将失去对安全通告的讨论和元数据的读取和写入权限。
 redirect_from:
   - /github/managing-security-vulnerabilities/removing-a-collaborator-from-a-security-advisory
   - /code-security/security-advisories/removing-a-collaborator-from-a-security-advisory
@@ -32,5 +32,5 @@ shortTitle: 删除协作者
 
 ## 延伸阅读
 
-- "[Permission levels for repository security advisories](/code-security/repository-security-advisories/permission-levels-for-repository-security-advisories)"
-- "[Adding a collaborator to a repository security advisory](/code-security/repository-security-advisories/adding-a-collaborator-to-a-repository-security-advisory)"
+- "[仓库安全通告的权限级别](/code-security/repository-security-advisories/permission-levels-for-repository-security-advisories)"
+- "[添加协作者到仓库安全通告](/code-security/repository-security-advisories/adding-a-collaborator-to-a-repository-security-advisory)"

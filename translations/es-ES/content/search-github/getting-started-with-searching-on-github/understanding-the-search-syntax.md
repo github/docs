@@ -87,7 +87,6 @@ Si tu consulta de búsqueda contiene espacios en blanco, tendrás que encerrarla
 
 Algunos símbolos que no son alfanuméricos, como los espacios, se quitan de las consultas de búsqueda de código que van entre comillas; por lo tanto, los resultados pueden ser imprevistos.
 
-{% ifversion fpt or ghes or ghae or ghec %}
 ## Consultas con nombres de usuario
 
 Si tu consulta de búsqueda contiene un calificador que requiere un nombre de usuario, tal como `user`, `actor`, o `assignee`, puedes utilizar cualquier nombre de usuario de {% data variables.product.product_name %} para especificar una persona en concreto, o utilizar `@me`, para especificar el usuario actual.
@@ -98,4 +97,3 @@ Si tu consulta de búsqueda contiene un calificador que requiere un nombre de us
 | `QUALIFIER:@me`      | [`is:issue assignee:@me`](https://github.com/search?q=is%3Aissue+assignee%3A%40me&type=Issues) coincidirá con los informes de problemas asignados a la persona que está viendo los resultados |
 
 Solo puedes utilizar `@me` con un calificador y no como un término de búsqueda, tal como `@me main.workflow`.
-{% endif %}

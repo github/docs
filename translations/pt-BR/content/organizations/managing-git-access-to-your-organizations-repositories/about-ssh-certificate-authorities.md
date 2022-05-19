@@ -1,12 +1,10 @@
 ---
 title: Sobre autoridades certificadas de SSH
 intro: 'Com uma autoridade certificada SSH, a organização ou conta corporativa pode oferecer certificados SSH para os integrantes usarem ao acessar seus recursos com o Git.'
-product: '{% data reusables.gated-features.ssh-certificate-authorities %}'
 redirect_from:
   - /articles/about-ssh-certificate-authorities
   - /github/setting-up-and-managing-organizations-and-teams/about-ssh-certificate-authorities
 versions:
-  fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
@@ -20,11 +18,13 @@ shortTitle: Autoridades do certificado SSH
 
 Um certificado SSH é um mecanismo utilizado para uma chave SSH assinar outra chave SSH. Se você usa uma autoridade certificada (CA) SSH para fornecer certificados SSH aos integrantes da organização, você pode adicionar a CA em sua conta corporativa ou organização para permitir que integrantes da organização usem os certificados deles para acessar os recursos da organização.
 
+{% data reusables.organizations.ssh-ca-ghec-only %}
+
 Depois de adicionar uma CA SSH à sua organização ou conta corporativa, você pode usar a CA para assinar certificados SSH de cliente para integrantes da organização. Integrantes da organização podem usar os certificados assinados para acessar os repositórios da sua organização (e somente os repositórios da sua organização) no Git. Opcionalmente, você pode exigir que os integrantes utilizem certificados SSH para acessar recursos da organização. Para obter mais informações, consulte "[Gerenciando as autoridades certificadas SSH da sua organização](/articles/managing-your-organizations-ssh-certificate-authorities)" e "[Aplicando as políticas para configurações de segurança na sua empresa](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-ssh-certificate-authorities-for-your-enterprise). "
 
 Por exemplo, você pode desenvolver um sistema interno que emite um novo certificado para seus desenvolvedores todas as manhãs. Cada desenvolvedor pode usar o certificado diário para trabalhar nos repositórios da organização no {% data variables.product.product_name %}. No final do dia, o certificado pode expirar automaticamente, protegendo seus repositórios caso o certificado seja adulterado mais tarde.
 
-{% ifversion fpt or ghec %}
+{% ifversion ghec %}
 Integrantes da organização podem usar os certificados assinados para autenticação mesmo que você tenha aplicado o logon único SAML. A menos que você exija certificados SSH, os integrantes podem continuar a usar outros meios de autenticação para acessar os recursos da organização no Git, como o nome de usuário e senha deles, tokens de acesso pessoais e outras chaves SSH próprias.
 {% endif %}
 

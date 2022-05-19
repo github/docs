@@ -14,11 +14,13 @@ shortTitle: 强制 SAML 单点登录
 
 ## 关于对组织实施 SAML SSO
 
-启用 SAML SSO 时，{% data variables.product.prodname_dotcom %} 将提示访问 {% data variables.product.prodname_dotcom_the_website %} 上组织资源的成员使用 IdP 进行身份验证，IdP 会将成员的用户帐户链接到 IdP 上的身份。 成员在使用 IdP 进行身份验证之前仍然可以访问组织的资源。
+启用 SAML SSO 时，{% data variables.product.prodname_dotcom %} 将提示访问 {% data variables.product.prodname_dotcom_the_website %} 上组织资源的成员使用 IdP 进行身份验证，IdP 会将成员的个人帐户链接到 IdP 上的身份。 成员在使用 IdP 进行身份验证之前仍然可以访问组织的资源。
 
 ![提示通过 SAML SSO 进行身份验证以访问组织的横幅](/assets/images/help/saml/sso-has-been-enabled.png)
 
 您也可以对组织实施 SAML SSO。 {% data reusables.saml.when-you-enforce %} 实施会从组织中删除尚未通过 IdP 进行身份验证的任何成员和管理员。 {% data variables.product.company_short %} 将向每个被删除的用户发送电子邮件通知。
+
+{% data reusables.saml.ghec-only %}
 
 {% data reusables.saml.removed-users-can-rejoin %} 如果用户在三个月内重新加入组织，则该用户的访问权限和设置将恢复。 更多信息请参阅“[恢复组织的前成员](/articles/reinstating-a-former-member-of-your-organization)”。
 

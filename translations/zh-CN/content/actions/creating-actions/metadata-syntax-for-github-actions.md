@@ -273,7 +273,7 @@ runs:
 
 ### `runs.steps`
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 or ghec %}
+{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 
 
 **必要** 您计划在此操作中的步骤。 这些步骤可以是 `run` 步骤或 `uses` 步骤。 
@@ -288,7 +288,7 @@ runs:
 
 #### `runs.steps[*].run`
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 or ghec %}
+{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 
 
 **可选** 您想要运行的命令。 这可以是内联的，也可以是操作仓库中的脚本： 
@@ -332,7 +332,7 @@ runs:
 
 #### `runs.steps[*].shell`
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 or ghec %}
+{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 
 
 **可选** 您想要在其中运行命令的 shell。 您可以使用[这里](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsshell)列出的任何 shell。 如果设置了 `run`，则必填。 
@@ -367,7 +367,7 @@ steps:
 
 **示例：使用状态检查功能**
 
-`my backup step` 仅在组合操作的上一步失败时运行。 For more information, see "[Expressions](/actions/learn-github-actions/expressions#job-status-check-functions)."
+`my backup step` 仅在组合操作的上一步失败时运行。 更多信息请参阅“[表达式](/actions/learn-github-actions/expressions#status-check-functions)”。
 
 
 
@@ -407,7 +407,7 @@ steps:
 
 **可选**  指定命令在其中运行的工作目录。
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 or ghec %}
+{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 
 
 #### `runs.steps[*].uses`
@@ -431,9 +431,9 @@ runs:
     # Reference a specific commit
     - uses: actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675
     # Reference the major version of a release
-    - uses: actions/checkout@v2
+    - uses: {% data reusables.actions.action-checkout %}
     # Reference a specific version
-    - uses: actions/checkout@v2.2.0
+    - uses: {% data reusables.actions.action-checkout %}.2.0
     # Reference a branch
     - uses: actions/checkout@main
     # References a subdirectory in a public GitHub repository at a specific branch, ref, or SHA

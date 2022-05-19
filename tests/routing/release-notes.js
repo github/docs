@@ -1,7 +1,7 @@
 import { jest } from '@jest/globals'
 import nock from 'nock'
 
-import { get, getDOM } from '../helpers/supertest.js'
+import { get, getDOM } from '../helpers/e2etest.js'
 import enterpriseServerReleases from '../../lib/enterprise-server-releases.js'
 
 jest.useFakeTimers('legacy')

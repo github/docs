@@ -30,8 +30,8 @@ shortTitle: 在板上筛选卡
 - 使用 `status:pending`、`status:success` 或 `status:failure` 按检查状态过滤
 - 使用 `type:issue`、`type:pr` 或 `type:note` 按类型过滤卡
 - 使用 `is:open`、`is:closed` 或 `is:merged` 和 `is:issue`、`is:pr` 或 `is:note` 按状态和类型过滤卡
-- 使用 `linked:pr` 关闭引用，按链接到拉取请求的议题过滤卡{% ifversion fpt or ghes or ghae or ghec %}
-- 使用 `repo:ORGANIZATION/REPOSITORY` 在组织范围的项目板中按仓库过滤卡{% endif %}
+- Filter cards by issues that are linked to a pull request by a closing reference using `linked:pr`
+- 使用 `repo:ORGANIZATION/REPOSITORY` 在组织范围的项目板中按仓库过滤卡
 
 1. 导航到包含要过滤的卡的项目板。
 2. 在项目卡列上方，单击“Filter cards（过滤卡）”搜索栏并键入搜索查询以过滤卡。 ![过滤卡搜索栏](/assets/images/help/projects/filter-card-search-bar.png)

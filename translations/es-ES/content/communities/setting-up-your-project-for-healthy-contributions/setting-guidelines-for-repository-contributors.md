@@ -28,7 +28,7 @@ Tanto para los propietarios como para los colaboradores, las pautas de contribuc
 
 {% ifversion fpt or ghes or ghec %}
 
-Puedes crear lineamientos de contribución predeterminados para tu organización{% ifversion fpt or ghes or ghec %} o cuenta de usuario{% endif %}. Para obtener más información, consulta "[Crear un archivo de salud predeterminado para la comunidad](//communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
+Puedes crear lineamientos de contribución predeterminados para tu cuenta organizacional{% ifversion fpt or ghes or ghec %} o personal{% endif %}. Para obtener más información, consulta "[Crear un archivo de salud predeterminado para la comunidad](//communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
 
 {% endif %}
 

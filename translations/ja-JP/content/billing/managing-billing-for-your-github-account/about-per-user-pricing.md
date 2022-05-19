@@ -1,5 +1,5 @@
 ---
-title: ユーザごとの価格付けについて
+title: About per-user pricing
 intro: 'With per-user pricing, organizations {% ifversion ghec %}and enterprises {% endif %}pay based on team size to access advanced collaboration and management tools for teams, and optionally, security, compliance, and deployment controls.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/about-per-user-pricing
@@ -16,7 +16,7 @@ topics:
   - Organizations
 ---
 
-## ユーザごとの価格付けについて
+## About per-user pricing
 
 New organizations on {% data variables.product.prodname_dotcom_the_website %} can build public and open-source projects with {% data variables.product.prodname_free_team %}, or upgrade to a paid product with per-user pricing. For more information, see "[{% data variables.product.company_short %}'s products](/get-started/learning-about-github/githubs-products)" and "[Upgrading your {% data variables.product.prodname_dotcom %} subscription](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription)."
 
@@ -27,12 +27,12 @@ New organizations on {% data variables.product.prodname_dotcom_the_website %} ca
 For more information about outside collaborators, see "[Adding outside collaborators to repositories in your organization](/organizations/managing-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization)."
 
 {% ifversion ghec %}
-
+  
 If you deploy {% data variables.product.prodname_ghe_server %}, your usage includes licenses for each user on your instance. For more information about additional services and billing for {% data variables.product.prodname_ghe_cloud %}, see "[About billing for your enterprise](/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise)."
 
 {% elsif fpt %}
 
-2016 年 5 月 11 日以前に有料プランを使っていた Organization は、既存のリポジトリ単位のプランに留まるか、ユーザごとの価格付けに切り替えることができます。 {% data variables.product.company_short %} will notify you twelve months before any mandated change to your subscription. プランの切り替えに関する詳しい情報については、「[{% data variables.product.prodname_dotcom %} プランをアップグレードする](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription)」を参照してください。
+Organizations using a paid subscription before May 11, 2016 can choose to stay on their existing per-repository plan or switch to per-user pricing. {% data variables.product.company_short %} will notify you twelve months before any mandated change to your subscription. For more information on switching your subscription, see "[Upgrading your {% data variables.product.prodname_dotcom %} subscription](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription)."
 
 {% endif %}
 
@@ -54,7 +54,7 @@ You can add more users to your organization{% ifversion ghec %} or enterprise at
 
 If you have questions about your subscription, contact {% data variables.contact.contact_support %}.
 
-Teamのコラボレーション機能をさらにサポートするために、保護されたブランチやプライベートリポジトリでのコードオーナーのような機能を含む{% data variables.product.prodname_ghe_cloud %}にアップグレードできます。 {% data reusables.enterprise.link-to-ghec-trial %}
+To further support your team's collaboration abilities, you can upgrade to {% data variables.product.prodname_ghe_cloud %}, which includes features like SAML single sign-on and advanced auditing. {% data reusables.enterprise.link-to-ghec-trial %}
 
 For more information about per-user pricing for {% data variables.product.prodname_ghe_cloud %}, see [the {% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/billing/managing-billing-for-your-github-account/about-per-user-pricing).
 
@@ -70,15 +70,15 @@ If you use an individual organization on {% data variables.product.prodname_ghe_
 
 ### About changes for organizations on per-repository plans
 
-レガシーの有料プラン間でのアップグレード及びダウングレードは、Organizationの支払い設定から行えます。 When you upgrade to a plan with more private repositories, {% data variables.product.company_short %} immediately moves your account to your new plan and bills you for the difference in price, prorated for the number of days left in your billing cycle.
+You can upgrade or downgrade between legacy paid plans in your organization's billing settings. When you upgrade to a plan with more private repositories, {% data variables.product.company_short %} immediately moves your account to your new plan and bills you for the difference in price, prorated for the number of days left in your billing cycle.
 
-プライベートリポジトリ数が少ないレガシーの有料プランにダウングレードする場合、新しいプランは次の支払日に有効になります。 新しいプランで利用できる以上のプライベートリポジトリを持っている場合、新しいプランが有効になった時点でプライベートリポジトリはロックされます。 プライベートリポジトリの数を減らすには、プライベートリポジトリの一部をパブリックにするか、プライベートリポジトリをローカルにクローンして {% data variables.product.prodname_dotcom %} 上のコピーを削除します。
+When you downgrade to a legacy paid plan with fewer private repositories, your new plan will take effect on your next billing date. If you have more private repositories than your new plan allows for, your private repositories will be locked when your new plan takes effect. To reduce your number of private repositories, you can make some of your private repositories public, or you can clone your private repositories locally and delete the copies on {% data variables.product.prodname_dotcom %}.
 
 {% endif %}
 
-## 参考リンク
+## Further reading
 
 {%- ifversion ghec %}
-- 「[Enterprise アカウントについて](/admin/overview/about-enterprise-accounts)」
+- "[About enterprise accounts](/admin/overview/about-enterprise-accounts)"
 {%- endif %}
-- 「[リポジトリについて](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)」
+- "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)"

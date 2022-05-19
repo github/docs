@@ -40,10 +40,12 @@ shortTitle: 限制仓库创建
    ![仓库创建选项](/assets/images/help/organizations/repo-creation-perms-radio-buttons.png)
    {%- elsif fpt %}
    ![仓库创建选项](/assets/images/help/organizations/repo-creation-perms-radio-buttons-fpt.png)
+   {%- endif %}
 
+   {% ifversion fpt or ghec %}
    {% note %}
 
-   **注意：** 要将成员限制为只能创建私有仓库，您的组织必须使用 {% data variables.product.prodname_ghe_cloud %}。
+   **注意：** 要将成员限制为只能创建私有仓库，您的组织必须使用 {% data variables.product.prodname_ghe_cloud %}。 {% data reusables.enterprise.link-to-ghec-trial %}
 
    {% endnote %}
    {%- endif %}

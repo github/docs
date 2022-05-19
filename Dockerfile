@@ -78,6 +78,11 @@ ENV PORT 4000
 
 ENV ENABLED_LANGUAGES "en"
 
+# This makes it possible to set `--build-arg BUILD_SHA=abc123`
+# and it then becomes available as an environment variable in the docker run.
+ARG BUILD_SHA
+ENV BUILD_SHA=$BUILD_SHA
+
 # Copy only what's needed to run the server
 COPY --chown=node:node package.json ./
 COPY --chown=node:node assets ./assets
@@ -89,6 +94,7 @@ COPY --chown=node:node feature-flags.json ./
 COPY --chown=node:node data ./data
 COPY --chown=node:node next.config.js ./
 COPY --chown=node:node server.mjs ./server.mjs
+COPY --chown=node:node start-server.mjs ./start-server.mjs
 
 EXPOSE $PORT
 

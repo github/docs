@@ -1,5 +1,5 @@
 ---
-title: Other Site Policies
+title: 其他网站政策
 versions:
   fpt: '*'
 topics:

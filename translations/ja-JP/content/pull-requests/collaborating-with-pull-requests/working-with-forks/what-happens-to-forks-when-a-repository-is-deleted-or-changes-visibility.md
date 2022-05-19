@@ -67,7 +67,7 @@ shortTitle: Deleted or changes visibility
 
 
 
-Enterprise のポリシーでフォークが許可されている場合、内部リポジトリのフォークはすべてプライベートになります。 内部リポジトリの表示を変更した場合、Organization またはユーザアカウントが所有するフォークはすべてプライベートのままになります。
+Enterprise のポリシーでフォークが許可されている場合、内部リポジトリのフォークはすべてプライベートになります。 If you change the visibility of an internal repository, any fork owned by an organization or personal account will remain private.
 
 ### 内部リポジトリを削除する
 

@@ -14,7 +14,6 @@ shortTitle: Gerenciar acesso a executores
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.restrict-runner-workflow-beta %}
 
 ## Sobre grupos de executores auto-hospedados
 
@@ -50,7 +49,7 @@ Ao criar um grupo, você deve escolher uma política que defina quais repositór
 {% ifversion ghec or ghes > 3.3 or ghae-issue-5091 %}
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-{% data reusables.actions.settings-sidebar-actions-runner-groups %}
+{% data reusables.organizations.settings-sidebar-actions-runner-groups %}
 1. Na seção "Grupos de executores", clique em **Novo grupo de executor**.
 1. Digite um nome para o grupo do seu executor.
  {% data reusables.actions.runner-group-assign-policy-repo %}
@@ -67,7 +66,7 @@ Os grupos de executores de {% data reusables.actions.runner-group-assign-policy-
 {% elsif ghae or ghes < 3.4 %}
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-{% data reusables.actions.settings-sidebar-actions-runners %}
+{% data reusables.organizations.settings-sidebar-actions-runner-groups %}
 1. Em {% ifversion ghes > 3.1 or ghae %}"Executores"{% elsif ghes < 3.2 %}"Executores auto-hospedados"{% endif %}, clique em **Adicionar novo** e, em seguida, **Novo grupo**.
 
     ![Adicionar grupo de executor](/assets/images/help/settings/actions-org-add-runner-group.png)

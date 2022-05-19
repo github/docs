@@ -1,5 +1,5 @@
 ---
-title: Managing licenses for Visual Studio subscriptions with GitHub Enterprise
+title: Visual Studio subscriptions with GitHub Enterpriseのライセンスの管理
 shortTitle: Visual Studio & GitHub Enterprise
 intro: '{% data reusables.enterprise-accounts.vss-ghe-description %}'
 versions:

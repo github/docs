@@ -23,7 +23,7 @@ shortTitle: Monitor & troubleshoot
 {% data reusables.actions.self-hosted-runner-management-permissions-required %}
 
 {% data reusables.actions.self-hosted-runner-navigate-repo-and-org %}
-{% data reusables.actions.settings-sidebar-actions-runners %}
+{% data reusables.organizations.settings-sidebar-actions-runners %}
 1. Under {% ifversion fpt or ghes > 3.1 or ghae or ghec %}"Runners"{% else %}"Self-hosted runners"{% endif %}, you can view a list of registered runners, including the runner's name, labels, and status.
 
     The status can be one of the following:
@@ -258,3 +258,11 @@ User=runner-user
 ```
 
 {% endlinux %}
+
+{% ifversion ghes %}
+## Resolving runners that are offline after an upgrade of {% data variables.product.product_location %}
+
+{% data reusables.actions.upgrade-runners-before-upgrade-ghes %} 
+
+If your runners are offline for this reason, manually update the runners. For more information, see the installation instructions for [the latest release](https://github.com/actions/runner/releases/latest) in the actions/runner repository.
+{% endif %}

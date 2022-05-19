@@ -50,5 +50,5 @@ topics:
 
    {% endnote %}
 {% endif %}{% if device-flow-is-opt-in %}
-1. If your OAuth App will use the device flow to identify and authorize users, click **Enable Device Flow**. For more information about the device flow, see "[Authorizing OAuth Apps](/developers/apps/building-oauth-apps/authorizing-oauth-apps#device-flow)." ![Screenshot showing field for enabling device flow](/assets/images/oauth-apps/enable-device-flow.png){% endif %}
+1. 如果您的 OAuth 应用将使用设备流来识别和授权用户，请单击 **Enable Device Flow（启用设备流）**。 有关设备流的更多信息，请参阅“[授权 OAuth 应用程序](/developers/apps/building-oauth-apps/authorizing-oauth-apps#device-flow)”。 ![Screenshot showing field for enabling device flow](/assets/images/oauth-apps/enable-device-flow.png){% endif %}
 2.  单击 **Register application（注册应用程序）**。 ![注册应用程序的按钮](/assets/images/oauth-apps/oauth_apps_register_application.png)

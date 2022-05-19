@@ -29,7 +29,6 @@ When you use two or more headings, GitHub automatically generates a table of con
 
 ![Screenshot highlighting the table of contents icon](/assets/images/help/repository/headings_toc.png)
 
-
 ## スタイル付きテキスト
 
 コメントフィールドと `.md` ファイルでは、太字、斜体、または取り消し線のテキストで強調を示すことができます。
@@ -190,6 +189,12 @@ We distinguish between light and dark color modes, so there are two options avai
      - 2 番目の入れ子になったリストアイテム
 ```
 
+{% tip %}
+
+**Note**: In the web-based editor, you can indent or dedent one or more lines of text by first highlighting the desired lines and then using <kbd>Tab</kbd> or <kbd>Shift</kbd>+<kbd>Tab</kbd> respectively.
+
+{% endtip %}
+
 ![並びがハイライトされた入れ子になったリスト](/assets/images/help/writing/nested-list-alignment.png)
 
 ![2 レベルの入れ子になったアイテムを持つリスト](/assets/images/help/writing/nested-list-example-1.png)
@@ -229,7 +234,13 @@ If a task list item description begins with a parenthesis, you'll need to escape
 
 ## 人や Team のメンション
 
-{% data variables.product.product_name %}上の人あるいは [Team](/articles/setting-up-teams/) は、<kbd>@</kbd> に加えてユーザ名もしくは Team 名を入力することでメンションできます。 これにより通知がトリガーされ、会話に注意が向けられます。 コメントを編集してユーザ名や Team 名をメンションすれば、人々に通知を受信してもらえます。 通知の詳細は、{% ifversion fpt or ghes or ghae or ghec %}「[通知について](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}「[通知について](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}」を参照してください。
+{% data variables.product.product_name %}上の人あるいは [Team](/articles/setting-up-teams/) は、<kbd>@</kbd> に加えてユーザ名もしくは Team 名を入力することでメンションできます。 これにより通知がトリガーされ、会話に注意が向けられます。 コメントを編集してユーザ名や Team 名をメンションすれば、人々に通知を受信してもらえます。 通知に関する詳しい情報については「[通知について](/github/managing-subscriptions-and-notifications-on-github/about-notifications)」を参照してください。
+
+{% note %}
+
+**Note:** A person will only be notified about a mention if the person has read access to the repository and, if the repository is owned by an organization, the person is a member of the organization.
+
+{% endnote %}
 
 `@github/support これらのアップデートについてどう思いますか？`
 
@@ -284,7 +295,7 @@ For more information about building a {% data variables.product.prodname_github_
 
 テキスト行の間に空白行を残すことで、新しいパラグラフを作成できます。
 
-{% ifversion fpt or ghae-issue-5180 or ghes > 3.2 or ghec %}
+{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
 ## Footnotes
 
 You can add footnotes to your content by using this bracket syntax:
@@ -311,6 +322,8 @@ The footnote will render like this:
 {% tip %}
 
 **Note**: The position of a footnote in your Markdown does not influence where the footnote will be rendered. You can write a footnote right after your reference to the footnote, and the footnote will still render at the bottom of the Markdown.
+
+Footnotes are not supported in wikis.
 
 {% endtip %}
 {% endif %}

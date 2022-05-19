@@ -5,6 +5,7 @@ intro: Você pode criar a segurança no fluxo de trabalho de seus desenvolvedore
 versions:
   ghes: '*'
   ghec: '*'
+  ghae: '*'
 topics:
   - Enterprise
 children:

@@ -16,7 +16,7 @@ versions:
 
 Las respuestas guardadas te permiten crear una respuesta reusable para las propuestas y las solicitudes de extracción. Ahorra tiempo creando una respuesta guardada para las respuestas que usas con mayor frecuencia.
 
-Una vez que has agregado una respuesta guardada, se puede usar tanto en las propuestas como en las solicitudes de extracción. Las respuestas guardadas están asociadas a tu cuenta de usuario. Una vez que son creadas, podrás usarlas en todos los repositorios y las organizaciones.
+Una vez que has agregado una respuesta guardada, se puede usar tanto en las propuestas como en las solicitudes de extracción. Saved replies are tied to your personal account. Una vez que son creadas, podrás usarlas en todos los repositorios y las organizaciones.
 
 Puedes crear un máximo de 100 respuestas guardadas. Si has alcanzado el límite máximo, puedes eliminar las respuestas guardadas que ya no usas o editar las respuestas guardadas existentes.
 

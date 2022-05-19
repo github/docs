@@ -196,7 +196,7 @@ For example, if you have a deleted RubyGems package named `octo-package` that wa
 {% ifversion fpt or ghec %}
 To restore a deleted package, you must also meet one of these permission requirements:
   - For repository-scoped packages: You have admin permissions to the repository that owns the deleted package.{% ifversion fpt or ghec %}
-  - For user-account scoped packages: Your user account owns the deleted package.
+  - For user-account scoped packages: Your personal account owns the deleted package.
   - For organization-scoped packages: You have admin permissions to the deleted package in the organization that owns the package.{% endif %}
 {% endif %}
 
@@ -226,7 +226,7 @@ To review who can restore a package in an organization, see "[Required permissio
 
 ### Restoring a user-account scoped package
 
-You can restore a deleted package through your user account settings, if the package was in one of your repositories or scoped to your user account. For more information, see "[Required permissions](#required-permissions-to-delete-or-restore-a-package)."
+You can restore a deleted package through your personal account settings, if the package was in one of your repositories or scoped to your personal account. For more information, see "[Required permissions](#required-permissions-to-delete-or-restore-a-package)."
 
 {% data reusables.user-settings.access_settings %}
 2. On the left, click **Packages**.

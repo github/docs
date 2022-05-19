@@ -7,7 +7,7 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '>3.2'
-  ghae-issue-4974: '*'
+  ghae: issue-4974
 topics:
   - Repositories
 ---

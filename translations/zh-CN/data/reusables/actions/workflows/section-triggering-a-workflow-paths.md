@@ -18,6 +18,12 @@ on:
       - '**.js'
 ```
 
+{% note %}
+
+**注意：**如果由于[路径过滤](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore)、 [分支过滤](/actions/using-workflows/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore)或[提交消息](/actions/managing-workflow-runs/skipping-workflow-runs)而跳过工作流程，则与该工作流程关联的检查将保持“挂起”状态。 需要这些检查成功的拉取请求将被阻止合并。 For more information, see "[Handling skipped but required checks](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/troubleshooting-required-status-checks#handling-skipped-but-required-checks)."
+
+{% endnote %}
+
 #### Example: Excluding paths
 
 当所有路径名称匹配 `paths-ignore` 中的模式时，工作流程不会运行。 If any path names do not match patterns in `paths-ignore`, even if some path names match the patterns, the workflow will run.

@@ -1,9 +1,9 @@
 ---
-title: Default environment variables for your codespace
+title: Variables de ambiente predeterminadas para tu codespace
 shortTitle: Variables de entorno predeterminadas
 product: '{% data reusables.gated-features.codespaces %}'
 permissions: '{% data reusables.codespaces.availability %}'
-intro: '{% data variables.product.prodname_dotcom %} sets default environment variables for each codespace.'
+intro: '{% data variables.product.prodname_dotcom %} configura variables de ambiente predeterminadas para cada codespace.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -14,27 +14,27 @@ topics:
   - Developer
 ---
 
-## About default environment variables
+## Acerca de las variables de ambiente predeterminadas
 
-{% data variables.product.prodname_dotcom %} sets default environment variables for every codespace. Commands run in codespaces can create, read, and modify environment variables.
+{% data variables.product.prodname_dotcom %} configura variables de ambiente predeterminadas para cada codespace. Los comandos que se ejecutan en los codespaces pueden crear, leer y modificar las variables de ambiente.
 
 {% note %}
 
-**Note**: Environment variables are case-sensitive.
+**Nota**: Las variables de ambiente distinguen entre mayúsculas y minúsculas.
 
 {% endnote %}
 
-## List of default environment variables
+## Lista de variables de ambiente predeterminadas
 
-| Variable de entorno   | Descripción                                                                                                                                                                                                                                       |
-| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `CODESPACE_NAME`      | The name of the codespace For example, `monalisa-github-hello-world-2f2fsdf2e`                                                                                                                                                                    |
-| `CODESPACES`          | Always `true` while in a codespace                                                                                                                                                                                                                |
-| `GIT_COMMITTER_EMAIL` | The email for the "author" field of future `git` commits.                                                                                                                                                                                         |
-| `GIT_COMMITTER_NAME`  | The name for the "committer" field of future `git` commits.                                                                                                                                                                                       |
-| `GITHUB_API_URL`      | Devuelve la URL de la API. For example, `{% data variables.product.api_url_code %}`.                                                                                                                                                              |
-| `GITHUB_GRAPHQL_URL`  | Devuelve la URL de la API de GraphQL. For example, `{% data variables.product.graphql_url_code %}`.                                                                                                                                               |
-| `GITHUB_REPOSITORY`   | El nombre del repositorio y del propietario. Por ejemplo, `octocat/Hello-World`.                                                                                                                                                                  |
-| `GITHUB_SERVER_URL`   | Devuelve la URL del servidor de {% data variables.product.product_name %}. For example, `https://{% data variables.product.product_url %}`.                                                                                                       |
-| `GITHUB_TOKEN`        | A signed auth token representing the user in the codespace. You can use this to make authenticated calls to the GitHub API. For more information, see "[Authentication](/codespaces/codespaces-reference/security-in-codespaces#authentication)." |
-| `GITHUB_USER`         | The name of the user that initiated the codespace. Por ejemplo, `octocat`.                                                                                                                                                                        |
+| Variable de entorno   | Descripción                                                                                                                                                                                                                                                                                 |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `CODESPACE_NAME`      | El nombre del codespace, por ejemplo, `monalisa-github-hello-world-2f2fsdf2e`                                                                                                                                                                                                               |
+| `CODESPACES`          | Siempre `true` si está en un codespace                                                                                                                                                                                                                                                      |
+| `GIT_COMMITTER_EMAIL` | El correo electrónico del campo de "autor" de las confirmaciones de `git` futuras.                                                                                                                                                                                                          |
+| `GIT_COMMITTER_NAME`  | El nombre del campo "confirmante" de las confirmaciones de `git` futuras.                                                                                                                                                                                                                   |
+| `GITHUB_API_URL`      | Devuelve la URL de la API. Por ejemplo, `{% data variables.product.api_url_code %}`.                                                                                                                                                                                                        |
+| `GITHUB_GRAPHQL_URL`  | Devuelve la URL de la API de GraphQL. Por ejemplo, `{% data variables.product.graphql_url_code %}`.                                                                                                                                                                                         |
+| `GITHUB_REPOSITORY`   | El nombre del repositorio y del propietario. Por ejemplo, `octocat/Hello-World`.                                                                                                                                                                                                            |
+| `GITHUB_SERVER_URL`   | Devuelve la URL del servidor de {% data variables.product.product_name %}. Por ejemplo, `https://{% data variables.product.product_url %}`.                                                                                                                                                 |
+| `GITHUB_TOKEN`        | Un token de autenticación que representa al usuario en el codespace. Puedes utilizar esto para hacer llamadas autenticadas a la API de GitHub. Para obtener más información, consulta la sección "[Autenticación](/codespaces/codespaces-reference/security-in-codespaces#authentication)". |
+| `GITHUB_USER`         | El nombre del usuario que inició el codespace. Por ejemplo, `octocat`.                                                                                                                                                                                                                      |

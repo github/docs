@@ -46,7 +46,7 @@ https://github.com/sponsors/community で検索を使用して、恩恵を受け
 
 ## 特定のプロジェクトまたはコントリビューターを検索する
 
-https://github.com/sponsors/community では、エコシステム、最も使用されたもの、最近更新されたものなどで検索できます。 個人ユーザアカウントまたはメンバーになっている Organization の検索結果をフィルタできます。
+https://github.com/sponsors/community では、エコシステム、最も使用されたもの、最近更新されたものなどで検索できます。 You can filter search results for your personal account or for organizations that you're a member of.
 
 ## 次のステップ
 

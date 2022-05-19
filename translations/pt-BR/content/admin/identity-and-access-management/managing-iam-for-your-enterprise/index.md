@@ -1,20 +1,35 @@
 ---
 title: Gerenciando o IAM da sua empresa
-shortTitle: IAM para a sua empresa
-intro: 'Você pode gerenciar centralmente {% ifversion ghae %}as contas e {% endif %}o acesso à sua {% ifversion ghae %}empresa{% elsif ghec %}recursos da empresa{% endif %} em {% data variables.product.product_name %} com o logon único (SSO) SAML e com Sistema de Gerenciamento de Identidade entre Domínios (SCIM).'
+intro: |
+  {%- ifversion ghec %}
+  Você pode convidar contas pessoais existentes em {% data variables.product.product_location %} para ser integrante da sua empresa, e você pode opcionalmente habilitar o logon único SAML (SSO) para gerenciar o acesso centralmente. Como alternativa, você pode usar {% data variables.product.prodname_emus %} com o SAML SSO para criar e controlar as contas dos integrantes da sua empresa.
+  {%- elsif ghes %}
+  Você pode usar a autenticação integrada de {% data variables.product.product_name %} ou você pode gerenciar centralmente a autenticação e acesso à sua instância com CAS, LDAP ou SAML.
+  {%- elsif ghae %}
+  Você deve usar o logon único SAML (SSO) para gerenciar centralmente a autenticação e o acesso à sua empresa em {% data variables.product.product_name %}. Opcionalmente, você pode usar o Sistema de Gerenciamento de Identidades de Domínio entre Domínios (SCIM) para provisionar automaticamente contas e acesso em {% data variables.product.product_name %} ao fazer alterações no seu provedor de identidade (IdP).
+  {%- endif %}
+redirect_from:
+  - /enterprise/admin/categories/authentication
+  - /enterprise/admin/guides/installation/user-authentication
+  - /enterprise/admin/articles/inviting-users
+  - /enterprise/admin/guides/migrations/authenticating-users-for-your-github-enterprise-instance
+  - /enterprise/admin/user-management/authenticating-users-for-your-github-enterprise-server-instance
+  - /enterprise/admin/authentication/authenticating-users-for-your-github-enterprise-server-instance
+  - /admin/identity-and-access-management/authenticating-users-for-your-github-enterprise-server-instance
 versions:
   ghec: '*'
+  ghes: '*'
   ghae: '*'
-redirect_from:
-  - /github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account
-  - /admin/authentication/managing-identity-and-access-for-your-enterprise
+topics:
+  - Accounts
+  - Authentication
+  - Enterprise
+  - Identity
 children:
-  - /about-identity-and-access-management-for-your-enterprise
-  - /configuring-saml-single-sign-on-for-your-enterprise
-  - /configuring-user-provisioning-for-your-enterprise
-  - /managing-team-synchronization-for-organizations-in-your-enterprise
-  - /configuring-saml-single-sign-on-for-your-enterprise-using-okta
-  - /switching-your-saml-configuration-from-an-organization-to-an-enterprise-account
+  - /about-authentication-for-your-enterprise
+  - /username-considerations-for-external-authentication
+  - /changing-authentication-methods
+  - /allowing-built-in-authentication-for-users-outside-your-provider
+shortTitle: Gerenciando IAM para a sua empresa
 ---
 
-{% data reusables.enterprise-accounts.emu-saml-note %}

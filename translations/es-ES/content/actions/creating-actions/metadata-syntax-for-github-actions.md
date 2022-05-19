@@ -223,7 +223,7 @@ Por ejemplo, este `cleanup.js` únicamente se ejecutará en ejecutores basados e
 
 ### `runs.steps`
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 or ghec %}
+{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 **Requerido** Los pasos que planeas ejecutar en esta acción. Estos pueden ser ya sea pasos de `run` o de `uses`.
 {% else %}
 **Requerido** Los pasos que planeas ejecutar en esta acción.
@@ -231,7 +231,7 @@ Por ejemplo, este `cleanup.js` únicamente se ejecutará en ejecutores basados e
 
 #### `runs.steps[*].run`
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 or ghec %}
+{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 **Opcional** El comando que quieres ejecutar. Este puede estar dentro de la línea o ser un script en tu repositorio de la acción:
 {% else %}
 **Requerido** El comando que quieres ejecutar. Este puede estar dentro de la línea o ser un script en tu repositorio de la acción:
@@ -261,7 +261,7 @@ Para obtener más información, consulta la sección "[``](/actions/reference/co
 
 #### `runs.steps[*].shell`
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 or ghec %}
+{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 **Opcional** El shell en donde quieres ejecutar el comando. Puedes utilizar cualquiera de los shells listados [aquí](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsshell). Requerido si se configuró `run`.
 {% else %}
 **Requerido** El shell en donde quieres ejecutar el comando. Puedes utilizar cualquiera de los shells listados [aquí](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsshell). Requerido si se configuró `run`.
@@ -286,7 +286,7 @@ steps:
 
 **Ejemplo: Utilizando funciones de verificación de estado**
 
-`my backup step` solo se ejecutará cuando falle el paso previo de una acción compuesta. Para obtener más información, consulta la sección "[Expresiones](/actions/learn-github-actions/expressions#job-status-check-functions)".
+`my backup step` solo se ejecutará cuando falle el paso previo de una acción compuesta. Para obtener más información, consulta la sección "[Expresiones](/actions/learn-github-actions/expressions#status-check-functions)".
 
 ```yaml
 steps:
@@ -314,7 +314,7 @@ steps:
 
 **Opcional**  Especifica el directorio de trabajo en donde se ejecuta un comando.
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 or ghec %}
+{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 #### `runs.steps[*].uses`
 
 **Opcional**  Selecciona una acción a ejecutar como parte de un paso en tu job. Una acción es una unidad de código reutilizable. Puedes usar una acción definida en el mismo repositorio que el flujo de trabajo, un repositorio público o en una [imagen del contenedor Docker publicada](https://hub.docker.com/).
@@ -333,9 +333,9 @@ runs:
     # Reference a specific commit
     - uses: actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675
     # Reference the major version of a release
-    - uses: actions/checkout@v2
+    - uses: {% data reusables.actions.action-checkout %}
     # Reference a specific version
-    - uses: actions/checkout@v2.2.0
+    - uses: {% data reusables.actions.action-checkout %}.2.0
     # Reference a branch
     - uses: actions/checkout@main
     # References a subdirectory in a public GitHub repository at a specific branch, ref, or SHA

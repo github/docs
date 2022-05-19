@@ -38,7 +38,10 @@ Se o branch que você deseja excluir estiver associado a um pull request aberto,
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.navigate-to-branches %}
-1. Role até o branch que deseja excluir e clique em {% octicon "trash" aria-label="The trash icon to delete the branch" %}. ![excluir o branch](/assets/images/help/branches/branches-delete.png)
+1. Role até o branch que deseja excluir e clique em {% octicon "trash" aria-label="The trash icon to delete the branch" %}. ![delete the branch](/assets/images/help/branches/branches-delete.png) {% ifversion fpt or ghes > 3.5 or ghae-issue-6763 or ghec %}
+1. Se você tentar excluir um branch associado a pelo menos um pull request aberto, você deverá confirmar que pretende fechar o(s) pull request(s).
+
+   ![Confirme a exclusão de um branch](/assets/images/help/branches/confirm-deleting-branch.png){% endif %}
 
 {% data reusables.pull_requests.retargeted-on-branch-deletion %}
 Para obter mais informações, consulte "[Sobre branches](/github/collaborating-with-issues-and-pull-requests/about-branches#working-with-branches)".

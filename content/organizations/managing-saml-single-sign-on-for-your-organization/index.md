@@ -12,7 +12,7 @@ topics:
   - Teams
 children:
   - /about-identity-and-access-management-with-saml-single-sign-on
-  - /about-scim
+  - /about-scim-for-organizations
   - /connecting-your-identity-provider-to-your-organization
   - /configuring-saml-single-sign-on-and-scim-using-okta
   - /enabling-and-testing-saml-single-sign-on-for-your-organization
@@ -25,3 +25,4 @@ children:
 shortTitle: Manage SAML single sign-on
 ---
 
+{% data reusables.saml.ghec-only %}

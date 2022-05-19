@@ -60,7 +60,7 @@ El Fondo Compensatorio para Patrocinios de GitHub pretende alentar a la comunida
 #### 2.2.1. Condiciones para el Fondo Compensatorio.
 La elegibilidad para el Fondo Compensatorio para Patrocinios de GitHub se evalúa caso por caso y está sujeto a las siguientes limitaciones:
 
-* Debes tener una cuenta de GitHub, ser aceptado en el programa como un individuo, y contribuir activamente al OSS. Por favor nota que GitHub no permite operar más de una cuenta de usuario gratuita. De esta manera, la elegibilidad está disponible de manera individual y no se aprobará en cuentas múltiples de la misma persona.
+* Debes tener una cuenta de GitHub, ser aceptado en el programa como un individuo, y contribuir activamente al OSS. Please note, GitHub does not allow operating more than one free personal account. De esta manera, la elegibilidad está disponible de manera individual y no se aprobará en cuentas múltiples de la misma persona.
 
 * Tu uso de GitHub y de tu Cuenta de Desarrollador Patrocinada debe ser, según nuestra determinación y exclusivo criterio, consistente con la misión de Patrocinios de GitHub para expandir las oportunidades para contribuir con el código abierto que se describe en los [Lineamientos de Comunidad de GitHub](/github/site-policy/github-community-guidelines).
 

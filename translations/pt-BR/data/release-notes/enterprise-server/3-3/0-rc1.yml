@@ -176,7 +176,7 @@ sections:
     - Os limites de recursos que são específicos para processamento de hooks pre-receive podem causar falha em alguns hooks pre-receive.
   deprecations:
     - 
-      heading: Deprecation of GitHub Enterprise Server 2.22
+      heading: Obsoletização do GitHub Enterprise Server 2.22
       notes:
         - '**{% data variables.product.prodname_ghe_server %} 2.22 tornou-se obsoleto em 23 de setembro de 2021**. Isso significa que não serão feitas versões de patch, mesmo para questões essenciais de segurança, após esta data. Para obter melhor desempenho, melhorar a segurança e novas funcionalidades, [faça a atualização para a versão mais recente de {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.3/admin/enterprise-management/upgrading-github-enterprise-server) assim que possível.'
     - 

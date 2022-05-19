@@ -32,9 +32,9 @@ As soon as you set a spending limit other than $0, you will be responsible for a
 
 Because you have not enabled overages, your next attempt to create a workflow artifact will fail. You will not receive a bill for the 0.1GB overage that month. However, if you enable overages, your first bill will include the 0.1GB of existing overage for the current billing cycle, as well as any additional overages you accrue.
 
-## Managing the spending limit for {% data variables.product.prodname_actions %} for your user account
+## Managing the spending limit for {% data variables.product.prodname_actions %} for your personal account
 
-Anyone can manage the spending limit for {% data variables.product.prodname_actions %} for their own user account.
+Anyone can manage the spending limit for {% data variables.product.prodname_actions %} for their own personal account.
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.billing_plans %}
@@ -51,6 +51,7 @@ Organizations owners and billing managers can manage the spending limit for {% d
 {% data reusables.dotcom_billing.monthly-spending-limit-actions-packages %}
 {% data reusables.dotcom_billing.update-spending-limit %}
 
+{% ifversion ghec %}
 ## Managing the spending limit for {% data variables.product.prodname_actions %} for your enterprise account
 
 Enterprise owners and billing managers can manage the spending limit for {% data variables.product.prodname_actions %} for an enterprise account.
@@ -62,7 +63,7 @@ Enterprise owners and billing managers can manage the spending limit for {% data
   ![Spending limit tab](/assets/images/help/settings/spending-limit-tab-enterprise.png)
 {% data reusables.dotcom_billing.monthly-spending-limit %}
 {% data reusables.dotcom_billing.update-spending-limit %}
-
+{% endif %}
 
 ## Managing usage and spending limit email notifications
 {% data reusables.billing.email-notifications %}
