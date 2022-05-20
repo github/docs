@@ -69,7 +69,7 @@ shortTitle: 关于安全概述
 
 {% ifversion ghec or ghes > 3.4 or ghae-issue-6199 %}
 ### 关于企业级安全性概述
-在企业级别，安全性概述显示企业的综合和存储库特定的安全信息。 You can view repositories owned by your enterprise that have security alerts, view all security alerts, or security feature-specific alerts from across your enterprise.
+在企业级别，安全性概述显示企业的综合和存储库特定的安全信息。 您可以查看企业拥有的具有安全警报的存储库，查看所有安全警报或整个企业中特定于安全功能的警报。
 
 企业中组织的组织所有者和安全管理员对企业级安全概述的访问权限也有限。 他们只能查看他们具有完全访问权限的组织的存储库和警报。
 

@@ -40,6 +40,10 @@ Qualquer pessoa com acesso de leitura a um repositório pode ver e comparar vers
 Você pode criar notas de versão manualmente enquanto gerencia uma versão. Como alternativa, você pode gerar automaticamente notas de versão a partir de um modelo padrão, ou personalizar seu próprio modelo de notas de versão. Para obter mais informações, consulte "[Notas de versão geradas automaticamente](/repositories/releasing-projects-on-github/automatically-generated-release-notes)".
 {% endif %}
 
+{% ifversion fpt or ghec or ghes > 3.6 or ghae-issue-7054 %}
+When viewing the details for a release, the creation date for each release asset is shown next to the release asset.
+{% endif %}
+
 {% ifversion fpt or ghec %}
 Pessoas com permissões de administrador para um repositório podem escolher se objetos {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) estão incluídos nos arquivos ZIP e tarballs que {% data variables.product.product_name %} cria para cada versão. Para obter mais informações, consulte "[Gerenciando objetos de {% data variables.large_files.product_name_short %} nos arquivos do seu repositório](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-git-lfs-objects-in-archives-of-your-repository)".
 

@@ -25,7 +25,7 @@ redirect_from:
 若要创建定义了自定义权限的代码空间，必须使用下列方法之一：
 * {% data variables.product.prodname_dotcom %} web UI
 * [{% data variables.product.prodname_dotcom %} CLI](https://github.com/cli/cli/releases/latest) 2.5.2 或更高版本
-* [{% data variables.product.prodname_github_codespaces %} Visual Studio Code 扩展](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces) 1.5.3 或更高版本
+* [{% data variables.product.prodname_github_codespaces %} {% data variables.product.prodname_vscode %} extension](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces) 1.5.3 or later
 
 ## 设置其他存储库权限
 

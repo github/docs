@@ -20,7 +20,7 @@ versions:
 Digitar <kbd>?</kbd> no {% data variables.product.prodname_dotcom %} exibe uma caixa de diálogo que lista os atalhos de teclado disponíveis para essa página. Você pode usar esses atalhos de teclado para executar ações no site sem precisar usar o mouse para navegar.
 
 {% if keyboard-shortcut-accessibility-setting %}
-É possível desabilitar os atalhos de teclas de caractere, ao mesmo tempo em que permite que os atalhos que usam teclas modificadoras, nas suas configurações de acessibilidade. Para obter mais informações, consulte "[Gerenciar configurações de acessibilidade](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-accessibility-settings)".{% endif %}
+É possível desabilitar os atalhos de teclas de caractere, ao mesmo tempo em que permite que os atalhos que usam teclas modificadoras, nas suas configurações de acessibilidade. Para obter mais informações, consulte "[Gerenciar configurações de acessibilidade](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-accessibility-settings)".{% endif %}
 
 Veja abaixo uma lista dos atalhos de teclado disponíveis.
 {% if command-palette %}

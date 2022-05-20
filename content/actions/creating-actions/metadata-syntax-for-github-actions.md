@@ -88,6 +88,8 @@ For example, if a workflow defined the `numOctocats` and `octocatEyeColor` input
 
 **Optional** Output parameters allow you to declare data that an action sets. Actions that run later in a workflow can use the output data set in previously run actions.  For example, if you had an action that performed the addition of two inputs (x + y = z), the action could output the sum (z) for other actions to use as an input.
 
+{% data reusables.actions.output-limitations %}
+
 If you don't declare an output in your action metadata file, you can still set outputs and use them in a workflow. For more information on setting outputs in an action, see "[Workflow commands for {% data variables.product.prodname_actions %}](/actions/reference/workflow-commands-for-github-actions/#setting-an-output-parameter)."
 
 ### Example: Declaring outputs for Docker container and JavaScript actions
@@ -109,6 +111,8 @@ outputs:
 ## `outputs` for composite actions
 
 **Optional** `outputs` use the same parameters as `outputs.<output_id>` and `outputs.<output_id>.description` (see "[`outputs` for Docker container and JavaScript actions](#outputs-for-docker-container-and-javascript-actions)"), but also includes the `value` token.
+
+{% data reusables.actions.output-limitations %}
 
 ### Example: Declaring outputs for composite actions
 

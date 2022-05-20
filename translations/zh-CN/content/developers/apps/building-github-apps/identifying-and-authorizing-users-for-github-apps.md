@@ -239,8 +239,8 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 
 * [列出部署](/rest/reference/deployments#list-deployments)
 * [创建部署](/rest/reference/deployments#create-a-deployment)
-* [Get a deployment](/rest/reference/deployments#get-a-deployment)
-* [Delete a deployment](/rest/reference/deployments#delete-a-deployment)
+* [获取部署](/rest/reference/deployments#get-a-deployment)
+* [删除部署](/rest/reference/deployments#delete-a-deployment)
 
 #### 事件
 
@@ -573,7 +573,7 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 
 #### 反应
 
-* [Delete a reaction](/rest/reference/reactions)
+* [删除反应](/rest/reference/reactions)
 * [列出提交注释的反应](/rest/reference/reactions#list-reactions-for-a-commit-comment)
 * [创建提交注释的反应](/rest/reference/reactions#create-reaction-for-a-commit-comment)
 * [列出议题的反应](/rest/reference/reactions#list-reactions-for-an-issue)
@@ -585,13 +585,13 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 * [列出团队讨论注释的反应](/rest/reference/reactions#list-reactions-for-a-team-discussion-comment)
 * [创建团队讨论注释的反应](/rest/reference/reactions#create-reaction-for-a-team-discussion-comment)
 * [列出团队讨论的反应](/rest/reference/reactions#list-reactions-for-a-team-discussion)
-* [Create reaction for a team discussion](/rest/reference/reactions#create-reaction-for-a-team-discussion)
+* [为团队讨论创建反应](/rest/reference/reactions#create-reaction-for-a-team-discussion)
 * [删除提交注释反应](/rest/reference/reactions#delete-a-commit-comment-reaction)
 * [删除议题反应](/rest/reference/reactions#delete-an-issue-reaction)
 * [删除对提交注释的反应](/rest/reference/reactions#delete-an-issue-comment-reaction)
 * [删除拉取请求注释反应](/rest/reference/reactions#delete-a-pull-request-comment-reaction)
 * [删除团队讨论反应](/rest/reference/reactions#delete-team-discussion-reaction)
-* [Delete team discussion comment reaction](/rest/reference/reactions#delete-team-discussion-comment-reaction)
+* [删除团队讨论评论反应](/rest/reference/reactions#delete-team-discussion-comment-reaction)
 
 #### 仓库
 

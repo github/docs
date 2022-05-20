@@ -36,7 +36,7 @@ topics:
 
 ## 保持更新
 
-为保持更新议题中的最新评论，您可以订阅议题以接收关于最新评论的通知。 要快速查找指向您订阅的最新议题的链接，请访问仪表板。 For more information, see "[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications)" and "[About your personal dashboard](/articles/about-your-personal-dashboard)."
+为保持更新议题中的最新评论，您可以订阅议题以接收关于最新评论的通知。 要快速查找指向您订阅的最新议题的链接，请访问仪表板。 更多信息请参阅“[关于通知](/github/managing-subscriptions-and-notifications-on-github/about-notifications)”和“[关于个人仪表板](/articles/about-your-personal-dashboard)”。
 
 ## 社区管理
 
