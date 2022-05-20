@@ -17,7 +17,7 @@ versions:
   ghae: '*'
   ghec: '*'
 topics:
-  - Pages
+  - Pages : getting-started-with-github-pages https://github.com/github/docs/edit/main/content/pages/getting-started-with-github-pages/about-github-pages.md
 ---
 
 ## About {% data variables.product.prodname_pages %}
