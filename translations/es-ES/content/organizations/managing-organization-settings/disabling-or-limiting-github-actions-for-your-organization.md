@@ -103,14 +103,14 @@ Puedes configurar este comportamiento de una organización utilizando los siguie
 
 {% data reusables.actions.workflow-permissions-intro %}
 
-Puedes configurar los permisos predeterminados para el `GITHUB_TOKEN` en la configuración de tu organización o tus repositorios. If you select a restrictive option as the default in your organization settings, the same option is selected in the settings for repositories within your organization, and the permissive option is disabled. If your organization belongs to a {% data variables.product.prodname_enterprise %} account and a more restrictive default has been selected in the enterprise settings, you won't be able to select the more permissive default in your organization settings.
+Puedes configurar los permisos predeterminados para el `GITHUB_TOKEN` en la configuración de tu organización o tus repositorios. Si seleccionas una opción restrictiva como la predeterminada en los ajustes de tu organización, la misma opción se selecciona en los ajustes para los repositorios dentro de tu organización y la opción permisiva se inhabilita. Si tu organización le pertenece a una cuenta de {% data variables.product.prodname_enterprise %} y se seleccionaron opciones predeterminadas más restrictivas en los ajustes de la empresa, no podrás seleccionar el predeterminado más permisivo en tus ajustes de organización.
 
 {% data reusables.actions.workflow-permissions-modifying %}
 
 ### Configuring the default `GITHUB_TOKEN` permissions
 
 {% if allow-actions-to-approve-pr-with-ent-repo  %}
-By default, when you create a new organization, `GITHUB_TOKEN` only has read access for the `contents` scope.
+Predeterminadamente, cuando creas una organización nueva, `GITHUB_TOKEN` solo tiene acceso de lectura para el alcance `contents`.
 {% endif %}
 
 {% data reusables.profile.access_profile %}
@@ -127,15 +127,15 @@ By default, when you create a new organization, `GITHUB_TOKEN` only has read acc
 
 {% data reusables.actions.workflow-pr-approval-permissions-intro %}
 
-By default, when you create a new organization, workflows are not allowed to {% if allow-actions-to-approve-pr-with-ent-repo %}create or {% endif %}approve pull requests.
+Predeterminadamente, cuando creas una organización nueva, no se permite que los flujos de trabajo {% if allow-actions-to-approve-pr-with-ent-repo %}creen o {% endif %}aprueben las solicitudes de cambio.
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions-general %}
-1. Under "Workflow permissions", use the **Allow GitHub Actions to {% if allow-actions-to-approve-pr-with-ent-repo %}create and {% endif %}approve pull requests** setting to configure whether `GITHUB_TOKEN` can {% if allow-actions-to-approve-pr-with-ent-repo %}create and {% endif %}approve pull requests.
+1. Debajo de "Permisos de flujo de trabajo", utiliza el ajuste **Permitir que GitHub Actions {% if allow-actions-to-approve-pr-with-ent-repo %}creen y {% endif %}aprueben las solicitudes de cambios** para configurar si el `GITHUB_TOKEN` puede {% if allow-actions-to-approve-pr-with-ent-repo %}crear y {% endif %}aprobar las solicitudes de cambios.
 
-   ![Set GITHUB_TOKEN pull request approval permission for this organization](/assets/images/help/settings/actions-workflow-permissions-organization{% if allow-actions-to-approve-pr %}-with-pr-{% if allow-actions-to-approve-pr-with-ent-repo %}creation-{% endif %}approval{% endif %}.png)
+   ![Configurar el permiso de aprobación de solicitudes de cambio del GITHUB_TOKEN para esta organización](/assets/images/help/settings/actions-workflow-permissions-organization{% if allow-actions-to-approve-pr %}-with-pr-{% if allow-actions-to-approve-pr-with-ent-repo %}creation-{% endif %}approval{% endif %}.png)
 1. Da clic en **Guardar** para aplicar la configuración.
 
 {% endif %}

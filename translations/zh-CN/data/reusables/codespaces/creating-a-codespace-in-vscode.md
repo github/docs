@@ -1,8 +1,8 @@
-将 {% data variables.product.product_location %} 上的帐户连接到 {% data variables.product.prodname_github_codespaces %} 扩展后，可以创建新的代码空间。 有关 {% data variables.product.prodname_github_codespaces %} 扩展的详细信息，请参阅 [{% data variables.product.prodname_vscode %} Marketplace](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces)。
+将 {% data variables.product.product_location %} 上的帐户连接到 {% data variables.product.prodname_github_codespaces %} 扩展后，可以创建新的代码空间。 有关 {% data variables.product.prodname_github_codespaces %} 扩展的详细信息，请参阅 [{% data variables.product.prodname_vs_marketplace_shortname %} Marketplace](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces)。
 
 {% note %}
 
-**注意**：目前， {% data variables.product.prodname_vscode %} 不允许在创建代码空间时选择开发容器配置。 如果要选择特定的开发容器配置，请使用 {% data variables.product.prodname_dotcom %} Web 界面创建代码空间。 有关详细信息，请单击此页顶部的 **Web browser（Web 浏览器）**选项卡。
+**注意**：目前，{% data variables.product.prodname_vscode_shortname %} 不允许在创建代码空间时选择开发容器配置。 如果要选择特定的开发容器配置，请使用 {% data variables.product.prodname_dotcom %} Web 界面创建代码空间。 有关详细信息，请单击此页顶部的 **Web browser（Web 浏览器）**选项卡。
 
 {% endnote %}
 

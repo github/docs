@@ -33,12 +33,12 @@ Si conectas un repositorio a un paquete, la página de llegada de dicho paquete 
 {% data reusables.package_registry.container-registry-ghes-beta %}
 {% endif %}
 
-1. In your Dockerfile, add this line, replacing {% ifversion ghes %}`HOSTNAME`, {% endif %}`OWNER` and `REPO` with your details:
+1. En tu Dockerfile, agrega esta línea reemplazando a {% ifversion ghes %}`HOSTNAME`, {% endif %}`OWNER` y `REPO` con tu información:
 
  ```shell
  LABEL org.opencontainers.image.source=https://{% ifversion fpt or ghec %}github.com{% else %}<em>HOSTNAME</em>{% endif %}/<em>OWNER</em>/<em>REPO</em>
  ```
- For example, if you're the user `monalisa` and own `my-repo`, and {% data variables.product.product_location %} hostname is `github.companyname.com`, you would add this line to your Dockerfile:
+ Por ejemplo, si eres el usuario `monalisa` y eres el propietario de `my-repo` y el nombre del host de {% data variables.product.product_location %} es `github.companyname.com`, deberás agregar esta línea a tu Dockerfile:
  ```shell
  LABEL org.opencontainers.image.source=https://{% ifversion fpt or ghec %}github.com{% else %}{% data reusables.package_registry.container-registry-example-hostname %}{% endif %}/monalisa/my-repo
  ```

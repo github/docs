@@ -207,7 +207,7 @@ shortTitle: 搜索议题和 PR
 
 ## 按评论数量搜索
 
-You can use the `comments` qualifier along with [greater than, less than, and range qualifiers](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax) to search by the number of comments.
+您可以使用 `comments` 限定符以及[大于、小于和范围限定符](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax)以按评论数量搜索。
 
 | 限定符                        | 示例                                                                                                                                        |
 | -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
@@ -216,7 +216,7 @@ You can use the `comments` qualifier along with [greater than, less than, and ra
 
 ## 按交互数量搜索
 
-You can filter issues and pull requests by the number of interactions with the `interactions` qualifier along with [greater than, less than, and range qualifiers](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax). 交互数量是对议题或拉取请求的反应和评论数量。
+您可以使用 `interactions` 限定符以及[大于、小于和范围限定符](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax)按交互数量过滤议题和拉取请求。 交互数量是对议题或拉取请求的反应和评论数量。
 
 | 限定符                        | 示例                                                                                                                |
 | -------------------------- | ----------------------------------------------------------------------------------------------------------------- |
@@ -225,7 +225,7 @@ You can filter issues and pull requests by the number of interactions with the `
 
 ## 按反应数量搜索
 
-You can filter issues and pull requests by the number of reactions using the `reactions` qualifier along with [greater than, less than, and range qualifiers](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax).
+您可以使用 `reactions` 限定符以及 [大于、小于和范围限定符](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax)按反应数量过滤议题和拉取请求。
 
 | 限定符                        | 示例                                                                                                                 |
 | -------------------------- | ------------------------------------------------------------------------------------------------------------------ |
@@ -233,27 +233,27 @@ You can filter issues and pull requests by the number of reactions using the `re
 |                            | [**reactions:500..1000**](https://github.com/search?q=reactions%3A500..1000) 匹配 500 至 1000 个反应的议题。                 |
 
 ## 搜索草稿拉取请求
-您可以过滤草稿拉取请求。 For more information, see "[About pull requests](/articles/about-pull-requests#draft-pull-requests)."
+您可以过滤草稿拉取请求。 更多信息请参阅“[关于拉取请求](/articles/about-pull-requests#draft-pull-requests)”。
 
-| 限定符           | 示例                                                                                                            |
-| ------------- | ------------------------------------------------------------------------------------------------------------- |
-| `draft:true`  | [**draft:true**](https://github.com/search?q=draft%3Atrue) matches draft pull requests.                       |
-| `draft:false` | [**draft:false**](https://github.com/search?q=draft%3Afalse) matches pull requests that are ready for review. |
+| 限定符           | 示例                                                                        |
+| ------------- | ------------------------------------------------------------------------- |
+| `draft:true`  | [**draft:true**](https://github.com/search?q=draft%3Atrue) 匹配草稿拉取请求。      |
+| `draft:false` | [**draft:false**](https://github.com/search?q=draft%3Afalse) 匹配可供审核的拉取请求。 |
 
 ## 按拉取请求审查状态和审查者搜索
 
-You can filter pull requests based on their [review status](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews) (_none_, _required_, _approved_, or _changes requested_), by reviewer, and by requested reviewer.
+您可以基于拉取请求的[审查状态](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)（_无_、_必需_、_批准_或_请求更改_）、按审查者和请求的审查者过滤拉取请求。
 
-| 限定符                        | 示例                                                                                                                                                                                                                                                                                                                                          |
-| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `review:none`              | [**type:pr review:none**](https://github.com/search?utf8=%E2%9C%93&q=type%3Apr+review%3Anone&type=Issues) matches pull requests that have not been reviewed.                                                                                                                                                                                |
-| `review:required`          | [**type:pr review:required**](https://github.com/search?utf8=%E2%9C%93&q=type%3Apr+review%3Arequired&type=Issues) matches pull requests that require a review before they can be merged.                                                                                                                                                    |
-| `review:approved`          | [**type:pr review:approved**](https://github.com/search?utf8=%E2%9C%93&q=type%3Apr+review%3Aapproved&type=Issues) matches pull requests that a reviewer has approved.                                                                                                                                                                       |
-| `review:changes_requested` | [**type:pr review:changes_requested**](https://github.com/search?utf8=%E2%9C%93&q=type%3Apr+review%3Achanges_requested&type=Issues) matches pull requests in which a reviewer has asked for changes.                                                                                                                                        |
-| <code>reviewed-by:<em>USERNAME</em></code> | [**type:pr reviewed-by:gjtorikian**](https://github.com/search?utf8=%E2%9C%93&q=type%3Apr+reviewed-by%3Agjtorikian&type=Issues) matches pull requests reviewed by a particular person.                                                                                                                                                      |
-| <code>review-requested:<em>USERNAME</em></code> | [**type:pr review-requested:benbalter**](https://github.com/search?utf8=%E2%9C%93&q=type%3Apr+review-requested%3Abenbalter&type=Issues) matches pull requests where a specific person is requested for review. 申请的审查者在其审查拉取请求后不再在搜索结果中列出。 如果请求的人员属于请求审核的团队，则该团队的审核请求也会显示在搜索结果中。{% ifversion fpt or ghae-issue-5181 or ghes > 3.2 or ghec %}
+| 限定符                        | 示例                                                                                                                                                                                                                                                                                    |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `review:none`              | [**type:pr review:none**](https://github.com/search?utf8=%E2%9C%93&q=type%3Apr+review%3Anone&type=Issues) 匹配尚未审查的拉取请求。                                                                                                                                                                |
+| `review:required`          | [**type:pr review:required**](https://github.com/search?utf8=%E2%9C%93&q=type%3Apr+review%3Arequired&type=Issues) 匹配需要审查然后才能合并的拉取请求。                                                                                                                                                  |
+| `review:approved`          | [**type:pr review:approved**](https://github.com/search?utf8=%E2%9C%93&q=type%3Apr+review%3Aapproved&type=Issues) 匹配审查者已批准的拉取请求。                                                                                                                                                      |
+| `review:changes_requested` | [**type:pr review:changes_requested**](https://github.com/search?utf8=%E2%9C%93&q=type%3Apr+review%3Achanges_requested&type=Issues) 匹配审查者已请求更改的拉取请求。                                                                                                                                  |
+| <code>reviewed-by:<em>USERNAME</em></code> | [**type:pr reviewed-by:gjtorikian**](https://github.com/search?utf8=%E2%9C%93&q=type%3Apr+reviewed-by%3Agjtorikian&type=Issues) 匹配特定人员审查的拉取请求。                                                                                                                                        |
+| <code>review-requested:<em>USERNAME</em></code> | [**type:pr review-requested:benbalter**](https://github.com/search?utf8=%E2%9C%93&q=type%3Apr+review-requested%3Abenbalter&type=Issues) 匹配特定人员申请审查的拉取请求。 申请的审查者在其审查拉取请求后不再在搜索结果中列出。 如果请求的人员属于请求审核的团队，则该团队的审核请求也会显示在搜索结果中。{% ifversion fpt or ghae-issue-5181 or ghes > 3.2 or ghec %}
 | <code>user-review-requested:@me</code> | [**type:pr user-review-requested:@me**](https://github.com/search?q=is%3Apr+user-review-requested%3A%40me+) 匹配直接要求您审核的拉取请求。{% endif %}
-| <code>team-review-requested:<em>TEAMNAME</em></code> | [**type:pr team-review-requested:atom/design**](https://github.com/search?q=type%3Apr+team-review-requested%3Aatom%2Fdesign&type=Issues) matches pull requests that have review requests from the team `atom/design`. 申请的审查者在其审查拉取请求后不再在搜索结果中列出。                                                                                            |
+| <code>team-review-requested:<em>TEAMNAME</em></code> | [**type:pr team-review-requested:atom/design**](https://github.com/search?q=type%3Apr+team-review-requested%3Aatom%2Fdesign&type=Issues) 匹配已审查团队 `atom/design` 请求的拉取请求。 申请的审查者在其审查拉取请求后不再在搜索结果中列出。                                                                                    |
 
 ## 按议题或拉取请求创建或上次更新的时间搜索
 
