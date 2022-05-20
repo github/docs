@@ -8,7 +8,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
+  ghae: '*' 
   ghec: '*'
 topics:
   - Profiles
