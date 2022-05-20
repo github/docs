@@ -34,7 +34,7 @@ shortTitle: 代码空间中的安全性
 
 ### 身份验证
 
-You can connect to a codespace using a web browser or from {% data variables.product.prodname_vscode %}. If you connect from {% data variables.product.prodname_vscode_shortname %}, you are prompted to authenticate with {% data variables.product.product_name %}.
+您可以使用 web 浏览器或从 {% data variables.product.prodname_vscode %} 连接至代码空间。 如果从 {% data variables.product.prodname_vscode_shortname %} 连接，系统将提示您向 {% data variables.product.product_name %} 验证。
 
 每次创建或重新启动代码空间时，都会为其分配一个具有自动到期期的新 {% data variables.product.company_short %} 令牌。 此时间段允许您在代码空间中工作，而无需在典型的工作日内重新进行身份验证，但降低了在停止使用代码空间时使连接保持打开状态的可能性。
 

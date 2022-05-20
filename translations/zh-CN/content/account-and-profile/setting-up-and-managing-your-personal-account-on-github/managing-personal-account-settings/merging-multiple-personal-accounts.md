@@ -1,5 +1,5 @@
 ---
-title: Merging multiple personal accounts
+title: 合并多个个人帐户
 intro: 如果工作和个人分别使用不同的帐户，您可以合并这些帐户。
 redirect_from:
   - /articles/can-i-merge-two-accounts
