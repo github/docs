@@ -123,16 +123,16 @@ sections:
           For more information, see "[Security hardening for {% data variables.product.prodname_actions %}](/actions/security-guides/security-hardening-for-github-actions#auditing-github-actions-events)."
         - Performance improvements have been made to {% data variables.product.prodname_actions %}, which may result in higher maximum job concurrency.
     - 
-      heading: 'GitHub Packages changes'
+      heading: 'GitHub Packagesの変更'
       notes:
         - When a repository is deleted, any associated package files are now immediately deleted from your {% data variables.product.prodname_registry %} external storage.
     - 
-      heading: 'Dependabot and Dependency graph changes'
+      heading: 'Dependabot及び依存関係グラフの変更'
       notes:
         - Dependency review is out of beta and is now generally available for {% data variables.product.prodname_GH_advanced_security %} customers. Dependency review provides an easy-to-understand view of dependency changes and their security impact in the "Files changed" tab of pull requests. It informs you of which dependencies were added, removed, or updated, along with vulnerability information. For more information, see "[Reviewing dependency changes in a pull request](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request)."
         - '{% data variables.product.prodname_dependabot %} is now available as a private beta, offering both version updates and security updates for several popular ecosystems. {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_ghe_server %} requires {% data variables.product.prodname_actions %} and a pool of self-hosted runners configured for {% data variables.product.prodname_dependabot %} use. {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_ghe_server %} also requires {% data variables.product.prodname_github_connect %} to be enabled. To learn more and sign up for the beta, contact the GitHub Sales team.'
     - 
-      heading: 'Code scanning and secret scanning changes'
+      heading: 'Code scanningとSecret scanningの変更'
       notes:
         - The depth of {% data variables.product.prodname_codeql %}'s analysis has been improved by adding support for more [libraries and frameworks](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/) and increasing the coverage of our existing library and framework models. [JavaScript](https://github.com/github/codeql/tree/main/javascript) analysis now supports most common templating languages, and [Java](https://github.com/github/codeql/tree/main/java) now covers more than three times the endpoints of previous {% data variables.product.prodname_codeql %} versions. As a result, {% data variables.product.prodname_codeql %} can now detect even more potential sources of untrusted user data, steps through which that data flows, and potentially dangerous sinks where the data could end up. This results in an overall improvement of the quality of {% data variables.product.prodname_code_scanning %} alerts.
         - '{% data variables.product.prodname_codeql %} now supports scanning standard language features in Java 16, such as records and pattern matching. {% data variables.product.prodname_codeql %} is able to analyze code written in Java version 7 through 16. For more information about supported languages and frameworks, see the [{% data variables.product.prodname_codeql %} documentation](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/#id5).'

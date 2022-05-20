@@ -25,4 +25,4 @@ Tus tableros de propuestas y solicitudes de extracción están disponibles en la
 
 ## Leer más
 
-- "[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions#reviewing-repositories-that-youre-watching)"
+- "[Ver tus suscripciones](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions#reviewing-repositories-that-youre-watching)"

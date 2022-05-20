@@ -43,7 +43,7 @@ Cuando la instancia está en modo de mantenimiento, se rechazan todos los acceso
 
 {% if ip-exception-list %}
 
-You can perform initial validation of your maintenance operation by configuring an IP exception list to allow access to {% data variables.product.product_location %} from only the IP addresses and ranges provided. Attempts to access {% data variables.product.product_location %} from IP addresses not specified on the IP exception list will receive a response consistent with those sent when the instance is in maintenance mode.
+Puedes llevar a cabo una validación inicial de tu operación de mantenimiento si configuras una lista de IP de excepción para permitir el acceso a {% data variables.product.product_location %} solo desde las direcciones IP y rangos de ellas que proporcionaste. Los intentos para acceder a {% data variables.product.product_location %} desde las direcciones IP que no se especifican en la lista de excepciones IP recibirán una respuesta consistente con aquellas enviadas cuando la instancia esté en modo de mantenimiento.
 
 {% endif %}
 
@@ -60,9 +60,9 @@ You can perform initial validation of your maintenance operation by configuring 
 
 {% if ip-exception-list %}
 
-## Validating changes in maintenance mode using the IP exception list
+## Validar los cambios en el modo de mantenimiento utilizando la lista de excepciones de IP
 
-The IP exception list provides controlled and restricted access to {% data variables.product.product_location %}, which is ideal for initial validation of server health following a maintenance operation. Once enabled, {% data variables.product.product_location %} will be taken out of maintenance mode and available only to the configured IP addresses. The maintenance mode checkbox will be updated to reflect the change in state.
+La lista de excepciones de IP proporciona un acceso restringido y controlado a {% data variables.product.product_location %}, el cual es ideal para una validación inicial de la salud del servidor después de una operación de mantenimiento. Una vez que se habilita, {% data variables.product.product_location %} saldrá del modo de mantenimiento y estará disponible únicamente para las direcciones IP configuradas. The maintenance mode checkbox will be updated to reflect the change in state.
 
 If you re-enable maintenance mode, the IP exception list will be disabled and {% data variables.product.product_location %} will return to maintenance mode. If you just disable the IP exception list, {% data variables.product.product_location %} will return to normal operation.
 

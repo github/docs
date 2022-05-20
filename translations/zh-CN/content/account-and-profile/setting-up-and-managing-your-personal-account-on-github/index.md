@@ -1,6 +1,6 @@
 ---
-title: Setting up and managing your personal account on GitHub
-intro: 'You can manage settings for your personal account on {% data variables.product.prodname_dotcom %}, including email preferences, collaborator access for personal repositories, and organization memberships.'
+title: 在 GitHub 上设置和管理您的个人帐户
+intro: '您可以在 {% data variables.product.prodname_dotcom %} 上管理个人帐户的设置，包括电子邮件首选项、个人仓库的协作者访问权限和组织成员身份。'
 shortTitle: 个人帐户
 redirect_from:
   - /categories/setting-up-and-managing-your-github-user-account

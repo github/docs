@@ -34,7 +34,7 @@ Cada codespace tiene su propia red virtual aislada. Utilizamos cortafuegos para 
 
 ### Autenticación
 
-You can connect to a codespace using a web browser or from {% data variables.product.prodname_vscode %}. If you connect from {% data variables.product.prodname_vscode_shortname %}, you are prompted to authenticate with {% data variables.product.product_name %}.
+Puedes conectarte a un codespace utilizando un buscador web o desde {% data variables.product.prodname_vscode %}. Si te conectas desde {% data variables.product.prodname_vscode_shortname %}, se te pedirá autenticarte con {% data variables.product.product_name %}.
 
 Cada vez que se cree o reinicie un codespace, se le asignará un token de {% data variables.product.company_short %} nuevo con un periodo de vencimiento automático. Este periodo te permite trabajar en el codespace sin necesitar volver a autenticarte durante un día de trabajo habitual, pero reduce la oportunidad de que dejes la conexión abierta cuando dejas de utilizar el codespace.
 

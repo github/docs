@@ -17,7 +17,7 @@ import styles from './Header.module.scss'
 
 export const Header = () => {
   const router = useRouter()
-  const { isDotComAuthenticated, relativePath, error } = useMainContext()
+  const { isDotComAuthenticated, error } = useMainContext()
   const { currentVersion } = useVersion()
   const { t } = useTranslation(['header', 'homepage'])
   const [isMenuOpen, setIsMenuOpen] = useState(
@@ -93,7 +93,7 @@ export const Header = () => {
             )}
 
             {/* <!-- GitHub.com homepage and 404 page has a stylized search; Enterprise homepages do not --> */}
-            {relativePath !== 'index.md' && error !== '404' && (
+            {error !== '404' && (
               <div className="d-inline-block ml-3">
                 <Search iconSize={16} isHeaderSearch={true} />
               </div>
@@ -158,7 +158,7 @@ export const Header = () => {
               )}
 
               {/* <!-- GitHub.com homepage and 404 page has a stylized search; Enterprise homepages do not --> */}
-              {relativePath !== 'index.md' && error !== '404' && (
+              {error !== '404' && (
                 <div className="my-2 pt-2">
                   <Search iconSize={16} isMobileSearch={true} />
                 </div>
