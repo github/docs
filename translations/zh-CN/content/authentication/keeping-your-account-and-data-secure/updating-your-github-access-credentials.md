@@ -57,7 +57,7 @@ shortTitle: 更新访问凭据
 
 {% ifversion not ghae %}
 
-If you have reset your account password and would also like to trigger a sign-out from the {% data variables.product.prodname_mobile %} app, you can revoke your authorization of the "GitHub iOS" or "GitHub Android" OAuth App. This will sign out all instances of the {% data variables.product.prodname_mobile %} app associated with your account. 有关其他信息，请参阅“[>审查授权的集成](/authentication/keeping-your-account-and-data-secure/reviewing-your-authorized-integrations)”。
+如果您已重置帐户密码，并且还想触发从 {% data variables.product.prodname_mobile %} 应用程序注销，则可以撤销对“GitHub iOS”或“GitHub Android”OAuth 应用程序 的授权。 这将注销与您的帐户关联的 {% data variables.product.prodname_mobile %} 应用程序的所有实例。 有关其他信息，请参阅“[>审查授权的集成](/authentication/keeping-your-account-and-data-secure/reviewing-your-authorized-integrations)”。
 
 {% endif %}
 

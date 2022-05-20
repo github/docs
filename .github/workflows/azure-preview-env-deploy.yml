@@ -210,6 +210,3 @@ jobs:
             dockerRegistryUrl="${{ secrets.NONPROD_REGISTRY_SERVER }}"
             dockerRegistryUsername="${{ env.NONPROD_REGISTRY_USERNAME }}"
             dockerRegistryPassword="${{ secrets.NONPROD_REGISTRY_PASSWORD }}"
-          # this shows warnings in the github actions console, because the flag is passed through a validation run,
-          # but it *is* functional during the actual execution
-          additionalArguments: --no-wait

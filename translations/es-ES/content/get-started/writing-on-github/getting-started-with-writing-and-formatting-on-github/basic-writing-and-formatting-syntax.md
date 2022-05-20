@@ -31,15 +31,17 @@ When you use two or more headings, GitHub automatically generates a table of con
 
 ## Estilo de texto
 
-Puedes indicar énfasis con texto en negritas, itálicas o tachadas en los campos de comentario y archivos `.md`.
+You can indicate emphasis with bold, italic, strikethrough, subscript, or superscript text in comment fields and `.md` files.
 
-| Estilo                       | Sintaxis           | Atajo del teclado                                                                     | Ejemplo                                         | Resultado                                     |
-| ---------------------------- | ------------------ | ------------------------------------------------------------------------------------- | ----------------------------------------------- | --------------------------------------------- |
-| Negrita                      | `** **` o `__ __`  | <kbd>Command</kbd>+<kbd>B</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>B</kbd> (Windows/Linux) | `**Este texto está en negrita**`                | **Este texto está en negrita**                |
-| Cursiva                      | `* *` o `_ _`      | <kbd>Command</kbd>+<kbd>I</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>I</kbd> (Windows/Linux) | `*Este texto está en cursiva*`                  | *Este texto está en cursiva*                  |
-| Tachado                      | `~~ ~~`            |                                                                                       | `~~Este texto está equivocado~~`                | ~~Este texto está equivocado~~                |
-| Cursiva en negrita y anidada | `** **` y `_ _`    |                                                                                       | `**Este texto es _extremadamente_ importante**` | **Este texto es _extremadamente_ importante** |
-| Todo en negrita y cursiva    | `*** ***`          |                                                                                       | `***Todo este texto es importante***`           | ***Todo este texto es importante***           |
+| Estilo                       | Sintaxis                   | Atajo del teclado                                                                     | Ejemplo                                             | Resultado                                     |
+| ---------------------------- | -------------------------- | ------------------------------------------------------------------------------------- | --------------------------------------------------- | --------------------------------------------- |
+| Negrita                      | `** **` o `__ __`          | <kbd>Command</kbd>+<kbd>B</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>B</kbd> (Windows/Linux) | `**Este texto está en negrita**`                    | **Este texto está en negrita**                |
+| Cursiva                      | `* *` o `_ _`              | <kbd>Command</kbd>+<kbd>I</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>I</kbd> (Windows/Linux) | `*Este texto está en cursiva*`                      | *Este texto está en cursiva*                  |
+| Tachado                      | `~~ ~~`                    |                                                                                       | `~~Este texto está equivocado~~`                    | ~~Este texto está equivocado~~                |
+| Cursiva en negrita y anidada | `** **` y `_ _`            |                                                                                       | `**Este texto es _extremadamente_ importante**`     | **Este texto es _extremadamente_ importante** |
+| Todo en negrita y cursiva    | `*** ***`                  |                                                                                       | `***Todo este texto es importante***`               | ***Todo este texto es importante***           |
+| Subscript                    | `<sub> </sub>` |                                                                                       | `<sub>This is a subscript text</sub>`   | <sub>This is a subscript text</sub>           |
+| Superscript                  | `<sup> </sup>` |                                                                                       | `<sup>This is a superscript text</sup>` | <sup>This is a superscript text</sup>         |
 
 ## Cita de texto
 

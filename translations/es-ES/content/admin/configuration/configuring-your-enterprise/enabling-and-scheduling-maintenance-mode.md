@@ -43,7 +43,7 @@ Cuando la instancia está en modo de mantenimiento, se rechazan todos los acceso
 
 {% if ip-exception-list %}
 
-You can perform initial validation of your maintenance operation by configuring an IP exception list to allow access to {% data variables.product.product_location %} from only the IP addresses and ranges provided. Attempts to access {% data variables.product.product_location %} from IP addresses not specified on the IP exception list will receive a response consistent with those sent when the instance is in maintenance mode.
+Puedes llevar a cabo una validación inicial de tu operación de mantenimiento si configuras una lista de IP de excepción para permitir el acceso a {% data variables.product.product_location %} solo desde las direcciones IP y rangos de ellas que proporcionaste. Los intentos para acceder a {% data variables.product.product_location %} desde las direcciones IP que no se especifican en la lista de excepciones IP recibirán una respuesta consistente con aquellas enviadas cuando la instancia esté en modo de mantenimiento.
 
 {% endif %}
 

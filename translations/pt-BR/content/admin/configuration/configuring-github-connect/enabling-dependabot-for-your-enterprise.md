@@ -64,6 +64,8 @@ Após habilitar {% data variables.product.prodname_dependabot_alerts %}, você p
 
 {% endnote %}
 
+By default, {% data variables.product.prodname_actions %} runners used by {% data variables.product.prodname_dependabot %} need access to the internet, to download updated packages from upstream package managers. For {% data variables.product.prodname_dependabot_updates %} powered by {% data variables.product.prodname_github_connect %}, internet access provides your runners with a token that allows access to dependencies and advisories hosted on {% data variables.product.prodname_dotcom_the_website %}.
+
 Com {% data variables.product.prodname_dependabot_updates %}, {% data variables.product.company_short %} cria automaticamente pull requests para atualizar dependências de duas maneiras.
 
 - **{% data variables.product.prodname_dependabot_version_updates %}**: Os usuários adicionam um arquivo de configuração de {% data variables.product.prodname_dependabot %} ao repositório para habilitar {% data variables.product.prodname_dependabot %} e criar pull requests quando uma nova versão de uma dependência monitorada for lançada. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_dependabot_version_updates %}](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/about-dependabot-version-updates)".
@@ -120,6 +122,11 @@ Antes de habilitar {% data variables.product.prodname_dependabot_updates %}, voc
 
    ![Captura de tela do menu suspenso para habilitar a atualização de dependências vulneráveis](/assets/images/enterprise/site-admin-settings/dependabot-updates-button.png)
 
-{% elsif ghes > 3.2 %}
+{% endif %}
+{% ifversion ghes > 3.2 %}
+
 Ao habilitar {% data variables.product.prodname_dependabot_alerts %}, você também deve considerar configurar {% data variables.product.prodname_actions %} para {% data variables.product.prodname_dependabot_security_updates %}. Este recurso permite aos desenvolvedores corrigir a vulnerabilidades nas suas dependências. Para obter mais informações, consulte "[Gerenciar executores auto-hospedados para {% data variables.product.prodname_dependabot_updates %} na sua empresa](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/managing-self-hosted-runners-for-dependabot-updates). "
+
+If you need enhanced security, we recommend configuring {% data variables.product.prodname_dependabot %} to use private registries. For more information, see "[Managing encrypted secrets for {% data variables.product.prodname_dependabot %}](/code-security/dependabot/working-with-dependabot/managing-encrypted-secrets-for-dependabot)."
+
 {% endif %}

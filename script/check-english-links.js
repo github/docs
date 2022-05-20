@@ -25,7 +25,7 @@ import libLanguages from '../lib/languages.js'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 const checker = new LinkChecker()
-const root = 'https://docs.github.com'
+const root = 'http://localhost:4000'
 const englishRoot = `${root}/en`
 
 // Links with these codes may or may not really be broken.
@@ -66,7 +66,13 @@ const config = {
   recurse: !program.opts().dryRun,
   silent: true,
   // The values in this array are treated as regexes.
-  linksToSkip: linksToSkipFactory([enterpriseReleasesToSkip, ...languagesToSkip, ...excludedLinks]),
+  linksToSkip: linksToSkipFactory([
+    enterpriseReleasesToSkip,
+    ...languagesToSkip,
+    ...excludedLinks,
+    // Don't leak into the production site
+    /https:\/\/docs\.github\.com/,
+  ]),
 }
 
 // Return a function that can as quickly as possible check if a certain

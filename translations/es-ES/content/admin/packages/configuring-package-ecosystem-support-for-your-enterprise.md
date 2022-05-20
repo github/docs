@@ -1,6 +1,6 @@
 ---
 title: Configurar la compatibilidad del ecosistema de paquetes para tu empresa
-intro: 'You can configure {% data variables.product.prodname_registry %} for your enterprise by globally enabling or disabling individual package ecosystems on your enterprise, including {% ifversion ghes > 3.4 %}{% data variables.product.prodname_container_registry %}, {% endif %}Docker, and npm. Aprende sobre otros requisitos de configuración para hacer compatibles algunos ecosistemas de paquetes específicos.'
+intro: 'Puedes configurar el {% data variables.product.prodname_registry %} para tu empresa si habilitas o inhabilitas globalmente los ecosistemas de paquetes individuales en ella, incluyendo {% ifversion ghes > 3.4 %}el {% data variables.product.prodname_container_registry %}, {% endif %} Docker y npm. Aprende sobre otros requisitos de configuración para hacer compatibles algunos ecosistemas de paquetes específicos.'
 redirect_from:
   - /enterprise/admin/packages/configuring-packages-support-for-your-enterprise
   - /admin/packages/configuring-packages-support-for-your-enterprise
@@ -24,8 +24,8 @@ Para prevenir que los paquetes nuevos se carguen, puedes configurar un ecosistem
 {% data reusables.enterprise_site_admin_settings.packages-tab %}
 1. Debajo de "Alternación de ecosistema", para cada tipo de paquete, selecciona **Enabled**, **Read-Only**, o **Disabled**.
    {%- ifversion ghes > 3.4 %}{% note -%}
-**Note**: Subdomain isolation must be enabled to toggle the
-   Opciones de las {% data variables.product.prodname_container_registry %}.
+**Nota**: El aislamiento de subdominios debe estar habilitado para alternar las
+   opciones del {% data variables.product.prodname_container_registry %}.
    {%- endnote %}{%- endif %}{%- ifversion ghes > 3.1 %}
   ![Alternación de ecosistemas](/assets/images/enterprise/site-admin-settings/ecosystem-toggles.png){% else %}
 ![Ecosystem toggles](/assets/images/enterprise/3.1/site-admin-settings/ecosystem-toggles.png){% endif %}

@@ -54,6 +54,10 @@ Other supply chain features on {% data variables.product.prodname_dotcom %} rely
 El {% data variables.product.prodname_dependabot %} hace referencias de los datos de las dependencias que proporciona la gráfica de dependencias con la lista de las vulnerabilidades publicadas en la {% data variables.product.prodname_advisory_database %}, escanea tus dependencias y genera {% data variables.product.prodname_dependabot_alerts %} cuando se detecta una vulnerabilidad potencial.
  {% endif %}
 
+{% ifversion fpt or ghec or ghes %}
+For best practice guides on end-to-end supply chain security including the protection of personal accounts, code, and build processes, see "[Securing your end-to-end supply chain](/code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview)."
+{% endif %}
+
 ## Feature overview
 
 ### What is the dependency graph

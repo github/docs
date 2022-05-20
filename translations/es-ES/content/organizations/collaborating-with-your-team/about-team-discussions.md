@@ -40,7 +40,7 @@ Por defecto, si se menciona tu nombre de usuario en un debate del equipo, recibi
 
 Para apagar las notificaciones para los debates del equipo, puedes cancelar la suscripción a una publicación de debate específica o cambiar tus parámetros de notificación para dejar de ver o ignorar por completo los debtaes de un equipo específico. Te puedes suscribir a las notificaciones para la publicación de un debate específico incluso si dejaste de ver los debates de ese equipo.
 
-For more information, see "[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions)" and "[Nested teams](/articles/about-teams/#nested-teams)."
+Para obtener más información, consulta la sección "[Ver tus suscripciones](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions)" y "[Equipos anidados](/articles/about-teams/#nested-teams)".
 
 {% ifversion fpt or ghec %}
 
