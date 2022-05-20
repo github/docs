@@ -7,7 +7,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: issue-4864
+  ghae: '*'
   ghec: '*'
 type: overview
 topics:
@@ -44,6 +44,8 @@ O gráfico de dependências inclui todas as dependências de um repositório det
 - Dependências indiretas dessas dependências diretas, também conhecidas como dependências transitórias ou subdependências
 
 O gráfico de dependências identifica as dependências indiretas{% ifversion fpt or ghec %} explicitamente a partir de um arquivo de bloqueio ou verificando as dependências das suas dependências diretas. Para o gráfico mais confiável, você deve usar os arquivos de bloqueio (ou o equivalente deles), pois definem exatamente quais versões das dependências diretas e indiretas você usa atualmente. Se você usar arquivos de bloqueio, você também terá certeza de que todos os contribuidores do repositório usarão as mesmas versões, o que facilitará para você testar e depurar o código{% else %} dos arquivos de bloqueio{% endif %}.
+
+For more information on how {% data variables.product.product_name %} helps you understand the dependencies in your environment, see "[About supply chain security](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security)."
 
 {% ifversion fpt or ghec %}
 

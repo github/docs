@@ -141,9 +141,10 @@ topics:
 
 ### Rust
 
-| 库名称          | 仓库                                                            |
-| ------------ | ------------------------------------------------------------- |
-| **Octocrab** | [XAMPPRocky/octocrab](https://github.com/XAMPPRocky/octocrab) |
+| 库名称          | 仓库                                                                |
+| ------------ | ----------------------------------------------------------------- |
+| **Octocrab** | [XAMPPRocky/octocrab](https://github.com/XAMPPRocky/octocrab)     |
+| **Octocat**  | [octocat-rs/octocat-rs](https://github.com/octocat-rs/octocat-rs) |
 
 ### Scala
 

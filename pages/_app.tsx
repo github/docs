@@ -4,17 +4,17 @@ import type { AppProps, AppContext } from 'next/app'
 import Head from 'next/head'
 import { ThemeProvider, ThemeProviderProps } from '@primer/react'
 import { SSRProvider } from '@react-aria/ssr'
-import { defaultComponentThemeProps, getThemeProps } from 'components/lib/getThemeProps'
 
 import '../stylesheets/index.scss'
 
 import events from 'components/lib/events'
 import experiment from 'components/lib/experiment'
 import { LanguagesContext, LanguagesContextT } from 'components/context/LanguagesContext'
+import { defaultComponentTheme } from 'lib/get-theme.js'
 
 type MyAppProps = AppProps & {
   csrfToken: string
-  themeProps: typeof defaultComponentThemeProps & Pick<ThemeProviderProps, 'colorMode'>
+  themeProps: typeof defaultComponentTheme & Pick<ThemeProviderProps, 'colorMode'>
   languagesContext: LanguagesContextT
 }
 const MyApp = ({ Component, pageProps, csrfToken, themeProps, languagesContext }: MyAppProps) => {
@@ -72,9 +72,11 @@ MyApp.getInitialProps = async (appContext: AppContext) => {
   const appProps = await App.getInitialProps(appContext)
   const req: any = ctx.req
 
+  const { getTheme } = await import('lib/get-theme.js')
+
   return {
     ...appProps,
-    themeProps: getThemeProps(req),
+    themeProps: getTheme(req),
     csrfToken: req?.csrfToken?.() || '',
     languagesContext: { languages: req.context.languages },
   }

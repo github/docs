@@ -49,7 +49,7 @@ Você pode formatar o texto e incluir emoji, imagens e GIFs no README do perfil 
 
 ## Adicionando um perfil README de organização somente apenas para membros
 
-1. If your organization does not already have a `.github-private` repository, create a private repository called `.github-private`.
+1. Se sua organização ainda não tiver um repositório `.github-private`, crie um repositório privado denominado `.github-private`.
 2. No repositório `.github-private` da sua organização, crie um arquivo `README.md` na pasta `perfil`.
 3. Faça o commit das alterações para o arquivo `README.md`. O conteúdo do `README.md` será exibido no modo de exibição do integrante do perfil da sua organização.
 

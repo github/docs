@@ -27,8 +27,7 @@ shortTitle: About merge methods
 
 {% data reusables.pull_requests.default_merge_option %}
 
-{% ifversion fpt or ghae or ghes or ghec %}
-デフォルトのマージ方法では、マージコミットが作成されます。 直線状のコミット履歴を強制して、保護されたブランチにマージコミットをプッシュできないようにすることができます。 詳しい情報については、「[保護されたブランチについて](/github/administering-a-repository/about-protected-branches#require-linear-history)」を参照してください。{% endif %}
+デフォルトのマージ方法では、マージコミットが作成されます。 直線状のコミット履歴を強制して、保護されたブランチにマージコミットをプッシュできないようにすることができます。 詳しい情報については、「[保護されたブランチについて](/github/administering-a-repository/about-protected-branches#require-linear-history)」を参照してください。
 
 ## マージコミットのsquash
 

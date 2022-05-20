@@ -28,10 +28,9 @@ When you use two or more headings, GitHub automatically generates a table of con
 
 ![Screenshot highlighting the table of contents icon](/assets/images/help/repository/headings_toc.png)
 
-
 ## Styling text
 
-You can indicate emphasis with bold, italic, or strikethrough text in comment fields and `.md` files.  
+You can indicate emphasis with bold, italic, strikethrough, subscript, or superscript text in comment fields and `.md` files.  
 
 | Style | Syntax | Keyboard shortcut | Example | Output |
 | --- | --- | --- | --- | --- |
@@ -40,6 +39,8 @@ You can indicate emphasis with bold, italic, or strikethrough text in comment fi
 | Strikethrough | `~~ ~~` | | `~~This was mistaken text~~` | ~~This was mistaken text~~ |
 | Bold and nested italic | `** **` and `_ _` | | `**This text is _extremely_ important**` | **This text is _extremely_ important** |
 | All bold and italic | `*** ***` | | `***All this text is important***` | ***All this text is important*** |
+| Subscript | `<sub> </sub>` | | `<sub>This is a subscript text</sub>` | <sub>This is a subscript text</sub> |
+| Superscript | `<sup> </sup>` | | `<sup>This is a superscript text</sup>` | <sup>This is a superscript text</sup> |
 
 ## Quoting text
 
@@ -89,6 +90,8 @@ For more information, see "[Creating and highlighting code blocks](/articles/cre
 ## Links
 
 You can create an inline link by wrapping link text in brackets `[ ]`, and then wrapping the URL in parentheses `( )`. {% ifversion fpt or ghae or ghes > 3.1 or ghec %}You can also use the keyboard shortcut <kbd>Command</kbd>+<kbd>K</kbd> to create a link.{% endif %}{% ifversion fpt or ghae-issue-5434 or ghes > 3.3 or ghec %} When you have text selected, you can paste a URL from your clipboard to automatically create a link from the selection.{% endif %}
+
+{% ifversion fpt or ghae-issue-7103 or ghes > 3.5 or ghec %} You can also create a Markdown hyperlink by highlighting the text and using the keyboard shortcut <kbd>Command</kbd>+<kbd>V</kbd>. If you'd like to replace the text with the link, use the keyboard shortcut <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd>.{% endif %}
 
 `This site was built using [GitHub Pages](https://pages.github.com/).`
 
@@ -234,7 +237,7 @@ For more information, see "[About task lists](/articles/about-task-lists)."
 
 ## Mentioning people and teams
 
-You can mention a person or [team](/articles/setting-up-teams/) on {% data variables.product.product_name %} by typing <kbd>@</kbd> plus their username or team name. This will trigger a notification and bring their attention to the conversation. People will also receive a notification if you edit a comment to mention their username or team name. For more information about notifications, see {% ifversion fpt or ghes or ghae or ghec %}"[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[About notifications](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}."
+You can mention a person or [team](/articles/setting-up-teams/) on {% data variables.product.product_name %} by typing <kbd>@</kbd> plus their username or team name. This will trigger a notification and bring their attention to the conversation. People will also receive a notification if you edit a comment to mention their username or team name. For more information about notifications, see "[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications)."
 
 {% note %}
 
@@ -295,7 +298,7 @@ For a full list of available emoji and codes, check out [the Emoji-Cheat-Sheet](
 
 You can create a new paragraph by leaving a blank line between lines of text.
 
-{% ifversion fpt or ghae-issue-5180 or ghes > 3.2 or ghec %}
+{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
 ## Footnotes
 
 You can add footnotes to your content by using this bracket syntax:

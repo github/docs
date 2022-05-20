@@ -66,7 +66,7 @@ Enterprise 内のすべての Organization に対して {% data variables.produc
 1. "Policies（ポリシー）"の下で、{% data reusables.actions.policy-label-for-select-actions-workflows %}を選択し、必要なアクション{% if actions-workflow-policy %}と再利用可能なワークフロー{% endif %}をリストに追加してください。
    {% if actions-workflow-policy %}
    ![許可リストへのアクションと再利用可能なワークフローの追加](/assets/images/help/organizations/enterprise-actions-policy-allow-list-with-workflows.png)
-   {%- elsif ghes or ghae-issue-5094 %}
+   {%- elsif ghes or ghae %}
    ![許可リストへのアクションの追加](/assets/images/help/organizations/enterprise-actions-policy-allow-list.png)
    {%- elsif ghae %}
    ![許可リストへのアクションの追加](/assets/images/enterprise/github-ae/enterprise-actions-policy-allow-list.png)
@@ -134,13 +134,13 @@ By default, when you create a new enterprise, `GITHUB_TOKEN` only has read acces
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
-1. Under "Workflow permissions", choose whether you want the `GITHUB_TOKEN` to have read and write access for all scopes, or just read access for the `contents` scope.
+1. [Workflow permissions]の下で、`GITHUB_TOKEN`にすべてのスコープに対する読み書きアクセスを持たせたいか、あるいは`contents`スコープに対する読み取りアクセスだけを持たせたいかを選択してください。
 
    ![Set GITHUB_TOKEN permissions for this enterprise](/assets/images/help/settings/actions-workflow-permissions-enterprise{% if allow-actions-to-approve-pr-with-ent-repo %}-with-pr-approval{% endif %}.png)
 1. **Save（保存）**をクリックして、設定を適用してください。
 
 {% if allow-actions-to-approve-pr-with-ent-repo %}
-### Preventing {% data variables.product.prodname_actions %} from creating or approving pull requests
+### {% data variables.product.prodname_actions %}がPull Requestの作成もしくは承認をできないようにする
 
 {% data reusables.actions.workflow-pr-approval-permissions-intro %}
 
