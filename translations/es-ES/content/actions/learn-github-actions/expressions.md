@@ -368,7 +368,7 @@ Por ejemplo, considera una matriz de objetos llamada `fruits`.
 
 El filtro `fruits.*.name` devuelve la matriz `[ "apple", "orange", "pear" ]`.
 
-You may also use the `*` syntax on an object. For example, suppose you have an object named `vegetables`.
+También puedes utilizar la sintaxis `*` en un objeto. Por ejemplo, supón que tienes un objeto que se llama `vegetables`.
 
 ```json
 
@@ -391,7 +391,7 @@ You may also use the `*` syntax on an object. For example, suppose you have an o
 }
 ```
 
-The filter `vegetables.*.ediblePortions` could evaluate to:
+El filtro `vegetables.*.ediblePortions` puede evaluarse como:
 
 ```json
 
@@ -402,4 +402,4 @@ The filter `vegetables.*.ediblePortions` could evaluate to:
 ]
 ```
 
-Since objects don't preserve order, the order of the output can not be guaranteed.
+Ya que los objetos no preservan el orden, el orden de salida no se puede garantizar.

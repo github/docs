@@ -92,6 +92,8 @@ Para obtener más información, consulta "[Crear y resaltar bloques de código](
 
 Puedes crear un enlace en línea al encerrar el texto del enlace entre corchetes `[ ]`, y luego encerrar la URL entre paréntesis `( )`. {% ifversion fpt or ghae or ghes > 3.1 or ghec %}También puedes utilizar el atajo de teclado <kbd>Command</kbd>+<kbd>K</kbd> para crear un enlace.{% endif %}{% ifversion fpt or ghae-issue-5434 or ghes > 3.3 or ghec %} Cuando tengas texto seleccionado, puedes pegar una URL desde tu portapapeles para crear un enlace automáticamente desde la selección.{% endif %}
 
+{% ifversion fpt or ghae-issue-7103 or ghes > 3.5 or ghec %} You can also create a Markdown hyperlink by highlighting the text and using the keyboard shortcut <kbd>Command</kbd>+<kbd>V</kbd>. If you'd like to replace the text with the link, use the keyboard shortcut <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd>.{% endif %}
+
 `Este sitio se construyó usando [GitHub Pages](https://pages.github.com/).`
 
 ![Enlace representado](/assets/images/help/writing/link-rendered.png)

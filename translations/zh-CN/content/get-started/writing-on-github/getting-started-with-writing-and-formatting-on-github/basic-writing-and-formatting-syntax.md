@@ -31,17 +31,17 @@ shortTitle: 基本格式语法
 
 ## 样式文本
 
-You can indicate emphasis with bold, italic, strikethrough, subscript, or superscript text in comment fields and `.md` files.
+您可以在评论字段和 `.md` 文件中以粗体、斜体、删除线、下标或上标的文字表示强调。
 
-| 样式          | 语法                         | 键盘快捷键                                                                                | 示例                                                  | 输出                                    |
-| ----------- | -------------------------- | ------------------------------------------------------------------------------------ | --------------------------------------------------- | ------------------------------------- |
-| 粗体          | `** **` 或 `__ __`          | <kbd>Command</kbd>+<kbd>B</kbd> (Mac) 或 <kbd>Ctrl</kbd>+<kbd>B</kbd> (Windows/Linux) | `**这是粗体文本**`                                        | **这是粗体文本**                            |
-| 斜体          | `* *` 或 `_ _`              | <kbd>Command</kbd>+<kbd>I</kbd> (Mac) 或 <kbd>Ctrl</kbd>+<kbd>I</kbd> (Windows/Linux) | `*这是斜体文本*`                                          | *这是斜体文本*                              |
-| 删除线         | `~~ ~~`                    |                                                                                      | `~~这是错误文本~~`                                        | ~~这是错误文本~~                            |
-| 粗体和嵌入的斜体    | `** **` 和 `_ _`            |                                                                                      | `**此文本 _非常_ 重要**`                                   | **此文本_非常_重要**                         |
-| 全部粗体和斜体     | `*** ***`                  |                                                                                      | `***所有这些文本都很重要***`                                  | ***所有这些文本都是斜体***                      |
-| Subscript   | `<sub> </sub>` |                                                                                      | `<sub>This is a subscript text</sub>`   | <sub>This is a subscript text</sub>   |
-| Superscript | `<sup> </sup>` |                                                                                      | `<sup>This is a superscript text</sup>` | <sup>This is a superscript text</sup> |
+| 样式       | 语法                         | 键盘快捷键                                                                                | 示例                              | 输出                |
+| -------- | -------------------------- | ------------------------------------------------------------------------------------ | ------------------------------- | ----------------- |
+| 粗体       | `** **` 或 `__ __`          | <kbd>Command</kbd>+<kbd>B</kbd> (Mac) 或 <kbd>Ctrl</kbd>+<kbd>B</kbd> (Windows/Linux) | `**这是粗体文本**`                    | **这是粗体文本**        |
+| 斜体       | `* *` 或 `_ _`              | <kbd>Command</kbd>+<kbd>I</kbd> (Mac) 或 <kbd>Ctrl</kbd>+<kbd>I</kbd> (Windows/Linux) | `*这是斜体文本*`                      | *这是斜体文本*          |
+| 删除线      | `~~ ~~`                    |                                                                                      | `~~这是错误文本~~`                    | ~~这是错误文本~~        |
+| 粗体和嵌入的斜体 | `** **` 和 `_ _`            |                                                                                      | `**此文本 _非常_ 重要**`               | **此文本_非常_重要**     |
+| 全部粗体和斜体  | `*** ***`                  |                                                                                      | `***所有这些文本都很重要***`              | ***所有这些文本都是斜体***  |
+| 下标       | `<sub> </sub>` |                                                                                      | `<sub>这是下标文本</sub>` | <sub>这是下标文本</sub> |
+| 上标       | `<sup> </sup>` |                                                                                      | `<sup>这是上标文本</sup>` | <sup>这是上标文本</sup> |
 
 ## 引用文本
 
@@ -91,6 +91,8 @@ git commit
 ## 链接
 
 通过将链接文本包含在方括号 `[ ]` 内，然后将 URL 包含在括号 `( )` 内，可创建内联链接。 {% ifversion fpt or ghae or ghes > 3.1 or ghec %}您还可以使用键盘快捷键 <kbd>Command</kbd>+<kbd>K</kbd> 创建链接。{% endif %}{% ifversion fpt or ghae-issue-5434 or ghes > 3.3 or ghec %} 选择文本后，可以从剪贴板粘贴 URL，以自动从所选内容创建链接。{% endif %}
+
+{% ifversion fpt or ghae-issue-7103 or ghes > 3.5 or ghec %} You can also create a Markdown hyperlink by highlighting the text and using the keyboard shortcut <kbd>Command</kbd>+<kbd>V</kbd>. If you'd like to replace the text with the link, use the keyboard shortcut <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd>.{% endif %}
 
 `本站点是使用 [GitHub Pages](https://pages.github.com/) 构建的。`
 

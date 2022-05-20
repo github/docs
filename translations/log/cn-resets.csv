@@ -9,6 +9,7 @@ translations/zh-CN/content/account-and-profile/setting-up-and-managing-your-pers
 translations/zh-CN/content/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-the-default-branch-name-for-your-repositories.md,broken liquid tags
 translations/zh-CN/content/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations/about-organization-membership.md,broken liquid tags
 translations/zh-CN/content/actions/automating-builds-and-tests/about-continuous-integration.md,broken liquid tags
+translations/zh-CN/content/actions/deployment/about-deployments/deploying-with-github-actions.md,broken liquid tags
 translations/zh-CN/content/actions/hosting-your-own-runners/about-self-hosted-runners.md,broken liquid tags
 translations/zh-CN/content/actions/hosting-your-own-runners/adding-self-hosted-runners.md,Listed in localization-support#489
 translations/zh-CN/content/actions/hosting-your-own-runners/adding-self-hosted-runners.md,broken liquid tags
@@ -170,6 +171,7 @@ translations/zh-CN/content/code-security/supply-chain-security/end-to-end-supply
 translations/zh-CN/content/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security.md,broken liquid tags
 translations/zh-CN/content/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph.md,Listed in localization-support#489
 translations/zh-CN/content/code-security/supply-chain-security/understanding-your-software-supply-chain/troubleshooting-the-dependency-graph.md,broken liquid tags
+translations/zh-CN/content/codespaces/codespaces-reference/using-github-copilot-in-codespaces.md,broken liquid tags
 translations/zh-CN/content/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace.md,broken liquid tags
 translations/zh-CN/content/codespaces/customizing-your-codespace/personalizing-codespaces-for-your-account.md,broken liquid tags
 translations/zh-CN/content/codespaces/customizing-your-codespace/setting-your-default-editor-for-codespaces.md,broken liquid tags
@@ -207,6 +209,7 @@ translations/zh-CN/content/education/manage-coursework-with-github-classroom/int
 translations/zh-CN/content/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/using-github-codespaces-with-github-classroom.md,broken liquid tags
 translations/zh-CN/content/education/manage-coursework-with-github-classroom/learn-with-github-classroom/view-autograding-results.md,broken liquid tags
 translations/zh-CN/content/get-started/customizing-your-github-workflow/exploring-integrations/about-github-marketplace.md,broken liquid tags
+translations/zh-CN/content/get-started/customizing-your-github-workflow/exploring-integrations/github-extensions-and-integrations.md,broken liquid tags
 translations/zh-CN/content/get-started/customizing-your-github-workflow/index.md,broken liquid tags
 translations/zh-CN/content/get-started/exploring-projects-on-github/following-organizations.md,broken liquid tags
 translations/zh-CN/content/get-started/getting-started-with-git/about-remote-repositories.md,broken liquid tags

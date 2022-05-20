@@ -60,9 +60,9 @@ Puedes llevar a cabo una validación inicial de tu operación de mantenimiento s
 
 {% if ip-exception-list %}
 
-## Validating changes in maintenance mode using the IP exception list
+## Validar los cambios en el modo de mantenimiento utilizando la lista de excepciones de IP
 
-The IP exception list provides controlled and restricted access to {% data variables.product.product_location %}, which is ideal for initial validation of server health following a maintenance operation. Once enabled, {% data variables.product.product_location %} will be taken out of maintenance mode and available only to the configured IP addresses. The maintenance mode checkbox will be updated to reflect the change in state.
+La lista de excepciones de IP proporciona un acceso restringido y controlado a {% data variables.product.product_location %}, el cual es ideal para una validación inicial de la salud del servidor después de una operación de mantenimiento. Una vez que se habilita, {% data variables.product.product_location %} saldrá del modo de mantenimiento y estará disponible únicamente para las direcciones IP configuradas. The maintenance mode checkbox will be updated to reflect the change in state.
 
 If you re-enable maintenance mode, the IP exception list will be disabled and {% data variables.product.product_location %} will return to maintenance mode. If you just disable the IP exception list, {% data variables.product.product_location %} will return to normal operation.
 
