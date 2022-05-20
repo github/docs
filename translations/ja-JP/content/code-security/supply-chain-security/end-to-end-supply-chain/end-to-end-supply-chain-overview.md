@@ -19,6 +19,8 @@ topics:
 
 エンドツーエンドのソフトウェアサプライチェーンのセキュリティとは、その中核において、配布するコードが改ざんされていないことを確実にすることです。 以前は、たとえばライブラリやフレームワークなど、使用される依存関係をターゲットとすることに攻撃者は集中していました。 今日、攻撃者はその焦点を広げ、ユーザアカウントやビルドプロセスを含めているので、それらのシステムも防御されなければなりません。
 
+For information about features in {% data variables.product.prodname_dotcom %} that can help you secure dependencies, see "[About supply chain security](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security)."
+
 ## これらのガイドについて
 
 この一連のガイドでは、エンドツーエンドのサプライチェーンである、個人アカウント、コード、ビルドプロセスの保護についての考え方を説明します。 それぞれのガイドは、その領域におけるリスクを説明し、そのリスクへの対応を支援できる{% data variables.product.product_name %}の機能を紹介します。

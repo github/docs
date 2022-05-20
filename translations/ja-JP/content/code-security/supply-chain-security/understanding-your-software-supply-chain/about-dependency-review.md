@@ -37,6 +37,8 @@ redirect_from:
 
 依存関係のレビューは、依存関係グラフと同じ言語とパッケージ管理エコシステムをサポートしています。 詳しい情報については、「[依存関係グラフについて](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems)」を参照してください。
 
+For more information on supply chain features available on {% data variables.product.product_name %}, see "[About supply chain security](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security)."
+
 {% ifversion ghec or ghes %}
 ## 依存関係レビューの有効化
 
