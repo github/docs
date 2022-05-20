@@ -239,8 +239,8 @@ Mientras que la mayoría de tu interacción con la API deberá darse utilizando 
 
 * [Listar los despliegues](/rest/reference/deployments#list-deployments)
 * [Crear un despliegue](/rest/reference/deployments#create-a-deployment)
-* [Obtener un despliegue](/rest/reference/deployments#get-a-deployment){% ifversion fpt or ghes or ghae or ghec %}
-* [Borrar un despliegue](/rest/reference/deployments#delete-a-deployment){% endif %}
+* [Obtén un despliegue](/rest/reference/deployments#get-a-deployment)
+* [Borra un despliegue](/rest/reference/deployments#delete-a-deployment)
 
 #### Eventos
 
@@ -422,14 +422,12 @@ Mientras que la mayoría de tu interacción con la API deberá darse utilizando 
 * [Eliminar el requerir los ganchos de pre-recepción para una organización](/enterprise/user/rest/reference/enterprise-admin#remove-pre-receive-hook-enforcement-for-an-organization)
 {% endif %}
 
-{% ifversion fpt or ghes or ghae or ghec %}
 #### Poyectos de Equipo de una Organización
 
 * [Listar los proyectos de equipo](/rest/reference/teams#list-team-projects)
 * [Verificar los permisos del equipo para un proyecto](/rest/reference/teams#check-team-permissions-for-a-project)
 * [Agregar o actualizar los permisos de un proyecto de equipo](/rest/reference/teams#add-or-update-team-project-permissions)
 * [Eliminar a un proyecto de un equipo](/rest/reference/teams#remove-a-project-from-a-team)
-{% endif %}
 
 #### Repositorios de Equipo de la Organización
 
@@ -575,7 +573,7 @@ Mientras que la mayoría de tu interacción con la API deberá darse utilizando 
 
 #### Reacciones
 
-{% ifversion fpt or ghes or ghae or ghec %}*[Borrar una reacción](/rest/reference/reactions#delete-a-reaction-legacy){% else %}*[Borrar una reacción](/rest/reference/reactions#delete-a-reaction){% endif %}
+* [Borra una reacción](/rest/reference/reactions)
 * [Listar las reacciones a un comentario de una confirmación](/rest/reference/reactions#list-reactions-for-a-commit-comment)
 * [Crear una reacción para el comentario de una confirmación](/rest/reference/reactions#create-reaction-for-a-commit-comment)
 * [Listar las reacciones de un informe de problemas](/rest/reference/reactions#list-reactions-for-an-issue)
@@ -587,13 +585,13 @@ Mientras que la mayoría de tu interacción con la API deberá darse utilizando 
 * [Listar las reacciones para un comentario de debate de equipo](/rest/reference/reactions#list-reactions-for-a-team-discussion-comment)
 * [Crear una reacción para un comentario de debate de equipo](/rest/reference/reactions#create-reaction-for-a-team-discussion-comment)
 * [Listar las reaciones a un debate de equipo](/rest/reference/reactions#list-reactions-for-a-team-discussion)
-* [Crear una reacción para un debate de equipo](/rest/reference/reactions#create-reaction-for-a-team-discussion){% ifversion fpt or ghes or ghae or ghec %}
+* [Crear una reacción para un debate de equipo](/rest/reference/reactions#create-reaction-for-a-team-discussion)
 * [Borrar la reacción a un comentario de una confirmación](/rest/reference/reactions#delete-a-commit-comment-reaction)
 * [Borrar la reacción a un comentario](/rest/reference/reactions#delete-an-issue-reaction)
 * [Borrar la reacción a un comentario de una confirmación](/rest/reference/reactions#delete-an-issue-comment-reaction)
 * [Borrar la reacción a un comentario de una solicitud de extracción](/rest/reference/reactions#delete-a-pull-request-comment-reaction)
 * [Borrar la reacción a un debate de equipo](/rest/reference/reactions#delete-team-discussion-reaction)
-* [Borrar la reacción a un comentario de un debate de equipo](/rest/reference/reactions#delete-team-discussion-comment-reaction){% endif %}
+* [Borrar una reacción a un comentario en un debate de equipo](/rest/reference/reactions#delete-team-discussion-comment-reaction)
 
 #### Repositorios
 
@@ -707,11 +705,9 @@ Mientras que la mayoría de tu interacción con la API deberá darse utilizando 
 * [Obtener el README de un repositorio](/rest/reference/repos#get-a-repository-readme)
 * [Obtener la licencia para un repositorio](/rest/reference/licenses#get-the-license-for-a-repository)
 
-{% ifversion fpt or ghes or ghae or ghec %}
 #### Envíos de Evento de un Repositorio
 
 * [Crear un evento de envío de un repositorio](/rest/reference/repos#create-a-repository-dispatch-event)
-{% endif %}
 
 #### Ganchos de Repositorio
 

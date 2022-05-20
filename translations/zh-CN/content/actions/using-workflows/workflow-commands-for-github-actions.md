@@ -99,18 +99,18 @@ core.setOutput('SELECTED_COLOR', 'green');
 
 下表显示了在工作流程中可用的工具包功能：
 
-| 工具包函数                 | 等效工作流程命令                                                              |
-| --------------------- | --------------------------------------------------------------------- |
-| `core.addPath`        | 可使用环境文件 `GITHUB_PATH` 访问                                              |
-| `core.debug`          | `debug` |{% ifversion fpt or ghes > 3.2 or ghae-issue-4929 or ghec %}
+| 工具包函数                 | 等效工作流程命令                                                   |
+| --------------------- | ---------------------------------------------------------- |
+| `core.addPath`        | 可使用环境文件 `GITHUB_PATH` 访问                                   |
+| `core.debug`          | `debug` |{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 | `core.notice`         | `notice` 
 {% endif %}
-| `core.error`          | `error`                                                               |
-| `core.endGroup`       | `endgroup`                                                            |
-| `core.exportVariable` | 可使用环境文件 `GITHUB_ENV` 访问                                               |
-| `core.getInput`       | 可使用环境变量 `INPUT_{NAME}` 访问                                             |
-| `core.getState`       | 可使用环境变量 `STATE_{NAME}` 访问                                             |
-| `core.isDebug`        | 可使用环境变量 `RUNNER_DEBUG` 访问                                             |
+| `core.error`          | `error`                                                    |
+| `core.endGroup`       | `endgroup`                                                 |
+| `core.exportVariable` | 可使用环境文件 `GITHUB_ENV` 访问                                    |
+| `core.getInput`       | 可使用环境变量 `INPUT_{NAME}` 访问                                  |
+| `core.getState`       | 可使用环境变量 `STATE_{NAME}` 访问                                  |
+| `core.isDebug`        | 可使用环境变量 `RUNNER_DEBUG` 访问                                  |
 {%- if actions-job-summaries %}
 | `core.summary` | 可使用环境变量 `GITHUB_STEP_SUMMARY` 访问 |
 {%- endif %}
@@ -170,7 +170,7 @@ Write-Output "::debug::Set the Octocat variable"
 
 {% endpowershell %}
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4929 or ghec %}
+{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 
 ## 设置通知消息
 

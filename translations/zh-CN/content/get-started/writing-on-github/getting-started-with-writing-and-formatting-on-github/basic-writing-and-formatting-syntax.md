@@ -29,18 +29,19 @@ shortTitle: 基本格式语法
 
 ![突出显示目录图标的屏幕截图](/assets/images/help/repository/headings_toc.png)
 
-
 ## 样式文本
 
-您可以在评论字段和 `.md` 文件中以粗体、斜体或删除线的文字表示强调。
+You can indicate emphasis with bold, italic, strikethrough, subscript, or superscript text in comment fields and `.md` files.
 
-| 样式       | 语法                 | 键盘快捷键                                                                                | 示例                 | 输出               |
-| -------- | ------------------ | ------------------------------------------------------------------------------------ | ------------------ | ---------------- |
-| 粗体       | `** **` 或 `__ __`  | <kbd>Command</kbd>+<kbd>B</kbd> (Mac) 或 <kbd>Ctrl</kbd>+<kbd>B</kbd> (Windows/Linux) | `**这是粗体文本**`       | **这是粗体文本**       |
-| 斜体       | `* *` 或 `_ _`      | <kbd>Command</kbd>+<kbd>I</kbd> (Mac) 或 <kbd>Ctrl</kbd>+<kbd>I</kbd> (Windows/Linux) | `*这是斜体文本*`         | *这是斜体文本*         |
-| 删除线      | `~~ ~~`            |                                                                                      | `~~这是错误文本~~`       | ~~这是错误文本~~       |
-| 粗体和嵌入的斜体 | `** **` 和 `_ _`    |                                                                                      | `**此文本 _非常_ 重要**`  | **此文本_非常_重要**    |
-| 全部粗体和斜体  | `*** ***`          |                                                                                      | `***所有这些文本都很重要***` | ***所有这些文本都是斜体*** |
+| 样式          | 语法                         | 键盘快捷键                                                                                | 示例                                                  | 输出                                    |
+| ----------- | -------------------------- | ------------------------------------------------------------------------------------ | --------------------------------------------------- | ------------------------------------- |
+| 粗体          | `** **` 或 `__ __`          | <kbd>Command</kbd>+<kbd>B</kbd> (Mac) 或 <kbd>Ctrl</kbd>+<kbd>B</kbd> (Windows/Linux) | `**这是粗体文本**`                                        | **这是粗体文本**                            |
+| 斜体          | `* *` 或 `_ _`              | <kbd>Command</kbd>+<kbd>I</kbd> (Mac) 或 <kbd>Ctrl</kbd>+<kbd>I</kbd> (Windows/Linux) | `*这是斜体文本*`                                          | *这是斜体文本*                              |
+| 删除线         | `~~ ~~`                    |                                                                                      | `~~这是错误文本~~`                                        | ~~这是错误文本~~                            |
+| 粗体和嵌入的斜体    | `** **` 和 `_ _`            |                                                                                      | `**此文本 _非常_ 重要**`                                   | **此文本_非常_重要**                         |
+| 全部粗体和斜体     | `*** ***`                  |                                                                                      | `***所有这些文本都很重要***`                                  | ***所有这些文本都是斜体***                      |
+| Subscript   | `<sub> </sub>` |                                                                                      | `<sub>This is a subscript text</sub>`   | <sub>This is a subscript text</sub>   |
+| Superscript | `<sup> </sup>` |                                                                                      | `<sup>This is a superscript text</sup>` | <sup>This is a superscript text</sup> |
 
 ## 引用文本
 
@@ -235,7 +236,7 @@ git commit
 
 ## 提及人员和团队
 
-您可以在 {% data variables.product.product_name %} 上提及人员或[团队](/articles/setting-up-teams/)，方法是键入 <kbd>@</kbd> 加上其用户名或团队名称。 这将触发通知并提请他们注意对话。 如果您在编辑的评论中提及某人的用户名或团队名称，该用户也会收到通知。 有关通知的更多信息，请参阅{% ifversion fpt or ghes or ghae or ghec %}"[关于通知](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}“[关于通知](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}”。
+您可以在 {% data variables.product.product_name %} 上提及人员或[团队](/articles/setting-up-teams/)，方法是键入 <kbd>@</kbd> 加上其用户名或团队名称。 这将触发通知并提请他们注意对话。 如果您在编辑的评论中提及某人的用户名或团队名称，该用户也会收到通知。 有关通知的详细信息，请参阅“[关于通知](/github/managing-subscriptions-and-notifications-on-github/about-notifications)”。
 
 {% note %}
 
@@ -296,7 +297,7 @@ git commit
 
 通过在文本行之间留一个空白行，可创建新段落。
 
-{% ifversion fpt or ghae-issue-5180 or ghes > 3.2 or ghec %}
+{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
 ## 脚注
 
 您可以使用此括号语法为您的内容添加脚注：

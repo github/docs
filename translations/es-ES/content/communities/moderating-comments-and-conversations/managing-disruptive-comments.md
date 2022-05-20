@@ -47,13 +47,13 @@ Cualquiera con acceso de escritura a un repositorio puede editar comentarios sob
 
 Es adecuado editar un comentario y eliminar el contenido que no haga ninguna colaboración con la conversación y viole el código de conducta de tu comunidad{% ifversion fpt or ghec %} o los [Lineamientos comunitarios](/free-pro-team@latest/github/site-policy/github-community-guidelines) de GitHub{% endif %}.
 
-Sometimes it may make sense to clearly indicate edits and their justification.
+Algunas veces podría ser coherente indicar claramente las ediciones y su justificación.
 
-That said, anyone with read access to a repository can view a comment's edit history. El menú desplegable **editado** en la parte superior del comentario contiene un historial de las ediciones y muestra el usuario y el registro de horario de cada edición.
+Dicho esto, cualquiera con acceso de lectura a un repositorio puede ver el historial de edición de un comentario. El menú desplegable **editado** en la parte superior del comentario contiene un historial de las ediciones y muestra el usuario y el registro de horario de cada edición.
 
 ![Comentario con nota adicional que el contenido fue redactado](/assets/images/help/repository/content-redacted-comment.png)
 
-## Redacting sensitive information
+## Redactar la información sensible
 
 Los autores de los comentarios y cualquiera con acceso de escritura a un repositorio puede también eliminar información sensible de un historial de edición de los comentarios. Para obtener más información, consulta "[Rastrear los cambios en un comentario](/communities/moderating-comments-and-conversations/tracking-changes-in-a-comment)."
 
@@ -81,7 +81,7 @@ Eliminar un comentario crea un evento cronológico que es visible para todos aqu
 
 {% endnote %}
 
-### Steps to delete a comment
+### Pasos para borrar un comentario
 
 1. Navega hasta el comentario que deseas eliminar.
 2. En la esquina superior derecha del comentario, haz clic en {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, después haz clic en **Delete (Eliminar)**. ![El ícono de kebab horizontal y el menú de moderación de comentario que muestra las opciones Editar, Ocultar, Eliminar e Informar](/assets/images/help/repository/comment-menu.png)

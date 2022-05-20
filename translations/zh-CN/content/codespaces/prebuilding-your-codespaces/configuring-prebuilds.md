@@ -94,7 +94,7 @@ permissions: People with admin access to a repository can configure prebuilds fo
 
 ## 配置要包含在预构建中的耗时任务
 
-您可以在 `devcontainer.json` 中使用 `onCreateCommand` 和 `updateContentCommand` 命令，以将耗时的过程作为预构建模板创建的一部分包括在内。 更多信息请参阅 Visual Studio Code 文档“[devcontainer.json reference](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_lifecycle-scripts)”。
+您可以在 `devcontainer.json` 中使用 `onCreateCommand` 和 `updateContentCommand` 命令，以将耗时的过程作为预构建模板创建的一部分包括在内。 For more information, see the {% data variables.product.prodname_vscode %} documentation, "[devcontainer.json reference](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_lifecycle-scripts)."
 
 `onCreateCommand` 仅在创建预构建模板时运行一次，而 `updateContentCommand` 在模板创建和后续模板更新时运行。 增量构建应包含在 `updateContentCommand` 中，因为它们表示项目的源代码，并且需要包含在每个预构建模板更新中。
 

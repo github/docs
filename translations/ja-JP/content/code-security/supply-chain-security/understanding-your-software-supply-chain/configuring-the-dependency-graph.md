@@ -6,7 +6,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: issue-4864
+  ghae: '*'
   ghec: '*'
 type: how_to
 topics:
@@ -25,7 +25,7 @@ shortTitle: 依存関係グラフの設定
 {% ifversion fpt or ghec %} ## 依存関係グラフの設定について {% endif %}
 {% ifversion fpt or ghec %}依存関係グラフを生成するには、{% data variables.product.product_name %} がリポジトリの依存関係のマニフェストおよびロックファイルに読み取りアクセスできる必要があります。 依存関係グラフは、パブリックリポジトリに対しては常に自動的に生成され、プライベートリポジトリに対しては有効化を選択することができます。 依存関係グラフの表示に関する詳しい情報については「[リポジトリの依存関係の調査](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository)」を参照してください。{% endif %}
 
-{% ifversion ghes or ghae %} ## 依存関係グラフの有効化
+{% ifversion ghes %} ## 依存関係グラフの有効化
 {% data reusables.dependabot.ghes-ghae-enabling-dependency-graph %}{% endif %}{% ifversion fpt or ghec %}
 
 ### プライベートリポジトリの依存関係グラフを有効化および無効化する

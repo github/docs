@@ -11,7 +11,7 @@ sections:
     - Creating an impersonation OAuth token using the Enterprise Administration REST API worked incorrectly when an integration matching the OAuth Application ID already existed.
   changes:
     - Configuration errors that halt a config apply run are now output to the terminal in addition to the configuration log.
-    - When attempting to cache a value larger than the maximum allowed in Memcached, an error was raised however the key was not reported.
+    - Memcachedで許されている最大よりも長い値をキャッシュしようとするとエラーが生じますが、キーは報告されませんでした。
     - The {% data variables.product.prodname_codeql %} starter workflow no longer errors even if the default token permissions for {% data variables.product.prodname_actions %} are not used.
     - If {% data variables.product.prodname_GH_advanced_security %} features are enabled on your instance, the performance of background jobs has improved when processing batches for repository contributions.
   known_issues:

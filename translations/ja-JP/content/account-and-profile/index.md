@@ -1,6 +1,6 @@
 ---
 title: Your account and profile on GitHub
-shortTitle: Account and profile
+shortTitle: アカウントとプロフィール
 intro: 'Make {% data variables.product.product_name %} work best for you by adjusting the settings for your personal account, personalizing your profile page, and managing the notifications you receive for activity on {% data variables.product.prodname_dotcom %}.'
 introLinks:
   quickstart: /get-started/onboarding/getting-started-with-your-github-account
@@ -37,7 +37,7 @@ topics:
   - Profiles
   - Notifications
 children:
-  - /setting-up-and-managing-your-github-user-account
+  - /setting-up-and-managing-your-personal-account-on-github
   - /setting-up-and-managing-your-github-profile
   - /managing-subscriptions-and-notifications-on-github
 ---
