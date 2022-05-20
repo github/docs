@@ -63,9 +63,9 @@ shortTitle: 分支保护规则
    - （可选）要在将代码修改提交推送到分支时忽略拉取请求批准审查，请选择 **Dismiss stale pull request approvals when new commits are pushed（推送新提交时忽略旧拉取请求批准）**。 ![在推送新提交时，关闭旧拉取请求批准的复选框](/assets/images/help/repository/PR-reviews-required-dismiss-stale.png)
    - （可选）要在拉取请求影响具有指定所有者的代码时要求代码所有者审查，请选择 **Require review from Code Owners（需要代码所有者审查）**。 更多信息请参阅“[关于代码所有者](/github/creating-cloning-and-archiving-repositories/about-code-owners)”。 ![代码所有者的必需审查](/assets/images/help/repository/PR-review-required-code-owner.png)
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5611 %}
-   - （可选）若要允许特定人员或团队在需要时将代码推送到分支而不创建拉取请求，请选择 **Allow specific actors to bypass required pull requests（允许特定参与者绕过所需的拉取请求）**。 然后，搜索并选择应被允许跳过创建拉取请求的人员或团队。 ![允许特定执行者绕过拉取请求要求复选框](/assets/images/help/repository/PR-bypass-requirements.png)
+   - Optionally, to allow specific actors to push code to the branch without creating pull requests when they're required, select **Allow specified actors to bypass required pull requests**. Then, search for and select the actors who should be allowed to skip creating a pull request. ![Allow specific actors to bypass pull request requirements checkbox]{% if integration-branch-protection-exceptions %}(/assets/images/help/repository/PR-bypass-requirements-with-apps.png){% else %}(/assets/images/help/repository/PR-bypass-requirements.png){% endif %}
 {% endif %}
-   - （可选）如果仓库属于组织，请选择 **Restrict who can dismiss pull request reviews（限制谁可以忽略拉取请求审查）**。 然后，搜索并选择有权忽略拉取请求审查的人员或团队。 更多信息请参阅“[忽略拉取请求审查](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)”。 ![限制可以忽略拉取请求审查的人员复选框](/assets/images/help/repository/PR-review-required-dismissals.png)
+   - （可选）如果仓库属于组织，请选择 **Restrict who can dismiss pull request reviews（限制谁可以忽略拉取请求审查）**。 Then, search for and select the actors who are allowed to dismiss pull request reviews. 更多信息请参阅“[忽略拉取请求审查](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)”。 ![Restrict who can dismiss pull request reviews checkbox]{% if integration-branch-protection-exceptions %}(/assets/images/help/repository/PR-review-required-dismissals-with-apps.png){% else %}(/assets/images/help/repository/PR-review-required-dismissals.png){% endif %}
 1. （可选）启用必需状态检查。 更多信息请参阅“[关于状态检查](/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks)”。
    - 选中 **Require status checks to pass before merging（合并前必需状态检查通过）**。 ![必需状态检查选项](/assets/images/help/repository/required-status-checks.png)
    - （可选）要确保使用受保护分支上的最新代码测试拉取请求，请选择 **Require branches to be up to date before merging（要求分支在合并前保持最新）**。 ![宽松或严格的必需状态复选框](/assets/images/help/repository/protecting-branch-loose-status.png)
@@ -95,7 +95,7 @@ shortTitle: 分支保护规则
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5624 %}
   然后，选择谁可以强制推送到分支。
     - 选择 **Everyone（每个人）**以允许至少具有存储库写入权限的每个人强制推送到分支，包括具有管理员权限的人员。
-    - 选择 **Specify who can force push（指定谁可以强制推送）**，仅允许特定人员或团队强制推送到分支。 然后，搜索并选择这些人员或团队。 ![指定谁可以强制推送选项的屏幕截图](/assets/images/help/repository/allow-force-pushes-specify-who.png)
+    - Select **Specify who can force push** to allow only specific actors to force push to the branch. Then, search for and select those actors. ![Screenshot of the options to specify who can force push]{% if integration-branch-protection-exceptions %}(/assets/images/help/repository/allow-force-pushes-specify-who-with-apps.png){% else %}(/assets/images/help/repository/allow-force-pushes-specify-who.png){% endif %}
 {% endif %}
 
     有关强制推送的详细信息，请参阅“[允许强制推送](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches/#allow-force-pushes)”。

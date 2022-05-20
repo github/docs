@@ -9,7 +9,7 @@ versions:
 
 ## 哪些数据会被收集？
 
-收集的数据在“[{% data variables.product.prodname_copilot %} 遥测术语](/github/copilot/github-copilot-telemetry-terms)”中进行了描述。 此外，{% data variables.product.prodname_copilot %} 扩展/插件从用户的集成开发环境 (IDE) 收集活动（绑定到时间戳）以及扩展/插件遥测包收集的元数据。 当与 Visual Studio Code、IntelliJ、NeoVIM 或其他 IDE 一起使用时，{% data variables.product.prodname_copilot %} 会收集这些 IDE 提供的标准元数据。
+收集的数据在“[{% data variables.product.prodname_copilot %} 遥测术语](/github/copilot/github-copilot-telemetry-terms)”中进行了描述。 此外，{% data variables.product.prodname_copilot %} 扩展/插件从用户的集成开发环境 (IDE) 收集活动（绑定到时间戳）以及扩展/插件遥测包收集的元数据。 When used with {% data variables.product.prodname_vscode %}, IntelliJ, NeoVIM, or other IDEs, {% data variables.product.prodname_copilot %} collects the standard metadata provided by those IDEs.
 
 ## {% data variables.product.company_short %} 如何使用数据
 
