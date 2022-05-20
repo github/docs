@@ -92,6 +92,8 @@ Para obter mais informações, consulte "[Criar e destacar blocos de código](/a
 
 Você pode criar um link inline colocando o texto do link entre colchetes `[ ]` e, em seguida, o URL entre parênteses `( )`. {% ifversion fpt or ghae or ghes > 3.1 or ghec %}Você também pode usar o atalho de teclado <kbd>Command</kbd>+<kbd>K</kbd> para criar um link.{% endif %}{% ifversion fpt or ghae-issue-5434 or ghes > 3.3 or ghec %} Quando você tiver selecionado texto, você poderá colar um URL da sua área de transferência para criar automaticamente um link a partir da seleção.{% endif %}
 
+{% ifversion fpt or ghae-issue-7103 or ghes > 3.5 or ghec %} You can also create a Markdown hyperlink by highlighting the text and using the keyboard shortcut <kbd>Command</kbd>+<kbd>V</kbd>. If you'd like to replace the text with the link, use the keyboard shortcut <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd>.{% endif %}
+
 `Este site foi construído usando [GitHub Pages](https://pages.github.com/).`
 
 ![Link renderizado](/assets/images/help/writing/link-rendered.png)
