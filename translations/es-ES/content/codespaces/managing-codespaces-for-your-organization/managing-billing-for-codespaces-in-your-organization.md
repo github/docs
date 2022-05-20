@@ -41,7 +41,7 @@ Puedes limitar la elección de tipos de máquina que se encuentra disponible par
 
 ## Borrar los codespaces sin utilizar
 
-Your users can delete their codespaces in https://github.com/codespaces and from within {% data variables.product.prodname_vscode %}. To reduce the size of a codespace, users can manually delete files using the terminal or from within {% data variables.product.prodname_vscode_shortname %}.
+Tus usuarios pueden borrar sus codespaces en https://github.com/codespaces y desde dentro de {% data variables.product.prodname_vscode %}. Para reducir el tamaño de un codespace, los usuarios pueden borrar los archivos manualmente utilizando la terminal o desde dentro de {% data variables.product.prodname_vscode_shortname %}.
 
 {% note %}
 

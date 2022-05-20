@@ -112,9 +112,9 @@ La siguiente tabla muestra qué funciones del toolkit se encuentran disponibles 
 | `core.getState`       | Accesible utilizando la variable de ambiente`STATE_{NAME}`  |
 | `core.isDebug`        | Accesible utilizando la variable de ambiente `RUNNER_DEBUG` |
 {%- if actions-job-summaries %}
-| `core.summary` | Accessible using environment variable `GITHUB_STEP_SUMMARY` |
+| `core.summary` | Se puede acceder a este utilizando la variable de ambiente `GITHUB_STEP_SUMMARY` |
 {%- endif %}
-| `core.saveState`  | `save-state` | | `core.setCommandEcho` | `echo` | | `core.setFailed`  | Used as a shortcut for `::error` and `exit 1` | | `core.setOutput`  | `set-output` | | `core.setSecret`  | `add-mask` | | `core.startGroup` | `group` | | `core.warning`    | `warning` |
+| `core.saveState`  | `save-state` | | `core.setCommandEcho` | `echo` | | `core.setFailed`  | Se utiliza como un atajo para `::error` y `exit 1` | | `core.setOutput`  | `set-output` | | `core.setSecret`  | `add-mask` | | `core.startGroup` | `group` | | `core.warning`    | `warning` |
 
 ## Configurar un parámetro de salida
 
