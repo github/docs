@@ -147,6 +147,7 @@ Here's what you accomplished in this tutorial:
 * Changed a file and committed those changes to {% data variables.product.product_name %}
 * Opened and merged a pull request
 
-Take a look at your {% data variables.product.product_name %} profile and you'll see your work reflected on your contribution graph.
+Take a look at your {% data variables.product.product_name %} profileok
+ and you'll see your work reflected on your contribution graph.
 
 For more information about the power of branches and pull requests, see "[GitHub flow](/get-started/quickstart/github-flow)." For more information about getting started with {% data variables.product.product_name %}, see the other guides in the [getting started quickstart](/get-started/quickstart).
