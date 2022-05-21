@@ -56,21 +56,23 @@ A página de configurações de cobrança da sua organização permite que você
 Apenas os integrantes da organização com a função de *proprietário* ou *gerente de cobrança* podem acessar ou alterar as configurações de cobrança da sua organização. Um gerente de cobrança é um usuário que gerencia as configurações de cobrança para sua organização e não usa uma licença paga na assinatura da sua organização. Para obter mais informações sobre como adicionar um gerente de cobrança à sua organização, consulte "[Adicionando um gerente de cobrança à sua organização](/organizations/managing-peoples-access-to-your-organization-with-roles/adding-a-billing-manager-to-your-organization)".
 
 ### Configurando uma conta corporativa com {% data variables.product.prodname_ghe_cloud %}
- {% note %}
-
-Para obter uma conta corporativa criada para você, entre em contato com [a equipe de vendas de {% data variables.product.prodname_dotcom %}](https://enterprise.github.com/contact).
-
- {% endnote %}
 
 #### 1. Sobre contas corporativas
 
 Uma conta corporativa permite que você gerencie centralmente as políticas e configurações para várias organizações {% data variables.product.prodname_dotcom %}, incluindo acesso de integrantes, cobrança e uso e segurança. Para obter mais informações, consulte "[Sobre contas corporativas](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts)".
-#### 2. Adicionar organizações à suas conta corporativa
+
+#### 2. Creating an enterpise account
+
+ {% data variables.product.prodname_ghe_cloud %} customers paying by invoice can create an enterprise account directly through {% data variables.product.prodname_dotcom %}. For more information, see "[Creating an enterprise account](/enterprise-cloud@latest/admin/overview/creating-an-enterprise-account)."
+
+ {% data variables.product.prodname_ghe_cloud %} customers not currently paying by invoice can contact [{% data variables.product.prodname_dotcom %}'s Sales team](https://enterprise.github.com/contact) to create an enterprise account for you.
+
+#### 3. Adicionar organizações à conta corporativa
 
 É possível criar novas organizações para serem gerenciadas em sua conta corporativa. Para obter mais informações, consulte "[Adicionando organizações à sua empresa](/enterprise-cloud@latest/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise)".
 
 Entre em contato com o seu representante da conta de vendas de {% data variables.product.prodname_dotcom %} se você quiser transferir uma organização existente para a sua conta corporativa.
-#### 3. Exibir assinatura e uso da conta corporativa
+#### 4. Exibir assinatura e uso da conta corporativa
 Você pode visualizar a sua assinatura atual, uso da licença, faturas, histórico de pagamentos e outras informações de cobrança para sua conta corporativa a qualquer momento. Os proprietários da empresa e os gerentes de cobrança podem acessar e gerenciar as configurações de cobrança para contas corporativas. Para obter mais informações, consulte "[Exibir a assinatura e o uso de sua conta corporativa](/enterprise-cloud@latest/billing/managing-billing-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account)".
 
 ## Parte 3: Gerenciando seus integrantes e equipes da empresa com {% data variables.product.prodname_ghe_cloud %}
