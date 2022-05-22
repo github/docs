@@ -1,0 +1,23 @@
+
+# File: .github/workflows/repo-sync.yml
+
+on:
+  workflow_dispatch:
+
+jobs:
+  repo-sync:
+    name: Repo Sync
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out repo
+      uses: actions/checkout@v2
+      with:
+        persist-credentials: false
+
+    - name: repo-sync
+      uses: repo-sync/github-sync@v2
+      with:
+        source_repo: ${{ secrets.SOURCE_REPO }} # https://${access_token}@github.com/github/the-other-repo.git
+        source_branch: main
+        destination_branch: repo-sync2
+        github_token: ${{ secrets.PAT }}
