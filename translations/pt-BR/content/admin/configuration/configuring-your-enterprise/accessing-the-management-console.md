@@ -12,13 +12,15 @@ redirect_from:
   - /enterprise/admin/configuration/accessing-the-management-console
   - /admin/configuration/accessing-the-management-console
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Fundamentals
+shortTitle: Acessar o console de gerenciamento
 ---
-### Sobre o {% data variables.enterprise.management_console %}
+
+## Sobre o {% data variables.enterprise.management_console %}
 
 Use o {% data variables.enterprise.management_console %} para atividades administrativas básicas:
 - **Configuração inicial**: conheça o processo de configuração inicial ao entrar pela primeira vez na {% data variables.product.product_location %} acessando o endereço IP da {% data variables.product.product_location %} no navegador.
@@ -31,15 +33,15 @@ Use o {% data variables.enterprise.management_console %} para atividades adminis
 
 Para acessar o {% data variables.enterprise.management_console %}, você deve usar a senha de administrador definida na configuração inicial da {% data variables.product.product_location %}. Você também deve poder se conectar ao host da máquina virtual na porta 8443. Se tiver problemas para chegar ao {% data variables.enterprise.management_console %}, verifique as configurações intermediárias de firewall e grupo de segurança.
 
-### Acessar o {% data variables.enterprise.management_console %} como administrador do site
+## Acessar o {% data variables.enterprise.management_console %} como administrador do site
 
-A primeira vez que você acessar o {% data variables.enterprise.management_console %} como administrador do site, você deve enviar seu arquivo de licença do {% data variables.product.prodname_enterprise %} para efetuar a autenticação no aplicativo. Para obter mais informações, consulte "[Gerenciar sua licença do {% data variables.product.prodname_enterprise %}](/enterprise/{{ currentVersion }}/admin/guides/installation/managing-your-github-enterprise-license)".
+A primeira vez que você acessar o {% data variables.enterprise.management_console %} como administrador do site, você deve enviar seu arquivo de licença do {% data variables.product.prodname_enterprise %} para efetuar a autenticação no aplicativo. Para obter mais informações, consulte "[Gerenciar a sua licença para {% data variables.product.prodname_enterprise %}](/billing/managing-your-license-for-github-enterprise)."
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.type-management-console-password %}
 
-### Acessar o {% data variables.enterprise.management_console %} como usuário não autenticado
+## Acessar o {% data variables.enterprise.management_console %} como usuário não autenticado
 
 1. Acesse esta URL no navegador substituindo `hostname` pelo nome de host ou endereço IP do {% data variables.product.prodname_ghe_server %}:
   ```shell
@@ -47,7 +49,7 @@ A primeira vez que você acessar o {% data variables.enterprise.management_conso
   ```
 {% data reusables.enterprise_management_console.type-management-console-password %}
 
-### Desbloquear o {% data variables.enterprise.management_console %} após tentativas de login com falha
+## Desbloquear o {% data variables.enterprise.management_console %} após tentativas de login com falha
 
 O {% data variables.enterprise.management_console %} trava após dez tentativas de login com falha em um período de dez minutos. Antes de tentar novamente, aguarde o desbloqueio automático da tela de login, que ocorrerá após um período de dez minutos. A contagem é redefinida depois do login bem-sucedido.
 

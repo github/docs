@@ -6,11 +6,11 @@ called "partials".
 
 ## Using Includes
 
-This example injects the contents of `includes/header.html` into the 
+This example injects the contents of `includes/graphql-enum.html` into the 
 page:
 
 ```
-{% include header %}
+{% include graphql-enum %}
 ```
 
 ## Writing Includes

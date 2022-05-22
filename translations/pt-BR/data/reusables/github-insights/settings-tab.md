@@ -1,1 +1,0 @@
-1. Em {% data variables.product.prodname_insights %}, clique em **{% octicon "gear" aria-label="The gear icon" %} Settings**. ![Guia Settings (Configurações)](/assets/images/help/insights/settings-tab.png)

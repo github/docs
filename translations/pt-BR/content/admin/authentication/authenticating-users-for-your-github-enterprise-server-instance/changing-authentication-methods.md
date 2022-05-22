@@ -6,14 +6,16 @@ redirect_from:
   - /enterprise/admin/authentication/changing-authentication-methods
   - /admin/authentication/changing-authentication-methods
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: overview
 topics:
   - Accounts
   - Authentication
   - Enterprise
   - Identity
+shortTitle: Alterar métodos de autenticação
 ---
+
 As contas de usuário no {% data variables.product.product_location %} são preservadas quando você altera o método de autenticação, e os usuários continuarão fazendo login na mesma conta (desde que não haja alteração nos nomes de usuário).
 
 Se o novo método de autenticação alterar nomes de usuários, serão criadas novas contas. Como administrador, você pode renomear os usuários por meio das configurações de administrador do site ou usando [a API de Administração de Usuário](/rest/reference/enterprise-admin#update-the-username-for-a-user).

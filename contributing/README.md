@@ -1,6 +1,6 @@
 # Contributing to github/docs
 
-Check out our [contributing.md](../CONTRIBUTING.md) to see all the ways you can participate in the GitHub docs community :sparkling_heart:
+Check out our [contributing guide](../CONTRIBUTING.md) to see all the ways you can participate in the GitHub docs community :sparkling_heart:
 
 Here, you'll find additional information that might be helpful as you work on a pull request in this repo.
 
@@ -15,5 +15,5 @@ Here, you'll find additional information that might be helpful as you work on a 
 - [node versions](./node-versions.md) - our site runs on Node.js
 - [permalinks](./permalinks.md) - permalinks for article versioning
 - [redirects](./redirects.md) - configuring redirects in the site
-- [search](./search.md) - our search functionality is powered by [Algolia](https://www.algolia.com)
+- [search](./search.md) - our local site search functionality
 - [troubleshooting](./troubleshooting.md) - some help for troubleshooting failed and stalled status checks

@@ -8,19 +8,20 @@ redirect_from:
   - /enterprise/admin/enterprise-management/about-clustering
   - /admin/enterprise-management/about-clustering
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: overview
 topics:
   - Clustering
   - Enterprise
 ---
-### クラスタリングのアーキテクチャ
+
+## クラスタリングのアーキテクチャ
 
 {% data variables.product.prodname_ghe_server %}は、一連のサービスから構成されています。 クラスタでは、これらのサービスは複数のノードにまたがって動作し、リクエストはそれらのノード間でロードバランスされます。 変更は、冗長なコピーと共に個別のノードに自動的に保存されます。 ほとんどのサービスは、同じサービスの他のインスタンスと同等のピア群です。 ただし`mysql-server`と`redis-server`サービスは例外です。 これらは1つの_プライマリ_ノードと、1つ以上の_レプリカ_ノード上で動作します。
 
 [クラスタリングに必要なサービスの詳細](/enterprise/{{ currentVersion }}/admin/enterprise-management/about-cluster-nodes#services-required-for-clustering)をご覧ください。
 
-### クラスタリングは組織に適切か？
+## クラスタリングは組織に適切か？
 
 {% data reusables.enterprise_clustering.clustering-scalability %}とはいえ、冗長性のあるスケーラブルなクラスタのセットアップは複雑であり、かつ、注意深い計画が必要です。 この追加の複雑さによって、インストール、システム災害復旧およびアップグレードについて計画することが必要となります。
 
@@ -30,6 +31,6 @@ topics:
 
 {% data reusables.package_registry.packages-cluster-support %}
 
-### クラスタリングを利用するには？
+## クラスタリングを利用するには？
 
 クラスタリングは特定のスケーリングの状況のために設計されており、すべての組織を対象としたものではありません。 クラスタリングをご検討される場合は、専任の担当者または {% data variables.contact.contact_enterprise_sales %} にお問い合わせください。

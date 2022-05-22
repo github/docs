@@ -6,8 +6,8 @@ redirect_from:
   - /enterprise/admin/user-management/auditing-ssh-keys
   - /admin/user-management/auditing-ssh-keys
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Auditing
@@ -17,7 +17,7 @@ topics:
 ---
 Once initiated, the audit disables all existing SSH keys and forces users to approve or reject them before they're able to clone, pull, or push to any repositories. An audit is useful in situations where an employee or contractor leaves the company and you need to ensure that all keys are verified.
 
-### Initiating an audit
+## Initiating an audit
 
 You can initiate an SSH key audit from the "All users" tab of the site admin dashboard:
 
@@ -29,7 +29,7 @@ After you click the "Start public key audit" button, you'll be taken to a confir
 
 After you click the "Begin audit" button, all SSH keys are invalidated and will require approval. You'll see a notification indicating the audit has begun.
 
-### What users see
+## What users see
 
 If a user attempts to perform any git operation over SSH, it will fail and provide them with the following message:
 
@@ -47,7 +47,7 @@ When they follow the link, they're asked to approve the keys on their account:
 
 After they approve or reject their keys, they'll be able interact with repositories as usual.
 
-### Adding an SSH key
+## Adding an SSH key
 
 New users will be prompted for their password when adding an SSH key:
 

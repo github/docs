@@ -10,7 +10,7 @@ redirect_from:
   - /admin/configuration/network-ports
 intro: オープンするネットワークポートは、管理者、エンドユーザ、メールサポートへ公開する必要があるネットワークサービスに応じて選択してください。
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: reference
 topics:
   - Enterprise
@@ -18,7 +18,8 @@ topics:
   - Networking
   - Security
 ---
-### 管理ポート
+
+## 管理ポート
 
 {% data variables.product.product_location %}を設定し、一部の機能を実行するためにはいくつかの管理ポートが必要です。 管理ポートは、エンドユーザが基本的なアプリケーションを利用するためには必要ありません。
 
@@ -31,7 +32,7 @@ topics:
 | 123/UDP  | NTP   | timeプロトコルの処理に必要。                                                                                                                                                            |
 | 161/UDP  | SNMP  | ネットワークモニタリングプロトコルの処理に必要。                                                                                                                                                    |
 
-### エンドユーザーのためのアプリケーションポート
+## エンドユーザーのためのアプリケーションポート
 
 アプリケーションのポートは、エンドユーザーにWebアプリケーションとGitへのアクセスを提供します。
 
@@ -44,7 +45,7 @@ topics:
 
 {% data reusables.enterprise_installation.terminating-tls %}
 
-### メールのポート
+## メールのポート
 
 メールのポートは直接あるいはエンドユーザ用のインバウンドメールサポートのリレーを経由してアクセスできなければなりません。
 

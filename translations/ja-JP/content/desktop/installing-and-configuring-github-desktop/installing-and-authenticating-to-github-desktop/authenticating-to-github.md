@@ -7,9 +7,10 @@ redirect_from:
   - /desktop/getting-started-with-github-desktop/authenticating-to-github
   - /desktop/installing-and-configuring-github-desktop/authenticating-to-github
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
-### 認証について
+
+## 認証について
 
 アカウントを安全に保つには、{% data variables.product.prodname_desktop %} を使用して {% data variables.product.prodname_dotcom %} のリソースにアクセスする前に認証する必要があります。
 
@@ -17,7 +18,7 @@ versions:
 
 {% mac %}
 
-### {% data variables.product.prodname_dotcom %} 上のアカウントを認証する
+## {% data variables.product.prodname_dotcom %} 上のアカウントを認証する
 
 {% data reusables.desktop.mac-select-desktop-menu %}
 {% data reusables.desktop.mac-select-accounts %}
@@ -30,23 +31,21 @@ versions:
 {% data reusables.desktop.2fa-in-browser %}
 7. アカウントが {% data variables.product.prodname_dotcom %} に認証されたら、プロンプトに従って {% data variables.product.prodname_desktop %} に戻ります。
 
-### {% data variables.product.prodname_enterprise %} 上のアカウントを認証する
+## {% data variables.product.prodname_enterprise %} 上のアカウントを認証する
 
 {% data reusables.user_settings.password-authentication-deprecation-desktop %}
 
 {% data reusables.desktop.mac-select-desktop-menu %}
 {% data reusables.desktop.mac-select-accounts %}
 {% data reusables.desktop.choose-product-authenticate %}
-4. 次に、
-{% data variables.product.prodname_enterprise %} アカウントを追加するには、[Enterprise server address] の下に認証情報を入力し、[**Continue**] をクリックします。
-  ![GitHub EnterpriseのSign Inボタン](/assets/images/help/desktop/mac-sign-in-button-enterprise.png)
+4. {% data variables.product.prodname_enterprise %} アカウントを追加するには、[Enterprise server address] に認証情報を入力して [**Continue**] をクリックします。 ![GitHub EnterpriseのSign Inボタン](/assets/images/help/desktop/mac-sign-in-button-enterprise.png)
 {% data reusables.desktop.retrieve-2fa %}
 
 {% endmac %}
 
 {% windows %}
 
-### {% data variables.product.prodname_dotcom %} 上のアカウントを認証する
+## {% data variables.product.prodname_dotcom %} 上のアカウントを認証する
 
 {% data reusables.desktop.windows-choose-options %}
 {% data reusables.desktop.windows-select-accounts %}
@@ -59,22 +58,18 @@ versions:
 {% data reusables.desktop.2fa-in-browser %}
 7. アカウントが {% data variables.product.prodname_dotcom %} に認証されたら、プロンプトに従って {% data variables.product.prodname_desktop %} に戻ります。
 
-### {% data variables.product.prodname_enterprise %} 上のアカウントを認証する
+## {% data variables.product.prodname_enterprise %} 上のアカウントを認証する
 
-
-{% data reusables.user_settings.password-authentication-deprecation-desktop %}
 
 {% data reusables.desktop.windows-choose-options %}
 {% data reusables.desktop.windows-select-accounts %}
 {% data reusables.desktop.choose-product-authenticate %}
-4. 次に、
-{% data variables.product.prodname_enterprise %} アカウントを追加するには、[Enterprise server address] の下に認証情報を入力し、[**Continue**] をクリックします。
-  ![GitHub EnterpriseのSign Inボタン](/assets/images/help/desktop/windows-sign-in-button-enterprise.png)
+4. {% data variables.product.prodname_enterprise %} アカウントを追加するには、[Enterprise server address] に認証情報を入力して [**Continue**] をクリックします。 ![GitHub EnterpriseのSign Inボタン](/assets/images/help/desktop/windows-sign-in-button-enterprise.png)
 {% data reusables.desktop.retrieve-2fa %}
 
 {% endwindows %}
 
-### 認証問題のトラブルシューティング
+## 認証問題のトラブルシューティング
 
 {% data variables.product.prodname_desktop %} で認証エラーが発生した場合は、エラーメッセージを使用してトラブルシューティングを行うことができます。
 
@@ -98,7 +93,7 @@ versions:
 
 エラーメッセージについては、下記のトラブルシューティング情報を確認してください。
 
-#### 不正な認証情報
+### 不正な認証情報
 
 ```shell
 Error: Bad credentials
@@ -108,7 +103,7 @@ Error: Bad credentials
 
 トラブルシューティングを行うには、{% data variables.product.prodname_desktop %} でアカウントからサインアウトして、再度サインインします。
 
-#### 空のトークン
+### 空のトークン
 
 ```shell
 info: [ui] [AppStore.withAuthenticatingUser] account found for repository: node - <username> (empty token)
@@ -118,7 +113,7 @@ info: [ui] [AppStore.withAuthenticatingUser] account found for repository: node 
 
 トラブルシューティングを行うには、{% data variables.product.prodname_desktop %} でアカウントからサインアウトして、再度サインインします。
 
-#### リポジトリが見つからない
+### リポジトリが見つからない
 
 ```shell
 fatal: repository 'https://github.com/<user>/<repo>.git' not found
@@ -130,7 +125,7 @@ fatal: repository 'https://github.com/<user>/<repo>.git' not found
 
 トラブルシューティングを行うには、権限を管理する Organization 内の担当者にお問い合わせください。
 
-#### リモートリポジトリから読み込めない
+### リモートリポジトリから読み込めない
 
 ```shell
 git@github.com: Permission denied (publickey).
@@ -143,7 +138,7 @@ fatal: Could not read from remote repository.
 
 トラブルシューティングを行うには、「[新しい SSH キーを生成して SSH エージェントに追加する](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)」を参照してください。
 
-#### クローン失敗
+### クローン失敗
 
 ```shell
 fatal: clone of 'git@github.com:<user>/<repo>' into submodule path '<path>' failed
@@ -162,7 +157,7 @@ fatal: Could not read from remote repository.
 
 {% windows %}
 
-#### AskPass レスポンスが読み取れない
+### AskPass レスポンスが読み取れない
 
 ```shell
 error: unable to read askpass response from '/Users/<path>/GitHub Desktop.app/Contents/Resources/app/static/ask-pass-trampoline.sh'
@@ -181,5 +176,5 @@ Windows ユーザ名に拡張 Unicode 文字が含まれている場合、AskPas
 
 {% endwindows %}
 
-### 参考リンク
+## 参考リンク
 - 「[GitHub への認証について](/github/authenticating-to-github/about-authentication-to-github)」

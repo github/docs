@@ -11,14 +11,16 @@ redirect_from:
   - /enterprise/admin/user-management/exporting-migration-data-from-your-enterprise
   - /admin/user-management/exporting-migration-data-from-your-enterprise
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - API
   - Enterprise
   - Migration
+shortTitle: 从企业导出
 ---
-### 准备 {% data variables.product.prodname_ghe_server %} 源实例
+
+## 准备 {% data variables.product.prodname_ghe_server %} 源实例
 
 1. 验证您在 {% data variables.product.prodname_ghe_server %} 源上是站点管理员。 最好的方式是验证您可以[通过 SSH 访问实例](/enterprise/admin/guides/installation/accessing-the-administrative-shell-ssh/)。
 
@@ -26,7 +28,7 @@ topics:
 
 {% data reusables.enterprise_migrations.make-a-list %}
 
-### 导出 {% data variables.product.prodname_ghe_server %} 源仓库
+## 导出 {% data variables.product.prodname_ghe_server %} 源仓库
 
 {% data reusables.enterprise_migrations.locking-repositories %}
 

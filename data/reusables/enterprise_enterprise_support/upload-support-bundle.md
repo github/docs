@@ -1,1 +1,1 @@
-1. Visit https://enterprise.github.com/support/bundles/new and upload your support bundle.
+1. Visit https://support.github.com/uploads and upload your support bundle.

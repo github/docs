@@ -5,9 +5,10 @@ shortTitle: API do GraphQL
 redirect_from:
   - /v4
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 children:
   - /overview
   - /reference

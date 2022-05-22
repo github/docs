@@ -9,10 +9,13 @@ redirect_from:
   - /marketplace/selling-your-app/receiving-payment-for-github-marketplace-listings
   - /developers/github-marketplace/receiving-payment-for-app-purchases
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
+shortTitle: 接收付款
 ---
+
 为含有付费计划的应用程序创建 {% data variables.product.prodname_marketplace %} 上架信息并得到批准后，您需要向 {% data variables.product.product_name %} 提供付款详细信息以完成财务手续。
 
 一旦您当月的收入达到最低 500 美元，您将收到 {% data variables.product.company_short %} 的电子付款。 此金额为 Marketplace 交易的收入减去 {% data variables.product.company_short %} 为顾及运营成本而收取的金额。
@@ -21,6 +24,6 @@ topics:
 
 {% note %}
 
-**注：**有关当前定价和付款条款的详细信息，请参阅“[{% data variables.product.prodname_marketplace %} 开发者协议](/github/site-policy/github-marketplace-developer-agreement)”。
+**注：**有关当前定价和付款条款的详细信息，请参阅“[{% data variables.product.prodname_marketplace %} 开发者协议](/free-pro-team@latest/github/site-policy/github-marketplace-developer-agreement)”。
 
 {% endnote %}

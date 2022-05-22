@@ -1,4 +1,4 @@
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec %}
 Cuando tecleas una contraseña para iniciar sesión, crear una cuenta, o cambiar tu contraseña,
 {% data variables.product.product_name %} verificará si la contraseña que ingresaste se considera débil de acuerdo con los conjuntos de datos como en HaveIBeenPwned. La contraseña se puede considerar débil, incluso si no la usaste nunca antes.
 

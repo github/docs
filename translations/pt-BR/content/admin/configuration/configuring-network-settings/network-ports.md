@@ -10,7 +10,7 @@ redirect_from:
   - /admin/configuration/network-ports
 intro: 'Abra as portas de rede seletivamente com base nos serviços que você precisa expor para administradores, usuários finais e suporte por e-mail.'
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: reference
 topics:
   - Enterprise
@@ -18,7 +18,8 @@ topics:
   - Networking
   - Security
 ---
-### Portas administrativas
+
+## Portas administrativas
 
 Certas portas administrativas são obrigatórias para configurar a {% data variables.product.product_location %} e executar determinados recursos. Não é preciso haver portas administrativas para os usuários finais aproveitarem os recursos básicos do aplicativo.
 
@@ -31,7 +32,7 @@ Certas portas administrativas são obrigatórias para configurar a {% data varia
 | 123/UDP  | NTP     | Obrigatória para operações de protocolo de tempo.                                                                                                                                                                                                                     |
 | 161/UDP  | SNMP    | Obrigatória para operações de protocolo de monitoramento de rede.                                                                                                                                                                                                     |
 
-### Portas de aplicativo para usuários finais
+## Portas de aplicativo para usuários finais
 
 As portas de aplicativo fornecem aplicativos da web e acesso dos usuários finais ao Git.
 
@@ -44,7 +45,7 @@ As portas de aplicativo fornecem aplicativos da web e acesso dos usuários finai
 
 {% data reusables.enterprise_installation.terminating-tls %}
 
-### Portas de e-mail
+## Portas de e-mail
 
 As portas de e-mail devem estar acessíveis diretamente ou via retransmissão para oferecer suporte de e-mail aos usuários finais.
 

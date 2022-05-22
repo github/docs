@@ -5,7 +5,7 @@ intro: 'Azure Active Directory (Azure AD) のテナントをアイデンティ�
 permissions: 'Enterprise owners can configure authentication and provisioning for an enterprise on {% data variables.product.product_name %}.'
 product: '{% data reusables.gated-features.saml-sso %}'
 versions:
-  github-ae: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Accounts
@@ -16,7 +16,8 @@ topics:
 redirect_from:
   - /admin/authentication/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad
 ---
-### Azure AD を使用した認証とユーザプロビジョニングについて
+
+## Azure AD を使用した認証とユーザプロビジョニングについて
 
 Azure Active Directory (Azure AD) は、ユーザアカウントと Web アプリケーションへのアクセスを一元管理できる Microsoft のサービスです。 詳しい情報については、Microsoft Docs の「[Azure Active Directory とは](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)」を参照してください。
 
@@ -31,7 +32,7 @@ Azure AD を使用して {% data variables.product.prodname_ghe_managed %} に�
 
 {% data variables.product.product_location %} での Enterprise のアイデンティティとアクセスの管理の詳細については、「[Enterprise のアイデンティティとアクセスを管理する](/admin/authentication/managing-identity-and-access-for-your-enterprise)」を参照してください。 Team を IdP グループと同期する方法について詳しくは、「[アイデンティティプロバイダグループとTeamの同期](/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group)」を参照してください。
 
-### 必要な環境
+## 必要な環境
 
 Azure AD を使用して {% data variables.product.product_name %} の認証とユーザプロビジョニングを設定するには、Azure AD アカウントとテナントが必要です。 詳しい情報については、「[Azure AD Web サイト](https://azure.microsoft.com/free/active-directory)」および Microsoft Docs の「[クイックスタート: Azure Active Directory テナントを作成する](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant)」を参照してください。
 
@@ -39,9 +40,9 @@ Azure AD を使用して {% data variables.product.product_name %} の認証と�
 
 {% data reusables.saml.create-a-machine-user %}
 
-### Azure AD を使用して認証とユーザプロビジョニングを設定する
+## Azure AD を使用して認証とユーザプロビジョニングを設定する
 
-{% if currentVersion == "github-ae@latest" %}
+{% ifversion ghae %}
 
 1. Azure AD で、{% data variables.product.ae_azure_ad_app_link %} をテナントに追加し、シングルサインオンを設定します。 詳しい情報については、Microsoft Docs の「[チュートリアル: Azure Active Directory シングルサインオン (SSO) と {% data variables.product.prodname_ghe_managed %} の統合](https://docs.microsoft.com/azure/active-directory/saas-apps/github-ae-tutorial)」を参照してください。
 

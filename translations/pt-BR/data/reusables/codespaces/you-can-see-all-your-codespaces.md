@@ -1,1 +1,1 @@
-You can see every available codespace that you have created at [github.com/codespaces](https://github.com/codespaces).
+Você pode ver todos os códigos disponíveis que você criou em [github.com/codespaces](https://github.com/codespaces).

@@ -8,9 +8,10 @@ redirect_from:
   - /github/working-with-github-pages/setting-up-a-github-pages-site-with-jekyll
 product: '{% data reusables.gated-features.pages %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Pages
 children:
@@ -22,5 +23,6 @@ children:
   - /adding-a-theme-to-your-github-pages-site-using-jekyll
   - /about-jekyll-build-errors-for-github-pages-sites
   - /troubleshooting-jekyll-build-errors-for-github-pages-sites
+shortTitle: 使用 Jekyll 设置站点
 ---
 

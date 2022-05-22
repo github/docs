@@ -6,7 +6,9 @@ redirect_from:
   - /articles/importing-a-repository-with-github-importer
   - /github/importing-your-projects-to-github/importing-a-repository-with-github-importer
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
+shortTitle: Use GitHub Importer
 ---
 {% tip %}
 
@@ -15,8 +17,6 @@ versions:
 {% endtip %}
 
 If you'd like to match the commits in your repository to the authors' GitHub user accounts during the import, make sure every contributor to your repository has a GitHub account before you begin the import.
-
-{% data reusables.repositories.migrating-from-codeplex %}
 
 {% data reusables.repositories.repo-size-limit %}
 
@@ -39,6 +39,6 @@ If you'd like to match the commits in your repository to the authors' GitHub use
 
 You'll receive an email when the repository has been completely imported.
 
-### Further reading
+## Further reading
 
 - "[Updating commit author attribution with GitHub Importer](/articles/updating-commit-author-attribution-with-github-importer)"

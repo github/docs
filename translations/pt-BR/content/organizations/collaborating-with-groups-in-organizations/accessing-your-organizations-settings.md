@@ -11,15 +11,17 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/accessing-your-organizations-settings
 intro: 'A página de configurações da conta da organização fornece várias maneiras de gerenciar a conta, como cobrança, associação a equipes e configurações do repositório.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Acessar configurações da organização
 ---
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec %}
 
 {% tip %}
 

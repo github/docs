@@ -9,15 +9,16 @@ redirect_from:
   - /enterprise/admin/overview/about-the-github-enterprise-server-api
   - /admin/overview/about-the-github-enterprise-server-api
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Enterprise
+shortTitle: GitHub Enterprise API
 ---
 
 Com as APIs, você pode automatizar muitas tarefas administrativas. Veja alguns exemplos:
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 - Fazer alterações no {% data variables.enterprise.management_console %}. Para obter mais informações, consulte "[{% data variables.enterprise.management_console %}](/enterprise/{{ currentVersion }}/user/rest/reference/enterprise-admin#management-console)."
 - Configurar a sincronização LDAP. Para obter mais informações, consulte "[LDAP](/enterprise/{{ currentVersion }}/user/rest/reference/enterprise-admin#admin-stats)".{% endif %}
 - Colete estatísticas sobre sua empresa. Para obter mais informações, consulte " As[Estatísticas de Administrador](/rest/reference/enterprise-admin#admin-stats)".

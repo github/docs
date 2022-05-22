@@ -1,5 +1,5 @@
 {% warning %}
 
-**Warning**: Changing this setting will cause user-facing services on {% data variables.product.prodname_ghe_server %} to restart. You should time this change carefully, to minimize downtime for users.
+**Advertencia**: El cambiar esta configuración ocasionará que se reinicien los servicios de cara al cliente en {% data variables.product.prodname_ghe_server %}. Debes calcular este cambio cuidadosamente para minimizar el tiempo de inactividad para los usuarios.
 
 {% endwarning %}

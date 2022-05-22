@@ -1,3 +1,0 @@
-{% data variables.product.prodname_github_container_registry %}がベータの間は、新しい{% data variables.product.prodname_container_registry %}と既存の{% data variables.product.prodname_registry %} Dockerレジストリはどちらも無料です。 {% data variables.product.prodname_registry %} Dockerレジストリに関する詳しい情報については、「[{% data variables.product.prodname_registry %}で使用するためのDockerの設定](/packages/guides/configuring-docker-for-use-with-github-packages)」を参照してください。
-
-ベータの後は、他の{% data variables.product.prodname_registry %}レジストリの利用と同じ支払いとストレージのレートがコンテナレジストリに適用されます。 詳しい情報については「[{% data variables.product.prodname_registry %}の支払いについて](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-packages)」を参照してください。

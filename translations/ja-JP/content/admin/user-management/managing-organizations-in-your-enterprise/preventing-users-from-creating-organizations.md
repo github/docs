@@ -7,16 +7,18 @@ redirect_from:
   - /admin/user-management/preventing-users-from-creating-organizations
 intro: ユーザが Enterprise 内に Organization を作成できないようにすることができます。
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Enterprise
   - Organizations
   - Policies
+shortTitle: Prevent organization creation
 ---
+
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
+{% ifversion ghes or ghae %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% else %}
 {% data reusables.enterprise-accounts.settings-tab %}

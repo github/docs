@@ -3,33 +3,33 @@ title: GitHubコミュニティフォーラムの行動規範
 redirect_from:
   - /articles/github-community-forum-code-of-conduct
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal
 ---
 
-### 概要と目的
+## 概要と目的
 
 GitHub では、何百万人もの開発者が何百万ものプロジェクト（オープンソースとクローズドソースの両方）をホストしています。私たちは、開発者コミュニティの日々のコラボレーションに貢献できることを光栄に思います。 私たちには、誇りに思うことができるコミュニティを実現するための素晴らしいチャンスがあると同時に、責任も背負っています。
 
-GitHubコミュニティフォーラムは、コラボレーション、サポート、およびブレインストーミングを推進する場となることを目的としています。 ここは、他のユーザとつながり、新しいスキルを学び、意見やアイデアを共有し、さらにGitHubプロジェクトに必要なサポートを得るための快適な場です。 このコミュニティに参加することにより、GitHub.comに適用される[利用規約](/articles/github-terms-of-service/)の他に、このコミュニティに固有の行動規範にも同意することになります。
+GitHubコミュニティフォーラムは、コラボレーション、サポート、およびブレインストーミングを推進する場となることを目的としています。 ここは、他のユーザとつながり、新しいスキルを学び、意見やアイデアを共有し、さらにGitHubプロジェクトに必要なサポートを得るための快適な場です。 By participating in this Community, you are agreeing to the same [Terms of Service](/github/site-policy/github-terms-of-service/) and [GitHub Acceptable Use Policies](/github/site-policy/github-acceptable-use-policies) that apply to GitHub.com, as well as this Community-specific Code of Conduct.
 
 この行動規範が、 GitHubコミュニティフォーラムに貢献する最善の方法、モデレーターにできること、およびコミュニティへの参加が一時的または永久に停止される行為やコンテンツの種類について理解の助けになることを願います。 当社は不正行為の報告を調査し、GitHub利用規約または本行動規範のいずれかに違反していると当社が判断したコミュニティ内の公開コンテンツを管理することがあります。
 
 世界中の GitHub ユーザたちの持つ視点、アイデア、経験は十人十色。数日前に初めて「Hello World」プロジェクトを作った人から、世界で最も有名なソフトウェア開発者まで、さまざまなユーザがいます。 私たちは、GitHubおよびGitHubコミュニティフォーラムを、さまざまな意見や視点に対応した快適な環境にし、人々が自由に自分を表現できるスペースになるよう取り組んでいます。
 
-### 誓約
+## 誓約
 
-オープンで居心地の良い環境を醸成するために、我々はコントリビューター、そして管理者としてGitHubコミュニティフォーラムへ参加するにあたり、年齢、体の大きさ、能力、民族、性別のアイデンティティや外観、経験のレベル、国籍、個人の見た目、人種、宗教や、性的なアイデンティティや指向に関するハラスメントを行わないことを誓います。
+In the interest of fostering an open and welcoming environment, we as contributors and maintainers pledge to making participation in the GitHub Community Forum a harassment-free experience for everyone, regardless of age, body size, disability, ethnicity, gender identity and expression, level of experience, nationality, personal appearance, race, religion, or sexual identity and orientation.
 
-### 規範
+## 規範
 
 GitHubコミュニティフォーラムを、敬意をもって扱ってください。 私たちは共有資源です。スキル、知識、関心を、会話を通じて分かち合う場です。
 
 以下は杓子定規の決まりごとではなく、コミュニティにおける人間の判断を助けるためのものです。 気持ちよい、礼儀正しい話し合いの場である状態を保つため、このガイドラインを用いましょう。
 
-#### *強いコミュニティを作るためのベストプラクティス*
+### *強いコミュニティを作るためのベストプラクティス*
 
 - 敬意と思いやりを持ちましょう。
   - **広い心で受け入れる。**他のコミュニティメンバーとあなたとでは、経験値やバックグラウンドが異なるかもしれませんが、だからといって相手がコントリビューションにつながる良いアイデアを持っていないということにはなりません。 新たなメンバーや、かけだしのユーザーは歓迎してあげましょう。
@@ -61,39 +61,47 @@ GitHubコミュニティフォーラムを、敬意をもって扱ってくだ�
 - 信頼されるようになりましょう。
   - **常に正直に。**誤った情報を故意に共有したり、GitHubコミュニティフォーラムの他のメンバーを意図的に誤解させたりしないでください。 質問の答えはわからないけれど手を貸したい場合、情報収集やリソースの発見を手伝いましょう。 GitHubスタッフもコミュニティで活動しているので、答えがわからない場合は、モデレーターが助けることができる可能性があります。
 
-#### *禁止事項*
+### *禁止事項*
 
-- **暴力による脅し。**他人を脅したり、サイトを利用して現実世界の暴力やテロ行為を組織、促進、または扇動することはできません。 言葉を発する場合や画像を投稿する場合はもちろん、ソフトウェアを作成する場合でさえも、それが他人からどのように解釈される可能性があるかを慎重に考えてください。 あなたが冗談のつもりでも、そのように受け取られないかもしれません。 自分が投稿したコンテンツが脅しである、または暴力やテロを助長していると他の誰かが解釈するかもしれないと思われる場合は、 それを投稿しないでください。 場合によっては、当社が身体的危害のリスクや公共の安全に対する脅威だと判断し、暴力の脅威として法執行機関に報告する場合があります。
+- **暴力による脅し。**他人を脅したり、サイトを利用して現実世界の暴力やテロ行為を組織、促進、または扇動することはできません。 言葉を発する場合や画像を投稿する場合はもちろん、ソフトウェアを作成する場合でさえも、それが他人からどのように解釈される可能性があるかを慎重に考えてください。 あなたが冗談のつもりでも、そのように受け取られないかもしれません。 自分が投稿したコンテンツが脅しである、または暴力やテロを助長していると他の誰かが解釈するかもしれないと思われる場合は、 それをGitHubに投稿するのを止めましょう。 場合によっては、当社が身体的危害のリスクや公共の安全に対する脅威だと判断し、暴力の脅威として法執行機関に報告する場合があります。
 
-- **差別的発言と差別。**年齢、体の大きさ、能力、民族性、性自認、性表現、経験の度合い、国籍、容姿、人種、宗教、性同一性、性的指向などのトピックを持ち出すこと自体は禁止されていませんが、相手が何者かであるかを根拠にして個人またはグループを攻撃する発言を当社は許容しません。 これらやその他のセンシティブな話題について話すと、他の人が迷惑がられていると感じたり、また攻撃的あるいは侮辱的な話し方の場合は危険を感じさせたりすることもあることを認識しましょう。 デリケートな話題を議論するときは、常に礼儀正しく振る舞うことがコミュニティメンバーに期待されます。
+- **Hate speech and discrimination.** While it is not forbidden to broach topics such as age, body size, disability, ethnicity, gender identity and expression, level of experience, nationality, personal appearance, race, religion, or sexual identity and orientation, we do not tolerate speech that attacks a person or group of people on the basis of who they are. 攻撃的または侮辱的なアプローチでこうしたデリケートなトピックを扱った場合、他の人を不快に感じさせたり、場合によっては危険にさえ感じさせたりすることがあることを認識してください。 誤解が生まれる可能性を完全に排除することはできませんが、デリケートなトピックを議論するときは、常に敬意を払い、礼儀正しく振る舞うことがコミュニティメンバーに期待されます。
 
 - **いじめと嫌がらせ。**私たちは、いじめや嫌がらせを容認しません。 これは、特定の個人またはグループを標的とする常習的な煽りや脅迫のことです。 一般的に、迷惑な行動を続けた場合、いじめや嫌がらせになる恐れが高くなります。
 
-- **なりすまし** 他人のアバターをコピーしたり、他人のメールアドレスを使ってコンテンツを投稿したり、類似するユーザ名を使用したりするなどして、他人になりすましてはいけません。 なりすましは嫌がらせの一つです。
+ **Disrupting the experience of other users.** Being part of a community includes recognizing how your behavior affects others and engaging in meaningful and productive interactions with people and the platform they rely on. Behaviors such as repeatedly posting off-topic comments, opening empty or meaningless topics or using any other platform feature in a way that continually disrupts the experience of other users are not allowed.
 
-- **晒しとプライバシーの侵害。**電話番号、プライベート用のメールアドレス、住所、クレジットカード番号、社会保障番号、国民識別番号、パスワードなど、他の人の個人情報は投稿しないでください。 脅迫や嫌がらせに該当するなど状況次第では、当社は対象の同意なしに撮影または配信された写真やビデオなどの他の情報をプライバシーの侵害とみなす場合があります。その情報が対象の安全リスクになる場合は特にです。
+- **Impersonation.** You may not impersonate another person by copying their avatar, posting content under their email address, using a similar username or otherwise posing as someone else. なりすましは嫌がらせの一つです。
 
-- **わいせつ／性的に露骨なコンテンツ。**基本的に、ポルノは投稿しないでください。 これは、すべてのヌードや性的コンテンツが禁止されていることを意味するものではありません。 セクシュアリティは生活の一部であり、ポルノ以外の性的コンテンツがプロジェクトの一部になったり、教育的または芸術的な目的で提示され得るものであることを当社は認識しています。 投稿したいものについて質問がある場合は、事前に[ご連絡ください](https://support.github.com/contact)。
+- **Doxxing and invasion of privacy.** Don't post other people's personal information, such as personal, private email addresses, phone numbers, physical addresses, credit card numbers, Social Security/National Identity numbers, or passwords. 脅迫や嫌がらせに該当するなど状況次第では、当社は対象の同意なしに撮影または配信された写真やビデオなどの他の情報をプライバシーの侵害とみなす場合があります。その情報が対象の安全リスクになる場合は特にです。
 
-- **スパム。**GitHubコミュニティフォーラムを尊重してください。 広告の投稿、スパムサイトへのリンクなど、コミュニティを破壊するようなことをしてはなりません。 このコミュニティは、GitHubユーザがプロジェクトについて議論したり、学び、アイデアをお互いに共有することを目的としています。広告やスパム的なコンテンツを投稿する場ではありません。 私たちがスパムと考えるコンテンツは削除されます。
+- **Sexually obscene content.** Don’t post content that is pornographic. これは、すべてのヌード、または性に関するすべてのコードやコンテンツが禁止されていることを意味するものではありません。 セクシュアリティは生活の一部であり、ポルノ以外の性的コンテンツがプロジェクトの一部になったり、教育的または芸術的な目的で提示され得るものであることを当社は認識しています。 ただし、わいせつな性的コンテンツや未成年者の搾取や性的関与を含むコンテンツは許可されません。 投稿したいものについて質問がある場合は、事前に[ご連絡ください](https://support.github.com/contact?tags=docs-policy)。
+
+- **スパム。**GitHubコミュニティフォーラムを尊重してください。 Don’t post advertisements, link to spammy websites, ping or mention long lists of usernames inappropriately or otherwise vandalize the Community. このコミュニティは、GitHubユーザがプロジェクトについて議論したり、学び、アイデアをお互いに共有することを目的としています。広告やスパム的なコンテンツを投稿する場ではありません。 私たちがスパムと考えるコンテンツは削除されます。 Please see our [GitHub Acceptable Use Policies](/github/site-policy/github-acceptable-use-policies#4-spam-and-inauthentic-activity-on-github) for additional detail on spam and inauthentic activity.
 
 - **著作権で保護されたコンテンツまたは違法なコンテンツ。**自分に権利があるものだけを投稿してください。 あなたは投稿したものについて責任を負います。 自分で作成していないものを投稿する場合は、投稿する権利を所持する必要があります。 著作権法および商標法に基づく違法コンテンツ、違法コンテンツへのリンク、法律を回避する方法などの、違法なコンテンツを投稿することはできません。
 
-- **アクティブなマルウェアやエクスプロイト。** コミュニティの一員になる以上、コミュニティの他のメンバーにつけ込むような行為を行ってはいけません。 いかなる人であれ、当社のプラットフォームを、（コミュニティを悪意ある実行ファイルを配信する手段とするなど）悪意のある実行可能ファイルを配信するために用いたり、（サービス拒否攻撃の企画や、コマンドアンドコントロールサーバーの管理などの）攻撃インフラとして用いたりすることは許可しません。 ただし、マルウェアやエクスプロイトの開発に使用される可能性のあるソースコードの投稿は禁止していません。そのようなソースコードの公開と配布には教育的価値があり、セキュリティコミュニティに純粋な利益をもたらすためです。
+- **Gratuitously violent content.** Don’t post violent images, text, or other content without reasonable context or warnings. While it's often okay to include violent content in video games, news reports, and descriptions of historical events, we do not allow violent content that is posted indiscriminately, or that is posted in a way that makes it difficult for other users to avoid (such as a profile avatar, profile description, topic or reply). 他のコンテキスト内に明確な警告や断りがあれば、ユーザはそのようなコンテンツに関与したいかどうかについて知識に基づいて判断を下すことができるでしょう。
 
-- **13歳未満。**13歳未満のこどもは、GitHubコミュニティ（およびGitHub自体）のアカウントを所有できません。 GitHubは、13歳以下のこどもから意図的に情報を収集せず、および、13歳以下のこどもを対象としたコンテンツを提供しません。 当社は、あなたが13歳未満であることを知った場合、または、そうだと疑う理由がある場合、残念ながらGitHubコミュニティフォーラムとGitHub.comの両方のアカウントを閉鎖する必要があります。 当社はお客様がコードを学習することを止めたくはありませんが、これらは規則なのです。 アカウント解約についての情報は、[「利用規約」](/articles/github-terms-of-service/)を参照してください。
+- **Active malware or exploits.** Being part of a community includes not taking advantage of other members of the community. 悪意のある実行可能ファイルを配信する手段としてや、サービス拒否攻撃を組織したりコマンドアンドコントロールサーバーを管理したりといった攻撃インフラとして GitHub を使用するなど、当社のプラットフォームを使用して、技術的な危害を及ぼす非合法な攻撃を直接支援することは許可しません。 技術的な危害とは、悪用が生じる前に黙示的または明示的なデュアルユースの目的が存在しない、リソースの過剰な消費、物理的損傷、ダウンタイム、サービス拒否、データ損失のことを意味します。 ただし、GitHub はデュアルユースのコンテンツを許容し、脆弱性、マルウェア、またはエクスプロイトの研究に用いられるコンテンツの投稿を支持しています。こうしたコンテンツの公開や配布には教育的価値があり、セキュリティコミュニティに総合的に見て利益をもたらします。 当社はこうしたプロジェクトに肯定的な意図があり、エコシステム全体の促進と改善を促すために利用されることを想定しています。 Please see our [GitHub Community Guidelines](/github/site-policy/github-community-guidelines#active-malware-or-exploits) for complete detail on this section.
+
+- **Misinformation and disinformation.** You may not post content that presents a distorted view of reality, whether it is inaccurate or false (misinformation) or is intentionally deceptive (disinformation) where such content is likely to result in harm to the public or to interfere with fair and equal opportunities for all to participate in public life. たとえば、人々の幸福を脅かしたり、自由で開かれた社会への参加を制限したりするコンテンツは許容できません。 当社はアイデア、視点、経験を表現することにおいて積極的な参加を促しており、個人アカウントや意見に反論するような立場にはないでしょう。 当社は一般的に、利用規定に沿ったパロディや風刺を許容します。また、情報がどのように受け止められ、理解されるかにおいては、文脈が重要だと考えています。ですから、お断りやその他の手段、および情報源を示すことにより、あなたの意図を明確にすることが適切な場合もあるでしょう。
+
+- **13歳未満。**13歳未満のこどもは、GitHubコミュニティ（およびGitHub自体）のアカウントを所有できません。 GitHubは、13歳以下のこどもから意図的に情報を収集せず、および、13歳以下のこどもを対象としたコンテンツを提供しません。 当社は、あなたが13歳未満であることを知った場合、または、そうだと疑う理由がある場合、残念ながらGitHubコミュニティフォーラムとGitHub.comの両方のアカウントを閉鎖する必要があります。 当社はお客様がコードを学習することを止めたくはありませんが、これらは規則なのです。 アカウント解約についての情報は、[「利用規約」](/github/site-policy/github-terms-of-service/)を参照してください。
 
 - **その他合理的に考えてプロフェッショナルな場ではふさわしくない行為。**GitHubコミュニティフォーラムはプロフェッショナルな場であり、それにふさわしい振る舞いが求められます。
 
-### 行動規範の施行
+- **Violation of Terms of Service.** If your Github.com account is identified in violation of [Terms of Service](/github/site-policy/github-terms-of-service/) we will have to close your GitHub Community Forum account as well.  [Terms of Service](/github/site-policy/github-terms-of-service/) also indicates that "One person or legal entity may maintain no more than one free Account" therefore additional free accounts created to inquire about flagged or suspended accounts in the community forum will also be removed.
 
-#### *GitHubコミュニティフォーラムのメンバーができること*
+## 行動規範の施行
+
+### *GitHubコミュニティフォーラムのメンバーができること*
 
 - **問題を見かけたら、報告してください。**モデレーターには特別な権限があり、このコミュニティに対して責任を負っています。 しかし、あなたもコミュニティに責任を負っているのです。 あなたの助けがあってこそ、モデレーターは守衛や警察のように振る舞うだけでなく、コミュニティの進行役を努めることができるのです。
 
   悪意のある書き込みを見ても、返信しないでください。 その存在を認識することで、悪い振る舞いが促され、あなたを疲弊させ、みんなの時間を無駄にします。 その代わり、オプションメニューの「不適切なコンテンツを報告する」から報告してください。 十分な数の報告があれば、自動的に、またはモデレーターの介入によって対処します。
 
-#### 私たちの責任
+### 私たちの責任
 
 不適切な行動やコンテンツの報告に対して当社が講じる措置はさまざまです。 これは、事態の正確な状況次第で決まるのが普通です。 人はさまざまな理由で不適切な発言や行動をしてしまうことがあるというのが、当社の認識です。 自分の言葉がどのように受け取られるのかをわかっていなかったという場合もあるでしょう。 または、つい感情的になってしまったという場合もあるでしょう。 もちろん、単にスパムをばらまいたり、トラブルを引き起こすことを目的とする人がいることも事実です。
 
@@ -107,14 +115,18 @@ GitHubコミュニティフォーラムを、敬意をもって扱ってくだ�
 
 行動規範を誠実に遵守もしくは施行しないコミュニティフォーラムのモデレーターは、コミュニティフォーラムのマネージャによる裁定により、一時的または永久的な処分を受けることがあります。
 
-### GitHubスタッフへの連絡
+## GitHubスタッフへの連絡
 
-何らかの理由で、GitHubスタッフ、コミュニティ管理者、管理者、またはコミュニティのモデレーターにプライベートで連絡したい場合は、[サポート連絡フォーム](https://support.github.com/contact?tags=community-support)を使用できます。 フォーラムまたはサポート連絡フォーム以外の手段でGitHubスタッフに連絡することは極力お控えください。そうした行為は、ハラスメント禁止に対する違反と見なされる場合があります。
+何らかの理由で、GitHubスタッフ、コミュニティ管理者、管理者、またはコミュニティのモデレーターにプライベートで連絡したい場合は、[サポート連絡フォーム](https://support.github.com/contact?tags=docs-community-support)を使用できます。 Contacting any member of GitHub Staff via unsolicited mentions or pings, or via channels other than the forum itself, or the Support contact form is strongly discouraged and may be considered a violation of our prohibition against harassment.
 
 お互いの存在とその時間を尊重することにより、このフォーラムを安心して参加できる場に保つよう協力しましょう。
 
-### 法的通知
+## 法的通知
 
-法律的な言葉はつまらないものですが、しかし私たちは自分自身、ひいては皆さんやそのデータを、敵意ある人々から守る必要があります。 あなた（と当社）のコンテンツ、プライバシー、および法律に関する振る舞いや権利については、[「GitHub利用規約」](/articles/github-terms-of-service/)および[「プライバシーについての声明」](/articles/github-privacy-statement/)に記載しています。 このサービスを利用するには、[「GitHub利用規約」](/articles/github-terms-of-service/)および[「プライバシーについての声明」](/articles/github-privacy-statement/)の順守に同意する必要があります。
+法律的な言葉はつまらないものですが、しかし私たちは自分自身、ひいては皆さんやそのデータを、敵意ある人々から守る必要があります。 We have a [Terms of Service](/github/site-policy/github-terms-of-service/), which includes our [Acceptable Use Policies](/github/site-policy/github-acceptable-use-policies), and our [Privacy Statement](/github/site-policy/github-privacy-statement/) describing your (and our) behavior and rights related to content, privacy, and laws. To use this service, you must agree to abide by our [Terms of Service](/github/site-policy/github-terms-of-service/), [GitHub Acceptable Use Policies](/github/site-policy/github-acceptable-use-policies) and the [Privacy Statement](/github/site-policy/github-privacy-statement/).
 
-この行動規範は、[「GitHub利用規約」](/articles/github-terms-of-service/)を変更するものではなく、また包括的なリストであることを意図したものではありません。 GitHub は、[「GitHub利用規約」](/articles/github-terms-of-service/)に基づいて、「非合法、攻撃的、脅迫的、中傷、名誉毀損、ポルノ、わいせつ、その他不快なもの、他者の知的財産権を侵害するもの、本利用規約に違反するもの」であるあらゆるコンテンツを削除し、またこれを行ったアカウントを解約できる、完全な裁量を保持します。 本行動規範は、かかる裁量を行使する場合について説明しています。
+This Code of Conduct does not modify our [Terms of Service](/github/site-policy/github-terms-of-service/)—which includes our [Acceptable Use Policies](/github/site-policy/github-acceptable-use-policies)—and is not intended to be a complete list. GitHub retains full discretion under the [Terms of Service](/github/site-policy/github-terms-of-service/) to remove or restrict any content or accounts for activity that violates those policies, including because it is unlawful, offensive, threatening, libelous, defamatory, pornographic, obscene or otherwise objectionable, or violates any party's intellectual property or our Terms of Service. 本行動規範は、かかる裁量を行使する場合について説明しています。
+
+### Data Retention and Deletion of Data
+
+You may contact [GitHub Support](https://support.github.com/contact) to request the deletion of your community forum profile. We will retain and use your information as necessary to comply with our legal obligations, resolve disputes, and enforce our agreements, but barring legal requirements, will delete your full profile (within reason) within 90 days of your request. For more information please see the [GitHub Privacy Statement](/github/site-policy/github-privacy-statement).

@@ -17,7 +17,7 @@
     </td>
   </tr>
 </table>
-{%- if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}
+{%- ifversion fpt or ghes > 3.0 or ghae-next %}
 |
 {% data variables.product.prodname_codeql %} | {% data variables.product.prodname_actions %}の利用（「[Actionsを使う{% data variables.product.prodname_code_scanning %}のセットアップ](/github/finding-security-vulnerabilities-and-errors-in-your-code/setting-up-code-scanning-for-a-repository#setting-up-code-scanning-using-actions)」）もしくはサードパーティの継続的インテグレーション（CI）システムでの{% data variables.product.prodname_codeql %}分析の実行（「[CIシステムでの{% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}）](/code-security/secure-coding/about-codeql-code-scanning-in-your-ci-system)」）。
 {%- else %}

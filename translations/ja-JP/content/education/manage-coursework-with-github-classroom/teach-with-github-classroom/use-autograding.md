@@ -1,15 +1,16 @@
 ---
 title: 自動採点
 intro: 課題リポジトリで実行するテストを構成することで、学生から提出されたコードに対するフィードバックを自動的に提供できます。
-miniTocMaxHeadingLevel: 4
+miniTocMaxHeadingLevel: 3
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/adding-tests-for-auto-grading
   - /education/manage-coursework-with-github-classroom/reviewing-auto-graded-work-teachers
   - /education/manage-coursework-with-github-classroom/use-autograding
 ---
-### 自動採点について
+
+## 自動採点について
 
 {% data reusables.classroom.about-autograding %}
 
@@ -21,11 +22,11 @@ redirect_from:
 
 ![自動採点結果を含む課題の概要](/assets/images/help/classroom/autograding-hero.png)
 
-### 採点方法
+## 採点方法
 
 採点方法には、入出力テストと実行コマンドテストの2つがあります。
 
-#### 入出力テスト
+### 入出力テスト
 
 入出力テストは必要に応じてセットアップコマンドを実行してから、テストコマンドに標準出力を渡します。 {% data variables.product.prodname_classroom %}は、テストコマンドの出力を期待する結果と照らし合わせて評価します。
 
@@ -40,7 +41,7 @@ redirect_from:
 | **Timeout**         | 失敗の結果が出るまでにテストを実行する時間（分単位）。                                            |
 | **Points**          | *（オプション）* テストの合計点に占める点数。                                               |
 
-#### 実行コマンドテスト
+### 実行コマンドテスト
 
 実行コマンドテストはセットアップコマンドを実行してから、テストコマンドを実行します。 {% data variables.product.prodname_classroom %}は、テストコマンドの終了ステータスをチェックします。 終了コードが`0`の場合は成功、その他の場合は失敗です。
 
@@ -54,7 +55,7 @@ redirect_from:
 | **Timeout**       | 失敗の結果が出るまでにテストを実行する時間（分単位）。              |
 | **Points**        | *（オプション）* テストの合計点に占める点数。                 |
 
-### アシスタントのために自動採点テストを設定する
+## アシスタントのために自動採点テストを設定する
 
 新課題の作成時に、自動採点テストを追加できます。 {% data reusables.classroom.for-more-information-about-assignment-creation %}
 
@@ -70,14 +71,21 @@ redirect_from:
     - テストを削除するには、テスト名の右側にある {% octicon "trash" aria-label="The trash icon" %} をクリックします。  ![自動採点テストを削除するためのゴミ箱アイコン](/assets/images/help/classroom/autograding-click-trash.png)
 1. ページの下部で、[**Update assignment**] をクリックします。 ![ページカブの [Update assignment] ボタン](/assets/images/help/classroom/assignments-click-update-assignment.png)
 
-### 自動採点テストによるログを表示する
+## Viewing and downloading results from autograding tests
 
+### Download autograding results
+
+You can also download a CSV of your students' autograding scores via the "Download" button. This will generate and download a CSV containing a link to the student's repository, their {% data variables.product.prodname_dotcom %} handle, roster identifier, submission timestamp, and autograding score.
+
+!["Download" button selected showing "Download grades highlighted" and an additional option to "Download repositories"](/assets/images/help/classroom/download-grades.png)
+
+### View individual logs
 {% data reusables.classroom.sign-into-github-classroom %}
 {% data reusables.classroom.click-classroom-in-list %}
 {% data reusables.classroom.click-assignment-in-list %}
 1. 提出物の右側にある、[**View text**] をクリックします。 ![課題提出物の [View test] ボタン](/assets/images/help/classroom/assignments-click-view-test.png)
 1. テストの出力結果をレビューします。 詳しい情報については、「[ワークフロー実行ログを使用する](/actions/managing-workflow-runs/using-workflow-run-logs)」を参照してください。
 
-### 参考リンク
+## 参考リンク
 
 - [{% data variables.product.prodname_actions %}ドキュメント](/actions)

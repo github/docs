@@ -12,18 +12,20 @@ redirect_from:
   - /admin/enterprise-management/migrating-from-github-enterprise-1110x-to-2123
 intro: 'Para migrar do {% data variables.product.prodname_enterprise %} 11.10.x para o 2.1.23, você precisará configurar uma nova instância do appliance e migrar os dados da instância anterior.'
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Migration
   - Upgrades
+shortTitle: Migrar de 11.10.x para 2.1.23
 ---
+
 Há suporte para migrações do {% data variables.product.prodname_enterprise %} 11.10.348 e mais recentes. Não há suporte para migrações do {% data variables.product.prodname_enterprise %} 11.10.348 e versões anteriores. Você deve atualizar o 11.10.348 em várias etapas de atualização. Para obter mais informações, consulte o procedimento de atualização do 11.10.348, "[Atualizar para a versão mais recente](/enterprise/11.10.340/admin/articles/upgrading-to-the-latest-release/)".
 
 Para atualizar para a versão mais recente do {% data variables.product.prodname_enterprise %}, você deve migrar para a versão {% data variables.product.prodname_ghe_server %} 2.1 e só então poderá seguir o processo regular. Para obter mais informações, consulte "[Atualizar o {% data variables.product.prodname_enterprise %}](/enterprise/admin/guides/installation/upgrading-github-enterprise-server/)".
 
-### Preparar para a migração
+## Preparar para a migração
 
 1. Revise o guia de provisionamento e instalação e verifique se foram atendidos todos os pré-requisitos necessários para provisionar e configurar o {% data variables.product.prodname_enterprise %} 2.1.23 no seu ambiente. Para obter mais informações, consulte "[Provisionar e instalar](/enterprise/2.1/admin/guides/installation/provisioning-and-installation/)".
 2. Verifique se a instância atual está sendo executada em uma versão de atualização compatível.
@@ -43,7 +45,7 @@ Para atualizar para a versão mais recente do {% data variables.product.prodname
     - **Atribuição de endereço IP** - Este método só está disponível na migração de VMware para VMware e é recomendado apenas se o método DNS não estiver disponível. Antes de iniciar a migração, você terá que desligar a instância antiga e atribuir seu endereço IP à nova instância.
 6. Programe um período de manutenção. O período de manutenção deve abranger tempo suficiente para transferir os dados do host de backup para a nova instância. Esse período varia com base no tamanho do instantâneo de backup e na largura de banda de rede disponível. Durante esse período, sua instância atual ficará indisponível e em modo de manutenção enquanto você migra para a nova instância.
 
-### Fazer a migração
+## Fazer a migração
 
 1. Provisione uma nova instância do {% data variables.product.prodname_enterprise %} 2.1. Para obter mais informações, consulte o guia "[Provisionar e instalar](/enterprise/2.1/admin/guides/installation/provisioning-and-installation/)" da plataforma de destino.
 2. Em um navegador, vá até o novo endereço IP do appliance réplica e faça o upload da sua licença do {% data variables.product.prodname_enterprise %}.

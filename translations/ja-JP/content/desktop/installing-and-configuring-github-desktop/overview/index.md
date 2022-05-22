@@ -4,7 +4,7 @@ intro: GitHub Desktopについて学び、最初のリポジトリを素早く�
 redirect_from:
   - /desktop/getting-started-with-github-desktop/overview
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 children:
   - /getting-started-with-github-desktop
   - /creating-your-first-repository-using-github-desktop

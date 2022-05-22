@@ -6,13 +6,14 @@ redirect_from:
   - /desktop/getting-started-with-github-desktop/keyboard-shortcuts
   - /desktop/installing-and-configuring-github-desktop/keyboard-shortcuts
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
+
 {% mac %}
 
 Atalhos de teclado do GitHub Desktop no macOS
 
-### Atalhos para o site
+## Atalhos para o site
 
 | Atalho                               | Descrição                                                             |
 | ------------------------------------ | --------------------------------------------------------------------- |
@@ -26,7 +27,7 @@ Atalhos de teclado do GitHub Desktop no macOS
 | <kbd>⌘</kbd><kbd>-</kbd>             | Diminuir o zoom em textos e imagens                                   |
 | <kbd>⌥</kbd><kbd>⌘</kbd><kbd>I</kbd> | Alternar as ferramentas de desenvolvedor                              |
 
-### Repositórios
+## Repositórios
 
 | Atalho                               | Descrição                                                                        |
 | ------------------------------------ | -------------------------------------------------------------------------------- |
@@ -43,7 +44,7 @@ Atalhos de teclado do GitHub Desktop no macOS
 | <kbd>⇧</kbd><kbd>⌘</kbd><kbd>A</kbd> | Abrir o repositório na sua ferramenta de edição preferida                        |
 | <kbd>⌘</kbd><kbd>I</kbd>             | Criar um problema em {% data variables.product.prodname_dotcom %}
 
-### Branches
+## Branches
 
 | Atalho                               | Descrição                                                                         |
 | ------------------------------------ | --------------------------------------------------------------------------------- |
@@ -69,7 +70,7 @@ Atalhos de teclado do GitHub Desktop no macOS
 
 Atalhos de teclado do GitHub Desktop no Windows
 
-### Atalhos para o site
+## Atalhos para o site
 
 | Atalho                                      | Descrição                                       |
 | ------------------------------------------- | ----------------------------------------------- |
@@ -80,7 +81,7 @@ Atalhos de teclado do GitHub Desktop no Windows
 | <kbd>Ctrl</kbd><kbd>-</kbd>                 | Diminuir o zoom em textos e imagens             |
 | <kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>I</kbd> | Alternar as ferramentas de desenvolvedor        |
 
-### Repositórios
+## Repositórios
 
 | Atalho de teclado                           | Descrição                                                                        |
 | ------------------------------------------- | -------------------------------------------------------------------------------- |
@@ -97,7 +98,7 @@ Atalhos de teclado do GitHub Desktop no Windows
 | <kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>A</kbd> | Abrir o repositório na sua ferramenta de edição preferida                        |
 | <kbd>Ctrl</kbd><kbd>I</kbd>                 | Criar um problema em {% data variables.product.prodname_dotcom %}
 
-### Branches
+## Branches
 
 | Atalho                                      | Descrição                                                                         |
 | ------------------------------------------- | --------------------------------------------------------------------------------- |

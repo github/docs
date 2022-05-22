@@ -1,1 +1,7 @@
-Los repositorios internos se encuentran disponibles con {% data variables.product.prodname_ghe_cloud %}{% if currentVersion == "github-ae@latest" %}, {% data variables.product.prodname_ghe_managed %},{% endif %} y {% data variables.product.prodname_ghe_server %} 2.20+. Para obtener más información, consulta la sección "<a href="/articles/githubs-products" class="dotcom-only">Productos de GitHub</a>".
+{% ifversion fpt %}
+Internal repositories are available on
+{% data variables.product.prodname_ghe_cloud %} for organizations that are owned by an enterprise account and {% data variables.product.prodname_ghe_server %} 2.20+. For more information, see "[{% data variables.product.company_short %}'s products](/get-started/learning-about-github/githubs-products) and "[About enterprise accounts](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts)" in the {% data variables.product.prodname_ghe_cloud %} documentation.
+{% else %}
+Internal repositories are available on
+{% data variables.product.prodname_ghe_cloud %} for organizations that are owned by an enterprise account{% ifversion ghae %}, {% data variables.product.prodname_ghe_managed %},{% endif %} and {% data variables.product.prodname_ghe_server %} 2.20+. For more information, see "[{% data variables.product.company_short %}'s products](/get-started/learning-about-github/githubs-products)" and "[About enterprise accounts](/admin/overview/about-enterprise-accounts)."
+{% endif %}

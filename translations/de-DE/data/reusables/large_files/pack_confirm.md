@@ -1,1 +1,0 @@
-1. Um Deine neue monatliche Datenpaketmenge zu bestätigen, klicke auf **Purchase** (Kaufen). ![Schaltfläche „Purchase More data packs" (Kaufe mehr Datenpakete)](/assets/images/help/billing/data-pack-purchase-button.png)

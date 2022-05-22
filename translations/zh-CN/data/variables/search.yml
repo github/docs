@@ -1,5 +1,5 @@
 ---
 advanced_url: >-
-  {% if currentVersion == "free-pro-team@latest" %}[advanced search](https://github.com/search/advanced) 页面{% else %}高级搜索页 (`https://[hostname]/search/advanced`){% endif %}
+  {% ifversion fpt or ghec %}[高级搜索](https://github.com/search/advanced) 页面{% else %}高级搜索页面(`https://[hostname]/search/advanced`){% endif %}
 search_page_url: >-
-  {% if currentVersion == "free-pro-team@latest" %}[search](https://github.com/search) 页面{% else %}搜索页 (`https://[hostname]/search`){% endif %}
+  {% ifversion fpt or ghec %}[搜索](https://github.com/search) 页面{% else %}搜索页面 (`https://[hostname]/search`){% endif %}

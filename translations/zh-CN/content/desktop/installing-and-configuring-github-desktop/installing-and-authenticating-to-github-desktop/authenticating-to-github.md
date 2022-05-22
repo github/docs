@@ -7,9 +7,10 @@ redirect_from:
   - /desktop/getting-started-with-github-desktop/authenticating-to-github
   - /desktop/installing-and-configuring-github-desktop/authenticating-to-github
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
-### 关于身份验证
+
+## 关于身份验证
 
 为确保帐户安全，必须先进行身份验证，然后才可使用 {% data variables.product.prodname_desktop %} 访问 {% data variables.product.prodname_dotcom %}上的资源。
 
@@ -17,7 +18,7 @@ versions:
 
 {% mac %}
 
-### 在 {% data variables.product.prodname_dotcom %} 上验证帐户
+## 在 {% data variables.product.prodname_dotcom %} 上验证帐户
 
 {% data reusables.desktop.mac-select-desktop-menu %}
 {% data reusables.desktop.mac-select-accounts %}
@@ -30,23 +31,21 @@ versions:
 {% data reusables.desktop.2fa-in-browser %}
 7. 在 {% data variables.product.prodname_dotcom %} 验证帐户后，按照提示返回到 {% data variables.product.prodname_desktop %}。
 
-### 在 {% data variables.product.prodname_enterprise %} 上验证帐户
+## 在 {% data variables.product.prodname_enterprise %} 上验证帐户
 
 {% data reusables.user_settings.password-authentication-deprecation-desktop %}
 
 {% data reusables.desktop.mac-select-desktop-menu %}
 {% data reusables.desktop.mac-select-accounts %}
 {% data reusables.desktop.choose-product-authenticate %}
-4. 要添加
-{% data variables.product.prodname_enterprise %} 帐户，请在“Enterprise server address（企业服务器地址）”下键入您的凭据，然后单击 **Continue（继续）**。
-  ![GitHub Enterprise 的登录按钮](/assets/images/help/desktop/mac-sign-in-button-enterprise.png)
+4. 要添加 {% data variables.product.prodname_enterprise %} 帐户，请在“Enterprise server address（企业服务器地址）”下键入您的凭据，然后单击 **Continue（继续）**。 ![GitHub Enterprise 的登录按钮](/assets/images/help/desktop/mac-sign-in-button-enterprise.png)
 {% data reusables.desktop.retrieve-2fa %}
 
 {% endmac %}
 
 {% windows %}
 
-### 在 {% data variables.product.prodname_dotcom %} 上验证帐户
+## 在 {% data variables.product.prodname_dotcom %} 上验证帐户
 
 {% data reusables.desktop.windows-choose-options %}
 {% data reusables.desktop.windows-select-accounts %}
@@ -59,22 +58,18 @@ versions:
 {% data reusables.desktop.2fa-in-browser %}
 7. 在 {% data variables.product.prodname_dotcom %} 验证帐户后，按照提示返回到 {% data variables.product.prodname_desktop %}。
 
-### 在 {% data variables.product.prodname_enterprise %} 上验证帐户
+## 在 {% data variables.product.prodname_enterprise %} 上验证帐户
 
-
-{% data reusables.user_settings.password-authentication-deprecation-desktop %}
 
 {% data reusables.desktop.windows-choose-options %}
 {% data reusables.desktop.windows-select-accounts %}
 {% data reusables.desktop.choose-product-authenticate %}
-4. 要添加
-{% data variables.product.prodname_enterprise %} 帐户，请在“Enterprise server address（企业服务器地址）”下键入您的凭据，然后单击 **Continue（继续）**。
-  ![GitHub Enterprise 的登录按钮](/assets/images/help/desktop/windows-sign-in-button-enterprise.png)
+4. 要添加 {% data variables.product.prodname_enterprise %} 帐户，请在“Enterprise server address（企业服务器地址）”下键入您的凭据，然后单击 **Continue（继续）**。 ![GitHub Enterprise 的登录按钮](/assets/images/help/desktop/windows-sign-in-button-enterprise.png)
 {% data reusables.desktop.retrieve-2fa %}
 
 {% endwindows %}
 
-### 解决身份验证问题
+## 解决身份验证问题
 
 如果 {% data variables.product.prodname_desktop %} 遇到身份验证错误，可以使用错误消息进行故障排除。
 
@@ -98,7 +93,7 @@ versions:
 
 查看下面的故障排除信息，了解您遇到的错误消息。
 
-#### 无效凭据
+### 无效凭据
 
 ```shell
 Error: Bad credentials
@@ -108,7 +103,7 @@ Error: Bad credentials
 
 要解决问题，请在 {% data variables.product.prodname_desktop %} 上注销您的帐户，然后重新登录。
 
-#### 空令牌
+### 空令牌
 
 ```shell
 info: [ui] [AppStore.withAuthenticatingUser] account found for repository: node - <username> (empty token)
@@ -118,7 +113,7 @@ info: [ui] [AppStore.withAuthenticatingUser] account found for repository: node 
 
 要解决问题，请在 {% data variables.product.prodname_desktop %} 上注销您的帐户，然后重新登录。
 
-#### 未找到仓库
+### 未找到仓库
 
 ```shell
 fatal: repository 'https://github.com/<user>/<repo>.git' not found
@@ -130,7 +125,7 @@ fatal: repository 'https://github.com/<user>/<repo>.git' not found
 
 要解决问题，请联系您组织中管理权限的人。
 
-#### 无法读取远程仓库
+### 无法读取远程仓库
 
 ```shell
 git@github.com: Permission denied (publickey).
@@ -143,7 +138,7 @@ Please make sure you have the correct access rights and the repository exists.
 
 要解决问题，请参阅“[生成新的 SSH 密钥并添加到 SSH 代理](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)”。
 
-#### 无法克隆
+### 无法克隆
 
 ```shell
 fatal: clone of 'git@github.com:<user>/<repo>' into submodule path '<path>' failed
@@ -163,7 +158,7 @@ and the repository exists.
 
 {% windows %}
 
-#### 无法读取 AskPass 响应
+### 无法读取 AskPass 响应
 
 ```shell
 error: unable to read askpass response from '/Users/<path>/GitHub Desktop.app/Contents/Resources/app/static/ask-pass-trampoline.sh'
@@ -182,5 +177,5 @@ fatal: could not read Username for 'https://github.com': terminal prompts disabl
 
 {% endwindows %}
 
-### 延伸阅读
+## 延伸阅读
 - “[关于向 GitHub 验证身份](/github/authenticating-to-github/about-authentication-to-github)”

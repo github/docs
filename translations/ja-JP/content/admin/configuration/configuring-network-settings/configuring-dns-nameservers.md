@@ -7,25 +7,27 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-dns-nameservers
   - /admin/configuration/configuring-dns-nameservers
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Fundamentals
   - Infrastructure
   - Networking
+shortTitle: Configure DNS servers
 ---
+
 指定するネームサーバは、{% data variables.product.product_location %}のホスト名を解決できなければなりません。
 
 {% data reusables.enterprise_installation.changing-hostname-not-supported %}
 
-### 仮想マシンのコンソールを使ったネームサーバの設定
+## 仮想マシンのコンソールを使ったネームサーバの設定
 
 {% data reusables.enterprise_installation.open-vm-console-start %}
 2. インスタンスに対してネームサーバーを設定します。
 {% data reusables.enterprise_installation.vm-console-done %}
 
-### 管理シェルを使ったネームサーバの設定
+## 管理シェルを使ったネームサーバの設定
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 2. ネームサーバーを編集するには、次を入力します:
@@ -34,7 +36,8 @@ topics:
   ```
 3. `nameserver` エントリを追加し、続いてファイルを保存します。
 4. 変更を確認したら、ファイルを保存します。
-5. 新しいネームサーバーエントリを {% data variables.product.product_location %} に追加するには、次を入力します:
+5. To add your new nameserver entries to {% data variables.product.product_location %}, run the following:
   ```shell
   $ sudo service resolvconf restart
+  $ sudo service dnsmasq restart
   ```

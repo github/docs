@@ -5,17 +5,19 @@ redirect_from:
   - /articles/allowing-people-to-delete-issues-in-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/allowing-people-to-delete-issues-in-your-organization
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Issueの削除の許可
 ---
 
 デフォルトでは、Organization 内の Issue は削除できません。 Organization のオーナーは、まず Organization の全リポジトリでこの機能を有効化しなければなりません。
 
-有効化されると、Organization のオーナー、そして Organization が所有するリポジトリに管理権限を持つ人は、Issue を削除できるようになります。 リポジトリの管理権限を持つ人には、管理権限を持つ Organization メンバーや外部コラボレーターが含まれます。 詳細は「[Organization のリポジトリ権限レベル](/articles/repository-permission-levels-for-an-organization/)」および「[Issue を削除する](/articles/deleting-an-issue)」を参照してください。
+Once enabled, organization owners and people with admin access in an organization-owned repository can delete issues. People with admin access in a repository include organization members and outside collaborators who were given admin access. For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)" and "[Deleting an issue](/articles/deleting-an-issue)."
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}

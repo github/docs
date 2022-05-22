@@ -1,1 +1,0 @@
-1. Wenn Mitglieder SSH-Zertifikate verwenden müssen, wähle **Require SSH Certificates** (Benötigt SSH-Zertifikate) und klicke dann **Save** (Speichern). ![Kontrollkästchen „Require SSH Certificate" (Benötigt SSH-Zertifikat) und Schaltfläche „Save" (Speichern)](/assets/images/help/organizations/require-ssh-cert.png)

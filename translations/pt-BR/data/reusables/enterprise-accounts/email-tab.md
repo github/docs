@@ -1,1 +1,1 @@
-1. Under {% octicon "gear" aria-label="The Settings gear" %} **Settings**, click **Email**. ![Email tab in the enterprise account sidebar](/assets/images/enterprise/configuration/enterprise-account-email-tab.png)
+1. Em {% octicon "gear" aria-label="The Settings gear" %} **Configurações**, clique em **E-mail**. ![Aba de e-mails na barra lateral da conta corporativa](/assets/images/enterprise/configuration/enterprise-account-email-tab.png)

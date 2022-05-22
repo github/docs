@@ -1,1 +1,1 @@
-If you want to allow members to receive email notifications at a domain you don't own, you can approve the domain, then allow {% data variables.product.prodname_dotcom %} to send email notifications to addresses within the domain. For example, you can allow a contractor who doesn't have an email address within your own domain to receive email notifications at a domain you feel comfortable with.
+如果要允许成员在您不拥有的域中接收电子邮件通知，您可以批准该域，然后允许 {% data variables.product.prodname_dotcom %} 将电子邮件通知发送到该域中的地址。 例如，您可以允许在您自己的域中没有电子邮件地址的承包商在您认为合适的域中接收电子邮件通知。

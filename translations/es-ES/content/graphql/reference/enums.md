@@ -4,14 +4,15 @@ redirect_from:
   - /v4/enum
   - /v4/reference/enum
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 ---
 
-### Acerca de los enumeradores
+## Acerca de los enumeradores
 
 Los [Enumeradores](https://graphql.github.io/graphql-spec/June2018/#sec-Enums) representan conjuntos de valores posibles para un campo.
 

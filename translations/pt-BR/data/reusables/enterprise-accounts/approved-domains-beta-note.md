@@ -1,8 +1,8 @@
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" %}
+{% ifversion fpt or ghes > 3.1 or ghec %}
 
 {% note %}
 
-**Note**: Domain approval is currently in beta and subject to change.
+**Observação**: A aprovação de domínio está atualmente em fase beta e está sujeita a alterações.
 
 {% endnote %}
 

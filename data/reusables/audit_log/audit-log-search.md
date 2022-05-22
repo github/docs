@@ -8,7 +8,7 @@ The log lists the following information about each action:
 
 Note that you cannot search for entries using text. You can, however, construct search queries using a variety of filters. Many operators used when querying the log, such as `-`, `>`, or `<`, match the same format as searching across {% data variables.product.product_name %}. For more information, see "[Searching on {% data variables.product.prodname_dotcom %}](/github/searching-for-information-on-github/about-searching-on-github)."
 
-#### Search based on operation
+### Search based on operation
 
 Use the `operation` qualifier to limit actions to specific types of operations. For example:
 
@@ -20,7 +20,7 @@ Use the `operation` qualifier to limit actions to specific types of operations. 
   * `operation:restore` finds all events where an existing resource was restored.
   * `operation:transfer` finds all events where an existing resource was transferred.
 
-#### Search based on repository
+### Search based on repository
 
 Use the `repo` qualifier to limit actions to a specific repository. For example:
 
@@ -30,7 +30,7 @@ Use the `repo` qualifier to limit actions to a specific repository. For example:
 
 Note that you must include the account name within the `repo` qualifier; searching for just `repo:our-repo` will not work.
 
-#### Search based on the user
+### Search based on the user
 
 The `actor` qualifier can scope events based on who performed the action. For example:
 

@@ -5,12 +5,14 @@ redirect_from:
   - /enterprise/admin/enterprise-support/about-github-premium-support-for-github-enterprise
   - /admin/enterprise-support/about-github-premium-support-for-github-enterprise
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: overview
 topics:
   - Enterprise
   - Support
+shortTitle: 企业高级支持
 ---
+
 {% note %}
 
 **注意：**
@@ -23,7 +25,7 @@ topics:
 
 {% endnote %}
 
-### 关于 {% data variables.contact.premium_support %}
+## 关于 {% data variables.contact.premium_support %}
 
 除了 {% data variables.contact.enterprise_support %} 的所有好处外，{% data variables.contact.premium_support %} 还提供：
   - 我们的支持门户全天候提供英语书面支持
@@ -41,7 +43,7 @@ topics:
 
 {% data reusables.support.contacting-premium-support %}
 
-### 运行时间
+## 运行时间
 
 {% data variables.contact.premium_support %} 全天候提供。
 
@@ -51,22 +53,22 @@ topics:
 
 您必须在下单购买 {% data variables.contact.premium_support %} 后的 90 天内，根据适用许可协议的受支持版本部分，安装 {% data variables.product.prodname_ghe_server %} 的最低支持版本。
 
-### 为支持事件单分配优先级
+## 为支持事件单分配优先级
 
 联系 {% data variables.contact.premium_support %} 时，可为事件单选择以下四种优先级之一：{% data variables.product.support_ticket_priority_urgent %}、{% data variables.product.support_ticket_priority_high %}、{% data variables.product.support_ticket_priority_normal %} 或 {% data variables.product.support_ticket_priority_low %}。
 
 - [{% data variables.product.prodname_ghe_cloud %} 的事件单优先级](#ticket-priorities-for-github-enterprise-cloud)
 - [{% data variables.product.prodname_ghe_server %} 的事件单优先级](#ticket-priorities-for-github-enterprise-server)
 
-#### {% data variables.product.prodname_ghe_cloud %} 的事件单优先级
+### {% data variables.product.prodname_ghe_cloud %} 的事件单优先级
 
 {% data reusables.support.ghec-premium-priorities %}
 
-#### {% data variables.product.prodname_ghe_server %} 的事件单优先级
+### {% data variables.product.prodname_ghe_server %} 的事件单优先级
 
 {% data reusables.support.ghes-priorities %}
 
-### 解决和关闭支持事件单
+## 解决和关闭支持事件单
 
 {% data reusables.support.premium-resolving-and-closing-tickets %}
 

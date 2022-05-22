@@ -1,4 +1,4 @@
-{% data variables.contact.enterprise_support %} pode considerar um tíquete resolvido após fornecer uma explicação, recomendação, instruções de uso, {% if currentVersion == "github-ae@latest" %}or {% endif %} instruções de soluções alternativas{% if enterpriseServerVersions contains currentVersion %} ou orientando você com relação a uma versão disponível que resolve o problema{% endif %}.
+{% data variables.contact.enterprise_support %} pode considerar um tíquete resolvido após fornecer uma explicação, recomendação, instruções de uso, {% ifversion ghae %}or {% endif %} instruções de soluções alternativas{% ifversion ghes %} ou orientando você com relação a uma versão disponível que resolve o problema{% endif %}.
 
 Se você usar um plugin, módulo ou código personalizado incompatível, o {% data variables.contact.enterprise_support %} solicitará a remoção desse item incompatível durante a tentativa de solução do problema. Se o problema for corrigido quando o plugin, módulo ou código personalizado incompatível for removido, o {% data variables.contact.enterprise_support %} poderá considerar o tíquete resolvido.
 

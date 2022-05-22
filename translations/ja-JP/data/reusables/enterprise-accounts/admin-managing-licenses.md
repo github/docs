@@ -1,1 +1,0 @@
-{% data variables.product.prodname_enterprise %}の管理者は、Enterpriseアカウントを使って自分の{% data variables.product.prodname_ghe_server %}インスタンス上のユーザライセンスを表示させ、管理できます。 Enterpriseアカウントを使い始めるには、{% data variables.contact.contact_enterprise_sales %}に連絡し、「[{% data variables.product.prodname_enterprise %}ライセンスの管理](/enterprise/admin/installation/managing-your-github-enterprise-license)」を参照してください。

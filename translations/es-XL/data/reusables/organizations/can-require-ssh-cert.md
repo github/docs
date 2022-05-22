@@ -1,1 +1,0 @@
-Puedes solicitar que los miembros usen certificados SSH para acceder a los recursos de la organización,{% if currentVersion ver_gt "enterprise-server@2.17" %}, a menos que SSH esté deshabilitado en tu repositorio {% endif %}.

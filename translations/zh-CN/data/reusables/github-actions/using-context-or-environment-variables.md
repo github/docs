@@ -1,7 +1,7 @@
 {% data variables.product.prodname_actions %} 包含一个称为_上下文_的变量集和一个称为_默认环境变量_的类似变量集。 这些变量预期用于工作流程中的不同点：
 
 - **默认环境变量：**这些变量仅存在于执行作业的运行器上。 更多信息请参阅“[默认环境变量](/actions/reference/environment-variables#default-environment-variables)”。
-- **上下文：**您可以在工作流程的任何时候使用大多数上下文，包括当_默认环境变量_不可用时。 例如，您可以使用带表达式的上下文执行初始处理，然后将作业路由到运行器以供执行；这允许您使用带有条件 `if` 关键字的上下文来确定步骤是否应运行。 作业运行后，您还可以从执行作业的运行器（如 `runner.os`）检索上下文变量。 更多信息请参阅“[上下文](/actions/reference/context-and-expression-syntax-for-github-actions#contexts)”。
+- **上下文：**您可以在工作流程的任何时候使用大多数上下文，包括当_默认环境变量_不可用时。 例如，您可以使用带表达式的上下文执行初始处理，然后将作业路由到运行器以供执行；这允许您使用带有条件 `if` 关键字的上下文来确定步骤是否应运行。 作业运行后，您还可以从执行作业的运行器（如 `runner.os`）检索上下文变量。 有关您可以在工作流程中使用各种上下文的详细信息，请参阅“[上下文可用性](/actions/reference/context-and-expression-syntax-for-github-actions#context-availability)”。
 
 下面的示例演示了这些不同类型的环境变量如何在一个作业中一起使用：
 

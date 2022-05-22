@@ -12,15 +12,17 @@ redirect_from:
   - /enterprise/admin/configuration/enabling-and-scheduling-maintenance-mode
   - /admin/configuration/enabling-and-scheduling-maintenance-mode
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Fundamentals
   - Maintenance
   - Upgrades
+shortTitle: Configure maintenance mode
 ---
-### メンテナンスモードについて
+
+## メンテナンスモードについて
 
 操作の種類によっては、{% data variables.product.product_location %} をオフラインにしてメンテナンスモードにする必要があります。
 - {% data variables.product.prodname_ghe_server %} の新規バージョンにアップグレードする
@@ -33,11 +35,11 @@ topics:
 
 ![スケジューリングされたメンテナンスに関するエンドユーザ向けバナー](/assets/images/enterprise/maintenance/maintenance-scheduled.png)
 
-インスタンスがメンテナンスモードに入ると、通常のHTTP及びGitアクセスはすべて拒否されます。 Git fetch、clone、pushの操作も、サイトが一時的に利用できなくなっていることを示すエラーメッセージと共に拒否されます。 サイトにブラウザーでアクセスすると、メンテナンスページが表示されます。
+インスタンスがメンテナンスモードに入ると、通常のHTTP及びGitアクセスはすべて拒否されます。 Git fetch、clone、pushの操作も、サイトが一時的に利用できなくなっていることを示すエラーメッセージと共に拒否されます。 GitHub Actions jobs will not be executed. サイトにブラウザーでアクセスすると、メンテナンスページが表示されます。
 
 ![メンテナンスモードのスプラッシュスクリーン](/assets/images/enterprise/maintenance/maintenance-mode-maintenance-page.png)
 
-### メンテナンスモードの即時有効化あるいは後のためのメンテナンスウィンドウのスケジューリング
+## メンテナンスモードの即時有効化あるいは後のためのメンテナンスウィンドウのスケジューリング
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
@@ -48,11 +50,11 @@ topics:
 4. **Enable maintenance mode（メンテナンスモードの有効化）**を選択してください。 ![メンテナンスモードの有効化とスケジューリングのためのチェックボックス](/assets/images/enterprise/maintenance/enable-maintenance-mode-checkbox.png)
 {% data reusables.enterprise_management_console.save-settings %}
 
-### {% data variables.product.prodname_enterprise_api %}でのメンテナンスモードのスケジューリング
+## {% data variables.product.prodname_enterprise_api %}でのメンテナンスモードのスケジューリング
 
 {% data variables.product.prodname_enterprise_api %}では、様々な時間や日付にメンテナンスをスケジューリングできます。 詳しい情報については、「[Management Console](/enterprise/{{ currentVersion }}/user/rest/reference/enterprise-admin#enable-or-disable-maintenance-mode)」を参照してください。
 
-### クラスタ内の全ノードでのメンテナンスモードの有効化もしくは無効化
+## クラスタ内の全ノードでのメンテナンスモードの有効化もしくは無効化
 
 `ghe-cluster-maintenance`ユーティリティを使えば、クラスタ内のすべてのノードでメンテナンスモードの設定や解除ができます。
 

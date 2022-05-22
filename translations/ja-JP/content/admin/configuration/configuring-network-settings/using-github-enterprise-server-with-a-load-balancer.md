@@ -7,19 +7,21 @@ redirect_from:
   - /enterprise/admin/configuration/using-github-enterprise-server-with-a-load-balancer
   - /admin/configuration/using-github-enterprise-server-with-a-load-balancer
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - High availability
   - Infrastructure
   - Networking
+shortTitle: Use a load balancer
 ---
+
 {% data reusables.enterprise_clustering.load_balancer_intro %}
 
 {% data reusables.enterprise_clustering.load_balancer_dns %}
 
-### クライアントの接続情報の処理
+## クライアントの接続情報の処理
 
 {% data variables.product.prodname_ghe_server %} へのクライアント接続はロードバランサから来ることになるため、クライアントの IP アドレスは失われることがあります。
 
@@ -27,9 +29,9 @@ topics:
 
 {% data reusables.enterprise_clustering.proxy_xff_firewall_warning %}
 
-#### {% data variables.product.product_location %}でのPROXYプロトコルサポートの有効化
+### {% data variables.product.product_location %}でのPROXYプロトコルサポートの有効化
 
-アプライアンスとロードバランサの両方でPROXYプロトコルサポートを有効化することを強くおすすめします。 ロードバランサでPROXYプロトコルを有効化する方法については、ベンダーが提供する指示に従ってください。 詳しい情報については[PROXY プロトコルのドキュメンテーション](http://www.haproxy.org/download/1.6/doc/proxy-protocol.txt)を参照してください。
+アプライアンスとロードバランサの両方でPROXYプロトコルサポートを有効化することを強くおすすめします。 ロードバランサでPROXYプロトコルを有効化する方法については、ベンダーが提供する指示に従ってください。 詳しい情報については[PROXY プロトコルのドキュメンテーション](http://www.haproxy.org/download/1.8/doc/proxy-protocol.txt)を参照してください。
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
@@ -39,7 +41,7 @@ topics:
 
 {% data reusables.enterprise_clustering.proxy_protocol_ports %}
 
-#### {% data variables.product.product_location %}でのX-Forwarded-Forサポートの有効化
+### {% data variables.product.product_location %}でのX-Forwarded-Forサポートの有効化
 
 {% data reusables.enterprise_clustering.x-forwarded-for %}
 
@@ -53,7 +55,7 @@ topics:
 
 {% data reusables.enterprise_clustering.without_proxy_protocol_ports %}
 
-### 健全性チェックの設定
+## 健全性チェックの設定
 
 ロードバランサは健全性チェックによって、事前に設定されたチェックが失敗するようになったノードがあれば、反応しなくなったノードへのトラフィックの送信を止めます。 メンテナンスもしくは予想外の障害のためにアプライアンスがオフラインになっているなら、ロードバランサはステータスページを表示できます。 High Availability（HA）設定では、ロードバランサはフェイルオーバーの戦略の一部として利用できます。 ただし、HAペアの自動フェイルオーバーはサポートされていません。 レプリカインスタンスは、手動で昇格させるとリクエストに応えられるようになります。 詳細は「[High Availability 用に {% data variables.product.prodname_ghe_server %} を設定する](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-github-enterprise-server-for-high-availability/)」を参照してください。
 

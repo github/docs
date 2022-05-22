@@ -6,7 +6,7 @@ intro: Remove liquid only
 ## 1
 <div class="example1">
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_gt "enterprise-server@2.13" %}
+{% ifversion not fpt and ghes > 2.13 %}
 
 Alpha
 
@@ -17,7 +17,7 @@ Alpha
 ## 2
 <div class="example2">
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_gt "enterprise-server@2.13" %}
+{% ifversion not fpt and ghes > 2.13 %}
 
 Alpha
 
@@ -32,7 +32,7 @@ Bravo
 ## 3
 <div class="example3">
 
-{% if currentVersion ver_gt "enterprise-server@2.16" %}
+{% ifversion ghes > 2.16 %}
 
 Alpha
 
@@ -40,7 +40,7 @@ Alpha
 
 Bravo
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_gt "enterprise-server@2.13" %}
+{% ifversion not fpt and ghes > 2.13 %}
 
 Charlie
 
@@ -52,11 +52,11 @@ Charlie
 ## 4
 <div class="example4">
 
-{% if currentVersion ver_lt "enterprise-server@2.16" %}
+{% ifversion ghes < 2.16 %}
 
 Alpha
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_gt "enterprise-server@2.13" %}
+{% ifversion not fpt and ghes > 2.13 %}
 
 Bravo
 
@@ -73,11 +73,11 @@ Charlie
 ## 5
 <div class="example5">
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_gt "enterprise-server@2.13" %}
+{% ifversion not fpt and ghes > 2.13 %}
 
 Alpha
 
-{% if currentVersion ver_gt "enterprise-server@2.16" %}
+{% ifversion ghes > 2.16 %}
 
 Bravo
 

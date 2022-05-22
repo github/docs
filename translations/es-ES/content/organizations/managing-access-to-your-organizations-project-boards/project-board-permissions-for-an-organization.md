@@ -5,15 +5,17 @@ redirect_from:
   - /articles/project-board-permissions-for-an-organization
   - /github/setting-up-and-managing-organizations-and-teams/project-board-permissions-for-an-organization
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Permisos del tablero de proyecto
 ---
 
-### Resumen de permisos
+## Resumen de permisos
 
 Hay tres niveles de permisos para las personas y para los equipos a un tablero de proyecto:
 
@@ -26,17 +28,17 @@ Los propietarios de la organización y las personas con permisos de administrado
 - Administrar el acceso al tablero de proyecto para los miembros de la organización, los equipos y los colaboradores externos. Para obtener más información, consulta "[Administrar el acceso de equipo a un tablero de proyecto de una organización](/articles/managing-team-access-to-an-organization-project-board)", "[Administrar el acceso de una persona a un tablero de proyecto de una organización](/articles/managing-an-individual-s-access-to-an-organization-project-board)", o "[Administrar el acceso a un tablero de proyecto para los miembros de una organización](/articles/managing-access-to-a-project-board-for-organization-members)."
 - Administrar la visibilidad del tablero de proyecto. Para obtener más información, consulta "[Administrar el acceso a un tablero de proyecto para los miembros de una organización](/articles/managing-access-to-a-project-board-for-organization-members)."
 
-### Permisos en cascada para tableros de proyecto
+## Permisos en cascada para tableros de proyecto
 
 {% data reusables.project-management.cascading-permissions %}
 
 Por ejemplo, si el propietario de la organización ha otorgado a todos los miembros de la organización permisos de lectura a un tablero de proyecto y un administrador de tablero de proyecto le otorga a un miembro de la organización permisos de escritura a ese tablero como colaborador individual, esa persona tendría permisos de escritura al tablero de proyecto.
 
-### Visibilidad del tablero de proyecto
+## Visibilidad del tablero de proyecto
 
-{% data reusables.project-management.project-board-visibility %} puedes cambiar la visibilidad del tablero de proyecto de privado a {% if currentVersion == "github-ae@latest" %}interno{% else %}público{% endif %} y de vuelta. Para obtener más información, consulta "[Cambiar la visibilidad de un tablero de proyecto](/articles/changing-project-board-visibility)".
+{% data reusables.project-management.project-board-visibility %} puedes cambiar la visibilidad del tablero de proyecto de privado a {% ifversion ghae %}interno{% else %}público{% endif %} y de vuelta. Para obtener más información, consulta "[Cambiar la visibilidad de un tablero de proyecto](/articles/changing-project-board-visibility)".
 
-### Leer más
+## Leer más
 
 - "[Cambiar la visibilidad de un tablero de proyecto](/articles/changing-project-board-visibility)."
 - "[Administrar el acceso de una persona a un tablero de proyecto de una organización](/articles/managing-an-individual-s-access-to-an-organization-project-board)"

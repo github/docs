@@ -3,7 +3,7 @@ title: GitHub 开源应用程序条款和条件
 redirect_from:
   - /articles/github-open-source-applications-terms-and-conditions
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal
@@ -11,13 +11,13 @@ topics:
 
 这些 GitHub 开源应用程序条款和条件（“应用程序条款”）是您（作为个人或代表实体）与 GitHub, Inc. 之间 关于您使用诸如 GitHub Desktop™ 和相关文档等 GitHub 应用程序（“软件”）的法律协议。 这些应用程序条款适用于软件的可执行代码版本。 软件源代码根据开源软件许可协议单独免费提供。 如果您不同意这些应用程序条款中的所有条款，请不要下载、安装、使用或复制软件。
 
-### 连接到 GitHub
+## 连接到 GitHub
 
 如果您将软件配置为用于 GitHub.com 网站上的一个或多个帐户或用于 GitHub Enterprise 实例，则您对软件的使用还将受适用于您的 GitHub.com 网站服务条款和/或适用于 GitHub Enterprise 实例的许可协议（“GitHub 条款”）的约束。
 
 违反适用 GitHub 条款的任何软件使用也构成违反这些应用程序条款。
 
-### 开源许可和声明
+## 开源许可和声明
 
 软件的开源许可包含在软件随附的“开源声明”文档中。 该文档还包括所有适用开源许可的副本。
 
@@ -25,17 +25,17 @@ topics:
 
 您与 GitHub 之间的协议将始终至少包含这些应用程序条款，除非您与 GitHub 另有书面协定。 软件源代码的开源软件许可构成单独的书面协议。 在一定程度上，开源软件许可明确取代这些应用程序条款，并且开源许可管辖您与 GitHub 之间关于使用软件或软件所含特定组件的协议。
 
-### GitHub 徽标
+## GitHub 徽标
 
 软件随附的许可授予不适用于 GitHub 的商标，包括软件徽标设计。 GitHub 保留所有 GitHub 商标的所有商标权和版权。 GitHub 徽标包括 "logos" 文件夹的 "logo" 文件中所含的风格化设计等。
 
 名称 GitHub、GitHub Desktop、GitHub for Mac、GitHub for Windows、Atom、Octocat 及相关 GitHub 徽标和/或风格化名称都是 GitHub 的商标。 您同意，未经 GitHub 的事先书面许可，不得以任何方式展示或使用这些商标，GitHub 的徽标和使用政策 ( https://github.com/logos) 明确允许的除外。
 
-### 隐私
+## 隐私
 
 软件可能会收集个人信息。 您可以在设置面板中控制软件收集哪些信息。 如果软件代表 GitHub 收集个人信息，GitHub 将根据 [GitHub 隐私声明](/articles/github-privacy-statement/)处理这些信息。
 
-### 其他服务
+## 其他服务
 
 **自动更新服务**
 
@@ -49,7 +49,7 @@ topics:
 
 GitHub 保留随时和不时修改或停用（临时或永久）服务或其任何部分的权利，可能通知，也可能不通知。 对于服务的任何价格变动、暂停或终止，GitHub 对您或任何第三方概不负责。
 
-### 其他
+## 其他
 
 1. 非弃权。 GitHub 未行使或执行这些应用程序条款的任何权利或条文，并不构成放弃该权利或条文。
 
@@ -63,4 +63,4 @@ GitHub 保留随时和不时修改或停用（临时或永久）服务或其任�
 
 6. GitHub 政策的许可。 这些应用程序条款的许可采用[知识共享零许可](https://creativecommons.org/publicdomain/zero/1.0/)原则。 更多信息请参阅我们的[站点政策仓库](https://github.com/github/site-policy#license)。
 
-7. 联系我们。 对服务条款有疑问吗？ [请联系我们](https://support.github.com/contact)。
+7. 联系我们。 对服务条款有疑问吗？ [联系我们](https://support.github.com/contact?tags=docs-policy)。

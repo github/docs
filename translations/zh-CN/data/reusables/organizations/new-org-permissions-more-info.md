@@ -1,1 +1,1 @@
-更多信息请参阅“[组织的权限级别](/articles/permission-levels-for-an-organization)”。
+For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."

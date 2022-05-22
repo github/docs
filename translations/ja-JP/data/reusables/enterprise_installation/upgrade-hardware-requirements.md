@@ -1,4 +1,4 @@
-{% if currentVersion ver_gt "enterprise-server@2.20" and currentVersion ver_lt "enterprise-server@3.2" %}
+{% ifversion ghes < 3.2 %}
 
 ### {% data variables.product.prodname_ghe_server %} 3.0 以降の最小要件について
 
@@ -14,7 +14,7 @@
 | 5000-8000              | **16**<br/>_12 から増加_ |                                96 GB |                               750 GB |   200 GB |
 | 8000-10000+            | **20**<br/>_16 から増加_ | **160 GB**<br/>_128 GB から増加_ |                              1000 GB |   200 GB |
 
-{% if currentVersion ver_gt "enterprise-server@2.21" %}
+{% ifversion ghes %}
 
 {% data variables.product.prodname_actions %}のハードウェアの要件に関する詳しい情報については「[{% data variables.product.prodname_ghe_server %}で{% data variables.product.prodname_actions %}を利用しはじめる](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-considerations)」を参照してください。
 

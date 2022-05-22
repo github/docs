@@ -5,9 +5,11 @@ redirect_from:
   - /articles/blocking-a-user-from-your-organization
   - /github/building-a-strong-community/blocking-a-user-from-your-organization
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Community
+shortTitle: Bloquear de tu organización
 ---
 
 Puedes bloquear a un usuario desde los parámetros de la organización o desde un comentario específico realizado por el usuario. Al bloquear a un usuario en un comentario, puedes elegir si deseas enviar una notificación al usuario explicando que fue bloqueado y por qué. De lo contrario, el usuario no será notificado directamente que ha sido bloqueado. Los usuarios bloqueados aún podrán borrar el contenido existente.
@@ -38,7 +40,7 @@ En los repositorios de tu organización, los usuarios bloqueados tampoco podrán
 - Comentar sobre las propuestas, solicitudes de extracción o confirmaciones
 - Agregar o editar páginas wiki
 
-### Bloquear a un usuario en un comentario
+## Bloquear a un usuario en un comentario
 
 1. Desplázate hasta el comentario cuyo autor deseas bloquear.
 2. En la esquina superior derecha del comentario, haz clic en {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} (el ícono de kebab horizontal) , después haz clic en **Block user** (Bloquear usuario). ![El ícono de kebab horizontal y el menú de moderación de comentario que muestra las opciones de bloqueo del usuario](/assets/images/help/repository/comment-menu-block-user.png)
@@ -47,7 +49,7 @@ En los repositorios de tu organización, los usuarios bloqueados tampoco podrán
 5. Si te gustaría notificar al usuario sobre el motivo por el que fue bloqueado, selecciona **Send a notification to this user** (Enviar una notificación a este usuario). ![Enviar una notificación en el menú desplegable para bloquear al usuario](/assets/images/help/organizations/org-block-options-menu-send-notification.png)
 6. Para bloquear al usuario, haz clic en **Block user from organization** (Bloquear usuario de la organización) o **Block user from organization and send message** (Bloquear usuario de la organización y enviar mensaje). ![Botón Block user (Bloquear usuario)](/assets/images/help/organizations/org-block-user-button-in-comment.png)
 
-### Bloquear a un usuario en los parámetros de la organización
+## Bloquear a un usuario en los parámetros de la organización
 
 1. Para bloquear a un miembro de la organización, primero [elimina al usuario](/articles/removing-a-member-from-your-organization) desde la organización.
 
@@ -58,7 +60,7 @@ En los repositorios de tu organización, los usuarios bloqueados tampoco podrán
 7. Si deseas establecer un límite de tiempo para el bloqueo, usa el menú desplegable Block options (Bloquear opciones), y selecciona el período que deseas bloquear al usuario. ![Menú desplegable con las opciones de bloqueo](/assets/images/help/organizations/org-block-options-menu.png)
 8. Haz clic en **Block user** (Bloquear usuario). ![Botón Block (Bloquear)](/assets/images/help/organizations/org-block-user-button.png)
 
-### Leer más
+## Leer más
 
 - "[Ver usuarios que están bloqueados en tu organización](/communities/maintaining-your-safety-on-github/viewing-users-who-are-blocked-from-your-organization)"
 - "[Desbloquear a un usuario de tu organización](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-organization)"

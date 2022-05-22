@@ -1,4 +1,4 @@
-1. Na bifurcação pertencente a usuários, se você não desejar permitir que qualquer pessoa com acesso push ao repositório upstream faça alterações no seu pull request, desmarque **Permitir edições de mantenedores**.
+1. Em bifurcações pertencentes a usuários, se você quiser permitir que qualquer pessoa com acesso push no repositório upstream faça alterações no seu pull request, selecione **Permitir edições de mantenedores**.
 
     {% warning %}
 

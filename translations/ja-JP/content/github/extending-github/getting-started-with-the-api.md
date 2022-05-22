@@ -3,16 +3,18 @@ title: API を使ってみる
 redirect_from:
   - /articles/getting-started-with-the-api
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+shortTitle: Get started API
 ---
 
-一般的なタスクの自動化、データのバックアップ、または {% data variables.product.product_name %} を拡張するインテグレーションの作成には、{% data variables.product.product_name %} API を使用できます。
+To automate common tasks, back up your data, or create integrations that extend {% data variables.product.product_name %}, you can use the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API.
 
-API の詳細については、[GitHub REST API](/rest) および [GitHub GraphQL API](/graphql) をご覧ください。 [{% data variables.product.prodname_dotcom %}開発者ブログ](https://developer.github.com/changes/)をフォローして、API 関連のニュースを確認することもできます。
+API の詳細については、[GitHub REST API](/rest) および [GitHub GraphQL API]({% ifversion ghec %}/free-pro-team@latest/{% endif %}/graphql) をご覧ください。 [{% data variables.product.prodname_dotcom %}開発者ブログ](https://developer.github.com/changes/)をフォローして、API 関連のニュースを確認することもできます。
 
-### 参考リンク
+## 参考リンク
 
-- 「[リポジトリをバックアップする](/articles/backing-up-a-repository)」{% if currentVersion == "free-pro-team@latest" %}
+- [リポジトリのバックアップ](/articles/backing-up-a-repository){% ifversion fpt or ghec %}
 - "[インテグレーションについて](/articles/about-integrations)"{% endif %}

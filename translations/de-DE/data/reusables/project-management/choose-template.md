@@ -1,1 +1,0 @@
-5. Um Deinem Projektboard optional eine Vorlage hinzuzufügen, benutze das **Template:** (Vorlage) Dropdownmenü und klicke auf eine Vorlage. ![Dropdownmenü, welches Projektboard-Vorlagenoptionen zeigt](/assets/images/help/projects/project_board_template_drop_down_menu.png)

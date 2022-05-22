@@ -6,16 +6,18 @@ redirect_from:
   - /enterprise/admin/enterprise-management/increasing-cpu-or-memory-resources
   - /admin/enterprise-management/increasing-cpu-or-memory-resources
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Infrastructure
   - Performance
+shortTitle: Increase CPU or memory
 ---
+
 {% data reusables.enterprise_installation.warning-on-upgrading-physical-resources %}
 
-### AWSでのCPUあるいはメモリリソースの追加
+## AWSでのCPUあるいはメモリリソースの追加
 
 {% note %}
 
@@ -23,14 +25,14 @@ topics:
 
 {% endnote %}
 
-#### リサイズについての考慮
+### リサイズについての考慮
 
 {% data variables.product.product_location %} の CPU またはメモリリソースを増加させる前に、以下のことを行ってください:
 
 - **CPUでメモリをスケーリングします**。 {% data reusables.enterprise_installation.increasing-cpus-req %}
 - **Elastic IP アドレスをインスタンスに割り当てます**。 Elastic IP が割り当てられていない場合は、パブリック IP アドレスでの変更を考慮して、再起動後に {% data variables.product.prodname_ghe_server %} ホストの DNS A レコードを調整する必要があります。 インスタンスがVPC内で起動していれば、インスタンスが再起動してもElastic IP（EIP）は自動的に保持されます。 インスタンスがEC2-Classic内で起動されていれば、Elastic IPは手動で際割り当てが必要です。
 
-#### サポートされているAWSインスタンスタイプ
+### サポートされているAWSインスタンスタイプ
 
 アップグレードするインスタンスタイプは、CPU／メモリの仕様に基づいて決定しなければなりません。
 
@@ -38,7 +40,7 @@ topics:
 
 {% data reusables.enterprise_installation.aws-instance-recommendation %}
 
-#### AWSでのリサイズ
+### AWSでのリサイズ
 
 {% note %}
 
@@ -53,7 +55,7 @@ topics:
 3. インスタンスを起動します。
 {% data reusables.enterprise_installation.configuration-recognized %}
 
-### OpenStack KVMでのCPUあるいはメモリリソースの追加
+## OpenStack KVMでのCPUあるいはメモリリソースの追加
 
 既存の OpenStack KVM インスタンスに CPU またはメモリリソースを追加することはできません。 その代わりに、以下を行う必要があります:
 
@@ -61,7 +63,7 @@ topics:
 2. インスタンスを停止する。
 3. 希望するCPUやメモリリソースを持つ新しいインスタンスフレーバーを選択する。
 
-### VMware の CPU またはメモリリソースを追加する
+## VMware の CPU またはメモリリソースを追加する
 
 {% data reusables.enterprise_installation.increasing-cpus-req %}
 

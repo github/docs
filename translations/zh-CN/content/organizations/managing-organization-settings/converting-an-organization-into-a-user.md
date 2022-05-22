@@ -5,21 +5,31 @@ redirect_from:
   - /articles/converting-an-organization-into-a-user
   - /github/setting-up-and-managing-organizations-and-teams/converting-an-organization-into-a-user
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: 将组织转换为用户
 ---
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec %}
+
+{% note %}
+
+**Note**: After an account is deleted, the username at the time of deletion becomes unavailable for reuse for 90 days. To reuse an organization's username immediately, you must change the username before you delete the organization.
+
+ {% endnote %}
 
 1. [注册](/articles/signing-up-for-a-new-github-account)新 GitHub 用户帐户。
 2. [将用户的角色更改为所有者](/articles/changing-a-person-s-role-to-owner)。
 3. {% data variables.product.signin_link %} 到新用户帐户。
 4. [将每个组织仓库转让](/articles/how-to-transfer-a-repository)给新用户帐户。
-5. [删除组织](/articles/deleting-an-organization-account)。
-6. [将用户重命名](/articles/changing-your-github-username)为组织的名称。
+5. [Rename the organization](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/changing-your-github-username) to make the current username available.
+6. [将用户重命名](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/changing-your-github-username)为组织的名称。
+7. [删除组织](/organizations/managing-organization-settings/deleting-an-organization-account)。
+
 
 {% else %}
 

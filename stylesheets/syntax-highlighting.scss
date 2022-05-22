@@ -9,86 +9,79 @@ from https://unpkg.com/highlight.js@9.15.8/styles/github.css
   display: block;
   overflow-x: auto;
   padding: 0.5em;
-  color: var(--color-auto-gray-9);
-  background: var(--color-auto-gray-0);
+  color: var(--color-fg-default);
+  background: var(--color-canvas-subtle);
 }
 
 .hljs-comment,
 .hljs-quote {
-  color: var(--color-auto-gray-5);
-  font-style: italic;
+  color: var(--color-prettylights-syntax-comment);
 }
 
 .hljs-keyword,
-.hljs-selector-tag,
-.hljs-subst {
-  color: var(--color-auto-gray-9);
-  font-weight: bold;
-}
-
-.hljs-number,
-.hljs-literal,
-.hljs-variable,
-.hljs-template-variable,
-.hljs-tag .hljs-attr {
-  color: var(--color-auto-green-7);
+.hljs-selector-tag {
+  color: var(--color-prettylights-syntax-keyword);
 }
 
 .hljs-string,
-.hljs-doctag {
-  color: var(--color-auto-blue-6);
+.hljs-doctag,
+.hljs-template-variable {
+  color: var(--color-prettylights-syntax-string);
 }
 
 .hljs-title,
 .hljs-section,
 .hljs-selector-id {
-  color: var(--color-auto-red-8);
-  font-weight: bold;
+  color: var(--color-prettylights-syntax-markup-heading);
 }
 
-.hljs-subst {
-  font-weight: normal;
+.hljs-section {
+  font-weight: bold;
 }
 
 .hljs-type,
-.hljs-class .hljs-title {
-  color: var(--color-auto-blue-7);
-  font-weight: bold;
+.hljs-class,
+.hljs-variable {
+  color: var(--color-prettylights-syntax-variable);
+}
+
+.hljs-language,
+.hljs-subst {
+  color: var(--color-prettylights-syntax-storage-modifier-import);
+}
+
+.hljs-number,
+.hljs-literal,
+.hljs-symbol,
+.hljs-property,
+.hljs-constant {
+  color: var(--color-prettylights-syntax-constant);
 }
 
 .hljs-tag,
 .hljs-name,
-.hljs-attribute {
-  color: var(--color-auto-blue-7);
-  font-weight: normal;
+.hljs-attribute,
+.hljs-attr {
+  color: var(--color-prettylights-syntax-entity-tag);
 }
 
 .hljs-regexp,
 .hljs-link {
-  color: var(--color-auto-green-7);
-}
-
-.hljs-symbol,
-.hljs-bullet {
-  color: var(--color-auto-purple-5);
+  color: var(--color-prettylights-syntax-string-regexp);
 }
 
 .hljs-built_in,
-.hljs-builtin-name {
-  color: var(--color-auto-blue-7);
-}
-
-.hljs-meta {
-  color: var(--color-auto-gray-5);
-  font-weight: bold;
+.hljs-builtin-name,
+.hljs-function {
+  color: var(--color-prettylights-syntax-entity);
 }
 
 .hljs-deletion {
-  background: var(--color-auto-red-2);
+  background: var(--color-prettylights-syntax-markup-deleted-bg);
 }
 
 .hljs-addition {
-  background: var(--color-auto-green-2);
+  background: var(--color-prettylights-syntax-markup-inserted-bg);
 }
 
 .hljs-emphasis {

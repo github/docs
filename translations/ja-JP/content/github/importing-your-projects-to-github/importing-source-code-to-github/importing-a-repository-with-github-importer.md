@@ -6,8 +6,11 @@ redirect_from:
   - /articles/importing-a-repository-with-github-importer
   - /github/importing-your-projects-to-github/importing-a-repository-with-github-importer
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
+shortTitle: Use GitHub Importer
 ---
+
 {% tip %}
 
 **ヒント:** GitHub Importer は、すべてのインポートに適しているわけではありません。 たとえば、既存のコードがプライベート ネットワークにホストされている場合、GitHub Importer はそれにアクセスできません。 このような場合、Git リポジトリであれば[コマンドラインを使用したインポート](/articles/importing-a-git-repository-using-the-command-line)、他のバージョン管理システムからインポートするプロジェクトであれば外部の[ソース コード移行ツール](/articles/source-code-migration-tools)をおすすめします。
@@ -15,8 +18,6 @@ versions:
 {% endtip %}
 
 インポート中に、自分のリポジトリでのコミットを作者の GitHub ユーザ アカウントに一致させたい場合は、インポートを始める前に、リポジトリのコントリビューター全員が GitHub アカウントを持っていることを確認してください。
-
-{% data reusables.repositories.migrating-from-codeplex %}
 
 {% data reusables.repositories.repo-size-limit %}
 
@@ -31,6 +32,6 @@ versions:
 
 リポジトリのインポートが完了すると、メールが届きます。
 
-### 参考リンク
+## 参考リンク
 
 - [GitHub Importerでのコミット作者の属性の更新](/articles/updating-commit-author-attribution-with-github-importer)

@@ -1,1 +1,1 @@
-Como medida de segurança, o {% data variables.product.prodname_dotcom %}  remove automaticamente tokens de acesso pessoal que foram usados em um ano.
+As a security precaution, {% data variables.product.company_short %} automatically removes personal access tokens that haven't been used in a year.{% ifversion fpt or ghes > 3.1 or ghae-issue-4374 or ghec %} To provide additional security, we highly recommend adding an expiration to your personal access tokens.{% endif %}

@@ -1,1 +1,0 @@
-Cuando creas un repositorio con contenido en {% data variables.product.prodname_dotcom %}, éste se inicializa con una sola rama, llamada rama predeterminada.

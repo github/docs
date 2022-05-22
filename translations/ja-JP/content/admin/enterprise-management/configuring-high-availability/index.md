@@ -8,7 +8,7 @@ redirect_from:
   - /enterprise/admin/enterprise-management/configuring-high-availability
 intro: '{% data variables.product.prodname_ghe_server %} は、プライマリアプライアンスに影響を及ぼすハードウェア障害や重大なネットワーク障害が発生した場合に、サービスの中断を最小限に抑えるように設計された、運用の High Availability モードをサポートしています。'
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 topics:
   - Enterprise
 children:
@@ -18,5 +18,6 @@ children:
   - /recovering-a-high-availability-configuration
   - /removing-a-high-availability-replica
   - /about-geo-replication
+shortTitle: Configure high availability
 ---
 

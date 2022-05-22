@@ -1,7 +1,0 @@
-Once {% data variables.product.prodname_dotcom %} teams are connected to an IdP group, your IdP administrator must make team membership changes through the identity provider. If a team is connected to an IdP group, you cannot manage team membership on {% data variables.product.product_name %} or using the API.
-
-To manage repository access for any {% data variables.product.prodname_dotcom %} team, including teams connected to an IdP group, you must make changes on {% data variables.product.product_name %}. For more information, see "[About teams](/articles/about-teams)" and "[Managing team access to an organization repository](/articles/managing-team-access-to-an-organization-repository)."
-
-You can select the repositories that you want team members to have access to by default. Connected IdP groups will automatically have access to these repositories. For more information, see "[Managing team access to an organization repository](/articles/managing-team-access-to-an-organization-repository)."
-
-All team membership changes made through your IdP will appear in the audit log on {% data variables.product.product_name %} as changes made by the team synchronization bot. Your IdP will send team membership data to {% data variables.product.prodname_dotcom %} once every hour.

@@ -7,4 +7,4 @@ GitHub REST API ドキュメントは、`/content/rest` ディレクトリにあ
 
   `include` タグによってレンダリングされるコンテンツは`/lib/rest/static`ディレクトリから取得され、これは GitHub で内部的に API ソースコードから自動的に生成されます。ユーザーは編集しないでください。 詳しい情報については、[`/lib/rest/README.md`](/lib/rest/README.md) を参照してください。
 
-  **そのため、このリポジトリで REST API リファレンスに対するコントリビューションを受け付けることはできません。**
+  **We cannot accept changes to content that is rendered by `include` tags. However, you can open an issue describing the changes you would like to see.**

@@ -6,9 +6,13 @@ redirect_from:
   - /articles/managing-security-vulnerabilities-in-your-project
   - /github/managing-security-vulnerabilities/managing-security-vulnerabilities-in-your-project
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
-  - Security
+  - Security advisories
+  - Vulnerabilities
+  - Repositories
+  - CVEs
 children:
   - /about-coordinated-disclosure-of-security-vulnerabilities
   - /about-github-security-advisories
@@ -21,4 +25,4 @@ children:
   - /editing-a-security-advisory
   - /withdrawing-a-security-advisory
 ---
-### 目录
+

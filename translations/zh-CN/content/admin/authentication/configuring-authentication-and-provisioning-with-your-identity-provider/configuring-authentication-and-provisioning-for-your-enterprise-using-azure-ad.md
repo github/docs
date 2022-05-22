@@ -5,7 +5,7 @@ intro: '您可以使用 Azure Active Directory (Azure AD) 中的租户作为身�
 permissions: 'Enterprise owners can configure authentication and provisioning for an enterprise on {% data variables.product.product_name %}.'
 product: '{% data reusables.gated-features.saml-sso %}'
 versions:
-  github-ae: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Accounts
@@ -16,7 +16,8 @@ topics:
 redirect_from:
   - /admin/authentication/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad
 ---
-### 关于使用 Azure AD 进行身份验证和用户预配
+
+## 关于使用 Azure AD 进行身份验证和用户预配
 
 Azure Active Directory (Azure AD) 是一项来自 Microsoft 的服务，它允许您集中管理用户帐户和 web 应用程序访问。 更多信息请参阅 Microsoft 文档中的[什么是 Azure Active Directory？](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)。
 
@@ -31,7 +32,7 @@ Azure Active Directory (Azure AD) 是一项来自 Microsoft 的服务，它允�
 
 有关在 {% data variables.product.product_location %} 上管理企业的身份和访问权限的详细信息，请参阅“[管理企业的身份和访问权限](/admin/authentication/managing-identity-and-access-for-your-enterprise)”。 有关与 IdP 组同步团队的更多信息，请参阅“[同步团队与身份提供程序组](/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group)”。
 
-### 基本要求
+## 基本要求
 
 要使用 Azure AD 配置 {% data variables.product.product_name %} 的身份验证和用户预配，您必须有 Azure AD 帐户和租户。 更多信息请参阅 [Azure AD 网站](https://azure.microsoft.com/free/active-directory)和 Microsoft 文档中的[快速入门：创建 Azure Active Directory 租户](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant)。
 
@@ -39,9 +40,9 @@ Azure Active Directory (Azure AD) 是一项来自 Microsoft 的服务，它允�
 
 {% data reusables.saml.create-a-machine-user %}
 
-### 使用 Azure AD 配置身份验证和用户预配
+## 使用 Azure AD 配置身份验证和用户预配
 
-{% if currentVersion == "github-ae@latest" %}
+{% ifversion ghae %}
 
 1. 在 Azure AD 中，将 {% data variables.product.ae_azure_ad_app_link %} 添加到您的租户并配置单点登录。 更多信息请参阅 Microsoft 文档中的[教程：与 {% data variables.product.prodname_ghe_managed %} 的 Azure Active Directory 单点登录 (SSO) 集成](https://docs.microsoft.com/azure/active-directory/saas-apps/github-ae-tutorial)。
 

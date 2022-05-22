@@ -8,7 +8,7 @@ redirect_from:
   - /admin/user-management/adding-people-to-teams
 intro: 'Team が作成されると、Organization の管理者はユーザを {% data variables.product.product_location %} から Team に追加し、どのリポジトリにアクセスできるようにするかを決定できます。'
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Access management
@@ -16,20 +16,21 @@ topics:
   - Teams
   - User account
 ---
+
 各Teamには、それぞれに定義された[Organizatinが所有するリポジトリへのアクセス権限](/articles/permission-levels-for-an-organization)があります。
 
 - オーナー権限を持つメンバーは、すべてのTeamから既存のOrganizationのメンバーを追加したり削除したりできます。
 - 管理者権限を与えるTeamのメンバーは、TeamのメンバーシップとそのTeamのリポジトリだけを変更できます。
 
-### チームのセットアップ
+## チームのセットアップ
 
-{% data reusables.profile.enterprise_access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.invite_to_team %}
 {% data reusables.organizations.review-team-repository-access %}
 
-### TeamのLDAPグループへのマッピング（たとえばLDAP Syncをユーザ認証に使って）
+## TeamのLDAPグループへのマッピング（たとえばLDAP Syncをユーザ認証に使って）
 
 {% data reusables.enterprise_management_console.badge_indicator %}
 

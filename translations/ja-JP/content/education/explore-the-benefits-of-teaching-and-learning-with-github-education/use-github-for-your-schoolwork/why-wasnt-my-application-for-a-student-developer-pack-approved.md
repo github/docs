@@ -9,15 +9,17 @@ redirect_from:
   - /articles/why-wasnt-my-application-for-a-student-developer-pack-approved
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/why-wasnt-my-application-for-a-student-developer-pack-approved
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: Application not approved
 ---
+
 {% tip %}
 
 **ヒント:** {% data reusables.education.about-github-education-link %}
 
 {% endtip %}
 
-### 所属文書の不明確な証明
+## 所属文書の不明確な証明
 
 アップロードした画像に記載されている日付またはスケジュールが資格条件に適合していない場合、在学状況の証明が追加で必要です。
 
@@ -25,13 +27,13 @@ versions:
 
 {% data reusables.education.pdf-support %}
 
-### 未確認ドメインを持つ学術メールの使用
+## 未確認ドメインを持つ学術メールの使用
 
 学術メールアドレスに未検証ドメインが含まれている場合、学術ステータスのさらなる証明が必要となります。 {% data reusables.education.upload-proof-reapply %}
 
 {% data reusables.education.pdf-support %}
 
-### 緩い電子メールポリシーを持つ学校からの学術電子メールの使用
+## 緩い電子メールポリシーを持つ学校からの学術電子メールの使用
 
 学校が有料学生登録の前にメールアドレスを発行する場合、学術ステータスのさらなる証明が必要となります。 {% data reusables.education.upload-proof-reapply %}
 
@@ -39,9 +41,9 @@ versions:
 
 学校のドメインに関するその他の質問や懸念がある場合は、学校の IT スタッフにお問い合わせください。
 
-### すでに使用されている学術メールアドレス
+## すでに使用されている学術メールアドレス
 
-別の {% data variables.product.prodname_dotcom %} アカウントの {% data variables.product.prodname_student_pack %} をリクエストするための学術メールアドレスが既に使用されていた場合、その割引が期限切れになるまでは、学術メールアドレスを再利用して別の {% data variables.product.prodname_student_pack %} を正常に申請することはできません。
+If your academic email address was already used to request a {% data variables.product.prodname_student_pack %} for a different {% data variables.product.prodname_dotcom %} account, you cannot reuse the academic email address to successfully apply for another {% data variables.product.prodname_student_pack %}.
 
 {% note %}
 
@@ -56,7 +58,7 @@ versions:
 - 「[{% data variables.product.prodname_dotcom %} ユーザ名を変更する](/articles/changing-your-github-username)」
 - 「[メールアドレスを {% data variables.product.prodname_dotcom %} アカウントに追加する](/articles/adding-an-email-address-to-your-github-account)」
 
-### 対象外の学生ステータス
+## 対象外の学生ステータス
 
 以下の場合、{% data variables.product.prodname_student_pack %} の対象外となります:
 - You're enrolled in an informal learning program that is not part of the [{% data variables.product.prodname_campus_program %}](https://education.github.com/schools) and not enrolled in a degree or diploma granting course of study.
@@ -65,7 +67,7 @@ versions:
 
 インストラクターは、教室での使用に対して、{% data variables.product.prodname_education %} 割引を適用できます。 If you're a student at a coding school or bootcamp, you will become eligible for a {% data variables.product.prodname_student_pack %} if your school joins the [{% data variables.product.prodname_campus_program %}](https://education.github.com/schools).
 
-### 参考リンク
+## 参考リンク
 
 - 「[学生開発者パックに応募する](/articles/applying-for-a-student-developer-pack)」
 - 「[学生向け開発者パックへの応募](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-a-student-developer-pack)」

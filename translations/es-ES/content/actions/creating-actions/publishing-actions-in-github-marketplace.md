@@ -1,21 +1,20 @@
 ---
 title: Publicar acciones en GitHub Marketplace
 intro: 'Puedes publicar acciones en {% data variables.product.prodname_marketplace %} y compartir acciones que has creado con la comunidad de {% data variables.product.prodname_dotcom %}.'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/publishing-actions-in-github-marketplace
   - /actions/automating-your-workflow-with-github-actions/publishing-actions-in-github-marketplace
   - /actions/building-actions/publishing-actions-in-github-marketplace
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: how_to
+shortTitle: Publicar en GitHub Marketplace
 ---
-
-{% data reusables.actions.ae-beta %}
 
 Debes aceptar los términos de servicio para publicar acciones en {% data variables.product.prodname_marketplace %}.
 
-### Acerca de la publicación de acciones
+## Acerca de la publicación de acciones
 
 Antes de que puedas publicar una acción, deberás crear una acción en tu repositorio. Para obtener más información, consulta la sección "[Crear acciones](/actions/creating-actions)".
 
@@ -32,7 +31,7 @@ Las acciones se publican en {% data variables.product.prodname_marketplace %} in
   - El `Nombre` no debe coincidir con una categoría existente de {% data variables.product.prodname_marketplace %}.
   - {% data variables.product.prodname_dotcom %} reserva los nombres de las funciones de {% data variables.product.prodname_dotcom %}.
 
-### Publicar una acción
+## Publicar una acción
 
 Puedes agregar la acción que has creado para {% data variables.product.prodname_marketplace %} etiquetándola como un lanzamiento nuevo y publicándola.
 
@@ -47,7 +46,7 @@ Para preparar un nuevo lanzamiento y publicar la acción en {% data variables.pr
 1. Etiqueta tu acción con una versión y agrega un título de lanzamiento. Esto permite que las personas conozcan qué cambios o características incluye el lanzamiento. Las personas verán la versión en la página dedicada a la acción de {% data variables.product.prodname_marketplace %}. ![Etiquetar una versión](/assets/images/help/repository/marketplace_actions_version.png)
 1. Completa todos los demás campos y haz clic en **Publish release (Publicar versión)**. La publicación requiere que uses la autenticación de dos factores. Para obtener más información, consulta "[Configurar autenticación de dos factores](/articles/configuring-two-factor-authentication/)". ![Publica el lanzamiento](/assets/images/help/repository/marketplace_actions_publishrelease.png)
 
-### Eliminar una acción de {% data variables.product.prodname_marketplace %}
+## Eliminando una acción de {% data variables.product.prodname_marketplace %}
 
 Para eliminar una acción publicada del {% data variables.product.prodname_marketplace %}, necesitarás actualizar cada lanzamiento publicado. Realiza los siguientes pasos para cada lanzamiento de la acción que has publicado en {% data variables.product.prodname_marketplace %}.
 

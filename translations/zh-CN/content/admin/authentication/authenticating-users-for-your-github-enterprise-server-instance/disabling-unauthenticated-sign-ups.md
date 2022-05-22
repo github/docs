@@ -7,13 +7,15 @@ redirect_from:
   - /admin/authentication/disabling-unauthenticated-sign-ups
 intro: 如果您使用的是内置身份验证，可以阻止未经身份验证的人创建帐户。
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Accounts
   - Authentication
   - Enterprise
+shortTitle: 阻止帐户创建
 ---
+
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.privacy %}

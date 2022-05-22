@@ -4,12 +4,13 @@ intro: '了解如何提交事件单并向 {% data variables.contact.enterprise_s
 redirect_from:
   - /enterprise/admin/enterprise-support
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Enterprise
 children:
   - /overview
   - /receiving-help-from-github-support
+shortTitle: 使用支持
 ---
-### 目录
+

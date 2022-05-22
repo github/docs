@@ -6,8 +6,9 @@ redirect_from:
   - /desktop/getting-started-with-github-desktop/configuring-git-for-github-desktop
   - /desktop/installing-and-configuring-github-desktop/configuring-git-for-github-desktop
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
+
 {% data variables.product.prodname_desktop %} は、ローカルの Git 設定で設定したメールアドレスを使用して、{% data variables.product.product_name %} のアカウントにコミットを接続します。
 
 {% data reusables.desktop.update-email-address %}
@@ -54,7 +55,7 @@ versions:
 
 {% endwindows %}
 
-### 参考リンク
+## 参考リンク
 
 - "[GitHubアカウントへのEメールアドレスの追加](/articles/adding-an-email-address-to-your-github-account/)"
 - [コミットメールアドレスを設定する](/articles/setting-your-commit-email-address/)

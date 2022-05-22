@@ -1,14 +1,15 @@
 ---
 title: 参与讨论
 intro: '您可以在仓库的论坛中与社区和维护者交流 {% data variables.product.product_name %} 上的项目。'
-permissions: People with read permissions to a repository can participate in discussions in the repository.
+permissions: 'People with read access to a repository can participate in discussions in the repository. {% data reusables.enterprise-accounts.emu-permission-interact %}'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
+shortTitle: 参与讨论
 ---
 
-{% data reusables.discussions.beta %}
 
-### 关于参与讨论
+## 关于参与讨论
 
 {% data reusables.discussions.about-discussions %} 更多信息请参阅“[关于讨论](/discussions/collaborating-with-your-community-using-discussions/about-discussions)”。
 
@@ -16,15 +17,15 @@ versions:
 
 您可以阻止用户并报告破坏性内容，以便自己在 {% data variables.product.product_name %} 上保持一个安全愉快的环境。 更多信息请参阅“[保持您在 {% data variables.product.prodname_dotcom %} 上的安全](/communities/maintaining-your-safety-on-github)”。
 
-### 基本要求
+## 基本要求
 
-必须对仓库启用讨论，您才可以参与仓库中的讨论。 更多信息请参阅“[启用和禁用仓库讨论](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository)”。
+必须对仓库启用 {% data variables.product.prodname_discussions %}，您才可以参与仓库中的讨论。 更多信息请参阅“[为仓库启用或禁用 {% data variables.product.prodname_discussions %}](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository)”。
 
-### 创建讨论
+## 创建讨论
 
 {% data reusables.discussions.starting-a-discussion %}
 
-### 将评论标记为答案
+## 将评论标记为答案
 
 对于仓库具有分类角色或更高角色的讨论作者和用户可以将评论标记为仓库中讨论的答案。
 

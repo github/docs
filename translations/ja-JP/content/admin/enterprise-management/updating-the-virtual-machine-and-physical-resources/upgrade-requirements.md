@@ -7,12 +7,13 @@ redirect_from:
   - /enterprise/admin/enterprise-management/upgrade-requirements
   - /admin/enterprise-management/upgrade-requirements
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: reference
 topics:
   - Enterprise
   - Upgrades
 ---
+
 {% note %}
 
 **ノート:**
@@ -23,7 +24,7 @@ topics:
 
 {% endnote %}
 
-### 推奨される対応
+## 推奨される対応
 
 - アップグレードのプロセスに含めるアップグレードは、できるだけ少なくしてください。 たとえば {% data variables.product.prodname_enterprise %} {{ enterpriseServerReleases.supported[2] }} から {{ enterpriseServerReleases.supported[1] }} を経て {{ enterpriseServerReleases.latest }} にアップグレードする代わりに、{% data variables.product.prodname_enterprise %} {{ enterpriseServerReleases.supported[2] }} から {{ enterpriseServerReleases.latest }} にアップグレードできます。
 - バージョンが数バージョン古いのであれば、{% data variables.product.product_location %}をアップグレードのプロセスの各ステップでできる限り先までアップグレードしてください。 各アップグレードで可能な限りの最新バージョンを使うことで、パフォーマンスの改善やバグフィックスのメリットが得られます。 たとえば{% data variables.product.prodname_enterprise %}2.7から2.8を経て2.10へアップグレードすることができますが、{% data variables.product.prodname_enterprise %}2.7から2.9を経て2.10へのアップグレードすれば、2番目のステップでより新しいバージョンを利用できます。
@@ -31,7 +32,7 @@ topics:
 - アップグレードのステップのテストには、ステージングインスタンスを使ってください。 詳しい情報については "[ステージングインスタンスのセットアップ](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-staging-instance/)"を参照してください。
 - 複数のアップグレードを実行する場合は、機能のアップグレードの間に少なくとも 24 時間待って、データ移行とバックグラウンドで実行されているアップグレードタスクが完全に完了するようにします。
 
-### 要件
+## 要件
 
 - アップグレードは、**最大でも**2リリース前のフィーチャリリースから行わなければなりません。 たとえば {% data variables.product.prodname_enterprise %} {{ enterpriseServerReleases.latest }} にアップグレードするためには、{% data variables.product.prodname_enterprise %} {{ enterpriseServerReleases.supported[1] }} あるいは {{ enterpriseServerReleases.supported[2] }} となっていなければなりません。
 - {% data reusables.enterprise_installation.hotpatching-explanation %}
@@ -45,6 +46,6 @@ MySQLの監査ログで必要なディスク容量の概算には、この数字
 
 {% data reusables.enterprise_installation.upgrade-hardware-requirements %}
 
-### 次のステップ
+## 次のステップ
 
 これらの推奨および要求事項をレビューした後で、{% data variables.product.prodname_ghe_server %} をアップグレードできます。 詳細は「[{% data variables.product.prodname_ghe_server %} をアップグレードする](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrading-github-enterprise-server/)」を参照してください。

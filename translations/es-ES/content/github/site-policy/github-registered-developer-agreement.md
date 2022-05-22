@@ -3,7 +3,7 @@ title: Acuerdo de programador registrado de GitHub
 redirect_from:
   - /articles/github-registered-developer-agreement
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal

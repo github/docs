@@ -1,16 +1,19 @@
 ---
 title: Gitignore
+intro: A API do Gitignore busca modelos `.gitignore` que podem ser usados para ignorar arquivos e diretórios.
 redirect_from:
   - /v3/gitignore
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - API
+miniTocMaxHeadingLevel: 3
 ---
 
-Ao criar um novo repositório do {% data variables.product.product_name %} através da API, você pode especificar um [modelo do .gitignore](/github/getting-started-with-github/ignoring-files) a ser aplicado ao repositório após a criação. A API de modlos do .gitignore lista e recupera modelos do repositório de [.gitignore](https://github.com/github/gitignore) de {% data variables.product.product_name %}.
+When you create a new repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} via the API, you can specify a [.gitignore template](/github/getting-started-with-github/ignoring-files) to apply to the repository upon creation. A API de modlos do .gitignore lista e recupera modelos do repositório de [.gitignore](https://github.com/github/gitignore) de {% data variables.product.product_name %}.
 
 ### Tipos de mídia personalizados para gitignore
 
