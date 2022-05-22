@@ -47,15 +47,15 @@ Algunas veces, los resultados de las verificaciones de estado para la confirmaci
 
 {% note %}
 
-**Note:** If a workflow is skipped due to [path filtering](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore), [branch filtering](/actions/using-workflows/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore) or a [commit message](/actions/managing-workflow-runs/skipping-workflow-runs), then checks associated with that workflow will remain in a "Pending" state. Las solicitudes de cambios que requieran que esas verificaciones tengan éxito quedarán bloqueadas para fusión.
+**Nota:** Si se omite un flujo de trabajo debido a [filtrado de ruta](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore), [filtrado de rama](/actions/using-workflows/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore) o a un [mensaje de confirmación](/actions/managing-workflow-runs/skipping-workflow-runs), entonces las verificaciones asociadas con este flujo de trabajo permanecerán en un estado de "Pendiente". Las solicitudes de cambios que requieran que esas verificaciones tengan éxito quedarán bloqueadas para fusión.
 
-If a job in a workflow is skipped due to a conditional, it will report its status as "Success". For more information see [Skipping workflow runs](/actions/managing-workflow-runs/skipping-workflow-runs) and [Using conditions to control job execution](/actions/using-jobs/using-conditions-to-control-job-execution).
+Si se omite un job en un flujo de trabajo debido a una condicional, este reportará su estado como "Éxito". Para obtener más información, consulta las secciones de [Omitir las ejecuciones de flujo de trabajo](/actions/managing-workflow-runs/skipping-workflow-runs) y [Utilizar condiciones para controlar la ejecución de jobs](/actions/using-jobs/using-conditions-to-control-job-execution).
 
 {% endnote %}
 
 ### Ejemplo
 
-The following example shows a workflow that requires a "Successful" completion status for the `build` job, but the workflow will be skipped if the pull request does not change any files in the `scripts` directory.
+El siguiente ejemplo muestra un flujo de trabajo que requiere un estado de finalización "Exitoso" para el job `build`, pero el flujo de trabajo se omitirá si la solicitud de cambios no cambia ningún archivo en el directorio `scripts`.
 
 ```yaml
 name: ci
@@ -81,7 +81,7 @@ jobs:
     - run: npm test
 ```
 
-Due to [path filtering](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore), a pull request that only changes a file in the root of the repository will not trigger this workflow and is blocked from merging. Verías el siguiente estado en la solicitud de cambios:
+Debido al [filtrado de rutas](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore), una solicitud de cambios que solo cambie un archivo en la raíz del repositorio ya no activará este flujo de trabajo y se bloqueará para su fusión. Verías el siguiente estado en la solicitud de cambios:
 
 ![Verificación requerida omitida, pero mostrada como pendiente](/assets/images/help/repository/PR-required-check-skipped.png)
 

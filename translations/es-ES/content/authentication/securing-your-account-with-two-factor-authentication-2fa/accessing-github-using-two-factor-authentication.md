@@ -59,7 +59,7 @@ Si instalaste e iniciaste sesión en {% data variables.product.prodname_mobile %
 
 ## Usar autenticación de dos factores con la línea de comando
 
-After you've enabled 2FA, you will no longer use your password to access {% data variables.product.product_name %} on the command line. Instead, use Git Credential Manager, a personal access token, or an SSH key.
+Después de que habilitas la 2FA, ya no utilizarás tu contraseña para acceder a {% data variables.product.product_name %} en la línea de comandos. En vez de esto, utiliza el Administrador de Credenciales de Git, un token de acceso personal o una llave SSH.
 
 ### Autenticarse en la línea de comandos utilizando el Administrador de Credenciales de Git
 
