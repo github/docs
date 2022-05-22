@@ -307,7 +307,7 @@ jobs:
 ::add-mask::{value}
 ```
 
-El enmascaramiento de un valor impide que una cadena o variable se imprima en el registro. Cada palabra enmascarada separada por un espacio en blanco se reemplaza con el carácter `*`. Puedes usar una variable de entorno o cadena para el `valor` de la máscara. When you mask a value, it is treated as a secret and will be redacted on the runner. For example, after you mask a value, you won't be able to set that value as an output.
+El enmascaramiento de un valor impide que una cadena o variable se imprima en el registro. Cada palabra enmascarada separada por un espacio en blanco se reemplaza con el carácter `*`. Puedes usar una variable de entorno o cadena para el `valor` de la máscara. Cuando enmascaras un valor, se le trata como un secreto y se redactará en el ejecutor. Por ejemplo, después de que enmascaras un valor, no podrás configurarlo como una salida.
 
 ### Ejemplo: Enmascarar una secuencia
 
@@ -625,7 +625,7 @@ Para las secuencias de lìnea mùltiple, puedes utilizar un delimitador con la s
 
 #### Ejemplo
 
-This example uses `EOF` as a delimiter, and sets the `JSON_RESPONSE` environment variable to the value of the `curl` response.
+Este ejemplo utiliza `EOF` como un delimitador y configura la variable de ambiente `JSON_RESPONSE` al valor de la respuesta de `curl`.
 
 {% bash %}
 
@@ -658,7 +658,7 @@ steps:
 
 {% if actions-job-summaries %}
 
-## Adding a job summary
+## Agregar un resumen del job
 
 {% bash %}
 
@@ -676,11 +676,11 @@ echo "{markdown content}" >> $GITHUB_STEP_SUMMARY
 
 {% endpowershell %}
 
-You can set some custom Markdown for each job so that it will be displayed on the summary page of a workflow run. You can use job summaries to display and group unique content, such as test result summaries, so that someone viewing the result of a workflow run doesn't need to go into the logs to see important information related to the run, such as failures.
+Puedes configurar algo de lenguaje de marcado personalizado para cada job, para que se muestre en la página de resumen de una ejecución de flujo de trabajo. Puedes utilizar resúmenes de jobs para mostrar y agrupar contenido único, tal como resúmenes de resultados de prueba, para que quien sea que esté viendo dicho resultado de una ejecución de flujo de trabajo no necesite ir a las bitácoras para ver la información importante relacionada con la ejecución, tal como las fallas.
 
-Job summaries support [{% data variables.product.prodname_dotcom %} flavored Markdown](https://github.github.com/gfm/), and you can add your Markdown content for a step to the `GITHUB_STEP_SUMMARY` environment file. `GITHUB_STEP_SUMMARY` is unique for each step in a job. For more information about the per-step file that `GITHUB_STEP_SUMMARY` references, see "[Environment files](#environment-files)."
+Los resúmenes de jobs son compatibles con [el lenguaje de marcado enriquecido de {% data variables.product.prodname_dotcom %}](https://github.github.com/gfm/) y puedes agregar tu contenido de lenguaje de marcado para un paso al archivo de ambiente de `GITHUB_STEP_SUMMARY`. El `GITHUB_STEP_SUMMARY` es único para cada paso en un job. Para obtener más información sobre el archivo por paso al que referencia el `GITHUB_STEP_SUMMARY`, consulta la sección "[Archivos de ambiente](#environment-files)".
 
-When a job finishes, the summaries for all steps in a job are grouped together into a single job summary and are shown on the workflow run summary page. If multiple jobs generate summaries, the job summaries are ordered by job completion time.
+Cuando finaliza un job, los resúmenes de todos los pasos en este se agrupan en un solo resumen de job y se muestran en la página de resumen de la ejecución de flujo de trabajo. If multiple jobs generate summaries, the job summaries are ordered by job completion time.
 
 ### Ejemplo
 
