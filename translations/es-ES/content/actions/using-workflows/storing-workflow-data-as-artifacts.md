@@ -41,7 +41,7 @@ Almacenar artefactos consume espacio de almacenamiento en {% data variables.prod
 
 {% else %}
 
-Artifacts consume storage space on the external blob storage that is configured for {% data variables.product.prodname_actions %} on {% data variables.product.product_location %}.
+Los artefactos consumen espacio de almacenamiento en el almacenamiento de blobs externo que se configura para {% data variables.product.prodname_actions %} en {% data variables.product.product_location %}.
 
 {% endif %}
 
@@ -60,7 +60,7 @@ Los pasos de un job comparten el mismo ambiente en la máquina ejecutora, pero s
 
 {% data reusables.actions.comparing-artifacts-caching %}
 
-For more information on dependency caching, see "[Caching dependencies to speed up workflows](/actions/using-workflows/caching-dependencies-to-speed-up-workflows#comparing-artifacts-and-dependency-caching)."
+Para obtener más información sobre el almacenamiento de dependencias en caché, consulta la sección "[Almacenar dependencias en caché para agilizar los flujos de trabajo](/actions/using-workflows/caching-dependencies-to-speed-up-workflows#comparing-artifacts-and-dependency-caching)".
 
 {% endif %}
 
