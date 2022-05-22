@@ -1,0 +1,9 @@
+> Bumps [django](https://github.com/django/django) from 3.0.7 to 3.1.12.
+> 
+> Commits
+> 
+> [![Dependabot compatibility score](https://camo.githubusercontent.com/63638cd7ec9b0657fb69f90fc0a144c1510fa572aac3a0e5f3dd85f6fbc5e5d8/68747470733a2f2f646570656e6461626f742d6261646765732e6769746875626170702e636f6d2f6261646765732f636f6d7061746962696c6974795f73636f72653f646570656e64656e63792d6e616d653d646a616e676f267061636b6167652d6d616e616765723d7069702670726576696f75732d76657273696f6e3d332e302e37266e65772d76657273696f6e3d332e312e3132)](https://docs.github.com/en/github/managing-security-vulnerabilities/about-dependabot-security-updates#about-compatibility-scores)
+> 
+> Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting `@dependabot rebase`.
+> 
+> Dependabot commands and options
