@@ -42,6 +42,8 @@ topics:
 
 ## プルリクエストをマージする
 
+{% include tool-switcher %}
+
 {% webui %}
 
 {% data reusables.repositories.sidebar-pr %}

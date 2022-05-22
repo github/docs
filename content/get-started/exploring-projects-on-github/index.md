@@ -18,7 +18,6 @@ children:
   - /finding-ways-to-contribute-to-open-source-on-github
   - /saving-repositories-with-stars
   - /following-people
-  - /following-organizations
 shortTitle: Explore projects
 ---
 

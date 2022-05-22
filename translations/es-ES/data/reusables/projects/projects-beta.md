@@ -1,5 +1,5 @@
 {% note %}
 
-**Nota:** Los proyectos (beta) se encuentran en beta público y están sujetos a cambios.
+**Note:** Projects (beta) is currently in public beta and subject to change.
 
 {% endnote %}

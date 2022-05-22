@@ -1,6 +1,6 @@
 ---
-title: Issue だけのリポジトリの作成
-intro: '{% data variables.product.product_name %}では Issue に限定されたアクセス権限は存在しませんが、Issue 専用のリポジトリを作成すれば、実質的にそのようなアクセス権限を設定できます。'
+title: Creating an issues-only repository
+intro: '{% data variables.product.product_name %} does not provide issues-only access permissions, but you can accomplish this using a second repository which contains only the issues.'
 redirect_from:
   - /articles/issues-only-access-permissions
   - /articles/is-there-issues-only-access-to-organization-repositories
@@ -16,12 +16,11 @@ topics:
   - Repositories
 shortTitle: Issues-only repository
 ---
+1. Create a **private** repository to host the source code from your project.
+2. Create a second repository with the permissions you desire to host the issue tracker.
+3. Add a README file to the issues repository explaining the purpose of this repository and linking to the issues section.
+4. Set your collaborators or teams to give access to the repositories as you desire.
 
-1. **private** リポジトリを作成し、プロジェクトのソースコードをホストします。
-2. Issue トラッカーをホストするための権限を持つ 2 番目のリポジトリを作成します。
-3. このリポジトリの目的を説明し、Issue セクションと結びつける README ファイルを Issue リポジトリに追加します。
-4. 思うようにコラボレーターまたは Team にリポジトリへのアクセスを付与するよう設定します。
+Users with write access to both can reference and close issues back and forth across the repositories, but those without the required permissions will see references that contain a minimum of information.
 
-どちらにも書き込みアクセスのあるユーザは、リポジトリ間でお互いに Issue を引用して閉じることができます。ただし、必要な権限がない場合は最低限の情報だけの参照を見ることしかできません。
-
-たとえば、プライベートリポジトリのデフォルトブランチに `Fixes organization/public-repo#12` というメッセージをつけてコミットをプッシュした場合、Issue は閉じられますが、Issue を閉じたコミットを示すリポジトリ間の参照は、適切な権限を持っているユーザだけしか見られません。 権限がなくても参照は表示されますが、詳細は省略されます。
+For example, if you pushed a commit to the private repository's default branch with a message that read `Fixes organization/public-repo#12`, the issue would be closed, but only users with the proper permissions would see the cross-repository reference indicating the commit that closed the issue. Without the permissions, a reference still appears, but the details are omitted.

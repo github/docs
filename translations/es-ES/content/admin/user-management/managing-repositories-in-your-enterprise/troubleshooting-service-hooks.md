@@ -2,7 +2,7 @@
 title: Solución de problemas con ganchos de servicio
 intro: 'Si las cargar no se están entregando, comprueba estos problemas comunes.'
 redirect_from:
-  - /enterprise/admin/articles/troubleshooting-service-hooks
+  - /enterprise/admin/articles/troubleshooting-service-hooks/
   - /enterprise/admin/developer-workflow/troubleshooting-service-hooks
   - /enterprise/admin/user-management/troubleshooting-service-hooks
   - /admin/user-management/troubleshooting-service-hooks

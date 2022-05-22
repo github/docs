@@ -22,6 +22,7 @@ This guide demonstrates how to create a job that installs additional software on
 
 The following example demonstrates how to install an `apt` package as part of a job.
 
+{% raw %}
 ```yaml
 name: Build on Ubuntu
 on: push
@@ -31,12 +32,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
-        uses: {% data reusables.actions.action-checkout %}
+        uses: actions/checkout@v2
       - name: Install jq tool
         run: |
           sudo apt-get update
           sudo apt-get install jq
 ```
+{% endraw %}
 
 {% note %}
 
@@ -48,6 +50,7 @@ jobs:
 
 The following example demonstrates how to install Brew packages and casks as part of a job.
 
+{% raw %}
 ```yaml
 name: Build on macOS
 on: push
@@ -57,7 +60,7 @@ jobs:
     runs-on: macos-latest
     steps:
       - name: Check out repository code
-        uses: {% data reusables.actions.action-checkout %}
+        uses: actions/checkout@v2
       - name: Install GitHub CLI
         run: |
           brew update
@@ -67,6 +70,7 @@ jobs:
           brew update
           brew install --cask microsoft-edge
 ```
+{% endraw %}
 
 ## Installing software on Windows runners
 

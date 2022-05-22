@@ -1,6 +1,6 @@
 ---
-title: GitHub リポジトリのアーカイブ
-intro: '{% data variables.product.product_name %}、API、あるいはサードパーティのツールやサービスを使って作業をアーカイブ、バックアップ、引用できます。'
+title: Archiving a GitHub repository
+intro: 'You can archive, back up, and cite your work using {% data variables.product.product_name %}, the API, or third-party tools and services.'
 redirect_from:
   - /articles/can-i-archive-a-repository
   - /articles/archiving-a-github-repository

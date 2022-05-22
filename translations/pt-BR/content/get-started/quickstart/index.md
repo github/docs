@@ -1,6 +1,6 @@
 ---
-title: QuickStart
-intro: 'Comece a usar {% data variables.product.product_name %} para gerenciar repositórios o Git e colaborar com outras pessoas.'
+title: Quickstart
+intro: 'Get started using {% data variables.product.product_name %} to manage Git repositories and collaborate with others.'
 versions:
   fpt: '*'
   ghes: '*'

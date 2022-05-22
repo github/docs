@@ -1,6 +1,6 @@
 ---
-title: 時間の同期の設定
-intro: '{% data variables.product.prodname_ghe_server %} は、NTP サーバーに接続することによって自動的に時刻を同期させます。 時刻の同期に使われるNTPサーバは設定できます。あるいはデフォルトのNTPサーバを利用することもできます。'
+title: Configuring time synchronization
+intro: '{% data variables.product.prodname_ghe_server %} automatically synchronizes its clock by connecting to NTP servers. You can set the NTP servers that are used to synchronize the clock, or you can use the default NTP servers.'
 redirect_from:
   - /enterprise/admin/articles/adjusting-the-clock
   - /enterprise/admin/articles/configuring-time-zone-and-ntp-settings
@@ -19,29 +19,31 @@ topics:
   - Networking
 shortTitle: Configure time settings
 ---
-
-## デフォルトのNTPサーバの変更
+## Changing the default NTP servers
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
-2. 左のサイドバーで**Time（時間）**をクリックしてください。 ![{% data variables.enterprise.management_console %} サイドバーでの [Time] ボタン](/assets/images/enterprise/management-console/sidebar-time.png)
-3. "Primary NTP server（プライマリのNTPサーバ）"の下で、プライマリNTPサーバのホスト名を入力してください。 "Secondary NTP server（セカンダリのNTPサーバ）"の下で、セカンダリのNTPサーバのホスト名を入力してください。 ![{% data variables.enterprise.management_console %} でのプライマリとセカンダリの NTP サーバーのためのフィールド](/assets/images/enterprise/management-console/ntp-servers.png)
-4. ページの下部で **Save settings（設定の保存）**をクリックしてください。 ![{% data variables.enterprise.management_console %} での [Save settings] ボタン](/assets/images/enterprise/management-console/save-settings.png)
-5. 設定が完了するのを待ってください。
+2. In the left sidebar, click **Time**.
+    ![The Time button in the {% data variables.enterprise.management_console %} sidebar](/assets/images/enterprise/management-console/sidebar-time.png)
+3. Under "Primary NTP server," type the hostname of the primary NTP server. Under "Secondary NTP server," type the hostname of the secondary NTP server.
+    ![The fields for primary and secondary NTP servers in the {% data variables.enterprise.management_console %}](/assets/images/enterprise/management-console/ntp-servers.png)
+4. At the bottom of the page, click **Save settings**.
+    ![The Save settings button in the {% data variables.enterprise.management_console %}](/assets/images/enterprise/management-console/save-settings.png)
+5. Wait for the configuration run to complete.
 
-## 大きな時間の乱れの修正
+## Correcting a large time drift
 
-NTP プロトコルは小さな時間同期の不一致を継続的に修正します。 管理シェルを使用すれば、時間を直ちに同期させることができます。
+The NTP protocol continuously corrects small time synchronization discrepancies. You can use the administrative shell to synchronize time immediately.
 
 {% note %}
 
-**ノート:**
- - 協定世界時 (UTC) ゾーンは変更できません。
- - ハイパーバイザーが仮想マシンの時刻を設定しようとするのを回避しなければなりません。 詳しい情報については、仮想化プロバイダが提供しているドキュメンテーションを参照してください。
+**Notes:**
+ - You can't modify the Coordinated Universal Time (UTC) zone.
+ - You should prevent your hypervisor from trying to set the virtual machine's clock. For more information, see the documentation provided by the virtualization provider.
 
 {% endnote %}
 
-- `chronyc` コマンドを使用して、サーバーを設定済みの NTP サーバーと同期させます。 例:
+- Use the `chronyc` command to synchronize the server with the configured NTP server. For example:
 
 ```shell
 $ sudo chronyc -a makestep

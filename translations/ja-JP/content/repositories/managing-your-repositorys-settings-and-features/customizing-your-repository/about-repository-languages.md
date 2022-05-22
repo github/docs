@@ -1,6 +1,6 @@
 ---
-title: リポジトリの言語について
-intro: リポジトリ内のファイルやディレクトリが、リポジトリを構成する言語を決定します。 リポジトリの言語を見れば、そのリポジトリの簡単な概要が得られます。
+title: About repository languages
+intro: The files and directories within a repository determine the languages that make up the repository. You can view a repository's languages to get a quick overview of the repository.
 redirect_from:
   - /articles/my-repository-is-marked-as-the-wrong-language
   - /articles/why-isn-t-my-favorite-language-recognized
@@ -19,12 +19,11 @@ topics:
   - Repositories
 shortTitle: Repository languages
 ---
+{% data variables.product.product_name %} uses the open source [Linguist library](https://github.com/github/linguist) to
+determine file languages for syntax highlighting and repository statistics. Language statistics will update after you push changes to your default branch.
 
-{% data variables.product.product_name %} は、オープンソースの [Linguist ライブラリ](https://github.com/github/linguist)を使用して、
-構文の強調表示とリポジトリ統計のファイル言語を決定します。 デフォルトブランチに変更をプッシュすると、言語統計が更新されます。
+Some files are hard to identify, and sometimes projects contain more library and vendor files than their primary code. If you're receiving incorrect results, please consult the Linguist [troubleshooting guide](https://github.com/github/linguist/blob/master/docs/troubleshooting.md) for help.
 
-ファイルによっては特定しにくいものもあります。また、プロジェクトによっては、主たるコード以外のライブラリやベンダーファイルが含まれていることもあります。 誤った結果が返される場合は、Linguist の [トラブルシューティングガイド](https://github.com/github/linguist/blob/master/docs/troubleshooting.md)を調べてみてください。
+## Markup languages
 
-## マークアップ言語
-
-マークアップ言語は HTML にレンダリングされ、弊社のオープンソース[マークアップライブラリ](https://github.com/github/markup)を使ってインラインで表示されます。 現時点では、{% data variables.product.product_name %}内で表示する新しいマークアップ言語は受け付けていません。 しかし、弊社は現在のマークアップ言語群を積極的にメンテナンスしています。 もしも問題があれば、[Issue を作成してください](https://github.com/github/markup/issues/new)。
+Markup languages are rendered to HTML and displayed inline using our open-source [Markup library](https://github.com/github/markup). At this time, we are not accepting new markup languages to show within {% data variables.product.product_name %}. However, we do actively maintain our current markup languages. If you see a problem, [please create an issue](https://github.com/github/markup/issues/new).

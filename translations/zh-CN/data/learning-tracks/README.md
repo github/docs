@@ -6,7 +6,7 @@
 
 产品的学习轨迹数据在两个地方定义：
 
-1. 简单的学习轨迹名称数组在产品指南分类索引页面前缀中定义。
+1. A simple array of learning track names is defined in the product guides index page frontmatter.
 
     例如，在 `content/actions/guides/index.md` 中：
     ```
@@ -23,13 +23,13 @@
 
     例如，在 `data/learning-tracks/actions.yml` 中，内容文件的 `learningTracks` 数组中每个项都用 `title`、`description` 和 `guides` 链接数组等额外数据来表示。
 
-    在此 YAML **每个版本**中，必须通过 `featured_track: true` 指定一个学习轨迹为“特色”学习轨迹，这将设置它出现在产品指南页面的顶部。 如果缺少此属性，测试将失败。
+    One learning track in this YAML **per version** must be designated as a "featured" learning track via `featured_track: true`, which will set it to appear at the top of the product guides page. 如果缺少此属性，测试将失败。
 
     `featured_track` 属性可以是简单的布尔值（例如 `featured_track: true`），也可以是包含版本控制语句的字符串（例如 `featured_track: '{% ifversion fpt %}true{% else %}false{% endif %}'`）。 如果您使用版本控制，每个 YML 文件将有多个 `featured_track`，但请确保每个当前支持的版本中只有一个版本会呈现。 如果每个版本的特色链接多于或少于一个，测试将失败。
 
 ## 版本
 
-学习轨迹的版本控制在页面渲染时进行处理。 代码位于 [`lib/learning-tracks.js`](lib/learning-tracks.js) 中，通过 `page.render()` 调用。 然后通过 `components/guides` 渲染处理后的学习轨迹。
+学习轨迹的版本控制在页面渲染时进行处理。 代码位于 [`lib/learning-tracks.js`](lib/learning-tracks.js) 中，通过 `page.render()` 调用。 The processed learning tracks are then rendered by `components/guides`.
 
 Liquid 条件**不**需要用用于指南的 YAML 文件中的版本控制。 只有适用于当前版本的学习跟踪指南才会自动呈现。 如果没有任何属于当前版本的指南的跟踪，学习跟踪部分将不会呈现。
 

@@ -1,6 +1,6 @@
 ---
-title: Editar um quadro de projeto
-intro: Você pode editar o título e a descrição de um quadro de projeto existente.
+title: Editing a project board
+intro: You can edit the title and description of an existing project board.
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/editing-a-project-board
   - /articles/editing-a-project
@@ -15,22 +15,22 @@ versions:
 topics:
   - Pull requests
 ---
-
 {% data reusables.projects.project_boards_old %}
 
 {% tip %}
 
-**Dica:** para ver detalhes sobre como adicionar, remover ou editar colunas no quadro de projeto, consulte "[Criar um quadro de projeto](/articles/creating-a-project-board)".
+**Tip:** For details on adding, removing, or editing columns in your project board, see "[Creating a project board](/articles/creating-a-project-board)."
 
 {% endtip %}
 
-1. Navegue até o quadro de projeto que deseja editar.
+1. Navigate to the project board you want to edit.
 {% data reusables.project-management.click-menu %}
-{% data reusables.project-management.click-edit-sidebar-menu-project-board %}
-4. Modifique o nome e a descrição do quadro de projeto conforme necessário e clique em **Save project** (Salvar projeto). ![Campos com o nome e a descrição do quadro de projeto e o botão Save project (Salvar projeto)](/assets/images/help/projects/edit-project-board-save-button.png)
+{% data reusables.project-management.click-edit-sidebar-menu-project-board %} 
+4. Modify the project board name and description as needed, then click **Save project**.
+![Fields with the project board name and description, and Save project button](/assets/images/help/projects/edit-project-board-save-button.png)
 
-## Leia mais
+## Further reading
 
-- "[Sobre quadros de projetos](/articles/about-project-boards)"
-- "[Adicionar problemas e pull requests a um quadro de projeto](/articles/adding-issues-and-pull-requests-to-a-project-board)"
-- "[Excluir um quadro de projeto](/articles/deleting-a-project-board)"
+- "[About project boards](/articles/about-project-boards)"
+- "[Adding issues and pull requests to a project board](/articles/adding-issues-and-pull-requests-to-a-project-board)"
+- "[Deleting a project board](/articles/deleting-a-project-board)"

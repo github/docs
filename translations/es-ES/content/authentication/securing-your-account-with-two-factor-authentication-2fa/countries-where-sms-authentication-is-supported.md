@@ -67,6 +67,7 @@ Si tu país no está en la lista, significa que actualmente no podemos entregar 
 <li>Islandia</li>
 <li>India</li>
 <li>Indonesia</li>
+<li>Irán</li>
 <li>Irlanda</li>
 <li>Israel</li>
 <li>Italia</li>
@@ -104,6 +105,7 @@ Si tu país no está en la lista, significa que actualmente no podemos entregar 
 <li>Portugal</li>
 <li>Catar</li>
 <li>Rumania</li>
+<li>Rusia</li>
 <li>Ruanda</li>
 <li>Senegal</li>
 <li>Serbia</li>
@@ -115,7 +117,7 @@ Si tu país no está en la lista, significa que actualmente no podemos entregar 
 <li>Corea del Sur</li>
 <li>España</li>
 <li>Sri Lanka</li>
-<li>Santa Lucía</li>
+<li>St. Lucía</li>
 <li>Sudán</li>
 <li>Suecia</li>
 <li>Suiza</li>
@@ -123,8 +125,10 @@ Si tu país no está en la lista, significa que actualmente no podemos entregar 
 <li>Tanzania</li>
 <li>Togo</li>
 <li>Trinidad y Tobago</li>
-<li>Islas Turcas y Caicos</li>
+<li>Turquía</li>
+<li>Turcas y Caicos</li>
 <li>Uganda</li>
+<li>Ucrania</li>
 <li>Emiratos Árabes Unidos</li>
 <li>Reino Unido</li>
 <li>Estados Unidos</li>

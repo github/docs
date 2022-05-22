@@ -22,9 +22,9 @@
     - GitHub Actions
 - 
   #Security policies
-  title: Microsoftセキュリティポリシーテンプレート
+  title: Microsoftセキュリティポリシー
   description: セキュリティポリシーの例
-  href: /microsoft/repo-templates/blob/main/shared/SECURITY.md
+  href: /microsoft/microsoft.github.io/blob/master/SECURITY.MD
   tags:
     - セキュリティポリシー
 - 
@@ -54,9 +54,8 @@
   versions:
     fpt: '*'
     ghec: '*'
-    ghes: '>=3.3'
 - 
-  #Dependabot configuration only relevant to GitHub.com and GHES 3.3+
+  #Dependabot configuration only relevant to GitHub.com
   #Convert "languages" to "package-ecosystems" for Dependabot configurations
   title: Super linterの設定
   description: Super linterリポジトリからのDependabotバージョンアップデート設定の例
@@ -74,7 +73,6 @@
   versions:
     fpt: '*'
     ghec: '*'
-    ghes: '>=3.3'
 - 
   title: DependabotバージョンアップデートPR
   description: Super linterリポジトリ中のDependabotバージョンアップデート設定によって生成されたPull Requestの例
@@ -87,4 +85,3 @@
   versions:
     fpt: '*'
     ghec: '*'
-    ghes: '>=3.3'

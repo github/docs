@@ -16,9 +16,8 @@ children:
   - /about-pull-request-merges
   - /merging-a-pull-request
   - /automatically-merging-a-pull-request
-  - /merging-a-pull-request-with-a-merge-queue
+  - /adding-a-pull-request-to-the-merge-queue
   - /closing-a-pull-request
   - /reverting-a-pull-request
 shortTitle: Incorporate changes
 ---
-

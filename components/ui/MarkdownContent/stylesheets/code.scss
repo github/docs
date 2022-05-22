@@ -2,7 +2,6 @@
   [class~="highlight"] pre,
   pre {
     margin-top: 0.5rem;
-    border: 1px var(--color-border-default) solid;
   }
 
   [class~="height-constrained-code-block"] pre {
@@ -13,8 +12,7 @@
   [class~="code-extra"] {
     margin-top: 1.5rem;
 
-    pre,
-    div {
+    pre {
       margin-top: 0 !important;
       border-top-left-radius: 0 !important;
       border-top-right-radius: 0 !important;

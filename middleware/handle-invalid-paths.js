@@ -1,12 +1,8 @@
 import patterns from '../lib/patterns.js'
-import statsd from '../lib/statsd.js'
-
-const STATSD_KEY = 'middleware.handle_invalid_paths'
 
 export default function handleInvalidPaths(req, res, next) {
   // prevent open redirect vulnerability
   if (req.path.match(patterns.multipleSlashes)) {
-    statsd.increment(STATSD_KEY, 1, ['check:multiple-slashes'])
     return next(404)
   }
 
@@ -18,7 +14,7 @@ export default function handleInvalidPaths(req, res, next) {
     if (process.env.NODE_ENV !== 'test') {
       console.error('unable to decode path', req.path, err)
     }
-    statsd.increment(STATSD_KEY, 1, ['check:decodeURIComponent'])
+
     return res.sendStatus(400)
   }
 
@@ -39,25 +35,21 @@ export default function handleInvalidPaths(req, res, next) {
       console.error('unable to normalize path', req.path, err)
     }
 
-    statsd.increment(STATSD_KEY, 1, ['check:ERR_INVALID_URL'])
     return res.sendStatus(400)
   }
 
   // Prevent some script tag injection attacks
   if (req.path.match(/<script/i)) {
-    statsd.increment(STATSD_KEY, 1, ['check:script-tag-injection'])
     return res.sendStatus(400)
   }
 
   // Prevent some injection attacks targeting Fastly
   if (req.path.match(/<esi:include/i)) {
-    statsd.increment(STATSD_KEY, 1, ['check:esi-injection-attack'])
     return res.sendStatus(400)
   }
 
   // Prevent various malicious injection attacks targeting Next.js
   if (req.path.match(/^\/_next[^/]/) || req.path === '/_next/data' || req.path === '/_next/data/') {
-    statsd.increment(STATSD_KEY, 1, ['check:nextjs-injection-attack'])
     return next(404)
   }
 

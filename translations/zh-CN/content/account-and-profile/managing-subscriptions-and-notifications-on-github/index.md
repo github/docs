@@ -1,6 +1,6 @@
 ---
-title: 在 GitHub 上管理订阅和通知
-intro: 您可以指定如何接收通知，您感兴趣的仓库，以及您想要听到的活动类型。
+title: Managing subscriptions and notifications on GitHub
+intro: 'You can specify how to receive notifications, the repositories you are interested in, and the types of activity you want to hear about.'
 redirect_from:
   - /categories/76/articles
   - /categories/notifications
@@ -17,6 +17,6 @@ children:
   - /setting-up-notifications
   - /viewing-and-triaging-notifications
   - /managing-subscriptions-for-activity-on-github
-shortTitle: 订阅和通知
+shortTitle: Subscriptions & notifications
 ---
 

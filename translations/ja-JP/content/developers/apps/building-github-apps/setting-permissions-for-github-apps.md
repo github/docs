@@ -1,5 +1,5 @@
 ---
-title: GitHub Appの権限の設定
+title: Setting permissions for GitHub Apps
 intro: '{% data reusables.shortdesc.permissions_github_apps %}'
 redirect_from:
   - /apps/building-integrations/setting-up-and-registering-github-apps/about-permissions-for-github-apps
@@ -13,7 +13,6 @@ versions:
   ghec: '*'
 topics:
   - GitHub Apps
-shortTitle: 権限の設定
+shortTitle: Set permissions
 ---
-
-GitHub Appは、デフォルトでは何の権限も持っていません。 GitHub Appを作成する際に、そのアプリケーションがエンドユーザのデータにアクセスするために必要な権限を選択できます。 権限は、追加することも削除することもできます。 詳しい情報については「[GitHub Appの権限の編集](/apps/managing-github-apps/editing-a-github-app-s-permissions/)」を参照してください。
+GitHub Apps don't have any permissions by default. When you create a GitHub App, you can select the permissions it needs to access end user data. Permissions can also be added and removed. For more information, see "[Editing a GitHub App's permissions](/apps/managing-github-apps/editing-a-github-app-s-permissions/)."

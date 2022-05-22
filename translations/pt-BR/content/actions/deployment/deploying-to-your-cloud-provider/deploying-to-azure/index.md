@@ -1,7 +1,7 @@
 ---
-title: Implantando no Azure
-shortTitle: Implantar no Azure
-intro: 'Aprenda como fazer a implantação no Azure App Service, Azure Kubernetes e Azure Static Web App como parte dos fluxos de trabalho de implantação contínua (CD).'
+title: Deploying to Azure
+shortTitle: Deploy to Azure
+intro: Learn how to deploy to Azure App Service, Azure Kubernetes, and Azure Static Web App as part of your continuous deployment (CD) workflows.
 versions:
   fpt: '*'
   ghes: '*'
@@ -17,4 +17,3 @@ children:
   - /deploying-to-azure-static-web-app
   - /deploying-to-azure-kubernetes-service
 ---
-

@@ -1,6 +1,5 @@
+import sleep from 'await-sleep'
 import got from 'got'
-
-const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 
 const ONE_SECOND = 1000
 

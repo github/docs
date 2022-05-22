@@ -1,6 +1,6 @@
 ---
-title: Fluxos de trabalho do Git
-intro: 'O fluxo de fluxo de trabalho do {% data variables.product.prodname_dotcom %} é um fluxo de trabalho leve com base no branch que suporta equipes e projetos que fazem implantação regularmente.'
+title: Git workflows
+intro: '{% data variables.product.prodname_dotcom %} flow is a lightweight, branch-based workflow that supports teams and projects that deploy regularly.'
 redirect_from:
   - /articles/what-is-a-good-git-workflow
   - /articles/git-workflows
@@ -13,5 +13,4 @@ versions:
   ghae: '*'
   ghec: '*'
 ---
-
-Você pode adotar o método de fluxo {% data variables.product.prodname_dotcom %} para padronizar o funcionamento e a colaboração da sua equipe no {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[fluxo de {% data variables.product.prodname_dotcom %} ](/github/getting-started-with-github/github-flow)".
+You can adopt the {% data variables.product.prodname_dotcom %} flow method to standardize how your team functions and collaborates on {% data variables.product.prodname_dotcom %}. For more information, see "[{% data variables.product.prodname_dotcom %} flow](/github/getting-started-with-github/github-flow)."

@@ -1,11 +1,11 @@
 ---
-title: Pull Request での変更をレビューする
+title: Reviewing changes in pull requests
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/reviewing-changes-in-pull-requests
   - /articles/reviewing-and-discussing-changes-in-pull-requests
   - /articles/reviewing-changes-in-pull-requests
   - /github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests
-intro: Pull Request が公開された後に、提案された一連の変更をレビューしたり議論したりできます。
+intro: 'After a pull request has been opened, you can review and discuss the set of proposed changes.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -25,6 +25,5 @@ children:
   - /approving-a-pull-request-with-required-reviews
   - /dismissing-a-pull-request-review
   - /checking-out-pull-requests-locally
-shortTitle: 変更をレビュー
+shortTitle: Review changes
 ---
-

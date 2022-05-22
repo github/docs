@@ -1,6 +1,6 @@
 ---
-title: 构建 GitHub 应用程序
-intro: 您可以构建您自己或其他人使用的 GitHub 应用程序。 了解如何注册和设置 GitHub 应用程序的权限及身份验证选项。
+title: Building GitHub Apps
+intro: You can build GitHub Apps for yourself or others to use. Learn how to register and set up permissions and authentication options for GitHub Apps.
 redirect_from:
   - /apps/building-integrations/setting-up-and-registering-github-apps
   - /apps/building-github-apps

@@ -1,6 +1,6 @@
 ---
-title: Visualizar las bitácoras del escaneo de código
-intro: 'Puedes ver la salida que se generó durante el análisis del {% data variables.product.prodname_code_scanning %} en {% data variables.product.product_location %}.'
+title: Viewing code scanning logs
+intro: 'You can view the output generated during {% data variables.product.prodname_code_scanning %} analysis in {% data variables.product.product_location %}.'
 product: '{% data reusables.gated-features.code-scanning %}'
 permissions: 'If you have write permissions to a repository, you can view the {% data variables.product.prodname_code_scanning %} logs for that repository.'
 miniTocMaxHeadingLevel: 4
@@ -13,70 +13,70 @@ versions:
   ghec: '*'
 topics:
   - Security
-shortTitle: Visualizar las bitácoras del escaneo de código
+shortTitle: View code scanning logs
 ---
 
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning-actions %}
 
-## Acerca de tu configuración del {% data variables.product.prodname_code_scanning %}
+## About your {% data variables.product.prodname_code_scanning %} setup 
 
-Puedes utilizar diversas herramientas para configurar el {% data variables.product.prodname_code_scanning %} en tu repositorio. Para obtener más información, consulta la sección "[Configurar el {% data variables.product.prodname_code_scanning %} en un repositorio](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository#options-for-setting-up-code-scanning)".
+You can use a variety of tools to set up {% data variables.product.prodname_code_scanning %} in your repository. For more information, see  "[Setting up {% data variables.product.prodname_code_scanning %} for a repository](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository#options-for-setting-up-code-scanning)."
 
 {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
-La bitácora y la información diagnóstica que tengas disponible dependerá del método que utilices para el {% data variables.product.prodname_code_scanning %} en tu repositorio. Puedes verificar el tipo de {% data variables.product.prodname_code_scanning %} que estás utilizando en la pestaña de **Seguridad** de tu repositorio si utilizas el menú desplegable de **Herramienta** en la lista de alertas. Para obtener más información, consulta la sección "[Administrar las alertas de {% data variables.product.prodname_code_scanning %} para tu repositorio](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)".
+The log and diagnostic information available to you depends on the method you use for {% data variables.product.prodname_code_scanning %} in your repository. You can check the type of {% data variables.product.prodname_code_scanning %} you're using in the **Security** tab of your repository, by using the **Tool** drop-down menu in the alert list. For more information, see "[Managing {% data variables.product.prodname_code_scanning %} alerts for your repository](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)."
 
-## Acerca del análisis y la información de diagnóstico
+## About analysis and diagnostic information
 
-Puedes ver la información de análisis y diagnóstico para la jecución del {% data variables.product.prodname_code_scanning %} utilizando el análisis de {% data variables.product.prodname_codeql %} en {% data variables.product.prodname_dotcom %}.
+You can see analysis and diagnostic information for {% data variables.product.prodname_code_scanning %} run using {% data variables.product.prodname_codeql %} analysis on {% data variables.product.prodname_dotcom %}. 
 
-La información de **Análisis** se muestra para los análisis más recientes en un encabezado en la parte superior de la lista de alertas. Para obtener más información, consulta la sección "[Administrar las alertas del escaneo de código para tu repositorio](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)".
+**Analysis** information is shown for the most recent analysis in a header at the top of the list of alerts. For more information, see "[Managing code scanning alerts for your repository](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)."
 
-Se muestra información de **Diagnóstico** en las bitácoras del flujo de trabajo de la acción, la cual consiste en un resumen de métricas y diagnóstico de extractor. Para obtener más información sobre cómo acceder a las bitácoras del {% data variables.product.prodname_code_scanning %} en {% data variables.product.prodname_dotcom %}, consulta la sección "[Visualizar la salida de registros del {% data variables.product.prodname_code_scanning %}](#viewing-the-logging-output-from-code-scanning)" a continuación.
+**Diagnostic** information is displayed in the Action workflow logs and consists of summary metrics and extractor diagnostics. For information about accessing {% data variables.product.prodname_code_scanning %} logs on {% data variables.product.prodname_dotcom %}, see "[Viewing the logging output from {% data variables.product.prodname_code_scanning %}](#viewing-the-logging-output-from-code-scanning)" below.
 
-Si estás utilizando el {% data variables.product.prodname_codeql_cli %} fuera de {% data variables.product.prodname_dotcom %}, verás la información de diagnóstico en la salida que se generó durante el análisis de la base de datos. Esta información también se incluye en el archivo de resultados SARIF que cargaste en {% data variables.product.prodname_dotcom %} con los resultados del {% data variables.product.prodname_code_scanning %}.
+If you're using the {% data variables.product.prodname_codeql_cli %} outside {% data variables.product.prodname_dotcom %}, you'll see diagnostic information in the output generated during database analysis. This information is also included in the SARIF results file you upload to {% data variables.product.prodname_dotcom %} with the {% data variables.product.prodname_code_scanning %} results.
 
-Para obtener más información sobre el {% data variables.product.prodname_codeql_cli %}, consulta la sección "[Configurar el {% data variables.product.prodname_codeql_cli %} en tu sistema de IC](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system#viewing-log-and-diagnostic-information)".
+For information about the {% data variables.product.prodname_codeql_cli %}, see "[Configuring {% data variables.product.prodname_codeql_cli %} in your CI system](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system#viewing-log-and-diagnostic-information)."
 
-### Acerca de las métricas de resumen
+### About summary metrics
 
 {% data reusables.code-scanning.summary-metrics %}
 
-### Acerca del diagnóstico de extración del código fuente de {% data variables.product.prodname_codeql %}
+### About {% data variables.product.prodname_codeql %} source code extraction diagnostics
 
 {% data reusables.code-scanning.extractor-diagnostics %}
 
 {% endif %}
-## Visualizar la salida de registro del {% data variables.product.prodname_code_scanning %}
+## Viewing the logging output from {% data variables.product.prodname_code_scanning %}
 
-Esta sección aplica a la ejecución del {% data variables.product.prodname_code_scanning %} utilizando {% data variables.product.prodname_actions %}(de {% data variables.product.prodname_codeql %} o de terceros).
+This section applies to {% data variables.product.prodname_code_scanning %} run using {% data variables.product.prodname_actions %} ({% data variables.product.prodname_codeql %} or third-party).
 
-Después de configurar el {% data variables.product.prodname_code_scanning %} para tu repositorio, puedes observar la salida de las acciones mientras se ejecutan.
+After setting up {% data variables.product.prodname_code_scanning %} for your repository, you can watch the output of the actions as they run.
 
 {% data reusables.repositories.actions-tab %}
 
-  Veràs una lista que incluye una entrada para ejecutar el flujo de trabajo del {% data variables.product.prodname_code_scanning %}. El texto de la entrada es el título que le diste a tu mensaje de confirmación.
+  You'll see a list that includes an entry for running the {% data variables.product.prodname_code_scanning %} workflow. The text of the entry is the title you gave your commit message.
 
-  ![Lista de acciones que muestran el flujo de trabajo del {% data variables.product.prodname_code_scanning %}](/assets/images/help/repository/code-scanning-actions-list.png)
+  ![Actions list showing {% data variables.product.prodname_code_scanning %} workflow](/assets/images/help/repository/code-scanning-actions-list.png)
 
-1. Da clic en la entrada para el flujo de trabajo de {% data variables.product.prodname_code_scanning %}.
+1. Click the entry for the {% data variables.product.prodname_code_scanning %} workflow.
 
-2. Da clic en el nombre del job situado a la izquierda. Por ejemplo, **Analizar (IDIOMA)**.
+2. Click the job name on the left. For example, **Analyze (LANGUAGE)**.
 
-  ![Registro de salida del flujo de trabajo del {% data variables.product.prodname_code_scanning %}](/assets/images/help/repository/code-scanning-logging-analyze-action.png)
+  ![Log output from the {% data variables.product.prodname_code_scanning %} workflow](/assets/images/help/repository/code-scanning-logging-analyze-action.png)
 
-1. Revisa la salida de registro de las acciones en este flujo de trabajo conforme se ejecutan.
+1. Review the logging output from the actions in this workflow as they run.
 
-1. Una vez que todos los jobs se completen, puedes ver los detalles de cualquier alerta del {% data variables.product.prodname_code_scanning %} que se hayan identificado. Para obtener más información, consulta la sección "[Administrar las alertas de {% data variables.product.prodname_code_scanning %} para tu repositorio](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)".
+1. Once all jobs are complete, you can view the details of any {% data variables.product.prodname_code_scanning %} alerts that were identified. For more information, see "[Managing {% data variables.product.prodname_code_scanning %} alerts for your repository](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)."
 
 {% note %}
 
-**Nota:** Si levantaste una solicitud de cambios para agregar el flujo de trabajo del {% data variables.product.prodname_code_scanning %} a las alertas del repositorio, las alertas de esa solicitud de cambios no se mostraràn directamente en la pàgina del {% data variables.product.prodname_code_scanning_capc %} hasta que se fusione dicha solicitud. Si se encontrò alguna de las alertas, puedes verlas antes de que se fusione la solicitud de extracciòn dando clic en el enlace de **_n_ alertas encontradas** en el letrero de la pàgina del {% data variables.product.prodname_code_scanning_capc %}.
+**Note:** If you raised a pull request to add the {% data variables.product.prodname_code_scanning %} workflow to the repository, alerts from that pull request aren't displayed directly on the {% data variables.product.prodname_code_scanning_capc %} page until the pull request is merged. If any alerts were found you can view these, before the pull request is merged, by clicking the **_n_ alerts found** link in the banner on the {% data variables.product.prodname_code_scanning_capc %} page.
 
 {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
-  ![Da clic en el enlace de "n alertas encontradas" link](/assets/images/help/repository/code-scanning-alerts-found-link.png)
+  ![Click the "n alerts found" link](/assets/images/help/repository/code-scanning-alerts-found-link.png)
 {% else %}
-  ![Da clic en el enlace de "n alertas encontradas" link](/assets/images/enterprise/3.1/help/repository/code-scanning-alerts-found-link.png)
+  ![Click the "n alerts found" link](/assets/images/enterprise/3.1/help/repository/code-scanning-alerts-found-link.png)
 {% endif %}
 
 {% endnote %}

@@ -1,9 +1,9 @@
-我们创建了一种开发自行业和 GitHub 最佳实践的分阶段 {% data variables.product.prodname_GH_advanced_security %} (GHAS) 部署方法。 您可以利用此方法与 {% data variables.product.prodname_professional_services %} 合作或独立部署。
+We’ve created a phased approach to {% data variables.product.prodname_GH_advanced_security %} (GHAS) rollouts developed from industry and GitHub best practices. You can utilize this approach for your rollout, either in partnership with {% data variables.product.prodname_professional_services %} or independently.
 
-虽然建议采用分阶段方法，但可以根据组织的需求进行调整。 我们还建议创建并遵守部署和实施的时间表。 当您开始规划时，我们可以一起确定最适合贵组织的理想方法和时间表。
+While the phased approach is recommended, adjustments can be made based on the needs of your organization. We also suggest creating and adhering to a timeline for your rollout and implementation. As you begin your planning, we can work together to identify the ideal approach and timeline that works best for your organization.
 
-根据我们帮助客户成功部署 GHAS 的经验，我们预计大多数客户都希望在我们建议的阶段中跟进其部署。
+Based on our experience helping customers with a successful deployment of GHAS, we expect most customers will want to follow their rollout in our suggested phases.
 
-根据组织的需要，您可能需要修改此方法并更改或删除某些阶段或步骤。
+Depending on the needs of your organization, you may need to modify this approach and alter or remove some phases or steps.
 
-![显示 GitHub 高级安全部署和部署的三个阶段的图表，包括阶段 0：规划和 启动、阶段 1：试点项目、阶段 2：早期采用者组织支持和部署，以及阶段 3：全面组织部署和变更管理](/assets/images/enterprise/security/advanced-security-phased-approach-diagram.png)
+![Diagram showing the three phases of GitHub Advanced Security rollout and deployment, including Phase 0: Planning & Kickoff, Phase 1: Pilot projects, Phase 2: Org Buy-in and Rollout for early adopters, and Phase 3: Full org rollout & change management](/assets/images/enterprise/security/advanced-security-phased-approach-diagram.png)

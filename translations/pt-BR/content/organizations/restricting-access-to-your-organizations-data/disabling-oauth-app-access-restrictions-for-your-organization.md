@@ -1,6 +1,6 @@
 ---
-title: Desabilitar restrições de acesso do aplicativo OAuth da sua organização
-intro: 'Os proprietários da organização podem desabilitar as restrições em {% data variables.product.prodname_oauth_apps %} que têm acesso aos recursos da organização.'
+title: Disabling OAuth App access restrictions for your organization
+intro: 'Organization owners can disable restrictions on the {% data variables.product.prodname_oauth_apps %} that have access to the organization''s resources.'
 redirect_from:
   - /articles/disabling-third-party-application-restrictions-for-your-organization
   - /articles/disabling-oauth-app-access-restrictions-for-your-organization
@@ -11,17 +11,19 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Desabilitar o aplicativo OAuth
+shortTitle: Disable OAuth App
 ---
 
 {% danger %}
 
-**Aviso**: com a desabilitação das restrições de acesso do {% data variables.product.prodname_oauth_app %} da sua organização, qualquer integrante da organização autorizará automaticamente o acesso do {% data variables.product.prodname_oauth_app %} aos recursos privados da organização ao aprovar um aplicativo para ser usado nas configurações de conta pessoal dele.
+**Warning**: When you disable {% data variables.product.prodname_oauth_app %} access restrictions for your organization, any organization member will automatically authorize {% data variables.product.prodname_oauth_app %} access to the organization's private resources when they approve an application for use in their personal account settings.
 
 {% enddanger %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.oauth_app_access %}
-5. Clique em **Remove restrictions** (Remover restrições). ![Botão Remove restrictions (Remover restrições)](/assets/images/help/settings/settings-third-party-remove-restrictions.png)
-6. Depois de revisar as informações sobre desabilitação de restrições de aplicativos de terceiros, clique em **Yes, remove application restrictions** (Sim, remover restrições de aplicativos). ![Botão de remover confirmação](/assets/images/help/settings/settings-third-party-confirm-disable.png)
+5. Click **Remove restrictions**.
+  ![Remove restrictions button](/assets/images/help/settings/settings-third-party-remove-restrictions.png)
+6. After you review the information about disabling third-party application restrictions, click **Yes, remove application restrictions**.
+  ![Remove confirmation button](/assets/images/help/settings/settings-third-party-confirm-disable.png)

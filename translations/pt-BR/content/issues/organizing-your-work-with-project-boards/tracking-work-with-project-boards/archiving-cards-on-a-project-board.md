@@ -21,7 +21,7 @@ A automação no quadro de projeto não se aplica a cartões do quadro de projet
 
 ## Arquivar cartões em um quadro de projeto
 
-1. Em um quadro de projeto, encontre o cartão que você deseja arquivar e clique em {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}. ![Lista de opções para edição de um cartão do quadro de projeto](/assets/images/help/projects/select-archiving-options-project-board-card.png)
+1. Em um quadro de projeto, encontre o cartão que desejar arquivar e clique em {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}. ![Lista de opções para edição de um cartão do quadro de projeto](/assets/images/help/projects/select-archiving-options-project-board-card.png)
 2. Clique em **Arquivar**. ![Opção de seleção de arquivamento no menu](/assets/images/help/projects/archive-project-board-card.png)
 
 ## Restaurar cartões em um quadro de projeto usando a barra lateral

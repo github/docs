@@ -1,7 +1,7 @@
-{% ifversion ghae %}
+{% ifversion ghae-issue-4864 %}
 {% note %}
 
-**注意：**{% data variables.product.prodname_dependabot_alerts %} 目前处于测试阶段，可能会更改。
+**Note:** {% data variables.product.prodname_dependabot_alerts %} is currently in beta and is subject to change.
 
 {% endnote %}
 {% endif %}

@@ -1,6 +1,6 @@
 ---
-title: 键盘快捷键
-intro: '您可以在 {% data variables.product.prodname_desktop %} 中使用键盘快捷键。'
+title: Keyboard shortcuts
+intro: 'You can use keyboard shortcuts in {% data variables.product.prodname_desktop %}.'
 redirect_from:
   - /desktop/getting-started-with-github-desktop/keyboard-shortcuts-in-github-desktop
   - /desktop/getting-started-with-github-desktop/keyboard-shortcuts
@@ -8,114 +8,113 @@ redirect_from:
 versions:
   fpt: '*'
 ---
-
 {% mac %}
 
-MacOS 上的 GitHub Desktop 快捷键
+GitHub Desktop keyboard shortcuts on macOS
 
-## 站点快捷键
+## Site wide shortcuts
 
-| 键盘快捷键                                              | 描述                                                    |
-| -------------------------------------------------- | ----------------------------------------------------- |
-| <kbd>Command</kbd>+<kbd>,</kbd>                    | 进入 Preferences（首选项）                                   |
-| <kbd>Command</kbd>+<kbd>H</kbd>                    | 隐藏 {% data variables.product.prodname_desktop %} 应用程序 |
-| <kbd>Option</kbd>+<kbd>Command</kbd>+<kbd>H</kbd>  | 隐藏所有其他应用程序                                            |
-| <kbd>Command</kbd>+<kbd>Q</kbd>                    | 退出 {% data variables.product.prodname_desktop %}
-| <kbd>Control</kbd>+<kbd>Command</kbd>+<kbd>F</kbd> | 切换全屏视图                                                |
-| <kbd>Command</kbd>+<kbd>0</kbd>                    | 将缩放比例重置为默认的文本大小                                       |
-| <kbd>Command</kbd>+<kbd>=</kbd>                    | 放大文本和图形                                               |
-| <kbd>Command</kbd>+<kbd>-</kbd>                    | 缩小文本和图形                                               |
-| <kbd>Option</kbd>+<kbd>Command</kbd>+<kbd>I</kbd>  | 切换开发者工具                                               |
+| Keyboard shortcut | Description
+|-----------|------------
+|<kbd>⌘</kbd><kbd>,</kbd> | Go to Preferences
+|<kbd>⌘</kbd><kbd>H</kbd> | Hide the {% data variables.product.prodname_desktop %} application
+|<kbd>⌥</kbd><kbd>⌘</kbd><kbd>H</kbd> | Hide all other applications
+|<kbd>⌘</kbd><kbd>Q</kbd> | Quit {% data variables.product.prodname_desktop %}
+|<kbd>⌃</kbd><kbd>⌘</kbd><kbd>F</kbd> | Toggle full screen view
+|<kbd>⌘</kbd><kbd>0</kbd> | Reset zoom to default text size
+|<kbd>⌘</kbd><kbd>=</kbd> | Zoom in for larger text and graphics
+|<kbd>⌘</kbd><kbd>-</kbd> | Zoom out for smaller text and graphics
+|<kbd>⌥</kbd><kbd>⌘</kbd><kbd>I</kbd> | Toggle Developer Tools
 
-## 仓库
+## Repositories
 
-| 键盘快捷键                                            | 描述                                                    |
-| ------------------------------------------------ | ----------------------------------------------------- |
-| <kbd>Command</kbd>+<kbd>N</kbd>                  | 新增仓库                                                  |
-| <kbd>Command</kbd>+<kbd>O</kbd>                  | 添加本地仓库                                                |
-| <kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>O</kbd> | 从 {% data variables.product.prodname_dotcom %} 克隆仓库   |
-| <kbd>Command</kbd>+<kbd>T</kbd>                  | 显示仓库列表                                                |
-| <kbd>Command</kbd>+<kbd>P</kbd>                  | 将最新提交推送到 {% data variables.product.prodname_dotcom %}
-| <kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> | 从 {% data variables.product.prodname_dotcom %} 拉取最新更改 |
-| <kbd>Command</kbd>+<kbd>Delete</kbd>             | 删除现有仓库                                                |
-| <kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>G</kbd> | 在 {% data variables.product.prodname_dotcom %} 上查看仓库  |
-| <kbd>Control</kbd>+<kbd>&grave;</kbd>            | 在首选的终端工具中打开仓库                                         |
-| <kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>F</kbd> | 在 Finder 中显示仓库                                        |
-| <kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>A</kbd> | 在首选的编辑器工具中打开仓库                                        |
-| <kbd>Command</kbd>+<kbd>I</kbd>                  | 在 {% data variables.product.prodname_dotcom %} 上创建议题  |
+| Keyboard shortcut | Description
+|-----------|------------
+|<kbd>⌘</kbd><kbd>N</kbd> | Add a new repository
+|<kbd>⌘</kbd><kbd>O</kbd> | Add a local repository
+|<kbd>⇧</kbd><kbd>⌘</kbd><kbd>O</kbd> | Clone a repository from {% data variables.product.prodname_dotcom %}
+|<kbd>⌘</kbd><kbd>T</kbd> | Show a list of your repositories
+|<kbd>⌘</kbd><kbd>P</kbd> | Push the latest commits to {% data variables.product.prodname_dotcom %}
+|<kbd>⇧</kbd><kbd>⌘</kbd><kbd>P</kbd> | Pull down the latest changes from {% data variables.product.prodname_dotcom %}
+|<kbd>⌘</kbd><kbd>⌫</kbd> | Remove an existing repository
+|<kbd>⇧</kbd><kbd>⌘</kbd><kbd>G</kbd> | View the repository on {% data variables.product.prodname_dotcom %}
+|<kbd>⌃</kbd><kbd>&grave;</kbd> | Open repository in your preferred terminal tool
+|<kbd>⇧</kbd><kbd>⌘</kbd><kbd>F</kbd> | Show the repository in Finder
+|<kbd>⇧</kbd><kbd>⌘</kbd><kbd>A</kbd> | Open the repository in your preferred editor tool
+|<kbd>⌘</kbd><kbd>I</kbd> | Create an issue on {% data variables.product.prodname_dotcom %}
 
-## 分支
+## Branches
 
-| 键盘快捷键                                            | 描述                                                       |
-| ------------------------------------------------ | -------------------------------------------------------- |
-| <kbd>Command</kbd>+<kbd>1</kbd>                  | 在提交前显示所有更改                                               |
-| <kbd>Command</kbd>+<kbd>2</kbd>                  | 显示提交历史记录                                                 |
-| <kbd>Command</kbd>+<kbd>B</kbd>                  | 显示所有分支                                                   |
-| <kbd>Command</kbd>+<kbd>G</kbd>                  | 转到提交摘要字段                                                 |
-| <kbd>Command</kbd>+<kbd>Enter</kbd>              | 当摘要或描述字段处于活动状态时提交更改                                      |
-| <kbd>Space</kbd>                                 | 选择或取消选择所有突出显示的文件                                         |
-| <kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>N</kbd> | 创建新分支                                                    |
-| <kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>R</kbd> | 重命名当前分支                                                  |
-| <kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>D</kbd> | 删除当前分支                                                   |
-| <kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>U</kbd> | 从默认分支更新                                                  |
-| <kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>B</kbd> | 与现有分支比较                                                  |
-| <kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>M</kbd> | 合并到当前分支                                                  |
-| <kbd>Control</kbd>+<kbd>H</kbd>                  | 显示或隐藏储存的更改                                               |
-| <kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>C</kbd> | 比较 {% data variables.product.prodname_dotcom %} 上的分支     |
-| <kbd>Command</kbd>+<kbd>R</kbd>                  | 在 {% data variables.product.prodname_dotcom %} 上显示当前拉取请求 |
+| Keyboard shortcut | Description
+|-----------|------------
+|<kbd>⌘</kbd><kbd>1</kbd> | Show all your changes before committing
+|<kbd>⌘</kbd><kbd>2</kbd> | Show your commit history
+|<kbd>⌘</kbd><kbd>B</kbd> | Show all your branches
+|<kbd>⌘</kbd><kbd>G</kbd> | Go to the commit summary field
+|<kbd>⌘</kbd><kbd>Enter</kbd> | Commit changes when summary or description field is active
+|<kbd>space</kbd>| Select or deselect all highlighted files
+|<kbd>⇧</kbd><kbd>⌘</kbd><kbd>N</kbd> | Create a new branch
+|<kbd>⇧</kbd><kbd>⌘</kbd><kbd>R</kbd> | Rename the current branch
+|<kbd>⇧</kbd><kbd>⌘</kbd><kbd>D</kbd> | Delete the current branch
+|<kbd>⇧</kbd><kbd>⌘</kbd><kbd>U</kbd> | Update from default branch
+|<kbd>⇧</kbd><kbd>⌘</kbd><kbd>B</kbd> | Compare to an existing branch
+|<kbd>⇧</kbd><kbd>⌘</kbd><kbd>M</kbd> | Merge into current branch
+|<kbd>⌃</kbd><kbd>H</kbd> | Show or hide stashed changes
+|<kbd>⇧</kbd><kbd>⌘</kbd><kbd>C</kbd> | Compare branches on {% data variables.product.prodname_dotcom %}
+|<kbd>⌘</kbd><kbd>R</kbd> | Show the current pull request on {% data variables.product.prodname_dotcom %}
 
 {% endmac %}
 
 {% windows %}
 
-Windows 上的 GitHub Desktop 键盘快捷键
+GitHub Desktop keyboard shortcuts on Windows
 
-## 站点快捷键
+## Site wide shortcuts
 
-| 键盘快捷键                                         | 描述              |
-| --------------------------------------------- | --------------- |
-| <kbd>Ctrl</kbd>+<kbd>,</kbd>                  | 转到 Options（选项）  |
-| <kbd>F11</kbd>                                | 切换全屏视图          |
-| <kbd>Ctrl</kbd>+<kbd>0</kbd>                  | 将缩放比例重置为默认的文本大小 |
-| <kbd>Ctrl</kbd>+<kbd>=</kbd>                  | 放大文本和图形         |
-| <kbd>Ctrl</kbd>+<kbd>-</kbd>                  | 缩小文本和图形         |
-| <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>I</kbd> | 切换开发者工具         |
+| Keyboard shortcut | Description
+|-----------|------------
+|<kbd>Ctrl</kbd><kbd>,</kbd> | Go to Options
+|<kbd>F11</kbd> | Toggle full screen view
+|<kbd>Ctrl</kbd><kbd>0</kbd> | Reset zoom to default text size
+|<kbd>Ctrl</kbd><kbd>=</kbd> | Zoom in for larger text and graphics
+|<kbd>Ctrl</kbd><kbd>-</kbd> | Zoom out for smaller text and graphics
+|<kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>I</kbd> | Toggle Developer Tools
 
-## 仓库
+## Repositories
 
-| 键盘快捷键                                         | 描述                                                    |
-| --------------------------------------------- | ----------------------------------------------------- |
-| <kbd>Ctrl</kbd>+<kbd>N</kbd>                  | 新增仓库                                                  |
-| <kbd>Ctrl</kbd>+<kbd>O</kbd>                  | 添加本地仓库                                                |
-| <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>O</kbd> | 从 {% data variables.product.prodname_dotcom %} 克隆仓库   |
-| <kbd>Ctrl</kbd>+<kbd>T</kbd>                  | 显示仓库列表                                                |
-| <kbd>Ctrl</kbd>+<kbd>P</kbd>                  | 将最新提交推送到 {% data variables.product.prodname_dotcom %}
-| <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> | 从 {% data variables.product.prodname_dotcom %} 拉取最新更改 |
-| <kbd>Ctrl</kbd>+<kbd>Delete</kbd>             | 删除现有仓库                                                |
-| <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>G</kbd> | 在 {% data variables.product.prodname_dotcom %} 上查看仓库  |
-| <kbd>Ctrl</kbd>+<kbd>&grave;</kbd>            | 在首选的命令行工具中打开仓库                                        |
-| <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd> | 在 Explorer 中显示仓库                                      |
-| <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>A</kbd> | 在首选的编辑器工具中打开仓库                                        |
-| <kbd>Ctrl</kbd>+<kbd>I</kbd>                  | 在 {% data variables.product.prodname_dotcom %} 上创建议题  |
+| Keyboard Shortcut | Description
+|-----------|------------
+|<kbd>Ctrl</kbd><kbd>N</kbd> | Add a new repository
+|<kbd>Ctrl</kbd><kbd>O</kbd> | Add a local repository
+|<kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>O</kbd> | Clone a repository from {% data variables.product.prodname_dotcom %}
+|<kbd>Ctrl</kbd><kbd>T</kbd> | Show a list of your repositories
+|<kbd>Ctrl</kbd><kbd>P</kbd> | Push the latest commits to {% data variables.product.prodname_dotcom %}
+|<kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>P</kbd> | Pull down the latest changes from {% data variables.product.prodname_dotcom %}
+|<kbd>Ctrl</kbd><kbd>Delete</kbd> | Remove an existing repository
+|<kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>G</kbd> | View the repository on {% data variables.product.prodname_dotcom %}
+|<kbd>Ctrl</kbd><kbd>&grave;</kbd> | Open repository in your preferred command line tool
+|<kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>F</kbd> | Show the repository in Explorer
+|<kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>A</kbd> | Open the repository in your preferred editor tool
+|<kbd>Ctrl</kbd><kbd>I</kbd> | Create an issue on {% data variables.product.prodname_dotcom %}
 
-## 分支
+## Branches
 
-| 键盘快捷键                                         | 描述                                                       |
-| --------------------------------------------- | -------------------------------------------------------- |
-| <kbd>Ctrl</kbd>+<kbd>1</kbd>                  | 在提交前显示所有更改                                               |
-| <kbd>Ctrl</kbd>+<kbd>2</kbd>                  | 显示提交历史记录                                                 |
-| <kbd>Ctrl</kbd>+<kbd>B</kbd>                  | 显示所有分支                                                   |
-| <kbd>Ctrl</kbd>+<kbd>G</kbd>                  | 转到提交摘要字段                                                 |
-| <kbd>Ctrl</kbd>+<kbd>Enter</kbd>              | 当摘要或描述字段处于活动状态时提交更改                                      |
-| <kbd>Space</kbd>                              | 选择或取消选择所有突出显示的文件                                         |
-| <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>N</kbd> | 创建新分支                                                    |
-| <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd> | 重命名当前分支                                                  |
-| <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>D</kbd> | 删除当前分支                                                   |
-| <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>U</kbd> | 从默认分支更新                                                  |
-| <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd> | 与现有分支比较                                                  |
-| <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>M</kbd> | 合并到当前分支                                                  |
-| <kbd>Ctrl</kbd>+<kbd>H</kbd>                  | 显示或隐藏储存的更改                                               |
-| <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>C</kbd> | 比较 {% data variables.product.prodname_dotcom %} 上的分支     |
-| <kbd>Ctrl</kbd>+<kbd>R</kbd>                  | 在 {% data variables.product.prodname_dotcom %} 上显示当前拉取请求 |
+| Keyboard shortcut | Description
+|-----------|------------
+|<kbd>Ctrl</kbd><kbd>1</kbd> | Show all your changes before committing
+|<kbd>Ctrl</kbd><kbd>2</kbd> | Show your commit history
+|<kbd>Ctrl</kbd><kbd>B</kbd> | Show all your branches
+|<kbd>Ctrl</kbd><kbd>G</kbd> | Go to the commit summary field
+|<kbd>Ctrl</kbd><kbd>Enter</kbd> | Commit changes when summary or description field is active
+|<kbd>space</kbd>| Select or deselect all highlighted files
+|<kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>N</kbd> | Create a new branch
+|<kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>R</kbd> | Rename the current branch
+|<kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>D</kbd> | Delete the current branch
+|<kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>U</kbd> | Update from default branch
+|<kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>B</kbd> | Compare to an existing branch
+|<kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>M</kbd> | Merge into current branch
+|<kbd>Ctrl</kbd><kbd>H</kbd> | Show or hide stashed changes
+|<kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>C</kbd> | Compare branches on {% data variables.product.prodname_dotcom %}
+|<kbd>Ctrl</kbd><kbd>R</kbd> | Show the current pull request on {% data variables.product.prodname_dotcom %}
 
 {% endwindows %}

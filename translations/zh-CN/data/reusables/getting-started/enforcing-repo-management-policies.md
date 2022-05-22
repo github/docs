@@ -1,1 +1,1 @@
-作为企业所有者，您可以为 {% data variables.product.product_location %} 中的所有组织设置存储库管理策略，或者允许在每个组织中单独设置策略。 更多信息请参阅“[在企业中实施仓库管理策略](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise)”。
+As an enterprise owner, you can set repository management policies for all organizations in {% data variables.product.product_location %}, or allow policies to be set separately in each organization. 更多信息请参阅“[在企业中实施仓库管理策略](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise)”。

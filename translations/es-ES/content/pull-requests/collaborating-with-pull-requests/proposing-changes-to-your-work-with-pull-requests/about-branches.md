@@ -3,7 +3,7 @@ title: About branches
 intro: 'Use a branch to isolate development work without affecting other branches in the repository. Each repository has one default branch, and can have multiple other branches. You can merge a branch into another branch using a pull request.'
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches
-  - /articles/working-with-protected-branches
+  - /articles/working-with-protected-branches/
   - /articles/about-branches
   - /github/collaborating-with-issues-and-pull-requests/about-branches
   - /github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches

@@ -1,6 +1,6 @@
 ---
-title: 仮想マシンと物理リソースのアップデート
-intro: 仮想ソフトウェアと仮想ハードウェアをアップグレードするためには、インスタンスのダウンタイムが必要になるので、事前にアップグレードについて計画をしておいてください。
+title: Updating the virtual machine and physical resources
+intro: 'Upgrading the virtual software and virtual hardware requires some downtime for your instance, so be sure to plan your upgrade in advance.'
 redirect_from:
   - '/enterprise/{{ currentVersion }}/admin/guides/installation/upgrading-the-vm'
   - '/enterprise/{{ currentVersion }}/admin/guides/installation/upgrading-physical-resources'

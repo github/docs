@@ -1,6 +1,6 @@
 ---
-title: Assinar tags
-intro: Você pode assinar as tags localmente usando GPG ou S/MIME.
+title: Signing tags
+intro: You can sign tags locally using GPG or S/MIME.
 redirect_from:
   - /articles/signing-tags-using-gpg
   - /articles/signing-tags
@@ -15,26 +15,25 @@ topics:
   - Identity
   - Access management
 ---
-
 {% data reusables.gpg.desktop-support-for-commit-signing %}
 
-1. Para assinar uma tag, adicione `-s` ao comando `git tag`.
+1. To sign a tag, add `-s` to your `git tag` command.
   ```shell
   $ git tag -s <em>mytag</em>
   # Creates a signed tag
   ```
-2. Verifique a tag assinada executando `git tag -v [tag-name]`.
+2. Verify your signed tag it by running `git tag -v [tag-name]`.
   ```shell
   $ git tag -v <em>mytag</em>
   # Verifies the signed tag
   ```
 
-## Leia mais
+## Further reading
 
-- "[Exibir tags do seu repositório](/articles/viewing-your-repositorys-tags)"
-- "[Verificar se há chaves GPG existentes](/articles/checking-for-existing-gpg-keys)"
-- "[Gerar uma nova chave GPG](/articles/generating-a-new-gpg-key)"
-- "[Adicionar uma nova chave GPG à sua conta do GitHub](/articles/adding-a-new-gpg-key-to-your-github-account)"
-- "[Avisar o Git sobre sua chave de assinatura](/articles/telling-git-about-your-signing-key)"
-- "[Associar um e-mail à sua chave GPG](/articles/associating-an-email-with-your-gpg-key)"
-- "[Assinar commits](/articles/signing-commits)"
+- "[Viewing your repository's tags](/articles/viewing-your-repositorys-tags)"
+- "[Checking for existing GPG keys](/articles/checking-for-existing-gpg-keys)"
+- "[Generating a new GPG key](/articles/generating-a-new-gpg-key)"
+- "[Adding a new GPG key to your GitHub account](/articles/adding-a-new-gpg-key-to-your-github-account)"
+- "[Telling Git about your signing key](/articles/telling-git-about-your-signing-key)"
+- "[Associating an email with your GPG key](/articles/associating-an-email-with-your-gpg-key)"
+- "[Signing commits](/articles/signing-commits)"

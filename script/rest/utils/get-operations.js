@@ -9,8 +9,9 @@ export default async function getOperations(schema) {
   const operations = []
 
   for (const [requestPath, operationsAtPath] of Object.entries(schema.paths)) {
-    for (const [verb, operationProps] of Object.entries(operationsAtPath)) {
-      const operation = new Operation(verb, requestPath, operationProps, schema.servers)
+    for (const [verb, props] of Object.entries(operationsAtPath)) {
+      const serverUrl = schema.servers[0].url.replace('{protocol}', 'http(s)')
+      const operation = new Operation(verb, requestPath, props, serverUrl)
       operations.push(operation)
     }
   }

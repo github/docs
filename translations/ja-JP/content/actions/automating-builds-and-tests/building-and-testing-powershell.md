@@ -1,6 +1,6 @@
 ---
-title: PowerShell のビルドとテスト
-intro: PowerShell プロジェクトのビルドとテストのための継続的インテグレーション (CI) ワークフローを作成できます。
+title: Building and testing PowerShell
+intro: You can create a continuous integration (CI) workflow to build and test your PowerShell project.
 redirect_from:
   - /actions/guides/building-and-testing-powershell
 versions:
@@ -20,33 +20,34 @@ shortTitle: Build & test PowerShell
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## はじめに
+## Introduction
 
-このガイドでは、CIのためのPowerShellの使用方法を示します。 Pesterの使い方、依存関係のインストール、モジュールのテスト、PowerShell Galleryへの公開について説明します。
+This guide shows you how to use PowerShell for CI. It describes how to use Pester, install dependencies, test your module, and publish to the PowerShell Gallery.
 
-{% data variables.product.prodname_dotcom %}ホストランナーは、PowerShell及びPesterを含むプリインストールされたソフトウェアを伴うツールキャッシュを持ちます。
+{% data variables.product.prodname_dotcom %}-hosted runners have a tools cache with pre-installed software, which includes PowerShell and Pester. 
 
 {% ifversion ghae %}
 {% data reusables.actions.self-hosted-runners-software %}
-{% else %}最新のソフトウェアと、PowerShell および Pester のプレインストールされたバージョンの完全なリストについては、「[{% data variables.product.prodname_dotcom %} ホストランナーの仕様](/actions/reference/specifications-for-github-hosted-runners/#supported-software)」を参照してください。
+{% else %}For a full list of up-to-date software and the pre-installed versions of PowerShell and Pester, see "[Specifications for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
 {% endif %}
 
-## 必要な環境
+## Prerequisites
 
-YAMLと{% data variables.product.prodname_actions %}の構文に馴染んでいる必要があります。 詳しい情報については、「[{% data variables.product.prodname_actions %} を学ぶ](/actions/learn-github-actions)」を参照してください。
+You should be familiar with YAML and the syntax for {% data variables.product.prodname_actions %}. For more information, see "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)."
 
-PowerShell及びPesterの基本的な理解をしておくことをおすすめします。 詳しい情報については、以下を参照してください。
-- [PowerShellを使い始める](https://docs.microsoft.com/powershell/scripting/learn/ps101/01-getting-started)
+We recommend that you have a basic understanding of PowerShell and Pester. For more information, see:
+- [Getting started with PowerShell](https://docs.microsoft.com/powershell/scripting/learn/ps101/01-getting-started)
 - [Pester](https://pester.dev)
 
 {% data reusables.actions.enterprise-setup-prereq %}
 
-## Pesterのワークフローの追加
+## Adding a workflow for Pester
 
-PowerShellとPesterでテストを自動化するには、変更がリポジトリにプッシュされるたびに実行されるワークフローを追加できます。 以下の例では、`resultsfile.log`というファイルがあるかをチェックするために`Test-Path`が使われます。
+To automate your testing with PowerShell and Pester, you can add a workflow that runs every time a change is pushed to your repository. In the following example, `Test-Path` is used to check that a file called `resultsfile.log` is present.
 
-以下の例のワークフローファイルは、リポジトリの`.github/workflows/`ディレクトリに追加しなければなりません。
+This example workflow file must be added to your repository's `.github/workflows/` directory:
 
+{% raw %}
 ```yaml
 name: Test PowerShell on Ubuntu
 on: push
@@ -57,7 +58,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
-        uses: {% data reusables.actions.action-checkout %}
+        uses: actions/checkout@v2
       - name: Perform a Pester test from the command-line
         shell: pwsh
         run: Test-Path resultsfile.log | Should -Be $true
@@ -66,16 +67,19 @@ jobs:
         run: |
           Invoke-Pester Unit.Tests.ps1 -Passthru
 ```
+{% endraw %}
 
-* `shell: pwsh` `run`コマンドの実行時にPowerShellを使うようにジョブを設定します。
-* `run: Test-Path resultsfile.log` - リポジトリのルートディレクトリに`resultsfile.log`というファイルが存在するかをチェックします。
-* `Should -Be $true` - Pesterを使って期待される結果を定義します。 結果が期待どおりではなかった場合、{% data variables.product.prodname_actions %}はこれを失敗したテストとしてフラグを立てます。 例:
+* `shell: pwsh` - Configures the job to use PowerShell when running the `run` commands.
+* `run: Test-Path resultsfile.log` - Check whether a file called `resultsfile.log` is present in the repository's root directory.
+* `Should -Be $true` - Uses Pester to define an expected result. If the result is unexpected, then {% data variables.product.prodname_actions %} flags this as a failed test. For example:
 
+  {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
+  ![Failed Pester test](/assets/images/help/repository/actions-failed-pester-test-updated.png)
+  {% else %}
+  ![Failed Pester test](/assets/images/help/repository/actions-failed-pester-test.png)
+  {% endif %}
 
-  ![失敗したPesterテスト](/assets/images/help/repository/actions-failed-pester-test-updated.png)
-
-
-* `Invoke-Pester Unit.Tests.ps1 -Passthru` - Pesterを使って`Unit.Tests.ps1`というファイルに定義されたテストを実行します。 たとえば上記の同じテストを実行するには、`Unit.Tests.ps1`には以下を含めます。
+* `Invoke-Pester Unit.Tests.ps1 -Passthru` - Uses Pester to execute tests defined in a file called `Unit.Tests.ps1`. For example, to perform the same test described above, the `Unit.Tests.ps1` will contain the following:
   ```
   Describe "Check results file is present" {
       It "Check results file is present" {
@@ -84,67 +88,68 @@ jobs:
   }
   ```
 
-## PowerShellのモジュールの場所
+## PowerShell module locations
 
-以下の表は、それぞれの{% data variables.product.prodname_dotcom %}ホストランナー内の様々なPowerShellモジュールの場所を示します。
+The table below describes the locations for various PowerShell modules in each {% data variables.product.prodname_dotcom %}-hosted runner.
 
-|                         | Ubuntu                                           | macOS                                             | Windows                                                      |
-| ----------------------- | ------------------------------------------------ | ------------------------------------------------- | ------------------------------------------------------------ |
-| **PowerShellシステムモジュール** | `/opt/microsoft/powershell/7/Modules/*`          | `/usr/local/microsoft/powershell/7/Modules/*`     | `C:\program files\powershell\7\Modules\*`              |
-| **PowerShellアドオンモジュール** | `/usr/local/share/powershell/Modules/*`          | `/usr/local/share/powershell/Modules/*`           | `C:\Modules\*`                                            |
-| **ユーザがインストールしたモジュール**   | `/home/runner/.local/share/powershell/Modules/*` | `/Users/runner/.local/share/powershell/Modules/*` | `C:\Users\runneradmin\Documents\PowerShell\Modules\*` |
+|| Ubuntu | macOS | Windows |
+|------|-------|------|----------|
+|**PowerShell system modules** |`/opt/microsoft/powershell/7/Modules/*`|`/usr/local/microsoft/powershell/7/Modules/*`|`C:\program files\powershell\7\Modules\*`|
+|**PowerShell add-on modules**|`/usr/local/share/powershell/Modules/*`|`/usr/local/share/powershell/Modules/*`|`C:\Modules\*`|
+|**User-installed modules**|`/home/runner/.local/share/powershell/Modules/*`|`/Users/runner/.local/share/powershell/Modules/*`|`C:\Users\runneradmin\Documents\PowerShell\Modules\*`|
 
-## 依存関係のインストール
+## Installing dependencies
 
-{% data variables.product.prodname_dotcom %}ホストランナーには、PowerShell 7とPesterがインストールされています。 コードのビルドとテストに先立って、`Install-Module`を使って追加の依存関係をPowerShell Galleryからインストールできます。
+{% data variables.product.prodname_dotcom %}-hosted runners have PowerShell 7 and Pester installed. You can use `Install-Module` to install additional dependencies from the PowerShell Gallery before building and testing your code.
 
 {% note %}
 
-**ノート:** {% data variables.product.prodname_dotcom %}ホストランナーが使用するプリインストールされたパッケージ（Pesterなど）は定期的に更新され、重要な変更が行われることがあります。 そのため、`Install-Module`で`-MaximumVersion`を使って必要なパッケージのバージョンを常に指定しておくことをおすすめします。
+**Note:** The pre-installed packages (such as Pester) used by {% data variables.product.prodname_dotcom %}-hosted runners are regularly updated, and can introduce significant changes. As a result, it is recommended that you always specify the required package versions by using `Install-Module` with `-MaximumVersion`.
 
 {% endnote %}
 
-{% if actions-caching %}You can also cache dependencies to speed up your workflow. For more information, see "[Caching dependencies to speed up workflows](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."{% endif %}
+When using {% data variables.product.prodname_dotcom %}-hosted runners, you can also cache dependencies to speed up your workflow. For more information, see "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Caching dependencies to speed up workflows</a>."
 
-たとえば以下のジョブは、`SqlServer`及び`PSScriptAnalyzer`モジュールをインストールします。
+For example, the following job installs the `SqlServer` and `PSScriptAnalyzer` modules:
 
+{% raw %}
 ```yaml
 jobs:
   install-dependencies:
     name: Install dependencies
     runs-on: ubuntu-latest
     steps:
-      - uses: {% data reusables.actions.action-checkout %}
+      - uses: actions/checkout@v2
       - name: Install from PSGallery
         shell: pwsh
         run: |
           Set-PSRepository PSGallery -InstallationPolicy Trusted
           Install-Module SqlServer, PSScriptAnalyzer
 ```
+{% endraw %}
 
 {% note %}
 
-**ノート:** デフォルトでは、PowerShellはどのリポジトリも信頼しません。 PowerShell Galleryからモジュールをインストールする際には、`PSGallery`のインストールポリシーを明示的に`Trusted`に設定しなければなりません。
+**Note:** By default, no repositories are trusted by PowerShell. When installing modules from the PowerShell Gallery, you must explicitly set the installation policy for `PSGallery` to `Trusted`.
 
 {% endnote %}
 
-{% if actions-caching %}
+### Caching dependencies
 
-### 依存関係のキャッシング
+When using {% data variables.product.prodname_dotcom %}-hosted runners, you can cache PowerShell dependencies using a unique key, which allows you to restore the dependencies for future workflows with the [`cache`](https://github.com/marketplace/actions/cache) action. For more information, see "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Caching dependencies to speed up workflows</a>."
 
-You can cache PowerShell dependencies using a unique key, which allows you to restore the dependencies for future workflows with the [`cache`](https://github.com/marketplace/actions/cache) action. 詳しい情報については、「[ワークフローを高速化するための依存関係のキャッシュ](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)」を参照してください。
+PowerShell caches its dependencies in different locations, depending on the runner's operating system. For example, the `path` location used in the following Ubuntu example will be different for a Windows operating system.
 
-PowerShellは、ランナーのオペレーティングシステムによって依存関係を様々な場所にキャッシュします。 たとえば以下のUbuntuの例で使われる`path`の場所は、Windowsオペレーティングシステムの場合とは異なります。
-
+{% raw %}
 ```yaml
 steps:
-  - uses: {% data reusables.actions.action-checkout %}
+  - uses: actions/checkout@v2
   - name: Setup PowerShell module cache
     id: cacher
-    uses: {% data reusables.actions.action-cache %}
+    uses: actions/cache@v2
     with:
       path: "~/.local/share/powershell/Modules"
-      key: {% raw %}${{ runner.os }}-SqlServer-PSScriptAnalyzer{% endraw %}
+      key: ${{ runner.os }}-SqlServer-PSScriptAnalyzer
   - name: Install required PowerShell modules
     if: steps.cacher.outputs.cache-hit != 'true'
     shell: pwsh
@@ -152,23 +157,23 @@ steps:
       Set-PSRepository PSGallery -InstallationPolicy Trusted
       Install-Module SqlServer, PSScriptAnalyzer -ErrorAction Stop
 ```
+{% endraw %}
 
-{% endif %}
+## Testing your code
 
-## コードのテスト
+You can use the same commands that you use locally to build and test your code.
 
-ローカルで使うのと同じコマンドを、コードのビルドとテストに使えます。
+### Using PSScriptAnalyzer to lint code
 
-### PSScriptAnalyzerを使ったコードの文法チェック
+The following example installs `PSScriptAnalyzer` and uses it to lint all `ps1` files in the repository. For more information, see [PSScriptAnalyzer on GitHub](https://github.com/PowerShell/PSScriptAnalyzer).
 
-以下の例は`PSScriptAnalyzer`をインストールし、それを使ってリポジトリ内のすべての`ps1`ファイルの文法チェックを行います。 詳しい情報については[GitHub上のPSScriptAnalyzer](https://github.com/PowerShell/PSScriptAnalyzer)を参照してください。
-
+{% raw %}
 ```yaml
   lint-with-PSScriptAnalyzer:
     name: Install and run PSScriptAnalyzer
     runs-on: ubuntu-latest
     steps:
-      - uses: {% data reusables.actions.action-checkout %}
+      - uses: actions/checkout@v2
       - name: Install PSScriptAnalyzer module
         shell: pwsh
         run: |
@@ -186,13 +191,15 @@ steps:
               Write-Output "There were $($errors.Count) errors and $($warnings.Count) warnings total."
           }
 ```
+{% endraw %}
 
-## 成果物としてのワークフローのデータのパッケージ化
+## Packaging workflow data as artifacts
 
-ワークフローの完了後に、成果物をアップロードして見ることができます。 たとえば、ログファイル、コアダンプ、テスト結果、スクリーンショットを保存する必要があるかもしれません。 詳しい情報については「[成果物を利用してワークフローのデータを永続化する](/github/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)」を参照してください。
+You can upload artifacts to view after a workflow completes. For example, you may need to save log files, core dumps, test results, or screenshots. For more information, see "[Persisting workflow data using artifacts](/github/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)."
 
-以下の例は、`upload-artifact`アクションを使って`Invoke-Pester`から受信したテスト結果をアーカイブする方法を示しています。 詳しい情報については[`upload-artifact`アクション](https://github.com/actions/upload-artifact)を参照してください。
+The following example demonstrates how you can use the `upload-artifact` action to archive the test results received from `Invoke-Pester`. For more information, see the [`upload-artifact` action](https://github.com/actions/upload-artifact).
 
+{% raw %}
 ```yaml
 name: Upload artifact from Ubuntu
 
@@ -203,26 +210,28 @@ jobs:
     name: Run Pester and upload results
     runs-on: ubuntu-latest
     steps:
-      - uses: {% data reusables.actions.action-checkout %}
+      - uses: actions/checkout@v2
       - name: Test with Pester
         shell: pwsh
         run: Invoke-Pester Unit.Tests.ps1 -Passthru | Export-CliXml -Path Unit.Tests.xml
       - name: Upload test results
-        uses: {% data reusables.actions.action-upload-artifact %}
+        uses: actions/upload-artifact@v2
         with:
           name: ubuntu-Unit-Tests
           path: Unit.Tests.xml
-    if: {% raw %}${{ always() }}{% endraw %}
+    if: ${{ always() }}
 ```
+{% endraw %}
 
-`always()`関数は、テストに失敗があっても継続するようにジョブを設定しています。 詳しい情報については「[ always](/actions/reference/context-and-expression-syntax-for-github-actions#always)」を参照してください。
+The `always()` function configures the job to continue processing even if there are test failures. For more information, see "[always](/actions/reference/context-and-expression-syntax-for-github-actions#always)."
 
-## PowerShell Galleryへの公開
+## Publishing to PowerShell Gallery
 
-CIテストにパスしたら、PowerShellモジュールをPowerShell Galleryに公開するようにワークフローを設定できます。 パッケージを公開するのに必要なトークンや認証情報を保存するために、シークレットを使うことができます。 詳しい情報については、「[暗号化されたシークレットの作成と利用](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)」を参照してください。
+You can configure your workflow to publish your PowerShell module to the PowerShell Gallery when your CI tests pass. You can use secrets to store any tokens or credentials needed to publish your package. For more information, see "[Creating and using encrypted secrets](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
 
-以下の例は、パッケージを作成し、`Publish-Module`を使ってそのパッケージをPowerShell Galleryに公開します。
+The following example creates a package and uses `Publish-Module` to publish it to the PowerShell Gallery:
 
+{% raw %}
 ```yaml
 name: Publish PowerShell Module
 
@@ -234,12 +243,13 @@ jobs:
   publish-to-gallery:
     runs-on: ubuntu-latest
     steps:
-      - uses: {% data reusables.actions.action-checkout %}
+      - uses: actions/checkout@v2
       - name: Build and publish
         env:
-          NUGET_KEY: {% raw %}${{ secrets.NUGET_KEY }}{% endraw %}
+          NUGET_KEY: ${{ secrets.NUGET_KEY }}
         shell: pwsh
         run: |
           ./build.ps1 -Path /tmp/samplemodule
           Publish-Module -Path /tmp/samplemodule -NuGetApiKey $env:NUGET_KEY -Verbose
 ```
+{% endraw %}

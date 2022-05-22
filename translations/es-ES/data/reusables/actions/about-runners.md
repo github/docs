@@ -1,1 +1,1 @@
-Un ejecutor es un servidor que ejecuta tus flujos de trabajo cuando se activan.
+A runner is a server that runs your workflows when they're triggered.

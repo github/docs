@@ -5,7 +5,7 @@ permissions: 'Enterprise owners can enforce policies for {% data variables.produ
 product: '{% data reusables.gated-features.ghas %}'
 versions:
   ghec: '*'
-  ghes: '*'
+  ghes: '>=3.1'
   ghae: '*'
 type: how_to
 topics:

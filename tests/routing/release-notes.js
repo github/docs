@@ -1,8 +1,7 @@
 import { jest } from '@jest/globals'
 import nock from 'nock'
 
-import { get, getDOM } from '../helpers/e2etest.js'
-import enterpriseServerReleases from '../../lib/enterprise-server-releases.js'
+import { get, getDOM } from '../helpers/supertest.js'
 
 jest.useFakeTimers('legacy')
 
@@ -36,14 +35,11 @@ describe('release notes', () => {
   })
 
   it("renders the release-notes layout if this version's release notes are in this repo", async () => {
-    const oldestSupportedGhes = enterpriseServerReleases.oldestSupported
-    const res = await get(`/en/enterprise-server@${oldestSupportedGhes}/admin/release-notes`)
+    const res = await get('/en/enterprise-server@3.0/admin/release-notes')
     expect(res.statusCode).toBe(200)
-    const $ = await getDOM(`/en/enterprise-server@${oldestSupportedGhes}/admin/release-notes`)
-    expect($('h1').text()).toBe(`Enterprise Server ${oldestSupportedGhes} release notes`)
-    expect(
-      $('h2').first().text().trim().startsWith(`Enterprise Server ${oldestSupportedGhes}`)
-    ).toBe(true)
+    const $ = await getDOM('/en/enterprise-server@3.0/admin/release-notes')
+    expect($('h1').text()).toBe('Enterprise Server 3.0 release notes')
+    expect($('h2').first().text().trim().startsWith('Enterprise Server 3.0')).toBe(true)
   })
 
   it('renders the release-notes layout for GitHub AE', async () => {

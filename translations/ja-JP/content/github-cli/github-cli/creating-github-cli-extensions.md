@@ -80,7 +80,7 @@ You can use the `--precompiled=other` argument to create a project for your non-
 
   {% endnote %}
 
-1. Write your script in the executable file. 例:
+1. Write your script in the executable file. For example:
 
   ```bash
   #!/usr/bin/env bash
@@ -188,7 +188,7 @@ For more information, see [`gh help formatting`](https://cli.github.com/manual/g
 
 1. Create a local directory called `gh-EXTENSION-NAME` for your extension. Replace `EXTENSION-NAME` with the name of your extension. For example, `gh-whoami`.
 
-1. In the directory you created, add some source code. 例:
+1. In the directory you created, add some source code. For example:
 
     ```go
     package main
@@ -253,9 +253,15 @@ For more information, see [`gh help formatting`](https://cli.github.com/manual/g
 
   {% endnote %}
 
-  Releases can be created from the command line. 例:
+  Releases can be created from the command line. For example:
 
-  ```shell git tag v1.0.0 git push origin v1.0.0 GOOS=windows GOARCH=amd64 go build -o gh-<em>EXTENSION-NAME</em>-windows-amd64.exe GOOS=linux GOARCH=amd64 go build -o gh-<em>EXTENSION-NAME</em>-linux-amd64 GOOS=darwin GOARCH=amd64 go build -o gh-<em>EXTENSION-NAME</em>-darwin-amd64 gh release create v1.0.0 ./*amd64*
+  ```shell
+  git tag v1.0.0
+  git push origin v1.0.0
+  GOOS=windows GOARCH=amd64 go build -o gh-<em>EXTENSION-NAME</em>-windows-amd64.exe
+  GOOS=linux GOARCH=amd64 go build -o gh-<em>EXTENSION-NAME</em>-linux-amd64
+  GOOS=darwin GOARCH=amd64 go build -o gh-<em>EXTENSION-NAME</em>-darwin-amd64
+  gh release create v1.0.0 ./*amd64*
 
 1. Optionally, to help other users discover your extension, add the repository topic `gh-extension`. This will make the extension appear on the [`gh-extension` topic page](https://github.com/topics/gh-extension). For more information about how to add a repository topic, see "[Classifying your repository with topics](/github/administering-a-repository/managing-repository-settings/classifying-your-repository-with-topics)."
 
@@ -270,6 +276,6 @@ Consider adding the [gh-extension-precompile](https://github.com/cli/gh-extensio
 
 Consider using [go-gh](https://github.com/cli/go-gh), a Go library that exposes pieces of `gh` functionality for use in extensions.
 
-## 次のステップ
+## Next steps
 
 To see more examples of {% data variables.product.prodname_cli %} extensions, look at [repositories with the `gh-extension` topic](https://github.com/topics/gh-extension).

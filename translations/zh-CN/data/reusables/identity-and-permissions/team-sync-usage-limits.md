@@ -1,8 +1,8 @@
 ### 使用限制
 
-团队同步功能存在使用限制。  超过这些限制将导致性能下降，并可能导致同步失败。
+There are usage limits for the team synchonization feature.  Exceeding these limits will lead to a degredation in performance and may cause synchronization failures.
 
-- GitHub 团队中的最大成员数：5,000
-- GitHub 组织中的最大成员数：10,000
-- GitHub 组织中的最大团队数：1,500
+- Maximum number of members in a GitHub team: 5,000
+- Maximum number of members in a GitHub organization: 10,000
+- Maximum number of teams in a GitHub organization: 1,500
 

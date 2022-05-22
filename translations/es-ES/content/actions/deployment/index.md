@@ -1,7 +1,7 @@
 ---
-title: Despliegue
-shortTitle: Despliegue
-intro: 'Despliega proyectos automáticamente con {% data variables.product.prodname_actions %}.'
+title: Deployment
+shortTitle: Deployment
+intro: 'Automatically deploy projects with {% data variables.product.prodname_actions %}.'
 versions:
   fpt: '*'
   ghes: '*'

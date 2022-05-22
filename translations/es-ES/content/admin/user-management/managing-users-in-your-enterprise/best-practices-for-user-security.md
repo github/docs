@@ -31,4 +31,4 @@ Te recomendamos ampliamente que requieras que tus usuarios instalen y utilicen u
 
 Para limitar la posible superficie expuesta a ataques en el caso de una vulneración de la seguridad, te recomendamos que se le de a los usuarios acceso solo a los equipos y los repositorios que realmente necesiten para realizar su trabajo. Ya que los miembros con rol de propietario pueden acceder a todos los equipos y los repositorios en la organización, te recomendamos que este equipo sea lo más pequeño posible.
 
-Para obtener más información sobre cómo configurar los equipos y sus permisos, consulta la sección "[Roles en una organización](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)".
+For more information on configuring teams and team permissions, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."

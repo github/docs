@@ -1,37 +1,38 @@
 ---
-title: Configurar los pies de página personalizados
-intro: 'Puedes otorgar un acceso fácil a los usuarios para los enlaces específicos de la empresa si agregas pies de página personalizados a {% data variables.product.product_name %}.'
+title: Configuring custom footers
+intro: 'You can give users easy access to enterprise-specific links by adding custom footers to {% data variables.product.product_name %}.'
 versions:
   ghec: '*'
   ghes: '>=3.4'
-  ghae: issue-5487
 type: how_to
 topics:
   - Enterprise
   - Fundamentals
-shortTitle: Configurar los pies de página personalizados
+shortTitle: Configure custom footers
 ---
+Enterprise owners can configure {% data variables.product.product_name %} to show custom footers with up to five additional links.
 
-Los propietarios de empresas pueden configurar a {% data variables.product.product_name %} para que muestre pies de página personalizados con hasta cinco enlaces adicionales.
+![Custom footer](/assets/images/enterprise/custom-footer/octodemo-footer.png)
 
-![Pie de página personalizado](/assets/images/enterprise/custom-footer/octodemo-footer.png)
+The custom footer is displayed above the {% data variables.product.prodname_dotcom %} footer {% ifversion ghes or ghae %}to all users, on all pages of {% data variables.product.product_name %}{% else %}to all enterprise members and collaborators, on all repository and organization pages for repositories and organizations that belong to the enterprise{% endif %}.
 
-El pie de página personalizado se muestra sobre el pie de página de {% data variables.product.prodname_dotcom %} {% ifversion ghes or ghae %}para todos los usuarios, en todas las páginas de {% data variables.product.product_name %}{% elsif ghec %}para todos los miembros y colaboradores de la empresa, en todas las páginas de organización y repositorios y en aquellas organizaciones que pertenezcan a la empresa{% endif %}.
-
-## Configurar los pies de página personalizados para tu empresa
+## Configuring custom footers for your enterprise
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 
-1. Debajo de "Ajustes", haz clic en **Perfil**.
+1. Under "Settings", click **Profile**.
 {%- ifversion ghec %}
-![Ajustes de perfil empresarial](/assets/images/enterprise/custom-footer/enterprise-profile-ghec.png)
+![Enterprise profile settings](/assets/images/enterprise/custom-footer/enterprise-profile-ghec.png)
 {%- else %}
-![Ajustes de perfil empresarial](/assets/images/enterprise/custom-footer/enterprise-profile-ghes.png)
+![Enterprise profile settings](/assets/images/enterprise/custom-footer/enterprise-profile-ghes.png)
 {%- endif %}
 
-1. En la parte superior de la sección de Perfil, haz clic en **Pie de página personalizado**. ![Sección de pie de página personalizado](/assets/images/enterprise/custom-footer/custom-footer-section.png)
+1. At the top of the Profile section, click **Custom footer**.
+![Custom footer section](/assets/images/enterprise/custom-footer/custom-footer-section.png)
 
-1. Agrega hasta cinco enlaces en los campos que se muestran. ![Agregar enlaces de pie de página](/assets/images/enterprise/custom-footer/add-footer-links.png)
+1. Add up to five links in the fields shown.
+![Add footer links](/assets/images/enterprise/custom-footer/add-footer-links.png)
 
-1. Haz clic en **Actualizar pie de página personalizado** para guardar el contenido y mostrar el pie de página personalizado. ![Actualiza el pie de página personalizado](/assets/images/enterprise/custom-footer/update-custom-footer.png)
+1. Click **Update custom footer** to save the content and display the custom footer.
+![Update custom footer](/assets/images/enterprise/custom-footer/update-custom-footer.png)

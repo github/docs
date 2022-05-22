@@ -3,7 +3,7 @@ title: Solucionar problemas de un pago de tarjeta de crédito rechazado
 intro: 'Si se rechaza la tarjeta de crédito que utilizas para pagar {% data variables.product.product_name %}, puedes tomar varias medidas para asegurarte de que tus pagos se concreten y de no estar bloqueado de tu cuenta.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/troubleshooting-a-declined-credit-card-charge
-  - /articles/what-do-i-do-if-my-card-is-declined
+  - /articles/what-do-i-do-if-my-card-is-declined/
   - /articles/troubleshooting-a-declined-credit-card-charge
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-github-billing-settings/troubleshooting-a-declined-credit-card-charge
 versions:

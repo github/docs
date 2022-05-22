@@ -35,6 +35,7 @@ You've successfully forked the Spoon-Knife repository, but so far, it only exist
 
 You can clone your fork with the command line, {% data variables.product.prodname_cli %}, or {% data variables.product.prodname_desktop %}.
 
+{% include tool-switcher %}
 {% webui %}
 
 1. On {% data variables.product.product_name %}, navigate to **your fork** of the Spoon-Knife repository.
@@ -86,6 +87,7 @@ Go ahead and make a few changes to the project using your favorite text editor, 
 
 When you're ready to submit your changes, stage and commit your changes. `git add .` tells Git that you want to include all of your changes in the next commit. `git commit` takes a snapshot of those changes.
 
+{% include tool-switcher %}
 {% webui %}
 
 ```shell
@@ -114,6 +116,7 @@ When you stage and commit files, you essentially tell Git, "Okay, take a snapsho
 
 Right now, your changes only exist locally. When you're ready to push your changes up to {% data variables.product.product_name %}, push your changes to the remote.
 
+{% include tool-switcher %}
 {% webui %}
 
 ```shell

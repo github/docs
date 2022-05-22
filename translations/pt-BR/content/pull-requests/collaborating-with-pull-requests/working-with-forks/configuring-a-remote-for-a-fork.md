@@ -1,6 +1,6 @@
 ---
 title: Configurar remote para bifurcação
-intro: 'Você deve configurar um controle remoto que aponte para o repositório upstream no Git para [sincronizar alterações que você fizer em uma bifurcação](/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork) com o repositório original. Isso também permite sincronizar alterações feitas no repositório original com a bifurcação.'
+intro: 'You must configure a remote that points to the upstream repository in Git to [sync changes you make in a fork](/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork) with the original repository. Isso também permite sincronizar alterações feitas no repositório original com a bifurcação.'
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/working-with-forks/configuring-a-remote-for-a-fork
   - /articles/configuring-a-remote-for-a-fork

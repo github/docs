@@ -1,6 +1,6 @@
 ---
-title: SSH キーのパスフレーズのリカバリ
-intro: SSH キーのパスフレーズをなくした場合、ご使用のオペレーティングシステムによって、リカバリができることもあれば、SSH キーのパスフレーズを新たに生成することが必要なこともあります。
+title: Recovering your SSH key passphrase
+intro: 'If you''ve lost your SSH key passphrase, depending on the operating system you use, you may either recover it or you may need to generate a new SSH key passphrase.'
 redirect_from:
   - /articles/how-do-i-recover-my-passphrase
   - /articles/how-do-i-recover-my-ssh-key-passphrase
@@ -16,28 +16,29 @@ topics:
   - SSH
 shortTitle: Recover SSH key passphrase
 ---
-
 {% mac %}
 
-[macOS キーチェーンを使用して SSH パスフレーズを設定](/articles/working-with-ssh-key-passphrases#saving-your-passphrase-in-the-keychain)した場合、リカバリできる可能性があります。
+If you [configured your SSH passphrase with the macOS keychain](/articles/working-with-ssh-key-passphrases#saving-your-passphrase-in-the-keychain), you may be able to recover it.
 
-1. [Finder] で、**Keychain Access** アプリケーションを検索します。 ![スポットライト検索バー](/assets/images/help/setup/keychain-access.png)
-2. [Keychain Access] で、**SSH** を検索します。
-3. SSH キーのエントリをダブルクリックして、新しいダイアログボックスを開きます。
-4. 左下隅で、[**Show password**] を選択します。 ![キーチェーンアクセスダイアログ](/assets/images/help/setup/keychain_show_password_dialog.png)
-5. 管理者パスワードを入力するようプロンプトが表示されます。 [Keychain Access] ダイアログボックスに入力します。
-6. パスワードのマスクが解除されます。
+1. In Finder, search for the **Keychain Access** app.
+   ![Spotlight Search bar](/assets/images/help/setup/keychain-access.png)
+2. In Keychain Access, search for **SSH**.
+3. Double click on the entry for your SSH key to open a new dialog box.
+4. In the lower-left corner, select **Show password**.
+   ![Keychain access dialog](/assets/images/help/setup/keychain_show_password_dialog.png)
+5. You'll be prompted for your administrative password. Type it into the "Keychain Access" dialog box.
+6. Your password will be revealed.
 
 {% endmac %}
 
 {% windows %}
 
-SSH キーパスフレーズをなくした場合、リカバリの方法はありません。 [まったく新しく SSH キーペアを生成する](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)か [HTTPS クローニングに切り替える](/github/getting-started-with-github/managing-remote-repositories)かして、GitHub パスワードを代替で使用できるようにする必要があります。
+If you lose your SSH key passphrase, there's no way to recover it. You'll need to [generate a brand new SSH keypair](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) or [switch to HTTPS cloning](/github/getting-started-with-github/managing-remote-repositories) so you can use your GitHub password instead.
 
 {% endwindows %}
 
 {% linux %}
 
-SSH キーパスフレーズをなくした場合、リカバリの方法はありません。 [まったく新しく SSH キーペアを生成する](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)か [HTTPS クローニングに切り替える](/github/getting-started-with-github/about-remote-repositories/#cloning-with-https-urls)かして、GitHub パスワードを代替で使用できるようにする必要があります。
+If you lose your SSH key passphrase, there's no way to recover it. You'll need to [generate a brand new SSH keypair](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) or [switch to HTTPS cloning](/github/getting-started-with-github/about-remote-repositories/#cloning-with-https-urls) so you can use your GitHub password instead.
 
 {% endlinux %}

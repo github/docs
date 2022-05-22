@@ -1,6 +1,6 @@
 ---
-title: Comprobar el estado de verificación de firma de la confirmación y de la etiqueta
-intro: 'Puedes comprobar el estado de verificación de las firmas de tu confirmación y de la etiqueta en {% data variables.product.product_name %}.'
+title: Checking your commit and tag signature verification status
+intro: 'You can check the verification status of your commit and tag signatures on {% data variables.product.product_name %}.'
 redirect_from:
   - /articles/checking-your-gpg-commit-and-tag-signature-verification-status
   - /articles/checking-your-commit-and-tag-signature-verification-status
@@ -14,26 +14,30 @@ versions:
 topics:
   - Identity
   - Access management
-shortTitle: Verificar el estado de verificación
+shortTitle: Check verification status
 ---
+## Checking your commit signature verification status
 
-## Comprobar el estado de verificación de firma de la confirmación
-
-1. En {% data variables.product.product_name %}, desplázate hasta la solicitud de extracción.
+1. On {% data variables.product.product_name %}, navigate to your pull request.
 {% data reusables.repositories.review-pr-commits %}
-3. Junto al hash de confirmación abreviado de tu confirmación, hay una casilla que te muestra si tu firma de confirmación se verificó{% ifversion fpt or ghec %}, se verificó parcialmente,{% endif %} o si no se verificó. ![Confirmación firmada](/assets/images/help/commits/gpg-signed-commit-verified-without-details.png)
-4. Para ver información más detallada sobre la firma de confirmación, haz clic en **Verificada**{% ifversion fpt or ghec %}, **Verificada parcialmente**,{% endif %} o **Sin verificar**. ![Confirmación firmada verificada](/assets/images/help/commits/gpg-signed-commit_verified_details.png)
+3. Next to your commit's abbreviated commit hash, there is a box that shows whether your commit signature is verified{% ifversion fpt or ghec %}, partially verified,{% endif %} or unverified.
+![Signed commit](/assets/images/help/commits/gpg-signed-commit-verified-without-details.png)
+4. To view more detailed information about the commit signature, click **Verified**{% ifversion fpt or ghec %}, **Partially verified**,{% endif %} or **Unverified**.
+![Verified signed commit](/assets/images/help/commits/gpg-signed-commit_verified_details.png)
 
-## Comprobar el estado de verificación de firma de la etiqueta
+## Checking your tag signature verification status
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.releases %}
-2. En la parte superior de la página de lanzamiento, haz clic en **Tags** (Etiqueta). ![Página de etiquetas](/assets/images/help/releases/tags-list.png)
-3. Junto a la descripción de tu etiqueta, hay una caja que muestra si tu firma de etiqueta está verificada{% ifversion fpt or ghec %}, verificada parcialmente,{% endif %} o sin verificar. ![firma de etiqueta verificada](/assets/images/help/commits/gpg-signed-tag-verified.png)
-4. Para ver más información detallada sobre la firma de una etiqueta, haz clic en **Verificada**{% ifversion fpt or ghec %},**Verificada parcialmente**,{% endif %} o **Sin verificar**. ![Etiqueta firmada verificada](/assets/images/help/commits/gpg-signed-tag-verified-details.png)
+2. At the top of the Releases page, click **Tags**.
+![Tags page](/assets/images/help/releases/tags-list.png)
+3. Next to your tag description, there is a box that shows whether your tag signature is verified{% ifversion fpt or ghec %}, partially verified,{% endif %} or unverified.
+![verified tag signature](/assets/images/help/commits/gpg-signed-tag-verified.png)
+4. To view more detailed information about the tag signature, click **Verified**{% ifversion fpt or ghec %}, **Partially verified**,{% endif %} or **Unverified**. 
+![Verified signed tag](/assets/images/help/commits/gpg-signed-tag-verified-details.png)
 
-## Leer más
+## Further reading
 
-- "[Acerca de la verificación de la firma de confirmación](/articles/about-commit-signature-verification)"
-- "[Firmar confirmaciones](/articles/signing-commits)"
-- "[Firmar etiquetas](/articles/signing-tags)"
+- "[About commit signature verification](/articles/about-commit-signature-verification)"
+- "[Signing commits](/articles/signing-commits)"
+- "[Signing tags](/articles/signing-tags)"

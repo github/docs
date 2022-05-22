@@ -1,6 +1,6 @@
 ---
-title: 错误：代理承认没有签署
-intro: '在极少数情况下，在 Linux 上通过 SSH 连接 {% data variables.product.product_name %} 会产生错误“Agent admitted failure to sign using the key”（代理承认没有使用密钥签署）。 请遵循以下步骤解决此问题。'
+title: 'Error: Agent admitted failure to sign'
+intro: 'In rare circumstances, connecting to {% data variables.product.product_name %} via SSH on Linux produces the error `"Agent admitted failure to sign using the key"`. Follow these steps to resolve the problem.'
 redirect_from:
   - /articles/error-agent-admitted-failure-to-sign-using-the-key
   - /articles/error-agent-admitted-failure-to-sign
@@ -13,10 +13,9 @@ versions:
   ghec: '*'
 topics:
   - SSH
-shortTitle: 代理签名失败
+shortTitle: Agent failure to sign
 ---
-
-在 Linux 上尝试将通过 SSH 连接到 {% data variables.product.product_location %} 时，可能在终端上看到以下信息：
+When trying to SSH into {% data variables.product.product_location %} on a Linux computer, you may see the following message in your terminal:
 
 ```shell
 $ ssh -vT git@{% data variables.command_line.codeblock %}
@@ -26,11 +25,11 @@ $ ssh -vT git@{% data variables.command_line.codeblock %}
 > Permission denied (publickey).
 ```
 
-更多详细信息请参阅<a href="https://bugs.launchpad.net/ubuntu/+source/gnome-keyring/+bug/201786" data-proofer-ignore>本问题报告</a>。
+For more details, see <a href="https://bugs.launchpad.net/ubuntu/+source/gnome-keyring/+bug/201786" data-proofer-ignore>this issue report</a>.
 
-## 解决方法
+## Resolution
 
-通过使用 `ssh-add` 将密钥加载到 SSH 代理，应该能够修复此错误：
+You should be able to fix this error by loading your keys into your SSH agent with `ssh-add`:
 
 ```shell
 # start the ssh-agent in the background
@@ -41,7 +40,7 @@ $ ssh-add
 > Identity added: /home/<em>you</em>/.ssh/id_rsa (/home/<em>you</em>/.ssh/id_rsa)
 ```
 
-如果密钥没有默认文件名 (`/.ssh/id_rsa`)，必须将该路径传递到 `ssh-add`：
+If your key does not have the default filename (`/.ssh/id_rsa`), you'll have to pass that path to `ssh-add`:
 
 ```shell
 # start the ssh-agent in the background

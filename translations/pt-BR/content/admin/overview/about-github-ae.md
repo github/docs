@@ -1,6 +1,6 @@
 ---
-title: Sobre o GitHub AE
-intro: '{% data variables.product.prodname_ghe_managed %} é uma forma de segurança aprimorada e compatível de usar {% data variables.product.prodname_dotcom %} na nuvem.'
+title: About GitHub AE
+intro: '{% data variables.product.prodname_ghe_managed %} is a security-enhanced and compliant way to use {% data variables.product.prodname_dotcom %} in the cloud.'
 versions:
   ghae: '*'
 type: overview
@@ -9,33 +9,33 @@ topics:
   - Fundamentals
 ---
 
-## Sobre o {% data variables.product.prodname_ghe_managed %}
+## About {% data variables.product.prodname_ghe_managed %}
 
-{% data reusables.github-ae.github-ae-enables-you %} {% data variables.product.prodname_ghe_managed %} é totalmente gerenciada, confiável e escalável, o que permite que você acelere a entrega sem sacrificar a gestão de risco.
+{% data reusables.github-ae.github-ae-enables-you %} {% data variables.product.prodname_ghe_managed %} is fully managed, reliable, and scalable, allowing you to accelerate delivery without sacrificing risk management.
 
-{% data variables.product.prodname_ghe_managed %} oferece uma plataforma de desenvolvedor da ideia à produção. Você pode aumentar a velocidade do desenvolvimento com as ferramentas que as equipes conhecem e gostam, ao mesmo tempo em que você mantém a conformidade com o setor e com os regulamentos com controles únicos de segurança e acesso, automação de fluxo de trabalho e aplicação da política.
+{% data variables.product.prodname_ghe_managed %} offers one developer platform from idea to production. You can increase development velocity with the tools that teams know and love, while you maintain industry and regulatory compliance with unique security and access controls, workflow automation, and policy enforcement. 
 
-## Uma nuvem de alta disponibilidade e escala planetária
+## A highly available and planet-scale cloud
 
-{% data variables.product.prodname_ghe_managed %} é um serviço totalmente gerenciado, hospedado em uma arquitetura de alta disponibilidade. {% data variables.product.prodname_ghe_managed %} está hospedado globalmente em uma nuvem que pode ser escalada para ser compatível com todo o seu ciclo de vida de desenvolvimento sem limites. {% data variables.product.prodname_dotcom %} gerencia totalmente os backups, failover e recuperação de desastres para que você nunca tenha que se preocupar com o seu serviço ou dados.
+{% data variables.product.prodname_ghe_managed %} is a fully managed service, hosted in a high availability architecture. {% data variables.product.prodname_ghe_managed %} is hosted globally in a cloud that can scale to support your full development lifecycle without limits. {% data variables.product.prodname_dotcom %} fully manages backups, failover, and disaster recovery, so you never need to worry about your service or data. 
 
-## Residência dos dados
+## Data residency
 
-Todos os seus dados são armazenados na região geográfica da sua escolha. Você pode cumprir os padrões de proteção de dados e o RGPD global mantendo todos os seus dados na sua região escolhida.
+All of your data is stored within the geographic region of your choosing. You can comply with GDPR and global data protection standards by keeping all of your data within your chosen region.
 
-## Contas isoladas
+## Isolated accounts
 
-Todas as contas de desenvolvedor são completamente isoladas em {% data variables.product.prodname_ghe_managed %}. Você pode controlar totalmente as contas por meio do seu provedor de identidade, com o logon único SAML como obrigatório. O SCIM permite que você garanta que os funcionários só têm acesso aos recursos que deveriam, conforme definido no seu sistema central de gestão de identidades. Para obter mais informações, consulte "[Gerenciar identidade e acesso para sua empresa](/admin/authentication/managing-identity-and-access-for-your-enterprise)".
+All developer accounts are fully isolated in {% data variables.product.prodname_ghe_managed %}. You can fully control the accounts through your identity provider, with SAML single sign on as mandatory. SCIM enables you to ensure that employees only have access to the resources they should, as defined in your central identity management system. For more information, see "[Managing identity and access for your enterprise](/admin/authentication/managing-identity-and-access-for-your-enterprise)."
 
-## Acesso restrito às redes
+## Restricted network access
 
-Acesso seguro à sua empresa em {% data variables.product.prodname_ghe_managed %} com acesso restrito à rede, para que seus dados possam ser acessados somente de dentro da sua rede. Para obter mais informações, consulte "[Restringir tráfego de rede para a sua empresa](/admin/configuration/restricting-network-traffic-to-your-enterprise)".
+Secure access to your enterprise on {% data variables.product.prodname_ghe_managed %} with restricted network access, so that your data can only be accessed from within your network. For more information, see "[Restricting network traffic to your enterprise](/admin/configuration/restricting-network-traffic-to-your-enterprise)."
 
-## Ambientes comercial e governamental
+## Commercial and government environments
 
-{% data variables.product.prodname_ghe_managed %} está disponível na nuvem do Azure Government, na nuvem de confiança das agências governamentais dos EUA e seus parceiros. {% data variables.product.prodname_ghe_managed %} também está disponível na nuvem comercial. Portanto, você pode escolher o ambiente de hospedagem correto para a sua organização.
+{% data variables.product.prodname_ghe_managed %} is available in the Azure Government cloud, the trusted cloud for US government agencies and their partners. {% data variables.product.prodname_ghe_managed %} is also available in the commercial cloud, so you can choose the hosting environment that is right for your organization.
 
-## Leia mais
+## Further reading
 
-- "[Sobre as versões do {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs)"
-- "[Recebendo ajuda do suporte de {% data variables.product.company_short %}](/admin/enterprise-support/receiving-help-from-github-support)"
+- "[About versions of {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs)"
+- "[Receiving help from {% data variables.product.company_short %} Support](/admin/enterprise-support/receiving-help-from-github-support)"

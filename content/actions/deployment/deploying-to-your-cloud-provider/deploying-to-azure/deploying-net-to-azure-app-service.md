@@ -15,11 +15,12 @@ topics:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
+
 ## Introduction
 
 This guide explains how to use {% data variables.product.prodname_actions %} to build and deploy a .NET project to [Azure App Service](https://azure.microsoft.com/services/app-service/).
 
-{% ifversion fpt or ghec or ghae-issue-4856 or ghes > 3.4 %}
+{% ifversion fpt or ghec or ghae-issue-4856 %}
 
 {% note %}
 
@@ -51,7 +52,9 @@ Before creating your {% data variables.product.prodname_actions %} workflow, you
 
 {% data reusables.actions.create-azure-publish-profile %}
 
+{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 5. Optionally, configure a deployment environment. {% data reusables.actions.about-environments %}
+{% endif %}
 
 ## Creating the workflow
 
@@ -83,15 +86,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: {% data reusables.actions.action-checkout %}
+      - uses: actions/checkout@v2
 
       - name: Set up .NET Core
-        uses: {% data reusables.actions.action-setup-dotnet %}
+        uses: actions/setup-dotnet@v1
         with:
           dotnet-version: {% raw %}${{ env.DOTNET_VERSION }}{% endraw %}
 
       - name: Set up dependency caching for faster builds
-        uses: {% data reusables.actions.action-cache %}
+        uses: actions/cache@v2
         with:
           path: ~/.nuget/packages
           key: {% raw %}${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}{% endraw %}
@@ -105,7 +108,7 @@ jobs:
         run: dotnet publish -c Release -o {% raw %}${{env.DOTNET_ROOT}}{% endraw %}/myapp
 
       - name: Upload artifact for deployment job
-        uses: {% data reusables.actions.action-upload-artifact %}
+        uses: actions/upload-artifact@v2
         with:
           name: .net-app
           path: {% raw %}${{env.DOTNET_ROOT}}{% endraw %}/myapp
@@ -119,7 +122,7 @@ jobs:
 
     steps:
       - name: Download artifact from build job
-        uses: {% data reusables.actions.action-download-artifact %}
+        uses: actions/download-artifact@v2
         with:
           name: .net-app
 

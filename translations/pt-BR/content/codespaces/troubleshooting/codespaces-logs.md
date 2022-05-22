@@ -23,6 +23,8 @@ As informações sobre {% data variables.product.prodname_codespaces %} são sa�
 
 Esses registros contêm informações detalhadas sobre o codespace, container, sessão e ambiente de {% data variables.product.prodname_vscode %}. Eles são úteis para diagnosticar problemas de conexão e outros comportamentos inesperados. Por exemplo, o codespace congela, mas a opção "Recarregar Windows" o descongela por alguns minutos ou você será desconectado do codespace aleatoriamente, mas poderá reconectar-se imediatamente.
 
+{% include tool-switcher %}
+
 {% webui %}
 
 1. Se estiver usando {% data variables.product.prodname_codespaces %} no navegador, certifique-se de que esteja conectado ao codespace que deseja depurar.
@@ -49,6 +51,7 @@ Atualmente você não pode usar {% data variables.product.prodname_cli %} para a
 
 Estes registros contêm informações sobre o contêiner, contêiner de desenvolvimento e sua configuração. Eles são úteis para depuração de configurações e problemas de instalação.
 
+{% include tool-switcher %}
 
 {% webui %}
 
@@ -74,7 +77,7 @@ Se você quiser compartilhar o registro com suporte, você poderá copiar o text
 Para ver o registro de criação, use os subcomandos `gh codespace logs`. Depois de entrar no comando, escolha entre a lista de codespaces exibidos.
 
 ```shell
-gh codespace logs
+gh codespace logs 
 ```
 
 Para obter mais informações sobre esse comando, consulte [o manual de{% data variables.product.prodname_cli %}](https://cli.github.com/manual/gh_codespace_logs).

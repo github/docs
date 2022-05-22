@@ -21,7 +21,11 @@ shortTitle: 配置
 
 {% endif %}
 
+{% ifversion fpt or ghae or ghes or ghec %}
+
 ## 创建议题模板
+
+{% endif %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
@@ -58,6 +62,7 @@ shortTitle: 配置
 
 {% endif %}
 
+{% ifversion fpt or ghae or ghes or ghec %}
 ## 配置模板选择器
 
 {% data reusables.repositories.issue-template-config %}
@@ -74,7 +79,7 @@ shortTitle: 配置
 
 以下是 *config.yml* 文件的一个例子：
 
-```yaml{:copy}
+```shell
 blank_issues_enabled: false
 contact_links:
   - name: {% data variables.product.prodname_gcf %}
@@ -94,6 +99,7 @@ contact_links:
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_new_file %}
+{% endif %}
 
 ## 延伸阅读
 

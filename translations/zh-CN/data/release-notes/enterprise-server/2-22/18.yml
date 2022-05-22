@@ -4,10 +4,10 @@ sections:
   security_fixes:
     - 包已更新到最新的安全版本。
   bugs:
-    - 如果在未启用依赖关系图和启用内容分析时尝试运行将漏洞与 GitHub.com 同步的计划作业，则会产生大量 503 错误。
-    - 使用 HTTP 代理的任何用户都不支持页面容器生成的未经身份验证的 HTTP 代理。
+    - A significant number of 503 errors were being created if the scheduled job to sync vulnerabilities with GitHub.com attempted to run when dependency graph was not enabled and content analysis was enabled.
+    - Unauthenticated HTTP proxy for the pages containers build was not supported for any users that use HTTP proxies.
   changes:
-    - '`babeld` 的日志现在包括 HTTP 引用通告请求的 `cmd` 字段，而不是仅在协商请求期间包含它。'
+    - The logs for `babeld` now include a `cmd` field for HTTP ref advertisement requests instead of only including it during the negotiation requests.
   known_issues:
     - 在新建的没有任何用户的 {% data variables.product.prodname_ghe_server %} 上，攻击者可以创建第一个管理员用户。
     - 自定义防火墙规则在升级过程中被删除。

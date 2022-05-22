@@ -1,6 +1,6 @@
 ---
-title: Usar o Git
-intro: 'Use o Git para gerenciar seus repositórios de {% data variables.product.product_name %} no seu computador.'
+title: Using Git
+intro: 'Use Git to manage your {% data variables.product.product_name %} repositories from your computer.'
 redirect_from:
   - /articles/using-common-git-commands
   - /github/using-git/using-common-git-commands

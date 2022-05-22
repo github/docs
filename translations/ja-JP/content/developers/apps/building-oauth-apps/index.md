@@ -1,6 +1,6 @@
 ---
-title: OAuth App を構築する
-intro: OAuth Apps を、あなた自身や他の人が使うために構築できます。 OAuth App の登録と、権限および認可オプションの設定方法について学びましょう。
+title: Building OAuth Apps
+intro: You can build OAuth Apps for yourself or others to use. Learn how to register and set up permissions and authorization options for OAuth Apps.
 redirect_from:
   - /apps/building-integrations/setting-up-and-registering-oauth-apps
   - /apps/building-oauth-apps

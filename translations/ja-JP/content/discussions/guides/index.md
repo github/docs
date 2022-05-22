@@ -7,7 +7,7 @@ versions:
   ghec: '*'
 children:
   - /best-practices-for-community-conversations-on-github
-  - /finding-your-discussions
+  - /finding-discussions-across-multiple-repositories
   - /granting-higher-permissions-to-top-contributors
 ---
 

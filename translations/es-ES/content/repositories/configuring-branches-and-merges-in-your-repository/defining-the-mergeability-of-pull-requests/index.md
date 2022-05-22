@@ -1,6 +1,6 @@
 ---
-title: Definir la capacidad de fusión de las solicitudes de extracción
-intro: 'Puedes requerir que las solicitudes de extracción superen un conjunto de verificaciones antes de que se las pueda fusionar. Por ejemplo, puedes bloquear las solicitudes de extracción que no superan las verificaciones de estado o puedes requerir que las solicitudes de extracción tengan un número específico de revisiones aprobadas antes de que las pueda fusionar.'
+title: Defining the mergeability of pull requests
+intro: 'You can require pull requests to pass a set of checks before they can be merged. For example, you can block pull requests that don''t pass status checks or require that pull requests have a specific number of approving reviews before they can be merged.'
 redirect_from:
   - /articles/defining-the-mergeability-of-a-pull-request
   - /articles/defining-the-mergeability-of-pull-requests
@@ -18,6 +18,6 @@ children:
   - /about-protected-branches
   - /managing-a-branch-protection-rule
   - /troubleshooting-required-status-checks
-shortTitle: Capacidad de fusión de las solicitudes de cambios
+shortTitle: Mergeability of PRs
 ---
 

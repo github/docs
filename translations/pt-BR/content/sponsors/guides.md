@@ -1,7 +1,7 @@
 ---
-title: Guias do GitHub Sponsors
-shortTitle: Guias
-intro: 'Aprenda a tirar o melhor de {% data variables.product.prodname_sponsors %}.'
+title: GitHub Sponsors guides
+shortTitle: Guides
+intro: 'Learn how to make the most of {% data variables.product.prodname_sponsors %}.'
 allowTitleToDifferFromFilename: true
 layout: product-guides
 versions:

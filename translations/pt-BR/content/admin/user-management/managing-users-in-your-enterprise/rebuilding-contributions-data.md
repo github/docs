@@ -1,6 +1,6 @@
 ---
-title: Recriar dados de contribuições
-intro: Talvez você precise recriar os dados das contribuições para vincular os commits existentes a uma conta de usuário.
+title: Rebuilding contributions data
+intro: You may need to rebuild contributions data to link existing commits to a user account.
 redirect_from:
   - /enterprise/admin/articles/rebuilding-contributions-data
   - /enterprise/admin/user-management/rebuilding-contributions-data
@@ -12,15 +12,16 @@ topics:
   - Enterprise
   - Repositories
   - User account
-shortTitle: Recriar contribuições
+shortTitle: Rebuild contributions
 ---
+Whenever a commit is pushed to {% data variables.product.prodname_enterprise %}, it is linked to a user account if they are both associated with the same email address. However, existing commits are *not* retroactively linked when a user registers a new email address or creates a new account.
 
-Sempre que é enviado para o {% data variables.product.prodname_enterprise %}, o commit é vinculado a uma conta de usuário caso ambos estejam associados ao mesmo endereço de e-mail. No entanto, os commits *não* são vinculados retroativamente quando um usuário registra um endereço de e-mail ou cria uma conta.
-
-1. Acesse a página de perfil do usuário.
+1. Visit the user's profile page.
 {% data reusables.enterprise_site_admin_settings.access-settings %}
-3. À esquerda na página, clique em **Admin** (Administrador). ![Guia Admin (Administrador)](/assets/images/enterprise/site-admin-settings/admin-tab.png)
-4. Em **Contributions data** (Dados de contribuição), clique em **Rebuild** (Recompilar). ![Botão Rebuild (Recompilar)](/assets/images/enterprise/site-admin-settings/rebuild-button.png)
+3. On the left side of the page, click **Admin**.
+  ![Admin tab](/assets/images/enterprise/site-admin-settings/admin-tab.png)
+4. Under **Contributions data**, click **Rebuild**.
+![Rebuild button](/assets/images/enterprise/site-admin-settings/rebuild-button.png)
 
 {% data variables.product.prodname_enterprise %} will now start background jobs to re-link commits with that user's account.
-  ![Trabalhos recompilados em fila](/assets/images/enterprise/site-admin-settings/rebuild-jobs.png)
+  ![Queued rebuild jobs](/assets/images/enterprise/site-admin-settings/rebuild-jobs.png)

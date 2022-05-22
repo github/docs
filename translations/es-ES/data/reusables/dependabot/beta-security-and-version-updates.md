@@ -1,21 +1,9 @@
-{% ifversion ghes > 3.2 and ghes < 3.5 %}
-
-{% note %}
-{% ifversion ghes = 3.4 %}
-**Nota:** La seguridad del {% data variables.product.prodname_dependabot %} y las actualizaciones de versión actualmente se encuentran en beta público y están sujetas a cambios.
-{% else %}
-**Nota:** La seguridad y actualizaciones de versión del {% data variables.product.prodname_dependabot %} se encuentran actualmente en beta privado y están sujetas a cambios. Por favor, [contacta a tu equipo de administración de cuenta](https://enterprise.github.com/contact) para obtener las instrucciones para habilitar las actualizaciones del Dependabot.
-{% endif %}
-
-{% endnote %}
-
-{% endif %}
-
-{% ifversion ghae-issue-5867 %}
+{% ifversion ghes > 3.2 %}
 
 {% note %}
 
-**Nota:** La seguridad del {% data variables.product.prodname_dependabot %} y las actualizaciones de versión actualmente se encuentran en beta público y están sujetas a cambios.
+**Note:** {% data variables.product.prodname_dependabot %} security and version updates are currently in private beta and subject to change. To request access to the beta release, [contact your account management team](https://enterprise.github.com/contact).
 
 {% endnote %}
+
 {% endif %}

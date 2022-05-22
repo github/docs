@@ -1,1 +1,1 @@
-A arquitetura do executor que está executando o trabalho. Os valores poss[iveis são `X86`, `X64`, `ARM` ou `ARM64`.
+The architecture of the runner executing the job. Possible values are `X86`, `X64`, `ARM`, and `ARM64`.

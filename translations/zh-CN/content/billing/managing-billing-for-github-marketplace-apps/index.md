@@ -1,7 +1,7 @@
 ---
-title: 管理 GitHub Marketplace 应用程序的计费
-shortTitle: GitHub Marketplace app
-intro: '您可以随时升级、降级或取消 {% data variables.product.prodname_marketplace %} 应用程序。'
+title: Managing billing for GitHub Marketplace apps
+shortTitle: GitHub Marketplace apps
+intro: 'You can upgrade, downgrade, or cancel {% data variables.product.prodname_marketplace %} apps at any time.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-marketplace-apps
   - /articles/managing-your-personal-account-s-apps

@@ -2,7 +2,7 @@
 title: Reconstruir datos de contribuciones
 intro: Es posible que necesites reconstruir los datos de contribuciones para vincular las confirmaciones de cambios a una cuenta de usuario.
 redirect_from:
-  - /enterprise/admin/articles/rebuilding-contributions-data
+  - /enterprise/admin/articles/rebuilding-contributions-data/
   - /enterprise/admin/user-management/rebuilding-contributions-data
   - /admin/user-management/rebuilding-contributions-data
 versions:

@@ -1,13 +1,11 @@
 ---
-title: 管理部署
-shortTitle: 管理部署
-intro: 您可以查看您的部署中过去的活动。
+title: Managing your deployments
+shortTitle: Managing your deployments
+intro: 'You can review the past activity of your deployments.'
 versions:
   fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  ghae: 'issue-4856'
   ghec: '*'
 children:
   - /viewing-deployment-history
 ---
-

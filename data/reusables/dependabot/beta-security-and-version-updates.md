@@ -1,21 +1,9 @@
-{% ifversion ghes > 3.2 and ghes < 3.5 %}
-
-{% note %}
-{% ifversion ghes = 3.4 %}
-**Note:** {% data variables.product.prodname_dependabot %} security and version updates are currently in public beta and subject to change.
-{% else %}
-**Note:** {% data variables.product.prodname_dependabot %} security and version updates are currently in private beta and subject to change. Please [contact your account management team](https://enterprise.github.com/contact) for instructions on enabling Dependabot updates.
-{% endif %}
-
-{% endnote %}
-
-{% endif %}
-
-{% ifversion ghae-issue-5867 %}
+{% ifversion ghes > 3.2 %}
 
 {% note %}
 
-**Note:** {% data variables.product.prodname_dependabot %} security and version updates are currently in public beta and subject to change.
+**Note:** {% data variables.product.prodname_dependabot %} security and version updates are currently in private beta and subject to change. To request access to the beta release, [contact your account management team](https://enterprise.github.com/contact).
 
 {% endnote %}
+
 {% endif %}

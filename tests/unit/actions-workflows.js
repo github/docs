@@ -3,7 +3,8 @@ import path from 'path'
 import fs from 'fs'
 import yaml from 'js-yaml'
 import flat from 'flat'
-import { chain, get } from 'lodash-es'
+import { chain, difference, get } from 'lodash-es'
+import allowedActions from '../../.github/allowed-actions.js'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const workflowsDir = path.join(__dirname, '../../.github/workflows')
 const workflows = fs
@@ -30,13 +31,16 @@ const scheduledWorkflows = workflows
 const allUsedActions = chain(workflows).map(actionsUsedInWorkflow).flatten().uniq().sort().value()
 
 describe('GitHub Actions workflows', () => {
-  test('all used actions are listed', () => {
+  test('all used actions are allowed in .github/allowed-actions.js', () => {
     expect(allUsedActions.length).toBeGreaterThan(0)
+    const unusedActions = difference(allowedActions, allUsedActions)
+    expect(unusedActions).toEqual([])
   })
 
-  test.each(allUsedActions)('requires specific hash: %p', (actionName) => {
-    const actionRegexp = /^[A-Za-z0-9-/]+@[0-9a-f]{40}$/
-    expect(actionName).toMatch(actionRegexp)
+  test('all allowed actions by .github/allowed-actions.js are used by at least one workflow', () => {
+    expect(allowedActions.length).toBeGreaterThan(0)
+    const disallowedActions = difference(allUsedActions, allowedActions)
+    expect(disallowedActions).toEqual([])
   })
 
   test('no scheduled workflows run on the hour', () => {

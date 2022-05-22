@@ -2,7 +2,7 @@
 title: Acerca de los perfiles de comunidad para los repositorios públicos
 intro: Los mantenedores del repositorio pueden revisar el perfil de comunidad de sus repositorios públicos para saber cómo pueden ayudar a hacer crecer su comunidad y dar soporte a los colaboradores. Los colaboradores pueden ver el perfil de comunidad de un repositorio público para ver si quieren contribuir con el proyecto.
 redirect_from:
-  - /articles/viewing-your-community-profile
+  - /articles/viewing-your-community-profile/
   - /articles/about-community-profiles-for-public-repositories
   - /github/building-a-strong-community/about-community-profiles-for-public-repositories
 versions:

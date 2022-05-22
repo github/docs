@@ -40,7 +40,7 @@ Open source licenses enable others to freely use, change, and distribute the pro
 {% endif %}
 
 <!--GHE version just adds a file named LICENSE or LICENSE.md-->
-{% ifversion ghes %}
+{% ifversion ghes or ghae %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}

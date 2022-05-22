@@ -1,7 +1,7 @@
 ---
-title: Utilizar servicios de contenedor
-shortTitle: Servicios de contenedor
-intro: 'Puedes utilizar servicios de contenedor en tus flujos de trabajo de {% data variables.product.prodname_actions %}.'
+title: Using containerized services
+shortTitle: Containerized services
+intro: 'You can use containerized services in your {% data variables.product.prodname_actions %} workflows.'
 versions:
   fpt: '*'
   ghes: '*'

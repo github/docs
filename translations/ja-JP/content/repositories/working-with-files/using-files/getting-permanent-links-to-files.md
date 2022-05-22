@@ -1,6 +1,6 @@
 ---
-title: ファイルへのパーマリンクを取得する
-intro: '{% data variables.product.product_location %} でファイルを表示する際に y キーを押すと、URL を、表示されているファイルと完全に同じバージョンへのパーマリンクへと更新できます。'
+title: Getting permanent links to files
+intro: 'When viewing a file on {% data variables.product.product_location %}, you can press the "y" key to update the URL to a permalink to the exact version of the file you see.'
 redirect_from:
   - /articles/getting-a-permanent-link-to-a-file
   - /articles/how-do-i-get-a-permanent-link-from-file-view-to-permanent-blob-url
@@ -16,43 +16,42 @@ topics:
   - Repositories
 shortTitle: Permanent links to files
 ---
-
 {% tip %}
 
-**参考**: {% data variables.product.product_name %} のすべてのページで [?] を押すと、使用可能なキーボードのショートカットすべてを確認できます。
+**Tip**: Press "?" on any page in {% data variables.product.product_name %} to see all available keyboard shortcuts.
 
 {% endtip %}
 
-## ファイルのビューにはブランチの最新バージョンが表示されます
+## File views show the latest version on a branch
 
-{% data variables.product.product_location %} でファイルを表示する際、通常はブランチの現在の head でのバージョンが表示されます。  例:
+When viewing a file on {% data variables.product.product_location %}, you usually see the version at the current head of a branch.  For example:
 
 * [https://github.com/github/codeql/blob/**main**/README.md](https://github.com/github/codeql/blob/main/README.md)
 
-GitHub の `codeql` リポジトリを参照し、`main` ブランチの現在のバージョンの `README.md` ファイルを表示します。
+refers to GitHub's `codeql` repository, and shows the `main` branch's current version of the `README.md` file.
 
-ブランチのヘッドにあるファイルのバージョンは、新たなコミットが行われるたびに変更される場合があるため、通常の URL をコピーすると、後で他のユーザが見るときはファイルのコンテンツが同一ではない場合があります。
+The version of a file at the head of branch can change as new commits are made, so if you were to copy the normal URL, the file contents might not be the same when someone looks at it later.
 
-## Press <kbd>Y</kbd> to permalink to a file in a specific commit
+## Press <kbd>y</kbd> to permalink to a file in a specific commit
 
-表示されるファイルの特定のバージョンへのパーマリンクについては、URL でブランチ名を使用する代わりに (つまり、上記の例の `main` 部分)、コミット ID を入力します。  これにより、そのコミットの完全に同じバージョンに永続的にリンクされます。  例:
+For a permanent link to the specific version of a file that you see, instead of using a branch name in the URL (i.e. the `main` part in the example above), put a commit id.  This will permanently link to the exact version of the file in that commit.  For example:
 
 * [https://github.com/github/codeql/blob/**b212af08a6cffbb434f3c8a2795a579e092792fd**/README.md](https://github.com/github/codeql/blob/b212af08a6cffbb434f3c8a2795a579e092792fd/README.md)
 
-`main` を特定のコミット ID に置き換え、ファイルの内容は変更されません。
+replaces `main` with a specific commit id and the file content will not change.
 
-コミット SHA を手作業で探すのは不便ですが、ショートカットとして <kbd>y</kbd> を押すと、URL がパーマリンクのバージョンに自動で更新されます。  その後、URL をコピーし、共有すると、自分が表示したのとまったく同じものが表示されます。
+Looking up the commit SHA by hand is inconvenient, however, so as a shortcut you can type <kbd>y</kbd> to automatically update the URL to the permalink version.  Then you can copy the URL knowing that anyone you share it with will see exactly what you saw.
 
 {% tip %}
 
-**参考**: ブランチ名、特定のコミット SHA、タグなど、URL 内のコミットへと解決できる任意の識別子を配置できます。
+**Tip**: You can put any identifier that can be resolved to a commit in the URL, including branch names, specific commit SHAs, or tags!
 
 {% endtip %}
 
-## コードスニペットへのパーマリンクを作成する
+## Creating a permanent link to a code snippet
 
-特定バージョンのファイルやプルリクエストにある特定のコード行やコード行の範囲へのパーマリンクを作成できます。 詳細は「[コードスニペットへのパーマリンクを作成する](/articles/creating-a-permanent-link-to-a-code-snippet/)」を参照してください。
+You can create a permanent link to a specific line or range of lines of code in a specific version of a file or pull request. For more information, see "[Creating a permanent link to a code snippet](/articles/creating-a-permanent-link-to-a-code-snippet/)."
 
-## 参考リンク
+## Further reading
 
-- 「[GitHub リポジトリをアーカイブする](/articles/archiving-a-github-repository)」
+- "[Archiving a GitHub repository](/articles/archiving-a-github-repository)"

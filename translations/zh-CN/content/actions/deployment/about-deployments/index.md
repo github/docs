@@ -1,14 +1,12 @@
 ---
-title: 关于部署
-shortTitle: 关于部署
-intro: '了解如何使用 {% data variables.product.prodname_actions %} 工作流程运行部署。'
+title: About deployments
+shortTitle: About deployments
+intro: 'Learn how deployments can run with {% data variables.product.prodname_actions %} workflows.'
 versions:
   fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  ghae: 'issue-4856'
   ghec: '*'
 children:
   - /about-continuous-deployment
   - /deploying-with-github-actions
 ---
-

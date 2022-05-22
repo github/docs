@@ -1,1 +1,1 @@
-您可以选择通知的传递方式，以及向您发送通知的频率。
+You can choose the delivery method for notifications, as well as the frequency at which the notifications are sent to you.

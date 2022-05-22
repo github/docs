@@ -1,6 +1,6 @@
 ---
-title: 配置 GitHub Pages 站点的自定义域
-intro: '您可以自定义 {% data variables.product.prodname_pages %} 站点的域名。'
+title: Configuring a custom domain for your GitHub Pages site
+intro: 'You can customize the domain name of your {% data variables.product.prodname_pages %} site.'
 redirect_from:
   - /articles/tips-for-configuring-an-a-record-with-your-dns-provider
   - /articles/adding-or-removing-a-custom-domain-for-your-github-pages-site
@@ -22,6 +22,5 @@ children:
   - /managing-a-custom-domain-for-your-github-pages-site
   - /verifying-your-custom-domain-for-github-pages
   - /troubleshooting-custom-domains-and-github-pages
-shortTitle: 配置自定义域
+shortTitle: Configure a custom domain
 ---
-

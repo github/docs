@@ -1,6 +1,6 @@
 ---
-title: Administrar bot y cuentas de servicio con inicio de sesión único de SAML
-intro: Las organizaciones que han habilitado el inicio de sesión único de SAML pueden conservar el acceso para los bot y las cuentas de servicio.
+title: Managing bots and service accounts with SAML single sign-on
+intro: Organizations that have enabled SAML single sign-on can retain access for bots and service accounts.
 redirect_from:
   - /articles/managing-bots-and-service-accounts-with-saml-single-sign-on
   - /github/setting-up-and-managing-organizations-and-teams/managing-bots-and-service-accounts-with-saml-single-sign-on
@@ -9,17 +9,17 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Administrar bots & cuentas de servicio
+shortTitle: Manage bots & service accounts
 ---
 
-Para conservar el acceso a los bot y a las cuentas de servicio, los administradores de la organización pueden [habilitar](/articles/enabling-and-testing-saml-single-sign-on-for-your-organization), pero **no** [implementar](/articles/enforcing-saml-single-sign-on-for-your-organization) el inicio de sesión único de SAML para sus organizaciones. Si debes implementar el inicio de sesión único de SAML para tu organización, puedes crear una identidad externa para el bot o la cuenta de servicio con tu proveedor de identidad (IdP).
+To retain access for bots and service accounts, organization administrators can [enable](/articles/enabling-and-testing-saml-single-sign-on-for-your-organization), but **not** [enforce](/articles/enforcing-saml-single-sign-on-for-your-organization) SAML single sign-on for their organization. If you need to enforce SAML single sign-on for your organization, you can create an external identity for the bot or service account with your identity provider (IdP).
 
 {% warning %}
 
-**Nota:** Si implementas el inicio de sesión único de SAML para tu organización y **no** tienes identidades externas configuradas para bots y cuentas de servicio con tu IdP, estas se eliminarán de tu organización.
+**Note:** If you enforce SAML single sign-on for your organization and **do not** have external identities set up for bots and service accounts with your IdP, they will be removed from your organization.
 
 {% endwarning %}
 
-## Leer más
+## Further reading
 
-- "[Acerca de la administración de identidad y el acceso con el inicio de sesión único de SAML](/articles/about-identity-and-access-management-with-saml-single-sign-on)"
+- "[About identity and access management with SAML single sign-on](/articles/about-identity-and-access-management-with-saml-single-sign-on)"

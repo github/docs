@@ -2,7 +2,7 @@
 title: Solución de problemas para los errores de solicitud de autorización
 intro: '{% data reusables.shortdesc.troubleshooting_authorization_request_errors_oauth_apps %}'
 redirect_from:
-  - /apps/building-integrations/managing-oauth-apps/troubleshooting-authorization-request-errors
+  - /apps/building-integrations/managing-oauth-apps/troubleshooting-authorization-request-errors/
   - /apps/managing-oauth-apps/troubleshooting-authorization-request-errors
   - /developers/apps/troubleshooting-authorization-request-errors
 versions:

@@ -1,6 +1,6 @@
 ---
 title: Exploring early access releases with feature preview
-intro: You can use feature preview to see products or features that are available in beta and to enable or disable each feature for your personal account.
+intro: You can use feature preview to see products or features that are available in beta and to enable or disable each feature for your user account.
 redirect_from:
   - /articles/exploring-early-access-releases-with-feature-preview
   - /github/getting-started-with-github/exploring-early-access-releases-with-feature-preview

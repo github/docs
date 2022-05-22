@@ -1,1 +1,0 @@
-Forking a repository will allow you to make changes to another repository without affecting the original. 更多信息请参阅“[复刻仓库](/get-started/quickstart/fork-a-repo)”。

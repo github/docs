@@ -15,7 +15,7 @@ topics:
   - Teams
 shortTitle: Transfer ownership
 ---
-{% ifversion ghec %}
+{% ifversion fpt or ghec %}
 {% note %}
 
 **Note:** {% data reusables.enterprise-accounts.invite-organization %}

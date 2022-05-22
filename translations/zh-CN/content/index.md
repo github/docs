@@ -9,7 +9,7 @@ featuredLinks:
   popular:
     - /pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests
     - /authentication
-    - /get-started/importing-your-projects-to-github/importing-source-code-to-github/adding-locally-hosted-code-to-github
+    - /github/importing-your-projects-to-github/adding-an-existing-project-to-github-using-the-command-line
     - /get-started/getting-started-with-git/managing-remote-repositories
     - /pages
 versions: '*'
@@ -21,7 +21,6 @@ children:
   - github
   - admin
   - billing
-  - site-policy
   - organizations
   - code-security
   - pull-requests
@@ -41,7 +40,6 @@ children:
   - education
   - desktop
   - early-access
-  - support
 childGroups:
   - name: Get started
     octicon: RocketIcon
@@ -50,7 +48,6 @@ childGroups:
       - account-and-profile
       - authentication
       - billing
-      - site-policy
   - name: Collaborative coding
     octicon: CommentDiscussionIcon
     children:
@@ -95,7 +92,6 @@ childGroups:
       - communities
       - sponsors
       - education
-      - support
 externalProducts:
   atom:
     id: atom

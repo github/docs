@@ -1,1 +1,1 @@
-1. 在“GitHub Advanced Security”下，单击 **Security features（安全功能）**选项卡。
+1. Under "GitHub Advanced Security", click the **Security features** tab.

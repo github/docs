@@ -1,6 +1,6 @@
 ---
-title: 关于协作开发模式
-intro: 使用拉取请求的方式取决于项目中使用的开发模型类型。 您可以使用复刻和拉取模型或共享仓库模型。
+title: About collaborative development models
+intro: The way you use pull requests depends on the type of development model you use in your project. You can use the fork and pull model or the shared repository model.
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/getting-started/about-collaborative-development-models
   - /articles/types-of-collaborative-development-models
@@ -14,25 +14,24 @@ versions:
   ghec: '*'
 topics:
   - Pull requests
-shortTitle: 协作开发
+shortTitle: Collaborative development
 ---
+## Fork and pull model
 
-## 复刻和拉取模型
-
-在复刻和拉取模型中，任何人都可以复刻现有仓库并推送对其个人复刻的更改。 不需要对来源仓库的权限即可推送到用户拥有的复刻。 项目维护员可将更改拉入来源仓库。 将提议更改的拉取请求从用户拥有的复刻打开到来源（上游）仓库的分支时，可让对上游仓库具有推送权限的任何人更改您的拉取请求。  此模型常用于开源项目，因为它可减少新贡献者的磨合，让人们独立工作而无需前期协调。
+In the fork and pull model, anyone can fork an existing repository and push changes to their personal fork. You do not need permission to the source repository to push to a user-owned fork. The changes can be pulled into the source repository by the project maintainer. When you open a pull request proposing changes from your user-owned fork to a branch in the source (upstream) repository, you can allow anyone with push access to the upstream repository to make changes to your pull request.  This model is popular with open source projects as it reduces the amount of friction for new contributors and allows people to work independently without upfront coordination.
 
 {% tip %}
 
-**提示：** {% data reusables.open-source.open-source-guide-general %} {% data reusables.open-source.open-source-learning-lab %}
+**Tip:** {% data reusables.open-source.open-source-guide-general %} {% data reusables.open-source.open-source-learning-lab %}
 
 {% endtip %}
 
-## 共享仓库模型
+## Shared repository model
 
-在共享仓库模型中，协作者被授予单一共享仓库的推送权限，需要更改时可创建主题分支。 拉取请求适用于此模型，因为在更改合并到主要开发分支之前，它们会发起代码审查和关于更改的一般讨论。 此模型更多用于协作处理私有项目的小型团队和组织。
+In the shared repository model, collaborators are granted push access to a single shared repository and topic branches are created when changes need to be made. Pull requests are useful in this model as they initiate code review and general discussion about a set of changes before the changes are merged into the main development branch. This model is more prevalent with small teams and organizations collaborating on private projects.
 
-## 延伸阅读
+## Further reading
 
-- "[关于拉取请求](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)"
-- "[从复刻创建拉取请求](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)"
-- "[允许更改创建自复刻的拉取请求分支](/pull-requests/collaborating-with-pull-requests/working-with-forks/allowing-changes-to-a-pull-request-branch-created-from-a-fork)"
+- "[About pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)"
+- "[Creating a pull request from a fork](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)"
+- "[Allowing changes to a pull request branch created from a fork](/pull-requests/collaborating-with-pull-requests/working-with-forks/allowing-changes-to-a-pull-request-branch-created-from-a-fork)"

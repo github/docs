@@ -1,6 +1,6 @@
 ---
-title: Gerenciar acessos aos repositórios da organização
-intro: Proprietários da organização podem gerenciar acessos individuais e de equipes aos repositórios da organização. Mantenedores de equipes também podem gerenciar o acesso ao repositório da equipe.
+title: Managing access to your organization's repositories
+intro: Organization owners can manage individual and team access to the organization's repositories. Team maintainers can also manage a team's repository access.
 redirect_from:
   - /articles/permission-levels-for-an-organization-repository
   - /articles/managing-access-to-your-organization-s-repositories
@@ -26,6 +26,6 @@ children:
   - /converting-an-organization-member-to-an-outside-collaborator
   - /converting-an-outside-collaborator-to-an-organization-member
   - /reinstating-a-former-outside-collaborators-access-to-your-organization
-shortTitle: Gerenciar acessos aos repositórios
+shortTitle: Manage access to repositories
 ---
 

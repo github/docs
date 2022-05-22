@@ -1,6 +1,6 @@
 ---
-title: Sobre URLs anônimas
-intro: 'Se você fizer o upload de uma imagem ou vídeo para {% data variables.product.product_name %}, a URL da imagem ou vídeo será modificada para que suas informações não sejam rastreáveis.'
+title: About anonymized URLs
+intro: 'If you upload an image or video to {% data variables.product.product_name %}, the URL of the image or video will be modified so your information is not trackable.'
 redirect_from:
   - /articles/why-do-my-images-have-strange-urls
   - /articles/about-anonymized-image-urls
@@ -14,33 +14,32 @@ topics:
   - Identity
   - Access management
 ---
+To host your images, {% data variables.product.product_name %} uses the [open-source project Camo](https://github.com/atmos/camo). Camo generates an anonymous URL proxy for each file which hides your browser details and related information from other users. The URL starts `https://<subdomain>.githubusercontent.com/`, with different subdomains depending on how you uploaded the image. 
 
-Para hospedar imagens, o {% data variables.product.product_name %} usa o [Camo do projeto de código aberto](https://github.com/atmos/camo). A Camo gera um proxy de URL anônimo para cada arquivo que oculta os detalhes do seu navegador e informações relacionadas de outros usuários. A URL começa `https://<subdomain>.githubusercontent.com/`, com subdomínios diferentes dependendo de como você fez o upload da imagem.
+Videos also get anonymized URLs with the same format as image URLs, but are not processed through Camo. This is because {% data variables.product.prodname_dotcom %} does not support externally hosted videos, so the anonymized URL is a link to the uploaded video hosted by {% data variables.product.prodname_dotcom %}.
 
-Os vídeos também recebem URLs anônimas com o mesmo formato que as URLs da imagem, mas não são processados através da Camo. Isto ocorre porque {% data variables.product.prodname_dotcom %} não é compatível vídeos hospedados externamente. Portanto, a URL anônima é um link para o vídeo enviado hospedado por {% data variables.product.prodname_dotcom %}.
+Anyone who receives your anonymized URL, directly or indirectly, may view your image or video. To keep sensitive media files private, restrict them to a private network or a server that requires authentication instead of using Camo.
 
-Qualquer pessoa que receber a sua URL anônima, direta ou indiretamente, poderá visualizar a sua imagem ou vídeo. Para manter arquivos de mídia sensíveis privados, restrinja-os a uma rede privada ou a um servidor que exige autenticação em vez de usar a Camo.
+## Troubleshooting issues with Camo
 
-## Solucionar problemas com o Camo
-
-As imagens que são processadas por meio do Camo raramente não aparecem no {% data variables.product.prodname_dotcom %}. Veja a seguir algumas etapas que podem ser seguidas para determinar onde está o problema.
+In rare circumstances, images that are processed through Camo might not appear on {% data variables.product.prodname_dotcom %}. Here are some steps you can take to determine where the problem lies.
 
 {% windows %}
 
 {% tip %}
 
-Os usuários do Windows precisam usar o Git PowerShell (que é instalado com o [{% data variables.product.prodname_desktop %}](https://desktop.github.com/)) ou fazer o download de um [curl para Windows](http://curl.haxx.se/download.html).
+Windows users will either need to use the Git PowerShell (which is installed alongside [{% data variables.product.prodname_desktop %}](https://desktop.github.com/)) or download [curl for Windows](http://curl.haxx.se/download.html).
 
 {% endtip %}
 
 {% endwindows %}
 
-### Uma imagem não está sendo exibida
+### An image is not showing up
 
-Se uma imagem estiver sendo exibida no seu navegador mas não em {% data variables.product.prodname_dotcom %}, você poderá tentar solicitá-la localmente.
+If an image is showing up in your browser but not on {% data variables.product.prodname_dotcom %}, you can try requesting it locally.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-1. Solicite os headers da imagem usando `curl`.
+1. Request the image headers using `curl`.
   ```shell
   $ curl -I https://www.my-server.com/images/some-image.png
   > HTTP/2 200
@@ -50,20 +49,20 @@ Se uma imagem estiver sendo exibida no seu navegador mas não em {% data variabl
   > Server: Google Frontend
   > Content-Length: 6507
   ```
-3. Verifique o valor de `Content-Type`. Nesse caso, é `image/x-png`.
-4. Verifique o tipo de conteúdo em relação [à lista de tipos compatíveis com o Camo](https://github.com/atmos/camo/blob/master/mime-types.json).
+3. Check the value of `Content-Type`. In this case, it's `image/x-png`.
+4. Check that content type against [the list of types supported by Camo](https://github.com/atmos/camo/blob/master/mime-types.json).
 
-Se o tipo de conteúdo não for compatível com o Camo, você poderá tentar várias ações:
-  * Se tiver posse do servidor que está hospedando a imagem, modifique-o para que ele retorne um tipo de conteúdo correto para imagens.
-  * Se estiver usando um serviço externo para hospedar imagens, entre em contato com o suporte do serviço em questão.
-  * Faça uma pull request ao Camo a fim de adicionar seu tipo de conteúdo à lista.
+If your content type is not supported by Camo, you can try several actions:
+  * If you own the server that's hosting the image, modify it so that it returns a correct content type for images.
+  * If you're using an external service for hosting images, contact support for that service.
+  * Make a pull request to Camo to add your content type to the list.
 
-### Uma imagem que foi alterada recentemente não está atualizando
+### An image that changed recently is not updating
 
-Se você alterou uma imagem recentemente e ela está sendo exibida no navegador, mas não no {% data variables.product.prodname_dotcom %}, tente redefinir o cache da imagem.
+If you changed an image recently and it's showing up in your browser but not {% data variables.product.prodname_dotcom %}, you can try resetting the cache of the image.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-1. Solicite os headers da imagem usando `curl`.
+1. Request the image headers using `curl`.
   ```shell
   $ curl -I https://www.my-server.com/images/some-image.png
   > HTTP/2 200
@@ -73,29 +72,29 @@ Se você alterou uma imagem recentemente e ela está sendo exibida no navegador,
   > Server: Jetty(8.y.z-SNAPSHOT)
   ```
 
-Verifique o valor de `Cache-Control`. Neste exemplo, não há `Cache-Contro`. Nesse caso:
-  * Se tiver posse do servidor que está hospedando a imagem, modifique-o para que ele retorne um `Cache-Control` de `no-cache` para imagens.
-  * Se estiver usando um serviço externo para hospedar imagens, entre em contato com o suporte do serviço em questão.
+Check the value of `Cache-Control`. In this example, there's no `Cache-Control`. In that case:
+  * If you own the server that's hosting the image, modify it so that it returns a `Cache-Control` of `no-cache` for images.
+  * If you're using an external service for hosting images, contact support for that service.
 
- Se `Cache-Control` *estiver * definido como `no-cache`, entre em contato com {% data variables.contact.contact_support %} ou pesquise no {% data variables.contact.community_support_forum %}.
+ If `Cache-Control` *is* set to `no-cache`, contact {% data variables.contact.contact_support %} or search the {% data variables.contact.community_support_forum %}.
 
-### Remover uma imagem do cache do Camo
+### Removing an image from Camo's cache
 
-A limpeza do cache força os usuários do {% data variables.product.prodname_dotcom %} a solicitar novamente a imagem. Portanto, você deve usá-la bem moderadamente e somente no caso em que as etapas acima não funcionarem.
+Purging the cache forces every {% data variables.product.prodname_dotcom %} user to re-request the image, so you should use it very sparingly and only in the event that the above steps did not work.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-1. Limpe a imagem usando `curl-X PURGE` na URL do Camo.
+1. Purge the image using `curl -X PURGE` on the Camo URL.
   ```shell
   $ curl -X PURGE https://camo.githubusercontent.com/4d04abe0044d94fefcf9af2133223....
   > {"status": "ok", "id": "216-8675309-1008701"}
   ```
 
-### Exibir imagens em redes privadas
+### Viewing images on private networks
 
-Se uma imagem estiver sendo fornecida por uma rede privada ou um servidor que exige autenticação, ela não poderá ser exibida pelo {% data variables.product.prodname_dotcom %}. Na verdade, a imagem não pode ser exibida pelos usuários sem que eles façam login no servidor.
+If an image is being served from a private network or from a server that requires authentication, it can't be viewed by {% data variables.product.prodname_dotcom %}. In fact, it can't be viewed by any user without asking them to log into the server.
 
-Para corrigir isso, mova a imagem para um serviço que esteja disponível publicamente.
+To fix this, please move the image to a service that is publicly available.
 
-## Leia mais
+## Further reading
 
-- "[Retransmitir imagens do usuário](https://github.com/blog/1766-proxying-user-images)" em {% data variables.product.prodname_blog %}
+- "[Proxying user images](https://github.com/blog/1766-proxying-user-images)" on {% data variables.product.prodname_blog %}

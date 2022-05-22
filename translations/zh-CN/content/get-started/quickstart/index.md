@@ -1,6 +1,6 @@
 ---
-title: 快速入门
-intro: '开始使用 {% data variables.product.product_name %} 来管理 Git 仓库并与他人合作。'
+title: Quickstart
+intro: 'Get started using {% data variables.product.product_name %} to manage Git repositories and collaborate with others.'
 versions:
   fpt: '*'
   ghes: '*'

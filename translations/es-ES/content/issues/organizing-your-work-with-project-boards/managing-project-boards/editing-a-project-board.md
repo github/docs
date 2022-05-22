@@ -3,8 +3,8 @@ title: Editar un tablero de proyecto
 intro: Puedes editar el título y la descripción de un tablero de proyecto existente.
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/editing-a-project-board
-  - /articles/editing-a-project
-  - /articles/editing-and-deleting-a-project
+  - /articles/editing-a-project/
+  - /articles/editing-and-deleting-a-project/
   - /articles/editing-a-project-board
   - /github/managing-your-work-on-github/editing-a-project-board
 versions:

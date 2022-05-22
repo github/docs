@@ -1,7 +1,7 @@
 ---
-title: 使用 wiki 为项目写文档
-shortTitle: 使用 wiki
-intro: 可使用 wiki 分享有关项目的详细、长式信息。
+title: Documenting your project with wikis
+shortTitle: Using wikis
+intro: 'You can use a wiki to share detailed, long-form information about your project.'
 redirect_from:
   - /categories/49/articles
   - /categories/wiki

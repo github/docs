@@ -1,12 +1,12 @@
 ---
-title: コマンドラインで Git リベースを使う
+title: Using Git rebase on the command line
 redirect_from:
   - /articles/using-git-rebase
   - /articles/using-git-rebase-on-the-command-line
   - /github/using-git/using-git-rebase-on-the-command-line
   - /github/getting-started-with-github/using-git-rebase-on-the-command-line
   - /github/getting-started-with-github/using-git/using-git-rebase-on-the-command-line
-intro: コマンドラインで、「git rebase」を使うための簡単なチュートリアルです。
+intro: Here's a short tutorial on using `git rebase` on the command line.
 versions:
   fpt: '*'
   ghes: '*'
@@ -14,12 +14,11 @@ versions:
   ghec: '*'
 shortTitle: Git rebase
 ---
-
 ## Using Git rebase
 
-この例では、`exec` を除く、利用可能なすべての ` git rebase ` コマンドについて説明します。
+In this example, we will cover all of the `git rebase` commands available, except for `exec`.
 
-端末で `git rebase --interactive HEAD~7` と入力して、リベースを開始します。 お気に入りのテキストエディタに以下の行が表示されます:
+We'll start our rebase by entering `git rebase --interactive HEAD~7` on the terminal. Our favorite text editor will display the following lines:
 
 ```
 pick 1fc6c95 Patch A
@@ -31,17 +30,17 @@ pick 4ca2acc i cant' typ goods
 pick 7b36971 something to move before patch B
 ```
 
-この例では、以下を行います:
+In this example, we're going to:
 
-* `squash` を使用して、5 番目のコミット (`fa39187`) を `"Patch A"` コミット (`1fc6c95squash`) に Squash します。
-* 最後のコミット (`7b36971`) を`"Patch B"`コミット (`6b2481b`) の前に移動し、`pick` のままにします。
-* `"A fix for Patch B"` コミット (`c619268`) を `"Patch B"` コミット (`6b2481b`) にマージし、`fixup` を使用して、コミットメッセージを無視します。
-* `edit` を使用して、3 番目のコミット (`dd1475d`) を 2 つの小さなコミットに分割します。
-* `reword` を使用して、スペルミスのコミットメッセージ (`4ca2acc`) を修正します。
+* Squash the fifth commit (`fa39187`) into the `"Patch A"` commit (`1fc6c95`), using `squash`.
+* Move the last commit (`7b36971`) up before the `"Patch B"` commit (`6b2481b`), and keep it as `pick`.
+* Merge the `"A fix for Patch B"` commit (`c619268`) into the `"Patch B"` commit (`6b2481b`), and disregard the commit message using `fixup`.
+* Split the third commit (`dd1475d`) into two smaller commits, using `edit`.
+* Fix the commit message of the misspelled commit (`4ca2acc`), using `reword`.
 
-いかがですか。 やることが多くて大変なように見えますが、落ち着いて、一度に 1 ステップずつ進めましょう。すぐに慣れて素早くできるようになります。
+Phew! This sounds like a lot of work, but by taking it one step at a time, we can easily make those changes.
 
-はじめに、ファイル内のコマンドを次のように変更します:
+To start, we'll need to modify the commands in the file to look like this:
 
 ```
 pick 1fc6c95 Patch A
@@ -53,11 +52,11 @@ edit dd1475d something I want to split
 reword 4ca2acc i cant' typ goods
 ```
 
-各行のコマンドを、適宜、`pick` から別のコマンドに置き換えました。
+We've changed each line's command from `pick` to the command we're interested in.
 
-それでは、エディタを保存して閉じます。 これにより、対話的なリベースを開始します。
+Now, save and close the editor; this will start the interactive rebase.
 
-Git は、最初のリベースコマンド `pick 1fc6c95` では何もすることがないので、スキップします。 次のコマンド `squash fa39187` に進みます。 この操作には入力が必要なので、Git はもう一度テキストエディタを開きます。 開かれるファイルは次のようになります:
+Git skips the first rebase command, `pick 1fc6c95`, since it doesn't need to do anything. It goes to the next command, `squash fa39187`. Since this operation requires your input, Git opens your text editor once again. The file it opens up looks something like this:
 
 ```
 # This is a combination of two commits.
@@ -79,9 +78,9 @@ something to add to patch A
 #
 ```
 
-このファイルは Git の言い方で、「ほら、これが今私がこの `squash` でやろうとしていることです」という意味です。 最初のコミットのメッセージ (`"Patch A"`) と 2 番目のコミットのメッセージ (`"something to add to patch A"`) が一覧表示されます。 これらのコミットメッセージに満足したら、ファイルを保存してエディタを閉じることができます。 それ以外の場合は、テキストを変更するだけでコミットメッセージを変更することができます。
+This file is Git's way of saying, "Hey, here's what I'm about to do with this `squash`." It lists the first commit's message (`"Patch A"`), and the second commit's message (`"something to add to patch A"`). If you're happy with these commit messages, you can save the file, and close the editor. Otherwise, you have the option of changing the commit message by simply changing the text.
 
-エディタを閉じると、リベースは続行されます:
+When the editor is closed, the rebase continues:
 
 ```
 pick 1fc6c95 Patch A
@@ -93,9 +92,9 @@ edit dd1475d something I want to split
 reword 4ca2acc i cant' typ goods
 ```
 
-Git は 2 つの `pick` コマンドを処理します (`pick 7b36971` と `pick 6b2481b`) 。 対話を必要としないため、`fixup` コマンド (`fixup c619268`) *も*処理されます。 `fixup` は、`c619268` から `6b2481b` の前のコミットに変更をマージします。 両方の変更とも同じコミットメッセージ `"Patch B"` を持つことになります。
+Git processes the two `pick` commands (for `pick 7b36971` and `pick 6b2481b`). It *also* processes the `fixup` command (`fixup c619268`), since it doesn't require any interaction. `fixup` merges the changes from `c619268` into the commit before it, `6b2481b`. Both changes will have the same commit message: `"Patch B"`.
 
-Git は `edit dd1475d` 操作を開始して停止し、次のメッセージを端末に表示します:
+Git gets to the `edit dd1475d` operation, stops, and prints the following message to the terminal:
 
 ```shell
 You can amend the commit now, with
@@ -107,9 +106,9 @@ Once you are satisfied with your changes, run
         git rebase --continue
 ```
 
-この時点で、プロジェクト内の任意のファイルを編集して追加の変更を加えることができます。 変更するたびに、新しいコミットを実行する必要があります。そのためには、`git commit --amend` コマンドを入力します。 すべての変更を終えたら、`git rebase --continue` を実行できます。
+At this point, you can edit any of the files in your project to make any additional changes. For each change you make, you'll need to perform a new commit, and you can do that by entering the `git commit --amend` command. When you're finished making all your changes, you can run `git rebase --continue`.
 
-そして、Git は `reword 4ca2acc` コマンドを使います。  テキストエディタがもう一度開き、次の情報が表示されます:
+Git then gets to the `reword 4ca2acc` command.  It opens up your text editor one more time, and presents the following information:
 
 ```
 i cant' typ goods
@@ -124,26 +123,26 @@ i cant' typ goods
 #
 ```
 
-以前と同様に、Git は編集するためのコミットメッセージを表示しています。 テキスト (`"i cant' typ goods"`) を変更し、ファイルを保存し、エディタを閉じることができます。 Git はリベースを終了して、端末に戻ります。
+As before, Git is showing the commit message for you to edit. You can change the text (`"i cant' typ goods"`), save the file, and close the editor. Git will finish the rebase and return you to the terminal.
 
-## リベースされたコードを GitHub にプッシュする
+## Pushing rebased code to GitHub
 
-Git の履歴を変更したので、通常の `git push origin` **は動作しません**。 最新の変更を「強制プッシュ」して、コマンドを変更する必要があります:
+Since you've altered Git history, the usual `git push origin` **will not** work. You'll need to modify the command by "force-pushing" your latest changes:
 
 ```shell
-# 変更をオーバーライドしない
+# Don't override changes
 $ git push origin main --force-with-lease
 
-# 変更をオーバーライドする
+# Override changes
 $ git push origin main --force
 ```
 
 {% warning %}
 
-フォースプッシュは、ブランチに対するコミットの履歴上の順序を変更するので、深刻な影響を及ぼします。 特にあなたのリポジトリが複数の人々によってアクセスされている場合は、注意して使用してください。
+Force pushing has serious implications because it changes the historical sequence of commits for the branch. Use it with caution, especially if your repository is being accessed by multiple people.
 
 {% endwarning %}
 
-## 参考リンク
+## Further reading
 
-* 「[Git リベース後のマージコンフリクトを解決する](/github/getting-started-with-github/resolving-merge-conflicts-after-a-git-rebase)」
+* "[Resolving merge conflicts after a Git rebase](/github/getting-started-with-github/resolving-merge-conflicts-after-a-git-rebase)"

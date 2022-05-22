@@ -10,6 +10,7 @@ versions:
   ghae: '*'
   ghec: '*'
 children:
+  - /commit-branch-and-tag-labels
   - /comparing-commits
   - /differences-between-commit-views
 shortTitle: 查看和比较提交

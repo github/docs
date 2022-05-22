@@ -1,6 +1,6 @@
 ---
-title: メンバーを Team に編成する
-intro: Organizationメンバーは、カスケードになったアクセス権限とメンションを伴う会社やグループの構造を反映する Team に編成することができます。
+title: Organizing members into teams
+intro: You can group organization members into teams that reflect your company or group's structure with cascading access permissions and mentions.
 redirect_from:
   - /articles/setting-up-teams-improved-organization-permissions
   - /articles/setting-up-teams-for-accessing-organization-repositories
@@ -37,6 +37,6 @@ children:
   - /disabling-team-discussions-for-your-organization
   - /managing-scheduled-reminders-for-your-team
   - /deleting-a-team
-shortTitle: メンバーをTeamに編成する
+shortTitle: Organize members into teams
 ---
 

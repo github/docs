@@ -1,6 +1,6 @@
 ---
-title: Sobre branches
-intro: Use um branch para isolar o trabalho de desenvolvimento sem afetar outros branches no repositório. Cada repositório tem um branch padrão e pode ter vários outros branches. Você pode fazer merge de um branch em outro branch usando uma pull request.
+title: About branches
+intro: 'Use a branch to isolate development work without affecting other branches in the repository. Each repository has one default branch, and can have multiple other branches. You can merge a branch into another branch using a pull request.'
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches
   - /articles/working-with-protected-branches
@@ -15,69 +15,68 @@ versions:
 topics:
   - Pull requests
 ---
+## About branches
 
-## Sobre branches
+Branches allow you to develop features, fix bugs, or safely experiment with new ideas in a contained area of your repository.
 
-Os branches permitem que você desenvolva recursos, corrija erros ou experimente com segurança novas ideias em uma área contida do seu repositório.
+You always create a branch from an existing branch. Typically, you might create a new branch from the default branch of your repository. You can then work on this new branch in isolation from changes that other people are making to the repository. A branch you create to build a feature is commonly referred to as a feature branch or topic branch. For more information, see "[Creating and deleting branches within your repository](/articles/creating-and-deleting-branches-within-your-repository/)."
 
-Você sempre cria um branch a partir de um branch existente. Normalmente, você pode criar um novo branch a partir do branch-padrão do seu repositório. Você então poderá trabalhar nesse novo branch isolado das mudanças que outras pessoas estão fazendo no repositório. Um branch que você cria para produzir um recurso é comumente referido como um branch de recurso ou branch de tópico. Para obter mais informações, consulte "[Criar e excluir branches em seu repositório](/articles/creating-and-deleting-branches-within-your-repository/)".
+You can also use a branch to publish a {% data variables.product.prodname_pages %} site. For more information, see "[About {% data variables.product.prodname_pages %}](/articles/what-is-github-pages)."
 
-Também é possível usar um branch para publicar um site do {% data variables.product.prodname_pages %}. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_pages %}](/articles/what-is-github-pages)".
+You must have write access to a repository to create a branch, open a pull request, or delete and restore branches in a pull request. For more information, see "[Access permissions on {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/access-permissions-on-github)."
 
-Você deve ter acesso de gravação em um repositório para criar um branch, abrir uma pull request ou excluir e restaurar branches em uma pull request. Para obter mais informações, consulte "[Permissões de acesso em {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/access-permissions-on-github)."
+## About the default branch
 
-## Sobre o branch-padrão
+{% data reusables.branches.new-repo-default-branch %} The default branch is the branch that {% data variables.product.prodname_dotcom %} displays when anyone visits your repository. The default branch is also the initial branch that Git checks out locally when someone clones the repository. {% data reusables.branches.default-branch-automatically-base-branch %}
 
-{% data reusables.branches.new-repo-default-branch %} O branch-padrão é o branch que {% data variables.product.prodname_dotcom %} exibe quando alguém visita o seu repositório. O branch padrão é também o branch inicial que o Git verifica localmente quando alguém clona o repositório. {% data reusables.branches.default-branch-automatically-base-branch %}
-
-Por padrão, {% data variables.product.product_name %} nomeia o branch padrão `principal`em qualquer repositório novo.
+By default, {% data variables.product.product_name %} names the default branch `main` in any new repository.
 
 {% data reusables.branches.change-default-branch %}
 
 {% data reusables.branches.set-default-branch %}
 
-## Trabalhando com branches
+## Working with branches
 
-Quando estiver satisfeito com seu trabalho, você poderá abrir uma pull request para fazer merge das alterações do branch atual (o branch *head*) com outro branch (o branch *base*). Para obter mais informações, consulte "[Sobre pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)".
+Once you're satisfied with your work, you can open a pull request to merge the changes in the current branch (the *head* branch) into another branch (the *base* branch). For more information, see "[About pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)."
 
-Depois que uma pull request tiver sido mesclada ou fechada, você poderá excluir o branch head, já que isso não é mais necessário. Você deve ter permissão de gravação no repositório para excluir branches. Não é possível excluir branches associados diretamente a pull requests abertas. Para obter mais informações, consulte "[Excluindo e recuperando branches em uma pull request](/github/administering-a-repository/deleting-and-restoring-branches-in-a-pull-request)".
+After a pull request has been merged, or closed, you can delete the head branch as this is no longer needed. You must have write access in the repository to delete branches. You can't delete branches that are directly associated with open pull requests. For more information, see "[Deleting and restoring branches in a pull request](/github/administering-a-repository/deleting-and-restoring-branches-in-a-pull-request)"
 
 {% data reusables.pull_requests.retargeted-on-branch-deletion %}
-Os seguintes diagramas ilustram isso.
+The following diagrams illustrate this.
 
- Aqui alguém criou um branch chamado `feature1` a partir do branch `principal`, e você então criou um branch chamado `feature2` a partir do `feature1`. Existem pull requests abertas para ambos os branches. As setas indicam o branch base atual para cada pull request. Neste ponto, `feature1` é o branch base para `feature2`. Se a pull request para `feature2` for mesclada agora, o branch `feature2` será mesclado no `feature1`.
+ Here someone has created a branch called `feature1` from the `main` branch, and you've then created a branch called `feature2` from `feature1`. There are open pull requests for both branches. The arrows indicate the current base branch for each pull request. At this point, `feature1` is the base branch for `feature2`. If the pull request for `feature2` is merged now, the `feature2` branch will be merged into `feature1`.
 
- ![botão-merge-pull-request](/assets/images/help/branches/pr-retargeting-diagram1.png)
+ ![merge-pull-request-button](/assets/images/help/branches/pr-retargeting-diagram1.png)
 
-No próximo diagrama, alguém fez merge do pull request para `feature1` no branch `principal`, e eles excluíram o branch `feature1`. Como resultado, o {% data variables.product.prodname_dotcom %} redirecionou automaticamente o pull request para `feature2` para que seu branch base seja agora `principal`.
+In the next diagram, someone has merged the pull request for `feature1` into the `main` branch, and they have deleted the `feature1` branch. As a result, {% data variables.product.prodname_dotcom %} has automatically retargeted the pull request for `feature2` so that its base branch is now `main`.
 
- ![botão-merge-pull-request](/assets/images/help/branches/pr-retargeting-diagram2.png)
+ ![merge-pull-request-button](/assets/images/help/branches/pr-retargeting-diagram2.png)
 
-Agora, quando você faz merge do pull request `feature2`, ele será mesclado com o branch `principal`.
+Now when you merge the `feature2` pull request, it'll be merged into the `main` branch.
 
-## Trabalhar com branches protegidos
+## Working with protected branches
 
-Os administradores de repositório podem habilitar proteções em um branch. Se estiver trabalhando em um branch que é protegido, não será possível excluir nem forçar o push no branch. Os administradores do repositório podem habilitar, de modo adicional, várias outras configurações de branch protegido para aplicar vários fluxos de trabalho antes que um branch passe por um merge.
+Repository administrators can enable protections on a branch. If you're working on a branch that's protected, you won't be able to delete or force push to the branch. Repository administrators can additionally enable several other protected branch settings to enforce various workflows before a branch can be merged.
 
 {% note %}
 
-**Observação:** se você for administrador de um repositório, será possível fazer merge de pull requests em branches com proteções de branch habilitadas, mesmo se a pull request não atender aos requisitos; a não ser que as proteções de branch tenham sido definidas para "Include administrators" (Incluir administradores).
+**Note:** If you're a repository administrator, you can merge pull requests on branches with branch protections enabled even if the pull request does not meet the requirements, unless branch protections have been set to "Include administrators."
 
 {% endnote %}
 
-Para verificar se é possível fazer merge de uma pull request, observe a caixa de merge na parte inferior da guia **Conversation (Conversa)** da pull request. Para obter mais informações, consulte "[Sobre branches protegidos](/articles/about-protected-branches)".
+To see if your pull request can be merged, look in the merge box at the bottom of the pull request's **Conversation** tab. For more information, see "[About protected branches](/articles/about-protected-branches)."
 
-Quando um branch estiver protegido:
+When a branch is protected:
 
-- Você não poderá excluir nem fazer um push forçado no branch.
-- Se as verificações de status obrigatórias forem habilitadas no branch, não será possível fazer merge das alterações no branch até que todos os testes de CI obrigatórios sejam aprovados. Para obter mais informações, consulte "[Sobre verificações de status](/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks)".
-- Se as revisões obrigatórias de pull request forem habilitadas no branch, não será possível fazer merge de alterações no branch até que todos os requisitos na política da revisão de pull request tenham sido atendidos. Para obter mais informações, consulte "[Fazer merge de uma pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)".
-- Se a revisão obrigatória de um proprietário do código for habilitada em um branch, e uma pull request modificar o código que tem um proprietário, um proprietário do código deverá aprovar a pull request para que ela possa passar por merge. Para obter mais informações, consulte "[Sobre proprietários do código](/articles/about-code-owners)".
-- Se a assinatura de commit obrigatória for habilitada em um branch, não será possível fazer push de qualquer commit no branch que não esteja assinado e verificado. Para obter mais informações, consulte "[Sobre verificação de assinatura de commit](/articles/about-commit-signature-verification)" e "[Sobre branches protegidos](/github/administering-a-repository/about-protected-branches#require-signed-commits).
-- Se você usar o editor de conflitos do {% data variables.product.prodname_dotcom %}para corrigir conflitos para uma solicitação de pull request que você criou a partir de um branch protegido, {% data variables.product.prodname_dotcom %} ajudará você a criar um branch alternativo para a solicitação de pull request, para que a resolução dos conflitos possa ser mesclada. Para obter mais informações, consulte "[Resolvendo um conflito de merge no {% data variables.product.prodname_dotcom %}](/github/collaborating-with-issues-and-pull-requests/resolving-a-merge-conflict-on-github)".
+- You won't be able to delete or force push to the branch.
+- If required status checks are enabled on the branch, you won't be able to merge changes into the branch until all of the required CI tests pass. For more information, see "[About status checks](/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks)."
+- If required pull request reviews are enabled on the branch, you won't be able to merge changes into the branch until all requirements in the pull request review policy have been met. For more information, see "[Merging a pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)."
+- If required review from a code owner is enabled on a branch, and a pull request modifies code that has an owner, a code owner must approve the pull request before it can be merged. For more information, see "[About code owners](/articles/about-code-owners)."
+- If required commit signing is enabled on a branch, you won't be able to push any commits to the branch that are not signed and verified. For more information, see "[About commit signature verification](/articles/about-commit-signature-verification)" and "[About protected branches](/github/administering-a-repository/about-protected-branches#require-signed-commits)."
+- If you use {% data variables.product.prodname_dotcom %}'s conflict editor to fix conflicts for a pull request that you created from a protected branch, {% data variables.product.prodname_dotcom %}  helps you to create an alternative branch for the pull request, so that your resolution of the conflicts can be merged. For more information, see "[Resolving a merge conflict on {% data variables.product.prodname_dotcom %}](/github/collaborating-with-issues-and-pull-requests/resolving-a-merge-conflict-on-github)."
 
-## Leia mais
+## Further reading
 
-- "[Sobre pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)"
-- "[Branch](/articles/github-glossary/#branch)" no glossário do {% data variables.product.prodname_dotcom %}
-- "[Branches em um Nutshell](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell)" na documentação do Git
+- "[About pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)"
+- "[Branch](/articles/github-glossary/#branch)" in the {% data variables.product.prodname_dotcom %} glossary
+- "[Branches in a Nutshell](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell)" in the Git documentation

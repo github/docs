@@ -18,4 +18,3 @@ children:
   - /working-with-pre-receive-hooks
 shortTitle: Code quality features
 ---
-

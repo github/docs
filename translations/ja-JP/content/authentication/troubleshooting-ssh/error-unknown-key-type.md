@@ -1,6 +1,6 @@
 ---
 title: 'Error: Unknown key type'
-intro: This error means that the SSH key type you used was unrecognized or is unsupported by your SSH client.
+intro: 'This error means that the SSH key type you used was unrecognized or is unsupported by your SSH client. '
 versions:
   fpt: '*'
   ghes: '>=3.2'
@@ -12,16 +12,15 @@ redirect_from:
   - /github/authenticating-to-github/error-unknown-key-type
   - /github/authenticating-to-github/troubleshooting-ssh/error-unknown-key-type
 ---
-
 ## About the `unknown key type` error
 
 When you generate a new SSH key, you may receive an `unknown key type` error if your SSH client does not support the key type that you specify.{% mac %}To solve this issue on macOS, you can update your SSH client or install a new SSH client.
 
-## 必要な環境
+## Prerequisites
 
 You must have Homebrew installed. For more information, see the [installation guide](https://docs.brew.sh/Installation) in the Homebrew documentation.
 
-## 問題の解決
+## Solving the issue
 
 {% warning %}
 
@@ -31,9 +30,9 @@ If you remove OpenSSH, the passphrases that are stored in your keychain will onc
 
 {% endwarning %}
 
-1. ターミナルを開きます。
+1. Open Terminal.
 2. Enter the command `brew install openssh`.
 3. Quit and relaunch Terminal.
-4. Try the procedure for generating a new SSH key again. 詳しい情報については、「[新しい SSH キーを生成して ssh-agent に追加する](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key-for-a-hardware-security-key)」を参照してください。
+4. Try the procedure for generating a new SSH key again. For more information, see "[Generating a new SSH key and adding it to the ssh-agent](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key-for-a-hardware-security-key)."
 
 {% endmac %}{% linux %}To solve this issue on Linux, use the package manager for your Linux distribution to install a new version of OpenSSH, or compile a new version from source. If you install a different version of OpenSSH, the ability of other applications to authenticate via SSH may be affected. For more information, review the documentation for your distribution.{% endlinux %}

@@ -1,6 +1,6 @@
 ---
-title: クラスタリングについて
-intro: '{% data variables.product.prodname_ghe_server %} クラスタリングを利用することで、{% data variables.product.prodname_ghe_server %} を構成するサービス群を複数のノードにまたがってスケールアウトできるようになります。'
+title: About clustering
+intro: '{% data variables.product.prodname_ghe_server %} clustering allows services that make up {% data variables.product.prodname_ghe_server %} to be scaled out across multiple nodes.'
 redirect_from:
   - /enterprise/admin/clustering/overview
   - /enterprise/admin/clustering/about-clustering
@@ -14,23 +14,22 @@ topics:
   - Clustering
   - Enterprise
 ---
+## Clustering architecture
 
-## クラスタリングのアーキテクチャ
+{% data variables.product.prodname_ghe_server %} is comprised of a set of services. In a cluster, these services run across multiple nodes and requests are load balanced between them. Changes are automatically stored with redundant copies on separate nodes. Most of the services are equal peers with other instances of the same service. The exceptions to this are the `mysql-server` and `redis-server` services. These operate with a single _primary_ node with one or more _replica_ nodes.
 
-{% data variables.product.prodname_ghe_server %}は、一連のサービスから構成されています。 クラスタでは、これらのサービスは複数のノードにまたがって動作し、リクエストはそれらのノード間でロードバランスされます。 変更は、冗長なコピーと共に個別のノードに自動的に保存されます。 ほとんどのサービスは、同じサービスの他のインスタンスと同等のピア群です。 ただし`mysql-server`と`redis-server`サービスは例外です。 これらは1つの_プライマリ_ノードと、1つ以上の_レプリカ_ノード上で動作します。
+Learn more about [services required for clustering](/enterprise/{{ currentVersion }}/admin/enterprise-management/about-cluster-nodes#services-required-for-clustering).
 
-[クラスタリングに必要なサービスの詳細](/enterprise/{{ currentVersion }}/admin/enterprise-management/about-cluster-nodes#services-required-for-clustering)をご覧ください。
+## Is clustering right for my organization?
 
-## クラスタリングは組織に適切か？
+{% data reusables.enterprise_clustering.clustering-scalability %} However, setting up a redundant and scalable cluster can be complex and requires careful planning. This additional complexity will need to be planned for during installation, disaster recovery scenarios, and upgrades.
 
-{% data reusables.enterprise_clustering.clustering-scalability %}とはいえ、冗長性のあるスケーラブルなクラスタのセットアップは複雑であり、かつ、注意深い計画が必要です。 この追加の複雑さによって、インストール、システム災害復旧およびアップグレードについて計画することが必要となります。
+{% data variables.product.prodname_ghe_server %} requires low latency between nodes and is not intended for redundancy across geographic locations.
 
-{% data variables.product.prodname_ghe_server %} ではノード間のレイテンシが低いことが必要であり、地理的に離れた場所にまたがる冗長性を意図したものではありません。
-
-クラスタリングは冗長性を提供しますが、High Availability構成を置き換えることを意図したものではありません。 詳細は「[High Availability 構成](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-github-enterprise-server-for-high-availability)」を参照してください。 プライマリ／セカンダリフェイルオーバー設定はクラスタリングよりもはるかにシンプルであり、多くの組織の要求に応えます。 詳しくは[クラスタリングと高可用性との違い](/enterprise/{{ currentVersion }}/admin/guides/clustering/differences-between-clustering-and-high-availability-ha/)を参照してください。
+Clustering provides redundancy, but it is not intended to replace a High Availability configuration. For more information, see [High Availability configuration](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-github-enterprise-server-for-high-availability). A primary/secondary failover configuration is far simpler than clustering and will serve the needs of many organizations. For more information, see [Differences between Clustering and High Availability](/enterprise/{{ currentVersion }}/admin/guides/clustering/differences-between-clustering-and-high-availability-ha/).
 
 {% data reusables.package_registry.packages-cluster-support %}
 
-## クラスタリングを利用するには？
+## How do I get access to clustering?
 
-クラスタリングは特定のスケーリングの状況のために設計されており、すべての組織を対象としたものではありません。 クラスタリングをご検討される場合は、専任の担当者または {% data variables.contact.contact_enterprise_sales %} にお問い合わせください。
+Clustering is designed for specific scaling situations and is not intended for every organization. If clustering is something you'd like to consider, please contact your dedicated representative or {% data variables.contact.contact_enterprise_sales %}.

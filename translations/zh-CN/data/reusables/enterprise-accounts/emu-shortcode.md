@@ -1,1 +1,1 @@
-短代码对于您的企业来说必须是唯一的，是一个三到八个字符的字母数字字符串，并且不包含任何特殊字符。
+The short code must be unique to your enterprise, a three-to-eight character alphanumeric string, and contain no special characters.

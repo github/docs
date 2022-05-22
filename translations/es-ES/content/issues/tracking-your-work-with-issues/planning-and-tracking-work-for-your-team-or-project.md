@@ -93,13 +93,13 @@ A continuación se encuentra un ejemplo de una etiqueta de `front-end` que cream
 ## Agregar propuestas a un tablero de proyecto
 {% ifversion fpt or ghec %}Puedes utilizar proyectos en {% data variables.product.prodname_dotcom %}, actualmente en el beta público limitado, para planear y rastrear el trabajo de tu equipo. Un proyecto es una hoja de cálculo personalizada que se integra con tus propuestas y solicitudes de cambvios en {% data variables.product.prodname_dotcom %} y que se actualiza automáticamente con la información de {% data variables.product.prodname_dotcom %}. Puedes personalziar el diseño si filtras, clasificas y agrupas tus propuestas y solicitudes de cambios. Para inciar con los proyectos, consulta la [Guía de inicio rápido para los proyectos (beta)](/issues/trying-out-the-new-projects-experience/quickstart)".
 ### Ejemplo de proyecto (beta)
-Aquí tienes el diseño de tabla de un proyecto ejemplo, la cual se llenó con propuestas del proyecto Octocat que hemos creado.
+Here is the table layout of an example project, populated with the Project Octocat issues we have created.
 
-![Ejemplo de diseño de tabla de proyectos (beta)](/assets/images/help/issues/quickstart-projects-table-view.png)
+![Projects (beta) table layout example](/assets/images/help/issues/quickstart-projects-table-view.png)
 
 También podemos ver el mismo proyecto como un tablero.
 
-![Ejemplo de diseño de tablero de proyectos (beta)](/assets/images/help/issues/quickstart-projects-board-view.png)
+![Projects (beta) board layout example](/assets/images/help/issues/quickstart-projects-board-view.png)
 
 {% endif %}
 

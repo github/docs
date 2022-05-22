@@ -1,6 +1,6 @@
 ---
-title: 查看工作流程运行历史记录
-intro: 您可以查看工作流程每次运行的日志。 日志包括工作流程中每个作业和步骤的状态。
+title: Viewing workflow run history
+intro: You can view logs for each run of a workflow. Logs include the status for each job and step in a workflow.
 redirect_from:
   - /actions/managing-workflow-runs/viewing-workflow-run-history
 versions:
@@ -8,13 +8,15 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: 查看工作流程运行历史记录
+shortTitle: View workflow run history
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 {% data reusables.repositories.permissions-statement-read %}
+
+{% include tool-switcher %}
 
 {% webui %}
 
@@ -29,53 +31,53 @@ shortTitle: 查看工作流程运行历史记录
 
 {% data reusables.cli.cli-learn-more %}
 
-### 查看最近的工作流程运行
+### Viewing recent workflow runs
 
-要列出最近的工作流程运行，请使用 `run list` 子命令。
+To list the recent workflow runs, use the `run list` subcommand.
 
 ```shell
 gh run list
 ```
 
-要指定返回的最大运行次数，您可以使用 `-L` 或 `--limit` 标记。 默认值为`10`.
+To specify the maximum number of runs to return, you can use the `-L` or `--limit` flag . The default is `10`.
 
 ```shell
 gh run list --limit 5
 ```
 
-要只返回为指定的工作流程的运行，您可以使用 `-w` 或 `--workflow` 标记。  将 `workflow` 替换为工作流名称、工作流程 ID 或工作流程文件名。 例如 `"Link Checker"`、`1234567` 或 `"link-check-test.yml"`。
+To only return runs for the specified workflow, you can use the `-w` or `--workflow` flag.  Replace `workflow` with either the workflow name, workflow ID, or workflow file name. For example, `"Link Checker"`, `1234567`, or `"link-check-test.yml"`.
 
 ```shell
 gh run list --workflow <em>workflow</em>
 ```
 
-### 查看特定工作流程运行的详细信息
+### Viewing details for a specific workflow run
 
-要显示特定工作流程运行的详细信息，请使用 `run view` 子命令。 将 `run-id` 替换为您想要查看的运行的 ID。 如果您没有指定 `run-id`，{% data variables.product.prodname_cli %} 将返回一个交互式菜单，供您选择最近的运行。
+To display details for a specific workflow run, use the `run view` subcommand. Replace `run-id` with the ID of the run that you want to view. If you don't specify a `run-id`, {% data variables.product.prodname_cli %} returns an interactive menu for you to choose a recent run.
 
 ```shell
 gh run view <em>run-id</em>
 ```
 
-要在输出中包括作业步骤，请使用 `-v` 或 `--verbose` 标记。
+To include job steps in the output, use the `-v` or `--verbose` flag.
 
 ```shell
 gh run view <em>run-id</em> --verbose
 ```
 
-要查看运行中特定作业的详细信息，请使用 `-j` 或 `--job` 标记。  将 `job-id` 替换为您想要查看的作业的 ID。
+To view details for a specific job in the run, use the `-j` or `--job` flag.  Replace `job-id` with the ID of the job that you want to view.
 
 ```shell
 gh run view --job <em>job-id</em>
 ```
 
-要查看作业的完整日志，请使用 `--log` 标记。
+To view the full log for a job, use the `--log` flag.
 
 ```shell
 gh run view --job <em>job-id</em> --log
 ```
 
-如果运行失败，请使用 `--exit-status` 标记以非零状态退出。 例如：
+Use the `--exit-status` flag to exit with a non-zero status if the run failed. For example:
 
 ```shell
 gh run view 0451 --exit-status && echo "run pending or passed"

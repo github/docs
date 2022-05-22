@@ -1,3 +1,3 @@
-组织的审核日志允许您作为组织所有者查看组织成员在本月和前六个月内执行的操作。 更多信息请参阅“[查看组织的审核日志](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization)”。
+The audit log for your organization allows you, as an organization owner, to review the actions performed by members of the organization within the current month and previous six months. For more information, see "[Reviewing the audit log for your organization](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization)."
 
-您还可以查看和配置组织已安装集成的权限级别。 更多信息请参阅“[>审查组织已安装的集成](/organizations/keeping-your-organization-secure/reviewing-your-organizations-installed-integrations)”。
+You can also review and configure the permission levels for your organization's installed integrations. For more information, see "[Reviewing your organization's installed integrations](/organizations/keeping-your-organization-secure/reviewing-your-organizations-installed-integrations)."

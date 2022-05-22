@@ -1,1 +1,0 @@
-Puedes configurar los permisos predeterminados que se otorgaron al `GITHUB_TOKEN`. Para obtener más información sobre el `GITHUB_TOKEN`, consulta ""[Automatic token authentication](/actions/security-guides/automatic-token-authentication)". You can choose a restricted set of permissions as the default, or apply permissive settings.

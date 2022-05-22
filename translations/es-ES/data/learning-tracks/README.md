@@ -33,10 +33,7 @@ El versionamiento para aprender pistas se procesa en l ahora interpretada de la 
 
 Las condicionales líquidas **no** deben utilizarse para versionar en el archivo YAML para las guías. Solo las guías de pistas de aprendizaje que aplican a la versión actual se interpretarán automáticamente. Si no hay pistas con guías que pertenezcan a la versión actual, la sección de pistas de aprendizaje no se interpretará en lo absoluto.
 
-También es compatible el versionamiento explícito dentro de los datos de YML de las pistas de aprendizaje del producto. El formato y los valores permitidos son los mismos que en la [propiedad preliminar de versiones](/content#versions).
-
-Por ejemplo:
-
+También es compatible el versionamiento explícito dentro de los datos de YML de las pistas de aprendizaje del producto. Por ejemplo:
 ```
 learning_track_name:
   title: 'Learning track title'
@@ -48,7 +45,6 @@ learning_track_name:
    - /path/to/guide1
    - /path/to/guide2
 ```
-
 Si no se incluye la propiedad de `versiones`, se asume que la pista está disponible en todas las versiones.
 
 ## Imposición del modelado

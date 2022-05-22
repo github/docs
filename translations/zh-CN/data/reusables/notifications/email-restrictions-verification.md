@@ -1,1 +1,1 @@
-{% ifversion fpt or ghec %}要在启用限制后继续接收电子邮件通知，成员必须验证您验证或批准的域中的任何电子邮件地址。 更多信息请参阅“[验证电子邮件地址](/github/getting-started-with-github/verifying-your-email-address)”。{% endif %}
+{% ifversion fpt or ghec %}To continue receiving email notifications after you enable restrictions, members must verify any email addresses within domains that you verify or approve. 更多信息请参阅“[验证电子邮件地址](/github/getting-started-with-github/verifying-your-email-address)”。{% endif %}

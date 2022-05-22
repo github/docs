@@ -28,8 +28,6 @@ const featureFlagsObject = Object.fromEntries(
   featureFlags.map((featureFlagName) => [featureFlagName, process.env[featureFlagName]])
 )
 
-const AIRGAP = Boolean(JSON.parse(process.env.AIRGAP || 'false'))
-
 // Supply all route handlers with a baseline `req.context` object
 // Note that additional middleware in middleware/index.js adds to this context object
 export default async function contextualize(req, res, next) {
@@ -64,7 +62,7 @@ export default async function contextualize(req, res, next) {
   req.context.siteTree = siteTree
   req.context.pages = pageMap
 
-  if (AIRGAP || req.cookies.AIRGAP) req.context.AIRGAP = true
+  if (process.env.AIRGAP || req.cookies.AIRGAP) req.context.AIRGAP = true
   req.context.searchVersions = searchVersions
   req.context.nonEnterpriseDefaultVersion = nonEnterpriseDefaultVersion
 

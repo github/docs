@@ -1,6 +1,6 @@
 ---
-title: GitHub Pages を使ってみる
-intro: '基本的な {% data variables.product.prodname_pages %} サイトを、あなたやあなたの Organization、またはあなたのプロジェクトのためにセットアップできます。'
+title: Getting started with GitHub Pages
+intro: 'You can set up a basic {% data variables.product.prodname_pages %} site for yourself, your organization, or your project.'
 redirect_from:
   - /categories/github-pages-basics
   - /articles/additional-customizations-for-github-pages
@@ -24,6 +24,6 @@ children:
   - /securing-your-github-pages-site-with-https
   - /using-submodules-with-github-pages
   - /unpublishing-a-github-pages-site
-shortTitle: 始めましょう！
+shortTitle: Get started
 ---
 

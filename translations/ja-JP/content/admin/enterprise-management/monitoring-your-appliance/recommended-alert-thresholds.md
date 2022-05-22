@@ -1,6 +1,6 @@
 ---
-title: アラートの推奨閾値
-intro: '{% data variables.product.prodname_ghe_server %} アプライアンスのパフォーマンスに影響を与える前に、システムリソースの問題を通知するようにアラートを設定できます。'
+title: Recommended alert thresholds
+intro: 'You can configure an alert to notify you of system resource issues before they affect your {% data variables.product.prodname_ghe_server %} appliance''s performance.'
 redirect_from:
   - /enterprise/admin/guides/installation/about-recommended-alert-thresholds
   - /enterprise/admin/installation/about-recommended-alert-thresholds
@@ -16,38 +16,37 @@ topics:
   - Monitoring
   - Performance
   - Storage
-shortTitle: アラートの推奨閾値
+shortTitle: Recommended alert thresholds
 ---
+## Monitoring storage
 
-## ストレージのモニタリング
+We recommend that you monitor both the root and user storage devices and configure an alert with values that allow for ample response time when available disk space is low.
 
-ルート及びユーザストレージデバイスの両方をモニタリングし、利用可能なディスク領域が少なくなったときに十分な対応時間が持てるような値でアラートを設定することをおすすめします。
+| Severity | Threshold |
+| -------- | --------- |
+| **Warning** | Disk use exceeds 70% of total available |
+| **Critical** | Disk use exceeds 85% of total available |
 
-| 重要度          | 閾値                   |
-| ------------ | -------------------- |
-| **Warning**  | ディスクの使用量が総容量の70%を超えた |
-| **Critical** | ディスクの使用量が総容量の85%を超えた |
+You can adjust these values based on the total amount of storage allocated, historical growth patterns, and expected time to respond. We recommend over-allocating storage resources to allow for growth and prevent the downtime required to allocate additional storage.
 
-これらの値は、割り当てられたストレージの総量、過去の増大パターン、対応が求められる時間に基づいて調整できます。 ストレージリソースは、増加を許容し、追加ストレージの割り当てに必要なダウンタイムを回避するために、多めに割り当てておくことをおすすめします。
+## Monitoring CPU and load average usage
 
-## CPUとロードアベレージのモニタリング
+Although it is normal for CPU usage to fluctuate based on resource-intense Git operations, we recommend configuring an alert for abnormally high CPU utilization, as prolonged spikes can mean your instance is under-provisioned. We recommend monitoring the fifteen-minute system load average for values nearing or exceeding the number of CPU cores allocated to the virtual machine.
 
-リソース集約的なGitの操作によってCPUの利用状況が変動するのは通常のことですが、異常に高いCPU利用状況にはアラートを設定することをおすすめします。これは、長引くスパイクはインスタンスのプロビジョニングが不足しているということかもしれないためです。 15分間のシステムロードアベレージが、仮想マシンに割り当てられたCPUコア数に近いかそれを超える値になっていないかをモニタリングすることをおすすめします。
+| Severity | Threshold |
+| -------- | --------- |
+| **Warning** | Fifteen minute load average exceeds 1x CPU cores |
+| **Critical** | Fifteen minute load average exceeds 2x CPU cores |
 
-| 重要度          | 閾値                         |
-| ------------ | -------------------------- |
-| **Warning**  | 15分間のロードアベレージが1x CPUコアを超える |
-| **Critical** | 15分間のロードアベレージが2x CPUコアを超える |
+We also recommend that you monitor virtualization "steal" time to ensure that other virtual machines running on the same host system are not using all of the instance's resources.
 
-また、仮想化の"steal"時間をモニタリングして、同一ホスト上で動作している他の仮想マシンがインスタンスのリソースをすべて使ってしまっていることがないことを確認するようおすすめします。
+## Monitoring memory usage
 
-## メモリの利用状況のモニタリング
+The amount of physical memory allocated to {% data variables.product.product_location %} can have a large impact on overall performance and application responsiveness. The system is designed to make heavy use of the kernel disk cache to speed up Git operations. We recommend that the normal RSS working set fit within 50% of total available RAM at peak usage.
 
-{% data variables.product.product_location %}に割り当てられている物理メモリの量は、全体的なパフォーマンスとアプリケーションの反応性に大きな影響があります。 システムは、Gitの処理を高速化するためにカーネルのディスクキャッシュを頻繁に利用するよう設計されています。 ピークの利用状況で、通常のRSSワーキングセットがRAMの総容量の50%以内に収まるようにすることをおすすめします。
+| Severity | Threshold |
+| -------- | --------- |
+| **Warning**  | Sustained RSS usage exceeds 50% of total available memory |
+| **Critical** | Sustained RSS usage exceeds 70% of total available memory |
 
-| 重要度          | 閾値                              |
-| ------------ | ------------------------------- |
-| **Warning**  | 持続的にRSSの利用状況が利用可能なメモリ総量の50%を超える |
-| **Critical** | 持続的にRSSの利用状況が利用可能なメモリ総量の70%を超える |
-
-メモリが使い切られると、カーネルOOMキラーはRAMを大量に使っているアプリケーションプロセスを強制的にkillしてメモリリソースを解放しようとします。これは、サービスの中断につながることがあります。 通常の処理の状況で必要になる以上のメモリを仮想マシンに割り当てることをおすすめします。
+If memory is exhausted, the kernel OOM killer will attempt to free memory resources by forcibly killing RAM heavy application processes, which could result in a disruption of service. We recommend allocating more memory to the virtual machine than is required in the normal course of operations.

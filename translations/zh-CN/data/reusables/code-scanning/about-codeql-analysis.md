@@ -1,1 +1,1 @@
-{% data variables.product.prodname_codeql %} 是由 {% data variables.product.company_short %} 开发的代码分析引擎，用于自动执行安全检查。 可以使用 {% data variables.product.prodname_codeql %} 分析代码，并将结果显示为 {% data variables.product.prodname_code_scanning %} 警报。
+{% data variables.product.prodname_codeql %} is the code analysis engine developed by {% data variables.product.company_short %} to automate security checks. You can analyze your code using {% data variables.product.prodname_codeql %} and display the results as {% data variables.product.prodname_code_scanning %} alerts.

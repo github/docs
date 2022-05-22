@@ -1,3 +1,3 @@
-- （可选）自动缩放每个池的参数。
-  - 池的最小空闲运行器数
-  - 活动超时：在池减少到空闲计数之前，运行器应在池中保持活动状态的分钟数
+- Optionally, autoscaling parameters for each pool.
+  - Minimum number of idle runners for the pool
+  - Active timeout: The number of minutes that a runner should remain active in the pool before the pool is reduced to the idle count

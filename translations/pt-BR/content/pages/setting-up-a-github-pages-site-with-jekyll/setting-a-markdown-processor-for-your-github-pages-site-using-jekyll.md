@@ -1,6 +1,6 @@
 ---
-title: Definir um processador markdown para seu site do GitHub Pages usando o Jekyll
-intro: 'Você pode escolher um processador markdown para determinar como o markdown é renderizado no site do {% data variables.product.prodname_pages %}.'
+title: Setting a Markdown processor for your GitHub Pages site using Jekyll
+intro: 'You can choose a Markdown processor to determine how Markdown is rendered on your {% data variables.product.prodname_pages %} site.'
 redirect_from:
   - /articles/migrating-your-pages-site-from-maruku
   - /articles/updating-your-markdown-processor-to-kramdown
@@ -14,25 +14,26 @@ versions:
   ghec: '*'
 topics:
   - Pages
-shortTitle: Definir processador de Markdown
+shortTitle: Set Markdown processor
 ---
 
-Pessoas com permissões de gravação para um repositório podem definir um processador markdown para um site do {% data variables.product.prodname_pages %}.
+People with write permissions for a repository can set the Markdown processor for a {% data variables.product.prodname_pages %} site.
 
-{% data variables.product.prodname_pages %} é compatível com dois processadores de Markdown: [kramdown](http://kramdown.gettalong.org/) e o próprio processador do Markdown de {% data variables.product.prodname_dotcom %}, que é usado para interpretar o [ Markdown enriquecido (GMF) de {% data variables.product.prodname_dotcom %}](https://github.github.com/gfm/) em {% data variables.product.product_name %}. Para obter mais informações, consulte "[Sobre gravação e formatação no {% data variables.product.prodname_dotcom %}](/articles/about-writing-and-formatting-on-github)".
+{% data variables.product.prodname_pages %} supports two Markdown processors: [kramdown](http://kramdown.gettalong.org/) and {% data variables.product.prodname_dotcom %}'s own Markdown processor, which is used to render [{% data variables.product.prodname_dotcom %} Flavored Markdown (GFM)](https://github.github.com/gfm/) throughout {% data variables.product.product_name %}. For more information, see "[About writing and formatting on {% data variables.product.prodname_dotcom %}](/articles/about-writing-and-formatting-on-github)."
 
-Você pode usar o Markdown enriquecido de {% data variables.product.prodname_dotcom %} com qualquer um dos processadores, mas apenas o nosso processador de GFM sempre corresponderá aos resultados que você vê em {% data variables.product.product_name %}.
+You can use {% data variables.product.prodname_dotcom %} Flavored Markdown with either processor, but only our GFM processor will always match the results you see on {% data variables.product.product_name %}.
 
 {% data reusables.pages.navigate-site-repo %}
-2. No repositório, navegue até o arquivo *_config.yml*.
+2. In your repository, browse to the *_config.yml* file.
 {% data reusables.repositories.edit-file %}
-4. Localize a linha que começa com `markdown:` e altere o valor para `kramdown` ou `GFM`. ![Configuração do markdown em config.yml](/assets/images/help/pages/config-markdown-value.png)
+4. Find the line that starts with `markdown:` and change the value to `kramdown` or `GFM`.
+  ![Markdown setting in config.yml](/assets/images/help/pages/config-markdown-value.png)
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose-commit-email %}
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_new_file %}
 
-## Leia mais
+## Further reading
 
-- [Documentação do kramdown](https://kramdown.gettalong.org/documentation.html)
-- [Especificações de markdown em estilo {% data variables.product.prodname_dotcom %}](https://github.github.com/gfm/)
+- [kramdown Documentation](https://kramdown.gettalong.org/documentation.html)
+- [{% data variables.product.prodname_dotcom %} Flavored Markdown Spec](https://github.github.com/gfm/)

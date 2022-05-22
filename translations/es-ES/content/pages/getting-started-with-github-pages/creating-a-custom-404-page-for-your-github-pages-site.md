@@ -2,7 +2,7 @@
 title: Crear una página 404 personalizada para tu sitio de Páginas de GitHub
 intro: Puedes mostrar una página personalizada de error 404 cuando se intente acceder a páginas que no existen en tu sitio.
 redirect_from:
-  - /articles/custom-404-pages
+  - /articles/custom-404-pages/
   - /articles/creating-a-custom-404-page-for-your-github-pages-site
   - /github/working-with-github-pages/creating-a-custom-404-page-for-your-github-pages-site
 product: '{% data reusables.gated-features.pages %}'

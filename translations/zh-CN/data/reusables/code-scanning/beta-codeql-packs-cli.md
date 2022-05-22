@@ -2,7 +2,7 @@
 
 {% note %}
 
-**注意：** {% data variables.product.prodname_codeql %} 包管理功能（包括 {% data variables.product.prodname_codeql %} 包）目前处于测试阶段，可能会发生更改。
+**Note:** The {% data variables.product.prodname_codeql %} package management functionality, including {% data variables.product.prodname_codeql %} packs, is currently in beta and subject to change.
 
 {% endnote %}
 

@@ -1,6 +1,6 @@
 ---
-title: Solução de problemas com hooks de serviço
-intro: 'Se as cargas não estiverem sendo entregues, verifique se há problemas comuns.'
+title: Troubleshooting service hooks
+intro: 'If payloads aren''t being delivered, check for these common problems.'
 redirect_from:
   - /enterprise/admin/articles/troubleshooting-service-hooks
   - /enterprise/admin/developer-workflow/troubleshooting-service-hooks
@@ -11,33 +11,38 @@ versions:
   ghae: '*'
 topics:
   - Enterprise
-shortTitle: Solução de problemas de hooks de serviço
+shortTitle: Troubleshoot service hooks
 ---
+## Getting information on deliveries
 
-## Obter informações nas entregas
-
-Você pode encontrar informações sobre a resposta mais recente de todas as entregas de hooks de serviço em qualquer repositório.
-
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-2. Navegue até o repositório que você está investigando.
-3. Clique no link **Hooks** na barra de navegação lateral. ![Barra lateral de hooks](/assets/images/enterprise/settings/Enterprise-Hooks-Sidebar.png)
-4. Clique no link **Latest Delivery** (Entrega mais recente) no hook de serviço que apresentou problemas. ![Detalhes de hooks](/assets/images/enterprise/settings/Enterprise-Hooks-Details.png)
-5. Em **Remote Calls** (Chamadas remotas), você verá os cabeçalhos usados durante o POST para o servidor remoto e a resposta que o servidor remoto enviou de volta à instalação.
-
-## Exibir a carga
+You can find information for the last response of all service hooks deliveries on any repository.
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
-2. Navegue até o repositório que você está investigando.
-3. Clique no link **Hooks** na barra de navegação lateral. ![Barra lateral de hooks](/assets/images/enterprise/settings/Enterprise-Hooks-Sidebar.png)
-4. Clique no link **Latest Delivery** (Entrega mais recente) no hook de serviço que apresentou problemas.
-5. Clique em **Entrega**. ![Exibir a carga](/assets/images/enterprise/settings/Enterprise-Hooks-Payload.png)
+2. Browse to the repository you're investigating.
+3. Click on the **Hooks** link in the navigation sidebar.
+  ![Hooks Sidebar](/assets/images/enterprise/settings/Enterprise-Hooks-Sidebar.png)
+4. Click on the **Latest Delivery** link under the service hook having problems.
+  ![Hook Details](/assets/images/enterprise/settings/Enterprise-Hooks-Details.png)
+5. Under **Remote Calls**, you'll see the headers that were used when POSTing to the remote server along with the response that the remote server sent back to your installation.
 
-## Exibir entregas anteriores
-
-As entregas ficam armazenadas por 15 dias.
+## Viewing the payload
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
-2. Navegue até o repositório que você está investigando.
-3. Clique no link **Hooks** na barra de navegação lateral. ![Barra lateral de hooks](/assets/images/enterprise/settings/Enterprise-Hooks-Sidebar.png)
-4. Clique no link **Latest Delivery** (Entrega mais recente) no hook de serviço que apresentou problemas.
-5. Para exibir outras entregas de um hook específico, clique em **More for this Hook ID** (Mais informações sobre este ID de hook): ![Exibir mais entregas](/assets/images/enterprise/settings/Enterprise-Hooks-More-Deliveries.png)
+2. Browse to the repository you're investigating.
+3. Click on the **Hooks** link in the navigation sidebar.
+  ![Hooks Sidebar](/assets/images/enterprise/settings/Enterprise-Hooks-Sidebar.png)
+4. Click on the **Latest Delivery** link under the service hook having problems.
+5. Click **Delivery**.
+  ![Viewing the payload](/assets/images/enterprise/settings/Enterprise-Hooks-Payload.png)
+
+## Viewing past deliveries
+
+Deliveries are stored for 15 days.
+
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+2. Browse to the repository you're investigating.
+3. Click on the **Hooks** link in the navigation sidebar.
+  ![Hooks Sidebar](/assets/images/enterprise/settings/Enterprise-Hooks-Sidebar.png)
+4. Click on the **Latest Delivery** link under the service hook having problems.
+5. To view other deliveries to that specific hook, click **More for this Hook ID**:
+  ![Viewing more deliveries](/assets/images/enterprise/settings/Enterprise-Hooks-More-Deliveries.png)

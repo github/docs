@@ -1,6 +1,6 @@
 ---
-title: Baixar os códigos de recuperação de logon único de SAML da organização
-intro: 'Os administradores da organização devem baixar os códigos de recuperação de logon único de SAML dela para garantir que possam acessar o {% data variables.product.product_name %} mesmo se o provedor de identidade da organização não estiver disponível.'
+title: Downloading your organization's SAML single sign-on recovery codes
+intro: 'Organization administrators should download their organization''s SAML single sign-on recovery codes to ensure that they can access {% data variables.product.product_name %} even if the identity provider for the organization is unavailable.'
 redirect_from:
   - /articles/downloading-your-organization-s-saml-single-sign-on-recovery-codes
   - /articles/downloading-your-organizations-saml-single-sign-on-recovery-codes
@@ -10,26 +10,28 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Fazer o download de códigos de recuperação SAML
+shortTitle: Download SAML recovery codes
 ---
 
-Os códigos de recuperação não devem ser compartilhados ou distribuídos. Recomendamos salvá-los com um gerenciador de senhas como [LastPass](https://lastpass.com/) ou [1Password](https://1password.com/).
+Recovery codes should not be shared or distributed. We recommend saving them with a password manager such as [LastPass](https://lastpass.com/) or [1Password](https://1password.com/).
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}
-5. Em "SAML single sign-on" (Logon único de SAML), na observação sobre código de recuperação, clique em **Save your recovery codes** (Salvar os códigos de recuperação). ![Link para exibir e salvar os códigos de recuperação](/assets/images/help/saml/saml_recovery_codes.png)
-6. Salve seus códigos de recuperação clicando em **Download** (Baixar), **Print** (Imprimir) ou **Copy** (Copiar). ![Botões para baixar, imprimir ou copiar os códigos de recuperação](/assets/images/help/saml/saml_recovery_code_options.png)
+5. Under "SAML single sign-on", in the note about recovery codes, click **Save your recovery codes**.
+![Link to view and save your recovery codes](/assets/images/help/saml/saml_recovery_codes.png)
+6. Save your recovery codes by clicking **Download**, **Print**, or **Copy**.
+![Buttons to download, print, or copy your recovery codes](/assets/images/help/saml/saml_recovery_code_options.png)
 
   {% note %}
 
-  **Observação:** os códigos de recuperação ajudam você a retornar para o {% data variables.product.product_name %} caso seu IdP fique indisponível. Se você gerar novos códigos de recuperação, os exibidos na página "Códigos de recuperação de logon único" serão atualizados automaticamente.
+  **Note:** Your recovery codes will help get you back into {% data variables.product.product_name %} if your IdP is unavailable. If you generate new recovery codes the recovery codes displayed on the "Single sign-on recovery codes" page are automatically updated.
 
   {% endnote %}
 
-7. Cada código de recuperação só pode ser usado uma vez para recuperar o acesso ao {% data variables.product.product_name %}. O acesso ao {% data variables.product.product_name %} só ficará disponível 24 horas antes de você fazer login usando o login único.
+7. Once you use a recovery code to regain access to {% data variables.product.product_name %}, it cannot be reused. Access to {% data variables.product.product_name %} will only be available for 24 hours before you'll be asked to sign in using single sign-on.
 
-## Leia mais
+## Further reading
 
-- "[Sobre gerenciamento de identidade e acesso com o SAML de logon único](/articles/about-identity-and-access-management-with-saml-single-sign-on)"
-- "[Acessar a organização se o provedor de identidade estiver indisponível](/articles/accessing-your-organization-if-your-identity-provider-is-unavailable)"
+- "[About identity and access management with SAML single sign-on](/articles/about-identity-and-access-management-with-saml-single-sign-on)"
+- "[Accessing your organization if your identity provider is unavailable](/articles/accessing-your-organization-if-your-identity-provider-is-unavailable)"

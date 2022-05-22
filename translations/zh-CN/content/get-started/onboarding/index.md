@@ -1,5 +1,5 @@
 ---
-title: 登记
+title: Onboarding
 intro: ''
 versions:
   fpt: '*'

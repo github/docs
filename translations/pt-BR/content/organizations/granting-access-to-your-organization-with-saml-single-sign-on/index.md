@@ -1,6 +1,6 @@
 ---
-title: Conceder acesso à sua organização com logon único SAML
-intro: 'Administradores de organizações podem conceder acesso à organização com logon único SAML. O acesso pode ser concedido a integrantes de organizações, bots e contas de serviço.'
+title: Granting access to your organization with SAML single sign-on
+intro: 'Organization administrators can grant access to their organization with SAML single sign-on. This access can be granted to organization members, bots, and service accounts.'
 redirect_from:
   - /articles/granting-access-to-your-organization-with-saml-single-sign-on
   - /github/setting-up-and-managing-organizations-and-teams/granting-access-to-your-organization-with-saml-single-sign-on
@@ -13,6 +13,6 @@ children:
   - /managing-bots-and-service-accounts-with-saml-single-sign-on
   - /viewing-and-managing-a-members-saml-access-to-your-organization
   - /about-two-factor-authentication-and-saml-single-sign-on
-shortTitle: Conceder acesso com SAML
+shortTitle: Grant access with SAML
 ---
 

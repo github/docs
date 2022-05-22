@@ -16,11 +16,12 @@ topics:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
+
 ## Introduction
 
 This guide explains how to use {% data variables.product.prodname_actions %} to build and deploy a Java project to [Azure App Service](https://azure.microsoft.com/services/app-service/).
 
-{% ifversion fpt or ghec or ghae-issue-4856 or ghes > 3.4 %}
+{% ifversion fpt or ghec or ghae-issue-4856 %}
 
 {% note %}
 
@@ -52,7 +53,9 @@ Before creating your {% data variables.product.prodname_actions %} workflow, you
 
 {% data reusables.actions.create-azure-publish-profile %}
 
+{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 1. Optionally, configure a deployment environment. {% data reusables.actions.about-environments %}
+{% endif %}
 
 ## Creating the workflow
 
@@ -83,10 +86,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: {% data reusables.actions.action-checkout %}
+      - uses: actions/checkout@v2
 
       - name: Set up Java version
-        uses: {% data reusables.actions.action-setup-java %}
+        uses: actions/setup-java@v2.3.1
         with:
           java-version: {% raw %}${{ env.JAVA_VERSION }}{% endraw %}
           cache: 'maven'
@@ -95,7 +98,7 @@ jobs:
         run: mvn clean install
 
       - name: Upload artifact for deployment job
-        uses: {% data reusables.actions.action-upload-artifact %}
+        uses: actions/upload-artifact@v2
         with:
           name: java-app
           path: '{% raw %}${{ github.workspace }}{% endraw %}/target/*.jar'
@@ -109,7 +112,7 @@ jobs:
 
     steps:
       - name: Download artifact from build job
-        uses: {% data reusables.actions.action-download-artifact %}
+        uses: actions/download-artifact@v2
         with:
           name: java-app
 

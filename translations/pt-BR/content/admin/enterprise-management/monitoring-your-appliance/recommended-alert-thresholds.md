@@ -1,6 +1,6 @@
 ---
-title: Limites de alerta recomendados
-intro: 'É possível configurar um alerta para receber notificações sobre os problemas de recursos do sistema antes que eles afetem o desempenho do appliance do {% data variables.product.prodname_ghe_server %}.'
+title: Recommended alert thresholds
+intro: 'You can configure an alert to notify you of system resource issues before they affect your {% data variables.product.prodname_ghe_server %} appliance''s performance.'
 redirect_from:
   - /enterprise/admin/guides/installation/about-recommended-alert-thresholds
   - /enterprise/admin/installation/about-recommended-alert-thresholds
@@ -16,38 +16,37 @@ topics:
   - Monitoring
   - Performance
   - Storage
-shortTitle: Limites de alerta recomendados
+shortTitle: Recommended alert thresholds
 ---
+## Monitoring storage
 
-## Monitorar o armazenamento
+We recommend that you monitor both the root and user storage devices and configure an alert with values that allow for ample response time when available disk space is low.
 
-É recomendável monitorar seus dispositivos de armazenamento raiz e de usuário, bem como configurar um alerta com valores que definam um tempo de resposta longo quando o espaço em disco disponível estiver baixo.
+| Severity | Threshold |
+| -------- | --------- |
+| **Warning** | Disk use exceeds 70% of total available |
+| **Critical** | Disk use exceeds 85% of total available |
 
-| gravidade   | Limite                                       |
-| ----------- | -------------------------------------------- |
-| **Aviso**   | Uso do disco excede 70% do total disponível. |
-| **Crítico** | Uso do disco excede 85% do total disponível. |
+You can adjust these values based on the total amount of storage allocated, historical growth patterns, and expected time to respond. We recommend over-allocating storage resources to allow for growth and prevent the downtime required to allocate additional storage.
 
-Você pode ajustar esses valores com base na quantidade de armazenamento total alocada, nos padrões históricos de crescimento e no tempo esperado de resposta. Recomendamos a superalocação dos recursos de armazenamento para permitir o crescimento e evitar o tempo de inatividade necessário para alocar armazenamento adicional.
+## Monitoring CPU and load average usage
 
-## Monitoramento de CPU e uso médio de carga
+Although it is normal for CPU usage to fluctuate based on resource-intense Git operations, we recommend configuring an alert for abnormally high CPU utilization, as prolonged spikes can mean your instance is under-provisioned. We recommend monitoring the fifteen-minute system load average for values nearing or exceeding the number of CPU cores allocated to the virtual machine.
 
-Embora seja normal haver oscilação no uso de CPU conforme as operações do Git, é recomendável configurar um alerta para identificar usos de CPU altos demais, já que os picos prolongados podem indicar provisionamento insuficiente da sua instância. Recomendamos monitorar a média de carga do sistema a cada quinze minutos para valores próximos ou superiores ao número de núcleos de CPU alocados à máquina virtual.
+| Severity | Threshold |
+| -------- | --------- |
+| **Warning** | Fifteen minute load average exceeds 1x CPU cores |
+| **Critical** | Fifteen minute load average exceeds 2x CPU cores |
 
-| gravidade   | Limite                                                     |
-| ----------- | ---------------------------------------------------------- |
-| **Aviso**   | Média de carga de quinze minutos excede 1x núcleos de CPU. |
-| **Crítico** | Média de carga de quinze minutos excede 2x núcleos de CPU. |
+We also recommend that you monitor virtualization "steal" time to ensure that other virtual machines running on the same host system are not using all of the instance's resources.
 
-Também é recomendável monitorar o tempo de "roubo" da virtualização para garantir que outras máquinas virtuais em execução no mesmo sistema host não usem todos os recursos da instância.
+## Monitoring memory usage
 
-## Monitorar o uso de memória
+The amount of physical memory allocated to {% data variables.product.product_location %} can have a large impact on overall performance and application responsiveness. The system is designed to make heavy use of the kernel disk cache to speed up Git operations. We recommend that the normal RSS working set fit within 50% of total available RAM at peak usage.
 
-A quantidade de memória física alocada para a {% data variables.product.product_location %} pode ter um grande impacto no desempenho geral e na capacidade de resposta do aplicativo. O sistema é projetado para fazer uso intenso do cache de disco do kernel a fim de acelerar as operações do Git. Recomendamos que o conjunto de trabalho RSS normal caiba em 50% do total de RAM disponível no uso máximo.
+| Severity | Threshold |
+| -------- | --------- |
+| **Warning**  | Sustained RSS usage exceeds 50% of total available memory |
+| **Critical** | Sustained RSS usage exceeds 70% of total available memory |
 
-| gravidade   | Limite                                                           |
-| ----------- | ---------------------------------------------------------------- |
-| **Aviso**   | Uso de RSS sustentado excede 50% do total de memória disponível. |
-| **Crítico** | Uso de RSS sustentado excede 70% do total de memória disponível. |
-
-Se a memória estiver esgotada, o killer OOM do kernel tentará liberar recursos de memória eliminando à força os processos de aplicativos pesados da RAM, o que pode causar a interrupção do serviço. É recomendável alocar mais memória do que o necessário para a máquina virtual no curso normal das operações.
+If memory is exhausted, the kernel OOM killer will attempt to free memory resources by forcibly killing RAM heavy application processes, which could result in a disruption of service. We recommend allocating more memory to the virtual machine than is required in the normal course of operations.

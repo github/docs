@@ -22,9 +22,9 @@
     - GitHub Actions
 - 
   #Security policies
-  title: Microsoft 安全策略模板
+  title: Microsoft 安全策略
   description: 示例安全策略
-  href: /microsoft/repo-templates/blob/main/shared/SECURITY.md
+  href: /microsoft/microsoft.github.io/blob/master/SECURITY.MD
   tags:
     - 安全策略
 - 
@@ -54,9 +54,8 @@
   versions:
     fpt: '*'
     ghec: '*'
-    ghes: '>=3.3'
 - 
-  #Dependabot configuration only relevant to GitHub.com and GHES 3.3+
+  #Dependabot configuration only relevant to GitHub.com
   #Convert "languages" to "package-ecosystems" for Dependabot configurations
   title: 超级语法检查配置
   description: 超级语法检查仓库中的 Dependabot 版本更新配置示例。
@@ -74,7 +73,6 @@
   versions:
     fpt: '*'
     ghec: '*'
-    ghes: '>=3.3'
 - 
   title: Dependabot 版本更新 PR
   description: 由 Depabot 版本在超级语法检查仓库中更新配置生成的示例拉取请求。
@@ -87,4 +85,3 @@
   versions:
     fpt: '*'
     ghec: '*'
-    ghes: '>=3.3'

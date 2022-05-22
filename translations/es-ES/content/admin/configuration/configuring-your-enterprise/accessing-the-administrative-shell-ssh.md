@@ -1,5 +1,5 @@
 ---
-title: Acceder al shell administrativo (SSH)
+title: Accessing the administrative shell (SSH)
 redirect_from:
   - /enterprise/admin/articles/ssh-access
   - /enterprise/admin/articles/adding-an-ssh-key-for-shell-access
@@ -19,61 +19,61 @@ topics:
   - Enterprise
   - Fundamentals
   - SSH
-shortTitle: Acceder al shell administrativo (SSH)
+shortTitle: Access the admin shell (SSH)
 ---
+## About administrative shell access
 
-## Acerca del acceso al shell administrativo
+If you have SSH access to the administrative shell, you can run {% data variables.product.prodname_ghe_server %}'s command line utilities. SSH access is also useful for troubleshooting, running backups, and configuring replication. Administrative SSH access is managed separately from Git SSH access and is accessible only via port 122.
 
-Si tienes acceso SSH al shell administrativo, puedes ejecutar las utilidades de la línea de comando del {% data variables.product.prodname_ghe_server %}. El acceso SSH también es útil para la solución de problemas, para ejecutar copias de seguridad y para configurar la replicación. El acceso SSH administrativo se administra por separado desde el acceso SSH de Git y es accesible solo desde el puerto 122.
+## Enabling access to the administrative shell via SSH
 
-## Habilitar el acceso al shell administrativo por medio de SSH
-
-Para habilitar el acceso SSH administrativo, debes agregar tu llave pública SSH a tu lista de llaves autorizadas de la instancia.
+To enable administrative SSH access, you must add your SSH public key to your instance's list of authorized keys.
 
 {% tip %}
 
-**Consejo:** Los cambios en las claves SSH entran en vigor de inmediato.
+**Tip:** Changes to authorized SSH keys take effect immediately.
 
 {% endtip %}
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
-3. En "SSH access" (Acceso SSH), pega tu clave en el cuadro de texto, luego haz clic en **Add key** (Agregar clave). ![Cuadro te texto y botón para agregar una clave SSH](/assets/images/enterprise/settings/add-authorized-ssh-key-admin-shell.png)
+3. Under "SSH access", paste your key into the text box, then click **Add key**.
+  ![Text box and button for adding an SSH key](/assets/images/enterprise/settings/add-authorized-ssh-key-admin-shell.png)
 {% data reusables.enterprise_management_console.save-settings %}
 
-## Conectarse con el shell administrativo por SSH
+## Connecting to the administrative shell over SSH
 
-Después de que hayas agregado tu clave SSH a la lista, conéctate a la instancia por SSH como el usuario `admin` en el puerto 122.
+After you've added your SSH key to the list, connect to the instance over SSH as the `admin` user on port 122.
 
 ```shell
 $ ssh -p 122 admin@github.example.com
-Último inicio de sesión: dom 9 de nov 07:53:29 2014 desde 169.254.1.1
+Last login: Sun Nov 9 07:53:29 2014 from 169.254.1.1
 admin@github-example-com:~$ █
 ```
 
-### Solucionar problemas de conexión al SSH
+### Troubleshooting SSH connection problems
 
-Si te encuentras con el error `Permiso denegado (publickey)` cuando intentas conectarte a {% data variables.product.product_location %} por medio de SSH, confirma que te estés conectando por el puerto 122. Puede que debas especificar de manera explícita qué clave SSH privada utilizar.
+If you encounter the `Permission denied (publickey)` error when you try to connect to {% data variables.product.product_location %} via SSH, confirm that you are connecting over port 122. You may need to explicitly specify which private SSH key to use.
 
-Para especificar una clave SSH utilizando la línea de comando, ejecuta `ssh` con el argumento `-i`.
+To specify a private SSH key using the command line, run `ssh` with the `-i` argument.
 
 ```shell
 ssh -i /path/to/ghe_private_key -p 122 admin@<em>hostname</em>
 ```
 
-También puedes especificar una llave SSH privada utilizando el archivo de configuración SSH (`~/.ssh/config`).
+You can also specify a private SSH key using the SSH configuration file (`~/.ssh/config`).
 
 ```shell
 Host <em>hostname</em>
   IdentityFile /path/to/ghe_private_key
-  Usuario Admin
-  Puerto 122
+  User admin
+  Port 122
 ```
 
-## Acceder al shell administrativo utilizando la consola local
+## Accessing the administrative shell using the local console
 
-En una situación de emergencia, por ejemplo, si el SSH no está disponible, puedes acceder al shell administrativo de manera local. Inicia sesión como usuario `admin` y utiliza la contraseña establecida durante la configuración inicial de {% data variables.product.prodname_ghe_server %}.
+In an emergency situation, for example if SSH is unavailable, you can access the administrative shell locally. Sign in as the `admin` user and use the password established during initial setup of {% data variables.product.prodname_ghe_server %}.
 
-## Limitaciones de acceso al shell administrativo
+## Access limitations for the administrative shell
 
-El acceso al shell administrativo se permite solo para la solución de problemas y para realizar procedimientos de operaciones documentadas. Si modificas archivos del sistema y de la aplicación, ejecutas programas o instalas paquetes de software incompatibles se puede invalidar tu contrato de asistencia. Contáctate con {% data variables.contact.contact_ent_support %} si tienes alguna pregunta acerca de las actividades que permite tu contrato de asistencia.
+Administrative shell access is permitted for troubleshooting and performing documented operations procedures only. Modifying system and application files, running programs, or installing unsupported software packages may void your support contract. Please contact {% data variables.contact.contact_ent_support %} if you have a question about the activities allowed by your support contract.

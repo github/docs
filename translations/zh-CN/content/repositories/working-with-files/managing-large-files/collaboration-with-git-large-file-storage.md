@@ -1,6 +1,6 @@
 ---
-title: 协作处理 Git Large File Storage
-intro: '启用 {% data variables.large_files.product_name_short %} 后，您就可以像使用 Git 管理的任何文件一样获取、修改和推送大文件。 但是，没有 {% data variables.large_files.product_name_short %} 的用户将经历不同的工作流程。'
+title: Collaboration with Git Large File Storage
+intro: 'With {% data variables.large_files.product_name_short %} enabled, you''ll be able to fetch, modify, and push large files just as you would expect with any file that Git manages. However, a user that doesn''t have {% data variables.large_files.product_name_short %} will experience a different workflow.'
 redirect_from:
   - /articles/collaboration-with-large-file-storage
   - /articles/collaboration-with-git-large-file-storage
@@ -11,37 +11,36 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: 协作
+shortTitle: Collaboration
 ---
-
-如果仓库上的协作者未安装 {% data variables.large_files.product_name_short %}，他们将无法访问原始大文件。 如果他们尝试克隆您的仓库，则只能获取指针文件，而无法访问任何实际数据。
+If collaborators on your repository don't have {% data variables.large_files.product_name_short %} installed, they won't have access to the original large file. If they attempt to clone your repository, they will only fetch the pointer files, and won't have access to any of the actual data.
 
 {% tip %}
 
-**提示：**为帮助未启用 {% data variables.large_files.product_name_short %} 的用户，我们建议您设置仓库贡献者指南以介绍如何处理大文件。 例如，您可以要求贡献者不修改大文件，或者将更改上传到文件共享服务，如 [Dropbox](http://www.dropbox.com/) 或 <a href="https://drive.google.com/" data-proofer-ignore>Google Drive</a>。 更多信息请参阅“[设置仓库参与者指南](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors)”。
+**Tip:** To help users without {% data variables.large_files.product_name_short %} enabled, we recommend you set guidelines for repository contributors that describe how to work with large files. For example, you may ask contributors not to modify large files, or to upload changes to a file sharing service like [Dropbox](http://www.dropbox.com/) or <a href="https://drive.google.com/" data-proofer-ignore>Google Drive</a>. For more information, see "[Setting guidelines for repository contributors](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors)."
 
 {% endtip %}
 
-## 查看拉取请求中的大文件
+## Viewing large files in pull requests
 
-{% data variables.product.product_name %} 不会渲染拉取请求中的 {% data variables.large_files.product_name_short %} 对象。 仅显示指针文件：
+{% data variables.product.product_name %} does not render {% data variables.large_files.product_name_short %} objects in pull requests. Only the pointer file is shown:
 
-![大文件的示例 PR](/assets/images/help/large_files/large_files_pr.png)
+![Sample PR for large files](/assets/images/help/large_files/large_files_pr.png)
 
-有关指针文件的更多信息，请参阅“[关于 {% data variables.large_files.product_name_long %}](/github/managing-large-files/about-git-large-file-storage#pointer-file-format)”。
+For more information about pointer files, see "[About {% data variables.large_files.product_name_long %}](/github/managing-large-files/about-git-large-file-storage#pointer-file-format)."
 
-要查看对大型文件所做的更改，请在本地检出拉取请求以查看差异。 更多信息请参阅“[在本地检出拉取请求](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/checking-out-pull-requests-locally)”。
+To view changes made to large files, check out the pull request locally to review the diff. For more information, see "[Checking out pull requests locally](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/checking-out-pull-requests-locally)."
 
 {% ifversion fpt or ghec %}
 
-## 推送大文件到复刻
+## Pushing large files to forks
 
-将大文件推送到仓库复刻会计入父仓库的带宽和存储配额，而不是复刻所有者的配额。
+Pushing large files to forks of a repository count against the parent repository's bandwidth and storage quotas, rather than the quotas of the fork owner.
 
-如果仓库网络已经有 {% data variables.large_files.product_name_short %} 对象，或者您能够写入仓库网络的根目录，您可以将 {% data variables.large_files.product_name_short %} 对象推送到公共复刻。
+You can push {% data variables.large_files.product_name_short %} objects to public forks if the repository network already has {% data variables.large_files.product_name_short %} objects or you have write access to the root of the repository network.
 
 {% endif %}
 
-## 延伸阅读
+## Further reading
 
-- "[复制含有 Git Large File Storage 对象的仓库](/articles/duplicating-a-repository/#mirroring-a-repository-that-contains-git-large-file-storage-objects)"
+- "[Duplicating a repository with Git Large File Storage objects](/articles/duplicating-a-repository/#mirroring-a-repository-that-contains-git-large-file-storage-objects)"

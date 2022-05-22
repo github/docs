@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react'
 import Cookies from 'js-cookie'
-import { SubNav, TabNav, UnderlineNav } from '@primer/react'
+import { SubNav, TabNav, UnderlineNav } from '@primer/components'
 import { sendEvent, EventType } from 'components/lib/events'
-import { useRouter } from 'next/router'
 
 import { useArticleContext } from 'components/context/ArticleContext'
 import parseUserAgent from 'components/lib/user-agent'
@@ -51,7 +50,6 @@ type Props = {
 export const PlatformPicker = ({ variant = 'subnav' }: Props) => {
   const { defaultPlatform, detectedPlatforms } = useArticleContext()
   const [currentPlatform, setCurrentPlatform] = useState(defaultPlatform || '')
-  const { asPath } = useRouter()
 
   // Run on mount for client-side only features
   useEffect(() => {
@@ -65,7 +63,7 @@ export const PlatformPicker = ({ variant = 'subnav' }: Props) => {
 
     // always trigger this on initial render. if the default doesn't change the other useEffect won't fire
     showPlatformSpecificContent(platform)
-  }, [asPath])
+  }, [])
 
   // Make sure we've always selected a platform that exists in the article
   useEffect(() => {
@@ -137,16 +135,6 @@ export const PlatformPicker = ({ variant = 'subnav' }: Props) => {
               data-platform={option.id}
               as="button"
               selected={option.id === currentPlatform}
-              // Temporary fix: This should be removed when this merges: PR 24123
-              sx={{
-                color: 'var(--color-fg-default)',
-                '&.selected': { color: 'var(--color-fg-default)' },
-                ':hover': { color: 'var(--color-fg-default)' },
-                ':focus': {
-                  color: 'var(--color-fg-default)',
-                  outline: '-webkit-focus-ring-color auto 1px;',
-                },
-              }}
               onClick={() => {
                 onClickPlatform(option.id)
               }}

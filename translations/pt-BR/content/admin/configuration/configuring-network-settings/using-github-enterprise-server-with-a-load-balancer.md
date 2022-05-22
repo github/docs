@@ -1,6 +1,6 @@
 ---
-title: Usar o GitHub Enterprise Server com balanceador de carga
-intro: 'Use um balanceador de carga na frente de um appliance ou de um par de appliances do {% data variables.product.prodname_ghe_server %} em uma configuração de alta disponibilidade.'
+title: Using GitHub Enterprise Server with a load balancer
+intro: 'Use a load balancer in front of a single {% data variables.product.prodname_ghe_server %} appliance or a pair of appliances in a High Availability configuration.'
 redirect_from:
   - /enterprise/admin/guides/installation/using-github-enterprise-with-a-load-balancer
   - /enterprise/admin/installation/using-github-enterprise-server-with-a-load-balancer
@@ -14,18 +14,18 @@ topics:
   - High availability
   - Infrastructure
   - Networking
-shortTitle: Use um balanceador de carga
+shortTitle: Use a load balancer
 ---
 
-## Sobre balanceadores de carga
+## About load balancers
 
 {% data reusables.enterprise_clustering.load_balancer_intro %}
 
 {% data reusables.enterprise_clustering.load_balancer_dns %}
 
-## Informações de conexão do cliente
+## Handling client connection information
 
-Como as conexões do cliente com o {% data variables.product.prodname_ghe_server %} vêm do balanceador de carga, pode ocorrer a perda do endereço IP do cliente.
+Because client connections to {% data variables.product.prodname_ghe_server %} come from the load balancer, the client IP address can be lost.
 
 {% data reusables.enterprise_clustering.proxy_preference %}
 
@@ -33,35 +33,37 @@ Como as conexões do cliente com o {% data variables.product.prodname_ghe_server
 
 {% data reusables.enterprise_installation.terminating-tls %}
 
-### Habilitar o suporte de protocolo PROXY na {% data variables.product.product_location %}
+### Enabling PROXY protocol support on {% data variables.product.product_location %}
 
-É altamente recomendável ativar o suporte de protocolo PROXY para o appliance e o balanceador de carga. Use as instruções do fornecedor para habilitar o protocolo PROXY no balanceador de carga. Para obter mais informações, consulte a [documentação do protocolo PROXY](http://www.haproxy.org/download/1.8/doc/proxy-protocol.txt).
+We strongly recommend enabling PROXY protocol support for both your appliance and the load balancer. Use the instructions provided by your vendor to enable the PROXY protocol on your load balancer. For more information, see [the PROXY protocol documentation](http://www.haproxy.org/download/1.8/doc/proxy-protocol.txt).
 
 {% data reusables.enterprise_installation.proxy-incompatible-with-aws-nlbs %}
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.privacy %}
-3. Em **External load balancers** (Balanceadores de carga externos), selecione **Enable support for PROXY protocol** (Habilitar suporte do protocolo PROXY). ![Caixa de seleção para habilitar o suporte do protocolo PROXY](/assets/images/enterprise/management-console/enable-proxy.png)
+3. Under **External load balancers**, select **Enable support for PROXY protocol**.
+![Checkbox to enable support for PROXY protocol](/assets/images/enterprise/management-console/enable-proxy.png)
 {% data reusables.enterprise_management_console.save-settings %}
 
 {% data reusables.enterprise_clustering.proxy_protocol_ports %}
 
-### Habilitar o suporte X-Forwarded-For na {% data variables.product.product_location %}
+### Enabling X-Forwarded-For support on {% data variables.product.product_location %}
 
 {% data reusables.enterprise_clustering.x-forwarded-for %}
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.privacy %}
-3. Em **External load balancers** (Balanceadores de carga externos), selecione **Allow HTTP X-Forwarded-For header** (Habilitar header HTTP X-Forwarded-For). ![Caixa de seleção para permitir o header HTTP X-Forwarded-For](/assets/images/enterprise/management-console/allow-xff.png)
+3. Under **External load balancers**, select **Allow HTTP X-Forwarded-For header**.
+![Checkbox to allow the HTTP X-Forwarded-For header](/assets/images/enterprise/management-console/allow-xff.png)
 {% data reusables.enterprise_management_console.save-settings %}
 
 {% data reusables.enterprise_clustering.without_proxy_protocol_ports %}
 
-## Configurar verificações de integridade
+## Configuring health checks
 
-As verificações de integridade permitem que um balanceador de carga pare de enviar tráfego para um nó que não responde em caso de falha na verificação pré-configurada do nó em questão. Se o appliance estiver offline devido a manutenção ou falha inesperada, o balanceador de carga poderá exibir uma página de status. Em configurações de alta disponibilidade (HA), é possível usar balanceadores de carga como parte da estratégia de failover. No entanto, não há suporte para failover automático de pares de HA. Promova manualmente o appliance réplica antes que ele comece a atender a solicitações. Para obter mais informações, consulte "[Configurar o {% data variables.product.prodname_ghe_server %} para alta disponibilidade](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-github-enterprise-server-for-high-availability/)".
+Health checks allow a load balancer to stop sending traffic to a node that is not responding if a pre-configured check fails on that node. If the appliance is offline due to maintenance or unexpected failure, the load balancer can display a status page. In a High Availability (HA) configuration, a load balancer can be used as part of a failover strategy. However, automatic failover of HA pairs is not supported. You must manually promote the replica appliance before it will begin serving requests. For more information, see "[Configuring {% data variables.product.prodname_ghe_server %} for High Availability](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-github-enterprise-server-for-high-availability/)."
 
 {% data reusables.enterprise_clustering.health_checks %}
 {% data reusables.enterprise_site_admin_settings.maintenance-mode-status %}

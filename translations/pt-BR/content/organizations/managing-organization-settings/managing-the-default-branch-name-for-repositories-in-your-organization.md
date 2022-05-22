@@ -1,6 +1,6 @@
 ---
-title: Gerenciar o nome de branch-padrão para repositórios na sua organização
-intro: 'Você pode definir o nome do branch-padrão para repositórios que os integrantes criam na sua organização em {% data variables.product.product_location %}.'
+title: Managing the default branch name for repositories in your organization
+intro: 'You can set the default branch name for repositories that members create in your organization on {% data variables.product.product_location %}.'
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-the-default-branch-name-for-repositories-in-your-organization
 permissions: Organization owners can manage the default branch name for new repositories in the organization.
@@ -12,26 +12,29 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Gerenciar nome do branch padrão
+shortTitle: Manage default branch name
 ---
 
-## Sobre o gerenciamento do nome do brancc-padrão
+## About management of the default branch name
 
-Quando um integrante da sua organização cria um novo repositório na sua organização, o repositório contém um branch, que é o branch-padrão. Você pode alterar o nome que {% data variables.product.product_name %} usa para o branch-padrão em novos repositórios que os integrantes da sua organização criam. Para obter mais informações sobre o branch padrão, consulte "[Sobre branches](/github/collaborating-with-issues-and-pull-requests/about-branches#about-the-default-branch)".
+When a member of your organization creates a new repository in your organization, the repository contains one branch, which is the default branch. You can change the name that {% data variables.product.product_name %} uses for the default branch in new repositories that members of your organization create. For more information about the default branch, see "[About branches](/github/collaborating-with-issues-and-pull-requests/about-branches#about-the-default-branch)."
 
 {% data reusables.branches.change-default-branch %}
 
-Se um proprietário da empresa tiver aplicado uma política para o nome do branch padrão para sua empresa, você não poderá definir um nome do branch padrão para sua organização. Em vez disso, você pode alterar o branch padrão para repositórios individuais. Para obter mais informações, consulte {% ifversion fpt %}"[forçando políticas de gerenciamento do repositório na sua empresa](/enterprise-cloud@latest/admin/policies/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-the-default-branch-name)"{% else %}"[Aplicando as políticas de gerenciamento do repositório na sua empresa](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-the-default-branch-name)"{% endif %} e "[Altrando o branch padrão](/github/administering-a-repository/changing-the-default-branch)".
+If an enterprise owner has enforced a policy for the default branch name for your enterprise, you cannot set a default branch name for your organization. Instead, you can change the default branch for individual repositories. For more information, see {% ifversion fpt %}"[Enforcing repository management policies in your enterprise](/enterprise-cloud@latest/admin/policies/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-the-default-branch-name)"{% else %}"[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-the-default-branch-name)"{% endif %} and "[Changing the default branch](/github/administering-a-repository/changing-the-default-branch)."
 
-## Definir o nome do branch-padrão
+## Setting the default branch name
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.repository-defaults %}
-3. Em "Branch padrão do repositório", clique em **Alterar o nome do branch-padrão agora**. ![Botão de sobrescrever](/assets/images/help/organizations/repo-default-name-button.png)
-4. Digite o nome-padrão que você gostaria de usar para novos branches. ![Caixa de texto para digitar o nome-padrão](/assets/images/help/organizations/repo-default-name-text.png)
-5. Clique em **Atualizar**. ![Botão de atualizar](/assets/images/help/organizations/repo-default-name-update.png)
+3. Under "Repository default branch", click **Change default branch name now**.
+    ![Override button](/assets/images/help/organizations/repo-default-name-button.png)
+4. Type the default name that you would like to use for new branches.
+    ![Text box for entering default name](/assets/images/help/organizations/repo-default-name-text.png)
+5. Click **Update**.
+    ![Update button](/assets/images/help/organizations/repo-default-name-update.png)
 
-## Leia mais
+## Further reading
 
-- "[Gerenciar o nome do branch-padrão para seus repositórios](/github/setting-up-and-managing-your-github-user-account/managing-the-default-branch-name-for-your-repositories)"
+- "[Managing the default branch name for your repositories](/github/setting-up-and-managing-your-github-user-account/managing-the-default-branch-name-for-your-repositories)"

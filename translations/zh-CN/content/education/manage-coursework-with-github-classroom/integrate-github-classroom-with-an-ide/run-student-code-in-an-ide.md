@@ -1,22 +1,22 @@
 ---
-title: 在 IDE 中运行学生代码
-intro: 您可以在为作业配置的集成开发环境 (IDE) 中运行学生作业中的代码。
+title: Run student code in an IDE
+intro: You can run the code from a student assignment within the integrated development environment (IDE) that you configured for the assignment.
 versions:
   fpt: '*'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/running-student-code
   - /education/manage-coursework-with-github-classroom/run-student-code-in-an-online-ide
   - /education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/run-student-code-in-an-online-ide
-shortTitle: 在 IDE 中运行代码
+shortTitle: Run code in IDE
 ---
 
-## 关于学生代码和 IDE
+## About student code and IDEs
 
-如果为作业配置集成开发环境 (IDE)，您可以在 IDE 中运行代码。 您不需要复制作业仓库到您的计算机。
+If you configure an integrated development environment (IDE) for an assignment, you can run the code within the IDE. 您不需要复制作业仓库到您的计算机。
 
-有关 IDE 的更多信息，请参阅“[集成 {% data variables.product.prodname_classroom %} 与 IDE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/integrate-github-classroom-with-an-ide)”。
+For more information about IDEs, see "[Integrate {% data variables.product.prodname_classroom %} with an IDE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/integrate-github-classroom-with-an-ide)."
 
-## 在 IDE 中运行学生代码
+## Running student code in the IDE
 
 {% data reusables.classroom.sign-into-github-classroom %}
 {% data reusables.classroom.click-classroom-in-list %}

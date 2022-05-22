@@ -3,9 +3,9 @@ title: Canjear un cupón
 intro: 'Si tienes un cupón, puedes canjearlo por una suscripción {% data variables.product.prodname_dotcom %} paga.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/redeeming-a-coupon
-  - /articles/where-do-i-add-a-coupon-code
-  - /articles/redeeming-a-coupon-for-your-personal-account
-  - /articles/redeeming-a-coupon-for-organizations
+  - /articles/where-do-i-add-a-coupon-code/
+  - /articles/redeeming-a-coupon-for-your-personal-account/
+  - /articles/redeeming-a-coupon-for-organizations/
   - /articles/redeeming-a-coupon
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-github-billing-settings/redeeming-a-coupon
 versions:

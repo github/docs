@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { ArrowRightIcon, SearchIcon } from '@primer/octicons-react'
-import { Text } from '@primer/react'
+import { Text } from '@primer/components'
 
 import { useProductLandingContext } from 'components/context/ProductLandingContext'
 import { useTranslation } from 'components/hooks/useTranslation'
@@ -13,17 +13,16 @@ export const CodeExamples = () => {
   const { t } = useTranslation('product_landing')
   const [numVisible, setNumVisible] = useState(PAGE_SIZE)
   const [search, setSearch] = useState('')
-  const [typed, setTyped] = useState('')
 
-  useEffect(() => {
+  const onSearchChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
+    setSearch(e.target.value)
     setNumVisible(PAGE_SIZE) // reset the visible count (only matters after searching)
-  }, [search])
+  }
 
   const isSearching = !!search
   let searchResults: typeof productCodeExamples = []
   if (isSearching) {
-    // The following replace method escapes special characters in regular expression creation.
-    const matchReg = new RegExp(search.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&'), 'i')
+    const matchReg = new RegExp(search, 'i')
     searchResults = productCodeExamples.filter((example) => {
       const searchableStr = `${example.tags.join(' ')} ${example.title} ${example.description}`
       return matchReg.test(searchableStr)
@@ -32,13 +31,7 @@ export const CodeExamples = () => {
 
   return (
     <div>
-      <form
-        className="pr-lg-3 mb-5 mt-3"
-        onSubmit={(event) => {
-          event.preventDefault()
-          setSearch(typed.trim())
-        }}
-      >
+      <div className="pr-lg-3 mb-5 mt-3">
         <Text
           className="ml-1 mr-2"
           fontWeight="bold"
@@ -56,25 +49,11 @@ export const CodeExamples = () => {
           type="search"
           autoComplete="off"
           aria-label={t('search_code_examples')}
-          onChange={(event) => setTyped(event.target.value)}
-          value={typed}
+          onChange={onSearchChange}
         />
-        <button data-testid="code-examples-search-btn" className="btn ml-2 py-2" type="submit">
-          Search
-        </button>
-      </form>
+      </div>
 
-      {isSearching && (
-        <div role="status">
-          <h3>
-            {t('search_results_for')}: {search}
-          </h3>
-          <p className="mb-4">
-            {t('matches_displayed')}: {searchResults.length}
-          </p>
-        </div>
-      )}
-      <ul className="d-flex flex-wrap gutter">
+      <div className="d-flex flex-wrap gutter">
         {(isSearching ? searchResults : productCodeExamples.slice(0, numVisible)).map((example) => {
           return (
             <li key={example.href} className="col-12 col-xl-4 col-lg-6 mb-4 list-style-none">
@@ -82,7 +61,7 @@ export const CodeExamples = () => {
             </li>
           )
         })}
-      </ul>
+      </div>
 
       {numVisible < productCodeExamples.length && !isSearching && (
         <button
@@ -95,11 +74,7 @@ export const CodeExamples = () => {
       )}
 
       {isSearching && searchResults.length === 0 && (
-        <div
-          role="status"
-          data-testid="code-examples-no-results"
-          className="py-4 text-center color-fg-muted"
-        >
+        <div data-testid="code-examples-no-results" className="py-4 text-center color-fg-muted">
           <div className="mb-3">
             <SearchIcon size={24} />{' '}
           </div>
@@ -109,7 +84,7 @@ export const CodeExamples = () => {
           <p className="my-3 f4">
             {t('no_example')} <br /> {t('try_another')}
           </p>
-          <Link href="https://github.com/github/docs/tree/main/data/product-examples">
+          <Link href="https://github.com/github/docs/blob/main/data/variables/actions_code_examples.yml">
             {t('learn')} <ArrowRightIcon />
           </Link>
         </div>

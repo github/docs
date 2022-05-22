@@ -1,6 +1,6 @@
 ---
-title: Organization でメンバーシップを管理する
-intro: 'Organization を作成すると、Organization のメンバーとして{% ifversion fpt %}ユーザを招待{% else %}ユーザを追加{% endif %}することができます。 メンバーの削除や、元のメンバーの復帰も可能です。'
+title: Managing membership in your organization
+intro: 'After you create your organization, you can {% ifversion fpt %}invite people to become{% else %}add people as{% endif %} members of the organization. You can also remove members of the organization, and reinstate former members.'
 redirect_from:
   - /articles/removing-a-user-from-your-organization
   - /articles/managing-membership-in-your-organization
@@ -21,7 +21,6 @@ children:
   - /reinstating-a-former-member-of-your-organization
   - /exporting-member-information-for-your-organization
   - /can-i-create-accounts-for-people-in-my-organization
-shortTitle: メンバーシップの管理
+shortTitle: Manage membership
 ---
-
 <!-- else -->

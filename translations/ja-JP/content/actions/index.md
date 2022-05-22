@@ -1,7 +1,7 @@
 ---
-title: GitHub Actionsのドキュメント
+title: GitHub Actions Documentation
 shortTitle: GitHub Actions
-intro: '{% data variables.product.prodname_actions %}で、ソフトウェア開発ワークフローをリポジトリの中で自動化し、カスタマイズし、実行しましょう。 CI/CDを含む好きなジョブを実行してくれるアクションを、見つけたり、作成したり、共有したり、完全にカスタマイズされたワークフロー中でアクションを組み合わせたりできます。'
+intro: 'Automate, customize, and execute your software development workflows right in your repository with {% data variables.product.prodname_actions %}. You can discover, create, and share actions to perform any job you''d like, including CI/CD, and combine actions in a completely customized workflow.'
 introLinks:
   overview: /actions/learn-github-actions/understanding-github-actions
   quickstart: /actions/quickstart
@@ -13,7 +13,7 @@ featuredLinks:
     - /actions/guides/about-packaging-with-github-actions
     - /actions/monitoring-and-troubleshooting-workflows/about-monitoring-and-troubleshooting
   guideCards:
-    - /actions/learn-github-actions/using-starter-workflows
+    - /actions/guides/setting-up-continuous-integration-using-workflow-templates
     - /actions/guides/publishing-nodejs-packages
     - /actions/guides/building-and-testing-powershell
   popular:
@@ -24,14 +24,10 @@ featuredLinks:
     - /actions/learn-github-actions/expressions
     - /actions/learn-github-actions/environment-variables
     - /actions/security-guides/encrypted-secrets
-  videos:
-    - title: 'Inside GitHub: How we use GitHub Actions – Brian Douglas'
-      href: 'https://www.youtube-nocookie.com/embed/MW0V5Q9WJu4'
-    - title: Advanced GitHub Actions – Jennifer Schelkopf
-      href: 'https://www.youtube-nocookie.com/embed/wWOH44Lscoc'
-    - title: GitHub Actions in action – Karan MV
-      href: 'https://www.youtube-nocookie.com/embed/4SWO0Pc76CU'
-  videosHeading: GitHub Universe 2021 videos
+changelog:
+  label: actions
+  prefix: 'GitHub Actions: '
+examples_source: data/product-examples/actions/code-examples.yml
 product_video: 'https://www.youtube-nocookie.com/embed/cP0I9w2coGU'
 redirect_from:
   - /articles/automating-your-workflow-with-github-actions
@@ -50,8 +46,6 @@ versions:
 children:
   - /quickstart
   - /learn-github-actions
-  - /using-workflows
-  - /using-jobs
   - /managing-workflow-runs
   - /automating-builds-and-tests
   - /deployment
@@ -63,6 +57,7 @@ children:
   - /using-github-hosted-runners
   - /hosting-your-own-runners
   - /security-guides
+  - /advanced-guides
   - /creating-actions
   - /guides
 ---

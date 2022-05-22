@@ -1,6 +1,6 @@
 ---
-title: ロックされたアカウントのロックを解除する
-intro: 支払いの問題が原因で支払い期限が過ぎた場合、Organization の有料機能はロックされます。
+title: Unlocking a locked account
+intro: Your organization's paid features are locked if your payment is past due because of billing problems.
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/unlocking-a-locked-account
   - /articles/what-happens-if-my-account-is-locked
@@ -20,15 +20,14 @@ topics:
   - Downgrades
   - Organizations
   - User account
-shortTitle: ロックされたアカウント
+shortTitle: Locked account
 ---
+You can unlock and access your account by updating your organization's payment method and resuming paid status. We do not ask you to pay for the time elapsed in locked mode.
 
-Organization の支払い方法をアップデートして支払いステータスを回復することで、アカウントのロックを解除しアクセスできるようになります。 ロックされたモードで経過した時間の分については、お支払いを請求いたしません。
+You can downgrade your organization to {% data variables.product.prodname_free_team %} to continue with the same advanced features in public repositories. For more information, see "[Downgrading your {% data variables.product.product_name %} subscription](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription)."
 
-パブリックリポジトリで同じ高度な機能を使い続けるために、Organization を{% data variables.product.prodname_free_team %} にダウングレードすることができます。 詳細は「[{% data variables.product.product_name %} プランのダウングレード](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription)」を参照してください。
+## Unlocking an organization's features due to a declined payment
 
-## 支払いの拒否による Organization 機能のロック解除
+If your organization's advanced features are locked due to a declined payment, you'll need to update your billing information to trigger a newly authorized charge. For more information, see "[Adding or editing a payment method](/articles/adding-or-editing-a-payment-method)."
 
-支払いの拒否により Organization の高度な機能ロックされた場合、支払い情報をアップデートして、新しく認められた支払いを開始する必要があります。 詳細は「[支払い方法を追加または編集する](/articles/adding-or-editing-a-payment-method)」を参照してください。
-
-新しい請求情報が承認された場合、お客様が選択した有料製品について直ちに請求します。 支払いが無事行われると、自動的に Organization のロックが解除されます。
+If the new billing information is approved, we will immediately charge you for the paid product you chose. The organization will automatically unlock when a successful payment has been made.

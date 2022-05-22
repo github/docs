@@ -1,0 +1,1 @@
+允许的 IP 地址可用于 {% data variables.product.prodname_ghe_cloud %} 和 {% data variables.product.prodname_ghe_managed %}。 更多信息请参阅“[{% data variables.product.prodname_dotcom %} 的产品](/articles/github-s-products)”。

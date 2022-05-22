@@ -1,6 +1,6 @@
 ---
-title: 构建 OAuth 应用程序
-intro: 您可以构建您自己或其他人使用的 OAuth 应用程序。 了解如何注册和设置 OAuth 应用程序的权限及身份验证选项。
+title: Building OAuth Apps
+intro: You can build OAuth Apps for yourself or others to use. Learn how to register and set up permissions and authorization options for OAuth Apps.
 redirect_from:
   - /apps/building-integrations/setting-up-and-registering-oauth-apps
   - /apps/building-oauth-apps

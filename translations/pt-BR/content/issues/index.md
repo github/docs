@@ -1,7 +1,7 @@
 ---
-title: Problemas do GitHub
-shortTitle: Problemas do GitHub
-intro: 'Saiba como usar {% data variables.product.prodname_github_issues %} para planejar e acompanhar seu trabalho.'
+title: GitHub Issues
+shortTitle: GitHub Issues
+intro: 'Learn how you can use {% data variables.product.prodname_github_issues %} to plan and track your work.'
 introLinks:
   overview: /issues/tracking-your-work-with-issues/creating-issues/about-issues
   quickstart: /issues/tracking-your-work-with-issues/quickstart
@@ -25,15 +25,8 @@ featuredLinks:
     - /issues/using-labels-and-milestones-to-track-work/managing-labels
     - /github/managing-your-work-on-github/viewing-all-of-your-issues-and-pull-requests
     - '{% ifversion ghes or ghae %}/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards{% endif %}'
-  videos:
-    - title: Planning at scale with Issues – Mario Rodriguez
-      href: 'https://www.youtube-nocookie.com/embed/ha1KHcPMAEk'
-    - title: Planning at GitHub (Projects + Issues) – Matt Butler
-      href: 'https://www.youtube-nocookie.com/embed/HwpVvDURHKw'
-    - title: Issue Forms for open source – Luke Hefson
-      href: 'https://www.youtube-nocookie.com/embed/2Yh8ueUE0oY'
-  videosHeading: GitHub Universe 2021 videos
-product_video: 'https://www.youtube-nocookie.com/embed/uiaLWluYJsA'
+changelog:
+  label: issues
 layout: product-landing
 beta_product: false
 versions:

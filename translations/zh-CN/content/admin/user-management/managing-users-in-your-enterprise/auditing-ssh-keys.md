@@ -1,6 +1,6 @@
 ---
-title: 审核 SSH 密钥
-intro: 站点管理员可以发起 SSH 密钥的实例级审核。
+title: Auditing SSH keys
+intro: Site administrators can initiate an instance-wide audit of SSH keys.
 redirect_from:
   - /enterprise/admin/articles/auditing-ssh-keys
   - /enterprise/admin/user-management/auditing-ssh-keys
@@ -15,24 +15,23 @@ topics:
   - Security
   - SSH
 ---
+Once initiated, the audit disables all existing SSH keys and forces users to approve or reject them before they're able to clone, pull, or push to any repositories. An audit is useful in situations where an employee or contractor leaves the company and you need to ensure that all keys are verified.
 
-发起后，审计会禁用所有现有的 SSH 密钥并强制用户批准或拒绝它们，然后他们才能克隆、拉取任意仓库或推送至仓库。 审核在员工或合同工离开公司时十分有用，您需要确保所有密钥均已验证。
+## Initiating an audit
 
-## 发起审核
+You can initiate an SSH key audit from the "All users" tab of the site admin dashboard:
 
-您可以在站点管理员仪表板的“All users”选项卡中发起 SSH 密钥审核：
+![Starting a public key audit](/assets/images/enterprise/security/Enterprise-Start-Key-Audit.png)
 
-![启动公钥审核](/assets/images/enterprise/security/Enterprise-Start-Key-Audit.png)
+After you click the "Start public key audit" button, you'll be taken to a confirmation screen explaining what will happen next:
 
-单击“Start public key audit”按钮后，您将转到确认屏幕，此屏幕会向您解释接下来要发生的情况：
+![Confirming the audit](/assets/images/enterprise/security/Enterprise-Begin-Audit.png)
 
-![确认审核](/assets/images/enterprise/security/Enterprise-Begin-Audit.png)
+After you click the "Begin audit" button, all SSH keys are invalidated and will require approval. You'll see a notification indicating the audit has begun.
 
-单击“Begin audit”按钮后，所有 SSH 密钥将失效，并需要批准。 您会看到一个指示审核已开始的通知。
+## What users see
 
-## 用户看到的内容
-
-如果用户通过 SSH 执行任何 git 操作，它会失败，用户将看到以下消息：
+If a user attempts to perform any git operation over SSH, it will fail and provide them with the following message:
 
 ```shell
 ERROR: Hi <em>username</em>. We're doing an SSH key audit.
@@ -42,25 +41,25 @@ Fingerprint: ed:21:60:64:c0:dc:2b:16:0f:54:5f:2b:35:2a:94:91
 fatal: The remote end hung up unexpectedly
 ```
 
-在用户单击链接后，他们会被要求在帐户上批准密钥：
+When they follow the link, they're asked to approve the keys on their account:
 
-![审核密钥](/assets/images/enterprise/security/Enterprise-Audit-SSH-Keys.jpg)
+![Auditing keys](/assets/images/enterprise/security/Enterprise-Audit-SSH-Keys.jpg)
 
-在用户批准或拒绝密钥后，他们将能够像以往一样与仓库进行交互。
+After they approve or reject their keys, they'll be able interact with repositories as usual.
 
-## 添加 SSH 密钥
+## Adding an SSH key
 
-新用户在添加 SSH 密钥时将会收到需要输入密码的提示：
+New users will be prompted for their password when adding an SSH key:
 
-![密码确认](/assets/images/help/settings/sudo_mode_popup.png)
+![Password confirmation](/assets/images/help/settings/sudo_mode_popup.png)
 
-在用户添加密钥时，他们会收到如下所示的通知电子邮件：
+When a user adds a key, they'll receive a notification email that will look something like this:
 
     The following SSH key was added to your account:
-    
+
     [title]
     ed:21:60:64:c0:dc:2b:16:0f:54:5f:2b:35:2a:94:91
-    
+
     If you believe this key was added in error, you can remove the key and disable access at the following location:
-    
+
     http(s)://HOSTNAME/settings/ssh

@@ -2,7 +2,7 @@
 title: Límites de alerta recomendados
 intro: 'Puedes configurar una alerta para notificar los problemas de tus recursos de sistema antes de que afecten el desempeño de tu aparato {% data variables.product.prodname_ghe_server %}.'
 redirect_from:
-  - /enterprise/admin/guides/installation/about-recommended-alert-thresholds
+  - /enterprise/admin/guides/installation/about-recommended-alert-thresholds/
   - /enterprise/admin/installation/about-recommended-alert-thresholds
   - /enterprise/admin/installation/recommended-alert-thresholds
   - /enterprise/admin/enterprise-management/recommended-alert-thresholds

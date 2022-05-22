@@ -1,1 +1,1 @@
-Cada repositorio u organización puede tener hasta 10 categorías.
+Cada repositorio puede tener hasta 10 categorías.

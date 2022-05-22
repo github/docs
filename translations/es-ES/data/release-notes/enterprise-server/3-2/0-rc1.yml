@@ -244,10 +244,10 @@ sections:
     - heading: API Changes
       notes:
         # https://github.com/github/releases/issues/1253
-        - Pagination support has been added to the Repositories REST API's "compare two commits" endpoint, which returns a list of commits reachable from one commit or branch, but unreachable from another. The API can also now return the results for comparisons over 250 commits. For more information, see the "[Commits](/rest/reference/commits#compare-two-commits)" REST API documentation and "[Traversing with pagination](/rest/guides/traversing-with-pagination)."
+        - Pagination support has been added to the Repositories REST API's "compare two commits" endpoint, which returns a list of commits reachable from one commit or branch, but unreachable from another. The API can also now return the results for comparisons over 250 commits. For more information, see the "[Repositories](/rest/reference/repos#compare-two-commits)" REST API documentation and "[Traversing with pagination](/rest/guides/traversing-with-pagination)."
 
         # https://github.com/github/releases/issues/969
-        - The REST API can now be used to programmatically resend or check the status of webhooks. For more information, see "[Webhooks](/rest/reference/webhooks)," "[Organizations](/rest/reference/orgs#webhooks)," and "[Apps](/rest/reference/apps#webhooks)" in the REST API documentation.
+        - The REST API can now be used to programmatically resend or check the status of webhooks. For more information, see "[Repositories](/rest/reference/repos#webhooks)," "[Organizations](/rest/reference/orgs#webhooks)," and "[Apps](/rest/reference/apps#webhooks)" in the REST API documentation.
 
         # https://github.com/github/releases/issues/1349
         - |

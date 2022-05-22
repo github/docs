@@ -1,6 +1,6 @@
 ---
-title: Criar um repositório somente com problemas
-intro: 'O {% data variables.product.product_name %} não fornece permissões de acesso somente a problemas, mas você pode fazer isso usando um segundo repositório que contenha apenas os problemas.'
+title: Creating an issues-only repository
+intro: '{% data variables.product.product_name %} does not provide issues-only access permissions, but you can accomplish this using a second repository which contains only the issues.'
 redirect_from:
   - /articles/issues-only-access-permissions
   - /articles/is-there-issues-only-access-to-organization-repositories
@@ -14,14 +14,13 @@ versions:
   ghec: '*'
 topics:
   - Repositories
-shortTitle: Repositório exclusivo para problemas
+shortTitle: Issues-only repository
 ---
+1. Create a **private** repository to host the source code from your project.
+2. Create a second repository with the permissions you desire to host the issue tracker.
+3. Add a README file to the issues repository explaining the purpose of this repository and linking to the issues section.
+4. Set your collaborators or teams to give access to the repositories as you desire.
 
-1. Crie um repositório **privado** para hospedar o código-fonte do seu projeto.
-2. Crie um segundo repositório com as permissões que deseja para hospedar o rastreador de problema.
-3. Adicione um arquivo README ao repositório de problemas explicando a finalidade desse repositório e vinculando-o à seção de problemas.
-4. Defina colaboradores ou equipes para fornecer acesso aos repositórios conforme desejado.
+Users with write access to both can reference and close issues back and forth across the repositories, but those without the required permissions will see references that contain a minimum of information.
 
-Os usuários com acesso de gravação a ambos podem fazer referência e fechar problemas nos repositórios, mas aqueles sem as permissões necessárias verão referências que contêm informações mínimas.
-
-Por exemplo, se você fizesse push de um commit no branch padrão do repositório privado com a mensagem `Fixes organization/public-repo#12`, o problema seria fechado, mas apenas os usuários com as permissões adequadas veriam a referência entre repositórios indicando o commit que fechou o problema. Sem as permissões, uma referência continua aparecendo, mas os detalhes são omitidos.
+For example, if you pushed a commit to the private repository's default branch with a message that read `Fixes organization/public-repo#12`, the issue would be closed, but only users with the proper permissions would see the cross-repository reference indicating the commit that closed the issue. Without the permissions, a reference still appears, but the details are omitted.

@@ -1,6 +1,6 @@
 ---
-title: Fechar uma pull request
-intro: 'Você pode optar por *fechar* um pull request sem [fazer merge no branch upstream](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request). Isso poderá ser útil se as alterações propostas no branch não forem mais necessárias ou se outra solução tiver sido proposta em outro branch.'
+title: Closing a pull request
+intro: 'You may choose to *close* a pull request without [merging it into the upstream branch](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request). This can be handy if the changes proposed in the branch are no longer needed, or if another solution has been proposed in another branch.'
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/incorporating-changes-from-a-pull-request/closing-a-pull-request
   - /articles/closing-a-pull-request
@@ -14,14 +14,14 @@ versions:
 topics:
   - Pull requests
 ---
-
 {% tip %}
 
-**Dica**: se você abriu uma pull request com o branch base errado, em vez de fechá-la e abrir outra, é possível alterar o branch base. Para obter mais informações, consulte "[Alterar o branch base de uma pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-base-branch-of-a-pull-request)".
+**Tip**: If you opened a pull request with the wrong base branch, rather than closing it out and opening a new one, you can instead change the base branch. For more information, see "[Changing the base branch of a pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-base-branch-of-a-pull-request)."
 
 {% endtip %}
 
 {% data reusables.repositories.sidebar-pr %}
-2. Na lista "Pull Requests", clique na pull request da qual deseja fechar.
-3. Na parte inferior, abaixo da caixa de comentários da pull request, clique em **Close pull request** (Fechar pull request). ![O botão para fechar a pull request](/assets/images/help/pull_requests/pullrequest-closebutton.png)
-4. Opcionalmente, [exclua o branch](/articles/deleting-unused-branches). Assim, a lista de branches do repositório ficará limpa.
+2. In the "Pull Requests" list, click the pull request you'd like to close.
+3. At the bottom of the pull request, below the comment box, click **Close pull request**.
+  ![The close Pull Request button](/assets/images/help/pull_requests/pullrequest-closebutton.png)
+4. Optionally, [delete the branch](/articles/deleting-unused-branches). This keeps the list of branches in your repository tidy.

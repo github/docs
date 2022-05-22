@@ -1,11 +1,11 @@
 ---
 title: Suspending and unsuspending users
 redirect_from:
-  - /enterprise/admin/articles/suspending-a-user
-  - /enterprise/admin/articles/unsuspending-a-user
-  - /enterprise/admin/articles/viewing-suspended-users
-  - /enterprise/admin/articles/suspended-users
-  - /enterprise/admin/articles/suspending-and-unsuspending-users
+  - /enterprise/admin/articles/suspending-a-user/
+  - /enterprise/admin/articles/unsuspending-a-user/
+  - /enterprise/admin/articles/viewing-suspended-users/
+  - /enterprise/admin/articles/suspended-users/
+  - /enterprise/admin/articles/suspending-and-unsuspending-users/
   - /enterprise/admin/user-management/suspending-and-unsuspending-users
   - /admin/user-management/suspending-and-unsuspending-users
 intro: 'If a user leaves or moves to a different part of the company, you should remove or modify their ability to access {% data variables.product.product_location %}.'

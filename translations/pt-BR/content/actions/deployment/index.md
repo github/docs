@@ -1,7 +1,7 @@
 ---
-title: Implantação
-shortTitle: Implantação
-intro: 'Implantar projetos automaticamente com {% data variables.product.prodname_actions %}.'
+title: Deployment
+shortTitle: Deployment
+intro: 'Automatically deploy projects with {% data variables.product.prodname_actions %}.'
 versions:
   fpt: '*'
   ghes: '*'

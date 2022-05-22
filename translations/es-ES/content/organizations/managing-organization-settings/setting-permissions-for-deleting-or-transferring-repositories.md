@@ -2,7 +2,7 @@
 title: Configurar permisos para eliminar o transferir repositorios en tu organización
 intro: 'Puedes permitir que los miembros de una organización con permisos de administrador accedan a un repositorio para eliminar o transferir el repositorio, o limitar la capacidad para borrar o transferir repositorios únicamente a los propietarios de la organización.'
 redirect_from:
-  - /articles/setting-permissions-for-deleting-or-transferring-repositories-in-your-organization
+  - /articles/setting-permissions-for-deleting-or-transferring-repositories-in-your-organization/
   - /articles/setting-permissions-for-deleting-or-transferring-repositories
   - /github/setting-up-and-managing-organizations-and-teams/setting-permissions-for-deleting-or-transferring-repositories
 versions:

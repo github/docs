@@ -2,7 +2,7 @@
 title: Transferir la propiedad de una GitHub App
 intro: '{% data reusables.shortdesc.transferring_ownership_of_github_apps %}'
 redirect_from:
-  - /apps/building-integrations/managing-github-apps/transferring-ownership-of-a-github-app
+  - /apps/building-integrations/managing-github-apps/transferring-ownership-of-a-github-app/
   - /apps/managing-github-apps/transferring-ownership-of-a-github-app
   - /developers/apps/transferring-ownership-of-a-github-app
 versions:

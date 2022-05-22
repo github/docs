@@ -3,7 +3,7 @@ title: Resolving a merge conflict using the command line
 intro: You can resolve merge conflicts using the command line and a text editor.
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line
-  - /articles/resolving-a-merge-conflict-from-the-command-line
+  - /articles/resolving-a-merge-conflict-from-the-command-line/
   - /articles/resolving-a-merge-conflict-using-the-command-line
   - /github/collaborating-with-issues-and-pull-requests/resolving-a-merge-conflict-using-the-command-line
   - /github/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line

@@ -1,6 +1,6 @@
 ---
-title: 添加标签时评论议题
-intro: '您可以使用 {% data variables.product.prodname_actions %} 在应用特定标签时自动评论议题。'
+title: Commenting on an issue when a label is added
+intro: 'You can use {% data variables.product.prodname_actions %} to automatically comment on issues when a specific label is applied.'
 redirect_from:
   - /actions/guides/commenting-on-an-issue-when-a-label-is-added
 versions:
@@ -12,23 +12,23 @@ type: tutorial
 topics:
   - Workflows
   - Project management
-shortTitle: 添加标签以评论议题
+shortTitle: Add label to comment on issue
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## 简介
+## Introduction
 
-本教程演示如何使用 [`peter-evans/create-or update-` 操作](https://github.com/marketplace/actions/create-or-update-comment)在应用特定标签时评论议题。 例如，当 `help-wanted` 标签添加到议题中后，您可以添加评论来鼓励贡献者处理该议题。
+This tutorial demonstrates how to use the [`peter-evans/create-or-update-comment` action](https://github.com/marketplace/actions/create-or-update-comment) to comment on an issue when a specific label is applied. For example, when the `help-wanted` label is added to an issue, you can add a comment to encourage contributors to work on the issue.
 
-在教程中，您将先创建一个使用 [`peter-evans/create-or-update-comment` 操作](https://github.com/marketplace/actions/create-or-update-comment)的工作流程文件。 然后，您将自定义工作流以适应您的需要。
+In the tutorial, you will first make a workflow file that uses the [`peter-evans/create-or-update-comment` action](https://github.com/marketplace/actions/create-or-update-comment). Then, you will customize the workflow to suit your needs.
 
-## 创建工作流程
+## Creating the workflow
 
 1. {% data reusables.actions.choose-repo %}
 2. {% data reusables.actions.make-workflow-file %}
-3. 将以下 YAML 内容复制到工作流程文件中。
+3. Copy the following YAML contents into your workflow file.
 
     ```yaml{:copy}
 {% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=4 %}
@@ -50,25 +50,25 @@ shortTitle: 添加标签以评论议题
             with:
               issue-number: {% raw %}${{ github.event.issue.number }}{% endraw %}
               body: |
-                This issue is available for anyone to work on. **请确保在您的拉请求中引用此议题。** :sparkles: 谢谢您的贡献！ :sparkles:
+                This issue is available for anyone to work on. **Make sure to reference this issue in your pull request.** :sparkles: Thank you for your contribution! :sparkles:
     ```
 
-4. 自定义工工作流程文件中的参数：
-   - 将 `if: github.event.label.name == 'help-wanted'` 中的 `help-wanted` 替换为您想要操作的标签。 如果您想要操作多个标签，请用 `||` 分隔条件。 例如，只要 `bug` 或 `fix me` 标签添加到议题，`if: github.event.label.name == 'bug' || github.event.label.name == 'fix me'` 就会评论。
-   - 将 `body` 的值更改为您想要添加的评论。 支持 GitHub Flavored Markdown。 有关 Markdown 的更多信息，请参阅“[基本撰写和格式语法](/github/writing-on-github/basic-writing-and-formatting-syntax)”。
+4. Customize the parameters in your workflow file:
+   - Replace `help-wanted` in `if: github.event.label.name == 'help-wanted'` with the label that you want to act on. If you want to act on more than one label, separate the conditions with `||`. For example, `if: github.event.label.name == 'bug' || github.event.label.name == 'fix me'` will comment whenever the `bug` or `fix me` labels are added to an issue.
+   - Change the value for `body` to the comment that you want to add. GitHub flavored markdown is supported. For more information about markdown, see "[Basic writing and formatting syntax](/github/writing-on-github/basic-writing-and-formatting-syntax)."
 5. {% data reusables.actions.commit-workflow %}
 
-## 测试工作流程
+## Testing the workflow
 
-每当仓库中的问题被标记时，此工作流就会运行。 如果添加的标签是您在工作流程文件中指定的标签之一，`peter-evans/create-or update-comment` 操作将添加您指定的评论到此议题。
+Every time an issue in your repository is labeled, this workflow will run. If the label that was added is one of the labels that you specified in your workflow file, the `peter-evans/create-or-update-comment` action will add the comment that you specified to the issue.
 
-通过将指定的标签应用于议题来测试工作流程。
+Test your workflow by applying your specified label to an issue.
 
-1. 在仓库中打开一个议题。 更多信息请参阅“[创建议题](/github/managing-your-work-on-github/creating-an-issue)”。
-2. 使用工作流程文件中的指定标签标记议题。 更多信息请参阅“[管理标签](/github/managing-your-work-on-github/managing-labels#applying-labels-to-issues-and-pull-requests)”。
-3. 要查看通过标记议题所触发的工作流程运行，请查看工作流程运行的历史记录。 更多信息请参阅“[查看工作流程运行历史记录](/actions/managing-workflow-runs/viewing-workflow-run-history)”。
-4. 当工作流程完成时，您标记的议题应已添加评论。
+1. Open an issue in your repository. For more information, see "[Creating an issue](/github/managing-your-work-on-github/creating-an-issue)."
+2. Label the issue with the specified label in your workflow file. For more information, see "[Managing labels](/github/managing-your-work-on-github/managing-labels#applying-labels-to-issues-and-pull-requests)."
+3. To see the workflow run triggered by labeling the issue, view the history of your workflow runs. For more information, see "[Viewing workflow run history](/actions/managing-workflow-runs/viewing-workflow-run-history)."
+4. When the workflow completes, the issue that you labeled should have a comment added.
 
-## 后续步骤
+## Next steps
 
-- 要详细了解您可以使用 `peter-evans/create-or-update-comment` 操作执行的其他事项，如添加反应，请访问 [`peter-evans/create-or-update-comment` 操作文档](https://github.com/marketplace/actions/create-or-update-comment)。
+- To learn more about additional things you can do with the `peter-evans/create-or-update-comment` action, like adding reactions, visit the [`peter-evans/create-or-update-comment` action documentation](https://github.com/marketplace/actions/create-or-update-comment).

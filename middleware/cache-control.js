@@ -15,17 +15,12 @@
 //    noControlYear(res)
 //    res.send(body)
 //
-export function cacheControlFactory(maxAge = 60 * 60, { public_ = true, immutable = false } = {}) {
+export function cacheControlFactory(maxAge = 60 * 60, public_ = true) {
   return (res) => {
-    const directives = []
     if (maxAge) {
-      if (public_) directives.push('public')
-      directives.push(`max-age=${maxAge}`)
-      if (immutable) directives.push('immutable')
+      res.set('cache-control', `${public_ ? 'public, ' : ''}max-age=${maxAge}`)
     } else {
-      directives.push('private')
-      directives.push('no-store')
+      res.set('cache-control', 'private, no-store')
     }
-    res.set('cache-control', directives.join(', '))
   }
 }

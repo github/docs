@@ -13,6 +13,6 @@ children:
   - /configuring-clustering
   - /configuring-high-availability
   - /caching-repositories
-shortTitle: 'Monitor, manage, and update your appliance'
+shortTitle: 'Monitor, manage & update'
 ---
 

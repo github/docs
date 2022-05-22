@@ -1,6 +1,6 @@
 ---
-title: Acerca de los archivos grandes en GitHub
-intro: '{% data variables.product.product_name %} limita el tamaño de los archivos que puedes rastrear en los repositorios regulares de Git. Aprende cómo rastrear o eliminar archivos que sobrepasan el límite.'
+title: About large files on GitHub
+intro: '{% data variables.product.product_name %} limits the size of files you can track in regular Git repositories. Learn how to track or remove files that are beyond the limit.'
 redirect_from:
   - /articles/distributing-large-binaries
   - /github/managing-large-files/distributing-large-binaries
@@ -21,86 +21,86 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: Archivos grandes
+shortTitle: Large files
 ---
 
-## Acerca de los límites de tamaño en {% data variables.product.product_name %}
+## About size limits on {% data variables.product.product_name %}
 
 {% ifversion fpt or ghec %}
-{% data variables.product.product_name %} intenta proporcionar almacenamiento abundante para todos los repositorios de Git, aunque existen límites físicos para los tamaños de los archivos y repositorios. Para garantizar el rendimiento y la legibilidad para nuestros usuarios, monitoreamos activamente las señales de la salud general de los repositorios. La salud de los repositorios es una función de varios factores de interacción, incluyendo el tamaño, frecuencia de confirmaciones y estructura.
+{% data variables.product.product_name %} tries to provide abundant storage for all Git repositories, although there are hard limits for file and repository sizes. To ensure performance and reliability for our users, we actively monitor signals of overall repository health. Repository health is a function of various interacting factors, including size, commit frequency, contents, and structure.
 
-### Límites de tamaño de archivos
+### File size limits
 {% endif %}
 
-{% data variables.product.product_name %} limita el tamaño de los archivos permitidos en los repositorios. Recibirás una advertencia de Git si intentas añadir o actualizar un archivo mayor a {% data variables.large_files.warning_size %}. Los cambios aún se subirán a tu repositorio, pero puedes considerar eliminar la confirmación para minimizar el impacto en el rendimiento. Para obtener información, consulta [Eliminar archivos del historial de un repositorio](#removing-files-from-a-repositorys-history)"
+{% data variables.product.product_name %} limits the size of files allowed in repositories. If you attempt to add or update a file that is larger than {% data variables.large_files.warning_size %}, you will receive a warning from Git. The changes will still successfully push to your repository, but you can consider removing the commit to minimize performance impact. For more information, see "[Removing files from a repository's history](#removing-files-from-a-repositorys-history)."
 
 {% note %}
 
-**Nota:** si agregas un archivo a un repositorio por medio de un navegador, el archivo no puede ser mayor de {% data variables.large_files.max_github_browser_size %}. Para obtener más información, consulta la sección "[Agregar un archivo a un repositorio](/repositories/working-with-files/managing-files/adding-a-file-to-a-repository)."
+**Note:** If you add a file to a repository via a browser, the file can be no larger than {% data variables.large_files.max_github_browser_size %}. For more information, see "[Adding a file to a repository](/repositories/working-with-files/managing-files/adding-a-file-to-a-repository)."
 
 {% endnote %}
 
-{% ifversion ghes %}Predeterminadamente, {% endif %}{% data variables.product.product_name %} bloquea las subidas que excedan {% data variables.large_files.max_github_size %}. {% ifversion ghes %}Sin embargo, un administrador de sitio puede configurar un límite diferente para {% data variables.product.product_location %}.  Para obtener más información, consulta la sección "[Configurar los límites de subida de Git](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-git-push-limits)".{% endif %}
+{% ifversion ghes %}By default, {% endif %}{% data variables.product.product_name %} blocks pushes that exceed {% data variables.large_files.max_github_size %}. {% ifversion ghes %}However, a site administrator can configure a different limit for {% data variables.product.product_location %}.  For more information, see "[Setting Git push limits](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-git-push-limits)."{% endif %}
 
-Para rastrear archivos que sobrepasen este límite, debes utilizar {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}). Para obtener más información, consulta la sección "[Acerca de {% data variables.large_files.product_name_long %}](/repositories/working-with-files/managing-large-files/about-git-large-file-storage)".
+To track files beyond this limit, you must use {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}). For more information, see "[About {% data variables.large_files.product_name_long %}](/repositories/working-with-files/managing-large-files/about-git-large-file-storage)."
 
-Si necesitas distribuir archivos grandes dentro de tu repositorio, puedes crear lanzamientos en {% data variables.product.product_location %} en vez de rastrear los archivos. Para obtener más información, consulta la sección "[Distribuir archivos binarios grandes](#distributing-large-binaries)".
+If you need to distribute large files within your repository, you can create releases on {% data variables.product.product_location %} instead of tracking the files. For more information, see "[Distributing large binaries](#distributing-large-binaries)."
 
-Git no se diseñó para manejar archivos grandes de SQL. Para compartir bases de datos grandes con otros desarrolladores, te recomendamos utilizar [Dropbox](https://www.dropbox.com/).
+Git is not designed to handle large SQL files. To share large databases with other developers, we recommend using [Dropbox](https://www.dropbox.com/).
 
 {% ifversion fpt or ghec %}
-### Límites de tamaño de repositorio
+### Repository size limits
 
-Te recomendamos que los repositorios sean siempre pequeños, idealmente, de menos de 1 GB, y se recomienda ampliamente que sean de menos de 5GB. Los repositorios más pequeños se clonan más rápido y se puede mantenerlos mejor y trabajar en ellos más fácilmente. Si tu repositorio impacta excesivamente nuestra infraestructura, puede que recibas un mensaje de correo electrónico de {% data variables.contact.github_support %}, el cual te solicitará que tomes acciones correctivas. Intentamos ser flexibles, especialmente con proyectos grandes que tienen muchos colaboradores, y trabajaremos junto contigo para encontrar una resolución cada que sea posible. Puedes prevenir que tu repositorio impacte nuestra infraestructura si administras el tamaño de tu repositorio y su salud general con eficacia. Puedes encontrar consejos y una herramienta para análisis de repositorios en el repositorio [`github/git-sizer`](https://github.com/github/git-sizer).
+We recommend repositories remain small, ideally less than 1 GB, and less than 5 GB is strongly recommended. Smaller repositories are faster to clone and easier to work with and maintain. If your repository excessively impacts our infrastructure, you might receive an email from {% data variables.contact.github_support %} asking you to take corrective action. We try to be flexible, especially with large projects that have many collaborators, and will work with you to find a resolution whenever possible. You can prevent your repository from impacting our infrastructure by effectively managing your repository's size and overall health. You can find advice and a tool for repository analysis in the [`github/git-sizer`](https://github.com/github/git-sizer) repository.
 
-Las dependencias externas pueden causar que los repositorios de Git se hagan muy grandes. Para evitar llenar un repositorio con dependencias externas, te recomendamos utilizar un administrador de paquetes. Los administradores de paquetes populares para lenguajes (de programación) comunes incluyen a [Bundler](http://bundler.io/), [Node's Package Manager](http://npmjs.org/), y [Maven](http://maven.apache.org/). Estos administradores de paquetes soportan la utilización directa de repositorios de Git para que no dependas de fuentes pre-empacadas.
+External dependencies can cause Git repositories to become very large. To avoid filling a repository with external dependencies, we recommend you use a package manager. Popular package managers for common languages include [Bundler](http://bundler.io/), [Node's Package Manager](http://npmjs.org/), and [Maven](http://maven.apache.org/). These package managers support using Git repositories directly, so you don't need pre-packaged sources.
 
-Git no está diseñado para fungir como una herramienta de respaldo. Sin embargo, existen muchas soluciones diseñadas específicamente para realizar respaldos, tales como [Arq](https://www.arqbackup.com/), [Carbonite](http://www.carbonite.com/), y [CrashPlan](https://www.crashplan.com/en-us/).
+Git is not designed to serve as a backup tool. However, there are many solutions specifically designed for performing backups, such as [Arq](https://www.arqbackup.com/), [Carbonite](http://www.carbonite.com/), and [CrashPlan](https://www.crashplan.com/en-us/).
 {% endif %}
 
-## Eliminar archivos del historial de un repositorio
+## Removing files from a repository's history
 
 {% warning %}
 
-**Advertencia**: Estos procedimientos eliminarán archivos de manera permanente del repositorio de tu computadora y de {% data variables.product.product_location %}. Si el archivo es importante, haz una copia de seguridad local en un directorio por fuera del repositorio.
+**Warning**: These procedures will permanently remove files from the repository on your computer and {% data variables.product.product_location %}. If the file is important, make a local backup copy in a directory outside of the repository.
 
 {% endwarning %}
 
-### Eliminar un archivo agregado en la confirmación más reciente no subida
+### Removing a file added in the most recent unpushed commit
 
-Si el archivo se agregó con tu confirmación más reciente, y no lo subiste a {% data variables.product.product_location %}, puedes eliminar el archivo y modificar la confirmación:
+If the file was added with your most recent commit, and you have not pushed to {% data variables.product.product_location %}, you can delete the file and amend the commit:
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 {% data reusables.command_line.switching_directories_procedural %}
-3. Para eliminar el archivo, ingresa a `git rm --cached`:
+3. To remove the file, enter `git rm --cached`:
   ```shell
   $ git rm --cached <em>giant_file</em>
   # Stage our giant file for removal, but leave it on disk
   ```
-4. Confirma este cambio usando `--amend -CHEAD`:
+4. Commit this change using `--amend -CHEAD`:
   ```shell
   $ git commit --amend -CHEAD
   # Amend the previous commit with your change
   # Simply making a new commit won't work, as you need
   # to remove the file from the unpushed history as well
   ```
-5. Sube tus confirmaciones a {% data variables.product.product_location %}:
+5. Push your commits to {% data variables.product.product_location %}:
   ```shell
   $ git push
   # Push our rewritten, smaller commit
   ```
 
-### Eliminar un archivo que se añadió en una confirmación de cambios previa
+### Removing a file that was added in an earlier commit
 
-Si añadiste un archivo en una confirmación previa, necesitas eliminarlo del historial del repositorio. Para eliminar archivos de la historia del repositorio, puedes utilizar BFG Repo-Cleaner o el comando `git filter-branch`. Para obtener más información, consulta la sección "[Eliminar datos sensibles de un repositorio](/github/authenticating-to-github/removing-sensitive-data-from-a-repository)".
+If you added a file in an earlier commit, you need to remove it from the repository's history. To remove files from the repository's history, you can use the BFG Repo-Cleaner or the `git filter-branch` command. For more information see "[Removing sensitive data from a repository](/github/authenticating-to-github/removing-sensitive-data-from-a-repository)."
 
-## Distribuir binarios grandes
+## Distributing large binaries
 
-Si necesitas distribuir archivos grandes dentro de tu repositorio, puedes crear lanzamientos en {% data variables.product.product_location %}. Los lanzamientos te permiten empaquetar el software, notas de lanzamiento y enlaces a los archivos binarios para que otras personas puedan utilizarlos. Para obtener más información, consulta la sección "[Acerca de los lanzamientos](/github/administering-a-repository/about-releases)".
+If you need to distribute large files within your repository, you can create releases on {% data variables.product.product_location %}. Releases allow you to package software, release notes, and links to binary files, for other people to use. For more information, visit "[About releases](/github/administering-a-repository/about-releases)."
 
 {% ifversion fpt or ghec %}
 
-No limitamos el tamaño total de los archivos binarios en los lanzamientos o anchos de banda que se utilizan para entregarlos. Sin embargo, cada archivo individual debe ser menor a {% data variables.large_files.max_lfs_size %}.
+We don't limit the total size of the binary files in the release or the bandwidth used to deliver them. However, each individual file must be smaller than {% data variables.large_files.max_lfs_size %}.
 
 {% endif %}
 

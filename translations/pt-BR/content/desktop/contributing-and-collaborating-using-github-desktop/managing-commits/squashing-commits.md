@@ -16,7 +16,7 @@ A combinação por squash permite que você combine vários commits no históric
 {% data reusables.desktop.current-branch-menu %}
 2. Na lista de branches, selecione o branch que possui os commits para o qual você deseja realizar a combinação por squash.
 {% data reusables.desktop.history-tab %}
-4. Selecionar os commits para fazer a combinação por squash e solte-os no commit com o qual deseja combiná-los. Você pode selecionar um commit ou selecionar múltiplos commits usando <kbd>Command</kbd> ou <kbd>Shift</kbd>. ![combinação por squash, arrastar e soltar](/assets/images/help/desktop/squash-drag-and-drop.png)
+4. Selecionar os commits para fazer a combinação por squash e solte-os no commit com o qual deseja combiná-los. Você pode selecionar um commit ou selecionar múltiplos commits usando <kbd>➲</kbd> ou <kbd>Shift</kbd>. ![combinação por squash, arrastar e soltar](/assets/images/help/desktop/squash-drag-and-drop.png)
 5. Modifique a mensagem de commit de seu novo commit. As mensagens de commit dos commits selecionados que você deseja fazer combinação por squash são pré-preenchidas nos campos **Resumo** e **Descrição**.
 6. Clique em **Commits de combinação por squash**.
 

@@ -1,6 +1,6 @@
 ---
-title: Utilizar el Copiloto de GitHub en Codespaces
-intro: Puedes utilizar al Copiloto en los codespaces si agregas la extensión.
+title: Using GitHub Copilot in Codespaces
+intro: You can use Copilot in Codespaces by adding the extension.
 versions:
   fpt: '*'
   ghec: '*'
@@ -10,14 +10,14 @@ topics:
   - Copilot
   - Visual Studio Code
 product: '{% data reusables.gated-features.codespaces %}'
-shortTitle: El Copiloto en los Codespaces
+shortTitle: Copilot in Codespaces
 redirect_from:
   - /codespaces/codespaces-reference/using-copilot-in-codespaces
 ---
 
 ## Uso de {% data variables.product.prodname_copilot %}
 
-[{% data variables.product.prodname_copilot %}](https://copilot.github.com/), un programador de par de IA, puede utilizarse en cualquier codespace. To start using {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_codespaces %}, install the [{% data variables.product.prodname_copilot_short %} extension from the {% data variables.product.prodname_vscode_marketplace %}](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot).
+[{% data variables.product.prodname_copilot %}](https://copilot.github.com/), an AI pair programmer, can be used in any codespace. To start using {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_codespaces %}, install the [{% data variables.product.prodname_copilot_short %} extension from the {% data variables.product.prodname_vscode %} marketplace](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot).
 
-Para incluir al {% data variables.product.prodname_copilot_short %} u otras extensiones en tus codespaces, habilita la sincronización de ajustes. Para obtener más información, consulta la sección "[Personalizar {% data variables.product.prodname_codespaces %} para tu cuenta](/codespaces/customizing-your-codespace/personalizing-codespaces-for-your-account#settings-sync)". Adicionalmente, para incluir al {% data variables.product.prodname_copilot_short %} en algún proyecto específico para todos los usuarios, puedes especificar `GitHub.copilot` como una extensión en tu archivo de `devcontainer.json`. For information about configuring a `devcontainer.json` file, see "[Introduction to dev containers](/codespaces/customizing-your-codespace/configuring-codespaces-for-your-project#creating-a-custom-dev-container-configuration)."
+To include {% data variables.product.prodname_copilot_short %}, or other extensions, in all of your codespaces, enable Settings Sync. Para obtener más información, consulta la sección "[Personalizar {% data variables.product.prodname_codespaces %} para tu cuenta](/codespaces/customizing-your-codespace/personalizing-codespaces-for-your-account#settings-sync)". Additionally, to include {% data variables.product.prodname_copilot_short %} in a given project for all users, you can specify `GitHub.copilot` as an extension in your `devcontainer.json` file. For information about configuring a `devcontainer.json` file, see "[Configuring {% data variables.product.prodname_codespaces %} for your project](/codespaces/customizing-your-codespace/configuring-codespaces-for-your-project#creating-a-custom-codespace-configuration)."
 

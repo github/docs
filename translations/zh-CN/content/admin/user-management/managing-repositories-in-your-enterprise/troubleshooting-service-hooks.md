@@ -1,6 +1,6 @@
 ---
-title: 排查服务挂钩问题
-intro: 如果没有交付有效负载，请检查这些常见问题。
+title: Troubleshooting service hooks
+intro: 'If payloads aren''t being delivered, check for these common problems.'
 redirect_from:
   - /enterprise/admin/articles/troubleshooting-service-hooks
   - /enterprise/admin/developer-workflow/troubleshooting-service-hooks
@@ -11,33 +11,38 @@ versions:
   ghae: '*'
 topics:
   - Enterprise
-shortTitle: 服务挂钩疑难解答
+shortTitle: Troubleshoot service hooks
 ---
+## Getting information on deliveries
 
-## 获取有关交付的信息
-
-您可以在任意仓库中找到有关所有服务挂钩交付的最后响应的信息。
-
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-2. 浏览到您要调查的仓库。
-3. 单击导航侧栏中的 **Hooks** 链接。 ![挂钩侧边栏](/assets/images/enterprise/settings/Enterprise-Hooks-Sidebar.png)
-4. 单击有问题的服务挂钩下的 **Latest Delivery** 链接。 ![挂钩详情](/assets/images/enterprise/settings/Enterprise-Hooks-Details.png)
-5. 在 **Remote Calls** 下，您将看到发布到远程服务器时使用的标头以及远程服务器发送回安装的响应。
-
-## 查看有效负载
+You can find information for the last response of all service hooks deliveries on any repository.
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
-2. 浏览到您要调查的仓库。
-3. 单击导航侧栏中的 **Hooks** 链接。 ![挂钩侧边栏](/assets/images/enterprise/settings/Enterprise-Hooks-Sidebar.png)
-4. 单击有问题的服务挂钩下的 **Latest Delivery** 链接。
-5. 单击 **Delivery（交付）**。 ![查看有效负载](/assets/images/enterprise/settings/Enterprise-Hooks-Payload.png)
+2. Browse to the repository you're investigating.
+3. Click on the **Hooks** link in the navigation sidebar.
+  ![Hooks Sidebar](/assets/images/enterprise/settings/Enterprise-Hooks-Sidebar.png)
+4. Click on the **Latest Delivery** link under the service hook having problems.
+  ![Hook Details](/assets/images/enterprise/settings/Enterprise-Hooks-Details.png)
+5. Under **Remote Calls**, you'll see the headers that were used when POSTing to the remote server along with the response that the remote server sent back to your installation.
 
-## 查看过去的交付
-
-交付存储 15 天。
+## Viewing the payload
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
-2. 浏览到您要调查的仓库。
-3. 单击导航侧栏中的 **Hooks** 链接。 ![挂钩侧边栏](/assets/images/enterprise/settings/Enterprise-Hooks-Sidebar.png)
-4. 单击有问题的服务挂钩下的 **Latest Delivery** 链接。
-5. 要查看针对该特定挂钩的其他交付，请单击 **More for this Hook ID**： ![查看更多交付](/assets/images/enterprise/settings/Enterprise-Hooks-More-Deliveries.png)
+2. Browse to the repository you're investigating.
+3. Click on the **Hooks** link in the navigation sidebar.
+  ![Hooks Sidebar](/assets/images/enterprise/settings/Enterprise-Hooks-Sidebar.png)
+4. Click on the **Latest Delivery** link under the service hook having problems.
+5. Click **Delivery**.
+  ![Viewing the payload](/assets/images/enterprise/settings/Enterprise-Hooks-Payload.png)
+
+## Viewing past deliveries
+
+Deliveries are stored for 15 days.
+
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+2. Browse to the repository you're investigating.
+3. Click on the **Hooks** link in the navigation sidebar.
+  ![Hooks Sidebar](/assets/images/enterprise/settings/Enterprise-Hooks-Sidebar.png)
+4. Click on the **Latest Delivery** link under the service hook having problems.
+5. To view other deliveries to that specific hook, click **More for this Hook ID**:
+  ![Viewing more deliveries](/assets/images/enterprise/settings/Enterprise-Hooks-More-Deliveries.png)

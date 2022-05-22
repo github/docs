@@ -1,7 +1,4 @@
-You can delete codespaces from within {% data variables.product.prodname_vscode_shortname %} when you are not currently working in a codespace.
-
-{% data reusables.codespaces.click-remote-explorer-icon-vscode %}
-1. Under "GITHUB CODESPACES", right-click the codespace you want to delete.
-1. Click **Delete Codespace**.
+1. Debajo de "Codespaces", da clic derecho en el codespace que quieras borrar.
+2. En el menù desplegable, da clic en **Borrar codespace**.
 
    ![Borrar un codespace en {% data variables.product.prodname_dotcom %}](/assets/images/help/codespaces/delete-codespace-vscode.png)

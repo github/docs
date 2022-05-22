@@ -1,6 +1,6 @@
 ---
-title: Exibir e gerenciar alterações pendentes na sua assinatura
-intro: É possível exibir e cancelar alterações pendentes em assinaturas antes que elas tenham efeito na próxima data de cobrança.
+title: Viewing and managing pending changes to your subscription
+intro: You can view and cancel pending changes to your subscriptions before they take effect on your next billing date.
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/viewing-and-managing-pending-changes-to-your-subscription
   - /articles/viewing-and-managing-pending-changes-to-your-personal-account-s-billing-plan
@@ -15,28 +15,27 @@ type: how_to
 topics:
   - Organizations
   - User account
-shortTitle: Alterações de assinatura pendentes
+shortTitle: Pending subscription changes
 ---
+You can cancel pending changes to your account's subscription as well as pending changes to your subscriptions to other paid features and products.
 
-Você pode cancelar alterações pendentes na assinatura da sua conta ou de outros recursos e produtos pagos.
+When you cancel a pending change, your subscription will not change on your next billing date (unless you make a subsequent change to your subscription before your next billing date).
 
-Quando você cancela uma alteração pendente, sua assinatura não é alterada na próxima data de cobrança (a menos que você faça uma alteração subsequente na assinatura antes da próxima data de cobrança).
+## Viewing and managing pending changes to your personal account's subscription
 
-## Exibir e gerenciar alterações pendentes na assinatura da sua conta pessoal
-
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.billing_plans %}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.billing_plans %}
 {% data reusables.dotcom_billing.review-pending-changes %}
 {% data reusables.dotcom_billing.cancel-pending-changes %}
 {% data reusables.dotcom_billing.confirm-cancel-pending-changes %}
 
-## Exibir e gerenciar alterações pendentes na assinatura da sua organização
+## Viewing and managing pending changes to your organization's subscription
 
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.review-pending-changes %}
 {% data reusables.dotcom_billing.cancel-pending-changes %}
 {% data reusables.dotcom_billing.confirm-cancel-pending-changes %}
 
-## Leia mais
+## Further reading
 
-- "[Produtos do {% data variables.product.prodname_dotcom %}](/articles/github-s-products)"
+- "[{% data variables.product.prodname_dotcom %}'s products](/articles/github-s-products)"

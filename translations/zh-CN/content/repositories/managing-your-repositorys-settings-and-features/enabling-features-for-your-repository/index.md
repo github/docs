@@ -1,6 +1,6 @@
 ---
-title: 为存储库启用功能
-intro: 您可以为存储库启用、配置和禁用可选功能。
+title: Enabling features for your repository
+intro: 'You can enable, configure, and disable optional features for your repository.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -14,6 +14,6 @@ children:
   - /managing-github-actions-settings-for-a-repository
   - /enabling-or-disabling-github-discussions-for-a-repository
   - /managing-security-and-analysis-settings-for-your-repository
-shortTitle: 启用功能
+shortTitle: Enable features
 ---
 

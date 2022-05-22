@@ -1,6 +1,6 @@
 ---
-title: プルリクエストのマージ可能性を定義
-intro: プルリクエストをマージ可能にするための条件として、一連のチェックに合格することを必須とすることができます。 たとえば、ステータスチェックに合格しないプルリクエストをブロックすることができます。あるいは、プルリクエストを承認するレビューが一定数に達していなければマージできないようにすることができます。
+title: Defining the mergeability of pull requests
+intro: 'You can require pull requests to pass a set of checks before they can be merged. For example, you can block pull requests that don''t pass status checks or require that pull requests have a specific number of approving reviews before they can be merged.'
 redirect_from:
   - /articles/defining-the-mergeability-of-a-pull-request
   - /articles/defining-the-mergeability-of-pull-requests

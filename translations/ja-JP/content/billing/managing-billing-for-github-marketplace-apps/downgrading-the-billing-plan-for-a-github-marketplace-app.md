@@ -1,6 +1,6 @@
 ---
-title: GitHub Marketplace アプリケーションの支払いプランをダウングレード
-intro: '別の支払いプランを使用したい場合は、{% data variables.product.prodname_marketplace %} アプリケーションをいつでもダウングレードできます。'
+title: Downgrading the billing plan for a GitHub Marketplace app
+intro: 'If you''d like to use a different billing plan, you can downgrade your {% data variables.product.prodname_marketplace %} app at any time.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/downgrading-the-billing-plan-for-a-github-marketplace-app
   - /articles/downgrading-an-app-for-your-personal-account
@@ -16,23 +16,22 @@ topics:
   - Marketplace
   - Organizations
   - User account
-shortTitle: 支払いプランのダウングレード
+shortTitle: Downgrade billing plan
 ---
-
-アプリケーションをダウングレードしても、現在の支払いサイクルが終了するまでプランは有効のままです。 ダウングレードは次回の支払い日に有効となります。 詳しい情報については、[{% data variables.product.prodname_marketplace %}の支払いについて](/articles/about-billing-for-github-marketplace)を参照してください。
+When you downgrade an app, your subscription remains active until the end of your current billing cycle. The downgrade takes effect on your next billing date. For more information, see "[About billing for {% data variables.product.prodname_marketplace %}](/articles/about-billing-for-github-marketplace)."
 
 {% data reusables.marketplace.downgrade-marketplace-only %}
 
-## 個人アカウントのアプリケーションをダウングレードする
+## Downgrading an app for your personal account
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.billing_plans %}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.billing_plans %}
 {% data reusables.marketplace.downgrade-app-billing-settings %}
 {% data reusables.marketplace.choose-new-plan %}
 {% data reusables.marketplace.choose-new-quantity %}
 {% data reusables.marketplace.issue-plan-changes %}
 
-## Organization のアプリケーションをダウングレードする
+## Downgrading an app for your organization
 
 {% data reusables.marketplace.marketplace-org-perms %}
 
@@ -44,6 +43,6 @@ shortTitle: 支払いプランのダウングレード
 {% data reusables.marketplace.choose-new-quantity %}
 {% data reusables.marketplace.issue-plan-changes %}
 
-## 参考リンク
+## Further reading
 
-- "[{% data variables.product.prodname_marketplace %}アプリケーションをキャンセルする](/articles/canceling-a-github-marketplace-app/)"
+- "[Canceling a {% data variables.product.prodname_marketplace %} app](/articles/canceling-a-github-marketplace-app/)"

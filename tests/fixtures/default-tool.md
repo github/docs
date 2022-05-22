@@ -14,10 +14,12 @@ Intro text
 
 generic text
 
+{% include tool-switcher %}
 {% webui %} dotcom text  {% endwebui %}
 {% cli %} cli text  {% endcli %}
 {% desktop %} desktop text {% enddesktop %}
 
+{% include tool-switcher %}
 {% webui %} dotcom text 2 {% endwebui %}
 {% cli %} cli text 2 {% endcli %}
 {% desktop %} desktop text 2 {% enddesktop %}

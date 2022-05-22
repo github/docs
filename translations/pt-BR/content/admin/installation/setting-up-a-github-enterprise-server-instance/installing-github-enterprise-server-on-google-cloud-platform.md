@@ -1,6 +1,6 @@
 ---
-title: Instalar o GitHub Enterprise Server no Google Cloud Platform
-intro: 'Para instalar o {% data variables.product.prodname_ghe_server %} no Google Cloud Platform, você deve fazer a implantação em um tipo de máquina compatível e usar um disco padrão persistente ou SSD persistente.'
+title: Installing GitHub Enterprise Server on Google Cloud Platform
+intro: 'To install {% data variables.product.prodname_ghe_server %} on Google Cloud Platform, you must deploy onto a supported machine type and use a persistent standard disk or a persistent SSD.'
 redirect_from:
   - /enterprise/admin/guides/installation/installing-github-enterprise-on-google-cloud-platform
   - /enterprise/admin/installation/installing-github-enterprise-server-on-google-cloud-platform
@@ -13,70 +13,69 @@ topics:
   - Enterprise
   - Infrastructure
   - Set up
-shortTitle: Instalar no GCP
+shortTitle: Install on GCP
 ---
-
-## Pré-requisitos
+## Prerequisites
 
 - {% data reusables.enterprise_installation.software-license %}
-- É preciso ter uma conta do Google Cloud Platform que possa iniciar instâncias de máquina virtual (VM) do Google Compute Engine (GCE). Para obter mais informações, consulte o [site do Google Cloud Platform](https://cloud.google.com/) e a [documentação do Google Cloud Platform](https://cloud.google.com/docs/).
-- A maioria das ações necessárias para iniciar sua instância também pode ser executada usando o [Google Cloud Platform Console](https://cloud.google.com/compute/docs/console). No entanto, é recomendável instalar a ferramenta de linha de comando gcloud compute para a configuração inicial. Veja abaixo alguns exemplos de uso da ferramenta de linha de comando gcloud compute. Para obter mais informações, consulte o guia de instalação e configuração do "[gcloud compute](https://cloud.google.com/compute/docs/gcloud-compute/)" na documentação do Google.
+- You must have a Google Cloud Platform account capable of launching Google Compute Engine (GCE) virtual machine (VM) instances. For more information, see the [Google Cloud Platform website](https://cloud.google.com/) and the [Google Cloud Platform Documentation](https://cloud.google.com/docs/).
+- Most actions needed to launch your instance may also be performed using the [Google Cloud Platform Console](https://cloud.google.com/compute/docs/console). However, we recommend installing the gcloud compute command-line tool for initial setup. Examples using the gcloud compute command-line tool are included below. For more information, see the "[gcloud compute](https://cloud.google.com/compute/docs/gcloud-compute/)" installation and setup guide in the Google documentation.
 
-## Considerações de hardware
+## Hardware considerations
 
 {% data reusables.enterprise_installation.hardware-considerations-all-platforms %}
 
-## Determinar o tipo de máquina
+## Determining the machine type
 
-Antes de iniciar a {% data variables.product.product_location %} no Google Cloud Platform, você terá que determinar o tipo de máquina virtual que melhor se adapta às demandas da sua organização. Para revisar os requisitos mínimos para {% data variables.product.product_name %}, consulte "[Requisitos mínimos](#minimum-requirements)".
+Before launching {% data variables.product.product_location %} on Google Cloud Platform, you'll need to determine the machine type that best fits the needs of your organization. To review the minimum requirements for {% data variables.product.product_name %}, see "[Minimum requirements](#minimum-requirements)."
 
 {% data reusables.enterprise_installation.warning-on-scaling %}
 
-{% data variables.product.company_short %} recomenda uma máquina de uso geral e de alta memória para {% data variables.product.prodname_ghe_server %}. Para obter mais informações, consulte "[Tipos de máquina](https://cloud.google.com/compute/docs/machine-types#n2_high-memory_machine_types)" na documentação do Google Compute Engine.
+{% data variables.product.company_short %} recommends a general-purpose, high-memory machine for {% data variables.product.prodname_ghe_server %}. For more information, see "[Machine types](https://cloud.google.com/compute/docs/machine-types#n2_high-memory_machine_types)" in the Google Compute Engine documentation.
 
-## Selecionar a imagem do {% data variables.product.prodname_ghe_server %}
+## Selecting the {% data variables.product.prodname_ghe_server %} image
 
-1. Usando a ferramenta de linha de comando [gcloud compute](https://cloud.google.com/compute/docs/gcloud-compute/), liste as imagens públicas do {% data variables.product.prodname_ghe_server %}:
+1. Using the [gcloud compute](https://cloud.google.com/compute/docs/gcloud-compute/) command-line tool, list the public {% data variables.product.prodname_ghe_server %} images:
    ```shell
    $ gcloud compute images list --project github-enterprise-public --no-standard-images
    ```
 
-2. Anote o nome da imagem GCE mais recente do {% data variables.product.prodname_ghe_server %}.
+2. Take note of the image name for the latest GCE image of  {% data variables.product.prodname_ghe_server %}.
 
-## Configurar o firewall
+## Configuring the firewall
 
-Máquinas virtuais GCE são criadas como integrantes de uma rede que tem um firewall. Na rede associada à VM do {% data variables.product.prodname_ghe_server %}, você terá que configurar o firewall para permitir as portas necessárias da tabela abaixo. Para obter mais informações sobre as regras de firewall no Google Cloud Platform, consulte o guia "[Visão geral das regras de firewall](https://cloud.google.com/vpc/docs/firewalls)" do Google.
+GCE virtual machines are created as a member of a network, which has a firewall. For the network associated with the {% data variables.product.prodname_ghe_server %} VM, you'll need to configure the firewall to allow the required ports listed in the table below. For more information about firewall rules on Google Cloud Platform, see the Google guide "[Firewall Rules Overview](https://cloud.google.com/vpc/docs/firewalls)."
 
-1. Usando a ferramenta de linha de comando gcloud compute, crie a rede. Para obter mais informações, consulte "[criar redes com gcloud compute](https://cloud.google.com/sdk/gcloud/reference/compute/networks/create)" na documentação do Google.
+1. Using the gcloud compute command-line tool, create the network. For more information, see "[gcloud compute networks create](https://cloud.google.com/sdk/gcloud/reference/compute/networks/create)" in the Google documentation.
    ```shell
    $ gcloud compute networks create <em>NETWORK-NAME</em> --subnet-mode auto
    ```
-2. Crie uma regra de firewall para cada porta da tabela abaixo. Para obter mais informações, consulte "[regras de firewall do gcloud compute](https://cloud.google.com/sdk/gcloud/reference/compute/firewall-rules/)" na documentação do Google.
+2. Create a firewall rule for each of the ports in the table below. For more information, see "[gcloud compute firewall-rules](https://cloud.google.com/sdk/gcloud/reference/compute/firewall-rules/)" in the Google documentation.
    ```shell
    $ gcloud compute firewall-rules create <em>RULE-NAME</em> \
    --network <em>NETWORK-NAME</em> \
    --allow tcp:22,tcp:25,tcp:80,tcp:122,udp:161,tcp:443,udp:1194,tcp:8080,tcp:8443,tcp:9418,icmp
    ```
-   Esta tabela identifica as portas necessárias e o uso de cada uma delas.
+   This table identifies the required ports and what each port is used for.
 
    {% data reusables.enterprise_installation.necessary_ports %}
 
-## Alocar uma IP estática e associá-la com a VM
+## Allocating a static IP and assigning it to the VM
 
-Se você estiver trabalhando com um appliance de produção, é altamente recomendável reservar um endereço IP externo estático e atribuí-lo à VM do {% data variables.product.prodname_ghe_server %}. Caso contrário, o endereço IP público da VM não será retido após a reinicialização. Para obter mais informações, consulte o guia "[Reservar um endereço IP externo estático](https://cloud.google.com/compute/docs/configure-instance-ip-addresses)" do Google.
+If this is a production appliance, we strongly recommend reserving a static external IP address and assigning it to the {% data variables.product.prodname_ghe_server %} VM. Otherwise, the public IP address of the VM will not be retained after restarts. For more information, see the Google guide "[Reserving a Static External IP Address](https://cloud.google.com/compute/docs/configure-instance-ip-addresses)."
 
-Nas configurações de alta disponibilidade de produção, os appliances primário e réplica devem receber endereços IP estáticos separados.
+In production High Availability configurations, both primary and replica appliances should be assigned separate static IP addresses.
 
-## Criar a instância do {% data variables.product.prodname_ghe_server %}
+## Creating the {% data variables.product.prodname_ghe_server %} instance
 
-Para criar a instância do {% data variables.product.prodname_ghe_server %}, você deve criar uma instância do GCE com a imagem do {% data variables.product.prodname_ghe_server %} e vincular um volume de armazenamento adicional aos dados da sua instância. Para obter mais informações, consulte "[Considerações de hardware](#hardware-considerations)".
+To create the {% data variables.product.prodname_ghe_server %} instance, you'll need to create a GCE instance with your {% data variables.product.prodname_ghe_server %} image and attach an additional storage volume for your instance data. For more information, see "[Hardware considerations](#hardware-considerations)."
 
-1. Usando a ferramenta de linha de comando gcloud compute, crie um disco de dados para usar como volume de armazenamento para os dados da sua instância e configure o tamanho com base na contagem de licenças de usuário. Para obter mais informações, consulte "[criar discos no gcloud compute](https://cloud.google.com/sdk/gcloud/reference/compute/disks/create)" na documentação do Google.
+1. Using the gcloud compute command-line tool, create a data disk to use as an attached storage volume for your instance data, and configure the size based on your user license count. For more information, see "[gcloud compute disks create](https://cloud.google.com/sdk/gcloud/reference/compute/disks/create)" in the Google documentation.
    ```shell
    $ gcloud compute disks create <em>DATA-DISK-NAME</em> --size <em>DATA-DISK-SIZE</em> --type <em>DATA-DISK-TYPE</em> --zone <em>ZONE</em>
    ```
 
-2. Em seguida, crie uma instância usando o nome da imagem selecionada do {% data variables.product.prodname_ghe_server %} e vincule o disco de dados. Para obter mais informações, consulte "[criar instâncias no gcloud compute](https://cloud.google.com/sdk/gcloud/reference/compute/instances/create)" na documentação do Google.
+2. Then create an instance using the name of the {% data variables.product.prodname_ghe_server %} image you selected, and attach the data disk. For more information, see "[gcloud compute instances create](https://cloud.google.com/sdk/gcloud/reference/compute/instances/create)" in the Google documentation.
    ```shell
    $ gcloud compute instances create <em>INSTANCE-NAME</em> \
    --machine-type n1-standard-8 \
@@ -88,15 +87,15 @@ Para criar a instância do {% data variables.product.prodname_ghe_server %}, voc
    --image-project github-enterprise-public
    ```
 
-## Configurar a instância
+## Configuring the instance
 
 {% data reusables.enterprise_installation.copy-the-vm-public-dns-name %}
 {% data reusables.enterprise_installation.upload-a-license-file %}
-{% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %} Para obter mais informações, consulte "[Configurar o appliance do {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/installation/configuring-the-github-enterprise-server-appliance)".
+{% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %} For more information, see "[Configuring the {% data variables.product.prodname_ghe_server %} appliance](/enterprise/admin/guides/installation/configuring-the-github-enterprise-server-appliance)."
 {% data reusables.enterprise_installation.instance-will-restart-automatically %}
 {% data reusables.enterprise_installation.visit-your-instance %}
 
-## Leia mais
+## Further reading
 
-- "[Visão geral do sistema](/enterprise/admin/guides/installation/system-overview){% ifversion ghes %}
-- "[Sobre atualizações para novas versões](/admin/overview/about-upgrades-to-new-releases)"{% endif %}
+- "[System overview](/enterprise/admin/guides/installation/system-overview)"{% ifversion ghes %}
+- "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)"{% endif %}

@@ -1,6 +1,6 @@
 ---
-title: Trabajar con los archivos
-intro: Aprende cómo adminstrar y utilizar los archivos en los repositorios.
+title: Working with files
+intro: Learn how to manage and use files in repositories.
 redirect_from:
   - /categories/81/articles
   - /categories/manipulating-files
@@ -17,6 +17,6 @@ children:
   - /managing-files
   - /using-files
   - /managing-large-files
-shortTitle: Trabajar con los archivos
+shortTitle: Work with files
 ---
 

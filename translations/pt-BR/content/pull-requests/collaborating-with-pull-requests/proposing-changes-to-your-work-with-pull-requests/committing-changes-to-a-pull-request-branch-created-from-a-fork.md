@@ -1,6 +1,6 @@
 ---
-title: Fazer commit de alterações em um branch de pull request criado a partir de bifurcação
-intro: Você pode fazer commit de alterações no branch de uma pull request que foi criada de uma bifurcação no seu repositório com permissão do criador da pull request.
+title: Committing changes to a pull request branch created from a fork
+intro: You can commit changes on a pull request branch that was created from a fork of your repository with permission from the pull request creator.
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/proposing-changes-to-your-work-with-pull-requests/committing-changes-to-a-pull-request-branch-created-from-a-fork
   - /articles/committing-changes-to-a-pull-request-branch-created-from-a-fork
@@ -13,69 +13,70 @@ versions:
   ghec: '*'
 topics:
   - Pull requests
-shortTitle: Faça o commit do branch PR a partir da bifurcação
+shortTitle: Commit to PR branch from fork
 ---
+You can only make commits on pull request branches that:
+- are opened in a repository that you have push access to and that were created from a fork of that repository
+- are on a user-owned fork
+- have permission granted from the pull request creator
+- don't have [branch restrictions](/github/administering-a-repository/about-protected-branches#restrict-who-can-push-to-matching-branches) that will prevent you from committing
 
-Só é possível fazer commits em branches da pull request que:
-- esteja aberta em um repositório em que você tem acesso push e que foi criada de uma bifurcação desse repositório
-- estão em uma bifurcação de propriedade do usuário
-- tiver permissão concedida pelo criador da pull request
-- não tenha [restrições de branch](/github/administering-a-repository/about-protected-branches#restrict-who-can-push-to-matching-branches) que impedirá você de fazer commit
-
-Somente o usuário que criou a pull request pode dar a você permissão para fazer push de commits na bifurcação de propriedade do usuário. Para obter mais informações, consulte "[Permitir alterações no branch de uma pull request criada de uma bifurcação](/pull-requests/collaborating-with-pull-requests/working-with-forks/allowing-changes-to-a-pull-request-branch-created-from-a-fork)".
+Only the user who created the pull request can give you permission to push commits to the user-owned fork. For more information, see "[Allowing changes to a pull request branch created from a fork](/pull-requests/collaborating-with-pull-requests/working-with-forks/allowing-changes-to-a-pull-request-branch-created-from-a-fork)."
 
 {% note %}
 
-**Observação:** também é possível fazer commits no branch de uma pull request de uma bifurcação do seu repositório por meio do {% data variables.product.product_location %} criando sua própria cópia (ou bifurcação) da bifurcação do seu repositório e fazendo commit de alterações no mesmo branch head em que as alterações da pull request original foram criadas. Para obter diretrizes gerais, consulte "[Criar uma pull request de uma bifurcação](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)".
+**Note:** You can also make commits to a pull request branch from a fork of your repository through {% data variables.product.product_location %} by creating your own copy (or fork) of the fork of your repository and committing changes to the same head branch that the original pull request changes were created on. For some general guidelines, see "[Creating a pull request from a fork](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)."
 
 {% endnote %}
 
-1. No {% data variables.product.product_name %}, navegue até a página principal da bifurcação (ou cópia do repositório) onde o branch da pull request foi criado.
+1. On {% data variables.product.product_name %}, navigate to the main page of the fork (or copy of your repository) where the pull request branch was created.
 {% data reusables.repositories.copy-clone-url %}
 {% data reusables.command_line.open_the_multi_os_terminal %}
  {% tip %}
 
- **Dica:** se preferir clonar a bifurcação usando o {% data variables.product.prodname_desktop %}, consulte "[Clonar um repositório no {% data variables.product.prodname_desktop %}](/articles/cloning-a-repository/#cloning-a-repository-to-github-desktop)".
+ **Tip:** If you prefer to clone the fork using {% data variables.product.prodname_desktop %}, then see "[Cloning a repository to {% data variables.product.prodname_desktop %}](/articles/cloning-a-repository/#cloning-a-repository-to-github-desktop)."
 
  {% endtip %}
-4. Altere o diretório de trabalho atual para o local em que deseja baixar o diretório clonado.
+4. Change the current working directory to the location where you want to download the cloned directory.
   ```shell
   $ cd open-source-projects
   ```
-5. Digite `git clone` e cole a URL copiada na Etapa 3.
+5. Type `git clone`, and then paste the URL you copied in Step 3.
   ```shell
   $ git clone https://{% data variables.command_line.codeblock %}/<em>USERNAME</em>/<em>FORK-OF-THE-REPOSITORY</em>
   ```
-6. Pressione **Enter**. Seu clone local estará criado.
+6. Press **Enter**. Your local clone will be created.
   ```shell
   $ git clone https://{% data variables.command_line.codeblock %}/<em>USERNAME</em>/<em>FORK-OF-THE-REPOSITORY</em>
   > Cloning into `FORK-OF-THE-REPOSITORY`...
-  > remote: Contando objetos: 10, concluído.
-  > remote: Compactando objetos: 100% (8/8), concluído.
+  > remote: Counting objects: 10, done.
+  > remote: Compressing objects: 100% (8/8), done.
   > remove: Total 10 (delta 1), reused 10 (delta 1)
   > Unpacking objects: 100% (10/10), done.
   ```
  {% tip %}
 
- **Dica:** a mensagem de erro "fatal: destination path 'REPOSITORY-NAME' already exists and is not an empty directory" significa que seu diretório de trabalho atual já contém um repositório com o mesmo nome. Para resolver o erro, você deve clonar a bifurcação em outro diretório.
+ **Tip:** The error message "fatal: destination path 'REPOSITORY-NAME' already exists and is not an empty directory" means that your current working directory already contains a repository with the same name. To resolve the error, you must clone the fork in a different directory.
 
  {% endtip %}
-7. Navegue para o seu novo repositório clonado.
+7. Navigate into your new cloned repository.
   ```shell
   $ cd <em>FORK-OF-THE-REPOSITORY</em>
   ```
-7. Alterne branches para o branch de comparação da pull request onde as alterações originais foram feitas. Se você navegar até a pull request original, visualizará o branch de comparação no topo da pull request. ![compare-branch-example](/assets/images/help/pull_requests/compare-branch-example.png) Neste exemplo, o branch de comparação é `test-branch`:
+7. Switch branches to the compare branch of the pull request where the original changes were made. If you navigate to the original pull request, you'll see the compare branch at the top of the pull request.
+![compare-branch-example](/assets/images/help/pull_requests/compare-branch-example.png)
+ In this example, the compare branch is `test-branch`:
   ```shell
   $ git checkout <em>test-branch</em>
   ```
 
  {% tip %}
 
- **Dica:** para obter mais informações sobre branches de pull request, incluindo exemplos, consulte "[Criar uma pull request](/articles/creating-a-pull-request#changing-the-branch-range-and-destination-repository)".
+ **Tip:** For more information about pull request branches, including examples, see "[Creating a Pull Request](/articles/creating-a-pull-request#changing-the-branch-range-and-destination-repository)."
 
  {% endtip %}
-8. Nesse ponto, você pode fazer qualquer coisa que desejar com este branch. É possível fazer push de novos commits para ele, executar alguns testes locais ou fazer merge de outros branches no branch. Faça modificações conforme desejado.
-9. Depois de fazer commit de suas alterações no branch head da pull request, você pode fazer push de suas alterações até a pull request original diretamente. Neste exemplo, o branch head é `test-branch`:
+8. At this point, you can do anything you want with this branch. You can push new commits to it, run some local tests, or merge other branches into the branch. Make modifications as you like.
+9. After you commit your changes to the head branch of the pull request you can push your changes up to the original pull request directly. In this example, the head branch is `test-branch`:
   ```shell
   $ git push origin <em>test-branch</em>
   > Counting objects: 32, done.
@@ -87,8 +88,8 @@ Somente o usuário que criou a pull request pode dar a você permissão para faz
   > 12da2e9..250e946  <em>test-branch</em> -> <em>test-branch</em>
   ```
 
-Seus novos commits serão refletidos na pull request original do {% data variables.product.product_location %}.
+Your new commits will be reflected on the original pull request on {% data variables.product.product_location %}.
 
-## Leia mais
+## Further Reading
 
-- "[Sobre bifurcações](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)"
+- "[About forks](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)"

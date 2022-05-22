@@ -1,6 +1,6 @@
 ---
-title: 为 GitHub Pages 站点创建自定义 404 页面
-intro: 您可以自定义在人们尝试访问您站点上不存在的页面时显示的 404 错误页面。
+title: Creating a custom 404 page for your GitHub Pages site
+intro: You can display a custom 404 error page when people try to access nonexistent pages on your site.
 redirect_from:
   - /articles/custom-404-pages
   - /articles/creating-a-custom-404-page-for-your-github-pages-site
@@ -13,25 +13,26 @@ versions:
   ghec: '*'
 topics:
   - Pages
-shortTitle: 创建自定义 404 页面
+shortTitle: Create custom 404 page
 ---
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.pages.navigate-publishing-source %}
 {% data reusables.files.add-file %}
-3. 在文件名字段中，键入 `404.html` 或 `404.md`。 ![文件名字段](/assets/images/help/pages/404-file-name.png)
-4. 如果将文件命名为 `404.md`，请将以下 YAML 前页添加到文件的开头：
+3. In the file name field, type `404.html` or `404.md`.
+  ![File name field](/assets/images/help/pages/404-file-name.png)
+4. If you named your file `404.md`, add the following YAML front matter to the beginning of the file:
   ```yaml
   ---
   permalink: /404.html
   ---
   ```
-5. 在 YAML 前页（如果存在）下方添加要在 404 页面上显示的内容。
+5. Below the YAML front matter, if present, add the content you want to display on your 404 page.
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose-commit-email %}
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_new_file %}
 
-## 延伸阅读
+## Further reading
 
-- Jekyll 文档中的[前页](http://jekyllrb.com/docs/frontmatter)
+- [Front matter](http://jekyllrb.com/docs/frontmatter) in the Jekyll documentation

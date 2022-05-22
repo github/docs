@@ -1,6 +1,6 @@
 ---
-title: Codespaces のガイド
-shortTitle: ガイド
+title: Codespaces guides
+shortTitle: Guides
 product: '{% data reusables.gated-features.codespaces %}'
 intro: Learn how to make the most of GitHub
 allowTitleToDifferFromFilename: true

@@ -1,1 +1,1 @@
-El tipo de ref que activó la ejecución de flujo de trabajo. Los valores válidos son `branch` o `tag`.
+The type of ref that triggered the workflow run. Valid values are `branch` or `tag`.

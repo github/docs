@@ -2,6 +2,7 @@
 title: Viewing and managing a user's SAML access to your enterprise
 intro: 'You can view and revoke an enterprise member''s linked identity, active sessions, and authorized credentials.'
 permissions: Enterprise owners can view and manage a member's SAML access to an organization.
+product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise-account/viewing-and-managing-a-users-saml-access-to-your-enterprise-account

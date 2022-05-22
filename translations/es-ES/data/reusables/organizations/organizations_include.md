@@ -6,4 +6,15 @@ Las organizaciones incluyen:
 - La opción de [requerir que todos los miembros de la organización utilicen autenticación bifactorial](/articles/requiring-two-factor-authentication-in-your-organization){% endif %}{% ifversion fpt%}
 - La capacidad de [crear y administrar aulas con GitHub Classroom](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/manage-classrooms){% endif %}
 
-{% data reusables.organizations.organization-plans %}
+{% ifversion fpt or ghec %}
+Puedes utilizar las organizaciones de forma gratuita con
+{% data variables.product.prodname_free_team %}, el cual incluye colaboradores ilimitados en repositorios públicos ilimitados con características completas y repositorios privados ilimitados con características limitadas.
+
+Para encontrar características adicionales, incluyendo el inicio de sesión único de SAML y la cobertura de soporte mejorada, puedes mejorar a {% data variables.product.prodname_team %} o {% data variables.product.prodname_ghe_cloud %}. {% data reusables.gated-features.more-info %}
+
+Si utilizas {% data variables.product.prodname_ghe_cloud %}, tendrás la opción de comprar una licencia para {% data variables.product.prodname_GH_advanced_security %} y utilizar las características en los repositorios privados. {% data reusables.advanced-security.more-info-ghas %}
+
+{% ifversion fpt %}
+{% data reusables.enterprise.link-to-ghec-trial %}
+{% endif %}
+{% endif %}

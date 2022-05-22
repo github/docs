@@ -8,20 +8,12 @@ const { contentSecurityPolicy } = helmet
 
 const AZURE_STORAGE_URL = 'githubdocs.azureedge.net'
 
-const isDev = process.env.NODE_ENV === 'development'
-
 export default function csp(req, res, next) {
   const csp = {
     directives: {
       defaultSrc: ["'none'"],
       prefetchSrc: ["'self'"],
-
-      connectSrc: [
-        "'self'",
-        // When doing local dev, especially in Safari, you need to add `ws:`
-        // which NextJS uses for the hot module reloading.
-        isDev && 'ws:',
-      ].filter(Boolean),
+      connectSrc: ["'self'"],
       fontSrc: ["'self'", 'data:', AZURE_STORAGE_URL],
       imgSrc: [
         "'self'",
@@ -35,16 +27,18 @@ export default function csp(req, res, next) {
       objectSrc: ["'self'"],
       scriptSrc: [
         "'self'",
+        'data:',
         // For use during development only! This allows us to use a performant webpack devtool setting (eval)
         // https://webpack.js.org/configuration/devtool/#devtool
-        isDev && "'unsafe-eval'",
+        process.env.NODE_ENV === 'development' && "'unsafe-eval'",
       ].filter(Boolean),
       frameSrc: [
         // exceptions for GraphQL Explorer
+        'https://graphql-explorer.githubapp.com', // production env
         'https://graphql.github.com/',
-        isDev && 'http://localhost:3000', // development env
+        'http://localhost:3000', // development env
         'https://www.youtube-nocookie.com',
-      ].filter(Boolean),
+      ],
       styleSrc: ["'self'", "'unsafe-inline'"],
       childSrc: [
         "'self'", // exception for search in deprecated GHE versions

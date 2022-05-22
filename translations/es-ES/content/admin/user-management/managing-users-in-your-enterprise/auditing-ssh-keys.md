@@ -2,7 +2,7 @@
 title: Auditar claves SSH
 intro: Los administradores del sitio pueden iniciar una auditoría en todas las instancias de las claves SSH.
 redirect_from:
-  - /enterprise/admin/articles/auditing-ssh-keys
+  - /enterprise/admin/articles/auditing-ssh-keys/
   - /enterprise/admin/user-management/auditing-ssh-keys
   - /admin/user-management/auditing-ssh-keys
 versions:

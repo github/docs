@@ -1,4 +1,4 @@
-Para crear una lista de tareas, lista los elementos por prefacio con un guion y espacio, seguido de `[ ]`. Para marcar una tarea como completada, utiliza `[x]`.
+Para crear una lista de tareas, introduce los elementos de la lista con un caracter de espacio regular, seguido de `[ ]`. Para marcar una tarea como completada, utiliza `[x]`.
 
 ```
 - [x] #739

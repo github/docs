@@ -1,30 +1,31 @@
+---
 date: '2021-06-10'
 sections:
   security_fixes:
-    - Packages have been updated to the latest security versions.
+    - 包已更新到最新的安全版本。
   bugs:
-    - SVN 1.7 and older clients showed an error when using the `svn co` and `svn export` commands.
-    - Accessing a repository through the administrative shell using `ghe-repo <owner>/<reponame>` would hang.
-    - After upgrading, users experienced reduced availability during heavy usage, because services restarted too frequently. This would occur due to timeout mismatches between the nomad configuration and that of the internal services.
-    - In some instances, running `ghe-repl-status` after setting up GitHub Actions would produce an error and `ghe-actions-teardown` would fail.
-    - '`ghe-dbconsole` would return errors under some circumstances.'
-    - Import failures of organizations or repositories from non-GitHub sources could produce an `undefined method '[]' for nil:NilClass` error.
-    - GitHub profile names might have changed unintentionally when using SAML authentication, if the GitHub profile name did not match the value of the attribute mapped to the `Full name` field in the Management Console.
-    - Upgrading an instance that had previously ran a 2.13 release, but not a 2.14 release, resulted in a database migration error relating to the `AddRepositoryIdToCheckRuns` data transition.
+    - SVN 1.7 及以上客户端在使用 `svn co` 和 `svn export` 命令时出现错误。
+    - 使用 `ghe-repo <owner>/<reponame>` 通过管理外壳访问仓库将被挂起。
+    - 升级后，用户在大量使用时会减少可用性，因为服务重启太频繁。 出现这种情况是因为 nomad 配置与内部服务器的配置之间超时不匹配。
+    - 在某些情况下，设置 GitHub Actions 后运行 `ghe-repl-status` 会产生错误，并且 `ghe-actions-teardown` 会失败。
+    - '`ghe-dbconsole` 会在某些情况下返回错误。'
+    - 从 非 GitHub 源导入组织或仓库失败可能会产生 `undefined method '[]' for nil:NilClass` 错误。
+    - 使用 SAML 身份验证时，如果 GitHub 配置文件名称不匹配管理控制台中映射到“Full name（全名）”字段的属性值，GitHub 配置文件名称可能已无意中更改。
+    - 升级以前运行过 2.13 版本但未运行 2.14 版本的实例，会导致与 `AddRepositoryIdToCheckRuns` 数据转换相关的数据库迁移错误。
   changes:
-    - Users of the GraphQL API can query the public field `closingIssuesReferences` on the `PullRequest` object. This field retrieves issues that will be automatically closed when the related pull request is merged. This approach will also allow this data to be migrated in future, as part of a higher fidelity migration process.
+    - GraphQL API 的用户可以在 `PullRequest` 对象上查询公共字段 `closingIssuesReferences` 。此字段检索在相关拉取请求合并时自动关闭的议题。此方法还允许未来迁移此数据，作为更高保真度移徙过程的一部分。
   known_issues:
-    - The {% data variables.product.prodname_registry %} npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
-    - On a freshly set up {% data variables.product.prodname_ghe_server %} without any users, an attacker could create the first admin user.
-    - Custom firewall rules are removed during the upgrade process.
-    - Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.
-    - Issues cannot be closed if they contain a permalink to a blob in the same repository, where the blob's file path is longer than 255 characters.
-    - When "Users can search GitHub.com" is enabled with GitHub Connect, issues in private and internal repositories are not included in GitHub.com search results.
+    - '{% data variables.product.prodname_registry %} npm 注册表不再返回元数据响应的时间值。这样做是为了大幅改善性能。作为元数据响应的一部分，我们继续拥有返回时间值所需的所有数据，并将在我们解决现有性能问题后恢复返回这个值。'
+    - 在新建的没有任何用户的 {% data variables.product.prodname_ghe_server %} 上，攻击者可以创建第一个管理员用户。
+    - 自定义防火墙规则在升级过程中被删除。
+    - Git LFS 跟踪的文件[通过 Web 界面上传](https://github.com/blog/2105-upload-files-to-your-repositories) 被错误地直接添加到仓库。
+    - 如果议题包含文件路径长于 255 个字符的同一仓库中 blob 的永久链接，则议题无法关闭。
+    - 对 GitHub Connect 启用“用户可以搜索 GitHub.com”后，私有和内部仓库中的议题不包括在 GitHub.com 搜索结果中。
     - |
-      After upgrading from 3.0.x to 3.1.x, in some cases GitHub Actions can fail with an error: `An unexpected error occurred when executing this workflow.` To workaround this problem, connect to the administrative shell (ssh) and run:
+      在从 3.0.x 升级到 3.1.x后，GitHub Actions 可能会导致错误：“执行此工作流程时发生意外错误。 要解决这个问题，请连接到管理外壳 (ssh)并运行：
       ```
-      ghe-actions-console -s actions -c "Queue-ServiceJob -JobId 4DB1F4CF-19FD-40E0-A253-91288813DE8B"
+      ghe-actions-console -s actions -c "队列-ServiceJob -JobId 4DB1F4F-19FD-40E0-A253-91288813DE8B"
       ```
-    - When a replica node is offline in a high availability configuration, {% data variables.product.product_name %} may still route {% data variables.product.prodname_pages %} requests to the offline node, reducing the availability of {% data variables.product.prodname_pages %} for users.
+    - 当副本节点在高可用性配置下离线时，{% data variables.product.product_name %} 仍可能将 {% data variables.product.prodname_pages %} 请求路由到离线节点，从而减少用户的 {% data variables.product.prodname_pages %} 可用性。
     - If {% data variables.product.prodname_actions %} is enabled for {% data variables.product.prodname_ghe_server %}, teardown of a replica node with `ghe-repl-teardown` will succeed, but may return `ERROR:Running migrations`.
     - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.

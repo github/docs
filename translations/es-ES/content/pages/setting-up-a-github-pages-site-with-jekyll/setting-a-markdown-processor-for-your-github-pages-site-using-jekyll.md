@@ -2,8 +2,8 @@
 title: Configurar un procesador Markdown para tu sitio de páginas de GitHub usando Jekyll
 intro: 'Puedes elegir un procesador Markdown para determinar la manera en que Markdown se representa en tu sitio de {% data variables.product.prodname_pages %}.'
 redirect_from:
-  - /articles/migrating-your-pages-site-from-maruku
-  - /articles/updating-your-markdown-processor-to-kramdown
+  - /articles/migrating-your-pages-site-from-maruku/
+  - /articles/updating-your-markdown-processor-to-kramdown/
   - /articles/setting-a-markdown-processor-for-your-github-pages-site-using-jekyll
   - /github/working-with-github-pages/setting-a-markdown-processor-for-your-github-pages-site-using-jekyll
 product: '{% data reusables.gated-features.pages %}'

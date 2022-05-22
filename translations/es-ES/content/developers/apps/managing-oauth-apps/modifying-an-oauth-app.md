@@ -2,7 +2,7 @@
 title: Modificar una App de OAuth
 intro: '{% data reusables.shortdesc.modifying_oauth_apps %}'
 redirect_from:
-  - /apps/building-integrations/managing-oauth-apps/modifying-an-oauth-app
+  - /apps/building-integrations/managing-oauth-apps/modifying-an-oauth-app/
   - /apps/managing-oauth-apps/modifying-an-oauth-app
   - /developers/apps/modifying-an-oauth-app
 versions:

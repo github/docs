@@ -2,9 +2,9 @@
 date: '2021-08-10'
 sections:
   bugs:
-    - 对“存储库创建”组织设置所做更改的审核日志条目不准确。
+    - Audit log entries for changes made to "Repository creation" organization settings were inaccurate.
   changes:
-    - 滥用速率限制现在称为次要速率限制，因为它们限制的行为并不总是滥用行为。
+    - Abuse rate limits are now called Secondary rate limits, since the behavior they limit is not always abusive.
   known_issues:
     - 在新建的没有任何用户的 {% data variables.product.prodname_ghe_server %} 上，攻击者可以创建第一个管理员用户。
     - 自定义防火墙规则在升级过程中被删除。

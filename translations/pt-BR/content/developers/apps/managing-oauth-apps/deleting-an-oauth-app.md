@@ -1,5 +1,5 @@
 ---
-title: Excluir um aplicativo OAuth
+title: Deleting an OAuth App
 intro: '{% data reusables.shortdesc.deleting_oauth_apps %}'
 redirect_from:
   - /apps/building-integrations/managing-oauth-apps/deleting-an-oauth-app
@@ -13,10 +13,12 @@ versions:
 topics:
   - OAuth Apps
 ---
-
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}
 {% data reusables.user-settings.oauth_apps %}
-4. Selecione o {% data variables.product.prodname_oauth_app %} que você deseja modificar. ![Seleção de aplicativo](/assets/images/oauth-apps/oauth_apps_choose_app_post2dot12.png)
-5. Clique em **Excluir o aplicativo**. ![Botão para excluir o aplicativo](/assets/images/oauth-apps/oauth_apps_delete_application.png)
-6. Clique em **Excluir este aplicativo OAuth**. ![Botão para confirmar a exclusão](/assets/images/oauth-apps/oauth_apps_delete_confirm.png)
+4. Select the {% data variables.product.prodname_oauth_app %} you want to modify.
+![App selection](/assets/images/oauth-apps/oauth_apps_choose_app_post2dot12.png)
+5. Click **Delete application**.
+![Button to delete the application](/assets/images/oauth-apps/oauth_apps_delete_application.png)
+6. Click **Delete this OAuth Application**.
+![Button to confirm the deletion](/assets/images/oauth-apps/oauth_apps_delete_confirm.png)

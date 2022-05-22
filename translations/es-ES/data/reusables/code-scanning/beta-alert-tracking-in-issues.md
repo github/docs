@@ -1,10 +1,10 @@
-{% if code-scanning-task-lists %}
+{% ifversion fpt or ghes > 3.3 or ghae-issue-5036 %}
 
 {% note %}
 
-**Nota:** El rastreo de las alertas del {% data variables.product.prodname_code_scanning %} se encuentra en beta y está sujeto a cambios.
+**Note:** The tracking of {% data variables.product.prodname_code_scanning %} alerts in issues is in beta and subject to change.
 
-Esta característica es compatible con la ejecución nativa de análisis utilizando {% data variables.product.prodname_actions %} o externamente utilizando infraestructura de IC/DC, así como herramientas del {% data variables.product.prodname_code_scanning %} de terceros, pero _no_ de herramientas de rastreo de terceros.
+This feature supports running analysis natively using {% data variables.product.prodname_actions %} or externally using existing CI/CD infrastructure, as well as third-party {% data variables.product.prodname_code_scanning %} tools, but _not_ third-party tracking tools.
 
 {% endnote %}
 {% endif %}

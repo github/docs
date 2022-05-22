@@ -1,6 +1,6 @@
 import { useMainContext } from 'components/context/MainContext'
 import { useVersion } from 'components/hooks/useVersion'
-import { Flash } from '@primer/react'
+import { Flash } from '@primer/components'
 
 export const DeprecationBanner = () => {
   const { data, enterpriseServerReleases } = useMainContext()

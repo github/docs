@@ -36,12 +36,6 @@ Todos os sites do {% data variables.product.prodname_pages %}, incluindo os site
 {% data reusables.pages.sidebar-pages %}
 3. No "{% data variables.product.prodname_pages %}," selecione **Enforce HTTPS** (Exigir HTTPS). ![Caixa de seleção Enforce HTTPS (Exigir HTTPS)](/assets/images/help/pages/enforce-https-checkbox.png)
 
-## Solucionar problemas de provisionamento de certificado (Erro "Certificado ainda não criado"")
-
-Ao definir ou alterar o seu domínio personalizado nas configurações de páginas, uma verificação automática de DNS será iniciada. Esta verificação determina se as suas configurações de DNS estão configuradas para permitir que {% data variables.product.prodname_dotcom %} obtenha um certificado automaticamente. Se a verificação for bem-sucedida, {% data variables.product.prodname_dotcom %} coloca um trabalho em uma fila para solicitar um certificado TLS de [Let's Encrypt](https://letsencrypt.org/). Ao receber um certificado válido, {% data variables.product.prodname_dotcom %} faz o upload automaticamente para os servidores que administram o o cancelamento do TLS para o Pages. Quando este processo é concluído com sucesso, uma nota de seleção é exibida ao lado do seu nome de domínio personalizado.
-
-O processo pode demorar um tempo. Se o processo não foi concluído vários minutos depois de você clicar em **Salvar**, tente clicar em **Remover** ao lado do seu domínio personalizado. Digite novamente o nome de domínio e clique novamente em **Salvar**. Isso irá cancelar e reiniciar o processo de provisionamento.
-
 ## Resolver problemas com conteúdo misto
 
 Se você habilitar HTTPS para seu site do {% data variables.product.prodname_pages %}, mas o HTML do site ainda fizer referência a imagens, CSS ou JavaScript por HTTP, significa que seu site está fornecendo *conteúdo misto*. O fornecimento de conteúdo misto pode tornar o site menos seguro e causar problemas no carregamento de arquivos.

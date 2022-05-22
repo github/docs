@@ -1,1 +1,1 @@
-El nombre de rama o etiqueta que activó la ejecución de flujo de trabajo.
+The branch or tag name that triggered the workflow run.

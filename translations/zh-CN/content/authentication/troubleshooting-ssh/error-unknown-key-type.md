@@ -1,6 +1,6 @@
 ---
-title: 错误：未知密钥类型
-intro: 此错误表示您使用的 SSH 密钥类型无法识别或不受 SSH 客户端支持。
+title: 'Error: Unknown key type'
+intro: 'This error means that the SSH key type you used was unrecognized or is unsupported by your SSH client. '
 versions:
   fpt: '*'
   ghes: '>=3.2'
@@ -12,28 +12,27 @@ redirect_from:
   - /github/authenticating-to-github/error-unknown-key-type
   - /github/authenticating-to-github/troubleshooting-ssh/error-unknown-key-type
 ---
+## About the `unknown key type` error
 
-## 关于 `unknown key type` 错误
+When you generate a new SSH key, you may receive an `unknown key type` error if your SSH client does not support the key type that you specify.{% mac %}To solve this issue on macOS, you can update your SSH client or install a new SSH client.
 
-生成新的 SSH 密钥时，如果您的 SSH 客户端不支持您指定的密钥类型，您可能会收到 `unknown key type` 错误。{% mac %}要在 macOS 上解决此问题，您可以更新 SSH 客户端或安装新的 SSH 客户端。
+## Prerequisites
 
-## 基本要求
+You must have Homebrew installed. For more information, see the [installation guide](https://docs.brew.sh/Installation) in the Homebrew documentation.
 
-您必须安装 Homebrew。 更多信息请参阅 Homebrew 文档中的[安装指南](https://docs.brew.sh/Installation)。
-
-## 解决问题
+## Solving the issue
 
 {% warning %}
 
-**警告：** 如果您安装 OpenSSH，您的计算机将无法检索存储在 Apple 密钥链中的密码。 每次使用 SSH 向 {% data variables.product.prodname_dotcom %} 或其他 Web 服务验证时，您都需要输入密码或与硬件安全密钥进行交互。
+**Warning:** If you install OpenSSH, your computer will not be able to retrieve passphrases that are stored in the Apple keychain. You will need to enter your passphrase or interact with your hardware security key every time you authenticate with SSH to {% data variables.product.prodname_dotcom %} or another web service.
 
-如果删除 OpenSSH，则存储在密钥链中的密码将再次可检索。 通过在终端输入命令 `brew uninstall openssh` 可删除 OpenSSH。
+If you remove OpenSSH, the passphrases that are stored in your keychain will once again be retrievable. You can remove OpenSSH by entering the command `brew uninstall openssh` in Terminal.
 
 {% endwarning %}
 
-1. 打开终端。
-2. 输入命令 `brew install openssh`。
-3. 退出并重新启动终端。
-4. 再次尝试生成新 SSH 密钥的过程。 更多信息请参阅“[生成新的 SSH 密钥并添加到 ssh-agent](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key-for-a-hardware-security-key)”。
+1. Open Terminal.
+2. Enter the command `brew install openssh`.
+3. Quit and relaunch Terminal.
+4. Try the procedure for generating a new SSH key again. For more information, see "[Generating a new SSH key and adding it to the ssh-agent](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key-for-a-hardware-security-key)."
 
-{% endmac %}{% linux %}要在 Linux 上解决此问题，请使用 Linux 发行版的包管理器来安装 OpenSSH 的新版本，或从源代码编译新版本。 如果您安装不同版本的 OpenSSH，则其他应用程序通过 SSH 进行身份验证的能力可能会受到影响。 有关更多信息，请查看发行版的文档。{% endlinux %}
+{% endmac %}{% linux %}To solve this issue on Linux, use the package manager for your Linux distribution to install a new version of OpenSSH, or compile a new version from source. If you install a different version of OpenSSH, the ability of other applications to authenticate via SSH may be affected. For more information, review the documentation for your distribution.{% endlinux %}

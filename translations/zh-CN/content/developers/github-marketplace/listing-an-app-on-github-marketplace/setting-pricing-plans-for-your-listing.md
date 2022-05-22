@@ -1,6 +1,6 @@
 ---
-title: 为上架产品设置定价计划
-intro: '在 {% data variables.product.prodname_marketplace %} 中上架应用程序时，您可以选择免费提供或有偿出售您的应用程序。 如果打算出售应用程序，您可以为不同的功能等级创建不同的定价计划。'
+title: Setting pricing plans for your listing
+intro: 'When you list your app on {% data variables.product.prodname_marketplace %}, you can choose to provide your app as a free service or sell your app. If you plan to sell your app, you can create different pricing plans for different feature tiers.'
 redirect_from:
   - /apps/adding-integrations/managing-pricing-and-payments-for-a-github-marketplace-listing/setting-a-github-marketplace-listing-s-pricing-plan
   - /apps/marketplace/managing-pricing-and-payments-for-a-github-marketplace-listing/setting-a-github-marketplace-listing-s-pricing-plan
@@ -19,70 +19,69 @@ versions:
   ghec: '*'
 topics:
   - Marketplace
-shortTitle: 设置上市定价计划
+shortTitle: Set listing pricing plans
 ---
+## About setting pricing plans
 
-## 关于设置定价计划
+{% data variables.product.prodname_marketplace %} offers several different types of pricing plans. For detailed information, see "[Pricing plans for {% data variables.product.prodname_marketplace %}](/developers/github-marketplace/pricing-plans-for-github-marketplace-apps)."
 
-{% data variables.product.prodname_marketplace %} 提供几种不同类型的定价计划。 更多信息请参阅“[{% data variables.product.prodname_marketplace %} 的定价计划](/developers/github-marketplace/pricing-plans-for-github-marketplace-apps)”。
+To offer a paid plan for your app, your app must be owned by an organization that has completed the publisher verification process and met certain criteria. For more information, see "[Applying for publisher verification for your organization](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)" and "[Requirements for listing an app on {% data variables.product.prodname_marketplace %}](/marketplace/getting-started/requirements-for-listing-an-app-on-github-marketplace/)."
 
-要为应用程序提供付费计划，该应用程序必须由已完成发布者验证流程并满足特定条件的组织所拥有。 更多信息请参阅“[为组织申请发布者验证](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)”和“[在 {% data variables.product.prodname_marketplace %} 中上架应用程序的要求](/marketplace/getting-started/requirements-for-listing-an-app-on-github-marketplace/)”。
+If your app is already published with a paid plan and you're a verified publisher, then you can publish a new paid plan from the "Edit a pricing plan" page in your Marketplace app listing settings. 
 
-如果含有付费计划的应用程序已发布，并且您是经验证的发布者，则您可以在 Marketplace 应用程序上架设置中的“Edit a pricing plan（编辑定价计划）”页面发布新的付费计划。
+![Publish this plan button](/assets/images/marketplace/publish-this-plan-button.png)
 
-![发布此计划按钮](/assets/images/marketplace/publish-this-plan-button.png)
+If your app is already published with a paid plan and but you are not a verified publisher, then you can cannot publish a new paid plan until you are a verified publisher. For more information about becoming a verified publisher, see "[Applying for publisher verification for your organization](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)."
 
-如果您的应用已经在付费计划中发布，但您不是验证的发布者，则您可以发布新的付费计划，直到您成为验证的发布者。 有关成为验证的发布者的更多信息，请参阅“[为组织申请发布者验证](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)”。
+## About saving pricing plans
 
-## 关于保存定价计划
+You can save pricing plans in a draft or published state. If you haven't submitted your {% data variables.product.prodname_marketplace %} listing for approval, a published plan will function in the same way as a draft plan until your listing is approved and shown on {% data variables.product.prodname_marketplace %}. Draft plans allow you to create and save new pricing plans without making them available on your {% data variables.product.prodname_marketplace %} listing page. Once you publish a pricing plan on a published listing, it's available for customers to purchase immediately. You can publish up to 10 pricing plans.
 
-您可以将定价计划保存为草稿或已发布状态。 如果尚未提交 {% data variables.product.prodname_marketplace %} 上架信息以供审批，则已发布的计划与计划草案的运作方式相同，直到您的上架信息得到批准并显示在 {% data variables.product.prodname_marketplace %} 上。 计划草案允许您创建和保存新的定价计划，而无需在您的 {% data variables.product.prodname_marketplace %} 上架页面上提供它们。 一旦您在已发布的上架信息中发布定价计划，它就可以立即供客户购买。 您最多可以发布 10 个定价计划。
+For guidelines on billing customers, see "[Billing customers](/developers/github-marketplace/billing-customers)."
 
-有关向客户计费的指南，请参阅“[向客户计费](/developers/github-marketplace/billing-customers)”。
+## Creating pricing plans
 
-## 创建定价计划
+To create a pricing plan for your {% data variables.product.prodname_marketplace %} listing, click **Plans and pricing** in the left sidebar of your [{% data variables.product.prodname_marketplace %} listing page](https://github.com/marketplace/manage). For more information, see "[Creating a draft {% data variables.product.prodname_marketplace %} listing](/marketplace/listing-on-github-marketplace/creating-a-draft-github-marketplace-listing/)."
 
-要为 {% data variables.product.prodname_marketplace %} 上架信息创建定价计划，请在 [{% data variables.product.prodname_marketplace %} 上架页面](https://github.com/marketplace/manage)的左边栏中单击 **Plans and pricing（计划和定价）**。 更多信息请参阅“[创建 {% data variables.product.prodname_marketplace %} 上架信息草稿](/marketplace/listing-on-github-marketplace/creating-a-draft-github-marketplace-listing/)”。
+When you click **New draft plan**, you'll see a form that allows you to customize your pricing plan. You'll need to configure the following fields to create a pricing plan:
 
-单击 **New draft plan（新建计划草稿）**时，您将会看到一个用于自定义定价计划的表单。 您需要配置以下字段以创建定价计划：
+- **Plan name** - Your pricing plan's name will appear on your {% data variables.product.prodname_marketplace %} app's landing page. You can customize the name of your pricing plan to align with the plan's resources, the size of the company that will use the plan, or anything you'd like.
 
-- **Plan name（计划名称）** - 定价计划的名称将显示在 {% data variables.product.prodname_marketplace %} 应用程序的登录页面上。 您可以自定义定价计划的名称，使其与计划的资源、将使用该计划的公司规模或任何您想要的内容保持一致。
+- **Pricing models** - There are three types of pricing plan: free, flat-rate, and per-unit. All plans require you to process new purchase and cancellation events from the marketplace API. In addition, for paid plans:
 
-- **Pricing models（定价模式）** - 有三种类型的定价计划：免费、统一定价和每单位定价。 所有计划都要求通过 Marketplace API 处理新购买和取消事件。 此外，对于付费计划：
-
-  - 您必须以美元设置每月和每年订阅价格。
-  - 您的应用程序必须处理计划更改事件。
-  - 您必须请求验证才能发布包含付费计划的上架产品。
+  - You must set a price for both monthly and yearly subscriptions in US dollars.
+  - Your app must process plan change events.
+  - You must request verification to publish a listing with a paid plan.
   - {% data reusables.marketplace.marketplace-pricing-free-trials %}
 
-  更多信息请参阅“[{% data variables.product.prodname_marketplace %} 应用程序的定价计划](/developers/github-marketplace/pricing-plans-for-github-marketplace-apps)”和“[在应用程序中使用 {% data variables.product.prodname_marketplace %} API](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)”。
+  For detailed information, see "[Pricing plans for {% data variables.product.prodname_marketplace %} apps](/developers/github-marketplace/pricing-plans-for-github-marketplace-apps)" and "[Using the {% data variables.product.prodname_marketplace %} API in your app](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)."
 
-- **Available for（适用对象）** - {% data variables.product.prodname_marketplace %} 定价计划可以适用于 **Personal and organization accounts（个人和组织帐户）**、**Personal accounts only（仅个人帐户）**或 **Organization accounts only（仅组织帐户）**。 例如，如果您的定价计划为每单位定价并提供多个席位，则您将选择 **Organization accounts only（仅组织帐户）**，因为无法从个人帐户为组织中的人员分配席位。
+- **Available for** - {% data variables.product.prodname_marketplace %} pricing plans can apply to **Personal and organization accounts**, **Personal accounts only**, or **Organization accounts only**. For example, if your pricing plan is per-unit and provides multiple seats, you would select **Organization accounts only** because there is no way to assign seats to people in an organization from a personal account.
 
-- **Short description（简要说明）** - 编写有关定价计划细节的简短摘要。 说明可包括计划的目标客户类型或所包含的资源。
+- **Short description** - Write a brief summary of the details of the pricing plan. The description might include the type of customer the plan is intended for or the resources the plan includes.
 
-- **Bullets（项目符号）** - 您最多可以编写四个项目符号，其中包括有关定价计划的更多细节。 项目符号可包括应用程序的用例，或列出有关计划中包含的资源或功能的更多详细信息。
+- **Bullets** - You can write up to four bullets that include more details about your pricing plan. The bullets might include the use cases of your app or list more detailed information about the resources or features included in the plan.
 
 {% data reusables.marketplace.free-plan-note %}
 
-## 创建 {% data variables.product.prodname_marketplace %} 上架产品的定价计划
+## Changing a {% data variables.product.prodname_marketplace %} listing's pricing plan
 
-如果不再需要 {% data variables.product.prodname_marketplace %} 上架产品的定价计划，或者需要调整定价细节，您可以删除它。
+If a pricing plan for your {% data variables.product.prodname_marketplace %} listing is no longer needed, or if you need to adjust pricing details, you can remove it.
 
-![删除定价计划的按钮](/assets/images/marketplace/marketplace_remove_this_plan.png)
+![Button to remove your pricing plan](/assets/images/marketplace/marketplace_remove_this_plan.png)
 
-为 {% data variables.product.prodname_marketplace %} 中已上架的应用程序发布定价计划后，就无法对该计划进行更改。 您需要删除该定价计划，然后创建一个新计划。 已经购买已删除定价计划的客户将继续使用它，直到他们选择退出并转到新的定价计划。 有关定价计划的更多信息，请参阅“[{% data variables.product.prodname_marketplace %} 定价计划](/marketplace/selling-your-app/github-marketplace-pricing-plans/)”。
+Once you publish a pricing plan for an app that is already listed in {% data variables.product.prodname_marketplace %}, you can't make changes to the plan. Instead, you'll need to remove the pricing plan and create a new plan. Customers who already purchased the removed pricing plan will continue to use it until they opt out and move onto a new pricing plan. For more on pricing plans, see "[{% data variables.product.prodname_marketplace %} pricing plans](/marketplace/selling-your-app/github-marketplace-pricing-plans/)."
 
-您删除定价计划后，用户将无法使用该计划购买您的应用程序。 使用已删除定价计划的现有用户将继续使用该计划，直到他们取消其计划订阅。
+Once you remove a pricing plan, users won't be able to purchase your app using that plan. Existing users on the removed pricing plan will continue to stay on the plan until they cancel their plan subscription.
 
 {% note %}
 
-**注：**{% data variables.product.product_name %} 不能从已删除的定价计划中删除用户。 您可以推出一个活动，鼓励用户从已删除的定价计划升级或降级到新的定价计划。
+**Note:** {% data variables.product.product_name %} can't remove users from a removed pricing plan. You can run a campaign to encourage users to upgrade or downgrade from the removed pricing plan onto a new pricing plan.
 
 {% endnote %}
 
-您可以禁用 GitHub Marketplace 免费试用而不撤销定价计划，但这会阻止您在未来为该计划启动免费试用。 如果您选择禁用定价计划的免费试用，则已注册的用户仍可以完成其免费试用。
+You can disable GitHub Marketplace free trials without retiring the pricing plan, but this prevents you from initiating future free trials for that plan. If you choose to disable free trials for a pricing plan, users already signed up can complete their free trial.
 
-撤销定价计划后，您可以创建与已删除的定价计划同名的新定价计划。 例如，如果您有一个 "Pro" 定价计划，但需要更改统一价格，您可以删除该 "Pro" 定价计划，然后使用更新后的价格创建新的 "Pro" 定价计划。 用户将能够立即购买新的定价计划。
+After retiring a pricing plan, you can create a new pricing plan with the same name as the removed pricing plan. For instance, if you have a "Pro" pricing plan but need to change the flat rate price, you can remove the "Pro" pricing plan and create a new "Pro" pricing plan with an updated price. Users will be able to purchase the new pricing plan immediately.
 
-如果您不是经过验证的发布者，则无法更改应用的定价计划。 有关成为验证的发布者的更多信息，请参阅“[为组织申请发布者验证](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)”。
+If you are not a verified publisher, then you cannot change a pricing plan for your app. For more information about becoming a verified publisher, see "[Applying for publisher verification for your organization](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)."

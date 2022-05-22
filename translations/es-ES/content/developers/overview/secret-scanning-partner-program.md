@@ -3,7 +3,7 @@ title: Programa asociado del escaneo de secretos
 intro: 'Como proveedor de servicios, puedes asociarte con {% data variables.product.prodname_dotcom %} para que se aseguren nuestros formatos de token secretos a través de un escaneo de secretos, el cual busca las confirmaciones accidentales de tus formatos secretos y puede enviarse a la terminal de verificación de un proveedor de servicios.'
 miniTocMaxHeadingLevel: 3
 redirect_from:
-  - /partnerships/token-scanning
+  - /partnerships/token-scanning/
   - /partnerships/secret-scanning
   - /developers/overview/secret-scanning
 versions:

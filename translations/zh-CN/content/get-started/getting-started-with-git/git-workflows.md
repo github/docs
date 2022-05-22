@@ -1,6 +1,6 @@
 ---
-title: Git 工作流程
-intro: '{% data variables.product.prodname_dotcom %} 流是一个基于分支的轻量级工作流程，支持定期部署的团队和项目。'
+title: Git workflows
+intro: '{% data variables.product.prodname_dotcom %} flow is a lightweight, branch-based workflow that supports teams and projects that deploy regularly.'
 redirect_from:
   - /articles/what-is-a-good-git-workflow
   - /articles/git-workflows
@@ -13,5 +13,4 @@ versions:
   ghae: '*'
   ghec: '*'
 ---
-
-您可以采用 {% data variables.product.prodname_dotcom %} 流方法标准化 {% data variables.product.prodname_dotcom %} 上团队的运作和协作方式。 更多信息请参阅“[{% data variables.product.prodname_dotcom %} 流程](/github/getting-started-with-github/github-flow)”。
+You can adopt the {% data variables.product.prodname_dotcom %} flow method to standardize how your team functions and collaborates on {% data variables.product.prodname_dotcom %}. For more information, see "[{% data variables.product.prodname_dotcom %} flow](/github/getting-started-with-github/github-flow)."

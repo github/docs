@@ -1,6 +1,6 @@
 ---
-title: 在 GitHub Marketplace 上出售应用程序
-intro: '了解在 {% data variables.product.prodname_marketplace %} 上出售应用程序的要求和最佳实践。'
+title: Selling your app on GitHub Marketplace
+intro: 'Learn about requirements and best practices for selling your app on {% data variables.product.prodname_marketplace %}.'
 redirect_from:
   - /apps/marketplace/administering-listing-plans-and-user-accounts
   - /apps/adding-integrations/managing-pricing-and-payments-for-a-github-marketplace-listing
@@ -17,6 +17,6 @@ children:
   - /pricing-plans-for-github-marketplace-apps
   - /billing-customers
   - /receiving-payment-for-app-purchases
-shortTitle: 在 Marketplace 上销售应用
+shortTitle: Sell apps on the Marketplace
 ---
 

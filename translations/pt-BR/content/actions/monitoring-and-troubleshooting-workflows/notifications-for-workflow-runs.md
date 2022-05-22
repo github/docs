@@ -1,12 +1,12 @@
 ---
-title: Notificações para execução de fluxo de trabalho
-intro: Você pode assinar as notificações sobre execuções do fluxo de trabalho que você acionar.
+title: Notifications for workflow runs
+intro: You can subscribe to notifications about workflow runs that you trigger.
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: Notificações
+shortTitle: Notifications
 ---
 
 {% data reusables.actions.enterprise-beta %}

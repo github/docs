@@ -1,6 +1,6 @@
 ---
-title: Colaboração com o Git Large File Storage
-intro: 'Com o {% data variables.large_files.product_name_short %} habilitado, você poderá fazer fetch, modificar e fazer push de arquivos grandes, assim como em qualquer arquivo gerenciado pelo Git. No entanto, um usuário que não tem o {% data variables.large_files.product_name_short %} verá um fluxo de trabalho diferente.'
+title: Collaboration with Git Large File Storage
+intro: 'With {% data variables.large_files.product_name_short %} enabled, you''ll be able to fetch, modify, and push large files just as you would expect with any file that Git manages. However, a user that doesn''t have {% data variables.large_files.product_name_short %} will experience a different workflow.'
 redirect_from:
   - /articles/collaboration-with-large-file-storage
   - /articles/collaboration-with-git-large-file-storage
@@ -11,37 +11,36 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: Colaboração
+shortTitle: Collaboration
 ---
-
-Se os colaboradores no seu repositório não tiverem o {% data variables.large_files.product_name_short %} instalado, eles não terão acesso ao arquivo grande original. Se tentarem clonar o repositório, eles farão fetch apenas dos arquivos de ponteiro e não terão acesso aos dados reais.
+If collaborators on your repository don't have {% data variables.large_files.product_name_short %} installed, they won't have access to the original large file. If they attempt to clone your repository, they will only fetch the pointer files, and won't have access to any of the actual data.
 
 {% tip %}
 
-**Dica:** para ajudar os usuários sem o {% data variables.large_files.product_name_short %} habilitado, é recomendável definir diretrizes para contribuidores do repositório que descrevam como trabalhar com arquivos grandes. Por exemplo, você pode pedir que os contribuidores não modifiquem arquivos grandes nem façam upload das alterações em um serviço de compartilhamento de arquivos, como [Dropbox](http://www.dropbox.com/) ou <a href="https://drive.google.com/" data-proofer-ignore>Google Drive</a>. Para obter mais informações, consulte "[Configurar diretrizes para contribuidores de repositório](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors)".
+**Tip:** To help users without {% data variables.large_files.product_name_short %} enabled, we recommend you set guidelines for repository contributors that describe how to work with large files. For example, you may ask contributors not to modify large files, or to upload changes to a file sharing service like [Dropbox](http://www.dropbox.com/) or <a href="https://drive.google.com/" data-proofer-ignore>Google Drive</a>. For more information, see "[Setting guidelines for repository contributors](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors)."
 
 {% endtip %}
 
-## Exibir arquivos grandes em pull requests
+## Viewing large files in pull requests
 
-O {% data variables.product.product_name %} não renderiza objetos do {% data variables.large_files.product_name_short %} em pull requests. Apenas o arquivo de ponteiro é mostrado:
+{% data variables.product.product_name %} does not render {% data variables.large_files.product_name_short %} objects in pull requests. Only the pointer file is shown:
 
-![Amostra de PR para arquivos grandes](/assets/images/help/large_files/large_files_pr.png)
+![Sample PR for large files](/assets/images/help/large_files/large_files_pr.png)
 
-Para obter mais informações sobre arquivos de ponteiro, consulte "[Sobre o {% data variables.large_files.product_name_long %}](/github/managing-large-files/about-git-large-file-storage#pointer-file-format)".
+For more information about pointer files, see "[About {% data variables.large_files.product_name_long %}](/github/managing-large-files/about-git-large-file-storage#pointer-file-format)."
 
-Para ver as alterações feitas em arquivos grandes, confira o pull request localmente para revisar a diferença. Para obter mais informações, consulte "[Fazer checkout de pull requests localmente](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/checking-out-pull-requests-locally)".
+To view changes made to large files, check out the pull request locally to review the diff. For more information, see "[Checking out pull requests locally](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/checking-out-pull-requests-locally)."
 
 {% ifversion fpt or ghec %}
 
-## Fazer push de arquivos grandes em bifurcações
+## Pushing large files to forks
 
-Fazer push de arquivos grandes em bifurcações de um repositório conta nas cotas de armazenamento e na largura de banda do repositório principal, e não nas cotas do proprietário da bifurcação.
+Pushing large files to forks of a repository count against the parent repository's bandwidth and storage quotas, rather than the quotas of the fork owner.
 
-É possível fazer push de objetos do {% data variables.large_files.product_name_short %} em bifurcações públicas se a rede do repositório já tiver objetos do {% data variables.large_files.product_name_short %} ou se você tiver acesso de gravação à raiz da rede do repositório.
+You can push {% data variables.large_files.product_name_short %} objects to public forks if the repository network already has {% data variables.large_files.product_name_short %} objects or you have write access to the root of the repository network.
 
 {% endif %}
 
-## Leia mais
+## Further reading
 
-- "[Duplicar um repositório com objetos do Git Large File Storage](/articles/duplicating-a-repository/#mirroring-a-repository-that-contains-git-large-file-storage-objects)"
+- "[Duplicating a repository with Git Large File Storage objects](/articles/duplicating-a-repository/#mirroring-a-repository-that-contains-git-large-file-storage-objects)"

@@ -1,6 +1,6 @@
 ---
-title: Organization 用の OAuth アプリケーションの承認
-intro: '{% data variables.product.prodname_oauth_app %}による Organization のリソースへのアクセスを Organization のメンバーがリクエストしてきた場合、Organization のオーナーはそのリクエストを承認あるいは否認できます。'
+title: Approving OAuth Apps for your organization
+intro: 'When an organization member requests {% data variables.product.prodname_oauth_app %} access to organization resources, organization owners can approve or deny the request.'
 redirect_from:
   - /articles/approving-third-party-applications-for-your-organization
   - /articles/approving-oauth-apps-for-your-organization
@@ -11,17 +11,18 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: OAuth Appの承認
+shortTitle: Approve OAuth Apps
 ---
-
-{% data variables.product.prodname_oauth_app %}のアクセス制限が有効化されている場合、Organization のメンバーは Organization のリソースへのアクセスを持つ {% data variables.product.prodname_oauth_app %}を承認する前に、Organization のオーナーからの[承認をリクエスト](/articles/requesting-organization-approval-for-oauth-apps)しなければなりません。
+When {% data variables.product.prodname_oauth_app %} access restrictions are enabled, organization members must [request approval](/articles/requesting-organization-approval-for-oauth-apps) from an organization owner before they can authorize an {% data variables.product.prodname_oauth_app %} that has access to the organization's resources.
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.oauth_app_access %}
-5. 承認したいアプリケーションの隣で [**Review**] をクリックします。 ![レビューのリクエストリンク](/assets/images/help/settings/settings-third-party-approve-review.png)
-6. リクエストされたアプリケーションに関する情報をレビューしたら、[**Grant access**] をクリックします。 ![アクセスの許可ボタン](/assets/images/help/settings/settings-third-party-approve-grant.png)
+5. Next to the application you'd like to approve, click **Review**.
+![Review request link](/assets/images/help/settings/settings-third-party-approve-review.png)
+6. After you review the information about the requested application, click **Grant access**.
+![Grant access button](/assets/images/help/settings/settings-third-party-approve-grant.png)
 
-## 参考リンク
+## Further reading
 
-- [{% data variables.product.prodname_oauth_app %}のアクセス制限について](/articles/about-oauth-app-access-restrictions)
+- "[About {% data variables.product.prodname_oauth_app %} access restrictions](/articles/about-oauth-app-access-restrictions)"

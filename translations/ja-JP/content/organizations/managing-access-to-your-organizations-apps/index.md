@@ -1,6 +1,6 @@
 ---
 title: Organization のアプリケーションに対するアクセスを管理する
-intro: 'Organizationのオーナーは、個々のOrganizationメンバーにOrganizationの{% data variables.product.prodname_github_apps %}の管理を許可できます。'
+intro: 'As an organization owner, you can allow individual organization members to manage {% data variables.product.prodname_github_apps %} in your organization.'
 redirect_from:
   - /articles/managing-access-to-your-organization-s-apps
   - /articles/managing-access-to-your-organizations-apps

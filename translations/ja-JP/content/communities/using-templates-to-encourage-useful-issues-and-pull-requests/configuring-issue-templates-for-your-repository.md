@@ -21,7 +21,11 @@ shortTitle: 設定
 
 {% endif %}
 
+{% ifversion fpt or ghae or ghes or ghec %}
+
 ## Issue テンプレートを作成する
+
+{% endif %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
@@ -58,6 +62,7 @@ Issueフォームのレンダリングバージョンは次のとおりです。
 
 {% endif %}
 
+{% ifversion fpt or ghae or ghes or ghec %}
 ## テンプレート選択画面を設定する
 
 {% data reusables.repositories.issue-template-config %}
@@ -74,7 +79,7 @@ Issueフォームのレンダリングバージョンは次のとおりです。
 
 *config.yml* ファイルの例は次のとおりです。
 
-```yaml{:copy}
+```shell
 blank_issues_enabled: false
 contact_links:
   - name: {% data variables.product.prodname_gcf %}
@@ -94,6 +99,7 @@ contact_links:
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_new_file %}
+{% endif %}
 
 ## 参考リンク
 

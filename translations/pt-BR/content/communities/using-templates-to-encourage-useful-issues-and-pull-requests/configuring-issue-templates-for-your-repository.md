@@ -21,7 +21,11 @@ shortTitle: Configurar
 
 {% endif %}
 
+{% ifversion fpt or ghae or ghes or ghec %}
+
 ## Criando modelos de problemas
+
+{% endif %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
@@ -58,6 +62,7 @@ Aqui está a versão renderizada do formulário de problema. ![Um formulário de
 
 {% endif %}
 
+{% ifversion fpt or ghae or ghes or ghec %}
 ## Configurando o seletor de modelos
 
 {% data reusables.repositories.issue-template-config %}
@@ -74,7 +79,7 @@ Se você preferir receber determinados relatórios fora de {% data variables.pro
 
 Aqui está um exemplo de arquivo *config.yml*.
 
-```yaml{:copy}
+```shell
 blank_issues_enabled: false
 contact_links:
   - name: {% data variables.product.prodname_gcf %}
@@ -94,6 +99,7 @@ Seu arquivo de configuração customizará o seletor de modelos quando o arquivo
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_new_file %}
+{% endif %}
 
 ## Leia mais
 

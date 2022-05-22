@@ -20,12 +20,10 @@ export const GuideCards = () => {
 
   return (
     <div>
-      <div className="d-lg-flex flex-items-stretch">
-        <ul className="d-flex flex-wrap gutter">
-          {(featuredLinks.guideCards || []).map((guide) => {
-            return <GuideCard key={guide.href} guide={guide} />
-          })}
-        </ul>
+      <div className="d-lg-flex gutter-lg flex-items-stretch">
+        {(featuredLinks.guideCards || []).map((guide) => {
+          return <GuideCard key={guide.href} guide={guide} />
+        })}
       </div>
 
       {!currentCategory && hasGuidesPage && (

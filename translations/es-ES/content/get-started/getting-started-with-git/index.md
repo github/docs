@@ -1,6 +1,6 @@
 ---
-title: Comenzar con Git
-intro: 'Configura Git, un sistema de control de versiones distribuido, para administrar tus repositorios de {% data variables.product.product_name %} desde tu computadora.'
+title: Getting started with Git
+intro: 'Set up Git, a distributed version control system, to manage your {% data variables.product.product_name %} repositories from your computer.'
 redirect_from:
   - /articles/getting-started-with-git-and-github
   - /github/using-git/getting-started-with-git-and-github

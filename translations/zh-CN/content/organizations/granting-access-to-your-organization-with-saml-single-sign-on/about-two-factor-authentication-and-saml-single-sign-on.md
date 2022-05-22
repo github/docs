@@ -1,6 +1,6 @@
 ---
-title: 关于双重身份验证和 SAML 单点登录
-intro: 组织管理员可启用 SAML 单点登录及双重身份验证，为其组织成员增加额外的身份验证措施。
+title: About two-factor authentication and SAML single sign-on
+intro: Organizations administrators can enable both SAML single sign-on and two-factor authentication to add additional authentication measures for their organization members.
 redirect_from:
   - /articles/about-two-factor-authentication-and-saml-single-sign-on
   - /github/setting-up-and-managing-organizations-and-teams/about-two-factor-authentication-and-saml-single-sign-on
@@ -9,18 +9,18 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: 2FA 和 SAML 单点登录
+shortTitle: 2FA & SAML single sign-on
 ---
 
-双重身份验证 (2FA) 为组织成员提供基本验证。 通过启用 2FA，组织管理员可降低 {% data variables.product.product_location %} 上成员的帐户被盗的可能性。 有关 2FA 的更多信息，请参阅“[关于双重身份验证](/articles/about-two-factor-authentication)”。
+Two-factor authentication (2FA) provides basic authentication for organization members. By enabling 2FA, organization administrators limit the likelihood that a member's account on {% data variables.product.product_location %} could be compromised. For more information on 2FA, see "[About two-factor authentication](/articles/about-two-factor-authentication)."
 
-为增加额外的身份验证措施，组织管理员也可[启用 SAML 单点登录 (SSO)](/articles/enabling-and-testing-saml-single-sign-on-for-your-organization)，这样组织成员必须使用单点登录来访问组织。 有关 SAML SSO 的更多信息，请参阅“[关于使用 SAML 单点登录管理身份和访问](/articles/about-identity-and-access-management-with-saml-single-sign-on)”。
+To add additional authentication measures, organization administrators can also [enable SAML single sign-on (SSO)](/articles/enabling-and-testing-saml-single-sign-on-for-your-organization) so that organization members must use single sign-on to access an organization. For more information on SAML SSO, see "[About identity and access management with SAML single sign-on](/articles/about-identity-and-access-management-with-saml-single-sign-on)."
 
-如果同时启用了 2FA 和 SAML SSO，组织成员必须执行以下操作：
-- 使用 2FA 登录其在 {% data variables.product.product_location %} 上的帐户
-- 使用单点登录访问组织
-- 使用授权用于 API 或 Git 访问的令牌，并使用单点登录授权令牌
+If both 2FA and SAML SSO are enabled, organization members must do the following:
+- Use 2FA to log in to their account on {% data variables.product.product_location %}
+- Use single sign-on to access the organization
+- Use an authorized token for API or Git access and use single sign-on to authorize the token
 
-## 延伸阅读
+## Further reading
 
-- "[对组织实施 SAML 单点登录](/articles/enforcing-saml-single-sign-on-for-your-organization)"
+- "[Enforcing SAML single sign-on for your organization](/articles/enforcing-saml-single-sign-on-for-your-organization)"

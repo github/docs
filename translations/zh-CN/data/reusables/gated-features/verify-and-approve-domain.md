@@ -1,1 +1,1 @@
-域的验证和批准可通过 {% data variables.product.prodname_ghe_cloud %} 和 {% data variables.product.prodname_ghe_server %} 进行。 更多信息请参阅“[GitHub's products](/articles/githubs-products)”。
+Verification and approval of domains is available with {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_ghe_server %}. 更多信息请参阅“[GitHub's products](/articles/githubs-products)”。

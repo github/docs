@@ -1,6 +1,6 @@
 ---
-title: Lidar com conflitos de merge
-intro: 'Se suas alterações apresentarem conflitos de merge com o branch base, você deverá resolver esses conflitos para que seja possível fazer merge das alterações da pull request.'
+title: Addressing merge conflicts
+intro: 'If your changes have merge conflicts with the base branch, you must address the merge conflicts before you can merge your pull request''s changes.'
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/addressing-merge-conflicts
   - /articles/addressing-merge-conflicts
@@ -16,6 +16,5 @@ children:
   - /about-merge-conflicts
   - /resolving-a-merge-conflict-on-github
   - /resolving-a-merge-conflict-using-the-command-line
-shortTitle: Resolver conflitos de merge
+shortTitle: Address merge conflicts
 ---
-

@@ -2,8 +2,8 @@
 title: Facturar a los clientes
 intro: 'Las apps en {% data variables.product.prodname_marketplace %} deben apegarse a los lineamientos de facturación de GitHub y apoyar a los servicios recomendados. El seguir nuestros lineamientos ayuda a los clientes a navegar en el proceso de facturación sin ninguna sorpresa.'
 redirect_from:
-  - /apps/marketplace/administering-listing-plans-and-user-accounts/billing-customers-in-github-marketplace
-  - /apps/marketplace/selling-your-app/billing-customers-in-github-marketplace
+  - /apps/marketplace/administering-listing-plans-and-user-accounts/billing-customers-in-github-marketplace/
+  - /apps/marketplace/selling-your-app/billing-customers-in-github-marketplace/
   - /marketplace/selling-your-app/billing-customers-in-github-marketplace
   - /developers/github-marketplace/billing-customers
 versions:

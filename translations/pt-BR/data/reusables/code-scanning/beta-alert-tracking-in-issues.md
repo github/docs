@@ -1,4 +1,4 @@
-{% if code-scanning-task-lists %}
+{% ifversion fpt or ghes > 3.3 or ghae-issue-5036 %}
 
 {% note %}
 

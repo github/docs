@@ -20,7 +20,7 @@ versions:
   ghec: '*'
 topics:
   - Repositories
-shortTitle: 分析更改
+shortTitle: Analyze changes
 ---
 
 ## 可视化仓库中的提交
@@ -41,7 +41,7 @@ shortTitle: 分析更改
 {% data reusables.repositories.accessing-repository-graphs %}
 3. 在左侧边栏中，单击 **Commits（提交）**。 ![提交选项卡](/assets/images/help/graphs/commits_tab.png)
 
-## 可视化仓库内容的添加和删除
+## Visualizing additions and deletion to content in a repository
 
 代码频率图显示仓库历史记录中每周的内容添加和删除。
 

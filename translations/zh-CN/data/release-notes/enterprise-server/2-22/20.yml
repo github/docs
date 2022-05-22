@@ -4,8 +4,8 @@ sections:
   security_fixes:
     - 包已更新到最新的安全版本。
   bugs:
-    - 与自动更新相关的日志消息 (`Adding h/m/s random time.`) 被记录到 syslog 中。
-    - 导致请求失败的 Git 与内部 API 挂钩，返回异常 `undefined method body for "success":String (NoMethodError)`，而不是返回显式 `nil`。
+    - Journald messages related to automatic updates (`Adding h/m/s random time.`) were logged to syslog.
+    - Git hooks to the internal API that result in failing requests returned the exception `undefined method body for "success":String (NoMethodError)` instead of returning an explicit `nil`.
   known_issues:
     - 在新建的没有任何用户的 {% data variables.product.prodname_ghe_server %} 上，攻击者可以创建第一个管理员用户。
     - 自定义防火墙规则在升级过程中被删除。

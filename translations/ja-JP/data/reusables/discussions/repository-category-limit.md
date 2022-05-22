@@ -1,1 +1,1 @@
-Each repository or organization can have up to 10 categories.
+各リポジトリは、最大で10個のカテゴリを持つことができます。

@@ -170,7 +170,7 @@ async function searchCode(q, perPage, currentPage) {
   }
 }
 
-async function secondaryRateLimitRetry(callable, args, maxAttempts = 10, sleepTime = 1000) {
+async function secondaryRateLimitRetry(callable, args, maxAttempts = 5) {
   try {
     const response = await callable(args)
     return response
@@ -185,6 +185,7 @@ async function secondaryRateLimitRetry(callable, args, maxAttempts = 10, sleepTi
     //
     // Let's look for that an manually self-recurse, under certain conditions
     const lookFor = 'You have exceeded a secondary rate limit.'
+    const sleepTime = 5000 // ms
     if (
       err.status &&
       err.status === 403 &&
@@ -198,7 +199,7 @@ async function secondaryRateLimitRetry(callable, args, maxAttempts = 10, sleepTi
       )
       return new Promise((resolve) => {
         setTimeout(() => {
-          resolve(secondaryRateLimitRetry(callable, args, maxAttempts - 1, sleepTime * 2))
+          resolve(secondaryRateLimitRetry(callable, args, maxAttempts - 1))
         }, sleepTime)
       })
     }

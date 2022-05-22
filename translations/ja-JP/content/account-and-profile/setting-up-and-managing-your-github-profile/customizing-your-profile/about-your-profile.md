@@ -1,6 +1,6 @@
 ---
-title: プロフィールについて
-intro: プロフィールページは、関心のあるリポジトリ、行ったコントリビューション、会話を通じて、あなたの作業の様子を他者に伝えます。
+title: About your profile
+intro: 'Your profile page tells people the story of your work through the repositories you''re interested in, the contributions you''ve made, and the conversations you''ve had.'
 redirect_from:
   - /articles/viewing-your-feeds
   - /articles/profile-pages
@@ -15,30 +15,29 @@ versions:
 topics:
   - Profiles
 ---
-
-以前の職場、コントリビュートしたプロジェクト、あなたが興味を持っていることなど、他者が知りたいあなたに関する個人情報を略歴に追加できます。 詳細は「[プロフィールに略歴を追加する](/articles/personalizing-your-profile/#adding-a-bio-to-your-profile)」を参照してください。
+You can add personal information about yourself in your bio, like previous places you've worked, projects you've contributed to, or interests you have that other people may like to know about. For more information, see "[Adding a bio to your profile](/articles/personalizing-your-profile/#adding-a-bio-to-your-profile)."
 
 {% ifversion fpt or ghes or ghec %}
 
 {% data reusables.profile.profile-readme %}
 
-![プロフィールに表示されるプロフィール README ファイル](/assets/images/help/repository/profile-with-readme.png)
+![Profile README file displayed on profile](/assets/images/help/repository/profile-with-readme.png)
 
 {% endif %}
 
-あなたのプロフィールにアクセスすると、あなたがオープンした Issue やプルリクエスト、行ったコミット、レビューしたプルリクエストなど、あなたのコントリビューションのアクティビティのタイムラインが表示されます。 パブリックコントリビューションだけを表示させることも、プライベートな匿名化されたコントリビューションも表示させることもできます。 詳細は「[プロフィールページ上にコントリビューションを表示する](/articles/viewing-contributions-on-your-profile-page)」または「[プライベートコントリビューションをプロフィールで公開または非公開にする](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)」を参照してください。
+People who visit your profile see a timeline of your contribution activity, like issues and pull requests you've opened, commits you've made, and pull requests you've reviewed. You can choose to display only public contributions or to also include private, anonymized contributions. For more information, see "[Viewing contributions on your profile page](/articles/viewing-contributions-on-your-profile-page)" or "[Publicizing or hiding your private contributions on your profile](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)."
 
-あなたのプロフィールにアクセスしたユーザは、次の情報も見ることができます。
+People who visit your profile can also see the following information.
 
-- あなたが所有している、もしくはコントリビューションしたリポジトリと Gist。 {% ifversion fpt or ghes or ghec %}You can showcase your best work by pinning repositories and gists to your profile. 詳細は「[プロフィールにアイテムをピン止めする](/github/setting-up-and-managing-your-github-profile/pinning-items-to-your-profile)」を参照してください。{% endif %}
+- Repositories and gists you own or contribute to. {% ifversion fpt or ghes or ghec %}You can showcase your best work by pinning repositories and gists to your profile. For more information, see "[Pinning items to your profile](/github/setting-up-and-managing-your-github-profile/pinning-items-to-your-profile)."{% endif %}
 - Repositories you've starred{% ifversion fpt or ghec %} and organized into lists.{% endif %} For more information, see "[Saving repositories with stars](/articles/saving-repositories-with-stars/)."
-- あなたが最もアクティブな Organization、リポジトリ、Team でのあなたのアクティビティの概要。 詳しい情報については、「[プロフィール上にアクティビティの概要を表示する](/articles/showing-an-overview-of-your-activity-on-your-profile)」を参照してください。{% ifversion fpt or ghec %}
-- {% data variables.product.prodname_pro %} の使用や、{% data variables.product.prodname_arctic_vault %}、{% data variables.product.prodname_sponsors %}、{% data variables.product.company_short %} 開発者プログラムなどのプログラムへの参加を示すバッジ。 詳細は「[プロフィールをパーソナライズする](/github/setting-up-and-managing-your-github-profile/personalizing-your-profile#displaying-badges-on-your-profile)」を参照してください。{% endif %}
+- An overview of your activity in organizations, repositories, and teams you're most active in. For more information, see "[Showing an overview of your activity on your profile](/articles/showing-an-overview-of-your-activity-on-your-profile)."{% ifversion fpt or ghec %}
+- Badges that show if you use {% data variables.product.prodname_pro %} or participate in programs like the {% data variables.product.prodname_arctic_vault %}, {% data variables.product.prodname_sponsors %}, or the {% data variables.product.company_short %} Developer Program. For more information, see "[Personalizing your profile](/github/setting-up-and-managing-your-github-profile/personalizing-your-profile#displaying-badges-on-your-profile)."{% endif %}
 
-プロフィールにステータスを設定して、可用性に関する情報を提供することもできます。 詳細は「[ステータスを設定する](/articles/personalizing-your-profile/#setting-a-status)」を参照してください。
+You can also set a status on your profile to provide information about your availability. For more information, see "[Setting a status](/articles/personalizing-your-profile/#setting-a-status)."
 
-## 参考リンク
+## Further reading
 
-- [プロフィール画像のセットアップ方法](/articles/how-do-i-set-up-my-profile-picture)
-- [プロフィールでプライベートコントリビューションを公開または非表示にする](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)
-- [プロフィール上でのコントリビューションの表示](/articles/viewing-contributions-on-your-profile)
+- "[How do I set up my profile picture?](/articles/how-do-i-set-up-my-profile-picture)"
+- "[Publicizing or hiding your private contributions on your profile](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)"
+- "[Viewing contributions on your profile](/articles/viewing-contributions-on-your-profile)"

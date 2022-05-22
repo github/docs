@@ -5,7 +5,7 @@ redirect_from:
   - /articles/reviewing-and-discussing-changes-in-pull-requests
   - /articles/reviewing-changes-in-pull-requests
   - /github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests
-intro: 'Depois de abrir uma pull request, você pode revisar e comentar um conjunto de alterações propostas.'
+intro: 'After a pull request has been opened, you can review and discuss the set of proposed changes.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -25,6 +25,5 @@ children:
   - /approving-a-pull-request-with-required-reviews
   - /dismissing-a-pull-request-review
   - /checking-out-pull-requests-locally
-shortTitle: Revisar alterações
+shortTitle: Review changes
 ---
-

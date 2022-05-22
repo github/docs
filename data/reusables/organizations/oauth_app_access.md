@@ -1,1 +1,4 @@
-1. In the "Integrations" section of the sidebar, click **{% octicon "key" aria-label="The key icon" %} Third-party access**.
+{% ifversion fpt or ghec %}
+  1. In the Settings sidebar, click **Third-party access**.
+  ![{% data variables.product.prodname_oauth_app %} access tab in the left sidebar](/assets/images/help/settings/settings-sidebar-third-party-access.png)
+{% endif %}

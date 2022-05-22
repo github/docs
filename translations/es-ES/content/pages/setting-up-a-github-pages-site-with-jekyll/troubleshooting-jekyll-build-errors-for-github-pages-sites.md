@@ -2,27 +2,27 @@
 title: Solucionar problemas de errores de compilación de Jekyll para sitios de Páginas de GitHub
 intro: 'Puedes usar los mensajes de error de compilación de Jekyll para solucionar los problemas de tu sitio de {% data variables.product.prodname_pages %}.'
 redirect_from:
-  - /articles/page-build-failed-missing-docs-folder
-  - /articles/page-build-failed-invalid-submodule
-  - /articles/page-build-failed-missing-submodule
-  - /articles/page-build-failed-markdown-errors
-  - /articles/page-build-failed-config-file-error
-  - /articles/page-build-failed-unknown-tag-error
-  - /articles/page-build-failed-tag-not-properly-terminated
-  - /articles/page-build-failed-tag-not-properly-closed
-  - /articles/page-build-failed-file-does-not-exist-in-includes-directory
-  - /articles/page-build-failed-file-is-a-symlink
-  - /articles/page-build-failed-symlink-does-not-exist-within-your-sites-repository
-  - /articles/page-build-failed-file-is-not-properly-utf-8-encoded
-  - /articles/page-build-failed-invalid-post-date
-  - /articles/page-build-failed-invalid-sass-or-scss
-  - /articles/page-build-failed-invalid-highlighter-language
-  - /articles/page-build-failed-relative-permalinks-configured
-  - /articles/page-build-failed-syntax-error-in-for-loop
-  - /articles/page-build-failed-invalid-yaml-in-data-file
-  - /articles/page-build-failed-date-is-not-a-valid-datetime
-  - /articles/troubleshooting-github-pages-builds
-  - /articles/troubleshooting-jekyll-builds
+  - /articles/page-build-failed-missing-docs-folder/
+  - /articles/page-build-failed-invalid-submodule/
+  - /articles/page-build-failed-missing-submodule/
+  - /articles/page-build-failed-markdown-errors/
+  - /articles/page-build-failed-config-file-error/
+  - /articles/page-build-failed-unknown-tag-error/
+  - /articles/page-build-failed-tag-not-properly-terminated/
+  - /articles/page-build-failed-tag-not-properly-closed/
+  - /articles/page-build-failed-file-does-not-exist-in-includes-directory/
+  - /articles/page-build-failed-file-is-a-symlink/
+  - /articles/page-build-failed-symlink-does-not-exist-within-your-sites-repository/
+  - /articles/page-build-failed-file-is-not-properly-utf-8-encoded/
+  - /articles/page-build-failed-invalid-post-date/
+  - /articles/page-build-failed-invalid-sass-or-scss/
+  - /articles/page-build-failed-invalid-highlighter-language/
+  - /articles/page-build-failed-relative-permalinks-configured/
+  - /articles/page-build-failed-syntax-error-in-for-loop/
+  - /articles/page-build-failed-invalid-yaml-in-data-file/
+  - /articles/page-build-failed-date-is-not-a-valid-datetime/
+  - /articles/troubleshooting-github-pages-builds/
+  - /articles/troubleshooting-jekyll-builds/
   - /articles/troubleshooting-jekyll-build-errors-for-github-pages-sites
   - /github/working-with-github-pages/troubleshooting-jekyll-build-errors-for-github-pages-sites
 product: '{% data reusables.gated-features.pages %}'

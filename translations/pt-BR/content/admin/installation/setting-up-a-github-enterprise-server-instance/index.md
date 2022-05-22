@@ -1,6 +1,6 @@
 ---
-title: Configurar uma instância do GitHub Enterprise Server
-intro: 'Você pode instalar o {% data variables.product.prodname_ghe_server %} na plataforma de virtualização suportada à sua escolha.'
+title: Setting up a GitHub Enterprise Server instance
+intro: 'You can install {% data variables.product.prodname_ghe_server %} on the supported virtualization platform of your choice.'
 redirect_from:
   - /enterprise/admin/installation/getting-started-with-github-enterprise-server
   - /enterprise/admin/guides/installation/supported-platforms
@@ -20,6 +20,6 @@ children:
   - /installing-github-enterprise-server-on-vmware
   - /installing-github-enterprise-server-on-xenserver
   - /setting-up-a-staging-instance
-shortTitle: Configurar uma instância
+shortTitle: Set up an instance
 ---
 

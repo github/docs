@@ -1,43 +1,42 @@
 ---
-title: Utilizar adjuntos de contenido
-intro: Los adjuntos de contenido permiten que una GitHub App proporcione más información en GitHub para las URL que vinculan a los dominios registrados. GitHub interpreta la información que proporciona la app bajo la URL en el cuerpo o el comentario de un informe de problemas o de una solicitud de extracción.
+title: Using content attachments
+intro: Content attachments allow a GitHub App to provide more information in GitHub for URLs that link to registered domains. GitHub renders the information provided by the app under the URL in the body or comment of an issue or pull request.
 redirect_from:
   - /apps/using-content-attachments
   - /developers/apps/using-content-attachments
 versions:
-  ghes: <3.4
+  ghes: '<3.4'
 topics:
   - GitHub Apps
 ---
-
 {% data reusables.pre-release-program.content-attachments-public-beta %}
 
-## Acerca de los adjuntos de contenido
+## About content attachments
 
-Una GitHub App puede registrar dominios que activarán los eventos de `content_reference`. Cuando alguien incluye una URL que vincule a un dominio registrado en el cuerpo o en el comentario de un informe de problemas o de una solicitud de extracción, la app recibe el [webhook de `content_reference`](/webhooks/event-payloads/#content_reference). Puedes utilizar los adjuntos de contenido para proporcionar visualmente más contenido o datos para la URL que se agregó a un informe de problemas o a una solicitud de extracción. La URL debe estar completamente calificada, comenzando ya sea con `http://` o con `https://`. Las URL que sean parte de un enlace de markdown se ignorarán y no activarán el evento de `content_reference`.
+A GitHub App can register domains that will trigger `content_reference` events. When someone includes a URL that links to a registered domain in the body or comment of an issue or pull request, the app receives the [`content_reference` webhook](/webhooks/event-payloads/#content_reference). You can use content attachments to visually provide more context or data for the URL added to an issue or pull request. The URL must be a fully-qualified URL, starting with either `http://` or `https://`. URLs that are part of a markdown link are ignored and don't trigger the `content_reference` event.
 
-Antes de que puedas utilizar la API de {% data variables.product.prodname_unfurls %}, necesitarás configurar las referencias de contenido para tu GitHub App:
-* Concede los permisos de `Read & write` a tu app para "Referencias de contenido".
-* Registra hasta 5 dominios válidos y accesibles al público cuando configures el permiso de "Referencias de contenido". No utilices direcciones IP cuando configures dominios con referencias de contenido. Puedes registrar un nombre de dominio (ejemplo.com) o un subdominio (subdominio.ejemplo.com).
-* Suscribe a tu app al evento de "Referencia de contenido".
+Before you can use the {% data variables.product.prodname_unfurls %} API, you'll need to configure content references for your GitHub App:
+* Give your app `Read & write` permissions for "Content references."
+* Register up to 5 valid, publicly accessible domains when configuring the "Content references" permission. Do not use IP addresses when configuring content reference domains. You can register a domain name (example.com) or a subdomain (subdomain.example.com).
+* Subscribe your app to the "Content reference" event.
 
-Una vez que tu app se instale en un repositorio, los comentarios de solicitudes de extracción o de informes de problemas en éste, los cuales contengan URL para tus dominios registrados, generarán un evento de referencia de contenido. La app debe crear un adjunto de contenido en las seis horas siguientes a la publicación de la URL de referencia de contenido.
+Once your app is installed on a repository, issue or pull request comments in the repository that contain URLs for your registered domains will generate a content reference event. The app must create a content attachment within six hours of the content reference URL being posted.
 
-Los adjuntos de contenido no actualizarán las URL retroactivamente. Esto solo funciona para aquellas URL que se agerguen a las solicitudes de extracción o informes de problemas después de que configuras la app utilizando los requisitos descritos anteriormente y que después alguien instale la app en su repositorio.
+Content attachments will not retroactively update URLs. It only works for URLs added to issues or pull requests after you configure the app using the requirements outlined above and then someone installs the app on their repository.
 
-Consulta la sección "[Crear una GitHub App](/apps/building-github-apps/creating-a-github-app/)" o "[Editar los permisos de las GitHub Apps](/apps/managing-github-apps/editing-a-github-app-s-permissions/)" para encontrar los pasos necesarios para configurar los permisos de las GitHub Apps y las suscripciones a eventos.
+See "[Creating a GitHub App](/apps/building-github-apps/creating-a-github-app/)" or "[Editing a GitHub App's permissions](/apps/managing-github-apps/editing-a-github-app-s-permissions/)" for the steps needed to configure GitHub App permissions and event subscriptions.
 
-## Implementar el flujo de los adjuntos de contenido
+## Implementing the content attachment flow
 
-El flujo de los adjuntos de contenido te muestra la relación entre la URL en el informe de problemas o en la solicitud de extracción, el evento de webhook de `content_reference`, y la terminal de la API de REST que necesitas para llamar o actualizar dicho informe de problemas o solicitud de extracción con información adicional:
+The content attachment flow shows you the relationship between the URL in the issue or pull request, the `content_reference` webhook event, and the REST API endpoint you need to call to update the issue or pull request with additional information:
 
-**Paso 1.** Configura tu app utilizando los lineamientos descritos en la sección [Acerca de los adjuntos de contenido](#about-content-attachments). También puedes utilizar el [ejemplo de la App de Probot](#example-using-probot-and-github-app-manifests) para iniciar con los adjuntos de contenido.
+**Step 1.** Set up your app using the guidelines outlined in [About content attachments](#about-content-attachments). You can also use the [Probot App example](#example-using-probot-and-github-app-manifests) to get started with content attachments.
 
-**Paso 2.** Agrega la URL para el dominio que registraste a un informe de problemas o solicitud de extracción. Debes utilizar una URL totalmente calificada que comience con `http://` o con `https://`.
+**Step 2.** Add the URL for the domain you registered to an issue or pull request. You must use a fully qualified URL that starts with `http://` or `https://`.
 
-![URL que se agregó a un informe de problemas](/assets/images/github-apps/github_apps_content_reference.png)
+![URL added to an issue](/assets/images/github-apps/github_apps_content_reference.png)
 
-**Paso 3.** Tu app recibirá el [webhook de `content_reference`](/webhooks/event-payloads/#content_reference) con la acción `created`.
+**Step 3.** Your app will receive the [`content_reference` webhook](/webhooks/event-payloads/#content_reference) with the action `created`.
 
 ``` json
 {
@@ -58,12 +57,12 @@ El flujo de los adjuntos de contenido te muestra la relación entre la URL en el
 }
 ```
 
-**Paso 4.** La app utiliza los campos de la `id` de `content_reference` y del `full_name` del `repository` para [Crear un adjunto de contenido ](/rest/reference/apps#create-a-content-attachment) utilizando la API de REST. También necesitas la `id` de la `installation` para autenticarte como una [Instalación de una GitHub App](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation).
+**Step 4.** The app uses the `content_reference` `id` and `repository` `full_name` fields to [Create a content attachment](/rest/reference/apps#create-a-content-attachment) using the REST API. You'll also need the `installation` `id` to authenticate as a [GitHub App installation](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation).
 
 {% data reusables.pre-release-program.corsair-preview %}
 {% data reusables.pre-release-program.api-preview-warning %}
 
-El parámetro `body` puede contener lenguaje de markdown:
+The `body` parameter can contain markdown:
 
 ```shell
 curl -X POST \
@@ -71,24 +70,24 @@ curl -X POST \
   -H 'Accept: application/vnd.github.corsair-preview+json' \
   -H 'Authorization: Bearer $INSTALLATION_TOKEN' \
   -d '{
-    "title": "[A-1234] Error found in core/models.py file",
-    "body": "You have used an email that already exists for the user_email_uniq field.\n ## DETAILS:\n\nThe (email)=(Octocat@github.com) already exists.\n\n The error was found in core/models.py in get_or_create_user at line 62.\n\n self.save()"
+	"title": "[A-1234] Error found in core/models.py file",
+	"body": "You have used an email that already exists for the user_email_uniq field.\n ## DETAILS:\n\nThe (email)=(Octocat@github.com) already exists.\n\n The error was found in core/models.py in get_or_create_user at line 62.\n\n self.save()"
 }'
 ```
 
-Para obtener más información acerca de crear un token de instalación, consulta la sección "[Autenticarte como una GitHub App](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation)".
+For more information about creating an installation token, see "[Authenticating as a GitHub App](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation)."
 
-**Paso 5.** Verás como el nuevo adjunto de contenido aparece bajo el enlace en un comentario de una solicitud de extracción o informe de problemas:
+**Step 5.** You'll see the new content attachment appear under the link in a pull request or issue comment:
 
-![Contenido adjunto a una referencia en un informe de problemas](/assets/images/github-apps/content_reference_attachment.png)
+![Content attached to a reference in an issue](/assets/images/github-apps/content_reference_attachment.png)
 
-## Utilizar adjuntos de contenido en GraphQL
-Proporcionamos la `node_id` en el evento de [Webhook de `content_reference` ](/webhooks/event-payloads/#content_reference) para que puedas referirte a la mutación `createContentAttachment` en la API de GraphQL.
+## Using content attachments in GraphQL
+We provide the `node_id` in the [`content_reference` webhook](/webhooks/event-payloads/#content_reference) event so you can refer to the `createContentAttachment` mutation in the GraphQL API.
 
 {% data reusables.pre-release-program.corsair-preview %}
 {% data reusables.pre-release-program.api-preview-warning %}
 
-Por ejemplo:
+For example:
 
 ``` graphql
 mutation {
@@ -107,7 +106,7 @@ mutation {
   }
 }
 ```
-cURL de ejemplo:
+Example cURL:
 
 ```shell
 curl -X "POST" "{% data variables.product.api_url_code %}/graphql" \
@@ -119,16 +118,16 @@ curl -X "POST" "{% data variables.product.api_url_code %}/graphql" \
 }'
 ```
 
-Para obtener más información aacerca de `node_id`, consulta la sección "[Utilizar las Node ID Globales]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-global-node-ids)".
+For more information on `node_id`, see "[Using Global Node IDs]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-global-node-ids)."
 
-## Ejemplo de uso con Probot y Manifiestos de GitHub Apps
+## Example using Probot and GitHub App Manifests
 
-Para configurar rápidamente una GitHub App que pueda utilizar la API de {% data variables.product.prodname_unfurls %}, puedes utilizar el [Probot](https://probot.github.io/). Consulta la sección "[Crear Github Apps a partir de un manifiesto](/apps/building-github-apps/creating-github-apps-from-a-manifest/)" para aprender cómo el Probot utiliza los Manifiestos de las GitHub Apps.
+To quickly setup a GitHub App that can use the {% data variables.product.prodname_unfurls %} API, you can use [Probot](https://probot.github.io/). See "[Creating GitHub Apps from a manifest](/apps/building-github-apps/creating-github-apps-from-a-manifest/)" to learn how Probot uses GitHub App Manifests.
 
-Para crear una App de Probot, sigue estos pasos:
+To create a Probot App, follow these steps:
 
-1. [Genera una GitHub App Nueva](https://probot.github.io/docs/development/#generating-a-new-app).
-2. Abre el proyecto que creaste y personaliza la configuración en el archivo `app.yml`. Suscríbete al evento `content_reference` y habilita los permisos de escritura de `content_references`:
+1. [Generate a new GitHub App](https://probot.github.io/docs/development/#generating-a-new-app).
+2. Open the project you created, and customize the settings in the `app.yml` file. Subscribe to the `content_reference` event and enable `content_references` write permissions:
 
    ``` yml
     default_events:
@@ -147,7 +146,7 @@ Para crear una App de Probot, sigue estos pasos:
         value: example.org
    ```
 
-3. Agrega este código al archivo `index.js` para gestionar los eventos de `content_reference` y llamar a la API de REST:
+3. Add this code to the `index.js` file to handle `content_reference` events and call the REST API:
 
     ``` javascript
     module.exports = app => {
@@ -168,13 +167,13 @@ Para crear una App de Probot, sigue estos pasos:
     }
     ```
 
-4. [Ejecuta la GitHub App localmente](https://probot.github.io/docs/development/#running-the-app-locally). Navega hasta `http://localhost:3000`, y da clic en el botón **Registrar GitHub App**:
+4. [Run the GitHub App locally](https://probot.github.io/docs/development/#running-the-app-locally). Navigate to `http://localhost:3000`, and click the **Register GitHub App** button:
 
-   ![Registrar una GitHub App de Probot](/assets/images/github-apps/github_apps_probot-registration.png)
+   ![Register a Probot GitHub App](/assets/images/github-apps/github_apps_probot-registration.png)
 
-5. Instala la app en un repositorio de prueba.
-6. Crea un informe de problemas en tu repositorio de prueba.
-7. Agrega un comentario en el informe de problemas que abriste, el cual incluya la URL que configuraste en el archivo `app.yml`.
-8. Revisa el comentario del informe de problemas y verás una actualización que se ve así:
+5. Install the app on a test repository.
+6. Create an issue in your test repository.
+7. Add a comment to the issue you opened that includes the URL you configured in the `app.yml` file.
+8. Take a look at the issue comment and you'll see an update that looks like this:
 
-   ![Contenido adjunto a una referencia en un informe de problemas](/assets/images/github-apps/content_reference_attachment.png)
+   ![Content attached to a reference in an issue](/assets/images/github-apps/content_reference_attachment.png)

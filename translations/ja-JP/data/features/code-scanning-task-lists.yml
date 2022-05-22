@@ -1,5 +1,0 @@
----
-versions:
-  fpt: '*'
-  ghec: '*'
-  ghae: 'issue-5036'

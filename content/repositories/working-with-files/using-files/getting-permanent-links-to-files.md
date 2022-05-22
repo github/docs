@@ -32,7 +32,7 @@ refers to GitHub's `codeql` repository, and shows the `main` branch's current ve
 
 The version of a file at the head of branch can change as new commits are made, so if you were to copy the normal URL, the file contents might not be the same when someone looks at it later.
 
-## Press <kbd>Y</kbd> to permalink to a file in a specific commit
+## Press <kbd>y</kbd> to permalink to a file in a specific commit
 
 For a permanent link to the specific version of a file that you see, instead of using a branch name in the URL (i.e. the `main` part in the example above), put a commit id.  This will permanently link to the exact version of the file in that commit.  For example:
 

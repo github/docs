@@ -71,21 +71,21 @@ Ao adicionar um arquivo `CITATION.cff` ao branch padrão do repositório, ele se
 
 Se você prefere que as informações de citação de {% data variables.product.prodname_dotcom %} vinculem outro recurso, como um artigo de pesquisa, você poderá usar a substituição de `preferred-citation` no CFF pelos seguintes tipos.
 
-| Recurso                               | Tipo CFF                                                                                             | Tipo BibTeX      | Anotações da APA           |
-| ------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------- | -------------------------- |
-| Artigo de jornal/documento            | `artigo`                                                                                             | `@article`       |                            |
-| Livro                                 | `livro`                                                                                              | `@book`          |                            |
-| Folheto (vinculado mas não publicado) | `pamphlet`                                                                                           | `@booklet`       |                            |
-| Artigo de conferência/documento       | `conference-paper`                                                                                   | `@inproceedings` | [Documento de conferência] |
-| Atas de conferência                   | `conference`, `proceedings`                                                                          | `@proceedings`   |                            |
-| Conjunto de dados                     | `data`, `database`                                                                                   | `@misc`          | [Conjunto de dados]        |
-| Artigo de revista                     | `magazine-article`                                                                                   | `@article`       |                            |
-| Manual                                | `manual`                                                                                             | `@manual`        |                            |
-| Outros                                | `genérico`, qualquer outro tipo de CFF                                                               | `@misc`          |                            |
-| Artigo de jornal                      | `newspaper-article`                                                                                  | `@article`       |                            |
-| Software                              | `software`, `software-code`, `software-container`, `software-executable`, `software-virtual-machine` | `@software`      | [Software de computador]   |
-| Relatório/relatório técnico           | `relatório`                                                                                          | `@techreport`    |                            |
-| Não publicado                         | `não publicado`                                                                                      | `@unpublished`   |                            |
+| Recurso                           | CFF type                                                                                             | BibTeX type      | APA annotation      |
+| --------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------- | ------------------- |
+| Journal article/paper             | `artigo`                                                                                             | `@article`       |                     |
+| Livro                             | `livro`                                                                                              | `@book`          |                     |
+| Booklet (bound but not published) | `pamphlet`                                                                                           | `@booklet`       |                     |
+| Conference article/paper          | `conference-paper`                                                                                   | `@inproceedings` | [Conference paper]  |
+| Conference proceedings            | `conference`, `proceedings`                                                                          | `@proceedings`   |                     |
+| Data set                          | `data`, `database`                                                                                   | `@misc`          | [Data set]          |
+| Magazine article                  | `magazine-article`                                                                                   | `@article`       |                     |
+| Manual                            | `manual`                                                                                             | `@manual`        |                     |
+| Misc/generic/other                | `generic`, any other CFF type                                                                        | `@misc`          |                     |
+| Newspaper article                 | `newspaper-article`                                                                                  | `@article`       |                     |
+| Software                          | `software`, `software-code`, `software-container`, `software-executable`, `software-virtual-machine` | `@software`      | [Computer software] |
+| Report/technical report           | `report`                                                                                             | `@techreport`    |                     |
+| Unpublished                       | `unpublished`                                                                                        | `@unpublished`   |                     |
 
 Arquivo de CITATION.cff estendido que descreve o software, mas vinculando a um artigo de pesquisa como a citação preferida:
 
@@ -152,7 +152,7 @@ Lisa, M., & Bot, H. (2021). Meu software de pesquisa incrível. Journal Title, 1
 
 ## Citando um conjunto de dados
 
-Se seu repositório contiver um conjunto de dados, você poderá definir o `type: dataset` na parte superior do seu arquivo `CITATION.cff` para produzir uma saída de frase de citação de dados na solicitação de citação de {% data variables.product.prodname_dotcom %}.
+If your repository contains a dataset, you can set `type: dataset` at the top level of your `CITATION.cff` file to produce a data citation string output in the {% data variables.product.prodname_dotcom %} citation prompt.
 
 ## Outros arquivos de citação
 

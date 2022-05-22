@@ -315,19 +315,19 @@ jobs:
 {% endraw %}
 </td>
 <td class="d-table-cell v-align-top">
-
+{% raw %}
 ```yaml
 jobs:
   run_python:
     runs-on: ubuntu-latest
     steps:
-      - uses: {% data reusables.actions.action-setup-python %}
+      - uses: actions/setup-python@v2
         with:
           python-version: '3.7'
           architecture: 'x64'
       - run: python script.py
 ```
-
+{% endraw %}
 </td>
 </tr>
 </table>

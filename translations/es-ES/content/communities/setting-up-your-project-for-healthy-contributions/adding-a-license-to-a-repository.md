@@ -37,7 +37,7 @@ Las licencias de código abierto permiten que otras personas usen, cambien y dis
 {% endif %}
 
 <!--GHE version just adds a file named LICENSE or LICENSE.md-->
-{% ifversion ghes %}
+{% ifversion ghes or ghae %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}

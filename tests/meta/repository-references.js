@@ -11,7 +11,7 @@ If this test is failing...
 (1) edit the file to remove the reference; or
 (2) the repository is public,
     add the repository name to PUBLIC_REPOS; or
-(3) the file references a docs repository,
+(3) the feature references a docs repository,
     add the file name to ALLOW_DOCS_PATHS.
 */
 
@@ -54,10 +54,6 @@ const PUBLIC_REPOS = new Set([
   'insights-releases',
   'help-docs-archived-enterprise-versions',
   'stack-graphs',
-  'codespaces-precache',
-  'advisory-database',
-  'browser-support',
-  'haikus-for-codespaces',
 ])
 
 const ALLOW_DOCS_PATHS = [
@@ -70,6 +66,7 @@ const ALLOW_DOCS_PATHS = [
   'ownership.yaml',
   'docs/index.yaml',
   'lib/excluded-links.js',
+  'script/deploy.js',
   'script/README.md',
   'script/toggle-ghae-feature-flags.js',
   '.github/workflows/hubber-contribution-help.yml',
@@ -132,15 +129,7 @@ describe('check if a GitHub-owned private repository is referenced', () => {
       })
     expect(
       matches,
-      `This test exists to make sure we don't reference private GitHub owned repositories in our open-source repository.
-
-      In '${filename}' we found references to these private repositories: ${matches.join(', ')}
-
-      You can:
-
-      (1) edit the file to remove the repository reference; or
-      (2) if the repository is public, add the repository name to the 'PUBLIC_REPOS' variable in this test file; or
-      (3) if the file references a docs repository, add the file name to the 'ALLOW_DOCS_PATHS' variable in this test file.`
+      `Please edit ${filename} to remove references to ${matches.join(', ')}`
     ).toHaveLength(0)
   })
 })

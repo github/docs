@@ -1,6 +1,6 @@
 ---
-title: 创建和编辑议题及拉取请求的里程碑
-intro: 您可以创建里程碑来跟踪仓库中议题或拉取请求组的进度。
+title: Creating and editing milestones for issues and pull requests
+intro: You can create a milestone to track progress on groups of issues or pull requests in a repository.
 redirect_from:
   - /github/managing-your-work-on-github/tracking-the-progress-of-your-work-with-milestones/creating-and-editing-milestones-for-issues-and-pull-requests
   - /articles/creating-milestones-for-issues-and-pull-requests
@@ -15,30 +15,32 @@ topics:
   - Pull requests
   - Issues
   - Project management
-shortTitle: 创建和编辑里程碑
+shortTitle: Create & edit milestones
 type: how_to
 ---
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-issue-pr %}
+{% data reusables.project-management.milestones %}
+4. Choose one of these options:
+    - To create a new milestone, click **New Milestone**.
+  ![New milestone button](/assets/images/help/repository/new-milestone.png)
+    - To edit a milestone, next to the milestone you want to edit, click **Edit**.
+  ![Edit milestone option](/assets/images/help/repository/edit-milestone.png)
+5. Type the milestone's title, description, or other changes, and click **Create milestone** or **Save changes**. Milestones will render Markdown syntax. For more information about Markdown syntax, see "[Basic writing and formatting syntax](/github/writing-on-github/basic-writing-and-formatting-syntax)."
+
+## Deleting milestones
+
+When you delete milestones, issues and pull requests are not affected.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
 {% data reusables.project-management.milestones %}
-4. 选择以下选项之一：
-    - 要创建新里程碑，请单击 **New Milestone（新建里程碑）**。 ![新建里程碑按钮](/assets/images/help/repository/new-milestone.png)
-    - 要编辑里程碑，请在要编辑的里程碑旁边，单击 **Edit（编辑）**。 ![编辑里程碑选项](/assets/images/help/repository/edit-milestone.png)
-5. 键入里程碑的标题、说明或其他更改，然后单击 **Create milestone（创建里程碑）**或 **Save changes（保存更改）**。 里程碑将呈现 Markdown 语法。 有关 Markdown 语法的更多信息，请参阅“[基本撰写和格式语法](/github/writing-on-github/basic-writing-and-formatting-syntax)”。
+4. Next to the milestone you want to delete, click **Delete**.
+![Delete milestone option](/assets/images/help/repository/delete-milestone.png)
 
-## 删除里程碑
+## Further reading
 
-删除里程碑时，议题和提取请求不会受到影响。
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-issue-pr %}
-{% data reusables.project-management.milestones %}
-4. 在要删除的里程碑旁边，单击 **Delete（删除）**。 ![删除里程碑选项](/assets/images/help/repository/delete-milestone.png)
-
-## 延伸阅读
-
-- "[关于里程碑](/articles/about-milestones)"
-- "[将里程碑与议题及拉取请求关联](/articles/associating-milestones-with-issues-and-pull-requests)"
-- "[查看里程碑的进度](/articles/viewing-your-milestone-s-progress)"
-- "[按里程碑过滤议题和拉取请求](/articles/filtering-issues-and-pull-requests-by-milestone)"
+- "[About milestones](/articles/about-milestones)"
+- "[Associating milestones with issues and pull requests](/articles/associating-milestones-with-issues-and-pull-requests)"
+- "[Viewing your milestone's progress](/articles/viewing-your-milestone-s-progress)"
+- "[Filtering issues and pull requests by milestone](/articles/filtering-issues-and-pull-requests-by-milestone)"

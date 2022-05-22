@@ -13,6 +13,6 @@ children:
   - /configuring-clustering
   - /configuring-high-availability
   - /caching-repositories
-shortTitle: 'Monitorar, gerenciar e atualizar seu dispositivo'
+shortTitle: 'Monitorar, gerenciar & atualizar'
 ---
 

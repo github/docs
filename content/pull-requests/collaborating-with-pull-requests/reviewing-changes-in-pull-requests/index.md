@@ -27,4 +27,3 @@ children:
   - /checking-out-pull-requests-locally
 shortTitle: Review changes
 ---
-

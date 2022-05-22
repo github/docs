@@ -1,1 +1,1 @@
-1. 如果支持工程师为您提供了支持包的上传链接，请使用此链接。 否则，请访问 https://support.github.com/ 并登录（如果出现提示）有权获得支持的企业帐户。
+1. If a support engineer has given you an upload link for your support bundle, use this link. Otherwise, visit https://support.github.com/ and sign in (if prompted) to an enterprise account that is entitled to support.

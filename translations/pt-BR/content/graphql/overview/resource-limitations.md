@@ -24,9 +24,7 @@ Para passar a validação do [esquema](/graphql/guides/introduction-to-graphql#s
 
 Estes dois exemplos mostram como calcular os nós totais em uma chamada.
 
-1. Consulta simples:
-
-  <pre>query {
+1. Consulta simples: <pre>query {
     viewer {
       repositories(first: <span class="redbox">50</span>) {
         edges {
@@ -48,17 +46,13 @@ Estes dois exemplos mostram como calcular os nós totais em uma chamada.
     }
   }</pre>
 
-  Cálculo:
-
-  <pre><span class="redbox">50</span>         = 50 repositories
+  Cálculo: <pre><span class="redbox">50</span>         = 50 repositories
    +
   <span class="redbox">50</span> x <span class="greenbox">10</span>  = 500 repository issues
 
               = 550 total nodes</pre>
 
-2. Consulta complexa:
-
-  <pre>query {
+2. Consulta complexa: <pre>query {
     viewer {
       repositories(first: <span class="redbox">50</span>) {
         edges {
@@ -112,9 +106,7 @@ Estes dois exemplos mostram como calcular os nós totais em uma chamada.
     }
   }</code></pre>
 
-  Cálculo:
-
-  <pre><span class="redbox">50</span>              = 50 repositories
+  Cálculo: <pre><span class="redbox">50</span>              = 50 repositories
    +
   <span class="redbox">50</span> x <span class="greenbox">20</span>       = 1,000 pullRequests
    +

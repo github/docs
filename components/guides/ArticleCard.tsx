@@ -1,21 +1,16 @@
 import { ArticleGuide } from 'components/context/ProductGuidesContext'
-import { Label } from '@primer/react'
+import { Label } from '@primer/components'
 
 type Props = {
   card: ArticleGuide
   typeLabel: string
-  tabIndex?: number
 }
 
-export const ArticleCard = ({ tabIndex, card, typeLabel }: Props) => {
+export const ArticleCard = ({ card, typeLabel }: Props) => {
   return (
-    <li
-      tabIndex={tabIndex}
-      data-testid="article-card"
-      className="d-flex col-12 col-md-4 pr-0 pr-md-6 pr-lg-8"
-    >
+    <div data-testid="article-card" className="d-flex col-12 col-md-4 pr-0 pr-md-6 pr-lg-8">
       <a className="no-underline d-flex flex-column py-3 border-bottom" href={card.href}>
-        <h3 className="h4 color-fg-default mb-1" dangerouslySetInnerHTML={{ __html: card.title }} />
+        <h4 className="h4 color-fg-default mb-1" dangerouslySetInnerHTML={{ __html: card.title }} />
         <div className="h6 text-uppercase" data-testid="article-card-type">
           {typeLabel}
         </div>
@@ -38,6 +33,6 @@ export const ArticleCard = ({ tabIndex, card, typeLabel }: Props) => {
           </ul>
         )}
       </a>
-    </li>
+    </div>
   )
 }

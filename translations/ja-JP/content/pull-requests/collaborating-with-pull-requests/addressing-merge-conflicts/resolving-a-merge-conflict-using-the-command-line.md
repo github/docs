@@ -1,6 +1,6 @@
 ---
-title: コマンド ラインを使用してマージ コンフリクトを解決する
-intro: コマンド ラインとテキスト エディターを使用することで、マージ コンフリクトを解決できます。
+title: Resolving a merge conflict using the command line
+intro: You can resolve merge conflicts using the command line and a text editor.
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line
   - /articles/resolving-a-merge-conflict-from-the-command-line
@@ -16,27 +16,26 @@ topics:
   - Pull requests
 shortTitle: Resolve merge conflicts in Git
 ---
-
-マージコンフリクトは、競合している変更がファイルの同じ行に行われるとき、またはある人があるファイルを編集し別の人が同じファイルを削除すると発生します。 詳細は「[マージコンフリクトについて](/articles/about-merge-conflicts/)」を参照してください。
+Merge conflicts occur when competing changes are made to the same line of a file, or when one person edits a file and another person deletes the same file. For more information, see "[About merge conflicts](/articles/about-merge-conflicts/)."
 
 {% tip %}
 
-**ヒント:** {% data variables.product.product_name %} でコンフリクト エディターを使用することで、Pull Request の一部であるブランチの間で競合している行変更のマージ コンフリクトを解消できます。 詳細については、「[GitHub でマージコンフリクトを解決する](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-on-github)」を参照してください。
+**Tip:** You can use the conflict editor on {% data variables.product.product_name %} to resolve competing line change merge conflicts between branches that are part of a pull request. For more information, see "[Resolving a merge conflict on GitHub](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-on-github)."
 
 {% endtip %}
 
-## 競合している行変更のマージ コンフリクト
+## Competing line change merge conflicts
 
-競合している行変更により発生するマージ コンフリクトを解決するには、新しいコミットにどの変更を組み込むかをいくつかの別のブランチから選択する必要があります。
+To resolve a merge conflict caused by competing line changes, you must choose which changes to incorporate from the different branches in a new commit.
 
-たとえば、あなたともう一人が両方とも、同じ Git リポジトリの別のブランチにあるファイル _styleguide.md_ で同じ行を編集した場合、これらのブランチをマージしようとするとマージ コンフリクト エラーが発生します。 これらのブランチをマージする前に、新たなコミットでこのマージ コンフリクトを解決する必要があります。
+For example, if you and another person both edited the file _styleguide.md_ on the same lines in different branches of the same Git repository, you'll get a merge conflict error when you try to merge these branches. You must resolve this merge conflict with a new commit before you can merge these branches.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. マージ コンフリクトが発生しているローカルの Git リポジトリに移動します。
+2. Navigate into the local Git repository that has the merge conflict.
   ```shell
   cd <em>REPOSITORY-NAME</em>
   ```
-3. マージ コンフリクトの影響を受けるファイルのリストを生成します。 この例では、ファイル *styleguide.md* にマージコンフリクトが発生しています。
+3. Generate a list of the files affected by the merge conflict. In this example, the file *styleguide.md* has a merge conflict.
   ```shell
   $ git status
   > # On branch branch-b
@@ -50,8 +49,8 @@ shortTitle: Resolve merge conflicts in Git
   > #
   > no changes added to commit (use "git add" and/or "git commit -a")
   ```
-4. [Atom](https://atom.io/) などのお気に入りのテキスト エディターを開き、マージ コンフリクトが発生しているファイルに移動します。
-5. ファイル内でマージ コンフリクトの始まりを確認するには、ファイル内のコンフリクト マーカー `<<<<<<<` を検索します。 テキストエディタでファイルを開くと、`<<<<<<< HEAD` 行の後に HEAD ブランチまたはベースブランチからの変更が見えます。 次に、`=======` が見えます。これは、自分の変更と他のブランチの変更を区別するもので、その後に `>>>>>>> BRANCH-NAME` が続きます。 この例では、ある人がベースまたは HEAD ブランチで「open an issue」と書き込み、別の人が compare ブランチまたは `branch-a` に「ask your question in IRC」と書き込みました。
+4. Open your favorite text editor, such as [Atom](https://atom.io/), and navigate to the file that has merge conflicts.
+5. To see the beginning of the merge conflict in your file, search the file for the conflict marker `<<<<<<<`. When you open the file in your text editor, you'll see the changes from the HEAD or base branch after the line `<<<<<<< HEAD`. Next, you'll see `=======`, which divides your changes from the changes in the other branch, followed by `>>>>>>> BRANCH-NAME`. In this example, one person wrote "open an issue" in the base or HEAD branch and another person wrote "ask your question in IRC" in the compare branch or `branch-a`.
 
     ```
     If you have questions, please
@@ -61,34 +60,34 @@ shortTitle: Resolve merge conflicts in Git
     ask your question in IRC.
     >>>>>>> branch-a
     ```
-{% data reusables.pull_requests.decide-how-to-resolve-competing-line-change-merge-conflict %}この例では、両方の変更が最終的なマージに取り込まれます。
+{% data reusables.pull_requests.decide-how-to-resolve-competing-line-change-merge-conflict %} In this example, both changes are incorporated into the final merge:
 
   ```shell
-  質問がある場合は、Issue を開くか、緊急の場合は IRC チャネルにてお問い合わせください。
+  If you have questions, please open an issue or ask in our IRC channel if it's more urgent.
   ```
-7. 変更を追加またはステージングします。
+7. Add or stage your changes.
   ```shell
   $ git add .
   ```
-8. 変更をコメントを付けてコミットします。
+8. Commit your changes with a comment.
   ```shell
   $ git commit -m "Resolved merge conflict by incorporating both suggestions."
   ```
 
-これでコマンドラインでブランチをマージできます。 また、{% data variables.product.product_name %} で[変更をリモート リポジトリにプッシュする](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)ことや、Pull Request で[変更をマージする](/articles/merging-a-pull-request/)ことができます。
+You can now merge the branches on the command line or [push your changes to your remote repository](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/) on {% data variables.product.product_name %} and [merge your changes](/articles/merging-a-pull-request/) in a pull request.
 
-## 削除したファイルのマージコンフリクト
+## Removed file merge conflicts
 
-ある人があるブランチでファイルを削除し、別の人が同じファイルを編集するなどの、ファイルへの変更が競合していることにより発生するマージコンフリクトを解決するには、削除したファイルを削除するか保持するかを新しいコミットで選択する必要があります。
+To resolve a merge conflict caused by competing changes to a file, where a person deletes a file in one branch and another person edits the same file, you must choose whether to delete or keep the removed file in a new commit.
 
-たとえば、あなたが *README.md* などのファイルを編集した場合、別の人が同じ Git リポジトリ内の別のブランチにある同じファイルを削除したならば、これらのブランチをマージしようとした際にマージコンフリクト エラーが発生します。 これらのブランチをマージする前に、新たなコミットでこのマージ コンフリクトを解決する必要があります。
+For example, if you edited a file, such as *README.md*, and another person removed the same file in another branch in the same Git repository, you'll get a merge conflict error when you try to merge these branches. You must resolve this merge conflict with a new commit before you can merge these branches.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. マージ コンフリクトが発生しているローカルの Git リポジトリに移動します。
+2. Navigate into the local Git repository that has the merge conflict.
   ```shell
   cd <em>REPOSITORY-NAME</em>
   ```
-2. マージ コンフリクトの影響を受けるファイルのリストを生成します。 この例では、ファイル *README.md* にマージコンフリクトが発生しています。
+2. Generate a list of the files affected by the merge conflict. In this example, the file *README.md* has a merge conflict.
   ```shell
   $ git status
   > # On branch main
@@ -101,32 +100,32 @@ shortTitle: Resolve merge conflicts in Git
   > # Unmerged paths:
   > #  (use "git add/rm <file>..." as appropriate to mark resolution)
   > #
-  > #   deleted by us:   README.md
+  > #	deleted by us:   README.md
   > #
   > # no changes added to commit (use "git add" and/or "git commit -a")
   ```
-3. [Atom](https://atom.io/) などのお気に入りのテキスト エディターを開き、マージ コンフリクトが発生しているファイルに移動します。
-6. 削除したファイルを保存するかどうかを決めます。 削除したファイルに行った最新の変更をテキスト エディターで確認することをお勧めします。
+3. Open your favorite text editor, such as [Atom](https://atom.io/), and navigate to the file that has merge conflicts.
+6. Decide if you want keep the removed file. You may want to view the latest changes made to the removed file in your text editor.
 
- 削除したファイルをリポジトリに追加して戻すには:
+ To add the removed file back to your repository:
   ```shell
   $ git add README.md
   ```
- このファイルをリポジトリから削除するには:
+ To remove this file from your repository:
   ```shell
   $ git rm README.md
   > README.md: needs merge
   > rm 'README.md'
   ```
-7. 変更をコメントを付けてコミットします。
+7. Commit your changes with a comment.
   ```shell
   $ git commit -m "Resolved merge conflict by keeping README.md file."
   > [branch-d 6f89e49] Merge branch 'branch-c' into branch-d
   ```
 
-これでコマンドラインでブランチをマージできます。 また、{% data variables.product.product_name %} で[変更をリモート リポジトリにプッシュする](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)ことや、Pull Request で[変更をマージする](/articles/merging-a-pull-request/)ことができます。
+You can now merge the branches on the command line or [push your changes to your remote repository](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/) on {% data variables.product.product_name %} and [merge your changes](/articles/merging-a-pull-request/) in a pull request.
 
-## 参考リンク
+## Further reading
 
-- "[マージコンフリクトについて](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/about-merge-conflicts)"
-- "[Pull Request をローカルでチェック アウトする](/articles/checking-out-pull-requests-locally/)"
+- "[About merge conflicts](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/about-merge-conflicts)"
+- "[Checking out pull requests locally](/articles/checking-out-pull-requests-locally/)"

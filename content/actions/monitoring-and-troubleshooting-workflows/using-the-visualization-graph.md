@@ -5,7 +5,7 @@ redirect_from:
   - /actions/managing-workflow-runs/using-the-visualization-graph
 versions:
   fpt: '*'
-  ghes: '*'
+  ghes: '>=3.1'
   ghae: '*'
   ghec: '*'
 shortTitle: Use the visualization graph

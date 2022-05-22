@@ -1,5 +1,5 @@
-有三种可见性设置：
+There are three visibility settings:
 
-* `private` - 仅对您可见。 这是转发端口时的默认设置。
-* `org` - 对拥有存储库的组织成员可见。
-* `public` - 对知道 URL 和端口号的任何人都可见。
+* `private` - Visible only to you. This is the default setting when you forward a port.
+* `org` - Visible to members of the organization that owns the repository.
+* `public` - Visible to anyone who knows the URL and port number.

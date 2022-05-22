@@ -1,6 +1,6 @@
 ---
-title: 使用 Git
-intro: '使用 Git 从计算机管理您的 {% data variables.product.product_name %} 仓库。'
+title: Using Git
+intro: 'Use Git to manage your {% data variables.product.product_name %} repositories from your computer.'
 redirect_from:
   - /articles/using-common-git-commands
   - /github/using-git/using-common-git-commands

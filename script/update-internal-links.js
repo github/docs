@@ -28,7 +28,6 @@ import { allVersionKeys } from '../lib/all-versions.js'
 import frontmatter from '../lib/read-frontmatter.js'
 import renderContent from '../lib/render-content/index.js'
 import patterns from '../lib/patterns.js'
-import getRedirect from '../lib/get-redirect.js'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 const walkFiles = (pathToWalk) => {
@@ -201,11 +200,10 @@ function findPage(tryPath, pageMap, redirects) {
     }
   }
 
-  const redirect = getRedirect(tryPath, { redirects, pages: pageMap })
-  if (pageMap[redirect]) {
+  if (pageMap[redirects[tryPath]]) {
     return {
-      title: pageMap[redirect].title,
-      path: redirect,
+      title: pageMap[redirects[tryPath]].title,
+      path: redirects[tryPath],
     }
   }
 }

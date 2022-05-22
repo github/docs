@@ -1,7 +1,7 @@
 ---
-title: Verificar o aprobar un dominio para tu empresa
-shortTitle: Verificar o aprobar un dominio
-intro: 'Puedes verificar tu propiedad de dominios con {% data variables.product.company_short %} para confirmar la identidad de las organizaciones que pertenecen a tu cuenta empresarial. Tambien puedes aprobar los dominios en donde los miembros de la organización pueden recibir notificaciones por correo electrónico.'
+title: Verifying or approving a domain for your enterprise
+shortTitle: Verify or approve a domain
+intro: 'You can verify your ownership of domains with {% data variables.product.company_short %} to confirm the identity of organizations owned by your enterprise account. You can also approve domains where organization members can receive email notifications.'
 product: '{% data reusables.gated-features.verify-and-approve-domain %}'
 versions:
   ghec: '*'
@@ -24,37 +24,37 @@ redirect_from:
   - /admin/policies/verifying-or-approving-a-domain-for-your-enterprise
 ---
 
-## Acerca de la verificación de dominios
+## About verification of domains
 
-Puedes confirmar que tu empresa controle los sitios web y direcciones de correo electrónico que se listan en los perfiles de cualquier organización que le pertenezca a tu cuenta empresarial si verificas los dominios. Los dominios verificados para una cuenta empresarial aplican a cada organización que pertenezca a la cuenta empresarial.
+You can confirm that the websites and email addresses listed on the profiles of any organization owned by your enterprise account are controlled by your enterprise by verifying the domains. Verified domains for an enterprise account apply to every organization owned by the enterprise account.
 
-Después de que verificas la propiedad de los dominios de tus cuentas empresariales, se mostrará una insignia de "Verificado" en el perfil de cada organización que liste el dominio en su perfil. {% data reusables.organizations.verified-domains-details %}
+After you verify ownership of your enterprise account's domains, a "Verified" badge will display on the profile of each organization that has the domain listed on its profile. {% data reusables.organizations.verified-domains-details %}
 
-Los propietarios de las organizaciones podrán verificar la identidad de los miembros de éstas si visualizan la dirección de correo electrónico de cada miembro dentro del dominio verificado.
+Organization owners will be able to verify the identity of organization members by viewing each member's email address within the verified domain.
 
-Después de que verificas los dominios para tu cuenta empresarial, puedes restringir las notificaciones de correo electrónico a los dominios verificados para todas las organizaciones que le pertenezcan a tu cuenta empresarial. Para obtener más información, consulta la sección "[Restringir las notificaciones por correo electrónico para tu empresa](/admin/policies/enforcing-policies-for-your-enterprise/restricting-email-notifications-for-your-enterprise)".
+After you verify domains for your enterprise account, you can restrict email notifications to verified domains for all the organizations owned by your enterprise account. For more information, see "[Restricting email notifications for your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/restricting-email-notifications-for-your-enterprise)."
 
-Incluso si no restringieras las notificaciones por correo electrónico para la cuenta empresarial, en caso de que un propietario de organización lo haya hecho, los miembros de dicha organización podrán recibir notificaciones en cualquier dominio que la empresa haya verificado o aprobado para la cuenta empresarial adicionalmente a cualquier dominio que se haya verificado o aprobado previamente para la organización. Para obtener más información sobre cómo restringir las notificaciones de una organización, consulta la sección "[Restringir las notificaciones por correo electrónico para tu organización](/organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization)".
+Even if you don't restrict email notifications for the enterprise account, if an organization owner has restricted email notifications for the organization, organization members will be able to receive notifications at any domains verified or approved for the enterprise account, in addition to any domains verified or approved for the organization. For more information about restricting notifications for an organization, see "[Restricting email notifications for your organization](/organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization)."
 
-Los propietarios de organización también pueden verificar dominios adicionales para sus organizaciones. Para obtener más información, consulta la sección "[Verificar o aprobar un dominio para tu organización](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)."
+Organization owners can also verify additional domains for their organizations. For more information, see "[Verifying or approving a domain for your organization](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)."
 
-## Acerca de la aprobación de dominios
+## About approval of domains
 
 {% data reusables.enterprise-accounts.approved-domains-beta-note %}
 
 {% data reusables.enterprise-accounts.approved-domains-about %}
 
-Después de que apruebas los dominios en tu cuenta empresarial, puedes restringir las notificaciones por correo electrónico para la actividad dentro de esta a los usuarios con direcciones de correo electrónico verificadas dentro de los dominios aprobados o verificados. Para obtener más información, consulta la sección "[Restringir las notificaciones por correo electrónico para tu empresa](/admin/policies/enforcing-policies-for-your-enterprise/restricting-email-notifications-for-your-enterprise)".
+After you approve domains for your enterprise account, you can restrict email notifications for activity within your enterprise account to users with verified email addresses within verified or approved domains. For more information, see "[Restricting email notifications for your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/restricting-email-notifications-for-your-enterprise)."
 
-{% ifversion ghec %}Para recibir notificaciones por correo electrónico, el propietario de la cuenta de usuario debe verificar la dirección de correo electrónico en {% data variables.product.product_name %}. Para obtener más información, consulta "[Verificar tu dirección de correo electrónico](/github/getting-started-with-github/verifying-your-email-address)".{% endif %}
+{% ifversion ghec %}To receive email notifications, the owner of the user account must verify the email address on {% data variables.product.product_name %}. For more information, see "[Verifying your email address](/github/getting-started-with-github/verifying-your-email-address)."{% endif %}
 
-Los propietarios de la organización no pueden ver la dirección de correo electrónico ni qué cuenta de usuario está asociada con alguna de ellas desde un dominio aprobado.
+Organization owners cannot see the email address or which user account is associated with an email address from an approved domain.
 
-Los propietarios de organización también pueden aprobar dominios adicionales para sus organizaciones. Para obtener más información, consulta la sección "[Verificar o aprobar un dominio para tu organización](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)."
+Organization owners can also approve additional domains for their organizations. For more information, see "[Verifying or approving a domain for your organization](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)."
 
-## Verificar un dominio para tu cuenta empresarial
+## Verifying a domain for your enterprise account
 
-Para verificar el dominio de tu cuenta empresarial, debes tener acceso para modificar los registros del dominio con tu servicio de hospedaje de dominios.
+To verify your enterprise account's domain, you must have access to modify domain records with your domain hosting service.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -62,15 +62,16 @@ Para verificar el dominio de tu cuenta empresarial, debes tener acceso para modi
 {% data reusables.enterprise-accounts.add-a-domain %}
 {% data reusables.organizations.add-domain %}
 {% data reusables.organizations.add-dns-txt-record %}
-1. Espera a que cambie la configuración de tu DNS, lo cual puede llevar hasta 72 horas. Puedes confirmar que tu configuración de DNS cambió si ejecutas el comando `dig` en la línea de comandos, reemplazando `ENTERPRISE-ACCOUNT` con el nombre de tu cuenta empresarial, y `example.com` con el dominio que te gustaría verificar. Deberías ver tu nuevo registro TXT enumerado en el resultado del comando.
+1. Wait for your DNS configuration to change, which may take up to 72 hours. You can confirm your DNS configuration has changed by running the `dig` command on the command line, replacing `ENTERPRISE-ACCOUNT` with the name of your enterprise account, and `example.com` with the domain you'd like to verify. You should see your new TXT record listed in the command output.
    ```shell
    dig _github-challenge-<em>ENTERPRISE-ACCOUNT</em>.<em>example.com</em> +nostats +nocomments +nocmd TXT
    ```
-1. Después de confirmar, tu registro de TXT se agrega a tu DNS, sigue los pasos uno a cuatro, los cuales se explican anteriormente, para navegar a los dominios aprobados y verificados de tu cuenta empresarial.
+1. After confirming your TXT record is added to your DNS, follow steps one through four above to navigate to your enterprise account's approved and verified domains.
 {% data reusables.enterprise-accounts.continue-verifying-domain %}
-1. Opcionalmente, después de que la insignia de "Verificado" se pueda ver en el perfil de tus organizaciones, borra la entrada de TxT del registro de DNS en tu servicio de hospedaje de dominio. ![Insignia Verificado](/assets/images/help/organizations/verified-badge.png)
+1. Optionally, after the "Verified" badge is visible on your organizations' profiles, delete the TXT entry from the DNS record at your domain hosting service.
+![Verified badge](/assets/images/help/organizations/verified-badge.png)
 
-## Aprobar un dominio para tu cuenta empresarial
+## Approving a domain for your enterprise account
 
 {% data reusables.enterprise-accounts.approved-domains-beta-note %}
 
@@ -82,9 +83,10 @@ Para verificar el dominio de tu cuenta empresarial, debes tener acceso para modi
 {% data reusables.organizations.domains-approve-it-instead %}
 {% data reusables.organizations.domains-approve-domain %}
 
-## Eliminar un dominio verificado o aprobado
+## Removing an approved or verified domain
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.verified-domains-tab %}
-1. A la derecha del dominio a eliminar, haz clic en {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} y luego en **Borrar**. !["Borrar" para un dominio](/assets/images/help/organizations/domains-delete.png)
+1. To the right of the domain to remove, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **Delete**.
+    !["Delete" for a domain](/assets/images/help/organizations/domains-delete.png)

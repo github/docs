@@ -1,1 +1,1 @@
-1. 在搜索栏的右侧，选择 Export（导出）下拉菜单，然后单击所需的导出格式。 ![导出按钮的屏幕截图。](/assets/images/help/organizations/people-tab-export.png)
+1. To the right of the search bar, select the Export drop-down menu and click the desired export format. ![Screenshot of the export button.](/assets/images/help/organizations/people-tab-export.png)

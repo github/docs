@@ -4,6 +4,6 @@
 
 {% note %}
 
-**注意：**由 `pull_request_target` 事件触发的工作流程在基本分支的上下文中运行。 由于基本分支被视为受信任，因此无论审批设置如何，由这些事件触发的工作流程都将始终运行。
+**Note:** Workflows triggered by `pull_request_target` events are run in the context of the base branch. Since the base branch is considered trusted, workflows triggered by these events will always run, regardless of approval settings.
 
 {% endnote %}

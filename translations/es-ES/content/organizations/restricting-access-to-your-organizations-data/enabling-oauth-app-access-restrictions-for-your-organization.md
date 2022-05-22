@@ -2,7 +2,7 @@
 title: Habilitar las restricciones de acceso de las App OAuth para tu organización
 intro: 'Los propietarios de la organización pueden habilitar las restricciones de acceso a {% data variables.product.prodname_oauth_app %} para prevenir que las aplicaciones no confiables accedan a los recursos organizacionales mientras permiten que los miembros de dicha organización utilicen las {% data variables.product.prodname_oauth_apps %} para sus cuentas personales.'
 redirect_from:
-  - /articles/enabling-third-party-application-restrictions-for-your-organization
+  - /articles/enabling-third-party-application-restrictions-for-your-organization/
   - /articles/enabling-oauth-app-access-restrictions-for-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/enabling-oauth-app-access-restrictions-for-your-organization
 versions:

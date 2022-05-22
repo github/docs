@@ -1,1 +1,1 @@
-1. In the left sidebar, use the **Applications** dropdown and click **Applications**.
+1. Oktaのダッシュボードで、**Applications（アプリケーション）**をクリックしてください。 ![Oktaダッシュボードのナビゲーションバーの"アプリケーション"アイテム](/assets/images/help/saml/okta-applications.png)

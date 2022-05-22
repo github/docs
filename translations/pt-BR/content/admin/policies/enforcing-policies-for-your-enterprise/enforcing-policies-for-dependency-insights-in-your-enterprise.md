@@ -1,7 +1,8 @@
 ---
-title: Aplicando políticas para insights de dependência na sua empresa
-intro: Você pode aplicar políticas de ingiths de dependência nas organizações da sua empresa ou permitir que as políticas sejam definidas em cada organização.
+title: Enforcing policies for dependency insights in your enterprise
+intro: 'You can enforce policies for dependency insights within your enterprise''s organizations, or allow policies to be set in each organization.'
 permissions: Enterprise owners can enforce policies for dependency insights in an enterprise.
+product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /articles/enforcing-a-policy-on-dependency-insights
   - /articles/enforcing-a-policy-on-dependency-insights-in-your-enterprise-account
@@ -16,19 +17,21 @@ topics:
   - Enterprise
   - Organizations
   - Policies
-shortTitle: Políticas para insights de dependência
+shortTitle: Policies for dependency insights
 ---
 
-## Sobre políticas de insights de dependência na sua empresa
+## About policies for dependency insights in your enterprise
 
-Os insights de dependência mostram todos os pacotes dos quais os repositórios nas organizações da sua empresa dependem. Os insights de dependência incluem informações agregadas sobre consultorias de segurança e licenças. Para obter mais informações, consulte "[Visualizar os insights para a sua organização](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-your-organization)".
+Dependency insights show all packages that repositories within your enterprise's organizations depend on. Dependency insights include aggregated information about security advisories and licenses. For more information, see "[Viewing insights for your organization](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-your-organization)."
 
-## Aplicando uma política de visibilidade de insights de dependência
+## Enforcing a policy for visibility of dependency insights
 
-Em todas as organizações pertencentes à sua empresa, é possível controlar se os integrantes da organização podem ver os insights de dependência. Você também pode permitir que proprietários administrem a configuração no nível da organização. Para obter mais informações, consulte "[Alterar a visibilidade dos insights de dependência da organização](/organizations/managing-organization-settings/changing-the-visibility-of-your-organizations-dependency-insights)".
+Across all organizations owned by your enterprise, you can control whether organization members can view dependency insights. You can also allow owners to administer the setting on the organization level. For more information, see "[Changing the visibility of your organization's dependency insights](/organizations/managing-organization-settings/changing-the-visibility-of-your-organizations-dependency-insights)."
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
-3. Na barra lateral esquerda, clique em **Organizações**. ![Aba Organizações na barra lateral da empresa](/assets/images/help/business-accounts/settings-policies-org-tab.png)
-4. Em "Organization policies" (Políticas da organização), revise as informações sobre como alterar a configuração. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
-5. Em "Organization policies" (Políticas da organização), use o menu suspenso e escolha uma política. ![Menu suspenso com opções de políticas da organização](/assets/images/help/business-accounts/organization-policy-drop-down.png)
+3. In the left sidebar, click **Organizations**.
+  ![Organizations tab in the enterprise sidebar](/assets/images/help/business-accounts/settings-policies-org-tab.png)
+4. Under "Organization policies", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
+5. Under "Organization policies", use the drop-down menu and choose a policy.
+  ![Drop-down menu with organization policies options](/assets/images/help/business-accounts/organization-policy-drop-down.png)

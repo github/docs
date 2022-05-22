@@ -1,6 +1,6 @@
 ---
-title: 教育者または研究者割引の申請が承認されなかったのはなぜですか？
-intro: 教育者または研究者割引の申請が承認されていない一般的な理由を確認し、正常に再申請するためのヒントを学びます。
+title: Why wasn't my application for an educator or researcher discount approved?
+intro: Review common reasons that applications for an educator or researcher discount are not approved and learn tips for reapplying successfully.
 redirect_from:
   - /education/teach-and-learn-with-github-education/why-wasnt-my-application-for-an-educator-or-researcher-discount-approved
   - /github/teaching-and-learning-with-github-education/why-wasnt-my-application-for-an-educator-or-researcher-discount-approved
@@ -12,37 +12,36 @@ versions:
   fpt: '*'
 shortTitle: Application not approved
 ---
-
 {% tip %}
 
-**ヒント:** {% data reusables.education.about-github-education-link %}
+**Tip:** {% data reusables.education.about-github-education-link %}
 
 {% endtip %}
 
-## 所属文書の不明確な証明
+## Unclear proof of affiliation documents
 
-アップロードした画像が現在の学校または大学での雇用を明確に識別していない場合、教職員 ID または雇用確認書の別の画像を明瞭な情報と共にアップロードして再申請する必要があります。
-
-{% data reusables.education.pdf-support %}
-
-## 未確認ドメインを持つ学術メールの使用
-
-学術メールアドレスに未確認ドメインが含まれている場合、学術ステータスの更なる証明が必要となります。 {% data reusables.education.upload-different-image %}
+If the image you uploaded doesn't clearly identify your current employment with a school or university, you must reapply and upload another image of your faculty ID or employment verification letter with clear information.
 
 {% data reusables.education.pdf-support %}
 
-## 緩い電子メールポリシーを持つ学校からの学術電子メールの使用
+## Using an academic email with an unverified domain
 
-学校の卒業生および退職した教職員が学校が発行したメールアドレスに一生アクセスできる場合は、学術ステータスの更なる証明が必要となります。 {% data reusables.education.upload-different-image %}
+If your academic email address has an unverified domain, we may require further proof of your academic status. {% data reusables.education.upload-different-image %}
 
 {% data reusables.education.pdf-support %}
 
-学校のドメインに関するその他の質問や懸念がある場合は、学校のITスタッフにお問い合わせください。
+## Using an academic email from a school with lax email policies
 
-## 学生以外が Student Developer Pack を申請する
+If alumni and retired faculty of your school have lifetime access to school-issued email addresses, we may require further proof of your academic status. {% data reusables.education.upload-different-image %}
 
-教育者や研究者は、[{% data variables.product.prodname_student_pack %}](https://education.github.com/pack)に付属のパートナーオファーの対象にはなりません。 再度申し込む際には、ご自身の学術ステータスを説明するものとして必ず [**Faculty**] (教職員) を選択してください。
+{% data reusables.education.pdf-support %}
 
-## 参考リンク
+If you have other questions or concerns about the school domain, please ask your school IT staff to contact us.
 
-- 「[教育者・研究者割引への応募](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-an-educator-or-researcher-discount)」
+## Non-student applying for Student Developer Pack
+
+Educators and researchers are not eligible for the partner offers that come with the [{% data variables.product.prodname_student_pack %}](https://education.github.com/pack). When you reapply, make sure that you choose **Faculty** to describe your academic status.
+
+## Further reading
+
+- "[Apply for an educator or researcher discount](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-an-educator-or-researcher-discount)"

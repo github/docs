@@ -1,1 +1,1 @@
-如果达到支出限制，将无法再创建或恢复代码空间。 您仍然可以[将任何正在进行的工作更改导出到新分支](/codespaces/troubleshooting/exporting-changes-to-a-branch)。 
+If you hit a spending limit, you will no longer be able to create or resume your codespaces. You can still [export any work in progress changes to a new branch](/codespaces/troubleshooting/exporting-changes-to-a-branch). 

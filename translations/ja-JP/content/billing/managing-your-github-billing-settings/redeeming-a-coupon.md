@@ -1,6 +1,6 @@
 ---
-title: クーポンを利用する
-intro: 'クーポンがある場合、{% data variables.product.prodname_dotcom %} の有料プランに利用できます。'
+title: Redeeming a coupon
+intro: 'If you have a coupon, you can redeem it towards a paid {% data variables.product.prodname_dotcom %} subscription.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/redeeming-a-coupon
   - /articles/where-do-i-add-a-coupon-code
@@ -18,23 +18,24 @@ topics:
   - Organizations
   - User account
 ---
-
-{% data variables.product.product_name %}では、クーポンを適用する前にアカウントの支払いをした場合の返金はできません。 また、適用先のアカウントを間違えた場合にも、利用したクーポンの移譲や新たなクーポンの発行はできません。 クーポンを利用する前に、クーポンを正しいアカウントに適用していることを確認してください。
+{% data variables.product.product_name %} can't issue a refund if you pay for an account before applying a coupon. We also can't transfer a redeemed coupon or give you a new coupon if you apply it to the wrong account. Confirm that you're applying the coupon to the correct account before you redeem a coupon.
 
 {% data reusables.dotcom_billing.coupon-expires %}
 
-クーポンは {% data variables.product.prodname_marketplace %}アプリケーションの有料プランには適用できません。
+You cannot apply coupons to paid plans for {% data variables.product.prodname_marketplace %} apps.
 
-## 個人アカウントでクーポンを利用する
+## Redeeming a coupon for your personal account
 
 {% data reusables.dotcom_billing.enter_coupon_code_on_redeem_page %}
-4. [Redeem your coupon] の下で、*個人*アカウントのユーザ名の横にある [**Choose**] をクリックします。 ![選択ボタン](/assets/images/help/settings/redeem-coupon-choose-button-for-personal-accounts.png)
+4. Under "Redeem your coupon", click **Choose** next to your *personal* account's username.
+   ![Choose button](/assets/images/help/settings/redeem-coupon-choose-button-for-personal-accounts.png)
 {% data reusables.dotcom_billing.redeem_coupon %}
 
-## Organization でクーポンを利用する
+## Redeeming a coupon for your organization
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 
 {% data reusables.dotcom_billing.enter_coupon_code_on_redeem_page %}
-4. 「Redeem your coupon」の下で、クーポンを適用する *Organization* の横にある [**Choose**] をクリックします。 まだ存在していない新しい Organization にクーポンを適用する場合は、[**Create a new organization**] をクリックします。 ![選択ボタン](/assets/images/help/settings/redeem-coupon-choose-button.png)
+4. Under "Redeem your coupon", click **Choose** next to the *organization* you want to apply the coupon to. If you'd like to apply your coupon to a new organization that doesn't exist yet, click **Create a new organization**.
+   ![Choose button](/assets/images/help/settings/redeem-coupon-choose-button.png)
 {% data reusables.dotcom_billing.redeem_coupon %}

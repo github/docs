@@ -1,6 +1,6 @@
 ---
-title: GitHub Pages サイトを取り下げる
-intro: '{% data variables.product.prodname_pages %} サイトを取り下げて、サイトを利用不可にすることができます。'
+title: Unpublishing a GitHub Pages site
+intro: 'You can unpublish your {% data variables.product.prodname_pages %} site so that the site is no longer available.'
 redirect_from:
   - /articles/how-do-i-unpublish-a-project-page
   - /articles/unpublishing-a-project-page
@@ -17,21 +17,22 @@ versions:
   ghec: '*'
 topics:
   - Pages
-shortTitle: Pagesサイトの公開取り下げ
+shortTitle: Unpublish Pages site
 ---
 
-## プロジェクトサイトを取り下げる
+## Unpublishing a project site
 
 {% data reusables.repositories.navigate-to-repo %}
-2. リポジトリに `gh-pages` ブランチが存在する場合は、`gh-pages` ブランチを削除します。 詳しい情報については[リポジトリ内でのブランチの作成と削除](/articles/creating-and-deleting-branches-within-your-repository#deleting-a-branch)を参照してください。
-3. 公開ソースが`gh-pages`ブランチなら、{% ifversion fpt or ghec %}ステップ 6 までスキップします{% else %}サイトの公開は取り消され、残りのステップをスキップできます{% endif %}。
+2. If a `gh-pages` branch exists in the repository, delete the `gh-pages` branch. For more information, see "[Creating and deleting branches within your repository](/articles/creating-and-deleting-branches-within-your-repository#deleting-a-branch)."
+3. If the `gh-pages` branch was your publishing source, {% ifversion fpt or ghec %}skip to step 6{% else %}your site is now unpublished and you can skip the remaining steps{% endif %}.
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.sidebar-pages %}
-5. {% data variables.product.prodname_pages %} で、[**Source**] ドロップダウンメニューを使用して [**None**] を選択します。 ![公開元を選択するドロップダウンメニュー](/assets/images/help/pages/publishing-source-drop-down.png)
+5. Under "{% data variables.product.prodname_pages %}", use the **Source** drop-down menu and select **None.**
+  ![Drop down menu to select a publishing source](/assets/images/help/pages/publishing-source-drop-down.png)
 {% data reusables.pages.update_your_dns_settings %}
 
-## ユーザまたは Organization サイトを取り下げる
+## Unpublishing a user or organization site
 
 {% data reusables.repositories.navigate-to-repo %}
-2. 公開元として使用しているブランチを削除するか、リポジトリ全体を削除します。 詳細は「[リポジトリ内でブランチを作成および削除する](/articles/creating-and-deleting-branches-within-your-repository#deleting-a-branch)」および「[リポジトリを削除する](/articles/deleting-a-repository)」を参照してください。
+2. Delete the branch that you're using as a publishing source, or delete the entire repository. For more information, see "[Creating and deleting branches within your repository](/articles/creating-and-deleting-branches-within-your-repository#deleting-a-branch)" and "[Deleting a repository](/articles/deleting-a-repository)."
 {% data reusables.pages.update_your_dns_settings %}

@@ -1,6 +1,6 @@
 ---
-title: 共同開発モデルについて
-intro: プルリクエストの使い方は、プロジェクトで使う開発モデルのタイプによります。 You can use the fork and pull model or the shared repository model.
+title: About collaborative development models
+intro: The way you use pull requests depends on the type of development model you use in your project. You can use the fork and pull model or the shared repository model.
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/getting-started/about-collaborative-development-models
   - /articles/types-of-collaborative-development-models
@@ -16,23 +16,22 @@ topics:
   - Pull requests
 shortTitle: Collaborative development
 ---
-
 ## Fork and pull model
 
-In the fork and pull model, anyone can fork an existing repository and push changes to their personal fork. ユーザが所有するフォークにプッシュする際に、ソースリポジトリへのアクセス許可は必要ありません。 プロジェクトのメンテナーは、その変更をソースリポジトリにプルできます。 ユーザが所有するフォークのブランチからソース（上流）のリポジトリのブランチへの変更を提案するプルリクエストをオープンすると、上流のリポジトリへのプッシュアクセスを持つすべてのユーザがプルリクエストに変更を加えられるようにすることができます。  このモデルは、新しいコントリビュータにとって摩擦が減り、事前に調整することなく人々が独立して作業できることから、オープンソースプロジェクトでよく使われます。
+In the fork and pull model, anyone can fork an existing repository and push changes to their personal fork. You do not need permission to the source repository to push to a user-owned fork. The changes can be pulled into the source repository by the project maintainer. When you open a pull request proposing changes from your user-owned fork to a branch in the source (upstream) repository, you can allow anyone with push access to the upstream repository to make changes to your pull request.  This model is popular with open source projects as it reduces the amount of friction for new contributors and allows people to work independently without upfront coordination.
 
 {% tip %}
 
-**ヒント：**{% data reusables.open-source.open-source-guide-general %} {% data reusables.open-source.open-source-learning-lab %}
+**Tip:** {% data reusables.open-source.open-source-guide-general %} {% data reusables.open-source.open-source-learning-lab %}
 
 {% endtip %}
 
 ## Shared repository model
 
-共有リポジトリモデルでは、コラボレータは単一の共有リポジトリへのプッシュアクセスが許可され、変更の必要がある場合にはトピックブランチが作成されます。 このモデルでは、メインの開発ブランチに変更がマージされる前に、一連の変更についてコードレビューと一般的な議論を始めることができるので、プルリクエストが役に立ちます。 このモデルは、プライベートなプロジェクトで協力する小さなTeamやOrganizationで普及しています。
+In the shared repository model, collaborators are granted push access to a single shared repository and topic branches are created when changes need to be made. Pull requests are useful in this model as they initiate code review and general discussion about a set of changes before the changes are merged into the main development branch. This model is more prevalent with small teams and organizations collaborating on private projects.
 
-## 参考リンク
+## Further reading
 
-- [プルリクエストについて](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)
-- [フォークからプルリクエストを作成する](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)
-- [フォークから作成されたプルリクエストブランチへの変更を許可する](/pull-requests/collaborating-with-pull-requests/working-with-forks/allowing-changes-to-a-pull-request-branch-created-from-a-fork)
+- "[About pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)"
+- "[Creating a pull request from a fork](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)"
+- "[Allowing changes to a pull request branch created from a fork](/pull-requests/collaborating-with-pull-requests/working-with-forks/allowing-changes-to-a-pull-request-branch-created-from-a-fork)"

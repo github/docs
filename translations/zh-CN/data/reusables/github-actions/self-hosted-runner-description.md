@@ -1,0 +1,1 @@
+自托管运行程序比 {% data variables.product.prodname_dotcom %} 托管的运行程序提供更多的硬件、操作系统和软件工具控制。 使用自托管的运行器，您可以选择创建具有更大处理功能或内存的自定义硬件配置，以运行更大的作业，安装在本地网络上可用的软件，并选择 {% data variables.product.prodname_dotcom %} 托管的运行器未提供的操作系统。

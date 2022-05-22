@@ -1,6 +1,6 @@
-Puedes especificar un ambiente para cada job de tu flujo de trabajo. Para hacerlo, agrega la clave `jobs.<job_id>.environment` seguida del nombre del ambiente.
+You can specify an environment for each job in your workflow. To do so, add a `jobs.<job_id>.environment` key followed by the name of the environment.
 
-Por ejemplo, este flujo de trabajo utilizará un ambiente llamado `production`.
+For example, this workflow will use an environment called `production`.
 
 ```yaml
 name: Deployment
@@ -19,9 +19,9 @@ jobs:
         # ...deployment-specific steps
 ```
 
-Cuando se ejecute el flujo de trabajo anterior, el job `deployment` estará sujeto a cualquier regla que se haya configurado para el ambiente de `production`. Por ejemplo, si el ambiente requiere revisores, el job se pausará hasta que uno de ellos lo apruebe.
+When the above workflow runs, the `deployment` job will be subject to any rules configured for the `production` environment. For example, if the environment requires reviewers, the job will pause until one of the reviewers approves the job.
 
-También puedes especificar una URL para el ambiente. La URL especificada aparecerá en la página de despliegues del repositorio (a la cual se puede acceder haciendo clic en **Ambientes** en la página principal de tu repositorio) y en la gráfica de visualización de la ejecución del flujo de trabajo. Si una solicitud de cambios activó el flujo de trabajo, la URL también se muestra como un botón de **Ver despliegue** en la línea de tiempo de esta.
+You can also specify a URL for the environment. La URL especificada aparecerá en la página de despliegues del repositorio (a la cual se puede acceder haciendo clic en **Ambientes** en la página principal de tu repositorio) y en la gráfica de visualización de la ejecución del flujo de trabajo. Si una solicitud de cambios activó el flujo de trabajo, la URL también se muestra como un botón de **Ver despliegue** en la línea de tiempo de esta.
 
 ```yaml
 name: Deployment

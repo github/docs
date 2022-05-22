@@ -1,6 +1,6 @@
 ---
-title: Criar aplicativos OAuth
-intro: Você pode criar aplicativos OAuth para você mesmo ou para outros usarem. Saiba como se registrar e configurar permissões e opções de autorização para os aplicativos OAuth.
+title: Building OAuth Apps
+intro: You can build OAuth Apps for yourself or others to use. Learn how to register and set up permissions and authorization options for OAuth Apps.
 redirect_from:
   - /apps/building-integrations/setting-up-and-registering-oauth-apps
   - /apps/building-oauth-apps

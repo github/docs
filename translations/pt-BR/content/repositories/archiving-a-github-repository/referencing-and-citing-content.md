@@ -15,7 +15,7 @@ shortTitle: Referência & citar conteúdo
 
 ## Emitir um identificador persistente para o repositório com o Zenodo
 
-Para facilitar o referenciamento dos seus repositórios na literatura acadêmica, você pode criar identificadores persistentes, também conhecidos como identificadores de objetos digitais (DOIs). Você pode utilizar a ferramenta de arquivamento de dados [Zenodo](https://zenodo.org/about) para arquivar um repositório em {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} e emitir um DOI para o arquivo.
+Para facilitar o referenciamento dos seus repositórios na literatura acadêmica, você pode criar identificadores persistentes, também conhecidos como identificadores de objetos digitais (DOIs). You can use the data archiving tool [Zenodo](https://zenodo.org/about) to archive a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} and issue a DOI for the archive.
 
 {% tip %}
 

@@ -1,6 +1,6 @@
 ---
-title: Eliminar execução de um fluxo de trabalho
-intro: Você pode excluir uma execução do fluxo de trabalho que foi concluída ou que tem mais de duas semanas.
+title: Deleting a workflow run
+intro: 'You can delete a workflow run that has been completed, or is more than two weeks old.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -16,9 +16,9 @@ versions:
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow %}
-1. Para excluir a execução de um fluxo de trabalho, use o menu suspenso {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} e selecione **Excluir execução de fluxo de trabalho**.
+1. To delete a workflow run, use the {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} drop-down menu, and select **Delete workflow run**.
 
-    ![Eliminar execução de um fluxo de trabalho](/assets/images/help/settings/workflow-delete-run.png)
-2. Revise a solicitação de confirmação e clique em **Sim, excluir permanentemente esta execução do fluxo de trabalho**.
+    ![Deleting a workflow run](/assets/images/help/settings/workflow-delete-run.png)
+2. Review the confirmation prompt and click **Yes, permanently delete this workflow run**.
 
-    ![Excluir uma confirmação de execução de fluxo de trabalho](/assets/images/help/settings/workflow-delete-run-confirmation.png)
+    ![Deleting a workflow run confirmation](/assets/images/help/settings/workflow-delete-run-confirmation.png)

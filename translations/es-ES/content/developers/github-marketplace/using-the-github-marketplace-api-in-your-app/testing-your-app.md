@@ -2,8 +2,8 @@
 title: Probar tu app
 intro: 'GitHub te recomienda probar tu app con las API y los webhooks antes de emitir tu listado a {% data variables.product.prodname_marketplace %} para que puedas proporcionar una experiencia ideal para los clientes. Antes de que un experto de incorporación apruebe tu app, ésta deberá administrar los flujos de facturación adecuadamente.'
 redirect_from:
-  - /apps/marketplace/testing-apps-apis-and-webhooks
-  - /apps/marketplace/integrating-with-the-github-marketplace-api/testing-github-marketplace-apps
+  - /apps/marketplace/testing-apps-apis-and-webhooks/
+  - /apps/marketplace/integrating-with-the-github-marketplace-api/testing-github-marketplace-apps/
   - /marketplace/integrating-with-the-github-marketplace-api/testing-github-marketplace-apps
   - /developers/github-marketplace/testing-your-app
 versions:

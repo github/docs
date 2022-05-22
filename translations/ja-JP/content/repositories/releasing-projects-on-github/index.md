@@ -1,6 +1,6 @@
 ---
-title: GitHub でプロジェクトをリリースする
-intro: ほかの人がダウンロードできるように、ソフトウェア、リリースノート、およびバイナリファイルをパッケージ化したリリースを作成できます。
+title: Releasing projects on GitHub
+intro: 'You can create a release to package software, release notes, and binary files for other people to download.'
 redirect_from:
   - /categories/85/articles
   - /categories/releases

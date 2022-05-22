@@ -1,6 +1,6 @@
 ---
 title: Fazer backup de um repositório
-intro: 'Você pode usar o{% ifversion ghes or ghae %} Git e{% endif %} a API {% ifversion fpt or ghec %}ou uma ferramenta de terceiros {% endif %}para fazer backup do seu repositório.'
+intro: 'You can use{% ifversion ghes or ghae %} Git and{% endif %} the API {% ifversion fpt or ghec %}or a third-party tool {% endif %}to back up your repository.'
 redirect_from:
   - /articles/backing-up-a-repository
   - /github/creating-cloning-and-archiving-repositories/backing-up-a-repository
@@ -24,7 +24,7 @@ Você pode baixar e fazer backup dos repositórios manualmente:
 - Para baixar os dados Git de um repositório no computador local, é preciso clonar o repositório. Para obter mais informações, consulte "[Clonar um repositório](/articles/cloning-a-repository)".
 - Também é possível baixar o wiki do repositório. Para obter mais informações, consulte "[Adicionar ou editar páginas wiki](/communities/documenting-your-project-with-wikis/adding-or-editing-wiki-pages)".
 
-Quando você clona um repositório ou wiki, somente os dados Git, como arquivos e histórico de commits do projeto, são baixados. Você pode usar nossa API para exportar outros elementos do seu repositório em {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} para a sua máquina local:
+Quando você clona um repositório ou wiki, somente os dados Git, como arquivos e histórico de commits do projeto, são baixados. You can use our API to export other elements of your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} to your local machine:
 
 - [Problemas](/rest/reference/issues#list-issues-for-a-repository)
 - [Pull requests](/rest/reference/pulls#list-pull-requests)

@@ -3,7 +3,7 @@ title: Agregar notas a tu tablero de proyecto
 intro: Puedes agregar notas a tu tablero de proyecto para que funcionen como recordatorios de tareas o para agregar información relacionada con el tablero de proyecto.
 redirect_from:
   - /github/managing-your-work-on-github/tracking-the-progress-of-your-work-with-project-boards/adding-notes-to-a-project-board
-  - /articles/adding-notes-to-a-project
+  - /articles/adding-notes-to-a-project/
   - /articles/adding-notes-to-a-project-board
   - /github/managing-your-work-on-github/adding-notes-to-a-project-board
 versions:

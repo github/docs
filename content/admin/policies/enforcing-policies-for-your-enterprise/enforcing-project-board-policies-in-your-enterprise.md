@@ -2,6 +2,7 @@
 title: Enforcing project board policies in your enterprise
 intro: 'You can enforce policies for projects within your enterprise''s organizations, or allow policies to be set in each organization.'
 permissions: Enterprise owners can enforce policies for project boards in an enterprise.
+product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /articles/enforcing-project-board-settings-for-organizations-in-your-business-account
   - /articles/enforcing-project-board-policies-for-organizations-in-your-enterprise-account

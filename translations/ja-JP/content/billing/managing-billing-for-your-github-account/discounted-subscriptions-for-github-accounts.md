@@ -1,6 +1,6 @@
 ---
-title: GitHub アカウントの割引プラン
-intro: '{% data variables.product.product_name %}は、学生、教師、教育機関、非営利団体、図書館などに割引を提供しています。'
+title: Discounted subscriptions for GitHub accounts
+intro: '{% data variables.product.product_name %} provides discounts to students, educators, educational institutions, nonprofits, and libraries.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/discounted-subscriptions-for-github-accounts
   - /articles/discounted-personal-accounts
@@ -18,29 +18,28 @@ topics:
   - Discounts
   - Nonprofits
   - User account
-shortTitle: 割引されたサブスクリプション
+shortTitle: Discounted subscriptions
 ---
-
 {% tip %}
 
-**参考**: {% data variables.product.prodname_dotcom %}の割引は他の有料製品や有料機能のプランには適用されません。
+**Tip**: Discounts for {% data variables.product.prodname_dotcom %} do not apply to subscriptions for other paid products and features.
 
 {% endtip %}
 
-## 個人アカウントへの割引
+## Discounts for personal accounts
 
-{% data variables.product.prodname_free_user %} で学生と教員が無制限のパブリックリポジトリとプライベートリポジトリを使用できることに加えて、検証済みの学生は {% data variables.product.prodname_student_pack %} に申請し、{% data variables.product.prodname_dotcom %} パートナーからのさらなるメリットを受けていただけます。 詳しい情報については、「[学生向け開発者パックに応募する](/free-pro-team@latest/education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-a-student-developer-pack)」を参照してください。
+In addition to the unlimited public and private repositories for students and faculty with {% data variables.product.prodname_free_user %}, verified students can apply for the {% data variables.product.prodname_student_pack %} to receive additional benefits from {% data variables.product.prodname_dotcom %} partners. For more information, see "[Apply for a student developer pack](/free-pro-team@latest/education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-a-student-developer-pack)."
 
-## 学校・大学向け割引
+## Discounts for schools and universities
 
-検証済みの教職員は教育や学術研究の目的で {% data variables.product.prodname_team %} に申し込むことができます。 詳しい情報については、「[教室や研究で {% data variables.product.prodname_dotcom %} を使う](/free-pro-team@latest/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-in-your-classroom-and-research)」を参照してください。 また、学生のために教材をお求めいただくこともできます。 詳しい情報については [{% data variables.product.prodname_education %}](https://education.github.com/) にアクセスして下さい。
+Verified academic faculty can apply for {% data variables.product.prodname_team %} for teaching or academic research. For more information, see "[Use {% data variables.product.prodname_dotcom %} in your classroom and research](/free-pro-team@latest/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-in-your-classroom-and-research)." You can also request educational materials goodies for your students. For more information, visit [{% data variables.product.prodname_education %}](https://education.github.com/).
 
-## 非営利目的や図書館への割引
+## Discounts for nonprofits and libraries
 
-{% data variables.product.product_name %} は、無制限のプライベートリポジトリ、無制限のコラボレータ、無制限の機能付きの Organization 向け {% data variables.product.prodname_team %} を、501(c)3 (または同等) の資格を持つ Organization および図書館に無料で提供しています。 自分の Organization への割引を[非営利目的ページ](https://github.com/nonprofit)でリクエストできます。
+{% data variables.product.product_name %} provides free {% data variables.product.prodname_team %} for organizations with unlimited private repositories, unlimited collaborators, and a full feature set to qualifying 501(c)3 (or equivalent) organizations and libraries. You can request a discount for your organization on [our nonprofit page](https://github.com/nonprofit).
 
-すでに有料プランに契約されている Organization の場合、非営利目的の割引が適用され次第、Organization の最後の取引が返金されます。
+If your organization already has a paid subscription, your organization's last transaction will be refunded once your nonprofit discount has been applied.
 
-## 参考リンク
+## Further reading
 
-- "[{% data variables.product.prodname_dotcom %} の支払いについて](/articles/about-billing-on-github)"
+- "[About billing on {% data variables.product.prodname_dotcom %}](/articles/about-billing-on-github)"

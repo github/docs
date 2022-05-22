@@ -1,6 +1,6 @@
 ---
-title: アプリをテストする
-intro: 'リストを{% data variables.product.prodname_marketplace %}にサブミットする前に、APIとwebhookを使ってアプリケーションをテストし、顧客に理想的な体験を提供できるようにすることをGitHubはおすすめします。 オンボーディングの専門家の検証前に、アプリケーションは支払いフローを適切に処理しなければなりません。'
+title: Testing your app
+intro: 'GitHub recommends testing your app with APIs and webhooks before submitting your listing to {% data variables.product.prodname_marketplace %} so you can provide an ideal experience for customers. Before an onboarding expert approves your app, it must adequately handle the billing flows.'
 redirect_from:
   - /apps/marketplace/testing-apps-apis-and-webhooks
   - /apps/marketplace/integrating-with-the-github-marketplace-api/testing-github-marketplace-apps
@@ -12,35 +12,34 @@ versions:
 topics:
   - Marketplace
 ---
+## Testing apps
 
-## アプリケーションのテスト
+You can use a draft {% data variables.product.prodname_marketplace %} listing to simulate each of the billing flows. A listing in the draft state means that it has not been submitted for approval. Any purchases you make using a draft {% data variables.product.prodname_marketplace %} listing will _not_ create real transactions, and GitHub will not charge your credit card. Note that you can only simulate purchases for plans published in the draft listing and not for draft plans. For more information, see "[Drafting a listing for your app](/developers/github-marketplace/drafting-a-listing-for-your-app)" and "[Using the {% data variables.product.prodname_marketplace %} API in your app](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)."
 
-ドラフトの{% data variables.product.prodname_marketplace %}リストを使って、それぞれの支払いフローをシミュレートできます。 リストがドラフト状態にあるということは、まだそれが承認のためにサブミットされていないということです。 ドラフトの{% data variables.product.prodname_marketplace %}リストを使って行った購入は、実際の取引には_ならず_、GitHubはクレジットカードへの課金をしません。 シミュレートできるのはドラフトのリストに掲載されているプランの購入のみであり、ドラフトのプラン購入はシミュレートできません。 詳細な情報については、「[アプリケーションのリストのドラフト](/developers/github-marketplace/drafting-a-listing-for-your-app)」及び「[アプリケーションでの{% data variables.product.prodname_marketplace %} APIの利用](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)」を参照してください。
+### Using a development app with a draft listing to test changes
 
-### 変更のテストのために開発アプリケーションをドラフトリストと使用する
+A {% data variables.product.prodname_marketplace %} listing can only be associated with a single app registration, and each app can only access its own {% data variables.product.prodname_marketplace %} listing. For these reasons, we recommend configuring a separate development app, with the same configuration as your production app, and creating a _draft_ {% data variables.product.prodname_marketplace %} listing that you can use for testing. The draft {% data variables.product.prodname_marketplace %} listing allows you to test changes without affecting the active users of your production app. You will never have to submit your development {% data variables.product.prodname_marketplace %} listing, since you will only use it for testing.
 
-{% data variables.product.prodname_marketplace %}リストは、1つのアプリケーションの登録とのみ関連づけることができ、それぞれのアプリケーションは自身の{% data variables.product.prodname_marketplace %}リストにのみアクセスできます。 そのため、プロダクションのアプリケーションと同じ設定で別個の開発アプリケーションを設定し、テストに使用できる_ドラフト_の{% data variables.product.prodname_marketplace %}リストを作成することをおすすめします。 ドラフトの{% data variables.product.prodname_marketplace %}リストを使えば、プロダクションのアプリケーションのアクティブなユーザに影響することなく変更をテストできます。 開発の{% data variables.product.prodname_marketplace %}リストはテストにのみ使われるので、サブミットする必要はありません。
+Because you can only create draft {% data variables.product.prodname_marketplace %} listings for public apps, you must make your development app public. Public apps are not discoverable outside of published {% data variables.product.prodname_marketplace %} listings as long as you don't share the app's URL. A Marketplace listing in the draft state is only visible to the app's owner.
 
-ドラフトの{% data variables.product.prodname_marketplace %}リストは公開アプリケーションに対してのみ作成できるので、開発アプリケーションは公開しなければなりません。 公開アプリケーションは、アプリケーションのURLを共有しないかぎり、公開された{% data variables.product.prodname_marketplace %}リスト外で見つかることはありません。 ドラフト状態のMarketplaceリストは、アプリケーションの所有者にしか見えません。
-
-ドラフトリストと共に開発アプリケーションができたら、{% data variables.product.prodname_marketplace %} APIやwebhookと統合しながらそれを使ってアプリケーションの変更をテストできます。
+Once you have a development app with a draft listing, you can use it to test changes you make to your app while integrating with the {% data variables.product.prodname_marketplace %} API and webhooks.
 
 {% warning %}
 
-{% data variables.product.prodname_marketplace %}で公開されているアプリケーションでは、購入のテストを行わないでください。
+Do not make test purchases with an app that is live in {% data variables.product.prodname_marketplace %}.
 
 {% endwarning %}
 
-### Marketplaceの購入イベントのシミュレーション
+### Simulating Marketplace purchase events
 
-テストのシナリオでは、無料トライアルを提供するリストプランをセットアップし、無料と有料のサブスクリプション間の切り替えが必要になるかもしれません。 ダウングレードやキャンセルは、次回の支払いサイクルまでは有効にならないので、GitHubは開発者のみの機能として、`changed`及び`cancelled`のプランアクションを強制的にすぐに有効にする「保留中の変更の適用」機能を提供しています。 _ドラフト_Marketplaceリストのアプリケーションのための**保留中の変更の適用**には、https://github.com/settings/billing#pending-cycleでアクセスできます。
+Your testing scenarios may require setting up listing plans that offer free trials and switching between free and paid subscriptions. Because downgrades and cancellations don't take effect until the next billing cycle, GitHub provides a developer-only feature to "Apply Pending Change" to force `changed` and `cancelled` plan actions to take effect immediately. You can access **Apply Pending Change** for apps with _draft_ Marketplace listings in https://github.com/settings/billing#pending-cycle:
 
-![保留中の変更の適用](/assets/images/github-apps/github-apps-apply-pending-changes.png)
+![Apply pending change](/assets/images/github-apps/github-apps-apply-pending-changes.png)
 
-## APIのテスト
+## Testing APIs
 
-ほとんどの{% data variables.product.prodname_marketplace %} APIエンドポイントに対しては、テストに利用できるハードコーディングされた偽のデータを返すスタブのAPIエンドポイントも提供されています。 スタブのデータを受信するには、ルートに`/stubbed`を含むスタブURL（たとえば`/user/marketplace_purchases/stubbed`）を指定してください。 スタブデータのアプローチをサポートしているエンドポイントのリストは、[{% data variables.product.prodname_marketplace %}エンドポイント](/rest/reference/apps#github-marketplace)を参照してください。
+For most {% data variables.product.prodname_marketplace %} API endpoints, we also provide stubbed API endpoints that return hard-coded, fake data you can use for testing. To receive stubbed data, you must specify stubbed URLs, which include `/stubbed` in the route (for example, `/user/marketplace_purchases/stubbed`). For a list of endpoints that support this stubbed-data approach, see [{% data variables.product.prodname_marketplace %} endpoints](/rest/reference/apps#github-marketplace).
 
-## webhookのテスト
+## Testing webhooks
 
-GitHubは、デプロイされたペイロードをテストするためのツールを提供しています。 詳しい情報については「[webhookのテスト](/webhooks/testing/)」を参照してください。
+GitHub provides tools for testing your deployed payloads. For more information, see "[Testing webhooks](/webhooks/testing/)."

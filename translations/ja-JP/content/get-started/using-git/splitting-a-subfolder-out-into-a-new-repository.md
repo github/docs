@@ -1,12 +1,12 @@
 ---
-title: サブフォルダを新規リポジトリに分割する
+title: Splitting a subfolder out into a new repository
 redirect_from:
   - /articles/splitting-a-subpath-out-into-a-new-repository
   - /articles/splitting-a-subfolder-out-into-a-new-repository
   - /github/using-git/splitting-a-subfolder-out-into-a-new-repository
   - /github/getting-started-with-github/splitting-a-subfolder-out-into-a-new-repository
   - /github/getting-started-with-github/using-git/splitting-a-subfolder-out-into-a-new-repository
-intro: Git リポジトリ内のフォルダを、全く新しいリポジトリに変更できます。
+intro: You can turn a folder within a Git repository into a brand new repository.
 versions:
   fpt: '*'
   ghes: '*'
@@ -14,19 +14,18 @@ versions:
   ghec: '*'
 shortTitle: Splitting a subfolder
 ---
-
-リポジトリの新しいクローンを作成した場合でも、フォルダを別のリポジトリに分割したとき、Git の履歴や変更を失うことはありません。
+If you create a new clone of the repository, you won't lose any of your Git history or changes when you split a folder into a separate repository.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 
-2. 現在のワーキングディレクトリを、新しいリポジトリを作成したい場所に変更します。
+2. Change the current working directory to the location where you want to create your new repository.
 
-4. サブフォルダのあるリポジトリをクローンします。
+4. Clone the repository that contains the subfolder.
    ```shell
    $ git clone https://{% data variables.command_line.codeblock %}/<em>USERNAME</em>/<em>REPOSITORY-NAME</em>
    ```
 
-4. ワーキングディレクトリをクローンしたリポジトリに変更します。
+4. Change the current working directory to your cloned repository.
    ```shell
    $ cd <em>REPOSITORY-NAME</em>
    ```
@@ -38,26 +37,26 @@ shortTitle: Splitting a subfolder
 
    {% tip %}
 
-   **ヒント:** Windows ユーザは、 フォルダを区切るために、`/` を使ってください。
+   **Tip:** Windows users should use `/` to delimit folders.
 
    {% endtip %}
 
    {% endwindows %}
-
+  
    ```shell
    $ git filter-repo --path FOLDER-NAME1/ --path FOLDER-NAME2/
    # Filter the specified branch in your directory and remove empty commits
    > Rewrite 48dc599c80e20527ed902928085e7861e6b3cbe6 (89/89)
    > Ref 'refs/heads/<em>BRANCH-NAME</em>' was rewritten
    ```
-
+   
    The repository should now only contain the files that were in your subfolder(s).
 
-6. {% data variables.product.product_name %} 上で[新しいリポジトリを作成](/articles/creating-a-new-repository/)します。
+6. [Create a new repository](/articles/creating-a-new-repository/) on {% data variables.product.product_name %}.
 
 7. At the top of your new repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}'s Quick Setup page, click {% octicon "clippy" aria-label="The copy to clipboard icon" %} to copy the remote repository URL.
-
-   ![リモートリポジトリの URL フィールドのコピー](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
+	
+   ![Copy remote repository URL field](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 
    {% tip %}
 
@@ -65,19 +64,19 @@ shortTitle: Splitting a subfolder
 
    {% endtip %}
 
-8. リポジトリの既存のリモート名を確認します。 `origin` や `upstream` がよく使われます。
+8. Check the existing remote name for your repository. For example, `origin` or `upstream` are two common choices.
    ```shell
    $ git remote -v
    > origin  https://{% data variables.command_line.codeblock %}/<em>USERNAME/REPOSITORY-NAME</em>.git (fetch)
    > origin  https://{% data variables.command_line.codeblock %}/<em>USERNAME/REPOSITORY-NAME</em>.git (push)
    ```
 
-9. 既存のリモート名およびステップ 7 でコピーしたリモートリポジトリ URL を使って、新しいリポジトリの新しいリモート URL をセットアップします。
+9. Set up a new remote URL for your new repository using the existing remote name and the remote repository URL you copied in step 7.
    ```shell
    git remote set-url origin https://{% data variables.command_line.codeblock %}/<em>USERNAME/NEW-REPOSITORY-NAME</em>.git
    ```
 
-10. 新しいリポジトリの名前を使い、リモート URL が変更されたことを確認します。
+10. Verify that the remote URL has changed with your new repository name.
     ```shell
     $ git remote -v
     # Verify new remote URL
@@ -85,7 +84,7 @@ shortTitle: Splitting a subfolder
     > origin  https://{% data variables.command_line.codeblock %}/<em>USERNAME/NEW-REPOSITORY-NAME</em>.git (push)
     ```
 
-11. 変更を {% data variables.product.product_name %} の新しいリポジトリにプッシュします。
+11. Push your changes to the new repository on {% data variables.product.product_name %}.
     ```shell
     git push -u origin <em>BRANCH-NAME</em>
     ```

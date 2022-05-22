@@ -1,7 +1,7 @@
 ---
-title: ウィキでプロジェクトを文書化する
-shortTitle: Wikiを使用する
-intro: ウィキを使用してプロジェクトに関する具体的な長文形式の情報を共有できます。
+title: Documenting your project with wikis
+shortTitle: Using wikis
+intro: 'You can use a wiki to share detailed, long-form information about your project.'
 redirect_from:
   - /categories/49/articles
   - /categories/wiki

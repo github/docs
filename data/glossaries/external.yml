@@ -211,7 +211,7 @@
 - term: email notifications
   description: Notifications sent to a user's email address.
 - term: enterprise account
-  description: Enterprise accounts allow you to centrally manage policy and billing for multiple organizations. {% data reusables.gated-features.enterprise-accounts %}
+  description: Enterprise accounts allow you to centrally manage policy and billing for multiple {% data variables.product.prodname_dotcom_the_website %} organizations. {% data reusables.gated-features.enterprise-accounts %}
 - term: Explorer
   description: >-
     An instance of GraphiQL, which is a "graphical interactive in-browser GraphQL

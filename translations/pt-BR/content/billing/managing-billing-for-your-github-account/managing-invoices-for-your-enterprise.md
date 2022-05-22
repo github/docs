@@ -2,6 +2,7 @@
 title: Gerenciando faturas da sua empresa
 shortTitle: Gerenciar faturas
 intro: 'Você pode visualizar, pagar ou fazer o download de uma fatura atual da sua empresa e poderá ver seu histórico de pagamentos.'
+product: '{% data reusables.gated-features.enterprise-accounts %}'
 versions:
   ghec: '*'
 type: how_to

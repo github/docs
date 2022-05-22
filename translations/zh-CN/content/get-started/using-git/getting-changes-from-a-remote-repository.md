@@ -1,6 +1,6 @@
 ---
-title: 从远程仓库获取更改
-intro: 您可以使用常用 Git 命令访问远程仓库。
+title: Getting changes from a remote repository
+intro: You can use common Git commands to access remote repositories.
 redirect_from:
   - /articles/fetching-a-remote
   - /articles/getting-changes-from-a-remote-repository
@@ -12,71 +12,76 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: 从远程获取更改
+shortTitle: Get changes from a remote
 ---
+## Options for getting changes
 
-## 获取更改的选项
+These commands are very useful when interacting with [a remote repository](/github/getting-started-with-github/about-remote-repositories). `clone` and `fetch` download remote code from a repository's remote URL to your local computer, `merge` is used to merge different people's work together with yours, and `pull` is a combination of `fetch` and `merge`.
 
-与[远程仓库](/github/getting-started-with-github/about-remote-repositories)交互时，这些命令非常有用。 `clone` 和 `fetch` 用于从仓库的远程 URL 将远程代码下载到您的本地计算机，`merge` 用于将其他人的工作与您的工作合并在一起，而 `pull` 是 `fetch` 和 `merge` 的组合。
+## Cloning a repository
 
-## 克隆仓库
-
-要获取其他用户仓库的完整副本，请使用 `git clone`，如下所示：
+To grab a complete copy of another user's repository, use `git clone` like this:
 
 ```shell
 $ git clone https://{% data variables.command_line.codeblock %}/<em>USERNAME</em>/<em>REPOSITORY</em>.git
-# 将仓库克隆到您的计算机
+# Clones a repository to your computer
 ```
 
-克隆仓库时，有[几个不同的 URL](/github/getting-started-with-github/about-remote-repositories)可供选择。 登录到 {% data variables.product.prodname_dotcom %} 后，可在仓库详细信息下面找到这些 URL：
+You can choose from [several different URLs](/github/getting-started-with-github/about-remote-repositories) when cloning a repository. While logged in to {% data variables.product.prodname_dotcom %}, these URLs are available below the repository details:
 
-![远程 URL 列表](/assets/images/help/repository/remotes-url.png)
+![Remote URL list](/assets/images/help/repository/remotes-url.png)
 
-运行 `git clone` 时，将发生以下操作：
-- 创建名为 `repo` 的文件夹
-- 将它初始化为 Git 仓库
-- 创建名为 `origin` 的远程仓库，指向用于克隆的 URL
-- 将所有的仓库文件和提交下载到那里
-- 默认分支已检出
+When you run `git clone`, the following actions occur:
+- A new folder called `repo` is made
+- It is initialized as a Git repository
+- A remote named `origin` is created, pointing to the URL you cloned from
+- All of the repository's files and commits are downloaded there
+- The default branch is checked out
 
-对于远程仓库中的每个 `foo` 分支，在本地仓库中创建相应的远程跟踪分支 `refs/remotes/origin/foo`。 通常可以将此类远程跟踪分支名称缩写为 `origin/foo`。
+For every branch `foo` in the remote repository, a corresponding remote-tracking branch
+`refs/remotes/origin/foo` is created in your local repository. You can usually abbreviate
+such remote-tracking branch names to `origin/foo`.
 
-## 从远程仓库获取更改
+## Fetching changes from a remote repository
 
-使用 `git fetch` 可检索其他人完成的新工作。 从仓库获取将会获取所有新的远程跟踪分支和标记，但*不会*将这些更改合并到您自己的分支中。
+Use `git fetch` to retrieve new work done by other people. Fetching from a repository grabs all the new remote-tracking branches and tags *without* merging those changes into your own branches.
 
-如果已经有一个本地仓库包含为所需项目设置的远程 URL，您可以在终端使用 `git fetch *remotename*` 获取所有新信息：
+If you already have a local repository with a remote URL set up for the desired project, you can grab all the new information by using `git fetch *remotename*` in the terminal:
 
 ```shell
 $ git fetch <em>remotename</em>
-# 获取远程仓库的更新
+# Fetches updates made to a remote repository
 ```
 
-否则，您可以随时添加新的远程，然后获取。 更多信息请参阅“[管理远程仓库](/github/getting-started-with-github/managing-remote-repositories)”。
+Otherwise, you can always add a new remote and then fetch. For more information, see "[Managing remote repositories](/github/getting-started-with-github/managing-remote-repositories)."
 
-## 合并更改到本地分支
+## Merging changes into your local branch
 
-合并可将您的本地更改与其他人所做的更改组合起来。
+Merging combines your local changes with changes made by others.
 
-通常将远程跟踪分支（即从远程仓库获取的分支）与您的本地分支进行合并：
+Typically, you'd merge a remote-tracking branch (i.e., a branch fetched from a remote repository) with your local branch:
 
 ```shell
 $ git merge <em>remotename</em>/<em>branchname</em>
-# 将在线更新与您的本地工作进行合并
+# Merges updates made online with your local work
 ```
 
-## 从远程仓库拉取更改
+## Pulling changes from a remote repository
 
-`git pull` 是在同一个命令中完成 `git fetch` 和 `git merge` 的便捷方式。
+`git pull` is a convenient shortcut for completing both `git fetch` and `git merge `in the same command:
 
 ```shell
 $ git pull <em>remotename</em> <em>branchname</em>
-# 获取在线更新并将其与您的本地工作进行合并
+# Grabs online updates and merges them with your local work
 ```
 
-由于 `pull` 会对检索到的更改执行合并，因此应确保在运行 `pull` 命令之前提交您的本地工作。 如果您遇到无法解决的[合并冲突](/github/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line)，或者您决定退出合并，可使用 `git merge --abort` 将分支恢复到您拉取之前的状态。
+Because `pull` performs a merge on the retrieved changes, you should ensure that
+your local work is committed before running the `pull` command. If you run into
+[a merge conflict](/github/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line)
+you cannot resolve, or if you decide to quit the merge, you can use `git merge --abort`
+to take the branch back to where it was in before you pulled.
 
-## 延伸阅读
+## Further reading
 
-- _Pro Git_ 手册中的[“使用远程仓库”](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes){% ifversion fpt or ghec %}
-- “[连接问题故障排除](/articles/troubleshooting-connectivity-problems)”{% endif %}
+- ["Working with Remotes" from the _Pro Git_ book](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes)"{% ifversion fpt or ghec %}
+- "[Troubleshooting connectivity problems](/articles/troubleshooting-connectivity-problems)"{% endif %}

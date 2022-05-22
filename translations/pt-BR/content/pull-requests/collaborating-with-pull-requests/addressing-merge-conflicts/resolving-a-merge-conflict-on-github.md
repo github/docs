@@ -1,6 +1,6 @@
 ---
-title: Resolver um conflito de merge no GitHub
-intro: Você pode resolver conflitos de merge simples que envolvem alterações concorrentes na linha usando o editor de conflitos.
+title: Resolving a merge conflict on GitHub
+intro: 'You can resolve simple merge conflicts that involve competing line changes on GitHub, using the conflict editor.'
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-on-github
   - /articles/resolving-a-merge-conflict-on-github
@@ -14,47 +14,51 @@ versions:
   ghec: '*'
 topics:
   - Pull requests
-shortTitle: Resolver conflitos de merge
+shortTitle: Resolve merge conflicts
 ---
-
-Você só pode resolver conflitos de merge no {% data variables.product.product_name %} causados por alterações concorrentes na linha, como quando as pessoas fazem alterações diferentes na mesma linha do mesmo arquivo em diferentes branches no seu repositório Git. Para todos os outros tipos de conflito de merge, você deve resolver o conflito localmente na linha de comando. Para obter mais informações, consulte "[Resolver um conflito de merge usando a linha de comando](/articles/resolving-a-merge-conflict-using-the-command-line/)".
+You can only resolve merge conflicts on {% data variables.product.product_name %} that are caused by competing line changes, such as when people make different changes to the same line of the same file on different branches in your Git repository. For all other types of merge conflicts, you must resolve the conflict locally on the command line. For more information, see "[Resolving a merge conflict using the command line](/articles/resolving-a-merge-conflict-using-the-command-line/)."
 
 {% ifversion ghes or ghae %}
-Se um administrador do site desabilitar o editor de conflitos de merge para pull requests entre repositórios, você não poderá usar o editor de conflitos no {% data variables.product.product_name %} e deverá resolver os conflitos de merge na linha de comando. Por exemplo, se o editor de conflitos de merge estiver desabilitado, você não poderá usá-lo em uma pull request entre uma bifurcação e um repositório upstream.
+If a site administrator disables the merge conflict editor for pull requests between repositories, you cannot use the conflict editor on {% data variables.product.product_name %} and must resolve merge conflicts on the command line. For example, if the merge conflict editor is disabled, you cannot use it on a pull request between a fork and upstream repository.
 {% endif %}
 
 {% warning %}
 
-**Aviso:** Quando você resolve um conflito de merge no {% data variables.product.product_name %},  todo o [branch base](/github/getting-started-with-github/github-glossary#base-branch) da sua pull request é mesclada ao [branch head](/github/getting-started-with-github/github-glossary#head-branch). Verifique se você deseja realmente fazer commit para esse branch. Se o branch do cabeçalho for o branch-padrão do seu repositório, você terá a opção de criar um novo branch para servir como o branch do cabeçalho para o seu pull request. Se o branch head estiver protegido, você não será capaz de mesclar sua resolução de conflitos nele, então você será solicitado a criar um novo branch head. Para obter mais informações, consulte "[Sobre branches protegidos](/github/administering-a-repository/about-protected-branches)".
+**Warning:** When you resolve a merge conflict on {% data variables.product.product_name %},  the entire [base branch](/github/getting-started-with-github/github-glossary#base-branch) of your pull request is merged into the [head branch](/github/getting-started-with-github/github-glossary#head-branch). Make sure you really want to commit to this branch. If the head branch is the default branch of your repository, you'll be given the option of creating a new branch to serve as the head branch for your pull request. If the head branch is protected you won't be able to merge your conflict resolution into it, so you'll be prompted to create a new head branch. For more information, see "[About protected branches](/github/administering-a-repository/about-protected-branches)."
 
 {% endwarning %}
 
 {% data reusables.repositories.sidebar-pr %}
-1. Na lista "Pull Requests", clique na pull request que tem um conflito de merge que você deseja resolver.
-1. Próximo à parte inferior da pull request, clique em **Resolve conflicts** (Resolver conflitos). ![Botão de resolução de conflitos de merge](/assets/images/help/pull_requests/resolve-merge-conflicts-button.png)
+1. In the "Pull Requests" list, click the pull request with a merge conflict that you'd like to resolve.
+1. Near the bottom of your pull request, click **Resolve conflicts**.
+![Resolve merge conflicts button](/assets/images/help/pull_requests/resolve-merge-conflicts-button.png)
 
  {% tip %}
 
- **Dica:** se o botão **Resolve conflicts** (Resolver conflitos) estiver desativado, o conflito de merge da pull request é muito complexo para ser resolvido no {% data variables.product.product_name %}{% ifversion ghes or ghae %} ou o administrador do site desabilitou o editor de conflitos para pull requests entre repositórios{% endif %}. Você deve resolver o conflito de merge usando um cliente Git alternativo, ou usando o Git na linha de comando. Para obter mais informações, consulte "[Resolver um conflito de merge usando a linha de comando](/github/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line)".
+ **Tip:** If the **Resolve conflicts** button is deactivated, your pull request's merge conflict is too complex to resolve on {% data variables.product.product_name %}{% ifversion ghes or ghae %} or the site administrator has disabled the conflict editor for pull requests between repositories{% endif %}. You must resolve the merge conflict using an alternative Git client, or by using Git on the command line. For more information see "[Resolving a merge conflict using the command line](/github/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line)."
 
  {% endtip %}
 {% data reusables.pull_requests.decide-how-to-resolve-competing-line-change-merge-conflict %}
- ![Exemplo de exibição de conflito de merge com marcadores de conflito](/assets/images/help/pull_requests/view-merge-conflict-with-markers.png)
-1. Se houver mais de um conflito de merge no arquivo, role para baixo até o próximo conjunto de marcadores de conflito e repita as etapas quatro e cinco para resolver o conflito de merge.
-1. Depois de resolver todos os conflitos do arquivo, clique em **Mark as resolved** (Marcar como resolvido). ![Clique no botão marcar como resolvido](/assets/images/help/pull_requests/mark-as-resolved-button.png)
-1. Se você tiver mais de um arquivo com um conflito, selecione o próximo arquivo que deseja editar no lado esquerdo da página abaixo de "conflicting files" (arquivos conflitantes) e repita as etapas de quatro a sete até resolver todos os conflitos de merge da pull request. ![Selecione o próximo arquivo conflitante, se aplicável](/assets/images/help/pull_requests/resolve-merge-conflict-select-conflicting-file.png)
-1. Depois de resolver todos os conflitos de merge, clique em **Commit merge** (Fazer commit do merge). Isso incorpora todo o branch base ao branch head. ![Botão de resolução de conflitos de merge](/assets/images/help/pull_requests/merge-conflict-commit-changes.png)
-1. Se solicitado, revise o branch presente no commit.
+ ![View merge conflict example with conflict markers](/assets/images/help/pull_requests/view-merge-conflict-with-markers.png)
+1. If you have more than one merge conflict in your file, scroll down to the next set of conflict markers and repeat steps four and five to resolve your merge conflict.
+1. Once you've resolved all the conflicts in the file, click **Mark as resolved**.
+ ![Click mark as resolved button](/assets/images/help/pull_requests/mark-as-resolved-button.png)
+1. If you have more than one file with a conflict, select the next file you want to edit on the left side of the page under "conflicting files" and repeat steps four through seven until you've resolved all of your pull request's merge conflicts.
+ ![Select next conflicting file if applicable](/assets/images/help/pull_requests/resolve-merge-conflict-select-conflicting-file.png)
+1. Once you've resolved all your merge conflicts, click **Commit merge**. This merges the entire base branch into your head branch.
+ ![Resolve merge conflicts button](/assets/images/help/pull_requests/merge-conflict-commit-changes.png)
+1. If prompted, review the branch that you are committing to.
 
-   Se o branch head for o branch padrão do repositório, você pode escolher atualizar este branch com as mudanças que você fez para resolver o conflito, ou criar um novo branch e usar isso como o branch head da pull request. ![Solicitar a revisão do branch que será atualizado](/assets/images/help/pull_requests/conflict-resolution-merge-dialog-box.png)
+   If the head branch is the default branch of the repository, you can choose either to update this branch with the changes you made to resolve the conflict, or to create a new branch and use this as the head branch of the pull request.
+ ![Prompt to review the branch that will be updated](/assets/images/help/pull_requests/conflict-resolution-merge-dialog-box.png)
 
-   Se você escolher criar um novo branch, digite um nome para o branch.
+   If you choose to create a new branch, enter a name for the branch.
 
-   Se o branch head de sua pull request estiver protegido, você deve criar um novo branch. Você não terá a opção de atualizar o branch protegido.
+   If the head branch of your pull request is protected you must create a new branch. You won't get the option to update the protected branch.
 
-   Clique em **Criar branch e atualizar meu pull request** ou **Eu entendi, continuar atualizando _BRANCH_**. O texto do botão corresponde à ação que você está executando.
-1. Para fazer merge da pull request, clique em **Merge pull request** (Fazer merge da pull request). Para obter mais informações sobre outras opções de merge da pull request, consulte "[Fazer merge de uma pull request](/articles/merging-a-pull-request/)".
+   Click **Create branch and update my pull request** or **I understand, continue updating _BRANCH_**. The button text corresponds to the action you are performing.
+1. To merge your pull request, click **Merge pull request**. For more information about other pull request merge options, see "[Merging a pull request](/articles/merging-a-pull-request/)."
 
-## Leia mais
+## Further reading
 
-- "[Sobre merges de pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)"
+- "[About pull request merges](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)"

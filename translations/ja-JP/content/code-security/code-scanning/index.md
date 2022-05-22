@@ -1,5 +1,5 @@
 ---
-title: Code scanningでのコード中のセキュリティ脆弱性とエラーの発見
+title: Finding security vulnerabilities and errors in your code with code scanning
 shortTitle: Code scanning
 intro: '{% data variables.product.prodname_code_scanning %}を使ってコード中の潜在的なセキュリティ脆弱性やその他のエラーを特定して修正することによって、コードをセキュアに保ってください。'
 product: '{% data reusables.gated-features.code-scanning %}'
@@ -22,3 +22,4 @@ children:
   - /using-codeql-code-scanning-with-your-existing-ci-system
 ---
 
+<!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->

@@ -1,25 +1,24 @@
 ---
-title: Usar rebase do Git na linha de comando
+title: Using Git rebase on the command line
 redirect_from:
   - /articles/using-git-rebase
   - /articles/using-git-rebase-on-the-command-line
   - /github/using-git/using-git-rebase-on-the-command-line
   - /github/getting-started-with-github/using-git-rebase-on-the-command-line
   - /github/getting-started-with-github/using-git/using-git-rebase-on-the-command-line
-intro: Veja um breve tutorial sobre como usar `git rebase` na linha de comando.
+intro: Here's a short tutorial on using `git rebase` on the command line.
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: Rebase do Git
+shortTitle: Git rebase
 ---
+## Using Git rebase
 
-## Usando rebase do Git
+In this example, we will cover all of the `git rebase` commands available, except for `exec`.
 
-Neste exemplo, abordaremos todos os comandos `git rebase` disponíveis, exceto `exec`.
-
-Vamos começar digitando `git rebase --interactive HEAD~7` no terminal. O editor de texto exibirá as seguintes linhas:
+We'll start our rebase by entering `git rebase --interactive HEAD~7` on the terminal. Our favorite text editor will display the following lines:
 
 ```
 pick 1fc6c95 Patch A
@@ -31,17 +30,17 @@ pick 4ca2acc i cant' typ goods
 pick 7b36971 something to move before patch B
 ```
 
-Neste exemplo, vamos:
+In this example, we're going to:
 
-* Combinar por squash o quinto commit (`fa39187`) no commit `"Patch A"` (`1fc6c95`) usando `squash`.
-* Mover o último commit (`7b36971`) para antes do commit `"Patch B"` (`6b2481b`) e mantê-lo como `pick`.
-* Fazer merge do commit `"A fix for Patch B"` (`c619268`) no commit `"Patch B"` (`6b2481b`) e desconsiderar a mensagem do commit usando `fixup`.
-* Dividir o terceiro commit (`dd1475d`) em dois commits menores usando `edit`.
-* Corrigir a mensagem do commit que apresenta erro ortográfico (`4ca2acc`) usando `reword`.
+* Squash the fifth commit (`fa39187`) into the `"Patch A"` commit (`1fc6c95`), using `squash`.
+* Move the last commit (`7b36971`) up before the `"Patch B"` commit (`6b2481b`), and keep it as `pick`.
+* Merge the `"A fix for Patch B"` commit (`c619268`) into the `"Patch B"` commit (`6b2481b`), and disregard the commit message using `fixup`.
+* Split the third commit (`dd1475d`) into two smaller commits, using `edit`.
+* Fix the commit message of the misspelled commit (`4ca2acc`), using `reword`.
 
-Ufa! Parece muito trabalho, mas, executando uma etapa de cada vez, podemos fazer essas alterações facilmente.
+Phew! This sounds like a lot of work, but by taking it one step at a time, we can easily make those changes.
 
-Para começar, precisamos modificar os comandos no arquivo para que fiquem assim:
+To start, we'll need to modify the commands in the file to look like this:
 
 ```
 pick 1fc6c95 Patch A
@@ -53,35 +52,35 @@ edit dd1475d something I want to split
 reword 4ca2acc i cant' typ goods
 ```
 
-Alteramos o comando de cada linha de `pick` para o comando em que estamos interessados.
+We've changed each line's command from `pick` to the command we're interested in.
 
-Agora, salve e feche o editor. Isso iniciará o rebase interativo.
+Now, save and close the editor; this will start the interactive rebase.
 
-O Git ignora o primeiro comando rebase `pick 1fc6c95`, já que não precisa fazer nada, e segue para o próximo comando, `squash fa39187`. Como essa operação requer entrada de dados, o Git abre o editor de texto novamente. O arquivo aberto é parecido com este:
+Git skips the first rebase command, `pick 1fc6c95`, since it doesn't need to do anything. It goes to the next command, `squash fa39187`. Since this operation requires your input, Git opens your text editor once again. The file it opens up looks something like this:
 
 ```
-# Esta é uma combinação de dois commits.
-# A mensagem do primeiro commit é:
+# This is a combination of two commits.
+# The first commit's message is:
 
 Patch A
 
-# Esta é a mensagem do segundo commit:
+# This is the 2nd commit message:
 
 something to add to patch A
 
-# Insira a mensagem do commit para as alterações. Linhas começando
-# com '#' serão ignoradas, e uma mensagem vazia anula o commit.
-# Não atualmente em qualquer branch.
-# Alterações a receberem commit:
-#   (use "git reset HEAD <file>..." para remover o stage)
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# Not currently on any branch.
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
 #
-# modificado:   a
+# modified:   a
 #
 ```
 
-Este arquivo é a maneira de o Git dizer: "Veja o que estou prestes a fazer com este `squash`". Ele lista a mensagem do primeiro commit (`"Patch A"`) e a mensagem do segundo commit (`"something to add to patch A"`). Se você estiver satisfeito com essas mensagens, salve o arquivo e feche o editor. Caso contrário, tem a opção de alterar a mensagem do commit simplesmente mudando o texto.
+This file is Git's way of saying, "Hey, here's what I'm about to do with this `squash`." It lists the first commit's message (`"Patch A"`), and the second commit's message (`"something to add to patch A"`). If you're happy with these commit messages, you can save the file, and close the editor. Otherwise, you have the option of changing the commit message by simply changing the text.
 
-Depois que o editor é fechado, o rebase continua:
+When the editor is closed, the rebase continues:
 
 ```
 pick 1fc6c95 Patch A
@@ -93,42 +92,42 @@ edit dd1475d something I want to split
 reword 4ca2acc i cant' typ goods
 ```
 
-O Git processa os dois comandos `pick` (para `pick 7b36971` e `pick 6b2481b`). Ele *também* processa o comando `fixup` (`fixup c619268`), já que não requer interação. `fixup` faz merge das alterações de `c619268` para o commit antes dele, `6b2481b`. As duas alterações têm a mesma mensagem do commit: `"Patch B"`.
+Git processes the two `pick` commands (for `pick 7b36971` and `pick 6b2481b`). It *also* processes the `fixup` command (`fixup c619268`), since it doesn't require any interaction. `fixup` merges the changes from `c619268` into the commit before it, `6b2481b`. Both changes will have the same commit message: `"Patch B"`.
 
-O Git obtém a operação `edit dd1475d`, para e imprime a seguinte mensagem no terminal:
+Git gets to the `edit dd1475d` operation, stops, and prints the following message to the terminal:
 
 ```shell
-Você pode corrigir o commit agora com
+You can amend the commit now, with
 
         git commit --amend
 
-Quando estiver satisfeito com as alterações, execute
+Once you are satisfied with your changes, run
 
         git rebase --continue
 ```
 
-Neste ponto, você pode editar qualquer arquivo no projeto para fazer outras alterações. É necessário realizar um novo commit para cada alteração feita. Você pode fazer isso digitando o comando `git commit --amend`. Quando terminar de fazer as alterações, execute `git rebase --continue`.
+At this point, you can edit any of the files in your project to make any additional changes. For each change you make, you'll need to perform a new commit, and you can do that by entering the `git commit --amend` command. When you're finished making all your changes, you can run `git rebase --continue`.
 
-O Git então obtém o comando `reword 4ca2acc`.  Ele abre o editor de texto mais uma vez e apresenta as seguintes informações:
+Git then gets to the `reword 4ca2acc` command.  It opens up your text editor one more time, and presents the following information:
 
 ```
 i cant' typ goods
 
-# Insira a mensagem do commit para as alterações. Linhas começando
-# com '#' serão ignoradas, e uma mensagem vazia anula o commit.
-# Não atualmente em qualquer branch.
-# Alterações a receberem commit:
-#   (use "git reset HEAD <file>..." para remover o stage)
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# Not currently on any branch.
+# Changes to be committed:
+#   (use "git reset HEAD^1 <file>..." to unstage)
 #
-# modificado:   a
+# modified:   a
 #
 ```
 
-Como antes, o Git mostra a mensagem do commit para você editar. Altere o texto (`"i cant' typ goods"`), salve o arquivo e feche o editor. O Git terminará o rebase e retornará para o terminal.
+As before, Git is showing the commit message for you to edit. You can change the text (`"i cant' typ goods"`), save the file, and close the editor. Git will finish the rebase and return you to the terminal.
 
-## Fazer push de código com rebase para o GitHub
+## Pushing rebased code to GitHub
 
-Como você alterou o histórico do Git, o `git push origin` normal **não** funcionará. É preciso modificar o comando forçando o push das alterações mais recentes:
+Since you've altered Git history, the usual `git push origin` **will not** work. You'll need to modify the command by "force-pushing" your latest changes:
 
 ```shell
 # Don't override changes
@@ -140,10 +139,10 @@ $ git push origin main --force
 
 {% warning %}
 
-Forçar push tem implicações sérias, pois ele muda a sequência histórica de commits para o branch. Use-o com cuidado, especialmente se o repositório estiver sendo acessado por várias pessoas.
+Force pushing has serious implications because it changes the historical sequence of commits for the branch. Use it with caution, especially if your repository is being accessed by multiple people.
 
 {% endwarning %}
 
-## Leia mais
+## Further reading
 
-* "[Resolver conflitos de merge após rebase do GitHub](/github/getting-started-with-github/resolving-merge-conflicts-after-a-git-rebase)"
+* "[Resolving merge conflicts after a Git rebase](/github/getting-started-with-github/resolving-merge-conflicts-after-a-git-rebase)"

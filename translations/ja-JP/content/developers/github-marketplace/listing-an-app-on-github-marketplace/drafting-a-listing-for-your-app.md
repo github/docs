@@ -1,6 +1,6 @@
 ---
-title: アプリケーションのリストのドラフト
-intro: '{% data variables.product.prodname_marketplace %}のリストを作成すると、GitHubは承認のためにアプリケーションがサブミットされるまで、そのリストをドラフトモードで保存します。 このリストは、顧客に対してアプリケーションがどのように使えるのかを示します。'
+title: Drafting a listing for your app
+intro: 'When you create a {% data variables.product.prodname_marketplace %} listing, GitHub saves it in draft mode until you submit the app for approval. Your listing shows customers how they can use your app.'
 redirect_from:
   - /apps/adding-integrations/listing-apps-on-github-marketplace/listing-an-app-on-github-marketplace
   - /apps/marketplace/listing-apps-on-github-marketplace/listing-an-app-on-github-marketplace
@@ -18,50 +18,51 @@ versions:
   ghec: '*'
 topics:
   - Marketplace
-shortTitle: アプリケーションリストのドラフト
+shortTitle: Draft an app listing
 ---
+## Create a new draft {% data variables.product.prodname_marketplace %} listing
 
-## 新しいドラフトの{% data variables.product.prodname_marketplace %}リストの作成
+You can only create draft listings for apps that are public. Before creating your draft listing, you can read the following guidelines for writing and configuring settings in your {% data variables.product.prodname_marketplace %} listing:
 
-パブリックなアプリケーションについては、ドラフトのリストだけが作成できます。 ドラフトのリストを作成する前に、{% data variables.product.prodname_marketplace %}リストの設定を書いて構成するための以下のガイドラインを読んでください。
+* [Writing {% data variables.product.prodname_marketplace %} listing descriptions](/marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions/)
+* [Setting a {% data variables.product.prodname_marketplace %} listing's pricing plan](/marketplace/listing-on-github-marketplace/setting-a-github-marketplace-listing-s-pricing-plan/)
+* [Configuring the {% data variables.product.prodname_marketplace %} Webhook](/marketplace/listing-on-github-marketplace/configuring-the-github-marketplace-webhook/)
 
-* [{% data variables.product.prodname_marketplace %}リストの説明を書く](/marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions/)
-* [{% data variables.product.prodname_marketplace %}リストの価格プランの設定](/marketplace/listing-on-github-marketplace/setting-a-github-marketplace-listing-s-pricing-plan/)
-* [{% data variables.product.prodname_marketplace %} webhookの設定](/marketplace/listing-on-github-marketplace/configuring-the-github-marketplace-webhook/)
-
-{% data variables.product.prodname_marketplace %}のリストを作成するには、以下のようにします。
+To create a {% data variables.product.prodname_marketplace %} listing:
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}
-3. 左のサイドバーで、{% data variables.product.prodname_marketplace %}に追加しようとしているアプリケーションに応じて、**OAuth Apps**もしくは**GitHub Apps**をクリックしてください。
+3. In the left sidebar, click either **OAuth Apps** or **GitHub Apps** depending on the app you're adding to {% data variables.product.prodname_marketplace %}.
 
   {% note %}
 
-  **ノート**: https://github.com/marketplace/new にアクセスし、利用可能なアプリケーションを見て、**Create draft listing（ドラフトのリストの作成）**をクリックしても、リストを追加できます。
+  **Note**: You can also add a listing by navigating to https://github.com/marketplace/new, viewing your available apps, and clicking **Create draft listing**.
 
   {% endnote %}
 
-  ![アプリケーションの種類の選択](/assets/images/settings/apps_choose_app.png)
+  ![App type selection](/assets/images/settings/apps_choose_app.png)
 
-4. {% data variables.product.prodname_marketplace %}に追加するアプリケーションを選択します。 ![{% data variables.product.prodname_marketplace %}リストのアプリケーションの選択](/assets/images/github-apps/github_apps_select-app.png)
+4. Select the app you'd like to add to {% data variables.product.prodname_marketplace %}.
+![App selection for {% data variables.product.prodname_marketplace %} listing](/assets/images/github-apps/github_apps_select-app.png)
 {% data reusables.user-settings.edit_marketplace_listing %}
-5. 新しいドラフトのリストを作成すると、{% data variables.product.prodname_marketplace %}のリストの完成前にアクセスしておかなければならないセクションの概要が表示されます。 ![GitHub Marketplaceのリスト](/assets/images/marketplace/marketplace_listing_overview.png)
+5. Once you've created a new draft listing, you'll see an overview of the sections that you'll need to visit before your {% data variables.product.prodname_marketplace %} listing will be complete.
+![GitHub Marketplace listing](/assets/images/marketplace/marketplace_listing_overview.png)
 
 
 {% note %}
 
-**ノート:** リストの"Contact info（連絡先の情報）"セクションでは、support@domain.comというようなグループメールアドレスよりは、個人のメールアドレスを使うことをおすすめします。 GitHubはこれらのメールアドレスを、リストに影響するかもしれない{% data variables.product.prodname_marketplace %}のアップデート、新機能、マーケティングの機会、支払い、カンファレンスやスポンサーシップに関する情報などに関する連絡に使用します。
+**Note:** In the "Contact info" section of your listing, we recommend using individual email addresses, rather than group emails addresses like support@domain.com. GitHub will use these email addresses to contact you about updates to {% data variables.product.prodname_marketplace %} that might affect your listing, new feature releases, marketing opportunities, payouts, and information on conferences and sponsorships.
 
 {% endnote %}
 
-## リストの編集
+## Editing your listing
 
-{% data variables.product.prodname_marketplace %}のドラフトリストを作成した後は、いつでもリスト内の情報を変更するために戻ってくることができます。 アプリケーションが検証済みで{% data variables.product.prodname_marketplace %}にあるなら、リスト中の情報や画像を編集することはできますが、公開された既存の価格プランを変更することはできません。 「[{% data variables.product.prodname_marketplace %}リストの価格プランの設定](/marketplace/listing-on-github-marketplace/setting-a-github-marketplace-listing-s-pricing-plan/)」を参照してください。
+Once you've created a {% data variables.product.prodname_marketplace %} draft listing, you can come back to modify information in your listing anytime. If your app is already approved and in {% data variables.product.prodname_marketplace %}, you can edit the information and images in your listing, but you will not be able to change existing published pricing plans. See "[Setting a {% data variables.product.prodname_marketplace %} listing's pricing plan](/marketplace/listing-on-github-marketplace/setting-a-github-marketplace-listing-s-pricing-plan/)."
 
-## アプリケーションのサブミット
+## Submitting your app
 
-{% data variables.product.prodname_marketplace %}リストが完成したら、**Overview（概要）**ページからレビューのためにリストをサブミットできます。 「[{% data variables.product.prodname_marketplace %}の開発者契約](/free-pro-team@latest/github/site-policy/github-marketplace-developer-agreement/)」を読んで同意しなければなりません。続いて**Submit for review（レビューのためにサブミット）**をクリックできます。 レビューのためにアプリケーションをサブミットした後、のオンボーディングの専門家から、オンボーディングのプロセスに関する追加情報と併せて連絡が来ます。
+Once you've completed your {% data variables.product.prodname_marketplace %} listing, you can submit your listing for review from the **Overview** page. You'll need to read and accept the "[{% data variables.product.prodname_marketplace %} Developer Agreement](/free-pro-team@latest/github/site-policy/github-marketplace-developer-agreement/)," and then you can click **Submit for review**. After you submit your app for review, an onboarding expert will contact you with additional information about the onboarding process.
 
-## {% data variables.product.prodname_marketplace %}リストの削除
+## Removing a {% data variables.product.prodname_marketplace %} listing
 
-アプリケーションを{% data variables.product.prodname_marketplace %}のリストに載せたくなくなったなら、リストを削除するために{% data variables.contact.contact_support %}に連絡してください。
+If you no longer want to list your app in {% data variables.product.prodname_marketplace %}, contact {% data variables.contact.contact_support %} to remove your listing.

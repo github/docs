@@ -1,1 +1,1 @@
-自动生成的发行说明目前处于公开测试阶段，可能会发生更改。
+Automatically generated release notes are currently in public beta and subject to change.

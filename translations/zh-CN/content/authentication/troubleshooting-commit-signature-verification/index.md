@@ -1,6 +1,6 @@
 ---
-title: 对提交签名验证进行故障排除
-intro: '您可能需要对在本地签名提交以在 {% data variables.product.product_name %} 上进行验证时引起的意外问题进行故障排除。'
+title: Troubleshooting commit signature verification
+intro: 'You may need to troubleshoot unexpected issues that arise when signing commits locally for verification on {% data variables.product.product_name %}.'
 redirect_from:
   - /articles/troubleshooting-gpg
   - /articles/troubleshooting-commit-signature-verification
@@ -17,6 +17,6 @@ children:
   - /checking-your-commit-and-tag-signature-verification-status
   - /updating-an-expired-gpg-key
   - /using-a-verified-email-address-in-your-gpg-key
-shortTitle: 验证疑难解答
+shortTitle: Troubleshoot verification
 ---
 

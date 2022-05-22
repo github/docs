@@ -1,6 +1,6 @@
 ---
-title: リポジトリグラフについて
-intro: リポジトリグラフは、リポジトリのデータを見たり分析したりするための役に立ちます。
+title: About repository graphs
+intro: Repository graphs help you view and analyze data for your repository.
 redirect_from:
   - /articles/using-graphs
   - /articles/about-repository-graphs
@@ -14,19 +14,18 @@ versions:
 topics:
   - Repositories
 ---
-
-リポジトリグラフは、{% ifversion fpt or ghec %}トラフィック、リポジトリに依存するプロジェクト、{% endif %}リポジトリのコントリビューターとコミット、そしてリポジトリのフォークやネットワークに関する情報を提供します。 自分が管理しているリポジトリがある場合、このデータを使用すれば、リポジトリを誰が使っているのか、なぜ使っているのかをよりよく知ることができます。
+A repository's graphs give you information on {% ifversion fpt or ghec %} traffic, projects that depend on the repository,{% endif %} contributors and commits to the repository, and a repository's forks and network. If you maintain a repository, you can use this data to get a better understanding of who's using your repository and why they're using it.
 
 {% ifversion fpt or ghec %}
 
-リポジトリグラフの中には {% data variables.product.prodname_free_user %} のパブリックリポジトリでしか利用できないものもあります。
-- パルス
-- コントリビューター
-- トラフィック
-- コミット
-- コードの更新頻度
-- ネットワーク
+Some repository graphs are available only in public repositories with {% data variables.product.prodname_free_user %}:
+- Pulse
+- Contributors
+- Traffic
+- Commits
+- Code frequency
+- Network
 
-その他のリポジトリグラフは、すべてのリポジトリで利用できます。 {% data variables.product.prodname_pro %}、{% data variables.product.prodname_team %}、および {% data variables.product.prodname_ghe_cloud %} では、パブリックおよびプライベートリポジトリですべてのリポジトリグラフを利用できます。 {% data reusables.gated-features.more-info %}
+All other repository graphs are available in all repositories. Every repository graph is available in public and private repositories with {% data variables.product.prodname_pro %}, {% data variables.product.prodname_team %}, and {% data variables.product.prodname_ghe_cloud %}. {% data reusables.gated-features.more-info %}
 
 {% endif %}

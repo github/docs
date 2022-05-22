@@ -1,1 +1,1 @@
-运行器是在触发工作流程时运行工作流程的服务器。
+A runner is a server that runs your workflows when they're triggered.

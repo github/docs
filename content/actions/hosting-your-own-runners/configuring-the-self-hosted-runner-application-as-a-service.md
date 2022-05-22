@@ -13,6 +13,7 @@ defaultPlatform: linux
 shortTitle: Run runner app on startup
 ---
 
+{% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
@@ -77,12 +78,6 @@ You can manage the runner service in the Windows **Services** application, or yo
    ./svc.sh install
    ```
 {% endmac %}
-
-The command takes an optional `user` argument to install the service as a different user.
-
-```shell
-./svc.sh install <em>USERNAME</em>
-```
 
 ## Starting the service
 

@@ -2,11 +2,11 @@
 title: Migrar desde GitHub Enterprise 11.10.x a 2.1.23
 redirect_from:
   - /enterprise/admin/installation/migrating-from-github-enterprise-1110x-to-2123
-  - /enterprise/admin-guide/migrating
-  - /enterprise/admin/articles/migrating-github-enterprise
-  - /enterprise/admin/guides/installation/migrating-from-github-enterprise-v11-10-34x
-  - /enterprise/admin/articles/upgrading-to-a-newer-release
-  - /enterprise/admin/guides/installation/migrating-to-a-different-platform-or-from-github-enterprise-11-10-34x
+  - /enterprise/admin-guide/migrating/
+  - /enterprise/admin/articles/migrating-github-enterprise/
+  - /enterprise/admin/guides/installation/migrating-from-github-enterprise-v11-10-34x/
+  - /enterprise/admin/articles/upgrading-to-a-newer-release/
+  - /enterprise/admin/guides/installation/migrating-to-a-different-platform-or-from-github-enterprise-11-10-34x/
   - /enterprise/admin/guides/installation/migrating-from-github-enterprise-11-10-x-to-2-1-23
   - /enterprise/admin/enterprise-management/migrating-from-github-enterprise-1110x-to-2123
   - /admin/enterprise-management/migrating-from-github-enterprise-1110x-to-2123

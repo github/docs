@@ -1,1 +1,1 @@
-审核日志将 Git 事件保留 7 天。 这比其他审核日志事件要短，其他审核日志事件最多可以保留七个月。
+The audit log retains Git events for seven days. This is shorter than other audit log events, which can be retained for up to seven months.

@@ -36,12 +36,6 @@ Todos los sitios {% data variables.product.prodname_pages %}, incluidos los siti
 {% data reusables.pages.sidebar-pages %}
 3. Debajo de "{% data variables.product.prodname_pages %}", selecciona **Enforce HTTPS** (Aplicar HTTPS). ![Aplicar casilla de verificación de HTTPS](/assets/images/help/pages/enforce-https-checkbox.png)
 
-## Solución de problemas para el aprovisionamiento de certificados (error de tipo "Certificate not yet created")
-
-Cuando configuras o cambios tu dominio personalizado en los ajustes de las Páginas, comenzará una verificación automática de DNS. Esta verificación determina si tus ajustes de DNS se configuran para permitir que {% data variables.product.prodname_dotcom %} obtenga un certificado automáticamente. Si la verificación tiene éxito, {% data variables.product.prodname_dotcom %} pondrá en cola un job para solicitar un certificado TLS desde [Let's Encrypt](https://letsencrypt.org/). Cuando recibas un certificado válido, {% data variables.product.prodname_dotcom %} lo carga automáticamente a los servidores que manejan la terminación de TLS para las Páginas. Cuando este proceso se complete con éxito, se mostrará una marca de verificación al costado de tu nombre de dominio personalizado.
-
-El proceso podría tomar algo de tiempo. Si el proceso no se completa varios minutos después de que hiciste clic en **Guardar**, inténtalo haciendo clic en **Eliminar** junto a tu nombre de dominio personalizado. Vuelve a teclear el nombre de dominio y haz clic nuevamente en **Guardar**. Esto cancelará y volverá a iniciar el proceso de aprovisionamiento.
-
 ## Resolver problemas con contenido mixto
 
 Si habilitas HTTPS para tu sitio de {% data variables.product.prodname_pages %}, pero el HTML de tu sitio sigue referenciando imágenes, CSS o JavaScript a través de HTTP, significa que tu sitio está ofreciendo *contenido mixto*. Ofrecer contenido mixto puede hacer que tu sitio sea menos seguro y generar problemas al cargar activos.

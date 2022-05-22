@@ -25,6 +25,8 @@ shortTitle: Fazer checkout de um PR localmente
 
 ## Modificar uma pull request ativa no local
 
+{% include tool-switcher %}
+
 {% webui %}
 
 {% data reusables.repositories.sidebar-pr %}

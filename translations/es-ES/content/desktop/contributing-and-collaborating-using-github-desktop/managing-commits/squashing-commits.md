@@ -16,7 +16,7 @@ La combinación te permite combinar confirmaciones múltiples del historial de t
 {% data reusables.desktop.current-branch-menu %}
 2. En la lista de ramas, selecciona aquella que tenga las confirmaciones que quieres combinar.
 {% data reusables.desktop.history-tab %}
-4. Selecciona las confirmaciones a combinar y suéltalas en aquella con la cual las quieras combinar. Puedes seleccionar una o varias confirmaciones utilizando <kbd>Command</kbd> o <kbd>Shift</kbd>. ![función de combinar arrastrando y soltando](/assets/images/help/desktop/squash-drag-and-drop.png)
+4. Selecciona las confirmaciones a combinar y suéltalas en aquella con la cual las quieras combinar. Puedes seleccionar una confirmación o varias de ellas utilizando <kbd>⌘</kbd> o <kbd>Shift</kbd>. ![función de combinar arrastrando y soltando](/assets/images/help/desktop/squash-drag-and-drop.png)
 5. Modifica el mensaje de confirmación de tu confirmación nueva. Los mensajes de confirmación de las confirmaciones seleccionadas que quieres combinar se llenan previamente en los campos de **Resumen** y **Descripción**.
 6. Haz clic en **Combinar confirmaciones**.
 

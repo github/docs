@@ -1,6 +1,6 @@
 ---
-title: Guias para o GitHub Actions
-intro: 'Estes guias para {% data variables.product.prodname_actions %} incluem casos de uso específicos e exemplos para ajudar você a configurar fluxos de trabalho.'
+title: Guides for GitHub Actions
+intro: 'These guides for {% data variables.product.prodname_actions %} include specific use cases and examples to help you configure workflows.'
 allowTitleToDifferFromFilename: true
 layout: product-guides
 versions:
@@ -13,15 +13,14 @@ learningTracks:
   - continuous_integration
   - continuous_deployment
   - deploy_to_the_cloud
-  - adopting_github_actions_for_your_enterprise_ghec
-  - adopting_github_actions_for_your_enterprise_ghes_and_ghae
+  - '{% ifversion ghec or ghes or ghae %}adopting_github_actions_for_your_enterprise{% endif %}'
   - hosting_your_own_runners
   - create_actions
 includeGuides:
   - /actions/quickstart
   - /actions/learn-github-actions/introduction-to-github-actions
   - /actions/creating-actions/creating-a-docker-container-action
-  - /actions/learn-github-actions/using-starter-workflows
+  - /actions/learn-github-actions/using-workflow-templates
   - /actions/automating-builds-and-tests/building-and-testing-python
   - /actions/automating-builds-and-tests/building-and-testing-nodejs
   - /actions/publishing-packages/about-packaging-with-github-actions

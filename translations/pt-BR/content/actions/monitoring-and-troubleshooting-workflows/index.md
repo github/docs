@@ -1,7 +1,7 @@
 ---
-title: Monitoramento e solução de problemas
-shortTitle: Monitorar & solucionar problemas
-intro: 'Você pode visualizar o status e os resultados de cada etapa do seu fluxo de trabalho, depurar um fluxo de trabalho com falha, pesquisar e fazer o download de registros e ver as minutas de execução de trabalhos faturáveis.'
+title: Monitoring and troubleshooting workflows
+shortTitle: Monitor & troubleshoot
+intro: 'You can view the status and results of each step in your workflow, debug a failed workflow, search and download logs, and view billable job execution minutes.'
 redirect_from:
   - /articles/viewing-your-repository-s-workflows
   - /articles/viewing-your-repositorys-workflows
@@ -20,6 +20,5 @@ children:
   - /enabling-debug-logging
   - /notifications-for-workflow-runs
 ---
-
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}

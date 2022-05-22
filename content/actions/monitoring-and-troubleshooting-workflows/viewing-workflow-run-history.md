@@ -16,6 +16,8 @@ shortTitle: View workflow run history
 
 {% data reusables.repositories.permissions-statement-read %}
 
+{% include tool-switcher %}
+
 {% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}

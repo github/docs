@@ -16,11 +16,11 @@ topics:
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.releases %}
-3. Para copiar una URL única en tu portapapeles, encuentra el lanzamiento que quieras enlazar, haz clic derecho en el título y copia la URL.
+3. To copy a unique URL to your clipboard, find the release you want to link to, right click the title, and copy the URL.
 {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-4974 %}
-  ![Título del lanzamiento](/assets/images/help/releases/release-title.png)
+  ![Release title](/assets/images/help/releases/release-title.png)
 {% else %}
-  ![Título del lanzamiento](/assets/images/help/releases/release-title-old.png)
+  ![Release title](/assets/images/help/releases/release-title-old.png)
 {% endif %}
 1. Como alternativa, da clic derecho en **Lanzamiento más Reciente** y copia la URL para compartirlo. El sufijo de esta URL siempre es `/releases/latest`.
    {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-4974 %}

@@ -1,6 +1,6 @@
 ---
-title: Lançando projetos no GitHub
-intro: 'Você pode criar uma versão de modo a empacotar software, notas de versão e arquivos binários para outras pessoas baixarem.'
+title: Releasing projects on GitHub
+intro: 'You can create a release to package software, release notes, and binary files for other people to download.'
 redirect_from:
   - /categories/85/articles
   - /categories/releases
@@ -21,6 +21,6 @@ children:
   - /comparing-releases
   - /automatically-generated-release-notes
   - /automation-for-release-forms-with-query-parameters
-shortTitle: Projetos de versão
+shortTitle: Release projects
 ---
 

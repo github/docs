@@ -1,6 +1,6 @@
 ---
-title: Firmar confirmaciones
-intro: Puedes firmar las confirmaciones localmente utilizando GPG o S/MIME.
+title: Signing commits
+intro: You can sign commits locally using GPG or S/MIME.
 redirect_from:
   - /articles/signing-commits-and-tags-using-gpg
   - /articles/signing-commits-using-gpg
@@ -16,45 +16,45 @@ topics:
   - Identity
   - Access management
 ---
-
 {% data reusables.gpg.desktop-support-for-commit-signing %}
 
 {% tip %}
 
 **Tips:**
 
-Para configurar tu cliente Git para firmar confirmaciones por defecto de un repositorio local, en versiones Git 2.0.0 y superiores, ejecuta `git config commit.gpgsign true`. Para firmar todas las confirmaciones por defecto en cualquier repositorio local en tu computadora, ejecuta `git config --global commit.gpgsign true`.
+To configure your Git client to sign commits by default for a local repository, in Git versions 2.0.0 and above, run `git config commit.gpgsign true`. To sign all commits by default in any local repository on your computer, run `git config --global commit.gpgsign true`.
 
-Para almacenar tus contraseña de llave GPG para no tener que ingresarla cada vez que firmas una confirmación, recomendamos utilizando las siguientes herramientas:
-  - Para los usuarios de Mac, la [GPG Suite](https://gpgtools.org/) te permite almacenar tu contraseña de llave GPG en la keychain de Mac OS.
-  - Para los usuarios de Windows, [Gpg4win](https://www.gpg4win.org/) se integra con otras herramientas de Windows.
+To store your GPG key passphrase so you don't have to enter it every time you sign a commit, we recommend using the following tools:
+  - For Mac users, the [GPG Suite](https://gpgtools.org/) allows you to store your GPG key passphrase in the Mac OS Keychain.
+  - For Windows users, the [Gpg4win](https://www.gpg4win.org/) integrates with other Windows tools.
 
-También puedes configurar de forma manual [gpg-agent](http://linux.die.net/man/1/gpg-agent) para guardar tu contraseña de llave GPG, pero esta no se integra con la keychain de Mac OS como ssh-agent y requiere mayor configuración.
+You can also manually configure [gpg-agent](http://linux.die.net/man/1/gpg-agent) to save your GPG key passphrase, but this doesn't integrate with Mac OS Keychain like ssh-agent and requires more setup.
 
 {% endtip %}
 
-Si tienes múltiples llaves o estás intentando firmar confirmaciones o etiquetas con una llave que no coincide con tu identidad de persona que confirma el cambio, deberías [informarle a Git acerca de tu llave de firma](/articles/telling-git-about-your-signing-key).
+If you have multiple keys or are attempting to sign commits or tags with a key that doesn't match your committer identity, you should [tell Git about your signing key](/articles/telling-git-about-your-signing-key).
 
-1. Cuando confirmas los cambios en tu rama local, agrega la marca -S al comando de confirmación de Git:
+1. When committing changes in your local branch, add the -S flag to the git commit command:
   ```shell
   $ git commit -S -m <em>"your commit message"</em>
   # Creates a signed commit
   ```
-2. Si estás utilizando GPG, después de crear tu confirmación, proporciona la contraseña que configuraste cuando [generaste tu llave GPG](/articles/generating-a-new-gpg-key).
-3. Cuando terminaste de crear confirmaciones de forma local, súbelas a tu repositorio remoto en {% data variables.product.product_name %}:
+2. If you're using GPG, after you create your commit, provide the passphrase you set up when you [generated your GPG key](/articles/generating-a-new-gpg-key).
+3. When you've finished creating commits locally, push them to your remote repository on {% data variables.product.product_name %}:
   ```shell
   $ git push
   # Pushes your local commits to the remote repository
   ```
-4. En {% data variables.product.product_name %}, desplázate hasta la solicitud de extracción.
+4. On {% data variables.product.product_name %}, navigate to your pull request.
 {% data reusables.repositories.review-pr-commits %}
-5. Para ver información más detallada acerca de la firma verificada, haz clic en Verified (Verificada). ![Confirmación firmada](/assets/images/help/commits/gpg-signed-commit-verified-without-details.png)
+5. To view more detailed information about the verified signature, click Verified.
+![Signed commit](/assets/images/help/commits/gpg-signed-commit-verified-without-details.png)
 
-## Leer más
+## Further reading
 
-* "[Comprobar llaves GPG existentes](/articles/checking-for-existing-gpg-keys)"
-* "[Generar una llave GPG nueva](/articles/generating-a-new-gpg-key)"
-* "[Agregar una nueva llave GPG a tu cuenta de GitHub](/articles/adding-a-new-gpg-key-to-your-github-account)"
-* "[Informar a Git sobre tu llave de firma](/articles/telling-git-about-your-signing-key)"
-* "[Asociar un correo electrónico con tu llave GPG](/articles/associating-an-email-with-your-gpg-key)"
-* "[Firmar etiquetas](/articles/signing-tags)"
+* "[Checking for existing GPG keys](/articles/checking-for-existing-gpg-keys)"
+* "[Generating a new GPG key](/articles/generating-a-new-gpg-key)"
+* "[Adding a new GPG key to your GitHub account](/articles/adding-a-new-gpg-key-to-your-github-account)"
+* "[Telling Git about your signing key](/articles/telling-git-about-your-signing-key)"
+* "[Associating an email with your GPG key](/articles/associating-an-email-with-your-gpg-key)"
+* "[Signing tags](/articles/signing-tags)"

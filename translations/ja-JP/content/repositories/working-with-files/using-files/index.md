@@ -8,7 +8,7 @@ versions:
   ghec: '*'
 children:
   - /navigating-code-on-github
-  - /viewing-a-file
+  - /tracking-changes-in-a-file
   - /getting-permanent-links-to-files
   - /working-with-non-code-files
 ---

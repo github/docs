@@ -1,6 +1,6 @@
 ---
-title: Organization のリポジトリに対するアクセスを管理する
-intro: Organization のオーナーは、Organization のリポジトリに対する個人およびチームのアクセスを管理できます。 チームメンテナは、チームのリポジトリアクセスを管理することも可能です。
+title: Managing access to your organization's repositories
+intro: Organization owners can manage individual and team access to the organization's repositories. Team maintainers can also manage a team's repository access.
 redirect_from:
   - /articles/permission-levels-for-an-organization-repository
   - /articles/managing-access-to-your-organization-s-repositories
@@ -26,6 +26,6 @@ children:
   - /converting-an-organization-member-to-an-outside-collaborator
   - /converting-an-outside-collaborator-to-an-organization-member
   - /reinstating-a-former-outside-collaborators-access-to-your-organization
-shortTitle: リポジトリへのアクセスの管理
+shortTitle: Manage access to repositories
 ---
 

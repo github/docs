@@ -1,6 +1,6 @@
 ---
-title: Organization の名前を変更する
-intro: プロジェクトや企業の名前が変更になった場合、Organization の名前を更新して一致させることができます。
+title: Renaming an organization
+intro: 'If your project or company has changed names, you can update the name of your organization to match.'
 redirect_from:
   - /articles/what-happens-when-i-change-my-organization-s-name
   - /articles/renaming-an-organization
@@ -17,34 +17,35 @@ topics:
 
 {% tip %}
 
-**ヒント:** Organization の名前を変更できるのは Organization オーナーだけです。 {% data reusables.organizations.new-org-permissions-more-info %}
+**Tip:** Only organization owners can rename an organization. {% data reusables.organizations.new-org-permissions-more-info %}
 
 {% endtip %}
 
-## Organization の名前を変更するとどうなりますか？
+## What happens when I change my organization's name?
 
-Organization の名前を変更したら、古い Organization 名は他の個人が使用できるようになります。 Organization の名前を変更すると、古い Organization 名の下にあるリポジトリへの参照のほとんどが、自動で新しい名前に変わります。 ただし、プロフィールへのリンクによっては、自動的にリダイレクトされません。
+After changing your organization's name, your old organization name becomes available for someone else to claim. When you change your organization's name, most references to your repositories under the old organization name automatically change to the new name. However, some links to your profile won't automatically redirect.
 
-### 自動で行われる変更
+### Changes that occur automatically
 
-- {% data variables.product.prodname_dotcom %} ではリポジトリへの参照を自動でリダイレクトします。  Organization に既存の**リポジトリ**への Web リンクは引き続き機能します。 変更を開始してから完了するまでに数分かかることがあります。
-- ローカルリポジトリのプッシュは、古いリモートトラッキング URL へは更新なしでそのまま行えます。 ただし、Organization の名前を変更したら、既存のすべてのリモートリポジトリ URL を更新するよう推奨します。 変更後の古い Organization 名は他のいずれの個人も使用できるようになるため、新しい Organization オーナーがリポジトリへのリダイレクトエントリをオーバーライドすることがありえます。 詳しい情報については「[リモートリポジトリの管理](/github/getting-started-with-github/managing-remote-repositories)」を参照してください。
-- 以前の Git コミットも、Organization 内のユーザへ正しく関連付けられます。
+- {% data variables.product.prodname_dotcom %} automatically redirects references to your repositories.  Web links to your organization's existing **repositories** will continue to work. This can take a few minutes to complete after you initiate the change.
+- You can continue pushing your local repositories to the old remote tracking URL without updating it. However, we recommend you update all existing remote repository URLs after changing your organization name. Because your old organization name is available for use by anyone else after you change it, the new organization owner can create repositories that override the redirect entries to your repository. For more information, see "[Managing remote repositories](/github/getting-started-with-github/managing-remote-repositories)."
+- Previous Git commits will also be correctly attributed to users within your organization.
 
-### 自動ではない変更
+### Changes that aren't automatic
 
-Organization の名前を変更したら、次のようになります:
-- 以前の Organization プロフィールページ (`https://{% data variables.command_line.backticks %}/previousorgname` など) にリンクすると、404 エラーが返されます。 他のサイト{% ifversion fpt or ghec %} (LinkedIn や Twitter のプロフィールなど) {% endif %}からの Organization へのリンクを更新するよう推奨します。
-- 古い Organization 名を使用する API リクエストでは、404 エラーが返されます。 API リクエストにある古い Organization 名を更新するようおすすめします。
-- 古い Organization 名を使用する Team へは、自動での [@mention](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) リダイレクトはありません。{% ifversion ghec %}
-- OrganizationでSAMLシングルサインオン（SSO）が有効化されているなら、アイデンティティプロバイダ（IdP）で{% data variables.product.prodname_ghe_cloud %}用のアプリケーション内のOrganization名を更新しなければなりません。 IdPでOrganization名を更新しないと、OrganizationのメンバーはOrganizationのリソースにアクセスする際にIdPで認証を受けられなくなります。 詳細は「[アイデンティティプロバイダを Organization に接続する](/github/setting-up-and-managing-organizations-and-teams/connecting-your-identity-provider-to-your-organization)」を参照してください。{% endif %}
+After changing your organization's name:
+- Links to your previous organization profile page, such as `https://{% data variables.command_line.backticks %}/previousorgname`, will return a 404 error. We recommend you update links to your organization from other sites{% ifversion fpt or ghec %}, such as your LinkedIn or Twitter profiles{% endif %}.
+- API requests that use the old organization's name will return a 404 error. We recommend you update the old organization name in your API requests.
+- There are no automatic [@mention](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) redirects for teams that use the old organization's name.{% ifversion ghec %}
+- If SAML single sign-on (SSO) is enabled for the organization, you must update the organization name in the application for {% data variables.product.prodname_ghe_cloud %} on your identity provider (IdP). If you don't update the organization name on your IdP, members of the organization will no longer be able to authenticate with your IdP to access the organization's resources. For more information, see "[Connecting your identity provider to your organization](/github/setting-up-and-managing-organizations-and-teams/connecting-your-identity-provider-to-your-organization)."{% endif %}
 
-## Organization の名前を変更する
+## Changing your organization's name
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-4. 設定ページの末尾近くにある [Rename organization] の下の [**Rename Organization**] をクリックします。 ![[Rename organization] ボタン](/assets/images/help/settings/settings-rename-organization.png)
+4. Near the bottom of the settings page, under "Rename organization", click **Rename Organization**.
+  ![Rename organization button](/assets/images/help/settings/settings-rename-organization.png)
 
-## 参考リンク
+## Further reading
 
-* 「[コミットが間違ったユーザにリンクされているのはなぜですか？](/pull-requests/committing-changes-to-your-project/troubleshooting-commits/why-are-my-commits-linked-to-the-wrong-user)」
+* "[Why are my commits linked to the wrong user?](/pull-requests/committing-changes-to-your-project/troubleshooting-commits/why-are-my-commits-linked-to-the-wrong-user)"

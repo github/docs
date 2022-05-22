@@ -3,7 +3,7 @@ title: Acerca de los tableros de proyecto
 intro: 'Los tableros de proyecto en {% data variables.product.product_name %} te ayudan a organizar y priorizar tu trabajo. Puedes crear tableros de proyecto para un trabajo con características específicas, hojas de ruta completas y hasta listas de verificación de lanzamientos. Con los tableros de proyecto, tienes la flexibilidad de crear flujos de trabajo personalizados que se adapten a tus necesidades.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/about-project-boards
-  - /articles/about-projects
+  - /articles/about-projects/
   - /articles/about-project-boards
   - /github/managing-your-work-on-github/about-project-boards
 versions:

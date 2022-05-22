@@ -1,6 +1,6 @@
 ---
-title: 转让组织所有权
-intro: '要使其他人成为组织帐户的所有者，您必须添加新所有者{% ifversion fpt or ghec %}，确保帐单信息已更新，{% endif %}然后将自身从该帐户中删除。'
+title: Transferring organization ownership
+intro: 'To make someone else the owner of an organization account, you must add a new owner{% ifversion fpt or ghec %}, ensure that the billing information is updated,{% endif %} and then remove yourself from the account.'
 redirect_from:
   - /articles/needs-polish-how-do-i-give-ownership-to-an-organization-to-someone-else
   - /articles/transferring-organization-ownership
@@ -13,26 +13,25 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: 转移所有权
+shortTitle: Transfer ownership
 ---
-
-{% ifversion ghec %}
+{% ifversion fpt or ghec %}
 {% note %}
 
-**注：**{% data reusables.enterprise-accounts.invite-organization %}
+**Note:** {% data reusables.enterprise-accounts.invite-organization %}
 
 {% endnote %}{% endif %}
 
-1. 如果您是具有*所有者*权限的唯一成员，则授予其他组织成员所有者角色。 更多信息请参阅“[任命组织所有者](/organizations/managing-peoples-access-to-your-organization-with-roles/maintaining-ownership-continuity-for-your-organization#appointing-an-organization-owner)”。
-2. 联系新的所有者，确保其能够[访问组织的设置](/articles/accessing-your-organization-s-settings)。
+1. If you're the only member with *owner* privileges, give another organization member the owner role. For more information, see "[Appointing an organization owner](/organizations/managing-peoples-access-to-your-organization-with-roles/maintaining-ownership-continuity-for-your-organization#appointing-an-organization-owner)."
+2. Contact the new owner and make sure he or she is able to [access the organization's settings](/articles/accessing-your-organization-s-settings).
 {% ifversion fpt or ghec %}
-3. 如果您目前负责为组织中的 GitHub 付款，则还需要让新所有者或[帐单管理员](/articles/adding-a-billing-manager-to-your-organization/)更新组织的付款信息。 更多信息请参阅“[添加或编辑付款方式](/articles/adding-or-editing-a-payment-method)”。
+3. If you are currently responsible for paying for GitHub in your organization, you'll also need to have the new owner or a [billing manager](/articles/adding-a-billing-manager-to-your-organization/) update the organization's payment information. For more information, see "[Adding or editing a payment method](/articles/adding-or-editing-a-payment-method)."
 
   {% warning %}
 
-  **警告**：从组织中删除自身**不会**更新组织帐户存档的帐单信息。 新的所有者或帐单管理员必须更新存档的帐单信息，以删除您的信用卡或 PayPal 信息。
+  **Warning**: Removing yourself from the organization **does not** update the billing information on file for the organization account. The new owner or a billing manager must update the billing information on file to remove your credit card or PayPal information.
 
   {% endwarning %}
 
 {% endif %}
-4. 从组织中[删除自身](/articles/removing-yourself-from-an-organization)。
+4. [Remove yourself](/articles/removing-yourself-from-an-organization) from the organization.

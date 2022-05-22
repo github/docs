@@ -1,6 +1,6 @@
-您可以为工作流程中的每个作业指定一个环境。 为此，请添加 `jobs.<job_id>.environment` 键，后跟环境的名称。
+You can specify an environment for each job in your workflow. To do so, add a `jobs.<job_id>.environment` key followed by the name of the environment.
 
-例如，此工作流程将使用名为 `production` 的环境。
+For example, this workflow will use an environment called `production`.
 
 ```yaml
 name: Deployment
@@ -19,9 +19,9 @@ jobs:
         # ...deployment-specific steps
 ```
 
-运行上述工作流程时，`deployment` 作业将受为 `production` 环境配置的任何规则的约束。 例如，如果环境需要审查者，则作业将暂停，直到其中一个审查者批准该作业。
+When the above workflow runs, the `deployment` job will be subject to any rules configured for the `production` environment. For example, if the environment requires reviewers, the job will pause until one of the reviewers approves the job.
 
-您还可以为环境指定 URL。 指定的 URL 将显示在存储库的部署页面上（通过单击存储库主页上的**环境**访问）以及工作流程运行的可视化图表中。 如果拉取请求触发了工作流程，则该 URL 还会在拉取请求时间线中显示为 **View deployment（查看部署）**按钮。
+You can also specify a URL for the environment. The specified URL will appear on the deployments page for the repository (accessed by clicking **Environments** on the home page of your repository) and in the visualization graph for the workflow run. If a pull request triggered the workflow, the URL is also displayed as a **View deployment** button in the pull request timeline.
 
 ```yaml
 name: Deployment
@@ -42,4 +42,4 @@ jobs:
         # ...deployment-specific steps
 ```
 
-![带有 URL 的工作流程图](/assets/images/help/images/deploy-graph.png)
+![Workflow graph with URL](/assets/images/help/images/deploy-graph.png)

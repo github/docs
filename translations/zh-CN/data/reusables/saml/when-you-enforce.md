@@ -1,1 +1,1 @@
-当您实施 SAML SSO 时，组织的所有成员都必须通过您的 IdP 进行身份验证才能访问组织的资源。
+When you enforce SAML SSO, all members of the organization must authenticate through your IdP to access the organization's resources.

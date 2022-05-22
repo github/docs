@@ -2,6 +2,7 @@
 title: Enterprise へのユーザの SAML アクセスの表示および管理
 intro: Enterprise メンバーのリンクされたアイデンティティ、アクティブなセッション、認可されたクレデンシャルの表示と取り消しが可能です。
 permissions: Enterprise owners can view and manage a member's SAML access to an organization.
+product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise-account/viewing-and-managing-a-users-saml-access-to-your-enterprise-account

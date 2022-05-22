@@ -8,7 +8,7 @@ import { LoadingIndicator } from './LoadingIndicator'
 import { ActionBar } from './ActionBar'
 
 import { CodeBlockRef, PlaygroundArticleT } from '../types'
-import { useTheme } from '@primer/react'
+import { useTheme } from '@primer/components'
 
 const getNormalizedHighlight = (
   highlight: Exclude<CodeBlockRef['highlight'], undefined>

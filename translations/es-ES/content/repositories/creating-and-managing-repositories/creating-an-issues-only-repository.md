@@ -1,6 +1,6 @@
 ---
-title: Crear un repositorio solo para propuestas
-intro: '{% data variables.product.product_name %} no otorga permisos de acceso solo para propuestas, pero puedes cumplir con este requisito usando un segundo repositorio que contenga solo las propuestas.'
+title: Creating an issues-only repository
+intro: '{% data variables.product.product_name %} does not provide issues-only access permissions, but you can accomplish this using a second repository which contains only the issues.'
 redirect_from:
   - /articles/issues-only-access-permissions
   - /articles/is-there-issues-only-access-to-organization-repositories
@@ -14,14 +14,13 @@ versions:
   ghec: '*'
 topics:
   - Repositories
-shortTitle: Repositorio exclusivo para propuestas
+shortTitle: Issues-only repository
 ---
+1. Create a **private** repository to host the source code from your project.
+2. Create a second repository with the permissions you desire to host the issue tracker.
+3. Add a README file to the issues repository explaining the purpose of this repository and linking to the issues section.
+4. Set your collaborators or teams to give access to the repositories as you desire.
 
-1. Crea un repositorio **privado** para alojar el código fuente de tu proyecto.
-2. Crea un segundo repositorio con los permisos que deseas alojar para el usuario a cargo del seguimiento de la propuesta.
-3. Agrega un archivo README al repositorio de propuestas que explique el propósito de este repositorio y establezca un enlace con la sección de las propuestas.
-4. Indica a tus colaboradores o equipos que den acceso a los repositorios que desees.
+Users with write access to both can reference and close issues back and forth across the repositories, but those without the required permissions will see references that contain a minimum of information.
 
-Los usuarios con acceso de escritura a ambos pueden referenciar y cerrar las propuestas a través de los repositorios, pero los usuarios que no tengan los permisos requeridos verán referencias que contienen información mínima.
-
-Por ejemplo, si subiste una confirmación a la rama predeterminada del repositorio privado con un mensaje que dice `Fixes organization/public-repo#12`, la propuesta se cerrará, pero solo los usuarios con los permisos adecuados verán la referencia entre los repositorios que indica la confirmación que determinó que se cerrara la propuesta. Sin los permisos sigue apareciendo una referencia, pero se omiten los detalles.
+For example, if you pushed a commit to the private repository's default branch with a message that read `Fixes organization/public-repo#12`, the issue would be closed, but only users with the proper permissions would see the cross-repository reference indicating the commit that closed the issue. Without the permissions, a reference still appears, but the details are omitted.

@@ -1,0 +1,17 @@
+{
+  "name": "docs.github.com",
+  "env": {
+    "NODE_ENV": "production",
+    "ENABLED_LANGUAGES": "en",
+    "WEB_CONCURRENCY": "1"
+  },
+  "buildpacks": [
+    { "url": "heroku/nodejs" }
+  ],
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "standard-2x"
+    }
+  }
+}

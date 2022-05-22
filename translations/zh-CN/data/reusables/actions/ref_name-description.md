@@ -1,1 +1,1 @@
-触发工作流程的分支或标记名称。
+The branch or tag name that triggered the workflow run.

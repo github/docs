@@ -33,16 +33,23 @@ export function GHESReleaseNotePatch({
   }, [onScreen])
 
   return (
-    <div ref={containerRef} className="mb-10 pb-6 border-bottom border-top" id={patch.version}>
-      <header style={{ zIndex: 1 }} className="container-xl border-bottom px-3 pt-4 pb-2">
-        <div className="d-flex flex-justify-between flex-wrap">
-          <h2 className="border-bottom-0 m-0 p-0 mt-2">
+    <div
+      ref={containerRef}
+      className="mb-10 color-bg-subtle pb-6 border-bottom border-top"
+      id={patch.version}
+    >
+      <header
+        style={{ zIndex: 1 }}
+        className="container-xl color-bg-subtle border-bottom px-3 pt-4 pb-2"
+      >
+        <div className="d-flex flex-items-center">
+          <h2 className="border-bottom-0 m-0 p-0">
             {currentVersion.versionTitle}.{patch.patchVersion}
           </h2>
 
           {patch.release_candidate && (
             <span
-              className="IssueLabel color-bg-attention-emphasis color-fg-on-emphasis ml-3 flex-items-center d-inline-flex"
+              className="IssueLabel color-bg-attention-emphasis color-fg-on-emphasis ml-3"
               style={{ whiteSpace: 'pre' }}
             >
               Release Candidate
@@ -52,9 +59,9 @@ export function GHESReleaseNotePatch({
           {currentVersion.plan === 'enterprise-server' && (
             <Link
               href={`https://enterprise.github.com/releases/${patch.downloadVersion}/download`}
-              className="btn btn-outline mt-2 text-small text-bold no-underline"
+              className="ml-3 text-small text-bold"
             >
-              Download GitHub Enterprise Server {patch.downloadVersion}
+              Download
             </Link>
           )}
         </div>

@@ -1,1 +1,1 @@
-{% data variables.product.prodname_cli %} 扩展是任何人都可以创建和使用的自定义 {% data variables.product.prodname_cli %} 命令。
+{% data variables.product.prodname_cli %} extensions are custom {% data variables.product.prodname_cli %} commands that anyone can create and use.

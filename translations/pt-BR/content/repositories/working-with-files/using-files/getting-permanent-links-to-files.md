@@ -1,6 +1,6 @@
 ---
-title: Links permanentes em arquivos
-intro: 'Ao visualizar um arquivo em {% data variables.product.product_location %}, é possível pressionar a tecla "y" para atualizar a URL para um permalink com a versão exata do arquivo visualizado.'
+title: Getting permanent links to files
+intro: 'When viewing a file on {% data variables.product.product_location %}, you can press the "y" key to update the URL to a permalink to the exact version of the file you see.'
 redirect_from:
   - /articles/getting-a-permanent-link-to-a-file
   - /articles/how-do-i-get-a-permanent-link-from-file-view-to-permanent-blob-url
@@ -14,45 +14,44 @@ versions:
   ghec: '*'
 topics:
   - Repositories
-shortTitle: Links permanentes para arquivos
+shortTitle: Permanent links to files
 ---
-
 {% tip %}
 
-**Dica**: Pressione "?" em qualquer página de {% data variables.product.product_name %} para visualizar todos os atalhos de teclado disponíveis.
+**Tip**: Press "?" on any page in {% data variables.product.product_name %} to see all available keyboard shortcuts.
 
 {% endtip %}
 
-## As visualizações de arquivos mostram a versão mais recente de um branch
+## File views show the latest version on a branch
 
-Ao visualizar um arquivo em {% data variables.product.product_location %}, normalmente você vê a versão do head atual de um branch.  Por exemplo:
+When viewing a file on {% data variables.product.product_location %}, you usually see the version at the current head of a branch.  For example:
 
-* [https://github.com/github/hubot/blob/**master**/README.md](https://github.com/github/codeql/blob/main/README.md)
+* [https://github.com/github/codeql/blob/**main**/README.md](https://github.com/github/codeql/blob/main/README.md)
 
-refere-se ao repositório `hubot` do GitHub e apresenta a versão atual do branch `master` do arquivo `README.md`.
+refers to GitHub's `codeql` repository, and shows the `main` branch's current version of the `README.md` file.
 
-A versão de um arquivo no head de um branch pode ser modificada assim que novos commits são feitos. Desta forma, caso você copie a URL normal, os conteúdos dos arquivos podem não ser os mesmos quando outra pessoa olhá-los posteriormente.
+The version of a file at the head of branch can change as new commits are made, so if you were to copy the normal URL, the file contents might not be the same when someone looks at it later.
 
-## Pressione <kbd>Y</kbd> para criar um permalink para um arquivo em commit específico
+## Press <kbd>y</kbd> to permalink to a file in a specific commit
 
-Para um link permanente em uma versão específica de um arquivo que você vê, em vez de usar o nome do branch na URL (por exemplo: a parte `master` no exemplo acima), coloque o ID do commit.  Isso vinculará permanentemente a versão exata do arquivo naquele commit.  Por exemplo:
+For a permanent link to the specific version of a file that you see, instead of using a branch name in the URL (i.e. the `main` part in the example above), put a commit id.  This will permanently link to the exact version of the file in that commit.  For example:
 
-* [https://github.com/github/hubot/blob/**ed25584f5ac2520a6c28547ffd0961c7abd7ea49**/README.md](https://github.com/github/codeql/blob/b212af08a6cffbb434f3c8a2795a579e092792fd/README.md)
+* [https://github.com/github/codeql/blob/**b212af08a6cffbb434f3c8a2795a579e092792fd**/README.md](https://github.com/github/codeql/blob/b212af08a6cffbb434f3c8a2795a579e092792fd/README.md)
 
-substitui `master` com um ID específico do commit e o conteúdo do arquivo não será modificado.
+replaces `main` with a specific commit id and the file content will not change.
 
-É incoveniente procurar o commit SHA manualmente, mas é possível digitar o atalho <kbd>y</kbd> para atualizar automaticamente a URL à versão do permalink.  Em seguida, você pode copiar a URL sabendo que qualquer pessoa com quem você compartilhá-la verá exatamente o que você vê.
+Looking up the commit SHA by hand is inconvenient, however, so as a shortcut you can type <kbd>y</kbd> to automatically update the URL to the permalink version.  Then you can copy the URL knowing that anyone you share it with will see exactly what you saw.
 
 {% tip %}
 
-**Dica**: é possível colocar qualquer identificador em um commit da URL, inclusive nomes de branches, commits SHAS específicos ou mesmo tags!
+**Tip**: You can put any identifier that can be resolved to a commit in the URL, including branch names, specific commit SHAs, or tags!
 
 {% endtip %}
 
-## Criar um link permanente em um trecho de código
+## Creating a permanent link to a code snippet
 
-É possível criar um link permanente em uma linha específica ou conjunto de linhas de código de uma determinada versão de arquivo ou pull request. Para obter mais informações, consulte "[Criar um link permanente em um trecho de código](/articles/creating-a-permanent-link-to-a-code-snippet/)".
+You can create a permanent link to a specific line or range of lines of code in a specific version of a file or pull request. For more information, see "[Creating a permanent link to a code snippet](/articles/creating-a-permanent-link-to-a-code-snippet/)."
 
-## Leia mais
+## Further reading
 
-- "[Arquivar um repositório GitHub ](/articles/archiving-a-github-repository)"
+- "[Archiving a GitHub repository](/articles/archiving-a-github-repository)"

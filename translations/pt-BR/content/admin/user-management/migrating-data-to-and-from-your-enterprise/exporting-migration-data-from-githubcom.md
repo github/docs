@@ -1,6 +1,6 @@
 ---
-title: Exportar dados de migração do GitHub.com
-intro: 'Você pode exportar dados de migração de uma organização no {% data variables.product.prodname_dotcom_the_website %} usando a API para selecionar repositórios a serem migrados e, em seguida, gerando um arquivo de migração que pode ser importado em uma instância do {% data variables.product.prodname_ghe_server %}.'
+title: Exporting migration data from GitHub.com
+intro: 'You can export migration data from an organization on {% data variables.product.prodname_dotcom_the_website %} by using the API to select repositories to migrate, then generating a migration archive that you can import into a {% data variables.product.prodname_ghe_server %} instance.'
 redirect_from:
   - /enterprise/admin/guides/migrations/exporting-migration-data-from-github-com
   - /enterprise/admin/migrations/exporting-migration-data-from-githubcom
@@ -17,33 +17,32 @@ topics:
   - API
   - Enterprise
   - Migration
-shortTitle: Exportar dados do GitHub.com
+shortTitle: Export data from GitHub.com
 ---
+## Preparing the source organization on {% data variables.product.prodname_dotcom %}
 
-## Preparar a organização de origem em {% data variables.product.prodname_dotcom %}
+1. Ensure that you have [owner permissions](/articles/permission-levels-for-an-organization/) on the source organization's repositories.
 
-1. Verifique se você tem [permissões de proprietário](/articles/permission-levels-for-an-organization/) nos repositórios de origem da organização.
-
-2. {% data reusables.enterprise_migrations.token-generation %} no {% data variables.product.prodname_dotcom_the_website %}.
+2. {% data reusables.enterprise_migrations.token-generation %} on {% data variables.product.prodname_dotcom_the_website %}.
 
 {% data reusables.enterprise_migrations.make-a-list %}
 
-## Exportar repositórios da organização
+## Exporting the organization's repositories
 
 {% data reusables.enterprise_migrations.fork-persistence %}
 
-Para exportar os dados do repositório do {% data variables.product.prodname_dotcom_the_website %}, use a <a href="/rest/reference/migrations" class="dotcom-only"> API de Migrações</a>.
+To export repository data from {% data variables.product.prodname_dotcom_the_website %}, use <a href="/rest/reference/migrations" class="dotcom-only">the Migrations API</a>.
 
-No momento, a API de Migrações está em período de exibição. Ou seja, os pontos de extremidade e os parâmetros podem mudar no futuro.
-## Gerar arquivos de migração
+The Migrations API is currently in a preview period, which means that the endpoints and parameters may change in the future. 
+## Generating a migration archive
 
 {% data reusables.enterprise_migrations.locking-repositories %}
 
-1. Informe os integrantes da organização que você fará uma migração. Dependendo do número de repositórios exportados, a exportação pode levar vários minutos. A migração completa (com importação) pode levar horas. Portanto, é recomendável fazer uma avaliação para determinar a duração do processo completo. Para obter mais informações, consulte "[Sobre migrações](/enterprise/admin/migrations/about-migrations#types-of-migrations)".
+1. Notify members of your organization that you'll be performing a migration. The export can take several minutes, depending on the number of repositories being exported. The full migration including import may take several hours so we recommend doing a trial run in order to determine how long the full process will take. For more information, see "[About Migrations](/enterprise/admin/migrations/about-migrations#types-of-migrations)."
 
-2. Comece a migração enviando uma solicitação de `POST` no <a href="/rest/reference/migrations#start-an-organization-migration" class="dotcom-only">ponto de extremidade da migração</a>. Você precisará do seguinte:
-    * Token de acesso para autenticação;
-    * Uma [lista de repositórios](/rest/reference/repos#list-organization-repositories) que você pretende migrar:
+2. Start a migration by sending a `POST` request to <a href="/rest/reference/migrations#start-an-organization-migration" class="dotcom-only">the migration endpoint</a>. You'll need:
+    * Your access token for authentication.
+    * A [list of the repositories](/rest/reference/repos#list-organization-repositories) you want to migrate:
       ```shell
       curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" \
       -X POST \
@@ -51,29 +50,29 @@ No momento, a API de Migrações está em período de exibição. Ou seja, os po
       -d'{"lock_repositories":true,"repositories":["<em>orgname</em>/<em>reponame</em>", "<em>orgname</em>/<em>reponame</em>"]}' \
       https://api.github.com/orgs/<em>orgname</em>/migrations
       ```
-    *  Se quiser bloquear os repositórios antes da migração, verifique se `lock_repositories` está definido como `true`. Fazer isso é altamente recomendável.
-    * Você pode excluir anexos de arquivos adicionando `exclude_attachments: true` ao ponto de extremidade. {% data reusables.enterprise_migrations.exclude-file-attachments %} O tamanho do arquivo final deve ser menor do que 20 GB.
+    *  If you want to lock the repositories before migrating them, make sure `lock_repositories` is set to `true`. This is highly recommended.
+    * You can exclude file attachments by passing `exclude_attachments: true` to the endpoint. {% data reusables.enterprise_migrations.exclude-file-attachments %} The final archive size must be less than 20 GB.
 
-  A solicitação retorna um `id ` exclusivo que representa a migração. Você precisará dele em ações subsequentes que envolvam a API de Migrações.
+  This request returns a unique `id` which represents your migration. You'll need it for subsequent calls to the Migrations API.
 
-3. Envie uma solicitação `GET` para o <a href="/rest/reference/migrations#get-an-organization-migration-status" class="dotcom-only">ponto de extremidade de status da migração</a> para fazer fetch do status da migração. Você precisará do seguinte:
-    * Token de acesso para autenticação;
-    * `id` exclusivo da migração.
+3. Send a `GET` request to <a href="/rest/reference/migrations#get-an-organization-migration-status" class="dotcom-only">the migration status endpoint</a> to fetch the status of a migration. You'll need:
+    * Your access token for authentication.
+    * The unique `id` of the migration:
       ```shell
       curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" \
       -H "Accept: application/vnd.github.v3+json" \
       https://api.github.com/orgs/<em>orgname</em>/migrations/<em>id</em>
       ```
 
-  Os estados das migrações são os seguintes:
-    * `pending`, a migração ainda não começou;
-    * `exporting`, a migração está em andamento;
-    * `exported`, a migração foi concluída com êxito;
-    * `failed`, houve falha na migração.
+  A migration can be in one of the following states:
+    * `pending`, which means the migration hasn't started yet.
+    * `exporting`, which means the migration is in progress.
+    * `exported`, which means the migration finished successfully.
+    * `failed`, which means the migration failed.
 
-4. Depois de exportar a migração, baixe o aquivo de migração enviando uma solicitação `GET` para o <a href="/rest/reference/migrations#download-an-organization-migration-archive" class="dotcom-only">ponto de extremidade de download da migração</a>. Você precisará do seguinte:
-    * Token de acesso para autenticação;
-    * `id` exclusivo da migração.
+4. After your migration has exported, download the migration archive by sending a `GET` request to <a href="/rest/reference/migrations#download-an-organization-migration-archive" class="dotcom-only">the migration download endpoint</a>. You'll need:
+    * Your access token for authentication.
+    * The unique `id` of the migration:
       ```shell
       curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" \
       -H "Accept: application/vnd.github.v3+json" \
@@ -81,9 +80,9 @@ No momento, a API de Migrações está em período de exibição. Ou seja, os po
       https://api.github.com/orgs/<em>orgname</em>/migrations/<em>id</em>/archive
       ```
 
-5. O arquivo de migração é excluído automaticamente após sete dias. Para excluí-lo antes, você pode enviar a solicitação `DELETE` para o <a href="/rest/reference/migrations#delete-an-organization-migration-archive" class="dotcom-only">ponto de extremidade de exclusão do arquivo de migração</a>. Você precisará do seguinte:
-    * Token de acesso para autenticação;
-    * `id` exclusivo da migração.
+5. The migration archive is automatically deleted after seven days. If you would prefer to delete it sooner, you can send a `DELETE` request to <a href="/rest/reference/migrations#delete-an-organization-migration-archive" class="dotcom-only">the migration archive delete endpoint</a>. You'll need:
+    * Your access token for authentication.
+    * The unique `id` of the migration:
       ```shell
       curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" \
       -X DELETE \

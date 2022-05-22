@@ -1,1 +1,1 @@
-安全管理员是组织所有者可以分配给组织中任何团队的组织级角色。 应用时，它将授予团队每个成员管理整个组织中的安全警报和设置的权限，以及组织中所有存储库的读取权限。
+Security manager is an organization-level role that organization owners can assign to any team in an organization. When applied, it gives every member of the team permissions to manage security alerts and settings across your organization, as well as read permissions for all repositories in the organization.

@@ -13,13 +13,13 @@ shortTitle: Use actions
 ---
 
 
-{% data variables.product.prodname_actions %} ワークフローは_アクション_を使用できます。アクションは、ジョブを作成してワークフローをカスタマイズするために組み合わせることができる個々のタスクです。 独自のアクションの作成、または {% data variables.product.prodname_dotcom %} コミュニティによって共有されるアクションの使用やカスタマイズができます。
+{% data variables.product.prodname_actions %} workflows can use _actions_, which are individual tasks that you can combine to create jobs and customize your workflow. You can create your own actions, or use and customize actions shared by the {% data variables.product.prodname_dotcom %} community.
 
-## {% data variables.product.prodname_ghe_managed %} にバンドルされている公式アクション
+## Official actions bundled with {% data variables.product.prodname_ghe_managed %}
 
-ほとんどの公式の {% data variables.product.prodname_dotcom %} 作成のアクションは自動的に {% data variables.product.prodname_ghe_managed %} にバンドルされ、{% data variables.product.prodname_marketplace %} からある時点でキャプチャされます。 {% data variables.product.prodname_ghe_managed %} インスタンスが更新されると、バンドルされている公式アクションも更新されます。
+Most official {% data variables.product.prodname_dotcom %}-authored actions are automatically bundled with {% data variables.product.prodname_ghe_managed %}, and are captured at a point in time from {% data variables.product.prodname_marketplace %}. When your {% data variables.product.prodname_ghe_managed %} instance is updated, the bundled official actions are also updated.
 
-バンドルされている公式アクションには、`actions/checkout`, `actions/upload-artifact`、`actions/download-artifact`、`actions/labeler`、さまざまな `actions/setup-` などが含まれます。 To see which of the official actions are included, browse to the following organizations on your instance:
+The bundled official actions include `actions/checkout`, `actions/upload-artifact`, `actions/download-artifact`, `actions/labeler`, and various `actions/setup-` actions, among others. To see which of the official actions are included, browse to the following organizations on your instance: 
 - <code>https://<em>HOSTNAME</em>/actions</code>
 - <code>https://<em>HOSTNAME</em>/github</code>
 

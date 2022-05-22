@@ -1,7 +1,7 @@
 ---
-title: Gerenciar as configurações de cobrança do GitHub
-shortTitle: Configurações de faturamento
-intro: 'As configurações de cobrança de sua conta se aplicam à todos os recursos pagos ou produtos que você adiciona à conta. É possível gerenciar configurações como forma de pagamento, ciclo de cobrança e e-mail de cobrança. Você também pode visualizar informações de cobrança, como sua assinatura, data de cobrança, histórico de pagamento e recibos anteriores.'
+title: Managing your GitHub billing settings
+shortTitle: Billing settings
+intro: 'Your account''s billing settings apply to every paid feature or product you add to the account. You can manage settings like your payment method, billing cycle, and billing email. You can also view billing information such as your subscription, billing date, payment history, and past receipts.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-github-billing-settings
   - /articles/viewing-and-managing-your-personal-account-s-billing-information
@@ -25,5 +25,6 @@ children:
   - /redeeming-a-coupon
   - /troubleshooting-a-declined-credit-card-charge
   - /unlocking-a-locked-account
+  - /removing-a-payment-method
 ---
 

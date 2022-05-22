@@ -1,6 +1,6 @@
 ---
-title: Git Large File Storage でのコラボレーション
-intro: '{% data variables.large_files.product_name_short %}を有効にすると、大容量のファイルも Git で扱う通常のファイルと同じようにフェッチ、修正、プッシュできます。 ただし、{% data variables.large_files.product_name_short %}を持っていないユーザの場合、ワークフローが異なります。'
+title: Collaboration with Git Large File Storage
+intro: 'With {% data variables.large_files.product_name_short %} enabled, you''ll be able to fetch, modify, and push large files just as you would expect with any file that Git manages. However, a user that doesn''t have {% data variables.large_files.product_name_short %} will experience a different workflow.'
 redirect_from:
   - /articles/collaboration-with-large-file-storage
   - /articles/collaboration-with-git-large-file-storage
@@ -11,37 +11,36 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: コラボレーション
+shortTitle: Collaboration
 ---
-
-リポジトリのコラボレーターが {% data variables.large_files.product_name_short %}をインストールしていない場合、オリジナルの大容量ファイルにはアクセスできません。 リポジトリのクローンを試みた場合、ポインタファイルをフェッチするのみで、実際のデータにはアクセスできません。
+If collaborators on your repository don't have {% data variables.large_files.product_name_short %} installed, they won't have access to the original large file. If they attempt to clone your repository, they will only fetch the pointer files, and won't have access to any of the actual data.
 
 {% tip %}
 
-**ヒント:** {% data variables.large_files.product_name_short %}を有効にしていないユーザに対しては、大きなファイルの扱いについて記載したリポジトリコントリビューターのためのガイドラインを設定することをお勧めします。 たとえば、大容量ファイルを修正しないように、あるいは [Dropbox](http://www.dropbox.com/) や <a href="https://drive.google.com/" data-proofer-ignore>Google Drive</a> といったファイル共有サービスに変更をアップロードするように、コントリビューターに依頼するとよいでしょう。 詳しい情報については、「[リポジトリコントリビューターのためのガイドラインを定める](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors)」を参照してください。
+**Tip:** To help users without {% data variables.large_files.product_name_short %} enabled, we recommend you set guidelines for repository contributors that describe how to work with large files. For example, you may ask contributors not to modify large files, or to upload changes to a file sharing service like [Dropbox](http://www.dropbox.com/) or <a href="https://drive.google.com/" data-proofer-ignore>Google Drive</a>. For more information, see "[Setting guidelines for repository contributors](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors)."
 
 {% endtip %}
 
-## プルリクエストの大容量ファイルを表示する
+## Viewing large files in pull requests
 
-{% data variables.product.product_name %}は、プルリクエストの {% data variables.large_files.product_name_short %}オブジェクトを表示しません。 ポインタファイルのみが表示されます。
+{% data variables.product.product_name %} does not render {% data variables.large_files.product_name_short %} objects in pull requests. Only the pointer file is shown:
 
-![大容量ファイルのプルリクエスト例](/assets/images/help/large_files/large_files_pr.png)
+![Sample PR for large files](/assets/images/help/large_files/large_files_pr.png)
 
-ポインタファイルに関する詳しい情報については、「[{% data variables.large_files.product_name_long %}について](/github/managing-large-files/about-git-large-file-storage#pointer-file-format)」を参照してください。
+For more information about pointer files, see "[About {% data variables.large_files.product_name_long %}](/github/managing-large-files/about-git-large-file-storage#pointer-file-format)."
 
-大きなファイルに加えられた変更を表示するには、プルリクエストをローカルでチェックアウトしてdiffを確認します。 詳しい情報については、「[プルリクエストをローカルでチェック アウトする](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/checking-out-pull-requests-locally)」を参照してください。
+To view changes made to large files, check out the pull request locally to review the diff. For more information, see "[Checking out pull requests locally](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/checking-out-pull-requests-locally)."
 
 {% ifversion fpt or ghec %}
 
-## 大容量ファイルをフォークにプッシュする
+## Pushing large files to forks
 
-リポジトリのフォークに大容量ファイルをプッシュすると、フォークのオーナーのではなく、親リポジトリの、帯域幅およびストレージのクオータを消費することになります。
+Pushing large files to forks of a repository count against the parent repository's bandwidth and storage quotas, rather than the quotas of the fork owner.
 
-リポジトリネットワークですでに {% data variables.large_files.product_name_short %}オブジェクトがあるか、リポジトリネットワークのルートに書き込みアクセスがある場合、パブリックフォークに {% data variables.large_files.product_name_short %}オブジェクトをプッシュできます。
+You can push {% data variables.large_files.product_name_short %} objects to public forks if the repository network already has {% data variables.large_files.product_name_short %} objects or you have write access to the root of the repository network.
 
 {% endif %}
 
-## 参考リンク
+## Further reading
 
-- [Git Large File Storage オブジェクトでリポジトリを複製する](/articles/duplicating-a-repository/#mirroring-a-repository-that-contains-git-large-file-storage-objects)
+- "[Duplicating a repository with Git Large File Storage objects](/articles/duplicating-a-repository/#mirroring-a-repository-that-contains-git-large-file-storage-objects)"

@@ -16,7 +16,7 @@ Squashing allows you to combine multiple commits in your branch's history into a
 {% data reusables.desktop.current-branch-menu %}
 2. In the list of branches, select the branch that has the commits that you want to squash.
 {% data reusables.desktop.history-tab %}
-4. Select the commits to squash and drop them on the commit you want to combine them with. You can select one commit or select multiple commits using <kbd>Command</kbd> or <kbd>Shift</kbd>. ![squash drag and drop](/assets/images/help/desktop/squash-drag-and-drop.png)
+4. Select the commits to squash and drop them on the commit you want to combine them with. You can select one commit or select multiple commits using <kbd>⌘</kbd> or <kbd>Shift</kbd>. ![squash drag and drop](/assets/images/help/desktop/squash-drag-and-drop.png)
 5. Modify the commit message of your new commit. The commit messages of the selected commits you want to squash are pre-filled into the **Summary** and **Description** fields.
 6. Click **Squash Commits**.
 

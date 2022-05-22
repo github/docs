@@ -1,4 +1,4 @@
-import { useTheme } from '@primer/react'
+import { useTheme } from '@primer/components'
 
 import { useMediaQuery } from './useMediaQuery'
 

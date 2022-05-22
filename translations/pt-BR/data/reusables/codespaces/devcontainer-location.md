@@ -1,0 +1,1 @@
+Este arquivo pode ser localizado na raiz do repositório ou em uma pasta denominada `.devcontainer`. Se o arquivo estiver localizado na raiz do repositório, o nome do arquivo deve começar com um ponto: `.devcontainer.json`.

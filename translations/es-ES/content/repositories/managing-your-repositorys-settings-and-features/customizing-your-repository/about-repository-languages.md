@@ -1,6 +1,6 @@
 ---
-title: Acerca de los idiomas del repositorio
-intro: Los archivos y los directorios dentro de un repositorio determinan los idiomas que componen el repositorio. Puedes ver los idiomas de un repositorio para obtener una descripción general rápida del repositorio.
+title: About repository languages
+intro: The files and directories within a repository determine the languages that make up the repository. You can view a repository's languages to get a quick overview of the repository.
 redirect_from:
   - /articles/my-repository-is-marked-as-the-wrong-language
   - /articles/why-isn-t-my-favorite-language-recognized
@@ -17,14 +17,13 @@ versions:
   ghec: '*'
 topics:
   - Repositories
-shortTitle: Lenguajes del repositorio
+shortTitle: Repository languages
 ---
+{% data variables.product.product_name %} uses the open source [Linguist library](https://github.com/github/linguist) to
+determine file languages for syntax highlighting and repository statistics. Language statistics will update after you push changes to your default branch.
 
-{% data variables.product.product_name %} utiliza la [biblioteca de Linguist](https://github.com/github/linguist) de código abierto para
-determinar los lenguajes de un archivo para resaltar la sintaxis y obtener la estadística del repositorio. Las estadísticas de lenguaje se actualizarán después de que subas los cambios a tu rama predeterminada.
+Some files are hard to identify, and sometimes projects contain more library and vendor files than their primary code. If you're receiving incorrect results, please consult the Linguist [troubleshooting guide](https://github.com/github/linguist/blob/master/docs/troubleshooting.md) for help.
 
-Algunos archivos son difíciles de identificar y, a veces, los proyectos contienen más archivos de biblioteca y de proveedor que su código primario. Si estás recibiendo resultados incorrectos, consulta la [Guía de solución de problemas](https://github.com/github/linguist/blob/master/docs/troubleshooting.md) del Lingüista para obtener ayuda.
+## Markup languages
 
-## Lenguaje Markup
-
-Los lenguajes Markup están representados para HTML y mostrados en línea usando nuestra [Biblioteca Markup](https://github.com/github/markup) de código abierto. En este momento, no estamos aceptando nuevos lenguajes para mostrar dentro de {% data variables.product.product_name %}. Sin embargo, mantenemos activamente nuestros lengujes Markup actuales. Si encuentras un problema, [crea una propuesta](https://github.com/github/markup/issues/new).
+Markup languages are rendered to HTML and displayed inline using our open-source [Markup library](https://github.com/github/markup). At this time, we are not accepting new markup languages to show within {% data variables.product.product_name %}. However, we do actively maintain our current markup languages. If you see a problem, [please create an issue](https://github.com/github/markup/issues/new).

@@ -1,6 +1,6 @@
 ---
-title: Criar um commit em nome de uma organização
-intro: 'Você pode criar commits em nome de uma organização adicionando um trailer à mensagem do commit. Os commits atribuídos a uma organização incluem um selo "em nome de" no {% data variables.product.product_name %}.'
+title: Creating a commit on behalf of an organization
+intro: 'You can create commits on behalf of an organization by adding a  trailer to the commit''s message. Commits attributed to an organization include an `on-behalf-of` badge on {% data variables.product.product_name %}.'
 redirect_from:
   - /articles/creating-a-commit-on-behalf-of-an-organization
   - /github/committing-changes-to-your-project/creating-a-commit-on-behalf-of-an-organization
@@ -8,29 +8,28 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-shortTitle: Em nome de uma organização
+shortTitle: On behalf of an organization
 ---
-
 {% note %}
 
-**Observação:** a capacidade de criar um commit em nome de uma organização, atualmente, está em versão beta pública e sujeita a alterações.
+**Note:** The ability to create a commit on behalf of an organization is currently in public beta and is subject to change.
 
 {% endnote %}
 
-Para criar commits em nome de uma organização:
+To create commits on behalf of an organization:
 
-- você deve ser um integrante da organização indicado no trailer
-- você deve assinar o commit
-- o e-mail do seu commit e o e-mail da organização devem estar em um domínio verificado pela organização
-- sua mensagem do commit deve terminar com o trailer do commit `on-behalf-of: @org <name@organization.com>`
-  - `org` é o login da organização
-  - `name@organization.com` está no domínio da organização
+- you must be a member of the organization indicated in the trailer
+- you must sign the commit
+- your commit email and the organization email must be in a domain verified by the organization
+- your commit message must end with the commit trailer `on-behalf-of: @org <name@organization.com>`
+  - `org` is the organization's login
+  - `name@organization.com` is in the organization's domain
 
-As organizações podem usar o e-mail `name@organization.com` como um ponto público de contato para esforços de código aberto.
+Organizations can use the `name@organization.com` email as a public point of contact for open source efforts.
 
-## Criar commits com um selo `on-behalf-of` na linha de comando
+## Creating commits with an `on-behalf-of` badge on the command line
 
-1. Digite sua mensagem de commit e uma descrição curta e significativa de suas alterações. Depois da descrição do commit, em vez de inserir aspas para encerrar, adicione duas linhas vazias.
+1. Type your commit message and a short, meaningful description of your changes. After your commit description, instead of a closing quotation, add two empty lines.
   ```shell
   $ git commit -m "Refactor usability tests.
   >
@@ -38,11 +37,11 @@ As organizações podem usar o e-mail `name@organization.com` como um ponto púb
   ```
   {% tip %}
 
-  **Dica:** Se você estiver usando um editor de texto na linha de comando para digitar sua mensagem de commit, certifique-se de que existem duas novas linhas entre o final da sua descrição do commit e o indicador `on-behalf-of:`.
+  **Tip:** If you're using a text editor on the command line to type your commit message, ensure there are two newlines between the end of your commit description and the `on-behalf-of:` commit trailer.
 
   {% endtip %}
 
-2. Na próxima linha da mensagem do commit, digite `on-behalf-of: @org <name@organization.com>` e, em seguida, aspas de fechamento.
+2. On the next line of the commit message, type `on-behalf-of: @org <name@organization.com>`, then a closing quotation mark.
 
   ```shell
   $ git commit -m "Refactor usability tests.
@@ -51,24 +50,25 @@ As organizações podem usar o e-mail `name@organization.com` como um ponto púb
   on-behalf-of: <em>@org</em> &lt;<em>name@organization.com</em>&gt;"
   ```
 
-O novo commit, mensagem e selo aparecerão no {% data variables.product.product_location %} na próxima vez que você fizer push. Para obter mais informações, consulte "[Fazer push das alterações em um repositório remoto](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)".
+The new commit, message, and badge will appear on {% data variables.product.product_location %} the next time you push. For more information, see "[Pushing changes to a remote repository](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)."
 
-## Criar commits com um selo `on-behalf-of` no {% data variables.product.product_name %}
+## Creating commits with an `on-behalf-of` badge on {% data variables.product.product_name %}
 
-Depois que fizer alterações em um arquivo usando um editor web no {% data variables.product.product_name %}, você poderá criar um commit em nome da sua organização adicionando um trailer `on-behalf-of:` à mensagem do commit.
+After you've made changes in a file using the web editor on {% data variables.product.product_name %}, you can create a commit on behalf of your organization by adding an `on-behalf-of:` trailer to the commit's message.
 
-1. Depois de fazer as alterações, na parte inferior da página, digite uma mensagem de commit curta e significativa que descreve as alterações feitas. ![Mensagem do commit para sua alteração](/assets/images/help/repository/write-commit-message-quick-pull.png)
+1. After making your changes, at the bottom of the page, type a short, meaningful commit message that describes the changes you made.
+  ![Commit message for your change](/assets/images/help/repository/write-commit-message-quick-pull.png)
 
-2. Na caixa de texto abaixo da mensagem do commit, adicione `on-behalf-of: @org <name@organization.com>`.
+2. In the text box below your commit message, add `on-behalf-of: @org <name@organization.com>`.
 
-  ![Exemplo de trailer on-behalf-of da mensagem do commit na segunda caixa de texto da mensagem do commit](/assets/images/help/repository/write-commit-message-on-behalf-of-trailer.png)
-4. Clique em **Commit changes** (Fazer commit de alterações) ou **Propose changes** (Propor alterações).
+  ![Commit message on-behalf-of trailer example in second commit message text box](/assets/images/help/repository/write-commit-message-on-behalf-of-trailer.png)
+4. Click **Commit changes** or **Propose changes**.
 
-O novo commit, mensagem e selo aparecerão no {% data variables.product.product_location %}.
+The new commit, message, and badge will appear on {% data variables.product.product_location %}.
 
-## Leia mais
+## Further reading
 
-- "[Exibir contribuições no perfil](/articles/viewing-contributions-on-your-profile)"
-- "[Por que minhas contribuições não aparecem no meu perfil?](/articles/why-are-my-contributions-not-showing-up-on-my-profile)"
-- "[Exibir contribuidores de um projeto](/articles/viewing-a-projects-contributors)"
-- "[Alterar uma mensagem do commit](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/changing-a-commit-message)"
+- "[Viewing contributions on your profile](/articles/viewing-contributions-on-your-profile)"
+- "[Why are my contributions not showing up on my profile?](/articles/why-are-my-contributions-not-showing-up-on-my-profile)"
+- "[Viewing a project’s contributors](/articles/viewing-a-projects-contributors)"
+- "[Changing a commit message](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/changing-a-commit-message)"

@@ -1,6 +1,6 @@
 ---
-title: アプリケーションのリストの説明を書く
-intro: '{% data variables.product.prodname_marketplace %}で[アプリケーションをリスト](/marketplace/listing-on-github-marketplace/) するには、GitHubのガイドラインに従ってアプリケーションの説明を書き、画像を指定する必要があります。'
+title: Writing a listing description for your app
+intro: 'To [list your app](/marketplace/listing-on-github-marketplace/) in the {% data variables.product.prodname_marketplace %}, you''ll need to write descriptions of your app and provide images that follow GitHub''s guidelines.'
 redirect_from:
   - /apps/marketplace/getting-started-with-github-marketplace-listings/guidelines-for-writing-github-app-descriptions
   - /apps/marketplace/creating-and-submitting-your-app-for-approval/writing-github-app-descriptions
@@ -16,183 +16,181 @@ versions:
   ghec: '*'
 topics:
   - Marketplace
-shortTitle: リストの説明を書く
+shortTitle: Write listing descriptions
 ---
+Here are guidelines about the fields you'll need to fill out in the **Listing description** section of your draft listing.
 
-ドラフトリストの [**リストの説明**] セクションに入力する必要があるフィールドについてのガイドラインは以下のとおりです。
+## Naming and links
 
-## 名前のリンク
+### Listing name
 
-### リスト名
+Your listing's name will appear on the [{% data variables.product.prodname_marketplace %} homepage](https://github.com/marketplace). The name is limited to 255 characters and can be different from your app's name. Your listing cannot have the same name as an existing account on {% data variables.product.product_location %}, unless the name is your own user or organization name. 
 
-リストの名前は、 [{% data variables.product.prodname_marketplace %}ホームページ](https://github.com/marketplace)に表示されます。 名前は255文字を上限とし、アプリケーションの名前と異なっていても構いません。 リストの名前は、{% data variables.product.product_location %}上の既存アカウントと同じ名前にできません。ただし、その名前があなた自身のユーザ名やOrganization名である場合は例外です。
+### Very short description
 
-### ごく簡単な説明
+The community will see the "very short" description under your app's name on the [{% data variables.product.prodname_marketplace %} homepage](https://github.com/marketplace).
 
-コミュニティには、[{% data variables.product.prodname_marketplace %}ホームページ](https://github.com/marketplace)のアプリケーション名の下に「ごく短い」説明が表示されます。
+![{% data variables.product.prodname_marketplace %} app short description](/assets/images/marketplace/marketplace_short_description.png)
 
-![{% data variables.product.prodname_marketplace %}アプリケーションの短い説明](/assets/images/marketplace/marketplace_short_description.png)
+#### Length
 
-#### 長さ
+We recommend keeping short descriptions to 40-80 characters. Although you are allowed to use more characters, concise descriptions are easier for customers to read and understand quickly.
 
-簡単な説明は、40～80文字にとどめることをお勧めします。 それ以上の文字数を使うこともできますが、説明は簡潔なほうが顧客に読みやすく、わかりやすくなります。
+#### Content
 
-#### 内容
+- Describe the app’s functionality. Don't use this space for a call to action. For example:
 
-- アプリケーションの機能を説明します。 このスペースを操作の指示には使用しないでください。 例:
+  **DO:** Lightweight project management for GitHub issues
 
-  **良い例:** GitHub Issueの軽量なプロジェクト管理
+  **DON'T:** Manage your projects and issues on GitHub
 
-  **悪い例:** GitHubでプロジェクトとIssueを管理してください
+  **Tip:** Add an "s" to the end of the verb in a call to action to turn it into an acceptable description: _Manages your projects and issues on GitHub_
 
-  **ヒント:** 「～してください」ではなく「～します」と書けば、一応、説明として許容されます。例: _GitHubでプロジェクトとIssueを管理します_
+- Don’t repeat the app’s name in the description.
 
-- 説明でアプリケーション名は繰り返さないようにします。
+  **DO:** A container-native continuous integration tool
 
-  **良い例:** コンテナ対応の継続的インテグレーションツール
+  **DON'T:** Skycap is a container-native continuous integration tool
 
-  **悪い例:** Skycapは、コンテナ対応の継続的インテグレーションツールです
+#### Formatting
 
-#### フォーマット
+- Always use sentence-case capitalization. Only capitalize the first letter and proper nouns.
 
-- 英文字表記は固有名詞に使用し、大文字小文字は常に正しく使ってください。 大文字で始めて英文字表記するのは固有名詞だけです。
+- Don't use punctuation at the end of your short description. Short descriptions should not include complete sentences, and definitely should not include more than one sentence.
 
-- 短い説明の終わりには句読点を付けません。 完全文では書かないようにし、複数文は絶対に避けてください。
+- Only capitalize proper nouns. For example:
 
-- 大文字で始めて英文字表記するのは固有名詞だけです。 例:
+  **DO:** One-click delivery automation for web developers
 
-  **良い例:** Web開発者向けのワンクリック配信の自動化
+  **DON'T:** One-click delivery automation for Web Developers
 
-  **悪い例:** Web Developer用のワンクリック配信の自動化
+- Always use a [serial comma](https://en.wikipedia.org/wiki/Serial_comma) in lists.
 
-- 3つ以上の項目を並べるとき、[最後の「および」の前には読点](https://en.wikipedia.org/wiki/Serial_comma)を打ちます。
+- Avoid referring to the GitHub community as "users."
 
-- GitHubコミュニティを「ユーザー」と称するのは避けてください。
+  **DO:** Create issues automatically for people in your organization
 
-  **良い例:** Organizationの人に自動的にIssueを作成する
+  **DON'T:** Create issues automatically for an organization's users
 
-  **悪い例:** 組織のユーザーについて自動的にIssueを作成する
+- Avoid acronyms unless they’re well established (such as API). For example:
 
-- 略語は一般的な場合 (APIなど) を除いて使用しないでください。 例:
+  **DO:** Agile task boards, estimates, and reports without leaving GitHub
 
-  **良い例:** GitHubから移動しないアジャイルタスクボード、推定、およびレポート
+  **DON'T:** Agile task boards, estimates, and reports without leaving GitHub’s UI
 
-  **悪い例'T:** GitHub UIから移動しないアジャイルタスクボード、推定、およびレポート
+### Categories
 
-### カテゴリ
+Apps in {% data variables.product.prodname_marketplace %} can be displayed by category. Select the category that best describes the main functionality of your app in the **Primary category** dropdown, and optionally select a **Secondary category** that fits your app.
 
-{% data variables.product.prodname_marketplace %}のアプリケーションはカテゴリ別に表示できます。 アプリケーションの主な機能を端的に表すカテゴリを [**Primary category**] ドロップダウンで選択し、オプションでstrong x-id="1">アプリケーションに適した [**Secondary category**] を選択します。
+### Supported languages
 
-### サポートされている言語
+If your app only works with specific languages, select up to 10 programming languages that your app supports. These languages are displayed on your app's {% data variables.product.prodname_marketplace %} listing page. This field is optional.
 
-アプリケーションが特定の言語でのみ動作する場合は、アプリケーションがサポートしている言語を最大10まで選択します。 選択した言語はアプリケーションの{% data variables.product.prodname_marketplace %}リストページに表示されます。 このフィールドはオプションです。
+### Listing URLs
 
-### URLのリスト
+**Required URLs**
+* **Customer support URL:** The URL of a web page that your customers will go to when they have technical support, product, or account inquiries.
+* **Privacy policy URL:** The web page that displays your app's privacy policy.
+* **Installation URL:** This field is shown for OAuth Apps only. (GitHub Apps don't use this URL because they use the optional Setup URL from the GitHub App's settings page instead.) When a customer purchases your OAuth App, GitHub will redirect customers to the installation URL after they install the app. You will need to redirect customers to `https://github.com/login/oauth/authorize` to begin the OAuth authorization flow. See "[New purchases for OAuth Apps](/marketplace/integrating-with-the-github-marketplace-api/handling-new-purchases-and-free-trials/)" for more details. Skip this field if you're listing a GitHub App.
 
-**必須のURL**
-* **カスタマーサポートのURL:** 顧客がテクニカルサポート、製品、またはアカウントについて問い合わせるためにアクセスするWebページのURL。
-* **プライバシーポリシーのURL:** アプリケーションのプライバシーポリシーが表示されるWebページ。
-* **インストールURL:** このフィールドが表示されるのはOAuthアプリケーションの場合のみです。 (GitHub AppはこのURLを使用しません。かわりに、GitHub Appの設定ページからオプションの設定URLを使用するからです。) 顧客がOAuth Appを購入する際、アプリケーションのインストール後にGitHubは顧客をインストールURLにリダイレクトします。 OAuth認証フローを始めるには、顧客を`https://github.com/login/oauth/authorize`にリダイレクトする必要があります。 詳細については、「[OAuthアプリケーションの新規購入](/marketplace/integrating-with-the-github-marketplace-api/handling-new-purchases-and-free-trials/)」を参照してください。 GitHub Appをリストする場合、このフィールドはスキップしてください。
+**Optional URLs**
+* **Company URL:** A link to your company's website.
+* **Status URL:** A link to a web page that displays the status of your app. Status pages can include current and historical incident reports, web application uptime status, and scheduled maintenance.
+* **Documentation URL:** A link to documentation that teaches customers how to use your app.
 
-**オプションのURL**
-* **企業URL:** 会社のWebサイトへのリンク。
-* **ステータスURL:** アプリケーションのステータスを表示するWebページへのリンク。 ステータスページには、現在および履歴のインシデントレポート、Webアプリケーションの稼働時間ステータス、およびメンテナンスのスケジュールが記載されます。
-* **ドキュメントのURL:** 顧客にアプリケーションの使用方法を説明するドキュメントへのリンク。
+## Logo and feature card
 
-## ロゴと機能カード
+{% data variables.product.prodname_marketplace %} displays all listings with a square logo image inside a circular badge to visually distinguish apps.
 
-{% data variables.product.prodname_marketplace %}には、アプリケーションを視覚的に区別するために、円形のバッジの中に四角いロゴ画像の付いたリストが表示されます。
+![GitHub Marketplace logo and badge images](/assets/images/marketplace/marketplace-logo-and-badge.png)
 
-![GitHub Marketplaceのロゴおよびバッジ画像](/assets/images/marketplace/marketplace-logo-and-badge.png)
+A feature card consists of your app's logo, name, and a custom background image that captures your brand personality. {% data variables.product.prodname_marketplace %} displays this card if your app is one of the four randomly featured apps at the top of the [homepage](https://github.com/marketplace). Each app's very short description is displayed below its feature card.
 
-機能カードは、アプリケーションのロゴ、名前、およびブランドの個性を捉えた顧客の背景画像で構成されます。 アプリケーションが、ランダムに選択されて[ホームページ](https://github.com/marketplace)の上部に表示されているアプリケーションの1つである場合、{% data variables.product.prodname_marketplace %}には、このカードが表示されます。 各アプリケーションのごく短い説明が、機能カードの下に表示されます。
+![Feature card](/assets/images/marketplace/marketplace_feature_card.png)
 
-![機能カード](/assets/images/marketplace/marketplace_feature_card.png)
+As you upload images and select colors, your {% data variables.product.prodname_marketplace %} draft listing will display a preview of your logo and feature card.
 
-画像をアップロードして色を選択すると、{% data variables.product.prodname_marketplace %}のドラフトリストに、ロゴと機能カードのプレビューが表示されます。
+#### Guidelines for logos
 
-#### ロゴのガイドライン
+You must upload a custom image for the logo. For the badge, choose a background color.
 
-ロゴ用として、カスタム画像をアップロードする必要があります。 バッジには、背景色を選択します。
+- Upload a logo image that is at least 200 pixels x 200 pixels so your logo won't have to be upscaled when your listing is published.
+- Logos will be cropped to a square. We recommend uploading a square image file with your logo in the center.
+- For best results, upload a logo image with a transparent background.
+- To give the appearance of a seamless badge, choose a badge background color that matches the background color (or transparency) of your logo image.
+- Avoid using logo images with words or text in them. Logos with text do not scale well on small screens.
 
-- リストを公開するときにアップスケールしなくて済むように、アップロードするロゴ画像は200×200ピクセル以上にしてください。
-- ロゴは正方形にトリミングされます。 ロゴが中央にある正方形の画像ファイルをアップロードすることをお勧めします。
-- 最適な結果を得るには、透明な背景のロゴ画像をアップロードしてください。
-- 継ぎ目がないようにバッジを表示するには、ロゴ画像の背景色 (または透明) と一致する色をバッジの背景として選択します。
-- 単語や文章が含まれるロゴ画像の使用は避けてください。 文字が含まれる画像は、小さい画面で適切に縮小されません。
+#### Guidelines for feature cards
 
-#### 機能カードのガイドライン
+You must upload a custom background image for the feature card. For the app's name, choose a text color.
 
-機能カード用として、カスタム背景画像をアップロードする必要があります。 アプリケーションの名前には、文字色を選択します。
+- Use a pattern or texture in your background image to give your card a visual identity and help it stand out against the dark background of the {% data variables.product.prodname_marketplace %} homepage. Feature cards should capture your app's brand personality.
+- Background image measures 965 pixels x 482 pixels (width x height).
+- Choose a text color for your app's name that shows up clearly over the background image.
 
-- カードを視覚的に区別しやすいように、また{% data variables.product.prodname_marketplace %}ホームページの暗い背景に対して目立つように、背景画像にはパターンまたはテクスチャを使用します。 機能カードには、アプリケーションのブランドの個性を取得する必要があります。
-- 背景画像の大きさは、幅965ピクセル x 高さ482ピクセルです。
-- アプリケーション名の文字色には、背景画像に対してはっきり見える色を選択してください。
+## Listing details
 
-## リストの詳細
+To get to your app's landing page, click your app's name from the {% data variables.product.prodname_marketplace %} homepage or category page. The landing page displays a longer description of the app, which includes two parts: an "Introductory description" and a "Detailed description."
 
-アプリケーションのランディングページにアクセスするには、{% data variables.product.prodname_marketplace %}ホームページまたはカテゴリページからアプリケーションの名前をクリックします。 ランディングページページには、アプリケーションの長い説明が表示されます。説明は「概要説明」と「詳細説明」の2部で構成されています。
+Your "Introductory description" is displayed at the top of your app's {% data variables.product.prodname_marketplace %} landing page.
 
-「概要説明」は、アプリケーションの{% data variables.product.prodname_marketplace %}ランディングページの上部に表示されます。
+![{% data variables.product.prodname_marketplace %} introductory description](/assets/images/marketplace/marketplace_intro_description.png)
 
-![{% data variables.product.prodname_marketplace %}の概要説明](/assets/images/marketplace/marketplace_intro_description.png)
+Clicking **Read more...**, displays the "Detailed description."
 
-[**Read more...**] をクリックすると、「詳細説明」が表示されます。
+![{% data variables.product.prodname_marketplace %} detailed description](/assets/images/marketplace/marketplace_detailed_description.png)
 
-![{% data variables.product.prodname_marketplace %}の詳細説明](/assets/images/marketplace/marketplace_detailed_description.png)
+Follow these guidelines for writing these descriptions.
 
-説明の記述は、以下のガイドラインに従ってください。
+### Length
 
-### 長さ
+We recommend writing a 1-2 sentence high-level summary between 150-250 characters in the required "Introductory description" field when [listing your app](/marketplace/listing-on-github-marketplace/). Although you are allowed to use more characters, concise summaries are easier for customers to read and understand quickly.
 
-[アプリケーションをリストする](/marketplace/listing-on-github-marketplace/)ときの必須の「概要説明」フィールドに、150～250文字の長さで1、2文くらいの概要を記述してください。 それ以上の文字数を使うこともできますが、概要は簡潔なほうが顧客に読みやすく、わかりやすくなります。
+You can add more information in the optional "Detailed description" field. You see this description when you click **Read more...** below the introductory description on your app's landing page. A detailed description consists of 3-5 [value propositions](https://en.wikipedia.org/wiki/Value_proposition), with 1-2 sentences describing each one. You can use up to 1,000 characters for this description.
 
-オプションの「詳細説明」フィールドに情報を追加することもできます。 アプリケーションのランディングページで概要説明の下にある [**Read more...**] をクリックすると、この説明が表示されます。 詳細説明は3～5個の[バリュープロポジション](https://en.wikipedia.org/wiki/Value_proposition)で構成され、それぞれが1、2文の説明です。 この説明には、最大1,000文字まで使用できます。
+### Content
 
-### 内容
+- Always begin introductory descriptions with your app's name.
 
-- 概要説明は、必ずアプリケーション名から始めます。
+- Always write descriptions and value propositions using the active voice.
 
-- 説明とバリュープロポジションは、必ず能動態で書きます。
+### Formatting
 
-### フォーマット
+- Always use sentence-case capitalization in value proposition titles. Only capitalize the first letter and proper nouns.
 
-- バリュープロポジションでは、英文字表記は固有名詞に使用し、大文字小文字は常に正しく使ってください。 大文字で始めて英文字表記するのは固有名詞だけです。
+- Use periods in your descriptions. Avoid exclamation marks.
 
-- 説明では句点を使用します。 感嘆符は避けてください。
+- Don't use punctuation at the end of your value proposition titles. Value proposition titles should not include complete sentences, and should not include more than one sentence.
 
-- バリュープロポジションのタイトルの終わりには句読点を付けません。 バリュープロポジションのタイトルを完全文では書かないようにし、複数文は避けてください。
+- For each value proposition, include a title followed by a paragraph of description. Format the title as a [level-three header](/articles/basic-writing-and-formatting-syntax/#headings) using Markdown. For example:
 
-- 各バリュープロポジションには、タイトルとそれに続く説明があります。 タイトルは、Markdownを使用して[レベル3ヘッダ](/articles/basic-writing-and-formatting-syntax/#headings)としてフォーマットします。 例:
+  ### Learn the skills you need
 
+  GitHub Learning Lab can help you learn how to use GitHub, communicate more effectively with Markdown, handle merge conflicts, and more.
 
-  ### 必要なスキルを学ぶ
+- Only capitalize proper nouns.
 
-  GitHub Learning Labでは、GitHubの使い方を学習、Markdownによる効果的な連絡、マージコンフリクトの処理などが可能です。
+- Always use the [serial comma](https://en.wikipedia.org/wiki/Serial_comma) in lists.
 
-- 大文字で始めて英文字表記するのは固有名詞だけです。
+- Avoid referring to the GitHub community as "users."
 
-- 3つ以上の項目を並べるとき、[最後の「および」の前には読点](https://en.wikipedia.org/wiki/Serial_comma)を打ちます。
+  **DO:** Create issues automatically for people in your organization
 
-- GitHubコミュニティを「ユーザー」と称するのは避けてください。
+  **DON'T:** Create issues automatically for an organization's users
 
-  **良い例:** Organizationの人に自動的にIssueを作成する
+- Avoid acronyms unless they’re well established (such as API).
 
-  **悪い例:** 組織のユーザーについて自動的にIssueを作成する
+## Product screenshots
 
-- 略語は一般的な場合 (APIなど) を除いて使用しないでください。
+You can upload up to five screenshot images of your app to display on your app's landing page. Add an optional caption to each screenshot to provide context. After you upload your screenshots, you can drag them into the order you want them to be displayed on the landing page.
 
-## 製品のスクリーンショット
+### Guidelines for screenshots
 
-アプリケーションのランディングページで表示されるように、アプリケーションのスクリーンショット画像を5つまでアップロードできます。 スクリーンショットごとに状況がわかるキャプションをオプションとして追加します。 スクリーンショットをアップロードすると、ランディングページに表示したい順序でドラッグできます。
+- Images must be of high resolution (at least 1200px wide).
+- All images must be the same height and width (aspect ratio) to avoid page jumps when people click from one image to the next.
+- Show as much of the user interface as possible so people can see what your app does.
+- When taking screenshots of your app in a browser, only include the content in the display window. Avoid including the address bar, title bar, or toolbar icons, which do not scale well to smaller screen sizes.
+- GitHub displays the screenshots you upload in a box on your app's landing page, so you don't need to add boxes or borders around your screenshots.
+- Captions are most effective when they are short and snappy.
 
-### スクリーンショットのガイドライン
-
-- 画像は高解像度 (幅1200px以上) でなければなりません。
-- 画像を次から次へのクリックしたときにページが移動するのを避けるために、すべての画像は高さと幅 (アスペクト比) を等しくする必要があります。
-- アプリケーションの動作が見えるように、ユーザーインターフェースはできるだけ多く表示してください。
-- ブラウザーでアプリケーションのスクリーンショットを取得するときには、ディスプレイウィンドウの内容のみを含めるようにします。 アドレスバー、タイトルバー、ツールバーのアイコンは含めないでください。小さい画面で適切に縮小されません。
-- アップロードしたスクリーンショットは、アプリケーションのランディングページにあるボックスに表示されるので、スクリーンショットの周囲にボックスや枠線は必要ありません。
-- キャプションは、短く簡潔なほうが効果があります。
-
-![GitHub Marketplaceのスクリーンショット画像](/assets/images/marketplace/marketplace-screenshots.png)
+![GitHub Marketplace screenshot image](/assets/images/marketplace/marketplace-screenshots.png)

@@ -1,7 +1,7 @@
 ---
-title: '{% data variables.product.prodname_enterprise %}のインストール'
-shortTitle: インストール
-intro: 'システム管理者、運用およびセキュリティスペシャリストは、{% data variables.product.prodname_ghe_server %} をインストールできます。'
+title: 'Installing {% data variables.product.prodname_enterprise %}'
+shortTitle: Installing
+intro: 'System administrators and operations and security specialists can install {% data variables.product.prodname_ghe_server %}.'
 redirect_from:
   - /enterprise/admin-guide
   - /enterprise/admin/guides/installation
@@ -19,9 +19,8 @@ topics:
 children:
   - /setting-up-a-github-enterprise-server-instance
 ---
-
-詳しい情報または {% data variables.product.prodname_enterprise %} の購入については [{% data variables.product.prodname_enterprise %}](https://github.com/enterprise) を参照してください。
+For more information, or to purchase {% data variables.product.prodname_enterprise %}, see [{% data variables.product.prodname_enterprise %}](https://github.com/enterprise).
 
 {% data reusables.enterprise_installation.request-a-trial %}
 
-インストールプロセスについて質問がある場合は、「[{% data variables.product.prodname_enterprise %} Support への相談](/enterprise/admin/guides/enterprise-support/)」を参照してください。
+If you have questions about the installation process, see "[Working with {% data variables.product.prodname_enterprise %} Support](/enterprise/admin/guides/enterprise-support/)."

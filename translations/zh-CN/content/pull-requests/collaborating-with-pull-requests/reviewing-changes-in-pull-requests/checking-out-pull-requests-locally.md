@@ -25,6 +25,8 @@ shortTitle: 在本地查看 PR
 
 ## 在本地修改活动的拉取请求
 
+{% include tool-switcher %}
+
 {% webui %}
 
 {% data reusables.repositories.sidebar-pr %}
@@ -39,7 +41,7 @@ shortTitle: 在本地查看 PR
 
 {% data reusables.cli.cli-learn-more %}
 
-要在本地检出拉取请求，请使用 `gh pr checkout` 子命令。 将 `pull-request` 替换为拉取请求的编号、URL 或头部分支。
+To check out a pull request locally, use the `gh pr checkout` subcommand. Replace `pull-request` with the number, URL, or head branch of the pull request.
 
 ```shell
 gh pr checkout <em>pull-request</em>

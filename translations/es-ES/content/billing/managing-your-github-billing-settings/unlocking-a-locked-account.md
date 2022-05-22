@@ -3,12 +3,12 @@ title: Desbloquear una cuenta bloqueada
 intro: Las características pagadas de tu organización se bloquearán si tu pago no se recibe a tiempo debido a problemas de facturación.
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/unlocking-a-locked-account
-  - /articles/what-happens-if-my-account-is-locked
-  - /articles/if-my-account-is-locked-and-i-upgrade-it-do-i-owe-anything-for-previous-time
-  - /articles/if-my-account-is-locked-and-i-upgrade-it-do-i-pay-backcharges
-  - /articles/what-happens-if-my-repository-is-locked
-  - /articles/unlocking-a-locked-personal-account
-  - /articles/unlocking-a-locked-organization-account
+  - /articles/what-happens-if-my-account-is-locked/
+  - /articles/if-my-account-is-locked-and-i-upgrade-it-do-i-owe-anything-for-previous-time/
+  - /articles/if-my-account-is-locked-and-i-upgrade-it-do-i-pay-backcharges/
+  - /articles/what-happens-if-my-repository-is-locked/
+  - /articles/unlocking-a-locked-personal-account/
+  - /articles/unlocking-a-locked-organization-account/
   - /articles/unlocking-a-locked-account
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-github-billing-settings/unlocking-a-locked-account
 versions:

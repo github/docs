@@ -1,6 +1,6 @@
 ---
-title: GitHub Pages でサブモジュールを使用する
-intro: '{% data variables.product.prodname_pages %} でサブモジュールを使用すると、他のサイトのコードで他のプロジェクトを含めることができます。'
+title: Using submodules with GitHub Pages
+intro: 'You can use submodules with {% data variables.product.prodname_pages %} to include other projects in your site''s code.'
 redirect_from:
   - /articles/using-submodules-with-pages
   - /articles/using-submodules-with-github-pages
@@ -11,16 +11,16 @@ versions:
   ghec: '*'
 topics:
   - Pages
-shortTitle: Pagesでのサブモジュールの利用
+shortTitle: Use submodules with Pages
 ---
 
-{% data variables.product.prodname_pages %} サイトのリポジトリにサブモジュールが含まれている場合、その内容はサイトをビルドする際に自動的にプルされます。
+If the repository for your {% data variables.product.prodname_pages %} site contains submodules, their contents will automatically be pulled in when your site is built.
 
-使用できるのは、パブリックリポジトリをポイントするサブモジュールだけです。{% data variables.product.prodname_pages %} サーバーはプライベートリポジトリにはアクセスできないためです。
+You can only use submodules that point to public repositories, because the {% data variables.product.prodname_pages %} server cannot access private repositories.
 
-ネストされたサブモジュールも含めて、サブモジュールには `https://` 読み取り専用 URL を使用してください。 この変更は _.gitmodules_ ファイルで行うことができます。
+Use the `https://` read-only URL for your submodules, including nested submodules. You can make this change in your _.gitmodules_ file.
 
-## 参考リンク
+## Further reading
 
-- _Pro Git_ ブックの「[Git Tools - Submodules](https://git-scm.com/book/en/Git-Tools-Submodules)」
-- [{% data variables.product.prodname_pages %} サイトの Jekyll ビルドエラーに関するトラブルシューティング](/articles/troubleshooting-jekyll-build-errors-for-github-pages-sites)
+- "[Git Tools - Submodules](https://git-scm.com/book/en/Git-Tools-Submodules)" from the _Pro Git_ book
+- "[Troubleshooting Jekyll build errors for {% data variables.product.prodname_pages %} sites](/articles/troubleshooting-jekyll-build-errors-for-github-pages-sites)"

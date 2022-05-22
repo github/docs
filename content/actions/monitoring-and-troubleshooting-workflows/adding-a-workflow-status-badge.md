@@ -39,8 +39,8 @@ This Markdown example adds a status badge for a branch with the name `feature-1`
 
 ## Using the `event` parameter
 
-This Markdown example adds a badge that displays the status of workflow runs triggered by the `push` event, which will show the status of the build for the current state of that branch.
+This Markdown example adds a badge that displays the status of workflow runs triggered by the `pull_request` event.
 
 ```markdown
-![example event parameter](https://github.com/github/docs/actions/workflows/main.yml/badge.svg?event=push)
+![example event parameter](https://github.com/github/docs/actions/workflows/main.yml/badge.svg?event=pull_request)
 ```

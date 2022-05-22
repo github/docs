@@ -1,6 +1,6 @@
 ---
-title: SSH 故障排除
-intro: '使用 SSH 连接到 {% data variables.product.product_name %} 并进行身份验证时，您可能需要对可能引起的意外问题进行故障排除。'
+title: Troubleshooting SSH
+intro: 'When using SSH to connect and authenticate to {% data variables.product.product_name %}, you may need to troubleshoot unexpected issues that may arise.'
 redirect_from:
   - /articles/troubleshooting-ssh
   - /github/authenticating-to-github/troubleshooting-ssh

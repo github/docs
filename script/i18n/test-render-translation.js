@@ -67,7 +67,7 @@ async function main() {
       // test the content
       await renderContent.liquid.parseAndRender(content, context)
       // test each translatable frontmatter property
-      for (const key of translatableFm) {
+      for (const key in translatableFm) {
         await renderContent.liquid.parseAndRender(data[key], context)
       }
     } catch (err) {

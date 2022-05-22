@@ -1,6 +1,6 @@
 ---
-title: プロジェクトのコントリビューターを表示する
-intro: 'リポジトリへのコミットにコントリビュートした人{% ifversion fpt or ghec %}とその依存関係{% endif %}を表示できます。'
+title: Viewing a project's contributors
+intro: 'You can see who contributed commits to a repository{% ifversion fpt or ghec %} and its dependencies{% endif %}.'
 redirect_from:
   - /articles/i-don-t-see-myself-in-the-contributions-graph
   - /articles/viewing-contribution-activity-in-a-repository
@@ -17,35 +17,36 @@ topics:
   - Repositories
 shortTitle: View project contributors
 ---
+## About contributors
 
-## コントリビューターについて
-
-コントリビューターグラフで{% ifversion ghes or ghae %}、コミットの共作者を含めて{% endif %}、リポジトリに貢献した上位 100 人のコントリビューターを表示できます。 マージコミットと空のコミットは、このグラフでコントリビューションとして数えられません。
+You can view the top 100 contributors to a repository{% ifversion ghes or ghae %}, including commit co-authors,{% endif %} in the contributors graph. Merge commits and empty commits aren't counted as contributions for this graph.
 
 {% ifversion fpt or ghec %}
-プロジェクトの Python 依存関係に貢献した人のリストも表示されます。 この、コミュニティコントリビューターのリストを表示するには、`https://github.com/REPO-OWNER/REPO-NAME/community_contributors` にアクセスしてください。
+You can also see a list of people who have contributed to the project's Python dependencies. To access this list of community contributors, visit `https://github.com/REPO-OWNER/REPO-NAME/community_contributors`.
 {% endif %}
 
-## コントリビューターグラフにアクセスする
+## Accessing the contributors graph
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.accessing-repository-graphs %}
-3. 左サイドバーで [**Contributors**] をクリックします。 ![コントリビュータータブ](/assets/images/help/graphs/contributors_tab.png)
-4. オプションで、特定の期間におけるコントリビューターを表示するには、クリックしてから、その期間が選択されるまでドラッグしてください。 The contributors graph sums weekly commit numbers onto each Sunday, so your time period must include a Sunday. ![コントリビュータグラフで選択した時間範囲](/assets/images/help/graphs/repo_contributors_click_drag_graph.png)
+3. In the left sidebar, click **Contributors**.
+  ![Contributors tab](/assets/images/help/graphs/contributors_tab.png)
+4. Optionally, to view contributors during a specific time period, click, then drag until the time period is selected. The contributors graph sums weekly commit numbers onto each Sunday, so your time period must include a Sunday.
+  ![Selected time range in the contributors graph](/assets/images/help/graphs/repo_contributors_click_drag_graph.png)
 
-## コントリビューターのトラブルシューティング
+## Troubleshooting contributors
 
-リポジトリのコントリビュータグラフにあなたが表示されない場合、以下の理由が考えられます:
-- 上位 100 人に入っていない。
-- コミットがデフォルトブランチにマージされていない。
-- コミットの作成に使用したメールアドレスが、{% data variables.product.product_name %} のアカウントに接続されていない。
+If you don't appear in a repository's contributors graph, it may be because:
+- You aren't one of the top 100 contributors.
+- Your commits haven't been merged into the default branch.
+- The email address you used to author the commits isn't connected to your account on {% data variables.product.product_name %}.
 
 {% tip %}
 
-**ヒント:** リポジトリへのコミットのコントリビューターを一覧表示する方法については、「[リポジトリ](/rest/reference/repos#list-contributors)」を参照してください。
+**Tip:** To list all commit contributors in a repository, see "[Repositories](/rest/reference/repos#list-contributors)."
 
 {% endtip %}
 
-リポジトリ内のあなたのコミットがすべてデフォルト以外のブランチにある場合、コントリビュータグラフには表示されません。 たとえば、`gh-pages`ブランチに対して行われたコミットは、`gh-pages`がリポジトリのデフォルトのブランチでない限り、グラフに含まれません。 コミットをデフォルトブランチにマージするため、プルリクエストを作成できます。 詳しい情報については[プルリクエストについて](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)を参照してください。
+If all your commits in the repository are on non-default branches, you won't be in the contributors graph. For example, commits on the `gh-pages` branch aren't included in the graph unless `gh-pages` is the repository's default branch. To have your commits merged into the default branch, you can create a pull request. For more information, see "[About pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)."
 
-コミットの作成に使用したメールアドレスが {% data variables.product.product_name %} のアカウントに接続されていない場合、コミットはアカウントにリンクされず、コントリビュータグラフに表示されません。 詳しい情報については、「[コミットメールアドレスを設定する](/articles/setting-your-commit-email-address){% ifversion not ghae %}」および「[{% data variables.product.prodname_dotcom %} アカウントにメールアドレスを追加する](/articles/adding-an-email-address-to-your-github-account){% endif %}」を参照してください。
+If the email address you used to author the commits is not connected to your account on {% data variables.product.product_name %}, your commits won't be linked to your account, and you won't appear in the contributors graph. For more information, see "[Setting your commit email address](/articles/setting-your-commit-email-address){% ifversion not ghae %}" and "[Adding an email address to your {% data variables.product.prodname_dotcom %} account](/articles/adding-an-email-address-to-your-github-account){% endif %}."

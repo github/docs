@@ -1,6 +1,6 @@
 ---
-title: Solucionar problemas de domínios personalizados e do GitHub Pages
-intro: 'Você pode verificar os erros comuns para resolver problemas com domínios personalizados ou HTTPS no seu site do {% data variables.product.prodname_pages %}.'
+title: Troubleshooting custom domains and GitHub Pages
+intro: 'You can check for common errors to resolve issues with custom domains or HTTPS for your {% data variables.product.prodname_pages %} site.'
 redirect_from:
   - /articles/my-custom-domain-isn-t-working
   - /articles/custom-domain-isn-t-working
@@ -13,58 +13,58 @@ versions:
   ghec: '*'
 topics:
   - Pages
-shortTitle: Solucione o problema de um domínio personalizado
+shortTitle: Troubleshoot a custom domain
 ---
 
-## Erros _CNAME_
+## _CNAME_ errors
 
-Os domínios personalizados são armazenados em um arquivo _CNAME_ na raiz da fonte de publicação que pode ser adicionado ou atualizado manualmente ou por meio das configurações do repositório. Para obter mais informações, consulte "[Gerenciar um domínio personalizado para seu site do {% data variables.product.prodname_pages %}](/articles/managing-a-custom-domain-for-your-github-pages-site)".
+Custom domains are stored in a _CNAME_ file in the root of your publishing source. You can add or update this file through your repository settings or manually. For more information, see "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/articles/managing-a-custom-domain-for-your-github-pages-site)."
 
-Para que o site seja renderizado no domínio correto, verifique se o arquivo _CNAME_ ainda existe no repositório. Por exemplo, muitos geradores de site estáticos fazem push forçado para o repositório, o que pode substituir o arquivo _CNAME_ que foi adicionado ao repositório quando você configurou o domínio personalizado. Se você criar o site localmente e fizer push dos arquivos gerados para o {% data variables.product.product_name %}, primeiro insira o commit que adicionou o arquivo _CNAME_ ao repositório local, para que o arquivo seja incluído na criação.
+For your site to render at the correct domain, make sure your _CNAME_ file still exists in the repository. For example, many static site generators force push to your repository, which can overwrite the _CNAME_ file that was added to your repository when you configured your custom domain. If you build your site locally and push generated files to {% data variables.product.product_name %}, make sure to pull the commit that added the _CNAME_ file to your local repository first, so the file will be included in the build.
 
-Em seguida, verifique se o arquivo _CNAME_ está formatado corretamente.
+Then, make sure the _CNAME_ file is formatted correctly.
 
-- O nome de arquivo _CNAME_ deve estar todo em letras maiúsculas.
-- O arquivo _CNAME_ só pode conter um domínio. Para apontar vários domínios para o site, é preciso configurar um redirecionamento por meio do provedor DNS.
-- O arquivo _CNAME_ deve conter apenas o nome do domínio. Por exemplo, `www.example.com`, `blog.example.com` ou `example.com`.
-- O nome de domínio precisa ser único em todos os sites de {% data variables.product.prodname_pages %}. Por exemplo, se o arquivo _CNAME_ de outro repositório contiver `example.com`, você não poderá usar `example.com` no arquivo _CNAME_ para o repositório.
+- The _CNAME_ filename must be all uppercase.
+- The _CNAME_ file can contain only one domain. To point multiple domains to your site, you must set up a redirect through your DNS provider.
+- The _CNAME_ file must contain the domain name only. For example, `www.example.com`, `blog.example.com`, or `example.com`.
+- The domain name must be unique across all {% data variables.product.prodname_pages %} sites. For example, if another repository's _CNAME_ file contains `example.com`, you cannot use `example.com` in the _CNAME_ file for your repository.
 
-## Configuração incorreta do DNS
+## DNS misconfiguration
 
-Se você tiver problemas para apontar o domínio padrão do site para o domínio personalizado, entre em contato com seu provedor DNS.
+If you have trouble pointing the default domain for your site to your custom domain, contact your DNS provider.
 
-Você também pode usar um dos seguintes métodos para testar se os registros DNS do seu domínio personalizado estão configurados corretamente:
+You can also use one of the following methods to test whether your custom domain's DNS records are configured correctly:
 
-- Uma ferramenta CLI como `dig`. Para obter mais informações, consulte "[Gerenciar um domínio personalizado para o seu site de {% data variables.product.prodname_pages %}](/articles/managing-a-custom-domain-for-your-github-pages-site)".
-- Uma ferramenta de pesquisa de DNS on-line.
+- A CLI tool such as `dig`. For more information, see "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/articles/managing-a-custom-domain-for-your-github-pages-site)".
+- An online DNS lookup tool.
 
-## Nomes de domínios personalizados que não são compatíveis
+## Custom domain names that are unsupported
 
-Se o seu domínio personalizado não for compatível, talvez você precise alterá-lo para um que tenha suporte. Você também pode entrar em contato com seu provedor DNS para ver se ele oferece serviços de encaminhamento para nomes de domínio.
+If your custom domain is unsupported, you may need to change your domain to a supported domain. You can also contact your DNS provider to see if they offer forwarding services for domain names.
 
-Verifique se o seu site não:
-- Usa mais de um domínio apex. Por exemplo, `example.com` e `anotherexample.com`.
-- Usa mais de um subdomínio `www`. Por exemplo, `www.example.com` e `www.anotherexample.com`.
-- Usa um domínio apex e um subdomínio personalizado. Por exemplo, `example.com` e `docs.example.com`.
+Make sure your site does not:
+- Use more than one apex domain. For example, both `example.com` and `anotherexample.com`.
+- Use more than one `www` subdomain. For example, both `www.example.com` and `www.anotherexample.com`.
+- Use both an apex domain and custom subdomain. For example, both `example.com` and `docs.example.com`.
 
-  A única exceção é o subdomínio `www`. Se configurado corretamente, o subdomínio `www` é automaticamente redirecionado para o domínio apex. Para obter mais informações, consulte "[Gerenciar um domínio personalizado para seu site do {% data variables.product.prodname_pages %}](/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site#configuring-an-apex-domain)".
+  The one exception is the `www` subdomain. If configured correctly, the `www` subdomain is automatically redirected to the apex domain. For more information, see "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site#configuring-an-apex-domain)."
 
 {% data reusables.pages.wildcard-dns-warning %}
 
-Para obter uma lista de domínios personalizados compatíveis, consulte "[Sobre domínios personalizados e o {% data variables.product.prodname_pages %}](/articles/about-custom-domains-and-github-pages/#supported-custom-domains)".
+For a list of supported custom domains, see "[About custom domains and {% data variables.product.prodname_pages %}](/articles/about-custom-domains-and-github-pages/#supported-custom-domains)."
 
-## Erros de HTTPS
+## HTTPS errors
 
-É possível acessar por HTTPS os sites do {% data variables.product.prodname_pages %} que usem domínios personalizados e estejam corretamente configurados com registros DNS `CNAME`, `ALIAS`, `ANAME` ou `A`. Para obter mais informações, consulte "[Proteger seu site do {% data variables.product.prodname_pages %} com HTTPS](/articles/securing-your-github-pages-site-with-https)".
+{% data variables.product.prodname_pages %} sites using custom domains that are correctly configured with `CNAME`, `ALIAS`, `ANAME`, or `A` DNS records can be accessed over HTTPS. For more information, see "[Securing your {% data variables.product.prodname_pages %} site with HTTPS](/articles/securing-your-github-pages-site-with-https)."
 
-Depois que você configurar seu domínio personalizado, pode levar até uma hora para o seu site ser disponibilizado por HTTPS. Após a atualização das configurações DNS existentes, talvez seja necessário remover o domínio personalizado e tornar a adicioná-lo ao repositório do site para acionar o processo de habilitação do HTTPS. Para obter mais informações, consulte "[Gerenciar um domínio personalizado para seu site do {% data variables.product.prodname_pages %}](/articles/managing-a-custom-domain-for-your-github-pages-site)".
+It can take up to an hour for your site to become available over HTTPS after you configure your custom domain. After you update existing DNS settings, you may need to remove and re-add your custom domain to your site's repository to trigger the process of enabling HTTPS. For more information, see "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/articles/managing-a-custom-domain-for-your-github-pages-site)."
 
-Se você estiver usando registros CAA (Certification Authority Authorization, Autorização da autoridade de certificação), pelo menos um deles deverá ter o valor `letsencrypt.org` para que o seu site possa ser acessado por HTTPS. Para obter mais informações, consulte "[Autorização da autoridade de certificação (CAA)](https://letsencrypt.org/docs/caa/)" na documentação de Let's Encrypt.
+If you're using Certification Authority Authorization (CAA) records, at least one CAA record must exist with the value `letsencrypt.org` for your site to be accessible over HTTPS. For more information, see "[Certificate Authority Authorization (CAA)](https://letsencrypt.org/docs/caa/)" in the Let's Encrypt documentation.
 
-## Formatação de URL no Linux
+## URL formatting on Linux
 
-Se a URL para o seu site incluir um nome de usuário ou de organização que começa ou termina com um traço ou contiver traços consecutivos, as pessoas que navegam com Linux receberão um erro de servidor quando tentarem visitar o site. Para corrigir isso, remova caracteres não alfanuméricos do seu nome de usuário do {% data variables.product.product_name %}. Para obter mais informações, consulte "[Alterar seu nome de usuário do {% data variables.product.prodname_dotcom %}](/articles/changing-your-github-username/)".
+If the URL for your site contains a username or organization name that begins or ends with a dash, or contains consecutive dashes, people browsing with Linux will receive a server error when they attempt to visit your site. To fix this, change your {% data variables.product.product_name %} username to remove non-alphanumeric characters. For more information, see "[Changing your {% data variables.product.prodname_dotcom %} username](/articles/changing-your-github-username/)."
 
-## Cache do navegador
+## Browser cache
 
-Se você tiver alterado ou removido recentemente seu domínio personalizado e não conseguir acessar a nova URL no navegador, talvez precise limpar o cache do navegador para alcançar a nova URL. Para obter mais informações sobre limpeza do cache, consulte a documentação do navegador.
+If you've recently changed or removed your custom domain and can't access the new URL in your browser, you may need to clear your browser's cache to reach the new URL. For more information on clearing your cache, see your browser's documentation.

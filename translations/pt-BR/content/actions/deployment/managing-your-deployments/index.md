@@ -4,8 +4,7 @@ shortTitle: Gerenciando as suas implantações
 intro: Você pode revisar a atividade anterior das suas implantações.
 versions:
   fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  ghae: issue-4856
   ghec: '*'
 children:
   - /viewing-deployment-history

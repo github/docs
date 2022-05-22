@@ -3,9 +3,9 @@ title: Discounted subscriptions for GitHub accounts
 intro: '{% data variables.product.product_name %} provides discounts to students, educators, educational institutions, nonprofits, and libraries.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/discounted-subscriptions-for-github-accounts
-  - /articles/discounted-personal-accounts
-  - /articles/discounted-organization-accounts
-  - /articles/discounted-billing-plans
+  - /articles/discounted-personal-accounts/
+  - /articles/discounted-organization-accounts/
+  - /articles/discounted-billing-plans/
   - /articles/discounted-subscriptions-for-github-accounts
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-your-github-account/discounted-subscriptions-for-github-accounts
 versions:

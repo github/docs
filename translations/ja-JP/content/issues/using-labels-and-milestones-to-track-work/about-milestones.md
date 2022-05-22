@@ -1,6 +1,6 @@
 ---
-title: マイルストーンについて
-intro: マイルストーンを使ってリポジトリ中のIssueやプルリクエストのグループの進捗を追跡できます。
+title: About milestones
+intro: You can use milestones to track progress on groups of issues or pull requests in a repository.
 redirect_from:
   - /github/managing-your-work-on-github/tracking-the-progress-of-your-work-with-milestones/about-milestones
   - /articles/about-milestones
@@ -13,36 +13,35 @@ versions:
 topics:
   - Pull requests
 ---
+When you [create a milestone](/articles/creating-and-editing-milestones-for-issues-and-pull-requests), you can [associate it with issues and pull requests](/articles/associating-milestones-with-issues-and-pull-requests).
 
-[マイルストーンを作成](/articles/creating-and-editing-milestones-for-issues-and-pull-requests)すると、作成した[マイルストーンをIssueやプルリクエストに関連づけ](/articles/associating-milestones-with-issues-and-pull-requests)できます。
+To better manage your project, you can [view details about your milestone](/articles/viewing-your-milestone-s-progress). From the milestone page, you can see:
 
-プロジェクトをよりよく管理するため、[マイルストーンの詳細を見る](/articles/viewing-your-milestone-s-progress)ことができます。 マイルストーンページからは、以下を見ることができます:
+- A user-provided description of the milestone, which can include information like a project overview, relevant teams, and projected due dates
+- The milestone's due date
+- The milestone's completion percentage
+- The number of open and closed issues and pull requests associated with the milestone
+- A list of the open and closed issues and pull requests associated with the milestone
 
-- ユーザが提供したマイルストーンの説明。これにはプロジェクトの概要、関連するTeam、プロジェクトの期限といった情報が含まれます。
-- マイルストーンの期限日
-- マイルストーンの完了パーセンテージ
-- マイルストーンに関連づけられたオープン及びクローズのIssueとプルリクエスト数
-- マイルストーンに関連づけられたオープンとクローズのIssueとプルリクエストのリスト
+Additionally, you can edit the milestone from the milestone page and create new issues that are, by default, associated with the milestone.
 
-加えて、マイルストーンページからマイルストーンの変更と、デフォルトでマイルストーンに関連づけられた新しいIssueの作成ができます。
+![Milestone page](/assets/images/help/issues/milestone-info-page.png)
 
-![マイルストーンページ](/assets/images/help/issues/milestone-info-page.png)
+## Prioritizing issues and pull requests in milestones
 
-## マイルストーン中のIssueとプルリクエストの優先順位付け
-
-マイルストーン中のオープンのIssueとプルリクエストは、Issueもしくはプルリクエストのチェックボックスの左をクリックし、新しい場所へドラッグし、ドロップすることによって、優先順位付けできます。
+You can prioritize open issues and pull requests in a milestone by clicking to the left of an issue or pull request's checkbox, dragging it to a new location, and dropping it.
 
 {% note %}
 
-**ノート：**500以上のオープンなIssueがマイルストーン中にあると、Issueの優先順位付けはできません。
+**Note:** If there are more than 500 open issues in a milestone, you won't be able to prioritize issues.
 
 {% endnote %}
 
-![並べ替えられたマイルストーン](/assets/images/help/issues/milestone-reordered.gif)
+![Reordered milestone](/assets/images/help/issues/milestone-reordered.gif)
 
-## 参考リンク
+## Further reading
 
-- [IssueやPull Requestのためのマイルストーンの作成と編集](/articles/creating-and-editing-milestones-for-issues-and-pull-requests)
-- [Issue及びPull Requestとのマイルストーンの関連づけ](/articles/associating-milestones-with-issues-and-pull-requests)
-- [マイルストーンによるIssue及びPull Requestのフィルタリング](/articles/filtering-issues-and-pull-requests-by-milestone)
-- [マイルストーンの進捗の表示](/articles/viewing-your-milestone-s-progress)
+- "[Creating and editing milestones for issues and pull requests](/articles/creating-and-editing-milestones-for-issues-and-pull-requests)"
+- "[Associating milestones with issues and pull requests](/articles/associating-milestones-with-issues-and-pull-requests)"
+- "[Filtering issues and pull requests by milestone](/articles/filtering-issues-and-pull-requests-by-milestone)"
+- "[Viewing your milestone's progress](/articles/viewing-your-milestone-s-progress)"

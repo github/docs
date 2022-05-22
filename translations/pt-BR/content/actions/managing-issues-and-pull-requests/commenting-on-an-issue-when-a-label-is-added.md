@@ -1,6 +1,6 @@
 ---
-title: Comentar em um problema quando uma etiqueta é adicionada
-intro: 'Você pode usar {% data variables.product.prodname_actions %} para comentar automaticamente nos problema quando uma etiqueta específica é aplicada.'
+title: Commenting on an issue when a label is added
+intro: 'You can use {% data variables.product.prodname_actions %} to automatically comment on issues when a specific label is applied.'
 redirect_from:
   - /actions/guides/commenting-on-an-issue-when-a-label-is-added
 versions:
@@ -12,23 +12,23 @@ type: tutorial
 topics:
   - Workflows
   - Project management
-shortTitle: Adicionar etiqueta ao comentário no problema
+shortTitle: Add label to comment on issue
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## Introdução
+## Introduction
 
-Este tutorial demonstra como usar a ação [`peter-evans/create-or-update-comment`](https://github.com/marketplace/actions/create-or-update-comment) para comentar em um problema quando uma etiqueta específica é aplicada. Por exemplo, quando a etiqueta `help-wanted` é adicionada a um problema, você pode adicionar um comentário para incentivar os contribuidores a trabalhar no problema.
+This tutorial demonstrates how to use the [`peter-evans/create-or-update-comment` action](https://github.com/marketplace/actions/create-or-update-comment) to comment on an issue when a specific label is applied. For example, when the `help-wanted` label is added to an issue, you can add a comment to encourage contributors to work on the issue.
 
-No tutorial, primeiro você vai criar um arquivo de fluxo de trabalho que usa a ação [`peter-evans/create-or-update-comment`](https://github.com/marketplace/actions/create-or-update-comment). Então, você personalizará o fluxo de trabalho para atender às suas necessidades.
+In the tutorial, you will first make a workflow file that uses the [`peter-evans/create-or-update-comment` action](https://github.com/marketplace/actions/create-or-update-comment). Then, you will customize the workflow to suit your needs.
 
-## Criar o fluxo de trabalho
+## Creating the workflow
 
 1. {% data reusables.actions.choose-repo %}
 2. {% data reusables.actions.make-workflow-file %}
-3. Copie o seguinte conteúdo YAML para o arquivo do fluxo de trabalho.
+3. Copy the following YAML contents into your workflow file.
 
     ```yaml{:copy}
 {% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=4 %}
@@ -50,25 +50,25 @@ No tutorial, primeiro você vai criar um arquivo de fluxo de trabalho que usa a 
             with:
               issue-number: {% raw %}${{ github.event.issue.number }}{% endraw %}
               body: |
-                This issue is available for anyone to work on. **Certifique-se de fazer referência a esse problema no seu pull request.** :sparkles: Obrigado pela sua contribuição! :sparkles:
+                This issue is available for anyone to work on. **Make sure to reference this issue in your pull request.** :sparkles: Thank you for your contribution! :sparkles:
     ```
 
-4. Personalize os parâmetros no seu arquivo do fluxo de trabalho:
-   - Substitua `help-wanted` em `if: github.event.label.name == 'help-wanted'` pela etiqueta na qual você deseja agir. Se você desejar atuar em mais de uma etiqueta, separe as condições com `||`. Por exemplo, `if: github.event.label.name == 'bug' ➜ github.event.label. ame == 'corrija-me'` irá comentar sempre que as etiquetas `bug` ou `fix me` forem adicionadas a um problema.
-   - Altere o valor de `texto` para o comentário que você deseja adicionar. Markdown em estilo GitHub é compatível. Para obter mais informações sobre markdown, consulte "[Sintaxe básica de escrita e formatação](/github/writing-on-github/basic-writing-and-formatting-syntax)".
+4. Customize the parameters in your workflow file:
+   - Replace `help-wanted` in `if: github.event.label.name == 'help-wanted'` with the label that you want to act on. If you want to act on more than one label, separate the conditions with `||`. For example, `if: github.event.label.name == 'bug' || github.event.label.name == 'fix me'` will comment whenever the `bug` or `fix me` labels are added to an issue.
+   - Change the value for `body` to the comment that you want to add. GitHub flavored markdown is supported. For more information about markdown, see "[Basic writing and formatting syntax](/github/writing-on-github/basic-writing-and-formatting-syntax)."
 5. {% data reusables.actions.commit-workflow %}
 
-## Testar o fluxo de trabalho
+## Testing the workflow
 
-Toda vez que um problema no repositório for identificado, esse fluxo de trabalho será executado. Se a etiqueta que foi adicionada for uma das etiquetas que você especificou no seu arquivo de fluxo de trabalho, a ação `peter-evans/create-or-update-comment` irá adicionar o comentário que você especificou para o problema.
+Every time an issue in your repository is labeled, this workflow will run. If the label that was added is one of the labels that you specified in your workflow file, the `peter-evans/create-or-update-comment` action will add the comment that you specified to the issue.
 
-Teste seu fluxo de trabalho aplicando a sua etiqueta especificada a um problema.
+Test your workflow by applying your specified label to an issue.
 
-1. Abra um problema no seu repositório. Para obter mais informações, consulte "[Criar um problema](/github/managing-your-work-on-github/creating-an-issue)".
-2. Etiquete o problema com a etiqueta especificada no seu arquivo de fluxo de trabalho. Para obter mais informações, consulte "[Gerenciar etiquetas](/github/managing-your-work-on-github/managing-labels#applying-labels-to-issues-and-pull-requests)".
-3. Para ver a execução do fluxo de trabalho acionada etiquetando o problema, veja o histórico de execuções do seu fluxo de trabalho. Para obter mais informações, consulte "[Visualizar histórico de execução de fluxo de trabalho](/actions/managing-workflow-runs/viewing-workflow-run-history)".
-4. Quando o fluxo de trabalho é concluído, o problema que você etiquetou deve ter um comentário adicionado.
+1. Open an issue in your repository. For more information, see "[Creating an issue](/github/managing-your-work-on-github/creating-an-issue)."
+2. Label the issue with the specified label in your workflow file. For more information, see "[Managing labels](/github/managing-your-work-on-github/managing-labels#applying-labels-to-issues-and-pull-requests)."
+3. To see the workflow run triggered by labeling the issue, view the history of your workflow runs. For more information, see "[Viewing workflow run history](/actions/managing-workflow-runs/viewing-workflow-run-history)."
+4. When the workflow completes, the issue that you labeled should have a comment added.
 
-## Próximas etapas
+## Next steps
 
-- Para saber outras coisas, você pode fazer com a ação `peter-evans/create-or-update-comment`, como adicionar reações, acesse a documentação de ação [`peter-evans/create-or-update-comment`](https://github.com/marketplace/actions/create-or-update-comment).
+- To learn more about additional things you can do with the `peter-evans/create-or-update-comment` action, like adding reactions, visit the [`peter-evans/create-or-update-comment` action documentation](https://github.com/marketplace/actions/create-or-update-comment).

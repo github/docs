@@ -1,5 +1,5 @@
 ---
-title: ネットワークを設定する
+title: Configuring network settings
 redirect_from:
   - /enterprise/admin/guides/installation/dns-hostname-subdomain-isolation-and-ssl
   - /enterprise/admin/articles/about-dns-ssl-and-subdomain-settings
@@ -7,7 +7,7 @@ redirect_from:
   - /enterprise/admin/guides/installation/configuring-your-github-enterprise-network-settings
   - /enterprise/admin/installation/configuring-your-github-enterprise-server-network-settings
   - /enterprise/admin/configuration/configuring-network-settings
-intro: 'ネットワークで必要な DNS ネームサーバーとホスト名を使用して {% data variables.product.prodname_ghe_server %} を設定します。 プロキシサーバあるいはファイアウォールルールを設定することもできます。 管理及びユーザのために特定のポートへのアクセスを許可しなければなりません。'
+intro: 'Configure {% data variables.product.prodname_ghe_server %} with the DNS nameservers and hostname required in your network. You can also configure a proxy server or firewall rules. You must allow access to certain ports for administrative and user purposes.'
 versions:
   ghes: '*'
 topics:

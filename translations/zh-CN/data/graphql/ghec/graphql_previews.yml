@@ -29,7 +29,7 @@
     - '@github/c2c-actions-service'
 - 
   title: >-
-    >- MergeInfoPreview - 有关拉取请求合并状态的更多详细信息。
+    >- MergeInfoPreview - More detailed information about a pull request's merge state.
   description: >-
     此预览支持访问提供有关拉取请求合并状态的更多详细信息的字段。
   toggled_by: ':merge-info-preview'

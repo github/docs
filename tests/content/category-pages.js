@@ -17,7 +17,13 @@ const slugger = new GithubSlugger()
 const contentDir = path.join(__dirname, '../../content')
 
 describe('category pages', () => {
-  const siteData = loadSiteData().en.site
+  let siteData
+
+  beforeAll(async () => {
+    // Load the English site data
+    const allSiteData = await loadSiteData()
+    siteData = allSiteData.en.site
+  })
 
   const walkOptions = {
     globs: ['*/index.md', 'enterprise/*/index.md'],
@@ -60,11 +66,7 @@ describe('category pages', () => {
     describe.each(categoryTuples)(
       'category index "%s"',
       (indexRelPath, indexAbsPath, indexLink) => {
-        let publishedArticlePaths,
-          availableArticlePaths,
-          indexTitle,
-          categoryVersions,
-          categoryChildTypes
+        let publishedArticlePaths, availableArticlePaths, indexTitle, categoryVersions
         const articleVersions = {}
 
         beforeAll(async () => {
@@ -74,24 +76,9 @@ describe('category pages', () => {
           const indexContents = await readFileAsync(indexAbsPath, 'utf8')
           const { data } = matter(indexContents)
           categoryVersions = getApplicableVersions(data.versions, indexAbsPath)
-          categoryChildTypes = []
           const articleLinks = data.children.filter((child) => {
             const mdPath = getPath(productDir, indexLink, child)
-
-            const fileExists = fs.existsSync(mdPath)
-
-            // We're checking each item in the category's 'children' frontmatter
-            // to see if the child is an article by tacking on `.md` to it.  If
-            // that file exists it's an article, otherwise it's a map topic.  A
-            // category needs to have all the same type of children so we track
-            // that here so we can test to make sure all the types are the same.
-            if (fileExists) {
-              categoryChildTypes.push('article')
-            } else {
-              categoryChildTypes.push('mapTopic')
-            }
-
-            return fileExists && fs.statSync(mdPath).isFile()
+            return fs.existsSync(mdPath) && fs.statSync(mdPath).isFile()
           })
 
           // Save the index title for later testing
@@ -163,19 +150,6 @@ describe('category pages', () => {
             const errorMessage = `${articleName} has versions that are not available in parent category`
             expect(unexpectedVersions.length, errorMessage).toBe(0)
           })
-        })
-
-        test('categories contain all the same type of children', () => {
-          let errorType = ''
-          expect(
-            categoryChildTypes.every((categoryChildType) => {
-              errorType = categoryChildType
-              return categoryChildType === categoryChildTypes[0]
-            }),
-            `${indexRelPath.replace('index.md', '')} contains a mix of ${errorType}s and ${
-              categoryChildTypes[0]
-            }s, category children must be of the same type`
-          ).toBe(true)
         })
 
         // TODO: Unskip this test once the related script has been executed

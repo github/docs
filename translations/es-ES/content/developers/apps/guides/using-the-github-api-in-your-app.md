@@ -2,7 +2,7 @@
 title: Utilizar la API de GitHub en tu app
 intro: Aprende cómo configurar tu app para que escuche los eventos y utilice la biblioteca de Octokit para hacer operaciones de la API de REST.
 redirect_from:
-  - /apps/building-your-first-github-app
+  - /apps/building-your-first-github-app/
   - /apps/quickstart-guides/using-the-github-api-in-your-app
   - /developers/apps/using-the-github-api-in-your-app
 versions:

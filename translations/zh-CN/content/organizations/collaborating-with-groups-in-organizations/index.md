@@ -1,6 +1,6 @@
 ---
-title: 与组织中的团体协作
-intro: 组织帐户中的人员团体可同时跨多个项目展开协作。
+title: Collaborating with groups in organizations
+intro: Groups of people can collaborate across many projects at the same time in organization accounts.
 redirect_from:
   - /articles/creating-a-new-organization-account
   - /articles/collaborating-with-groups-in-organizations
@@ -21,6 +21,6 @@ children:
   - /customizing-your-organizations-profile
   - /about-your-organizations-news-feed
   - /viewing-insights-for-your-organization
-shortTitle: 与组协作
+shortTitle: Collaborate with groups
 ---
 

@@ -1,6 +1,6 @@
 Key | Type | Description
 ----|------|-------------
-`action` |`string` | The action that was performed. Can be one of `created`, `closed`, `opened` (a closed milestone is re-opened), `edited`, or `deleted`.
+`action` |`string` | The action that was performed. Can be one of `created`, `closed`, `opened`, `edited`, or `deleted`.
 `milestone`  |`object` | The milestone itself.
 `changes`|`object`| The changes to the milestone if the action was `edited`.
 `changes[description][from]`|`string` | The previous version of the description if the action was `edited`.

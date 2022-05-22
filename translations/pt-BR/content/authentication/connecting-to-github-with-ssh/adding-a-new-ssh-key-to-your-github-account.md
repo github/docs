@@ -25,6 +25,7 @@ Depois de adicionar uma nova chave SSH à sua conta em {% ifversion ghae %}{% da
 
 {% mac %}
 
+{% include tool-switcher %}
 {% webui %}
 
 1. Copie a chave pública SSH para a sua área de transferência.
@@ -42,19 +43,21 @@ Depois de adicionar uma nova chave SSH à sua conta em {% ifversion ghae %}{% da
 
   {% endtip %}
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.ssh %}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.ssh %}
 4. Clique em **New SSH key** (Nova chave SSH) ou **Add SSH key** (Adicionar chave SSH). ![Botão SSH Key (Chave SSH)](/assets/images/help/settings/ssh-add-ssh-key.png)
 5. No campo "Title" (Título), adicione uma etiqueta descritiva para a nova chave. Por exemplo, se estiver usando um Mac pessoal, você poderá chamar essa chave de "Personal MacBook Air".
 6. Cole sua chave no campo "Key" (Chave). ![O campo de chave](/assets/images/help/settings/ssh-key-paste.png)
 7. Clique em **Add SSH key** (Adicionar chave SSH). ![O botão Add key (Adicionar chave)](/assets/images/help/settings/ssh-add-key.png)
-{% data reusables.user-settings.sudo-mode-popup %}
+{% data reusables.user_settings.sudo-mode-popup %}
 
 {% endwebui %}
 
 {% endmac %}
 
 {% windows %}
+
+{% include tool-switcher %}
 
 {% webui %}
 
@@ -73,8 +76,8 @@ Depois de adicionar uma nova chave SSH à sua conta em {% ifversion ghae %}{% da
 
   {% endtip %}
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.ssh %}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.ssh %}
 4. Clique em **New SSH key** (Nova chave SSH) ou **Add SSH key** (Adicionar chave SSH). ![Botão SSH Key (Chave SSH)](/assets/images/help/settings/ssh-add-ssh-key.png)
 5. No campo "Title" (Título), adicione uma etiqueta descritiva para a nova chave. Por exemplo, se estiver usando um Mac pessoal, você poderá chamar essa chave de "Personal MacBook Air".
 6. Cole sua chave no campo "Key" (Chave). ![O campo de chave](/assets/images/help/settings/ssh-key-paste.png)
@@ -87,6 +90,7 @@ Depois de adicionar uma nova chave SSH à sua conta em {% ifversion ghae %}{% da
 
 {% linux %}
 
+{% include tool-switcher %}
 {% webui %}
 
 1. Copie a chave pública SSH para a sua área de transferência.
@@ -105,8 +109,8 @@ Depois de adicionar uma nova chave SSH à sua conta em {% ifversion ghae %}{% da
 
   {% endtip %}
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.ssh %}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.ssh %}
 4. Clique em **New SSH key** (Nova chave SSH) ou **Add SSH key** (Adicionar chave SSH). ![Botão SSH Key (Chave SSH)](/assets/images/help/settings/ssh-add-ssh-key.png)
 5. No campo "Title" (Título), adicione uma etiqueta descritiva para a nova chave. Por exemplo, se estiver usando um Mac pessoal, você poderá chamar essa chave de "Personal MacBook Air".
 6. Cole sua chave no campo "Key" (Chave). ![O campo de chave](/assets/images/help/settings/ssh-key-paste.png)

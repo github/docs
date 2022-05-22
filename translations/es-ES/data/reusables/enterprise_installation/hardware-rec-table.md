@@ -36,21 +36,9 @@ Si planeas habilitar las {% data variables.product.prodname_actions %} para los 
 
 {%- endif %}
 
-{%- ifversion ghes = 3.3 %}
+{%- ifversion ghes > 3.2 %}
 
-{% data reusables.actions.hardware-requirements-3.3 %}
-
-{%- endif %}
-
-{%- ifversion ghes = 3.4 %}
-
-{% data reusables.actions.hardware-requirements-3.4 %}
-
-{%- endif %}
-
-{%- ifversion ghes = 3.5 %}
-
-{% data reusables.actions.hardware-requirements-3.5 %}
+{% data reusables.actions.hardware-requirements-after %}
 
 {%- endif %}
 

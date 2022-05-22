@@ -1,6 +1,6 @@
 ---
-title: 查看项目的贡献者
-intro: '您可以查看向仓库{% ifversion fpt or ghec %}及其依赖项{% endif %}贡献提交的人员。'
+title: Viewing a project's contributors
+intro: 'You can see who contributed commits to a repository{% ifversion fpt or ghec %} and its dependencies{% endif %}.'
 redirect_from:
   - /articles/i-don-t-see-myself-in-the-contributions-graph
   - /articles/viewing-contribution-activity-in-a-repository
@@ -15,37 +15,38 @@ versions:
   ghec: '*'
 topics:
   - Repositories
-shortTitle: 查看项目贡献者
+shortTitle: View project contributors
 ---
+## About contributors
 
-## 关于贡献者
-
-您可以在贡献者图中查看仓库的前 100 名贡献者{% ifversion ghes or ghae %}，包括提交合作作者{% endif %}。 合并提交和空提交不会计为此图的贡献。
+You can view the top 100 contributors to a repository{% ifversion ghes or ghae %}, including commit co-authors,{% endif %} in the contributors graph. Merge commits and empty commits aren't counted as contributions for this graph.
 
 {% ifversion fpt or ghec %}
-您还可以看到为项目的 Python 依赖项做出贡献的人员列表。 要访问此社区贡献者列表，请访问 `https://github.com/REPO-OWNER/REPO-NAME/community_contributors`。
+You can also see a list of people who have contributed to the project's Python dependencies. To access this list of community contributors, visit `https://github.com/REPO-OWNER/REPO-NAME/community_contributors`.
 {% endif %}
 
-## 访问贡献者图
+## Accessing the contributors graph
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.accessing-repository-graphs %}
-3. 在左侧边栏中，单击 **Contributors（贡献者）**。 ![贡献者选项卡](/assets/images/help/graphs/contributors_tab.png)
-4. （可选）要查看特定时间段内的贡献者，单击然后拖动，直到选择时间段。 贡献者图在每个周日汇总每周提交数，因此您设置的时间段必须包括周日。 ![贡献者图中选择的时间范围](/assets/images/help/graphs/repo_contributors_click_drag_graph.png)
+3. In the left sidebar, click **Contributors**.
+  ![Contributors tab](/assets/images/help/graphs/contributors_tab.png)
+4. Optionally, to view contributors during a specific time period, click, then drag until the time period is selected. The contributors graph sums weekly commit numbers onto each Sunday, so your time period must include a Sunday.
+  ![Selected time range in the contributors graph](/assets/images/help/graphs/repo_contributors_click_drag_graph.png)
 
-## 贡献者疑难解答
+## Troubleshooting contributors
 
-如果您没有在仓库的贡献者图中显示，可能是因为：
-- 您并非前 100 名贡献者之一。
-- 您的提交尚未合并到默认分支。
-- 您用于创作提交的电子邮件地址未连接到到您的 {% data variables.product.product_name %} 帐户。
+If you don't appear in a repository's contributors graph, it may be because:
+- You aren't one of the top 100 contributors.
+- Your commits haven't been merged into the default branch.
+- The email address you used to author the commits isn't connected to your account on {% data variables.product.product_name %}.
 
 {% tip %}
 
-**提示：**要列出仓库中的所有提交贡献者，请参阅“[仓库](/rest/reference/repos#list-contributors)”。
+**Tip:** To list all commit contributors in a repository, see "[Repositories](/rest/reference/repos#list-contributors)."
 
 {% endtip %}
 
-如果仓库中的所有提交均位于非默认分支中，则您不在贡献者图中。 例如，除非 `gh-pages` 是仓库的默认分支，否则 `gh-pages` 分支上的提交不包含在图中。 要将您的提交合并到默认分支，您可以创建拉取请求。 更多信息请参阅“[关于拉取请求](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)”。
+If all your commits in the repository are on non-default branches, you won't be in the contributors graph. For example, commits on the `gh-pages` branch aren't included in the graph unless `gh-pages` is the repository's default branch. To have your commits merged into the default branch, you can create a pull request. For more information, see "[About pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)."
 
-如果您用于创作提交的电子邮件地址未连接到您的 {% data variables.product.product_name %} 帐户，则提交不会链接到您的帐户，并且您不会在贡献者图中显示。 更多信息请参阅“[设置提交电子邮件地址](/articles/setting-your-commit-email-address){% ifversion not ghae %}”和“[添加电子邮件地址到 {% data variables.product.prodname_dotcom %} 帐户](/articles/adding-an-email-address-to-your-github-account){% endif %}”。
+If the email address you used to author the commits is not connected to your account on {% data variables.product.product_name %}, your commits won't be linked to your account, and you won't appear in the contributors graph. For more information, see "[Setting your commit email address](/articles/setting-your-commit-email-address){% ifversion not ghae %}" and "[Adding an email address to your {% data variables.product.prodname_dotcom %} account](/articles/adding-an-email-address-to-your-github-account){% endif %}."

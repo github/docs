@@ -2,16 +2,16 @@
 date: '2021-07-14'
 sections:
   security_fixes:
-    - '**高：** 在 GitHub Enterprise Server 中发现了路径遍历漏洞，该漏洞在构建 GitHub Pages 站点时可能被利用。GitHub Pages 使用的用户控制的配置选项没有受到充分的限制，因此可以读取 GitHub Enterprise Server 实例上的文件。要利用此漏洞，攻击者需要有权在 GitHub Enterprise Server 实例上创建和构建 GitHub Pages 站点。此漏洞影响了 3.1.3 之前的所有版本的 GitHub 企业服务器，并已分配 CVE-2021-22867。此漏洞是通过 GitHub Bug Bounty 计划报告的。'
+    - '**HIGH:** A path traversal vulnerability was identified in GitHub Enterprise Server that could be exploited when building a GitHub Pages site. User-controlled configuration options used by GitHub Pages were not sufficiently restricted and made it possible to read files on the GitHub Enterprise Server instance. To exploit this vulnerability, an attacker would need permission to create and build a GitHub Pages site on the GitHub Enterprise Server instance. This vulnerability affected all versions of GitHub Enterprise Server prior to 3.1.3 and has been assigned CVE-2021-22867. This vulnerability was reported via the GitHub Bug Bounty program.'
     - 包已更新到最新的安全版本。
   bugs:
-    - '如果启用了 HTTP 代理，则在群集设置期间，`ghe-cluster-config-node-init` 将失败。'
-    - Collectd 不会在初始启动后解析转发目标主机名。
-    - 如果某些存储库因合法保留而不能被删除，则清除过时的已删除存储库的作业可能无法取得进展。
-    - 在使用 LDAP 身份验证模式的实例上的用户协调过程中，Git 推送可能会导致 500 内部服务器错误。
-    - 如果未启用依赖关系图，则每次用户访问存储库的 `/settings` 页面时，都会记录大量 503 错误。
+    - '`ghe-cluster-config-node-init` would fail during cluster setup if HTTP proxy is enabled.'
+    - Collectd would not resolve the forwarding destination hostname after the initial startup.
+    - The job that purged stale deleted repositories could fail to make progress if some of those repositories were protected from deletion by legal holds.
+    - Git pushes could result in a 500 Internal Server Error during the user reconciliation process on instances using LDAP authentication mode.
+    - A significant number of 503 errors were logged every time a user visited a repository's `/settings` page if the dependency graph was not enabled.
   changes:
-    - 通过跳过 IP 允许未更改的防火墙规则，提高了配置应用的效率，从而在大型群集上节省了大量时间。
+    - Improved the efficiency of config apply by skipping IP allow firewall rules that had not changed, which saved significant time on large clusters.
   known_issues:
     - 在新建的没有任何用户的 GitHub Enterprise Server 上，攻击者可以创建第一个管理员用户。
     - 自定义防火墙规则在升级过程中被删除。

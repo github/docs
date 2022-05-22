@@ -1,6 +1,6 @@
 ---
-title: 提交对项目的更改
-intro: 您可以通过将工作分组为提交来管理仓库中的代码更改。
+title: Committing changes to your project
+intro: You can manage code changes in a repository by grouping work into commits.
 redirect_from:
   - /categories/21/articles
   - /categories/commits
@@ -15,6 +15,5 @@ children:
   - /creating-and-editing-commits
   - /viewing-and-comparing-commits
   - /troubleshooting-commits
-shortTitle: 提交对项目的更改
+shortTitle: Commit changes to your project
 ---
-

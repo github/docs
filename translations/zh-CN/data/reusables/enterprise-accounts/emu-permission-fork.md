@@ -1,1 +1,1 @@
-{% ifversion ghec %} {% data variables.product.prodname_emu_enterprise %} 的成员不能复刻企业外部的存储库，也不能复刻内部存储库。{% endif %}
+{% ifversion ghec %}Members of an {% data variables.product.prodname_emu_enterprise %} cannot fork repositories from outside of the enterprise or fork internal repositories.{% endif %}

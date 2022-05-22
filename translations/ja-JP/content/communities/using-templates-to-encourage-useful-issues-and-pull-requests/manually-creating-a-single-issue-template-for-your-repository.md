@@ -1,6 +1,6 @@
 ---
-title: リポジトリ用の単一 Issue テンプレートを手動で作成する
-intro: 手動で作成した Issue テンプレートをリポジトリに追加すると、プロジェクトのコントリビューターは自動的に Issue の本体でテンプレートの内容が見えるようになります。
+title: Manually creating a single issue template for your repository
+intro: 'When you add a manually-created issue template to your repository, project contributors will automatically see the template''s contents in the issue body.'
 redirect_from:
   - /articles/creating-an-issue-template-for-your-repository
   - /articles/manually-creating-a-single-issue-template-for-your-repository
@@ -12,16 +12,16 @@ versions:
   ghec: '*'
 topics:
   - Community
-shortTitle: Issue テンプレートの作成
+shortTitle: Create an issue template
 ---
 
 {% data reusables.repositories.legacy-issue-template-tip %}
 
-サポートしているどのフォルダーにでも *ISSUE_TEMPLATE/* サブディレクトリを作成し、Issue テンプレートを複数含めることができます。また、`template` クエリパラメータで Issue の本文に使用するテンプレートを指定できます。 詳細は「[クエリパラメータによる Issue およびプルリクエストの自動化について](/articles/about-automation-for-issues-and-pull-requests-with-query-parameters)」を参照してください。
+You can create an *ISSUE_TEMPLATE/* subdirectory in any of the supported folders to contain multiple issue templates, and use the `template` query parameter to specify the template that will fill the issue body. For more information, see "[About automation for issues and pull requests with query parameters](/articles/about-automation-for-issues-and-pull-requests-with-query-parameters)."
 
-YAML frontmatter を各 Issue テンプレートに追加して、Issue のタイトルを事前に入力したり、ラベルおよびアサインされた人を自動追加したり、リポジトリに新しい Issue を作成するときに表示されるテンプレート選択画面に表示されるテンプレートの名前と説明を指定したりすることができます。
+You can add YAML frontmatter to each issue template to pre-fill the issue title, automatically add labels and assignees, and give the template a name and description that will be shown in the template chooser that people see when creating a new issue in your repository.
 
-YAML front matter の例は次のとおりです。
+Here is example YAML front matter.
 
 ```yaml
 ---
@@ -34,7 +34,7 @@ assignees: octocat
 ```
 {% note %}
 
-**注釈:** フロントマター値に `:` などの YAML特殊文字が含まれている場合は、値全体を引用符で囲む必要があります。 たとえば、`":bug: Bug"` または `":new: triage needed, :bug: bug"` などです。
+**Note:** If a front matter value includes a YAML-reserved character such as `:` , you must put the whole value in quotes. For example, `":bug: Bug"` or `":new: triage needed, :bug: bug"`.
 
 {% endnote %}
 
@@ -50,27 +50,31 @@ assignees: octocat
 
 {% endif %}
 
-## Issue テンプレートを追加する
+## Adding an issue template
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}
-3. ファイル名フィールドで:
-    -  Issue テンプレートをリポジトリのルートディレクトリで表示するには、*issue_template* の名前を入力します。 たとえば、`issue_template.md` です。 ![ルートディレクトリの新しい Issue テンプレート名](/assets/images/help/repository/issue-template-file-name.png)
-    - リポジトリの `docs` ディレクトリに Issue テンプレートを表示するには、*docs/* に続けて *issue_template* の名前を入力します。 たとえば、`docs/issue_template.md` です。 ![docs ディレクトリの新しい Issue テンプレート](/assets/images/help/repository/issue-template-file-name-docs.png)
-    - ファイルを隠しディレクトリに格納するには、*.github/* と入力し、続いて *issue_template* という名前を入力します。 たとえば、`.github/issue_template.md` です。 ![隠しディレクトリの新しい Issue テンプレート](/assets/images/help/repository/issue-template-hidden-directory.png)
-    - 複数 Issue テンプレートを作成し、`template` クエリパラメータを使用して Issue の本文に使用するテンプレートを指定するには、*.github/ISSUE_TEMPLATE/* と入力し、続けて Issue テンプレートの名前を入力します。 たとえば、`.github/ISSUE_TEMPLATE/issue_template.md` です。 複数 Issue テンプレートをルートディレクトリや `docs/` ディレクトリにある `ISSUE_TEMPLATE` サブディレクトリに格納することもできます。 詳細は「[クエリパラメータによる Issue およびプルリクエストの自動化について](/articles/about-automation-for-issues-and-pull-requests-with-query-parameters)」を参照してください。 ![隠しディレクトリの新しい複数 Issue テンプレート](/assets/images/help/repository/issue-template-multiple-hidden-directory.png)
-4. 新しいファイルの本文に Issue テンプレートを追加します。 そこに盛り込むべき項目として、以下のようなものがあります:
+3. In the file name field:
+    -  To make your issue template visible in the repository's root directory, type the name of your *issue_template*. For example, `issue_template.md`.
+  ![New issue template name in root directory](/assets/images/help/repository/issue-template-file-name.png)
+    - To make your issue template visible in the repository's `docs` directory, type *docs/* followed by the name of your *issue_template*. For example, `docs/issue_template.md`,
+  ![New issue template in docs directory](/assets/images/help/repository/issue-template-file-name-docs.png)
+    - To store your file in a hidden directory, type *.github/* followed by the name of your *issue_template*. For example, `.github/issue_template.md`.
+  ![New issue template in hidden directory](/assets/images/help/repository/issue-template-hidden-directory.png)
+    - To create multiple issue templates and use the `template` query parameter to specify a template to fill the issue body, type *.github/ISSUE_TEMPLATE/*, then the name of your issue template. For example, `.github/ISSUE_TEMPLATE/issue_template.md`. You can also store multiple issue templates in an `ISSUE_TEMPLATE` subdirectory within the root or `docs/` directories. For more information, see "[About automation for issues and pull requests with query parameters](/articles/about-automation-for-issues-and-pull-requests-with-query-parameters)."
+  ![New multiple issue template in hidden directory](/assets/images/help/repository/issue-template-multiple-hidden-directory.png)
+4. In the body of the new file, add your issue template. This could include:
     - YAML frontmatter
-    - 予測される動作と実際の動作
-    - 問題の再現手順
-    - プロジェクトのベンダー、オペレーティング システム、ハードウェアなどの仕様
+    - Expected behavior and actual behavior
+    - Steps to reproduce the problem
+    - Specifications like the version of the project, operating system, or hardware
 {% data reusables.files.write_commit_message %}
-{% data reusables.files.choose_commit_branch %} テンプレートがリポジトリのデフォルトブランチにマージされると、コラボレーターがテンプレートを使用できるようになります。
+{% data reusables.files.choose_commit_branch %} Templates are available to collaborators when they are merged into the repository's default branch.
 {% data reusables.files.propose_new_file %}
 
-## 参考リンク
+## Further reading
 
-- [Issueとプルリクエストのテンプレートについて](/articles/about-issue-and-pull-request-templates)
-- [リポジトリ用に Issue テンプレートを設定する](/articles/configuring-issue-templates-for-your-repository)
-- 「[クエリパラメータによる Issue およびプルリクエストの自動化について](/articles/about-automation-for-issues-and-pull-requests-with-query-parameters)」
-- [Issue の作成](/articles/creating-an-issue)
+- "[About issue and pull request templates](/articles/about-issue-and-pull-request-templates)"
+- "[Configuring issue templates for your repository](/articles/configuring-issue-templates-for-your-repository)"
+- "[About automation for issues and pull requests with query parameters](/articles/about-automation-for-issues-and-pull-requests-with-query-parameters)"
+- "[Creating an issue](/articles/creating-an-issue)"

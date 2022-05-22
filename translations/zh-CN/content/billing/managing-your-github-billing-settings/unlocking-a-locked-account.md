@@ -1,6 +1,6 @@
 ---
-title: 解锁锁定的帐户
-intro: 如果您的付款因帐单问题而过期，组织的付费功能将被锁定。
+title: Unlocking a locked account
+intro: Your organization's paid features are locked if your payment is past due because of billing problems.
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/unlocking-a-locked-account
   - /articles/what-happens-if-my-account-is-locked
@@ -20,15 +20,14 @@ topics:
   - Downgrades
   - Organizations
   - User account
-shortTitle: 已锁定的帐户
+shortTitle: Locked account
 ---
+You can unlock and access your account by updating your organization's payment method and resuming paid status. We do not ask you to pay for the time elapsed in locked mode.
 
-通过更新组织的付款方式和恢复付费状态，您可以解锁并访问自己的帐户。 我们不会要求您为锁定模式经过的时间付款。
+You can downgrade your organization to {% data variables.product.prodname_free_team %} to continue with the same advanced features in public repositories. For more information, see "[Downgrading your {% data variables.product.product_name %} subscription](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription)."
 
-您可以将组织降级到 {% data variables.product.prodname_free_team %}，以继续使用公共仓库中相同的高级功能。 更多信息请参阅“[降级您的 {% data variables.product.product_name %} 订阅](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription)”。
+## Unlocking an organization's features due to a declined payment
 
-## 解锁组织因拒绝付款而锁定的功能
+If your organization's advanced features are locked due to a declined payment, you'll need to update your billing information to trigger a newly authorized charge. For more information, see "[Adding or editing a payment method](/articles/adding-or-editing-a-payment-method)."
 
-如果您组织的高级功能因拒绝付款而被锁定，您将需要更新帐单信息来触发新授权的扣费。 更多信息请参阅“[添加或编辑付款方式](/articles/adding-or-editing-a-payment-method)”。
-
-如果新的帐单信息获得批准，我们将立即向您收取所选付费产品的费用。 成功付款后，组织将自动解锁。
+If the new billing information is approved, we will immediately charge you for the paid product you chose. The organization will automatically unlock when a successful payment has been made.

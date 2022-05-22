@@ -1,6 +1,6 @@
 ---
-title: Adicionando etiquetas a problemas
-intro: 'Você pode usar {% data variables.product.prodname_actions %} para etiquetar problemas automaticamente.'
+title: Adding labels to issues
+intro: 'You can use {% data variables.product.prodname_actions %} to automatically label issues.'
 redirect_from:
   - /actions/guides/adding-labels-to-issues
 versions:
@@ -17,17 +17,17 @@ topics:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## Introdução
+## Introduction
 
-Este tutorial demonstra como usar a ação [`andymckay/labeler`](https://github.com/marketplace/actions/simple-issue-labeler) em um fluxo de trabalho para etiquetar problemas recém-abertos ou reabertos. Por exemplo, você pode adicionar a etiqueta `triagem` toda vez que um problema for aberto ou reaberto. Em seguida, você poderá ver todos os problemas que devem ser triados, filtrando por problemas com a etiqueta `triagem`.
+This tutorial demonstrates how to use the [`andymckay/labeler` action](https://github.com/marketplace/actions/simple-issue-labeler) in a workflow to label newly opened or reopened issues. For example, you can add the `triage` label every time an issue is opened or reopened. Then, you can see all issues that need to be triaged by filtering for issues with the `triage` label.
 
-No tutorial, primeiro você criará um arquivo de fluxo de trabalho que usa a ação [`andymckay/labeler`](https://github.com/marketplace/actions/simple-issue-labeler). Então, você personalizará o fluxo de trabalho para atender às suas necessidades.
+In the tutorial, you will first make a workflow file that uses the [`andymckay/labeler` action](https://github.com/marketplace/actions/simple-issue-labeler). Then, you will customize the workflow to suit your needs.
 
-## Criar o fluxo de trabalho
+## Creating the workflow
 
 1. {% data reusables.actions.choose-repo %}
 2. {% data reusables.actions.make-workflow-file %}
-3. Copie o seguinte conteúdo YAML para o arquivo do fluxo de trabalho.
+3. Copy the following YAML contents into your workflow file.
 
     ```yaml{:copy}
 {% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=4 %}
@@ -51,22 +51,22 @@ No tutorial, primeiro você criará um arquivo de fluxo de trabalho que usa a a�
               repo-token: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
     ```
 
-4. Personalize os parâmetros no seu arquivo do fluxo de trabalho:
-   - Altere o valor de `add-labels` para a lista de etiquetas que você deseja adicionar ao problema. Separe etiquetas múltiplas com vírgulas. Por exemplo, `"help wanted, good first issue"`. Para obter mais informações sobre etiquetas, consulte "[Gerenciar etiquetas](/github/managing-your-work-on-github/managing-labels#applying-labels-to-issues-and-pull-requests)".
+4. Customize the parameters in your workflow file:
+   - Change the value for `add-labels` to the list of labels that you want to add to the issue. Separate multiple labels with commas. For example, `"help wanted, good first issue"`. For more information about labels, see "[Managing labels](/github/managing-your-work-on-github/managing-labels#applying-labels-to-issues-and-pull-requests)."
 5. {% data reusables.actions.commit-workflow %}
 
-## Testar o fluxo de trabalho
+## Testing the workflow
 
-Toda vez que um problema no seu repositório for aberto ou reaberto, esse fluxo de trabalho adicionará as etiquetas que você especificou ao problema.
+Every time an issue in your repository is opened or reopened, this workflow will add the labels that you specified to the issue.
 
-Teste o seu fluxo de trabalho criando um problema no seu repositório.
+Test out your workflow by creating an issue in your repository.
 
-1. Crie um problema no seu repositório. Para obter mais informações, consulte "[Criar um problema](/github/managing-your-work-on-github/creating-an-issue)".
-2. Para ver a execução do fluxo de trabalho que foi acionada criando o problema, veja o histórico de execuções do seu fluxo de trabalho. Para obter mais informações, consulte "[Visualizar histórico de execução de fluxo de trabalho](/actions/managing-workflow-runs/viewing-workflow-run-history)".
-3. Quando o fluxo de trabalho é concluído, o problema que você criou deve ter as etiquetas especificadas adicionadas.
+1. Create an issue in your repository. For more information, see "[Creating an issue](/github/managing-your-work-on-github/creating-an-issue)."
+2. To see the workflow run that was triggered by creating the issue, view the history of your workflow runs. For more information, see "[Viewing workflow run history](/actions/managing-workflow-runs/viewing-workflow-run-history)."
+3. When the workflow completes, the issue that you created should have the specified labels added.
 
-## Próximas etapas
+## Next steps
 
-- Para saber mais sobre coisas adicionais você pode fazer com a ação `andymckay/labeler`, como remover etiquetas ou ignorar esta ação se o problema for atribuído ou tiver uma etiqueta específica, veja a documentação da ação [`andymckay/labeler`](https://github.com/marketplace/actions/simple-issue-labeler).
-- Para saber mais sobre diferentes eventos que podem acionar o seu fluxo de trabalho, consulte "[Eventos que desencadeiam fluxos de trabalho](/actions/reference/events-that-trigger-workflows#issues)". A ação `andymckay/labeler` só funciona em eventos `issues`, `pull_request` ou `project_card`.
-- [Pesquise no GitHub](https://github.com/search?q=%22uses:+andymckay/labeler%22&type=code) exemplos de fluxos de trabalho que usam esta ação.
+- To learn more about additional things you can do with the `andymckay/labeler` action, like removing labels or skipping this action if the issue is assigned or has a specific label, see the [`andymckay/labeler` action documentation](https://github.com/marketplace/actions/simple-issue-labeler).
+- To learn more about different events that can trigger your workflow, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows#issues)." The `andymckay/labeler` action only works on `issues`, `pull_request`, or `project_card` events.
+- [Search GitHub](https://github.com/search?q=%22uses:+andymckay/labeler%22&type=code) for examples of workflows using this action.

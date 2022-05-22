@@ -1,6 +1,6 @@
 ---
-title: コミット署名検証のトラブルシューティング
-intro: '検証のためのローカルでの {% data variables.product.product_name %} 上のコミット署名時に発生する、予期しなかった問題のトラブルシューティングが必要になることがあります。'
+title: Troubleshooting commit signature verification
+intro: 'You may need to troubleshoot unexpected issues that arise when signing commits locally for verification on {% data variables.product.product_name %}.'
 redirect_from:
   - /articles/troubleshooting-gpg
   - /articles/troubleshooting-commit-signature-verification

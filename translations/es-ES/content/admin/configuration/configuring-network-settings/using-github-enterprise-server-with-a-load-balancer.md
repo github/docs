@@ -1,8 +1,8 @@
 ---
-title: Utilizar el servidor de GitHub Enterprise con un balanceador de carga
-intro: 'Utiliza un balanceador de carga frente a un aparato único del {% data variables.product.prodname_ghe_server %} o un par de aparatos en una configuración de alta disponibilidad.'
+title: Using GitHub Enterprise Server with a load balancer
+intro: 'Use a load balancer in front of a single {% data variables.product.prodname_ghe_server %} appliance or a pair of appliances in a High Availability configuration.'
 redirect_from:
-  - /enterprise/admin/guides/installation/using-github-enterprise-with-a-load-balancer
+  - /enterprise/admin/guides/installation/using-github-enterprise-with-a-load-balancer/
   - /enterprise/admin/installation/using-github-enterprise-server-with-a-load-balancer
   - /enterprise/admin/configuration/using-github-enterprise-server-with-a-load-balancer
   - /admin/configuration/using-github-enterprise-server-with-a-load-balancer
@@ -14,54 +14,56 @@ topics:
   - High availability
   - Infrastructure
   - Networking
-shortTitle: Utilizar un balanceador de carga
+shortTitle: Use a load balancer
 ---
 
-## Acerca de los balanceadores de carga
+## About load balancers
 
 {% data reusables.enterprise_clustering.load_balancer_intro %}
 
 {% data reusables.enterprise_clustering.load_balancer_dns %}
 
-## Manejar información de conexión de clientes
+## Handling client connection information
 
-Debido a que las conexiones de cliente al {% data variables.product.prodname_ghe_server %} provienen del balanceador de carga, se puede perder la dirección IP del cliente.
+Because client connections to {% data variables.product.prodname_ghe_server %} come from the load balancer, the client IP address can be lost.
 
 {% data reusables.enterprise_clustering.proxy_preference %}
 
 {% data reusables.enterprise_clustering.proxy_xff_firewall_warning %}
 
-{% data reusables.enterprise_installation.terminating-tls %}
+### Enabling PROXY protocol support on {% data variables.product.product_location %}
 
-### Habilitar soporte para protocolo de PROXY en {% data variables.product.product_location %}
-
-Recomendamos firmemente habilitar el soporte para protocolo de PROXY para tu aparato y el balanceador de carga. Utiliza las instrucciones provistas por tu proveedor para habilitar el protocolo PROXY en tu balanceador de carga. Para obtener más información, consulta [la documentación de protocolo PROXY](http://www.haproxy.org/download/1.8/doc/proxy-protocol.txt).
+We strongly recommend enabling PROXY protocol support for both your appliance and the load balancer. Use the instructions provided by your vendor to enable the PROXY protocol on your load balancer. For more information, see [the PROXY protocol documentation](http://www.haproxy.org/download/1.8/doc/proxy-protocol.txt).
 
 {% data reusables.enterprise_installation.proxy-incompatible-with-aws-nlbs %}
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.privacy %}
-3. Dentro de **External load balancers (Balanceadores de carga externos)**, selecciona **Enable support for PROXY protocol (Habilitar soporte para el protocolo de PROXY)**. ![Casilla de verificación para habilitar el soporte para el protocolo PROXY](/assets/images/enterprise/management-console/enable-proxy.png)
+3. Under **External load balancers**, select **Enable support for PROXY protocol**.
+![Checkbox to enable support for PROXY protocol](/assets/images/enterprise/management-console/enable-proxy.png)
 {% data reusables.enterprise_management_console.save-settings %}
 
 {% data reusables.enterprise_clustering.proxy_protocol_ports %}
 
-### Habilitar soporte para X-Forwarded-For en {% data variables.product.product_location %}
+### Enabling X-Forwarded-For support on {% data variables.product.product_location %}
 
 {% data reusables.enterprise_clustering.x-forwarded-for %}
+
+{% data reusables.enterprise_installation.terminating-tls %}
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.privacy %}
-3. Dentro de **External load balancers (Balanceadores de carga externos)**, selecciona **Allow HTTP X-Forwarded-For header (Permitir encabezados HTTP X-Forwarded-For)**. ![Casilla de verificación para permitir el encabezado de HTTP X-Forwarded-For](/assets/images/enterprise/management-console/allow-xff.png)
+3. Under **External load balancers**, select **Allow HTTP X-Forwarded-For header**.
+![Checkbox to allow the HTTP X-Forwarded-For header](/assets/images/enterprise/management-console/allow-xff.png)
 {% data reusables.enterprise_management_console.save-settings %}
 
 {% data reusables.enterprise_clustering.without_proxy_protocol_ports %}
 
-## Configurar la revisión de estado
+## Configuring health checks
 
-Las comprobaciones de estado permiten que un balanceador de carga deje de enviar tráfico a un nodo que no responde si una comprobación preconfigurada falla en ese nodo. Si el aparato está fuera de línea debido a un mantenimiento o una falla inesperada, el balanceador de carga puede mostrar una página de estado. En una configuración de alta disponibilidad (HA), un balanceador de carga puede usarse como parte de una estrategia de conmutación por error. Sin embargo, no está admitida la conmutación por error automática de los pares de HA. Debes impulsar de forma manual el aparato réplica antes de que comience con las consultas activas. Para obtener más información, consulta "[Configurar el {% data variables.product.prodname_ghe_server %} para alta disponibilidad](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-github-enterprise-server-for-high-availability/)."
+Health checks allow a load balancer to stop sending traffic to a node that is not responding if a pre-configured check fails on that node. If the appliance is offline due to maintenance or unexpected failure, the load balancer can display a status page. In a High Availability (HA) configuration, a load balancer can be used as part of a failover strategy. However, automatic failover of HA pairs is not supported. You must manually promote the replica appliance before it will begin serving requests. For more information, see "[Configuring {% data variables.product.prodname_ghe_server %} for High Availability](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-github-enterprise-server-for-high-availability/)."
 
 {% data reusables.enterprise_clustering.health_checks %}
 {% data reusables.enterprise_site_admin_settings.maintenance-mode-status %}

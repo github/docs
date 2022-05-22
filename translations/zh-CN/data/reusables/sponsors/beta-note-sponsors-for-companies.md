@@ -1,5 +1,5 @@
 {% note %}
 
-**注意：**公司赞助者服务目前处于测试阶段，可能会有所变化。
+**Note:** The Sponsors for Companies service is currently in beta and subject to change.
 
 {% endnote %}

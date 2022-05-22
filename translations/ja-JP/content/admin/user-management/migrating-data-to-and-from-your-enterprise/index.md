@@ -1,6 +1,6 @@
 ---
-title: Enterprise との間でデータを移行する
-intro: '{% data variables.product.prodname_ghe_server %} または {% data variables.product.prodname_dotcom_the_website %} からユーザ、Organization、およびリポジトリデータをエクスポートして、そのデータを {% data variables.product.product_location %} にインポートできます。'
+title: Migrating data to and from your enterprise
+intro: 'You can export user, organization, and repository data from {% data variables.product.prodname_ghe_server %} or {% data variables.product.prodname_dotcom_the_website %}, then import that data into {% data variables.product.product_location %}.'
 redirect_from:
   - /enterprise/admin/articles/moving-a-repository-from-github-com-to-github-enterprise
   - /enterprise/admin/categories/migrations-and-upgrades

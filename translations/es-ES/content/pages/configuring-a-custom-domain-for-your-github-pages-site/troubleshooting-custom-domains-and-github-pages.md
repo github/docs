@@ -2,9 +2,9 @@
 title: Troubleshooting custom domains and GitHub Pages
 intro: 'You can check for common errors to resolve issues with custom domains or HTTPS for your {% data variables.product.prodname_pages %} site.'
 redirect_from:
-  - /articles/my-custom-domain-isn-t-working
-  - /articles/custom-domain-isn-t-working
-  - /articles/troubleshooting-custom-domains
+  - /articles/my-custom-domain-isn-t-working/
+  - /articles/custom-domain-isn-t-working/
+  - /articles/troubleshooting-custom-domains/
   - /articles/troubleshooting-custom-domains-and-github-pages
   - /github/working-with-github-pages/troubleshooting-custom-domains-and-github-pages
 product: '{% data reusables.gated-features.pages %}'

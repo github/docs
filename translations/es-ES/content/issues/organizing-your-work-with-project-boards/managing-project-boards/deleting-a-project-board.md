@@ -3,7 +3,7 @@ title: Eliminar un tablero de proyecto
 intro: Puedes eliminar un tablero de proyecto existente si ya no necesitas acceder a su contenido.
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/deleting-a-project-board
-  - /articles/deleting-a-project
+  - /articles/deleting-a-project/
   - /articles/deleting-a-project-board
   - /github/managing-your-work-on-github/deleting-a-project-board
 versions:

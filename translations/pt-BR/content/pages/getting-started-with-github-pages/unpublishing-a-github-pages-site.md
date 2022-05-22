@@ -1,6 +1,6 @@
 ---
-title: Cancelar a publicação de um site do GitHub Pages
-intro: 'Você pode cancelar a publicação do seu site de {% data variables.product.prodname_pages %} para que não fique mais disponível.'
+title: Unpublishing a GitHub Pages site
+intro: 'You can unpublish your {% data variables.product.prodname_pages %} site so that the site is no longer available.'
 redirect_from:
   - /articles/how-do-i-unpublish-a-project-page
   - /articles/unpublishing-a-project-page
@@ -17,21 +17,22 @@ versions:
   ghec: '*'
 topics:
   - Pages
-shortTitle: Cancelar a publicação do site de páginas
+shortTitle: Unpublish Pages site
 ---
 
-## Cancelar a publicação de um site de projeto
+## Unpublishing a project site
 
 {% data reusables.repositories.navigate-to-repo %}
-2. Se existir um branch `gh-pages` no repositório, exclua o branch `gh-pages`. Para obter mais informações, consulte "[Criar e excluir branches em seu repositório](/articles/creating-and-deleting-branches-within-your-repository#deleting-a-branch)".
-3. Se o branch `gh-pages` fosse a sua fonte de publicação, {% ifversion fpt or ghec %}pule para a etapa 6{% else %}agora o seu site não está publicado e você pode pular as etapas restantes{% endif %}.
+2. If a `gh-pages` branch exists in the repository, delete the `gh-pages` branch. For more information, see "[Creating and deleting branches within your repository](/articles/creating-and-deleting-branches-within-your-repository#deleting-a-branch)."
+3. If the `gh-pages` branch was your publishing source, {% ifversion fpt or ghec %}skip to step 6{% else %}your site is now unpublished and you can skip the remaining steps{% endif %}.
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.sidebar-pages %}
-5. No "{% data variables.product.prodname_pages %}", use o menu suspenso **Source** (Fonte) e selecione **None** (Nenhuma). ![Menu suspenso para selecionar uma fonte de publicação](/assets/images/help/pages/publishing-source-drop-down.png)
+5. Under "{% data variables.product.prodname_pages %}", use the **Source** drop-down menu and select **None.**
+  ![Drop down menu to select a publishing source](/assets/images/help/pages/publishing-source-drop-down.png)
 {% data reusables.pages.update_your_dns_settings %}
 
-## Cancelar a publicação de um site de usuário ou organização
+## Unpublishing a user or organization site
 
 {% data reusables.repositories.navigate-to-repo %}
-2. Exclua o branch que você está usando como fonte de publicação ou exclua todo o repositório. Para obter mais informações, consulte "[Criar e excluir branches no repositório](/articles/creating-and-deleting-branches-within-your-repository#deleting-a-branch)" e "[Excluir um repositório](/articles/deleting-a-repository)".
+2. Delete the branch that you're using as a publishing source, or delete the entire repository. For more information, see "[Creating and deleting branches within your repository](/articles/creating-and-deleting-branches-within-your-repository#deleting-a-branch)" and "[Deleting a repository](/articles/deleting-a-repository)."
 {% data reusables.pages.update_your_dns_settings %}

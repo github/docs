@@ -23,12 +23,11 @@ children:
   - /requiring-two-factor-authentication-for-an-organization
   - /creating-teams
   - /adding-people-to-teams
-  - /managing-your-role-in-an-organization-owned-by-your-enterprise
+  - /viewing-the-audit-logs-for-organizations-in-your-enterprise
+  - /streaming-the-audit-logs-for-organizations-in-your-enterprise-account
   - /removing-users-from-teams-and-organizations
   - /removing-organizations-from-your-enterprise
-  - /restoring-a-deleted-organization
   - /managing-projects-using-jira
   - /continuous-integration-using-jenkins
 shortTitle: Manage organizations
 ---
-

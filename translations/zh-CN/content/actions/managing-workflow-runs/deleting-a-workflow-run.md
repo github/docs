@@ -1,6 +1,6 @@
 ---
-title: 删除工作流程运行
-intro: 您可以删除已完成或超过两周的工作流程运行。
+title: Deleting a workflow run
+intro: 'You can delete a workflow run that has been completed, or is more than two weeks old.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -16,9 +16,9 @@ versions:
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow %}
-1. 要删除工作流程运行，请使用 {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} 下拉菜单并选择 **Delete workflow run（删除工作流程运行）**。
+1. To delete a workflow run, use the {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} drop-down menu, and select **Delete workflow run**.
 
-    ![删除工作流程运行](/assets/images/help/settings/workflow-delete-run.png)
-2. 查看确认提示并单击 **Yes, permanently delete this workflow run（是，永久删除此工作流程运行）**。
+    ![Deleting a workflow run](/assets/images/help/settings/workflow-delete-run.png)
+2. Review the confirmation prompt and click **Yes, permanently delete this workflow run**.
 
-    ![删除工作流程运行确认](/assets/images/help/settings/workflow-delete-run-confirmation.png)
+    ![Deleting a workflow run confirmation](/assets/images/help/settings/workflow-delete-run-confirmation.png)

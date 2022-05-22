@@ -1,6 +1,6 @@
 ---
-title: 在 GitHub Marketplace 中上架应用程序
-intro: '了解在 {% data variables.product.prodname_marketplace %} 中上架应用程序的要求和最佳实践。'
+title: Listing an app on GitHub Marketplace
+intro: 'Learn about requirements and best practices for listing your app on {% data variables.product.prodname_marketplace %}.'
 redirect_from:
   - /apps/adding-integrations/listing-apps-on-github-marketplace
   - /apps/marketplace/listing-apps-on-github-marketplace
@@ -21,6 +21,6 @@ children:
   - /setting-pricing-plans-for-your-listing
   - /configuring-a-webhook-to-notify-you-of-plan-changes
   - /submitting-your-listing-for-publication
-shortTitle: 在 Marketplace 中上架应用程序
+shortTitle: List an app on the Marketplace
 ---
 

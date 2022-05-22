@@ -1,1 +1,1 @@
-{% ifversion ghec %} {% data variables.product.prodname_emu_enterprise %} 的成员只能关注其企业的其他成员。 {% endif %}
+{% ifversion ghec %} Members of an {% data variables.product.prodname_emu_enterprise %} can only follow other members of their enterprise. {% endif %}

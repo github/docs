@@ -1,6 +1,6 @@
 ---
-title: 兑换优惠券
-intro: '如果您有优惠券，可以将其兑换为付费的 {% data variables.product.prodname_dotcom %} 订阅。'
+title: Redeeming a coupon
+intro: 'If you have a coupon, you can redeem it towards a paid {% data variables.product.prodname_dotcom %} subscription.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/redeeming-a-coupon
   - /articles/where-do-i-add-a-coupon-code
@@ -18,23 +18,24 @@ topics:
   - Organizations
   - User account
 ---
-
-如果您在应用优惠券之前为帐户付款，则 {% data variables.product.product_name %} 无法发起退款。 如果您将优惠券应用到错误的帐户，我们也无法转移已兑换的优惠券或为您提供一张新的优惠券。 在兑换优惠券之前，请确认是否将优惠券应用到正确的帐户。
+{% data variables.product.product_name %} can't issue a refund if you pay for an account before applying a coupon. We also can't transfer a redeemed coupon or give you a new coupon if you apply it to the wrong account. Confirm that you're applying the coupon to the correct account before you redeem a coupon.
 
 {% data reusables.dotcom_billing.coupon-expires %}
 
-您无法将优惠券应用到 {% data variables.product.prodname_marketplace %} 应用程序的付费计划。
+You cannot apply coupons to paid plans for {% data variables.product.prodname_marketplace %} apps.
 
-## 兑换个人帐户的优惠券
+## Redeeming a coupon for your personal account
 
 {% data reusables.dotcom_billing.enter_coupon_code_on_redeem_page %}
-4. 在“Redeem your coupon（兑换您的优惠券）”下，单击*个人*帐户用户名旁边的 **Choose（选择）**。 ![选择按钮](/assets/images/help/settings/redeem-coupon-choose-button-for-personal-accounts.png)
+4. Under "Redeem your coupon", click **Choose** next to your *personal* account's username.
+   ![Choose button](/assets/images/help/settings/redeem-coupon-choose-button-for-personal-accounts.png)
 {% data reusables.dotcom_billing.redeem_coupon %}
 
-## 兑换组织的优惠券
+## Redeeming a coupon for your organization
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 
 {% data reusables.dotcom_billing.enter_coupon_code_on_redeem_page %}
-4. 在“Redeem your coupon（兑换您的优惠券）”下，单击您要将优惠券应用到的*组织*旁边的 **Choose（选择）**。 如果想要将优惠券应用到尚未存在的新组织，请单击 **Create a new organization（创建新组织）**。 ![选择按钮](/assets/images/help/settings/redeem-coupon-choose-button.png)
+4. Under "Redeem your coupon", click **Choose** next to the *organization* you want to apply the coupon to. If you'd like to apply your coupon to a new organization that doesn't exist yet, click **Create a new organization**.
+   ![Choose button](/assets/images/help/settings/redeem-coupon-choose-button.png)
 {% data reusables.dotcom_billing.redeem_coupon %}

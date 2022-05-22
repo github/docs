@@ -1,6 +1,6 @@
 ---
-title: GitHub Actions をプロジェクト管理に使用する
-intro: '{% data variables.product.prodname_actions %} を使用して、プロジェクト管理タスクの多くを自動化できます。'
+title: Using GitHub Actions for project management
+intro: 'You can use {% data variables.product.prodname_actions %} to automate many of your project management tasks.'
 redirect_from:
   - /actions/guides/using-github-actions-for-project-management
 versions:
@@ -15,30 +15,30 @@ shortTitle: Actions for project management
 ---
 
 
-{% data variables.product.prodname_actions %} を使用してワークフローを作成することで、プロジェクト管理タスクを自動化できます。 各ワークフローには、ワークフローが実行されるたびに自動的に実行される一連のタスクが含まれています。 たとえば、Issue が作成されるたびに実行されるワークフローを作成して、ラベルを追加したり、コメントを残したり、Issue をプロジェクトボードに移動したりすることができます。
+You can use {% data variables.product.prodname_actions %} to automate your project management tasks by creating workflows. Each workflow contains a series of tasks that are performed automatically every time the workflow runs. For example, you can create a workflow that runs every time an issue is created to add a label, leave a comment, and move the issue onto a project board.
 
-## ワークフローはいつ実行されますか？
+## When do workflows run?
 
-ワークフローをスケジュールで実行するか、イベント発生時にトリガーされるようにするかを設定できます。 たとえば、誰かがリポジトリに Issue を作成したときに実行するようにワークフローを設定できます。
+You can configure your workflows to run on a schedule or be triggered when an event occurs. For example, you can set your workflow to run when someone creates an issue in a repository.
 
-多くのワークフロートリガーは、プロジェクト管理を自動化するのに役立ちます。
+Many workflow triggers are useful for automating project management.
 
-- Issue がオープン、割り当て済、ラベルが付けられたとき。
-- Issue にコメントが追加されたとき。
-- プロジェクトカードが作成または移動したとき。
-- スケジュールされた時刻がきたとき。
+- An issue is opened, assigned, or labeled.
+- A comment is added to an issue.
+- A project card is created or moved.
+- A scheduled time.
 
-ワークフローをトリガーできるイベントの完全なリストについては、「[ワークフローをトリガーするイベント](/actions/reference/events-that-trigger-workflows)」を参照してください。
+For a full list of events that can trigger workflows, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows)."
 
-## ワークフローでは何ができますか？
+## What can workflows do?
 
-ワークフローでは、Issue へのコメント、ラベルの追加または削除、プロジェクトボード上のカードの移動、Issue のオープンなど、多くのことを実行できます。
+Workflows can do many things, such as commenting on an issue, adding or removing labels, moving cards on project boards, and opening issues.
 
-これらのチュートリアルには、ニーズに合わせて調整できるワークフローの例が含まれており、プロジェクト管理における {% data variables.product.prodname_actions %} の使用方を学ぶことができます。
+You can learn about using {% data variables.product.prodname_actions %} for project management by following these tutorials, which include example workflows that you can adapt to meet your needs.
 
-- 「[Issue にラベルを追加する](/actions/guides/adding-labels-to-issues)」
-- 「[プロジェクトボードの列にカードが追加されたときにラベルを削除する](/actions/guides/removing-a-label-when-a-card-is-added-to-a-project-board-column)」
-- 「[プロジェクトボードで割り当てられたIssue を移動する](/actions/guides/moving-assigned-issues-on-project-boards)」
-- 「[ラベルが追加されたときに Issue についてコメントする](/actions/guides/commenting-on-an-issue-when-a-label-is-added)」
-- 「[非アクティブな Issue を解決する](/actions/guides/closing-inactive-issues)」
-- 「[Issue 作成をスケジュールする](/actions/guides/scheduling-issue-creation)」
+- "[Adding labels to issues](/actions/guides/adding-labels-to-issues)"
+- "[Removing a label when a card is added to a project board column](/actions/guides/removing-a-label-when-a-card-is-added-to-a-project-board-column)"
+- "[Moving assigned issues on project boards](/actions/guides/moving-assigned-issues-on-project-boards)"
+- "[Commenting on an issue when a label is added](/actions/guides/commenting-on-an-issue-when-a-label-is-added)"
+- "[Closing inactive issues](/actions/guides/closing-inactive-issues)"
+- "[Scheduling issue creation](/actions/guides/scheduling-issue-creation)"

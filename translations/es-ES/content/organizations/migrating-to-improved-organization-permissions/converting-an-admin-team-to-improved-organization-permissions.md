@@ -1,8 +1,8 @@
 ---
-title: Convertir un equipo de administradores a los permisos de organización mejorados
-intro: 'Si tu organización fue creada después de septiembre de 2015, tu organización ha mejorado los permisos de la organización por defecto. Las organizaciones creadas antes de septiembre de 2015 pueden necesitar migrar a los antiguos equipos de propietarios y administradores al modelo mejorado de permisos. Los miembros de los equipos de administradores heredados conservan de forma automática la capacidad para crear repositorios hasta que esos equipos sean migrados al modelo mejorado de permisos de la organización.'
+title: Converting an admin team to improved organization permissions
+intro: 'If your organization was created after September 2015, your organization has improved organization permissions by default. Organizations created before September 2015 may need to migrate older Owners and Admin teams to the improved permissions model. Members of legacy admin teams automatically retain the ability to create repositories until those teams are migrated to the improved organization permissions model.'
 redirect_from:
-  - /articles/converting-your-previous-admin-team-to-the-improved-organization-permissions
+  - /articles/converting-your-previous-admin-team-to-the-improved-organization-permissions/
   - /articles/converting-an-admin-team-to-improved-organization-permissions
   - /github/setting-up-and-managing-organizations-and-teams/converting-an-admin-team-to-improved-organization-permissions
 versions:
@@ -12,23 +12,23 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Convertir el equipo de administradores
+shortTitle: Convert admin team
 ---
 
-Puedes eliminar la capacidad de los miembros del equipo de administración heredado para crear repositorios al crear un nuevo equipo para esos miembros, asegurándote de que el equipo tenga el acceso necesario a los repositorios de la organización, y eliminando el equipo de administración heredado.
+You can remove the ability for members of legacy admin teams to create repositories by creating a new team for these members, ensuring that the team has necessary access to the organization's repositories, then deleting the legacy admin team.
 
-Para obtener más información, consulta la sección "[Roles de repositorio para una organización](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)".
+For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
 
 {% warning %}
 
-**Advertencias:**
-- Si hay miembros de su equipo de administración heredados que no son miembros de otros equipos, la eliminación del equipo eliminará a esos miembros de la organización. Antes de eliminar el equipo, asegúrate de que los miembros ya sean miembros directos de la organización, o que tengan acceso de colaborador a los repositorios necesarios.
-- Para evitar la pérdida de bifurcaciones privadas realizadas por los miembros del equipo de administradores heredado, debes seguir los pasos 1-3 a continuación antes de eliminar el equipo de administradores heredado.
-- Dado que "admin" es un término para los miembros de la organización con [acceso específico a determinados repositorios](/articles/repository-permission-levels-for-an-organization) en la organización, te recomendamos evitar ese término en cualquier nombre de equipo sobre el que puedas decidir.
+**Warnings:**
+- If there are members of your legacy Admin team who are not members of other teams, deleting the team will remove those members from the organization. Before deleting the team, ensure members are already direct members of the organization, or have collaborator access to necessary repositories.
+- To prevent the loss of private forks made by members of the legacy Admin team, you must follow steps 1-3 below before deleting the legacy Admin team.
+- Because "admin" is a term for organization members with specific [access to certain repositories](/articles/repository-permission-levels-for-an-organization) in the organization, we recommend you avoid that term in any team name you decide on.
 
 {% endwarning %}
 
-1. [Crear un equipo nuevo](/articles/creating-a-team).
-2. [Agregar cada uno de los miembros](/articles/adding-organization-members-to-a-team) de tu equipo de administradores heredado al nuevo equipo.
-3. [Brindar al equipo nuevo el acceso equivalente](/articles/managing-team-access-to-an-organization-repository) a cada uno de los repositorios a los que podía acceder el equipo heredado.
-4. [Eliminar el equipo de administradores heredado](/articles/deleting-a-team).
+1. [Create a new team](/articles/creating-a-team).
+2. [Add each of the members](/articles/adding-organization-members-to-a-team) of your legacy admin team to the new team.
+3. [Give the new team equivalent access](/articles/managing-team-access-to-an-organization-repository) to each of the repositories the legacy team could access.
+4. [Delete the legacy admin team](/articles/deleting-a-team).

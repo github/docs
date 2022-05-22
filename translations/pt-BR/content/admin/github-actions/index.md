@@ -1,6 +1,6 @@
 ---
-title: Gerenciar o GitHub Actions para a sua empresa
-intro: 'Habilite {% data variables.product.prodname_actions %} em {% ifversion ghae %}{% data variables.product.prodname_ghe_managed %}{% else %}{% data variables.product.prodname_ghe_server %}{% endif %} e gerencie as políticas e configurações de {% data variables.product.prodname_actions %}.'
+title: Managing GitHub Actions for your enterprise
+intro: 'Enable {% data variables.product.prodname_actions %} on {% ifversion ghae %}{% data variables.product.prodname_ghe_managed %}{% else %}{% data variables.product.prodname_ghe_server %}{% endif %}, and manage {% data variables.product.prodname_actions %} policies and settings.'
 redirect_from:
   - /enterprise/admin/github-actions
 versions:
@@ -15,7 +15,7 @@ children:
   - /enabling-github-actions-for-github-enterprise-server
   - /managing-access-to-actions-from-githubcom
   - /advanced-configuration-and-troubleshooting
-shortTitle: Gerenciar o GitHub Actions
+shortTitle: Manage GitHub Actions
 ---
 
 {% data reusables.actions.enterprise-beta %}

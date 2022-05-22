@@ -50,15 +50,15 @@ describe('siteTree', () => {
       // TODO: use new findPageInSiteTree helper when it's available
       const pageWithDynamicTitle = ghesSiteTree.childPages
         .find((child) => child.href === `/en/${ghesLatest}/admin`)
-        .childPages.find((child) => child.href === `/en/${ghesLatest}/admin/installation`)
+        .childPages.find((child) => child.href === `/en/${ghesLatest}/admin/enterprise-support`)
 
       // Confirm the raw title contains Liquid
       expect(pageWithDynamicTitle.page.title).toEqual(
-        'Installing {% data variables.product.prodname_enterprise %}'
+        'Working with {% data variables.contact.github_support %}'
       )
 
       // Confirm a new property contains the rendered title
-      expect(pageWithDynamicTitle.renderedFullTitle).toEqual('Installing GitHub Enterprise')
+      expect(pageWithDynamicTitle.renderedFullTitle).toEqual('Working with GitHub Support')
     })
   })
 

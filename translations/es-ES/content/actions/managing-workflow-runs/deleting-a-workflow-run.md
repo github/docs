@@ -1,6 +1,6 @@
 ---
-title: Borrar una ejecución de flujo de trabajo
-intro: Puedes borrar una ejecución de flujo de trabajo que se haya completado o que tenga más de dos semanas de antigüedad.
+title: Deleting a workflow run
+intro: 'You can delete a workflow run that has been completed, or is more than two weeks old.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -16,9 +16,9 @@ versions:
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow %}
-1. Para eliminar una ejecución de flujo de trabajo, utiliza el menú desplegable de {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} y selecciona **Borrar una ejecución de flujo de trabajo**.
+1. To delete a workflow run, use the {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} drop-down menu, and select **Delete workflow run**.
 
-    ![Borrar una ejecución de flujo de trabajo](/assets/images/help/settings/workflow-delete-run.png)
-2. Revisa el mensaje de confirmación y da clic en **Sí, borrar esta ejecución de flujo de trabajo permanentemente**.
+    ![Deleting a workflow run](/assets/images/help/settings/workflow-delete-run.png)
+2. Review the confirmation prompt and click **Yes, permanently delete this workflow run**.
 
-    ![Borrar una confirmación de ejecución de flujo de trabajo](/assets/images/help/settings/workflow-delete-run-confirmation.png)
+    ![Deleting a workflow run confirmation](/assets/images/help/settings/workflow-delete-run-confirmation.png)

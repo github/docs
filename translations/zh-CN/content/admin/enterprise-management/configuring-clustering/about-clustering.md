@@ -1,6 +1,6 @@
 ---
-title: 关于集群
-intro: '{% data variables.product.prodname_ghe_server %} 集群允许组成 {% data variables.product.prodname_ghe_server %} 的服务跨多个节点进行扩展。'
+title: About clustering
+intro: '{% data variables.product.prodname_ghe_server %} clustering allows services that make up {% data variables.product.prodname_ghe_server %} to be scaled out across multiple nodes.'
 redirect_from:
   - /enterprise/admin/clustering/overview
   - /enterprise/admin/clustering/about-clustering
@@ -14,23 +14,22 @@ topics:
   - Clustering
   - Enterprise
 ---
+## Clustering architecture
 
-## 集群架构
+{% data variables.product.prodname_ghe_server %} is comprised of a set of services. In a cluster, these services run across multiple nodes and requests are load balanced between them. Changes are automatically stored with redundant copies on separate nodes. Most of the services are equal peers with other instances of the same service. The exceptions to this are the `mysql-server` and `redis-server` services. These operate with a single _primary_ node with one or more _replica_ nodes.
 
-{% data variables.product.prodname_ghe_server %} 由一组服务组成。 在集群中，这些服务跨多个节点运行，请求在它们之间进行负载均衡。 更改会与冗余副本一起自动存储在到单独的节点上。 大多数服务与相同服务的其他实例是对等的。 这种情况的例外是 `mysql-server` 和 `redis-server` 服务。 它们使用具有一个或多个_副本_节点的单个_主_节点来操作。
+Learn more about [services required for clustering](/enterprise/{{ currentVersion }}/admin/enterprise-management/about-cluster-nodes#services-required-for-clustering).
 
-详细了解[群集所需的服务](/enterprise/{{ currentVersion }}/admin/enterprise-management/about-cluster-nodes#services-required-for-clustering)。
+## Is clustering right for my organization?
 
-## 集群是否适合我的组织？
+{% data reusables.enterprise_clustering.clustering-scalability %} However, setting up a redundant and scalable cluster can be complex and requires careful planning. This additional complexity will need to be planned for during installation, disaster recovery scenarios, and upgrades.
 
-{% data reusables.enterprise_clustering.clustering-scalability %} 但是，设置冗余和可扩展的集群可能很复杂，需要仔细规划。 在安装、灾难恢复场景和升级期间，需要计划这种额外的复杂性。
+{% data variables.product.prodname_ghe_server %} requires low latency between nodes and is not intended for redundancy across geographic locations.
 
-{% data variables.product.prodname_ghe_server %} 要求节点之间保持较低的延迟，不适用于跨地理位置的冗余。
-
-集群提供了冗余功能，但不适用于替换高可用性配置。 更多信息请参阅[高可用性配置](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-github-enterprise-server-for-high-availability)。 主设备/辅助设备故障切换配置远比集群简单，可以满足许多组织的需求。 更多信息请参阅[集群与高可用性之间的差异](/enterprise/{{ currentVersion }}/admin/guides/clustering/differences-between-clustering-and-high-availability-ha/)。
+Clustering provides redundancy, but it is not intended to replace a High Availability configuration. For more information, see [High Availability configuration](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-github-enterprise-server-for-high-availability). A primary/secondary failover configuration is far simpler than clustering and will serve the needs of many organizations. For more information, see [Differences between Clustering and High Availability](/enterprise/{{ currentVersion }}/admin/guides/clustering/differences-between-clustering-and-high-availability-ha/).
 
 {% data reusables.package_registry.packages-cluster-support %}
 
-## 如何获得集群？
+## How do I get access to clustering?
 
-集群针对特定扩展情况而设计，并不一定适用于每个组织。 如果想要考虑集群，请联系您的专业代表或 {% data variables.contact.contact_enterprise_sales %}。
+Clustering is designed for specific scaling situations and is not intended for every organization. If clustering is something you'd like to consider, please contact your dedicated representative or {% data variables.contact.contact_enterprise_sales %}.

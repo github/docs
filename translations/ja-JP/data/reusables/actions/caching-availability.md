@@ -1,1 +1,0 @@
-{% data variables.product.prodname_actions %} caching is only available for repositories hosted on {% data variables.product.prodname_dotcom_the_website %} or {% data variables.product.prodname_ghe_server %} 3.5 and later. 詳しい情報については、「<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">ワークフローを高速化するための依存関係のキャッシュ</a>」を参照してください。

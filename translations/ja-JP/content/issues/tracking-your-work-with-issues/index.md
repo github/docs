@@ -15,7 +15,6 @@ children:
   - /creating-an-issue
   - /about-task-lists
   - /linking-a-pull-request-to-an-issue
-  - /creating-a-branch-for-an-issue
   - /assigning-issues-and-pull-requests-to-other-github-users
   - /viewing-all-of-your-issues-and-pull-requests
   - /filtering-and-searching-issues-and-pull-requests

@@ -52,11 +52,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: {% data reusables.actions.action-checkout %}
+      - uses: actions/checkout@v2
       - name: Set up Ruby
-        uses: ruby/setup-ruby@359bebbc29cbe6c87da6bc9ea3bc930432750108
+        uses: ruby/setup-ruby@477b21f02be01bcb8030d50f37cfec92bfa615b6
         with:
-          ruby-version: '3.1'
+          ruby-version: 2.6
       - name: Install dependencies
         run: bundle install
       - name: Run tests
@@ -65,33 +65,35 @@ jobs:
 
 ## Specifying the Ruby version
 
-The easiest way to specify a Ruby version is by using the `ruby/setup-ruby` action provided by the Ruby organization on GitHub. The action adds any supported Ruby version to `PATH` for each job run in a workflow. For more information and available Ruby versions, see [`ruby/setup-ruby`](https://github.com/ruby/setup-ruby).
+The easiest way to specify a Ruby version is by using the `ruby/setup-ruby` action provided by the Ruby organization on GitHub. The action adds any supported Ruby version to `PATH` for each job run in a workflow. For more information see, the [`ruby/setup-ruby`](https://github.com/ruby/setup-ruby).
 
 Using Ruby's `ruby/setup-ruby` action is the recommended way of using Ruby with GitHub Actions because it ensures consistent behavior across different runners and different versions of Ruby.
 
 The `setup-ruby` action takes a Ruby version as an input and configures that version on the runner.
 
+{% raw %}
 ```yaml
 steps:
-- uses: {% data reusables.actions.action-checkout %}
-- uses: ruby/setup-ruby@359bebbc29cbe6c87da6bc9ea3bc930432750108
+- uses: actions/checkout@v2
+- uses: ruby/setup-ruby@477b21f02be01bcb8030d50f37cfec92bfa615b6
   with:
-    ruby-version: '3.1' # Not needed with a .ruby-version file
+    ruby-version: 2.6 # Not needed with a .ruby-version file
 - run: bundle install
 - run: bundle exec rake
 ```
+{% endraw %}
 
 Alternatively, you can check a `.ruby-version` file  into the root of your repository and `setup-ruby` will use the version defined in that file.
 
 ## Testing with multiple versions of Ruby
 
-You can add a matrix strategy to run your workflow with more than one version of Ruby. For example, you can test your code against the latest patch releases of versions 3.1, 3.0, and 2.7.
+You can add a matrix strategy to run your workflow with more than one version of Ruby. For example, you can test your code against the latest patch releases of versions 2.7, 2.6, and 2.5. The 'x' is a wildcard character that matches the latest patch release available for a version.
 
 {% raw %}
 ```yaml
 strategy:
   matrix:
-    ruby-version: ['3.1', '3.0', '2.7']
+    ruby-version: [2.7.x, 2.6.x, 2.5.x]
 ```
 {% endraw %}
 
@@ -117,12 +119,12 @@ jobs:
 
     strategy:
       matrix:
-        ruby-version: ['3.1', '3.0', '2.7']
+        ruby-version: [2.7.x, 2.6.x, 2.5.x]
 
     steps:
-      - uses: {% data reusables.actions.action-checkout %}
+      - uses: actions/checkout@v2
       - name: {% raw %}Set up Ruby ${{ matrix.ruby-version }}{% endraw %}
-        uses: ruby/setup-ruby@359bebbc29cbe6c87da6bc9ea3bc930432750108
+        uses: ruby/setup-ruby@477b21f02be01bcb8030d50f37cfec92bfa615b6
         with:
           ruby-version: {% raw %}${{ matrix.ruby-version }}{% endraw %}
       - name: Install dependencies
@@ -135,69 +137,71 @@ jobs:
 
 The `setup-ruby` action will automatically install bundler for you. The version is determined by your `gemfile.lock` file. If no version is present in your lockfile, then the latest compatible version will be installed.
 
+{% raw %}
 ```yaml
 steps:
-- uses: {% data reusables.actions.action-checkout %}
-- uses: ruby/setup-ruby@359bebbc29cbe6c87da6bc9ea3bc930432750108
+- uses: actions/checkout@v2
+- uses: ruby/setup-ruby@477b21f02be01bcb8030d50f37cfec92bfa615b6
   with:
-    ruby-version: '3.1'
+    ruby-version: 2.6
 - run: bundle install
 ```
-
-{% if actions-caching %}
+{% endraw %}
 
 ### Caching dependencies
 
-The `setup-ruby` actions provides a method to automatically handle the caching of your gems between runs.
+If you are using {% data variables.product.prodname_dotcom %}-hosted runners, the `setup-ruby` actions provides a method to automatically handle the caching of your gems between runs.
 
 To enable caching, set the following.
 
 {% raw %}
 ```yaml
 steps:
-- uses: ruby/setup-ruby@359bebbc29cbe6c87da6bc9ea3bc930432750108
+- uses: ruby/setup-ruby@477b21f02be01bcb8030d50f37cfec92bfa615b6
     with:
       bundler-cache: true
 ```
 {% endraw %}
 
-This will configure bundler to install your gems to `vendor/cache`. For each successful run of your workflow, this folder will be cached by {% data variables.product.prodname_actions %} and re-downloaded for subsequent workflow runs. A hash of your gemfile.lock and the Ruby version are used as the cache key. If you install any new gems, or change a version, the cache will be invalidated and bundler will do a fresh install.
+This will configure bundler to install your gems to `vendor/cache`. For each successful run of your workflow, this folder will be cached by Actions and re-downloaded for subsequent workflow runs. A hash of your gemfile.lock and the Ruby version are used as the cache key. If you install any new gems, or change a version, the cache will be invalidated and bundler will do a fresh install.
 
 **Caching without setup-ruby**
 
-For greater control over caching, you can use the `actions/cache` action directly. For more information, see "[Caching dependencies to speed up workflows](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."
+For greater control over caching, if you are using {% data variables.product.prodname_dotcom %}-hosted runners, you can use the `actions/cache` Action directly. For more information, see "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Caching dependencies to speed up workflows</a>."
 
+{% raw %}
 ```yaml
 steps:
-- uses: {% data reusables.actions.action-cache %}
+- uses: actions/cache@v2
   with:
     path: vendor/bundle
-    key: {% raw %}${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}{% endraw %}
+    key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
     restore-keys: |
-      {% raw %}${{ runner.os }}-gems-{% endraw %}
+      ${{ runner.os }}-gems-
 - name: Bundle install
   run: |
     bundle config path vendor/bundle
     bundle install --jobs 4 --retry 3
 ```
+{% endraw %}
 
 If you're using a matrix build, you will want to include the matrix variables in your cache key. For example, if you have a matrix strategy for different ruby versions (`matrix.ruby-version`) and different operating systems (`matrix.os`), your workflow steps might look like this:
 
+{% raw %}
 ```yaml
 steps:
-- uses: {% data reusables.actions.action-cache %}
+- uses: actions/cache@v2
   with:
     path: vendor/bundle
-    key: {% raw %}bundle-use-ruby-${{ matrix.os }}-${{ matrix.ruby-version }}-${{ hashFiles('**/Gemfile.lock') }}{% endraw %}
+    key: bundle-use-ruby-${{ matrix.os }}-${{ matrix.ruby-version }}-${{ hashFiles('**/Gemfile.lock') }}
     restore-keys: |
-      {% raw %}bundle-use-ruby-${{ matrix.os }}-${{ matrix.ruby-version }}-{% endraw %}
+      bundle-use-ruby-${{ matrix.os }}-${{ matrix.ruby-version }}-
 - name: Bundle install
   run: |
     bundle config path vendor/bundle
     bundle install --jobs 4 --retry 3
 ```
-
-{% endif %}
+{% endraw %}
 
 ## Matrix testing your code
 
@@ -224,7 +228,7 @@ jobs:
         ruby: [2.5, 2.6, 2.7, head, debug, jruby, jruby-head, truffleruby, truffleruby-head]
     continue-on-error: {% raw %}${{ endsWith(matrix.ruby, 'head') || matrix.ruby == 'debug' }}{% endraw %}
     steps:
-      - uses: {% data reusables.actions.action-checkout %}
+      - uses: actions/checkout@v2
       - uses: ruby/setup-ruby@477b21f02be01bcb8030d50f37cfec92bfa615b6
         with:
           ruby-version: {% raw %}${{ matrix.ruby }}{% endraw %}
@@ -234,7 +238,7 @@ jobs:
 
 ## Linting your code
 
-The following example installs `rubocop` and uses it to lint all files. For more information, see [RuboCop](https://github.com/rubocop-hq/rubocop). You can [configure Rubocop](https://docs.rubocop.org/rubocop/configuration.html) to decide on the specific linting rules.
+The following example installs `rubocop` and uses it to lint all files. For more information, see [Rubocop](https://github.com/rubocop-hq/rubocop). You can [configure Rubocop](https://docs.rubocop.org/rubocop/configuration.html) to decide on the specific linting rules.
 
 ```yaml
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -247,7 +251,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: {% data reusables.actions.action-checkout %}
+      - uses: actions/checkout@v2
       - uses: ruby/setup-ruby@477b21f02be01bcb8030d50f37cfec92bfa615b6
         with:
           ruby-version: 2.6
@@ -284,8 +288,8 @@ jobs:
       packages: write
       contents: read{% endif %}
 
-    steps:
-      - uses: {% data reusables.actions.action-checkout %}
+    steps:{% raw %}
+      - uses: actions/checkout@v2
       - name: Set up Ruby 2.6
         uses: ruby/setup-ruby@477b21f02be01bcb8030d50f37cfec92bfa615b6
         with:
@@ -293,7 +297,7 @@ jobs:
       - run: bundle install
 
       - name: Publish to GPR
-        run: |{% raw %}
+        run: |
           mkdir -p $HOME/.gem
           touch $HOME/.gem/credentials
           chmod 0600 $HOME/.gem/credentials

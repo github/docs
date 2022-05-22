@@ -1,13 +1,12 @@
 ---
 title: Configuring OpenID Connect in cloud providers
 shortTitle: Configuring OpenID Connect in cloud providers
-intro: Use OpenID Connect within your workflows to authenticate with cloud providers.
+intro: 'Use OpenID Connect within your workflows to authenticate with cloud providers.'
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
-  ghae: issue-4856
+  ghae: 'issue-4856'
   ghec: '*'
-  ghes: '>=3.5'
 type: tutorial
 topics:
   - Security
@@ -38,7 +37,14 @@ If your cloud provider doesn't yet offer an official action, you can update your
 
 ### Adding permissions settings
 
- {% data reusables.actions.oidc-permissions-token %}
+The workflow will require a `permissions` setting with a defined [`id-token`](/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token) value. If you only need to fetch an OIDC token for a single job, then this permission can be set within that job. For example:
+
+```yaml{:copy}
+permissions:
+  id-token: write
+```
+
+You may need to specify additional permissions here, depending on your workflow's requirements. 
 
 ### Using official actions
 
@@ -69,7 +75,7 @@ jobs:
     - name: Install OIDC Client from Core Package
       run: npm install @actions/core@1.6.0 @actions/http-client
     - name: Get Id Token
-      uses: {% data reusables.actions.action-github-script %}
+      uses: actions/github-script@v4
       id: idtoken
       with:
         script: |
@@ -91,7 +97,7 @@ jobs:
   job:
     runs-on: ubuntu-latest
     steps:
-    - uses: {% data reusables.actions.action-github-script %}
+    - uses: actions/github-script@v4
       id: script
       timeout-minutes: 10
       with:

@@ -2,7 +2,7 @@
 title: About wikis
 intro: 'You can host documentation for your repository in a wiki, so that others can use and contribute to your project.'
 redirect_from:
-  - /articles/about-github-wikis
+  - /articles/about-github-wikis/
   - /articles/about-wikis
   - /github/building-a-strong-community/about-wikis
 product: '{% data reusables.gated-features.wikis %}'

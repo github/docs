@@ -2,7 +2,7 @@
 title: Configurar un servidor proxy web fuera de banda
 intro: 'Un servidor proxy proporciona otro nivel de seguridad para {% data variables.product.product_location %}.'
 redirect_from:
-  - /enterprise/admin/guides/installation/configuring-a-proxy-server
+  - /enterprise/admin/guides/installation/configuring-a-proxy-server/
   - /enterprise/admin/installation/configuring-an-outbound-web-proxy-server
   - /enterprise/admin/configuration/configuring-an-outbound-web-proxy-server
   - /admin/configuration/configuring-an-outbound-web-proxy-server

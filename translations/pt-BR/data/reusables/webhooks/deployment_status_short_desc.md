@@ -1,1 +1,1 @@
-Uma implantação foi criada. {% data reusables.webhooks.action_type_desc %} For more information, see the "[deployments](/rest/reference/repos#deployments)" REST API.
+Uma implantação foi criada. {% data reusables.webhooks.action_type_desc %} Para obter mais informações, consulte a API REST do "[status de implantação](/rest/reference/deployments#list-deployment-statuses)".

@@ -1,6 +1,6 @@
 ---
-title: Lanzar proyectos en GitHub
-intro: 'Puedes crear un lanzamiento para consolidad software, notas de lanzamiento y archivos binarios para que los demás lo descarguen.'
+title: Releasing projects on GitHub
+intro: 'You can create a release to package software, release notes, and binary files for other people to download.'
 redirect_from:
   - /categories/85/articles
   - /categories/releases
@@ -21,6 +21,6 @@ children:
   - /comparing-releases
   - /automatically-generated-release-notes
   - /automation-for-release-forms-with-query-parameters
-shortTitle: Liberar proyectos
+shortTitle: Release projects
 ---
 

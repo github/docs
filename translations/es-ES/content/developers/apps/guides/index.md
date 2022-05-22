@@ -1,6 +1,6 @@
 ---
 title: Guías
-intro: 'Aprende cómo utilizar la API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} con tu app, integración continua y cómo compilar con apps.'
+intro: 'Learn about using the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API with your app, continuous integration, and how to build with apps.'
 redirect_from:
   - /apps/quickstart-guides
 versions:

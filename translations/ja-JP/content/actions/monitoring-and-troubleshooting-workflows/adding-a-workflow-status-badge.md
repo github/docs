@@ -1,6 +1,6 @@
 ---
-title: ワークフローステータスバッジを追加する
-intro: リポジトリにステータスバッジを表示して、ワークフローのステータスを示すことができます。
+title: Adding a workflow status badge
+intro: You can display a status badge in your repository to indicate the status of your workflows.
 redirect_from:
   - /actions/managing-workflow-runs/adding-a-workflow-status-badge
 versions:
@@ -16,31 +16,31 @@ shortTitle: Add a status badge
 
 {% data reusables.repositories.actions-workflow-status-badge-intro %}
 
-ワークフローファイルの名前でワークフローを参照します。
+You reference the workflow by the name of your workflow file.
 
 ```markdown
 ![example workflow]({% ifversion fpt or ghec %}https://github.com{% else %}<HOSTNAME>{% endif %}/<OWNER>/<REPOSITORY>/actions/workflows/<WORKFLOW_FILE>/badge.svg)
 ```
-## ワークフローファイル名を使用する
+## Using the workflow file name
 
-この Markdown の例では、`.github/workflow/main.yml`というファイル パスのワークフローにステータス バッジを追加します 。 リポジトリの `OWNER` は `github` Organization で、`REPOSITORY` 名は `docs` です。
+This Markdown example adds a status badge for a workflow with the file path `.github/workflows/main.yml`. The `OWNER` of the repository is the `github` organization and the `REPOSITORY` name is `docs`.
 
 ```markdown
 ![example workflow](https://github.com/github/docs/actions/workflows/main.yml/badge.svg)
 ```
 
-## `branch` パラメータを使用する
+## Using the `branch` parameter
 
-この Markdown の例では、`feature-1`という名前のブランチにステータス バッジを追加します。
+This Markdown example adds a status badge for a branch with the name `feature-1`.
 
 ```markdown
 ![example branch parameter](https://github.com/github/docs/actions/workflows/main.yml/badge.svg?branch=feature-1)
 ```
 
-## `event` パラメータを使用する
+## Using the `event` parameter
 
-This Markdown example adds a badge that displays the status of workflow runs triggered by the `push` event, which will show the status of the build for the current state of that branch.
+This Markdown example adds a badge that displays the status of workflow runs triggered by the `pull_request` event.
 
 ```markdown
-![example event parameter](https://github.com/github/docs/actions/workflows/main.yml/badge.svg?event=push)
+![example event parameter](https://github.com/github/docs/actions/workflows/main.yml/badge.svg?event=pull_request)
 ```

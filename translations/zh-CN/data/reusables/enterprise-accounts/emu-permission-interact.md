@@ -1,1 +1,1 @@
-{% ifversion ghec %} {% data variables.product.prodname_emu_enterprise %} 的成员只能与其企业内的存储库进行交互。 {% endif %}
+{% ifversion ghec %} Members of an {% data variables.product.prodname_emu_enterprise %} can only interact with repositories within their enterprise. {% endif %}

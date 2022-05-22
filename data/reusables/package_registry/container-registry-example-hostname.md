@@ -1,1 +1,0 @@
-containers.github.companyname.com

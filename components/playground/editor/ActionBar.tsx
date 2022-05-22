@@ -1,5 +1,5 @@
 import { CopyIcon, CheckIcon } from '@primer/octicons-react'
-import { Tooltip } from '@primer/react'
+import { Tooltip } from '@primer/components'
 
 import useClipboard from 'components/hooks/useClipboard'
 

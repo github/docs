@@ -1,6 +1,6 @@
 ---
-title: Adicionar observações a um quadro de projeto
-intro: Você pode adicionar observações a um quadro de projeto para que sirvam como lembretes de tarefas ou para adicionar informações relacionadas ao quadro de projeto.
+title: Adding notes to a project board
+intro: You can add notes to a project board to serve as task reminders or to add information related to the project board.
 redirect_from:
   - /github/managing-your-work-on-github/tracking-the-progress-of-your-work-with-project-boards/adding-notes-to-a-project-board
   - /articles/adding-notes-to-a-project
@@ -13,66 +13,72 @@ versions:
   ghec: '*'
 topics:
   - Pull requests
-shortTitle: Adicionar notas ao quadro
+shortTitle: Add notes to board
 ---
-
 {% data reusables.projects.project_boards_old %}
 
 {% tip %}
 
-**Dicas:**
-- É possível formatar a observação usando a sintaxe markdown. Por exemplo, você pode usar títulos, links, listas de tarefas ou emojis. Para obter mais informações, consulte "[Sintaxe básica de gravação e formatação](/articles/basic-writing-and-formatting-syntax)".
-- Você pode arrastar e soltar ou usar atalhos de teclado para reordenar observações e movê-las entre colunas. {% data reusables.project-management.for-more-info-project-keyboard-shortcuts %}
-- Seu quadro de projeto deve ter pelo menos uma coluna para que seja possível adicionar observações. Para obter mais informações, consulte "[Criar um quadro de projeto](/articles/creating-a-project-board)".
+**Tips:**
+- You can format your note using Markdown syntax. For example, you can use headings, links, task lists, or emoji. For more information, see "[Basic writing and formatting syntax](/articles/basic-writing-and-formatting-syntax)."
+- You can drag and drop or use keyboard shortcuts to reorder notes and move them between columns. {% data reusables.project-management.for-more-info-project-keyboard-shortcuts %}
+- Your project board must have at least one column before you can add notes. For more information, see "[Creating a project board](/articles/creating-a-project-board)."
 
 {% endtip %}
 
-Ao adicionar a uma observação uma URL para um problema, uma pull request ou outro quadro de projeto, você vê uma visualização em um cartão de resumo abaixo do seu texto.
+When you add a URL for an issue, pull request, or another project board to a note, you'll see a preview in a summary card below your text.
 
-![Cartões de quadro de projeto mostrando a visualização de um problema e outro quadro de projeto](/assets/images/help/projects/note-with-summary-card.png)
+![Project board cards showing a preview of an issue and another project board](/assets/images/help/projects/note-with-summary-card.png)
 
-## Adicionar observações a um quadro de projeto
+## Adding notes to a project board
 
-1. Navegue até o quadro de projeto onde deseja adicionar observações.
-2. Na coluna que deseja adicionar uma observação, clique em {% octicon "plus" aria-label="The plus icon" %}. ![Ícone de mais no header da coluna](/assets/images/help/projects/add-note-button.png)
-3. Digite sua observação e clique em **Add** (Adicionar). ![Campo para digitar uma observação e botão Add card (Adicionar cartão)](/assets/images/help/projects/create-and-add-note-button.png)
+1. Navigate to the project board where you want to add notes.
+2. In the column you want to add a note to, click {% octicon "plus" aria-label="The plus icon" %}.
+![Plus icon in the column header](/assets/images/help/projects/add-note-button.png)
+3. Type your note, then click **Add**.
+![Field for typing a note and Add card button](/assets/images/help/projects/create-and-add-note-button.png)
 
   {% tip %}
 
-  **Dica:** você pode fazer referência um problema ou uma pull request na observação digitando a respectiva URL no cartão.
+  **Tip:** You can reference an issue or pull request in your note by typing its URL in the card.
 
   {% endtip %}
 
-## Converter uma observação em um problema
+## Converting a note to an issue
 
-Se você criou uma observação e achou que ela não é suficiente para as suas necessidades, é possível convertê-la em um problema.
+If you've created a note and find that it isn't sufficient for your needs, you can convert it to an issue.
 
-Quando você converte uma observação em um problema, o problema é criado automaticamente usando o conteúdo da observação. A primeira linha da observação será o título do problema e o conteúdo adicional da observação será adicionado à descrição do problema.
+When you convert a note to an issue, the issue is automatically created using the content from the note. The first line of the note will be the issue title and any additional content from the note will be added to the issue description.
 
 {% tip %}
 
-**Dica:** é possível adicionar conteúdo no texto da observação para fazer @menção a alguém, vinculá-la a outro problema ou pull request e adicionar emoji. Esses recursos markdown em estilo {% data variables.product.prodname_dotcom %} não são aceitos em observações do quadro de projeto, mas depois que a observação for convertida em um problema, ela será exibida corretamente. Para obter mais informações sobre o uso desses recursos, consulte "[Sobre escrita e formatação no {% data variables.product.prodname_dotcom %}](/articles/about-writing-and-formatting-on-github)".
+**Tip:** You can add content in the body of your note to @mention someone, link to another issue or pull request, and add emoji. These {% data variables.product.prodname_dotcom %} Flavored Markdown features aren't supported within project board notes, but once your note is converted to an issue, they'll appear correctly. For more information on using these features, see "[About writing and formatting on {% data variables.product.prodname_dotcom %}](/articles/about-writing-and-formatting-on-github)."
 
 {% endtip %}
 
-1. Navegue para a observação que deseja converter em um problema.
+1. Navigate to the note that you want to convert to an issue.
 {% data reusables.project-management.project-note-more-options %}
-3. Clique em **Convert to issue** (Converter em problema). ![Botão Convert to issue (Converter em problema)](/assets/images/help/projects/convert-to-issue.png)
-4. Se o cartão estiver em um quadro de projeto em toda a organização, no menu suspenso, escolha o repositório ao qual deseja adicionar o problema. ![Menu suspenso listando repositórios onde é possível criar o problema](/assets/images/help/projects/convert-note-choose-repository.png)
-5. Se desejar, edite o título do problema previamente preenchido e digite um texto para o problema. ![Campos para título e texto do problema](/assets/images/help/projects/convert-note-issue-title-body.png)
-6. Clique em **Convert to issue** (Converter em problema).
-7. A observação é convertida automaticamente em um problema. No quadro de projeto, o novo cartão de problema estará no mesmo local que a observação anterior.
+3. Click **Convert to issue**.
+  ![Convert to issue button](/assets/images/help/projects/convert-to-issue.png)
+4. If the card is on an organization-wide project board, in the drop-down menu, choose the repository you want to add the issue to.
+  ![Drop-down menu listing repositories where you can create the issue](/assets/images/help/projects/convert-note-choose-repository.png)
+5. Optionally, edit the pre-filled issue title, and type an issue body.
+  ![Fields for issue title and body](/assets/images/help/projects/convert-note-issue-title-body.png)
+6. Click **Convert to issue**.
+7. The note is automatically converted to an issue. In the project board, the new issue card will be in the same location as the previous note.
 
-## Editar e remover uma observação
+## Editing and removing a note
 
-1. Navegue para a observação que deseja editar ou remover.
+1. Navigate to the note that you want to edit or remove.
 {% data reusables.project-management.project-note-more-options %}
-3. Para editar o conteúdo da observação, clique em **Edit note** (Editar observação). ![Botão Edit note (Editar observação)](/assets/images/help/projects/edit-note.png)
-4. Para excluir o conteúdo das observações, clique em **Delete note** (Excluir observação). ![Botão Delete note (Excluir observação)](/assets/images/help/projects/delete-note.png)
+3. To edit the contents of the note, click **Edit note**.
+  ![Edit note button](/assets/images/help/projects/edit-note.png)
+4. To delete the contents of the notes, click **Delete note**.
+  ![Delete note button](/assets/images/help/projects/delete-note.png)
 
-## Leia mais
+## Further reading
 
-- "[Sobre quadros de projetos](/articles/about-project-boards)"
-- "[Criar um quadro de projeto](/articles/creating-a-project-board)"
-- "[Editar um quadro de projeto](/articles/editing-a-project-board)"
-- "[Adicionar problemas e pull requests a um quadro de projeto](/articles/adding-issues-and-pull-requests-to-a-project-board)"
+- "[About project boards](/articles/about-project-boards)"
+- "[Creating a project board](/articles/creating-a-project-board)"
+- "[Editing a project board](/articles/editing-a-project-board)"
+- "[Adding issues and pull requests to a project board](/articles/adding-issues-and-pull-requests-to-a-project-board)"

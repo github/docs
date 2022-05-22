@@ -1,6 +1,6 @@
 ---
-title: Desbloquear uma conta bloqueada
-intro: Os recursos pagos da sua organização estão bloqueados se o seu pagamento estiver atrasado devido a problemas de cobrança.
+title: Unlocking a locked account
+intro: Your organization's paid features are locked if your payment is past due because of billing problems.
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/unlocking-a-locked-account
   - /articles/what-happens-if-my-account-is-locked
@@ -20,15 +20,14 @@ topics:
   - Downgrades
   - Organizations
   - User account
-shortTitle: Conta bloqueada
+shortTitle: Locked account
 ---
+You can unlock and access your account by updating your organization's payment method and resuming paid status. We do not ask you to pay for the time elapsed in locked mode.
 
-Você pode desbloquear e acessar sua conta atualizando a forma de pagamento da sua organização e retomando o status de pago. sem precisar pagar pelo tempo decorrido no modo bloqueado.
+You can downgrade your organization to {% data variables.product.prodname_free_team %} to continue with the same advanced features in public repositories. For more information, see "[Downgrading your {% data variables.product.product_name %} subscription](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription)."
 
-Você pode fazer o downgrade da sua organização para o {% data variables.product.prodname_free_team %} para continuar com os mesmos recursos avançados em repositórios públicos. Para obter mais informações, consulte "[Rebaixando sua assinatura {% data variables.product.product_name %}](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription)."
+## Unlocking an organization's features due to a declined payment
 
-## Desbloqueando recursos da organização devido a pagamento recusado
+If your organization's advanced features are locked due to a declined payment, you'll need to update your billing information to trigger a newly authorized charge. For more information, see "[Adding or editing a payment method](/articles/adding-or-editing-a-payment-method)."
 
-Se os recursos avançados de sua organização foram bloqueados devido a pagamento recusado, você precisará atualizar as informações de cobrança para que uma nova cobrança seja autorizada. Para obter mais informações, consulte "[Adicionar ou editar forma de pagamento](/articles/adding-or-editing-a-payment-method)".
-
-Se as novas informações de cobrança forem aprovadas, cobraremos imediatamente pelo produto pago que você escolheu. A organização será desbloqueada assim que o pagamento for confirmado.
+If the new billing information is approved, we will immediately charge you for the paid product you chose. The organization will automatically unlock when a successful payment has been made.

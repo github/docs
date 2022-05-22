@@ -4,7 +4,7 @@ intro: 'La agrupación {% data variables.product.prodname_ghe_server %} permite 
 redirect_from:
   - /enterprise/admin/clustering/overview
   - /enterprise/admin/clustering/about-clustering
-  - /enterprise/admin/clustering/clustering-overview
+  - /enterprise/admin/clustering/clustering-overview/
   - /enterprise/admin/enterprise-management/about-clustering
   - /admin/enterprise-management/about-clustering
 versions:

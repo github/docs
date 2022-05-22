@@ -1,6 +1,6 @@
 ---
-title: Visualizando versões e tags do seu repositório
-intro: Você pode visualizar o histórico cronológico do seu repositório pelo número da versão da versão ou da tag.
+title: Viewing your repository's releases and tags
+intro: You can view the chronological history of your repository by release name or tag version number.
 redirect_from:
   - /articles/working-with-tags
   - /articles/viewing-your-repositorys-tags
@@ -14,27 +14,29 @@ versions:
   ghec: '*'
 topics:
   - Repositories
-shortTitle: Visualizar versões & tags
+shortTitle: View releases & tags
 ---
-
+{% ifversion fpt or ghae or ghes or ghec %}
 {% tip %}
 
-**Dica**: Você também pode ver uma versão usando o {% data variables.product.prodname_cli %}. Para obter mais informações, consulte "[`vista da versão `](https://cli.github.com/manual/gh_release_view)" na documentação do {% data variables.product.prodname_cli %}.
+**Tip**: You can also view a release using the {% data variables.product.prodname_cli %}. For more information, see "[`gh release view`](https://cli.github.com/manual/gh_release_view)" in the {% data variables.product.prodname_cli %} documentation.
 
 {% endtip %}
+{% endif %}
 
-## Visualizar versões
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.releases %}
-2. Na parte superior da página Versões, clique em **Releases** (Versões).
-
-## Visualizar tags
+## Viewing releases
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.releases %}
-2. Na parte superior da página Versões, clique em **Tags**. ![Página de tags](/assets/images/help/releases/tags-list.png)
+2. At the top of the Releases page, click **Releases**.
 
-## Leia mais
+## Viewing tags
 
-- "[Assinar tags](/articles/signing-tags)"
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.releases %}
+2. At the top of the Releases page, click **Tags**.
+![Tags page](/assets/images/help/releases/tags-list.png)
+
+## Further reading
+
+- "[Signing tags](/articles/signing-tags)"

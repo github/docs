@@ -6,10 +6,11 @@ import createApp from '../../lib/app.js'
 
 const app = createApp()
 
-const requester = supertest(app)
-const request = (method, route) => requester[method](route)
+const helpers = {}
 
-export async function get(
+const request = (method, route) => supertest(app)[method](route)
+
+export const get = (helpers.get = async function (
   route,
   opts = { followRedirects: false, followAllRedirects: false, headers: {} }
 ) {
@@ -18,48 +19,37 @@ export async function get(
     : await request('get', route)
   // follow all redirects, or just follow one
   if (opts.followAllRedirects && [301, 302].includes(res.status)) {
-    res = await get(res.headers.location, opts)
+    res = await helpers.get(res.headers.location, opts)
   } else if (opts.followRedirects && [301, 302].includes(res.status)) {
-    res = await get(res.headers.location)
+    res = await helpers.get(res.headers.location)
   }
 
   return res
-}
+})
 
-export async function head(route, opts = { followRedirects: false }) {
+export const head = (helpers.head = async function (route, opts = { followRedirects: false }) {
   const res = await request('head', route).redirects(opts.followRedirects ? 10 : 0)
   return res
-}
+})
 
-export function post(route) {
-  return request('post', route)
-}
+export const post = (helpers.post = (route) => request('post', route))
 
-export async function getDOM(
-  route,
-  { headers, allow500s, allow404 } = { headers: undefined, allow500s: false, allow404: false }
-) {
-  const res = await get(route, { followRedirects: true, headers })
+export const getDOM = (helpers.getDOM = async function (route, headers, allow500s = false) {
+  const res = await helpers.get(route, { followRedirects: true, headers })
   if (!allow500s && res.status >= 500) {
     throw new Error(`Server error (${res.status}) on ${route}`)
-  }
-  if (!allow404 && res.status === 404) {
-    throw new Error(`Page not found on ${route}`)
   }
   const $ = cheerio.load(res.text || '', { xmlMode: true })
   $.res = Object.assign({}, res)
   return $
-}
+})
 
 // For use with the ?json query param
 // e.g. await getJSON('/en?json=breadcrumbs')
-export async function getJSON(route) {
-  const res = await get(route, { followRedirects: true })
+export const getJSON = (helpers.getJSON = async function (route) {
+  const res = await helpers.get(route, { followRedirects: true })
   if (res.status >= 500) {
     throw new Error(`Server error (${res.status}) on ${route}`)
   }
-  if (res.status >= 400) {
-    console.warn(`${res.status} on ${route} and the response might not be JSON`)
-  }
   return JSON.parse(res.text)
-}
+})

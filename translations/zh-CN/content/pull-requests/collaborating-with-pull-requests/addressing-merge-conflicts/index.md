@@ -1,6 +1,6 @@
 ---
-title: 解决合并冲突
-intro: 如果您的更改与基本分支存在合并冲突，必须解决该冲突后才可合并拉取请求的更改。
+title: Addressing merge conflicts
+intro: 'If your changes have merge conflicts with the base branch, you must address the merge conflicts before you can merge your pull request''s changes.'
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/addressing-merge-conflicts
   - /articles/addressing-merge-conflicts
@@ -16,6 +16,5 @@ children:
   - /about-merge-conflicts
   - /resolving-a-merge-conflict-on-github
   - /resolving-a-merge-conflict-using-the-command-line
-shortTitle: 地址合并冲突
+shortTitle: Address merge conflicts
 ---
-

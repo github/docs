@@ -1,6 +1,6 @@
 ---
-title: Contribuir para projetos
-intro: Aprenda a contribuir para um projeto por meio da bifurcação.
+title: Contributing to projects
+intro: Learn how to contribute to a project through forking.
 permissions: '{% data reusables.enterprise-accounts.emu-permission-fork %}'
 versions:
   fpt: '*'
@@ -14,43 +14,45 @@ topics:
   - Open Source
 ---
 
-## Sobre a bifurcação
+## About forking
 
-Depois de usar o GitHub por um tempo, você deverá contribuir para o projeto de outra pessoa. Ou talvez você deva usar o projeto de alguém como ponto de partida para o seu próprio projeto. Este processo é conhecido como bifurcação.
+After using GitHub by yourself for a while, you may find yourself wanting to contribute to someone else’s project. Or maybe you’d like to use someone’s project as the starting point for your own. This process is known as forking.
 
-A criação de uma "bifurcação" produz uma cópia pessoal do projeto de outra pessoa. As bifurcações atuam como um tipo de ponte entre o repositório original e a sua cópia pessoal. Você pode enviar pull requests para ajudar a melhorar os projetos de outras pessoas oferecendo suas alterações até o projeto original. A bifurcação é um elemento essencial do código social no GitHub. Para obter mais informações, consulte "[Bifurcar um repositório](/get-started/quickstart/fork-a-repo)".
+Creating a "fork" is producing a personal copy of someone else's project. Forks act as a sort of bridge between the original repository and your personal copy. You can submit pull requests to help make other people's projects better by offering your changes up to the original project. Forking is at the core of social coding at GitHub. For more information, see "[Fork a repo](/get-started/quickstart/fork-a-repo)."
 
-## Bifurcar um repositório
+## Forking a repository
 
-Este tutorial usa [o projeto Spoon-Knife](https://github.com/octocat/Spoon-Knife), um repositório de teste hospedado em {% data variables.product.prodname_dotcom_the_website %} que permite testar o fluxo de trabalho de bifurcação e pull request.
+This tutorial uses [the Spoon-Knife project](https://github.com/octocat/Spoon-Knife), a test repository that's hosted on {% data variables.product.prodname_dotcom_the_website %} that lets you test the fork and pull request workflow.
 
-1. Acecsse o projeto `Spoon-Knife` em https://github.com/octocat/Spoon-Knife.
-2. Clique em **Bifurcação**. ![Botão Fork (Bifurcação)](/assets/images/help/repository/fork_button.jpg)
-1. {% data variables.product.product_name %} irá direcionar você para sua cópia (sua bifurcação) do repositório Spoon-Knife.
+1. Navigate to the `Spoon-Knife` project at https://github.com/octocat/Spoon-Knife.
+2. Click **Fork**.
+   ![Fork button](/assets/images/help/repository/fork_button.jpg)
+1. {% data variables.product.product_name %} will take you to your copy (your fork) of the Spoon-Knife repository.
 
-## Clonando uma bifurcação
+## Cloning a fork
 
-Você criou com sucesso o repositório Spoon-Knife mas, até agora, ele existe apenas em {% data variables.product.product_name %}. Para poder trabalhar no projeto, você deverá cloná-lo para o seu computador.
+You've successfully forked the Spoon-Knife repository, but so far, it only exists on {% data variables.product.product_name %}. To be able to work on the project, you will need to clone it to your computer.
 
-Você pode clonar a sua bifurcação com a linha de comando, {% data variables.product.prodname_cli %} ou {% data variables.product.prodname_desktop %}.
+You can clone your fork with the command line, {% data variables.product.prodname_cli %}, or {% data variables.product.prodname_desktop %}.
 
+{% include tool-switcher %}
 {% webui %}
 
-1. Em {% data variables.product.product_name %}, vá até **your fork** (sua bifurcação) no repositório Spoon-Knife.
+1. On {% data variables.product.product_name %}, navigate to **your fork** of the Spoon-Knife repository.
 {% data reusables.repositories.copy-clone-url %}
 {% data reusables.command_line.open_the_multi_os_terminal %}
 {% data reusables.command_line.change-current-directory-clone %}
-4. Digite `git clone` (clonar git) e cole a URL que você copiou anteriormente. Ficará assim, com seu {% data variables.product.product_name %} nome de usuário no lugar de `YOUR-USERNAME`:
+4. Type `git clone`, and then paste the URL you copied earlier. It will look like this, with your {% data variables.product.product_name %} username instead of `YOUR-USERNAME`:
   ```shell
   $ git clone https://{% data variables.command_line.codeblock %}/<em>YOUR-USERNAME</em>/Spoon-Knife
   ```
 
-5. Pressione **Enter**. Seu clone local estará criado.
+5. Press **Enter**. Your local clone will be created.
   ```shell
   $ git clone https://{% data variables.command_line.codeblock %}/<em>YOUR-USERNAME</em>/Spoon-Knife
-  > Clonando para `Spoon-Knife`...
-  > remote: Contando objetos: 10, concluído.
-  > remote: Compactando objetos: 100% (8/8), concluído.
+  > Cloning into `Spoon-Knife`...
+  > remote: Counting objects: 10, done.
+  > remote: Compressing objects: 100% (8/8), done.
   > remove: Total 10 (delta 1), reused 10 (delta 1)
   > Unpacking objects: 100% (10/10), done.
   ```
@@ -61,7 +63,7 @@ Você pode clonar a sua bifurcação com a linha de comando, {% data variables.p
 
 {% data reusables.cli.cli-learn-more %}
 
-Para criar um clone da sua *bifurcação*, use o sinalizador `--clone`.
+To create a clone of your fork, use the `--clone` flag.
 
 ```shell
 gh repo fork <em>repository</em> --clone=true
@@ -79,17 +81,18 @@ gh repo fork <em>repository</em> --clone=true
 
 {% enddesktop %}
 
-## Fazendo e enviando por push as alterações
+## Making and pushing changes
 
-Siga em frente e faça algumas alterações no projeto usando o seu editor de texto favorito, como [Atom](https://atom.io). Você pode, por exemplo, alterar o texto em `index.html` para adicionar o seu nome de usuário do GitHub.
+Go ahead and make a few changes to the project using your favorite text editor, like [Atom](https://atom.io). You could, for example, change the text in `index.html` to add your GitHub username.
 
-Quando estiver pronto para enviar suas alterações, teste e faça commit das suas alterações. `git add .` informa ao Git que você deseja incluir todas as alterações no próximo commit. `git commit` tira um instantâneo dessas alterações.
+When you're ready to submit your changes, stage and commit your changes. `git add .` tells Git that you want to include all of your changes in the next commit. `git commit` takes a snapshot of those changes.
 
+{% include tool-switcher %}
 {% webui %}
 
 ```shell
 git add .
-git commit -m "Uma breve descrição da alteração"
+git commit -m "a short description of the change"
 ```
 
 {% endwebui %}
@@ -98,21 +101,22 @@ git commit -m "Uma breve descrição da alteração"
 
 ```shell
 git add .
-git commit -m "Uma breve descrição da alteração"
+git commit -m "a short description of the change"
 ```
 
 {% endcli %}
 
 {% desktop %}
 
-Para obter mais informações sobre como testar e fazer commit das alterações em {% data variables.product.prodname_desktop %}, consulte "[Fazendo commit e revisando as alterações no seu projeto](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project#selecting-changes-to-include-in-a-commit)."
+For more information about how to stage and commit changes in {% data variables.product.prodname_desktop %}, see "[Committing and reviewing changes to your project](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project#selecting-changes-to-include-in-a-commit)."
 
 {% enddesktop %}
 
-Ao testar e fazer commit dos arquivos, você essencialmente diz ao Git, "Ok, tire um instantâneo das minhas alterações!" Você pode continuar fazendo mais alterações e tirar mais instantâneos do commit.
+When you stage and commit files, you essentially tell Git, "Okay, take a snapshot of my changes!" You can continue to make more changes, and take more commit snapshots.
 
-No momento, suas alterações existem apenas localmente. Quando estiver pronto para fazer push das suas alterações para {% data variables.product.product_name %}, faça push delas para o controle remoto.
+Right now, your changes only exist locally. When you're ready to push your changes up to {% data variables.product.product_name %}, push your changes to the remote.
 
+{% include tool-switcher %}
 {% webui %}
 
 ```shell
@@ -131,24 +135,25 @@ git push
 
 {% desktop %}
 
-Para obter mais informações sobre como fazer push de alterações em {% data variables.product.prodname_desktop %}, consulte "[Envio por push das alterações para o GitHub](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/pushing-changes-to-github)."
+For more information about how to push changes in {% data variables.product.prodname_desktop %}, see "[Pushing changes to GitHub](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/pushing-changes-to-github)."
 
 {% enddesktop %}
 
-## Fazendo um pull request
+## Making a pull request
 
-Finalmente, você está pronto para propor alterações no projeto principal! Essa é a última etapa para produzir uma bifurcação do projeto de outra pessoa, e a mais importante, indiscutivelmente. Se você fez uma alteração que você considera que beneficiaria a comunidade como um todo, você deve considerar contribuir de novamente.
+At last, you're ready to propose changes into the main project! This is the final step in producing a fork of someone else's project, and arguably the most important. If you've made a change that you feel would benefit the community as a whole, you should definitely consider contributing back.
 
-Para fazer isso, acesse o repositório {% data variables.product.product_name %} onde seu projeto encontra-se. Para este exemplo, ela seria em `https://www.github.com/<your_username>/Spoon-Knife`. Você verá um banner que indica que o seu branch é um commit à frente do `octocat: main`. Clique em **Contribuir ** e, em seguida, **Abrir um pull request**.
+To do so, head on over to the repository on {% data variables.product.product_name %} where your project lives. For this example, it would be at `https://www.github.com/<your_username>/Spoon-Knife`. You'll see a banner indicating that your branch is one commit ahead of `octocat:main`. Click **Contribute** and then **Open a pull request**.
 
-O {% data variables.product.product_name %} levará você a uma página que mostra as diferenças entre a sua bifurcação e o repositório `octocat/Spoon-Knife`. Clique em **Create pull request** (Criar pull request).
+{% data variables.product.product_name %} will bring you to a page that shows the differences between your fork and the `octocat/Spoon-Knife` repository. Click **Create pull request**.
 
-{% data variables.product.product_name %} levará você a uma página onde você pode inserir um título e uma descrição das suas alterações. É importante fornecer tantas informações úteis e uma razão para o motivo de você estar fazendo este pull request. O proprietário do projeto deve poder determinar se a sua alteração é tão útil para todos quanto você pensa. Por fim, clique em **Criar pull request**.
+{% data variables.product.product_name %} will bring you to a page where you can enter a title and a description of your changes. It's important to provide as much useful information and a rationale for why you're making this pull request in the first place. The project owner needs to be able to determine whether your change is as useful to everyone as you think it is. Finally, click **Create pull request**.
 
-## Gerenciando feedback
+## Managing feedback
 
-Os pull requests são uma área de discussão. Neste caso, o Octocat está muito ocupado e provavelmente não irá fazer merge das suas alterações. Para outros projetos, não se ofenda se o proprietário do projeto rejeitar o seu pull request ou pedir mais informações sobre o porquê de a alteração ter sido feita. Pode até ser que o proprietário do projeto não faça o merge do seu pull request e isso está perfeitamente bem. Your copy will exist in infamy on the Internet. E quem sabe - talvez alguém que você nunca conheceu, considere as suas alterações muito mais valiosas do que o projeto original.
+Pull Requests are an area for discussion. In this case, the Octocat is very busy, and probably won't merge your changes. For other projects, don't be offended if the project owner rejects your pull request, or asks for more information on why it's been made. It may even be that the project owner chooses not to merge your pull request, and that's totally okay. Your copy will exist in infamy on the Internet. And who knows--maybe someone you've never met will find your changes much more valuable than the original project.
 
-## Encontrando projetos
+## Finding projects
 
-Você fez uma bifurcação com sucesso e contribuiu de volta para um repositório. Vá em frente e contribua com um pouco mais!{% ifversion fpt %} Para obter mais informações, consulte "[Encontrando formas de contribuir com código aberto no GitHub](/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github).{% endif %}
+You've successfully forked and contributed back to a repository. Go forth, and
+contribute some more!{% ifversion fpt %} For more information, see "[Finding ways to contribute to open source on GitHub](/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github)."{% endif %}

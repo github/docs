@@ -10,7 +10,7 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: リポジトリのディスカッションの管理
+shortTitle: ディスカッションの作成の管理
 ---
 
 
@@ -28,4 +28,3 @@ shortTitle: リポジトリのディスカッションの管理
 
 - 「[Discussions について](/discussions/collaborating-with-your-community-using-discussions/about-discussions)」
 - 「[コミュニティの Discussions を管理する](/discussions/managing-discussions-for-your-community)」
-- 「[OrganizationのGitHub Discussionsの有効化もしくは無効化](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization)」

@@ -1,6 +1,6 @@
 ---
-title: Programar la creación de propuestas
-intro: 'Puedes utilizar {% data variables.product.prodname_actions %} para crear una propuesta frecuentemente para asuntos como juntas diarias o revisiones trimestrales.'
+title: Scheduling issue creation
+intro: 'You can use {% data variables.product.prodname_actions %} to create an issue on a regular basis for things like daily meetings or quarterly reviews.'
 redirect_from:
   - /actions/guides/scheduling-issue-creation
 versions:
@@ -17,17 +17,17 @@ topics:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## Introducción
+## Introduction
 
-Este tutorial ilustra cómo utilizar la [acción `imjohnbo/issue-bot`](https://github.com/marketplace/actions/issue-bot-action) para crear una propuesta con frecuencia. Por ejemplo, puedes crear una propuesta semanalmente o utilizarla como el itinerario de una junta de equipo.
+This tutorial demonstrates how to use the [`imjohnbo/issue-bot` action](https://github.com/marketplace/actions/issue-bot-action) to create an issue on a regular basis. For example, you can create an issue each week to use as the agenda for a team meeting.
 
-En el tutorial, primero crearás un archivo de flujo de trabajo que utilice la [acción `imjohnbo/issue-bot`](https://github.com/marketplace/actions/issue-bot-action). Después, personalizarás el flujo de trabajo de acuerdo con tus necesidades.
+In the tutorial, you will first make a workflow file that uses the [`imjohnbo/issue-bot` action](https://github.com/marketplace/actions/issue-bot-action). Then, you will customize the workflow to suit your needs.
 
-## Crear un flujo de trabajo
+## Creating the workflow
 
 1. {% data reusables.actions.choose-repo %}
 2. {% data reusables.actions.make-workflow-file %}
-3. Copia el siguiente contenido de YAML en tu archivo de flujo de trabajo.
+3. Copy the following YAML contents into your workflow file.
 
     ```yaml{:copy}
 {% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=4 %}
@@ -57,7 +57,7 @@ En el tutorial, primero crearás un archivo de flujo de trabajo que utilice la [
                 - [ ] Check-ins
                 - [ ] Discussion points
                 - [ ] Post the recording
-
+                        
                 ### Discussion Points
                 Add things to discuss below
 
@@ -68,25 +68,25 @@ En el tutorial, primero crearás un archivo de flujo de trabajo que utilice la [
               GITHUB_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
     ```
 
-4. Personaliza los parámetros en tu archivo de flujo de trabajo:
-   - Cambia el valor de `on.schedule` para que dicte cuándo quieres que se ejecute este flujo de trabajo. En el ejemplo anterior, el flujo de trabajo se ejecutará cada lunes a las 7:20 UTC. Para obtener más información sobre los flujos de trabajo que has programado, consulta la sección "[Ejemplos programados](/actions/reference/events-that-trigger-workflows#scheduled-events)".
-   - Cambia el valor de `assignees` a la lista de nombres de usuarios de {% data variables.product.prodname_dotcom %} que quieras asignar a la propuesta.
-   - Cambia el valor de `labels` a la lista de etiquetas que quieras aplicar a la propuesta.
-   - Cambia el valor de `title` al título que quieres que tenga la propuesta.
-   - Cambia el valor de `body` al texto que quieras en el cuerpo de la propuesta. El caracter `|` te permite utilizar un valor de línea múltiple para este parámetro.
-   - Si quieres fijar esta propuesta en tu repositorio, configura `pinned` en `true`. Para obtener más información acerca de las propuestas fijas, consulta "[Fijar una propuesta a tu repositorio](/articles/pinning-an-issue-to-your-repository)".
-   - Si quieres cerrar la propuesta previa que generó este flujo de trabajo cada vez que se crea una propuesta nueva, configura `close-previous` en `true`. El flujo de trabajo cerrará la propuesta más reciente que tenga las etiquetas que se definen en el campo `labels`. Para evitar que se cierre la propuesta equivocada, utiliza una etiqueta única o una combinación de etiquetas.
+4. Customize the parameters in your workflow file:
+   - Change the value for `on.schedule` to dictate when you want this workflow to run. In the example above, the workflow will run every Monday at 7:20 UTC. For more information about scheduled workflows, see "[Scheduled events](/actions/reference/events-that-trigger-workflows#scheduled-events)."
+   - Change the value for `assignees` to the list of {% data variables.product.prodname_dotcom %} usernames that you want to assign to the issue.
+   - Change the value for `labels` to the list of labels that you want to apply to the issue.
+   - Change the value for `title` to the title that you want the issue to have.
+   - Change the value for `body` to the text that you want in the issue body. The `|` character allows you to use a multi-line value for this parameter.
+   - If you want to pin this issue in your repository, set `pinned` to `true`. For more information about pinned issues, see "[Pinning an issue to your repository](/articles/pinning-an-issue-to-your-repository)."
+   - If you want to close the previous issue generated by this workflow each time a new issue is created, set `close-previous` to `true`. The workflow will close the most recent issue that has the labels defined in the `labels` field. To avoid closing the wrong issue, use a unique label or combination of labels.
 5. {% data reusables.actions.commit-workflow %}
 
-## Resultados esperados
+## Expected results
 
-Con base en el parámetro `schedule` (por ejemplo, cada lunes a las 7:20 UTC), tu flujo de trabajo creará una propuesta con los asignados, etiquetas, título y cuerpo que especifiques. Si configuras `pinned` como `true`, el flujo de trabajo fijará la propuesta a tu repositorio. Si configuras `close-previous` como "true", el flujo de trabajo cerrará la propuesta más reciente con las etiquetas coincidentes.
+Based on the `schedule` parameter (for example, every Monday at 7:20 UTC), your workflow will create a new issue with the assignees, labels, title, and body that you specified. If you set `pinned` to `true`, the workflow will pin the issue to your repository. If you set `close-previous` to true, the workflow will close the most recent issue with matching labels.
 
 {% data reusables.actions.schedule-delay %}
 
-Puedes ver el historial de tus ejecuciones de flujo de trabajo para ver que este flujo de trabajo se ejecute regularmente. Para obtener más información, consulta la sección "[Visualizar el historial de ejecuciones de un flujo de trabajo](/actions/managing-workflow-runs/viewing-workflow-run-history)".
+You can view the history of your workflow runs to see this workflow run periodically. For more information, see "[Viewing workflow run history](/actions/managing-workflow-runs/viewing-workflow-run-history)."
 
-## Pasos siguientes
+## Next steps
 
-- Para aprender más sobre las cosas adicionales que puedes hacer con la acción `imjohnbo/issue-bot`, como rotar asignados o utilizar una plantilla de propuesta, consulta la [documentación de la acción `imjohnbo/issue-bot`](https://github.com/marketplace/actions/issue-bot-action).
-- [Busca en GitHub](https://github.com/search?q=%22uses%3A+imjohnbo%2Fissue-bot%22&type=code) los ejemplos de los flujos de trabajo que utilizan esta acción.
+- To learn more about additional things you can do with the `imjohnbo/issue-bot` action, like rotating assignees or using an issue template, see the [`imjohnbo/issue-bot` action documentation](https://github.com/marketplace/actions/issue-bot-action).
+- [Search GitHub](https://github.com/search?q=%22uses%3A+imjohnbo%2Fissue-bot%22&type=code) for examples of workflows using this action.

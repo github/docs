@@ -1,6 +1,6 @@
 ---
-title: Planejamento e rastreamento de trabalho para a sua equipe ou projeto
-intro: 'O básico para usar as ferramentas de planejamento e rastreamento de {% data variables.product.prodname_dotcom %} para gerenciar o trabalho em uma equipe ou projeto.'
+title: Planning and tracking work for your team or project
+intro: 'The essentials for using {% data variables.product.prodname_dotcom %}''s planning and tracking tools to manage work on a team or project.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,112 +11,111 @@ topics:
   - Project management
   - Projects
 ---
+## Introduction
+You can use {% data variables.product.prodname_dotcom %} repositories, issues, project boards, and other tools to plan and track your work, whether working on an individual project or cross-functional team.
 
-## Introdução
-Você pode usar {% data variables.product.prodname_dotcom %} repositórios, problemas, quadros de projeto e outras ferramentas para planejar e acompanhar seu trabalho, caso esteja trabalhando em um projeto individual ou em uma equipe multifuncional.
+In this guide, you will learn how to create and set up a repository for collaborating with a group of people, create issue templates{% ifversion fpt or ghec %} and forms{% endif %}, open issues and use task lists to break down work, and establish a project board for organizing and tracking issues.
 
-Neste guia, você aprenderá a criar e configurar um repositório para colaborar com um grupo de pessoas, criar modelos de problema{% ifversion fpt or ghec %} e formulários{% endif %}, problemas abertos e usar listas de tarefas para dividir o trabalho e estabelecer um quadro de projetos para organizar e rastrear problemas.
+## Creating a repository
+When starting a new project, initiative, or feature, the first step is to create a repository. Repositories contain all of your project's files and give you a place to collaborate with others and manage your work. For more information, see "[Creating a new repository](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/creating-a-new-repository)."
 
-## Criar um repositório
-Ao iniciar um novo projeto, iniciativa, ou recurso, o primeiro passo é criar um repositório. Os repositórios contêm todos os arquivos do seu projeto e fornece a você um lugar para colaborar com outros e gerenciar seu trabalho. Para obter mais informações, consulte "[Criar um novo repositório](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/creating-a-new-repository)."
+You can set up repositories for different purposes based on your needs. The following are some common use cases:
 
-Você pode definir repositórios para diferentes finalidades com base nas suas necessidades. A seguir, estão alguns casos de uso:
+- **Product repositories**: Larger organizations that track their work and goals around specific products may have one or more repositories containing the code and other files. These repositories can also be used for documentation, reporting on product health or future plans for the product. 
+- **Project repositories**: You can create a repository for an individual project you are working on, or for a project you are collaborating on with others. For an organization that tracks work for short-lived initiatives or projects, such as a consulting firm, there is a need to report on the health of a project and move people between different projects based on skills and needs. Code for the project is often contained in a single repository.
+- **Team repositories**: For an organization that groups people into teams, and brings projects to them, such as a dev tools team, code may be scattered across many repositories for the different work they need to track. In this case it may be helpful to have a team-specific repository as one place to track all the work the team is involved in.
+- **Personal repositories**: You can create a personal repository to track all your work in one place, plan future tasks, or even add notes or information you want to save. You can also add collaborators if you want to share this information with others. 
 
-- **Repositórios de produtos**: As organizações maiores que rastreiam seus trabalhos e metas em torno de produtos específicos podem ter um ou mais repositórios que contêm o código e outros arquivos. Esses repositórios também podem ser usados para documentação, relatórios sobre saúde do produto ou planos futuros para o produto.
-- **Repositórios de projetos**: Você pode criar um repositório para um projeto em que está trabalhando ou para um projeto em que você está colaborando com os outros. Para uma organização que monitora o trabalho para iniciativas ou projetos de curta duração, como uma empresa de consultoria, é necessário apresentar um relatório sobre a saúde de um projeto e transferir as pessoas para diferentes projetos com base nas competências e nas necessidades. O código para o projeto está frequentemente contido em um único repositório.
-- **Repositórios de equipes**: Para uma organização que agrupa pessoas em equipe e traz projetos para eles, como uma equipe de ferramentas de desenvolvimento, o código pode estar espalhado por muitos repositórios para o trabalho diferente que eles precisam rastrear. Neste caso, pode ser útil ter um repositório específico para a equipe, como um só lugar para acompanhar todo o trabalho em que a equipe está envolvida.
-- **Repositórios pessoais**: Você pode criar um repositório pessoal para acompanhar todo o seu trabalho em um só lugar, planejar tarefas futuras, ou até adicionar observações ou informações que deseja salvar. Você também pode adicionar colaboradores se quiser compartilhar essas informações com outras pessoas.
+You can create multiple, separate repositories if you want different access permissions for the source code and for tracking issues and discussions. For more information, see "[Creating an issues-only repository](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/creating-an-issues-only-repository)."
 
-Você pode criar repositórios múltiplos e separados se quiser diferentes permissões de acesso para o código-fonte e para problemas de rastreamento e discussões. Para obter mais informações, consulte "[Criar um repositório exclusivo de problemas](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/creating-an-issues-only-repository)".
+For the following examples in this guide, we will be using an example repository called Project Octocat.
+## Communicating repository information
+You can create a README.md file for your repository to introduce your team or project and communicate important information about it. A README is often the first item a visitor to your repository will see, so you can also provide information on how users or contributors can get started with the project and how to contact the team. For more information, see "[About READMEs](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-readmes)."
 
-Para os seguintes exemplos neste guia, usaremos um repositório de exemplo denominado Project Octocat.
-## Comunicando informações do repositório
-Você pode criar um arquivo README.md para o repositório apresentar a sua equipe ou projeto e comunicar informações importantes sobre ele. Muitas vezes, um README é o primeiro item que um visitante ao repositório irá ver. Portanto, você também pode fornecer informações sobre como usuários ou contribuidores podem começar com o projeto e como entrar em contato com a equipe. Para obter mais informações, consulte "[Sobre README](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-readmes)".
+You can also create a CONTRIBUTING.md file specifically to contain guidelines on how users or contributors can contribute and interact with the team or project, such as how to open a bug fix issue or request an improvement. For more information, see "[Setting guidelines for repository contributors](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors)."
+### README example
+We can create a README.md to introduce our new project, Project Octocat. 
 
-Você também pode criar um arquivo CONTRIBUTING.md específico para conter diretrizes sobre como usuários ou contribuidores podem contribuir e interagir com a equipe ou projeto, como abrir um problema de correção de erros ou solicitar melhoria. Para obter mais informações, consulte "[Configurar diretrizes para contribuidores de repositório](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors)".
-### Exemplo README
-Podemos criar um README.md para introduzir nosso novo projeto, projeto do Octocat.
+![Creating README example](/assets/images/help/issues/quickstart-creating-readme.png)
+## Creating issue templates
 
-![Criando um exemplo README](/assets/images/help/issues/quickstart-creating-readme.png)
-## Criando modelos de problemas
+You can use issues to track the different types of work that your cross-functional team or project covers, as well as gather information from those outside of your project. The following are a few common use cases for issues.
 
-Você pode usar problemas para acompanhar os diferentes tipos de trabalho que sua equipe multifuncional ou seu projeto abrange, além de coletar informações daqueles que estão fora do seu projeto. A seguir, estão alguns casos comuns de utilização para os problemas.
+- Release tracking: You can use an issue to track the progress for a release or the steps to complete the day of a launch.
+- Large initiatives: You can use an issue to track progress on a large initiative or project, which is then linked to the smaller issues.
+- Feature requests: Your team or users can create issues to request an improvement to your product or project.
+- Bugs: Your team or users can create issues to report a bug. 
 
-- Monitoramento da versão: Você pode usar um problema para acompanhar o progresso de uma versão ou as etapas para concluir o dia de um lançamento.
-- Grandes iniciativas: Você pode usar um problema para acompanhar o progresso em uma grande iniciativa ou projeto, que está vinculado a problemas menores.
-- Solicitações de recursos: Sua equipe ou usuários podem criar problemas para solicitar uma melhoria para o seu produto ou projeto.
-- Erros: Sua equipe ou usuários podem criar problemas para relatar um erro.
+Depending on the type of repository and project you are working on, you may prioritize certain types of issues over others. Once you have identified the most common issue types for your team, you can create issue templates {% ifversion fpt or ghec %}and forms{% endif %} for your repository. Issue templates {% ifversion fpt or ghec %}and forms{% endif %} allow you to create a standardized list of templates that a contributor can choose from when they open an issue in your repository. For more information, see "[Configuring issue templates for your repository](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository)."
 
-Dependendo do tipo de repositório e projeto em que você está trabalhando, você pode priorizar certos tipos de problemas em detrimento de outros. Após identificar os tipos de problemas mais comuns da sua equipe, você poderá criar modelos de problema {% ifversion fpt or ghec %}e formulários{% endif %} para o seu repositório. Os modelos {% ifversion fpt or ghec %}e formulários{% endif %} permitem que você crie uma lista padronizada de modelos que um contribuidor pode escolher ao abrirem um problema no seu repositório. Para obter mais informações, consulte "[Configurando modelos de problema para seu repositório](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository)."
+### Issue template example
+Below we are creating an issue template for reporting a bug in Project Octocat.
 
-### Exemplo de modelo de problema
-Abaixo, estamos criando um modelo de problema para relatar um erro no projeto Octocat.
+![Creating issue template example](/assets/images/help/issues/quickstart-creating-issue-template.png)
 
-![Criar exemplo de modelo de problema](/assets/images/help/issues/quickstart-creating-issue-template.png)
+Now that we created the bug report issue template, you are able to select it when creating a new issue in Project Octocat.
 
-Agora que criamos o modelo de problemas de relatório de erro, você pode selecioná-lo ao criar um novo problema no projeto Octocat.
+![Choosing issue template example](/assets/images/help/issues/quickstart-issue-creation-menu-with-template.png)
 
-![Escolhendo o exemplo de modelo de problema](/assets/images/help/issues/quickstart-issue-creation-menu-with-template.png)
+## Opening issues and using task lists to track work
+You can organize and track your work by creating issues. For more information, see "[Creating an issue](/issues/tracking-your-work-with-issues/creating-issues/creating-an-issue)."
+### Issue example
+Here is an example of an issue created for a large initiative, front-end work, in Project Octocat.
 
-## Abrir problemas e usar listas de tarefas para monitorar o trabalho
-Você pode organizar e acompanhar seu trabalho criando problemas. Para obter mais informações, consulte "[Criar um problema](/issues/tracking-your-work-with-issues/creating-issues/creating-an-issue)".
-### Exemplo de problema
-Aqui está um exemplo de uma questão criada para uma grande iniciativa, um trabalho front-end no projeto Octocat.
+![Creating large initiative issue example](/assets/images/help/issues/quickstart-create-large-initiative-issue.png)
+### Task list example
 
-![Criando um exemplo problema de grande iniciativa](/assets/images/help/issues/quickstart-create-large-initiative-issue.png)
-### Exemplo da lista de tarefas
+You can use task lists to break larger issues down into smaller tasks and to track issues as part of a larger goal. {% ifversion fpt or ghec %} Task lists have additional functionality when added to the body of an issue. You can see the number of tasks completed out of the total at the top of the issue, and if someone closes an issue linked in the task list, the checkbox will automatically be marked as complete.{% endif %} For more information, see "[About task lists](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)."
 
-Você pode usar a lista de tarefas para dividir problemas maiores em tarefas menores e acompanhar problemas como parte de um objetivo maior. {% ifversion fpt or ghec %} A lista de tarefas tem funcionalidade adicional quando adicionada ao texto de um problema. Você pode ver o número de tarefas concluídas na parte superior do problema e se alguém fechar um problema vinculado na lista de tarefas, a caixa de seleção será automaticamente marcada como concluída.{% endif %} Para obter mais informações, consulte "[Sobre listas de tarefas](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)".
+Below we have added a task list to our Project Octocat issue, breaking it down into smaller issues.
 
-Abaixo nós adicionamos uma lista de tarefas ao problema do projeto Octocat do nosso projeto, dividindo-a em problemas menores.
+![Adding task list to issue example](/assets/images/help/issues/quickstart-add-task-list-to-issue.png)
 
-![Adicionar uma lista de tarefas ao exemplo do problema](/assets/images/help/issues/quickstart-add-task-list-to-issue.png)
+## Making decisions as a team
+You can use issues and discussions to communicate and make decisions as a team on planned improvements or priorities for your project. Issues are useful when you create them for discussion of specific details, such as bug or performance reports, planning for the next quarter, or design for a new initiative. Discussions are useful for open-ended brainstorming or feedback, outside the codebase and across repositories. For more information, see "[Which discussion tool should I use?](/github/getting-started-with-github/quickstart/communicating-on-github#which-discussion-tool-should-i-use)."
 
-## Tomando decisões em equipe
-Você pode usar problemas e discussões para comunicar-se e tomar decisões como equipe sobre melhorias planejadas ou prioridades para o seu projeto. Os problemas são úteis quando você os cria para discussão de detalhes específicos, como bug ou relatórios de desempenho, planejamento para o próximo trimestre ou design para uma nova iniciativa. As discussões são úteis para levantamento de hipóteses ou feedbacks abertos, fora da base de código e em todos os repositórios. Para obter mais informações, consulte "[Qual ferramenta de discussão devo usar?](/github/getting-started-with-github/quickstart/communicating-on-github#which-discussion-tool-should-i-use)".
+As a team, you can also communicate updates on day-to-day tasks within issues so that everyone knows the status of work. For example, you can create an issue for a large feature that multiple people are working on, and each team member can add updates with their status or open questions in that issue.
+### Issue example with project collaborators
+Here is an example of project collaborators giving a status update on their work on the Project Octocat issue.
 
-Como uma equipe, você também pode comunicar atualizações sobre tarefas do dia-a-dia dentro dos problemas, para que todos saibam o status do trabalho. Por exemplo, você pode criar um problema para um grande recurso em que várias pessoas estão trabalhando, e cada integrante da equipe pode adicionar atualizações com seu status ou perguntas em aberto nesse problema.
-### Exemplo de problema com colaboradores de projetos
-Aqui está um exemplo de colaboradores de projeto que fornecem uma atualização sobre o seu trabalho sobre o problema do projeto Octocat.
+![Collaborating on issue example](/assets/images/help/issues/quickstart-collaborating-on-issue.png)
+## Using labels to highlight project goals and status
+You can create labels for a repository to categorize issues, pull requests, and discussions. {% data variables.product.prodname_dotcom %} also provides default labels for every new repository that you can edit or delete. Labels are useful for keeping track of project goals, bugs, types of work, and the status of an issue.
 
-![Colaborando no exemplo do problema](/assets/images/help/issues/quickstart-collaborating-on-issue.png)
-## Usando etiquetas para destacar objetivos e status do projeto
-Você pode criar etiquetas para um repositório para categorizar problemas, pull requests e discussões. {% data variables.product.prodname_dotcom %} também fornece etiquetas padrão para cada novo repositório que você pode editar ou excluir. As etiquetas são úteis para manter o controle de objetivos, errps, tipos de trabalho e o status de um problema.
+For more information, see "[Creating a label](/issues/using-labels-and-milestones-to-track-work/managing-labels#creating-a-label)."
 
-Para obter mais informações, consulte "[Criar uma etiqueta](/issues/using-labels-and-milestones-to-track-work/managing-labels#creating-a-label)".
+Once you have created a label in a repository, you can apply it on any issue, pull request or discussion in the repository. You can then filter issues and pull requests by label to find all associated work. For example, find all the front end bugs in your project by filtering for issues with the `front-end` and `bug` labels. For more information, see "[Filtering and searching issues and pull requests](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)."
+### Label example
+Below is an example of a `front-end` label that we created and added to the issue.
 
-Depois de criar uma etiqueta em um repositório, é possível aplicá-lo em qualquer problema, pull request ou discussão no repositório. Em seguida, você pode filtrar problemas e pull requests por etiqueta para encontrar todo o trabalho associado. Por exemplo, encontre todos os erros front-end em seu projeto, filtrando por problemas com as etiquetas de `front-end` e `erro`. Para obter mais informações, consulte "[Filtrando e pesquisando problemas e pull requests](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)".
-### Exemplo de etiqueta
-Abaixo está um exemplo de uma etiqueta `front-end` que criamos e adicionamos ao problema.
+![Adding a label to an issue example](/assets/images/help/issues/quickstart-add-label-to-issue.png)
+## Adding issues to a project board
+{% ifversion fpt or ghec %}You can use projects on {% data variables.product.prodname_dotcom %}, currently in limited public beta, to plan and track the work for your team. A project is a customizable spreadsheet that integrates with your issues and pull requests on {% data variables.product.prodname_dotcom %}, automatically staying up-to-date with the information on {% data variables.product.prodname_dotcom %}. You can customize the layout by filtering, sorting, and grouping your issues and PRs. To get started with projects, see "[Quickstart for projects (beta)](/issues/trying-out-the-new-projects-experience/quickstart)."
+### Project (beta) example
+Here is the table layout of an example project, populated with the Project Octocat issues we have created.
 
-![Adicionando uma etiqueta a um exemplo do problema](/assets/images/help/issues/quickstart-add-label-to-issue.png)
-## Adicionando problemas a um quadro de projeto
-{% ifversion fpt or ghec %}Você pode usar projetos em {% data variables.product.prodname_dotcom %}, atualmente em beta público limitado, para planejar e acompanhar o trabalho da sua equipe. Um projeto é uma planilha personalizável integradas aos seus problemas e pull requests em {% data variables.product.prodname_dotcom %}, mantendo-se atualizada automaticamente com as informações em {% data variables.product.prodname_dotcom %}. Você pode personalizar o layout filtrando, organizando e agrupando seus problemas e PRs. Para começar com projetos, consulte "[Inicialização rápida para projetos (beta)](/issues/trying-out-the-new-projects-experience/quickstart). ".
-### Exemplo de projeto (beta)
-Aqui está o layout da tabela de um projeto de exemplo, preenchido com os problemas do projeto Octocat que criamos.
+![Projects (beta) table layout example](/assets/images/help/issues/quickstart-projects-table-view.png)
 
-![Exemplo do layout da tabela de projetos (beta)](/assets/images/help/issues/quickstart-projects-table-view.png)
+We can also view the same project as a board.
 
-Podemos também visualizar o mesmo projeto como um quadro.
-
-![Exemplo do quadro do layout de projetos (beta)](/assets/images/help/issues/quickstart-projects-board-view.png)
+![Projects (beta) board layout example](/assets/images/help/issues/quickstart-projects-board-view.png)
 
 {% endif %}
 
-Você também pode {% ifversion fpt or ghec %} usar os quadros de projeto existentes{% else %} usar{% endif %} no {% data variables.product.prodname_dotcom %} para planejar e acompanhar o trabalho da sua equipe. Os quadros de projeto são compostos por problemas, pull requests e observações que são categorizados como cartões em colunas de sua escolha. Você pode criar quadros de projetos para trabalho de funcionalidades, itinerários de alto nível ou até mesmo aprovar checklists. Para obter mais informações, consulte "[Sobre quadros de projeto](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)".
-### Exemplo de quadro de projeto
-Abaixo, está um painel de projeto para o nosso exemplo de projeto Octocat com o problema que criamos, e os problemas menores nos quais separamos, foram adicionados.
+You can {% ifversion fpt or ghec %} also use the existing{% else %} use{% endif %} project boards on {% data variables.product.prodname_dotcom %} to plan and track your or your team's work. Project boards are made up of issues, pull requests, and notes that are categorized as cards in columns of your choosing. You can create project boards for feature work, high-level roadmaps, or even release checklists. For more information, see "[About project boards](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)."
+### Project board example
+Below is a project board for our example Project Octocat with the issue we created, and the smaller issues we broke it down into, added to it.
 
-![Exemplo de quadro de projeto](/assets/images/help/issues/quickstart-project-board.png)
-## Próximas etapas
+![Project board example](/assets/images/help/issues/quickstart-project-board.png)
+## Next steps
 
-Agora você aprendeu sobre as ferramentas que {% data variables.product.prodname_dotcom %} oferece para planejamento e acompanhamento do seu trabalho e deu o seu primeiro passo para definir a sua equipe multifuncional ou repositório de projetos! Aqui estão alguns recursos úteis para personalizar ainda mais seu repositório e organizar seu trabalho.
+You have now learned about the tools {% data variables.product.prodname_dotcom %} offers for planning and tracking your work, and made a start in setting up your cross-functional team or project repository! Here are some helpful resources for further customizing your repository and organizing your work.
 
-- "[Sobre repositórios](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-repositories)" para aprender mais sobre a criação de repositórios
-- "[Monitorar o seu trabalho com problemas](/issues/tracking-your-work-with-issues)para aprender mais sobre diferentes formas de criar e gerenciar problemas
-- "[Sobre problemas e modelos de pull request](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates)para aprender mais sobre modelos de problemas
-- "[Gerenciando etiquetas](/issues/using-labels-and-milestones-to-track-work/managing-labels)" para aprender a criar, editar e excluir etiquetas
-- "[Sobre listas de tarefas](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)" para aprender mais sobre listas de tarefas
-{% ifversion fpt or ghec %} - "[Sobre projetos (beta)](/issues/trying-out-the-new-projects-experience/about-projects)" para aprender mais sobre a experiência dos novos projetos, atualmente em beta público limitado
-- "[Personalizando as visualizações do seu projeto (beta)](/issues/trying-out-the-new-projects-experience/customizing-your-project-views)" para aprender como personalizar visualizações para projetos, atualmente em beta público limitado{% endif %}
-- "[Sobre os quadros de projetos](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)" para aprender como gerenciar os quadros de projetos
+- "[About repositories](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-repositories)" for learning more about creating repositories
+- "[Tracking your work with issues](/issues/tracking-your-work-with-issues)" for learning more about different ways to create and manage issues
+- "[About issues and pull request templates](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates)" for learning more about issue templates
+- "[Managing labels](/issues/using-labels-and-milestones-to-track-work/managing-labels)" for learning how to create, edit and delete labels
+- "[About task lists](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)" for learning more about task lists
+{% ifversion fpt or ghec %} - "[About projects (beta)](/issues/trying-out-the-new-projects-experience/about-projects)" for learning more about the new projects experience, currently in limited public beta 
+- "[Customizing your project (beta) views](/issues/trying-out-the-new-projects-experience/customizing-your-project-views)" for learning how to customize views for projects, currently in limited public beta{% endif %}
+- "[About project boards](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)" for learning how to manage project boards

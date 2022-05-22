@@ -1,6 +1,6 @@
 ---
-title: 设置 GitHub Enterprise Server 实例
-intro: '您可以在自己选择的受支持虚拟化平台上安装 {% data variables.product.prodname_ghe_server %}。'
+title: Setting up a GitHub Enterprise Server instance
+intro: 'You can install {% data variables.product.prodname_ghe_server %} on the supported virtualization platform of your choice.'
 redirect_from:
   - /enterprise/admin/installation/getting-started-with-github-enterprise-server
   - /enterprise/admin/guides/installation/supported-platforms
@@ -20,6 +20,6 @@ children:
   - /installing-github-enterprise-server-on-vmware
   - /installing-github-enterprise-server-on-xenserver
   - /setting-up-a-staging-instance
-shortTitle: 设置实例
+shortTitle: Set up an instance
 ---
 

@@ -1,7 +1,7 @@
 ---
-title: 管理 Git Large File Storage 的计费
+title: Managing billing for Git Large File Storage
 shortTitle: Git Large File Storage
-intro: '您可以查看使用情况、升级和降级 {% data variables.large_files.product_name_long %}。'
+intro: 'You can view usage for, upgrade, and downgrade {% data variables.large_files.product_name_long %}.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-git-large-file-storage
   - /articles/managing-large-file-storage-and-bandwidth-for-your-personal-account

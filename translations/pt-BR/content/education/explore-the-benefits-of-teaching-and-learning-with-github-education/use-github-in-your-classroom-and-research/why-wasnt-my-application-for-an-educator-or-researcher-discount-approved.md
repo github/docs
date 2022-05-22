@@ -1,6 +1,6 @@
 ---
-title: Motivos da reprovação da candidatura ao desconto de educador ou pesquisador
-intro: Analise os motivos comuns para a reprovação de candidaturas ao desconto de educador ou pesquisador e veja dicas para se candidatar novamente sem problemas.
+title: Why wasn't my application for an educator or researcher discount approved?
+intro: Review common reasons that applications for an educator or researcher discount are not approved and learn tips for reapplying successfully.
 redirect_from:
   - /education/teach-and-learn-with-github-education/why-wasnt-my-application-for-an-educator-or-researcher-discount-approved
   - /github/teaching-and-learning-with-github-education/why-wasnt-my-application-for-an-educator-or-researcher-discount-approved
@@ -10,39 +10,38 @@ redirect_from:
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/why-wasnt-my-application-for-an-educator-or-researcher-discount-approved
 versions:
   fpt: '*'
-shortTitle: Solicitação recusada
+shortTitle: Application not approved
 ---
-
 {% tip %}
 
-**Dica:** {% data reusables.education.about-github-education-link %}
+**Tip:** {% data reusables.education.about-github-education-link %}
 
 {% endtip %}
 
-## Falta de clareza em documentos que comprovam a afiliação
+## Unclear proof of affiliation documents
 
-Se a imagem que você enviou por upload não identificar claramente sua ocupação atual em uma instituição de ensino ou universidade, você precisará se candidatar novamente e enviar por upload outra imagem do seu crachá na faculdade ou de uma carta de verificação de referência pessoal com informações claras.
-
-{% data reusables.education.pdf-support %}
-
-## Uso de e-mail acadêmico com domínio não verificado
-
-Se o seu endereço de e-mail acadêmico tiver um domínio não verificado, poderemos exigir mais provas do seu status acadêmico. {% data reusables.education.upload-different-image %}
+If the image you uploaded doesn't clearly identify your current employment with a school or university, you must reapply and upload another image of your faculty ID or employment verification letter with clear information.
 
 {% data reusables.education.pdf-support %}
 
-## Uso de e-mail acadêmico de uma escola com políticas de e-mail pouco rígidas
+## Using an academic email with an unverified domain
 
-Se ex-alunos e professores aposentados da sua instituição de ensino tiverem acesso vitalício a endereços de e-mail concedidos pela escola, poderemos exigir mais provas do seu status acadêmico. {% data reusables.education.upload-different-image %}
+If your academic email address has an unverified domain, we may require further proof of your academic status. {% data reusables.education.upload-different-image %}
 
 {% data reusables.education.pdf-support %}
 
-Se você tiver outras dúvidas sobre o domínio da instituição de ensino, peça à equipe de TI dela para entrar em contato conosco.
+## Using an academic email from a school with lax email policies
 
-## Candidatura de não alunos ao pacote de desenvolvedor para estudante
+If alumni and retired faculty of your school have lifetime access to school-issued email addresses, we may require further proof of your academic status. {% data reusables.education.upload-different-image %}
 
-Educadores e pesquisadores não estão qualificados para as ofertas de parceiros que acompanham o [{% data variables.product.prodname_student_pack %}](https://education.github.com/pack). Quando você se candidatar novamente, lembre-se de escolher **Faculty** (Faculdade) para descrever seu status acadêmico.
+{% data reusables.education.pdf-support %}
 
-## Leia mais
+If you have other questions or concerns about the school domain, please ask your school IT staff to contact us.
 
-- "[Solicite desconto para educador ou pesquisador](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-an-educator-or-researcher-discount)"
+## Non-student applying for Student Developer Pack
+
+Educators and researchers are not eligible for the partner offers that come with the [{% data variables.product.prodname_student_pack %}](https://education.github.com/pack). When you reapply, make sure that you choose **Faculty** to describe your academic status.
+
+## Further reading
+
+- "[Apply for an educator or researcher discount](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-an-educator-or-researcher-discount)"

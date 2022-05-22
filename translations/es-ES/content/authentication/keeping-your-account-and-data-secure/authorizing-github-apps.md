@@ -1,6 +1,6 @@
 ---
-title: Autorizar las GitHub Apps
-intro: 'Puedes autorizar a una {% data variables.product.prodname_github_app %} para que permita que una aplicación recupere información sobre tu cuenta de {% data variables.product.prodname_dotcom %} y, en algunos casos, para hacer cambios en {% data variables.product.prodname_dotcom %} en tu nombre.'
+title: Authorizing GitHub Apps
+intro: 'You can authorize a {% data variables.product.prodname_github_app %} to allow an application to retrieve information about your {% data variables.product.prodname_dotcom %} account and, in some circumstances, to make changes on {% data variables.product.prodname_dotcom %} on your behalf.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -13,41 +13,44 @@ redirect_from:
   - /github/authenticating-to-github/keeping-your-account-and-data-secure/authorizing-github-apps
 ---
 
-Las aplicaciones de terceros que necesitan verificar tu identidad de {% data variables.product.prodname_dotcom %} o interactuar con los datos de {% data variables.product.prodname_dotcom %} en tu nombre pueden pedirte que autorices la {% data variables.product.prodname_github_app %} para hacerlo.
+Third-party applications that need to verify your {% data variables.product.prodname_dotcom %} identity, or interact with the data on {% data variables.product.prodname_dotcom %} on your behalf, can ask you to authorize the {% data variables.product.prodname_github_app %} to do so. 
 
-Al autorizar la {% data variables.product.prodname_github_app %}, deberías asegurarte de que confías en la aplicación, revisar quién la desarrolló y revisar los tipos de información a la que desea acceder la aplicación.
+When authorizing the {% data variables.product.prodname_github_app %}, you should ensure you trust the application, review who it's developed by, and review the kinds of information the application wants to access.
 
-Durante la autorización, se te pedirá que otorgues el permiso de {% data variables.product.prodname_github_app %} para:
-* **Verifica tu identidad de {% data variables.product.prodname_dotcom %}**<br/> Cuando se te autorice, la {% data variables.product.prodname_github_app %} podrá recuperar tu perfil público de GitHub mediante programación, así como algunos detalles privados (tal como tu dirección de correo electrónico), dependiendo del nivel de acceso solicitado.
-* **Puedes saber a qué recursos puedes acceder**<br/> Cuando se te autorice, la {% data variables.product.prodname_github_app %} podrá leer mediante programación los recursos _privados_ {% data variables.product.prodname_dotcom %} a los que puedes acceder (tales como los repositorios privados de {% data variables.product.prodname_dotcom %}) _en donde_ también está presente una instalación de la {% data variables.product.prodname_github_app %}. La aplicación podría utilizar esto, por ejemplo, para que pueda mostrarte una lista adecuada de repositorios.
-* **Actuar en tu nombre**<br/> La aplicación podría necesitar realizar tareas en {% data variables.product.prodname_dotcom %} como si fueras tú. Esto podría incluir el crear una propuesta o comentar en una solicitud de cambios. Esta capacidad de actuar en tu nombre se limita a los recursos de {% data variables.product.prodname_dotcom %} en donde _tanto_ tú como la {% data variables.product.prodname_github_app %} tengan acceso. Sin embargo, en algunos casos, la aplicación podría jamás hacer cambios en tu nombre.
+During authorization, you'll be prompted to grant the {% data variables.product.prodname_github_app %} permission to:
+* **Verify your {% data variables.product.prodname_dotcom %} identity**<br/>
+  When authorized, the {% data variables.product.prodname_github_app %} will be able to programmatically retrieve your public GitHub profile, as well as some private details (such as your email address), depending on the level of access requested.
+* **Know which resources you can access**<br/>
+  When authorized, the {% data variables.product.prodname_github_app %} will be able to programmatically read the _private_ {% data variables.product.prodname_dotcom %} resources that you can access (such as private  {% data variables.product.prodname_dotcom %}  repositories) _where_ an installation of the {% data variables.product.prodname_github_app %} is also present. The application may use this, for example, so that it can show you an appropriate list of repositories.
+* **Act on your behalf**<br/>
+  The application may need to perform tasks on {% data variables.product.prodname_dotcom %}, as you. This might include creating an issue, or commenting on a pull request. This ability to act on your behalf is limited to the {% data variables.product.prodname_dotcom %} resources where _both_ you and the {% data variables.product.prodname_github_app %} have access. In some cases, however, the application may never make any changes on your behalf.
+  
+## When does a {% data variables.product.prodname_github_app %} act on your behalf?
 
-## ¿Cuándo actúa una {% data variables.product.prodname_github_app %} en tu nombre?
+The situations in which a {% data variables.product.prodname_github_app %} acts on your behalf vary according to the purpose of the {% data variables.product.prodname_github_app %} and the context in which it is being used. 
 
-Las situaciones en las cuales una {% data variables.product.prodname_github_app %} actúa en tu nombre varían de acuerdo con el propósito de la {% data variables.product.prodname_github_app %} y el contexto en el cual se utiliza.
+For example, an integrated development environment (IDE) may use a {% data variables.product.prodname_github_app %} to interact on your behalf in order to push changes you have authored through the IDE back to repositories on {% data variables.product.prodname_dotcom %}.  The {% data variables.product.prodname_github_app %} will achieve this through a [user-to-server request](/get-started/quickstart/github-glossary#user-to-server-request).
 
-Por ejemplo, un ambiente de desarrollo integrado (IDE) podría utilizar una {% data variables.product.prodname_github_app %} para interactuar en tu nombre para subir los cambios que son de tu autoría a través del IDE de vuelta a los repositorios en {% data variables.product.prodname_dotcom %}.  La {% data variables.product.prodname_github_app %} logrará esto mediante una [solicitud de usuario a servidor](/get-started/quickstart/github-glossary#user-to-server-request).
+When a {% data variables.product.prodname_github_app %} acts on your behalf in this way, this is identified on GitHub via a special icon that shows a small avatar for the {% data variables.product.prodname_github_app %} overlaid onto your own avatar, similar to the one shown below.
 
-Cuando una {% data variables.product.prodname_github_app %} actúa en tu nombre de esta forma, esto lo identifica GitHub a través de un icono especial que muestra un avatar pequeño de la {% data variables.product.prodname_github_app %} sobre tu propio avatar, similar al que se muestra a continuación.
+![An issue created by a "user-to-server" request from a {% data variables.product.prodname_github_app %}](/assets/images/help/apps/github-apps-new-issue.png)
 
-![Una propuesta que creó una solicitud de "usuario a servidor" desde una {% data variables.product.prodname_github_app %}](/assets/images/help/apps/github-apps-new-issue.png)
+## To what extent can a {% data variables.product.prodname_github_app %} know which resources you can access  and act on your behalf?
 
-## ¿Hasta qué punto puede una {% data variables.product.prodname_github_app %} saber a qué recursos puedes acceder y actuar en tu nombre?
+The extent to which a {% data variables.product.prodname_github_app %} can know which resources you can access and act on your behalf, after you have authorized it, is limited by:
 
-El grado en el que una {% data variables.product.prodname_github_app %} puede saber a qué recursos puedes acceder y actuar en tu nombre, después de que la has autorizado, se limita por:
+* The organizations or repositories on which the app is installed 
+* The permissions the app has requested
+* Your access to {% data variables.product.prodname_dotcom %} resources
 
-* Las organizaciones o repositorios en los cuales se instaló la app
-* Los permisos que la app solicitó
-* Tu acceso a los recursos de {% data variables.product.prodname_dotcom %}
+Let's use an example to explain this.
 
-Utilicemos un ejemplo para explicar esto.
+{% data variables.product.prodname_dotcom %} user Alice logs into a third-party web application, ExampleApp, using their {% data variables.product.prodname_dotcom %} identity. During this process, Alice authorizes ExampleApp to perform actions on their behalf.
 
-{% data variables.product.prodname_dotcom %} el usuario Alice inicia sesión en una aplicación web de un tercero, ExampleApp, utilizando su identidad de {% data variables.product.prodname_dotcom %}. Durante este proceso, Alice autoriza a ExampleApp para que realice acciones en su nombre.
+However, the activity ExampleApp is able to perform on Alice's behalf in {% data variables.product.prodname_dotcom %} is constrained by: the repositories on which ExampleApp is installed, the permissions ExampleApp has requested, and Alice's access to {% data variables.product.prodname_dotcom %} resources. 
 
-Sin embargo, la actividad que ExampleApp puede realizar en nombre de Alice en {% data variables.product.prodname_dotcom %} está limitada por: los repositorios en los cuales se instaló ExampleApp, los permisos que solicitó ExampleApp y el acceso de Alice a los recursos de {% data variables.product.prodname_dotcom %}.
+This means that, in order for ExampleApp to create an issue on Alice's behalf, in a repository called Repo A, all of the following must be true:
 
-Esto significa que, para que la ExampleApp cree una propuesta en nombre de Alice, en un repositorio llamado Repo A, todo lo siguiente debe suceder:
-
-* La {% data variables.product.prodname_github_app %} de ExampleApp solicita acceso de escritura para las propuestas.
-* Un usuario que tiene acceso administrativo para el Repo A debe tener instalada la {% data variables.product.prodname_github_app %} de ExampleApp en este.
-* Alice debe tener permisos de lectura para el Repo A. Para obtener más información sobre qué permisos se requieren para realizar diversas actividades, consulta la sección "[Roles de repositorio para una organización](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)".
+* ExampleApp's {% data variables.product.prodname_github_app %} requests write access to issues.
+* A user having admin access for Repo A must have installed ExampleApp's {% data variables.product.prodname_github_app %} on Repo A.
+* Alice must have read permission for Repo A. For information about which permissions are required to perform various activities, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."

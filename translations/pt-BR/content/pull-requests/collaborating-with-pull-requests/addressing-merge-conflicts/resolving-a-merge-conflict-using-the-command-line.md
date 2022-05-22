@@ -1,6 +1,6 @@
 ---
-title: Resolver um conflito de merge usando a linha de comando
-intro: Você pode resolver conflitos de merge usando a linha de comando e um editor de texto.
+title: Resolving a merge conflict using the command line
+intro: You can resolve merge conflicts using the command line and a text editor.
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line
   - /articles/resolving-a-merge-conflict-from-the-command-line
@@ -14,44 +14,43 @@ versions:
   ghec: '*'
 topics:
   - Pull requests
-shortTitle: Resolver conflitos de merge no Git
+shortTitle: Resolve merge conflicts in Git
 ---
-
-Os conflitos de merge ocorrem quando alterações concorrentes são feitas na mesma linha de um arquivo ou quando uma pessoa edita um arquivo e outra pessoa exclui o mesmo arquivo. Para obter mais informações, consulte "[Sobre conflitos de merge](/articles/about-merge-conflicts/)".
+Merge conflicts occur when competing changes are made to the same line of a file, or when one person edits a file and another person deletes the same file. For more information, see "[About merge conflicts](/articles/about-merge-conflicts/)."
 
 {% tip %}
 
-**Dica:** você pode usar o editor de conflitos no {% data variables.product.product_name %} para resolver conflitos de merge de alterações diferentes na linha entre branches que fazem parte de uma pull request. Para obter mais informações, consulte "[Revolver um conflito de merge no GitHub](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-on-github)".
+**Tip:** You can use the conflict editor on {% data variables.product.product_name %} to resolve competing line change merge conflicts between branches that are part of a pull request. For more information, see "[Resolving a merge conflict on GitHub](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-on-github)."
 
 {% endtip %}
 
-## Conflitos de merge de alterações diferentes na linha
+## Competing line change merge conflicts
 
-Para resolver um conflito de merge causado por alterações diferentes na linha, você deve escolher quais alterações dos diferentes branches incorporar em um novo commit.
+To resolve a merge conflict caused by competing line changes, you must choose which changes to incorporate from the different branches in a new commit.
 
-Por exemplo, se você e outra pessoa editarem as mesmas linhas do arquivo _styleguide.md_ em branches diferentes do mesmo repositório Git, você receberá um erro de conflito de merge quando tentar fazer merge desses branches. Você deve resolver esse conflito de merge com um novo commit antes de fazer merge desses branches.
+For example, if you and another person both edited the file _styleguide.md_ on the same lines in different branches of the same Git repository, you'll get a merge conflict error when you try to merge these branches. You must resolve this merge conflict with a new commit before you can merge these branches.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Navegue até o repositório Git local que tem o conflito de merge.
+2. Navigate into the local Git repository that has the merge conflict.
   ```shell
   cd <em>REPOSITORY-NAME</em>
   ```
-3. Gere uma lista dos arquivos afetados pelo conflito de merge. Neste exemplo, o arquivo *styleguide.md* tem um conflito de merge.
+3. Generate a list of the files affected by the merge conflict. In this example, the file *styleguide.md* has a merge conflict.
   ```shell
   $ git status
-  > # No branch branch-b
-  > # Você desfez o merge de paths.
-  > #   (resolver conflitos e executar "git commit")
+  > # On branch branch-b
+  > # You have unmerged paths.
+  > #   (fix conflicts and run "git commit")
   > #
-  > # Desfazer merge de paths:
-  > #   (use "git add <file>..." para marcar resoluções)
+  > # Unmerged paths:
+  > #   (use "git add <file>..." to mark resolution)
   > #
-  > # ambos modificados:      styleguide.md
+  > # both modified:      styleguide.md
   > #
-  > nenhuma alteração adicionada ao commit (use "git add" e/ou "git commit -a")
+  > no changes added to commit (use "git add" and/or "git commit -a")
   ```
-4. Abra o editor de texto de sua preferência, como o [Atom](https://atom.io/), e navegue até o arquivo que tem conflitos de merge.
-5. Para ver o começo do conflito de merge no arquivo, pesquise o marcador de conflito `<<<<<<<` no arquivo. Quando abrir o arquivo no editor de texto, você verá as alterações do branch HEAD ou base após a linha `<<<<<<< HEAD`. Em seguida, você verá `=======`, que divide suas alterações das alterações no outro branch, seguido por `>>>>>>> BRANCH-NAME`. Neste exemplo, uma pessoa escreveu "open an issue" (abrir um problema) no branch base ou HEAD e outra pessoa escreveu "ask your question in IRC" (faça sua pergunta no IRC) no branch de comparação ou `branch-a`.
+4. Open your favorite text editor, such as [Atom](https://atom.io/), and navigate to the file that has merge conflicts.
+5. To see the beginning of the merge conflict in your file, search the file for the conflict marker `<<<<<<<`. When you open the file in your text editor, you'll see the changes from the HEAD or base branch after the line `<<<<<<< HEAD`. Next, you'll see `=======`, which divides your changes from the changes in the other branch, followed by `>>>>>>> BRANCH-NAME`. In this example, one person wrote "open an issue" in the base or HEAD branch and another person wrote "ask your question in IRC" in the compare branch or `branch-a`.
 
     ```
     If you have questions, please
@@ -61,72 +60,72 @@ Por exemplo, se você e outra pessoa editarem as mesmas linhas do arquivo _style
     ask your question in IRC.
     >>>>>>> branch-a
     ```
-{% data reusables.pull_requests.decide-how-to-resolve-competing-line-change-merge-conflict %} Neste exemplo, as duas alterações são incorporadas ao merge final:
+{% data reusables.pull_requests.decide-how-to-resolve-competing-line-change-merge-conflict %} In this example, both changes are incorporated into the final merge:
 
   ```shell
   If you have questions, please open an issue or ask in our IRC channel if it's more urgent.
   ```
-7. Adicione ou faça stage das alterações.
+7. Add or stage your changes.
   ```shell
   $ git add .
   ```
-8. Faça o commit das suas alterações com um comentário.
+8. Commit your changes with a comment.
   ```shell
   $ git commit -m "Resolved merge conflict by incorporating both suggestions."
   ```
 
-Agora você pode fazer merge dos branches na linha de comando ou [fazer push das alterações para o repositório remoto](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/) no {% data variables.product.product_name %} e [fazer merge das alterações](/articles/merging-a-pull-request/) em uma pull request.
+You can now merge the branches on the command line or [push your changes to your remote repository](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/) on {% data variables.product.product_name %} and [merge your changes](/articles/merging-a-pull-request/) in a pull request.
 
-## Conflitos de merge de arquivo removido
+## Removed file merge conflicts
 
-Para resolver um conflito de merge causado por alterações concorrentes em um arquivo, quando uma pessoa exclui um arquivo em um branch e outra pessoa edita o mesmo arquivo, você deve escolher se deseja excluir ou manter o arquivo removido em um novo commit.
+To resolve a merge conflict caused by competing changes to a file, where a person deletes a file in one branch and another person edits the same file, you must choose whether to delete or keep the removed file in a new commit.
 
-Por exemplo, se você editou um arquivo, como o *README.md*, e outra pessoa removeu o mesmo arquivo em outro branch no mesmo repositório Git, você receberá um erro de conflito de merge quando tentar fazer merge desses branches. Você deve resolver esse conflito de merge com um novo commit antes de fazer merge desses branches.
+For example, if you edited a file, such as *README.md*, and another person removed the same file in another branch in the same Git repository, you'll get a merge conflict error when you try to merge these branches. You must resolve this merge conflict with a new commit before you can merge these branches.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Navegue até o repositório Git local que tem o conflito de merge.
+2. Navigate into the local Git repository that has the merge conflict.
   ```shell
   cd <em>REPOSITORY-NAME</em>
   ```
-2. Gere uma lista dos arquivos afetados pelo conflito de merge. Neste exemplo, o arquivo *README.md* tem um conflito de merge.
+2. Generate a list of the files affected by the merge conflict. In this example, the file *README.md* has a merge conflict.
   ```shell
   $ git status
-  > # No branch master
-  > # Seu branch e o 'origin/master'divergiram,
-  > # e possuem 1 e 2 diferentes commits cada, respectivamente.
-  > #  (use "git pull" para fazer merge do branch remoto no seu)
-  > # Você desfez o merge de paths.
-  > #  (resolver conflitos e executar "git commit")
+  > # On branch main
+  > # Your branch and 'origin/main' have diverged,
+  > # and have 1 and 2 different commits each, respectively.
+  > #  (use "git pull" to merge the remote branch into yours)
+  > # You have unmerged paths.
+  > #  (fix conflicts and run "git commit")
   > #
-  > # Desfazer merge de paths:
-  > #  (use "git add/rm <file>..." conforme apropriado para marcar a resolução)
+  > # Unmerged paths:
+  > #  (use "git add/rm <file>..." as appropriate to mark resolution)
   > #
-  > #   excluído por nós:   README.md
+  > #	deleted by us:   README.md
   > #
-  > # nenhuma alteração adicionada ao commit (use "git add" e/ou "git commit -a")
+  > # no changes added to commit (use "git add" and/or "git commit -a")
   ```
-3. Abra o editor de texto de sua preferência, como o [Atom](https://atom.io/), e navegue até o arquivo que tem conflitos de merge.
-6. Decida se você deseja manter o arquivo removido. Você pode ver as alterações mais recentes feitas no arquivo removido no editor de texto.
+3. Open your favorite text editor, such as [Atom](https://atom.io/), and navigate to the file that has merge conflicts.
+6. Decide if you want keep the removed file. You may want to view the latest changes made to the removed file in your text editor.
 
- Para adicionar o arquivo removido de volta ao repositório:
+ To add the removed file back to your repository:
   ```shell
   $ git add README.md
   ```
- Para remover o arquivo do seu repositório:
+ To remove this file from your repository:
   ```shell
   $ git rm README.md
   > README.md: needs merge
   > rm 'README.md'
   ```
-7. Faça o commit das suas alterações com um comentário.
+7. Commit your changes with a comment.
   ```shell
   $ git commit -m "Resolved merge conflict by keeping README.md file."
   > [branch-d 6f89e49] Merge branch 'branch-c' into branch-d
   ```
 
-Agora você pode fazer merge dos branches na linha de comando ou [fazer push das alterações para o repositório remoto](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/) no {% data variables.product.product_name %} e [fazer merge das alterações](/articles/merging-a-pull-request/) em uma pull request.
+You can now merge the branches on the command line or [push your changes to your remote repository](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/) on {% data variables.product.product_name %} and [merge your changes](/articles/merging-a-pull-request/) in a pull request.
 
-## Leia mais
+## Further reading
 
-- "[Sobre conflitos de merge](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/about-merge-conflicts)"
-- "[Fazer checkout de pull requests no local](/articles/checking-out-pull-requests-locally/)"
+- "[About merge conflicts](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/about-merge-conflicts)"
+- "[Checking out pull requests locally](/articles/checking-out-pull-requests-locally/)"

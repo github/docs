@@ -1,6 +1,6 @@
 ---
 title: Reabrir un tablero de proyecto cerrado
-intro: Puedes volver a abrir un tablero de proyecto cerrado y reiniciar cualquier automatización de flujo de trabajo que se haya configurado para el tablero de proyecto.
+intro: Puedes reabrir un tablero de proyecto cerrado y reiniciar cualquier automatización de flujo de trabajo que se haya configurado para el tablero de proyecto.
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/reopening-a-closed-project-board
   - /articles/reopening-a-closed-project-board

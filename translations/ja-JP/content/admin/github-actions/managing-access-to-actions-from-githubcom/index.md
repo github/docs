@@ -1,6 +1,6 @@
 ---
-title: GitHub.com からのアクションへのアクセスを管理する
-intro: '{% data variables.product.prodname_dotcom_the_website %} および {% data variables.product.prodname_marketplace %} で Enterprise で使用できるアクションを制御します。'
+title: Managing access to actions from GitHub.com
+intro: 'Controlling which actions on {% data variables.product.prodname_dotcom_the_website %} and {% data variables.product.prodname_marketplace %} can be used in your enterprise.'
 redirect_from:
   - /enterprise/admin/github-actions/managing-access-to-actions-from-githubcom
 versions:

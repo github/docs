@@ -1,5 +1,5 @@
 ---
-title: 2 要素認証でアカウントを保護する
+title: Securing your account with two-factor authentication (2FA)
 intro: 'You can set up your account on {% data variables.product.product_location %} to require an authentication code in addition to your password when you sign in.'
 redirect_from:
   - /categories/84/articles

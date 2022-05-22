@@ -1,6 +1,6 @@
 ---
-title: Sobre perfis de comunidade para repositórios públicos
-intro: Os mantenedores de repositório podem revisar o respectivo perfil de comunidade do repositório público para saber como podem ajudar a expandir a comunidade e dar suporte aos contribuidores. Os contribuidores podem exibir o perfil de comunidade de um repositório público para verificar se eles desejam contribuir com o projeto.
+title: About community profiles for public repositories
+intro: Repository maintainers can review their public repository's community profile to learn how they can help grow their community and support contributors. Contributors can view a public repository's community profile to see if they want to contribute to the project.
 redirect_from:
   - /articles/viewing-your-community-profile
   - /articles/about-community-profiles-for-public-repositories
@@ -10,36 +10,36 @@ versions:
   ghec: '*'
 topics:
   - Community
-shortTitle: Perfis da comunidade
+shortTitle: Community profiles
 ---
 
-A checklist do perfil de comunidade verifica se um projeto inclui arquivos recomendados de integridade da comunidade, como README, CODE_OF_CONDUCT, LICENSE ou CONTRIBUTING em um local compatível. Para obter mais informações, consulte "[Acessar perfil de comunidade de um projeto](/articles/accessing-a-project-s-community-profile)".
+The community profile checklist checks to see if a project includes recommended community health files, such as README, CODE_OF_CONDUCT, LICENSE, or CONTRIBUTING, in a supported location. For more information, see "[Accessing a project's community profile](/articles/accessing-a-project-s-community-profile)."
 
-## Usar a checklist do perfil de comunidade como um mantenedor de repositório
+## Using the community profile checklist as a repository maintainer
 
-Como um mantenedor de repositório, use a checklist do perfil de comunidade para ver se o projeto atende aos padrões recomendados da comunidade de modo a ajudar as pessoas a usar e contribuir com seu projeto. Para obter mais informações, consulte "[Compilar comunidade](https://opensource.guide/building-community/)" nos Guias de código aberto.
+As a repository maintainer, use the community profile checklist to see if your project meets the recommended community standards to help people use and contribute to your project. For more information, see "[Building community](https://opensource.guide/building-community/)" in the Open Source Guides.
 
-Se um projeto não tiver um arquivo recomendado, você poderá clicar em **Adicionar** para rascunhar e enviar uma arquivo.
+If a project doesn't have a recommended file, you can click **Add** to draft and submit a file.
 
-{% data reusables.repositories.valid-community-issues %}Para obter mais informações, consulte "[Sobre modelos de problema e pull request](/articles/about-issue-and-pull-request-templates)".
+{% data reusables.repositories.valid-community-issues %} For more information, see "[About issue and pull request templates](/articles/about-issue-and-pull-request-templates)."
 
-![Checklist do perfil de comunidade com padrões recomendados da comunidade para mantenedores](/assets/images/help/repository/add-button-community-profile.png)
+![Community profile checklist with recommended community standards for maintainers](/assets/images/help/repository/add-button-community-profile.png)
 
 {% data reusables.repositories.security-guidelines %}
 
-## Usar a checklist do perfil de comunidade como integrante ou colaborador da comunidade
+## Using the community profile checklist as a community member or collaborator
 
-Como um contribuidor potencial, use a checklist do perfil de comunidade para verificar se um projeto atende aos padrões recomendados da comunidade e decida se deseja contribuir. Para obter mais informações, consulte "[Como contribuir](https://opensource.guide/how-to-contribute/#anatomy-of-an-open-source-project)" nos Guias de código aberto.
+As a potential contributor, use the community profile checklist to see if a project meets the recommended community standards and decide if you'd like to contribute. For more information, see "[How to contribute](https://opensource.guide/how-to-contribute/#anatomy-of-an-open-source-project)" in the Open Source Guides.
 
-Se um projeto não tiver um arquivo recomendado, você poderá clicar em **Propor** para rascunhar e enviar um arquivo ao mantenedor de repositório para aprovação.
+If a project doesn't have a recommended file, you can click **Propose** to draft and submit a file to the repository maintainer for approval.
 
-![Checklist do perfil de comunidade com padrões recomendados da comunidade para contribuidores](/assets/images/help/repository/propose-button-community-profile.png)
+![Community profile checklist with recommended community standards for contributors](/assets/images/help/repository/propose-button-community-profile.png)
 
-## Leia mais
+## Further reading
 
-- "[Adicionar um código de conduta ao seu projeto](/articles/adding-a-code-of-conduct-to-your-project)"
-- "[Configurar diretrizes para os contribuidores do repositório](/articles/setting-guidelines-for-repository-contributors)"
-- "[Adicionar uma licença a um repositório](/articles/adding-a-license-to-a-repository)"
-- "[Sobre modelos de problema e pull request](/articles/about-issue-and-pull-request-templates)"
-- "[Guias de código aberto](https://opensource.guide/)"
+- "[Adding a code of conduct to your project](/articles/adding-a-code-of-conduct-to-your-project)"
+- "[Setting guidelines for repository contributors](/articles/setting-guidelines-for-repository-contributors)"
+- "[Adding a license to a repository](/articles/adding-a-license-to-a-repository)"
+- "[About issue and pull request templates](/articles/about-issue-and-pull-request-templates)"
+- "[Open Source Guides](https://opensource.guide/)"
 - [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %})

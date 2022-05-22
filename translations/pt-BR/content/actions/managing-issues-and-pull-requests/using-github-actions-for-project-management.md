@@ -1,6 +1,6 @@
 ---
-title: Usar o GitHub Actions para gerenciamento de projetos
-intro: 'Você pode usar {% data variables.product.prodname_actions %} para automatizar muitas das suas tarefas de gerenciamento de projeto.'
+title: Using GitHub Actions for project management
+intro: 'You can use {% data variables.product.prodname_actions %} to automate many of your project management tasks.'
 redirect_from:
   - /actions/guides/using-github-actions-for-project-management
 versions:
@@ -11,34 +11,34 @@ versions:
 type: overview
 topics:
   - Project management
-shortTitle: Ações para gerenciamento de projetos
+shortTitle: Actions for project management
 ---
 
 
-Você pode usar {% data variables.product.prodname_actions %} para automatizar suas tarefas de gerenciamento de projeto, criando fluxos de trabalho. Cada fluxo de trabalho contém uma série de tarefas que são executadas automaticamente toda vez que o fluxo de trabalho é executado. Por exemplo, você pode criar um fluxo de trabalho que é executado toda vez que um problema é criado para adicionar uma etiqueta, deixar um comentário e transferir um problema para um quadro de projeto.
+You can use {% data variables.product.prodname_actions %} to automate your project management tasks by creating workflows. Each workflow contains a series of tasks that are performed automatically every time the workflow runs. For example, you can create a workflow that runs every time an issue is created to add a label, leave a comment, and move the issue onto a project board.
 
-## Quando os fluxos de trabalho são executados?
+## When do workflows run?
 
-Você pode configurar seus fluxos de trabalho para ser executado em um cronograma ou serem acionados quando um evento ocorre. Por exemplo, você pode definir o fluxo de trabalho para ser executado quando alguém cria um problema em um repositório.
+You can configure your workflows to run on a schedule or be triggered when an event occurs. For example, you can set your workflow to run when someone creates an issue in a repository.
 
-Muitos gatilhos de fluxo de trabalho são úteis para automatizar o gerenciamento do projeto.
+Many workflow triggers are useful for automating project management.
 
-- Um problema é aberta, atribuído ou etiquetado.
-- Um comentário é adicionado a um problema.
-- Um cartão de projeto foi criado ou transferido.
-- Um horário agendado.
+- An issue is opened, assigned, or labeled.
+- A comment is added to an issue.
+- A project card is created or moved.
+- A scheduled time.
 
-Para uma lista completa de eventos que podem acionar fluxos de trabalho, consulte "[Eventos que acionam fluxos de trabalho](/actions/reference/events-that-trigger-workflows)".
+For a full list of events that can trigger workflows, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows)."
 
-## O que os fluxos de trabalho podem fazer?
+## What can workflows do?
 
-Os fluxos de trabalho podem fazer muitas coisas como, por exemplo, comentar em um problema, adicionar ou remover etiquetas, mover cartões nos quadros do projeto e abrir problemas.
+Workflows can do many things, such as commenting on an issue, adding or removing labels, moving cards on project boards, and opening issues.
 
-Você pode aprender sobre como usar {% data variables.product.prodname_actions %} para gerenciamento de projetos seguindo esses tutoriais, que incluem fluxos de trabalho de exemplo que você pode adaptar para atender às suas necessidades.
+You can learn about using {% data variables.product.prodname_actions %} for project management by following these tutorials, which include example workflows that you can adapt to meet your needs.
 
-- "[Adicionar etiquetas a problemas](/actions/guides/adding-labels-to-issues)"
-- "[Remover uma etiqueta quando um cartão é adicionado à coluna do quadro de projeto](/actions/guides/removing-a-label-when-a-card-is-added-to-a-project-board-column)"
-- "[Transferir problemas atribuídos em quadros de projeto](/actions/guides/moving-assigned-issues-on-project-boards)"
-- "[Comentar em um problema quando uma etiqueta é adicionada](/actions/guides/commenting-on-an-issue-when-a-label-is-added)"
-- "[Fechar problemas inativos](/actions/guides/closing-inactive-issues)"
-- "[Agendar a criação de problemas](/actions/guides/scheduling-issue-creation)"
+- "[Adding labels to issues](/actions/guides/adding-labels-to-issues)"
+- "[Removing a label when a card is added to a project board column](/actions/guides/removing-a-label-when-a-card-is-added-to-a-project-board-column)"
+- "[Moving assigned issues on project boards](/actions/guides/moving-assigned-issues-on-project-boards)"
+- "[Commenting on an issue when a label is added](/actions/guides/commenting-on-an-issue-when-a-label-is-added)"
+- "[Closing inactive issues](/actions/guides/closing-inactive-issues)"
+- "[Scheduling issue creation](/actions/guides/scheduling-issue-creation)"

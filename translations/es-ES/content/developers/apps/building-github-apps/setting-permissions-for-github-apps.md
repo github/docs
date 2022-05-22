@@ -2,8 +2,8 @@
 title: Configurar los permisos para las GitHub Apps
 intro: '{% data reusables.shortdesc.permissions_github_apps %}'
 redirect_from:
-  - /apps/building-integrations/setting-up-and-registering-github-apps/about-permissions-for-github-apps
-  - /apps/building-github-apps/permissions-for-github-apps
+  - /apps/building-integrations/setting-up-and-registering-github-apps/about-permissions-for-github-apps/
+  - /apps/building-github-apps/permissions-for-github-apps/
   - /apps/building-github-apps/setting-permissions-for-github-apps
   - /developers/apps/setting-permissions-for-github-apps
 versions:

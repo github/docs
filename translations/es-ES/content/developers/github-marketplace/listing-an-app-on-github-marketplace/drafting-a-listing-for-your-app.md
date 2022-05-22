@@ -2,15 +2,15 @@
 title: Hacer un borrador de un listado para tu app
 intro: 'Cuando creas un listado de {% data variables.product.prodname_marketplace %}, GitHub lo guarda en modo borrador hasta que emitas la app para su aprobación. Tu listado muestra a los clientes cómo pueden utilizar tu app.'
 redirect_from:
-  - /apps/adding-integrations/listing-apps-on-github-marketplace/listing-an-app-on-github-marketplace
-  - /apps/marketplace/listing-apps-on-github-marketplace/listing-an-app-on-github-marketplace
-  - /apps/marketplace/getting-started-with-github-marketplace-listings/listing-an-app-on-github-marketplace
-  - /apps/marketplace/creating-and-submitting-your-app-for-approval/listing-an-app-on-github-marketplace
-  - /apps/adding-integrations/managing-listings-on-github-marketplace/removing-a-listing-from-github-marketplace
-  - /apps/marketplace/managing-github-marketplace-listings/removing-a-listing-from-github-marketplace
-  - /apps/adding-integrations/managing-listings-on-github-marketplace/editing-a-github-marketplace-listing
-  - /apps/marketplace/managing-github-marketplace-listings/editing-a-github-marketplace-listing
-  - /apps/marketplace/listing-on-github-marketplace/creating-a-draft-github-marketplace-listing
+  - /apps/adding-integrations/listing-apps-on-github-marketplace/listing-an-app-on-github-marketplace/
+  - /apps/marketplace/listing-apps-on-github-marketplace/listing-an-app-on-github-marketplace/
+  - /apps/marketplace/getting-started-with-github-marketplace-listings/listing-an-app-on-github-marketplace/
+  - /apps/marketplace/creating-and-submitting-your-app-for-approval/listing-an-app-on-github-marketplace/
+  - /apps/adding-integrations/managing-listings-on-github-marketplace/removing-a-listing-from-github-marketplace/
+  - /apps/marketplace/managing-github-marketplace-listings/removing-a-listing-from-github-marketplace/
+  - /apps/adding-integrations/managing-listings-on-github-marketplace/editing-a-github-marketplace-listing/
+  - /apps/marketplace/managing-github-marketplace-listings/editing-a-github-marketplace-listing/
+  - /apps/marketplace/listing-on-github-marketplace/creating-a-draft-github-marketplace-listing/
   - /marketplace/listing-on-github-marketplace/creating-a-draft-github-marketplace-listing
   - /developers/github-marketplace/drafting-a-listing-for-your-app
 versions:

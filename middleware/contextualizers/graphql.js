@@ -1,17 +1,15 @@
-import { readCompressedJsonFileFallbackLazily } from '../../lib/read-json-file.js'
+import { readCompressedJsonFileFallback } from '../../lib/read-json-file.js'
 import { allVersions } from '../../lib/all-versions.js'
-const previews = readCompressedJsonFileFallbackLazily('./lib/graphql/static/previews.json')
-const upcomingChanges = readCompressedJsonFileFallbackLazily(
-  './lib/graphql/static/upcoming-changes.json'
-)
-const changelog = readCompressedJsonFileFallbackLazily('./lib/graphql/static/changelog.json')
-const prerenderedObjects = readCompressedJsonFileFallbackLazily(
+const previews = readCompressedJsonFileFallback('./lib/graphql/static/previews.json')
+const upcomingChanges = readCompressedJsonFileFallback('./lib/graphql/static/upcoming-changes.json')
+const changelog = readCompressedJsonFileFallback('./lib/graphql/static/changelog.json')
+const prerenderedObjects = readCompressedJsonFileFallback(
   './lib/graphql/static/prerendered-objects.json'
 )
-const prerenderedInputObjects = readCompressedJsonFileFallbackLazily(
+const prerenderedInputObjects = readCompressedJsonFileFallback(
   './lib/graphql/static/prerendered-input-objects.json'
 )
-const prerenderedMutations = readCompressedJsonFileFallbackLazily(
+const prerenderedMutations = readCompressedJsonFileFallback(
   './lib/graphql/static/prerendered-mutations.json'
 )
 
@@ -34,16 +32,16 @@ export default function graphqlContext(req, res, next) {
   const graphqlVersion = currentVersionObj.miscVersionName
 
   req.context.graphql = {
-    schemaForCurrentVersion: readCompressedJsonFileFallbackLazily(
+    schemaForCurrentVersion: readCompressedJsonFileFallback(
       `lib/graphql/static/schema-${graphqlVersion}.json`
-    )(),
-    previewsForCurrentVersion: previews()[graphqlVersion],
-    upcomingChangesForCurrentVersion: upcomingChanges()[graphqlVersion],
-    prerenderedObjectsForCurrentVersion: prerenderedObjects()[graphqlVersion],
-    prerenderedInputObjectsForCurrentVersion: prerenderedInputObjects()[graphqlVersion],
-    prerenderedMutationsForCurrentVersion: prerenderedMutations()[graphqlVersion],
+    ),
+    previewsForCurrentVersion: previews[graphqlVersion],
+    upcomingChangesForCurrentVersion: upcomingChanges[graphqlVersion],
+    prerenderedObjectsForCurrentVersion: prerenderedObjects[graphqlVersion],
+    prerenderedInputObjectsForCurrentVersion: prerenderedInputObjects[graphqlVersion],
+    prerenderedMutationsForCurrentVersion: prerenderedMutations[graphqlVersion],
     explorerUrl,
-    changelog: changelog(),
+    changelog,
   }
 
   return next()

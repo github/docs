@@ -1,6 +1,6 @@
 ---
-title: 使用 SSH 连接到 GitHub
-intro: '您可以使用 Secure Shell Protocol (SSH) 连接到 {% data variables.product.product_name %} ，该协议通过不安全的网络提供安全通道。'
+title: Connecting to GitHub with SSH
+intro: 'You can connect to {% data variables.product.product_name %} using the Secure Shell Protocol (SSH), which provides a secure channel over an unsecured network.'
 redirect_from:
   - /key-setup-redirect
   - /linux-key-setup
@@ -25,6 +25,6 @@ children:
   - /adding-a-new-ssh-key-to-your-github-account
   - /testing-your-ssh-connection
   - /working-with-ssh-key-passphrases
-shortTitle: 与 SSH 连接
+shortTitle: Connect with SSH
 ---
 

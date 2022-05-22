@@ -1,6 +1,6 @@
 ---
-title: Eliminar una etiqueta cuando se agrega una tarjeta a una columna de un tablero de proyecto
-intro: 'Puedes utilizar las {% data variables.product.prodname_actions %} para eliminar una etiqueta automáticamente cuando una propuesta o solicitud de cambios se agrega a una columna específica en un tablero de proyecto.'
+title: Removing a label when a card is added to a project board column
+intro: 'You can use {% data variables.product.prodname_actions %} to automatically remove a label when an issue or pull request is added to a specific column on a project board.'
 redirect_from:
   - /actions/guides/removing-a-label-when-a-card-is-added-to-a-project-board-column
 versions:
@@ -12,24 +12,24 @@ type: tutorial
 topics:
   - Workflows
   - Project management
-shortTitle: Elimina la etiqueta al agregar la tarjeta
+shortTitle: Remove label when adding card
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## Introducción
+## Introduction
 
-Este tutorial ilustra cómo utilizar la [acción`andymckay/labeler`](https://github.com/marketplace/actions/simple-issue-labeler) en conjunto con un condicional para eliminar una etiqueta de las propuestas o solicitudes de cambios que se agregan a una columna específica en un tablero de proyecto. Por ejemplo, puedes eliminar la etiqueta `needs review` cuando las tarjetas de proyecto se muevan a la columna `Done`.
+This tutorial demonstrates how to use the [`andymckay/labeler` action](https://github.com/marketplace/actions/simple-issue-labeler) along with a conditional to remove a label from issues and pull requests that are added to a specific column on a project board. For example, you can remove the `needs review` label when project cards are moved into the `Done` column.
 
-En el tutorial, primero harás un archivo de flujo de trabajo que utilice la [acción `andymckay/labeler`](https://github.com/marketplace/actions/simple-issue-labeler). Después, personalizarás el flujo de trabajo de acuerdo con tus necesidades.
+In the tutorial, you will first make a workflow file that uses the [`andymckay/labeler` action](https://github.com/marketplace/actions/simple-issue-labeler). Then, you will customize the workflow to suit your needs.
 
-## Crear un flujo de trabajo
+## Creating the workflow
 
 1. {% data reusables.actions.choose-repo %}
-2. Elige un proyecto que le pertenezca al repositorio. Este flujo de trabajo no puede utilizarse con los proyectos que pertenezcan a usuarios u organizaciones. Puedes utilizar un proyecto existente o crear uno nuevo. Para obtener más información sobre cómo crear un proyecto, consulta la sección "[Crear un tablero de proyecto](/github/managing-your-work-on-github/creating-a-project-board)".
+2. Choose a project that belongs to the repository. This workflow cannot be used with projects that belong to users or organizations. You can use an existing project, or you can create a new project. For more information about creating a project, see "[Creating a project board](/github/managing-your-work-on-github/creating-a-project-board)."
 3. {% data reusables.actions.make-workflow-file %}
-4. Copia el siguiente contenido de YAML en tu archivo de flujo de trabajo.
+4. Copy the following YAML contents into your workflow file.
 
     ```yaml{:copy}
 {% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=4 %}
@@ -54,28 +54,28 @@ En el tutorial, primero harás un archivo de flujo de trabajo que utilice la [ac
               repo-token: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
     ```
 
-5. Personaliza los parámetros en tu archivo de flujo de trabajo:
-   - En `github.event.project_card.column_id == '12345678'`, reemplaza a `12345678` con la ID de la columna en donde quieras desetiquetar las propuestas y solicitudes de cambio que se movieron a ella.
+5. Customize the parameters in your workflow file:
+   - In `github.event.project_card.column_id == '12345678'`, replace `12345678` with the ID of the column where you want to un-label issues and pull requests that are moved there.
 
-    Para encontrar la ID de columna, navega a tu tablero de proyecto. Junto al título de la columna, haz clic en {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} y luego en **Copiar enlace de la columna**. La ID de columna es el número al final del enlace que copiaste. Por ejemplo, la ID de columna para `https://github.com/octocat/octo-repo/projects/1#column-24687531` es `24687531`.
+    To find the column ID, navigate to your project board. Next to the title of the column, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} then click **Copy column link**. The column ID is the number at the end of the copied link. For example, `24687531` is the column ID for `https://github.com/octocat/octo-repo/projects/1#column-24687531`.
 
-     Si quieres actuar sobre más de una columna, separa las condiciones con `||`. Por ejemplo, `if github.event.project_card.column_id == '12345678' || github.event.project_card.column_id == '87654321'` actuará cuando una tarjeta de proyecto se agregue a la columna `12345678` o a la columna `87654321`. Las columnas podrían estan en tableros de proyecto diferentes.
-   - Cambia el valor de `remove-labels` a la lista de etiquetas que quieras eliminar de las propuestas o solicitudes de cambio que se mueven a la(s) columna(s) que especificaste. Separa las etiquetas con comas. Por ejemplo, `"help wanted, good first issue"`. Para obtener más información sobre las etiquetas, consulta la sección "[Administrar etiquetas](/github/managing-your-work-on-github/managing-labels#applying-labels-to-issues-and-pull-requests)".
+     If you want to act on more than one column, separate the conditions with `||`. For example, `if github.event.project_card.column_id == '12345678' || github.event.project_card.column_id == '87654321'` will act whenever a project card is added to column `12345678` or column `87654321`. The columns may be on different project boards.
+   - Change the value for `remove-labels` to the list of labels that you want to remove from issues or pull requests that are moved to the specified column(s). Separate multiple labels with commas. For example, `"help wanted, good first issue"`. For more information on labels, see "[Managing labels](/github/managing-your-work-on-github/managing-labels#applying-labels-to-issues-and-pull-requests)."
 6. {% data reusables.actions.commit-workflow %}
 
-## Probar el flujo de trabajo
+## Testing the workflow
 
-Este flujo de trabajo se ejecutará cada que se mueve una tarjeta de proyecto en un proyecto de tu repositorio. Si la tarjeta es una propuesta o una solicitud de cambios y se mueve a la columna que especificaste, entonces el flujo de trabajo eliminará las etiquetas específicas de dichas propuestas o solicitudes de cambios. Las tarjetas que sean notas no se verán afectadas.
+Every time a project card on a project in your repository moves, this workflow will run. If the card is an issue or a pull request and is moved into the column that you specified, then the workflow will remove the specified labels from the issue or a pull request. Cards that are notes will not be affected.
 
-Prueba tu flujo de trabajo moviendo una propuesta de tu proyecto a la columna destino.
+Test your workflow out by moving an issue on your project into the target column.
 
-1. Abre una propuesta en tu repositorio. Para obtener más información, consulta la sección "[Crear una propuesta](/github/managing-your-work-on-github/creating-an-issue)".
-2. Etiqueta la propuesta con las etiquetas que quieres que elimine el flujo de trabajo. Para obtener más información, consulta la sección "[Administrar etiquetas](/github/managing-your-work-on-github/managing-labels#applying-labels-to-issues-and-pull-requests)".
-3. Agrega la propuesta a la columna de proyecto que especificaste en tu archivo de flujo de trabajo. Para obtener más información, consulta "[Agregar propuestas y solicitudes de extracción a un tablero de proyecto](/github/managing-your-work-on-github/adding-issues-and-pull-requests-to-a-project-board)".
-4. Para ver la ejecución de flujo de trabajo que se activó al agregar la propuesta al proyecto, ve el historial de tus ejecuciones de flujo de trabajo. Para obtener más información, consulta la sección "[Visualizar el historial de ejecuciones de un flujo de trabajo](/actions/managing-workflow-runs/viewing-workflow-run-history)".
-5. Cuando se complete el flujo de trabajo, se deberán haber eliminado las etiquetas especificadas en la propuesta que agregaste a la columna del proyecto.
+1. Open an issue in your repository. For more information, see "[Creating an issue](/github/managing-your-work-on-github/creating-an-issue)."
+2. Label the issue with the labels that you want the workflow to remove. For more information, see "[Managing labels](/github/managing-your-work-on-github/managing-labels#applying-labels-to-issues-and-pull-requests)."
+3. Add the issue to the project column that you specified in your workflow file. For more information, see "[Adding issues and pull requests to a project board](/github/managing-your-work-on-github/adding-issues-and-pull-requests-to-a-project-board)."
+4. To see the workflow run that was triggered by adding the issue to the project, view the history of your workflow runs. For more information, see "[Viewing workflow run history](/actions/managing-workflow-runs/viewing-workflow-run-history)."
+5. When the workflow completes, the issue that you added to the project column should have the specified labels removed.
 
-## Pasos siguientes
+## Next steps
 
-- Para aprender más sobre las cosas adicionales que puedes hacer con la acción `andymckay/labeler`, como agregar etiquetas o saltarte esta acción si la propuesta se asigna o si tiene una etiqueta específica, visita la [documentación de la acción `andymckay/labeler`](https://github.com/marketplace/actions/simple-issue-labeler).
-- [Busca en GitHub](https://github.com/search?q=%22uses:+andymckay/labeler%22&type=code) los ejemplos de los flujos de trabajo que utilizan esta acción.
+- To learn more about additional things you can do with the `andymckay/labeler` action, like adding labels or skipping this action if the issue is assigned or has a specific label, visit the [`andymckay/labeler` action documentation](https://github.com/marketplace/actions/simple-issue-labeler).
+- [Search GitHub](https://github.com/search?q=%22uses:+andymckay/labeler%22&type=code) for examples of workflows using this action.

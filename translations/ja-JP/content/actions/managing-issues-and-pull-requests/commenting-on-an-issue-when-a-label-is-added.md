@@ -1,6 +1,6 @@
 ---
-title: ラベルが追加されたときに Issue にコメントする
-intro: '{% data variables.product.prodname_actions %} を使用して、特定のラベルが適用されたときに Issue に自動的にコメントすることができます。'
+title: Commenting on an issue when a label is added
+intro: 'You can use {% data variables.product.prodname_actions %} to automatically comment on issues when a specific label is applied.'
 redirect_from:
   - /actions/guides/commenting-on-an-issue-when-a-label-is-added
 versions:
@@ -18,17 +18,17 @@ shortTitle: Add label to comment on issue
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## はじめに
+## Introduction
 
-このチュートリアルでは、[`peter-evans/create-or-update-comment` アクション](https://github.com/marketplace/actions/create-or-update-comment)を使用して、特定のラベルが適用されたときに Issue にコメントする方法を説明します。 たとえば、`help-wanted` ラベルが Issue に追加されたときに、コメントを追加して、コントリビューターに Issue への対応を促すことができます。
+This tutorial demonstrates how to use the [`peter-evans/create-or-update-comment` action](https://github.com/marketplace/actions/create-or-update-comment) to comment on an issue when a specific label is applied. For example, when the `help-wanted` label is added to an issue, you can add a comment to encourage contributors to work on the issue.
 
-チュートリアルでは、最初に [`peter-evans/create-or-update-comment` アクション](https://github.com/marketplace/actions/create-or-update-comment) を使用するワークフローファイルを作成します。 次に、ニーズに合わせてワークフローをカスタマイズします。
+In the tutorial, you will first make a workflow file that uses the [`peter-evans/create-or-update-comment` action](https://github.com/marketplace/actions/create-or-update-comment). Then, you will customize the workflow to suit your needs.
 
-## ワークフローの作成
+## Creating the workflow
 
 1. {% data reusables.actions.choose-repo %}
 2. {% data reusables.actions.make-workflow-file %}
-3. 次の YAML コンテンツをワークフローファイルにコピーします。
+3. Copy the following YAML contents into your workflow file.
 
     ```yaml{:copy}
 {% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=4 %}
@@ -53,22 +53,22 @@ shortTitle: Add label to comment on issue
                 This issue is available for anyone to work on. **Make sure to reference this issue in your pull request.** :sparkles: Thank you for your contribution! :sparkles:
     ```
 
-4. ワークフローファイルのパラメータをカスタマイズします。
-   - `if: github.event.label.name == 'help-wanted'` 内の `help-wanted` を、実行するラベルに置き換えます。 複数のラベルを実行する場合は、条件を `||` で区切ります。 たとえば、`if: github.event.label.name == 'bug' || github.event.label.name == 'fix me'` は、`bug` または `fix me` ラベルが Issue に追加されるたびにコメントします。
-   - `body` の値を、追加するコメントに変更します。 GitHub Flavored Markdown がサポートされています。 マークダウンの詳細については、「[基本的な書き込みとフォーマットの構文](/github/writing-on-github/basic-writing-and-formatting-syntax)」を参照してください。
+4. Customize the parameters in your workflow file:
+   - Replace `help-wanted` in `if: github.event.label.name == 'help-wanted'` with the label that you want to act on. If you want to act on more than one label, separate the conditions with `||`. For example, `if: github.event.label.name == 'bug' || github.event.label.name == 'fix me'` will comment whenever the `bug` or `fix me` labels are added to an issue.
+   - Change the value for `body` to the comment that you want to add. GitHub flavored markdown is supported. For more information about markdown, see "[Basic writing and formatting syntax](/github/writing-on-github/basic-writing-and-formatting-syntax)."
 5. {% data reusables.actions.commit-workflow %}
 
-## ワークフローのテスト
+## Testing the workflow
 
-リポジトリ内の Issue にラベルが付けられるたびに、このワークフローが実行されます。 追加されたラベルがワークフローファイルで指定したラベルの 1 つである場合、`peter-evans/create-or-update-comment` アクションは、指定したコメントを Issue に追加します。
+Every time an issue in your repository is labeled, this workflow will run. If the label that was added is one of the labels that you specified in your workflow file, the `peter-evans/create-or-update-comment` action will add the comment that you specified to the issue.
 
-指定したラベルを Issue に適用して、ワークフローをテストします。
+Test your workflow by applying your specified label to an issue.
 
-1. リポジトリで Issue をオープンします。 詳しい情報については、「[>Issue を作成する](/github/managing-your-work-on-github/creating-an-issue)」を参照してください。
-2. ワークフローファイル内の指定されたラベルで Issue にラベルを付けます。 詳しい情報については、「[ラベルを管理する](/github/managing-your-work-on-github/managing-labels#applying-labels-to-issues-and-pull-requests)」を参照してください。
-3. Issue のラベル付けによってトリガーされたワークフローの実行を確認するには、ワークフローの実行履歴を表示します。 詳しい情報については、「[ワークフロー実行の履歴を表示する](/actions/managing-workflow-runs/viewing-workflow-run-history)」を参照してください。
-4. ワークフローが完了すると、ラベルを付けた Issue にコメントが追加されます。
+1. Open an issue in your repository. For more information, see "[Creating an issue](/github/managing-your-work-on-github/creating-an-issue)."
+2. Label the issue with the specified label in your workflow file. For more information, see "[Managing labels](/github/managing-your-work-on-github/managing-labels#applying-labels-to-issues-and-pull-requests)."
+3. To see the workflow run triggered by labeling the issue, view the history of your workflow runs. For more information, see "[Viewing workflow run history](/actions/managing-workflow-runs/viewing-workflow-run-history)."
+4. When the workflow completes, the issue that you labeled should have a comment added.
 
-## 次のステップ
+## Next steps
 
-- リアクションの追加など、`peter-evans/create-or-update-comment` アクションで実行できる追加の詳細については、[`peter-evans/create-or-update-comment` アクションのドキュメント](https://github.com/marketplace/actions/create-or-update-comment)にアクセスしてください。
+- To learn more about additional things you can do with the `peter-evans/create-or-update-comment` action, like adding reactions, visit the [`peter-evans/create-or-update-comment` action documentation](https://github.com/marketplace/actions/create-or-update-comment).

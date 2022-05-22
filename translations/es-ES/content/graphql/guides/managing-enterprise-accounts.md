@@ -1,6 +1,6 @@
 ---
-title: Administrar cuentas empresariales
-intro: Puedes administrar tu cuenta empresarial y las organizaciones que le pertenecen con la API de GraphQL.
+title: Managing enterprise accounts
+intro: You can manage your enterprise account and the organizations it owns with the GraphQL API.
 redirect_from:
   - /v4/guides/managing-enterprise-accounts
 versions:
@@ -9,113 +9,125 @@ versions:
   ghae: '*'
 topics:
   - API
-shortTitle: Administrar cuentas empresariales
+shortTitle: Manage enterprise accounts
 ---
 
-## Acerca de administrar cuentas empresariales con GraphQL
+## About managing enterprise accounts with GraphQL
 
-Para ayudarte a monitorear y hacer cambios en tu organización y mantener el cumplimiento, puedes utilizar la API de Cuentas Empresariales y la API de Bitácoras de Auditoría, las cuales se encuentran disponibles únicamente como API de GraphQL.
+To help you monitor and make changes in your organizations and maintain compliance, you can use the Enterprise Accounts API and the Audit Log API, which are only available as GraphQL APIs.
 
-Las terminales de cuenta empresarial funcionan tanto para GitHub Enterprise Cloud y GitHub Enterprise Server.
+The enterprise account endpoints work for both GitHub Enterprise Cloud and for GitHub Enterprise Server.
 
-GraphQL te permite solicitar y recuperar únicamente los datos que especificas. Por ejemplo, puedes crear una consulta de GraphQL, o hacer una solicitud de información, para ver todos los nuevos miembros que se agregaron a tu organización. O puedes hacer una mutación, o cambio, para invitar a un administrador a tu cuenta empresarial.
+GraphQL allows you to request and return just the data you specify. For example, you can create a GraphQL query, or request for information, to see all the new organization members added to your organization. Or you can make a mutation, or change, to invite an administrator to your enterprise account.
 
-Con la API de Bitácoras de Auditoria, puedes monitorear cuando alguien:
-- Accede a tu configuración de organización o de repositorio.
-- Cambia los permisos.
-- Agrega o elimina usuarios en una organización, repositorio, o equipo.
-- Promueve algún usuario a administrador.
-- Cambia los permisos de GitHub App.
+With the Audit Log API, you can monitor when someone:
+- Accesses your organization or repository settings.
+- Changes permissions.
+- Adds or removes users in an organization, repository, or team.
+- Promotes users to admin.
+- Changes permissions of a GitHub App.
 
-La API de Bitácoras de Auditoría te permite mantener las copias de tus datos de bitácoras de auditoria. Para las consultas realizadas con la API de Bitácoras de Auditoria, la respuesta de GraphQL puede incluir datos de hasta 90 a 120 días. Para encontrar una lista de los campos disponibles con la API de Bitácoras de Auditoria, consulta la "[interface AuditEntry](/graphql/reference/interfaces#auditentry/)".
+The Audit Log API enables you to keep copies of your audit log data. For queries made with the Audit Log API, the GraphQL response can include data for up to 90 to 120 days. For a list of the fields available with the Audit Log API, see the "[AuditEntry interface](/graphql/reference/interfaces#auditentry/)."
 
-Con la API de Cuentas Empresariales puedes:
-- Listar y revisar todas las organizaciones y repositorios que pertenecen a tu cuenta empresarial.
-- Cambiar la configuración de la cuenta empresarial.
-- Configurar políticas para la configuración en tu cuenta empresarial y sus organizaciones.
-- Invitar administradores a tu cuenta empresarial.
-- Crear nuevas organizaciones en tu cuenta empresarial.
+With the Enterprise Accounts API, you can:
+- List and review all of the organizations and repositories that belong to your enterprise account.
+- Change Enterprise account settings.
+- Configure policies for settings on your enterprise account and its organizations.
+- Invite administrators to your enterprise account.
+- Create new organizations in your enterprise account.
 
-Para encontrar una lista de los campos disponibles con la API de Cuentas Empresariales, consulta "[Campos y tipos de GraphQL para la API de cuenta empresarial](/graphql/guides/managing-enterprise-accounts#graphql-fields-and-types-for-the-enterprise-accounts-api)".
+For a list of the fields available with the Enterprise Accounts API, see "[GraphQL fields and types for the Enterprise account API](/graphql/guides/managing-enterprise-accounts#graphql-fields-and-types-for-the-enterprise-accounts-api)."
 
-## Comenzar a utilizar GraphQL para cuentas empresariales
+## Getting started using GraphQL for enterprise accounts
 
-Sigue estos pasos para comenzar a utilizar GraphQL para administrar tus cuentas empresariales:
- - Autenticarte con un token de acceso personal
- - Elegir un cliente de GraphQL o utilizar el Explorador de GraphQL
- - Configurar Insomnia para utilizar la API de GraphQL
+Follow these steps to get started using GraphQL to manage your enterprise accounts:
+ - Authenticating with a personal access token
+ - Choosing a GraphQL client or using the GraphQL Explorer
+ - Setting up Insomnia to use the GraphQL API
 
-Para encontrar algunas consultas de ejemplo, visita la sección "[Una consulta de ejemplo utilizando la API de Cuentas Empresariales](#an-example-query-using-the-enterprise-accounts-api)".
+For some example queries, see "[An example query using the Enterprise Accounts API](#an-example-query-using-the-enterprise-accounts-api)."
 
-### 1. Autenticarte con tu token de acceso personal
+### 1. Authenticate with your personal access token
 
-1. Para autenticarte con GraphQL, necesitas generar un token de acceso personal (PAT) desde la configuración de desarrollador. Para obtener más información, consulta la sección "[Crear un token de acceso personal](/github/authenticating-to-github/creating-a-personal-access-token)".
+1. To authenticate with GraphQL, you need to generate a personal access token (PAT) from developer settings. For more information, see "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)."
 
-2. Porporciona permisos de control total a tu token de acceso personal para las áreas de GHES a las que quisieras acceder. Para tener permiso total a los repositorios privados, organizaciones, equipos, datos de usuario y acceso a la facturación empresarial y datos de perfil, te recomendamos que selecciones estos alcances para tu token de acceso personal:
+2. Grant admin and full control permissions to your personal access token for areas of GHES you'd like to access. For full permission to private repositories, organizations, teams, user data, and access to enterprise billing and profile data, we recommend you select these scopes for your personal access token:
     - `repo`
     - `admin:org`
-    - `usuario`
+    - `user`
     - `admin:enterprise`
 
-  Los alcances específicos para la cuenta empresarial son:
-    - `admin:enterprise`: Proporciona control total de las empresas (incluye a {% ifversion ghes > 3.2 or ghae or ghec %}`manage_runners:enterprise`, {% endif %}`manage_billing:enterprise` y `read:enterprise`)
-    - `manage_billing:enterprise`: Lee y escribe datos de facturación empresarial.{% ifversion ghes > 3.2 or ghae  %}
-    - `manage_runners:enterprise`: Acceso para administrar los ejecutores y grupos de ejecutores empresariales de GitHub Actions.{% endif %}
-    - `read:enterprise`: Lee datos del perfil empresarial.
+  The enterprise account specific scopes are:
+    - `admin:enterprise`: Gives full control of enterprises (includes {% ifversion ghes > 3.2 or ghae or ghec %}`manage_runners:enterprise`, {% endif %}`manage_billing:enterprise` and `read:enterprise`)
+    - `manage_billing:enterprise`: Read and write enterprise billing data.{% ifversion ghes > 3.2 or ghae  %}
+    - `manage_runners:enterprise`: Access to manage GitHub Actions enterprise runners and runner-groups.{% endif %}
+    - `read:enterprise`: Read enterprise profile data.
 
-3. Copia tu token de acceso personal y mantenlo en un lugar seguro hasta que lo agregues a tu cliente de GraphQL.
+3. Copy your personal access token and keep it in a secure place until you add it to your GraphQL client.
 
-### 2. Elige un cliente de GraphQL
+### 2. Choose a GraphQL client
 
-Te recomendamos utilizar GraphiQL u otro cliente independiente de GraphQL que te permita configurar la URL base.
+We recommend you use GraphiQL or another standalone GraphQL client that lets you configure the base URL.
 
-También podrás considerar utilizar estos clientes de GraphQL:
+You may also consider using these GraphQL clients:
   - [Insomnia](https://support.insomnia.rest/article/176-graphql-queries)
   - [GraphiQL](https://www.gatsbyjs.org/docs/running-queries-with-graphiql/)
   - [Postman](https://learning.getpostman.com/docs/postman/sending_api_requests/graphql/)
 
-Los siguientes pasos utilizarán Insomnia.
+The next steps will use Insomnia.
 
-### 3. Configurar Insomnia para utilizar la API de GraphQL de GitHub con cuentas empresariales
+### 3. Setting up Insomnia to use the GitHub GraphQL API with enterprise accounts
 
-1. Agrega la url base y el método `POST` a tu cliente de GraphQL. Cuando utilices GraphQL para solicitar información (consultas), cambiar información (mutaciones), o transferir datos utilizando la API de GitHub, el método HTTP predeterminado es `POST` y la url base sigue esta sintaxis:
-    - Para tu instancia empresarial: `https://<HOST>/api/graphql`
-    - Para GitHub Enterprise Cloud: `https://api.github.com/graphql`
+1. Add the base url and `POST` method to your GraphQL client. When using GraphQL to request information (queries), change information (mutations), or transfer data using the GitHub API, the default HTTP method is `POST` and the base url follows this syntax:
+    - For your enterprise instance: `https://<HOST>/api/graphql`
+    - For GitHub Enterprise Cloud: `https://api.github.com/graphql`
 
-2. Para autenticarte, abre el menú de opciones de autenticación y selecciona **Token titular**. A continuación, agrega tu token de acceso personal, el cual habías copiado.
+2. To authenticate, open the authentication options menu and select **Bearer token**. Next, add your personal access token that you copied earlier.
 
- ![Opciones de permisos para el token de acceso personal](/assets/images/developer/graphql/insomnia-base-url-and-pat.png)
+ ![Permissions options for personal access token](/assets/images/developer/graphql/insomnia-base-url-and-pat.png)
 
- ![Opciones de permisos para el token de acceso personal](/assets/images/developer/graphql/insomnia-bearer-token-option.png)
+ ![Permissions options for personal access token](/assets/images/developer/graphql/insomnia-bearer-token-option.png)
 
-3. Incluye la información del encabezado.
-   - Agrega `Content-Type` como el encabezado y `application/json` como el valor. ![Encabezado estándar](/assets/images/developer/graphql/json-content-type-header.png) ![Encabezado con valor de vista previa para la API de Bitácoras de Auditoría](/assets/images/developer/graphql/preview-header-for-2.18.png)
+3. Include header information.
+   - Add `Content-Type` as the header and `application/json` as the value.
+   ![Standard header](/assets/images/developer/graphql/json-content-type-header.png)
+   ![Header with preview value for the Audit Log API](/assets/images/developer/graphql/preview-header-for-2.18.png)
 
-Ahora estás listo para comenzar a hacer consultas.
+Now you are ready to start making queries.
 
-## Un ejemplo de consulta utilizando la API de Cuentas Empresariales
+## An example query using the Enterprise Accounts API
 
-Esta consulta de GraphQL solicita la cantidad total de {% ifversion not ghae %} repositorios `public`{% else %} repositorios`private`{% endif %} en cada una de las organizaciones de tu aplicativo que utilizan la API de cuentas empresariales. Para personalizar esta consulta, reemplaza a `<enterprise-account-name>` con el manejo de tu cuenta empresarial. Por ejempñlo, si tu cuenta empresarial se ubica en `https://github.com/enterprises/octo-enterprise`, reemplaza a `<enterprise-account-name>` con `octo-enterprise`.
+This GraphQL query requests the total number of {% ifversion not ghae %}`public`{% else %}`private`{% endif %} repositories in each of your appliance's organizations using the Enterprise Accounts API. To customize this query, replace `<enterprise-account-name>` with the handle for your enterprise account. For example, if your enterprise account is located at `https://github.com/enterprises/octo-enterprise`, replace `<enterprise-account-name>` with `octo-enterprise`.
 
 {% ifversion not ghae %}
 
 ```graphql
-query publicRepositoriesByOrganization {
-  organizationOneAlias: organization(login: "<name-of-organization-one>") {
-    # How to use a fragment
-    ...repositories
+query publicRepositoriesByOrganization($slug: String!) {
+  enterprise(slug: $slug) {
+    ...enterpriseFragment
   }
-  organizationTwoAlias: organization(login: "<name-of-organization-two>") {
-    ...repositories
-  }
-  # organizationThreeAlias ... and so on up-to lets say 100
 }
-# How to define a fragment
-fragment repositories on Organization {
-  name
-  repositories(privacy: PUBLIC){
-    totalCount
+
+fragment enterpriseFragment on Enterprise {
+  ... on Enterprise{
+    name
+    organizations(first: 100){
+      nodes{
+        name
+        ... on Organization{
+          name
+          repositories(privacy: PUBLIC){
+            totalCount
+          }
+        }
+      }
+    }
   }
+}
+
+# Passing our Enterprise Account as a variable
+variables {
+  "slug": "<enterprise-account-name>"
 }
 ```
 
@@ -152,7 +164,7 @@ variables {
 ```
 {% endif %}
 
-El siguiente ejemplo de consulta de GraphQL muestra lo retador que es el recuperar la cantidad de repositorios {% ifversion not ghae %}`public`{% else %}`private`{% endif %} en cada organización sin utilizar la API de Cuenta Empresarial.  Nota que la API de Cuentas Empresariales de GraphQL ha hecho esta tarea más simple para las empresas, ya que solo necesitas personalizar una sola variable. Para personalizar esta consulta, reemplaza `<name-of-organization-one>` y `<name-of-organization-two>`, etc. con los nombres de organización en tu instancia.
+The next GraphQL query example shows how challenging it is to retrieve the number of {% ifversion not ghae %}`public`{% else %}`private`{% endif %} repositories in each organization without using the Enterprise Account API.  Notice that the GraphQL Enterprise Accounts API has made this task simpler for enterprises since you only need to customize a single variable. To customize this query, replace `<name-of-organization-one>` and `<name-of-organization-two>`, etc. with the organization names on your instance.
 
 {% ifversion not ghae %}
 ```graphql
@@ -200,7 +212,7 @@ fragment repositories on Organization {
 ```
 {% endif %}
 
-## Consulta a cada organización por separado
+## Query each organization separately
 
 {% ifversion not ghae %}
 
@@ -248,7 +260,7 @@ fragment repositories on Organization {
 
 {% endif %}
 
-Esta consulta de GraphQL solicita las últimas 5 entradas de bitácora para una organización empresarial. Para personalizar este query, reemplaza `<org-name>` y `<user-name>`.
+This GraphQL query requests the last 5 log entries for an enterprise organization. To customize this query, replace `<org-name>` and `<user-name>`.
 
 ```graphql
 {
@@ -274,12 +286,13 @@ Esta consulta de GraphQL solicita las últimas 5 entradas de bitácora para una 
 }
 ```
 
-Para obtener más información acerca de cómo comenzar con GraphQL, consulta las secciónes "[Introducción a GraphQL](/graphql/guides/introduction-to-graphql)" y "[Formar Llamados con GraphQL](/graphql/guides/forming-calls-with-graphql)".
+For more information about getting started with GraphQL, see "[Introduction to GraphQL](/graphql/guides/introduction-to-graphql)" and "[Forming Calls with GraphQL](/graphql/guides/forming-calls-with-graphql)."
 
-## Campos y tipos de GraphQL para la API de Cuentas Empresariales
+## GraphQL fields and types for the Enterprise Accounts API
 
-Aquí tienes un resumen de las nuevas consultas, mutaciones y tipos definidos por modelos disponibles para utilizarse con la API de Cuentas Empresariales.
+Here's an overview of the new queries, mutations, and schema defined types available for use with the Enterprise Accounts API.
 
-Para obtener más detalles acerca de las nuevas consultas, mutaciones y tipos definidos por modelos disponibles para utilizarse con la API de Cuentas Empresariales, observa la barra lateral con las definiciones detalladas de GraphQL desde cualquier [página de referencia de GraphQL](/graphql).
+For more details about the new queries, mutations, and schema defined types available for use with the Enterprise Accounts API, see the sidebar with detailed GraphQL definitions from any [GraphQL reference page](/graphql).
 
-Puedes acceder a los documentos de referencia desde dentro del explorador de GraphQL en GitHub. Para obtener más información, consulta la sección "[Utilizar el explorador](/graphql/guides/using-the-explorer#accessing-the-sidebar-docs)". Para obtener otro tipo de información, tal como los detalles de autenticación y el límite de tasas, revisa las [guías](/graphql/guides).
+You can access the reference docs from within the GraphQL explorer on GitHub. For more information, see "[Using the explorer](/graphql/guides/using-the-explorer#accessing-the-sidebar-docs)."
+For other information, such as authentication and rate limit details, check out the [guides](/graphql/guides).

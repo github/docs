@@ -1,6 +1,6 @@
 ---
-title: Solucionar problemas de SSH
-intro: 'Cuando utilizas SSH para conectarte y autenticarte para {% data variables.product.product_name %}, puede que debas solucionar problemas inesperados que surjan.'
+title: Troubleshooting SSH
+intro: 'When using SSH to connect and authenticate to {% data variables.product.product_name %}, you may need to troubleshoot unexpected issues that may arise.'
 redirect_from:
   - /articles/troubleshooting-ssh
   - /github/authenticating-to-github/troubleshooting-ssh

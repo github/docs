@@ -1,6 +1,6 @@
 ---
-title: クレジットカードへの請求が拒否された場合のトラブルシューティング
-intro: '{% data variables.product.product_name %} への支払いに使っているクレジットカードが拒否された場合、支払いが行われるように、そして、自分のアカウントから締め出されなくするための、いくつかのステップがあります。'
+title: Troubleshooting a declined credit card charge
+intro: 'If the credit card you use to pay for {% data variables.product.product_name %} is declined, you can take several steps to ensure that your payments go through and that you are not locked out of your account.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/troubleshooting-a-declined-credit-card-charge
   - /articles/what-do-i-do-if-my-card-is-declined
@@ -12,27 +12,26 @@ versions:
 type: how_to
 topics:
   - Troubleshooting
-shortTitle: 拒否されたクレジットカードの請求
+shortTitle: Declined credit card charge
 ---
+If your card is declined, we'll send you an email about why the payment was declined. You'll have a few days to resolve the problem before we try charging you again.
 
-カードが拒否された場合、その支払いが拒否された理由についてメールが送られます。 再び請求される前、その問題を解決するための数日間の猶予があります。
+## Check your card's expiration date
 
-## カードの期限の日付の確認
+If your card has expired, you'll need to update your account's payment information. For more information, see "[Adding or editing a payment method](/articles/adding-or-editing-a-payment-method)."
 
-カードが期限切れの場合、アカウントの支払い情報をアップデートする必要があります。 詳細は「[支払い方法を追加または編集する](/articles/adding-or-editing-a-payment-method)」を参照してください。
+## Verify your bank's policy on card restrictions
 
-## カードの制限についての銀行のポリシーの確認
+Some international banks place restrictions on international, e-commerce, and automatically recurring transactions. If you're having trouble making a payment with your international credit card, call your bank to see if there are any restrictions on your card.
 
-一定の国際的な銀行は、国際、E コマースおよび自動的な定期取引について制限をしています。 国際的なクレジットカードでの支払いの実行のトラブルの場合、あなたのカードに対する制限があるか銀行に確認してください。
+We also support payments through PayPal. For more information, see "[Adding or editing a payment method](/articles/adding-or-editing-a-payment-method)."
 
-PayPal での支払いもサポートしています。 詳細は「[支払い方法を追加または編集する](/articles/adding-or-editing-a-payment-method)」を参照してください。
+## Contact your bank for details about the transaction
 
-## 取引の詳細についての銀行への連絡
+Your bank can provide additional information about declined payments if you specifically ask about the attempted transaction. If there are restrictions on your card and you need to call your bank, provide this information to your bank:
 
-実行しようとした取引について具体的に問い合わせると、拒否された支払いについて銀行からさらに情報を得られます。 カードに制限があり、銀行に問い合わせる必要がある場合、この情報を銀行に提供してください:
-
-- **請求されている金額。**あなたのプランに対する金額は、アカウントの領収書に表示されています。 詳細は「[支払い履歴と領収書を表示する](/articles/viewing-your-payment-history-and-receipts)」を参照してください。
-- **{% data variables.product.product_name %} の請求日付。**アカウントへの請求日は領収書に表示されています。
-- **取引 ID 番号。**あなたのアカウントの取引 ID は、領収書に表示されています。
-- **取引会社名。**取引会社名は、{% data variables.product.prodname_dotcom %} です。
-- **拒否された請求について銀行が送ったエラーメッセージ。**請求が拒否された時に私たちがあなたに送ったメールに、銀行のエラーメッセージがあります。
+- **The amount you're being charged.** The amount for your subscription appears on your account's receipts. For more information, see "[Viewing your payment history and receipts](/articles/viewing-your-payment-history-and-receipts)."
+- **The date when {% data variables.product.product_name %} bills you.** Your account's billing date appears on your receipts.
+- **The transaction ID number.** Your account's transaction ID appears on your receipts.
+- **The merchant name.** The merchant name is {% data variables.product.prodname_dotcom %}.
+- **The error message your bank sent with the declined charge.** You can find your bank's error message on the email we send you when a charge is declined.

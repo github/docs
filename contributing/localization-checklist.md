@@ -1,15 +1,15 @@
 # Localization Prep Checklist
 
-Use the following checklist to help make your files more translation-friendly. For additional information, refer to the [style guide](content-style-guide.md).
+Use the following checklist to help make your files more translation-friendly. For additional information, refer to the [style guide](content-style-guide.md).It gives more detail about how to translate by being abide to localization rules.
 
 - [ ] Use examples that are generic and can be understood by most people.
 - [ ] Avoid controversial examples or culturally specific to a group.
 - [ ] Write in active voice.
 - [ ] Write simple, short and easy to understand sentences.
 - [ ] Avoid using too many pronouns that can make text unclear.
-- [ ] Avoid using slang and jokes.
+- [ ] Avoid  using slang and jokes that might be related to any person,place or gender.
 - [ ] Avoid negative sentences.
-- [ ] Use industry standard acronyms whenever possible and explain custom acronyms.
+- [ ] Use industry standard acronyms wherever possible and explain custom acronyms.
 - [ ] Use indicative mood.
 - [ ] Eliminate redundant and wordy expressions.
 - [ ] Avoid the excessive use of stacked modifiers (noun strings). The translator can misunderstand which one is the noun being modified.
@@ -18,6 +18,7 @@ Use the following checklist to help make your files more translation-friendly. F
 - [ ] Avoid using ambiguous modal auxiliary verbs.
 - [ ] Avoid gender-specific words.
 - [ ] Avoid prepositional phrases.
+- [ ] Avoid using passive voice to refer the relavant topic.
 - [ ] Avoid vague nouns and pronouns (vague sentence subject).
 - [ ] Keep inline links to a minimum. If they are necessary, preface them with a phrase such as "For more information, see "Link title". Alternatively, add relevant links to a "Further reading" section at the end of the topic.
 

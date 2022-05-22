@@ -1,8 +1,8 @@
 ---
-title: Trabajar con los comentarios
-intro: 'Puedes acceder y administrar los comentarios en tus solicitudes de extracción, informes de problemas o confirmaciones si utilizas la API de REST.'
+title: Working with comments
+intro: 'Using the REST API, you can access and manage comments in your pull requests, issues, or commits.'
 redirect_from:
-  - /guides/working-with-comments
+  - /guides/working-with-comments/
   - /v3/guides/working-with-comments
 versions:
   fpt: '*'
@@ -15,17 +15,27 @@ topics:
 
 
 
-Para cualquier solicitud de extracción, {% data variables.product.product_name %} proporciona tres tipos de visualizaciones de comentario: [comentarios en la solicitud de extracción][PR comment] integrales, [comentarios en una línea específica][PR line comment] dentro de la solicitud de extracción, y [comentarios sobre una confirmación específica][commit comment] dentro de la solicitud de extracción.
+For any Pull Request, {% data variables.product.product_name %} provides three kinds of comment views:
+[comments on the Pull Request][PR comment] as a whole, [comments on a specific line][PR line comment] within the Pull Request,
+and [comments on a specific commit][commit comment] within the Pull Request. 
 
-Cada uno de estos tipos de comentarios pasan por una porción diferente de la API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}. En esta guía exploraremos cómo puedes acceder y manipular cada uno de ellos. En cada ejemplo utilizaremos [esta muestra de Solicitud de Extracción que se hizo][sample PR] en el repositorio de "octocat". Como siempre, puedes encontrar las muestras en [nuestro repositorio de platform-samples][platform-samples].
+Each of these types of comments goes through a different portion of the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API.
+In this guide, we'll explore how you can access and manipulate each one. For every
+example, we'll be using [this sample Pull Request made][sample PR] on the "octocat"
+repository. As always, samples can be found in [our platform-samples repository][platform-samples].
 
-## Comentarios de las Solicitudes de Extracción
+## Pull Request Comments
 
-Para acceder a loscomentarios de una solicitud de cambios, deberás de pasar por la [API de propuestas][issues]. Esto puede parecer contraintuitivo al principio. Pero una vez que entiendes que una Solicitud de Extracción es solo un informe de problemas con código, tendrá sentido utuilizar la API de Informes de Problemas para crear comentarios en una solicitud de extracción.
+To access comments on a Pull Request, you'll go through [the Issues API][issues].
+This may seem counterintuitive at first. But once you understand that a Pull
+Request is just an Issue with code, it makes sense to use the Issues API to
+create comments on a Pull Request.
 
-Demostraremos cómo obtener comentarios de una solicitud de extracción mediante la creación de un script de Ruby que utilice [Octokit.rb][octokit.rb]. También deberás crear un [token de acceso personal][personal token].
+We'll demonstrate fetching Pull Request comments by creating a Ruby script using
+[Octokit.rb][octokit.rb]. You'll also want to create a [personal access token][personal token].
 
-El código siguiente debería ayudarte a empezar a acceder a los comentarios de una solicitud de extracción utilizando Octokit.rb:
+The following code should help you get started accessing comments from a Pull Request
+using Octokit.rb:
 
 ``` ruby
 require 'octokit'
@@ -43,13 +53,18 @@ client.issue_comments("octocat/Spoon-Knife", 1176).each do |comment|
 end
 ```
 
-Aquí estamos llamando específicamente a la API de Informes de problemas para obtener los comentarios (`issue_comments`), proporcionando tanto el nombre del repositorio (`octocat/Spoon-Knife`) como la ID de la solicitud de extracción en la que estamos interesados (`1176`). Después, solo es cuestión de iterar a través de los comentarios para obtener la información sobre cada uno.
+Here, we're specifically calling out to the Issues API to get the comments (`issue_comments`),
+providing both the repository's name (`octocat/Spoon-Knife`), and the Pull Request ID
+we're interested in (`1176`). After that, it's simply a matter of iterating through
+the comments to fetch information about each one.
 
-## Comentarios en una línea de una solicitud de extracción
+## Pull Request Comments on a Line
 
-Dentro de la vista de diferencias, puedes iniciar un debate sobre algún aspecto específico de un cambio particular que se haya hecho dentro de la solicitud de extracción. Estos comentarios ocurren en las líneas individuales dentro de un archivo que ha cambiado. La URL de la terminal para este debate veien de [la API de Revisión de Solicitudes de Cambios][PR Review API].
+Within the diff view, you can start a discussion on a particular aspect of a singular
+change made within the Pull Request. These comments occur on the individual lines
+within a changed file. The endpoint URL for this discussion comes from [the Pull Request Review API][PR Review API].
 
-El código siguiente obtiene todos los comentarios de la solicitud de extracción que se hayan hecho en los archivos, si se le da un número particular de solicitud de extracción:
+The following code fetches all the Pull Request comments made on files, given a single Pull Request number:
 
 ``` ruby
 require 'octokit'
@@ -69,13 +84,19 @@ client.pull_request_comments("octocat/Spoon-Knife", 1176).each do |comment|
 end
 ```
 
-Te darás cuenta de que es increíblemente similar al ejemplo anterior. La diferencia entre esta vista y el comentario de la solicitud de extracción es el enfoque de la conversación. El comentario que se haga en una solicitud de extracción deberá reservarse para debatir ideas sobre el enfoque general del código. Cualquier comentario que se haga como parte de una revisión de una Solicitud de Extracción deberá tratar específicamente la forma en la que se implementa un cambio específico dentro de un archivo.
+You'll notice that it's incredibly similar to the example above. The difference
+between this view and the Pull Request comment is the focus of the conversation.
+A comment made on a Pull Request should be reserved for discussion or ideas on
+the overall direction of the code. A comment made as part of a Pull Request review should
+deal specifically with the way a particular change was implemented within a file.
 
-## Comentarios de las confirmaciones
+## Commit Comments
 
-El último tipo de comentarios suceden específicamente en confirmaciones individuales. Es por esto que utilizan [la API de comentarios de confirmaciones][commit comment API].
+The last type of comments occur specifically on individual commits. For this reason,
+they make use of [the commit comment API][commit comment API].
 
-Para recuperar los comentarios en una confirmación, necesitarás utilizar el SHA1 de ésta. Es decir, no utilizarás ningún identificador relacionado con la Solicitud de Extracción. Aquí hay un ejemplo:
+To retrieve the comments on a commit, you'll want to use the SHA1 of the commit.
+In other words, you won't use any identifier related to the Pull Request. Here's an example:
 
 ``` ruby
 require 'octokit'
@@ -93,7 +114,8 @@ client.commit_comments("octocat/Spoon-Knife", "cbc28e7c8caee26febc8c013b0adfb97a
 end
 ```
 
-Ten en cuenta que esta llamada a la API recuperará comentarios de una sola línea, así como aquellos que se hagan en toda la confirmación.
+Note that this API call will retrieve single line comments, as well as comments made
+on the entire commit.
 
 [PR comment]: https://github.com/octocat/Spoon-Knife/pull/1176#issuecomment-24114792
 [PR line comment]: https://github.com/octocat/Spoon-Knife/pull/1176#discussion_r6252889
@@ -104,4 +126,4 @@ Ten en cuenta que esta llamada a la API recuperará comentarios de una sola lín
 [personal token]: /articles/creating-an-access-token-for-command-line-use
 [octokit.rb]: https://github.com/octokit/octokit.rb
 [PR Review API]: /rest/reference/pulls#comments
-[commit comment API]: /rest/reference/commits#get-a-commit-comment
+[commit comment API]: /rest/reference/repos#get-a-commit-comment

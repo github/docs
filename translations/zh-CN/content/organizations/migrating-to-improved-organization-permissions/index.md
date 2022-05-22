@@ -1,6 +1,6 @@
 ---
-title: 迁移到改进的组织权限
-intro: 如果您的组织是在 2015 年 9 月之后创建的，则您的组织默认包括改进的组织权限。 在 2015 年 9 月之前创建的组织可能需要将较旧的所有者和管理员团队迁移到改进的组织权限模型。
+title: Migrating to improved organization permissions
+intro: 'If your organization was created after September 2015, your organization includes improved organization permissions by default. Organizations created before September 2015 may need to migrate older Owners and Admin teams to the improved organization permissions model.'
 redirect_from:
   - /articles/improved-organization-permissions
   - /articles/github-direct-organization-membership-pre-release-guide
@@ -18,6 +18,6 @@ children:
   - /converting-an-owners-team-to-improved-organization-permissions
   - /converting-an-admin-team-to-improved-organization-permissions
   - /migrating-admin-teams-to-improved-organization-permissions
-shortTitle: 迁移到改进的权限
+shortTitle: Migrate to improved permissions
 ---
 

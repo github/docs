@@ -1,6 +1,7 @@
 ---
 title: Managing unowned organizations in your enterprise
 intro: Enterprise アカウントで現在オーナーがいない Organization のオーナーになることができます。
+product: '{% data reusables.gated-features.enterprise-accounts %}'
 permissions: Enterprise owners can manage unowned organizations in an enterprise account.
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-organizations-in-your-enterprise-account/managing-unowned-organizations-in-your-enterprise-account

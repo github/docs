@@ -1,6 +1,6 @@
 ---
-title: 将成员组织为团队
-intro: 您可以将组织成员组成团队，通过级联访问权限和提及来反映公司或群组结构。
+title: Organizing members into teams
+intro: You can group organization members into teams that reflect your company or group's structure with cascading access permissions and mentions.
 redirect_from:
   - /articles/setting-up-teams-improved-organization-permissions
   - /articles/setting-up-teams-for-accessing-organization-repositories
@@ -37,6 +37,6 @@ children:
   - /disabling-team-discussions-for-your-organization
   - /managing-scheduled-reminders-for-your-team
   - /deleting-a-team
-shortTitle: 将成员组织成团队
+shortTitle: Organize members into teams
 ---
 

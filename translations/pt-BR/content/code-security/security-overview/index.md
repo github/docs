@@ -5,7 +5,7 @@ intro: 'Visualize, ordene e filtre os alertas de segurança de toda a sua organi
 product: '{% data reusables.gated-features.security-center %}'
 versions:
   fpt: '*'
-  ghae: '*'
+  ghae: issue-4554
   ghes: '>3.1'
   ghec: '*'
 topics:
@@ -13,7 +13,5 @@ topics:
   - Advanced Security
 children:
   - /about-the-security-overview
-  - /viewing-the-security-overview
-  - /filtering-alerts-in-the-security-overview
 ---
 

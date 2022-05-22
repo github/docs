@@ -1,6 +1,6 @@
 ---
-title: Excluir um quadro de projeto
-intro: Você pode excluir um quadro de projeto existente se já não precisa mais ter acesso ao conteúdo dele.
+title: Deleting a project board
+intro: You can delete an existing project board if you no longer need access to its contents.
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/deleting-a-project-board
   - /articles/deleting-a-project
@@ -14,23 +14,23 @@ versions:
 topics:
   - Pull requests
 ---
-
 {% data reusables.projects.project_boards_old %}
 
 {% tip %}
 
-**Dica**: para manter o acesso a um quadro de projeto concluído ou desnecessário sem perder o acesso ao conteúdo dele, [feche o quadro de projeto](/articles/closing-a-project-board) em vez de excluí-lo.
+**Tip**: If you'd like to retain access to a completed or unneeded project board without losing access to its contents, you can [close the project board](/articles/closing-a-project-board) instead of deleting it.
 
 {% endtip %}
 
-1. Navegue até o quadro de projeto que deseja excluir.
+1. Navigate to the project board you want to delete.
 {% data reusables.project-management.click-menu %}
 {% data reusables.project-management.click-edit-sidebar-menu-project-board %}
-4. Clique em **Delete project** (Excluir projeto). ![Botão Delete project (Excluir projeto)](/assets/images/help/projects/delete-project-button.png)
-5. Para confirmar que você deseja excluir o quadro de projeto, clique em **OK**.
+4. Click **Delete project**.
+![Delete project button](/assets/images/help/projects/delete-project-button.png)
+5. To confirm that you want to delete the project board, click **OK**.
 
-## Leia mais
+## Further reading
 
-- "[Fechar um quadro de projeto](/articles/closing-a-project-board)"
-- "[Desabilitar quadros de projeto em um repositório](/articles/disabling-project-boards-in-a-repository)"
-- "[Desabilitar quadros de projeto na sua organização](/articles/disabling-project-boards-in-your-organization)"
+- "[Closing a project board](/articles/closing-a-project-board)"
+- "[Disabling project boards in a repository](/articles/disabling-project-boards-in-a-repository)"
+- "[Disabling project boards in your organization](/articles/disabling-project-boards-in-your-organization)"

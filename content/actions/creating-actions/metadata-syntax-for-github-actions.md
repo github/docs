@@ -13,7 +13,6 @@ versions:
   ghae: '*'
   ghec: '*'
 type: reference
-miniTocMaxHeadingLevel: 4
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -21,7 +20,7 @@ miniTocMaxHeadingLevel: 4
 
 ## About YAML syntax for {% data variables.product.prodname_actions %}
 
-All actions require a metadata file. The metadata filename must be either `action.yml` or `action.yaml`. The data in the metadata file defines the inputs, outputs, and runs configuration for your action.
+Docker and JavaScript actions require a metadata file. The metadata filename must be either `action.yml` or `action.yaml`. The data in the metadata file defines the inputs, outputs and main entrypoint for your action.
 
 Action metadata files use YAML syntax. If you're new to YAML, you can read "[Learn YAML in five minutes](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes)."
 
@@ -41,7 +40,7 @@ Action metadata files use YAML syntax. If you're new to YAML, you can read "[Lea
 
 **Optional** Input parameters allow you to specify data that the action expects to use during runtime. {% data variables.product.prodname_dotcom %} stores input parameters as environment variables. Input ids with uppercase letters are converted to lowercase during runtime. We recommended using lowercase input ids.
 
-### Example: Specifying inputs
+### Example
 
 This example configures two inputs: numOctocats and octocatEyeColor. The numOctocats input is not required and will default to a value of '1'. The octocatEyeColor input is required and has no default value. Workflow files that use this action must use the `with` keyword to set an input value for octocatEyeColor. For more information about the `with` syntax, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepswith)."
 
@@ -84,15 +83,13 @@ For example, if a workflow defined the `numOctocats` and `octocatEyeColor` input
 
 **Optional** If the input parameter is used, this `string` is logged as a warning message. You can use this warning to notify users that the input is deprecated and mention any alternatives.
 
-## `outputs` for Docker container and JavaScript actions
+## `outputs`
 
 **Optional** Output parameters allow you to declare data that an action sets. Actions that run later in a workflow can use the output data set in previously run actions.  For example, if you had an action that performed the addition of two inputs (x + y = z), the action could output the sum (z) for other actions to use as an input.
 
-{% data reusables.actions.output-limitations %}
-
 If you don't declare an output in your action metadata file, you can still set outputs and use them in a workflow. For more information on setting outputs in an action, see "[Workflow commands for {% data variables.product.prodname_actions %}](/actions/reference/workflow-commands-for-github-actions/#setting-an-output-parameter)."
 
-### Example: Declaring outputs for Docker container and JavaScript actions
+### Example
 
 ```yaml
 outputs:
@@ -110,11 +107,9 @@ outputs:
 
 ## `outputs` for composite actions
 
-**Optional** `outputs` use the same parameters as `outputs.<output_id>` and `outputs.<output_id>.description` (see "[`outputs` for Docker container and JavaScript actions](#outputs-for-docker-container-and-javascript-actions)"), but also includes the `value` token.
+**Optional** `outputs` use the same parameters as `outputs.<output_id>` and `outputs.<output_id>.description` (see "[`outputs` for {% data variables.product.prodname_actions %}](/actions/creating-actions/metadata-syntax-for-github-actions#outputs)"), but also includes the `value` token.
 
-{% data reusables.actions.output-limitations %}
-
-### Example: Declaring outputs for composite actions
+### Example
 
 {% raw %}
 ```yaml
@@ -139,17 +134,17 @@ For more information on how to use context syntax, see "[Contexts](/actions/lear
 
 ## `runs`
 
-**Required** Specifies whether this is a JavaScript action, a composite action, or a Docker container action and how the action is executed.
+**Required** Specifies whether this is a JavaScript action, a composite action or a Docker action and how the action is executed.
 
 ## `runs` for JavaScript actions
 
 **Required** Configures the path to the action's code and the runtime used to execute the code.
 
-### Example: Using Node.js {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}v16{% else %}v12{% endif %}
+### Example using Node.js v12
 
 ```yaml
 runs:
-  using: {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}'node16'{% else %}'node12'{% endif %}
+  using: 'node12'
   main: 'main.js'
 ```
 
@@ -157,31 +152,30 @@ runs:
 
 **Required** The runtime used to execute the code specified in [`main`](#runsmain).  
 
-- Use `node12` for Node.js v12.{% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}
-- Use `node16` for Node.js v16.{% endif %}
+- Use `node12` for Node.js v12.
+- Use `node16` for Node.js v16.
 
 ### `runs.main`
 
 **Required** The file that contains your action code. The runtime specified in [`using`](#runsusing) executes this file.
 
-### `runs.pre`
+### `pre`
 
-**Optional** Allows you to run a script at the start of a job, before the `main:` action begins. For example, you can use `pre:` to run a prerequisite setup script. The runtime specified with the [`using`](#runsusing) syntax will execute this file. The `pre:` action always runs by default but you can override this using [`runs.pre-if`](#runspre-if).
+**Optional** Allows you to run a script at the start of a job, before the `main:` action begins. For example, you can use `pre:` to run a prerequisite setup script. The runtime specified with the [`using`](#runsusing) syntax will execute this file. The `pre:` action always runs by default but you can override this using [`pre-if`](#pre-if).
 
 In this example, the `pre:` action runs a script called `setup.js`:
 
 ```yaml
 runs:
-  using: {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}'node16'{% else %}'node12'{% endif %}
+  using: 'node12'
   pre: 'setup.js'
   main: 'index.js'
   post: 'cleanup.js'
 ```
 
-### `runs.pre-if`
+### `pre-if`
 
-**Optional** Allows you to define conditions for the `pre:` action execution. The `pre:` action will only run if the conditions in `pre-if` are met. If not set, then `pre-if` defaults to `always()`. In `pre-if`, status check functions evaluate against the job's status, not the action's own status.
-
+**Optional** Allows you to define conditions for the `pre:` action execution. The `pre:` action will only run if the conditions in `pre-if` are met. If not set, then `pre-if` defaults to `always()`.
 Note that the `step` context is unavailable, as no steps have run yet.
 
 In this example, `cleanup.js` only runs on Linux-based runners:
@@ -191,7 +185,7 @@ In this example, `cleanup.js` only runs on Linux-based runners:
   pre-if: runner.os == 'linux'
 ```
 
-### `runs.post`
+### `post`
 
 **Optional** Allows you to run a script at the end of a job, once the `main:` action has completed. For example, you can use `post:` to terminate certain processes or remove unneeded files. The runtime specified with the [`using`](#runsusing) syntax will execute this file.
 
@@ -199,16 +193,16 @@ In this example, the `post:` action runs a script called `cleanup.js`:
 
 ```yaml
 runs:
-  using: {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}'node16'{% else %}'node12'{% endif %}
+  using: 'node12'
   main: 'index.js'
   post: 'cleanup.js'
 ```
 
 The `post:` action always runs by default but you can override this using `post-if`.
 
-### `runs.post-if`
+### `post-if`
 
-**Optional** Allows you to define conditions for the `post:` action execution. The `post:` action will only run if the conditions in `post-if` are met. If not set, then `post-if` defaults to `always()`. In `post-if`, status check functions evaluate against the job's status, not the action's own status.
+**Optional** Allows you to define conditions for the `post:` action execution. The `post:` action will only run if the conditions in `post-if` are met. If not set, then `post-if` defaults to `always()`.
 
 For example, this `cleanup.js` will only run on Linux-based runners:
 
@@ -227,7 +221,7 @@ For example, this `cleanup.js` will only run on Linux-based runners:
 
 ### `runs.steps`
 
-{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
+{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 or ghec %}
 **Required** The steps that you plan to run in this action. These can be either `run` steps or `uses` steps.
 {% else %}
 **Required** The steps that you plan to run in this action.
@@ -235,7 +229,7 @@ For example, this `cleanup.js` will only run on Linux-based runners:
 
 #### `runs.steps[*].run`
 
-{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
+{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 or ghec %}
 **Optional** The command you want to run. This can be inline or a script in your action repository:
 {% else %}
 **Required** The command you want to run. This can be inline or a script in your action repository:
@@ -265,41 +259,10 @@ For more information, see "[`github context`](/actions/reference/context-and-exp
 
 #### `runs.steps[*].shell`
 
-{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
+{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 or ghec %}
 **Optional** The shell where you want to run the command. You can use any of the shells listed [here](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsshell). Required if `run` is set.
 {% else %}
 **Required** The shell where you want to run the command. You can use any of the shells listed [here](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsshell). Required if `run` is set.
-{% endif %}
-
-{% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}
-#### `runs.steps[*].if`
-
-**Optional** You can use the `if` conditional to prevent a step from running unless a condition is met. You can use any supported context and expression to create a conditional.
-
-{% data reusables.actions.expression-syntax-if %} For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
-
-**Example: Using contexts**
-
- This step only runs when the event type is a `pull_request` and the event action is `unassigned`.
-
- ```yaml
-steps:
-  - run: echo This event is a pull request that had an assignee removed.
-    if: {% raw %}${{ github.event_name == 'pull_request' && github.event.action == 'unassigned' }}{% endraw %}
-```
-
-**Example: Using status check functions**
-
-The `my backup step` only runs when the previous step of a composite action fails. For more information, see "[Expressions](/actions/learn-github-actions/expressions#status-check-functions)."
-
-```yaml
-steps:
-  - name: My first step
-    uses: octo-org/action-name@main
-  - name: My backup step
-    if: {% raw %}${{ failure() }}{% endraw %}
-    uses: actions/heroku@1.0.0
-```
 {% endif %}
 
 #### `runs.steps[*].name`
@@ -318,7 +281,7 @@ steps:
 
 **Optional**  Specifies the working directory where the command is run.
 
-{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
+{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 or ghec %}
 #### `runs.steps[*].uses`
 
 **Optional**  Selects an action to run as part of a step in your job. An action is a reusable unit of code. You can use an action defined in the same repository as the workflow, a public repository, or in a [published Docker container image](https://hub.docker.com/).
@@ -337,9 +300,9 @@ runs:
     # Reference a specific commit
     - uses: actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675
     # Reference the major version of a release
-    - uses: {% data reusables.actions.action-checkout %}
+    - uses: actions/checkout@v2
     # Reference a specific version
-    - uses: {% data reusables.actions.action-checkout %}.2.0
+    - uses: actions/checkout@v2.2.0
     # Reference a branch
     - uses: actions/checkout@main
     # References a subdirectory in a public GitHub repository at a specific branch, ref, or SHA
@@ -369,11 +332,11 @@ runs:
 ```
 {% endif %}
 
-## `runs` for Docker container actions
+## `runs` for Docker actions
 
-**Required** Configures the image used for the Docker container action.
+**Required** Configures the image used for the Docker action.
 
-### Example: Using a Dockerfile in your repository
+### Example using a Dockerfile in your repository
 
 ```yaml
 runs:
@@ -381,7 +344,7 @@ runs:
   image: 'Dockerfile'
 ```
 
-### Example: Using public Docker registry container
+### Example using public Docker registry container
 
 ```yaml
 runs:
@@ -393,9 +356,9 @@ runs:
 
 **Required** You must set this value to `'docker'`.
 
-### `runs.pre-entrypoint`
+### `pre-entrypoint`
 
-**Optional** Allows you to run a script before the `entrypoint` action begins. For example, you can use `pre-entrypoint:` to run a prerequisite setup script. {% data variables.product.prodname_actions %} uses `docker run` to launch this action, and runs the script inside a new container that uses the same base image. This means that the runtime state is different from the main `entrypoint` container, and any states you require must be accessed in either the workspace, `HOME`, or as a `STATE_` variable. The `pre-entrypoint:` action always runs by default but you can override this using [`runs.pre-if`](#runspre-if).
+**Optional** Allows you to run a script before the `entrypoint` action begins. For example, you can use `pre-entrypoint:` to run a prerequisite setup script. {% data variables.product.prodname_actions %} uses `docker run` to launch this action, and runs the script inside a new container that uses the same base image. This means that the runtime state is different from the main `entrypoint` container, and any states you require must be accessed in either the workspace, `HOME`, or as a `STATE_` variable. The `pre-entrypoint:` action always runs by default but you can override this using [`pre-if`](#pre-if).
 
 The runtime specified with the [`using`](#runsusing) syntax will execute this file.
 
@@ -427,7 +390,7 @@ For more information about how the `entrypoint` executes, see "[Dockerfile suppo
 
 ### `post-entrypoint`
 
-**Optional**  Allows you to run a cleanup script once the `runs.entrypoint` action has completed. {% data variables.product.prodname_actions %} uses `docker run` to launch this action. Because  {% data variables.product.prodname_actions %} runs the script inside a new container using the same base image, the runtime state is different from the main `entrypoint` container. You can access any state you need in either the workspace, `HOME`, or as a `STATE_` variable. The `post-entrypoint:` action always runs by default but you can override this using [`runs.post-if`](#runspost-if).
+**Optional**  Allows you to run a cleanup script once the `runs.entrypoint` action has completed. {% data variables.product.prodname_actions %} uses `docker run` to launch this action. Because  {% data variables.product.prodname_actions %} runs the script inside a new container using the same base image, the runtime state is different from the main `entrypoint` container. You can access any state you need in either the workspace, `HOME`, or as a `STATE_` variable. The `post-entrypoint:` action always runs by default but you can override this using [`post-if`](#post-if).
 
 ```yaml
 runs:
@@ -445,13 +408,13 @@ runs:
 
 The `args` are used in place of the `CMD` instruction in a `Dockerfile`. If you use `CMD` in your `Dockerfile`, use the guidelines ordered by preference:
 
-{% data reusables.actions.dockerfile-guidelines %}
+{% data reusables.github-actions.dockerfile-guidelines %}
 
 If you need to pass environment variables into an action, make sure your action runs a command shell to perform variable substitution. For example, if your `entrypoint` attribute is set to `"sh -c"`, `args` will be run in a command shell. Alternatively, if your `Dockerfile` uses an `ENTRYPOINT` to run the same command (`"sh -c"`), `args` will execute in a command shell.
 
 For more information about using the `CMD` instruction with {% data variables.product.prodname_actions %}, see "[Dockerfile support for {% data variables.product.prodname_actions %}](/actions/creating-actions/dockerfile-support-for-github-actions/#cmd)."
 
-#### Example: Defining arguments for the Docker container
+#### Example
 
 {% raw %}
 ```yaml
@@ -469,7 +432,7 @@ runs:
 
 You can use a color and [Feather](https://feathericons.com/) icon to create a badge to personalize and distinguish your action. Badges are shown next to your action name in [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions).
 
-### Example: Configuring branding for an action
+### Example
 
 ```yaml
 branding:
@@ -483,41 +446,7 @@ The background color of the badge. Can be one of: `white`, `yellow`, `blue`, `gr
 
 ### `branding.icon`
 
-The name of the v4.28.0 [Feather](https://feathericons.com/) icon to use. Brand icons are omitted as well as the following:
-
-<table>
-<tr>
-<td>coffee</td>
-<td>columns</td>
-<td>divide-circle</td>
-<td>divide-square</td>
-</tr>
-<tr>
-<td>divide</td>
-<td>frown</td>
-<td>hexagon</td>
-<td>key</td>
-</tr>
-<tr>
-<td>meh</td>
-<td>mouse-pointer</td>
-<td>smile</td>
-<td>tool</td>
-</tr>
-<tr>
-<td>x-octagon</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</table>
-
-Here is an exhaustive list of all currently supported icons:
-
-<!-- 
-  This table should match the icon list in `app/models/repository_actions/icons.rb` in the internal github repo.
-  To support a new icon, update `app/models/repository_actions/icons.rb` and add the svg to `/static/images/icons/feather` in the internal github repo. 
--->
+The name of the [Feather](https://feathericons.com/) icon to use.
 
 <table>
 <tr>

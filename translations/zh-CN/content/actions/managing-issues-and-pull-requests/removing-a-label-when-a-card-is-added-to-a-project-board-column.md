@@ -1,6 +1,6 @@
 ---
-title: 将卡片添加到项目板列时删除标签
-intro: '您可以使用 {% data variables.product.prodname_actions %} 在议题或拉取请求添加到项目板上的特定列时自动删除标签。'
+title: Removing a label when a card is added to a project board column
+intro: 'You can use {% data variables.product.prodname_actions %} to automatically remove a label when an issue or pull request is added to a specific column on a project board.'
 redirect_from:
   - /actions/guides/removing-a-label-when-a-card-is-added-to-a-project-board-column
 versions:
@@ -12,24 +12,24 @@ type: tutorial
 topics:
   - Workflows
   - Project management
-shortTitle: 添加卡片时删除标签
+shortTitle: Remove label when adding card
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## 简介
+## Introduction
 
-本教程演示如何使用 [`andymckay/labeler` 操作](https://github.com/marketplace/actions/simple-issue-labeler)以及条件从议题中删除添加到项目板上特定列中的标签和拉取请求。 例如，您可以在项目卡移到 `Done` 列时删除 `needs review` 标签。
+This tutorial demonstrates how to use the [`andymckay/labeler` action](https://github.com/marketplace/actions/simple-issue-labeler) along with a conditional to remove a label from issues and pull requests that are added to a specific column on a project board. For example, you can remove the `needs review` label when project cards are moved into the `Done` column.
 
-在教程中，您将先创建一个使用 [`andymckay/labeler` 操作](https://github.com/marketplace/actions/simple-issue-labeler)的工作流程文件。 然后，您将自定义工作流以适应您的需要。
+In the tutorial, you will first make a workflow file that uses the [`andymckay/labeler` action](https://github.com/marketplace/actions/simple-issue-labeler). Then, you will customize the workflow to suit your needs.
 
-## 创建工作流程
+## Creating the workflow
 
 1. {% data reusables.actions.choose-repo %}
-2. 选择属于仓库的项目。 此工作流程不能用于属于用户或组织的项目。 您可以使用现有项目，也可以创建新项目。 有关创建项目的更多信息，请参阅“[创建项目板](/github/managing-your-work-on-github/creating-a-project-board)”。
+2. Choose a project that belongs to the repository. This workflow cannot be used with projects that belong to users or organizations. You can use an existing project, or you can create a new project. For more information about creating a project, see "[Creating a project board](/github/managing-your-work-on-github/creating-a-project-board)."
 3. {% data reusables.actions.make-workflow-file %}
-4. 将以下 YAML 内容复制到工作流程文件中。
+4. Copy the following YAML contents into your workflow file.
 
     ```yaml{:copy}
 {% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=4 %}
@@ -54,28 +54,28 @@ shortTitle: 添加卡片时删除标签
               repo-token: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
     ```
 
-5. 自定义工工作流程文件中的参数：
-   - 在 `github.event.project_card.column_id = "12345678"`中，将 `12345678` 替换为要取消标记移至其中的议题和拉取请求的列 ID。
+5. Customize the parameters in your workflow file:
+   - In `github.event.project_card.column_id == '12345678'`, replace `12345678` with the ID of the column where you want to un-label issues and pull requests that are moved there.
 
-    要查找列 ID，请导航到您的项目板。 在列标题旁边，请单击 {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}，然后单击 **Copy column link（复制列链接）**。 列 ID 是复制的链接末尾的数字。 例如，`24687531` 是 `https://github.com/octocat/octo-repo/projects/1#column-24687531` 的列 ID。
+    To find the column ID, navigate to your project board. Next to the title of the column, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} then click **Copy column link**. The column ID is the number at the end of the copied link. For example, `24687531` is the column ID for `https://github.com/octocat/octo-repo/projects/1#column-24687531`.
 
-     如果您想要在多个列上操作，请用 `||` 分隔条件。 例如，只要项目卡添加到列 `12345678` 或列 `87654321`，就会使用 `if github.event.project_card.column_id == '12345678' || github.event.project_card.column_id == '87654321'`。 这些列可能在不同的项目板上。
-   - 将 `remove-labels` 的值更改为您想要从移至指定列的议题或拉请求中删除的标签列表。 使用逗号分隔多个标签。 例如 `"help wanted, good first issue"`。 有关标签的更多信息，请参阅“[管理标签](/github/managing-your-work-on-github/managing-labels#applying-labels-to-issues-and-pull-requests)”。
+     If you want to act on more than one column, separate the conditions with `||`. For example, `if github.event.project_card.column_id == '12345678' || github.event.project_card.column_id == '87654321'` will act whenever a project card is added to column `12345678` or column `87654321`. The columns may be on different project boards.
+   - Change the value for `remove-labels` to the list of labels that you want to remove from issues or pull requests that are moved to the specified column(s). Separate multiple labels with commas. For example, `"help wanted, good first issue"`. For more information on labels, see "[Managing labels](/github/managing-your-work-on-github/managing-labels#applying-labels-to-issues-and-pull-requests)."
 6. {% data reusables.actions.commit-workflow %}
 
-## 测试工作流程
+## Testing the workflow
 
-每次仓库中项目上的项目卡移动时，此工作流程都会运行。 如果卡是议题或拉取请求，并移入您指定的列，则工作流程将从问题或拉取请求中删除指定的标签。 记事卡不会受到影响。
+Every time a project card on a project in your repository moves, this workflow will run. If the card is an issue or a pull request and is moved into the column that you specified, then the workflow will remove the specified labels from the issue or a pull request. Cards that are notes will not be affected.
 
-通过将项目上的议题移到目标列中来测试工作流程。
+Test your workflow out by moving an issue on your project into the target column.
 
-1. 在仓库中打开一个议题。 更多信息请参阅“[创建议题](/github/managing-your-work-on-github/creating-an-issue)”。
-2. 用标签标记您想要工作流程删除的议题。 更多信息请参阅“[管理标签](/github/managing-your-work-on-github/managing-labels#applying-labels-to-issues-and-pull-requests)”。
-3. 将议题添加到您在工作流程文件中指定的项目列。 更多信息请参阅“[添加议题和拉取请求到项目板](/github/managing-your-work-on-github/adding-issues-and-pull-requests-to-a-project-board)”。
-4. 要查看通过将议题添加到项目所触发的工作流程运行，请查看工作流程运行的历史记录。 更多信息请参阅“[查看工作流程运行历史记录](/actions/managing-workflow-runs/viewing-workflow-run-history)”。
-5. 当工作流程完成时，您添加到项目列的议题应已删除指定的标签。
+1. Open an issue in your repository. For more information, see "[Creating an issue](/github/managing-your-work-on-github/creating-an-issue)."
+2. Label the issue with the labels that you want the workflow to remove. For more information, see "[Managing labels](/github/managing-your-work-on-github/managing-labels#applying-labels-to-issues-and-pull-requests)."
+3. Add the issue to the project column that you specified in your workflow file. For more information, see "[Adding issues and pull requests to a project board](/github/managing-your-work-on-github/adding-issues-and-pull-requests-to-a-project-board)."
+4. To see the workflow run that was triggered by adding the issue to the project, view the history of your workflow runs. For more information, see "[Viewing workflow run history](/actions/managing-workflow-runs/viewing-workflow-run-history)."
+5. When the workflow completes, the issue that you added to the project column should have the specified labels removed.
 
-## 后续步骤
+## Next steps
 
-- 要详细了解可以使用 `andymckay/labeler` 操作执行的其他事务，如添加标签或者在议题分配或具有特定标签时跳过此操作，请访问 [`andymckay/labeler` 操作文档](https://github.com/marketplace/actions/simple-issue-labeler)。
-- [搜索 GitHub](https://github.com/search?q=%22uses:+andymckay/labeler%22&type=code) 以查看使用此操作的工作流程示例。
+- To learn more about additional things you can do with the `andymckay/labeler` action, like adding labels or skipping this action if the issue is assigned or has a specific label, visit the [`andymckay/labeler` action documentation](https://github.com/marketplace/actions/simple-issue-labeler).
+- [Search GitHub](https://github.com/search?q=%22uses:+andymckay/labeler%22&type=code) for examples of workflows using this action.

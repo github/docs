@@ -1,6 +1,6 @@
 ---
-title: Inicializar la agrupación
-intro: 'Una agrupación de {% data variables.product.prodname_ghe_server %} se debe configurar con una licencia y se debe inicializar mediante un shell administrativo (SSH).'
+title: Initializing the cluster
+intro: 'A {% data variables.product.prodname_ghe_server %} cluster must be set up with a license and initialized using the administrative shell (SSH).'
 redirect_from:
   - /enterprise/admin/clustering/initializing-the-cluster
   - /enterprise/admin/enterprise-management/initializing-the-cluster
@@ -12,43 +12,43 @@ topics:
   - Clustering
   - Enterprise
 ---
-
 {% data reusables.enterprise_clustering.clustering-requires-https %}
 
-## Instalar {% data variables.product.prodname_ghe_server %}
+## Installing {% data variables.product.prodname_ghe_server %}
 
-1. En cada nodo de agrupación, suministra e instala {% data variables.product.prodname_ghe_server %}. Para obtener más información, consulta "[Configurar una instancia {% data variables.product.prodname_ghe_server %} ](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-github-enterprise-server-instance)."
-2. Mediante el shell administrativo o DHCP, configura **solo** la dirección IP de cada nodo. No configures los otros parámetros.
+1. On each cluster node, provision and install {% data variables.product.prodname_ghe_server %}. For more information, see "[Setting up a {% data variables.product.prodname_ghe_server %} instance](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-github-enterprise-server-instance)."
+2. Using the administrative shell or DHCP, **only** configure the IP address of each node. Don't configure any other settings.
 
-## Configurar el primer nodo
+## Configuring the first node
 
-1. Conèctate al nodo que se designarà como el primario de MySQL en la `cluster.conf`. Para obtener màs informaciòn, consulta la secciòn "[Acerca del archivo de configuraciòn de clùster](/enterprise/{{ currentVersion }}/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file)".
-2. En tu navegador web, visita `https://<ip address>:8443/setup/`.
+1. Connect to the node that will be designated as MySQL primary in `cluster.conf`. For more information, see "[About the cluster configuration file](/enterprise/{{ currentVersion }}/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file)."
+2. In your web browser, visit `https://<ip address>:8443/setup/`.
 {% data reusables.enterprise_installation.upload-a-license-file %}
 {% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %}
 {% data reusables.enterprise_installation.instance-will-restart-automatically %}
 
-## Inicializar la agrupación
+## Initializing the cluster
 
-Para inicializar la agrupación, necesitas un archivo de configuración de agrupación (`cluster.conf`). Para obtener màs informaciòn, consulta la secciòn "[Acerca del archivo de configuraciòn de clùster](/enterprise/{{ currentVersion }}/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file)".
+To initialize the cluster, you need a cluster configuration file (`cluster.conf`). For more information, see "[About the cluster configuration file](/enterprise/{{ currentVersion }}/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file)".
 
-1. Desde el primer nodo que se configuró, ejecuta `ghe-cluster-config. init`.  De esta manera, se inicializará la agrupación si existen nodos en el archivo de configuración de la agrupación que no están configurados.
-2. Ejecuta `ghe-cluster-config-apply`. Esto validará el archivo `cluster.conf`, aplicará la configuración a cada archivo del nodo y traerá los servicios configurados en cada nodo.
+1. From the first node that was configured, run `ghe-cluster-config-init`.  This will initialize the cluster if there are nodes in the cluster configuration file that are not configured.
+2. Run `ghe-cluster-config-apply`. This will validate the `cluster.conf` file, apply the configuration to each node file and bring up the configured services on each node.
 
-Para comprobar el estado de una agrupación en funcionamiento, usa el comando `ghe-cluster-status`.
+To check the status of a running cluster use the `ghe-cluster-status` command.
 
-## Acerca del archivo de configuración de la agrupación
+## About the cluster configuration file
 
-El archivo de configuración de la agrupación (`cluster.conf`) define los nodos en la agrupación, y los servicios que ejecutan. Para obtener más información, consulta "[Acerca de los nodos de agrupación](/enterprise/{{ currentVersion }}/admin/guides/clustering/about-cluster-nodes)".
+The cluster configuration file (`cluster.conf`) defines the nodes in the cluster, and what services they run.
+For more information, see "[About cluster nodes](/enterprise/{{ currentVersion }}/admin/guides/clustering/about-cluster-nodes)."
 
-Este ejemplo `cluster.conf` define una agrupación con cinco nodos.
+This example `cluster.conf` defines a cluster with five nodes.
 
-  - Dos nodos (llamados `ghe-app-node-\*`) ejecutan los servicios `web-server` y `job-server` responsables de atender las solicitudes de los clientes.
-  - Tres nodos (llamados `ghe-data-node-\*`) ejecutan los servicios responsables del almacenamiento y la recuperación de los datos de {% data variables.product.prodname_ghe_server %}.
+  - Two nodes (called `ghe-app-node-\*`) run the `web-server` and `job-server` services responsible for responding to client requests.
+  - Three nodes (called `ghe-data-node-\*`) run the services responsible for storage and retrieval of {% data variables.product.prodname_ghe_server %} data.
 
-Los nombres de los nodos pueden ser cualquier nombre de host válido que elijas. Los nombres son conjuntos de nombres de host de cada nodo y también se agregarán a `/etc/hosts` en cada nodo, de manera que los nodos puedan ser resolubles localmente entre sí.
+The names of the nodes can be any valid hostname you choose. The names are set as the hostname of each node, and will also be added to `/etc/hosts` on each node, so that the nodes are locally resolvable to each other.
 
-Especifica el primer nodo de clùster que configuraste como el primario de MySQL a travès de `mysql-server` y de `mysql-master`.
+Specify the first cluster node you configured as the MySQL primary via `mysql-server` and `mysql-master`.
 
 ```ini
 [cluster]
@@ -111,7 +111,7 @@ Especifica el primer nodo de clùster que configuraste como el primario de MySQL
   storage-server = true
 ```
 
-Crea el archivo `/data/user/common/cluster.conf` en el primer nodo configurado. Por ejemplo, usando `vim`:
+Create the file `/data/user/common/cluster.conf` on the configured first node. For example, using `vim`:
 
    ```shell
    ghe-data-node-1:~$ sudo vim /data/user/common/cluster.conf

@@ -3,5 +3,5 @@
     {% ifversion fpt or ghec %}
  ![议题和拉取请求选项卡选择](/assets/images/help/repository/repo-tabs-pull-requests.png)
     {% elsif ghes > 3.1 or ghae %}
-    ![拉取请求选项卡选择](/assets/images/enterprise/3.3/repository/repo-tabs-pull-requests.png){% else %}
+    ![Pull request tab selection](/assets/images/enterprise/3.3/repository/repo-tabs-pull-requests.png){% else %}
  ![Issues tab](/assets/images/enterprise/3.1/help/repository/repo-tabs-pull-requests.png){% endif %}

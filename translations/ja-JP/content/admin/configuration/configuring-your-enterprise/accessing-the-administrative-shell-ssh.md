@@ -1,5 +1,5 @@
 ---
-title: 管理シェル (SSH) にアクセスする
+title: Accessing the administrative shell (SSH)
 redirect_from:
   - /enterprise/admin/articles/ssh-access
   - /enterprise/admin/articles/adding-an-ssh-key-for-shell-access
@@ -21,29 +21,29 @@ topics:
   - SSH
 shortTitle: Access the admin shell (SSH)
 ---
+## About administrative shell access
 
-## 管理シェルでのアクセスについて
+If you have SSH access to the administrative shell, you can run {% data variables.product.prodname_ghe_server %}'s command line utilities. SSH access is also useful for troubleshooting, running backups, and configuring replication. Administrative SSH access is managed separately from Git SSH access and is accessible only via port 122.
 
-管理シェルへの SSH アクセスがある場合は、{% data variables.product.prodname_ghe_server %} のコマンドラインユーティリティを実行できます。 SSHでのアクセスは、トラブルシューティングやバックアップの実行、レプリケーションの設定にも役立ちます。 管理のためのSSHアクセスはGitのSSHアクセスとは別に管理され、ポート122を通じてのみアクセスできます。
+## Enabling access to the administrative shell via SSH
 
-## SSH経由での管理シェルへのアクセスの有効化
-
-管理のためのSSHアクセスを有効化するには、SSHの公開鍵をインスタンスの認証済みキーのリストに追加しなければなりません。
+To enable administrative SSH access, you must add your SSH public key to your instance's list of authorized keys.
 
 {% tip %}
 
-**Tip:**認証済みSSH鍵への変更は、すぐに有効になります。
+**Tip:** Changes to authorized SSH keys take effect immediately.
 
 {% endtip %}
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
-3. "SSH access（SSHでのアクセス）"の下のテキストボックスに鍵を貼り付け、**Add key（鍵の追加）**をクリックしてください。 ![SSHキーを追加するためのテキストボックスおよびボタン](/assets/images/enterprise/settings/add-authorized-ssh-key-admin-shell.png)
+3. Under "SSH access", paste your key into the text box, then click **Add key**.
+  ![Text box and button for adding an SSH key](/assets/images/enterprise/settings/add-authorized-ssh-key-admin-shell.png)
 {% data reusables.enterprise_management_console.save-settings %}
 
-## SSH経由での管理シェルへの接続
+## Connecting to the administrative shell over SSH
 
-SSH鍵をリストに追加したら、`admin`ユーザとしてインスタンスのポート122にSSHで接続してください。
+After you've added your SSH key to the list, connect to the instance over SSH as the `admin` user on port 122.
 
 ```shell
 $ ssh -p 122 admin@github.example.com
@@ -51,17 +51,17 @@ Last login: Sun Nov 9 07:53:29 2014 from 169.254.1.1
 admin@github-example-com:~$ █
 ```
 
-### SSH 接続問題のトラブルシューティング
+### Troubleshooting SSH connection problems
 
-SSH 経由で {% data variables.product.product_location %} に接続しようとしたときに、`Permission denied (publickey)` というエラーが発生した場合は、ポート 122 経由で接続していることを確認してください。 使用するプライベートな SSH キーを明確に指定することが必要になる場合があります。
+If you encounter the `Permission denied (publickey)` error when you try to connect to {% data variables.product.product_location %} via SSH, confirm that you are connecting over port 122. You may need to explicitly specify which private SSH key to use.
 
-コマンドラインでプライベートな SSH キーを指定するには、`-i` 引数を付けて `ssh` を実行します。
+To specify a private SSH key using the command line, run `ssh` with the `-i` argument.
 
 ```shell
 ssh -i /path/to/ghe_private_key -p 122 admin@<em>hostname</em>
 ```
 
-SSH 設定ファイル (`~/.ssh/config`) を使用して SSH 秘密キーを指定することもできます。
+You can also specify a private SSH key using the SSH configuration file (`~/.ssh/config`).
 
 ```shell
 Host <em>hostname</em>
@@ -70,10 +70,10 @@ Host <em>hostname</em>
   Port 122
 ```
 
-## ローカルコンソールを使った管理シェルへのアクセス
+## Accessing the administrative shell using the local console
 
-たとえばSSHが利用でいないような緊急時には、管理シェルにローカルでアクセスできます。 `admin` ユーザーとしてサインインし、{% data variables.product.prodname_ghe_server %} の初期セットアップ中に設定されたパスワードを使用します。
+In an emergency situation, for example if SSH is unavailable, you can access the administrative shell locally. Sign in as the `admin` user and use the password established during initial setup of {% data variables.product.prodname_ghe_server %}.
 
-## 管理シェルへのアクセス制限
+## Access limitations for the administrative shell
 
-管理シェルへのアクセスは、トラブルシューティングとドキュメント化された運用手順の実行時のみ許されます。 システムやアプリケーションのファイル変更、プログラムの実行、サポートされていないソフトウェアパッケージのインストールは、サポート契約を無効にすることがあります。 サポート契約の下で許されているアクティビティについて質問があれば、{% data variables.contact.contact_ent_support %} に連絡してください。
+Administrative shell access is permitted for troubleshooting and performing documented operations procedures only. Modifying system and application files, running programs, or installing unsupported software packages may void your support contract. Please contact {% data variables.contact.contact_ent_support %} if you have a question about the activities allowed by your support contract.

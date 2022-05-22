@@ -1,6 +1,6 @@
 ---
-title: 关于使用 GitHub Actions 进行打包
-intro: '您可以在 {% data variables.product.prodname_actions %} 中设置工作流程生成包并将其上传到 {% data variables.product.prodname_registry %} 或其他包托管提供程序。'
+title: About packaging with GitHub Actions
+intro: 'You can set up workflows in {% data variables.product.prodname_actions %} to produce packages and upload them to {% data variables.product.prodname_registry %} or another package hosting provider.'
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/about-packaging-with-github-actions
   - /actions/publishing-packages-with-github-actions/about-packaging-with-github-actions
@@ -13,7 +13,7 @@ versions:
 type: overview
 topics:
   - Packaging
-shortTitle: 使用 GitHub Actions 进行打包
+shortTitle: Packaging with GitHub Actions
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -21,6 +21,6 @@ shortTitle: 使用 GitHub Actions 进行打包
 
 {% data reusables.package_registry.about-packaging-and-actions %}
 
-## 延伸阅读
+## Further reading
 
-- "[发布 Node.js 包](/actions/automating-your-workflow-with-github-actions/publishing-nodejs-packages)"
+- "[Publishing Node.js packages](/actions/automating-your-workflow-with-github-actions/publishing-nodejs-packages)"

@@ -1,6 +1,6 @@
 ---
-title: Gerenciar seus codespaces
-intro: 'Você pode usar as configurações de {% data variables.product.prodname_github_codespaces %} para gerenciar informações que seu codespace possa precisar.'
+title: Managing your codespaces
+intro: 'You can use {% data variables.product.prodname_github_codespaces %} settings to manage information that your codespace might need.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
@@ -15,4 +15,4 @@ children:
   - /reviewing-your-security-logs-for-codespaces
   - /managing-gpg-verification-for-codespaces
 ---
-
+ 

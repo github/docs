@@ -51,7 +51,7 @@ People with write permissions for a repository can add a theme to a {% data vari
   ---
   ---
 
-  @import "{% raw %}{{ site.theme }}{% endraw %}";
+  @import "{{ site.theme }}";
   ```
 3. Add any custom CSS or Sass (including imports) you'd like immediately after the `@import` line.
 

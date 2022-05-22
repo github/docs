@@ -1,6 +1,7 @@
 ---
 title: Managing unowned organizations in your enterprise
 intro: You can become an owner of an organization in your enterprise account that currently has no owners.
+product: '{% data reusables.gated-features.enterprise-accounts %}'
 permissions: Enterprise owners can manage unowned organizations in an enterprise account.
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-organizations-in-your-enterprise-account/managing-unowned-organizations-in-your-enterprise-account

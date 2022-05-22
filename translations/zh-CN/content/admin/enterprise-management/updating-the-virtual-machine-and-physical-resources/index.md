@@ -1,6 +1,6 @@
 ---
-title: 更新虚拟机和物理资源
-intro: 升级虚拟软件和虚拟硬件需要您的实例停机一段时间，因此，请务必提前规划升级。
+title: Updating the virtual machine and physical resources
+intro: 'Upgrading the virtual software and virtual hardware requires some downtime for your instance, so be sure to plan your upgrade in advance.'
 redirect_from:
   - '/enterprise/{{ currentVersion }}/admin/guides/installation/upgrading-the-vm'
   - '/enterprise/{{ currentVersion }}/admin/guides/installation/upgrading-physical-resources'
@@ -17,6 +17,6 @@ children:
   - /increasing-storage-capacity
   - /increasing-cpu-or-memory-resources
   - /migrating-from-github-enterprise-1110x-to-2123
-shortTitle: 更新 VM 和资源
+shortTitle: Update VM & resources
 ---
 

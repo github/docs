@@ -1,6 +1,6 @@
 ---
-title: 使用 SSH 密钥密码
-intro: 您可以保护 SSH 密钥并配置身份验证代理，这样您就不必在每次使用 SSH 密钥时重新输入密码。
+title: Working with SSH key passphrases
+intro: You can secure your SSH keys and configure an authentication agent so that you won't have to reenter your passphrase every time you use your SSH keys.
 redirect_from:
   - /ssh-key-passphrases
   - /working-with-key-passphrases
@@ -14,14 +14,13 @@ versions:
   ghec: '*'
 topics:
   - SSH
-shortTitle: SSH 密钥密码
+shortTitle: SSH key passphrases
 ---
+With SSH keys, if someone gains access to your computer, they also gain access to every system that uses that key. To add an extra layer of security, you can add a passphrase to your SSH key. You can use `ssh-agent` to securely save your passphrase so you don't have to reenter it.
 
-使用 SSH 密钥时，如果有人获得您计算机的访问权限，他们也可以使用该密钥访问每个系统。 要添加额外的安全层，可以向 SSH 密钥添加密码。 您可以使用 `ssh-agent` 安全地保存密码，从而不必重新输入。
+## Adding or changing a passphrase
 
-## 添加或更改密码
-
-通过输入以下命令，您可以更改现有私钥的密码而无需重新生成密钥对：
+You can change the passphrase for an existing private key without regenerating the keypair by typing the following command:
 
 ```shell
 $ ssh-keygen -p -f ~/.ssh/id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}
@@ -32,13 +31,13 @@ $ ssh-keygen -p -f ~/.ssh/id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}
 > Your identification has been saved with the new passphrase.
 ```
 
-如果您的密钥已有密码，系统将提示您输入该密码，然后才能更改为新密码。
+If your key already has a passphrase, you will be prompted to enter it before you can change to a new passphrase.
 
 {% windows %}
 
-## 在 Git for Windows 上自动启动 `ssh-agent`
+## Auto-launching `ssh-agent` on Git for Windows
 
-您可以在打开 bash 或 Git shell 时自动运行 `ssh-agent`。 复制以下行并将其粘贴到 Git shell 中的 `~/.profile` 或 `~/.bashrc` 文件中：
+You can run `ssh-agent` automatically when you open bash or Git shell. Copy the following lines and paste them into your `~/.profile` or `~/.bashrc` file in Git shell:
 
 ``` bash
 env=~/.ssh/agent.env
@@ -64,15 +63,15 @@ fi
 unset env
 ```
 
-如果您的私钥没有存储在默认位置之一（如 `~/.ssh/id_rsa`），您需要告知 SSH 身份验证代理其所在位置。 要将密钥添加到 ssh-agent，请输入 `ssh-add ~/path/to/my_key`。 更多信息请参阅“[生成新的 SSH 密钥并添加到 ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)”
+If your private key is not stored in one of the default locations (like `~/.ssh/id_rsa`), you'll need to tell your SSH authentication agent where to find it. To add your key to ssh-agent, type `ssh-add ~/path/to/my_key`. For more information, see "[Generating a new SSH key and adding it to the ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)"
 
 {% tip %}
 
-**提示：**如果想要 `ssh-agent` 在一段时间后忘记您的密钥，可通过运行 `ssh-add -t <seconds>` 进行配置。
+**Tip:** If you want `ssh-agent` to forget your key after some time, you can configure it to do so by running `ssh-add -t <seconds>`.
 
 {% endtip %}
 
-现在，当您初次运行 Git Bash 时，系统将提示您输入密码：
+Now, when you first run Git Bash, you are prompted for your passphrase:
 
 ```shell
 > Initializing new SSH agent...
@@ -85,25 +84,25 @@ unset env
 > Run 'git help <command>' to display help for specific commands.
 ```
 
-`ssh-agent` 进程将继续运行，直到您注销、关闭计算机或终止该进程。
+The `ssh-agent` process will continue to run until you log out, shut down your computer, or kill the process.
 
 {% endwindows %}
 
 {% mac %}
 
-## 在密钥链中保存密码
+## Saving your passphrase in the keychain
 
-在 Mac OS X Leopard 上通过 OS X El Capitan，这些默认私钥文件将自动处理：
+On Mac OS X Leopard through OS X El Capitan, these default private key files are handled automatically:
 
 - *.ssh/id_rsa*
 - *.ssh/identity*
 
-初次使用密钥时，系统将提示您输入密码。 如果选择使用密钥链保存密码，则无需再次输入密码。
+The first time you use your key, you will be prompted to enter your passphrase. If you choose to save the passphrase with your keychain, you won't have to enter it again.
 
-否则，您可在将密钥添加到 ssh-agent 时在密钥链中存储密码。 更多信息请参阅“[添加 SSH 密钥到 ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent)”。
+Otherwise, you can store your passphrase in the keychain when you add your key to the ssh-agent. For more information, see "[Adding your SSH key to the ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent)."
 
 {% endmac %}
 
-## 延伸阅读
+## Further reading
 
-- "[关于 SSH](/articles/about-ssh)"
+- "[About SSH](/articles/about-ssh)"

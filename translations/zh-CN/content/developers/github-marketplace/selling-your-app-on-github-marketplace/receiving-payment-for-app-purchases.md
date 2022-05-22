@@ -1,6 +1,6 @@
 ---
-title: 接收应用程序购买的付款
-intro: '在每个月末，您将收到您的 {% data variables.product.prodname_marketplace %} 上架产品的付款。'
+title: Receiving payment for app purchases
+intro: 'At the end of each month, you''ll receive payment for your {% data variables.product.prodname_marketplace %} listing.'
 redirect_from:
   - /apps/adding-integrations/managing-pricing-and-payments-for-a-github-marketplace-listing/receiving-payment-for-a-github-marketplace-listing
   - /apps/marketplace/managing-pricing-and-payments-for-a-github-marketplace-listing/receiving-payment-for-a-github-marketplace-listing
@@ -13,17 +13,16 @@ versions:
   ghec: '*'
 topics:
   - Marketplace
-shortTitle: 接收付款
+shortTitle: Receive payment
 ---
+After your {% data variables.product.prodname_marketplace %} listing for an app with a paid plan is created and approved, you'll provide payment details to {% data variables.product.product_name %} as part of the financial onboarding process.
 
-为含有付费计划的应用程序创建 {% data variables.product.prodname_marketplace %} 上架信息并得到批准后，您需要向 {% data variables.product.product_name %} 提供付款详细信息以完成财务手续。
+Once your revenue reaches a minimum of 500 US dollars for the month, you'll receive an electronic payment from {% data variables.product.company_short %}. This will be the income from marketplace transactions minus the amount charged by {% data variables.product.company_short %} to cover their running costs.
 
-一旦您当月的收入达到最低 500 美元，您将收到 {% data variables.product.company_short %} 的电子付款。 此金额为 Marketplace 交易的收入减去 {% data variables.product.company_short %} 为顾及运营成本而收取的金额。
-
-对于 2021 年 1 月 1 日之前发生的交易，{% data variables.product.company_short %} 扣留交易收入的 25%。 对于该日期之后发生的交易，{% data variables.product.company_short %} 仅扣留 5%。 这一变化将反映在 2021 年 1 月底收到的付款中。
+For transactions made before January 1, 2021, {% data variables.product.company_short %} retains 25% of transaction income. For transactions made after that date, only 5% is retained by {% data variables.product.company_short %}. This change will be reflected in payments received from the end of January 2021 onward.
 
 {% note %}
 
-**注：**有关当前定价和付款条款的详细信息，请参阅“[{% data variables.product.prodname_marketplace %} 开发者协议](/free-pro-team@latest/github/site-policy/github-marketplace-developer-agreement)”。
+**Note:** For details of the current pricing and payment terms, see "[{% data variables.product.prodname_marketplace %} developer agreement](/free-pro-team@latest/github/site-policy/github-marketplace-developer-agreement)."
 
 {% endnote %}

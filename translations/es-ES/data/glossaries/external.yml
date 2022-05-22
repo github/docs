@@ -210,7 +210,7 @@
   description: Las notificaciones enviadas a la dirección de correo electrónico de un usuario.
 - 
   term: cuenta empresarial
-  description: Las cuentas empresariales te permiten administrar centralmente las políticas y la facturación de varias organizaciones. {% data reusables.gated-features.enterprise-accounts %}
+  description: Las cuentas empresariales te permiten administrar centralmente las políticas y facturación de varias organizaciones de {% data variables.product.prodname_dotcom_the_website %}. {% data reusables.gated-features.enterprise-accounts %}
 - 
   term: Explorer
   description: >-

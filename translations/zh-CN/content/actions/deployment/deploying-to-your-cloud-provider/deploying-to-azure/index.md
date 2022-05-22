@@ -1,7 +1,7 @@
 ---
-title: 部署到 Azure
-shortTitle: 部署到 Azure
-intro: 了解作为持续部署 (CD) 工作流程的一部分，如何部署到 Azure App Service、Azure Kubernetes 和 Azure Static Web App。
+title: Deploying to Azure
+shortTitle: Deploy to Azure
+intro: Learn how to deploy to Azure App Service, Azure Kubernetes, and Azure Static Web App as part of your continuous deployment (CD) workflows.
 versions:
   fpt: '*'
   ghes: '*'
@@ -17,4 +17,3 @@ children:
   - /deploying-to-azure-static-web-app
   - /deploying-to-azure-kubernetes-service
 ---
-

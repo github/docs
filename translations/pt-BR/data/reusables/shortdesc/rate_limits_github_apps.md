@@ -1,1 +1,1 @@
-Rate limits for {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_apps %} help control the rate of traffic to {% data variables.product.product_location %}. 
+Os limites de taxa para os aplicativos GitHub ajudam a controlar a taxa de tráfego.

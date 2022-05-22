@@ -1,43 +1,50 @@
 ---
-title: Inhabilitar y habilitar un flujo de trabajo
-intro: 'Puedes inhabilitar y volver a habilitar un flujo de trabajo utilizando la IU de {% data variables.product.prodname_dotcom %}, la API de REST, o el {% data variables.product.prodname_cli %}.'
+title: Disabling and enabling a workflow
+intro: 'You can disable and re-enable a workflow using the {% data variables.product.prodname_dotcom %} UI, the REST API, or {% data variables.product.prodname_cli %}.'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: Inhabilitar & habilitar un flujo de trabajo
+shortTitle: Disable & enable a workflow
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-Inhabilitar un flujo de trabajo te permite impedir que se active sin tener que borrar el archivo del repositorio. Puedes habilitar el flujo de trabajo de nuevo fácilmente en {% data variables.product.prodname_dotcom %}.
+Disabling a workflow allows you to stop a workflow from being triggered without having to delete the file from the repo. You can easily re-enable the workflow again on {% data variables.product.prodname_dotcom %}.
 
-Inhabilitar un flujo de trabajo temporalmente puede ser útil en varios escenarios. Estos son algunos cuantos ejemplos en donde inhabilitar un flujo de trabajo podría ser útil:
+Temporarily disabling a workflow can be useful in many scenarios. These are a few examples where disabling a workflow might be helpful:
 
-- Existe un error en el flujo de trabajo, el cual produce demasiadas solicitudes erróneas, lo cual impacta negativamente los servicios externos.
-- Hay un flujo de trabajo que no es crítico y que está consumiendo demasiados minutos en tu cuenta.
-- Hay un flujo de trabajo que envía solicitudes a un servicio que está inactivo.
-- Hay flujos de trabajo en un repositorio bifurcado que no se necesitan (por ejemplo, flujos de trabajo programados).
+- A workflow error that produces too many or wrong requests, impacting external services negatively.
+- A workflow that is not critical and is consuming too many minutes on your account.
+- A workflow that sends requests to a service that is down.
+- Workflows on a forked repository that aren't needed (for example, scheduled workflows).
 
 {% warning %}
 
-**Advertencia:** {% data reusables.actions.scheduled-workflows-disabled %}
+**Warning:** {% data reusables.actions.scheduled-workflows-disabled %}
 
 {% endwarning %}
 
-También puedes inhabilitar y habilitar un flujo de trabajo utilizando la API de REST. Para obtener más información, consulta la sección "[API de REST de Acciones](/rest/reference/actions#workflows)".
+You can also disable and enable a workflow using the REST API. For more information, see the "[Actions REST API](/rest/reference/actions#workflows)."
 
-## Inhabilitar un flujo de trabajo
+## Disabling a workflow
+
+{% include tool-switcher %}
 
 {% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
-1. En la barra lateral, da clic en el flujo de trabajo que quieras inhabilitar. ![flujo de trabajo de la selección en las acciones](/assets/images/actions-select-workflow.png)
-1. Da clic en {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}. ![menú de kebab de las acciones](/assets/images/help/repository/actions-workflow-menu-kebab.png)
-1. Da clic en **Inhabilitar flujo de trabajo**. ![actions disable workflow](/assets/images/help/repository/actions-disable-workflow.png)El flujo de trabajo inhabilitado se marca con {% octicon "stop" aria-label="The stop icon" %} para indicar su estado. ![lista de acciones del flujo de trabajo inhabilitado](/assets/images/help/repository/actions-find-disabled-workflow.png)
+1. In the left sidebar, click the workflow you want to disable.
+![actions select workflow](/assets/images/actions-select-workflow.png)
+1. Click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}.
+![actions kebab menu](/assets/images/help/repository/actions-workflow-menu-kebab.png)
+1. Click **Disable workflow**.
+![actions disable workflow](/assets/images/help/repository/actions-disable-workflow.png)
+The disabled workflow is marked {% octicon "stop" aria-label="The stop icon" %} to indicate its status.
+![actions list disabled workflow](/assets/images/help/repository/actions-find-disabled-workflow.png)
 
 {% endwebui %}
 
@@ -45,7 +52,7 @@ También puedes inhabilitar y habilitar un flujo de trabajo utilizando la API de
 
 {% data reusables.cli.cli-learn-more %}
 
-Para inhabilitar un flujo de trabajo, utiliza el subcomando `workflow disable`. Reemplaza a `workflow` con ya sea el nombre, ID o nombre de archivo del flujo de trabajo que quieres inhabilitar. Por ejemplo `"Link Checker"`, `1234567`, o `"link-check-test.yml"`. Si no especificas un flujo de trabajo, {% data variables.product.prodname_cli %} devolverá un menú interactivo para que elijas un flujo de trabajo.
+To disable a workflow, use the `workflow disable` subcommand. Replace `workflow` with either the name, ID, or file name of the workflow you want to disable. For example, `"Link Checker"`, `1234567`, or `"link-check-test.yml"`. If you don't specify a workflow, {% data variables.product.prodname_cli %} returns an interactive menu for you to choose a workflow.
 
 ```shell
 gh workflow disable <em>workflow</em>
@@ -53,22 +60,26 @@ gh workflow disable <em>workflow</em>
 
 {% endcli %}
 
-## Habilitar un flujo de trabajo
+## Enabling a workflow
+
+{% include tool-switcher %}
 
 {% webui %}
 
-Puedes volver a habilitar un flujo de trabajo que se había inhabilitado previamente.
+You can re-enable a workflow that was previously disabled.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
-1. En la barra lateral izquierda, da clic en el flujo de trabajo que quieres habiitar. ![acciones para seleccional el flujo de trabajo inhabilitado](/assets/images/help/repository/actions-select-disabled-workflow.png)
-1. Da clic en **Habilitar flujo de trabajo**. ![acciones para habilitar flujo de trabajo](/assets/images/help/repository/actions-enable-workflow.png)
+1. In the left sidebar, click the workflow you want to enable.
+![actions select disabled workflow](/assets/images/help/repository/actions-select-disabled-workflow.png)
+1. Click **Enable workflow**.
+![actions enable workflow](/assets/images/help/repository/actions-enable-workflow.png)
 
 {% endwebui %}
 
 {% cli %}
 
-Para habilitar un flujo de trabajo, utiliza el subcomando `workflow enable`. Reemplaza a `workflow` con ya sea el nombre, ID o nombre de archivo del flujo de trabajo que quieras habilitar. Por ejemplo `"Link Checker"`, `1234567`, o `"link-check-test.yml"`. Si no especificas un flujo de trabajo, {% data variables.product.prodname_cli %} devolverá un menú interactivo para que elijas un flujo de trabajo.
+To enable a workflow, use the `workflow enable` subcommand. Replace `workflow` with either the name, ID, or file name of the workflow you want to enable. For example, `"Link Checker"`, `1234567`, or `"link-check-test.yml"`. If you don't specify a workflow, {% data variables.product.prodname_cli %} returns an interactive menu for you to choose a workflow.
 
 ```shell
 gh workflow enable <em>workflow</em>

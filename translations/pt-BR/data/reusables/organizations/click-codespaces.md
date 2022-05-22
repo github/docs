@@ -1,1 +1,1 @@
-1. In the left sidebar, click **{% octicon "codespaces" aria-label="The codespaces icon" %} Codespaces**.
+1. Na barra lateral esquerda, clique em **Codespaces**. ![Aba "Codespaces" na barra lateral esquerda](/assets/images/help/organizations/codespaces-sidebar-tab.png)

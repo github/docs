@@ -1,6 +1,6 @@
 ---
-title: SSHキーの監査
-intro: サイト管理者は SSH キーのインスタンス全体に対する監査を始めることができます。
+title: Auditing SSH keys
+intro: Site administrators can initiate an instance-wide audit of SSH keys.
 redirect_from:
   - /enterprise/admin/articles/auditing-ssh-keys
   - /enterprise/admin/user-management/auditing-ssh-keys
@@ -15,52 +15,51 @@ topics:
   - Security
   - SSH
 ---
+Once initiated, the audit disables all existing SSH keys and forces users to approve or reject them before they're able to clone, pull, or push to any repositories. An audit is useful in situations where an employee or contractor leaves the company and you need to ensure that all keys are verified.
 
-監査が開始されると、現在の SSHキーがすべて無効となります。リポジトリのクローン、プル、プッシュといった操作をするためには、ユーザは SSH キーの承認または拒否をしなければなりません。 監査は、従業員の退職時や請負業者の撤収時など、すべてのキーを検証する必要があるときに役立ちます。
+## Initiating an audit
 
-## 監査を開始する
+You can initiate an SSH key audit from the "All users" tab of the site admin dashboard:
 
-SSH キーの監査は、サイト管理ダッシュボードの [All users] タブから開始できます。
+![Starting a public key audit](/assets/images/enterprise/security/Enterprise-Start-Key-Audit.png)
 
-![公開鍵の監査の開始](/assets/images/enterprise/security/Enterprise-Start-Key-Audit.png)
+After you click the "Start public key audit" button, you'll be taken to a confirmation screen explaining what will happen next:
 
-"Start public key audit（公開鍵の監査の開始）" のボタンをクリックしたら、その後の流れを説明する確認画面に移動します。
+![Confirming the audit](/assets/images/enterprise/security/Enterprise-Begin-Audit.png)
 
-![監査の確認](/assets/images/enterprise/security/Enterprise-Begin-Audit.png)
+After you click the "Begin audit" button, all SSH keys are invalidated and will require approval. You'll see a notification indicating the audit has begun.
 
-\[Begin audit\] (監査を開始) ボタンをクリックすると、すべての SSH キーは無効となり、承認が必要になります。 監査が始まったことを示す通知が表示されます。
+## What users see
 
-## ユーザに対する表示
-
-ユーザがSSH経由で Git のオペレーションを実行した場合は、オペレーションが失敗し、次のメッセージが表示されます。
+If a user attempts to perform any git operation over SSH, it will fail and provide them with the following message:
 
 ```shell
-ERROR: Hi <em>ユーザ名</em>. We're doing an SSH key audit.
+ERROR: Hi <em>username</em>. We're doing an SSH key audit.
 Please visit http(s)://<em>hostname</em>/settings/ssh/audit/2
 to approve this key so we know it's safe.
 Fingerprint: ed:21:60:64:c0:dc:2b:16:0f:54:5f:2b:35:2a:94:91
 fatal: The remote end hung up unexpectedly
 ```
 
-ユーザがリンクをたどると、アカウントのキーを承認するよう要求されます。
+When they follow the link, they're asked to approve the keys on their account:
 
-![キーの監査](/assets/images/enterprise/security/Enterprise-Audit-SSH-Keys.jpg)
+![Auditing keys](/assets/images/enterprise/security/Enterprise-Audit-SSH-Keys.jpg)
 
-キーを承認または拒否したら、今まで通りリポジトリを使えるようになります。
+After they approve or reject their keys, they'll be able interact with repositories as usual.
 
-## SSH キーを追加する
+## Adding an SSH key
 
-新規ユーザは、SSHキーを追加する際にパスワードを要求されます。
+New users will be prompted for their password when adding an SSH key:
 
-![パスワードの確認](/assets/images/help/settings/sudo_mode_popup.png)
+![Password confirmation](/assets/images/help/settings/sudo_mode_popup.png)
 
-ユーザがキーを追加したら、次のような通知メールが届きます。
+When a user adds a key, they'll receive a notification email that will look something like this:
 
     The following SSH key was added to your account:
-    
+
     [title]
     ed:21:60:64:c0:dc:2b:16:0f:54:5f:2b:35:2a:94:91
-    
+
     If you believe this key was added in error, you can remove the key and disable access at the following location:
-    
+
     http(s)://HOSTNAME/settings/ssh

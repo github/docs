@@ -31,7 +31,7 @@ For a full list of available Xamarin SDK versions on the {% data variables.produ
 * [macOS 10.15](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-10.15-Readme.md#xamarin-bundles)
 * [macOS 11](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-11-Readme.md#xamarin-bundles)
 
-{% data reusables.actions.macos-runner-preview %}
+{% data reusables.github-actions.macos-runner-preview %}
 
 ## Prerequisites
 
@@ -45,6 +45,7 @@ We recommend that you have a basic understanding of Xamarin, .NET Core SDK, YAML
 
 The example below demonstrates how to change the default Xamarin SDK versions and build a Xamarin.iOS application.
 
+{% raw %}
 ```yaml
 name: Build Xamarin.iOS app
 
@@ -56,7 +57,7 @@ jobs:
     runs-on: macos-latest
 
     steps:
-    - uses: {% data reusables.actions.action-checkout %}
+    - uses: actions/checkout@v2
     - name: Set default Xamarin SDK versions
       run: |
         $VM_ASSETS/select-xamarin-sdk-v2.sh --mono=6.12 --ios=14.10
@@ -68,7 +69,7 @@ jobs:
         sudo xcode-select -s $XCODE_ROOT
 
     - name: Setup .NET Core SDK 5.0.x
-      uses: {% data reusables.actions.action-setup-dotnet %}
+      uses: actions/setup-dotnet@v1
       with:
         dotnet-version: '5.0.x'
 
@@ -78,11 +79,13 @@ jobs:
     - name: Build
       run: msbuild <csproj_file_path> /p:Configuration=Debug /p:Platform=iPhoneSimulator /t:Rebuild
 ```
+{% endraw %}
 
 ## Building Xamarin.Android apps
 
 The example below demonstrates how to change default Xamarin SDK versions and build a Xamarin.Android application.
 
+{% raw %}
 ```yaml
 name: Build Xamarin.Android app
 
@@ -94,13 +97,13 @@ jobs:
     runs-on: macos-latest
 
     steps:
-    - uses: {% data reusables.actions.action-checkout %}
+    - uses: actions/checkout@v2
     - name: Set default Xamarin SDK versions
       run: |
         $VM_ASSETS/select-xamarin-sdk-v2.sh --mono=6.10 --android=10.2
 
     - name: Setup .NET Core SDK 5.0.x
-      uses: {% data reusables.actions.action-setup-dotnet %}
+      uses: actions/setup-dotnet@v1
       with:
         dotnet-version: '5.0.x'
 
@@ -110,6 +113,7 @@ jobs:
     - name: Build
       run: msbuild <csproj_file_path> /t:PackageForAndroid /p:Configuration=Debug
 ```
+{% endraw %}
 
 ## Specifying a .NET version
 

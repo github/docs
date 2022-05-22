@@ -1,6 +1,6 @@
 ---
-title: プロジェクトボードへの Issue およびプルリクエストの追加
-intro: Issue やプルリクエストはカードの形でプロジェクトボードに追加し、列にトリアージしていくことができます。
+title: Adding issues and pull requests to a project board
+intro: You can add issues and pull requests to a project board in the form of cards and triage them into columns.
 redirect_from:
   - /github/managing-your-work-on-github/tracking-the-progress-of-your-work-with-project-boards/adding-issues-and-pull-requests-to-a-project-board
   - /articles/adding-issues-and-pull-requests-to-a-project
@@ -13,61 +13,67 @@ versions:
   ghec: '*'
 topics:
   - Pull requests
-shortTitle: ボードへのIssueとPRの追加
+shortTitle: Add issues & PRs to board
 ---
-
 {% data reusables.projects.project_boards_old %}
 
-以下のようにして、プロジェクトボードに Issue またはプルリクエストカードを追加できます:
-- サイドバーの [**Triage**] セクションからカードをドラッグする。
-- Issue またはプルリクエストの URL をカード内に入力する。
-- プロジェクトボードの検索サイドバーで Issue またはプルリクエストを検索する。
+You can add issue or pull request cards to your project board by:
+- Dragging cards from the **Triage** section in the sidebar.
+- Typing the issue or pull request URL in a card.
+- Searching for issues or pull requests in the project board search sidebar.
 
-各プロジェクト列には最大 2,500 のカードを置くことができます。 列のカード数が最大に達すると、その列にカードを移動させることはできません。
+You can put a maximum of 2,500 cards into each project column. If a column has reached the maximum number of cards, no cards can be moved into that column.
 
-![トリアージサイドバーからプロジェクトボードの列へ Issue カードを移動させるカーソル](/assets/images/help/projects/add-card-from-sidebar.gif)
+![Cursor moves issue card from triaging sidebar to project board column](/assets/images/help/projects/add-card-from-sidebar.gif)
 
 {% note %}
 
-**注釈:** ノートをタスクのリマインダ、{% data variables.product.product_name %} 上の任意のリポジトリからの Issue やプルリクエストへの参照、プロジェクトボードへの関連情報の追加として働くようにプロジェクトボードに追加することもできます。 詳細は「[プロジェクトボードにノートを追加する](/articles/adding-notes-to-a-project-board)」を参照してください。
+**Note:** You can also add notes to your project board to serve as task reminders, references to issues and pull requests from any repository on {% data variables.product.product_name %}, or to add related information to your project board. For more information, see "[Adding notes to a project board](/articles/adding-notes-to-a-project-board)."
 
 {% endnote %}
 
 {% data reusables.project-management.edit-in-project %}
 
-{% data reusables.project-management.link-repos-to-project-board %}プロジェクトボードに追加するために Issue やプルリクエストを検索する場合、自動的にその検索の対象はリンクされたリポジトリになります。 それらの条件を取り除いて、Organization のすべてのリポジトリを対象に検索することができます。 詳しい情報については、「[リポジトリをプロジェクトボードにリンクする](/articles/linking-a-repository-to-a-project-board)」を参照してください。
+{% data reusables.project-management.link-repos-to-project-board %} When you search for issues and pull requests to add to your project board, the search automatically scopes to your linked repositories. You can remove these qualifiers to search within all organization repositories. For more information, see "[Linking a repository to a project board](/articles/linking-a-repository-to-a-project-board)."
 
-## プロジェクトボードへの Issue およびプルリクエストの追加
+## Adding issues and pull requests to a project board
 
-1. Issue およびプルリクエストを追加するプロジェクトボードに移動します。
-2. プロジェクトボードで {% octicon "plus" aria-label="The plus icon" %} [**Add cards**] をクリックします。 ![カードの追加ボタン](/assets/images/help/projects/add-cards-button.png)
-3. 検索条件を使って、プロジェクトボードに追加したい Issue と Pull Request を検索してください。 利用できる検索条件に関する詳しい情報については「[Issue を検索する](/articles/searching-issues)」を参照してください。 ![Issue およびプルリクエストを検索](/assets/images/help/issues/issues_search_bar.png)
+1. Navigate to the project board where you want to add issues and pull requests.
+2. In your project board, click {% octicon "plus" aria-label="The plus icon" %} **Add cards**.
+![Add cards button](/assets/images/help/projects/add-cards-button.png)
+3. Search for issues and pull requests to add to your project board using search qualifiers. For more information on search qualifiers you can use, see "[Searching issues](/articles/searching-issues)."
+  ![Search issues and pull requests](/assets/images/help/issues/issues_search_bar.png)
 
   {% tip %}
 
-  **参考:**
-    - Issue あるいはプルリクエストの URL をカード内でタイプして、それらを追加することもできます。
-    - 特定の機能について作業をしているなら、その機能に関連する Issue あるいはプルリクエストにラベルを適用して、そのラベル名を検索することでプロジェクトボードに簡単にカードを追加することができます。 詳細は「[Issue およびプルリクエストへのラベルの適用](/articles/applying-labels-to-issues-and-pull-requests)」を参照してください。
+  **Tips:**
+    - You can also add an issue or pull request by typing the URL in a card.
+    - If you're working on a specific feature, you can apply a label to each related issue or pull request for that feature, and then easily add cards to your project board by searching for the label name. For more information, see "[Apply labels to issues and pull requests](/articles/applying-labels-to-issues-and-pull-requests)."
 
   {% endtip %}
-4. フィルタリングされた Issue とプルリクエストのリストから、プロジェクトボードに追加したいカードをドラッグして、正しい列にドロップします。 あるいは、キーボードショートカットを使ってカードを移動させることもできます。 {% data reusables.project-management.for-more-info-project-keyboard-shortcuts %}
+4. From the filtered list of issues and pull requests, drag the card you'd like to add to your project board and drop it in the correct column. Alternatively, you can move cards using keyboard shortcuts. {% data reusables.project-management.for-more-info-project-keyboard-shortcuts %}
 
     {% tip %}
 
-    **ヒント:** ドラッグアンドドロップやキーボードのショートカットを使用してカードを並び替えたり列間で移動させたりできます。 {% data reusables.project-management.for-more-info-project-keyboard-shortcuts %}
+    **Tip:** You can drag and drop or use keyboard shortcuts to reorder cards and move them between columns. {% data reusables.project-management.for-more-info-project-keyboard-shortcuts %}
 
     {% endtip %}
 
-## サイドバーからのプロジェクトボードへの Issue およびプルリクエストの追加
+## Adding issues and pull requests to a project board from the sidebar
 
-1. Issue あるいはプルリクエストの右側で、[**Projects {% octicon "gear" aria-label="The Gear icon" %}**] をクリックします。 ![サイドバーのプロジェクトボードボタン](/assets/images/help/projects/sidebar-project.png)
-2. 追加したいプロジェクトボードの [**Recent**]、[**Repository**]、[**User**]、[**Organization**] タブをクリックします。 ![Recent、Repository、Organization タブ](/assets/images/help/projects/sidebar-project-tabs.png)
-3. [**Filter projects**] フィールドにプロジェクト名を入力します。 ![プロジェクトボードの検索ボックス](/assets/images/help/projects/sidebar-search-project.png)
-4. Issueまたはプルリクエストを追加する1つ以上のプロジェクトボードを選択します。 ![選択されたプロジェクトボード](/assets/images/help/projects/sidebar-select-project.png)
-5. {% octicon "triangle-down" aria-label="The down triangle icon" %} をクリックし、Issueまたはプルリクエストが必要な列をクリックします。 カードが、選択したプロジェクトボードの列の下部に移動します。 ![[Move card to column] メニュー](/assets/images/help/projects/sidebar-select-project-board-column-menu.png)
+1. On the right side of an issue or pull request, click **Projects {% octicon "gear" aria-label="The Gear icon" %}**.
+  ![Project board button in sidebar](/assets/images/help/projects/sidebar-project.png)
+2. Click the **Recent**, **Repository**,**User**, or **Organization** tab for the project board you would like to add to.
+  ![Recent, Repository and Organization tabs](/assets/images/help/projects/sidebar-project-tabs.png)
+3. Type the name of the project in **Filter projects** field.
+  ![Project board search box](/assets/images/help/projects/sidebar-search-project.png)
+4. Select one or more project boards where you want to add the issue or pull request.
+  ![Selected project board](/assets/images/help/projects/sidebar-select-project.png)
+5. Click {% octicon "triangle-down" aria-label="The down triangle icon" %}, then click the column where you want your issue or pull request. The card will move to the bottom of the project board column you select.
+  ![Move card to column menu](/assets/images/help/projects/sidebar-select-project-board-column-menu.png)
 
-## 参考リンク
+## Further reading
 
-- [プロジェクトボードについて](/articles/about-project-boards)
-- [プロジェクトボードの編集](/articles/editing-a-project-board)
-- 「[プロジェクトボードでカードをフィルタリングする](/articles/filtering-cards-on-a-project-board)」
+- "[About project boards](/articles/about-project-boards)"
+- "[Editing a project board](/articles/editing-a-project-board)"
+- "[Filtering cards on a project board](/articles/filtering-cards-on-a-project-board)"

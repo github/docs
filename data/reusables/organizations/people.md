@@ -1,4 +1,4 @@
-1. Under your organization name, click {% octicon "person" aria-label="The Person icon" %} **People**.
+1. Under your organization name, click {% octicon "organization" aria-label="The People icon" %} **People**.
   {% ifversion fpt or ghes > 3.2 or ghec %}
   ![The People tab](/assets/images/help/organizations/organization-people-tab-with-overview-tab.png)
   {% else %}

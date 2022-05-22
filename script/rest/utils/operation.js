@@ -1,186 +1,195 @@
 #!/usr/bin/env node
-import Ajv from 'ajv'
+import { get, flatten, isPlainObject } from 'lodash-es'
+import { sentenceCase } from 'change-case'
 import GitHubSlugger from 'github-slugger'
 import httpStatusCodes from 'http-status-code'
-import { readFile } from 'fs/promises'
-import { get, flatten, isPlainObject } from 'lodash-es'
-import { parseTemplate } from 'url-template'
-
 import renderContent from '../../../lib/render-content/index.js'
-import getCodeSamples from './create-rest-examples.js'
+import createCodeSamples from './create-code-samples.js'
+import Ajv from 'ajv'
 import operationSchema from './operation-schema.js'
-
-const { operationUrls } = JSON.parse(
-  await readFile('script/rest/utils/rest-api-overrides.json', 'utf8')
-)
 const slugger = new GitHubSlugger()
 
-export default class Operation {
-  #operation
-  constructor(verb, requestPath, operation, globalServers) {
-    this.#operation = operation
-    // The global server object sets metadata including the base url for
-    // all operations in a version. Individual operations can override
-    // the global server url at the operation level.
-    this.serverUrl = operation.servers ? operation.servers[0].url : globalServers[0].url
+// titles that can't be derived by sentence-casing the ID
+const categoryTitles = { scim: 'SCIM' }
 
-    const serverVariables = operation.servers
-      ? operation.servers[0].variables
-      : globalServers[0].variables
-    if (serverVariables) {
-      const templateVariables = {}
-      Object.keys(serverVariables).forEach(
-        (key) => (templateVariables[key] = serverVariables[key].default)
-      )
-      this.serverUrl = parseTemplate(this.serverUrl).expand(templateVariables)
+export default class Operation {
+  constructor(verb, requestPath, props, serverUrl) {
+    const defaultProps = {
+      parameters: [],
+      'x-codeSamples': [],
+      responses: {},
     }
 
-    this.serverUrl = this.serverUrl.replace('http:', 'http(s):')
-    this.serverUrlOverride()
+    Object.assign(this, { verb, requestPath, serverUrl }, defaultProps, props)
 
-    // Attach some global properties to the operation object to use
-    // during processing
-    this.#operation.serverUrl = this.serverUrl
-    this.#operation.requestPath = requestPath
-    this.#operation.verb = verb
+    slugger.reset()
+    this.slug = slugger.slug(this.summary)
 
-    this.verb = verb
-    this.requestPath = requestPath
-    this.title = operation.summary
-    this.setCategories()
-    this.parameters = operation.parameters || []
-    this.bodyParameters = []
-    this.enabledForGitHubApps = operation['x-github'].enabledForGitHubApps
-    this.codeExamples = getCodeSamples(this.#operation)
+    // Add category
+    // workaround for misnamed `code-scanning.` category bug
+    // https://github.com/github/rest-api-description/issues/38
+    this['x-github'].category = this['x-github'].category.replace('.', '')
+    this.category = this['x-github'].category
+    this.categoryLabel = categoryTitles[this.category] || sentenceCase(this.category)
+
+    // Add subcategory
+    if (this['x-github'].subcategory) {
+      this.subcategory = this['x-github'].subcategory
+      this.subcategoryLabel = sentenceCase(this.subcategory)
+    }
+
+    // Add content type. We only display one example and default
+    // to the first example defined.
+    const contentTypes = Object.keys(get(this, 'requestBody.content', []))
+    this.contentType = contentTypes[0]
+
     return this
   }
 
-  setCategories() {
-    const operationId = this.#operation.operationId
-    const xGithub = this.#operation['x-github']
-    // Set category
-    // A temporary override file allows us to override the category defined in
-    // the openapi schema. Without it, we'd have to update several
-    // @documentation_urls in the api code every time we move
-    // an endpoint to a new page.
-    this.category = operationUrls[operationId]
-      ? operationUrls[operationId].category
-      : xGithub.category
-
-    // Set subcategory
-    // A temporary override file allows us to override the subcategory
-    // defined in the openapi schema. Without it, we'd have to update several
-    // @documentation_urls in the api code every time we move
-    // an endpoint to a new page.
-    if (operationUrls[operationId]) {
-      if (operationUrls[operationId].subcategory) {
-        this.subcategory = operationUrls[operationId].subcategory
-      }
-    } else if (xGithub.subcategory) {
-      this.subcategory = xGithub.subcategory
-    }
-  }
-
-  serverUrlOverride() {
-    // TODO - remove this once github pull #214649
-    // lands in this repo's lib/rest/static/dereferenced directory
-    if (
-      this.#operation['x-github'].subcategory &&
-      this.#operation['x-github'].subcategory === 'management-console'
-    ) {
-      this.serverUrl = this.serverUrl.replace('/api/v3', '')
-    }
+  get schema() {
+    return operationSchema
   }
 
   async process() {
+    this['x-codeSamples'] = createCodeSamples(this)
+
     await Promise.all([
       this.renderDescription(),
-      this.renderStatusCodes(),
+      this.renderCodeSamples(),
+      this.renderResponses(),
       this.renderParameterDescriptions(),
       this.renderBodyParameterDescriptions(),
-      this.renderExampleResponseDescriptions(),
       this.renderPreviewNotes(),
+      this.renderNotes(),
     ])
 
     const ajv = new Ajv()
-    const valid = ajv.validate(operationSchema, this)
+    const valid = ajv.validate(this.schema, this)
     if (!valid) {
       console.error(JSON.stringify(ajv.errors, null, 2))
-      throw new Error('Invalid OpenAPI operation found')
+      throw new Error('Invalid operation found')
     }
   }
 
-  getExternalDocs() {
-    return this.#operation.externalDocs
-  }
-
   async renderDescription() {
-    this.descriptionHTML = await renderContent(this.#operation.description)
+    this.descriptionHTML = await renderContent(this.description)
     return this
   }
 
-  async renderExampleResponseDescriptions() {
+  async renderCodeSamples() {
     return Promise.all(
-      this.codeExamples.map(async (codeExample) => {
-        codeExample.response.description = await renderContent(codeExample.response.description)
-        return codeExample
+      this['x-codeSamples'].map(async (sample) => {
+        const markdown = createCodeBlock(sample.source, sample.lang.toLowerCase())
+        sample.html = await renderContent(markdown)
+        return sample
       })
     )
   }
 
-  async renderStatusCodes() {
-    const responses = this.#operation.responses
-    const responseKeys = Object.keys(responses)
-    if (responseKeys.length === 0) return []
+  async renderResponses() {
+    // clone and delete this.responses so we can turn it into a clean array of objects
+    const rawResponses = JSON.parse(JSON.stringify(this.responses))
+    delete this.responses
 
-    this.statusCodes = await Promise.all(
-      responseKeys.map(async (responseCode) => {
-        const response = responses[responseCode]
+    this.responses = await Promise.all(
+      Object.keys(rawResponses).map(async (responseCode) => {
+        const rawResponse = rawResponses[responseCode]
         const httpStatusCode = responseCode
-        const httpStatusMessage = httpStatusCodes.getMessage(Number(responseCode), 'HTTP/2')
-        // The OpenAPI should be updated to provide better descriptions, but
-        // until then, we can catch some known generic descriptions and replace
-        // them with the default http status message.
-        const responseDescription =
-          response.description.toLowerCase() === 'response'
-            ? await renderContent(httpStatusMessage)
-            : await renderContent(response.description)
+        const httpStatusMessage = httpStatusCodes.getMessage(Number(responseCode))
+        const responseDescription = rawResponse.description
 
-        return {
-          httpStatusCode,
-          description: responseDescription,
+        const cleanResponses = []
+
+        /* Responses can have zero, one, or multiple examples. The `examples`
+         * property often only contains one example object. Both the `example`
+         * and `examples` properties can be used in the OpenAPI but `example`
+         * doesn't work with `$ref`.
+         * This works:
+         * schema:
+         *  '$ref': '../../components/schemas/foo.yaml'
+         * example:
+         *  id: 10
+         *  description: This is a summary
+         *  foo: bar
+         *
+         * This doesn't
+         * schema:
+         *  '$ref': '../../components/schemas/foo.yaml'
+         * example:
+         *  '$ref': '../../components/examples/bar.yaml'
+         */
+        const examplesProperty = get(rawResponse, 'content.application/json.examples')
+        const exampleProperty = get(rawResponse, 'content.application/json.example')
+
+        // Return early if the response doesn't have an example payload
+        if (!exampleProperty && !examplesProperty) {
+          return [
+            {
+              httpStatusCode,
+              httpStatusMessage,
+              description: responseDescription,
+            },
+          ]
         }
+
+        // Use the same format for `example` as `examples` property so that all
+        // examples can be handled the same way.
+        const normalizedExampleProperty = {
+          default: {
+            value: exampleProperty,
+          },
+        }
+
+        const rawExamples = examplesProperty || normalizedExampleProperty
+        const rawExampleKeys = Object.keys(rawExamples)
+
+        for (const exampleKey of rawExampleKeys) {
+          const exampleValue = rawExamples[exampleKey].value
+          const exampleSummary = rawExamples[exampleKey].summary
+          const cleanResponse = {
+            httpStatusCode,
+            httpStatusMessage,
+          }
+
+          // If there is only one example, use the response description
+          // property. For cases with more than one example, some don't have
+          // summary properties with a description, so we can sentence case
+          // the property name as a fallback
+          cleanResponse.description =
+            rawExampleKeys.length === 1
+              ? exampleSummary || responseDescription
+              : exampleSummary || sentenceCase(exampleKey)
+
+          const payloadMarkdown = createCodeBlock(exampleValue, 'json')
+          cleanResponse.payload = await renderContent(payloadMarkdown)
+
+          cleanResponses.push(cleanResponse)
+        }
+        return cleanResponses
       })
     )
+
+    // flatten child arrays
+    this.responses = flatten(this.responses)
   }
 
   async renderParameterDescriptions() {
     return Promise.all(
       this.parameters.map(async (param) => {
-        param.description = await renderContent(param.description)
+        param.descriptionHTML = await renderContent(param.description)
         return param
       })
     )
   }
 
   async renderBodyParameterDescriptions() {
-    if (!this.#operation.requestBody) return []
-    const contentType = Object.keys(this.#operation.requestBody.content)[0]
     let bodyParamsObject = get(
-      this.#operation,
-      `requestBody.content.${contentType}.schema.properties`,
+      this,
+      `requestBody.content.${this.contentType}.schema.properties`,
       {}
     )
-    let requiredParams = get(
-      this.#operation,
-      `requestBody.content.${contentType}.schema.required`,
-      []
-    )
-    const oneOfObject = get(
-      this.#operation,
-      `requestBody.content.${contentType}.schema.oneOf`,
-      undefined
-    )
+    let requiredParams = get(this, `requestBody.content.${this.contentType}.schema.required`, [])
+    const oneOfObject = get(this, `requestBody.content.${this.contentType}.schema.oneOf`, undefined)
 
     // oneOf is an array of input parameter options, so we need to either
     //  use the first option or munge the options together.
@@ -191,8 +200,8 @@ export default class Operation {
 
       // TODO: Remove this check
       // This operation shouldn't have a oneOf in this case, it needs to be
-      // removed from the schema in the openapi schema repo.
-      if (this.#operation.operationId === 'checks/create') {
+      // removed from the schema in the github/github repo.
+      if (this.operationId === 'checks/create') {
         delete bodyParamsObject.oneOf
       } else if (allOneOfAreObjects) {
         // When all of the oneOf objects have the `type: object` we
@@ -213,12 +222,14 @@ export default class Operation {
         requiredParams = firstOneOfObject.required
       }
     }
+
     this.bodyParameters = await getBodyParams(bodyParamsObject, requiredParams)
   }
 
   async renderPreviewNotes() {
-    const previews = get(this.#operation, 'x-github.previews', [])
-    this.previews = await Promise.all(
+    const previews = get(this, 'x-github.previews', []).filter((preview) => preview.note)
+
+    return Promise.all(
       previews.map(async (preview) => {
         const note = preview.note
           // remove extra leading and trailing newlines
@@ -231,9 +242,16 @@ export default class Operation {
           // example: This is the description.\n\n`application/vnd.github.machine-man-preview+json`
           .replace(/\n`application/, '\n```\napplication')
           .replace(/json`$/, 'json\n```')
-        return await renderContent(note)
+        preview.html = await renderContent(note)
       })
     )
+  }
+
+  // add additional notes to this array whenever we want
+  async renderNotes() {
+    this.notes = []
+
+    return Promise.all(this.notes.map(async (note) => renderContent(note)))
   }
 }
 
@@ -247,12 +265,6 @@ async function getBodyParams(paramsObject, requiredParams) {
       param.name = paramKey
       param.in = 'body'
       param.rawType = param.type
-      // OpenAPI 3.0 only had a single value for `type`. OpenAPI 3.1
-      // will either be a single value or an array of values.
-      // This makes type an array regardless of how many values the array
-      // includes. This allows us to support 3.1 while remaining backwards
-      // compatible with 3.0.
-      if (!Array.isArray(param.type)) param.type = [param.type]
       param.rawDescription = param.description
 
       // Stores the types listed under the `Type` column in the `Parameters`
@@ -288,88 +300,33 @@ async function getBodyParams(paramsObject, requiredParams) {
       }
 
       // Arrays require modifying the displayed type (e.g., array of strings)
-      if (param.type.includes('array')) {
+      if (param.type === 'array') {
         if (param.items.type) paramArray.push(`array of ${param.items.type}s`)
         if (param.items.oneOf) {
           paramArray.push(param.items.oneOf.map((elem) => `array of ${elem.type}s`))
         }
-        // push the remaining types in the param.type array
-        // that aren't type array
-        const remainingItems = [...param.type]
-        const indexOfArrayType = remainingItems.indexOf('array')
-        remainingItems.splice(indexOfArrayType, 1)
-        paramArray.push(...remainingItems)
       } else if (param.type) {
-        paramArray.push(...param.type)
+        paramArray.push(param.type)
       }
-      // Supports backwards compatibility for OpenAPI 3.0
-      // In 3.1 a nullable type is part of the param.type array and
-      // the property param.nullable does not exist.
-      if (param.nullable) paramArray.push('null')
+
+      if (param.nullable) paramArray.push('nullable')
 
       param.type = paramArray.flat().join(' or ')
       param.description = param.description || ''
       const isRequired = requiredParams && requiredParams.includes(param.name)
-      param.isRequired = isRequired
-      param.description = await renderContent(param.description)
+      const requiredString = isRequired ? '**Required**. ' : ''
+      param.description = await renderContent(requiredString + param.description)
+
       // there may be zero, one, or multiple object parameters that have children parameters
       param.childParamsGroups = []
-      let childParamsGroup
-
-      // When additionalProperties is defined with a type of `object`
-      // the input parameter is a dictionary. This handles cases for
-      // a dictionary. We don't have any list cases yet, and when
-      // the type is `string` we don't need to render additional rows of
-      // parameters.
-      // https://swagger.io/docs/specification/data-models/dictionaries/
-
-      // This conditional accounts for additionalProperties of type object
-      // and [null, 'object']
-      if (
-        param.additionalProperties &&
-        (param.additionalProperties.type === 'object' ||
-          (Array.isArray(param.additionalProperties.type) &&
-            param.additionalProperties.type.includes('object')))
-      ) {
-        // Add the first element which will always be the user-defined key
-        slugger.reset()
-        const id = slugger.slug(`${param.name}-${param.type}`)
-        param.childParamsGroups.push({
-          parentName: param.name,
-          parentType: param.type,
-          id,
-          params: [
-            {
-              description: `<p>A user-defined key to represent an item in <code>${param.name}</code>.</p>`,
-              type: 'string',
-              name: 'key',
-              in: 'body',
-              rawType: 'string',
-              rawDescription: `A key to represent an item in ${param.name}.`,
-            },
-          ],
-        })
-
-        // Construct a new parameter using the child properties set in
-        // additionalProperties.
-        const newParam = param.additionalProperties
-        newParam.rawType = 'object'
-        newParam.name = 'key'
-        childParamsGroup = await getChildParamsGroup(newParam)
-      } else {
-        childParamsGroup = await getChildParamsGroup(param)
-      }
+      const childParamsGroup = await getChildParamsGroup(param)
 
       if (childParamsGroup && childParamsGroup.params.length) {
         param.childParamsGroups.push(childParamsGroup)
       }
 
-      // If the param is an object, it may have child object params that have child params :/
-      // Objects can potentially be null where the rawType is [ 'object', 'null' ].
-      if (
-        param.rawType === 'object' ||
-        (Array.isArray(param.rawType) && param.rawType.includes('object'))
-      ) {
+      // if the param is an object, it may have child object params that have child params :/
+      if (param.rawType === 'object') {
         param.childParamsGroups.push(
           ...flatten(
             childParamsGroup.params
@@ -385,18 +342,8 @@ async function getBodyParams(paramsObject, requiredParams) {
 }
 
 async function getChildParamsGroup(param) {
-  // Only objects, arrays of objects, anyOf, allOf, and oneOf have child params.
-  // Objects can potentially be null where the rawType is [ 'object', 'null' ].
-  if (
-    !(
-      param.rawType === 'array' ||
-      (Array.isArray(param.rawType) && param.rawType.includes('array')) ||
-      param.rawType === 'object' ||
-      (Array.isArray(param.rawType) && param.rawType.includes('object')) ||
-      param.oneOf
-    )
-  )
-    return
+  // only objects, arrays of objects, anyOf, allOf, and oneOf have child params
+  if (!(param.rawType === 'array' || param.rawType === 'object' || param.oneOf)) return
   if (
     param.oneOf &&
     !param.oneOf.filter((param) => param.type === 'object' || param.type === 'array')
@@ -404,30 +351,12 @@ async function getChildParamsGroup(param) {
     return
   if (param.items && param.items.type !== 'object') return
 
-  const childParamsObject =
-    param.rawType === 'array' || (Array.isArray(param.rawType) && param.rawType.includes('array'))
-      ? param.items.properties
-      : param.properties
-  const requiredParams =
-    param.rawType === 'array' || (Array.isArray(param.rawType) && param.rawType.includes('array'))
-      ? param.items.required
-      : param.required
+  const childParamsObject = param.rawType === 'array' ? param.items.properties : param.properties
+  const requiredParams = param.rawType === 'array' ? param.items.required : param.required
   const childParams = await getBodyParams(childParamsObject, requiredParams)
 
   // adjust the type for easier readability in the child table
-  let parentType
-
-  if (param.rawType === 'array') {
-    parentType = 'items'
-  } else if (Array.isArray(param.rawType) && param.rawType.includes('array')) {
-    // handle the case where rawType is [ 'array', 'null' ]
-    parentType = 'items'
-  } else if (Array.isArray(param.rawType) && param.rawType.includes('object')) {
-    // handle the case where rawType is [ 'object', 'null' ]
-    parentType = 'object'
-  } else {
-    parentType = param.rawType
-  }
+  const parentType = param.rawType === 'array' ? 'items' : param.rawType
 
   // add an ID to the child table so they can be linked to
   slugger.reset()
@@ -439,4 +368,13 @@ async function getChildParamsGroup(param) {
     id,
     params: childParams,
   }
+}
+
+function createCodeBlock(input, language) {
+  // stringify JSON if needed
+  if (language === 'json' && typeof input !== 'string') {
+    input = JSON.stringify(input, null, 2)
+  }
+
+  return ['```' + language, input, '```'].join('\n')
 }

@@ -1,6 +1,6 @@
 ---
-title: Adicionar um tema ao site do GitHub Pages com o seletor de temas
-intro: 'É possível adicionar um tema ao site do {% data variables.product.prodname_pages %} para personalizar a aparência dele.'
+title: Adding a theme to your GitHub Pages site with the theme chooser
+intro: 'You can add a theme to your {% data variables.product.prodname_pages %} site to customize your site’s look and feel.'
 redirect_from:
   - /articles/creating-a-github-pages-site-with-the-jekyll-theme-chooser
   - /articles/adding-a-jekyll-theme-to-your-github-pages-site-with-the-jekyll-theme-chooser
@@ -12,37 +12,40 @@ versions:
   ghec: '*'
 topics:
   - Pages
-shortTitle: Adicionar tema a um site de Páginas
+shortTitle: Add theme to a Pages site
 ---
 
-Pessoas com permissões de administrador para um repositório podem usar o seletor de temas para adicionar um tema a um site do {% data variables.product.prodname_pages %}.
+People with admin permissions for a repository can use the theme chooser to add a theme to a {% data variables.product.prodname_pages %} site.
 
-## Sobre o seletor de temas
+## About the theme chooser
 
-O seletor de temas adiciona um tema do Jekyll ao repositório. Para obter mais informações sobre o Jekyll, consulte "[Sobre o {% data variables.product.prodname_pages %} e o Jekyll](/articles/about-github-pages-and-jekyll)".
+The theme chooser adds a Jekyll theme to your repository. For more information about Jekyll, see "[About {% data variables.product.prodname_pages %} and Jekyll](/articles/about-github-pages-and-jekyll)."
 
-O funcionamento do seletor de temas depende de o repositório ser público ou privado.
-  - Se o {% data variables.product.prodname_pages %} já estiver habilitado para o repositório, o seletor de temas adicionará o tema à fonte de publicação atual.
-  - Se o repositório for público e o {% data variables.product.prodname_pages %} estiver desabilitado para ele, o uso do seletor de temas habilitará o {% data variables.product.prodname_pages %} e definirá o branch-padrão como fonte de publicação.
-  - Se o repositório for privado e o {% data variables.product.prodname_pages %} estiver desabilitado para ele, será preciso habilitar o {% data variables.product.prodname_pages %} definindo uma fonte de publicação para poder usar o seletor de temas.
+How the theme chooser works depends on whether your repository is public or private.
+  - If {% data variables.product.prodname_pages %} is already enabled for your repository, the theme chooser will add your theme to the current publishing source.
+  - If your repository is public and {% data variables.product.prodname_pages %} is disabled for your repository, using the theme chooser will enable {% data variables.product.prodname_pages %} and configure the default branch as your publishing source.
+  - If your repository is private and {% data variables.product.prodname_pages %} is disabled for your repository, you must enable {% data variables.product.prodname_pages %} by configuring a publishing source before you can use the theme chooser.
 
-Para obter mais informações sobre fontes de publicação, consulte "[Sobre o {% data variables.product.prodname_pages %}](/articles/about-github-pages#publishing-sources-for-github-pages-sites)".
+For more information about publishing sources, see "[About {% data variables.product.prodname_pages %}](/articles/about-github-pages#publishing-sources-for-github-pages-sites)."
 
-Caso você tenha adicionado manualmente um tema do Jekyll ao repositório no passado, esses arquivos poderão ser aplicados mesmo depois que você usar o seletor de temas. Para evitar conflitos, remova todas as pastas e arquivos de temas adicionados manualmente antes de usar o seletor de temas. Para obter mais informações, consulte "[Adicionar um tema ao site do {% data variables.product.prodname_pages %} usando o Jekyll](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll)".
+If you manually added a Jekyll theme to your repository in the past, those files may be applied even after you use the theme chooser. To avoid conflicts, remove all manually added theme folders and files before using the theme chooser. For more information, see "[Adding a theme to your {% data variables.product.prodname_pages %} site using Jekyll](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll)."
 
-## Adicionar um tema com o seletor de temas
+## Adding a theme with the theme chooser
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.sidebar-pages %}
-3. No "{% data variables.product.prodname_pages %}", clique em **Escolher um tema** ou **Alterar tema**. ![Botão Choose a theme (Escolher um tema)](/assets/images/help/pages/choose-a-theme.png)
-4. No topo da página, clique no tema desejado e depois em **Selecionar tema**. ![Opções de tema e botão Select theme (Selecionar tema)](/assets/images/help/pages/select-theme.png)
-5. Talvez seja necessário editar o arquivo *README.md* do site.
-   - Para editá-lo mais tarde, clique em **Cancelar**. ![Link Cancel (Cancelar) ao editar um arquivo](/assets/images/help/pages/cancel-edit.png)
-   - Para editar o arquivo agora, consulte "[Editando os arquivos](/repositories/working-with-files/managing-files/editing-files)".
+3. Under "{% data variables.product.prodname_pages %}," click **Choose a theme** or **Change theme**.
+  ![Choose a theme button](/assets/images/help/pages/choose-a-theme.png)
+4. On the top of the page, click the theme you want, then click **Select theme**.
+  ![Theme options and Select theme button](/assets/images/help/pages/select-theme.png)
+5. You may be prompted to edit your site's *README.md* file.
+   - To edit the file later, click **Cancel**.
+   ![Cancel link when editing a file](/assets/images/help/pages/cancel-edit.png)
+   - To edit the file now, see "[Editing files](/repositories/working-with-files/managing-files/editing-files)."
 
-O tema escolhido será aplicado automaticamente aos arquivos markdown no repositório. Para aplicar o tema a arquivos HTML no repositório, é preciso adicionar a página inicial YAML que especifica um layout para cada arquivo. Para obter mais informações, consulte "[Página inicial](https://jekyllrb.com/docs/front-matter/)" no site do Jekyll.
+Your chosen theme will automatically apply to markdown files in your repository. To apply your theme to HTML files in your repository, you need to add YAML front matter that specifies a layout to each file. For more information, see "[Front Matter](https://jekyllrb.com/docs/front-matter/)" on the Jekyll site.
 
-## Leia mais
+## Further reading
 
-- [Temas](https://jekyllrb.com/docs/themes/) no site do Jekyll
+- [Themes](https://jekyllrb.com/docs/themes/) on the Jekyll site

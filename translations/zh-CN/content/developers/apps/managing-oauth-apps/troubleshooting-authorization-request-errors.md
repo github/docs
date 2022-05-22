@@ -1,5 +1,5 @@
 ---
-title: 排查授权请求错误
+title: Troubleshooting authorization request errors
 intro: '{% data reusables.shortdesc.troubleshooting_authorization_request_errors_oauth_apps %}'
 redirect_from:
   - /apps/building-integrations/managing-oauth-apps/troubleshooting-authorization-request-errors
@@ -12,38 +12,42 @@ versions:
   ghec: '*'
 topics:
   - GitHub Apps
-shortTitle: 故障排除授权
+shortTitle: Troubleshoot authorization
 ---
+## Application suspended
 
-## 应用程序已挂起
-
-如果您设置的 OAuth 应用程序已挂起（由于报告的滥用、垃圾邮件或 API 使用不当），GitHub 将使用以下参数重定向到注册的回调 URL 以总结错误：
+If the OAuth App you set up has been suspended (due to reported abuse, spam, or a mis-use of the API), GitHub will redirect to the registered callback URL using the following parameters to summarize the error:
 
     http://your-application.com/callback?error=application_suspended
       &error_description=Your+application+has+been+suspended.+Contact+support@github.com.
       &error_uri=/apps/building-integrations/setting-up-and-registering-oauth-apps/troubleshooting-authorization-request-errors/%23application-suspended
       &state=xyz
 
-要解决已挂起应用程序的问题，请联系 {% data variables.contact.contact_support %}。
+To solve issues with suspended applications, please contact {% data variables.contact.contact_support %}.
 
-## 重定向 URI 不匹配
+## Redirect URI mismatch
 
-如果您提供的 `redirect_uri` 与您在应用程序中注册的 URL 不匹配，GitHub 将使用以下参数重定向到注册的回调 URL 以总结错误：
+If you provide a `redirect_uri` that doesn't match what you've registered with your application, GitHub will redirect to the registered callback URL with the following parameters summarizing the error:
 
     http://your-application.com/callback?error=redirect_uri_mismatch
       &error_description=The+redirect_uri+MUST+match+the+registered+callback+URL+for+this+application.
       &error_uri=/apps/building-integrations/setting-up-and-registering-oauth-apps/troubleshooting-authorization-request-errors/%23redirect-uri-mismatch
       &state=xyz
 
-要更正此错误，请提供一个与您注册的 URL 匹配的 `redirect_uri`，或者忽略此参数以使用在应用程序中注册的默认 URL。
+To correct this error, either provide a `redirect_uri` that matches what you registered or leave out this parameter to use the default one registered with your application.
 
-### 访问被拒绝
+### Access denied
 
-如果用户拒绝访问您的应用程序，GitHub 将使用以下参数重定向到注册的回调 URL 以总结错误：
+If the user rejects access to your application, GitHub will redirect to
+the registered callback URL with the following parameters summarizing
+the error:
 
     http://your-application.com/callback?error=access_denied
       &error_description=The+user+has+denied+your+application+access.
       &error_uri=/apps/building-integrations/setting-up-and-registering-oauth-apps/troubleshooting-authorization-request-errors/%23access-denied
       &state=xyz
 
-在这方面您无能为力，因为用户可以自由选择不使用您的应用程序。 通常，用户只是关闭窗口或在浏览器中按返回按钮，所以您可能永远不会看到此错误。
+There's nothing you can do here as users are free to choose not to use
+your application. More often than not, users will just close the window
+or press back in their browser, so it is likely that you'll never see
+this error.

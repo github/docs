@@ -1,7 +1,7 @@
 ---
-title: 健全なコントリビューションを促すプロジェクトをセットアップする
-shortTitle: 健全なコントリビューション
-intro: リポジトリメンテナは、コントリビューションガイドラインを設定することで、コントリビュータがプロジェクトに対して意味のある有益なコントリビューションを行うことに役立ちます。
+title: Setting up your project for healthy contributions
+shortTitle: Healthy contributions
+intro: 'Repository maintainers can set contributing guidelines to help collaborators make meaningful, useful contributions to a project.'
 redirect_from:
   - /articles/helping-people-contribute-to-your-project
   - /articles/setting-up-your-project-for-healthy-contributions

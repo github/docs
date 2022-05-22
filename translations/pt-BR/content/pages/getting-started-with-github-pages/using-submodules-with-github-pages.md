@@ -1,6 +1,6 @@
 ---
-title: Usar submódulos com o GitHub Pages
-intro: 'Você pode usar submódulos com o {% data variables.product.prodname_pages %} para incluir outros projetos no código do seu site.'
+title: Using submodules with GitHub Pages
+intro: 'You can use submodules with {% data variables.product.prodname_pages %} to include other projects in your site''s code.'
 redirect_from:
   - /articles/using-submodules-with-pages
   - /articles/using-submodules-with-github-pages
@@ -11,16 +11,16 @@ versions:
   ghec: '*'
 topics:
   - Pages
-shortTitle: Use submódulos com páginas
+shortTitle: Use submodules with Pages
 ---
 
-Se o repositório do seu site do {% data variables.product.prodname_pages %} contiver submódulos, o conteúdo dele será inserido automaticamente quando o site for criado.
+If the repository for your {% data variables.product.prodname_pages %} site contains submodules, their contents will automatically be pulled in when your site is built.
 
-Só é possível usar submódulos que apontem para repositórios públicos, porque o servidor do {% data variables.product.prodname_pages %} não pode acessar repositórios privados.
+You can only use submodules that point to public repositories, because the {% data variables.product.prodname_pages %} server cannot access private repositories.
 
-Use a URL somente leitura `https://` para os submódulos, inclusive os aninhados. Essa alteração pode ser feita no arquivo _.gitmodules_.
+Use the `https://` read-only URL for your submodules, including nested submodules. You can make this change in your _.gitmodules_ file.
 
-## Leia mais
+## Further reading
 
-- "[Ferramentas Git - Submódulos](https://git-scm.com/book/en/Git-Tools-Submodules)" no livro _Pro Git_
-- "[Solucionar problemas de erros de criação do Jekyll para sites do {% data variables.product.prodname_pages %}](/articles/troubleshooting-jekyll-build-errors-for-github-pages-sites)"
+- "[Git Tools - Submodules](https://git-scm.com/book/en/Git-Tools-Submodules)" from the _Pro Git_ book
+- "[Troubleshooting Jekyll build errors for {% data variables.product.prodname_pages %} sites](/articles/troubleshooting-jekyll-build-errors-for-github-pages-sites)"

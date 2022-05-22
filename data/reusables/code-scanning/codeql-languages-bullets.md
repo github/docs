@@ -4,7 +4,7 @@
 - Go
 - Java
 - JavaScript/TypeScript
-- Python{% ifversion fpt or ghes > 3.3 or ghec or ghae-issue-5017 %}
+- Python{% ifversion fpt or ghes > 3.3 or ghae-issue-5017 %}
 - Ruby
 
 {% note %}

@@ -1,6 +1,6 @@
 ---
-title: Utilizar GitHub Actions para la administración de proyectos
-intro: 'Puedes utilizar las {% data variables.product.prodname_actions %} para automatizar muchas de tus tareas de administración de proyectos.'
+title: Using GitHub Actions for project management
+intro: 'You can use {% data variables.product.prodname_actions %} to automate many of your project management tasks.'
 redirect_from:
   - /actions/guides/using-github-actions-for-project-management
 versions:
@@ -11,34 +11,34 @@ versions:
 type: overview
 topics:
   - Project management
-shortTitle: Acciones apra la administración de proyectos
+shortTitle: Actions for project management
 ---
 
 
-Puedes utilizar las {% data variables.product.prodname_actions %} para automatizar tus tareas de administración de proyectos si creas flujos de trabajo. Cada flujo de trabajo contiene una serie de tareas que se llevan a cabo automáticamente cada que se ejecuta el flujo de trabajo. Por ejemplo, puedes crear un flujo de trabajo que se ejecute cada vez que se crea una propuesta para que se agregue una etiqueta, se deje un comentario y se mueva la propuesta a otro tablero de proyecto.
+You can use {% data variables.product.prodname_actions %} to automate your project management tasks by creating workflows. Each workflow contains a series of tasks that are performed automatically every time the workflow runs. For example, you can create a workflow that runs every time an issue is created to add a label, leave a comment, and move the issue onto a project board.
 
-## ¿Cuándo se ejecutan los flujos de trabajo?
+## When do workflows run?
 
-Puedes configurar tus flujos de trabajo para que se ejecuten en cierto itinerario o para que se activen cuando ocurra un evento. Por ejemplo, puedes configurar tu flujo de trabajo para que se ejecute cuando alguien cree una propuesta en un repositorio.
+You can configure your workflows to run on a schedule or be triggered when an event occurs. For example, you can set your workflow to run when someone creates an issue in a repository.
 
-Muchos de los activadores de flujos de trabajo sirven para automatizar la administración de proyectos.
+Many workflow triggers are useful for automating project management.
 
-- Para cuando se abre, asigna o etiqueta un proyecto.
-- Para cuando se agrega un comentario a una propuesta.
-- Para cuando se crea o mueve una tarjeta de proyecto.
-- Para una programación de itinerarios.
+- An issue is opened, assigned, or labeled.
+- A comment is added to an issue.
+- A project card is created or moved.
+- A scheduled time.
 
-Si quieres encontrar una lista completa de eventos que pueden activar los flujos de trabajo, consulta la sección "[Eventos que activan flujos de trabajo](/actions/reference/events-that-trigger-workflows)".
+For a full list of events that can trigger workflows, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows)."
 
-## ¿Qué pueden hacer los flujos de trabajo?
+## What can workflows do?
 
-Los flujos de trabajo pueden hacer muchas cosas, tales como comentar en una propuesta, agregar o quitar etiquetas, mover tarjetas en los tableros de proyecto y abrir propuestas.
+Workflows can do many things, such as commenting on an issue, adding or removing labels, moving cards on project boards, and opening issues.
 
-Puedes aprender sobre cómo utilizar las {% data variables.product.prodname_actions %} para la administración de proyectos si sigues estos tutoriales, los cuales incluyen ejemplos de flujo de trabajo que puedes adaptar para satisfacer tus necesidades.
+You can learn about using {% data variables.product.prodname_actions %} for project management by following these tutorials, which include example workflows that you can adapt to meet your needs.
 
-- "[Agregar etiquetas a las propuestas](/actions/guides/adding-labels-to-issues)"
-- "[Eliminar una etiqueta cuando se agrega una tarjeta a una columna de un tablero de proyecto](/actions/guides/removing-a-label-when-a-card-is-added-to-a-project-board-column)"
-- "[Mover las propuestas asignadas en los tableros de proyecto](/actions/guides/moving-assigned-issues-on-project-boards)"
-- "[Comentar en una propuesta cuando se agrega una etiqueta](/actions/guides/commenting-on-an-issue-when-a-label-is-added)"
-- "[Cerrar las propuestas inactivas](/actions/guides/closing-inactive-issues)"
-- "[Programar la creación de propuestas](/actions/guides/scheduling-issue-creation)"
+- "[Adding labels to issues](/actions/guides/adding-labels-to-issues)"
+- "[Removing a label when a card is added to a project board column](/actions/guides/removing-a-label-when-a-card-is-added-to-a-project-board-column)"
+- "[Moving assigned issues on project boards](/actions/guides/moving-assigned-issues-on-project-boards)"
+- "[Commenting on an issue when a label is added](/actions/guides/commenting-on-an-issue-when-a-label-is-added)"
+- "[Closing inactive issues](/actions/guides/closing-inactive-issues)"
+- "[Scheduling issue creation](/actions/guides/scheduling-issue-creation)"

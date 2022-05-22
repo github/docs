@@ -22,3 +22,4 @@ children:
   - /using-codeql-code-scanning-with-your-existing-ci-system
 ---
 
+<!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->

@@ -1,0 +1,1 @@
+每次在 {% data variables.product.prodname_dotcom %} 上创建新版本时，都可以触发工作流程来发布映像。 以下示例中的工作流程在活动类型为 `created` 的 `release` 事件触发时运行。 有关 `release` 事件的更多信息，请参阅“[触发工作流程的事件](/actions/reference/events-that-trigger-workflows#release)”。

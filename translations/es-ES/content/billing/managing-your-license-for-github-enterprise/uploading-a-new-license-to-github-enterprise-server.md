@@ -20,7 +20,7 @@ Después de que compras o mejoras una licencia de {% data variables.product.prod
 
 {% warning %}
 
-**Advertencia:** El actualizar tu licencia ocasiona un tiempo de inactividad pequeño para {% data variables.product.product_location %}.
+**Warning:** Updating your license causes a small amount of downtime for {% data variables.product.product_location %}.
 
 {% endwarning %}
 

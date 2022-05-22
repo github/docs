@@ -1,11 +1,11 @@
 ---
-title: ユーザによるOrganizationの作成の禁止
+title: Preventing users from creating organizations
 redirect_from:
   - /enterprise/admin/articles/preventing-users-from-creating-organizations
   - /enterprise/admin/hidden/preventing-users-from-creating-organizations
   - /enterprise/admin/user-management/preventing-users-from-creating-organizations
   - /admin/user-management/preventing-users-from-creating-organizations
-intro: ユーザが Enterprise 内に Organization を作成できないようにすることができます。
+intro: You can prevent users from creating organizations in your enterprise.
 versions:
   ghes: '*'
   ghae: '*'
@@ -16,7 +16,6 @@ topics:
   - Policies
 shortTitle: Prevent organization creation
 ---
-
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% ifversion ghes or ghae %}
 {% data reusables.enterprise-accounts.policies-tab %}
@@ -24,4 +23,5 @@ shortTitle: Prevent organization creation
 {% data reusables.enterprise-accounts.settings-tab %}
 {% endif %}
 {% data reusables.enterprise-accounts.options-tab %}
-4. [Users can create organizations（ユーザによるOrganizationの作成可能）] の下で、ドロップダウンメニューを使って [**Enabled（有効化）**] あるいは [**Disabled（無効化）**] を選択してください。 ![[Users can create organizations] ドロップダウン](/assets/images/enterprise/site-admin-settings/users-create-orgs-dropdown.png)
+4. Under "Users can create organizations", use the drop-down menu and click **Enabled** or **Disabled**.
+![Users can create organizations drop-down](/assets/images/enterprise/site-admin-settings/users-create-orgs-dropdown.png)

@@ -1,6 +1,6 @@
 ---
-title: Sobre a autenticação de dois fatores e o SAML de logon único
-intro: Os administradores da organização podem habilitar o SAML de logon único e a autenticação de dois fatores para adicionar medidas extras de autenticação para os integrantes da organização.
+title: About two-factor authentication and SAML single sign-on
+intro: Organizations administrators can enable both SAML single sign-on and two-factor authentication to add additional authentication measures for their organization members.
 redirect_from:
   - /articles/about-two-factor-authentication-and-saml-single-sign-on
   - /github/setting-up-and-managing-organizations-and-teams/about-two-factor-authentication-and-saml-single-sign-on
@@ -9,18 +9,18 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: 2FA & Logon único SAML
+shortTitle: 2FA & SAML single sign-on
 ---
 
-A autenticação de dois fatores (2FA, Two-Factor Authentication) fornece autenticação básica para integrantes da organização. Ao habilitar a 2FA, os administradores da organização limitam a probabilidade de que a conta de um integrante em {% data variables.product.product_location %} possa ser comprometida. Para obter mais informações sobre a 2FA, consulte "[Sobre a autenticação de dois fatores](/articles/about-two-factor-authentication)".
+Two-factor authentication (2FA) provides basic authentication for organization members. By enabling 2FA, organization administrators limit the likelihood that a member's account on {% data variables.product.product_location %} could be compromised. For more information on 2FA, see "[About two-factor authentication](/articles/about-two-factor-authentication)."
 
-Para adicionar medidas extras de autenticação, os administradores da organização também podem [habilitar o SAML de logon único (SSO, Single Sign-On)](/articles/enabling-and-testing-saml-single-sign-on-for-your-organization) para que os integrantes da organização usem o logon único para acessar uma organização. Para obter mais informações sobre o SAML SSO, consulte "[Sobre o gerenciamento de identidade e acesso com SAML de logon único](/articles/about-identity-and-access-management-with-saml-single-sign-on)".
+To add additional authentication measures, organization administrators can also [enable SAML single sign-on (SSO)](/articles/enabling-and-testing-saml-single-sign-on-for-your-organization) so that organization members must use single sign-on to access an organization. For more information on SAML SSO, see "[About identity and access management with SAML single sign-on](/articles/about-identity-and-access-management-with-saml-single-sign-on)."
 
-Se a 2FA e o SAML SSO forem habilitados, os integrantes da organização deverão fazer o seguinte:
-- Use a 2FA para efetuar o login na sua conta em {% data variables.product.product_location %}
-- Usar o logon único para acessar a organização
-- Usar um token autorizado para acesso por API ou Git e usar logon único para autorizar o token
+If both 2FA and SAML SSO are enabled, organization members must do the following:
+- Use 2FA to log in to their account on {% data variables.product.product_location %}
+- Use single sign-on to access the organization
+- Use an authorized token for API or Git access and use single sign-on to authorize the token
 
-## Leia mais
+## Further reading
 
-- "[Aplicar SAML de logon único para sua organização](/articles/enforcing-saml-single-sign-on-for-your-organization)"
+- "[Enforcing SAML single sign-on for your organization](/articles/enforcing-saml-single-sign-on-for-your-organization)"

@@ -1,3 +1,3 @@
-1. En el tablero de Okta, expande el menú de **Aplicaciones** y luego haz clic en **Applications**.
+1. In the Okta Dashboard, expand the **Applications** menu, then click **Applications**.
 
-  ![Navegación del menú de "aplicaciones"](/assets/images/help/saml/okta-ae-add-application.png)
+  !["Applications" menu navigation](/assets/images/help/saml/okta-ae-add-application.png)

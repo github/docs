@@ -1,7 +1,7 @@
 ---
-title: 迁移到 GitHub Actions
-shortTitle: 迁移到 GitHub Actions
-intro: '了解如何将现有的 CI/CD 工作流程迁移到 {% data variables.product.prodname_actions %}。'
+title: Migrating to GitHub Actions
+shortTitle: Migrating to GitHub Actions
+intro: 'Learn how to migrate your existing CI/CD workflows to {% data variables.product.prodname_actions %}.'
 versions:
   fpt: '*'
   ghes: '*'

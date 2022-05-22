@@ -1,1 +1,1 @@
-执行作业的运行器的名称。
+The name of the runner executing the job.

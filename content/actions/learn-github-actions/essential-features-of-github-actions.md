@@ -75,7 +75,7 @@ jobs:
         run: |
           expr 1 + 1 > output.log
       - name: Upload output file
-        uses: {% data reusables.actions.action-upload-artifact %}
+        uses: actions/upload-artifact@v2
         with:
           name: output-log-file
           path: output.log
@@ -88,7 +88,7 @@ jobs:
   example-job:
     steps:
       - name: Download a single artifact
-        uses: {% data reusables.actions.action-download-artifact %}
+        uses: actions/download-artifact@v2
         with:
           name: output-log-file
 ```

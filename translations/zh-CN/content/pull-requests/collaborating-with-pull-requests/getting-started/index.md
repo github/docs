@@ -1,7 +1,7 @@
 ---
-title: 入门指南
-shortTitle: 入门指南
-intro: '了解 {% data variables.product.prodname_dotcom %} 流程以及协作和讨论项目的不同方式。'
+title: Getting started
+shortTitle: Getting started
+intro: 'Learn about the {% data variables.product.prodname_dotcom %} flow and different ways to collaborate on and discuss your projects.'
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/getting-started
   - /github/collaborating-with-issues-and-pull-requests/overview
@@ -19,4 +19,3 @@ topics:
 children:
   - /about-collaborative-development-models
 ---
-

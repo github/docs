@@ -1,6 +1,6 @@
 ---
-title: GitHub App を構築する
-intro: GitHub App を、あなた自身や他の人が使うために構築できます。 GitHub App の登録と、権限および認証オプションの設定方法について学びましょう。
+title: Building GitHub Apps
+intro: You can build GitHub Apps for yourself or others to use. Learn how to register and set up permissions and authentication options for GitHub Apps.
 redirect_from:
   - /apps/building-integrations/setting-up-and-registering-github-apps
   - /apps/building-github-apps

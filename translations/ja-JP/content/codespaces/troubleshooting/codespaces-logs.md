@@ -23,6 +23,8 @@ Information on {% data variables.product.prodname_codespaces %} is output to thr
 
 These logs contain detailed information about the codespace, the container, the session, and the {% data variables.product.prodname_vscode %} environment. They are useful for diagnosing connection issues and other unexpected behavior. For example, the codespace freezes but the "Reload Windows" option unfreezes it for a few minutes, or you are randomly disconnected from the codespace but able to reconnect immediately.
 
+{% include tool-switcher %}
+
 {% webui %}
 
 1. If you are using {% data variables.product.prodname_codespaces %} in the browser, ensure that you are connected to the codespace you want to debug.
@@ -49,6 +51,7 @@ Currently you can't use {% data variables.product.prodname_cli %} to access thes
 
 These logs contain information about the container, dev container, and their configuration. They are useful for debugging configuration and setup problems.
 
+{% include tool-switcher %}
 
 {% webui %}
 
@@ -74,7 +77,7 @@ If you want to share the log with support, you can copy the text from the creati
 To see the creation log use the `gh codespace logs` subcommand. After entering the command choose from the list of codespaces that's displayed.
 
 ```shell
-gh codespace logs
+gh codespace logs 
 ```
 
 For more information about this command, see [the {% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_codespace_logs).

@@ -65,15 +65,15 @@ job1:
 {% endraw %}
 </td>
 <td class="d-table-cell v-align-top">
-
+{% raw %}
 ```yaml
 jobs:
   job1:
     steps:
-      - uses: {% data reusables.actions.action-checkout %}
+      - uses: actions/checkout@v2
       - run: echo "Run your script here"
 ```
-
+{% endraw %}
 </td>
 </tr>
 </table>
@@ -309,8 +309,6 @@ For more information, see "[Environment variables](/actions/reference/environmen
 
 GitLab CI/CD and {% data variables.product.prodname_actions %} provide a method in the configuration file to manually cache workflow files.
 
-{% if actions-caching %}
-
 Below is an example of the syntax for each system:
 
 <table class="d-block">
@@ -343,29 +341,25 @@ test_async:
 {% endraw %}
 </td>
 <td class="d-table-cell v-align-top">
-
+{% raw %}
 ```yaml
 jobs:
   test_async:
     runs-on: ubuntu-latest
     steps:
     - name: Cache node modules
-      uses: {% data reusables.actions.action-cache %}
+      uses: actions/cache@v2
       with:
         path: ~/.npm
-        key: {% raw %}v1-npm-deps-${{ hashFiles('**/package-lock.json') }}{% endraw %}
+        key: v1-npm-deps-${{ hashFiles('**/package-lock.json') }}
         restore-keys: v1-npm-deps-
 ```
-
+{% endraw %}
 </td>
 </tr>
 </table>
 
-{% else %}
-
-{% data reusables.actions.caching-availability %}
-
-{% endif %}
+{% data variables.product.prodname_actions %} caching is only applicable for repositories hosted on {% data variables.product.prodname_dotcom_the_website %}. For more information, see "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Caching dependencies to speed up workflows</a>."
 
 ## Artifacts
 
@@ -394,15 +388,15 @@ artifacts:
 {% endraw %}
 </td>
 <td class="d-table-cell v-align-top">
-
+{% raw %}
 ```yaml
 - name: Upload math result for job 1
-  uses: {% data reusables.actions.action-upload-artifact %}
+  uses: actions/upload-artifact@v2
   with:
     name: homework
     path: math-homework.txt
 ```
-
+{% endraw %}
 </td>
 </tr>
 </table>
@@ -454,7 +448,7 @@ container-job:
 {% endraw %}
 </td>
 <td class="d-table-cell v-align-top">
-
+{% raw %}
 ```yaml
 jobs:
   container-job:
@@ -469,7 +463,7 @@ jobs:
 
     steps:
       - name: Check out repository code
-        uses: {% data reusables.actions.action-checkout %}
+        uses: actions/checkout@v2
 
       # Performs a clean installation of all dependencies
       # in the `package.json` file
@@ -487,7 +481,7 @@ jobs:
           # The default PostgreSQL port
           POSTGRES_PORT: 5432
 ```
-
+{% endraw %}
 </td>
 </tr>
 </table>

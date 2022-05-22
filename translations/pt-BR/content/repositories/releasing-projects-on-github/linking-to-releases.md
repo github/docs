@@ -16,11 +16,11 @@ topics:
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.releases %}
-3. Para copiar uma URL única para a área de transferência, encontre a versão à qual você deseja vincular, clique com o botão direito no título e copie a URL.
+3. To copy a unique URL to your clipboard, find the release you want to link to, right click the title, and copy the URL.
 {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-4974 %}
-  ![Título da versão](/assets/images/help/releases/release-title.png)
+  ![Release title](/assets/images/help/releases/release-title.png)
 {% else %}
-  ![Título da versão](/assets/images/help/releases/release-title-old.png)
+  ![Release title](/assets/images/help/releases/release-title-old.png)
 {% endif %}
 1. Como alternativa, clique com o botão direito em **Última versão** e copie a URL para compartilhá-la. O sufixo dessa URL será sempre `/releases/latest`.
    {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-4974 %}

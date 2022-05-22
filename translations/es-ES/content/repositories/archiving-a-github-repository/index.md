@@ -1,6 +1,6 @@
 ---
-title: Archivar un repositorio de GitHub
-intro: 'Puedes archivar, respaldar y mencionar tu trabajo mediante {% data variables.product.product_name %}, la API o herramientas y servicios de terceros.'
+title: Archiving a GitHub repository
+intro: 'You can archive, back up, and cite your work using {% data variables.product.product_name %}, the API, or third-party tools and services.'
 redirect_from:
   - /articles/can-i-archive-a-repository
   - /articles/archiving-a-github-repository
@@ -18,6 +18,6 @@ children:
   - /about-archiving-content-and-data-on-github
   - /referencing-and-citing-content
   - /backing-up-a-repository
-shortTitle: Archivar un repositorio
+shortTitle: Archive a repository
 ---
 

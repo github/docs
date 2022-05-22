@@ -1,1 +1,1 @@
-- 要了解 {% data variables.product.prodname_dotcom %} 如何使用 OpenID Connect (OIDC) 的基本概念及其体系结构和优势，请参阅“[关于使用 OpenID Connect 进行安全强化](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)”。
+- To learn the basic concepts of how {% data variables.product.prodname_dotcom %} uses OpenID Connect (OIDC), and its architecture and benefits, see "[About security hardening with OpenID Connect](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)."

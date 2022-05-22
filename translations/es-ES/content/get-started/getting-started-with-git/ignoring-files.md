@@ -1,5 +1,5 @@
 ---
-title: Ignorar archivos
+title: Ignoring files
 redirect_from:
   - /git-ignore
   - /ignore-files
@@ -7,60 +7,60 @@ redirect_from:
   - /github/using-git/ignoring-files
   - /github/getting-started-with-github/ignoring-files
   - /github/getting-started-with-github/getting-started-with-git/ignoring-files
-intro: 'Puedes configurar Git para que ignore archivos que no quieres ingresar en {% data variables.product.product_name %}.'
+intro: 'You can configure Git to ignore files you don''t want to check in to {% data variables.product.product_name %}.'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
 ---
+## Configuring ignored files for a single repository
 
-## Configurar archivos ignorados para solo un repositorio
+You can create a *.gitignore* file in your repository's root directory to tell Git which files and directories to ignore when you make a commit.
+To share the ignore rules with other users who clone the repository, commit the *.gitignore* file in to your repository.
 
-Puedes crear un archivo de tipo *.gitignore* en el directorio raíz de tu repositorio para indicarle a Git qué archivos y directorios ignorar cuando haces una confirmación. Para compartir las reglas para ignorar con otros usuarios que clonan el repositorio, confirma el archivo de tipo *.gitignore* en tu repositorio.
-
-GitHub mantiene una lista oficial de archivos recomendados de tipo *.gitignore* para varios sistemas operativos, ambientes y lenguajes de programación populares en el repositorio público `github/gitignore`. También puedes usar gitignore.io para crear un archivo *.gitignore* para tu sistema operativo, lenguaje de programación o IDE. Para obtener más información, consulta la sección "[github/gitignore](https://github.com/github/gitignore)" y el sitio "[gitignore.io](https://www.gitignore.io/)".
+GitHub maintains an official list of recommended *.gitignore* files for many popular operating systems, environments, and languages in the `github/gitignore` public repository. You can also use gitignore.io to create a *.gitignore* file for your operating system, programming language, or IDE. For more information, see "[github/gitignore](https://github.com/github/gitignore)" and the "[gitignore.io](https://www.gitignore.io/)" site.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Navega a la ubicación de tu repositorio de Git.
-3. Crea un archivo de tipo *.gitignore* para tu repositorio.
+2. Navigate to the location of your Git repository.
+3. Create a *.gitignore* file for your repository.
    ```shell
    $ touch .gitignore
   ```
 
-   Si el comando es exitoso, no habrá salida.
+   If the command succeeds, there will be no output.
+   
+For an example *.gitignore* file, see "[Some common .gitignore configurations](https://gist.github.com/octocat/9257657)" in the Octocat repository.
 
-Para ver un archivo de tipo *.gitignore* de ejemplo, consulta la sección "[Algunas configuraciones comunes de .gitignore](https://gist.github.com/octocat/9257657)" en el repositorio de Octocat.
-
-Si quieres ignorar un archivo que ya se haya ingresado, deberás dejar de rastrearlo antes de que agregues una regla para ignorarlo. Desde tu terminal, deja de rastrear el archivo.
+If you want to ignore a file that is already checked in, you must untrack the file before you add a rule to ignore it. From your terminal, untrack the file.
 
 ```shell
 $ git rm --cached <em>FILENAME</em>
 ```
 
-## Configurar archivos ignorados para todos los repositorios en tu computador
+## Configuring ignored files for all repositories on your computer
 
-También puedes crear un archivo global de tipo *.gitignore* para definir una lista de reglas para ignorar archivos en cada repositorio de Git en tu computador. Por ejemplo, puedes crear el archivo en *~/.gitignore_global* y agregarle algunas normas.
+You can also create a global *.gitignore* file to define a list of rules for ignoring files in every Git repository on your computer. For example, you might create the file at *~/.gitignore_global* and add some rules to it.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Configura Git para que utilice el archivo de exclusión *~/.gitignore_global* en todos los repositorios de Git.
+2. Configure Git to use the exclude file *~/.gitignore_global* for all Git repositories.
   ```shell
   $ git config --global core.excludesfile ~/.gitignore_global
   ```
 
-## Excluir archivos locales sin crear un archivo de tipo *.gitignore*
+## Excluding local files without creating a *.gitignore* file
 
-Si no quieres crear un archivo *.gitignore* para compartir con otros, puedes crear normas que no estén confirmadas con el repositorio. Puedes utilizar esta técnica para los archivos generados de forma local que no esperas que otros usuarios generen, tales como los archivos creados por tu editor.
+If you don't want to create a *.gitignore* file to share with others, you can create rules that are not committed with the repository. You can use this technique for locally-generated files that you don't expect other users to generate, such as files created by your editor.
 
-Utiliza tu editor de texto favorito para abrir el archivo llamado *.git/info/exclude* dentro de la raíz de tu repositorio de Git. Cualquier norma que agregues aquí no se registrará y solo ignorará archivos de tu repositorio local.
+Use your favorite text editor to open the file called *.git/info/exclude* within the root of your Git repository. Any rule you add here will not be checked in, and will only ignore files for your local repository.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Navega a la ubicación de tu repositorio de Git.
-3. Utilizando tu editor de texto favorito, abre el archivo *.git/info/exclude*.
+2. Navigate to the location of your Git repository.
+3. Using your favorite text editor, open the file *.git/info/exclude*.
 
-## Leer más
+## Further Reading
 
-* [Ignorar archivos](https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository#_ignoring) en el libro de Pro Git
-* [.gitignore](https://git-scm.com/docs/gitignore) en las páginas de man de Git
-* [Una colección de plantillas útiles de *.gitignore* ](https://github.com/github/gitignore) en el repositorio github/gitignore
-* Sitio de [gitignore.io](https://www.gitignore.io/)
+* [Ignoring files](https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository#_ignoring) in the Pro Git book
+* [.gitignore](https://git-scm.com/docs/gitignore) in the man pages for Git
+* [A collection of useful *.gitignore* templates](https://github.com/github/gitignore) in the github/gitignore repository
+* [gitignore.io](https://www.gitignore.io/) site

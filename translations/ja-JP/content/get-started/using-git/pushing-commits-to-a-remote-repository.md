@@ -1,6 +1,6 @@
 ---
-title: コミットをリモートリポジトリにプッシュする
-intro: ローカルブランチで実行されたコミットをリモートリポジトリにプッシュするには、`git push` を使用します。
+title: Pushing commits to a remote repository
+intro: Use `git push` to push commits made on your local branch to a remote repository.
 redirect_from:
   - /articles/pushing-to-a-remote
   - /articles/pushing-commits-to-a-remote-repository
@@ -14,94 +14,106 @@ versions:
   ghec: '*'
 shortTitle: Push commits to a remote
 ---
-
 ## About `git push`
-`git push` コマンドは、2 つの引数を取ります:
+The `git push` command takes two arguments:
 
-* リモート名。たとえば `origin`
-* ブランチ名。 たとえば `master`
+* A remote name, for example, `origin`
+* A branch name, for example, `main`
 
-例:
+For example:
 
 ```shell
 git push <em> &lt;REMOTENAME> &lt;BRANCHNAME> </em>
 ```
 
-たとえば、通常は `git push origin master` を実行してローカルの変更をオンラインリポジトリプッシュします。
+As an example, you usually run `git push origin main` to push your local changes
+to your online repository.
 
-## ブランチの名前を変更する
+## Renaming branches
 
-ブランチの名前を変更する場合も、同じ `git push` コマンドを使用しますが、引数が 1 つ増えます。新しいブランチの名前です。 例:
+To rename a branch, you'd use the same `git push` command, but you would add
+one more argument: the name of the new branch. For example:
 
 ```shell
 git push <em> &lt;REMOTENAME> &lt;LOCALBRANCHNAME></em>:<em>&lt;REMOTEBRANCHNAME> </em>
 ```
 
-こうすると、`LOCALBRANCHNAME` が `REMOTENAME` にプッシュされますが、名前が `REMOTEBRANCHNAME` に変更されます。
+This pushes the `LOCALBRANCHNAME` to your `REMOTENAME`, but it is renamed to `REMOTEBRANCHNAME`.
 
-## "non-fast-forward" エラーに対処する
+## Dealing with "non-fast-forward" errors
 
-リポジトリのローカルコピーが同期されていない、つまりプッシュ先である上流リポジトリより古くなっている場合は、`non-fast-forward updates were rejected` というメッセージが表示されます。 これは、ローカルの変更をプッシュする前に上流の変更を取得、つまり「フェッチ」する必要があるという意味です。
+If your local copy of a repository is out of sync with, or "behind," the upstream
+repository you're pushing to, you'll get a message saying `non-fast-forward updates were rejected`.
+This means that you must retrieve, or "fetch," the upstream changes, before
+you are able to push your local changes.
 
-このエラーに関する詳細は、「[non-fast-forward エラーに対処する](/github/getting-started-with-github/dealing-with-non-fast-forward-errors)」を参照してください。
+For more information on this error, see "[Dealing with non-fast-forward errors](/github/getting-started-with-github/dealing-with-non-fast-forward-errors)."
 
-## タグをプッシュする
+## Pushing tags
 
-デフォルトで、追加のパラメータを使用しない場合、`git push` はリモートブランチと名前が一致するすべてのブランチを送信します。
+By default, and without additional parameters, `git push` sends all matching branches
+that have the same names as remote branches.
 
-1 つのタグをプッシュする場合は、ブランチをプッシュするときと同じコマンドを発行できます。
+To push a single tag, you can issue the same command as pushing a branch:
 
 ```shell
 git push <em> &lt;REMOTENAME> &lt;TAGNAME> </em>
 ```
 
-すべてのタグをプッシュする場合は、次のコマンドを使用できます:
+To push all your tags, you can type the command:
 
 ```shell
 git push <em> &lt;REMOTENAME></em> --tags
 ```
 
-## リモートブランチまたはタグを削除する
+## Deleting a remote branch or tag
 
-ブランチを削除する構文は、1 回見ただけでは少し難解です:
+The syntax to delete a branch is a bit arcane at first glance:
 
 ```shell
 git push <em> &lt;REMOTENAME></em> :<em>&lt;BRANCHNAME> </em>
 ```
 
-コロンの前にスペースがあることに注意してください。 このコマンドは、ブランチの名前を変更するときと似ています。 ただしこちらでは、`REMOTENAME` の `BRANCHNAME` に_何もプッシュしない_よう Git に指示しています。 そのため、`git push` によってリモートリポジトリのブランチが削除されます。
+Note that there is a space before the colon. The command resembles the same steps
+you'd take to rename a branch. However, here, you're telling Git to push _nothing_
+into `BRANCHNAME` on `REMOTENAME`. Because of this, `git push` deletes the branch
+on the remote repository.
 
-## リモートとフォーク
+## Remotes and forks
 
-GitHub では、[リポジトリを「フォーク」できる](https://guides.github.com/overviews/forking/)ことをご存じでしょう。
+You might already know that [you can "fork" repositories](https://guides.github.com/overviews/forking/) on GitHub.
 
-自分が所有しているリポジトリをクローンするとき、リモート URL を指定すると、更新をフェッチおよびプッシュする対象を Git に指示することができます。 元のリポジトリとのコラボレーションが必要な場合は、ローカルの Git クローンに新しいリモート URL を追加するといいでしょう。その名前は通例、`upstream` です。
+When you clone a repository you own, you provide it with a remote URL that tells
+Git where to fetch and push updates. If you want to collaborate with the original
+repository, you'd add a new remote URL, typically called `upstream`, to
+your local Git clone:
 
 ```shell
 git remote add upstream <em> &lt;THEIR_REMOTE_URL> </em>
 ```
 
-これで、更新とブランチを*その*フォークからフェッチできるようになります。
+Now, you can fetch updates and branches from *their* fork:
 
 ```shell
 git fetch upstream
-# 上流のリモートブランチを取得
+# Grab the upstream remote's branches
 > remote: Counting objects: 75, done.
 > remote: Compressing objects: 100% (53/53), done.
 > remote: Total 62 (delta 27), reused 44 (delta 9)
 > Unpacking objects: 100% (62/62), done.
 > From https://{% data variables.command_line.codeblock %}/<em>octocat</em>/<em>repo</em>
->  * [new branch]      master     -> upstream/master
+>  * [new branch]      main     -> upstream/main
 ```
 
-ローカルの変更が終わったら、ローカルブランチを GitHub にプッシュし、[プルリクエストを開始する](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)ことができます。
+When you're done making local changes, you can push your local branch to GitHub
+and [initiate a pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests).
 
-フォークの扱いに関する詳細は、「[フォークを同期する](/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork)」を参照してください。
+For more information on working with forks, see "[Syncing a fork](/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork)".
 
-## 参考リンク
+## Further reading
 
-- [「Pro Git」ブックの「リモート」の章](https://git-scm.com/book/ch5-2.html)
+- [The "Remotes" chapter from the "Pro Git" book](https://git-scm.com/book/ch5-2.html)
 - [`git remote` main page](https://git-scm.com/docs/git-remote.html)
-- [Git チートシート](/articles/git-cheatsheet)
-- [Git のワークフロー](/github/getting-started-with-github/git-workflows)
-- 「[Git ハンドブック](https://guides.github.com/introduction/git-handbook/)」
+- "[Git cheatsheet](/articles/git-cheatsheet)"
+- "[Git workflows](/github/getting-started-with-github/git-workflows)"
+- "[Git Handbook](https://guides.github.com/introduction/git-handbook/)"

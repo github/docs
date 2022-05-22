@@ -1,4 +1,4 @@
-To create a task list, preface list items with a hyphen and space followed by `[ ]`. Para marcar uma tarefa como concluída, use `[x]`.
+Para criar uma lista de tarefas, introduza os itens da lista com um caractere de espaço normal seguido de `[ ]`. Para marcar uma tarefa como concluída, use `[x]`.
 
 ```
 - [x] #739

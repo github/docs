@@ -1,6 +1,6 @@
 ---
-title: Guías
-intro: 'Aprende sobre como emepzar con GraphQL, migrarte desde REST hacia GraphQL, y cómo utilizar la API de GraphQL de GitHub para tareas diversas.'
+title: Guides
+intro: 'Learn about getting started with GraphQL, migrating from REST to GraphQL, and how to use the GitHub GraphQL API for a variety of tasks.'
 redirect_from:
   - /v4/guides
 versions:

@@ -2,6 +2,7 @@
 title: Visualizar y administrar el acceso de SAML de un usuario a tu empresa
 intro: 'Puedes ver y revocar la identidad vinculada de un miembro de la empresa, sesiones activas y credenciales autorizadas.'
 permissions: Enterprise owners can view and manage a member's SAML access to an organization.
+product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise-account/viewing-and-managing-a-users-saml-access-to-your-enterprise-account
@@ -16,7 +17,7 @@ shortTitle: Visualizar & administrar el acceso con SAML
 
 ## Acerca del acceso de SAML a tu cuenta empresarial
 
-Cuando habilitas el inicio de sesión único de SAML para tu cuenta empresarial, cada miembro de la empresa puede vincular su identidad externa en tu proveedor de identidad (IdP) para su cuenta existente de {% data variables.product.product_location %}. {% data reusables.saml.about-saml-access-enterprise-account %}
+When you enable SAML single sign-on for your enterprise account, each enterprise member can link their external identity on your identity provider (IdP) to their existing account on {% data variables.product.product_location %}. {% data reusables.saml.about-saml-access-enterprise-account %}
 
 Si tu empresa utiliza {% data variables.product.prodname_emus %}, tus miembros utilizarán cuentas que se aprovisionen a través de tu IdP. {% data variables.product.prodname_managed_users_caps %} no utilizará su cuenta de usuario existente en {% data variables.product.product_name %}. Para obtener más información, consulta la sección "[Acerca de {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)".
 
