@@ -1,0 +1,15 @@
+tdlib compile is done ,but when i started the project ,it crashed like this
+
+FATAL ERROR in native method: RegisterNatives failed for createNativeClient with signature ()I
+at java.lang.ClassLoader$NativeLibrary.load(Native Method)
+at java.lang.ClassLoader.loadLibrary0(ClassLoader.java:1934)
+- locked <0x00000006ee0068b0> (a java.util.Vector)
+- locked <0x00000006ee11d4c8> (a java.util.Vector)
+at java.lang.ClassLoader.loadLibrary(ClassLoader.java:1850)
+at java.lang.Runtime.loadLibrary0(Runtime.java:870)
+- locked <0x00000006ee064728> (a java.lang.Runtime)
+at java.lang.System.loadLibrary(System.java:1122)
+at com.tdlib.Application.(Application.java:18)
+[ 1][t 0][1638551801.196830272][tl_jni_object.cpp:39] RegisterNatives failed for createNativeClient with signature ()I
+
+what went wrong ,please somebody give me an instruction what should i do
