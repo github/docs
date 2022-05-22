@@ -1,0 +1,1 @@
+Para configurar variables y metadatos, tales como el título y diseño, de una página o publicación en tu sitio, puedes agregar YAML front matter a la parte superior de cualquier archivo Markdown o HTML. Para obtener más información, consulta la sección "[Front Matter](https://jekyllrb.com/docs/front-matter/)" en la documentación de Jekyll.

@@ -1,0 +1,1 @@
+1. Debajo de tu nombre de organización, da clic en {% octicon "people" aria-label="The people icon" %}**Equipos**. ![Pestaña de equipos en la página de la organización](/assets/images/help/organizations/organization-teams-tab.png)

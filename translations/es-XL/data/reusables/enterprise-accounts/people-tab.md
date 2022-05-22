@@ -1,0 +1,1 @@
+1. En la barra lateral de Cuenta de empresa, haz clic en {% octicon "person" aria-label="The People icon" %} **Personas**. ![Pestaña People (Personas) en la barra lateral de la cuenta de empresa](/assets/images/help/business-accounts/business-account-people-tab.png)

@@ -1,0 +1,1 @@
+1. Um Deine Änderungen zu speichern, klicke auf **Update reminder** (Erinnerung aktualisieren). Um optional Deine Änderungen während der Aktualisierung der Änderungen zu testen, klicke auf **Update and test reminder** (Aktualisiere und teste Erinnerungen). ![Schaltfläche „Update" (Aktualisieren)](/assets/images/help/settings/scheduled-reminders-update-buttons.png)

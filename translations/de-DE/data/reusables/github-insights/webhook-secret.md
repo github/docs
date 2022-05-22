@@ -1,0 +1,1 @@
+1. Gib unter "Webhook Secret" das Webhook-Geheimnis Deiner {% data variables.product.prodname_github_app %} ein, das Du beim Erstellen der App aufgezeichnet hast. ![Feld „Webhook secret" (Webhook-Geheimnis)](/assets/images/help/insights/webhook-secret.png)

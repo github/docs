@@ -1,0 +1,46 @@
+name: Automatically Keep Epic Status Labels Updated
+on:
+  issue_comment:
+    types: [created, edited]
+jobs:
+  post-status-updates-to-slack:
+    runs-on: ubuntu-latest
+    if: contains(github.event.comment.body, '_created with') && contains(github.event.comment.body, 'typing_ `/status`')
+    steps:
+      - uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+
+            const issue = context.payload.issue
+            const owner = context.repo.owner
+            const repo = context.payload.repository.name
+
+            const allStatusLabels = [
+              'Status: GREEN',
+              'Status: GREY',
+              'Status: YELLOW',
+              'Status: BLACK',
+              'Status: RED'
+            ];
+
+            const currentLabels = await github.issues.listLabelsOnIssue({
+              owner: owner,
+              repo: repo,
+              issue_number: issue.number
+            });
+
+            const newLabels = currentLabels.data.filter( label => allStatusLabels.includes(label.name) === false)
+
+            allStatusLabels.forEach( label => {
+              if(context.payload.comment.body.includes(label)) {
+                newLabels.push(label)
+              }
+            });
+
+            await github.issues.update({
+              owner: owner,
+              repo: repo,
+              issue_number: issue.number,
+              labels: newLabels,
+            });

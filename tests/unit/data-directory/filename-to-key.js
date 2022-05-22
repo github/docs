@@ -1,4 +1,4 @@
-import filenameToKey from '../../../lib/filename-to-key.js'
+const filenameToKey = require('../../../lib/filename-to-key')
 
 describe('filename-to-key', () => {
   test('converts filenames to object keys', () => {

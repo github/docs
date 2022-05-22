@@ -5,10 +5,9 @@ redirect_from:
   - /guides/
   - /v3/guides
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - API
 children:
@@ -25,7 +24,7 @@ children:
   - /getting-started-with-the-checks-api
 ---
 This section of the documentation is intended to get you up-and-running with
-real-world {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API applications. We'll cover everything you need to know, from
+real-world {% data variables.product.product_name %} API applications. We'll cover everything you need to know, from
 authentication, to manipulating results, to combining results with other apps.
 Every tutorial here will have a project, and every project will be
 stored and documented in our public

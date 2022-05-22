@@ -1,17 +1,14 @@
 ---
 title: コマンドラインを使った Git リポジトリのインポート
-intro: '{% ifversion fpt %} 既存のコードがプライベートネットワークでホストされている場合など、[GitHub Importer](/articles/importing-a-repository-with-github-importer) が目的に適さない場合は、コマンドラインを使用してインポートすることをお勧めします。{% else %}コマンドラインを使用して Git プロジェクトをインポートすることは、既存のコードがプライベートネットワークでホストされている場合に適しています。{% endif %}'
+intro: '{% if currentVersion == "free-pro-team@latest" %} 既存のコードがプライベートネットワークでホストされている場合など、[GitHub Importer](/articles/importing-a-repository-with-github-importer) が目的に適さない場合は、コマンドラインを使用してインポートすることをお勧めします。{% else %}コマンドラインを使用して Git プロジェクトをインポートすることは、既存のコードがプライベートネットワークでホストされている場合に適しています。{% endif %}'
 redirect_from:
   - /articles/importing-a-git-repository-using-the-command-line
   - /github/importing-your-projects-to-github/importing-a-git-repository-using-the-command-line
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
-shortTitle: Import repo locally
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 ---
-
 始める前に、以下をご確認ください:
 
 - お使いの {% data variables.product.product_name %}ユーザ名
@@ -24,7 +21,7 @@ shortTitle: Import repo locally
 - 外部アカウント名 **extuser**
 - 外部 Git ホスト `https://external-host.com`
 - {% data variables.product.product_name %} の個人ユーザ アカウント **ghuser**
-- A repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} named **repo.git**
+- {% data variables.product.product_name %} のリポジトリ **repo.git**
 
 {% endtip %}
 
@@ -38,7 +35,7 @@ shortTitle: Import repo locally
   ```shell
   $ cd <em>repo.git</em>
   $ git push --mirror https://{% data variables.command_line.codeblock %}/<em>ghuser</em>/<em>repo.git</em>
-  # Pushes the mirror to the new repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}
+  # 新しい {% data variables.product.product_name %} リポジトリにミラーをプッシュ
   ```
 4. 一時ローカル リポジトリを削除します。
   ```shell

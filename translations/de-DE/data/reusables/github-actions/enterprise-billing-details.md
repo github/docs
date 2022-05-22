@@ -1,0 +1,1 @@
+Die Nutzung umfasst die Gesamtminuten, die von jeder Organisation verwendet werden. Die kombinierte Zusammenfassung für {% data variables.product.prodname_actions %} und {% data variables.product.prodname_registry %} enthält keine Minuten, bezahlten Minuten oder eine Preisschätzung pro GB Speicherplatz.

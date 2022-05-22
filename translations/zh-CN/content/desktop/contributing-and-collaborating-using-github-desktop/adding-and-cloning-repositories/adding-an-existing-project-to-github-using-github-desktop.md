@@ -5,10 +5,8 @@ redirect_from:
   - /desktop/contributing-to-projects/adding-an-existing-project-to-github-using-github-desktop
   - /desktop/contributing-and-collaborating-using-github-desktop/adding-an-existing-project-to-github-using-github-desktop
 versions:
-  fpt: '*'
-shortTitle: 添加现有项目
+  free-pro-team: '*'
 ---
-
 {% mac %}
 
 {% data reusables.git.remove-git-remote %}

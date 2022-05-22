@@ -1,0 +1,1 @@
+Wenn auf {% data variables.large_files.product_name_short %}-Dateien verwiesen wird, die nicht erfolgreich hochgeladen wurden, erhältst Du eine Fehlermeldung. Weitere Informationen findest Du unter „[Beheben von {% data variables.large_files.product_name_long %} Fehlern beim Hochladen](/articles/resolving-git-large-file-storage-upload-failures)."

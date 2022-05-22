@@ -1,0 +1,1 @@
+1. ページの右上で**Add Organization(s)（Organizationの追加）**をクリックしてください。 {% data variables.product.prodname_enterprise %}アカウントに関連づけられたOrganizationのリストが表示されます。 ![Organizationの追加ボタン](/assets/images/help/insights/add-organizations.png)

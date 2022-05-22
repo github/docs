@@ -1,0 +1,1 @@
+1. Klicke in der Seitenleiste Deiner Benutzereinstellungen auf **Blocked users** (Blockierte Benutzer). ![Registerkarte „Blocked users" (Blockierte Benutzer)](/assets/images/help/settings/settings-sidebar-blocked-users.png)

@@ -1,11 +1,11 @@
-import languages from '../../lib/languages.js'
+const languages = require('../../lib/languages')
 
 // This middleware handles redirects for mistyped language codes
 //
 // Examples:
 // /jp*    -> /ja*
 // /zh-TW* -> /cn*
-export default function languageCodeRedirects(req, res, next) {
+module.exports = function languageCodeRedirects (req, res, next) {
   for (const code in languages) {
     const language = languages[code]
     const redirectPatterns = language.redirectPatterns || []

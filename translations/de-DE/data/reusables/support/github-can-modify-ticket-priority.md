@@ -1,0 +1,1 @@
+{% data variables.product.company_short %} hat das alleinige Ermessen, die Priorität eines Tickets jederzeit zu ändern, und kann die Priorität eines Tickets nach dem Ermitteln und dem Mindern der Hauptursache eines Problems senken.

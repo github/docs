@@ -11,16 +11,14 @@ redirect_from:
   - /enterprise/admin/user-management/exporting-migration-data-from-githubcom
   - /admin/user-management/exporting-migration-data-from-githubcom
 versions:
-  ghes: '*'
+  enterprise-server: '*'
 type: how_to
 topics:
   - API
   - Enterprise
   - Migration
-shortTitle: 从 GitHub.com 导出数据
 ---
-
-## 在 {% data variables.product.prodname_dotcom %} 上准备源组织
+### 在 {% data variables.product.prodname_dotcom %} 上准备源组织
 
 1. 确保您在源组织的仓库上具有[所有者权限](/articles/permission-levels-for-an-organization/)。
 
@@ -28,7 +26,7 @@ shortTitle: 从 GitHub.com 导出数据
 
 {% data reusables.enterprise_migrations.make-a-list %}
 
-## 导出组织的仓库
+### 导出组织的仓库
 
 {% data reusables.enterprise_migrations.fork-persistence %}
 
@@ -36,7 +34,7 @@ shortTitle: 从 GitHub.com 导出数据
 
 Migrations API 目前正处于预览阶段，这意味着端点和参数未来可能发生变化。 要访问 Migrations API，您必须在 `Accept` 标头中提供自定义[媒体类型](/rest/overview/media-types)：`application/vnd.github.wyandotte-preview+json`。 以下示例包括自定义媒体类型。
 
-## 生成迁移存档
+### 生成迁移存档
 
 {% data reusables.enterprise_migrations.locking-repositories %}
 
@@ -75,8 +73,8 @@ Migrations API 目前正处于预览阶段，这意味着端点和参数未来�
     * 身份验证的访问令牌。
     * 迁移的唯一 `id`：
       ```shell
-      curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" \
-      -H "Accept: application/vnd.github.wyandotte-preview+json" \
+      curl -H "Accept: application/vnd.github.wyandotte-preview+json" \
+      -u <em>GITHUB_USERNAME</em>:<em>GITHUB_ACCESS_TOKEN</em> \
       -L -o migration_archive.tar.gz \
       https://api.github.com/orgs/<em>orgname</em>/migrations/<em>id</em>/archive
       ```

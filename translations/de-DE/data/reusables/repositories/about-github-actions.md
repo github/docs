@@ -1,0 +1,1 @@
+{% data variables.product.prodname_actions %} helfen Dir, Deine Workflows für die Softwareentwicklung am gleichen Ort zu automatisieren, an dem Du Code speicherst und an Pull Requests und Issues mitarbeitest. Du kannst einzelne Aufgaben schreiben, Aktionen genannt, und diese kombinieren um einen benutzerdefinierten Workflow zu erstellen.

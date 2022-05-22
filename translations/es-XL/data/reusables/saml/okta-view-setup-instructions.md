@@ -1,0 +1,1 @@
+1. Debajo de "MÉTODOS DE REGISTRO", da clic en **Ver las instrucciones de configuración". ![Botón de "Ver instrucciones de configuración" en la pestaña "Registrarse" de la aplicación de Okta](/assets/images/help/saml/okta-view-setup-instructions.png)</li> </ol>

@@ -1,7 +1,4 @@
-import cookieSettings from '../lib/cookie-settings.js'
-import csurf from 'csurf'
-
-export default csurf({
-  cookie: cookieSettings,
-  ignoreMethods: ['GET', 'HEAD', 'OPTIONS'],
+module.exports = require('csurf')({
+  cookie: require('../lib/cookie-settings'),
+  ignoreMethods: ['GET', 'HEAD', 'OPTIONS']
 })

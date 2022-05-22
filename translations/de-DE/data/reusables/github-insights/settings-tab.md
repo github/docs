@@ -1,0 +1,1 @@
+1. Klicke in {% data variables.product.prodname_insights %} auf **{% octicon "gear" aria-label="The gear icon" %} Settings** (Einstellungen). ![Registerkarte „Settings“ (Einstellungen)](/assets/images/help/insights/settings-tab.png)

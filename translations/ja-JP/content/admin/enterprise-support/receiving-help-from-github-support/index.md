@@ -5,8 +5,8 @@ redirect_from:
   - /enterprise/admin/guides/enterprise-support/receiving-help-from-github-enterprise-support/
   - /enterprise/admin/enterprise-support/receiving-help-from-github-support
 versions:
-  ghes: '*'
-  ghae: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Enterprise
 children:
@@ -14,6 +14,5 @@ children:
   - /preparing-to-submit-a-ticket
   - /submitting-a-ticket
   - /providing-data-to-github-support
-shortTitle: Receive help from Support
 ---
 

@@ -1,0 +1,1 @@
+1. Wenn Deine Organisation zu einem Enterprise-Konto mit mehr als einer Lizenz gehört, wähle eine Lizenz für den Benutzer aus. ![Lizenzoptionen](/assets/images/help/organizations/choose-user-license.png)

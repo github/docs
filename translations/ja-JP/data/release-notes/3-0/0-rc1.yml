@@ -1,0 +1,26 @@
+---
+date: '2021-01-12'
+release_candidate: true
+deprecated: true
+intro: リリース候補バージョンは、非プロダクション環境でテストすべきです。リリース候補プログラムに関する詳しい情報については、[GitHub Blog](https://github.blog/2020-12-03-improving-the-ghes-release-process-release-candidates/) もしくは[新リリースへのアップグレードについて](/admin/overview/about-upgrades-to-new-releases)を参照してください。
+sections:
+  bugs:
+    - 様々な種類のログに対するPIDの追加を含め、いくつかのログファイルのフォーマットが変更されました。これは、GitHub Enterprise Supportが問題のトラブルシューティングのためにサポートバンドルを利用する方法には影響しません。
+    - webhookの 設定APIに対するPATCHリクエストは、webhookのシークレットを消去しなくなりました。
+  known_issues:
+    - 新しくセットアップされたユーザを持たない{% data variables.product.prodname_ghe_server %}で、攻撃者が最初の管理ユーザを作成できました。
+    - リリース候補1は、クラスタモードをサポートしていません。
+    - カスタムのファイアウォールのルールは、アップグレードの際に維持されません。
+    - Git LFSが追跡するファイル[Webインターフェースからアップロードされたもの](https://github.blog/2016-02-18-upload-files-to-your-repositories/)が、不正にリポジトリに直接追加されてしまいます。
+    - GitHub Connectで"Users can search GitHub.com"が有効化されている場合、GitHub.comの検索結果にプライベート及びインターナルリポジトリのIssueが含まれません。
+    - Actionsのセットアップが成功しなかった場合に、続けてActionsを無効化すると、最初のユーザを作成できず、アプライアンスを利用できません。
+    - '"Mandatory message viewed"監査ログイベントが保存されません。'
+    - 'レプリケーションを開始するために`ghe-repl-setup`を実行できるようになる前に、最初のセットアップの間に`ghe-config-apply`をレプリカで実行しておかなければなりません。'
+    - Backup-utilsが、不要なメールを管理者に送信することがあります。
+    - Organizationのメンバービューページに、正しくないPackagesの設定が表示されます
+    - Enterpriseのオーナーとして自分自身を削除すると、404ページにリダイレクトされます。処理は成功します。
+    - 'Nomadのジョブキューがクリアされるまで、`ghe-config-apply`が`ERROR: Failure waiting for nomad jobs to apply`で失敗することがあります。この場合、管理者は`/etc/nomad-jobs/queue`を削除しなければなりません。'
+    - 複数のレプリカノードを設定する際に、レプリカのステータスが不正確に同期されることがあります。
+    - 新しいインスタンスに3.0のバックアップをリストアしようとするお客様は、ユーザのログインの状態が悪くなることがあるため、そのインスタンスを事前設定しておくべきではありません。新しい、未設定のインスタンスにリストアすることをおすすめします。
+    - GitHub Enterprise Server 3.0のリリース候補版は、まだAzure Marketplaceで入手できません。リリース候補版をステージング環境でテストするには、2.21もしくは2.22のインスタンスを立ち上げ、それをダウンロードページ上のAzureアップグレードパッケージでアップグレードしてください。
+    - イメージとアップグレードパッケージのダウンロードサイズは増加しました。低速なインターネット接続をお使いのお客様は、パッケージのダウンロードに時間がかかることがあります。

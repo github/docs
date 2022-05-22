@@ -1,0 +1,1 @@
+Free apps are encouraged in {% data variables.product.prodname_marketplace %} and are a great way to offer open source services. If you list a paid version of your app outside of {% data variables.product.prodname_marketplace %}, you must offer at least one paid plan when listing the app in {% data variables.product.prodname_marketplace %}.

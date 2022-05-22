@@ -1,0 +1,1 @@
+1. Klicke in der linken Seitenleiste auf **Reported content** (Gemeldeter Inhalt). !["Reported content" (gemeldeter Inhalt) in der Seitenleiste der Repository-Einstellungen](/assets/images/help/repository/repo-settings-reported-content.png)

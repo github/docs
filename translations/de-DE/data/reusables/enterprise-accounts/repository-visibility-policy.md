@@ -1,0 +1,1 @@
+1. Wähle im Dropdownmenü unter „Repository visibility change“ (Änderung der Repository-Sichtbarkeit) eine Richtlinie aus. ![Dropdownmenü mit den Optionen für die Richtlinie für die Repository-Sichtbarkeit](/assets/images/help/business-accounts/repository-visibility-policy-drop-down.png)

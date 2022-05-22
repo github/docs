@@ -6,21 +6,17 @@
 //
 // [end-readme]
 
-import { fileURLToPath } from 'url'
-import path from 'path'
-import fs from 'fs/promises'
-import yaml from 'js-yaml'
-
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
-
+const fs = require('fs')
+const path = require('path')
+const yaml = require('js-yaml')
 const inputFile = path.join(__dirname, '../data/glossary.yml')
 
-const glossary = yaml.load(await fs.readFile(inputFile, 'utf8'))
+const glossary = yaml.load(fs.readFileSync(inputFile, 'utf8'))
 
 console.log(glossary)
 const external = []
 const internal = []
-glossary.forEach((term) => {
+glossary.forEach(term => {
   if (term.internal) {
     delete term.internal
     internal.push(term)
@@ -29,6 +25,12 @@ glossary.forEach((term) => {
   }
 })
 
-await fs.writeFile(path.join(__dirname, '../data/glossaries/internal.yml'), yaml.dump(internal))
+fs.writeFileSync(
+  path.join(__dirname, '../data/glossaries/internal.yml'),
+  yaml.safeDump(internal)
+)
 
-await fs.writeFile(path.join(__dirname, '../data/glossaries/external.yml'), yaml.dump(external))
+fs.writeFileSync(
+  path.join(__dirname, '../data/glossaries/external.yml'),
+  yaml.safeDump(external)
+)

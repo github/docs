@@ -6,21 +6,20 @@ redirect_from:
   - /enterprise/admin/enterprise-management/replacing-a-cluster-node
   - /admin/enterprise-management/replacing-a-cluster-node
 versions:
-  ghes: '*'
+  enterprise-server: '*'
 type: how_to
 topics:
   - Clustering
   - Enterprise
   - Infrastructure
 ---
-
 {% warning %}
 
 **警告：**替换节点必须使用先前未在集群中使用的主机名以避免冲突。
 
 {% endwarning %}
 
-## 替换功能节点
+### 替换功能节点
 {% data reusables.enterprise_clustering.replacing-a-cluster-node-provision %}
 {% data reusables.enterprise_clustering.replacing-a-cluster-node-admin-configure-ip %}
 {% data reusables.enterprise_clustering.replacing-a-cluster-node-modify-cluster-conf %}
@@ -31,7 +30,7 @@ topics:
 {% data reusables.enterprise_clustering.replacing-a-cluster-node-validate-config %}
 {% data reusables.enterprise_clustering.replacing-a-cluster-node-replacement-name %}
 
-## 在紧急情况下替换节点
+### 在紧急情况下替换节点
 {% data reusables.enterprise_clustering.replacing-a-cluster-node-provision %}
 {% data reusables.enterprise_clustering.replacing-a-cluster-node-admin-configure-ip %}
 {% data reusables.enterprise_clustering.replacing-a-cluster-node-mark-offline %}

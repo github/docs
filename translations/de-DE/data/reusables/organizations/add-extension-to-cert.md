@@ -1,0 +1,1 @@
+Wenn Du die einzelnen Client-Zertifikate ausstellst, musst Du eine Erweiterung einfügen, die festlegt, für welchen {% data variables.product.product_name %}-Benutzer das Zertifikat ist. Weitere Informationen findest Du unter „[Informationen zu SSH-Zertifizierungsstellen](/articles/about-ssh-certificate-authorities).“

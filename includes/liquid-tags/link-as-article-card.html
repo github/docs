@@ -1,0 +1,14 @@
+<div class="d-flex col-12 col-md-4 pr-0 pr-md-6 pr-lg-8 <display condition> js-filter-card" data-type="{{ type.key }}" data-topics="{{ topics | join: ',' }}">
+  <a class="no-underline d-flex flex-column py-3 border-bottom" href="{{ fullPath }}">
+    <h4 class="h4 color-text-primary mb-1">{{ title }}</h4>
+    <div class="h6 text-uppercase">{{ type.value }}</div>
+    <p class="color-text-secondary my-3">{{ intro }}</p>
+    {% if topics.length %}
+      <div>
+        {% for topic in topics %}
+          <span class="IssueLabel bg-gradient--pink-blue color-text-inverse mr-1">{{ topic }}</span>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </a>
+</div>

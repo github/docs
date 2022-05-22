@@ -1,0 +1,1 @@
+1. Um Deine gespeicherten Benachrichtigungen anzuzeigen, klicke in der linken Seitenleiste auf **Saved for later** (für später gespeichert). ![Schaltfläche „Saved for later" gespeichert für später)](/assets/images/help/notifications/saved-for-later-tab.png)

@@ -1,0 +1,1 @@
+Da keine Großbuchstaben unterstützt werden, musst Du für das Namensfeld Kleinbuchstaben verwenden, auch dann, wenn Dein {% data variables.product.prodname_dotcom %}-Benutzer- oder Organisationsname Großbuchstaben enthält.

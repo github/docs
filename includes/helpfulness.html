@@ -1,0 +1,108 @@
+{% unless enterpriseServerReleases.isOldestReleaseDeprecated and currentVersion contains enterpriseServerReleases.oldestSupported %}
+<form class="js-helpfulness f5">
+  <h2
+    data-help-start
+    data-help-yes
+    data-help-no
+    class="mb-1 f4"
+  >
+    {% data ui.helpfulness.able_to_find %}
+  </h2>
+  <p class="f6">
+    <a href="/github/site-policy/github-privacy-statement">Privacy policy</a>
+  </p>
+  <p
+    class="radio-group"
+    data-help-start
+    data-help-yes
+    data-help-no
+  >
+    <input
+      hidden
+      id="helpfulness-yes"
+      type="radio"
+      name="helpfulness-vote"
+      value="Yes"
+      aria-label="{% data ui.helpfulness.yes %}"
+    />
+    <label class="btn x-radio-label" for="helpfulness-yes">
+      {% octicon "thumbsup" height="24" %}
+    </label>
+    <input
+      hidden
+      id="helpfulness-no"
+      type="radio"
+      name="helpfulness-vote"
+      value="No"
+      aria-label="{% data ui.helpfulness.no %}"
+    />
+    <label class="btn x-radio-label" for="helpfulness-no">
+      {% octicon "thumbsdown" height="24" %}
+    </label>
+  </p>
+  <p class="color-text-secondary f6" hidden data-help-yes>
+    {% data ui.helpfulness.yes_feedback %}
+  </p>
+  <p class="color-text-secondary f6" hidden data-help-no>
+    {% data ui.helpfulness.no_feedback %}
+  </p>
+  <input
+    type="text"
+    class="d-none"
+    name="helpfulness-token"
+    aria-hidden="true"
+  />
+  <p hidden data-help-no>
+    <label
+      class="d-block mb-1 f6"
+      for="helpfulness-comment"
+    >
+      <span>{% data ui.helpfulness.comment_label %}</span>
+      <span class="text-normal color-text-tertiary float-right ml-1">
+        {% data ui.helpfulness.optional %}
+      </span>
+    </label>
+    <textarea
+      class="form-control input-sm width-full"
+      name="helpfulness-comment"
+      id="helpfulness-comment"
+    ></textarea>
+  </p>
+  <p>
+    <label
+      class="d-block mb-1 f6"
+      for="helpfulness-email"
+      hidden
+      data-help-no
+    >
+      {% data ui.helpfulness.email_label %}
+      <span class="text-normal color-text-tertiary float-right ml-1">
+        {% data ui.helpfulness.optional %}
+      </span>
+    </label>
+    <input
+      type="email"
+      class="form-control input-sm width-full"
+      name="helpfulness-email"
+      id="helpfulness-email"
+      placeholder="{% data ui.helpfulness.email_placeholder %}"
+      hidden
+      data-help-yes
+      data-help-no
+    />
+  </p>
+  <p
+    class="text-right"
+    hidden
+    data-help-yes
+    data-help-no
+  >
+    <button type="submit" class="btn btn-sm">
+      {% data ui.helpfulness.send %}
+    </button>
+  </p>
+  <p class="color-text-secondary f6" hidden data-help-end>
+    {% data ui.helpfulness.feedback %}
+  </p>
+</form>
+{% endunless %}

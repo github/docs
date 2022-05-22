@@ -1,0 +1,1 @@
+Antes de que puedas crear tu sitio, debes tener un repositorio para el mismo en {% data variables.product.product_name %}. Si no estás creando tu sitio en un repositorio existente, consulta la sección "[Crear un repositorio para tu sitio](#creating-a-repository-for-your-site)".

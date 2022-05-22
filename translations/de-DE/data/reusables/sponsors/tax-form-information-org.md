@@ -1,0 +1,1 @@
+Weitere Informationen über das Steuerformular, das von Organisationen ausgefüllt werden muss, siehe [Instruktionen für Formular W-8BEN-E](https://www.irs.gov/pub/irs-pdf/iw8bene.pdf) auf der Website des United States Internal Revenue Service (Amerikanische Steuerbehörde).

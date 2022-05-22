@@ -23,11 +23,9 @@ changelog:
   label: education
 layout: product-landing
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 children:
-  - /quickstart
   - /explore-the-benefits-of-teaching-and-learning-with-github-education
   - /manage-coursework-with-github-classroom
-  - /guides
 ---
 

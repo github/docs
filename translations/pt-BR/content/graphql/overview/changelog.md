@@ -4,10 +4,9 @@ intro: 'O registro de alterações do GraphQL é uma lista de alterações recen
 redirect_from:
   - /v4/changelog
 versions:
-  fpt: '*'
-  ghec: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - API
 ---
@@ -15,7 +14,7 @@ topics:
 As alterações significativas incluem alterações que modificarão as consultas existentes ou podem afetar o comportamento do tempo de execução dos clientes. Para obter uma lista de alterações significativas e quando ocorrerão, consulte o nosso [registro de alterações significativas](/graphql/overview/breaking-changes).
 
 {% for entry in graphql.changelog %}
-## Alterações de esquema para {{ entry.date }}
+### Alterações de esquema para {{ entry.date }}
 
 {% for schemaChange in entry.schemaChanges %}
 {{ schemaChange.title }}

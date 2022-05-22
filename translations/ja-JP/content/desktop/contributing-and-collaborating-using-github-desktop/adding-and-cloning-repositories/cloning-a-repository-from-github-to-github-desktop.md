@@ -5,10 +5,8 @@ redirect_from:
   - /desktop/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop
   - /desktop/contributing-and-collaborating-using-github-desktop/cloning-a-repository-from-github-to-github-desktop
 versions:
-  fpt: '*'
-shortTitle: Clone a GitHub repo
+  free-pro-team: '*'
 ---
-
 {% tip %}
 
 **ヒント：**{% data variables.product.prodname_dotcom %}にあるリポジトリをクローンするには、{% data variables.product.prodname_desktop %}も使用できます。  詳しい情報については、「[{% data variables.product.prodname_desktop %}からのリポジトリのクローン方法](/desktop/guides/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop/)」を参照してください。
@@ -17,7 +15,9 @@ shortTitle: Clone a GitHub repo
 
 {% mac %}
 
-1. クローンする前に、{% data variables.product.product_location %}と{% data variables.product.prodname_desktop %}にサインインします。
+1. まず、
+
+クローンする前に、{% data variables.product.product_location %} と {% data variables.product.prodname_desktop %} にサインインします。
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.open-with-github-desktop %}
 5. [**Choose...**]をクリックし、Finderウインドウを使用してリポジトリをクローンするローカルパスに移動します。 ![URLタブにあるchooseボタン](/assets/images/help/desktop/clone-choose-button-url-mac.png)
@@ -34,7 +34,9 @@ shortTitle: Clone a GitHub repo
 
 {% windows %}
 
-1. クローンする前に、{% data variables.product.product_location %}と{% data variables.product.prodname_desktop %}にサインインします。
+1. まず、
+
+クローンする前に、{% data variables.product.product_location %} と {% data variables.product.prodname_desktop %} にサインインします。
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.open-with-github-desktop %}
 5. **Choose...**をクリックし、Windows Explorerを使用してリポジトリをクローンするローカルパスに移動します。 ![Chooseボタン](/assets/images/help/desktop/clone-choose-button-url-win.png)

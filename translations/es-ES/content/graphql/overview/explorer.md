@@ -4,10 +4,9 @@ redirect_from:
   - /v4/explorer
   - /v4/explorer-new
 versions:
-  fpt: '*'
-  ghec: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 layout: graphql-explorer
 topics:
   - API

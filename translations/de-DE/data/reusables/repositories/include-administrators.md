@@ -1,0 +1,1 @@
+1. Optional wähle **Include administrators** (Administratoren einbeziehen) aus. Dies erzwingt alle konfigurierten Einschränkungen für Repository-Administratoren. ![Kontrollkästchen „Include administrators“ (Administratoren einbeziehen)](/assets/images/help/repository/include-admins-protected-branches.png)

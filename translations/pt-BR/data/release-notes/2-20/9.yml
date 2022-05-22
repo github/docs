@@ -1,0 +1,16 @@
+date: '2020-06-02'
+sections:
+  security_fixes:
+    - '**ALTO:** Uma vulnerabilidade de controle de acesso imprópria foi identificada na API do GitHub Enterprise Server que permitiu que um integrante da organização aumentasse as permissões e recebesse acesso a repositórios não autorizados dentro de uma organização. Esta vulnerabilidade afetou todas as versões do GitHub Enterprise Server anteriores à versão 2.21. Emitimos [CVE-2020-10516](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-10516) em resposta a este problema. A vulnerabilidade foi relatada por meio do [programa Bug Bounty do GitHub](https://bounty. ithub.com). {% comment %} https://github.com/github/github/pull/144454, https://github.com/github/github/pull/143444 {% endcomment %}'
+    - 'Os pacotes foram atualizados para as últimas versões de segurança. {% comment %} https://github.com/github/enterprise2/pull/20421, https://github.com/github/enterprise2/pull/20315 {% endcomment %}'
+  bugs:
+    - 'As instâncias do GitHub Enterprise Server voltadas para a Internet podem ser indexadas pelos mecanismos de busca. {% comment %} https://github.com/github/github/pull/145073, https://github.com/github/github/pull/144973 {% endcomment %}'
+  known_issues:
+    - 'Em uma nova configuração do GitHub Enterprise Server sem qualquer usuário, um invasor pode criar o primeiro usuário administrador. {% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}'
+    - 'As regras personalizadas do firewall não são mantidas em um upgrade. {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}'
+    - 'Arquivos LFS do Git [enviados através da interface web](https://github.com/blog/2105-upload-files-to-your-repositories) são adicionados diretamente ao repositório e de forma incorreta. {% comment %} https://github.com/github/github/issues/54684 {% endcomment %}'
+    - 'Os problemas não podem ser fechados se contiverem um permalink para um blob no mesmo repositório em que o caminho do arquivo tem mais de 255 caracteres. {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}'
+    - 'Ao fazer push em um gist, pode-se adicionar uma exceção durante o hook de post-receive. {% comment %} https://github.com/github/github/issues/129091 {% endcomment %}'
+    - 'Quando "Usuários podem pesquisar no GitHub.com" está habilitado com o GitHub Connect, os problemas nos repositórios privados e internos não estão incluídos nos resultados de pesquisa do GitHub.com. {% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}'
+    - 'Os alertas de segurança não são relatados ao fazer push em um repositório na linha de comando. (atualizado 2020-06-23) {% comment %} https://github.com/github/github/issues/143190 {% endcomment %}'
+    - 'O gráfico de dependências não é a detecção de dependências quando implantadas em uma configuração de cluster com vários nós de Redis. (atualizado 2020-06-30) {% comment %} https://github.com/github/dependency-graph/issues/81 {% endcomment %}'

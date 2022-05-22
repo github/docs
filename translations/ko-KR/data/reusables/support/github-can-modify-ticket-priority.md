@@ -1,0 +1,1 @@
+{% data variables.product.company_short %} has the sole discretion to modify the priority of a ticket at any time, and may lower the priority of a ticket after determining and mitigating the primary cause of an issue.

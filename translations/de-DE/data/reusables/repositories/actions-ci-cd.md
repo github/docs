@@ -1,0 +1,1 @@
+Mit {% data variables.product.prodname_actions %} kannst Du End-to-End-Funktionen für die fortlaufende Integration (continuous integration CI) und die fortlaufende Bereitstellung (continuous deployment CD) direkt im Repository erstellen.

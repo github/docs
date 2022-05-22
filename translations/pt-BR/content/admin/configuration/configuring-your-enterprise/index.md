@@ -1,6 +1,6 @@
 ---
-title: Configuring your enterprise
-intro: 'After {% data variables.product.product_name %} is up and running, you can configure your enterprise to suit your organization''s needs.'
+title: Configurar a sua empresa
+intro: 'Depois que {% data variables.product.product_name %} estiver pronto e funcionando, você poderá configurar a sua empresa para atender às necessidades da sua organização.'
 redirect_from:
   - /enterprise/admin/guides/installation/basic-configuration/
   - /enterprise/admin/guides/installation/administrative-tools/
@@ -9,9 +9,8 @@ redirect_from:
   - /enterprise/admin/installation/configuring-the-github-enterprise-server-appliance
   - /enterprise/admin/configuration/configuring-your-enterprise
 versions:
-  ghec: '*'
-  ghes: '*'
-  ghae: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Enterprise
 children:
@@ -19,6 +18,7 @@ children:
   - /initializing-github-ae
   - /accessing-the-management-console
   - /accessing-the-administrative-shell-ssh
+  - /configuring-data-encryption-for-your-enterprise
   - /enabling-and-scheduling-maintenance-mode
   - /configuring-backups-on-your-appliance
   - /site-admin-dashboard
@@ -33,8 +33,5 @@ children:
   - /command-line-utilities
   - /restricting-network-traffic-to-your-enterprise
   - /configuring-github-pages-for-your-enterprise
-  - /configuring-the-referrer-policy-for-your-enterprise
-  - /configuring-custom-footers
-shortTitle: Configure your enterprise
 ---
 

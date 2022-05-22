@@ -6,13 +6,9 @@ redirect_from:
   - /articles/managing-security-vulnerabilities-in-your-project
   - /github/managing-security-vulnerabilities/managing-security-vulnerabilities-in-your-project
 versions:
-  fpt: '*'
-  ghec: '*'
+  free-pro-team: '*'
 topics:
-  - Security advisories
-  - Vulnerabilities
-  - Repositories
-  - CVEs
+  - Security
 children:
   - /about-coordinated-disclosure-of-security-vulnerabilities
   - /about-github-security-advisories

@@ -1,1 +1,0 @@
-{% data variables.product.prodname_registry %} 是一种软件包托管服务，允许您私下或公开托管软件包，并将包用作项目中的依赖项。 更多信息请参阅“[{% data variables.product.prodname_registry %} 简介](/packages/learn-github-packages/introduction-to-github-packages)”。

@@ -1,37 +1,36 @@
 ---
-title: Creating a pre-receive hook environment
-intro: 'To execute pre-receive hooks, use either the default pre-receive environment, or create a custom environment.'
+title: pre-receiveフック環境の作成
+intro: pre-receiveフックを実行するには、デフォルトのpre-receive環境を使うか、カスタムの環境を作成します。
 redirect_from:
   - /enterprise/admin/developer-workflow/creating-a-pre-receive-hook-environment
   - /enterprise/admin/policies/creating-a-pre-receive-hook-environment
   - /admin/policies/creating-a-pre-receive-hook-environment
 versions:
-  ghes: '*'
+  enterprise-server: '*'
 type: how_to
 topics:
   - Enterprise
   - Policies
   - Pre-receive hooks
-shortTitle: Pre-receive hook environments
 ---
-A pre-receive environment for {% data variables.product.prodname_ghe_server %} is a Linux [`chroot`](https://en.wikipedia.org/wiki/Chroot) environment. Because pre-receive hooks execute on every push event, they should be fast and lightweight. The environment needed for such checks will typically be minimal.
+{% data variables.product.prodname_ghe_server %} の pre-receive 環境は、Linux の [`chroot`](https://en.wikipedia.org/wiki/Chroot) 環境です。 pre-receiveフックはプッシュのイベントごとに実行されるので、高速かつ軽量でなければなりません。 こうしたチェックに必要となる環境は、通常最小限のものです。
 
-{% data variables.product.prodname_ghe_server %} provides a default environment which includes these packages: `awk`,  `bash`, `coreutils`, `curl`, `find`, `gnupg`, `grep`, `jq`, `sed`.
+{% data variables.product.prodname_ghe_server %} は、以下のパッケージを含むデフォルトの環境を提供します: `awk`、 `bash`、`coreutils`、`curl`、`find`、`gnupg`、`grep`、`jq`、`sed`
 
-If you have a specific requirement that isn't met by this environment, such as support for a particular language, you can create and upload your own 64-bit Linux `chroot` environment.
+特定の言語のサポートなど、この環境が満たさない特定の要求があるなら、独自の64-bit Linux `chroot`環境を作成してアップロードできます。
 
-## Creating a pre-receive hook environment using Docker
+### Dockerを利用したpre-receiveフック環境の作成
 
-You can use a Linux container management tool to build a pre-receive hook environment. This example uses [Alpine Linux](http://www.alpinelinux.org/) and [Docker](https://www.docker.com/).
+pre-receiveフック環境の構築には、Linuxのコンテナ管理ツールが利用できます。 この例では[Alpine Linux](http://www.alpinelinux.org/)と[Docker](https://www.docker.com/)を使っています。
 
 {% data reusables.linux.ensure-docker %}
-2. Create the file `Dockerfile.alpine-3.3` that contains this information:
+2. この情報を含む `Dockerfile.alpine-3.3` ファイルを作成してください:
 
    ```
    FROM gliderlabs/alpine:3.3
    RUN apk add --no-cache git bash
    ```
-3. From the working directory that contains `Dockerfile.alpine-3.3`, build an image:
+3. `Dockerfile.alpine-3.3`を含むワーキングディレクトリから、イメージをビルドします:
 
    ```shell
    $ docker build -f Dockerfile.alpine-3.3 -t pre-receive.alpine-3.3 .
@@ -43,23 +42,23 @@ You can use a Linux container management tool to build a pre-receive hook enviro
    >  ---> 0250ab3be9c5
    > Successfully built 0250ab3be9c5
    ```
-4. Create a container:
+4. コンテナを作成します:
 
    ```shell
    $ docker create --name pre-receive.alpine-3.3 pre-receive.alpine-3.3 /bin/true
    ```
-5. Export the Docker container to a `gzip` compressed `tar` file:
+5. この Docker コンテナを `gzip` 圧縮された `tar` ファイルにエクスポートします:
 
    ```shell
    $ docker export pre-receive.alpine-3.3 | gzip > alpine-3.3.tar.gz
    ```
 
-   This file `alpine-3.3.tar.gz` is ready to be uploaded to the {% data variables.product.prodname_ghe_server %} appliance.
+   このファイル `alpine-3.3.tar.gz` を {% data variables.product.prodname_ghe_server %} アプライアンスにアップロードする準備ができました。
 
-## Creating a pre-receive hook environment using chroot
+### chrootを使ったpre-receiveフック環境の作成
 
-1. Create a Linux `chroot` environment.
-2. Create a `gzip` compressed `tar` file of the `chroot` directory.
+1. Linux の `chroot` 環境を作成します。
+2. `chroot` ディレクトリの `gzip` 圧縮された `tar` ファイルを作成します.
    ```shell
    $ cd /path/to/chroot
    $ tar -czf /path/to/pre-receive-environment.tar.gz .
@@ -67,35 +66,30 @@ You can use a Linux container management tool to build a pre-receive hook enviro
 
    {% note %}
 
-   **Notes:**
-   - Do not include leading directory paths of files within the tar archive, such as `/path/to/chroot`.
-   - `/bin/sh` must exist and be executable, as the entry point into the chroot environment.
-   - Unlike traditional chroots, the `dev` directory is not required by the chroot environment for pre-receive hooks.
+   **ノート:**
+   - `/path/to/chroot`のような、ファイルの先行するディレクトリパスをtarアーカイブに含めないでください。
+   - chroot環境へのエントリポイントとして、`/bin/sh`が存在し、実行可能でなければなりません。
+   - 旧来のchrootと異なり、`dev`ディレクトリはpre-receiveフックのためのchroot環境では必要ありません。
 
    {% endnote %}
 
-For more information about creating a chroot environment see "[Chroot](https://wiki.debian.org/chroot)" from the *Debian Wiki*, "[BasicChroot](https://help.ubuntu.com/community/BasicChroot)" from the *Ubuntu Community Help Wiki*, or "[Installing Alpine Linux in a chroot](http://wiki.alpinelinux.org/wiki/Installing_Alpine_Linux_in_a_chroot)" from the *Alpine Linux Wiki*.
+chroot 環境の作成に関する詳しい情報については *Debian Wiki* の「[Chroot](https://wiki.debian.org/chroot)」、*Ubuntu Community Help Wiki* の「[BasicChroot](https://help.ubuntu.com/community/BasicChroot)」、または *Alpine Linux Wiki* の「[Installing Alpine Linux in a chroot](http://wiki.alpinelinux.org/wiki/Installing_Alpine_Linux_in_a_chroot)」を参照してください。
 
-## Uploading a pre-receive hook environment on {% data variables.product.prodname_ghe_server %}
+### {% data variables.product.prodname_ghe_server %}へのpre-receiveフック環境のアップロード
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.hooks-tab %}
-5. Click **Manage environments**.
-![Manage Environments](/assets/images/enterprise/site-admin-settings/manage-pre-receive-environments.png)
-6. Click **Add environment**.
-![Add Environment](/assets/images/enterprise/site-admin-settings/add-pre-receive-environment.png)
-7. Enter the desired name in the **Environment name** field.
-![Environment name](/assets/images/enterprise/site-admin-settings/pre-receive-environment-name.png)
-8. Enter the URL of the `*.tar.gz` file that contains your environment.
-![Upload environment from a URL](/assets/images/enterprise/site-admin-settings/upload-environment-from-url.png)
-9. Click **Add environment**.
-![Add environment button](/assets/images/enterprise/site-admin-settings/add-environment-button.png)
+5. [**Manage environments**] (環境を管理) をクリックします。 ![環境を管理](/assets/images/enterprise/site-admin-settings/manage-pre-receive-environments.png)
+6. [**Add environment**] (環境を追加) をクリックします。 ![環境を追加](/assets/images/enterprise/site-admin-settings/add-pre-receive-environment.png)
+7. 希望する名前を [**Environment name**] (環境名) フィールドに入力します。 ![環境名](/assets/images/enterprise/site-admin-settings/pre-receive-environment-name.png)
+8. 環境が入っている `*.tar.gz` ファイルの URL を入力します。 ![URL から環境をアップロード](/assets/images/enterprise/site-admin-settings/upload-environment-from-url.png)
+9. [**Add environment**] (環境を追加) をクリックします。 ![環境を追加するボタン](/assets/images/enterprise/site-admin-settings/add-environment-button.png)
 
-## Uploading a pre-receive hook environment via the administrative shell
-1. Upload a readable `*.tar.gz` file that contains your environment to a web host and copy the URL or transfer the file to the {% data variables.product.prodname_ghe_server %} appliance via `scp`. When using `scp`, you may need to adjust the `*.tar.gz` file permissions so that the file is world readable.
-1.  Connect to the administrative shell.
-2.  Use the `ghe-hook-env-create` command and type the name you want for the environment as the first argument and the full local path or URL of a `*.tar.gz` file that contains your environment as the second argument.
+### 管理シェル経由でのpre-receiveフック環境のアップロード
+1. 環境が入っている読み出し可能な `*.tar.gz` ファイルを Web のホストにアップロードしてその URL をコピーするか、このファイルを `scp` で {% data variables.product.prodname_ghe_server %} アプライアンスに転送してください。 `scp` を使う場合には、`*.tar.gz` ファイルの権限を外界から読めるように調整しなければならないかもしれません。
+1.  管理シェルに接続します。
+2.  `ghe-hook-env-create` コマンドを使い、環境に与えたい名前を最初の引数に、環境が入っている `*.tar.gz` ファイルの完全なローカルパスあるいは URL を 2 番目の引数に入力してください。
 
    ```shell
    admin@ghe-host:~$ ghe-hook-env-create AlpineTestEnv /home/admin/alpine-3.3.tar.gz

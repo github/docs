@@ -1,16 +1,13 @@
 ---
 title: Meta
-intro: 'A API de Meta retorna meta informações sobre {% data variables.product.product_name %} incluindo o endereço IP dos serviços de {% data variables.product.product_name %}.'
 redirect_from:
   - /v3/meta
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - API
-miniTocMaxHeadingLevel: 3
 ---
 
 {% include rest_operations_at_current_path %}

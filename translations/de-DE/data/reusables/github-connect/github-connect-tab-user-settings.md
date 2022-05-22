@@ -1,0 +1,1 @@
+1. Klicken Sie auf der linken Seitenleiste auf **{% data variables.product.prodname_github_connect %}**. ![Registerkarte „GitHub Connect" in der Seitenleiste der Benutzereinstellungen](/assets/images/help/settings/github-connect-tab-user-settings.png)

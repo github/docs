@@ -1,0 +1,1 @@
+1. En la barra lateral izquierda, da clic en **Licenciamiento empresarial**. ![Pestaña de licencia en la barra lateral de configuración de cuenta empresarial](/assets/images/enterprise/business-accounts/enterprise-licensing-tab.png)

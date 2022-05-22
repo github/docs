@@ -1,0 +1,1 @@
+1. Gib eine Nutzlast-URL ein, und passe dann optional die Konfiguration an. Weitere Informationen finden Sie unter „[Webhooks erstellen](/webhooks/creating/#creating-webhooks)“. ![Felder für die Nutzlast-URL und andere Anpassungsoptionen](/assets/images/help/sponsors/webhook-payload-url.png)

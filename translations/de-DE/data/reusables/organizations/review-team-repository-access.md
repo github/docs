@@ -1,0 +1,1 @@
+1. Überprüfe die Liste der Repositorys, auf die das neue Teammitglied Zugriff haben wird, dann klicke auf **Add _USERNAME_ to _TEAMNAME_** (Füge BENUTZERNAMEN dem TEAMNAMEN hinzu). ![Modalbox mit einer Liste der Repositorys, auf die das neue Teammitglied Zugriff haben wird und Bestätigungsschaltfläche](/assets/images/help/teams/add-team-member-repo-perms.png)

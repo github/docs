@@ -1,0 +1,1 @@
+If you set the metadata permission to `No access` and select a permission that requires repository access, GitHub will override your selection and set the metadata permission back to `Read-only`. To set the metadata permission to `No access`, you must set all permissions that require repository access to `No access` first.

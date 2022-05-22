@@ -1,0 +1,1 @@
+1. Klicken Sie in der oberen rechte Ecke der Seite auf {% octicon "shield" aria-label="The shield" %} **Security** (Sicherheit). ![Registerkarte „Security“ (Sicherheit)](/assets/images/enterprise/site-admin-settings/repo/repo-security-top-tab.png)

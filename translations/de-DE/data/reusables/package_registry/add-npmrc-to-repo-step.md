@@ -1,0 +1,1 @@
+3. Füge die *.npmrc* Datei in das Repository hinzu, wo {% data variables.product.prodname_registry %} Dein Projekt finden kann. Weitere Informationen findest Du unter „[Eine Datei über die Befehlszeile einem Repository hinzufügen](/github/managing-files-in-a-repository/adding-a-file-to-a-repository-using-the-command-line)."

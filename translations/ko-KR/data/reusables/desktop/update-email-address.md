@@ -1,0 +1,1 @@
+If the commits you make in {% data variables.product.prodname_desktop %} are associated with the wrong account on {% data variables.product.product_name %}, update the email address in your Git configuration using {% data variables.product.prodname_desktop %}.

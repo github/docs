@@ -1,3 +1,4 @@
-import cookieParser from 'cookie-parser'
-import cookieSettings from '../lib/cookie-settings.js'
-export default cookieParser(process.env.COOKIE_SECRET, cookieSettings)
+module.exports = require('cookie-parser')(
+  process.env.COOKIE_SECRET,
+  require('../lib/cookie-settings')
+)

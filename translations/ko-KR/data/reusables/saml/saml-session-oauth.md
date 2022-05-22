@@ -1,0 +1,1 @@
+If you belong to any organizations that enforce SAML single sign-on, you may be prompted to authenticate through your identity provider before you can authorize an {% data variables.product.prodname_oauth_app %}. For more information about SAML, see "[About authentication with SAML single sign-on](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)."

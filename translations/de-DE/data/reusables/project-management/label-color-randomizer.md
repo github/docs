@@ -1,0 +1,1 @@
+1. Um optional die Farbe Deiner Kennzeichnungen anzupassen, bearbeite die hexadezimale Nummer oder klicke die Schaltfläche „refresh" (aktualisieren) für eine andere zufällige Auswahl. ![Auslösen einer neuen Kennzeichnungsfarbe-Aktualisierung](/assets/images/help/issues/issues-color-refresh.png)

@@ -1,13 +1,11 @@
 ---
 title: 发行说明
+intro: '{{ allVersions[currentVersion].versionTitle }}的发行说明。'
 layout: release-notes
 versions:
-  ghes: '*'
-  ghae: '*'
+  enterprise-server: '*'
 topics:
   - Enterprise
   - Upgrades
-redirect_from:
-  - /admin/overview/github-ae-release-notes
 ---
 

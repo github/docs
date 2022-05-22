@@ -1,13 +1,11 @@
 ---
 title: リリースノート
+intro: '{{ allVersions[currentVersion].versionTitle }} のリリースノートです。'
 layout: release-notes
 versions:
-  ghes: '*'
-  ghae: '*'
+  enterprise-server: '*'
 topics:
   - Enterprise
   - Upgrades
-redirect_from:
-  - /admin/overview/github-ae-release-notes
 ---
 

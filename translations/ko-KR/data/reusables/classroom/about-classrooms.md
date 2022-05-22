@@ -1,0 +1,1 @@
+A classroom in {% data variables.product.prodname_classroom %} is where teachers and students interact during a course. Teachers can create a student roster for the classroom, then create, assign, review, and grade assignments within the classroom.

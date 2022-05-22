@@ -1,0 +1,1 @@
+Si tu repositorio contiene código en varios lenguajes, puedes especificar aquellos que quieras analizar. Hay varias razones que por las cuales querrías prevenir que un lenguaje se analice. Por ejemplo, el proyecto puede tener dependencias en un lenguaje distinto al del cuerpo principal de tu código, y tal vez prefieras no ver las alertas para esas dependencias.

@@ -1,0 +1,1 @@
+Für weitere Informationen zu Open-Source, insbesondere zum Erstellen und Vergrößern eines Open-Source-Projekts, haben wir [Open-Source Leitfäden](https://opensource.guide/) erstellt, die Dir durch die Empfehlung von Best Practices für das Erstellen und Unterhalten von Repositorys helfen, eine gesunde Open-Source-Community zu pflegen.

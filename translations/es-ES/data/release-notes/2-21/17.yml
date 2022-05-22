@@ -1,0 +1,29 @@
+---
+date: '2021-03-23'
+intro: Se han desactivado las descargas debido a un error importante que afectó a varios clientes. Pronto tendremos una solución en el siguiente parche.
+sections:
+  security_fixes:
+    - '**ALTA:** Se identificó una vulnerabilidad de ejecución de código remoto en GitHub Enterprise Server, la cual pudo haberse aprovechado al crear un sitio de GitHub Pages. Las opciones de configuración controladas por el usuario que utilizan las GitHub Pages no se restringieron lo suficiente e hicieron posible que se ignoraran las variables de ambiente que llevaron a la ejecución de código en la instancia de GitHub Enterprise Server. Para aprovechar esta vulnerabilidad, un atacante necesitaría permisos para crear y compilar un sitio de GitHub pages en la instancia de GitHub Enterprise Server. Esta vulnerabilidad afectó a todas las versiones de GitHub Enterprise Server antes de la 3.0.3 y se arregló en la 3.0.3, 2.22.9, y 2.21.17. Esta vulnerabilidad se reportó a través del programa de Recompensas por Errores de GitHub y se le asignó un CVE-2021-22864.'
+    - Los paquetes se actualizaron a las últimas versiones de seguridad.
+  bugs:
+    - La ejecución de `ghe-cluster-config-init` no reconocía completamente el código de salida de los jobs en segundo plano que condujeron a un manejo inadecuado de las verificaciones previas al vuelo.
+  changes:
+    - Las bitácoras rotarán con base en su tamaño adicionalmente al tiempo.
+    - Utiliza una cantidad relativa para el `bootstrap_expect` cónsul y nómada, lo cual permitió que un clúster hiciera un arranque primario, incluso si un conjunto de nodos estaba fuera de servicio.
+  known_issues:
+    - En un GitHub Enterprise Server recién configurado sin usuarios, un atacante pudo crear el primer usuario administrador.
+    - Las reglas personalizadas del cortafuegos no se mantienen durante una mejora.
+    - Los archivos rastreados del LFS de Git que se [cargaron mediante la interface web](https://github.com/blog/2105-upload-files-to-your-repositories) se agregaron incorrecta y directamente al repositorio.
+    - Las propuestas no pudieron cerrarse si contenían un permalink a un blob en el mismo repositorio en donde la ruta de archvio era más grande a 255 caracteres.
+    - Cuando se habilita "Los usuarios pueden buscar en GitHub.com" con GitHub Connect, las propuestas en los repositorios privados e internos no se incluirán en los resultados de búsqueda de GitHub.com.
+    - Las alertas de seguridad no se reportan cuando se sube a un repositorio en la línea de comandos.
+    - |2
+      La rotación de bitácoras podrían fallar en señalizar los servicios para transicionar a archivos de bitácora nuevos, lo cual lleva a que los archivos de bitácora antiguos se sigan utilizando y a un agotamiento de espacio en el disco raíz eventuales.
+      Para remediar o prevenir este problema, ejecuta los siguientes comandos en el [shell administrativo](https://docs.github.com/en/enterprise-server/admin/configuration/accessing-the-administrative-shell-ssh) (SSH), o contacta al [Soporte de GitHub Enterprise](https://enterprise.githubsupport.com/hc/en-us) or [GitHub Premium Support](https://premium.githubsupport.com/) para recibir asistencia:
+
+      ```
+      printf "PATH=/usr/local/sbin:/usr/local/bin:/usr/local/share/enterprise:/usr/sbin:/usr/bin:/sbin:/bin\n29,59 * * * * root /usr/sbin/logrotate /etc/logrotate.conf\n" | sudo sponge /etc/cron.d/logrotate
+      sudo /usr/sbin/logrotate -f /etc/logrotate.conf
+      ```
+       
+      sections -> known_issues -> 6

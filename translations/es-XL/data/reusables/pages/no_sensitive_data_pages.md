@@ -1,0 +1,1 @@
+Los sitios {% data variables.product.prodname_pages %} no se deben usar para realizar transacciones que impliquen el envío de información confidencial como contraseñas o números de tarjeta de crédito.

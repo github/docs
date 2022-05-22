@@ -1,0 +1,1 @@
+1. Klicke in der linken Seitenleiste auf **Code scanning alerts** (Code-Scan-Warnungen). ![Registerkarte "Code scanning alerts" (Code-Scan-Warnungen)](/assets/images/help/repository/sidebar-code-scanning-alerts.png)

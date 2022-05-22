@@ -1,0 +1,1 @@
+1. 在“{% data variables.product.prodname_dotcom %} API URL”下，输入 {% if currentVersion == "free-pro-team@latest" %}https://api.github.com {% else %}用来访问 {% data variables.product.prodname_enterprise %} 的 URL{% endif %}。 ![{% data variables.product.prodname_enterprise %} API URL 字段](/assets/images/help/insights/enterprise-api-url.png)

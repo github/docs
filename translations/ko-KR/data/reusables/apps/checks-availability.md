@@ -1,0 +1,1 @@
+Write permission for the Checks API is only available to GitHub Apps. OAuth Apps and authenticated users can view check runs and check suites, but they are not able to create them. If you aren't building a GitHub App, you might be interested in the [Statuses API](/rest/reference/repos#statuses).

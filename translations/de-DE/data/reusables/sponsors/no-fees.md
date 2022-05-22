@@ -1,0 +1,1 @@
+{% data variables.product.prodname_sponsors %} erhebt keine Gebühren für das Sponsoring von Benutzerkonten, so dass 100% dieser Sponsorenbeiträge an den unterstützten Entwickler oder die unterstützte Organisation gehen. The 10% fee for sponsorships from organizations is waived during the beta.

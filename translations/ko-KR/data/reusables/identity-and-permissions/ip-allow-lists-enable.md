@@ -1,0 +1,1 @@
+To enforce the IP allow list, you must first add IP addresses to the list, then enable the IP allow list. You must add your current IP address, or a matching range, before you enable the IP allow list.

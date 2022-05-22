@@ -1,0 +1,1 @@
+1. Klicke unter Deinem Repository-Namen auf {% octicon "graph" aria-label="The bar graph icon" %} **Insights** (Einblicke). ![Registerkarte „Insights" (Einblicke) auf der Navigationsleiste des Haupt-Repository](/assets/images/help/repository/repo-nav-insights-tab.png)

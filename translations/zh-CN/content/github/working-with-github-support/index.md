@@ -4,8 +4,7 @@ redirect_from:
   - /categories/working-with-github-support
   - /forum
 versions:
-  fpt: '*'
-  ghec: '*'
+  free-pro-team: '*'
 topics:
   - Jobs
 children:
@@ -14,6 +13,5 @@ children:
   - /about-github-premium-support-for-github-enterprise-cloud
   - /github-marketplace-support
   - /submitting-a-ticket
-shortTitle: GitHub 支持
 ---
-
+### 目录

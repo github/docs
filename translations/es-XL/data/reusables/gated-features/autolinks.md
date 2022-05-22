@@ -1,0 +1,1 @@
+Los autoenlaces se encuentran disponibles en repositorios con {% data variables.product.prodname_pro %}, {% data variables.product.prodname_team %}, {% data variables.product.prodname_ghe_cloud %}, y {% data variables.product.prodname_ghe_server %}. {% if currentVersion == "free-pro-team@latest" %}{% data reusables.gated-features.more-info %}{% endif %}

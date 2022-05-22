@@ -4,8 +4,7 @@ intro: 'You can customize and extend your {% data variables.product.product_name
 redirect_from:
   - /articles/exploring-integrations
 versions:
-  fpt: '*'
-  ghec: '*'
+  free-pro-team: '*'
 children:
   - /about-integrations
   - /about-github-marketplace

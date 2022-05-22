@@ -1,0 +1,1 @@
+For example, you can allow access from only the IP address of your office network. The allow list for IP addresses will block access via the web, API, and Git from any IP addresses that are not on the allow list.

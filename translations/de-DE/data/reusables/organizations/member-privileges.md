@@ -1,0 +1,1 @@
+4. Klicke in der linken Seitenleiste auf **Member privileges** (Mitgliederberechtigungen). ![Mitgliederberechtigungsoption in den Organisationseinstellungen](/assets/images/help/organizations/org-settings-member-privileges.png)

@@ -1,0 +1,1 @@
+You can sponsor anyone with a sponsored developer profile or sponsored organization profile on behalf of your user account or an organization. You can choose from multiple sponsorship tiers, with one-time or monthly payment amounts and benefits that are set by the sponsored account. Your sponsorship will share your account's existing billing date, payment method, and receipt.

@@ -1,0 +1,1 @@
+Wenn ein Pull Request seit seinem letzten Review geändert wurde und die Person, welche die Änderungen angefordert hat, nicht verfügbar ist, um den Review zu genehmigen, kann ein Review durch Repository-Administratoren oder durch Personen verworfen werden, die über Schreibzugriff verfügen.

@@ -1,6 +1,0 @@
----
-#Reference: #5199.
-#Documentation for the Command palette.
-versions:
-  fpt: '*'
-  ghec: '*'

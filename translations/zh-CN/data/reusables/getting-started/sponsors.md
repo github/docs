@@ -1,1 +1,0 @@
-{% data variables.product.prodname_sponsors %} allows you to make a monthly recurring payment to a developer or organization who designs, creates, or maintains open source projects you depend on. 更多信息请参阅“[关于 {% data variables.product.prodname_sponsors %}](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)”。

@@ -1,0 +1,1 @@
+1. Gib im unteren Bereich der Liste der Änderungen im Feld „Summary“ (Übersicht) eine kurze, aussagekräftige Commit-Mitteilung ein. Optional kannst Du im Feld „Description“ (Beschreibung) weitere Informationen zur Änderung hinzufügen.

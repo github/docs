@@ -1,0 +1,409 @@
+---
+- 
+  title: Audit log
+  description: このプレビューは、Audit logのエントリの読み取りのサポートを追加します。
+  toggled_by: ':audit-log-preview'
+  announcement: null
+  updates: null
+  toggled_on:
+    - AccountPlanChangeAuditEntry.actorLocation
+    - BusinessAddOrganizationAuditEntry.actorLocation
+    - IssueCommentUpdateAuditEntry.actorLocation
+    - OauthApplicationDestroyAuditEntry.actorLocation
+    - OauthApplicationResetSecretAuditEntry.actorLocation
+    - OauthApplicationRevokeTokensAuditEntry.actorLocation
+    - OauthApplicationTransferAuditEntry.actorLocation
+    - OrgAcceptBusinessInvitationAuditEntry.actorLocation
+    - Organization.auditLog
+    - OrgAuditLogExportAuditEntry.actorLocation
+    - OrgBillingSignupErrorAuditEntry.actorLocation
+    - OrgCancelBusinessInvitationAuditEntry.actorLocation
+    - OrgCancelInvitationAuditEntry.actorLocation
+    - OrgConfigDisableContributorsOnlyAuditEntry.actorLocation
+    - OrgConfigDisableSockpuppetDisallowedAuditEntry.actorLocation
+    - OrgConfigEnableContributorsOnlyAuditEntry.actorLocation
+    - OrgConfigEnableSockpuppetDisallowedAuditEntry.actorLocation
+    - OrgCreateAuditEntry.actorLocation
+    - OrgRenameAuditEntry.actorLocation
+    - PrivateRepositoryForkingClearAuditEntry.actorLocation
+    - ProjectCreateAuditEntry.actorLocation
+    - RepoAddTopicAuditEntry.actorLocation
+    - RepoArchivedAuditEntry.actorLocation
+    - RepoChangeMergeSettingAuditEntry.actorLocation
+    - RepoCreateAuditEntry.actorLocation
+    - RepoDestroyAuditEntry.actorLocation
+    - RepoDisableAuditEntry.actorLocation
+    - RepoEnableAuditEntry.actorLocation
+    - RepoPagesCnameAuditEntry.actorLocation
+    - RepoPagesCreateAuditEntry.actorLocation
+    - RepoPagesDestroyAuditEntry.actorLocation
+    - RepoPagesHttpsRedirectDisabledAuditEntry.actorLocation
+    - RepoPagesHttpsRedirectEnabledAuditEntry.actorLocation
+    - RepoPagesSourceAuditEntry.actorLocation
+    - RepoRemoveTopicAuditEntry.actorLocation
+    - RepoRenameAuditEntry.actorLocation
+    - RepositoryVisibilityChangeClearAuditEntry.actorLocation
+    - RepoTransferAuditEntry.actorLocation
+    - RepoTransferStartAuditEntry.actorLocation
+    - RepoUnarchivedAuditEntry.actorLocation
+    - RepoUpdateMemberAuditEntry.actorLocation
+    - TeamChangePrivacyAuditEntry.actorLocation
+    - TeamCreateAuditEntry.actorLocation
+    - TeamDeleteAuditEntry.actorLocation
+    - TeamDestroyAuditEntry.actorLocation
+    - TeamRenameAuditEntry.actorLocation
+    - TeamUpdatePermissionAuditEntry.actorLocation
+    - TeamUpdateRepositoryPermissionAuditEntry.actorLocation
+    - UserAddEmailAuditEntry.actorLocation
+    - UserStatusUpdateAuditEntry.actorLocation
+    - AuditEntryActor
+    - OrganizationAuditEntry
+    - OrgRestoreMemberAuditEntryMembership
+    - AuditLogOrder
+    - AuditEntry
+    - EnterpriseAuditEntryData
+    - OauthApplicationAuditEntryData
+    - OrganizationAuditEntryData
+    - RepositoryAuditEntryData
+    - TeamAuditEntryData
+    - ActorLocation
+    - MembersCanDeleteReposClearAuditEntry
+    - MembersCanDeleteReposDisableAuditEntry
+    - MembersCanDeleteReposEnableAuditEntry
+    - OauthApplicationCreateAuditEntry
+    - OrgAddBillingManagerAuditEntry
+    - OrgAddMemberAuditEntry
+    - OrgBlockUserAuditEntry
+    - OrgConfigDisableCollaboratorsOnlyAuditEntry
+    - OrgConfigEnableCollaboratorsOnlyAuditEntry
+    - OrgDisableOauthAppRestrictionsAuditEntry
+    - OrgDisableSamlAuditEntry
+    - OrgDisableTwoFactorRequirementAuditEntry
+    - OrgEnableOauthAppRestrictionsAuditEntry
+    - OrgEnableSamlAuditEntry
+    - OrgEnableTwoFactorRequirementAuditEntry
+    - OrgInviteMemberAuditEntry
+    - OrgInviteToBusinessAuditEntry
+    - OrgOauthAppAccessApprovedAuditEntry
+    - OrgOauthAppAccessDeniedAuditEntry
+    - OrgOauthAppAccessRequestedAuditEntry
+    - OrgRemoveBillingManagerAuditEntry
+    - OrgRemoveMemberAuditEntry
+    - OrgRemoveOutsideCollaboratorAuditEntry
+    - OrgRestoreMemberAuditEntry
+    - OrgRestoreMemberMembershipOrganizationAuditEntryData
+    - OrgRestoreMemberMembershipRepositoryAuditEntryData
+    - OrgRestoreMemberMembershipTeamAuditEntryData
+    - OrgUnblockUserAuditEntry
+    - OrgUpdateDefaultRepositoryPermissionAuditEntry
+    - OrgUpdateMemberAuditEntry
+    - OrgUpdateMemberRepositoryCreationPermissionAuditEntry
+    - OrgUpdateMemberRepositoryInvitationPermissionAuditEntry
+    - PrivateRepositoryForkingDisableAuditEntry
+    - PrivateRepositoryForkingEnableAuditEntry
+    - RepoAccessAuditEntry
+    - RepoAddMemberAuditEntry
+    - RepoConfigDisableAnonymousGitAccessAuditEntry
+    - RepoConfigDisableCollaboratorsOnlyAuditEntry
+    - RepoConfigDisableContributorsOnlyAuditEntry
+    - RepoConfigDisableSockpuppetDisallowedAuditEntry
+    - RepoConfigEnableAnonymousGitAccessAuditEntry
+    - RepoConfigEnableCollaboratorsOnlyAuditEntry
+    - RepoConfigEnableContributorsOnlyAuditEntry
+    - RepoConfigEnableSockpuppetDisallowedAuditEntry
+    - RepoConfigLockAnonymousGitAccessAuditEntry
+    - RepoConfigUnlockAnonymousGitAccessAuditEntry
+    - RepoRemoveMemberAuditEntry
+    - RepositoryVisibilityChangeDisableAuditEntry
+    - RepositoryVisibilityChangeEnableAuditEntry
+    - TeamAddMemberAuditEntry
+    - TeamAddRepositoryAuditEntry
+    - TeamChangeParentTeamAuditEntry
+    - TeamRemoveMemberAuditEntry
+    - TeamRemoveRepositoryAuditEntry
+    - AuditLogOrderField
+    - OauthApplicationCreateAuditEntryState
+    - OauthApplicationRevokeTokensAuditEntryState
+    - OrgAddMemberAuditEntryPermission
+    - OrgRemoveBillingManagerAuditEntryReason
+    - OrgRemoveMemberAuditEntryMembershipType
+    - OrgRemoveMemberAuditEntryReason
+    - OrgRemoveOutsideCollaboratorAuditEntryMembershipType
+    - OrgRemoveOutsideCollaboratorAuditEntryReason
+    - OrgUpdateDefaultRepositoryPermissionAuditEntryPermission
+    - OrgUpdateMemberAuditEntryPermission
+    - OrgUpdateMemberRepositoryCreationPermissionAuditEntryVisibility
+    - RepoAccessAuditEntryVisibility
+    - RepoAddMemberAuditEntryVisibility
+    - RepoRemoveMemberAuditEntryVisibility
+    - PreciseDateTime
+  owning_teams:
+    - '@github/audit-log'
+- 
+  title: デプロイメント
+  description: >-
+    このプレビューは、デプロイメントのミューテーションと新しいデプロイメントの機能を追加します。
+  toggled_by: ':flash-preview'
+  announcement: null
+  updates: null
+  toggled_on:
+    - DeploymentStatus.environment
+    - Mutation.createDeploymentStatus
+    - CreateDeploymentStatusInput
+    - CreateDeploymentStatusPayload
+    - Mutation.createDeployment
+    - CreateDeploymentInput
+    - CreateDeploymentPayload
+  owning_teams:
+    - '@github/ecosystem-api'
+- 
+  title: ドラフトプルリクエストのプレビュー
+  description: このプレビューは、ドラフトプルリクエストのサポートを追加します。
+  toggled_by: ':shadow-cat-preview'
+  announcement: null
+  updates: null
+  toggled_on:
+    - Mutation.markPullRequestReadyForReview
+    - CreatePullRequestInput.draft
+    - PullRequest.isDraft
+    - MarkPullRequestReadyForReviewInput
+    - MarkPullRequestReadyForReviewPayload
+  owning_teams:
+    - '@github/pe-pull-requests'
+- 
+  title: チェック
+  description: このプレビューは、GitHub Appsによって作成された読み取りチェックのサポートを追加します。
+  toggled_by: ':antiope-preview'
+  announcement: null
+  updates: null
+  toggled_on:
+    - CheckAnnotationRange
+    - CheckAnnotationPosition
+    - CheckAnnotationSpan
+    - CheckAnnotation
+    - CheckAnnotationConnection.nodes
+    - CheckAnnotationData
+    - CheckAnnotationEdge.node
+    - CheckAnnotationLevel
+    - CheckConclusionState
+    - CheckStatusState
+    - CheckSuiteAutoTriggerPreference
+    - CheckRun
+    - CheckRunConnection.nodes
+    - CheckRunEdge.node
+    - CheckRunAction
+    - CheckRunFilter
+    - CheckRunOutput
+    - CheckRunOutputImage
+    - CheckRunType
+    - CheckSuite
+    - CheckSuiteConnection.nodes
+    - CheckSuiteEdge.node
+    - CheckSuiteFilter
+    - CreateCheckRunInput
+    - CreateCheckRunPayload
+    - CreateCheckSuiteInput
+    - CreateCheckSuitePayload
+    - Commit.checkSuites
+    - Mutation.createCheckRun
+    - Mutation.createCheckSuite
+    - Mutation.rerequestCheckSuite
+    - Mutation.updateCheckRun
+    - Mutation.updateCheckSuitePreferences
+    - Push
+    - RequestableCheckStatusState
+    - RerequestCheckSuiteInput
+    - RerequestCheckSuitePayload
+    - UpdateCheckRunInput
+    - UpdateCheckRunPayload
+    - UpdateCheckSuitePayload.checkSuite
+    - UpdateCheckSuitePreferencesInput
+    - UpdateCheckSuitePreferencesPayload
+  owning_teams:
+    - '@github/ecosystem-primitives'
+- 
+  title: Team ディスカッション
+  description: Team内でのディスカッションの読み取りと管理のサポートを追加します。
+  toggled_by: ':echo-preview'
+  announcement: null
+  updates: null
+  toggled_on:
+    - CreateTeamDiscussionCommentInput
+    - CreateTeamDiscussionCommentPayload
+    - CreateTeamDiscussionInput
+    - CreateTeamDiscussionPayload
+    - DeleteTeamDiscussionCommentInput
+    - DeleteTeamDiscussionCommentPayload
+    - DeleteTeamDiscussionInput
+    - DeleteTeamDiscussionPayload
+    - Mutation.createTeamDiscussion
+    - Mutation.createTeamDiscussionComment
+    - Mutation.deleteTeamDiscussion
+    - Mutation.deleteTeamDiscussionComment
+    - Mutation.updateTeamDiscussion
+    - Mutation.updateTeamDiscussionComment
+    - Team.discussion
+    - Team.discussions
+    - Team.discussionsResourcePath
+    - Team.discussionsUrl
+    - TeamDiscussion
+    - TeamDiscussionComment
+    - TeamDiscussionCommentConnection
+    - TeamDiscussionCommentEdge
+    - TeamDiscussionCommentOrder
+    - TeamDiscussionCommentOrderField
+    - TeamDiscussionConnection
+    - TeamDiscussionEdge
+    - TeamDiscussionOrder
+    - TeamDiscussionOrderField
+    - UpdateTeamDiscussionCommentInput
+    - UpdateTeamDiscussionCommentPayload
+    - UpdateTeamDiscussionInput
+    - UpdateTeamDiscussionPayload
+  owning_teams:
+    - '@github/identity'
+- 
+  title: ホバーカード
+  description: このプレビューは、ホバーカードのコンテキストデータの読み取りのサポートを追加します。
+  toggled_by: ':hagar-preview'
+  announcement: null
+  updates: null
+  toggled_on:
+    - Issue.hovercard
+    - PullRequest.hovercard
+    - User.hovercard
+    - HovercardContext
+    - GenericHovercardContext
+    - ホバーカード
+    - OrganizationTeamsHovercardContext
+    - OrganizationsHovercardContext
+    - ReviewStatusHovercardContext
+    - ViewerHovercardContext
+  owning_teams:
+    - '@github/identity'
+- 
+  title: >-
+    MergeInfoPreview - プルリクエストのマージ状態に関する詳細な情報。
+  description: >-
+    このプレビューは、プルリクエストのマージ状態に関する詳細な情報を提供するフィールドへのアクセスのサポートを追加します。
+  toggled_by: ':merge-info-preview'
+  announcement: null
+  updates: null
+  toggled_on:
+    - PullRequest.canBeRebased
+    - PullRequest.mergeStateStatus
+  owning_teams:
+    - '@github/pe-pull-requests'
+- 
+  title: リポジトリ脆弱性アラート
+  description: このプレビューは、リポジトリの脆弱性アラートの表示のサポートを追加します。
+  toggled_by: ':vixen-preview'
+  announcement: null
+  updates: null
+  toggled_on:
+    - RepositoryVulnerabilityAlert
+    - Repository.vulnerabilityAlerts
+    - RepositoryVulnerabilityAlertConnection
+    - RepositoryVulnerabilityAlertEdge
+  owning_teams:
+    - '@github/ee-security-workflows'
+- 
+  title: プライベートリポジトリのためのテンポラリクローントークン
+  description: >-
+    このプレビューは、プライベートリポジトリのクローンのためのテンポラリトークンフィールドへのアクセスのサポートを追加します。
+  toggled_by: ':daredevil-preview'
+  announcement: null
+  updates: null
+  toggled_on:
+    - Repository.tempCloneToken
+  owning_teams:
+    - '@github/experience-engineering-work'
+- 
+  title: プロジェクトイベントの詳細
+  description: >-
+    このプレビューは、プロジェクト関連のIssueイベントに対し、プロジェクト、プロジェクトカード、プロジェクト列の詳細を追加します。
+  toggled_by: ':starfox-preview'
+  announcement: null
+  updates: null
+  toggled_on:
+    - AddedToProjectEvent.project
+    - AddedToProjectEvent.projectCard
+    - AddedToProjectEvent.projectColumnName
+    - ConvertedNoteToIssueEvent.project
+    - ConvertedNoteToIssueEvent.projectCard
+    - ConvertedNoteToIssueEvent.projectColumnName
+    - MovedColumnsInProjectEvent.project
+    - MovedColumnsInProjectEvent.projectCard
+    - MovedColumnsInProjectEvent.projectColumnName
+    - MovedColumnsInProjectEvent.previousProjectColumnName
+    - RemovedFromProjectEvent.project
+    - RemovedFromProjectEvent.projectColumnName
+  owning_teams:
+    - '@github/github-projects'
+- 
+  title: コメントプレビューの最小化
+  description: >-
+    このプレビューは、Issue、プルリクエスト、コミット、Gistに対するコメントの最小化のサポートを追加します。
+  toggled_by: ':queen-beryl-preview'
+  announcement: null
+  updates: null
+  toggled_on:
+    - Mutation.minimizeComment
+    - Mutation.unminimizeComment
+    - Minimizable
+  owning_teams:
+    - '@github/ce-community-and-safety'
+- 
+  title: コンテンツ添付ファイルの作成
+  description: このプレビューは、コンテンツ添付ファイルの作成のサポートを追加します。
+  toggled_by: ':corsair-preview'
+  announcement: null
+  updates: null
+  toggled_on:
+    - Mutation.createContentAttachment
+  owning_teams:
+    - '@github/ecosystem-primitives'
+- 
+  title: ピン止めされたIssueのプレビュー
+  description: このプレビューは、ピン止めされたIssueのサポートを追加します。
+  toggled_by: ':elektra-preview'
+  announcement: null
+  updates: null
+  toggled_on:
+    - Repository.pinnedIssues
+    - PinnedIssue
+    - PinnedIssueEdge
+    - PinnedIssueConnection
+    - Mutation.pinIssue
+    - Mutation.unpinIssue
+  owning_teams:
+    - '@github/pe-pull-requests'
+- 
+  title: ラベルのプレビュー
+  description: >-
+    このプレビューは、ラベルの追加、更新、作成、削除のサポートを追加します。
+  toggled_by: ':bane-preview'
+  announcement: null
+  updates: null
+  toggled_on:
+    - Mutation.createLabel
+    - CreateLabelPayload
+    - CreateLabelInput
+    - Mutation.deleteLabel
+    - DeleteLabelPayload
+    - DeleteLabelInput
+    - Mutation.updateLabel
+    - UpdateLabelPayload
+    - UpdateLabelInput
+  owning_teams:
+    - '@github/pe-pull-requests'
+- 
+  title: プロジェクトのインポート
+  description: このプレビューは、プロジェクトのインポートのサポートを追加します。
+  toggled_by: ':slothette-preview'
+  announcement: null
+  updates: null
+  toggled_on:
+    - Mutation.importProject
+  owning_teams:
+    - '@github/pe-issues-projects'

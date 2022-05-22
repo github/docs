@@ -1,0 +1,120 @@
+---
+header:
+  github_docs: GitHub Docs
+  contact: Contacto
+  notices:
+    ghe_release_candidate: GitHub Enterprise Server 2.22 is currently under limited release as a release candidate.
+    localization_complete: Frecuentemente publicamos actualizaciones de nuestra documentación. Es posible que la traducción de esta página esté en curso. Para conocer la información más actual, visita la <a id="to-english-doc" href="/en">documentación en inglés</a>. Si existe un problema con las traducciones en esta página, por favor <a href="https://github.com/contact?form[subject]=translation%20issue%20on%20docs.github.com&form[comments]=">infórmanos</a>.
+    localization_in_progress: '¡Hola, explorador! Esta página está bajo desarrollo activo o todavía está en la etapa de traducción. Para obtener información más actualizada y precisa, visita nuestra <a id="to-english-doc" href="/en">documentación en inglés</a>.'
+    product_in_progress: '👋 ¡Hola, explorador! Esta página está en desarrollo activo. Para la información más actualizada y precisa, por favor visita nuestra <a href="https://developer.github.com">documentación del desarrollador</a>.'
+search:
+  need_help: '¿Necesitas ayuda?'
+  placeholder: Busca temas, productos...
+homepage:
+  explore_by_product: Explorar por producto
+  version_picker: Versión
+toc:
+  getting_started: Empezar
+  popular_articles: Artículos populares
+  guides: Guías
+pages:
+  article_version: "Versión del artículo:"
+  miniToc: En este artículo
+errors:
+  oops: '¡Ups!'
+  something_went_wrong: Parece que algo salió mal.
+  we_track_errors: Realizamos el seguimiento de estos errores automáticamente, pero si el problema continúa, no dudes en contactarnos.
+  page_doesnt_exist: Al parecer, esta página no existe.
+support:
+  still_need_help: Still need help?
+  contact_support: Contactar con soporte técnico
+  ask_community: Ask the GitHub community
+helpfulness:
+  able_to_find: '¿Te ayudó este documento?'
+  yes: true
+  no: false
+  yes_feedback: '¿Quieres saber sobre las características y actualizaciónes de los documentos nuevos? ¡Regístrate para recibir actualizaciones!'
+  email_placeholder: email@ejemplo.com
+  no_feedback: Estamos mejorando nuestros documentos constantemente. Nos encantaría saber cómo crees que podemos hacerlo aún mejor.
+  category_label: '¿Qué problema tuviste?'
+  category_default: Elige una opción
+  category_unclear: La información no estaba clara
+  category_confusing: El contenido era confuso
+  category_unhelpful: El artículo no respondió a mi pregunta
+  category_other: Otro
+  comment_label: Déjanos saber lo que podemos mejorar
+  optional: Opcional
+  required: Requerido
+  email_label: '¿Podemos contactarte si tenemos más preguntas?'
+  send: Enviar
+  feedback: '¡Gracias! Tu retroalimentación se ha emitido.'
+contribution_cta:
+  title: Help us make these docs great!
+  body: All GitHub docs are open source. See something that's wrong or unclear? Submit a pull request.
+  button: Make a contribution
+  or: O,
+  to_guidelines: learn how to contribute.
+products:
+  graphql:
+    reference:
+      fields: Campos
+      arguments: Argumentos
+      name: Nombre
+      type: Tipo
+      description: Descripción
+      input_fields: Campos de entrada
+      return_fields: Campos de retorno
+      implemented_by: Implementado por
+      values: Valores
+      possible_types: Tipos posibles
+      preview_notice: Aviso de previsualización
+      deprecation_notice: Aviso de depreciación
+  rest:
+    reference:
+      parameters: Parámetros
+      response: Respuesta
+      code_sample: Ejemplo de código
+      code_samples: Ejemplos de código
+      preview_notice: Aviso de previsualización
+      preview_notices: Avisos de previsualización
+      see_preview_notice: Ver aviso de previsualización
+      see_preview_notices: Ver avisos de previsualización
+      preview_header_is_required: El encabezado es <strong>requerido</strong>
+footer:
+  all_rights_reserved: Todos los derechos reservados
+  terms: Términos
+  privacy: Privacidad
+  security: Seguridad
+  product:
+    heading: Producto
+    links:
+      features: Características
+      security: Seguridad
+      enterprise: Empresa
+      case_studies: Estudios de caso
+      pricing: Precios
+      resources: Recursos
+  platform:
+    heading: Plataforma
+    links:
+      developer_api: API de desarrollo
+      partners: Socios
+      atom: Atom
+      electron: Electron
+      github_desktop: GitHub Desktop
+  support:
+    heading: Asistencia
+    links:
+      help: Ayuda
+      community_forum: Foro de la comunidad
+      training: Capacitación
+      status: Estado
+      contact_github: Ponte en contacto con GitHub
+  company:
+    heading: Empresa
+    links:
+      about: Acerca de
+      blog: Blog
+      careers: Carreras
+      press: Prensa
+      shop: Tienda

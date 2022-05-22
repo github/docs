@@ -1,18 +1,16 @@
 ---
-title: Ejemplo de flujos de trabajo para publicar un paquete
-intro: 'Para ayudarte a iniciar con tus propios flujos de trabajo personalizados, revisa algunos flujos de trabajo de ejemplo para publicar paquetes.'
+title: Example workflows for publishing a package
+intro: 'To help you get started with your own custom workflows, review some example workflows for publishing packages.'
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
-shortTitle: Flujos de trabajo de ejemplo
+  free-pro-team: '*'
+  enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
 {% data reusables.package_registry.packages-ghae-release-stage %}
 
-Puedes encontrar flujos de trabajo de ejemplo en la sección "[Publicar e instalar un paquete con {% data variables.product.prodname_actions %}](/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions)" o en cualquiera de estas guías de {% data variables.product.prodname_actions %}:
+You can find example workflows in "[Publishing and installing a package with {% data variables.product.prodname_actions %}](/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions)" or in any of these {% data variables.product.prodname_actions %} guides:
 
   - [Publicar paquetes Node.js](/actions/guides/publishing-nodejs-packages)
   - [Publicar imágenes de Docker](/actions/guides/publishing-docker-images)

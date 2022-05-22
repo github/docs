@@ -1,0 +1,1 @@
+You can also use {% data variables.product.prodname_enterprise_api %} to manage global webhooks. For a complete list of actions, see "[Global webhooks](/rest/reference/enterprise-admin#global-webhooks)."

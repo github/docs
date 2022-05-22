@@ -1,3 +1,0 @@
-Te recomendamos proporcionar una cantidad limitada de miembros en cada organización y rol de propietario de organización, lo cual proporciona acceso administrativo completo para ellas. For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
-
-En el caso de las organizaciones en donde tienes permisos administrativos, también puedes personalizar el acceso a cada repositorio con niveles de permiso granulares. Para obtener más información, consulta la sección "[Niveles de permisos del repositorio para una organización](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization)".

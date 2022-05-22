@@ -1,0 +1,1 @@
+Wenn mehr als eine Standardeinstellung mit dem gleichen Namen definiert ist, verwendet {% data variables.product.prodname_dotcom %} die spezifischste Standardeinstellung. Beispielsweise wird eine in einem Auftrag definierte Standardeinstellung die gleichnamig definierte Standardeinstellung in einem Workflow überschreiben.

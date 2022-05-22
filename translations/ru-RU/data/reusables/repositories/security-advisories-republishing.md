@@ -1,0 +1,1 @@
+You can also use {% data variables.product.prodname_security_advisories %} to republish the details of a security vulnerability that you have already disclosed elsewhere by copying and pasting the details of the vulnerability into a new security advisory.

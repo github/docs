@@ -1,0 +1,3 @@
+Wenn Du unsicher bist, ob {% data variables.product.prodname_ghe_server %}, {% data variables.product.prodname_ghe_cloud %} oder sogar beide für Deine Organisation am besten sind, kontaktiere Dein {% data variables.contact.contact_enterprise_sales %}-Vertriebsteam.
+
+Für Organisationen mit 12 oder mehr Entwicklern empfiehlt sich in der Regel {% data variables.product.prodname_enterprise %}. Wenn Deine Organisation weniger als 12 Entwickler hat, erwäge den Einsatz von {% data variables.product.prodname_team %}. Weitere Informationen findest Du unter „<a href="/articles/githubs-products/" class="dotcom-only">{% data variables.product.prodname_dotcom %}-Produkte</a>“.

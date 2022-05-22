@@ -1,0 +1,7 @@
+Wenn Du die Option **Rebase and merge** (Rebase und Merge) für einen Pull Request auf {% data variables.product.product_location %} auswählst, werden alle Commits vom Themen-Branch (oder Head-Branch) ohne einen Merge-Commit einzeln auf dem Basisbranch hinzugefügt. Pull Requests mit Rebased-Commits werden mithilfe der [Fast-Forward-Option](https://git-scm.com/docs/git-merge#_fast_forward_merge) zusammengeführt.
+
+Für das Rebasing und Mergen von Pull Requests musst Du im Repository über [Schreibberechtigungen](/articles/repository-permission-levels-for-an-organization/) verfügen. Zudem muss das Repository [Rebase-Merging zulassen](/articles/configuring-commit-rebasing-for-pull-requests/).
+
+Das Rebase- und Merge-Verhalten auf {% data variables.product.product_name %} weicht etwas von `git rebase` ab. Rebase und Merge auf {% data variables.product.prodname_dotcom %} aktualisiert jederzeit die Informationen zum Beitragenden und erstellt neue Commit-SHAs. Demgegenüber ändert `git rebase` außerhalb von {% data variables.product.prodname_dotcom %} nicht die Informationen zum Beitragenden, wenn das Rebasing zusätzlich zu einem Vorgänger-Commit erfolgt. For more information about `git rebase`, see [the official Git documentation](https://git-scm.com/docs/git-rebase).
+
+Eine visuelle Darstellung von `git rebase` findest Du im [Kapitel „Git-Branching - Rebasing“ im _Pro Git_-Buch](https://git-scm.com/book/en/Git-Branching-Rebasing).

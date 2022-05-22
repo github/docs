@@ -3,10 +3,9 @@ title: Referência
 shortTitle: Referência
 intro: Veja documentação de referência para aprender os recursos disponíveis na API REST do GitHub.
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - API
 children:
@@ -17,7 +16,6 @@ children:
   - /checks
   - /codes-of-conduct
   - /code-scanning
-  - /codespaces
   - /emojis
   - /enterprise-admin
   - /gists
@@ -44,4 +42,4 @@ children:
   - /users
   - /permissions-required-for-github-apps
 ---
-
+### Índice

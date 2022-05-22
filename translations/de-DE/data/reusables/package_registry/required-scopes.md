@@ -1,0 +1,1 @@
+Du musst ein persönliches Zugriffstoken mit dem entsprechenden Geltungsbereich verwenden, um Pakete in {% data variables.product.prodname_registry %} zu veröffentlichen und zu installieren. Weitere Informationen findest Du unter „[Über {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-github-packages#authenticating-to-github-packages)."

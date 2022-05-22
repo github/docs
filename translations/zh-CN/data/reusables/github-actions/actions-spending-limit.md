@@ -1,0 +1,1 @@
+默认情况下，您的帐户支出限额为 0 美元，这将防止您在达到这些限额后额外使用记录或存储。 如果您的支出限额高于默认的 0 美元，您将要对超过限额的任何记录或存储付费，也称为超限费用。 {% data variables.product.prodname_dotcom %} 向拥有其中运行工作流程的仓库的帐户收取使用费。 您帐户中的任何优惠券都不适用于 {% data variables.product.prodname_actions %} 超额费用。

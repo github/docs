@@ -1,0 +1,1 @@
+Represents an attempted build of a {% data variables.product.prodname_pages %} site, whether successful or not. A push to a {% data variables.product.prodname_pages %} enabled branch (`gh-pages` for project pages, the default branch for user and organization pages) triggers this event.

@@ -1,0 +1,1 @@
+Wenn Du die Zahlungsmethode für das {% data variables.product.prodname_dotcom %}-Abonnement Deines Kontos aktualisierst, wird Deine neue Zahlungsmethode automatisch zu Deinen anderen Abonnements für bezahlte Produkte hinzugefügt.

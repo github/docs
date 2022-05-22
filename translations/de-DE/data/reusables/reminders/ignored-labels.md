@@ -1,0 +1,1 @@
+1. Gib unter "Ignored labels" (Ignorierte Kennzeichnungen) eine Komma-getrennte Liste von Bezeichnungen ein. Geplante Erinnerungen werden keine Pull Requests beinhalten, welche eine oder mehrere dieser Kennzeichnungen haben. ![Feld „Ignored labels" (Ignorierte Kennzeichnungen)](/assets/images/help/settings/scheduled-reminders-ignored-labels-field.png)

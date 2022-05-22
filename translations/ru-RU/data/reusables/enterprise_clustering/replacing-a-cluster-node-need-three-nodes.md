@@ -1,0 +1,1 @@
+1. If you're taking a node offline that has `git-server = true` set in cluster.conf, evacuate the node. For more information, see "[Evacuating a cluster node](/enterprise/{{ currentVersion }}/admin/clustering/evacuating-a-cluster-node)."

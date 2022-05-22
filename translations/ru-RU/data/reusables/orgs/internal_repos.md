@@ -1,0 +1,1 @@
+If your organization is associated with an enterprise account using {% data variables.product.prodname_ghe_cloud %} or {% data variables.product.prodname_ghe_server %} 2.20+, `visibility` can also be `internal`.

@@ -1,0 +1,1 @@
+Before you can create your site, you must have a repository for your site on {% data variables.product.product_name %}. If you're not creating your site in an existing repository, see "[Creating a repository for your site](#creating-a-repository-for-your-site)."

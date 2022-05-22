@@ -6,14 +6,13 @@ redirect_from:
   - /enterprise/admin/user-management/importing-data-from-third-party-version-control-systems
   - /admin/user-management/importing-data-from-third-party-version-control-systems
 versions:
-  ghes: '*'
+  enterprise-server: '*'
 type: how_to
 topics:
   - Enterprise
   - Migration
-shortTitle: Import from another VCS
 ---
-## Importing projects from Mercurial
+### Importing projects from Mercurial
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 2. Make a raw clone of the project using the command below, specifying the URL of the source project, and a path to a temporary repository:
@@ -33,7 +32,7 @@ shortTitle: Import from another VCS
   $ git push --mirror <em>PUSH-URL-ON-GITHUB-ENTERPRISE</em>
   ```
 
-## Importing projects from Subversion
+### Importing projects from Subversion
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 2. Make a raw clone of the project using the command below, specifying the URL of the source project, and a path to a temporary repository:
@@ -53,7 +52,7 @@ shortTitle: Import from another VCS
   $ git push --mirror <em>PUSH-URL-ON-GITHUB-ENTERPRISE</em>
   ```
 
-## Importing projects from Team Foundation Version Control
+### Importing projects from Team Foundation Version Control
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 2. Make a raw clone of the project using the command below, specifying the URL of the source project, and a path to a temporary repository:
@@ -73,6 +72,6 @@ shortTitle: Import from another VCS
   $ git push --mirror <em>PUSH-URL-ON-GITHUB-ENTERPRISE</em>
   ```
 
-## Further reading
+### Further reading
 
 - "[Command-line-utilities](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities/#import-and-export)"

@@ -1,1 +1,0 @@
-1. Under "Monthly spending limit", scroll down to "Actions & Packages" and choose to limit spending or allow unlimited spending. ![料金を制限するか、無制限にするかのラジオボタン](/assets/images/help/billing/limit-or-unlimited.png)

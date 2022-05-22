@@ -1,0 +1,1 @@
+6. Opcionalmente, Si estás creando un [equipo hijo](/articles/about-teams#nested-teams), utiliza el menú desplegable para escoger un equipo padre para tu nuevo equipo. ![Menú desplegable listando los equipos existentes de la organización](/assets/images/help/teams/choose-parent-team.png)

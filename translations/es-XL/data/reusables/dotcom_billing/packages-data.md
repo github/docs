@@ -1,0 +1,1 @@
+1. Debajo de "{% data variables.product.prodname_registry %}", visualiza los detalles de tu uso de transferencia de datos. ![Detalles de uso de transferencia de datos](/assets/images/help/billing/packages-data.png)

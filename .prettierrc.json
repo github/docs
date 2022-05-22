@@ -7,7 +7,7 @@
       }
     },
     {
-      "files": ["**/*.{ts,tsx,js,mjs}"],
+      "files": ["**/*.{ts,tsx}"],
       "options": {
         "semi": false,
         "singleQuote": true,

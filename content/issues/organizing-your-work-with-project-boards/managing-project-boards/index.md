@@ -1,12 +1,11 @@
 ---
 title: Managing project boards
 shortTitle: Managing project boards
-intro: Learn how to create and manage project boards
+intro: 'Learn how to create and manage project boards'
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Issues
   - Projects
@@ -26,4 +25,3 @@ redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards
 ---
 
-{% data reusables.projects.project_boards_old %}

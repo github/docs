@@ -1,9 +1,9 @@
-import { URL } from 'url'
-import patterns from '../../lib/patterns.js'
+const { URL } = require('url')
+const patterns = require('../../lib/patterns')
 
 // redirect help.github.com requests to docs.github.com
 
-export default function helpToDocs(req, res, next) {
+module.exports = function helpToDocs (req, res, next) {
   if (req.hostname === 'help.github.com') {
     // prevent open redirect security vulnerability
     const path = req.originalUrl.replace(patterns.multipleSlashes, '/')

@@ -1,0 +1,1 @@
+{% data variables.product.prodname_actions %} on {% data variables.product.product_name %} is designed to work in environments without full internet access. By default, workflows cannot use actions from {% data variables.product.prodname_dotcom_the_website %} and [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions).

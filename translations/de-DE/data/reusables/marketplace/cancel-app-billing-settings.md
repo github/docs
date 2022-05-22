@@ -1,0 +1,1 @@
+1. Next to the app you want to cancel, use the **Edit** drop-down and click **Cancel plan**. ![„Cancel" (Kündigen) Link im Abschnitt Marktplatz-Einkäufe in den Abrechnungseinstellungen Deines persönlichen Konto](/assets/images/help/marketplace/marketplace-edit-app-billing-settings.png)

@@ -1,0 +1,1 @@
+Enterprise accounts are currently available to {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_ghe_server %} customers paying by invoice. Billing for all of the organizations and {% data variables.product.prodname_ghe_server %} instances connected to your enterprise account is aggregated into a single bill.

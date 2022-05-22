@@ -5,10 +5,8 @@ redirect_from:
   - /desktop/getting-started-with-github-desktop/uninstalling-github-desktop
   - /desktop/installing-and-configuring-github-desktop/uninstalling-github-desktop
 versions:
-  fpt: '*'
-shortTitle: Uninstall GitHub Desktop
+  free-pro-team: '*'
 ---
-
 {% mac %}
 
 1. Finder ウィンドウで Applications フォルダに移動します。 ![Finder ウィンドウのアプリケーションフォルダ](/assets/images/help/desktop/applications-folder.png)

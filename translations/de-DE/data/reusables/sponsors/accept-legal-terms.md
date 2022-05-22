@@ -1,0 +1,1 @@
+1. Überprüfe die [Zusatzbedingungen für {% data variables.product.prodname_sponsors %}](/github/site-policy/github-sponsors-additional-terms) und die [{% data variables.product.prodname_dotcom %}-Datenschutzerklärung](/articles/github-privacy-statement), und klicke dann auf **Join the waitlist** (Der Warteliste beitreten).

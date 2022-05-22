@@ -1,0 +1,1 @@
+1. Klicke rechts neben „Manage access" (Zugriff verwalten) auf **Invite teams or people** (Teams oder Personen einladen). ![Schaltfläche "Invite teams or people" (Teams oder Personen einladen)](/assets/images/help/repository/manage-access-invite-button.png)
