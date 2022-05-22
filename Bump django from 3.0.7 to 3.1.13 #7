@@ -1,0 +1,12 @@
+Bump django from 3.0.7 to 3.1.13
+Bumps [django](https://github.com/django/django) from 3.0.7 to 3.1.13.
+- [Release notes](https://github.com/django/django/releases)
+- [Commits](django/django@3.0.7...3.1.13)
+
+---
+updated-dependencies:
+- dependency-name: django
+  dependency-type: direct:production
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>
