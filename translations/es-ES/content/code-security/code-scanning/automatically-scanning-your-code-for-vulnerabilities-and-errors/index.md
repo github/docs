@@ -16,15 +16,17 @@ topics:
   - Code scanning
 children:
   - /about-code-scanning
+  - /about-code-scanning-alerts
   - /triaging-code-scanning-alerts-in-pull-requests
   - /setting-up-code-scanning-for-a-repository
   - /managing-code-scanning-alerts-for-your-repository
   - /tracking-code-scanning-alerts-in-issues-using-task-lists
   - /configuring-code-scanning
   - /about-code-scanning-with-codeql
+  - /recommended-hardware-resources-for-running-codeql
   - /configuring-the-codeql-workflow-for-compiled-languages
   - /troubleshooting-the-codeql-workflow
   - /running-codeql-code-scanning-in-a-container
   - /viewing-code-scanning-logs
 ---
-<!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->
+

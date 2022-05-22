@@ -4,10 +4,10 @@ intro: 'Si eres educador o investigador, puedes aplicar para recibir {% data var
 redirect_from:
   - /education/teach-and-learn-with-github-education/apply-for-an-educator-or-researcher-discount
   - /github/teaching-and-learning-with-github-education/applying-for-an-educator-or-researcher-discount
-  - /articles/applying-for-a-classroom-discount/
-  - /articles/applying-for-a-discount-for-your-school-club/
-  - /articles/applying-for-an-academic-research-discount/
-  - /articles/applying-for-a-discount-for-your-first-robotics-team/
+  - /articles/applying-for-a-classroom-discount
+  - /articles/applying-for-a-discount-for-your-school-club
+  - /articles/applying-for-an-academic-research-discount
+  - /articles/applying-for-a-discount-for-your-first-robotics-team
   - /articles/applying-for-an-educator-or-researcher-discount
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-an-educator-or-researcher-discount
 versions:
@@ -57,4 +57,4 @@ Después de que se apruebe tu solicitud para un descuento de investigador o de m
 - "[¿Por que no ha sido aprobada mi aplicación para recibir un descuento como educador o investigador?](/articles/why-wasn-t-my-application-for-an-educator-or-researcher-discount-approved)"
 - [{% data variables.product.prodname_education %}](https://education.github.com)
 - [Videos de {% data variables.product.prodname_classroom %}](https://classroom.github.com/videos)
-- [{% data variables.product.prodname_education_community %}](https://education.github.community/)
+- [{% data variables.product.prodname_education_community %}]({% data variables.product.prodname_education_forum_link %})

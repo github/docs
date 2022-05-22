@@ -15,7 +15,7 @@ redirect_from:
 
 ## Introducción
 
-En esta guía, crearás un codespace desde un [repositorio de plantilla](https://github.com/2percentsilk/haikus-for-codespaces) y explorarás algunas de las características esenciales disponibles para ti dentro del codespace.
+En esta guía, crearás un codespace desde un [repositorio de plantilla](https://github.com/github/haikus-for-codespaces) y explorarás algunas de las características esenciales disponibles para ti dentro del codespace.
 
 Desde esta guía de inicio rápido, aprenderás cómo crear un codespace, cómo conectarte a un puerto reenviado para ver tu aplicación ejecutándose, cómo utilizar el control de versiones en un codespace y cómo personalizar tu configuración con extensiones.
 
@@ -23,11 +23,11 @@ Para obtener más información sobre cómo funcionan los {% data variables.produ
 
 ## Crea tu codespace
 
-1. Navega al [repositorio de plantilla](https://github.com/2percentsilk/haikus-for-codespaces) y selecciona **Utilizar esta plantilla**.
+1. Navega al [repositorio de plantilla](https://github.com/github/haikus-for-codespaces) y selecciona **Utilizar esta plantilla**.
 
-2. Nombra a tu repositorio, selecciona tus ajustes de privacidad preferidos y haz clic en **Crear repositorio desde esta plantilla**.
+2. Nombra a tu repositorio, selecciona tu configuración de privacidad preferido y haz clic en **Crear repositorio desde plantilla**.
 
-3. Navega a la página principal del repositorio recientemente creado. Debajo del nombre de repositorio, utiliza el menú desplegable de **Código {% octicon "code" aria-label="The code icon" %}** y, en la pestaña de **Codespaces**, haz clic en {% octicon "plus" aria-label="The plus icon" %} **Codespace nuevo**.
+3. Navega a la página principal del repositorio recientemente creado. Debajo del nombre de repositorio, utiliza el menú desplegable **{% octicon "code" aria-label="The code icon" %} Código** y la pestaña de **Codespaces** y haz clic en **Crear codespace en rama principal**.
 
   ![Botón de codespace nuevo](/assets/images/help/codespaces/new-codespace-button.png)
 
@@ -41,7 +41,7 @@ Una vez que se cree tu codespace, tu repositorio se clonará automáticamente en
 
     Si estás siguiendo la guía con un tipo de aplicación diferente, ingresa el comando de incio correspondiente para este.
 
-2. Cuando tu aplicación inicie, el codespace reconocerá el puerto en el cual está ejecutándose y mostrará un mensaje para reenviar este puerto para que te puedas conectar a él.
+2. Cuando tu aplicación comienza, el codespace reconoce el puerto en el que se está ejecutando esta y muestra un mensaje para dejarte saber que se reenvió.
 
   ![Notificación de reenvío de puertos](/assets/images/help/codespaces/quickstart-port-toast.png)
 
@@ -72,7 +72,7 @@ Ahora que hiciste algunos cambios, puedes utilizar la terminal integrada o la vi
 
 ## Personalizar con una extensión
 
-Dentro de un codespace, tienes acceso al Visual Studio Code Marketplace. Para este ejemplo, instalarás una extensión que altera el tema, pero puedes instalar cualquier extensión que sea útil para tu flujo de trabajo.
+Dentro de un codespace, tienes acceso a {% data variables.product.prodname_vscode_marketplace %}. Para este ejemplo, instalarás una extensión que altera el tema, pero puedes instalar cualquier extensión que sea útil para tu flujo de trabajo.
 
 1. En la barra lateral, haz clic en el icono de extensiones.
 
@@ -84,13 +84,13 @@ Dentro de un codespace, tienes acceso al Visual Studio Code Marketplace. Para es
 
   ![Seleccionar el tema de fairyfloss](/assets/images/help/codespaces/fairyfloss.png)
 
-4. Los cambios que hagas en la configuración de tu editor en el codespace actual, tales como el tema y las uniones de teclado, se sincronizarán automáticamente a través de [la Syncronización de ajustes](https://code.visualstudio.com/docs/editor/settings-sync) en cualquier otro codespace que abras y en cualquier instancia de Visual Studio Code que se firmen en tu cuenta de GitHub.
+4. Los cambios que hagas a la configuración de tu editor en el codespace actual, tales como el tema y las uniones del teclado, se sincronizarán automáticamente a través de la [Sincornización de ajustes](https://code.visualstudio.com/docs/editor/settings-sync) a cualquier otro codespace que abras y a cualquier instancia de {% data variables.product.prodname_vscode %} que esté firmada en tu cuenta de GitHub.
 
 ## Siguientes pasos
 
 Creaste, personalizaste y ejecutaste exitosamente tu primer aplicación dentro de un codespace, pero ¡hay mucho más que explorar! Aquí tienes algunos recursos útiles para que tomes tus siguientes pasos con {% data variables.product.prodname_codespaces %}.
   - [Cónocelo a fondo](/codespaces/getting-started/deep-dive): Esta guía de inicio rápido presenta algunas de las características de los {% data variables.product.prodname_codespaces %}. La guía a fondo ve estas áreas desde un punto de vista técnico.
-  - [Configurar tu proyecto para los {% data variables.product.prodname_codespaces %}](/codespaces/getting-started-with-codespaces): Estas guías te proporcionan información sobre cómo configurar tu proyecto para utilizar los {% data variables.product.prodname_codespaces %} con lenguajes específicos
+  - [Configurar tu proyecto para los {% data variables.product.prodname_codespaces %}](/codespaces/getting-started-with-codespaces): Estas guías te proporcionan información sobre cómo configurar tu proyecto para utilizar los {% data variables.product.prodname_codespaces %} con lenguajes específicos.
   - [Configurar los {% data variables.product.prodname_codespaces %} para tu proyecto](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project): Esta guía te proporciona detalles para crear una configuración personalizada para los {% data variables.product.prodname_codespaces %} para tu proyecto.
 
 ## Leer más

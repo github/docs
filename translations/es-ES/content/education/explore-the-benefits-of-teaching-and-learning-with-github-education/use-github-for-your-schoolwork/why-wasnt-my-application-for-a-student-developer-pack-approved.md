@@ -4,7 +4,7 @@ intro: 'Review common reasons that applications for the {% data variables.produc
 redirect_from:
   - /education/teach-and-learn-with-github-education/why-wasnt-my-application-for-a-student-developer-pack-approved
   - /github/teaching-and-learning-with-github-education/why-wasnt-my-application-for-a-student-developer-pack-approved
-  - /articles/why-was-my-application-for-a-student-developer-pack-denied/
+  - /articles/why-was-my-application-for-a-student-developer-pack-denied
   - /articles/why-wasn-t-my-application-for-a-student-developer-pack-approved
   - /articles/why-wasnt-my-application-for-a-student-developer-pack-approved
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/why-wasnt-my-application-for-a-student-developer-pack-approved
@@ -50,10 +50,10 @@ If your academic email address was already used to request a {% data variables.p
 
 {% endnote %}
 
-If you have more than one personal user account, you must merge your accounts. To retain the discount, keep the account that was granted the discount. You can rename the retained account and keep your contribution history by adding all your email addresses to the retained account.
+If you have more than one personal account, you must merge your accounts. To retain the discount, keep the account that was granted the discount. You can rename the retained account and keep your contribution history by adding all your email addresses to the retained account.
 
 For more information, see:
-- "[Merging multiple user accounts](/articles/merging-multiple-user-accounts)"
+- "[Merging multiple personal accounts](/articles/merging-multiple-user-accounts)"
 - "[Changing your {% data variables.product.prodname_dotcom %} username](/articles/changing-your-github-username)"
 - "[Adding an email address to your {% data variables.product.prodname_dotcom %} account](/articles/adding-an-email-address-to-your-github-account)"
 

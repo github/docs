@@ -1,11 +1,11 @@
 ---
-title: Reviewing changes in pull requests
+title: 审查拉取请求中的更改
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/reviewing-changes-in-pull-requests
   - /articles/reviewing-and-discussing-changes-in-pull-requests
   - /articles/reviewing-changes-in-pull-requests
   - /github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests
-intro: 'After a pull request has been opened, you can review and discuss the set of proposed changes.'
+intro: 打开拉取请求后，您可以审查和讨论一组提议的更改。
 versions:
   fpt: '*'
   ghes: '*'
@@ -25,5 +25,6 @@ children:
   - /approving-a-pull-request-with-required-reviews
   - /dismissing-a-pull-request-review
   - /checking-out-pull-requests-locally
-shortTitle: Review changes
+shortTitle: 审查更改
 ---
+

@@ -20,15 +20,14 @@ shortTitle: Sobre métodos de merge
 {% ifversion fpt or ghec %}
 {% note %}
 
-**Note:** When using the merge queue, you no longer get to choose the merge method, as this is controlled by the queue. {% data reusables.pull_requests.merge-queue-references %}
+**Observação:** Ao usar a fila de merge, você não poderá mais escolher o método de merge, uma vez que isso é controlado pela fila. {% data reusables.pull_requests.merge-queue-references %}
 
 {% endnote %}
 {% endif %}
 
 {% data reusables.pull_requests.default_merge_option %}
 
-{% ifversion fpt or ghae or ghes or ghec %}
-O método de merge padrão cria um commit de mesclagem. Você pode impedir que uma pessoa faça pushing com commits por merge em um branch protegido aplicando um histórico de commit linear. Para obter mais informações, consulte "[Sobre branches protegidos](/github/administering-a-repository/about-protected-branches#require-linear-history)."{% endif %}
+O método de merge padrão cria um commit de mesclagem. Você pode impedir que uma pessoa faça pushing com commits por merge em um branch protegido aplicando um histórico de commit linear. Para obter mais informações, consulte "[Sobre branches protegidos](/github/administering-a-repository/about-protected-branches#require-linear-history)."
 
 ## Combinar por squash os commits de merge
 

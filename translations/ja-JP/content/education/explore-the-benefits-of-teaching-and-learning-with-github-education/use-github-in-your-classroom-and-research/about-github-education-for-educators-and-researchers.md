@@ -18,8 +18,7 @@ shortTitle: Educators & researchers
 あらゆるレベルの教育者のための {% data variables.product.prodname_education %} のツールとサービスで、以下のことができます:
   - [{% data variables.product.prodname_classroom %}](https://classroom.github.com) を使ってコードを配布し、学生にフィードバックを与え、{% data variables.product.prodname_dotcom %} 上の課題を収集する。
   - 弊社の [{% data variables.product.prodname_education_community %}](https://education.github.com/forum) に加わり、世界中の相手と技術教育における現在のトレンドについて議論する。
-  - Git と {% data variables.product.prodname_dotcom %} を教えるための弊社の[オープンソースレッスン計画](https://education.github.community/t/open-source-lesson-plans/1591)にアクセスし、必要に応じて調整する。
-  - 学生の教育のための素材が入った [{% data variables.product.prodname_dotcom %} のスワッグバッグをリクエスト](https://education.github.community/t/get-a-github-swag-bag-for-your-classroom/33)する。
+  - 学生の教育のための素材が入った [{% data variables.product.prodname_dotcom %} のスワッグバッグをリクエスト](https://github.com/orgs/github-community/discussions/13)する。
   {% data reusables.education.apply-for-team %}
 
 ## 研究者のための {% data variables.product.prodname_education %}

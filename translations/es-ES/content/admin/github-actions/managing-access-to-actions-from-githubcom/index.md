@@ -1,6 +1,6 @@
 ---
-title: Managing access to actions from GitHub.com
-intro: 'Controlling which actions on {% data variables.product.prodname_dotcom_the_website %} and {% data variables.product.prodname_marketplace %} can be used in your enterprise.'
+title: Administrar el acceso a las acciones desde GitHub.com
+intro: 'En tu empresa, puedes controlar qué acciones de {% data variables.product.prodname_dotcom_the_website %} y de {% data variables.product.prodname_marketplace %} se pueden utilizar.'
 redirect_from:
   - /enterprise/admin/github-actions/managing-access-to-actions-from-githubcom
 versions:
@@ -14,6 +14,6 @@ children:
   - /manually-syncing-actions-from-githubcom
   - /using-the-latest-version-of-the-official-bundled-actions
   - /setting-up-the-tool-cache-on-self-hosted-runners-without-internet-access
-shortTitle: Manage access to actions
+shortTitle: Administrar el acceso a las acciones
 ---
 

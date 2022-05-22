@@ -1,12 +1,10 @@
 import { useRouter } from 'next/router'
 import { LinkExternalIcon } from '@primer/octicons-react'
-import { ActionList } from '@primer/components'
+import { ActionList } from '@primer/react'
 
 import { useVersion } from 'components/hooks/useVersion'
 import { useMainContext } from 'components/context/MainContext'
 import { Link } from 'components/Link'
-
-import { AllProductsLink } from './AllProductsLink'
 
 export const SidebarHomepage = () => {
   const router = useRouter()
@@ -55,7 +53,6 @@ export const SidebarHomepage = () => {
 
   return (
     <ul data-testid="sidebar" className="mt-4">
-      {!isFPT && <AllProductsLink />}
       <li>
         <ActionList {...{ as: 'ul' }} items={navItems}></ActionList>
       </li>

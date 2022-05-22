@@ -22,8 +22,8 @@ shortTitle: GPG 验证
 
 启用 GPG 验证后，它将立即对所有代码空间生效。
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.codespaces-tab %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.codespaces-tab %}
 1. 在“GPG verification（GPG 验证）”下，选择您想要的 GPG 验证设置。 ![管理 GPG 验证的单选按钮](/assets/images/help/settings/codespaces-gpg-verification-radio-buttons.png)
 1. 如果您选择了“Selected repositories（所选仓库）”，请选择下拉菜单，然后单击想要启用 GPG 验证的仓库。 对您要启用 GPG 验证的所有仓库重复此操作。 !["所选仓库" 下拉菜单](/assets/images/help/settings/codespaces-gpg-verification-repository-drop-down.png)
 

@@ -157,7 +157,7 @@ end
 
 此代码使用 [create_check_run 方法](https://rdoc.info/gems/octokit/Octokit%2FClient%2FChecks:create_check_run)调用“[创建检查运行](/rest/reference/checks#create-a-check-run)”端点。
 
-要创建检查运行，只有两个输入参数是必需的：`name` 和 `head_sha`。 在本快速入门中的稍后部分，我们将使用 [Rubocop](https://rubocop.readthedocs.io/en/latest/) 来实现 CI 测试，这就是在此处使用名称 "Octo Rubocop" 的原因，但是您可以为检查运行选择任何想用的名称。
+要创建检查运行，只有两个输入参数是必需的：`name` 和 `head_sha`。 在本快速入门的后面部分，我们将使用 [RuboCop](https://rubocop.readthedocs.io/en/latest/) 来实现 CI 测试，这就是此处使用名称 "Octo RuboCop" 的原因，但您可以选择任何想要用于检查运行的名称。
 
 您现在仅提供必需的参数以使基本功能正常工作，但是稍后您将在收集有关检查运行的更多信息时更新检查运行。 默认情况下，GitHub 将 `status` 设置为 `queued`。
 

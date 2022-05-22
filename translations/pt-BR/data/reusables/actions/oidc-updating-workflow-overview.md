@@ -1,6 +1,6 @@
-To add OIDC integration to your cloud deployment workflows, you will need to add the following code changes:
+Para adicionar integração OIDC aos seus fluxos de trabalho para implantação na nuvem, você deverá adicionar as seguintes alterações de código:
 
-- Grant permission to fetch the token from the {% data variables.product.prodname_dotcom %} OIDC provider:
-  - The workflow needs a `permissions` setting with a defined `id-token` value. This lets you fetch the OIDC token from every job in the workflow. If you only need to fetch an OIDC token for a single job, then this permission can be set within that job.
-- Request the JSON Web Token (JWT) from the {% data variables.product.prodname_dotcom %} OIDC provider, and present it to your cloud provider to receive an access token:
-  - You could use the Actions toolkit to fetch the tokens in your job, or you can use the official action created by your cloud provider to fetch the JWT and receive the access token from the cloud.
+- Conceder permissão para obter o token do provedor do OIDC de {% data variables.product.prodname_dotcom %}:
+  - O fluxo de trabalho precisa de uma configuração de `permissões` com um valor de `id-token` definido. Isso permite obter o token do OIDC de cada trabalho do fluxo de trabalho. Se você só precisa obter um token OIDC para um único trabalho, essa permissão poderá ser definida dentro desse trabalho.
+- Solicite o Token do JSON Web (JWT) do provedor OIDC de {% data variables.product.prodname_dotcom %} e apresente-o ao seu provedor de nuvem para receber um token de acesso:
+  - Você pode usar o kit de ferramentas de ações para obter os tokens no seu trabalho ou você pode usar a ação oficial criada pelo seu provedor de nuvem para obter o JWT e receber o token de acesso da nuvem.

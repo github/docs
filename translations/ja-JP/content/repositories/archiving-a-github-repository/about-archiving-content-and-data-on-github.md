@@ -30,7 +30,7 @@ shortTitle: Archive content & data
 
 アーカイブを責任を持って利用することには、ユーザのプライバシーを尊重することが含まれます。 詳しい情報については [GitHub 上のパブリックな情報](/free-pro-team@latest/github/site-policy/github-privacy-statement#public-information-on-github)を参照してください。
 
-リポジトリで {% data variables.product.prodname_archive %} をオプトアウトできます。 詳しい情報については、「[パブリックリポジトリの {% data variables.product.prodname_archive %} をオプトインまたはオプトアウトする](/github/understanding-how-github-uses-and-protects-your-data/opting-into-or-out-of-the-github-archive-program-for-your-public-repository)」を参照してください。
+リポジトリで {% data variables.product.prodname_archive %} をオプトアウトできます。 詳しい情報については、「[パブリックリポジトリの {% data variables.product.prodname_archive %} をオプトインまたはオプトアウトする](/get-started/privacy-on-github/opting-into-or-out-of-the-github-archive-program-for-your-public-repository)」を参照してください。
 
 ## アーカイブ性を増すためのオープンソースライセンスの追加
 

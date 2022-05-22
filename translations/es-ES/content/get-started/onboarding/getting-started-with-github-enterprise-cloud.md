@@ -21,7 +21,7 @@ The main difference between the products is that {% data variables.product.prodn
 
 With {% data variables.product.prodname_ghe_cloud %}, you have the option of using {% data variables.product.prodname_emus %}. {% data reusables.enterprise-accounts.emu-short-summary %}
 
-If you choose to let your members create and manage their own user accounts instead, there are two types of accounts you can use with {% data variables.product.prodname_ghe_cloud %}:
+If you choose to let your members create and manage their own personal accounts instead, there are two types of accounts you can use with {% data variables.product.prodname_ghe_cloud %}:
 
 - A single organization account
 - An enterprise account that contains multiple organizations
@@ -179,7 +179,7 @@ To manage and moderate your enterprise, you can set policies for organizations w
 
 You can choose to enforce a number of policies for all organizations owned by your enterprise, or choose to allow these policies to be set in each organization. Types of policies you can enforce include repository management, project board, and team policies. For more information, see "[Setting policies for your enterprise](/enterprise-cloud@latest/admin/policies)."
 #### 2. Viewing audit logs, configuring webhooks, and restricting email notifications for your enterprise
-You can view actions from all of the organizations owned by your enterprise account in the enterprise audit log. You can also configure webhooks to receive events from organizations owned by your enterprise account. For more information, see "[Viewing the audit logs for organizations in your enterprise](/enterprise-cloud@latest/admin/user-management/managing-organizations-in-your-enterprise/viewing-the-audit-logs-for-organizations-in-your-enterprise)" and "[Managing global webhooks](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/managing-global-webhooks)."
+You can view actions from all of the organizations owned by your enterprise account in the enterprise audit log. You can also configure webhooks to receive events from organizations owned by your enterprise account. For more information, see "[Reviewing audit logs for your enterprise](/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise)" and "[Monitoring your enterprise](/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise)."
 
 You can also restrict email notifications for your enterprise account so that enterprise members can only use an email address in a verified or approved domain to receive notifications. For more information, see "[Restricting email notifications for your enterprise](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/restricting-email-notifications-for-your-enterprise)."
 
@@ -199,14 +199,18 @@ Members of your organization or enterprise can use tools from the {% data variab
 ## Part 7: Participating in {% data variables.product.prodname_dotcom %}'s community
 
 Members of your organization or enterprise can use GitHub's learning and support resources to get the help they need. You can also support the open source community. 
-### 1. Learning with {% data variables.product.prodname_learning %}
+
+### 1. Reading about {% data variables.product.prodname_ghe_cloud %} on {% data variables.product.prodname_docs %}
+You can read documentation that reflects the features available with {% data variables.product.prodname_ghe_cloud %}. For more information, see "[About versions of {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs)."
+
+### 2. Learning with {% data variables.product.prodname_learning %}
 Members of your organization or enterprise can learn new skills by completing fun, realistic projects in your very own GitHub repository with [{% data variables.product.prodname_learning %}](https://lab.github.com/). Each course is a hands-on lesson created by the GitHub community and taught by the friendly Learning Lab bot.
 
 For more information, see "[Git and {% data variables.product.prodname_dotcom %} learning resources](/github/getting-started-with-github/quickstart/git-and-github-learning-resources)."
-### 2. Supporting the open source community
+### 3. Supporting the open source community
 {% data reusables.getting-started.sponsors %}
 
-### 3. Contacting {% data variables.contact.github_support %}
+### 4. Contacting {% data variables.contact.github_support %}
 {% data reusables.getting-started.contact-support %}
 
 {% data variables.product.prodname_ghe_cloud %} allows you to submit priority support requests with a target eight-hour response time. For more information, see "[{% data variables.product.prodname_ghe_cloud %} support](/github/working-with-github-support/github-enterprise-cloud-support)."

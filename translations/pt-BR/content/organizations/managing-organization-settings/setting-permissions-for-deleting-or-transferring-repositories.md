@@ -1,6 +1,6 @@
 ---
-title: Setting permissions for deleting or transferring repositories
-intro: 'You can allow organization members with admin permissions to a repository to delete or transfer the repository, or limit the ability to delete or transfer repositories to organization owners only.'
+title: Definir permissões para excluir ou transferir repositórios
+intro: 'Você pode permitir que integrantes da organização com permissões de administrador no repositório excluam ou transfiram o repositório, ou limitem a capacidade de excluir ou transferir repositórios aos proprietários da organização.'
 redirect_from:
   - /articles/setting-permissions-for-deleting-or-transferring-repositories-in-your-organization
   - /articles/setting-permissions-for-deleting-or-transferring-repositories
@@ -13,14 +13,13 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Set repo management policy
+shortTitle: Definir política de gerenciamento de repositórios
 ---
 
-Owners can set permissions for deleting or transferring repositories in an organization.
+Proprietários podem definir permissões para excluir ou transferir repositórios na organização.
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.member-privileges %}
-5. Under "Repository deletion and transfer", select or deselect **Allow members to delete or transfer repositories for this organization**.
-![Checkbox to allow members to delete repositories](/assets/images/help/organizations/disallow-members-to-delete-repositories.png)
-6. Click **Save**.
+5. Em "Repository deletion and transfer" (Exclusão e transferência de repositório), marque ou desmarque a opção **Allow members to delete or transfer repositories for this organization** (Permitir que os integrantes excluam ou transfiram repositórios na organização). ![Caixa de seleção para permitir que os integrantes excluam repositórios](/assets/images/help/organizations/disallow-members-to-delete-repositories.png)
+6. Clique em **Salvar**.

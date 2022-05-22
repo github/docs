@@ -2,7 +2,7 @@
 title: Mover un equipo en la jerarquía de tu organización
 intro: 'Los mantenedores del equipo y los propietarios de la organización pueden anidar un equipo bajo un equipo padre, o cambiar o eliminar un equipo padre de un equipo anidado.'
 redirect_from:
-  - /articles/changing-a-team-s-parent/
+  - /articles/changing-a-team-s-parent
   - /articles/moving-a-team-in-your-organization-s-hierarchy
   - /articles/moving-a-team-in-your-organizations-hierarchy
   - /github/setting-up-and-managing-organizations-and-teams/moving-a-team-in-your-organizations-hierarchy
@@ -30,7 +30,7 @@ Los propietarios de la organización pueden cambiar el padre de cualquier equipo
 {% endtip %}
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.teams %}
 4. En la lista de equipos, haz clic en el nombre del equipo cuyo padre deseas cambiar. ![Lista de los equipos de la organización](/assets/images/help/teams/click-team-name.png)
 {% data reusables.organizations.team_settings %}

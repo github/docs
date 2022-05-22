@@ -24,6 +24,7 @@ You can work with {% data variables.product.prodname_codespaces %} in the  {% da
 - [Delete a codespace](#delete-a-codespace)
 - [SSH into a codespace](#ssh-into-a-codespace)
 - [Open a codespace in {% data variables.product.prodname_vscode %}](#open-a-codespace-in-visual-studio-code)
+- [Open a codespace in JupyterLab](#open-a-codespace-in-jupyterlab)
 - [Copying a file to/from a codespace](#copy-a-file-tofrom-a-codespace)
 - [Modify ports in a codespace](#modify-ports-in-a-codespace)
 - [Access codespace logs](#access-codespace-logs)
@@ -109,6 +110,12 @@ gh codespace code -c <em>codespace-name</em>
 
 For more information, see "[Using {% data variables.product.prodname_codespaces %} in {% data variables.product.prodname_vscode %}](/codespaces/developing-in-codespaces/using-codespaces-in-visual-studio-code)."
 
+### Open a codespace in JupyterLab
+
+```shell
+gh codespace jupyter -c <em>codespace-name</em>
+```
+
 ### Copy a file to/from a codespace
 
 ```shell
@@ -153,7 +160,7 @@ For more information about the `gh codespace cp` command, including additional f
 
 ### Modify ports in a codespace
 
-You can forward a port on a codespace to a local port. The port remains forwarded as long as the process is running. To stop forwarding the port, press <kbd>control</kbd>+<kbd>c</kbd>.
+You can forward a port on a codespace to a local port. The port remains forwarded as long as the process is running. To stop forwarding the port, press <kbd>Control</kbd>+<kbd>C</kbd>.
 
 ```shell
 gh codespace ports forward <em>codespace-port-number</em>:<em>local-port-number</em> -c <em>codespace-name</em>

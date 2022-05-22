@@ -19,25 +19,32 @@ O tempo do failover dependerá do tempo necessário para promover manualmente a 
 
 {% data reusables.enterprise_installation.promoting-a-replica %}
 
-1. Para permitir que a replicação termine antes de você alternar os appliances, coloque o appliance principal no modo de manutenção:
-    - Para usar o console de gerenciamento, consulte "[Habilitar e programar o modo de manutenção](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode/)";
-    - Você também pode usar o comando `ghe-maintenance -s`.
+1. Se o dispositivo primário estiver disponível, para permitir que a replicação termine antes de trocar os dispositivos, no dispositivo primário, coloque o dispositivo primário em modo de manutenção.
+
+    - Coloque o dispositivo em modo de manutenção.
+
+       - Para usar o console de gerenciamento, consulte "[Habilitar e programar o modo de manutenção](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode/)";
+
+       - Você também pode usar o comando `ghe-maintenance -s`.
+         ```shell
+         $ ghe-maintenance -s
+         ```
+
+   - Quando o número de operações ativas do Git, consultas MySQL e tarefas do Resque alcançam zero, aguarde 30 segundos.
+
+      {% note %}
+
+      **Observação:** O Nomad sempre terá trabalhos em execução, mesmo no modo de manutenção. Portanto, você pode ignorar esses trabalhos com segurança.
+
+      {% endnote %}
+
+   - Para verificar todos os canais de replicação que reportarem `OK`, use o comando `ghe-repl-status -vv`.
+
       ```shell
-      $ ghe-maintenance -s
+      $ ghe-repl-status -vv
       ```
-2.  Quando o número de operações ativas do Git, consultas MySQL e tarefas do Resque alcançam zero, aguarde 30 segundos.
 
-    {% note %}
-
-    **Observação:** O Nomad sempre terá trabalhos em execução, mesmo no modo de manutenção. Portanto, você pode ignorar esses trabalhos com segurança.
-
-    {% endnote %}
-
-3. Para verificar todos os canais de replicação que reportarem `OK`, use o comando `ghe-repl-status -vv`.
-  ```shell
-  $ ghe-repl-status -vv
-  ```
-4. Para parar a replicação e promover o appliance réplica ao status de primário, use o comando `ghe-repl-promote`. A ação também colocará automaticamente o nó primário no nó de manutenção, se ele for acessível.
+4. No dispositivo da réplica, para parar a replicação e promover o dispositivo da réplica ao estado primário, use o comando `ghe-repl-promote`. A ação também colocará automaticamente o nó primário no nó de manutenção, se ele for acessível.
   ```shell
   $ ghe-repl-promote
   ```

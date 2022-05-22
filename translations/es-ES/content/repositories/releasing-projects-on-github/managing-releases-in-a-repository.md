@@ -20,8 +20,6 @@ topics:
   - Repositories
 shortTitle: Manage releases
 ---
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
-
 ## About release management
 
 You can create new releases with release notes, @mentions of contributors, and links to binary files, as well as edit or delete existing releases.
@@ -31,11 +29,8 @@ You can also publish an action from a specific release in {% data variables.prod
 
 You can choose whether {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) objects are included in the ZIP files and tarballs that {% data variables.product.product_name %} creates for each release. For more information, see "[Managing {% data variables.large_files.product_name_short %} objects in archives of your repository](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)."
 {% endif %}
-{% endif %}
 
 ## Creating a release
-
-{% include tool-switcher %}
 
 {% webui %}
 
@@ -80,7 +75,7 @@ You can choose whether {% data variables.large_files.product_name_long %} ({% da
 
    {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-4974 %}
    ![Published release with @mentioned contributors](/assets/images/help/releases/refreshed-releases-overview-with-contributors.png)
-   {% else %} 
+   {% else %}
    ![Published release with @mentioned contributors](/assets/images/help/releases/releases-overview-with-contributors.png)
    {% endif %}
    {%- endif %}
@@ -110,8 +105,6 @@ If you @mention any {% data variables.product.product_name %} users in the notes
 
 ## Editing a release
 
-{% include tool-switcher %}
-
 {% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -135,8 +128,6 @@ Releases cannot currently be edited with {% data variables.product.prodname_cli 
 {% endcli %}
 
 ## Deleting a release
-
-{% include tool-switcher %}
 
 {% webui %}
 

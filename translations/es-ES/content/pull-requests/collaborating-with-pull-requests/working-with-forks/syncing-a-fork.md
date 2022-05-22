@@ -13,6 +13,7 @@ versions:
   ghec: '*'
 topics:
   - Pull requests
+permissions: People with write access for a forked repository can sync the fork to the upstream repository.
 ---
 
 {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
@@ -20,12 +21,24 @@ topics:
 ## Syncing a fork from the web UI
 
 1. On {% data variables.product.product_name %}, navigate to the main page of the forked repository that you want to sync with the upstream repository.
-1. Select the **Fetch upstream** drop-down.
+2. Select the **Fetch upstream** drop-down.
     !["Fetch upstream" drop-down](/assets/images/help/repository/fetch-upstream-drop-down.png)
-1. Review the details about the commits from the upstream repository, then click **Fetch and merge**.
+3. Review the details about the commits from the upstream repository, then click **Fetch and merge**.
     !["Fetch and merge" button](/assets/images/help/repository/fetch-and-merge-button.png)
 
 If the changes from the upstream repository cause conflicts, {% data variables.product.company_short %} will prompt you to create a pull request to resolve the conflicts.
+
+## Syncing a fork with the {% data variables.product.prodname_cli %}
+
+{% data reusables.cli.about-cli %} To learn more about {% data variables.product.prodname_cli %}, see "[About {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)."
+
+To update the remote fork from its parent, use the `gh repo sync` subcommand and supply your fork name as argument.
+
+```shell
+$ gh repo sync owner/cli-fork
+```
+
+If the changes from the upstream repository cause conflict then the {% data variables.product.prodname_cli %} can't sync. You can set the `-force` flag to overwrite the destination branch.
 
 ## Syncing a fork from the command line
 
@@ -35,6 +48,7 @@ Before you can sync your fork with an upstream repository, you must [configure a
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. Change the current working directory to your local project.
 3. Fetch the branches and their respective commits from the upstream repository. Commits to `BRANCHNAME` will be stored in the local branch `upstream/BRANCHNAME`.
+
   ```shell
   $ git fetch upstream
   > remote: Counting objects: 75, done.
@@ -44,12 +58,16 @@ Before you can sync your fork with an upstream repository, you must [configure a
   > From https://{% data variables.command_line.codeblock %}/<em>ORIGINAL_OWNER</em>/<em>ORIGINAL_REPOSITORY</em>
   >  * [new branch]      main     -> upstream/main
   ```
+
 4. Check out your fork's local default branch - in this case, we use `main`.
+
   ```shell
   $ git checkout main
   > Switched to branch 'main'
   ```
+
 5. Merge the changes from the upstream default branch - in this case, `upstream/main` - into your local default branch. This brings your fork's default branch into sync with the upstream repository, without losing your local changes.
+
   ```shell
   $ git merge upstream/main
   > Updating a422352..5fdff0f

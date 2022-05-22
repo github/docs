@@ -8,15 +8,15 @@ sections:
     - A variável de data de vencimento do SAML não era configurável.
     - Os serviços do aplicativo falhariam as suas verificações de saúde durante a configuração fossem aplicadas antes de poderem entrar em um estado saudável.
     - '`ghe-cluster-config-node-init` falharia durante a configuração do cluster se o proxy HTTP estiver habilitado.'
-    - Pre-receive hooks could encounter an error `Failed to resolve full path of the current executable` due to `/proc` not being mounted on the container.
+    - Os hooks de pre-receive podem encontrar um erro `Failed to resolve full path of the current executable` due to `/proc` não sendo montado no container.
     - O Collectd não resolveria o nome de host de destino após a inicialização.
-    - The job that purged stale deleted repositories could fail to make progress if some of those repositories were protected from deletion by legal holds.
+    - O trabalho que os repositórios obsoletos excluídos pode não conseguir progredir se alguns desses repositórios estiverem protegidos da exclusão por retenção legal.
     - Executar `git nw-gc --pristine` geraria um erro.
     - Os Trabalhos de fundo estavam sendo enfileirados na fila `spam` que não estavam sendo processados.
     - O método de merge preferido seria redefinido ao tentar novamente após um merge de PR falhada.
-    - Git pushes could result in a 500 Internal Server Error during the user reconciliation process on instances using LDAP authentication mode.
+    - Os pushes do Git podem gerar um erro de 500 servidor interno durante o processo de reconciliação do usuário em instâncias usando o modo de autenticação do LDAP.
   changes:
-    - Improved the efficiency of config apply by skipping IP allow firewall rules that had not changed, which saved significant time on large clusters.
+    - Aprimorou-se a eficiência da aplicação da configuração ao ignorar as regras de firewall para permitir IP, que não haviam sido alteradas, o que economizou tempo significativo em grandes clusters.
   known_issues:
     - Em uma nova configuração do GitHub Enterprise Server sem nenhum usuário, um invasor pode criar o primeiro usuário administrador.
     - As regras de firewall personalizadas são removidas durante o processo de atualização.

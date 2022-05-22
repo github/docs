@@ -30,6 +30,10 @@ You can view license usage for {% data variables.product.prodname_ghe_server %} 
 
 ## Viewing license usage on {% ifversion ghec %}{% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}{% data variables.product.product_location %}{% endif %}
 
+You can view the license usage for your enterprise and download a file with license details.
+
+{% data reusables.billing.license-statuses %}
+
 {% ifversion ghec %}
 
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
@@ -44,7 +48,7 @@ You can view license usage for {% data variables.product.prodname_ghe_server %} 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.license-tab %}
-1. Review your current {% data variables.product.prodname_enterprise %} license, as well as consumed and available user licenses.{% ifversion ghes > 3.0 %}
+1. Review your current {% data variables.product.prodname_enterprise %} license, as well as consumed and available user licenses.{% ifversion ghes %}
     - If your license includes {% data variables.product.prodname_GH_advanced_security %}, you can review your total seat use as well as a per-organization breakdown of committers. For more information, see "[Managing {% data variables.product.prodname_GH_advanced_security %} for your enterprise](/admin/advanced-security)."{% endif %}
 
 {% endif %}

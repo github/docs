@@ -24,8 +24,6 @@ shortTitle: Check out a PR locally
 
 ## Modifying an active pull request locally
 
-{% include tool-switcher %}
-
 {% webui %}
 
 {% data reusables.repositories.sidebar-pr %}

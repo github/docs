@@ -1,6 +1,6 @@
 ---
 title: 排查克隆错误
-intro: 'If you''re having trouble cloning a repository, check these common errors.'
+intro: 如果您在克隆存储库时遇到问题，请检查这些常见错误。
 redirect_from:
   - /articles/error-the-requested-url-returned-error-403
   - /articles/error-the-requested-url-returned-error-401
@@ -117,7 +117,7 @@ $ git remote -v
 
 在极少数情况下，您可能没有仓库的适当 SSH 访问权限。
 
-您应确保正在使用的 SSH 密钥已连接到您的 {% data variables.product.product_name %} 用户帐户。 您可以通过在命令行中输入以下内容检查此项：
+您应确保正在使用的 SSH 密钥已附加到 {% data variables.product.product_name %} 的个人帐户。 您可以通过在命令行中输入以下内容检查此项：
 
 ```shell
 $ ssh -T git@{% data variables.command_line.codeblock %}

@@ -15,7 +15,7 @@ redirect_from:
 
 ## Introduction
 
-In this guide, you'll create a codespace from a [template repository](https://github.com/2percentsilk/haikus-for-codespaces) and explore some of the essential features available to you within the codespace.
+In this guide, you'll create a codespace from a [template repository](https://github.com/github/haikus-for-codespaces) and explore some of the essential features available to you within the codespace.
 
 From this quickstart, you will learn how to create a codespace, connect to a forwarded port to view your running application, use version control in a codespace, and personalize your setup with extensions.
 
@@ -23,11 +23,11 @@ For more information on exactly how {% data variables.product.prodname_codespace
 
 ## Creating your codespace
 
-1. Navigate to the [template repository](https://github.com/2percentsilk/haikus-for-codespaces) and select **Use this template**. 
+1. Navigate to the [template repository](https://github.com/github/haikus-for-codespaces) and select **Use this template**. 
 
-2. Name your repository, select your preferred privacy setting, and click **Create repository from this template**.
+2. Name your repository, select your preferred privacy setting, and click **Create repository from template**.
 
-3. Navigate to the main page of the newly created repository. Under the repository name, use the **{% octicon "code" aria-label="The code icon" %} Code** drop-down menu, and in the **Codespaces** tab, click {% octicon "plus" aria-label="The plus icon" %} **New codespace**.
+3. Navigate to the main page of the newly created repository. Under the repository name, use the **{% octicon "code" aria-label="The code icon" %} Code** drop-down menu, and in the **Codespaces** tab, click **Create codespace on main**.
 
   ![New codespace button](/assets/images/help/codespaces/new-codespace-button.png)
 
@@ -41,7 +41,7 @@ Once your codespace is created, your repository will be automatically cloned int
 
     If you're following along with a different application type, enter the corresponding start command for that project.
 
-2. When your application starts, the codespace recognizes the port the application is running on and displays a prompt to forward that port so you can connect to it. 
+2. When your application starts, the codespace recognizes the port the application is running on and displays a prompt to let you know it has been forwarded. 
 
   ![Port forwarding toast](/assets/images/help/codespaces/quickstart-port-toast.png)
 
@@ -76,7 +76,7 @@ Now that you've made a few changes, you can use the integrated terminal or the s
 
 ## Personalizing with an extension
 
-Within a codespace, you have access to the Visual Studio Code Marketplace. For this example, you'll install an extension that alters the theme, but you can install any extension that is useful for your workflow.
+Within a codespace, you have access to the {% data variables.product.prodname_vscode_marketplace %}. For this example, you'll install an extension that alters the theme, but you can install any extension that is useful for your workflow.
 
 1. In the left sidebar, click the Extensions icon.
 
@@ -88,13 +88,13 @@ Within a codespace, you have access to the Visual Studio Code Marketplace. For t
 
   ![Select the fairyfloss theme](/assets/images/help/codespaces/fairyfloss.png)
 
-4. Changes you make to your editor setup in the current codespace, such as theme and keyboard bindings, are synced automatically via [Settings Sync](https://code.visualstudio.com/docs/editor/settings-sync) to any other codespaces you open and any instances of Visual Studio Code that are signed into your GitHub account.
+4. Changes you make to your editor setup in the current codespace, such as theme and keyboard bindings, are synced automatically via [Settings Sync](https://code.visualstudio.com/docs/editor/settings-sync) to any other codespaces you open and any instances of {% data variables.product.prodname_vscode %} that are signed into your GitHub account.
 
 ## Next Steps
 
 You've successfully created, personalized, and run your first application within a codespace but there's so much more to explore! Here are some helpful resources for taking your next steps with {% data variables.product.prodname_codespaces %}.
   - [Deep dive](/codespaces/getting-started/deep-dive): This quickstart presented some of the features of {% data variables.product.prodname_codespaces %}. The deep dive looks at these areas from a technical standpoint.
-  - [Setting up your project for {% data variables.product.prodname_codespaces %}](/codespaces/getting-started-with-codespaces): These guides provide information on setting up your project to use {% data variables.product.prodname_codespaces %} with specific languages
+  - [Setting up your project for {% data variables.product.prodname_codespaces %}](/codespaces/getting-started-with-codespaces): These guides provide information on setting up your project to use {% data variables.product.prodname_codespaces %} with specific languages.
   - [Configuring {% data variables.product.prodname_codespaces %} for your project](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project): This guide provides details on creating a custom configuration for {% data variables.product.prodname_codespaces %} for your project.
 
 ## Further reading

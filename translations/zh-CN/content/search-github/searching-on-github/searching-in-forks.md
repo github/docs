@@ -1,6 +1,6 @@
 ---
 title: 在复刻中搜索
-intro: 'By default, [forks](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks) are not shown in search results. 如果复刻满足特定条件，您可以选择在仓库搜索以及在代码搜索中包括它们。'
+intro: '默认情况下，[forks](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks) 不会显示在搜索结果中。 如果复刻满足特定条件，您可以选择在仓库搜索以及在代码搜索中包括它们。'
 redirect_from:
   - /articles/searching-in-forks
   - /github/searching-for-information-on-github/searching-in-forks

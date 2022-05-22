@@ -3,4 +3,4 @@
 - 教育者、教職員、または研究者であること。
 - 学校が発行した確認可能なメールアドレスを持っていること。
 - 学校への所属を証明するドキュメントをアップロードすること。
-- {% data variables.product.product_name %}上にユーザアカウントを持っていること。
+- Have a personal account on {% data variables.product.product_name %}.

@@ -1,6 +1,6 @@
 ---
 title: Codespaces 日志
-intro: 'Overview of the logging locations used by {% data variables.product.prodname_codespaces %}.'
+intro: '{% data variables.product.prodname_codespaces %} 使用的日志记录位置概述。'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
@@ -13,60 +13,57 @@ shortTitle: Codespaces 日志
 ---
 
 
-Information on {% data variables.product.prodname_codespaces %} is output to three different logs:
+有关 {% data variables.product.prodname_codespaces %} 的信息将输出到三个不同的日志：
 
-- Codespace logs
-- Creation logs
-- Extension logs ({% data variables.product.prodname_vscode %} desktop) or Browser console logs ({% data variables.product.prodname_vscode %} in the web)
+- 代码空间日志
+- 创建日志
+- 扩展日志（{% data variables.product.prodname_vscode %} 桌面）或浏览器控制台日志（Web 中的 {% data variables.product.prodname_vscode %} ）
 
-## Codespace logs
+## 代码空间日志
 
-These logs contain detailed information about the codespace, the container, the session, and the {% data variables.product.prodname_vscode %} environment. They are useful for diagnosing connection issues and other unexpected behavior. For example, the codespace freezes but the "Reload Windows" option unfreezes it for a few minutes, or you are randomly disconnected from the codespace but able to reconnect immediately.
-
-{% include tool-switcher %}
+这些日志包含有关代码空间、容器、会话和 {% data variables.product.prodname_vscode %} 环境的详细信息。 它们对于诊断连接问题和其他意外行为非常有用。 例如，代码空间冻结，但“Reload Windows（重新加载 Windows）”选项可将其解冻几分钟，或者您随机断开与代码空间的连接，但能够立即重新连接。
 
 {% webui %}
 
-1. If you are using {% data variables.product.prodname_codespaces %} in the browser, ensure that you are connected to the codespace you want to debug.
-1. Open the {% data variables.product.prodname_vscode %} Command Palette (`Shift + Command + P` (Mac) / `Ctrl + Shift + P` (Windows)) and type **Export logs**. Select **Codespaces: Export Logs** from the list to download the logs.
-1. Define where to save the zip archive of logs then click **Save** (desktop) or click **OK** (web).
-1. If you are using {% data variables.product.prodname_codespaces %} in the browser, right-click on the zip archive of logs from the Explorer view and select **Download…** to download them to your local machine.
+1. 如果在浏览器中使用 {% data variables.product.prodname_codespaces %} ，请确保已连接到要调试的代码空间。
+1. 打开 {% data variables.product.prodname_vscode %} 命令面板 (`Shift + Command + P` (Mac) / `Ctrl + Shift + P` (Windows)) ，然后键入 **Export logs**。 从列表中选择 **odespaces: Export Logs（代码空间：导出日志）**以下载日志。
+1. 定义保存日志 zip 存档的位置，然后单击 **Save（保存）**（桌面），或单击 **OK（确定）** (web)。
+1. 如果在浏览器中使用 {% data variables.product.prodname_codespaces %} ，请右键单击资源管理器视图中日志的 zip 存档，然后选择 **Download…（下载…）**将其下载到本地计算机。
 
 {% endwebui %}
 
 {% vscode %}
 
-1. Open the {% data variables.product.prodname_vscode %} Command Palette (`Shift + Command + P` (Mac) / `Ctrl + Shift + P` (Windows)) and type **Export logs**. Select **Codespaces: Export Logs** from the list to download the logs.
-1. Define where to save the zip archive of logs then click **Save** (desktop) or click **OK** (web).
+1. 打开 {% data variables.product.prodname_vscode %} 命令面板 (`Shift + Command + P` (Mac) / `Ctrl + Shift + P` (Windows)) ，然后键入 **Export logs**。 从列表中选择 **odespaces: Export Logs（代码空间：导出日志）**以下载日志。
+1. 定义保存日志 zip 存档的位置，然后单击 **Save（保存）**（桌面），或单击 **OK（确定）** (web)。
 
 {% endvscode %}
 
 {% cli %}
 
-Currently you can't use {% data variables.product.prodname_cli %} to access these logs. To access them, open your codespace in {% data variables.product.prodname_vscode %} or in a browser.
+目前，您无法使用 {% data variables.product.prodname_cli %} 来访问这些日志。 要访问它们，请在 {% data variables.product.prodname_vscode %} 或浏览器中打开代码空间。
 
 {% endcli %}
 
-## Creation logs
+## 创建日志
 
-These logs contain information about the container, dev container, and their configuration. They are useful for debugging configuration and setup problems.
+这些日志包含有关容器、开发容器及其配置的信息。 它们对于调试配置和设置问题非常有用。
 
-{% include tool-switcher %}
 
 {% webui %}
 
-1. Connect to the codespace you want to debug.
-2. Open the {% data variables.product.prodname_vscode_command_palette %} (`Shift + Command + P` (Mac) / `Ctrl + Shift + P` (Windows)) and type **Creation logs**. Select **Codespaces: View Creation Log** from the list to open the `creation.log` file.
+1. 连接到要调试的代码空间。
+2. 打开 {% data variables.product.prodname_vscode_command_palette %} (`Shift + Command + P` (Mac) / `Ctrl + Shift + P` (Windows)) ，然后键入 **Creation logs**。 从列表中选择 **Codespaces: View Creation Log（代码空间：查看创建日志）**以打开 `creation.log` 文件。
 
-If you want to share the log with support, you can copy the text from the creation log into a text editor and save the file locally.
+如果要与支持人员共享日志，可以将创建日志中的文本复制到文本编辑器中，并将文件保存在本地。
 
 {% endwebui %}
 
 {% vscode %}
 
-Open the Command Palette (`Shift + Command + P` (Mac) / `Ctrl + Shift + P` (Windows)) and type **Creation logs**. Select **Codespaces: View Creation Log** from the list to open the `creation.log` file.
+打开命令面板 (`Shift + Command + P` (Mac) / `Ctrl + Shift + P` (Windows))，然后键入 **Creation logs**。 从列表中选择 **Codespaces: View Creation Log（代码空间：查看创建日志）**以打开 `creation.log` 文件。
 
-If you want to share the log with support, you can copy the text from the creation log into a text editor and save the file locally.
+如果要与支持人员共享日志，可以将创建日志中的文本复制到文本编辑器中，并将文件保存在本地。
 
 {% endvscode %}
 
@@ -74,15 +71,15 @@ If you want to share the log with support, you can copy the text from the creati
 
 {% data reusables.cli.cli-learn-more %}
 
-To see the creation log use the `gh codespace logs` subcommand. After entering the command choose from the list of codespaces that's displayed.
+要查看创建日志，请使用 `gh codespace logs` 子命令。 输入命令后，从显示的代码空间列表中进行选择。
 
 ```shell
-gh codespace logs 
+gh codespace logs
 ```
 
-For more information about this command, see [the {% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_codespace_logs).
+有关此命令的详细信息，请参阅 [ {% data variables.product.prodname_cli %} 手册](https://cli.github.com/manual/gh_codespace_logs)。
 
-If you want to share the log with support, you can save the output to a file:
+如果要与支持人员共享日志，可以将输出保存到一个文件中：
 
 ```shell
 gh codespace logs -c <CODESPACE-NAME> > /path/to/logs.txt
@@ -90,19 +87,19 @@ gh codespace logs -c <CODESPACE-NAME> > /path/to/logs.txt
 
 {% endcli %}
 
-## Extension logs
+## 扩展日志
 
-These logs are available for {% data variables.product.prodname_vscode %} desktop users only. They are useful if it seems like the {% data variables.product.prodname_codespaces %} extension or {% data variables.product.prodname_vscode %} editor are having issues that prevent creation or connection.
+这些日志仅适用于 {% data variables.product.prodname_vscode %} 桌面用户。 如果看起来 {% data variables.product.prodname_codespaces %} 扩展名或 {% data variables.product.prodname_vscode %} 编辑器遇到阻止创建或连接的问题，则它们很有用。
 
-1. In {% data variables.product.prodname_vscode %}, open the Command Palette.
-1. Type **Logs** and select **Developer: Open Extension Logs Folder** from the list to open the extension log folder in your system's file explorer.
+1. 在 {% data variables.product.prodname_vscode %} 中，打开命令面板。
+1. 键入 **Logs** ，然后从列表中选择 **Developer: Open Extension Logs Folder（开发人员：打开扩展日志文件夹）**，以在系统的文件资源管理器中打开扩展日志文件夹。
 
-From this view, you can access logs generated by the various extensions that you use in {% data variables.product.prodname_vscode %}. You will see logs for GitHub Codespaces, GitHub Authentication, and Git, in addition to any other extensions you have enabled.
+在此视图中，您可以访问由在 {% data variables.product.prodname_vscode %} 中使用的各种扩展生成的日志。 除了已启用的任何其他扩展之外，你还将看到 GitHub Codespaces、GitHub Authentication 和 Git 的日志。
 
-## Browser console logs
+## 浏览器控制台日志
 
-These logs are useful only if you want to debug problems with using {% data variables.product.prodname_codespaces %} in the browser. They are useful for debugging problems creating and connecting to {% data variables.product.prodname_codespaces %}.
+仅当您要调试在浏览器中使用 {% data variables.product.prodname_codespaces %} 的问题时，这些日志才有用。 它们对于调试创建和连接到 {% data variables.product.prodname_codespaces %} 的问题非常有用。
 
-1. In the browser window for the codespace you want to debug, open the developer tools window.
-1. Display the "Console" tab and click **errors** in the left side bar to show only the errors.
-1. In the log area on the right, right-click and select **Save as** to save a copy of the errors to your local machine. ![Save errors](/assets/images/help/codespaces/browser-console-log-save.png)
+1. 在要调试的代码空间的浏览器窗口中，打开开发人员工具窗口。
+1. 显示“Console（控制台）”选项卡，然后单击左侧栏中的 **errors（错误）**以仅显示错误。
+1. 在右侧的日志区域中，右键单击并选择 **Save as（另存为）**将错误的副本保存到本地计算机。 ![保存错误](/assets/images/help/codespaces/browser-console-log-save.png)

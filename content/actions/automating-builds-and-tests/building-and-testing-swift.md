@@ -37,7 +37,6 @@ We recommend that you have a basic understanding of Swift packages. For more inf
 
 To get started quickly, add the starter workflow to the `.github/workflows` directory of your repository.
 
-{% raw %}
 ```yaml{:copy}
 name: Swift
 
@@ -49,13 +48,12 @@ jobs:
     runs-on: macos-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Build
         run: swift build
       - name: Run tests
         run: swift test
 ```
-{% endraw %}
 
 ## Specifying a Swift version
 
@@ -67,7 +65,7 @@ The examples below demonstrate using the `fwal/setup-swift` action.
 
 ### Using multiple Swift versions
 
-You can configure your job to use a multiple versions of Swift in a build matrix.
+You can configure your job to use multiple versions of Swift in a matrix.
 
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -85,10 +83,10 @@ jobs:
         swift: ["5.2", "5.3"]
     runs-on: {% raw %}${{ matrix.os }}{% endraw %}
     steps:
-      - uses: fwal/setup-swift@d43a564349d1341cd990cfbd70d94d63b8899475
+      - uses: fwal/setup-swift@2040b795e5c453c3a05fcb8316496afc8a74f192
         with:
           swift-version: {% raw %}${{ matrix.swift }}{% endraw %}
-      - uses: actions/checkout@
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Build
         run: swift build
       - name: Run tests
@@ -102,7 +100,7 @@ You can configure your job to use a single specific version of Swift, such as `5
 {% raw %}
 ```yaml{:copy}
 steps:
-  - uses: fwal/setup-swift@d43a564349d1341cd990cfbd70d94d63b8899475
+  - uses: fwal/setup-swift@2040b795e5c453c3a05fcb8316496afc8a74f192
     with:
       swift-version: "5.3.3"
   - name: Get swift version
@@ -114,11 +112,10 @@ steps:
 
 You can use the same commands that you use locally to build and test your code using Swift. This example demonstrates how to use `swift build` and `swift test` in a job:
 
-{% raw %}
 ```yaml{:copy}
 steps:
-  - uses: actions/checkout@v2
-  - uses: fwal/setup-swift@d43a564349d1341cd990cfbd70d94d63b8899475
+  - uses: {% data reusables.actions.action-checkout %}
+  - uses: fwal/setup-swift@2040b795e5c453c3a05fcb8316496afc8a74f192
     with:
       swift-version: "5.3.3"
   - name: Build
@@ -126,4 +123,3 @@ steps:
   - name: Run tests
     run: swift test
 ```
-{% endraw %}

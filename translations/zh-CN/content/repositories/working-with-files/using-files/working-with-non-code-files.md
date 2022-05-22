@@ -1,6 +1,6 @@
 ---
 title: 使用非代码文件
-intro: '{% data variables.product.product_name %} supports rendering and diffing in a number of non-code file formats.'
+intro: '{% data variables.product.product_name %} 支持以多种非代码文件格式呈现和比较。'
 redirect_from:
   - /articles/rendering-and-diffing-images
   - /github/managing-files-in-a-repository/rendering-and-diffing-images
@@ -37,17 +37,19 @@ shortTitle: 使用非代码文件
 
 ## 呈现图像和比较差异
 
-{% data variables.product.product_name %} 可显示几种常见的图像格式，包括 PNG、JPG、GIF、PSD 和 SVG。 In addition to simply displaying them, there are several ways to compare differences between versions of those image formats.'
+{% data variables.product.product_name %} 可显示几种常见的图像格式，包括 PNG、JPG、GIF、PSD 和 SVG。 除了简单地显示这些图像以外，还有几种方法可以比较这些图像格式版本之间的差异。
 
 {% note %}
 
-**注：**如果您使用 Firefox 浏览器，则 {% data variables.product.prodname_dotcom %} 上的 SVG 可能无法呈现。
+**注:**
+- {% data variables.product.prodname_dotcom %} 不支持比较 PSD 文件之间的差异。
+- 如果您使用 Firefox 浏览器，则 {% data variables.product.prodname_dotcom %} 上的 SVG 可能无法呈现。
 
 {% endnote %}
 
 ### 查看图像
 
-You can directly browse and view images in your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}:
+您可以直接浏览和查看 {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %} 上的{% endif %} 存储库中的图像：
 
 ![内联图像](/assets/images/help/images/view.png)
 
@@ -116,7 +118,7 @@ SVG 目前不支持内联脚本或动画。
 <script src="https://embed.github.com/view/3d/<username>/<repo>/<ref>/<path_to_file>"></script>
 ```
 
-例如，如果您的型号的 URL 是 [github.com/skalnik/secret-bear-clip/blob/master/stl/clip.stl](https://github.com/skalnik/secret-bear-clip/blob/master/stl/clip.stl)，则嵌入的代码是：
+例如，如果模型的 URL 是 [`github.com/skalnik/secret-bear-clip/blob/master/stl/clip.stl`](https://github.com/skalnik/secret-bear-clip/blob/master/stl/clip.stl)，则嵌入的代码为：
 
 ```html
 <script src="https://embed.github.com/view/3d/skalnik/secret-bear-clip/master/stl/clip.stl"></script>
@@ -130,13 +132,19 @@ SVG 目前不支持内联脚本或动画。
 
 {% endtip %}
 
+{% if mermaid %}
+### 在 Markdown 中渲染
+
+您可以直接在 Markdown 中嵌入 ASCII STL 语法。 更多信息请参阅“[创建示意图](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-stl-3d-models)”。
+{% endif %}
+
 ## 呈现 CSV 和 TSV 数据
 
 GitHub 支持以 *.csv*（逗号分隔）和 .*tsv*（制表符分隔）文件的形式呈现表格数据。
 
 ![呈现的 CSV 示例](/assets/images/help/repository/rendered_csv.png)
 
-When viewed, any _.csv_ or _.tsv_ file committed to a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} automatically renders as an interactive table, complete with headers and row numbering. 默认情况下，我们始终假设第一行是标题行。
+查看时，提交到 {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %} 上的{% endif %} 存储库的任何 _.csv_ 或 _.tsv_ 文件都会自动呈现为交互式表格，包括标题和行号。 默认情况下，我们始终假设第一行是标题行。
 
 您可以通过单击行号链接到特定行，或通过按住 Shift 键选择多行。 只需复制 URL 并将其发送给好友即可。
 
@@ -225,7 +233,7 @@ GitHub 支持呈现 PDF 文档。
 
 一般来说，包含嵌入式 HTML 的文档更改的呈现视图将显示对 {% data variables.product.product_name %} 文档视图中支持元素的更改。 必须始终在呈现视图和源视图中检查对包含嵌入式 HTML 的文档的更改以确保完整性。
 
-## Mapping geoJSON files on {% data variables.product.prodname_dotcom %}
+## 映射 {% data variables.product.prodname_dotcom %} 上的 geoJSON 文件
 
 {% data variables.product.product_name %} 支持在 {% data variables.product.product_name %} 仓库中渲染 geoJSON 和 topoJSON 地图文件。 只需像平常一样提交扩展名为 `.geojson` 或 `.topojson` 的文件。 也支持扩展名为 `.json` 的文件，但仅当 `type` 设置为 `FeatureCollection`、`GeometryCollection` 或 `topology` 时才支持。 然后导航到 GitHub.com 上 geoJSON 文件的路径。
 
@@ -274,6 +282,12 @@ GitHub 支持呈现 PDF 文档。
 
 {% endtip %}
 
+{% if mermaid %}
+### 在 Markdown 嵌入地图
+
+您可以直接在 Markdown 中嵌入 geoJSON 和 topoJSON。 更多信息请参阅“[创建示意图](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-geojson-and-topojson-maps)”。
+{% endif %}
+
 ### 集群
 
 如果地图包含大量标记（大约超过 750 个），GitHub 将自动以较高的缩放比例集群附近的标记。 只需单击群集或放大便可查看个别标记。
@@ -292,15 +306,15 @@ GitHub 支持呈现 PDF 文档。
 
 如果将 `.geojson` 文件转换为 [TopoJSON](https://github.com/mbostock/topojson)，可能还是能够渲染数据，TopoJSON 是一种压缩格式，有时能将文件减小 80%。 当然，您始终可以将文件分解为更小的数据块（例如按州或年分解），并将数据在仓库中存储为多个文件。
 
-### 其他资源
+### 延伸阅读
 
-* [Leaflet.js geojson 文档](http://leafletjs.com/examples/geojson.html)
+* [Leaflet.js 文档](https://leafletjs.com/)
 * [MapBox marker-styling 文档](http://www.mapbox.com/developers/simplestyle/)
 * [TopoJSON Wiki](https://github.com/mbostock/topojson/wiki)
 
-## Working with Jupyter Notebook files on {% data variables.product.prodname_dotcom %}
+## 在 {% data variables.product.prodname_dotcom %} 上使用 Jupyter Notebook 文件
 
-When you add Jupyter Notebook or IPython Notebook files with a *.ipynb* extension on {% data variables.product.product_location %}, they will render as static HTML files in your repository.
+当您在 {% data variables.product.product_location %} 上添加具有 *.ipynb* 扩展名的 Jupyter Notebook 或 IPython Notebook 文件时，它们将在您的仓库中呈现为静态 HTML 文件。
 
 笔记本的交互式功能（例如自定义的 JavaScript 图）在 {% data variables.product.product_location %} 上的仓库中不起作用。 有关示例，请参阅 [*Linking and Interactions.ipynb*](https://github.com/bokeh/bokeh-notebooks/blob/main/tutorial/06%20-%20Linking%20and%20Interactions.ipynb)。
 
@@ -320,3 +334,44 @@ $ jupyter nbconvert --to html <em>NOTEBOOK-NAME.ipynb</em>
 
 - [Jupyter Notebook 的 GitHub 仓库](https://github.com/jupyter/jupyter_notebook)
 - [Jupyter Notebook 的图片库](https://github.com/jupyter/jupyter/wiki/A-gallery-of-interesting-Jupyter-Notebooks)
+
+{% if mermaid %}
+## 在 {% data variables.product.prodname_dotcom %} 上显示 Mermaid 文件
+
+{% data variables.product.product_name %} 支持在存储库中呈现 Mermaid 文件。 像往常一样使用 `.mermaid` 或 `.mmd` 扩展名提交文件。 然后，导航到 {% data variables.product.prodname_dotcom %}上的 Mermaid 文件的路径。
+
+例如，如果将包含以下内容的 `.mmd` 文件添加到存储库中：
+
+```
+graph TD
+    A[Friend's Birthday] -->|Get money| B(Go shopping)
+    B --> C{Let me think}
+    C -->|One| D["Cool <br> Laptop"]
+    C -->|Two| E[iPhone]
+    C -->|Three| F[fa:fa-car Car]
+```
+
+当您在存储库中查看文件时，它将呈现为流程图。 ![渲染的 mermaid 文件图](/assets/images/help/repository/mermaid-file-diagram.png)
+
+### 疑难解答
+
+如果您的图表根本没有呈现，请使用 [Mermaid 实时编辑器](https://mermaid.live/edit)检查您的图表，以验证它是否包含有效的 Mermaid Markdown 语法。
+
+如果图表显示，但未按预期显示，则可以创建新的[反馈讨论](https://github.com/github/feedback/discussions/categories/general-feedback)，并添加 `mermaid` 标记。
+
+#### 已知问题
+
+* 序列图图表经常在图表下方使用额外的填充进行呈现，随着图表大小的增加，还会添加更多的填充。 这是 Mermaid 库的已知问题。
+* 具有弹出菜单的执行组件节点在序列图图表中无法按预期工作。 这是由于当 Mermaid 库的 API 用于呈现图表时，JavaScript 事件添加到图表的方式存在差异。
+* 并非所有图表都符合 a11y 标准。 这可能会影响依赖屏幕阅读器的用户。
+
+### Mermaid in Markdown
+
+您可以直接在 Markdown 中嵌入 Mermaid 语法。 更多信息请参阅“[创建示意图](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-mermaid-diagrams)”。
+
+### 延伸阅读
+
+* [Mermaid.js 文档](https://mermaid-js.github.io/mermaid/#/)
+* [Mermaid.js 实时编辑器](https://mermaid.live/edit)
+{% endif %}
+

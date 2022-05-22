@@ -47,12 +47,14 @@ topics:
 ![Field for a description of your app](/assets/images/oauth-apps/oauth_apps_application_description.png)
 9. In "Authorization callback URL", type the callback URL of your app.
 ![Field for the authorization callback URL of your app](/assets/images/oauth-apps/oauth_apps_authorization_callback_url.png)
-{% ifversion fpt or ghes > 3.0 or ghec %}
+{% ifversion fpt or ghes or ghec %}
    {% note %}
 
    **Note:** OAuth Apps cannot have multiple callback URLs, unlike {% data variables.product.prodname_github_apps %}.
 
    {% endnote %}
-{% endif %}
-10. Click **Register application**.
+{% endif %}{% if device-flow-is-opt-in %}
+1. If your OAuth App will use the device flow to identify and authorize users, click **Enable Device Flow**. For more information about the device flow, see "[Authorizing OAuth Apps](/developers/apps/building-oauth-apps/authorizing-oauth-apps#device-flow)."
+  ![Screenshot showing field for enabling device flow](/assets/images/oauth-apps/enable-device-flow.png){% endif %}
+2.  Click **Register application**.
 ![Button to register an application](/assets/images/oauth-apps/oauth_apps_register_application.png)

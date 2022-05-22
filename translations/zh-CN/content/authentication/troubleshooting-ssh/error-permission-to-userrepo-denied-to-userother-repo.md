@@ -16,6 +16,6 @@ topics:
 shortTitle: 拒绝其他仓库的权限
 ---
 
-要解决此问题，请从仓库中删除部署密钥，改为[将密钥添加到您的用户帐户](/articles/adding-a-new-ssh-key-to-your-github-account) 。
+要解决此问题，请从仓库中删除部署密钥，改为[将密钥添加到您的个人帐户](/articles/adding-a-new-ssh-key-to-your-github-account) 。
 
 如果您正在使用的密钥旨在作为一个 deploy key，请查看[我们的 deploy key 指南](/guides/managing-deploy-keys)了解详细信息。

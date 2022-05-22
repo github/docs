@@ -123,3 +123,11 @@ Ao concluir as alterações que você decidiu fazer no commit, escreva a mensage
 
   ![Aviso de branch protegido](/assets/images/help/desktop/protected-branch-warning.png)
 {% data reusables.desktop.push-origin %}
+
+6. Se você tiver um pull request baseado no branch no qual você está trabalhando, {% data variables.product.prodname_desktop %} irá exibir o status das verificações que foram executadas para o pull request. Para obter mais informações sobre verificações, consulte "[Visualização e reexecução de verificações no GitHub Desktop](/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/viewing-and-re-running-checks-in-github-desktop)".
+
+ ![Exibição das verificações ao lado do nome do branch](/assets/images/help/desktop/checks-dialog.png)
+
+ Se um pull request não tiver sido criado para o branch atual, {% data variables.product.prodname_desktop %} dará a você a opção de criar um. Para obter mais informações, consulte "[Criando um problema ou um pull request](/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/creating-an-issue-or-pull-request)."
+
+ ![Criar um pull request](/assets/images/help/desktop/mac-create-pull-request.png)

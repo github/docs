@@ -51,7 +51,7 @@ You can find and view a package located in a particular repository.
 You can find and view a package located in the repositories of an organization you belong to.
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 3. Under your organization name, click {% octicon "package" aria-label="The package icon" %} **Packages**.
 {% data reusables.package_registry.navigate-to-packages %}
 

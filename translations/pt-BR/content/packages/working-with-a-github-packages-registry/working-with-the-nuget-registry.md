@@ -43,7 +43,7 @@ dotnet nuget add source --username USERNAME --password {%raw%}${{ secrets.GITHUB
 To authenticate to {% data variables.product.prodname_registry %} with the `dotnet` command-line interface (CLI), create a *nuget.config* file in your project directory specifying {% data variables.product.prodname_registry %} as a source under `packageSources` for the `dotnet` CLI client.
 
 You must replace:
-- `USERNAME` with the name of your user account on {% data variables.product.prodname_dotcom %}.
+- `USERNAME` with the name of your personal account on {% data variables.product.prodname_dotcom %}.
 - `TOKEN` with your personal access token.
 - `OWNER` with the name of the user or organization account that owns the repository containing your project.{% ifversion ghes or ghae %}
 - `HOSTNAME` with the host name for {% data variables.product.product_location %}.{% endif %}
@@ -110,7 +110,6 @@ If you don't already have a PAT to use for your account on {% ifversion ghae %}{
   ```
 
 {% data reusables.package_registry.viewing-packages %}
-
 
 ### Publishing a package using a *nuget.config* file
 
@@ -231,6 +230,10 @@ Using packages from {% data variables.product.prodname_dotcom %} in your project
 
 Your NuGet package may fail to push if the `RepositoryUrl` in *.csproj* is not set to the expected repository .
 
+If you're using a nuspec file, ensure that it has a `repository` element with the required `type` and `url` attributes.
+
+{% ifversion fpt or ghec or ghes > 3.1 or ghae %}
 ## Further reading
 
-- "{% ifversion fpt or ghes > 3.0 or ghec %}[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif ghes < 3.1 or ghae %}[Deleting a package](/packages/learn-github-packages/deleting-a-package){% endif %}"
+- "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)"
+{% endif %}

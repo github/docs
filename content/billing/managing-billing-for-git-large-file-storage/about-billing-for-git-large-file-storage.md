@@ -20,7 +20,7 @@ shortTitle: About Git LFS billing
 
 {% data reusables.large_files.owner_quota_only %}
 
-{% data reusables.user_settings.context_switcher %}
+{% data reusables.user-settings.context_switcher %}
 
 ## Purchasing additional storage and bandwidth
 

@@ -46,7 +46,7 @@ shortTitle: Triage your notifications
 
 たとえば、次の順序でフォローアップすることを決定できます。
   - 割り当てられた Issue およびプルリクエスト。 可能な Issue またはプルリクエストをすぐにクローズして、更新を追加します。 必要に応じて、後で確認するために通知を保存します。
-  - 保存済インボックスの通知、特に未読の更新を確認します。 スレッドが不要になった場合は、{% octicon "bookmark" aria-label="The bookmark icon" %} をオフにして、通知を保存済インボックスから削除し、保存を解除します。
+  - 保存済インボックスの通知、特に未読の更新を確認します。 If the thread is no longer relevant, deselect {% octicon "bookmark" aria-label="The bookmark icon" %} to remove the notification from the saved inbox and unsave it.
 
 ## 優先度の低い通知を管理する
 

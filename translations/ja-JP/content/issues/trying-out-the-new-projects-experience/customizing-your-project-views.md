@@ -1,6 +1,6 @@
 ---
-title: Customizing your project (beta) views
-intro: 'Display the information you need by changing the layout, grouping, sorting, and filters in your project.'
+title: プロジェクト（ベータ）のビューのカスタマイズ
+intro: プロジェクトのレイアウト、グループ化、ソート、フィルタを変更して、必要な情報を表示させてください。
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
@@ -12,174 +12,193 @@ topics:
 
 {% data reusables.projects.projects-beta %}
 
-## Project command palette
+## プロジェクトコマンドパレット
 
-Use the project command palette to quickly change settings and run commands in your project.
-
-1. {% data reusables.projects.open-command-palette %}
-2. Start typing any part of a command or navigate through the command palette window to find a command. See the next sections for more examples of commands.
-
-## Changing the project layout
-
-You can view your project as a table or as a board.
+プロジェクトコマンドパレットを使って、プロジェクトで素早く設定を変更し、コマンドを実行してください。
 
 1. {% data reusables.projects.open-command-palette %}
-2. Start typing "Switch layout".
-3. Choose the required command. For example, **Switch layout: Table**.
-3. Alternatively, click the drop-down menu next to a view name and click **Table** or **Board**.
+2. コマンドの一部を入力し始めるか、コマンドパレットウィンドウをナビゲートしてコマンドを見つけてください。 さらなるコマンドの例については、次のセクションを参照してください。
 
-## Showing and hiding fields
+## プロジェクトレイアウトの変更
 
-You can show or hide a specific field.
-
-In table layout:
+プロジェクトを、テーブルまたはボードとして見ることができます。
 
 1. {% data reusables.projects.open-command-palette %}
-2. Start typing the action you want to take ("show" or "hide") or the name of the field.
-3. Choose the required command. For example, **Show: Milestone**.
-4. Alternatively, click {% octicon "plus" aria-label="the plus icon" %} to the right of the table. In the drop-down menu that appears, indicate which fields to show or hide. A {% octicon "check" aria-label="check icon" %} indicates which fields are displayed.
-5. Alternatively, click the drop-down menu next to the field name and click **Hide field**.
+2. "Switch layout"と入力し始めてください。
+3. 必要なコマンドを選択してください。 たとえば**Switch layout: Table（レイアウトの変更: テーブル）**を選択してください。
 
-In board layout:
+あるいは、ビュー名の隣の{% octicon "triangle-down" aria-label="the drop-down icon" %}をクリックし、**Table（テーブル）**もしくは**Board（ボード）**をクリックしてください。
 
-1. Click the drop-down menu next to the view name.
-2. Under **configuration**, click {% octicon "list-unordered" aria-label="the unordered list icon" %}.
-3. In the menu that's displayed, select fields to add them and deselect fields to remove them from the view.
+## フィールドの表示と非表示
 
-## Reordering fields
+特定のフィールドを表示または非表示にできます。
 
-You can change the order of fields.
-
-1. Click the field header.
-2. While clicking, drag the field to the required location.
-
-## Reordering rows
-
-In table layout, you can change the order of rows.
-
-1. Click the number at the start of the row.
-2. While clicking, drag the row to the required location.
-
-## Sorting by field values
-
-In table layout, you can sort items by a field value.
+### テーブルレイアウトでのフィールドの表示と非表示
 
 1. {% data reusables.projects.open-command-palette %}
-2. Start typing "Sort by" or the name of the field you want to sort by.
-3. Choose the required command. For example, **Sort by: Assignees, asc**.
-4. Alternatively, click the drop-down menu next to the field name that you want to sort by and click **Sort ascending** or **Sort descending**.
+2. 行いたいアクション（"show"もしくは"hide"）もしくはフィールド名を入力し始めてください。
+3. 必要なコマンドを選択してください。 たとえば**Show: Milestone（表示: マイルストーン）**を選択してください。
+
+あるいは、表の右の{% octicon "plus" aria-label="the plus icon" %}をクリックしてください。 表示されるドロップダウンメニューで、表示または非表示にするフィールドを指定してください。 {% octicon "check" aria-label="check icon" %}は、表示されるフィールドを示します。
+
+あるいは、フィールド名の隣の{% octicon "triangle-down" aria-label="the drop-down icon" %}をクリックし、**Hide field（フィールドを非表示）**をクリックしてください。
+
+### ボードレイアウトでのフィールドの表示と非表示
+
+1. ビュー名の隣の{% octicon "triangle-down" aria-label="the drop-down icon" %}をクリックしてください。
+2. ** configuration（設定）**の下で、{% octicon "list-unordered" aria-label="the unordered list icon" %}をクリックしてください。
+3. 表示されたメニューで、追加するフィールドを選択し、ビューから削除するフィールドの選択を解除してください。
+
+## フィールドの並び替え
+
+フィールドの順序を変えることができます。
+
+1. フィールドのヘッダをクリックしてください。
+2. クリックしながら、フィールドを必要な場所へドラッグしてください。
+
+## 行の並び替え
+
+テーブルレイアウトでは、行の順序を変更できます。
+
+1. 行の先頭にある数字をクリックしてください。
+2. クリックしながら、行を必要な場所へドラッグしてください。
+
+## フィールドの値でソート
+
+テーブルレイアウトでは、フィールドの値でアイテムをソートできます。
+
+1. {% data reusables.projects.open-command-palette %}
+2. "Sort by"あるいはソートの基準にしたいフィールド名を入力し始めてください。
+3. 必要なコマンドを選択してください。 たとえば**Sort by: Assignees, asc**を選択してください。
+
+あるいは、ソートの基準にしたいフィールド名の隣の{% octicon "triangle-down" aria-label="the drop-down icon" %}をクリックし、**Sort ascending（昇順にソート）**あるいは**Sort descending（降順にソート）**をクリックしてください。
 
 {% note %}
 
-**Note:** When a table is sorted, you cannot manually reorder rows.
+**ノート:** テーブルがソートされると、手動で行を並び替えることはできなくなります。
 
 {% endnote %}
 
-Follow similar steps to remove a sort.
+ソートを解除するには、同じようなステップに従ってください。
 
 1. {% data reusables.projects.open-command-palette %}
-2. Start typing "Remove sort-by".
-3. Choose **Remove sort-by**.
-4. Alternatively, click the drop-down menu next to the view name and click the menu item that indicates the current sort.
+2. "Remove sort-by"と入力し始めてください。
+3. **Remove sort-by（ソートを解除）**を選択してください。
 
-## Grouping by field values
+あるいは、ビュー名の隣の{% octicon "triangle-down" aria-label="the drop-down icon" %}をクリックし、現在のソートを表しているメニューアイテムをクリックしてください。
 
-In the table layout, you can group items by a custom field value. When items are grouped, if you drag an item to a new group, the value of that group is applied. For example, if you group by "Status" and then drag an item with a status of `In progress` to the `Done` group, the status of the item will switch to `Done`.
+## テーブルレイアウト内のフィールドの値でグループ化
+
+テーブルレイアウトでは、カスタムフィールドの値でアイテムをグループ化できます。 アイテムがグループ化されると、アイテムを新しいグループにドラッグした場合、そのグループの値が適用されます。 たとえば"Status"でグループ化して、ステータスが`In progress`のアイテムを`Done`グループにドラッグすると、そのアイテムのステータスは`Done`に切り替わります。 同様に、新しいアイテムをグループに追加すると、新しいアイテムにはそのグループの値が展開されます。
 
 {% note %}
 
-**Note:** Currently, you cannot group by title, assignees, repository or labels.
+**ノート:** 現時点では、タイトル、ラベル、レビュー担当者、リンクされたPull Requestでのグループ化はできません。
 
 {% endnote %}
 
 1. {% data reusables.projects.open-command-palette %}
-2. Start typing "Group by" or the name of the field you want to group by.
-3. Choose the required command. For example, **Group by: Status**.
-4. Alternatively, click the drop-down menu next to the field name that you want to group by and click **Group by values**.
+2. "Group by" あるいはグループ化に使いたいフィールド名を入力し始めてください。
+3. 必要なコマンドを選択してください。 たとえば**Group by: Status（グループ化: ステータス）**を選択してください。
 
-Follow similar steps to remove a grouping.
+あるいは、グループ化したいフィールド名の隣の{% octicon "triangle-down" aria-label="the drop-down icon" %}をクリックし、**Group by values（値でグループ化）**をクリックしてください。
 
-1. {% data reusables.projects.open-command-palette %}
-2. Start typing "Remove group-by".
-3. Choose **Remove group-by**.
-4. Alternatively, click the drop-down menu next to the view name and click the menu item that indicates the current grouping.
-
-## Filtering rows
-
-Click {% octicon "search" aria-label="the search icon" %} at the top of the table to show the "Filter by keyword or field" bar. Start typing the field name and value that you want to filter by. As you type, possible values will appear.
-
-- To filter for multiple values, separate the values with a comma. For example `label:"good first issue",bug` will list all issues with a label `good first issue` or `bug`.
-- To filter for the absence of a specific value, place `-` before your filter. For example, `-label:"bug"` will only show items that do not have the label `bug`.
-- To filter for the absence of all values, enter `no:` followed by the field name. For example, `no:assignee` will only show items that do not have an assignee.
-- To filter by state, enter `is:`. For example, `is: issue` or `is:open`.
-- Separate multiple filters with a space. For example, `status:"In progress" -label:"bug" no:assignee` will show only items that have a status of `In progress`, do not have the label `bug`, and do not have an assignee.
-
-Alternatively, use the command palette.
+グループを削除するには、同じようなステップに従ってください。
 
 1. {% data reusables.projects.open-command-palette %}
-2. Start typing "Filter by" or the name of the field you want to filter by.
-3. Choose the required command. For example, **Filter by Status**.
-4. Enter the value that you want to filter for. For example: "In progress". You can also filter for the absence of specific values (for example, choose "Exclude status" then choose a status) or the absence of all values (for example, "No status").
+2. "Remove group-by"と入力し始めてください。
+3. **Remove group-by（グループ化を解除）**を選択してください。
 
-In board layout, you can click on item data to filter for items with that value. For example, click on an assignee to show only items for that assignee. To remove the filter, click the item data again.
+あるいは、ビュー名の隣の{% octicon "triangle-down" aria-label="the drop-down icon" %}をクリックし、現在のグループ化を示すメニューアイテムをクリックしてください。
 
-## Creating a project view
+## ボードレイアウトでの列フィールドの設定
 
-Project views allow you to quickly view specific aspects of your project. Each view is displayed on a separate tab in your project. 
-
-For example, you can have:
-- A view that shows all items not yet started (filter on "Status").
-- A view that shows the workload for each team (group by a custom "Team" field).
-- A view that shows the items with the earliest target ship date (sort by a date field).
-
-To add a new view:
+ボードレイアウトでは、列に対して任意の単一選択あるいは繰り返しフィールドを選択します。 アイテムを新しい列にドラッグすると、その列の値がドラッグされたアイテムに適用されます。 たとえば、ボードの列に"Status"フィールドを使い、ステータスが`In progress`のアイテムを`Done`列にドラッグすると、そのアイテムのステータスは`Done`に切り替わります。
 
 1. {% data reusables.projects.open-command-palette %}
-2. Start typing "New view" (to create a new view) or "Duplicate view" (to duplicate the current view).
-3. Choose the required command.
-4. Alternatively, click {% octicon "plus" aria-label="the plus icon" %} **New view** next to the rightmost view.
-5. Alternatively, click the drop-down menu next to a view name and click **Duplicate view**.
+1. "Column field by"もしくは列で使いたいフィールドの名前をタイプし始めてください。
+1. 必要なコマンドを選択してください。 たとえば**Column field by: Status**を選択してください。
 
-The new view is automatically saved.
+あるいは、変更したいボードビューの隣の{% octicon "triangle-down" aria-label="the drop-down icon" %}をクリックし、{% octicon "columns" aria-label="the column icon" %} **Column field（列フィールド）**をクリックしてください。 続いて、ボードの列に使いたいフィールドを選択してください。
 
-## Saving changes to a view
+## アイテムのフィルタリング
 
-When you make changes to a view - for example, sorting, reordering, filtering, or grouping the data in a view - a dot is displayed next to the view name to indicate that there are unsaved changes. 
+テーブルの上部にある{% octicon "filter" aria-label="the filter icon" %}をクリックして、"Filter by keyword or by field（キーワードもしくはフィールドでフィルタ）"バーを表示させてください。 フィルタに使いたいフィールド名及び値を入力し始めてください。 入力していくと、利用できる値が表示されます。
 
-![Unsaved changes indicator](/assets/images/help/projects/unsaved-changes.png)
+{% data reusables.projects.projects-filters %}
 
-If you don't want to save the changes, you can ignore this indicator. No one else will see your changes.
+あるいは、コマンドパレットを使用してください。
 
-To save the current configuration of the view for all project members:
 1. {% data reusables.projects.open-command-palette %}
-1. Start typing "Save view" or "Save changes to new view".
-1. Choose the required command.
-1. Alternatively, click the drop-down menu next to a view name and click **Save view** or **Save changes to new view**.
+2. "Filter by"あるいはフィルタリングに使いたいフィールド名を入力し始めてください。
+3. 必要なコマンドを選択してください。 たとえば**Filter by Status**と入力してください。
+4. フィルタリングしたい値を入力してください。 たとえば"In progress"と入力してください。 特定の値がないことでフィルタリングしたり（たとえば"Exclude status"を選択してからステータスを選択）、すべての値がないことでフィルタリングしたり（たとえば"No status"）もできます。
 
-## Reordering saved views
+ボードレイアウトでは、アイテムデータをクリックして、その値を持つアイテムにフィルタリングできます。 たとえば、アサインされた人をクリックして、そのアサインされた人のアイテムだけを表示させられます。 このフィルタを削除するには、そのアイテムデータをもう一度クリックします。
 
-To change the order of the tabs that contain your saved views, click and drag a tab to a new location.
+詳しい情報については「[プロジェクトのフィルタリング](/issues/trying-out-the-new-projects-experience/filtering-projects)」を参照してください。
 
-The new tab order is automatically saved.
+## プロジェクトビューの作成
 
-## Renaming a saved view
+プロジェクトビューを使うと、プロジェクトの特定の側面を素早く見ることができます。 それぞれのビューは、プロジェクト内の個別のタブに表示されます。
 
-To rename a view:
-1. Double click the name in the project tab.
-1. Change the name.
-1. Press Enter, or click outside of the tab.
+たとえば、以下のようなビューを持つことができます:
+- まだ開始されていないすべてのアイテムを表示するビュー（"Status"でフィルタ）。
+- 各チームの作業負荷を表示するビュー（カスタムの"Team"フィールドでグループ化）。
+- 最短のターゲット出荷日を持つアイテムを表示するビュー（日付フィールドでソート）。
 
-The name change is automatically saved.
+新しいビューは以下のように追加します:
 
-## Deleting a saved view
-
-To delete a view:
 1. {% data reusables.projects.open-command-palette %}
-2. Start typing "Delete view".
-3. Choose the required command.
-4. Alternatively, click the drop-down menu next to a view name and click **Delete view**.
+2. "New view"（新しいビューを作成する場合）あるいは"Duplicate view"（現在のビューを複製する場合）と入力し始めます。
+3. 必要なコマンドを選択してください。
 
-## Further reading
+あるいは、最も右側のビューの隣にある{% octicon "plus" aria-label="the plus icon" %} **New view（新しいビュー）**をクリックしてください。
 
-- "[About projects (beta)](/issues/trying-out-the-new-projects-experience/about-projects)"
-- "[Creating a project (beta)](/issues/trying-out-the-new-projects-experience/creating-a-project)"
+あるいは、ビュー名の隣の{% octicon "triangle-down" aria-label="the drop-down icon" %}をクリックし、**Duplicate view（ビューを複製）**をクリックします。
+
+新しいビューは自動的に保存されます。
+
+## ビューへの変更の保存
+
+ビューのデータのソート、並び替え、フィルタリング、グループ化など、ビューに変更を加えた場合、ビュー名の隣にはドットが表示され、保存されていない変更があることを示します。
+
+![未保存の変更インジケータ](/assets/images/help/projects/unsaved-changes.png)
+
+変更を保存したくなければ、この表示は無視してかまいません。 この変更は他のユーザには見えません。
+
+ビューの現在の設定を、すべてのプロジェクトメンバーのために保存するには以下のようにします:
+1. {% data reusables.projects.open-command-palette %}
+1. "Save view"あるいは"Save changes to new view"と入力し始めてください。
+1. 必要なコマンドを選択してください。
+
+あるいは、ビュー名の隣の{% octicon "triangle-down" aria-label="the drop-down icon" %}をクリックし、**Save view（ビューの保存）**もしくは**Save changes to new view（ビューに変更を保存）**をクリックします。
+
+## 保存されたビューの並び替え
+
+保存されたビューを含むタブの順序を変更するには、タブをクリックして新しい場所へドラッグします。
+
+新しいタブの順序は自動的に保存されます。
+
+## 保存されたビューの名前の変更
+
+ビューの名前を変更するには以下のようにします:
+1. プロジェクトタブの名前をダブルクリックします。
+1. 名前を変更します。
+1. Enterを押すか、タブの外部をクリックします。
+
+名前の変更は自動的に保存されます。
+
+## 保存されたビューの削除
+
+ビューを削除するには以下のようにしてください。
+1. {% data reusables.projects.open-command-palette %}
+2. "Delete view"と入力し始めてください。
+3. 必要なコマンドを選択してください。
+
+あるいは、ビュー名の隣の{% octicon "triangle-down" aria-label="the drop-down icon" %}をクリックし、**Delete view（ビューの削除）**をクリックします。
+
+## 参考リンク
+
+- 「[プロジェクト（ベータ）について](/issues/trying-out-the-new-projects-experience/about-projects)」
+- 「[プロジェクト（ベータ）の作成](/issues/trying-out-the-new-projects-experience/creating-a-project)」

@@ -3,7 +3,7 @@ title: Acerca de las organizaciones para empresas de contratación
 intro: 'Las empresas usan las organizaciones para colaborar en proyectos compartidos con varios propietarios y administradores. Puedes crear una organización para tu cliente, realizar un pago en su nombre, y entonces transferir la propiedad de la organización a tu cliente.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/about-organizations-for-procurement-companies
-  - /articles/about-organizations-for-resellers/
+  - /articles/about-organizations-for-resellers
   - /articles/about-organizations-for-procurement-companies
   - /github/setting-up-and-managing-billing-and-payments-on-github/setting-up-paid-organizations-for-procurement-companies/about-organizations-for-procurement-companies
 versions:
@@ -15,7 +15,7 @@ topics:
 shortTitle: Acerca de las organizaciones
 ---
 
-Para acceder a una organización, cada miembro debe iniciar sesión en su cuenta de usuario personal.
+Para acceder a una organización, cada miembro debe iniciar sesión en su propia cuenta personal.
 
 Los miembros de la organización pueden tener diferentes roles, como *propietario* o *gerente de facturación*:
 

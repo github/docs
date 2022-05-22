@@ -1,1 +1,1 @@
-Workflow templates allow everyone in your organization who has permission to create workflows to do so more quickly and easily. When you create a new workflow, you can choose a template and some or all of the work of writing the workflow will be done for you. 您可以使用工作流程模板作为基础来构建自定义工作流程，或按原样使用模板。 This not only saves time, it promotes consistency and best practice across your organization.
+入门工作流程允许组织中有权创建工作流的每个人更快、更轻松地创建工作流程。 创建新工作流程时，您可以选择入门工作流程，编写工作流程的部分或全部工作将为您完成。 您可以使用入门工作流程作为起点来构建自定义工作流程，或按原样使用工作流程。 这不仅可以节省时间，还可以促进整个组织的一致性和最佳实践。

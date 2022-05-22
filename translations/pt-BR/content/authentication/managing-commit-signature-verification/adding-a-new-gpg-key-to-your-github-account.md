@@ -20,14 +20,16 @@ Antes de adicionar uma nova chave GPG à sua conta em {% ifversion ghae %}{% dat
 - [Verificado a existência de chaves GPG](/articles/checking-for-existing-gpg-keys)
 - [Gerado e copiado uma nova chave GPG](/articles/generating-a-new-gpg-key)
 
+Você pode adicionar várias chaves públicas à sua conta do GitHub. Os commits assinados por qualquer uma das chaves privadas correspondentes serão exibidos como verificado. Se você remover uma chave pública, todos os commits assinados pela chave privada correspondente não serão mais mostrados como verificados.
+
 {% data reusables.gpg.supported-gpg-key-algorithms %}
 
 Ao verificar uma assinatura, extraímos a assinatura e tentamos analisar sua key-id. Fazemos a correspondência da key-id com as chaves carregadas no {% data variables.product.product_name %}. Enquanto não for feito upload da chave GPG no {% data variables.product.product_name %}, não podemos verificar suas assinaturas.
 
 ## Adicionar uma chave GPG
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.ssh %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.ssh %}
 3. Clique em **New GPG key** (Nova chave GPG). ![Botão GPG Key (Chave GPG)](/assets/images/help/settings/gpg-add-gpg-key.png)
 4. No campo "Key" (Chave), cole a chave GPG que você copiou quando [gerou sua chave GPG](/articles/generating-a-new-gpg-key). ![O campo de chave](/assets/images/help/settings/gpg-key-paste.png)
 5. Clique em **Add GPG key** (Adicionar chave GPG). ![O botão Add key (Adicionar chave)](/assets/images/help/settings/gpg-add-key.png)

@@ -1,6 +1,6 @@
 ---
-title: Creating a composite action
-intro: 'In this guide, you''ll learn how to build a composite action.'
+title: 创建组合操作
+intro: 在本指南中，您将学习如何构建组合操作。
 redirect_from:
   - /actions/creating-actions/creating-a-composite-run-steps-action
 versions:
@@ -11,56 +11,56 @@ versions:
 type: tutorial
 topics:
   - Action development
-shortTitle: Composite action
+shortTitle: 组合操作
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## Introduction
+## 简介
 
-In this guide, you'll learn about the basic components needed to create and use a packaged composite action. To focus this guide on the components needed to package the action, the functionality of the action's code is minimal. The action prints "Hello World" and then "Goodbye",  or if you provide a custom name, it prints "Hello [who-to-greet]" and then "Goodbye". The action also maps a random number to the `random-number` output variable, and runs a script named `goodbye.sh`.
+在本指南中，您将了解创建和使用打包的组合操作所需的基本组件。 本指南的重点是打包操作所需的组件，因此很少讲操作代码的功能。 该操作将依次打印 "Hello World" 和 "Goodbye"，如果您提供自定义名称，则将依次打印 "Hello [who-to-greet]" 和 "Goodbye"。 该操作还将随机数映射到 `random-number` 输出变量，并运行名为 `goodbye.sh` 的脚本。
 
-Once you complete this project, you should understand how to build your own composite action and test it in a workflow.
+完成此项目后，您应了解如何构建自己的组合操作和在工作流程测试该操作。
 
-{% data reusables.github-actions.context-injection-warning %}
+{% data reusables.actions.context-injection-warning %}
 
-## Prerequisites
+## 基本要求
 
-Before you begin, you'll create a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}.
+在开始之前，您将在 {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} 上创建一个存储库。
 
-1. Create a new public repository on {% data variables.product.product_location %}. You can choose any repository name, or use the following `hello-world-composite-action` example. You can add these files after your project has been pushed to {% data variables.product.product_name %}. For more information, see "[Create a new repository](/articles/creating-a-new-repository)."
+1. 在 {% data variables.product.product_location %} 上创建公共仓库 您可以选择任何仓库名称，或者使用下面的 `hello-world-composite-action` 示例。 您可以在项目推送到 {% data variables.product.product_name %} 之后添加这些文件。 更多信息请参阅“[创建新仓库](/articles/creating-a-new-repository)”。
 
-1. Clone your repository to your computer. For more information, see "[Cloning a repository](/articles/cloning-a-repository)."
+1. 将仓库克隆到计算机。 更多信息请参阅“[克隆仓库](/articles/cloning-a-repository)”。
 
-1. From your terminal, change directories into your new repository.
+1. 从您的终端，将目录更改为新仓库。
 
   ```shell
   cd hello-world-composite-action
   ```
 
-2. In the `hello-world-composite-action` repository, create a new file called `goodbye.sh`, and add the following example code:
+2. 在 `hello-world-composite-action` 仓库中，创建一个名为 `goodbye.sh` 的新文件，并添加以下示例代码：
 
   ```bash
   echo "Goodbye"
   ```
 
-3. From your terminal, make `goodbye.sh` executable.
+3. 从您的终端创建 `goodbye.sh` 可执行文件。
 
   ```shell
   chmod +x goodbye.sh
   ```
 
-1. From your terminal, check in your `goodbye.sh` file.
+1. 从终端检入 `goodbye.sh` 文件。
   ```shell
   git add goodbye.sh
   git commit -m "Add goodbye script"
   git push
   ```
 
-## Creating an action metadata file
+## 创建操作元数据文件
 
-1. In the `hello-world-composite-action` repository, create a new file called `action.yml` and add the following example code. For more information about this syntax, see "[`runs` for a composite actions](/actions/creating-actions/metadata-syntax-for-github-actions#runs-for-composite-actions)".
+1. 在 `hello-world-composite-action` 仓库中，创建一个名为 `action.yml` 的新文件，并添加以下示例代码： 有关此语法的更多信息，请参阅“组合运行步骤的[`运行`](/actions/creating-actions/metadata-syntax-for-github-actions#runs-for-composite-actions)”。
 
     {% raw %}
     **action.yml**
@@ -75,26 +75,28 @@ Before you begin, you'll create a repository on {% ifversion ghae %}{% data vari
     outputs:
       random-number:
         description: "Random number"
-        value: ${{ steps.random-number-generator.outputs.random-id }}
+        value: ${{ steps.random-number-generator.outputs.random-number }}
     runs:
       using: "composite"
       steps:
         - run: echo Hello ${{ inputs.who-to-greet }}.
           shell: bash
         - id: random-number-generator
-          run: echo "::set-output name=random-id::$(echo $RANDOM)"
+          run: echo "::set-output name=random-number::$(echo $RANDOM)"
           shell: bash
-        - run: ${{ github.action_path }}/goodbye.sh
+        - run: echo "${{ github.action_path }}" >> $GITHUB_PATH
+          shell: bash          
+        - run: goodbye.sh
           shell: bash
     ```
     {% endraw %}
-  This file defines the `who-to-greet` input, maps the random generated number to the `random-number` output variable, and runs the `goodbye.sh` script. It also tells the runner how to execute the composite action.
+  此文件定义 `who-greet` 输入，将随机生成的数字映射到 `random-number` 输出变量，并运行 `goodbye.sh` 脚本。 它还告诉运行器如何执行组合操作。
 
-  For more information about managing outputs, see "[`outputs` for a composite action](/actions/creating-actions/metadata-syntax-for-github-actions#outputs-for-composite-actions)".
+  有关管理输出的更多信息，请参阅“组合运行步骤的[`输出`](/actions/creating-actions/metadata-syntax-for-github-actions#outputs-for-composite-actions)”。
 
-  For more information about how to use `github.action_path`, see "[`github context`](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)".
+  有关如何使用 `github.action_path` 的更多信息，请参阅“[`github context`](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)”。
 
-1. From your terminal, check in your `action.yml` file.
+1. 从终端检入 `action.yml` 文件。
 
   ```shell
   git add action.yml
@@ -102,20 +104,19 @@ Before you begin, you'll create a repository on {% ifversion ghae %}{% data vari
   git push
   ```
 
-1. From your terminal, add a tag. This example uses a tag called `v1`. For more information, see "[About actions](/actions/creating-actions/about-actions#using-release-management-for-actions)."
+1. 从终端添加标记。 此示例使用名为 `v1` 的标记。 更多信息请参阅“[关于操作](/actions/creating-actions/about-actions#using-release-management-for-actions)”。
 
   ```shell
   git tag -a -m "Description of this release" v1
   git push --follow-tags
   ```
 
-## Testing out your action in a workflow
+## 在工作流程中测试您的操作
 
-The following workflow code uses the completed hello world action that you made in "[Creating an action metadata file](/actions/creating-actions/creating-a-composite-action#creating-an-action-metadata-file)".
+以下工作流程代码使用您在“[创建操作元数据文件](/actions/creating-actions/creating-a-composite-action#creating-an-action-metadata-file)”中设置的已完成 hello world 操作。
 
-Copy the workflow code into a `.github/workflows/main.yml` file in another repository, but replace `actions/hello-world-composite-action@v1` with the repository and tag you created. You can also replace the `who-to-greet` input with your name.
+将工作流程代码复制到另一个仓库中的 `.github/workflows/main.yml` 文件，但用您创建的仓库和标记替换 `actions/hello-world-composite-action@v1`。 您还可以将 `who-to-greet` 输入替换为您的名称。
 
-{% raw %}
 **.github/workflows/main.yml**
 ```yaml
 on: [push]
@@ -125,14 +126,13 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to say hello
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - id: foo
         uses: actions/hello-world-composite-action@v1
         with:
           who-to-greet: 'Mona the Octocat'
-      - run: echo random-number ${{ steps.foo.outputs.random-number }}
+      - run: echo random-number {% raw %}${{ steps.foo.outputs.random-number }}{% endraw %}
         shell: bash
 ```
-{% endraw %}
 
-From your repository, click the **Actions** tab, and select the latest workflow run. The output should include: "Hello Mona the Octocat", the result of the "Goodbye" script, and a random number.
+从您的仓库中，单击 **Actions（操作）**选项卡，然后选择最新的工作流程来运行。 输出应包括："Hello Mona the Octocat"、"Goodbye" 脚本的结果以及随机数字。

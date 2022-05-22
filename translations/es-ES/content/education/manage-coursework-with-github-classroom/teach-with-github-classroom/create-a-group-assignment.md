@@ -3,7 +3,7 @@ title: Create a group assignment
 intro: You can create a collaborative assignment for teams of students who participate in your course.
 versions:
   fpt: '*'
-permissions: Organization owners who are admins for a classroom can create and manage group assignments for a classroom. {% data reusables.classroom.classroom-admins-link %}
+permissions: 'Organization owners who are admins for a classroom can create and manage group assignments for a classroom. {% data reusables.classroom.classroom-admins-link %}'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/create-group-assignments
   - /education/manage-coursework-with-github-classroom/create-a-group-assignment
@@ -21,6 +21,8 @@ When a student accepts a group assignment, the student can create a new team or 
 You can decide how many teams one assignment can have, and how many members each team can have. Each team that a student creates for an assignment is a team within your organization on {% data variables.product.product_name %}. The visibility of the team is secret. Teams that you create on {% data variables.product.product_name %} will not appear in {% data variables.product.prodname_classroom %}. For more information, see "[About teams](/organizations/organizing-members-into-teams/about-teams)."
 
 For a video demonstration of the creation of a group assignment, see "[Basics of setting up {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/basics-of-setting-up-github-classroom)."
+
+{% data reusables.classroom.reuse-assignment-link %}
 
 ## Prerequisites
 
@@ -93,6 +95,8 @@ By default, a new assignment will create an empty repository for each team that 
 
 {% data reusables.classroom.about-online-ides %} For more information, see "[Integrate {% data variables.product.prodname_classroom %} with an IDE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide)."
 
+{% data reusables.classroom.classroom-codespaces-link %}
+
 {% data reusables.classroom.assignments-guide-choose-an-online-ide %}
 
 {% data reusables.classroom.assignments-guide-click-continue-after-starter-code-and-feedback %}
@@ -125,6 +129,16 @@ You can see the teams that are working on or have submitted an assignment in the
 <div class="procedural-image-wrapper">
   <img alt="Group assignment" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignment-group-hero.png">
 </div>
+
+## Monitoring students' progress
+The assignment overview page displays information about your assignment acceptances and team progress. You may have different summary information based on the configurations of your assignments.
+
+- **Total teams**: The number of teams that have been created.
+- **Rostered students**: The number of students on the Classroom's roster.
+- **Students not on a team**: The number of students on the Classroom roster who have not yet joined a team.
+-  **Accepted teams**: The number of teams who have accepted this assignment.
+-  **Assignment submissions**: The number of teams that have submitted the assignment. Submission is triggered at the assignment deadline.
+-  **Passing teams**: The number of teams that are currently passing the autograding tests for this assignment.
 
 ## Next steps
 

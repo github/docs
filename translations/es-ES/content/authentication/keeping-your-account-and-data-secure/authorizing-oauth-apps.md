@@ -15,7 +15,7 @@ topics:
   - Access management
 ---
 
-When an {% data variables.product.prodname_oauth_app %} wants to identify you by your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, you'll see a page with the app's developer contact information and a list of the specific data that's being requested.
+Cuando una {% data variables.product.prodname_oauth_app %} quiere identificarte mediante tu cuenta de {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, verás una página con la información de contacto del desarrollador de la app y una lista de los datos específicos que se están solicitando.
 
 {% ifversion fpt or ghec %}
 
@@ -36,7 +36,7 @@ Las {% data variables.product.prodname_oauth_apps %} pueden tener acceso de *lec
 
 {% tip %}
 
-**Sugerencia:** {% data reusables.user_settings.review_oauth_tokens_tip %}
+**Sugerencia:** {% data reusables.user-settings.review_oauth_tokens_tip %}
 
 {% endtip %}
 
@@ -78,7 +78,7 @@ Cuando las {% data variables.product.prodname_oauth_apps %} solicitan permisos d
 
 ## {% data variables.product.prodname_oauth_apps %} y organizaciones
 
-Cuando autorizas una {% data variables.product.prodname_oauth_app %} para tu cuenta de usuario personal, verás cómo la autorización afectará a cada organización de la que eres miembro.
+Cuando autorizas una {% data variables.product.prodname_oauth_app %} para tu cuenta personal, también verás cómo esta autorización afectará a cada organización de la cuál seas miembro.
 
 - **Para organizaciones *con restricciones de acceso a * {% data variables.product.prodname_oauth_app %}, puedes solicitar que los administradores de la organización aprueben la aplicación para usar en esa organización.** Si la organización no aprueba la aplicación, la aplicación solo podrá acceder a los recursos públicos de la organización. Si eres administrador de una organización, puedes [aprobar la aplicación](/articles/approving-oauth-apps-for-your-organization) por tu cuenta.
 

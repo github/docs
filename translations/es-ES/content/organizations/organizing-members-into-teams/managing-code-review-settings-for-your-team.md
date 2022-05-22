@@ -36,10 +36,6 @@ When you enable auto assignment, any time your team has been requested to review
 
 When code owners are automatically requested for review, the team is still removed and replaced with individuals unless a branch protection rule is configured to require review from code owners. If such a branch protection rule is in place, the team request cannot be removed and so the individual request will appear in addition.
 
-{% ifversion fpt %}
-To further enhance your team's collaboration abilities, you can upgrade to {% data variables.product.prodname_ghe_cloud %}, which includes features like protected branches and code owners on private repositories. {% data reusables.enterprise.link-to-ghec-trial %}
-{% endif %}
-
 ### Routing algorithms
 
 Code review assignments automatically choose and assign reviewers based on one of two possible algorithms. 
@@ -54,45 +50,54 @@ Any team members that have set their status to "Busy" will not be selected for r
 ## Configuring team notifications
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
-5. In the left sidebar, click **Code review**
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
+1. In the left sidebar, click **{% octicon "code-review" aria-label="The code-review icon" %} Code review**.
+{% else %}
+1. In the left sidebar, click **Code review**
 ![Code review button](/assets/images/help/teams/review-button.png)
-2. Select **Only notify requested team members.**
+{% endif %}
+1. Select **Only notify requested team members.**
 ![Code review team notifications](/assets/images/help/teams/review-assignment-notifications.png)
-3. Click **Save changes**.
+1. Click **Save changes**.
 {% endif %}
 
 ## Configuring auto assignment
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
-5. In the left sidebar, click **Code review**
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
+1. In the left sidebar, click **{% octicon "code-review" aria-label="The code-review icon" %} Code review**.
+{% else %}
+1. In the left sidebar, click **Code review**
 ![Code review button](/assets/images/help/teams/review-button.png)
-6. Select **Enable auto assignment**.
+{% endif %}
+1. Select **Enable auto assignment**.
 ![Auto-assignment button](/assets/images/help/teams/review-assignment-enable.png)
-7. Under "How many team members should be assigned to review?", use the drop-down menu and choose a number of reviewers to be assigned to each pull request.
+1. Under "How many team members should be assigned to review?", use the drop-down menu and choose a number of reviewers to be assigned to each pull request.
 ![Number of reviewers dropdown](/assets/images/help/teams/review-assignment-number.png)
-8. Under "Routing algorithm", use the drop-down menu and choose which algorithm you'd like to use. For more information, see "[Routing algorithms](#routing-algorithms)."
+1. Under "Routing algorithm", use the drop-down menu and choose which algorithm you'd like to use. For more information, see "[Routing algorithms](#routing-algorithms)."
 ![Routing algorithm dropdown](/assets/images/help/teams/review-assignment-algorithm.png)
-9. Optionally, to always skip certain members of the team, select **Never assign certain team members**. Then, select one or more team members you'd like to always skip.
+1. Optionally, to always skip certain members of the team, select **Never assign certain team members**. Then, select one or more team members you'd like to always skip.
 ![Never assign certain team members checkbox and dropdown](/assets/images/help/teams/review-assignment-skip-members.png)
-{% ifversion fpt or ghec or ghae-issue-5108 or ghes > 3.2 %}
-11. Optionally, to include members of child teams as potential reviewers when assigning requests, select **Child team members**.
-12. Optionally, to count any members whose review has already been requested against the total number of members to assign, select **Count existing requests**.
-13. Optionally, to remove the review request from the team when assigning team members, select **Team review request**.
-{%- else %}
-10. Optionally, to only notify the team members chosen by code review assignment for each pull review request, under "Notifications" select **If assigning team members, don't notify the entire team.**
+{% ifversion ghes < 3.4 %}
+1. Optionally, to only notify the team members chosen by code review assignment for each pull review request, under "Notifications" select **If assigning team members, don't notify the entire team.**
 {%- endif %}
-14. Click **Save changes**.
+{% ifversion fpt or ghec or ghae-issue-5108 or ghes > 3.2 %}
+1. Optionally, to include members of child teams as potential reviewers when assigning requests, select **Child team members**.
+1. Optionally, to count any members whose review has already been requested against the total number of members to assign, select **Count existing requests**.
+1. Optionally, to remove the review request from the team when assigning team members, select **Team review request**.
+{%- endif %}
+1. Click **Save changes**.
 
 ## Disabling auto assignment
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
-5. Select **Enable auto assignment** to remove the checkmark.
+1. Select **Enable auto assignment** to remove the checkmark.
 ![Code review assignment button](/assets/images/help/teams/review-assignment-enable.png)
-6. Click **Save changes**.
+1. Click **Save changes**.

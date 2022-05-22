@@ -1,1 +1,1 @@
-1. Use <kbd>Ctrl</kbd><kbd>k</kbd> (Windows and Linux) or <kbd>⌘</kbd><kbd>k</kbd> (Mac) to open the command palette with a scope determined by your current location in the UI. 
+1. 使用 <kbd>Ctrl</kbd>+<kbd>K</kbd> (Windows/Linux) 或r <kbd>Command</kbd>+<kbd>K</kbd> (Mac) 打开命令面板，其范围由 UI 中的当前位置确定。 

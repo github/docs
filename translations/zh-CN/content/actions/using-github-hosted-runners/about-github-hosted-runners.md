@@ -29,7 +29,7 @@ You can specify the runner type for each job in a workflow. Each job in a workfl
 
 {% ifversion not ghes %}
 
-{% data reusables.github-actions.runner-app-open-source %}
+{% data reusables.actions.runner-app-open-source %}
 
 ### Cloud hosts for {% data variables.product.prodname_dotcom %}-hosted runners
 
@@ -39,7 +39,7 @@ You can specify the runner type for each job in a workflow. Each job in a workfl
 
 ### Workflow continuity for {% data variables.product.prodname_dotcom %}-hosted runners
 
-{% data reusables.github-actions.runner-workflow-continuity %}
+{% data reusables.actions.runner-workflow-continuity %}
 
 In addition, if the workflow run has been successfully queued, but has not been processed by a {% data variables.product.prodname_dotcom %}-hosted runner within 45 minutes, then the queued workflow run is discarded.
 
@@ -61,7 +61,7 @@ Hardware specification for macOS virtual machines:
 - 14 GB of RAM memory
 - 14 GB of SSD disk space
 
-{% data reusables.github-actions.supported-github-runners %}
+{% data reusables.actions.supported-github-runners %}
 
 Workflow logs list the runner used to run a job. For more information, see "[Viewing workflow run history](/actions/managing-workflow-runs/viewing-workflow-run-history)."
 
@@ -76,11 +76,10 @@ For more information, see "[Viewing workflow run history](/actions/managing-work
 
 For the overall list of included tools for each runner operating system, see the links below:
 
-* [Ubuntu 20.04 LTS](https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu2004-README.md)
-* [Ubuntu 18.04 LTS](https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu1804-README.md)
+* [Ubuntu 20.04 LTS](https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu2004-Readme.md)
+* [Ubuntu 18.04 LTS](https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu1804-Readme.md)
 * [Windows Server 2022](https://github.com/actions/virtual-environments/blob/main/images/win/Windows2022-Readme.md)
 * [Windows Server 2019](https://github.com/actions/virtual-environments/blob/main/images/win/Windows2019-Readme.md)
-* [Windows Server 2016](https://github.com/actions/virtual-environments/blob/main/images/win/Windows2016-Readme.md)
 * [macOS 11](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-11-Readme.md)
 * [macOS 10.15](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-10.15-Readme.md)
 

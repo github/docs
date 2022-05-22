@@ -14,13 +14,13 @@ shortTitle: 授予更高权限
 
 ## 第 1 步：审核您的 {% data variables.product.prodname_discussions %} 最大贡献者
 
-{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.discussions.navigate-to-repo-or-org %}
 {% data reusables.discussions.discussions-tab %}
-1. 将贡献者列表与其访问权限进行比较，看谁有资格主持讨论。
+1. 将贡献者列表与其对存储库的访问权限进行比较，或者，对于组织讨论，比较源存储库，以查看谁有资格主持讨论。
 
 ## 第 2 步：审查 {% data variables.product.prodname_discussions %} 的权限级别
 
-对仓库具有分类权限的人可以通过将评论标记为答案、锁定不再有用或对社区造成损害的讨论，以及在想法仍处于开发的早期阶段时将问题转换为讨论，从而帮助主持项目的讨论。 更多信息请参阅“[主持讨论](/discussions/managing-discussions-for-your-community/moderating-discussions)”。
+对仓库具有分类权限的人可以通过将评论标记为答案、锁定不再有用或对社区造成损害的讨论，以及在想法仍处于开发的早期阶段时将问题转换为讨论，从而帮助主持仓库的讨论。 同样，对组织讨论的源存储库具有分类权限的人员可以主持组织的讨论。 更多信息请参阅“[主持讨论](/discussions/managing-discussions-for-your-community/moderating-discussions)”。
 
 有关仓库权限级别和 {% data variables.product.prodname_discussions %} 的更多信息，请参阅“[组织的仓库权限级别](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization)”。
 

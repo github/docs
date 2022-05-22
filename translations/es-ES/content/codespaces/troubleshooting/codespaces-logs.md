@@ -1,6 +1,6 @@
 ---
-title: Codespaces logs
-intro: 'Overview of the logging locations used by {% data variables.product.prodname_codespaces %}.'
+title: Bitácoras de los codespaces
+intro: 'Resumen de las ubicaciones de inicio de sesión que utiliza {% data variables.product.prodname_codespaces %}.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
@@ -9,64 +9,61 @@ type: reference
 topics:
   - Codespaces
   - Logging
-shortTitle: Codespaces logs
+shortTitle: Bitácoras de los codespaces
 ---
 
 
-Information on {% data variables.product.prodname_codespaces %} is output to three different logs:
+La información de {% data variables.product.prodname_codespaces %} se emite en tres bitácoras diferentes:
 
-- Codespace logs
-- Creation logs
-- Extension logs ({% data variables.product.prodname_vscode %} desktop) or Browser console logs ({% data variables.product.prodname_vscode %} in the web)
+- Bitácoras de Codespace
+- Bitácoras de creación
+- Bitácoras de extensión (en {% data variables.product.prodname_vscode %} para escritorio) o bitácoras de consola de buscador (en {% data variables.product.prodname_vscode %} web)
 
-## Codespace logs
+## Bitácoras de Codespace
 
-These logs contain detailed information about the codespace, the container, the session, and the {% data variables.product.prodname_vscode %} environment. They are useful for diagnosing connection issues and other unexpected behavior. For example, the codespace freezes but the "Reload Windows" option unfreezes it for a few minutes, or you are randomly disconnected from the codespace but able to reconnect immediately.
+Estas bitácoras contienen información detallada sobre los codespaces, el contenedor, la sesión y el ambiente de {% data variables.product.prodname_vscode %}. Son útiles para diagnosticar los problemas de conexión y otros comportamientos inesperados. Por ejemplo, el codespace se congela pero la opción de "Recargar Windows" lo descongela por algunos minutos, o se te desconecta aleatoriamente del codespace, pero te puedes volver a conectar de inmediato.
 
-{% include tool-switcher %}
-   
 {% webui %}
 
-1. If you are using {% data variables.product.prodname_codespaces %} in the browser, ensure that you are connected to the codespace you want to debug.
-1. Open the {% data variables.product.prodname_vscode %} Command Palette (`Shift + Command + P` (Mac) / `Ctrl + Shift + P` (Windows)) and type **Export logs**. Select **Codespaces: Export Logs** from the list to download the logs.
-1. Define where to save the zip archive of logs then click **Save** (desktop) or click **OK** (web).
-1. If you are using {% data variables.product.prodname_codespaces %} in the browser, right-click on the zip archive of logs from the Explorer view and select **Download…** to download them to your local machine.
+1. Si estás utilizando {% data variables.product.prodname_codespaces %} en el buscador, asegúrate de que estés conectado al codespace que quieres depurar.
+1. Abre la paleta de comandos de {% data variables.product.prodname_vscode %} (`Shift + Command + P` (Mac) / `Ctrl + Shift + P` (Windows)) y teclea **Exportar bitácoras**. Selecciona **Codespaces: Exportar Bitácoras** de la lista para descargar las bitácoras.
+1. Define dónde guardar el archivo zip de las bitácoras y luego haz clic en **Guardar** (escritorio) o en **OK** (web).
+1. Si estás utilizando {% data variables.product.prodname_codespaces %} en el buscador, haz clic derecho en el archivo zip de las bitácoras desde la vista de explorador y selecciona **Download…** para descargarlas en tu máquina local.
 
 {% endwebui %}
-   
+
 {% vscode %}
 
-1. Open the {% data variables.product.prodname_vscode %} Command Palette (`Shift + Command + P` (Mac) / `Ctrl + Shift + P` (Windows)) and type **Export logs**. Select **Codespaces: Export Logs** from the list to download the logs.
-1. Define where to save the zip archive of logs then click **Save** (desktop) or click **OK** (web).
+1. Abre la paleta de comandos de {% data variables.product.prodname_vscode %} (`Shift + Command + P` (Mac) / `Ctrl + Shift + P` (Windows)) y teclea **Exportar bitácoras**. Selecciona **Codespaces: Exportar Bitácoras** de la lista para descargar las bitácoras.
+1. Define dónde guardar el archivo zip de las bitácoras y luego haz clic en **Guardar** (escritorio) o en **OK** (web).
 
 {% endvscode %}
 
 {% cli %}
 
-Currently you can't use {% data variables.product.prodname_cli %} to access these logs. To access them, open your codespace in {% data variables.product.prodname_vscode %} or in a browser.
+Actualmente, no puedes utilizar el {% data variables.product.prodname_cli %} para acceder a estas bitácoras. Para acceder a ellas, abre tu codespace en {% data variables.product.prodname_vscode %} o en un buscador.
 
 {% endcli %}
 
-## Creation logs
+## Bitácoras de creación
 
-These logs contain information about the container, dev container, and their configuration. They are useful for debugging configuration and setup problems.
+Estas bitácoras contienen información sobre el contenedor, el contenedor dev y sus configuraciones. Son útiles para depurar la configuración y solucionar problemas.
 
-{% include tool-switcher %}
-   
+
 {% webui %}
 
-1. Connect to the codespace you want to debug.
-2. Open the {% data variables.product.prodname_vscode_command_palette %} (`Shift + Command + P` (Mac) / `Ctrl + Shift + P` (Windows)) and type **Creation logs**. Select **Codespaces: View Creation Log** from the list to open the `creation.log` file.
+1. Conéctate al codespace que quieras depurar.
+2. Abre la {% data variables.product.prodname_vscode_command_palette %} (`Shift + Command + P` (Mac) / `Ctrl + Shift + P` (Windows)) y teclea **Creation logs**. Selecciona **Codespaces: View Creation Log** de la lista para abrir el archivo `creation.log`.
 
-If you want to share the log with support, you can copy the text from the creation log into a text editor and save the file locally.
+Si quieres compartir la bitácora con soporte, puedes copiar el texto de la bitácora de creación en un editor de texto y guardar el archivo localmente.
 
 {% endwebui %}
-   
+
 {% vscode %}
 
-Open the Command Palette (`Shift + Command + P` (Mac) / `Ctrl + Shift + P` (Windows)) and type **Creation logs**. Select **Codespaces: View Creation Log** from the list to open the `creation.log` file.
+Abre la paleta de comandos (`Shift + Command + P` (Mac) / `Ctrl + Shift + P` (Windows)) y teclea **Creation logs**. Selecciona **Codespaces: View Creation Log** de la lista para abrir el archivo `creation.log`.
 
-If you want to share the log with support, you can copy the text from the creation log into a text editor and save the file locally.
+Si quieres compartir la bitácora con soporte, puedes copiar el texto de la bitácora de creación en un editor de texto y guardar el archivo localmente.
 
 {% endvscode %}
 
@@ -74,15 +71,15 @@ If you want to share the log with support, you can copy the text from the creati
 
 {% data reusables.cli.cli-learn-more %}
 
-To see the creation log use the `gh codespace logs` subcommand. After entering the command choose from the list of codespaces that's displayed.
+Para ver la bitácora de creación, utiliza el subcomando `gh codespace logs`. Después de ingresar el comando, elige de la lista de codespaces que se muestra.
 
 ```shell
-gh codespace logs 
+gh codespace logs
 ```
 
-For more information about this command, see [the {% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_codespace_logs).
+Para obtener más información sobre este comando, consulta [el manual de {% data variables.product.prodname_cli %}](https://cli.github.com/manual/gh_codespace_logs).
 
-If you want to share the log with support, you can save the output to a file:
+Si quieres compartir la bitácora con el personal de soporte, puedes guardar el resultado en un archivo:
 
 ```shell
 gh codespace logs -c <CODESPACE-NAME> > /path/to/logs.txt
@@ -90,20 +87,19 @@ gh codespace logs -c <CODESPACE-NAME> > /path/to/logs.txt
 
 {% endcli %}
 
-## Extension logs
+## Bitácoras de extensión
 
-These logs are available for {% data variables.product.prodname_vscode %} desktop users only. They are useful if it seems like the {% data variables.product.prodname_codespaces %} extension or {% data variables.product.prodname_vscode %} editor are having issues that prevent creation or connection.
+Estas bitácoras se encuentran disponibles únicamente para los usuarios de escritorio de {% data variables.product.prodname_vscode %}}. Son útiles en caso de que parezca que la extensión de {% data variables.product.prodname_codespaces %} o el editor de {% data variables.product.prodname_vscode %} estén teniendo problemas que prevengan la creación o conexión.
 
-1. In {% data variables.product.prodname_vscode %}, open the Command Palette.
-1. Type **Logs** and select **Developer: Open Extension Logs Folder** from the list to open the extension log folder in your system's file explorer. 
+1. En {% data variables.product.prodname_vscode %}, abre la paleta de comandos.
+1. Teclea **Logs** y selecciona **Desarrollador: Abrir la Carpeta de Bitácoras de Extensión** desde la lista para abrir dicha carpeta en el explorador de archivos de tu sistema.
 
-From this view, you can access logs generated by the various extensions that you use in {% data variables.product.prodname_vscode %}. You will see logs for GitHub Codespaces, GitHub Authentication, and Git, in addition to any other extensions you have enabled.
+Desde esta vista, puedes acceder a las bitácoras que generan las diversas extensiones que utilizas en {% data variables.product.prodname_vscode %}. Verás las bitácoras de GitHub Codespaces, GitHub Authentication y Git, adicionalmente a cualquier otra extensión que hayas habilitado.
 
-## Browser console logs
+## Bitácoras de consola de buscador
 
-These logs are useful only if you want to debug problems with using {% data variables.product.prodname_codespaces %} in the browser. They are useful for debugging problems creating and connecting to {% data variables.product.prodname_codespaces %}.
+Estas bitácoras son útiles únicamente si quieres depurar problemas con el uso de {% data variables.product.prodname_codespaces %} en el buscador. Son útiles para depurar problemas creando y conectándose a los {% data variables.product.prodname_codespaces %}.
 
-1. In the browser window for the codespace you want to debug, open the developer tools window.
-1. Display the "Console" tab and click **errors** in the left side bar to show only the errors.
-1. In the log area on the right, right-click and select **Save as** to save a copy of the errors to your local machine.
-  ![Save errors](/assets/images/help/codespaces/browser-console-log-save.png)
+1. En la ventana del buscador del codespace que quieres depurar, abre la ventana de herramientas de desarrollador.
+1. Muestra la pestaña de "Consola" y haz clic en **errores** en la barra lateral izquierda para mostrar únicamente los errores.
+1. En el área de bitácora a la derecha, da clic derecho y selecciona **Guardar como** para guardar una copia de los errores en tu máquina local. ![Guardar los errores](/assets/images/help/codespaces/browser-console-log-save.png)

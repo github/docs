@@ -37,11 +37,11 @@ $ git remote set-url origin <em>new_url</em>
 
 {% endif %}
 
-{% tip %}
+{% note %}
 
-**提示：**{% data reusables.organizations.owners-and-admins-can %}重命名仓库。 {% data reusables.organizations.new-repo-permissions-more-info %}
+**注意：** {% data variables.product.prodname_dotcom %} 不会将调用重定向到由重命名的存储库托管的操作。 使用该操作的任何工作流程都将失败，并出现错误 `repository not found（存储库未找到）`。 而是创建一个新存储库并使用新名称执行操作，并将旧存储库存档。 更多信息请参阅“[存档仓库](/repositories/archiving-a-github-repository/archiving-repositories)”。
 
-{% endtip %}
+{% endnote %}
 
 {% warning %}
 
