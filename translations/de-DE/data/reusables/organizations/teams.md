@@ -1,0 +1,1 @@
+1. Klicke unter Deinem Organisationsnamen auf {% octicon "people" aria-label="The people icon" %} **Teams**. ![Registerkarte „Teams" auf der Organisationsseite](/assets/images/help/organizations/organization-teams-tab.png)

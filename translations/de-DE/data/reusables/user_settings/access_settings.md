@@ -1,0 +1,1 @@
+1. Klicke in der oberen rechten Ecke einer beliebigen Seite auf Dein Profilfoto und klicke dann auf **Settings** (Einstellungen). ![Symbol „Settings" (Einstellungen) auf der Benutzerleiste](/assets/images/help/settings/userbar-account-settings.png)

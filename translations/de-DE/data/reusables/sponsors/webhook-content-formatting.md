@@ -1,0 +1,1 @@
+4. Wähle unter „Content type" (Inhaltstyp), welches Datenformat Du erhalten möchtest. Weitere Informationen findest Du unter „[Creating webhooks](/webhooks/creating/#content-type)“ (Webhooks erstellen) ![Menü für Webhook-Formatierung](/assets/images/help/sponsors/webhook-content-menu.png)

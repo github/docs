@@ -1,0 +1,1 @@
+1. Verknüpfe Dein GitHub-Konto mit Jira. Weitere Informationen findest Du unter [Atlassian's Hilfe-Dokumentation.](https://confluence.atlassian.com/adminjiracloud/connect-jira-cloud-to-github-814188429.html)

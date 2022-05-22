@@ -1,18 +1,16 @@
 ---
 title: Autenticação
-intro: Você pode configurar como os usuários acessam sua empresa.
+intro: 'Você pode configurar como os usuários conectam-se a {% data variables.product.product_name %}.'
 redirect_from:
   - /enterprise/admin/authentication
 versions:
-  ghec: '*'
-  ghes: '*'
-  ghae: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Enterprise
 children:
   - /authenticating-users-for-your-github-enterprise-server-instance
   - /managing-identity-and-access-for-your-enterprise
-  - /managing-your-enterprise-users-with-your-identity-provider
   - /configuring-authentication-and-provisioning-with-your-identity-provider
 ---
-
+### Índice

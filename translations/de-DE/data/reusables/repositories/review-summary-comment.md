@@ -1,0 +1,1 @@
+1. Gib einen Kommentar ein, der Dein Feedback für die vorgeschlagenen Änderungen zusammenfasst. ![Fenster „Review summary comment" (Kommentar zur Review-Zusammenfassung)](/assets/images/help/pull_requests/review-summary-comment-window.png)

@@ -1,0 +1,763 @@
+---
+- 
+  term: '@mention'
+  description: 사용자 이름 앞에 `@`을 사용하여 GitHub의 사용자에게 알립니다. GitHub 조직의 사용자는 언급할 수 있는 팀의 일원이 될 수도 있습니다.
+- 
+  term: 액세스 토큰
+  description: >-
+    명령줄 또는 API에서 Git을 사용하여 HTTPS를 통해 Git 작업을 수행할 때 암호 대신 사용되는 토큰입니다. 개인 액세스 토큰이라고도 합니다.
+- 
+  term: 계정 복구 토큰
+  description: >-
+    Recover Accounts Elsewhere라고 하는 계정 복구 설정의 일부로 저장된 인증 자격 증명입니다. Recover Accounts Elsewhere에 이 백업 자격 증명을 저장할 수 있습니다.
+- 
+  term: API 미리 보기
+  description: >-
+    공식 GitHub API의 일부가 되기 전에 새로운 API와 기존 API 메서드의 변경 사항을 시험해보는 방법입니다.
+- 
+  term: 어플라이언스
+  description: >-
+    산업 표준 하드웨어(일반적으로 서버) 또는 가상 컴퓨터에서 최적으로 실행하기에 충분한 운영 체제(JeOS)와 결합된 소프트웨어 응용 프로그램입니다.
+- 
+  term: 담당자
+  description: 이슈에 할당된 사용자입니다.
+- 
+  term: 인증 코드
+  description: >-
+    브라우저를 통해 2FA로 로그인할 때 GitHub 암호 외에 제공하는 코드입니다. 이 코드는 응용 프로그램에서 생성되거나 문자 메시지를 통해 스마트폰으로 전송됩니다. "2FA 인증 코드"라고도 합니다.
+- 
+  term: 베이스 브랜치
+  description: 끌어오기 요청을 병합할 때 변경 내용이 결합되는 분기입니다. 필요한 경우 끌어오기 요청을 만들 때 저장소의 기본 분기에서 다른 분기로 베이스 브랜치를 변경할 수 있습니다.
+- 
+  term: 기본 인증
+  description: >-
+    자격 증명이 암호화되지 않은 텍스트로 전송되는 인증 방법입니다.
+- 
+  term: 바이오
+  description: >-
+    The user-generated description found on a profile: [Adding a bio to your profile](/articles/adding-a-bio-to-your-profile)
+- 
+  term: 청구 주기
+  description: 특정 청구 계획에 대한 시간 간격입니다.
+- 
+  term: 청구 이메일
+  description: >-
+    GitHub에서 영수증, 신용 카드 또는 PayPal 요금 및 기타 청구 관련 통신을 보내는 조직 이메일 주소입니다.
+- 
+  term: 청구 관리자
+  description: 조직에 대한 청구 설정을 관리하는 조직 구성원입니다.
+- 
+  term: 청구 계획
+  description: >-
+    각 계획 유형에 대한 설정 기능을 포함하는 사용자 및 조직에 대한 지불 계획입니다.
+- 
+  term: blame
+  description: >-
+    Git의 "blame" 기능은 일반적으로 개정, 작성자 및 시간을 표시하는 파일의 각 줄에 대한 마지막 수정사항을 설명합니다. 예를 들어 기능이 추가되었을 때 또는 특정 버그로 이어진 커밋을 추적하는 데 유용합니다.
+- 
+  term: 차단
+  description: >-
+    조직의 리포지토리에서 공동 작업할 수 있는 사용자의 기능을 제거합니다.
+- 
+  term: 분기
+  description: >-
+    A branch is a parallel version of a repository. It is contained within the repository, but does not affect the primary or main branch allowing you to work freely without disrupting the "live" version. When you've made the changes you want to make, you can merge your branch back into the main branch to publish your changes.
+- 
+  term: 분기 제한
+  description: >-
+    리포지토리 관리자가 활성화할 수 있는 제한으로 특정 사용자나 팀만 분기를 밀어내거나 특정 변경을 수행할 수 있습니다.
+- 
+  term: 사업 계획
+  description: >-
+    무제한 공개 및 개인 리포지토리에서 공동 작업하거나, 조직 구성원이 SAML SSO를 사용하여 GitHub로 인증하고 SAML 또는 SCIM을 사용하여 액세스를 제공 및 해제하도록 허용하거나 요청할 수 있는 조직 청구 계획입니다.
+- 
+  term: CA 인증서
+  description: >-
+    인증서 기관(CA)이 발급한 디지털 인증서로, 사용자의 컴퓨터와 GitHub.com 같은 두 컴퓨터 간에 유효한 연결이 있는지 확인하고 사이트의 소유권을 확인합니다.
+- 
+  term: 카드
+  description: 문제 또는 끌어 오기 요청과 관련된 프로젝트 보드 내의 이동식 상자입니다.
+- 
+  term: 확인
+  description: >-
+    확인은 {% data variables.product.product_name %} 상태 확인 유형입니다. "[상태 확인](#status-checks)"을 참조하십시오.
+- 
+  term: 체크아웃
+  description: >-
+    명령줄에서 `git checkout`을 사용하여 새 분기를 만들거나, 현재 작업 분기를 다른 분기로 변경하거나, `git checkout [branchname] [파일 경로]`가 있는 다른 분기 파일의 다른 버전으로 전환할 수도 있습니다. "checkout" 작업은 작업 트리의 전부 또는 일부를 개체 데이터베이스의 트리 개체 또는 blob으로 업데이트하고체크아웃 전체 작업 트리가 새 분기를 가리키는 경우 인덱스및 HEAD를 업데이트합니다.
+- 
+  term: cherry-pick
+  description: >-
+    To choose a subset of changes from a series of changes (typically commits) and record them as a new series of changes on top of a different codebase. In Git, this is performed by the `git cherry-pick` command to extract the change introduced by an existing commit on another branch and to record it based on the tip of the current branch as a new commit. For more information, see [git-cherry-pick](https://git-scm.com/docs/git-cherry-pick) in the Git documentation.
+- 
+  term: 하위 팀
+  description: >-
+    중첩된 팀 내에서 상위 팀의 액세스 권한 및 @mentions를 상속하는 하위 팀입니다.
+- 
+  term: 클린
+  description: >-
+    작업 트리가 현재 HEAD에서 참조한 수정 버전에 해당하는 경우 클린 상태입니다. "더티"도 참조하십시오.
+- 
+  term: 클론
+  description: >-
+    클론은 웹 사이트의 서버 대신 컴퓨터에 있는 리포지토리의 사본 또는 해당 복사본을 만드는 행위입니다. 클론을 만들 때 기본 편집기의 파일을 편집하고 Git을 사용하여 온라인 상태가 필요 없이 변경 내용을 추적할 수 있습니다. 복제한 리포지토리는 여전히 원격 버전에 연결되어 있으므로 로컬 변경 내용을 원격 버전으로 푸시하여 온라인 상태가 되면 동기화되도록 할 수 있습니다.
+- 
+  term: 클러스터링
+  description: >-
+    여러 노드에서 GitHub Enterprise 서비스 및 부하 분산 요청을 실행하는 기능입니다.
+- 
+  term: 코드 주파수 그래프
+  description: >-
+    리포지토리 기록에서 매주 콘텐츠 추가 및 삭제를 보여주는 리포지토리 그래프입니다.
+- 
+  term: 사용 규정
+  description: 커뮤니티에 참여하는 방법에 대한 표준을 정의하는 문서입니다.
+- 
+  term: 코드 소유자
+  description: >-
+    리포지토리 코드의 일부 소유자로 지정된 사람입니다. 코드 소유자가 소유한 코드를 변경하는 끌어오기 요청(초안 모드가 아님)을 열 때 코드 소유자가 자동으로 검토 요청을 받습니다.
+- 
+  term: 공동 작업자
+  description: >-
+    공동 작업자는 리포지토리 소유자가 기여하도록 초대받은 리포지토리에 대한 읽기 및 쓰기 권한을 가진 사람입니다.
+- 
+  term: 커밋
+  description: >-
+    A commit, or "revision", is an individual change to a file (or set of files). When you make a commit to save your work, Git creates a unique ID (a.k.a. the "SHA" or "hash") that allows you to keep record of the specific changes committed along with who made them and when. Commits usually contain a commit message which is a brief description of what changes were made.
+- 
+  term: 커밋 작성자
+  description: 커밋을 수행한 사용자입니다.
+- 
+  term: 커밋 그래프
+  description: >-
+    지난 한 해 동안 리포지토리에 수행된 모든 커밋을 보여주는 리포지토리 그래프입니다.
+- 
+  term: 커밋 ID
+  description: SHA라고도 합니다. 커밋을 식별하는 40자 체크섬 해시입니다.
+- 
+  term: 커밋 메시지
+  description: >-
+    Short, descriptive text that accompanies a commit and communicates the change the commit is introducing.
+- 
+  term: 비교 브랜치
+  description: >-
+    끌어오기 요청을 만드는 데 사용하는 분기입니다. 이 분기는 끌어오기 요청에 대해 선택한 베이스 브랜치와 비교되며 변경 내용이 식별됩니다. 끌어오기 요청이 병합되면 베이스 브랜치가 비교 브랜치의 변경 내용으로 업데이트됩니다. 끌어오기 요청의 "헤드 브랜치"라고도 합니다.
+- 
+  term: 연속 통합
+  description: >-
+    CI라고도 합니다. 사람이 GitHub에서 구성된 리포지토리에 변경 사항을 커밋하면 자동화된 빌드 및 테스트를 실행하는 프로세스입니다. CI는 오류를 감지하는 데 도움이 되는 소프트웨어 개발의 일반적인 모범 사례입니다.
+- 
+  term: 기여 그래프
+  description: >-
+    최대 1년 동안 매일의 기여도를 보여주는 사용자 프로필의 일부입니다.
+- 
+  term: 기여 지침
+  description: 사람들이 프로젝트에 어떻게 기여해야 하는지 설명하는 문서입니다.
+- 
+  term: 기여
+  description: >-
+    Specific activities on GitHub that will: - Add a square to a user's contribution graph: "[What counts as a contribution](/articles/viewing-contributions-on-your-profile/#what-counts-as-a-contribution)" - Add activities to a user's timeline on their profile: "[Contribution activity](/articles/viewing-contributions-on-your-profile/#contribution-activity)"
+- 
+  term: 기여자
+  description: >-
+    기여자는 리포지토리에 대한 공동 작업자 액세스 권한이 없지만 프로젝트에 기여했으며 리포지토리에 병합된 끌어오기 요청을 받은 사람입니다.
+- 
+  term: 기여자 그래프
+  description: 리포지토리에 상위 100명의 기여자를 표시하는 리포지토리 그래프입니다.
+- 
+  term: 쿠폰
+  description: >-
+    사용자 또는 조직에서 구독의 전부 또는 일부를 지불하는 데 사용할 수 있는 GitHub 제공 코드입니다.
+- 
+  term: 크론
+  description: Unix와 같은 컴퓨터 운영 체제의 시간 기반 작업 스케줄러입니다.
+- 
+  term: cURL
+  description: 명령줄 또는 스크립트에서 데이터를 전송하는 데 사용됩니다.
+- 
+  term: 대시보드
+  description: >-
+    개인 대시보드는 GitHub에서 활동의 주요 허브입니다. 개인 대시보드에서 팔로우 중이거나 작업 중인 이슈 및 끌어오기 요청을 추적하고, 상위 리포지토리 및 팀 페이지로 이동하며, 보고 있거나 참여하고 있는 리포지토리에서의 최근 활동에 대해 알아볼 수 있습니다. 또한 팔로우 중이거나 별을 표시해둔 사용자를 기반으로 추천받은 새 리포지토리를 발견할 수도 있습니다. 특정 조직에 대한 활동만 보려면 조직의 대시보드를 방문하십시오. 자세한 내용은 "[개인 대시보드 정보](/articles/about-your-personal-dashboard)" 또는 "[조직 대시보드 정보](/articles/about-your-organization-dashboard)"를 참조하십시오.
+- 
+  term: 기본 분기
+  description: >-
+    The base branch for new pull requests and code commits in a repository. Each repository has at least one branch, which Git creates when you initialize the repository. The first branch is usually called {% if currentVersion ver_lt "enterprise-server@3.2" %}`master`{% else %}`main`{% endif %}, and is often the default branch.
+- 
+  term: 의존도 그래프
+  description: >-
+    공용 리포지토리에 종속된 패키지, 프로젝트 및 리포지토리를 표시하는 리포지토리 그래프입니다.
+- 
+  term: 의존성 그래프
+  description: >-
+    리포지토리가 종속된 패키지 및 프로젝트를 표시하는 리포지토리 그래프입니다.
+- 
+  term: 배포 키
+  description: >-
+    배포 키는 서버에 저장되고 단일 GitHub 리포지토리에 대한 액세스를 부여하는 SSH 키입니다. 이 키는 개인 사용자 계정 대신 리포지토리에 직접 연결됩니다.
+- 
+  term: 분리된 HEAD
+  description: >-
+    분리된 HEAD에서 작업하는 경우 Git은 경고를 표시합니다. 즉 Git이 분기를 가리키지 않고, 사용자가 수행한 커밋이 커밋 기록에 나타나지 않는 것을 의미합니다. 예를 들어 특정 분기의 최신 커밋이 아닌 임의의 커밋을 체크아웃하면 "분리된 HEAD"에서 작업하는 것입니다.
+- 
+  term: 진단
+  description: GitHub Enterprise 인스턴스의 설정 및 환경에 대한 개요입니다.
+- 
+  term: 비교(diff)
+  description: >-
+    diff는 두 커밋 간의 변경 내용 또는 저장된 변경 내용의 차이입니다. diff는 마지막 커밋 이후 파일에서 추가되거나 제거된 내용을 시각적으로 설명합니다.
+- 
+  term: 더티
+  description: >-
+    현재 분기에 커밋되지 않은 수정 사항이 포함된 경우 작업 트리는 "더티"로 간주됩니다.
+- 
+  term: 이메일 알림
+  description: 사용자의 이메일 주소로 전송된 알림입니다.
+- 
+  term: 엔터프라이즈 계정
+  description: 엔터프라이즈 계정을 사용하면 여러 {% data variables.product.prodname_dotcom_the_website %} 조직에 대한 정책 및 청구를 중앙집중적으로 관리할 수 있습니다. {% data reusables.gated-features.enterprise-accounts %}
+- 
+  term: Explorer
+  description: >-
+     GraphQL의 인스턴스, 즉 "그래픽 대화형 브라우저 내 GraphQL IDE"입니다.
+- 
+  term: fast-forward
+  description: >-
+    fast-forward는 수정 사항이 있고, 보유한 항목의 하위인 다른 분기의 변경 사항을 "병합"하는 특별한 유형의 병합입니다. 이러한 경우 새 병합 커밋을 수행하지 않고 이 수정 사항을 업데이트하기만 하면 됩니다. 원격 리포지토리의 원격 추적 지점에서 자주 발생합니다.
+- 
+  term: 기능 분기
+  description: >-
+    새 기능을 실험하거나 프로덕션 환경에 없는 이슈를 해결하는 데 사용되는 분기입니다. 토픽 분기라고도 합니다.
+- 
+  term: 울타리친 코드 블록
+  description: 'An indented block of code you can create with GitHub Flavored Markdown using triple backticks \`\`\` before and after the code block. See this [example](/articles/creating-and-highlighting-code-blocks#fenced-code-blocks).'
+- 
+  term: 가져오기
+  description: >-
+    `git fetch`를 사용하면 원격 리포지토리에서 로컬 작업 분기에 변경 내용을 커밋하지 않고 추가합니다. `git pull`과 달리 가져오기를 사용하면 로컬 분기에 커밋하기 전에 변경 내용을 검토할 수 있습니다.
+- 
+  term: 다음(사용자)
+  description: 다른 사용자의 기여 및 활동에 대한 알림을 받는 것입니다.
+- 
+  term: 강제 푸시
+  description: >-
+    충돌에 관계없이 로컬 변경 사항으로 원격 리포지토리를 덮어쓰는 Git 푸시입니다.
+- 
+  term: 포크
+  description: >-
+    포크는 계정에 있는 다른 사용자 리포지토리의 개인 복사본입니다. 포크를 사용하면 원래 업스트림 리포지토리에 영향을 주지 않고 프로젝트를 자유롭게 변경할 수 있습니다. 업스트림 리포지토리에서 끌어오기 요청을 열 수 있고, 두 리포지토리가 계속 연결되어 있으므로 포크를 최신 변경 내용과 동기화된 상태로 유지할 수도 있습니다.
+- 
+  term: 무료 요금제
+  description: >-
+    무료 사용자 계정 요금제입니다. 사용자는 무제한 공동 작업자와 무제한 공용 리포지토리에서 공동 작업할 수 있습니다.
+- 
+  term: Gist
+  description: >-
+    A gist is a shareable file that you can edit, clone, and fork on GitHub. You can make a gist {% if currentVersion == "github-ae@latest" %}internal{% else %}public{% endif %} or secret, although secret gists will be available to {% if currentVersion == "github-ae@latest" %}any enterprise member{% else %}anyone{% endif %} with the URL.
+- 
+  term: Git
+  description: >-
+    Git은 텍스트 파일의 변경 내용을 추적하기 위한 오픈 소스 프로그램입니다. Linux 운영 체제의 저자가 작성하였으며, 소셜 및 사용자 인터페이스인 GitHub가 기반으로 하는 핵심 기술입니다.
+- 
+  term: GitHub 앱
+  description: >-
+    GitHub 앱은 전체 조직에 서비스를 제공하고 기능을 수행할 때 고유 ID를 사용합니다. 조직 및 사용자 계정에 직접 설치하고 특정 리포지토리에 대한 액세스 권한을 부여할 수 있습니다. 세분화된 권한과 내장된 webhook가 함께 제공됩니다.
+- 
+  term: GitHub Flavored Markdown
+  description: GitHub에서 문장과 코드 형식을 지정하는 데 사용되는 GitHub 특정 Markdown입니다. [GitHub Flavored Markdown 사양](https://github.github.com/gfm/) 또는 [GitHub에서 쓰기 및 서식 지정 시작하기](/articles/getting-started-with-writing-and-formatting-on-github)를 참조하십시오.
+- 
+  term: GitHub 가져오기 도구
+  description: >-
+    커밋 및 수정 기록을 포함한 소스 코드 리포지토리를 사용자를 위한 GitHub로 빠르게 가져오는 도구입니다.
+- 
+  term: GitHub 작업
+  description: >-
+    고용주가 GitHub 사용자가 관심을 가지고 있는 작업을 게시할 수 있는 GitHub 사이트입니다.
+- 
+  term: GitHub 마켓플레이스
+  description: >-
+    GitHub 사용자와 조직에서 워크플로우를 확장하고 보완하는 응용 프로그램을 구입하고 설치할 수 있는 하위 사이트입니다.
+- 
+  term: GitHub 페이지
+  description: >-
+    페이지라고도 합니다. GitHub 리포지토리에서 직접 개인, 조직 또는 프로젝트 페이지를 호스팅하도록 설계된 정적 사이트 호스팅 서비스입니다.
+- 
+  term: GitHub 위키
+  description: GitHub 리포지토리에서 위키 스타일 문서를 호스팅하기 위한 섹션입니다.
+- 
+  term: gitfile
+  description: >-
+    항상 작업 트리의 루트에 있는 일반 `.git` 파일은 Git 저장소 전체와 메타데이터가 있는 Git 디렉토리를 가리킵니다. 명령줄에서 리포지토리에 대한 이 파일을 `git rev-parse --git-dir`로 볼 수 있습니다. 이것이 실제 저장소입니다.
+- 
+  term: GraphQL
+  description: >-
+    API에 대한 쿼리 언어와 기존 데이터로 해당 쿼리를 수행하기 위한 런타임입니다.
+- 
+  term: HEAD
+  description: 분기에서 정의된 커밋이며, 일반적으로 분기의 끝에 있는 가장 최근의 커밋입니다.
+- 
+  term: 헤드 브랜치
+  description: 끌어오기 요청을 병합할 때 변경 내용이 베이스 브랜치에 결합된 분기입니다. "비교 브랜치"라고도 합니다.
+- 
+  term: 'Hello, World'
+  description: >-
+    "Hello, World!" 프로그램은 사용자에게 "Hello, World!"를 출력하거나 표시하는 컴퓨터 프로그램입니다. 이 프로그램은 일반적으로 매우 간단하기 때문에 프로그래밍 언어의 기본 구문의 예로 자주 사용되며 새로운 프로그래밍 언어를 배우기 위한 일반적인 첫 번째 자습서로 활용됩니다.
+- 
+  term: 고가용성
+  description: >-
+    안정적으로 긴 시간 동안 지속적으로 작동하는 시스템 또는 구성 요소입니다.
+- 
+  term: 후크
+  description: >-
+    여러 Git 명령을 정상적으로 실행하는 동안 개발자가 기능을 추가하거나 확인할 수 있는 선택적 스크립트에 대한 호출이 이루어집니다. 일반적으로 후크를 사용하면 명령을 미리 확인하고 잠재적으로 중단할 수 있으며 작업이 완료된 후 사후 알림을 허용합니다.
+- 
+  term: 호스트 이름
+  description: >-
+    네트워크에 연결된 장치의 주소에 해당하는, 사람이 읽을 수 있는 별명입니다.
+- 
+  term: 아이덴티콘
+  description: >-
+    사용자가 GitHub에 가입할 때 기본 프로필 사진으로 사용되는 자동 생성 이미지입니다. 사용자는 자신의 아이덴티콘을 자신의 프로필 사진으로 바꿀 수 있습니다.
+- 
+  term: ID 공급자
+  description: >-
+    IdP라고도 합니다. SAML Single Sign-On(SSO)을 사용하여 다른 웹 사이트에 액세스할 수 있는 신뢰할 수 있는 공급자입니다.
+- 
+  term: 인스턴스
+  description: >-
+    조직이 구성하고 제어하는 가상 컴퓨터에 포함된 조직의 GitHub 개인 복사본입니다.
+- 
+  term: 통합
+  description: >-
+    GitHub와 통합되는 타사 응용 프로그램입니다. 이러한 글은 GitHub 앱, OAuth 앱 또는 webhook일 수 있습니다.
+- 
+  term: 이슈
+  description: >-
+    이슈는 리포지토리와 관련된 개선, 작업 또는 질문을 제안합니다. 이슈는 누구나 만들 수 있으며(공개 리포지토리의 경우) 리포지토리 공동 작업자가 중재합니다. 각 이슈에는 자체 토론 스레드가 포함되어 있습니다. 레이블로 이슈를 분류하고 다른 사람에게 할당할 수도 있습니다.
+- 
+  term: Jekyll
+  description: 개인, 프로젝트 또는 조직 사이트에 대한 정적 사이트 생성기입니다.
+- 
+  term: Jekyll 테마 선택기
+  description: >-
+    CSS 파일을 편집하거나 복사하지 않고 Jekyll 사이트의 시각적 테마를 선택하는 자동화된 방식입니다.
+- 
+  term: 키 지문
+  description: 더 긴 공개 키를 식별하는 데 사용되는 짧은 바이트 시퀀스입니다.
+- 
+  term: 키체인
+  description: macOS의 암호 관리 시스템입니다.
+- 
+  term: 키워드
+  description: 끌어오기 요청 내에서 사용할 때 이슈를 닫는 특정 단어입니다.
+- 
+  term: 레이블
+  description: >-
+    이슈 또는 끌어오기 요청에 대한 태그입니다. 리포지토리에는 몇 가지 기본 레이블이 있지만 사용자는 사용자 지정 레이블을 만들 수 있습니다.
+- 
+  term: LFS
+  description: >-
+    Git Large File Storage. 대용량 파일 버전에 대한 오픈 소스 Git 확장입니다.
+- 
+  term: 라이선스
+  description: >-
+    프로젝트에 포함할 수 있는 문서로 소스 코드로 수행할 수 있는 작업과 수행할 수 없는 작업을 사람들에게 알릴 수 있습니다.
+- 
+  term: Linguist
+  description: >-
+    GitHub에서 blob 언어를 감지하고, 바이너리 파일 또는 벤더 파일을 무시하며, diff에서 생성된 파일을 억제하고, 언어 분석 그래프를 생성하는 데 사용되는 라이브러리입니다.
+- 
+  term: 줄 주석
+  description: 특정 코드 줄에서 끌어오기 요청 내의 주석입니다.
+- 
+  term: 줄 끝
+  description: >-
+    텍스트 파일에서 줄 끝을 상징하는 보이지 않는 문자 또는 문자입니다.
+- 
+  term: 잠긴 개인 계정
+  description: >-
+    사용자가 액세스할 수 없는 개인 계정입니다. 사용자가 유료 계정을 무료 계정으로 다운그레이드하거나 유료 요금제가 기한이 지난 경우 계정이 잠깁니다.
+- 
+  term: 관리 콘솔
+  description: >-
+    관리 기능이 포함된 GitHub Enterprise 인터페이스 내의 섹션입니다.
+- 
+  term: Markdown
+  description: >-
+    Markdown은 .doc, .rtf 및 .txt와 크게 다르지 않은 매우 간단한 의미 체계 파일 형식입니다. Markdown을 사용하면 웹 게시 배경이 없는 사람도 문장(링크, 목록, 글머리 기호 등 포함)을 작성하고 웹 사이트처럼 표시할 수 있습니다. GitHub는 Markdown을 지원하고 GitHub Flavored Markdown이라고 하는 Markdown의 특정 형태를 사용합니다. [GitHub Flavored Markdown 사양](https://github.github.com/gfm/) 또는 [GitHub에서 쓰기 및 서식 지정 시작하기](/articles/getting-started-with-writing-and-formatting-on-github)를 참조하십시오.
+- 
+  term: 마크업
+  description: 문서에 주석을 달고 서식을 지정하는 시스템입니다.
+- 
+  term: main
+  description: >-
+    {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %} The default development branch. Whenever you create a Git repository, a branch named `main` is created, and becomes the active branch. In most cases, this contains the local development, though that is purely by convention and is not required.{% else %}Name often chosen as an alternative to `master` for the default branch of a repository.{% endif %}
+- 
+  term: master
+  description: >-
+    The default branch in many Git repositories. By default, when you create a new Git repository on the command line, a branch called `master` is created. Many tools now use an alternative name for the default branch.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %} For example, when you create a new repository on GitHub, the default branch is called `main`.{% endif %}
+- 
+  term: 구성원 그래프
+  description: 리포지토리의 모든 포크를 표시하는 리포지토리 그래프입니다.
+- 
+  term: 멘션
+  description: >-
+    사용자 이름을 @ 기호와 함께 미리 표시하여 사용자에게 보낸 알림입니다. GitHub 조직의 사용자는 멘션을 보낼 수 있는 팀의 일원이 될 수도 있습니다.
+- 
+  term: 병합
+  description: >-
+    병합은 한 분기에서(동일한 저장소 또는 포크에서) 변경 사항을 가져와 다른 분기에 적용합니다. 이는 종종 "끌어오기 요청"(병합 요청으로 생각할 수 있음) 또는 명령줄을 통해 발생합니다. 충돌하는 변경 사항이 없는 경우 GitHub.com 웹 인터페이스를 통해 끌어오기 요청을 통해 병합을 수행할 수 있거나 명령줄을 통해 항상 수행할 수 있습니다.
+- 
+  term: 병합 충돌
+  description: >-
+    병합된 분기 간에 발생하는 차이입니다. 병합 충돌은 사람들이 동일한 파일의 동일한 줄을 다르게 변경하거나 한 사람이 파일을 편집하고 다른 사람이 동일한 파일을 삭제할 때 발생합니다. 분기를 병합하려면 먼저 병합 충돌을 해결해야 합니다.
+- 
+  term: 마일스톤
+  description: >-
+    리포지토리에서 이슈 그룹 또는 끌어오기 요청의 진행 상황을 추적하는 방법입니다.
+- 
+  term: 미러
+  description: 리포지토리의 새 복사본입니다.
+- 
+  term: 중첩 팀
+  description: >-
+    상위 팀의 하위 팀입니다. 여러 하위(또는 중첩) 팀을 가질 수 있습니다.
+- 
+  term: 네트워크 그래프
+  description: >-
+    루트 리포지토리의 분기 및 네트워크에 고유한 커밋이 포함된 포크 분기를 포함하여 전체 리포지토리 네트워크의 분기 기록을 보여주는 리포지토리 그래프입니다.
+- 
+  term: 뉴스 피드
+  description: >-
+    리포지토리 또는 시청하는 사람의 활동 보기입니다. 조직의 뉴스 피드는 조직이 소유한 리포지토리에 대한 활동을 보여줍니다.
+- 
+  term: non-fast-forward
+  description: >-
+    리포지토리의 로컬 복사본이 업스트림 리포지토리와 동기화되지 않으면 로컬 변경 내용을 푸시하기 전에 업스트림 변경 내용을 가져와야 합니다.
+- 
+  term: 알림
+  description: >-
+    Updates, delivered by either the web or email depending on your settings, that give you information about the activities you're interested in.
+- 
+  term: OAuth 앱
+  description: >-
+    암호 대신 액세스 토큰을 사용하여 사용자의 정보에 액세스하는 타사 응용 프로그램입니다.
+- 
+  term: OAuth 토큰
+  description: OAuth 앱에서 사용자에 대한 정보에 액세스하는 데 사용되는 액세스 토큰입니다.
+- 
+  term: 외부 공동 작업자
+  description: >-
+    조직의 리포지토리 중 하나 이상에 액세스할 수 있지만 조직에 대한 다른 액세스 권한이 없으며 조직의 구성원이 아닌 사용자입니다.
+- 
+  term: 오픈 소스
+  description: >-
+    오픈 소스 소프트웨어는 누구나 자유롭게 사용, 수정 및 공유할 수 있는 소프트웨어입니다. 오늘날 "오픈 소스"의 개념은 종종 소프트웨어 이상으로 확장되어 온라인에서 사용할 수 있는 작업 자료에서의 협업 철학을 나타내며 누구나 포크, 수정, 토론 및 기여할 수 있습니다.
+- 
+  term: 조직
+  description: >-
+    조직은 일반적으로 실제 조직을 반영하는 두 명 이상의 사용자 그룹입니다. 사용자가 관리하며 리포지토리와 팀을 모두 포함할 수 있습니다.
+- 
+  term: 조직 소유자
+  description: 소유한 조직에 대한 완전한 관리 권한이 있는 사용자입니다.
+- 
+  term: 원본
+  description: >-
+    기본 업스트림 리포지토리입니다. 대부분의 프로젝트에는 추적하는 업스트림 프로젝트가 하나 이상 있습니다. 기본적으로 원본은 해당 용도로 사용됩니다.
+- 
+  term: 소유자
+  description: >-
+    조직에 대한 완전한 관리 권한이 있는 조직 구성원입니다.
+- 
+  term: 상위 팀
+  description: >-
+    중첩 팀 내에서 하위 팀이 액세스 권한 및 @mention을 상속하는 주요 팀입니다.
+- 
+  term: 참여 알림
+  description: >-
+    사용자 이름이나 팀이 언급되었거나 이전에 주석에 회신했던 이슈 또는 끌어오기 요청의 대화 업데이트에 대한 알림입니다.
+- 
+  term: 고유링크
+  description: 특정 웹 페이지에 대한 고유 정적 하이퍼링크입니다.
+- 
+  term: 개인 계정
+  description: >-
+    개별 사용자에 속한 GitHub 계정입니다.
+- 
+  term: 기본 이메일 주소
+  description: >-
+    GitHub에서 영수증, 신용 카드 또는 PayPal 요금 및 기타 청구 관련 통신을 보내는 기본 이메일 주소입니다.
+- 
+  term: 고정 리포지토리
+  description: >-
+    사용자가 프로필에 눈에 띄게 표시하기로 결정한 리포지토리입니다.
+- 
+  term: 사전 수신 후크
+  description: >-
+    품질 검사를 구현하는 데 사용할 수 있는 GitHub Enterprise 서버에서 실행되는 스크립트입니다.
+- 
+  term: 개인 기여도
+  description: 개인(대 공개) 리포지토리에 대한 기여도입니다.
+- 
+  term: 개인 리포지토리
+  description: >-
+    개인 리포지토리는 소유자가 지정한 리포지토리 소유자 및 공동 작업자만 볼 수 있습니다.
+- 
+  term: 생산 분기
+  description: >-
+    응용 프로그램 또는 사이트에 사용하거나 배포할 준비가 된 최종 변경 사항이 있는 분기입니다.
+- 
+  term: 프로필
+  description: GitHub에서 사용자의 활동에 대한 정보를 표시하는 페이지입니다.
+- 
+  term: 프로필 사진
+  description: >-
+    사용자가 GitHub에 업로드하는 사용자 지정 이미지는 일반적으로 사용자 이름과 함께 활동을 식별합니다. 아바타라고도 합니다.
+- 
+  term: 프로젝트 보드
+  description: >-
+    이슈, 끌어오기 요청 및 열에서 카드로 분류되는 메모로 구성된 GitHub 내의 보드입니다.
+- 
+  term: 보호된 분기
+  description: >-
+    보호된 분기는 리포지토리 관리자가 보호하기 위해 선택하는 분기에서 Git의 여러 기능을 차단합니다. 강제 푸시, 삭제, 필수 검사 통과, 필수 검토 승인 없이 변경 사항을 병합하거나 GitHub 웹 인터페이스에서 파일을 업로드할 수 없습니다. 보호된 분기는 일반적으로 기본 분기입니다.
+- 
+  term: 공개 기여도
+  description: 공개(대 개인) 리포지토리에 대한 기여도입니다.
+- 
+  term: 공개 리포지토리
+  description: >-
+    GitHub 사용자가 아닌 사용자를 포함하여 누구나 공개 리포지토리를 볼 수 있습니다.
+- 
+  term: 풀
+  description: >-
+    풀은 변경 내용을 가져오고 병합할 때를 나타냅니다. 예를 들어 둘다 작업 중인 원격 파일을 누군가 편집한 경우 해당 변경 내용을 로컬 복사본으로 가져와 최신 상태로 유지하도록 해야 합니다. 가져오기도 참조하십시오.
+- 
+  term: 풀 액세스
+  description: 읽기 권한의 동의어입니다.
+- 
+  term: 끌어오기 요청
+  description: >-
+    끌어오기 요청은 사용자가 제출하고 리포지토리의 공동 작업자가 수락하거나 거부한 리포지토리에 대한 변경 제안입니다. 이슈와 마찬가지로 각 끌어오기 요청마다 자체 토론 포럼이 있습니다.
+- 
+  term: 끌어오기 요청 검토
+  description: >-
+    끌어오기 요청이 병합되기 전에 변경 내용을 승인하거나 추가 변경을 요청하는 끌어오기 요청에 대한 공동 작업자의 의견입니다.
+- 
+  term: 펄스 그래프
+  description: 리포지토리의 활동에 대한 개요를 제공하는 리포지토리 그래프입니다.
+- 
+  term: 펀치 그래프
+  description: >-
+    요일 및 시간을 기준으로 리포지토리에 대한 업데이트 빈도를 보여주는 리포지토리 그래프입니다.
+- 
+  term: 푸시
+  description: >-
+    푸시는 커밋된 변경 내용을 GitHub.com의 원격 리포지토리에 전송하는 것을 의미합니다. 예를 들어 로컬에서 무언가를 변경한 경우 다른 변경 내용이 액세스할 수 있도록 푸시할 수 있습니다.
+- 
+  term: 분기 푸시
+  description: >-
+    원격 리포지토리에 분기를 성공적으로 푸시하면 로컬 분기의 변경 내용으로 원격 분기를 업데이트합니다. "분기를 푸시"하면 Git은 원격 리포지토리에서 분기의 HEAD ref를 검색하고 분기의 로컬 HEAD ref에 대해 직접적인 상위 항목인지 확인합니다. 확인되면 Git은 모든 개체(로컬 HEAD ref에서 연결할 수 있는 개체 및 원격 리포지토리에서 누락된 개체)를 원격 개체 데이터베이스로 끌어들인 다음 원격 HEAD ref를 업데이트합니다. 원격 HEAD가 로컬 HEAD의 상위 항목이 아닌 경우 푸시가 실패합니다.
+- 
+  term: 푸시 액세스
+  description: 쓰기 권한의 동의어입니다.
+- 
+  term: 읽기 액세스
+  description: >-
+    사용자가 리포지토리에서 정보를 가져오거나 읽을 수 있는 리포지토리의 권한 수준입니다. 모든 공개 리포지토리는 모든 GitHub 사용자에게 읽기 권한을 제공합니다. 풀 액세스의 동의어입니다.
+- 
+  term: README
+  description: 일반적으로 리포지토리 방문자가 첫 번째로 보게 되는 리포지토리의 파일에 대한 정보가 포함된 텍스트 파일입니다. README 파일은 리포지토리 라이선스, 기여 지침 및 사용 규정과 함께 기대치를 공유하고 프로젝트에 대한 기여를 관리하는 데 도움이 됩니다.
+- 
+  term: 다시 지정
+  description: >-
+    분기에서 다른 베이스로 일련의 변경 내용을 다시 적용하고 해당 분기의 HEAD를 결과로 재설정합니다.
+- 
+  term: Recover Accounts Elsewhere
+  description: >-
+    사용자가 2단계 인증 방법 또는 복구 코드에 대한 액세스 권한을 잃은 경우 GitHub 계정에 추가 보안 요소를 추가할 수 있습니다. 사용자는 GitHub 계정에 대한 계정 복구 토큰 형태로 Facebook 계정에 대한 인증 자격 증명을 저장하여 GitHub 계정을 Facebook 계정과 연결할 수 있습니다.
+- 
+  term: 복구 코드
+  description: GitHub 계정에 다시 액세스할 수 있는 코드입니다.
+- 
+  term: 릴리스
+  description: 사용자에게 소프트웨어를 패키징하고 제공하는 GitHub의 방식입니다.
+- 
+  term: 원격
+  description: >-
+    서버에서 호스팅되는 리포지토리 또는 분기의 버전입니다(대부분 GitHub.com). 원격 버전을 로컬 클론에 연결하여 변경 내용을 동기화할 수 있습니다.
+- 
+  term: 원격 리포지토리
+  description: >-
+    동일한 프로젝트를 추적하는 데 사용되지만 다른 곳에 상주하는 리포지토리입니다.
+- 
+  term: 원격 URL
+  description: >-
+    코드가 저장되는 장소: GitHub의 리포지토리, 다른 사용자의 포크 또는 다른 서버
+- 
+  term: 복제본
+  description: >-
+    기본 GitHub Enterprise 인스턴스에 중복성을 제공하는 GitHub Enterprise 인스턴스입니다.
+- 
+  term: 리포지토리
+  description: >-
+    리포지토리는 GitHub의 가장 기본적인 요소입니다. 프로젝트의 폴더로 상상하는 것이 가장 쉽습니다. 리포지토리에는 모든 프로젝트 파일(설명서 등)이 포함되어 있으며 각 파일의 수정 기록을 저장합니다. 리포지토리에는 여러 공동 작업자가 있을 수 있으며 공개 또는 비공개일 수 있습니다.
+- 
+  term: 리포지토리 그래프
+  description: 리포지토리의 데이터를 시각적으로 표현합니다.
+- 
+  term: 리포지토리 유지 관리자
+  description: >-
+    리포지토리를 관리하는 사람입니다. 이 담당자는 이슈를 선별하고 레이블 및 기타 기능을 사용하여 리포지토리 작업을 관리하는 데 도움이 될 수 있습니다. 또한 README 파일 및 기여 파일을 계속 업데이트할 책임이 있습니다.
+- 
+  term: 끌어오기 요청 검토 필요
+  description: >-
+    필수 검토는 공동 작업자가 보호된 분기를 변경하기 전에 끌어오기 요청이 최소 한 개의 승인된 검토가 있는지 확인해야 합니다.
+- 
+  term: 상태 확인 필요
+  description: >-
+    공동 작업자가 보호된 분기를 변경하기 전에 필요한 모든 CI 테스트가 통과되었는지 확인하는 끌어오기 요청을 확인합니다.
+- 
+  term: 해결
+  description: 실패한 자동 병합이 남긴 부분을 수동으로 수정하는 작업입니다.
+- 
+  term: 되돌리기
+  description: >-
+    GitHub에서 끌어오기 요청을 되돌리면 새 끌어오기 요청이 자동으로 열리며, 이 요청에는 원래 병합된 끌어오기 요청에서 병합 커밋을 되돌리는 커밋이 하나 있습니다. Git에서는 `git revert`로 커밋을 되돌릴 수 있습니다.
+- 
+  term: 검토
+  description: >-
+    검토를 통해 리포지토리에 액세스할 수 있는 다른 사용자가 끌어오기 요청에서 제안된 변경 사항에 대해 의견을 말하고 변경 내용을 승인하거나, 끌어오기 요청이 병합되기 전에 추가 변경을 요청할 수 있습니다.
+- 
+  term: 루트 디렉터리
+  description: 계층 구조의 첫 번째 디렉터리입니다.
+- 
+  term: 루트 파일 시스템
+  description: 기본 운영 체제 및 GitHub 엔터프라이즈 응용 프로그램 환경입니다.
+- 
+  term: 저장된 회신
+  description: >-
+    GitHub 사용자 계정에 저장하고 추가할 수 있는 주석입니다. 이를 통해 GitHub에서 이슈 및 끌어오기 요청을 사용할 수 있습니다.
+- 
+  term: 범위
+  description: >-
+    OAuth 앱이 공개 및 비공개 데이터에 모두 액세스하도록 요청할 수 있는 이름을 가진 권한 그룹입니다.
+- 
+  term: 좌석
+  description: >-
+    GitHub Enterprise 조직 내의 사용자입니다. 이를 "좌석 수"라고 할 수 있습니다.
+- 
+  term: 비밀 팀
+  description: >-
+    팀의 다른 사람과 소유자 권한이 있는 사람만 볼 수 있는 팀입니다.
+- 
+  term: 보안 로그
+  description: >-
+    마지막 50개의 작업 또는 지난 90일 이내에 수행된 작업을 나열하는 로그입니다.
+- 
+  term: 서비스 후크
+  description: >-
+    "webhook"라고도 합니다. webhook는 리포지토리 또는 조직에서 특정 작업이 발생할 때마다 알림을 외부 웹 서버에 전달할 수 있는 방법을 제공합니다.
+- 
+  term: Single Sign-On
+  description: >-
+    SSO라고도 합니다. 사용자가 ID 공급자(IDP)라는 단일 위치에 로그인하여 다른 서비스 공급자에 대한 액세스 권한을 부여할 수 있습니다.
+- 
+  term: 스냅샷
+  description: 특정 시점에서 가상 머신의 검사점입니다.
+- 
+  term: 스쿼시
+  description: 여러 커밋을 단일 커밋으로 결합합니다. 또한 Git 명령입니다.
+- 
+  term: SSH 키
+  description: >-
+    SSH 키는 암호화된 메시지를 사용하여 온라인 서버에서 자신을 식별하는 방법입니다. 컴퓨터가 다른 서비스에 고유한 암호를 가지고 있는 것처럼 {% data variables.product.product_name %}은 SSH 키를 사용하여 GitHub.com에서 사용자 컴퓨터로 정보를 안전하게 전송합니다.
+- 
+  term: 스테이징 인스턴스
+  description: >-
+    수정 사항이 실제 GitHub Enterprise 인스턴스에 적용되기 전에 수정 사항을 테스트하는 방법입니다.
+- 
+  term: 상태
+  description: >-
+    커밋이 기여하는 리포지토리에 대해 설정된 조건을 충족한다는 끌어오기 요청 내의 시각적 표현입니다.
+- 
+  term: 상태 확인
+  description: >-
+    상태 확인은 리포지토리에서 수행한 각 커밋에 대해 실행되는 연속 통합 빌드와 같은 외부 프로세스입니다. 자세한 내용은 "[상태 확인 정보](/articles/about-status-checks)"를 참조하십시오.
+- 
+  term: 별표
+  description: >-
+    리포지토리에 대한 북마크 또는 감사의 표시입니다. 별표는 프로젝트의 인기도를 수동으로 평가하는 방법입니다.
+- 
+  term: 구독
+  description: 사용자 또는 조직의 GitHub 계획입니다.
+- 
+  term: 팀
+  description: >-
+    계단식 액세스 권한 및 멘션을 통해 회사 또는 그룹의 구조를 반영하는 조직 구성원 그룹입니다.
+- 
+  term: 팀 유지 관리자
+  description: >-
+    조직 소유자가 팀을 관리할 수 있는 권한의 하위 집합이 있는 조직 구성원입니다.
+- 
+  term: 팀 계획
+  description: >-
+    무제한 공개 및 비공개 리포지토리를 제공하는 조직 청구 계획입니다.
+- 
+  term: 타임라인
+  description: 끌어오기 요청 또는 사용자 프로필의 일련의 이벤트입니다.
+- 
+  term: 토픽 분기
+  description: >-
+    개발자가 개념적 개발 라인을 식별하는 데 사용하는 일반 Git 분기입니다. 분기는 매우 쉽고 저렴하기 때문에 각각 매우 잘 정의된 개념이나 작고 점진적이지만 관련 변경 사항을 포함하는 여러 개의 작은 분기를 갖는 것이 바람직합니다. 기능 분기라고도 할 수 있습니다.
+- 
+  term: 주제
+  description: >-
+    특정 주제 영역의 리포지토리를 탐색하고, 기여할 프로젝트를 찾고, GitHub의 특정 문제에 대한 새로운 해결책을 찾는 방법입니다.
+- 
+  term: 트래픽 그래프
+  description: >-
+    전체 클론(가져오기 아님), 지난 14일 동안의 방문자, 참조 사이트 및 인기 콘텐츠를 포함하여 리포지토리의 트래픽을 보여주는 리포지토리 그래프입니다.
+- 
+  term: 전송
+  description: >-
+    리포지토리를 전송하는 것은 리포지토리의 소유자를 변경하는 것을 의미합니다. 새 소유자는 리포지토리의 콘텐츠, 이슈, 끌어오기 요청, 릴리스 및 설정을 즉시 관리할 수 있습니다.
+- 
+  term: 업스트림
+  description: >-
+    분기나 포크에 대해 이야기 할 때, 원래 리포지토리의 기본 분기는 다른 변경 사항이 들어올 주요 위치이기 때문에 종종 "업스트림"이라고 합니다. 그리고 작업 중인 분기/포크를 "다운스트림"이라고 합니다. 원본이라고도 합니다.
+- 
+  term: 업스트림 분기
+  description: >-
+    문제의 분기로 병합되는 기본 분기(또는 해당 분기의 기반이 되는 분기)입니다. `branch.<name>.remote` 및 `branch.<name>.merge`를 통해 구성됩니다. A의 업스트림 분기가 origin/B인 경우 때때로 "A가 origin/B를 추적하고 있다"고 말합니다.
+- 
+  term: 사용자
+  description: >-
+    사용자는 개인 GitHub 계정을 가진 사람들입니다. 각 사용자는 개인 프로필을 가지고 있으며 공개 또는 비공개로 여러 리포지토리를 소유할 수 있습니다. 조직을 만들거나 초대하여 조직에 가입하거나 다른 사용자의 리포지토리에서 공동 작업을 수행할 수 있습니다.
+- 
+  term: 사용자 이름
+  description: GitHub에서 사용자의 핸들입니다.
+- 
+  term: 가시적인 팀
+  description: 모든 조직 구성원이 보고 @mention 할 수 있는 팀입니다.
+- 
+  term: 보기
+  description: >-
+    리포지토리 또는 이슈를 관찰하여 이슈 또는 끌어오기 요청에 대한 업데이트가 있을 때 알림을 받을 수 있습니다.
+- 
+  term: 시청 알림
+  description: 사용자가 구독한 리포지토리의 활동에 대한 알림입니다.
+- 
+  term: 웹 알림
+  description: >-
+    GitHub의 웹 인터페이스에 표시되는 알림: https://github.com/notifications
+- 
+  term: webhooks
+  description: >-
+    Webhook를 사용하면 GitHub.com에서 특정 이벤트를 구독하는 GitHub 앱을 빌드하거나 설정할 수 있습니다. Webhook는 리포지토리 또는 조직에서 특정 작업이 발생할 때마다 알림을 외부 웹 서버에 전달할 수 있는 방법을 제공합니다. 서비스 후크라고도 합니다.
+- 
+  term: GitHub와 함께 작동
+  description: GitHub와 함께 작업하는 통합 목록입니다.
+- 
+  term: 쓰기 권한
+  description: >-
+    사용자가 리포지토리에 변경 내용을 푸시하거나 쓸 수 있는 리포지토리의 권한 수준입니다.

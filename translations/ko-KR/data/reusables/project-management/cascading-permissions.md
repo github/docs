@@ -1,0 +1,1 @@
+If a person has multiple avenues of access to an organization project board (individually, through a team, or as an organization member), the highest project board permission level overrides lower permission levels.

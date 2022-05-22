@@ -1,0 +1,1 @@
+1. Klicke **Install it for free** (kostenlos installieren), **Buy with {% data variables.product.prodname_dotcom %}** (Kaufen mit), or **Try free for 14 days** (14 Tage kostenlos testen). ![Schaltfläche „Buy with {% data variables.product.prodname_dotcom %}" (Kaufen mit)](/assets/images/help/marketplace/marketplace-buy-with-github-button.png)

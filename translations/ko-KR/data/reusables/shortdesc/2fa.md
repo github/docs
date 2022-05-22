@@ -1,0 +1,1 @@
+If you have two-factor authentication setup, Basic Authentication for this endpoint requires that you use a one-time password (OTP) and your username and password instead of tokens. For more information, see "[Working with two-factor authentication](/v3/auth/#working-with-two-factor-authentication)."

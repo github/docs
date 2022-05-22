@@ -7,16 +7,11 @@ redirect_from:
   - /articles/creating-and-editing-milestones-for-issues-and-pull-requests
   - /github/managing-your-work-on-github/creating-and-editing-milestones-for-issues-and-pull-requests
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Pull requests
-  - Issues
-  - Project management
-shortTitle: Create & edit milestones
-type: how_to
 ---
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
@@ -28,7 +23,7 @@ type: how_to
   ![Edit milestone option](/assets/images/help/repository/edit-milestone.png)
 5. Type the milestone's title, description, or other changes, and click **Create milestone** or **Save changes**. Milestones will render Markdown syntax. For more information about Markdown syntax, see "[Basic writing and formatting syntax](/github/writing-on-github/basic-writing-and-formatting-syntax)."
 
-## Deleting milestones
+### Deleting milestones
 
 When you delete milestones, issues and pull requests are not affected.
 
@@ -38,7 +33,7 @@ When you delete milestones, issues and pull requests are not affected.
 4. Next to the milestone you want to delete, click **Delete**.
 ![Delete milestone option](/assets/images/help/repository/delete-milestone.png)
 
-## Further reading
+### Further reading
 
 - "[About milestones](/articles/about-milestones)"
 - "[Associating milestones with issues and pull requests](/articles/associating-milestones-with-issues-and-pull-requests)"

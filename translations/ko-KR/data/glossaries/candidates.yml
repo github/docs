@@ -1,0 +1,203 @@
+---
+- 
+  term: 프리미엄 지원
+- 
+  term: 표준 지원
+- 
+  term: 인시던트
+- 
+  term: 제출
+- 
+  term: 연락 담당자
+- 
+  term: 심각도
+- 
+  term: 서비스 수준 계약
+- 
+  term: 크레딧
+- 
+  term: 계정 관리팀
+- 
+  term: 티켓
+- 
+  term: 엔터프라이즈 지원
+- 
+  term: 지원 포털
+- 
+  term: 긴급
+- 
+  term: 높음
+- 
+  term: 보통
+- 
+  term: 낮음
+- 
+  term: 확장 지원 번들
+- 
+  term: 회사 이름
+- 
+  term: 개인 정보 보호 모드
+- 
+  term: 인증 방법
+- 
+  term: 운영 시간
+- 
+  term: 리더십
+- 
+  term: 관리팀으로 이관
+- 
+  term: 놓친 티켓 응답
+- 
+  term: 지리적 복제
+- 
+  term: 생산 시스템
+- 
+  term: 중요한 데이터의 식별 해제
+- 
+  term: 비즈니스 정당성
+- 
+  term: 적격 크레딧
+- 
+  term: 영업 문의
+- 
+  term: 교육 문의
+- 
+  term: 아웃바운드
+- 
+  term: 영숫자
+- 
+  term: 인용
+- 
+  term: 요금제
+- 
+  term: 단위 계획
+- 
+  term: 역할
+- 
+  term: 쿠폰 사용
+- 
+  term: 무료 요금제
+- 
+  term: 무료
+- 
+  term: 할인
+- 
+  term: 진부한 검토
+- 
+  term: 기여 크레딧
+- 
+  term: 충돌 표식
+- 
+  term: 진행 중인 작업 커밋
+- 
+  term: 상위 항목 커밋
+- 
+  term: 기여 그래프
+- 
+  term: 승인
+- 
+  term: 해제
+- 
+  term: 단계
+- 
+  term: 초대
+- 
+  term: 가동 시간
+- 
+  term: 토론
+- 
+  term: 서비스 및 개인 정보 보호 정책
+- 
+  term: 복구하기
+- 
+  term: 관리 센터
+- 
+  term: 학문적 역할
+- 
+  term: 교육 할인
+- 
+  term: 일회용 도메인
+- 
+  term: 롤오버
+- 
+  term: 할당량
+- 
+  term: 개인 키
+- 
+  term: 공개 키
+- 
+  term: 핫패치
+- 
+  term: 기능 릴리스
+- 
+  term: 공동 저술된 커밋
+- 
+  term: 하위 도메인 격리
+- 
+  term: 기본 제공 인증
+- 
+  term: 남용률 제한
+- 
+  term: 로드 평균
+- 
+  term: 사용 후 삭제
+- 
+  term: 비행 전 검사
+- 
+  term: 계정 담당자
+- 
+  term: 통합 검색
+- 
+  term: 휴면 사용자
+- 
+  term: 전송
+- 
+  term: 법적 보류
+- 
+  term: 원치 않는 응답 SSO
+- 
+  term: IdP 시작 SSO
+- 
+  term: 메시지의 신뢰성
+- 
+  term: 모든 권리 보유
+- 
+  term: 캠퍼스 어드바이저
+- 
+  term: 캠퍼스 전문가
+- 
+  term: 협업 개발 모델
+- 
+  term: 통합 보기
+- 
+  term: 3점 디프
+- 
+  term: 리치 디프
+- 
+  term: 대화
+- 
+  term: 공개 gist / 비공개 gist
+- 
+  term: 확장
+- 
+  term: 조달 회사
+- 
+  term: 갱신 주문
+- 
+  term: 사용자별 가격 책정
+- 
+  term: 감시자
+- 
+  term: 필요한 커밋 서명
+- 
+  term: 체크 스위트
+- 
+  term: 교육 기관 할인
+- 
+  term: 학생 개발자 팩
+- 
+  term: 학술 연구 할인
+- 
+  term: 별을 준 사람들
+- 
+  term: 스팸 플래그 지정 취소

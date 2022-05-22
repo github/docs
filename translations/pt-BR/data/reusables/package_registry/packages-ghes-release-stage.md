@@ -1,1 +1,7 @@
-<!-- 2148AF7B-5FF8-4B28-A808-D692FEE2225A -->
+{% if currentVersion == "enterprise-server@2.22" %}
+{% note %}
+
+**Observação:** {% data variables.product.prodname_registry %} está atualmente em beta para {% data variables.product.prodname_ghe_server %} 2.22. To join the beta for {% data variables.product.product_location %}, use the [sign-up form](https://resources.github.com/beta-signup/).
+
+{% endnote %}
+{% endif %}

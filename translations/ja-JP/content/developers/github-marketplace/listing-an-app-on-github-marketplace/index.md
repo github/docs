@@ -11,8 +11,7 @@ redirect_from:
   - /apps/marketplace/listing-on-github-marketplace/
   - /marketplace/listing-on-github-marketplace
 versions:
-  fpt: '*'
-  ghec: '*'
+  free-pro-team: '*'
 topics:
   - Marketplace
 children:
@@ -21,6 +20,5 @@ children:
   - /setting-pricing-plans-for-your-listing
   - /configuring-a-webhook-to-notify-you-of-plan-changes
   - /submitting-your-listing-for-publication
-shortTitle: Marketplaceへのアプリケーションの掲載
 ---
 

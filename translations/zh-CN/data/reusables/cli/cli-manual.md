@@ -1,0 +1,1 @@
+有关 {% data variables.product.prodname_cli %} 的更多信息，请参阅 [{% data variables.product.prodname_cli %} 手册](https://cli.github.com/manual/)。

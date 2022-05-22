@@ -2,8 +2,7 @@
 title: Criar aplicativos para o GitHub Marketplace
 intro: 'Você pode listar ferramentas gratuitas e pagas para os desenvolvedores usarem no {% data variables.product.prodname_marketplace %}.'
 versions:
-  fpt: '*'
-  ghec: '*'
+  free-pro-team: '*'
 topics:
   - Marketplace
 children:
@@ -12,6 +11,5 @@ children:
   - /customer-experience-best-practices-for-apps
   - /viewing-metrics-for-your-listing
   - /viewing-transactions-for-your-listing
-shortTitle: Criar aplicativos de Marketplace
 ---
 

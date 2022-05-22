@@ -1,0 +1,1 @@
+You can also join [{% data variables.product.prodname_security %}]({% data variables.product.prodname_security_link %}) to browse security-related topics and contribute to security tools and projects. 

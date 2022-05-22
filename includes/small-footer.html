@@ -1,0 +1,22 @@
+<footer class="py-6 text-small">
+  <div class="container-xl d-flex px-3 px-md-6">
+    <ul class="d-flex list-style-none flex-wrap flex-justify-center flex-xl-justify-start">
+      <li class="d-flex mr-xl-3 color-text-secondary">
+        {% octicon "mark-github" height="20" class="mr-2 mr-xl-3" %}
+        <span>&copy; {{ "now" | date: "%Y" }} GitHub, Inc.</span>
+      </li>
+      <li class="ml-3"><a href="/github/site-policy/github-terms-of-service">{% data ui.footer.terms %} </a></li>
+      <li class="ml-3"><a href="/github/site-policy/github-privacy-statement">{% data ui.footer.privacy %} </a></li>
+      <li class="ml-3"><a href="https://github.com/security">{% data ui.footer.product.links.security %}</a></li>
+      <li class="ml-3"><a href="https://www.githubstatus.com/">{% data ui.footer.support.links.status %}</a></li>
+      <li class="ml-3"><a href="/">{% data ui.footer.support.links.help %}</a></li>
+      <li class="ml-3"><a href="https://support.github.com">{% data ui.footer.support.links.contact_github %}</a></li>
+      <li class="ml-3"><a href="https://github.com/pricing">{% data ui.footer.product.links.pricing %}</a></li>
+      <li class="ml-3"><a href="/developers">{% data ui.footer.platform.links.developer_api %}</a></li>
+      <li class="ml-3"><a href="https://services.github.com/">{% data ui.footer.support.links.training %}</a></li>
+      <li class="ml-3"><a href="https://github.com/about">{% data ui.footer.company.links.about %}</a></li>
+    </ul>
+  </div>
+</footer>
+
+{% include scripts %}

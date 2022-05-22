@@ -1,6 +1,0 @@
----
-#Do not delete! Used by tests.
-versions:
-  ghes: '>3.0'
-  ghec: '*'
-  ghae: '*'

@@ -1,0 +1,1 @@
+To create the instance, you'll need to import the {% data variables.product.prodname_ghe_server %} image to your virtual machine and attach an additional storage volume for your instance data. For more information, see "[Hardware considerations](#hardware-considerations)."

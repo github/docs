@@ -5,9 +5,8 @@ redirect_from:
   - /desktop/getting-started-with-github-desktop/updating-github-desktop
   - /desktop/installing-and-configuring-github-desktop/updating-github-desktop
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 ---
-
 {% mac %}
 
 1. **GitHub Desktop** メニューで、**About GitHub Desktop**をクリックします。 ![About GitHub Desktopメニューオプション](/assets/images/help/desktop/desktop-menu-about-desktop-mac.png)

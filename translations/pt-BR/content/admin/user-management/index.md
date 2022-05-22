@@ -9,9 +9,8 @@ redirect_from:
   - /enterprise/admin/clustering
   - /enterprise/admin/user-management
 versions:
-  ghec: '*'
-  ghes: '*'
-  ghae: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Enterprise
 children:
@@ -21,4 +20,4 @@ children:
   - /monitoring-activity-in-your-enterprise
   - /migrating-data-to-and-from-your-enterprise
 ---
-
+### Índice

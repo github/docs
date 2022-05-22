@@ -1,0 +1,1 @@
+1. Klicke mit der rechten Maustaste auf den Commit, und klicke dann auf **Create Tag...** (Tag erstellen...). ![Wähle den Menüpunkt „create tag" (Tag erstellen)](/assets/images/help/desktop/select-create-tag.png)

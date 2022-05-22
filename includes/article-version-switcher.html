@@ -1,0 +1,20 @@
+{% if page.permalinks and page.permalinks.length > 1 %}
+  <details class="dropdown-withArrow d-inline-block details details-reset mb-1 position-relative close-when-clicked-outside article-versions">
+    <summary class="f4 h5-mktg btn-outline-mktg btn-mktg p-2">
+      <!-- GitHub.com, Enterprise Server 2.16, etc -->
+      <span class="d-md-none d-xl-inline-block">{% data ui.pages.article_version %}</span> {{ allVersions[currentVersion].versionTitle }}
+      <svg class="arrow ml-1" width="14px" height="8px" viewBox="0 0 14 8" xml:space="preserve" fill="none" stroke="currentColor"><path d="M1,1l6.2,6L13,1"></path></svg>
+    </summary>
+
+    <div class="nav-dropdown position-absolute color-bg-primary rounded-1 px-4 py-3 top-7 color-shadow-large" style="z-index: 6; width: 210px;">
+      {% for permalink in page.permalinks %}
+      <a
+      href="{{ permalink.href }}"
+      class="d-block py-2 {% if currentPath == permalink.href %}link-blue active{% else %}Link--primary no-underline{% endif %}"
+      >
+      {{ allVersions[permalink.pageVersion].versionTitle }}</a>
+      {% endfor %}
+      {% include all-enterprise-releases-link %}
+    </div>
+  </details>
+{% endif %}

@@ -1,0 +1,1 @@
+You must use a personal access token (which you can create via the [command line](/articles/creating-a-personal-access-token-for-the-command-line/) or the [OAuth Authorizations API](/v3/oauth_authorizations/#create-a-new-authorization)) or [Basic Authentication](/v3/auth/#basic-authentication) to access this endpoint.

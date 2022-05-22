@@ -1,0 +1,1 @@
+1. Authentifizieren bei {% data variables.product.prodname_registry %}. Weitere Informationen findest Du unter „[Bei {% data variables.product.prodname_registry %} authentifizieren](#authenticating-to-github-packages)“.

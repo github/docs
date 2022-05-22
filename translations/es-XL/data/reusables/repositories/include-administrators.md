@@ -1,0 +1,1 @@
+1. También puedes seleccionar **Incluir administradores**. Esto requiere todas las restricciones de seguridad para los administradores de repositorio. ![Casilla de verificación Incluir administradores](/assets/images/help/repository/include-admins-protected-branches.png)

@@ -1,0 +1,1 @@
+When disruptive behavior occurs in your community, {% data variables.product.prodname_dotcom %} offers tools for applying your code of conduct and de-escalating conflict. For example, you can lock a conversation to defuse a heated interaction. For more information, see "[Moderating comments and conversations](/communities/moderating-comments-and-conversations)."

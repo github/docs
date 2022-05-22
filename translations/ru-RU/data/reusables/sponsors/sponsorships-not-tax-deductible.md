@@ -1,0 +1,1 @@
+Sponsorships are generally not tax deductible but can be in some cases. It's the responsibility of the sponsored open source contributor—not {% data variables.product.prodname_dotcom %}—to inform sponsors whether the contributions are being made to a tax-exempt entity like a 501(c)(3), and if the sponsorships may be tax-deductible.

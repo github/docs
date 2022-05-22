@@ -1,0 +1,1 @@
+1. Wenn Du **Members can create repositories** (Mitglieder können Repositorys erstellen) ausgewählt hast, wähle mindestens einen Repository-Typ aus. ![Kontrollkästchen für Repository-Typen](/assets/images/help/business-accounts/repository-creation-policy-repo-types.png)

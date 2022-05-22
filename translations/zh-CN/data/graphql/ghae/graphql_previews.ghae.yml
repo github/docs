@@ -26,7 +26,7 @@
     - CreateDeploymentInput
     - CreateDeploymentPayload
   owning_teams:
-    - '@github/c2c-actions-service'
+    - '@github/ecosystem-api'
 - 
   title: >-
     MergeInfoPreview - 有关拉取请求合并状态的更多详细信息。

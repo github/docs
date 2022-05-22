@@ -1,0 +1,1 @@
+Du kannst Merge-Optionen für Pull Requests auf {% data variables.product.product_location %} konfigurieren, um den Anforderungen und Voreinstellungen Deines Workflow für die Verwaltung des Git-Verlauf zu entsprechen. Weitere Informationen findest Du unter "[Pull-Request-Zusammenführungen konfigurieren](/articles/configuring-pull-request-merges)."

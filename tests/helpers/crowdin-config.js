@@ -1,12 +1,10 @@
-import { fileURLToPath } from 'url'
-import path from 'path'
-import fs from 'fs'
-import yaml from 'js-yaml'
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
+const fs = require('fs')
+const path = require('path')
+const yaml = require('js-yaml')
 
-export const read = function () {
+const read = function () {
   const filename = path.join(__dirname, '../../crowdin.yml')
   return yaml.load(fs.readFileSync(filename, 'utf8'), { filename })
 }
 
-export default { read }
+module.exports = { read }

@@ -1,0 +1,1 @@
+2. Klicke auf **Add application** (Anwendung hinzufügen). ![Schaltfläche "Add application" (Anwendung hinzufügen) in der Anwendungs-Registerkarte des Okta Dashboard](/assets/images/help/saml/okta-add-application.png)

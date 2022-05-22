@@ -1,0 +1,1 @@
+1. Wähle optional **Opt-in to potentially being featured on github.com/sponsors** (Anmelden, um möglicherweise auf github.com/sponsors vorgestellt zu werden). ![Kontrollkästchen, um sich für die Vorstellung anzumelden](/assets/images/help/sponsors/opt-in-to-being-featured.png)

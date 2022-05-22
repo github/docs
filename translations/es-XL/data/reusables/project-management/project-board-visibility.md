@@ -1,0 +1,1 @@
+Por defecto, tu tablero de proyecto es privado y solo está visible para las personas con permisos de lectura, escritura o administración para el tablero de proyecto. Un tablero de proyecto está visible para todos los que dispongan de la URL del tablero de proyecto.

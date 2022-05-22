@@ -1,0 +1,1 @@
+2. Lade an der Eingabeaufforderung Deine Lizenzdatei hoch, und lege das Passwort für die Managementkonsole fest. Weitere Informationen findest Du unter „[Deine {% data variables.product.prodname_enterprise %}-Lizenz verwalten](/enterprise/{{ currentVersion }}/admin/guides/installation/managing-your-github-enterprise-license/)."

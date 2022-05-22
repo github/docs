@@ -1,0 +1,3 @@
+You can fork any public repository to your user account or any organization where you have repository creation permissions. For more information, see "[Permission levels for an organization](/articles/permission-levels-for-an-organization)."
+
+You can fork any private repository you can access to your user account and any organization on {% data variables.product.prodname_team %} or {% data variables.product.prodname_enterprise %} where you have repository creation permissions. You cannot fork a private repository to an organization using {% data variables.product.prodname_free_team %}.{% if currentVersion == "free-pro-team@latest" %} For more information, see "[GitHub's products](/articles/githubs-products)."{% endif %}

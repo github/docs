@@ -1,0 +1,16 @@
+{% unless enterpriseServerReleases.isOldestReleaseDeprecated and currentVersion contains enterpriseServerReleases.oldestSupported %}
+<div class="f5 contribution">
+  <h2 class="f4">{% data ui.contribution_cta.title %}</h2>
+  <p class="color-text-secondary f6">{% data ui.contribution_cta.body %}</p>
+  {% if page.relativePath %}
+    {% assign contribution_href = "https://github.com/github/docs/edit/main/content/" | append: page.relativePath %}
+  {% else %}
+    {% assign contribution_href = "https://github.com/github/docs" %}
+  {% endif %}
+  <a class="btn btn-outline" href="{{ contribution_href }}">
+    {% octicon "git-pull-request" height="16" %}
+    {% data ui.contribution_cta.button %}
+  </a>
+  <p class="color-text-secondary f6 mt-2">{% data ui.contribution_cta.or %} <a href="https://github.com/github/docs/blob/main/CONTRIBUTING.md" target="_blank">{% data ui.contribution_cta.to_guidelines %}</a></p>
+</div>
+{% endunless %}

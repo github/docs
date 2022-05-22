@@ -1,0 +1,2 @@
+1. Klicken Sie in der oberen linken Ecke einer beliebigen Seite unter {% data variables.product.product_name %} auf {% octicon "mark-github" aria-label="The github octocat logo" %}, um auf die Dashboard-Seite zuzugreifen.
+2. Klicke in der oberen linken Ecke der Seite auf Deinen Benutzernamen, und verwende das Dropdownmenü, um auf die gewünschte Organisation zu klicken. ![Dashboard-Kontextumschalter-Dropdownmenü, in dem unterschiedliche Organisationsoptionen gezeigt werden](/assets/images/help/dashboard/dashboard-context-switcher.png)

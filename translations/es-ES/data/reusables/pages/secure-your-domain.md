@@ -1,3 +1,0 @@
-If your {% data variables.product.prodname_pages %} site is disabled but has a custom domain set up, it is at risk of a domain takeover. La configuración de tu dominio personalizado con tu proveedor DNS mientras tu sitio está inhabilitado, podría hacer que alguien más aloje un sitio en un o de tus subdominios.
-
-Verifying your custom domain prevents other GitHub users from using your domain with their repositories. If your domain is not verified, and your {% data variables.product.prodname_pages %} site is disabled, you should immediately update or remove your DNS records with your DNS provider.

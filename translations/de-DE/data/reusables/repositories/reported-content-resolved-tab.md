@@ -1,0 +1,1 @@
+1. Klicke unter „Abuse reports" (Missbrauchsberichte) auf **Resolved** (Gelöst). ![Registerkarte "Resolved" (Gelöst) unter "Abuse reports" (Missbrauchsberichte)](/assets/images/help/repository/reported-content-resolved-tab.png)

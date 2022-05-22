@@ -1,0 +1,1 @@
+1. Überprüfe die Ressourcen, auf welche {% data variables.product.prodname_ghe_server %} von Deinem {% data variables.product.prodname_dotcom_the_website %}-Konto zugreifen wird, dann klicke **Authorize** (Autorisieren). ![Autorisiere die Verbindung zwischen dem GitHub Enterprise Server und GitHub.com](/assets/images/help/settings/authorize-ghe-to-connect-to-dotcom.png)

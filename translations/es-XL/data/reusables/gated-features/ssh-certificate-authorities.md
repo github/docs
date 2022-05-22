@@ -1,0 +1,1 @@
+El soporte para las autoridades con certificado SSH se encuentra disponible con {% data variables.product.prodname_ghe_cloud %} y {% data variables.product.prodname_ghe_server %} 2.19+. Para obtener más información, consulta la sección "[Productos de GitHub](/articles/githubs-products)".

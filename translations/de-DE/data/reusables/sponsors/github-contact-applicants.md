@@ -1,0 +1,1 @@
+{% data variables.product.prodname_dotcom %} kann {% data variables.product.prodname_sponsors %}-Bewerber oder -Teilnehmer kontaktieren, um weitere Informationen bezüglich ihres Sponsoring-Profils oder ihrer Aktivität zu erhalten, um die Berechtigung für Sponsoring oder Matching zu ermitteln oder im Rahmen der Untersuchung potenzieller Vertragsverletzungen.

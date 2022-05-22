@@ -1,0 +1,1 @@
+2. Opcionalmente, para visualizar os eventos que ocorreram durante um período, clique no círculo numerado ao longo desse período. ![Círculos numerados para indicar eventos](/assets/images/help/insights/event-circles.png)

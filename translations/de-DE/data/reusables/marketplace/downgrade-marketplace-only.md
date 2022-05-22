@@ -1,0 +1,1 @@
+Canceling an app or downgrading an app to free does not affect your [other paid subscriptions](/articles/about-billing-on-github) on {% data variables.product.prodname_dotcom %}. Wenn Sie alle kostenpflichtigen Abonnements auf {% data variables.product.prodname_dotcom %} beenden möchten, müssen Sie jedes kostenpflichtige Abonnement separat herabstufen.

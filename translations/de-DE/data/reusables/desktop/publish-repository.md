@@ -1,0 +1,1 @@
+3. Klicke auf die Schaltfläche **Publish repository** (Repository veröffentlichen) auf der Symbolleiste. ![Die Schaltfläche „Publish repository“ (Repository veröffentlichen) auf der Symbolleiste](/assets/images/help/desktop/publish-repository-toolbar-button.png)

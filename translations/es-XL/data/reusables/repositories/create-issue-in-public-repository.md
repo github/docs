@@ -1,0 +1,1 @@
+Cualquier usuario de {% data variables.product.product_name %} puede crear un informe de problemas en un repositorio público donde [no se hayan inhabilitado los informes de problemas](/articles/disabling-issues).

@@ -1,0 +1,1 @@
+A new content reference is `created`. A new content reference is created when the body or comment of an issue or pull request includes a URL that matches a configured content reference domain. For more information, see "[Using content attachments](/apps/using-content-attachments/)" to learn more about content references and attachments.

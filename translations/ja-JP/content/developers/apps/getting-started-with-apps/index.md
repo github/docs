@@ -2,10 +2,9 @@
 title: アプリケーションに取りかかる
 intro: アプリケーションの構築や、解決環境の設定について学びます。
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - GitHub Apps
 children:

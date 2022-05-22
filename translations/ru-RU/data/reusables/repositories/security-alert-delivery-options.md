@@ -1,0 +1,4 @@
+{% if currentVersion != "github-ae@latest" %}
+If your repository has a supported dependency manifest
+{% if currentVersion == "free-pro-team@latest" %} (and if you've set up the dependency graph if it's a private repository){% endif %}, whenever {% data variables.product.product_name %} detects a vulnerable dependency in your repository, you will receive a weekly digest email. You can also configure your security alerts as web notifications, individual email notifications, daily email digests, or alerts in the {% data variables.product.product_name %} interface. For more information, see "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)."
+{% endif %}

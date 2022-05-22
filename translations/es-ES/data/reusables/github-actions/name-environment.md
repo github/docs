@@ -1,1 +1,0 @@
-1. Ingresa un nombre para el ambiente y luego da clic en **Configurar ambiente**. Los nombres de ambiente no distinguen entre mayúsculas y minúsculas. Un nombre de ambiente no deberá exceder los 255 caracteres y deberá ser único dentro del repositorio.

@@ -1,0 +1,1 @@
+Unverified apps do not need to meet the "[Requirements for listing an app on GitHub Marketplace](/marketplace/getting-started/requirements-for-listing-an-app-on-github-marketplace/)" or go through the "[Security review process](/marketplace/getting-started/security-review-process/)."

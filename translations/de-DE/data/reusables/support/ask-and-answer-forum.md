@@ -1,0 +1,1 @@
+Du kannst Dich in [{% data variables.product.prodname_gcf %}](https://github.community) mit Entwicklern auf der ganzen Welt verbinden, um Fragen zu stellen und zu beantworten, zu lernen und direkt mit {% data variables.product.product_name %}-Mitarbeitern zu interagieren.

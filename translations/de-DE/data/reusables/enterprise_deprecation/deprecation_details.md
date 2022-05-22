@@ -1,0 +1,2 @@
+Es wird keine Patch-Freigabe vorgenommen, auch nicht für kritische Sicherheitsprobleme. Für eine bessere Leistung, verbesserte Sicherheit und neue Features <a href="/enterprise/admin/guides/installation/upgrading-github-enterprise/">nimm ein Upgrade auf die neueste Version von GitHub Enterprise vor</a>.
+<a href="https://enterprise.github.com/support">Wende Dich an den GitHub Enterprise-Support</a>, um Hilfe beim Upgrade zu erhalten.

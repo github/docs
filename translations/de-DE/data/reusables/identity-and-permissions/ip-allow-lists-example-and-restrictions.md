@@ -1,0 +1,1 @@
+Du kannst zum Beispiel den Zugriff nur über die IP-Adresse Deines Büronetzwerks zulassen. Die Zulassungsliste für IP-Adressen blockiert den Zugriff über das Internet, das API und Git von allen IP-Adressen her, die nicht in der Zulassungsliste aufgeführt sind.

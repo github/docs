@@ -1,0 +1,1 @@
+Browse to the [{% data variables.product.prodname_ghe_server %} Releases page](https://enterprise.github.com/releases). Next to the release you are upgrading to, click **Download**, then click the **Upgrading** tab.

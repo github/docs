@@ -1,12 +1,11 @@
-import { getDOM } from '../helpers/supertest.js'
-import { jest } from '@jest/globals'
+const { getDOM } = require('../helpers/supertest')
 
 describe('curated homepage links', () => {
   jest.setTimeout(5 * 60 * 1000)
 
   test('English', async () => {
     const $ = await getDOM('/en')
-    const $links = $('[data-testid=bump-link]')
+    const $links = $('a.link-with-intro')
     expect($links.length).toBeGreaterThanOrEqual(8)
 
     // Check that each link is localized and includes a title and intro
@@ -15,11 +14,11 @@ describe('curated homepage links', () => {
 
       expect(linkUrl.startsWith('/en/')).toBe(true)
       expect(
-        $(el).find('[data-testid=link-with-intro-title]').text().trim().length,
+        $(el).find('.link-with-intro-title').text().trim().length,
         `Did not find a title for the linked article ${linkUrl}`
       ).toBeGreaterThan(0)
       expect(
-        $(el).find('[data-testid=link-with-intro-intro]').text().trim().length,
+        $(el).find('.link-with-intro-intro').text().trim().length,
         `Did not find an intro for the linked article ${linkUrl}`
       ).toBeGreaterThan(0)
 
@@ -32,7 +31,7 @@ describe('curated homepage links', () => {
 
   test('Japanese', async () => {
     const $ = await getDOM('/ja')
-    const $links = $('[data-testid=bump-link]')
+    const $links = $('a.link-with-intro')
     expect($links.length).toBeGreaterThanOrEqual(8)
 
     // Check that each link is localized and includes a title and intro
@@ -41,11 +40,11 @@ describe('curated homepage links', () => {
 
       expect(linkUrl.startsWith('/ja/')).toBe(true)
       expect(
-        $(el).find('[data-testid=link-with-intro-title]').text().trim().length,
+        $(el).find('.link-with-intro-title').text().trim().length,
         `Did not find a title for the linked article ${linkUrl}`
       ).toBeGreaterThan(0)
       expect(
-        $(el).find('[data-testid=link-with-intro-intro]').text().trim().length,
+        $(el).find('.link-with-intro-intro').text().trim().length,
         `Did not find an intro for the linked article ${linkUrl}`
       ).toBeGreaterThan(0)
     })

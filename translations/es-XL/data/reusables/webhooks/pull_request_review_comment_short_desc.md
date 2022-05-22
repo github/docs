@@ -1,0 +1,1 @@
+La actividar relacionada con los comentarios de revisión de la solicitud de extracción en el diff unificado de la misma. {% data reusables.webhooks.action_type_desc %} Para obtener más información, consulta la API de REST de "[comentrios de revisión de la solicitud de extracción](/v3/pulls/comments/)".

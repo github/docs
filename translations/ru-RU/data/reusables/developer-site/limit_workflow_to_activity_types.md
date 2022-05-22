@@ -1,0 +1,1 @@
+By default, all activity types trigger a workflow to run. You can limit your workflow runs to specific activity types using the `types` keyword. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions#onevent_nametypes)."

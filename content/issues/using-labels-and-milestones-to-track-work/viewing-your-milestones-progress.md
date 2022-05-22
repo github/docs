@@ -7,13 +7,11 @@ redirect_from:
   - /articles/viewing-your-milestones-progress
   - /github/managing-your-work-on-github/viewing-your-milestones-progress
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Pull requests
-shortTitle: View progress to milestone
 ---
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
@@ -25,7 +23,7 @@ shortTitle: View progress to milestone
 
 To better manage your project, you can prioritize issues or pull requests within a milestone. For more information, see "[About milestones](/articles/about-milestones#prioritizing-issues-and-pull-requests-in-milestones)."
 
-## Further reading
+### Further reading
 
 * "[Associating milestones with issues and pull requests](/articles/associating-milestones-with-issues-and-pull-requests)"
 * "[Filtering issues and pull requests by milestone](/articles/filtering-issues-and-pull-requests-by-milestone)"

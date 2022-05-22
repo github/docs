@@ -1,0 +1,1 @@
+Um den Posteingang für Benachrichtigungen auf {% data variables.product.prodname_dotcom %} und {% data variables.product.prodname_mobile %} zu verwenden, musst Du Web- und Mobile-Benachrichtigungen in Deinen Benachrichtigungseinstellungen aktivieren.

@@ -1,0 +1,1 @@
+1. Unter „Billing information" (Abrechnungsinformationen) verwende das Dropdownmenü „Switch billing account" (Abrechnungskonto wechseln) und wähle die Organisation, in der Du die App installieren möchtest. ![Dropdownmenü, um das Abrechnungskonto und den Namen und Avatar Deiner ausgewählten Organisation zu wechseln](/assets/images/help/marketplace/marketplace-confirm-org.png)

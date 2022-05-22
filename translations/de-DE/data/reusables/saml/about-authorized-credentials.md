@@ -1,0 +1,1 @@
+Du kannst jedes persönliche Zugriffstoken und jeden SSH-Schlüssel anzeigen, die ein Mitglied für API- und Git-Zugriff autorisiert hat. Nur die jeweils letzten Zeichen jedes Token oder Schlüssels sind sichtbar. Falls notwendig arbeitest Du mit dem Mitglied zusammen, um festzulegen, welche Anmeldeinformationen Du widerrufen solltest.

@@ -4,17 +4,16 @@ intro: 'ブラウザ内で動作する統合開発環境であるGraphQL Explore
 redirect_from:
   - /v4/guides/using-the-explorer
 versions:
-  fpt: '*'
-  ghec: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - API
 ---
 
 ## GraphQL Explorerについて
 
-{% ifversion fpt or ghec %}
+{% if currentVersion == "free-pro-team@latest" %}
 
 [GraphQL Explorer](/graphql/overview/explorer)は、「グラフィカルでインタラクティブなブラウザ内のGraphQL IDE」である[ GraphiQL](https://github.com/graphql/graphiql)のインスタンスです。
 
@@ -30,11 +29,11 @@ topics:
 
 {% endif %}
 
-## GraphiQLの利用
+### GraphiQLの利用
 
-GraphiQLアプリケーションを使うには、https://github.com/skevy/graphiql-app からダウンロードしてインストールしてください。
+GraphiQLアプリケーションを使うには、https://github.com/skevy/graphiql-appからダウンロードしてインストールしてください。
 
-### GraphiQLの設定
+#### GraphiQLの設定
 
 1. [OAuthトークン](/graphql/guides/forming-calls-with-graphql#authenticating-with-graphql)を取得してください。
 1. GraphiQLを起動してください。
@@ -63,7 +62,7 @@ query {
 
 すべてが正しく動作していれば、これでログイン情報が表示されます。 これでクエリを発行する準備ができました。
 
-## サイドバードキュメントへのアクセス
+### サイドバードキュメントへのアクセス
 
 GraphQLスキーマ内のすべての型には、ドキュメントに編集される`description`フィールドが含まれています。 Explorerページの右にある折りたたみ可能な**Docs**ペインからは、型システムに関するドキュメントをブラウズできます。 このドキュメントは自動的に更新され、非推奨のフィールドは削除されます。
 
@@ -73,7 +72,7 @@ GraphQLスキーマ内のすべての型には、ドキュメントに編集さ�
 
 {% endnote %}
 
-## 変数ペインの利用
+### 変数ペインの利用
 
 サンプルの呼び出しの中には、以下のように書かれる[変数](/graphql/guides/forming-calls-with-graphql#working-with-variables)を含むものがあります。
 
@@ -103,11 +102,11 @@ variables {
 }
 ```
 
-## サポートのリクエスト
+### サポートのリクエスト
 
 {% data reusables.support.help_resources %}
 
-## エラーのトラブルシューティング
+### エラーのトラブルシューティング
 
 GraphQLは[イントロスペクション](/graphql/guides/introduction-to-graphql#discovering-the-graphql-api)可能なので、Explorerは以下をサポートしています。
 

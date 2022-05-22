@@ -1,0 +1,1 @@
+You should be familiar with how service containers work with {% data variables.product.prodname_actions %} and the networking differences between running jobs directly on the runner or in a container. For more information, see "[About service containers](/actions/automating-your-workflow-with-github-actions/about-service-containers)."

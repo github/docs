@@ -9,8 +9,7 @@ redirect_from:
   - /articles/encouraging-positive-contributions-to-your-project
   - /github/building-a-strong-community/maintaining-your-safety-on-github
 versions:
-  fpt: '*'
-  ghec: '*'
+  free-pro-team: '*'
 topics:
   - Community
 children:

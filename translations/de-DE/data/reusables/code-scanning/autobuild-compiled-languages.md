@@ -1,0 +1,1 @@
+For the supported compiled languages, you can use the `autobuild` action in the {% data variables.product.prodname_codeql_workflow %} to build your code. This avoids you having to specify explicit build commands for C/C++, C#, and Java.

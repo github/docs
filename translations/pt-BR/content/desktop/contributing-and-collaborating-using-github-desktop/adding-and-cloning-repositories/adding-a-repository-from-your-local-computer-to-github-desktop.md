@@ -5,10 +5,8 @@ redirect_from:
   - /desktop/contributing-to-projects/adding-a-repository-from-your-local-computer-to-github-desktop
   - /desktop/contributing-and-collaborating-using-github-desktop/adding-a-repository-from-your-local-computer-to-github-desktop
 versions:
-  fpt: '*'
-shortTitle: Adicionar um repositório
+  free-pro-team: '*'
 ---
-
 {% tip %}
 
 **Dica:** é possível adicionar um repositório Git do computador local ao GitHub Desktop arrastando a pasta para a janela do {% data variables.product.prodname_desktop %}. Ao arrastar várias pastas do Git para o {% data variables.product.prodname_desktop %} simultaneamente, cada pasta será acessada como um repositório Git individual.

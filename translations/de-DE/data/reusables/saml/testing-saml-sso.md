@@ -1,0 +1,1 @@
+Beim Einrichten von SAML-SSO in Deiner Organisation kannst Du die Implementierung testen, ohne dass es sich auf die Mitglieder Deiner Organisation auswirkt, indem Du **Verlange SAML-SSO-Authentifizierung für alle Mitglieder der _Organisationsname_-Organisation**  nicht aktivierst.

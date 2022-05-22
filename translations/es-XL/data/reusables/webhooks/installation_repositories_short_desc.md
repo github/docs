@@ -1,0 +1,1 @@
+La actividad relacionada con los repositorios que se está agregando a la instalación de la GitHub App. {% data reusables.webhooks.action_type_desc %} Para obtener más información, consulta la API de REST de "[Instalación de GitHub Apps](/v3/apps/)".

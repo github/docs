@@ -1,0 +1,1 @@
+Nachdem Du ein Paket veröffentlicht hast, kannst Du das Paket auf {% data variables.product.prodname_dotcom %} ansehen. Weitere Informationen findest Du unter „[Anzeigen von Paketen](/packages/manage-packages/viewing-packages)."

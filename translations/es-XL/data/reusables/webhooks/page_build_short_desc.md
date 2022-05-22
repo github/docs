@@ -1,0 +1,1 @@
+Representa un intento de creación de un sitio de GitHub Pages, ya sea que fuese exitoso o no. Una carga a una rama habilitada de GitHub Pages (`gh-pages` para páginas de proyecto, `master` para páginas de organización y de usuario) activa este evento.

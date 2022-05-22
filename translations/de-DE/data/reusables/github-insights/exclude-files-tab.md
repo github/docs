@@ -1,0 +1,1 @@
+1. Klicke unter **{% octicon "gear" aria-label="The gear icon" %} Settings** (Einstellungen), auf **Exclude files** (Dateien ausschließen). ![Registerkarte „Exclude Files" (Dateien ausschließen)](/assets/images/help/insights/exclude-files-tab.png)

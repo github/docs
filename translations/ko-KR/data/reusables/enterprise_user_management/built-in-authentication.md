@@ -1,0 +1,1 @@
+If you want to authenticate users without adding them to your identity provider, you can configure built-in authentication. For more information, see "[Allowing built-in authentication for users outside your identity provider](/enterprise/{{ currentVersion }}/admin/guides/user-management/allowing-built-in-authentication-for-users-outside-your-identity-provider)."

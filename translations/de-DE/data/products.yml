@@ -1,0 +1,18 @@
+---
+#this sequence sets the product order in the sidebar
+#the product IDs match keys in lib/all-products.js
+#note this file should not be translated
+productsInOrder:
+  - github
+  - verwalten
+  - discussions
+  - code-security
+  - actions
+  - Pakete
+  - developers
+  - rest
+  - graphql
+  - insights
+  - Communitys
+  - education
+  - desktop

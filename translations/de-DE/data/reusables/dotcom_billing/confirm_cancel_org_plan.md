@@ -1,0 +1,1 @@
+7. Lies die Informationen zu den Features, auf die Deine Organisation ab dem nächsten Abrechnungsdatum nicht mehr zugreifen kann, und klicke dann auf **I understand. **Downgrade my organization** (Ich habe verstanden und möchte meine Organisation herabstufen). ![Schaltfläche „Downgrade“ (Herabstufen)](/assets/images/help/billing/downgrade-confirm-button.png)</li> </ol>

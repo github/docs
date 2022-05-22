@@ -4,10 +4,9 @@ intro: 'View reference documentation to learn about the data types available in 
 redirect_from:
   - /v4/reference
 versions:
-  fpt: '*'
-  ghec: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 children:
   - /queries
   - /mutations

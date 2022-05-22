@@ -1,0 +1,759 @@
+---
+- 
+  term: 2-up
+  description: GitHub에서 이미지를 보는 기본 모드입니다.
+- 
+  term: 대체 개체 데이터베이스
+  description: >-
+    대체 메커니즘을 통해 리포지토리는 "대체"라고 하는 다른 개체 데이터베이스에서 해당 개체 데이터베이스의 일부를 상속할 수 있습니다.
+- 
+  term: AMI
+  description: >-
+    Amazon Machine Image. Amazon Elastic Compute Cloud와 함께 사용할 가상 어플라이언스입니다.
+- 
+  term: 익명화된 이미지 URL
+  description: >-
+    브라우저 세부 정보 및 다른 사용자의 관련 정보를 숨기는 각 이미지의 익명 URL 프록시입니다.
+- 
+  term: 정점 도메인
+  description: 하위 도메인 부분을 포함하지 않는 루트 도메인입니다.
+- 
+  term: API
+  description: >-
+    Application Programming Interface. 다양한 소프트웨어 구성 요소 간에 명확하게 정의된 통신 방법의 집합입니다.
+- 
+  term: API 토큰
+  description: >-
+    스크립트와 명령줄에서 암호 대신 사용되는 토큰입니다.
+- 
+  term: 앱
+  description: >-
+    GitHub와 통합되는 타사 서비스입니다. 일반적으로 OAuth 응용 프로그램 또는 GitHub 응용 프로그램을 나타냅니다. 앱이라고도 합니다.
+- 
+  term: 응용 프로그램
+  description: >-
+    GitHub와 통합되는 타사 서비스입니다. 일반적으로 OAuth 응용 프로그램 또는 GitHub 응용 프로그램을 나타냅니다. 앱이라고도 합니다.
+- 
+  term: 인자
+  description: 'GraphQL에서 특정 필드에 연결된 키 값 쌍의 집합입니다.'
+- 
+  term: AsciiDoc
+  description: >-
+    메모, 문서, 기사, 책, 전자 책, 슬라이드 쇼, 웹 페이지, 매뉴얼 페이지 및 블로그를 작성하기 위한 텍스트 문서 형식입니다.
+- 
+  term: 자산
+  description: '이미지, 사진, 동영상 및 텍스트 파일과 같은 개별 파일입니다.'
+- 
+  term: Atom 피드
+  description: 웹 콘텐츠를 쉽게 합성할 수 있는 경량 XML 형식입니다.
+- 
+  term: 감사 로그
+  description: >-
+    조직에서 감사 로그는 작업을 수행한 사람, 작업 내용 및 수행 시기와 같이 조직에서 수행한 활동에 대한 세부 정보를 포함합니다.
+- 
+  term: 아바타
+  description: >-
+    사용자 지정 이미지 사용자는 GitHub에 업로드하여 일반적으로 사용자 이름과 함께 활동을 식별합니다. 프로필 사진이라고도 합니다.
+- 
+  term: AWS
+  description: Amazon Web Services. 보안 클라우드 서비스 플랫폼입니다.
+- 
+  term: Azure
+  description: Microsoft 클라우드 컴퓨팅 플랫폼입니다.
+- 
+  term: Azure DevOps
+  description: >-
+    A Microsoft product offering source code hosting, issues, CI/CD pipelines, and other developer services. The on-premises version was formerly known as Team Foundation Server. The cloud-hosted version was formerly known as Visual Studio Team Services.
+- 
+  term: 베어 리포지토리
+  description: >-
+    베어 리포지토리는 일반적으로 .git 접미사와 함께 적절하게 명명된 디렉터리이며, 버전 관리 중인 파일의 로컬에서 체크아웃된 복사본을 가지고 있지 않습니다. 즉, 일반적으로 숨겨진 .git 하위 디렉터리에 존재하는 모든 Git 관리 및 제어 파일은 대신 repository.git 디렉터리에 직접 존재하며 다른 파일은 존재하지 않고 체크아웃되지 않습니다. 일반적으로 공개 리포지토리의 게시자는 베어 리포지토리를 사용할 수 있도록 합니다.
+- 
+  term: BFG 리포지토리 클리너
+  description: BFG. Git 리포지토리 이력에서 데이터를 정리하는 타사 도구입니다.
+- 
+  term: blob 개체
+  description: '형식이 없는 개체(예: 파일의 내용)입니다.'
+- 
+  term: 봇
+  description: 자동화된 작업을 실행하는 소프트웨어 응용 프로그램입니다.
+- 
+  term: 번들러
+  description: 응용 프로그램이 의존하는 Ruby gem을 관리하는 방법입니다.
+- 
+  term: camo
+  description: >-
+    GitHub에서 제공되는 보안 페이지에서 혼합 콘텐츠 경고를 방지하기 위한 SSL 이미지 프록시입니다.
+- 
+  term: 체인
+  description: >-
+    목록의 각 개체에 후속 개체에 대한 참조가 포함된 개체 목록입니다(예: 커밋의 후속 개체는 상위 항목 중 하나일 수 있음).
+- 
+  term: CIDR 표기
+  description: IP 주소와 관련 라우팅 접두사를 간결하게 표현합니다.
+- 
+  term: CLI
+  description: 명령줄 인터페이스
+- 
+  term: CNAME 레코드
+  description: >-
+    정식 이름 레코드. 도메인 이름이 다른 도메인('정식' 도메인)에 대한 별칭임을 지정하는 데 사용되는 DNS(도메인 이름 시스템)의 리소스 레코드 유형입니다.
+- 
+  term: 조건부 요청
+  description: >-
+    REST API에서 특정 상황에서만 응답하는 HTTP 메서드입니다.
+- 
+  term: 연결
+  description: 'GraphQL에서 관련 개체를 동일한 호출의 일부로 쿼리하는 방법입니다.'
+- 
+  term: 코어 Git
+  description: >-
+    Git의 기본 데이터 구조 및 유틸리티. 제한된 소스 코드 관리 도구만 노출합니다.
+- 
+  term: CPU
+  description: 중앙 처리 장치
+- 
+  term: 자격 증명 도우미
+  description: A program that stores and fetches Git credentials.
+- 
+  term: 크리올
+  description: >-
+    위키의 공통 마크업 언어가 되는 것을 목표로 하는 경량 마크업 언어로, 다양한 위키 엔진 간에 콘텐츠 전송을 가능하게 하고 단순화합니다.
+- 
+  term: CSV
+  description: 쉼표로 구분된 파일입니다.
+- 
+  term: DAG
+  description: >-
+    방향성 비순환 그래프. 커밋 개체는 상위 항목(방향성)이 있고 커밋 개체의 그래프가 비순환이기 때문에 방향성 비순환 그래프를 형성합니다(동일한 개체로 시작되고 끝나는 체인이 없음).
+- 
+  term: 허상 개체
+  description: >-
+    연결할 수 없는 다른 개체에서도 연결할 수 없는 개체입니다. 허상 개체에는 리포지토리의 참조 또는 개체로부터 해당 개체에 대한 참조가 없습니다.
+- 
+  term: 데이터 팩
+  description: >-
+    사용자가 구입할 수 있는 스토리지 및 대역폭 패키지입니다. 각 데이터 팩은 50GB의 대역폭과 50GB의 스토리지를 제공합니다.
+- 
+  term: DELETE
+  description: REST API의 메서드 유형
+- 
+  term: DHCP
+  description: >-
+    Dynamic Host Configuration Protocol (DHCP). IP 주소와 기타 관련 구성 정보(서브넷 마스크 및 기본 게이트웨이 등)가 있는 인터넷 프로토콜(IP) 호스트를 자동으로 제공하는 클라이언트/서버 프로토콜입니다.
+- 
+  term: 지시문
+  description: >-
+    GraphQL에서 서버가 원하는 방식으로 쿼리 실행에 영향을 주는 방법입니다.
+- 
+  term: 디렉터리
+  description: 명령어 "ls"로 받은 목록입니다.
+- 
+  term: 재해 복구
+  description: >-
+    DR이라고도 합니다. 인적 재해 또는 자연 재해에 따른 기술 인프라 및 시스템을 복구하는 도구 및 프로세스입니다.
+- 
+  term: DNS 공급자
+  description: >-
+    사용자가 고유한 도메인 이름을 구입하여 등록하고 해당 이름을 IP 주소 또는 다른 도메인 이름으로 지정하여 해당 이름을 IP(인터넷 프로토콜) 주소에 연결할 수 있도록 하는 회사입니다.
+- 
+  term: DSA
+  description: Digital Signature Algorithm. 디지털 서명을 위한 처리 표준입니다.
+- 
+  term: DSA 키
+  description: DSA에 사용되는 공용 및 개인 키입니다.
+- 
+  term: Early Access Program
+  description: >-
+    개인과 조직이 시험판 기능을 받기 위해 입력하는 GitHub 프로그램입니다.
+- 
+  term: EBS
+  description: >-
+    Amazon Elastic Block Store. AWS 클라우드에서 Amazon EC2 인스턴스와 함께 사용할 영구 블록 스토리지 볼륨을 제공합니다.
+- 
+  term: EC2
+  description: >-
+    Amazon Elastic Compute Cloud. 클라우드에서 안전하고 확장 가능한 컴퓨팅 용량을 제공하는 웹 서비스입니다.
+- 
+  term: 엣지
+  description: 'GraphQL에서 노드 간의 연결입니다.'
+- 
+  term: EIP
+  description: Elastic IP. 동적 클라우드 컴퓨팅을 위해 설계된 정적 IPv4 주소입니다.
+- 
+  term: ElasticSearch
+  description: Lucene을 기반으로 한 검색 엔진입니다.
+- 
+  term: 이블 머지
+  description: >-
+    이블 머지는 상위에 나타나지 않는 변경 내용을 소개하는 병합입니다.
+- 
+  term: 제외
+  description: >-
+    패스가 제외되지 않은 pathspec과 일치하면 모든 제외 pathspec(매직 시그니처: ! 또는 동의어 ^)을 통해 실행됩니다. 일치하는 경우 경로는 무시됩니다. 제외되지 않은 pathspec이 없는 경우 결과 집합에 pathspec 없이 호출된 것처럼 제외가 적용됩니다.
+- 
+  term: FIDO U2F
+  description: >-
+    스마트 카드에 있는 유사한 보안 기술을 기반으로 특수 USB 또는 NFC 기기를 사용하여 2단계 인증을 강화하고 단순화하는 개방형 인증 표준입니다.
+- 
+  term: 필드
+  description: 'GraphQL에서 개체로부터 검색할 수 있는 데이터 단위입니다.'
+- 
+  term: 파일 시스템
+  description: >-
+    라이너스 토발즈(Linus Torvalds)는 원래 Git를 사용자 공간 파일 시스템, 즉 파일과 디렉터리를 보관하는 인프라로 설계했습니다. 이를 통해 Git의 효율성과 속도를 보장했습니다.
+- 
+  term: 상호 공격
+  description: 온라인에서 사용자 간에 이루어지는 격렬하고 독설적인 토론입니다.
+- 
+  term: 조각
+  description: 'GraphQL에서 필드 집합을 구성할 수 있는 재사용 가능한 단위입니다.'
+- 
+  term: GCE
+  description: Google Compute Engine
+- 
+  term: gem
+  description: 라이브러리를 설치하고 RubyGems를 관리할 수 있는 명령줄 도구입니다.
+- 
+  term: Gemfile
+  description: Ruby 프로그램에 대한 gem 종속성을 설명하기 위한 형식입니다.
+- 
+  term: GET
+  description: REST API의 메서드 유형
+- 
+  term: geoJSON
+  description: 다양한 지리적 데이터 구조를 인코딩하는 형식입니다.
+- 
+  term: GitHub 마켓플레이스 개발자 계약
+  description: GitHub 마켓플레이스를 사용할 때 계약 사용자가 서명합니다.
+- 
+  term: GPG
+  description: >-
+    GNU Privacy Guard. 중요한 데이터가 포함된 파일을 암호화(및 해독)하는 데 사용할 수 있는 암호화 소프트웨어입니다.
+- 
+  term: GPG 키
+  description: GPG에 사용되는 암호화 키입니다.
+- 
+  term: 해시
+  description: 개체 이름의 동의어
+- 
+  term: head
+  description: >-
+    분기 끝에 있는 커밋에 대한 명명된 참조입니다. 헤드는 압축된 참조를 사용하는 경우를 제외하고 $GIT_DIR/refs/heads/ 디렉터리의 파일에 저장됩니다.
+- 
+  term: HEAD
+  description: REST API의 메서드 유형
+- 
+  term: 헤더
+  description: >-
+    REST API에서 트랜잭션의 메타데이터를 정의하는 메시지의 필수 구성 요소입니다.
+- 
+  term: 상태 확인
+  description: >-
+    미리 구성된 검사가 해당 노드에서 실패할 경우 부하 분산 장치가 응답하지 않는 노드로 트래픽을 보내는 것을 중지하도록 허용하는 방법입니다.
+- 
+  term: HTTP 동사
+  description: HTTP 메서드입니다.
+- 
+  term: Hyper-V
+  description: >-
+    Windows를 실행하는 x86-64 시스템에서 가상 컴퓨터를 만드는 Microsoft 제품입니다.
+- 
+  term: 하이퍼미디어
+  description: 'REST API에서 한 리소스 상태에서 다른 리소스 상태로 연결합니다.'
+- 
+  term: icase
+  description: 대/소문자 구분 없는 일치입니다.
+- 
+  term: 구현
+  description: 'GraphQL에서 개체가 인터페이스에서 상속하는 방법입니다.'
+- 
+  term: 인덱스
+  description: >-
+    콘텐츠가 개체로 저장되는 통계 정보가 있는 파일 모음입니다. 인덱스는 작업 트리의 저장된 버전입니다. 사실상 병합할 때 사용되는 작업 트리의 두 번째 버전 및 세 번째 버전도 포함할 수 있습니다.
+- 
+  term: 인덱스 항목
+  description: >-
+    인덱스에 저장된 특정 파일에 관한 정보입니다. 병합이 시작되었지만 아직 완료되지 않은 경우 인덱스 항목을 병합 해제할 수 있습니다(예: 인덱스에 해당 파일의 여러 버전이 포함된 경우).
+- 
+  term: 내성적 검사
+  description: >-
+    "내적 검사"라고도 합니다. GraphQL 스키마에 지원되는 쿼리에 대한 정보를 요청하는 방법입니다.
+- 
+  term: iPython notebook
+  description: >-
+    코드 개발, 문서화 및 실행, 결과 전달 등 전체 계산 프로세스를 캡처하는 웹 기반 응용 프로그램입니다.
+- 
+  term: JIRA
+  description: 문제를 추적하는 Atlassian 제품입니다.
+- 
+  term: Jupyter notebook
+  description: 코드와 서식 있는 텍스트 요소가 모두 포함된 노트북입니다.
+- 
+  term: 커널
+  description: 컴퓨터 운영 체제의 핵심인 컴퓨터 프로그램입니다.
+- 
+  term: kramdown
+  description: Jekyll의 3.0.0 기본 Markdown 프로세서입니다.
+- 
+  term: LDAP
+  description: Lightweight Directory Access Protocol.
+- 
+  term: linter
+  description: 코드 품질을 확인하는 프로그램입니다.
+- 
+  term: Liquid
+  description: 동적 콘텐츠를 로드하는 데 사용되는 템플릿 언어입니다.
+- 
+  term: 부하 분산 장치
+  description: >-
+    역방향 프록시 역할을 하고 여러 서버에 네트워크 또는 응용 프로그램 트래픽을 배포하는 기기입니다.
+- 
+  term: 미디어 유형
+  description: 파일 형식 및 형식 내용에 대한 두 부분으로 구성된 식별자입니다.
+- 
+  term: MediaWiki
+  description: >-
+    콘텐츠를 데이터베이스에 저장하는 PHP 프로그래밍 언어로 작성된 무료 오픈 소스 위키 소프트웨어입니다.
+- 
+  term: Mercurial
+  description: '무료 분산 소스 제어 관리 도구입니다.'
+- 
+  term: 메타데이터
+  description: 다른 데이터에 대한 정보를 설명하고 제공하는 데이터 집합입니다.
+- 
+  term: MIME 형식
+  description: >-
+    Multipurpose Internet Mail Extensions. 특성과 형식에 따라 파일을 식별하는 방법입니다.
+- 
+  term: 변형 모드
+  description: >-
+    GraphQL에서 서버의 데이터를 변경하는 GraphQL 작업을 정의하는 방법입니다.
+- 
+  term: 이름 서버
+  description: >-
+    도메인 이름의 다양한 서비스의 위치와 관련된 쿼리를 처리하는 데 특화된 인터넷 서버입니다.
+- 
+  term: NFC
+  description: >-
+    Near Field Communication. 두 개의 전자 기기(그 중 하나는 일반적으로 스마트폰과 같은 휴대용 장치)를 서로 일정 범위 이내로 가져와 통신을 설정할 수 있도록 하는 통신 프로토콜 집합입니다.
+- 
+  term: 노드
+  description: >-
+    네트워크에 부착되어 통신 채널을 통해 정보를 생성, 수신 또는 전송할 수 있는 활성 전자 기기입니다.
+- 
+  term: 노드
+  description: 'GraphQL에서 개체에 대한 일반 용어입니다.'
+- 
+  term: NTP
+  description: Network Time Protocol
+- 
+  term: 개체
+  description: >-
+    Git의 저장 단위입니다. 해당 내용의 SHA-1에 의해 고유하게 식별됩니다. 따라서 개체를 변경할 수 없습니다.
+- 
+  term: 개체 데이터베이스
+  description: >-
+    "개체" 집합을 저장하며, 개별 개체는 해당 개체 이름으로 식별됩니다. 개체는 일반적으로 $GIT_DIR/objects/ 경로에 있습니다.
+- 
+  term: 개체 식별자
+  description: 개체 이름의 동의어
+- 
+  term: 개체 이름
+  description: >-
+    개체의 고유 식별자입니다. 개체 이름은 일반적으로 40자 16진수 문자열로 표시됩니다. 또한 구어체로 SHA-1이라고 합니다.
+- 
+  term: 개체 유형
+  description: >-
+    개체의 유형을 설명하는 식별자 "커밋", "트리", "태그" 또는 "blob" 중 하나입니다.
+- 
+  term: 옥토퍼스
+  description: 두 개 이상의 분기를 병합합니다.
+- 
+  term: 어니언 스킨
+  description: >-
+    오버레이 교체 이미지의 불투명도를 줄임으로써 GitHub에서 이미지를 볼 수 있는 방법입니다.
+- 
+  term: OOM
+  description: 메모리 부족
+- 
+  term: 스택 열기
+  description: 클라우드 컴퓨팅을 위한 소프트웨어 플랫폼입니다.
+- 
+  term: OpenSSH
+  description: >-
+    Secure Shell(SSH) 프로토콜을 기반으로 하는 보안 관련 네트워크 수준 유틸리티 제품군입니다.
+- 
+  term: 순서가 지정된 목록
+  description: 번호가 매겨진 목록입니다.
+- 
+  term: Org
+  description: >-
+    메모 유지, TODO 목록 유지 관리, 프로젝트 계획 및 문서 작성을 위한 일반 텍스트 시스템입니다.
+- 
+  term: 팩
+  description: >-
+    공간을 절약하거나 효율적으로 전송하기 위해 하나의 파일로 압축된 개체 집합입니다.
+- 
+  term: 팩 인덱스
+  description: >-
+    팩의 내용에 효율적으로 액세스하는 데 도움이 되는 팩에 있는 개체의 식별자 및 기타 정보 목록입니다. pathspec은 "git ls-files", "git ls-tree", "git add", "git grep", "git diff", "git checkout" 및 많은 다른 명령의 명령줄에서 사용되며, 트리 또는 작업 트리의 일부 하위 집합에 대한 작업 범위를 제한합니다.
+- 
+  term: 매개변수
+  description: >-
+    REST API에서 입력 또는 출력 매개변수의 일부로 요청에서 전송되거나 응답에서 수신되는 데이터입니다.
+- 
+  term: 상위
+  description: >-
+    커밋 개체에는 개발 라인(즉, 상위)에 있는 논리적 선행 작업 목록(비어 있을 수 있음)이 포함되어 있습니다.
+- 
+  term: 암호문구
+  description: >-
+    컴퓨터 시스템, 프로그램 또는 데이터에 대한 액세스를 제어하는 데 사용되는 단어 또는 기타 텍스트의 시퀀스입니다.
+- 
+  term: PATCH
+  description: REST API의 메서드 유형
+- 
+  term: pathspec
+  description: Git 명령의 경로를 제한하는 데 사용되는 패턴입니다.
+- 
+  term: PEM
+  description: Privacy Enhanced Mail
+- 
+  term: 영구 식별자
+  description: >-
+    Digital Object Identifier(DOI)라고도 합니다. 디지털 객체를 참조하는 전역적으로 고유한 숫자 및/또는 문자 문자열입니다. 영구 식별자는 사용자가 영구 링크를 통해 디지털 리소스에 액세스할 수 있도록 한다는 점에서 실행 가능할 수 있습니다.
+- 
+  term: pickaxe
+  description: >-
+    지정된 텍스트 문자열을 추가하거나 삭제하는 변경 내용을 선택하는 데 도움이 되는 diffcore 루틴에 대한 옵션입니다. --pickaxe-all 옵션을 사용하면 특정 텍스트 라인이 도입되거나 제거된 전체 변경 사항을 보는 데 사용할 수 있습니다.
+- 
+  term: 플러그인
+  description: 기존 프로그램에 특정 기능을 추가하는 소프트웨어 구성 요소입니다.
+- 
+  term: Pod
+  description: Plain Old Documentation. perl 개발자가 사용하는 마크업 언어입니다.
+- 
+  term: 포인터 파일
+  description: 실제 파일을 가리키는 참조입니다.
+- 
+  term: 포트
+  description: 운영 체제에서 통신의 끝점입니다.
+- 
+  term: 우선 순위 질문
+  description: >-
+    사업 계획에 대한 조직의 GitHub 지원 관련 질문입니다. 질문이 우선 순위 질문의 자격을 갖추려면 GitHub에서 정한 기준을 충족해야 합니다.
+- 
+  term: 우선 순위 응답
+  description: >-
+    사업 계획에 대한 조직의 우선 순위 질문 관련 GitHub 지원의 답변입니다.
+- 
+  term: 폴링
+  description: >-
+    하나의 프로그램 또는 기기에서 다른 프로그램이나 기기를 정기적으로 자동 검사하여 상태가 어떤지 확인합니다.
+- 
+  term: POST
+  description: REST API의 메서드 유형
+- 
+  term: 시험판 프로그램
+  description: >-
+    사용자가 공식적으로 출시되기 전에 새로운 기능과 기능을 적용할 수 있는 GitHub 프로그램입니다.
+- 
+  term: PUT
+  description: REST API의 메서드 유형
+- 
+  term: QCOW2
+  description: 이미지 형식입니다.
+- 
+  term: QR 코드
+  description: >-
+    Quick Response 코드. 바코드는 컴퓨터가 읽을 수 있는 광학 레이블로, 연결된 항목에 대한 정보가 포함되어 있습니다.
+- 
+  term: 쿼리
+  description: 'GraphQL에서 개체에 대한 특정 필드를 요청하는 방법입니다.'
+- 
+  term: 비율 제한
+  description: API가 요청을 거부하는 프로세스입니다.
+- 
+  term: RDoc
+  description: Ruby 프로그래밍 언어에 대한 임베디드 문서 생성기입니다.
+- 
+  term: 연결 가능
+  description: >-
+    주어진 커밋의 모든 상위 항목은 해당 커밋에서 "연결 가능"하다고 합니다. 보다 일반적으로, 태그를 따르는 체인을 통해 다른 개체에 도달할 수 있는 경우 한 개체는 다른 개체에 도달할 수 있으며, 상위 또는 트리에 커밋하고 트리가 포함된 트리 또는 blob에 연결됩니다.
+- 
+  term: ref
+  description: >-
+    refs/로 시작하는 이름(예: refs/heads/master)이며, 개체 이름 또는 다른 참조(후자는 symbolic ref라고 함)를 가리킵니다.
+- 
+  term: reflog
+  description: reflog는 ref의 로컬 "이력"을 보여줍니다.
+- 
+  term: refspec
+  description: >-
+    원격 ref와 로컬 ref 간의 매핑을 설명하기 위해 fetch 및 push에서 "refspec"을 사용합니다.
+- 
+  term: 상대 링크
+  description: 현재 파일을 기준으로 하는 링크입니다.
+- 
+  term: 원격 추적 지점
+  description: 다른 리포지토리의 변경 내용을 따르는 데 사용되는 ref입니다.
+- 
+  term: REST API
+  description: >-
+    개발자가 HTTP를 통해 요청을 수행하고 응답을 받을 수 있도록 함수 집합을 정의하는 API입니다.
+- 
+  term: reStructured text
+  description: WYSIWYG 일반 텍스트 태그 구문과 파서 시스템입니다.
+- 
+  term: 수정 버전
+  description: 커밋의 동의어입니다.
+- 
+  term: 되감기
+  description: >-
+    개발의 일부를 버리기 위해 즉, head를 이전 수정 버전에 할당합니다.
+- 
+  term: 루트 끝점
+  description: 'REST API에서 모든 끝점이 아래에 있는 디렉터리입니다.'
+- 
+  term: RSA
+  description: 공개 키와 개인 키를 사용하여 사용자 데이터를 암호화하는 데 사용되는 알고리즘입니다.
+- 
+  term: RSA 키
+  description: RSA 알고리즘을 기반으로 하는 개인 키입니다.
+- 
+  term: SAML
+  description: >-
+    Security Assertion Markup Language. 당사자 간에, 특히 ID 공급자와 서비스 공급자 간에 인증 및 권한 부여 데이터를 교환하기 위한 XML 기반의 개방형 표준 데이터 형식입니다.
+- 
+  term: SAN
+  description: Subject Alternative Name
+- 
+  term: Sass
+  description: CSS 확장 언어입니다.
+- 
+  term: 스키마
+  description: 데이터가 어떻게 구성되는지 알려주는 메타데이터입니다.
+- 
+  term: SCIM
+  description: >-
+    System for Cross-domain Identity Management. ID 도메인 간에 사용자 ID 정보 교환을 자동화하기 위한 개방형 표준입니다.
+- 
+  term: SCM
+  description: 소스 코드 관리(도구)입니다.
+- 
+  term: SCSS
+  description: CSS 확장 언어입니다.
+- 
+  term: 서비스 계정
+  description: >-
+    응용 프로그램 또는 서비스가 운영 체제와 상호 작용하는 데 사용하는 특수 사용자 계정입니다.
+- 
+  term: SHA-1
+  description: >-
+    "Secure Hash Algorithm 1", 암호화 해시 기능. Git의 컨텍스트에서 개체 이름의 동의어로 사용됩니다.
+- 
+  term: 셸
+  description: 운영 체제의 서비스에 액세스할 수 있는 사용자 인터페이스입니다.
+- 
+  term: 단순 복사 리포지토리
+  description: >-
+    단순 복사 리포지토리에는 일부 커밋에서 상위 항목이 사라진 불완전한 이력이 있습니다(즉, 커밋 개체에 기록되어 있더라도 이러한 커밋에 상위 항목이 없는 것처럼 보이도록 Git에 지시함). 이것은 업스트림에 기록된 실제 이력이 훨씬 더 크더라도 프로젝트의 최근 이력에만 관심이 있을 때 유용합니다. 단순 복사 리포지토리는 git-clone(1)에 --depth 옵션을 제공하여 생성되며 나중에 git-fetch(1)를 사용하여 해당 이력을 심화할 수 있습니다.
+- 
+  term: SMS
+  description: 문자 메시지
+- 
+  term: SMTP
+  description: Simple Mail Transfer Protocol. 이메일 전송을 위한 표준입니다.
+- 
+  term: SNMP
+  description: Simple Network Management Protocol. 네트워크 관리를 위한 프로토콜입니다.
+- 
+  term: 스팸
+  description: 다른 사용자로부터 수신하는 원치 않는 의사소통입니다.
+- 
+  term: SSD
+  description: 솔리드 스테이트 드라이브
+- 
+  term: SSH
+  description: >-
+    Secure Shell(SSH)은 보안되지 않은 네트워크를 통해 네트워크 서비스를 안전하게 운영하기 위한 암호화 네트워크 프로토콜입니다.
+- 
+  term: ssh-agent
+  description: 공개 키 인증에 사용되는 개인 키를 보유하는 프로그램입니다.
+- 
+  term: SSH 키
+  description: >-
+    SSH 키는 암호화된 메시지를 사용하여 온라인 서버에서 자신을 식별하는 방법입니다. 컴퓨터가 다른 서비스에 고유한 암호를 가지고있는 것처럼 GitHub는 SSH 키를 사용하여 GitHub.com에서 사용자 컴퓨터로 정보를 안전하게 전송합니다.
+- 
+  term: SSH 키 지문
+  description: >-
+    연결하려는 호스트를 식별하고 확인하며 호스트의 공개 키를 기반으로 합니다.
+- 
+  term: SSL
+  description: Secure Sockets Layer
+- 
+  term: 정적 사이트 생성기
+  description: >-
+    원시 데이터(예: Markdown 파일) 및 템플릿을 사용하여 HTML 전용 웹 사이트를 생성하는 프로그램입니다.
+- 
+  term: 문자열
+  description: 일반 텍스트를 나타내는 개체 유형
+- 
+  term: STL 파일
+  description: >-
+    STL(STereoLithography)은 3D Systems에서 만든 광조형 CAD 소프트웨어의 기본 파일 형식입니다.
+- 
+  term: 하위 도메인
+  description: >-
+    루트 도메인 또는 정점 도메인 앞에 있는 도메인 이름에서 도메인 접두사처럼 보이는 부분으로, 사용자 지정 가능한 선택적인 부분입니다.
+- 
+  term: 하위 모듈
+  description: >-
+    다른 리포지토리 내부에 별도의 프로젝트의 이력을 담고 있는 리포지토리(후자는 상위 프로젝트라고 함)입니다.
+- 
+  term: 하위 프로젝트
+  description: >-
+    주요 프로젝트 외부 어딘가에 개발 및 관리되는 프로젝트입니다.
+- 
+  term: Subversion
+  description: 오픈 소스 버전 제어 시스템입니다.
+- 
+  term: sudo 모드
+  description: >-
+    사용자가 다른 사용자의 보안 권한이 있는 프로그램을 실행할 수 있는 방법입니다. 사용자는 여전히 자신의 암호를 제공하고 인증을 받습니다.
+- 
+  term: 슈퍼 프로젝트
+  description: >-
+    작업 트리에 있는 다른 프로젝트의 리포지토리를 하위 모듈로 참조하는 리포지토리입니다. 슈퍼 프로젝트는 포함된 하위 모듈의 커밋 개체의 이름에 대해 알고 있습니다(단, 사본은 보관하지 않음).
+- 
+  term: 지원 번들
+  description: >-
+    GitHub Enterprise 인스턴스의 중요한 로그를 포함하는 gzip 압축 tar 보관 파일입니다.
+- 
+  term: 스와이프
+  description: GitHub 이미지의 일부를 나란히 보는 방법입니다.
+- 
+  term: symlink
+  description: >-
+    절대 또는 상대 경로의 형태로 다른 파일 또는 디렉터리에 대한 참조가 포함되고 경로 이름 해결에 영향을 주는 파일입니다.
+- 
+  term: symref
+  description: >-
+    기호 참조: SHA-1 ID 자체를 포함하는 대신 ref: refs/some/thing 형식이며, 참조될 때 이 참조를 재귀적으로 역참조합니다.
+- 
+  term: 태그
+  description: >-
+    임의 형식의 개체를 가리키는 refs/tags/ 네임스페이스 아래에 있는 ref입니다(일반적으로 태그는 태그 또는 커밋 개체를 가리킴). 태그는 커밋 상위 체인의 특정 지점을 표시하는 데 가장 일반적으로 사용됩니다.
+- 
+  term: 태그 개체
+  description: >-
+    다른 개체를 가리키는 참조가 포함된 개체로, 커밋 개체와 같은 메시지를 포함할 수 있습니다. 또한 (PGP) 서명을 포함할 수 있으며, 이 경우 "서명된 태그 개체"라고 합니다.
+- 
+  term: Team Foundation Server
+  description: >-
+    The former name of a Microsoft product that provides source code management and other team services. Now known as Azure DevOps Server.
+- 
+  term: Textile
+  description: >-
+    일반 텍스트를 구조화된 HTML 마크업으로 변환하는 텍스트 서식 구문을 사용하는 경량 태그 언어입니다.
+- 
+  term: TLS
+  description: Transport Layer Security
+- 
+  term: 토큰
+  description: >-
+    암호 대신 사용할 수 있습니다. 토큰은 개인 액세스 토큰, OAuth 토큰 또는 API 토큰일 수 있습니다.
+- 
+  term: topoJSON
+  description: 토폴로지를 인코딩하는 GeoJSON의 확장입니다.
+- 
+  term: TOTP 응용 프로그램
+  description: >-
+    시간 기반 일회용 암호입니다. 이러한 유형의 응용 프로그램은 일정 기간 후에 변경되는 인증 코드를 자동으로 생성합니다.
+- 
+  term: 트리
+  description: >-
+    작업 트리 또는 종속 blob 및 트리 개체가 함께 있는 트리 개체입니다(즉, 작업 트리의 저장된 표현).
+- 
+  term: 트리 개체
+  description: >-
+    연결된 blob 및/또는 트리 개체에 대한 ref와 함께 파일 이름 및 모드 목록이 포함된 개체입니다. 트리는 디렉터리와 같습니다.
+- 
+  term: TSV
+  description: 탭으로 구분된 파일입니다.
+- 
+  term: 2단계 인증
+  description: >-
+    2FA라고도 합니다. 사용자 이름과 암호가 있는 표준 로그인 프로시저뿐만 아니라 사용자 스마트폰의 응용 프로그램에서 생성하거나 문자 메시지(SMS)로 전송되는 인증 코드를 요구하는 추가 보안 계층입니다.
+- 
+  term: UFW
+  description: Ubuntu의 기본 방화벽 구성 도구입니다.
+- 
+  term: 병합되지 않은 인덱스
+  description: 병합되지 않은 인덱스 항목을 포함하는 인덱스입니다.
+- 
+  term: 정렬되지 않은 목록
+  description: 글머리 기호 목록입니다.
+- 
+  term: 연결할 수 없는 개체
+  description: '분기, 태그 또는 기타 참조에서 연결할 수 없는 개체입니다.'
+- 
+  term: URI
+  description: >-
+    Uniform Resource Identifier. 리소스를 식별하는 데 사용되는 문자열입니다.
+- 
+  term: UTF-8
+  description: 가능한 모든 유니코드 코드 포인트를 인코딩할 수 있는 문자 인코딩입니다.
+- 
+  term: 변수
+  description: 'GraphQL에서 쿼리를 보다 동적이고 강력하게 만드는 방법입니다.'
+- 
+  term: VAT ID
+  description: EU에서 세금 목적으로 사용되는 부가가치세 식별 번호입니다.
+- 
+  term: 인증된 이메일 주소
+  description: >-
+    사용자가 확인한 개인 계정에 연결된 이메일 주소로, 보안 확인 프로세스에 유효합니다.
+- 
+  term: 가상 머신
+  description: >-
+    소프트웨어에 설치되어 전용 하드웨어를 모방하는 응용 프로그램 환경입니다. VM이라고도 합니다.
+- 
+  term: VPC
+  description: 가상 사설 클라우드. AWS 계정 전용 가상 네트워크입니다.
+- 
+  term: VPN
+  description: 가상 사설망
+- 
+  term: VMware
+  description: >-
+    클라우드 컴퓨팅 및 플랫폼 가상화 소프트웨어와 서비스를 제공하는 Dell 제품입니다.
+- 
+  term: 허용 목록
+  description: >-
+    특정 권한, 서비스, 이동성, 액세스 또는 인식이 제공되는 엔터티 목록 또는 등록입니다. 목록에 있는 엔터티는 수락, 승인 및/또는 인식됩니다.
+- 
+  term: 작업 디렉터리
+  description: 현재 작업 중인 파일의 디렉터리입니다.
+- 
+  term: 작업 트리
+  description: >-
+    실제 체크아웃된 파일의 트리입니다. 작업 트리에는 일반적으로 HEAD 커밋 트리의 내용과 아직 커밋되지 않은 로컬 변경 내용이 포함되어 있습니다.
+- 
+  term: WYSIWYG
+  description: >-
+    What You See Is What You Get. An acronym meaning the text on the screen looks exactly as it will when it's rendered.
+- 
+  term: XenServer
+  description: 가상화 플랫폼입니다.
+- 
+  term: YAML
+  description: >-
+    사람이 읽을 수 있는 데이터 직렬화 언어로, 구성 파일에 일반적으로 사용됩니다.
+- 
+  term: 연속 통합
+  description: 약칭 CI라고도 함
+- 
+  term: 지속적인 업데이트
+  description: 약칭 CD라고도 함

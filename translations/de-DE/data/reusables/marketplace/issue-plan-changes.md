@@ -1,0 +1,1 @@
+1. Überprüfe die Informationen über Deinen neuen Plan und Deine Abrechnungsinformationen und klicke dann auf **Issue plan changes** (Planänderungen ausstellen). ![Zusammenfassung Deines alten Plans, neuen Plans und Abrechnungsinformationen und Schaltfläche „Issue plan changes" (Planänderungen ausstellen)](/assets/images/help/marketplace/marketplace-issue-plan-changes.png)

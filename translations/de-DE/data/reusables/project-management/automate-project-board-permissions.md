@@ -1,0 +1,1 @@
+Um automatisierte Workflows für Dein Repository-Projektboard einzurichten, musst Du Schreibzugriff für das Repository haben. Organisationsinhaber und -Mitglieder können automatisierte Workflows auf einem organisationsweiten Projektboard konfigurieren.

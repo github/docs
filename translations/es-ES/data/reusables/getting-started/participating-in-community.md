@@ -1,1 +1,0 @@
-Hay muchas formas de participar en la comunidad de {% data variables.product.prodname_dotcom %}. Puedes contribuir con los proyectos de código abierto, interactuar con las personas en {% data variables.product.prodname_gcf %} o aprender con {% data variables.product.prodname_learning %}.

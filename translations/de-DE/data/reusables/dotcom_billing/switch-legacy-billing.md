@@ -1,0 +1,1 @@
+Wenn Deine Organisation einen alten, Repository-abhängigen Abrechnungsplan verwendet, kannst Du jederzeit auf eine benutzerabhängige Preisgestaltung umsteigen. Nach der Heraufstufung auf die benutzerabhängige Preisgestaltung kannst Du nicht zurück zur Repository-abhängigen Preisgestaltung wechseln.

@@ -1,0 +1,1 @@
+1. Gib im Suchfeld den Namen des Repository ein und klicke auf **Search** (Suche). ![Suchfeld für die Einstellungen des Websiteadministrators](/assets/images/enterprise/site-admin-settings/search-for-things.png)

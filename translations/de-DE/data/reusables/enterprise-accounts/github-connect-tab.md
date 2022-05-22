@@ -1,0 +1,1 @@
+1. Klicken Sie auf der linken Seitenleiste auf **{% data variables.product.prodname_github_connect %}**. ![Registerkarte „GitHub Connect“ (GitHub-Verbindung) auf der Seitenleiste mit den Einstellungen des Geschäftskontos](/assets/images/enterprise/business-accounts/settings-github-connect-tab.png)

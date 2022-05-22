@@ -1,0 +1,172 @@
+---
+header:
+  github_docs: GitHub Docs
+  contact: 연락처
+  notices:
+    ghae_silent_launch: GitHub AE is currently under limited release. Please <a href="https://enterprise.github.com/contact">contact our Sales Team</a> to find out more.
+    release_candidate: '# The version name is rendered before the below text via includes/header-notification.html '' is currently available as a release candidate. For more information, see "<a href="/admin/overview/about-upgrades-to-new-releases">About upgrades to new releases</a>."'''
+    localization_complete: 문서에 대한 업데이트가 자주 게시되며, 이 페이지의 번역이 아직 진행 중일 수 있습니다. 최신 정보는<a id="to-english-doc" href="/en">영어 설명서</a>를 방문하십시오. 이 페이지에서 번역에 문제가 있는 경우 <a href="https://github.com/contact?form[subject]=translation%20issue%20on%20docs.github.com&form[comments]=">알려주십시오</a>.
+    localization_in_progress: 안녕하세요! 이 페이지는 현재 개발 중이거나 아직 번역 중입니다. 정확한 최신 정보를 확인하려면 <a id="to-english-doc" href="/en">영어 설명서</a>를 방문하십시오.
+    early_access: '📣 Please <b>do not share</b> this URL publicly. This page contains content about an early access feature.'
+    ghes_release_notes_use_latest: Please use the latest release for the latest security, performance, and bug fixes.
+    ghes_release_notes_upgrade_patch_only: '📣 This is not the <a href="#{{ latestPatch }}">latest patch release</a> of Enterprise Server. {% data ui.header.notices.ghes_release_notes_use_latest %}'
+    ghes_release_notes_upgrade_release_only: '📣 This is not the <a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">latest release</a> of Enterprise Server. {% data ui.header.notices.ghes_release_notes_use_latest %}'
+    ghes_release_notes_upgrade_patch_and_release: '📣 This is not the <a href="#{{ latestPatch }}">latest patch release</a> of this release series, and this is not the <a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">latest release</a> of Enterprise Server. {% data ui.header.notices.ghes_release_notes_use_latest %}'
+search:
+  need_help: 도움이 필요하십니까?
+  placeholder: 검색 주제, 제품...
+homepage:
+  explore_by_product: 제품별 탐색
+  version_picker: 버전
+toc:
+  getting_started: 시작하기
+  popular: Popular
+  guides: 안내서
+  whats_new: What's new
+pages:
+  article_version: '문서 버전:'
+  miniToc: 기사 내용
+errors:
+  oops: 이런!
+  something_went_wrong: 뭔가 잘못된 것 같습니다.
+  we_track_errors: 우리는 자동으로 이러한 오류를 추적하지만, 문제가 지속되면 저희에게 연락 주시기 바랍니다.
+  page_doesnt_exist: 이 페이지가 존재하지 않는 것처럼 보입니다.
+support:
+  still_need_help: Still need help?
+  contact_support: Contact support
+  ask_community: Ask the GitHub community
+helpfulness:
+  able_to_find: 이 문서가 도움이 되었습니까?
+  yes: true
+  no: false
+  yes_feedback: 새로운 문서 기능 및 업데이트에 대해 배우고 싶으십니까? 업데이트에 가입하십시오!
+  email_placeholder: email@example.com
+  no_feedback: 지속적으로 문서를 개선하고 있습니다. 더욱 잘 개선할 수 있도록 고객의 의견을 듣고 싶습니다.
+  comment_label: 개선할 점을 알려주십시오.
+  optional: 선택 사항
+  required: 필수 사항
+  email_label: 더 많은 질문이 생기면 연락드려도 되겠습니까?
+  send: 보내기
+  feedback: 감사합니다! 고객님의 피드백이 제출되었습니다.
+contribution_cta:
+  title: Help us make these docs great!
+  body: All GitHub docs are open source. See something that's wrong or unclear? Submit a pull request.
+  button: Make a contribution
+  or: Or,
+  to_guidelines: learn how to contribute.
+products:
+  graphql:
+    reference:
+      fields: 필드
+      arguments: 인자
+      name: 이름
+      type: 유형
+      description: 설명
+      input_fields: 입력 필드
+      return_fields: 반환 필드
+      implemented_by: 구현자
+      values: 값
+      possible_types: 가능한 유형
+      preview_notice: 미리 보기 알림
+      deprecation_notice: 감하 통지
+  rest:
+    reference:
+      parameters: 매개변수
+      response: 응답
+      code_sample: 코드 샘플
+      code_samples: 코드 샘플
+      preview_notice: 미리 보기 알림
+      preview_notices: 미리 보기 알림
+      see_preview_notice: 미리 보기 알림 참조
+      see_preview_notices: 미리 보기 알림 참조
+      preview_header_is_required: 이 헤더는 <strong>필수</strong>입니다.
+footer:
+  all_rights_reserved: 모든 권리 보유
+  terms: 약관
+  privacy: 개인 정보 보호
+  security: 보안
+  product:
+    heading: 제품
+    links:
+      features: 기능
+      security: 보안
+      enterprise: Enterprise
+      case_studies: 사례 연구
+      pricing: 가격 책정
+      resources: 리소스
+  platform:
+    heading: 플랫폼
+    links:
+      developer_api: 개발자 API
+      partners: 파트너
+      atom: Atom
+      electron: Electron
+      github_desktop: GitHub Desktop
+  support:
+    heading: 지원
+    links:
+      help: Help
+      community_forum: 커뮤니티 포럼
+      training: 연습
+      status: 상태
+      contact_github: GitHub에 문의하기
+  company:
+    heading: 회사
+    links:
+      about: 정보
+      blog: 블로그
+      careers: 채용
+      press: 보도 자료
+      shop: 쇼핑
+product_landing:
+  quickstart: Quickstart
+  reference: Reference
+  overview: 개요
+  guides: 안내서
+  code_examples: Code examples
+  search_code_examples: Search code examples
+  show_more: Show more
+  explore_people_and_projects: Explore people and projects
+  sorry: Sorry, there is no result for
+  no_example: It looks like we don't have an example that fits your filter.
+  try_another: Try another filter or add your code example.
+  no_result: Sorry, there is no guide that match your filter.
+  learn: Learn how to add a code example
+  communities_using_discussions: Communities using discussions
+  add_your_community: Add your community
+  sponsor_community: GitHub Sponsors community
+  supported_releases: Supported releases
+  release_notes_for: Release notes for
+  upgrade_from: Upgrade from
+  browse_all_docs: Browse all docs
+  explore_release_notes: Explore release notes
+product_sublanding:
+  start: Start
+  start_path: Start path
+  learning_paths: '{{ productMap[currentProduct].name }} learning paths'
+  learning_paths_desc: Learning paths are a collection of guides that help you master a particular subject.
+  guides: '{{ productMap[currentProduct].name }} guides'
+  more_guides: more guides
+  load_more: Load more guides
+  all_guides: 'All {{ productMap[currentProduct].name }} guides'
+  filters:
+    type: 유형
+    topic: Topic
+    all: All
+  guide_types:
+    overview: 개요
+    quick_start: Quickstart
+    tutorial: 튜토리얼
+    how_to: How-to guide
+    reference: Reference
+learning_track_nav:
+  prevGuide: Previous guide
+  nextGuide: Next guide
+contributor_callout: This article is contributed and maintained by
+toggle_images:
+  off: Images are off, click to show
+  on: Images are on, click to hide
+  hide_single: Hide image
+  show_single: Show image
+scroll_button:
+  scroll_to_top: Scroll to top

@@ -1,0 +1,1 @@
+Aus Sicherheitsgründen kann {% data variables.product.product_name %}-Support den Zugriff auf Konten mit aktivierter Zwei-Faktor-Authentifizierung möglicherweise nicht wiederherstellen, wenn Du Deine Anmeldeinformationen für die Zwei-Faktor-Authentifizierung oder den Zugriff auf Deine Methoden zur Kontowiederherstellung verlierst.

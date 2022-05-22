@@ -1,5 +1,4 @@
-import { get } from '../helpers/supertest.js'
-import { jest } from '@jest/globals'
+const { get } = require('../helpers/supertest')
 
 describe('language code redirects', () => {
   jest.setTimeout(5 * 60 * 1000)

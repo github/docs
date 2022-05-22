@@ -1,0 +1,2 @@
+1. Unter „SSH Certificate Authorities" (SSH-Zertifizierungsstellen) klicke rechts neben der CA (Zertifizierungsstelle), die Du löschen willst, auf **Delete** (Löschen). ![Schaltfläche „Delete" (Löschen)](/assets/images/help/organizations/ca-delete-button.png)
+2. Lies die Warnung, dann klicke auf **I understand, please delete this CA** (Ich verstehe, bitte lösche diese CA). ![Schaltfläche „Delete confirmation" (Löschen bestätigen)](/assets/images/help/organizations/ca-delete-confirmation.png)

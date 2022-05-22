@@ -6,15 +6,13 @@ redirect_from:
   - /enterprise/admin/enterprise-management/initiating-a-failover-to-your-replica-appliance
   - /admin/enterprise-management/initiating-a-failover-to-your-replica-appliance
 versions:
-  ghes: '*'
+  enterprise-server: '*'
 type: how_to
 topics:
   - Enterprise
   - High availability
   - Infrastructure
-shortTitle: 启动故障转移到设备
 ---
-
 故障转移所需的时间取决于手动升级副本和重定向流量所需的时长。 平均时间范围为 2-10 分钟。
 
 {% data reusables.enterprise_installation.promoting-a-replica %}
@@ -25,14 +23,7 @@ shortTitle: 启动故障转移到设备
       ```shell
       $ ghe-maintenance -s
       ```
-2.  当活动 Git 操作、MySQL 查询和 Resque 作业数量达到零时，等待 30 秒。
-
-    {% note %}
-
-    **注意：** Nomad 将始终有作业在运行，即使是在维护模式下，因此您可以安全地忽略这些作业。
-
-    {% endnote %}
-
+2. 当活动 Git 操作的数量达到零时，请等待 30 秒。
 3. 要验证所有复制通道均报告 `OK`，请使用 `ghe-repl-status -vv` 命令。
   ```shell
   $ ghe-repl-status -vv
@@ -54,6 +45,6 @@ shortTitle: 启动故障转移到设备
       $ ghe-repl-teardown -u <em>UUID</em>
       ```
 
-## 延伸阅读
+### 延伸阅读
 
 - "[用于复制管理的实用程序](/enterprise/{{ currentVersion }}/admin/guides/installation/about-high-availability-configuration/#utilities-for-replication-management)"

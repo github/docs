@@ -1,0 +1,1 @@
+You have used an email that already exists for the user_email_uniq field.\n \## DETAILS:\n\nThe (email)=(Octocat@github.com) already exists.\n\n The error was found in core/models.py in get_or_create_user at line 62.\n\n\ self.save()

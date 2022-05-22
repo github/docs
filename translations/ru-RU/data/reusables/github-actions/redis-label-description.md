@@ -1,0 +1,1 @@
+The workflow configures a service container with the label `redis`. All services must run in a container, so each service requires that you specify the container `image`. This example uses the `redis` container image, and includes health check options to make sure the service is running. For more information, see the [redis image](https://hub.docker.com/_/redis) on Docker Hub.

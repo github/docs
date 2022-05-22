@@ -1,0 +1,1 @@
+Wenn ein Replikat hochgestuft wird, wird nicht automatisch die Replikation für vorhandene Appliances eingerichtet. Nach dem Hochstufen eines Replikats kannst Du bei Bedarf eine Replikation von der neuen primären Instanz zu den vorhandenen Appliances und zur vorherigen primären Instanz einrichten.

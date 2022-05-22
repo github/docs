@@ -1,0 +1,1 @@
+If there are referenced {% data variables.large_files.product_name_short %} files that did not upload successfully, you will receive an error message. For more information, see "[Resolving {% data variables.large_files.product_name_long %} upload failures](/articles/resolving-git-large-file-storage-upload-failures)."

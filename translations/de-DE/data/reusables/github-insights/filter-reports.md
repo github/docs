@@ -1,0 +1,1 @@
+1. Du kannst optional alle Metriken einer Seite filtern, indem Du oberhalb der Metriken die Dropdownmenü „Teams", „Repos" oder Datumsbereich benutzt. ![Dropdownmenü „Filter"](/assets/images/help/insights/filter-drop-downs.png)

@@ -1,0 +1,1 @@
+1. Unter „Client Secret" gibst Du das Client-Geheimnis Deiner {% data variables.product.prodname_github_app %} ein, das Du beim Erstellen der App erfasst hast. ![Feld „Client Secret" (Kundengeheimnis)](/assets/images/help/insights/client-secret.png)

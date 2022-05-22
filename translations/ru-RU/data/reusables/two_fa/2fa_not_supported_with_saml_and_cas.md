@@ -1,0 +1,1 @@
+Not supported or managed on the {% data variables.product.prodname_ghe_server %} appliance, but may be supported by the external authentication provider. Two-factor authentication enforcement on organizations is not available.

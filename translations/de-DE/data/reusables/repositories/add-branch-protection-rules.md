@@ -1,0 +1,2 @@
+4. Klicke neben „Branch protection rules" (Branch-Schutzregeln) auf **Add rule** (Regel hinzufügen.) ![Schaltfläche „Add branch protection rule" (Füge Branch-Schutzregel hinzu)](/assets/images/help/branches/add-branch-protection-rule.png)
+5. Gib unter „Branch name pattern" (Branch-Namensmuster) den Branch-Namen oder das Muster ein, das Du schützen möchtest. ![Feld „Branch rule" (Branch-Regel) ](/assets/images/help/branches/specify-branch-protection-rule.png)

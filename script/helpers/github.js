@@ -1,9 +1,5 @@
-#!/usr/bin/env node
-import dotenv from 'dotenv'
-import { Octokit } from '@octokit/rest'
-
 if (!process.env.GITHUB_TOKEN) {
-  dotenv.config()
+  require('dotenv').config()
 }
 
 // this module needs to work in development, production, and GitHub Actions
@@ -14,9 +10,11 @@ if (!process.env.GITHUB_TOKEN) {
 // 3. an installation token granted via GitHub Actions
 const apiToken = process.env.GITHUB_TOKEN
 
+const { Octokit } = require('@octokit/rest')
+
 // See https://github.com/octokit/rest.js/issues/1207
-export default function github() {
+module.exports = function github () {
   return new Octokit({
-    auth: `token ${apiToken}`,
+    auth: `token ${apiToken}`
   })
 }

@@ -1,0 +1,1 @@
+{% data variables.product.prodname_github_app %}s must have the `secrets` repository permission to use this endpoint.

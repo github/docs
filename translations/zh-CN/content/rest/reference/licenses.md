@@ -1,16 +1,13 @@
 ---
 title: 许可
-intro: Licenses API 可让您检索热门开源许可证，以及有关特定项目许可文件的信息。
 redirect_from:
   - /v3/licenses
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - API
-miniTocMaxHeadingLevel: 3
 ---
 
 许可 API 返回有关热门开源许可的元数据，以及有关特定项目许可文件的信息。
