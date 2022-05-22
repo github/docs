@@ -18,25 +18,32 @@ The time required to failover depends on how long it takes to manually promote t
 
 {% data reusables.enterprise_installation.promoting-a-replica %}
 
-1. To allow replication to finish before you switch appliances, put the primary appliance into maintenance mode:
-    - To use the management console, see "[Enabling and scheduling maintenance mode](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode/)"
-    - You can also use the `ghe-maintenance -s` command.
-      ```shell
-      $ ghe-maintenance -s
-      ```
-2.  When the number of active Git operations, MySQL queries, and Resque jobs reaches zero, wait 30 seconds. 
+1. If the primary appliance is available, to allow replication to finish before you switch appliances, on the primary appliance, put the primary appliance into maintenance mode.
 
-    {% note %}
+    - Put the appliance into maintenance mode.
 
-    **Note:** Nomad will always have jobs running, even in maintenance mode, so you can safely ignore these jobs.
+       - To use the management console, see "[Enabling and scheduling maintenance mode](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode/)"
+
+       - You can also use the `ghe-maintenance -s` command.
+         ```shell
+         $ ghe-maintenance -s
+         ```
+
+   - When the number of active Git operations, MySQL queries, and Resque jobs reaches zero, wait 30 seconds. 
+
+      {% note %}
+
+      **Note:** Nomad will always have jobs running, even in maintenance mode, so you can safely ignore these jobs.
     
-    {% endnote %}
+      {% endnote %}
 
-3. To verify all replication channels report `OK`, use the `ghe-repl-status -vv` command.
-  ```shell
-  $ ghe-repl-status -vv
-  ```
-4. To stop replication and promote the replica appliance to primary status, use the `ghe-repl-promote` command. This will also automatically put the primary node in maintenance node if it’s reachable.
+   - To verify all replication channels report `OK`, use the `ghe-repl-status -vv` command.
+
+      ```shell
+      $ ghe-repl-status -vv
+      ```
+
+4. On the replica appliance, to stop replication and promote the replica appliance to primary status, use the `ghe-repl-promote` command. This will also automatically put the primary node in maintenance node if it’s reachable.
   ```shell
   $ ghe-repl-promote
   ```

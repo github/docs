@@ -29,7 +29,7 @@ topics:
 - 跟踪任务复杂性的数字字段
 - 跟踪任务是低、中还是高优先级的单个选择字段
 - 添加快速说明的文本字段
-- an iteration field to plan work week-by-week
+- 用于每周计划工作的迭代字段，包括对休息时间的支持
 
 ### 从不同的角度查看您的项目
 
@@ -47,13 +47,13 @@ topics:
 
 更多信息请参阅“[自定义项目视图](/issues/trying-out-the-new-projects-experience/customizing-your-project-views)”。
 
-### Working with the project command palette
+### 使用项目命令面板
 
-You can use the project command palette to quickly change views or add fields. 命令板会引导您，这样您便无需记住自定义键盘快捷键。 更多信息请参阅“[自定义项目视图](/issues/trying-out-the-new-projects-experience/customizing-your-project-views)”。
+您可以使用项目命令板快速更改视图或添加字段。 命令板会引导您，这样您便无需记住自定义键盘快捷键。 更多信息请参阅“[自定义项目视图](/issues/trying-out-the-new-projects-experience/customizing-your-project-views)”。
 
 ### 自动化项目管理任务
 
-Projects (beta) offers built-in workflows. For example, when an issue is closed, you can automatically set the status to "Done." You can also use the GraphQL API and {% data variables.product.prodname_actions %} to automate routine project management tasks. For more information, see "[Automating projects](/issues/trying-out-the-new-projects-experience/automating-projects)" and "[Using the API to manage projects](/issues/trying-out-the-new-projects-experience/using-the-api-to-manage-projects)."
+项目（测试版）提供内置工作流程。 例如，当议题关闭时，您可以自动将状态设置为“完成”。 您也可以使用 GraphQL API 和 {% data variables.product.prodname_actions %} 自动化常规项目管理任务。 更多信息请参阅“[自动化项目](/issues/trying-out-the-new-projects-experience/automating-projects)”和“[使用 API 管理项目](/issues/trying-out-the-new-projects-experience/using-the-api-to-manage-projects)”。
 
 ## 比较项目（测试版）与非测试版项目
 

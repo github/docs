@@ -10,10 +10,7 @@ redirect_from:
   - /code-security/secure-coding/troubleshooting-codeql-runner-in-your-ci-system
   - /code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/troubleshooting-codeql-runner-in-your-ci-system
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
+  feature: codeql-runner-supported
 type: how_to
 topics:
   - Advanced Security
@@ -23,7 +20,7 @@ topics:
   - Integration
   - CI
 ---
-<!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->
+
 
 {% data reusables.code-scanning.deprecation-codeql-runner %}
 {% data reusables.code-scanning.beta %}

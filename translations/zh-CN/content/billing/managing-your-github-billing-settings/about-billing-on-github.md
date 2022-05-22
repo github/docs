@@ -33,10 +33,10 @@ topics:
 
 如果您是组织或企业所有者，您可以使用设置中的上下文切换器在不同帐户的设置之间切换。
 
-{% data reusables.user_settings.access_settings %}
+{% data reusables.user-settings.access_settings %}
 1. 在页面顶部用户名的右侧，单击 **Switch to another account（切换到另一个帐户）**。 ![上下文切换器按钮](/assets/images/help/settings/context-switcher-button.png)
 1. 开始键入要切换到的帐户名称，然后单击帐户的名称。 ![上下文切换器菜单](/assets/images/help/settings/context-switcher-menu.png)
-1. 在左侧边栏中，单击 **Billing & plans（计费和方案）**。 ![设置侧边栏中的计费和方案](/assets/images/help/organizations/billing-settings.png)
+1. 在左侧边栏中，单击 **{% octicon "credit-card" aria-label="The credit card icon" %} 帐单和计划**。
 
 ## 延伸阅读
 

@@ -34,6 +34,8 @@ Quando você bloqueia um usuário:
 - Você é removido como colaborador em seus repositórios
 - O patrocínio dele para você é cancelado
 - Qualquer convite pendente de sucessor de uma conta ou de repositório para ou de um usuário bloqueado é cancelado
+- O usuário é removido como colaborador de todos os Quadros de Projeto & Projetos (beta) pertencentes a você
+- Você é removido como colaborador de todos os Quadros de Projeto & Projetos (beta) pertencentes ao usuário
 
 Depois que você bloqueou um usuário, ele não pode:
 - Enviar notificações a você, incluindo por [@menção](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) do seu nome de usuário
@@ -46,6 +48,8 @@ Depois que você bloqueou um usuário, ele não pode:
 - Faz referência cruzada de seus repositórios em comentários
 - Bifurque, inspecione, fixe ou favorite seus repositórios
 - Patrocinar você
+- Adicione você como colaborador nos seus Quadros de Projetos & Projetos (beta)
+- Faça as alterações nos seus Quadros de Projetos & Projetos (beta)
 
 Nos repositórios que você possui, os usuários bloqueados também não podem:
 - Criar problemas
@@ -55,8 +59,8 @@ Nos repositórios que você possui, os usuários bloqueados também não podem:
 
 ## Bloquear um usuário nas configurações da conta
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.blocked_users %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.blocked_users %}
 3. Em "Block a user" (Bloquear um usuário), digite o nome de usuário que deseja bloquear e clique em **Block user** (Bloquear usuário). ![Campo Username (Nome de usuário) e botão Block (Bloquear)](/assets/images/help/settings/user-settings-block-user.png)
 4. Se desejar, para exibir um aviso quando você visitar um repositório onde um usuário bloqueado é um contribuidor, selecione **Warn me when a blocked user is a prior contributor to a repository** (Avisar-me quando um usuário bloqueado for um contribuidor anterior em um repositório). ![Opção de avisar sobre usuários bloqueados](/assets/images/help/settings/warn-block-user.png)
 

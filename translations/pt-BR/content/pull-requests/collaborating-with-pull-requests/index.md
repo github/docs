@@ -1,6 +1,6 @@
 ---
-title: Collaborating with pull requests
-intro: 'Track and discuss changes in issues, then propose and review changes in pull requests.'
+title: Colaborando com pull requests
+intro: 'Acompanhe e discuta alterações nos problemas e, em seguida, proponha e revise alterações em pull requests.'
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests
   - /categories/63/articles
@@ -24,5 +24,6 @@ children:
   - /addressing-merge-conflicts
   - /reviewing-changes-in-pull-requests
   - /incorporating-changes-from-a-pull-request
-shortTitle: Collaborate with pull requests
+shortTitle: Colaborar com pull requests
 ---
+

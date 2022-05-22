@@ -18,7 +18,7 @@ shortTitle: Criar uma discussão de equipe
 {% data reusables.organizations.team-discussions-permissions %} Para obter mais informações, consulte "[Sobre discussões de equipe](/organizations/collaborating-with-your-team/about-team-discussions)".
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team-discussions-tab %}
 6. Digite um título para a discussão de equipe e um comentário para iniciar uma conversa. ![Novo comentário de discussão de equipe](/assets/images/help/projects/team-discussions-comment.png)

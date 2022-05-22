@@ -1,7 +1,7 @@
 ---
-title: Setting up your Java project for Codespaces
-shortTitle: Setting up with your Java project
-intro: 'Get started with your Java project in {% data variables.product.prodname_codespaces %} by creating a custom dev container.'
+title: 为 Codespaces 设置 Java 项目
+shortTitle: 使用 Java 项目进行设置
+intro: '通过创建自定义开发容器，开始在 {% data variables.product.prodname_codespaces %} 中使用 Java 项目。'
 product: '{% data reusables.gated-features.codespaces %}'
 redirect_from:
   - /codespaces/getting-started-with-codespaces/getting-started-with-your-java-project-in-codespaces
@@ -14,54 +14,46 @@ hasExperimentalAlternative: true
 hidden: true
 ---
 
+## 简介
 
+本指南介绍如何在 {% data variables.product.prodname_codespaces %} 中设置 Java 项目。 它将演示在代码空间中打开项目以及从模板添加和修改开发容器配置的示例。
 
-## Introduction
+### 基本要求
 
-This guide shows you how to set up your Java project in {% data variables.product.prodname_codespaces %}. It will take you through an example of opening your project in a codespace, and adding and modifying a dev container configuration from a template.
+- 您应该在 {% data variables.product.prodname_dotcom_the_website %} 的仓库中有现有的 Java 项目。 如果您没有项目，可以使用以下示例尝试本教程：https://github.com/microsoft/vscode-remote-try-java
+- 您必须为组织启用 {% data variables.product.prodname_codespaces %} 。
 
-### Prerequisites
+## 步骤 1：在代码空间中打开项目
 
-- You should have an existing Java project in a repository on {% data variables.product.prodname_dotcom_the_website %}. If you don't have a project, you can try this tutorial with the following example: https://github.com/microsoft/vscode-remote-try-java
-- You must have {% data variables.product.prodname_codespaces %} enabled for your organization.
+1. 在存储库名称下，使用 **{% octicon "code" aria-label="The code icon" %} 代码**下拉菜单，然后在**Codespaces（代码空间）**选项卡中，单击 **Create codespace on main（在主分支上创建代码空间）**。
 
-## Step 1: Open your project in a codespace
+  ![新建代码空间按钮](/assets/images/help/codespaces/new-codespace-button.png)
 
-1. Under the repository name, use the **{% octicon "code" aria-label="The code icon" %} Code** drop-down menu, and in the **Codespaces** tab, click {% octicon "plus" aria-label="The plus icon" %} **New codespace**.
+  如果您看不到此选项，则表示 {% data variables.product.prodname_codespaces %} 不适用于您的项目。 有关详细信息，请参阅 [访问 {% data variables.product.prodname_codespaces %}](/codespaces/developing-in-codespaces/creating-a-codespace#access-to-codespaces)。
 
-  ![New codespace button](/assets/images/help/codespaces/new-codespace-button.png)
+创建代码空间时，您的项目是在专用于您的远程 VM 上创建的。 默认情况下，代码空间的容器有许多语言和运行时，包括 Java、nvm、npm 和 Yarn。 它还包括一套常见的工具，例如 git、wget、rsync、openssh 和 nano。
 
-  If you don’t see this option, {% data variables.product.prodname_codespaces %} isn't available for your project. See [Access to {% data variables.product.prodname_codespaces %}](/codespaces/developing-in-codespaces/creating-a-codespace#access-to-codespaces) for more information.
+{% data reusables.codespaces.customize-vcpus-and-ram %}
 
-When you create a codespace, your project is created on a remote VM that is dedicated to you. By default, the container for your codespace has many languages and runtimes including Java, nvm, npm, and yarn. It also includes a common set of tools like git, wget, rsync, openssh, and nano.
+## 第 2 步：将开发容器配置从模板添加到存储库
 
-You can customize your codespace by adjusting the amount of vCPUs and RAM, [adding dotfiles to personalize your environment](/codespaces/setting-up-your-codespace/personalizing-codespaces-for-your-account), or by modifying the tools and scripts installed.
+{% data variables.product.prodname_github_codespaces %} 的默认开发容器预安装了最新的Java版本、包管理器（Maven、Gradle）和其他常用工具。 但是，我们建议你配置自己的开发容器，以包含项目所需的所有工具和脚本。 这将确保仓库中的所有 {% data variables.product.prodname_github_codespaces %} 用户都拥有完全可复制的环境。
 
-{% data variables.product.prodname_codespaces %} uses a file called `devcontainer.json` to store configurations. On launch {% data variables.product.prodname_codespaces %} uses the file to install any tools, dependencies, or other set up that might be needed for the project. For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)."
-
-
-## Step 2: Add a dev container to your codespace from a template
-
-The default codespaces container comes with the latest Java version, package managers (Maven, Gradle), and other common tools preinstalled. However, we recommend that you set up a custom container to define the tools and scripts that your project needs. This will ensure a fully reproducible environment for all {% data variables.product.prodname_codespaces %} users in your repository.
-
-To set up your project with a custom container, you will need to use a `devcontainer.json` file to define the environment. In {% data variables.product.prodname_codespaces %} you can add this either from a template or you can create your own. For more information on dev containers, see "[Introduction to dev containers](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)."
-
+{% data reusables.codespaces.setup-custom-devcontainer %}
 
 {% data reusables.codespaces.command-palette-container %}
-3. For this example, click **Java**. In practice, you could select any container that’s specific to Java or a combination of tools such as Java and Azure Functions.
-  ![Select Java option from the list](/assets/images/help/codespaces/add-java-prebuilt-container.png)
-4. Click the recommended version of Java.
-  ![Java version selection](/assets/images/help/codespaces/add-java-version.png)
+1. 对于此示例，单击 **Java**。 实际上，您可以选择任何特定于 Java 的容器或 Java 和 Azure 函数等工具的组合。 ![从列表中选择 Java 选项](/assets/images/help/codespaces/add-java-prebuilt-container.png)
+1. 单击推荐的 Java 版本。 ![Java 版本选择](/assets/images/help/codespaces/add-java-version.png)
 {% data reusables.codespaces.rebuild-command %}
 
-### Anatomy of your dev container
+### 开发容器的剖析
 
-Adding the Java dev container template adds a `.devcontainer` folder to the root of your project's repository with the following files:
+添加 Java 开发容器模板会将 `.devcontainer` 目录添加到项目仓库的根目录中，其中包含以下文件：
 
 - `devcontainer.json`
 - Dockerfile
 
-The newly added `devcontainer.json` file defines a few properties that are described after the sample.
+新添加的 `devcontainer.json` 文件定义了几个在样本之后描述的属性。
 
 #### devcontainer.json
 
@@ -69,55 +61,55 @@ The newly added `devcontainer.json` file defines a few properties that are descr
 // For format details, see https://aka.ms/vscode-remote/devcontainer.json or this file's README at:
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.159.0/containers/java
 {
-	"name": "Java",
-	"build": {
-		"dockerfile": "Dockerfile",
-		"args": {
-			// Update the VARIANT arg to pick a Java version: 11, 14
-			"VARIANT": "11",
-			// Options
-			"INSTALL_MAVEN": "true",
-			"INSTALL_GRADLE": "false",
-			"INSTALL_NODE": "false",
-			"NODE_VERSION": "lts/*"
-		}
-	},
+    "name": "Java",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "args": {
+            // Update the VARIANT arg to pick a Java version: 11, 14
+            "VARIANT": "11",
+            // Options
+            "INSTALL_MAVEN": "true",
+            "INSTALL_GRADLE": "false",
+            "INSTALL_NODE": "false",
+            "NODE_VERSION": "lts/*"
+        }
+    },
 
-	// Set *default* container specific settings.json values on container create.
-	"settings": {
-		"terminal.integrated.shell.linux": "/bin/bash",
-		"java.home": "/docker-java-home",
-		"maven.executable.path": "/usr/local/sdkman/candidates/maven/current/bin/mvn"
-	},
+    // Set *default* container specific settings.json values on container create.
+    "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash",
+        "java.home": "/docker-java-home",
+        "maven.executable.path": "/usr/local/sdkman/candidates/maven/current/bin/mvn"
+    },
 
-	// Add the IDs of extensions you want installed when the container is created.
-	"extensions": [
-		"vscjava.vscode-java-pack"
-	],
+    // Add the IDs of extensions you want installed when the container is created.
+    "extensions": [
+        "vscjava.vscode-java-pack"
+    ],
 
-	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// "forwardPorts": [],
+    // Use 'forwardPorts' to make a list of ports inside the container available locally.
+    // "forwardPorts": [],
 
-	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "java -version",
+    // Use 'postCreateCommand' to run commands after the container is created.
+    // "postCreateCommand": "java -version",
 
-	// Uncomment to connect as a non-root user. See https://aka.ms/vscode-remote/containers/non-root.
-	"remoteUser": "vscode"
+    // Uncomment to connect as a non-root user. 请参阅 https://aka.ms/vscode-remote/containers/non-root。
+    "remoteUser": "vscode"
 }
 ```
 
-- **Name** - You can name your dev container anything, this is just the default.
-- **Build** - The build properties.
-  - **Dockerfile** - In the build object, dockerfile is a reference to the Dockerfile that was also added from the template.
-  - **Args**
-    - **Variant**: This file only contains one build argument, which is the Java version that is passed into the Dockerfile.
-- **Settings** - These are {% data variables.product.prodname_vscode %} settings that you can set.
-  - **Terminal.integrated.shell.linux** - While bash is the default here, you could use other terminal shells by modifying this.
-- **Extensions** - These are extensions included by default.
-  - **Vscjava.vscode-java-pack** - The Java Extension Pack provides popular extensions for Java development to get you started.
-- **forwardPorts** - Any ports listed here will be forwarded automatically. For more information, see "[Forwarding ports in your codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)."
-- **postCreateCommand** - If you want to run anything after you land in your codespace that’s not defined in the Dockerfile, you can do that here.
-- **remoteUser** - By default, you’re running as the `vscode` user, but you can optionally set this to `root`.
+- **name** - 您可以将开发容器命名为任何名称，这只是默认名称。
+- **build** - 构建属性。
+  - **dockerfile** - 在 `build` 对象中，`dockerfile` 包含也从模板添加的 Dockerfile 的路径。
+  - **args**
+    - **Variant**：此文件仅包含一个构建参数，即传递到 Dockerfile 的 Java 版本。
+- **settings** - 它们是您可以设置的 {% data variables.product.prodname_vscode %} 设置。
+  - **terminal.integrated.shell.linux** - 虽然 bash 是这里的默认设置，但您可以通过修改它来使用其他终端 shell。
+- **extensions** - 它们是默认包含的扩展名。
+  - **vscjava.vscode-java-pack** - Java 扩展包为 Java 开发提供了流行的扩展，以帮助您入门。
+- **forwardPorts** - 此处列出的任何端口都将自动转发。 更多信息请参阅“[在代码空间中转发端口](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)”。
+- **postCreateCommand** - 在创建代码空间后，使用此选项可运行 Docker 文件中未定义的命令。
+- **remoteUser** - 默认情况下，您以 `vscode` 用户身份运行，但您可以选择将其设置为 `root`。
 
 #### Dockerfile
 
@@ -147,48 +139,45 @@ RUN if [ "${INSTALL_NODE}" = "true" ]; then su vscode -c "source /usr/local/shar
 # RUN su vscode -c "source /usr/local/share/nvm/nvm.sh && npm install -g <your-package-here>" 2>&1
 ```
 
-You can use the Dockerfile to add additional container layers to specify OS packages, Java versions, or global packages we want included in our Dockerfile.
+您可以使用 Dockerfile 添加其他容器层，以指定要包含在容器中的操作系统包、Java 版本或全局包。
 
-## Step 3: Modify your devcontainer.json file
+## 步骤 3：修改 devcontainer.json 文件
 
-With your dev container added and a basic understanding of what everything does, you can now make changes to configure it for your environment. In this example, you'll add properties to install extensions and your project dependencies when your codespace launches.
+添加开发容器配置并基本了解所有内容的功能后，现在可以进行更改以进一步自定义环境。 在此示例中，您将在代码空间启动时添加属性以安装扩展和项目依赖项。
 
-1. In the Explorer, select the `devcontainer.json` file from the tree to open it. You might have to expand the `.devcontainer` folder to see it.
+1. 在 Explorer 中，从树中选择 `devcontainer.json` 文件来打开它。 您可能需要展开 `.devcontainer` 文件夹才能看到它。
 
-  ![devcontainer.json file in the Explorer](/assets/images/help/codespaces/devcontainers-options.png)
+   ![Explorer 中的 devcontainer.json 文件](/assets/images/help/codespaces/devcontainers-options.png)
 
-2. Add the following lines to your `devcontainer.json` file after `extensions`.
+2. 在 `devcontainer.json` 文件中的 `extensions` 后面添加以下行。
 
-  ```json{:copy}
-  "postCreateCommand": "npm install",
-  "forwardPorts": [4000],
-  ```
+   ```json{:copy}
+   "postCreateCommand": "npm install",
+   "forwardPorts": [4000],
+   ```
 
-  For more information on `devcontainer.json` properties, see the [devcontainer.json reference](https://code.visualstudio.com/docs/remote/devcontainerjson-reference) on the Visual Studio Code docs.
+   {% data reusables.codespaces.more-info-devcontainer %}
 
 {% data reusables.codespaces.rebuild-command %}
 
-  Rebuilding inside your codespace ensures your changes work as expected before you commit the changes to the repository. If something does result in a failure, you’ll be placed in a codespace with a recovery container that you can rebuild from to keep adjusting your container.
+   {% data reusables.codespaces.rebuild-reason %}
 
+## 步骤 4：运行应用程序
 
-## Step 4: Run your application
+在上一节中，您使用 `postCreateCommand` 通过 npm 安装了一组包。 您现在可以使用它来通过 npm 运行应用程序。
 
-In the previous section, you used the `postCreateCommand` to install a set of packages via npm. You can now use this to run our application with npm.
+1. 按 `F5` 运行应用程序。
 
-1. Run your application by pressing `F5`.
+2. 项目启动时，您应该在右下角看到一个信息框，提示您连接到项目使用的端口。
 
-2. When your project starts, you should see a toast in the bottom right corner with a prompt to connect to the port your project uses.
+   ![端口转发信息框](/assets/images/help/codespaces/codespaces-port-toast.png)
 
-  ![Port forwarding toast](/assets/images/help/codespaces/codespaces-port-toast.png)
-
-## Step 5: Commit your changes
+## 步骤 5：提交更改
 
 {% data reusables.codespaces.committing-link-to-procedure %}
 
-## Next steps
+## 后续步骤
 
-You should now be ready start developing your Java project in {% data variables.product.prodname_codespaces %}. Here are some additional resources for more advanced scenarios.
+现在，您应该准备开始在 {% data variables.product.prodname_codespaces %} 中开发您的 Java 项目。 以下是用于更高级场景的一些额外资源。
 
-- [Managing encrypted secrets for {% data variables.product.prodname_codespaces %}](/codespaces/working-with-your-codespace/managing-encrypted-secrets-for-codespaces)
-- [Managing GPG verification for {% data variables.product.prodname_codespaces %}](/codespaces/working-with-your-codespace/managing-gpg-verification-for-codespaces)
-- [Forwarding ports in your codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)
+{% data reusables.codespaces.next-steps-adding-devcontainer %}

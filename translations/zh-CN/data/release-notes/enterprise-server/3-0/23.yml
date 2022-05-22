@@ -1,0 +1,20 @@
+---
+date: '2022-01-18'
+sections:
+  security_fixes:
+    - 'Packages have been updated to the latest security versions. In these updates, Log4j has been updated to version 2.17.1. Note: previous mitigations released in 3.3.1, 3.2.6, 3.1.14, and 3.0.22 are sufficient to address the impact of CVE-2021-44228, CVE-2021-45046, CVE-2021-45105, and CVE-2021-44832 in these versions of GitHub Enterprise Server.'
+    - Sanitize more secrets in the generated support bundles
+    - 包已更新到最新的安全版本。
+  bugs:
+    - Running `ghe-config-apply` could sometimes fail because of permission issues in `/data/user/tmp/pages`.
+    - The save button in management console was unreachable by scrolling in lower resolution browsers.
+    - IOPS and Storage Traffic monitoring graphs were not updating after collectd version upgrade.
+    - Some webhook related jobs could generated large amount of logs.
+  known_issues:
+    - 在新建的没有任何用户的 {% data variables.product.prodname_ghe_server %} 上，攻击者可以创建第一个管理员用户。
+    - 自定义防火墙规则在升级过程中被删除。
+    - Git LFS 跟踪的文件[通过 Web 界面上传](https://github.com/blog/2105-upload-files-to-your-repositories) 被错误地直接添加到仓库。
+    - 如果议题包含文件路径长于 255 个字符的同一仓库中 blob 的永久链接，则议题无法关闭。
+    - 对 GitHub Connect 启用“用户可以搜索 GitHub.com”后，私有和内部仓库中的议题不包括在 GitHub.com 搜索结果中。
+    - 当副本节点在高可用性配置下离线时，{% data variables.product.product_name %} 仍可能将 {% data variables.product.prodname_pages %} 请求路由到离线节点，从而减少用户的 {% data variables.product.prodname_pages %} 可用性。
+    - 特定于处理预接收挂钩的资源限制可能会导致某些预接收挂钩失败。

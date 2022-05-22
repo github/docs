@@ -1,7 +1,7 @@
 import { ReactNode } from 'react'
 import cx from 'classnames'
 
-import { Details, useDetails, Text, Dropdown, Box } from '@primer/components'
+import { Details, useDetails, Text, Dropdown, Box } from '@primer/react'
 import { ChevronDownIcon } from '@primer/octicons-react'
 
 export type PickerOptionsTypeT = {
@@ -33,14 +33,18 @@ function PickerSummaryWrapper({ variant, children }: PickerWrapperPropsT) {
   return (
     <>
       {children}
-      <Dropdown.Caret />
+      <ChevronDownIcon size={16} className="arrow ml-md-1" />
     </>
   )
 }
 
 function PickerOptionsWrapper({ variant, children }: PickerWrapperPropsT) {
   if (variant === 'inline') {
-    return <Box py="2">{children}</Box>
+    return (
+      <Box py="2">
+        <ul>{children}</ul>
+      </Box>
+    )
   }
   return (
     <Dropdown.Menu direction="sw" style={{ width: 'unset' }}>
@@ -65,7 +69,7 @@ export function Picker({ variant, defaultText, options, ...restProps }: PickerPr
       <summary
         className="d-block btn btn-invisible color-fg-default"
         aria-haspopup="true"
-        aria-label="Toggle picker list"
+        aria-label={selectedOption?.text || defaultText}
       >
         <PickerSummaryWrapper variant={variant}>
           <Text>{selectedOption?.text || defaultText}</Text>

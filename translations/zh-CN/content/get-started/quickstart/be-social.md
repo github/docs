@@ -1,11 +1,11 @@
 ---
-title: Be social
+title: 社交化
 redirect_from:
   - /be-social
   - /articles/be-social
   - /github/getting-started-with-github/be-social
   - /github/getting-started-with-github/quickstart/be-social
-intro: 'You can interact with people, repositories, and organizations on {% data variables.product.prodname_dotcom %}. See what others are working on and who they''re connecting with from your personal dashboard.'
+intro: '您可以在 {% data variables.product.prodname_dotcom %} 上与人员、仓库及组织进行互动。 从您的个人仪表板查看其他人正在做什么，在跟谁联系。'
 permissions: '{% data reusables.enterprise-accounts.emu-permission-interact %}'
 versions:
   fpt: '*'
@@ -19,63 +19,62 @@ topics:
   - Notifications
   - Accounts
 ---
-To learn about accessing your personal dashboard, see "[About your personal dashboard](/articles/about-your-personal-dashboard)."
 
-## Following people
+要了解有关访问个人仪表板的信息，请参阅“[关于个人仪表板](/articles/about-your-personal-dashboard)”。
 
-When you follow someone on {% data variables.product.prodname_dotcom %}, you'll get notifications on your personal dashboard about their activity. For more information, see "[About your personal dashboard](/articles/about-your-personal-dashboard)."
+## 关注他人
 
-Click **Follow** on a person's profile page to follow them.
+在 {% data variables.product.prodname_dotcom %} 上关注某人后，您将会在您的个人仪表板中收到有关其公共活动的通知。 如果您关注的某人创建了一个新存储库、为存储库添加星标或关注其他用户，则该活动将显示在您的仪表板中。
 
-![Follow user button](/assets/images/help/profile/follow-user-button.png)
+在某人的个人资料页面上单击 **Follow（关注）**可关注他们。
 
-## Watching a repository
+![关注用户按钮](/assets/images/help/profile/follow-user-button.png)
 
-You can watch a repository to receive notifications for new pull requests and issues. When the owner updates the repository, you'll see the changes in your personal dashboard. For more information see {% ifversion fpt or ghae or ghes or ghec %}"[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions){% else %}"[Watching and unwatching repositories](/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories){% endif %}."
+更多信息请参阅“[关注人员](/get-started/exploring-projects-on-github/following-people)”。
 
-Click **Watch** at the top of a repository to watch it.
+## 关注仓库
 
-![Watch repository button](/assets/images/help/repository/repo-actions-watch.png)
+您可以订阅存储库以关注它并接收其中活动的通知。 当所有者更新仓库时，您将在个人仪表板中看到其更改。 更多信息请参阅“[查看订阅](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions)”。
 
-## Joining the conversation
+在仓库顶部单击 **Watch（关注）**可关注它。
+
+![关注仓库按钮](/assets/images/help/repository/repo-actions-watch.png)
+
+## 加入对话
 
 {% data reusables.support.ask-and-answer-forum %}
 
-## Communicating on {% data variables.product.product_name %}
+## {% data variables.product.product_name %} 上的通信
 
-{% data variables.product.product_name %} provides built-in collaborative communication tools, such as issues and pull requests, allowing you to interact closely with your community when building great software. For an overview of these tools, and information about the specificity of each, see "[Quickstart for communicating on {% data variables.product.prodname_dotcom %}](/github/collaborating-with-issues-and-pull-requests/quickstart-for-communicating-on-github)."
+{% data variables.product.product_name %} 提供内置的协作通信工具，让您在构建出色的软件时与社区密切互动。 例如，您可以通过创建拉取请求来为其他用户的项目做出贡献，或者使用议题来跟踪 Bug 或在存储库中提出想法。 您还可以通过讨论与您的团队一起集思广益。
 
-## Doing even more
+有关这些工具的概述，请参阅“[{% data variables.product.prodname_dotcom %} 通信快速入门](/github/collaborating-with-issues-and-pull-requests/quickstart-for-communicating-on-github)”。
 
-### Creating pull requests
+## 参与组织
 
- You may want to contribute to another person's project, whether to add features or to fix bugs. After making changes, let the original author know by sending a pull request. For more information, see "[About pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)."
+组织是共享帐户，其中业务和开源项目可一次协助处理多个项目。 所有者和管理员可建立具有特殊权限的团队、拥有公共组织资料以及跟踪组织内的活动。 更多信息请参阅“[关于组织](/articles/about-organizations/)”。
 
- ![Pull request button](/assets/images/help/repository/repo-actions-pullrequest.png)
+在仪表板中，单击仪表板左侧用户名的下拉菜单。 在这里，您可以查看您所属的组织，并在它们之间轻松切换。
 
-### Using issues
+![切换帐户上下文下拉列表](/assets/images/help/overview/dashboard-contextswitcher.png)
 
-When collaborating on a repository, use issues to track ideas, enhancements, tasks, or bugs. For more information, see '[About issues](/articles/about-issues/)."
+### 在 {% data variables.product.prodname_dotcom %} 上探索其他项目
 
-![Issues button](/assets/images/help/repository/repo-tabs-issues.png)
+您可以在 {% data variables.product.prodname_dotcom %} 的 Explore（探索）页面上发现新的和有趣的项目。 您可以为有趣的项目加注星标，以便以后再次轻松找到它们。 访问您的星标页面，查看所有已加星标的项目。 有关星标的更多信息，请参阅“[使用星标保存仓库](/get-started/exploring-projects-on-github/saving-repositories-with-stars)”。
 
-### Participating in organizations
+您的仪表板源会根据您的兴趣显示项目，包括您关注的存储库、您关注的人员以及您对公共存储库的贡献。 在仪表板中，您可以查看热门项目、查看主题和查看集合。
 
-Organizations are shared accounts where businesses and open-source projects can collaborate across many projects at once. Owners and administrators can establish teams with special permissions, have a public organization profile, and keep track of activity within the organization. For more information, see "[About organizations](/articles/about-organizations/)."
+要探索更多项目，请参阅“{% data variables.explore.explore_github %}”。
 
-![Switch account context dropdown](/assets/images/help/overview/dashboard-contextswitcher.png)
+## 后续步骤
+您现在已连接到 {% data variables.product.product_name %} 社区。 还有其他方法可以在 {% data variables.product.product_name %} 中进行交互和构建。
 
-### Exploring other projects on {% data variables.product.prodname_dotcom %}
+* {% data reusables.getting-started.set-up-git %}
 
-Discover interesting projects using {% data variables.explore.explore_github %}, [Explore repositories](https://github.com/explore), and the {% data variables.explore.trending_page %}. Star interesting projects and come back to them later. Visit your {% data variables.explore.your_stars_page %} to see all your starred projects.  For more information, see "[About your personal dashboard](/articles/about-your-personal-dashboard/)." 
+* {% data reusables.getting-started.create-a-repository %}
 
-## Celebrate
+* {% data reusables.getting-started.fork-a-repository %}
 
-You're now connected to the {% data variables.product.product_name %} community. What do you want to do next?
-![Star a project](/assets/images/help/stars/star-a-project.png)
+* {% data reusables.getting-started.contributing-to-projects  %}
 
-
-- To synchronize your {% data variables.product.product_name %} projects with your computer, you can set up Git. For more information see "[Set up Git](/articles/set-up-git)."
-- You can also create a repository, where you can put all your projects and maintain your workflows. For more information see, "[Create a repository](/articles/create-a-repo)."
-- You can fork a repository to make changes you want to see without affecting the original repository. For more information, see "[Fork a repository](/articles/fork-a-repo)."
-- {% data reusables.support.connect-in-the-forum-bootcamp %}
+* {% data reusables.support.connect-in-the-forum-bootcamp %}

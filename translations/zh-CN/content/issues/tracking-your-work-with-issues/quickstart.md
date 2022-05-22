@@ -20,7 +20,7 @@ topics:
 
 ## 基本要求
 
-要创建议题，您需要一个仓库。 您可以使用您有写入权限的现有仓库，或者创建一个新的仓库。 {% data reusables.enterprise-accounts.emu-permission-repo %} The repository must have issues enabled. 关于创建仓库的更多信息，请参阅“[创建新仓库](/articles/creating-a-new-repository)”。 关于启用议题（如果它们在您的仓库中被禁用）的更多信息，请参阅“[禁用议题](/github/administering-a-repository/managing-repository-settings/disabling-issues)“。
+要创建议题，您需要一个仓库。 您可以使用您有写入权限的现有仓库，或者创建一个新的仓库。 {% data reusables.enterprise-accounts.emu-permission-repo %} 存储库必须启用议题。 关于创建仓库的更多信息，请参阅“[创建新仓库](/articles/creating-a-new-repository)”。 关于启用议题（如果它们在您的仓库中被禁用）的更多信息，请参阅“[禁用议题](/github/administering-a-repository/managing-repository-settings/disabling-issues)“。
 
 ## 打开空白议题
 

@@ -24,6 +24,7 @@ Você pode trabalhar com {% data variables.product.prodname_codespaces %} em {% 
 - [Excluir um codespace](#delete-a-codespace)
 - [SSH em um codespace](#ssh-into-a-codespace)
 - [Abrir um codespace em {% data variables.product.prodname_vscode %}](#open-a-codespace-in-visual-studio-code)
+- [Open a codespace in JupyterLab](#open-a-codespace-in-jupyterlab)
 - [Copiar um arquivo de/para um codespace](#copy-a-file-tofrom-a-codespace)
 - [Modificar portas em um codespace](#modify-ports-in-a-codespace)
 - [Acessar registros de codespaces](#access-codespace-logs)
@@ -109,6 +110,12 @@ gh codespace code -c <em>codespace-name</em>
 
 Para obter mais informações, consulte "[Usando {% data variables.product.prodname_codespaces %} em {% data variables.product.prodname_vscode %}de](/codespaces/developing-in-codespaces/using-codespaces-in-visual-studio-code)".
 
+### Open a codespace in JupyterLab
+
+```shell
+gh codespace jupyter -c <em>codespace-name</em>
+```
+
 ### Copiar um arquivo de/para um codespace
 
 ```shell
@@ -153,7 +160,7 @@ Para obter mais informações sobre o comando `gh code cp`, incluindo sinalizado
 
 ### Modificar portas em um codespace
 
-Você pode encaminhar uma porta em um codespace para uma porta local. A porta será encaminhada enquanto o processo estiver em execução. Para parar de encaminhar a porta, pressione <kbd>control</kbd>+<kbd>c</kbd>.
+Você pode encaminhar uma porta em um codespace para uma porta local. A porta será encaminhada enquanto o processo estiver em execução. Para parar de encaminhar a porta, pressione <kbd>Controle</kbd>+<kbd>C</kbd>.
 
 ```shell
 gh codespace ports forward <em>codespace-port-number</em>:<em>local-port-number</em> -c <em>codespace-name</em>

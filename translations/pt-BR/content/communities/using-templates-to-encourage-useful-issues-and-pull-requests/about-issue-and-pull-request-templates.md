@@ -18,7 +18,7 @@ Depois que você cria modelos de problema e pull request no repositório, os con
 
 {% ifversion fpt or ghes or ghec %}
 
-Você pode criar problemas padrão e modelos de pull request para a sua organização ou conta de usuário. Para obter mais informações, consulte "[Criando um arquivo padrão de integridade da comunidade](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
+Você pode criar modelos de problema padrão e de pull request para sua organização ou conta pessoal. Para obter mais informações, consulte "[Criando um arquivo padrão de integridade da comunidade](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
 
 {% endif %}
 
@@ -36,9 +36,7 @@ Usando o construtor de modelo, você pode especificar um titulo e a descrição 
 Com formulários de problemas, você pode criar modelos que têm campos de formulário web usando o esquema de formulário de {% data variables.product.prodname_dotcom %}. Quando um contribuidor abre um problema usando um formulário de problema, as entradas de formulário são convertidas em um comentário de markdown padrão. É possível especificar diferentes tipos de entrada e definir as entradas necessárias para ajudar os colaboradores a abrir problemas acionáveis no seu repositório. Para obter mais informações, consulte "[Configurar templates de problemas para o seu repositório](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository#creating-issue-forms)" e "[Sintaxe para formulários de problemas](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms)".
 {% endif %}
 
-{% ifversion fpt or ghae or ghes or ghec %}
 {% data reusables.repositories.issue-template-config %} Para obter mais informações, consulte "[Configurando modelos de problemas para seu repositório](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository#configuring-the-template-chooser)."
-{% endif %}
 
 Os modelos de problema são armazenados no branch padrão do repositório, em um diretório `.github/ISSUE_TEMPLATE` oculto. Se você criar um modelo em outro branch, ele não estará disponível para uso dos colaboradores. Os nomes dos arquivos dos modelos de problema não diferenciam maiúsculas e precisam de uma extensão *.md*.{% ifversion fpt or ghec %} Modelos de problemas criados com formulários precisam de uma extensão *.yml*.{% endif %} {% data reusables.repositories.valid-community-issues %}
 

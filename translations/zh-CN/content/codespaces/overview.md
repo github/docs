@@ -1,8 +1,8 @@
 ---
-title: GitHub Codespaces overview
-shortTitle: Overview
+title: GitHub Codespaces 概述
+shortTitle: 概览
 product: '{% data reusables.gated-features.codespaces %}'
-intro: 'This guide introduces {% data variables.product.prodname_codespaces %} and provides details on how it works and how to use it.'
+intro: '本指南介绍了 {% data variables.product.prodname_codespaces %} ，并详细介绍了它的工作原理和使用方法。'
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /codespaces/codespaces-reference/about-codespaces
@@ -13,31 +13,31 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-type: quick_start
+type: overview
 topics:
   - Codespaces
 ---
 
-## What is a codespace?
+## 什么是代码空间？
 
-A codespace is a development environment that's hosted in the cloud. You can customize your project for {% data variables.product.prodname_codespaces %} by committing [configuration files](/codespaces/customizing-your-codespace/configuring-codespaces-for-your-project) to your repository (often known as Configuration-as-Code), which creates a repeatable codespace configuration for all users of your project.
+代码空间是托管在云中的开发环境。 您可以通过将[配置文件](/codespaces/customizing-your-codespace/configuring-codespaces-for-your-project)提交到存储库（通常称为“配置即代码”）来自定义 {% data variables.product.prodname_codespaces %} 的项目，这将为项目的所有用户创建可重复的代码空间配置。
 
-{% data variables.product.prodname_codespaces %} run on a variety of VM-based compute options hosted by {% data variables.product.product_location %}, which you can configure from 2 core machines up to 32 core machines. You can connect to your codespaces from the browser or locally using {% data variables.product.prodname_vscode %}.
+{% data variables.product.prodname_codespaces %} 在 {% data variables.product.product_location %}托管的各种基于 VM 的计算选项上运行，您最少可以配置 2 台核心计算机，最多可以配置 32 台。 您可以从浏览器或使用 {% data variables.product.prodname_vscode %} 本地连接到代码空间。
 
-![A diagram showing how {% data variables.product.prodname_codespaces %} works](/assets/images/help/codespaces/codespaces-diagram.png)
+![显示 {% data variables.product.prodname_codespaces %} 工作原理的图表](/assets/images/help/codespaces/codespaces-diagram.png)
 
-## Using Codespaces
+## 使用 Codespaces
 
-You can create a codespace from any branch or commit in your repository and begin developing using cloud-based compute resources. {% data reusables.codespaces.links-to-get-started %}
+您可以从存储库中的任何分支或提交创建代码空间，并使用基于云的计算资源开始开发。 {% data reusables.codespaces.links-to-get-started %}
 
-To customize the runtimes and tools in your codespace, you can create a custom configuration to define an environment (or _dev container_) that is specific for your repository. Using a dev container allows you to specify a Docker environment for development with a well-defined tool and runtime stack that can reference an image, Dockerfile, or docker-compose. This means that anyone using the repository will have the same tools available to them when they create a codespace.
+要自定义代码空间中的运行时和工具，可以为存储库创建一个或多个开发容器配置。 通过将开发容器配置添加到存储库，可以定义适合用户将在存储库中执行的工作的不同开发环境选择。
 
-If you don't do any custom configuration, {% data variables.product.prodname_codespaces %} will clone your repository into an environment with the default codespace image that includes many tools, languages, and runtime environments. For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)".
+如果不添加开发容器配置， {% data variables.product.prodname_codespaces %} 会将存储库克隆到具有默认代码空间映像的环境中，该映像包含许多工具、语言和运行时环境。 更多信息请参阅“[开发容器简介](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)”。
 
-You can also personalize aspects of your codespace environment by using a public [dotfiles](https://dotfiles.github.io/tutorials/) repository and [Settings Sync](https://code.visualstudio.com/docs/editor/settings-sync). Personalization can include shell preferences, additional tools, editor settings, and VS Code extensions. For more information, see "[Customizing your codespace](/codespaces/customizing-your-codespace)".
+您还可以通过使用公共 [dotfiles](https://dotfiles.github.io/tutorials/) 存储库和[设置同步](https://code.visualstudio.com/docs/editor/settings-sync)来个性化代码空间环境的各个方面。 个性化可以包括 shell 首选项、其他工具、编辑器设置和 {% data variables.product.prodname_vscode_shortname %} 扩展。 更多信息请参阅“[自定义代码空间](/codespaces/customizing-your-codespace)”。
 
-## About billing for {% data variables.product.prodname_codespaces %}
+## 关于 {% data variables.product.prodname_codespaces %} 的计费
 
-For information on pricing, storage, and usage for {% data variables.product.prodname_codespaces %}, see "[Managing billing for {% data variables.product.prodname_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces)."
+有关 {% data variables.product.prodname_codespaces %} 的定价、存储和使用情况的信息，请参阅“[管理 {% data variables.product.prodname_codespaces %} 的计费](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces)”。
 
-{% data reusables.codespaces.codespaces-spending-limit-requirement %} For information on how organizations owners and billing managers can manage the spending limit for {% data variables.product.prodname_codespaces %} for an organization, see "[Managing your spending limit for {% data variables.product.prodname_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)."
+{% data reusables.codespaces.codespaces-spending-limit-requirement %} 有关组织所有者和帐单管理员如何管理组织的 {% data variables.product.prodname_codespaces %} 支出限制的信息，请参阅“[管理 {% data variables.product.prodname_codespaces %} 的支出限制](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)”。

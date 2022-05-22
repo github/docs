@@ -20,7 +20,7 @@ Este artigo explica como a cobrança funciona para seus codespaces e explica com
 
 ## Obtendo acesso a {% data variables.product.prodname_codespaces %}
 
-O administrador da sua organização pode limitar o uso de {% data variables.product.prodname_codespaces %} para apenas contas de usuário específicas. Para obter acesso, você deverá entrar em contato com o gerente de faturamento. Para obter mais informações, consulte "[Gerenciar acesso e segurança para seus codespaces](/codespaces/managing-your-codespaces/managing-access-and-security-for-your-codespaces)".
+O administrador da sua organização pode limitar o uso de {% data variables.product.prodname_codespaces %} para apenas contas pessoais específicas. Para obter acesso, você deverá entrar em contato com o gerente de faturamento. Para obter mais informações, consulte "[Gerenciar acesso e segurança para seus codespaces](/codespaces/managing-your-codespaces/managing-access-and-security-for-your-codespaces)".
 
 ## Quanto custa usar {% data variables.product.prodname_codespaces %}
 
@@ -29,6 +29,8 @@ Para ver os preços para uso de {% data variables.product.prodname_codespaces %}
 ## Como é feita a cobrança do seu codespace
 
 A cobrança do seu codespace é feita por minutos de computação e para a quantidade de armazenamento que usa no disco.
+
+Se você habilitar a pré-criação de códigos, isso acarretará custos adicionais. Para obter mais informações, consulte[Sobre as pré-criações de codespaces](/codespaces/prebuilding-your-codespaces/about-codespaces-prebuilds#about-billing-for-codespaces-prebuilds)".
 
 ### Ententendo quais minutos de computação são
 A cobrança do seu codespace é feita pelo número de minutos ativos. Se sua janela de codespace estiver inativa por 30 minutos, ela será desligada automaticamente, e o cálculo da cobrança para o codespace terminará até que você inicie o codespace novamente.
@@ -54,3 +56,7 @@ Seu código será automaticamente excluído quando você for removido de uma org
 ## Excluindo seus codespaces não utilizados
 
 Você pode excluir manualmente os seus codespaces em https://github.com/codespaces e de dentro de {% data variables.product.prodname_vscode %}. Para reduzir o tamanho de um codespace, você pode excluir arquivos manualmente usando o terminal ou de dentro de {% data variables.product.prodname_vscode %}.
+
+## Leia mais
+
+- "[Gerenciando a cobrança para codespaces na sua organização](/codespaces/managing-codespaces-for-your-organization/managing-billing-for-codespaces-in-your-organization)"

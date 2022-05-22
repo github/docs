@@ -2,6 +2,8 @@ date: '2021-12-07'
 sections:
   security_fixes:
     - Support bundles could include sensitive files if they met a specific set of conditions. 
+    - A UI misrepresentation vulnerability was identified in GitHub Enterprise Server that allowed more permissions to be granted during a GitHub App's user-authorization web flow than was displayed to the user during approval. This vulnerability affected all versions of GitHub Enterprise Server prior to 3.3 and was fixed in versions 3.2.5, 3.1.13, 3.0.21. This vulnerability was reported via the GitHub Bug Bounty program and has been assigned [CVE-2021-41598](https://www.cve.org/CVERecord?id=CVE-2021-41598).
+    - A remote code execution vulnerability was identified in GitHub Enterprise Server that could be exploited when building a GitHub Pages site. This vulnerability affected all versions of GitHub Enterprise Server prior to 3.3 and was fixed in versions 3.0.21, 3.1.13, 3.2.5. This vulnerability was reported via the GitHub Bug Bounty program and has been assigned [CVE-2021-41599](https://www.cve.org/CVERecord?id=CVE-2021-41599). Updated February 17, 2022.
   bugs:
     - In some cases when Actions was not enabled, `ghe-support-bundle` reported an unexpected message `Unable to find MS SQL container.` 
     - Running `ghe-config-apply` could sometimes fail because of permission issues in `/data/user/tmp/pages`. 

@@ -23,6 +23,8 @@ shortTitle: About configuration
 {% endif %}
 
 {% ifversion ghae %}
+To get started with {% data variables.product.product_name %}, you first need to deploy {% data variables.product.product_name %}. For more information, see "[Deploying {% data variables.product.product_name %}](/admin/configuration/configuring-your-enterprise/deploying-github-ae)."
+
 The first time you access your enterprise, you will complete an initial configuration to get {% data variables.product.product_name %} ready to use. 初期設定には、Enterprise とアイデンティティプロバイダ (IdP) の接続、SAML SSO による認証、Enterprise 内のリポジトリと Organization のポリシーの設定、および送信メール用の SMTP の設定が含まれます。 詳しい情報については、「[{% data variables.product.prodname_ghe_managed %} を初期化する](/admin/configuration/initializing-github-ae)」を参照してください。
 
 後で、サイトアドミンのダッシュボードと Enterprise 設定を使用して、さらに Enterprise の設定を行い、ユーザ、Organization、およびリポジトリを管理し、リスクを軽減して品質を向上させるポリシーを設定できます。

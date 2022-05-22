@@ -19,7 +19,7 @@ shortTitle: 自动删除分支
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-3. 在“Merge（合并）”按钮下，选择或取消选择 **Automatically delete head branches（自动删除头部分支）**。 ![启用或禁用分支自动删除的复选框](/assets/images/help/repository/automatically-delete-branches.png)
+3. 在 {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6069 %}“拉取请求”{% else %}“合并按钮”{% endif %} 下，选择或取消选择 **Automatically delete head branches（自动删除头部分支）**。 ![启用或禁用分支自动删除的复选框](/assets/images/help/repository/automatically-delete-branches.png)
 
 ## 延伸阅读
 - "[合并拉取请求](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)"

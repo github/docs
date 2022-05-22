@@ -1,7 +1,6 @@
 ---
 title: 将 Azure 订阅连接到您的企业
-intro: '您可以使用 Microsoft Enterprise 协议来启用并支付超过企业所含金额的 {% data variables.product.prodname_actions %} 和 {% data variables.product.prodname_registry %} 的使用。'
-product: '{% data reusables.gated-features.enterprise-accounts %}'
+intro: '您可以使用 Microsoft 企业协议启用并支付 {% data variables.product.prodname_actions %}、{% data variables.product.prodname_registry %} 和 {% data variables.product.prodname_codespaces %} 的使用。'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-account/connecting-an-azure-subscription-to-your-enterprise
   - /github/setting-up-and-managing-billing-and-payments-on-github/connecting-an-azure-subscription-to-your-enterprise
@@ -15,7 +14,17 @@ shortTitle: 连接 Azure 订阅
 
 {% data reusables.enterprise-accounts.billing-microsoft-ea-overview %} 更多信息请参阅“[关于 {% data variables.product.prodname_actions %} 的计费](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)”和“[关于 {% data variables.product.prodname_registry %} 的计费](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)”。
 
-连接 Azure 订阅后，您还可以管理您的支出限制。 有关管理和更改帐户支出限制的信息，请参阅“[管理 {% data variables.product.prodname_registry %} 的支出限制](/billing/managing-billing-for-github-packages/managing-your-spending-limit-for-github-packages)”和“[管理 {% data variables.product.prodname_actions %} 的支出限制](/billing/managing-billing-for-github-actions/managing-your-spending-limit-for-github-actions)”。
+{% note %}
+
+**注意：** 如果您的企业帐户使用 Microsoft 企业协议，则连接 Azure 订阅是使用超出 {% data variables.product.prodname_actions %} 和 {% data variables.product.prodname_registry %} 所包含金额或使用 {% data variables.product.prodname_codespaces %} 的唯一方法。
+
+{% endnote %}
+
+连接 Azure 订阅后，您还可以管理您的支出限制。
+
+- “[管理 {% data variables.product.prodname_registry %} 的支出限额](/billing/managing-billing-for-github-packages/managing-your-spending-limit-for-github-packages)”
+- “[管理 {% data variables.product.prodname_actions %} 的支出限额](/billing/managing-billing-for-github-actions/managing-your-spending-limit-for-github-actions)”
+- “[管理 {% data variables.product.prodname_codespaces %} 的支出限额](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)”
 
 ## 将 Azure 订阅连接到您的企业帐户
 
@@ -29,6 +38,12 @@ shortTitle: 连接 Azure 订阅
 1. 要登录到您的 Microsoft 帐户，请按照提示执行。
 1. 查看“请求的权限”提示。 如果您同意条款，请单击 **Accept（接受）**。
 1. 在“Select a subscription（选择订阅）”下，选择您想要连接到企业的 Azure 订阅 ID。
+
+   {% note %}
+
+   **注意：**{% data variables.product.company_short %}的订阅权限验证请求只读访问权限以显示可用订阅的列表。 要选择 Azure 订阅，必须对订阅拥有所有者权限。 如果默认租户没有正确的权限，则可能需要指定其他租户 ID。 更多信息请参阅 Microsoft 文档中的 [Microsoft 身份平台和 OAuth 2.0 授权代码流](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-auth-code-flow#request-an-authorization-code)。
+
+   {% endnote %}
 1. 单击 **Connect（连接）**。
 
 ## 从企业帐户断开您的 Azure 订阅

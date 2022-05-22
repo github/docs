@@ -49,7 +49,7 @@ The `sort:author-date` qualifier sorts by descending or ascending author date.
 | Qualifier  | Example
 | ------------- | -------------
 | `sort:author-date` or `sort:author-date-desc` | [**feature org:github sort:author-date**](https://github.com/search?utf8=%E2%9C%93&q=feature+org%3Agithub+sort%3Aauthor-date&type=Commits) matches commits containing the word "feature" in repositories owned by {% data variables.product.product_name %}, sorted by descending author date.
-| `sort:author-date-asc` | [**feature org:github sort:author-date-asc**](https://github.com/search?utf8=%E2%9C%93&q=feature+org%3Agithub+sort%3Aauthor-date-asc&type=Commits) matches commits containing the word "feature" in repositories owned by {% data variables.product.product_name %}, sorted by ascending author date.
+| `sort:author-date-asc` | [**`feature org:github sort:author-date-asc`**](https://github.com/search?utf8=%E2%9C%93&q=feature+org%3Agithub+sort%3Aauthor-date-asc&type=Commits) matches commits containing the word "feature" in repositories owned by {% data variables.product.product_name %}, sorted by ascending author date.
 
 ## Sort by committer date
 
@@ -58,7 +58,7 @@ The `sort:committer-date` qualifier sorts by descending or ascending committer d
 | Qualifier  | Example
 | ------------- | -------------
 | `sort:committer-date` or `sort:committer-date-desc` | [**feature org:github sort:committer-date**](https://github.com/search?utf8=%E2%9C%93&q=feature+org%3Agithub+sort%3Acommitter-date&type=Commits) matches commits containing the word "feature" in repositories owned by {% data variables.product.product_name %}, sorted by descending committer date.
-| `sort:committer-date-asc` | [**feature org:github sort:committer-date-asc**](https://github.com/search?utf8=%E2%9C%93&q=feature+org%3Agithub+sort%3Acommitter-date-asc&type=Commits) matches commits containing the word "feature" in repositories owned by {% data variables.product.product_name %}, sorted by ascending committer date.
+| `sort:committer-date-asc` | [**`feature org:github sort:committer-date-asc`**](https://github.com/search?utf8=%E2%9C%93&q=feature+org%3Agithub+sort%3Acommitter-date-asc&type=Commits) matches commits containing the word "feature" in repositories owned by {% data variables.product.product_name %}, sorted by ascending committer date.
 
 ## Sort by updated date
 

@@ -1,6 +1,6 @@
 ---
-title: Installing Git Large File Storage
-intro: 'In order to use {% data variables.large_files.product_name_short %}, you''ll need to download and install a new program that''s separate from Git.'
+title: Instalar Git Large File Storage
+intro: 'Para utilizar {% data variables.large_files.product_name_short %}, tendrás que descargar e instalar un programa nuevo, además de Git.'
 redirect_from:
   - /articles/installing-large-file-storage
   - /articles/installing-git-large-file-storage
@@ -11,106 +11,107 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: Install Git LFS
+shortTitle: Instalar el LFS de Git
 ---
+
 {% mac %}
 
-1. Navigate to [git-lfs.github.com](https://git-lfs.github.com) and click **Download**. Alternatively, you can install {% data variables.large_files.product_name_short %} using a package manager:
-    - To use [Homebrew](http://brew.sh/), run `brew install git-lfs`.
-    - To use [MacPorts](https://www.macports.org/), run `port install git-lfs`.
+1. Navega hasta [git-lfs.github.com](https://git-lfs.github.com) y haz clic en **Download** (Descargar). También puedes instalar {% data variables.large_files.product_name_short %} utilizando un administrador de paquete:
+    - Para utilizar [Homebrew](http://brew.sh/), ejecuta `brew install git-lfs`.
+    - Para utilizar [MacPorts](https://www.macports.org/), ejecuta `port install git-lfs`.
 
- If you install {% data variables.large_files.product_name_short %} with Homebrew or MacPorts, skip to step six.
+ Si instalas {% data variables.large_files.product_name_short %} con Homebrew o MacPorts, dirígete al paso seis.
 
-2. On your computer, locate and unzip the downloaded file.
+2. En tu computadora, ubica y descomprime el archivo descargado.
 {% data reusables.command_line.open_the_multi_os_terminal %}
-3. Change the current working directory into the folder you downloaded and unzipped.
+3. Cambia el directorio de trabajo actual por la carpeta en la que descargaste y descomprimiste el archivo.
   ```shell
   $ cd ~/Downloads/git-lfs-<em>1.X.X</em>
   ```
  {% note %}
 
- **Note:** The file path you use after `cd` depends on your operating system, Git LFS version you downloaded, and where you saved the {% data variables.large_files.product_name_short %} download.
+ **Nota:** La ruta de archivo que utilices después de `cd` depende de tu sistema operativo, de la versión de Git LFS que descargaste y de dónde guardaste la descarga {% data variables.large_files.product_name_short %}.
 
  {% endnote %}
-4. To install the file, run this command:
+4. Para instalar el archivo, ejecuta este comando:
   ```shell
   $ ./install.sh
   > {% data variables.large_files.product_name_short %} initialized.
   ```
  {% note %}
 
- **Note:** You may have to use `sudo ./install.sh` to install the file.
+ **Nota:** Puede que tengas que usar `sudo ./install.sh` para instalar el archivo.
 
  {% endnote %}
-5. Verify that the installation was successful:
+5. Verifica que la instalación haya sido exitosa:
   ```shell
   $ git {% data variables.large_files.command_name %} install
   > {% data variables.large_files.product_name_short %} initialized.
   ```
-6. If you don't see a message indicating that `git {% data variables.large_files.command_name %} install` was successful, please contact {% data variables.contact.contact_support %}. Be sure to include the name of your operating system.
+6. Si no ves un mensaje que indique que `git {% data variables.large_files.command_name %} install` fue exitoso, contáctate con {% data variables.contact.contact_support %}. Asegúrate de incluir el nombre de tu sistema operativo.
 
 {% endmac %}
 
 {% windows %}
 
-1. Navigate to [git-lfs.github.com](https://git-lfs.github.com) and click **Download**.
+1. Navega hasta [git-lfs.github.com](https://git-lfs.github.com) y haz clic en **Download** (Descargar).
 
   {% tip %}
 
-  **Tip:** For more information about alternative ways to install {% data variables.large_files.product_name_short %} for Windows, see this [Getting started guide](https://github.com/github/git-lfs#getting-started).
+  **Sugerencia:** Para obtener más información acerca de otras formas de instalar {% data variables.large_files.product_name_short %} para Windows, consulta esta [Guía de introducción](https://github.com/github/git-lfs#getting-started).
 
   {% endtip %}
-2. On your computer, locate the downloaded file.
-3. Double click on the file called *git-lfs-windows-1.X.X.exe*, where 1.X.X is replaced with the Git LFS version you downloaded. When you open this file Windows will run a setup wizard to install {% data variables.large_files.product_name_short %}.
+2. En tu computadora, ubica el archivo descargado.
+3. Haz doble clic en el archivo llamado *git-lfs-windows-1.X.X.exe*, donde 1.X.X se reemplazará con la versión LFS de Git que descargaste. Cuando abras este archivo, Windows ejecutará un asistente de configuración para instalar {% data variables.large_files.product_name_short %}.
 {% data reusables.command_line.open_the_multi_os_terminal %}
-5. Verify that the installation was successful:
+5. Verifica que la instalación haya sido exitosa:
   ```shell
   $ git {% data variables.large_files.command_name %} install
   > {% data variables.large_files.product_name_short %} initialized.
   ```
-6. If you don't see a message indicating that `git {% data variables.large_files.command_name %} install` was successful, please contact {% data variables.contact.contact_support %}. Be sure to include the name of your operating system.
+6. Si no ves un mensaje que indique que `git {% data variables.large_files.command_name %} install` fue exitoso, contáctate con {% data variables.contact.contact_support %}. Asegúrate de incluir el nombre de tu sistema operativo.
 
 {% endwindows %}
 
 {% linux %}
 
-1. Navigate to [git-lfs.github.com](https://git-lfs.github.com) and click **Download**.
+1. Navega hasta [git-lfs.github.com](https://git-lfs.github.com) y haz clic en **Download** (Descargar).
 
   {% tip %}
 
-  **Tip:** For more information about alternative ways to install {% data variables.large_files.product_name_short %} for Linux, see this [Getting started guide](https://github.com/github/git-lfs#getting-started).
+  **Sugerencia:** Para obtener más información acerca de otras formas de instalar {% data variables.large_files.product_name_short %} para Linux, consulta esta [Guía de introducción](https://github.com/github/git-lfs#getting-started).
 
   {% endtip %}
-2. On your computer, locate and unzip the downloaded file.
+2. En tu computadora, ubica y descomprime el archivo descargado.
 {% data reusables.command_line.open_the_multi_os_terminal %}
-3. Change the current working directory into the folder you downloaded and unzipped.
+3. Cambia el directorio de trabajo actual por la carpeta en la que descargaste y descomprimiste el archivo.
   ```shell
   $ cd ~/Downloads/git-lfs-<em>1.X.X</em>
   ```
  {% note %}
 
- **Note:** The file path you use after `cd` depends on your operating system, Git LFS version you downloaded, and where you saved the {% data variables.large_files.product_name_short %} download.
+ **Nota:** La ruta de archivo que utilices después de `cd` depende de tu sistema operativo, de la versión de Git LFS que descargaste y de dónde guardaste la descarga {% data variables.large_files.product_name_short %}.
 
  {% endnote %}
-4. To install the file, run this command:
+4. Para instalar el archivo, ejecuta este comando:
   ```shell
   $ ./install.sh
   > {% data variables.large_files.product_name_short %} initialized.
   ```
  {% note %}
 
- **Note:** You may have to use `sudo ./install.sh` to install the file.
+ **Nota:** Puede que tengas que usar `sudo ./install.sh` para instalar el archivo.
 
  {% endnote %}
-5. Verify that the installation was successful:
+5. Verifica que la instalación haya sido exitosa:
   ```shell
   $ git {% data variables.large_files.command_name %} install
   > {% data variables.large_files.product_name_short %} initialized.
   ```
-6. If you don't see a message indicating that `git {% data variables.large_files.command_name %} install` was successful, please contact {% data variables.contact.contact_support %}. Be sure to include the name of your operating system.
+6. Si no ves un mensaje que indique que `git {% data variables.large_files.command_name %} install` fue exitoso, contáctate con {% data variables.contact.contact_support %}. Asegúrate de incluir el nombre de tu sistema operativo.
 
 {% endlinux %}
 
-## Further reading
+## Leer más
 
-- "[Configuring {% data variables.large_files.product_name_long %}](/articles/configuring-git-large-file-storage)"
+- "[Configurar {% data variables.large_files.product_name_long %}](/articles/configuring-git-large-file-storage)"

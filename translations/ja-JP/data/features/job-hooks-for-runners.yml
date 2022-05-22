@@ -1,0 +1,8 @@
+---
+#Reference: #6530
+#Running scripts before or after a job
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.6'
+  ghae: 'issue-6530'

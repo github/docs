@@ -15,7 +15,7 @@ topics:
 
 ## About project access
 
-Admins of organization-level projects can manage access for the entire organization, for teams, and for individual organization members.
+Admins of organization-level projects can manage access for the entire organization, for teams, for individual organization members, and for outside collaborators. 
 
 Admins of user-level projects can invite individual collaborators and manage their access.
 
@@ -37,18 +37,18 @@ The default base role is `write`, meaning that everyone in the organization can 
 
 ### Managing access for teams and individual members of your organization
 
-You can also add teams, and individual organization members, as collaborators. For more information, see "[About teams](/organizations/organizing-members-into-teams/about-teams)."
+You can also add teams, external collaborators, and individual organization members as collaborators for an organization-level project. For more information, see "[About teams](/organizations/organizing-members-into-teams/about-teams)."
 
-You can only invite an individual user to collaborate on your organization-level project if they are a member of the organization.
+You can only invite an individual user to collaborate on your organization-level project if they are already a member of the organization or an outside collaborator on at least one repository in the organization.
 
 {% data reusables.projects.project-settings %}
 1. Click **Manage access**.
-1. Under **Invite collaborators**, search for the team or organization member that you want to invite.
-1. Select the role for the collaborator.
+2. Under **Invite collaborators**, search for the team or individual user that you want to invite.
+3. Select the role for the collaborator.
    - **Read**: The team or individual can view the project.
    - **Write**: The team or individual can view and edit the project.
    - **Admin**: The team or individual can view, edit, and add new collaborators to the project.
-1. Click **Invite**.
+4. Click **Invite**.
 
 ### Managing access of an existing collaborator on your project
 

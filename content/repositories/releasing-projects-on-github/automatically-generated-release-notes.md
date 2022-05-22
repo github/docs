@@ -5,12 +5,14 @@ permissions: Repository collaborators and people with write access to a reposito
 versions:
   fpt: '*'
   ghec: '*'
+  ghes: '>3.3'
+  ghae: issue-4974
 topics:
   - Repositories
 shortTitle: Automated release notes
 communityRedirect:
   name: Provide GitHub Feedback
-  href: 'https://github.com/github/feedback/discussions/categories/releases-feedback'
+  href: 'https://github.com/github/feedback/discussions/categories/general-feedback'
 ---
 
 ## About automatically generated release notes

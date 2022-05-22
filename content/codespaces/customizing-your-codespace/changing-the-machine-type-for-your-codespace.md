@@ -20,12 +20,9 @@ topics:
 
 {% endnote %}
 
-{% data reusables.codespaces.codespaces-machine-types %}
+{% data reusables.codespaces.codespaces-machine-types %} You can choose an alternative machine type either when you create a codespace or at any time after you've created a codespace. 
 
-You can choose a machine type either when you create a codespace or you can change the machine type at any time after you've created a codespace. 
-
-For information on choosing a machine type when you create a codespace, see "[Creating a codespace](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)." 
-For information on changing the machine type within {% data variables.product.prodname_vscode %}, see "[Using {% data variables.product.prodname_codespaces %} in {% data variables.product.prodname_vscode %}](/codespaces/developing-in-codespaces/using-codespaces-in-visual-studio-code#changing-the-machine-type-in-visual-studio-code)."
+For information on choosing a machine type when you create a codespace, see "[Creating a codespace](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)." For information on changing the machine type within {% data variables.product.prodname_vscode %}, see "[Using {% data variables.product.prodname_codespaces %} in {% data variables.product.prodname_vscode %}](/codespaces/developing-in-codespaces/using-codespaces-in-visual-studio-code#changing-the-machine-type-in-visual-studio-code)."
 
 ## Changing the machine type in {% data variables.product.prodname_dotcom %}
 
@@ -40,7 +37,15 @@ For information on changing the machine type within {% data variables.product.pr
 
    !['Change machine type' menu option](/assets/images/help/codespaces/change-machine-type-menu-option.png)
 
-1. Choose the required machine type.
+1. If multiple machine types are available for your codespace, choose the type of machine you want to use.
+
+   ![Dialog box showing available machine types to choose](/assets/images/help/codespaces/change-machine-type-choice.png)
+
+   {% note %}
+
+   **Note**: {% data reusables.codespaces.codespaces-machine-type-availability %}
+
+   {% endnote %}
 
 2. Click **Update codespace**. 
 

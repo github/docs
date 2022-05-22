@@ -4,14 +4,14 @@
 - Go
 - Java
 - JavaScript/TypeScript
-- Python{% ifversion fpt or ghes > 3.3 or ghae-issue-5017 %}
+- Python{% ifversion fpt or ghes > 3.3 or ghec or ghae-issue-5017 %}
 - Ruby
 
 {% note %}
 
-**Note**: {% data variables.product.prodname_codeql %} analysis for Ruby is currently in beta. During the beta, analysis of Ruby will be less comprehensive than {% data variables.product.prodname_codeql %} analysis of other languages.
+**注意**：Ruby 的 {% data variables.product.prodname_codeql %} 分析目前处于测试阶段。 在测试期间，Ruby 的分析将不如 {% data variables.product.prodname_codeql %} 其他语言的分析那么全面。
 
 {% endnote %}
 
-For more information, see the documentation on the {% data variables.product.prodname_codeql %} website: "[Supported languages and frameworks](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/)."
+更多信息请参阅 {% data variables.product.prodname_codeql %} 网站上的文档：“[支持的语言和框架](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/)”。
 {% endif %}

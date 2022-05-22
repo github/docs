@@ -42,7 +42,7 @@ For more information, see "[Repository roles for an organization](/organizations
 ## Migrating a single admin team
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 1. In the team description box, click **Migrate team**.
   ![Migrate team button](/assets/images/help/teams/migrate-a-legacy-admin-team.png)

@@ -37,6 +37,7 @@ Organizations owners and billing managers can manage the spending limit for {% d
 {% data reusables.dotcom_billing.monthly-spending-limit-codespaces %}
 {% data reusables.dotcom_billing.update-spending-limit %}
 
+{% ifversion ghec %}
 ## Managing the spending limit for {% data variables.product.prodname_codespaces %} for your enterprise account
 
 Enterprise owners and billing managers can manage the spending limit for {% data variables.product.prodname_codespaces %} for an enterprise account.
@@ -48,12 +49,20 @@ Enterprise owners and billing managers can manage the spending limit for {% data
   ![Spending limit tab](/assets/images/help/settings/spending-limit-tab-enterprise.png)
 {% data reusables.dotcom_billing.monthly-spending-limit %}
 {% data reusables.dotcom_billing.update-spending-limit %}
+{% endif %}
 
 ## Exporting changes when you have reached your spending limit
 
 {% data reusables.codespaces.exporting-changes %}
 ## Managing usage and spending limit email notifications
 
-Email notifications are sent to account owners and billing managers when spending reaches 50%, 75%, and 90% of your account's spending limit. 
+Email notifications are sent to account owners and billing managers when spending reaches 50%, 75%, 90%, and 100% of your account's spending limit. 
 
 You can disable these notifications anytime by navigating to the bottom of the **Spending Limit** page.
+
+![Screenshot of the billing email notification settings](/assets/images/help/billing/codespaces-spending-limit-notifications.png)
+
+## Further reading
+
+- "[Restricting access to machine types](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)"
+- "[Managing billing for Codespaces in your organization](/codespaces/managing-codespaces-for-your-organization/managing-billing-for-codespaces-in-your-organization)"

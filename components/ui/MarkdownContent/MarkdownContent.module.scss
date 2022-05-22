@@ -4,6 +4,11 @@
 @import "./stylesheets/table.scss";
 
 .markdownBody {
+  a {
+    text-decoration: underline;
+    text-underline-offset: 25%;
+  }
+
   summary {
     outline: none;
 
@@ -21,6 +26,13 @@
         margin: 0;
         padding: 0;
       }
+    }
+  }
+
+  /* For REST pages which have Parameters and Code Samples h4 headings that are also links. */
+  h4 {
+    a {
+      text-decoration: none;
     }
   }
 

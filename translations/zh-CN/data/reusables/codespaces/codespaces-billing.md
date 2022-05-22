@@ -1,9 +1,9 @@
-{% data variables.product.prodname_codespaces %} are billed in US dollars (USD) according to their compute and storage usage.
+{% data variables.product.prodname_codespaces %} 根据其计算和存储使用情况以美元 (USD) 计费。
 
-### Calculating compute usage
-The total number of uptime minutes for which the {% data variables.product.prodname_codespaces %} instances are active. Compute usage is calculated by the actual number of minutes used by all codespaces. These totals are reported to the billing service daily, and are billed monthly.
+### 计算运算使用率
+运算使用率定义为 {% data variables.product.prodname_codespaces %} 实例处于活动状态的正常运行时间总分钟数。 运算使用率是通过对所有代码空间使用的实际分钟数求和来计算的。 这些总计每天报告给计费服务，并按月计费。
 
-Uptime is controlled by stopping your codespace which can be done manually or based on period of inactivity. For more information, see "[Closing or stopping your codespace](/codespaces/getting-started/deep-dive#closing-or-stopping-your-codespace)".
+正常运行时间是通过停止代码空间来控制的，这可以手动完成，也可以在开发人员指定的非活动期后自动完成。 更多信息请参阅“[关闭或停止代码空间](/codespaces/getting-started/deep-dive#closing-or-stopping-your-codespace)”。
 
-### Calculating storage usage
-For {% data variables.product.prodname_codespaces %} billing purposes, this includes all storage used by all codespaces in your account. This includes any files used by the codespaces, such as cloned repositories, configuration files, and extensions, among others. These totals are reported to the billing service daily, and are billed monthly. 到月底，{% data variables.product.prodname_dotcom %} 会将您的存储量舍入到最接近的 MB。 
+### 计算存储使用率
+出于 {% data variables.product.prodname_codespaces %} 计费目的，这包括您帐户中所有代码空间使用的所有存储空间。 这包括代码空间使用的任何文件，例如克隆的存储库、配置文件和扩展等。 这些总计每天报告给计费服务，并按月计费。 到月底，{% data variables.product.prodname_dotcom %} 会将您的存储量舍入到最接近的 MB。 

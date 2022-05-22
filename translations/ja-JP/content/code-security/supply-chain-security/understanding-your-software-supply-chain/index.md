@@ -3,16 +3,20 @@ title: ソフトウェアサプライチェーンの理解
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: issue-4864
+  ghae: '*'
   ghec: '*'
 topics:
   - Dependency graph
   - Dependencies
   - Repositories
+shortTitle: サプライチェーンの理解
 children:
+  - /about-supply-chain-security
   - /about-the-dependency-graph
-  - /exploring-the-dependencies-of-a-repository
+  - /configuring-the-dependency-graph
   - /about-dependency-review
-shortTitle: Understand your supply chain
+  - /configuring-dependency-review
+  - /exploring-the-dependencies-of-a-repository
+  - /troubleshooting-the-dependency-graph
 ---
 

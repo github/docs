@@ -21,6 +21,8 @@ You can report users that have violated {% data variables.product.prodname_dotco
 
 If reported content is enabled for a public repository, you can also report content directly to repository maintainers.
 
+Users in India can contact GitHub's Grievance Officer for India [here](https://support.github.com/contact/india-grievance-officer).
+
 ## Reporting a user
 
 {% data reusables.profile.user_profile_page_navigation %}

@@ -31,9 +31,9 @@ versions:
 
 ## 比较标记
 
-比较发行版标记将显示自上次发布以来您对仓库的更改。 {% ifversion fpt or ghae or ghes or ghec %} 更多信息请参阅“[比较发行版](/github/administering-a-repository/comparing-releases)”。{% endif %}
+比较发行版标记将显示自上次发布以来您对仓库的更改。 更多信息请参阅“[比较发行版](/github/administering-a-repository/comparing-releases)”。
 
-{% ifversion fpt or ghae or ghes or ghec %}要比较标记，可以从页面顶部的 `compare` 下拉菜单选择标记名称。{% else %} 不是键入分支名称，而是键入 `compare` 下拉菜单中的标记名称。{% endif %}
+要比较标记，您可以从页面顶部的 `compare（比较）`下拉菜单中选择标记名称。
 
 此处是[在两个标记之间进行比较](https://github.com/octocat/linguist/compare/v2.2.0...octocat:v2.3.3)的示例。
 
@@ -53,7 +53,7 @@ versions:
 
 要比较不同仓库上的分支，请在分支名称前加上用户名。 例如，通过为 `base` 指定 `octocat:master`，为 `compare` 指定 `octo-org:master`，您可以比较分别由 `octocat` 和 `octo-org` 拥有的仓库上的 `master` 分支。
 
-此处是[在两个仓库之间进行比较](https://github.com/octocat/linguist/compare/master...octo-org:master)的示例。
+此处是[在两个仓库之间进行比较](https://github.com/github/linguist/compare/master...octocat:master)的示例。
 
 ## 跨提交比较
 

@@ -21,8 +21,8 @@ shortTitle: Subscriptions & billing date
 ---
 ## Finding your personal account's next billing date
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing_plans %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.billing_plans %}
 {% data reusables.dotcom_billing.next_billing_date %}
 
 ## Finding your organization's next billing date

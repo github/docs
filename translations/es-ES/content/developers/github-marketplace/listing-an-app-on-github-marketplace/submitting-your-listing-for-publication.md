@@ -19,7 +19,7 @@ Una vez que el listado de tu app cumpla con los requisitos de {% data variables.
 
   ![Opción de resumen para el borrador de listado de marketplace](/assets/images/marketplace/edit-marketplace-listing-overview.png)
 
-2. Para emitir tu listado de app completo, haz clic en **Solicitar publicación**.
+2. Para emitir tu listado de apps completado, haz clic en **Solicitar publicación**.
 
   ![Lista de verificación de "Publica tu app en Marketplace" con botón de emisión al final](/assets/images/marketplace/publish-your-app-checklist-and-submission.png)
 

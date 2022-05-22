@@ -6,6 +6,15 @@
 // static copies of all pages for the oldest supported Enterprise version.
 // See the Enterprise deprecation issue template for instructions.
 //
+// NOTE: If you get this error:
+//
+//    Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'website-scraper' ...
+//
+// it's because you haven't installed all the *optional* dependencies.
+// To do that, run:
+//
+//    npm install --include=optional
+//
 // [end-readme]
 
 import { fileURLToPath } from 'url'

@@ -51,7 +51,7 @@ Você pode encontrar e visualizar um pacote localizado em um repositório espec�
 Você pode encontrar e visualizar um pacote localizado nos repositórios de uma organização a que pertence.
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 3. No nome da sua organização, clique em {% octicon "package" aria-label="The package icon" %} **Pacotes**.
 {% data reusables.package_registry.navigate-to-packages %}
 

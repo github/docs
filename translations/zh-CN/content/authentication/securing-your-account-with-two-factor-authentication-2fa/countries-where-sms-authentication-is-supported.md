@@ -67,7 +67,6 @@ shortTitle: 支持短信的国家/地区
 <li>冰岛</li>
 <li>印度</li>
 <li>印度尼西亚</li>
-<li>伊朗</li>
 <li>爱尔兰</li>
 <li>以色列</li>
 <li>意大利</li>
@@ -105,7 +104,6 @@ shortTitle: 支持短信的国家/地区
 <li>葡萄牙</li>
 <li>卡塔尔</li>
 <li>罗马尼亚</li>
-<li>俄罗斯</li>
 <li>卢旺达</li>
 <li>塞内加尔</li>
 <li>塞尔维亚</li>
@@ -117,7 +115,7 @@ shortTitle: 支持短信的国家/地区
 <li>韩国</li>
 <li>西班牙</li>
 <li>斯里兰卡</li>
-<li>圣露西亚</li>
+<li>圣卢西亚</li>
 <li>苏丹</li>
 <li>瑞典</li>
 <li>瑞士</li>
@@ -125,10 +123,8 @@ shortTitle: 支持短信的国家/地区
 <li>坦桑尼亚</li>
 <li>多哥</li>
 <li>特立尼达和多巴哥</li>
-<li>土耳其</li>
 <li>特克斯和凯科斯群岛</li>
 <li>乌干达</li>
-<li>乌克兰</li>
 <li>阿拉伯联合酋长国</li>
 <li>英国</li>
 <li>美国</li>

@@ -1,1 +1,1 @@
-If you have access to pull requests in more than 10,000 repositories, you will need to limit your search to a specific organization, user account, or repository to see results.
+如果您有权在超过 10,000 个存储库中拉取请求，则需要将搜索限制为特定组织、个人帐户或存储库才能查看结果。

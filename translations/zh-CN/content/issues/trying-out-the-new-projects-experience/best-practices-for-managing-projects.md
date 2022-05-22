@@ -27,6 +27,20 @@ topics:
 
 议题和拉取请求包括内置功能，让您轻松地与协作者沟通。 使用@提及提醒个人或整个团队注意评论。 指派议题协作者负责沟通。 链接到相关的议题或拉取请求以沟通它们是如何连接的。
 
+## 使用描述和 README
+
+使用您的项目描述和 README 来分享有关该项目的信息。
+
+例如：
+
+- 解释项目的目的。
+- 描述项目视图及其使用方法。
+- 包括相关链接和要联系的人员以获取更多信息。
+
+项目 README 支持 Markdown，它允许您使用图像和高级格式，如链接、列表和标题。
+
+更多信息请参阅“[创建项目（测试版）](/issues/trying-out-the-new-projects-experience/creating-a-project#updating-your-project-description-and-readme)”。
+
 ## 使用视图
 
 使用项目视图从不同角度查看您的项目。
@@ -34,7 +48,7 @@ topics:
 例如：
 
 - 按状态过滤以查看所有未启动的项
-- Group by a custom priority field to monitor the volume of high priority items
+- 按自定义优先级字段分组以监控高优先级项目的数量
 - 按自定义日期字段排序，以查看具有最早目标运输日期的物品
 
 更多信息请参阅“[自定义项目视图](/issues/trying-out-the-new-projects-experience/customizing-your-project-views)”。
@@ -47,22 +61,22 @@ topics:
 
 ## 使用自动化
 
-You can automate tasks to spend less time on busy work and more time on the project itself. 需要手动操作的越少，项目就越有可能保持最新状态。
+您可以自动执行任务，以减少您在繁琐工作上花费的时间，将更多的时间用于项目本身。 需要手动操作的越少，项目就越有可能保持最新状态。
 
-Projects (beta) offers built-in workflows. For example, when an issue is closed, you can automatically set the status to "Done."
+项目（测试版）提供内置工作流程。 例如，当议题关闭时，您可以自动将状态设置为“完成”。
 
-Additionally, {% data variables.product.prodname_actions %} and the GraphQL API enable you to automate routine project management tasks. For example, to keep track of pull requests awaiting review, you can create a workflow that adds a pull request to a project and sets the status to "needs review"; this process can be automatically triggered when a pull request is marked as "ready for review."
+此外，{% data variables.product.prodname_actions %} 和 GraphQL API 还可让您实现例行项目管理任务自动化。 例如，要跟踪等待审查的拉取请求，您可以创建一个工作流程，将拉取请求添加到项目并将状态设置为“需要审核”；当拉取请求标记为“准备审核”时，可以自动触发此过程。
 
 - 有关示例工作流程，请参阅“[自动化项目](/issues/trying-out-the-new-projects-experience/automating-projects)”。
 - 有关 API 的更多信息，请参阅“[使用 API 管理项目](/issues/trying-out-the-new-projects-experience/using-the-api-to-manage-projects)”。
 - 有关 {% data variables.product.prodname_actions %} 的更多信息，请参阅[“{% data variables.product.prodname_actions %}](/actions)”。
 
-## Use different field types
+## 使用不同的字段类型
 
-Take advantage of the various field types to meet your needs.
+利用各种字段类型来满足您的需求。
 
-Use an iteration field to schedule work or create a timeline. You can group by iteration to see if items are balanced between iterations, or you can filter to focus on a single iteration. Iteration fields also let you view work that you completed in past iterations, which can help with velocity planning and reflecting on your team's accomplishments.
+使用迭代字段可以安排工作或创建日程表。 您可以按迭代进行分组以查看项目在迭代之间是否平衡，也可以进行筛选以专注于单个迭代。 迭代字段还允许您查看在过去迭代中完成的工作，这有助于快速规划和反映团队的成就。 迭代字段还支持休息，以显示您和您的团队何时从迭代中抽出时间。 更多信息请参阅“[管理项目中的迭代](/issues/trying-out-the-new-projects-experience/managing-iterations)”。
 
-Use a single select field to track information about a task based on a preset list of values. For example, track priority or project phase. Since the values are selected from a preset list, you can easily group or filter to focus on items with a specific value.
+使用单选字段可以根据预设的值列表跟踪有关任务的信息。 例如，跟踪优先级或项目阶段。 由于这些值是从预设列表中选择的，因此您可以轻松地对值进行分组或筛选，以将焦点放在具有特定值的项目上。
 
-For more information about the different field types, see "[Creating a project (beta)](/issues/trying-out-the-new-projects-experience/creating-a-project#adding-custom-fields)."
+有关不同字段类型的详细信息，请参阅“[创建项目（测试版）](/issues/trying-out-the-new-projects-experience/creating-a-project#adding-custom-fields)。

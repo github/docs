@@ -1,5 +1,5 @@
 ---
-title: Connecting to GitHub with SSH
+title: GitHub に SSH で接続する
 intro: 'You can connect to {% data variables.product.product_name %} using the Secure Shell Protocol (SSH), which provides a secure channel over an unsecured network.'
 redirect_from:
   - /key-setup-redirect

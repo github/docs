@@ -20,7 +20,7 @@ topics:
 
 {% endtip %}
 
-必须具有适当的权限才可执行使用相关查询参数的操作。 例如，必须具有向拉取请求添加标签的权限才可使用 `labels` 查询参数。 For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
+必须具有适当的权限才可执行使用相关查询参数的操作。 例如，必须具有向拉取请求添加标签的权限才可使用 `labels` 查询参数。 更多信息请参阅“[组织的仓库角色](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)”。
 
 如果使用查询参数创建无效的 URL，或者没有适当的权限，URL 将返回 `404 未找到`错误页。 如果您创建的 URL 超过服务器限制，URL 将返回 `414 URI 过长`错误页面。
 

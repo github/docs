@@ -2,7 +2,7 @@
 title: Utilizar el reenvío del agente SSH
 intro: 'Para simplificar los despliegues en un servidor, puedes configurar el reenvío del agente SSH para utilizar las llaves SSH locales de forma segura.'
 redirect_from:
-  - /guides/using-ssh-agent-forwarding/
+  - /guides/using-ssh-agent-forwarding
   - /v3/guides/using-ssh-agent-forwarding
 versions:
   fpt: '*'
@@ -79,7 +79,7 @@ Aquí te mostramos algunos puntos en los cuales tener cuidado cuando intentes so
 
 ### Debes utilizar una URL con SSH para revisar el código
 
-El reenvío SSH funciona únicamente con URL con SSH, no con aquellas de HTTP(s). Revisa el archivo *.git/config* en tu servidor y asegúrate de que la URL es de estilo SSH como se muestra a continuación:
+El reenvío SSH funciona únicamente con URL con SSH, no con aquellas de HTTP(s). Revisa el archivo `.git/config` en tu servidor y asegúrate de que la URL es de estilo SSH como se muestra a continuación:
 
 ```shell
 [remote "origin"]
@@ -107,7 +107,7 @@ $ exit
 # Returns to your local command prompt
 ```
 
-En este ejemplo, el archivo *~/.ssh/config* se carga primero, luego se lee el */etc/ssh_config*.  Podemos inspeccionar ese archivo para ver si está anulando nuestras opciones si ejecutamos los siguientes comandos:
+En este ejemplo, el archivo `~/.ssh/config` se carga primero, luego se lee el `/etc/ssh_config`.  Podemos inspeccionar ese archivo para ver si está anulando nuestras opciones si ejecutamos los siguientes comandos:
 
 ```shell
 $ cat /etc/ssh_config
@@ -117,7 +117,7 @@ $ cat /etc/ssh_config
 >   ForwardAgent no
 ```
 
-En este ejemplo, nuestro archivo */etc/ssh_config* dice específicamente `ForwardAgent no`, lo cual es una manera de bloquear el reenvío del agente. Si borramos esta línea del archivo deberíamos poder hacer funcionar el reenvío del agente nuevamente.
+En este ejemplo, nuestro archivo `/etc/ssh_config` dice específicamente `ForwardAgent no`, lo cual es una manera de bloquear el reenvío del agente. Si borramos esta línea del archivo deberíamos poder hacer funcionar el reenvío del agente nuevamente.
 
 ### Tu servidor debe permitir el reenvío del agente SSH en las conexiones entrantes
 

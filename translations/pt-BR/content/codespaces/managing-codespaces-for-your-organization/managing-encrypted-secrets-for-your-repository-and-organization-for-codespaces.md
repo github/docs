@@ -41,28 +41,26 @@ Para criar segredos para um repositório da organização, você deve ter acesso
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.github-actions.sidebar-secret %}
-1. Desça a barra de rolagem e, em **Segredos**, selecione **Codespaces**. ![Opção de codespace na barra lateral](/assets/images/help/codespaces/codespaces-option-secrets.png)
-1. Na parte superior da página, clique em **Novo segredo de repositório**.
-1. Digite um nome para o seu segredo na caixa de entrada **Nome**.
-1. Insira o valor para o seu segredo.
-1. Clique em **Add secret** (Adicionar segredo).
+1. Na seção "Segurança" da barra lateral, selecione **Segredos de {% octicon "key-asterisk" aria-label="The key-asterisk icon" %}** e, em seguida, clique em **{% data variables.product.prodname_codespaces %}**.
+2. Na parte superior da página, clique em **Novo segredo de repositório**.
+3. Digite um nome para o seu segredo na caixa de entrada **Nome**.
+4. Insira o valor para o seu segredo.
+5. Clique em **Add secret** (Adicionar segredo).
 
 ## Adicionar segredos para uma organização
 
 Ao criar um segredo em uma organização, você pode usar uma política para limitar quais repositórios podem acessar esse segredo. Por exemplo, você pode conceder acesso a todos os repositórios ou limitar o acesso a apenas repositórios privados ou a uma lista específica de repositórios.
 
-{% data reusables.github-actions.permissions-statement-secrets-organization %}
+{% data reusables.actions.permissions-statement-secrets-organization %}
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-{% data reusables.github-actions.sidebar-secret %}
-1. Desça a barra de rolagem e, em **Segredos**, selecione **Codespaces**. ![Opção de codespace na barra lateral](/assets/images/help/codespaces/codespaces-option-secrets-org.png)
-1. Na parte superior da página, clique em **Novo segredo de organização**.
-1. Digite um nome para o seu segredo na caixa de entrada **Nome**.
-1. Insira o **Valor** para o seu segredo.
-1. Na lista suspensa **Acesso do repositório**, escolha uma política de acesso. ![Lista de Acesso ao Repositório com repositórios privados selecionados](/assets/images/help/codespaces/secret-repository-access.png)
-1. Clique em **Add secret** (Adicionar segredo).
+1. Na seção "Segurança" da barra lateral, selecione **Segredos de {% octicon "key-asterisk" aria-label="The key-asterisk icon" %}** e, em seguida, clique em **{% data variables.product.prodname_codespaces %}**.
+2. Na parte superior da página, clique em **Novo segredo de organização**.
+3. Digite um nome para o seu segredo na caixa de entrada **Nome**.
+4. Insira o **Valor** para o seu segredo.
+5. Na lista suspensa **Acesso do repositório**, escolha uma política de acesso. ![Lista de Acesso ao Repositório com repositórios privados selecionados](/assets/images/help/codespaces/secret-repository-access.png)
+6. Clique em **Add secret** (Adicionar segredo).
 
 ## Rever o acesso para os segredos do nível da organização
 
@@ -70,7 +68,7 @@ Você pode verificar quais políticas de acesso são aplicadas a um segredo na s
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-{% data reusables.github-actions.sidebar-secret %}
+{% data reusables.actions.sidebar-secret %}
 1. A lista de segredos inclui quaisquer permissões e políticas configuradas. Por exemplo: ![Lista de segredos](/assets/images/help/settings/actions-org-secrets-list.png)
 1. Para obter mais detalhes sobre as permissões configuradas para cada segredo, clique em **Atualizar**.
 

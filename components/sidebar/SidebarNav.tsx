@@ -9,19 +9,20 @@ import { SidebarHomepage } from './SidebarHomepage'
 
 export const SidebarNav = () => {
   const router = useRouter()
-  const { error, relativePath } = useMainContext()
+  const { error, currentProduct } = useMainContext()
   const { t } = useTranslation('header')
 
   return (
     <div
       className="d-none d-lg-block bg-primary position-sticky top-0 overflow-y-auto flex-shrink-0 pb-5 border-right"
       style={{ width: 326, height: '100vh' }}
+      role="banner"
     >
       <div
+        tabIndex={-1}
         className="d-flex flex-items-center p-4 position-sticky top-0 color-bg-default"
         style={{ zIndex: 3 }}
         id="github-logo"
-        role="banner"
       >
         <Link
           href={`/${router.locale}`}
@@ -39,7 +40,7 @@ export const SidebarNav = () => {
         </Link>
       </div>
       <nav>
-        {error === '404' || relativePath === 'index.md' ? <SidebarHomepage /> : <SidebarProduct />}
+        {error === '404' || currentProduct === null ? <SidebarHomepage /> : <SidebarProduct />}
       </nav>
     </div>
   )
