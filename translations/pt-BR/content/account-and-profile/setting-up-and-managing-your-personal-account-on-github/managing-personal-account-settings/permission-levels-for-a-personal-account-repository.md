@@ -1,5 +1,5 @@
 ---
-title: Permission levels for a personal account repository
+title: Níveis de permissão para o repositório de uma conta pessoal
 intro: 'Um repositório pertencente a uma conta pessoal tem dois níveis de permissão: o proprietário e os colaboradores do repositório.'
 redirect_from:
   - /articles/permission-levels-for-a-user-account-repository

@@ -69,7 +69,7 @@ A nível da organização, a visão geral de segurança exibe informações de s
 
 {% ifversion ghec or ghes > 3.4 or ghae-issue-6199 %}
 ### Sobre a visão geral de segurança do nível da empresa
-A nível da empresa, a visão geral de segurança exibe informações de segurança agregadas e específicas ao repositório para sua empresa. You can view repositories owned by your enterprise that have security alerts, view all security alerts, or security feature-specific alerts from across your enterprise.
+A nível da empresa, a visão geral de segurança exibe informações de segurança agregadas e específicas ao repositório para sua empresa. É possível visualizar repositórios pertencentes à sua empresa que tenham alertas de segurança, visualizar todos os alertas de segurança ou alertas específicos de segurança de toda a empresa.
 
 Os proprietários da organização e os gerentes de segurança das organizações da sua empresa também têm acesso limitado à visão geral de segurança no nível da empresa. Eles só podem ver repositórios e alertas das organizações aos quais têm acesso total.
 

@@ -68,13 +68,13 @@ Você pode ver mais informações sobre o acesso da pessoa à sua empresa como, 
 {% ifversion ghec %}
 ## Visualizando convites pendentes
 
-You can see all the pending invitations to become members, administrators, or outside collaborators in your enterprise. É possível filtrar a lista de forma útil, por exemplo, por organização. Ou localizar uma determinada pessoa procurando pelo nome de usuário ou o nome de exibição dela.
+É possível ver todos os convites pendentes para se tornarem integrantes, administradores ou colaboradores externos na sua empresa. É possível filtrar a lista de forma útil, por exemplo, por organização. Ou localizar uma determinada pessoa procurando pelo nome de usuário ou o nome de exibição dela.
 
-In the list of pending members, for any individual account, you can cancel all invitations to join organizations owned by your enterprise. This does not cancel any invitations for that same person to become an enterprise administrator or outside collaborator.
+Na lista de integrantes pendentes, para qualquer conta individual, você pode cancelar todos os convites para participar de organizações pertencentes à sua empresa. Isto não cancela nenhum convite para que essa mesma pessoa se torne administrador corporativo ou colaborador externo.
 
 {% note %}
 
-**Note:** If an invitation was provisioned via SCIM, you must cancel the invitation via your identity provider (IdP) instead of on {% data variables.product.prodname_dotcom %}.
+**Observação:** Se um convite foi fornecido via SCIM, você deve cancelar o convite pelo seu provedor de identidade (IdP) em vez de {% data variables.product.prodname_dotcom %}.
 
 {% endnote %}
 
@@ -85,7 +85,7 @@ Se você usar {% data variables.product.prodname_vss_ghe %}, a lista de convites
 1. Em "Pessoas", clique em **Convites pendentes.**.
 
    ![Captura de tela da aba "Convites pendentes" na barra lateral](/assets/images/help/enterprises/pending-invitations-tab.png)
-1. Optionally, to cancel all invitations for an account to join organizations owned by your enterprise, to the right of the account, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **Cancel invitation**.
+1. Opcionalmente, para cancelar todos os convites de uma conta para participar de organizações pertencentes à sua empresa, à direita da conta, clique em {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} e depois clique em **Cancelar convite**.
 
    ![Screenshot of the "Cancel invitation" button](/assets/images/help/enterprises/cancel-enterprise-member-invitation.png)
 1. Opcionalmente, para visualizar os convites pendentes para administradores corporativos ou colaboradores externos, em "Integrantes pendentes", clique em **Administradores** ou **Colaboradores externos**.
