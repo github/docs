@@ -11,9 +11,9 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## About the Feeds API
+## Feeds APIについて
 
-To see what feeds are available to you, use the [Get feeds](#get-feeds) operation. You can then get a feed by sending a request to one of the feed URLs.
+利用できるフィードを見るには、[Get feeds](#get-feeds)操作を使います。 そして、フィードURLの1つにリクエストを送信することによって、フィードを取得できます。
 
 ### Atomフィードの取得例
 

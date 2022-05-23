@@ -11,7 +11,7 @@ sections:
     - 'Los ejecutores auto-hospedados de las acciones fallaron en actualizarse a sí mismos o en ejecutar jobs nuevos después de mejorar desde una instalación anterior de la GHES.'
     - 'Los ajustes de almacenamiento no pudieron validarse al configurar MinIO como almacenamiento de blobs para GitHub Packages.'
     - 'Los ajustes de almacenamiento de las GitHub Actions no pudieron validarse y guardarse en la Consola de Administración cuando se seleccionó "Forzar estilo de ruta".'
-    - 'Actions would be left in a stopped state after an update with maintenance mode set.'
+    - 'Las acciones se quedarán en un estado de detenido después de una actualización que se haya ajustado en modo de mantenimiento.'
     - 'El ejecutar `ghe-config-apply` pudo fallar en ocasiones debido a problemas con los permisos en /data/user/tmp/pages`.'
     - 'El botón de guardar en la consola de almacenamiento no se pudo alcanzar desplazándose en buscadores de resolución menor.'
     - 'Las gráficas de monitoreo de tráfico de almacenamiento e IOPS no se actualizaron después de la mejora de versión de collectd.'

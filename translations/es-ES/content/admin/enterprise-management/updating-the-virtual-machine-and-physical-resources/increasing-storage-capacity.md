@@ -24,7 +24,7 @@ A medida que se suman usuarios {% data variables.product.product_location %}, es
 
 {% note %}
 
-**Nota:** Antes de ajustar el tamaño de cualquier volumen de almacenamiento, pon tu instancia en modo de mantenimiento. Para obtener más información, consulta "[Habilitar y programar el modo mantenimiento](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)."
+**Nota:** Antes de cambiar el tamaño de cualquier volumen de almacenamiento, coloca tu instancia en modo de mantenimiento.{% if ip-exception-list %} Puedes validar los cambios si configuras una lista de excepción de IP para permitir el acceso desde direcciones IP específicas. {% endif %} Para obtener más información, consulta la sección "[Habilitar y programar el modo de mantenimiento](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)".
 
 {% endnote %}
 

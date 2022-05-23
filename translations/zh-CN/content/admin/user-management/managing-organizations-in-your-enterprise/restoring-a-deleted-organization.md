@@ -45,7 +45,7 @@ permissions: 'Site administers can restore an organization on {% data variables.
 ### 恢复团队
 
 1. 若要查找每个团队名称，请在审核日志中搜索 `action:team.create org:ORGANIZATION`。
-1. 手动重新创建团队。 For more information, see "[Creating a team](/organizations/organizing-members-into-teams/creating-a-team)."
+1. 手动重新创建团队。 更多信息请参阅“[创建团队](/organizations/organizing-members-into-teams/creating-a-team)”。
 1. 要查找已添加到每个团队的成员，请搜索 `action:team.add_member team:"ORGANIZATION/TEAM"`。
 1. 手动重新添加团队成员。 更多信息请参阅“[将组织成员添加到团队](/organizations/organizing-members-into-teams/adding-organization-members-to-a-team)”。
 1. 要查找团队被授予访问权限的存储库，请搜索 `action:team.add_repository team:"ORGANIZATION/TEAM"`。

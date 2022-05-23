@@ -1,4 +1,4 @@
-| Provider                  | 支持的密钥                                              | API slug                                                 |
+| 提供者                       | 支持的密钥                                              | Secret type                                              |
 | ------------------------- | -------------------------------------------------- | -------------------------------------------------------- |
 | Adafruit IO               | Adafruit IO 密钥                                     | adafruit_io_key                                        |
 | Alibaba Cloud             | Alibaba 云访问密钥 ID                                   | alibaba_cloud_access_key_id                          |
@@ -17,17 +17,21 @@
 | Checkout.com              | Checkout.com 生产密钥                                  | checkout_production_secret_key                         |
 | Clojars                   | Clojars 部署令牌                                       | clojars_deploy_token                                   |
 | Databricks                | Databricks 访问令牌                                    | databricks_access_token                                |
+| DigitalOcean              | DigitalOcean Personal Access Token                 | digitalocean_personal_access_token                     |
+| DigitalOcean              | DigitalOcean OAuth Token                           | digitalocean_oauth_token                               |
+| DigitalOcean              | DigitalOcean Refresh Token                         | digitalocean_refresh_token                             |
+| DigitalOcean              | DigitalOcean System Token                          | digitalocean_system_token                              |
 | Discord                   | Discord 自动程序令牌                                     | discord_bot_token                                      |
 | Doppler                   | Doppler 个人令牌                                       | doppler_personal_token                                 |
 | Doppler                   | Doppler 服务令牌                                       | doppler_service_token                                  |
 | Doppler                   | Doppler CLI 令牌                                     | doppler_cli_token                                      |
 | Doppler                   | Doppler SCIM 令牌                                    | doppler_scim_token                                     |
-| Doppler                   | Doppler Audit Token                                | doppler_audit_token                                    |
+| Doppler                   | Doppler Audit 令牌                                   | doppler_audit_token                                    |
 | Dropbox                   | Dropbox 短暂访问令牌                                     | dropbox_short_lived_access_token                     |
 | Duffel                    | Duffel Live Access Token                           | duffel_live_access_token                               |
 | EasyPost                  | EasyPost Production API Key                        | easypost_production_api_key                            |
 | Flutterwave               | Flutterwave Live API Secret Key                    | flutterwave_live_api_secret_key                      |
-| Fullstory                 | FullStory API Key                                  | fullstory_api_key                                      |
+| Fullstory                 | FullStory API 密钥                                   | fullstory_api_key                                      |
 | GitHub                    | GitHub 个人访问令牌                                      | github_personal_access_token                           |
 | GitHub                    | GitHub OAuth 访问令牌                                  | github_oauth_access_token                              |
 | GitHub                    | GitHub 刷新令牌                                        | github_refresh_token                                   |
@@ -51,21 +55,21 @@
 | NuGet                     | NuGet API 密钥                                       | nuget_api_key                                          |
 | Onfido                    | Onfido Live API Token                              | onfido_live_api_token                                  |
 | OpenAI                    | OpenAI API 密钥                                      | openai_api_key                                         |
-| PlanetScale               | PlanetScale Database Password                      | planetscale_database_password                          |
-| PlanetScale               | PlanetScale OAuth Token                            | planetscale_oauth_token                                |
-| PlanetScale               | PlanetScale Service Token                          | planetscale_service_token                              |
+| PlanetScale               | Planetscale 数据库密码                                  | planetscale_database_password                          |
+| PlanetScale               | Planetscale OAuth 令牌                               | planetscale_oauth_token                                |
+| PlanetScale               | PlanetScale 服务令牌                                   | planetscale_service_token                              |
 | Postman                   | Postman API 密钥                                     | postman_api_key                                        |
 | Proctorio                 | Proctorio 密钥                                       | proctorio_secret_key                                   |
 | Samsara                   | Samsara API 令牌                                     | samsara_api_token                                      |
 | Samsara                   | Samsara OAuth 访问令牌                                 | samsara_oauth_access_token                             |
 | SendGrid                  | SendGrid API Key                                   | sendgrid_api_key                                       |
-| Sendinblue                | Sendinblue API Key                                 | sendinblue_api_key                                     |
-| Sendinblue                | Sendinblue SMTP Key                                | sendinblue_smtp_key                                    |
+| Sendinblue                | SendinBlue API 密钥                                  | sendinblue_api_key                                     |
+| Sendinblue                | SendinBlue SMTP 密钥                                 | sendinblue_smtp_key                                    |
 | Shippo                    | Shippo Live API Token                              | shippo_live_api_token                                  |
 | Shopify                   | Shopify App 共享密钥                                   | shopify_app_shared_secret                              |
 | Shopify                   | Shopify 访问令牌                                       | shopify_access_token                                   |
 | Slack                     | Slack API 令牌                                       | slack_api_token                                        |
-| Stripe                    | Stripe Live API 密钥                                 | stripe_live_secret_key                                 |
+| Stripe                    | Stripe Live API 密钥                                 | stripe_api_key                                         |
 | Tencent Cloud             | 腾讯云密钥 ID                                           | tencent_cloud_secret_id                                |
-| Typeform                  | Typeform Personal Access Token                     | typeform_personal_access_token                         |
+| Typeform                  | Typeform 个人访问令牌                                    | typeform_personal_access_token                         |
 | WorkOS                    | WorkOS Production API Key                          | workos_production_api_key                              |

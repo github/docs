@@ -59,7 +59,13 @@ If you have installed and signed in to {% data variables.product.prodname_mobile
 
 ## コマンドラインでの 2 要素認証の使用
 
-2 要素認証を有効化した後は、{% data variables.product.product_name %} にコマンドラインからアクセスする際に、パスワードの代わりに個人アクセストークンまたは SSH キーを使わなければなりません。
+After you've enabled 2FA, you will no longer use your password to access {% data variables.product.product_name %} on the command line. Instead, use Git Credential Manager, a personal access token, or an SSH key.
+
+### Authenticating on the command line using Git Credential Manager
+
+[Git Credential Manager](https://github.com/GitCredentialManager/git-credential-manager/blob/main/README.md) is a secure Git credential helper that runs on Windows, macOS, and Linux. For more information about Git credential helpers, see [Avoiding repetition](https://git-scm.com/docs/gitcredentials#_avoiding_repetition) in the Pro Git book.
+
+Setup instructions vary based on your computer's operating system. For more information, see [Download and install](https://github.com/GitCredentialManager/git-credential-manager/blob/main/README.md#download-and-install) in the GitCredentialManager/git-credential-manager repository.
 
 ### HTTPS を利用したコマンドラインでの認証
 

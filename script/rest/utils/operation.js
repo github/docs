@@ -314,7 +314,51 @@ async function getBodyParams(paramsObject, requiredParams) {
       param.description = await renderContent(param.description)
       // there may be zero, one, or multiple object parameters that have children parameters
       param.childParamsGroups = []
-      const childParamsGroup = await getChildParamsGroup(param)
+      let childParamsGroup
+
+      // When additionalProperties is defined with a type of `object`
+      // the input parameter is a dictionary. This handles cases for
+      // a dictionary. We don't have any list cases yet, and when
+      // the type is `string` we don't need to render additional rows of
+      // parameters.
+      // https://swagger.io/docs/specification/data-models/dictionaries/
+
+      // This conditional accounts for additionalProperties of type object
+      // and [null, 'object']
+      if (
+        param.additionalProperties &&
+        (param.additionalProperties.type === 'object' ||
+          (Array.isArray(param.additionalProperties.type) &&
+            param.additionalProperties.type.includes('object')))
+      ) {
+        // Add the first element which will always be the user-defined key
+        slugger.reset()
+        const id = slugger.slug(`${param.name}-${param.type}`)
+        param.childParamsGroups.push({
+          parentName: param.name,
+          parentType: param.type,
+          id,
+          params: [
+            {
+              description: `<p>A user-defined key to represent an item in <code>${param.name}</code>.</p>`,
+              type: 'string',
+              name: 'key',
+              in: 'body',
+              rawType: 'string',
+              rawDescription: `A key to represent an item in ${param.name}.`,
+            },
+          ],
+        })
+
+        // Construct a new parameter using the child properties set in
+        // additionalProperties.
+        const newParam = param.additionalProperties
+        newParam.rawType = 'object'
+        newParam.name = 'key'
+        childParamsGroup = await getChildParamsGroup(newParam)
+      } else {
+        childParamsGroup = await getChildParamsGroup(param)
+      }
 
       if (childParamsGroup && childParamsGroup.params.length) {
         param.childParamsGroups.push(childParamsGroup)

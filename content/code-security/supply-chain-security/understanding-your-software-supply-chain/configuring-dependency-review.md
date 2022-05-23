@@ -1,11 +1,11 @@
 ---
 title: Configuring dependency review
-intro: 'You can use dependency review to catch vulnerabilities before they are added to your project.'
+intro: You can use dependency review to catch vulnerabilities before they are added to your project.
 shortTitle: Configure dependency review
 versions:
   fpt: '*'
   ghes: '>= 3.2'
-  ghae: issue-4864
+  ghae: '*'
   ghec: '*'
 type: how_to
 topics:
@@ -36,7 +36,7 @@ Dependency review is included in {% data variables.product.product_name %} for p
 1. If "{% data variables.product.prodname_GH_advanced_security %}" is not enabled, click **Enable** next to the feature.
    ![Screenshot of GitHub Advanced Security feature with "Enable" button emphasized](/assets/images/help/security/enable-ghas-private-repo.png)
 
-{% elsif ghes or ghae %}
+{% elsif ghes %}
 Dependency review is available when dependency graph is enabled for {% data variables.product.product_location %} and {% data variables.product.prodname_advanced_security %} is enabled for the organization or repository. For more information, see "[Enabling {% data variables.product.prodname_GH_advanced_security %} for your enterprise](/admin/code-security/managing-github-advanced-security-for-your-enterprise/enabling-github-advanced-security-for-your-enterprise)."
 
 ### Checking if the dependency graph is enabled

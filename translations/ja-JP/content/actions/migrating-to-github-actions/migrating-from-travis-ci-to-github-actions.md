@@ -208,7 +208,8 @@ Travis CI から移行する場合は、{% data variables.product.prodname_actio
 ### {% data variables.product.prodname_actions %} で様々な言語を使用する
 
 {% data variables.product.prodname_actions %} でさまざまな言語を使用する場合、ジョブにステップを作成して言語の依存関係を設定できます。 特定の言語での作業の詳細については、それぞれのガイドを参照してください。
-  - [Building and testing Node.js or Python](/actions/guides/building-and-testing-nodejs-or-python)
+  - [Node.js のビルドとテスト](/actions/guides/building-and-testing-nodejs)
+  - [Python のビルドとテスト](/actions/guides/building-and-testing-python)
   - [PowerShell のビルドとテスト](/actions/guides/building-and-testing-powershell)
   - [MavenでのJavaのビルドとテスト](/actions/guides/building-and-testing-java-with-maven)
   - [GradleでのJavaのビルドとテスト](/actions/guides/building-and-testing-java-with-gradle)
@@ -302,7 +303,11 @@ jobs:
 
 ## 依存関係のキャッシング
 
-Travis CIと{% data variables.product.prodname_actions %}では、後で利用できるよう依存関係を手動でキャッシュできます。 以下の例は、それぞれのシステムでのキャッシュの構文を示します。
+Travis CIと{% data variables.product.prodname_actions %}では、後で利用できるよう依存関係を手動でキャッシュできます。
+
+{% if actions-caching %}
+
+以下の例は、それぞれのシステムでのキャッシュの構文を示します。
 
 <table>
 <tr>
@@ -337,7 +342,11 @@ cache: npm
 </tr>
 </table>
 
-{% data variables.product.prodname_actions %} キャッシュは、{% data variables.product.prodname_dotcom_the_website %} でホストされているリポジトリにのみ適用できます。 詳しい情報については、「<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">ワークフローを高速化するための依存関係のキャッシュ</a>」を参照してください。
+{% else %}
+
+{% data reusables.actions.caching-availability %}
+
+{% endif %}
 
 ## 一般的なタスクの例
 

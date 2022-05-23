@@ -38,8 +38,8 @@ deploy_to_the_cloud:
     - /actions/deployment/deploying-to-azure-app-service
     - /actions/deployment/deploying-to-google-kubernetes-engine
 adopting_github_actions_for_your_enterprise_ghec:
-  title: 'Adopt GitHub Actions for your enterprise'
-  description: 'Learn how to plan and implement a rollout of {% data variables.product.prodname_actions %} in your enterprise.'
+  title: 'GitHub ActionsをEnterpriseで採用する'
+  description: 'Enterpriseにおける{% data variables.product.prodname_actions %}のロールアウトの計画と実装の方法を学びましょう。'
   versions:
     ghec: '*'
   guides:
@@ -51,8 +51,8 @@ adopting_github_actions_for_your_enterprise_ghec:
     - /actions/security-guides/security-hardening-for-github-actions
     - /billing/managing-billing-for-github-actions/about-billing-for-github-actions
 adopting_github_actions_for_your_enterprise_ghes_and_ghae:
-  title: 'Adopt GitHub Actions for your enterprise'
-  description: 'Learn how to plan and implement a rollout of {% data variables.product.prodname_actions %} in your enterprise.'
+  title: 'GitHub ActionsをEnterpriseで採用する'
+  description: 'Enterpriseにおける{% data variables.product.prodname_actions %}のロールアウトの計画と実装の方法を学びましょう。'
   versions:
     ghes: '*'
     ghae: '*'

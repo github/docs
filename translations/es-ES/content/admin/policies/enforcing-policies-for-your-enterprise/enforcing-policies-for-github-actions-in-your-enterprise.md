@@ -66,7 +66,7 @@ Puedes elegir inhabilitar {% data variables.product.prodname_actions %} para tod
 1. Debajo de "Políticas", selecciona {% data reusables.actions.policy-label-for-select-actions-workflows %} y agrega tus acciones{% if actions-workflow-policy %} y flujos de trabajo reutilizables{% endif %} requeridos a la lista.
    {% if actions-workflow-policy %}
    ![Agrega acciones y flujos de trabajo reutilizables a la lista de elementos permitidos](/assets/images/help/organizations/enterprise-actions-policy-allow-list-with-workflows.png)
-   {%- elsif ghes or ghae-issue-5094 %}
+   {%- elsif ghes or ghae %}
    ![Agregar acciones a la lista de elementos permitidos](/assets/images/help/organizations/enterprise-actions-policy-allow-list.png)
    {%- elsif ghae %}
    ![Agregar acciones a la lista de elementos permitidos](/assets/images/enterprise/github-ae/enterprise-actions-policy-allow-list.png)
@@ -121,14 +121,57 @@ Si se habilita una política para una empresa, esta puede inhabilitarse selectiv
 
 {% data reusables.actions.workflow-permissions-intro %}
 
-Puedes configurar los permisos predeterminados para del `GITHUB_TOKEN` en la configuración de tu empresa, organización o repositorio. Si eliges la opción restringida como lo predeterminado en la configuración de tu empresa, esto previene que puedas elegir más configuraciones permisivas en la configuración de tu organización o repositorio.
+Puedes configurar los permisos predeterminados para del `GITHUB_TOKEN` en la configuración de tu empresa, organización o repositorio. Si eliges la opción restringida como la predeterminada en tus ajustes de empresa, esto prevendrá que se elija el ajuste más permisivo en los ajustes de repositorio u organización.
 
 {% data reusables.actions.workflow-permissions-modifying %}
+
+### Configuring the default `GITHUB_TOKEN` permissions
+
+{% if allow-actions-to-approve-pr-with-ent-repo %}
+Predeterminadamente, cuando creas una empresa nueva, el `GITHUB_TOKEN` solo tendrá acceso de lectura para el alcance `contents`.
+{% endif %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
-1. Debajo de **Permisos del flujo de trabajo**, elige si quieres que el `GITHUB_TOKEN` tenga permisos de lectura y escritura para todos los alcances o solo acceso de lectura para el alcance `contents`. ![Configurar los permisos del GITHUB_TOKEN para esta empresa](/assets/images/help/settings/actions-workflow-permissions-enterprise.png)
+1. Debajo de "Permisos de flujo de trabajo", elige si quieres que el `GITHUB_TOKEN` tenga acceso de lectura y escritura para todos los alcances o solo acceso de lectura para el alcance `contents`.
+
+   ![Configurar los permisos del GITHUB_TOKEN para esta empresa](/assets/images/help/settings/actions-workflow-permissions-enterprise{% if allow-actions-to-approve-pr-with-ent-repo %}-with-pr-approval{% endif %}.png)
 1. Da clic en **Guardar** para aplicar la configuración.
+
+{% if allow-actions-to-approve-pr-with-ent-repo %}
+### Prevenir que las {% data variables.product.prodname_actions %} creen o aprueben solicitudes de cambio
+
+{% data reusables.actions.workflow-pr-approval-permissions-intro %}
+
+Predeterminadamente, cuando creas una empresa nueva, no se permite que los flujos de trabajo creen o aprueben las solicitudes de cambio.
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.policies-tab %}
+{% data reusables.enterprise-accounts.actions-tab %}
+1. Debajo de "Permisos de flujo de trabajo", utiliza el ajuste **Permitir que las GitHub Actions creen y aprueben solicitudes de cambios** para configurar si el `GITHUB_TOKEN` puede crear y aprobar solicitudes de cambios.
+
+   ![Configurar los permisos del GITHUB_TOKEN para esta empresa](/assets/images/help/settings/actions-workflow-permissions-enterprise-with-pr-approval.png)
+1. Da clic en **Guardar** para aplicar la configuración.
+
+{% endif %}
+{% endif %}
+
+{% if actions-cache-policy-apis %}
+
+## Requerir una política para almacenamiento en caché dentro de tu empresa
+
+{% data reusables.actions.cache-default-size %} {% data reusables.actions.cache-eviction-process %}
+
+Sin embargo, puedes configurar una política de empresa para personalizar tanto el tamaño total predeterminado de almacenamiento en caché para cada repositorio como el tamaño total máximo de almacenamiento en caché permitido para un repositorio individual. Por ejemplo, podrías querer que el tamaño de caché total predeterminado para cada repositorio sea de 5GB, pero también permitir que los administradores configuren un tamaño total de almacenamiento en caché de 15 GB de ser necesario.
+
+Las personas con acceso administrativo a un repositorio pueden configurar un tamaño total de almacenamiento en caché para su repositorio de has el tamaño máximo permitido por el ajuste de la política empresarial.
+
+Los ajustes de política para el almacenamiento en caché de {% data variables.product.prodname_actions %} actualmente solo pueden modificarse utilizando la API de REST:
+
+* Para ver los ajustes de política empresarial actuales, consulta la sección "[Obtener una política de uso del caché de GitHub Actions para una empresa](/rest/actions/cache#get-github-actions-cache-usage-policy-for-an-enterprise)".
+* Para cambiar los ajustes de la política empresarial, consulta la sección "[Configurar la política de uso de caché de GitHub Actions para una empresa](/rest/actions/cache#get-github-actions-cache-usage-policy-for-an-enterprise)".
+
+{% data reusables.actions.cache-no-org-policy %}
 
 {% endif %}

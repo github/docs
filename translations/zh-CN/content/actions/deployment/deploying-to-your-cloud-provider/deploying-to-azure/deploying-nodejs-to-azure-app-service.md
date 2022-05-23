@@ -25,7 +25,7 @@ topics:
 
 本指南说明如何使用 {% data variables.product.prodname_actions %} 构建、测试并部署 Node.js 项目到 [Azure App Service](https://azure.microsoft.com/services/app-service/)。
 
-{% ifversion fpt or ghec or ghae-issue-4856 %}
+{% ifversion fpt or ghec or ghae-issue-4856 or ghes > 3.4 %}
 
 {% note %}
 
@@ -134,4 +134,4 @@ jobs:
 * 有关原始入门工作流程，请参阅 {% data variables.product.prodname_actions %} `starter-workflows` 仓库中的 [`azure-webapps-node.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-webapps-node.yml)。
 * 用于部署 Web 应用的操作是正式的 Azure [`Azure/webapps-deploy`](https://github.com/Azure/webapps-deploy) 操作。
 * 有关部署到 Azure 的 GitHub 操作工作流程的更多示例，请参阅 [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples) 存储库。
-* Azure web 应用文档中的“[在 Azure 中创建 Node.js web 应用](https://docs.microsoft.com/azure/app-service/quickstart-nodejs)”快速入门说明如何通过 [Azure App Service 扩展](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice)使用 VS Code。
+* Azure web 应用文档中的“[在 Azure 中创建 Node.js Web 应用](https://docs.microsoft.com/azure/app-service/quickstart-nodejs)”快速入门介绍了 {% data variables.product.prodname_vscode %} 与 [Azure 应用服务扩展](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice)一起使用。

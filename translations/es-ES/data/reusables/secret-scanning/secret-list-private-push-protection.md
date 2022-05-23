@@ -1,4 +1,4 @@
-| Proveedor                 | Secreto compatible                                 | Slug de la API                                           |
+| Proveedor                 | Secreto compatible                                 | Secret type                                              |
 | ------------------------- | -------------------------------------------------- | -------------------------------------------------------- |
 | Adafruit IO               | Clave de IO de Adafruit                            | adafruit_io_key                                        |
 | Alibaba Cloud             | ID de Clave de Acceso a la Nube de Alibaba         | alibaba_cloud_access_key_id                          |
@@ -17,6 +17,10 @@
 | Checkout.com              | Clave secreta de productión de Checkout.com        | checkout_production_secret_key                         |
 | Clojars                   | Token de Despliegue de Clojars                     | clojars_deploy_token                                   |
 | Databricks                | Token de Acceso de Databricks                      | databricks_access_token                                |
+| DigitalOcean              | DigitalOcean Personal Access Token                 | digitalocean_personal_access_token                     |
+| DigitalOcean              | DigitalOcean OAuth Token                           | digitalocean_oauth_token                               |
+| DigitalOcean              | DigitalOcean Refresh Token                         | digitalocean_refresh_token                             |
+| DigitalOcean              | DigitalOcean System Token                          | digitalocean_system_token                              |
 | Discord                   | Token de Bot de Discord                            | discord_bot_token                                      |
 | Doppler                   | Token Personal de Doppler                          | doppler_personal_token                                 |
 | Doppler                   | Token de Servicio de Doppler                       | doppler_service_token                                  |
@@ -44,7 +48,7 @@
 | Linear                    | Llave de la API de Linear                          | linear_api_key                                         |
 | Linear                    | Token de Acceso Oauth de Linear                    | linear_oauth_access_token                              |
 | Midtrans                  | Midtrans Production Server Key                     | midtrans_production_server_key                         |
-| New Relic                 | New Relic Personal API Key                         | new_relic_personal_api_key                           |
+| Reliquia nueva            | New Relic Personal API Key                         | new_relic_personal_api_key                           |
 | Reliquia nueva            | New Relic REST API Key                             | new_relic_rest_api_key                               |
 | Reliquia nueva            | New Relic Insights Query Key                       | new_relic_insights_query_key                         |
 | npm                       | Token de Acceso de npm                             | npm_access_token                                       |
@@ -65,7 +69,7 @@
 | Shopify                   | Secreto Compartid de la App de Shopify             | shopify_app_shared_secret                              |
 | Shopify                   | Token de Acceso de Shopify                         | shopify_access_token                                   |
 | Slack                     | Token de la API de Slack                           | slack_api_token                                        |
-| Stripe                    | Clave de Secreto Stripe Live                       | stripe_live_secret_key                                 |
+| Stripe                    | Clave de Secreto Stripe Live                       | stripe_api_key                                         |
 | Tencent Cloud             | ID de Secreto de Tencent Cloud                     | tencent_cloud_secret_id                                |
 | Typeform                  | Token de acceso personal a Typeform                | typeform_personal_access_token                         |
 | WorkOS                    | WorkOS Production API Key                          | workos_production_api_key                              |

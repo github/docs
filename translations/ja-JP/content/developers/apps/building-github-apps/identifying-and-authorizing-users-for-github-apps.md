@@ -239,8 +239,8 @@ While most of your API インタラクションのほとんどは、サーバー
 
 * [デプロイメントの一覧表示](/rest/reference/deployments#list-deployments)
 * [デプロイメントの作成](/rest/reference/deployments#create-a-deployment)
-* [Get a deployment](/rest/reference/deployments#get-a-deployment){% ifversion fpt or ghes or ghae or ghec %}
-* [デプロイメントの削除](/rest/reference/deployments#delete-a-deployment){% endif %}
+* [Get a deployment](/rest/reference/deployments#get-a-deployment)
+* [Delete a deployment](/rest/reference/deployments#delete-a-deployment)
 
 #### イベント
 
@@ -422,14 +422,12 @@ While most of your API インタラクションのほとんどは、サーバー
 * [Organizationのためのpre-receiveフックの強制の削除](/enterprise/user/rest/reference/enterprise-admin#remove-pre-receive-hook-enforcement-for-an-organization)
 {% endif %}
 
-{% ifversion fpt or ghes or ghae or ghec %}
 #### OrganizationのTeamのプロジェクト
 
 * [Teamプロジェクトの一覧表示](/rest/reference/teams#list-team-projects)
 * [プロジェクトのTeamの権限のチェック](/rest/reference/teams#check-team-permissions-for-a-project)
 * [Teamのプロジェクト権限の追加あるいは更新](/rest/reference/teams#add-or-update-team-project-permissions)
 * [Teamからのプロジェクトの削除](/rest/reference/teams#remove-a-project-from-a-team)
-{% endif %}
 
 #### OrganizationのTeamリポジトリ
 
@@ -575,7 +573,7 @@ While most of your API インタラクションのほとんどは、サーバー
 
 #### リアクション
 
-{% ifversion fpt or ghes or ghae or ghec %}* [リアクションの削除](/rest/reference/reactions#delete-a-reaction-legacy){% else %}* [リアクションの削除](/rest/reference/reactions#delete-a-reaction){% endif %}
+* [Delete a reaction](/rest/reference/reactions)
 * [コミットコメントへのリアクションの一覧表示](/rest/reference/reactions#list-reactions-for-a-commit-comment)
 * [コミットコメントへのリアクションの作成](/rest/reference/reactions#create-reaction-for-a-commit-comment)
 * [Issueへのリアクションの一覧表示](/rest/reference/reactions#list-reactions-for-an-issue)
@@ -587,13 +585,13 @@ While most of your API インタラクションのほとんどは、サーバー
 * [Teamディスカッションコメントへのリアクションの一覧表示](/rest/reference/reactions#list-reactions-for-a-team-discussion-comment)
 * [Teamディスカッションコメントへのリアクションの作成](/rest/reference/reactions#create-reaction-for-a-team-discussion-comment)
 * [Teamディスカッションへのリアクションの一覧表示](/rest/reference/reactions#list-reactions-for-a-team-discussion)
-* [Teamディスカッションへのリアクションの作成](/rest/reference/reactions#create-reaction-for-a-team-discussion){% ifversion fpt or ghes or ghae or ghec %}
+* [Create reaction for a team discussion](/rest/reference/reactions#create-reaction-for-a-team-discussion)
 * [コミットコメントへのリアクションの削除](/rest/reference/reactions#delete-a-commit-comment-reaction)
 * [Issueへのリアクションの削除](/rest/reference/reactions#delete-an-issue-reaction)
 * [コミットコメントへのリアクションの削除](/rest/reference/reactions#delete-an-issue-comment-reaction)
 * [Pull Requestのコメントへのリアクションの削除](/rest/reference/reactions#delete-a-pull-request-comment-reaction)
 * [Teamディスカッションへのリアクションの削除](/rest/reference/reactions#delete-team-discussion-reaction)
-* [Team ディスカッションのコメントへのリアクションの削除](/rest/reference/reactions#delete-team-discussion-comment-reaction){% endif %}
+* [Delete team discussion comment reaction](/rest/reference/reactions#delete-team-discussion-comment-reaction)
 
 #### リポジトリ
 
@@ -707,11 +705,9 @@ While most of your API インタラクションのほとんどは、サーバー
 * [リポジトリのREADMEの取得](/rest/reference/repos#get-a-repository-readme)
 * [リポジトリのライセンスの取得](/rest/reference/licenses#get-the-license-for-a-repository)
 
-{% ifversion fpt or ghes or ghae or ghec %}
 #### リポジトリのイベントのディスパッチ
 
 * [リポジトリディスパッチイベントの作成](/rest/reference/repos#create-a-repository-dispatch-event)
-{% endif %}
 
 #### リポジトリのフック
 
