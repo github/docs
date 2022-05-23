@@ -30,7 +30,7 @@ Se você preferir trabalhar no navegador, mas deseja continuar usando suas exten
 
 Para desenvolver-se em uma plataforma de codespace diretamente em {% data variables.product.prodname_vscode_shortname %}, você deverá instalar e efetuar o login na extensão {% data variables.product.prodname_github_codespaces %} com as suas credenciais de {% data variables.product.product_name %}. A extensão de {% data variables.product.prodname_github_codespaces %} exige a versão de outubro de 2020 1.51 ou posterior de {% data variables.product.prodname_vscode_shortname %}.
 
-Use the {% data variables.product.prodname_vscode_marketplace %} to install the [{% data variables.product.prodname_github_codespaces %}](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces) extension. Para obter mais informações, consulte [Extensão do Marketplace](https://code.visualstudio.com/docs/editor/extension-gallery) na documentação do {% data variables.product.prodname_vscode_shortname %}.
+Use o {% data variables.product.prodname_vscode_marketplace %} para instalar a extensão [{% data variables.product.prodname_github_codespaces %}](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces). Para obter mais informações, consulte [Extensão do Marketplace](https://code.visualstudio.com/docs/editor/extension-gallery) na documentação do {% data variables.product.prodname_vscode_shortname %}.
 
 
 {% mac %}
@@ -106,7 +106,7 @@ Use the {% data variables.product.prodname_vscode_marketplace %} to install the 
 
 ## Alternando para a compilação de Insiders de {% data variables.product.prodname_vscode_shortname %}
 
-You can use the [Insiders Build of {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/setup/setup-overview#_insiders-nightly-build) within {% data variables.product.prodname_codespaces %}.
+Você pode usar o [Compilação de Insiders de {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/setup/setup-overview#_insiders-nightly-build) dentro de {% data variables.product.prodname_codespaces %}.
 
 1. Na parte inferior esquerda da sua janela {% data variables.product.prodname_codespaces %}, selecione **Configurações de {% octicon "gear" aria-label="The settings icon" %}**.
 2. Na lista, selecione "Alternar para Versão de Insiders".

@@ -1,6 +1,6 @@
 ---
 title: Criar um repositório de modelos
-intro: 'You can make an existing repository a template, so you and others can generate new repositories with the same directory structure, branches, and files.'
+intro: 'Você pode converter um repositório existente em um modelo para que você e outras pessoas possam gerar novos repositórios com a mesma estrutura de diretório, branche, e arquivos.'
 permissions: Anyone with admin permissions to a repository can make the repository a template.
 redirect_from:
   - /articles/creating-a-template-repository
@@ -24,7 +24,7 @@ shortTitle: Criar um repositório de modelo
 
 Para criar um repositório de modelos, é preciso criar um repositório e, em seguida, torná-lo um modelo. Para obter mais informações sobre como criar um repositório, consulte "[Criar um repositório](/articles/creating-a-new-repository)".
 
-After you make your repository a template, anyone with access to the repository can generate a new repository with the same directory structure and files as your default branch. They can also choose to include all the other branches in your repository. Branches created from a template have unrelated histories, so you cannot create pull requests or merge between the branches. Para obter mais informações, consulte "[Criar um repositório a partir de um modelo](/articles/creating-a-repository-from-a-template)".
+Depois que seu repositório se tornar um modelo, qualquer pessoa com acesso ao repositório poderá gerar um novo repositório com a mesma estrutura do diretório e arquivos do seu branch padrão. Eles também podem optar por incluir todos os outros branches no seu repositório. Os branches criados a partir de um modelo têm histórico não relacionado, o que significa que você não pode criar pull requests ou fazer merge entre os branches. Para obter mais informações, consulte "[Criar um repositório a partir de um modelo](/articles/creating-a-repository-from-a-template)".
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
