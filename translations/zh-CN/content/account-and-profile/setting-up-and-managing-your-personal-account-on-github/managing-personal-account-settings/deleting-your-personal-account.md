@@ -1,5 +1,5 @@
 ---
-title: Deleting your personal account
+title: 删除个人帐户
 intro: '您可以随时在 {% data variables.product.product_name %} 上删除您的个人帐户。'
 redirect_from:
   - /articles/deleting-a-user-account

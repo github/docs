@@ -1,5 +1,5 @@
 ---
-title: Managing security and analysis settings for your personal account
+title: 管理个人帐户的安全和分析设置
 intro: '您可以控制功能以保护 {% data variables.product.prodname_dotcom %} 上项目的安全并分析其中的代码。'
 versions:
   fpt: '*'

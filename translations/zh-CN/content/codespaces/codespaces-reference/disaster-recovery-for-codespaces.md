@@ -42,7 +42,7 @@ shortTitle: 灾难恢复
 
 ## 选项 4：对本地容器化环境使用远程容器和 Docker
 
-If your repository has a `devcontainer.json`, consider using the [Remote-Containers extension](https://code.visualstudio.com/docs/remote/containers#_quick-start-open-a-git-repository-or-github-pr-in-an-isolated-container-volume) in {% data variables.product.prodname_vscode %} to build and attach to a local development container for your repository. 此选项的设置时间将因您本地规格和开发容器设置的复杂性而异。
+如果您的存储库具有 `devconconer.json`，请考虑在 {% data variables.product.prodname_vscode %} 中使用[远程容器扩展](https://code.visualstudio.com/docs/remote/containers#_quick-start-open-a-git-repository-or-github-pr-in-an-isolated-container-volume)构建并连接到仓库的本地开发容器。 此选项的设置时间将因您本地规格和开发容器设置的复杂性而异。
 
 {% note %}
 

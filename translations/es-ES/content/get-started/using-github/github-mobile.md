@@ -76,9 +76,9 @@ Si configuras el idioma en tu dispositivo para que sea uno de los compatibles, {
 
 {% data variables.product.prodname_mobile %} habilita automáticamente los Enlaces Universales para iOS. Cuando tocas en cualquier enlace de {% data variables.product.product_name %}, la URL destino se abrirá en {% data variables.product.prodname_mobile %} en vez de en Safari. Para obtener más información, consulta la sección[Enlaces Universales](https://developer.apple.com/ios/universal-links/) en el sitio para Desarrolladores de Apple.
 
-To disable Universal Links, long-press any {% data variables.product.product_name %} link, then tap **Open**. Every time you tap a {% data variables.product.product_name %} link in the future, the destination URL will open in Safari instead of {% data variables.product.prodname_mobile %}.
+Para inhabilitar los enlaces universales, deja presionado cualquier enlace de {% data variables.product.product_name %} y luego pulsa en **Abrir**. Cada vez que pulses un enlace de {% data variables.product.product_name %} en el futuro, la URL de destino se abrirá en Safari en vez de en {% data variables.product.prodname_mobile %}.
 
-To re-enable Universal Links, long-press any {% data variables.product.product_name %} link, then tap **Open in {% data variables.product.prodname_dotcom %}**.
+Para volver a habilitar los enlaces universales, deja pulsado cualquier enlace de {% data variables.product.product_name %} y luego pulsa en **Abrir en {% data variables.product.prodname_dotcom %}**.
 
 ## Compartir retroalimentación
 

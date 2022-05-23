@@ -1,5 +1,5 @@
 ---
-title: Permission levels for a personal account repository
+title: 个人帐户仓库的权限级别
 intro: 个人帐户拥有的仓库有两种权限级别：仓库所有者和协作者。
 redirect_from:
   - /articles/permission-levels-for-a-user-account-repository

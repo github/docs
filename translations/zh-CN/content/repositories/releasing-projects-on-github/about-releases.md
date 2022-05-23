@@ -41,7 +41,7 @@ topics:
 {% endif %}
 
 {% ifversion fpt or ghec or ghes > 3.6 or ghae-issue-7054 %}
-When viewing the details for a release, the creation date for each release asset is shown next to the release asset.
+查看发行版的详细信息时，每个发行版资产的创建日期显示在发行版资产旁边。
 {% endif %}
 
 {% ifversion fpt or ghec %}

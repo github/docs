@@ -1,5 +1,5 @@
 ---
-title: Permission levels for a project board owned by a personal account
+title: 个人帐户拥有的项目板的权限级别
 intro: 个人帐户拥有的项目板有两种权限级别：项目板所有者和协作者。
 redirect_from:
   - /articles/permission-levels-for-user-owned-project-boards

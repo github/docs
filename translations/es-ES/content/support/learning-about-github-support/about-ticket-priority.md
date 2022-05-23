@@ -57,7 +57,7 @@ Para calificar para una respuesta prioritaria, debes hacer lo siguiente:
 
 {% note %}
 
-**Note:** Questions do not qualify for a priority response if they are submitted on a local holiday in your jurisdiction.
+**Nota:** Las preguntas no califican para una respuesta prioritaria si se emiten en un día feriado local de tu jurisdicción.
 
 {% endnote %}
 

@@ -28,9 +28,9 @@ shortTitle: 关联文本编辑器
   $ git config --global core.editor "atom --wait"
   ```
 
-## Using {% data variables.product.prodname_vscode %} as your editor
+## 使用 {% data variables.product.prodname_vscode %} 作为编辑器
 
-1. Install [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/) ({% data variables.product.prodname_vscode_shortname %}). For more information, see "[Setting up {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/Docs/setup/setup-overview)" in the {% data variables.product.prodname_vscode_shortname %} documentation.
+1. 安装 [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/) ({% data variables.product.prodname_vscode_shortname %})。 更多信息请参阅 {% data variables.product.prodname_vscode_shortname %} 文档中的“[设置 {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/Docs/setup/setup-overview)”。
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. 输入此命令：
   ```shell
@@ -68,9 +68,9 @@ shortTitle: 关联文本编辑器
   $ git config --global core.editor "atom --wait"
   ```
 
-## Using {% data variables.product.prodname_vscode %} as your editor
+## 使用 {% data variables.product.prodname_vscode %} 作为编辑器
 
-1. Install [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/) ({% data variables.product.prodname_vscode_shortname %}). For more information, see "[Setting up {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/Docs/setup/setup-overview)" in the {% data variables.product.prodname_vscode_shortname %} documentation.
+1. 安装 [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/) ({% data variables.product.prodname_vscode_shortname %})。 更多信息请参阅 {% data variables.product.prodname_vscode_shortname %} 文档中的“[设置 {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/Docs/setup/setup-overview)”。
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. 输入此命令：
   ```shell
@@ -107,9 +107,9 @@ shortTitle: 关联文本编辑器
   $ git config --global core.editor "atom --wait"
   ```
 
-## Using {% data variables.product.prodname_vscode %} as your editor
+## 使用 {% data variables.product.prodname_vscode %} 作为编辑器
 
-1. Install [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/) ({% data variables.product.prodname_vscode_shortname %}). For more information, see "[Setting up {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/Docs/setup/setup-overview)" in the {% data variables.product.prodname_vscode_shortname %} documentation.
+1. 安装 [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/) ({% data variables.product.prodname_vscode_shortname %})。 更多信息请参阅 {% data variables.product.prodname_vscode_shortname %} 文档中的“[设置 {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/Docs/setup/setup-overview)”。
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. 输入此命令：
   ```shell

@@ -10,14 +10,27 @@ import '../stylesheets/index.scss'
 import events from 'components/lib/events'
 import experiment from 'components/lib/experiment'
 import { LanguagesContext, LanguagesContextT } from 'components/context/LanguagesContext'
+import {
+  DotComAuthenticatedContext,
+  DotComAuthenticatedContextT,
+} from 'components/context/DotComAuthenticatedContext'
 import { defaultComponentTheme } from 'lib/get-theme.js'
 
 type MyAppProps = AppProps & {
   csrfToken: string
+  isDotComAuthenticated: boolean
   themeProps: typeof defaultComponentTheme & Pick<ThemeProviderProps, 'colorMode'>
   languagesContext: LanguagesContextT
+  dotComAuthenticatedContext: DotComAuthenticatedContextT
 }
-const MyApp = ({ Component, pageProps, csrfToken, themeProps, languagesContext }: MyAppProps) => {
+const MyApp = ({
+  Component,
+  pageProps,
+  csrfToken,
+  themeProps,
+  languagesContext,
+  dotComAuthenticatedContext,
+}: MyAppProps) => {
   useEffect(() => {
     events()
     experiment()
@@ -58,7 +71,9 @@ const MyApp = ({ Component, pageProps, csrfToken, themeProps, languagesContext }
           preventSSRMismatch
         >
           <LanguagesContext.Provider value={languagesContext}>
-            <Component {...pageProps} />
+            <DotComAuthenticatedContext.Provider value={dotComAuthenticatedContext}>
+              <Component {...pageProps} />
+            </DotComAuthenticatedContext.Provider>
           </LanguagesContext.Provider>
         </ThemeProvider>
       </SSRProvider>
@@ -66,6 +81,10 @@ const MyApp = ({ Component, pageProps, csrfToken, themeProps, languagesContext }
   )
 }
 
+// Remember, function is only called once if the rendered page can
+// be in-memory cached. But still, the `<MyApp>` component will be
+// executed every time **in the client** if it was the first time
+// ever (since restart) or from a cached HTML.
 MyApp.getInitialProps = async (appContext: AppContext) => {
   const { ctx } = appContext
   // calls page's `getInitialProps` and fills `appProps.pageProps`
@@ -78,7 +97,8 @@ MyApp.getInitialProps = async (appContext: AppContext) => {
     ...appProps,
     themeProps: getTheme(req),
     csrfToken: req?.csrfToken?.() || '',
-    languagesContext: { languages: req.context.languages },
+    languagesContext: { languages: req.context.languages, userLanguage: req.context.userLanguage },
+    dotComAuthenticatedContext: { isDotComAuthenticated: Boolean(req.cookies?.dotcom_user) },
   }
 }
 

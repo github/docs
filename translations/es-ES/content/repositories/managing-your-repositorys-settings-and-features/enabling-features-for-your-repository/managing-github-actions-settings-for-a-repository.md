@@ -106,36 +106,36 @@ Si se inhabilita una política para una {% ifversion ghec or ghae or ghes %}empr
 
 {% data reusables.actions.workflow-permissions-intro %}
 
-Los permisos predeterminados también pueden configurarse en los ajustes de la organización. If your repository belongs to an organization and a more restrictive default has been selected in the organization settings, the same option is selected in your repository settings and the permissive option is disabled.
+Los permisos predeterminados también pueden configurarse en los ajustes de la organización. Si tu repositorio le pertenece a una organización y se seleccionó una opción predeterminada más restrictiva en los ajustes de esta, la misma opción se seleccionará en los ajustes de tu repositorio y la opción permisiva se inhabilitará.
 
 {% data reusables.actions.workflow-permissions-modifying %}
 
 ### Configuring the default `GITHUB_TOKEN` permissions
 
 {% if allow-actions-to-approve-pr-with-ent-repo %}
-By default, when you create a new repository in your personal account, `GITHUB_TOKEN` only has read access for the `contents` scope. If you create a new repository in an organization, the setting is inherited from what is configured in the organization settings.
+Predeterminadamente, cuando creas un repositorio nuevo en tu cuenta personal, el `GITHUB_TOKEN` solo tiene acceso para el alcance `contents`. Si creas un repositorio nuevo en una organización, el ajuste se heredará de lo que se configuró en los ajustes de la organización.
 {% endif %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.settings-sidebar-actions-general %}
-1. Under "Workflow permissions", choose whether you want the `GITHUB_TOKEN` to have read and write access for all scopes, or just read access for the `contents` scope.
+1. Debajo de "Permisos de flujo de trabajo", elige si quieres que el `GITHUB_TOKEN` tenga acceso de lectura y escritura para todos los alcances o solo acceso de lectura para el alcance `contents`.
 
    ![Configurar los permisos del GITHUB_TOKEN para este repositorio](/assets/images/help/settings/actions-workflow-permissions-repository{% if allow-actions-to-approve-pr-with-ent-repo %}-with-pr-approval{% endif %}.png)
 
 1. Da clic en **Guardar** para aplicar la configuración.
 
 {% if allow-actions-to-approve-pr-with-ent-repo %}
-### Preventing {% data variables.product.prodname_actions %} from creating or approving pull requests
+### Prevenir que las {% data variables.product.prodname_actions %} creen o aprueben solicitudes de cambio
 
 {% data reusables.actions.workflow-pr-approval-permissions-intro %}
 
-By default, when you create a new repository in your personal account, workflows are not allowed to create or approve pull requests. If you create a new repository in an organization, the setting is inherited from what is configured in the organization settings.
+Predeterminadamente, cuando creas un repositorio nuevo en tu cuenta personal, no se permite que los flujos de trabajo creen o aprueben las solicitudes de cambios. Si creas un repositorio nuevo en una organización, el ajuste se heredará de lo que se configuró en los ajustes de la organización.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.settings-sidebar-actions-general %}
-1. Under "Workflow permissions", use the **Allow GitHub Actions to create and approve pull requests** setting to configure whether `GITHUB_TOKEN` can create and approve pull requests.
+1. Debajo de "Permisos de flujo de trabajo", utiliza el ajuste **Permitir que las GitHub Actions creen y aprueben solicitudes de cambios** para configurar si el `GITHUB_TOKEN` puede crear y aprobar solicitudes de cambios.
 
    ![Configurar los permisos del GITHUB_TOKEN para este repositorio](/assets/images/help/settings/actions-workflow-permissions-repository-with-pr-approval.png)
 1. Da clic en **Guardar** para aplicar la configuración.
@@ -179,16 +179,16 @@ Tambièn puedes definir un periodo de retenciòn personalizado para un artefacto
 
 {% if actions-cache-policy-apis %}
 
-## Configuring cache storage for a repository
+## Configurar el almacenamiento en caché de un repositorio
 
-{% data reusables.actions.cache-default-size %} However, these default sizes might be different if an enterprise owner has changed them. {% data reusables.actions.cache-eviction-process %}
+{% data reusables.actions.cache-default-size %} Sin embargo, estos tamaños predeterminados podrían ser diferentes si un propietario de empresa los cambió. {% data reusables.actions.cache-eviction-process %}
 
-You can set a total cache storage size for your repository up to the maximum size allowed by the enterprise policy setting.
+Puedes configurar un tamaño de almacenamiento en caché total para tu repositorio hasta un tamaño máximo que permita el ajuste de la política empresarial.
 
-The repository settings for {% data variables.product.prodname_actions %} cache storage can currently only be modified using the REST API:
+Los ajustes de repositorio para el almacenamiento en caché de {% data variables.product.prodname_actions %} actualmente solo se pueden modificar utilizando la API de REST:
 
-* To view the current cache storage limit for a repository, see "[Get GitHub Actions cache usage policy for a repository](/rest/actions/cache#get-github-actions-cache-usage-policy-for-a-repository)."
-* To change the cache storage limit for a repository, see "[Set GitHub Actions cache usage policy for a repository](/rest/actions/cache#set-github-actions-cache-usage-policy-for-a-repository)."
+* Para ver el límite actual de almacenamiento en caché para un repositorio, consulta la sección "[Obtener la política de uso de caché de GitHub Actions para un repositorio](/rest/actions/cache#get-github-actions-cache-usage-policy-for-a-repository)".
+* Para cambiar el límite de almacenamiento en caché de un repositorio, consulta la sección "[Configurar la política de uso de caché de GitHub Actions para un repositorio](/rest/actions/cache#set-github-actions-cache-usage-policy-for-a-repository)".
 
 {% data reusables.actions.cache-no-org-policy %}
 
