@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useRouter } from 'next/router'
 import Cookies from 'js-cookie'
 import { UnderlineNav } from '@primer/react'
 import { sendEvent, EventType } from 'components/lib/events'
@@ -75,6 +76,7 @@ type Props = {
   variant?: 'subnav' | 'tabnav' | 'underlinenav'
 }
 export const ToolPicker = ({ variant = 'subnav' }: Props) => {
+  const { asPath } = useRouter()
   const { defaultTool, detectedTools } = useArticleContext()
   const [currentTool, setCurrentTool] = useState(getDefaultTool(defaultTool, detectedTools))
 
@@ -100,7 +102,7 @@ export const ToolPicker = ({ variant = 'subnav' }: Props) => {
     preserveAnchorNodePosition(document, () => {
       showToolSpecificContent(currentTool)
     })
-  }, [currentTool])
+  }, [currentTool, asPath])
 
   function onClickTool(tool: string) {
     setCurrentTool(tool)

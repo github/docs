@@ -20,6 +20,8 @@ shortTitle: 个人作业
 
 有关创建个人作业的视频演示，请参阅“[设置 {% data variables.product.prodname_classroom %} 的基本知识](/education/manage-coursework-with-github-classroom/basics-of-setting-up-github-classroom)”。
 
+{% data reusables.classroom.reuse-assignment-link %}
+
 ## 基本要求
 
 {% data reusables.classroom.assignments-classroom-prerequisite %}
@@ -75,6 +77,8 @@ shortTitle: 个人作业
 ### 选择集成开发环境 (IDE)
 
 {% data reusables.classroom.about-online-ides %} 更多信息请参阅“[集成 {% data variables.product.prodname_classroom %} 与 IDE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide)”。
+
+{% data reusables.classroom.classroom-codespaces-link %}
 
 {% data reusables.classroom.assignments-guide-choose-an-online-ide %}
 

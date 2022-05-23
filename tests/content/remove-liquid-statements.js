@@ -14,6 +14,7 @@ const nextOldestVersion = '2.14'
 
 // Remove liquid only
 const greaterThan = path.join(removeLiquidStatementsFixtures, 'greater-than.md')
+const unnecessary = path.join(removeLiquidStatementsFixtures, 'unnecessary.md')
 const andGreaterThan1 = path.join(removeLiquidStatementsFixtures, 'and-greater-than1.md')
 const andGreaterThan2 = path.join(removeLiquidStatementsFixtures, 'and-greater-than2.md')
 const notEquals = path.join(removeLiquidStatementsFixtures, 'not-equals.md')
@@ -62,6 +63,24 @@ Alpha\n\n{% else %}\n\nBravo\n\n{% ifversion ghes > 2.16 %}\n\nCharlie\n
 {% endif %}\n\n{% ifversion ghes %}\n\nDelta\n\n{% endif %}\n\n{% endif %}`)
     expect($('.example10').text().trim()).toBe(`{% ifversion ghes %}\n\nAlpha\n
 {% else %}\n\nBravo\n\n{% endif %}`)
+  })
+  test('removes liquid statements that specify all known versions, including some nested conditionals"', async () => {
+    let contents = await readFileAsync(unnecessary, 'utf8')
+    contents = removeLiquidStatements(contents, versionToDeprecate, nextOldestVersion)
+    const $ = cheerio.load(contents)
+    expect($('.example1').text().trim()).toBe(`Alpha`)
+    expect($('.example2').text().trim()).toBe(
+      `Alpha\n  {% ifversion fpt or ghec %}\n  Bravo\n  {% endif %}`
+    )
+    expect($('.example3').text().trim()).toBe(
+      `Alpha\n  {% ifversion fpt or ghec %}\n  Bravo\n  {% else %}\n  Delta\n  {% endif %}`
+    )
+    expect($('.example4').text().trim()).toBe(
+      `Alpha\n  {% ifversion fpt or ghec %}\n  Bravo\n    {% ifversion ghae %}\n    Charlie\n    {% endif %}\n  {% endif %}`
+    )
+    expect($('.example5').text().trim()).toBe(
+      `Alpha\n  {% ifversion fpt or ghec %}\n  Bravo\n    {% ifversion ghae %}\n    Charlie\n    {% endif %}\n  {% else %}\n  Delta\n  {% endif %}`
+    )
   })
 
   test('removes liquid statements that specify "and greater than version to deprecate"', async () => {

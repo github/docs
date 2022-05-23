@@ -22,6 +22,8 @@ You can decide how many teams one assignment can have, and how many members each
 
 For a video demonstration of the creation of a group assignment, see "[Basics of setting up {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/basics-of-setting-up-github-classroom)."
 
+{% data reusables.classroom.reuse-assignment-link %}
+
 ## Prerequisites
 
 {% data reusables.classroom.assignments-classroom-prerequisite %}
@@ -92,6 +94,8 @@ By default, a new assignment will create an empty repository for each team that 
 ### Choosing an integrated development environment (IDE)
 
 {% data reusables.classroom.about-online-ides %} For more information, see "[Integrate {% data variables.product.prodname_classroom %} with an IDE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide)."
+
+{% data reusables.classroom.classroom-codespaces-link %}
 
 {% data reusables.classroom.assignments-guide-choose-an-online-ide %}
 

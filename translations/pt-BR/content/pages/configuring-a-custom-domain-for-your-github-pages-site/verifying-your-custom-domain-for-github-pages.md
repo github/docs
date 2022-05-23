@@ -12,7 +12,7 @@ shortTitle: Verificar um domínio personalizado
 
 ## Sobre a verificação de domínio para o GitHub Pages
 
-Ao verificar seu domínio personalizado para sua conta de usuário ou organização, somente os repositórios pertencentes à sua conta de usuário ou organização podem ser usados para publicar um site de {% data variables.product.prodname_pages %} para o domínio personalizado verificado ou os subdomínios imediatos do domínio.
+Ao verificar seu domínio personalizado para sua conta pessoal ou organização, somente os repositórios pertencentes à sua conta pessoal ou organização podem ser usados para publicar um site de {% data variables.product.prodname_pages %} para o domínio personalizado verificado ou os subdomínios imediatos do domínio.
 
 Verificar seu domínio impede que outros usuários do GitHub de assumir seu domínio personalizado e usá-lo para publicar seu próprio site de {% data variables.product.prodname_pages %}. As tomadas de domínio podem acontecer quando você excluir seu repositório, quando seu plano de cobrança é rebaixado, ou após qualquer outra alteração que desvincula o domínio personalizado ou quando você desabilita {% data variables.product.prodname_pages %} enquanto o domínio permanece configurado para {% data variables.product.prodname_pages %} e não é verificado.
 

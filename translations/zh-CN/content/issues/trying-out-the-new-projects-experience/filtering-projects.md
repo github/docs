@@ -1,6 +1,6 @@
 ---
-title: Filtering projects (beta)
-intro: You can filter your projects to focus on specific information.
+title: 筛选项目（测试版）
+intro: 您可以筛选项目以专注于特定信息。
 allowTitleToDifferFromFilename: true
 miniTocMaxHeadingLevel: 2
 versions:
@@ -13,14 +13,14 @@ topics:
 
 {% data reusables.projects.projects-beta %}
 
-## About filtering projects
+## 关于筛选项目
 
-You can customize views using filters for item metadata, such as assignees and the labels applied to issues, and by the fields in your project. You can combine filters and save them as views. 更多信息请参阅“[自定义项目视图](/issues/trying-out-the-new-projects-experience/customizing-your-project-views)”。
+您可以使用项目元数据（例如受理人和应用于议题的标签）的筛选器以及项目中的字段自定义视图。 您可以组合筛选器并将其另存为视图。 更多信息请参阅“[自定义项目视图](/issues/trying-out-the-new-projects-experience/customizing-your-project-views)”。
 
-To filter a project, click {% octicon "filter" aria-label="The Filter icon" %} and start typing the fields and values you would like to filter for. 当您输入时，可能的值将会出现。 You can also open the command pallet and type "Filter by" to choose from the available filters.
+若要筛选项目，请单击 {% octicon "filter" aria-label="The Filter icon" %}，然后开始键入要筛选的字段和值。 当您输入时，可能的值将会出现。 您也可以打开命令面板并键入“Filter by（筛选依据）”以从可用的筛选器中进行选择。
 
-The same filters are available for insights, allowing you to filter the data used to create your charts. For more information, see "[Using insights with projects](/issues/trying-out-the-new-projects-experience/using-insights-with-projects)."
+相同的筛选器可用于见解，允许您筛选用于创建图表的数据。 更多信息请参阅“[将见解用于项目](/issues/trying-out-the-new-projects-experience/using-insights-with-projects)”。
 
-## Syntax for filtering projects
+## 筛选项目的语法
 
 {% data reusables.projects.projects-filters %}

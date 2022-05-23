@@ -8,15 +8,15 @@ versions:
 Esta guía te mostrará cómo configurar, ajustar y administrar tu cuenta de {% data variables.product.prodname_team %} como propietario de una organización.
 
 ## Parte 1: Configurar tu cuenta de {% data variables.product.product_location %}
-Como primeros pasos en el inicio con {% data variables.product.prodname_team %}, necesitarás crear una cuenta de usuario o iniciar sesión en tu cuenta existente de {% data variables.product.prodname_dotcom %}, crear una organización y configurar la facturación.
+Como primeros pasos para comenzar con {% data variables.product.prodname_team %}, necesitarás crear una cuenta personal o ingresar en tu cuenta existente de {% data variables.product.prodname_dotcom %}, crear una organización y configurar la facturación.
 
 ### 1. Acerca de las organizaciones
 Las organizaciones son cuentas compartidas donde las empresas y los proyectos de código abierto pueden colaborar en muchos proyectos a la vez. Los propietarios y los administradores pueden administrar el acceso de los miembros a los datos y los proyectos de la organización con características administrativas y de seguridad sofisticadas. Para obtener más información sobre las características de las organizaciones, consulta la sección "[Acerca de las organizaciones](/organizations/collaborating-with-groups-in-organizations/about-organizations#terms-of-service-and-data-protection-for-organizations)".
 
 ### 2. Crear una organización y registrarse para {% data variables.product.prodname_team %}
-Antes de crear una organización, necesitarás crear una cuenta de usuario o iniciar sesión en tu cuenta existente de {% data variables.product.product_location %}. Para obtener más información, consulta "[Registrarse para una nueva cuenta de {% data variables.product.prodname_dotcom %}](/get-started/signing-up-for-github/signing-up-for-a-new-github-account)".
+Antes de crear una organización, necesitarás crear una cuenta personal o iniciar sesión en tu cuenta existente de {% data variables.product.product_location %}. Para obtener más información, consulta "[Registrarse para una nueva cuenta de {% data variables.product.prodname_dotcom %}](/get-started/signing-up-for-github/signing-up-for-a-new-github-account)".
 
-Una vez que se configure tu cuenta de usuario, puedes crear una organización y elegir un plan. Aquí es donde puedes elegir una suscripción de {% data variables.product.prodname_team %} para tu organización. Para obtener más información, consulta la sección "[Crear una organización nueva desde cero](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)".
+Una vez que se configura tu cuenta personal, puedes crear una organización y escoger un plan. Aquí es donde puedes elegir una suscripción de {% data variables.product.prodname_team %} para tu organización. Para obtener más información, consulta la sección "[Crear una organización nueva desde cero](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)".
 
 ### 3. Administrar la facturación de una organización
 Debes administrar la configuración de facturación, método de pago y características y productos de pago para cada una de tus cuentas y organizaciones personales. Puedes cambiar entre la configuración de tus diversas cuentas utilizando el alternador de contexto en tu configuración. Para obtener más información, consulta la opción "[Cambiar los ajustes de tus cuentas diferentes](/billing/managing-your-github-billing-settings/about-billing-on-github#switching-between-settings-for-your-different-accounts)".

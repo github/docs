@@ -1,7 +1,7 @@
 ---
-title: Defining outputs for jobs
-shortTitle: Defining outputs for jobs
-intro: Create a map of outputs for your jobs.
+title: 定义作业的输出
+shortTitle: 定义作业的输出
+intro: 为作业的输出创建映射。
 versions:
   fpt: '*'
   ghes: '*'

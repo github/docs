@@ -3,7 +3,7 @@
 # --------------------------------------------------------------------------------
 # BASE IMAGE
 # --------------------------------------------------------------------------------
-FROM node:16.13.2-alpine@sha256:f21f35732964a96306a84a8c4b5a829f6d3a0c5163237ff4b6b8b34f8d70064b as base
+FROM node:16.15.0-alpine@sha256:1a9a71ea86aad332aa7740316d4111ee1bd4e890df47d3b5eff3e5bded3b3d10 as base
 
 # This directory is owned by the node user
 ARG APP_HOME=/home/node/app
@@ -77,6 +77,11 @@ ENV AIRGAP false
 ENV PORT 4000
 
 ENV ENABLED_LANGUAGES "en"
+
+# This makes it possible to set `--build-arg BUILD_SHA=abc123`
+# and it then becomes available as an environment variable in the docker run.
+ARG BUILD_SHA
+ENV BUILD_SHA=$BUILD_SHA
 
 # Copy only what's needed to run the server
 COPY --chown=node:node package.json ./

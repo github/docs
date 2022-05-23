@@ -6,7 +6,7 @@ redirect_from:
   - /articles/supported-browsers
   - /github/getting-started-with-github/supported-browsers
   - /github/getting-started-with-github/using-github/supported-browsers
-intro: 'Diseñamos {% data variables.product.product_name %} para admitir las últimas versiones de los navegadores web. Admitimos las versiones actuales de [Chrome](https://www.google.com/chrome/), [Firefox](http://www.mozilla.org/firefox/), [Safari](http://www.apple.com/safari/), y [Microsoft Edge](https://www.microsoft.com/en-us/windows/microsoft-edge).'
+intro: 'Para obtener la mejor experiencia con {% data variables.product.product_name %}, te recomendamos utilizar la versión más reciente de [Chrome](https://google.com/chrome), [Edge](https://microsoft.com/windows/microsoft-edge), [Firefox](https://mozilla.org/firefox) o [Safari](https://apple.com/safari).'
 versions:
   fpt: '*'
   ghes: '*'
@@ -14,9 +14,28 @@ versions:
   ghec: '*'
 ---
 
-## Lanzamiento de soporte extendido de Firefox
+## Acerca del soporte del buscador web para {% data variables.product.product_name %}
 
-Nos esforzamos para admitir el más reciente [Lanzamiento de soporte extendido](https://www.mozilla.org/en-US/firefox/organizations/) (ESR) de Firefox. Las versiones anteriores de Firefox pueden inhabilitar algunas funciones en {% data variables.product.product_name %} y necesitan la última versión de Firefox.
+Diseñamos a {% data variables.product.product_name %} pensando el los buscadores web más recientes. Te recomendamos que utilices la última versión de uno de los siguientes buscadores.
+
+ - [Apple Safari](https://apple.com/safari)
+ - [Google Chrome](https://google.com/chrome)
+ - [Microsoft Edge](https://microsoft.com/windows/microsoft-edge)
+ - [Mozilla Firefox](https://mozilla.org/firefox)
+
+Si no utilizas la última versión de un buscador recomendado o si utilizas uno que no se liste anteriormente, {% data variables.product.product_name %} o algunas de las características podrían no funcionar como lo esperas, o del todo.
+
+Para obtener más información sobre cómo mantenemos la compatibilidad de los buscadores para los productos de {% data variables.product.company_short %}, consulta el repositorio [`github/browser-support`](https://github.com/github/browser-support).
+## Soporte extendido para los buscadores web recomendados
+
+Algunos proveedores de buscadores proporcionan lanzamientos con soporte extendido. Hacemos nuestro mejor esfuerzo para garantizar que {% data variables.product.product_name %} funcione adecuadamente en el lanzamiento con soporte extendido más reciente para:
+
+- El [canal estable extendido](https://support.google.com/chrome/a/answer/9027636) de Chrome
+- El [canal estable extendido](https://docs.microsoft.com/en-gb/deployedge/microsoft-edge-channels#extended-stable-channel) de Edge
+- El [lanzamiento de soporte extendido](https://www.mozilla.org/en-US/firefox/organizations/) (ESR) de Firefox
+
+En lanzamientos de soporte extendido anteriores, {% data variables.product.product_name %} podría no funcionar como lo esperas y algunas características podrían no estar disponibles.
+
 
 ## Construcciones de programador y beta
 

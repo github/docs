@@ -17,6 +17,7 @@ topics:
   - Permissions
   - Pull requests
 shortTitle: Administrar los ajustes de las GitHub Actions
+miniTocMaxHeadingLevel: 3
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -28,13 +29,11 @@ shortTitle: Administrar los ajustes de las GitHub Actions
 
 Puedes habilitar {% data variables.product.prodname_actions %} para tu repositorio. {% data reusables.actions.enabled-actions-description %} Puedes inhabilitar {% data variables.product.prodname_actions %} totalmente para tu repositorio. {% data reusables.actions.disabled-actions-description %}
 
-De manera alterna, puedes habilitar {% data variables.product.prodname_actions %} en tu repositorio, pero limitar las acciones que un flujo de trabajo puede ejecutar. {% data reusables.actions.enabled-local-github-actions %}
+Como alternativa, puedes habilitar las {% data variables.product.prodname_actions %} en tu repositorio pero limitar las acciones {% if actions-workflow-policy %}y flujos de trabajo reutilizables{% endif %} que puede ejecutar un flujo de trabajo.
 
 ## Administrar los permisos de {% data variables.product.prodname_actions %} para tu repositorio
 
-Puedes inhabilitar todos los flujos de trabajo para un repositorio o configurar una política que configure qué acciones pueden utilzarse en éste.
-
-{% data reusables.actions.actions-use-policy-settings %}
+Puedes inhabilitar las {% data variables.product.prodname_actions %} para un repositorio o ajustar una política que configure qué acciones{% if actions-workflow-policy %} y flujos de trabajo reutilizables{% endif %} pueden utilizarse ene l repositorio.
 
 {% note %}
 
@@ -45,27 +44,31 @@ Puedes inhabilitar todos los flujos de trabajo para un repositorio o configurar 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.settings-sidebar-actions-general %}
-1. Debajo de **Permisos de las acciones**, selecciona una opción.
+1. Selecciona una opción debajo de "Permisos de las acciones".
 
-  ![Configurar la política de acciones para esta organización](/assets/images/help/repository/actions-policy.png)
+   {% indented_data_reference reusables.actions.actions-use-policy-settings spaces=3 %}
 
+   {% if actions-workflow-policy %}
+   ![Configurar una política de acciones para este repositorio](/assets/images/help/repository/actions-policy-with-workflows.png)
+   {%- else %}
+   ![Configurar una política de acciones para este repositorio](/assets/images/help/repository/actions-policy.png)
+   {%- endif %}
 1. Haz clic en **Save ** (guardar).
-
-## Permitir que se ejecuten acciones específicas
 
 {% data reusables.actions.allow-specific-actions-intro %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.settings-sidebar-actions-general %}
-1. Debajo de **Permisos de las acciones**, selecciona **Permitir acciones seleccionadas** y agrega tus acciones requeridas a la lista.
+1. Debajo de "Permissos de acciones", selecciona {% data reusables.actions.policy-label-for-select-actions-workflows %} y agrega tus acciones requeridas a la lista.
 
-   {%- ifversion ghes %}
-   ![Agregar acciones a la lista de permitidos](/assets/images/help/repository/actions-policy-allow-list.png)
+   {% if actions-workflow-policy%}
+   ![Agrega acciones y flujos de trabajo reutilizables a la lista de elementos permitidos](/assets/images/help/repository/actions-policy-allow-list-with-workflows.png)
+   {%- elsif ghes %}
+   ![Agregar acciones a la lista de elementos permitidos](/assets/images/help/repository/actions-policy-allow-list.png)
    {%- else %}
-   ![Agregar acciones a la lista de permitidos](/assets/images/enterprise/github-ae/repository/actions-policy-allow-list.png)
+   ![Agregar acciones a la lista de elementos permitidos](/assets/images/enterprise/github-ae/repository/actions-policy-allow-list.png)
    {%- endif %}
-
 1. Haz clic en **Save ** (guardar).
 
 {% ifversion fpt or ghec %}
@@ -103,20 +106,40 @@ Si se inhabilita una política para una {% ifversion ghec or ghae or ghes %}empr
 
 {% data reusables.actions.workflow-permissions-intro %}
 
-Los permisos predeterminados también pueden configurarse en los ajustes de la organización. Si el predeterminado más restringido se seleccionó en la configuración de la organización, la misma opción se autoselecciona en tu configuración de repositorio y la opción permisiva se inhabilita.
+Los permisos predeterminados también pueden configurarse en los ajustes de la organización. Si tu repositorio le pertenece a una organización y se seleccionó una opción predeterminada más restrictiva en los ajustes de esta, la misma opción se seleccionará en los ajustes de tu repositorio y la opción permisiva se inhabilitará.
 
 {% data reusables.actions.workflow-permissions-modifying %}
 
 ### Configuring the default `GITHUB_TOKEN` permissions
 
+{% if allow-actions-to-approve-pr-with-ent-repo %}
+Predeterminadamente, cuando creas un repositorio nuevo en tu cuenta personal, el `GITHUB_TOKEN` solo tiene acceso para el alcance `contents`. Si creas un repositorio nuevo en una organización, el ajuste se heredará de lo que se configuró en los ajustes de la organización.
+{% endif %}
+
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.settings-sidebar-actions-general %}
-1. Debajo de **Permisos del flujo de trabajo**, elige si quieres que el `GITHUB_TOKEN` tenga permisos de lectura y escritura para todos los alcances o solo acceso de lectura para el alcance `contents`.
+1. Debajo de "Permisos de flujo de trabajo", elige si quieres que el `GITHUB_TOKEN` tenga acceso de lectura y escritura para todos los alcances o solo acceso de lectura para el alcance `contents`.
 
-  ![Configurar los permisos del GITHUB_TOKEN para este repositorio](/assets/images/help/settings/actions-workflow-permissions-repository.png)
+   ![Configurar los permisos del GITHUB_TOKEN para este repositorio](/assets/images/help/settings/actions-workflow-permissions-repository{% if allow-actions-to-approve-pr-with-ent-repo %}-with-pr-approval{% endif %}.png)
 
 1. Da clic en **Guardar** para aplicar la configuración.
+
+{% if allow-actions-to-approve-pr-with-ent-repo %}
+### Prevenir que las {% data variables.product.prodname_actions %} creen o aprueben solicitudes de cambio
+
+{% data reusables.actions.workflow-pr-approval-permissions-intro %}
+
+Predeterminadamente, cuando creas un repositorio nuevo en tu cuenta personal, no se permite que los flujos de trabajo creen o aprueben las solicitudes de cambios. Si creas un repositorio nuevo en una organización, el ajuste se heredará de lo que se configuró en los ajustes de la organización.
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.settings-sidebar-actions-general %}
+1. Debajo de "Permisos de flujo de trabajo", utiliza el ajuste **Permitir que las GitHub Actions creen y aprueben solicitudes de cambios** para configurar si el `GITHUB_TOKEN` puede crear y aprobar solicitudes de cambios.
+
+   ![Configurar los permisos del GITHUB_TOKEN para este repositorio](/assets/images/help/settings/actions-workflow-permissions-repository-with-pr-approval.png)
+1. Da clic en **Guardar** para aplicar la configuración.
+{% endif %}
 {% endif %}
 
 {% ifversion ghes > 3.3 or ghae-issue-4757 or ghec %}
@@ -145,7 +168,7 @@ Puedes configurar el periodo de retenciòn para los artefactos de las {% data va
 
 {% data reusables.actions.about-artifact-log-retention %}
 
-Tambièn puedes definir un periodo de retenciòn personalizado para un artefacto especìfico que haya creado un flujo de trabajo. Para obtener más información consulta la sección "[Configurar el periodo de retención para un artefacto](/actions/managing-workflow-runs/removing-workflow-artifacts#setting-the-retention-period-for-an-artifact)".
+Tambièn puedes definir un periodo de retenciòn personalizado para un artefacto especìfico que haya creado un flujo de trabajo. Para obtener màs informaciòn consulta la secciòn "[Configurar el periodo de retenciòn para un artefacto](/actions/managing-workflow-runs/removing-workflow-artifacts#setting-the-retention-period-for-an-artifact)".
 
 ## Configurar el periodo de retenciòn para un repositorio
 
@@ -153,3 +176,20 @@ Tambièn puedes definir un periodo de retenciòn personalizado para un artefacto
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.settings-sidebar-actions-general %}
 {% data reusables.actions.change-retention-period-for-artifacts-logs  %}
+
+{% if actions-cache-policy-apis %}
+
+## Configurar el almacenamiento en caché de un repositorio
+
+{% data reusables.actions.cache-default-size %} Sin embargo, estos tamaños predeterminados podrían ser diferentes si un propietario de empresa los cambió. {% data reusables.actions.cache-eviction-process %}
+
+Puedes configurar un tamaño de almacenamiento en caché total para tu repositorio hasta un tamaño máximo que permita el ajuste de la política empresarial.
+
+Los ajustes de repositorio para el almacenamiento en caché de {% data variables.product.prodname_actions %} actualmente solo se pueden modificar utilizando la API de REST:
+
+* Para ver el límite actual de almacenamiento en caché para un repositorio, consulta la sección "[Obtener la política de uso de caché de GitHub Actions para un repositorio](/rest/actions/cache#get-github-actions-cache-usage-policy-for-a-repository)".
+* Para cambiar el límite de almacenamiento en caché de un repositorio, consulta la sección "[Configurar la política de uso de caché de GitHub Actions para un repositorio](/rest/actions/cache#set-github-actions-cache-usage-policy-for-a-repository)".
+
+{% data reusables.actions.cache-no-org-policy %}
+
+{% endif %}

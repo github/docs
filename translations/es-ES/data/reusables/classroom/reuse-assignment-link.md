@@ -1,0 +1,1 @@
+You can reuse an existing assignment in any other classroom you have admin access to, including classrooms in a different organization. Para obtener más información, consulta la sección "[Reutilizar una tarea](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/reuse-an-assignment)".

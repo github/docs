@@ -22,7 +22,7 @@ shortTitle: Segredos criptografados
 
 ## Sobre os segredos criptografados para {% data variables.product.prodname_codespaces %}
 
-Você pode adicionar segredos criptografados à sua conta de usuário que deseja usar nos seus codespaces. Por exemplo, você pode querer armazenar e acessar as seguintes informações confidenciais como segredos criptografados.
+Você pode adicionar segredos criptografados à sua conta pessoal que deseja usar nos seus codespaces. Por exemplo, você pode querer armazenar e acessar as seguintes informações confidenciais como segredos criptografados.
 
 - Tokens de acesso pessoal para os serviços da nuvem
 - Entidades de serviço

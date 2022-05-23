@@ -18,11 +18,17 @@ topics:
   <h1>Octokit comes in many flavors</h1>
   <p class="lead">Use the official Octokit library, or choose between any of the available third party libraries.</p>
   <div class="octokit-links"><br/>
-     <div class="octokit-language"> <span>Ruby → </span><a href="https://github.com/octokit/octokit.rb">octokit.rb</a></div><br/>
+     <div class="octokit-language"><span>Ruby → </span><a href="https://github.com/octokit/octokit.rb">octokit.rb</a></div><br/>
      <div class="octokit-language"><span>.NET → </span> <a href="https://github.com/octokit/octokit.net">octokit.net</a></div><br/>
      <div class="octokit-language"><span>JavaScript → </span> <a href="https://github.com/octokit/octokit.js">octokit/octokit.js</a></div><br/>
   </div>
 </div>
+
+{% warning %}
+
+Warning: As of late October 2021, the offical Octokit libraries are not currently maintained. For more information, see [this discussion in the octokit.js repository](https://github.com/octokit/octokit.js/discussions/620).
+
+{% endwarning %}
 
 # Third-party libraries
 
@@ -36,7 +42,7 @@ topics:
 
 | Library name | Repository |
 |---|---|
-|**github.dart** | [DirectMyFile/github.dart](https://github.com/DirectMyFile/github.dart)|
+|**github.dart** | [SpinlockLabs/github.dart](https://github.com/SpinlockLabs/github.dart)|
 
 ### Emacs Lisp
 
@@ -138,6 +144,7 @@ topics:
 | Library name | Repository |
 |---|---|
 |**Octocrab**|[XAMPPRocky/octocrab](https://github.com/XAMPPRocky/octocrab)|
+|**Octocat**|[octocat-rs/octocat-rs](https://github.com/octocat-rs/octocat-rs)|
 
 ### Scala
 

@@ -1,5 +1,5 @@
-{% ifversion fpt or ghes > 3.1 or ghae-issue-4864 or ghec %}
-{% ifversion fpt or ghec %}By default, you will receive notifications:{% endif %}{% ifversion ghes > 3.1 or ghae-issue-4864 %}By default, if your enterprise owner has configured email for notifications on your instance, you will receive {% data variables.product.prodname_dependabot_alerts %}:{% endif %}
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
+{% ifversion fpt or ghec %}By default, you will receive notifications:{% endif %}{% ifversion ghes > 3.1 or ghae %}By default, if your enterprise owner has configured email for notifications on your instance, you will receive {% data variables.product.prodname_dependabot_alerts %}:{% endif %}
 
 - メールについては、{% data variables.product.prodname_dependabot %}がリポジトリで有効化された場合、新しいマニフェストファイルがリポジトリにコミットされた場合、重要度が重大もしくは高の新しい脆弱性が見つかった場合に送信されます（**Email each time a vulnerability is found（脆弱性が見つかるたびにメールする）**オプション）。
 - ユーザインターフェースについては、脆弱な依存関係があった場合に、リポジトリのファイルとコードビューに警告が表示されます（**UI alerts（UIアラート）**オプション）。

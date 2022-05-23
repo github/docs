@@ -107,3 +107,4 @@ El borrar una etiqueta la eliminará de las propuestas y soilcitudes de cambios.
 - "[Filtrar y buscar propuestas y solicitudes de cambios](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)"{% ifversion fpt or ghes or ghec %}
 - "[Administrar las etiquetas predeterminadas para los repositorios de tu organización](/articles/managing-default-labels-for-repositories-in-your-organization)"{% endif %}{% ifversion fpt or ghec %}
 - "[Fomentar las contribuciones sanas a tu proyecto con etiquetas](/communities/setting-up-your-project-for-healthy-contributions/encouraging-helpful-contributions-to-your-project-with-labels)"{% endif %}
+- [Sintaxis de escritura y formato básicos](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#using-emoji)"

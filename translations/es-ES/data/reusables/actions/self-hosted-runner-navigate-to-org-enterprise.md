@@ -9,7 +9,7 @@
 
 {% indented_data_reference reusables.enterprise-accounts.access-enterprise spaces=5 %}
 1. Navega a los ajustes de {% data variables.product.prodname_actions %}:
-   * **In an organization**:
+   * **En una organización**:
 
 {% indented_data_reference reusables.actions.settings-ui.settings-actions-runners spaces=5 %}
    * **Si utilizas un ejecutor a nivel de empresa**:

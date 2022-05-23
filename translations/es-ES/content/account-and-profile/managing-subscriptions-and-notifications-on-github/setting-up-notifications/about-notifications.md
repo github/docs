@@ -16,10 +16,6 @@ topics:
   - Notifications
 ---
 
-{% ifversion ghes %}
-{% data reusables.mobile.ghes-release-phase %}
-{% endif %}
-
 ## Notificaciones y suscripciones
 
 Puedes elegir recibir actualizaciones continuas sobre actividades específicas en {% data variables.product.product_location %} mediante una suscripción. Las notificaciones son actualizaciones que recibes por alguna actividad específica a la que te hayas suscrito.
@@ -34,7 +30,7 @@ Puedes elegir suscribirte a las notificaciones de:
 
 También puedes elegir seguir automáticamente todos los repositorios en los que tienes acceso de escritura, con excepción de sus bifurcaciones. Puedes seguir de cerca manualmente a cualquier otro repositorio al que tengas acceso si das clic en **Seguir**.
 
-Si ya no te interesa alguna conversación, te puedes dar de baja, dejar de seguir o personalizar los tipos de notificaciones que recibirás en el futuro. Por ejemplo, si ya no quieres recibir notificaciones de algún repositorio en particular, puedes dar clic en **Darse de baja**. Para obtener más información, consulta la sección "[Administrar tus suscripciones](/github/managing-subscriptions-and-notifications-on-github/managing-your-subscriptions)".
+Si ya no te interesa alguna conversación, te puedes dar de baja, dejar de seguir o personalizar los tipos de notificaciones que recibirás en el futuro. Por ejemplo, si ya no quieres recibir notificaciones de algún repositorio en particular, puedes dar clic en **Darse de baja**. Para obtener más información, consulta la opción "[Administrar tus suscripciones](/github/managing-subscriptions-and-notifications-on-github/managing-your-subscriptions)".
 
 ### Suscripciones predeterminadas
 
@@ -48,9 +44,9 @@ Generalmente, estarás suscrito automática y predeterminadamente a las conversa
 - Has cambiado el estado de un hilo, como cuando cierras un informe de problemas o fusionas una solicitud de extracción.
 - Se ha @mencionado a algún equipo al que pertenezcas.
 
-También está predeterminado que sigas automáticamente a todos los repositorios que has creado y sean propiedad de tu cuenta de usuario.
+Predeterminadamente, también observarás automáticamente a todos los repositorios que crees y que le pertenezcan a tu cuenta personal.
 
-Para darte de baja de las conversaciones a las cuales estás suscrito automáticamente, puedes cambiar tu configuración de notificaciones o darte de baja directamente o dejar de seguir la actividad de {% data variables.product.product_location %}. Para obtener más información, consulta la sección "[Administrar tus suscripciones](/github/managing-subscriptions-and-notifications-on-github/managing-your-subscriptions)".
+Para darte de baja de las conversaciones a las cuales estás suscrito automáticamente, puedes cambiar tu configuración de notificaciones o darte de baja directamente o dejar de seguir la actividad de {% data variables.product.product_location %}. Para obtener más información, consulta la opción "[Administrar tus suscripciones](/github/managing-subscriptions-and-notifications-on-github/managing-your-subscriptions)".
 
 ## Personalizar notificaciones y suscripciones
 

@@ -54,7 +54,7 @@ Você pode adicionar mais usuários à sua organização{% ifversion ghec %} ou 
 
 Se você tiver dúvidas sobre a sua assinatura, entre em contato com {% data variables.contact.contact_support %}.
 
-Para apoiar ainda mais as habilidades de colaboração da sua equipe, você pode fazer a atualização para {% data variables.product.prodname_ghe_cloud %}, que inclui funcionalidades como branches protegidos e proprietários de códigos em repositórios privados. {% data reusables.enterprise.link-to-ghec-trial %}
+Para apoiar ainda mais as habilidades de colaboração da sua equipe, você pode fazer a atualização para {% data variables.product.prodname_ghe_cloud %}, que inclui funcionalidades como SAML logon único e auditoria avançada. {% data reusables.enterprise.link-to-ghec-trial %}
 
 Para obter mais informações sobre preços por usuário para {% data variables.product.prodname_ghe_cloud %}, consulte [a documentação de {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/billing/managing-billing-for-your-github-account/about-per-user-pricing).
 

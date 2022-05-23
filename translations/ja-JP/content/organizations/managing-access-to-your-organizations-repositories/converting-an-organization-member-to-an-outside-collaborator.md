@@ -15,6 +15,8 @@ topics:
 shortTitle: メンバーのコラボレータへの変換
 ---
 
+## Organizationメンバーの、外部のコラボレータへの変換について
+
 {% data reusables.organizations.owners-and-admins-can %}Organization メンバーを外部コラボレーターに変換できます。
 
 {% data reusables.organizations.outside-collaborators-use-seats %} {% data reusables.organizations.outside_collaborator_forks %}
@@ -31,6 +33,14 @@ Organization のメンバーが外部コラボレーターに変換された後�
 アクセスが期待通りであることを確実にするために、Organization メンバーの、リポジトリへのアクセスを確認することをおすすめします。 詳細は、「[Organization のリポジトリへの個人のアクセスを管理する](/articles/managing-an-individual-s-access-to-an-organization-repository)」を参照してください。
 
 Organization のメンバーを外部コラボレーターに変換する際、Organization メンバーとしての権限は 3 か月保存されるので、この期間内に、そのユーザを Organization に{% ifversion fpt or ghec %}再参加するよう招待{% else %}再追加{% endif %}すれば、メンバーとしての権限を回復できます。 詳しい情報については、「[Organization の以前のメンバーを回復する](/articles/reinstating-a-former-member-of-your-organization)」を参照してください。
+
+## Organization メンバーを外部コラボレーターに変換する
+
+{% note %}
+
+**ノート:** Organizationのオーナー{% ifversion not fpt %}もしくはEnterpriseのオーナー{% endif %}が外部のコラボレータの追加に関して制限している場合、Organizationのメンバーを外部のコラボレータに変換することはできないかもしれません。
+
+{% endnote %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}

@@ -1,0 +1,22 @@
+date: '2022-04-20'
+sections:
+  security_fixes:
+    - 'Los paquetes se actualizaron a las últimas versiones de seguridad.'
+  bugs:
+    - 'El cargar nodos en un par con disponibilidad alta con un paquete de mejora pudo haber causado que Elasticsearch ingresara en un estado inconsistente en algunos casos.'
+    - 'En algunas topologías de clúster, no pudieron ejecutarse las utilidades de línea de comandos `ghe-spokesctl` y `ghe-btop`.'
+    - 'Los índices de Elastisearch podrían duplicarse durante la mejora de un paquete debido a que el servicio de `elasticsearch-upgrade` se ejecutó varias veces en paralelo.'
+    - 'The `maint_host_low` job queues were not processed, resulting in some maintenance tasks failing to run.'
+    - 'Cuando conviertes una cuenta de usuario en una organización, si dicha cuenta fue propietaria de la cuenta empresarial de {% data variables.product.prodname_ghe_server %}, la organización convertida se mostró incorrectamente en la lista de propietarios de la empresa.'
+    - 'El crear un token de OAuth de personificación utilizando la API de REST de administración de empresas dio como resultado un error cuando una integración que coincidió con la ID de aplicación de OAuth ya existía.'
+  changes:
+    - 'When attempting to cache a value larger than the maximum allowed in Memcached, an error was raised however the key was not reported.'
+  known_issues:
+    - 'El registor de npm del {% data variables.product.prodname_registry %} ya no regresa un valor de tiempo en las respuestas de metadatos. Esto se hizo para permitir mejoras de rendimiento sustanciales. Seguimos teniendo todos los datos necesarios para devolver un valor de tiempo como parte de la respuesta de metadatos y terminaremos de devolver este valor ene l futuro una vez que hayamos resuelto los problemas de rendimiento existentes.'
+    - 'En una instancia recién configurada de {% data variables.product.prodname_ghe_server %} sin ningún usuario, un atacante podría crear el primer usuario adminsitrador.'
+    - 'Las reglas de cortafuegos personalizadas se eliminan durante el proceso de actualización.'
+    - 'Los archivos rastreados del LFS de Git que se [cargaron mediante la interface web](https://github.com/blog/2105-upload-files-to-your-repositories) se agregaron incorrecta y directamente al repositorio.'
+    - 'Las propuestas no pudieron cerrarse si contenían un permalink a un blob en el mismo repositorio en donde la ruta de archvio del blob era más grande a 255 caracteres.'
+    - 'Cuando se habilita la opción "Los usuarios pueden buscar en GitHub.com" con las propuestas de {% data variables.product.prodname_github_connect %}, las propuestas en los repositorios internos y privados no se incluyen en los resultados de búsqueda de {% data variables.product.prodname_dotcom_the_website %}.'
+    - 'Si se habilitan las {% data variables.product.prodname_actions %} para {% data variables.product.prodname_ghe_server %}, el desmontar un nodo de réplica con `ghe-repl-teardown` tendrá éxito, pero podría devolver un `ERROR:Running migrations`.'
+    - 'Los límites de recursos que son específicos para procesar ganchos de pre-recepción podrían ocasionar que fallen algunos ganchos de pre-recepción.'

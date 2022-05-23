@@ -1,7 +1,7 @@
 ---
-title: Managing two-factor authentication for your organization
-shortTitle: Manage 2FA
-intro: You can view whether users with access to your organization have two-factor authentication (2FA) enabled and require 2FA.
+title: Administrar la autenticación bifactorial para tu organización
+shortTitle: Administrar la 2FA
+intro: Puedes ver si los usuarios con acceso a tu organización tienen habilitada la autenticación bifactorial (2FA) y requerir que la utilicen.
 versions:
   fpt: '*'
   ghes: '*'

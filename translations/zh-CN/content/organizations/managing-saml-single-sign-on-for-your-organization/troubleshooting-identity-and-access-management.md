@@ -1,51 +1,51 @@
 ---
-title: Troubleshooting identity and access management
-intro: 'Review and resolve common troubleshooting errors for managing your organization''s SAML SSO, team synchronization, or identity provider (IdP) connection.'
+title: 身份和访问管理疑难解答
+intro: 查看并解决用于管理组织的 SAML SSO、团队同步或身份提供商 (IdP) 连接的常见故障排除错误。
 versions:
   ghec: '*'
 topics:
   - Organizations
   - Teams
-shortTitle: Troubleshooting access
+shortTitle: 访问疑难解答
 ---
 
-## Some users are not provisioned or deprovisioned by SCIM
+## 某些用户未由 SCIM 预配或取消预配
 
-When you encounter provisioning issues with users, we recommend that you check if the users are missing SCIM metadata.
+遇到用户预配问题时，建议检查用户是否缺少 SCIM 元数据。
 
 {% data reusables.scim.changes-should-come-from-idp %}
 
-If an organization member has missing SCIM metadata, then you can re-provision SCIM for the user manually through your IdP.
+如果组织成员缺少 SCIM 元数据，则可以通过 IdP 手动为用户重新配置 SCIM。
 
-### Auditing users for missing SCIM metadata
+### 审核用户是否缺少 SCIM 元数据
 
-If you suspect or notice that any users are not provisioned or deprovisioned as expected, we recommend that you audit all users in your organization.
+如果您怀疑或注意到任何用户未按预期进行预配或取消预配，我们建议您审核组织中的所有用户。
 
-To check whether users have a SCIM identity (SCIM metadata) in their external identity, you can review SCIM metadata for one organization member at a time on {% data variables.product.prodname_dotcom %} or you can programatically check all organization members using the {% data variables.product.prodname_dotcom %} API.
+要检查用户的外部身份中是否具有 SCIM 身份（SCIM 元数据），您可以在 {% data variables.product.prodname_dotcom %} 上一次查看一个组织成员的 SCIM 元数据，也可以使用 {% data variables.product.prodname_dotcom %} API 以编程方式检查所有组织成员。
 
-#### Auditing organization members on {% data variables.product.prodname_dotcom %}
+#### 审核 {% data variables.product.prodname_dotcom %} 上的组织成员
 
-As an organization owner, to confirm that SCIM metadata exists for a single organization member, visit this URL, replacing `<organization>` and `<username>`:
+作为组织所有者，要确认单个组织成员是否存在 SCIM 元数据，请访问此 URL，替换 `<organization>` 和 `<username>`：
 
 > `https://github.com/orgs/<organization>/people/<username>/sso`
 
-If the user's external identity includes SCIM metadata, the organization owner should see a SCIM identity section on that page. If their external identity does not include any SCIM metadata, the SCIM Identity section will not exist.
+如果用户的外部标识包括 SCIM 元数据，则组织所有者应在该页面上看到 SCIM 标识部分。 如果其外部标识不包含任何 SCIM 元数据，则 SCIM 标识部分将不存在。
 
-#### Auditing organization members through the {% data variables.product.prodname_dotcom %} API
+#### 通过 {% data variables.product.prodname_dotcom %} API 审核组织成员
 
-As an organization owner, you can also query the SCIM REST API or GraphQL to list all SCIM provisioned identities in an organization.
+作为组织所有者，您还可以查询 SCIM REST API 或 GraphQL 以列出组织中的所有 SCIM 预配置标识。
 
 #### 使用 REST API
 
-The SCIM REST API will only return data for users that have SCIM metadata populated under their external identities. We recommend you compare a list of SCIM provisioned identities with a list of all your organization members.
+SCIM REST API 仅返回在其外部标识下填充了 SCIM 元数据的用户的数据。 我们建议您将 SCIM 预配置身份列表与组织所有成员的列表进行比较。
 
 更多信息请参阅：
-  - "[List SCIM provisioned identities](/rest/reference/scim#list-scim-provisioned-identities)"
-  - "[List organization members](/rest/reference/orgs#list-organization-members)"
+  - "[列出 SCIM 预配标识](/rest/reference/scim#list-scim-provisioned-identities)"
+  - "[列出组织成员](/rest/reference/orgs#list-organization-members)"
 
-#### Using GraphQL
+#### 使用 GraphQL
 
-This GraphQL query shows you the SAML `NameId`, the SCIM `UserName` and the {% data variables.product.prodname_dotcom %} username (`login`) for each user in the organization. To use this query, replace `ORG` with your organization name.
+此 GraphQL 查询显示组织中每个用户的 SAML `NameId`、SCIM `UserName` 和 {% data variables.product.prodname_dotcom %} 用户名 (`login`)。 若使用此查询，请将 `ORG` 替换为您的组织名称。
 
 ```graphql
 {
@@ -76,14 +76,14 @@ This GraphQL query shows you the SAML `NameId`, the SCIM `UserName` and the {% d
 curl -X POST -H "Authorization: Bearer <personal access token>" -H "Content-Type: application/json" -d '{ "query": "{ organization(login: \"ORG\") { samlIdentityProvider { externalIdentities(first: 100) { pageInfo { endCursor startCursor hasNextPage } edges { cursor node { samlIdentity { nameId } scimIdentity {username}  user { login } } } } } } }" }'  https://api.github.com/graphql
 ```
 
-For more information on using the GraphQL API, see:
-   - "[GraphQL guides](/graphql/guides)"
-   - "[GraphQL explorer](/graphql/overview/explorer)"
+有关使用 GraphQL API 的更多信息，请参阅：
+   - "[GraphQL 指南](/graphql/guides)"
+   - "[GraphQL 浏览器](/graphql/overview/explorer)"
 
-### Re-provisioning SCIM for users through your identity provider
+### 通过身份提供商为用户重新预配 SCIM
 
-You can re-provision SCIM for users manually through your IdP. For example, to resolve provisioning errors for Okta, in the Okta admin portal, you can unassign and reassign users to the {% data variables.product.prodname_dotcom %} app. This should trigger Okta to make an API call to populate the SCIM metadata for these users on {% data variables.product.prodname_dotcom %}. For more information, see "[Unassign users from applications](https://help.okta.com/en/prod/Content/Topics/users-groups-profiles/usgp-unassign-apps.htm)" or "[Assign users to applications](https://help.okta.com/en/prod/Content/Topics/users-groups-profiles/usgp-assign-apps.htm)" in the Okta documentation.
+您可以通过 IdP 手动为用户重新预配 SCIM。 例如，要解决 Okta 的预配错误，可以在 Okta 管理门户中取消分配用户并将其重新分配给 {% data variables.product.prodname_dotcom %} 应用。 这应该会触发 Okta 进行 API 调用，以便在 {% data variables.product.prodname_dotcom %} 上为这些用户填充 SCIM 元数据。 更多信息请参阅 Okta 文档中的“[从应用程序取消分配用户](https://help.okta.com/en/prod/Content/Topics/users-groups-profiles/usgp-unassign-apps.htm)”或“[将用户分配到应用程序](https://help.okta.com/en/prod/Content/Topics/users-groups-profiles/usgp-assign-apps.htm)”。
 
-To confirm that a user's SCIM identity is created, we recommend testing this process with a single organization member whom you have confirmed doesn't have a SCIM external identity. After manually updating the users in your IdP, you can check if the user's SCIM identity was created using the SCIM API or on {% data variables.product.prodname_dotcom %}. For more information, see "[Auditing users for missing SCIM metadata](#auditing-users-for-missing-scim-metadata)" or the REST API endpoint "[Get SCIM provisioning information for a user](/rest/reference/scim#get-scim-provisioning-information-for-a-user)."
+要确认是否已创建用户的 SCIM 标识，我们建议您使用已确认没有 SCIM 外部标识的单个组织成员来测试此过程。 手动更新 IdP 中的用户后，您可以检查用户的 SCIM 身份是使用 SCIM API 创建的，还是在 {% data variables.product.prodname_dotcom %} 上创建的。 更多信息请参阅“[审核用户是否缺少 SCIM 元数据](#auditing-users-for-missing-scim-metadata)”或 REST API 端点“[获取用户的 SCIM 预配信息](/rest/reference/scim#get-scim-provisioning-information-for-a-user)”。
 
-If re-provisioning SCIM for users doesn't help, please contact {% data variables.product.prodname_dotcom %} Support.
+如果为用户重新预配 SCIM 不起作用，请联系 {% data variables.product.prodname_dotcom %} 支持。

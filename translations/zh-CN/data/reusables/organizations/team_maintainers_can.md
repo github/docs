@@ -10,6 +10,6 @@
 - [添加组织成员到团队](/articles/adding-organization-members-to-a-team)
 - [从团队中删除组织成员](/articles/removing-organization-members-from-a-team)
 - [将组织成员升级为团队维护员](/organizations/organizing-members-into-teams/assigning-the-team-maintainer-role-to-a-team-member)
-- 删除团队对仓库的访问权限{% ifversion fpt or ghes or ghae or ghec %}
-- [Manage code review settings for the team](/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team){% endif %}{% ifversion fpt or ghec %}
+- 删除团队对仓库的访问权限
+- [管理团队的代码审查设置](/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team){% ifversion fpt or ghec %}
 - [管理拉取请求的预定提醒](/github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-pull-requests){% endif %}

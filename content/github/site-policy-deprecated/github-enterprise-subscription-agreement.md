@@ -9,9 +9,7 @@ versions:
   fpt: '*'
 ---
 
-_These terms apply to Customers who licensed the Products prior to January 4, 2021. Customers who purchase GitHub Products after that date are directed to https://www.github.com/enterprise-legal for current terms._
-
-BY CLICKING THE "I AGREE" OR SIMILAR BUTTON OR BY USING ANY OF THE PRODUCTS (DEFINED BELOW), CUSTOMER ACCEPTS THE TERMS AND CONDITIONS OF THIS AGREEMENT. IF CUSTOMER IS ENTERING INTO THIS AGREEMENT ON BEHALF OF A LEGAL ENTITY, CUSTOMER REPRESENTS THAT IT HAS THE LEGAL AUTHORITY TO BIND THE LEGAL ENTITY TO THIS AGREEMENT.
+_These terms apply to Customers who have executed agreements in place referencing them. All other corporate customers are directed to https://www.github.com/customer-terms for current terms._
 
 This Agreement applies to the following GitHub offerings, as further defined below (collectively, the **"Products"**):
 

@@ -113,8 +113,7 @@ Você pode habilitar ou desabilitar funcionalidades para todos os repositórios.
    ![Captura de tela de uma caixa de seleção para habilitar um revurso para novos repositórios](/assets/images/enterprise/github-ae/organizations/security-and-analysis-enable-or-disable-secret-scanning-checkbox-ghae.png)
    {% endif %}
 
-{% ifversion ghec or ghes > 3.2 %}
-<!--TODO confirm that this functionality is intentionally not available for FPT -->
+{% ifversion fpt or ghec or ghes > 3.2 %}
 
 ## Permitir que {% data variables.product.prodname_dependabot %} acesse dependências privadas
 
@@ -157,5 +156,5 @@ Você pode gerenciar o acesso a funcionalidades de {% data variables.product.pro
 
 - "[Protegendo o seu repositório](/code-security/getting-started/securing-your-repository)"{% ifversion not fpt %}
 - "[Sobre a verificação de segredo](/github/administering-a-repository/about-secret-scanning)"{% endif %}{% ifversion not ghae %}
-- "[Sobre o gráfico de dependências](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)"{% endif %}{% ifversion fpt or ghec or ghes or ghae-issue-4864 %}
+- "[Sobre o gráfico de dependências](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)"{% endif %}{% ifversion fpt or ghec or ghes or ghae %}
 - "[Sobre a segurança da cadeia de suprimentos](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security)"{% endif %}

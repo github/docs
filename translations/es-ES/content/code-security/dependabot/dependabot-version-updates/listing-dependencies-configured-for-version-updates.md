@@ -23,7 +23,7 @@ shortTitle: Dependencias configuradas en la lista
 
 ## Visualizar dependencias que monitorea el {% data variables.product.prodname_dependabot %}
 
-Después de que habilites las actualizaciones de versión, puedes confirmar que tu configuración es la correcta si utilizas la pestaña de **{% data variables.product.prodname_dependabot %}** en la gráfica de dependencias para el repositorio. For more information, see "[Configuring {% data variables.product.prodname_dependabot %} version updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates)."
+Después de que habilites las actualizaciones de versión, puedes confirmar que tu configuración es la correcta si utilizas la pestaña de **{% data variables.product.prodname_dependabot %}** en la gráfica de dependencias para el repositorio. Para obtener más información, consulta la sección "[Configurar las actualizaciones de versión del {% data variables.product.prodname_dependabot %}](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates)".
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.accessing-repository-graphs %}

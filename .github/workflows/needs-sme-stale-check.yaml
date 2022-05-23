@@ -1,0 +1,31 @@
+name: Stale check for issues or PRs with "needs SME" label
+
+# **What it does**: Provides stale checks on issues/PRs that need SME(subject matter expert) review on open source docs repo.
+# **Why we have it**: In the open repo, we want we want frequent checks on issues/PRs that are waiting on SME review.
+# **Who does it impact**: Anyone working in the open repo.
+
+on:
+  schedule:
+    - cron: '40 20 * * *' # Run each day at 20:40 UTC / 12:40 PST
+
+permissions:
+  issues: write
+  pull-requests: write
+
+jobs:
+  stale_needs-sme:
+    if: ${{ github.repository == 'github/docs' }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/stale@7fb802b3079a276cf3c7e6ba9aa003c665b3f838
+        with:
+          only-labels: needs SME
+          remove-stale-when-updated: true
+          days-before-stale: 7 # adds stale label if no activity for 7 days
+          stale-issue-message: 'This is a gentle bump for the docs team that this issue is waiting for technical review.'
+          stale-issue-label: SME stale
+          days-before-issue-close: -1 # never close
+          stale-pr-message: 'This is a gentle bump for the docs team that this PR is waiting for technical review.'
+          stale-pr-label: SME stale
+          days-before-pr-close: -1 # never close

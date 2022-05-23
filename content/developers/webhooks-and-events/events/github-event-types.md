@@ -35,7 +35,7 @@ The event objects returned from the Events API endpoints have the same structure
 | `actor.avatar_url` | The URL of the actor's profile image. |
 | `repo` | The repository object where the event occurred.  |
 | `repo.id` | The unique identifier of the repository. |
-| `repo.name` | The name of the repository, which includes the owner and repository name. For example, `octocat/hello-world` is the name of the `hello-world` repository owned by the `octocat` user account. |
+| `repo.name` | The name of the repository, which includes the owner and repository name. For example, `octocat/hello-world` is the name of the `hello-world` repository owned by the `octocat` personal account. |
 | `repo.url` | The REST API URL used to retrieve the repository object, which includes additional repository information. |
 | `payload` | The event payload object is unique to the event type. See the event type below for the event API `payload` object. |
 
@@ -206,6 +206,16 @@ Key | Type | Description
 
 {% data reusables.webhooks.pull_request_review_comment_event_api_properties %}
 {% data reusables.webhooks.pull_request_review_comment_properties %}
+
+## PullRequestReviewThreadEvent
+
+{% data reusables.webhooks.pull_request_review_thread_short_desc %}
+
+{% data reusables.webhooks.events_api_payload %}
+
+### Event `payload` object
+
+{% data reusables.webhooks.pull_request_thread_properties %}
 
 ## PushEvent
 

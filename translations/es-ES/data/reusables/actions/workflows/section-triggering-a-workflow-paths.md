@@ -1,15 +1,15 @@
 
 Cuando utilices los eventos `push` y `pull_request`, puedes configurar un flujo de trabajo para que se ejecute con base en qué rutas de archivo cambiaron. Los filtros de ruta no se evalúan para subidas de etiquetas.
 
-Utiliza el filtro `paths` cuando quieras incluir los patrones de ruta de archivo o cuando quieras tanto incluirlos como excluirlos. Use the `paths-ignore` filter when you only want to exclude file path patterns. You cannot use both the `paths` and `paths-ignore` filters for the same event in a workflow.
+Utiliza el filtro `paths` cuando quieras incluir los patrones de ruta de archivo o cuando quieras tanto incluirlos como excluirlos. Utiliza el filtro `paths-ignore` cuando solo quieras excluir los patrones de ruta de archivo. No puedes utilizar tanto el filtro de `paths` como el de `paths-ignore` juntos en el mismo evento en un flujo de trabajo.
 
-If you define both `branches`/`branches-ignore` and `paths`, the workflow will only run when both filters are satisfied.
+Si defines tanto `branches`/`branches-ignore` como `paths`, el flujo de trabajo solo se ejecutará cuando ambos filtros se hayan satisfecho.
 
-The `paths` and `paths-ignore` keywords accept glob patterns that use the `*` and `**` wildcard characters to match more than one path name. Para obtener más información, consulta "[Hoja de referencia de patrones de filtro](/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)".
+Las palabras clave `paths` y `paths-ignore` aceptan patrones globales que utilicen los caracteres de comodín `*` y `**` para empatar con más de un nombre de ruta. Para obtener más información, consulta "[Hoja de referencia de patrones de filtro](/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)".
 
 #### Ejemplo: Incluyendo rutas
 
-Si al menos una ruta coincide con un patrón del filtro de `rutas`, se ejecuta el flujo de trabajo. For example, the following workflow would run anytime you push a JavaScript file (`.js`).
+Si al menos una ruta coincide con un patrón del filtro de `rutas`, se ejecuta el flujo de trabajo. Por ejemplo, el siguiente flujo de trabajo se ejecutaría siempre que subieras un archivo de JavaScript (`.js`).
 
 ```yaml
 on:
@@ -18,9 +18,15 @@ on:
       - '**.js'
 ```
 
-#### Example: Excluding paths
+{% note %}
 
-Cuando todos los nombres de ruta coincidan con los patrones en `paths-ignore`, el flujo de trabajo no se ejecutará. If any path names do not match patterns in `paths-ignore`, even if some path names match the patterns, the workflow will run.
+**Nota:** Si se omite un flujo de trabajo debido a [filtrado de ruta](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore), [filtrado de rama](/actions/using-workflows/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore) o a un [mensaje de confirmación](/actions/managing-workflow-runs/skipping-workflow-runs), entonces las verificaciones asociadas con este flujo de trabajo permanecerán en un estado de "Pendiente". Las solicitudes de cambios que requieran que esas verificaciones tengan éxito quedarán bloqueadas para fusión. Para obtener más información, consulta la sección "[Manejar verificaciones omitidas pero requeridas](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/troubleshooting-required-status-checks#handling-skipped-but-required-checks)".
+
+{% endnote %}
+
+#### Ejemplo: Excluir las rutas
+
+Cuando todos los nombres de ruta coincidan con los patrones en `paths-ignore`, el flujo de trabajo no se ejecutará. Si alguno de los nombres de ruta no empatan con los patrones en `paths-ignore`, incluso si algunos de ellos sí lo hacen, el flujo de trabajo se ejecutará.
 
 Un flujo de trabajo con el siguiente filtro de ruta solo se ejecutará en los eventos de `subida` que incluyan al menos un archivo externo al directorio `docs` en la raíz del repositorio.
 
@@ -31,11 +37,11 @@ on:
       - 'docs/**'
 ```
 
-#### Example: Including and excluding paths
+#### Ejemplo: Incluir y excluir rutas
 
-You can not use `paths` and `paths-ignore` to filter the same event in a single workflow. If you want to both include and exclude path patterns for a single event, use the `paths` filter along with the `!` character to indicate which paths should be excluded.
+No puedes utilizar `paths` y `paths-ignore` para filtrar el mismo evento en un solo flujo de trabajo. Si quieres tanto incluir como excluir patrones de ruta para un solo evento, utiliza el filtro de `paths` en conjunto con el carácter `!` para indicar qué rutas deben excluirse.
 
-If you define a path with the `!` character, you must also define at least one path without the `!` character. If you only want to exclude paths, use `paths-ignore` instead.
+Si defines una ruta con el carácter `!`, también debes definir por lo menos una ruta sin el carácter `!`. Si solo quieres excluir rutas, utiliza `paths-ignore` en su lugar.
 
 El orden en que defines los patrones importa:
 

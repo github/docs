@@ -1,6 +1,6 @@
 ---
-title: Getting started with GitHub Actions for your enterprise
-intro: 'Learn how to adopt {% data variables.product.prodname_actions %} for your enterprise.'
+title: 企业 GitHub Actions 使用入门
+intro: '了解如何为您的企业采用 {% data variables.product.prodname_actions %}。'
 versions:
   ghec: '*'
   ghes: '*'

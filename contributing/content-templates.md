@@ -300,7 +300,7 @@ versions:
   - Include any additional features the setup action might provide that are useful to CI.
   - If applicable, provide examples of configuring exact versions or major/minor versions.
   - Include information about software already installed on GitHub-hosted runners or software configuration necessary to build and test the project. 
-  - Provide examples of configuring build matrix strategies.
+  - Provide examples of configuring matrix strategies.
   - Link out to any docs about available software on the GitHub-hosted runners. (Ex. https://docs.github.com/en/actions/reference/software-installed-on-github-hosted-runners).
   - Include code samples.
 -->

@@ -12,7 +12,7 @@ shortTitle: カスタムドメインの検証
 
 ## GitHub Pagesのドメイン検証について
 
-自分のユーザアカウントあるいはOrganizationのカスタムドメインを検証すると、その検証されたカスタムドメインもしくはその直接のサブドメインに{% data variables.product.prodname_pages %}サイトを公開できるのは、自分のユーザアカウントあるいはOrganizationが所有するリポジトリだけになります。
+自分の個人アカウントあるいはOrganizationのカスタムドメインを検証すると、その検証されたカスタムドメインもしくはその直接のサブドメインに{% data variables.product.prodname_pages %}サイトを公開できるのは、自分の個人アカウントあるいはOrganizationが所有するリポジトリだけになります。
 
 ドメインを検証すると、他のGitHubユーザがそのカスタムドメインを乗っ取り、そのユーザ自身の{% data variables.product.prodname_pages %}サイトの公開に使うことを止められます。 ドメインの乗っ取りは、{% data variables.product.prodname_pages %}用にドメインを残したままで検証せず、あなたが自分のリポジトリを削除したとき、支払いプランをダウングレードしたとき、あるいはカスタムドメインのリンクを解除するその他の変更や{% data variables.product.prodname_pages %}を無効化した後に生じます。
 

@@ -45,7 +45,6 @@ Xamarin、.NET Core SDK、YAML、ワークフロー設定オプション、お�
 
 The example below demonstrates how to change the default Xamarin SDK versions and build a Xamarin.iOS application.
 
-{% raw %}
 ```yaml
 name: Build Xamarin.iOS app
 
@@ -57,7 +56,7 @@ jobs:
     runs-on: macos-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: {% data reusables.actions.action-checkout %}
     - name: Set default Xamarin SDK versions
       run: |
         $VM_ASSETS/select-xamarin-sdk-v2.sh --mono=6.12 --ios=14.10
@@ -69,7 +68,7 @@ jobs:
         sudo xcode-select -s $XCODE_ROOT
 
     - name: Setup .NET Core SDK 5.0.x
-      uses: actions/setup-dotnet@v1
+      uses: {% data reusables.actions.action-setup-dotnet %}
       with:
         dotnet-version: '5.0.x'
 
@@ -79,13 +78,11 @@ jobs:
     - name: Build
       run: msbuild <csproj_file_path> /p:Configuration=Debug /p:Platform=iPhoneSimulator /t:Rebuild
 ```
-{% endraw %}
 
 ## Building Xamarin.Android apps
 
 The example below demonstrates how to change default Xamarin SDK versions and build a Xamarin.Android application.
 
-{% raw %}
 ```yaml
 name: Build Xamarin.Android app
 
@@ -97,13 +94,13 @@ jobs:
     runs-on: macos-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: {% data reusables.actions.action-checkout %}
     - name: Set default Xamarin SDK versions
       run: |
         $VM_ASSETS/select-xamarin-sdk-v2.sh --mono=6.10 --android=10.2
 
     - name: Setup .NET Core SDK 5.0.x
-      uses: actions/setup-dotnet@v1
+      uses: {% data reusables.actions.action-setup-dotnet %}
       with:
         dotnet-version: '5.0.x'
 
@@ -113,7 +110,6 @@ jobs:
     - name: Build
       run: msbuild <csproj_file_path> /t:PackageForAndroid /p:Configuration=Debug
 ```
-{% endraw %}
 
 ## .NETのバージョンの指定
 
