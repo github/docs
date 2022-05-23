@@ -51,7 +51,7 @@ Quando você habilita o GitHub Actions, o GitHub instala um aplicativo GitHub no
 {% ifversion fpt or ghec %}
 ## Sobre permissões e acesso de pacote para {% data variables.product.prodname_container_registry %}
 
-O {% data variables.product.prodname_container_registry %} (`ghcr.io`) permite aos usuários criar e administrar contêineres como recursos independentes no nível da organização. Os contêineres podem pertencer a uma conta de usuário ou organização e você pode personalizar o acesso a cada um dos seus contêineres separadamente das permissões de repositório.
+O {% data variables.product.prodname_container_registry %} (`ghcr.io`) permite aos usuários criar e administrar contêineres como recursos independentes no nível da organização. Os contêineres podem pertencer a uma conta pessoal ou organização e você pode personalizar o acesso a cada um dos seus contêineres separadamente das permissões de repositório.
 
 Todos os workflows que acessam o {% data variables.product.prodname_container_registry %} devem usar o `GITHUB_TOKEN` em vez de um token de acesso pessoal. Para obter mais informações sobre as melhores práticas de segurança, consulte "[Enrijecimento de segurança para o GitHub Actions](/actions/learn-github-actions/security-hardening-for-github-actions#using-secrets)".
 

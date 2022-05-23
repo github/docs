@@ -24,7 +24,7 @@ shortTitle: Increase storage capacity
 
 {% note %}
 
-**Note:** Before resizing any storage volume, put your instance in maintenance mode. 詳しい情報については"[メンテナンスモードの有効化とスケジューリング](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)"を参照してください。
+**Note:** Before resizing any storage volume, put your instance in maintenance mode.{% if ip-exception-list %} You can validate changes by configuring an IP exception list to allow access from specified IP addresses. {% endif %} For more information, see "[Enabling and scheduling maintenance mode](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)."
 
 {% endnote %}
 

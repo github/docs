@@ -48,7 +48,7 @@ Microsoft Enterprise Agreement を通じて {% data variables.product.prodname_e
 
 リポジトリが使用するストレージは、{% data variables.product.prodname_actions %}の成果物と{% data variables.product.prodname_registry %}の消費の合計のストレージです。 ストレージのコストは、アカウントが所有するすべてのリポジトリの合計の使用量です。 {% data variables.product.prodname_registry %}の価格に関する詳細な情報については、「[{% data variables.product.prodname_registry %}の支払いについて](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)」を参照してください。
 
- アカウントによる利用がこれらの制限を超え、消費の限度を0米ドル以上に設定しているなら、月あたりストレージのGBごとに0.25米ドル、そして{% data variables.product.prodname_dotcom %}ホストランナーが使用するオペレーティングシステムに応じた分の使用量ごとに支払うことになります。 {% data variables.product.prodname_dotcom %}は、各ジョブが使用する分をもっとも近い分に丸めます。
+ アカウントによる利用がこれらの制限を超え、消費の限度を0米ドル以上に設定しているなら、1日あたりストレージのGBごとに0.008米ドル、そして{% data variables.product.prodname_dotcom %}ホストランナーが使用するオペレーティングシステムに応じた分の使用量ごとに支払うことになります。 {% data variables.product.prodname_dotcom %}は、各ジョブが使用する分をもっとも近い分に丸めます。
 
 {% note %}
 

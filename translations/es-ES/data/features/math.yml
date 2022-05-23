@@ -1,0 +1,8 @@
+---
+#Issues 6054
+#Math support using LaTeX syntax
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.6'
+  ghae: 'issue-6054'

@@ -38,13 +38,13 @@ sections:
     - 
       heading: Cambios en la administración
       notes:
-        - Users can now choose the number of spaces a tab is equal to, by setting their preferred tab size in the "Appearance" settings of their user account. All code with a tab indent will render using the preferred tab size.
-        - The {% data variables.product.prodname_github_connect %} data connection record now includes a count of the number of active and dormant users and the configured dormancy period.
+        - Ahora los usuarios pueden elegir la cantidad de espacios que da una tabulación si configuran su tamaño de tabulación en los ajustes de "Apariencia" de sus cuentas de usuario. Todo el código con una sangría de tabulación se interpretará utilizando el tamaño de tabulación preferido.
+        - El registro de conexión de datos de {% data variables.product.prodname_github_connect %} ahora incluye un conteo de la cantidad de usuarios inactivos y activos y el periodo de inactividad configurado.
         - You can now give users access to enterprise-specific links by adding custom footers to {% data variables.product.prodname_ghe_server %}. For more information, see "[Configuring custom footers](/admin/configuration/configuring-your-enterprise/configuring-custom-footers)."
     - 
       heading: Cambios de rendimiento
       notes:
-        - WireGuard, used to secure communication between {% data variables.product.prodname_ghe_server %} instances in a High Availability configuration, has been migrated to the Kernel implementation.
+        - WireGuard, el cual se utiliza para asegurar la comunicación entre las instancias de {% data variables.product.prodname_ghe_server %} en una configuración de disponibilidad alta, se migró a la implementación del Kernel.
     - 
       heading: Cambios en las notificaciones
       notes:
@@ -71,21 +71,21 @@ sections:
       heading: 'Cambios a los lanzamientos'
       notes:
         - '{% data variables.product.prodname_ghe_server %} 3.4 incluye mejoras a la UI de lanzamientos, tales como notas de lanzamiento generadas automáticamente, las cuales muestran un resumen de todas las solicitudes de cambio para un lanzamiento en particular. Para obtener más información, consulta la "[Bitácora de cambios de {% data variables.product.prodname_dotcom %}](https://github.blog/changelog/2021-10-20-improvements-to-github-releases-generally-available/)".'
-        - When a release is published, an avatar list is now displayed at the bottom of the release. Avatars for all user accounts mentioned in the release notes are shown. For more information, see "[Managing releases in a repository](/repositories/releasing-projects-on-github/managing-releases-in-a-repository)."
+        - Cuando se publica un lanzamiento, ahora se mostrará una lista de avatares en la parte inferior de este. Se mostrarán los avatares de todas las cuentas de usuario mencionadas en las notas de lanzamiento. Para obtener más información, consulta la sección "[Administrar los lanzamientos de un repositorio](/repositories/releasing-projects-on-github/managing-releases-in-a-repository)".
     - 
       heading: 'Cambios en el Lenguaje de Marcado'
       notes:
         - Ahora puedes utilizar la página de ajustes de "Accesibilidad" para administrar tus atajos de teclado. Puedes elegir inhabilitar aquellos que solo utilicen caracteres sencillos como <kbd>S</kbd>, <kbd>G</kbd> <kbd>C</kbd> y <kbd>.</kbd> (la tecla de punto). Para obtener más información, consulta la "[Bitácora de cambios de {% data variables.product.prodname_dotcom %}](https://github.blog/changelog/2021-11-16-managing-keyboard-shortcuts-using-accessibility-settings/)".
-        - You can now choose to use a fixed-width font in Markdown-enabled fields, like issue comments and pull request descriptions. For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-10-12-fixed-width-font-support-in-markdown-enabled-fields/)."
-        - You can now paste a URL on selected text to quickly create a Markdown link. This works in all Markdown-enabled fields, such as issue comments and pull request descriptions. For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-11-10-linkify-selected-text-on-url-paste/)."
+        - Ahora puedes decidir utilizar una fuente de ancho fijo en los campos habilitados para lenguaje de marcado, tal como los comentarios en las propuestas y las descripciones de las solicitudes de cambio. Para obtener más información, consulta la "[Bitácora de cambios de{% data variables.product.prodname_dotcom %}](https://github.blog/changelog/2021-10-12-fixed-width-font-support-in-markdown-enabled-fields/)".
+        - Ahora puedes pegar la URL en el texto seleccionado para crear rápidamente un enlace de lenguaje de marcado. Esto funciona en todos los campos con lenguaje de marcado habilitado, tal como los comentarios en las propuestas y las descripciones en las solicitudes de cambio. Para obtener más información, consulta la sección "[Bitácora de cambios de {% data variables.product.prodname_dotcom %}](https://github.blog/changelog/2021-11-10-linkify-selected-text-on-url-paste/)".
         - 'Ahora se puede anexar una URL de imagen con un contexto de tema, tal como `#gh-dark-mode-only`, para definir cómo se muestra la imagen de lenguaje de marcado en un visualizador. Para obtener más información, consulta la "[Bitácora de cambios de {% data variables.product.prodname_dotcom %}](https://github.blog/changelog/2021-11-24-specify-theme-context-for-images-in-markdown/)".'
         - Al crear o editar un archivo de gist con la extensión de archivo de lenguaje de marcado (`.md`), ahora puedes utilizar la pestaña de "Vista previa" o "Cambios a la vista previa" para mostrar un lenguaje de marcado que interprete el contenido del archivo. Para obtener más información, consulta la "[Bitácora de cambios de {% data variables.product.prodname_dotcom %}](https://github.blog/changelog/2021-11-17-preview-the-markdown-rendering-of-gists/)".
-        - When typing the name of a {% data variables.product.prodname_dotcom %} user in issues, pull requests and discussions, the @mention suggester now ranks existing participants higher than other {% data variables.product.prodname_dotcom %} users, so that it's more likely the user you're looking for will be listed.
+        - Cuando escribes el nombre de un usuario de {% data variables.product.prodname_dotcom %} en las propuestas, solicitudes de cambio y debates, el recomendador de @menciones ahora da una puntuación más alta a los participantes existentes que a otros usuarios de {% data variables.product.prodname_dotcom %} para que sea más probable que se liste el usuario que estás buscando.
         - Los idiomas que se escriben de derecha a izquierda ahora son compatibles de forma nativa en los archivos de lenguaje de marcado, propuestas, solicitudes de cambios, debates y comentarios.
     - 
       heading: 'Cambios en propuestas y sollicitudes de cambio'
       notes:
-        - The diff setting to hide whitespace changes in the pull request "Files changed" tab is now retained for your user account for that pull request. The setting you have chosen is automatically reapplied if you navigate away from the page and then revisit the "Files changed" tab of the same pull request.
+        - El ajuste de diff para ocultar los cambios de espacios en blanco en la pestaña de "Archivos que cambiaron" de la solicitud de cambios ahora se retiene para tu cuenta de usuario en dicha solicitud. El ajuste que elegiste se vuelve a aplicar automáticamente desde la página y luego vuelve a visitar la pestaña de "Archivos que cambiaron" de la misma solicitud de cambios.
         - Cuando utilizas la asignación automática para las revisiones de código de solicitudes de cambios, ahora puedes elegir solo notificar a los miembros de equipo solicitados independientemente de tus ajustes de asignación automática. Este ajuste es útil en escenarios en donde muchos usuarios se asignan automáticamente pero no todos ellos requieren notificaciones. Para obtener más información, consulta la "[Bitácora de cambios de {% data variables.product.prodname_dotcom %}](https://github.blog/changelog/2021-11-10-team-member-pull-request-review-notifications-can-be-configured-independently-of-auto-assignment/)".
     - 
       heading: 'Cambios a las ramas'
@@ -95,7 +95,7 @@ sections:
         - Únicamente los usuarios con permisos administrativos son capaces de renombrar las ramas protegidas y modificar las reglas de protección de rama. Anteriormente, con la excepción de la rama predeterminada, cualquier colaborador podía renombrar la rama y, como consecuencia, cualquier regla de protección de rama no comodín que aplicara a dicha rama también se renombraría. Para obtener más información, consulta las secciones "[Renombrar una rama](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/renaming-a-branch)" y "[Administrar una regla de protección de rama](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule)".
         - Los administradores ahora pueden permitir que solo los usuarios y equipos específicos eludan los requisitos de una solicitud de cambios. para obtener más información, consulta la "[Bitácora de cambios de {% data variables.product.prodname_dotcom %}](https://github.blog/changelog/2021-11-19-allow-bypassing-required-pull-requests/)".
         - Los administradores ahora pueden permitir únicamente usuarios específicos para que suban información forzadamente a un repositorio. Para obtener más información, consulta la [Bitácora de cambios de {% data variables.product.prodname_dotcom %}](https://github.blog/changelog/2021-12-21-specify-who-can-force-push-to-a-repository/)".
-        - When requiring pull requests for all changes to a protected branch, administrators can now choose if approved reviews are also a requirement. For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-11-10-require-pull-requests-without-requiring-reviews/)."
+        - Cuando se requieren solicitudes de cambios para todos los cambios a una rama protegida, los administradores ahora pueden elegir si también se requieren revisores aprobados. Para obtener más información, consulta la sección "[bitácora de cambios de {% data variables.product.prodname_dotcom %}](https://github.blog/changelog/2021-11-10-require-pull-requests-without-requiring-reviews/)".
     - 
       heading: 'Cambioas a las GitHub Actions'
       notes:
@@ -137,7 +137,7 @@ sections:
     - 
       heading: Mobile changes
       notes:
-        - Support for {% data variables.product.prodname_mobile %} is now enabled by default for new {% data variables.product.prodname_ghe_server %} instances. If you have not explicitly disabled or enabled {% data variables.product.prodname_mobile %}, {% data variables.product.prodname_mobile %} will be enabled when you upgrade to {% data variables.product.prodname_ghe_server %} 3.4.0 or later. If you previously disabled or enabled {% data variables.product.prodname_mobile %} for your instance, your preference will be preserved upon upgrade. For more information, see "[Managing {% data variables.product.prodname_mobile %} for your enterprise](/admin/configuration/configuring-your-enterprise/managing-github-mobile-for-your-enterprise)."
+        - La compatibilidad con {% data variables.product.prodname_mobile %} ahora está habilitada predeterminadamente para las instancias nuevas de {% data variables.product.prodname_ghe_server %}. Si no habilitaste o inhabilitaste {% data variables.product.prodname_mobile %} explícitamente, {% data variables.product.prodname_mobile %} se habilitará cuando mejores a {% data variables.product.prodname_ghe_server %} 3.4.0 o posterior. Si previamente inhabilitaste o habilitaste a {% data variables.product.prodname_mobile %} para tu instancia, tu preferencia se preservará cuando hagas la mejora. Para obtener más información, consulta la sección "[Administrar a {% data variables.product.prodname_mobile %} para tu empresa](/admin/configuration/configuring-your-enterprise/managing-github-mobile-for-your-enterprise)".
   #No security/bug fixes for the GA release
   #security_fixes:
   #- PLACEHOLDER
@@ -152,6 +152,12 @@ sections:
     - El registor de npm del {% data variables.product.prodname_registry %} ya no regresa un valor de tiempo en las respuestas de metadatos. Esto se hizo para permitir mejoras de rendimiento sustanciales. Seguimos teniendo todos los datos necesarios para devolver un valor de tiempo como parte de la respuesta de metadatos y terminaremos de devolver este valor ene l futuro una vez que hayamos resuelto los problemas de rendimiento existentes.
     - Los límites de recursos que son específicos para procesar ganchos de pre-recepción podrían ocasionar que fallen algunos ganchos de pre-recepción.
     - Los servicios de las acciones necesitan reiniciarse después de restablecer el aplicativo de un respaldo que se llevó a un host diferente.
+    - |
+      Cuando utilizas las aserciones cifradas con {% data variables.product.prodname_ghe_server %} 3.4.0 y 3.4.1, un atributo nuevo de XML `WantAssertionsEncrypted` en el `SPSSODescriptor` contiene un atributo inválido para los metadatos de SAML. Los IdP que consumen esta terminal de metadatos de SAML podrían encontrar errores al validar el modelo XML de los metadatos de SAML. Habrá una corrección disponible en el siguiente lanzamiento de parche. [Actualizado: 2022-04-11]
+
+      Para darle una solución a este problema, puedes tomar una de las dos acciones siguientes.
+      - Reconfigurar el IdP cargando una copia estática de los metadatos de SAML sin el atributo `WantAssertionsEncrypted`.
+      - Copiar los metadatos de SAML, eliminar el atributo `WantAssertionsEncrypted`, hospedarlo en un servidor web y reconfigurar el IdP para que apunte a esa URL.
   deprecations:
     - 
       heading: Obsoletización de GitHub Enterprise Server 3.0
@@ -164,7 +170,7 @@ sections:
     - 
       heading: Obsoletización del soporte para XenServer Hypervisor
       notes:
-        - Starting in {% data variables.product.prodname_ghe_server %} 3.3, {% data variables.product.prodname_ghe_server %} on XenServer was deprecated and is no longer supported. Please contact [GitHub Support](https://support.github.com) with questions or concerns.
+        - Desde {% data variables.product.prodname_ghe_server %} 3.3, se obsoletizó el {% data variables.product.prodname_ghe_server %} en XenServer y ya no es compatible. Contacta al [Soporte de GitHub](https://support.github.com) si tienes cualquier duda o pregunta.
     - 
       heading: Obsoletización de la vista previa de la API de adjuntos de contenido
       notes:

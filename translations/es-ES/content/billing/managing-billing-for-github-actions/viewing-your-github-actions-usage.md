@@ -18,9 +18,9 @@ shortTitle: Visualizar el uso de tus acciones
 
 También puedes ver los minutos de ejecución facturables para los jobs en una ejecución de flujo de trabajo individual. Para obtener más información, consulta la sección "[Visualizar el tiempo de ejecución del job](/actions/managing-workflow-runs/viewing-job-execution-time)".
 
-## Visualizar el uso de {% data variables.product.prodname_actions %} para tu cuenta de usuario
+## Ver el uso de las {% data variables.product.prodname_actions %} en tu cuenta personal
 
-Cualquiera puede ver el uso de {% data variables.product.prodname_actions %} para su cuenta de usuario personal.
+Cualquiera puede ver el uso de las {% data variables.product.prodname_actions %} en su propia cuenta personal.
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.billing_plans %}
@@ -37,6 +37,7 @@ Los propietarios de la organización y gerentes de facturación pueden ver el us
 {% data reusables.dotcom_billing.actions-packages-storage %}
 {% data reusables.dotcom_billing.actions-packages-report-download-org-account %}
 
+{% ifversion ghec %}
 ## Visualizar el uso de {% data variables.product.prodname_actions %} para tu cuenta empresarial
 
 Los propietarios de empresa y gerentes de facturación pueden ver el uso de {% data variables.product.prodname_actions %} para una cuenta empresarial.
@@ -53,3 +54,4 @@ Los propietarios de empresa y gerentes de facturación pueden ver el uso de {% d
 1. Debajo de "{% data variables.product.prodname_actions %}", visualiza los detalles de uso para transferencia de datos de cada organización en tu cuenta empresarial. ![Detalles del uso de minutos](/assets/images/help/billing/actions-minutes-enterprise.png)
 {% data reusables.dotcom_billing.actions-packages-storage-enterprise-account %}
 {% data reusables.enterprise-accounts.actions-packages-report-download-enterprise-accounts %}
+{% endif %}

@@ -32,7 +32,7 @@ This guide shows you how to apply a centralized management approach to self-host
 1. Deploy a self-hosted runner for your enterprise
 1. Create a group to manage access to the runners available to your enterprise
 1. Optionally, further restrict the repositories that can use the runner
-{%- ifversion ghec or ghae-issue-4462 or ghes > 3.2 %}
+{%- ifversion ghec or ghae or ghes > 3.2 %}
 1. Optionally, build custom tooling to automatically scale your self-hosted runners
 {% endif %}
 
@@ -122,7 +122,7 @@ Optionally, organization owners can further restrict the access policy of the ru
 
 詳しい情報については、「[グループを使用したセルフホストランナーへのアクセスの管理](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#changing-the-access-policy-of-a-self-hosted-runner-group)」を参照してください。
 
-{% ifversion ghec or ghae-issue-4462 or ghes > 3.2 %}
+{% ifversion ghec or ghae or ghes > 3.2 %}
 
 ## 5. Automatically scale your self-hosted runners
 

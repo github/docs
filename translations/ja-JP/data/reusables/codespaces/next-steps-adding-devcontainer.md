@@ -1,0 +1,3 @@
+- [{% data variables.product.prodname_codespaces %} の暗号化されたシークレットを管理する](/codespaces/working-with-your-codespace/managing-encrypted-secrets-for-codespaces)
+- [{% data variables.product.prodname_codespaces %} の GPG 検証を管理する](/codespaces/working-with-your-codespace/managing-gpg-verification-for-codespaces)
+- [Forwarding ports in your codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)

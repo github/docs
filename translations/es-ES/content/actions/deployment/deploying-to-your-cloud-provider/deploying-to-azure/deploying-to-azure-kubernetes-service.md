@@ -20,7 +20,7 @@ topics:
 
 Esta guía te explica cómo utilizar las {% data variables.product.prodname_actions %} para crear y desplegar un proyecto a [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/).
 
-{% ifversion fpt or ghec or ghae-issue-4856 %}
+{% ifversion fpt or ghec or ghae-issue-4856 or ghes > 3.4 %}
 
 {% note %}
 

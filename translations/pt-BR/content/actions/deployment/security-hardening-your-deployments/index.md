@@ -6,6 +6,7 @@ versions:
   fpt: '*'
   ghae: issue-4856
   ghec: '*'
+  ghes: '>=3.5'
 children:
   - /about-security-hardening-with-openid-connect
   - /configuring-openid-connect-in-amazon-web-services

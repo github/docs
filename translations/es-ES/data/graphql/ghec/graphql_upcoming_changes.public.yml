@@ -15,20 +15,6 @@ upcoming_changes:
     criticality: breaking
     owner: tambling
   - 
-    location: EnterpriseBillingInfo.availableSeats
-    description: 'Se eliminará a `availableSeats`. Utiliza EnterpriseBillingInfo.totalAvailableLicenses en sustitución.'
-    reason: 'Se reemplazará a `availableSeats` con `totalAvailableLicenses` para proporcionar más claridad en el valor que se devuelva'
-    date: '2020-01-01T00:00:00+00:00'
-    criticality: breaking
-    owner: BlakeWilliams
-  - 
-    location: EnterpriseBillingInfo.seats
-    description: 'Se eliminará a `seats`. Utiliza EnterpriseBillingInfo.totalLicenses en sustitución.'
-    reason: 'Se reemplazará a `seats` con `totalLicenses` para proporcionar más claridad en el valor que se devuelva'
-    date: '2020-01-01T00:00:00+00:00'
-    criticality: breaking
-    owner: BlakeWilliams
-  - 
     location: UnassignedEvent.user
     description: 'Se eliminará a `user`. Utiliza el campo `assignee` en sustitución.'
     reason: Los asignados ahora pueden ser maniquíes.
@@ -42,13 +28,6 @@ upcoming_changes:
     date: '2020-04-01T00:00:00+00:00'
     criticality: breaking
     owner: antn
-  - 
-    location: EnterprisePendingMemberInvitationEdge.isUnlicensed
-    description: 'Se eliminará a `isUnlicensed`.'
-    reason: Todos los miembros pendientes consumen una licencia
-    date: '2020-07-01T00:00:00+00:00'
-    criticality: breaking
-    owner: BrentWheeldon
   - 
     location: Issue.timeline
     description: 'Se eliminará a `timeline`. Utiliza Issue.timelineItems en sustitución.'
@@ -71,20 +50,6 @@ upcoming_changes:
     criticality: breaking
     owner: nholden
   - 
-    location: EnterpriseMemberEdge.isUnlicensed
-    description: 'Se eliminará a `isUnlicensed`.'
-    reason: Todos los miembros consumen una licencia
-    date: '2021-01-01T00:00:00+00:00'
-    criticality: breaking
-    owner: BrentWheeldon
-  - 
-    location: EnterpriseOutsideCollaboratorEdge.isUnlicensed
-    description: 'Se eliminará a `isUnlicensed`.'
-    reason: Todos los colaboradores externos consumen una licencia
-    date: '2021-01-01T00:00:00+00:00'
-    criticality: breaking
-    owner: BrentWheeldon
-  - 
     location: MergeStateStatus.DRAFT
     description: 'El `DRAFT` se eliminará. Utiliza PullRequest.isDraft en su lugar.'
     reason: El estado del DRAFT se eliminará de esta enumeración y se deberá utilizar `isDraft` en su lugar
@@ -106,13 +71,6 @@ upcoming_changes:
     criticality: breaking
     owner: synthead
   - 
-    location: PullRequest.viewerCanOverrideMergeQueue
-    description: 'Se eliminará `viewerCanOverrideMergeQueue`. Utiliza PullRequest.viewerCanMergeAsAdmin en su lugar.'
-    reason: 'Se eliminará `viewer_can_override_merge_queue`'
-    date: '01-04-2022'
-    criticality: breaking
-    owner: cbeaman
-  - 
     location: Repository.defaultMergeQueue
     description: 'Se eliminará a `defaultMergeQueue`. Utiliza `Repository.mergeQueue` en su lugar.'
     reason: 'Se eliminará `defaultMergeQueue`.'
@@ -121,15 +79,15 @@ upcoming_changes:
     owner: colinshum
   - 
     location: AddPullRequestToMergeQueueInput.branch
-    description: '`branch` will be removed.'
-    reason: PRs are added to the merge queue for the base branch, the `branch` argument is now a no-op
+    description: 'Se eliminará la `branch`.'
+    reason: Las solicitudes de cambio se agregan a la cola de fusión para la rama base, el argumento `branch` ahora es un no-op
     date: '2022-07-01T00:00:00+00:00'
     criticality: breaking
     owner: jhunschejones
   - 
     location: Enterprise.userAccounts
-    description: '`userAccounts` will be removed. Use the `Enterprise.members` field instead.'
-    reason: The `Enterprise.userAccounts` field is being removed.
+    description: 'Se eliminarán las `userAccounts`. Utilice el campo `Enterprise.members` en su lugar.'
+    reason: Se eliminará el campo de `Enterprise.userAccounts`.
     date: '2022-07-01T00:00:00+00:00'
     criticality: breaking
     owner: jdennes
@@ -140,3 +98,10 @@ upcoming_changes:
     date: '2022-07-01T00:00:00+00:00'
     criticality: breaking
     owner: cheshire137
+  - 
+    location: UpdateProjectNextItemFieldInput.fieldWithSettingId
+    description: 'Se eliminará la `fieldWithSettingId`. Utilice `fieldConstraintId` en su lugr'
+    reason: Se renombró como fieldConstraintId para mejorar la consistencia de los nombres.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: memex

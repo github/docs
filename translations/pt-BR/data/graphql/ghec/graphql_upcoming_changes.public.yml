@@ -15,20 +15,6 @@ upcoming_changes:
     criticality: breaking
     owner: tambling
   - 
-    location: EnterpriseBillingInfo.availableSeats
-    description: '`availableSeats` será removido. Use EnterpriseBillingInfo.totalAvailableLicenses em vez disso.'
-    reason: '`availableSeats` serão substituídos por ''totalAvailableLicenses'' para fornecer mais clareza sobre o valor que está sendo devolvido'
-    date: '2020-01-01T00:00:00+00:00'
-    criticality: breaking
-    owner: BlakeWilliams
-  - 
-    location: EnterpriseBillingInfo.seats
-    description: '`seats` serão removidos. Use EnterpriseBillingInfo.totalLicenses em vez disso.'
-    reason: '`seats` serão substituídos por ''totalLicenses'' para fornecer mais clareza sobre o valor que está sendo devolvido'
-    date: '2020-01-01T00:00:00+00:00'
-    criticality: breaking
-    owner: BlakeWilliams
-  - 
     location: UnassignedEvent.user
     description: '`user` será removido. Use o campo `assignee`.'
     reason: Os responsáveis podem agora ser mannequines.
@@ -42,13 +28,6 @@ upcoming_changes:
     date: 'RegistryPackageDependency.dependencyType'
     criticality: breaking
     owner: antn
-  - 
-    location: EnterprisePendingMemberInvitationEdge.isUnlicensed
-    description: '`isUnlicensed` será removido.'
-    reason: Todos os integrantes pendentes consomem uma licença
-    date: '2020-07-01T00:00:00+00:00'
-    criticality: breaking
-    owner: BrentWheeldon
   - 
     location: Issue.timeline
     description: '`timeline` será removido. Use Issue.timelineItems em vez disso.'
@@ -71,20 +50,6 @@ upcoming_changes:
     criticality: breaking
     owner: nholden
   - 
-    location: EnterpriseMemberEdge.isUnlicensed
-    description: '`isUnlicensed` será removido.'
-    reason: Todos os integrantes consomem uma licença
-    date: '2021-01-01T00:00:00+00:00'
-    criticality: breaking
-    owner: BrentWheeldon
-  - 
-    location: EnterpriseOutsideCollaboratorEdge.isUnlicensed
-    description: '`isUnlicensed` será removido.'
-    reason: Todos os colaboradores externos consomem uma licença
-    date: '2021-01-01T00:00:00+00:00'
-    criticality: breaking
-    owner: BrentWheeldon
-  - 
     location: MergeStateStatus.DRAFT
     description: 'O `DRAFT` será removido. Use PullRequest.isDraft.'
     reason: O status DRAFT será removido deste enum e o `isDraft` deverá ser usado
@@ -105,13 +70,6 @@ upcoming_changes:
     date: '2021-10-01T00:00:00+00:00'
     criticality: breaking
     owner: synthead
-  - 
-    location: PullRequest.viewerCanOverrideMergeQueue
-    description: '`viewerCanOverrideMergeQueue` será removido. Use PullRequest.viewerCanMergeAsAdmin.'
-    reason: '`viewer_can_override_merge_queue` will be removed'
-    date: '2022-04-01'
-    criticality: breaking
-    owner: cbeaman
   - 
     location: Repository.defaultMergeQueue
     description: 'O `defaultMergeQueue` será removido. Use `Repository.mergeQueue`.'
@@ -140,3 +98,10 @@ upcoming_changes:
     date: '2022-07-01T00:00:00+00:00'
     criticality: breaking
     owner: cheshire137
+  - 
+    location: UpdateProjectNextItemFieldInput.fieldWithSettingId
+    description: '`fieldWithSettingId` will be removed. Use `fieldConstraintId` instead'
+    reason: Renamed to fieldConstraintId to improve naming consistency.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: memex

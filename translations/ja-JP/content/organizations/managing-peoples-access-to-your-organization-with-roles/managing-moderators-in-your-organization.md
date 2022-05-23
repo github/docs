@@ -1,6 +1,6 @@
 ---
-title: Managing moderators in your organization
-intro: 'You can give an individual or team in your organization the ability to block and limit access, by assigning them to the moderator role.'
+title: Organizationのモデレーターの管理
+intro: Organization内の個人またはTeamにmoderatorロールを割り当てることによって、アクセスをブロックしたり制限したりできるようにすることができます。
 permissions: Organization owners can assign the moderator role.
 versions:
   fpt: '*'
@@ -9,32 +9,32 @@ topics:
   - Organizations
   - Teams
   - Community
-shortTitle: Managing moderators
+shortTitle: モデレーターの管理
 ---
 
-## About organization moderators
+## Organizationのモデレーターについて
 
-Sometimes it's necessary to block a contributor, or to set up interaction limits for your organization, or for individual repositories. As an organization owner, you can perform these tasks, but you may want to delegate these tasks to other members of your organization. You can do this by assigning an organization member, or a team, to the moderator role.
+コントリビューターをブロックしたり、Organizationや個人リポジトリとのやりとりを制限したりしなければならないことがあります。 Organizaitonのオーナーはそういった操作を行えますが、Organizationの他のメンバーにそれらのタスクを委任したいこともあります。 これは、OrganizationのメンバーあるいはTeamにmoderatorロールを割り当てることで行えます。
 
-Organization moderators can:
-* Block and unblock users from the organization. 詳細は「[Organization からユーザをブロックする](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)」を参照してください。
-* Manage organization interaction limits. 詳細は「[Organization での操作を制限する](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-organization)」を参照してください。
-* Manage repository interaction limits. 詳しい情報については「[リポジトリでのインタラクションの制限](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)」を参照してください。
-* Hide comments in all public repositories owned by the organization. For more information, see "[Managing disruptive comments](/communities/moderating-comments-and-conversations/managing-disruptive-comments)."
+Organizationのモデレーターは、以下のことができます。
+* Organizationでのユーザのブロックあるいはブロック解除。 詳細は「[Organization からユーザをブロックする](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)」を参照してください。
+* Organizationの操作の制限。 詳細は「[Organization での操作を制限する](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-organization)」を参照してください。
+* Organizationの操作制限の管理。 詳しい情報については「[リポジトリでの操作の制限](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)」を参照してください。
+* Organizationが所有するすべてのパブリックリポジトリでのコメントの非表示。 詳しい情報については「[問題のあるコメントの管理](/communities/moderating-comments-and-conversations/managing-disruptive-comments)」を参照してください。
 
-Making someone an organization moderator does not give them additional abilities other than those listed above. For example, someone who only has read access to a repository will not gain write access by being made a moderator.
+Organizationのモデレーターに指名しても、上記のリスト以外にできることは増えません。 たとえば、リポジトリに読み取りアクセスだけを持っている人をモデレーターにしても、書き込みアクセスを得ることにはなりません。
 
-You can add up to 10 individual people, or teams, as moderators. If you've already assigned 10 individuals and/or teams as users and you want to add more, you can group people in a moderators team and then use this to replace one or more of the existing assignments. For more information, see "[Creating a team](/organizations/organizing-members-into-teams/creating-a-team)."
+最大で10人の人、あるいはTeamをモデレーターとして追加できます。 既にユーザとして10の人もしくはTeamを割り当てていて、さらに追加したい場合には、モデレーターのTeamに人をまとめて、そのTeamで既存のいくつかの割り当てを置き換えてください。 詳しい情報については「[Teamの作成](/organizations/organizing-members-into-teams/creating-a-team)」を参照してください。
 
-## Adding an organization moderator
+## Organizationモデレーターの追加
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.security-and-analysis %}
-1. In the "Access" section of the sidebar, select **{% octicon "report" aria-label="The report icon" %} Moderation** then click **Moderators**.
-1. Under **Moderators**, search for and select the person or team you want to assign the moderator role. Each person or team you select will appear in a list below the search bar. ![The Moderators search field and list](/assets/images/help/organizations/add-moderators.png)
+1. サイドバーの"Access"セクションで**{% octicon "report" aria-label="The report icon" %} Moderation**を選択し、続いて**Moderators（モデレーター）**をクリックしてください。
+1. **Moderators（モデレーター）**の下で、moderatorロールを割り当てたい人やTeamを検索して選択してください。 選択した人もしくはTeamは、検索バーの下のリストに表示されます。 ![モデレーターの検索フィールド及びリスト](/assets/images/help/organizations/add-moderators.png)
 
 
-## Removing an organization moderator
+## Organizationモデレーターの削除
 
-Follow steps 1-4 above, then click **Remove moderator** beside the person or team you want to remove as a moderator.
+上記のステップ1-4を行ってから、モデレーターから削除したい人もしくはTeamの横の**Remove moderator（モデレーターを削除）** をクリックしてください。

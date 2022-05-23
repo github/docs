@@ -21,7 +21,7 @@ shortTitle: Solicitar desconto
 
 {% data reusables.education.educator-requirements %}
 
-Para obter mais informações sobre contas de usuário em {% data variables.product.product_name %}, consulte "[Cadastrar-se para uma nova conta de {% data variables.product.prodname_dotcom %} ](/github/getting-started-with-github/signing-up-for-a-new-github-account)".
+Para obter mais informações sobre contas pessoais em {% data variables.product.product_name %}, consulte "[Cadastrar-se para uma nova conta de {% data variables.product.prodname_dotcom %} ](/github/getting-started-with-github/signing-up-for-a-new-github-account)".
 
 ## Candidatar-se a um desconto de educador ou pesquisador
 

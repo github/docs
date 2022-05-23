@@ -27,10 +27,9 @@ shortTitle: Instalar en OpenStack
 
 ## Descargar la imagen {% data variables.product.prodname_ghe_server %}
 
-{% data reusables.enterprise_installation.enterprise-download-procedural %}
 {% data reusables.enterprise_installation.download-license %}
 {% data reusables.enterprise_installation.download-appliance %}
-4. Selecciona {% data variables.product.prodname_dotcom %} locales, después haz clic en **OpenStack KVM (QCOW2) (Abrir Stack KVM (QCOW2))**.
+4. Debajo de "{% data variables.product.prodname_dotcom %} en las instalaciones"; selecciona el menú desplegable "Selecciona tu hipervisor" y haz clic en **OpenStack KVM (QCOW2)**.
 5. Haz clic en **Download for OpenStack KVM (QCOW2) (Descargar para OpenStack KVM (QCOW2))**.
 
 ## Crear la instancia {% data variables.product.prodname_ghe_server %}

@@ -25,13 +25,16 @@
 | `codespaces` | Contains activities related to an organization's codespaces.
 {%- endif %}
 | `commit_comment` | Contains activities related to updating or deleting commit comments.
-{%- ifversion fpt or ghec or ghes > 3.2 or ghae-issue-4864 %}
+{%- ifversion ghes %}
+| `config_entry` |  Contains activities related to configuration settings. These events are only visible in the site admin audit log.
+{%- endif %}
+{%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
 | `dependabot_alerts`  | Contains organization-level configuration activities for {% data variables.product.prodname_dependabot_alerts %} in existing repositories. 詳しい情報については、「[脆弱性のある依存関係に対するアラートについて](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)」を参照してください。 | `dependabot_alerts_new_repos`   | Contains organization-level configuration activities for  {% data variables.product.prodname_dependabot_alerts %} in new repositories created in the organization. | `dependabot_repository_access` | Contains activities related to which private repositories in an organization {% data variables.product.prodname_dependabot %} is allowed to access.
 {%- endif %}
 {%- ifversion fpt or ghec or ghes > 3.2 %}
 | `dependabot_security_updates`   | Contains organization-level configuration activities for {% data variables.product.prodname_dependabot_security_updates %} in existing repositories. 詳しい情報については、「[{% data variables.product.prodname_dependabot_security_updates %} を設定する](/github/managing-security-vulnerabilities/configuring-dependabot-security-updates)」を参照してください。 | `dependabot_security_updates_new_repos` | Contains organization-level configuration activities for {% data variables.product.prodname_dependabot_security_updates %} for new repositories created in the organization.
 {%- endif %}
-{%- ifversion fpt or ghec or ghes or ghae-issue-4864 %}
+{%- ifversion fpt or ghec or ghes or ghae %}
 | `dependency_graph` | Contains organization-level configuration activities for dependency graphs for repositories. 詳しい情報については、「[依存関係グラフについて](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)」を参照してください。 | `dependency_graph_new_repos`  | Contains organization-level configuration activities for new repositories created in the organization.
 {%- endif %}
 {%- ifversion fpt or ghec %}
@@ -49,7 +52,7 @@
 {%- ifversion ghae %}
 | `external_group` | Contains activities related to Okta groups. | `external_identity` | Contains activities related to a user in an Okta group.
 {%- endif %}
-| `git` | Contains activities related to Git events. | `hook` | Contains activities related to webhooks. | `integration` | Contains activities related to integrations in an account. | `integration_installation` | Contains activities related to integrations installed in an account. | `integration_installation_request`  | Contains activities related to organization member requests for owners to approve integrations for use in the organization.
+| `gist` | Contains activities related to Gists. | `git` | Contains activities related to Git events. | `hook` | Contains activities related to webhooks. | `integration` | Contains activities related to integrations in an account. | `integration_installation` | Contains activities related to integrations installed in an account. | `integration_installation_request`  | Contains activities related to organization member requests for owners to approve integrations for use in the organization.
 {%- ifversion ghec or ghae %}
 | `ip_allow_list`   | Contains activities related to enabling or disabling the IP allow list for an organization. | `ip_allow_list_entry`   | Contains activities related to the creation, deletion, and editing of an IP allow list entry for an organization.
 {%- endif %}
@@ -103,7 +106,7 @@
 {%- ifversion fpt or ghec %}
 | `repository_advisory` | Contains repository-level activities related to security advisories in the {% data variables.product.prodname_advisory_database %}.  詳しい情報については、「[{% data variables.product.prodname_dotcom %} のセキュリティアドバイザリについて](/github/managing-security-vulnerabilities/about-github-security-advisories)」を参照してください。 | `repository_content_analysis`   | Contains activities related to [enabling or disabling data use for a private repository](/articles/about-github-s-use-of-your-data). | `repository_dependency_graph`   | Contains repository-level activities related to enabling or disabling the dependency graph for a {% ifversion fpt or ghec %}private {% endif %}repository. 詳しい情報については、「[依存関係グラフについて](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)」を参照してください。
 {%- endif %}
-| `repository_image` | Contains activities related images for a repository. | `repository_projects_change` | Contains activities related to enabling projects for a repository or for all repositories in an organization.
+| `repository_image` | Contains activities related to images for a repository. | `repository_invitation` | Contains activities related to invitations to join a repository. | `repository_projects_change` | Contains activities related to enabling projects for a repository or for all repositories in an organization.
 {%- ifversion ghec or ghes or ghae %}
 | `repository_secret_scanning`  | Contains repository-level activities related to secret scanning. 詳しい情報については、「[シークレットスキャニングについて](/github/administering-a-repository/about-secret-scanning)」を参照してください。
 {%- endif %}
@@ -113,7 +116,7 @@
 {%- ifversion fpt or ghec %}
 | `repository_visibility_change` | Contains activities related to allowing organization members to change repository visibilities for the organization.
 {%- endif %}
-{%- ifversion fpt or ghec or ghes or ghae-issue-4864 %}
+{%- ifversion fpt or ghec or ghes or ghae %}
 | `repository_vulnerability_alert`   | Contains activities related to [{% data variables.product.prodname_dependabot_alerts %} for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies).
 {%- endif %}
 {%- ifversion fpt or ghec %}
@@ -122,7 +125,7 @@
 {%- ifversion ghec or ghes > 3.1 %}
 | `restrict_notification_delivery` | Contains activities related to the restriction of email notifications to approved or verified domains for an enterprise.
 {%- endif %}
-{%- ifversion ghec or ghes > 3.4 or ghae-issue-6271 %}
+{%- if custom-repository-roles %}
 | `role` | Contains activities related to [custom repository roles](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization).
 {%- endif %}
 {%- ifversion ghec or ghes or ghae %}

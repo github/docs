@@ -25,7 +25,7 @@ Renomear um arquivo também dá a oportunidade de [transferir o arquivo para um 
 
 **Dicas**:
 
-- Se você tentar renomear um arquivo em um repositório ao qual não tem acesso, bifurcaremos o projeto para sua conta de usuário e ajudaremos você a enviar [uma pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests) para o repositório original depois que fizer o commit da alteração.
+- If you try to rename a file in a repository that you don’t have access to, we will fork the project to your personal account and help you send [a pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests) to the original repository after you commit your change.
 - Os nomes de arquivos criados por meio da interface da web podem conter apenas caracteres alfanuméricos e hífens (`-`). Para usar outros caracteres, crie e faça commit dos arquivos localmente, depois faça push deles para o repositório.
 - Alguns arquivos, como imagens, exigem que a renomeação seja feita usando a linha de comando. Para obter mais informações, consulte "[Renomear um arquivo usando a linha de comando](/articles/renaming-a-file-using-the-command-line)".
 

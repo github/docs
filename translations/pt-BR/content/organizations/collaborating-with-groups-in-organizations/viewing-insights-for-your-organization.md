@@ -1,12 +1,10 @@
 ---
 title: Exibir informações da organização
 intro: 'As informações da organização fornecem dados sobre a atividade, as contribuições e as dependências dela.'
-product: '{% data reusables.gated-features.org-insights %}'
 redirect_from:
   - /articles/viewing-insights-for-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/viewing-insights-for-your-organization
 versions:
-  fpt: '*'
   ghec: '*'
 topics:
   - Organizations
@@ -15,11 +13,13 @@ shortTitle: Visualizar ideias da organização
 permissions: Organization members can view organization insights.
 ---
 
+## Sobre insights da organização
+
 Você pode usar informações de atividade da organização para entender melhor como os integrantes da sua organização estão usando o {% data variables.product.product_name %} para colaborar e trabalhar no código. As informações de dependência podem ajudar você a monitorar, reportar e agir de acordo com o uso de código aberto da organização.
 
 {% note %}
 
-**Note:** To view organization insights, your organization must use {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
+**Observação:** Para visualizar os insights da organização, sua organização deverá usar {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
 
 {% endnote %}
 
@@ -43,7 +43,7 @@ Com as informações de atividade da organização, é possível exibir visualiz
 
 {% note %}
 
-**Observação:** Certifique-se que você habilitou o [Gráfico de dependências](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph).
+**Observação:** Certifique-se que você habilitou o [Gráfico de dependências](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-the-dependency-graph).
 
 {% endnote %}
 

@@ -1,6 +1,6 @@
 ---
 title: Identity and access management
-intro: You can configure how users access your enterprise.
+intro: You can configure how people access {% ifversion ghec or ghae %}your enterprise on {% data variables.product.product_name %}{% elsif ghes %}{% data variables.product.product_location %}{% endif %}.
 redirect_from:
   - /enterprise/admin/authentication
   - /admin/authentication
@@ -14,10 +14,12 @@ topics:
   - Enterprise
   - SSO
 children:
-  - /authenticating-users-for-your-github-enterprise-server-instance
   - /managing-iam-for-your-enterprise
-  - /managing-iam-with-enterprise-managed-users
+  - /using-built-in-authentication
+  - /using-cas-for-enterprise-iam
+  - /using-ldap-for-enterprise-iam
+  - /using-saml-for-enterprise-iam
+  - /using-enterprise-managed-users-and-saml-for-iam
   - /managing-recovery-codes-for-your-enterprise
-  - /configuring-authentication-and-provisioning-with-your-identity-provider
 ---
 

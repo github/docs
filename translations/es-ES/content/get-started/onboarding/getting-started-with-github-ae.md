@@ -22,10 +22,10 @@ Después de que {% data variables.product.company_short %} crea la cuenta de pro
 Puedes configurar una lista de direcciones IP permitidas específicas para restringir el acceso a los activos que pertenecen a las organizaciones en tu cuenta empresarial. Para obtener más información, consulta la sección "[Restringir el tráfico de red para tu empresa](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise)".
 
 ### 4. Administrar la identidad y el acceso para {% data variables.product.product_location %}
-Puedes administrar el acceso centralmente a {% data variables.product.product_location %} en {% data variables.product.product_name %} desde un proveedor de identidad (IdP) utilizando el inicio de sesión único (SSO) de SAML para la autenticación de usuarios y un Sistema de Administración de Identidad de Dominio Cruzado (SCIM) para el aprovisionamiento de usuarios. Una vez que configures el aprovisionamiento, podrás asignar o desasignar usuarios a la aplicación desde el IdP, creando o inhabilitando cuentas de usuario en la empresa. Para obtener más información, consulta la sección "[Acerca de la administración de accesos e identidades para tu empresa](/admin/authentication/managing-identity-and-access-for-your-enterprise/about-identity-and-access-management-for-your-enterprise)".
+Puedes administrar el acceso centralmente a {% data variables.product.product_location %} en {% data variables.product.product_name %} desde un proveedor de identidad (IdP) utilizando el inicio de sesión único (SSO) de SAML para la autenticación de usuarios y un Sistema de Administración de Identidad de Dominio Cruzado (SCIM) para el aprovisionamiento de usuarios. Una vez que configures el aprovisionamiento, podrás asignar o desasignar usuarios a la aplicación desde el IdP, creando o inhabilitando cuentas de usuario en la empresa. Para obtener más información, consulta la sección "[Acerca de la administración de accesos e identidades para tu empresa](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-identity-and-access-management-for-your-enterprise)".
 
 ### 5. Administrar la facturación para {% data variables.product.product_location %}
-Los propietarios de la suscripción a {% data variables.product.product_location %} en {% data variables.product.product_name %} pueden ver los detalles de facturación para {% data variables.product.product_name %} en el portal de Azure. Para obtener más información, consulta la sección "[Administrar la facturación para tu empresa](/admin/overview/managing-billing-for-your-enterprise)".
+Los propietarios de la suscripción a {% data variables.product.product_location %} en {% data variables.product.product_name %} pueden ver los detalles de facturación para {% data variables.product.product_name %} en el portal de Azure. Para obtener más información, consulta la sección "[Administrar la facturación para tu empresa](/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise)".
 
 ## Parte 2: Organizar y administrar a los miembros de la empresa
 Como propietario de la empresa para {% data variables.product.product_name %}, puedes administrar los ajustes a nivel de los usuarios, repositorios, equipos y de la organización. Puedes administrar a los miembros de {% data variables.product.product_location %}, crear y administrar organizaciones, configurar políticas para la administración de repositorios y crear y administrar equipos.
@@ -52,7 +52,7 @@ Como propietario de la empresa para {% data variables.product.product_name %}, p
 Para incrementar la seguridad de {% data variables.product.product_location %}, puedes monitorear a {% data variables.product.product_location %} y configurar las características de seguridad y análisis para tus organizaciones.
 
 ### 1. Monitorear a {% data variables.product.product_location %}
-Puedes monitorear a {% data variables.product.product_location %} con tu tablero de actividad y registro de bitácoras de auditoría. Para obtener más información, consulta la sección "[Monitorear la actividad en tu empresa](/admin/user-management/monitoring-activity-in-your-enterprise)".
+Puedes monitorear a {% data variables.product.product_location %} con tu tablero de actividad y registro de bitácoras de auditoría. Para obtener más información, consulta la sección "[Monitorear la actividad en tu empresa](/admin/monitoring-activity-in-your-enterprise)".
 
 ### 2. Configurar las características de seguridad para tus organizaciones
 {% data reusables.getting-started.configuring-security-features %}
@@ -66,7 +66,7 @@ Puedes personalizar y automatizar el trabajo en las organizaciones de {% data va
 ### 2. Crear {% data variables.product.prodname_actions %}
 {% data reusables.getting-started.actions %}
 
-Para obtener más información sobre cómo habilitar y configurar las {% data variables.product.prodname_actions %} para {% data variables.product.product_name %}, consulta la sección "[Iniciar con las {% data variables.product.prodname_actions %} para {% data variables.product.prodname_ghe_managed %}](/admin/github-actions/using-github-actions-in-github-ae/getting-started-with-github-actions-for-github-ae)".
+Para obtener más información sobre cómo habilitar y configurar las {% data variables.product.prodname_actions %} para {% data variables.product.product_name %}, consulta la sección "[Iniciar con las {% data variables.product.prodname_actions %} para {% data variables.product.prodname_ghe_managed %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-ae)".
 
 ### 3. Uso de {% data variables.product.prodname_pages %}
 {% data reusables.getting-started.github-pages-enterprise %}

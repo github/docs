@@ -21,17 +21,17 @@ topics:
 
 ## Sobre os produtos de {% data variables.product.prodname_dotcom %}
 
-{% data variables.product.prodname_dotcom %} oferece produtos gratuitos e pagos para armazenar e colaborar no código. Alguns produtos aplicam-se apenas a contas de usuários, enquanto outros planos aplicam-se apenas às contas da organização e corporativas. Para obter mais informações sobre as contas, consulte "[Tipos de contas de {% data variables.product.prodname_dotcom %}](/get-started/learning-about-github/types-of-github-accounts)".
+{% data variables.product.prodname_dotcom %} oferece produtos gratuitos e pagos para armazenar e colaborar no código. Alguns produtos aplicam-se apenas a contas pessoais, enquanto outros planos aplicam-se apenas às contas da organização e corporativas. Para obter mais informações sobre as contas, consulte "[Tipos de contas de {% data variables.product.prodname_dotcom %}](/get-started/learning-about-github/types-of-github-accounts)".
 
 Você pode ver o preço e uma lista completa dos recursos de cada produto em <{% data variables.product.pricing_url %}>. {% data reusables.products.product-roadmap %}
 
 Ao ler {% data variables.product.prodname_docs %}, certifique-se de selecionar a versão que reflete seu produto. Para obter mais informações, consulte "[Sobre as versões do {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs)."
 
-## {% data variables.product.prodname_free_user %} para contas de usuário
+## {% data variables.product.prodname_free_user %} para contas pessoais
 
-Com o {% data variables.product.prodname_free_team %} para contas de usuário, você pode trabalhar com colaboradores ilimitados em repositórios públicos ilimitados com um conjunto completo de recursos e em repositórios privados ilimitados com um conjunto de recursos limitado.
+Com o {% data variables.product.prodname_free_team %} para contas pessoais, você pode trabalhar com colaboradores ilimitados em repositórios públicos ilimitados com um conjunto completo de recursos e em repositórios privados ilimitados com um conjunto de recursos limitado.
 
-Com o {% data variables.product.prodname_free_user %}, sua conta de usuário inclui:
+Com o {% data variables.product.prodname_free_user %}, sua conta pessoal inclui:
 - {% data variables.product.prodname_gcf %}
 - {% data variables.product.prodname_dependabot_alerts %}
 - Implementação de autenticação de dois fatores
@@ -40,7 +40,7 @@ Com o {% data variables.product.prodname_free_user %}, sua conta de usuário inc
 
 ## {% data variables.product.prodname_pro %}
 
-Além dos recursos disponíveis no {% data variables.product.prodname_free_user %} para contas de usuário, o {% data variables.product.prodname_pro %} inclui:
+Além dos recursos disponíveis no {% data variables.product.prodname_free_user %} para contas pessoais, o {% data variables.product.prodname_pro %} inclui:
 - {% data variables.contact.github_support %} via e-mail
 - 3.000 {% data variables.product.prodname_actions %} minutos
 - 2GB {% data variables.product.prodname_registry %} de armazenamento
@@ -58,7 +58,7 @@ Além dos recursos disponíveis no {% data variables.product.prodname_free_user 
 
 Com o {% data variables.product.prodname_free_team %} para organizações, você pode trabalhar com colaboradores ilimitados em repositórios públicos ilimitados com um conjunto completo de recursos ou em repositórios privados ilimitados com um conjunto de recursos limitado.
 
-Além dos recursos disponíveis no {% data variables.product.prodname_free_user %} para contas de usuário, o {% data variables.product.prodname_free_team %} para organizações inclui:
+Além dos recursos disponíveis no {% data variables.product.prodname_free_user %} para contas pessoais, o {% data variables.product.prodname_free_team %} para organizações inclui:
 - {% data variables.product.prodname_gcf %}
 - Discussões de equipe
 - Controles de acesso de equipes para gerenciar grupos

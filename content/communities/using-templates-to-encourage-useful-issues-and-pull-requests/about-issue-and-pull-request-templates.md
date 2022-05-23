@@ -18,7 +18,7 @@ After you create issue and pull request templates in your repository, contributo
 
 {% ifversion fpt or ghes or ghec %}
 
-You can create default issue and pull request templates for your organization or user account. For more information, see "[Creating a default community health file](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
+You can create default issue and pull request templates for your organization or personal account. For more information, see "[Creating a default community health file](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
 
 {% endif %}
 
@@ -36,9 +36,7 @@ Using the template builder, you can specify a title and description for each tem
 With issue forms, you can create templates that have web form fields using the {% data variables.product.prodname_dotcom %} form schema. When a contributor opens an issue using an issue form, the form inputs are converted to a standard markdown issue comment. You can specify different input types and set inputs as required to help contributors open actionable issues in your repository. For more information, see "[Configuring issue templates for your repository](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository#creating-issue-forms)" and "[Syntax for issue forms](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms)."
 {% endif %}
 
-{% ifversion fpt or ghae or ghes or ghec %}
 {% data reusables.repositories.issue-template-config %} For more information, see "[Configuring issue templates for your repository](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository#configuring-the-template-chooser)."
-{% endif %}
 
 Issue templates are stored on the repository's default branch, in a hidden `.github/ISSUE_TEMPLATE` directory. If you create a template in another branch, it will not be available for collaborators to use. Issue template filenames are not case sensitive, and need a *.md* extension.{% ifversion fpt or ghec %} Issue templates created with issue forms need a *.yml* extension.{% endif %} {% data reusables.repositories.valid-community-issues %}
 

@@ -4,7 +4,7 @@ intro: API プレビューを使用して新機能を試し、これらの機能
 redirect_from:
   - /v3/previews
 versions:
-  ghes: '*'
+  ghes: <3.4
   ghae: '*'
 topics:
   - API
@@ -47,14 +47,6 @@ Issue またはプルリクエストの[イベントのリスト](/rest/referenc
 
 {% endif %}
 
-{% ifversion ghes %}
-## pre-receive 環境
-
-pre-receive フックの環境を作成、一覧表示、更新、削除します。
-
-**カスタムメディアタイプ:** `eye-scream-preview` **発表日:** [2015-07-29](/rest/reference/enterprise-admin#pre-receive-environments)
-{% endif %}
-
 {% ifversion ghes < 3.3 %}
 ## プロジェクト
 
@@ -88,7 +80,7 @@ pre-receive フックの環境を作成、一覧表示、更新、削除しま�
 
 {% endif %}
 
-{% ifversion ghae or ghes %}
+{% ifversion ghes < 3.3 %}
 
 ## グローバル webhook
 

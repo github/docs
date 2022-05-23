@@ -28,7 +28,7 @@ Before you start, make sure you know:
 
 You will use your personal account to set up the organization. You'll also need to sign in to this account to renew or make changes to your client's subscription in the future.
 
-If you already have a personal {% data variables.product.prodname_dotcom %} user account, skip to [step 2](#step-2-create-the-organization).
+If you already have a personal account on {% data variables.product.prodname_dotcom %}, skip to [step 2](#step-2-create-the-organization).
 
 1. Go to the [Join GitHub](https://github.com/join) page.
 2. Under "Create your personal account," type your username, email address, and password, then click **Create an account**.

@@ -22,6 +22,10 @@
 | Sistemas Contribuidos     | Credenciales de los sistemas contribuidos                   |
 | Databricks                | Token de Acceso de Databricks                               |
 | Datadog                   | Clave de API de Datadog                                     |
+| DigitalOcean              | DigitalOcean Personal Access Token                          |
+| DigitalOcean              | DigitalOcean OAuth Token                                    |
+| DigitalOcean              | DigitalOcean Refresh Token                                  |
+| DigitalOcean              | DigitalOcean System Token                                   |
 | Discord                   | Token de Bot de Discord                                     |
 | Doppler                   | Token Personal de Doppler                                   |
 | Doppler                   | Token de Servicio de Doppler                                |
@@ -49,6 +53,7 @@
 | Hubspot                   | Clave de API de Hubspot                                     |
 | Ionic                     | Token de Acceso Personal de Ionic                           |
 | Ionic                     | Token de Actualización de Ionic                             |
+| JD Cloud                  | Llave de acceso a JD Cloud                                  |
 | Linear                    | Llave de la API de Linear                                   |
 | Linear                    | Token de Acceso Oauth de Linear                             |
 | Mailchimp                 | Clave de API de Mailchimp                                   |
@@ -91,7 +96,7 @@
 | Stripe                    | Clave Secreta de API de Pruebas de Stripe                   |
 | Stripe                    | Clave Restringida de API de Stripe Live                     |
 | Stripe                    | Clave Restringida de API de Pruebas de Stripe               |
-| Supabase                  | Supabase Service Key                                        |
+| Supabase                  | Llave de servicio a Supabase                                |
 | Tencent Cloud             | ID de Secreto de Tencent Cloud                              |
 | Twilio                    | Identificador de Secuencia de Cuenta de Twilio              |
 | Twilio                    | Clave de API de Twilio                                      |

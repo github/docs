@@ -4,7 +4,7 @@ sections:
   security_fixes:
     - "ALTA: Se identificó una vulnerabilidad de desbordamiento de integrales en el analizador de lenguaje de marcado de GitHub, la cual pudo haber ocasionado fugas de información potenciales y RCE. Esta vulnerabilidad la reportó Felix Wilhelm, del proyecto Zero de Google, mediante el programa de Recompensas por Errores de GitHub y se le asignó el CVE-2022-24724."
   bugs:
-    - Upgrades could sometimes fail if a high-availability replica's clock was out of sync with the primary.
+    - Las mejoras fallaron algunas veces si el reloj de una réplica de disponibilidad alta se desincronizó con el primario.
     - 'OAuth Applications created after September 1st, 2020 were not able to use the [Check an Authorization](https://docs.github.com/en/enterprise-server@3.3/rest/reference/apps#check-an-authorization) API endpoint.'
   known_issues:
     - Después de haber actualizado a {% data variables.product.prodname_ghe_server %} 3.3, podría que las {% data variables.product.prodname_actions %} no inicien automáticamente. Para resolver este problema, conéctate al aplicativo a través de SSH y ejecuta el comando `ghe-actions-start`.
@@ -16,3 +16,4 @@ sections:
     - El registor de npm del {% data variables.product.prodname_registry %} ya no regresa un valor de tiempo en las respuestas de metadatos. Esto se hizo para permitir mejoras de rendimiento sustanciales. Seguimos teniendo todos los datos necesarios para devolver un valor de tiempo como parte de la respuesta de metadatos y terminaremos de devolver este valor ene l futuro una vez que hayamos resuelto los problemas de rendimiento existentes.
     - Los límites de recursos que son específicos para procesar ganchos de pre-recepción podrían ocasionar que fallen algunos ganchos de pre-recepción.
     - 'Los ajustes de almacenamiento de {% data variables.product.prodname_actions %} no pueden validarse y guardarse en la {% data variables.enterprise.management_console %} cuando se selecciona "Forzar estilo de ruta" y, en su lugar, debe configurarse la utilidad de línea de comando `ghe-actions-precheck`.'
+    - 'Las instancias de {% data variables.product.prodname_ghe_server %} 3.3 instaladas en Azure y aprovisionadas 32 núcleos de CPU o más fallaron para lanzarse debido a un error presente en el kernel actual de Linux. [Actualizado: 2022-08-04]'
