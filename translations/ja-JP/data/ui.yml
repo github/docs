@@ -36,6 +36,7 @@ search:
 homepage:
   explore_by_product: 製品で調べる
   version_picker: バージョン
+  description: Help for wherever you are on your GitHub journey.
 toc:
   getting_started: はじめましょう
   popular: 人気
