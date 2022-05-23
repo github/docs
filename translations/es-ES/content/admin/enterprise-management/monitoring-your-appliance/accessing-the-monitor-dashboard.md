@@ -6,7 +6,7 @@ redirect_from:
   - /enterprise/admin/enterprise-management/accessing-the-monitor-dashboard
   - /admin/enterprise-management/accessing-the-monitor-dashboard
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
@@ -14,15 +14,16 @@ topics:
   - Infrastructure
   - Monitoring
   - Performance
+shortTitle: Acceder al tablero del monitor
 ---
 
-### Acceder al tablero del monitor
+## Acceder al tablero del monitor
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 2. En la parte superior de la página, haga clic en **Monitor**. ![Enlace al Tablero del monitor](/assets/images/enterprise/management-console/monitor-dash-link.png)
 
-### Solucionar problemas de la asignación de los recursos comunes en su aparato
+## Solucionar problemas de la asignación de los recursos comunes en su aparato
 
 {% note %}
 

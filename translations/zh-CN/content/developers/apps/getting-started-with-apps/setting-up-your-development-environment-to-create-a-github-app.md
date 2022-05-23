@@ -5,18 +5,20 @@ redirect_from:
   - /apps/quickstart-guides/setting-up-your-development-environment
   - /developers/apps/setting-up-your-development-environment-to-create-a-github-app
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - GitHub Apps
+shortTitle: 开发者环境
 ---
 
-### 简介
+## 简介
 
 本指南将演练配置 GitHub 应用程序并在服务器上运行它所需的步骤。 GitHub 应用程序需要一些设置步骤来管理 web 挂钩事件并将 GitHub 上的应用程序注册连接到您的代码。 本指南中的应用程序可用作扩展和构建新 GitHub 应用程序的基础。
 
-在本指南结束之前，您将注册 GitHub 应用程序并设置 web 服务器以接收 web 挂钩事件。 您将学习如何使用名为 Smee 的工具捕获 web 挂钩有效负载，并将它们转发到本地开发环境。 您将在本节中配置的模板应用不会做任何特殊的事情，但它将作为一个框架，支持您使用 API 开始编写应用程序代码或完成其他[快速入门指南](/apps/quickstart-guides/)。 {% if currentVersion == "free-pro-team@latest" %}您可以在 [GitHub Marketplace](https://github.com/marketplace) 和[使用 GitHub](https://github.com/works-with) 中查看成功的应用程序示例。{% endif %}
+在本指南结束之前，您将注册 GitHub 应用程序并设置 web 服务器以接收 web 挂钩事件。 您将学习如何使用名为 Smee 的工具捕获 web 挂钩有效负载，并将它们转发到本地开发环境。 您将在本节中配置的模板应用不会做任何特殊的事情，但它将作为一个框架，支持您使用 API 开始编写应用程序代码或完成其他[快速入门指南](/apps/quickstart-guides/)。 {% ifversion fpt or ghec %}您可以在 [GitHub Marketplace](https://github.com/marketplace) 和[使用 GitHub](https://github.com/works-with) 中查看成功的应用程序示例。{% endif %}
 
 完成此项目后，您将了解如何验证为 GitHub 应用程序和安装设施，以及这些身份验证方法有何不同。
 
@@ -32,7 +34,7 @@ topics:
 
 {% data reusables.apps.app-ruby-guides %}
 
-### 基本要求
+## 基本要求
 
 您可能会发现对以下内容有基本的了解很有帮助：
 
@@ -50,9 +52,9 @@ topics:
 $ git clone https://github.com/github-developer/github-app-template.git
 ```
 
-### 步骤 1. 启动新的 Sme 通道
+## 步骤 1. 启动新的 Sme 通道
 
-为了帮助 GitHub 将 web 挂钩发送到您的本地计算机而不将其暴露在互联网上，您可以使用一个名为 Smee 的工具。 首先，转到 https://smee.io，然后单击 **Start a new channel（启动新通道）**。 如果您已经习惯使用将本地计算机暴露到互联网上的其他工具，例如 [ngrok](https://dashboard.ngrok.com/get-started) 或 [localtunnel](https://localtunnel.github.io/www/)，请随意使用。
+为了帮助 GitHub 将 web 挂钩发送到您的本地计算机而不将其暴露在互联网上，您可以使用一个名为 Smee 的工具。 首先，转到 https://smee.io，然后单击 **Start a new channel（启动新通道）**。 如果您已经习惯使用将本地计算机暴露到互联网上的其他工具，例如 [`ngrok`](https://dashboard.ngrok.com/get-started) 或 [`localtunnel`](https://localtunnel.github.io/www/)，请随意使用。
 
 ![Smee 新通道按钮](/assets/images/smee-new-channel.png)
 
@@ -89,9 +91,9 @@ $ git clone https://github.com/github-developer/github-app-template.git
 
 `smee --url <unique_channel>` 命令指示 Smee 将 Smee 通道接收的所有 web 挂钩事件转发到计算机上运行的 Smee 客户端。 `--path /event_handler` 选项将事件转发到 `/event_handler` 路由，我们将在[后面的章节](#step-5-review-the-github-app-template-code)中介绍。 `--port 3000` 选项指定端口 3000，这是服务器将侦听的端口。 使用 Smee，您的计算机不需要向公共互联网开放即可从 GitHub 接收 web 挂钩。 您也可以在浏览器中打开 Smee URL 来检查 web 挂钩有效负载。
 
-我们建议您在完成本指南其余步骤时保持此终端窗口打开并保持 Smee 连接。 尽管您_可以_断开连接后重新连接 Smee 客户端而不会丢失唯一域（与 ngrok 不同），但您可能会发现，保持连接时在其他终端窗口中执行其他命令行任务更容易。
+我们建议您在完成本指南其余步骤时保持此终端窗口打开并保持 Smee 连接。 尽管您_可以_断开连接后重新连接 Smee 客户端而不会丢失唯一域（与 `ngrok` 不同），但您可能会发现，保持连接时在其他终端窗口中执行其他命令行任务更容易。
 
-### 步骤 2. 注册新的 GitHub 应用程序
+## 步骤 2. 注册新的 GitHub 应用程序
 
 如果您还没有 GitHub 帐户，现在[是时候注册了](https://github.com/join)。 在继续之前，不要忘记验证您的电子邮件地址！ 要注册新应用程序，请访问您的 GitHub 个人资料中的[应用程序设置页面](https://github.com/settings/apps)，然后单击 **New GitHub App（新建 GitHub 应用程序）**。
 
@@ -125,11 +127,11 @@ $ git clone https://github.com/github-developer/github-app-template.git
 
 单击 **Create GitHub App（创建 GitHub 应用程序）**以创建您的应用程序！
 
-### 步骤 3. 保存私钥和应用程序 ID
+## 步骤 3. 保存私钥和应用程序 ID
 
 创建应用程序后，您将被带回[应用程序设置页面](https://github.com/settings/apps)。 您还有两件事要做：
 
-* **为应用程序生成私钥。**这是以后验证应用程序所必需的。 向下滚动页面，然后单击 **Generate a private key（生成私钥）**。 将生成的 PEM 文件（称为 _`app-name`_-_`date`_-private-key.pem 等）保存在可以再次找到的目录中。
+* **为应用程序生成私钥。**这是以后验证应用程序所必需的。 向下滚动页面，然后单击 **Generate a private key（生成私钥）**。 将生成的 `PEM` 文件（称为 _`app-name`_-_`date`_-`private-key.pem` 等）保存在可以再次找到的目录中。
 
     ![私钥生成对话框](/assets/images/private_key.png)
 
@@ -137,7 +139,7 @@ $ git clone https://github.com/github-developer/github-app-template.git
 
     <img src="/assets/images/app_id.png" alt="应用程序的 ID" width="200px" />
 
-### 步骤 4. 准备运行时环境
+## 步骤 4. 准备运行时环境
 
 为了保证您的信息安全，我们建议将与应用程序相关的所有密钥放在应用程序可以找到的计算机内存中，而不是直接将它们放在代码中。 一种称为 [dotenv](https://github.com/bkeepers/dotenv) 的便捷开发工具将特定于项目的环境变量从 `.env` 文件加载到 `ENV`。 切勿将 `.env` 文件检入 GitHub。 这是一个本地文件，用于存储您不希望在公共互联网上公开的敏感信息。 为了防止这种情况，`.env` 文件已包含在仓库的 [`.gitignore`](/github/getting-started-with-github/ignoring-files/) 文件中。
 
@@ -161,7 +163,7 @@ GITHUB_APP_IDENTIFIER=12345
 GITHUB_WEBHOOK_SECRET=your webhook secret
 ```
 
-### 步骤 5. 审查 GitHub 应用程序模板代码
+## 步骤 5. 审查 GitHub 应用程序模板代码
 
 模板应用程序代码已经包含每个 GitHub 应用程序都需要的一些代码。 本节将引导您浏览 GitHub 应用程序模板中已经存在的代码。 在本节中，您不需要完成任何步骤。 如果您已经熟悉模板代码，则可以跳到“[步骤 6. 启动服务器](#step-6-start-the-server)”。
 
@@ -169,7 +171,7 @@ GITHUB_WEBHOOK_SECRET=your webhook secret
 
 在文件顶部，您将看到 `set :port 3000`，它设置启动 Web 服务器时使用的端口，以匹配您在“[步骤 1. 启动新的 Sme 通道](#step-1-start-a-new-smee-channel)”中将 web 挂钩有效负载重定向到的端口。
 
-您将刚看到的下一段代码是 `class GHApp < Sintra::Application` 声明。 您将在此类中编写 GitHub 应用程序的所有代码。
+您将刚看到的下一段代码是 `class GHApp < Sinatra::Application` 声明。 您将在此类中编写 GitHub 应用程序的所有代码。
 
 模板中现成的类可执行以下操作：
 * [读取环境变量](#read-the-environment-variables)
@@ -178,7 +180,7 @@ GITHUB_WEBHOOK_SECRET=your webhook secret
 * [定义路由处理程序](#define-a-route-handler)
 * [定义辅助方法](#define-the-helper-methods)
 
-#### 读取环境变量
+### 读取环境变量
 
 该类要做的第一件事是读取您在“[步骤 4. 准备运行时环境](#step-4-prepare-the-runtime-environment)”中设置的三个环境变量，并将它们存储在变量中供以后使用：
 
@@ -194,7 +196,7 @@ WEBHOOK_SECRET = ENV['GITHUB_WEBHOOK_SECRET']
 APP_IDENTIFIER = ENV['GITHUB_APP_IDENTIFIER']
 ```
 
-#### 开启日志记录
+### 开启日志记录
 
 接下来是一个在开发过程中启用日志记录的代码块，这是 Sinatra 中的默认环境。 开发应用程序时，此代码在 `DEBUG` 级别打开日志记录，以在终端中显示有用的输出：
 
@@ -205,7 +207,7 @@ configure :development do
 end
 ```
 
-#### 定义前置过滤器
+### 定义前置过滤器
 
 Sinatra 使用[前置过滤器](https://github.com/sinatra/sinatra#filters)允许您在路由处理程序之前执行代码。 模板中的 `before` 块调用四个[辅助方法](https://github.com/sinatra/sinatra#helpers)。 模板应用程序在[后面的部分](#define-the-helper-methods)定义这些辅助方法。
 
@@ -220,7 +222,7 @@ before '/event_handler' do
 end
 ```
 
-#### 定义路由处理程序
+### 定义路由处理程序
 
 模板代码中包含空路由。 此代码处理对 `/event_handler` 路由的所有 `POST` 请求。 在本快速入门中，您将不会编写此事件处理程序，但请参阅其他[快速入门指南](/apps/quickstart-guides/)，了解有关如何扩展此模板应用程序的示例。
 
@@ -230,19 +232,19 @@ post '/event_handler' do
 end
 ```
 
-#### 定义辅助方法
+### 定义辅助方法
 
 此模板中的辅助方法可以完成大部分繁重的工作。 代码的这一部分中定义了四个辅助方法。
 
-##### 处理 web 挂钩有效负载
+#### 处理 web 挂钩有效负载
 
 第一个方法 `get_payload_request` 捕获 web 挂钩有效负载并将其转换为 JSON 格式，使访问有效负载的数据变得更容易。
 
-##### 验证 web 挂钩签名
+#### 验证 web 挂钩签名
 
 第二个方法 `verify_webhook_signature` 对 web 挂钩签名进行验证，以确保 GitHub 生成了事件。 要详细了解 `verify_webhook_signature` 辅助方法中的代码，请参阅“[保护 web 挂钩](/webhooks/securing/)”。 如果 web 挂钩是安全的，则此方法会将所有传入的有效负载记录到您的终端。 记录器代码有助于验证 Web 服务器是否正常运行，但是您以后可以随时删除它。
 
-##### 验证为 GitHub 应用程序
+#### 验证为 GitHub 应用程序
 
 要进行 API 调用，您将使用 [Octokit 库](http://octokit.github.io/octokit.rb/)。 要对此库进行任何有意义的操作，都需要您（或者更确切地说是您的应用程序）进行身份验证。 GitHub 应用程序有两种身份验证方法：
 
@@ -288,7 +290,7 @@ end
 
 上面的代码生成 [JSON Web 令牌 (JWT)](https://jwt.io/introduction)并使用它（以及应用程序的私钥）来初始化 Octokit 客户端。 GitHub 通过使用应用程序存储的公钥验证令牌来检查请求的身份验证。 要了解有关此代码如何工作的更多信息，请参阅“[验证为 GitHub 应用程序](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app)”。
 
-##### 验证为安装
+#### 验证为安装
 
 _安装设施_是指已安装该应用程序的任何用户或组织帐户。 即使有人在多个仓库中安装应用程序，也只能算作一个安装设施，因为它们在同一个帐户内。 最后一个辅助方法 `authenticate_installation` 初始化已验证为安装设施的 [Octokit 客户端](http://octokit.github.io/octokit.rb/Octokit/Client.html)。 此 Octokit 客户端是您用来进行经验证 API 调用的客户端。
 
@@ -313,7 +315,7 @@ GitHub 应用程序收到的每个 web 挂钩都包含一个带有 `id` 的 `ins
 
 现在您可以开始进行 API 调用了！
 
-### 步骤 6. 启动服务器
+## 步骤 6. 启动服务器
 
 您的应用程序还没有_做_任何事情，但是现在您可以让它在服务器上运行。
 
@@ -355,7 +357,7 @@ $ ruby template_server.rb
 
 很好！ 即使它是一个错误页面，它也是一个 _Sinatra_ 错误页面，这意味着您的应用程序已按预期连接到服务器。 之所以会看到此消息，是因为您还没有给应用程序提供任何要显示的内容。
 
-### 步骤 7. 在您的帐户上安装应用程序
+## 步骤 7. 在您的帐户上安装应用程序
 
 您可以通过触发要接收的事件来测试服务器是否正在侦听您的应用程序。 您可以测试的一个简单事件是在您的 GitHub 帐户上安装应用程序，这应该会发送 [`installation`](/webhooks/event-payloads/#installation) 事件。 如果应用程序收到它，您应该会在启动了 `template_server.rb` 的终端选项卡中看到一些输出。
 
@@ -382,7 +384,7 @@ $ ruby template_server.rb
 
 您可能想知道上面的终端输出来自哪里，它是在 `template_server.rb` 的[应用程序模板代码](#prerequisites)中写入的内容。
 
-### 疑难解答
+## 疑难解答
 
 以下是一些常见问题和一些建议的解决方案。 如果您遇到任何其他问题，可以在 {% data variables.product.prodname_support_forum_with_url %} 中寻求帮助或建议。
 
@@ -426,7 +428,7 @@ $ ruby template_server.rb
 
 * **问：**我的调试输出中出现 `Octokit::NotFound` 404 错误：
     ```
-    2018-12-06 15:00:56 - Octokit::NotFound - POST https://api.github.com/app/installations/500991/access_tokens: 404 - Not Found // See: /v3/apps/#create-a-new-installation-token:
+    2018-12-06 15:00:56 - Octokit::NotFound - POST {% data variables.product.api_url_code %}/app/installations/500991/access_tokens: 404 - Not Found // See: /v3/apps/#create-a-new-installation-token:
     ```
 
     **答：**确保 `.env` 文件中的变量正确。 请确保您没有在任何其他环境变量文件（例如 `bash_profile`）中设置相同的变量。 您可以通过在应用程序代码中添加 `puts` 语句并重新运行代码来检查应用程序正在使用的环境变量。 例如，为了确保您有正确的私钥集，可以将 `puts PRIVATE_KEY` 添加到您的应用程序代码中：
@@ -436,7 +438,7 @@ $ ruby template_server.rb
     puts PRIVATE_KEY
     ```
 
-### 结论
+## 结论
 
 完成本指南后，您已了解开发 GitHub 应用程序的基本构建块！ 回顾一下：
 
@@ -446,6 +448,6 @@ $ ruby template_server.rb
 * 验证为 GitHub 应用程序
 * 验证为安装设施
 
-### 后续步骤
+## 后续步骤
 
 现在，您在服务器上运行了 GitHub 应用程序。 它还没有做任何特别的事情，但是您可以在其他[快速入门指南](/apps/quickstart-guides/)中了解一些自定义 GitHub 应用程序模板的方法。

@@ -5,6 +5,7 @@ redirect_from:
   - /v4/breaking_changes
 versions:
   fpt: '*'
+  ghec: '*'
   ghes: '*'
   ghae: '*'
 topics:
@@ -27,7 +28,7 @@ We'll announce upcoming breaking changes at least three months before making cha
 
 {% for change in date[1] %}
 <ul>
-<li><span class="border rounded-1 m-1 p-1 {% if change.criticality == 'breaking' %}color-border-danger color-bg-danger{% else %}color-border-info color-bg-info{% endif %}">{% if change.criticality == 'breaking' %}Breaking{% else %}Dangerous{% endif %}</span> A change will be made to <code>{{ change.location }}</code>.
+<li><span class="border rounded-1 m-1 p-1 {% if change.criticality == 'breaking' %}color-border-danger color-bg-danger{% else %}color-border-accent-emphasis color-bg-accent{% endif %}">{% if change.criticality == 'breaking' %}Breaking{% else %}Dangerous{% endif %}</span> A change will be made to <code>{{ change.location }}</code>.
 
 <p><b>Description:</b> {{ change.description }}</p>
 

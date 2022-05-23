@@ -2,26 +2,31 @@
 title: Google Cloud Platform で GitHub Enterprise Server をインストールする
 intro: '{% data variables.product.prodname_ghe_server %} を Google Cloud Platform にインストールするには、サポートされているマシンタイプにデプロイし、永続的な標準ディスクまたは永続的な SSD を使用する必要があります。'
 redirect_from:
-  - /enterprise/admin/guides/installation/installing-github-enterprise-on-google-cloud-platform/
+  - /enterprise/admin/guides/installation/installing-github-enterprise-on-google-cloud-platform
   - /enterprise/admin/installation/installing-github-enterprise-server-on-google-cloud-platform
   - /admin/installation/installing-github-enterprise-server-on-google-cloud-platform
 versions:
-  enterprise-server: '*'
+  ghes: '*'
+type: tutorial
 topics:
+  - Administrator
   - Enterprise
+  - Infrastructure
+  - Set up
+shortTitle: Install on GCP
 ---
 
-### 必要な環境
+## 必要な環境
 
 - {% data reusables.enterprise_installation.software-license %}
 - Google Compute Engine（GCE）仮想マシン（VM）インスタンスを起動できるGoogle Cloud Platformのアカウントが必要です。 詳しい情報については[Google Cloud PlatformのWebサイト](https://cloud.google.com/)及び[Google Cloud Platformドキュメンテーション](https://cloud.google.com/docs/)を参照してください。
 - インスタンスを起動するのに必要なアクションのほとんどは、[Google Cloud Platform Console](https://cloud.google.com/compute/docs/console)を使っても行えます。 とはいえ、初期セットアップのためにgcloud computeコマンドラインツールをインストールすることをお勧めします。 以下の例では、gcloud computeコマンドラインツールを使用しています。 詳しい情報についてはGoogleのドキュメンテーション中の"[gcloud compute](https://cloud.google.com/compute/docs/gcloud-compute/)"のインストール及びセットアップガイドを参照してください。
 
-### ハードウェアについて
+## ハードウェアについて
 
 {% data reusables.enterprise_installation.hardware-considerations-all-platforms %}
 
-### マシンタイプの決定
+## マシンタイプの決定
 
 Google Cloud Platformde{% data variables.product.product_location %}を起動する前に、組織の要求に最も適したマシンタイプを決定する必要があります。 {% data variables.product.product_name %} の最小要件を確認するには、「[最小要件](#minimum-requirements)」を参照してください。
 
@@ -29,7 +34,7 @@ Google Cloud Platformde{% data variables.product.product_location %}を起動す
 
 {% data variables.product.company_short %} は、{% data variables.product.prodname_ghe_server %} に汎用のハイメモリマシンを推奨しています。 詳しい情報については、Google Compute Engine のドキュメント「[マシンタイプ](https://cloud.google.com/compute/docs/machine-types#n2_high-memory_machine_types)」を参照してください。
 
-### {% data variables.product.prodname_ghe_server %} イメージを選択する
+## {% data variables.product.prodname_ghe_server %} イメージを選択する
 
 1. [gcloud compute](https://cloud.google.com/compute/docs/gcloud-compute/)コマンドラインツールを使用して、パブリックな {% data variables.product.prodname_ghe_server %} イメージを一覧表示します。
    ```shell
@@ -38,7 +43,7 @@ Google Cloud Platformde{% data variables.product.product_location %}を起動す
 
 2. {% data variables.product.prodname_ghe_server %} の最新の GCE イメージのイメージ名をメモしておきます。
 
-### ファイアウォールの設定
+## ファイアウォールの設定
 
 GCE 仮想マシンは、ファイアウォールが存在するネットワークのメンバーとして作成されます。 {% data variables.product.prodname_ghe_server %} VMに関連付けられているネットワークの場合、下記の表に一覧表示されている必要なポートを許可するようにファイアウォールを設定する必要があります。 Google Cloud Platform でのファイアウォールルールに関する詳しい情報については、Google ガイドの「[ファイアウォールルールの概要](https://cloud.google.com/vpc/docs/firewalls)」を参照してください。
 
@@ -56,13 +61,13 @@ GCE 仮想マシンは、ファイアウォールが存在するネットワー�
 
    {% data reusables.enterprise_installation.necessary_ports %}
 
-### スタティックIPの取得とVMへの割り当て
+## スタティックIPの取得とVMへの割り当て
 
 これが稼働状態のアプライアンスである場合は、静的な外部 IP アドレスを予約し、それを {% data variables.product.prodname_ghe_server %} VM に割り当てることを強くおすすめします。 そうしなければ、VM のパブリックな IP アドレスは再起動後に保持されません。 詳しい情報については、Google ガイドの「[静的外部 IP アドレスを予約する](https://cloud.google.com/compute/docs/configure-instance-ip-addresses)」を参照してください。
 
 稼働状態の High Availability 設定では、プライマリアプライアンスとレプリカアプライアンスの両方に別々の静的 IP アドレスを割り当ててください。
 
-### {% data variables.product.prodname_ghe_server %} インスタンスを作成する
+## {% data variables.product.prodname_ghe_server %} インスタンスを作成する
 
 {% data variables.product.prodname_ghe_server %} インスタンスを作成するには、{% data variables.product.prodname_ghe_server %} イメージを使用して GCE インスタンスを作成し、インスタンスデータ用の追加のストレージボリュームをアタッチする必要があります。 詳細は「[ハードウェアについて](#hardware-considerations)」を参照してください。
 
@@ -83,7 +88,7 @@ GCE 仮想マシンは、ファイアウォールが存在するネットワー�
    --image-project github-enterprise-public
    ```
 
-### インスタンスの設定
+## インスタンスの設定
 
 {% data reusables.enterprise_installation.copy-the-vm-public-dns-name %}
 {% data reusables.enterprise_installation.upload-a-license-file %}
@@ -91,7 +96,7 @@ GCE 仮想マシンは、ファイアウォールが存在するネットワー�
 {% data reusables.enterprise_installation.instance-will-restart-automatically %}
 {% data reusables.enterprise_installation.visit-your-instance %}
 
-### 参考リンク
+## 参考リンク
 
-- 「[システム概要](/enterprise/admin/guides/installation/system-overview)」{% if currentVersion ver_gt "enterprise-server@2.22" %}
+- 「[システム概要](/enterprise/admin/guides/installation/system-overview)」{% ifversion ghes %}
 - 「[新しいリリースへのアップグレードについて](/admin/overview/about-upgrades-to-new-releases)」{% endif %}

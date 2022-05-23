@@ -5,9 +5,11 @@ redirect_from:
   - /articles/adding-a-code-of-conduct-to-your-project
   - /github/building-a-strong-community/adding-a-code-of-conduct-to-your-project
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Community
+shortTitle: Agregar un código de conducta
 ---
 
 Un *código de conducta* define los estándares de cómo participar en una comunidad. Señala un entorno inclusivo que respeta todas las contribuciones. También describe los procedimientos para tratar problemas de tus proyectos entre los miembros de la comunidad. Para obtener más información acerca de por qué un código de conducta define los estándares y las expectativas sobre cómo participar en una comunidad, consulta la [Guía de Código abierto](https://opensource.guide/code-of-conduct/).
@@ -19,9 +21,9 @@ Antes de adoptar un código de conducta para tu proyecto:
 
 Puedes agregar un código de conducta a tu proyecto si utilizas una plantilla o creando manualmente un código de conducta personalizado. Tu código de conducta estará disponible de cualquier forma, pero el "Código de conducta" solo se marcará como completo en el perfil comunitario de tu repositorio si utilizas una plantilla. Si utilizas un código de conducta que escriba otra persona u organización, asegúrate de utilizar los lineamientos de adjudicación de la fuente. Para obtener más información acerca de los perfiles comunitarios, consulta la sección "[Acerca de los perfiles comunitarios para los repositorios públicos](//communities/setting-up-your-project-for-healthy-contributions/about-community-profiles-for-public-repositories)".
 
-Puedes crear un código de conducta por defecto para tu organización o cuenta de usuario. Para obtener más información, consulta "[Crear un archivo de salud predeterminado para la comunidad](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
+Puedes crear un código de conducta predeterminado para tu cuenta de organización o personal. Para obtener más información, consulta "[Crear un archivo de salud predeterminado para la comunidad](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
 
-### Agregar un código de conducta mediante una plantilla
+## Agregar un código de conducta mediante una plantilla
 
 {% data variables.product.product_name %} brinda plantillas para códigos de conducta comunes a fin de ayudarte a agregar rápidamente un código de conducta para tu proyecto.
 
@@ -37,7 +39,7 @@ Puedes crear un código de conducta por defecto para tu organización o cuenta d
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_new_file %}
 
-### Agregar un código de conducta manualmente
+## Agregar un código de conducta manualmente
 
 Si el código de conducta que quieres utilizar no se encuentra disponible en las plantillas proporcionadas, puedes agregar manualmente un código de conducta.
 

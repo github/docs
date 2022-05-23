@@ -1,0 +1,28 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: '/'
+    schedule:
+      interval: weekly
+      day: tuesday
+    open-pull-requests-limit: 20 # default is 5
+    ignore:
+      - dependency-name: '*'
+        update-types:
+          ['version-update:semver-patch', 'version-update:semver-minor']
+
+  - package-ecosystem: 'github-actions'
+    directory: '/'
+    schedule:
+      interval: weekly
+      day: wednesday
+    ignore:
+      - dependency-name: '*'
+        update-types:
+          ['version-update:semver-patch', 'version-update:semver-minor']
+
+  - package-ecosystem: 'docker'
+    directory: '/'
+    schedule:
+      interval: weekly
+      day: thursday

@@ -6,12 +6,16 @@ redirect_from:
   - /articles/about-automation-for-project-boards
   - /github/managing-your-work-on-github/about-automation-for-project-boards
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
+shortTitle: Automação para quadros de projeto
 ---
+
+{% data reusables.projects.project_boards_old %}
 
 {% data reusables.project-management.automate-project-board-permissions %}  Para obter mais informações, consulte "[Permissões do quadro de projeto para uma organização](/articles/project-board-permissions-for-an-organization)."
 
@@ -25,7 +29,7 @@ A automação do quadro de projeto também pode ajudar as equipes a desenvolver 
 
 {% data reusables.project-management.resync-automation %}
 
-### Opções de automação
+## Opções de automação
 
 | Coluna predefinida        | Opções de configuração    |
 | ------------------------- | ------------------------- |
@@ -33,12 +37,12 @@ A automação do quadro de projeto também pode ajudar as equipes a desenvolver 
 | Em andamento              | <ul><li>Mover todas as pull requests recentemente abertas aqui</li><li>Mover todos os problemas reabertos aqui</li><li>Mover todas as pull requests reabertas aqui</li><li>Mover todas as pull requests que atendem ao número mínimo de revisões necessárias do branch base aqui</li><li>Mover todas as pull requests que não atendem mais ao número mínimo de revisões necessárias do branch base aqui</li></ul> |
 | Concluído                 | <ul><li>Mover todos os problemas fechados aqui</li><li>Mover todas as pull requests mescladas aqui</li><li>Mover todas as pull requests fechadas e não mescladas aqui</li></ul> |
 
-### Acompanhamento do andamento do projeto
+## Acompanhamento do andamento do projeto
 
 Você pode acompanhar o progresso no seu quadro de projeto. Cartões nas colunas "Pendente", "Em progresso" ou "Concluído" contam para o progresso geral do projeto. {% data reusables.project-management.project-progress-locations %}
 
 Para obter mais informações, consulte "[Acompanhamento do progresso no quadro de projeto](/github/managing-your-work-on-github/tracking-progress-on-your-project-board)".
 
-### Leia mais
-- "[Configurar automação para quadros de projeto](/articles/configuring-automation-for-project-boards)"{% if currentVersion == "free-pro-team@latest" %}
+## Leia mais
+- "[Configurar a automação para quadros de projeto](/articles/configuring-automation-for-project-boards)"{% ifversion fpt or ghec %}
 - "[Copiar um quadro de projeto](/articles/copying-a-project-board)"{% endif %}

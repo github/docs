@@ -2,7 +2,7 @@
 date: '2020-08-11'
 sections:
   security_fixes:
-    - '**重大:** 攻撃者がGitHub Pagesのサイトの構築の一部としてコマンドを実行できる、リモートコード実行の脆弱性がGitHub Pagesで特定されました。この問題は、Pagesのビルドプロセスで使われている古くて脆弱性のある依存関係によるものです。この脆弱性を突くには、攻撃者はGitHub Enterprise Serverインスタンス上でGitHub Pagesのサイトを作成して構築する権限を持っていなければなりません。この脆弱性は、GitHub Enterprise Serverのすべてのバージョンに影響します。この脆弱性を緩和するために、CVE-2020-14001への対応でkramdownがアップデートされました。{% comment %} https://github.com/github/pages/pull/2836, https://github.com/github/pages/pull/2827 {% endcomment %}'
+    - '{% octicon "alert" aria-label="The alert icon" %} **重大:** 攻撃者がGitHub Pagesのサイトの構築の一部としてコマンドを実行できる、リモートコード実行の脆弱性がGitHub Pagesで特定されました。この問題は、Pagesのビルドプロセスで使われている古くて脆弱性のある依存関係によるものです。この脆弱性を突くには、攻撃者はGitHub Enterprise Serverインスタンス上でGitHub Pagesのサイトを作成して構築する権限を持っていなければなりません。この脆弱性は、GitHub Enterprise Serverのすべてのバージョンに影響します。この脆弱性を緩和するために、CVE-2020-14001への対応でkramdownがアップデートされました。{% comment %} https://github.com/github/pages/pull/2836, https://github.com/github/pages/pull/2827 {% endcomment %}'
     - '**高:** GitHub Enterprise Server上で実行されるGitのサブコマンドに、攻撃者が悪意ある引数をインジェクトすることができました。これによって、攻撃者は部分的にユーザが制御する内容で任意のファイルを上書きでき、GitHub Enterprise Serverインスタンス上で任意のコマンドを実行できる可能性がありました。この脆弱性を突くためには、攻撃者はGitHub Enterprise Serverインスタンス内のリポジトリへのアクセス権限を持っていなければなりません。しかし、他の保護があるので、この脆弱性を積極的に突く方法は特定できませんでした。この脆弱性はGitHub Security Bug Bountyプログラムを通じて報告されました。{% comment %} https://github.com/github/github/pull/151097 {% endcomment %}'
     - 'パッケージが最新のセキュリティバージョンに更新されました。{% comment %} https://github.com/github/enterprise2/pull/21811, https://github.com/github/enterprise2/pull/21700 {% endcomment %}'
   bugs:
@@ -20,3 +20,4 @@ sections:
     - 'ファイルパスが255文字以上の場合、同じリポジトリ内のblobへのパーマリンクが含まれていると、Issueをクローズできません。 {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}'
     - 'GitHub Connectで"Users can search GitHub.com"が有効化されていると、プライベート及びインターナルリポジトリのIssueがGitHub.comの検索結果に含まれません。{% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}'
     - 'コマンドラインでリポジトリにプッシュした際に、セキュリティアラートが報告されません。{% comment %} https://github.com/github/github/issues/143190 {% endcomment %}'
+    - 'High Availability構成でレプリカノードがオフラインの場合でも、{% data variables.product.product_name %}が{% data variables.product.prodname_pages %}リクエストをオフラインのノードにルーティングし続ける場合があり、それによってユーザにとっての{% data variables.product.prodname_pages %}の可用性が下がってしまいます。'

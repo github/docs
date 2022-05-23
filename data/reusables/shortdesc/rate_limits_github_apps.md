@@ -1,1 +1,1 @@
-Rate limits for GitHub Apps help control the rate of traffic.
+Rate limits for {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_apps %} help control the rate of traffic to {% data variables.product.product_location %}. 

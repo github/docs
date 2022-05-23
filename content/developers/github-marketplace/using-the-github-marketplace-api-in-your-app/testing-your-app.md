@@ -2,12 +2,13 @@
 title: Testing your app
 intro: 'GitHub recommends testing your app with APIs and webhooks before submitting your listing to {% data variables.product.prodname_marketplace %} so you can provide an ideal experience for customers. Before an onboarding expert approves your app, it must adequately handle the billing flows.'
 redirect_from:
-  - /apps/marketplace/testing-apps-apis-and-webhooks/
-  - /apps/marketplace/integrating-with-the-github-marketplace-api/testing-github-marketplace-apps/
+  - /apps/marketplace/testing-apps-apis-and-webhooks
+  - /apps/marketplace/integrating-with-the-github-marketplace-api/testing-github-marketplace-apps
   - /marketplace/integrating-with-the-github-marketplace-api/testing-github-marketplace-apps
   - /developers/github-marketplace/testing-your-app
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
 ---

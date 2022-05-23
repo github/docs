@@ -1,75 +1,85 @@
 ---
-title: 企业 GitHub Actions 故障排除
-intro: '在 {% data variables.product.prodname_ghe_server %} 上使用 {% data variables.product.prodname_actions %} 时的常见问题疑难解答。'
+title: Troubleshooting GitHub Actions for your enterprise
+intro: 'Troubleshooting common issues that occur when using {% data variables.product.prodname_actions %} on {% data variables.product.prodname_ghe_server %}.'
 permissions: 'Site administrators can troubleshoot {% data variables.product.prodname_actions %} issues and modify {% data variables.product.prodname_ghe_server %} configurations.'
 versions:
-  enterprise-server: '>=3.0'
+  ghes: '*'
+type: how_to
 topics:
+  - Actions
   - Enterprise
+  - Troubleshooting
 redirect_from:
   - /admin/github-actions/troubleshooting-github-actions-for-your-enterprise
+shortTitle: Troubleshoot GitHub Actions
 ---
 
-### 使用 {% data variables.product.prodname_ghe_server %} 自签名证书时配置自托管的运行器
+## Checking the health of {% data variables.product.prodname_actions %}
 
-{% data reusables.actions.enterprise-self-signed-cert %} 更多信息请参阅“[配置 TLS](/admin/configuration/configuring-tls)”。
+You can check the health of {% data variables.product.prodname_actions %} on {% data variables.product.product_location %} with the `ghe-actions-check` command-line utility. For more information, see "[Command-line utilities](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-actions-check)" and "[Accessing the administrative shell (SSH)](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
 
-#### 在运行器上安装证书
+## Configuring self-hosted runners when using a self-signed certificate for {% data variables.product.prodname_ghe_server %}
 
-为使自托管的运行器使用自签名证书连接到 {% data variables.product.prodname_ghe_server %}，您必须在运行器上安装证书以增强连接安全。
+{% data reusables.actions.enterprise-self-signed-cert %} For more information, see "[Configuring TLS](/admin/configuration/configuring-tls)."
 
-有关安装证书所需的步骤，请参阅运行器操作系统的文件。
+### Installing the certificate on the runner machine
 
-#### 配置 Node.JS 使用证书
+For a self-hosted runner to connect to a {% data variables.product.prodname_ghe_server %} using a self-signed certificate, you must install the certificate on the runner machine so that the connection is security hardened.
 
-大多数操作都以 JavaScript 编写并使用 Node.js，这不会使用操作系统证书存储。 要使自托管的运行器使用证书，您必须在运行器上设置 `NODE_EXTRA_CA_CERTS` 环境变量。
+For the steps required to install a certificate, refer to the documentation for your runner's operating system.
 
-您可以将环境变量设置为系统环境变量，或在自托管运行器应用程序目录中声明名为 _.env_ 的文件。
+### Configuring Node.JS to use the certificate
 
-例如：
+Most actions are written in JavaScript and run using Node.js, which does not use the operating system certificate store. For the self-hosted runner application to use the certificate, you must set the `NODE_EXTRA_CA_CERTS` environment variable on the runner machine.
+
+You can set the environment variable as a system environment variable, or declare it in a file named _.env_ in the self-hosted runner application directory.
+
+For example:
 
 ```shell
 NODE_EXTRA_CA_CERTS=/usr/share/ca-certificates/extra/mycertfile.crt
 ```
 
-当自托管的运行器应用程序启动时，环境变量将被读取，因此您必须在配置或启动自托管的运行器应用程序之前设置环境变量。 如果您的证书配置更改，您必须重新启动自托管的运行器应用程序。
+Environment variables are read when the self-hosted runner application starts, so you must set the environment variable before configuring or starting the self-hosted runner application. If your certificate configuration changes, you must restart the self-hosted runner application.
 
-#### 配置 Docker 容器使用证书
+### Configuring Docker containers to use the certificate
 
-如果您在工作流程中使用 Docker 容器操作或服务容器，则除了设置上述环境变量外，您可能还需要在 Docker 映像中安装证书。
+If you use Docker container actions or service containers in your workflows, you might also need to install the certificate in your Docker image in addition to setting the above environment variable.
 
-### 配置 {% data variables.product.prodname_actions %} 的 HTTP 代理设置
+## Configuring HTTP proxy settings for {% data variables.product.prodname_actions %}
 
 {% data reusables.actions.enterprise-http-proxy %}
 
-如果这些设置未正确配置，则在设置或更改 {% data variables.product.prodname_actions %} 配置时可能会收到诸如 `Resource unexpectedly moved to https://（资源意外移动到 https://）<IP_ADDRESS>`的错误。
+If these settings aren't correctly configured, you might receive errors like `Resource unexpectedly moved to https://<IP_ADDRESS>` when setting or changing your {% data variables.product.prodname_actions %} configuration.
 
-### 运行器在更改主机名后未连接到 {% data variables.product.prodname_ghe_server %}
+## Runners not connecting to {% data variables.product.prodname_ghe_server %} with a new hostname
 
-如果更改 {% data variables.product.product_location %} 的主机名，自托管运行器将无法连接到旧主机名，并且不会执行任何作业。
+{% data reusables.enterprise_installation.changing-hostname-not-supported %}
 
-您将需要更新自托管运行器的配置，以对 {% data variables.product.product_location %} 使用新的主机名。 每个自托管运行器将需要以下程序之一：
+If you deploy {% data variables.product.prodname_ghe_server %} in your environment with a new hostname and the old hostname no longer resolves to your instance, self-hosted runners will be unable to connect to the old hostname, and will not execute any jobs.
 
-* 在自托管的运行器应用程序目录中，编辑 `.runner` 和 `. redentials` 文件以将旧主机名替换为新主机名，然后重新启动自托管的运行器应用程序。
-* 使用 UI 从 {% data variables.product.prodname_ghe_server %} 移除运行器，并重新添加。 更多信息请参阅“[删除自托管的运行器](/actions/hosting-your-own-runners/removing-self-hosted-runners)”和“[添加自托管的运行器](/actions/hosting-your-own-runners/adding-self-hosted-runners)”。
+You will need to update the configuration of your self-hosted runners to use the new hostname for {% data variables.product.product_location %}. Each self-hosted runner will require one of the following procedures:
 
-### 作业卡住以及 {% data variables.product.prodname_actions %} 内存和 CPU 限制
+* In the self-hosted runner application directory, edit the `.runner` and `.credentials` files to replace all mentions of the old hostname with the new hostname, then restart the self-hosted runner application.
+* Remove the runner from {% data variables.product.prodname_ghe_server %} using the UI, and re-add it. For more information, see "[Removing self-hosted runners](/actions/hosting-your-own-runners/removing-self-hosted-runners)" and "[Adding self-hosted runners](/actions/hosting-your-own-runners/adding-self-hosted-runners)."
 
-{% data variables.product.prodname_actions %} 由运行在 {% data variables.product.product_location %} 上的多项服务组成。 默认情况下，这些服务使用默认的 CPU 和内存限制设置，大多数情况下都适用。 但是，当 {% data variables.product.prodname_actions %} 用户多时，可能需要调整这些设置。
+## Stuck jobs and {% data variables.product.prodname_actions %} memory and CPU limits
 
-如果您注意到作业未开始，或者任务进度在 UI 中不更新或改变，可能是达到了 CPU 或内存限制（即使有空闲的运行器）。
+{% data variables.product.prodname_actions %} is composed of multiple services running on {% data variables.product.product_location %}. By default, these services are set up with default CPU and memory limits that should work for most instances. However, heavy users of {% data variables.product.prodname_actions %} might need to adjust these settings.
 
-#### 1. 在管理控制台中检查整体 CPU 和内存使用情况
+You may be hitting the CPU or memory limits if you notice that jobs are not starting (even though there are idle runners), or if the job's progress is not updating or changing in the UI.
 
-访问管理控制台并使用监控仪表板来检查“System Health（系统健康）”下的整体 CPU 和内存图。 更多信息请参阅“[访问监控仪表板](/admin/enterprise-management/accessing-the-monitor-dashboard)”。
+### 1. Check the overall CPU and memory usage in the management console
 
-如果总体“系统健康”CPU 使用接近 100%，或者没有可用的内存，则表示 {% data variables.product.product_location %} 在满负荷运行，需要扩展。 更多信息请参阅“[增加 CPU 或内存资源](/admin/enterprise-management/increasing-cpu-or-memory-resources)”。
+Access the management console and use the monitor dashboard to inspect the overall CPU and memory graphs under "System Health". For more information, see "[Accessing the monitor dashboard](/admin/enterprise-management/accessing-the-monitor-dashboard)."
 
-#### 2. 在管理控制台中检查 Nomad Jobs CPU 和内存使用情况
+If the overall "System Health" CPU usage is close to 100%, or there is no free memory left, then {% data variables.product.product_location %} is running at capacity and needs to be scaled up. For more information, see "[Increasing CPU or memory resources](/admin/enterprise-management/increasing-cpu-or-memory-resources)."
 
-如果总体“系统健康”CPU 和内存使用情况正常，请向下滚动监控仪表板页面到“Nomad Jobs”部分，并查看“CPU 百分比值”和“内存使用情况”图。
+### 2. Check the Nomad Jobs CPU and memory usage in the management console
 
-这些图表中的每幅图都对应于一项服务。 对于 {% data variables.product.prodname_actions %} 服务，请查询：
+If the overall "System Health" CPU and memory usage is OK, scroll down the monitor dashboard page to the "Nomad Jobs" section, and look at the "CPU Percent Value" and "Memory Usage" graphs.
+
+Each plot in these graphs corresponds to one service. For {% data variables.product.prodname_actions %} services, look for:
 
 * `mps_frontend`
 * `mps_backend`
@@ -78,18 +88,18 @@ NODE_EXTRA_CA_CERTS=/usr/share/ca-certificates/extra/mycertfile.crt
 * `actions_frontend`
 * `actions_backend`
 
-如果其中任何一项服务达到或接近 100% CPU 利用率，或者内存接近其限制（默认情况下为 2 GB），则这些服务的资源配置可能需要增加。 请注意上述服务中哪些已经达到或接近极限。
+If any of these services are at or near 100% CPU utilization, or the memory is near their limit (2 GB by default), then the resource allocation for these services might need increasing. Take note of which of the above services are at or near their limit.
 
-#### 3. 对达到限制的服务增加资源分配
+### 3. Increase the resource allocation for services at their limit
 
-1. 使用 SSH 登录到管理 shell。 更多信息请参阅“[访问管理 shell (SSH)](/admin/configuration/accessing-the-administrative-shell-ssh)。”
-1. 运行以下命令，查看可用于分配的资源：
+1. Log in to the administrative shell using SSH. For more information, see "[Accessing the administrative shell (SSH)](/admin/configuration/accessing-the-administrative-shell-ssh)."
+1. Run the following command to see what resources are available for allocation:
 
    ```shell
    nomad node status -self
    ```
 
-   在输出中找到“Allocated Resources（分配的资源）”部分。 它看起来类似于以下示例：
+   In the output, find the "Allocated Resources" section. It looks similar to the following example:
 
    ```
    Allocated Resources
@@ -97,25 +107,25 @@ NODE_EXTRA_CA_CERTS=/usr/share/ca-certificates/extra/mycertfile.crt
    7740/49600 MHZ   23 GiB/32 GiB   4.4 GiB/7.9 GiB
    ```
 
-   对于 CPU 和内存，这会显示**所有**服务**总共**分配了多少资源（左侧值）以及有多少可用资源（右侧值）。 在上面的示例中，总共有 32 GiB 内存，分配 23 GiB。 这意味着有 9 GiB 内存可供分配。
+   For CPU and memory, this shows how much is allocated to the **total** of **all** services (the left value) and how much is available (the right value). In the example above, there is 23 GiB of memory allocated out of 32 GiB total. This means there is 9 GiB of memory available for allocation.
 
    {% warning %}
 
-   **警告：**小心不要分配超过可用资源总额，否则服务将无法启动。
+   **Warning:** Be careful not to allocate more than the total available resources, or services will fail to start.
 
    {% endwarning %}
-1. 将目录更改为 `/etc/consult-templates/etc/nomad-jobs/actions`：
+1. Change directory to `/etc/consul-templates/etc/nomad-jobs/actions`:
 
    ```shell
    cd /etc/consul-templates/etc/nomad-jobs/actions
    ```
 
-   在此目录中，有三个文件与上面的 {% data variables.product.prodname_actions %} 服务对应：
+   In this directory there are three files that correspond to the {% data variables.product.prodname_actions %} services from above:
 
    * `mps.hcl.ctmpl`
    * `token.hcl.ctmpl`
    * `actions.hcl.ctmpl`
-1. 对于您确定需要调整的服务，打开相应的文件，并找到看起来如下的 `resources` 组：
+1. For the services that you identified that need adjustment, open the corresponding file and locate the `resources` group that looks like the following:
 
    ```
    resources {
@@ -127,9 +137,9 @@ NODE_EXTRA_CA_CERTS=/usr/share/ca-certificates/extra/mycertfile.crt
    }
    ```
 
-   CPU 资源的值以 MHz 为单位，而内存资源以 MB 为单位。
+   The values are in MHz for CPU resources, and MB for memory resources.
 
-   例如，要将上述示例中的资源限制增加到 1 GHz 的 CPU 和 4 GB 的内存，则将其更改为：
+   For example, to increase the resource limits in the above example to 1 GHz for the CPU and 4 GB of memory, change it to:
 
    ```
    resources {
@@ -140,8 +150,78 @@ NODE_EXTRA_CA_CERTS=/usr/share/ca-certificates/extra/mycertfile.crt
      }
    }
    ```
-1. 保存并退出文件。
-1. 运行 `ghe-config-apply` 以应用更改。
+1. Save and exit the file.
+1. Run `ghe-config-apply` to apply the changes.
 
-    运行 `ghe-config-apply` 时，如果你看到类似于 `Failed to run nomad job '/etc/nomad-jobs/<name>.hcl'` 的输出，则更改可能分配过多的 CPU 或内存资源。 如果发生这种情况，请再次编辑配置文件并降低分配的 CPU 或内存，然后重新运行 `ghe-config-apply`。
-1. 在应用配置后，运行 `ghe-actions-check` 来验证 {% data variables.product.prodname_actions %} 服务是否正常运行。
+    When running `ghe-config-apply`, if you see output like `Failed to run nomad job '/etc/nomad-jobs/<name>.hcl'`, then the change has likely over-allocated CPU or memory resources. If this happens, edit the configuration files again and lower the allocated CPU or memory, then re-run `ghe-config-apply`.
+1. After the configuration is applied, run `ghe-actions-check` to verify that the {% data variables.product.prodname_actions %} services are operational.
+
+{% ifversion fpt or ghec or ghes > 3.2 %}
+## Troubleshooting failures when {% data variables.product.prodname_dependabot %} triggers existing workflows
+
+{% data reusables.dependabot.beta-security-and-version-updates %}
+
+After you set up {% data variables.product.prodname_dependabot %} updates for {% data variables.product.product_location %}, you may see failures when existing workflows are triggered by {% data variables.product.prodname_dependabot %} events.
+
+By default, {% data variables.product.prodname_actions %} workflow runs that are triggered by {% data variables.product.prodname_dependabot %} from `push`, `pull_request`, `pull_request_review`, or `pull_request_review_comment` events are treated as if they were opened from a repository fork. Unlike workflows triggered by other actors, this means they receive a read-only `GITHUB_TOKEN` and do not have access to any secrets that are normally available. This will cause any workflows that attempt to write to the repository to fail when they are triggered by {% data variables.product.prodname_dependabot %}.
+
+There are three ways to resolve this problem:
+
+1. You can update your workflows so that they are no longer triggered by {% data variables.product.prodname_dependabot %} using an expression like: `if: github.actor != 'dependabot[bot]'`. For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
+2. You can modify your workflows to use a two-step process that includes `pull_request_target` which does not have these limitations. For more information, see "[Automating {% data variables.product.prodname_dependabot %} with {% data variables.product.prodname_actions %}](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/automating-dependabot-with-github-actions#responding-to-events)."
+3. You can provide workflows triggered by {% data variables.product.prodname_dependabot %} access to secrets and allow the `permissions` term to increase the default scope of the `GITHUB_TOKEN`. For more information, see "[Providing workflows triggered by{% data variables.product.prodname_dependabot %} access to secrets and increased permissions](#providing-workflows-triggered-by-dependabot-access-to-secrets-and-increased-permissions)" below.
+
+### Providing workflows triggered by {% data variables.product.prodname_dependabot %} access to secrets and increased permissions
+
+1. Log in to the administrative shell using SSH. For more information, see "[Accessing the administrative shell (SSH)](/admin/configuration/accessing-the-administrative-shell-ssh)."
+1. To remove the limitations on workflows triggered by {% data variables.product.prodname_dependabot %} on {% data variables.product.product_location %}, use the following command.
+    ``` shell
+    $ ghe-config app.actions.disable-dependabot-enforcement true
+    ```
+1. Apply the configuration.
+    ```shell
+    $ ghe-config-apply
+    ```
+1. Return to {% data variables.product.prodname_ghe_server %}.
+
+{% endif %}
+
+{% ifversion ghes > 3.3 %}
+
+<a name="bundled-actions"></a>
+
+## Troubleshooting bundled actions in {% data variables.product.prodname_actions %}
+
+If you receive the following error when installing {% data variables.product.prodname_actions %} in {% data variables.product.prodname_ghe_server %}, you can resolve the problem by installing the official bundled actions and starter workflows.
+
+```shell
+A part of the Actions setup had problems and needs an administrator to resolve.
+```
+
+To install the official bundled actions and starter workflows within a designated organization in {% data variables.product.prodname_ghe_server %}, follow this procedure.
+
+1. Identify an organization that will store the official bundled actions and starter worflows. You can create a new organization or reuse an existing one. 
+    - To create a new organization, see "[Creating a new organization from scratch](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)." 
+    - For assistance with choosing a name for this organization, see "[Reserved Names](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#reserved-names)." 
+
+1. Log in to the administrative shell using SSH. For more information, see "[Accessing the administrative shell (SSH)](/admin/configuration/accessing-the-administrative-shell-ssh)."
+1. To designate your organization as the location to store the bundled actions, use the `ghe-config` command, replacing `ORGANIZATION` with the name of your organization.
+    ```shell
+    $ ghe-config app.actions.actions-org ORGANIZATION
+    ```
+    and:
+    ```shell
+    $ ghe-config app.actions.github-org ORGANIZATION
+    ```
+1.  To add the bundled actions to your organization, unset the SHA.
+    ```shell
+    $ ghe-config --unset 'app.actions.actions-repos-sha1sum'
+    ```
+1. Apply the configuration.
+    ```shell
+    $ ghe-config-apply
+    ```
+
+After you've completed these steps, you can resume configuring {% data variables.product.prodname_actions %} at "[Managing access permissions for GitHub Actions in your enterprise](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#managing-access-permissions-for-github-actions-in-your-enterprise)."
+
+{% endif %}

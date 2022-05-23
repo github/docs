@@ -1,55 +1,57 @@
 ---
-title: 访问管理控制台
+title: Accessing the management console
 intro: '{% data reusables.enterprise_site_admin_settings.about-the-management-console %}'
 redirect_from:
-  - /enterprise/admin/articles/about-the-management-console/
-  - /enterprise/admin/articles/management-console-for-emergency-recovery/
-  - /enterprise/admin/articles/web-based-management-console/
-  - /enterprise/admin/categories/management-console/
-  - /enterprise/admin/articles/accessing-the-management-console/
-  - /enterprise/admin/guides/installation/web-based-management-console/
+  - /enterprise/admin/articles/about-the-management-console
+  - /enterprise/admin/articles/management-console-for-emergency-recovery
+  - /enterprise/admin/articles/web-based-management-console
+  - /enterprise/admin/categories/management-console
+  - /enterprise/admin/articles/accessing-the-management-console
+  - /enterprise/admin/guides/installation/web-based-management-console
   - /enterprise/admin/installation/accessing-the-management-console
   - /enterprise/admin/configuration/accessing-the-management-console
   - /admin/configuration/accessing-the-management-console
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Fundamentals
+shortTitle: Access the management console
 ---
+## About the {% data variables.enterprise.management_console %}
 
-### 关于 {% data variables.enterprise.management_console %}
+Use the {% data variables.enterprise.management_console %} for basic administrative activities:
+- **Initial setup**: Walk through the initial setup process when first launching {% data variables.product.product_location %} by visiting {% data variables.product.product_location %}'s IP address in your browser.
+- **Configuring basic settings for your instance**: Configure DNS, hostname, SSL, user authentication, email, monitoring services, and log forwarding on the Settings page.
+- **Scheduling maintenance windows**: Take {% data variables.product.product_location %} offline while performing maintenance using the {% data variables.enterprise.management_console %} or administrative shell.
+- **Troubleshooting**: Generate a support bundle or view high level diagnostic information.
+- **License management**: View or update your {% data variables.product.prodname_enterprise %} license.
 
-使用 {% data variables.enterprise.management_console %} 执行基本管理活动：
-- **初始设置**：首次启动 {% data variables.product.product_location %} 时，在浏览器中访问 {% data variables.product.product_location %} 的 IP 地址，简单了解初始设置流程。
-- **配置实例的基本设置**：在“Settings”页面上配置 DNS、主机名、SSL、用户身份验证、电子邮件、监视服务和日志转发。
-- **排定维护窗口**：使用 {% data variables.enterprise.management_console %} 或管理 shell 执行维护时，使 {% data variables.product.product_location %} 进入脱机状态。
-- **排查问题**：生成支持包或查看高级诊断信息。
-- **许可管理**：查看或更新 {% data variables.product.prodname_enterprise %} 许可。
+You can always reach the {% data variables.enterprise.management_console %} using {% data variables.product.product_location %}'s IP address, even when the instance is in maintenance mode, or there is a critical application failure or hostname or SSL misconfiguration.
 
-即使在实例处于维护模式，存在重大应用程序故障或者主机名或 SSL 错误配置的情况下，您也始终可以通过 {% data variables.product.product_location %} 的 IP 地址访问 {% data variables.enterprise.management_console %}。
+To access the {% data variables.enterprise.management_console %}, you must use the administrator password established during initial setup of {% data variables.product.product_location %}. You must also be able to connect to the virtual machine host on port 8443. If you're having trouble reaching the {% data variables.enterprise.management_console %}, please check intermediate firewall and security group configurations.
 
-要访问 {% data variables.enterprise.management_console %}，您必须使用在 {% data variables.product.product_location %} 初始设置期间确定的管理员密码。 您还必须能够连接到端口 8443 上的虚拟机主机。 如果无法访问 {% data variables.enterprise.management_console %}，请检查中间防火墙和安全组配置。
+The {% data variables.enterprise.management_console %} password hash is stored in `/data/user/common/secrets.conf`, and that file is automatically synced from the primary appliance to any high-availability replicas. Any change to the primary's password will automatically be replicated to high-availability replicas. For more information about high availability, see "[About high availability configuration](/admin/enterprise-management/configuring-high-availability/about-high-availability-configuration)."
 
-### 以站点管理员身份访问 {% data variables.enterprise.management_console %}
+## Accessing the {% data variables.enterprise.management_console %} as a site administrator
 
-第一次以网站管理员身份访问 {% data variables.enterprise.management_console %} 时，必须上传您的 {% data variables.product.prodname_enterprise %} 许可文件以向应用程序验证。 更多信息请参阅“[管理您的 {% data variables.product.prodname_enterprise %} 许可](/enterprise/{{ currentVersion }}/admin/guides/installation/managing-your-github-enterprise-license)”。
+The first time that you access the {% data variables.enterprise.management_console %} as a site administrator, you must upload your {% data variables.product.prodname_enterprise %} license file to authenticate into the app. For more information, see "[Managing your license for {% data variables.product.prodname_enterprise %}](/billing/managing-your-license-for-github-enterprise)."
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.type-management-console-password %}
 
-### 以未验证用户身份访问 {% data variables.enterprise.management_console %}
+## Accessing the {% data variables.enterprise.management_console %} as an unauthenticated user
 
-1. 在浏览器中访问此 URL，用您的实际 {% data variables.product.prodname_ghe_server %} 主机名或 IP 地址替换 `hostname`：
+1. Visit this URL in your browser, replacing `hostname` with your actual {% data variables.product.prodname_ghe_server %} hostname or IP address:
   ```shell
   http(s)://HOSTNAME/setup
   ```
 {% data reusables.enterprise_management_console.type-management-console-password %}
 
-### 登录尝试失败后解锁 {% data variables.enterprise.management_console %}
+## Unlocking the {% data variables.enterprise.management_console %} after failed login attempts
 
-如果十分钟内登录尝试失败十次，{% data variables.enterprise.management_console %} 将锁定。 您必须等待登录屏幕自动解锁，然后才能再次尝试登录。 一旦前十分钟内登录尝试失败次数不足十次，登录屏幕便会自动解锁。 成功登录后，计数器会复位。
+The {% data variables.enterprise.management_console %} locks after ten failed login attempts are made in the span of ten minutes. You must wait for the login screen to automatically unlock before attempting to log in again. The login screen automatically unlocks as soon as the previous ten minute period contains fewer than ten failed login attempts. The counter resets after a successful login occurs.
 
-要立即解锁 {% data variables.enterprise.management_console %}，请通过管理 shell 使用 `ghe-reactivate-admin-login` 命令。 更多信息请参阅“[命令行实用程序](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities#ghe-reactivate-admin-login)”和“[访问管理 shell (SSH)](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-administrative-shell-ssh/)”。
+To immediately unlock the {% data variables.enterprise.management_console %}, use the `ghe-reactivate-admin-login` command via the administrative shell. For more information, see "[Command line utilities](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities#ghe-reactivate-admin-login)" and "[Accessing the administrative shell (SSH)](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-administrative-shell-ssh/)."

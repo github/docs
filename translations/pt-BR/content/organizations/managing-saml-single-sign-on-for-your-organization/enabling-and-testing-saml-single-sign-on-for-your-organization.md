@@ -1,24 +1,34 @@
 ---
 title: Habilitar e testar logon único de SAML para sua organização
 intro: 'Os administradores e proprietários da organização podem habilitar o logon único (SSO, Single Sign-On) de SAML para adicionar uma camada extra de segurança à organização.'
-product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/enabling-and-testing-saml-single-sign-on-for-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/enabling-and-testing-saml-single-sign-on-for-your-organization
 versions:
-  free-pro-team: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Habilitar & testar o SSO do SAML
 ---
 
+## Sobre o logon único SAML
+
 Você pode habilitar o SAML SSO na sua organização sem exigir que todos os integrantes o utilizem. A habilitação (em vez da aplicação) do SAML SSO facilitará a adoção dele pela organização. Depois que a maioria dos integrantes da sua organização já estiver usando o SAML SSO, você poderá aplicá-lo a toda a organização.
+
+{% data reusables.saml.ghec-only %}
 
 Se você habilitar em vez de aplicar o SAML SSO, os integrantes da organização que preferem não usá-lo poderão continuar sendo integrantes da organização. Para obter mais informações sobre a aplicação do SAML SSO, consulte "[Aplicar logon único de SAML para sua organização](/articles/enforcing-saml-single-sign-on-for-your-organization)".
 
 {% data reusables.saml.outside-collaborators-exemption %}
 
-Antes de aplicar o SAML SSO à sua organização, verifique se você configurou o provedor de identidade (IdP, Identity Provider). Para obter mais informações, consulte "[Preparar para aplicar logon único de SAML na organização](/articles/preparing-to-enforce-saml-single-sign-on-in-your-organization)".
+{% data reusables.saml.saml-disabled-linked-identities-removed %}
+
+## Habilitar e testar logon único de SAML para sua organização
+
+Antes de aplicar o SAML SSO na sua organização, certifique-se de preparar a organização. Para obter mais informações, consulte "[Preparar para aplicar logon único de SAML na organização](/articles/preparing-to-enforce-saml-single-sign-on-in-your-organization)".
+
+Para obter mais informações sobre os provedores de identidade (IdPs) que {% data variables.product.company_short %} tem compabilidade com o SAML SSO, consulte "[Conectando seu provedor de identidade à sua organização](/organizations/managing-saml-single-sign-on-for-your-organization/connecting-your-identity-provider-to-your-organization)".
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
@@ -45,6 +55,7 @@ Antes de aplicar o SAML SSO à sua organização, verifique se você configurou 
 11. Para aplicar o SAML SSO e remover todos os integrantes da organização que não foram autenticados via IdP, selecione **Require SAML SSO authentication for all members of the _organization name_ organization** (Requer autenticação do SAML SSO para todos os integrantes da organização *nome da organização*). Para obter mais informações sobre a aplicação do SAML SSO, consulte "[Aplicar logon único de SAML para sua organização](/articles/enforcing-saml-single-sign-on-for-your-organization)". ![Caixa de seleção para exigir SAML SSO para sua organização ](/assets/images/help/saml/saml_require_saml_sso.png)
 12. Clique em **Salvar**. ![Botão para salvar as configurações do SAML SSO](/assets/images/help/saml/saml_save.png)
 
-### Leia mais
+## Leia mais
 
 - "[Sobre gerenciamento de identidade e acesso com o SAML de logon único](/articles/about-identity-and-access-management-with-saml-single-sign-on)"
+- "[Referência da configuração do SAML](/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference)"

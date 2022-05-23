@@ -2,18 +2,19 @@
 title: Solução de problemas com hooks de serviço
 intro: 'Se as cargas não estiverem sendo entregues, verifique se há problemas comuns.'
 redirect_from:
-  - /enterprise/admin/articles/troubleshooting-service-hooks/
+  - /enterprise/admin/articles/troubleshooting-service-hooks
   - /enterprise/admin/developer-workflow/troubleshooting-service-hooks
   - /enterprise/admin/user-management/troubleshooting-service-hooks
   - /admin/user-management/troubleshooting-service-hooks
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Enterprise
+shortTitle: Solução de problemas de hooks de serviço
 ---
 
-### Obter informações nas entregas
+## Obter informações nas entregas
 
 Você pode encontrar informações sobre a resposta mais recente de todas as entregas de hooks de serviço em qualquer repositório.
 
@@ -23,7 +24,7 @@ Você pode encontrar informações sobre a resposta mais recente de todas as ent
 4. Clique no link **Latest Delivery** (Entrega mais recente) no hook de serviço que apresentou problemas. ![Detalhes de hooks](/assets/images/enterprise/settings/Enterprise-Hooks-Details.png)
 5. Em **Remote Calls** (Chamadas remotas), você verá os cabeçalhos usados durante o POST para o servidor remoto e a resposta que o servidor remoto enviou de volta à instalação.
 
-### Exibir a carga
+## Exibir a carga
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 2. Navegue até o repositório que você está investigando.
@@ -31,7 +32,7 @@ Você pode encontrar informações sobre a resposta mais recente de todas as ent
 4. Clique no link **Latest Delivery** (Entrega mais recente) no hook de serviço que apresentou problemas.
 5. Clique em **Entrega**. ![Exibir a carga](/assets/images/enterprise/settings/Enterprise-Hooks-Payload.png)
 
-### Exibir entregas anteriores
+## Exibir entregas anteriores
 
 As entregas ficam armazenadas por 15 dias.
 

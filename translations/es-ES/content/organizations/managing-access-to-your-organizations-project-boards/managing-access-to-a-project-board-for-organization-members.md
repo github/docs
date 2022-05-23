@@ -5,17 +5,19 @@ redirect_from:
   - /articles/managing-access-to-a-project-board-for-organization-members
   - /github/setting-up-and-managing-organizations-and-teams/managing-access-to-a-project-board-for-organization-members
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Administrar el acceso para miembros
 ---
 
 Por defecto, los miembros de una organización tienen acceso de escritura a sus tableros de proyecto de la organización excepto que los propietarios de la organización o los administradores de un tablero de proyecto configuren permisos diferentes para tableros de proyecto específicos.
 
-### Configurar un nivel de permiso base para todos los miembros de la organización
+## Configurar un nivel de permiso base para todos los miembros de la organización
 
 {% tip %}
 
@@ -24,7 +26,7 @@ Por defecto, los miembros de una organización tienen acceso de escritura a sus 
 {% endtip %}
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.organization-wide-project %}
 {% data reusables.project-management.select-project %}
 {% data reusables.project-management.click-menu %}
@@ -32,7 +34,7 @@ Por defecto, los miembros de una organización tienen acceso de escritura a sus 
 8. Debajo de "Organization member permission" (Permiso para miembro de la organización), elige un nivel base de permiso para todos los miembros de la organización: **Read** (Lectura), **Write** (Escritura), **Administrar** o **None** (Ninguno). ![Opciones de permiso base a un tablero de proyecto para todos los miembros de una organización](/assets/images/help/projects/baseline-project-permissions-for-organization-members.png)
 9. Haz clic en **Save ** (guardar).
 
-### Leer más
+## Leer más
 
 - "[Administrar el acceso de una persona a un tablero de proyecto de una organización](/articles/managing-an-individual-s-access-to-an-organization-project-board)"
 - "[Administrar el acceso de equipo a un tablero de proyecto de una organización](/articles/managing-team-access-to-an-organization-project-board)"

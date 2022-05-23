@@ -1,10 +1,10 @@
 ---
-title: 'Monitorear, administrar y actualizar tu empresa'
-intro: 'Puedes monitorear tu aplicativo, mejorar a una versión nueva y configurar el agrupamiento o la disponibilidad alta'
+title: 'Monitoring, managing, and updating your enterprise'
+intro: 'You can monitor your appliance, upgrade to a newer version, and configure clustering or high availability'
 redirect_from:
   - /enterprise/admin/enterprise-management
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 topics:
   - Enterprise
 children:
@@ -12,5 +12,7 @@ children:
   - /updating-the-virtual-machine-and-physical-resources
   - /configuring-clustering
   - /configuring-high-availability
+  - /caching-repositories
+shortTitle: 'Monitor, manage, and update your appliance'
 ---
 

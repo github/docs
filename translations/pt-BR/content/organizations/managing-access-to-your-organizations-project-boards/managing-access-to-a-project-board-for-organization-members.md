@@ -5,17 +5,19 @@ redirect_from:
   - /articles/managing-access-to-a-project-board-for-organization-members
   - /github/setting-up-and-managing-organizations-and-teams/managing-access-to-a-project-board-for-organization-members
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Gerenciar acesso para os integrantes
 ---
 
 Por padrão, os integrantes de uma organização têm acesso de gravação nos quadros de projetos da organização, exceto se os proprietários da organização ou os administradores de quadro de projeto configurarem permissões diferentes para quadros de projetos específicos.
 
-### Configurar um nível referencial de permissão para todos os integrantes da organização
+## Configurar um nível referencial de permissão para todos os integrantes da organização
 
 {% tip %}
 
@@ -24,7 +26,7 @@ Por padrão, os integrantes de uma organização têm acesso de gravação nos q
 {% endtip %}
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.organization-wide-project %}
 {% data reusables.project-management.select-project %}
 {% data reusables.project-management.click-menu %}
@@ -32,7 +34,7 @@ Por padrão, os integrantes de uma organização têm acesso de gravação nos q
 8. Em "Organization member permission" (Permissão de integrante da organização), escolha um nível referencial de permissão para todos os integrantes da organização: **Read** (Leitura), **Write** (Gravação), **Admin** (Administrador) ou **None** (Nenhuma). ![Opções de permissões a quadro de projeto para todos os integrantes da organização](/assets/images/help/projects/baseline-project-permissions-for-organization-members.png)
 9. Clique em **Salvar**.
 
-### Leia mais
+## Leia mais
 
 - "[Gerenciar o acesso de um indivíduo a um quadro de projeto da organização](/articles/managing-an-individual-s-access-to-an-organization-project-board)"
 - "[Gerenciar o acesso da equipe a um quadro de projeto da organização](/articles/managing-team-access-to-an-organization-project-board)"

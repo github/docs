@@ -6,9 +6,10 @@ redirect_from:
   - /articles/disabling-wikis
   - /github/building-a-strong-community/disabling-wikis
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Community
 ---
@@ -19,6 +20,6 @@ topics:
 {% data reusables.repositories.sidebar-settings %}
 3. 在“功能”下，取消选择 **Wiki**。 ![Wiki 禁用复选框](/assets/images/help/wiki/wiki_enable_disable.png)
 
-### 延伸阅读
+## 延伸阅读
 
 - "[更改 wiki 的访问权限](/communities/documenting-your-project-with-wikis/changing-access-permissions-for-wikis)"

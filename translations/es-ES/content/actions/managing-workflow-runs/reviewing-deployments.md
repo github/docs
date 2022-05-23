@@ -3,21 +3,20 @@ title: Revisar los despliegues
 intro: Puedes aprobar o rechazar jobs que estén esperando una revisión.
 product: '{% data reusables.gated-features.environments %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=3.1'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 ---
 
-{% data reusables.actions.environments-beta %}
-{% data reusables.actions.ae-beta %}
 
-### Acerca de las revisiones requeridas en los flujos de trabajo
+## Acerca de las revisiones requeridas en los flujos de trabajo
 
 Los jobs que referencian un ambiente configurado con revisores requeridos esperarán por una aprobación antes de comenzar. Mientras que un job espera su revisión, tendrá un estado de "Waiting". Si un job no se aprueba dentro de 30 días, la ejecución del flujo de trabajo se cancelará automáticamente.
 
-Para obtener más información acerca de los ambientes y las aprobaciones requeridas, consulta la sección "[Ambientes](/actions/reference/environments)".{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@next" or currentVersion ver_gt "enterprise-server@3.1" %} Para obtener información sobre cómo revisar los despliegues con la API de REST, consulta la sección "[Ejecuciones de flujo de trabajo](/rest/reference/actions#workflow-runs)".{% endif %}
+Para obtener más información sobre los ambientes y aprobaciones requeridos, consulta la sección"[Utilizar ambientes para despliegue](/actions/deployment/using-environments-for-deployment)".{% ifversion fpt or ghae or ghes > 3.1 or ghec %} Para obtener información sobre cómo revisar los despliegues con la API de REST, consulta la sección "[Ejecuciones de flujo de trabajo](/rest/reference/actions#workflow-runs)".{% endif %}
 
-### Aprobar o rechazar un job
+## Aprobar o rechazar un job
 
 1. Navega a la ejecución de flujo de trabajo que requiere revisión. Para obtener más información acerca de navegar a una ejecución de flujo de trabajo, consulta la sección "[Visualizar el historial de la ejecución del flujo de trabajo](/actions/managing-workflow-runs/viewing-workflow-run-history)".
 2. Da clic en **Revisar despliegues**. ![Revisar despliegues](/assets/images/actions-review-deployments.png)

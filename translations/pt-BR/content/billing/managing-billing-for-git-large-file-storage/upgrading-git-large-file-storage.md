@@ -3,30 +3,31 @@ title: Atualizar o Git Large File Storage
 intro: 'Você pode comprar pacotes de dados adicionais para aumentar a cota de largura de banda mensal e a capacidade total de armazenamento do {% data variables.large_files.product_name_short %}.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/upgrading-git-large-file-storage
-  - /articles/purchasing-additional-storage-and-bandwidth-for-a-personal-account/
-  - /articles/purchasing-additional-storage-and-bandwidth-for-an-organization/
+  - /articles/purchasing-additional-storage-and-bandwidth-for-a-personal-account
+  - /articles/purchasing-additional-storage-and-bandwidth-for-an-organization
   - /articles/upgrading-git-large-file-storage
-  - /github/setting-up-and-managing-billing-and-payments-on-github/upgrading-git-large-file-storage
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-git-large-file-storage/upgrading-git-large-file-storage
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - LFS
   - Organizations
   - Upgrades
   - User account
+shortTitle: Atualizar armazenamento do LFS do Git
 ---
 
-### Comprar mais armazenamento e largura de banda para uma conta pessoal
+## Comprar mais armazenamento e largura de banda para uma conta pessoal
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing_plans %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.billing_plans %}
 {% data reusables.dotcom_billing.lfs-add-data %}
 {% data reusables.large_files.pack_selection %}
 {% data reusables.large_files.pack_confirm %}
 
-### Comprar mais armazenamento e largura de banda para uma organização
+## Comprar mais armazenamento e largura de banda para uma organização
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 
@@ -35,7 +36,7 @@ topics:
 {% data reusables.large_files.pack_selection %}
 {% data reusables.large_files.pack_confirm %}
 
-### Leia mais
+## Leia mais
 
 - "[Sobre a cobrança do {% data variables.large_files.product_name_long %}](/articles/about-billing-for-git-large-file-storage)"
 - "[Sobre o uso de armazenamento e largura de banda](/articles/about-storage-and-bandwidth-usage)"

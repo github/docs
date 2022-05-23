@@ -9,14 +9,20 @@ on:
     types:
       - labeled
 
+permissions:
+  contents: none
+
 jobs:
   move_issues:
-    if: github.repository == 'github/docs' && (github.event.label.name == 'help wanted' || github.event.label.name == 'good first issue')
+    if: >-
+      ${{
+        github.repository == 'github/docs' &&
+        (github.event.label.name == 'help wanted' || github.event.label.name == 'good first issue')
+      }}
     runs-on: ubuntu-latest
-
     steps:
-      - uses: alex-page/github-project-automation-plus@fdb7991b72040d611e1123d2b75ff10eda9372c9
+      - uses: alex-page/github-project-automation-plus@bb266ff4dde9242060e2d5418e120a133586d488
         with:
-          project: Docs team reviews
+          project: Docs open source board
           column: Help wanted
-          repo-token: ${{ secrets.DOCUBOT_FR_PROJECT_BOARD_WORKFLOWS_REPO_ORG_READ_SCOPES }}
+          repo-token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}

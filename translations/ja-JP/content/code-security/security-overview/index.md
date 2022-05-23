@@ -1,15 +1,19 @@
 ---
-title: Viewing security alerts for repositories in your organization
-shortTitle: Security overview
-intro: 'View, sort, and filter the security alerts from across your organization in one place.'
+title: Organization内のリポジトリのセキュリティアラートの表示
+shortTitle: セキュリティの概要
+intro: 一カ所でOrganization内のセキュリティアラートを表示、ソート、フィルタしてください。
 product: '{% data reusables.gated-features.security-center %}'
 versions:
-  free-pro-team: '*'
-  github-ae: next
+  fpt: '*'
+  ghae: '*'
+  ghes: '>3.1'
+  ghec: '*'
 topics:
   - Security overview
   - Advanced Security
 children:
-  - /exploring-security-alerts
+  - /about-the-security-overview
+  - /viewing-the-security-overview
+  - /filtering-alerts-in-the-security-overview
 ---
 

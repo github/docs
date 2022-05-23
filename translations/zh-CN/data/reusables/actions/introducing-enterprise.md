@@ -1,0 +1,1 @@
+在开始之前，您应该制定一个计划，说明如何将 {% data variables.product.prodname_actions %} 引入企业。 更多信息请参阅“[为企业引入 {% data variables.product.prodname_actions %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise)”。

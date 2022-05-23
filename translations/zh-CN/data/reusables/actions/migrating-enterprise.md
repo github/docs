@@ -1,0 +1,1 @@
+如果要将企业迁移到来自其他提供商的 {% data variables.product.prodname_actions %}，还有其他注意事项。 更多信息请参阅“[将企业迁移到 {% data variables.product.prodname_actions %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/migrating-your-enterprise-to-github-actions)”。

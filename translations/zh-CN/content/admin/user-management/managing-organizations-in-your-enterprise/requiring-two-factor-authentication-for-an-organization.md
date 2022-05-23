@@ -5,7 +5,7 @@ redirect_from:
   - /enterprise/admin/user-management/requiring-two-factor-authentication-for-an-organization
   - /admin/user-management/requiring-two-factor-authentication-for-an-organization
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - 2FA
@@ -13,6 +13,7 @@ topics:
   - Organizations
   - Policies
   - Security
+shortTitle: 需要 2FA
 ---
 
 使用 LDAP 或内置身份验证时，{% data variables.product.product_location %} 将支持双重身份验证。 组织管理员可以要求成员启用双重身份验证。
@@ -21,7 +22,7 @@ topics:
 
 更多信息请参阅“[关于双重身份验证](/github/authenticating-to-github/about-two-factor-authentication)”。
 
-### 强制执行双重身份验证的要求
+## 强制执行双重身份验证的要求
 
 在可以要求组织成员和外部协作者使用双重身份验证之前，您必须为自己的个人帐户[启用双重身份验证](/enterprise/{{ currentVersion }}/user/articles/securing-your-account-with-two-factor-authentication-2fa/)。
 
@@ -43,7 +44,7 @@ topics:
 {% data reusables.organizations.require_two_factor_authentication %}
 {% data reusables.organizations.removed_outside_collaborators %}
 
-### 查看从您的组织中删除的人员
+## 查看从您的组织中删除的人员
 
 要查看在您要求双重身份验证时因为不合规而被从组织中自动移除的用户，您可以在搜索字段中使用 `reason:two_factor_requirement_non_compliance` [搜索审核日志](/enterprise/{{ currentVersion }}/admin/guides/installation/searching-the-audit-log/)。
 
@@ -58,11 +59,11 @@ topics:
     - `org:octo-org AND reason:two_factor_requirement_non_compliance`
 5. 单击 **Search（搜索）**。
 
-### 帮助被删除的成员和外部协作者重新加入您的组织
+## 帮助被删除的成员和外部协作者重新加入您的组织
 
 如果在您启用双重身份验证使用要求时有任何成员或外部协作者被从组织中删除，他们将收到通知他们已被删除的电子邮件。 他们应当为个人帐户启用双重身份验证，并联系组织所有者来请求您的组织的访问权限。
 
-### 延伸阅读
+## 延伸阅读
 
 - "[查看组织中的用户是否已启用双重身份验证](/enterprise/{{ currentVersion }}/user/articles/viewing-whether-users-in-your-organization-have-2fa-enabled)"
 - "[使用双重身份验证 (2FA) 确保帐户的安全](/enterprise/{{ currentVersion }}/user/articles/securing-your-account-with-two-factor-authentication-2fa)"

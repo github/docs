@@ -1,0 +1,1 @@
+Para obtener más información sobre los administradores de las aulas, consulta la sección "[Acerca de la administración de aulas](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/manage-classrooms#about-management-of-classrooms)".

@@ -6,6 +6,7 @@ redirect_from:
   - /github/building-a-strong-community/unblocking-a-user-from-your-personal-account
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Community
 shortTitle: Unblock from your account
@@ -19,8 +20,8 @@ You can unblock a user in your account settings or from the user's profile page.
 
 ## Unblocking a user in your account settings
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.blocked_users %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.blocked_users %}
 3. Under "Blocked users", next to the user you'd like to unblock, click **Unblock**.
 ![Unblock user button](/assets/images/help/organizations/org-unblock-user-button.png)
 

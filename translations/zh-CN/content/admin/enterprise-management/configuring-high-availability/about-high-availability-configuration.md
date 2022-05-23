@@ -6,21 +6,23 @@ redirect_from:
   - /enterprise/admin/enterprise-management/about-high-availability-configuration
   - /admin/enterprise-management/about-high-availability-configuration
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: overview
 topics:
   - Enterprise
   - High availability
   - Infrastructure
+shortTitle: 关于 HA 配置
 ---
 
-配置高可用性时，会自动设置将所有数据存储（Git 仓库、MySQL、Redis 和 Elasticsearch）单向、异步地从主设备复制到副本。
+配置高可用性时，会自动设置将所有数据存储（Git 仓库、MySQL、Redis 和 Elasticsearch）单向、异步地从主设备复制到副本。 还会复制大多数 {% data variables.product.prodname_ghe_server %} 配置设置，包括 {% data variables.enterprise.management_console %} 密码。 更多信息请参阅“[访问管理控制台](/admin/configuration/configuring-your-enterprise/accessing-the-management-console)”。
 
 {% data variables.product.prodname_ghe_server %} 支持主动/被动配置，在这些配置下，副本作为备用设备运行，并且数据库服务在复制模式下运行，但应用程序服务将停止。
 
+建立复制后，副本设备上将不再可访问 {% data variables.enterprise.management_console %} 。 如果在端口 8443 上导航到副本的 IP 地址或主机名，您将看到“Server in replication mode（服务器处于复制模式）”消息，表示设备当前已配置为副本。
 {% data reusables.enterprise_installation.replica-limit %}
 
-### 有针对性的故障场景
+## 有针对性的故障场景
 
 使用高可用性配置防护以下问题：
 
@@ -28,15 +30,16 @@ topics:
 
 高可用性配置不适用于：
 
-  - **扩展**。 虽然可以使用 Geo-replication 将流量分布在不同地理位置，但写入性能受限于主设备的速度和可用性。 更多信息请参阅“[关于 Geo-replication](/enterprise/{{ currentVersion }}/admin/guides/installation/about-geo-replication/)”。
+  - **扩展**。 虽然可以使用 Geo-replication 将流量分布在不同地理位置，但写入性能受限于主设备的速度和可用性。 更多信息请参阅“[关于 Geo-replication](/enterprise/{{ currentVersion }}/admin/guides/installation/about-geo-replication/)”。{% ifversion ghes > 3.2 %}
+  - **CI/CD 负载**。 如果您有大量在地理位置上远离主实例的 CI 客户端，则配置仓库缓存可能会使您受益匪浅。 更多信息请参阅“[关于仓库缓存](/admin/enterprise-management/caching-repositories/about-repository-caching)”。{% endif %}
   - **备份主设备**。 高可用性副本不会替代灾难恢复计划中的非现场备份。 某些形式的数据损坏或数据丢失可能会立即从主设备复制到副本。 为确保安全回滚到稳定的过去状态，必须通过历史快照执行定期备份。
   - **零停机时间升级**。 为避免受控升级场景下出现数据丢失和裂脑的状况，请先将主设备置于维护模式并等待所有写入操作完成，然后再对副本进行升级。
 
-### 网络流量故障转移策略
+## 网络流量故障转移策略
 
 在故障转移期间，您必须单独配置和管理从主设备到副本的网络流量的重定向。
 
-#### DNS 故障转移
+### DNS 故障转移
 
 对于 DNS 故障转移，请使用 DNS 记录中指向主 {% data variables.product.prodname_ghe_server %} 设备的短 TTL 值。 建议的 TTL 值范围为 60 秒到 5 分钟。
 
@@ -44,7 +47,7 @@ topics:
 
 如果您要使用 Geo-replication，则必须配置 Geo DNS，将流量定向到距离最近的副本。 更多信息请参阅“[关于 Geo-replication](/enterprise/{{ currentVersion }}/admin/guides/installation/about-geo-replication/)”。
 
-#### 负载均衡器
+### 负载均衡器
 
 {% data reusables.enterprise_clustering.load_balancer_intro %} {% data reusables.enterprise_clustering.load_balancer_dns %}
 
@@ -52,11 +55,11 @@ topics:
 
 {% data reusables.enterprise_installation.monitoring-replicas %}
 
-### 用于复制管理的实用程序
+## 用于复制管理的实用程序
 
 要管理 {% data variables.product.prodname_ghe_server %} 上的复制，请使用 SSH 连接到副本，以使用以下命令行实用程序。
 
-#### ghe-repl-setup
+### ghe-repl-setup
 
 `ghe-repl-setup` 命令可将 {% data variables.product.prodname_ghe_server %} 设备置于副本备用模式。
 
@@ -74,7 +77,7 @@ To disable replica mode and undo these changes, run `ghe-repl-teardown'.
 Run `ghe-repl-start' to start replicating against the newly configured primary.
 ```
 
-#### ghe-repl-start
+### ghe-repl-start
 
 `ghe-repl-start` 命令可以启用所有数据存储的主动复制。
 
@@ -89,7 +92,7 @@ Success: replication is running for all services.
 Use `ghe-repl-status' to monitor replication health and progress.
 ```
 
-#### ghe-repl-status
+### ghe-repl-status
 
 `ghe-repl-status` 命令可以返回各数据存储复制流的 `OK`、`WARNING` 或 `CRITICAL` 状态。 如果有任何复制通道处于 `WARNING` 状态，命令将停止执行并显示代码 `1`。 同样，如果有任何通道处于 `CRITICAL` 状态，命令将停止执行并显示代码 `2`。
 
@@ -141,7 +144,7 @@ OK: pages data is in sync
   | Pages are in sync
 ```
 
-#### ghe-repl-stop
+### ghe-repl-stop
 
 `ghe-repl-stop` 命令可以暂时禁用所有数据存储的复制并停止复制服务。 要恢复复制，请使用 [ghe-repl-start](#ghe-repl-start) 命令。
 
@@ -155,7 +158,7 @@ Stopping Elasticsearch replication ...
 Success: replication was stopped for all services.
 ```
 
-#### ghe-repl-promote
+### ghe-repl-promote
 
 `ghe-repl-promote` 命令可以禁用复制并将副本转换为主设备。 设备会配置为使用与原主设备相同的设置，并启用所有服务。
 
@@ -178,10 +181,11 @@ Applying configuration and starting services ...
 Success: Replica has been promoted to primary and is now accepting requests.
 ```
 
-#### ghe-repl-teardown
+### ghe-repl-teardown
 
 `ghe-repl-teardown` 命令可以完全禁用复制模式，并移除副本配置。
 
-### 延伸阅读
+## 延伸阅读
 
 - “[创建高可用性副本](/enterprise/{{ currentVersion }}/admin/guides/installation/creating-a-high-availability-replica)”
+- "[网络端口](/admin/configuration/configuring-network-settings/network-ports)"

@@ -2,9 +2,11 @@
 title: 发布包的工作流程示例
 intro: 为了帮助您开始使用自己的自定义工作流程，请查看一些用于发布包的工作流程示例。
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+shortTitle: 示例工作流程
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}

@@ -5,9 +5,11 @@ redirect_from:
   - /articles/viewing-users-who-are-blocked-from-your-organization
   - /github/building-a-strong-community/viewing-users-who-are-blocked-from-your-organization
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Community
+shortTitle: Visualizar usuários bloqueados no org
 ---
 
 
@@ -16,7 +18,7 @@ topics:
 {% data reusables.organizations.block_users %}
 5. Em "Blocked users" (Usuários bloqueados), revise a lista de usuários que estão bloqueados da organização. ![Lista de usuários bloqueados](/assets/images/help/settings/list-of-blocked-users-for-org.png)
 
-### Leia mais
+## Leia mais
 
 - "[Bloquear usuários da organização](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)"
 - "[Desbloquear usuários da organização](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-organization)"

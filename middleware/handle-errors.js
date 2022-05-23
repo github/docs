@@ -1,6 +1,9 @@
 import FailBot from '../lib/failbot.js'
-import loadSiteData from '../lib/site-data.js'
 import { nextApp } from './next.js'
+import { setFastlySurrogateKey, SURROGATE_ENUMS } from './set-fastly-surrogate-key.js'
+import { cacheControlFactory } from './cache-control.js'
+
+const cacheControl = cacheControlFactory(60) // 1 minute
 
 function shouldLogException(error) {
   const IGNORED_ERRORS = [
@@ -27,9 +30,38 @@ async function logException(error, req) {
 }
 
 export default async function handleError(error, req, res, next) {
+  // When you run tests that use things doing get() requests in
+  // our supertest handler, if something goes wrong anywhere in the app
+  // and its middlewares, you get a 500 but the error is never displayed
+  // anywhere. So this is why we log it additionally.
+  // Note, not using console.error() because it's arguably handled.
+  // Some tests might actually expect a 500 error.
+
+  const responseDone = res.headersSent || req.aborted
+
+  if (req.path.startsWith('/assets') || req.path.startsWith('/_next/static')) {
+    if (!responseDone) {
+      // By default, Fastly will cache 404 responses unless otherwise
+      // told not to.
+      // See https://docs.fastly.com/en/guides/how-caching-and-cdns-work#http-status-codes-cached-by-default
+      // Let's cache our 404'ing assets conservatively.
+      // The Cache-Control is short, and let's use the default surrogate
+      // key just in case it was a mistake.
+      cacheControl(res)
+      // Undo the cookie setting that CSRF sets.
+      res.removeHeader('set-cookie')
+      // Makes sure the surrogate key is NOT the manual one if it failed.
+      // This basically unsets what was assumed in the beginning of
+      // loading all the middlewares.
+      setFastlySurrogateKey(res, SURROGATE_ENUMS.DEFAULT)
+    }
+  } else if (process.env.NODE_ENV === 'test') {
+    console.warn('An error occurrred in some middleware handler', error)
+  }
+
   try {
     // If the headers have already been sent or the request was aborted...
-    if (res.headersSent || req.aborted) {
+    if (responseDone) {
       // Report to Failbot
       await logException(error, req)
 
@@ -37,14 +69,11 @@ export default async function handleError(error, req, res, next) {
       return next(error)
     }
 
-    // if the error is thrown before req.context is created (say, in the Page class),
-    // set req.context.site here so we can pass data/ui.yml text to the 500 layout
     if (!req.context) {
-      const site = await loadSiteData()
-      req.context = { site: site[req.language || 'en'].site }
+      req.context = {}
     }
     // display error on the page in development and staging, but not in production
-    if (req.context && process.env.HEROKU_PRODUCTION_APP !== 'true') {
+    if (process.env.HEROKU_PRODUCTION_APP !== 'true') {
       req.context.error = error
     }
 

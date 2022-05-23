@@ -1,0 +1,1 @@
+| 参数 | 值 | | :- | :- |{% ifversion fpt or ghes > 3.2 or ghae or ghec %} | `title` | 自定义标题 |{% endif %} | `file` | 文件名 | | `col` | 列号，从 1 开始 |{% ifversion fpt or ghes > 3.2 or ghae or ghec %} | `endColumn` | 结束列号 |{% endif %} | `line` | 行号，从 1 开始 |{% ifversion fpt or ghes > 3.2 or ghae or ghec %} | `endLine` | 结束行号 |{% endif %}

@@ -5,14 +5,16 @@ redirect_from:
   - /apps/quickstart-guides/creating-ci-tests-with-the-checks-api
   - /developers/apps/creating-ci-tests-with-the-checks-api
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - GitHub Apps
+shortTitle: Checks API を使用した CI テスト
 ---
 
-### はじめに
+## はじめに
 
 このガイドでは、[GitHub App](/apps/) と [Checks API](/rest/reference/checks) について紹介します。Checks API は、テストを実行する継続的インテグレーション (CI) サーバーを構築するために使用します。
 
@@ -22,7 +24,7 @@ CI サーバーは、コードの文法チェッカー (スタイルフォーマ
 
 {% data reusables.apps.app-ruby-guides %}
 
-#### Checks API の概要
+### Checks API の概要
 
 [Checks API](/rest/reference/checks) を使用すると、リポジトリでコミットされている各コードに対して自動的に実行される CI テストを設定できます。 Checks API は、プルリクエストの [**Checks**] タブにおいて、各チェックについての詳細情報をレポートします。 Checks API を使用すると、コードの特定の行に対して追加的な情報を含むアノテーションを作成できます。 アノテーションは [**Checks**] タブに表示されます。 プルリクエストの一部であるファイルに対してアノテーションを作成すると、そのアノテーションは [**Files changed**] タブにも表示されます。
 
@@ -49,9 +51,9 @@ Checks API は、新しいコードがリポジトリにプッシュされるた
 
 ![Checks API CI サーバークイックスタートのデモ](/assets/images/github-apps/github_apps_checks_api_ci_server.gif)
 
-### 必要な環境
+## 必要な環境
 
-[GitHub Apps](/apps/)、[webhook](/webhooks)、[Checks API](/rest/reference/checks) を使い慣れていない場合は、以下の作業に取りかかる前にある程度慣れておくとよいでしょう。 [REST API ドキュメント](/rest)には、さらに多くの API が掲載されています。 Checks API は [GraphQL](/graphql) でも使用できますが、このクイックスタートでは REST に焦点を当てます。 詳細については、GraphQL [Checks Suite](/graphql/reference/objects#checksuite) および [Check Run](/graphql/reference/objects#checkrun) オブジェクトを参照してください。
+[GitHub Apps](/apps/)、[webhook](/webhooks)、[Checks API](/rest/reference/checks) を使い慣れていない場合は、以下の作業に取りかかる前にある程度慣れておくとよいでしょう。 [REST API ドキュメント](/rest)には、さらに多くの API が掲載されています。 Checks API は [GraphQL]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql) でも使用できますが、このクイックスタートでは REST に焦点を当てます。 詳細については、GraphQL [Checks Suite]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/reference/objects#checksuite) および [Check Run]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/reference/objects#checkrun) オブジェクトを参照してください。
 
 [Ruby プログラミング言語](https://www.ruby-lang.org/en/)、[Smee](https://smee.io/) webhook ペイロード配信サービス、GitHub REST API 用の [Octokit.rb Ruby ライブラリ](http://octokit.github.io/octokit.rb/)、および [Sinatra ウェブフレームワーク](http://sinatrarb.com/) を使用して、Checks API CI サーバーアプリケーションを作成します。
 
@@ -70,7 +72,7 @@ Checks API は、新しいコードがリポジトリにプッシュされるた
 
   テンプレート GitHub App の設定で問題にぶつかった場合は、[トラブルシューティング](/apps/quickstart-guides/setting-up-your-development-environment/#troubleshooting)のセクションを参照してください。
 
-### パート1. Checks API インターフェースを作成する
+## パート1. Checks API インターフェースを作成する
 
 このパートでは、`check_suite` webhook イベントを受信するために必要なコードを追加し、チェック実行を作成して更新します。 また、GitHub でチェックが再リクエストされた場合にチェック実行を作成する方法についても学びます。 このセクションの最後では、GitHub プルリクエストで作成したチェック実行を表示できるようになります。
 
@@ -85,20 +87,20 @@ Checks API は、新しいコードがリポジトリにプッシュされるた
 1. [チェック実行を作成する](#step-13-creating-a-check-run)
 1. [チェック実行を更新する](#step-14-updating-a-check-run)
 
-### ステップ 1.1. アプリケーションの権限を更新する
+## ステップ 1.1. アプリケーションの権限を更新する
 
 [最初にアプリケーションを登録](#prerequisites)した際は、デフォルトの権限を受け入れています。これは、アプリケーションがほとんどのリソースにアクセスできないことを意味します。 この例においては、アプリケーションにはチェックを読み取りおよび書き込みする権限が必要となります。
 
 アプリケーションの権限を更新するには、以下の手順に従います。
 
-1. [アプリケーションの設定ページ](https://github.com/settings/apps)からアプリケーションを選択肢、サイドバーの [**Permissions & Webhooks**] をクリックします。
+1. [アプリケーションの設定ページ](https://github.com/settings/apps)からアプリケーションを選択し、サイドバーの [**Permissions & Webhooks**] をクリックします。
 1. [Permissions] セクションで [Checks] を見つけて、隣にある [Access] ドロップダウンで [**Read & write**] を選択します。
 1. [Subscribe to events] セクションで [**Check suite**] と [**Check run**] を選択してこれらのイベントをサブスクライブします。
 {% data reusables.apps.accept_new_permissions_steps %}
 
 これでうまくいきました。 アプリケーションは必要なタスクを実行する権限を所有しています。 これでイベントを処理するコードを追加できるようになりました。
 
-### ステップ 1.2. イベントの処理を追加する
+## ステップ 1.2. イベントの処理を追加する
 
 ここまでで、アプリケーションが **Check suite** および **Check run** イベントにサブスクライブされ、[`check_suite`](/webhooks/event-payloads/#check_suite) および [`check_run`](/webhooks/event-payloads/#check_run) webhook を受信し始めます。 GitHub は webhook ペイロードを `POST` リクエストとして送信します。 Smee webhook ペイロードを `http://localhost/event_handler:3000` に転送したため、サーバーは `POST` リクエストのペイロードを `post '/event_handler'` ルートで受信します。
 
@@ -132,11 +134,10 @@ GitHub が送信する全てのイベントには、`HTTP_X_GITHUB_EVENT` とい
 
 `requested` アクションはリポジトリにコードがプッシュされるたびにチェック実行をリクエストし、`rerequested` アクションはリポジトリに既存のコードにチェックを再実行するようリクエストします。 `requested` と `rerequested` の両方のアクションでチェック実行の作成が必要なため、`create_check_run` というヘルパーを呼び出します。 では、このメソッドを書いてみましょう。
 
-### ステップ 1.3. チェック実行を作成する
+## ステップ 1.3. チェック実行を作成する
 
 他のルートでも使用する場合のために、新しいメソッドを [Sinatra ヘルパー](https://github.com/sinatra/sinatra#helpers) として追加します。 `helpers do` の下に、以下の `create_check_run` メソッドを追加します。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 ``` ruby
 # Create a new check run with the status queued
 def create_check_run
@@ -153,28 +154,10 @@ def create_check_run
   )
 end
 ```
-{% else %}
-``` ruby
-# Create a new check run with the status queued
-def create_check_run
-  @installation_client.create_check_run(
-    # [String, Integer, Hash, Octokit Repository object] A GitHub repository.
-    @payload['repository']['full_name'],
-    # [String] The name of your check run.
-    'Octo RuboCop',
-    # [String] The SHA of the commit to check 
-    # The payload structure differs depending on whether a check run or a check suite event occurred.
-    @payload['check_run'].nil? ? @payload['check_suite']['head_sha'] : @payload['check_run']['head_sha'],
-    # [Hash] 'Accept' header option, to avoid a warning about the API not being ready for production use.
-    accept: 'application/vnd.github.antiope-preview+json'
-  )
-end
-```
-{% endif %}
 
-This code calls the "[Create a check run](/rest/reference/checks#create-a-check-run)" endpoint using the [create_check_run method](https://rdoc.info/gems/octokit/Octokit%2FClient%2FChecks:create_check_run).
+このコードは[create_check_run method](https://rdoc.info/gems/octokit/Octokit%2FClient%2FChecks:create_check_run)メソッドを使用して、[Create a check run](/rest/reference/checks#create-a-check-run)エンドポイントを呼び出します。
 
-チェック実行を作成するために必要なのは、`name` と `head_sha` の 2 つの入力パラメータのみです。 このクイックスタートでは、後で [Rubocop](https://rubocop.readthedocs.io/en/latest/) を使用して CI テストを実装します。そのため、ここでは「Octo Rubocop」という名前を使っていますが、チェック実行には任意の名前を選ぶことができます。
+チェック実行を作成するために必要なのは、`name` と `head_sha` の 2 つの入力パラメータのみです。 We will use [RuboCop](https://rubocop.readthedocs.io/en/latest/) to implement the CI test later in this quickstart, which is why the name "Octo RuboCop" is used here, but you can choose any name you'd like for the check run.
 
 ここでは基本的な機能を実行するため必要なパラメータのみを指定していますが、チェック実行について必要な情報を収集するため、後でチェック実行を更新することになります。 デフォルトでは、GitHub は `status` を `queued` に設定します。
 
@@ -198,7 +181,7 @@ $ ruby template_server.rb
 
 これでうまくいきました。 ここまでで、GitHub にチェック実行を作成するよう指示しました。 チェック実行のステータスが `queued` に設定されていることが、黄色のアイコンの右側で確認できます。 次は、GitHub がチェック実行を作成し、ステータスを更新するのを待てばよいでしょう。
 
-### ステップ 1.4. チェック実行を更新する
+## ステップ 1.4. チェック実行を更新する
 
 `create_check_run` メソッドが実行されると、メソッドは GitHub に新しいチェック実行を作成するよう依頼します。 GitHub がチェック実行の作成を完了すると、`created` アクションの `check_run` webhook イベントを受信します。 このイベントは、チェックの実行を開始する合図です。
 
@@ -227,7 +210,6 @@ GitHub は `created` チェック実行のすべてのイベントを、必要�
 
 `initiate_check_run` メソッドを作成し、チェック実行のステータスを更新しましょう。 以下のコードを helpers セクションに追加します。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 ``` ruby
 # Start the CI process
 def initiate_check_run
@@ -254,34 +236,6 @@ def initiate_check_run
   )
 end
 ```
-{% else %}
-``` ruby
-# Start the CI process
-def initiate_check_run
-  # Once the check run is created, you'll update the status of the check run
-  # to 'in_progress' and run the CI process. When the CI finishes, you'll
-  # update the check run status to 'completed' and add the CI results.
-
-  @installation_client.update_check_run(
-    @payload['repository']['full_name'],
-    @payload['check_run']['id'],
-    status: 'in_progress',
-    accept: 'application/vnd.github.antiope-preview+json'
-  )
-
-  # ***** RUN A CI TEST *****
-
-  # Mark the check run as complete!
-  @installation_client.update_check_run(
-    @payload['repository']['full_name'],
-    @payload['check_run']['id'],
-    status: 'completed',
-    conclusion: 'success',
-    accept: 'application/vnd.github.antiope-preview+json'
-  )
-end
-```
-{% endif %}
 
 上記のコードは、[`update_check_run` Octokit メソッド](https://rdoc.info/gems/octokit/Octokit%2FClient%2FChecks:update_check_run)を使用して「[チェック実行を更新する](/rest/reference/checks#update-a-check-run)」API エンドポイントを呼び出し、既に作成したチェック実行を更新します。
 
@@ -299,7 +253,7 @@ $ ruby template_server.rb
 
 ![完了したチェック実行](/assets/images/github-apps/github_apps_complete_check_run.png)
 
-### パート2. Octo RuboCop CI テストを作成する
+## パート2. Octo RuboCop CI テストを作成する
 
 [RuboCop](https://rubocop.readthedocs.io/en/latest/) は Ruby のコード文法チェッカーおよびフォーマッタです。 Ruby のコードが「[Ruby スタイルガイド](https://github.com/rubocop-hq/ruby-style-guide)」に準拠するようチェックします。 RuboCop の主な機能は、以下の 3 つです。
 
@@ -327,7 +281,7 @@ Checks API を使用すると、ステータス、画像、要約、アノテー
 1. [RuboCop のエラーを自動的に修正する](#step-26-automatically-fixing-rubocop-errors)
 1. [セキュリティのヒント](#step-27-security-tips)
 
-### ステップ 2.1. Ruby ファイルを追加する
+## ステップ 2.1. Ruby ファイルを追加する
 
 RuboCop がチェックするため、特定のファイルまたはディレクトリ全体を渡すことができます。 このクイックスタートでは、ディレクトリ全体で RuboCop を実行します。 RuboCop がチェックするのは Ruby のコードのみなので、エラーが含まれる Ruby ファイルをリポジトリ内に最低 1 つ置くとよいでしょう。 以下に示すサンプルのファイルには、いくつかのエラーが含まれています。 このサンプルの Ruby ファイルを、アプリケーションがインストールされているリポジトリに追加します (`myfile.rb` などのように、ファイル名には `.rb` の拡張子を必ず付けてください)。
 
@@ -351,7 +305,7 @@ m = Octocat.new("Mona", "cat", "octopus")
 m.display
 ```
 
-### ステップ 2.2. リポジトリをクローンする
+## ステップ 2.2. リポジトリをクローンする
 
 RuboCop はコマンドラインユーティリティとして使用できます。 これはつまり、RuboCop がファイルを解析するためには、GitHub App が CI サーバー上のリポジトリのローカルコピーをクローンする必要があるということです。 Ruby アプリケーションで Git の操作を実行するには、[ruby-git](https://github.com/ruby-git/ruby-git) gem を使用できます。
 
@@ -363,7 +317,7 @@ require 'git'
 
 リポジトリをクローンするには、アプリケーションに「リポジトリコンテンツ」の読み取り権限が必要です。 このクイックスタートでは、後ほどコンテンツを GitHub にプッシュする必要がありますが、そのためには書き込み権限が必要です。 先に進んでアプリケーションの [Repository contents] の権限を [**Read & write**] に今すぐ変更してください。そうすれば、後で再び変更する必要がなくなります。 アプリケーションの権限を更新するには、以下の手順に従います。
 
-1. [アプリケーションの設定ページ](https://github.com/settings/apps)からアプリケーションを選択肢、サイドバーの [**Permissions & Webhooks**] をクリックします。
+1. [アプリケーションの設定ページ](https://github.com/settings/apps)からアプリケーションを選択し、サイドバーの [**Permissions & Webhooks**] をクリックします。
 1. [Permissions] セクションで [Repository contents] を見つけて、隣にある [Access] ドロップダウンで [**Read & write**] を選択します。
 {% data reusables.apps.accept_new_permissions_steps %}
 
@@ -411,7 +365,7 @@ clone_repository(full_repo_name, repository, head_sha)
 
 上記のコードは、リポジトリのフルネームとコミットのヘッド SHA を `check_run` webhook ペイロードから取得します。
 
-### ステップ 2.3. RuboCop を実行する
+## ステップ 2.3. RuboCop を実行する
 
 これでうまくいきました。 リポジトリをクローンし、CI サーバーを使用してチェック実行を作成しようという段階にまで到達しました。 それではいよいよ [RuboCop 文法チェッカー](https://docs.rubocop.org/rubocop/usage/basic_usage.html#code-style-checker) と [Checks API アノテーション](/rest/reference/checks#create-a-check-run)の核心に迫ります。
 
@@ -497,7 +451,7 @@ $ ruby template_server.rb
 }
 ```
 
-### ステップ 2.4. RuboCop のエラーを収集する
+## ステップ 2.4. RuboCop のエラーを収集する
 
 `@output` 変数には、RuboCop レポートの解析済み JSON の結果が含まれています。 上記で示す通り、結果には `summary` セクションが含まれており、コードでエラーがあるかどうかを迅速に判断するために使用できます。 以下のコードは、報告されたエラーがない場合に、チェック実行の結果を `success` に設定します。 RuboCop は、`files` 配列内にある各ファイルについてエラーを報告します。エラーがある場合、ファイル オブジェクトからデータを抽出する必要があります。
 
@@ -572,7 +526,7 @@ end
 
 このコードはまだチェック実行のアノテーションを作成しません。 それを作成するコードは、次のセクションで追加します。
 
-### ステップ 2.5. CI テスト結果でチェック実行を更新する
+## ステップ 2.5. CI テスト結果でチェック実行を更新する
 
 GitHub から実行される各チェックには、`output` オブジェクトが含まれ、そのオブジェクトには `title`、`summary`、`text`、`annotations`、`images` が含まれます。 `output` に必須のパラメータは `summary` と `title` のみですが、これだけでは詳細情報が得られないので、このクイックスタートでは `text` と `annotations` も追加します。 ここに挙げるコードでは画像は追加しませんが、追加したければぜひどうぞ。
 
@@ -586,7 +540,6 @@ text = "Octo RuboCop version: #{@output['metadata']['rubocop_version']}"
 
 さて、これでチェック実行を更新するために必要な情報がすべて揃いました。 [このクイックスタートの前半](#step-14-updating-a-check-run)では、このコードを追加して、チェック実行のステータスを `success` に設定しました。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 ``` ruby
 # Mark the check run as complete!
 @installation_client.update_check_run(
@@ -597,22 +550,9 @@ text = "Octo RuboCop version: #{@output['metadata']['rubocop_version']}"
   accept: 'application/vnd.github.v3+json'
 )
 ```
-{% else %}
-``` ruby
-# Mark the check run as complete!
-@installation_client.update_check_run(
-  @payload['repository']['full_name'],
-  @payload['check_run']['id'],
-  status: 'completed',
-  conclusion: 'success',
-  accept: 'application/vnd.github.antiope-preview+json' # This header is necessary for beta access to Checks API
-)
-```
-{% endif %}
 
 RuboCop の結果に基づいて (`success` または `neutral` に) 設定した `conclusion` 変数を使用するよう、このコードを更新する必要があります。 コードは以下のようにして更新できます。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 ``` ruby
 # Mark the check run as complete! And if there are warnings, share them.
 @installation_client.update_check_run(
@@ -634,33 +574,10 @@ RuboCop の結果に基づいて (`success` または `neutral` に) 設定し�
   accept: 'application/vnd.github.v3+json'
 )
 ```
-{% else %}
-``` ruby
-# Mark the check run as complete! And if there are warnings, share them.
-@installation_client.update_check_run(
-  @payload['repository']['full_name'],
-  @payload['check_run']['id'],
-  status: 'completed',
-  conclusion: conclusion,
-  output: {
-    title: 'Octo RuboCop',
-    summary: summary,
-    text: text,
-    annotations: annotations
-  },
-  actions: [{
-    label: 'Fix this',
-    description: 'Automatically fix all linter notices.',
-    identifier: 'fix_rubocop_notices'
-  }],
-  accept: 'application/vnd.github.antiope-preview+json'
-)
-```
-{% endif %}
 
 さて、これで CI テストのステータスに基づいて結論を設定し、RuboCop の結果からの出力を追加しました。あなたは CI テストを作成したのです。 おめでとうございます。 🙌
 
-また、上記のコードは、`actions` オブジェクトを介して CI サーバーに[リクエストされたアクション](https://developer.github.com/changes/2018-05-23-request-actions-on-checks/)という機能も追加しています。 {% if currentVersion == "free-pro-team@latest" %}(Note this is not related to [GitHub Actions](/actions).) {% endif %}リクエストされたアクションは、追加のアクションを実行するためにチェック実行をリクエストできるボタンを GitHub の [**Checks**] タブに追加します。 追加のアクションは、アプリケーションが自由に設定できます。 たとえば、RuboCop には Ruby のコードで見つかったエラーを自動的に修正する機能があるので、CI サーバーはリクエストされたアクションボタンを使用して、自動的なエラー修正をユーザが許可することができます。 このボタンをクリックすると、アプリケーションは `requested_action` アクションで `check_run` イベントを受け取ります。 リクエストされた各アクションには、どのボタンがクリックされたかアプリケーションが判断するために使用する `identifier` があります。
+また、上記のコードは、`actions` オブジェクトを介して CI サーバーに[リクエストされたアクション](https://developer.github.com/changes/2018-05-23-request-actions-on-checks/)という機能も追加しています。 {% ifversion fpt or ghec %}(Note this is not related to [GitHub Actions](/actions).) {% endif %}リクエストされたアクションは、追加のアクションを実行するためにチェック実行をリクエストできるボタンを GitHub の [**Checks**] タブに追加します。 追加のアクションは、アプリケーションが自由に設定できます。 たとえば、RuboCop には Ruby のコードで見つかったエラーを自動的に修正する機能があるので、CI サーバーはリクエストされたアクションボタンを使用して、自動的なエラー修正をユーザが許可することができます。 このボタンをクリックすると、アプリケーションは `requested_action` アクションで `check_run` イベントを受け取ります。 リクエストされた各アクションには、どのボタンがクリックされたかアプリケーションが判断するために使用する `identifier` があります。
 
 上記のコードには、まだ RuboCop が自動的にエラーを修正する処理がありません。 この処理については、次のセクションで追加します。 しかしまずは、`template_server.rb` サーバーを再起動して新しいプルリクエストを作成し、さきほど作成した CI テストを見てみましょう。
 
@@ -680,7 +597,7 @@ $ ruby template_server.rb
 
 ![ファイルが変更されたタブのチェック実行アノテーション](/assets/images/github-apps/github_apps_checks_annotation_diff.png)
 
-### ステップ 2.6. RuboCop のエラーを自動的に修正する
+## ステップ 2.6. RuboCop のエラーを自動的に修正する
 
 ここまで来たのはすごいですよ！ 👏 あなたはもう CI テストを作成しました。 このセクションでは、もう 1 つの機能を追加します。RuboCop を使用して、見つけたエラーを自動的に修正するために使用するための機能です。 すでに[前のセクション](#step-25-updating-the-check-run-with-ci-test-results)で、[Fix this] ボタンを追加しました。 ここでは、ユーザが [Fix this] ボタンをクリックしたときにトリガーされる、`requested_action` チェック実行イベントを処理するコードを追加します。
 
@@ -780,7 +697,7 @@ $ ruby template_server.rb
 
 ここであなたか構築したアプリケーションの完成したコードは、[Checks API で CI テストを作成する](https://github.com/github-developer/creating-ci-tests-with-the-checks-api)のリポジトリの `server.rb` ファイルにあります。
 
-### ステップ 2.7. セキュリティのヒント
+## ステップ 2.7. セキュリティのヒント
 
 GitHub App コードのテンプレートには、受信した webhook ペイロードを検証して、信頼できるソースからのものであることを確認するためのメソッドが最初から用意されています。 webhook ペイロードを検証しない場合、リポジトリ名が webhook ペイロードに含まれる際には、その webhook が悪意をもって使用されかねない任意のコマンドを確実に含まないようにする必要があります。 以下のコードは、リポジトリ名に含まれる文字がラテン文字、ハイフン、アンダースコアのみであることを検証します。 完全なサンプルを提供するため、[コンパニオンリポジトリ](https://github.com/github-developer/creating-ci-tests-with-the-checks-api)で入手できる、このクイックスタートのための完成した `server.rb` コードには、受信する webhook ペイロードを検証するメソッドと、リポジトリ名を検証するためのここで挙げたチェックの両方が含まれています。
 
@@ -796,7 +713,7 @@ unless @payload['repository'].nil?
 end
 ```
 
-### トラブルシューティング
+## トラブルシューティング
 
 以下は、いくつかの一般的な問題と推奨される解決策です。 他の問題が生じた場合は、{% data variables.product.prodname_support_forum_with_url %}で助けやアドバイスを求めることができます。
 
@@ -822,7 +739,7 @@ end
 
     **A:** Smee を再起動し、`template_server.rb` サーバーを再実行してください。
 
-### おわりに
+## おわりに
 
 このガイドの手順を一通り終えたら、Checks API を使用して CI サーバーを作成することの基本が習得できています。 振り返ると、以下を行いました。
 
@@ -830,7 +747,7 @@ end
 * リポジトリ内のコードをチェックし、エラーのアノテーションを作成するため RuboCop を使用しました。
 * 文法エラーを自動的に修正する、リクエストされたアクションを実装しました。
 
-### 次のステップ
+## 次のステップ
 
 以下は、次に行えることのいくつかのアイデアです。
 

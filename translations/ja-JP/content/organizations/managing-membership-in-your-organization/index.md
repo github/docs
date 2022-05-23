@@ -1,14 +1,15 @@
 ---
 title: Organization でメンバーシップを管理する
-intro: 'Organization を作成すると、Organization のメンバーとして{% if currentVersion == "free-pro-team@latest" %}ユーザを招待{% else %}ユーザを追加{% endif %}することができます。 メンバーの削除や、元のメンバーの復帰も可能です。'
+intro: 'Organization を作成すると、Organization のメンバーとして{% ifversion fpt %}ユーザを招待{% else %}ユーザを追加{% endif %}することができます。 メンバーの削除や、元のメンバーの復帰も可能です。'
 redirect_from:
-  - /articles/removing-a-user-from-your-organization/
+  - /articles/removing-a-user-from-your-organization
   - /articles/managing-membership-in-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/managing-membership-in-your-organization
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -18,7 +19,9 @@ children:
   - /adding-people-to-your-organization
   - /removing-a-member-from-your-organization
   - /reinstating-a-former-member-of-your-organization
+  - /exporting-member-information-for-your-organization
   - /can-i-create-accounts-for-people-in-my-organization
+shortTitle: メンバーシップの管理
 ---
 
 <!-- else -->

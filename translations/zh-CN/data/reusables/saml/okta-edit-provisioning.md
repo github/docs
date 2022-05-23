@@ -1,5 +1,8 @@
-10. 在“Provisioning to App（配置到 App）”的右侧，单击 **Edit（编辑）**。 ![用于 Okta 应用程序配置选项的"Edit（编辑）"按钮](/assets/images/help/saml/okta-provisioning-to-app-edit-button.png)
-11. 在“Create Users（创建用户）”的右侧，选择 **Enable（启用）**。 ![用于 Okta 应用程序"Create Users（创建用户）"选项的"Enable（启用）"复选框](/assets/images/help/saml/okta-provisioning-enable-create-users.png)
-12. 在“Update User Attributes（更新用户属性）”的右侧，选择 **Enable（启用）**。 ![用于 Okta 应用程序"Update User Attributes（更新用户属性）"选项的"Enable（启用）"复选框](/assets/images/help/saml/okta-provisioning-enable-update-user-attributes.png)
-13. 在“Deactivate Users（停用用户）”的右侧，选择 **Enable（启用）**。 ![用于 Okta 应用程序"Deactivate Users（停用用户）"选项的"Enable（启用）"复选框](/assets/images/help/saml/okta-provisioning-enable-deactivate-users.png)
-14. 单击 **Save（保存）**。 ![用于 Okta 应用程序配置的"Save（保存）"按钮](/assets/images/help/saml/okta-provisioning-save.png)
+1. 为避免同步错误并确认用户已启用 SAML 和 SCIM 链接标识，我们建议您审核组织的用户。 更多信息请参阅“[审核用户是否缺少 SCIM 元数据](/organizations/managing-saml-single-sign-on-for-your-organization/troubleshooting-identity-and-access-management#auditing-users-for-missing-scim-metadata)”。
+1. 在“Provisioning to App（配置到 App）”的右侧，单击 **Edit（编辑）**。
+
+    ![用于 Okta 应用程序配置选项的"Edit（编辑）"按钮屏幕截图](/assets/images/help/saml/okta-provisioning-to-app-edit-button.png)
+1. 在 **Create Users（创建用户）**、**Update User Attributes（更新用户属性）**和 **Deactivate Users（停用用户）**的右侧，选择 **Enable（启用）**。
+
+    !["创建用户"、"更新用户属性"和"停用用户"选项的"启用"复选框屏幕截图](/assets/images/help/saml/okta-provisioning-enable-options.png)
+1. 单击 **Save（保存）**。

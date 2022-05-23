@@ -6,44 +6,37 @@ redirect_from:
   - /enterprise/admin/enterprise-management/creating-a-high-availability-replica
   - /admin/enterprise-management/creating-a-high-availability-replica
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - High availability
   - Infrastructure
+shortTitle: 创建 HA 副本
 ---
 
 {% data reusables.enterprise_installation.replica-limit %}
 
-### 创建高可用性副本
+## 创建高可用性副本
 
 1. 在所需平台上设置新的 {% data variables.product.prodname_ghe_server %} 设备。 副本设备应镜像主设备的 CPU、RAM 和存储设置。 建议您在独立环境中安装副本设备。 底层硬件、软件和网络组件应与主设备的相应部分隔离。 如果要使用云提供商，请使用单独的区域或分区。 更多信息请参阅“[设置 {% data variables.product.prodname_ghe_server %} 实例](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-github-enterprise-server-instance)”。
-2. 在浏览器中，导航到新副本设备的 IP 地址并上传您的 {% data variables.product.prodname_enterprise %} 许可。
-3. 设置与主设备密码匹配的管理员密码，然后继续。
-4. 单击 **Configure as Replica**。 ![包含用于将新实例配置为副本的链接的安装选项](/assets/images/enterprise/management-console/configure-as-replica.png)
-5. 在“Add new SSH key”下，输入 SSH 密钥。 ![添加 SSH 密钥](/assets/images/enterprise/management-console/add-ssh-key.png)
-6. 单击 **Add key**，然后单击 **Continue**。
-6. 使用 SSH 连接到副本设备的 IP 地址。
+1. 确保主设备和新的副本设备可以通过端口 122/TCP 和 1194/UDP 相互通信。 更多信息请参阅“[网络端口](/admin/configuration/configuring-network-settings/network-ports#administrative-ports)”。
+1. 在浏览器中，导航到新副本设备的 IP 地址并上传您的 {% data variables.product.prodname_enterprise %} 许可。
+{% data reusables.enterprise_installation.replica-steps %}
+1. 使用 SSH 连接到副本设备的 IP 地址。
   ```shell
   $ ssh -p 122 admin@<em>REPLICA IP</em>
   ```
-7. 要为副本生成密钥对，请使用包含主设备 IP 地址的 `ghe-repl-setup` 命令，并复制该命令返回的公钥。
-  ```shell
-  $ ghe-repl-setup <em>PRIMARY IP</em>
-  ```
+{% data reusables.enterprise_installation.generate-replication-key-pair %}
 {% data reusables.enterprise_installation.add-ssh-key-to-primary %}
-9. 要验证与主设备的连接并为新副本启用副本模式，请再次运行 `ghe-repl-setup`。
+1. 要验证与主设备的连接并为新副本启用副本模式，请再次运行 `ghe-repl-setup`。
   ```shell
   $ ghe-repl-setup <em>PRIMARY IP</em>
   ```
 {% data reusables.enterprise_installation.replication-command %}
-11. 要验证各个数据存储复制通道的状态，请使用 `ghe-repl-status` 命令。
-  ```shell
-  $ ghe-repl-status
-  ```
+{% data reusables.enterprise_installation.verify-replication-channel %}
 
-### 创建 Geo-replication 副本
+## 创建 Geo-replication 副本
 
 此示例配置使用一个主设备和两个副本，它们位于三个不同的地理区域。 由于三个节点可以位于不同网络中，要求所有节点均可从其他所有节点到达。 必需的管理端口至少应向其他所有节点开放。 有关端口要求的更多信息，请参阅“[网络端口](/enterprise/{{ currentVersion }}/admin/guides/installation/network-ports/#administrative-ports)”。
 
@@ -91,7 +84,7 @@ topics:
   (primary)$ ghe-config-apply
   ```
 
-### 为 Geo-replication 配置 DNS
+## 为 Geo-replication 配置 DNS
 
 使用主节点和副本节点的 IP 地址配置 Geo DNS。 您还可以为主节点（例如 `primary.github.example.com`）创建 DNS CNAME，以通过 SSH 访问主节点或通过 `backup-utils` 备份主节点。
 
@@ -103,7 +96,7 @@ topics:
 <replica2 IP>    <em>HOSTNAME</em>
 ```
 
-### 延伸阅读
+## 延伸阅读
 
 - "[关于高可用性配置](/enterprise/{{ currentVersion }}/admin/guides/installation/about-high-availability-configuration)"
 - "[用于复制管理的实用程序](/enterprise/{{ currentVersion }}/admin/guides/installation/about-high-availability-configuration/#utilities-for-replication-management)"

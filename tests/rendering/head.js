@@ -1,8 +1,8 @@
-import { getDOM } from '../helpers/supertest.js'
+import { getDOM } from '../helpers/e2etest.js'
 import languages from '../../lib/languages.js'
 import { jest } from '@jest/globals'
 
-jest.useFakeTimers()
+jest.useFakeTimers('legacy')
 
 describe('<head>', () => {
   jest.setTimeout(5 * 60 * 1000)
@@ -13,7 +13,16 @@ describe('<head>', () => {
     expect($hreflangs.length).toEqual(Object.keys(languages).length)
     expect($('link[href="https://docs.github.com/cn"]').length).toBe(1)
     expect($('link[href="https://docs.github.com/ja"]').length).toBe(1)
-    expect($('link[hrefLang="en"]').length).toBe(1)
+    // Due to a bug in either NextJS, JSX, or TypeScript,
+    // when put `<link hrefLang="xxx">` in a .tsx file, this incorrectly
+    // gets rendered out as `<link hrefLang="xxx">` in the final HTML.
+    // Note the uppercase L. It's supposed to become `<link hreflang="xxx">`.
+    // When cheerio serializes to HTML, it gets this right so it lowercases
+    // the attribute. So if this rendering in this jest test was the first
+    // ever cold hit, you might get the buggy HTML from React or you
+    // might get the correct HTML from cheerio's `.html()` serializer.
+    // This is why we're looking for either.
+    expect($('link[hreflang="en"]').length + $('link[hrefLang="en"]').length).toBe(1)
   })
 
   test('includes page intro in `description` meta tag', async () => {
@@ -31,7 +40,7 @@ describe('<head>', () => {
     ).toBe(true)
     // HTML intro
     expect(
-      $('div.lead-mktg')
+      $('[data-testid="lead"]')
         .html()
         .startsWith('<p>You can <a href="/articles/merging-a-pull-request">merge pull requests</a>')
     )

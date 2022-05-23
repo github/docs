@@ -1,0 +1,14 @@
+---
+date: '2021-12-13'
+sections:
+  security_fixes:
+    - '{% octicon "alert" aria-label="The alert icon" %} **重大** [CVE-2021-44228](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-44228)として特定されたLOg4jライブラリのリモートコード実行の脆弱性は、3.3.1以前のすべてのバージョンの{% data variables.product.prodname_ghe_server %}に影響します。Log4jライブラリは、{% data variables.product.prodname_ghe_server %}インスタンス上で動作するオープンソースのサービスで使われています。この脆弱性は{% data variables.product.prodname_ghe_server %}バージョン3.0.22、3.1.14、3.2.6、3.3.1で修正されました。詳しい情報についてはGitHub Blogの[このポスト](https://github.blog/2021-12-13-githubs-response-to-log4j-vulnerability-cve-2021-44228/)を参照してください。'
+    - '** 2021年12月17日更新 **: このリリースでの修正は、このリリース後に公開された[CVE-2021-45046](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45046)も緩和します。CVE-2021-44228とCVE-2021-45046をどちらも緩和するために、{% data variables.product.prodname_ghe_server %}に追加のアップグレードは必要ありません。'
+  known_issues:
+    - 新しくセットアップされたユーザを持たない{% data variables.product.prodname_ghe_server %}で、攻撃者が最初の管理ユーザを作成できました。
+    - アップグレードの過程で、カスタムのファイアウォールのルールが削除されます。
+    - Git LFSが追跡するファイル[Webインターフェースからアップロードされたもの](https://github.com/blog/2105-upload-files-to-your-repositories)が、不正にリポジトリに直接追加されてしまいます。
+    - 同じリポジトリ内のファイルパスが255文字を超えるblobへのパーマリンクを含むIssueをクローズできませんでした。
+    - GitHub Connectで"Users can search GitHub.com"が有効化されている場合、GitHub.comの検索結果にプライベート及びインターナルリポジトリのIssueが含まれません。
+    - High Availability構成でレプリカノードがオフラインの場合でも、{% data variables.product.product_name %}が{% data variables.product.prodname_pages %}リクエストをオフラインのノードにルーティングし続ける場合があり、それによってユーザにとっての{% data variables.product.prodname_pages %}の可用性が下がってしまいます。
+    - pre-receive フックの処理に固有のリソース制限によって、pre-receive フックに失敗するものが生じることがあります。

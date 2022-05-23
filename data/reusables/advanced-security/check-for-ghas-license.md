@@ -1,0 +1,1 @@
+You can identify if your enterprise has a {% data variables.product.prodname_GH_advanced_security %} license by reviewing your enterprise settings. For more information, see "[Enabling GitHub Advanced Security for your enterprise](/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise#checking-whether-your-license-includes-github-advanced-security)."

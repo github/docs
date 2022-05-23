@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -21,7 +22,7 @@ If you're an organization owner or you have team maintainer permissions in both 
 {% data reusables.organizations.child-team-inherits-permissions %}
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.teams %}
 4. In the list of teams, click the name of the team where you'd like to add the child team.
   ![List of the organization's teams](/assets/images/help/teams/click-team-name.png)

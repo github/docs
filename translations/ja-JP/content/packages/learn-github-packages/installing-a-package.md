@@ -1,6 +1,6 @@
 ---
-title: パッケージをインストールする
-intro: '{% data variables.product.prodname_registry %}からパッケージをインストールし、そのパッケージを自分のプロジェクトの依存関係として使うことができます。'
+title: Installing a package
+intro: 'You can install a package from {% data variables.product.prodname_registry %} and use the package as a dependency in your own project.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /github/managing-packages-with-github-packages/installing-a-package
@@ -8,25 +8,26 @@ redirect_from:
   - /packages/manage-packages/installing-a-package
 permissions: You can install any package that you have permission to view.
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
 {% data reusables.package_registry.packages-ghae-release-stage %}
 
-### パッケージのインストールについて
+## About package installation
 
-{% data variables.product.product_name %}を検索して、自分のプロジェクトにインストールできるパッケージを{% data variables.product.prodname_registry %}で見つけることができます。 詳しい情報については「[パッケージを{% data variables.product.prodname_registry %}で検索する](/github/searching-for-information-on-github/searching-for-packages)」を参照してください。
+You can search on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} to find packages in {% data variables.product.prodname_registry %} that you can install in your own project. For more information, see "[Searching {% data variables.product.prodname_registry %} for packages](/search-github/searching-on-github/searching-for-packages)."
 
-パッケージを見つけたなら、そのパッケージの説明と、パッケージのページにあるインストールと利用方法の指示を読むことができます。
+After you find a package, you can read the package's description and installation and usage instructions on the package page.
 
-### パッケージをインストールする
+## Installing a package
 
-以下の同じ一般的なガイドラインに従って、{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" %}サポートされているいずれかのパッケージのクライアント{% else %}インスタンスで有効化しているパッケージのタイプ{% endif %}を使い、{% data variables.product.prodname_registry %} からパッケージをインストールできます。
+You can install a package from {% data variables.product.prodname_registry %} using any {% ifversion fpt or ghae or ghec %}supported package client{% else %}package type enabled for your instance{% endif %} by following the same general guidelines.
 
-1. 使用するパッケージクライアントについての指示に従って、{% data variables.product.prodname_registry %}の認証をしてください。 詳しい情報については「[GitHub Packagesでの認証](/packages/learn-github-packages/introduction-to-github-packages#authenticating-to-github-packages)」を参照してください。
-2. 使用するパッケージクライアントに関する指示に従って、パッケージをインストールしてください。
+1. Authenticate to {% data variables.product.prodname_registry %} using the instructions for your package client. For more information, see "[Authenticating to GitHub Packages](/packages/learn-github-packages/introduction-to-github-packages#authenticating-to-github-packages)."
+2. Install the package using the instructions for your package client.
 
-使用するパッケージクライアントに特有の指示については、「[{% data variables.product.prodname_registry %}の利用](/packages/working-with-a-github-packages-registry)」を参照してください。
+For instructions specific to your package client, see "[Working with a {% data variables.product.prodname_registry %} registry](/packages/working-with-a-github-packages-registry)."

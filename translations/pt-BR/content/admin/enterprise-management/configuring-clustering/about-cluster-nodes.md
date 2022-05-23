@@ -6,7 +6,7 @@ redirect_from:
   - /enterprise/admin/enterprise-management/about-cluster-nodes
   - /admin/enterprise-management/about-cluster-nodes
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: overview
 topics:
   - Clustering
@@ -15,17 +15,17 @@ topics:
 
 {% data reusables.enterprise_clustering.clustering-requires-https %}
 
-### Recomendações básicas de hardware
+## Recomendações básicas de hardware
 Cada nó deve ter um volume raiz e um volume de dados separado. Essas são as recomendações básicas de hardware. Podem ser necessários mais recursos dependendo do uso, como atividade do usuário e integrações selecionadas.
 
 |                                            Serviços                                            | Requisito mínimo de memória | Requisito mínimo de espaço livre para volume de dados |
 |:----------------------------------------------------------------------------------------------:|:---------------------------:|:-----------------------------------------------------:|
 |               `job-server`,<br/>`memcache-server`,<br/>`web-server`                |            14 GB            |                         1 GB                          |
 |              `consul-server`,<br/>`mysql-server`,<br/>`redis-server`               |            14 GB            |                         10 GB                         |
-| `git-server`,<br/>`metrics-server`,<br/>`pages-server`,<br/>`storage-server` |            7 GB             |                         10 GB                         |
+| `git-server`,<br/>`metrics-server`,<br/>`pages-server`,<br/>`storage-server` |            14 GB            |                         10 GB                         |
 |                                     `elasticsearch-server`                                     |            14 GB            |                         10 GB                         |
 
-### Requisito de serviços para clustering
+## Requisito de serviços para clustering
 Para manter a redundância adequada, use esses nós mínimos ao operar cada serviço.
 
 {% tip %}
@@ -42,7 +42,7 @@ Para manter a redundância adequada, use esses nós mínimos ao operar cada serv
 |              `git-server`,<br/>`pages-server`,<br/>`storage-server`               |            3            |
 |                                    `elasticsearch-server`                                     |            3            |
 
-### Recomendações de criação de cluster
+## Recomendações de criação de cluster
 
 O clustering permite que os serviços que compõem o {% data variables.product.prodname_ghe_server %} sejam dimensionados de maneira independente. Essa flexibilidade pode ser usada para projetar e implementar um cluster que se adapte a organizações com diferentes requisitos de dimensionamento. Por exemplo, talvez algumas organizações precisem de mais taxa de transferência de armazenamento para fetches grandes ou frequentes, mas o uso do servidor da web pode ser relativamente baixo. Outras organizações podem ter bom desempenho com menos recursos de armazenamento, mas precisar de vários nós `pages-server` ou `elasticsearch-server` em execução. Muitas combinações são possíveis. Converse com seu representante de conta para determinar a configuração de cluster ideal para o seu caso.
 
@@ -65,7 +65,7 @@ O clustering permite que os serviços que compõem o {% data variables.product.p
     - `storage-server`
     - `metrics-server`
 
-#### Diagrama de cluster de exemplo
+### Diagrama de cluster de exemplo
 {% note %}
 
 **Observação: isto é apenas um exemplo.** O cluster ideal dependerá das demandas exclusivas de cada organização. Converse com seu representante exclusivo ou com {% data variables.contact.contact_enterprise_sales %} para que possamos ajudá-lo a determinar a melhor configuração de cluster.

@@ -2,16 +2,17 @@
 title: GraphQL APIについて
 intro: '{% data variables.product.prodname_dotcom %}のGraphQL APIは、柔軟性と、フェッチしたいデータを正確に定義できる機能を提供します。'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 ---
 
-### 概要
+## 概要
 
-以下は、GraphQL API v4を使い始めるためのクイックリンクです。
+以下は、GraphQL APIを使い始めるためのクイックリンクです。
 
 * [認証](/graphql/guides/forming-calls-with-graphql#authenticating-with-graphql)
 * [ルートエンドポイント](/graphql/guides/forming-calls-with-graphql#the-graphql-endpoint)
@@ -19,7 +20,7 @@ topics:
 * [レート制限](/graphql/overview/resource-limitations)
 * [RESTからの移行](/graphql/guides/migrating-from-rest-to-graphql)
 
-### GraphQLについて
+## GraphQLについて
 
 [GraphQL](https://graphql.github.io/)データクエリ言語は、
 
@@ -33,13 +34,13 @@ topics:
 
 * **アプリケーション層です。**GraphQLはストレージモデルやデータベースクエリ言語ではありません。 _グラフ_はスキーマで定義されたグラフ構造を指し、[ノード](/graphql/guides/introduction-to-graphql#node)はオブジェクトを、[エッジ](/graphql/guides/introduction-to-graphql#edge)はオブジェクト間の関係を定義します。 APIは、データがどのように保存されているかに関係なく、スキーマ定義に従ってアプリケーションデータをトラバースして返します。
 
-### GitHubがGraphQLを使う理由
+## GitHubがGraphQLを使う理由
 
-GitHubは、インテグレーターにとって大きな柔軟性を提供してくれることから、API v4にGraphQLを選択しました。 ほしいデータ_だけ_を正確に定義できるのは、REST API v3エンドポイントよりも強力な利点です。 GraphQLを使えば、指定したデータをフェッチするための複数のRESTのリクエストを_単一の呼び出し_で置き換えられます。
+GitHubは、インテグレーターにとって大きな柔軟性を提供してくれることから、GraphQLを選択しました。 ほしいデータ、そしてほしいデータ_だけ_を正確に定義できるのは、旧来のREST APIエンドポイントよりも強力な利点です。 GraphQLを使えば、指定したデータをフェッチするための複数のRESTのリクエストを_単一の呼び出し_で置き換えられます。
 
-GitHubがGraphQLに移行した理由の詳細については、オリジナルの[アナウンスのblogポスト](https://githubengineering.com/the-github-graphql-api/)を参照してください。
+GitHubがGraphQLに投資した理由の詳細については、オリジナルの[アナウンスのblogポスト](https://github.blog/2016-09-14-the-github-graphql-api/)を参照してください。
 
-### GraphQLのスキーマ参照について
+## GraphQLのスキーマ参照について
 
 サイドバー内のドキュメントは、{% data variables.product.prodname_dotcom %}のGraphQL[スキーマ](/graphql/guides/introduction-to-graphql#discovering-the-graphql-api)から生成されます。 すべての呼び出しは、このスキーマに対して検証され、実行されます。 以下のドキュメントを使って、呼び出せるデータを見つけてください。
 
@@ -51,6 +52,6 @@ GitHubがGraphQLに移行した理由の詳細については、オリジナル�
 
 認証やレート制限の詳細など その他の情報については[ガイド](/graphql/guides)を参照してください。
 
-### サポートのリクエスト
+## サポートのリクエスト
 
 {% data reusables.support.help_resources %}

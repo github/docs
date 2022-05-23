@@ -1,5 +1,8 @@
-10. À direita do "Provisionamento para o App", clique em **Editar**. ![Botão "Editar" para opções de provisionamento do aplicativo do Okta](/assets/images/help/saml/okta-provisioning-to-app-edit-button.png)
-11. À direita de "Criar usuários", selecione **Habilitar**. ![Caixa de seleção "Habilitar" para a opção de "Criar usuários" do aplicativo do Okta](/assets/images/help/saml/okta-provisioning-enable-create-users.png)
-12. À direita de "Atualizar Atributos do Usuário", selecione **Habilitar**. ![Caixa de seleção "Habilitar" para a opção de "Atualizar atributos do usuário " do aplicativo do Okta](/assets/images/help/saml/okta-provisioning-enable-update-user-attributes.png)
-13. À direita de "Desativar Usuários", selecione **Habilitar**. ![Caixa de seleção "Habilitar" para a opção de "Desativar usuários" do aplicativo do Okta](/assets/images/help/saml/okta-provisioning-enable-deactivate-users.png)
-14. Clique em **Salvar**. ![Botão "Salvar" para opções de provisionamento de configuração do aplicativo do Okta](/assets/images/help/saml/okta-provisioning-save.png)
+1. To avoid syncing errors and confirm that your users have SAML enabled and SCIM linked identities, we recommend you audit your organization's users. For more information, see "[Auditing users for missing SCIM metadata](/organizations/managing-saml-single-sign-on-for-your-organization/troubleshooting-identity-and-access-management#auditing-users-for-missing-scim-metadata)."
+1. À direita do "Provisionamento para o App", clique em **Editar**.
+
+    ![Screenshot of "Edit" button for Okta application's provisioning options](/assets/images/help/saml/okta-provisioning-to-app-edit-button.png)
+1. To the right of **Create Users**, **Update User Attributes**, and **Deactivate Users**, select **Enable**.
+
+    ![Screenshot of "Enable" checkboxes for "Create Users", "Update User Attributes", and "Deactivate Users" options](/assets/images/help/saml/okta-provisioning-enable-options.png)
+1. Clique em **Salvar**.

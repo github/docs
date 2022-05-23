@@ -4,13 +4,14 @@ intro: '如果在 {% data variables.product.prodname_marketplace %} 中安装付
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-marketplace
   - /articles/about-billing-for-github-marketplace
-  - /github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-marketplace
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-marketplace-apps/about-billing-for-github-marketplace
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: overview
 topics:
   - Marketplace
+shortTitle: GitHub Marketplace 的计费
 ---
 
 {% data variables.product.prodname_marketplace %} 包含的应用程序中有免费和付费定价计划。 在购买并安装应用程序后，您可以随时升级、降级或取消。
@@ -19,7 +20,7 @@ topics:
 
 {% data reusables.marketplace.marketplace-org-perms %}
 
-### {% data variables.product.prodname_marketplace %} 购买的付款方式和计费周期
+## {% data variables.product.prodname_marketplace %} 购买的付款方式和计费周期
 
 您在 {% data variables.product.prodname_dotcom %} 上的所有付费计划和订阅将采用相同的付款方式。
 
@@ -40,11 +41,13 @@ topics:
 - 如果您有其他付费计划或订阅，则在 14 天免费试用结束后，将立即按照备案的付款方式收取到下一个计费日期剩余的时间所应分摊的费用。
 - 如果您有其他付费计划或订阅，则在下个计费日期，您的收据会列出对您的付费 {% data variables.product.prodname_dotcom %} 计划和应用程序订阅收取的费用。
 
-### 单元计划限制
+{% data reusables.user-settings.context_switcher %}
+
+## 单元计划限制
 
 如果选择单元计划（例如每用户收费计划）但您超过要付费的单元数，则在您升级应用程序之前，集成商将禁用您的访问权限。 更多信息请参阅"[升级 {% data variables.product.prodname_marketplace %} 应用程序的计费计划](/articles/upgrading-the-billing-plan-for-a-github-marketplace-app)"。
 
-### 降级 {% data variables.product.prodname_marketplace %} 应用程序
+## 降级 {% data variables.product.prodname_marketplace %} 应用程序
 
 如果您将应用程序降级至较便宜的计划，或者取消付费应用程序订阅，您的费用将在当前计费周期结束时生效。 您的订阅将在下一个计费日期移至新计划。
 
@@ -54,7 +57,7 @@ topics:
 
 如果您取消付费计划的免费试用，您的订阅将立即取消，您无法访问应用程序。 更多信息请参阅“[取消 {% data variables.product.prodname_marketplace %} 应用程序](/articles/canceling-a-github-marketplace-app)”。
 
-### 延伸阅读
+## 延伸阅读
 
 - "[关于 {% data variables.product.prodname_marketplace %}](/articles/about-github-marketplace)"
 - "[在 {% data variables.product.prodname_marketplace %} 中购买和安装应用程序](/articles/purchasing-and-installing-apps-in-github-marketplace)"

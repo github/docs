@@ -4,14 +4,15 @@ intro: 您可以使用 GraphQL API 管理企业帐户及其拥有的组织。
 redirect_from:
   - /v4/guides/managing-enterprise-accounts
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
+shortTitle: 管理企业帐户
 ---
 
-### 关于使用 GraphQL 管理企业帐户
+## 关于使用 GraphQL 管理企业帐户
 
 为帮助您监测和更改组织并保持合规性，可以使用只能作为 GraphQL API 的企业帐户 API 和审核日志 API。
 
@@ -37,7 +38,7 @@ GraphQL 可用于仅请求和返回您指定的数据。 例如，您可以创�
 
 有关通过企业帐户 API 获得的字段列表，请参阅“[企业帐户 API 的 GraphQL 字段和类型](/graphql/guides/managing-enterprise-accounts#graphql-fields-and-types-for-the-enterprise-accounts-api)。”
 
-### 开始将 GraphQL 用于企业帐户
+## 开始将 GraphQL 用于企业帐户
 
 按照以下步骤开始利用 GraphQL 管理企业帐户：
  - 使用个人访问令牌进行身份验证
@@ -46,7 +47,7 @@ GraphQL 可用于仅请求和返回您指定的数据。 例如，您可以创�
 
 有关查询示例，请参阅“[使用企业帐户 API 的查询示例](#an-example-query-using-the-enterprise-accounts-api)。”
 
-#### 1. 使用个人访问令牌进行身份验证
+### 1. 使用个人访问令牌进行身份验证
 
 1. 要使用 GraphQL 进行身份验证，需要通过开发者设置生成个人访问令牌 (PAT)。 更多信息请参阅“[创建个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token)”。
 
@@ -57,13 +58,14 @@ GraphQL 可用于仅请求和返回您指定的数据。 例如，您可以创�
     - `admin:enterprise`
 
   企业帐户特定作用域包括：
-    - `admin:enterprise`：全面控制企业（包括 `manage_billing:enterprise` 和 `read:enterprise`）
-    - `manage_billing:enterprise`：读取和写入企业帐单数据。
+    - `admin:enterprise`：全面控制企业（包括 {% ifversion ghes > 3.2 or ghae or ghec %}`manage_runners:enterprise`、{% endif %}`manage_billing:enterprise` 和 `read:enterprise`）
+    - `manag_billing:enterprise`：读写企业帐单数据。{% ifversion ghes > 3.2 or ghae  %}
+    - `manage_runners:enterprise`：获得管理 GitHub Actions 企业运行器和运行器组的权限。{% endif %}
     - `read:enterprise`：读取企业简介数据。
 
-4. 复制个人访问令牌并保存在安全的位置，直到将其添加至您的 GraphQL 客户端。
+3. 复制个人访问令牌并保存在安全的位置，直到将其添加至您的 GraphQL 客户端。
 
-#### 2. 选择 GraphQL 客户端
+### 2. 选择 GraphQL 客户端
 
 建议您使用 GraphiQL 或可用于配置基准 URL 的其他独立 GraphQL 客户端。
 
@@ -74,7 +76,7 @@ GraphQL 可用于仅请求和返回您指定的数据。 例如，您可以创�
 
 接下来将使用 Insomnia。
 
-#### 3. 设置 Insomnia，以使用 GitHub GraphQL API 处理企业账户
+### 3. 设置 Insomnia，以使用 GitHub GraphQL API 处理企业账户
 
 1. 将基准 url 和 `POST` 方法添加至您的 GraphQL 客户端。 使用 GraphQL 请求信息（查询）、更该信息（突变）或使用 GitHub API 传输数据时，默认 HTTP 方法为 `POST`，基准 url 遵循的语法为：
     - 对于企业实例：`https://<HOST>/api/graphql`
@@ -91,11 +93,11 @@ GraphQL 可用于仅请求和返回您指定的数据。 例如，您可以创�
 
 现在可以开始执行查询了。
 
-### 使用企业账户 API 的查询示例
+## 使用企业账户 API 的查询示例
 
-此 GraphQL 查询使用 Enterprise Accounts API 请求每个设备的组织中 {% if currentVersion != "github-ae@latest" %}`公共`{% else %}`私有`{% endif %} 仓库的总数。 要自定义此查询，请用企业实例 slug 的 slug 替换 `<enterprise-account-name>`。
+此 GraphQL 查询使用 Enterprise Accounts API 请求每个设备的组织中 {% ifversion not ghae %}`公共`{% else %}`私有`{% endif %} 仓库的总数。 要自定义此查询，请用企业帐户的句柄替换 `<enterprise-account-name>`。 例如，如果您的企业帐户位于 `https://github.com/enterprises/octo-enterprise`，则将 `<enterprise-account-name>` 替换为 `octo-enterprises`。
 
-{% if currentVersion != "github-ae@latest" %}
+{% ifversion not ghae %}
 
 ```graphql
 query publicRepositoriesByOrganization($slug: String!) query publicRepositoriesByOrganization($slug: String!) {
@@ -160,9 +162,9 @@ variables {
 ```
 {% endif %}
 
-新 GraphQL 查询示例显示了不使用 Enterprise Account API 时检索每个组织中的{% if currentVersion != "github-ae@latest" %}`公共`{% else %}`私有`{% endif %} 仓库数的难度。  请注意，GraphQL 企业账户 API 已使企业执行此任务变得更简单，因为您只需要自定义单个变量。 要自定义此查询，请将 `<name-of-organization-one>` 和 `<name-of-organization-two>` 等参数替换为 实例中的组织名称。
+新 GraphQL 查询示例显示了不使用 Enterprise Account API 时检索每个组织中的{% ifversion not ghae %}`公共`{% else %}`私有`{% endif %} 仓库数的难度。  请注意，GraphQL 企业账户 API 已使企业执行此任务变得更简单，因为您只需要自定义单个变量。 要自定义此查询，请将 `<name-of-organization-one>` 和 `<name-of-organization-two>` 等参数替换为 实例中的组织名称。
 
-{% if currentVersion != "github-ae@latest" %}
+{% ifversion not ghae %}
 ```graphql
 # Each organization is queried separately
 {
@@ -208,9 +210,9 @@ fragment repositories on Organization {
 ```
 {% endif %}
 
-### 分别查询每个组织
+## 分别查询每个组织
 
-{% if currentVersion != "github-ae@latest" %}
+{% ifversion not ghae %}
 
 ```graphql
 query publicRepositoriesByOrganization {
@@ -284,7 +286,7 @@ fragment repositories on Organization {
 
 有关开始使用 GraphQL 的更多信息，请参阅“[GraphQL 简介](/graphql/guides/introduction-to-graphql)”和“[使用 GraphQL 建立调用](/graphql/guides/forming-calls-with-graphql)。”
 
-### 企业账户 API 的 GraphQL 字段和类型
+## 企业账户 API 的 GraphQL 字段和类型
 
 下面是关于可与企业账户 API 结合使用的新查询、突变和架构定义类型的概述。
 

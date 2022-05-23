@@ -7,38 +7,65 @@ getting_started:
     - /actions/learn-github-actions/finding-and-customizing-actions
     - /actions/learn-github-actions/essential-features-of-github-actions
     - /actions/learn-github-actions/managing-complex-workflows
-    - /actions/learn-github-actions/security-hardening-for-github-actions
+    - /actions/learn-github-actions/reusing-workflows
+    - /actions/security-guides/security-hardening-for-github-actions
   featured_track: true
 continuous_integration:
   title: 'コードのビルドとテスト'
   description: 'まさにリポジトリ内に、カスタムの継続的インテグレーション（CI）を作成できます。'
   guides:
-    - /actions/guides/about-continuous-integration
-    - /actions/guides/setting-up-continuous-integration-using-workflow-templates
-    - /actions/guides/about-service-containers
-    - /actions/guides/building-and-testing-nodejs
-    - /actions/guides/building-and-testing-powershell
-    - /actions/guides/building-and-testing-python
-    - /actions/guides/building-and-testing-ruby
-    - /actions/guides/building-and-testing-java-with-maven
-    - /actions/guides/building-and-testing-java-with-gradle
-    - /actions/guides/building-and-testing-java-with-ant
+    - /actions/automating-builds-and-tests/about-continuous-integration
+    - /actions/automating-builds-and-tests/building-and-testing-powershell
+    - /actions/automating-builds-and-tests/building-and-testing-ruby
+    - /actions/automating-builds-and-tests/building-and-testing-java-with-maven
+    - /actions/automating-builds-and-tests/building-and-testing-java-with-gradle
+    - /actions/automating-builds-and-tests/building-and-testing-java-with-ant
+    - /actions/automating-builds-and-tests/building-and-testing-swift
 continuous_deployment:
   title: 'デプロイメントの自動化'
   description: '{% data variables.product.prodname_actions %}のカスタム継続的デプロイメント（CD）ワークフローで、プロジェクトのリリース公開を自動化する方法を学んでください。'
   guides:
-    - /actions/guides/about-packaging-with-github-actions
-    - /actions/guides/publishing-nodejs-packages
-    - /actions/guides/publishing-java-packages-with-maven
-    - /actions/guides/publishing-java-packages-with-gradle
-    - /actions/guides/publishing-docker-images
+    - /actions/publishing-packages/about-packaging-with-github-actions
+    - /actions/publishing-packages/publishing-nodejs-packages
+    - /actions/publishing-packages/publishing-java-packages-with-maven
+    - /actions/publishing-packages/publishing-java-packages-with-gradle
+    - /actions/publishing-packages/publishing-docker-images
 deploy_to_the_cloud:
   title: 'クラウドへのデプロイ'
   description: '{% data variables.product.prodname_actions %}を使ってアプリケーションをビルドし、様々なクラウドベースのプラットフォームにデプロイする方法を学んでください。'
   guides:
-    - /actions/guides/deploying-to-amazon-elastic-container-service
-    - /actions/guides/deploying-to-azure-app-service
-    - /actions/guides/deploying-to-google-kubernetes-engine
+    - /actions/deployment/deploying-to-amazon-elastic-container-service
+    - /actions/deployment/deploying-to-azure-app-service
+    - /actions/deployment/deploying-to-google-kubernetes-engine
+adopting_github_actions_for_your_enterprise_ghec:
+  title: 'GitHub ActionsをEnterpriseで採用する'
+  description: 'Enterpriseにおける{% data variables.product.prodname_actions %}のロールアウトの計画と実装の方法を学びましょう。'
+  versions:
+    ghec: '*'
+  guides:
+    - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises
+    - /actions/learn-github-actions/understanding-github-actions
+    - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise
+    - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/migrating-your-enterprise-to-github-actions
+    - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-cloud
+    - /actions/security-guides/security-hardening-for-github-actions
+    - /billing/managing-billing-for-github-actions/about-billing-for-github-actions
+adopting_github_actions_for_your_enterprise_ghes_and_ghae:
+  title: 'GitHub ActionsをEnterpriseで採用する'
+  description: 'Enterpriseにおける{% data variables.product.prodname_actions %}のロールアウトの計画と実装の方法を学びましょう。'
+  versions:
+    ghes: '*'
+    ghae: '*'
+  guides:
+    - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises
+    - /actions/learn-github-actions/understanding-github-actions
+    - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise
+    - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/migrating-your-enterprise-to-github-actions
+    - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-cloud
+    - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server
+    - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-self-hosted-runners-for-your-enterprise
+    - /actions/security-guides/security-hardening-for-github-actions
+    - /billing/managing-billing-for-github-actions/about-billing-for-github-actions
 hosting_your_own_runners:
   title: '自分のランナーをホストする'
   description: 'セルフホストランナーを作成し、非常にカスタマイズ性の高い環境でワークフローを実行できます。'
@@ -55,10 +82,10 @@ create_actions:
   title: 'アクションの作成'
   description: '新しいアクションのアイデアをお持ちですか？自分のプロジェクトに、カスタムの何かを構築したことがありますか？共有できるアクションを構築し、GitHub Marketplaceに公開する方法を学びましょう。'
   guides:
-    - /actions/creating-actions/about-actions
+    - /actions/creating-actions/about-custom-actions
     - /actions/creating-actions/creating-a-docker-container-action
     - /actions/creating-actions/creating-a-javascript-action
-    - /actions/creating-actions/creating-a-composite-run-steps-action
+    - /actions/creating-actions/creating-a-composite-action
     - /actions/creating-actions/metadata-syntax-for-github-actions
     - /actions/creating-actions/dockerfile-support-for-github-actions
     - /actions/creating-actions/setting-exit-codes-for-actions

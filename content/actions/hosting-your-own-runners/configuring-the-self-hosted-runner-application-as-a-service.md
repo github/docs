@@ -5,17 +5,16 @@ redirect_from:
   - /actions/automating-your-workflow-with-github-actions/configuring-the-self-hosted-runner-application-as-a-service
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 defaultPlatform: linux
 shortTitle: Run runner app on startup
 ---
 
-{% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 {% capture service_first_step %}1. Stop the self-hosted runner application if it is currently running.{% endcapture %}
 {% capture service_non_windows_intro_shell %}On the runner machine, open a shell in the directory where you installed the self-hosted runner application. Use the commands below to install and manage the self-hosted runner service.{% endcapture %}
@@ -78,6 +77,12 @@ You can manage the runner service in the Windows **Services** application, or yo
    ./svc.sh install
    ```
 {% endmac %}
+
+The command takes an optional `user` argument to install the service as a different user.
+
+```shell
+./svc.sh install <em>USERNAME</em>
+```
 
 ## Starting the service
 

@@ -5,40 +5,46 @@ redirect_from:
   - /articles/about-issue-and-pull-request-templates
   - /github/building-a-strong-community/about-issue-and-pull-request-templates
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Community
+shortTitle: Sobre modelos
 ---
 
 Depois que você cria modelos de problema e pull request no repositório, os contribuidores podem usá-los para abrir problemas ou descrever as alterações propostas nas respectivas pull requests, de acordo com as diretrizes de contribuição do repositório. Para obter mais informações sobre como adicionar diretrizes de contribuição a um repositório, consulte "[Configurar diretrizes para contribuidores de repositório](/articles/setting-guidelines-for-repository-contributors)".
 
-{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+{% ifversion fpt or ghes or ghec %}
 
-Você pode criar problemas padrão e modelos de pull request para a sua organização ou conta de usuário. Para obter mais informações, consulte "[Criando um arquivo padrão de integridade da comunidade](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
+Você pode criar modelos de problema padrão e de pull request para sua organização ou conta pessoal. Para obter mais informações, consulte "[Criando um arquivo padrão de integridade da comunidade](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
 
 {% endif %}
 
-### Modelos de problema
+## Modelos de problema
 
-Ao criar modelos de problema para o repositório usando o construtor de modelo de problema, os modelos estarão disponíveis para uso dos contribuidores quando estes abrirem novos problemas no repositório.
+Quando você cria modelos de problemas para seu repositório usando o criador de modelos de problema{% ifversion fpt or ghec %} ou com formulários de problema{% endif %}, os colaboradores podem selecionar o modelo apropriado ao abrirem novos problemas no repositório.
 
 ![Página de novo problema mostrando opções do modelo de problema](/assets/images/help/issues/new-issue-page-with-multiple-templates.png)
 
+Os modelos de problemas são úteis quando você deseja fornecer orientações para a abertura de problemas, permitindo que os contribuidores especifiquem o conteúdo do seus problemas. {% ifversion fpt or ghec %} Se você deseja que os colaboradores forneçam informações específicas e estruturadas ao abrirem problemas, o formulário de problemas ajuda a garantir que você irá receber as informações desejadas.{% endif %}
+
 Usando o construtor de modelo, você pode especificar um titulo e a descrição de cada modelo, adicionar o conteúdo do modelo e, ou fazer commit do modelo no branch padrão, ou abrir uma pull request no repositório. O construtor de modelo adiciona automaticamente a markup de página inicial YAML que é necessária para que o modelo apareça na página do novo problema. Para obter mais informações, consulte "[Configurando modelos de problema para seu repositório](/articles/configuring-issue-templates-for-your-repository)."
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
-{% data reusables.repositories.issue-template-config %} Para obter mais informações, consulte "[Configurando modelos de problemas para seu repositório](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository#configuring-the-template-chooser)."
+{% ifversion fpt or ghec %}
+Com formulários de problemas, você pode criar modelos que têm campos de formulário web usando o esquema de formulário de {% data variables.product.prodname_dotcom %}. Quando um contribuidor abre um problema usando um formulário de problema, as entradas de formulário são convertidas em um comentário de markdown padrão. É possível especificar diferentes tipos de entrada e definir as entradas necessárias para ajudar os colaboradores a abrir problemas acionáveis no seu repositório. Para obter mais informações, consulte "[Configurar templates de problemas para o seu repositório](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository#creating-issue-forms)" e "[Sintaxe para formulários de problemas](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms)".
 {% endif %}
 
-Os modelos de problema são armazenados no branch padrão do repositório, em um diretório `.github/ISSUE_TEMPLATE` oculto. Se você criar um modelo em outro branch, ele não estará disponível para uso dos colaboradores. Os nomes de arquivo do modelo de problema não diferenciam maiúsculas de minúsculas e precisam de uma extensão *.md*. {% data reusables.repositories.valid-community-issues %}
+{% data reusables.repositories.issue-template-config %} Para obter mais informações, consulte "[Configurando modelos de problemas para seu repositório](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository#configuring-the-template-chooser)."
 
-É possível criar manualmente um único modelo de problema em markdown usando o fluxo de trabalho do modelo de problema e os contribuidores do projeto verão automaticamente o conteúdo do modelo no texto do problema. No entanto, é recomendável usar o construtor atualizado de vários modelos de problema para criar os modelos. Para obter mais informações sobre o fluxo de trabalho herdado, consulte [Criar manualmente um único modelo de problemas para seu repositório](/articles/manually-creating-a-single-issue-template-for-your-repository)".
+Os modelos de problema são armazenados no branch padrão do repositório, em um diretório `.github/ISSUE_TEMPLATE` oculto. Se você criar um modelo em outro branch, ele não estará disponível para uso dos colaboradores. Os nomes dos arquivos dos modelos de problema não diferenciam maiúsculas e precisam de uma extensão *.md*.{% ifversion fpt or ghec %} Modelos de problemas criados com formulários precisam de uma extensão *.yml*.{% endif %} {% data reusables.repositories.valid-community-issues %}
+
+É possível criar manualmente um único modelo de problema em markdown usando o fluxo de trabalho do modelo de problema e os contribuidores do projeto verão automaticamente o conteúdo do modelo no texto do problema. No entanto, recomendamos usar o construtor de modelos de múltiplas issues atualizados{% ifversion fpt or ghec %} ou formulários de problemas{% endif %} para criar modelos de problema. Para obter mais informações sobre o fluxo de trabalho herdado, consulte [Criar manualmente um único modelo de problemas para seu repositório](/articles/manually-creating-a-single-issue-template-for-your-repository)".
 
 {% data reusables.repositories.security-guidelines %}
 
-### Modelos de pull request
+## Modelos de pull request
 
 Quando você adicionar um modelo de pull request ao repositório, os contribuidores do projeto verão automaticamente o conteúdo do modelo no texto da pull request.
 

@@ -1,1 +1,1 @@
-[LDAPグループに同期している](/enterprise/{{ page.version }}/admin/guides/user-management/using-ldap#enabling-ldap-sync)Teamには、特別なLDAPバッジが示されます。 LDAPに同期しているTeamのメンバーリストは、マップされているLDAPグループからのみ管理できます。
+A team that's [synced to an LDAP group](/enterprise/admin/authentication/using-ldap#enabling-ldap-sync) is indicated with a special LDAP badge. The member list for an LDAP synced team can only be managed from the LDAP group it's mapped to.

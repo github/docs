@@ -3,28 +3,12 @@
 
 const fs = require('fs')
 const frontmatter = require('gray-matter')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
 const path = require('path')
 const homepage = path.posix.join(process.cwd(), 'content/index.md')
 const { data } = frontmatter(fs.readFileSync(homepage, 'utf8'))
 const productIds = data.children
 
 module.exports = {
-  webpack: (config, { isServer }) => {
-    if (isServer) {
-      config.plugins.push(
-        new CopyWebpackPlugin({
-          patterns: [
-            {
-              from: path.join(__dirname, 'node_modules/@primer/css/fonts'),
-              to: path.join(__dirname, 'assets/fonts/inter'),
-            },
-          ],
-        })
-      )
-    }
-    return config
-  },
   // speed up production `next build` by ignoring typechecking during that step of build.
   // type-checking still occurs in the Dockerfile build
   typescript: {
@@ -35,7 +19,7 @@ module.exports = {
   },
   i18n: {
     // locales: Object.values(languages).map(({ code }) => code),
-    locales: ['en', 'cn', 'ja', 'es', 'pt', 'de'],
+    locales: ['en', 'cn', 'ja', 'es', 'pt'],
     defaultLocale: 'en',
   },
   sassOptions: {
@@ -50,4 +34,12 @@ module.exports = {
       }
     })
   },
+  webpack: (config) => {
+    config.experiments = config.experiments || {}
+    config.experiments.topLevelAwait = true
+    return config
+  },
+
+  // https://nextjs.org/docs/api-reference/next.config.js/compression
+  compress: false,
 }

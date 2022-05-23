@@ -1,5 +1,8 @@
-10. [Provisioning to App] の右にある [**Edit**] をクリックします。 ![Okta アプリケーションのプロビジョニングオプションに使用する [Edit] ボタン](/assets/images/help/saml/okta-provisioning-to-app-edit-button.png)
-11. [Create Users] の右にある [**Enable**] を選択します。 ![Okta アプリケーションの [Create Users] オプションの [Enable] チェックボックス](/assets/images/help/saml/okta-provisioning-enable-create-users.png)
-12. [Update User Attributes] の右にある [**Enable**] を選択します。 ![Okta アプリケーションの [Update User Attributes] オプションの [Enable] チェックボックス](/assets/images/help/saml/okta-provisioning-enable-update-user-attributes.png)
-13. [Deactivate Users] の右にある [**Enable**] を選択します。 ![Okta アプリケーションの [Deactivate Users] オプションの [Enable] チェックボックス](/assets/images/help/saml/okta-provisioning-enable-deactivate-users.png)
-14. [**Save**] をクリックします。 ![Okta アプリケーションのプロビジョニング設定に使用する [Save] ボタン](/assets/images/help/saml/okta-provisioning-save.png)
+1. To avoid syncing errors and confirm that your users have SAML enabled and SCIM linked identities, we recommend you audit your organization's users. For more information, see "[Auditing users for missing SCIM metadata](/organizations/managing-saml-single-sign-on-for-your-organization/troubleshooting-identity-and-access-management#auditing-users-for-missing-scim-metadata)."
+1. [Provisioning to App] の右にある [**Edit**] をクリックします。
+
+    ![Screenshot of "Edit" button for Okta application's provisioning options](/assets/images/help/saml/okta-provisioning-to-app-edit-button.png)
+1. To the right of **Create Users**, **Update User Attributes**, and **Deactivate Users**, select **Enable**.
+
+    ![Screenshot of "Enable" checkboxes for "Create Users", "Update User Attributes", and "Deactivate Users" options](/assets/images/help/saml/okta-provisioning-enable-options.png)
+1. [**Save**] をクリックします。

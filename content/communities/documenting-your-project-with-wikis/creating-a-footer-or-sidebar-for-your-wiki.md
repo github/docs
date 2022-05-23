@@ -2,8 +2,8 @@
 title: Creating a footer or sidebar for your wiki
 intro: You can add a custom sidebar or footer to your wiki to provide readers with more contextual information.
 redirect_from:
-  - /articles/creating-a-footer/
-  - /articles/creating-a-sidebar/
+  - /articles/creating-a-footer
+  - /articles/creating-a-sidebar
   - /articles/creating-a-footer-or-sidebar-for-your-wiki
   - /github/building-a-strong-community/creating-a-footer-or-sidebar-for-your-wiki
 product: '{% data reusables.gated-features.wikis %}'
@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Community
 shortTitle: Create footer or sidebar

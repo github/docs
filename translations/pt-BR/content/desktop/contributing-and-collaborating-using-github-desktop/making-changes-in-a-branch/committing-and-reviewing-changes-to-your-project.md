@@ -5,23 +5,24 @@ redirect_from:
   - /desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project
   - /desktop/contributing-and-collaborating-using-github-desktop/committing-and-reviewing-changes-to-your-project
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: Commit & revisar alterações
 ---
 
-### Sobre commits
+## Sobre commits
 
 {% data reusables.commits.about-commits %} Você também pode adicionar um coautor em qualquer commit em que colaborar.
 
 {% data reusables.desktop.update-email-address %} Para obter mais informações, consulte ["Configurar o Git para GitHub Desktop](/desktop/getting-started-with-github-desktop/configuring-git-for-github-desktop)".
 
-### Escolher um branch e fazer alterações
+## Escolher um branch e fazer alterações
 
 1. [Crie um branch](/desktop/guides/contributing-to-projects/managing-branches) ou selecione um branch existente clicando em {% octicon "git-branch" aria-label="The branch icon" %} **Current Branch** (Branch atual) na barra de ferramentas. Em seguida, selecione o branch na lista.
 
   ![Menu suspenso para alternar o branch atual](/assets/images/help/desktop/select-branch-from-dropdown.png)
 {% data reusables.desktop.make-changes %}
 
-### Escolhendo como mostrar diffs
+## Escolhendo como mostrar diffs
 
 Você pode alterar a maneira como os diffs são exibidos em {% data variables.product.prodname_desktop %} para atender às suas necessidades de revisão.
 
@@ -37,7 +38,7 @@ Se você precisa ver mais do arquivo do que {% data variables.product.prodname_d
 
 ![Expandir visualização do diff](/assets/images/help/desktop/expand-diff-view.png)
 
-### Selecionar alterações para inclusão em um commit
+## Selecionar alterações para inclusão em um commit
 
 As alterações feitas nos arquivos via editor de texto e salvas no local também aparecerão no {% data variables.product.prodname_desktop %}.
 
@@ -54,7 +55,7 @@ As alterações feitas nos arquivos via editor de texto e salvas no local també
 
   ![Caixas de seleção ao lado dos arquivos em que deseja fazer commit](/assets/images/help/desktop/commit-some.png)
 
-#### Criar um commit parcial
+### Criar um commit parcial
 
 Se um arquivo tiver várias alterações e você quiser incluir somente algumas no commit, será possível criar um commit parcial. O restante das alterações ficará intacto, de modo que você possa fazer outras modificações e commits. Essa opção permite fazer commits separados mais relevantes, como manter alterações de quebra de linha em um commit separado das alterações de código.
 
@@ -62,12 +63,12 @@ Para excluir linhas alteradas do seu commit, clique em uma ou mais linhas altera
 
   ![Linhas desmarcadas em um arquivo](/assets/images/help/desktop/partial-commit.png)
 
-### Descartar alterações
+## Descartar alterações
 Se você tiver alterações não realizadas que não deseja manter, poderá descartar as alterações. Isso removerá as alterações dos arquivos no seu computador. Você pode descartar todas as alterações não realizadas em um ou mais arquivos ou pode descartar as linhas específicas que adicionou.
 
 As alterações descartadas são salvas em um arquivo datado na Lixeira. Você pode recuperar as alterações descartadas até que a lixeira seja esvaziada.
 
-#### Descartar alterações em um ou mais arquivos
+### Descartar alterações em um ou mais arquivos
 
 {% data reusables.desktop.select-discard-files %}
 {% data reusables.desktop.click-discard-files %}
@@ -77,7 +78,7 @@ As alterações descartadas são salvas em um arquivo datado na Lixeira. Você p
 
   ![Botão Discard Changes (Descartar alterações) na caixa de diálogo Confirmation (Confirmação)](/assets/images/help/desktop/discard-changes-confirm-mac.png)
 
-#### Descartar alterações em uma ou mais linhas
+### Descartar alterações em uma ou mais linhas
 Você pode descartar uma ou mais linhas alteradas que não foram confirmadas.
 
 {% note %}
@@ -95,20 +96,20 @@ Para descartar um grupo de linhas alteradas, clique com o botão direito na barr
   ![Descartar um grupo de linhas adicionadas na caixa de diálogo de confirmação](/assets/images/help/desktop/discard-multiple-lines.png)
 
 
-### Mensagem de commit e envio das alterações
+## Mensagem de commit e envio das alterações
 
 Ao concluir as alterações que você decidiu fazer no commit, escreva a mensagem do commit e envie as alterações. Se o commit envolveu trabalho em colaboração, será possível atribuí-lo a mais de um autor.
 
 {% note %}
 
-**Observação**: {% data reusables.desktop.tags-push-with-commits %} Para obter mais informações, consulte "[Gerenciando tags](/desktop/contributing-to-projects/managing-tags)".
+**Observação**: {% data reusables.desktop.tags-push-with-commits %} Para obter mais informações, consulte "[Gerenciando tags](/desktop/contributing-and-collaborating-using-github-desktop/managing-commits/managing-tags)".
 
 {% endnote %}
 
 {% data reusables.desktop.commit-message %}
 
   ![Campo Commit message (Mensagem do commit)](/assets/images/help/desktop/commit-message.png)
-2. Para atribuir um commit a outro autor, você também pode clicar no ícone de adicionar coautores e digitar o nome dos usuários que pretende incluir.
+1. Para atribuir um commit a outro autor, você também pode clicar no ícone de adicionar coautores e digitar o nome dos usuários que pretende incluir.
 
   ![Adicionar um coautor à mensagem do commit](/assets/images/help/desktop/add-co-author-commit.png)
 {% data reusables.desktop.commit-button %}
@@ -122,3 +123,11 @@ Ao concluir as alterações que você decidiu fazer no commit, escreva a mensage
 
   ![Aviso de branch protegido](/assets/images/help/desktop/protected-branch-warning.png)
 {% data reusables.desktop.push-origin %}
+
+6. Se você tiver um pull request baseado no branch no qual você está trabalhando, {% data variables.product.prodname_desktop %} irá exibir o status das verificações que foram executadas para o pull request. Para obter mais informações sobre verificações, consulte "[Visualização e reexecução de verificações no GitHub Desktop](/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/viewing-and-re-running-checks-in-github-desktop)".
+
+ ![Exibição das verificações ao lado do nome do branch](/assets/images/help/desktop/checks-dialog.png)
+
+ Se um pull request não tiver sido criado para o branch atual, {% data variables.product.prodname_desktop %} dará a você a opção de criar um. Para obter mais informações, consulte "[Criando um problema ou um pull request](/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/creating-an-issue-or-pull-request)."
+
+ ![Criar um pull request](/assets/images/help/desktop/mac-create-pull-request.png)

@@ -1,0 +1,1 @@
+{% data variables.product.prodname_enterprise %} customers with no enterprise account on {% data variables.product.prodname_dotcom_the_website %} can view invoices and payment history on the [{% data variables.product.prodname_enterprise %} website](https://enterprise.github.com/login). {% data reusables.enterprise-accounts.to-upgrade-or-get-started %}

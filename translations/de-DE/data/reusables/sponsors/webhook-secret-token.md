@@ -1,1 +1,0 @@
-5. Gib ein geheimes Token ein. Weitere Informationen findest Du unter „[Securing your webhooks](/webhooks/securing/#securing-your-secret-token)" (Deine Webhooks sichern). ![Felder für das geheime Token und andere Anpassungsoptionen](/assets/images/help/sponsors/webhook-secret-token.png)

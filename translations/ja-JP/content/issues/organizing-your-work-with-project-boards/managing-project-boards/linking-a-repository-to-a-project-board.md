@@ -1,19 +1,23 @@
 ---
 title: リポジトリをプロジェクトボードにリンクする
-intro: リポジトリを、Organization またはユーザのアカウントのプロジェクトボードにリンクすることができます。
+intro: リポジトリをOrganizationもしくは個人アカウントのプロジェクトボードにリンクできます。
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/linking-a-repository-to-a-project-board
   - /articles/linking-a-repository-to-a-project-board
   - /github/managing-your-work-on-github/linking-a-repository-to-a-project-board
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
+shortTitle: ボードへのリポジトリのリンク
 ---
 
-プロジェクトボードへの書き込み権限があれば誰でも、その Organization またはユーザアカウントが所有するリポジトリをプロジェクトボードにリンクできます。 詳細は「[Organization のプロジェクトボード権限](/articles/project-board-permissions-for-an-organization/)」または「[ユーザ所有のプロジェクトボードの権限レベル](/articles/permission-levels-for-user-owned-project-boards/)」を参照してください。
+{% data reusables.projects.project_boards_old %}
+
+プロジェクトボードへの書き込み権限があれば誰でも、その Organization または個人アカウントが所有するリポジトリをプロジェクトボードにリンクできます。 詳細は「[Organization のプロジェクトボード権限](/articles/project-board-permissions-for-an-organization/)」または「[ユーザ所有のプロジェクトボードの権限レベル](/articles/permission-levels-for-user-owned-project-boards/)」を参照してください。
 
 {% data reusables.project-management.link-repos-to-project-board %}Issue またはプルリクエストの URL をカードに入力すると、リンクされていないリポジトリから Issue またはプルリクエストを追加できます。 詳しい情報については、「[プロジェクトボードに Issue およびプルリクエストを追加する](/articles/adding-issues-and-pull-requests-to-a-project-board)」を参照してください。
 
@@ -31,6 +35,6 @@ topics:
 
 {% endnote %}
 
-### 参考リンク
+## 参考リンク
 
 - "[プロジェクトボードについて](/articles/about-project-boards)"

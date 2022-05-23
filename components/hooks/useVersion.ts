@@ -5,7 +5,7 @@ type VersionInfo = {
   isEnterprise: boolean
   isEnterpriseServer: boolean
 }
-const DEFAULT_VERSION = 'free-pro-team@latest'
+export const DEFAULT_VERSION = 'free-pro-team@latest'
 export const useVersion = (): VersionInfo => {
   const router = useRouter()
   const currentVersion = (router.query.versionId as string) || DEFAULT_VERSION

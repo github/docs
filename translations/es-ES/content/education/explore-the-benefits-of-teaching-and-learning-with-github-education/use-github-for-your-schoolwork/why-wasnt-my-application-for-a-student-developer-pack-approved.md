@@ -1,72 +1,72 @@
 ---
-title: ¿Por qué no se aprobó mi solicitud para un paquete de desarrollo para estudiantes?
-intro: 'Revisa las razones comunes por las que las solicitudes para el {% data variables.product.prodname_student_pack %} no se aprueban y lee las sugerencias para volver a solicitarlo con éxito.'
+title: Why wasn't my application for a student developer pack approved?
+intro: 'Review common reasons that applications for the {% data variables.product.prodname_student_pack %} are not approved and learn tips for reapplying successfully.'
 redirect_from:
   - /education/teach-and-learn-with-github-education/why-wasnt-my-application-for-a-student-developer-pack-approved
   - /github/teaching-and-learning-with-github-education/why-wasnt-my-application-for-a-student-developer-pack-approved
-  - /articles/why-was-my-application-for-a-student-developer-pack-denied/
+  - /articles/why-was-my-application-for-a-student-developer-pack-denied
   - /articles/why-wasn-t-my-application-for-a-student-developer-pack-approved
   - /articles/why-wasnt-my-application-for-a-student-developer-pack-approved
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/why-wasnt-my-application-for-a-student-developer-pack-approved
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: Application not approved
 ---
-
 {% tip %}
 
-**Sugerencia:** {% data reusables.education.about-github-education-link %}
+**Tip:** {% data reusables.education.about-github-education-link %}
 
 {% endtip %}
 
-### Documentos de afiliación académica poco claros
+## Unclear academic affiliation documents
 
-Si las fechas o programación que se mencionan en tu imagen cargada no coinciden con nuestros criterios de elegibilidad, necesitaremos más pruebas de tu estado académico.
+If the dates or schedule mentioned in your uploaded image do not match our eligibility criteria, we require further proof of your academic status.
 
-Si la imagen que cargaste no identifica claramente tu estado académico o si está borrosa, necesitaremos más pruebas de tu estado académico. {% data reusables.education.upload-proof-reapply %}
-
-{% data reusables.education.pdf-support %}
-
-### Usar un correo electrónico académico con un dominio no verificado
-
-Si tu dirección de correo electrónico académica tiene un dominio no verificado, requerimos más pruebas de tu situación académica. {% data reusables.education.upload-proof-reapply %}
+If the image you uploaded doesn't clearly identify your current academic status or if the uploaded image is blurry, we require further proof of your academic status. {% data reusables.education.upload-proof-reapply %}
 
 {% data reusables.education.pdf-support %}
 
-### Usar un correo electrónico académico de una escuela con políticas de correo electrónico poco estrictas
+## Using an academic email with an unverified domain
 
-Si tu escuela expide direcciones de correo electrónico antes del pago de la inscripción, requerimos más pruebas de tu situación académica. {% data reusables.education.upload-proof-reapply %}
+If your academic email address has an unverified domain, we require further proof of your academic status. {% data reusables.education.upload-proof-reapply %}
 
 {% data reusables.education.pdf-support %}
 
-Si tienes otras preguntas o inquietudes acerca del dominio de la escuela solicita al personal de informática de tu escuela que nos contacte.
+## Using an academic email from a school with lax email policies
 
-### Dirección de correo electrónico académica que ya se usó
+If your school issues email addresses prior to paid student enrollment, we require further proof of your academic status. {% data reusables.education.upload-proof-reapply %}
 
-Si tu dirección de correo electrónico académica ya se utilizó para solicitar un {% data variables.product.prodname_student_pack %} para una cuenta diferente de {% data variables.product.prodname_dotcom %}, no la podrás reutilizar para solicitar otro {% data variables.product.prodname_student_pack %} con éxito.
+{% data reusables.education.pdf-support %}
+
+If you have other questions or concerns about the school domain please ask your school IT staff to contact us.
+
+## Academic email address already used
+
+If your academic email address was already used to request a {% data variables.product.prodname_student_pack %} for a different {% data variables.product.prodname_dotcom %} account, you cannot reuse the academic email address to successfully apply for another {% data variables.product.prodname_student_pack %}.
 
 {% note %}
 
-**Nota:** mantener más de una cuenta individual no respeta los {% data variables.product.prodname_dotcom %} [Términos del servicio](/articles/github-terms-of-service/#3-account-requirements).
+**Note:** It is against the {% data variables.product.prodname_dotcom %} [Terms of Service](/articles/github-terms-of-service/#3-account-requirements) to maintain more than one individual account.
 
 {% endnote %}
 
-Si tienes más de una cuenta de usuario, debes fusionar tus cuentas. Para conservar el descuento, debes mantener la cuenta a la que se le otorgó el descuento. Puedes renombrar la cuenta retenida y conservar tu historial de contribuciones agregando todas las direcciones de correo electrónico a la cuenta retenida.
+If you have more than one personal account, you must merge your accounts. To retain the discount, keep the account that was granted the discount. You can rename the retained account and keep your contribution history by adding all your email addresses to the retained account.
 
-Para obtener más información, consulta:
-- "[Fusionar cuentas de usuario múltiples](/articles/merging-multiple-user-accounts)"
-- "[Cambiar tu nombre de usuario {% data variables.product.prodname_dotcom %}](/articles/changing-your-github-username)"
-- "[Agregar una dirección de correo electrónico a tu cuenta {% data variables.product.prodname_dotcom %}](/articles/adding-an-email-address-to-your-github-account)"
+For more information, see:
+- "[Merging multiple personal accounts](/articles/merging-multiple-user-accounts)"
+- "[Changing your {% data variables.product.prodname_dotcom %} username](/articles/changing-your-github-username)"
+- "[Adding an email address to your {% data variables.product.prodname_dotcom %} account](/articles/adding-an-email-address-to-your-github-account)"
 
-### Situación de estudiante inadmisible
+## Ineligible student status
 
-No eres apto para un {% data variables.product.prodname_student_pack %} si:
-- Estás inscrito en un programa de aprendizaje informal que no es parte del [{% data variables.product.prodname_campus_program %}](https://education.github.com/schools) y no así en un curso de estudio que te otorgue una certificación o diploma.
-- Estás buscando obtener un título que se terminará en la sesión académica actual.
-- Tienes menos de 13 años.
+You're ineligible for a {% data variables.product.prodname_student_pack %} if:
+- You're enrolled in an informal learning program that is not part of the [{% data variables.product.prodname_campus_program %}](https://education.github.com/schools) and not enrolled in a degree or diploma granting course of study.
+- You're pursuing a degree which will be terminated in the current academic session.
+- You're under 13 years old.
 
-Tu instructor todavía puede solicitar un descuento para uso escolar {% data variables.product.prodname_education %}. Si eres alumno en una escuela o curso intensivo de programación, serás elegible para un {% data variables.product.prodname_student_pack %} si tu escuela se une al [{% data variables.product.prodname_campus_program %}](https://education.github.com/schools).
+Your instructor may still apply for a {% data variables.product.prodname_education %} discount for classroom use. If you're a student at a coding school or bootcamp, you will become eligible for a {% data variables.product.prodname_student_pack %} if your school joins the [{% data variables.product.prodname_campus_program %}](https://education.github.com/schools).
 
-### Leer más
+## Further reading
 
-- "[Solicitar un paquete de desarrollo para estudiantes](/articles/applying-for-a-student-developer-pack)"
-- "[Postularse para un paquete de desarrollo para alumnos](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-a-student-developer-pack)"
+- "[How to get the GitHub Student Developer Pack without a student ID](https://github.blog/2019-07-30-how-to-get-the-github-student-developer-pack-without-a-student-id/)" on {% data variables.product.prodname_blog %}
+- "[Apply for a student developer pack](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-a-student-developer-pack)"

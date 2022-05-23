@@ -1,36 +1,38 @@
 ---
-title: Applying for publisher verification for your organization
-intro: 'To offer paid plans for your app or to include a marketplace badge in your app listing, you must complete the publisher verification process for your organization.'
+title: Organizationのパブリッシャー検証プロセスを申請する
+intro: アプリケーションで有料プランを提供し、掲載アプリケーションにMarketplaceバッジを表示するには、Organizationのパブリッシャー検証プロセスを完了する必要があります。
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
 redirect_from:
   - /developers/github-marketplace/applying-for-publisher-verification-for-your-organization
+shortTitle: パブリッシャーの検証
 ---
 
-Publisher verification ensures that {% data variables.product.prodname_dotcom %} has a way to contact you, that you've enabled two-factor authentication for your organization, and that your organization's domain has been verified.
+パブリッシャーの検証は、{% data variables.product.prodname_dotcom %}があなたに連絡する方法があること、Organizationで2要素認証を有効化していること、Organizationのドメインが検証済みであることを保証するものです。
 
-Once your organization has been verified, you can publish paid plans for your app. For information, see "[Setting pricing plans for your listing](/developers/github-marketplace/setting-pricing-plans-for-your-listing)."
+Organizationが検証済みになると、アプリケーションで有料プランを公開できます。 詳しい情報については、「[リストに対する価格プランの設定](/developers/github-marketplace/setting-pricing-plans-for-your-listing)」を参照してください。
 
-To offer paid plans for your app, the app must be owned by an organization and you must have owner permissions in the organization. If your app is currently owned by a user account, you'll need to transfer the ownership of the app to an organization. For more information, see "[Transferring ownership of a GitHub App](/developers/apps/transferring-ownership-of-a-github-app)" or "[Transferring ownership of an OAuth App](/developers/apps/transferring-ownership-of-an-oauth-app)."
+アプリケーションで有料プランを提供するには、アプリケーションがOrganizationの所有であり、あなたがそのOrganizationのオーナー権限を持っていなければなりません。 If your app is currently owned by a personal account, you'll need to transfer the ownership of the app to an organization. 詳しい情報については、「[GitHub Appの所有権の移譲](/developers/apps/transferring-ownership-of-a-github-app)」または「[OAuth Appの所有権の移譲](/developers/apps/transferring-ownership-of-an-oauth-app)」を参照してください。
 
-### Requesting publisher verification
+## パブリッシャー検証をリクエストする
 
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. 左サイドバーで [**Developer settings**] をクリックします。 ![Developer settings option in the organization settings sidebar](/assets/images/marketplace/developer-settings-in-org-settings.png)
-1. Under "Developer settings", click **Publisher Verification**. ![Publisher verification option in the organization settings sidebar](/assets/images/marketplace/publisher-verification-settings-option.png)
-1. Under "Publisher Verification", complete the information in the checklist:
-   - Ensure that your basic profile information is present and accurate. Also, make sure that you've included the best email address for support and updates from {% data variables.product.company_short %}.
-   - Ensure that Two-factor authentication is enabled for your organization. 詳しい情報については [Organization で 2 要素認証を要求する](/organizations/keeping-your-organization-secure/requiring-two-factor-authentication-in-your-organization)を参照してください。
-   - Submit a verified domain and ensure that a "Verified" badge displays on your organization's profile page. For related information, see "[Verifying or approving a domain for your organization](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)."
+1. 左サイドバーで [**Developer settings**] をクリックします。 ![[organization settings] サイトバーの開発者設定オプション](/assets/images/marketplace/developer-settings-in-org-settings.png)
+1. [Developer settings] で、[**Publisher Verification**] をクリックします。 ![[organization settings] サイトバーのパブリッシャー検証オプション](/assets/images/marketplace/publisher-verification-settings-option.png)
+1. [Publisher Verification] のチェックリストに情報を入力してください。
+   - 基本プロフィール情報は最新かつ正確なものを入力してください。 また、{% data variables.product.company_short %} からのサポートや最新情報を受け取るために最善のメールアドレスを必ず含めてください。
+   - Organizationで2要素認証を必ず有効化してください。 詳しい情報については [Organization で 2 要素認証を要求する](/organizations/keeping-your-organization-secure/requiring-two-factor-authentication-in-your-organization)を参照してください。
+   - 検証済みドメインを送信し、「認証済み」バッジがOrganizationのプロフィールページに表示されていることを確認します。 詳しい情報については、「[Organizationのためのドメインの検証あるいは承認](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)」を参照してください。
 
-  ![Publisher Verification checklist](/assets/images/marketplace/publisher-verification-checklist.png)
+  ![パブリッシャーの検証チェックリスト](/assets/images/marketplace/publisher-verification-checklist.png)
 
-2. Click **Request Verification**. {% data variables.product.company_short %} will review your details and let you know once your publisher verification is complete.
+2. [**Request Verification**] をクリックします。 {% data variables.product.company_short %} は入力内容を確認し、パブリッシャーの検証が完了した際にお知らせします。
 
-### 参考リンク
+## 参考リンク
 
-For information about the process of publishing apps, see "[About GitHub Marketplace](/developers/github-marketplace/about-github-marketplace)."
+アプリケーションを公開する手順については、「[GitHub Marketplaceについて](/developers/github-marketplace/about-github-marketplace)」を参照してください。

@@ -1,0 +1,1 @@
+1. 在“{% data variables.product.prodname_secret_scanning_caps %}”下的“Custom patterns（自定义模式）”下，单击 {% ifversion fpt or ghes > 3.2 or ghae or ghec %}**New pattern（新模式）**{% elsif ghes = 3.2 %}**New custom pattern（新的自定义模式）**{% endif %}。

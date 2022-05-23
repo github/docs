@@ -1,1 +1,0 @@
-You can automatically create a pull request where you can provide feedback and answer a student's questions about an assignment. For more information about the review of changes in a pull request, see "[Reviewing changes in pull requests](/github/collaborating-with-issues-and-pull-requests/reviewing-changes-in-pull-requests)."

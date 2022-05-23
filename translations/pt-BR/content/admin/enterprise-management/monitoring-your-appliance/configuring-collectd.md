@@ -3,11 +3,11 @@ title: Configurar collectd
 intro: 'O {% data variables.product.prodname_enterprise %} pode coletar dados com `collectd` e enviá-los para um servidor externo `collectd`. Reunimos um conjunto padrão de dados e outras métricas, como uso de CPU, consumo de memória e disco, tráfego e erros da interface de rede e carga geral da VM.'
 redirect_from:
   - /enterprise/admin/installation/configuring-collectd
-  - /enterprise/admin/articles/configuring-collectd/
+  - /enterprise/admin/articles/configuring-collectd
   - /enterprise/admin/enterprise-management/configuring-collectd
   - /admin/enterprise-management/configuring-collectd
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
@@ -17,7 +17,7 @@ topics:
   - Performance
 ---
 
-### Configurar um servidor externo `collectd`
+## Configurar um servidor externo `collectd`
 
 Se você ainda não configurou um servidor externo `collectd`, será preciso fazê-lo antes de ativar o encaminhamento `collectd` na {% data variables.product.product_location %}. Seu servidor `collectd` deve estar executando uma versão `collectd` 5.x ou superior.
 
@@ -33,7 +33,7 @@ Exemplo de *collectd.conf* para executar um servidor `collectd`:
         Listen "0.0.0.0" "25826"
     </Plugin>
 
-### Habilitar o encaminhamento collectd no {% data variables.product.prodname_enterprise %}
+## Habilitar o encaminhamento collectd no {% data variables.product.prodname_enterprise %}
 
 Por padrão, o encaminhamento `collectd` fica desabilitado no {% data variables.product.prodname_enterprise %}. Siga as etapas abaixo para habilitar e configurar o encaminhamento `collectd`:
 
@@ -45,21 +45,21 @@ Por padrão, o encaminhamento `collectd` fica desabilitado no {% data variables.
 1. No menu suspenso **Cryptographic setup** (Configuração criptográfica), selecione o nível de segurança das comunicações com o servidor `collectd` (nenhum, pacotes assinados ou pacotes criptografados).
 {% data reusables.enterprise_management_console.save-settings %}
 
-### Exportar dados coletados com `ghe-export-graphs`
+## Exportar dados coletados com `ghe-export-graphs`
 
-A ferramenta de linha de comando `ghe-export-graphs` exportará os dados que `collectd` armazenar em bancos de dados RRD. O comando transforma os dados em XML e os exporta para um único tarball (.tgz).
+A ferramenta de linha de comando `ghe-export-graphs` exportará os dados que `collectd` armazenar em bancos de dados RRD. Este comando transforma os dados em XML e os exporta em um único tarball (`.tgz`).
 
 Seu uso principal é fornecer à equipe do {% data variables.contact.contact_ent_support %} dados sobre o desempenho de uma VM sem que seja necessário baixar um pacote de suporte completo. Ele não deve ser incluído nas exportações de backup regulares e não há contrapartida de importação. Se você entrar em contato com o {% data variables.contact.contact_ent_support %} para fins de solução de problemas, esses dados podem ser solicitados.
 
-#### Uso
+### Uso
 
 ```shell
 ssh -p 122 admin@[hostname] -- 'ghe-export-graphs' && scp -P 122 admin@[hostname]:~/graphs.tar.gz .
 ```
 
-### Solução de Problemas
+## Solução de Problemas
 
-#### Central do servidor collectd não recebe dados
+### Central do servidor collectd não recebe dados
 
 {% data variables.product.prodname_enterprise %} vem com a versão 5.x. de `collectd`. `collectd` 5.x não é retrocompatível com a série de versões 4.x. Seu servidor central `collectd` precisa ser da versão 5.x para aceitar os dados enviados pela {% data variables.product.product_location %}.
 

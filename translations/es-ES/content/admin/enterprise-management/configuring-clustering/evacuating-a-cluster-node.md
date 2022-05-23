@@ -6,63 +6,80 @@ redirect_from:
   - /enterprise/admin/enterprise-management/evacuating-a-cluster-node
   - /admin/enterprise-management/evacuating-a-cluster-node
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Clustering
   - Enterprise
 ---
 
-Si solo tienes tres nodos en tu agrupación de servicios de datos, no puedes evacuar los nodos, porque `ghe-spokes` no tiene otro lugar para realizar una copia. Si tienes cuatro o más, `ghe-spokes` moverá todos los repositorios del nodo evacuado.
+## Acerca de la evacuación de los nodos de clúster
 
-Si colocas fuera de línea un nodo que tiene otros servicios de datos (como git, páginas o almacenamiento), debes evacuar cada nodo antes de ponerlo fuera de línea.
+En una configuración de clúster para {% data variables.product.product_name %}, puedes evacuar un nodo antes de desconectarlo. La evacuación garantiza que los nodos restantes en un nivel de servicio contengan todos los datos de dicho servicio. Por ejemplo, cuando reemplazas la máquina virtual por un nodo en tu clúster, primero debes evacuarlo.
 
-1. Encuentra la `uuid` del nodo con el comando `ghe-config`.
+Para obtener más información sobre los nodos y niveles de servicio para {% data variables.product.prodname_ghe_server %}, consulta la sección "[Acerca de los nodos de clúster](/admin/enterprise-management/configuring-clustering/about-cluster-nodes)".
 
-    ```
-    $ ghe-config cluster._hostname_.uuid
-    ```
+{% warning %}
 
-2. Deberás supervisar el estado de tu nodo mientras se copian los datos. Idealmente, el nodo no debería estar fuera de línea hasta que se complete la copia. Para supervisar el estado de tu nodo, ejecuta alguno de los siguientes comandos:
+**Advertencias**:
 
-    Para Git
-    ```
-    ghe-spokes evac-status
-    ```
-    Para {% data variables.product.prodname_pages %}
-    {% raw %}
-    ```
-    echo "select count(*) from pages_replicas where host = 'pages-server-<uuid>'" | ghe-dbconsole -y
-    ```
-    {% endraw %}
-    Para almacenamiento
-    ```
-    ghe-storage evacuation-status
-    ```
+- Para evitar la pérdida de datos, {% data variables.product.company_short %} recomienda fuertemente que evacúes un nodo antes de desconectarlo.
 
-3. Una vez que la copia esté completa, puedes evacuar el servicio de almacenamiento. Ejecuta alguno de los siguientes comandos:
+- Si solo tienes tres nodos en tu clúster de servicios de datos, no puedes evacuar los nodos porque `ghe-spokes` no tiene otro lugar para hacer una copia. Si tienes cuatro o más, `ghe-spokes` moverá todos los repositorios del nodo evacuado.
 
-    Para Git
-    {% raw %}
-    ```
-    ghe-spokes server evacuate git-server-<uuid>
-    ```
-    {% endraw %}
-    Para {% data variables.product.prodname_pages %}
-    {% raw %}
-    ```
-    ghe-dpages evacuate pages-server-<uuid>
-    ```
-    {% endraw %}
-    Para almacenamiento, coloca el nodo fuera de línea
-    {% raw %}
-    ```
-    ghe-storage offline storage-server-<uuid>
-    ```
-    {% endraw %}
-      luego evacúa
-    {% raw %}
-    ```
-    ghe-storage evacuate storage-server-<uuid>
-    ```
-    {% endraw %}
+{% endwarning %}
+
+## Evacuar un nodo de agrupación
+
+Si planeas desconectar un nodo y este ejecuta un rol de servicio de datos como `git-server`, `pages-server` o `storage-server`, evacúa cada nodo antes de desconectarlo.
+
+{% data reusables.enterprise_clustering.ssh-to-a-node %}
+1. Para encontrar la UUID del nodo a evacuar, ejecuta el siguiente comando. Reemplaza `HOSTNAME` con el nombre de host del nodo.
+
+   ```shell
+   $ ghe-config cluster.<em>HOSTNAME</em>.uuid
+   ```
+1. Monitorea el estado del nodo mientras {% data variables.product.product_name %} copia los datos. No desconectes el nodo sino hasta que se complete la copia. Para monitorear el estado de tu nodo, ejecuta cualquiera de los siguientes comandos, reemplazando `UUID` con la UUID del paso 2.
+
+   - **Git**:
+
+     ```shell
+     $ ghe-spokes evac-status git-server-<em>UUID</em>
+     ```
+
+   - **{% data variables.product.prodname_pages %}**:
+
+     ```shell
+     $ echo "select count(*) from pages_replicas where host = 'pages-server-<em>UUID</em>'" | ghe-dbconsole -y
+     ```
+
+   - **Almacenamiento**:
+
+     ```shell
+     $ ghe-storage evacuation-status storage-server-<em>UUID</em>
+     ```
+1. Después de que la copia se complete, puedes evacuar el nodo ejecutando cualquiera de los siguientes comandos, reemplazando `UUID` con la UUID del paso 2.
+
+   - **Git**:
+
+     ```shell
+     $ ghe-spokes server evacuate git-server-<em>UUID</em> \'<em>REASON FOR EVACUATION</em>\'
+     ```
+
+   - **{% data variables.product.prodname_pages %}**:
+
+     ```shell
+     $ ghe-dpages evacuate pages-server-<em>UUID</em>
+     ```
+
+   - Para **almacenamiento**, primero toma el nodo sin conexión ejecutando el siguiente comando.
+
+     ```shell
+     $ ghe-storage offline storage-server-<em>UUID</em>
+     ```
+
+     Después de que el nodo de almacenamiento se quede sin conexión, puedes evacuarlo si ejecutas el siguiente comando.
+
+     ```shell
+     $ ghe-storage evacuate storage-server-<em>UUID</em>
+     ```

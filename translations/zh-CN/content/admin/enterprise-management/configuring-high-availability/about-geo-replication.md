@@ -6,7 +6,7 @@ redirect_from:
   - /enterprise/admin/enterprise-management/about-geo-replication
   - /admin/enterprise-management/about-geo-replication
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: overview
 topics:
   - Enterprise
@@ -21,15 +21,17 @@ Git 请求和特定的文件服务器请求（例如 LFS 和文件上传）可�
 
 为了让 Geo-replication 无缝运行，需要使用 Geo DNS，例如 [Amazon 的 Route 53 服务](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-geo)。 实例的主机名应解析到距离用户最近的副本。
 
-### 限制
+## 限制
 
-将请求写入副本需要将数据发送到主设备和所有副本。 这意味着所有写入操作的性能都受限于最慢的副本，虽然新的地理副本可以从现有共同位置地理副本（而不是从主设备）播种大部分数据。 Geo-replication 不会增大 {% data variables.product.prodname_ghe_server %} 实例的容量，也不会解决与 CPU 或内存资源不足相关的性能问题。 如果主设备处于脱机状态，则活动副本将无法满足任何读取或写入请求。
+将请求写入副本需要将数据发送到主设备和所有副本。 这意味着所有写入操作的性能都受限于最慢的副本，虽然新的地理副本可以从现有共同位置地理副本（而不是从主设备）播种大部分数据。 {% ifversion ghes > 3.2 %}若要在不影响写入吞吐量的情况下减少分布式团队和大型 CI 服务器场导致的延迟和带宽，可以改为配置仓库缓存。 更多信息请参阅“[关于仓库缓存](/admin/enterprise-management/caching-repositories/about-repository-caching)”。{% endif %}
+
+Geo-replication 不会增大 {% data variables.product.prodname_ghe_server %} 实例的容量，也不会解决与 CPU 或内存资源不足相关的性能问题。 如果主设备处于脱机状态，则活动副本将无法满足任何读取或写入请求。
 
 {% data reusables.enterprise_installation.replica-limit %}
 
-### 监视 Geo-replication 配置
+## 监视 Geo-replication 配置
 
 {% data reusables.enterprise_installation.monitoring-replicas %}
 
-### 延伸阅读
+## 延伸阅读
 - “[创建 Geo-replication 副本](/enterprise/{{ currentVersion }}/admin/guides/installation/creating-a-high-availability-replica/#creating-geo-replication-replicas)”

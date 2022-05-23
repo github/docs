@@ -1,1 +1,0 @@
-1. In der Seitenleiste für Einstellungen klicke auf **Teams**. ![Registerkarte „Teams" in der Seitenleiste für Organisationseinstellungen](/assets/images/help/settings/settings-sidebar-team-settings.png)

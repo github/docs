@@ -1,4 +1,4 @@
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec %}
 1. Em "Zona e perigo", clique em **Transferir**. ![Botão de Transferir](/assets/images/help/repository/repo-transfer.png)
 1. Leia as informações sobre a transferência de um repositório e digite o nome do usuário ou organização para o qual deseja transferir a propriedade do repositório. ![Informações sobre transferência de repositório e campo para digitar o nome de usuário do novo proprietário](/assets/images/help/repository/transfer-repo-new-owner-name.png)
 1. Leia as advertências sobre a potencial perda de recursos, dependendo da assinatura do novo proprietário. ![Avisos sobre a transferência de um repositório para uma pessoa que usa um produto grátis](/assets/images/help/repository/repo-transfer-free-plan-warnings.png)

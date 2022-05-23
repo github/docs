@@ -5,9 +5,9 @@ import walk from 'walk-sync'
 import frontmatter from '../../lib/read-frontmatter.js'
 import getDocumentType from '../../lib/get-document-type.js'
 import languages from '../../lib/languages.js'
-import xExtendedMarkdown from '../../lib/liquid-tags/extended-markdown.js'
+import ExtendedMarkdown from '../../lib/liquid-tags/extended-markdown.js'
 
-const extendedMarkdownTags = Object.keys(xExtendedMarkdown.tags)
+const extendedMarkdownTags = Object.keys(ExtendedMarkdown.tags)
 
 const linkString = /{% [^}]*?link.*? (\/.*?) ?%}/m
 const linksArray = new RegExp(linkString.source, 'gm')
@@ -73,7 +73,7 @@ indexFiles.forEach((indexFile) => {
   if (relativePath === 'discussions/guides/index.md') {
     data.children = [
       '/best-practices-for-community-conversations-on-github',
-      '/finding-discussions-across-multiple-repositories',
+      '/finding-your-discussions',
       '/granting-higher-permissions-to-top-contributors',
     ]
   }

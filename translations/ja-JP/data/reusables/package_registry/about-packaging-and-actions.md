@@ -8,13 +8,9 @@
 
 そうすれば、Pull Requestをレビューする際には、ワークフローの実行を見て生成された成果物をダウンロードできるでしょう。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
 ![成果物のダウンロードのドロップダウンメニュー](/assets/images/help/repository/artifact-drop-down-updated.png)
-{% else %}
-![成果物のダウンロードのドロップダウンメニュー](/assets/images/help/repository/artifact-drop-down.png)
-{% endif %}
 
-こうすれば、Pull Request中のコードを自分のマシン上で実行できるので、Pull Requestのデバッグやテストに役立ちます。
+こうすれば、プルリクエスト中のコードを自分のマシン上で実行できるので、プルリクエストのデバッグやテストに役立ちます。
 
 ### パッケージを公開するためのワークフロー
 

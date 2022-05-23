@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub Apps
 shortTitle: Development environment
@@ -16,7 +17,7 @@ shortTitle: Development environment
 
 This guide will walk through the steps needed to configure a GitHub App and run it on a server. GitHub Apps require some setup steps to manage webhook events and connect the app registration on GitHub to your code. The app in this guide serves as a foundation that you can use to extend and build new GitHub Apps.
 
-By the end of this guide you'll have registered a GitHub App and set up a web server to receive webhook events. You'll learn how to use a tool called Smee to capture webhook payloads and forward them to your local development environment. The template app you'll configure in this section won't do anything special yet, but it will serve as a framework you can use to start writing app code using the API or complete other [quickstart guides](/apps/quickstart-guides/). {% ifversion fpt %}You can check out successful examples of apps on [GitHub Marketplace](https://github.com/marketplace) and [Works with GitHub](https://github.com/works-with).{% endif %}
+By the end of this guide you'll have registered a GitHub App and set up a web server to receive webhook events. You'll learn how to use a tool called Smee to capture webhook payloads and forward them to your local development environment. The template app you'll configure in this section won't do anything special yet, but it will serve as a framework you can use to start writing app code using the API or complete other [quickstart guides](/apps/quickstart-guides/). {% ifversion fpt or ghec %}You can check out successful examples of apps on [GitHub Marketplace](https://github.com/marketplace) and [Works with GitHub](https://github.com/works-with).{% endif %}
 
 After completing this project you will understand how to authenticate as a GitHub App and an installation, and how those authentication methods are different.
 
@@ -52,7 +53,7 @@ $ git clone https://github.com/github-developer/github-app-template.git
 
 ## Step 1. Start a new Smee channel
 
-To help GitHub send webhooks to your local machine without exposing it to the internet, you can use a tool called Smee. First, go to https://smee.io and click **Start a new channel**. If you're already comfortable with other tools that expose your local machine to the internet like [ngrok](https://dashboard.ngrok.com/get-started) or [localtunnel](https://localtunnel.github.io/www/), feel free to use those.
+To help GitHub send webhooks to your local machine without exposing it to the internet, you can use a tool called Smee. First, go to https://smee.io and click **Start a new channel**. If you're already comfortable with other tools that expose your local machine to the internet like [`ngrok`](https://dashboard.ngrok.com/get-started) or [`localtunnel`](https://localtunnel.github.io/www/), feel free to use those.
 
 ![The Smee new channel button](/assets/images/smee-new-channel.png)
 
@@ -89,7 +90,7 @@ Next, go back to the Terminal and follow these steps to run the Smee command-lin
 
 The `smee --url <unique_channel>` command tells Smee to forward all webhook events received by the Smee channel to the Smee client running on your computer. The `--path /event_handler` option forwards events to the `/event_handler` route, which we'll cover in a [later section](#step-5-review-the-github-app-template-code). The `--port 3000` option specifies port 3000, which is the port your server will be listening to. Using Smee, your machine does not need to be open to the public internet to receive webhooks from GitHub. You can also open that Smee URL in your browser to inspect webhook payloads as they come in.
 
-We recommend leaving this Terminal window open and keeping Smee connected while you complete the rest of the steps in this guide. Although you _can_ disconnect and reconnect the Smee client without losing your unique domain (unlike ngrok), you may find it easier to leave it connected and do other command-line tasks in a different Terminal window.
+We recommend leaving this Terminal window open and keeping Smee connected while you complete the rest of the steps in this guide. Although you _can_ disconnect and reconnect the Smee client without losing your unique domain (unlike `ngrok`), you may find it easier to leave it connected and do other command-line tasks in a different Terminal window.
 
 ## Step 2. Register a new GitHub App
 
@@ -130,7 +131,7 @@ Click **Create GitHub App** to create your app!
 
 After you create your app, you'll be taken back to the [app settings page](https://github.com/settings/apps). You have two more things to do here:
 
-* **Generate a private key for your app.** This is necessary to authenticate your app later on. Scroll down on the page and click **Generate a private key**. Save the resulting PEM file (called something like  _`app-name`_-_`date`_-private-key.pem) in a directory where you can find it again.
+* **Generate a private key for your app.** This is necessary to authenticate your app later on. Scroll down on the page and click **Generate a private key**. Save the resulting `PEM` file (called something like  _`app-name`_-_`date`_-`private-key.pem`) in a directory where you can find it again.
 
     ![The private key generation dialog](/assets/images/private_key.png)
 

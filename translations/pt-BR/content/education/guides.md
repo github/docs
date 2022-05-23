@@ -3,19 +3,21 @@ title: Guias para GitHub Education
 intro: 'Estes guias para {% data variables.product.prodname_education %} ajudam você a ensinar e aprender {% data variables.product.product_name %} e desenvolvimento de software.'
 allowTitleToDifferFromFilename: true
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: Guias
 ---
 
-### Primeiros passos com {% data variables.product.product_name %}
+## Primeiros passos com {% data variables.product.product_name %}
 
 Professores, estudantes e pesquisadores podem usar ferramentas de {% data variables.product.product_name %} para enriquecer um currículo de desenvolvimento de software e desenvolver habilidades de colaboração concretas.
 
 - [Cadastre-se para uma nova conta de {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/signing-up-for-a-new-github-account)
 - [Git e início rápido de {% data variables.product.prodname_dotcom %} ](/github/getting-started-with-github/quickstart)
+- [Sobre o GitHub Education para estudantes](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork/about-github-education-for-students)
 - [Solicitar um desconto de educador ou pesquisador](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-an-educator-or-researcher-discount)
 - [Aplicar ao pacote de desenvolvedor de aluno](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-a-student-developer-pack)
 
-### Execute um curso de desenvolvimento software com {% data variables.product.company_short %}
+## Execute um curso de desenvolvimento de software com {% data variables.product.company_short %}
 
 Administrar uma sala de aula, atribuir e revisar o trabalho de seus alunos e ensinar a nova geração de desenvolvedores de software com {% data variables.product.prodname_classroom %}.
 
@@ -28,7 +30,7 @@ Administrar uma sala de aula, atribuir e revisar o trabalho de seus alunos e ens
 - [Deixar feedback com pull requests](/education/manage-coursework-with-github-classroom/leave-feedback-with-pull-requests)
 - [Usar avaliação automática](/education/manage-coursework-with-github-classroom/use-autograding)
 
-### Aprenda a desenvolver software
+## Aprenda a desenvolver software
 
 Incorpore {% data variables.product.prodname_dotcom %} na sua educação e use as mesmas ferramentas dos profissionais.
 
@@ -37,10 +39,10 @@ Incorpore {% data variables.product.prodname_dotcom %} na sua educação e use a
 - [Experimente {% data variables.product.prodname_desktop %}](/desktop)
 - [Experimente {% data variables.product.prodname_cli %}](/github/getting-started-with-github/github-cli)
 
-### Contribua para a comunidade
+## Contribua para a comunidade
 
 Participe da comunidade, receba treinamento de {% data variables.product.company_short %}, e aprenda ou ensine novas habilidades.
 
-- [{% data variables.product.prodname_education_community %}](https://education.github.community)
+- [{% data variables.product.prodname_education_community %}]({% data variables.product.prodname_education_forum_link %})
 - [Sobre Especialistas de campus](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-campus-experts)
 - [Sobre Consultores de campus](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-campus-advisors)

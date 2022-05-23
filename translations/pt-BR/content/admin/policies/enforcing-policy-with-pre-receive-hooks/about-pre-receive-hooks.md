@@ -6,7 +6,7 @@ redirect_from:
   - /enterprise/admin/policies/about-pre-receive-hooks
   - /admin/policies/about-pre-receive-hooks
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: overview
 topics:
   - Enterprise
@@ -16,7 +16,7 @@ topics:
 
 Quando ocorre um push, cada script é executado em um ambiente isolado e pode executar verificações no conteúdo do push. Os scripts farão o push ser aceito se o status de saída for 0, ou farão o push ser rejeitado se o status de saída for diferente de zero.
 
-### Cenários de uso
+## Cenários de uso
 Use os hooks pre-receive para cumprir com as regras corporativas, aplicar a conformidade regulamentar e evitar certos erros comuns.
 
 Exemplos de uso dos hooks pre-receive:
@@ -26,7 +26,7 @@ Exemplos de uso dos hooks pre-receive:
 - Evitar a inclusão de dados confidenciais no repositório bloqueando palavras-chave, padrões ou tipos de arquivos.
 - Evitar que o autor da pull request faça merge em suas próprias alterações.
 
-### Fluxos de trabalho e impacto no desempenho
+## Fluxos de trabalho e impacto no desempenho
 O impacto para os desenvolvedores e seus fluxos de trabalho pode ser significativo e deve ser considerado atentamente. Hooks pre-receive baseados nas demandas corporativas e implementados com cuidado trarão mais benefícios para a organização como um todo.
 
 Os hooks pre-receive podem ter efeitos indesejados no desempenho do {% data variables.product.product_location %}, devendo ser implementados e analisados com atenção.

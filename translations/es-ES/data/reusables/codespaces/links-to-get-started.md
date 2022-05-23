@@ -1,0 +1,1 @@
+Para iniciar con los {% data variables.product.prodname_codespaces %}, consulta la "[Guía rápida para {% data variables.product.prodname_codespaces %}](/codespaces/getting-started/quickstart)". Para aprender más sobre cómo funcionan los {% data variables.product.prodname_codespaces %}, consulta la sección "[Adentrarse en los codespaces](/codespaces/getting-started/deep-dive)".

@@ -2,16 +2,20 @@
 title: Usar ações no GitHub AE
 intro: '{% data variables.product.prodname_ghe_managed %} inclui a maioria das ações de autoria de {% data variables.product.prodname_dotcom %}.'
 versions:
-  github-ae: '*'
+  ghae: '*'
+type: how_to
+topics:
+  - Actions
+  - Enterprise
 redirect_from:
   - /admin/github-actions/using-actions-in-github-ae
+shortTitle: Usar ações
 ---
 
-{% data reusables.actions.ae-beta %}
 
 Os fluxos de trabalho de {% data variables.product.prodname_actions %} podem usar _ações_, que são tarefas individuais que você pode combinar para criar tarefas e personalizar seu fluxo de trabalho. Você pode criar suas próprias ações ou usar e personalizar ações compartilhadas pela comunidade {% data variables.product.prodname_dotcom %}.
 
-### Ações oficiais agrupadas com {% data variables.product.prodname_ghe_managed %}
+## Ações oficiais agrupadas com {% data variables.product.prodname_ghe_managed %}
 
 A maioria das ações oficiais de autoria de {% data variables.product.prodname_dotcom %} são automaticamente agrupadas com {% data variables.product.prodname_ghe_managed %} e são capturadas em um momento a partir do {% data variables.product.prodname_marketplace %}. Quando sua instância do {% data variables.product.prodname_ghe_managed %} é atualizada, as ações oficiais agrupadas também são atualizadas.
 

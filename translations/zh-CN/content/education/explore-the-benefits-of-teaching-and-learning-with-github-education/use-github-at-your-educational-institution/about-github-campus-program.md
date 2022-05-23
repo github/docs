@@ -1,6 +1,6 @@
 ---
-title: 关于 GitHub 校园计划
-intro: '{% data variables.product.prodname_campus_program %} 免费向希望为其社区充分利用 {% data variables.product.prodname_dotcom %} 的学校提供 {% data variables.product.prodname_ghe_cloud %} 和 {% data variables.product.prodname_ghe_server %}。'
+title: About GitHub Campus Program
+intro: '{% data variables.product.prodname_campus_program %} offers {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_ghe_server %} free-of-charge for schools that want to make the most of {% data variables.product.prodname_dotcom %} for their community.'
 redirect_from:
   - /education/teach-and-learn-with-github-education/about-github-education
   - /github/teaching-and-learning-with-github-education/about-github-education
@@ -8,39 +8,39 @@ redirect_from:
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-github-education
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-github-campus-program
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: GitHub Campus Program
 ---
+{% data variables.product.prodname_campus_program %} is a package of premium {% data variables.product.prodname_dotcom %} access for teaching-focused institutions that grant degrees, diplomas, or certificates. {% data variables.product.prodname_campus_program %} includes:
 
-{% data variables.product.prodname_campus_program %} 是授予学位、文凭或证书、以教学为重点的机构的高级 {% data variables.product.prodname_dotcom %} 访问包。 {% data variables.product.prodname_campus_program %} 包括：
+- No-cost access to {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_ghe_server %} for all of your technical and academic departments
+- 50,000 {% data variables.product.prodname_actions %} minutes and 50 GB {% data variables.product.prodname_registry %} storage
+- Teacher training to master Git and {% data variables.product.prodname_dotcom %} with our [Campus Advisor program](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-campus-advisors)
+- Exclusive access to new features, GitHub Education-specific swag, and free developer tools from {% data variables.product.prodname_dotcom %} partners
+- Automated access to premium {% data variables.product.prodname_education %} features, like the {% data variables.product.prodname_student_pack %}
 
-- 所有的技术和学术部门可以免费访问 {% data variables.product.prodname_ghe_cloud %} 和 {% data variables.product.prodname_ghe_server %}
-- 50,000 {% data variables.product.prodname_actions %} 分钟和 50GB {% data variables.product.prodname_registry %} 存储空间
-- 通过我们的 [Campus Advisors 计划](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-campus-advisors)进行 Git 和 {% data variables.product.prodname_dotcom %} 教师培训
-- 独家访问来自 {% data variables.product.prodname_dotcom %} 合作伙伴的 GitHub 教育版特定内容和免费开发者工具
-- 自动访问高级 {% data variables.product.prodname_education %} 功能，如 {% data variables.product.prodname_student_pack %}
+To read about how GitHub is used by educators, see [GitHub Education stories.](https://education.github.com/stories)
 
-要阅读关于教师如何使用 GitHub 的信息，请参阅 [GitHub Education 故事](https://education.github.com/stories)
+## {% data variables.product.prodname_campus_program %} terms and conditions
 
-### {% data variables.product.prodname_campus_program %} terms and conditions
+- The license is free for one year and will automatically renew for free every 2 years. You may continue on the free license so long as you continue to operate within the terms of the agreement. Any school that can agree to the [terms of the program](https://education.github.com/schools/terms) is welcome to join.
 
-- 许可证免费一年，每两年自动续订一次。 只要您继续在协议条款范围内运作，您就可以继续使用免费许可证。 只要同意[计划条款](https://education.github.com/schools/terms)，欢迎任何学校加入。
+- Please note that the licenses are for use by the whole school. Internal IT departments, academic research groups, collaborators, students, and other non-academic departments are eligible to use the licenses so long as they are not making a profit from its use. Externally funded research groups that are housed at the university may not use the free licenses.
 
-- 请注意，许可证供全校使用。 内部 IT 部门、学术研究组、合作者、学生和其他非学术部门只要不从许可证的使用中获利，就有资格使用许可证。 设在大学的外部资助的研究小组不得使用免费许可证。
+- You must offer {% data variables.product.prodname_dotcom %} to all of your technical and academic departments and your school’s logo will be shared on the GitHub Education website as a {% data variables.product.prodname_campus_program %} Partner.
 
-- 您必须向所有技术和学术部门提供 {% data variables.product.prodname_dotcom %} ，您的学校徽标将作为 {% data variables.product.prodname_campus_program %} 合作伙伴在 GitHub Education 网站上共享。
-
-- 企业中的新组织将自动添加到您的企业帐户。 要在添加在您的学校加入 {% data variables.product.prodname_campus_program %} 之前就存在的组织，请联系 [GitHub Education 支持](https://support.github.com/contact/education)。 有关管理企业的更多信息，请参阅“[设置和管理企业](/github/setting-up-and-managing-your-enterprise)”。 企业中的新组织将自动添加到您的企业帐户。 要添加在您的学校加入 {% data variables.product.prodname_campus_program %} 之前就存在的组织，请联系 GitHub Education 支持。
+- New organizations in your enterprise are automatically added to your enterprise account. To add organizations that existed before your school joined the {% data variables.product.prodname_campus_program %}, please contact [GitHub Education Support](https://support.github.com/contact/education). For more information about administrating your enterprise, see the [enterprise administrators documentation](/admin). New organizations in your enterprise are automatically added to your enterprise account. To add organizations that existed before your school joined the {% data variables.product.prodname_campus_program %}, please contact GitHub Education Support. 
 
 
-要阅读更多关于 {% data variables.product.prodname_dotcom %} 隐私实践的信息，请参阅[“全球隐私实践”](/github/site-policy/global-privacy-practices)
+To read more about {% data variables.product.prodname_dotcom %}'s privacy practices, see ["Global Privacy Practices"](/github/site-policy/global-privacy-practices)
 
-### {% data variables.product.prodname_campus_program %} 申请资格
+## {% data variables.product.prodname_campus_program %} Application Eligibility
 
-- 通常，校园首席技术官/首席信息官、院长、系主任或技术官代表校园签署课程条款。
+- Often times, a campus CTO/CIO, Dean, Department Chair, or Technology Officer signs the terms of the program on behalf of the campus.
 
-- 如果您的学校不发布电子邮件地址， {% data variables.product.prodname_dotcom %} 将联系您的帐户管理员，提供其他选项，允许您向学生分发学生开发人员包。
+- If your school does not issue email addresses, {% data variables.product.prodname_dotcom %} will reach out to your account administrators with an alternative option to allow you to distribute the student developer pack to your students.
 
-更多信息请参阅[官方 {% data variables.product.prodname_campus_program %}](https://education.github.com/schools) 网页。
+For more information, see the [official {% data variables.product.prodname_campus_program %}](https://education.github.com/schools) page.
 
-如果您是学生或教师并且您的学校未作为 {% data variables.product.prodname_campus_program %} 学校与 {% data variables.product.prodname_dotcom %} 合作，您也可以个人申请使用 {% data variables.product.prodname_dotcom %} 的折扣。 要申请学生开发包，请[查看申请表](https://education.github.com/pack/join)。
+If you're a student or academic faculty and your school isn't partnered with {% data variables.product.prodname_dotcom %} as a {% data variables.product.prodname_campus_program %} school, then you can still individually apply for discounts to use {% data variables.product.prodname_dotcom %}. To apply for the Student Developer Pack, [see the application form](https://education.github.com/pack/join).
 

@@ -1,1 +1,0 @@
-Du kannst individuelle Pull Requests nicht in einer temporären, privaten Fork zusammenführen. Stattdessen führst Du alle offenen Pull Requests gleichzeitig im entsprechenden Sicherheitshinweis zusammen.

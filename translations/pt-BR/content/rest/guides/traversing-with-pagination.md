@@ -2,23 +2,25 @@
 title: Deslocamento com paginação
 intro: Explore como usar a paginação para gerenciar as suas respostas com alguns exemplos usando a API de pesquisa.
 redirect_from:
-  - /guides/traversing-with-pagination/
+  - /guides/traversing-with-pagination
   - /v3/guides/traversing-with-pagination
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - API
+shortTitle: Deslocar-se com paginação
 ---
 
- 
+A {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API fornece uma vasta riqueza de informações para os desenvolvedores consumirem. Na maioria das vezes, você pode até achar que está pedindo _muita_ informação, e, para manter nossos servidores satisfeitos, a API irá automaticamente [paginar os itens solicitados](/rest/overview/resources-in-the-rest-api#pagination).
 
-A API de {% data variables.product.product_name %} fornece uma grande quantidade de informações para os desenvolvedores consumirem. Na maioria das vezes, você pode até achar que está pedindo _muita_ informação, e, para manter nossos servidores satisfeitos, a API irá automaticamente [paginar os itens solicitados][pagination].
+Neste guia, vamos fazer algumas chamadas para a API de pesquisa e iterar sobre os resultados usando a paginação. Você pode encontrar o código-fonte completo para este projeto no repositório de [platform-samples][platform samples].
 
-Neste guia, vamos fazer algumas chamadas para a API de pesquisa do {% data variables.product.product_name %} e iterar sobre os resultados usando a paginação. Você pode encontrar o código-fonte completo para este projeto no repositório de [platform-samples][platform samples].
+{% data reusables.rest-api.dotcom-only-guide-note %}
 
-### Fundamentos da paginação
+## Fundamentos da paginação
 
 Para começar, é importante conhecer alguns fatos sobre o recebimento de itens paginados:
 
@@ -26,10 +28,10 @@ Para começar, é importante conhecer alguns fatos sobre o recebimento de itens 
 2. Você pode especificar quantos itens receber (até um máximo de 100); mas
 3. Por razões técnicas, nem todos os pontos de referência comportam-se da mesma forma. Por exemplo, os [eventos](/rest/reference/activity#events) não permitirão que você defina um máximo de itens a receber. Leia a documentação sobre como lidar com resultados paginados para pontos de extremidade específicos.
 
-As informações sobre paginação são fornecidas no [cabeçalho do link](http://tools.ietf.org/html/rfc5988) de uma chamada de API. Por exemplo, vamos fazer uma solicitação de curl para a API de pesquisa, para descobrir quantas vezes os projetos da Mozilla usam a frase `addClass`:
+As informações sobre paginação são fornecidas no [cabeçalho do link](https://datatracker.ietf.org/doc/html/rfc5988) de uma chamada de API. Por exemplo, vamos fazer uma solicitação de curl para a API de pesquisa, para descobrir quantas vezes os projetos da Mozilla usam a frase `addClass`:
 
 ```shell
-$ curl -I "{% data variables.product.api_url_pre %}/search/code?q=addClass+user:mozilla"
+$ curl -I "https://api.github.com/search/code?q=addClass+user:mozilla"
 ```
 
 O parâmetro `-I` indica que só nos importamos com os cabeçalhos, não com o conteúdo real. Ao examinar o resultado, você notará algumas informações no cabeçalho do link que se parecem com isso:
@@ -41,12 +43,12 @@ Vamos explicar isso. `rel="next"` diz que a próxima página é `page=2`. Isto f
 
 **Sempre** depende destas relações de link fornecidas a você. Não tente adivinhar nem construir a sua própria URL.
 
-#### Navegando pelas páginas
+### Navegando pelas páginas
 
 Agora que você sabe quantas páginas há para receber, você pode começar a navegar pelas páginas para consumir os resultados. Você pode fazer isso passando o parâmetro </code>página`. Por padrão, a <code>página` sempre começa em `1`. Vamos pular para a página 14 e ver o que acontece:
 
 ```shell
-$ curl -I "{% data variables.product.api_url_pre %}/search/code?q=addClass+user:mozilla&page=14"
+$ curl -I "https://api.github.com/search/code?q=addClass+user:mozilla&page=14"
 ```
 
 Aqui está o cabeçalho do link mais uma vez:
@@ -58,12 +60,12 @@ Aqui está o cabeçalho do link mais uma vez:
 
 Como esperado, `rel="next"` está em 15 e `rel="last"` ainda está em 34. Mas agora temos mais informações: `rel="first"` indica a URL para a _primeira_ página e, mais importante, `rel="prev"` informa o número da página anterior. Ao usar essas informações, você pode construir uma interface de usuário que permite que esses pulem entre a lista de resultados primeira, anterior ou seguinte em uma chamada de API.
 
-#### Alterar o número de itens recebidos
+### Alterar o número de itens recebidos
 
 Ao passar o parâmetro `per_page`, você pode especificar quantos itens você deseja que cada página retorne, até o limite de 100 itens. Vamos tentar pedir 50 itens sobre `addClass`:
 
 ```shell
-$ curl -I "{% data variables.product.api_url_pre %}/search/code?q=addClass+user:mozilla&per_page=50"
+$ curl -I "https://api.github.com/search/code?q=addClass+user:mozilla&per_page=50"
 ```
 
 Observe o que ele faz com a resposta do cabeçalho:
@@ -73,7 +75,7 @@ Observe o que ele faz com a resposta do cabeçalho:
 
 Como você deve ter imaginado, as informações `rel="last"` dizem que a última página agora é a 20. Isso ocorre porque estamos pedindo mais informações por página sobre os nossos resultados.
 
-### Consumir informações
+## Consumir informações
 
 Você não deseja fazer chamadas de curl de nível baixo apenas para poder trabalhar com a paginação. Portanto, vamos escrever um pequeno script de Ruby que faz tudo o que descrevemos acima.
 
@@ -142,7 +144,7 @@ until last_response.rels[:next].nil?
 end
 ```
 
-### Construir links de paginação
+## Construir links de paginação
 
 Normalmente, com a paginação, seu objetivo não é concatenar todos os resultados possíveis, mas produzir um conjunto de navegação, como esse:
 
@@ -203,7 +205,6 @@ puts "The prev page link is #{prev_page_href}"
 puts "The next page link is #{next_page_href}"
 ```
 
-[pagination]: /rest#pagination
 [platform samples]: https://github.com/github/platform-samples/tree/master/api/ruby/traversing-with-pagination
 [octokit.rb]: https://github.com/octokit/octokit.rb
 [personal token]: /articles/creating-an-access-token-for-command-line-use

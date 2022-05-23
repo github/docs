@@ -1,14 +1,18 @@
 ---
 title: Installing GitHub Enterprise Server on Azure
-intro: 'To install {% data variables.product.prodname_ghe_server %} on Azure, you must deploy onto a DS-series instance and use Premium-LRS storage.'
+intro: 'To install {% data variables.product.prodname_ghe_server %} on Azure, you must deploy onto a memory-optimized instance that supports premium storage.'
 redirect_from:
-  - /enterprise/admin/guides/installation/installing-github-enterprise-on-azure/
+  - /enterprise/admin/guides/installation/installing-github-enterprise-on-azure
   - /enterprise/admin/installation/installing-github-enterprise-server-on-azure
   - /admin/installation/installing-github-enterprise-server-on-azure
 versions:
   ghes: '*'
+type: tutorial
 topics:
+  - Administrator
   - Enterprise
+  - Infrastructure
+  - Set up
 shortTitle: Install on Azure
 ---
 You can deploy {% data variables.product.prodname_ghe_server %} on global Azure or Azure Government.
@@ -25,26 +29,23 @@ You can deploy {% data variables.product.prodname_ghe_server %} on global Azure 
 
 ## Determining the virtual machine type
 
-Before launching {% data variables.product.product_location %} on Azure, you'll need to determine the machine type that best fits the needs of your organization. To review the minimum requirements for {% data variables.product.product_name %}, see "[Minimum requirements](#minimum-requirements)."
+Before launching {% data variables.product.product_location %} on Azure, you'll need to determine the machine type that best fits the needs of your organization. For more information about memory optimized machines, see "[Memory optimized virtual machine sizes](https://docs.microsoft.com/en-gb/azure/virtual-machines/sizes-memory)" in the Microsoft Azure documentation. To review the minimum resource requirements for {% data variables.product.product_name %}, see "[Minimum requirements](#minimum-requirements)."
+
 
 {% data reusables.enterprise_installation.warning-on-scaling %}
 
-The {% data variables.product.prodname_ghe_server %} appliance requires a premium storage data disk, and is supported on any Azure VM that supports premium storage. Azure VM types with the `s` suffix support premium storage. For more information, see "[What disk types are available in Azure?](https://docs.microsoft.com/en-us/azure/virtual-machines/disks-types#premium-ssd)" and "[Azure premium storage: design for high performance](https://docs.microsoft.com/en-us/azure/virtual-machines/premium-storage-performance)" in the Azure documentation.
-
-{% data variables.product.company_short %} recommends a memory-optimized VM for {% data variables.product.prodname_ghe_server %}. For more information, see "[Memory optimized virtual machine sizes](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes-memory)" in the Azure documentation.
-
-{% data variables.product.prodname_ghe_server %} supports any region that supports your VM type. For more information about the supported regions for each VM, see Azure's "[Products available by region](https://azure.microsoft.com/regions/services/)."
+{% data reusables.enterprise_installation.azure-instance-recommendation %}
 
 ## Creating the {% data variables.product.prodname_ghe_server %} virtual machine
 
 {% data reusables.enterprise_installation.create-ghe-instance %}
 
-1. Find the most recent {% data variables.product.prodname_ghe_server %} appliance image. For more information about the `vm image list` command, see "[az vm image list](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list)" in the Microsoft documentation.
+1. Find the most recent {% data variables.product.prodname_ghe_server %} appliance image. For more information about the `vm image list` command, see "[`az vm image list`](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list)" in the Microsoft documentation.
   ```shell
   $ az vm image list --all -f GitHub-Enterprise | grep '"urn":' | sort -V
   ```
 
-2. Create a new VM using the appliance image you found. For more information, see "[az vm create](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_create)" in the Microsoft documentation.
+2. Create a new VM using the appliance image you found. For more information, see "[`az vm create`](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_create)" in the Microsoft documentation.
 
   Pass in options for the name of your VM, the resource group, the size of your VM, the name of your preferred Azure region, the name of the appliance image VM you listed in the previous step, and the storage SKU for premium storage. For more information about resource groups, see "[Resource groups](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups)" in the Microsoft documentation.
 
@@ -52,7 +53,7 @@ The {% data variables.product.prodname_ghe_server %} appliance requires a premiu
   $ az vm create -n <em>VM_NAME</em> -g <em>RESOURCE_GROUP</em> --size <em>VM_SIZE</em> -l <em>REGION</em> --image <em>APPLIANCE_IMAGE_NAME</em> --storage-sku Premium_LRS
   ```
 
-3. Configure the security settings on your VM to open up required ports. For more information, see "[az vm open-port](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_open_port)" in the Microsoft documentation. See the table below for a description of each port to determine what ports you need to open.
+3. Configure the security settings on your VM to open up required ports. For more information, see "[`az vm open-port`](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_open_port)" in the Microsoft documentation. See the table below for a description of each port to determine what ports you need to open.
 
   ```shell
   $ az vm open-port -n <em>VM_NAME</em> -g <em>RESOURCE_GROUP</em> --port <em>PORT_NUMBER</em>
@@ -62,7 +63,7 @@ The {% data variables.product.prodname_ghe_server %} appliance requires a premiu
 
   {% data reusables.enterprise_installation.necessary_ports %}
 
-4. Create and attach a new unencrypted data disk to the VM, and configure the size based on your user license count. For more information, see "[az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach)" in the Microsoft documentation.
+4. Create and attach a new unencrypted data disk to the VM, and configure the size based on your user license count. For more information, see "[`az vm disk attach`](https://docs.microsoft.com/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach)" in the Microsoft documentation.
 
   Pass in options for the name of your VM (for example, `ghe-acme-corp`), the resource group, the premium storage SKU, the size of the disk (for example, `100`), and a name for the resulting VHD.
 
@@ -78,7 +79,7 @@ The {% data variables.product.prodname_ghe_server %} appliance requires a premiu
 
 ## Configuring the {% data variables.product.prodname_ghe_server %} virtual machine
 
-1. Before configuring the VM, you must wait for it to enter ReadyRole status. Check the status of the VM with the `vm list` command. For more information, see "[az vm list](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_list)" in the Microsoft documentation.
+1. Before configuring the VM, you must wait for it to enter ReadyRole status. Check the status of the VM with the `vm list` command. For more information, see "[`az vm list`](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_list)" in the Microsoft documentation.
   ```shell
   $ az vm list -d -g <em>RESOURCE_GROUP</em> -o table
   > Name    ResourceGroup    PowerState    PublicIps     Fqdns    Location    Zones
@@ -100,5 +101,5 @@ The {% data variables.product.prodname_ghe_server %} appliance requires a premiu
   
 ## Further reading
   
-- "[System overview](/enterprise/admin/guides/installation/system-overview)"{% ifversion ghes > 2.22 %}
+- "[System overview](/enterprise/admin/guides/installation/system-overview)"{% ifversion ghes %}
 - "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)"{% endif %}

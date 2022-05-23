@@ -1,3 +1,1 @@
-{% if currentVersion == "free-pro-team@latest" %}
-  1. Na barra lateral de configurações, clique em **Third-party access** (Acesso de terceiros). ![{% data variables.product.prodname_oauth_app %} acessar a aba na barra lateral esquerda](/assets/images/help/settings/settings-sidebar-third-party-access.png)
-{% endif %}
+1. In the "Integrations" section of the sidebar, click **{% octicon "key" aria-label="The key icon" %} Third-party access**.

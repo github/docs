@@ -26,7 +26,7 @@
     - CreateDeploymentInput
     - CreateDeploymentPayload
   owning_teams:
-    - '@github/ecosystem-api'
+    - '@github/c2c-actions-service'
 - 
   title: >-
     MergeInfoPreview - プルリクエストのマージ状態に関する詳細な情報。
@@ -76,16 +76,6 @@
     - RemovedFromProjectEvent.projectColumnName
   owning_teams:
     - '@github/github-projects'
-- 
-  title: コンテンツ添付ファイルの作成
-  description: このプレビューは、コンテンツ添付ファイルの作成のサポートを追加します。
-  toggled_by: ':corsair-preview'
-  announcement: null
-  updates: null
-  toggled_on:
-    - Mutation.createContentAttachment
-  owning_teams:
-    - '@github/feature-lifecycle'
 - 
   title: ラベルのプレビュー
   description: >-

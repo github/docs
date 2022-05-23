@@ -1,15 +1,16 @@
 ---
 title: 健全なコントリビューションを促すプロジェクトをセットアップする
-shortTitle: Healthy contributions
+shortTitle: 健全なコントリビューション
 intro: リポジトリメンテナは、コントリビューションガイドラインを設定することで、コントリビュータがプロジェクトに対して意味のある有益なコントリビューションを行うことに役立ちます。
 redirect_from:
-  - /articles/helping-people-contribute-to-your-project/
+  - /articles/helping-people-contribute-to-your-project
   - /articles/setting-up-your-project-for-healthy-contributions
   - /github/building-a-strong-community/setting-up-your-project-for-healthy-contributions
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Community
 children:

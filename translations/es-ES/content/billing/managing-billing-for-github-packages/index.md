@@ -5,7 +5,8 @@ intro: 'Puedes ver tu uso de {% data variables.product.prodname_registry %} y co
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-packages
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 children:
   - /about-billing-for-github-packages
   - /viewing-your-github-packages-usage

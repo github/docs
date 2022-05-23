@@ -3,16 +3,23 @@ title: 创建项目板
 intro: 项目板可用于创建满足您需求的自定义工作流程，例如对特定功能工作、全面路线图甚至发布检查清单进行跟踪和排列优先级。
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/creating-a-project-board
-  - /articles/creating-a-project/
+  - /articles/creating-a-project
   - /articles/creating-a-project-board
   - /github/managing-your-work-on-github/creating-a-project-board
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
+  - Issues
+  - Projects
+  - Project management
+type: how_to
 ---
+
+{% data reusables.projects.project_boards_old %}
 
 {% data reusables.project-management.use-automated-template %}
 
@@ -26,7 +33,7 @@ topics:
 
 {% data reusables.project-management.project-board-import-with-api %}
 
-### 创建用户拥有的项目板
+## 创建用户拥有的项目板
 
 {% data reusables.profile.access_profile %}
 2. 在个人资料页面顶部的主导航栏中，单击 {% octicon "project" aria-label="The project board icon" %} **Projects（项目）**。 ![项目选项卡](/assets/images/help/projects/user-projects-tab.png)
@@ -45,10 +52,10 @@ topics:
 
 {% data reusables.project-management.edit-project-columns %}
 
-### 创建组织范围的项目板
+## 创建组织范围的项目板
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.organization-wide-project %}
 {% data reusables.project-management.click-new-project %}
 {% data reusables.project-management.create-project-name-description %}
@@ -65,7 +72,7 @@ topics:
 
 {% data reusables.project-management.edit-project-columns %}
 
-### 创建仓库项目板
+## 创建仓库项目板
 
 {% data reusables.repositories.navigate-to-repo %}
 2. 在仓库名称下，单击 {% octicon "project" aria-label="The project board icon" %} **Projects（项目）**。 ![项目选项卡](/assets/images/help/projects/repo-tabs-projects.png)
@@ -82,10 +89,10 @@ topics:
 
 {% data reusables.project-management.edit-project-columns %}
 
-### 延伸阅读
+## 延伸阅读
 
 - "[关于项目板](/articles/about-project-boards)"
-- “[编辑项目板](/articles/editing-a-project-board)”{% if currentVersion == "free-pro-team@latest" %}
+- "[编辑项目板](/articles/editing-a-project-board)"{% ifversion fpt or ghec %}
 - "[复制项目板](/articles/copying-a-project-board)"{% endif %}
 - "[关闭项目板](/articles/closing-a-project-board)"
 - “[关于项目板的自动化](/articles/about-automation-for-project-boards)”

@@ -6,7 +6,8 @@ redirect_from:
   - /desktop/contributing-to-projects/changing-a-remote-s-url-from-github-desktop
   - /desktop/contributing-and-collaborating-using-github-desktop/changing-a-remotes-url-from-github-desktop
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: Cambiar una URL de un remoto
 ---
 
 {% mac %}

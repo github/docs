@@ -6,13 +6,15 @@ redirect_from:
   - /enterprise/admin/user-management/continuous-integration-using-jenkins
   - /admin/user-management/continuous-integration-using-jenkins
 versions:
-  enterprise-server: '*'
+  ghes: '*'
+  ghae: '*'
 type: reference
 topics:
   - CI
   - Enterprise
+shortTitle: CI using Jenkins
 ---
 
-### 要件
+## 要件
 
 - {% data variables.product.product_location %} のリポジトリにプッシュが行われた際に、Jenkins サーバーのビルドジョブを自動的に起動するためのステップバイステップの手順については、弊社のホワイトペーパー「[Practical guide to CI with Jenkins and GitHub](https://resources.github.com/whitepapers/practical-guide-to-CI-with-Jenkins-and-GitHub/)」をご覧ください。

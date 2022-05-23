@@ -1,52 +1,50 @@
 ---
-title: Squashing commits
-intro: "You can use {% data variables.product.prodname_desktop %} to squash commits in your branch's history."
+title: 压缩提交
+intro: '您可以使用 {% data variables.product.prodname_desktop %} 压缩分支历史记录中的提交。'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 
-## About squashing a commit
+## 关于压缩提交
 
-Squashing allows you to combine multiple commits in your branch's history into a single commit. This can help keep your repository's history more readable and understandable.
+压缩允许您将分支历史记录中的多个提交合并为单个提交。 这将有助于使您的仓库历史记录更易读和易懂。
 
-## Squashing a commit
+## 压缩提交
 
 {% mac %}
 
 {% data reusables.desktop.current-branch-menu %}
-2. In the list of branches, select the branch that has the commits that you want to squash.
+2. 在分支列表中，选择包含您要压缩的提交的分支。
 {% data reusables.desktop.history-tab %}
-4. Select the commits to squash and drop them on the commit you want to combine them with. You can select one commit or select multiple commits using <kbd>⌘</kbd> or <kbd>Shift</kbd>.
-  ![squash drag and drop](/assets/images/help/desktop/squash-drag-and-drop.png)
-5. Modify the commit message of your new commit. The commit messages of the selected commits you want to squash are pre-filled into the **Summary** and **Description** fields.
-6. Click **Squash Commmits**.
+4. 选择要压缩的提交，并将其放到要合并的提交上。 您可以选择一个提交，也可以使用 <kbd>Command</kbd> 或 <kbd>Shift</kbd> 选择多个提交。 ![压缩拖放](/assets/images/help/desktop/squash-drag-and-drop.png)
+5. 修改新提交的提交消息。 您想要压缩的所选提交消息将预填入 **Summary（摘要）** 和 **Description<（说明）**字段。
+6. 单击 **Squash Commits（压缩提交）**。
 
 {% endmac %}
 
 {% windows %}
 
 {% data reusables.desktop.current-branch-menu %}
-2. In the list of branches, select the branch that has the commits that you want to squash.
+2. 在分支列表中，选择包含您要压缩的提交的分支。
 {% data reusables.desktop.history-tab %}
-4. Select the commits to squash and drop them on the commit you want to combine them with. You can select one commit or select multiple commits using <kbd>Ctrl</kbd> or <kbd>Shift</kbd>.
-  ![squash drag and drop](/assets/images/help/desktop/squash-drag-and-drop.png)
-5. Modify the commit message of your new commit. The commit messages of the selected commits you want to squash are pre-filled into the **Summary** and **Description** fields.
-6. Click **Squash Commmits**.
+4. 选择要压缩的提交，并将其放到要合并的提交上。 您可以选择一个提交，也可以使用 <kbd>Ctrl</kbd> 或 <kbd>Shift</kbd> 选择多个提交。 ![压缩拖放](/assets/images/help/desktop/squash-drag-and-drop.png)
+5. 修改新提交的提交消息。 您想要压缩的所选提交消息将预填入 **Summary（摘要）** 和 **Description<（说明）**字段。
+6. 单击 **Squash Commits（压缩提交）**。
 
 {% endwindows %}
 
-## Error messages when squashing commits
+## 压缩提交时的错误消息
 
-When you squash commits, you may see one of the following notifications or error messages.
+压缩提交时，您可能会看到以下通知或错误消息。
 
-* A notification states that the requested change to the branch will require a force push to update the remote branch. Force pushing alters the commit history of the branch and will affect other collaborators who are working in that branch.  Select **Begin Squash** to start the squash, and then click **Force push origin** to push your changes.
+* 通知指出，请求的分支更改将需要强制推送以更新远程分支。 强制推送会更改分支的提交历史记录，并影响处理该分支的其他协作者。  选择 **Begin Squash（开始压缩）**以开始压缩，然后点击 **Force push origin（强制推送来源）**以推送您的更改。
 
-  ![squash force push dialog](/assets/images/help/desktop/squash-force-push.png)
+  ![压缩强制推送对话框](/assets/images/help/desktop/squash-force-push.png)
 
-* An error states that the squash failed because there is a merge commit among the squashed commits.
+* 错误表示压缩失败，因为重新排序的提交之间有合并提交。
 
-  ![reorder merge commit dialog](/assets/images/help/desktop/squash-merge-commit-dialog.png)
+  ![重新排序合并提交对话框](/assets/images/help/desktop/squash-merge-commit-dialog.png)
 
-* A notification is shown indicating that there are uncommitted changes present on your current branch. Select **Stash Changes and Continue** to store the changes and proceed, or select **Close** to dismiss the message and commit the changes. When there are no longer any uncommitted changes you can squash your commits.
+* 通知显示您当前分支上存在未提交的更改。 选择 **Stash Changes and Continue（暂存更改并继续）**以存储更改并继续，或选择 **Close（关闭）**以忽略消息并提交更改。 当不再有任何未提交的更改时，您可以压缩您的提交。
 
-  ![squash stash dialog](/assets/images/help/desktop/squash-stash-dialog.png)
+  ![压缩暂存对话框](/assets/images/help/desktop/squash-stash-dialog.png)

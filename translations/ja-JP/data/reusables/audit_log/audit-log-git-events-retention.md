@@ -1,1 +1,1 @@
-監査ログは、Gitイベントを7日間保持します。 これは、90日間保持できる他の監査ログイベントよりも短い期間です。
+The audit log retains Git events for seven days. This is shorter than other audit log events, which can be retained for up to seven months.

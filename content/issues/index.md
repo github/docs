@@ -15,7 +15,8 @@ featuredLinks:
   guideCards:
     - /issues/trying-out-the-new-projects-experience/automating-projects
     - /issues/tracking-your-work-with-issues/creating-issues/linking-a-pull-request-to-an-issue
-    - /issues/organizing-your-work-with-project-boards/managing-project-boards/configuring-automation-for-project-boards
+    - '{% ifversion ghes or ghae %}/issues/organizing-your-work-with-project-boards/managing-project-boards/configuring-automation-for-project-boards{% endif %}'
+    - /issues/trying-out-the-new-projects-experience/using-the-api-to-manage-projects
   popular:
     - /issues/tracking-your-work-with-issues/creating-issues/about-issues
     - /issues/trying-out-the-new-projects-experience/about-projects
@@ -23,27 +24,36 @@ featuredLinks:
     - /communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates
     - /issues/using-labels-and-milestones-to-track-work/managing-labels
     - /github/managing-your-work-on-github/viewing-all-of-your-issues-and-pull-requests
-    - /issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards
-changelog:
-  label: issues
+    - '{% ifversion ghes or ghae %}/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards{% endif %}'
+  videos:
+    - title: Planning at scale with Issues – Mario Rodriguez
+      href: 'https://www.youtube-nocookie.com/embed/ha1KHcPMAEk'
+    - title: Planning at GitHub (Projects + Issues) – Matt Butler
+      href: 'https://www.youtube-nocookie.com/embed/HwpVvDURHKw'
+    - title: Issue Forms for open source – Luke Hefson
+      href: 'https://www.youtube-nocookie.com/embed/2Yh8ueUE0oY'
+  videosHeading: GitHub Universe 2021 videos
+product_video: 'https://www.youtube-nocookie.com/embed/uiaLWluYJsA'
 layout: product-landing
 beta_product: false
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 children:
   - /tracking-your-work-with-issues
   - /trying-out-the-new-projects-experience
   - /organizing-your-work-with-project-boards
   - /using-labels-and-milestones-to-track-work
+  - /guides
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests
   - /github/managing-your-work-on-github/managing-your-work-with-issues
   - /github/managing-your-work-on-github
-  - /categories/100/articles/
-  - /categories/managing-projects/
-  - /categories/managing-projects-on-github/
+  - /categories/100/articles
+  - /categories/managing-projects
+  - /categories/managing-projects-on-github
   - /categories/managing-your-work-on-github
   - /about-issues
   - /creating-an-issue

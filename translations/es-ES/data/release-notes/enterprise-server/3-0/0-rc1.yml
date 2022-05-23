@@ -19,7 +19,7 @@ sections:
     - Las utilidades de seguridad pueden activar correos electrónicos innecesarios para los administradores
     - La configuración incorrecta de los paquetes se muestra en la página de vista de miembros de la organización
     - Después de eliminarte a ti mismo como propietario de la empresa, se te redireccionará a una página 404. La operación será exitosa.
-    - '`ghe-config-apply` falla ocasionalmente con un mensaje de `ERROR: Failure waiting for nomad jobs to apply` hasta que la cola de jobs nómadas se vacíe. Actualmente, esto requiere que una administrador borre el `/etc/nomad-jobs/queue`.'
+    - '`ghe-config-apply` ocasionalmente falla con `ERROR: Failure waiting for nomad jobs to apply` hasta que la cola de job Nómada se vacíe. Esto requiere actualmente que un administrador borre la parte de `/etc/nomad-jobs/queue`.'
     - Cuando configuras un nodo de rélica múltiple, el estado de la réplica puede sincronizarse incorrectamente.
     - Los clientes que intentan restablecer un respaldo de 3.0 en una instancia nueva no deberán preconfigurarla, ya que esto podría conllevar a un estado malo para los inicios de sesión de usuario. Te recomendamos restablecerte a una instancia inconfigurada y nueva.
     - Los candidatos de lanzamiento para el lanzamiento de GitHub Enterprise Server 3.0 aún no están disponibles en el mercado de Azure. Para probar los candidatos de lanzamiento en ambientes de montaje, inicia una instancia 2.21 o 2.22 y luego actualízala con el paquete de mejoras de Azure en la página de descargas.

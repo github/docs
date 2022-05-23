@@ -5,23 +5,24 @@ redirect_from:
   - /desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project
   - /desktop/contributing-and-collaborating-using-github-desktop/committing-and-reviewing-changes-to-your-project
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: Confirmar & revisar los cambios
 ---
 
-### Acerca de las confirmaciones
+## Acerca de las confirmaciones
 
 {% data reusables.commits.about-commits %} También puedes agregar un coautor en cualquier confirmación en la que colabores.
 
 {% data reusables.desktop.update-email-address %} Para obtener más información, consulta la sección ["Configurar Git para GitHub Desktop](/desktop/getting-started-with-github-desktop/configuring-git-for-github-desktop)".
 
-### Elegir una rama y realizar cambios
+## Elegir una rama y realizar cambios
 
 1. [Crear una rama nueva](/desktop/guides/contributing-to-projects/managing-branches) o seleccionar una rama existente haciendo clic en {% octicon "git-branch" aria-label="The branch icon" %}**Current Branch** (Rama actual) en la barra de herramientas y seleccionando la rama de la lista.
 
   ![Despliega el menú para cambiar tu rama actual](/assets/images/help/desktop/select-branch-from-dropdown.png)
 {% data reusables.desktop.make-changes %}
 
-### Elige cómo mostrar los diffs
+## Elige cómo mostrar los diffs
 
 Puedes cambiar la forma en la que se muestran los diffs en {% data variables.product.prodname_desktop %} para que satisfagan tus necesidades de revisión.
 
@@ -37,7 +38,7 @@ Si necesitas ver más del archivo que lo que te muestra {% data variables.produc
 
 ![Vista de expansión de diff](/assets/images/help/desktop/expand-diff-view.png)
 
-### Seleccionar cambios para incluirlos en una confirmación
+## Seleccionar cambios para incluirlos en una confirmación
 
 A medida que realizas cambios en los archivos en tu editor de texto y que los guardas localmente, también verás los cambios en {% data variables.product.prodname_desktop %}.
 
@@ -54,7 +55,7 @@ A medida que realizas cambios en los archivos en tu editor de texto y que los gu
 
   ![Selecciona las casillas de verificación junto a los archivos que deseas confirmar](/assets/images/help/desktop/commit-some.png)
 
-#### Crear una confirmación parcial
+### Crear una confirmación parcial
 
 Si un archivo contiene varios cambios pero solo quieres que algunos de ellos se incluyan en una confirmación, puedes crear una confirmación parcial. El resto de los cambios permanecerán intactos, por lo que puedes realizar confirmaciones y modificaciones adicionales. Esto permite realizar confirmaciones separadas, significativas, como mantener cambios de interrupción de línea en una confirmación separada desde cambios en el código o la prosa.
 
@@ -62,12 +63,12 @@ Para excluir de tu confirmación las líneas que cambiaron, da clic en una o má
 
   ![Líneas no seleccionadas en un archivo](/assets/images/help/desktop/partial-commit.png)
 
-### Descartar cambios
+## Descartar cambios
 Si retiraste la confirmación de los cambios que no quieres mantener, puedes descartarlos. Esto eliminará los cambios de los archivos en tu computadora. Puedes descartar todos los cambios que dejaste de confirmar en uno o más archivos, o puedes descartar las líneas específicas que agregaste.
 
 Los cambios que descartas se guardan en un archivo con fecha en la sección de basura. Puedes recuperar los cambios que descartaste antes de que se vacíe la basura.
 
-#### Descartar cambios en uno o más archivos
+### Descartar cambios en uno o más archivos
 
 {% data reusables.desktop.select-discard-files %}
 {% data reusables.desktop.click-discard-files %}
@@ -77,7 +78,7 @@ Los cambios que descartas se guardan en un archivo con fecha en la sección de b
 
   ![Botón Discard Changes (Descartar cambios) en el cuadro de diálogo de confirmación](/assets/images/help/desktop/discard-changes-confirm-mac.png)
 
-#### Descartar los cambios en una o más líneas
+### Descartar los cambios en una o más líneas
 Puedes descartar una o más líneas que hayan cambiado y que se hayan dejado de confirmar.
 
 {% note %}
@@ -95,20 +96,20 @@ Para descartar un grupo de líneas que cambiaron, da clic derecho en la barra ve
   ![Descartar un grupo de líneas agregadas en el diálogo de confirmación](/assets/images/help/desktop/discard-multiple-lines.png)
 
 
-### Escribir un mensaje de confirmación y subir los cambios
+## Escribir un mensaje de confirmación y subir los cambios
 
 Una vez que estés satisfecho con los cambios que elegiste incluir en tu confirmación, escribe tu mensaje de confirmación y sube los cambios. Si has colaborado en una confirmación, también puedes contribuir en una confirmación de más de un autor.
 
 {% note %}
 
-**Nota**: {% data reusables.desktop.tags-push-with-commits %} Para obtener más información, consulta la sección "[Administrar las etiquetas](/desktop/contributing-to-projects/managing-tags)".
+**Nota**: {% data reusables.desktop.tags-push-with-commits %} Para obtener más información, consulta la sección "[Administrar las etiquetas](/desktop/contributing-and-collaborating-using-github-desktop/managing-commits/managing-tags)".
 
 {% endnote %}
 
 {% data reusables.desktop.commit-message %}
 
   ![Campo para mensaje de confirmación](/assets/images/help/desktop/commit-message.png)
-2. De manera opcional, para atribuir una confirmación a otro autor, haz clic en el icono de coautores y escribe el nombre de usuario que deseas incluir.
+1. De manera opcional, para atribuir una confirmación a otro autor, haz clic en el icono de coautores y escribe el nombre de usuario que deseas incluir.
 
   ![Agregar un coautor al mensaje de confirmación](/assets/images/help/desktop/add-co-author-commit.png)
 {% data reusables.desktop.commit-button %}
@@ -122,3 +123,11 @@ Una vez que estés satisfecho con los cambios que elegiste incluir en tu confirm
 
   ![Advertencia de rama protegida](/assets/images/help/desktop/protected-branch-warning.png)
 {% data reusables.desktop.push-origin %}
+
+6. Si tienes una solicitud de cambios basada en la rama sobre la cual estás trabajando, {% data variables.product.prodname_desktop %} mostrará el estado de las verificaciones que se han ejecutado para dicha solicitud. Para obtener más información sobre las verificaciones, consulta la sección "[Ver y volver a ejecutar las verificaciones en GitHub Desktop](/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/viewing-and-re-running-checks-in-github-desktop)".
+
+ ![Checks display next to branch name](/assets/images/help/desktop/checks-dialog.png)
+
+ Si no se ha creado una solicitud de cambios para la rama actual, {% data variables.product.prodname_desktop %} te dará la opción de crear una. Para obtener más información, consulta la sección "[Crear un informe de problemas o solicitud de extracción](/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/creating-an-issue-or-pull-request)."
+
+ ![Crear una solicitud de extracción](/assets/images/help/desktop/mac-create-pull-request.png)

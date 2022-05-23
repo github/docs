@@ -1,38 +1,38 @@
 ---
-title: Tipos de eventos de los informes de problemas
-intro: 'Para la API de Eventos de Informes de Problemas y la API de Línea de Tiempo, aprende sobre cada tipo de evento, la acción que los activa en {% data variables.product.prodname_dotcom %} y las propiedades exclusivas de cada uno de ellos.'
+title: Issue event types
+intro: 'For the Issues Events API and Timeline API, learn about each event type, the triggering action on {% data variables.product.prodname_dotcom %}, and each event''s unique properties.'
 redirect_from:
   - /v3/issues/issue-event-types
   - /developers/webhooks-and-events/issue-event-types
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Events
 ---
+Issue events are triggered by activity in issues and pull requests and are available in the [Issue Events API](/rest/reference/issues#events) and the [Timeline Events API](/rest/reference/issues#timeline). Each event type specifies whether the event is available in the Issue Events or Timeline Events APIs.
 
-Los eventos de informes de problemas se activan dependiendo de la actividad en las solicitudes de extracción e informes de problemas y se encuentran disponibles en la [API de eventos de informes de problemas](/rest/reference/issues#events) y en la [API de Eventos de la Línea de Tiempo](/rest/reference/issues#timeline). Cada tipo de evento especifica si éste está disponible en la API de Eventos de los Informes de Problemas o en la de Eventos de la Línea de tiempo.
+GitHub's REST API considers every pull request to be an issue, but not every issue is a pull request. For this reason, the Issue Events and Timeline Events endpoints may return both issues and pull requests in the response. Pull requests have a `pull_request` property in the `issue` object. Because pull requests are issues, issue and pull request numbers do not overlap in a repository. For example, if you open your first issue in a repository, the number will be 1. If you then open a pull request, the number will be 2. Each event type specifies if the event occurs in pull request, issues, or both.
 
-La API de REST de GitHub considera a cada solicitud de extracción como un informe de problemas, pero no todos los informes de problemas consitutyen una solicitud de extracción. Por esta razón, las terminales de los Eventos de Informes de Problemas y las de Eventos de la Línea de Tiempo podrían devolver tanto informes de problemas como solicitudes de extracción en su respuesta. Las solicitudes de extracción tienen una propiedad de `pull_request` en el objeto del `issue`. Ya que todas las solicitudes de extracción son informes de problemas, las cantidades de unas y de otras no se duplican en un repositorio. Por ejemplo, si abres tu primer informe de problemas en un repositorio, la cantidad será de 1. Si después abres una solicitud de extracción, a cantidad será de 2. Cada tipo de evento especifica si éste ocurre en solicitudes de extracción, informes de problemas, o en ambos.
+## Issue event object common properties
 
-### Propiedades comunes del objeto del evento de los informes de problemas
-
-Los eventos de los informes de problemas tienen la misma estructura de objeto, excepto aquellos eventos que solo se encuentran disponibles en la API de Eventos de la Línea de Tiempo. Algunos eventos también incluyen propiedades adicionales que proporcionan más contexto acerca de los recursos de éstos. Consulta el evento específico para encontrar más detalles sobre cualquier propiedad que difiera de este formato de objeto.
+Issue events all have the same object structure, except events that are only available in the Timeline Events API. Some events also include additional properties that provide more context about the event resources. Refer to the specific event to for details about any properties that differ from this object format.
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
-### added_to_project
+## added_to_project
 
-El informe de problemas o solicitud de extracción se agregó a un tablero de proyecto. {% data reusables.projects.disabled-projects %}
+The issue or pull request was added to a project board. {% data reusables.projects.disabled-projects %}
 
-#### Disponibilidad
+### Availability
 
-| Tipo de Informe de Problemas | API de eventos de Informes de Problemas | API de eventos de la línea de Tiempo |
-|:---------------------------- |:---------------------------------------:|:------------------------------------:|
-| <ul><li>Problemas</li><li>Solicitud de extracción</li></ul>    |                  **X**                  |                **X**                 |
+|Issue type | Issue events API | Timeline events API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>Issues</li><li>Pull request</li></ul> | **X** | **X** |
 
-#### Propiedades del objeto del evento
+### Event object properties
 
 {% data reusables.pre-release-program.starfox-preview %}
 {% data reusables.pre-release-program.api-preview-warning %}
@@ -40,173 +40,173 @@ El informe de problemas o solicitud de extracción se agregó a un tablero de pr
 {% data reusables.issue-events.issue-event-common-properties %}
 {% data reusables.issue-events.project-card-properties %}
 
-### assigned
+## assigned
 
-El informe de problemas o solicitud de extracción se asignó al usuario.
+The issue or pull request was assigned to a user.
 
-#### Disponibilidad
+### Availability
 
-| Tipo de Informe de Problemas | API de eventos de Informes de Problemas | API de eventos de la línea de Tiempo |
-|:---------------------------- |:---------------------------------------:|:------------------------------------:|
-| <ul><li>Problemas</li><li>Solicitudes de cambios</li></ul>    |                  **X**                  |                **X**                 |
+|Issue type | Issue events API | Timeline events API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X**  |
 
-#### Propiedades del objeto del evento
+### Event object properties
 
 {% data reusables.issue-events.issue-event-common-properties %}
 {% data reusables.issue-events.assignee-properties %}
 
-### automatic_base_change_failed
+## automatic_base_change_failed
 
-GitHub intentó cambiar la rama base de la solicitud de extracción automáticamente y sin éxito.
+GitHub unsuccessfully attempted to automatically change the base branch of the pull request.
 
-#### Disponibilidad
+### Availability
 
-| Tipo de Informe de Problemas | API de eventos de Informes de Problemas | API de eventos de la línea de Tiempo |
-|:---------------------------- |:---------------------------------------:|:------------------------------------:|
-| <ul><li>Solicitudes de cambios</li></ul>    |                  **X**                  |                                      |
+|Issue type | Issue events API | Timeline events API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>Pull requests</li></ul> | **X** |  |
 
-#### Propiedades del objeto del evento
-
-{% data reusables.issue-events.issue-event-common-properties %}
-
-### automatic_base_change_succeeded
-
-GitHub intentó cambiar la rama base de la solicitud de extracción automáticamente con éxito.
-
-#### Disponibilidad
-
-| Tipo de Informe de Problemas | API de eventos de Informes de Problemas | API de eventos de la línea de Tiempo |
-|:---------------------------- |:---------------------------------------:|:------------------------------------:|
-| <ul><li>Solicitudes de cambios</li></ul>    |                  **X**                  |                                      |
-
-#### Propiedades del objeto del evento
+### Event object properties
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
-### base_ref_changed
+## automatic_base_change_succeeded
 
-La rama base de referencia de la solicitud de extracción cambió.
+GitHub successfully attempted to automatically change the base branch of the pull request.
 
-#### Disponibilidad
+### Availability
 
-| Tipo de Informe de Problemas | API de eventos de Informes de Problemas | API de eventos de la línea de Tiempo |
-|:---------------------------- |:---------------------------------------:|:------------------------------------:|
-| <ul><li>Solicitudes de cambios</li></ul>    |                  **X**                  |                                      |
+|Issue type | Issue events API | Timeline events API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>Pull requests</li></ul> | **X** | |
 
-#### Propiedades del objeto del evento
-
-{% data reusables.issue-events.issue-event-common-properties %}
-
-### closed
-
-Se cerró el informe de problemas o la solicitud de extracción. Cuando está presente la `commit_id`, esta identifica a la confirmación que cerró el informe de problemas utilizando la sintaxis de "cerrados/arreglados". Para obtener más información acerca de la sintaxis, consulta la sección "[Enlazar una solicitud de extracción con un informe de problemas](/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword)".
-
-#### Disponibilidad
-
-| Tipo de Informe de Problemas | API de eventos de Informes de Problemas | API de eventos de la línea de Tiempo |
-|:---------------------------- |:---------------------------------------:|:------------------------------------:|
-| <ul><li>Problemas</li><li>Solicitudes de cambios</li></ul>    |                  **X**                  |                **X**                 |
-
-#### Propiedades del objeto del evento
+### Event object properties
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
-### commented
+## base_ref_changed
 
-Un comentario se agregó al informe de problemas o solicitud de extracción.
+The base reference branch of the pull request changed.
 
-#### Disponibilidad
+### Availability
 
-| Tipo de Informe de Problemas | API de eventos de Informes de Problemas | API de eventos de la línea de Tiempo |
-|:---------------------------- |:---------------------------------------:|:------------------------------------:|
-| <ul><li>Problemas</li><li>Solicitudes de cambios</li></ul>    |                                         |                **X**                 |
+|Issue type | Issue events API | Timeline events API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>Pull requests</li></ul> | **X** | |
 
-#### Propiedades del objeto del evento
+### Event object properties
+
+{% data reusables.issue-events.issue-event-common-properties %}
+
+## closed
+
+The issue or pull request was closed. When the `commit_id` is present, it identifies the commit that closed the issue using "closes / fixes" syntax. For more information about the syntax, see "[Linking a pull request to an issue](/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword)".
+
+### Availability
+
+|Issue type | Issue events API | Timeline events API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
+
+### Event object properties
+
+{% data reusables.issue-events.issue-event-common-properties %}
+
+## commented
+
+A comment was added to the issue or pull request.
+
+### Availability
+
+|Issue type | Issue events API | Timeline events API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>Issues</li><li>Pull requests</li></ul> |  | **X** |
+
+### Event object properties
 
 {% data reusables.issue-events.timeline_events_object_properties %}
 
-| Nombre                   | Type        | Descripción                                                                                                                                                               |
-| ------------------------ | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `url`                    | `secuencia` | La URL de la API de REST que recuperará el comentario del informe de problemas.                                                                                           |
-| `html_url`               | `secuencia` | La URL de HTML para el comentario del informe de problemas.                                                                                                               |
-| `issue_url`              | `secuencia` | La URL de HTML para el informe de problemas.                                                                                                                              |
-| `id`                     | `número`    | El identificador único del evento.                                                                                                                                        |
-| `node_id`                | `secuencia` | La [ID de Nodo Global](/graphql/guides/using-global-node-ids) del evento.                                                                                                 |
-| `usuario`                | `objeto`    | La persona que comentó en el informe de problemas.                                                                                                                        |
-| `created_at (creado en)` | `secuencia` | La marca de tiempo que indica cuándo se agregó el comentario.                                                                                                             |
-| `updated_at`             | `secuencia` | La marca de tiempo que indica cuándo se actualizó o creó el comentario en caso de que éste jamás se haya actualizado.                                                     |
-| `author_association`     | `secuencia` | Los permisos que tiene el usuario en el repositorio del informe de problemas. Por ejemplo, el valor sería `"OWNER"` si el propietario del repositorio creó un comentario. |
-| `cuerpo`                 | `secuencia` | El cuerpo de texto del comentario.                                                                                                                                        |
-| `event`                  | `secuencia` | El valor del evento es `"commented"`.                                                                                                                                     |
-| `actor (actor)`          | `objeto`    | La persona que generó el evento.                                                                                                                                          |
+Name | Type | Description
+-----|------|--------------
+`url` | `string` | The REST API URL to retrieve the issue comment.
+`html_url` | `string` | The HTML URL of the issue comment.
+`issue_url` | `string` | The HTML URL of the issue.
+`id` | `integer` | The unique identifier of the event.
+`node_id` | `string` | The [Global Node ID]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-global-node-ids) of the event.
+`user` | `object` | The person who commented on the issue.
+`created_at` | `string` | The timestamp indicating when the comment was added.
+`updated_at` | `string` | The timestamp indicating when the comment was updated or created, if the comment is never updated.
+`author_association` | `string` | The permissions the user has in the issue's repository. For example, the value would be `"OWNER"` if the owner of repository created a comment.
+`body` | `string` | The comment body text.
+`event` | `string` | The event value is `"commented"`.
+`actor` | `object` | The person who generated the event.
 
-### committed
+## committed
 
-Una confirmación se agregó a la rama `HEAD` de la solicitud de extracción.
+A commit was added to the pull request's `HEAD` branch.
 
-#### Disponibilidad
+### Availability
 
-| Tipo de Informe de Problemas | API de eventos de Informes de Problemas | API de eventos de la línea de Tiempo |
-|:---------------------------- |:---------------------------------------:|:------------------------------------:|
-| <ul><li>Solicitudes de cambios</li></ul>    |                                         |                **X**                 |
+|Issue type | Issue events API | Timeline events API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>Pull requests</li></ul> |  | **X** |
 
-#### Propiedades del objeto del evento
+### Event object properties
 
 {% data reusables.issue-events.timeline_events_object_properties %}
 
-| Nombre         | Type                | Descripción                                                                                                                                                                      |
-| -------------- | ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `sha`          | `secuencia`         | El SHA de la confirmación en la solicitud de extracción.                                                                                                                         |
-| `node_id`      | `secuencia`         | La [ID de Nodo Global](/graphql/guides/using-global-node-ids) del evento.                                                                                                        |
-| `url`          | `secuencia`         | La URL de la API de REST que recuperará la confirmación.                                                                                                                         |
-| `html_url`     | `secuencia`         | La URL de HTML de la confirmación.                                                                                                                                               |
-| `autor`        | `objeto`            | La persona que autorizó la confirmación.                                                                                                                                         |
-| `confirmante`  | `objeto`            | La persona que confirmó la confirmación en nombre del autor.                                                                                                                     |
-| `árbol`        | `objeto`            | El árbol de Git de la confirmación.                                                                                                                                              |
-| `message`      | `secuencia`         | El mensaje de la confirmación.                                                                                                                                                   |
-| `parents`      | `matriz de objetos` | Una lista de confirmaciones padre.                                                                                                                                               |
-| `verificación` | `objeto`            | El resultado de verificar la firma de la confirmación. Para obtener más información, consulta la sección "[Objeto de verificación de firmas](/rest/reference/git#get-a-commit)". |
-| `event`        | `secuencia`         | El valor del evento es `"committed"`.                                                                                                                                            |
+Name | Type | Description
+-----|------|--------------
+`sha` | `string` | The SHA of the commit in the pull request.
+`node_id` | `string` | The [Global Node ID]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-global-node-ids) of the event.
+`url` | `string` | The REST API URL to retrieve the commit.
+`html_url` | `string` | The HTML URL of the commit.
+`author` | `object` | The person who authored the commit.
+`committer` | `object` | The person who committed the commit on behalf of the author.
+`tree` | `object` | The Git tree of the commit.
+`message` | `string` | The commit message.
+`parents` | `array of objects` | A list of parent commits.
+`verification` | `object` | The result of verifying the commit's signature. For more information, see "[Signature verification object](/rest/reference/git#get-a-commit)."
+`event` | `string` | The event value is `"committed"`.
 
-### connected
+## connected
 
-El informe de problemas o solicitud de extracción se vinculó a otro informe de problemas o solicitud de extracción. Para obtener más información, consulta la sección "[Vincular una solicitud de extracción a un informe de problemas](/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue)".
+The issue or pull request was linked to another issue or pull request. For more information, see "[Linking a pull request to an issue](/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue)".
 
-#### Disponibilidad
+### Availability
 
-| Tipo de Informe de Problemas | API de eventos de Informes de Problemas | API de eventos de la línea de Tiempo |
-|:---------------------------- |:---------------------------------------:|:------------------------------------:|
-| <ul><li>Problemas</li><li>Solicitudes de cambios</li></ul>    |                  **X**                  |                **X**                 |
+|Issue type | Issue events API | Timeline events API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
 
-#### Propiedades del objeto del evento
-
-{% data reusables.issue-events.issue-event-common-properties %}
-
-### convert_to_draft
-
-La solicitud de extracción se convirtió a modo borrador.
-
-#### Disponibilidad
-
-| Tipo de Informe de Problemas | API de eventos de Informes de Problemas | API de eventos de la línea de Tiempo |
-|:---------------------------- |:---------------------------------------:|:------------------------------------:|
-| <ul><li>Solicitudes de cambios</li></ul>    |                  **X**                  |                **X**                 |
-
-#### Propiedades del objeto del evento
+### Event object properties
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
-### converted_note_to_issue
+## convert_to_draft
 
-El informe de problemas se creó convirtiendo una nota en un tablero de proyecto para un informe de problemas. {% data reusables.projects.disabled-projects %}
+The pull request was converted to draft mode.
 
-#### Disponibilidad
+### Availability
 
-| Tipo de Informe de Problemas | API de eventos de Informes de Problemas | API de eventos de la línea de Tiempo |
-|:---------------------------- |:---------------------------------------:|:------------------------------------:|
-| <ul><li>Problemas</li></ul>   |                  **X**                  |                **X**                 |
+|Issue type | Issue events API | Timeline events API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>Pull requests</li></ul> | **X** | **X** |
 
-#### Propiedades del objeto del evento
+### Event object properties
+
+{% data reusables.issue-events.issue-event-common-properties %}
+
+## converted_note_to_issue
+
+The issue was created by converting a note in a project board to an issue. {% data reusables.projects.disabled-projects %}
+
+### Availability
+
+|Issue type | Issue events API | Timeline events API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>Issues</li></ul> | **X** | **X** |
+
+### Event object properties
 
 {% data reusables.pre-release-program.starfox-preview %}
 {% data reusables.pre-release-program.api-preview-warning %}
@@ -214,279 +214,286 @@ El informe de problemas se creó convirtiendo una nota en un tablero de proyecto
 {% data reusables.issue-events.issue-event-common-properties %}
 {% data reusables.issue-events.project-card-properties %}
 
-### cross-referenced
+## cross-referenced
 
-El informe de problemas o solicitud de extración se referenció desde otro informe de problemas o solicitud de extracción.
+The issue or pull request was referenced from another issue or pull request.
 
-#### Disponibilidad
+### Availability
 
-| Tipo de Informe de Problemas | API de eventos de Informes de Problemas | API de eventos de la línea de Tiempo |
-|:---------------------------- |:---------------------------------------:|:------------------------------------:|
-| <ul><li>Problemas</li><li>Solicitudes de cambios</li></ul>   |                                         |                **X**                 |
+|Issue type | Issue events API | Timeline events API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>Issues</li><li>Pull requests</li></ul> |  | **X** |
 
-#### Propiedades del objeto del evento
+### Event object properties
 
 {% data reusables.issue-events.timeline_events_object_properties %}
 
-| Nombre                   | Type        | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| ------------------------ | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `actor (actor)`          | `objeto`    | La persona que generó el evento.                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| `created_at (creado en)` | `secuencia` | La marca de tiempo que indica cuándo se agregó la referencia cruzada.                                                                                                                                                                                                                                                                                                                                                                               |
-| `updated_at`             | `secuencia` | La marca de tiempo que indica cuándo se actualizó o creó la referencia cruzada en caso de que ésta jamás se haya actualizado.                                                                                                                                                                                                                                                                                                                       |
-| `source`                 | `objeto`    | La solicitud de extracción o informe de problemas que agregó la referencia cruzada.                                                                                                                                                                                                                                                                                                                                                                 |
-| `source[type]`           | `secuencia` | Este valor siempre será `"issue"` ya que las solicitudes de extracción son un tipo de informe de rpoblemas. En la API de Eventos de la Línea de Tiempo solo se devolverán los eventos de referencia cruzada que se activen con informes de problemas o solicitudes de extracción. Puedes verificar si existe el objeto `source[issue][pull_request` para determinar si el informe de problemas que activó el evento es una solicitud de extracción. |
-| `source[issue]`          | `objeto`    | El objeto del `issue` que agregó la referencia cruzada.                                                                                                                                                                                                                                                                                                                                                                                             |
-| `event`                  | `secuencia` | El valor del evento es `"cross-referenced"`.                                                                                                                                                                                                                                                                                                                                                                                                        |
+Name | Type | Description
+-----|------|--------------
+`actor` | `object` | The person who generated the event.
+`created_at` | `string` | The timestamp indicating when the cross-reference was added.
+`updated_at` | `string` | The timestamp indicating when the cross-reference was updated or created, if the cross-reference is never updated.
+`source` | `object` | The issue or pull request that added a cross-reference.
+`source[type]` | `string` | This value will always be `"issue"` because pull requests are of type issue. Only cross-reference events triggered by issues or pull requests are returned in the Timeline Events API. To determine if the issue that triggered the event is a pull request, you can check if the `source[issue][pull_request` object exists.
+`source[issue]` | `object` | The `issue` object that added the cross-reference.
+`event` | `string` | The event value is `"cross-referenced"`.
 
-### demilestoned
+## demilestoned
 
-El informe de problemas o solicitud de extracción se elimnó de un hito.
+The issue or pull request was removed from a milestone.
 
-#### Disponibilidad
+### Availability
 
-| Tipo de Informe de Problemas | API de eventos de Informes de Problemas | API de eventos de la línea de Tiempo |
-|:---------------------------- |:---------------------------------------:|:------------------------------------:|
-| <ul><li>Problemas</li><li>Solicitudes de cambios</li></ul>   |                  **X**                  |                **X**                 |
+|Issue type | Issue events API | Timeline events API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
 
-#### Propiedades del objeto del evento
-
-{% data reusables.issue-events.issue-event-common-properties %}
-`milestone` | `object` | El objeto del hito. `milestone[title]` | `string` | El título del hito.
-
-### deployed
-
-Se desplegó la solicitud de extracción.
-
-#### Disponibilidad
-
-| Tipo de Informe de Problemas | API de eventos de Informes de Problemas | API de eventos de la línea de Tiempo |
-|:---------------------------- |:---------------------------------------:|:------------------------------------:|
-| <ul><li>Solicitudes de cambios</li></ul>   |                  **X**                  |                **X**                 |
-
-#### Propiedades del objeto del evento
+### Event object properties
 
 {% data reusables.issue-events.issue-event-common-properties %}
+`milestone` | `object` | The milestone object.
+`milestone[title]` | `string` | The title of the milestone.
 
-### deployment_environment_changed
+## deployed
 
-El ambiente de despliegue de la solicitud de extracción cambió.
+The pull request was deployed.
 
-#### Disponibilidad
+### Availability
 
-| Tipo de Informe de Problemas | API de eventos de Informes de Problemas | API de eventos de la línea de Tiempo |
-|:---------------------------- |:---------------------------------------:|:------------------------------------:|
-| <ul><li>Solicitudes de cambios</li></ul>   |                  **X**                  |                                      |
+|Issue type | Issue events API | Timeline events API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>Pull requests</li></ul> | **X** | **X** |
 
-#### Propiedades del objeto del evento
+### Event object properties
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
-### disconnected
+## deployment_environment_changed
 
-El informe de problemas o solicitud de extracción se desvinculó de otro informe de problemas o solicitud de extracción. Para obtener más información, consulta la sección "[Vincular una solicitud de extracción a un informe de problemas](/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue)".
+The pull request deployment environment was changed.
 
-#### Disponibilidad
+### Availability
 
-| Tipo de Informe de Problemas | API de eventos de Informes de Problemas | API de eventos de la línea de Tiempo |
-|:---------------------------- |:---------------------------------------:|:------------------------------------:|
-| <ul><li>Problemas</li><li>Solicitudes de cambios</li></ul>   |                  **X**                  |                **X**                 |
+|Issue type | Issue events API | Timeline events API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>Pull requests</li></ul> | **X** |  |
 
-#### Propiedades del objeto del evento
-
-{% data reusables.issue-events.issue-event-common-properties %}
-
-### head_ref_deleted
-
-Se eliminó la rama `HEAD` de la solicitud de extracción.
-
-#### Disponibilidad
-
-| Tipo de Informe de Problemas | API de eventos de Informes de Problemas | API de eventos de la línea de Tiempo |
-|:---------------------------- |:---------------------------------------:|:------------------------------------:|
-| <ul><li>Solicitudes de cambios</li></ul>   |                  **X**                  |                **X**                 |
-
-#### Propiedades del objeto del evento
+### Event object properties
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
-### head_ref_restored
+## disconnected
 
-Se restauró la rama `HEAD` de la solicitud de extracción a su última confirmación conocida.
+The issue or pull request was unlinked from another issue or pull request. For more information, see "[Linking a pull request to an issue](/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue)".
 
-#### Disponibilidad
+### Availability
 
-| Tipo de Informe de Problemas | API de eventos de Informes de Problemas | API de eventos de la línea de Tiempo |
-|:---------------------------- |:---------------------------------------:|:------------------------------------:|
-| <ul><li>Solicitudes de cambios</li></ul>   |                  **X**                  |                **X**                 |
+|Issue type | Issue events API | Timeline events API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
 
-#### Propiedades del objeto del evento
+### Event object properties
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
-### labeled
+## head_ref_deleted
 
-Se agregó una etiqueta al informe de problemas o solicitud de extracción.
+The pull request's `HEAD` branch was deleted.
 
-#### Disponibilidad
+### Availability
 
-| Tipo de Informe de Problemas | API de eventos de Informes de Problemas | API de eventos de la línea de Tiempo |
-|:---------------------------- |:---------------------------------------:|:------------------------------------:|
-| <ul><li>Problemas</li><li>Solicitudes de cambios</li></ul>   |                  **X**                  |                **X**                 |
+|Issue type | Issue events API | Timeline events API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>Pull requests</li></ul> | **X** | **X** |
 
-#### Propiedades del objeto del evento
+### Event object properties
+
+{% data reusables.issue-events.issue-event-common-properties %}
+
+## head_ref_restored
+
+The pull request's `HEAD` branch was restored to the last known commit.
+
+### Availability
+
+|Issue type | Issue events API | Timeline events API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>Pull requests</li></ul> | **X** | **X** |
+
+## head_ref_force_pushed
+
+The pull request's HEAD branch was force pushed.
+
+### Availability
+
+|Issue type | Issue events API | Timeline events API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>Pull requests</li></ul> | **X** | **X** |
+
+### Event object properties
+
+{% data reusables.issue-events.issue-event-common-properties %}
+
+## labeled
+
+A label was added to the issue or pull request.
+
+### Availability
+
+|Issue type | Issue events API | Timeline events API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
+
+### Event object properties
 
 {% data reusables.issue-events.issue-event-common-properties %}
 {% data reusables.issue-events.label-properties %}
 
-### locked
+## locked
 
-Se bloqueó el informe de problemas o la solicitud de extracción.
+The issue or pull request was locked.
 
-#### Disponibilidad
+### Availability
 
-| Tipo de Informe de Problemas | API de eventos de Informes de Problemas | API de eventos de la línea de Tiempo |
-|:---------------------------- |:---------------------------------------:|:------------------------------------:|
-| <ul><li>Problemas</li><li>Solicitudes de cambios</li></ul>   |                  **X**                  |                **X**                 |
+|Issue type | Issue events API | Timeline events API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
 
-#### Propiedades del objeto del evento
-
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
-{% data reusables.pre-release-program.sailor-v-preview %}
-{% data reusables.pre-release-program.api-preview-warning %}
-{% endif %}
+### Event object properties
 
 {% data reusables.issue-events.issue-event-common-properties %}
-`lock_reason` | `string` | La razón por la cual se bloqueó un informe de problemas o solicitud de extracción, si es que se proporcionó alguna.
+`lock_reason` | `string` | The reason an issue or pull request conversation was locked, if one was provided.
 
-### mentioned
+## mentioned
 
-Se `@mentioned` al `actor` en el cuerpo de un informe de problemas o solicitud de extracción.
+The `actor` was `@mentioned` in an issue or pull request body.
 
-#### Disponibilidad
+### Availability
 
-| Tipo de Informe de Problemas | API de eventos de Informes de Problemas | API de eventos de la línea de Tiempo |
-|:---------------------------- |:---------------------------------------:|:------------------------------------:|
-| <ul><li>Problemas</li><li>Solicitudes de cambios</li></ul>   |                  **X**                  |                **X**                 |
+|Issue type | Issue events API | Timeline events API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
 
-#### Propiedades del objeto del evento
+### Event object properties
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
-### marked_as_duplicate
+## marked_as_duplicate
 
-Un usuario con permisos de escritura marcó un informe de problemas como el duplicado de otro, o el mismo caso con alguna solicitud de extracción.
+A user with write permissions marked an issue as a duplicate of another issue, or a pull request as a duplicate of another pull request.
 
-#### Disponibilidad
+### Availability
 
-| Tipo de Informe de Problemas | API de eventos de Informes de Problemas | API de eventos de la línea de Tiempo |
-|:---------------------------- |:---------------------------------------:|:------------------------------------:|
-| <ul><li>Problemas</li><li>Solicitudes de cambios</li></ul>   |                  **X**                  |                **X**                 |
+|Issue type | Issue events API | Timeline events API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
 
-#### Propiedades del objeto del evento
-
-{% data reusables.issue-events.issue-event-common-properties %}
-
-### fusionado
-
-Se fusionó la solicitud de extracción. El atributo de `commit_id` es el SHA1 de la confirmación `HEAD` que se fusionó. El `commit_repository` siempre es el mismo que el repositorio principal.
-
-#### Disponibilidad
-
-| Tipo de Informe de Problemas | API de eventos de Informes de Problemas | API de eventos de la línea de Tiempo |
-|:---------------------------- |:---------------------------------------:|:------------------------------------:|
-| <ul><li>Solicitudes de cambios</li></ul>   |                  **X**                  |                                      |
-
-#### Propiedades del objeto del evento
+### Event object properties
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
-### milestoned
+## merged
 
-El informe de problemas o solicitud de extracción se agregó a un hito.
+The pull request was merged. The `commit_id` attribute is the SHA1 of the `HEAD` commit that was merged. The `commit_repository` is always the same as the main repository.
 
-#### Disponibilidad
+### Availability
 
-| Tipo de Informe de Problemas | API de eventos de Informes de Problemas | API de eventos de la línea de Tiempo |
-|:---------------------------- |:---------------------------------------:|:------------------------------------:|
-| <ul><li>Problemas</li><li>Solicitudes de cambios</li></ul>   |                  **X**                  |                **X**                 |
+|Issue type | Issue events API | Timeline events API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>Pull requests</li></ul> | **X** | **X** |
 
-#### Propiedades del objeto del evento
+### Event object properties
 
 {% data reusables.issue-events.issue-event-common-properties %}
-`milestone` | `object` | El objeto del hito. `milestone[title]` | `string` | El título del hito.
 
-### moved_columns_in_project
+## milestoned
 
-El informe de problemas o solicitud de extracción se movió entre columnas en un tablero de proyecto. {% data reusables.projects.disabled-projects %}
+The issue or pull request was added to a milestone.
 
-#### Disponibilidad
+### Availability
 
-| Tipo de Informe de Problemas | API de eventos de Informes de Problemas | API de eventos de la línea de Tiempo |
-|:---------------------------- |:---------------------------------------:|:------------------------------------:|
-| <ul><li>Problemas</li><li>Solicitudes de cambios</li></ul>   |                  **X**                  |                **X**                 |
+|Issue type | Issue events API | Timeline events API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
 
-#### Propiedades del objeto del evento
+### Event object properties
+
+{% data reusables.issue-events.issue-event-common-properties %}
+`milestone` | `object` | The milestone object.
+`milestone[title]` | `string` | The title of the milestone.
+
+## moved_columns_in_project
+
+The issue or pull request was moved between columns in a project board. {% data reusables.projects.disabled-projects %}
+
+### Availability
+
+|Issue type | Issue events API | Timeline events API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
+
+### Event object properties
 
 {% data reusables.pre-release-program.starfox-preview %}
 {% data reusables.pre-release-program.api-preview-warning %}
 
 {% data reusables.issue-events.issue-event-common-properties %}
 {% data reusables.issue-events.project-card-properties %}
-`previous_column_name` | `string` | El nombre de la columna desde la cual se movió el informe de problemas.
+`previous_column_name` | `string` | The name of the column the issue was moved from.
 
-### pinned
+## pinned
 
-Se fijó el informe de problemas.
+The issue was pinned.
 
-#### Disponibilidad
+### Availability
 
-| Tipo de Informe de Problemas | API de eventos de Informes de Problemas | API de eventos de la línea de Tiempo |
-|:---------------------------- |:---------------------------------------:|:------------------------------------:|
-| <ul><li>Problemas</li></ul>   |                  **X**                  |                **X**                 |
+|Issue type | Issue events API | Timeline events API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>Issues</li></ul> | **X** | **X** |
 
-#### Propiedades del objeto del evento
-
-{% data reusables.issue-events.issue-event-common-properties %}
-
-### ready_for_review
-
-Se creó una solicitud de extracción que no está en modo borrador.
-
-#### Disponibilidad
-
-| Tipo de Informe de Problemas | API de eventos de Informes de Problemas | API de eventos de la línea de Tiempo |
-|:---------------------------- |:---------------------------------------:|:------------------------------------:|
-| <ul><li>Solicitudes de cambios</li></ul>   |                  **X**                  |                **X**                 |
-
-#### Propiedades del objeto del evento
+### Event object properties
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
-### referenced
+## ready_for_review
 
-Se referenció al informe de problemas desde un mensaje de confirmación. El atributo `commit_id` es la confirmación de tipo SHA1 de donde eso sucedió y el commit_repository es el lugar donde se cargó esa confirmación.
+A draft pull request was marked as ready for review.
 
-#### Disponibilidad
+### Availability
 
-| Tipo de Informe de Problemas | API de eventos de Informes de Problemas | API de eventos de la línea de Tiempo |
-|:---------------------------- |:---------------------------------------:|:------------------------------------:|
-| <ul><li>Problemas</li><li>Solicitudes de cambios</li></ul>   |                  **X**                  |                **X**                 |
+|Issue type | Issue events API | Timeline events API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>Pull requests</li></ul> | **X** | **X** |
 
-#### Propiedades del objeto del evento
+### Event object properties
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
-### removed_from_project
+## referenced
 
-El informe de problemas o solicitud de extracción se eliminó de un tablero de proyecto. {% data reusables.projects.disabled-projects %}
+The issue was referenced from a commit message. The `commit_id` attribute is the commit SHA1 of where that happened and the commit_repository is where that commit was pushed.
 
-#### Disponibilidad
+### Availability
 
-| Tipo de Informe de Problemas | API de eventos de Informes de Problemas | API de eventos de la línea de Tiempo |
-|:---------------------------- |:---------------------------------------:|:------------------------------------:|
-| <ul><li>Problemas</li><li>Solicitudes de cambios</li></ul>   |                  **X**                  |                **X**                 |
+|Issue type | Issue events API | Timeline events API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
 
-#### Propiedades del objeto del evento
+### Event object properties
+
+{% data reusables.issue-events.issue-event-common-properties %}
+
+## removed_from_project
+
+The issue or pull request was removed from a project board. {% data reusables.projects.disabled-projects %}
+
+### Availability
+
+|Issue type | Issue events API | Timeline events API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
+
+### Event object properties
 
 {% data reusables.pre-release-program.starfox-preview %}
 {% data reusables.pre-release-program.api-preview-warning %}
@@ -494,241 +501,238 @@ El informe de problemas o solicitud de extracción se eliminó de un tablero de 
 {% data reusables.issue-events.issue-event-common-properties %}
 {% data reusables.issue-events.project-card-properties %}
 
-### renombrado
+## renamed
 
-Se cambió el informe de problemas o la solicitud de extracción.
+The issue or pull request title was changed.
 
-#### Disponibilidad
+### Availability
 
-| Tipo de Informe de Problemas | API de eventos de Informes de Problemas | API de eventos de la línea de Tiempo |
-|:---------------------------- |:---------------------------------------:|:------------------------------------:|
-| <ul><li>Problemas</li><li>Solicitudes de cambios</li></ul>   |                  **X**                  |                **X**                 |
+|Issue type | Issue events API | Timeline events API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
 
-#### Propiedades del objeto del evento
-
-{% data reusables.issue-events.issue-event-common-properties %}
-`rename` | `object` | Los detalles del nombre. `rename[from]` | `string` | El nombre anterior. `rename[to]` | `string` | El nombre nuevo.
-
-### reopened
-
-El informe de problemas o solicitud de extracción se reabrió.
-
-#### Disponibilidad
-
-| Tipo de Informe de Problemas | API de eventos de Informes de Problemas | API de eventos de la línea de Tiempo |
-|:---------------------------- |:---------------------------------------:|:------------------------------------:|
-| <ul><li>Problemas</li><li>Solicitudes de cambios</li></ul>   |                  **X**                  |                **X**                 |
-
-#### Propiedades del objeto del evento
+### Event object properties
 
 {% data reusables.issue-events.issue-event-common-properties %}
+`rename` | `object` | The name details.
+`rename[from]` | `string` | The previous name.
+`rename[to]` | `string` | The new name.
 
-### review_dismissed
+## reopened
 
-Se destituyó la revisión de la solicitud de extracción.
+The issue or pull request was reopened.
 
-#### Disponibilidad
+### Availability
 
-| Tipo de Informe de Problemas | API de eventos de Informes de Problemas | API de eventos de la línea de Tiempo |
-|:---------------------------- |:---------------------------------------:|:------------------------------------:|
-| <ul><li>Solicitudes de cambios</li></ul>   |                  **X**                  |                **X**                 |
+|Issue type | Issue events API | Timeline events API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
 
-#### Propiedades del objeto del evento
+### Event object properties
+
+{% data reusables.issue-events.issue-event-common-properties %}
+
+## review_dismissed
+
+The pull request review was dismissed.
+
+### Availability
+
+|Issue type | Issue events API | Timeline events API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>Pull requests</li></ul> | **X** | **X** |
+
+### Event object properties
 
 {% data reusables.issue-events.issue-event-common-properties %}
 {% data reusables.issue-events.review-dismissed-properties %}
 
-### review_requested
+## review_requested
 
-Se solicitó una revisión de una solicitud de extracción.
+A pull request review was requested.
 
-#### Disponibilidad
+### Availability
 
-| Tipo de Informe de Problemas | API de eventos de Informes de Problemas | API de eventos de la línea de Tiempo |
-|:---------------------------- |:---------------------------------------:|:------------------------------------:|
-| <ul><li>Solicitudes de cambios</li></ul>   |                  **X**                  |                **X**                 |
+|Issue type | Issue events API | Timeline events API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>Pull requests</li></ul> | **X** | **X** |
 
-#### Propiedades del objeto del evento
-
-{% data reusables.issue-events.issue-event-common-properties %}
-{% data reusables.issue-events.review-request-properties %}
-
-### review_request_removed
-
-Se eliminó una solicitud de revisión para una solicitud de extracción.
-
-#### Disponibilidad
-
-| Tipo de Informe de Problemas | API de eventos de Informes de Problemas | API de eventos de la línea de Tiempo |
-|:---------------------------- |:---------------------------------------:|:------------------------------------:|
-| <ul><li>Solicitudes de cambios</li></ul>   |                  **X**                  |                **X**                 |
-
-#### Propiedades del objeto del evento
+### Event object properties
 
 {% data reusables.issue-events.issue-event-common-properties %}
 {% data reusables.issue-events.review-request-properties %}
 
-### reviewed
+## review_request_removed
 
-Se revisió la solicitud de extracción.
+A pull request review request was removed.
 
-#### Disponibilidad
+### Availability
 
-| Tipo de Informe de Problemas | API de eventos de Informes de Problemas | API de eventos de la línea de Tiempo |
-|:---------------------------- |:---------------------------------------:|:------------------------------------:|
-| <ul><li>Solicitudes de cambios</li></ul>   |                                         |                **X**                 |
+|Issue type | Issue events API | Timeline events API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>Pull requests</li></ul> | **X** | **X** |
 
-#### Propiedades del objeto del evento
+### Event object properties
+
+{% data reusables.issue-events.issue-event-common-properties %}
+{% data reusables.issue-events.review-request-properties %}
+
+## reviewed
+
+The pull request was reviewed.
+
+### Availability
+
+|Issue type | Issue events API | Timeline events API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>Pull requests</li></ul> |  | **X** |
+
+### Event object properties
 
 {% data reusables.issue-events.timeline_events_object_properties %}
 
-| Nombre               | Type        | Descripción                                                                                                                                                               |
-| -------------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `id`                 | `número`    | El identificador único del evento.                                                                                                                                        |
-| `node_id`            | `secuencia` | La [ID de Nodo Global](/graphql/guides/using-global-node-ids) del evento.                                                                                                 |
-| `usuario`            | `objeto`    | La persona que comentó en el informe de problemas.                                                                                                                        |
-| `cuerpo`             | `secuencia` | El texto de resúmen de la revisión.                                                                                                                                       |
-| `commit_id`          | `secuencia` | El SHA de la última confirmación en la soicitud de extracción al momento de la revisión.                                                                                  |
-| `submitted_at`       | `secuencia` | La marca de tiempo que indica cuándo se emitió la revisión.                                                                                                               |
-| `state`              | `secuencia` | El estado de la revisión emitida. Puede ser uno de entre: `commented`, `changes_requested`, o `approved`.                                                                 |
-| `html_url`           | `secuencia` | La URL de HTML para la revisión.                                                                                                                                          |
-| `pull_request_url`   | `secuencia` | La URL de la API de REST que recuperará la solicitud de extracción.                                                                                                       |
-| `author_association` | `secuencia` | Los permisos que tiene el usuario en el repositorio del informe de problemas. Por ejemplo, el valor sería `"OWNER"` si el propietario del repositorio creó un comentario. |
-| `_links`             | `objeto`    | El `html_url` y `pull_request_url`.                                                                                                                                       |
-| `event`              | `secuencia` | El valor del evento es `"reviewed"`.                                                                                                                                      |
+Name | Type | Description
+-----|------|--------------
+`id` | `integer` | The unique identifier of the event.
+`node_id` | `string` | The [Global Node ID]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-global-node-ids) of the event.
+`user` | `object` | The person who commented on the issue.
+`body` | `string` | The review summary text.
+`commit_id` | `string` | The SHA of the latest commit in the pull request at the time of the review.
+`submitted_at` | `string` | The timestamp indicating when the review was submitted.
+`state` | `string` | The state of the submitted review. Can be one of: `commented`, `changes_requested`, or `approved`.
+`html_url` | `string` | The HTML URL of the review.
+`pull_request_url` | `string` | The REST API URL to retrieve the pull request.
+`author_association` | `string` | The permissions the user has in the issue's repository. For example, the value would be `"OWNER"` if the owner of repository created a comment.
+`_links` | `object` | The `html_url` and `pull_request_url`.
+`event` | `string` | The event value is `"reviewed"`.
 
-### subscribed
+## subscribed
 
-Alguien se suscribió para recibir notificaciones para un informe de problemas o solicitud de extracción.
+Someone subscribed to receive notifications for an issue or pull request.
 
-#### Disponibilidad
+### Availability
 
-| Tipo de Informe de Problemas | API de eventos de Informes de Problemas | API de eventos de la línea de Tiempo |
-|:---------------------------- |:---------------------------------------:|:------------------------------------:|
-| <ul><li>Problemas</li><li>Solicitudes de cambios</li></ul>   |                  **X**                  |                **X**                 |
+|Issue type | Issue events API | Timeline events API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
 
-#### Propiedades del objeto del evento
-
-{% data reusables.issue-events.issue-event-common-properties %}
-
-### transferred
-
-El informe de problemas se transfirió a otro repositorio.
-
-#### Disponibilidad
-
-| Tipo de Informe de Problemas | API de eventos de Informes de Problemas | API de eventos de la línea de Tiempo |
-|:---------------------------- |:---------------------------------------:|:------------------------------------:|
-| <ul><li>Problemas</li></ul>   |                  **X**                  |                **X**                 |
-
-#### Propiedades del objeto del evento
+### Event object properties
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
-### unassigned
+## transferred
 
-De desasignó a un usuario del informe de problemas.
+The issue was transferred to another repository.
 
-#### Disponibilidad
+### Availability
 
-| Tipo de Informe de Problemas | API de eventos de Informes de Problemas | API de eventos de la línea de Tiempo |
-|:---------------------------- |:---------------------------------------:|:------------------------------------:|
-| <ul><li>Problemas</li><li>Solicitudes de cambios</li></ul>   |                  **X**                  |                **X**                 |
+|Issue type | Issue events API | Timeline events API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>Issues</li></ul> | **X** | **X** |
 
-#### Propiedades del objeto del evento
+### Event object properties
+
+{% data reusables.issue-events.issue-event-common-properties %}
+
+## unassigned
+
+A user was unassigned from the issue.
+
+### Availability
+
+|Issue type | Issue events API | Timeline events API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
+
+### Event object properties
 
 {% data reusables.issue-events.issue-event-common-properties %}
 {% data reusables.issue-events.assignee-properties %}
 
-### unlabeled
+## unlabeled
 
-La etiqueta se eliminó del informe de problemas.
+A label was removed from the issue.
 
-#### Disponibilidad
+### Availability
 
-| Tipo de Informe de Problemas | API de eventos de Informes de Problemas | API de eventos de la línea de Tiempo |
-|:---------------------------- |:---------------------------------------:|:------------------------------------:|
-| <ul><li>Problemas</li><li>Solicitudes de cambios</li></ul>   |                  **X**                  |                **X**                 |
+|Issue type | Issue events API | Timeline events API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
 
-#### Propiedades del objeto del evento
+### Event object properties
 
 {% data reusables.issue-events.issue-event-common-properties %}
 {% data reusables.issue-events.label-properties %}
 
-### unlocked
+## unlocked
 
-Se desbloqueó el informe de problemas.
+The issue was unlocked.
 
-#### Disponibilidad
+### Availability
 
-| Tipo de Informe de Problemas | API de eventos de Informes de Problemas | API de eventos de la línea de Tiempo |
-|:---------------------------- |:---------------------------------------:|:------------------------------------:|
-| <ul><li>Problemas</li><li>Solicitudes de cambios</li></ul>   |                  **X**                  |                **X**                 |
+|Issue type | Issue events API | Timeline events API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
 
-#### Propiedades del objeto del evento
-
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
-{% data reusables.pre-release-program.sailor-v-preview %}
-{% data reusables.pre-release-program.api-preview-warning %}
-{% endif %}
+### Event object properties
 
 {% data reusables.issue-events.issue-event-common-properties %}
-`lock_reason` | `string` | La razón por la cual se bloqueó un informe de problemas o solicitud de extracción, si es que se proporcionó alguna.
+`lock_reason` | `string` | The reason an issue or pull request conversation was locked, if one was provided.
 
-### unmarked_as_duplicate
+## unmarked_as_duplicate
 
-Un informe de problemas que algún usuario había marcado previamente como duplicado de otro informe de problemas ya no se considera como duplicado, o el mismo caso con solicitudes de extracción.
+An issue that a user had previously marked as a duplicate of another issue is no longer considered a duplicate, or a pull request that a user had previously marked as a duplicate of another pull request is no longer considered a duplicate.
 
-#### Disponibilidad
+### Availability
 
-| Tipo de Informe de Problemas | API de eventos de Informes de Problemas | API de eventos de la línea de Tiempo |
-|:---------------------------- |:---------------------------------------:|:------------------------------------:|
-| <ul><li>Problemas</li><li>Solicitudes de cambios</li></ul>   |                  **X**                  |                **X**                 |
+|Issue type | Issue events API | Timeline events API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
 
-#### Propiedades del objeto del evento
+### Event object properties
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
-### unpinned
+## unpinned
 
-El informe de problemas dejó de fijarse.
+The issue was unpinned.
 
-#### Disponibilidad
+### Availability
 
-| Tipo de Informe de Problemas | API de eventos de Informes de Problemas | API de eventos de la línea de Tiempo |
-|:---------------------------- |:---------------------------------------:|:------------------------------------:|
-| <ul><li>Problemas</li></ul>   |                  **X**                  |                **X**                 |
+|Issue type | Issue events API | Timeline events API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>Issues</li></ul> | **X** | **X** |
 
-#### Propiedades del objeto del evento
-
-{% data reusables.issue-events.issue-event-common-properties %}
-
-### unsubscribed
-
-Alguien se desuscribió de recibir notificaciones para un informe de problemas o solicitud de extracción.
-
-#### Disponibilidad
-
-| Tipo de Informe de Problemas | API de eventos de Informes de Problemas | API de eventos de la línea de Tiempo |
-|:---------------------------- |:---------------------------------------:|:------------------------------------:|
-| <ul><li>Problemas</li><li>Solicitudes de cambios</li></ul>   |                                         |                **X**                 |
-
-#### Propiedades del objeto del evento
+### Event object properties
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
-{% if currentVersion == "free-pro-team@latest" %}
-### user_blocked
+## unsubscribed
 
-El propietario de una organización bloqueó a un usuario de la misma. Esto se hizo [a través de uno de los comentarios del usuario bloqueado sobre el informe de problemas](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization#blocking-a-user-in-a-comment).
+Someone unsubscribed from receiving notifications for an issue or pull request.
 
-#### Disponibilidad
+### Availability
 
-| Tipo de Informe de Problemas | API de eventos de Informes de Problemas | API de eventos de la línea de Tiempo |
-|:---------------------------- |:---------------------------------------:|:------------------------------------:|
-| <ul><li>Problemas</li><li>Solicitudes de cambios</li></ul>   |                  **X**                  |                **X**                 |
+|Issue type | Issue events API | Timeline events API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>Issues</li><li>Pull requests</li></ul> |  | **X** |
 
-#### Propiedades del objeto del evento
+### Event object properties
+
+{% data reusables.issue-events.issue-event-common-properties %}
+
+{% ifversion fpt or ghec %}
+## user_blocked
+
+An organization owner blocked a user from the organization. This was done [through one of the blocked user's comments on the issue](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization#blocking-a-user-in-a-comment).
+
+### Availability
+
+|Issue type | Issue events API | Timeline events API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
+
+### Event object properties
 
 {% data reusables.issue-events.issue-event-common-properties %}
 

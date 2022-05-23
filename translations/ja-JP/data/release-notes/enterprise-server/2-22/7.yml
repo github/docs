@@ -55,3 +55,4 @@ sections:
         ```
 
       2. 1つ以上のノードが影響されていると表示されたら、影響されているノードを再起動してください。
+    - High Availability構成でレプリカノードがオフラインの場合でも、{% data variables.product.product_name %}が{% data variables.product.prodname_pages %}リクエストをオフラインのノードにルーティングし続ける場合があり、それによってユーザにとっての{% data variables.product.prodname_pages %}の可用性が下がってしまいます。

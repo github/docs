@@ -1,3 +1,5 @@
 {% data reusables.package_registry.packages-spending-limit-brief %}
 
-Se você tiver gastos ilimitado ou um limite de gastos definido acima de $ 0, você será cobrado por qualquer armazenamento adicional ou transferência de dados, também denominado excedente, até seu limite de gastos. Quaisquer cupons em sua conta não se aplicam a excedentes de {% data variables.product.prodname_registry %}.
+If you have an unlimited spending limit or a spending limit set higher than $0 USD, you will be billed for any additional storage or data transfer, also called overages, up to your spending limit. Quaisquer cupons em sua conta não se aplicam a excedentes de {% data variables.product.prodname_registry %}.
+
+{% data reusables.billing.overages-billed-monthly %}

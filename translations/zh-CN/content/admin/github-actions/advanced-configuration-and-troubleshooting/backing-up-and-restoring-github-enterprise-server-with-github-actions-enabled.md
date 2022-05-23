@@ -1,9 +1,9 @@
 ---
-title: 在启用 GitHub Actions 的情况下备份和恢复 GitHub Enterprise Server
-shortTitle: 备份和恢复
-intro: '外部存储提供程序上的 {% data variables.product.prodname_actions %} 数据不会包含在常规 {% data variables.product.prodname_ghe_server %} 备份中，必须单独备份。'
+title: Backing up and restoring GitHub Enterprise Server with GitHub Actions enabled
+shortTitle: Backing up and restoring
+intro: '{% data variables.product.prodname_actions %} data on your external storage provider is not included in regular {% data variables.product.prodname_ghe_server %} backups, and must be backed up separately.'
 versions:
-  enterprise-server: '>=3.0'
+  ghes: '*'
 type: how_to
 topics:
   - Actions
@@ -13,18 +13,43 @@ topics:
 redirect_from:
   - /admin/github-actions/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled
 ---
-
 {% data reusables.actions.enterprise-storage-ha-backups %}
 
-如果您使用 {% data variables.product.prodname_enterprise_backup_utilities %} 来备份 {% data variables.product.product_location %}，请务必注意，存储在外部存储提供程序上的 {% data variables.product.prodname_actions %} 数据不会包含在备份中。
+If you use {% data variables.product.prodname_enterprise_backup_utilities %} to back up {% data variables.product.product_location %}, it's important to note that {% data variables.product.prodname_actions %} data stored on your external storage provider is not included in the backup.
 
-以下是将带有 {% data variables.product.prodname_actions %} 的 {% data variables.product.product_location %} 恢复到新设备所需步骤的概述：
+This is an overview of the steps required to restore {% data variables.product.product_location %} with {% data variables.product.prodname_actions %} to a new appliance:
 
-1. 确认原始设备处于脱机状态。
-1. 在替换 {% data variables.product.prodname_ghe_server %} 设备上手动配置网络设置。 网络设置被排除在备份快照之外，不会被 `ghe-resturn` 覆盖。
-1. 配置替换设备以使用与原设备相同的 {% data variables.product.prodname_actions %} 外部存储配置。
-1. 在替换设备上启用 {% data variables.product.prodname_actions %}。 这将把替换设备连接到 {% data variables.product.prodname_actions %} 的相同外部存储。
-1. 在使用外部存储提供程序配置 {% data variables.product.prodname_actions %} 后，使用 `ghe-resting` 命令从备份中恢复其余数据。 更多信息请参阅“[恢复备份](/admin/configuration/configuring-backups-on-your-appliance#restoring-a-backup)”。
-1. 在替换设备上重新注册自托管运行器。 更多信息请参阅[添加自托管运行器](/actions/hosting-your-own-runners/adding-self-hosted-runners)。
+1. Confirm that the original appliance is offline.
+1. Manually configure network settings on the replacement {% data variables.product.prodname_ghe_server %} appliance. Network settings are excluded from the backup snapshot, and are not overwritten by `ghe-restore`.
+1. To configure the replacement appliance to use the same {% data variables.product.prodname_actions %} external storage configuration as the original appliance, from the new appliance, set the required parameters with `ghe-config` command.
+    
+    - Azure Blob Storage
+    ```shell
+    ghe-config secrets.actions.storage.blob-provider "azure"
+    ghe-config secrets.actions.storage.azure.connection-string "_Connection_String_"
+    ```
+    - Amazon S3
+    ```shell
+    ghe-config secrets.actions.storage.blob-provider "s3"
+    ghe-config secrets.actions.storage.s3.bucket-name "_S3_Bucket_Name"
+    ghe-config secrets.actions.storage.s3.service-url "_S3_Service_URL_"
+    ghe-config secrets.actions.storage.s3.access-key-id "_S3_Access_Key_ID_"
+    ghe-config secrets.actions.storage.s3.access-secret "_S3_Access_Secret_"
+    ```
+    - Optionally, to enable S3 force path style, enter the following command:
+    ```shell
+    ghe-config secrets.actions.storage.s3.force-path-style true
+    ```
+      
 
-有关备份和恢复 {% data variables.product.prodname_ghe_server %} 的更多信息，请参阅“[在设备上配置备份](/admin/configuration/configuring-backups-on-your-appliance)”。
+1. Enable {% data variables.product.prodname_actions %} on the replacement appliance. This will connect the replacement appliance to the same  external storage for {% data variables.product.prodname_actions %}.
+
+    ```shell
+    ghe-config app.actions.enabled true
+    ghe-config-apply
+    ```
+
+1. After {% data variables.product.prodname_actions %} is configured and enabled, use the `ghe-restore` command to restore the rest of the data from the backup. For more information, see "[Restoring a backup](/admin/configuration/configuring-backups-on-your-appliance#restoring-a-backup)."
+1. Re-register your self-hosted runners on the replacement appliance. For more information, see [Adding self-hosted runners](/actions/hosting-your-own-runners/adding-self-hosted-runners).
+
+For more information on backing up and restoring {% data variables.product.prodname_ghe_server %}, see "[Configuring backups on your appliance](/admin/configuration/configuring-backups-on-your-appliance)."

@@ -8,27 +8,40 @@ redirect_from:
   - /organizations/managing-organization-settings/verifying-your-organizations-domain
 permissions: Organization owners can verify or approve a domain for an organization.
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=3.2'
+  ghes: '>=3.2'
+  ghec: '*'
 type: how_to
 topics:
   - Enterprise
   - Notifications
   - Organizations
   - Policy
+shortTitle: Verificar ou aprovar um domínio
 ---
 
-### Sobre a verificação do domínio
+## Sobre a verificação do domínio
 
-Após a verificação da propriedade dos domínios da sua organização, é exibido um selo "Verified" (Verificado) no perfil da organização. Se ela estiver no {% data variables.product.prodname_ghe_cloud %} e tiver concordado com os Termos de serviço corporativos, os proprietários da organização poderão verificar a identidade dos integrantes dela exibindo o endereço de e-mail de cada um deles no domínio verificado. Para obter mais informações, consulte "[Sobre a página de perfil da sua organização](/articles/about-your-organization-s-profile/)" e "[Atualizar para os Termos de serviço corporativos](/articles/upgrading-to-the-corporate-terms-of-service)".
+Após a verificação da propriedade dos domínios da sua organização, é exibido um selo "Verified" (Verificado) no perfil da organização. {% ifversion ghec %} Se a sua organização estiver tiver concordado com os Termos de serviço corporativos, os proprietários da organização poderão verificar a identidade dos seus integrantes exibindo o endereço de e-mail de cada um deles no domínio verificado. Para obter mais informações, consulte "[Sobre a página de perfil da sua organização](/articles/about-your-organization-s-profile/)" e "<a href="/articles/upgrading-to-the-corporate-terms-of-service" class="dotcom-only">Atualizar para os Termos de serviço corporativos</a>".{% endif %}
 
-Se sua organização pertence a uma conta corporativa, será exibido um selo "Verificado" no perfil da sua organização para quaisquer domínios verificados para a conta corporativa, além de quaisquer domínios verificados para a organização. Os proprietários da organização podem ver quaisquer domínios que um proprietário da empresa verificou ou aprovou e pode editar os domínios se o proprietário da organização também for um proprietário corporativo. Para obter mais informações, consulte "[Verificar ou aprovar um domínio para sua conta corporativa](/github/setting-up-and-managing-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise-account)".
+{% ifversion ghec %}Se sua organização pertencer a uma conta corporativa um selo "Verificado" de{% elsif ghes %}A{% endif %} será exibido no perfil da sua organização para todos os domínios verificados para a conta corporativa, além de todos os domínios verificados para a organização. Os proprietários da organização podem ver quaisquer domínios que um proprietário da empresa verificou ou aprovou e pode editar os domínios se o proprietário da organização também for um proprietário corporativo. Para obter mais informações, consulte "[Verificando ou aprovando um domínio para sua empresa](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)".
+
+{% ifversion ghec %}
+{% note %}
+
+**Observação:** Para verificar ou aprovar domínios, sua organização deve usar {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
+
+{% endnote %}
+{% endif %}
 
 {% data reusables.organizations.verified-domains-details %}
 
-No {% data variables.product.prodname_ghe_cloud %}, após a verificação da propriedade do domínio da sua organização, você pode restringir as notificações de email para a organização a esse domínio. Para obter mais informações, consulte "[Restringir notificações de e-mail para sua organização](/organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization)".
+{% ifversion ghec or ghes > 3.1 %}
+Depois de verificar a propriedade do domínio da sua organização, você pode restringir as notificações de e-mail da organização para esse domínio. Para obter mais informações, consulte "[Restringir notificações de e-mail para sua organização](/organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization)".
+{% endif %}
 
-### Sobre a aprovação de domínio
+{% ifversion ghec %}Você também pode verificar domínios personalizados usados para {% data variables.product.prodname_pages %} para evitar ofertas públicas de domínio quando um domínio personalizado permanece configurado, mas seu site de {% data variables.product.prodname_pages %} está desabilitado ou não usa mais o domínio. Para obter mais informações, consulte "[Verificando o seu domínio personalizado para {% data variables.product.prodname_pages %}](/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages)."{% endif %}
+
+## Sobre a aprovação de domínio
 
 {% data reusables.enterprise-accounts.approved-domains-beta-note %}
 
@@ -38,9 +51,9 @@ Após aprovar domínios para a sua organização, você pode restringir notifica
 
 Os proprietários de empresas não podem ver quais integrantes da organização ou endereços de e-mail recebem notificações dentro dos domínios aprovados.
 
-Os proprietários de empresas também podem aprovar domínios adicionais para organizações pertencentes à empresa. Para obter mais informações, consulte "[Verificar ou aprovar um domínio para sua conta corporativa](/github/setting-up-and-managing-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise-account)".
+Os proprietários de empresas também podem aprovar domínios adicionais para organizações pertencentes à empresa. {% ifversion ghec %}Para obter mais informações, consulte "[Verificar ou aprovar um domínio para a sua empresa](/enterprise-cloud@latest/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise).{% endif %}{% ifversion ghes > 3.1 %}Para obter mais informações, consulte[Verificando ou aprovando um domínio para sua empresa](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)".{% endif %}
 
-### Verificando um domínio para a organização
+## Verificando um domínio para a sua organização
 
 Para verificar um domínio, você deve ter acesso para modificar registros de domínio com o seu serviço de hospedagem de domínio.
 
@@ -58,13 +71,9 @@ Para verificar um domínio, você deve ter acesso para modificar registros de do
 {% data reusables.organizations.continue-verifying-domain %}
 11. Depois que o selo "Verified" (Verificado) estiver visível na página de perfil da sua organização, a entrada TXT poderá ser excluída do registro DNS no serviço de hospedagem de domínio. ![Selo Verified (Verificado)](/assets/images/help/organizations/verified-badge.png)
 
-### Aprovando um domínio para a sua organização
-
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" %}
+## Aprovando um domínio para a sua organização
 
 {% data reusables.enterprise-accounts.approved-domains-beta-note %}
-
-{% endif %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
@@ -74,7 +83,7 @@ Para verificar um domínio, você deve ter acesso para modificar registros de do
 {% data reusables.organizations.domains-approve-it-instead %}
 {% data reusables.organizations.domains-approve-domain %}
 
-### Removendo um domínio aprovado ou verificado
+## Removendo um domínio aprovado ou verificado
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}

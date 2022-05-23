@@ -1,9 +1,9 @@
-タスクリストを作成するには、リストアイテムの前に空白を置き、その後に`[ ]`を続けてください。 タスクを完了したとマークするには`[x]`を使ってください。
+To create a task list, preface list items with a hyphen and space followed by `[ ]`. タスクを完了したとマークするには`[x]`を使ってください。
 
 ```
-- [x] Finish my changes
-- [ ] Push my commits to GitHub
-- [ ] Open a pull request
+- [x] #739
+- [ ] https://github.com/octo-org/octo-repo/issues/740
+- [ ] Add delight to the experience when all tasks are complete :tada:
 ```
 
-![表示されたタスクリスト](/assets/images/help/writing/task-list-rendered.png)
+![表示されたタスクリスト](/assets/images/help/writing/task-list-rendered-simple.png)

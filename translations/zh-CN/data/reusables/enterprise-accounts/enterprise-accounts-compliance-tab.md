@@ -1,0 +1,1 @@
+1. 在企业帐户侧边栏中，单击 {% octicon "checklist" aria-label="The Compliance icon" %} **Compliance（合规性）**。 ![企业帐户边栏中的 Compliance（合规性）选项卡](/assets/images/help/business-accounts/enterprise-accounts-compliance-tab.png)

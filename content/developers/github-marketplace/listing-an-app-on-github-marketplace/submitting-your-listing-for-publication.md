@@ -7,6 +7,7 @@ redirect_from:
   - /developers/github-marketplace/submitting-your-listing-for-publication
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
 shortTitle: Submit your listing
@@ -17,7 +18,7 @@ Once your app listing meets the {% data variables.product.prodname_marketplace %
   
   ![Overview option for the marketplace draft listing](/assets/images/marketplace/edit-marketplace-listing-overview.png)
 
-2. To submit your your completed app listing, click **Request publish**.
+2. To submit your completed app listing, click **Request publish**.
 
   !["Publish your app to Marketplace" checklist with submission button at the bottom](/assets/images/marketplace/publish-your-app-checklist-and-submission.png)
 

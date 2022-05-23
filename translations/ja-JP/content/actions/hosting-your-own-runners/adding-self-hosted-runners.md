@@ -5,16 +5,16 @@ redirect_from:
   - /github/automating-your-workflow-with-github-actions/adding-self-hosted-runners
   - /actions/automating-your-workflow-with-github-actions/adding-self-hosted-runners
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 type: tutorial
+shortTitle: Add self-hosted runners
 ---
 
-{% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 リポジトリ、Organization、Enterpriseにセルフホストランナーを追加できます。
 
@@ -22,65 +22,106 @@ Organization または Enterprise 管理者の場合は、Organization または
 
 セルフホストランナーでサポートされているオペレーティングシステム、あるいはプロキシサーバーとセルフホストランナーを使う方法に関する情報については、「[セルフホストランナーについて](/github/automating-your-workflow-with-github-actions/about-self-hosted-runners)」を参照してください。
 
+{% ifversion not ghae %}
 {% warning %}
 
-**警告：** {% data reusables.github-actions.self-hosted-runner-security %}
+**警告：** {% data reusables.actions.self-hosted-runner-security %}
 
 詳しい情報については「[セルフホストランナーについて](/github/automating-your-workflow-with-github-actions/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)」を参照してください。
 
 {% endwarning %}
-
-### リポジトリへのセルフホストランナーの追加
-
-単一のリポジトリにセルフホストランナーを追加できます。 セルフホストランナーをユーザのリポジトリに追加するには、リポジトリのオーナーでなければなりません。 Organizationのリポジトリの場合は、Organizationのオーナーであるか、そのリポジトリの管理アクセスを持っていなければなりません。
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.github-actions.settings-sidebar-actions-runners %}
-1. GitHub Insightsの
-{% if currentVersion == "free-pro-team@latest" %}"ランナー"{% else %}"セルフホストランナー"{% endif %} で、[**Add runner**] をクリックします。
-{% data reusables.github-actions.self-hosted-runner-configure %}
-{% data reusables.github-actions.self-hosted-runner-check-installation-success %}
-
-### Organizationへのセルフホストランナーの追加
-
-セルフホストランナーをOrganizationのレベルで追加し、Organization内の複数のリポジトリのジョブを処理するために使うことができます。 Organizationにセルフホストランナーを追加するには、Organizationのオーナーでなければなりません。
-
-{% data reusables.organizations.navigate-to-org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.github-actions.settings-sidebar-actions-runners %}
-1. GitHub Insightsの
-{% if currentVersion == "free-pro-team@latest" %}"ランナー"{% else %}"セルフホストランナー"{% endif %} で、[**Add runner**] をクリックします。
-{% data reusables.github-actions.self-hosted-runner-configure %}
-{% data reusables.github-actions.self-hosted-runner-check-installation-success %}
-
-{% data reusables.github-actions.self-hosted-runner-public-repo-access %}
-
-### セルフホストランナーを Enterprise に追加する
-
-セルフホストランナーを Enterprise に追加して、複数の Organization に割り当てることができます。 Organization の管理者は、そのリポジトリの使用対象を制御できます。
-
-{% if currentVersion == "free-pro-team@latest" %}
-セルフホストランナーを Enterprise アカウントに追加するには、Enterprise のオーナーである必要があります。
-{% elsif enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
-セルフホストランナーを
-{% data variables.product.product_location %} の Enterprise レベルで削除するには、サイト管理者である必要があります。
 {% endif %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.policies-tab %}
-{% data reusables.enterprise-accounts.actions-tab %}
-{% data reusables.enterprise-accounts.actions-runners-tab %}
-1. [**Add new**] をクリックし、[**New runner**] をクリックします。 新しいランナーがデフォルトグループに割り当てられます。 ランナーを登録した後、ランナーのグループを変更できます。 詳しい情報については、「[セルフホストランナーへのアクセスを管理する](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#moving-a-self-hosted-runner-to-a-group)」を参照してください。
-{% data reusables.github-actions.self-hosted-runner-configure %}
-{% data reusables.github-actions.self-hosted-runner-check-installation-success %}
+{% ifversion fpt or ghec or ghes > 3.2 %}
 
-{% data reusables.github-actions.self-hosted-runner-public-repo-access %}
+You can set up automation to scale the number of self-hosted runners. For more information, see "[Autoscaling with self-hosted runners](/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners)."
 
-#### Enterprise ランナーをリポジトリで利用可能にする
+{% endif %}
+
+## 必要な環境
+
+{% data reusables.actions.self-hosted-runners-prerequisites %}
+
+## リポジトリへのセルフホストランナーの追加
+
+単一のリポジトリにセルフホストランナーを追加できます。 セルフホストランナーをユーザのリポジトリに追加するには、リポジトリのオーナーでなければなりません。 Organizationのリポジトリの場合は、Organizationのオーナーであるか、そのリポジトリの管理アクセスを持っていなければなりません。 For information about how to add a self-hosted runner with the REST API, see "[Self-hosted runners](/rest/reference/actions#self-hosted-runners)."
+
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5091 %}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.settings-sidebar-actions-runners %}
+1. Click **New self-hosted runner**.
+{% data reusables.actions.self-hosted-runner-configure %}
+{% elsif ghae or ghes < 3.4 %}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.settings-sidebar-actions-runners %}
+1. GitHub Insightsの
+{% ifversion ghes > 3.1 or ghae or ghec %}"ランナー"{% else %}"セルフホストランナー"{% endif %} で、[**Add runner**] をクリックします。
+{% data reusables.actions.self-hosted-runner-configure %}
+{% endif %}
+{% data reusables.actions.self-hosted-runner-check-installation-success %}
+
+詳しい情報については「[セルフホストランナーのモニタリングとトラブルシューティング](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners)」を参照してください。
+
+## Organizationへのセルフホストランナーの追加
+
+セルフホストランナーをOrganizationのレベルで追加し、Organization内の複数のリポジトリのジョブを処理するために使うことができます。 Organizationにセルフホストランナーを追加するには、Organizationのオーナーでなければなりません。 For information about how to add a self-hosted runner with the REST API, see "[Self-hosted runners](/rest/reference/actions#self-hosted-runners)."
+
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5091 %}
+{% data reusables.organizations.navigate-to-org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.settings-sidebar-actions-runners %}
+1. Click **New runner**.
+{% data reusables.actions.self-hosted-runner-configure %}
+{% elsif ghae or ghes < 3.4 %}
+{% data reusables.organizations.navigate-to-org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.settings-sidebar-actions-runners %}
+1. GitHub Insightsの
+{% ifversion ghes > 3.1 or ghae %}"Runners", click **Add new**, then click **New runner**.{% elsif ghes < 3.2 %}"Self-hosted runners", click **Add runner**."{% endif %}
+{% data reusables.actions.self-hosted-runner-configure %}
+{% endif %}
+{% data reusables.actions.self-hosted-runner-check-installation-success %}
+
+詳しい情報については「[セルフホストランナーのモニタリングとトラブルシューティング](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners)」を参照してください。
+
+{% data reusables.actions.self-hosted-runner-public-repo-access %}
+
+## セルフホストランナーを Enterprise に追加する
+
+{% ifversion fpt %}If you use {% data variables.product.prodname_ghe_cloud %}, you{% elsif ghec or ghes or ghae %}You{% endif %} can add self-hosted runners to an enterprise, where they can be assigned to multiple organizations. Organization の管理者は、そのランナーを使用できるリポジトリを制御できます。 {% ifversion fpt %}For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/actions/hosting-your-own-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-an-enterprise).{% endif %}
+
+{% ifversion ghec or ghes or ghae %}
+新しいランナーがデフォルトグループに割り当てられます。 ランナーを登録した後、ランナーのグループを変更できます。 詳しい情報については、「[セルフホストランナーへのアクセスを管理する](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#moving-a-self-hosted-runner-to-a-group)」を参照してください。
+
+{% ifversion ghec or ghes > 3.3 or ghae-issue-5091 %}
+
+To add a self-hosted runner to an enterprise, you must be an enterprise owner. For information about how to add a self-hosted runner with the REST API,  see the enterprise endpoints in the [{% data variables.product.prodname_actions %} REST API](/rest/reference/actions#self-hosted-runners).
+
+{% endif %}
+
+{% data reusables.actions.self-hosted-runner-add-to-enterprise %}
+
+{% data reusables.actions.self-hosted-runner-check-installation-success %}
+
+詳しい情報については「[セルフホストランナーのモニタリングとトラブルシューティング](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners)」を参照してください。
+
+{% data reusables.actions.self-hosted-runner-public-repo-access %}
+
+### Enterprise ランナーをリポジトリで利用可能にする
 
 デフォルトでは、Enterprise の「デフォルト」のセルフホストランナーグループのランナーは、Enterprise 内のすべての Organization で使用できますが、各 Organization のすべてのリポジトリで使用できるわけではありません。
 
 Enterprise レベルのセルフホストランナーグループを Organization リポジトリで使用できるようにするには、ランナーグループの Organization の継承設定を変更して、Organization 内のリポジトリでランナーを使用できるようにする必要がある場合があります。
 
 ランナーグループのアクセス設定の変更に関する詳しい情報については、「[グループを使用したセルフホストランナーへのアクセスを管理する](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#changing-the-access-policy-of-a-self-hosted-runner-group)」を参照してください。
+{% endif %}
+
+{% ifversion ghec or ghes or ghae %}
+
+## 参考リンク
+
+- "[Getting started with self-hosted runners for your enterprise](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-self-hosted-runners-for-your-enterprise)"
+
+{% endif %}

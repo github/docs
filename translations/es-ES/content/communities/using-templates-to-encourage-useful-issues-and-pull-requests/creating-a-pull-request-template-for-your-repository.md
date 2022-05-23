@@ -5,24 +5,26 @@ redirect_from:
   - /articles/creating-a-pull-request-template-for-your-repository
   - /github/building-a-strong-community/creating-a-pull-request-template-for-your-repository
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Community
+shortTitle: Crear una plantilla de solicitud de cambios
 ---
 
 Para obtener más información, consulta "[Acerca de las plantillas de propuestas y solicitudes de extracción](/articles/about-issue-and-pull-request-templates)".
 
-Puedes crear un subdirectorio *PULL_REQUEST_TEMPLATE/* en alguna de las carpetas admitidas para incluir múltiples plantillas de solicitudes de extracción, y utilizar el parámetro de consulta `template` para especificar la plantilla que completará el cuerpo de la solicitud de extracción. Para obtener más información, consulta "[Acerca de la automatización para las propuestas y las solicitudes de extracción con parámetros de consulta ](/articles/about-automation-for-issues-and-pull-requests-with-query-parameters)"
+Puedes crear un subdirectorio *PULL_REQUEST_TEMPLATE/* en alguna de las carpetas admitidas para incluir múltiples plantillas de solicitudes de extracción, y utilizar el parámetro de consulta `template` para especificar la plantilla que completará el cuerpo de la solicitud de extracción. Para obtener más información, consulta la sección "[Utilizar parámetros de consulta para crear una solicitud de cambios](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/using-query-parameters-to-create-a-pull-request)".
 
-{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+{% ifversion fpt or ghes or ghec %}
 
-Puedes crear plantillas predeterminadas de solicitud de cambios para tu cuenta de organización {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} o de usuario{% endif %}. Para obtener más información, consulta "[Crear un archivo de salud predeterminado para la comunidad](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
+Puedes crear plantillas de solicitud de cambios predeterminadas para tu cuenta de organización {% ifversion fpt or ghes or ghec %} o personal{% endif %}. Para obtener más información, consulta "[Crear un archivo de salud predeterminado para la comunidad](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
 
 {% endif %}
 
-### Agregar una plantilla de solicitud de extracción
+## Agregar una plantilla de solicitud de extracción
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}
@@ -39,7 +41,7 @@ Puedes crear plantillas predeterminadas de solicitud de cambios para tu cuenta d
 {% data reusables.files.choose_commit_branch %} Las plantillas están disponibles para los colaboradores cuando están fusionadas dentro de la rama predeterminada del repositorio.
 {% data reusables.files.propose_new_file %}
 
-### Leer más
+## Leer más
 
 - "[Acerca de las plantillas de propuestas y de solicitudes de extracción](/articles/about-issue-and-pull-request-templates)"
 - "[Acerca de la automatización para las propuestas y las solicitudes de extracción con parámetros de consulta ](/articles/about-automation-for-issues-and-pull-requests-with-query-parameters)"

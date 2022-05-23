@@ -2,20 +2,22 @@
 title: Candidatar-se à verificação de publicador para a sua organização
 intro: 'Para oferecer planos pagos para seu aplicativo ou para incluir um selo no Marketplace no anúncio do seu aplicativo, você deverá concluir o processo de verificação de publicação para a sua organização.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
 redirect_from:
   - /developers/github-marketplace/applying-for-publisher-verification-for-your-organization
+shortTitle: Verificação do editor
 ---
 
 A verificação do editor garante que {% data variables.product.prodname_dotcom %} tem uma forma de entrar em contato com você, que você habilitou a autenticação de dois fatores para a sua organização e que o domínio da sua organização foi verificado.
 
 Assim que sua organização for verificada, você poderá publicar planos pagos para o seu aplicativo. Para obter informações, consulte "[Configurar planos de preços para o seu anúncio](/developers/github-marketplace/setting-pricing-plans-for-your-listing)".
 
-Para oferecer planos pagos para o seu aplicativo, este deverá pertencer a uma organização e você deverá ter permissões de proprietário na organização. Se seu aplicativo pertence atualmente a uma conta de usuário, você precisará transferir a propriedade do aplicativo para uma organização. Para obter mais informações, consulte "[Transferir a propriedade de um aplicativo GitHub](/developers/apps/transferring-ownership-of-a-github-app)" ou "[Transferir a propriedade de um aplicativo OAuth](/developers/apps/transferring-ownership-of-an-oauth-app)".
+Para oferecer planos pagos para o seu aplicativo, este deverá pertencer a uma organização e você deverá ter permissões de proprietário na organização. Se seu aplicativo pertence atualmente a uma conta pessoal, você precisará transferir a propriedade do aplicativo para uma organização. Para obter mais informações, consulte "[Transferir a propriedade de um aplicativo GitHub](/developers/apps/transferring-ownership-of-a-github-app)" ou "[Transferir a propriedade de um aplicativo OAuth](/developers/apps/transferring-ownership-of-an-oauth-app)".
 
-### Solicitar verificação de publicador
+## Solicitar verificação de publicador
 
 
 {% data reusables.profile.access_org %}
@@ -31,6 +33,6 @@ Para oferecer planos pagos para o seu aplicativo, este deverá pertencer a uma o
 
 2. Clique **Solicitar verificação**. {% data variables.product.company_short %} analisará as suas informações e informará assim que a verificação de publicação for concluída.
 
-### Leia mais
+## Leia mais
 
 Para obter informações sobre o processo de publicação de aplicativos, consulte "[Sobre o GitHub Marketplace](/developers/github-marketplace/about-github-marketplace)".

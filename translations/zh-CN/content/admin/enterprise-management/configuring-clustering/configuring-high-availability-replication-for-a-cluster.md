@@ -1,21 +1,22 @@
 ---
 title: 为群集配置高可用性复制
 intro: '您可以在不同的位置配置整个 {% data variables.product.prodname_ghe_server %} 群集的被动副本，允许群集故障转移至冗余节点。'
-miniTocMaxHeadingLevel: 4
+miniTocMaxHeadingLevel: 3
 redirect_from:
   - /enterprise/admin/enterprise-management/configuring-high-availability-replication-for-a-cluster
   - /admin/enterprise-management/configuring-high-availability-replication-for-a-cluster
 versions:
-  enterprise-server: '>2.21'
+  ghes: '*'
 type: how_to
 topics:
   - Clustering
   - Enterprise
   - High availability
   - Infrastructure
+shortTitle: 配置 HA 复制
 ---
 
-### 关于集群的高可用性复制
+## 关于集群的高可用性复制
 
 您可以配置 {% data variables.product.prodname_ghe_server %} 的群集部署以实现高可用性，其中一组相同的被动节点与活动群集中的节点同步。 如果硬件或软件故障影响具有活动群集的数据中心，您可以手动故障转移到副本节点，继续处理用户请求，以尽可能减少中断的影响。
 
@@ -23,9 +24,9 @@ topics:
 
 我们建议配置高可用性，作为 {% data variables.product.prodname_ghe_server %} 全面灾难恢复计划的一部分。 我们还建议进行定期备份。 更多信息请参阅“[在设备上配置备份](/enterprise/admin/configuration/configuring-backups-on-your-appliance)”。
 
-### 基本要求
+## 基本要求
 
-#### 硬件和软件
+### 硬件和软件
 
 对于活动群集中的每个现有节点，都需要预配第二个具有相同硬件资源的虚拟机。 例如，如果您的群集有 11 个节点，并且每个节点有 12 个 vCP、96 GB 的 RAM 和 750 GB 的附加存储，则必须预配 11 个新虚拟机，每个虚拟机具有 12 个 vCP、96 GB 的 RAM 和 750 GB 的附加存储。
 
@@ -37,19 +38,19 @@ topics:
 
 {% endnote %}
 
-#### 网络
+### 网络
 
 您必须为预配的每个新节点分配一个静态 IP 地址，并且必须配置负载均衡器以接受连接，并将其引导到群集前端层中的节点。
 
 我们不建议在具有主动群集的网络和具有被动群集的网络之间配置防火墙。 具有主动节点的网络与具有被动节点的网络之间的延迟必须小于 70 毫秒。 有关被动群集中节点之间网络连接的信息，请参阅“[群集网络配置](/enterprise/admin/enterprise-management/cluster-network-configuration)”。
 
-### 为群集创建高可用性副本
+## 为群集创建高可用性副本
 
 - [将主动节点分配到主数据中心](#assigning-active-nodes-to-the-primary-datacenter)
 - [将被动节点添加到群集配置文件](#adding-passive-nodes-to-the-cluster-configuration-file)
 - [示例配置](#example-configuration)
 
-#### 将主动节点分配到主数据中心
+### 将主动节点分配到主数据中心
 
 在为被动节点定义辅助数据中心之前，请确保将活动节点分配给主数据中心。
 
@@ -101,7 +102,7 @@ topics:
 
 在 {% data variables.product.prodname_ghe_server %} 返回提示符，您已完成将节点分配给群集的主数据中心。
 
-#### 将被动节点添加到群集配置文件
+### 将被动节点添加到群集配置文件
 
 要配置高可用性，必须为群集中的每个主动节点定义相应的被动节点。 以下说明创建用于定义主动节点和被动节点的新群集配置。 您将：
 
@@ -189,12 +190,6 @@ topics:
     git config -f /data/user/common/cluster.conf cluster.redis-master-replica <em>REPLICA REDIS PRIMARY HOSTNAME</em>
     ```
 
-12. 启用 MySQL 在故障转移到被动副本节点时自动故障转移。
-
-    ```shell
-    git config -f /data/user/common/cluster.conf cluster.mysql-auto-failover true
-    ```
-
     {% warning %}
 
     **警告**：在继续操作之前查看群集配置文件。
@@ -235,7 +230,7 @@ topics:
 
 您已完成为群集中的节点配置高可用性副本。 每个主动节点开始将配置和数据复制到其对应的被动节点，并且您可以在发生故障时将流量直接引导至辅助数据中心的负载均衡器。 有关故障转移的更多信息，请参阅“[发起到副本群集的故障转移](/enterprise/admin/enterprise-management/initiating-a-failover-to-your-replica-cluster)”。
 
-#### 示例配置
+### 示例配置
 
 顶级 `[cluster]` 配置应如下所示。
 
@@ -246,7 +241,7 @@ topics:
   primary-datacenter = <em>PRIMARY DATACENTER NAME</em>
   mysql-master-replica = <em>HOSTNAME OF PASSIVE MYSQL MASTER</em>
   redis-master-replica = <em>HOSTNAME OF PASSIVE REDIS MASTER</em>
-  mysql-auto-failover = true
+  mysql-auto-failover = false
 ...
 ```
 
@@ -303,7 +298,7 @@ topics:
 ...
 ```
 
-### 监控主动与被动群集节点之间的复制
+## 监控主动与被动群集节点之间的复制
 
 群集中主动节点与被动节点之间的初始复制需要时间。 时间量取决于要复制的数据量和 {% data variables.product.prodname_ghe_server %} 的活动水平。
 
@@ -335,11 +330,11 @@ topics:
 
 您可以使用 `ghe-cluster-status` 来审查群集的总体健康状况。 更多信息请参阅“[命令行实用程序](/enterprise/admin/configuration/command-line-utilities#ghe-cluster-status)”。
 
-### 故障转移后重新配置高可用性复制
+## 故障转移后重新配置高可用性复制
 
 从群集的产动节点故障转移到群集的被动节点后，您可以通过两种方式重新配置高可用性副本。
 
-#### 预配和配置新的被动节点
+### 预配和配置新的被动节点
 
 故障转移后，您可以通过两种方式重新配置高可用性。 选择的方法将取决于故障转移的原因以及原始主动节点的状态。
 
@@ -350,7 +345,7 @@ topics:
 重新配置高可用性的过程与高可用性的初始配置相同。 更多信息请参阅“[为群集创建高可用性复制](#creating-a-high-availability-replica-for-a-cluster)”。
 
 
-### 禁用群集的高可用性复制
+## 禁用群集的高可用性复制
 
 您可以停止复制到 {% data variables.product.prodname_ghe_server %} 群集部署的被动节点。
 
@@ -358,7 +353,7 @@ topics:
 
 {% data reusables.enterprise_clustering.open-configuration-file %}
 
-3. 在顶层 `[cluster]` 部分，删除 `mysql-auto-failover`、`redis-master-replica` 和 `mysql-master-replica` 键值对。
+3. 在顶层 `[cluster]` 部分，删除 `redis-master-replica` 和 `mysql-master-replica` 键值对。
 
 4. 删除被动节点的每个部分。 对于被动节点，`replica` 配置为 `enabled`。
 

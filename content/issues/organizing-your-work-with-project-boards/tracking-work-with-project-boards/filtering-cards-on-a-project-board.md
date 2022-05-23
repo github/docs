@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 shortTitle: Filter cards on board
@@ -28,8 +29,8 @@ You can also use the "Filter cards" search bar at the top of each project board 
 - Filter by check status using `status:pending`, `status:success`, or `status:failure`
 - Filter cards by type using `type:issue`, `type:pr`, or `type:note`
 - Filter cards by state and type using `is:open`, `is:closed`, or `is:merged`; and `is:issue`, `is:pr`, or `is:note`
-- Filter cards by issues that are linked to a pull request by a closing reference using `linked:pr`{% ifversion fpt or ghes or ghae %}
-- Filter cards by repository in an organization-wide project board using `repo:ORGANIZATION/REPOSITORY`{% endif %}
+- Filter cards by issues that are linked to a pull request by a closing reference using `linked:pr`
+- Filter cards by repository in an organization-wide project board using `repo:ORGANIZATION/REPOSITORY`
 
 1. Navigate to the project board that contains the cards you want to filter.
 2. Above the project card columns, click into the "Filter cards" search bar and type a search query to filter the cards.

@@ -2,13 +2,14 @@
 title: Transferring ownership of an OAuth App
 intro: '{% data reusables.shortdesc.transferring_ownership_of_oauth_apps %}'
 redirect_from:
-  - /apps/building-integrations/managing-oauth-apps/transferring-ownership-of-an-oauth-app/
+  - /apps/building-integrations/managing-oauth-apps/transferring-ownership-of-an-oauth-app
   - /apps/managing-oauth-apps/transferring-ownership-of-an-oauth-app
   - /developers/apps/transferring-ownership-of-an-oauth-app
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - OAuth Apps
 shortTitle: Transfer ownership

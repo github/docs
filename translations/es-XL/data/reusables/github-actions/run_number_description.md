@@ -1,1 +1,0 @@
-Un número único para cada ejecución de un flujo de trabajo particular en un repositorio. Este número comienza en 1 para los flujos de trabajo que se ejecutan primero, e incrementa con cada ejecución nueva. Este número no cambia si vuelves a ejecutar el flujo de trabajo.

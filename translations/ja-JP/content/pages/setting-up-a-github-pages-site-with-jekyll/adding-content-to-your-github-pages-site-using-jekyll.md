@@ -6,16 +6,18 @@ redirect_from:
   - /articles/adding-content-to-your-github-pages-site-using-jekyll
   - /github/working-with-github-pages/adding-content-to-your-github-pages-site-using-jekyll
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Pages
+shortTitle: Pagesサイトへのコンテンツの追加
 ---
 
 リポジトリへの書き込み権限があるユーザは、Jekyll を使用して {% data variables.product.prodname_pages %} サイトにコンテンツを追加できます。
 
-### Jekyll サイトのコンテンツについて
+## Jekyll サイトのコンテンツについて
 
 {% data variables.product.prodname_pages %} で Jekyll サイトにコンテンツを追加する前に、Jekyll サイトを作成する必要があります。 詳しい情報については、「[Jekyll を使用して {% data variables.product.prodname_pages %} サイトを作成する](/articles/creating-a-github-pages-site-with-jekyll)」を参照してください。
 
@@ -29,7 +31,7 @@ Jekyll サイトのコンテンツとして 2 つの主なタイプは、ペー�
 
 {% data reusables.pages.test-locally %}
 
-### 新規ページをサイトに追加する
+## 新規ページをサイトに追加する
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.pages.navigate-publishing-source %}
@@ -51,7 +53,7 @@ Jekyll サイトのコンテンツとして 2 つの主なタイプは、ペー�
 {% data reusables.files.confirm_merge %}
 {% data reusables.files.delete_branch %}
 
-### 新規投稿をサイトに追加する
+## 新規投稿をサイトに追加する
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.pages.navigate-publishing-source %}
@@ -77,6 +79,6 @@ Jekyll サイトのコンテンツとして 2 つの主なタイプは、ペー�
 
 あなたの投稿がサイトにアップされているはずです。 サイトのベース URL が `https://octocat.github.io` の場合、新しい投稿は `https://octocat.github.io/YYYY/MM/DD/TITLE.html` にあります。
 
-### 次のステップ
+## 次のステップ
 
 {% data reusables.pages.add-jekyll-theme %}詳しい情報については、「[Jekyll を使用して {% data variables.product.prodname_pages %} サイトにテーマを追加する](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll)」を参照してください。

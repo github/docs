@@ -9,9 +9,12 @@ on:
     types:
       - created
 
+permissions:
+  issues: write
+
 jobs:
   triage-issue-comments:
-    if: github.repository == 'github/docs' && github.event.issue.pull_request == null
+    if: ${{ github.repository == 'github/docs' && !github.event.issue.pull_request }}
     runs-on: ubuntu-latest
 
     steps:
@@ -19,7 +22,6 @@ jobs:
         uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
         id: is-internal-contributor
         with:
-          github-token: ${{secrets.GITHUB_TOKEN}}
           result-encoding: string
           script: |
             const repo = context.payload.repository.name
@@ -39,14 +41,8 @@ jobs:
               return 'false'
             }
       - name: Label issues with new comments with 'triage'
-        uses: rachmari/labeler@832d42ec5523f3c6d46e8168de71cd54363e3e2e
-        if: (steps.is-internal-contributor.outputs.result == 'false')
+        uses: andymckay/labeler@e6c4322d0397f3240f0e7e30a33b5c5df2d39e90
+        if: ${{ steps.is-internal-contributor.outputs.result == 'false' }}
         with:
-          repo-token: '${{ secrets.GITHUB_TOKEN }}'
           add-labels: 'triage'
-      - name: Triage to project board
-        uses: rachmari/actions-add-new-issue-to-column@1a459ef92308ba7c9c9dc2fcdd72f232495574a9
-        with:
-          action-token: ${{ secrets.GITHUB_TOKEN }}
-          project-url: 'https://github.com/github/docs/projects/1'
-          column-name: 'Triage'
+          ignore-if-labeled: true

@@ -7,6 +7,9 @@ name: Move existing issues to correct docs repo
 on:
   workflow_dispatch:
 
+permissions:
+  contents: none
+
 jobs:
   transfer_issues:
     runs-on: ubuntu-latest
@@ -17,7 +20,7 @@ jobs:
           TEAM_ENGINEERING_REPO: ${{ secrets.TEAM_ENGINEERING_REPO }}
           TEAM_CONTENT_REPO: ${{ secrets.TEAM_CONTENT_REPO }}
         with:
-          github-token: ${{ secrets.DOCUBOT_FR_PROJECT_BOARD_WORKFLOWS_REPO_ORG_READ_SCOPES }}
+          github-token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
           script: |
             const owner = 'github'
             const originalRepo = 'docs-internal'

@@ -4,18 +4,18 @@ intro: 'Você pode configurar executores auto-hospedados para usar um servidor p
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/using-a-proxy-server-with-self-hosted-runners
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 type: tutorial
+shortTitle: Servidores proxy
 ---
 
-{% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
-### Configurar um servidor proxy usando variáveis de ambiente
+## Configurar um servidor proxy usando variáveis de ambiente
 
 Se você precisar de um executor auto-hospedado para comunicar-se por meio de um servidor proxy, o aplicativo do executor auto-hospedado usará as configurações proxy definidas nas variáveis do ambiente a seguir:
 
@@ -35,7 +35,9 @@ As variáveis do ambiente proxy são lidas quando o aplicativo do executor auto-
 
 No Windows, os nomes da variável do ambiente proxy não diferenciam maiúsculas de minúsculas. Nos sistemas Linux e macOS, recomendamos que você use variáveis de ambiente em minúscula. Se você tiver uma variável de ambiente tanto maiúscula quanto minúscula no Linux ou macOS, como, por exemplo `https_proxy` e `HTTPS_PROXY`, o aplicativo executor auto-hospedado usará a variável minúscula do ambiente.
 
-### Usar um arquivo .env para definir a configuração de proxy
+{% data reusables.actions.self-hosted-runner-ports-protocols %}
+
+## Usar um arquivo .env para definir a configuração de proxy
 
 Se não for prático definir as variáveis do ambiente, você poderá definir as variáveis da configuração de proxy em um arquivo de nome _.env_ no diretório do aplicativo do executor auto-hospedado. Por exemplo, isso pode ser necessário se você desejar configurar um aplicativo executor como um serviço em uma conta de sistema. Quando o aplicativo executor é iniciado, ele lerá as variáveis definidas em _.env_ para a configuração de proxy.
 
@@ -46,7 +48,7 @@ https_proxy=http://proxy.local:8080
 no_proxy=example.com,myserver.local:443
 ```
 
-### Definir configuração de proxy para contêineres Docker
+## Definir configuração de proxy para contêineres Docker
 
 Se você usar ações do contêiner Dock ou contêineres de serviço nos seus fluxos de trabalho, você também deverá configurar o Docker para usar o seu servidor proxy além de definir as variáveis do ambiente acima.
 

@@ -3,24 +3,38 @@ title: Guias do GitHub Enterprise
 shortTitle: Guias
 intro: 'Aprenda a aumentar a produtividade do desenvolvedor e a qualidade do código com {% data variables.product.product_name %}.'
 allowTitleToDifferFromFilename: true
-layout: product-sublanding
+layout: product-guides
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 learningTracks:
-  - '{% if currentVersion == "github-ae@latest" %}get_started_with_github_ae{% endif %}'
-  - '{% if enterpriseServerVersions contains currentVersion %}deploy_an_instance{% endif %}'
-  - '{% if enterpriseServerVersions contains currentVersion %}upgrade_your_instance{% endif %}'
-  - '{% if enterpriseServerVersions contains currentVersion %}increase_fault_tolerance{% endif %}'
-  - '{% if enterpriseServerVersions contains currentVersion %}improve_security_of_your_instance{% endif %}'
-  - '{% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.22" %}configure_github_actions{% endif %}'
-  - '{% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.22" %}configure_github_advanced_security{% endif %}'
+  - '{% ifversion ghec %}get_started_with_your_enterprise_account{% endif %}'
+  - '{% ifversion ghae %}get_started_with_github_ae{% endif %}'
+  - '{% ifversion ghes %}deploy_an_instance{% endif %}'
+  - '{% ifversion ghes %}upgrade_your_instance{% endif %}'
+  - adopting_github_actions_for_your_enterprise_ghec
+  - adopting_github_actions_for_your_enterprise_ghes_and_ghae
+  - '{% ifversion ghes %}increase_fault_tolerance{% endif %}'
+  - '{% ifversion ghes %}improve_security_of_your_instance{% endif %}'
+  - '{% ifversion ghes > 2.22 %}configure_github_actions{% endif %}'
+  - '{% ifversion ghes > 2.22 %}configure_github_advanced_security{% endif %}'
 includeGuides:
   - /admin/authentication/allowing-built-in-authentication-for-users-outside-your-identity-provider
   - /admin/authentication/changing-authentication-methods
   - /admin/authentication/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad
   - /admin/authentication/configuring-saml-single-sign-on-for-your-enterprise
   - /admin/authentication/configuring-user-provisioning-for-your-enterprise
+  - /admin/authentication/managing-identity-and-access-for-your-enterprise/about-identity-and-access-management-for-your-enterprise
+  - /admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise
+  - /admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise-using-okta
+  - /admin/authentication/managing-identity-and-access-for-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise
+  - /admin/authentication/managing-identity-and-access-for-your-enterprise/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account
+  - /admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users
+  - /admin/authentication/managing-your-enterprise-users-with-your-identity-provider/configuring-saml-single-sign-on-for-enterprise-managed-users
+  - /admin/authentication/managing-your-enterprise-users-with-your-identity-provider/configuring-scim-provisioning-for-enterprise-managed-users
+  - /admin/authentication/managing-your-enterprise-users-with-your-identity-provider/configuring-scim-provisioning-for-enterprise-managed-users-with-okta
+  - /admin/authentication/managing-your-enterprise-users-with-your-identity-provider/managing-team-memberships-with-identity-provider-groups
   - /admin/authentication/using-cas
   - /admin/authentication/using-ldap
   - /admin/authentication/using-saml
@@ -35,15 +49,16 @@ includeGuides:
   - /admin/configuration/configuring-rate-limits
   - /admin/configuration/configuring-secret-scanning-for-your-appliance
   - /admin/configuration/configuring-tls
-  - /admin/configuration/connecting-github-enterprise-server-to-github-enterprise-cloud
+  - /admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise
+  - /admin/configuration/configuring-your-enterprise/managing-github-mobile-for-your-enterprise
+  - /admin/configuration/connecting-your-enterprise-account-to-github-enterprise-cloud
   - /admin/configuration/enabling-and-scheduling-maintenance-mode
-  - /admin/configuration/enabling-automatic-user-license-sync-between-github-enterprise-server-and-github-enterprise-cloud
+  - /admin/configuration/configuring-github-connect/enabling-automatic-user-license-sync-for-your-enterprise
   - /admin/configuration/enabling-private-mode
   - /admin/configuration/enabling-subdomain-isolation
-  - /admin/configuration/enabling-unified-contributions-between-github-enterprise-server-and-githubcom
-  - /admin/configuration/enabling-unified-search-between-github-enterprise-server-and-githubcom
+  - /admin/configuration/configuring-github-connect/enabling-unified-contributions-for-your-enterprise
+  - /admin/configuration/configuring-github-connect/enabling-unified-search-for-your-enterprise
   - /admin/configuration/initializing-github-ae
-  - /admin/configuration/managing-github-for-mobile-for-your-enterprise
   - /admin/configuration/network-ports
   - /admin/configuration/restricting-network-traffic-to-your-enterprise
   - /admin/configuration/site-admin-dashboard
@@ -59,15 +74,17 @@ includeGuides:
   - /admin/enterprise-management/setting-up-external-monitoring
   - /admin/enterprise-management/upgrade-requirements
   - /admin/enterprise-management/upgrading-github-enterprise-server
+  - /admin/enterprise-management/monitoring-your-appliance/about-system-logs
   - /admin/enterprise-support/about-github-enterprise-support
   - /admin/github-actions/about-using-actions-in-your-enterprise
-  - /admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server
-  - /admin/github-actions/enforcing-github-actions-policies-for-your-enterprise
-  - /admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect
-  - /admin/github-actions/high-availability-for-github-actions
   - /admin/github-actions/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled
+  - /admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect
+  - /admin/github-actions/enforcing-github-actions-policies-for-your-enterprise
+  - /admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server
+  - /admin/github-actions/high-availability-for-github-actions
   - /admin/github-actions/using-a-staging-environment
   - /admin/overview/about-data-residency
+  - /admin/overview/about-enterprise-accounts
   - /admin/overview/about-github-ae
   - /admin/overview/about-upgrades-to-new-releases
   - /admin/packages/configuring-package-ecosystem-support-for-your-enterprise
@@ -75,31 +92,57 @@ includeGuides:
   - /admin/policies/about-pre-receive-hooks
   - /admin/policies/creating-a-pre-receive-hook-environment
   - /admin/policies/creating-a-pre-receive-hook-script
+  - /admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-advanced-security-in-your-enterprise
+  - /admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-dependency-insights-in-your-enterprise
+  - /admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise
+  - /admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise
+  - /admin/policies/enforcing-policies-for-your-enterprise/enforcing-project-board-policies-in-your-enterprise
+  - /admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise
+  - /admin/policies/enforcing-policies-for-your-enterprise/enforcing-team-policies-in-your-enterprise
+  - /admin/policies/enforcing-policies-for-your-enterprise/restricting-email-notifications-for-your-enterprise
   - /admin/policies/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance
   - /admin/user-management/about-migrations
-  - /admin/user-management/audited-actions
   - /admin/user-management/adding-people-to-teams
   - /admin/user-management/auditing-ssh-keys
   - /admin/user-management/auditing-users-across-your-enterprise
   - /admin/user-management/configuring-git-large-file-storage-for-your-enterprise
   - /admin/user-management/configuring-visibility-for-organization-membership
   - /admin/user-management/continuous-integration-using-jenkins
-  - /admin/user-management/disabling-git-ssh-access-on-your-enterprise
   - /admin/user-management/creating-teams
+  - /admin/user-management/disabling-git-ssh-access-on-your-enterprise
   - /admin/user-management/exporting-migration-data-from-githubcom
   - /admin/user-management/exporting-migration-data-from-your-enterprise
   - /admin/user-management/importing-data-from-third-party-version-control-systems
   - /admin/user-management/managing-dormant-users
-  - /admin/user-management/managing-global-webhooks
+  - /admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise
+  - /admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for-your-enterprise
+  - /admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/searching-the-audit-log-for-your-enterprise
+  - /admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/exporting-audit-log-activity-for-your-enterprise
+  - /admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise
+  - /admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise
+  - /admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise
+  - /admin/monitoring-activity-in-your-enterprise/exploring-user-activity/activity-dashboard
+  - /admin/monitoring-activity-in-your-enterprise/exploring-user-activity/viewing-push-logs
+  - /admin/monitoring-activity-in-your-enterprise/exploring-user-activity/log-forwarding
+  - /admin/monitoring-activity-in-your-enterprise/exploring-user-activity/managing-global-webhooks
+  - /admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise
+  - /admin/user-management/managing-organizations-in-your-enterprise/managing-unowned-organizations-in-your-enterprise
   - /admin/user-management/managing-projects-using-jira
-  - /admin/user-management/removing-users-from-teams-and-organizations
+  - /admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise
+  - /admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise
+  - /admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise
+  - /admin/user-management/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise
+  - /admin/user-management/managing-users-in-your-enterprise/viewing-people-in-your-enterprise
   - /admin/user-management/migrating-data-to-your-enterprise
   - /admin/user-management/migrating-to-internal-repositories
   - /admin/user-management/placing-a-legal-hold-on-a-user-or-organization
   - /admin/user-management/preparing-to-migrate-data-to-your-enterprise
   - /admin/user-management/preventing-users-from-creating-organizations
   - /admin/user-management/rebuilding-contributions-data
+  - /admin/user-management/removing-users-from-teams-and-organizations
   - /admin/user-management/requiring-two-factor-authentication-for-an-organization
   - /admin/user-management/suspending-and-unsuspending-users
+  - /admin/overview/creating-an-enterprise-account
+  - /admin/user-management/managing-organizations-in-your-enterprise/restoring-a-deleted-organization
 ---
 

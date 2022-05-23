@@ -6,6 +6,7 @@ redirect_from:
   - /github/building-a-strong-community/reporting-abuse-or-spam
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Community
 ---
@@ -19,6 +20,8 @@ Owners, collaborators, prior contributors, and people with write access can repo
 You can report users that have violated {% data variables.product.prodname_dotcom %}'s Community Guidelines or Terms of Service through {% data variables.contact.report_abuse %} or {% data variables.contact.report_content %}. You can also report issues, pull requests, or comments on issues, pull requests, and commits.
 
 If reported content is enabled for a public repository, you can also report content directly to repository maintainers.
+
+Users in India can contact GitHub's Grievance Officer for India [here](https://support.github.com/contact/india-grievance-officer).
 
 ## Reporting a user
 
@@ -62,7 +65,7 @@ If reported content is enabled for a public repository, you can also report cont
 
 - "[Setting up your project for healthy contributions](/communities/setting-up-your-project-for-healthy-contributions)"
 - "[Using templates to encourage useful issues and pull requests](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)"
-- "[Managing disruptive comments](/communities/moderating-comments-and-conversations/managing-disruptive-comments)"{% ifversion fpt %}
+- "[Managing disruptive comments](/communities/moderating-comments-and-conversations/managing-disruptive-comments)"{% ifversion fpt or ghec %}
 - "[Maintaining your safety on {% data variables.product.prodname_dotcom %}](/communities/maintaining-your-safety-on-github)"
 - "[Limiting interactions in your repository](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)"{% endif %}
 - "[Tracking changes in a comment](/communities/moderating-comments-and-conversations/tracking-changes-in-a-comment)"

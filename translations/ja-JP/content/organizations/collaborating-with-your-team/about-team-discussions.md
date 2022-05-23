@@ -6,9 +6,10 @@ redirect_from:
   - /github/building-a-strong-community/about-team-discussions
   - /github/setting-up-and-managing-organizations-and-teams/about-team-discussions
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Community
 ---
@@ -25,13 +26,13 @@ You can link to any team discussion to reference it elsewhere. You can pin impor
 
 {% data reusables.organizations.team-discussions-default %} Owners can disable team discussions for the entire organization. For more information, see "[Disabling team discussions for your organization](/articles/disabling-team-discussions-for-your-organization)."
 
-### Notifications for team discussions
+## Notifications for team discussions
 
 When someone posts or replies to a public discussion on a team's page, members of the team and members of any child teams receive email or web notifications. When someone posts or replies to a private discussion on a team's page, only members of the team receive notifications.
 
 {% tip %}
 
-**Tip:** Depending on your notification settings, you'll receive updates by email, the web notifications page on {% data variables.product.product_name %}, or both. For more information, see {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications){% else %}"[About email notifications](/github/receiving-notifications-about-activity-on-github/about-email-notifications)" and "[About web notifications](/github/receiving-notifications-about-activity-on-github/about-web-notifications){% endif %}."
+**Tip:** Depending on your notification settings, you'll receive updates by email, the web notifications page on {% data variables.product.product_name %}, or both. For more information, see "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications)."
 
 {% endtip %}
 
@@ -39,11 +40,19 @@ By default, if your username is mentioned in a team discussion, you'll receive n
 
 To turn off notifications for team discussions, you can unsubscribe to a specific discussion post or change your notification settings to unwatch or completely ignore a specific team's discussions. You can subscribe to notifications for a specific discussion post even if you're unwatching that team's discussions.
 
-For more information, see {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions){% else %}"[Subscribing to and unsubscribing from notifications](/github/receiving-notifications-about-activity-on-github/subscribing-to-and-unsubscribing-from-notifications){% endif %}" and "[Nested teams](/articles/about-teams/#nested-teams)."
+For more information, see "[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions)" and "[Nested teams](/articles/about-teams/#nested-teams)."
 
-### Further reading
+{% ifversion fpt or ghec %}
 
-- "[About conversations on {% data variables.product.prodname_dotcom %}](/articles/about-conversations-on-github)"
+## Organization discussions
+
+You can also use organization discussions to facilitate conversations across your organization. For more information, see "[Enabling or disabling GitHub Discussions for an organization](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization)."
+
+{% endif %}
+
+## Further reading
+
+- "[Quickstart for communicating on {% data variables.product.prodname_dotcom %}](/github/collaborating-with-issues-and-pull-requests/quickstart-for-communicating-on-github)"
 - "[About teams](/articles/about-teams)"
 - "[Creating a team discussion](/organizations/collaborating-with-your-team/creating-a-team-discussion)"
 - "[Editing or deleting a team discussion](/organizations/collaborating-with-your-team/editing-or-deleting-a-team-discussion)"

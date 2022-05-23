@@ -5,12 +5,14 @@ redirect_from:
   - /articles/requesting-to-add-a-child-team
   - /github/setting-up-and-managing-organizations-and-teams/requesting-to-add-a-child-team
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Adicionar uma equipe secundária
 ---
 
 Quando você solicita a adição de uma equipe como uma equipe secundária, uma solicitação é enviada aos mantenedores da equipe secundária. Quando um mantenedor da equipe secundária aprova a solicitação, a equipe secundária é aninhada abaixo da equipe principal na hierarquia da organização.
@@ -20,7 +22,7 @@ Se você for proprietário da organização ou tiver permissões de mantenedor d
 {% data reusables.organizations.child-team-inherits-permissions %}
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.teams %}
 4. Na lista de equipes, clique no nome da equipe na qual deseja adicionar a equipe secundária. ![Lista das equipes da organização](/assets/images/help/teams/click-team-name.png)
 5. Na parte superior da página da equipe, clique em {% octicon "people" aria-label="The people icon" %} **Teams** (Equipes). ![Guia Teams (Equipes) na página de uma equipe](/assets/images/help/teams/team-teams-tab.png)
@@ -29,7 +31,7 @@ Se você for proprietário da organização ou tiver permissões de mantenedor d
 {% data reusables.repositories.changed-repository-access-permissions %}
 9. Clique em **Confirm changes** (Confirmar alterações) para enviar uma solicitação de adição da equipe secundária. ![Caixa de diálogo modal com informações sobre as alterações nas permissões de acesso ao repositório](/assets/images/help/teams/confirm-new-parent-team.png)
 
-### Leia mais
+## Leia mais
 
 - "[Sobre equipes](/articles/about-teams)"
 - "[Mover uma equipe na hierarquia da sua organização](/articles/moving-a-team-in-your-organization-s-hierarchy)"

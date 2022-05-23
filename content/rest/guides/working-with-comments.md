@@ -2,12 +2,13 @@
 title: Working with comments
 intro: 'Using the REST API, you can access and manage comments in your pull requests, issues, or commits.'
 redirect_from:
-  - /guides/working-with-comments/
+  - /guides/working-with-comments
   - /v3/guides/working-with-comments
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 ---
@@ -18,7 +19,7 @@ For any Pull Request, {% data variables.product.product_name %} provides three k
 [comments on the Pull Request][PR comment] as a whole, [comments on a specific line][PR line comment] within the Pull Request,
 and [comments on a specific commit][commit comment] within the Pull Request. 
 
-Each of these types of comments goes through a different portion of the {% data variables.product.product_name %} API.
+Each of these types of comments goes through a different portion of the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API.
 In this guide, we'll explore how you can access and manipulate each one. For every
 example, we'll be using [this sample Pull Request made][sample PR] on the "octocat"
 repository. As always, samples can be found in [our platform-samples repository][platform-samples].
@@ -125,4 +126,4 @@ on the entire commit.
 [personal token]: /articles/creating-an-access-token-for-command-line-use
 [octokit.rb]: https://github.com/octokit/octokit.rb
 [PR Review API]: /rest/reference/pulls#comments
-[commit comment API]: /rest/reference/repos#get-a-commit-comment
+[commit comment API]: /rest/reference/commits#get-a-commit-comment

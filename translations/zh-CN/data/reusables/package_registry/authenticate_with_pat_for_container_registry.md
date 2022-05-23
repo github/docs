@@ -1,13 +1,11 @@
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec or ghes > 3.4 %}
 
-PAT 可以授予对您的帐户的广泛访问权限。 在创建 PAT 以向 {% data variables.product.prodname_container_registry %} 验证时，您应该只选择必要的 `read:packages`、`write:packages` 或 `delete:packages` 范围。
+To authenticate to the {% data variables.product.prodname_container_registry %} within a {% data variables.product.prodname_actions %} workflow, use the `GITHUB_TOKEN` for the best security and experience. If your workflow is using a personal access token (PAT) to authenticate to `{% data reusables.package_registry.container-registry-hostname %}`, then we highly recommend you update your workflow to use the `GITHUB_TOKEN`.
 
-要在 {% data variables.product.prodname_actions %} 工作流程中向 {% data variables.product.prodname_container_registry %} 验证，请使用 `GITHUB_TOKEN` 以获得最佳的安全性和体验。
+{% ifversion fpt or ghec %}For guidance on updating your workflows that authenticate to `{% data reusables.package_registry.container-registry-hostname %}` with a personal access token, see "[Upgrading a workflow that accesses `ghcr.io`](/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions#upgrading-a-workflow-that-accesses-ghcrio)."{% endif %}
 
-有关更新使用个人访问令牌向 `ghcr.io` 验证的工作流程的指南，请参阅“[升级访问 `ghcr.io` 的工作流程](/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions#upgrading-a-workflow-that-accesses-ghcrio)”。
+For more information about the `GITHUB_TOKEN`, see "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow#using-the-github_token-in-a-workflow)."
 
-{% data reusables.package_registry.github-token-security-over-pat %}
-
-如果要在测试期间的操作中使用 {% data variables.product.prodname_container_registry %}，请遵循我们在“[GitHub Actions 的安全强化](/actions/getting-started-with-github-actions/security-hardening-for-github-actions#considering-cross-repository-access)”中的 PAT 使用安全最佳实践。
+If you're using the {% data variables.product.prodname_container_registry %} in actions, follow our security best practices at "[Security hardening for GitHub Actions](/actions/getting-started-with-github-actions/security-hardening-for-github-actions#considering-cross-repository-access)."
 
 {% endif %}

@@ -2,24 +2,25 @@
 title: 配置时间同步
 intro: '{% data variables.product.prodname_ghe_server %} 通过连接到 NTP 服务器自动同步其时钟。 您可以设置用于同步时钟的 NTP 服务器，也可以使用默认 NTP 服务器。'
 redirect_from:
-  - /enterprise/admin/articles/adjusting-the-clock/
-  - /enterprise/admin/articles/configuring-time-zone-and-ntp-settings/
-  - /enterprise/admin/articles/setting-ntp-servers/
-  - /enterprise/admin/categories/time/
+  - /enterprise/admin/articles/adjusting-the-clock
+  - /enterprise/admin/articles/configuring-time-zone-and-ntp-settings
+  - /enterprise/admin/articles/setting-ntp-servers
+  - /enterprise/admin/categories/time
   - /enterprise/admin/installation/configuring-time-synchronization
   - /enterprise/admin/configuration/configuring-time-synchronization
   - /admin/configuration/configuring-time-synchronization
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Fundamentals
   - Infrastructure
   - Networking
+shortTitle: 配置时间设置
 ---
 
-### 更改默认 NTP 服务器
+## 更改默认 NTP 服务器
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
@@ -28,7 +29,7 @@ topics:
 4. 在页面底部，单击 **Save settings**。 ![{% data variables.enterprise.management_console %} 中的 Save settings 按钮](/assets/images/enterprise/management-console/save-settings.png)
 5. 等待配置运行完毕。
 
-### 更正较大的时间偏差
+## 更正较大的时间偏差
 
 NTP 协议会持续更正较小的时间同步偏差。 您可以使用管理 shell 立即同步时间。
 

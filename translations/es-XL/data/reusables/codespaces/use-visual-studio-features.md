@@ -1,1 +1,0 @@
-Después de que abras un codespace, puedes desarrollar utilizando las características de {% data variables.product.prodname_vscode %} tales como edición de texto, depuración, y comandos de Git. Para obtener más información, consulta la sección [documentación de {% data variables.product.prodname_vscode %}](https://code.visualstudio.com/docs).

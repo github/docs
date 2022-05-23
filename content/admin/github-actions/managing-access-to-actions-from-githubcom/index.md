@@ -4,8 +4,8 @@ intro: 'Controlling which actions on {% data variables.product.prodname_dotcom_t
 redirect_from:
   - /enterprise/admin/github-actions/managing-access-to-actions-from-githubcom
 versions:
-  ghes: '>=2.22'
-  ghae: next
+  ghes: '*'
+  ghae: '*'
 topics:
   - Enterprise
 children:

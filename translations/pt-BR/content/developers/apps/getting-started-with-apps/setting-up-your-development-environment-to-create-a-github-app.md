@@ -5,18 +5,20 @@ redirect_from:
   - /apps/quickstart-guides/setting-up-your-development-environment
   - /developers/apps/setting-up-your-development-environment-to-create-a-github-app
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - GitHub Apps
+shortTitle: Ambiente de desenvolvimento
 ---
 
-### Introdução
+## Introdução
 
 Este guia irá analisar os passos necessários para configurar um aplicativo GitHub e executá-lo em um servidor. Os aplicativos GitHub exigem algumas etapas de configuração para gerenciar eventos do webhook e conectar o registro do aplicativo no GitHub ao seu código. O aplicativo neste guia serve como base que você pode usar para estender e criar novos aplicativos no GitHub.
 
-Ao final deste guia, você aprenderá a registrar um aplicativo GitHub e configurar um servidor web para receber eventos de webhook. Você aprenderá a usar uma ferramenta denominada Smee para capturar cargas do webhook e encaminhá-las para seu ambiente de desenvolvimento local. O aplicativo do modelo você irá configurar nesta seção não fará nada especial nesse momento, mas servirá como uma estrutura que você pode usar para começar a escrever o código do aplicativo usando a API ou concluindo outros [guias de início rápido](/apps/quickstart-guides/). {% if currentVersion == "free-pro-team@latest" %}Você pode conferir exemplos bem sucedidos de aplicativos no [GitHub Marketplace](https://github.com/marketplace) e em [Funciona com o GitHub](https://github.com/works-with).{% endif %}
+Ao final deste guia, você aprenderá a registrar um aplicativo GitHub e configurar um servidor web para receber eventos de webhook. Você aprenderá a usar uma ferramenta denominada Smee para capturar cargas do webhook e encaminhá-las para seu ambiente de desenvolvimento local. O aplicativo do modelo você irá configurar nesta seção não fará nada especial nesse momento, mas servirá como uma estrutura que você pode usar para começar a escrever o código do aplicativo usando a API ou concluindo outros [guias de início rápido](/apps/quickstart-guides/). {% ifversion fpt or ghec %}Você pode conferir exemplos bem-sucedidos de aplicativos no [GitHub Marketplace](https://github.com/marketplace) e em [Trabalhos com GitHub](https://github.com/works-with).{% endif %}
 
 Após concluir este projeto, você entenderá como efetuar a autenticação como um aplicativo GitHub e uma instalação, bem como e como esses métodos de autenticação são diferentes.
 
@@ -32,7 +34,7 @@ Aqui estão as etapas que você vai seguir para configurar o modelo do aplicativ
 
 {% data reusables.apps.app-ruby-guides %}
 
-### Pré-requisitos
+## Pré-requisitos
 
 Você pode achar útil ter um entendimento básico do seguinte:
 
@@ -50,9 +52,9 @@ Antes de começar, você precisa clonar o repositório com o código do modelo u
 $ git clone https://github.com/github-developer/github-app-template.git
 ```
 
-### Etapa 1. Inicie um novo canal da Smee
+## Etapa 1. Inicie um novo canal da Smee
 
-Para ajudar o GitHub a enviar webhooks para a sua máquina local sem expô-lo à internet, você pode usar uma ferramenta denominada Smee. Primeiro, acesse https://smee.io e clique em **Iniciar um novo canal**. Se você já está confortável com outras ferramentas que expõem sua máquina local à internet como [ngrok](https://dashboard.ngrok.com/get-started) ou [localtunnel](https://localtunnel.github.io/www/), sinta-se à vontade para usá-las.
+Para ajudar o GitHub a enviar webhooks para a sua máquina local sem expô-lo à internet, você pode usar uma ferramenta denominada Smee. Primeiro, acesse https://smee.io e clique em **Iniciar um novo canal**. Se você já está confortável com outras ferramentas que expõem sua máquina local à internet como [`ngrok`](https://dashboard.ngrok.com/get-started) ou [`túnel local`](https://localtunnel.github.io/www/), sinta-se à vontade para usá-las.
 
 ![O botão do novo canal da Smee](/assets/images/smee-new-channel.png)
 
@@ -89,9 +91,9 @@ Em seguida, volte ao Terminal e siga estes passos para executar o cliente da int
 
 O comando `smee --url <unique_channel>` informa à Smee para encaminhar todos os eventos webhook recebidos pelo canal da Smee para o cliente da Smee em execução no seu computador. A opção `--path /event_handler` envia eventos para o encaminhamento `/event_handler`, que iremos cobrir em uma [seção mais adiante](#step-5-review-the-github-app-template-code). A opção `--port 3000` especifica a porta 3000, que é a porta que o seu servidor estará ouvindo. Usando a Smee. A sua máquina não precisa estar conectada à internet pública para receber os webhooks do GitHub. Você também pode abrir a URL da Smee no seu navegador para inspecionar as cargas do webhook quando entrarem.
 
-Recomendamos deixar esta janela de Terminal aberta e manter a Smee conectada enquanto você realiza as outras etapas deste guia. Embora você _possa_ desconectar e reconectar o cliente da Smee sem perder seu domínio único (diferente do ngrok), é possível que seja mais fácil deixá-lo conectado e realizar outras tarefas de linha de comando em uma janela diferente do Terminal.
+Recomendamos deixar esta janela de Terminal aberta e manter a Smee conectada enquanto você realiza as outras etapas deste guia. Embora você _possa_ desconectar e reconectar o cliente da Smee sem perder seu domínio único (diferente do `ngrok`), é possível que seja mais fácil deixá-lo conectado e realizar outras tarefas de linha de comando em uma janela diferente do Terminal.
 
-### Etapa 2. Cadastre um novo aplicativo GitHub
+## Etapa 2. Cadastre um novo aplicativo GitHub
 
 Se você ainda não tem uma conta no GitHub, agora é um [ótimo momento para criar](https://github.com/join). Não se esqueça de verificar seu e-mail antes de continuar! Para registrar um novo aplicativo, acesse a [página de configurações do aplicativo](https://github.com/settings/apps) no seu perfil do GitHub e clique em **Novo aplicativo GitHub**.
 
@@ -125,11 +127,11 @@ Você verá um formulário em que poderá inserir informações sobre o seu apli
 
 Clique em **Criar aplicativo GitHub** para criar o seu aplicativo!
 
-### Etapa 3. Salve sua chave privada e o ID do aplicativo
+## Etapa 3. Salve sua chave privada e o ID do aplicativo
 
 Após criar seu aplicativo, você será levado de volta para a [página de configurações do aplicativo](https://github.com/settings/apps). Você tem mais duas coisas para fazer aqui:
 
-* **Gerar uma chave privada para seu aplicativo.** Isso é necessário para autenticar seu aplicativo mais tarde. Role para baixo na página e clique em **Gerar uma chave privada**. Salve o arquivo PEM resultante (denominado algo como  _`app-name`_-_`date`_-private-key.pem) em um diretório onde você poderá encontrá-lo novamente.
+* **Gerar uma chave privada para seu aplicativo.** Isso é necessário para autenticar seu aplicativo mais tarde. Role para baixo na página e clique em **Gerar uma chave privada**. Salve o arquivo `PEM` resultante (denominado algo como  _`app-name`_-_`date`_-`private-key.pem`) em um diretório onde você poderá encontrá-lo novamente.
 
     ![A caixa de diálogo de geração de chaves privadas](/assets/images/private_key.png)
 
@@ -137,7 +139,7 @@ Após criar seu aplicativo, você será levado de volta para a [página de confi
 
     <img src="/assets/images/app_id.png" alt="Número de ID do seu aplicativo" width="200px" />
 
-### Etapa 4. Prepare o ambiente do tempo de execução
+## Etapa 4. Prepare o ambiente do tempo de execução
 
 Para manter suas informações seguras, recomendamos colocar todos os segredos referentes ao aplicativo na memória do computador onde seu aplicativo poderá encontrá-los, em vez de colocá-los diretamente no seu código. Uma ferramenta útil de desenvolvimento denominada [dotenv](https://github.com/bkeepers/dotenv) carrega variáveis de ambiente específicas do projeto a partir de um arquivo `.env` para `ENV`. Nunca verifique o seu arquivo `.env` no GitHub. Este é um arquivo local que armazena informações confidenciais que você não deseja que estejam na internet pública. O arquivo `.env` já está incluído no arquivo do repositório [`.gitignore`](/github/getting-started-with-github/ignoring-files/) para evitar isso.
 
@@ -161,7 +163,7 @@ GITHUB_APP_IDENTIFIER=12345
 GITHUB_WEBHOOK_SECRET=your webhook secret
 ```
 
-### Etapa 5. Revise o código do modelo do aplicativo GitHub
+## Etapa 5. Revise o código do modelo do aplicativo GitHub
 
 O código do aplicativo do modelo já contém algum código de que cada aplicativo GitHub vai precisar. Esta seção apresenta o código que já existe no modelo do aplicativo GitHub. Não há etapas que você precisa realizar para concluir esta seção. Se você já está familiarizado com o código do modelo, você pode pular para a "[Etapa 6. Inicie o servidor](#step-6-start-the-server)".
 
@@ -169,7 +171,7 @@ Abra o arquivo `template_server.rb` no seu editor de texto favorito. Você verá
 
 Na parte superior do arquivo você verá `set :port 3000`, que define a porta usada ao iniciar o servidor web para corresponder à porta à qual você redirecionou suas cargas de webhook na "[Etapa 1. Inicie um novo canal da Smee](#step-1-start-a-new-smee-channel)."
 
-O próximo código que você verá será a declaração `class GHApp < Sintra::Application`. Você irá escrever todo o código para o seu aplicativo GitHub dentro desta classe.
+O próximo código que você verá é a declaração `class GHApp < Sinatra::Application` Você irá escrever todo o código para o seu aplicativo GitHub dentro desta classe.
 
 Fora desta caixa, a classe do modelo faz o seguinte:
 * [Lê as variáveis de ambiente](#read-the-environment-variables)
@@ -178,7 +180,7 @@ Fora desta caixa, a classe do modelo faz o seguinte:
 * [Define o gerenciador de encaminhamento](#define-a-route-handler)
 * [Define os métodos de ajuda](#define-the-helper-methods)
 
-#### Lê as variáveis de ambiente
+### Lê as variáveis de ambiente
 
 A primeira coisa que essa classe faz é ler as três variáveis de ambiente definidas na "[Etapa 4. Prepare o ambiente do tempo de execução](#step-4-prepare-the-runtime-environment)" e armazene-o nas variáveis para usar posteriormente:
 
@@ -194,7 +196,7 @@ WEBHOOK_SECRET = ENV['GITHUB_WEBHOOK_SECRET']
 APP_IDENTIFIER = ENV['GITHUB_APP_IDENTIFIER']
 ```
 
-#### Ativa o início da sessão
+### Ativa o início da sessão
 
 Em seguida, um bloco do código que habilita o login durante o desenvolvimento, que é o ambiente-padrão np Sinatra. Este código ativa o início da sessão no nível `DEBUG` para mostrar um resultado útil no Terminal enquanto você está desenvolvendo o aplicativo:
 
@@ -205,7 +207,7 @@ configure :development do
 end
 ```
 
-#### Define um pré-filtro
+### Define um pré-filtro
 
 O Sinatra usa [pré-filtros](https://github.com/sinatra/sinatra#filters) que permite que você execute o código antes do manipulador de encaminhamento. O bloco `anterior` no modelo chama quatro [métodos de ajuda](https://github.com/sinatra/sinatra#helpers). O aplicativo do modelo define esses métodos de ajuda em uma [seção posterior](#define-the-helper-methods).
 
@@ -220,7 +222,7 @@ before '/event_handler' do
 end
 ```
 
-#### Defina um gerenciador de encaminhamento
+### Defina um gerenciador de encaminhamento
 
 Um encaminhamento vazio está incluído no código do modelo. Este código gerencia todas as solicitações `POST` para o encaminhamento `/event_handler`. Você não vai escrever este manipulador de eventos neste início rápido, mas veja os outros [guias de início rápido](/apps/quickstart-guides/) para obter exemplos de como estender o aplicativo deste modelo.
 
@@ -230,19 +232,19 @@ post '/event_handler' do
 end
 ```
 
-#### Define os métodos de ajuda
+### Define os métodos de ajuda
 
 Os métodos de ajuda neste modelo fazem a maior parte do trabalho pesado. Nesta seção do código, são definidos quatro métodos de ajuda.
 
-##### Gerenciar a carga do webhook
+#### Gerenciar a carga do webhook
 
 O primeiro método `get_payload_request` captura a carga do webhook e a converte para o formato JSON, o que facilita muito o acesso aos dados do payload.
 
-##### Verificar a assinatura do webhook
+#### Verificar a assinatura do webhook
 
 O segundo método `verify_webhook_signature` realiza a verificação da assinatura do webhook para garantir que o GitHub gerou o evento. Para saber mais sobre o código no método auxiliar `verify_webhook_signature`, consulte "[Protegendo seus webhooks](/webhooks/securing/)". Se os webhooks estiverem seguros, este método registrará todos as cargas de entrada no seu Terminal. O código do registro é útil para verificar se o seu servidor web está funcionando, mas você sempre poderá removê-lo posteriormente.
 
-##### Efetuar autenticação como um aplicativo GitHub
+#### Efetuar autenticação como um aplicativo GitHub
 
 Para fazer chamadas de API, você usará a [biblioteca do Octokit](http://octokit.github.io/octokit.rb/). Fazer qualquer coisa interessante com esta biblioteca irá exigir que você, ou melhor, seu aplicativo, efetue a autenticação. Os aplicativos GitHub têm dois métodos de autenticação:
 
@@ -288,7 +290,7 @@ end
 
 O código acima gera um [JSON Web Token (JWT)](https://jwt.io/introduction) e o usa (junto com a chave privada do seu aplicativo) para inicializar o cliente Octokit. GitHub verifica a autenticação de uma solicitação, verificando o token com a chave pública armazenada no aplicativo. Para saber mais sobre como este código funciona, consulte "[Efetuando a autenticação como um aplicativo GitHub](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app)".
 
-##### Autenticar como uma instalação
+#### Autenticar como uma instalação
 
 Uma _instalação_ refere-se a qualquer usuário ou conta de organização que instalou o aplicativo. Mesmo que alguém instale o app em mais de um repositório, ele só conta como uma instalação porque está dentro da mesma conta. O último método de ajuda `authenticate_installation` inicializa um [Cliente Octokit](http://octokit.github.io/octokit.rb/Octokit/Client.html) autenticado como uma instalação. Este cliente Octokit é o que você usaria para fazer chamadas de API autenticada.
 
@@ -313,7 +315,7 @@ Com este método em vigor, cada vez que seu aplicativo recebe uma nova carga de 
 
 Agora você está pronto para começar a fazer chamadas de API!
 
-### Etapa 6. Inicie servidor
+## Etapa 6. Inicie servidor
 
 Seu aplicativo ainda não _faz_ nada, mas, neste momento, você pode executá-lo no servidor.
 
@@ -355,7 +357,7 @@ Uma vez que o servidor estiver sendo executado, você poderá testá-lo acessand
 
 Isto é bom! Mesmo sendo uma página de erro, é uma página de erro da página do _Sinatra_, o que significa que seu aplicativo está conectado ao servidor conforme esperado. Você está vendo essa mensagem porque você não deu ao aplicativo mais nada para mostrar.
 
-### Etapa 7. Instale o aplicativo em sua conta
+## Etapa 7. Instale o aplicativo em sua conta
 
 Você pode testar se o servidor está ouvindo seu aplicativo acionando um evento para receber. Um evento simples que você pode testar é instalar o aplicativo em sua conta do GitHub, que deve enviar o evento [`instalação`](/webhooks/event-payloads/#installation). Se o aplicativo o receber, você deverá ver algumas saídas na aba Terminal, onde você iniciou `template_server.rb`.
 
@@ -382,7 +384,7 @@ Se você não vir a saída, certifique-se de que a Smee esteja em sendo corretam
 
 Se você estiver se perguntando de onde vem a saída do Terminal acima, ela é escrita no [código do modelo do aplicativo](#prerequisites) em `template_server.rb`.
 
-### Solução de Problemas
+## Solução de Problemas
 
 Aqui estão alguns problemas comuns e algumas soluções sugeridas. Se você tiver qualquer outro problema, poderá pedir ajuda ou orientação em {% data variables.product.prodname_support_forum_with_url %}.
 
@@ -426,7 +428,7 @@ Aqui estão alguns problemas comuns e algumas soluções sugeridas. Se você tiv
 
 * **P:** Eu recebi uma mensagem de erro `Octokit::NotFound` 404 error na minha saída de depuração:
     ```
-    2018-12-06 15:00:56 - Octokit::NotFound - POST https://api.github.com/app/installations/500991/access_tokens: 404 - Not Found // See: /v3/apps/#create-a-new-installation-token:
+    2018-12-06 15:00:56 - Octokit::NotFound - POST {% data variables.product.api_url_code %}/app/installations/500991/access_tokens: 404 - Not Found // See: /v3/apps/#create-a-new-installation-token:
     ```
 
     **R:** Certifique-se de que as variáveis no seu arquivo `.env` estejam corretas. Certifique-se de que você não definiu variáveis idênticas em qualquer outro arquivo de variável de ambiente como, por exemplo, `bash_profile`. Você pode verificar as variáveis de ambiente que seu aplicativo está usando adicionando `puts` ao código do seu aplicativo e reexecutando o código. Por exemplo, para garantir que você tenha a chave privada correta, você pode adicionar `puts PRIVATE_KEY` ao seu código do aplicativo:
@@ -436,7 +438,7 @@ Aqui estão alguns problemas comuns e algumas soluções sugeridas. Se você tiv
     puts PRIVATE_KEY
     ```
 
-### Conclusão
+## Conclusão
 
 Depois de analisar este guia, você aprendeu os componentes básicos para o desenvolvimento dos aplicativos GitHub! Para resumir, você:
 
@@ -446,6 +448,6 @@ Depois de analisar este guia, você aprendeu os componentes básicos para o dese
 * Efetuou a autenticação como um aplicativo GitHub
 * Efetuou a autenticação como uma instalação
 
-### Próximas etapas
+## Próximas etapas
 
 Agora você tem um aplicativo GitHub em execução em um servidor. Ele ainda não faz nada especial, mas veja algumas maneiras de personalizar o seu modelo do aplicativo GitHub em outros [guias de início rápido](/apps/quickstart-guides/).

@@ -1,20 +1,25 @@
 ---
 title: 将身份提供程序连接到组织
-intro: '要使用 SAML 单点登录和 SCIM，必须将身份提供程序连接到您的 {% data variables.product.product_name %} 组织。'
-product: '{% data reusables.gated-features.saml-sso %}'
+intro: '要使用 SAML 单点登录和 SCIM，您必须在 {% data variables.product.product_name %}上将您的身份提供程序 (IdP) 连接到您的组织。'
 redirect_from:
   - /articles/connecting-your-identity-provider-to-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/connecting-your-identity-provider-to-your-organization
 versions:
-  free-pro-team: '*'
+  ghec: '*'
 topics:
+  - Authentication
   - Organizations
   - Teams
+shortTitle: 连接 IdP
 ---
 
-在您的 {% data variables.product.product_name %} 组织中[启用 SAML SSO](/articles/enabling-and-testing-saml-single-sign-on-for-your-organization) 之前，需要将身份提供程序 (IdP) 连接到您的组织。
+## 关于将 IdP 连接到组织
 
-您可以在以下文档中找到 IdP 的 SAML 和 SCIM 实现详细信息：
+为您的 {% data variables.product.product_name %} 组织启用 SAML SSO时，会将您的身份提供商 (IDP) 连接到组织。 更多信息请参阅“[对组织启用并测试 SAML 单点登录](/organizations/managing-saml-single-sign-on-for-your-organization/enabling-and-testing-saml-single-sign-on-for-your-organization)”。
+
+{% data reusables.saml.ghec-only %}
+
+您可以在 IdP 文档中找到 IdP 的 SAML 和 SCIM 实现详细信息。
 - Active Directory Federation Services (AD FS) [SAML](https://docs.microsoft.com/windows-server/identity/active-directory-federation-services)
 - Azure Active Directory (Azure AD) [SAML](https://docs.microsoft.com/azure/active-directory/active-directory-saas-github-tutorial) 和 [SCIM](https://docs.microsoft.com/azure/active-directory/active-directory-saas-github-provisioning-tutorial)
 - Okta [SAML](http://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-for-Github-com.html) 和 [SCIM](http://developer.okta.com/standards/SCIM/)
@@ -24,11 +29,12 @@ topics:
 
 {% note %}
 
-**注：**{% data variables.product.product_name %} 支持的用于 SCIM 的身份提供程序为 Azure AD、Okta 和 OneLogin。 有关 SCIM 的更多信息，请参阅“[关于 SCIM](/articles/about-scim)”。
+**注：**{% data variables.product.product_name %} 支持的用于 SCIM 的身份提供程序为 Azure AD、Okta 和 OneLogin。 有关 SCIM 的详细信息，请参阅“[关于组织的 SCIM](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)”。
+
+{% data reusables.scim.enterprise-account-scim %}
 
 {% endnote %}
 
-### 延伸阅读
+## SAML 元数据
 
-- "[关于使用 SAML 单点登录管理身份和访问](/articles/about-identity-and-access-management-with-saml-single-sign-on)"
-- "[对组织实施 SAML 单点登录](/articles/enforcing-saml-single-sign-on-for-your-organization)"
+有关组织的 SAML 元数据的详细信息，请参阅“[SAML 配置参考](/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference)”。

@@ -4,16 +4,13 @@ intro: 'Se você criar ferramentas que integram-se ao {% data variables.product.
 redirect_from:
   - /program
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - API
 ---
 
 Você está criando um aplicativo que se integra ao GitHub? Registre-se no nosso programa de desenvolvedor! As possibilidades são infinitas, e você irá desfrutar do reconhecimento da comunidade. [Registre-se agora](https://github.com/developer/register)
-
-## Fique por dentro
-
-Seja o primeiro a saber das mudanças na API e experimente novos recursos antes que sejam lançados no [blog do desenvolvedor](https://developer.github.com/changes/).
 
 ## Acabe com a curiosidade
 
@@ -21,13 +18,12 @@ Crie suas próprias ferramentas que integram-se perfeitamente ao lugar que você
 
 ## Assuma a empresa
 
-[Obtenha licenças de desenvolvedor](http://github.com/contact?form%5Bsubject%5D=Development+licenses) para criar e testar seu aplicativo com base no {% data variables.product.prodname_ghe_server %}.
-
+Envie um e-mail para <a href="mailto:partnerships@github.com">partnerships@github.com</a> para solicitar licenças de desenvolvedor para criar e testar seu aplicativo para {% data variables.product.prodname_ghe_server %}.
 
 ## Você tem uma integração que é compatível com o GitHub?
 
 Excelente! Nós adoraríamos que você fizesse parte do programa. Veja como você pode divulgar a notícia:</p>
-* [Conte-nos sobre sua integração](https://github.com/contact?form[subject]=New+GitHub+Integration)
+* [Conte-nos sobre sua integração](https://support.github.com/contact?tags=rr-general-technical&form[subject]=New+GitHub+Integration)
 * Use o logotipo do [Octocat ou GitHub](https://github.com/logos) para identificar que o seu produto é compatível com o GitHub
 * Publique um vídeo ou um blog no seu site sobre sua integração
 

@@ -1,8 +1,7 @@
 ---
-title: Documentación sobre los debates de GitHub
-beta_product: true
+title: GitHub Discussions Documentation
 shortTitle: GitHub Discussions
-intro: '{% data variables.product.prodname_discussions %} es un foro de comunicación colaborativa para la comunidad que circunda un proyecto de código abierto. Los miembros de la comunidad pueden hacer preguntas y proporcionar respuestas, compartir actualizaciones, tener conversaciones abiertas y dar seguimiento a las decisiones que afectan la forma de trabajar de la misma.'
+intro: '{% data variables.product.prodname_discussions %} is a collaborative communication forum for the community around an open source project. Community members can ask and answer questions, share updates, have open-ended conversations, and follow along on decisions affecting the community''s way of working.'
 introLinks:
   quickstart: /discussions/quickstart
 featuredLinks:
@@ -19,15 +18,20 @@ featuredLinks:
   popular:
     - /discussions/guides/granting-higher-permissions-to-top-contributors
     - /discussions/guides/best-practices-for-community-conversations-on-github
-    - /discussions/guides/finding-discussions-across-multiple-repositories
+    - /discussions/guides/finding-your-discussions
     - /discussions/collaborating-with-your-community-using-discussions/collaborating-with-maintainers-using-discussions
-    - /discussions/managing-discussions-for-your-community/managing-categories-for-discussions-in-your-repository
+    - /discussions/managing-discussions-for-your-community/managing-categories-for-discussions
 changelog:
   label: discussions
+examples_source: data/product-examples/discussions/community-examples.yml
 product_video: 'https://www.youtube-nocookie.com/embed/IpBw2SJkFyk'
 layout: product-landing
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
+communityRedirect:
+  name: Provide GitHub Feedback
+  href: 'https://github.com/github/feedback/discussions/categories/discussions-feedback'
 children:
   - /quickstart
   - /guides

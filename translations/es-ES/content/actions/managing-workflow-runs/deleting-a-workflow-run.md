@@ -1,16 +1,15 @@
 ---
 title: Borrar una ejecución de flujo de trabajo
 intro: Puedes borrar una ejecución de flujo de trabajo que se haya completado o que tenga más de dos semanas de antigüedad.
-product: '{% data reusables.gated-features.actions %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 {% data reusables.repositories.permissions-statement-write %}
 

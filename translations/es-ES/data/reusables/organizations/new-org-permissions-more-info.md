@@ -1,1 +1,1 @@
-Para obtener más información, consulta "[Niveles de permisos para una organización](/articles/permission-levels-for-an-organization)".
+Para obtener más información, consulta la sección "[Roles en una organización](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)".

@@ -4,7 +4,7 @@ intro: アプライアンスを監視し、新しいバージョンにアップ�
 redirect_from:
   - /enterprise/admin/enterprise-management
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 topics:
   - Enterprise
 children:
@@ -12,5 +12,7 @@ children:
   - /updating-the-virtual-machine-and-physical-resources
   - /configuring-clustering
   - /configuring-high-availability
+  - /caching-repositories
+shortTitle: 'Monitor, manage, and update your appliance'
 ---
 

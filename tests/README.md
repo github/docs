@@ -45,20 +45,27 @@ out a test coverage report, so you can see what files are in need of tests.
 npm run test-watch
 ```
 
-### Testing individual files
+### Running individual tests
 
-If you're making changes to a specific file and don't want to run the entire
-test suite, you can pass an argument to the `jest` testing tool:
+You can run specific tests in one of these two ways:
 
 ```sh
-jest __tests__/page.js
+# The TEST_NAME can be a filename, partial filename, or path to a file or directory
+npm test -- <TEST_NAME>
+
+NODE_OPTIONS=--experimental-vm-modules npx jest tests/unit
 ```
 
-The argument doesn't have to be a fully qualified file path. It can also be a
-portion of a filename:
+### Failed Local Tests
+
+If the tests fail locally with an error like this:
+
+`Could not find a production build in the '/Users/username/repos/docs-internal/.next' directory.`
+
+You may need to run this before every test run:
 
 ```sh
-jest page # runs tests on __tests__/page.js and __tests__/pages.js
+npx next build
 ```
 
 ### Linting
@@ -70,25 +77,27 @@ run the linter:
 npm run lint
 ```
 
-### Broken link test
+### Keeping the server running
 
-This test checks all internal links and image references in the English site. To run it locally (takes about 60 seconds):
+When you run `jest` tests, that depend on making real HTTP requests
+to `localhost:4000`, the `jest` tests have a hook that starts the
+server before running all/any tests, and stops the server when it's done.
+
+You can disable that, which might make it easier when debugging tests
+since the server won't need to start and stop every time you run tests.
+
+In one terminal type:
 
 ```sh
-npx jest links-and-images
+NODE_ENV=test PORT=4000 node server.mjs
 ```
 
-It checks images, anchors, and links for every **version** of every **page**.
+and then, in another terminal type:
 
-It reports five types of problems:
+```sh
+START_JEST_SERVER=false jest tests/rendering/foo/bar.js
+```
 
-1. **Broken image references**
-   - Example: `/assets/images/foo.png` where `foo.png` doesn't exist.
-2. **Broken same-page anchors**
-   - Example: `#foo` where the page does not have a heading `Foo`.
-3. **Broken links due to page not found**
-   - Example: `/github/using-git/foo` where there is no `foo.md` file at that path.
-4. **Broken links due to versioning**
-   - Example: an unversioned link to a Dotcom-only article in a page that has Enterprise versions.
-5. **Broken anchors on links**
-   - Example: `/some/valid/link#bar` where the linked page can be found but it does not have a heading `Bar`.
+Or whatever the testing command you use. Note the `START_JEST_SERVER=false`
+environment variable that needs to be set or else, `jest` will try to start
+a server on `:4000` too.

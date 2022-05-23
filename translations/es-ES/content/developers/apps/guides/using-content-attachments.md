@@ -5,16 +5,14 @@ redirect_from:
   - /apps/using-content-attachments
   - /developers/apps/using-content-attachments
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: <3.4
 topics:
   - GitHub Apps
 ---
 
 {% data reusables.pre-release-program.content-attachments-public-beta %}
 
-### Acerca de los adjuntos de contenido
+## Acerca de los adjuntos de contenido
 
 Una GitHub App puede registrar dominios que activarán los eventos de `content_reference`. Cuando alguien incluye una URL que vincule a un dominio registrado en el cuerpo o en el comentario de un informe de problemas o de una solicitud de extracción, la app recibe el [webhook de `content_reference`](/webhooks/event-payloads/#content_reference). Puedes utilizar los adjuntos de contenido para proporcionar visualmente más contenido o datos para la URL que se agregó a un informe de problemas o a una solicitud de extracción. La URL debe estar completamente calificada, comenzando ya sea con `http://` o con `https://`. Las URL que sean parte de un enlace de markdown se ignorarán y no activarán el evento de `content_reference`.
 
@@ -29,7 +27,7 @@ Los adjuntos de contenido no actualizarán las URL retroactivamente. Esto solo f
 
 Consulta la sección "[Crear una GitHub App](/apps/building-github-apps/creating-a-github-app/)" o "[Editar los permisos de las GitHub Apps](/apps/managing-github-apps/editing-a-github-app-s-permissions/)" para encontrar los pasos necesarios para configurar los permisos de las GitHub Apps y las suscripciones a eventos.
 
-### Implementar el flujo de los adjuntos de contenido
+## Implementar el flujo de los adjuntos de contenido
 
 El flujo de los adjuntos de contenido te muestra la relación entre la URL en el informe de problemas o en la solicitud de extracción, el evento de webhook de `content_reference`, y la terminal de la API de REST que necesitas para llamar o actualizar dicho informe de problemas o solicitud de extracción con información adicional:
 
@@ -67,16 +65,16 @@ El flujo de los adjuntos de contenido te muestra la relación entre la URL en el
 
 El parámetro `body` puede contener lenguaje de markdown:
 
-    ```shell
-    curl -X POST \
-      https://api.github.com/repos/Codertocat/Hello-World/content_references/17/attachments \
-      -H 'Accept: application/vnd.github.corsair-preview+json' \
-      -H 'Authorization: Bearer $INSTALLATION_TOKEN' \
-      -d '{
-        "title": "[A-1234] Error found in core/models.py file",
-        "body": "You have used an email that already exists for the user_email_uniq field.\n ## DETAILS:\n\nThe (email)=(Octocat@github.com) already exists.\n\n The error was found in core/models.py in get_or_create_user at line 62.\n\n self.save()"
-    }'
-    ```
+```shell
+curl -X POST \
+  {% data variables.product.api_url_code %}/repos/Codertocat/Hello-World/content_references/17/attachments \
+  -H 'Accept: application/vnd.github.corsair-preview+json' \
+  -H 'Authorization: Bearer $INSTALLATION_TOKEN' \
+  -d '{
+    "title": "[A-1234] Error found in core/models.py file",
+    "body": "You have used an email that already exists for the user_email_uniq field.\n ## DETAILS:\n\nThe (email)=(Octocat@github.com) already exists.\n\n The error was found in core/models.py in get_or_create_user at line 62.\n\n self.save()"
+}'
+```
 
 Para obtener más información acerca de crear un token de instalación, consulta la sección "[Autenticarte como una GitHub App](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation)".
 
@@ -84,7 +82,7 @@ Para obtener más información acerca de crear un token de instalación, consult
 
 ![Contenido adjunto a una referencia en un informe de problemas](/assets/images/github-apps/content_reference_attachment.png)
 
-### Utilizar adjuntos de contenido en GraphQL
+## Utilizar adjuntos de contenido en GraphQL
 Proporcionamos la `node_id` en el evento de [Webhook de `content_reference` ](/webhooks/event-payloads/#content_reference) para que puedas referirte a la mutación `createContentAttachment` en la API de GraphQL.
 
 {% data reusables.pre-release-program.corsair-preview %}
@@ -112,7 +110,7 @@ mutation {
 cURL de ejemplo:
 
 ```shell
-curl -X "POST" "https://api.github.com/graphql" \
+curl -X "POST" "{% data variables.product.api_url_code %}/graphql" \
      -H 'Authorization: Bearer $INSTALLATION_TOKEN' \
      -H 'Accept: application/vnd.github.corsair-preview+json' \
      -H 'Content-Type: application/json; charset=utf-8' \
@@ -121,9 +119,9 @@ curl -X "POST" "https://api.github.com/graphql" \
 }'
 ```
 
-Para obtener más información aacerca de `node_id`, consulta la sección "[Utilizar las Node ID Globales](/graphql/guides/using-global-node-ids)".
+Para obtener más información aacerca de `node_id`, consulta la sección "[Utilizar las Node ID Globales]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-global-node-ids)".
 
-### Ejemplo de uso con Probot y Manifiestos de GitHub Apps
+## Ejemplo de uso con Probot y Manifiestos de GitHub Apps
 
 Para configurar rápidamente una GitHub App que pueda utilizar la API de {% data variables.product.prodname_unfurls %}, puedes utilizar el [Probot](https://probot.github.io/). Consulta la sección "[Crear Github Apps a partir de un manifiesto](/apps/building-github-apps/creating-github-apps-from-a-manifest/)" para aprender cómo el Probot utiliza los Manifiestos de las GitHub Apps.
 

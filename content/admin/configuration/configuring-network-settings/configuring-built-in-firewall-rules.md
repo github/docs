@@ -2,7 +2,7 @@
 title: Configuring built-in firewall rules
 intro: 'You can view default firewall rules and customize rules for {% data variables.product.product_location %}.'
 redirect_from:
-  - /enterprise/admin/guides/installation/configuring-firewall-settings/
+  - /enterprise/admin/guides/installation/configuring-firewall-settings
   - /enterprise/admin/installation/configuring-built-in-firewall-rules
   - /enterprise/admin/configuration/configuring-built-in-firewall-rules
   - /admin/configuration/configuring-built-in-firewall-rules

@@ -1,1 +1,0 @@
-Um Variablen und Metadaten wie Titel und Layout für eine Seite oder einen Beitrag auf Deiner Seite zu setzen, kannst Du YAML-Titelei zuoberst in jeder Markdown- oder HTML-Datei hinzufügen. Weitere Informationen findest Du unter „[Titelei](https://jekyllrb.com/docs/front-matter/)" in der Jekyll Dokumentation.

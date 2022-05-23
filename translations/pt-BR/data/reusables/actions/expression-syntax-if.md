@@ -1,0 +1,1 @@
+Quando você usa expressões em uma condicional `if` você pode omitir a sintaxe da expressão ({% raw %}`${{ }}`{% endraw %}) porque {% data variables.product.prodname_dotcom %} calcula automaticamente a condição `if` como expressão.

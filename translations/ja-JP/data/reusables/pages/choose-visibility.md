@@ -1,1 +1,6 @@
-1. あるいは、プロジェクトサイトを{% data variables.product.prodname_ghe_cloud %}を使用するOrganizationが所有しているプライベートもしくはインターナルリポジトリから公開している場合、サイトの可視性を選択してください。 "{% data variables.product.prodname_pages %}"の下で、**{% data variables.product.prodname_pages %} visibility（{% data variables.product.prodname_pages %}の可視性）**ドロップダウンメニューを選択し、可視性をクリックしてください。 詳しい情報については「[{% data variables.product.prodname_pages %}サイトの可視性の変更](/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site)」をクリックしてください。 ![サイトの可視性を選択するドロップダウンメニュー](/assets/images/help/pages/public-or-private-visibility.png)
+{%- ifversion ghec %}
+1. Optionally, if you're publishing a project site from a private or internal repository, choose the visibility for your site. Under "{% data variables.product.prodname_pages %}", select the **{% data variables.product.prodname_pages %} visibility** drop-down menu, then click a visibility. For more information, see "[Changing the visibility of your {% data variables.product.prodname_pages %} site](/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site)".
+   ![Drop-down to select visibility for your site](/assets/images/help/pages/public-or-private-visibility.png)
+
+   {% indented_data_reference reusables.pages.privately-publish-ghec-only spaces=3%}
+{%- endif %}

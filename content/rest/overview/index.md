@@ -6,6 +6,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 children:
@@ -17,5 +18,6 @@ children:
   - /libraries
   - /openapi-description
   - /endpoints-available-for-github-apps
+  - /permissions-required-for-github-apps
 ---
 

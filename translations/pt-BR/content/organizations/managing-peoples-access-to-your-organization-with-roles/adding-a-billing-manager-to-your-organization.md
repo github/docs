@@ -5,11 +5,13 @@ redirect_from:
   - /articles/adding-a-billing-manager-to-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/adding-a-billing-manager-to-your-organization
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
   - Billing
+shortTitle: Adicionar um gerente de cobrança
 ---
 
 Os integrantes da equipe Proprietários da organização podem conceder permissões de *gerente de cobrança* para as pessoas. Depois que uma pessoa aceita o convite deles para se tornar um gerente de cobrança da sua organização, ela poderá convidar mais pessoas para serem gerentes de cobrança.
@@ -20,7 +22,7 @@ Os integrantes da equipe Proprietários da organização podem conceder permiss�
 
 {% endnote %}
 
-### Permissões para gerentes de cobrança
+## Permissões para gerentes de cobrança
 
 Os gerentes de cobrança podem:
 
@@ -29,6 +31,7 @@ Os gerentes de cobrança podem:
 - Exibir o histórico de pagamentos
 - Baixar recibos
 - Exibir, convidar e remover gerentes de cobrança
+- Iniciar, modificar ou cancelar patrocínios
 
 Além disso, todos os gerentes de cobrança receberão recibos de cobrança por e-mail na data de cobrança da organização.
 
@@ -45,10 +48,22 @@ Os gerentes de cobrança **não** podem:
 
 {% endtip %}
 
-### Convidar um gerente de cobrança
+## Convidar um gerente de cobrança
+
+{% ifversion ghec %}
+{% note %}
+
+**Observação:** Se a sua organização pertencer a uma conta corporativa, você não pode convidar gerentes de cobrança no nível da organização. Para obter mais informações, consulte "[Sobre contas corporativas](/admin/overview/about-enterprise-accounts)".
+
+{% endnote %}
+{% endif %}
 
 A pessoa convidada receberá um e-mail de convite solicitando que ela se torne um gerente de cobrança da sua organização. Assim que a pessoa convidada clicar no link de aceitação no e-mail de convite, ela será adicionada automaticamente à organização como um gerente de cobrança. Se ela ainda não tiver uma conta do GitHub, ela será direcionada para se inscrever em uma, e será adicionada automaticamente à organização como um gerente de cobrança depois que ela criar uma conta.
 
 {% data reusables.organizations.billing-settings %}
 1. Em "Gerenciamento de cobrança", ao lado de "Gerentes de cobrança", clique em **Adicionar**. ![Convidar gerente de cobrança](/assets/images/help/billing/settings_billing_managers_list.png)
 6. Digite o nome de usuário ou endereço de e-mail da pessoa que deseja adicionar e clique em **Send invitation** (Enviar convite). ![Página para convidar gerente de cobrança](/assets/images/help/billing/billing_manager_invite.png)
+
+## Leia mais
+
+- "[Convidando pessoas para gerenciar a sua empresa](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise)"{% ifversion fpt %} na documentação de {% data variables.product.prodname_ghe_cloud %}{% endif %}

@@ -2,15 +2,17 @@
 title: Migrar uma equipe de administradores para permissões de organização aprimoradas
 intro: 'Se sua organização foi criada depois de setembro de 2015, tem permissões de organização aprimoradas por padrão. Organizações criadas antes de setembro de 2015 podem precisar migrar proprietários e equipes de administradores antigos para o modelo de permissões aprimoradas. Integrantes de equipes de administradores legadas mantêm automaticamente a capacidade de criar repositórios até que as equipes sejam migradas para o modelo de permissões de organização aprimoradas.'
 redirect_from:
-  - /articles/migrating-your-previous-admin-teams-to-the-improved-organization-permissions/
+  - /articles/migrating-your-previous-admin-teams-to-the-improved-organization-permissions
   - /articles/migrating-admin-teams-to-improved-organization-permissions
   - /github/setting-up-and-managing-organizations-and-teams/migrating-admin-teams-to-improved-organization-permissions
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Migrar equipe de administração
 ---
 
 Por padrão, todos os integrantes da organização podem criar repositórios. Se você restringir [as permissões de criação de repositórios](/articles/restricting-repository-creation-in-your-organization) para proprietários de organizações e sua organização foi criada sob a estrutura de permissões de organização legadas, os integrantes das equipes de administradores legadas ainda conseguirão criar repositórios.
@@ -19,7 +21,7 @@ Equipes de administradores legadas são equipes que foram criadas com o nível d
 
 Você pode remover essa capacidade migrando suas equipes de administradores legadas para as permissões de organização aprimoradas.
 
-Para obter mais informações, consulte "[Níveis de permissão do repositório para organizações](/articles/repository-permission-levels-for-an-organization)".
+Para obter mais informações, consulte "[Funções do repositório para uma organização](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)".
 
 {% warning %}
 
@@ -27,7 +29,7 @@ Para obter mais informações, consulte "[Níveis de permissão do repositório 
 
 {% endwarning %}
 
-### Migrar todas as equipes de administradores legadas da organização
+## Migrar todas as equipes de administradores legadas da organização
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
@@ -35,9 +37,9 @@ Para obter mais informações, consulte "[Níveis de permissão do repositório 
 1. Revise as equipes de administradores legadas da organização e clique em **Migrate all teams** (Migrar todas as equipes). ![Botão Migrate all teams (Migrar todas as equipes)](/assets/images/help/teams/migrate-all-legacy-admin-teams.png)
 1. Leia as informações sobre possíveis alterações de permissões para integrantes dessas equipes e clique em **Migrate all teams** (Migrar todas as equipes). ![Botão Confirm migration (Confirmar migração)](/assets/images/help/teams/confirm-migrate-all-legacy-admin-teams.png)
 
-### Migrar uma única equipe de administradores
+## Migrar uma única equipe de administradores
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 1. Na caixa de descrição de equipe, clique em **Migrate team** (Migrar equipe). ![Botão Migrate team (Migrar equipe)](/assets/images/help/teams/migrate-a-legacy-admin-team.png)

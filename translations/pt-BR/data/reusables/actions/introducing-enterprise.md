@@ -1,0 +1,1 @@
+Antes de começar, você deve fazer um plano de como apresentar {% data variables.product.prodname_actions %} para a sua empresa. Para obter mais informações, consulte "[Apresentando {% data variables.product.prodname_actions %} à sua empresa](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise)".

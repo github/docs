@@ -3,16 +3,23 @@ title: Crear un tablero de proyecto
 intro: 'Los tableros de proyecto se pueden usar para crear flujos de trabajo personalizados de acuerdo con tus necesidades, como hacer un seguimiento y priorizar trabajos con características específicas, hojas de ruta completas y hasta listas de verificación de lanzamientos.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/creating-a-project-board
-  - /articles/creating-a-project/
+  - /articles/creating-a-project
   - /articles/creating-a-project-board
   - /github/managing-your-work-on-github/creating-a-project-board
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
+  - Issues
+  - Projects
+  - Project management
+type: how_to
 ---
+
+{% data reusables.projects.project_boards_old %}
 
 {% data reusables.project-management.use-automated-template %}
 
@@ -26,7 +33,7 @@ También puedes configurar automatizaciones de flujo de trabajo para mantener tu
 
 {% data reusables.project-management.project-board-import-with-api %}
 
-### Crear un tablero de proyecto propiedad de un usuario
+## Crear un tablero de proyecto propiedad de un usuario
 
 {% data reusables.profile.access_profile %}
 2. En la parte superior de tu página de perfil, en la navegación principal, haz clic en {% octicon "project" aria-label="The project board icon" %} **Proyectos**. ![Pestaña Project (Proyecto)](/assets/images/help/projects/user-projects-tab.png)
@@ -45,10 +52,10 @@ También puedes configurar automatizaciones de flujo de trabajo para mantener tu
 
 {% data reusables.project-management.edit-project-columns %}
 
-### Crear un tablero de proyecto para toda la organización
+## Crear un tablero de proyecto para toda la organización
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.organization-wide-project %}
 {% data reusables.project-management.click-new-project %}
 {% data reusables.project-management.create-project-name-description %}
@@ -65,7 +72,7 @@ También puedes configurar automatizaciones de flujo de trabajo para mantener tu
 
 {% data reusables.project-management.edit-project-columns %}
 
-### Crear un tablero de proyecto para un repositorio
+## Crear un tablero de proyecto para un repositorio
 
 {% data reusables.repositories.navigate-to-repo %}
 2. En el nombre de tu repositorio, haz clic en {% octicon "project" aria-label="The project board icon" %} **Proyectos**. ![Pestaña Project (Proyecto)](/assets/images/help/projects/repo-tabs-projects.png)
@@ -82,10 +89,10 @@ También puedes configurar automatizaciones de flujo de trabajo para mantener tu
 
 {% data reusables.project-management.edit-project-columns %}
 
-### Leer más
+## Leer más
 
 - "[Acerca de los tableros de proyectos](/articles/about-project-boards)"
-- "[Editar un tablero de proyecto](/articles/editing-a-project-board)"{% if currentVersion == "free-pro-team@latest" %}
+- "[Editar un tablero de proyecto](/articles/editing-a-project-board)"{% ifversion fpt or ghec %}
 - "[Copying a project board](/articles/copying-a-project-board)"{% endif %}
 - "[Cerrar un tablero de proyecto](/articles/closing-a-project-board)"
 - "[Acerca de la automatización de los tableros de proyecto](/articles/about-automation-for-project-boards)"

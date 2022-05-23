@@ -3,17 +3,20 @@ title: Editar um quadro de projeto
 intro: Você pode editar o título e a descrição de um quadro de projeto existente.
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/editing-a-project-board
-  - /articles/editing-a-project/
-  - /articles/editing-and-deleting-a-project/
+  - /articles/editing-a-project
+  - /articles/editing-and-deleting-a-project
   - /articles/editing-a-project-board
   - /github/managing-your-work-on-github/editing-a-project-board
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 ---
+
+{% data reusables.projects.project_boards_old %}
 
 {% tip %}
 
@@ -26,7 +29,7 @@ topics:
 {% data reusables.project-management.click-edit-sidebar-menu-project-board %}
 4. Modifique o nome e a descrição do quadro de projeto conforme necessário e clique em **Save project** (Salvar projeto). ![Campos com o nome e a descrição do quadro de projeto e o botão Save project (Salvar projeto)](/assets/images/help/projects/edit-project-board-save-button.png)
 
-### Leia mais
+## Leia mais
 
 - "[Sobre quadros de projetos](/articles/about-project-boards)"
 - "[Adicionar problemas e pull requests a um quadro de projeto](/articles/adding-issues-and-pull-requests-to-a-project-board)"

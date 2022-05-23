@@ -1,1 +1,1 @@
-O logon único SAML (SSO) de SAML concede aos proprietários corporativos da organização em {% data variables.product.prodname_dotcom %} uma forma de controlar e proteger o acesso aos recursos da organização, como repositórios, problemas e pull requests.
+SAML single sign-on (SSO) gives organization owners and enterprise owners using {% data variables.product.product_name %} a way to control and secure access to organization resources like repositories, issues, and pull requests.

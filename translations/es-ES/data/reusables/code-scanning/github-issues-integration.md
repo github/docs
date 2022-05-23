@@ -1,0 +1,3 @@
+Las alertas del {% data variables.product.prodname_code_scanning_capc %} se integran con listas de tareas en {% data variables.product.prodname_github_issues %} para facilitarte el priorizar y rastrear alertas con todo tu trabajo de desarrollo. Para obtener más información acerca de los informes de problemas, consulta la sección "[Acerca de los informes de problemas](/issues/tracking-your-work-with-issues/about-issues)".
+
+Para rastrear una alerta de escaneo de código en una propuesta, agrega la URL para la alerta como un elemento de la lista de tareas en la propuesta. Para obtener más información acerca de las listas de tareas, consulta la sección "[Acerca de las listas de tareas](/issues/tracking-your-work-with-issues/about-task-lists)".

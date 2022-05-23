@@ -3,19 +3,20 @@ title: Administrar ganchos de pre-recepción en el aparato del Servidor de GitHu
 intro: 'Configurar cómo las personas usarán sus ganchos de pre-recepción dentro de su aparato de {% data variables.product.prodname_ghe_server %}.'
 redirect_from:
   - /enterprise/admin/developer-workflow/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance
-  - /enterprise/admin/guides/developer-workflow/managing-pre-receive-hooks-on-the-github-enterprise-appliance/
+  - /enterprise/admin/guides/developer-workflow/managing-pre-receive-hooks-on-the-github-enterprise-appliance
   - /enterprise/admin/policies/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance
   - /admin/policies/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Policies
   - Pre-receive hooks
+shortTitle: Administrar los ganchos de pre-recepción
 ---
 
-### Crear ganchos de pre-recepción
+## Crear ganchos de pre-recepción
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -28,21 +29,21 @@ topics:
 9. Selecciona **Enable this pre-receive hook on all repositories by default ** (Habilitar este gancho de pre-recepción en todos los repositorios por defecto) si quieres que el gancho de pre-recepción se ejecute en todos los repositorios. ![Habilitar gachos para todos los repositorios](/assets/images/enterprise/site-admin-settings/enable-hook-all-repos.png)
 10. Selecciona **Administrators can enable and disable this hook** (Los administradores pueden habilitar e inhabilitar este gancho) para permitir que los miembros de la organización con permisos de administración o propietario seleccionen si desean habilitar o inhabilitar este gancho de pre-recepción. ![Los administradores habilitan o inhabilitan los ganchos](/assets/images/enterprise/site-admin-settings/admins-enable-hook.png)
 
-### Editar ganchos de pre-recepción
+## Editar ganchos de pre-recepción
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.hooks-tab %}
 1. Junto al gancho de pre-recepción que deseas editar, haz clic en {% octicon "pencil" aria-label="The edit icon" %}. ![Editar pre-recepción](/assets/images/enterprise/site-admin-settings/edit-pre-receive-hook.png)
 
-### Eliminar ganchos de pre-recepción
+## Eliminar ganchos de pre-recepción
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.hooks-tab %}
 2. Junto al gancho de pre-recepción que deseas eliminar, haz clic en {% octicon "x" aria-label="X symbol" %}. ![Editar pre-recepción](/assets/images/enterprise/site-admin-settings/delete-pre-receive-hook.png)
 
-### Configurar ganchos de pre-recepción para una organización
+## Configurar ganchos de pre-recepción para una organización
 
 Un administrador de la organización solo puede configurar permisos de gancho para una organización si el administrador del sitio seleccionó la opción **Administrators can enable o disable this hook** (Los administradores pueden habilitar o inhabilitar este gancho) al crear el gancho de pre-recepción. Para configurar los ganchos de pre-recepción para un repositorio, debes ser el administrador o el propietario de una organización.
 
@@ -51,7 +52,7 @@ Un administrador de la organización solo puede configurar permisos de gancho pa
 4. En la barra lateral izquierda, haz clic en **Hooks** (Ganchos). ![Barra lateral de ganchos](/assets/images/enterprise/orgs-and-teams/hooks-sidebar.png)
 5. Junto al gancho de pre-recepción que deseas configurar, haz clic en el menú desplegable **Hook permissions** (Permisos del gancho). Selecciona si deseas habilitar o inhabilitar el gancho de pre-recepción o permite que lo configuren los administradores del repositorio. ![Permisos para ganchos](/assets/images/enterprise/orgs-and-teams/hook-permissions.png)
 
-### Configurar ganchos de pre-recepción para un repositorio
+## Configurar ganchos de pre-recepción para un repositorio
 
 Un propietario de repositorio solo puede configurar un gancho si el administrador del sitio seleccionó la opción **Administrators can enable or disable this hook** (Los administradores pueden habilitar o inhabilitar este gancho) al crear el gancho de pre-recepción. En una organización, el propietario de la organización también debe haber seleccionado el permiso de gancho **Configurable**. Para configurar los ganchos de pre-recepción para un repositorio, debes ser un propietario de repositorio.
 

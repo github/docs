@@ -2,29 +2,30 @@
 title: 从 GitHub Enterprise 11.10.x 迁移到 2.1.23
 redirect_from:
   - /enterprise/admin/installation/migrating-from-github-enterprise-1110x-to-2123
-  - /enterprise/admin-guide/migrating/
-  - /enterprise/admin/articles/migrating-github-enterprise/
-  - /enterprise/admin/guides/installation/migrating-from-github-enterprise-v11-10-34x/
-  - /enterprise/admin/articles/upgrading-to-a-newer-release/
-  - /enterprise/admin/guides/installation/migrating-to-a-different-platform-or-from-github-enterprise-11-10-34x/
+  - /enterprise/admin-guide/migrating
+  - /enterprise/admin/articles/migrating-github-enterprise
+  - /enterprise/admin/guides/installation/migrating-from-github-enterprise-v11-10-34x
+  - /enterprise/admin/articles/upgrading-to-a-newer-release
+  - /enterprise/admin/guides/installation/migrating-to-a-different-platform-or-from-github-enterprise-11-10-34x
   - /enterprise/admin/guides/installation/migrating-from-github-enterprise-11-10-x-to-2-1-23
   - /enterprise/admin/enterprise-management/migrating-from-github-enterprise-1110x-to-2123
   - /admin/enterprise-management/migrating-from-github-enterprise-1110x-to-2123
 intro: '要从 {% data variables.product.prodname_enterprise %} 11.10.x 迁移到 2.1.23，您需要设置新的设备实例并迁移之前实例中的数据。'
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Migration
   - Upgrades
+shortTitle: 从 11.10.x 迁移到 2.1.23
 ---
 
 支持从 {% data variables.product.prodname_enterprise %} 11.10.348 及更高版本进行迁移。 不支持从 {% data variables.product.prodname_enterprise %} 11.10.348 及更低版本进行迁移。 您必须先通过多次升级过程升级到 11.10.348。 更多信息请参阅 11.10.348 升级程序“[升级到最新版本](/enterprise/11.10.340/admin/articles/upgrading-to-the-latest-release/)”。
 
 要升级到最新版 {% data variables.product.prodname_enterprise %}，您必须先迁移到 {% data variables.product.prodname_ghe_server %} 2.1，然后才能执行正常升级过程。 更多信息请参阅“[升级 {% data variables.product.prodname_enterprise %}](/enterprise/admin/guides/installation/upgrading-github-enterprise-server/)”。
 
-### 准备迁移
+## 准备迁移
 
 1. 查看配置和安装指南，并检查在您的环境中配置 {% data variables.product.prodname_enterprise %} 2.1.23 的所有基本要求是否已得到满足。 更多信息请参阅“[配置和安装](/enterprise/2.1/admin/guides/installation/provisioning-and-installation/)”。
 2. 验证当前实例正在运行受支持的升级版本。
@@ -44,7 +45,7 @@ topics:
     - **IP 地址分配** - 此方法仅适用于 VMware 到 VMware 的迁移，除非 DNS 方法不可用，否则不建议使用此方法。 开始迁移之前，您需要关闭旧实例并将其 IP 地址分配给新实例。
 6. 排定维护窗口。 维护窗口的时间应足够长，以便将数据从备份主机传输到新实例，并根据备份快照的大小和可用网络带宽而变化。 在此期间，如果要迁移到新实例，当前实例将不可用，且处于维护模式。
 
-### 执行迁移
+## 执行迁移
 
 1. 配置新的 {% data variables.product.prodname_enterprise %} 2.1 实例。 更多信息请参阅您的目标平台的“[配置和安装](/enterprise/2.1/admin/guides/installation/provisioning-and-installation/)”指南。
 2. 在浏览器中，导航到新副本设备的 IP 地址并上传您的 {% data variables.product.prodname_enterprise %} 许可。

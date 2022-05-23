@@ -1,5 +1,4 @@
-{% if currentVersion == "free-pro-team@latest" %}
-1. （可选）如果您创建的个人帐户或组织使用
-来自 {% data variables.product.prodname_marketplace %} 的任何 {% data variables.product.prodname_github_app %}，请选择要用于仓库中的任何应用程序。
-  ![帐户中来自 {% data variables.product.prodname_marketplace %} 的 {% data variables.product.prodname_github_app %} 列表和授予权限选项](/assets/images/help/repository/create-repository-choose-marketplace-apps.png)
+{% ifversion fpt or ghec %}
+1. Optionally, if the personal account or organization in which you're creating uses any {% data variables.product.prodname_github_apps %} from {% data variables.product.prodname_marketplace %}, select any apps you'd like to use in the repository.
+  ![List of your account's {% data variables.product.prodname_github_apps %} from {% data variables.product.prodname_marketplace %} and option to grant access](/assets/images/help/repository/create-repository-choose-marketplace-apps.png)
 {% endif %}

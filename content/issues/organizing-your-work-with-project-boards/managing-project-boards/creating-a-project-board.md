@@ -3,15 +3,20 @@ title: Creating a project board
 intro: 'Project boards can be used to create customized workflows to suit your needs, like tracking and prioritizing specific feature work, comprehensive roadmaps, or even release checklists.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/creating-a-project-board
-  - /articles/creating-a-project/
+  - /articles/creating-a-project
   - /articles/creating-a-project-board
   - /github/managing-your-work-on-github/creating-a-project-board
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
+  - Issues
+  - Projects
+  - Project management
+type: how_to
 ---
 {% data reusables.projects.project_boards_old %}
 
@@ -50,7 +55,7 @@ You can also configure workflow automations to keep your project board in sync w
 ## Creating an organization-wide project board
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.organization-wide-project %}
 {% data reusables.project-management.click-new-project %}
 {% data reusables.project-management.create-project-name-description %}
@@ -88,7 +93,7 @@ You can also configure workflow automations to keep your project board in sync w
 ## Further reading
 
 - "[About projects boards](/articles/about-project-boards)"
-- "[Editing a project board](/articles/editing-a-project-board)"{% ifversion fpt %}
+- "[Editing a project board](/articles/editing-a-project-board)"{% ifversion fpt or ghec %}
 - "[Copying a project board](/articles/copying-a-project-board)"{% endif %}
 - "[Closing a project board](/articles/closing-a-project-board)"
 - "[About automation for project boards](/articles/about-automation-for-project-boards)"

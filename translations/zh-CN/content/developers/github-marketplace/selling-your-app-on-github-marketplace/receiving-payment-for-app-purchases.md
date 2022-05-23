@@ -2,16 +2,18 @@
 title: 接收应用程序购买的付款
 intro: '在每个月末，您将收到您的 {% data variables.product.prodname_marketplace %} 上架产品的付款。'
 redirect_from:
-  - /apps/adding-integrations/managing-pricing-and-payments-for-a-github-marketplace-listing/receiving-payment-for-a-github-marketplace-listing/
-  - /apps/marketplace/managing-pricing-and-payments-for-a-github-marketplace-listing/receiving-payment-for-a-github-marketplace-listing/
-  - /apps/marketplace/pricing-payments-and-free-trials/receiving-payment-for-a-github-marketplace-listing/
-  - /apps/marketplace/selling-your-app/receiving-payment-for-github-marketplace-listings/
+  - /apps/adding-integrations/managing-pricing-and-payments-for-a-github-marketplace-listing/receiving-payment-for-a-github-marketplace-listing
+  - /apps/marketplace/managing-pricing-and-payments-for-a-github-marketplace-listing/receiving-payment-for-a-github-marketplace-listing
+  - /apps/marketplace/pricing-payments-and-free-trials/receiving-payment-for-a-github-marketplace-listing
+  - /apps/marketplace/selling-your-app/receiving-payment-for-github-marketplace-listings
   - /marketplace/selling-your-app/receiving-payment-for-github-marketplace-listings
   - /developers/github-marketplace/receiving-payment-for-app-purchases
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
+shortTitle: 接收付款
 ---
 
 为含有付费计划的应用程序创建 {% data variables.product.prodname_marketplace %} 上架信息并得到批准后，您需要向 {% data variables.product.product_name %} 提供付款详细信息以完成财务手续。
@@ -22,6 +24,6 @@ topics:
 
 {% note %}
 
-**注：**有关当前定价和付款条款的详细信息，请参阅“[{% data variables.product.prodname_marketplace %} 开发者协议](/github/site-policy/github-marketplace-developer-agreement)”。
+**注：**有关当前定价和付款条款的详细信息，请参阅“[{% data variables.product.prodname_marketplace %} 开发者协议](/free-pro-team@latest/github/site-policy/github-marketplace-developer-agreement)”。
 
 {% endnote %}

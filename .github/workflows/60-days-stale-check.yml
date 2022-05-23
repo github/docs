@@ -8,12 +8,16 @@ on:
   schedule:
     - cron: '40 16 * * *' # Run each day at 16:40 UTC / 8:40 PST
 
+permissions:
+  issues: write
+  pull-requests: write
+
 jobs:
   stale:
     if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/stale@9d6f46564a515a9ea11e7762ab3957ee58ca50da
+      - uses: actions/stale@3cc123766321e9f15a6676375c154ccffb12a358
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           stale-issue-message: 'This issue is stale because it has been open 60 days with no activity.'
@@ -23,5 +27,5 @@ jobs:
           only-labels: 'engineering,Triaged,Improve existing docs,Core,Ecosystem'
           stale-issue-label: 'stale'
           stale-pr-label: 'stale'
-          exempt-pr-labels: 'never-stale'
-          exempt-issue-labels: 'never-stale'
+          exempt-pr-labels: 'never-stale,waiting for review'
+          exempt-issue-labels: 'never-stale,help wanted,waiting for review'

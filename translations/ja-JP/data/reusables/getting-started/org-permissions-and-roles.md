@@ -1,0 +1,1 @@
+Each person in your organization has a role that defines their level of access to the organization. The member role is the default, and you can assign owner and billing manager roles as well as "team maintainer" permissions. 詳しい情報については「[Organization内のロール](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)」を参照してください。

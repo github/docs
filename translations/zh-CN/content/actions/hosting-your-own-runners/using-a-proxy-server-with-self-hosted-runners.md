@@ -4,18 +4,18 @@ intro: '您可以配置自托管运行器使用代理服务器与 {% data variab
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/using-a-proxy-server-with-self-hosted-runners
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 type: tutorial
+shortTitle: 代理服务器
 ---
 
-{% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
-### 使用环境变量配置代理服务器
+## 使用环境变量配置代理服务器
 
 如果需要一个自托管运行器来通过代理服务器通信，则自托管运行器应用程序使用在以下环境变量中设置的代理配置：
 
@@ -35,7 +35,9 @@ type: tutorial
 
 在 Windows 机器上，代理环境变量名称不区分大小写。 在 Linux 和 macOS 机器上，建议环境变量全部小写。 如果您在 Linux 或 macOS 上同时有小写和大写的环境变量， 例如，`https://clus_proxy` 和 `HTTPS_PROXY`，自托管运行器应用程序将使用小写环境变量。
 
-### 使用 .env 文件设置代理配置
+{% data reusables.actions.self-hosted-runner-ports-protocols %}
+
+## 使用 .env 文件设置代理配置
 
 如果设置环境变量不可行，您可以在自托管运行器应用程序目录中名为 _.env_ 的文件中设置代理配置变量。 例如，如果您想要将运行器应用程序配置为系统帐户下的服务，这可能是必需的。 当运行器应用程序启动时，它会读取代理 _.env_ 中为代理配置设置的变量。
 
@@ -46,7 +48,7 @@ https_proxy=http://proxy.local:8080
 no_proxy=example.com,myserver.local:443
 ```
 
-### 设置 Docker 容器的代理配置
+## 设置 Docker 容器的代理配置
 
 如果您在工作流程中使用 Docker 容器操作或服务容器，则除了设置上述环境变量外，可能还需要配置 Docker来使用代理服务器。
 

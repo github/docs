@@ -1,24 +1,26 @@
 ---
 title: 公開のためのリストのサブミット
-intro: 'To finish your app listing submission, you can request a review by an onboarding expert.'
+intro: アプリケーションのリストについてサブミットを完了させるには、オンボーディングの専門家によるレビューをリクエストする必要があります。
 redirect_from:
   - /marketplace/listing-on-github-marketplace/submitting-your-listing-for-review
   - /developers/github-marketplace/submitting-your-listing-for-review
   - /developers/github-marketplace/submitting-your-listing-for-publication
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
+shortTitle: リストのサブミット
 ---
 
-Once your app listing meets the {% data variables.product.prodname_marketplace %} requirements, you can submit your app. For an overview of the app listing requirements, see "[Requirements for listing an app](/developers/github-marketplace/requirements-for-listing-an-app)."
+アプリケーションのリストが{% data variables.product.prodname_marketplace %}の要件を満たせば、アプリケーションをサブミットできます。 アプリケーションのリストに関する要件の概要については、「[アプリケーションを載せるための要件](/developers/github-marketplace/requirements-for-listing-an-app)」を参照してください。
 
-1. In the top left of the app listing page, click **Overview**. For information on finding your app listing page, see "[Drafting a listing for your app](/developers/github-marketplace/drafting-a-listing-for-your-app)."
+1. アプリケーション掲載ページの左上にある [**Overview**] をクリックします。 アプリケーション掲載ページの探し方に関する情報については、「[アプリケーションのリストのドラフト](/developers/github-marketplace/drafting-a-listing-for-your-app)」を参照してください。
 
-  ![Overview option for the marketplace draft listing](/assets/images/marketplace/edit-marketplace-listing-overview.png)
+  ![Marketplaceのリストのドラフトの概要オプション](/assets/images/marketplace/edit-marketplace-listing-overview.png)
 
-2. To submit your your completed app listing, click **Request publish**.
+2. To submit your completed app listing, click **Request publish**.
 
-  !["Publish your app to Marketplace" checklist with submission button at the bottom](/assets/images/marketplace/publish-your-app-checklist-and-submission.png)
+  ![下に提出ボタンの付いた、[Publish your app to Marketplace] チェックリスト](/assets/images/marketplace/publish-your-app-checklist-and-submission.png)
 
-An onboarding expert will reach out to you with additional information.
+オンボーディングの専門家が後ほど連絡し、追加情報をお伝えします。

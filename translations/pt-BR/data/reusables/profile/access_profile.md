@@ -1,3 +1,3 @@
-{% if currentVersion == "free-pro-team@latest" %}1. No canto superior direito de {% data variables.product.product_name %}, clique na sua foto de perfil e, em seguida, clique em **Seu perfil**.
+{% ifversion fpt or ghec %}1. In the top right corner of {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.product.product_name %}{% endif %}, click your profile photo, then click **Your profile**.
   ![Foto de perfil](/assets/images/help/profile/top_right_avatar.png){% else %}
-1. No canto superior direito de {% data variables.product.product_name %}, clique na sua foto de perfil e, em seguida, clique em **Seu perfil**. ![Profile photo](/assets/images/enterprise/settings/top_right_avatar.png){% endif %}
+1. In the top right corner of {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.product.product_name %}{% endif %}, click your profile photo, then click **Your profile**. ![Profile photo](/assets/images/enterprise/settings/top_right_avatar.png){% endif %}

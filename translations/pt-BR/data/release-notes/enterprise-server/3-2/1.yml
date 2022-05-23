@@ -1,0 +1,28 @@
+---
+date: '2021-10-12'
+sections:
+  security_fixes:
+    - 'Os pacotes foram atualizados para as últimas versões de segurança. {% comment %} https://github.com/github/enterprise2/pull/27118, https://github.com/github/enterprise2/pull/27110 {% endcomment %}'
+  bugs:
+    - 'É possível que os hooks pre-receive personalizados tenham falhado devido a limites de tempo de memória virtual ou CPU muito restritivos. {% comment %} https://github.com/github/enterprise2/pull/26973, https://github.com/github/enterprise2/pull/26955 {% endcomment %}'
+    - 'Em uma configuração de agrupamento do GitHub Enterprise Server, as configurações do gráfico de dependência poderiam ter sido aplicadas incorretamente. {% comment %} https://github.com/github/enterprise2/pull/26981, https://github.com/github/enterprise2/pull/26861 {% endcomment %}'
+    - 'A tentativa de limpar todas as configurações existentes com `ghe-cleanup-settings` falhou ao reiniciar o serviço do Console de Gerenciamento. {% comment %} https://github.com/github/enterprise2/pull/26988, https://github.com/github/enterprise2/pull/26901 {% endcomment %}'
+    - 'Durante a desmontagem de replicação via `ghe-repl-teardown`, o Memcached falhou ao ser reiniciado. {% comment %} https://github.com/github/enterprise2/pull/26994, https://github.com/github/enterprise2/pull/26983 {% endcomment %}'
+    - 'Durante períodos de carga alta, os usuários receberiam códigos de status HTTP 503 quando os serviços de upstream falharam em verificações de saúde internas. {% comment %} https://github.com/github/enterprise2/pull/27083, https://github.com/github/enterprise2/pull/26999 {% endcomment %}'
+    - 'Os ambientes de hook pre-receive foram proibidos de chamar o comando cat via BusyBox no Alpine. {% comment %} https://github.com/github/enterprise2/pull/27116, https://github.com/github/enterprise2/pull/27094 {% endcomment %}'
+    - 'A recuperação da falha de um centro de dados do cluster primário para um centro de dados de cluster secundário foi bem-sucedida, mas a recuperação da falha para o centro de dados do cluster original não conseguiu promover os índices do Elasticsearch. {% comment %} https://github.com/github/github/pull/193182, https://github.com/github/github/pull/192447 {% endcomment %}'
+    - 'O botão "Importar equipes" na página do Teams para uma Organização retornou um HTTP 404. {% comment %} https://github.com/github/github/pull/193303 {% endcomment %}'
+    - 'O uso da API para desabilitar a digitalização de segredo desabilitou a propriedade, mas retornou incorretamente um HTTP 422 e uma mensagem de erro. {% comment %} https://github.com/github/github/pull/193455, https://github.com/github/github/pull/192907 {% endcomment %}'
+    - 'Em alguns casos, os administradores do GitHub Enterprise que tentavam ver a página `Dormant users` recebeu a resposta `502 Bad Gateway` ou `504 Gateway Timeout`. {% comment %} https://github.com/github/github/pull/194262, https://github.com/github/github/pull/193609 {% endcomment %}'
+    - 'O desempenho foi impactado negativamente em certas situações de alta carga como resultado do aumento do número de trabalhos `SynchronizePullRequestJob`. {% comment %} https://github.com/github/github/pull/195256, https://github.com/github/github/pull/194591 {% endcomment %}'
+    - 'Um padrão definido pelo usuário para a digitalização de segredo continuaria sendo digitalizado mesmo depois de ter sido excluído. {% comment %} https://github.com/github/token-scanning-service/pull/1039, https://github.com/github/token-scanning-service/pull/822 {% endcomment %}'
+  changes:
+    - 'Agora, os aplicativos GitHub definem o recurso de digitalização de segredo em um repositório de forma consistente com a API. {% comment %} https://github.com/github/github/pull/193456, https://github.com/github/github/pull/193125 {% endcomment %}'
+  known_issues:
+    - Em uma nova configuração de {% data variables.product.prodname_ghe_server %} sem qualquer usuário, um invasor pode criar o primeiro usuário administrador.
+    - As regras de firewall personalizadas são removidas durante o processo de atualização.
+    - Arquivos LFS do Git [enviados através da interface web](https://github.com/blog/2105-upload-files-to-your-repositories) são adicionados diretamente ao repositório e de forma incorreta.
+    - Os problemas não podem ser fechados se contiverem um permalink para um blob no mesmo repositório, onde o caminho do arquivo blob's é maior que 255 caracteres.
+    - Quando "Usuários podem pesquisar pelo GitHub.com" está habilitado com o GitHub Connect, os problemas em repositórios privados e internos não estão incluídos nos resultados de pesquisa do GitHub.com.
+    - O registro npm de {% data variables.product.prodname_registry %} não retorna mais o valor de tempo em respostas de metadados. Isso foi feito para permitir melhorias substanciais de desempenho. Continuamos a ter todos os dados necessários para devolver um valor de tempo como parte da resposta aos metadados e retomaremos o retorno desse valor no futuro, assim que tivermos resolvido os problemas de desempenho existentes.
+    - Os limites de recursos que são específicos para processamento de hooks pre-receive podem causar falha em alguns hooks pre-receive.

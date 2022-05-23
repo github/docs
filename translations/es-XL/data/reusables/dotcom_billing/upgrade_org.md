@@ -1,1 +1,0 @@
-1. Si estás mejorando tu producto desde {% data variables.product.prodname_free_team %}, da clic en **Opciones de mejora**. Si estás mejorando tu producto desde {% data variables.product.prodname_team %}, utiliza el menú desplegable de **Editar** y da clic en **Mejorar**. ![Botón de mejorar opciones](/assets/images/help/billing/choose-monthly-or-yearly-billing.png)

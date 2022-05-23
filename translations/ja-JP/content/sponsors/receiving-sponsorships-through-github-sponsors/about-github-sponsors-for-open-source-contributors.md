@@ -1,46 +1,48 @@
 ---
-title: オープンソースコントリビューターに対する GitHub スポンサーについて
-intro: オープンソースプロジェクトに貢献すれば、スポンサードコントリビューターとなって、作業に対する報酬を得られます。
+title: About GitHub Sponsors for open source contributors
+intro: 'If you provide value to an open source project, you can become a sponsored contributor to receive payments for your work.'
 redirect_from:
   - /articles/about-github-sponsors-for-sponsored-developers
   - /github/supporting-the-open-source-community-with-github-sponsors/about-github-sponsors-for-sponsored-developers
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: overview
 topics:
   - Open Source
   - Fundamentals
+shortTitle: Open source contributors
 ---
 
-### {% data variables.product.prodname_sponsors %} に参加する
+## Joining {% data variables.product.prodname_sponsors %}
 
-{% data reusables.sponsors.you-can-be-a-sponsored-developer %}詳細は「[ユーザアカウントに {% data variables.product.prodname_sponsors %} を設定する](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account)」を参照してください。
+{% data reusables.sponsors.you-can-be-a-sponsored-developer %} For more information, see "[Setting up {% data variables.product.prodname_sponsors %} for your personal account](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account)."
 
-{% data reusables.sponsors.you-can-be-a-sponsored-organization %}詳しい情報については、「[Organization に {% data variables.product.prodname_sponsors %} を設定する](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)」を参照してください。
+{% data reusables.sponsors.you-can-be-a-sponsored-organization %} For more information, see "[Setting up {% data variables.product.prodname_sponsors %} for your organization](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)."
 
-{% data variables.product.prodname_sponsors %} に参加すると、あなたの {% data variables.product.prodname_sponsors %} プロフィールやその他の資金獲得プラットフォームの認知度を高めるため、コントリビュートしているオープンソースリポジトリにスポンサーボタンを追加できます。 詳しい情報については「[リポジトリにスポンサーボタンを表示する](/articles/displaying-a-sponsor-button-in-your-repository)」を参照してください。
+After you join {% data variables.product.prodname_sponsors %}, you can add a sponsor button to the open source repository you contribute to, to increase the visibility of your {% data variables.product.prodname_sponsors %} profile and other funding platforms. For more information, see "[Displaying a sponsor button in your repository](/articles/displaying-a-sponsor-button-in-your-repository)."
 
-スポンサーシップの目標を設定できます。 詳細は「[スポンサーシップ目標を管理する](/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-goal)」を参照してください。
+You can set a goal for your sponsorships. For more information, see "[Managing your sponsorship goal](/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-goal)."
 
 {% data reusables.sponsors.github-contact-applicants %}
 
-### スポンサーシップ層
+## Sponsorship tiers
 
-{% data reusables.sponsors.tier-details %}詳しい情報については、「[ユーザアカウントの {% data variables.product.prodname_sponsors %} を設定する](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account)」、「[Organization の {% data variables.product.prodname_sponsors %} を設定する](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)」、および「[スポンサーシップ層を管理する](/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-tiers)」を参照してください。
+{% data reusables.sponsors.tier-details %} For more information, see "[Setting up {% data variables.product.prodname_sponsors %} for your personal account](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account)," "[Setting up {% data variables.product.prodname_sponsors %} for your organization](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization), and "[Managing your sponsorship tiers](/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-tiers)."
 
-あなたの作業を誰でも簡単にサポートできるように、月次および 1 回の層を含む、さまざまなスポンサーシップオプションを設定することをお勧めします。 特に、1 回の支払いにより、ユーザは定期的な支払いスケジュールが経済的に問題ないかどうかを心配することなく、あなたの努力に報いることができます。
+It's best to set up a range of different sponsorship options, including monthly and one-time tiers, to make it easy for anyone to support your work. In particular, one-time payments allow people to reward your efforts without worrying about whether their finances will support a regular payment schedule.
 
-### スポンサーシップの支払い
+## Sponsorship payouts
 
 {% data reusables.sponsors.no-fees %}
 
 {% data reusables.sponsors.payout-info %}
 
-詳しい情報については、「[{% data variables.product.prodname_sponsors %} からの支払いを管理する](/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-payouts-from-github-sponsors)」を参照してください。
+For more information, see "[Managing your payouts from {% data variables.product.prodname_sponsors %}](/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-payouts-from-github-sponsors)."
 
-### {% data variables.product.prodname_sponsors %} についてのフィードバックを共有する
+## Sharing feedback about {% data variables.product.prodname_sponsors %}
 
 {% data reusables.sponsors.feedback %}
 
-### 参考リンク
-- {% data variables.product.prodname_blog %} の「[{% data variables.product.prodname_sponsors %} Team に関するよくある質問](https://github.blog/2019-06-12-faq-with-the-github-sponsors-team/)」
+## Further reading
+- "[FAQ with the {% data variables.product.prodname_sponsors %} team](https://github.blog/2019-06-12-faq-with-the-github-sponsors-team/)" on {% data variables.product.prodname_blog %}

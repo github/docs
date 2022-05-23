@@ -3,13 +3,14 @@ title: About project boards
 intro: 'Project boards on {% data variables.product.product_name %} help you organize and prioritize your work. You can create project boards for specific feature work, comprehensive roadmaps, or even release checklists. With project boards, you have the flexibility to create customized workflows that suit your needs.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/about-project-boards
-  - /articles/about-projects/
+  - /articles/about-projects
   - /articles/about-project-boards
   - /github/managing-your-work-on-github/about-project-boards
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 ---
@@ -20,7 +21,7 @@ Project boards are made up of issues, pull requests, and notes that are categori
 
 Project board cards contain relevant metadata for issues and pull requests, like labels, assignees, the status, and who opened it. {% data reusables.project-management.edit-in-project %}
 
-You can create notes within columns to serve as task reminders, references to issues and pull requests from any repository on {% data variables.product.product_name %}, or to add information related to the project board. You can create a reference card for another project board by adding a link to a note. If the note isn't sufficient for your needs, you can convert it to an issue. For more information on converting project board notes to issues, see "[Adding notes to a project board](/articles/adding-notes-to-a-project-board)."
+You can create notes within columns to serve as task reminders, references to issues and pull requests from any repository on {% data variables.product.product_location %}, or to add information related to the project board. You can create a reference card for another project board by adding a link to a note. If the note isn't sufficient for your needs, you can convert it to an issue. For more information on converting project board notes to issues, see "[Adding notes to a project board](/articles/adding-notes-to-a-project-board)."
 
 Types of project boards:
 
@@ -66,7 +67,7 @@ For more information on automation for project boards, see "[About automation fo
 ## Further reading
 
 - "[Creating a project board](/articles/creating-a-project-board)"
-- "[Editing a project board](/articles/editing-a-project-board)"{% ifversion fpt %}
+- "[Editing a project board](/articles/editing-a-project-board)"{% ifversion fpt or ghec %}
 - "[Copying a project board](/articles/copying-a-project-board)"{% endif %}
 - "[Adding issues and pull requests to a project board](/articles/adding-issues-and-pull-requests-to-a-project-board)"
 - "[Project board permissions for an organization](/articles/project-board-permissions-for-an-organization)"

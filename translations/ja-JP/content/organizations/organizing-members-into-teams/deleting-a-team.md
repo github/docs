@@ -5,9 +5,10 @@ redirect_from:
   - /articles/deleting-a-team
   - /github/setting-up-and-managing-organizations-and-teams/deleting-a-team
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -20,7 +21,7 @@ topics:
 {% endtip %}
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.teams %}
 4. 削除対象の Team を 1 つまたは複数選択します。 ![2 つの Team を選択した状態の Team リスト](/assets/images/help/teams/list-of-teams-selected.png)
 5. Team のリストの上にあるドロップダウンメニューから [**Delete**] をクリックします。 ![Team の可視性を変更するオプションのあるドロップダウンメニュー](/assets/images/help/teams/team-bulk-management-options.png)

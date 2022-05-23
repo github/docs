@@ -1,27 +1,28 @@
 ---
-title: 审查部署
-intro: 您可以批准或拒绝等待审查的作业。
+title: Reviewing deployments
+intro: You can approve or reject jobs awaiting review.
 product: '{% data reusables.gated-features.environments %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=3.1'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 ---
 
-{% data reusables.actions.environments-beta %}
-{% data reusables.actions.ae-beta %}
 
-### 关于工作流程中所需的审查
+## About required reviews in workflows
 
-引用配置了所需审查者的环境的作业将等待审批后再开始。 当作业正在等待批准时，其状态为“等待”。 如果作业在 30 天内未获得批准，工作流程运行将自动取消。
+Jobs that reference an environment configured with required reviewers will wait for an approval before starting. While a job is awaiting approval, it has a status of "Waiting". If a job is not approved within 30 days, the workflow run will be automatically canceled.
 
-For more information about environments and required approvals, see "[Environments](/actions/reference/environments)."{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@next" or currentVersion ver_gt "enterprise-server@3.1" %} For information about how to review deployments with the REST API, see "[Workflow Runs](/rest/reference/actions#workflow-runs)."{% endif %}
+For more information about environments and required approvals, see "[Using environments for deployment](/actions/deployment/using-environments-for-deployment)."{% ifversion fpt or ghae or ghes > 3.1 or ghec %} For information about how to review deployments with the REST API, see "[Workflow Runs](/rest/reference/actions#workflow-runs)."{% endif %}
 
-### 批准或拒绝作业
+## Approving or rejecting a job
 
-1. 导航到需要审核的工作流程运行。 有关导航到工作流程运行的更多信息，请参阅“[查看工作流程运行历史记录](/actions/managing-workflow-runs/viewing-workflow-run-history)”。
-2. 单击 **Review deployments（审查部署）**。 ![审查部署](/assets/images/actions-review-deployments.png)
-3. 选择要审批或拒绝的作业环境。 （可选）留下评论。 ![批准部署](/assets/images/actions-approve-deployments.png)
-4. 批准或拒绝：
-   - 要批准作业，请单击 **Approve and deploy（批准并部署）**。 一旦作业获得批准（并且任何其他环境保护规则已通过），作业将继续。 此时，作业可以访问存储在环境中的任何机密。
-   - 要拒绝作业，请单击 **Reject（拒绝）**。 如果作业被拒绝，工作流程将失败。
+1. Navigate to the workflow run that requires review. For more information about navigating to a workflow run, see "[Viewing workflow run history](/actions/managing-workflow-runs/viewing-workflow-run-history)."
+2. Click **Review deployments**. 
+   ![Review deployments](/assets/images/actions-review-deployments.png)
+3. Select the job environment(s) to approve or reject. Optionally, leave a comment.
+   ![Approve deployments](/assets/images/actions-approve-deployments.png)
+4. Approve or reject:
+   - To approve the job, click **Approve and deploy**. Once a job is approved (and any other environment protection rules have passed), the job will proceed. At this point, the job can access any secrets stored in the environment.
+   - To reject the job, click **Reject**. If a job is rejected, the workflow will fail.

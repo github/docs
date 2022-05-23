@@ -1,6 +1,6 @@
 ---
-title: GitHub.comからの移行データのエクスポート
-intro: 'API を使用して移行するリポジトリを選択し、{% data variables.product.prodname_ghe_server %} インスタンスにインポートできる移行アーカイブを生成することで、{% data variables.product.prodname_dotcom_the_website %} 上の Organization から移行データをエクスポートできます。'
+title: Exporting migration data from GitHub.com
+intro: 'You can export migration data from an organization on {% data variables.product.prodname_dotcom_the_website %} by using the API to select repositories to migrate, then generating a migration archive that you can import into a {% data variables.product.prodname_ghe_server %} instance.'
 redirect_from:
   - /enterprise/admin/guides/migrations/exporting-migration-data-from-github-com
   - /enterprise/admin/migrations/exporting-migration-data-from-githubcom
@@ -11,81 +11,82 @@ redirect_from:
   - /enterprise/admin/user-management/exporting-migration-data-from-githubcom
   - /admin/user-management/exporting-migration-data-from-githubcom
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - API
   - Enterprise
   - Migration
+shortTitle: Export data from GitHub.com
 ---
+## Preparing the source organization on {% data variables.product.prodname_dotcom %}
 
-### {% data variables.product.prodname_dotcom %} でソース Organization を準備する
+1. Ensure that you have [owner permissions](/articles/permission-levels-for-an-organization/) on the source organization's repositories.
 
-1. ソースOrganizationのリポジトリに[オーナー権限](/articles/permission-levels-for-an-organization/)を持っていることを確認してください。
-
-2. {% data variables.product.prodname_dotcom_the_website %}上の {% data reusables.enterprise_migrations.token-generation %}。
+2. {% data reusables.enterprise_migrations.token-generation %} on {% data variables.product.prodname_dotcom_the_website %}.
 
 {% data reusables.enterprise_migrations.make-a-list %}
 
-### Organization のリポジトリのエクスポート
+## Exporting the organization's repositories
 
 {% data reusables.enterprise_migrations.fork-persistence %}
 
-{% data variables.product.prodname_dotcom_the_website %} からリポジトリデータをエクスポートするには、<a href="/rest/reference/migrations" class="dotcom-only">移行 API</a> を使います。
+To export repository data from {% data variables.product.prodname_dotcom_the_website %}, use <a href="/rest/reference/migrations" class="dotcom-only">the Migrations API</a>.
 
-移行APIは現在プレビュー期間です。すなわち、エンドポイントとパラメータは将来変更されることがあります。 移行APIにアクセスするには、カスタムの[メディアタイプ](/rest/overview/media-types)として`application/vnd.github.wyandotte-preview+json`を`Accept`ヘッダで渡さなければなりません。 以下の例にはカスタムのメディアタイプが含まれています。
-
-### 移行アーカイブの生成
+The Migrations API is currently in a preview period, which means that the endpoints and parameters may change in the future. 
+## Generating a migration archive
 
 {% data reusables.enterprise_migrations.locking-repositories %}
 
-1. 移行を行うOrganizationのメンバーに通知します。 エクスポートには、対象のリポジトリ数に応じて数分がかかることがあります。 インポートを含む完全な移行には何時間もかかる可能性があるため、完全な処理にかかる時間を判断するためにまず試行することをおすすめします。 詳細は「[移行について](/enterprise/admin/migrations/about-migrations#types-of-migrations)」を参照してください。
+1. Notify members of your organization that you'll be performing a migration. The export can take several minutes, depending on the number of repositories being exported. The full migration including import may take several hours so we recommend doing a trial run in order to determine how long the full process will take. For more information, see "[About Migrations](/enterprise/admin/migrations/about-migrations#types-of-migrations)."
 
-2. <a href="/rest/reference/migrations#start-an-organization-migration" class="dotcom-only">移行エンドポイント</a>に `POST` することで移行を開始します。 以下が必要です:
-    * 認証のためのアクセストークン。
-    * 移行する[リポジトリのリスト](/rest/reference/repos#list-organization-repositories)。
+2. Start a migration by sending a `POST` request to <a href="/rest/reference/migrations#start-an-organization-migration" class="dotcom-only">the migration endpoint</a>. You'll need:
+    * Your access token for authentication.
+    * A [list of the repositories](/rest/reference/repos#list-organization-repositories) you want to migrate:
       ```shell
-      curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" -X POST \
-      -H "Accept: application/vnd.github.wyandotte-preview+json" \
+      curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" \
+      -X POST \
+      -H "Accept: application/vnd.github.v3+json" \
       -d'{"lock_repositories":true,"repositories":["<em>orgname</em>/<em>reponame</em>", "<em>orgname</em>/<em>reponame</em>"]}' \
       https://api.github.com/orgs/<em>orgname</em>/migrations
       ```
-    *  移行する前にリポジトリをロックするには、`lock_repositories` が `true` になっていることを確認してください。 これについては強くおすすめします。
-    * `exclude_attachments: true` をエンドポイントに渡すと、添付ファイルを除外できます。 {% data reusables.enterprise_migrations.exclude-file-attachments %} 最終的なアーカイブのサイズは 20 GB 未満でなければなりません。
+    *  If you want to lock the repositories before migrating them, make sure `lock_repositories` is set to `true`. This is highly recommended.
+    * You can exclude file attachments by passing `exclude_attachments: true` to the endpoint. {% data reusables.enterprise_migrations.exclude-file-attachments %} The final archive size must be less than 20 GB.
 
-  このリクエストは移行を表す一意の `id` を返します。 これは次の移行 API の呼び出しに必要となります。
+  This request returns a unique `id` which represents your migration. You'll need it for subsequent calls to the Migrations API.
 
-3. `GET` リクエストを<a href="/rest/reference/migrations#get-an-organization-migration-status" class="dotcom-only">移行ステータスエンドポイント</a>に送って移行のステータスをフェッチします。 以下が必要です:
-    * 認証のためのアクセストークン。
-    * 移行の一意の `id`。
+3. Send a `GET` request to <a href="/rest/reference/migrations#get-an-organization-migration-status" class="dotcom-only">the migration status endpoint</a> to fetch the status of a migration. You'll need:
+    * Your access token for authentication.
+    * The unique `id` of the migration:
       ```shell
       curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" \
-      -H "Accept: application/vnd.github.wyandotte-preview+json" \
+      -H "Accept: application/vnd.github.v3+json" \
       https://api.github.com/orgs/<em>orgname</em>/migrations/<em>id</em>
       ```
 
-  移行のステータスは以下のいずれかになります:
-    * `pending`。移行がまだ始まっていないことを示します。
-    * `exporting`。移行が進行中であることを示します。
-    * `exported`。移行が正常に終了したことを示します。
-    * `failed`。移行に失敗したことを示します。
+  A migration can be in one of the following states:
+    * `pending`, which means the migration hasn't started yet.
+    * `exporting`, which means the migration is in progress.
+    * `exported`, which means the migration finished successfully.
+    * `failed`, which means the migration failed.
 
-4. 移行がエクスポートされたら、`GET` リクエストを<a href="/rest/reference/migrations#download-an-organization-migration-archive" class="dotcom-only">移行ダウンロードエンドポイント</a>に送って移行アーカイブをダウンロードします。 以下が必要です:
-    * 認証のためのアクセストークン。
-    * 移行の一意の `id`。
+4. After your migration has exported, download the migration archive by sending a `GET` request to <a href="/rest/reference/migrations#download-an-organization-migration-archive" class="dotcom-only">the migration download endpoint</a>. You'll need:
+    * Your access token for authentication.
+    * The unique `id` of the migration:
       ```shell
-      curl -H "Accept: application/vnd.github.wyandotte-preview+json" \
-      -u <em>GITHUB_USERNAME</em>:<em>GITHUB_ACCESS_TOKEN</em> \
+      curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" \
+      -H "Accept: application/vnd.github.v3+json" \
       -L -o migration_archive.tar.gz \
       https://api.github.com/orgs/<em>orgname</em>/migrations/<em>id</em>/archive
       ```
 
-5. 移行アーカイブは 7 日間経過すると自動的に削除されます。 もっと早く削除したい場合は、`DELETE` リクエストを<a href="/rest/reference/migrations#delete-an-organization-migration-archive" class="dotcom-only">移行アーカイブ削除エンドポイント</a>に送ることもできます。 以下が必要です:
-    * 認証のためのアクセストークン。
-    * 移行の一意の `id`。
+5. The migration archive is automatically deleted after seven days. If you would prefer to delete it sooner, you can send a `DELETE` request to <a href="/rest/reference/migrations#delete-an-organization-migration-archive" class="dotcom-only">the migration archive delete endpoint</a>. You'll need:
+    * Your access token for authentication.
+    * The unique `id` of the migration:
       ```shell
-      curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
-      -H "Accept: application/vnd.github.wyandotte-preview+json" \
+      curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" \
+      -X DELETE \
+      -H "Accept: application/vnd.github.v3+json" \
       https://api.github.com/orgs/<em>orgname</em>/migrations/<em>id</em>/archive
       ```
 {% data reusables.enterprise_migrations.ready-to-import-migrations %}

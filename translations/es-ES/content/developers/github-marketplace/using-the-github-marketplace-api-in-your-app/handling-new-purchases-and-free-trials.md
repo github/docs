@@ -2,15 +2,17 @@
 title: Gestionar las compras nuevas y las pruebas gratuitas
 intro: 'Cuando un cliente compra un plan de pago, una prueba gratuita, o la versión gratuita de tu app de {% data variables.product.prodname_marketplace %}, recibirás el webhook de [evento de `marketplace_purchase`] (/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events) con la acción `comprado`, lo cual inicia el flujo de compra.'
 redirect_from:
-  - /apps/marketplace/administering-listing-plans-and-user-accounts/supporting-purchase-plans-for-github-apps/
-  - /apps/marketplace/administering-listing-plans-and-user-accounts/supporting-purchase-plans-for-oauth-apps/
-  - /apps/marketplace/integrating-with-the-github-marketplace-api/handling-new-purchases-and-free-trials/
+  - /apps/marketplace/administering-listing-plans-and-user-accounts/supporting-purchase-plans-for-github-apps
+  - /apps/marketplace/administering-listing-plans-and-user-accounts/supporting-purchase-plans-for-oauth-apps
+  - /apps/marketplace/integrating-with-the-github-marketplace-api/handling-new-purchases-and-free-trials
   - /marketplace/integrating-with-the-github-marketplace-api/handling-new-purchases-and-free-trials
   - /developers/github-marketplace/handling-new-purchases-and-free-trials
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
+shortTitle: Compras nuevas & periodos de prueba gratuitos
 ---
 
 {% warning %}
@@ -19,7 +21,7 @@ Si ofreces una {% data variables.product.prodname_github_app %} en {% data varia
 
 {% endwarning %}
 
-### Paso 1. Compra inicial y evento de webhook
+## Paso 1. Compra inicial y evento de webhook
 
 Antes de qeu un cliente compre tu app de {% data variables.product.prodname_marketplace %}, ellos elligen un [plan del listado](/marketplace/selling-your-app/github-marketplace-pricing-plans/). También eligen si quieren comprar la app desde su cuenta personal o su cuenta de organización.
 
@@ -33,7 +35,7 @@ Si tu app ofrece una prueba gratuita, lee el atributo `marketplace_purchase[on_f
 
 Consulta la sección "[eventos de webhook de {% data variables.product.prodname_marketplace %}](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/)" para encontrar un ejemplo de la carga últil del evento `marketplace_purchase`.
 
-### Paso 2. Instalación
+## Paso 2. Instalación
 
 Si tu app es una {% data variables.product.prodname_github_app %}, {% data variables.product.product_name %} pedirá al cliente que seleccione a qué repositorios puede acceder dicha app cuando la compren. Entonces, {% data variables.product.product_name %} instala la app en la cuenta del cliente seleccionado y le otorga acceso a los repositorios seleccionados.
 
@@ -49,7 +51,7 @@ Si tu app es una {% data variables.product.prodname_oauth_app %}. {% data variab
 
 Cuando un cliente compra una {% data variables.product.prodname_oauth_app %}, {% data variables.product.product_name %} redirige al cliente a la URL que eliges (ya sea de configuración o de instalación) y esta incluye el plan de precios que eligió el cliente como un parámetro de consulta: `marketplace_listing_plan_id`.
 
-### Paso 3. Autorización
+## Paso 3. Autorización
 
 Cuando un cliente compra tu app, debes enviar a dicho cliente a través del flujo de autorización de OAuth:
 
@@ -57,7 +59,7 @@ Cuando un cliente compra tu app, debes enviar a dicho cliente a través del fluj
 
 * Si tu app es una {% data variables.product.prodname_oauth_app %}, inicia el flujo de autorización tan pronto como {% data variables.product.product_name %} redirija al cliente a la **URL de instalación**. Sigue los pasos de la sección "[Autorizar las {% data variables.product.prodname_oauth_apps %}](/apps/building-oauth-apps/authorizing-oauth-apps/)".
 
-Para cualquier tipo de app, el primer paso es redirigir al cliente a https://github.com/login/oauth/authorize.
+Para cualquier tipo de app, el primer paso es redirigir al cliente a [https://github.com/login/oauth/authorize](https://github.com/login/oauth/authorize).
 
 Después de que el ciente complete la autorización, tu app recibirá un token de acceso de OAuth para el cliente. Necesitas este token para el siguiente paso.
 
@@ -67,7 +69,7 @@ Después de que el ciente complete la autorización, tu app recibirá un token d
 
 {% endnote %}
 
-### Paso 4. Aprovisionar las cuentas de los clientes
+## Paso 4. Aprovisionar las cuentas de los clientes
 
 Tu app debe aprovisionar una cuenta de cliente para cada compra nueva. Mediante el uso del token de acceso que recibiste para el cliente en el [Paso 3. Autorización](#step-3-authorization), llama a la terminal "[Listar suscripciones para el usuario autenticado](/rest/reference/apps#list-subscriptions-for-the-authenticated-user)". La respuesta incluirá la información de `account` del cliente y mostrará si están en una prueba gratuita (`on_free_trial`). Utiliza esta información para completar el aprovisionamiento y la configuración.
 

@@ -1,1 +1,5 @@
-1. **Get the latest release of {% data variables.product.prodname_ghe_server %} ({% data variables.product.prodname_ghe_server %} の最新リリースを入手) **をクリックします。
+1. Navigate to the image you want to use for your new instance.
+
+   - Navigate to [Release notes](/admin/release-notes).
+   - In the right sidebar, click the version you want to download.
+   - Click **Download {% data variables.product.prodname_ghe_server %} X.X.X**.

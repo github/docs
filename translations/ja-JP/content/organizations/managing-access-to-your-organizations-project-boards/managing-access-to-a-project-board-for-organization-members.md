@@ -5,17 +5,19 @@ redirect_from:
   - /articles/managing-access-to-a-project-board-for-organization-members
   - /github/setting-up-and-managing-organizations-and-teams/managing-access-to-a-project-board-for-organization-members
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: メンバーのアクセスの管理
 ---
 
 デフォルトでは、Organization のメンバーはその Organization のプロジェクトボードに対する書き込みアクセスを持ちます。ただし、Organization のオーナーまたはプロジェクトボード管理者が、特定のプロジェクトボードに異なる権限を設定している場合は例外です。
 
-### Organization のすべてのメンバーに対して標準の権限レベルを設定する
+## Organization のすべてのメンバーに対して標準の権限レベルを設定する
 
 {% tip %}
 
@@ -24,7 +26,7 @@ topics:
 {% endtip %}
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.organization-wide-project %}
 {% data reusables.project-management.select-project %}
 {% data reusables.project-management.click-menu %}
@@ -32,7 +34,7 @@ topics:
 8. [Organization member permission] で、Organization のすべてのメンバーに対する標準の権限レベルを、[**Read**]、[**Write**]、[**Admin**]、[**None**] の中から選択します。 ![Organization のすべてのメンバーのプロジェクトボードに対する標準の権限](/assets/images/help/projects/baseline-project-permissions-for-organization-members.png)
 9. [**Save**] をクリックします。
 
-### 参考リンク
+## 参考リンク
 
 - 「[Organization のプロジェクトボードに対する個々のアクセスを管理する](/articles/managing-an-individual-s-access-to-an-organization-project-board)」
 - 「[Organization のプロジェクトボードに対するチームのアクセスを管理する](/articles/managing-team-access-to-an-organization-project-board)」

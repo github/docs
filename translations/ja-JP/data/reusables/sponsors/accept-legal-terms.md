@@ -1,1 +1,1 @@
-1. [{% data variables.product.prodname_sponsors %} 追加条項](/github/site-policy/github-sponsors-additional-terms)および[{% data variables.product.prodname_dotcom %} のプライバシーについての声明](/articles/github-privacy-statement)を確認してから、** Join the waitlist（待ちリストに参加）** をクリックしてください。
+1. [{% data variables.product.prodname_sponsors %} 追加条項](/free-pro-team@latest/github/site-policy/github-sponsors-additional-terms)および[{% data variables.product.prodname_dotcom %} のプライバシーについての声明](/free-pro-team@latest/github/site-policy/github-privacy-statement)を確認してから、** Join the waitlist（待ちリストに参加）** をクリックしてください。

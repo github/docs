@@ -5,14 +5,16 @@ redirect_from:
   - /apps/quickstart-guides/creating-ci-tests-with-the-checks-api
   - /developers/apps/creating-ci-tests-with-the-checks-api
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - GitHub Apps
+shortTitle: 使用 Checks API 的 CI 测试
 ---
 
-### 简介
+## 简介
 
 本指南将介绍 [GitHub 应用程序](/apps/)和[检查 API](/rest/reference/checks)，您将使用它们来构建运行测试的持续集成 (CI) 服务器。
 
@@ -22,7 +24,7 @@ CI 服务器托管运行 CI 测试的代码，如代码语法检查（检查样�
 
 {% data reusables.apps.app-ruby-guides %}
 
-#### 检查 API 概述
+### 检查 API 概述
 
 [检查 API](/rest/reference/checks) 允许您设置针对仓库中的每个代码提交自动运行的 CI 测试。 检查 API 在拉取请求的 **Checks（检查）**选项卡中报告 GitHub 上每个检查的详细信息。 使用检查 API，您可以创建带有特定代码行附加细节的注释。 注释在 **Checks（检查）**选项卡中可见。 当您为拉取请求中的文件创建注释时，注释也会显示在 **Files changed（文件已更改）**选项卡中。
 
@@ -49,9 +51,9 @@ _检查套件_是一组_检查运行_（单个 CI 测试）。 套件和运行�
 
 ![检查 API CI 服务器快速入门演示](/assets/images/github-apps/github_apps_checks_api_ci_server.gif)
 
-### 基本要求
+## 基本要求
 
-在开始之前，如果您尚未熟悉 [GitHub 应用程序](/apps/)、[web 挂钩](/webhooks)和[检查 API](/rest/reference/checks)，可能需要先熟悉一下。 您将在 [REST API 文档](/rest)中找到更多 API。 检查 API 也可用于 [GraphQL](/graphql)，但本快速入门指南侧重于 REST。 更多信息请参阅 GraphQL [检查套件](/graphql/reference/objects#checksuite)和[检查运行](/graphql/reference/objects#checkrun)对象。
+在开始之前，如果您尚未熟悉 [GitHub 应用程序](/apps/)、[web 挂钩](/webhooks)和[检查 API](/rest/reference/checks)，可能需要先熟悉一下。 您将在 [REST API 文档](/rest)中找到更多 API。 检查 API 也可用于 [GraphQL]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql)，但本快速入门指南侧重于 REST。 更多信息请参阅 GraphQL [检查套件]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/reference/objects#checksuite)和[检查运行]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/reference/objects#checkrun)对象。
 
 您将使用 [Ruby 编程语言](https://www.ruby-lang.org/en/)、[Smee](https://smee.io/) web 挂钩有效负载交付服务、用于 GitHub REST API 的 [Octokit.rb Ruby 库](http://octokit.github.io/octokit.rb/)以及 [Sinatra web 框架](http://sinatrarb.com/)来创建检查 API CI 服务器应用程序。
 
@@ -70,7 +72,7 @@ _检查套件_是一组_检查运行_（单个 CI 测试）。 套件和运行�
 
   如果在设置模板 GitHub 应用程序时遇到问题，请参阅[故障排除](/apps/quickstart-guides/setting-up-your-development-environment/#troubleshooting)部分。
 
-### 第 1 部分。 创建检查 API 接口
+## 第 1 部分。 创建检查 API 接口
 
 在本部分，您将添加必要的代码以接收 `check_suite` web 挂钩事件并创建和更新检查运行。 您还将学习在 GitHub 上重新请求检查时如何创建检查运行。 在本节的最后，您将能够查看在 GitHub 拉取请求中创建的检查运行。
 
@@ -85,7 +87,7 @@ _检查套件_是一组_检查运行_（单个 CI 测试）。 套件和运行�
 1. [创建检查运行](#step-13-creating-a-check-run)
 1. [更新检查运行](#step-14-updating-a-check-run)
 
-### 步骤 1.1. 更新应用程序权限
+## 步骤 1.1. 更新应用程序权限
 
 如果您在[首次注册应用程序](#prerequisites)时接受了 默认权限，则意味着您的应用程序无法访问大多数资源。 对于此示例，您的应用程序将需要读取和写入检查的权限。
 
@@ -98,7 +100,7 @@ _检查套件_是一组_检查运行_（单个 CI 测试）。 套件和运行�
 
 太好了！ 您的应用程序现在有权限执行所需的任务。 现在您可以添加代码来处理事件。
 
-### 步骤 1.2. 添加事件处理
+## 步骤 1.2. 添加事件处理
 
 现在，您的应用程序已订阅**检查套件**和**检查运行**事件，它将开始接收 [`check_suite`](/webhooks/event-payloads/#check_suite) 和 [`check_run`](/webhooks/event-payloads/#check_run) web 挂钩。 GitHub 将 web 挂钩有效负载作为 `POST` 请求发送。 因为您已将 Smee web 挂钩有效负载转发到 `http://localhost/event_handler:3000`，因此您的服务器将在 `post '/event_handler'` 路由中接收 `POST` 请求有效负载。
 
@@ -132,11 +134,10 @@ GitHub 发送的每个事件都包含一个名为 `HTTP_X_GITHUB_EVENT` 的请�
 
 每当有代码推送到仓库时，`requested` 操作会请求检查运行，而 `rerequested` 操作则请求您对仓库中已经存在的代码重新运行检查。 由于 `requested` 和 `rerequested` 操作都需要创建检查运行，因此您将调用名为 `create_check_run` 的小助手。 现在我们来编写该方法。
 
-### 步骤 1.3. 创建检查运行
+## 步骤 1.3. 创建检查运行
 
 如果希望其他路由也使用此新方法，您可以将其添加为 [Sinatra 小助手](https://github.com/sinatra/sinatra#helpers)。 在 `helpers do` 下，添加此 `create_check_run` 方法：
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 ``` ruby
 # Create a new check run with the status queued
 def create_check_run
@@ -153,28 +154,10 @@ def create_check_run
   )
 end
 ```
-{% else %}
-``` ruby
-# Create a new check run with the status queued
-def create_check_run
-  @installation_client.create_check_run(
-    # [String, Integer, Hash, Octokit Repository object] A GitHub repository.
-    @payload['repository']['full_name'],
-    # [String] The name of your check run.
-    'Octo RuboCop',
-    # [String] The SHA of the commit to check 
-    # The payload structure differs depending on whether a check run or a check suite event occurred.
-    @payload['check_run'].nil? ? @payload['check_suite']['head_sha'] : @payload['check_run']['head_sha'],
-    # [Hash] 'Accept' header option, to avoid a warning about the API not being ready for production use.
-    accept: 'application/vnd.github.antiope-preview+json'
-  )
-end
-```
-{% endif %}
 
 此代码使用 [create_check_run 方法](https://rdoc.info/gems/octokit/Octokit%2FClient%2FChecks:create_check_run)调用“[创建检查运行](/rest/reference/checks#create-a-check-run)”端点。
 
-要创建检查运行，只有两个输入参数是必需的：`name` 和 `head_sha`。 在本快速入门中的稍后部分，我们将使用 [Rubocop](https://rubocop.readthedocs.io/en/latest/) 来实现 CI 测试，这就是在此处使用名称 "Octo Rubocop" 的原因，但是您可以为检查运行选择任何想用的名称。
+要创建检查运行，只有两个输入参数是必需的：`name` 和 `head_sha`。 在本快速入门的后面部分，我们将使用 [RuboCop](https://rubocop.readthedocs.io/en/latest/) 来实现 CI 测试，这就是此处使用名称 "Octo RuboCop" 的原因，但您可以选择任何想要用于检查运行的名称。
 
 您现在仅提供必需的参数以使基本功能正常工作，但是稍后您将在收集有关检查运行的更多信息时更新检查运行。 默认情况下，GitHub 将 `status` 设置为 `queued`。
 
@@ -198,7 +181,7 @@ $ ruby template_server.rb
 
 太好了！ 您已告诉 GitHub 创建检查运行。 您可以在黄色图标旁边看到检查运行状态设置为 `queued`。 接下来，您需要等待 GitHub 创建检查运行并更新其状态。
 
-### 步骤 1.4. 更新检查运行
+## 步骤 1.4. 更新检查运行
 
 当 `create_check_run` 方法运行时，它会要求 GitHub 创建新的检查运行。 当 GitHub 完成创建检查运行时，您将收到带有 `created` 操作的 `check_run` web 挂钩事件。 该事件是您开始运行检查的信号。
 
@@ -226,7 +209,6 @@ GitHub 将 `created` 检查运行的所有事件发送到仓库中安装的每�
 
 让我们创建 `initiate_check_run` 方法并更新检查运行的状态。 将以下代码添加到小助手部分：
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 ``` ruby
 # Start the CI process
 def initiate_check_run
@@ -253,34 +235,6 @@ def initiate_check_run
   )
 end
 ```
-{% else %}
-``` ruby
-# Start the CI process
-def initiate_check_run
-  # Once the check run is created, you'll update the status of the check run
-  # to 'in_progress' and run the CI process. When the CI finishes, you'll
-  # update the check run status to 'completed' and add the CI results.
-
-  @installation_client.update_check_run(
-    @payload['repository']['full_name'],
-    @payload['check_run']['id'],
-    status: 'in_progress',
-    accept: 'application/vnd.github.antiope-preview+json'
-  )
-
-  # ***** RUN A CI TEST *****
-
-  # Mark the check run as complete!
-  @installation_client.update_check_run(
-    @payload['repository']['full_name'],
-    @payload['check_run']['id'],
-    status: 'completed',
-    conclusion: 'success',
-    accept: 'application/vnd.github.antiope-preview+json'
-  )
-end
-```
-{% endif %}
 
 上述代码使用 [`update_check_run` Octokit 方法](https://rdoc.info/gems/octokit/Octokit%2FClient%2FChecks:update_check_run) 调用“[更新检查运行](/rest/reference/checks#update-a-check-run)”API 端点，以更新已创建的检查运行。
 
@@ -298,7 +252,7 @@ $ ruby template_server.rb
 
 ![完整的检查运行](/assets/images/github-apps/github_apps_complete_check_run.png)
 
-### 第 2 部分。 创建 Octo RuboCop CI 测试
+## 第 2 部分。 创建 Octo RuboCop CI 测试
 
 [RuboCop](https://rubocop.readthedocs.io/en/latest/) 是 Ruby 代码语法检查和格式化工具。 它检查 Ruby 代码以确保其符合“[Ruby 样式指南](https://github.com/rubocop-hq/ruby-style-guide)”。 RuboCop 有三个主要功能：
 
@@ -326,7 +280,7 @@ $ ruby template_server.rb
 1. [自动修复 RuboCop 错误](#step-26-automatically-fixing-rubocop-errors)
 1. [安全提示](#step-27-security-tips)
 
-### 步骤 2.1. 添加 Ruby 文件
+## 步骤 2.1. 添加 Ruby 文件
 
 您可以传递特定文件或整个目录供 RuboCop 检查。 在本快速入门中，您将在整个目录上运行 RuboCop。 由于 RuboCop 只检查 Ruby 代码，因此您的仓库中至少需要一个含有错误的 Ruby 文件。 下面提供的示例文件包含一些错误。 将此示例 Ruby 文件添加到安装应用程序的仓库（确保使用 `.rb` 扩展名命名文件，如 `myfile.rb`）：
 
@@ -350,7 +304,7 @@ m = Octocat.new("Mona", "cat", "octopus")
 m.display
 ```
 
-### 步骤 2.2. 克隆仓库
+## 步骤 2.2. 克隆仓库
 
 RuboCop 可用作命令行实用工具。 这意味着您的 GitHub 应用程序将需要克隆 CI 服务器上仓库的本地副本，以便 RuboCop 可以解析文件。 要在 Ruby 应用程序中运行 Git 操作，您可以使用 [ruby-git](https://github.com/ruby-git/ruby-git) gem。
 
@@ -410,7 +364,7 @@ clone_repository(full_repo_name, repository, head_sha)
 
 上面的代码从 `check_run` web 挂钩有效负载获取完整的仓库名称和注释的头部 SHA。
 
-### 步骤 2.3. 运行 RuboCop
+## 步骤 2.3. 运行 RuboCop
 
 太好了！ 您正在克隆仓库并使用 CI 服务器创建检查运行。 现在，您将了解 [RuboCop 语法检查](https://docs.rubocop.org/rubocop/usage/basic_usage.html#code-style-checker)和[检查 API 注释](/rest/reference/checks#create-a-check-run)的实质内容。
 
@@ -496,7 +450,7 @@ $ ruby template_server.rb
 }
 ```
 
-### 步骤 2.4. 收集 RuboCop 错误
+## 步骤 2.4. 收集 RuboCop 错误
 
 `@output` 变量包含 RuboCop 报告的已解析 JSON 结果。 如上所示，结果包含 `summary` 部分，您的代码可使用它快速确定是否存在错误。 如果没有报告错误，以下代码将检查运行结论设置为 `success`。 RuboCop 报告 `files` 数组中每个文件的错误，如果存在错误，则需要从文件对象中提取一些数据。
 
@@ -571,7 +525,7 @@ end
 
 此代码尚未为检查运行创建注释。 您将在下一节中添加该代码。
 
-### 步骤 2.5. 使用 CI 测试结果更新检查运行
+## 步骤 2.5. 使用 CI 测试结果更新检查运行
 
 GitHub 的每个检查运行都包括 `output` 对象，其中包含 `title`、`summary`、`text`、`annotations` 和 `images`。 只有 `summary` 和 `title` 是 `output` 的必需参数，但仅仅这些参数并不能提供太多细节，因此本快速入门还添加了 `text` 和 `annotations`。 此处的代码没有添加图片，但是您可以根据需要随意添加！
 
@@ -585,7 +539,6 @@ text = "Octo RuboCop version: #{@output['metadata']['rubocop_version']}"
 
 现在您已经获得了更新检查运行所需的所有信息。 在[本快速入门的前半部分](#step-14-updating-a-check-run)，您添加了此代码以将检查运行的状态设置为 `success`：
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 ``` ruby
 # Mark the check run as complete!
 @installation_client.update_check_run(
@@ -596,22 +549,9 @@ text = "Octo RuboCop version: #{@output['metadata']['rubocop_version']}"
   accept: 'application/vnd.github.v3+json'
 )
 ```
-{% else %}
-``` ruby
-# Mark the check run as complete!
-@installation_client.update_check_run(
-  @payload['repository']['full_name'],
-  @payload['check_run']['id'],
-  status: 'completed',
-  conclusion: 'success',
-  accept: 'application/vnd.github.antiope-preview+json' # This header is necessary for beta access to Checks API
-)
-```
-{% endif %}
 
 您需要更新该代码以使用基于 RuboCop 结果设置的 `conclusion` 变量（`success` 或 `neutral`）。 您可以使用以下内容更新代码：
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 ``` ruby
 # Mark the check run as complete! And if there are warnings, share them.
 @installation_client.update_check_run(
@@ -633,33 +573,10 @@ text = "Octo RuboCop version: #{@output['metadata']['rubocop_version']}"
   accept: 'application/vnd.github.v3+json'
 )
 ```
-{% else %}
-``` ruby
-# Mark the check run as complete! And if there are warnings, share them.
-@installation_client.update_check_run(
-  @payload['repository']['full_name'],
-  @payload['check_run']['id'],
-  status: 'completed',
-  conclusion: conclusion,
-  output: {
-    title: 'Octo RuboCop',
-    summary: summary,
-    text: text,
-    annotations: annotations
-  },
-  actions: [{
-    label: 'Fix this',
-    description: 'Automatically fix all linter notices.',
-    identifier: 'fix_rubocop_notices'
-  }],
-  accept: 'application/vnd.github.antiope-preview+json'
-)
-```
-{% endif %}
 
 现在，您正在根据 CI 测试的状态设置结论，并且添加了 RuboCop 结果的输出，您已经创建了 CI 测试！ 恭喜。 🙌
 
-上面的代码还通过 `actions` 对象向您的 CI 服务器添加了一个名为 [requested actions](https://developer.github.com/changes/2018-05-23-request-actions-on-checks/) 的功能。 {% if currentVersion == "free-pro-team@latest" %}（请注意，这与 [GitHub 操作](/actions)无关。） {% endif %}请求的操作在 GitHub 的 **Checks（检查）**选项卡中添加一个按钮，允许用户请求检查运行执行附加操作。 附加操作完全由您的应用程序配置。 例如，由于 RuboCop 具有自动修复在 Ruby 代码中发现的错误的功能，因此您的 CI 服务器可以使用请求操作按钮来允许用户请求自动修复错误。 当有人单击该按钮时，应用程序会收到带有 `requested_action` 操作的 `check_run` 事件。 每个请求的操作都有一个 `identifier`，应用程序使用它来确定哪个按钮被单击。
+上面的代码还通过 `actions` 对象向您的 CI 服务器添加了一个名为 [requested actions](https://developer.github.com/changes/2018-05-23-request-actions-on-checks/) 的功能。 {% ifversion fpt or ghec %}（请注意，这与 [GitHub 操作](/actions)无关。） {% endif %}请求的操作在 GitHub 的 **Checks（检查）**选项卡中添加一个按钮，允许用户请求检查运行执行附加操作。 附加操作完全由您的应用程序配置。 例如，由于 RuboCop 具有自动修复在 Ruby 代码中发现的错误的功能，因此您的 CI 服务器可以使用请求操作按钮来允许用户请求自动修复错误。 当有人单击该按钮时，应用程序会收到带有 `requested_action` 操作的 `check_run` 事件。 每个请求的操作都有一个 `identifier`，应用程序使用它来确定哪个按钮被单击。
 
 上面的代码还没有让 RuboCop 自动修复错误。 您将在下一节中添加该功能。 但我们先通过再次启动 `template_server.rb` 服务器并创建一个新的拉取请求，来看看您刚刚创建的 CI 测试：
 
@@ -679,7 +596,7 @@ $ ruby template_server.rb
 
 ![文件已更改选项卡中的检查运行注释](/assets/images/github-apps/github_apps_checks_annotation_diff.png)
 
-### 步骤 2.6. 自动修复 RuboCop 错误
+## 步骤 2.6. 自动修复 RuboCop 错误
 
 如果您走到了这一步，为您点赞！ 👏 您已经创建了 CI 测试。 在本节中，您将添加另外一个功能，即使用 RuboCop 自动修复它发现的错误。 您在[上一节](#step-25-updating-the-check-run-with-ci-test-results)中已经添加了“Fix this（修复此问题）”按钮。 现在，您将添加代码以处理当有人单击“Fix this（修复此问题）”按钮时触发的 `requested_action` 检查运行事件。
 
@@ -779,7 +696,7 @@ $ ruby template_server.rb
 
 您可以在[使用检查 API 创建 CI 测试](https://github.com/github-developer/creating-ci-tests-with-the-checks-api)仓库的 `server.rb` 文件中找到您刚才构建的应用程序的完整代码。
 
-### 步骤 2.7. 安全提示
+## 步骤 2.7. 安全提示
 
 模板 GitHub 应用程序代码已经有方法来验证传入的 web 挂钩有效负载，以确保它们来自受信任的源。 如果不验证 web 挂钩有效负载，则需要确保当仓库名称包含在 web 挂钩有效负载中时，该 web 挂钩不包含可能被恶意使用的任意命令。 下面的代码将验证仅包含拉丁字母、连字符和下划线的仓库名称。 为了提供完整的示例，[配套仓库](https://github.com/github-developer/creating-ci-tests-with-the-checks-api)中提供本快速入门的完整 `server.rb` 代码，包括验证传入 web 挂钩有效负载的方法和验证仓库名称的检查。
 
@@ -795,7 +712,7 @@ unless @payload['repository'].nil?
 end
 ```
 
-### 疑难解答
+## 疑难解答
 
 以下是一些常见问题和一些建议的解决方案。 如果您遇到任何其他问题，可以在 {% data variables.product.prodname_support_forum_with_url %} 中寻求帮助或建议。
 
@@ -821,7 +738,7 @@ end
 
     **答：**重新启动 Smee 并重新运行 `template_server.rb` 服务器。
 
-### 结论
+## 结论
 
 完成本指南后，您已经学会了使用检查 API 创建 CI 服务器的基础知识！ 回顾一下：
 
@@ -829,7 +746,7 @@ end
 * 使用 RuboCop 来检查仓库中的代码并为错误创建注释。
 * 实现自动修复语法检查错误的请求操作。
 
-### 后续步骤
+## 后续步骤
 
 以下是有关接下来可以做什么的一些想法：
 

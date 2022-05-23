@@ -3,16 +3,23 @@ title: Criar um quadro de projeto
 intro: 'Os quadros de projeto podem ser usados para criar fluxos de trabalho personalizados adequados às suas necessidades, como rastreamento e priorização de trabalho de recursos específicos, roteiros abrangentes ou, até mesmo, checklists de versão.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/creating-a-project-board
-  - /articles/creating-a-project/
+  - /articles/creating-a-project
   - /articles/creating-a-project-board
   - /github/managing-your-work-on-github/creating-a-project-board
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
+  - Issues
+  - Projects
+  - Project management
+type: how_to
 ---
+
+{% data reusables.projects.project_boards_old %}
 
 {% data reusables.project-management.use-automated-template %}
 
@@ -26,7 +33,7 @@ Também é possível configurar automações de fluxo de trabalho para manter se
 
 {% data reusables.project-management.project-board-import-with-api %}
 
-### Criar um quadro de projeto de propriedade do usuário
+## Criar um quadro de projeto de propriedade do usuário
 
 {% data reusables.profile.access_profile %}
 2. No topa da página do seu perfil, na navegação principal, clique em {% octicon "project" aria-label="The project board icon" %} **Projects** (Projetos). ![Aba Project (Projeto)](/assets/images/help/projects/user-projects-tab.png)
@@ -45,10 +52,10 @@ Também é possível configurar automações de fluxo de trabalho para manter se
 
 {% data reusables.project-management.edit-project-columns %}
 
-### Criar um quadro de projeto em toda a organização
+## Criar um quadro de projeto em toda a organização
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.organization-wide-project %}
 {% data reusables.project-management.click-new-project %}
 {% data reusables.project-management.create-project-name-description %}
@@ -65,7 +72,7 @@ Também é possível configurar automações de fluxo de trabalho para manter se
 
 {% data reusables.project-management.edit-project-columns %}
 
-### Criar um quadro de projeto de repositório
+## Criar um quadro de projeto de repositório
 
 {% data reusables.repositories.navigate-to-repo %}
 2. Abaixo do nome do repositório, clique em {% octicon "project" aria-label="The project board icon" %} **Projects** (Projetos). ![Aba Project (Projeto)](/assets/images/help/projects/repo-tabs-projects.png)
@@ -82,10 +89,10 @@ Também é possível configurar automações de fluxo de trabalho para manter se
 
 {% data reusables.project-management.edit-project-columns %}
 
-### Leia mais
+## Leia mais
 
 - "[Sobre quadros de projetos](/articles/about-project-boards)"
-- "[Editar um quadro de projeto](/articles/editing-a-project-board)"{% if currentVersion == "free-pro-team@latest" %}
+- "[Editar um quadro de projeto](/articles/editing-a-project-board)"{% ifversion fpt or ghec %}
 - "[Copiar um quadro de projeto](/articles/copying-a-project-board)"{% endif %}
 - "[Fechar um quadro de projeto](/articles/closing-a-project-board)"
 - "[Sobre a automação para quadros de projeto](/articles/about-automation-for-project-boards)"

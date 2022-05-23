@@ -1,0 +1,1 @@
+Si un invitado no acepta la invitación dentro de siete días, la invitación pendiente vencerá automáticamente. Después de su vencimiento, {% data variables.product.company_short %} ya no te facturará por la invitación pendiente.{% ifversion ghec %} Si una solicitud de SCIM genera la invitación desde tu proveedor de identidad (IdP), esta no vencerá.{% endif %}

@@ -5,24 +5,26 @@ redirect_from:
   - /articles/creating-a-pull-request-template-for-your-repository
   - /github/building-a-strong-community/creating-a-pull-request-template-for-your-repository
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Community
+shortTitle: Criar um modelo de PR
 ---
 
 Para obter mais informações, consulte "[Sobre modelos de problema e pull request](/articles/about-issue-and-pull-request-templates)".
 
-Você pode criar um subdiretório *PULL_REQUEST_TEMPLATE/* em qualquer uma das pastas compatíveis para conter vários modelos de pull request, bem como usar o parâmetro de consulta `template` para especificar o modelo que preencherá o texto da pull request. Para obter mais informações, consulte "[Sobre automação de problemas e pull requests com parâmetros de consulta](/articles/about-automation-for-issues-and-pull-requests-with-query-parameters)".
+Você pode criar um subdiretório *PULL_REQUEST_TEMPLATE/* em qualquer uma das pastas compatíveis para conter vários modelos de pull request, bem como usar o parâmetro de consulta `template` para especificar o modelo que preencherá o texto da pull request. Para obter mais informações, consulte "[Usando parâmetros de consulta para criar um pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/using-query-parameters-to-create-a-pull-request)".
 
-{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+{% ifversion fpt or ghes or ghec %}
 
-Você pode criar modelos-padrão de pull request para a sua organização{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} ou conta de usuário{% endif %}. Para obter mais informações, consulte "[Criando um arquivo padrão de integridade da comunidade](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
+Você pode criar modelos-padrão de pull request para sua organização{% ifversion fpt or ghes or ghec %} ou conta pessoal{% endif %}. Para obter mais informações, consulte "[Criando um arquivo padrão de integridade da comunidade](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
 
 {% endif %}
 
-### Adicionar um modelo de pull request
+## Adicionar um modelo de pull request
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}
@@ -39,7 +41,7 @@ Você pode criar modelos-padrão de pull request para a sua organização{% if c
 {% data reusables.files.choose_commit_branch %} Os modelos são disponibilizados para os colaboradores quando sofrem merge no branch padrão do repositório.
 {% data reusables.files.propose_new_file %}
 
-### Leia mais
+## Leia mais
 
 - "[Sobre modelos de problema e pull request](/articles/about-issue-and-pull-request-templates)"
 - "[Sobre automação de problemas e pull requests com parâmetros de consulta](/articles/about-automation-for-issues-and-pull-requests-with-query-parameters)"

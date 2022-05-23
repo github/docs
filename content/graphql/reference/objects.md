@@ -5,6 +5,7 @@ redirect_from:
   - /v4/reference/object
 versions:
   fpt: '*'
+  ghec: '*'
   ghes: '*'
   ghae: '*'
 topics:

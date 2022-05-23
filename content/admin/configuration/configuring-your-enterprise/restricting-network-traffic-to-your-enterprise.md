@@ -70,4 +70,4 @@ For instance-level restrictions using Azure NSGs, contact {% data variables.cont
 
 ## Using {% data variables.product.prodname_actions %} with an IP allow list
 
-{% data reusables.github-actions.ip-allow-list-hosted-runners %}
+{% data reusables.actions.ip-allow-list-self-hosted-runners %}

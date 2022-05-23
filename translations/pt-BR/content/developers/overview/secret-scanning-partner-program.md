@@ -1,15 +1,17 @@
 ---
-title: Secret scanning partner program
+title: Programa de verificação de segredo de parceiros
 intro: 'Como um provedor de serviço, você pode associar-se ao {% data variables.product.prodname_dotcom %} para proteger os seus formatos de token secretos por varredura de segredos, que pesquisa commits acidentais no seu formato secreto e que pode ser enviado para o ponto de extremidade de verificação de um provedor de serviços.'
-miniTocMaxHeadingLevel: 4
+miniTocMaxHeadingLevel: 3
 redirect_from:
-  - /partnerships/token-scanning/
+  - /partnerships/token-scanning
   - /partnerships/secret-scanning
   - /developers/overview/secret-scanning
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - API
+shortTitle: Varredura secreta
 ---
 
 O {% data variables.product.prodname_dotcom %} faz a varredura de repositórios de formatos secretos conhecidos para evitar uso fraudulento de credenciais confirmadas acidentalmente. {% data variables.product.prodname_secret_scanning_caps %} acontece por padrão em repositórios públicos e pode ser habilitado em repositórios privados por administradores de repositório ou proprietários da organização. Como provedor de serviço, você pode fazer parcerias com {% data variables.product.prodname_dotcom %} para que seus formatos de segredo estejam incluídos em nosso {% data variables.product.prodname_secret_scanning %}.
@@ -20,15 +22,15 @@ Quando uma correspondência do formato secreto é encontrada em um repositório 
 
 Este artigo descreve como você pode fazer parceria com {% data variables.product.prodname_dotcom %} como um provedor de serviço e juntar-se ao programa de parceiro de {% data variables.product.prodname_secret_scanning %}.
 
-### O processo de {% data variables.product.prodname_secret_scanning %}
+## O processo de {% data variables.product.prodname_secret_scanning %}
 
-##### Como {% data variables.product.prodname_secret_scanning %} funciona em um repositório público
+#### Como {% data variables.product.prodname_secret_scanning %} funciona em um repositório público
 
 O diagrama a seguir resume o processo de {% data variables.product.prodname_secret_scanning %} para repositórios públicos, com qualquer correspondência enviada para o ponto de extremidade de verificação de um provedor de serviços.
 
 ![Diagrama do fluxo que mostra o processo de varredura de um segredo e envio de correspondências para o ponto de extremidade de verificação de um provedor de serviços](/assets/images/secret-scanning-flow.png "Fluxo de {% data variables.product.prodname_secret_scanning_caps %}")
 
-### Juntando-se ao programa de {% data variables.product.prodname_secret_scanning %} em {% data variables.product.prodname_dotcom %}
+## Juntando-se ao programa de {% data variables.product.prodname_secret_scanning %} em {% data variables.product.prodname_dotcom %}
 
 1. Entre em contato com {% data variables.product.prodname_dotcom %} para dar início ao processo.
 1. Identifique os segredos relevantes cuja varredura você deseja realizar e crie expressões regulares para capturá-los.
@@ -37,13 +39,13 @@ O diagrama a seguir resume o processo de {% data variables.product.prodname_secr
 1. Implemente revogação do segredo e notificação do usuário no seu serviço de alerta secreto.
 1. Fornece feedback sobre falsos positivos (opcional).
 
-#### Entre em contato com {% data variables.product.prodname_dotcom %} para dar início ao processo
+### Entre em contato com {% data variables.product.prodname_dotcom %} para dar início ao processo
 
 Para iniciar o processo de inscrição, envie um e-mail para <a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>.
 
 Você receberá detalhes do programa de {% data variables.product.prodname_secret_scanning %} e você precisará aceitar os termos de participação de {% data variables.product.prodname_dotcom %} antes de prosseguir.
 
-#### Identifique seus segredos e crie expressões regulares
+### Identifique seus segredos e crie expressões regulares
 
 Para fazer a varredura dos seus segredos, {% data variables.product.prodname_dotcom %} precisa das informações a seguir para cada segredo que você deseja que seja incluído no programa {% data variables.product.prodname_secret_scanning %}:
 
@@ -53,11 +55,11 @@ Para fazer a varredura dos seus segredos, {% data variables.product.prodname_dot
 
 Envie esta informação para <a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>.
 
-#### Crie um serviço de alerta secreto
+### Crie um serviço de alerta secreto
 
 Crie um ponto de extremidade HTTP público e acessível à internet na URL que você nos forneceu. Quando uma correspondência da sua expressão regular é encontrada em um repositório público, {% data variables.product.prodname_dotcom %} enviará uma mensagem HTTP `POST` para o seu ponto de extremidade.
 
-##### Exemplo de POST enviado para seu ponto de extremidade
+#### Exemplo de POST enviado para seu ponto de extremidade
 
 ```http
 POST / HTTP/2
@@ -68,7 +70,7 @@ GITHUB-PUBLIC-KEY-IDENTIFIER: 90a421169f0a406205f1563a953312f0be898d3c7b6c06b681
 GITHUB-PUBLIC-KEY-SIGNATURE: MEQCIA6C6L8ZYvZnqgV0zwrrmRab10QmIFV396gsba/WYm9oAiAI6Q+/jNaWqkgG5YhaWshTXbRwIgqIK6Ru7LxVYDbV5Q==
 Content-Length: 0123
 
-[{"token":"NMIfyYncKcRALEXAMPLE","type":"mycompany_api_token","url":"https://github.com/octocat/Hello-World/commit/123456718ee16e59dabbacb1b4049abc11abc123"}]
+[{"token":"NMIfyYncKcRALEXAMPLE","type":"mycompany_api_token","url":"https://github.com/octocat/Hello-World/blob/12345600b9cbe38a219f39a9941c9319b600c002/foo/bar.txt"}]
 ```
 
 O corpo da mensagem é um array do JSON que contém um ou mais objetos com o seguinte conteúdo. Quando várias correspondências forem encontradas, o {% data variables.product.prodname_dotcom %} pode enviar uma única mensagem com mais de uma correspondência secreta. Seu ponto de extremidade deve ser capaz de lidar com solicitações com um grande número de correspondências sem exceder o tempo.
@@ -77,7 +79,7 @@ O corpo da mensagem é um array do JSON que contém um ou mais objetos com o seg
 * **Tipo**: O nome único que você forneceu para identificar sua expressão regular.
 * **URL**: A URL de commit pública onde a correspondência foi encontrada.
 
-#### Implemente a verificação de assinatura em seu serviço de alerta secreto
+### Implemente a verificação de assinatura em seu serviço de alerta secreto
 
 É altamente recomendável que você implemente a validação da assinatura no seu serviço de alerta de segredo para garantir que as mensagens que você recebe sejam genuinamente de {% data variables.product.prodname_dotcom %} e não sejam maliciosas.
 
@@ -321,11 +323,11 @@ const verify_signature = async (payload, signature, keyID) => {
 };
 ```
 
-#### Implemente revogação do segredo e notificação do usuário no seu serviço de alerta secreto
+### Implemente revogação do segredo e notificação do usuário no seu serviço de alerta secreto
 
 Para {% data variables.product.prodname_secret_scanning %} em repositórios públicos, você pode melhorar o seu serviço de alerta de segredo para revogar os segredos expostos e notificar os usuários afetados. Você define como implementa isso no seu serviço de alerta de segredo, mas recomendamos considerar qualquer segredo que {% data variables.product.prodname_dotcom %} envie mensagens de que é público e que está comprometido.
 
-#### Fornece feedback sobre falsos positivos
+### Fornece feedback sobre falsos positivos
 
 Coletamos feedback sobre a validade dos segredos individuais detectados nas respostas do parceiro. Se você deseja participar, envie um e-mail para <a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>.
 

@@ -5,12 +5,14 @@ redirect_from:
   - /articles/requesting-to-add-a-child-team
   - /github/setting-up-and-managing-organizations-and-teams/requesting-to-add-a-child-team
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: 子チームの追加
 ---
 
 ある Team を子として追加するようにリクエストすると、その子チームのメンテナーにリクエストが送信されます。 子チームのメンテナーがリクエストを受諾すると、その子チームは Organization の階層内で親チームの下にネストされます。
@@ -20,7 +22,7 @@ topics:
 {% data reusables.organizations.child-team-inherits-permissions %}
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.teams %}
 4. Team のリストで、子チームを追加する先の Team の名前をクリックします。 ![Organization の Team のリスト](/assets/images/help/teams/click-team-name.png)
 5. Team ページの上部で、{% octicon "people" aria-label="The people icon" %} [**Teams**] をクリックします。 ![Team ページでの [Teams] タブ](/assets/images/help/teams/team-teams-tab.png)
@@ -29,7 +31,7 @@ topics:
 {% data reusables.repositories.changed-repository-access-permissions %}
 9. [**Confirm changes**] をクリックして、子チームを追加するリクエストを送信します。 ![リポジトリアクセス権の変更に関する情報のモーダルボックス](/assets/images/help/teams/confirm-new-parent-team.png)
 
-### 参考リンク
+## 参考リンク
 
 - [Team について](/articles/about-teams)
 - 「[Organization の階層内で Team を移動する](/articles/moving-a-team-in-your-organization-s-hierarchy)」

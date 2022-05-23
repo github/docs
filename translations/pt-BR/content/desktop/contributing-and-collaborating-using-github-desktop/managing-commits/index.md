@@ -1,8 +1,8 @@
 ---
-title: Managing commits
-intro: 'You can use {% data variables.product.prodname_desktop %} to amend, cherry-pick, reorder, revert, and squash commits.'
+title: Gerenciando commits
+intro: 'Você pode usar {% data variables.product.prodname_desktop %} para corrigir, selecionar, reordenar, reverter e fazer combinação por squash de commits.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 children:
   - /reverting-a-commit
   - /cherry-picking-a-commit
@@ -11,3 +11,4 @@ children:
   - /amending-a-commit
   - /managing-tags
 ---
+

@@ -1,2 +1,2 @@
-1. Acesse a página de [Preços]({% data variables.product.pricing_url %}) do {% data variables.product.product_name %}.
-2. Leia as informações sobre os diferentes produtos e assinaturas que o {% data variables.product.product_name %} oferece e clique no botão de upgrade abaixo da assinatura desejada.
+1. Go to {% data variables.product.company_short %}'s [Pricing]({% data variables.product.pricing_url %}) page.
+2. Read the information about the different products and subscriptions that {% data variables.product.company_short %} offers, then click the upgrade button under the subscription you'd like to choose.

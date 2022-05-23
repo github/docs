@@ -1,33 +1,27 @@
 ---
 title: 取消工作流程
 intro: '您可以取消正在运行的工作流程。 当您取消工作流程运行时，{% data variables.product.prodname_dotcom %} 会取消属于该工作流程的所有作业和步骤。'
-product: '{% data reusables.gated-features.actions %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 {% data reusables.repositories.permissions-statement-write %}
 
-### 取消工作流程运行
+## 取消工作流程运行
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow %}
 1. 从工作流程运行列表中，单击您要取消的`已排队`或`进行中`运行的名称。 ![工作流程运行的名称](/assets/images/help/repository/in-progress-run.png)
-1. 在工作流程右上角单击 **Cancel workflow（取消工作流程）**。
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
- ![取消检查套件按钮](/assets/images/help/repository/cancel-check-suite-updated.png)
-{% else %}
- ![取消检查套件按钮](/assets/images/help/repository/cancel-check-suite.png)
-{% endif %}
+1. 在工作流程右上角单击 **Cancel workflow（取消工作流程）**。 ![取消检查套件按钮](/assets/images/help/repository/cancel-check-suite-updated.png)
 
-### {% data variables.product.prodname_dotcom %} 取消工作流程运行所执行的步骤
+## {% data variables.product.prodname_dotcom %} 取消工作流程运行所执行的步骤
 
 取消工作流程运行时，您可能正在运行使用与工作流程运行相关的资源的其他软件。 为了帮助您释放与工作流程运行相关的资源，它可能有助于了解 {% data variables.product.prodname_dotcom %} 为取消工作流程运行而执行的步骤。
 

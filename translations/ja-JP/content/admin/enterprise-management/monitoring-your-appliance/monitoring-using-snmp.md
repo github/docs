@@ -3,11 +3,11 @@ title: SNMP での監視
 intro: '{% data variables.product.prodname_enterprise %}は、SNMP経由でディスクの使用や CPU の使用率、メモリーの使用などのデータを提供します。'
 redirect_from:
   - /enterprise/admin/installation/monitoring-using-snmp
-  - /enterprise/admin/articles/monitoring-using-snmp/
+  - /enterprise/admin/articles/monitoring-using-snmp
   - /enterprise/admin/enterprise-management/monitoring-using-snmp
   - /admin/enterprise-management/monitoring-using-snmp
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
@@ -18,9 +18,9 @@ topics:
 
 SNMP とは、ネットワーク経由でデバイスを監視するための一般的基準です。 {% data variables.product.product_location %}のj状態を監視可能にし、いつホストのマシンにメモリやストレージ、処理能力を追加すべきかを知るために、SNMP を有効にすることを強くおすすめします。
 
-{% data variables.product.prodname_enterprise %} には標準の SNMP がインストールされているので、Nagios などのモニタリングシステムに対して利用可能な[数多くのプラグイン](http://www.monitoring-plugins.org/doc/man/check_snmp.html)を活用できます。
+{% data variables.product.prodname_enterprise %} には標準の SNMP がインストールされているので、Nagios などのモニタリングシステムに対して利用可能な[数多くのプラグイン](https://www.monitoring-plugins.org/doc/man/check_snmp.html)を活用できます。
 
-### SNMP v2c を設定
+## SNMP v2c を設定
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
@@ -37,14 +37,14 @@ SNMP とは、ネットワーク経由でデバイスを監視するための一
 
 これにより、{% data variables.product.product_location %} ホストでのシステム時刻が返されます。
 
-### ユーザベースのセキュリティ
+## ユーザベースのセキュリティ
 
 SNMP v3 を有効にすると、ユーザセキュリティモデル (USM) により、強化されたユーザベースのセキュリティを利用できます。 ユーザごとに、以下のセキュリティレベルを指定できます:
 - `noAuthNoPriv`: このセキュリティレベルは認証もプライバシーも提供しません。
 - `authNoPriv`: このセキュリティレベルは認証を提供しますがプライバシーは提供しません。 アプライアンスを照会するには、ユーザ名とパスワード (最低 8 文字) が必要です。 SNMPv2 と同様に、情報は暗号化されずに送信されます。 可能な認証プロトコルは MD5 または SHA であり、デフォルトは SHA です。
 - `authPriv`: このセキュリティレベルはプライバシーと共に認証を提供します。 8 文字以上の認証パスワードを含む認証が必要であり、返信は暗号化されます。 プライバシーパスワードは必須ではありませんが、指定する場合は 8 文字以上でなければなりません。 プライバシーパスワードが指定されない場合は、認証パスワードが使用されます。 プライバシープロトコルは DES または AES のいずれかが可能であり、デフォルトは AES です。
 
-### SNMP v3 用にユーザーを設定する
+## SNMP v3 用にユーザーを設定する
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
@@ -64,9 +64,9 @@ SNMP v3 を有効にすると、ユーザセキュリティモデル (USM) に�
 9. [**Add user**] をクリックします。 ![SNMP v3 ユーザを追加するボタン](/assets/images/enterprise/management-console/snmpv3-adduser.png)
 {% data reusables.enterprise_management_console.save-settings %}
 
-##### SNMP データの照会
+#### SNMP データの照会
 
-アプライアンスに関するハードウェアレベルとソフトウェアレベルの両方の情報が SNMP v3 で利用できます。 `noAuthNoPriv` と `authNoPriv` のセキュリティレベルでは暗号化とプライバシーが欠如しているため、結果の SNMP レポートから `hrSWRun` の表 (1.3.6.1.2.1.25.4) は除外されます。 セキュリティレベル `authPriv` を使用している場合は、この表が掲載されます。 詳しい情報については、「[OID のリファレンスドキュメンテーション](http://oidref.com/1.3.6.1.2.1.25.4)」を参照してください。
+アプライアンスに関するハードウェアレベルとソフトウェアレベルの両方の情報が SNMP v3 で利用できます。 `noAuthNoPriv` と `authNoPriv` のセキュリティレベルでは暗号化とプライバシーが欠如しているため、結果の SNMP レポートから `hrSWRun` の表 (1.3.6.1.2.1.25.4) は除外されます。 セキュリティレベル `authPriv` を使用している場合は、この表が掲載されます。 詳しい情報については、「[OID のリファレンスドキュメンテーション](https://oidref.com/1.3.6.1.2.1.25.4)」を参照してください。
 
 SNMP v2c では、アプライアンスに関するハードウェアレベルの情報のみが利用できます。 {% data variables.product.prodname_enterprise %} 内のアプリケーションとサービスには、メトリックスを報告するように設定された OID がありません。 いくつかの MIB が利用できます。ネットワーク内において SNMP をサポートしている別のワークステーションで `snmpwalk` を実行することで、利用できる MIB を確認できます。
 

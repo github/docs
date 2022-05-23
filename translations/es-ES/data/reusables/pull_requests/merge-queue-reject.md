@@ -1,0 +1,2 @@
+
+Después de agrupar una solicitud de cambios con la última versión de la rama destino y los cambios frente a ella en la cola, si es que existen verificaciones de estado requeridas fallidas o conflictos con la rama base, {% data variables.product.product_name %} eliminará la solicitud de cambios de la cola. La línea de tiempo de la solicitud de cambios mostrará la razón por la cuál se eliminó esta de la cola.

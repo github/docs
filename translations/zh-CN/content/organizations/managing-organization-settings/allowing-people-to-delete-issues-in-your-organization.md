@@ -5,17 +5,19 @@ redirect_from:
   - /articles/allowing-people-to-delete-issues-in-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/allowing-people-to-delete-issues-in-your-organization
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: 允许议题删除
 ---
 
 默认情况下，无法从组织的仓库中删除议题。 组织所有者必须先对所有组织的仓库启用此功能。
 
-在启用后，组织所有者以及在组织拥有的仓库中具有管理员权限的人员便可删除议题。 在仓库中具有管理员权限的人员包括具有管理员权限的组织成员以及外部协作者。 更多信息请参阅“[组织的仓库权限级别](/articles/repository-permission-levels-for-an-organization/)”和“[删除议题](/articles/deleting-an-issue)”。
+在启用后，组织所有者以及在组织拥有的仓库中具有管理员权限的人员便可删除议题。 在仓库中具有管理员访问权限的人员包括被授予管理员访问权限的组织成员和外部协作者。 更多信息请参阅“[组织的仓库角色](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)”和“[删除议题](/articles/deleting-an-issue)”。
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}

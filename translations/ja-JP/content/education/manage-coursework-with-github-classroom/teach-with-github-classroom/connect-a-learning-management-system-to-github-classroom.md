@@ -2,7 +2,8 @@
 title: 学習管理システムをGitHub Classroomに接続する
 intro: 'LTI準拠の学習管理システム (LMS) を{% data variables.product.prodname_classroom %}に接続するよう設定することで、クラスルームの名簿をインポートできます。'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+permissions: 'Organization owners who are admins for a classroom can connect learning management systems to {% data variables.product.prodname_classroom %}. {% data reusables.classroom.classroom-admins-link %}'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/configuring-a-learning-management-system-for-github-classroom
   - /education/manage-coursework-with-github-classroom/connect-to-lms
@@ -11,17 +12,18 @@ redirect_from:
   - /education/manage-coursework-with-github-classroom/setup-generic-lms
   - /education/manage-coursework-with-github-classroom/setup-moodle
   - /education/manage-coursework-with-github-classroom/connect-a-learning-management-system-to-github-classroom
+shortTitle: Connect an LMS
 ---
 
-### LMSの設定について
+## LMSの設定について
 
 学習管理システム (LMS) を{% data variables.product.prodname_classroom %}に接続でき、{% data variables.product.prodname_classroom %}はLMSから学生の名簿をインポートできます。 LMSを{% data variables.product.prodname_classroom %}に接続するには、LMSで{% data variables.product.prodname_classroom %}の構成認証情報を入力する必要があります。
 
-### 必要な環境
+## 必要な環境
 
 LMSを{% data variables.product.prodname_classroom %}に接続するよう構成するには、まずクラスルームを作成する必要があります。 詳しい情報については、「[クラスルームの管理](/education/manage-coursework-with-github-classroom/manage-classrooms#creating-a-classroom)」を参照してください。
 
-### サポートするLMS
+## サポートするLMS
 
 {% data variables.product.prodname_classroom %}は、Learning Tools Interoperability (LTI) 規格を実装するLMSからの、名簿データのインポートをサポートしています。
 
@@ -39,7 +41,7 @@ LTIは、情報の安全性と機密性を保つために役立ちます。 LTI�
 
 現在のところ、{% data variables.product.prodname_classroom %}はBlackboardおよびBrightspaceからの名簿のインポートはサポートしていません。
 
-### クラスルームの構成認証情報を生成する
+## クラスルームの構成認証情報を生成する
 
 {% data reusables.classroom.sign-into-github-classroom %}
 {% data reusables.classroom.click-classroom-in-list %}
@@ -51,7 +53,7 @@ LTIは、情報の安全性と機密性を保つために役立ちます。 LTI�
 1. LMSの接続について読み、[**Connect to _LMS_**] をクリックします。
 1. クラスルームへの接続に用いる、[Consumer Key]、[Shared Secret]、および [Launch URL] をコピーします。 ![認証情報のコピー](/assets/images/help/classroom/classroom-copy-credentials.png)
 
-### 一般的なLMSを設定する
+## 一般的なLMSを設定する
 
 外部ツールが名簿情報を受信できるよう、LMSのプライバシー設定を行う必要があります。
 
@@ -62,7 +64,7 @@ LTIは、情報の安全性と機密性を保つために役立ちます。 LTI�
     - 共有シークレット
     - Launch URL (「ツールURL」などと呼ばれることもあります)
 
-### Canvasを設定する
+## Canvasを設定する
 
 {% data variables.product.prodname_classroom %}をCanvasの外部アプリケーションとして設定し、クラスルームに名簿データをインポートできます。 Canvasに関する詳細は、[Canvasのウェブサイト](https://www.instructure.com/canvas/)を参照してください。
 
@@ -92,13 +94,13 @@ LTIは、情報の安全性と機密性を保つために役立ちます。 LTI�
 1. 左のサイドバーで [**Home**] をクリックします。
 1. 左のサイドバーで [**GitHub Classroom**] をクリックし、Canvasが確認メールを送信するようにします。 メールの指示に従い、{% data variables.product.prodname_classroom %}との連携を完了します。
 
-### Moodleを設定する
+## Moodleを設定する
 
 {% data variables.product.prodname_classroom %}をMoodleのアクティビティとして設定し、クラスルームに名簿データをインポートできます。 Moodleに関する詳細は、[Moodleのウェブサイト](https://moodle.org)を参照してください。
 
 Moodleのバージョンは3.0以上である必要があります。
 
-1. [Moodle](https://moodle.org/login/index.php)にサインインします。
+1. [Moodle](https://moodle.org/login/)にサインインします。
 1. {% data variables.product.prodname_classroom %}と連携するMoodleのコースを選択します。
 1. [**Turn editing on**] をクリックします。
 1. Moodleで{% data variables.product.prodname_classroom %}を使用するところで、[**Add an activity or resource**] をクリックします。
@@ -126,11 +128,11 @@ Moodleのバージョンは3.0以上である必要があります。
 1. ページの下部で、[**Save and return to course**] をクリックします
 1. {% data variables.product.prodname_classroom %} を表示したい場所に移動し、{% data variables.product.prodname_classroom %}アクティビティをクリックします。
 
-### LMSから名簿をインポートする
+## LMSから名簿をインポートする
 
 LMSから{% data variables.product.prodname_classroom %}への名簿のインポートに関する詳細については、「[クラスルームの管理](/education/manage-coursework-with-github-classroom/manage-classrooms#creating-a-roster-for-your-classroom)」を参照してください。
 
-### LMSを切断する
+## LMSを切断する
 
 {% data reusables.classroom.sign-into-github-classroom %}
 {% data reusables.classroom.click-classroom-in-list %}

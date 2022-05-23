@@ -4,9 +4,10 @@ intro: GraphQL 架构变更日志是指最近和即将发生的 GraphQL API 架�
 redirect_from:
   - /v4/changelog
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 ---
@@ -14,7 +15,7 @@ topics:
 重大变更包括会改变现有查询或可能影响客户端运行时行为的变更。 有关重大变更及它们何时发生的列表，请参阅我们的[重大变更日志](/graphql/overview/breaking-changes)。
 
 {% for entry in graphql.changelog %}
-### {{ entry.date }} 的架构变更
+## {{ entry.date }} 的架构变更
 
 {% for schemaChange in entry.schemaChanges %}
 {{ schemaChange.title }}

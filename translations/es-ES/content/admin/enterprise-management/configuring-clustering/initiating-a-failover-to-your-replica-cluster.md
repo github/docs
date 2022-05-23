@@ -5,16 +5,17 @@ redirect_from:
   - /enterprise/admin/enterprise-management/initiating-a-failover-to-your-replica-cluster
   - /admin/enterprise-management/initiating-a-failover-to-your-replica-cluster
 versions:
-  enterprise-server: '>2.21'
+  ghes: '*'
 type: how_to
 topics:
   - Clustering
   - Enterprise
   - High availability
   - Infrastructure
+shortTitle: Iniciar una recuperación de fallos hacia una réplica
 ---
 
-### Acerca de la conmutación por error a tu clúster de réplica
+## Acerca de la conmutación por error a tu clúster de réplica
 
 En caso de que haya una falla en tu datacenter primario, puedes recuperarte de dicho fallo hacia los nodos de réplica en el datacenter secundario si configuras un nodo de réplica pasivo para cada nodo en tu clúster activo.
 
@@ -22,11 +23,11 @@ El tiempo que se requiere para recuperarse del fallo dependerá de qué tanto ti
 
 El promover un clúster de réplica no configura automáticamente la replicación al clúster existente. Después de promover un clúster de réplica, puedes reconfigurar la replicación desde el clúster activo nuevo. Para obtener más información, consulta la sección "[Configurar la disponibilidad alta para un clúster](/enterprise/admin/enterprise-management/configuring-high-availability-replication-for-a-cluster#reconfiguring-high-availability-replication-after-a-failover)".
 
-### Prerrequisitos
+## Prerrequisitos
 
 Para recuperarse de un fallo hacia los nodos de réplica pasivos, debes haber configurado la disponibilidad alta para tu clúster. Para obtener más información, consulta la sección "[Configurar la disponibilidad alta para un clúster](/enterprise/admin/enterprise-management/configuring-high-availability-replication-for-a-cluster)".
 
-### Iniciar una conmutación por error a tu clúster de réplica
+## Iniciar una conmutación por error a tu clúster de réplica
 
 1. Ingresa por SSH en cualquier nodo pasivo en el datacenter secundario para tu clúster. Para obtener más información, consulta "[Acceder al shell administrativo (SSH)](/enterprise/admin/configuration/accessing-the-administrative-shell-ssh#enabling-access-to-the-administrative-shell-via-ssh)."
 

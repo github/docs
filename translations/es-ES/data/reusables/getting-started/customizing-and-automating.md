@@ -1,0 +1,1 @@
+Puedes utilizar las herramientas del {% data variables.product.prodname_marketplace %}, la API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} y características existentes de {% data variables.product.product_name %} para personalizar y automatizar tu trabajo.

@@ -1,68 +1,128 @@
 ---
-title: 自托管运行器的监控和故障排除
-intro: 您可以监控自托管运行器，查看它们的活动并诊断常见问题。
+title: Monitoring and troubleshooting self-hosted runners
+intro: You can monitor your self-hosted runners to view their activity and diagnose common issues.
 redirect_from:
   - /actions/hosting-your-own-runners/checking-the-status-of-self-hosted-runners
   - /github/automating-your-workflow-with-github-actions/checking-the-status-of-self-hosted-runners
   - /actions/automating-your-workflow-with-github-actions/checking-the-status-of-self-hosted-runners
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 type: tutorial
 defaultPlatform: linux
+shortTitle: Monitor & troubleshoot
 ---
 
-{% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
-### 使用 {{ site.data.variables.product.prodname_dotcom }} 检查自托管运行器的状态
+## Checking the status of a self-hosted runner
 
-{% data reusables.github-actions.self-hosted-runner-management-permissions-required %}
+{% data reusables.actions.self-hosted-runner-management-permissions-required %}
 
-{% data reusables.github-actions.self-hosted-runner-navigate-repo-and-org %}
-{% data reusables.organizations.settings-sidebar-actions %}
-1. 在“Self-hosted runners（自托管运行器）”下，您可以查看已注册的运行器列表，包括运行器的名称、标签和状态。
+{% data reusables.actions.self-hosted-runner-navigate-repo-and-org %}
+{% data reusables.organizations.settings-sidebar-actions-runners %}
+1. Under {% ifversion fpt or ghes > 3.1 or ghae or ghec %}"Runners"{% else %}"Self-hosted runners"{% endif %}, you can view a list of registered runners, including the runner's name, labels, and status.
 
-    ![运行器列表](/assets/images/help/settings/actions-runner-list.png)
+    The status can be one of the following:
 
-    可以是以下状态之一：
+    * **Idle**: The runner is connected to {% data variables.product.product_name %} and is ready to execute jobs.
+    * **Active**: The runner is currently executing a job.
+    * **Offline**: The runner is not connected to {% data variables.product.product_name %}. This could be because the machine is offline, the self-hosted runner application is not running on the machine, or the self-hosted runner application cannot communicate with {% data variables.product.product_name %}.
 
-    * **空闲**：运行器已连接到 {% data variables.product.product_name %} 并准备执行作业。
-    * **活动**：运行器正在执行作业。
-    * **脱机**：运行器未连接到 {% data variables.product.product_name %}。 这可能是因为机器处于离线状态，自托管运行器应用程序未在机器上运行，或者自托管运行器应用程序无法与 {% data variables.product.product_name %} 通信。
+## Troubleshooting network connectivity
 
+### Checking self-hosted runner network connectivity
 
-### 查阅自托管运行应用程序日志文件
+You can use the self-hosted runner application's `run` script with the `--check` parameter to check that a self-hosted runner can access all required network services on {% data variables.product.product_location %}.
 
-您可以监控自托管运行器应用程序的状态及其活动。 日志文件保存在 `_diag` 目录中，每次启动应用程序都会生成一个新的日志文件。 文件名开头为 *Runner_*，后接应用程序启动时的 UTC 时间戳。
+In addition to `--check`, you must provide two arguments to the script:
 
-有关工作流程作业执行的详细日志，请参阅描述 *Worker_* 文件的下一节。
+* `--url` with the URL to your {% data variables.product.company_short %} repository, organization, or enterprise. For example, `--url https://github.com/octo-org/octo-repo`.
+* `--pat` with the value of a personal access token, which must have the `workflow` scope. For example, `--pat ghp_abcd1234`. For more information, see "[Creating a personal access token](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
 
-### 查看作业日志文件
+For example:
 
-自托管的运行器应用程序为它处理的每个作业创建详细的日志文件。 这些文件存储在 `_dig` 目录中，文件名以 *Worker_* 开头。
+{% mac %}
+
+{% data reusables.actions.self-hosted-runner-check-mac-linux %}
+
+{% endmac %}
+{% linux %}
+
+{% data reusables.actions.self-hosted-runner-check-mac-linux %}
+
+{% endlinux %}
+{% windows %}
+
+```shell
+run.cmd --check --url <em>https://github.com/octo-org/octo-repo</em> --pat <em>ghp_abcd1234</em>
+```
+
+{% endwindows %}
+
+The script tests each service, and outputs either a `PASS` or `FAIL` for each one. If you have any failing checks, you can see more details on the problem in the log file for the check. The log files are located in the `_diag` directory where you installed the runner application, and the path of the log file for each check is shown in the console output of the script.
+
+If you have any failing checks, you should also verify that your self-hosted runner machine meets all the communication requirements. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners#communication-requirements)."
+
+### Disabling TLS certificate verification
+{% ifversion ghes %}
+By default, the self-hosted runner application verifies the TLS certificate for {% data variables.product.product_name %}.  If your {% data variables.product.product_name %} has a self-signed or internally-issued certificate, you may wish to disable TLS certificate verification for testing purposes.
+{% else %}
+By default, the self-hosted runner application verifies the TLS certificate for {% data variables.product.product_name %}.  If you encounter network problems, you may wish to disable TLS certificate verification for testing purposes.
+{% endif %}
+
+To disable TLS certification verification in the self-hosted runner application, set the `GITHUB_ACTIONS_RUNNER_TLS_NO_VERIFY` environment variable to `1` before configuring and running the self-hosted runner application.
+
+```shell
+export GITHUB_ACTIONS_RUNNER_TLS_NO_VERIFY=1
+./config.sh --url <em>https://github.com/octo-org/octo-repo</em> --token
+./run.sh
+```
+
+{% warning %}
+
+**Warning**: Disabling TLS verification is not recommended since TLS provides privacy and data integrity between the self-hosted runner application and {% data variables.product.product_name %}. We recommend that you install the {% data variables.product.product_name %} certificate in the operating system certificate store for your self-hosted runner. For guidance on how to install the {% data variables.product.product_name %} certificate, check with your operating system vendor.
+
+{% endwarning %}
+
+## Reviewing the self-hosted runner application log files
+
+You can monitor the status of the self-hosted runner application and its activities. Log files are kept in the `_diag` directory where you installed the runner application, and a new log is generated each time the application is started. The filename begins with *Runner_*, and is followed by a UTC timestamp of when the application was started.
+
+For detailed logs on workflow job executions, see the next section describing the *Worker_* files.
+
+## Reviewing a job's log file
+
+The self-hosted runner application creates a detailed log file for each job that it processes. These files are stored in the `_diag` directory where you installed the runner application, and the filename begins with *Worker_*.
 
 {% linux %}
 
-### 使用 journalctl 检查自托管的运行器应用程序服务
+## Using journalctl to check the self-hosted runner application service
 
-对于使用服务运行应用程序的 Linux 自托管运行器，您可以使用 `journalctl` 来监控其实时活动。 基于系统的默认服务使用以下命名约定：`actions.runner.<org>-<repo>.<runnerName>.service`。 此名称在超过 80 个字符时将被截断，因此查找服务名称的首选方式是检查 _.service_ 文件。 例如：
+For Linux-based self-hosted runners running the application using a service, you can use `journalctl` to monitor their real-time activity. The default systemd-based service uses the following naming convention: `actions.runner.<org>-<repo>.<runnerName>.service`. This name is truncated if it exceeds 80 characters, so the preferred way of finding the service's name is by checking the _.service_ file. For example:
 
 ```shell
 $ cat ~/actions-runner/.service
 actions.runner.octo-org-octo-repo.runner01.service
 ```
 
-您可以使用 `journalctl` 来监控自托管运行器的实时活动：
+If this fails due to the service being installed elsewhere, you can find the service name in the list of running services. For example, on most Linux systems you can use the `systemctl` command:
+
+```shell
+$ systemctl --type=service | grep actions.runner
+actions.runner.octo-org-octo-repo.hostname.service loaded active running GitHub Actions Runner (octo-org-octo-repo.hostname)
+```
+
+You can use `journalctl` to monitor the real-time activity of the self-hosted runner:
 
 ```shell
 $ sudo journalctl -u actions.runner.octo-org-octo-repo.runner01.service -f
 ```
 
-在这个示例输出中，您可以看到，`runner01` 启动，收到一个名为 `testAction` 的作业，然后显示结果状态：
+In this example output, you can see `runner01` start, receive a job named `testAction`, and then display the resulting status:
 
 ```shell
 Feb 11 14:57:07 runner01 runsvc.sh[962]: Starting Runner listener with startup type: service
@@ -74,22 +134,23 @@ Feb 11 16:06:54 runner01 runsvc.sh[962]: 2020-02-11 16:06:54Z: Running job: test
 Feb 11 16:07:10 runner01 runsvc.sh[962]: 2020-02-11 16:07:10Z: Job testAction completed with result: Succeeded
 ```
 
-要查看系统配置，您可以在下面查找服务文件：`/etc/systemd/system/actions.runner.<org>-<repo>.<runnerName>.service`。 如果您想要自定义自托管的运行器应用程序服务，不要直接修改此文件。 请按照“[将自托管运行器应用程序配置为服务](/actions/hosting-your-own-runners/configuring-the-self-hosted-runner-application-as-a-service#customizing-the-self-hosted-runner-service)”中所述的说明操作。
+To view the `systemd` configuration, you can locate the service file here: `/etc/systemd/system/actions.runner.<org>-<repo>.<runnerName>.service`.
+If you want to customize the self-hosted runner application service, do not directly modify this file. Follow the instructions described in "[Configuring the self-hosted runner application as a service](/actions/hosting-your-own-runners/configuring-the-self-hosted-runner-application-as-a-service#customizing-the-self-hosted-runner-service)."
 
 {% endlinux %}
 
 {% mac %}
 
-### 使用 launchd 检查自托管的运行器应用程序服务
+## Using `launchd` to check the self-hosted runner application service
 
-对于将应用程序运行为服务的 macOS 自托管运行器，您可以使用 `launchctl` 来监控其实时活动。 基于 launchctl 的默认服务使用以下命名约定：`actions.runner.<org>-<repo>.<runnerName>`。 此名称在超过 80 个字符时将被截断，因此查找服务名称的首选方式是检查运行器目录中的 _.service_ 文件。
+For macOS-based self-hosted runners running the application as a service, you can use `launchctl` to monitor their real-time activity. The default launchd-based service uses the following naming convention: `actions.runner.<org>-<repo>.<runnerName>`. This name is truncated if it exceeds 80 characters, so the preferred way of finding the service's name is by checking the _.service_ file in the runner directory:
 
 ```shell
 % cat ~/actions-runner/.service
 /Users/exampleUsername/Library/LaunchAgents/actions.runner.octo-org-octo-repo.runner01.plist
 ```
 
-`svc.sh` 脚本使用 `launchctl` 来检查应用程序是否正在运行。 例如：
+The `svc.sh` script uses `launchctl` to check whether the application is running. For example:
 
 ```shell
 $ ./svc.sh status
@@ -99,25 +160,26 @@ Started:
 379 0 actions.runner.example.runner01
 ```
 
-生成的输出包括进程 ID 和应用程序 launchd 服务的名称。
+The resulting output includes the process ID and the name of the application’s `launchd` service.
 
-要查看 launchd 配置，您可以在下面查找服务文件： `/Users/exampleUsername/Library/LaunchAgents/actions.runner.<repoName>.<runnerName>.service`。 如果您想要自定义自托管的运行器应用程序服务，不要直接修改此文件。 请按照“[将自托管运行器应用程序配置为服务](/actions/hosting-your-own-runners/configuring-the-self-hosted-runner-application-as-a-service#customizing-the-self-hosted-runner-service-1)”中所述的说明操作。
+To view the `launchd` configuration, you can locate the service file here: `/Users/exampleUsername/Library/LaunchAgents/actions.runner.<repoName>.<runnerName>.service`.
+If you want to customize the self-hosted runner application service, do not directly modify this file. Follow the instructions described in "[Configuring the self-hosted runner application as a service](/actions/hosting-your-own-runners/configuring-the-self-hosted-runner-application-as-a-service#customizing-the-self-hosted-runner-service-1)."
 
 {% endmac %}
 
 
 {% windows %}
 
-### 使用 PowerShell 检查自托管的运行器应用程序服务
+## Using PowerShell to check the self-hosted runner application service
 
-对于将应用程序运行为服务的 Windows 自托管运行器，您可以使用 PowerShell 来监控其实时活动。 服务使用命名约定 `GitHub Actions Runner (<org>-<repo>.<runnerName>)`。 您也可以通过在运行器目录中检查 _.service_ 文件来查找服务的名称：
+For Windows-based self-hosted runners running the application as a service, you can use PowerShell to monitor their real-time activity. The service uses the naming convention `GitHub Actions Runner (<org>-<repo>.<runnerName>)`. You can also find the service's name by checking the _.service_ file in the runner directory:
 
 ```shell
 PS C:\actions-runner> Get-Content .service
 actions.runner.octo-org-octo-repo.runner01.service
 ```
 
-您可以在 Windows _Services_ 应用程序 (`services.msc`) 中查看运行器的状态。 您也可以使用 PowerShell 来检查服务是否在运行：
+You can view the status of the runner in the Windows _Services_ application (`services.msc`). You can also use PowerShell to check whether the service is running:
 
 ```shell
 PS C:\actions-runner> Get-Service "actions.runner.octo-org-octo-repo.runner01.service" | Select-Object Name, Status
@@ -126,7 +188,7 @@ Name                                                  Status
 actions.runner.octo-org-octo-repo.runner01.service    Running
 ```
 
-您可以使用 PowerShell 来检查自托管运行器的近期活动。 在这个示例输出中，您可以看到，应用程序启动，收到一个名为 `testAction` 的作业，然后显示结果状态：
+You can use PowerShell to check the recent activity of the self-hosted runner. In this example output, you can see the application start, receive a job named `testAction`, and then display the resulting status:
 
 ```shell
 PS C:\actions-runner> Get-EventLog -LogName Application -Source ActionsRunnerService
@@ -145,34 +207,34 @@ PS C:\actions-runner> Get-EventLog -LogName Application -Source ActionsRunnerSer
 
 {% endwindows %}
 
-### 监控自动更新过程
+## Monitoring the automatic update process
 
-建议定期检查自动更新过程，因为如果自托管的运行器低于某个版本阈值，将会无法处理作业。 自托管的运行器应用程序自动更新本身，但请注意，此过程不包括对操作系统或其他软件的任何更新；您需要单独管理这些更新。
+We recommend that you regularly check the automatic update process, as the self-hosted runner will not be able to process jobs if it falls below a certain version threshold. The self-hosted runner application automatically updates itself, but note that this process does not include any updates to the operating system or other software; you will need to separately manage these updates.
 
-您可以在 *Runner_* 日志文件中查看更新活动。 例如：
+You can view the update activities in the *Runner_* log files. For example:
 
 ```shell
 [Feb 12 12:37:07 INFO SelfUpdater] An update is available.
 ```
 
-此外，您也可以在 `_diag` 目录下的 _SelfUpdate_ 日志文件查找更多信息。
+In addition, you can find more information in the _SelfUpdate_ log files located in the `_diag` directory where you installed the runner application.
 
 {% linux %}
 
-### 自行托管运行器中的容器故障排除
+## Troubleshooting containers in self-hosted runners
 
-#### 检查 Docker 是否安装
+### Checking that Docker is installed
 
-如果您的作业需要容器，则自托管的运行器必须基于 Linux，并且需要安装 Docker。 检查自托管运行器是否安装 Docker，以及服务是否正在运行。
+If your jobs require containers, then the self-hosted runner must be Linux-based and needs to have Docker installed. Check that your self-hosted runner has Docker installed and that the service is running.
 
-您可以使用 `systemctl` 来检查服务状态：
+You can use `systemctl` to check the service status:
 
 ```shell
 $ sudo systemctl is-active docker.service
 active
 ```
 
-如果 Docker 未安装，则依赖的操作将因以下错误而失败：
+If Docker is not installed, then dependent actions will fail with the following errors:
 
 ```shell
 [2020-02-13 16:56:10Z INFO DockerCommandManager] Which: 'docker'
@@ -180,15 +242,15 @@ active
 [2020-02-13 16:56:10Z ERR  StepsRunner] Caught exception from step: System.IO.FileNotFoundException: File not found: 'docker'
 ```
 
-#### 检查 Docker 权限
+### Checking the Docker permissions
 
-如果作业失败，出现以下错误：
+If your job fails with the following error:
 
 ```shell
 dial unix /var/run/docker.sock: connect: permission denied
 ```
 
-检查自托管运行器的服务帐户是否有使用 Docker 服务的权限。 您可以通过检查 systemd 中的自托管运行器配置来识别此帐户。 例如：
+Check that the self-hosted runner's service account has permission to use the Docker service. You can identify this account by checking the configuration of the self-hosted runner in `systemd`. For example:
 
 ```shell
 $ sudo systemctl show -p User actions.runner.octo-org-octo-repo.runner01.service
@@ -196,3 +258,11 @@ User=runner-user
 ```
 
 {% endlinux %}
+
+{% ifversion ghes %}
+## Resolving runners that are offline after an upgrade of {% data variables.product.product_location %}
+
+{% data reusables.actions.upgrade-runners-before-upgrade-ghes %} 
+
+If your runners are offline for this reason, manually update the runners. For more information, see the installation instructions for [the latest release](https://github.com/actions/runner/releases/latest) in the actions/runner repository.
+{% endif %}

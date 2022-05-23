@@ -1,57 +1,57 @@
 ---
-title: Enterprise から移行データをエクスポートする
-intro: 'プラットフォームの変更、およびトライアルインスタンスから本番インスタンスに移行するには、インスタンスを準備して、リポジトリをロックし、移行アーカイブを生成することで、{% data variables.product.prodname_ghe_server %} インスタンスから移行データをエクスポートできます。'
+title: Exporting migration data from your enterprise
+intro: 'To change platforms or move from a trial instance to a production instance, you can export migration data from a {% data variables.product.prodname_ghe_server %} instance by preparing the instance, locking the repositories, and generating a migration archive.'
 redirect_from:
-  - /enterprise/admin/guides/migrations/exporting-migration-data-from-github-enterprise/
+  - /enterprise/admin/guides/migrations/exporting-migration-data-from-github-enterprise
   - /enterprise/admin/migrations/exporting-migration-data-from-github-enterprise-server
   - /enterprise/admin/migrations/preparing-the-github-enterprise-server-source-instance
   - /enterprise/admin/migrations/exporting-the-github-enterprise-server-source-repositories
-  - /enterprise/admin/guides/migrations/preparing-the-github-enterprise-source-instance/
-  - /enterprise/admin/guides/migrations/exporting-the-github-enterprise-source-repositories/
+  - /enterprise/admin/guides/migrations/preparing-the-github-enterprise-source-instance
+  - /enterprise/admin/guides/migrations/exporting-the-github-enterprise-source-repositories
   - /enterprise/admin/user-management/exporting-migration-data-from-your-enterprise
   - /admin/user-management/exporting-migration-data-from-your-enterprise
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - API
   - Enterprise
   - Migration
+shortTitle: Export from your enterprise
 ---
+## Preparing the {% data variables.product.prodname_ghe_server %} source instance
 
-### {% data variables.product.prodname_ghe_server %} ソースインスタンスを準備する
+1. Verify that you are a site administrator on the {% data variables.product.prodname_ghe_server %} source. The best way to do this is to verify that you can [SSH into the instance](/enterprise/admin/guides/installation/accessing-the-administrative-shell-ssh/).
 
-1. {% data variables.product.prodname_ghe_server %} ソースのサイト管理者であることを確認します。 そのための最善の方法は、[インスタンスへのSSH](/enterprise/admin/guides/installation/accessing-the-administrative-shell-ssh/)が可能であることを確認することです。
-
-2. {% data variables.product.prodname_ghe_server %} ソースインスタンス上での {% data reusables.enterprise_migrations.token-generation %}。
+2. {% data reusables.enterprise_migrations.token-generation %} on the {% data variables.product.prodname_ghe_server %} source instance.
 
 {% data reusables.enterprise_migrations.make-a-list %}
 
-### {% data variables.product.prodname_ghe_server %} ソースリポジトリをエクスポートする
+## Exporting the {% data variables.product.prodname_ghe_server %} source repositories
 
 {% data reusables.enterprise_migrations.locking-repositories %}
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
-2. エクスポートするリポジトリを準備するには、`ghe-migrator add` コマンドをリポジトリの URL と一緒に使用します:
-    * リポジトリをロックする場合は、コマンドの末尾に `--lock` を付けます。 トライアル実行を行う場合は、`--lock` は必要ありません。
+2. To prepare a repository for export, use the `ghe-migrator add` command with the repository's URL:
+    * If you're locking the repository, append the command with `--lock`. If you're performing a trial run, `--lock` is not needed.
       ```shell
       $ ghe-migrator add https://<em>hostname</em>/<em>username</em>/<em>reponame</em> --lock
       ```
-    * コマンドの後ろに `--exclude_attachments` を付けると添付ファイルを除外できます。 {% data reusables.enterprise_migrations.exclude-file-attachments %}
-    * エクスポートする複数のリポジトリを同時に準備するには、各リポジトリ URL を 1 行ずつ記載したテキストファイルを作成し、`ghe-migrator add` コマンドに `-i` フラグとテキストファイルのパスを付けて実行します。
+    * You can exclude file attachments by appending `--exclude_attachments` to the command. {% data reusables.enterprise_migrations.exclude-file-attachments %}
+    * To prepare multiple repositories at once for export, create a text file listing each repository URL on a separate line, and run the `ghe-migrator add` command with the `-i` flag and the path to your text file.
       ```shell
       $ ghe-migrator add -i <em>PATH</em>/<em>TO</em>/<em>YOUR</em>/<em>REPOSITORY_URLS</em>.txt
       ```
 
-3. 入力を求められたら、{% data variables.product.prodname_ghe_server %} ユーザ名を入力します:
+3. When prompted, enter your {% data variables.product.prodname_ghe_server %} username:
   ```shell
   Enter username authorized for migration:  admin
   ```
-4. 個人用アクセストークンを求められたら、「[{% data variables.product.prodname_ghe_server %}ソースインスタンスの準備](#preparing-the-github-enterprise-server-source-instance)」で作成したアクセストークンを入力します。
+4. When prompted for a personal access token, enter the access token you created in "[Preparing the {% data variables.product.prodname_ghe_server %} source instance](#preparing-the-github-enterprise-server-source-instance)":
   ```shell
   Enter personal access token:  **************
   ```
-5. `ghe-migrator add`が終了すると、このエクスポートと追加されたリソースのリストを識別するために生成されたユニークな"移行GUID"が出力されます。 生成されたGUIDは、後の`ghe-migrator add`及び`ghe-migrator export`のステップで同じエクスポートに対して処理を続けるよう`ghe-migrator`に伝えるために使います。
+5. When `ghe-migrator add` has finished it will print the unique "Migration GUID" that it generated to identify this export as well as a list of the resources that were added to the export. You will use the Migration GUID that it generated in subsequent `ghe-migrator add` and `ghe-migrator export` steps to tell `ghe-migrator` to continue operating on the same export.
   ```shell
   > 101 models added to export
   > Migration GUID: <em>example-migration-guid</em>
@@ -73,32 +73,32 @@ topics:
   > attachments                  |  4
   > projects                     |  2
   ```
-  既存の移行GUIDに対して新しいリポジトリを追加するたびに、既存のエクスポートが更新されます。 Migration GUIDなしで`ghe-migrator add`を再実行すると、新しいエクスポートが始まり、新しいMigration GUIDが生成されます。 **インポートから移行の準備を始める場合には、エクスポート中に生成されるMigration GUIDを再利用しないでください**。
+  Each time you add a new repository with an existing Migration GUID it will update the existing export. If you run `ghe-migrator add` again without a Migration GUID it will start a new export and generate a new Migration GUID. **Do not re-use the Migration GUID generated during an export when you start preparing your migration for import**.
 
-3. ソースリポジトリをロックした場合、`ghe-migrator target_url`コマンドを使ってリポジトリの新しい場所へリンクするカスタムのロックメッセージをリポジトリのページに設定できます。 ソースリポジトリのURL、ターゲットリポジトリのURL、そしてステップ5の移行GUIDを渡してください。
+3. If you locked the source repository, you can use the `ghe-migrator target_url` command to set a custom lock message on the repository page that links to the repository's new location. Pass the source repository URL, the target repository URL, and the Migration GUID from Step 5:
 
   ```shell
   $ ghe-migrator target_url https://<em>hostname</em>/<em>username</em>/<em>reponame</em> https://<em>target_hostname</em>/<em>target_username</em>/<em>target_reponame</em> -g <em>MIGRATION_GUID</em>
   ```
 
-6. 同じエクスポートにさらにリポジトリを追加するには、`ghe-migrator add` コマンドに `-g` フラグを付けて実行します。 これで新しいリポジトリの URL とステップ 5 の移行 GUID を渡します。
+6. To add more repositories to the same export, use the `ghe-migrator add` command with the `-g` flag. You'll pass in the new repository URL and the Migration GUID from Step 5:
   ```shell
   $ ghe-migrator add https://<em>hostname</em>/<em>username</em>/<em>other_reponame</em> -g <em>MIGRATION_GUID</em> --lock
   ```
-7. リポジトリを追加し終えたなら、`-g`フラグとステップ5の移行GUIDと共に`ghe-migrator export`を使い、移行アーカイブを生成してください。
+7. When you've finished adding repositories, generate the migration archive using the `ghe-migrator export` command with the `-g` flag and the Migration GUID from Step 5:
     ```shell
     $ ghe-migrator export -g <em>MIGRATION_GUID</em>
     > Archive saved to: /data/github/current/tmp/<em>MIGRATION_GUID</em>.tar.gz
     ```
     * {% data reusables.enterprise_migrations.specify-staging-path %}
 
-8. {% data variables.product.product_location %} への接続をクローズします。
+8. Close the connection to {% data variables.product.product_location %}:
   ```shell
   $ exit
   > logout
   > Connection to <em>hostname</em> closed.
   ```
-9. [`scp`](https://linuxacademy.com/blog/linux/ssh-and-scp-howto-tips-tricks#scp)コマンドを使って移行アーカイブを使用中のコンピュータにコピーしてください。 アーカイブファイルの名前には移行GUIDが含まれます。
+9. Copy the migration archive to your computer using the [`scp`](https://acloudguru.com/blog/engineering/ssh-and-scp-howto-tips-tricks#scp) command. The archive file will be named with the Migration GUID:
   ```shell
   $ scp -P 122 admin@<em>hostname</em>:/data/github/current/tmp/<em>MIGRATION_GUID</em>.tar.gz ~/Desktop
   ```

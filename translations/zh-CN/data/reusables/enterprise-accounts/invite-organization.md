@@ -1,0 +1,1 @@
+企业帐户所有者可以邀请现有组织帐户加入其企业。 更多信息请参阅“[邀请组织加入您的企业帐户](/enterprise-cloud@latest/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise#inviting-an-organization-to-join-your-enterprise-account)”。

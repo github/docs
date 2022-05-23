@@ -3,19 +3,20 @@ title: 管理 GitHub Enterprise Server 设备上的预接收挂钩
 intro: '配置如何在 {% data variables.product.prodname_ghe_server %} 设备中使用预接收挂钩。'
 redirect_from:
   - /enterprise/admin/developer-workflow/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance
-  - /enterprise/admin/guides/developer-workflow/managing-pre-receive-hooks-on-the-github-enterprise-appliance/
+  - /enterprise/admin/guides/developer-workflow/managing-pre-receive-hooks-on-the-github-enterprise-appliance
   - /enterprise/admin/policies/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance
   - /admin/policies/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Policies
   - Pre-receive hooks
+shortTitle: 管理预接收挂钩
 ---
 
-### 创建预接收挂钩
+## 创建预接收挂钩
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -28,21 +29,21 @@ topics:
 9. 如果希望预接收挂钩在所有仓库上运行，请选择 **Enable this pre-receive hook on all repositories by default**。 ![为所有仓库启用挂钩](/assets/images/enterprise/site-admin-settings/enable-hook-all-repos.png)
 10. 选择 **Administrators can enable and disable this hook（管理员可以启用和禁用此挂钩）**，以允许具有管理员或所有者权限的组织成员选择要启用还是禁用此预接收挂钩。 ![管理员启用或禁用挂钩](/assets/images/enterprise/site-admin-settings/admins-enable-hook.png)
 
-### 编辑预接收挂钩
+## 编辑预接收挂钩
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.hooks-tab %}
 1. 在要编辑的预接收挂钩旁边，单击 {% octicon "pencil" aria-label="The edit icon" %}。 ![编辑预接收挂钩](/assets/images/enterprise/site-admin-settings/edit-pre-receive-hook.png)
 
-### 删除预接收挂钩
+## 删除预接收挂钩
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.hooks-tab %}
 2. 在要删除的预接收挂钩旁边，单击 {% octicon "x" aria-label="X symbol" %}。 ![编辑预接收挂钩](/assets/images/enterprise/site-admin-settings/delete-pre-receive-hook.png)
 
-### 为组织配置预接收挂钩
+## 为组织配置预接收挂钩
 
 仅当站点管理员在创建预接收挂钩时选择了 **Administrators can enable or disable this hook** 选项，组织管理员才能为组织配置挂钩权限。 要为仓库配置预接收挂钩，您必须是组织管理员或所有者。
 
@@ -51,7 +52,7 @@ topics:
 4. 在左侧侧边栏中，单击 **Hooks**。 ![挂钩侧边栏](/assets/images/enterprise/orgs-and-teams/hooks-sidebar.png)
 5. 在要配置的预接收挂钩旁边，单击 **Hook permissions** 下拉菜单。 选择要启用还是禁用预接收挂钩，或者允许仓库管理员对其进行配置。 ![挂钩权限](/assets/images/enterprise/orgs-and-teams/hook-permissions.png)
 
-### 为仓库配置预接收挂钩
+## 为仓库配置预接收挂钩
 
 仅当站点管理员在创建预接收挂钩时选择了 **Administrators can enable or disable this hook** 选项，仓库所有者才能配置挂钩。 在组织中，组织所​​有者还必须选择 **Configurable** 挂钩权限。 要为仓库配置预接收挂钩，您必须是仓库所有者。
 

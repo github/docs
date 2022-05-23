@@ -1,1 +1,1 @@
-1. Type a label for your port, then press enter. ![Text box to type label for port](/assets/images/help/codespaces/label-text-box.png)
+1. Digite uma etiqueta para a sua porta e pressione enter. ![Caixa de texto para digitar a etiqueta para porta](/assets/images/help/codespaces/label-text-box.png)

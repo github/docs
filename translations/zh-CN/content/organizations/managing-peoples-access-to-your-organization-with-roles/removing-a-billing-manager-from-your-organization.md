@@ -5,11 +5,13 @@ redirect_from:
   - /articles/removing-a-billing-manager-from-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/removing-a-billing-manager-from-your-organization
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
   - Billing
+shortTitle: 删除帐单管理员
 ---
 
 {% warning %}

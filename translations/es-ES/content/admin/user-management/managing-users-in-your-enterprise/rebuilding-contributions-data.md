@@ -2,16 +2,17 @@
 title: Reconstruir datos de contribuciones
 intro: Es posible que necesites reconstruir los datos de contribuciones para vincular las confirmaciones de cambios a una cuenta de usuario.
 redirect_from:
-  - /enterprise/admin/articles/rebuilding-contributions-data/
+  - /enterprise/admin/articles/rebuilding-contributions-data
   - /enterprise/admin/user-management/rebuilding-contributions-data
   - /admin/user-management/rebuilding-contributions-data
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Repositories
   - User account
+shortTitle: Reconstruir las colaboraciones
 ---
 
 Siempre que se sube una confirmación de cambios a {% data variables.product.prodname_enterprise %}, se vincula a una cuenta de usuario, si ambas están asociadas con la misma dirección de correo electrónico. Sin embargo, las confirmaciones de cambio existentes *no* se vinculan de forma retroactiva cuando un usuario registra una dirección de correo electrónico nueva o crea una cuenta nueva.

@@ -2,13 +2,14 @@
 title: 删除 GitHub 应用程序
 intro: '{% data reusables.shortdesc.deleting_github_apps %}'
 redirect_from:
-  - /apps/building-integrations/managing-github-apps/deleting-a-github-app/
+  - /apps/building-integrations/managing-github-apps/deleting-a-github-app
   - /apps/managing-github-apps/deleting-a-github-app
   - /developers/apps/deleting-a-github-app
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - GitHub Apps
 ---

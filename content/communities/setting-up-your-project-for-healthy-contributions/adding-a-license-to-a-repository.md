@@ -7,6 +7,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - Community
 shortTitle: Add a license to a repo
@@ -20,7 +21,7 @@ Open source licenses enable others to freely use, change, and distribute the pro
 ## Including an open source license in your repository
 
 <!--Dotcom version uses the license tool-->
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}
 3. In the file name field, type *LICENSE* or *LICENSE.md* (with all caps).
@@ -39,7 +40,7 @@ Open source licenses enable others to freely use, change, and distribute the pro
 {% endif %}
 
 <!--GHE version just adds a file named LICENSE or LICENSE.md-->
-{% ifversion ghes or ghae %}
+{% ifversion ghes %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}

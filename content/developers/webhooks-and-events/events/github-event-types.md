@@ -1,7 +1,6 @@
 ---
 title: GitHub event types
 intro: 'For the {% data variables.product.prodname_dotcom %} Events API, learn about each event type, the triggering action on {% data variables.product.prodname_dotcom %}, and each event''s unique properties.'
-product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /v3/activity/event_types
   - /developers/webhooks-and-events/github-event-types
@@ -9,12 +8,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Events
 ---
 The Events API can return different types of events triggered by activity on GitHub. Each event response contains shared properties, but has a unique `payload` object determined by its event type. The [Event object common properties](#event-object-common-properties) describes the properties shared by all events, and each event type describes the `payload` properties that are unique to the specific event.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 {% endif %}
 
@@ -35,7 +35,7 @@ The event objects returned from the Events API endpoints have the same structure
 | `actor.avatar_url` | The URL of the actor's profile image. |
 | `repo` | The repository object where the event occurred.  |
 | `repo.id` | The unique identifier of the repository. |
-| `repo.name` | The name of the repository, which includes the owner and repository name. For example, `octocat/hello-world` is the name of the `hello-world` repository owned by the `octocat` user account. |
+| `repo.name` | The name of the repository, which includes the owner and repository name. For example, `octocat/hello-world` is the name of the `hello-world` repository owned by the `octocat` personal account. |
 | `repo.url` | The REST API URL used to retrieve the repository object, which includes additional repository information. |
 | `payload` | The event payload object is unique to the event type. See the event type below for the event API `payload` object. |
 
@@ -163,7 +163,7 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 {% data reusables.webhooks.member_event_api_properties %}
 {% data reusables.webhooks.member_properties %}
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 ## PublicEvent
 
 {% data reusables.webhooks.public_short_desc %}
@@ -207,6 +207,16 @@ Key | Type | Description
 {% data reusables.webhooks.pull_request_review_comment_event_api_properties %}
 {% data reusables.webhooks.pull_request_review_comment_properties %}
 
+## PullRequestReviewThreadEvent
+
+{% data reusables.webhooks.pull_request_review_thread_short_desc %}
+
+{% data reusables.webhooks.events_api_payload %}
+
+### Event `payload` object
+
+{% data reusables.webhooks.pull_request_thread_properties %}
+
 ## PushEvent
 
 {% data reusables.webhooks.push_short_desc %}
@@ -243,7 +253,7 @@ Key | Type | Description
 {% data reusables.webhooks.release_event_api_properties %}
 {% data reusables.webhooks.release_properties %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## SponsorshipEvent
 
 {% data reusables.webhooks.sponsorship_short_desc %}

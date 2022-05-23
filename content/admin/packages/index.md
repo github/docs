@@ -4,7 +4,7 @@ intro: 'You can enable {% data variables.product.prodname_registry %} for your e
 redirect_from:
   - /enterprise/admin/packages
 versions:
-  ghes: '>=2.22'
+  ghes: '*'
 topics:
   - Enterprise
 children:
@@ -17,5 +17,5 @@ children:
 shortTitle: Manage GitHub Packages
 ---
 {% data reusables.package_registry.packages-ghes-release-stage %}
-  {% ifversion ghes > 2.22 %}
+  {% ifversion ghes %}
   {% endif %}

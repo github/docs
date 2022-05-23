@@ -1,0 +1,3 @@
+1. A la derecha, haz clic en **Agregar un dominio**. ![Botón de agregar dominio en los ajustes de las Páginas](/assets/images/help/pages/verify-add-domain.png)
+1. Debajo de "¿Qué dominio te gustaría agregar?", ingresa aquél que quieras verificar y haz clic en **Agregar dominio**. ![Campo de texto de dominio y botón de agregar dominio en los ajustes de las Páginas](/assets/images/help/pages/verify-enter-domain.png)
+1. Sigue las instrucciones debajo de "Agregar un registro de TXT de DNS" para crear el registro de TXT con tu servicio de hospedaje de dominio. ![Información de registro de TXT de DNS en los ajustes de las Páginas](/assets/images/help/pages/verify-dns.png)

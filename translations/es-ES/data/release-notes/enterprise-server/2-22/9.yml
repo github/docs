@@ -23,13 +23,12 @@ sections:
     - Los archivos rastreados del LFS de Git que se [cargaron mediante la interface web](https://github.com/blog/2105-upload-files-to-your-repositories) se agregaron incorrecta y directamente al repositorio.
     - Las propuestas no pudieron cerrarse si contenían un permalink a un blob en el mismo repositorio en donde la ruta de archvio era más grande a 255 caracteres.
     - Cuando se habilita "Los usuarios pueden buscar en GitHub.com" con GitHub Connect, las propuestas en los repositorios privados e internos no se incluirán en los resultados de búsqueda de GitHub.com.
-    - |2
-      La rotación de bitácoras podrían fallar en señalizar los servicios para transicionar a archivos de bitácora nuevos, lo cual lleva a que los archivos de bitácora antiguos se sigan utilizando y a un agotamiento de espacio en el disco raíz eventuales.
-      Para remediar o prevenir este problema, ejecuta los siguientes comandos en el [shell administrativo](https://docs.github.com/en/enterprise-server/admin/configuration/accessing-the-administrative-shell-ssh) (SSH), o contacta al [Soporte de GitHub Enterprise](https://enterprise.githubsupport.com/hc/en-us) or [GitHub Premium Support](https://premium.githubsupport.com/) para recibir asistencia:
+    - |
+      La rotación de bitácoras podría fallar en señalar los servicios para hacer la transición a archivos de bitácora nuevos, lo cual ocasiona que se utilicen los archivos de bitácora antiguos y, periódicamente, un agotamiento del espacio en el disco raíz.
+      Para remediar o prevenir este problema, ejecuta los siguientes comandos en el [shell administrativo](https://docs.github.com/en/enterprise-server/admin/configuration/accessing-the-administrative-shell-ssh) (SSH), o contacta al [Soporte Empresarial de GitHub](https://support.github.com/contact) para obtener ayuda:
 
       ```
       printf "PATH=/usr/local/sbin:/usr/local/bin:/usr/local/share/enterprise:/usr/sbin:/usr/bin:/sbin:/bin\n29,59 * * * * root /usr/sbin/logrotate /etc/logrotate.conf\n" | sudo sponge /etc/cron.d/logrotate
       sudo /usr/sbin/logrotate -f /etc/logrotate.conf
       ```
-       
-      sections -> known_issues -> 6
+    - 'Cuando un nodo de réplica está fuera de línea en una configuración de disponibilidad alta, {% data variables.product.product_name %} aún podría enrutar las solicitudes a {% data variables.product.prodname_pages %} para el nodo fuera de línea, reduciendo la disponibilidad de {% data variables.product.prodname_pages %} para los usuarios.'

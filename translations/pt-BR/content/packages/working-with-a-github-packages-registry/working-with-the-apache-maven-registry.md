@@ -1,6 +1,6 @@
 ---
-title: Trabalhando com o registro do Apache Maven
-intro: 'Você pode configurar o Apache Maven para publicar pacotes no {% data variables.product.prodname_registry %} e usar pacotes armazenados no {% data variables.product.prodname_registry %} como dependências em um projeto Java.'
+title: Working with the Apache Maven registry
+intro: 'You can configure Apache Maven to publish packages to {% data variables.product.prodname_registry %} and to use packages stored on {% data variables.product.prodname_registry %} as dependencies in a Java project.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /articles/configuring-apache-maven-for-use-with-github-package-registry
@@ -9,38 +9,40 @@ redirect_from:
   - /packages/using-github-packages-with-your-projects-ecosystem/configuring-apache-maven-for-use-with-github-packages
   - /packages/guides/configuring-apache-maven-for-use-with-github-packages
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+shortTitle: Apache Maven registry
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
 {% data reusables.package_registry.packages-ghae-release-stage %}
 
-**Note:** When installing or publishing a docker image, {% data variables.product.prodname_registry %} does not currently support foreign layers, such as Windows images.
+{% data reusables.package_registry.admins-can-configure-package-types %}
 
-### Autenticar-se no {% data variables.product.prodname_registry %}
+## Authenticating to {% data variables.product.prodname_registry %}
 
 {% data reusables.package_registry.authenticate-packages %}
 
 {% data reusables.package_registry.authenticate-packages-github-token %}
 
-#### Efetuando a autenticação com um token de acesso pessoal
+### Authenticating with a personal access token
 
 {% data reusables.package_registry.required-scopes %}
 
-Você pode efetuar a autenticação no {% data variables.product.prodname_registry %} com o Apache Maven editando seu arquivo *~/.m2/settings.xml* para incluir seu token de acesso pessoal. Criar um novo arquivo *~/.m2/settings.xml*, caso não exista um.
+You can authenticate to {% data variables.product.prodname_registry %} with Apache Maven by editing your *~/.m2/settings.xml* file to include your personal access token. Create a new *~/.m2/settings.xml* file if one doesn't exist.
 
-Na etiqueta `servidores`, adicione uma etiqueta `servidor` secundário com um `Id`, substituindo *USERNAME* pelo o seu nome de usuário {% data variables.product.prodname_dotcom %} e *Token* pelo seu token de acesso pessoal.
+In the `servers` tag, add a child `server` tag with an `id`, replacing *USERNAME* with your {% data variables.product.prodname_dotcom %} username, and *TOKEN* with your personal access token.
 
-Na etiqueta `repositórios`, configure um repositório mapeando o `id` do repositório com o `id` que você adicionou na etiqueta `servidor` que contém as suas credenciais. Substitua {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}*HOSTNAME* pelo nome do host de {% data variables.product.product_location %} e{% endif %} *OWNER* pelo nome do usuário ou conta de organização proprietária do repositório. Como não é permitido usar letras maiúsculas, é preciso usar letras minúsculas no nome do proprietário do repositório, mesmo que o nome do usuário ou da organização no {% data variables.product.prodname_dotcom %} contenha letras maiúsculas.
+In the `repositories` tag, configure a repository by mapping the `id` of the repository to the `id` you added in the `server` tag containing your credentials. Replace {% ifversion ghes or ghae %}*HOSTNAME* with the host name of {% data variables.product.product_location %}, and{% endif %} *OWNER* with the name of the user or organization account that owns the repository. Because uppercase letters aren't supported, you must use lowercase letters for the repository owner even if the {% data variables.product.prodname_dotcom %} user or organization name contains uppercase letters.
 
-Se desejar interagir com vários repositórios, você poderá adicionar cada repositório para separar os `repositório` secundários na etiqueta `repositórios`, mapeando o `ID` de cada um com as credenciais na etiqueta `servidores`.
+If you want to interact with multiple repositories, you can add each repository to separate `repository` children in the `repositories` tag, mapping the `id` of each to the credentials in the `servers` tag.
 
 {% data reusables.package_registry.apache-maven-snapshot-versions-supported %}
 
-{% if enterpriseServerVersions contains currentVersion %}
-Se sua instância tem o isolamento de subdomínio habilitado:
+{% ifversion ghes %}
+If your instance has subdomain isolation enabled:
 {% endif %}
 
 ```xml
@@ -63,7 +65,7 @@ Se sua instância tem o isolamento de subdomínio habilitado:
         </repository>
         <repository>
           <id>github</id>
-          <url>https://{% if currentVersion == "free-pro-team@latest" %}maven.pkg.github.com{% else %}maven.HOSTNAME{% endif %}/OWNER/*</url>
+          <url>https://{% ifversion fpt or ghec %}maven.pkg.github.com{% else %}maven.HOSTNAME{% endif %}/OWNER/REPOSITORY</url>
           <snapshots>
             <enabled>true</enabled>
           </snapshots>
@@ -82,8 +84,8 @@ Se sua instância tem o isolamento de subdomínio habilitado:
 </settings>
 ```
 
-{% if enterpriseServerVersions contains currentVersion %}
-Se sua instância tem o isolamento de subdomínio desabilitado:
+{% ifversion ghes %}
+If your instance has subdomain isolation disabled:
 
 ```xml
 <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
@@ -105,7 +107,7 @@ Se sua instância tem o isolamento de subdomínio desabilitado:
         </repository>
         <repository>
           <id>github</id>
-          <url>https://maven.pkg.github.com/OWNER/*</url>
+          <url>HOSTNAME/_registry/maven/OWNER/REPOSITORY</url>
           <snapshots>
             <enabled>true</enabled>
           </snapshots>
@@ -125,26 +127,26 @@ Se sua instância tem o isolamento de subdomínio desabilitado:
 ```
 {% endif %}
 
-### Publicar um pacote
+## Publishing a package
 
-O {% data reusables.package_registry.default-name %} por exemplo, o {% data variables.product.prodname_dotcom %} publicará um pacote denominado `com.example:test` em um repositório denominado`OWNER/test`.
+{% data reusables.package_registry.default-name %} For example, {% data variables.product.prodname_dotcom %} will publish a package named `com.example:test` in a repository called `OWNER/test`.
 
-Caso queira publicar vários pacotes no mesmo repositório, você poderá incluir a URL do repositório no `<distributionManagement>` elemento do arquivo *pom.xml*. O {% data variables.product.prodname_dotcom %} fará a correspondência do repositório com base nesse campo. Como o nome do repositório também faz parte do elemento `distributionManagement`, não há etapas adicionais para publicar vários pacotes no mesmo repositório.
+If you would like to publish multiple packages to the same repository, you can include the URL of the repository in the `<distributionManagement>` element of the *pom.xml* file. {% data variables.product.prodname_dotcom %} will match the repository based on that field. Since the repository name is also part of the `distributionManagement` element, there are no additional steps to publish multiple packages to the same repository.
 
-Para obter mais informações sobre como criar um pacote, consulte a [documentação maven.apache.org](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html).
+For more information on creating a package, see the [maven.apache.org documentation](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html).
 
-1. Edit the `distributionManagement` element of the *pom.xml* file located in your package directory, replacing {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}*HOSTNAME* with the host name of {% data variables.product.product_location %}, {% endif %}`OWNER` with the name of the user or organization account that owns the repository and `REPOSITORY` with the name of the repository containing your project.{% if enterpriseServerVersions contains currentVersion %}
+1. Edit the `distributionManagement` element of the *pom.xml* file located in your package directory, replacing {% ifversion ghes or ghae %}*HOSTNAME* with the host name of {% data variables.product.product_location %}, {% endif %}`OWNER` with the name of the user or organization account that owns the repository and `REPOSITORY` with the name of the repository containing your project.{% ifversion ghes %}
 
-  Se sua instância tiver o isolamento de subdomínio habilitado:{% endif %}
+  If your instance has subdomain isolation enabled:{% endif %}
   ```xml
   <distributionManagement>
      <repository>
        <id>github</id>
        <name>GitHub OWNER Apache Maven Packages</name>
-       <url>https://{% if currentVersion == "free-pro-team@latest" %}maven.pkg.github.com{% else %}maven.HOSTNAME{% endif %}/OWNER/REPOSITORY</url>
+       <url>https://{% ifversion fpt or ghec %}maven.pkg.github.com{% else %}maven.HOSTNAME{% endif %}/OWNER/REPOSITORY</url>
      </repository>
   </distributionManagement>
-  ```{% if enterpriseServerVersions contains currentVersion %}
+  ```{% ifversion ghes %}
   If your instance has subdomain isolation disabled:
   ```xml
   <distributionManagement>
@@ -156,19 +158,19 @@ Para obter mais informações sobre como criar um pacote, consulte a [documenta�
   </distributionManagement>
   ```{% endif %}
 {% data reusables.package_registry.checksum-maven-plugin %}
-1. Publique o pacote.
+1. Publish the package.
    ```shell
    $ mvn deploy
   ```
 
 {% data reusables.package_registry.viewing-packages %}
 
-### Instalar um pacote
+## Installing a package
 
-Para instalar um pacote de Apache Maven a partir do {% data variables.product.prodname_registry %}, edite o arquivo *pom.xml* para incluir o pacote como uma dependência. Se você desejar instalar pacotes de mais de um repositório, adicione uma etiqueta de `repositório` para cada um. Para obter mais informações sobre como usar o arquivo *pom.xml* no seu projeto, consulte "[Introdução a POM](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html)" na documentação do Apache Maven.
+To install an Apache Maven package from {% data variables.product.prodname_registry %}, edit the *pom.xml* file to include the package as a dependency. If you want to install packages from more than one repository, add a `repository` tag for each. For more information on using a *pom.xml* file in your project, see "[Introduction to the POM](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html)" in the Apache Maven documentation.
 
 {% data reusables.package_registry.authenticate-step %}
-2. Adicione as dependências do pacote ao elemento `dependências` do arquivo *pom.xml* do seu projeto, substituindo `com.exemplo:test` pelo seu pacote.
+2. Add the package dependencies to the `dependencies` element of your project *pom.xml* file, replacing `com.example:test` with your package.
 
   ```xml
   <dependencies>
@@ -180,13 +182,13 @@ Para instalar um pacote de Apache Maven a partir do {% data variables.product.pr
   </dependencies>
   ```
 {% data reusables.package_registry.checksum-maven-plugin %}
-3. Instale o pacote.
+3. Install the package.
 
   ```shell
   $ mvn install
   ```
 
-### Leia mais
+## Further reading
 
-- "[Trabalhando com o registro do Gradle](/packages/working-with-a-github-packages-registry/working-with-the-gradle-registry)"
-- "{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}[Excluir e restaurar um pacote](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif currentVersion ver_lt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %}[Excluir um pacote](/packages/learn-github-packages/deleting-a-package){% endif %}"
+- "[Working with the Gradle registry](/packages/working-with-a-github-packages-registry/working-with-the-gradle-registry)"{% ifversion fpt or ghec or ghes > 3.1 or ghae %}
+- "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)"{% endif %}

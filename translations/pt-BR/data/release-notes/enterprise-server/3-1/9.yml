@@ -1,0 +1,29 @@
+---
+date: '2021-10-12'
+sections:
+  security_fixes:
+    - 'Os pacotes foram atualizados para as últimas versões de segurança. {% comment %} https://github.com/github/enterprise2/pull/27035, https://github.com/github/enterprise2/pull/27010 {% endcomment %}'
+  bugs:
+    - 'É possível que os hooks pre-receive personalizados tenham falhado devido a limites de tempo de memória virtual ou CPU muito restritivos. {% comment %} https://github.com/github/enterprise2/pull/26972, https://github.com/github/enterprise2/pull/26955 {% endcomment %}'
+    - 'A tentativa de limpar todas as configurações existentes com `ghe-cleanup-settings` falhou ao reiniciar o serviço do Console de Gerenciamento. {% comment %} https://github.com/github/enterprise2/pull/26987, https://github.com/github/enterprise2/pull/26901 {% endcomment %}'
+    - 'Durante a desmontagem de replicação via `ghe-repl-teardown`, o Memcached falhou ao ser reiniciado. {% comment %} https://github.com/github/enterprise2/pull/26993, https://github.com/github/enterprise2/pull/26983 {% endcomment %}'
+    - 'Durante períodos de carga alta, os usuários receberiam códigos de status HTTP 503 quando os serviços de upstream falharam em verificações de saúde internas. {% comment %} https://github.com/github/enterprise2/pull/27082, https://github.com/github/enterprise2/pull/26999 {% endcomment %}'
+    - 'Com as ações configuradas, a replicação do MSSQL falharia depois de restaurar de um instantâneo dos utilitários de backup GitHub Enterprise. {% comment %} https://github.com/github/enterprise2/pull/27097, https://github.com/github/enterprise2/pull/26254 {% endcomment %}'
+    - 'Uma mensagem de erro `jq` incorreta pode ter sido exibida ao executar `ghe-config-apply`. {% comment %} https://github.com/github/enterprise2/pull/27194, https://github.com/github/enterprise2/pull/26784 {% endcomment %}'
+    - 'Os ambientes de hook pre-receive foram proibidos de chamar o comando cat via BusyBox no Alpine. {% comment %} https://github.com/github/enterprise2/pull/27115, https://github.com/github/enterprise2/pull/27094 {% endcomment %}'
+    - 'A senha do banco de dados externo foi conectada em texto simples. {% comment %} https://github.com/github/enterprise2/pull/27173, https://github.com/github/enterprise2/pull/26413 {% endcomment %}'
+    - 'A recuperação de falhas a partir de um centro de dadso de um cluster primário para um centro de dados de cluster secundário foi bem-sucedida, mas recuperar-se das falhas novamente para o centro de dados do cluster original não conseguiu promover índices de Elasticsearch. {% comment %} https://github.com/github/github/pull/193181, https://github.com/github/github/pull/192447 {% endcomment %}'
+    - 'O botão "Importar equipes" na página do Teams para uma Organização retornou um HTTP 404. {% comment %} https://github.com/github/github/pull/193302 {% endcomment %}'
+    - 'Em alguns casos, os administradores do GitHub Enterprise que tentavam ver a página `Dormant users` recebeu a resposta `502 Bad Gateway` ou `504 Gateway Timeout`. {% comment %} https://github.com/github/github/pull/194260, https://github.com/github/github/pull/193609 {% endcomment %}'
+    - 'O desempenho foi impactado negativamente em certas situações de alta carga como resultado do aumento do número de trabalhos `SynchronizePullRequestJob`. {% comment %} https://github.com/github/github/pull/195253, https://github.com/github/github/pull/194591 {% endcomment %}'
+  changes:
+    - 'Para ter melhor efeito, exclua os registros do Webhook que caem da janela de retenção de registro do Webhook. {% comment %} https://github.com/github/enterprise2/pull/27158 {% endcomment %}'
+  known_issues:
+    - O registro npm de {% data variables.product.prodname_registry %} não retorna mais o valor de tempo em respostas de metadados. Isso foi feito para permitir melhorias substanciais de desempenho. Continuamos a ter todos os dados necessários para devolver um valor de tempo como parte da resposta aos metadados e retomaremos o retorno desse valor no futuro, assim que tivermos resolvido os problemas de desempenho existentes.
+    - Em uma nova configuração de {% data variables.product.prodname_ghe_server %} sem qualquer usuário, um invasor pode criar o primeiro usuário administrador.
+    - As regras de firewall personalizadas são removidas durante o processo de atualização.
+    - Arquivos LFS do Git [enviados através da interface web](https://github.com/blog/2105-upload-files-to-your-repositories) são adicionados diretamente ao repositório e de forma incorreta.
+    - Os problemas não podem ser fechados se contiverem um permalink para um blob no mesmo repositório, onde o caminho do arquivo blob's é maior que 255 caracteres.
+    - Quando "Usuários podem pesquisar pelo GitHub.com" está habilitado com o GitHub Connect, os problemas em repositórios privados e internos não estão incluídos nos resultados de pesquisa do GitHub.com.
+    - Se o {% data variables.product.prodname_actions %} estiver habilitado para {% data variables.product.prodname_ghe_server %}, a desmontagem de um nó de réplica com `ghe-repl-teardown` será bem-sucedida, mas poderá retornar `ERROR:Running migrations`.
+    - Os limites de recursos que são específicos para processamento de hooks pre-receive podem causar falha em alguns hooks pre-receive.

@@ -1,1 +1,1 @@
-すべてのパブリックリポジトリに渡ってコードを検索するには、{% data variables.product.product_name %}上のユーザアカウントにサインインしなければなりません。
+You must be signed into a personal account on {% data variables.product.product_name %} to search for code across all public repositories.

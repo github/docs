@@ -2,13 +2,14 @@
 title: Entregar implantações
 intro: 'Ao usar a API RESt de implantações, você pode criar ferramentas personalizadas que interagem com seu servidor e um aplicativo de terceiros.'
 redirect_from:
-  - /guides/delivering-deployments/
-  - /guides/automating-deployments-to-integrators/
+  - /guides/delivering-deployments
+  - /guides/automating-deployments-to-integrators
   - /v3/guides/delivering-deployments
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - API
 ---
@@ -19,7 +20,7 @@ A [API de Implantações][deploy API] fornece seus projetos hospedados em {% dat
 
 Este guia usará a API para demonstrar uma configuração que você pode usar. No nosso cenário, iremos:
 
-* Fazer merge de um pull request
+* Fazer merge de um pull request.
 * Quando a CI terminar, definiremos o status do pull request.
 * Quando o pull request for mesclado, executaremos a nossa implantação no nosso servidor.
 
@@ -29,7 +30,7 @@ Se você ainda não tiver, certifique-se de [fazer o download do ngrok][ngrok] e
 
 Observação: você pode baixar o código-fonte completo para este projeto [no repositório de amostra de plataforma][platform samples].
 
-### Escrever o seu servidor
+## Escrever o seu servidor
 
 Vamos escrever um aplicativo rápido do Sinatra para provar que nossas conexões locais estão funcionando. Vamos começar com isso:
 
@@ -76,7 +77,7 @@ O que está acontecendo? Cada evento que {% data variables.product.product_name 
 
 Para testar esta validação de conceito, faça algumas alterações em um branch no repositório de testes, abra um pull request e faça o merge. Seu servidor deve responder de acordo!
 
-### Trabalhando com implantações
+## Trabalhando com implantações
 
 Como já temos o servidor configurado, o código que está sendo revisado e nosso pull request mesclado, queremos que nosso projeto seja implantado.
 
@@ -136,13 +137,13 @@ Vamos dividir o que está acontecendo. Uma nova implantação é criada por `sta
 
 Após a conclusão da implantação, definimos o status para `sucesso`.
 
-### Conclusão
+## Conclusão
 
-No GitHub, usamos uma versão do [Heavan][heaven] para gerenciar nossas implantações por anos. O fluxo básico é essencialmente o mesmo que o servidor que construímos acima. No GitHub, nós:
+No GitHub, usamos uma versão do [Heavan][heaven] para gerenciar nossas implantações por anos. Um fluxo comum é essencialmente o mesmo que o servidor que construímos acima:
 
-* Esperamos por uma resposta no estado da CI
-* Se o código for verde, fazemos o merge do pull request
-* O Heaven recebe o código mesclado e o implementa nos nossos servidores de produção e treinamento
+* Aguarde uma resposta sobre o estado das verificações de CI (sucesso ou falha)
+* Se as verificações forem bem-sucedidas, faça o merge do pull request
+* Heaven toma o código mesclado e o implementa nos servidores de teste e produção
 * Enquanto isso, o Heaven também notifica todos sobre a criação por meio do [Hubot][hubot] que aguarda nas nossas salas de bate-papo
 
 Pronto! Você não precisa criar sua própria configuração de implantação para usar este exemplo. Você sempre pode confiar nas [Integrações do GitHub][integrations].

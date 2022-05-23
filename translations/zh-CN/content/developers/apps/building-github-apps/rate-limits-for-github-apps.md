@@ -1,60 +1,85 @@
 ---
-title: GitHub 应用程序的速率限制
+title: Rate limits for GitHub Apps
 intro: '{% data reusables.shortdesc.rate_limits_github_apps %}'
 redirect_from:
-  - /early-access/integrations/rate-limits/
-  - /apps/building-integrations/setting-up-and-registering-github-apps/about-rate-limits-for-github-apps/
-  - /apps/building-github-apps/rate-limits-for-github-apps/
+  - /early-access/integrations/rate-limits
+  - /apps/building-integrations/setting-up-and-registering-github-apps/about-rate-limits-for-github-apps
+  - /apps/building-github-apps/rate-limits-for-github-apps
   - /apps/building-github-apps/understanding-rate-limits-for-github-apps
   - /developers/apps/rate-limits-for-github-apps
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - GitHub Apps
+shortTitle: Rate limits
 ---
 
-### 服务器到服务器请求
+{% data reusables.enterprise.rate_limit %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% data reusables.rest-api.always-check-your-limit %}
 
-如果应用程序安装在 {% data variables.product.prodname_ghe_cloud %} 帐户拥有的组织或仓库上，则不同的服务器到服务器请求速率限制适用于 {% data variables.product.prodname_github_app %}。
+{% ifversion ghec or fpt %}
 
-#### 标准的服务器到服务器速率限制
+## About rate limits for apps
 
-{% endif %}
-
-{% data reusables.apps.api-rate-limits-non-ghec %}
-
-{% if currentVersion == "free-pro-team@latest" %}
-
-#### {% data variables.product.prodname_ghe_cloud %} 服务器到服务器速率限制
-
-{% data variables.product.prodname_github_app %} 安装在 {% data variables.product.prodname_ghe_cloud %} 帐户拥有的组织或仓库上，发送服务器到服务器请求的速率限制为每小时 15,000 个请求。
+Rate limits for {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_apps %} depend on the plan for the organization where you install the application. For more information, see "[{% data variables.product.company_short %}'s products](/get-started/learning-about-github/githubs-products)" and "[Types of {% data variables.product.company_short %} accounts](/get-started/learning-about-github/types-of-github-accounts#organization-accounts)."
 
 {% endif %}
 
-### 用户到服务器请求
+## Server-to-server requests
 
-{% data variables.product.prodname_github_app %} 还可以[代表用户](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#identifying-and-authorizing-users-for-github-apps)发送用户到服务器的请求。
+{% ifversion ghec or fpt %}
 
-{% if currentVersion == "free-pro-team@latest" %}
-
-如果应用程序安装在 {% data variables.product.prodname_ghe_cloud %} 帐户拥有的组织或仓库上，并且经验证用户也属于同一个 {% data variables.product.prodname_ghe_cloud %} 帐户，则不同的用户到服务器请求速率限制适用于 {% data variables.product.prodname_github_app %}。
-
-#### 标准的用户到服务器速率限制
+### Default server-to-server rate limits for {% data variables.product.prodname_dotcom_the_website %}
 
 {% endif %}
 
-用户到服务器请求的速率限制为每个经验证的用户每小时最多发送 5,000 个请求。 该用户授权的所有 OAuth 应用程序、该用户拥有的个人访问令牌以及使用该用户的{% if currentVersion == "github-ae@latest" %}令牌{% else %} 用户名和密码{% endif %} 验证的请求，将共享该用户每小时 5,000 个请求的配额。
+{% data variables.product.prodname_github_apps %} making server-to-server requests use the installation's minimum rate limit of 5,000 requests per hour. If an application is installed on an organization with more than 20 users, the application receives another 50 requests per hour for each user. Installations that have more than 20 repositories receive another 50 requests per hour for each repository. The maximum rate limit for an installation is 12,500 requests per hour.
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec %}
 
-#### {% data variables.product.prodname_ghe_cloud %} 用户到服务器速率限制
-
-如果用户属于 {% data variables.product.prodname_ghe_cloud %} 帐户，则对同一个 {% data variables.product.prodname_ghe_cloud %} 帐户拥有的资源发出的用户到服务器请求，速率限制为每个经验证用户每小时 15,000 个请求。 该用户授权的所有 OAuth 应用程序、该用户拥有的个人访问令牌以及使用该用户的用户名和密码验证的 {% data variables.product.prodname_ghe_cloud %} 请求，将共享该用户每小时 5,000 个请求的配额。
+### Server-to-server rate limits for {% data variables.product.prodname_ghe_cloud %}
 
 {% endif %}
 
-有关速率限制的更多信息，请参阅 REST API 的“[速率限制](/rest/overview/resources-in-the-rest-api#rate-limiting)”和 GraphQL API 的“[资源限制](/graphql/overview/resource-limitations)”。
+{% ifversion fpt or ghec %}
+
+{% data variables.product.prodname_github_apps %} that are installed on an organization or a repository within an enterprise on {% data variables.product.product_location %} are subject to a limit of 15,000 requests per hour.
+
+{% endif %}
+
+## User-to-server requests
+
+{% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_apps %} can also act on behalf of a user, making user-to-server requests after the user authorizes the app. For more information, see "[Authorizing {% data variables.product.prodname_github_apps %}](/authentication/keeping-your-account-and-data-secure/authorizing-github-apps)" and "[Authorizing {% data variables.product.prodname_oauth_apps %}](/authentication/keeping-your-account-and-data-secure/authorizing-oauth-apps)."
+
+User-to-server requests from {% data variables.product.prodname_oauth_apps %} are authenticated with an OAuth token. User-to-server requests from {% data variables.product.prodname_github_apps %} are authenticated with either an OAuth token or an expiring user access token. For more information, see "[Identifying and authorizing users for {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps#identifying-and-authorizing-users-for-github-apps)" and "[Authorizing {% data variables.product.prodname_oauth_apps %}](/developers/apps/building-oauth-apps/authorizing-oauth-apps)."
+
+{% ifversion fpt or ghec %}
+
+### Default user-to-server rate limits for {% data variables.product.prodname_dotcom_the_website %}
+
+{% endif %}
+
+{% ifversion ghec %}
+
+The rate limits for user-to-server requests made by {% data variables.product.prodname_github_apps %} depend on where the app is installed. If the app is installed on organizations or repositories owned by an enterprise on {% data variables.product.product_location %}, then the rate is higher than for installations outside an enterprise.
+
+{% endif %}
+
+{% data reusables.apps.user-to-server-rate-limits %}
+
+{% ifversion fpt or ghec %}
+
+### User-to-server rate limits for {% data variables.product.prodname_ghe_cloud %}
+
+{% data reusables.apps.user-to-server-rate-limits-ghec %}
+
+{% endif %}
+
+## Further reading
+
+- "[Rate limiting](/rest/overview/resources-in-the-rest-api#rate-limiting)" in the REST API documentation
+- "[Resource limitations]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/overview/resource-limitations)" in the GraphQL API documentation

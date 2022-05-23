@@ -3,9 +3,10 @@ title: Gerenciar pacotes do GitHub usando fluxos de trabalho do GitHub Actions
 shortTitle: Gerenciando pacotes do GitHub com fluxos de trabalho
 intro: 'Você pode publicar e consumir pacotes com segurança construindo fluxos de trabalho personalizados que também podem criar, testar e implantar seu código.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 children:
   - /publishing-and-installing-a-package-with-github-actions
   - /example-workflows-for-publishing-a-package

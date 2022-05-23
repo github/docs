@@ -3,21 +3,22 @@ title: 关于 GitHub Enterprise API
 intro: '{% data variables.product.product_name %} 支持 REST 和 GraphQL API。'
 redirect_from:
   - /enterprise/admin/installation/about-the-github-enterprise-server-api
-  - /enterprise/admin/articles/about-the-enterprise-api/
-  - /enterprise/admin/articles/using-the-api/
-  - /enterprise/admin/categories/api/
+  - /enterprise/admin/articles/about-the-enterprise-api
+  - /enterprise/admin/articles/using-the-api
+  - /enterprise/admin/categories/api
   - /enterprise/admin/overview/about-the-github-enterprise-server-api
   - /admin/overview/about-the-github-enterprise-server-api
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Enterprise
+shortTitle: GitHub Enterprise API
 ---
 
 利用 API，您可以自动处理多种管理任务。 包含以下例子：
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 - 对 {% data variables.enterprise.management_console %} 进行更改。 更多信息请参阅“[{% data variables.enterprise.management_console %}](/enterprise/{{ currentVersion }}/user/rest/reference/enterprise-admin#management-console)”。
 - 配置 LDAP 同步。 更多信息请参阅“[LDAP](/enterprise/{{ currentVersion }}/user/rest/reference/enterprise-admin#ldap)”。{% endif %}
 - 收集关于企业的统计信息。 更多信息请参阅“[管理统计](/rest/reference/enterprise-admin#admin-stats)”。

@@ -5,20 +5,22 @@ redirect_from:
   - /articles/adding-support-resources-to-your-project
   - /github/building-a-strong-community/adding-support-resources-to-your-project
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Community
+shortTitle: Agregar recursos de soporte
 ---
 
 Para dirigir a las personas hasta recursos de soporte específicos, puedes agregar un archivo de SOPORTE a tu raíz de repositorio, `docs` (documentos), o carpeta `.github`. Cuando alguien crea una propuesta en tu repositorio, verá un enlace en el archivo de SOPORTE de tu proyecto.
 
 ![Lineamientos de soporte](/assets/images/help/issues/support_guidelines_in_issue.png)
 
-{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+{% ifversion fpt or ghes or ghec %}
 
-Puedes crear recursos de apoyo predeterminados para tu cuenta de organización o de usuario. Para obtener más información, consulta "[Crear un archivo de salud predeterminado para la comunidad](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
+Puedes crear recursos de apoyo predeterminados para tu cuenta de organización o personal. Para obtener más información, consulta "[Crear un archivo de salud predeterminado para la comunidad](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
 
 {% endif %}
 
@@ -28,7 +30,7 @@ Puedes crear recursos de apoyo predeterminados para tu cuenta de organización o
 
 {% endtip %}
 
-### Agregar recursos de soporte a tu proyecto
+## Agregar recursos de soporte a tu proyecto
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}

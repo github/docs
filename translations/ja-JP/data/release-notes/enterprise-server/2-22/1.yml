@@ -69,3 +69,4 @@ sections:
     - "2.22.0を実行しているインスタンスで以前にGitHub Actionsが有効化されており、2.22.1へアップグレードすると、GitHub Actionsの起動に失敗することがあります。（2020-10-23更新）\n{% comment %} https://github.com/github/c2c-actions/issues/1680 {% endcomment %}"
     - 新たにセットアップされた2.22.1のインスタンス、もしくは2.22.1へのアップグレード後、Organizationのダッシュボード上のアクティビティフィードが更新されなくなります。（2020-10-27更新）{% comment %}https://github.com/github/enterprise2/issues/23050{% endcomment %}
     - 監査ログが実際のソースIDアドレスではなく、127.0.0.1に起因するものとされることがあります。（2020-11-02更新）{% comment %} https://github.com/github/enterprise2/issues/21514 {% endcomment %}
+    - High Availability構成でレプリカノードがオフラインの場合でも、{% data variables.product.product_name %}が{% data variables.product.prodname_pages %}リクエストをオフラインのノードにルーティングし続ける場合があり、それによってユーザにとっての{% data variables.product.prodname_pages %}の可用性が下がってしまいます。

@@ -1,8 +1,8 @@
-{% if currentVersion ver_gt "enterprise-server@2.21" %}
+{% ifversion ghes %}
 
 {% note %}
 
-**ノート:** この機能を使用するには、サイト管理者が{% data variables.product.product_location %}の{% data variables.product.prodname_code_scanning %}を有効にする必要があります。 コードをスキャンするために{% data variables.product.prodname_actions %}を使いなら、サイト管理者は{% data variables.product.prodname_actions %}の有効化と、必要なインフラストラクチャのセットアップもしなければなりません。 詳しい情報については「[アプライアンスのための{% data variables.product.prodname_code_scanning %}の設定](/enterprise/admin/configuration/configuring-code-scanning-for-your-appliance)」を参照してください。
+**Note:** Your site administrator must enable {% data variables.product.prodname_code_scanning %} for {% data variables.product.product_location %} before you can use this feature. If you want to use {% data variables.product.prodname_actions %} to scan your code, the site administrator must also enable {% data variables.product.prodname_actions %} and set up the infrastructure required. For more information, see "[Configuring {% data variables.product.prodname_code_scanning %} for your appliance](/enterprise/admin/configuration/configuring-code-scanning-for-your-appliance)."
 
 {% endnote %}
 

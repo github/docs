@@ -3,9 +3,10 @@ title: GitHub Sponsors 指南
 shortTitle: 指南
 intro: '学习如何充分利用 {% data variables.product.prodname_sponsors %}。'
 allowTitleToDifferFromFilename: true
-layout: product-sublanding
+layout: product-guides
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 includeGuides:
   - /sponsors/getting-started-with-github-sponsors/quickstart-for-finding-contributors-to-sponsor
   - /sponsors/sponsoring-open-source-contributors/attributing-sponsorships-to-your-organization

@@ -1,13 +1,11 @@
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec or ghes > 3.4 %}
 
-PATはアカウントに対する広汎なアクセスを許可できます。 {% data variables.product.prodname_container_registry %}での認証のためのPATを作成する際には、必要な`read:packages`、`write:packages`、`delete:packages`スコープだけを選択すべきです。
+To authenticate to the {% data variables.product.prodname_container_registry %} within a {% data variables.product.prodname_actions %} workflow, use the `GITHUB_TOKEN` for the best security and experience. If your workflow is using a personal access token (PAT) to authenticate to `{% data reusables.package_registry.container-registry-hostname %}`, then we highly recommend you update your workflow to use the `GITHUB_TOKEN`.
 
-{% data variables.product.prodname_actions %}ワークフロー内で{% data variables.product.prodname_container_registry %}の認証を受けるには、最善のセキュリティと体験のために`GITHUB_TOKEN`を使ってください。
+{% ifversion fpt or ghec %}For guidance on updating your workflows that authenticate to `{% data reusables.package_registry.container-registry-hostname %}` with a personal access token, see "[Upgrading a workflow that accesses `ghcr.io`](/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions#upgrading-a-workflow-that-accesses-ghcrio)."{% endif %}
 
-個人アクセストークンで`ghcr.io`の認証を受けるワークフローの更新に関するガイダンスとしては、「[`ghcr.io`にアクセスするワークフローのアップグレード](/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions#upgrading-a-workflow-that-accesses-ghcrio)」を参照してください。
+For more information about the `GITHUB_TOKEN`, see "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow#using-the-github_token-in-a-workflow)."
 
-{% data reusables.package_registry.github-token-security-over-pat %}
-
-ベータの期間にアクションで{% data variables.product.prodname_container_registry %}を使いたい場合は、「[GitHub Actionsのセキュリティ強化](/actions/getting-started-with-github-actions/security-hardening-for-github-actions#considering-cross-repository-access)」にあるPATのセキュリティベストプラクティスに従ってください。
+If you're using the {% data variables.product.prodname_container_registry %} in actions, follow our security best practices at "[Security hardening for GitHub Actions](/actions/getting-started-with-github-actions/security-hardening-for-github-actions#considering-cross-repository-access)."
 
 {% endif %}

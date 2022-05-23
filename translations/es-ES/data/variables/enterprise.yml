@@ -1,2 +1,4 @@
 ---
 management_console: 'Consola de administración'
+#https://support.github.com/enterprise/server-upgrade
+upgrade_assistant: 'Asistente de mejora'

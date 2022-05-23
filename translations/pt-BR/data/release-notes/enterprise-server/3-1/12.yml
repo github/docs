@@ -1,0 +1,25 @@
+---
+date: '2021-11-23'
+sections:
+  security_fixes:
+    - Os pacotes foram atualizados para as últimas versões de segurança.
+  bugs:
+    - Executar `ghe-repl-start` ou `ghe-repl-status` às vezes poderia retornar erros conectados ao banco de dados quando o GitHub Actions foi habilitado.
+    - Os hooks de pre-receive falhariam em razão de `PATH` indefinido.
+    - 'A execução de `ghe-repl-setup` retornaria um erro: `cannot create directory /data/user/elasticsearch: File exists` se a instância tiver sido configurada anteriormente como uma réplica.'
+    - 'Após configurar uma réplica de alta disponibilidade, o ''ghe-repl-status'' incluiu um erro na saída: `unexpected unclosed action in command`.'
+    - Em ambientes de grandes clusters, o back-end de autenticação pode estar indisponível em um subconjunto de nós do frontend.
+    - Alguns serviços críticos podem não estar disponíveis em nós de backend do Cluster do GHES.
+  changes:
+    - A camada externa adicional de compressão `gzip` ao criar um pacote de suporte de cluster com `ghe-cluster-suport-bundle` agora está desativada por padrão. Essa compressão externa pode ser aplicada opcionalmente com a opção de linha de comando `ghe-cluster-suport-bundle -c`.
+    - Nós adicionamos texto adicional ao console de administração para lembrar os usuários da coleta de dados dos aplicativos móveis para fins de melhoria de experiência.
+    - O registro de conexão de dados {% data variables.product.prodname_github_connect %} agora inclui uma lista de funcionalidades de {% data variables.product.prodname_github_connect %} habilitadas. [Atualizado em 2021-12-09]
+  known_issues:
+    - O registro npm de {% data variables.product.prodname_registry %} não retorna mais o valor de tempo em respostas de metadados. Isso foi feito para permitir melhorias substanciais de desempenho. Continuamos a ter todos os dados necessários para devolver um valor de tempo como parte da resposta aos metadados e retomaremos o retorno desse valor no futuro, assim que tivermos resolvido os problemas de desempenho existentes.
+    - Em uma nova configuração de {% data variables.product.prodname_ghe_server %} sem qualquer usuário, um invasor pode criar o primeiro usuário administrador.
+    - As regras de firewall personalizadas são removidas durante o processo de atualização.
+    - Arquivos LFS do Git [enviados através da interface web](https://github.com/blog/2105-upload-files-to-your-repositories) são adicionados diretamente ao repositório e de forma incorreta.
+    - Os problemas não podem ser fechados se contiverem um permalink para um blob no mesmo repositório, onde o caminho do arquivo blob's é maior que 255 caracteres.
+    - Quando "Usuários podem pesquisar pelo GitHub.com" está habilitado com o GitHub Connect, os problemas em repositórios privados e internos não estão incluídos nos resultados de pesquisa do GitHub.com.
+    - Se o {% data variables.product.prodname_actions %} estiver habilitado para {% data variables.product.prodname_ghe_server %}, a desmontagem de um nó de réplica com `ghe-repl-teardown` será bem-sucedida, mas poderá retornar `ERROR:Running migrations`.
+    - Os limites de recursos que são específicos para processamento de hooks pre-receive podem causar falha em alguns hooks pre-receive.

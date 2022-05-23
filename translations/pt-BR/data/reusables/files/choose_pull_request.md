@@ -1,2 +1,2 @@
-1. Create a pull request for your proposed changes.
-2. In the "Pull Requests" list, click the pull request you would like to merge.
+1. Crie um pull request para suas alterações propostas.
+2. Na lista de "Pull Requests", clique no pull request que você deseja mesclar.

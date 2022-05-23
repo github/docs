@@ -3,16 +3,23 @@ title: プロジェクトボードの作成
 intro: プロジェクトボードは、特定機能の働きの追跡と優先度付け、総合的なロードマップ、さらにはリリースチェックリストなど、ニーズを満たすカスタマイズワークフローを作成するために使用できます。
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/creating-a-project-board
-  - /articles/creating-a-project/
+  - /articles/creating-a-project
   - /articles/creating-a-project-board
   - /github/managing-your-work-on-github/creating-a-project-board
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
+  - Issues
+  - Projects
+  - Project management
+type: how_to
 ---
+
+{% data reusables.projects.project_boards_old %}
 
 {% data reusables.project-management.use-automated-template %}
 
@@ -26,7 +33,7 @@ topics:
 
 {% data reusables.project-management.project-board-import-with-api %}
 
-### ユーザが所有するプロジェクトボードの作成
+## ユーザが所有するプロジェクトボードの作成
 
 {% data reusables.profile.access_profile %}
 2. プロフィールページの一番上のメインナビゲーションにある{% octicon "project" aria-label="The project board icon" %}[**Projects**] をクリックします。 ![プロジェクトタブ](/assets/images/help/projects/user-projects-tab.png)
@@ -45,10 +52,10 @@ topics:
 
 {% data reusables.project-management.edit-project-columns %}
 
-### Organization 全体のプロジェクトボードの作成
+## Organization 全体のプロジェクトボードの作成
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.organization-wide-project %}
 {% data reusables.project-management.click-new-project %}
 {% data reusables.project-management.create-project-name-description %}
@@ -65,7 +72,7 @@ topics:
 
 {% data reusables.project-management.edit-project-columns %}
 
-### リポジトリのプロジェクトボードの作成
+## リポジトリのプロジェクトボードの作成
 
 {% data reusables.repositories.navigate-to-repo %}
 2. リポジトリ名の下にある {% octicon "project" aria-label="The project board icon" %}[**Projects**] をクリックします。 ![プロジェクトタブ](/assets/images/help/projects/repo-tabs-projects.png)
@@ -82,10 +89,10 @@ topics:
 
 {% data reusables.project-management.edit-project-columns %}
 
-### 参考リンク
+## 参考リンク
 
 - "[プロジェクトボードについて](/articles/about-project-boards)"
-- [プロジェクトボードの自動化を設定する](/articles/editing-a-project-board){% if currentVersion == "free-pro-team@latest" %}
+- [プロジェクトボードの編集](/articles/editing-a-project-board){% ifversion fpt or ghec %}
 - [プロジェクトボードのコピー](/articles/copying-a-project-board)
 {% endif %}
 - "[プロジェクトボードをクローズする](/articles/closing-a-project-board)"

@@ -13,6 +13,7 @@ Teachers, students, and researchers can use tools from {% data variables.product
 
 - [Sign up for a new {% data variables.product.prodname_dotcom %}  account](/github/getting-started-with-github/signing-up-for-a-new-github-account)
 - [Git and {% data variables.product.prodname_dotcom %} quickstart ](/github/getting-started-with-github/quickstart)
+- [About GitHub Education for students](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork/about-github-education-for-students)
 - [Apply for an educator or researcher discount](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-an-educator-or-researcher-discount)
 - [Apply for a student developer pack](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-a-student-developer-pack)
 
@@ -42,6 +43,6 @@ Incorporate {% data variables.product.prodname_dotcom %} into your education, an
 
 Participate in the community, get training from {% data variables.product.company_short %}, and learn or teach new skills.
 
-- [{% data variables.product.prodname_education_community %}](https://education.github.community)
+- [{% data variables.product.prodname_education_community %}]({% data variables.product.prodname_education_forum_link %})
 - [About Campus Experts](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-campus-experts)
 - [About Campus Advisors](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-campus-advisors)

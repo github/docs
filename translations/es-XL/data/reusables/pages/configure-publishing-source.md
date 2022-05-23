@@ -1,1 +1,0 @@
-1. Configura tu fuente de publicción. Para obtener más información, consulta "[Configurar una fuente de publicación para tu sitio {% data variables.product.prodname_pages %}](/articles/configuring-a-publishing-source-for-your-github-pages-site#choosing-a-publishing-source)".

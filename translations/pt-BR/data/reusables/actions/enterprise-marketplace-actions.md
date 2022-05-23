@@ -1,8 +1,8 @@
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 
 {% note %}
 
-**Observação:** {% data variables.product.prodname_actions %} em {% data variables.product.product_location %} pode ter acesso limitado a ações em {% data variables.product.prodname_dotcom_the_website %} ou {% data variables.product.prodname_marketplace %}. Para obter mais informações, consulte "[Comunicação entre os executores auto-hospedados e {% data variables.product.prodname_dotcom %}](#communication-between-self-hosted-runners-and-github)".
+**Note:** {% data variables.product.prodname_actions %} on {% data variables.product.product_location %} may have limited access to actions on {% data variables.product.prodname_dotcom_the_website %} or {% data variables.product.prodname_marketplace %}. For more information, see "[Managing access to actions from {% data variables.product.prodname_dotcom_the_website %}](/enterprise/admin/github-actions/managing-access-to-actions-from-githubcom)" and contact your {% data variables.product.prodname_enterprise %} site administrator.
 
 {% endnote %}
 

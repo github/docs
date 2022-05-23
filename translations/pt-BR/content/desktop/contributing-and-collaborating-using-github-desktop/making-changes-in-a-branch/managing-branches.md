@@ -7,21 +7,23 @@ redirect_from:
   - /desktop/contributing-to-projects/managing-branches
   - /desktop/contributing-and-collaborating-using-github-desktop/managing-branches
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 
-### Sobre o gerenciamento de branches
+## Sobre o gerenciamento de branches
 Você pode usar os branches para experimentar com segurança as alterações no seu projeto. Os branches isolam seu trabalho de desenvolvimento de outros branches do repositório. Por exemplo, você poderia usar um branch para desenvolver um novo recurso ou corrigir um erro.
 
 Você sempre cria um branch a partir de um branch existente. Normalmente, você pode criar um branch a partir do branch-padrão do seu repositório. Você então poderá trabalhar nesse novo branch isolado das mudanças que outras pessoas estão fazendo no repositório.
 
-Quando estiver satisfeito com seu trabalho, você poderá criar um pull request para fazer merge nas suas alterações no branch atual em outro branch. Para obter mais informações, consulte "[Criar um problema ou pull request](/desktop/contributing-to-projects/creating-an-issue-or-pull-request)" e "[Sobre pull requests](/articles/about-pull-requests)".
+Você também pode criar um branch a partir de um commit anterior no histórico de um branch. Isso pode ser útil se você precisar retornar a uma visão anterior do repositório para investigar um erro ou para criar uma correção em cima de sua versão mais recente.
+
+Quando estiver satisfeito com seu trabalho, você poderá criar um pull request para fazer merge nas suas alterações no branch atual em outro branch. Para obter mais informações, consulte "[Criar um problema ou pull request](/desktop/contributing-to-projects/creating-an-issue-or-pull-request)" e "[Sobre pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)".
 
 É sempre possível criar um branch no {% data variables.product.prodname_desktop %}, se tiver acesso de leitura a um repositório, mas você só pode fazer push do branch para o {% data variables.product.prodname_dotcom %} se você tiver acesso de gravação no repositório.
 
 {% data reusables.desktop.protected-branches %}
 
-### Criar um branch
+## Criar um branch
 
 {% tip %}
 
@@ -59,14 +61,22 @@ Quando estiver satisfeito com seu trabalho, você poderá criar um pull request 
 
 {% endwindows %}
 
-### Publicar um branch
+## Criando um branch de um commit anterior
+
+{% data reusables.desktop.history-tab %}
+2. Clique com o botão direito no commit a partir do qual você gostaria de criar um novo branch e selecione **Criar Branch a partir de Commit**. ![Criar branch a partir do menu de contexto de commit](/assets/images/help/desktop/create-branch-from-commit-context-menu.png)
+{% data reusables.desktop.name-branch %}
+{% data reusables.desktop.confirm-new-branch-button %}
+  ![Criar branch a partir do commit](/assets/images/help/desktop/create-branch-from-commit-overview.png)
+
+## Publicar um branch
 
 Se você criar um branch no {% data variables.product.product_name %}, você deverá publicá-lo para disponibilizá-lo para colaboração no {% data variables.product.prodname_dotcom %}.
 
 1. Na parte superior do aplicativo, clique em {% octicon "git-branch" aria-label="The branch icon" %} **Branch atual** e, em seguida, clique no branch que você deseja publicar. ![Menu suspenso para selecionar qual branch publicar](/assets/images/help/desktop/select-branch-from-dropdown.png)
 2. Clique em **Publicar branch**. ![Botão de publicar branch](/assets/images/help/desktop/publish-branch-button.png)
 
-### Alternar entre branches
+## Alternar entre branches
 É possível exibir e fazer commits em qualquer branch do seu repositório. Se houver alterações salvas sem commit, você terá que decidir o que fazer com elas antes de poder alternar entre os branches. Você pode fazer o commit das alterações no branch atual, ocultar as suas alterações para salvá-las temporariamente no branch atual ou trazer as mudanças para seu novo branch. Se você deseja confirmar suas alterações antes de alternar os branches, consulte "[Fazer commit e revisar as alterações do seu projeto](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project)."
 {% tip %}
 
@@ -79,7 +89,7 @@ Se você criar um branch no {% data variables.product.product_name %}, você dev
   ![Lista de branches no repositório](/assets/images/help/desktop/select-branch-from-dropdown.png)
 3. Se você tiver alterações salvas sem commit, escolha entre **Leave my changes** (Deixar as alterações) ou **Bring my changes** (Levar as alterações) e clique em **Switch Branch** (Alternar branch). ![Alternar branch com opções de alteração](/assets/images/help/desktop/stash-changes-options.png)
 
-### Excluir um branch
+## Excluir um branch
 
 Não é possível excluir um branch se ele estiver atualmente associado a uma pull request aberta. Não é possível desfazer a exclusão de um branch.
 
@@ -101,10 +111,10 @@ Não é possível excluir um branch se ele estiver atualmente associado a uma pu
 
 {% endwindows %}
 
-### Leia mais
+## Leia mais
 
 - "[Clonar um repositório no {% data variables.product.prodname_desktop %}](/desktop/guides/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop)"
 - "[Branch](/articles/github-glossary/#branch)" no glossário do {% data variables.product.prodname_dotcom %}
-- "[Sobre branches](/articles/about-branches)"
+- "[Sobre branches](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)"
 - "[Branches em um Nutshell](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell)" na documentação do Git
 - "[Ocultar as alterações](/desktop/contributing-and-collaborating-using-github-desktop/stashing-changes)

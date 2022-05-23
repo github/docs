@@ -1,0 +1,1 @@
+团队是组织成员的组，可以作为一个组被授予对特定存储库的权限。 您可以在每个组织中创建单个团队或多个级别的嵌套团队。 更多信息请参阅“[创建团队](/organizations/organizing-members-into-teams/creating-a-team)”和“[向团队添加人员](/organizations/organizing-members-into-teams/adding-organization-members-to-a-team)”。

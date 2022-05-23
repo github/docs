@@ -1,1 +1,0 @@
-2. At the prompt, upload your license file and set a management console password. For more information, see "[Managing your {% data variables.product.prodname_enterprise %} license](/enterprise/{{ currentVersion }}/admin/guides/installation/managing-your-github-enterprise-license/)."

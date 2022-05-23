@@ -3,21 +3,20 @@ title: Revisar implantações
 intro: Você pode aprovar ou rejeitar trabalhos que estão aguardando revisão.
 product: '{% data reusables.gated-features.environments %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=3.1'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 ---
 
-{% data reusables.actions.environments-beta %}
-{% data reusables.actions.ae-beta %}
 
-### Sobre revisões necessárias nos fluxos de trabalho
+## Sobre revisões necessárias nos fluxos de trabalho
 
 Os trabalhos que fazem referência a um ambiente configurado com os revisores necessários irão aguardar a aprovação antes de serem iniciados. Enquanto um trabalho está aguardando aprovação, ele tem um status de "Aguardando". Se um trabalho não for aprovado em 30 dias, a execução do fluxo de trabalho será automaticamente cancelada.
 
-Para obter mais informações sobre ambientes e aprovações necessárias, consulte "[Ambientes](/actions/reference/environments). {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@next" or currentVersion ver_gt "enterprise-server@3.1" %} Para obter informações sobre como revisar implantações com a API REST, consulte "[Execuções de fluxo de trabalho](/rest/reference/actions#workflow-runs)."{% endif %}
+Para obter mais informações sobre ambientes e aprovações necessárias, consulte "[Usando ambientes para implantação](/actions/deployment/using-environments-for-deployment).{% ifversion fpt or ghae or ghes > 3.1 or ghec %} Para obter informações sobre como revisar implantações com a API REST, consulte "[Execuções de trabalho](/rest/reference/actions#workflow-runs)."{% endif %}
 
-### Aprovar ou rejeitar um trabalho
+## Aprovar ou rejeitar um trabalho
 
 1. Acesse a execução do fluxo de trabalho que requer revisão. Para obter mais informações sobre navegação até uma execução do fluxo de trabalho, consulte "[Visualizar histórico de execução de fluxo de trabalho](/actions/managing-workflow-runs/viewing-workflow-run-history)".
 2. Clique em **Revisar implantações**. ![Revisar implantações](/assets/images/actions-review-deployments.png)

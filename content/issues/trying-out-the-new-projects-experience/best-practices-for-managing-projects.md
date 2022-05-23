@@ -5,6 +5,7 @@ allowTitleToDifferFromFilename: true
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
+  ghec: '*'
 type: overview
 topics:
   - Projects
@@ -26,6 +27,20 @@ To track how smaller issues fit into the larger goal, use task lists, milestones
 
 Issues and pull requests include built-in features to let you easily communicate with your collaborators. Use @mentions to alert a person or entire team about a comment. Assign collaborators to issues to communicate responsibility. Link to related issues or pull requests to communicate how they are connected.
 
+## Make use of the description and README
+
+Use your project's description and README to share information about the project.
+
+For example:
+
+- Explaining the purpose of the project.
+- Describing the project views and how to use them.
+- Including relevant links and people to contact for more information.
+
+Project READMEs support Markdown which allows you to use images and advanced formatting such as links, lists, and headers. 
+
+For more information, see "[Creating a project (beta)](/issues/trying-out-the-new-projects-experience/creating-a-project#updating-your-project-description-and-readme)."
+
 ## Use views
 
 Use project views to look at your project from different angles.
@@ -46,8 +61,22 @@ To prevent information from getting out of sync, maintain a single source of tru
 
 ## Use automation
 
-Automating tasks lets you spend less time on busy work and more time on the project itself. The less you need to remember to do manually, the more likely your project will stay up to date. {% data variables.product.prodname_actions %} and the GraphQL API enable you to automate routine project management tasks. For example, to keep track of pull requests awaiting review, you can create a workflow that adds a pull request to a project and sets the status to "needs review"; this process can be automatically triggered when a pull request is marked as "ready for review".
+You can automate tasks to spend less time on busy work and more time on the project itself. The less you need to remember to do manually, the more likely your project will stay up to date.
 
-- For an example workflow, see "[Automating projects](/issues/trying-out-the-new-projects-experience/automating-projects)." 
+Projects (beta) offers built-in workflows. For example, when an issue is closed, you can automatically set the status to "Done."
+
+Additionally, {% data variables.product.prodname_actions %} and the GraphQL API enable you to automate routine project management tasks. For example, to keep track of pull requests awaiting review, you can create a workflow that adds a pull request to a project and sets the status to "needs review"; this process can be automatically triggered when a pull request is marked as "ready for review."
+
+- For an example workflow, see "[Automating projects](/issues/trying-out-the-new-projects-experience/automating-projects)."
 - For more information about the API, see "[Using the API to manage projects](/issues/trying-out-the-new-projects-experience/using-the-api-to-manage-projects)."
 - For more information about {% data variables.product.prodname_actions %}, see ["{% data variables.product.prodname_actions %}](/actions)."
+
+## Use different field types
+
+Take advantage of the various field types to meet your needs.
+
+Use an iteration field to schedule work or create a timeline. You can group by iteration to see if items are balanced between iterations, or you can filter to focus on a single iteration. Iteration fields also let you view work that you completed in past iterations, which can help with velocity planning and reflecting on your team's accomplishments. Iteration fields also support breaks to show when you and your team are taking time away from their iterations. For more information, see "[Managing iterations in projects](/issues/trying-out-the-new-projects-experience/managing-iterations)."
+
+Use a single select field to track information about a task based on a preset list of values. For example, track priority or project phase. Since the values are selected from a preset list, you can easily group or filter to focus on items with a specific value.
+
+For more information about the different field types, see "[Creating a project (beta)](/issues/trying-out-the-new-projects-experience/creating-a-project#adding-custom-fields)."

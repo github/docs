@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Community
 ---
@@ -31,7 +32,7 @@ When someone posts or replies to a public discussion on a team's page, members o
 
 {% tip %}
 
-**Tip:** Depending on your notification settings, you'll receive updates by email, the web notifications page on {% data variables.product.product_name %}, or both. For more information, see {% ifversion fpt or ghae or ghes %}"[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications){% else %}"[About email notifications](/github/receiving-notifications-about-activity-on-github/about-email-notifications)" and "[About web notifications](/github/receiving-notifications-about-activity-on-github/about-web-notifications){% endif %}."
+**Tip:** Depending on your notification settings, you'll receive updates by email, the web notifications page on {% data variables.product.product_name %}, or both. For more information, see "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications)."
 
 {% endtip %}
 
@@ -39,7 +40,15 @@ By default, if your username is mentioned in a team discussion, you'll receive n
 
 To turn off notifications for team discussions, you can unsubscribe to a specific discussion post or change your notification settings to unwatch or completely ignore a specific team's discussions. You can subscribe to notifications for a specific discussion post even if you're unwatching that team's discussions.
 
-For more information, see {% ifversion fpt or ghae or ghes %}"[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions){% else %}"[Subscribing to and unsubscribing from notifications](/github/receiving-notifications-about-activity-on-github/subscribing-to-and-unsubscribing-from-notifications){% endif %}" and "[Nested teams](/articles/about-teams/#nested-teams)."
+For more information, see "[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions)" and "[Nested teams](/articles/about-teams/#nested-teams)."
+
+{% ifversion fpt or ghec %}
+
+## Organization discussions
+
+You can also use organization discussions to facilitate conversations across your organization. For more information, see "[Enabling or disabling GitHub Discussions for an organization](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization)."
+
+{% endif %}
 
 ## Further reading
 

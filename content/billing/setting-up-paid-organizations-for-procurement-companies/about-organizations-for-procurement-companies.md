@@ -3,17 +3,18 @@ title: About organizations for procurement companies
 intro: 'Businesses use organizations to collaborate on shared projects with multiple owners and administrators. You can create an organization for your client, make a payment on their behalf, then pass ownership of the organization to your client.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/about-organizations-for-procurement-companies
-  - /articles/about-organizations-for-resellers/
+  - /articles/about-organizations-for-resellers
   - /articles/about-organizations-for-procurement-companies
   - /github/setting-up-and-managing-billing-and-payments-on-github/setting-up-paid-organizations-for-procurement-companies/about-organizations-for-procurement-companies
 versions:
   fpt: '*'
+  ghec: '*'
 type: overview
 topics:
   - Organizations
 shortTitle: About organizations
 ---
-To access an organization, each member must sign into their own personal user account.
+To access an organization, each member must sign into their own personal account.
 
 Organization members can have different roles, such as *owner* or *billing manager*:
 

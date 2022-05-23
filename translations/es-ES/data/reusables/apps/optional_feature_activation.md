@@ -1,3 +1,2 @@
-4. En la barra lateral izquierda, da clic en **{% if currentVersion ver_lt "enterprise-server@3.1" %} Características Beta {% else %} Características Opcionales {% endif %}**.
-  {% if currentVersion ver_lt "enterprise-server@3.1" %} ![Beta features tab](/assets/images/github-apps/beta-features-option.png) {% else %} ![Optional features tab](/assets/images/github-apps/optional-features-option.png) {% endif %}
-5. Junto a la característica {% if currentVersion ver_lt "enterprise-server@3.1" %} beta {% else %} opcional {% endif %} que quieras habilitar para tu app, haz clic en **Unirse**. ![Botón de unirse para habilitar una característica opcional](/assets/images/github-apps/enable-optional-features.png)
+4. En la barra lateral izquierda, haz clic en **Características opcionales**. ![Pestaña de características opcionales](/assets/images/github-apps/optional-features-option.png)
+5. Junto a la característica opcional que quieres habilitar para tu app, haz clic en **Decidir participar**. ![Botón de unirse para habilitar una característica opcional](/assets/images/github-apps/enable-optional-features.png)

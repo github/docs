@@ -2,9 +2,10 @@
 title: GitHub security features
 intro: 'An overview of {% data variables.product.prodname_dotcom %} security features.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=3.0'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 type: overview
 topics:
   - Repositories
@@ -13,73 +14,108 @@ topics:
   - Advanced Security
 ---
 
-### About {% data variables.product.prodname_dotcom %}'s security features
+## About {% data variables.product.prodname_dotcom %}'s security features
 
-{% data variables.product.prodname_dotcom %} has security features that help keep code and secrets secure in repositories and across organizations. Some features are available for all repositories and others are only available {% if currentVersion == "free-pro-team@latest" %}for public repositories and for repositories {% endif %}with a {% data variables.product.prodname_GH_advanced_security %} license.
+{% data variables.product.prodname_dotcom %} has security features that help keep code and secrets secure in repositories and across organizations. {% data reusables.advanced-security.security-feature-availability %}
 
 The {% data variables.product.prodname_advisory_database %} contains a curated list of security vulnerabilities that you can view, search, and filter. {% data reusables.security-advisory.link-browsing-advisory-db %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-### すべてのリポジトリで使用可能
+{% ifversion fpt or ghes or ghae or ghec %}
+## Available for all repositories
+{% endif %}
+### Security policy
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == 'github-ae@next' %}
-#### セキュリティポリシー
+Make it easy for your users to confidentially report security vulnerabilities they've found in your repository. For more information, see "[Adding a security policy to your repository](/code-security/getting-started/adding-a-security-policy-to-your-repository)."
 
-Make it easy for your users to confidentially report security vulnerabilities they've found in your repository. 詳しい情報については「[リポジトリにセキュリティポリシーを追加する](/code-security/getting-started/adding-a-security-policy-to-your-repository)」を参照してください。
+{% ifversion fpt or ghec %}
+### Security advisories
+
+Privately discuss and fix security vulnerabilities in your repository's code. You can then publish a security advisory to alert your community to the vulnerability and encourage community members to upgrade. For more information, see "[About {% data variables.product.prodname_security_advisories %}](/github/managing-security-vulnerabilities/about-github-security-advisories)."
+
+{% endif %}
+{% ifversion fpt or ghec or ghes > 3.2 %}
+
+### {% data variables.product.prodname_dependabot_alerts %} and security updates
+
+View alerts about dependencies that are known to contain security vulnerabilities, and choose whether to have pull requests generated automatically to update these dependencies. For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)"
+and "[About {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)."
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}
-#### セキュリティアドバイザリ
+{% ifversion ghes < 3.3 or ghae %}
+### {% data variables.product.prodname_dependabot_alerts %}
 
-リポジトリのコードのセキュリティの脆弱性について、非公開で議論して修正します。 You can then publish a security advisory to alert your community to the vulnerability and encourage community members to upgrade. 詳しい情報については「[{% data variables.product.prodname_security_advisories %}について](/github/managing-security-vulnerabilities/about-github-security-advisories)」を参照してください。
+{% data reusables.dependabot.dependabot-alerts-beta %}
 
-#### {% data variables.product.prodname_dependabot_alerts %} およびセキュリティアップデート
-
-セキュリティの脆弱性を含むことを把握している依存関係に関するアラートを表示し、プルリクエストを自動的に生成してこれらの依存関係を更新するかどうかを選択します。 詳しい情報については、「[脆弱性のある依存関係に対するアラートについて](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)」 および「[{% data variables.product.prodname_dependabot_security_updates %} について](/github/managing-security-vulnerabilities/about-dependabot-security-updates)」を参照してください。
+View alerts about dependencies that are known to contain security vulnerabilities, and manage these alerts. For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)."
 {% endif %}
 
-{% if currentVersion ver_gt "enterprise-server@2.22" %}
-#### {% data variables.product.prodname_dependabot_alerts %}
+{% ifversion fpt or ghec or ghes > 3.2 %}
+### {% data variables.product.prodname_dependabot %} version updates
 
-セキュリティの脆弱性を含むことを把握している依存関係に関するアラートを表示し、それらのアラートを管理します。 詳しい情報については、「[脆弱性のある依存関係に対するアラートについて](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)」を参照してください。
+Use {% data variables.product.prodname_dependabot %} to automatically raise pull requests to keep your dependencies up-to-date. This helps reduce your exposure to older versions of dependencies. Using newer versions makes it easier to apply patches if security vulnerabilities are discovered, and also makes it easier for {% data variables.product.prodname_dependabot_security_updates %} to successfully raise pull requests to upgrade vulnerable dependencies. For more information, see "[About {% data variables.product.prodname_dependabot_version_updates %}](/github/administering-a-repository/about-dependabot-version-updates)."
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}
-#### {% data variables.product.prodname_dependabot %} バージョンアップデート
-
-Use {% data variables.product.prodname_dependabot %} to automatically raise pull requests to keep your dependencies up-to-date. これは、依存関係の古いバージョンの公開を減らすために役立ちます。 新しいバージョンを使用すると、セキュリティの脆弱性が発見された場合にパッチの適用が容易になり、さらに脆弱性のある依存関係を更新するため {% data variables.product.prodname_dependabot_security_updates %} がプルリクエストを発行することも容易になります。 詳しい情報については、「[{% data variables.product.prodname_dependabot_version_updates %} について](/github/administering-a-repository/about-dependabot-version-updates)」を参照してください。
-{% endif %}
-
-#### 依存関係グラフ
+{% ifversion fpt or ghes or ghae or ghec %}
+### Dependency graph
 The dependency graph allows you to explore the ecosystems and packages that your repository depends on and the repositories and packages that depend on your repository.
 
-依存関係グラフは、リポジトリの [**Insights**] タブにあります。 詳しい情報については、「[依存関係グラフについて](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)」を参照してください。
+You can find the dependency graph on the **Insights** tab for your repository. For more information, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)."
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+### Security overview for repositories
+For all public repositories, the security overview shows which security features are enabled for the repository, and offers the option to configure any available security features that are not currently enabled.
 
-### {% if currentVersion == "free-pro-team@latest" %}パブリックリポジトリおよび{% endif %}{% data variables.product.prodname_advanced_security %} が有効になっているリポジトリで使用可能
+## Available with {% data variables.product.prodname_GH_advanced_security %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-These features are available {% if currentVersion == "free-pro-team@latest" %}for all public repositories, and for private repositories owned by organizations with {% else %}if you have {% endif %}an {% data variables.product.prodname_advanced_security %} license. {% data reusables.advanced-security.more-info-ghas %}
+{% ifversion fpt %}
+The following {% data variables.product.prodname_GH_advanced_security %} features are available and free of charge for public repositories on {% data variables.product.prodname_dotcom_the_website %}. Organizations that use {% data variables.product.prodname_ghe_cloud %} with a license for {% data variables.product.prodname_GH_advanced_security %} can use the full set of features in any of their repositories. For a list of the features available with {% data variables.product.prodname_ghe_cloud %}, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/code-security/getting-started/github-security-features#available-with-github-advanced-security).
+
+{% elsif ghec %}
+Many {% data variables.product.prodname_GH_advanced_security %} features are available and free of charge for public repositories on {% data variables.product.prodname_dotcom_the_website %}. Organizations within an enterprise that has a {% data variables.product.prodname_GH_advanced_security %} license can use all the following features on their repositories. {% data reusables.advanced-security.more-info-ghas %}
+
+{% elsif ghes %}
+{% data variables.product.prodname_GH_advanced_security %} features are available for enterprises with a license for {% data variables.product.prodname_GH_advanced_security %}. The features are restricted to repositories owned by an organization. {% data reusables.advanced-security.more-info-ghas %}
+
+{% elsif ghae %}
+{% data variables.product.prodname_GH_advanced_security %} features are available for repositories owned by an organization. {% data reusables.advanced-security.more-info-ghas %}
 {% endif %}
 
-#### {% data variables.product.prodname_code_scanning_capc %} アラート
+### {% data variables.product.prodname_code_scanning_capc %}
 
-新しいコードまたは変更されたコードのセキュリティの脆弱性とコーディングエラーを自動的に検出します。 潜在的な問題が強調表示され、あわせて詳細情報も確認できるため、デフォルトのブランチにマージする前にコードを修正できます。 詳しい情報については、「[コードスキャニングについて](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning)」を参照してください。
+Automatically detect security vulnerabilities and coding errors in new or modified code. Potential problems are highlighted, with detailed information, allowing you to fix the code before it's merged into your default branch. For more information, see "[About code scanning](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning)."
 
-#### {% data variables.product.prodname_secret_scanning_caps %} アラート
+{% ifversion fpt or ghec %}
+### {% data variables.product.prodname_secret_scanning_partner_caps %}
 
-{% if currentVersion == "free-pro-team@latest" %}プライベートリポジトリで、{% else %}{% endif %}any secrets that {% data variables.product.prodname_dotcom %} がコードで見つけたシークレットを表示します。 リポジトリにチェックインされたトークンまたは資格情報は、侵害されたものとして扱う必要があります。 詳しい情報については、「[シークレットスキャニングについて](/github/administering-a-repository/about-secret-scanning)」を参照してください。
-
+Automatically detect leaked secrets across all public repositories. {% data variables.product.company_short %} informs the relevant service provider that the secret may be compromised. For details of the supported secrets and service providers, see "[{% data variables.product.prodname_secret_scanning_caps %} patterns](/code-security/secret-scanning/secret-scanning-patterns)."
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" %}
-#### 依存関係のレビュー
+{% ifversion not fpt %}
+### {% data variables.product.prodname_secret_scanning_GHAS_caps %}
+
+{% ifversion ghec %}
+Available only with a license for {% data variables.product.prodname_GH_advanced_security %}.
+{% endif %}
+
+Automatically detect tokens or credentials that have been checked into a repository. You can view alerts for any secrets that {% data variables.product.company_short %} finds in your code, so that you know which tokens or credentials to treat as compromised. For more information, see "[About secret scanning](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-advanced-security)."
+{% endif %}
+
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
+### Dependency review
 
 Show the full impact of changes to dependencies and see details of any vulnerable versions before you merge a pull request. For more information, see "[About dependency review](/code-security/supply-chain-security/about-dependency-review)."
 {% endif %}
 
-### 参考リンク
-- "[{% data variables.product.prodname_dotcom %}の製品](/github/getting-started-with-github/githubs-products)"
+{% ifversion ghec or ghes > 3.1 or ghae %}
+### Security overview for organizations{% ifversion ghec or ghes > 3.4 or ghae-issue-6199 %}, enterprises,{% endif %} and teams
+
+{% ifversion ghec %}
+Available only with a license for {% data variables.product.prodname_GH_advanced_security %}.
+{% endif %}
+
+Review the security configuration and alerts for your organization and identify the repositories at greatest risk. For more information, see "[About the security overview](/code-security/security-overview/about-the-security-overview)."
+{% endif %}
+
+## Further reading
+- "[{% data variables.product.prodname_dotcom %}'s products](/github/getting-started-with-github/githubs-products)"
 - "[{% data variables.product.prodname_dotcom %} language support](/github/getting-started-with-github/github-language-support)"

@@ -1,18 +1,21 @@
 ---
-title: テンプレートリポジトリからの課題の作成
-intro: テンプレートリポジトリから課題を作成して、スターターコード、ドキュメント、その他のリソースを学生に提供できます。
+title: Create an assignment from a template repository
+intro: 'You can create an assignment from a template repository to provide starter code, documentation, and other resources to your students.'
+permissions: 'Organization owners who are admins for a classroom can create an assignment from a template repository that is public or owned by the organization. {% data reusables.classroom.classroom-admins-link %}'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/using-template-repos-for-assignments
   - /education/manage-coursework-with-github-classroom/create-an-assignment-from-a-template-repository
+shortTitle: Template repository
 ---
+You can use a template repository on {% data variables.product.product_name %} as starter code for an assignment on {% data variables.product.prodname_classroom %}. Your template repository can contain boilerplate code, documentation, and other resources for your students. For more information, see "[Creating a template repository](/github/creating-cloning-and-archiving-repositories/creating-a-template-repository)."
 
-{% data variables.product.prodname_classroom %}の課題のためのスターターコードとして、{% data variables.product.product_name %}でテンプレートリポジトリを使用できます。 テンプレートリポジトリには、ボイラープレートコードや、その他の学生用リソースを含めることができます。 詳細は「[テンプレートリポジトリを作成する](/github/creating-cloning-and-archiving-repositories/creating-a-template-repository)」を参照してください。
+To use the template repository for your assignment, the template repository must be owned by your organization, or the visibility of the template repository must be public.
 
-テンプレートリポジトリを課題で使用するには、そのテンプレートリポジトリがOrganizationの所有であるか、テンプレートリポジトリの可視性がパブリックである必要があります。
+You can reuse an existing assignment, even if it uses a template repository, in any other classroom that you have admin access to, including classrooms in a different organization. For more information, see "[Reuse an assignment](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/reuse-an-assignment)."
 
-### 参考リンク
+## Further reading
 
-- 「[個人課題の作成](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)」
-- 「[グループ課題の作成](/education/manage-coursework-with-github-classroom/create-a-group-assignment)」
+- "[Create an individual assignment](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)"
+- "[Create a group assignment](/education/manage-coursework-with-github-classroom/create-a-group-assignment)"

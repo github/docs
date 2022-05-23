@@ -6,7 +6,7 @@ redirect_from:
   - /desktop/getting-started-with-github-desktop/configuring-git-for-github-desktop
   - /desktop/installing-and-configuring-github-desktop/configuring-git-for-github-desktop
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 
 {% data variables.product.prodname_desktop %} 使用您在本地 Git 配置中设置的电子邮件地址连接提交与您在 {% data variables.product.product_name %} 上的帐户。
@@ -22,8 +22,8 @@ versions:
 {% mac %}
 
 {% data reusables.desktop.sign-in-choose-product %}
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.emails %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.emails %}
 {% data reusables.desktop.copy-email-git-config %}
 {% data reusables.desktop.return-to-desktop %}
 {% data reusables.desktop.mac-select-desktop-menu %}
@@ -40,8 +40,8 @@ versions:
 {% windows %}
 
 {% data reusables.desktop.sign-in-choose-product %}
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.emails %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.emails %}
 {% data reusables.desktop.copy-email-git-config %}
 {% data reusables.desktop.return-to-desktop %}
 {% data reusables.desktop.windows-choose-options %}
@@ -55,7 +55,7 @@ versions:
 
 {% endwindows %}
 
-### 延伸阅读
+## 延伸阅读
 
 - “[将电子邮件地址添加到您的 GitHub 帐户](/articles/adding-an-email-address-to-your-github-account/)”
 - "[设置提交电子邮件地址](/articles/setting-your-commit-email-address/)"

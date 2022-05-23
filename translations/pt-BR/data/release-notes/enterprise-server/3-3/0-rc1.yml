@@ -1,0 +1,216 @@
+---
+date: '2021-11-09'
+release_candidate: true
+deprecated: true
+intro: |
+  {% note %}
+
+  **Observação:** Se {% data variables.product.product_location %} estiver executando uma compilação de candidata a versão, você não poderá atualizar com um hotpatch. Apenas recomendamos que você execute candidatos a versão em ambientes de teste.
+
+  {% endnote %}
+
+  Para obter instruções de atualização, consulte "[Atualizando {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)."
+sections:
+  features:
+    - 
+      heading: Função do gerente de segurança
+      notes:
+        - |
+          Os proprietários da organização agora podem conceder às equipes o acesso para gerenciar alertas de segurança e configurações de seus repositórios. A função "gerente de segurança" pode ser aplicada a qualquer equipe e concede aos integrantes da equipe o seguinte acesso:
+
+          - Acesso de leitura em todos os repositórios da organização.
+          - Acesso de gravação em todos os alertas de segurança na organização.
+          - Acesso na aba de segurança a nível da organização.
+          - Acesso de gravação nas configurações de segurança no nível da organização.
+          - Acesso de gravação nas configurações de segurança no nível de repositório.
+
+          Para obter mais informações, consulte "[Gerenciando gerentes de segurança na sua organização](/organizations/managing-peopleles-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)."
+    - 
+      heading: 'Executores efêmeros auto-hospedados no GitHub Actions e novos webhooks para dimensionamento automático'
+      notes:
+        - |
+          {% data variables.product.prodname_actions %} agora é compatível com executores efêmeros (um único trabalho) auto-hospedados e um novo [`workflow_job`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job) webhook para facilitar o dimensionamento automático dos executores.
+
+          Os executores efêmeros são bons para ambientes gerenciados de forma automática, em que cada trabalho deve ser executado em uma imagem limpa. Depois que um trabalho é executado, os executores efêmeros têm os seus registros automaticamente cancelados de {% data variables.product.product_location %}, permitindo que você execute qualquer gerenciamento de pós-trabalho.
+
+          Você pode combinar executores efêmeros com o novo webhook `workflow_job` para dimensionar automaticamente executores auto-hospedados em resposta a solicitações de trabalho de {% data variables.product.prodname_actions %}.
+
+          Para obter mais informações, consulte "[Redimensionamento automático com executoresauto-hospedados](/actions/hosting-your-own runners/autoscaling-with-autohosted-runners)" e "[eventos e cargas](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job)."
+    - 
+      heading: 'Tema escuro de alto contraste'
+      notes:
+        - |
+          Um tema de alto contraste escuro, com maior contraste entre o primeiro e os elementos de segundo plano, está disponível em {% data variables.product.prodname_ghe_server %} 3.3. Esta versão também inclui melhorias para o sistema de cores de todos os temas de {% data variables.product.company_short %} .
+
+          ![Imagem animada para alternar entre o tema padrão escuro e o escuro de alto contraste na página de configurações de aparência](https://user-images. ithubusercontent.com/334891/123645834-ad096c00-d7f4-11eb-85c9-b2c92b00d70a.gif)
+
+          Para mais informações sobre a mudança de tema, consulte "[Gerenciando suas configurações de tema](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-your-theme-settings)."
+  changes:
+    - 
+      heading: Alterações na administração
+      notes:
+        - '{% data variables.product.prodname_ghe_server %} 3.3 inclui melhorias na manutenção dos repositórios, especialmente para repositórios que contêm muitos objetos inacessíveis. Observe que o primeiro ciclo de manutenção após a atualização para {% data variables.product.prodname_ghe_server %} 3.3 pode levar mais tempo do que o normal para ser concluído.'
+        - '{% data variables.product.prodname_ghe_server %} 3.3 inclui o beta público do cache de repositórios para equipes e infraestruturas de CI distribuídas geograficamente. O cache do repositório mantém uma cópia somente leitura de seus repositórios disponíveis em outras localidades, o que impede os clientes de fazer o download do conteúdo do Git duplicado a partir da sua instância principal. Para obter mais informações, consulte "[Sobre cache do repositório](/admin/enterprise-management/caching-repositories/about-repository-caching)."'
+        - '{% data variables.product.prodname_ghe_server %} 3.3 inclui melhorias no processo de representação do usuário. Uma sessão de representação agora requer uma justificação para a representação. As ações são registradas no log de auditoria como sendo realizadas como um usuário representado e o usuário que for representado receberá uma notificação por e-mail de que ele foi representado por um administrador da empresa. Para obter mais informações, consulte "[Personificando um usuário](/enterprise-server@3.3/admin/user-management/managing-users-in-your-enterprise/impersonating-a-user)."'
+        - Um novo serviço de processamento de transmissão foi adicionado para facilitar o crescimento do conjunto de eventos publicados no log de auditoria, incluindo eventos associados à atividade do Git e {% data variables.product.prodname_actions %}.
+    - 
+      heading: Alterações de token
+      notes:
+        - |
+          Uma data de vencimento agora pode ser definida para tokens de acesso pessoais novos e existentes. É altamente recomendado definir uma data de expiração em tokens de acesso pessoal para evitar que tokens antigos vazem e comprometam a segurança. Os proprietários de tokens receberão um e-mail quando for hora de renovar um token que está prestes a vencer. Os tokens vencidos podem ser regenerados, dando aos usuários um token duplicado com as mesmas propriedades do original.
+
+          Ao usar um token de acesso pessoal com a API de {% data variables.product.company_short %} um novo cabeçalho `GitHub-Authentication-Token-Expiration` será incluído na resposta, que indica a data de validade do token. Para obter mais informações, consulte "[Criando um token de acesso pessoal](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+    - 
+      heading: 'Alterações de notificações'
+      notes:
+        - 'Os e-mails de notificação das discussões agora incluem `(Discussion #xx)` no assunto, para que você possa reconhecer e filtrar e-mails que fazem referências a discussões.'
+    - 
+      heading: 'Alterações nos repositórios'
+      notes:
+        - Repositórios públicos agora têm uma etiqueta `Público` ao lado de nomes como repositórios privados e internos. Esta alteração torna mais fácil a identificação de repositórios públicos e evita a confirmação acidental de código privado.
+        - Se você especificar o nome exato de um branch ao usar o menu seletor do branch, o resultado agora será exibido na parte superior da lista de branches correspondentes. Anteriormente, as correspondências exatas de nomes de branch poderiam aparecer na parte inferior da lista.
+        - Ao visualizar um branch com um pull request aberto correspondente, {% data variables.product.prodname_ghe_server %} agora irá vincular diretamente ao pull request. Anteriormente, haveria uma instrução para contribuir usando a comparação do branch ou para abrir um novo pull request.
+        - Agora você pode clicar em um botão para copiar todo o conteúdo sem ser processado de um arquivo para a área de transferência. Anteriormente, você deveria abrir o arquivo sem processamento, selecionar todos e, em seguida, copiar. Para copiar o conteúdo de um arquivo, acesse o arquivo e clique em {% octicon "copy" aria-label="The copy icon" %} na barra de ferramentas. Observe que este recurso está disponível apenas em alguns navegadores.
+        - Ao criar uma nova versão, agora você pode selecionar ou criar a tag usando um seletor suspenso, ao invés de especificar a tag em um campo de texto. Para obter mais informações, consulte "[Gerenciar versões em um repositório](/repositórios/releasing-projects-on-github/managing-releases-in-a-repository)".
+        - Um aviso agora é exibido ao visualizar um arquivo que contém texto bidirecional do Unicode. O texto bidirecional Unicode pode ser interpretado ou compilado de forma diferente da que aparece na interface do usuário. Por exemplo, caracteres bidirecionais ocultos Unicode podem ser usados para trocar segmentos de texto em um arquivo. Para obter mais informações sobre a substituição desses caracteres, consulte o [registro de alterações de {% data variables.product.prodname_dotcom %}](https://github.blog/changelog/2021-10-31-warning-about-bidirectional-unicode-text/).
+        - Agora você pode usar arquivos "CITATION.cff" para que os outros saibam como você gostaria que eles citassem seu trabalho. Os arquivos "CITATION.cff" são arquivos de texto simples com informações de citação legíveis por pessoas e máquinas. {% data variables.product.prodname_ghe_server %} analisa essa informação em formatos de citação comuns como [APA](https://apastyle. pa.org) e [BibTeX](https://en.wikipedia.org/wiki/BibTeX). Para obter mais informações, consulte "[Sobre arquivos de CITATION](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-citation-files)."
+    - 
+      heading: 'Alterações de Markdown'
+      notes:
+        - |
+          Você pode usar novos atalhos de teclado para aspas e listas em arquivos Markdown, problemas, pull requests e comentários.
+
+          * Para adicionar citações, use <kbd>cmd shift 7</kbd> no Mac ou <kbd>ctrl shift .</kbd> no Windows e Linux.
+          * Para adicionar uma lista ordenada, use <kbd>cmd shift 7</kbd> no Mac ou <kbd>ctrl shift 7</kbd> no Windows e Linux.
+          * Para adicionar uma lista não ordenada, use <kbd>cmd shift 8</kbd> em Mac ou <kbd>ctrl shift 8</kbd> no Windows e no Linux.
+
+          Consulte "[Atalhos de teclado](/get-started/using-github/keyboard-shortcuts)" para obter uma lista completa dos atalhos disponíveis.
+        - 'Agora você pode usar sintaxe do nota de rodapé em qualquer campo do Markdown. As notas de rodapé são exibidas como links sobrescritos em que você pode clicar para pular para a informação referenciada, que é exibida em uma nova seção no final do documento. Para obter mais informações sobre a sintaxe, consulte "[Sintaxe de escrita básica](/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#footnotes)."'
+        - Ao visualizar arquivos de Markdown, agora você pode clicar em {% octicon "code" aria-label="The code icon" %} na barra de ferramentas para ver a fonte de arquivo de Markdown. Anteriormente, você deveria usar a visão culpada para vincular a números de linha específicos na fonte de um arquivo de Markdown.
+        - Agora você pode adicionar imagens e vídeos aos arquivos Markdown nos gists, colando-os no corpo do Markdown ou selecionando-os da caixa de diálogo na parte inferior do arquivo Markdown. Para obter informações sobre tipos de arquivos compatíveis, consulte "[Anexando arquivos](https://docs.github.com/en/github/writing-on-github/working-with-advanced-formatting/anexing-files)."
+        - '{% data variables.product.prodname_ghe_server %} agora gera automaticamente uma tabela de conteúdo para Wikis com base nos cabeçalhos.'
+        - Ao arrastar e soltar arquivos para um editor de Markdown, como imagens e vídeos, {% data variables.product.prodname_ghe_server %} agora usa o local do ponteiro do mouse em vez do local do cursor ao colocar o arquivo.
+    - 
+      heading: 'Problemas e alterações de pull requests'
+      notes:
+        - 'Agora você pode pesquisar problemas por etiqueta usando um operador lógico OU. Para filtrar os problemas usando o OU lógico, use a sintaxe de vírgula. Por exemplo, `label:"good first issue","bug"` irá listar todos os problemas com a etiqueta `good first issue` ou `bug`. Para obter mais informações, consulte "[Filtrar e pesquisar problemas e pull requests](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests#about-search-terms)."'
+        - |
+          Foram realizadas melhorias para ajudar as equipes a gerenciar as atividades de revisão de código. Agora você pode:
+
+          - Limitar atribuição apenas aos integrantes diretos da equipe.
+          - Continuar com a atribuição automática, mesmo que um ou mais integrantes da equipe já estejam solicitados.
+          - Manter uma equipe atribuída para revisar, mesmo que um ou mais integrantes sejam recém-designados.
+
+          A barra lateral da linha do tempo e revisores na página de pull request agora indica se uma solicitação de revisão foi automaticamente atribuída a um ou mais integrantes da equipe.
+
+          Para obter mais informações, consulte o [registro de alterações de {% data variables.product.prodname_dotcom %}](https://github.blog/changelog/2021-09-29-new-code-review-assignment-settings-and-team-filtering-improvements/).
+        - Agora você pode filtrar pesquisas de pull request para incluir apenas pull requests que solicitaram que você revise diretamente.
+        - Os arquivos filtrados em pull requests agora estão completamente ocultos na visualização e não são mais exibidos como recolhidos na guia "Arquivos alterados". O menu "Filtro de Arquivo" também foi simplificado. Para obter mais informações, consulte "[Filtrar arquivos em um pull request](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/filtering-files-in-a-pull-request)."
+    - 
+      heading: 'Alterações do GitHub Actions'
+      notes:
+        - Agora você pode criar "ações compostas" que combinam várias etapas do fluxo de trabalho em uma ação, e inclui a capacidade de fazer referência a outras ações. Isto facilita a redução da duplicação de fluxos de trabalho. Anteriormente, uma ação só podia usar scripts na definição do seu YAML. Para obter mais informações, consulte "[Criar uma ação composta](/actions/creating-actions/creating-a-composite-action)."
+        - 'O gerenciamento de executores auto-hospedados no nível corporativo não exige mais o uso de tokens de acesso pessoal com o escopo "admin:enterprise". Em vez disso, você pode usar o novo escopo "manage_runners:enterprise" para restringir as permissões nos seus tokens. Os tokens com este escopo podem efetuar a autenticação em [muitos pontos da API REST](/rest/reference/admin#list-autohospedted-runner-groups-for-an-enterprise) para gerenciar os runners auto-hospedados de sua empresa.'
+        - |
+          O log de auditoria agora inclui eventos adicionais para {% data variables.product.prodname_actions %}. As entradas de log de auditoria agora estão registradas nos seguintes eventos:
+
+          * Um executor auto-hospedado está registrado ou removido.
+          * Um executor auto-hospedado é adicionado a um grupo de executores ou removido de um grupo de executores.
+          * Um grupo de executores foi criado ou removido.
+          * A execução de um fluxo de trabalho foi criada ou concluída.
+          * Uma tarefa de fluxo de trabalho está preparada. Importante: Este log inclui a lista de segredos que foram fornecidos ao executor.
+
+          Para obter mais informações, consulte "[Aumentando a segurança para {% data variables.product.prodname_actions %}](/actions/security-guides/security-hardening-for-github-actions#auditing-github-actions-events)."
+        - Foram feitas melhorias de desempenho para {% data variables.product.prodname_actions %}, o que pode resultar em compatibilidade máxima superior de trabalho.
+    - 
+      heading: 'Alterações nos pacotes do GitHub'
+      notes:
+        - Quando um repositório é excluído, todos os arquivos de pacote associados são imediatamente excluídos do seu armazenamento externo de {% data variables.product.prodname_registry %}.
+    - 
+      heading: 'Alterações no dependabot e no gráfico de Dependência'
+      notes:
+        - A revisão de dependências está fora de versão beta e agora está geralmente disponível para clientes de {% data variables.product.prodname_GH_advanced_security %}. A revisão de dependências fornece uma visão de fácil compreensão das alterações da dependências e seu impacto em segurança na guia "Arquivos alterados" dos pull requests. Ele informa quais dependências foram adicionadas, removidas ou atualizadas, junto com informações sobre vulnerabilidade. Para obter mais informações, consulte "[Revisando alterações de dependências em um pull request](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request)."
+        - '{% data variables.product.prodname_dependabot %} agora está disponível como uma versão privada, oferecendo atualizações de versão e segurança para vários ecossistemas populares. {% data variables.product.prodname_dependabot %} em {% data variables.product.prodname_ghe_server %} exige {% data variables.product.prodname_actions %} e um pool de executores auto-hospedados configurados para uso de {% data variables.product.prodname_dependabot %}. {% data variables.product.prodname_dependabot %} em {% data variables.product.prodname_ghe_server %} também exige que {% data variables.product.prodname_github_connect %} esteja habilitado. Para saber mais e se inscrever para a versão beta, entre em contato com a equipe de vendas do GitHub.'
+    - 
+      heading: 'Digitalização de código e alterações na digitalização de segredo'
+      notes:
+        - A profundidade da análise de {% data variables.product.prodname_codeql %}foi melhorada adicionando suporte a mais [bibliotecas e estruturas](https://codeql.github. om/docs/codeql-overview/supported-languages-and-frameworks/) e aumentando a cobertura da nossa biblioteca e modelos de estruturas existentes. A análise do [JavaScript](https://github.com/github/codeql/tree/main/javascript) é compatível com a maioria das linguagens de modelo comuns e [Java](https://github. agora/github/codeql/tree/main/java) abrange mais de três vezes os pontos de extremidade das versões anteriores {% data variables.product.prodname_codeql %}. Como resultado, {% data variables.product.prodname_codeql %} pode detectar ainda mais fontes potenciais de dados de usuário não confiáveis, passos por meio dos quais esses dados fluem e os possíveis consumidores onde os dados podem terminar. Isto resulta numa melhoria global da qualidade dos alertas de {% data variables.product.prodname_code_scanning %}.
+        - '{% data variables.product.prodname_codeql %} agora é compatível com a verificação de funcionalidades da linguagem padrão no Java 16, como registros e correspondência de padrões. {% data variables.product.prodname_codeql %} é pode de analisar o código escrito nas versões 7 a 16 do Java. Para obter mais informações sobre linguagens e estruturas compatíveis, consulte a documentação de [{% data variables.product.prodname_codeql %}](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/#id5).'
+        - |
+          Foram feitas melhorias no acionamento 'on:push' de {% data variables.product.prodname_code_scanning %} quando o código é rnviafo por push para um pull request. Se uma digitalização 'on:push' retornar os resultados associados a um pull request, {% data variables.product.prodname_code_scanning %} agora mostrará esses alertas no pull request.
+
+          Alguns outros sistemas de CI/CD podem ser configurados exclusivamente para acionar um pipeline quando o código é enviado por push para um branch, ou até exclusivamente para cada commit. Sempre que esse pipeline de análise for acionado e os resultados forem enviados para a API do SARIF, {% data variables.product.prodname_code_scanning %} também tentará igualar os resultados da análise a um pull request aberto. Se for encontrado um pull request aberto, os resultados serão publicados conforme descrito acima. Para obter mais informações, consulte o [registro de alterações de {% data variables.product.prodname_dotcom %}](https://github.blog/changelog/2021-09-27-mostrando-verificação de código-alertas-on-pull-requests/).
+        - Agora você pode usar o novo filtro de pull request na página de alertas de {% data variables.product.prodname_code_scanning %} para encontrar todos os alertas de {% data variables.product.prodname_code_scanning %} associados a um pull request. Um novo link "Ver todos os alertas do branch" na aba "Verificações" de pull request permite que você veja diretamente os alertas de {% data variables.product.prodname_code_scanning %} com o filtro de pull request específico já aplicado. Para obter mais informações, consulte o registro de alterações[{% data variables.product.prodname_dotcom %} ](https://github.blog/changelog/2021-08-23-pull-request-filter-for-code-scanning-alerts/).
+        - Os padrões definidos pelo usuário para {% data variables.product.prodname_secret_scanning %} estão fora da versão beta e agora estão amplamente disponíveis para os clientes de {% data variables.product.prodname_GH_advanced_security %}. A outra novidade nesta versão é a habilidade de editar padrões personalizados definidos no repositório, organização e níveis empresariais. Depois de editar e salvar um padrão, {% data variables.product.prodname_secret_scanning %} pesquisa correspondências em todo o histórico de um repositório Git e em quaisquer novos commits. Editar um padrão irá fechar os alertas associados com o padrão se eles não coincidirem mais com a versão atualizada. Estão previstas outras melhorias como, por exemplo, os testes, são planejados para versões futuras. Para obter mais informações, consulte "[Definindo padrões personalizados para digitalização de segredo](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."
+    - 
+      heading: Alterações da API e webhook
+      notes:
+        - A maioria das pré-visualizações da API REST foram graduadas e agora fazem parte oficial da API. Os cabeçalhos de visualização não são mais necessários para a maioria dos pontos de API REST, mas ainda funcionarão como esperado se você especificar uma pré-visualização graduada no cabeçalho "Aceitar" de uma solicitação. Para pré-visualizações que ainda exigem a especificação da pré-visualização no cabeçalho "Aceitar" de uma solicitação, consulte "[Pré-visualizações da API](/rest/overview/api-previews)."
+        - 'Agora você pode usar a API REST para configurar links automáticos personalizados para recursos externos. A API REST agora fornece pontos de extremidade beta `GET`/`POST`/`DELETE` que você pode usar para visualizar, adicionar ou apagar links automáticos personalizados associados a um repositório. Para obter mais informações, consulte "[Autolinks](/rest/referência/repos#autolinks)."'
+        - 'Agora você pode usar a API REST para sincronizar um repositório bifurcado com o seu repositório upstream. Para obter mais informações, consulte "[Branches](/rest/reference/branches#sync-a-fork-branch-with-the-upstream-repository)" na documentação da API REST.'
+        - 'Administradores corporativos do GitHub Enterprise Server agora podem usar a API REST para habilitar ou desabilitar a LFS do Git para um repositório. Para obter mais informações, consulte "[Repositories](/rest/referência/repos#git-lfs)."'
+        - 'Agora você pode usar a API REST para consultar o log de auditoria para uma empresa. Embora o encaminhamento de logs de auditoria ofereçae a capacidade de manter e analisar dados com seu próprio kit de ferramentas e determinar padrões ao longo do tempo, o novo ponto de extremidade pode ajudar você a realizar análises limitadas sobre eventos recentes. Para obter mais informações, consulte "[Administração de {% data variables.product.prodname_enterprise %}](/rest/reference/enterprise-admin#get-the-audit-log-for-an-enterprise)" na documentação da API REST.'
+        - As solicitações da de usuário par servidor do aplicativo GitHub agora podem ler recursos públicos usando a API REST. Isso inclui, por exemplo, a possibilidade de listar os problemas e pull requests de um repositório público e acessar os comentários e conteúdo de um repositório público.
+        - 'Ao criar ou atualizar um repositório, agora você pode configurar se a bifurcação é permitida usando as APIs REST e do GraphQL. Anteriormente, as APIs para a criação e atualização de repositórios não incluíam os campos "allow_forking" (REST) ou "forkingAllowed" (GraphQL). Para obter mais informações, consulte "[Repositories](/rest/reference/repos)" na documentação da API REST e "[Repositories](/graphql/reference/objects#repository)" na documentação da API do GraphQL.'
+        - |
+          Uma nova mutação do GraphQL [`createCommitOnBranch`](/graphql/reference/mutations#createcommitonbranch) torna mais fácil adicionar, atualizar e excluir arquivos no branch de um repositório. Comparado com a API REST, não é necessário criar manualmente blobs e árvores antes de criar o commit. Isso permite que você adicione, atualize ou exclua vários arquivos em uma única chamada de API.
+
+          Os commits criados usando a nova API são automaticamente assinados pelo GPG e são [marcados como verificados](/github/authenticating-to-github/managing-commit-signature re-verification/about-commit-subscripre-verification) na interface do usuário de {% data variables.product.prodname_ghe_server %}. Os aplicativos GitHub podem usar a mutação para criar commits diretamente ou [em nome de usuários](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps#user-to-server-requests).
+        - 'Quando uma nova tag é criada, a carga de webhook [push](/developers/webhooks-and-events/webhook-events-and-payloads#push) agora inclui um objeto `head_commit` que contém os dados do commit para o qual a nova tag aponta. Como resultado, o objeto `head_commit` sempre conterá os dados de commit do commit `posterior` da carga.'
+    - 
+      heading: 'Mudanças de desempenho'
+      notes:
+        - As cargas e tarefas de página agora são significativamente mais rápidas para repositórios com muitas refs do Git.
+  #No security/bug fixes for the RC release
+  #security_fixes:
+  #- PLACEHOLDER
+  #bugs:
+  #- PLACEHOLDER
+  known_issues:
+    - Em uma instância de {% data variables.product.prodname_ghe_server %} recém-configurada sem usuários, um invasor pode criar o primeiro usuário administrador.
+    - As regras de firewall personalizadas são removidas durante o processo de atualização.
+    - Arquivos LFS do Git [enviados através da interface web](https://github.com/blog/2105-upload-files-to-your-repositories) são adicionados diretamente ao repositório e de forma incorreta.
+    - Os problemas não podem ser fechados se contiverem um permalink para um blob no mesmo repositório, onde o caminho do arquivo blob's é maior que 255 caracteres.
+    - Quando "Usuários podem pesquisar pelo GitHub.com" está habilitado com o GitHub Connect, os problemas em repositórios privados e internos não estão incluídos nos resultados de pesquisa do GitHub.com.
+    - O registro npm de {% data variables.product.prodname_registry %} não retorna mais o valor de tempo em respostas de metadados. Isso foi feito para permitir melhorias substanciais de desempenho. Continuamos a ter todos os dados necessários para devolver um valor de tempo como parte da resposta aos metadados e retomaremos o retorno desse valor no futuro, assim que tivermos resolvido os problemas de desempenho existentes.
+    - Os limites de recursos que são específicos para processamento de hooks pre-receive podem causar falha em alguns hooks pre-receive.
+  deprecations:
+    - 
+      heading: Obsoletização do GitHub Enterprise Server 2.22
+      notes:
+        - '**{% data variables.product.prodname_ghe_server %} 2.22 tornou-se obsoleto em 23 de setembro de 2021**. Isso significa que não serão feitas versões de patch, mesmo para questões essenciais de segurança, após esta data. Para obter melhor desempenho, melhorar a segurança e novas funcionalidades, [faça a atualização para a versão mais recente de {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.3/admin/enterprise-management/upgrading-github-enterprise-server) assim que possível.'
+    - 
+      heading: Obsoletização do GitHub Enterprise Server 3.0
+      notes:
+        - '**{% data variables.product.prodname_ghe_server %} 3.0 irá tornar-se obsoleto em 16 de fevereiro de 2022**. Isso significa que não serão feitas versões de patch, mesmo para questões essenciais de segurança, após esta data. Para obter melhor desempenho, melhorar a segurança e novas funcionalidades, [faça a atualização para a versão mais recente de {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.3/admin/enterprise-management/upgrading-github-enterprise-server) assim que possível.'
+    - 
+      heading: Obsolescência do suporte para Hypervisor XenServer
+      notes:
+        - Começando com {% data variables.product.prodname_ghe_server %} 3.3, {% data variables.product.prodname_ghe_server %} no XenServer está obsoleto e não é mais compatível. Entre em contato com o [suporte do GitHub](https://support.github.com) em caso de dúvidas.
+    - 
+      heading: A obsolescência dos pontos de extremidade da API do aplicativo OAuth e autenticação da API usando parâmetros de consulta
+      notes:
+        - |
+          Para evitar o registro acidental ou a exposição de `access_tokens`, não incentivamos o uso de pontos de extremidade da API do aplicativo OAuth e o uso da autenticação da API usando parâmetros de consulta. Veja os seguintes posts para ver as substituições propostas:
+
+          * [Substituição da API do aplicativo OAuth](https://developer.github. om/changes/2020-02-14-deprecating-oauth-app-endpoint/#changes-to-make)
+          * [Substituição da autenticação usando cabeçalhos em vez de parâmetros de consulta](https://developer.github. om/changes/2020-02-10-deprecating-auth-through-query-param/#changes-to-make)
+
+          Estes pontos de extremidade e rota de autenticação estão planejados para serem removidos de {% data variables.product.prodname_ghe_server %} em {% data variables.product.prodname_ghe_server %} 3.4.
+    - 
+      heading: Obosolescência do executor do CodeQL
+      notes:
+        - O executor {% data variables.product.prodname_codeql %} está sendo descontinuado. {% data variables.product.prodname_ghe_server %} 3.3 será a versão final da série que é compatível com o executor de {% data variables.product.prodname_codeql %}. A partir de {% data variables.product.prodname_ghe_server %} 3.4, o executor de {% data variables.product.prodname_codeql %} será removido e não será mais compatível. A versão 2.6.2 da CLI de {% data variables.product.prodname_codeql %} ou superior é uma substituição completa de recursos para o executor de {% data variables.product.prodname_codeql %}. Para obter mais informações, consulte o [registro de alterações de {% data variables.product.prodname_dotcom %}](https://github.blog/changelog/2021-09-21-codeql-runner-deprecation/).
+    - 
+      heading: Obsolescência das extensões personalizadas do bit-cache
+      notes:
+        - |
+          Começando em {% data variables.product.prodname_ghe_server %} 3.1, o suporte para extensões de bit-cache de {% data variables.product.company_short %} começou a ser eliminado gradualmente. Essas extensões estão agora obsoletas em {% data variables.product.prodname_ghe_server %} 3.3.
+
+          Todos os repositórios que já estavam presentes e ativos na {% data variables.product.product_location %} versão 3.1 ou 3.2 serão atualizados automaticamente.
+
+          Os repositórios que não estavam presentes e ativos antes de atualizar para {% data variables.product.prodname_ghe_server %} 3.3 podem não ser executados da forma ideal até que uma tarefa de manutenção de repositório seja executada e concluída com sucesso.
+
+          Para iniciar uma tarefa de manutenção do repositório manualmente, acesse https://<hostname>/stafftools/repositórios/<owner>/<repository>/network` para cada repositório afetado e clique no botão **Cronograma**.
+  backups:
+    - '{% data variables.product.prodname_ghe_server %} 3.3 exige pelo menos [GitHub Enterprise Backup Utilities 3.0](https://github.com/github/backup-utils) para [Backups e recuperação de desastre](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance).'

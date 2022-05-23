@@ -6,7 +6,7 @@ redirect_from:
   - /enterprise/admin/enterprise-management/upgrading-a-cluster
   - /admin/enterprise-management/upgrading-a-cluster
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Clustering
@@ -14,7 +14,7 @@ topics:
   - Upgrades
 ---
 
-### Atualizar com hotpatch
+## Atualizar com hotpatch
 {% data reusables.enterprise_installation.hotpatching-explanation %} O script de instalação do hotpatch instala o hotpatch em cada nó do cluster e reinicia os serviços na sequência adequada para evitar tempo de inatividade.
 
 1. Faça backup dos seus dados com o [{% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils#readme).
@@ -23,10 +23,10 @@ topics:
   $ ghe-cluster-hotpatch https://<em>HOTPATCH-URL/NOMEARQUIVO</em>.hpkg
   ```
 
-### Atualizar com pacote de atualização
+## Atualizar com pacote de atualização
 Atualize para a versão mais recente do cluster do {% data variables.product.prodname_ghe_server %} usando um pacote de atualização. Por exemplo, você pode atualizar da versão `2.11` para a versão `2.13`.
 
-#### Preparar para a atualização
+### Preparar para a atualização
 
 1. Revise a [Configuração de rede de clustering](/enterprise/admin/guides/clustering/cluster-network-configuration) da versão para a qual você pretende atualizar e faça os ajustes necessários em sua configuração.
 2. Faça backup dos seus dados com o [{% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils#readme).
@@ -53,7 +53,7 @@ Atualize para a versão mais recente do cluster do {% data variables.product.pro
   ```
 6. Identifique o nó primário MySQL, definido como `mysql-master = <hostname>` em `cluster.conf`. Esse nó será atualizado por último.
 
-#### Atualizar os nós de cluster
+### Atualizar os nós de cluster
 
 1. Ative o modo de manutenção conforme o período planejado conectando-se ao shell administrativo de qualquer nó do cluster e executando o código `ghe-cluster-maintenance -s`.
 2. **Com exceção do nó primário MySQL**, conecte-se ao shell administrativo de cada nó do {% data variables.product.prodname_ghe_server %}. Execute o comando `ghe-upgrade` informando o nome do arquivo que você baixou na Etapa 4 do procedimento [Preparar para a atualização](#preparing-to-upgrade):
@@ -79,5 +79,7 @@ Atualize para a versão mais recente do cluster do {% data variables.product.pro
   > gpg: depth: 0  valid:   1  signed:   0  trust: 0-, 0q, 0n, 0m, 0f, 1u
   > gpg: Good signature from "GitHub Enterprise (Upgrade Package Key) > <enterprise@github.com>"
   ```
-5. Assim que for concluído, o processo de atualização reinicializará o nó primário MySQL. Verifique se você consegue fazer `ping` em cada nó após a reinicialização.
-6. Saia do modo de manutenção do shell administrativo de qualquer nó executando o código `ghe-cluster-maintenance -u`.
+5. Assim que for concluído, o processo de atualização reinicializará o nó primário MySQL. Verifique se você pode fazer `ping` de cada nó depois que ele for reiniciado.{% ifversion ghes %}
+6. Conecte-se ao shell administrativo do nó do MySQL primário e execute o comando `ghe-cluster-config-apply`.
+7. Quando `ghe-cluster-config-apply` for concluído, verifique se os serviços estão em estado saudável executando `ghe-cluster-status`.{% endif %}
+8. Saia do modo de manutenção do shell administrativo de qualquer nó executando o código `ghe-cluster-maintenance -u`.

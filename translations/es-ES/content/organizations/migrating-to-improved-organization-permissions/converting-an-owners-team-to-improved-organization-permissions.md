@@ -2,16 +2,18 @@
 title: Convertir un equipo de Propietarios a los permisos de organización mejorados
 intro: 'Si tu organización fue creada después de septiembre de 2015, tu organización ha mejorado los permisos de la organización por defecto. Las organizaciones creadas antes de septiembre de 2015 pueden necesitar migrar a los antiguos equipos de propietarios y administradores al modelo mejorado de permisos. El "Propietario" ahora tiene un rol administrativo otorgado a los miembros individuales de tu organización. Los miembros de tu equipo de Propietarios heredado automáticamente reciben los privilegios del propietario.'
 redirect_from:
-  - /articles/converting-your-previous-owners-team-to-the-improved-organization-permissions-early-access-program/
-  - /articles/converting-your-previous-owners-team-to-the-improved-organization-permissions/
+  - /articles/converting-your-previous-owners-team-to-the-improved-organization-permissions-early-access-program
+  - /articles/converting-your-previous-owners-team-to-the-improved-organization-permissions
   - /articles/converting-an-owners-team-to-improved-organization-permissions
   - /github/setting-up-and-managing-organizations-and-teams/converting-an-owners-team-to-improved-organization-permissions
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Convertir el equipo de propietarios
 ---
 
 Tienes algunas opciones para convertir tu equipo de Propietarios heredado:
@@ -19,7 +21,7 @@ Tienes algunas opciones para convertir tu equipo de Propietarios heredado:
 - Coloca un nuevo nombre al equipo que denote que los miembros tienen un estado especial en la organización.
 - Elimina el equipo luego de asegurarte de que todos los miembros han sido agregados a los equipos que garantizan las acciones necesarias a los repositorios de la organización.
 
-### Proporcionar al equipo de Propietarios un nuevo nombre
+## Proporcionar al equipo de Propietarios un nuevo nombre
 
 {% tip %}
 
@@ -28,7 +30,7 @@ Tienes algunas opciones para convertir tu equipo de Propietarios heredado:
 {% endtip %}
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.owners-team %}
 {% data reusables.organizations.convert-owners-team-confirm %}
 5. En el campo de nombre del equipo, escoge un nuevo nombre para el equipo Propietarios. Por ejemplo:
@@ -37,7 +39,7 @@ Tienes algunas opciones para convertir tu equipo de Propietarios heredado:
 6. Debajo de la descripción del equipo, haz clic en **Save and continue** (Guardar y continuar). ![El botón para guardar y continuar](/assets/images/help/teams/owners-team-save-and-continue.png)
 7. Opcionalmente, [puedes hacer que el equipo sea *público*](/articles/changing-team-visibility).
 
-### Eliminar el equipo de Propietarios heredado
+## Eliminar el equipo de Propietarios heredado
 
 {% warning %}
 
@@ -46,7 +48,7 @@ Tienes algunas opciones para convertir tu equipo de Propietarios heredado:
 {% endwarning %}
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.owners-team %}
 {% data reusables.organizations.convert-owners-team-confirm %}
 5. En la parte inferior de la página, revisa la advertencia y haz clic en **Delete the Owners team** (Eliminar el equipo de Propietarios). ![Enlace para eliminar el equipo de Propietarios](/assets/images/help/teams/owners-team-delete.png)

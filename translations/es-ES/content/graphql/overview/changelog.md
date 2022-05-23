@@ -4,9 +4,10 @@ intro: 'La bitácora de cambios del modelo de GraphQL es una lista de cambios re
 redirect_from:
   - /v4/changelog
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 ---
@@ -14,7 +15,7 @@ topics:
 Los cambios sustanciales incluyen aquellos que modificarán las consultas existentes o que podrían afectar el comportamiento del tiempo de ejecución de los clientes. Para un listado de cambios sustanciales y cuándo ocurrirán, consulta nuestra [bitácora de cambios sustanciales](/graphql/overview/breaking-changes).
 
 {% for entry in graphql.changelog %}
-### Cambios de modelo para {{ entry.date }}
+## Cambios de modelo para {{ entry.date }}
 
 {% for schemaChange in entry.schemaChanges %}
 {{ schemaChange.title }}

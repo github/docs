@@ -1,0 +1,1 @@
+下次克隆需要身份验证的 HTTPS URL 时，Git 将提示您使用浏览器窗口登录。 {% ifversion not ghae %} 如果您的帐户或组织需要[双重身份验证](/github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa)，则您还需要完成 2FA 质询。{% endif %}

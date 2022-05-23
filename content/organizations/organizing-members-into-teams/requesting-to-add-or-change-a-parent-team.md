@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -21,7 +22,7 @@ If you're an organization owner or you have team maintainer permissions in the c
 {% data reusables.organizations.child-team-inherits-permissions %}
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.teams %}
 4. In the list of teams, click the name of the team you'd like to nest under a parent.
   ![List of the organization's teams](/assets/images/help/teams/click-team-name.png)

@@ -1,1 +1,0 @@
-Ha ocurrido una actividad de suite de verificaciones. {% data reusables.webhooks.action_type_desc %} Para obtener más información, consulta la API de REST de "[suites de verificaciones](/v3/checks/suites/)".

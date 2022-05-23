@@ -2,28 +2,30 @@
 title: Requisitos para listar una app
 intro: 'Las apps que se encuentren en {% data variables.product.prodname_marketplace %} deben cumplir con los requisitos que se detallan en esta página antes de que se pueda publicar la lista.'
 redirect_from:
-  - /apps/adding-integrations/listing-apps-on-github-marketplace/requirements-for-listing-an-app-on-github-marketplace/
-  - /apps/marketplace/listing-apps-on-github-marketplace/requirements-for-listing-an-app-on-github-marketplace/
-  - /apps/marketplace/getting-started-with-github-marketplace-listings/requirements-for-listing-an-app-on-github-marketplace/
-  - /apps/marketplace/creating-and-submitting-your-app-for-approval/requirements-for-listing-an-app-on-github-marketplace/
-  - /apps/marketplace/getting-started/requirements-for-listing-an-app-on-github-marketplace/
+  - /apps/adding-integrations/listing-apps-on-github-marketplace/requirements-for-listing-an-app-on-github-marketplace
+  - /apps/marketplace/listing-apps-on-github-marketplace/requirements-for-listing-an-app-on-github-marketplace
+  - /apps/marketplace/getting-started-with-github-marketplace-listings/requirements-for-listing-an-app-on-github-marketplace
+  - /apps/marketplace/creating-and-submitting-your-app-for-approval/requirements-for-listing-an-app-on-github-marketplace
+  - /apps/marketplace/getting-started/requirements-for-listing-an-app-on-github-marketplace
   - /marketplace/getting-started/requirements-for-listing-an-app-on-github-marketplace
   - /developers/github-marketplace/requirements-for-listing-an-app
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
+shortTitle: Listar los requisitos
 ---
 
 <!--UI-LINK: Displayed as a link on the https://github.com/marketplace/new page.-->
 
 Los requisitos para listar una app en {% data variables.product.prodname_marketplace %} varían de acuerdo con si quieres ofrecer una app gratuita o de pago.
 
-### Requisitos para todas las listas de {% data variables.product.prodname_marketplace %}
+## Requisitos para todas las listas de {% data variables.product.prodname_marketplace %}
 
-Todas las listas de {% data variables.product.prodname_marketplace %} deben ser para las herramientas que proporcionen valor a la comunidad de {% data variables.product.product_name %}. Cuando emites tu lista para que se publique debes leer y aceptar las condiciones del [Acuerdo de Desarrollador de {% data variables.product.prodname_marketplace %}](/articles/github-marketplace-developer-agreement/)".
+Todas las listas de {% data variables.product.prodname_marketplace %} deben ser para las herramientas que proporcionen valor a la comunidad de {% data variables.product.product_name %}. Cuando emites tu lista para que se publique debes leer y aceptar las condiciones del [Acuerdo de Desarrollador de {% data variables.product.prodname_marketplace %}](/free-pro-team@latest/github/site-policy/github-marketplace-developer-agreement)".
 
-#### Requisitos de la experiencia del usuario para todas las apps
+### Requisitos de la experiencia del usuario para todas las apps
 
 Todas las listas deben cumplir con los siguientes requisitos, sin importar si son para una app gratuita o de pago.
 
@@ -37,7 +39,7 @@ Todas las listas deben cumplir con los siguientes requisitos, sin importar si so
 
 Para obtener más información sobre cómo proporcionar una buena experiencia al cliente, consulta la sección "[Mejores prácticas para la experiencia del cliente en las apps](/developers/github-marketplace/customer-experience-best-practices-for-apps)".
 
-#### Requisitos de marca y de listado para todas las apps
+### Requisitos de marca y de listado para todas las apps
 
 - Las apps que utilizan los logos de GitHub deben seguir los lineamientos de {% data variables.product.company_short %}. Para obtener más información, consulta la sección "[Logos de {% data variables.product.company_short %} y su uso](https://github.com/logos)".
 - Las apps deben tener un logo, tarjeta de características, e imágenes de impresión de pantalla que cumplan con las recomendaciones que se proporcionan en "[Escribir las descripciones de los listados de {% data variables.product.prodname_marketplace %}](/marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions/)".
@@ -45,11 +47,11 @@ Para obtener más información sobre cómo proporcionar una buena experiencia al
 
 Para proteger a tus clientes, te recomendamos que también sigas las mejores prácticas de seguridad. Para obtener más información, consulta la sección "[Mejores prácticas de seguridad para las apps](/developers/github-marketplace/security-best-practices-for-apps)".
 
-### Consideraciones para las apps gratuitas
+## Consideraciones para las apps gratuitas
 
 {% data reusables.marketplace.free-apps-encouraged %}
 
-### Requisitos para las apps de pago
+## Requisitos para las apps de pago
 
 Para publicar un plan de pago para tu app en {% data variables.product.prodname_marketplace %}, esta debe pertenecer a una organización que sea un publicador verificado. Para obtener más información sobre el proceso de verificación o de cómo transferir la propiedad de tu app, consulta la sección "[Solicitar una verificación de publicador para tu organización](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)".
 
@@ -57,8 +59,8 @@ Si tu app ya se publicó y eres un publicador verificado, entonces puedes public
 
 Para publicar una app de pago (o una app que te ofrece un plan de pago), también debes cumplir con los siguientes requisitos:
 
-- Las {% data variables.product.prodname_github_app %} deben contar con un mínimo de 100 instalaciones.
-- Las {% data variables.product.prodname_oauth_app %} deben tener un mínimo de 200 usuarios.
+- Las {% data variables.product.prodname_github_apps %} deben tener un mínimo de 100 instalaciones.
+- Las {% data variables.product.prodname_oauth_apps %} deben tener un mínimo de 200 usuarios.
 - Todas las apps de pago deben gestinar los eventos de compra de {% data variables.product.prodname_marketplace %} para las compras nuevas, mejoras, retrocesos, cancelaciones y pruebas gratuitas. Para obtener más información, consulta la sección "[Requisitos de facturación para las apps de pago](#billing-requirements-for-paid-apps)" que se encuentra más adelante.
 
 Cuando estés listo para publicar la app en {% data variables.product.prodname_marketplace %}, deberás solicitar la verificación de su listado.
@@ -69,11 +71,11 @@ Cuando estés listo para publicar la app en {% data variables.product.prodname_m
 
 {% endnote %}
 
-### Requisitos de facturación para las apps de pago
+## Requisitos de facturación para las apps de pago
 
 Tu app no necesita administrar pagos, pero sí necesita utilizar los eventos de compra de {% data variables.product.prodname_marketplace %} para administrar las compras nuevas, mejoras, retrocesos, cancelaciones y pruebas gratuitas. Para obtener más información sobre cómo integrar estos eventos en tu app, consulta la sección "[Utilizar la API de {% data variables.product.prodname_marketplace %} en tu app](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)".
 
-El utilizar la API de facturación de GitHub permite a los clientes comprar una app sin salir de GitHub y pagar por el servicio con el método de pago que ya está adjunto a su cuenta de {% data variables.product.product_name %}.
+El utilizar la API de facturación de GitHub permite a los clientes comprar una app sin salir de GitHub y pagar por el servicio con el método de pago que ya está adjunto a su cuenta de {% data variables.product.product_location %}.
 
 - Las apps deben permitir facturación mensual y anual para las compras de sus sucripciones de pago.
 - Los listados pueden ofrecer cualquier combienación de planes gratuitos y de pago. Los planes gratuitos son opcionales, pero se les fomenta. Para obtener más información, consulta la sección "[Configurar un plan de precios para los listados de {% data variables.product.prodname_marketplace %}](/marketplace/listing-on-github-marketplace/setting-a-github-marketplace-listing-s-pricing-plan/)".

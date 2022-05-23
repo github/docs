@@ -2,14 +2,14 @@
 title: Habilitar el modo privado
 intro: 'En el modo privado, {% data variables.product.prodname_ghe_server %} exige que todos los usuarios inicien sesión para acceder a la instalación.'
 redirect_from:
-  - /enterprise/admin/articles/private-mode/
-  - /enterprise/admin/guides/installation/security/
-  - /enterprise/admin/guides/installation/securing-your-instance/
+  - /enterprise/admin/articles/private-mode
+  - /enterprise/admin/guides/installation/security
+  - /enterprise/admin/guides/installation/securing-your-instance
   - /enterprise/admin/installation/enabling-private-mode
   - /enterprise/admin/configuration/enabling-private-mode
   - /admin/configuration/enabling-private-mode
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Access management
@@ -22,7 +22,7 @@ topics:
   - Security
 ---
 
-Debes habilitar el modo privado si {% data variables.product.product_location %} es de acceso público por internet. En el modo privado, los usuarios no pueden clonar repositorios en forma anónima por `git://`. Si también está habilitada la autenticación incorporada, un administrador debe invitar a los nuevos usuarios para que creen una cuenta en la instancia. Para obtener más información, consulta "[Usar la autenticación incorporada](/enterprise/{{ currentVersion }}/admin/guides/user-management/using-built-in-authentication)."
+Debes habilitar el modo privado si {% data variables.product.product_location %} es de acceso público por internet. En el modo privado, los usuarios no pueden clonar repositorios en forma anónima por `git://`. Si también está habilitada la autenticación incorporada, un administrador debe invitar a los nuevos usuarios para que creen una cuenta en la instancia. Para obtener más información, consulta la sección "[Configurar la autenticación incorporada](/admin/identity-and-access-management/using-built-in-authentication/configuring-built-in-authentication)".
 
 {% data reusables.enterprise_installation.image-urls-viewable-warning %}
 

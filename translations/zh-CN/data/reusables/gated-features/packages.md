@@ -1,5 +1,6 @@
-{% data variables.product.prodname_registry %} 可用于 {% data variables.product.prodname_free_user %}、{% data variables.product.prodname_pro %}、组织的 {% data variables.product.prodname_free_team %}、{% data variables.product.prodname_team %}、{% data variables.product.prodname_ghe_cloud %}、{% data variables.product.prodname_ghe_server %} 和 {% data variables.product.prodname_ghe_managed %}。
-{% if currentVersion == "free-pro-team@latest" %}
-<br>
-{% data variables.product.prodname_registry %} 不适用于使用旧版按仓库计划的帐户所拥有的私有仓库。 此外，使用旧版按仓库计划的帐户无法访问 {% data variables.product.prodname_container_registry %}，因为这些帐户是按仓库计费的。 {% data reusables.gated-features.more-info %}
+{% ifversion fpt or ghec or ghes < 3.5 %} 
+{% data variables.product.prodname_registry %} is available with {% data variables.product.prodname_free_user %}, {% data variables.product.prodname_pro %}, {% data variables.product.prodname_free_team %} for organizations, {% data variables.product.prodname_team %}, {% data variables.product.prodname_ghe_cloud %}, {% data variables.product.prodname_ghe_server %} 3.0 or higher, and {% data variables.product.prodname_ghe_managed %}.{% ifversion ghes %} For more information about upgrading your {% data variables.product.prodname_ghe_server %} instance, see "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)" and refer to the [{% data variables.enterprise.upgrade_assistant %}](https://support.github.com/enterprise/server-upgrade) to find the upgrade path from your current release version.{% endif %}
+{% ifversion fpt or ghec %} 
+<br>{% data variables.product.prodname_registry %} is not available for private repositories owned by accounts using legacy per-repository plans. Also, accounts using legacy per-repository plans cannot access the {% data variables.product.prodname_container_registry %} since these accounts are billed by repository. {% data reusables.gated-features.more-info %}
+{% endif %}
 {% endif %}

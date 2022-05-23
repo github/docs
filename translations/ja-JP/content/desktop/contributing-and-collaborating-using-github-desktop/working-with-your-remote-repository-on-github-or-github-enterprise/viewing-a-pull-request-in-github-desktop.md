@@ -1,29 +1,32 @@
 ---
-title: GitHub デスクトップでプルリクエストを表示する
-shortTitle: プルリクエストを表示する
-intro: '{% data variables.product.prodname_desktop %}でオープンプルリクエストで提案された変更を見ることができます。'
+title: Viewing a pull request in GitHub Desktop
+shortTitle: Viewing a pull request
+intro: 'You can view proposed changes in open pull requests on {% data variables.product.prodname_desktop %}.'
 redirect_from:
   - /desktop/contributing-to-projects/accessing-a-pull-request-locally
   - /desktop/contributing-and-collaborating-using-github-desktop/accessing-a-pull-request-locally
   - /desktop/contributing-and-collaborating-using-github-desktop/viewing-a-pull-request-in-github-desktop
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
+## About pull requests in {% data variables.product.prodname_desktop %}
+You can view pull requests that you or your collaborators have proposed in {% data variables.product.prodname_desktop %}. Pull requests let you propose changes to projects, provide feedback and reviews, and merge changes into projects. For more information, see "[About pull requests](/github/collaborating-with-issues-and-pull-requests/about-pull-requests)."
 
-### {% data variables.product.prodname_desktop %} のプルリクエストについて
-自分またはコラボレータが提案したプルリクエストは、{% data variables.product.prodname_desktop %} で確認できます。 プルリクエストを使用すると、プロジェクトへの変更を提案し、フィードバックとレビューを提供し、変更をプロジェクトにマージできます。 詳しい情報については[プルリクエストについて](/github/collaborating-with-issues-and-pull-requests/about-pull-requests)を参照してください。
+When you view a pull request in {% data variables.product.prodname_desktop %}, you can see a history of commits that contributors made. You can also see which files the commits modified, added, or deleted. From {% data variables.product.prodname_desktop %}, you can open repositories in your preferred text editor to view any changes or make additional changes. After reviewing changes in a pull request, you can give feedback on {% data variables.product.prodname_dotcom %}. For more information, see "[About pull request reviews](/github/collaborating-with-issues-and-pull-requests/about-pull-request-reviews)."
 
-{% data variables.product.prodname_desktop %} でプルリクエストを表示すると、コントリビューターが行ったコミットの履歴を確認できます。 コミットが変更、追加、または削除されたファイルを確認することもできます。 {% data variables.product.prodname_desktop %} から、任意のテキストエディタでリポジトリを開いて、変更を表示したり、追加の変更を加えたりすることができます。 プルリクエストの変更を確認したら、{% data variables.product.prodname_dotcom %} に関するフィードバックを送信できます。 詳しい情報については、「[プルリクエストレビューについて](/github/collaborating-with-issues-and-pull-requests/about-pull-request-reviews)」を参照してください。
+If checks have been enabled in your repository, {% data variables.product.prodname_desktop %} will show the status of the checks on the pull request and allow you to re-run checks. For more information, see "[Viewing and re-running checks in GitHub Desktop](/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/viewing-and-re-running-checks-in-github-desktop)."
 
-### {% data variables.product.prodname_desktop %} のプルリクエストを表示する
+## Viewing a pull request in {% data variables.product.prodname_desktop %}
 {% data reusables.desktop.current-branch-menu %}
 {% data reusables.desktop.click-pull-requests %}
-  ![[Current Branch] のドロップダウンメニュー内にある [Pull Requests] タブ](/assets/images/help/desktop/branch-drop-down-pull-request-tab.png)
+  ![Pull Requests tab in the Current Branch drop-down menu](/assets/images/help/desktop/branch-drop-down-pull-request-tab.png)
 {% data reusables.desktop.choose-pr-from-list %}
-  ![リポジトリ内のオープンプルリクエストのリスト](/assets/images/help/desktop/click-pull-request.png)
-4. プルリクエストのリストを更新したい場合は、{% octicon "sync" aria-label="The sync icon" %}をクリックします。 ![更新するための [Sync] ボタン](/assets/images/help/desktop/pull-request-list-sync.png)
+  ![List of open pull requests in the repository](/assets/images/help/desktop/click-pull-request.png)
+4. Optionally, to refresh the list of pull requests, click {% octicon "sync" aria-label="The sync icon" %}.
+  ![Sync button to refresh](/assets/images/help/desktop/pull-request-list-sync.png)
 
-### {% data variables.product.prodname_dotcom %} から {% data variables.product.prodname_desktop %} でプルリクエストを開く
+## Opening a pull request in {% data variables.product.prodname_desktop %} from {% data variables.product.prodname_dotcom %}
 {% data reusables.repositories.sidebar-pr %}
-2. プルリクエストのリストで、{% data variables.product.prodname_desktop %} で開くプルリクエストをクリックします。
-3. プルリクエストのタイトルの右側にある [**Open with**] ドロップダウンをクリックしてから、[**Open in Desktop**] ボタンをクリックします。 ![[Open in Desktop] ボタン](/assets/images/help/desktop/open-pr-in-desktop-button.png)
+2. In the list of pull requests, click the pull request that you would like to open in {% data variables.product.prodname_desktop %}.
+3. To the right of the title of the pull request, click the **Open with** drop-down and then click the **Open in Desktop** button.
+  ![The Open in Desktop button](/assets/images/help/desktop/open-pr-in-desktop-button.png)

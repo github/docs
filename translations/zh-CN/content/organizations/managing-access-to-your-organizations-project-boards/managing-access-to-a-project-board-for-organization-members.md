@@ -5,17 +5,19 @@ redirect_from:
   - /articles/managing-access-to-a-project-board-for-organization-members
   - /github/setting-up-and-managing-organizations-and-teams/managing-access-to-a-project-board-for-organization-members
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: 管理成员的访问权限
 ---
 
 默认情况下，组织成员对其组织的项目板具有写入权限，除非组织所有者或项目板管理员对特定项目板设置不同的权限。
 
-### 为所有组织成员设置基线权限级别
+## 为所有组织成员设置基线权限级别
 
 {% tip %}
 
@@ -24,7 +26,7 @@ topics:
 {% endtip %}
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.organization-wide-project %}
 {% data reusables.project-management.select-project %}
 {% data reusables.project-management.click-menu %}
@@ -32,7 +34,7 @@ topics:
 8. 在 "Organization member permission"（组织成员权限）下，为所有组织成员选择基线权限级别：**Read（读取）**、**Write（写入）**、**Admin（管理员）**或 **None（无）**。 ![用于所有组织成员的基线项目板权限选项](/assets/images/help/projects/baseline-project-permissions-for-organization-members.png)
 9. 单击 **Save（保存）**。
 
-### 延伸阅读
+## 延伸阅读
 
 - "[管理个人对组织项目板的访问](/articles/managing-an-individual-s-access-to-an-organization-project-board)"
 - "[管理团队对组织项目板的访问](/articles/managing-team-access-to-an-organization-project-board)"

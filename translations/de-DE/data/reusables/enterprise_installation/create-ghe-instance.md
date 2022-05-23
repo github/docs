@@ -1,1 +1,0 @@
-Zum Erstellen der Instanz musst Du das {% data variables.product.prodname_ghe_server %}-Abbild auf Deine virtuelle Maschine importieren und ein zusätzliches Storage-Volume für Deine Instanzdaten anhängen. Weitere Informationen finden Sie unter „[Grundlegendes zur Hardware](#hardware-considerations)“.

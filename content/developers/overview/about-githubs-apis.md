@@ -3,15 +3,18 @@ title: About GitHub's APIs
 intro: 'Learn about {% data variables.product.prodname_dotcom %}''s APIs to extend and customize your {% data variables.product.prodname_dotcom %} experience.'
 redirect_from:
   - /v3/versions
+  - /articles/getting-started-with-the-api
+  - /github/extending-github/getting-started-with-the-api
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 ---
 
-There are two stable versions of the GitHub API: the [REST API](/rest) and the [GraphQL API](/graphql). When using the REST API, we encourage you to [request v3 via the `Accept` header](/v3/media/#request-specific-version). For information on using the GraphQL API, see the [v4 docs](/graphql).
+There are two stable versions of the GitHub API: the [REST API](/rest) and the [GraphQL API]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql). When using the REST API, we encourage you to [request v3 via the `Accept` header](/v3/media/#request-specific-version). For information on using the GraphQL API, see the [v4 docs]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql).
 
 ## Deprecated versions
 

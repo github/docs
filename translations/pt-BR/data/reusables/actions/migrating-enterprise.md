@@ -1,0 +1,1 @@
+Se você estiver migrando sua empresa para {% data variables.product.prodname_actions %} de outro provedor, há considerações adicionais. Para obter mais informações, consulte "[Migrando sua empresa para {% data variables.product.prodname_actions %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/migrating-your-enterprise-to-github-actions)".

@@ -6,13 +6,14 @@ redirect_from:
   - /enterprise/admin/configuration/validating-your-domain-settings
   - /admin/configuration/validating-your-domain-settings
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Fundamentals
   - Infrastructure
   - Networking
+shortTitle: Validar la configuración de dominio
 ---
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}

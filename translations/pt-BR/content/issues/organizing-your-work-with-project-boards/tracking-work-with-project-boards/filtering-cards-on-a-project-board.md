@@ -6,12 +6,16 @@ redirect_from:
   - /articles/filtering-cards-on-a-project-board
   - /github/managing-your-work-on-github/filtering-cards-on-a-project-board
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
+shortTitle: Filtrar cartões no quadro
 ---
+
+{% data reusables.projects.project_boards_old %}
 
 Em um cartão, você pode clicar em qualquer responsável, marco ou etiqueta para filtrar o quadro de projeto por esse qualificador. Para limpar a pesquisa, você pode clicar no mesmo responsável, marco ou etiqueta novamente.
 
@@ -26,8 +30,8 @@ Também é possível usar a barra de pesquisa "Filter cards" (Fitrar cartões) q
 - Filtrar cartões por status de verificação com `status:pending`, `status:success` ou `status:failure`
 - Filtrar cartões por tipo com `type:issue`, `type:pr` ou `type:note`
 - Filtrar cartões por estado e tipo com `is:open`, `is:closed` ou `is:merged`; e `is:issue`, `is:pr` ou `is:note`
-- Filtrar cartões por problemas vinculados a um pull request por uma referência de fechamento usando `linkado:pr`{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2. 0" ou versão atual == "github-ae@latest" %}
-- Filtrar cartões por repositório em um quadro de projetos de toda a organização usando `repo:ORGANIZATION/REPOSITORY`{% endif %}
+- Filtrar cartões por problemas vinculados a um pull request por uma referência de fechamento usando `linked:pr`
+- Filtrar cartões por repositório em um quadro de projetos de toda a organização com `repo:ORGANIZATION/REPOSITORY`
 
 1. Navegue até o quadro de projetos que contém os cartões que você deseja filtrar.
 2. Acima da coluna cartão de projeto, clique na barra de pesquisa "Filter cards" (Filtrar cartões) e digite uma consulta para filtrar os cartões. ![Barra de pesquisa Filter card (Filtrar cartões)](/assets/images/help/projects/filter-card-search-bar.png)
@@ -38,7 +42,7 @@ Também é possível usar a barra de pesquisa "Filter cards" (Fitrar cartões) q
 
 {% endtip %}
 
-### Leia mais
+## Leia mais
 
 - "[Sobre quadros de projetos](/articles/about-project-boards)"
 - "[Adicionar problemas e pull requests a um quadro de projeto](/articles/adding-issues-and-pull-requests-to-a-project-board)"

@@ -3,6 +3,7 @@ title: FAQ about changes to GitHub’s plans
 intro: 'As of April 14, 2020, GitHub announced that all of the core GitHub features are now free for everyone.'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - GitHub
 redirect_from:
@@ -26,11 +27,11 @@ GitHub announced the following plans and pricing changes:
 
 ## How can I upgrade my plan?
 
-To upgrade your user account's plan, see "[Upgrading your personal account's subscription](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription#upgrading-your-personal-accounts-subscription)." To upgrade your organization's plan, see "[Upgrading your organization's subscription](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription#upgrading-your-organizations-subscription)."
+To upgrade your personal account's plan, see "[Upgrading your personal account's subscription](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription#upgrading-your-personal-accounts-subscription)." To upgrade your organization's plan, see "[Upgrading your organization's subscription](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription#upgrading-your-organizations-subscription)."
 
 ## How can I downgrade my plan?
 
-To downgrade your user account's plan, see "[Downgrading your user account's subscription](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription#downgrading-your-user-accounts-subscription)." To downgrade your organization's plan, see "[Downgrading your organization's subscription](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription#downgrading-your-organizations-subscription)."
+To downgrade your personal account's plan, see "[Downgrading your personal account's subscription](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription#downgrading-your-personal-accounts-subscription)." To downgrade your organization's plan, see "[Downgrading your organization's subscription](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription#downgrading-your-organizations-subscription)."
 
 ## If I downgrade from GitHub Team or a Legacy plan to GitHub Free, what features will I lose?
 - Required reviewers in private repositories
@@ -90,6 +91,6 @@ If you’re currently an invoice customer, email your sales representative for a
 
 ## How will this impact users and organizations in regions where U.S. government sanctions are applied?
 
-Due to U.S. trade controls law restrictions, GitHub is unable to provide private repository services and paid services to accounts in U.S. sanctioned regions. GitHub has preserved, however, access to free public repository services. Please read about [GitHub and Trade Controls](/github/site-policy/github-and-trade-controls) for more information.
+Due to U.S. trade controls law restrictions, GitHub is unable to provide private repository services and paid services to accounts in U.S. sanctioned regions. GitHub has preserved, however, access to free public repository services. Please read about [GitHub and Trade Controls](/free-pro-team@latest/github/site-policy/github-and-trade-controls) for more information.
 
 GitHub will continue advocating with U.S. regulators for the greatest possible access to free code collaboration services to developers in sanctioned regions, including free private repositories. We believe that offering those free services supports U.S. foreign policy of encouraging the free flow of information and free speech in those regions.

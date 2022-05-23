@@ -1,6 +1,6 @@
 ---
-title: 使用 npm 注册表
-intro: '您可以配置 npm 以将包发布到 {% data variables.product.prodname_registry %} 并将存储在 {% data variables.product.prodname_registry %} 上的包用作 npm 项目中的依赖项。'
+title: Working with the npm registry
+intro: 'You can configure npm to publish packages to {% data variables.product.prodname_registry %} and to use packages stored on {% data variables.product.prodname_registry %} as dependencies in an npm project.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /articles/configuring-npm-for-use-with-github-package-registry
@@ -9,78 +9,74 @@ redirect_from:
   - /packages/using-github-packages-with-your-projects-ecosystem/configuring-npm-for-use-with-github-packages
   - /packages/guides/configuring-npm-for-use-with-github-packages
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+shortTitle: npm registry
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
 {% data reusables.package_registry.packages-ghae-release-stage %}
 
-**注：**安装或发布 Docker 映像时，{% data variables.product.prodname_registry %} 当前不支持外部图层，如 Windows 映像。
+{% data reusables.package_registry.admins-can-configure-package-types %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
-### 已发布 npm 版本的限制
+## Limits for published npm versions
 
-如果您发布超过 1,000npm 软件包版本到 {% data variables.product.prodname_registry %}，在使用过程中可能会出现性能问题和超时。
+If you publish over 1,000 npm package versions to {% data variables.product.prodname_registry %}, you may see performance issues and timeouts occur during usage.
 
-将来，为了提高服务的性能，您将无法在 {% data variables.product.prodname_dotcom %} 上发布超过 1，000 个版本的包。 在达到此限制之前发布的任何版本仍将是可读的。
+In the future, to improve performance of the service, you won't be able to publish more than 1,000 versions of a package on {% data variables.product.prodname_dotcom %}. Any versions published before hitting this limit will still be readable.
 
-如果达到此限制，请考虑删除包版本或联系支持人员寻求帮助。 实施此限制后，我们的文档将就此限制进行更新。 更多信息请参阅“{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}[删除和恢复包](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif currentVersion ver_lt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %}[删除包](/packages/learn-github-packages/deleting-a-package){% endif %}”或“[联系支持](/packages/learn-github-packages/about-github-packages#contacting-support)”。
+If you reach this limit, consider deleting package versions or contact Support for help. When this limit is enforced, our documentation will be updated with a way to work around this limit. For more information, see {% ifversion fpt or ghec or ghes > 3.1 or ghae %}"[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)" or {% endif %}"[Contacting Support](/packages/learn-github-packages/about-github-packages#contacting-support)."
 
-{% endif %}
-
-### 向 {% data variables.product.prodname_registry %} 验证
+## Authenticating to {% data variables.product.prodname_registry %}
 
 {% data reusables.package_registry.authenticate-packages %}
 
 {% data reusables.package_registry.authenticate-packages-github-token %}
 
-#### 使用个人访问令牌进行身份验证
+### Authenticating with a personal access token
 
 {% data reusables.package_registry.required-scopes %}
 
-通过编辑您的每用户 *~/.npmrc* 文件以包含个人访问令牌，或者在命令行上使用用户名和个人访问令牌登录 npm，您可以使用 npm 向 {% data variables.product.prodname_registry %} 验证。
+You can authenticate to {% data variables.product.prodname_registry %} with npm by either editing your per-user *~/.npmrc* file to include your personal access token or by logging in to npm on the command line using your username and personal access token.
 
-要通过将个人访问令牌添加到 *~/.npmrc* 文件进行身份验证，请编辑项目的 *~/.npmrc* 文件以包含以下行，将 {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}*HOSTNAME* 替换为 {% data variables.product.product_location %} 的主机名，并将 {% endif %}*TOKEN* 替换为您的个人访问令牌。 如果 *~/.npmrc* 文件不存在，请新建该文件。
+To authenticate by adding your personal access token to your *~/.npmrc* file, edit the *~/.npmrc* file for your project to include the following line, replacing {% ifversion ghes or ghae %}*HOSTNAME* with the host name of {% data variables.product.product_location %} and {% endif %}*TOKEN* with your personal access token. Create a new *~/.npmrc* file if one doesn't exist.
 
-{% if enterpriseServerVersions contains currentVersion %}
-有关创建包的更多信息，请参阅 [maven.apache.org 文档](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html)。
+{% ifversion ghes %}
+If your instance has subdomain isolation enabled:
 {% endif %}
 
 ```shell
-//{% if currentVersion == "free-pro-team@latest" %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>/{% endif %}/:_authToken=<em>TOKEN</em>
+//{% ifversion fpt or ghec %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>/{% endif %}/:_authToken=<em>TOKEN</em>
 ```
 
-{% if enterpriseServerVersions contains currentVersion %}
-例如，*OctodogApp* 和 *OctocatApp* 项目将发布到同一个仓库：
+{% ifversion ghes %}
+If your instance has subdomain isolation disabled:
 
 ```shell
-$ npm login --registry=https://npm.pkg.github.com
+//<em>HOSTNAME</em>/_registry/npm/:_authToken=<em>TOKEN</em>
+```
+{% endif %}
+
+To authenticate by logging in to npm, use the `npm login` command, replacing *USERNAME* with your {% data variables.product.prodname_dotcom %} username, *TOKEN* with your personal access token, and *PUBLIC-EMAIL-ADDRESS* with your email address.
+
+If {% data variables.product.prodname_registry %} is not your default package registry for using npm and you want to use the `npm audit` command, we recommend you use the `--scope` flag with the owner of the package when you authenticate to {% data variables.product.prodname_registry %}.
+
+{% ifversion ghes %}
+If your instance has subdomain isolation enabled:
+{% endif %}
+
+```shell
+$ npm login --scope=@<em>OWNER</em> --registry=https://{% ifversion fpt or ghec %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>/{% endif %}
+
 > Username: <em>USERNAME</em>
 > Password: <em>TOKEN</em>
 > Email: <em>PUBLIC-EMAIL-ADDRESS</em>
 ```
-{% endif %}
 
-要通过登录到 npm 进行身份验证，请使用 `npm login` 命令，将 *USERNAME* 替换为您的 {% data variables.product.prodname_dotcom %} 用户名，将 *TOKEN* 替换为您的个人访问令牌，将 *PUBLIC-EMAIL-ADDRESS* 替换为您的电子邮件地址。
-
-如果 {% data variables.product.prodname_registry %} 不是使用 npm 的默认包注册表，并且您要使用 `npm audit` 命令，我们建议您在对 {% data variables.product.prodname_registry %} 进行身份验证时，将 `--scope` 标志与包的所有者一起使用。
-
-{% if enterpriseServerVersions contains currentVersion %}
-有关创建包的更多信息，请参阅 [maven.apache.org 文档](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html)。
-{% endif %}
-
-```shell
-$ npm login --scope=@<em>OWNER</em> --registry=https://{% if currentVersion == "free-pro-team@latest" %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>/{% endif %}
-
-> Username: <em>USERNAME</em>
-> Password: <em>TOKEN</em>
-> Email: <em>PUBLIC-EMAIL-ADDRESS</em>
-```
-
-{% if enterpriseServerVersions contains currentVersion %}
-例如，*OctodogApp* 和 *OctocatApp* 项目将发布到同一个仓库：
+{% ifversion ghes %}
+If your instance has subdomain isolation disabled:
 
 ```shell
 $ npm login --scope=@<em>OWNER</em> --registry=https://<em>HOSTNAME</em>/_registry/npm/
@@ -90,48 +86,48 @@ $ npm login --scope=@<em>OWNER</em> --registry=https://<em>HOSTNAME</em>/_regist
 ```
 {% endif %}
 
-### 发布包
+## Publishing a package
 
 {% note %}
 
-**注：**包名称和作用域只能使用小写字母。
+**Note:** Package names and scopes must only use lowercase letters.
 
 {% endnote %}
 
-默认情况下，{% data variables.product.prodname_registry %} 将包发布到您在 *package.json* 文件的名称字段中指定的 {% data variables.product.prodname_dotcom %} 仓库。 例如，您要发布一个名为 `@my-org/test` 的包到 `my-org/test` {% data variables.product.prodname_dotcom %} 仓库。 通过在包目录中包含 *README.md* 文件，您可以添加包列表页面的摘要。 更多信息请参阅 npm 文档中的“[使用 package.json](https://docs.npmjs.com/getting-started/using-a-package.json)”和“[如何创建 Node.js 模块](https://docs.npmjs.com/getting-started/creating-node-modules)”。
+By default, {% data variables.product.prodname_registry %} publishes a package in the {% data variables.product.prodname_dotcom %} repository you specify in the name field of the *package.json* file. For example, you would publish a package named `@my-org/test` to the `my-org/test` {% data variables.product.prodname_dotcom %} repository. You can add a summary for the package listing page by including a *README.md* file in your package directory. For more information, see "[Working with package.json](https://docs.npmjs.com/getting-started/using-a-package.json)" and "[How to create Node.js Modules](https://docs.npmjs.com/getting-started/creating-node-modules)" in the npm documentation.
 
-通过在 *package.json* 文件中包含 `URL` 字段，您可以将多个包发布到同一个 {% data variables.product.prodname_dotcom %} 仓库。 更多信息请参阅“[将多个包发布到同一个仓库](#publishing-multiple-packages-to-the-same-repository)”。
+You can publish multiple packages to the same {% data variables.product.prodname_dotcom %} repository by including a `URL` field in the *package.json* file. For more information, see "[Publishing multiple packages to the same repository](#publishing-multiple-packages-to-the-same-repository)."
 
-您可以使用项目中的本地 *.npmrc* 文件或使用 *package.json* 中的 `publishConfig` 选项来设置项目的作用域映射。 {% data variables.product.prodname_registry %} 只支持作用域内的 npm 包。 作用域内的包具有名称格式 `@owner/name`。 作用域内的包总是以 `@` 符号开头。 您可能需要更新 *package.json* 中的名称以使用作用域内的名称。 例如，`"name": "@codertocat/hello-world-npm"`。
+You can set up the scope mapping for your project using either a local *.npmrc* file in the project or using the `publishConfig` option in the *package.json*. {% data variables.product.prodname_registry %} only supports scoped npm packages. Scoped packages have names with the format of `@owner/name`. Scoped packages always begin with an `@` symbol. You may need to update the name in your *package.json* to use the scoped name. For example, `"name": "@codertocat/hello-world-npm"`.
 
 {% data reusables.package_registry.viewing-packages %}
 
-#### 使用本地 *.npmrc* 文件发布包
+### Publishing a package using a local *.npmrc* file
 
-您可以使用 *.npmrc* 文件来配置项目的作用域映射。 在 *.npmrc* 文件中，使用 {% data variables.product.prodname_registry %} URL 和帐户所有者，使 account owner so {% data variables.product.prodname_registry %} 知道将包请求路由到何处。 使用 *.npmrc* 文件防止其他开发者意外地将包发布到 npmjs.org 而不是 {% data variables.product.prodname_registry %}。
+You can use an *.npmrc* file to configure the scope mapping for your project. In the *.npmrc* file, use the {% data variables.product.prodname_registry %} URL and account owner so {% data variables.product.prodname_registry %} knows where to route package requests. Using an *.npmrc* file prevents other developers from accidentally publishing the package to npmjs.org instead of {% data variables.product.prodname_registry %}.
 
 {% data reusables.package_registry.authenticate-step %}
 {% data reusables.package_registry.create-npmrc-owner-step %}
 {% data reusables.package_registry.add-npmrc-to-repo-step %}
-1. 验证项目的 *package.json* 中包的名称。 `name` 字段必须包含包的作用域和名称。 例如，如果您的包名为 "test"，并且要发布到 "My-org" {% data variables.product.prodname_dotcom %} 组织，则 *package.json* 中的 `name` 字段应为 `@my-org/test`。
+1. Verify the name of your package in your project's *package.json*. The `name` field must contain the scope and the name of the package. For example, if your package is called "test", and you are publishing to the "My-org" {% data variables.product.prodname_dotcom %} organization, the `name` field in your *package.json* should be `@my-org/test`.
 {% data reusables.package_registry.verify_repository_field %}
 {% data reusables.package_registry.publish_package %}
 
-#### 使用 *package.json* 文件中的 `publishConfig` 发布包
+### Publishing a package using `publishConfig` in the *package.json* file
 
-您可以使用 *package.json* 文件中的 `publishConfig` 元素来指定要发布包的注册表。 更多信息请参阅 npm 文档中的“[publishConfig](https://docs.npmjs.com/files/package.json#publishconfig)”。
+You can use `publishConfig` element in the *package.json* file to specify the registry where you want the package published. For more information, see "[publishConfig](https://docs.npmjs.com/files/package.json#publishconfig)" in the npm documentation.
 
-1. 编辑包的 *package.json* 文件并包含 `publishConfig` 条目。
-  {% if enterpriseServerVersions contains currentVersion %}
-  有关创建包的更多信息，请参阅 [maven.apache.org 文档](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html)。
+1. Edit the *package.json* file for your package and include a `publishConfig` entry.
+  {% ifversion ghes %}
+  If your instance has subdomain isolation enabled:
   {% endif %}
   ```shell
   "publishConfig": {
-    "registry":"https://{% if currentVersion == "free-pro-team@latest" %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>/{% endif %}"
+    "registry":"https://{% ifversion fpt or ghec %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>/{% endif %}"
   },
   ```
-  {% if enterpriseServerVersions contains currentVersion %}
-  例如，*OctodogApp* 和 *OctocatApp* 项目将发布到同一个仓库：
+  {% ifversion ghes %}
+  If your instance has subdomain isolation disabled:
    ```shell
    "publishConfig": {
      "registry":"https://<em>HOSTNAME</em>/_registry/npm/"
@@ -141,30 +137,34 @@ $ npm login --scope=@<em>OWNER</em> --registry=https://<em>HOSTNAME</em>/_regist
 {% data reusables.package_registry.verify_repository_field %}
 {% data reusables.package_registry.publish_package %}
 
-### 将多个包发布到同一个仓库
+## Publishing multiple packages to the same repository
 
-要将多个包发布到同一个仓库，您可以在每个包的 *package.json* 文件的 `repository` 字段中包含 {% data variables.product.prodname_dotcom %} 仓库的 URL。
+To publish multiple packages to the same repository, you can include the URL of the {% data variables.product.prodname_dotcom %} repository in the `repository` field of the *package.json* file for each package.
 
-为确保仓库的 URL 正确，请将 REPOSITORY 替换为要发布的包所在仓库的名称，将 OWNER 替换为拥有该仓库的 {% data variables.product.prodname_dotcom %} 用户或组织帐户的名称。
+To ensure the repository's URL is correct, replace REPOSITORY with the name of the repository containing the package you want to publish, and OWNER with the name of the user or organization account on {% data variables.product.prodname_dotcom %} that owns the repository.
 
-{% data variables.product.prodname_registry %} 将根据该 URL 匹配仓库，而不是根据包名称。
+{% data variables.product.prodname_registry %} will match the repository based on the URL, instead of based on the package name.
 
 ```shell
-"repository":"https://{% if currentVersion == "free-pro-team@latest" %}github.com{% else %}<em>HOSTNAME</em>{% endif %}/<em>OWNER</em>/<em>REPOSITORY</em>",
+"repository":"https://{% ifversion fpt or ghec %}github.com{% else %}<em>HOSTNAME</em>{% endif %}/<em>OWNER</em>/<em>REPOSITORY</em>",
 ```
 
-### 安装包
+## Installing a package
 
-通过在项目的 *package.json* 文件中将包添加为依赖项，您可以从 {% data variables.product.prodname_registry %} 安装包。 有关在项目中使用 *package.json* 的更多信息，请参阅 npm 文档中的“[使用 package.json](https://docs.npmjs.com/getting-started/using-a-package.json)”。
+You can install packages from {% data variables.product.prodname_registry %} by adding the packages as dependencies in the *package.json* file for your project. For more information on using a *package.json* in your project, see "[Working with package.json](https://docs.npmjs.com/getting-started/using-a-package.json)" in the npm documentation.
 
-默认情况下，您可以从一个组织添加包。 更多信息请参阅“[从其他组织安装包](#installing-packages-from-other-organizations)”。
+By default, you can add packages from one organization. For more information, see "[Installing packages from other organizations](#installing-packages-from-other-organizations)."
 
-还需要将 *.npmrc* 文件添加到项目，使所有安装包的请求都会通过 {% data variables.product.prodname_registry %}。 通过 {% data variables.product.prodname_registry %} 路由所有包请求时，您可以使用 *npmjs.com* 作用域内和作用域外的包。 更多信息请参阅 npm 文档中的“[npm 作用域](https://docs.npmjs.com/misc/scope)”。
+You also need to add the *.npmrc* file to your project so that all requests to install packages will {% ifversion ghae %}be routed to{% else %}go through{% endif %} {% data variables.product.prodname_registry %}. {% ifversion fpt or ghes or ghec %}When you route all package requests through {% data variables.product.prodname_registry %}, you can use both scoped and unscoped packages from *npmjs.org*. For more information, see "[npm-scope](https://docs.npmjs.com/misc/scope)" in the npm documentation.{% endif %}
+
+{% ifversion ghae %}
+By default, you can only use npm packages hosted on your enterprise, and you will not be able to use unscoped packages. For more information on package scoping, see "[npm-scope](https://docs.npmjs.com/misc/scope)" in the npm documentation. If required, {% data variables.product.prodname_dotcom %} support can enable an upstream proxy to npmjs.org. Once an upstream proxy is enabled, if a requested package isn't found on your enterprise, {% data variables.product.prodname_registry %} makes a proxy request to npmjs.org.  
+{% endif %}
 
 {% data reusables.package_registry.authenticate-step %}
 {% data reusables.package_registry.create-npmrc-owner-step %}
 {% data reusables.package_registry.add-npmrc-to-repo-step %}
-4. 配置项目中的 *package.json* 使用要安装的包。 要将包依赖项添加到 {% data variables.product.prodname_registry %} 的 *package.json* 文件，请指定完整的作用域内包名称，例如 `@my-org/server`。 对于来自 *npmjs.com* 的包，请指定全名，例如 `@babel/core` 或 `@lodash`。 例如，以下 *package.json* 将 `@octo-org/octo-app` 包用作依赖项。
+4. Configure *package.json* in your project to use the package you are installing. To add your package dependencies to the *package.json* file for {% data variables.product.prodname_registry %}, specify the full-scoped package name, such as `@my-org/server`. For packages from *npmjs.com*, specify the full name, such as `@babel/core` or `@lodash`. For example, this following *package.json* uses the `@octo-org/octo-app` package as a dependency.
 
   ```json
   {
@@ -179,27 +179,27 @@ $ npm login --scope=@<em>OWNER</em> --registry=https://<em>HOSTNAME</em>/_regist
     }
   }
   ```
-5. 安装包。
+5. Install the package.
 
   ```shell
   $ npm install
   ```
 
-#### 从其他组织安装包
+### Installing packages from other organizations
 
-默认情况下，您只能使用来自一个组织的 {% data variables.product.prodname_registry %} 包。 如果想将包请求传送到多个组织和用户，您可以添加额外行到 *.npmrc* 文件，将 {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}*HOSTNAME* 替换为 {% data variables.product.product_location %} 实例的主机名，并{% endif %}将 *OWNER* 替换为拥有项目所在仓库的用户或组织帐户的名称。
+By default, you can only use {% data variables.product.prodname_registry %} packages from one organization. If you'd like to route package requests to multiple organizations and users, you can add additional lines to your *.npmrc* file, replacing {% ifversion ghes or ghae %}*HOSTNAME* with the host name of {% data variables.product.product_location %} and {% endif %}*OWNER* with the name of the user or organization account that owns the repository containing your project.
 
-{% if enterpriseServerVersions contains currentVersion %}
-有关创建包的更多信息，请参阅 [maven.apache.org 文档](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html)。
+{% ifversion ghes %}
+If your instance has subdomain isolation enabled:
 {% endif %}
 
 ```shell
-@<em>OWNER</em>:registry=https://{% if currentVersion == "free-pro-team@latest" %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>{% endif %}
-@<em>OWNER</em>:registry=https://{% if currentVersion == "free-pro-team@latest" %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>{% endif %}
+@<em>OWNER</em>:registry=https://{% ifversion fpt or ghec %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>{% endif %}
+@<em>OWNER</em>:registry=https://{% ifversion fpt or ghec %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>{% endif %}
 ```
 
-{% if enterpriseServerVersions contains currentVersion %}
-例如，*OctodogApp* 和 *OctocatApp* 项目将发布到同一个仓库：
+{% ifversion ghes %}
+If your instance has subdomain isolation disabled:
 
 ```shell
 @<em>OWNER</em>:registry=https://<em>HOSTNAME</em>/_registry/npm
@@ -207,12 +207,8 @@ $ npm login --scope=@<em>OWNER</em> --registry=https://<em>HOSTNAME</em>/_regist
 ```
 {% endif %}
 
-{% if currentVersion ver_gt "enterprise-server@2.22" %}
-### 使用官方 NPM 注册表
+{% ifversion ghes %}
+## Using the official NPM registry
 
-{% data variables.product.prodname_registry %} 允许您访问 `registry.npmjs.com` 上的官方 NPM 注册表，前提是您的 {% data variables.product.prodname_ghe_server %} 管理员已启用此功能。 更多信息请参阅[连接到官方 NPM 注册表](/admin/packages/configuring-packages-support-for-your-enterprise#connecting-to-the-official-npm-registry)。
+{% data variables.product.prodname_registry %} allows you to access the official NPM registry at `registry.npmjs.com`, if your {% data variables.product.prodname_ghe_server %} administrator has enabled this feature. For more information, see [Connecting to the official NPM registry](/admin/packages/configuring-packages-support-for-your-enterprise#connecting-to-the-official-npm-registry).
 {% endif %}
-
-### 延伸阅读
-
-- "{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}[删除和恢复包](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif currentVersion ver_lt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %}[删除包](/packages/learn-github-packages/deleting-a-package){% endif %}"

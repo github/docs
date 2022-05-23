@@ -2,21 +2,20 @@
 title: アクションの終了コードの設定
 shortTitle: 終了コードの設定
 intro: '終了コードを使って、アクションのステータスを設定できます。 {% data variables.product.prodname_dotcom %}は、パスした、あるいは失敗したアクションを示すステータスを表示します。'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/building-actions/setting-exit-codes-for-actions
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 type: how_to
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
-### 終了コードについて
+## 終了コードについて
 
 {% data variables.product.prodname_dotcom %} は、終了コードを使用して、アクションのチェック実行ステータスを設定します。これは、`success` または`failure` のいずれかです。
 
@@ -25,7 +24,7 @@ type: how_to
 | `0`                 | `success`   | アクションが正常に完了し、それに依存する他のタスクを開始できます。                                                                                             |
 | ゼロ以外の値 (0 以外の任意の整数) | `failure`   | その他の終了コードは、アクションの失敗を表します。 アクションが失敗すると、同時に実行されていたアクションはすべてキャンセルされ、今後のアクションはスキップされます。 チェック実行とチェックスイートはどちらも、`failure`ステータスになります。 |
 
-### JavaScript アクションで失敗終了を設定する
+## JavaScript アクションで失敗終了を設定する
 
 JavaScript アクションを作成している場合、アクションツールキットの [`@actions/core`](https://github.com/actions/toolkit/tree/main/packages/core) パッケージを使用してメッセージをログに記録し、失敗終了コードを設定できます。 例:
 
@@ -39,9 +38,9 @@ try {
 
 詳しい情報については「[JavaScript アクションを作成する](/articles/creating-a-javascript-action)」を参照してください。
 
-### Docker コンテナアクションで失敗終了コードを設定する
+## Docker コンテナアクションで失敗終了コードを設定する
 
-Docker コンテナアクションを作成している場合、失敗終了コードを `entrypoint.sh` スクリプトに設定できます。 例:
+Docker コンテナアクションを作成している場合、失敗終了コードを `entrypoint.sh` スクリプトで設定できます。 例:
 
 ```
 if <condition> ; then

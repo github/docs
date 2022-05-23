@@ -2,7 +2,8 @@
 title: 将学习管理系统连接到 GitHub Classroom
 intro: '您可以配置 LTI 兼容的学习管理系统 (LMS) 连接到 {% data variables.product.prodname_classroom %}，以便导入用于课堂的名册。'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+permissions: 'Organization owners who are admins for a classroom can connect learning management systems to {% data variables.product.prodname_classroom %}. {% data reusables.classroom.classroom-admins-link %}'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/configuring-a-learning-management-system-for-github-classroom
   - /education/manage-coursework-with-github-classroom/connect-to-lms
@@ -11,17 +12,18 @@ redirect_from:
   - /education/manage-coursework-with-github-classroom/setup-generic-lms
   - /education/manage-coursework-with-github-classroom/setup-moodle
   - /education/manage-coursework-with-github-classroom/connect-a-learning-management-system-to-github-classroom
+shortTitle: 连接 LMS
 ---
 
-### 关于 LMS 的配置
+## 关于 LMS 的配置
 
 您可以将学习管理系统 (LMS) 连接到 {% data variables.product.prodname_classroom %}，然后 {% data variables.product.prodname_classroom %} 可以从 LMS 导入学生标识符名册。 若要将 LMS 连接到 {% data variables.product.prodname_classroom %}，必须在 LMS 中输入 {% data variables.product.prodname_classroom %} 的配置凭据。
 
-### 基本要求
+## 基本要求
 
 要配置 LMS 连接到 {% data variables.product.prodname_classroom %}，您必须先创建一个教室。 更多信息请参阅“[管理教室](/education/manage-coursework-with-github-classroom/manage-classrooms#creating-a-classroom)”。
 
-### 支持的 LMSes
+## 支持的 LMSes
 
 {% data variables.product.prodname_classroom %} 支持从实施学习工具互操作性 (LTI) 标准的 LMS 导入名册数据。
 
@@ -39,7 +41,7 @@ redirect_from:
 
 目前， {% data variables.product.prodname_classroom %} 不支持从 Blackboard 或 Brightspace 导入名册数据.
 
-### 为教室生成配置凭据
+## 为教室生成配置凭据
 
 {% data reusables.classroom.sign-into-github-classroom %}
 {% data reusables.classroom.click-classroom-in-list %}
@@ -51,7 +53,7 @@ redirect_from:
 1. 阅读有关连接 LMS 的操作，然后单击 **连接到 _LMS_**。
 1. 复制用于连接到教室的“消费者密钥”、“共享密钥”和“启动 URL”。 ![复制凭据](/assets/images/help/classroom/classroom-copy-credentials.png)
 
-### 配置通用 LMS
+## 配置通用 LMS
 
 您必须为 LMS 配置隐私设置，以允许外部工具接收名册信息。
 
@@ -62,7 +64,7 @@ redirect_from:
     - 共享机密
     - 启动 URL（有时称为“工具 URL”或类似名称）
 
-### 配置 Canvas
+## 配置 Canvas
 
 您可以将 {% data variables.product.prodname_classroom %} 配置为 Canvas 的外部应用以将名册数据导入到您的教室。 有关 Canvas 的更多信息，请参阅 [Canvas 网站](https://www.instructure.com/canvas/)。
 
@@ -92,13 +94,13 @@ redirect_from:
 1. 在左侧边栏中，单击 **Home（主页）**。
 1. 要提示 Canvas 发送确认电子邮件，请在左侧栏中单击 **GitHub Classroom**。 按照电子邮件中的说明完成链接 {% data variables.product.prodname_classroom %}。
 
-### 配置 Moodle
+## 配置 Moodle
 
 您可以将 {% data variables.product.prodname_classroom %} 配置为 Moodle 的活动以将名册数据导入到您的教室。 有关 Moodle 的更多信息，请参阅 [Moodle 网站](https://moodle.org)。
 
 您必须使用 Moodle 版本 3.0 或更高版本。
 
-1. 登录 [Moodle](https://moodle.org/login/index.php)。
+1. 登录 [Moodle](https://moodle.org/login/)。
 1. 选择要与 {% data variables.product.prodname_classroom %} 集成的 Moodle 课程。
 1. 单击 **Turn editing on（打开编辑）**。
 1. 当希望 {% data variables.product.prodname_classroom %} 在 Moodle 中可用时，单击 **Add an activity or resource（添加活动或资源）**。
@@ -126,11 +128,11 @@ redirect_from:
 1. 在页面底部，单击 **Save and return to course（保存并返回课程）**。
 1. 导航到您选择显示 {% data variables.product.prodname_classroom %} 的任何位置，然后单击 {% data variables.product.prodname_classroom %} 活动。
 
-### 从 LMS 导入名册
+## 从 LMS 导入名册
 
 有关从将名册从 LMS 导入到 {% data variables.product.prodname_classroom %} 的更多信息，请参阅“[管理教室](/education/manage-coursework-with-github-classroom/manage-classrooms#creating-a-roster-for-your-classroom)”。
 
-### 断开 LMS 连接
+## 断开 LMS 连接
 
 {% data reusables.classroom.sign-into-github-classroom %}
 {% data reusables.classroom.click-classroom-in-list %}

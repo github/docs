@@ -7,10 +7,10 @@ redirect_from:
   - /desktop/contributing-to-projects/pushing-changes-to-github
   - /desktop/contributing-and-collaborating-using-github-desktop/pushing-changes-to-github
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 
-### Sobre o envio de alterações para {% data variables.product.prodname_dotcom %}
+## Sobre o envio de alterações para {% data variables.product.prodname_dotcom %}
 
 Quando você faz push das alterações, você envia as alterações confirmadas em seu repositório local para o repositório remoto no {% data variables.product.prodname_dotcom %}. Se você alterar seu projeto localmente e desejar que outras pessoas tenham acesso às alterações, você deve fazer push das alterações para {% data variables.product.prodname_dotcom %}.
 
@@ -18,7 +18,7 @@ Antes de fazer push das alterações, você deve atualizar seu branch local para
 
 {% data reusables.desktop.protected-branches %}
 
-### Fazendo push das alterações para {% data variables.product.prodname_dotcom %}
+## Fazendo push das alterações para {% data variables.product.prodname_dotcom %}
 
 {% note %}
 
@@ -35,6 +35,6 @@ Se você configurar o {% data variables.large_files.product_name_long %} para ra
 2. Se {% data variables.product.prodname_desktop %} solicitar que você busque novos commits do controle remoto, clique em **Fetch**. ![O botão Fetch](/assets/images/help/desktop/fetch-newer-commits.png)
 3. Opcionalmente, clique em **Criar Pull Request** para abrir um pull request e fazer uma colaboração nas suas alterações. Para obter mais informações, consulte "[Criando um problema ou um pull request](/desktop/contributing-to-projects/creating-an-issue-or-pull-request)" ![O botão Criar Pull Request](/assets/images/help/desktop/create-pull-request.png)
 
-### Leia mais
+## Leia mais
 - "[Push](/github/getting-started-with-github/github-glossary/#push)" no glossário {% data variables.product.prodname_dotcom %}
 - "[Fazendo commit e revisando as alterações no seu projeto](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project)"

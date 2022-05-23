@@ -2,14 +2,16 @@
 title: GitHub Marketplace API 的 REST 端点
 intro: '要帮助管理 {% data variables.product.prodname_marketplace %} 上的应用程序，请使用这些 {% data variables.product.prodname_marketplace %} API 端点。'
 redirect_from:
-  - /apps/marketplace/github-marketplace-api-endpoints/
-  - /apps/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-rest-api-endpoints/
+  - /apps/marketplace/github-marketplace-api-endpoints
+  - /apps/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-rest-api-endpoints
   - /marketplace/integrating-with-the-github-marketplace-api/github-marketplace-rest-api-endpoints
   - /developers/github-marketplace/rest-endpoints-for-the-github-marketplace-api
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
+shortTitle: REST API
 ---
 
 以下是一些可用于 Marketplace 上架产品的有用端点：
@@ -26,6 +28,6 @@ topics:
 
 {% note %}
 
-**注：**[REST API 的速率限制](/rest#rate-limiting)适用于所有 {% data variables.product.prodname_marketplace %} API 端点。
+**注：**[REST API 的速率限制](/rest/overview/resources-in-the-rest-api#rate-limiting)适用于所有 {% data variables.product.prodname_marketplace %} API 端点。
 
 {% endnote %}

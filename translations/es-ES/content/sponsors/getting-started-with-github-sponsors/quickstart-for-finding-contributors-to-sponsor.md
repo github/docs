@@ -2,13 +2,15 @@
 title: Guía rápida para encontrar contribuyentes para patrocinar
 intro: Aprende algunas de las mejores prácticas para encontrar contribuyentes de código abierto para patrocinar.
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: quick_start
 topics:
   - Open Source
+shortTitle: Inicio Rápido
 ---
 
-### Explora los proyectos de los cuales dependes
+## Explora los proyectos de los cuales dependes
 
 En medida que consideres dónde encontrar contribuyentes de código abierto para patrocinar, considera comenzar en https://github.com/sponsors/community.
 
@@ -20,11 +22,11 @@ También puedes alternar entre de cuáles de tus cuentas quieres ver resultados 
 
 ![Opciones de búsqueda de la página de búsqueda de la comunidadde patrocinadores](/assets/images/help/sponsors/sponsors-search-options.png)
 
-### Explora aquién patrocinan los demás
+## Explora aquién patrocinan los demás
 
 Puedes ver a quién patrocina un usuario u organización en su página de perfil de {% data variables.product.prodname_dotcom %}.
 
-### Considera cómo te beneficias de los diferentes contribuyentes
+## Considera cómo te beneficias de los diferentes contribuyentes
 
 Considera si te beneficias del trabajo de los contribuyentes de código abierto, tal como:
  - Documentación
@@ -42,10 +44,10 @@ Para obtener más información sobre los diferentes tipos de contribuyentes de c
 
 Puedes verificar si los contribuyentes de los que te has beneficiado tienen perfiles de {% data variables.product.prodname_sponsors %} si utilizas la búsqueda en https://github.com/sponsors/community.
 
-### Busca un proyecto o contribuyente específico
+## Busca un proyecto o contribuyente específico
 
-En https://github.com/sponsors/community, puedes buscar por ecosistema, los más utilizados, actualizados recientemente, y más. Puedes filtrar los resultados de búsqueda para tu cuenta de usuario personal o para las organizaciones de las cuales eres miembro.
+En https://github.com/sponsors/community, puedes buscar por ecosistema, los más utilizados, actualizados recientemente, y más. Puedes filtrar los resultados de búsqueda para tu cuenta personal o para las organizaciones de las cuales eres miembro.
 
-### Pasos siguientes
+## Pasos siguientes
 
 Para obtener más información sobre cómo iniciar tu patrocinio, consulta la sección "[Patrocinar un contribuyente de código abierto](/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor)".

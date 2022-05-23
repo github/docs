@@ -1,1 +1,1 @@
-4. Decide whether you want to receive email updates from the sponsored account, then select or unselect "Receive email updates from _ACCOUNT_." ![Caixa de seleção para receber atualizações da conta patrocinada](/assets/images/help/sponsors/updates-checkbox-manage.png)
+4. Decida se deseja receber atualizações de e-mail da conta patrocinada e, em seguida, selecione ou desmarque "Receber atualizações por e-mail da _CONTA_." ![Caixa de seleção para receber atualizações da conta patrocinada](/assets/images/help/sponsors/updates-checkbox-manage.png)

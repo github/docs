@@ -2,27 +2,30 @@
 title: Enterprise にデータを移行する
 intro: '移行アーカイブを作成すると、ターゲットの {% data variables.product.prodname_ghe_server %} インスタンスにデータをインポートできます。 変更を恒久的にターゲットのインスタンスに適用する前に、潜在的なコンフリクトがないか変更をレビューできます。'
 redirect_from:
-  - /enterprise/admin/guides/migrations/importing-migration-data-to-github-enterprise/
+  - /enterprise/admin/guides/migrations/importing-migration-data-to-github-enterprise
   - /enterprise/admin/migrations/applying-the-imported-data-on-github-enterprise-server
   - /enterprise/admin/migrations/reviewing-migration-data
   - /enterprise/admin/migrations/completing-the-import-on-github-enterprise-server
-  - /enterprise/admin/guides/migrations/applying-the-imported-data-on-github-enterprise/
-  - /enterprise/admin/guides/migrations/reviewing-the-imported-data/
-  - /enterprise/admin/guides/migrations/completing-the-import-on-github-enterprise/
-  - /enterprise/admin/guides/migrations/importing-migration-data-to-github-enterprise-server/
+  - /enterprise/admin/guides/migrations/applying-the-imported-data-on-github-enterprise
+  - /enterprise/admin/guides/migrations/reviewing-the-imported-data
+  - /enterprise/admin/guides/migrations/completing-the-import-on-github-enterprise
+  - /enterprise/admin/guides/migrations/importing-migration-data-to-github-enterprise-server
   - /enterprise/admin/user-management/migrating-data-to-your-enterprise
   - /admin/user-management/migrating-data-to-your-enterprise
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Migration
+shortTitle: Import to your enterprise
 ---
 
-### インポートしたデータを {% data variables.product.prodname_ghe_server %} に適用する
+## インポートしたデータを {% data variables.product.prodname_ghe_server %} に適用する
 
-[移行の準備](/admin/user-management/preparing-to-migrate-data-to-your-enterprise)ができたら、次のステップで移行を完了できます。
+Before you can migrate data to your enterprise, you must prepare the data and resolve any conflicts. 詳しい情報については、「[Enterprise へのデータ移行を準備する](/admin/user-management/preparing-to-migrate-data-to-your-enterprise)」を参照してください。
+
+After you prepare the data and resolve conflicts, you can apply the imported data on {% data variables.product.product_name %}.
 
 {% data reusables.enterprise_installation.ssh-into-target-instance %}
 
@@ -39,7 +42,7 @@ topics:
 
     * {% data reusables.enterprise_migrations.specify-staging-path %}
 
-### 移行データのレビュー
+## 移行データのレビュー
 
 デフォルトでは、`ghe-migrator audit` はすべてのレコードを返します。 また、以下の条件でレコードをフィルタリングすることもできます。
 
@@ -48,7 +51,7 @@ topics:
 
 レコードタイプは[移行データ](/enterprise/admin/guides/migrations/about-migrations/#migrated-data)にあるものとマッチします。
 
-### レコードタイプのフィルタ
+## レコードタイプのフィルタ
 
 | レコードタイプ                       | フィルタ名                         |
 | ----------------------------- | ----------------------------- |
@@ -58,7 +61,7 @@ topics:
 | Team                          | `Team`                        |
 | マイルストーン                       | `マイルストーン`                     |
 | プロジェクトボード                     | `project`                     |
-| 問題                            | `Issue`                       |
+| Issue                         | `Issue`                       |
 | Issueのコメント                    | `issue_comment`               |
 | プルリクエスト                       | `pull_request`                |
 | プルリクエストのレビュー                  | `pull_request_review`         |
@@ -68,7 +71,7 @@ topics:
 | プルリクエストあるいはIssueに対して行われたアクション | `issue_event`                 |
 | 保護されたブランチ                     | `protected_branch`            |
 
-### レコードの状態フィルタ
+## レコードの状態フィルタ
 
 | レコードの状態         | 説明                  |
 | --------------- | ------------------- |
@@ -88,7 +91,7 @@ topics:
 | `failed_rename` | レコードの名前の変更に失敗しました。  |
 | `failed_merge`  | レコードはマージに失敗しました。    |
 
-### 監査されたレコードのフィルタリング
+## 監査されたレコードのフィルタリング
 
 `ghe-migrator audit`では、`-m`フラグを使ってレコードタイプに基づくフィルタリングができます。 同様に、`-s`フラグでインポートの状態に対してフィルタリングができます。 コマンドは以下のようになります。
 
@@ -113,18 +116,18 @@ $ ghe-migrator audit -s failed_import,failed_map,failed_rename,failed_merge -g <
 
 失敗したインポートに関する懸念があるなら、{% data variables.contact.contact_ent_support %}に連絡してください。
 
-### {% data variables.product.prodname_ghe_server %} でインポートを完了する
+## {% data variables.product.prodname_ghe_server %} でインポートを完了する
 
 ターゲットインスタンスへの移行が適用され、その内容を確認したら、リポジトリのロックを解除して、ソースから削除します。 ソースデータを削除する前に、すべてが期待どおりに機能していることを確認するため2週間ほど待つことをおすすめします。
 
-### ターゲットインスタンス上でのリポジトリのアンロック
+## ターゲットインスタンス上でのリポジトリのアンロック
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 {% data reusables.enterprise_migrations.unlocking-on-instances %}
 
-### ソース上でのリポジトリのアンロック
+## ソース上でのリポジトリのアンロック
 
-#### {% data variables.product.prodname_dotcom_the_website %} で Organization からリポジトリのロックを解除する
+### {% data variables.product.prodname_dotcom_the_website %} で Organization からリポジトリのロックを解除する
 
 {% data variables.product.prodname_dotcom_the_website %} Organization のリポジトリをアンロックするには、`DELETE` リクエストを<a href="/rest/reference/migrations#unlock-an-organization-repository" class="dotcom-only">移行アンロックエンドポイント</a>に送信します。 以下が必要です:
   * 認証のためのアクセストークン
@@ -136,7 +139,7 @@ curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
   https://api.github.com/orgs/<em>orgname</em>/migrations/<em>id</em>/repos/<em>repo_name</em>/lock
 ```
 
-#### {% data variables.product.prodname_dotcom_the_website %} で Organization からリポジトリを削除する
+### {% data variables.product.prodname_dotcom_the_website %} で Organization からリポジトリを削除する
 
 {% data variables.product.prodname_dotcom_the_website %} Organization のリポジトリをロック解除した後、[リポジトリ削除エンドポイント](/rest/reference/repos/#delete-a-repository)を使用して以前に移行したすべてのリポジトリを削除する必要があります。 認証のためのアクセストークンが必要になります。
 ```shell
@@ -144,7 +147,7 @@ curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
   https://api.github.com/repos/<em>orgname</em>/<em>repo_name</em>
 ```
 
-#### {% data variables.product.prodname_ghe_server %} インスタンスからリポジトリをアンロックする
+### {% data variables.product.prodname_ghe_server %} インスタンスからリポジトリをアンロックする
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 {% data reusables.enterprise_migrations.unlocking-on-instances %}

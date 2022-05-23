@@ -1,13 +1,13 @@
 ---
 title: Personalizando executores hospedados no GitHub
 intro: Você pode instalar software adicional em executores hospedados no GitHub como parte do seu fluxo de trabalho.
-product: '{% data reusables.gated-features.actions %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  fpt: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Workflows
+shortTitle: Personalize executores
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
@@ -18,11 +18,10 @@ Para ver quais pacotes já estão instalados por padrão, consulte "[Software pr
 
 Este guia demonstra como criar um trabalho que instale software adicional em um executor hospedado em {% data variables.product.prodname_dotcom %}.
 
-### Instalando software nos executores do Ubuntu
+## Instalando software nos executores do Ubuntu
 
 O exemplo a seguir demonstra como instalar um pacote `apt` como parte de um trabalho.
 
-{% raw %}
 ```yaml
 name: Build on Ubuntu
 on: push
@@ -32,13 +31,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
-        uses: actions/checkout@v2
+        uses: {% data reusables.actions.action-checkout %}
       - name: Install jq tool
         run: |
           sudo apt-get update
           sudo apt-get install jq
 ```
-{% endraw %}
 
 {% note %}
 
@@ -46,11 +44,10 @@ jobs:
 
 {% endnote %}
 
-### Instalando o software nos executores do macOS
+## Instalando o software nos executores do macOS
 
 O exemplo a seguir demonstra como instalar pacotes de Brew e cascas como parte de um trabalho.
 
-{% raw %}
 ```yaml
 name: Build on macOS
 on: push
@@ -60,7 +57,7 @@ jobs:
     runs-on: macos-latest
     steps:
       - name: Check out repository code
-        uses: actions/checkout@v2
+        uses: {% data reusables.actions.action-checkout %}
       - name: Install GitHub CLI
         run: |
           brew update
@@ -70,9 +67,8 @@ jobs:
           brew update
           brew install --cask microsoft-edge
 ```
-{% endraw %}
 
-### Instalando software em executores do Windows
+## Instalando software em executores do Windows
 
 O exemplo a seguir demonstra como usar o [Chocolatey](https://community.chocolatey.org/packages) para instalar a CLI de {% data variables.product.prodname_dotcom %} como parte de um trabalho.
 

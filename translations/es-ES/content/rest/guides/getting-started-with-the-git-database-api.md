@@ -2,14 +2,16 @@
 title: Comenzar con la API de la Base de Datos de Git
 intro: 'La API de la Base de datos de Git te da acceso de escritura y lectora para los objetos sin procesar de Git que se encuentran en tu base de datos de Git en {% data variables.product.product_name %} y para listar y actualizar tus referencias (cabezas de rama y etiquetas).'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - API
+shortTitle: Introducción - API de la base de datos de Git
 ---
 
-### Resumen
+## Resumen
 
 Básicamente, esto te permite volver a implementar muchas de las funcionalidades de Git sobre nuestra API mediante la creación de objetos sin procesar (raw) directamente en la base de datos y actualizando las referencias de rama que técnicamente podrían hacer todo lo que pueda hacer Git sin que se éste se instale.
 
@@ -31,7 +33,7 @@ Como ejemplo, si quieres confirmar un cambio en un archivo de tu repositorio, lo
 
 Puede que parezca complejo, pero en realidad es bastante simple cuando entiendes el modelo y te proporciona la oportunidad de hacer un sin fin de cosas cuando lo haces potencialmente con la API.
 
-### Verificar la capacidad de fusión de las solicitudes de extracción
+## Verificar la capacidad de fusión de las solicitudes de extracción
 
 {% warning %}
 

@@ -8,19 +8,20 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Community
 ---
 
-It's appropriate to lock a conversation when the entire conversation is not constructive or violates your community's code of conduct{% ifversion fpt %} or GitHub's [Community Guidelines](/articles/github-community-guidelines){% endif %}. When you lock a conversation, you can also specify a reason, which is publicly visible.
+It's appropriate to lock a conversation when the entire conversation is not constructive or violates your community's code of conduct{% ifversion fpt or ghec %} or GitHub's [Community Guidelines](/free-pro-team@latest/github/site-policy/github-community-guidelines){% endif %}. When you lock a conversation, you can also specify a reason, which is publicly visible.
 
 Locking a conversation creates a timeline event that is visible to anyone with read access to the repository. However, the username of the person who locked the conversation is only visible to people with write access to the repository. For anyone without write access, the timeline event is anonymized.
 
 ![Anonymized timeline event for a locked conversation](/assets/images/help/issues/anonymized-timeline-entry-for-locked-conversation.png)
 
-While a conversation is locked, only [people with write access](/articles/repository-permission-levels-for-an-organization/) and [repository owners and collaborators](/articles/permission-levels-for-a-user-account-repository/#collaborator-access-for-a-repository-owned-by-a-user-account) can add, hide, and delete comments.
+While a conversation is locked, only [people with write access](/articles/repository-permission-levels-for-an-organization/) and [repository owners and collaborators](/articles/permission-levels-for-a-user-account-repository/#collaborator-access-for-a-repository-owned-by-a-personal-account) can add, hide, and delete comments.
 
-To search for locked conversations in a repository that is not archived, you can use the search qualifiers `is:locked` and `archived:false`. Conversations are automatically locked in archived repositories. For more information, see "[Searching issues and pull requests](/articles/searching-issues-and-pull-requests#search-based-on-whether-a-conversation-is-locked)."
+To search for locked conversations in a repository that is not archived, you can use the search qualifiers `is:locked` and `archived:false`. Conversations are automatically locked in archived repositories. For more information, see "[Searching issues and pull requests](/search-github/searching-on-github/searching-issues-and-pull-requests#search-based-on-whether-a-conversation-is-locked)."
 
 1. Optionally, write a comment explaining why you're locking the conversation.
 2. In the right margin of the issue or pull request, or above the comment box on the commit page, click **Lock conversation**.
@@ -36,7 +37,7 @@ To search for locked conversations in a repository that is not archived, you can
 
 - "[Setting up your project for healthy contributions](/communities/setting-up-your-project-for-healthy-contributions)"
 - "[Using templates to encourage useful issues and pull requests](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)"
-- "[Managing disruptive comments](/communities/moderating-comments-and-conversations/managing-disruptive-comments)"{% ifversion fpt %}
+- "[Managing disruptive comments](/communities/moderating-comments-and-conversations/managing-disruptive-comments)"{% ifversion fpt or ghec %}
 - "[Maintaining your safety on {% data variables.product.prodname_dotcom %}](/communities/maintaining-your-safety-on-github)"
 - "[Reporting abuse or spam](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"
 - "[Limiting interactions in your repository](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)"

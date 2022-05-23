@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -19,10 +20,12 @@ children:
   - /setting-permissions-for-deleting-or-transferring-repositories
   - /restricting-repository-visibility-changes-in-your-organization
   - /managing-the-forking-policy-for-your-organization
+  - /managing-pull-request-reviews-in-your-organization
   - /disabling-or-limiting-github-actions-for-your-organization
   - /configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization
   - /setting-permissions-for-adding-outside-collaborators
   - /allowing-people-to-delete-issues-in-your-organization
+  - /enabling-or-disabling-github-discussions-for-an-organization
   - /managing-discussion-creation-for-repositories-in-your-organization
   - /setting-team-creation-permissions-in-your-organization
   - /managing-scheduled-reminders-for-your-organization
@@ -39,5 +42,5 @@ children:
   - /disabling-project-boards-in-your-organization
 shortTitle: Manage organization settings
 ---
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% endif %}

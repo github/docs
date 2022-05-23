@@ -1,5 +1,5 @@
 {% note %}
 
-**Nota:** Cuando eliminas un usuario de la organización, sus datos de membresía se guardan durante tres meses. Si en el transcurso de ese tiempo invitas al usuario a que se vuelva a unir a la organización, puedes restaurar sus datos o cualquier bifurcación privada de tus repositorios de la organización que le haya pertenecido. Para obtener más información, consulta "[Reinstalar un miembro antiguo de tu organización](/enterprise/{{ page.version }}/user/articles/reinstating-a-former-member-of-your-organization)".
+**Note:** When you remove a user from your organization, their membership data is saved for three months. You can restore their data, or any private forks they owned of your organization's repositories, if you invite the user to rejoin the organization within that time frame. For more information, see "[Reinstating a former member of your organization](/articles/reinstating-a-former-member-of-your-organization)."
 
 {% endnote %}

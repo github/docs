@@ -1,1 +1,1 @@
-Los secretos cifrados te permiten almacenar información sensible, tal como tokens de acceso, en tu repositorio{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}, ambientes de repositorio,{% endif %} u organización.
+Los secretos cifrados te permiten almacenar información sensible, tal como tokens de acceso, en tu repositorio{% ifversion fpt or ghes > 3.1 or ghae or ghec %}, ambientes de repositorio,{% endif %} u organización.

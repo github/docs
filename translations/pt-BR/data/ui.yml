@@ -1,4 +1,6 @@
 ---
+meta:
+  default_description: Get started, troubleshoot, and make the most of GitHub. Documentation for new users, developers, administrators, and all of GitHub's products.
 header:
   github_docs: GitHub Docs
   contact: Contato
@@ -13,24 +15,41 @@ header:
     ghes_release_notes_upgrade_patch_only: '📣 This is not the <a href="#{{ latestPatch }}">latest patch release</a> of Enterprise Server.'
     ghes_release_notes_upgrade_release_only: '📣 This is not the <a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">latest release</a> of Enterprise Server.'
     ghes_release_notes_upgrade_patch_and_release: '📣 This is not the <a href="#{{ latestPatch }}">latest patch release</a> of this release series, and this is not the <a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">latest release</a> of Enterprise Server.'
+  sign_up_cta: inscrever
+picker:
+  language_picker_default_text: Choose a language
+  product_picker_default_text: All products
+  version_picker_default_text: Choose a version
 release_notes:
-  banner_text_current: These changes will roll out over the next one week.
-  banner_text_past: These changes rolled out to enterprises during the week of
+  banner_text: GitHub began rolling these changes out to enterprises on
 search:
   need_help: Precisa de ajuda?
-  placeholder: Pesquisar tópicos, produtos...
+  placeholder: Search GitHub Docs
+  loading: Carregando
+  no_results: Nenhum resultado encontrado
+  search_results_for: Search results for
+  no_content: No content
+  matches_displayed: Matches displayed
+  search_error: An error occurred trying to perform the search.
+  description: Enter a search term to find it in the GitHub Documentation.
+  label: Search GitHub Docs
 homepage:
   explore_by_product: Explorar por produto
   version_picker: Versão
+  description: Help for wherever you are on your GitHub journey.
 toc:
   getting_started: Introdução
   popular: Popular
   guides: Guias
   whats_new: O que há de novo
+  videos: Vídeos
+  all_changelogs: All changelog posts
 pages:
-  article_version: 'Versão do artigo:'
+  article_version: 'Versão do artigo'
   miniToc: Neste artigo
   contributor_callout: This article is contributed and maintained by
+  all_enterprise_releases: All Enterprise Server releases
+  about_versions: About versions
 errors:
   oops: Ops!
   something_went_wrong: Parece que algo deu errado.
@@ -44,14 +63,13 @@ survey:
   able_to_find: Esse documento ajudou você?
   yes: true
   no: false
-  yes_feedback: We're continually improving our docs. We'd love to hear what we do well.
-  no_feedback: Estamos constantemente melhorando nossos documentos. Adoraríamos ouvir como podemos melhorar.
   comment_yes_label: Let us know what we do well
   comment_no_label: Conte-nos como podemos melhorar
   optional: Opcional
   required: Obrigatório
   email_placeholder: email@example.com
-  email_label: Podemos entrar em contato com você em caso de dúvidas?
+  email_label: If we can contact you with more questions, please enter your email address
+  email_validation: Please enter a valid email address
   send: Enviar
   feedback: Thank you! We received your feedback.
   not_support: If you need a reply, please contact support instead.
@@ -65,6 +83,7 @@ contribution_cta:
 products:
   graphql:
     reference:
+      implements: Implements
       fields: Campos
       arguments: Argumentos
       name: Nome
@@ -79,8 +98,17 @@ products:
       deprecation_notice: Aviso de descontinuação
   rest:
     reference:
+      default: Padrão
+      name: Nome
+      in: In
+      type: Tipo
+      description: Descrição
+      notes: Observações
       parameters: Parâmetros
       response: Resposta
+      example_response: Example response
+      status_code: Status code
+      http_status_code: HTTP response status codes
       code_sample: Amostra de código
       code_samples: Amostras de código
       preview_notice: Aviso de pré-visualização
@@ -88,6 +116,15 @@ products:
       see_preview_notice: Ver aviso de pré-visualização
       see_preview_notices: Ver avisos de pré-visualização
       preview_header_is_required: Este cabeçalho é <strong>obrigatório</strong>
+      preview_notice_to_change: This API is under preview and subject to change
+      works_with: Works with
+      api_reference: REST API reference
+      enum_description_title: Pode ser uma das ações a seguir
+      required: Obrigatório
+      headers: Headers
+      query: Parâmetros de consulta
+      path: Path parameters
+      body: Body parameters
 footer:
   all_rights_reserved: Todos os direitos reservados
   terms: Termos
@@ -133,12 +170,14 @@ product_landing:
   guides: Guias
   code_examples: Exemplos de códigos
   search_code_examples: Exemplos de código de pesquisa
+  search_results_for: Search results for
+  matches_displayed: Matches displayed
   show_more: Show more
   explore_people_and_projects: Explore people and projects
   sorry: Desculpe, não há resultados para
   no_example: It looks like we don't have an example that fits your filter.
   try_another: Try another filter or add your code example.
-  no_result: Desculpe, não há nenhum guia que corresponda ao seu filtro.
+  no_result: Sorry, there are no guides that match your filter.
   learn: Learn how to add a code example
   communities_using_discussions: Comunidades que usam discussões
   add_your_community: Add your community
@@ -147,20 +186,27 @@ product_landing:
   release_notes_for: Release notes for
   upgrade_from: Upgrade from
   browse_all_docs: Browse all docs
+  browse_all: Browse all
+  docs: documentação
   explore_release_notes: Explore release notes
-product_sublanding:
-  start: Início
-  start_path: Caminho de início
+  view: Visualizar Tudo
+product_guides:
+  start_path: Start learning path
   learning_paths: '{{ productMap[currentProduct].name }} learning paths'
   learning_paths_desc: Os caminhos de aprendizado são uma coleção de guias que ajudam você a dominar um assunto específico.
   guides: '{{ productMap[currentProduct].name }} guides'
   more_guides: mais guias
   load_more: Carregar mais guias
   all_guides: 'All {{ productMap[currentProduct].name }} guides'
+  filter_instructions: Filter the guide list using these controls
   filters:
     type: Tipo
     topic: Tópico
     all: Todas
+  guides_found:
+    multiple: '{n} guides found'
+    one: 1 guide found
+    none: No guides found
   guide_types:
     overview: Visão Geral
     quick_start: QuickStart

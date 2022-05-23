@@ -2,12 +2,13 @@
 title: Webhook events for the GitHub Marketplace API
 intro: 'A {% data variables.product.prodname_marketplace %} app receives information about changes to a user''s plan from the Marketplace purchase event webhook. A Marketplace purchase event is triggered when a user purchases, cancels, or changes their payment plan.'
 redirect_from:
-  - /apps/marketplace/setting-up-github-marketplace-webhooks/about-webhook-payloads-for-a-github-marketplace-listing/
-  - /apps/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/
+  - /apps/marketplace/setting-up-github-marketplace-webhooks/about-webhook-payloads-for-a-github-marketplace-listing
+  - /apps/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events
   - /marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events
   - /developers/github-marketplace/webhook-events-for-the-github-marketplace-api
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
 shortTitle: Webhook events
@@ -50,7 +51,7 @@ Key | Type | Description
 `name` | `string` | The plan's name.
 `description` | `string` | This plan's description.
 `monthly_price_in_cents` | `integer` | The monthly price of this plan in cents (US currency). For example, a listing that costs 10 US dollars per month will be 1000 cents.
-`yearly_price_in_cents` | `integer` | The yearly price of this plan in cents (US currency). For example, a listing that costs 100 US dollars per month will be 10000 cents.
+`yearly_price_in_cents` | `integer` | The yearly price of this plan in cents (US currency). For example, a listing that costs 100 US dollars per month will be 120000 cents.
 `price_model` | `string` | The pricing model for this listing. Can be one of `flat-rate`, `per-unit`, or `free`.
 `has_free_trial` | `boolean` | `true` when this listing offers a free trial.
 `unit_name` | `string` | The name of the unit. If the pricing model is not `per-unit` this will be `nil`.

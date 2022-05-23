@@ -2,13 +2,17 @@
 title: Installing GitHub Enterprise Server on OpenStack KVM
 intro: 'To install {% data variables.product.prodname_ghe_server %} on OpenStack KVM, you must have OpenStack access and download the {% data variables.product.prodname_ghe_server %} QCOW2 image.'
 redirect_from:
-  - /enterprise/admin/guides/installation/installing-github-enterprise-on-openstack-kvm/
+  - /enterprise/admin/guides/installation/installing-github-enterprise-on-openstack-kvm
   - /enterprise/admin/installation/installing-github-enterprise-server-on-openstack-kvm
   - /admin/installation/installing-github-enterprise-server-on-openstack-kvm
 versions:
   ghes: '*'
+type: tutorial
 topics:
+  - Administrator
   - Enterprise
+  - Infrastructure
+  - Set up
 shortTitle: Install on OpenStack
 ---
 ## Prerequisites
@@ -22,10 +26,9 @@ shortTitle: Install on OpenStack
 
 ## Downloading the {% data variables.product.prodname_ghe_server %} image
 
-{% data reusables.enterprise_installation.enterprise-download-procedural %}
 {% data reusables.enterprise_installation.download-license %}
 {% data reusables.enterprise_installation.download-appliance %}
-4. Select {% data variables.product.prodname_dotcom %} On-premises, then click **OpenStack KVM (QCOW2)**.
+4. Under "{% data variables.product.prodname_dotcom %} On-premises", select the "Select your hypervisor" dropdown menu and click **OpenStack KVM (QCOW2)**.
 5. Click **Download for OpenStack KVM (QCOW2)**.
 
 ## Creating the {% data variables.product.prodname_ghe_server %} instance
@@ -50,5 +53,5 @@ shortTitle: Install on OpenStack
 
 ## Further reading
 
-- "[System overview](/enterprise/admin/guides/installation/system-overview)"{% ifversion ghes > 2.22 %}
+- "[System overview](/enterprise/admin/guides/installation/system-overview)"{% ifversion ghes %}
 - "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)"{% endif %}

@@ -1,1 +1,1 @@
-1. アプリケーションのリストで、{% data variables.product.prodname_ghe_cloud %}を使うOrganizationのために作成したアプリケーションのラベルをクリックしてください。 ![Oktaでの{% data variables.product.prodname_ghe_cloud %}アプリケーション](/assets/images/help/saml/okta-ghec-application.png)
+1. アプリケーションのリストで、{% data variables.product.prodname_ghe_cloud %}を使うOrganizationのために作成したアプリケーションのラベルをクリックしてください。

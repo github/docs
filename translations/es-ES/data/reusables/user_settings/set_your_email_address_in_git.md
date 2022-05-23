@@ -1,1 +1,0 @@
-Configurar una dirección de correo electrónico en Git. Puedes utilizar {% if currentVersion == "free-pro-team@latest"%}tu [dirección de correo electrónico de tipo `no-reply` que proporcionó {% data variables.product.product_name %}](/articles/setting-your-commit-email-address) o {% endif %}cualquier dirección de correo electrónico.

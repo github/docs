@@ -6,18 +6,20 @@ redirect_from:
   - /articles/setting-your-teams-profile-picture
   - /github/setting-up-and-managing-organizations-and-teams/setting-your-teams-profile-picture
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Foto do perfil da equipe
 ---
 
 Se você não configurar a foto de perfil da equipe, a foto da equipe será a foto de perfil da organização.
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 5. Clique em **Upload new picture** (Fazer upload de uma nova imagem) e selecione a foto de perfil desejada. ![Upload new picture (Fazer upload de uma nova imagem)](/assets/images/help/teams/org-team-profile-picture-upload.png)

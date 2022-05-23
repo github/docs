@@ -6,20 +6,21 @@ redirect_from:
   - /enterprise/admin/enterprise-management/setting-up-external-monitoring
   - /admin/enterprise-management/setting-up-external-monitoring
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Infrastructure
   - Monitoring
   - Performance
+shortTitle: 设置外部监控
 ---
 
-### 关于 SNMP
+## 关于 SNMP
 
 简单网络管理协议 (SNMP) 是一种受到广泛支持的网络设备和服务器监视方法。 SNMP 默认禁用，但可以通过 {% data variables.product.prodname_enterprise %} 监视仪表板进行配置。 UDP 端口 161 必须打开，并且可以通过您的网络管理站到达。 更多信息请参阅“[使用 SNMP 进行监视](/enterprise/{{ currentVersion }}/admin/guides/installation/monitoring-using-snmp/)”。
 
-### 关于 collectd
+## 关于 collectd
 
 collectd 属于开源统计信息收集和报告守护程序，内置对写入 RRD 文件的支持。 可以将关于 CPU 利用率、内存与磁盘占用量、网络接口流量与错误以及系统负荷的统计信息转发到外部 collectd 服务器，可在该服务器中使用各种可用工具和插件配置图表、分析和警报。 要配置 `collectd` 转发，请参阅“[配置 collectd](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-collectd/)”。
 

@@ -2,19 +2,20 @@
 title: Gestionar cambios de plan
 intro: 'El mejorar y degradar una app de {% data variables.product.prodname_marketplace %} activa el webhook del [evento `marketplace_purchase`](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/) con la acción `cambiada`, lo cual inicia el flujo de mejora o degradación.'
 redirect_from:
-  - /apps/marketplace/administering-listing-plans-and-user-accounts/upgrading-or-downgrading-plans/
-  - /apps/marketplace/integrating-with-the-github-marketplace-api/upgrading-and-downgrading-plans/
+  - /apps/marketplace/administering-listing-plans-and-user-accounts/upgrading-or-downgrading-plans
+  - /apps/marketplace/integrating-with-the-github-marketplace-api/upgrading-and-downgrading-plans
   - /marketplace/integrating-with-the-github-marketplace-api/upgrading-and-downgrading-plans
   - /developers/github-marketplace/handling-plan-changes
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
 ---
 
 Para obtener más información acerca de mejorar y degradar los planes de acuerdo a como se relaciona con la facturación, consulta la sección "[Integrarse con la API de {% data variables.product.prodname_marketplace %}](/marketplace/integrating-with-the-github-marketplace-api/)".
 
-### Paso 1. Evento de cambio en el plan de precios
+## Paso 1. Evento de cambio en el plan de precios
 
 GitHub envía el webhook `marketplace_purchase` con la acción `changed` a tu app cuando el cliente hace cualquiera de estos cambios a su orden de {% data variables.product.prodname_marketplace %}:
 * Mejorar a un plan de precios más caro o degradarlo a uno más barato.
@@ -27,7 +28,7 @@ Lee `effective_date`, `marketplace_purchase`, y `previous_marketplace_purchase` 
 
 Si tu app ofrece periodos de prueba gratuitos, recibirás el webhook de `marketplace_purchase` con la acción `changed` cuando caduque este periodo de prueba. Si el periodo de prueba gratuito del cliente caduca, mejora al cliente a la versión pagada del plan de prueba gratuito.
 
-### Paso 2. Actualizar las cuentas de usuario
+## Paso 2. Actualizar las cuentas de usuario
 
 Necesitarás actualizar la información de las cuentas de usuario para que se reflejen los cambios en el ciclo de facturación y en el plan de precios que el cliente hizo en su orden de {% data variables.product.prodname_marketplace %}. Muestra las mejoras al plan de precios, `seat_count` (para planes de precios por unidad), y ciclo de facturación en el sitio web de tu app de Marketplace en la IU de la misma cuando recibas el webhook de la acción `changed`.
 
@@ -41,15 +42,15 @@ Para motivar a las personas a mejorar el plan, puedes mostrar una URL de mejora 
 
 {% endnote %}
 
-### Pagos de mejora fallidos
+## Pagos de mejora fallidos
 
 {% data reusables.marketplace.marketplace-failed-purchase-event %}
 
-### Acerca de las URL de mejora
+## Acerca de las URL de mejora
 
 Puedes redirigir a los usuarios desde la IU de tu app para que mejoren su plan en GitHub a través de una URL de mejora:
 
-```
+```text
 https://www.github.com/marketplace/<LISTING_NAME>/upgrade/<LISTING_PLAN_NUMBER>/<CUSTOMER_ACCOUNT_ID>
 ```
 

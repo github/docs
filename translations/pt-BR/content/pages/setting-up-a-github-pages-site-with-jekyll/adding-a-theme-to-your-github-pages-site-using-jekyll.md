@@ -2,24 +2,26 @@
 title: Adicionar um tema ao site do GitHub Pages usando Jekyll
 intro: É possível personalizar o site do Jekyll adicionando e personalizando um tema.
 redirect_from:
-  - /articles/customizing-css-and-html-in-your-jekyll-theme/
-  - /articles/adding-a-jekyll-theme-to-your-github-pages-site/
+  - /articles/customizing-css-and-html-in-your-jekyll-theme
+  - /articles/adding-a-jekyll-theme-to-your-github-pages-site
   - /articles/adding-a-theme-to-your-github-pages-site-using-jekyll
   - /github/working-with-github-pages/adding-a-theme-to-your-github-pages-site-using-jekyll
 product: '{% data reusables.gated-features.pages %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Pages
+shortTitle: Adicionar tema ao site de Páginas
 ---
 
 Pessoas com permissões de gravação para um repositório podem adicionar um tema a um site do {% data variables.product.prodname_pages %} usando Jekyll.
 
 {% data reusables.pages.test-locally %}
 
-### Adicionar um tema
+## Adicionar um tema
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.pages.navigate-publishing-source %}
@@ -33,7 +35,7 @@ Pessoas com permissões de gravação para um repositório podem adicionar um te
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_file_change %}
 
-### Personalizar o CSS do tema
+## Personalizar o CSS do tema
 
 {% data reusables.pages.best-with-supported-themes %}
 
@@ -47,11 +49,11 @@ Pessoas com permissões de gravação para um repositório podem adicionar um te
   ---
   ---
 
-  @import "{{ site.theme }}";
+  @import "{% raw %}{{ site.theme }}{% endraw %}";
   ```
 3. Adicione o CSS ou Sass personalizado (incluindo importações) que deseja imediatamente após a linha `@import`.
 
-### Personalizar o layout HTML do tema
+## Personalizar o layout HTML do tema
 
 {% data reusables.pages.best-with-supported-themes %}
 
@@ -66,6 +68,6 @@ Pessoas com permissões de gravação para um repositório podem adicionar um te
 7. Cole o conteúdo do layout padrão que você copiou anteriormente.
 8. Personalize o layout como desejado.
 
-### Leia mais
+## Leia mais
 
 - "[Criar arquivos](/articles/creating-new-files)"

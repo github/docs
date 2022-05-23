@@ -2,16 +2,20 @@
 title: Installing GitHub Enterprise Server on VMware
 intro: 'To install {% data variables.product.prodname_ghe_server %} on VMware, you must download the VMware vSphere client, and then download and deploy the {% data variables.product.prodname_ghe_server %} software.'
 redirect_from:
-  - /enterprise/admin/articles/getting-started-with-vmware/
-  - /enterprise/admin/articles/installing-vmware-tools/
-  - /enterprise/admin/articles/vmware-esxi-virtual-machine-maximums/
-  - /enterprise/admin/guides/installation/installing-github-enterprise-on-vmware/
+  - /enterprise/admin/articles/getting-started-with-vmware
+  - /enterprise/admin/articles/installing-vmware-tools
+  - /enterprise/admin/articles/vmware-esxi-virtual-machine-maximums
+  - /enterprise/admin/guides/installation/installing-github-enterprise-on-vmware
   - /enterprise/admin/installation/installing-github-enterprise-server-on-vmware
   - /admin/installation/installing-github-enterprise-server-on-vmware
 versions:
   ghes: '*'
+type: tutorial
 topics:
+  - Administrator
   - Enterprise
+  - Infrastructure
+  - Set up
 shortTitle: Install on VMware
 ---
 ## Prerequisites
@@ -26,10 +30,9 @@ shortTitle: Install on VMware
 
 ## Downloading the {% data variables.product.prodname_ghe_server %} image
 
-{% data reusables.enterprise_installation.enterprise-download-procedural %}
 {% data reusables.enterprise_installation.download-license %}
 {% data reusables.enterprise_installation.download-appliance %}
-4. Select {% data variables.product.prodname_dotcom %} On-premises, then click **VMware ESXi/vSphere (OVA)**.
+4. Under "{% data variables.product.prodname_dotcom %} On-premises", select the "Select your hypervisor" dropdown menu and click **VMware ESXi/vSphere (OVA)**.
 5. Click **Download for VMware ESXi/vSphere (OVA)**.
 
 ## Creating the {% data variables.product.prodname_ghe_server %} instance
@@ -51,5 +54,5 @@ shortTitle: Install on VMware
 
 ## Further reading
 
-- "[System overview](/enterprise/admin/guides/installation/system-overview)"{% ifversion ghes > 2.22 %}
+- "[System overview](/enterprise/admin/guides/installation/system-overview)"{% ifversion ghes %}
 - "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)"{% endif %}

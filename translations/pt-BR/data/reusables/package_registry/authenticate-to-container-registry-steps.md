@@ -1,7 +1,7 @@
 1. Crie um novo token de acesso pessoal (PAT) com os escopos apropriados para as tarefas que você deseja realizar. Se sua organização exigir SSO, você deverá habilitar o SSO para seu novo token.
   {% warning %}
 
-  **Note:** By default, when you select the `write:packages` scope for your personal access token (PAT) in the user interface, the `repo` scope will also be selected. The `repo` scope offers unnecessary and broad access, which we recommend you avoid using for GitHub Actions workflows in particular. For more information, see "[Security hardening for GitHub Actions](/actions/getting-started-with-github-actions/security-hardening-for-github-actions#considering-cross-repository-access)." As a workaround, you can select just the `write:packages` scope for your PAT in the user interface with this url: `https://github.com/settings/tokens/new?scopes=write:packages`.
+  **Observação:** Por padrão, quando você selecionar o escopo `write: pacotes` para o seu token de acesso pessoal (PAT) na interface do usuário. O escopo do `repositório` também será selecionado. O escopo de `repo` oferece acesso desnecessário e amplo, o qual recomendamos que você evite usar para fluxos de trabalho do GitHub Actions em particular. Para obter mais informações, consulte "[Enrijecimento de segurança para o GitHub Actions](/actions/getting-started-with-github-actions/security-hardening-for-github-actions#considering-cross-repository-access)". As a workaround, you can select just the `write:packages` scope for your PAT in the user interface with this url: `https://{% ifversion fpt or ghec %}github.com{% else %}HOSTNAME{% endif %}/settings/tokens/new?scopes=write:packages`.
 
   {% endwarning %}
 
@@ -16,10 +16,10 @@
   $ export CR_PAT=YOUR_TOKEN
   ```
 3. Ao usar a CLI para seu tipo de container, faça login em
-serviço de {% data variables.product.prodname_container_registry %} em `ghcr.io`.
+{% data variables.product.prodname_container_registry %} service at `{% data reusables.package_registry.container-registry-hostname %}`.
   {% raw %}
   ```shell
-  $ echo $CR_PAT | docker login ghcr.io -u USERNAME --password-stdin
+  $ echo $CR_PAT | docker login {% endraw %}{% data reusables.package_registry.container-registry-hostname %}{% raw %} -u USERNAME --password-stdin
   > Login Succeeded
   ```
   {% endraw %}

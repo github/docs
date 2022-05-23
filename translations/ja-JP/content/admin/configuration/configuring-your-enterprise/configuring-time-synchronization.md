@@ -2,24 +2,25 @@
 title: 時間の同期の設定
 intro: '{% data variables.product.prodname_ghe_server %} は、NTP サーバーに接続することによって自動的に時刻を同期させます。 時刻の同期に使われるNTPサーバは設定できます。あるいはデフォルトのNTPサーバを利用することもできます。'
 redirect_from:
-  - /enterprise/admin/articles/adjusting-the-clock/
-  - /enterprise/admin/articles/configuring-time-zone-and-ntp-settings/
-  - /enterprise/admin/articles/setting-ntp-servers/
-  - /enterprise/admin/categories/time/
+  - /enterprise/admin/articles/adjusting-the-clock
+  - /enterprise/admin/articles/configuring-time-zone-and-ntp-settings
+  - /enterprise/admin/articles/setting-ntp-servers
+  - /enterprise/admin/categories/time
   - /enterprise/admin/installation/configuring-time-synchronization
   - /enterprise/admin/configuration/configuring-time-synchronization
   - /admin/configuration/configuring-time-synchronization
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Fundamentals
   - Infrastructure
   - Networking
+shortTitle: Configure time settings
 ---
 
-### デフォルトのNTPサーバの変更
+## デフォルトのNTPサーバの変更
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
@@ -28,7 +29,7 @@ topics:
 4. ページの下部で **Save settings（設定の保存）**をクリックしてください。 ![{% data variables.enterprise.management_console %} での [Save settings] ボタン](/assets/images/enterprise/management-console/save-settings.png)
 5. 設定が完了するのを待ってください。
 
-### 大きな時間の乱れの修正
+## 大きな時間の乱れの修正
 
 NTP プロトコルは小さな時間同期の不一致を継続的に修正します。 管理シェルを使用すれば、時間を直ちに同期させることができます。
 

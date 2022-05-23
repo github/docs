@@ -1,6 +1,4 @@
 #!/usr/bin/env node
-import { execSync as exec } from 'child_process'
-import path from 'path'
 
 // [start-readme]
 //
@@ -11,6 +9,9 @@ import path from 'path'
 // If the optional [base-branch] argument is omitted, it will default to `main`
 //
 // [end-readme]
+
+import { execSync as exec } from 'child_process'
+import path from 'path'
 
 process.env.GIT_AUTHOR_NAME = process.env.GIT_COMMITTER_NAME = 'Octomerger Bot'
 process.env.GIT_AUTHOR_EMAIL = process.env.GIT_COMMITTER_EMAIL =

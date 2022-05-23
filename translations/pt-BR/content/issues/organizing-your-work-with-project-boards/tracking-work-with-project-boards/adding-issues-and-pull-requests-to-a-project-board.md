@@ -3,16 +3,20 @@ title: Adicionar problemas e pull requests a um quadro de projeto
 intro: Você pode adicionar problemas e pull requests a um quadro de projeto na forma de cartões e fazer a triagem deles em colunas.
 redirect_from:
   - /github/managing-your-work-on-github/tracking-the-progress-of-your-work-with-project-boards/adding-issues-and-pull-requests-to-a-project-board
-  - /articles/adding-issues-and-pull-requests-to-a-project/
+  - /articles/adding-issues-and-pull-requests-to-a-project
   - /articles/adding-issues-and-pull-requests-to-a-project-board
   - /github/managing-your-work-on-github/adding-issues-and-pull-requests-to-a-project-board
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
+shortTitle: Adicionar issues & PRs ao quadro
 ---
+
+{% data reusables.projects.project_boards_old %}
 
 Você pode adicionar cartões de problema ou pull request ao seu quadro de projeto ao:
 - Arrastar os cartões da seção **Triage** (Triagem) na barra lateral.
@@ -33,7 +37,7 @@ Você pode adicionar cartões de problema ou pull request ao seu quadro de proje
 
 {% data reusables.project-management.link-repos-to-project-board %} Quando você pesquisa problemas ou pull requests para adicionar ao quadro de projeto, a pesquisa automaticamente é colocada no escopo de seus repositórios vinculados. É possível remover esses qualificadores para pesquisar em todos os repositórios da organização. Para obter mais informações, consulte "[Vincular um repositório a um quadro de projeto](/articles/linking-a-repository-to-a-project-board)".
 
-### Adicionar problemas e pull requests a um quadro de projeto
+## Adicionar problemas e pull requests a um quadro de projeto
 
 1. Navegue até o quadro de projeto onde deseja adicionar problemas e pull requests.
 2. No quadro de projeto, clique em {% octicon "plus" aria-label="The plus icon" %} **Add cards** (Adicionar cartões). ![Botão Add cards (Adicionar cartões)](/assets/images/help/projects/add-cards-button.png)
@@ -54,7 +58,7 @@ Você pode adicionar cartões de problema ou pull request ao seu quadro de proje
 
     {% endtip %}
 
-### Adicionar problemas e pull request a um quadro de projeto da barra lateral
+## Adicionar problemas e pull request a um quadro de projeto da barra lateral
 
 1. No lado direito de um problema ou uma pull request, clique em **Projects (Projetos) {% octicon "gear" aria-label="The Gear icon" %}**. ![Botão Project board (Quadro de projeto) na barra lateral](/assets/images/help/projects/sidebar-project.png)
 2. Clique na aba **Recent** (Recente), **Repository** (Repositório), **User** (Usuário) ou **Organization** (Organização) do quadro de projeto ao qual deseja adicionar. ![Guias Recent (Recente), Repository (Repositório) e Organization (Organização)](/assets/images/help/projects/sidebar-project-tabs.png)
@@ -62,7 +66,7 @@ Você pode adicionar cartões de problema ou pull request ao seu quadro de proje
 4. Selecione um ou mais quadros de projeto ao qual você deseja adicionar o problema ou pull request. ![Quadro de projeto selecionado](/assets/images/help/projects/sidebar-select-project.png)
 5. Clique em {% octicon "triangle-down" aria-label="The down triangle icon" %} e depois na coluna onde você quer seu problema ou pull request. O cartão irá para a parte inferior da coluna do quadro de projeto que você selecionou. ![Menu Move card to column (Mover cartão para coluna)](/assets/images/help/projects/sidebar-select-project-board-column-menu.png)
 
-### Leia mais
+## Leia mais
 
 - "[Sobre quadros de projetos](/articles/about-project-boards)"
 - "[Editar um quadro de projeto](/articles/editing-a-project-board)"

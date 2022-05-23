@@ -1,0 +1,22 @@
+date: '2021-12-07'
+sections:
+  security_fixes:
+    - 'Los paquetes de soporte podrían incluir archivos sensibles si cumplen con un conjunto de características específicas.'
+    - 'Se identificó una representación errónea de la IU en GitHub Enterprise Server que permitió que se otorgaran más permisos durante un flujo web de usuario-autorización de una GitHub App que se mostró al usuario durante su aprobación. Dicha vulnerabilidad afectó a todas las versiones de GitHub Enterprise Server previas a la 3.3 y se corrigió en las versiones 3.2.5, 3.1.13 y 3.0.21. Esta vulnerabilidad se reportó mediante el programa de Recompensas por Errores de GitHub y se le asignó el [CVE-2021-41598](https://www.cve.org/CVERecord?id=CVE-2021-41598).'
+    - 'Se identificó una vulnerabilidad de ejecución de código remoto en GitHub Enterprise Server, la cual pudo haberse aprovechado al compilar un sitio de GitHub Pages. Esta vulnerabilidad afectó a todas las versiones de GitHub Enterprise Server anteriores a la 3.3 y se corrigió en las versiones 3.0.21, 3.1.13 y 3.2.5. Esta vulnerabilidad se reportó mediante el programa de Recompensas por Errores de GitHub y se le asignó el [CVE-2021-41599](https://www.cve.org/CVERecord?id=CVE-2021-41599). Actualizado el 17 de febrero de 2022.'
+  bugs:
+    - 'El ejecutar `ghe-config-apply` pudo fallar en ocasiones debido a problemas con los permisos en /data/user/tmp/pages`.'
+    - 'Una mala configuración en la consola de administración causó errores de programación.'
+    - 'Docker retuvo los archivos de bitácora abiertos después de una rotación de bitácoras.'
+    - 'Las solicitudes de GraphQL no configuraron la variable GITHUB_USER_IP en los ambientes de ganchos de pre-recepción.'
+  changes:
+    - 'Clarifica una explicación del estilo de ruta de las acciones en la documentación.'
+    - 'Las actualizaciones tienen compatibilidad con las URL de contacto para utilizar el sitio de soporte actual, support.github.com.'
+  known_issues:
+    - 'En una instalación nueva de {% data variables.product.prodname_ghe_server %} que no tenga ningún usuario, cualquier atacante podría crear el primer usuario administrativo.'
+    - 'Las reglas de cortafuegos personalizadas se eliminan durante el proceso de actualización.'
+    - 'Los archivos rastreados del LFS de Git que se [cargaron mediante la interface web](https://github.com/blog/2105-upload-files-to-your-repositories) se agregaron incorrecta y directamente al repositorio.'
+    - 'Las propuestas no pudieron cerrarse si contenían un permalink a un blob en el mismo repositorio en donde la ruta de archvio del blob era más grande a 255 caracteres.'
+    - 'Cuando se habilita "Los usuarios pueden buscar en GitHub.com" con GitHub Connect, las propuestas en los repositorios privados e internos no se incluirán en los resultados de búsqueda de GitHub.com.'
+    - 'Cuando un nodo de réplica está fuera de línea en una configuración de disponibilidad alta, {% data variables.product.product_name %} aún podría enrutar las solicitudes a {% data variables.product.prodname_pages %} para el nodo fuera de línea, reduciendo la disponibilidad de {% data variables.product.prodname_pages %} para los usuarios.'
+    - 'Los límites de recursos que son específicos para procesar ganchos de pre-recepción podrían ocasionar que fallen algunos ganchos de pre-recepción.'

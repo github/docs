@@ -1,0 +1,23 @@
+---
+date: '2021-10-28'
+sections:
+  security_fixes:
+    - 'Foi possível que as senhas do texto claro acabassem em certos arquivos de registro.'
+    - 'Várias chaves públicas SSH fracas conhecidas foram adicionadas à lista de recusas e já não podem ser registradas. Além disso, as versões do GitKraken conhecidas por gerar chaves SSH fracas (7.6.x, 7.7.x e 8.0.0) foram impedidas de registrar novas chaves públicas.'
+    - 'Os pacotes foram atualizados para as últimas versões de segurança.'
+  bugs:
+    - 'Restaurar pode gerar uma falha para o servidor corporativo no modo de agrupamento se orquestrador não tiver uma boa integridade.'
+    - 'Os codespaces foram exibidos nas configurações da organização.'
+    - 'Várias partes do aplicativo eram inutilizáveis para usuários que são proprietários de várias organizações.'
+    - 'Corrigiu um link em https://docs.github.com.'
+  changes:
+    - 'As otimizações de navegação e desempenho de trabalhos para repositórios com muitas refs.'
+  known_issues:
+    - Depois de salvar uma nova versão em um repositório, a página `/releases` mostra um erro 500. Espera-se que uma correção para este problema seja enviada em 3.2.3.
+    - Em uma nova configuração de {% data variables.product.prodname_ghe_server %} sem qualquer usuário, um invasor pode criar o primeiro usuário administrador.
+    - As regras de firewall personalizadas são removidas durante o processo de atualização.
+    - Arquivos LFS do Git [enviados através da interface web](https://github.com/blog/2105-upload-files-to-your-repositories) são adicionados diretamente ao repositório e de forma incorreta.
+    - Os problemas não podem ser fechados se contiverem um permalink para um blob no mesmo repositório, onde o caminho do arquivo blob's é maior que 255 caracteres.
+    - Quando "Usuários podem pesquisar pelo GitHub.com" está habilitado com o GitHub Connect, os problemas em repositórios privados e internos não estão incluídos nos resultados de pesquisa do GitHub.com.
+    - O registro npm de {% data variables.product.prodname_registry %} não retorna mais o valor de tempo em respostas de metadados. Isso foi feito para permitir melhorias substanciais de desempenho. Continuamos a ter todos os dados necessários para devolver um valor de tempo como parte da resposta aos metadados e retomaremos o retorno desse valor no futuro, assim que tivermos resolvido os problemas de desempenho existentes.
+    - Os limites de recursos que são específicos para processamento de hooks pre-receive podem causar falha em alguns hooks pre-receive.

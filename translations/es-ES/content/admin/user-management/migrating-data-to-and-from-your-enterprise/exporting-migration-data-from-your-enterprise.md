@@ -2,24 +2,25 @@
 title: Exportar los datos de migración de tu empresa
 intro: 'Para cambiar las plataformas o migrarse de una instancia de pruebas a una productiva, puedes exportar los datos de migración de una instancia de {% data variables.product.prodname_ghe_server %} si preparas la instancia, bloqueas los repositorios, y generas un archivo de migración.'
 redirect_from:
-  - /enterprise/admin/guides/migrations/exporting-migration-data-from-github-enterprise/
+  - /enterprise/admin/guides/migrations/exporting-migration-data-from-github-enterprise
   - /enterprise/admin/migrations/exporting-migration-data-from-github-enterprise-server
   - /enterprise/admin/migrations/preparing-the-github-enterprise-server-source-instance
   - /enterprise/admin/migrations/exporting-the-github-enterprise-server-source-repositories
-  - /enterprise/admin/guides/migrations/preparing-the-github-enterprise-source-instance/
-  - /enterprise/admin/guides/migrations/exporting-the-github-enterprise-source-repositories/
+  - /enterprise/admin/guides/migrations/preparing-the-github-enterprise-source-instance
+  - /enterprise/admin/guides/migrations/exporting-the-github-enterprise-source-repositories
   - /enterprise/admin/user-management/exporting-migration-data-from-your-enterprise
   - /admin/user-management/exporting-migration-data-from-your-enterprise
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - API
   - Enterprise
   - Migration
+shortTitle: Exportar desde tu empresa
 ---
 
-### Preparar la instancia origen de {% data variables.product.prodname_ghe_server %}
+## Preparar la instancia origen de {% data variables.product.prodname_ghe_server %}
 
 1. Verifica que eres un administrador del sitio en el origen {% data variables.product.prodname_ghe_server %}. La mejor manera de hacerlo es verificar que puedes usar [SSH en la instancia](/enterprise/admin/guides/installation/accessing-the-administrative-shell-ssh/).
 
@@ -27,7 +28,7 @@ topics:
 
 {% data reusables.enterprise_migrations.make-a-list %}
 
-### Exportar los repositorios origen de {% data variables.product.prodname_ghe_server %}
+## Exportar los repositorios origen de {% data variables.product.prodname_ghe_server %}
 
 {% data reusables.enterprise_migrations.locking-repositories %}
 
@@ -98,7 +99,7 @@ topics:
   > logout
   > Connection to <em>hostname</em> closed.
   ```
-9. Copia el archivo de migración a tu computadora con el comando [`scp`](https://linuxacademy.com/blog/linux/ssh-and-scp-howto-tips-tricks#scp). Se te asignará al archivo de almacenamiento un nombre con el GUID de migración:
+9. Copia el archivo de migración a tu computadora utilizando el comando [`scp`](https://acloudguru.com/blog/engineering/ssh-and-scp-howto-tips-tricks#scp). Se te asignará al archivo de almacenamiento un nombre con el GUID de migración:
   ```shell
   $ scp -P 122 admin@<em>hostname</em>:/data/github/current/tmp/<em>MIGRATION_GUID</em>.tar.gz ~/Desktop
   ```

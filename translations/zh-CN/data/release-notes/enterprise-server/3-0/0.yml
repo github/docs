@@ -1,164 +1,160 @@
----
 date: '2021-02-16'
-intro: '对于 {% data variables.product.prodname_ghe_server %} 3.0+ 的最低基础设施要求已经增加。更多信息请参阅“[关于GitHub Enterprise Server 3.0 及更高版本的最低要求](/admin/enterprise-management/upgrading-github-enterprise-server#about-minimum-requirements-for-github-enterprise-server-30-and-later)”。'
+intro: The minimum infrastructure requirements have increased for {% data variables.product.prodname_ghe_server %} 3.0+. For more information, see "[About minimum requirements for GitHub Enterprise Server 3.0 and later](/admin/enterprise-management/upgrading-github-enterprise-server#about-minimum-requirements-for-github-enterprise-server-30-and-later)."
 sections:
   security_fixes:
-    - '**高：**在 {% data variables.product.prodname_ghe_server %} 中发现了远程代码执行漏洞，可能在构建 {% data variables.product.prodname_pages %} 站点时被利用。{% data variables.product.prodname_pages %} 使用的基础解析器的用户控制配置没有受到足够的限制，因此可以在 {% data variables.product.prodname_ghe_server %} 实例上执行命令。要利用此漏洞，攻击者需要获得在 {% data variables.product.prodname_ghe_server %} 实例上创建和构建 {% data variables.product.prodname_pages %} 站点的权限。此漏洞已分配 CVE-2020-10519，并通过 [GitHub Bug Bounty 计划](https://bounty.github.com) 报告。'
+    - '**HIGH:** A remote code execution vulnerability was identified in {% data variables.product.prodname_ghe_server %} that could be exploited when building a {% data variables.product.prodname_pages %} site. User-controlled configuration of the underlying parsers used by {% data variables.product.prodname_pages %} were not sufficiently restricted and made it possible to execute commands on the {% data variables.product.prodname_ghe_server %} instance. To exploit this vulnerability, an attacker would need permission to create and build a {% data variables.product.prodname_pages %} site on the {% data variables.product.prodname_ghe_server %} instance. This vulnerability has been assigned CVE-2020-10519 and was reported via the [GitHub Bug Bounty Program](https://bounty.github.com).'
   features:
-    - 
-      heading: GitHub Actions
+    - heading: GitHub Actions
       notes:
         - |
-          [{% data variables.product.prodname_actions %}](https://github.com/features/actions) 现在一般在 {% data variables.product.prodname_ghe_server %} 3.0+ 上提供。从 {% data variables.product.prodname_dotcom %} 构建、测试和部署您的代码。以您希望的方式提交代码审核、分支管理和议题分类工作。
+          [{% data variables.product.prodname_actions %}](https://github.com/features/actions) is now generally available on {% data variables.product.prodname_ghe_server %} 3.0+. Build, test, and deploy your code from {% data variables.product.prodname_dotcom %}. Submit code reviews, branch management, and issue triaging work the way you want.
 
-          此发行版与 {% data variables.product.prodname_ghe_server %}{% data variables.product.prodname_actions %} 测试版相比有几项改进：
+          This release includes several improvements from the beta of {% data variables.product.prodname_actions %} on {% data variables.product.prodname_ghe_server %}:
 
-          - 企业、组织和仓库管理员可以创建安全策略，以在 {% data variables.product.prodname_dotcom_the_website %} 上访问 {% data variables.product.prodname_actions %} 。
-          - 企业、组织和仓库管理员可以允许公共仓库使用自托管的运行器。
-          - 企业、组织和仓库管理员现在可以允许工作流程[在产生自私有仓库复刻的拉取请求上运行](/enterprise-server@3.0/github/setting-up-and-managing-organizations-and-teams/disabling-or-limiting-github-actions-for-your-organization#enabling-workflows-for-private-repository-forks)。
-          - `workflow_run` 事件[现在受支持](/enterprise-server@3.0/actions/reference/events-that-trigger-workflows#workflow_run)
-          - 用户现在能够[禁用工作流程并在以后启用它们](/enterprise-server@3.0/actions/managing-workflow-runs/disabling-and-enabling-a-workflow)。
-          - 工作流日志得到了增强，以获得[更好的用户体验](/enterprise-server@3.0/actions/managing-workflow-runs/using-workflow-run-logs)。
-          - 用户现在可以在容器作业和服务中使用私有映像。
-          - [工件和日志的最大保留天数现在可以自定义](/enterprise-server@3.0/github/setting-up-and-managing-your-enterprise/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-enterprise-account)。
-          - 运行器组 API 现在包括 [labels](/enterprise-server@3.0/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)。
-          - 您现在可以使用 shell 脚本结合组成运行步骤创建可重复使用的操作。
-          - [组织的加密机密](/enterprise-server@3.0/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-an-organization) 允许您跨仓库合并机密。
-          - [组织的工作流程模板](/enterprise-server@3.0/actions/learn-github-actions/sharing-workflows-with-your-organization) 简化并促进整个组织的最佳实践和一致性。
+          - Enterprise, organization, and repository admins can create security policies for access to {% data variables.product.prodname_actions %} on {% data variables.product.prodname_dotcom_the_website %}.
+          - Enterprise, organization, and repository admins can allow public repositories to use self-hosted runners.
+          - Enterprise, organization, and repository admins can now allow workflows to [run on pull requests raised from forks of private repositories](/enterprise-server@3.0/github/setting-up-and-managing-organizations-and-teams/disabling-or-limiting-github-actions-for-your-organization#enabling-workflows-for-private-repository-forks).
+          - The `workflow_run` event is [now supported](/enterprise-server@3.0/actions/reference/events-that-trigger-workflows#workflow_run)
+          - Users now have the ability to [disable workflows and enable them at a later date](/enterprise-server@3.0/actions/managing-workflow-runs/disabling-and-enabling-a-workflow).
+          - Workflow logs have been enhanced for a [better user experience](/enterprise-server@3.0/actions/managing-workflow-runs/using-workflow-run-logs).
+          - Users can now use private images in container jobs and services.
+          - The max retention days for [artifacts and logs can now be customized](/enterprise-server@3.0/github/setting-up-and-managing-your-enterprise/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-enterprise-account).
+          - The runner group API now includes [labels](/enterprise-server@3.0/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners).
+          - You can now create reusable actions using shell scripts with compose run steps.
+          - [Encrypted secrets for an organization](/enterprise-server@3.0/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-an-organization) allows you to consolidate secrets across repositories.
+          - [Workflow templates for an organization](/enterprise-server@3.0/actions/learn-github-actions/sharing-workflows-with-your-organization) streamlines and promotes best practices and consistency across your organization.
 
-          目前不支持使用集群配置的企业使用 {% data variables.product.prodname_actions %}。
-    - 
-      heading: GitHub Packages
+          {% data variables.product.prodname_actions %} is not currently supported for enterprises using cluster configurations.
+
+    - heading: GitHub Packages
       notes:
         - |
-          [{% data variables.product.prodname_registry %}](https://github.com/features/packages) 是一项包托管服务，原生集成 GitHub ABI、Actions 和 web 挂钩。创建[端到端 DevOps 工作流程](/enterprise/3.0/admin/packages/configuring-packages-support-for-your-enterprise) ，其中包括您的代码、持续集成和部署解决方案。
+          [{% data variables.product.prodname_registry %}](https://github.com/features/packages) is a package hosting service, natively integrated with GitHub APIs, Actions, and webhooks. Create an [end-to-end DevOps workflow](/enterprise/3.0/admin/packages/configuring-packages-support-for-your-enterprise) that includes your code, continuous integration, and deployment solutions.
 
-          支持的存储后端包括 AWS S3 和 MinIO，支持未来版本中的 Azure blob。请注意，当前的 Docker 支持将在下一个版本中替换为新 GitHub Container Registry 的测试版。在打开 {% data variables.product.prodname_registry %} 之前，请查看[平台更新的最低要求](/enterprise/3.0/admin/installation/setting-up-a-github-enterprise-server-instance)。
+          Supported storage back ends include AWS S3 and MinIO with support for Azure blob coming in a future release. Please note that the current Docker support will be replaced by a beta of the new GitHub Container Registry in the next release. Please review the [updated minimum requirements for your platform](/enterprise/3.0/admin/installation/setting-up-a-github-enterprise-server-instance) before you turn on {% data variables.product.prodname_registry %}.
 
-          将软件包发布到 NuGet 时，用户现在可以使用 `--api-key` 选项来传递其身份验证令牌，而不是将其写入文件。更多信息请参阅[配置 dotnet CLI 用于GitHub Packages](/enterprise-server@3.0/packages/guides/configuring-dotnet-cli-for-use-with-github-packages#publishing-a-package)
+          When publishing packages to NuGet, users can now use the `--api-key` option to pass their authentication token instead of writing it into a file. For more information, see [Configuring dotnet CLI for use with GitHub Packages](/enterprise-server@3.0/packages/guides/configuring-dotnet-cli-for-use-with-github-packages#publishing-a-package)
 
-          {% data variables.product.prodname_registry %} 目前不支持使用集群配置的企业。
-    - 
-      heading: GitHub Mobile 测试版
+          {% data variables.product.prodname_registry %} is not currently supported for enterprises using cluster configurations.
+
+    - heading: GitHub Mobile beta
       notes:
         - |
-          [{% data variables.product.prodname_mobile %}](https://github.com/features/) 测试版允许您对通知进行分类，以及从设备管理议题和提取请求。您可以同时使用 {% data variables.product.prodname_dotcom_the_website %} 上的一个用户帐户以及 {% data variables.product.prodname_ghe_server %} 上的一个用户帐户登录到移动设备。
+          [{% data variables.product.prodname_mobile %}](https://github.com/features/) beta allows you to triage notifications and manage issues and pull requests from your device. You can be simultaneously signed into mobile with one user account on {% data variables.product.prodname_dotcom_the_website %} and one user account on {% data variables.product.prodname_ghe_server %}.
 
-          {% data variables.product.prodname_mobile %} 测试版现在可用于 {% data variables.product.prodname_ghe_server %}。使用我们的 [Android](https://play.google.com/store/apps/details?id=com.github.android) 和 [iOS](https://apps.apple.com/app/github/id1477376905) app 登录，以随时对通知分类以及管理议题和拉取请求。管理员可以使用管理控制台或运行 `ghe-config app.mobile.enabled false` 来禁用对其企业的移动支持。
-    - 
-      heading: Advanced Security 机密扫描测试版
+          {% data variables.product.prodname_mobile %} beta is now available for {% data variables.product.prodname_ghe_server %}. Sign in with our [Android](https://play.google.com/store/apps/details?id=com.github.android) and [iOS](https://apps.apple.com/app/github/id1477376905) apps to triage notifications and manage issues and pull requests on the go. Administrators can disable mobile support for their Enterprise using the management console or by running `ghe-config app.mobile.enabled false`.
+
+    - heading: Advanced Security Secret Scanning beta
       notes:
         - |
-          [机密扫描测试版](https://github.com/features/security) 扫描公共和私有仓库以查找提交的凭据，查找机密，并在机密提供商或管理员提交到仓库时通知他们。
+          [Secret Scanning beta](https://github.com/features/security) scans public and private repositories for committed credentials, finds secrets, and notifies the secret provider or admin the moment they are committed into a repository.
 
-          使用 {% data variables.product.prodname_GH_advanced_security %} 的管理员可以[启用和配置](/enterprise-server@3.0/admin/configuration/configuring-secret-scanning-for-your-appliance) {% data variables.product.prodname_GH_advanced_security %} 机密扫描。在打开 {% data variables.product.prodname_GH_advanced_security %} 机密扫描之前，您可以查看[更新的平台最低要求](/enterprise/3.0/admin/installation/setting-up-a-github-enterprise-server-instance)。
-    - 
-      heading: Advanced Security Code 扫描
+          Administrators using {% data variables.product.prodname_GH_advanced_security %} can [enable and configure](/enterprise-server@3.0/admin/configuration/configuring-secret-scanning-for-your-appliance) {% data variables.product.prodname_GH_advanced_security %} secret scanning. You can review the [updated minimum requirements for your platform](/enterprise/3.0/admin/installation/setting-up-a-github-enterprise-server-instance) before you turn on {% data variables.product.prodname_GH_advanced_security %} secret scanning.
+
+    - heading: Advanced Security Code Scanning
       notes:
         - |
-          [GitHub Advanced Security 代码扫描](https://github.com/features/security) 现在一般可用于 GitHub Enterprise Server。购买了 Advanced Security 的组织可以利用此功能对其代码进行静态分析安全测试，并防止漏洞使用我们的语义分析引擎 CodeQL 将其变成生产代码。更多信息请参阅“[在设备上配置代码扫描](/en/enterprise-server@3.0/admin/configuration/configuring-code-screening-for-your-appiance#running-code-scoring-using-github-actions)”
+          [GitHub Advanced Security code scanning](https://github.com/features/security) is now generally available on GitHub Enterprise Server. Organizations who have purchased Advanced Security can use this capability to do static analysis security testing against their code, and prevent vulnerabilities from making it to their production code using CodeQL, our semantic analysis engine. For more information, see "[Configuring code scanning on your appliance](/en/enterprise-server@3.0/admin/configuration/configuring-code-scanning-for-your-appliance#running-code-scanning-using-github-actions)"
+
   changes:
-    - 
-      heading: 管理更改
+    - heading: Administration Changes
       notes:
-        - Web 挂钩事件传输系统已被新设计，以提高传输量、加快传送速度和减少延迟消息。它还在 {% data variables.product.prodname_ghe_server %} 3.0+ 中使用较少的 CPU 和内存。
-        - 组织和企业所有者现在可以通过新的 `team.promote_maintainer` 和 `team.demote_maintainer` 审核日志事件查看团队成员何时被提升为或降级为审核日志中的团队维护者。更多信息请参阅“[已审核的操作](/enterprise-server@3.0/admin/user-management/audited-actions)”。
-        - '现有 {% data variables.product.prodname_pages %} 站点的仓库维护员可以[轻松更新其以前的默认分支名称](/enterprise-server@3.0/github/working-with-github-pages/about-github-pages#publishing-sources-for-github-pages-sites)。'
-        - 需要额外的硬件资源才能运行启用了任何 Actions、Packages 或 Advanced Security 的 {% data variables.product.prodname_ghe_server %}。有关每个支持平台所需的最低资源的更多信息，请参阅“[设置 {% data variables.product.prodname_ghe_server %} 实例](/enterprise-server@3.0/admin/installation/setting-up-a-github-enterprise-server-instance)”。
-        - 管理员现在可以[发布消息](/enterprise-server@3.0/admin/user-management/customizing-user-messages-for your enter-enterprises)，所有用户都必须接受。这可以帮助登记新用户以及显示其他组织特定的信息和政策。
-    - 
-      heading: 安全性更改
+        - The webhook events delivery system has been rearchitected for higher throughput, faster deliveries, and fewer delayed messages. It also uses less CPU and memory in {% data variables.product.prodname_ghe_server %} 3.0+.
+        - Organization and Enterprise owners can now see when a team member has been promoted to or demoted from being a team maintainer in the audit log through the new `team.promote_maintainer` and `team.demote_maintainer` audit log events. For more information, see "[Audited actions](/enterprise-server@3.0/admin/user-management/audited-actions)."
+        - Repository maintainers with existing {% data variables.product.prodname_pages %} sites can [easily update their prior default branch name](/enterprise-server@3.0/github/working-with-github-pages/about-github-pages#publishing-sources-for-github-pages-sites).
+        - Additional hardware resources are required to run {% data variables.product.prodname_ghe_server %} with any of Actions, Packages or Advanced Security enabled. For more information on the minimum required resources for each supported platform, see "[Setting up a {% data variables.product.prodname_ghe_server %} instance](/enterprise-server@3.0/admin/installation/setting-up-a-github-enterprise-server-instance)."
+        - Administrators can now [publish a message](/enterprise-server@3.0/admin/user-management/customizing-user-messages-for-your-enterprise), which all users must accept. This can help to onboard new users and surface other organization-specific information and policies.
+
+    - heading: Security Changes
       notes:
-        - 组织所有者现在可以禁用从组织仓库发布 {% data variables.product.prodname_pages %} 站点。对组织禁用 {% data variables.product.prodname_pages %} 将阻止成员创建新的 Pages 站点，但不会取消发布现有站点。更多信息请参阅“[对组织禁用发布 {% data variables.product.prodname_pages %} 站点](/enterprise-server@3.0/github/setting-up-and-managing-organizations-and-teams/disabling-publication-of-github-pages-sites-for-your-organization)”。
-        - 在启用活动副本之前，必须在所有节点上明确定义数据中心。
-        - SSH 指纹的所有使用都已切换到使用 SHA256 指纹，因为自版本 6.8 以来，它们也与 OpenSSH 一起使用。这适用于 Web 界面和以及其中返回指纹（如在 GraphQL 中）的 API。指纹遵循 OpenSSH 格式。
-        - 在 web 挂钩上发送 SHA-1 和 SHA-256 签名标头（两个标头）。
-    - 
-      heading: 开发者更改
+        - Organization owners can now disable publication of {% data variables.product.prodname_pages %} sites from repositories in the organization. Disabling {% data variables.product.prodname_pages %} for the organization will prevent members from creating new Pages sites but will not unpublish existing sites. For more information, see "[Disabling publication of {% data variables.product.prodname_pages %} sites for your organization](/enterprise-server@3.0/github/setting-up-and-managing-organizations-and-teams/disabling-publication-of-github-pages-sites-for-your-organization)."
+        - A datacenter must be explicitly defined on all nodes before enabling an active replica.
+        - All usage of SSH fingerprints has been switched to use SHA256 fingerprints as they are used with OpenSSH since version 6.8 as well. This applies to the web interface and also the API where fingerprints are returned such as in GraphQL. The fingerprints follow the OpenSSH format.
+        - SHA-1 and SHA-256 signature headers (two headers) are sent on webhooks.
+
+    - heading: Developer Changes
       notes:
-        - '{% data variables.product.prodname_ghe_server %} 3.0+ 中运行的大部分服务现在都位于容器上，这些容器内部使 GitHub 能够快速迭代并运送高质量的版本'
-        - Web 挂钩事件传输系统已重新设计，以提高传输量、加快传送速度和减少延迟消息。
-    - 
-      heading: API 更改
+        - Majority of the services running in {% data variables.product.prodname_ghe_server %} 3.0+ are now on containers which internally enables GitHub to iterate fast and ship high quality releases
+        - The webhook events delivery system has been rearchitected for higher throughput, faster deliveries, and fewer delayed messages.
+
+    - heading: API Changes
       notes:
-        - '管理员现在可以通过 REST API 配置和管理整个站点的公告横幅。更多信息请参阅“[GitHub Enterprise 管理](/enterprise-server@3.0/rest/reference/enterprise-admin#annoucements)”的端点。'
-        - '新的 API 端点可让用户交换服务器令牌，以将令牌范围限于特定仓库。更多信息请参阅 {% data variables.product.prodname_dotcom %} REST API 文档中的“[Apps](/enterprise-server@3.0/rest/reference/apps#create-a-scoped-access-token)”。'
-    - 
-      heading: 默认分支重命名
+        - Administrators can now configure and manage the site-wide announcement banner via the REST API. For more information, see the endpoints for "[GitHub Enterprise administration](/enterprise-server@3.0/rest/reference/enterprise-admin#annoucements)."
+        - A new API endpoint enables the exchange of a user to server token for a user to server token scoped to specific repositories. For more information, see "[Apps](/enterprise-server@3.0/rest/reference/apps#create-a-scoped-access-token)" in the {% data variables.product.prodname_dotcom %} REST API documentation.
+
+    - heading: Default branch renaming
       notes:
         - |
-          企业和组织管理员现在可以设置新仓库的默认分支名称。企业管理员也可以在所有组织强制执行其默认分支名称的选择，或允许个别组织选择自己的分支名称。
+          Enterprise and organization administrators can now set the default branch name for new repositories. Enterprise administrators can also enforce their choice of default branch name across all organizations or allow individual organizations to choose their own.
 
-          现有仓库不受这些设置的影响，其默认分支名称不会更改。
+          Existing repositories are unaffected by these settings, and their default branch name will not be changed.
 
           {% note %}
 
-          新建仓库的默认分支在 GHES 3.1 中将设置为 `main`，除非您在企业一级设置默认分支，否则不予接受。
+          The default branch for newly-created repositories will be set to `main` in GHES 3.1, unless you opt out by setting the default branch setting at the enterprise level.
 
           {% endnote %}
 
-          此更改是 GitHub 为了支持那些想重命名其默认分支的项目和维护者。 要了解更多关于我们正在进行的更改，请参阅 [github/renaming](https://github.com/github/renaming)。
+          This change is one of many changes GitHub is making to support projects and maintainers that want to rename their default branch. To learn more about the changes we're making, see [github/renaming](https://github.com/github/renaming).
+
   bugs:
-    - 
-      heading: 修复候选版中的已知问题
+    - heading: Fixes for known issues from Release Candidates
       notes:
-        - 除“已知问题”部分所列问题外，候选版 1 和候选版 2 中的所有已知问题均已解决。
-    - 
-      heading: 其他问题的修复
+        - All known issues from Release Candidate 1 and Release Candidate 2 have been fixed, except those listed in the Known Issues section below.
+    - heading: Fixes for other issues
       notes:
-        - 迁移和升级到 3.0.0 的问题已经修复。
-        - 备份实用程序版本现在适用于候选版本。
-        - 生成支持包导致编组日志中出现错误。
-        - 大型还原可能导致 Redis 内存耗尽。
-        - 现在，使用任何身份验证方法都可以看到管理控制台中启用 GitHub Actions 的复选框。
-        - 仅在配置了所需存储时才可启用 GitHub Actions。
-        - '如果未配置 MSSQL 复制，`ghe-repl-status` 可能会失败而不出现提示。'
-        - 几个日志文件的格式已经改变，包括为不同的日志类型添加 PID。这不影响 GitHub Enterprise Support 如何使用支持包解决故障问题。
-        - 对 web 挂钩配置 API 的 PATCH 请求不再清除 web 挂钩机密。
-        - 某些类型的预接收挂钩失败。
-        - 'Packages Nuget 服务目前在发布时实现语义版本正常化。无效的语义版本（例如：v1.0.0.0.0.0）无法被 Nuget 客户端下载，因此 Nuget 服务需要正常化这些版本（例如： v1.0.0.0.0.0 --> v1.0.0）。任何原始的非正常化版本将在 `verbatimVersion` 字段中可用。无需更改客户端配置。'
+        - Issues with migrations and upgrades to 3.0.0 have been fixed.
+        - Backup Utilities versioning now works for release candidate versions.
+        - Generating a support bundle resulted in an error in the orchestrator logs.
+        - A large restore could result in Redis running out of memory.
+        - The checkbox to enable GitHub Actions in the Management Console is now visible with any authentication method.
+        - GitHub Actions could be enabled if the required storage was also configured.
+        - '`ghe-repl-status` could silently fail if MSSQL replication was not configured.'
+        - The format of several log files have changed, including the addition of a PID for different log types. This does not affect how GitHub Enterprise Support uses support bundles to troubleshoot issues.
+        - A PATCH request to the webhook configuration API no longer erases the webhook secret.
+        - Certain types of pre-receive hooks were failing.
+        - 'The Packages NuGet service now normalizes semantic versions on publish. An invalid semantic version (for example: v1.0.0.0.0.0) is not downloadable by NuGet clients and therefore a NuGet service is expected to normalize those versions (for example: v1.0.0.0.0.0 --> v1.0.0). Any original, non-normalized, version will be available in the `verbatimVersion` field. No changes to client configurations are required.'
+
   known_issues:
-    - 在新建的没有任何用户的 {% data variables.product.prodname_ghe_server %} 上，攻击者可以创建第一个管理员用户。
-    - 自定义防火墙规则在升级期间不会保持。
-    - Git LFS 跟踪的文件[通过 Web 界面上传](https://github.blog/2016-02-18-upload-files-to-your-repositories/) 被错误地直接添加到仓库。
-    - 对 GitHub Connect 启用“用户可以搜索 GitHub.com”后，私有和内部仓库中的议题不包括在 GitHub.com 搜索结果中。
-    - 当启用维护模式时，某些服务将继续列为“活动进程”。 指定的服务预期在维护模式下运行。如果您遇到这个问题但不确定，请联系 {% data variables.contact.contact_ent_support %}。
-    - 当 GitHub Actions 启用时，使用 '`ghe-maintenance -u`' 来取消维护模式。
-    - '重复记录到 `/var/log/messages`、`/var/log/syslog` 和 `/var/log/user.log` 将提高根卷利用率。'
-    - 用户无需选中所有复选框即可忽略强制消息。
-    - '[预接收挂钩脚本](/admin/policies/enforcing-policy-with-pre-receive-hooks) 无法编写临时文件，这可能导致脚本执行失败。使用预接收挂钩的用户应在暂存环境中进行测试，以查看脚本是否需要写入权限。'
-    - 仓库[部署密钥](/developers/overview/managing-deply-keys) 无法用于包含 LFS 对象的仓库。
-    - 如果笔记本包含非 ASCII UTF-8 字符，网页界面中的 Jupyter Notebook 渲染可能会失败。
-    - restructuredText(RST) 渲染在 web 界面可能失败，反而显示原始 RST 标记文本。
-    - 依赖关系图无法解析 `setup.py` Python 清单文件，导致日志中的 HTTP 500 错误。 这种情况再加上重复的记录问题，导致根卷的使用增加。
-    - 竞争条件可能导致依赖关系图数据库迁移失败。
-    - 自定义时区从较早发布的 GitHub Enterprise Server 升级的实例可能在 web UI 中有不正确的时间戳。
-    - Pages 的旧版本未清理，可能填充用户磁盘 (`/data/user/`)。
-    - 在合并拉取请求后删除分支时，即使分支删除成功也会出现错误消息。
+    - On a freshly set up {% data variables.product.prodname_ghe_server %} without any users, an attacker could create the first admin user.
+    - Custom firewall rules are not maintained during an upgrade.
+    - Git LFS tracked files [uploaded through the web interface](https://github.blog/2016-02-18-upload-files-to-your-repositories/) are incorrectly added directly to the repository.
+    - When "Users can search GitHub.com" is enabled with GitHub Connect, issues in private and internal repositories are not included in GitHub.com search results.
+    - When maintenance mode is enabled, some services continue to be listed as "active processes". The services identified are expected to run during maintenance mode. If you experience this issue and are unsure, contact {% data variables.contact.contact_ent_support %}.
+    - When GitHub Actions is enabled, use '`ghe-maintenance -u`' to unset maintenance mode.
+    - 'Duplicated logging to `/var/log/messages`, `/var/log/syslog`, and `/var/log/user.log` results in increased root volume utilization.'
+    - Users can dismiss a mandatory message without checking all checkboxes.
+    - '[Pre-receive hook scripts](/admin/policies/enforcing-policy-with-pre-receive-hooks) cannot write temporary files, which may cause script execution to fail. Users who use pre-receive hooks should test in a staging environment to see if scripts require write access.'
+    - Repository [deploy keys](/developers/overview/managing-deploy-keys) are unable to be used with repositories containing LFS objects.
+    - Jupyter Notebook rendering in the web UI may fail if the notebook includes non-ASCII UTF-8 characters.
+    - reStructuredText (RST) rendering in the web UI may fail and instead display raw RST markup text.
+    - Dependency graph fails to parse `setup.py` Python manifest files, resulting in HTTP 500 errors in logs. This, combined with the duplicated logging issue, results in increased root volume utilization.
+    - A race condition can cause dependency graph database migrations to appear to fail.
+    - Instances with a custom timezone that were upgraded from an earlier release of GitHub Enterprise Server may have incorrect timestamps in the web UI.
+    - Old builds of Pages are not cleaned up, which could fill up the user disk (`/data/user/`).
+    - When deleting a branch after merging a pull request, an error message appears although the branch deletion succeeds.
+    - When a replica node is offline in a high availability configuration, {% data variables.product.product_name %} may still route {% data variables.product.prodname_pages %} requests to the offline node, reducing the availability of {% data variables.product.prodname_pages %} for users.
+    - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.
+
   deprecations:
-    - 
-      heading: 弃用 GitHub Enterprise Server 2.19
+    - heading: Deprecation of GitHub Enterprise Server 2.19
       notes:
-        - '*{% data variables.product.prodname_ghe_server %} 2.19 自 2020 年 11 月 12 日起弃用。这意味着在此日期之后，即使对于关键的安全问题，也不会发布修补程序。为获得更好的性能、更高的安全性和新功能，请尽快[升级到最新版本的 {% data variables.product.prodname_ghe_server %}](https://help.github.com/enterprise/admin/guides/installation/upgrading-github-enterprise/)。'
-    - 
-      heading: 弃用旧版的 GitHub App web 挂钩事件
+        - '**{% data variables.product.prodname_ghe_server %} 2.19 is deprecated as of November 12, 2020**. That means that no patch releases will be made, even for critical security issues, after this date. For better performance, improved security, and new features, [upgrade to the newest version of {% data variables.product.prodname_ghe_server %}](https://help.github.com/enterprise/admin/guides/installation/upgrading-github-enterprise/) as soon as possible.'
+    - heading: Deprecation of Legacy GitHub App Webhook Events
       notes:
-        - 从 {% data variables.product.prodname_ghe_server %} 2.21.0 开始，两个旧的 GitHub 应用程序相关的 web 挂钩事件已弃用，并将在 {% data variables.product.prodname_ghe_server %} 3.2.0 中删除。弃用的事件 `integration_installation` 和 `integration_installation_repositories` 都有受支持的相应事件。更多信息请见[弃用公告博文](https://developer.github.com/changes/2020-04-15-replacing-the-installation-and-installation-repositories-events/)。
-    - 
-      heading: 弃用旧版 GitHub Apps 端点
+        - Starting with {% data variables.product.prodname_ghe_server %} 2.21.0 two legacy GitHub Apps-related webhook events have been deprecated and will be removed in {% data variables.product.prodname_ghe_server %} 3.2.0. The deprecated events `integration_installation` and `integration_installation_repositories` have equivalent events which will be supported. More information is available in the [deprecation announcement blog post](https://developer.github.com/changes/2020-04-15-replacing-the-installation-and-installation-repositories-events/).
+    - heading: Deprecation of Legacy GitHub Apps Endpoint
       notes:
-        - 从 {% data variables.product.prodname_ghe_server %} 2.21.0 开始，用于创建安装访问令牌的旧 GitHub 应用程序端点已弃用，并将在 {% data variables.product.prodname_ghe_server %} 3.2.0 中删除。更多信息请见[弃用公告博文](https://developer.github.com/changes/2020-04-15-replacing-create-installation-access-token-endpoint/)。
-    - 
-      heading: 弃用 OAuth Application API
+        - Starting with {% data variables.product.prodname_ghe_server %} 2.21.0 the legacy GitHub Apps endpoint for creating installation access tokens was deprecated and will be removed in {% data variables.product.prodname_ghe_server %} 3.2.0.  More information is available in the [deprecation announcement blog post](https://developer.github.com/changes/2020-04-15-replacing-create-installation-access-token-endpoint/).
+    - heading: Deprecation of OAuth Application API
       notes:
-        - GitHub 不再支持包含 `access_token` 作为路径参数的 OAuth 应用程序端点。我们引入了新的端点，允许您通过将 `access_token` 移动到请求正文来安全地管理 OAuth 应用程序的令牌。虽然已弃用，但这些端点仍然可以在这个版本中访问。我们打算在 {% data variables.product.prodname_ghe_server %} 3.4 中删除这些端点。更多信息请参阅[弃用公告博文](https://developer.github.com/changes/2020-02-14-decreasating-oauth-app-endpoint/)。
-    - 
-      heading: 弃用对符号学的支持
+        - GitHub no longer supports the OAuth application endpoints that contain `access_token` as a path parameter. We have introduced new endpoints that allow you to securely manage tokens for OAuth Apps by moving `access_token` to the request body. While deprecated, the endpoints are still accessible in this version. We intend to remove these endpoints on {% data variables.product.prodname_ghe_server %} 3.4. For more information, see the [deprecation announcement blog post](https://developer.github.com/changes/2020-02-14-deprecating-oauth-app-endpoint/).
+    - heading: Deprecation of support for Semiotic
       notes:
-        - 在未广泛使用的拉请求视图中，服务支持“用符号查找”体验。
-    - 
-      heading: 工作流程命令的弃用
+        - The service supported a "Find by Symbol" experience in the pull request view that was not widely used.
+    - heading: Deprecation of workflow commands
       notes:
-        - '{% data variables.product.prodname_actions %} `set-env` 和 `add-path` 工作流程命令已弃用。更多信息请参阅 [changelog](https://github.blog/changelog/2020-10-01-github-actions-deprecating-set-env-and-add-path-commands/)。'
+        - '{% data variables.product.prodname_actions %} `set-env` and `add-path` workflow commands have been deprecated. For more information, see the [changelog](https://github.blog/changelog/2020-10-01-github-actions-deprecating-set-env-and-add-path-commands/).'
+
   backups:
-    - '{% data variables.product.prodname_ghe_server %} 3.0 至少需要 [GitHub Enterprise Backup Utilities 3.0.0](https://github.com/github/backup-utils) 进行[备份和灾难恢复](/enterprise-server@3.0/admin/configuration/configuring-backups-on-your-appliance)。'
+    - '{% data variables.product.prodname_ghe_server %} 3.0 requires at least [GitHub Enterprise Backup Utilities 3.0.0](https://github.com/github/backup-utils) for [Backups and Disaster Recovery](/enterprise-server@3.0/admin/configuration/configuring-backups-on-your-appliance).'

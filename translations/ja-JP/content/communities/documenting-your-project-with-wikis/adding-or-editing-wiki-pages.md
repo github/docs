@@ -2,22 +2,24 @@
 title: ウィキページを追加または編集する
 intro: 'ウィキページは、{% data variables.product.product_name %} 上で直接、あるいはコマンドラインを使ってローカルで追加および編集できます。'
 redirect_from:
-  - /articles/adding-wiki-pages-via-the-online-interface/
-  - /articles/editing-wiki-pages-via-the-online-interface/
-  - /articles/adding-and-editing-wik-pages-locally/
-  - /articles/adding-and-editing-wiki-pages-locally/
+  - /articles/adding-wiki-pages-via-the-online-interface
+  - /articles/editing-wiki-pages-via-the-online-interface
+  - /articles/adding-and-editing-wik-pages-locally
+  - /articles/adding-and-editing-wiki-pages-locally
   - /articles/adding-or-editing-wiki-pages
   - /github/building-a-strong-community/adding-or-editing-wiki-pages
 product: '{% data reusables.gated-features.wikis %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Community
+shortTitle: Wikiページの管理
 ---
 
-### ウィキページを追加する
+## ウィキページを追加する
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-wiki %}
@@ -27,7 +29,7 @@ topics:
 6. 追加しようとしている新しいファイルを説明するコミットメッセージを入力してください。 ![ウィキのコミットメッセージ](/assets/images/help/wiki/wiki_commit_message.png)
 7. 変更を wiki にコミットするには [**Save Page**] をクリックします。
 
-### ウィキページを編集する
+## ウィキページを編集する
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-wiki %}
@@ -36,22 +38,22 @@ topics:
 6. 変更内容を説明するコミットメッセージを入力します。 ![ウィキのコミットメッセージ](/assets/images/help/wiki/wiki_commit_message.png)
 7. 変更を wiki にコミットするには [**Save Page**] をクリックします。
 
-### ローカルでウィキページを追加または編集する
+## ローカルでウィキページを追加または編集する
 
 ウィキは Git のリポジトリの一部なので、Git ワークフローを使ってローカルで変更を加え、リポジトリにプッシュできます。
 
-#### 手元のコンピュータへウィキをクローンする
+### 手元のコンピュータへウィキをクローンする
 
-すべてのウィキは、その内容をあなたのコンピュータにクローンする簡単な方法を提供しています。 提供されている次の URL でお使いのコンピュータにリポジトリをクローンできます。
+すべてのウィキは、その内容をあなたのコンピュータにクローンする簡単な方法を提供しています。 Once you've created an initial page on {% data variables.product.product_name %}, you can clone the repository to your computer with the provided URL:
 
 ```shell
 $ git clone https://github.com/<em>YOUR_USERNAME</em>/<em>YOUR_REPOSITORY</em>.wiki.git
 # ローカルに wiki をクローン
 ```
 
-wiki をクローンした後は、新しいファイルの追加、既存のファイルの編集、変更のコミットができます。 あなたとコラボレータは、Wiki で作業するときにブランチを作成できますが、デフォルトブランチにプッシュされた変更のみがライブになり、読者が利用できるようになります。
+wiki をクローンした後は、新しいファイルの追加、既存のファイルの編集、変更のコミットができます。 ユーザとコラボレータは、Wiki で作業するときにブランチを作成できますが、デフォルトブランチにプッシュされた変更のみがライブになり、読者はそれのみを利用できます。
 
-### ウィキのファイル名について
+## ウィキのファイル名について
 
 wiki のページのタイトルはファイル名で決まり、ファイルの拡張子で wiki の内容の描画方法が決まります。
 

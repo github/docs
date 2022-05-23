@@ -1,3 +1,3 @@
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec %}
 インターナルリポジトリは、Enterpriseアカウントが所有するOrganization内で作成されるすべての新規リポジトリのデフォルト設定です。
 {% endif %}

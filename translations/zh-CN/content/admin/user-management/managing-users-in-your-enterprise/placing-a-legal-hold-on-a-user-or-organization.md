@@ -5,8 +5,8 @@ redirect_from:
   - /enterprise/admin/user-management/placing-a-legal-hold-on-a-user-or-organization
   - /admin/user-management/placing-a-legal-hold-on-a-user-or-organization
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Accounts
@@ -14,6 +14,7 @@ topics:
   - Enterprise
   - Organizations
   - User account
+shortTitle: 合法持有
 ---
 
 通常情况下，如果有人删除仓库，它将在磁盘上保留 90 天并且可以通过站点管理员仪表板进行恢复。 90 天后，仓库将被永久删除。 如果您合法保留用户或组织，可以随时恢复他们拥有的仓库。

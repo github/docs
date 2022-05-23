@@ -1,16 +1,17 @@
 ---
 title: Usar avaliação automática
 intro: É possível fornecer feedback automaticamente sobre envios de código de seus alunos configurando testes para serem executados no repositório de atividade.
-miniTocMaxHeadingLevel: 4
+miniTocMaxHeadingLevel: 3
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+permissions: 'Organization owners who are admins for a classroom can set up and use autograding on assignments in a classroom. {% data reusables.classroom.classroom-admins-link %}'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/adding-tests-for-auto-grading
   - /education/manage-coursework-with-github-classroom/reviewing-auto-graded-work-teachers
   - /education/manage-coursework-with-github-classroom/use-autograding
 ---
 
-### Sobre a avaliação automática
+## Sobre a avaliação automática
 
 {% data reusables.classroom.about-autograding %}
 
@@ -20,13 +21,13 @@ Pode usar uma estrutura de teste, executar um comando personalizado, escrever te
 
 Você pode ter uma visão geral dos alunos que estão passando testes de avaliação automática acessando a atividade em {% data variables.product.prodname_classroom %}. Uma marca de verificação verde significa que todos os testes estão passando para o aluno, e um X vermelho significa que alguns ou todos os testes estão falhando para o aluno. Se você ganhou pontos para um ou mais testes, uma bolha irá mostrar a pontuação para os testes da pontuação máxima possível para a atividade.
 
-![Visão geral de uma atividade com resultados de avaliação automática](/assets/images/help/classroom/autograding-hero.png)
+![Visão geral de uma atividade com resultados de avaliação automática](/assets/images/help/classroom/assignment-individual-hero.png)
 
-### Métodos de avaliação
+## Métodos de avaliação
 
 Há dois métodos de avaliação: testes de entrada/saída e testes de comando de execução.
 
-#### Teste de entrada/saída
+### Teste de entrada/saída
 
 Um teste de entrada/saída opcionalmente executa um comando de configuração e, em seguida, fornece a entrada padrão para um comando de teste. {% data variables.product.prodname_classroom %} avalia a saída do comando de teste para um resultado esperado.
 
@@ -41,7 +42,7 @@ Um teste de entrada/saída opcionalmente executa um comando de configuração e,
 | **Tempo esgotado**          | Quanto tempo um teste deve ser executado em minutos antes de resultar em falha                                              |
 | **Pontos**                  | _Opcional_. O número de pontos que o teste vale para uma pontuação total                                                    |
 
-#### Executar teste de comando
+### Executar teste de comando
 
 Um comando de execução executa um comando de configuração e, em seguida, executa um comando de teste. {% data variables.product.prodname_classroom %} verifica o status de saída do comando de teste. Um código de saída de `0` resulta em sucesso e qualquer outro código de saída resulta em falha.
 
@@ -55,11 +56,11 @@ Um comando de execução executa um comando de configuração e, em seguida, exe
 | **Tempo esgotado**          | Quanto tempo um teste deve ser executado em minutos antes de resultar em falha         |
 | **Pontos**                  | _Opcional_. O número de pontos que o teste vale para uma pontuação total               |
 
-### Configurar testes de avaliação automática para uma atribuição
+## Configurar testes de avaliação automática para uma atribuição
 
 Você pode adicionar testes de avaliação automática durante a criação de uma nova atividade. {% data reusables.classroom.for-more-information-about-assignment-creation %}
 
-Você pode adicionar, editar ou excluir testes de avaliação automática para uma atividade existente. Se você alterar os testes de avaliação automática para uma atribuição existente, os repositórios de atividade existentes não serão afetados. Um aluno ou equipe deve aceitar a atividade e criar um novo repositório de atividade para usar os novos testes.
+Você pode adicionar, editar ou excluir testes de avaliação automática para uma atividade existente. Todas as alterações feitas por meio da interface do usuário do Classroom serão enviadas por push para os repositórios de alunos existentes. Portanto, tenha cuidado ao editar seus testes.
 
 {% data reusables.classroom.sign-into-github-classroom %}
 {% data reusables.classroom.click-classroom-in-list %}
@@ -71,14 +72,21 @@ Você pode adicionar, editar ou excluir testes de avaliação automática para u
     - Para excluir um teste, à direita do nome do teste, clique em {% octicon "trash" aria-label="The trash icon" %}. ![Ícone da lixeira para excluir um teste de avaliação automática](/assets/images/help/classroom/autograding-click-trash.png)
 1. Na parte inferior da página, clique em **Atualizar atividade**. ![Botão "Atualizar a atividade" na parte inferior da página](/assets/images/help/classroom/assignments-click-update-assignment.png)
 
-### Visualizar registros dos testes da avaliação automática
+## Visualizar e fazer o download de resultados de testes de autoavaliação
 
+### Fazer o download dos resultados da auto-avaliação
+
+Você também pode fazer o download do CSV da pontuação da autoavaliação dos seus alunos por meio do botão "Download". Isso irá gerar e fazer o download de um CSV que contém um link para o repositório do aluno, seu gerenciador de {% data variables.product.prodname_dotcom %}, identificador da lista de participantes, registro de hora de envio e pontuação de da autoavaliação.
+
+![O botão "Download" selecionado que mostra "Fazer o download de notas destacadas" e uma opção adicional para "Fazer o download dos repositórios"](/assets/images/help/classroom/download-grades.png)
+
+### Ver registros individuais
 {% data reusables.classroom.sign-into-github-classroom %}
 {% data reusables.classroom.click-classroom-in-list %}
 {% data reusables.classroom.click-assignment-in-list %}
 1. À direita de um envio, clique em **Visualizar teste**. ![Botão "Visualizar teste" para envio de uma atividade](/assets/images/help/classroom/assignments-click-view-test.png)
 1. Revise a saída de teste. Para obter mais informações, consulte "[Usar registros de execução do fluxo de trabalho](/actions/managing-workflow-runs/using-workflow-run-logs)".
 
-### Leia mais
+## Leia mais
 
 - [Documentação de {% data variables.product.prodname_actions %}](/actions)

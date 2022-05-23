@@ -1,19 +1,23 @@
 ---
 title: Vincular um repositório a um quadro de projeto
-intro: É possível vincular um repositório ao quadro de projeto da organização ou conta de usuário.
+intro: É possível vincular um repositório ao quadro de projeto da organização ou conta pessoal.
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/linking-a-repository-to-a-project-board
   - /articles/linking-a-repository-to-a-project-board
   - /github/managing-your-work-on-github/linking-a-repository-to-a-project-board
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
+shortTitle: Vincular repositório ao quadro
 ---
 
-Qualquer pessoa com permissões de gravação em um quadro de projeto pode vincular repositórios pertencentes a essa organização ou conta de usuário ao quadro de projeto. Para obter mais informações, consulte "[Permissões de quadro de projeto da organização](/articles/project-board-permissions-for-an-organization/)" ou "[Níveis de permissão para quadros de projetos de propriedade de usuários](/articles/permission-levels-for-user-owned-project-boards/)".
+{% data reusables.projects.project_boards_old %}
+
+Qualquer pessoa com permissões de gravação em um quadro de projeto pode vincular repositórios pertencentes a essa organização ou conta pessoal ao quadro de projeto. Para obter mais informações, consulte "[Permissões de quadro de projeto da organização](/articles/project-board-permissions-for-an-organization/)" ou "[Níveis de permissão para quadros de projetos de propriedade de usuários](/articles/permission-levels-for-user-owned-project-boards/)".
 
 {% data reusables.project-management.link-repos-to-project-board %} Você pode adicionar problemas e pull requests de quaisquer repositórios desvinculados digitando a URL do problema ou pull request em um cartão. Para obter mais informações, consulte "[Adicionar problemas e pull requests a um quadro de projeto](/articles/adding-issues-and-pull-requests-to-a-project-board)".
 
@@ -31,6 +35,6 @@ Qualquer pessoa com permissões de gravação em um quadro de projeto pode vincu
 
 {% endnote %}
 
-### Leia mais
+## Leia mais
 
 - "[Sobre quadros de projetos](/articles/about-project-boards)"

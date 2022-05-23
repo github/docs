@@ -2,8 +2,8 @@
 title: Troubleshooting SSL errors
 intro: 'If you run into SSL issues with your appliance, you can take actions to resolve them.'
 redirect_from:
-  - /enterprise/admin/articles/troubleshooting-ssl-errors/
-  - /enterprise/admin/categories/dns-ssl-and-subdomain-configuration/
+  - /enterprise/admin/articles/troubleshooting-ssl-errors
+  - /enterprise/admin/categories/dns-ssl-and-subdomain-configuration
   - /enterprise/admin/installation/troubleshooting-ssl-errors
   - /enterprise/admin/configuration/troubleshooting-ssl-errors
   - /admin/configuration/troubleshooting-ssl-errors
@@ -79,3 +79,7 @@ If your {% data variables.product.prodname_ghe_server %} appliance interacts wit
   ```shell
   $ ghe-ssl-ca-certificate-install -c rootCA.crt
   ```
+
+## Updating an SSL certificate
+
+You can generate a new self-signed certificate or update an existing SSL certificate for {% data variables.product.product_location %} with the `ghe-ssl-certificate-setup` command line utility. For more information, see "[Command-line utilities](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-ssl-ca-certificate-setup)."

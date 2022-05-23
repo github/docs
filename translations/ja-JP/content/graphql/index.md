@@ -1,13 +1,33 @@
 ---
 title: GitHubのGraphQL API
-intro: '{% data variables.product.prodname_dotcom %}のGraphQL APIを使って、{% data variables.product.prodname_dotcom %}とインテグレートする必要があるデータに対する正確で柔軟なクエリを作成できます。'
+intro: 'インテグレーションを作成し、データを取り出し、ワークフローを自動化するために、{% data variables.product.prodname_dotcom %}のGraphQL APIを使ってください。 {% data variables.product.prodname_dotcom %}のGraphQL APIは、{% data variables.product.prodname_dotcom %} REST APIよりも正確で柔軟なクエリを提供します。'
 shortTitle: GraphQL API
+introLinks:
+  overview: /graphql/overview/about-the-graphql-api
+featuredLinks:
+  guides:
+    - /graphql/guides/forming-calls-with-graphql
+    - /graphql/guides/introduction-to-graphql
+    - /graphql/guides/using-the-explorer
+  popular:
+    - /graphql/overview/explorer
+    - /graphql/overview/public-schema
+    - /graphql/overview/schema-previews
+    - /graphql/guides/using-the-graphql-api-for-discussions
+  guideCards:
+    - /graphql/guides/migrating-from-rest-to-graphql
+    - /graphql/guides/managing-enterprise-accounts
+    - /graphql/guides/using-global-node-ids
+changelog:
+  label: 'api, apis'
+layout: product-landing
 redirect_from:
   - /v4
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 children:
   - /overview
   - /reference

@@ -1,1 +1,0 @@
-Projekte, die von einem alleinigen Organisationsinhaber unterhalten und verwaltet werden, können leicht unzugänglich werden, wenn der Organisationsinhaber nicht erreichbar ist. Wir empfehlen, dass eine Organisation mindestens zwei Personen mit *Inhaber*-Berechtigungen hat, um sicherzustellen, dass niemand den Zugriff auf ein Projekt verliert.

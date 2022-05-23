@@ -5,15 +5,17 @@ redirect_from:
   - /articles/project-board-permissions-for-an-organization
   - /github/setting-up-and-managing-organizations-and-teams/project-board-permissions-for-an-organization
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: 项目板权限
 ---
 
-### 权限概述
+## 权限概述
 
 人员和团队的项目板协作者有三种权限级别：
 
@@ -26,17 +28,17 @@ topics:
 - 管理组织成员、团队和外部协作者对项目板的访问。 更多信息请参阅“[管理团队对组织项目板的访问](/articles/managing-team-access-to-an-organization-project-board)”、“[管理个人对组织项目板的访问](/articles/managing-an-individual-s-access-to-an-organization-project-board)”或“[管理组织成员对项目板的访问](/articles/managing-access-to-a-project-board-for-organization-members)”。
 - 管理项目板可见性。 更多信息请参阅“[管理组织成员对项目板的访问](/articles/managing-access-to-a-project-board-for-organization-members)”。
 
-### 级联项目板的权限
+## 级联项目板的权限
 
 {% data reusables.project-management.cascading-permissions %}
 
 例如，如果组织所有者向所有组织成员授予了读取项目板的权限，而项目板管理员向组织成员（作为个人协作者）授予项目板写入权限，则此人对项目板具有写入权限。
 
-### 项目板可见性
+## 项目板可见性
 
-{% data reusables.project-management.project-board-visibility %} 您可以将项目板的可见性从私有更改为{% if currentVersion == "github-ae@latest" %}内部{% else %}公共{% endif %}，反之亦然。 更多信息请参阅“[更改项目板可见性](/articles/changing-project-board-visibility)”。
+{% data reusables.project-management.project-board-visibility %} 您可以将项目板的可见性从私有更改为{% ifversion ghae %}内部{% else %}公共{% endif %}，反之亦然。 更多信息请参阅“[更改项目板可见性](/articles/changing-project-board-visibility)”。
 
-### 延伸阅读
+## 延伸阅读
 
 - "[更改项目板可见性](/articles/changing-project-board-visibility)"
 - "[管理个人对组织项目板的访问](/articles/managing-an-individual-s-access-to-an-organization-project-board)"

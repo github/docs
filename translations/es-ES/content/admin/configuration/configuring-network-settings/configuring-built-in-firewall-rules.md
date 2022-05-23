@@ -2,21 +2,22 @@
 title: Configurar las reglas de firewall incorporado
 intro: 'Puedes ver las reglas de firewall predeterminadas y personalizar reglas para {% data variables.product.product_location %}.'
 redirect_from:
-  - /enterprise/admin/guides/installation/configuring-firewall-settings/
+  - /enterprise/admin/guides/installation/configuring-firewall-settings
   - /enterprise/admin/installation/configuring-built-in-firewall-rules
   - /enterprise/admin/configuration/configuring-built-in-firewall-rules
   - /admin/configuration/configuring-built-in-firewall-rules
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Fundamentals
   - Infrastructure
   - Networking
+shortTitle: Configurar reglas de cortafuegos
 ---
 
-### Acerca del firewell de {% data variables.product.product_location %}
+## Acerca del firewell de {% data variables.product.product_location %}
 
 {% data variables.product.prodname_ghe_server %} utiliza Ubuntu's Uncomplicated Firewall (UFW) en el aparato virtual. Para obtener más información, consulta "[UFW](https://help.ubuntu.com/community/UFW)" en la documentación de Ubuntu. Con cada lanzamiento, {% data variables.product.prodname_ghe_server %} actualiza automáticamente la lista blanca de los servicios permitidos del firewell.
 
@@ -24,7 +25,7 @@ Después de que instales {% data variables.product.prodname_ghe_server %}, se ab
 
 El firewall de UFW también abre varios puertos más que son obligatorios para que {% data variables.product.prodname_ghe_server %} funcione correctamente. Para obtener más información sobre el conjunto de reglas de UFW, consulta [el README de UFW](https://bazaar.launchpad.net/~jdstrand/ufw/0.30-oneiric/view/head:/README#L213).
 
-### Ver las reglas de firewell predeterminadas
+## Ver las reglas de firewell predeterminadas
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 2. Para ver las reglas de firewall predeterminadas, utiliza el comando `sudo ufw status`. Debes ver un resultado similar a este:
@@ -55,7 +56,7 @@ El firewall de UFW también abre varios puertos más que son obligatorios para q
   > ghe-9418 (v6)              ALLOW       Anywhere (v6)
   ```
 
-### Agregar reglas de firewell personalizadas
+## Agregar reglas de firewell personalizadas
 
 {% warning %}
 
@@ -70,12 +71,12 @@ El firewall de UFW también abre varios puertos más que son obligatorios para q
   ```
 3. Para hacer una copia de seguridad de tus reglas de firewall personalizadas, utiliza el comando `cp` para pasar las reglas a un archivo nuevo.
   ```shell
-  $ sudo cp -r /lib/ufw ~/ufw.backup
+  $ sudo cp -r /etc/ufw ~/ufw.backup
   ```
 
 Después de actualizar {% data variables.product.product_location %}, debes volver a aplicar tus reglas de firewall personalizadas. Recomendamos que crees un script para volver a aplicar las reglas de firewall personalizadas.
 
-### Restaurar las reglas de firewell predeterminadas
+## Restaurar las reglas de firewell predeterminadas
 
 Si algo sale mal después de que cambies las reglas de firewell, puedes restablecer las reglas desde la copia de seguridad original.
 
@@ -88,7 +89,7 @@ Si algo sale mal después de que cambies las reglas de firewell, puedes restable
 {% data reusables.enterprise_installation.ssh-into-instance %}
 2. Para restablecer las reglas de la copia de seguridad anterior, vuélvelas a copiar en el firewell con el comando `cp`.
   ```shell
-  $ sudo cp -f ~/ufw.backup/*rules /lib/ufw
+  $ sudo cp -f ~/ufw.backup/*rules /etc/ufw
   ```
 3. Vuelve a iniciar el firewell con el comando `systemctl`.
   ```shell

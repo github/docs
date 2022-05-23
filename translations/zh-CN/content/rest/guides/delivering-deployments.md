@@ -2,13 +2,14 @@
 title: 交付部署
 intro: 使用部署 REST API，您可以构建与您的服务器和第三方应用程序交互的自定义工具。
 redirect_from:
-  - /guides/delivering-deployments/
-  - /guides/automating-deployments-to-integrators/
+  - /guides/delivering-deployments
+  - /guides/automating-deployments-to-integrators
   - /v3/guides/delivering-deployments
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - API
 ---
@@ -19,7 +20,7 @@ topics:
 
 本指南将使用该 API 来演示您可以使用的设置。 在我们的场景中，我们将：
 
-* 合并拉取请求
+* 合并拉取请求.
 * 在 CI 完成后，我们将相应地设置拉取请求的状态。
 * 合并拉取请求后，我们将在服务器上运行部署。
 
@@ -29,7 +30,7 @@ topics:
 
 注：您可以[从平台样本仓库][platform samples]下载此项目的完整源代码。
 
-### 编写服务器
+## 编写服务器
 
 我们将编写一个快速的 Sinatra 应用程序，以证明我们的本地连接工作正常。 首先编写以下代码：
 
@@ -76,7 +77,7 @@ end
 
 要测试此概念验证，请在测试仓库的分支中进行一些更改，打开拉取请求，然后合并它。 您的服务器应该会做出相应的响应！
 
-### 处理部署
+## 处理部署
 
 服务器已就位，代码在接受审查，拉取请求已合并，现在我们需要部署项目。
 
@@ -136,13 +137,13 @@ end
 
 部署完成后，我们将状态设置为 `success`。
 
-### 结论
+## 结论
 
-在 GitHub，我们多年来一直使用 [Heaven][heaven] 版本来管理部署。 基本流程本质上与我们上面构建的服务器完全相同。 在 GitHub，我们：
+在 GitHub，我们多年来一直使用 [Heaven][heaven] 版本来管理部署。 共同流程本质上与我们上面构建的服务器基本相同：
 
-* 等待关于 CI 状态的响应
-* 如果代码为绿色，我们将合并拉取请求
-* Heaven 提取合并的代码，并将其部署到我们的生产和暂存服务器上
+* 等待 CI 检查状态的响应（成功或失败）
+* 如果所需的检查成功，则合并拉取请求
+* Heaven 提取合并的代码，并将其部署到暂存和生产服务器上
 * 同时。Heaven 还通过坐在我们聊天室中的 [Hubot][hubot] 通知所有人有关构建的信息
 
 搞定！ 使用此示例并不需要构建自己的部署设置。 您始终可以依赖 [GitHub 集成][integrations]。

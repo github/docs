@@ -1,6 +1,7 @@
-{% if currentVersion == "free-pro-team@latest" %}{% data variables.product.prodname_code_scanning_capc %}は、Organizationが所有する{% data variables.product.prodname_GH_advanced_security %}が有効化されたすべてのパブリック及びプライベートリポジトリで利用できます。
-{%- elsif currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}{% data variables.product.prodname_code_scanning_capc %}は、Organizationが所有するリポジトリで{% data variables.product.prodname_GH_advanced_security %}が有効化されていれば利用できます。
-{%- elsif currentVersion == "github-ae@latest" %}
-{% data variables.product.prodname_code_scanning_capc %}は、ベータリリースの間は無料の{% data variables.product.prodname_GH_advanced_security %}の一部として利用できます。
+{% ifversion fpt %} {% data variables.product.prodname_code_scanning_capc %} is available for all public repositories. {% data variables.product.prodname_code_scanning_capc %} is also available in private repositories owned by organizations that use {% data variables.product.prodname_ghe_cloud %} and have a license for {% data variables.product.prodname_GH_advanced_security %}.
+{%- elsif ghec %} {% data variables.product.prodname_code_scanning_capc %} is available for all public repositories, and for private repositories owned by organizations where {% data variables.product.prodname_GH_advanced_security %} is enabled.
+{%- elsif ghes %}{% data variables.product.prodname_code_scanning_capc %} is available for organization-owned repositories where {% data variables.product.prodname_GH_advanced_security %} is enabled.
+{%- elsif ghae %}
+{% data variables.product.prodname_code_scanning_capc %} is available as part of {% data variables.product.prodname_GH_advanced_security %}, which is free during the beta release.
 {%- else %}
-{% data variables.product.prodname_code_scanning_capc %}は、{% data variables.product.prodname_GH_advanced_security %}のライセンスを持っているなら利用できます。{% endif %} {% data reusables.advanced-security.more-info-ghas %}
+{% data variables.product.prodname_code_scanning_capc %} is available if you have a license for {% data variables.product.prodname_GH_advanced_security %}.{% endif %} {% data reusables.advanced-security.more-info-ghas %}

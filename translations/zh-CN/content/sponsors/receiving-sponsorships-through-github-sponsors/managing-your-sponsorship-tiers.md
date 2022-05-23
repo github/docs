@@ -6,20 +6,22 @@ redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors/changing-your-sponsorship-tiers
   - /github/supporting-the-open-source-community-with-github-sponsors/managing-your-sponsorship-tiers
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Open Source
   - Sponsors profile
+shortTitle: 管理付款等级
 ---
 
-### 关于赞助等级
+## 关于赞助等级
 
 {% data reusables.sponsors.tier-details %}
 
 {% data reusables.sponsors.maximum-tier %}
 
-### 添加等级
+## 添加等级
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.navigate-to-sponsor-tiers-tab %}
@@ -29,10 +31,11 @@ topics:
 1. （可选）要编辑草稿级，找到草稿级并点击 **Edit（编辑）**。 ![草稿等级旁边的编辑按钮](/assets/images/help/sponsors/draft-tier-edit.png)
 {% data reusables.sponsors.click-add-tier %}
 {% data reusables.sponsors.tier-price-description %}
+{% data reusables.sponsors.add-welcome-message %}
 {% data reusables.sponsors.save-tier-draft %}
 {% data reusables.sponsors.review-and-publish-tier %}
 
-### 编辑或撤销等级
+## 编辑或撤销等级
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.navigate-to-sponsor-tiers-tab %}
@@ -46,12 +49,49 @@ topics:
 {% data reusables.sponsors.tier-update %}
 {% data reusables.sponsors.retire-tier %}
 
-### 启用具有自定义金额的等级
+## 将仓库添加到赞助等级
+
+{% data reusables.sponsors.sponsors-only-repos %}
+
+### 关于将存储库添加到赞助等级
+
+要将仓库添加到等级，仓库必须是私有的，并且由组织拥有，同时您必须具有对仓库的管理员访问权限。
+
+将仓库添加到等级时，{% data variables.product.company_short %} 将自动向新赞助商发送仓库邀请，并在取消赞助时删除访问权限。
+
+只有个人帐户（而非组织）才能被邀请到与赞助等级关联的私有仓库。
+
+您还可以在仓库中手动添加或删除协作者，{% data variables.product.company_short %} 不会在同步中覆盖这些协作者。
+
+### 关于添加到赞助等级的仓库的转移
+
+如果将已添加到赞助等级的存储库转移，则有权通过该等级访问仓库的发起人可能会受到影响。
+
+- 如果赞助的配置文件是针对某个组织的，并且仓库被转移到其他组织，则将转移当前的赞助商，但不会添加新的赞助商。 仓库的新所有者可以删除现有赞助商。
+- 如果赞助的个人资料用于个人帐户，仓库转移到组织，并且个人帐户具有对新仓库的管理员访问权限，则将转移现有赞助商，并且将继续将新赞助商添加到仓库。
+- 如果仓库转移到个人帐户，则所有赞助商都将被删除，并且不会将新的赞助商添加到仓库中。
+
+### 将仓库添加到赞助等级
+
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-sponsor-tiers-tab %}
+{% data reusables.sponsors.edit-tier %}
+1. 选择 **Grant sponsors access to a private repository（授权赞助者访问私有仓库）**。
+
+   ![用于授予发起人访问私有仓库的复选框的屏幕截图](/assets/images/help/sponsors/grant-sponsors-access-to-repo-checkbox.png)
+
+1. 选择下拉菜单并单击您想要添加的仓库。
+
+   ![下拉菜单的屏幕截图，用于选择要授予赞助商访问权限的存储库](/assets/images/help/sponsors/grant-sponsors-access-to-repo-dropdown.png)
+
+{% data reusables.sponsors.tier-update %}
+
+## 启用具有自定义金额的等级
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.navigate-to-sponsor-tiers-tab %}
 {% data reusables.sponsors.enable-custom-amounts %}
 
-### 禁用具有自定义金额的等级
+## 禁用具有自定义金额的等级
 
 您可以通过在 **Sponsor tiers（赞助者等级）**选项卡中取消选择 **Enable custom amounts（启用自定义金额）**选项来禁用具有自定义金额的等级。 如果您禁用自定义金额，所有自定义等级都将退出。
