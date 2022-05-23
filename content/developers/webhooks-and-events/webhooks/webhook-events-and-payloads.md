@@ -1481,6 +1481,17 @@ This event occurs when someone triggers a workflow run on GitHub or sends a `POS
 
 - {% data variables.product.prodname_github_apps %} must have the `contents` permission to receive this webhook.
 
+### Webhook payload object
+
+| Key | Type | Description |
+|-----|-----|-----|
+| `inputs` | `object` | Inputs to the workflow. Each key represents the name of the input while it's value represents the value of that input. |
+{% data reusables.webhooks.org_desc %}
+| `ref` | `string` | The branch ref from which the workflow was run. |
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.sender_desc %}
+| `workflow` | `string` | Relative path to the workflow file which contains the workflow. |
+
 ### Webhook payload example
 
 {{ webhookPayloadsForCurrentVersion.workflow_dispatch }}

@@ -1,6 +1,6 @@
 ---
 title: Using a matrix for your jobs
-shortTitle: Using a matrix
+shortTitle: Utilizar una matriz
 intro: Create a matrix to define variations for each job.
 versions:
   fpt: '*'

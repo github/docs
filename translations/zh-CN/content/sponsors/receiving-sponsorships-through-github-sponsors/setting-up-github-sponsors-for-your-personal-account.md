@@ -1,5 +1,5 @@
 ---
-title: Setting up GitHub Sponsors for your personal account
+title: 为您的个人帐户设置 GitHub Sponsors
 intro: '要成为被赞助的开发者，请加入 {% data variables.product.prodname_sponsors %}、填写被赞助开发者个人资料、创建赞助等级、提交您的银行和税务信息并为您在 {% data variables.product.product_location %} 上的帐户启用双重身份验证。'
 redirect_from:
   - /articles/becoming-a-sponsored-developer
