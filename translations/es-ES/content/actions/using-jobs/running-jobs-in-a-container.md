@@ -17,27 +17,27 @@ miniTocMaxHeadingLevel: 4
 
 {% data reusables.actions.jobs.section-running-jobs-in-a-container %}
 
-## Defining the container image
+## Definir la imagen de contenedor
 
 {% data reusables.actions.jobs.section-running-jobs-in-a-container-image %}
 
-## Defining credentials for a container registry
+## Definir las credenciales para un registro de contenedores
 
 {% data reusables.actions.jobs.section-running-jobs-in-a-container-credentials %}
 
-## Using environment variables with a container
+## Utilziar variables de ambiente con un contenedor
 
 {% data reusables.actions.jobs.section-running-jobs-in-a-container-env %}
 
-## Exposing network ports on a container
+## Exponer puertos de red en un contenedor
 
 {% data reusables.actions.jobs.section-running-jobs-in-a-container-ports %}
 
-## Mounting volumes in a container
+## Montar volúmenes en un contenedor
 
 {% data reusables.actions.jobs.section-running-jobs-in-a-container-volumes %}
 
-## Setting container resource options
+## Configurar las opciones de recursos de contenedor
 
 {% data reusables.actions.jobs.section-running-jobs-in-a-container-options %}
 

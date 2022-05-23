@@ -29,9 +29,9 @@ Un archivo README suele ser el primer elemento que verá un visitante cuando ent
 - Dónde pueden recibir ayuda los usuarios con tu proyecto
 - Quién mantiene y contribuye con el proyecto.
 
-If you put your README file in your repository's hidden `.github`, root, or `docs` directory, {% data variables.product.product_name %} will recognize and automatically surface your README to repository visitors.
+Si pones tu archivo de README en el `.github` oculto de tu repositorio, en la raíz o en el directorio `docs`, {% data variables.product.product_name %} lo reconocerá y lo hará emerger automáticamente para los visitantes del repositorio.
 
-If a repository contains more than one README file, then the file shown is chosen from locations in the following order: the `.github` directory, then the repository's root directory, and finally the `docs` directory.
+Si un repositorio contiene más de un archivo README, entonces el archivo que se muestra se elegirá de las ubicaciones en el siguiente orden: el directorio de `.github`, luego el directorio raíz del repositorio y, finalmente, el directorio `docs`.
 
 ![Página principal del repositorio github/scientist y su archivo README](/assets/images/help/repository/repo-with-readme.png)
 

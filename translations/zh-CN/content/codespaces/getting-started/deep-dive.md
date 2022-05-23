@@ -46,13 +46,13 @@ topics:
 
 ### 步骤 3：连接到代码空间
 
-创建容器并运行任何其他初始化后，您将连接到代码空间。 You can connect to it through the web or via [{% data variables.product.prodname_vscode_shortname %}](/codespaces/developing-in-codespaces/using-codespaces-in-visual-studio-code), or both, if needed.
+创建容器并运行任何其他初始化后，您将连接到代码空间。 如果需要，您可以通过 Web 和/或 [{% data variables.product.prodname_vscode_shortname %}](/codespaces/developing-in-codespaces/using-codespaces-in-visual-studio-code) 连接。
 
 ### 步骤 4：创建后设置
 
 连接到代码空间后，您的自动设置可能会根据您在 `devcontainer.json` 文件中指定的配置继续构建。 您可能会看到 `postCreateCommand` 和 `postAttachCommand` 运行。
 
-如果要在代码空间中使用 Git 挂钩，请使用 [`devcontainer.json` 生命周期脚本](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_lifecycle-scripts)设置挂钩，例如 `postCreateCommand`。 For more information, see the [`devcontainer.json` reference](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_devcontainerjson-properties) in the {% data variables.product.prodname_vscode_shortname %} documentation.
+如果要在代码空间中使用 Git 挂钩，请使用 [`devcontainer.json` 生命周期脚本](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_lifecycle-scripts)设置挂钩，例如 `postCreateCommand`。 更多信息请参阅 {% data variables.product.prodname_vscode_shortname %} 文档中的 [`devcontainer.json` 参考](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_devcontainerjson-properties)。
 
 如果您有一个用于 {% data variables.product.prodname_codespaces %} 的公共 dotfile 存储库，则可以启用它以用于新的代码空间。 启用后，您的 dotfile 将被克隆到容器中，并且将调用安装脚本。 更多信息请参阅“[为帐户个性化 {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/personalizing-codespaces-for-your-account#dotfiles)”。
 
@@ -93,7 +93,7 @@ topics:
 
 ## 提交和推送更改
 
-默认情况下，Git 在代码空间中可用，因此您可以依赖现有的 Git 工作流程。 You can work with Git in your codespace either via the Terminal or by using [{% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/editor/versioncontrol)'s source control UI. 更多信息请参阅“[在代码空间中使用源控制](/codespaces/developing-in-codespaces/using-source-control-in-your-codespace)”。
+默认情况下，Git 在代码空间中可用，因此您可以依赖现有的 Git 工作流程。 您可以通过终端或使用 [{% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/editor/versioncontrol) 的源代码管理 UI 在代码空间中使用 Git。 更多信息请参阅“[在代码空间中使用源控制](/codespaces/developing-in-codespaces/using-source-control-in-your-codespace)”。
 
 ![在代码空间终端中运行 git 状态](/assets/images/help/codespaces/git-status.png)
 
@@ -107,7 +107,7 @@ topics:
 
 ## 使用扩展个性化您的代码空间
 
-Using {% data variables.product.prodname_vscode_shortname %} in your codespace gives you access to the {% data variables.product.prodname_vscode_marketplace %} so that you can add any extensions you need. 有关扩展如何在 {% data variables.product.prodname_codespaces %} 中运行的信息，请参阅 {% data variables.product.prodname_vscode_shortname %} 文档中的[支持远程开发和 GitHub 代码空间](https://code.visualstudio.com/api/advanced-topics/remote-extensions) 。
+在代码空间中使用 {% data variables.product.prodname_vscode_shortname %} 可以访问 {% data variables.product.prodname_vscode_marketplace %}，以便您可以添加所需的任何扩展。 有关扩展如何在 {% data variables.product.prodname_codespaces %} 中运行的信息，请参阅 {% data variables.product.prodname_vscode_shortname %} 文档中的[支持远程开发和 GitHub 代码空间](https://code.visualstudio.com/api/advanced-topics/remote-extensions) 。
 
 如果您已使用 {% data variables.product.prodname_vscode_shortname %}，则可以使用[设置同步](https://code.visualstudio.com/docs/editor/settings-sync)在本地实例和您创建的任何 {% data variables.product.prodname_codespaces %} 之间自动同步扩展程序、设置、主题和键盘快捷键。
 
