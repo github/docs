@@ -1,6 +1,6 @@
 ---
 title: Allowing your codespace to access a private image registry
-intro: 'You can use secrets to allow {% data variables.product.prodname_codespaces %} to access a private image registry'
+intro: 'You can use secrets to allow {% data variables.product.prodname_github_codespaces %} to access a private image registry'
 versions:
   fpt: '*'
   ghec: '*'
@@ -10,15 +10,15 @@ product: '{% data reusables.gated-features.codespaces %}'
 shortTitle: Private image registry
 ---
 
-## About private image registries and {% data variables.product.prodname_codespaces %}
+## About private image registries and {% data variables.product.prodname_github_codespaces %}
 
 A registry is a secure space for storing, managing, and fetching private container images. You may use one to store one or more images. There are many examples of registries, such as {% data variables.product.prodname_dotcom %} Container Registry, Azure Container Registry, or DockerHub.
 
-{% data variables.product.prodname_dotcom %} Container Registry can be configured to pull container images seamlessly, without having to provide any authentication credentials to {% data variables.product.prodname_codespaces %}. For other image registries, you must create secrets in {% data variables.product.prodname_dotcom %} to store the access details, which will allow {% data variables.product.prodname_codespaces %} to access images stored in that registry.
+{% data variables.product.prodname_dotcom %} Container Registry can be configured to pull container images seamlessly, without having to provide any authentication credentials to {% data variables.product.prodname_github_codespaces %}. For other image registries, you must create secrets in {% data variables.product.prodname_dotcom %} to store the access details, which will allow {% data variables.product.prodname_codespaces %} to access images stored in that registry.
 
 ## Accessing images stored in {% data variables.product.prodname_dotcom %} Container Registry
 
-{% data variables.product.prodname_dotcom %} Container Registry is the easiest way for {% data variables.product.prodname_github_codespaces %} to consume devcontainer container images.
+{% data variables.product.prodname_dotcom %} Container Registry is the easiest way for {% data variables.product.prodname_codespaces %} to consume devcontainer container images.
 
 For more information, see "[Working with the Container registry](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)".
 
@@ -52,7 +52,7 @@ We recommend publishing images via {% data variables.product.prodname_actions %}
 
 ## Accessing images stored in other container registries
 
-If you are accessing a container image from a registry that isn't {% data variables.product.prodname_dotcom %} Container Registry, {% data variables.product.prodname_codespaces %} checks for the presence of three secrets, which define the server name, username, and personal access token (PAT) for a container registry. If these secrets are found, {% data variables.product.prodname_codespaces %} will make the registry available inside your codespace.
+If you are accessing a container image from a registry that isn't {% data variables.product.prodname_dotcom %} Container Registry, {% data variables.product.prodname_codespaces %} checks for the presence of three secrets, which define the server name, username, and personal access token (PAT) for a container registry. If these secrets are found, {% data variables.product.prodname_github_codespaces %} will make the registry available inside your codespace.
 
 - `<*>_CONTAINER_REGISTRY_SERVER`
 - `<*>_CONTAINER_REGISTRY_USER`

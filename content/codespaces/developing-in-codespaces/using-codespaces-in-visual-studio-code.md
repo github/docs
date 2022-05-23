@@ -1,5 +1,5 @@
 ---
-title: Using Codespaces in Visual Studio Code
+title: Using GitHub Codespaces in Visual Studio Code
 intro: 'You can develop in your codespace directly in {% data variables.product.prodname_vscode %} by connecting the {% data variables.product.prodname_github_codespaces %} extension with your account on {% data variables.product.product_name %}.'
 product: '{% data reusables.gated-features.codespaces %}'
 redirect_from:
@@ -18,9 +18,9 @@ shortTitle: Visual Studio Code
 ---
 
  
-## About {% data variables.product.prodname_codespaces %} in {% data variables.product.prodname_vscode %}
+## About {% data variables.product.prodname_github_codespaces %} in {% data variables.product.prodname_vscode %}
 
-You can use your local install of {% data variables.product.prodname_vscode %} to create, manage, work in, and delete codespaces. To use {% data variables.product.prodname_codespaces %} in {% data variables.product.prodname_vscode_shortname %}, you need to install the {% data variables.product.prodname_github_codespaces %} extension. For more information on setting up Codespaces in {% data variables.product.prodname_vscode_shortname %}, see "[Prerequisites](#prerequisites)."
+You can use your local install of {% data variables.product.prodname_vscode %} to create, manage, work in, and delete codespaces. To use {% data variables.product.prodname_github_codespaces %} in {% data variables.product.prodname_vscode_shortname %}, you need to install the {% data variables.product.prodname_github_codespaces %} extension. For more information on setting up Codespaces in {% data variables.product.prodname_vscode_shortname %}, see "[Prerequisites](#prerequisites)."
 
 By default, if you create a new codespace on {% data variables.product.prodname_dotcom_the_website %}, it will open in the browser. If you would prefer to open any new codespaces in {% data variables.product.prodname_vscode_shortname %} automatically, you can set your default editor to be {% data variables.product.prodname_vscode_shortname %}. For more information, see "[Setting your default editor for {% data variables.product.prodname_codespaces %}](/codespaces/managing-your-codespaces/setting-your-default-editor-for-codespaces)."
 
