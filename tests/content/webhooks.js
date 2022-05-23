@@ -1,5 +1,5 @@
 import { difference } from 'lodash-es'
-import { getJSON } from '../helpers/supertest.js'
+import { getJSON } from '../helpers/e2etest.js'
 import { latest } from '../../lib/enterprise-server-releases.js'
 import { allVersions } from '../../lib/all-versions.js'
 import getWebhookPayloads from '../../lib/webhooks'

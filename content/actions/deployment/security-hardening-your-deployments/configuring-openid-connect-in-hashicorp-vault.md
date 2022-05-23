@@ -7,6 +7,7 @@ versions:
   fpt: '*'
   ghae: issue-4856
   ghec: '*'
+  ghes: '>=3.5'
 type: tutorial
 topics:
   - Security
@@ -34,7 +35,7 @@ To use OIDC with HashiCorp Vault, you will need to add a trust configuration for
 To configure your Vault server to accept JSON Web Tokens (JWT) for authentication:
 
 1. Enable the JWT auth method and write configuration.  
-  For `oidc_discovery_url` and `bound_issuer` parameters, use `https://token.actions.githubusercontent.com`. These parameters must be set so that the Vault server can verify the received JSON Web Tokens (JWT) upon authentication.
+  For `oidc_discovery_url` and `bound_issuer` parameters, use {% ifversion ghes %}`https://HOSTNAME/_services/token`{% else %}`https://token.actions.githubusercontent.com`{% endif %}. These parameters must be set so that the Vault server can verify the received JSON Web Tokens (JWT) upon authentication.
 
     ```sh{:copy}
     vault auth enable jwt
@@ -42,8 +43,8 @@ To configure your Vault server to accept JSON Web Tokens (JWT) for authenticatio
     
     ```sh{:copy}
     vault write auth/jwt/config \
-      bound_issuer="https://token.actions.githubusercontent.com" \
-      oidc_discovery_url="https://token.actions.githubusercontent.com"
+      bound_issuer="{% ifversion ghes %}https://HOSTNAME/_services/token{% else %}https://token.actions.githubusercontent.com{% endif %}" \
+      oidc_discovery_url="{% ifversion ghes %}https://HOSTNAME/_services/token{% else %}https://token.actions.githubusercontent.com{% endif %}"
     ```
 2. Configure policies to only grant access for certain paths in which your workflows will be retrieving secrets. For more advanced policies, see the HashiCorp Vault [Policies documentation](https://www.vaultproject.io/docs/concepts/policies).
 

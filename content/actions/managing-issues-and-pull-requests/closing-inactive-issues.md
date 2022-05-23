@@ -42,7 +42,7 @@ In the tutorial, you will first make a workflow file that uses the [`actions/sta
           issues: write
           pull-requests: write{% endif %}
         steps:
-          - uses: actions/stale@v3
+          - uses: {% data reusables.actions.action-stale %}
             with:
               days-before-issue-stale: 30
               days-before-issue-close: 14

@@ -1,22 +1,22 @@
 date: '2021-12-07'
 sections:
   security_fixes:
-    - 'Support bundles could include sensitive files if they met a specific set of conditions.'
+    - 'Los paquetes de soporte podrían incluir archivos sensibles si cumplen con un conjunto de características específicas.'
     - 'Se identificó una representación errónea de la IU en GitHub Enterprise Server que permitió que se otorgaran más permisos durante un flujo web de usuario-autorización de una GitHub App que se mostró al usuario durante su aprobación. Dicha vulnerabilidad afectó a todas las versiones de GitHub Enterprise Server previas a la 3.3 y se corrigió en las versiones 3.2.5, 3.1.13 y 3.0.21. Esta vulnerabilidad se reportó mediante el programa de Recompensas por Errores de GitHub y se le asignó el [CVE-2021-41598](https://www.cve.org/CVERecord?id=CVE-2021-41598).'
     - 'Se identificó una vulnerabilidad de ejecución de código remoto en GitHub Enterprise Server, la cual pudo haberse aprovechado al compilar un sitio de GitHub Pages. Esta vulnerabilidad afectó a todas las versiones de GitHub Enterprise Server anteriores a la 3.3 y se corrigió en las versiones 3.0.21, 3.1.13 y 3.2.5. Esta vulnerabilidad se reportó mediante el programa de Recompensas por Errores de GitHub y se le asignó el [CVE-2021-41599](https://www.cve.org/CVERecord?id=CVE-2021-41599). Actualizado el 17 de febrero de 2022.'
   bugs:
-    - 'In some cases when Actions was not enabled, `ghe-support-bundle` reported an unexpected message `Unable to find MS SQL container.`'
+    - 'En algunos casos cuando las acciones no se habilitaron, `ghe-support-bundle` reportó un mensaje inesperado de `Unable to find MS SQL container`.'
     - 'El ejecutar `ghe-config-apply` pudo fallar en ocasiones debido a problemas con los permisos en /data/user/tmp/pages`.'
-    - 'A misconfiguration in the Management Console caused scheduling errors.'
+    - 'Una mala configuración en la consola de administración causó errores de programación.'
     - 'Docker retuvo los archivos de bitácora abiertos después de una rotación de bitácoras.'
-    - 'Migrations could get stuck due to incorrect handling of `blob_path` values that are not UTF-8 compatible.'
-    - 'GraphQL requests did not set the GITHUB_USER_IP variable in pre-receive hook environments.'
-    - 'Pagination links on org audit logs would not persist query parameters.'
-    - 'During a hotpatch, it was possible for duplicate hashes if a transition ran more than once.'
+    - 'Las migraciones podrían haberse atorado debido a un manejo incorrecto de los valores de `blob_path` que no son compatibles con UTF-8.'
+    - 'Las solicitudes de GraphQL no configuraron la variable GITHUB_USER_IP en los ambientes de ganchos de pre-recepción.'
+    - 'Los enlaces de paginación en las bitácoras de auditoría de la organización no persistirán los parámetros de consulta.'
+    - 'Durante un hotpatch, fue posible duplicar los hashes si la transición se ejecutó más de una vez.'
   changes:
-    - 'Clarifies explanation of Actions path-style in documentation.'
+    - 'Clarifica una explicación del estilo de ruta de las acciones en la documentación.'
     - 'Las actualizaciones tienen compatibilidad con las URL de contacto para utilizar el sitio de soporte actual, support.github.com.'
-    - 'Additional troubleshooting provided when running `ghe-mssql-diagnostic`.'
+    - 'Se proporcionó una solución de problemas adicional al ejecutar `ghe-mssql-diagnostic`.'
   known_issues:
     - 'En una instalación nueva de {% data variables.product.prodname_ghe_server %} que no tenga ningún usuario, cualquier atacante podría crear el primer usuario administrativo.'
     - 'Las reglas de cortafuegos personalizadas se eliminan durante el proceso de actualización.'

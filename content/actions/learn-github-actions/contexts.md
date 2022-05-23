@@ -23,7 +23,7 @@ miniTocMaxHeadingLevel: 3
 
 Contexts are a way to access information about workflow runs, runner environments, jobs, and steps. Each context is an object that contains properties, which can be strings or other objects.
 
-{% data reusables.actions.context-contents %} For example, the `matrix` context is only populated for jobs in a [build matrix](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix).
+{% data reusables.actions.context-contents %} For example, the `matrix` context is only populated for jobs in a [matrix](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix).
 
 You can access contexts using the expression syntax. For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
 
@@ -57,6 +57,8 @@ In order to use property dereference syntax, the property name must:
 - start with `a-Z` or `_`.
 - be followed by `a-Z` `0-9` `-` or `_`.
 
+If you attempt to dereference a non-existent property, it will evaluate to an empty string.
+
 ### Determining when to use contexts
 
 {% data reusables.actions.using-context-or-environment-variables %}
@@ -76,7 +78,7 @@ The following table indicates where each context and special function can be use
 | <code>concurrency</code> | <code>github, inputs</code> | |
 | <code>env</code> | <code>github, secrets, inputs</code> | |
 | <code>jobs.&lt;job_id&gt;.concurrency</code> | <code>github, needs, strategy, matrix, inputs</code> | |
-| <code>jobs.&lt;job_id&gt;.container</code> | <code>github, needs, strategy, matrix, secrets, inputs</code> | |
+| <code>jobs.&lt;job_id&gt;.container</code> | <code>github, needs, strategy, matrix, env, secrets, inputs</code> | |
 | <code>jobs.&lt;job_id&gt;.container.credentials</code> | <code>github, needs, strategy, matrix, env, secrets, inputs</code> | |
 | <code>jobs.&lt;job_id&gt;.container.env.&lt;env_id&gt;</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, inputs</code> | |
 | <code>jobs.&lt;job_id&gt;.continue-on-error</code> | <code>github, needs, strategy, matrix, inputs</code> | |
@@ -183,6 +185,7 @@ The `github` context contains information about the workflow run and the event t
 | `github.action_path` | `string` | The path where an action is located. This property is only supported in composite actions. You can use this path to access files located in the same repository as the action. |
 | `github.action_ref` | `string` | For a step executing an action, this is the ref of the action being executed. For example, `v2`. |
 | `github.action_repository` | `string` | For a step executing an action, this is the owner and repository name of the action. For example, `actions/checkout`. |
+| `github.action_status` | `string` | For a composite action, the current result of the composite action. |
 | `github.actor` | `string` | The username of the user that initiated the workflow run. |
 | `github.api_url` | `string` | The URL of the {% data variables.product.prodname_dotcom %} REST API. |
 | `github.base_ref` | `string` | The `base_ref` or target branch of the pull request in a workflow run. This property is only available when the event that triggers a workflow run is either `pull_request` or `pull_request_target`. |
@@ -271,7 +274,7 @@ jobs:
   normal_ci:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Run normal CI
         run: ./run-tests
 
@@ -279,7 +282,7 @@ jobs:
     runs-on: ubuntu-latest
     if: {% raw %}${{ github.event_name == 'pull_request' }}{% endraw %}
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Run PR CI
         run: ./run-additional-pr-ci
 ```
@@ -381,7 +384,6 @@ This example `job` context uses a PostgreSQL service container with mapped ports
 
 This example workflow configures a PostgreSQL service container, and automatically maps port 5432 in the service container to a randomly chosen available port on the host. The `job` context is used to access the number of the port that was assigned on the host.
 
-{% raw %}
 ```yaml{:copy}
 name: PostgreSQL Service Example
 on: push
@@ -399,11 +401,10 @@ jobs:
           - 5432
 
     steps:
-      - uses: actions/checkout@v2
-      - run: pg_isready -h localhost -p ${{ job.services.postgres.ports[5432] }}
+      - uses: {% data reusables.actions.action-checkout %}
+      - run: pg_isready -h localhost -p {% raw %}${{ job.services.postgres.ports[5432] }}{% endraw %}
       - run: ./run-tests
 ```
-{% endraw %}
 
 ## `steps` context
 
@@ -442,7 +443,6 @@ This example `steps` context shows two previous steps that had an [`id`](/action
 
 This example workflow generates a random number as an output in one step, and a later step uses the `steps` context to read the value of that output.
 
-{% raw %}
 ```yaml{:copy}
 name: Generate random failure
 on: push
@@ -451,15 +451,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - id: checkout
-        uses: actions/checkout@v2
+        uses: {% data reusables.actions.action-checkout %}
       - name: Generate 0 or 1
         id: generate_number
         run:  echo "::set-output name=random_number::$(($RANDOM % 2))"
       - name: Pass or fail
         run: |
-          if [[ ${{ steps.generate_number.outputs.random_number }} == 0 ]]; then exit 0; else exit 1; fi
+          if [[ {% raw %}${{ steps.generate_number.outputs.random_number }}{% endraw %} == 0 ]]; then exit 0; else exit 1; fi
 ```
-{% endraw %}
 
 ## `runner` context
 
@@ -500,7 +499,6 @@ The following example context is from a Linux {% data variables.product.prodname
 
 This example workflow uses the `runner` context to set the path to the temporary directory to write logs, and if the workflow fails, it uploads those logs as artifact.
 
-{% raw %}
 ```yaml{:copy}
 name: Build
 on: push
@@ -509,19 +507,18 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Build with logs
         run: |
-          mkdir ${{ runner.temp }}/build_logs
-          ./build.sh --log-path ${{ runner.temp }}/build_logs
+          mkdir {% raw %}${{ runner.temp }}{% endraw %}/build_logs
+          ./build.sh --log-path {% raw %}${{ runner.temp }}{% endraw %}/build_logs
       - name: Upload logs on fail
-        if: ${{ failure() }}
-        uses: actions/upload-artifact@v3
+        if: {% raw %}${{ failure() }}{% endraw %}
+        uses: {% data reusables.actions.action-upload-artifact %}
         with:
           name: Build failure logs
-          path: ${{ runner.temp }}/build_logs
+          path: {% raw %}${{ runner.temp }}{% endraw %}/build_logs
 ```
-{% endraw %}
 
 ## `secrets` context
 
@@ -555,19 +552,19 @@ The following example contents of the `secrets` context shows the automatic `GIT
 
 ## `strategy` context
 
-For workflows with a build matrix, the `strategy` context contains information about the matrix execution strategy for the current job.
+For workflows with a matrix, the `strategy` context contains information about the matrix execution strategy for the current job.
 
 | Property name | Type | Description |
 |---------------|------|-------------|
 | `strategy` | `object` | This context changes for each job in a workflow run. You can access this context from any job or step in a workflow. This object contains all the properties listed below. |
-| `strategy.fail-fast` | `string` | When `true`, all in-progress jobs are canceled if any job in a build matrix fails. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategyfail-fast)." |
-| `strategy.job-index` | `string` | The index of the current job in the build matrix. **Note:** This number is a zero-based number. The first job's index in the build matrix is `0`. |
-| `strategy.job-total` | `string` | The total number of jobs in the build matrix. **Note:** This number **is not** a zero-based number. For example, for a build matrix with four jobs, the value of `job-total` is `4`. |
+| `strategy.fail-fast` | `string` | When `true`, all in-progress jobs are canceled if any job in a matrix fails. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategyfail-fast)." |
+| `strategy.job-index` | `string` | The index of the current job in the matrix. **Note:** This number is a zero-based number. The first job's index in the matrix is `0`. |
+| `strategy.job-total` | `string` | The total number of jobs in the matrix. **Note:** This number **is not** a zero-based number. For example, for a matrix with four jobs, the value of `job-total` is `4`. |
 | `strategy.max-parallel` | `string` | The maximum number of jobs that can run simultaneously when using a `matrix` job strategy. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymax-parallel)." |
 
 ### Example contents of the `strategy` context
 
-The following example contents of the `strategy` context is from a build matrix with four jobs, and is taken from the final job. Note the difference between the zero-based `job-index` number, and `job-total` which is not zero-based.
+The following example contents of the `strategy` context is from a matrix with four jobs, and is taken from the final job. Note the difference between the zero-based `job-index` number, and `job-total` which is not zero-based.
 
 ```yaml
 {
@@ -580,9 +577,8 @@ The following example contents of the `strategy` context is from a build matrix 
 
 ### Example usage of the `strategy` context
 
-This example workflow uses the `strategy.job-index` property to set a unique name for a log file for each job in a build matrix.
+This example workflow uses the `strategy.job-index` property to set a unique name for a log file for each job in a matrix.
 
-{% raw %}
 ```yaml{:copy}
 name: Test matrix
 on: push
@@ -595,30 +591,29 @@ jobs:
         test-group: [1, 2]
         node: [14, 16]
     steps:
-      - uses: actions/checkout@v2
-      - run: npm test > test-job-${{ strategy.job-index }}.txt
+      - uses: {% data reusables.actions.action-checkout %}
+      - run: npm test > test-job-{% raw %}${{ strategy.job-index }}{% endraw %}.txt
       - name: Upload logs
-        uses: actions/upload-artifact@v3
+        uses: {% data reusables.actions.action-upload-artifact %}
         with:
-          name: Build log for job ${{ strategy.job-index }}
-          path: test-job-${{ strategy.job-index }}.txt
+          name: Build log for job {% raw %}${{ strategy.job-index }}{% endraw %}
+          path: test-job-{% raw %}${{ strategy.job-index }}{% endraw %}.txt
 ```
-{% endraw %}
 
 ## `matrix` context
 
-For workflows with a build matrix, the `matrix` context contains the matrix properties defined in the workflow file that apply to the current job. For example, if you configure a build matrix with the `os` and `node` keys, the `matrix` context object includes the `os` and `node` properties with the values that are being used for the current job.
+For workflows with a matrix, the `matrix` context contains the matrix properties defined in the workflow file that apply to the current job. For example, if you configure a matrix with the `os` and `node` keys, the `matrix` context object includes the `os` and `node` properties with the values that are being used for the current job.
 
 There are no standard properties in the `matrix` context, only those which are defined in the workflow file.
 
 | Property name | Type | Description |
 |---------------|------|-------------|
-| `matrix` | `object` | This context is only available for jobs in a build matrix, and changes for each job in a workflow run. You can access this context from any job or step in a workflow. This object contains the properties listed below. |
+| `matrix` | `object` | This context is only available for jobs in a matrix, and changes for each job in a workflow run. You can access this context from any job or step in a workflow. This object contains the properties listed below. |
 | `matrix.<property_name>` | `string` | The value of a matrix property. |
 
 ### Example contents of the `matrix` context
 
-The following example contents of the `matrix` context is from a job in a build matrix that has the `os` and `node` matrix properties defined in the workflow. The job is executing the matrix combination of an `ubuntu-latest` OS and Node.js version `16`.
+The following example contents of the `matrix` context is from a job in a matrix that has the `os` and `node` matrix properties defined in the workflow. The job is executing the matrix combination of an `ubuntu-latest` OS and Node.js version `16`.
 
 ```yaml
 {
@@ -629,31 +624,29 @@ The following example contents of the `matrix` context is from a job in a build 
 
 ### Example usage of the `matrix` context
 
-This example workflow creates a build matrix with `os` and `node` keys. It uses the `matrix.os` property to set the runner type for each job, and uses the `matrix.node` property to set the Node.js version for each job.
+This example workflow creates a matrix with `os` and `node` keys. It uses the `matrix.os` property to set the runner type for each job, and uses the `matrix.node` property to set the Node.js version for each job.
 
-{% raw %}
 ```yaml{:copy}
 name: Test matrix
 on: push
 
 jobs:
   build:
-    runs-on: ${{ matrix.os }}
+    runs-on: {% raw %}${{ matrix.os }}{% endraw %}
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest]
         node: [14, 16]
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: {% data reusables.actions.action-checkout %}
+      - uses: {% data reusables.actions.action-setup-node %}
         with:
-          node-version: ${{ matrix.node }}
+          node-version: {% raw %}${{ matrix.node }}{% endraw %}
       - name: Install dependencies
         run: npm ci
       - name: Run tests
         run: npm test
 ```
-{% endraw %}
 
 ## `needs` context
 
@@ -690,7 +683,6 @@ The following example contents of the `needs` context shows information for two 
 
 This example workflow has three jobs: a `build` job that does a build, a `deploy` job that requires the `build` job, and a `debug` job that requires both the `build` and `deploy` jobs and runs only if there is a failure in the workflow. The `deploy` job also uses the `needs` context to access an output from the `build` job.
 
-{% raw %}
 ```yaml{:copy}
 name: Build and deploy
 on: push
@@ -699,9 +691,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     outputs:
-      build_id: ${{ steps.build_step.outputs.build_id }}
+      build_id: {% raw %}${{ steps.build_step.outputs.build_id }}{% endraw %}
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Build
         id: build_step
         run: |
@@ -711,17 +703,16 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - run: ./deploy --build ${{ needs.build.outputs.build_id }}
+      - uses: {% data reusables.actions.action-checkout %}
+      - run: ./deploy --build {% raw %}${{ needs.build.outputs.build_id }}{% endraw %}
   debug:
     needs: [build, deploy]
     runs-on: ubuntu-latest
-    if: ${{ failure() }}
+    if: {% raw %}${{ failure() }}{% endraw %}
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - run: ./debug
 ```
-{% endraw %}
 
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4757 %}
 ## `inputs` context
@@ -766,10 +757,14 @@ on:
       deploy_target:
         required: true
         type: string
+      perform_deploy:
+        required: true
+        type: boolean
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    if: ${{ inputs.perform_deploy == 'true' }}
     steps:
       - name: Deploy build to target
         run: deploy --build ${{ inputs.build_id }} --target ${{ inputs.deploy_target }}

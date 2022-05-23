@@ -1,6 +1,6 @@
 ---
-title: パッケージを公開する
-intro: '{% data variables.product.prodname_registry %}にパッケージを公開し、そのパッケージを他者がダウンロードして再利用できるようにすることができます。'
+title: Publishing a package
+intro: 'You can publish a package to {% data variables.product.prodname_registry %} to make the package available for others to download and re-use.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /github/managing-packages-with-github-packages/publishing-a-package
@@ -16,25 +16,24 @@ versions:
 {% data reusables.package_registry.packages-ghes-release-stage %}
 {% data reusables.package_registry.packages-ghae-release-stage %}
 
-## 公開されたパッケージについて
+## About published packages
 
-パッケージページ上のインストール及び利用方法の説明といった、説明やその他の詳細を提供することによって、パッケージを理解して利用しやすくできます。 {% data variables.product.product_name %} は各バージョンについて、公開日、ダウンロードのアクティビティ、最近のバージョンなどのメタデータを提供します。 パッケージページの例としては、[@Codertocat/hello-world-npm](https://github.com/Codertocat/hello-world-npm/packages/10696?version=1.0.1)を参照してください。
+You can help people understand and use your package by providing a description and other details like installation and usage instructions on the package page. {% data variables.product.product_name %} provides metadata for each version, such as the publication date, download activity, and recent versions. For an example package page, see [@Codertocat/hello-world-npm](https://github.com/Codertocat/hello-world-npm/packages/10696?version=1.0.1).
 
-{% data reusables.package_registry.public-or-private-packages %} リポジトリは複数のパッケージに接続できます。 混乱を避けるため、READMEと説明で各パッケージに関する情報を明確に提供してください。
+{% data reusables.package_registry.public-or-private-packages %} A repository can be connected to more than one package. To prevent confusion, make sure the README and description clearly provide information about each package.
 
 {% ifversion fpt or ghec %}
-新しいバージョンのパッケージでセキュリティの脆弱性が解決される場合は、リポジトリでセキュリティアドバイザリを公開する必要があります。
-{% data variables.product.prodname_dotcom %} は公開された各セキュリティアドバイザリを確認し、それを使用して、影響を受けるリポジトリに {% data variables.product.prodname_dependabot_alerts %} を送信できます。 詳しい情報については、「[GitHub セキュリティアドバイザリについて](/github/managing-security-vulnerabilities/about-github-security-advisories)」 を参照してください。
+If a new version of a package fixes a security vulnerability, you should publish a security advisory in your repository. {% data variables.product.prodname_dotcom %} reviews each published security advisory and may use it to send {% data variables.product.prodname_dependabot_alerts %} to affected repositories. For more information, see "[About GitHub Security Advisories](/github/managing-security-vulnerabilities/about-github-security-advisories)."
 {% endif %}
 
-## パッケージを公開する
+## Publishing a package
 
 You can publish a package to {% data variables.product.prodname_registry %} using any {% ifversion fpt or ghae or ghec %}supported package client{% else %}package type enabled for your instance{% endif %} by following the same general guidelines.
 
-1. 実行したいタスクに対して適切なスコープを持つ既存のアクセストークンを作成もしくは利用してください。 詳しい情報については「[{% data variables.product.prodname_registry %}の権限について](/packages/learn-github-packages/about-permissions-for-github-packages)」を参照してください。
-2. 使用するパッケージクライアントについての指示に従って、アクセストークンを使って{% data variables.product.prodname_registry %}の認証をしてください。
-3. 使用するパッケージクライアントに関する指示に従って、パッケージを公開してください。
+1. Create or use an existing access token with the appropriate scopes for the task you want to accomplish. For more information, see "[About permissions for {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-permissions-for-github-packages)."
+2. Authenticate to {% data variables.product.prodname_registry %} using your access token and the instructions for your package client.
+3. Publish the package using the instructions for your package client.
 
-使用するパッケージクライアント固有の指示については「[GitHub Packagesレジストリの利用](/packages/working-with-a-github-packages-registry)」を参照してください。
+For instructions specific to your package client, see "[Working with a GitHub Packages registry](/packages/working-with-a-github-packages-registry)."
 
-パッケージを公開した後は、{% data variables.product.prodname_dotcom %}上でそのパッケージを見ることができます。 詳しい情報については「[パッケージの表示](/packages/learn-github-packages/viewing-packages)」を参照してください。
+After you publish a package, you can view the package on {% data variables.product.prodname_dotcom %}. For more information, see "[Viewing packages](/packages/learn-github-packages/viewing-packages)."

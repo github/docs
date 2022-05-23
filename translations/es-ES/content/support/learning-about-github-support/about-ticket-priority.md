@@ -1,7 +1,7 @@
 ---
-title: About ticket priority
-intro: You can communicate the severity of your issue and how it is affecting you and your team by setting the priority of your support ticket.
-shortTitle: Ticket priority
+title: Acerca de la prioridad de los tickets
+intro: Puedes comunicar la severidad de tu problema y la forma en la que está afectándote a ti y a tu equipo si configuras la prioridad de tu ticket de soporte.
+shortTitle: Prioridad de los Tickets
 versions:
   ghec: '*'
   ghes: '*'
@@ -18,11 +18,11 @@ Cuando contactas al {% data variables.contact.enterprise_support %}, puedes eleg
 
 {% ifversion ghes %}
 
-## Ticket priority for {% data variables.product.prodname_ghe_server %}
+## Prioridad de los tickets para {% data variables.product.prodname_ghe_server %}
 
 {% data reusables.support.ghes-priorities %}
 
-## Ticket priority for {% data variables.product.prodname_advanced_security %}
+## Prioridad de los tickets para la {% data variables.product.prodname_advanced_security %}
 
 |                           Prioridad                           | Descripción                                                                                                                                                                                                                                                       |
 |:-------------------------------------------------------------:| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -57,7 +57,7 @@ Para calificar para una respuesta prioritaria, debes hacer lo siguiente:
 
 {% note %}
 
-**Note:** Questions do not qualify for a priority response if they are submitted on a local holiday in your jurisdiction.
+**Nota:** Las preguntas no califican para una respuesta prioritaria si se emiten en un día feriado local de tu jurisdicción.
 
 {% endnote %}
 

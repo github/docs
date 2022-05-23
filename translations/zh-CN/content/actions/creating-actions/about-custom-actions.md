@@ -1,5 +1,5 @@
 ---
-title: About custom actions
+title: 关于自定义操作
 intro: '操作是可以组合来创建作业和自定义工作流程的单个任务。 您可以创建自己的操作，或者使用和自定义 {% data variables.product.prodname_dotcom %} 社区分享的操作。'
 redirect_from:
   - /articles/about-actions
@@ -21,12 +21,12 @@ topics:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## About custom actions
+## 关于自定义操作
 
 您可以编写自定义代码来创建操作，以您喜欢的方式与仓库交互，包括使用 {% data variables.product.prodname_dotcom %} 的 API 以及任何公开的第三方 API 进行交互。 例如，操作可以发布 npm 模块、在创建紧急议题时发送短信提醒，或者部署可用于生产的代码。
 
 {% ifversion fpt or ghec %}
-您可以编写自己的操作以用于工作流程，或者与 {% data variables.product.prodname_dotcom %} 社区共享您创建的操作。 To share actions you've built with everyone, your repository must be public. {% if internal-actions %}To share actions only within your enterprise, your repository must be internal.{% endif %}
+您可以编写自己的操作以用于工作流程，或者与 {% data variables.product.prodname_dotcom %} 社区共享您创建的操作。 要与每个人共享您创建的操作，您的仓库必须是公共的。 {% if internal-actions %}若要仅在企业内共享操作，存储库必须是内部的。{% endif %}
 {% endif %}
 
 操作可以直接在计算机或 Docker 容器中运行。 您可以定义操作的输入、输出和环境变量。
@@ -71,11 +71,11 @@ _复合_操作允许您在一个操作中组合多个工作流程步骤。 例�
 
 {% data reusables.actions.internal-actions-summary %}
 
-{% ifversion fpt or ghec %}If you're building an action that you don't plan to make available to others, you {% else %} You{% endif %} can store the action's files in any location in your repository. 如果计划将操作、工作流程和应用程序代码合并到一个仓库中，建议将操作存储在 `.github` 目录中。 例如，`.github/actions/action-a` 和 `.github/actions/action-b`。
+{% ifversion fpt or ghec %}如果创建不打算供他人使用的操作，您{% else %}您{% endif %}可以将操作的文件存储在您的仓库中的任何位置。 如果计划将操作、工作流程和应用程序代码合并到一个仓库中，建议将操作存储在 `.github` 目录中。 例如，`.github/actions/action-a` 和 `.github/actions/action-b`。
 
 ## 与 {% data variables.product.prodname_ghe_server %} 的兼容性
 
-To ensure that your action is compatible with {% data variables.product.prodname_ghe_server %}, you should make sure that you do not use any hard-coded references to {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API URLs. You should instead use environment variables to refer to the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API:
+为了确保操作与 {% data variables.product.prodname_ghe_server %} 兼容，应确保不使用任何硬编码引用来引用 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API URL。 您应该改用环境变量来引用 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API：
 
 - 创建发行版标记（例如，`v1.0.2`）之前，在发行版分支（如 `release/v1`）上创建发行版并进行验证。
 - 对于 GraphQL，使用 `GITHUB_GRAPHQL_URL` 环境变量。
@@ -129,7 +129,7 @@ steps:
 
 ### 使用提交的 SHA 进行发行版管理
 
-每个 Git 提交都会收到一个计算出来的 SHA 值，该值是唯一且不可更改的。 您操作的用户可能更喜欢依赖提交的 SHA 值，因为此方法会比指定可删除或移动的标记更可靠。 但是，这意味着用户将不会收到对该操作所做的进一步更新。 You must use a commit's full SHA value, and not an abbreviated value.
+每个 Git 提交都会收到一个计算出来的 SHA 值，该值是唯一且不可更改的。 您操作的用户可能更喜欢依赖提交的 SHA 值，因为此方法会比指定可删除或移动的标记更可靠。 但是，这意味着用户将不会收到对该操作所做的进一步更新。 必须使用提交的完整 SHA 值，而不是缩写值。
 
 ```yaml
 steps:

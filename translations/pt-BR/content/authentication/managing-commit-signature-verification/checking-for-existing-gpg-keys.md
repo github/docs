@@ -28,12 +28,12 @@ shortTitle: Chaves GPG existentes
 {% data reusables.gpg.list-keys-with-note %}
 3. Verifique a saída do comando para ver se você tem um par de chaves GPG.
     * Se não houver pares de chaves GPG ou se você não quiser usar as que estiverem disponíveis para assinatura de commits e tags, [gere outra chave GPG](/articles/generating-a-new-gpg-key).
-    * If there's an existing GPG key pair and you want to use it to sign commits and tags, you can display the public key using the following command, substituting in the GPG key ID you'd like to use. Neste exemplo, o ID da chave GPG é `3AA5C34371567BD2`:
+    * Se houver um par de chaves GPG existente e você quiser usá-lo para assinar commits e tags, você poderá exibir a chave pública usando o comando a seguir, substituindo o ID da chave GPG que você gostaria de usar. Neste exemplo, o ID da chave GPG é `3AA5C34371567BD2`:
       ```shell
       $ gpg --armor --export <em>3AA5C34371567BD2</em>
       # Prints the GPG key ID, in ASCII armor format
       ```
-      You can then [add your GPG key to your GitHub account](/articles/adding-a-new-gpg-key-to-your-github-account).
+      Você pode [adicionar a sua chave de GPG à sua conta do GitHub](/articles/adding-a-new-gpg-key-to-your-github-account).
 
 ## Leia mais
 

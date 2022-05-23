@@ -72,7 +72,7 @@ Muitas pessoas esquecem os repositórios que eles escolheram inspecionar no pass
 
   {% tip %}
 
-  **Tip:** Instead of watching a repository, consider only receiving notifications when there are updates to {% data reusables.notifications-v2.custom-notification-types %} (if enabled for the repository), or any combination of these options, or completely unwatching a repository.
+  **Dica:** Em vez de inspecionar um repositório, considere receber notificações apenas quando houver atualizações para {% data reusables.notifications-v2.custom-notification-types %} (se habilitado para o repositório), qualquer combinação dessas opções, ou cancelar por completo a inspeção de um repositório.
 
   Quando você deixa de inspecionar um repositório, você ainda pode ser notificado quando for @mencionado ou estiver participando de um thread. Ao definir a configuração para receber notificações de certos tipos de evento, você só será notificado quando houver atualizações desses tipos de eventos no repositório, quando você estiver participando de um tópico ou quando você ou a sua equipe for @mentioned.
 

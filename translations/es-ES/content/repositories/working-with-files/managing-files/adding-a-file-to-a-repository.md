@@ -69,4 +69,4 @@ Puedes cargar un archivo existente a un repositorio en {% ifversion ghae %}{% da
 
 ## Leer más
 
-- [Agregar un proyecto existente a GitHub mediante la línea de comando](/articles/adding-an-existing-project-to-github-using-the-command-line)"
+- "[Agregar código hspedado localmente en {% data variables.product.product_name %}](/get-started/importing-your-projects-to-github/importing-source-code-to-github//adding-locally-hosted-code-to-github)"

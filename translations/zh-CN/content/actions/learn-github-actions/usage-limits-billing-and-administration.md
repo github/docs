@@ -1,6 +1,6 @@
 ---
-title: 使用限制、计费和管理
-intro: '{% data variables.product.prodname_actions %} 工作流程有使用限制。 使用费适用于超出仓库免费分钟数和存储空间量的仓库。'
+title: 'Usage limits, billing, and administration'
+intro: 'There are usage limits for {% data variables.product.prodname_actions %} workflows. Usage charges apply to repositories that go beyond the amount of free minutes and storage for a repository.'
 redirect_from:
   - /actions/getting-started-with-github-actions/usage-and-billing-information-for-github-actions
   - /actions/reference/usage-limits-billing-and-administration
@@ -10,64 +10,64 @@ versions:
   ghec: '*'
 topics:
   - Billing
-shortTitle: 工作流程计费和限制
+shortTitle: Workflow billing & limits
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## 关于 {% data variables.product.prodname_actions %} 的计费
+## About billing for {% data variables.product.prodname_actions %}
 
 {% data reusables.repositories.about-github-actions %} For more information, see "[Understanding {% data variables.product.prodname_actions %}](/actions/learn-github-actions/understanding-github-actions){% ifversion fpt %}."{% elsif ghes or ghec %}" and "[About {% data variables.product.prodname_actions %} for enterprises](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)."{% endif %}
 
 {% ifversion fpt or ghec %}
-{% data reusables.actions.actions-billing %} 更多信息请参阅“[关于 {% data variables.product.prodname_actions %} 的计费](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)”。
+{% data reusables.actions.actions-billing %} For more information, see "[About billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)."
 {% else %}
-GitHub Actions usage is free for {% data variables.product.prodname_ghe_server %} instances that use self-hosted runners. 更多信息请参阅“[关于自托管运行器](/actions/hosting-your-own-runners/about-self-hosted-runners)”。
+GitHub Actions usage is free for {% data variables.product.prodname_ghe_server %} instances that use self-hosted runners. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners)."
 {% endif %}
 
 
 {% ifversion fpt or ghec %}
 
-## 可用性
+## Availability
 
 {% data variables.product.prodname_actions %} is available on all {% data variables.product.prodname_dotcom %} products, but {% data variables.product.prodname_actions %} is not available for private repositories owned by accounts using legacy per-repository plans. {% data reusables.gated-features.more-info %}
 
 {% endif %}
 
-## 使用限制
+## Usage limits
 
 {% ifversion fpt or ghec %}
-There are some limits on {% data variables.product.prodname_actions %} usage when using {% data variables.product.prodname_dotcom %}-hosted runners. 这些限制可能会有变动。
+There are some limits on {% data variables.product.prodname_actions %} usage when using {% data variables.product.prodname_dotcom %}-hosted runners. These limits are subject to change.
 
 {% note %}
 
-**注：**对于自托管的运行器，适用不同的使用限制。 更多信息请参阅“[关于自托管运行器](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)”。
+**Note:** For self-hosted runners, different usage limits apply. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)."
 
 {% endnote %}
 
-- **作业执行时间** - 工作流程中的每个作业最多可以运行 6 个小时。 如果作业达到此限制，该作业将会终止而无法完成。
+- **Job execution time** - Each job in a workflow can run for up to 6 hours of execution time. If a job reaches this limit, the job is terminated and fails to complete.
 {% data reusables.actions.usage-workflow-run-time %}
 {% data reusables.actions.usage-api-requests %}
-- **并发作业** - 您的帐户中可并发运行的作业数量，具体取决于您的 GitHub 计划，如下表所示。 如果超出，任何额外的作业都会排队。
+- **Concurrent jobs** - The number of concurrent jobs you can run in your account depends on your GitHub plan, as indicated in the following table. If exceeded, any additional jobs are queued.
 
-  | GitHub 计划 | 同时运行的作业总数 | MacOS 作业同时运行的最大数量 |
-  | --------- | --------- | ----------------- |
-  | 免费        | 20        | 5                 |
-  | Pro       | 40        | 5                 |
-  | 团队        | 60        | 5                 |
-  | 企业        | 180       | 50                |
-- **作业矩阵** - {% data reusables.actions.usage-matrix-limits %}
+  | GitHub plan | Total concurrent jobs | Maximum concurrent macOS jobs |
+  |---|---|---|
+  | Free | 20 | 5 |
+  | Pro | 40 | 5 |
+  | Team | 60 | 5 |
+  | Enterprise | 180 | 50 |
+- **Job matrix** - {% data reusables.actions.usage-matrix-limits %}
 {% data reusables.actions.usage-workflow-queue-limits %}
 
 {% else %}
-使用限制适用于自托管运行器。 更多信息请参阅“[关于自托管运行器](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)”。
+Usage limits apply to self-hosted runners. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)."
 {% endif %}
 
 {% ifversion fpt or ghec %}
-## 使用策略
+## Usage policy
 
-除了使用限制外，还必须确保使用 [GitHub 服务条款](/free-pro-team@latest/github/site-policy/github-terms-of-service/) 中的 {% data variables.product.prodname_actions %}。 有关 {% data variables.product.prodname_actions %} 特定条款的更多信息，请参阅 [GitHub 附加产品条款](/free-pro-team@latest/github/site-policy/github-additional-product-terms#a-actions-usage)。
+In addition to the usage limits, you must ensure that you use {% data variables.product.prodname_actions %} within the [GitHub Terms of Service](/free-pro-team@latest/github/site-policy/github-terms-of-service/). For more information on {% data variables.product.prodname_actions %}-specific terms, see the [GitHub Additional Product Terms](/free-pro-team@latest/github/site-policy/github-additional-product-terms#a-actions-usage).
 {% endif %}
 
 {% ifversion fpt or ghes > 3.3 or ghec %}
@@ -75,36 +75,36 @@ There are some limits on {% data variables.product.prodname_actions %} usage whe
 
 {% data reusables.actions.reusable-workflows-ghes-beta %}
 
-If you reuse a workflow, billing is always associated with the caller workflow. Assignment of {% data variables.product.prodname_dotcom %}-hosted runners is always evaluated using only the caller's context. The caller cannot use {% data variables.product.prodname_dotcom %}-hosted runners from the called repository.
+If you reuse a workflow, billing is always associated with the caller workflow. Assignment of {% data variables.product.prodname_dotcom %}-hosted runners is always evaluated using only the caller's context. The caller cannot use {% data variables.product.prodname_dotcom %}-hosted runners from the called repository. 
 
 For more information see, "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
 {% endif %}
 
-## 构件和日志保留策略
+## Artifact and log retention policy
 
-您可以为仓库、组织或企业帐户配置构件和日志保留期。
+You can configure the artifact and log retention period for your repository, organization, or enterprise account.
 
 {% data reusables.actions.about-artifact-log-retention %}
 
-更多信息请参阅：
+For more information, see:
 
-- “[管理仓库的 {% data variables.product.prodname_actions %} 设置](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-repository)”
-- “[配置 {% data variables.product.prodname_actions %} 构件和日志在您的组织中的保留期](/organizations/managing-organization-settings/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization)”
-- "[在企业中执行 {% data variables.product.prodname_actions %} 的策略](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-artifact-and-log-retention-in-your-enterprise)"
+- "[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-repository)"
+- "[Configuring the retention period for {% data variables.product.prodname_actions %} for artifacts and logs in your organization](/organizations/managing-organization-settings/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization)"
+- "[Enforcing policies for {% data variables.product.prodname_actions %} in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-artifact-and-log-retention-in-your-enterprise)"
 
-## 禁用或限制仓库或组织的 {% data variables.product.prodname_actions %}
+## Disabling or limiting {% data variables.product.prodname_actions %} for your repository or organization
 
 {% data reusables.actions.disabling-github-actions %}
 
-更多信息请参阅：
-- “[管理仓库的 {% data variables.product.prodname_actions %} 设置](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository)”
-- "[对组织禁用或限制 {% data variables.product.prodname_actions %}](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization)"
-- "[在企业中执行 {% data variables.product.prodname_actions %} 的策略](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-github-actions-policies-for-your-enterprise#enforcing-a-policy-for-artifact-and-log-retention-in-your-enterprise)"
+For more information, see:
+- "[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository)"
+- "[Disabling or limiting {% data variables.product.prodname_actions %} for your organization](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization)"
+- "[Enforcing policies for {% data variables.product.prodname_actions %} in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-github-actions-policies-for-your-enterprise#enforcing-a-policy-for-artifact-and-log-retention-in-your-enterprise)"
 
-## 禁用和启用工作流程
+## Disabling and enabling workflows
 
-您可以在 {% data variables.product.prodname_dotcom %} 上启用和禁用仓库中的个别工作流程。
+You can enable and disable individual workflows in your repository on {% data variables.product.prodname_dotcom %}.
 
 {% data reusables.actions.scheduled-workflows-disabled %}
 
-更多信息请参阅“[禁用和启用工作流程](/actions/managing-workflow-runs/disabling-and-enabling-a-workflow)。
+For more information, see "[Disabling and enabling a workflow](/actions/managing-workflow-runs/disabling-and-enabling-a-workflow)."

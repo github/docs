@@ -36,7 +36,7 @@ For guidance on a phased deployment of GitHub Advanced Security, see "[Deploying
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.license-tab %}
-1. If your license includes {% data variables.product.prodname_GH_advanced_security %}, the license page includes a section showing details of current usage. ![{% data variables.product.prodname_GH_advanced_security %} section of Enterprise license](/assets/images/help/billing/ghas-orgs-list-enterprise-ghes.png)
+1. If your license includes {% data variables.product.prodname_GH_advanced_security %}, the license page includes a section showing details of current usage. ![Enterpriseライセンスの{% data variables.product.prodname_GH_advanced_security %}セクション](/assets/images/help/billing/ghas-orgs-list-enterprise-ghes.png)
 {% endif %}
 
 ## Prerequisites for enabling {% data variables.product.prodname_GH_advanced_security %}

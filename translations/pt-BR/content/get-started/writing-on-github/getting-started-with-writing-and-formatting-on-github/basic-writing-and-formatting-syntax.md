@@ -29,18 +29,19 @@ Ao usar dois ou mais cabeçalhos, o GitHub gera automaticamente uma tabela de co
 
 ![Captura de tela que destaca o ícone da tabela de conteúdo](/assets/images/help/repository/headings_toc.png)
 
-
 ## Estilizar texto
 
-Você pode indicar ênfase com texto em negrito, itálico ou riscado em campos de comentários e arquivos de `.md`.
+You can indicate emphasis with bold, italic, strikethrough, subscript, or superscript text in comment fields and `.md` files.
 
-| Estilo                     | Sintaxe             | Atalho                                                                                | Exemplo                                      | Resultado                                  |
-| -------------------------- | ------------------- | ------------------------------------------------------------------------------------- | -------------------------------------------- | ------------------------------------------ |
-| Negrito                    | `** **` ou `__ __`  | <kbd>Command</kbd>+<kbd>B</kbd> (Mac) ou <kbd>Ctrl</kbd>+<kbd>B</kbd> (Windows/Linux) | `**Esse texto está em negrito**`             | **Esse texto está em negrito**             |
-| Itálico                    | `* *` ou `_ _`      | <kbd>Command</kbd>+<kbd>I</kbd> (Mac) ou <kbd>Ctrl</kbd>+<kbd>I</kbd> (Windows/Linux) | `*Esse texto está em itálico*`               | *Esse texto está em itálico*               |
-| Tachado                    | `~~ ~~`             |                                                                                       | `~~Esse texto estava errado~~`               | ~~Esse texto estava errado~~               |
-| Negrito e itálico aninhado | `** **` e `_ _`     |                                                                                       | `**Esse texto é _extremamente_ importante**` | **Esse texto é _extremamente_ importante** |
-| Todo em negrito e itálico  | `*** ***`           |                                                                                       | `***Todo esse texto é importante***`         | ***Todo esse texto é importante***         |
+| Estilo                     | Sintaxe                    | Atalho                                                                                | Exemplo                                             | Resultado                                  |
+| -------------------------- | -------------------------- | ------------------------------------------------------------------------------------- | --------------------------------------------------- | ------------------------------------------ |
+| Negrito                    | `** **` ou `__ __`         | <kbd>Command</kbd>+<kbd>B</kbd> (Mac) ou <kbd>Ctrl</kbd>+<kbd>B</kbd> (Windows/Linux) | `**Esse texto está em negrito**`                    | **Esse texto está em negrito**             |
+| Itálico                    | `* *` ou `_ _`             | <kbd>Command</kbd>+<kbd>I</kbd> (Mac) ou <kbd>Ctrl</kbd>+<kbd>I</kbd> (Windows/Linux) | `*Esse texto está em itálico*`                      | *Esse texto está em itálico*               |
+| Tachado                    | `~~ ~~`                    |                                                                                       | `~~Esse texto estava errado~~`                      | ~~Esse texto estava errado~~               |
+| Negrito e itálico aninhado | `** **` e `_ _`            |                                                                                       | `**Esse texto é _extremamente_ importante**`        | **Esse texto é _extremamente_ importante** |
+| Todo em negrito e itálico  | `*** ***`                  |                                                                                       | `***Todo esse texto é importante***`                | ***Todo esse texto é importante***         |
+| Subscript                  | `<sub> </sub>` |                                                                                       | `<sub>This is a subscript text</sub>`   | <sub>This is a subscript text</sub>        |
+| Superscript                | `<sup> </sup>` |                                                                                       | `<sup>This is a superscript text</sup>` | <sup>This is a superscript text</sup>      |
 
 ## Citar texto
 
@@ -90,6 +91,8 @@ Para obter mais informações, consulte "[Criar e destacar blocos de código](/a
 ## Links
 
 Você pode criar um link inline colocando o texto do link entre colchetes `[ ]` e, em seguida, o URL entre parênteses `( )`. {% ifversion fpt or ghae or ghes > 3.1 or ghec %}Você também pode usar o atalho de teclado <kbd>Command</kbd>+<kbd>K</kbd> para criar um link.{% endif %}{% ifversion fpt or ghae-issue-5434 or ghes > 3.3 or ghec %} Quando você tiver selecionado texto, você poderá colar um URL da sua área de transferência para criar automaticamente um link a partir da seleção.{% endif %}
+
+{% ifversion fpt or ghae-issue-7103 or ghes > 3.5 or ghec %} You can also create a Markdown hyperlink by highlighting the text and using the keyboard shortcut <kbd>Command</kbd>+<kbd>V</kbd>. If you'd like to replace the text with the link, use the keyboard shortcut <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd>.{% endif %}
 
 `Este site foi construído usando [GitHub Pages](https://pages.github.com/).`
 
@@ -190,6 +193,12 @@ Para criar uma lista aninhada usando o editor web do {% data variables.product.p
      - Segundo item de lista aninhada
 ```
 
+{% tip %}
+
+**Note**: In the web-based editor, you can indent or dedent one or more lines of text by first highlighting the desired lines and then using <kbd>Tab</kbd> or <kbd>Shift</kbd>+<kbd>Tab</kbd> respectively.
+
+{% endtip %}
+
 ![Lista aninhada com alinhamento destacado](/assets/images/help/writing/nested-list-alignment.png)
 
 ![Lista com dois níveis de itens aninhados](/assets/images/help/writing/nested-list-example-1.png)
@@ -229,7 +238,13 @@ Para obter mais informações, consulte "[Sobre listas de tarefas](/articles/abo
 
 ## Mencionar pessoas e equipes
 
-Você pode mencionar uma pessoa ou [equipe](/articles/setting-up-teams/) no {% data variables.product.product_name %} digitando <kbd>@</kbd> mais o nome de usuário ou nome da equipe. Isto desencadeará uma notificação e chamará a sua atenção para a conversa. As pessoas também receberão uma notificação se você editar um comentário para mencionar o respectivo nome de usuário ou da equipe. Para obter mais informações, sobre notificações, consulte {% ifversion fpt or ghes or ghae or ghec %}"[Sobre notificações](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[Sobre notificações](/github/receiving-notifications-about-activity-on-github/about-notifications)"{% endif %}."
+Você pode mencionar uma pessoa ou [equipe](/articles/setting-up-teams/) no {% data variables.product.product_name %} digitando <kbd>@</kbd> mais o nome de usuário ou nome da equipe. Isto desencadeará uma notificação e chamará a sua atenção para a conversa. As pessoas também receberão uma notificação se você editar um comentário para mencionar o respectivo nome de usuário ou da equipe. For more information about notifications, see "[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications)."
+
+{% note %}
+
+**Note:** A person will only be notified about a mention if the person has read access to the repository and, if the repository is owned by an organization, the person is a member of the organization.
+
+{% endnote %}
 
 `@github/suporte O que você acha dessas atualizações?`
 
@@ -284,7 +299,7 @@ Para obter uma lista completa dos emojis e códigos disponíveis, confira [a lis
 
 Você pode criar um parágrafo deixando uma linha em branco entre as linhas de texto.
 
-{% ifversion fpt or ghae-issue-5180 or ghes > 3.2 or ghec %}
+{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
 ## Notas de rodapé
 
 Você pode adicionar notas de rodapé ao seu conteúdo usando esta sintaxe entre colchetes:
@@ -311,6 +326,8 @@ A nota de rodapé será interpretada da seguinte forma:
 {% tip %}
 
 **Observação**: A posição de uma nota de rodapé no seu Markdown não influencia o lugar onde a nota de rodapé será interpretada. Você pode escrever uma nota de rodapé logo após sua referência à nota de rodapé, e ela continuará sendo interpretada na parte inferior do Markdown.
+
+Notas de rodapé não são compatíveis nos wikis.
 
 {% endtip %}
 {% endif %}

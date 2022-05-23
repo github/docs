@@ -31,7 +31,7 @@ Se alguém verificar um segredo com um padrão conhecido em um repositório, {% 
 
 - É necessário habilitar o sinalizador de CPU das [SSSE3](https://www.intel.com/content/dam/www/public/us/en/documents/manuals/64-ia-32-architectures-optimization-manual.pdf#G3.1106470) (Extensões SIMD de Streaming Suplementar 3) no VM/KVM que executa {% data variables.product.product_location %}.
 
-- A license for {% data variables.product.prodname_GH_advanced_security %}{% ifversion ghes %} (see "[About billing for {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)"){% endif %}
+- Uma licença para {% data variables.product.prodname_GH_advanced_security %}{% ifversion ghes %} (consulte "[Sobre cobrança para {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)"){% endif %}
 
 - {% data variables.product.prodname_secret_scanning_caps %} habilitado no console de gerenciamento (consulte "[Habilitando {% data variables.product.prodname_GH_advanced_security %} para a sua empresa](/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise)")
 

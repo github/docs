@@ -8,7 +8,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: issue-4864
+  ghae: '*'
   ghec: '*'
 topics:
   - Dependabot
@@ -16,7 +16,6 @@ topics:
   - Repositories
 children:
   - /understanding-your-software-supply-chain
-  - /keeping-your-dependencies-updated-automatically
-  - /managing-vulnerabilities-in-your-projects-dependencies
+  - /end-to-end-supply-chain
 ---
 

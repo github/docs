@@ -8,8 +8,11 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
+  ghes: '*'
 shortTitle: Visibilidad & control de accesos
 ---
+
+{% data reusables.package_registry.container-registry-ghes-beta %}
 
 Los paquetes con permisos granulares tienen un alcance de una cuenta personal o de organización. Puedes cambiar la visibilidad y el control de accesos de un paquete por separado desde el repositorio al cual está conectado (o enlazado).
 
@@ -23,12 +26,12 @@ Para obtener más información sobre los permisos de los paquetes con alcance de
 
 ## Configurar el acceso a las imágenes de contenedor para tu cuenta personal
 
-Si tienes permisos administrativos en una imagen de contenedor que pertenece a una cuenta de usuario, puedes asignar roles de lectura, escritura o administrador a otros usuarios. Para obtener más información acerca de estos roles de permisos, consulta la sección "[Permisos de visibilidad y acceso para las imágenes de contenedor](#visibility-and-access-permissions-for-container-images)".
+Si tienes permisos administrativos para una imagen de contenedor que le pertenece a una cuenta personal, puedes asignar roles de lectura, escritura o administración a otros usuarios. Para obtener más información acerca de estos roles de permisos, consulta la sección "[Permisos de visibilidad y acceso para las imágenes de contenedor](#visibility-and-access-permissions-for-container-images)".
 
 Si tu paquete es privado o interno y le pertenece a una organización, entonces solo puedes darles acceso a otros miembros o equipos de la misma.
 
-{% data reusables.package_registry.package-settings-from-user-level %}
-1. En la página de configuración del paquete, da clic en **Invitar equipos o personas** e ingresa el nombre real, nombre de usuario, o dirección de correo electrónico de la persona a la que quieras dar acceso. No se puede otorgar acceso a los equipos para aquellas imágenes de contenedor que pertenezcan a una cuenta de usuario. ![Botón de invitación para el acceso al contenedor](/assets/images/help/package-registry/container-access-invite.png)
+{% data reusables.package_registry.package-settings-option %}
+1. En la página de configuración del paquete, da clic en **Invitar equipos o personas** e ingresa el nombre real, nombre de usuario, o dirección de correo electrónico de la persona a la que quieras dar acceso. No se puede dar acceso a los equipos para una imagen de contenedor que le pertenezca a una cuenta personal. ![Botón de invitación para el acceso al contenedor](/assets/images/help/package-registry/container-access-invite.png)
 1. Junto al equipo o nombre de usuario, utiliza el menú desplegable de "Rol" para seleccionar un nivel de permisos que desees. ![Opciones de acceso al contenedor](/assets/images/help/package-registry/container-access-control-options.png)
 
 Se otorgará acceso automáticamente a los usuarios seleccionados y no necesitarán aceptar una invitación previamente.
@@ -40,6 +43,7 @@ Si tienes permisos administrativos en una imágen de contenedor que pertenezca a
 Si tu paquete es privado o interno y le pertenece a una organización, entonces solo puedes darles acceso a otros miembros o equipos de la misma.
 
 {% data reusables.package_registry.package-settings-from-org-level %}
+{% data reusables.package_registry.package-settings-option %}
 1. En la página de configuración del paquete, da clic en **Invitar equipos o personas** e ingresa el nombre real, nombre de usuario, o dirección de correo electrónico de la persona a la que quieras dar acceso. También puedes ingresar un nombre de equipo desde la organización para otorgar acceso a todos los miembros de éste. ![Botón de invitación para el acceso al contenedor](/assets/images/help/package-registry/container-access-invite.png)
 1. Junto al equipo o nombre de usuario, utiliza el menú desplegable de "Rol" para seleccionar un nivel de permisos que desees. ![Opciones de acceso al contenedor](/assets/images/help/package-registry/container-access-control-options.png)
 
@@ -54,6 +58,7 @@ Si heredas los permisos de acceso del repositorio en donde se almacenan los fluj
 Una vez que el repositorio se sincronice, no podrás acceder a la configuración de acceso granular del paquete. Para personalizar los permisos de paquete a través de la configuración de acceso granular del paquete, primero debes sincronizar el repositorio.
 
 {% data reusables.package_registry.package-settings-from-org-level %}
+{% data reusables.package_registry.package-settings-option %}
 2. Debajo de "Fuente del repositorio", selecciona **Heredar el acceso del repositorio (recomendado)**. ![Casilla de verificación de heredar el acceso del repositorio](/assets/images/help/package-registry/inherit-repo-access-for-package.png)
 
 ## Garantizar el acceso al flujo de trabajo para tu paquete
@@ -70,7 +75,7 @@ El repositorio especificado no necesita ser aquél en donde se mantiene el códi
 
 ### Acceso de {% data variables.product.prodname_actions %} para las imágenes de contenedor que pertenecen a cuentas de usuario
 
-{% data reusables.package_registry.package-settings-from-user-level %}
+{% data reusables.package_registry.package-settings-option %}
 1. En la barra lateral izquierda, haz clic en **Acceso a las acciones**. ![Opción "Acceso a las acciones" en el menú izquierdo](/assets/images/help/package-registry/organization-repo-access-for-a-package.png)
 2. Para garantizar que tu flujo de trabajo tiene acceso a tu paquete de contenedor, debes agregar el repositorio en donde se almacena el flujo de trabajo. Haz clic en **Agregar repositorio** y busca el repositorio que quieres agregar. ![Botón "Agregar repositorio"](/assets/images/help/package-registry/add-repository-button.png)
 3. Utilizando el menú desplegable de "rol", selecciona el nivel de acceso predeterminado que te gustaría que tuviera el repositorio en tu imagen de contenedor. ![Niveles de acceso de permisos para otorgar a los repositorios](/assets/images/help/package-registry/repository-permission-options-for-package-access-through-actions.png)
@@ -80,12 +85,14 @@ Para personalizar aún más el acceso a tu imagen de contenedor, consulta la sec
 ### Acceso a las {% data variables.product.prodname_actions %} para las imágenes de contenedor que pertenezcan a organizaciones
 
 {% data reusables.package_registry.package-settings-from-org-level %}
+{% data reusables.package_registry.package-settings-option %}
 1. En la barra lateral izquierda, haz clic en **Acceso a las acciones**. ![Opción "Acceso a las acciones" en el menú izquierdo](/assets/images/help/package-registry/organization-repo-access-for-a-package.png)
 2. Haz clic en **Agregar repositorio** y busca el repositorio que quieres agregar. ![Botón "Agregar repositorio"](/assets/images/help/package-registry/add-repository-button.png)
 3. Selecciona el nivel de acceso predeterminado que te gustaría que tuvieran los miembros del repositorio en tu imagen de contenedor utilizando el menú desplegable de "rol". No se incluirá a los colaboradores externos. ![Niveles de acceso de permisos para otorgar a los repositorios](/assets/images/help/package-registry/repository-permission-options-for-package-access-through-actions.png)
 
 Para personalizar aún más el acceso a tu imagen de contenedor, consulta la sección "[Configurar el acceso a las imágenes de contenedor de una organización](#configuring-access-to-container-images-for-an-organization)".
 
+{% ifversion fpt or ghec %}
 ## Asegurarse de que {% data variables.product.prodname_codespaces %} puede acceder a tu paquete
 
 Predeterminadamente, un codespace puede acceder sin problema a algunos paquetes en el Registro de Contenedores de {% data variables.product.prodname_dotcom %}, tales como aquellos que se publican en el mismo repositorio con la opción de **Heredar acceso** seleccionada. Para obtener más información sobre qué tipo de acceso se configura automáticamente, consulta la sección "[Acceder a las imágenes almacenadas en el Registro de Contenedores de {% data variables.product.prodname_dotcom %}](/codespaces/codespaces-reference/allowing-your-codespace-to-access-a-private-image-registry#accessing-images-stored-in-github-container-registry)".
@@ -114,13 +121,14 @@ Una vez que hayas seleccionado el paquete que quieres compartir con un codespace
 
    ![Botón "Eliminar repositorio"](/assets/images/help/package-registry/manage-codespaces-access-item.png)
 
+{% endif %}
 ## Configurar la visibilidad de las imágenes de contenedor para tu cuenta personal
 
 Cuando publicas un paquete por primera vez, la visibilidad predeterminada es privada y solo tú puedes verlo. Puedes modificar el acceso a las imágenes de contenedor públicas si cambias la configuración de acceso.
 
 Se puede acceder anónimamente a un paquete público sin autenticación. Una vez que hagas tu paquete público, no puedes hacerlo privado nuevamente.
 
-{% data reusables.package_registry.package-settings-from-user-level %}
+{% data reusables.package_registry.package-settings-option %}
 5. Debajo de "Zona de peligro", elige una configuración de visibilidad:
     - Para que la imagen del contenedor sea visible para todos, da clic en **Hacer público**.
     {% warning %}
@@ -149,6 +157,7 @@ Cuando publicas un paquete por primera vez, la visibilidad predeterminada es pri
 Se puede acceder anónimamente a un paquete público sin autenticación. Una vez que hagas tu paquete público, no puedes hacerlo privado nuevamente.
 
 {% data reusables.package_registry.package-settings-from-org-level %}
+{% data reusables.package_registry.package-settings-option %}
 5. Debajo de "Zona de peligro", elige una configuración de visibilidad:
     - Para que la imagen del contenedor sea visible para todos, da clic en **Hacer público**.
     {% warning %}

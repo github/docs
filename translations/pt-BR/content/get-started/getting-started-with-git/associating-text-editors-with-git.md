@@ -28,9 +28,9 @@ shortTitle: Editores de texto associados
   $ git config --global core.editor "atom --wait"
   ```
 
-## Usando o Visual Studio Code como seu editor
+## Using {% data variables.product.prodname_vscode %} as your editor
 
-1. Instale o [Visual Studio Code](https://code.visualstudio.com/) (VS Code). Para obter mais informações, consulte "[Configurar o Visual Studio Code](https://code.visualstudio.com/Docs/setup/setup-overview)" na documentação do VS Code.
+1. Install [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/) ({% data variables.product.prodname_vscode_shortname %}). For more information, see "[Setting up {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/Docs/setup/setup-overview)" in the {% data variables.product.prodname_vscode_shortname %} documentation.
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. Digite este comando:
   ```shell
@@ -68,9 +68,9 @@ shortTitle: Editores de texto associados
   $ git config --global core.editor "atom --wait"
   ```
 
-## Usando o Visual Studio Code como seu editor
+## Using {% data variables.product.prodname_vscode %} as your editor
 
-1. Instale o [Visual Studio Code](https://code.visualstudio.com/) (VS Code). Para obter mais informações, consulte "[Configurar o Visual Studio Code](https://code.visualstudio.com/Docs/setup/setup-overview)" na documentação do VS Code.
+1. Install [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/) ({% data variables.product.prodname_vscode_shortname %}). For more information, see "[Setting up {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/Docs/setup/setup-overview)" in the {% data variables.product.prodname_vscode_shortname %} documentation.
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. Digite este comando:
   ```shell
@@ -107,9 +107,9 @@ shortTitle: Editores de texto associados
   $ git config --global core.editor "atom --wait"
   ```
 
-## Usando o Visual Studio Code como seu editor
+## Using {% data variables.product.prodname_vscode %} as your editor
 
-1. Instale o [Visual Studio Code](https://code.visualstudio.com/) (VS Code). Para obter mais informações, consulte "[Configurar o Visual Studio Code](https://code.visualstudio.com/Docs/setup/setup-overview)" na documentação do VS Code.
+1. Install [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/) ({% data variables.product.prodname_vscode_shortname %}). For more information, see "[Setting up {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/Docs/setup/setup-overview)" in the {% data variables.product.prodname_vscode_shortname %} documentation.
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. Digite este comando:
   ```shell

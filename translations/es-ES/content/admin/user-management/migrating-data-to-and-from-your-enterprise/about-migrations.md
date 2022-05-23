@@ -25,7 +25,7 @@ Existen tres tipos de migraciones que se pueden realizar:
 
 En una migración, todo gira en torno a un repositorio. La mayoría de los datos asociados con un repositorio se pueden migrar. Por ejemplo, un repositorio dentro de una organización migrará el repositorio *y* la organización, así como los usuarios, equipos, propuestas y solicitudes de extracción asociados con el repositorio.
 
-Los elementos de la tabla a continuación se pueden migrar con un repositorio. Los elementos que no se muestren en la lista de datos migrados no se pueden migrar.
+Los elementos de la tabla a continuación se pueden migrar con un repositorio. No se pueden migrar los elementos que no se muestren en la lista de datos migrados, incluyendo los activos de {% data variables.large_files.product_name_short %}.
 
 {% data reusables.enterprise_migrations.fork-persistence %}
 

@@ -26,22 +26,22 @@ permissions: People with write access for a forked repository can sync the fork 
 
 Se as alterações do repositório a upstream gerarem conflitos, {% data variables.product.company_short %} solicitará a criação de um pull request para resolver os conflitos.
 
-## Syncing a fork with the {% data variables.product.prodname_cli %}
+## Sincronizando uma bifurcação com {% data variables.product.prodname_cli %}
 
 {% data reusables.cli.about-cli %} Para saber mais sobre {% data variables.product.prodname_cli %}, consulte "[Sobre {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)."
 
-To update the remote fork from its parent, use the `gh repo sync` subcommand and supply your fork name as argument.
+Para atualizar a bifurcação remota a partir da bifurcação principal, use o subcomando `repo gh sync` e forneça o nome da sua bifurcação como argumento.
 
 ```shell
 $ gh repo sync owner/cli-fork
 ```
 
-If the changes from the upstream repository cause conflict then the {% data variables.product.prodname_cli %} can't sync. You can set the `-force` flag to overwrite the destination branch.
+Se as alterações do repositório upstream causarem conflitos, o {% data variables.product.prodname_cli %} não poderá sincronizar. Você pode definir o sinalizador `-force` para substituir o branch de destino.
 
 ## Sincronizando uma bifurcação a partir da linha de comando
 
 {% endif %}
-Before you can sync your fork with an upstream repository, you must [configure a remote that points to the upstream repository](/pull-requests/collaborating-with-pull-requests/working-with-forks/configuring-a-remote-for-a-fork) in Git.
+Antes de poder sincronizar a sua bifurcação com um repositório upstream, é necessário [configurar um controle remoto que aponte para o repositório upstream](/pull-requests/collaborating-with-pull-requests/working-with-forks/configuring-a-remote-for-a-fork) no Git.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. Altere o diretório de trabalho atual referente ao seu projeto local.
@@ -86,6 +86,6 @@ Before you can sync your fork with an upstream repository, you must [configure a
 
 {% tip %}
 
-**Tip**: Syncing your fork only updates your local copy of the repository. Para atualizar a bifurcação no {% data variables.product.product_location %}, você precisa [fazer push das alterações](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/).
+**Dica**: A sincronização da bifurcação só atualiza a cópia local do repositório. Para atualizar a bifurcação no {% data variables.product.product_location %}, você precisa [fazer push das alterações](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/).
 
 {% endtip %}

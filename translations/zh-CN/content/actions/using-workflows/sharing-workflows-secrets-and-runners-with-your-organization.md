@@ -1,7 +1,7 @@
 ---
-title: 'Sharing workflows, secrets, and runners with your organization'
+title: 与组织共享工作流程、机密和运行器
 shortTitle: 与组织共享工作流程
-intro: 'Learn how you can use organization features to collaborate with your team, by sharing starter workflows, secrets, and self-hosted runners.'
+intro: 了解如何通过共享入门工作流程、机密和自托管运行器，使用组织功能与团队协作。
 redirect_from:
   - /actions/learn-github-actions/sharing-workflows-with-your-organization
   - /actions/learn-github-actions/sharing-workflows-secrets-and-runners-with-your-organization
@@ -18,31 +18,31 @@ type: how_to
 
 ## 概览
 
-如果需要与您的团队共享工作流程和其他 {% data variables.product.prodname_actions %} 功能，则考虑在 {% data variables.product.prodname_dotcom %} 组织内协作。 组织允许您集中存储和管理机密、构件和自托管运行器。 You can also create starter workflows in the `.github` repository and share them with other users in your organization.
+如果需要与您的团队共享工作流程和其他 {% data variables.product.prodname_actions %} 功能，则考虑在 {% data variables.product.prodname_dotcom %} 组织内协作。 组织允许您集中存储和管理机密、构件和自托管运行器。 您还可以在 `.github` 存储库中创建入门工作流程，并与组织中的其他用户共享这些工作流程。
 
-## Sharing {% if internal-actions %}actions and {% endif %}workflows
+## 共享 {% if internal-actions %}操作和 {% endif %}工作流程
 
 {% if internal-actions %}
-You can share both individual actions and entire workflows with your organization, with or without publishing the actions or workflows publicly. You can reuse actions and workflows exactly by referencing them in your workflow file, and you can create starter workflows that provide templates for new workflows.
+您可以与组织共享单个操作和整个工作流程，无论是否公开发布操作或工作流程。 您可以通过在工作流程文件中引用操作和工作流程来精确地重复使用它们，并且可以创建为新工作流程提供模板的起始工作流程。
 {% else %}
-Your organization can share workflows by reusing the workflows exactly or by creating starter workflows that provide templates for new workflows.
+组织可以通过完全重用工作流程或创建为新工作流程提供模板的入门工作流程来共享工作流程。
 {% endif %}
 
 {% if internal-actions %}
-### Sharing actions with your enterprise
+### 与企业共享操作
 
 {% data reusables.actions.internal-actions-summary %}
 {% endif %}
 
 {% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
-### Reusing workflows
+### 重新使用工作流程
 
 {% data reusables.actions.reusable-workflows %}
 {% endif %}
 
-### Using starter workflows
+### 使用入门工作流程
 
-{% data reusables.actions.workflow-organization-templates %} For more information, see "[Creating starter workflows for your organization](/actions/using-workflows/creating-starter-workflows-for-your-organization)."
+{% data reusables.actions.workflow-organization-templates %} 更多信息请参阅“[为组织创建入门工作流程](/actions/using-workflows/creating-starter-workflows-for-your-organization)”。
 
 ## 在组织内共享机密
 
@@ -70,4 +70,4 @@ Your organization can share workflows by reusing the workflows exactly or by cre
 
 ## 后续步骤
 
-To continue learning about {% data variables.product.prodname_actions %}, see "[Creating starter workflows for your organization](/actions/using-workflows/creating-starter-workflows-for-your-organization)."
+要继续了解 {% data variables.product.prodname_actions %}，请参阅“[为组织创建入门工作流程](/actions/using-workflows/creating-starter-workflows-for-your-organization)”。

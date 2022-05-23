@@ -37,24 +37,25 @@ remote: error: Required status check "ci-build" is failing
 
 {% endnote %}
 
-{% ifversion fpt or ghae or ghes or ghec %}
-
 ## Conflictos entre confirmaciones de encabezado y confirmaciones de fusiones de prueba
 
 Algunas veces, los resultados de las verificaciones de estado para la confirmación de la prueba de fusión y de la confirmación principal entrarán en conflicto. Si la confirmación de fusión de prueba tiene un estado, ésta pasará. De otra manera, el estado de la confirmación principal deberá pasar antes de que puedas fusionar la rama. Para obtener más información sobre las confirmaciones de fusiones de prueba, consulta la sección "[Extracciones](/rest/reference/pulls#get-a-pull-request)".
 
 ![Ramas con conflictos en las confirmaciones de fusión](/assets/images/help/repository/req-status-check-conflicting-merge-commits.png)
-{% endif %}
 
 ## Se salta el manejo pero se requieren las verificaciones
 
-Algunas veces, se salta una verificación de estado requerida en las solicitudes de cambios debido al filtrado de rutas. Por ejemplo, una prueba de Node.JS podría saltarse en una solicitud de cambios que solo arregla un error de dedo en tu archivo README y no hace cambios a los archivos de JavaScript y TypeScript en el directorio de `scripts`.
+{% note %}
 
-Si esta verificación es requerida y se salta, entonces el estado de verificación se mostrará como pendiente, dado que es requerida. En esta situación no podrás fusionar la solicitud de cambios.
+**Nota:** Si se omite un flujo de trabajo debido a [filtrado de ruta](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore), [filtrado de rama](/actions/using-workflows/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore) o a un [mensaje de confirmación](/actions/managing-workflow-runs/skipping-workflow-runs), entonces las verificaciones asociadas con este flujo de trabajo permanecerán en un estado de "Pendiente". Las solicitudes de cambios que requieran que esas verificaciones tengan éxito quedarán bloqueadas para fusión.
+
+Si se omite un job en un flujo de trabajo debido a una condicional, este reportará su estado como "Éxito". Para obtener más información, consulta las secciones de [Omitir las ejecuciones de flujo de trabajo](/actions/managing-workflow-runs/skipping-workflow-runs) y [Utilizar condiciones para controlar la ejecución de jobs](/actions/using-jobs/using-conditions-to-control-job-execution).
+
+{% endnote %}
 
 ### Ejemplo
 
-En este ejemplo, tienes un flujo de trabajo que se requiere para pasar.
+El siguiente ejemplo muestra un flujo de trabajo que requiere un estado de finalización "Exitoso" para el job `build`, pero el flujo de trabajo se omitirá si la solicitud de cambios no cambia ningún archivo en el directorio `scripts`.
 
 ```yaml
 name: ci
@@ -62,7 +63,6 @@ on:
   pull_request:
     paths:
       - 'scripts/**'
-      - 'middleware/**'
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -70,18 +70,18 @@ jobs:
       matrix:
         node-version: [12.x, 14.x, 16.x]
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v2
+    - uses: {% data reusables.actions.action-checkout %}
+    - name: Use Node.js {% raw %}${{ matrix.node-version }}{% endraw %}
+      uses: {% data reusables.actions.action-setup-node %}
       with:
-        node-version: ${{ matrix.node-version }}
+        node-version: {% raw %}${{ matrix.node-version }}{% endraw %}
         cache: 'npm'
     - run: npm ci
     - run: npm run build --if-present
     - run: npm test
 ```
 
-Si alguien emite una solicitud de cambios que cambie un archivo de lenguaje de marcado en la raíz del repositorio, entonces el flujo de trabajo anterior no se ejecutará para nada debido al filtrado de ruta. Como resultado, no podrás fusionar la solicitud de cambios. Verías el siguiente estado en la solicitud de cambios:
+Debido al [filtrado de rutas](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore), una solicitud de cambios que solo cambie un archivo en la raíz del repositorio ya no activará este flujo de trabajo y se bloqueará para su fusión. Verías el siguiente estado en la solicitud de cambios:
 
 ![Verificación requerida omitida, pero mostrada como pendiente](/assets/images/help/repository/PR-required-check-skipped.png)
 

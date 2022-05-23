@@ -12,7 +12,7 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Delete organization
+shortTitle: Borrar organización
 ---
 
 {% ifversion fpt or ghec %}
@@ -26,12 +26,12 @@ shortTitle: Delete organization
 
 ## 1. Haz una copia de respaldo del contenido de tu organización
 
-{% ifversion not ghes %} After you delete an organization, {% data variables.product.company_short %} **cannot restore your content**. Therefore, before{% else %}Before{% endif %} you delete your organization, make sure you have a copy of all repositories, wikis, issues, and project boards from the account.
+{% ifversion not ghes %} Después de borrar una organización, {% data variables.product.company_short %} **no puede restablecer tu contenido**. Por lo tanto, antes{% else %}Anes{% endif %} de que borres tu organización, asegúrate de que tienes una copia de todos los repositorios, wikis, propuestas y tableros de proyecto de la cuenta.
 
 {% ifversion ghes %}
 {% note %}
 
-**Note:** If necessary, a site administrator for {% data variables.product.product_location %} may be able to partially restore a deleted organization. For more information, see "[Restoring a deleted organization](/admin/user-management/managing-organizations-in-your-enterprise/restoring-a-deleted-organization)."
+**Nota:** De ser necesario, un administrador de sitio de {% data variables.product.product_location %} podría restablecer parcialmente una organización borrada. Para obtener más información, consulta la sección "[Restablecer una organización borrada](/admin/user-management/managing-organizations-in-your-enterprise/restoring-a-deleted-organization)".
 
 {% endnote %}
 {% endif %}

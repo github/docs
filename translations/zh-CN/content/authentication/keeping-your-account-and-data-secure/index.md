@@ -1,6 +1,6 @@
 ---
 title: 保护帐户和数据安全
-intro: 'To protect your personal information, you should keep both your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} and any associated data secure.'
+intro: '为了保护您的个人信息，应该确保您在 {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} 上的帐户和任何相关数据的安全。'
 redirect_from:
   - /articles/keeping-your-account-and-data-secure
   - /github/authenticating-to-github/keeping-your-account-and-data-secure

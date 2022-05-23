@@ -1,6 +1,6 @@
 ---
-title: Creating a branch to work on an issue
-intro: You can create a branch to work on an issue directly from the issue page and get started right away.
+title: Criando um branch para trabalhar em um problema
+intro: Você pode criar um branch para trabalhar em um problema diretamente da página de problemas e começar imediatamente.
 versions:
   fpt: '*'
   ghes: '>=3.5'
@@ -9,26 +9,26 @@ versions:
 allowTitleToDifferFromFilename: true
 topics:
   - Issues
-shortTitle: Create branch for issue
+shortTitle: Criar um branch para um problema
 ---
 
 {% note %}
 
-**Note:** The ability to create a branch for an issue is currently in public beta and subject to change.
+**Observação:** A capacidade de criar um branch para um problema está atualmente em versão beta pública e sujeita a alterações.
 
 {% endnote %}
 
-## About branches connected to an issue
-Branches connected to an issue are shown under the "Development" section in the sidebar of an issue. When you create a pull request for one of these branches, it is automatically linked to the issue. The connection with that branch is removed and only the pull request is shown in the "Development" section. Para obter mais informações, consulte "[Vincular um pull request a um problema](/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue)."
+## Sobre branches conectados a um problema
+Os branches ligados a um problema são mostrados na seção "Desenvolvimento" na barra lateral de um problema. Ao criar um pull request para um desses branches, ele será automaticamente vinculado ao problema. A conexão com esse branch é removida e apenas o pull request é mostrado na seção "Desenvolvimento". Para obter mais informações, consulte "[Vincular um pull request a um problema](/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue)."
 
-## Creating a branch for an issue
+## Criando um branch para um problema
 
-Anyone with write permission to a repository can create a branch for an issue. You can link multiple branches for an issue.
+Qualquer pessoa com permissão de gravação em um repositório pode criar um branch para um problema. Você pode vincular vários branches a um problema.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issues %}
-3. In the list of issues, click the issue that you would like to create a branch for.
-4. In the right sidebar under "Development", click **Create a branch**. If the issue already has a linked branch or pull request, click {% octicon "gear" aria-label="The Gear icon" %} and at the bottom of the drop-down menu click **Create a branch**. ![Screenshot showing Create a branch option highlighted in sidebar](/assets/images/help/issues/create-a-branch.png)
-5. By default, the new branch is created in the current repository from the default branch. Edit the branch name and details as required in the "Create a branch for this issue" dialog. ![Screenshot showing Create a branch dialog options](/assets/images/help/issues/create-a-branch-options.png)
-6. Choose whether to work on the branch locally or to open it in GitHub Desktop.
-7. When you are ready to create the branch, click **Create branch**.
+3. Na lista de problemas, clique no problema para o qual você gostaria de criar um branch.
+4. Na barra lateral direita em "Desenvolvimento", clique em **Criar um branch**. Se o problema já tiver um branch ou um pull request vinculado, clique em {% octicon "gear" aria-label="The Gear icon" %} e, na parte inferior do menu suspenso, clique em **Criar um branch**. ![Captura de tela que mostra como criar uma opção de branch destacada na barra lateral](/assets/images/help/issues/create-a-branch.png)
+5. Por padrão, o novo branch é criado no repositório atual a partir do branch padrão. Edite o nome e os detalhes do branch conforme exigido na caixa de diálogo "Criar um branch para esse problema". ![Captura de tela que mostra as opções de diálogo para criar um branch](/assets/images/help/issues/create-a-branch-options.png)
+6. Escolha se deseja trabalhar localmente nao branch ou abri-lo no GitHub Desktop.
+7. Quando estiver pronto para criar o branch, clique em **Criar branch**.

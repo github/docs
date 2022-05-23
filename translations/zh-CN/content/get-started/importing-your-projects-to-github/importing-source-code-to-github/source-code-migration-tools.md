@@ -22,7 +22,7 @@ shortTitle: 代码迁移工具
 
 ## 从 Subversion 导入
 
-在典型 Subversion 环境中，多个项目存储在一个根仓库中。 在 GitHub 上，这些项目的每一个通常都将映射到用户帐户或组织的单独 Git 仓库。 以下情况时，我们建议将 Subversion 仓库的每一部分导入到单独的 GitHub 仓库：
+在典型 Subversion 环境中，多个项目存储在一个根仓库中。 在 GitHub 上，这些项目的每一个通常都将映射到个人帐户或组织的单独 Git 仓库。 以下情况时，我们建议将 Subversion 仓库的每一部分导入到单独的 GitHub 仓库：
 
 * 协作者需要检出或提交到独立于项目其他部分的部分
 * 您想要不同的部分有其自己的访问权限
@@ -40,7 +40,7 @@ shortTitle: 代码迁移工具
 
 我们建议 [git-tfs](https://github.com/git-tfs/git-tfs) 用于在TFVC 和 Git 之间移动更改。
 
-For more information about moving from TFVC (a centralized version control system) to Git, see "[Plan your Migration to Git](https://docs.microsoft.com/devops/develop/git/centralized-to-git)" from the Microsoft docs site.
+有关从 TFVC（集中式版本控制系统）迁移到 Git 的详细信息，请参阅 Microsoft 文档站点中的“[计划迁移到 Git](https://docs.microsoft.com/devops/develop/git/centralized-to-git)”。
 
 {% tip %}
 

@@ -1,6 +1,6 @@
 ---
-title: Automatically generated release notes
-intro: You can automatically generate release notes for your GitHub releases
+title: 自动生成的发行说明
+intro: 您可以为 GitHub 版本自动生成发行说明
 permissions: Repository collaborators and people with write access to a repository can generate and customize automated release notes for a release.
 versions:
   fpt: '*'
@@ -9,34 +9,34 @@ versions:
   ghae: issue-4974
 topics:
   - Repositories
-shortTitle: Automated release notes
+shortTitle: 自动发行说明
 communityRedirect:
   name: Provide GitHub Feedback
   href: 'https://github.com/github/feedback/discussions/categories/general-feedback'
 ---
 
-## About automatically generated release notes
+## 关于自动生成的发行说明
 
-Automatically generated release notes provide an automated alternative to manually writing release notes for your {% data variables.product.prodname_dotcom %} releases. With automatically generated release notes, you can quickly generate an overview of the contents of a release. You can also customize your automated release notes, using labels to create custom categories to organize pull requests you want to include, and exclude certain labels and users from appearing in the output.
+自动生成的发行说明为 {% data variables.product.prodname_dotcom %} 发行版手动编写发行说明提供了一种自动替代方法。 使用自动生成的发行说明，您可以快速生成发行版内容的概览。 您还可以自定义自动发行说明，使用标签创建自定义类别来组织要包含的拉取请求，并排除某些标签和用户不出现在输出中。
 
-## Creating automatically generated release notes for a new release
+## 为新版本创建自动生成的发行说明
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.releases %}
 3. 单击 **Draft a new release（草拟新发行版）**。 ![发行版草稿按钮](/assets/images/help/releases/draft_release_button.png)
-4. {% ifversion fpt or ghec %}Click **Choose a tag** and type{% else %}Type{% endif %} a version number for your release. Alternatively, select an existing tag.
+4. {% ifversion fpt or ghec %}单击 **Choose a tag（选择标记）**，然后键入{% else %}键入{% endif %}发行版的版本号。 或者，选择现有标记。
   {% ifversion fpt or ghec %}
-  ![Enter a tag](/assets/images/help/releases/releases-tag-create.png)
-5. If you are creating a new tag, click **Create new tag**. ![Confirm you want to create a new tag](/assets/images/help/releases/releases-tag-create-confirm.png)
+  ![输入标记](/assets/images/help/releases/releases-tag-create.png)
+5. 如果要创建新标记，请单击 **Create new tag（创建新标记）**。 ![确认您要创建新标记](/assets/images/help/releases/releases-tag-create-confirm.png)
   {% else %}
   ![发行版标记版本](/assets/images/enterprise/releases/releases-tag-version.png)
 {% endif %}
-6. If you have created a new tag, use the drop-down menu to select the branch that contains the project you want to release.
+6. 如果已创建新标记，请使用下拉菜单选择包含要发布的项目的分支。
   {% ifversion fpt or ghec %}![选择分支](/assets/images/help/releases/releases-choose-branch.png)
   {% else %}![发行版标记分支](/assets/images/enterprise/releases/releases-tag-branch.png)
   {% endif %}
-7. To the top right of the description text box, click **Auto-generate release notes**. ![Auto-generate release notes](/assets/images/help/releases/auto-generate-release-notes.png)
-8. Check the generated notes to ensure they include all (and only) the information you want to include.
+7. 在说明文本框的右上角，单击 **Auto-generate release notes（自动生成发行说明）**。 ![自动生成发行说明](/assets/images/help/releases/auto-generate-release-notes.png)
+8. 检查生成的注释，确保它们包含所有（且仅有）您要包含的信息。
 9. （可选）要在发行版中包含二进制文件（例如已编译的程序），请在二进制文件框中拖放或手动选择文件。 ![通过发行版提供 DMG](/assets/images/help/releases/releases_adding_binary.gif)
 10. 要通知用户发行版本尚不可用于生产，可能不稳定，请选择 **This is a pre-release（这是预发布）**。 ![将版本标记为预发行版的复选框](/assets/images/help/releases/prerelease_checkbox.png)
 {%- ifversion fpt %}
@@ -45,23 +45,23 @@ Automatically generated release notes provide an automated alternative to manual
 12. 如果您准备推广您的发行版，请单击 **Publish release（发布版本）**。 要在以后处理该发行版，请单击 **Save draft（保存草稿）**。 ![发布版本和草拟发行版按钮](/assets/images/help/releases/release_buttons.png)
 
 
-## Configuring automatically generated release notes
+## 配置自动生成的发行说明
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}
-3. In the file name field, type `.github/release.yml` to create the `release.yml` file in the `.github` directory. ![Create new file](/assets/images/help/releases/release-yml.png)
-4. In the file, using the configuration options below, specify in YAML the pull request labels and authors you want to exclude from this release. You can also create new categories and list the pull request labels to be included in each of them.
+3. 在文件名字段中，键入 `.github/release.yml` 以在 `.github` 目录中创建 `release.yml` 文件。 ![创建新文件](/assets/images/help/releases/release-yml.png)
+4. 在文件中，使用下面的配置选项，在 YAML 中指定要从此版本中排除的拉取请求标签和作者。 您还可以创建新类别并列出要包含在每个类别中的拉取请求标签。
 
 ### 配置选项
 
-| Parameter                                 | 描述                                                                                                                                                             |
-|:----------------------------------------- |:-------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `changelog.exclude.labels`                | A list of labels that exclude a pull request from appearing in release notes.                                                                                  |
-| `changelog.exclude.authors`               | A list of user or bot login handles whose pull requests are to be excluded from release notes.                                                                 |
-| `changelog.categories[*].title`           | **Required.** The title of a category of changes in release notes.                                                                                             |
-| `changelog.categories[*].labels`          | **Required.** Labels that qualify a pull request for this category. Use `*` as a catch-all for pull requests that didn't match any of the previous categories. |
-| `changelog.categories[*].exclude.labels`  | A list of labels that exclude a pull request from appearing in this category.                                                                                  |
-| `changelog.categories[*].exclude.authors` | A list of user or bot login handles whose pull requests are to be excluded from this category.                                                                 |
+| 参数                                        | 描述                                                    |
+|:----------------------------------------- |:----------------------------------------------------- |
+| `changelog.exclude.labels`                | 不在发行说明中显示拉取请求的标签列表。                                   |
+| `changelog.exclude.authors`               | 要从发行说明中排除其拉取请求的用户或自动程序登录句柄的列表。                        |
+| `changelog.categories[*].title`           | **必需。**发行说明中更改类别的标题。                                  |
+| `changelog.categories[*].labels`          | **必需。**符合此类别的拉取请求条件的标签。 使用 `*` 作为与上述任何类别都不匹配的拉取请求的统称。 |
+| `changelog.categories[*].exclude.labels`  | 不在此类别中显示拉取请求的标签列表。                                    |
+| `changelog.categories[*].exclude.authors` | 要从此类别中排除其拉取请求的用户或自动程序登录句柄的列表。                         |
 
 ### 示例配置
 
@@ -92,4 +92,4 @@ changelog:
 
 ## 延伸阅读
 
-- "[Managing labels](/issues/using-labels-and-milestones-to-track-work/managing-labels)" 
+- "[管理标签](/issues/using-labels-and-milestones-to-track-work/managing-labels)" 

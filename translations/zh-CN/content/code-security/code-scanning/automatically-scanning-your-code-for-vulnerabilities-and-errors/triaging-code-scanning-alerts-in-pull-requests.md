@@ -28,7 +28,7 @@ topics:
 ## 关于拉取请求上的 {% data variables.product.prodname_code_scanning %} 结果
 
 在仓库中，如果 {% data variables.product.prodname_code_scanning %} 被配置为拉取请求检查，则 {% data variables.product.prodname_code_scanning %} 将检查拉取请求中的代码。 默认情况下，这仅限于针对默认分支的拉取请求，但是您可以在 {% data variables.product.prodname_actions %} 或第三方 CI/CD 系统中更改此配置。 如果合并分支给目标分支带来新的 {% data variables.product.prodname_code_scanning %} 警报，这些警报将在拉取请求中被报告为检查结果。 警报还将在拉取请求的 **Files changed（文件已更改）**选项卡中显示为注释。 如果您拥有仓库的写入权限，您可以在 **Security（安全）**选项卡中查看任何现有的 {% data variables.product.prodname_code_scanning %} 警报。 有关仓库警报的更多信息，请参阅“[管理仓库的 {% data variables.product.prodname_code_scanning %} 警报](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository)”。
-{% ifversion fpt or ghes > 3.2 or ghae-issue-5093 or ghec %}
+{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 在 {% data variables.product.prodname_code_scanning %} 配置为在每次推送代码时扫描的存储库中，{% data variables.product.prodname_code_scanning %} 还会将结果映射到任何打开的拉取请求，并将警报作为注释添加到与其他拉取请求检查相同的位置。 更多信息请参阅“[在推送时扫描](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#scanning-on-push)”。
 {% endif %}
 
@@ -42,7 +42,7 @@ topics:
 
 对于 {% data variables.product.prodname_code_scanning %} 的所有配置，包含 {% data variables.product.prodname_code_scanning %} 结果的检查为：**{% data variables.product.prodname_code_scanning_capc %} 结果**。 所使用的每个分析工具的结果将单独显示。 由拉取请求中的更改引起的任何新警报都显示为注释。
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4902 or ghec %} 要查看所分析分支的完整警报集，请单击“**查看所有分支警报**”。 这将打开完整的警报视图，您可以在其中按类型、严重性、标记等筛选分支上的所有警报。 更多信息请参阅“[管理仓库的代码扫描警报](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#filtering-and-searching-for-code-scanning-alerts)”。
+{% ifversion fpt or ghes > 3.2 or ghae or ghec %} 要查看所分析分支的完整警报集，请单击“**查看所有分支警报**”。 这将打开完整的警报视图，您可以在其中按类型、严重性、标记等筛选分支上的所有警报。 更多信息请参阅“[管理仓库的代码扫描警报](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#filtering-and-searching-for-code-scanning-alerts)”。
 
 ![拉取请求的 {% data variables.product.prodname_code_scanning_capc %} 结果检查](/assets/images/help/repository/code-scanning-results-check.png)
 {% endif %}
@@ -74,10 +74,17 @@ topics:
 
 要查看有关警报的更多信息，拥有写入权限的用户可单击注释中所示的 **Show more details（显示更多详情）**链接。 这允许您在警报视图中查看工具提供的所有上下文和元数据。 在下例中，您可以查看显示问题的严重性、类型和相关通用缺陷枚举 (CWE) 的标记。 该视图还显示哪个提交引入了问题。
 
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6249 %}
+{% data reusables.code-scanning.alert-default-branch %}
+{% endif %}
+
 在警报的详细视图中，有些 {% data variables.product.prodname_code_scanning %} 工具，例如 {% data variables.product.prodname_codeql %} 分析，还包括问题描述和 **Show more（显示更多）**链接以指导您如何修复代码。
 
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6249 %}
 ![显示更多信息的警报说明和链接](/assets/images/help/repository/code-scanning-pr-alert.png)
-
+{% else %}
+![显示更多信息的警报说明和链接](/assets/images/enterprise/3.4/repository/code-scanning-pr-alert.png)
+{% endif %}
 ## 修复拉取请求上的警报
 
 任何对拉取请求具有推送权限的人都可以修复在该拉取请求上已识别的 {% data variables.product.prodname_code_scanning %} 警报。 如果将更改提交到拉取请求，这将触发拉取请求检查的新运行。 如果您的更改修复了问题，则警报将被关闭，注释将被删除。
@@ -92,4 +99,4 @@ topics:
 
 {% data reusables.code-scanning.false-positive-fix-codeql %}
 
-有关忽略警报的更多信息，请参阅“[管理仓库的 {% data variables.product.prodname_code_scanning %} 警报](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository#dismissing-or-deleting-alerts)”。
+有关消除警报的详细信息，请参阅 {% if delete-code-scanning-alerts %}“[管理存储库的 {% data variables.product.prodname_code_scanning %} 警报](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository#dismissing-or-deleting-alerts)”。{% else %} “[管理存储库的 {% data variables.product.prodname_code_scanning %} 警报](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#dismissing--alerts)”。{% endif %}

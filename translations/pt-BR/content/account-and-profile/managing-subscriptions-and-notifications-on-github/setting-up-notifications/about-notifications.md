@@ -16,10 +16,6 @@ topics:
   - Notifications
 ---
 
-{% ifversion ghes %}
-{% data reusables.mobile.ghes-release-phase %}
-{% endif %}
-
 ## Notificações e assinaturas
 
 Você pode optar por receber atualizações em curso sobre a atividade específica no {% data variables.product.product_location %} por meio de uma assinatura. As notificações são atualizações que você recebe para atividades específicas que você assinou.
@@ -48,7 +44,7 @@ Em geral, você é automaticamente inscrito em conversas por padrão quando voc�
 - Alteração do estado de uma thread, como por exemplo, fechando um problema ou mesclando uma pull request.
 - Uma @menção a uma equipe da qual você é integrante
 
-Por padrão, você também inspeciona automaticamente todos os repositórios que você cria e são pertencentes à sua conta de usuário.
+Por padrão, você também observa automaticamente todos os repositórios que você cria e que são pertencentes à sua conta pessoal.
 
 Para cancelar a inscrição de conversas que você se inscreveu automaticamente, você pode alterar suas configurações de notificação ou cancelar diretamente a inscrição ou desmarcar a atividade em {% data variables.product.product_location %}. Para obter mais informações, consulte "[Gerenciando suas assinaturas](/github/managing-subscriptions-and-notifications-on-github/managing-your-subscriptions)."
 
@@ -68,15 +64,15 @@ Você pode personalizar e programar notificações de push no aplicativo de {% d
 
 ## Motivos para receber notificações
 
-Sua caixa de entrada está configurada com filtros-padrão, que representam as razões mais comuns para que as pessoas precisem acompanhar suas notificações. Para obter mais informações sobre filtros na caixa de entrada, consulte "[Gerenciar notificações de sua caixa de entrada](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#default-notification-filters)".
+Sua caixa de entrada está configurada com filtros padrão, que representam as razões mais comuns para que as pessoas precisem acompanhar suas notificações. Para obter mais informações sobre filtros na caixa de entrada, consulte "[Gerenciar notificações de sua caixa de entrada](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#default-notification-filters)".
 
 Sua caixa de entrada mostra as `razões` de você estar recebendo notificações como uma etiqueta.
 
 ![Etiquetas de razões na caixa de entrada](/assets/images/help/notifications-v2/reasons-as-labels-in-inbox.png)
 
-Você pode filtrar sua caixa de entrada pelo motivo pelo qual está inscrito nas notificações. Por exemplo, para ver apenas pull requests em que alguém solicitou sua revisão, você pode usar o filtro de consulta `review-requested`.
+Você pode filtrar sua caixa de entrada pelo motivo pelo qual está inscrito nas notificações. Por exemplo, para ver apenas pull requests onde alguém solicitou sua revisão, você pode usar o filtro de consulta `review-requested`.
 
-![Filtrar notificações por revisão da razão solicitada](/assets/images/help/notifications-v2/review-requested-reason.png)
+![Filtrar notificações por revisar razão solicitada ](/assets/images/help/notifications-v2/review-requested-reason.png)
 
 Se você configurou as notificações para serem enviadas por e-mail e acredita que está recebendo notificações que não pertencem a você, considere a resolução de problemas com cabeçalhos de e-mail, que mostram o destinatário pretendido. Para obter mais informações, consulte “[Configurando notificações](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#filtering-email-notifications)".
 

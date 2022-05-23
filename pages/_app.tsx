@@ -2,22 +2,35 @@ import React, { useEffect } from 'react'
 import App from 'next/app'
 import type { AppProps, AppContext } from 'next/app'
 import Head from 'next/head'
-import { useTheme, ThemeProvider } from '@primer/react'
+import { ThemeProvider, ThemeProviderProps } from '@primer/react'
 import { SSRProvider } from '@react-aria/ssr'
-import { defaultComponentThemeProps, getThemeProps } from 'components/lib/getThemeProps'
 
 import '../stylesheets/index.scss'
 
 import events from 'components/lib/events'
 import experiment from 'components/lib/experiment'
 import { LanguagesContext, LanguagesContextT } from 'components/context/LanguagesContext'
+import {
+  DotComAuthenticatedContext,
+  DotComAuthenticatedContextT,
+} from 'components/context/DotComAuthenticatedContext'
+import { defaultComponentTheme } from 'lib/get-theme.js'
 
 type MyAppProps = AppProps & {
   csrfToken: string
-  themeProps: typeof defaultComponentThemeProps
+  isDotComAuthenticated: boolean
+  themeProps: typeof defaultComponentTheme & Pick<ThemeProviderProps, 'colorMode'>
   languagesContext: LanguagesContextT
+  dotComAuthenticatedContext: DotComAuthenticatedContextT
 }
-const MyApp = ({ Component, pageProps, csrfToken, themeProps, languagesContext }: MyAppProps) => {
+const MyApp = ({
+  Component,
+  pageProps,
+  csrfToken,
+  themeProps,
+  languagesContext,
+  dotComAuthenticatedContext,
+}: MyAppProps) => {
   useEffect(() => {
     events()
     experiment()
@@ -51,10 +64,16 @@ const MyApp = ({ Component, pageProps, csrfToken, themeProps, languagesContext }
         <meta name="csrf-token" content={csrfToken} />
       </Head>
       <SSRProvider>
-        <ThemeProvider dayScheme={themeProps.dayTheme} nightScheme={themeProps.nightTheme}>
+        <ThemeProvider
+          colorMode={themeProps.colorMode}
+          dayScheme={themeProps.dayTheme}
+          nightScheme={themeProps.nightTheme}
+          preventSSRMismatch
+        >
           <LanguagesContext.Provider value={languagesContext}>
-            <SetTheme themeProps={themeProps} />
-            <Component {...pageProps} />
+            <DotComAuthenticatedContext.Provider value={dotComAuthenticatedContext}>
+              <Component {...pageProps} />
+            </DotComAuthenticatedContext.Provider>
           </LanguagesContext.Provider>
         </ThemeProvider>
       </SSRProvider>
@@ -62,29 +81,25 @@ const MyApp = ({ Component, pageProps, csrfToken, themeProps, languagesContext }
   )
 }
 
+// Remember, function is only called once if the rendered page can
+// be in-memory cached. But still, the `<MyApp>` component will be
+// executed every time **in the client** if it was the first time
+// ever (since restart) or from a cached HTML.
 MyApp.getInitialProps = async (appContext: AppContext) => {
   const { ctx } = appContext
   // calls page's `getInitialProps` and fills `appProps.pageProps`
   const appProps = await App.getInitialProps(appContext)
   const req: any = ctx.req
 
+  const { getTheme } = await import('lib/get-theme.js')
+
   return {
     ...appProps,
-    themeProps: getThemeProps(req),
+    themeProps: getTheme(req),
     csrfToken: req?.csrfToken?.() || '',
-    languagesContext: { languages: req.context.languages },
+    languagesContext: { languages: req.context.languages, userLanguage: req.context.userLanguage },
+    dotComAuthenticatedContext: { isDotComAuthenticated: Boolean(req.cookies?.dotcom_user) },
   }
-}
-
-const SetTheme = ({ themeProps }: { themeProps: typeof defaultComponentThemeProps }) => {
-  // Cause primer/components to re-evaluate the 'auto' color mode on client side render
-  const { setColorMode } = useTheme()
-  useEffect(() => {
-    setTimeout(() => {
-      setColorMode(themeProps.colorMode as any)
-    })
-  }, [])
-  return null
 }
 
 export default MyApp

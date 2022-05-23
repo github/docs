@@ -1,6 +1,6 @@
 ---
 title: 审查 SSH 密钥
-intro: 'To keep your credentials secure, you should regularly audit your SSH keys, deploy keys, and review authorized applications that access your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}.'
+intro: '为了保证您的凭据安全，您应该定期检查您的 SSH 密钥、部署密钥 并审核已授权的应用程序，以访问您在 {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} 上的帐户。'
 redirect_from:
   - /articles/keeping-your-application-access-tokens-safe
   - /articles/keeping-your-ssh-keys-and-application-access-tokens-safe

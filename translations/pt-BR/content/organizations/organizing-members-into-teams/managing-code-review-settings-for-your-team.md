@@ -36,10 +36,6 @@ Ao habilitar a atribuição automática, qualquer momento em que for solicitado 
 
 Quando se solicita que os proprietários do código façam a revisão automaticamente, a equipe ainda será removida e substituída por indivíduos, a menos que uma regra de proteção de branch esteja configurada que exija revisão dos proprietários de código. Se essa regra de proteção de ramificação estiver em vigor, a solicitação de equipe não poderá ser removida, fazendo com que a solicitação individual seja exibida.
 
-{% ifversion fpt %}
-Para desenvolver ainda mais as habilidades de colaboração da sua equipe, você pode fazer a atualização para {% data variables.product.prodname_ghe_cloud %}, que inclui funcionalidades como branches protegidos e proprietários de códigos em repositórios privados. {% data reusables.enterprise.link-to-ghec-trial %}
-{% endif %}
-
 ### Encaminhar algoritmos
 
 Escolha as atribuições de revisão de código e atribua os revisores automaticamente com base em um dos dois algoritmos possíveis.

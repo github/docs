@@ -63,6 +63,19 @@ Draft issues can have a title, text body, assignees, and any custom fields from 
 3. Select the repository where the pull request or issue is located. You can type part of the repository name to narrow down your options.
 4. Select the issue or pull request. You can type part of the title to narrow down your options.
 
+#### Adding multiple issues or pull requests from a repository
+
+1. On {% data variables.product.product_location %}, navigate to the repository that contains the issues or pull requests you want to add to your project.
+{% data reusables.repositories.sidebar-issue-pr %}
+1. To the left of each issue title, select the issues that you want to add to your project.
+  ![Screenshot showing checkbox to select issue or pull request](/assets/images/help/issues/select-issue-checkbox.png)
+1. Optionally, to select every issue or pull request on the page, at the top of the list of issues or pull requests, select all. 
+  ![Screenshot showing checkbox to select all on screen](/assets/images/help/issues/select-all-checkbox.png)
+1. Above the list of issues or pull requests, click **Projects (beta)**. 
+  ![Screenshot showing checkbox to select all on screen](/assets/images/help/issues/projects-beta-assign-button.png)
+1. Click the projects you want to add the selected issues or pull requests to.
+  ![Screenshot showing checkbox to select all on screen](/assets/images/help/issues/projects-beta-assign-dropdown.png)
+
 #### Assigning a project from within an issue or pull request
 
 1. Navigate to the issue or pull request that you want to add to a project.
@@ -102,7 +115,20 @@ You can restore archived items but not deleted items. For more information, see 
 
 ## Restoring archived items
 
-To restore an archived item, navigate to the issue or pull request. In the project side bar on the issue or pull request, click **Restore** for the project that you want to restore the item to. Draft issues cannot be restored.
+1. Navigate to your project.
+1. In the top-right, click {% octicon "kebab-horizontal" aria-label="the kebab icon" %}.
+1. In the menu, click **Archived items**.
+1. Optionally, to filter the archived items displayed, type your filter into the text box above the list of items. For more information about the available filters, see "[Filtering projects (beta)](/issues/trying-out-the-new-projects-experience/filtering-projects)."
+
+   ![Screenshot showing field for filtering archived items](/assets/images/help/issues/filter-archived-items.png)
+   
+1. To the left of each item title, select the items you would like to restore.
+
+   ![Screenshot showing checkboxes next to archived items](/assets/images/help/issues/select-archived-item.png)
+   
+1. To restore the selected items, above the list of items, click **Restore**. 
+
+   ![Screenshot showing the "Restore" button](/assets/images/help/issues/restore-archived-item-button.png)
 
 ## Adding fields
 
@@ -132,7 +158,7 @@ Custom fields can be text, number, date, single select, or iteration:
 - Number: The value must be a number.
 - Date: The value must be a date.
 - Single select: The value must be selected from a set of specified values.
-- Iteration: The value must be selected from a set of date ranges (iterations). Iterations in the past are automatically marked as "completed", and the iteration covering the current date range is marked as "current".
+- Iteration: The value must be selected from a set of date ranges (iterations). Iterations in the past are automatically marked as "completed", and the iteration covering the current date range is marked as "current". For more information, see "[Managing iterations in projects](/issues/trying-out-the-new-projects-experience/managing-iterations)."
 
 1. {% data reusables.projects.open-command-palette %} Start typing any part of "Create new field". When "Create new field" displays in the command palette, select it.
 2. Alternatively, click {% octicon "plus" aria-label="the plus icon" %} in the rightmost field header. A drop-down menu with the project fields will appear. Click **New field**.
@@ -143,12 +169,14 @@ Custom fields can be text, number, date, single select, or iteration:
 6. If you specified **Single select** as the type, enter the options.
 7. If you specified **Iteration** as the type, enter the start date of the first iteration and the duration of the iteration. Three iterations are automatically created, and you can add additional iterations on the project's settings page.
 
-You can later edit the drop down options for single select and iteration fields.
+You can also edit your custom fields.
 
 {% data reusables.projects.project-settings %}
 1. Under **Fields**, select the field that you want to edit.
 1. For single select fields, you can add, delete, or reorder the options.
-2. For iteration fields, you can add or delete iterations, change iteration names, and change the start date and duration of the iteration.
+1. For iteration fields, you can add or delete iterations, change iteration names, and change the start date and duration of the iteration.
+
+   For more information on modifying iteration fields, see "[Managing iterations in projects](/issues/trying-out-the-new-projects-experience/managing-iterations)."
 
 ## Customizing your views
 

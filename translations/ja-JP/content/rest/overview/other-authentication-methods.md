@@ -29,7 +29,7 @@ API は複数の認証方式を提供していますが、本番アプリケー�
 
 ## Basic 認証
 
-API は、[RFC2617](http://www.ietf.org/rfc/rfc2617.txt) で定義されている Basic 認証をサポートしていますが、若干の違いがあります。 主な違いは、RFC では、認証されていないリクエストに `401 Unauthorized` レスポンスで応える必要がある点です。 これにより、多くの場所でユーザデータの存在が明らかになります。 Instead, the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API responds with `404 Not Found`. これにより、`401 Unauthorized` レスポンスを想定する HTTP ライブラリで問題が発生する可能性があります。 これは `Authorization` ヘッダを手動で作成することで解決できます。
+API は、[RFC2617](http://www.ietf.org/rfc/rfc2617.txt) で定義されている Basic 認証をサポートしていますが、若干の違いがあります。 主な違いは、RFC では、認証されていないリクエストに `401 Unauthorized` レスポンスで応える必要がある点です。 これにより、多くの場所でユーザデータの存在が明らかになります。 その代わりに、{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} APIは`404 Not Found`を返します。 これにより、`401 Unauthorized` レスポンスを想定する HTTP ライブラリで問題が発生する可能性があります。 これは `Authorization` ヘッダを手動で作成することで解決できます。
 
 ### OAuth と個人アクセストークンを使用する
 
@@ -47,7 +47,7 @@ $ curl -u <em>username</em>:<em>token</em> {% data variables.product.api_url_pre
 
 {% note %}
 
-**注釈:** {% data variables.product.prodname_dotcom %} は、すべての {% data variables.product.prodname_dotcom_the_website %} アカウントについて、API に対するパスワード認証を 2020 年 11 月 13 日で終了しました。{% data variables.product.prodname_free_user %}、{% data variables.product.prodname_pro %}、{% data variables.product.prodname_team %}、または {% data variables.product.prodname_ghe_cloud %} プランのアカウントもこれに該当します。 You must now authenticate to the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API with an API token, such as an OAuth access token, GitHub App installation access token, or personal access token, depending on what you need to do with the token. 詳しい情報については、「[トラブルシューティング](/rest/overview/troubleshooting#basic-authentication-errors)」を参照してください。
+**注釈:** {% data variables.product.prodname_dotcom %} は、すべての {% data variables.product.prodname_dotcom_the_website %} アカウントについて、API に対するパスワード認証を 2020 年 11 月 13 日で終了しました。{% data variables.product.prodname_free_user %}、{% data variables.product.prodname_pro %}、{% data variables.product.prodname_team %}、または {% data variables.product.prodname_ghe_cloud %} プランのアカウントもこれに該当します。 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} APIでは、トークンを使ってやりたいことに応じて、OAuthアクセストークン、GitHub Appインストールアクセストークン、あるいは個人アクセストークンのようなAPIトークンで認証を受けなければならなくなりました。 詳しい情報については、「[トラブルシューティング](/rest/overview/troubleshooting#basic-authentication-errors)」を参照してください。
 
 {% endnote %}
 
@@ -55,7 +55,7 @@ $ curl -u <em>username</em>:<em>token</em> {% data variables.product.api_url_pre
 
 {% ifversion ghes %}
 Basic 認証を
-{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, simply send the username and
+{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} APIは、アカウントに
 対応するユーザ名とパスワードを送信するだけです。
 
 たとえば、[cURL][curl] を介して API にアクセスしている場合、`<username>` を {% data variables.product.product_name %} のユーザ名に置き換えると、次のコマンドで認証されます。 （cURL からパスワードの入力を求められます。）
@@ -104,7 +104,7 @@ $ curl -v -H "Authorization: token <em>TOKEN</em>" {% data variables.product.api
 
 2 要素認証を有効にしている場合、REST API の_ほとんど_のエンドポイントの [Basic 認証](#basic-authentication)では、個人アクセストークン{% ifversion ghes %} または OAuth トークンをユーザ名とパスワードの代わりに{% endif %} を使用する必要があります。
 
-{% ifversion fpt or ghec %}[{% data variables.product.product_name %} 開発者設定](https://github.com/settings/tokens/new)を使用して{% endif %}新しい個人アクセストークンを生成する{% ifversion ghes %}か、 OAuth Authorizations API で \[新しい認証の作成\]\[/rest/reference/oauth-authorizations#create-a-new-authorization\] エンドポイントを使用して新しい OAuth トークンを生成する{% endif %}ことができます。 詳しい情報については、「[コマンドラインの個人アクセストークンを作成する](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)」を参照してください。 Then you would use these tokens to [authenticate using OAuth token][oauth-auth] with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API.{% ifversion ghes %} The only time you need to authenticate with your username and password is when you create your OAuth token or use the OAuth Authorizations API.{% endif %}
+{% ifversion fpt or ghec %}[{% data variables.product.product_name %} 開発者設定](https://github.com/settings/tokens/new)を使用して{% endif %}新しい個人アクセストークンを生成する{% ifversion ghes %}か、 OAuth Authorizations API で \[新しい認証の作成\]\[/rest/reference/oauth-authorizations#create-a-new-authorization\] エンドポイントを使用して新しい OAuth トークンを生成する{% endif %}ことができます。 詳しい情報については、「[コマンドラインの個人アクセストークンを作成する](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)」を参照してください。 そうすれば、それらのトークンを使って{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} APIから[OAuthトークンで認証を受け][oauth-auth]ます。{% ifversion ghes %}ユーザ名とパスワードで認証を受ける必要があるのは、OAuthトークンを作成する際、あるいはOAuth Authorizations APIを使用するときのみです。{% endif %}
 
 {% endif %}
 

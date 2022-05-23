@@ -29,7 +29,7 @@ Os arquivos padrão não são incluídos em clones, pacotes ou downloads de repo
 
 ## Tipos de arquivo compatíveis
 
-Você pode criar padrões em sua organização{% ifversion fpt or ghes or ghec %} ou conta de usuário{% endif %} para os seguintes arquivo de integridade da comunidade:
+Você pode criar padrões na sua organização{% ifversion fpt or ghes or ghec %} ou conta pessoal{% endif %} para os seguintes arquivos de saúde da comunidade:
 
 | Arquivo de integridade da comunidade                                                            | Descrição                                                                                                                                                                                                                                                                                                                                                           |
 | ----------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |{% ifversion fpt or ghec %}
@@ -45,7 +45,7 @@ Você não pode criar um arquivo de licença padrão. Os arquivos de licença de
 ## Criar um repositório para arquivos padrão
 
 {% data reusables.repositories.create_new %}
-2. Use o menu suspenso **Proprietário** e selecione a organização{% ifversion fpt or ghes or ghec %} ou conta de usuário{% endif %} para as quais você deseja criar arquivo padrão. ![Menu suspenso Owner (Proprietário)](/assets/images/help/repository/create-repository-owner.png)
+2. Use o menu suspenso **Proprietário** e selecione a organização{% ifversion fpt or ghes or ghec %} ou conta pessoal{% endif %} para a qual você deseja criar arquivos padrão. ![Menu suspenso Owner (Proprietário)](/assets/images/help/repository/create-repository-owner.png)
 3. Digite **.github** como o nome para seu repositório e uma descrição opcional. ![Campo Create repository (Criar repositório)](/assets/images/help/repository/default-file-repository-name.png)
 4. Certifique-se de que o status do repositório está definido como **Público** (um repositório-padrão para arquivos não pode ser privado). ![Botões de opção para selecionar status privado ou público](/assets/images/help/repository/create-repository-public-private.png)
 {% data reusables.repositories.initialize-with-readme %}

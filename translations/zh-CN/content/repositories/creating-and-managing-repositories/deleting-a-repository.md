@@ -29,7 +29,7 @@ topics:
 
 {% endwarning %}
 
-某些已删除的存储库可以在删除后的 90 天内恢复。 {% ifversion ghes or ghae %}站点管理员或能为您恢复已删除的存储库。 更多信息请参阅“[恢复删除的仓库](/admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository)”。 {% else %}更多信息请参阅“[恢复删除的仓库](/articles/restoring-a-deleted-repository)”。{% endif %}
+某些已删除的存储库可以在删除后的 {% ifversion fpt or ghec or ghes > 3.4 %}30{% else %}90{% endif%} 天内恢复。 {% ifversion ghes or ghae %}站点管理员或能为您恢复已删除的存储库。 更多信息请参阅“[恢复删除的仓库](/admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository)”。 {% else %}更多信息请参阅“[恢复删除的仓库](/articles/restoring-a-deleted-repository)”。{% endif %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}

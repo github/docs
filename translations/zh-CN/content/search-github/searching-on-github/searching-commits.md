@@ -109,10 +109,10 @@ topics:
 | --- | -- |
 |     |    |
 {%- ifversion fpt or ghes or ghec %}
-| `is:public` | [**is:public**](https://github.com/search?q=is%3Apublic&type=Commits) matches commits to public repositories.
+| `is:public` | [**is:public**](https://github.com/search?q=is%3Apublic&type=Commits) 匹配提交到公共存储库。
 {%- endif %}
 {%- ifversion ghes or ghec or ghae %}
-| `is:internal` | [**is:internal**](https://github.com/search?q=is%3Ainternal&type=Commits) matches commits to internal repositories.
+| `is:internal` | [**is:internal**](https://github.com/search?q=is%3Ainternal&type=Commits) 匹配提交到内部存储库。
 {%- endif %}
 | `is:private` | [**is:private**](https://github.com/search?q=is%3Aprivate&type=Commits) 匹配对私有仓库的提交。
 

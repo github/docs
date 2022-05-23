@@ -17,13 +17,7 @@ const slugger = new GithubSlugger()
 const contentDir = path.join(__dirname, '../../content')
 
 describe('category pages', () => {
-  let siteData
-
-  beforeAll(async () => {
-    // Load the English site data
-    const allSiteData = await loadSiteData()
-    siteData = allSiteData.en.site
-  })
+  const siteData = loadSiteData().en.site
 
   const walkOptions = {
     globs: ['*/index.md', 'enterprise/*/index.md'],
