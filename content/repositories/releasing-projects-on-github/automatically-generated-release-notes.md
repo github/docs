@@ -71,7 +71,9 @@ Automatically generated release notes provide an automated alternative to manual
 | `changelog.categories[*].exclude.labels` | A list of labels that exclude a pull request from appearing in this category. |
 | `changelog.categories[*].exclude.authors` | A list of user or bot login handles whose pull requests are to be excluded from this category. |
 
-### Example configuration
+### Example configurations
+
+A configuration for a repository that labels semver releases
 
 {% raw %}
 ```yaml{:copy}
@@ -95,6 +97,26 @@ changelog:
     - title: Other Changes
       labels:
         - "*"
+```
+{% endraw %}
+
+A configuration for a repo that doesn't tag Pull Requests but wants to separate out Dependabot automated PRs in release notes (note: `labels: '*'` is required to display a catchall category)
+
+{% raw %}
+```yaml{:copy}
+# .github/release.yml
+
+changelog:
+  categories:
+    - title: 🏕 Features
+      labels:
+        - '*'
+      exclude:
+        labels:
+          - dependencies
+    - title: 👒 Dependencies
+      labels:
+        - dependencies
 ```
 {% endraw %}
 
