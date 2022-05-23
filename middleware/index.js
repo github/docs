@@ -66,8 +66,8 @@ import setStaticAssetCaching from './static-asset-caching.js'
 import cacheFullRendering from './cache-full-rendering.js'
 import protect from './overload-protection.js'
 import fastHead from './fast-head.js'
-
 import fastlyCacheTest from './fastly-cache-test.js'
+import fastRootRedirect from './fast-root-redirect.js'
 
 const { DEPLOYMENT_ENV, NODE_ENV } = process.env
 const isDevelopment = NODE_ENV === 'development'
@@ -240,6 +240,7 @@ export default function (app) {
   }
 
   // *** Early exits ***
+  app.get('/', fastRootRedirect)
   app.use(instrument(handleInvalidPaths, './handle-invalid-paths'))
   app.use(asyncMiddleware(instrument(handleNextDataPath, './handle-next-data-path')))
 
