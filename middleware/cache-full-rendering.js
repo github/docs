@@ -83,6 +83,11 @@ export default async function cacheFullRendering(req, res, next) {
   } else {
     const originalEndFunc = res.end.bind(res)
     res.end = function (body) {
+      // Can end the response to the user now
+      originalEndFunc(body)
+
+      // After the response has been sent back to the user,
+      // take our time to store this in the cache.
       if (body && res.statusCode === 200) {
         // It's important to note that we only cache the HTML outputs.
         // Why, because JSON outputs should be cached in the CDN.
@@ -100,7 +105,6 @@ export default async function cacheFullRendering(req, res, next) {
         // If it's not HTML or JSON, it's probably an image (binary)
         // or some plain text. Let's ignore all of those.
       }
-      return originalEndFunc(body)
     }
   }
 
