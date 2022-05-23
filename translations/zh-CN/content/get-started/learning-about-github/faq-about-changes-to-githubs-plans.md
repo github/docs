@@ -28,11 +28,11 @@ GitHub 宣布了以下计划和价格变更：
 
 ## 如何升级我的计划？
 
-要升级用户帐户的计划，请参阅“[升级个人帐户的订阅](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription#upgrading-your-personal-accounts-subscription)”。 要升级组织的计划，请参阅“[升级组织的订阅](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription#upgrading-your-organizations-subscription)”。
+要升级个人帐户的计划，请参阅“[升级个人帐户的订阅](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription#upgrading-your-personal-accounts-subscription)”。 要升级组织的计划，请参阅“[升级组织的订阅](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription#upgrading-your-organizations-subscription)”。
 
 ## 如何降级我的计划？
 
-要降级用户帐户的计划，请参阅“[降级用户帐户的订阅](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription#downgrading-your-user-accounts-subscription)”。 要降级组织的计划，请参阅“[降级组织的订阅](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription#downgrading-your-organizations-subscription)”。
+要降级个人帐户的计划，请参阅“[降级个人帐户的订阅](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription#downgrading-your-personal-accounts-subscription)”。 要降级组织的计划，请参阅“[降级组织的订阅](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription#downgrading-your-organizations-subscription)”。
 
 ## 如果我从 GitHub Team 或旧计划降级到 GitHub Free，我会失去哪些功能？
 - 私有仓库中的必需审查者

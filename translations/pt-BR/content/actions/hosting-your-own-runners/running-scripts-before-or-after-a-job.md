@@ -1,64 +1,64 @@
 ---
-title: Running scripts before or after a job
-intro: 'Scripts can automatically execute on a self-hosted runner, directly before or after a job.'
+title: Executando scripts antes ou depois de um trabalho
+intro: 'Os scripts podem executar automaticamente em um executor auto-hospedado, diretamente antes ou depois de um trabalho.'
 versions:
   feature: job-hooks-for-runners
 type: tutorial
 miniTocMaxHeadingLevel: 3
-shortTitle: Run a script before or after a job
+shortTitle: Executar um script antes ou depois de um trabalho
 ---
 
 {% note %}
 
-**Note**: This feature is currently in beta and is subject to change.
+**Observação**: Este recurso está atualmente na versão beta e está sujeito a alterações.
 
 {% endnote %}
 
-## About pre- and post-job scripts
+## Sobre scripts de pré-trabalho e pós-trabalho
 
-You can automatically execute scripts on a self-hosted runner, either before a job runs, or after a job finishes running. You could use these scripts to support the job's requirements, such as building or tearing down a runner environment, or cleaning out directories. You could also use these scripts to track telemetry of how your runners are used.
+Você pode executar scripts automaticamente em um executor auto-hospedado, antes de um trabalho ser executado, ou depois que um trabalho terminar de ser executado. Você pode usar esses scripts para apoiar os requisitos do trabalho, como construir ou derrubar um ambiente de executor ou limpar diretórios. Você também pode usar esses scripts para rastrear a telemetria de como seus executores são usados.
 
-The custom scripts are automatically triggered when a specific environment variable is set on the runner; the environment variable must contain the absolute path to the script. For more information, see "[Triggering the scripts](#triggering-the-scripts)" below.
+Os scripts personalizados são automaticamente acionados quando uma variável de ambiente específica é definida no executor; a variável de ambiente deve conter o caminho absoluto para o script. Para obter mais informações, consulte[Acionando os scripts](#triggering-the-scripts)" abaixo.
 
-The following scripting languages are supported:
+As linguagens de script a seguir são compatíveis:
 
-- **Bash**: Uses `bash` and can fallback to `sh`. Executes by running `-e {pathtofile}`.
-- **PowerShell**: Uses `pwsh` and can fallback to `powershell`. Executes by running `-command \". '{pathtofile}'\"`.
+- **Bash**: Usa `bash` e pode retornar para `sh`. É executado, executando `-e {pathtofile}`.
+- **PowerShell**: Usa `pwsh` e pode retornar para `powershell`. Executa `-command \". '{pathtofile}'\"`.
 
-## Writing the scripts
+## Escrevendo os scripts
 
-Your custom scripts can use the following features:
+Seus scripts personalizados podem usar as seguintes funcionalidades:
 
-- **Environment variables**:  Scripts have access to the default environment variables. The full webhook event payload can be found in `GITHUB_EVENT_PATH`. Para obter mais informações, consulte "[Variáveis de ambiente](/actions/learn-github-actions/environment-variables#default-environment-variables)".
-- **Workflow commands**: Scripts can use workflow commands. For more information, see ["Workflow commands for {% data variables.product.prodname_actions %}"](/actions/using-workflows/workflow-commands-for-github-actions), with the exception of `save-state` and `set-output`, which are not supported by these scripts. Scripts can also use environment files. For more information, see [Environment files](/actions/using-workflows/workflow-commands-for-github-actions#environment-files).
+- **Variáveis de ambiente**: Os scripts têm acesso às variáveis de ambiente padrão. A carga completa do evento de webhook pode ser encontrada em `GITHUB_EVENT_PATH`. Para obter mais informações, consulte "[Variáveis de ambiente](/actions/learn-github-actions/environment-variables#default-environment-variables)".
+- **Comandos do fluxo de trabalho**: Os scripts podem usar comandos de fluxo de trabalho. Para obter mais informações, consulte ["Comandos do fluxo de trabalho para {% data variables.product.prodname_actions %}"](/actions/using-workflows/workflow-commands-for-github-actions), com exceção de `save-state` e `set-output`, que não são compatíveis com esses scripts. Os scripts também podem usar arquivos de ambiente. Para obter mais informações, consulte [Arquivos de ambiente](/actions/using-workflows/workflow-commands-for-github-actions#environment-files).
 
 {% note %}
 
-**Note**: Avoid using your scripts to output sensitive information to the console, as anyone with read access to the repository might be able to see the output in the UI logs.
+**Observação**: Evite usar os seus scripts para gerar informações confidenciais para o console, como qualquer pessoa com acesso de leitura ao repositório pode ser capaz de ver a saída nos logs da interface do usuário.
 
 {% endnote %}
 
-### Handling exit codes
+### Gerenciando códigos de saída
 
-For pre-job scripts, exit code `0` indicates that the script completed successfully, and the job will then proceed to run. If there is any other exit code, the job will not run and will be marked as failed. To see the results of your pre-job scripts, check the logs for `Set up runner` entries. For more information on checking the logs, see "[Viewing logs to diagnose failures](/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs#viewing-logs-to-diagnose-failures)."
+Para scripts de pré-trabalho, o código de saída `0` indica que o script foi concluído com sucesso, e o trabalho então continuará sendo executado. Se houver qualquer outro código de saída, o trabalho não será executado e será marcado como falha. Para ver os resultados do seus scripts de pré-trabalho, verifique os logs para as entradas de `Configurar executor`. Para obter mais informações sobre a verificação dos logs, consulte "[Visualizando os logs para diagnosticar as falhas](/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs#viewing-logs-to-diagnose-failures)".
 
-The [`continue-on-error`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idcontinue-on-error) setting is not supported for use by these scripts.
+A configuração [`continue-on-error`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idcontinue-on-error) não é compatível com o uso desses scripts.
 
-## Triggering the scripts
+## Acionando os scripts
 
-The custom scripts must be located on the runner, but should not be stored in the `actions-runner` application directory. The scripts are executed in the security context of the service account that's running the runner service.
+Os scripts personalizados devem estar localizados no executor, mas não devem ser armazenados no diretório do aplicativo `actions-runner`. Os scripts são executados no contexto de segurança da conta de serviço que está executando o serviço do executor.
 
 {% note %}
 
-**Note**: The triggered scripts are processed synchronously, so they will block job execution while they are running.
+**Observação**: Os scripts acionados são processados de forma síncrona para que bloqueem a execução do trabalho enquanto estão sendo executados.
 
 {% endnote %}
 
-The scripts are automatically executed when the runner has the following environment variables containing an absolute path to the script:
-- `ACTIONS_RUNNER_HOOK_JOB_STARTED`: The script defined in this environment variable is triggered when a job has been assigned to a runner, but before the job starts running.
-- `ACTIONS_RUNNER_HOOK_JOB_COMPLETED`: The script defined in this environment variable is triggered after the job has finished processing.
+Os scripts são executados automaticamente quando o executor tem as seguintes variáveis de ambiente, que contêm um caminho absoluto para o script:
+- `ACTIONS_RUNNER_HOOK_JOB_STARTED`: O script definido nesta variável de ambiente é acionado quando um trabalho foi atribuído a um executor, mas antes do trabalho começar a ser executado.
+- `ACTIONS_RUNNER_HOOK_JOB_COMPLETED`: O script definido nesta variável de ambiente é acionado após a conclusão do processamento do trabalho.
 
-To set these environment variables, you can either add them to the operating system, or add them to a file named `.env` within the self-hosted runner application directory. For example, the following `.env` entry will have the runner automatically run a script named `cleanup_script.sh` before each job runs:
+Para definir essas variáveis de ambiente, você pode adicioná-las ao sistema operacional, ou adicioná-las a um arquivo denominado `.env` dentro do diretório do aplicativo do executor auto-hospedado. Por exemplo, a entrada `.env` a seguir fará com que o executor execute automaticamente um script denominado `cleanup_script.sh` antes da execução de cada trabalho:
 
 ```bash
 ACTIONS_RUNNER_HOOK_JOB_STARTED=/cleanup_script.sh
@@ -67,10 +67,10 @@ ACTIONS_RUNNER_HOOK_JOB_STARTED=/cleanup_script.sh
 ## Solução de Problemas
 
 
-### No timeout setting
+### Sem configuração de tempo limite
 
-There is currently no timeout setting available for scripts executed by `ACTIONS_RUNNER_HOOK_JOB_STARTED` or `ACTIONS_RUNNER_HOOK_JOB_COMPLETED`. As a result, you could consider adding timeout handling to your script.
+Não há configuração de tempo-limite disponível para scripts executados por `ACTIONS_RUNNER_HOOK_JOB_STARTED` ou `ACTIONS_RUNNER_HOOK_JOB_COMPLETED`. Como resultado, você pode considerar adicionar tempo limite de manipulação ao seu script.
 
-### Reviewing the workflow run log
+### Revisando o log de execução do fluxo de trabalho
 
-To confirm whether your scripts are executing, you can review the logs for that job. The scripts will be listed within separate steps for either `Set up runner` or `Complete runner`, depending on which environment variable is triggering the script. For more information on checking the logs, see "[Viewing logs to diagnose failures](/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs#viewing-logs-to-diagnose-failures)."
+Para confirmar se seus scripts estão sendo executados, você pode revisar os logs para esse trabalho. Os scripts serão listados em etapas separadas para `Configurar executor` ou `Concluir executor`, dependendo de qual variável de ambiente esteja acionando o script. Para obter mais informações sobre a verificação dos logs, consulte "[Visualizando os logs para diagnosticar as falhas](/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs#viewing-logs-to-diagnose-failures)".

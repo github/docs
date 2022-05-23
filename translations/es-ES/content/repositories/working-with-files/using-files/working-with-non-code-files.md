@@ -42,8 +42,8 @@ shortTitle: Trabajar con archivos sin código
 {% note %}
 
 **Nota:**
-- {% data variables.product.prodname_dotcom %} does not support comparing the differences between PSD files.
-- If you are using the Firefox browser, SVGs on {% data variables.product.prodname_dotcom %} may not render.
+- {% data variables.product.prodname_dotcom %} no es compatible con comparar las diferencias entre archivos PSD.
+- Si estás utilizando el buscador Firefox, podrían no interpretarse los SVG en {% data variables.product.prodname_dotcom %}.
 
 {% endnote %}
 
@@ -308,7 +308,7 @@ Todavía se podrían representar los datos al convertir el archivo `.geojson` a 
 
 ### Leer más
 
-* [Leaflet.js documentation](https://leafletjs.com/)
+* [Documentación de Leaflet.js](https://leafletjs.com/)
 * [Documentación de estilización de marcador MapBox](http://www.mapbox.com/developers/simplestyle/)
 * [TopoJSON Wiki](https://github.com/mbostock/topojson/wiki)
 

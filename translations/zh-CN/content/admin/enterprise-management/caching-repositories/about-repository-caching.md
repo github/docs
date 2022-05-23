@@ -16,6 +16,6 @@ topics:
 
 存储库缓存侦听主实例（无论是单个实例还是异地复制的实例集），以查找对 Git 数据的更改。 CI 场和其他读取量大的使用者克隆并从存储库缓存（而不是主实例）中提取。 更改以定期间隔在网络上传播，每个缓存实例一次，而不是每个客户端一次。 Git 数据通常会在数据推送到主实例后的几分钟内在存储库缓存中可见。  {% ifversion ghes > 3.3 %}CI 系统可以使用 [`cache_sync` web 挂钩](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#cache_sync)对缓存中可用的数据做出反应。{% endif %}
 
-您可以精细控制允许哪些存储库同步到存储库缓存。 Git data will only be replicated to the locations you specify.
+您可以精细控制允许哪些存储库同步到存储库缓存。 Git 数据将仅复制到您指定的位置。
 
 {% data reusables.enterprise.repository-caching-config-summary %} 更多信息请参阅“[配置存储库缓存](/admin/enterprise-management/caching-repositories/configuring-a-repository-cache)”。

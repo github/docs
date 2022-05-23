@@ -1,0 +1,1 @@
+Forking a repository will allow you to make changes to another repository without affecting the original. Para obter mais informações, consulte "[Bifurcar um repositório](/get-started/quickstart/fork-a-repo). "

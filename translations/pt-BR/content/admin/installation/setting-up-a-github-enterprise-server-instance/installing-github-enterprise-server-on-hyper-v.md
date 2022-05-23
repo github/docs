@@ -28,10 +28,9 @@ shortTitle: Instalar no Hyper-V
 
 ## Baixar a imagem do {% data variables.product.prodname_ghe_server %}
 
-{% data reusables.enterprise_installation.enterprise-download-procedural %}
 {% data reusables.enterprise_installation.download-license %}
 {% data reusables.enterprise_installation.download-appliance %}
-4. Selecione {% data variables.product.prodname_dotcom %} On-premises e clique em **Hyper-V**.
+4. Em "{% data variables.product.prodname_dotcom %} no local", selecione o menu suspenso "Selecione seu hipervisor" e clique em **Hyper-V (VHD)**.
 5. Clique em **Download for Hyper-V** (Baixar para Hyper-V).
 
 ## Criar a instância do {% data variables.product.prodname_ghe_server %}

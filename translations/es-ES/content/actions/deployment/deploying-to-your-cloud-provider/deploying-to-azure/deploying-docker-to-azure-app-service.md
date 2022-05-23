@@ -21,7 +21,7 @@ topics:
 
 Esta guía te explica cómo utilizar las {% data variables.product.prodname_actions %} para compilar y desplegar un contenedor de Docker a [Azure App Service](https://azure.microsoft.com/services/app-service/).
 
-{% ifversion fpt or ghec or ghae-issue-4856 %}
+{% ifversion fpt or ghec or ghae-issue-4856 or ghes > 3.4 %}
 
 {% note %}
 
@@ -100,7 +100,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1

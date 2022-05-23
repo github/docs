@@ -32,6 +32,8 @@ Se você ainda não puder criar um codespace para um repositório em que {% data
 
 O proprietário de um codespace tem controle total sobre ele e apenas o proprietário pode excluir seus codespaces. Você não pode excluir um codespace criado por outro usuário.
 
+Você pode excluir seus codespaces do navegador, em {% data variables.product.prodname_vscode %}, ou usando {% data variables.product.prodname_cli %}. {% data variables.product.prodname_cli %} também permite que você exclua codespaces em massa. Para obter mais informações, consulte "[Excluindo um codespace](/codespaces/developing-in-codespaces/deleting-a-codespace)".
+
 ## Armazenamento do contêiner
 
 Ao criar um codespace, ele terá uma quantidade limitada de armazenamento e, após um tempo, poderá ser necessário que você libere espaço. Tente executar qualquer um dos comandos a seguir no terminal de {% data variables.product.prodname_codespaces %} para liberar espaço de armazenamento.
@@ -54,4 +56,4 @@ Algumas opções mais destrutivas:
 Este codespace está em execução em modo de recuperação devido a um erro no contêiner.
 ```
 
-Revise os registros de criação, atualize a configuração conforme necessário e execute **Codespaces: Recriar contêiner** no {% data variables.product.prodname_vscode_command_palette %} para tentar novamente. Para obter mais informações, consulte " [Programas registra](/codespaces/troubleshooting/codespaces-logs)" e "[Configurando {% data variables.product.prodname_codespaces %} para o seu projeto](/github/developing-online-with-codespaces/configuring-codespaces-for-your-project#apply-changes-to-your-configuration)".
+Revise os registros de criação, atualize a configuração do contêiner de desenvolvimento conforme necessário e execute **Codespaces: Recriar contêiner** no {% data variables.product.prodname_vscode_command_palette %} para tentar novamente. Para obter mais informações, consulte " [Programas registra](/codespaces/troubleshooting/codespaces-logs)" e "[Configurando {% data variables.product.prodname_codespaces %} para o seu projeto](/github/developing-online-with-codespaces/configuring-codespaces-for-your-project#apply-changes-to-your-configuration)".

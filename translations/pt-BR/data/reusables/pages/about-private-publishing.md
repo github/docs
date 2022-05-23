@@ -1,1 +1,7 @@
-Se o seu site de projeto for publicado de um repositório privado ou interno pertencente a uma organização que usa {% data variables.product.prodname_ghe_cloud %}, você poderá gerenciar o controle de acesso para o site. In an {% data variables.product.prodname_emu_enterprise %}, all {% data variables.product.prodname_pages %} sites are privately published.
+{% ifversion fpt %}
+You can create
+{% data variables.product.prodname_pages %} sites that are publicly available on the internet. Organizations that use {% data variables.product.prodname_ghe_cloud %} can also publish sites privately by managing access control for the site.
+{% elsif ghec %}
+Unless your enterprise uses
+{% data variables.product.prodname_emus %}, you can choose to publish sites publicly or privately by managing access control for the site.
+{% endif %}

@@ -22,6 +22,10 @@
 | Contributed Systems       | Contributed Systems Credentials                           |
 | Databricks                | Token de acesso de Databricks                             |
 | Datadog                   | Chave de API de Datadog                                   |
+| DigitalOcean              | DigitalOcean Personal Access Token                        |
+| DigitalOcean              | DigitalOcean OAuth Token                                  |
+| DigitalOcean              | DigitalOcean Refresh Token                                |
+| DigitalOcean              | DigitalOcean System Token                                 |
 | Discord                   | Token de Bot de Discord                                   |
 | Doppler                   | Token pessoal de Doppler                                  |
 | Doppler                   | Token de serviço de Doppler                               |
@@ -49,6 +53,7 @@
 | Hubspot                   | Chave da API de Hubspot                                   |
 | Ionic                     | Ionic Personal Access Token                               |
 | Ionic                     | Ionic Refresh Token                                       |
+| JD Cloud                  | JD Cloud Access Key                                       |
 | Linear                    | Linear API Key                                            |
 | Linear                    | Linear OAuth Access Token                                 |
 | Mailchimp                 | Chave da API de Mailchimp                                 |

@@ -48,7 +48,7 @@ Each action is a repository in the `actions` organization, and each action repos
 
 **Notes:** 
 - When using setup actions (such as `actions/setup-LANGUAGE`) on {% data variables.product.product_name %} with self-hosted runners, you might need to set up the tools cache on runners that do not have internet access. For more information, see "[Setting up the tool cache on self-hosted runners without internet access](/enterprise/admin/github-actions/setting-up-the-tool-cache-on-self-hosted-runners-without-internet-access)."
-- Upgrades to {% data variables.product.product_name %} will not result in the bundled actions being updated.
+- Bundled actions are automatically updated when {% data variables.product.product_name %} is updated.
 
 {% endnote %}
 

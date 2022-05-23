@@ -15,7 +15,7 @@ La verificación del publicador garantiza que {% data variables.product.prodname
 
 Una vez que se haya verificado tu organización, podrás publicar planes de pago para tu app. Para obtener más información, consulta la sección "[Configurar los planes de pago para tu listado](/developers/github-marketplace/setting-pricing-plans-for-your-listing)".
 
-Para ofrecer planes de pago para tu app, esta debe pertenecer a una organización y debes tener permisos de propietario en ella. Si tu app pertenece actualmente a una cuenta de usuario, necesitarás transferir la propiedad de esta a una organización. Para obtener más información, consulta la sección "[Transferir la propiedad de una GitHub App](/developers/apps/transferring-ownership-of-a-github-app)" o "[Transferir la propiedad de una App de OAuth](/developers/apps/transferring-ownership-of-an-oauth-app)".
+Para ofrecer planes de pago para tu app, esta debe pertenecer a una organización y debes tener permisos de propietario en ella. Si tu app le pertenece actualmente a una cuenta personal, necesitarás transferir la propiedad de esta a una organización. Para obtener más información, consulta la sección "[Transferir la propiedad de una GitHub App](/developers/apps/transferring-ownership-of-a-github-app)" o "[Transferir la propiedad de una App de OAuth](/developers/apps/transferring-ownership-of-an-oauth-app)".
 
 ## Solicitar la verificación de publicador
 

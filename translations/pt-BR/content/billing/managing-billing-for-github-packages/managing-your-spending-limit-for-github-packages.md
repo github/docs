@@ -34,9 +34,9 @@ Assim que você definir um limite de gastos diferente de $ 0, você será respon
 
 Como você não ativou os excessos, sua próxima tentativa de publicar uma versão do pacote irá falhar. Você não receberá uma fatura pelo excesso de 0.1GB naquele mês. No entanto, se você habilitar os excedentes, a sua primeira conta incluirá o 0,1 GB do excedente existente para o ciclo de cobrança atual, bem como qualquer superação adicional que você acumular.
 
-## Gerenciando o limite de gastos de {% data variables.product.prodname_registry %} para sua conta de usuário
+## Gerenciando o limite de gastos de {% data variables.product.prodname_registry %} para a sua conta pessoal
 
-Qualquer pessoa pode gerenciar o limite de gastos do {% data variables.product.prodname_registry %} para sua própria conta de usuário.
+Qualquer pessoa pode gerenciar o limite de gastos de {% data variables.product.prodname_registry %} para sua própria conta pessoal.
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.billing_plans %}
@@ -53,6 +53,7 @@ Proprietários de organizações e gestores de faturamento podem gerenciar o lim
 {% data reusables.dotcom_billing.monthly-spending-limit-actions-packages %}
 {% data reusables.dotcom_billing.update-spending-limit %}
 
+{% ifversion ghec %}
 ## Gerenciando o limite de gastos de {% data variables.product.prodname_registry %} para sua conta corporativa
 
 Proprietários de organizações e gestores de faturamento podem gerenciar o limite de gastos de {% data variables.product.prodname_registry %} para uma conta corporativa.
@@ -63,6 +64,7 @@ Proprietários de organizações e gestores de faturamento podem gerenciar o lim
 1. Acima de "{% data variables.product.prodname_actions %} e pacotes de uso mensal", clique em **Limite de gastos**. ![Aba limite de gastos](/assets/images/help/settings/spending-limit-tab-enterprise.png)
 {% data reusables.dotcom_billing.monthly-spending-limit %}
 {% data reusables.dotcom_billing.update-spending-limit %}
+{% endif %}
 
 ## Gerenciamento de notificações por e-mail e limite de gastos
 {% data reusables.billing.email-notifications %}

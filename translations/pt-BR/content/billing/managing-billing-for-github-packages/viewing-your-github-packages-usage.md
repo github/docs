@@ -17,9 +17,9 @@ topics:
 shortTitle: Visualizar o seu uso
 ---
 
-## Visualizando o uso de {% data variables.product.prodname_registry %} para sua conta de usuário
+## Visualizando o uso de {% data variables.product.prodname_registry %} para a sua conta pessoal
 
-Qualquer pessoa pode visualizar o uso de {% data variables.product.prodname_registry %} para sua própria conta de usuário.
+Qualquer pessoa pode ver o uso de {% data variables.product.prodname_registry %} para sua própria conta pessoal.
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.billing_plans %}
@@ -36,6 +36,7 @@ Os proprietários da organização e gerentes de cobrança podem ver o uso do {%
 {% data reusables.dotcom_billing.actions-packages-storage %}
 {% data reusables.dotcom_billing.actions-packages-report-download-org-account %}
 
+{% ifversion ghec %}
 ## Visualizando o uso de {% data variables.product.prodname_registry %} para sua conta corporativa
 
 Proprietários de organizações e gestores de faturamento podem visualizar o uso de {% data variables.product.prodname_registry %} para uma conta corporativa.
@@ -52,3 +53,4 @@ Proprietários de organizações e gestores de faturamento podem visualizar o us
 1. Em "{% data variables.product.prodname_registry %}", veja os detalhes do uso de transferência de dados por cada organização em sua conta corporativa. ![Detalhes do uso da transferência de dados](/assets/images/help/billing/packages-data-enterprise.png)
 {% data reusables.dotcom_billing.actions-packages-storage-enterprise-account %}
 {% data reusables.enterprise-accounts.actions-packages-report-download-enterprise-accounts %}
+{% endif %}

@@ -65,18 +65,19 @@ redirect_from:
   - /admin/configuration/configuring-your-enterprise/configuring-data-encryption-for-your-enterprise
 introLinks:
   overview: '{% ifversion ghes %}/admin/overview/system-overview{% elsif ghae %}/admin/overview/about-github-ae{% elsif ghec %}/admin/overview/about-enterprise-accounts{% endif %}'
+  Releases: '{% ifversion ghes %}/admin/all-releases{% endif %}'
 changelog:
   label: enterprise
 featuredLinks:
   guides:
     - '{% ifversion ghae %}/admin/user-management/auditing-users-across-your-enterprise{% endif %}'
+    - /admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise
+    - /admin/policies/enforcing-policies-for-your-enterprise/about-enterprise-policies
     - '{% ifversion ghae %}/admin/configuration/restricting-network-traffic-to-your-enterprise{% endif %}'
     - '{% ifversion ghes %}/admin/configuration/configuring-backups-on-your-appliance{% endif %}'
     - '{% ifversion ghes %}/admin/enterprise-management/creating-a-high-availability-replica{% endif %}'
     - '{% ifversion ghes %}/admin/overview/about-upgrades-to-new-releases{% endif %}'
     - '{% ifversion ghec %}/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise{% endif %}'
-    - '{% ifversion ghec %}/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/about-enterprise-managed-users{% endif %}'
-    - '{% ifversion ghec %}/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-identity-and-access-management-for-your-enterprise{% endif %}'
     - '{% ifversion ghec %}/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise{% endif %}'
     - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-self-hosted-runners-for-your-enterprise
   guideCards:
@@ -100,8 +101,8 @@ featuredLinks:
     - '{% ifversion ghes %}/billing/managing-your-license-for-github-enterprise{% endif %}'
     - '{% ifversion ghes %}/admin/configuration/command-line-utilities{% endif %}'
     - '{% ifversion ghec %}/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise{% endif %}'
-    - '{% ifversion ghec %}/admin/user-management/managing-organizations-in-your-enterprise/viewing-the-audit-logs-for-organizations-in-your-enterprise{% endif %}'
-    - '{% ifversion ghec %}/admin/user-management/monitoring-activity-in-your-enterprise/managing-global-webhooks{% endif %}'
+    - '{% ifversion ghec %}/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise{% endif %}'
+    - '{% ifversion ghec %}/admin/monitoring-activity-in-your-enterprise/exploring-user-activity/managing-global-webhooks{% endif %}'
     - '{% ifversion ghec %}/billing/managing-your-license-for-github-enterprise/using-visual-studio-subscription-with-github-enterprise/setting-up-visual-studio-subscription-with-github-enterprise{% endif %}'
     - /admin/configuration/configuring-github-connect/managing-github-connect
     - /admin/enterprise-support/about-github-enterprise-support
@@ -125,6 +126,7 @@ children:
   - /identity-and-access-management
   - /user-management
   - /policies
+  - /monitoring-activity-in-your-enterprise
   - /enterprise-management
   - /github-actions
   - /packages

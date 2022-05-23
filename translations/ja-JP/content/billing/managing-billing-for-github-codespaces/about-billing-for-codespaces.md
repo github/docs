@@ -15,7 +15,7 @@ topics:
 
 ## {% data variables.product.prodname_codespaces %}の価格
 
-{% data variables.product.prodname_codespaces %} usage is billed for all organization and enterprise accounts on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %}, which do not include any free minutes or storage. Personal accounts are not currently billed for {% data variables.product.prodname_codespaces %} usage.
+{% data variables.product.prodname_codespaces %}の利用状況に対しては、{% data variables.product.prodname_team %}及び{% data variables.product.prodname_enterprise %}上のすべてのOrganization及びEnterpriseアカウントについて課金され、これには無料の分あるいはストレージは含まれません。 現在のところ、個人のアカウントは{% data variables.product.prodname_codespaces %}の利用に対して課金されません。
 
 {% data variables.product.prodname_codespaces %}の利用については、以下の表に示す計測単位に従って課金されます。
 
@@ -56,7 +56,9 @@ Microsoft Enterprise Agreement を通じて {% data variables.product.prodname_e
 
 ## マシンタイプの選択の制限
 
-ユーザがcodespaceを作成する際に選択するマシンタイプは、上にあるように、そのcodespaceに対する分ごとの課金に影響します。
+デフォルトでは、もっとも少ない有効リソースのマシンタイプがcodespace作成時に使われます。 しかし、ユーザはもっとリソースの多いマシンタイプを選択できます。 これはcodespaceの作成時に行えますが、既存のcodespaceのマシンタイプを変更することもできます。 詳しい情報については「[codespaceの作成](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)」及び「[codespaceのマシンタイプの変更](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace)」を参照してください。
+
+もっとリソースの多いマシンタイプが選択されると、上に示したcodespaceの分あたりの料金に影響します。
 
 Organizationオーナーは、ユーザが利用できるマシンタイプを制限するポリシーを作成できます。 詳しい情報については「[マシンタイプへのアクセス制限](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)」を参照してください。
 

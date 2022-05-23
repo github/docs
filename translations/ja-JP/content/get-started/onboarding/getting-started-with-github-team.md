@@ -8,15 +8,15 @@ versions:
 This guide will walk you through setting up, configuring and managing your {% data variables.product.prodname_team %} account as an organization owner.
 
 ## Part 1: Configuring your account on {% data variables.product.product_location %}
-As the first steps in starting with {% data variables.product.prodname_team %}, you will need to create a user account or log into your existing account on {% data variables.product.prodname_dotcom %}, create an organization, and set up billing.
+As the first steps in starting with {% data variables.product.prodname_team %}, you will need to create a personal account or log into your existing account on {% data variables.product.prodname_dotcom %}, create an organization, and set up billing.
 
 ### 1. Organizationについて
 Organizationは、企業やオープンソースプロジェクトが多くのプロジェクトにわたって一度にコラボレーションできる共有アカウントです。 オーナーと管理者は、Organizationのデータとプロジェクトへのメンバーのアクセスを、洗練されたセキュリティ及び管理機能で管理できます。 For more information on the features of organizations, see "[About organizations](/organizations/collaborating-with-groups-in-organizations/about-organizations#terms-of-service-and-data-protection-for-organizations)."
 
 ### 2. Creating an organization and signing up for {% data variables.product.prodname_team %}
-Before creating an organization, you will need to create a user account or log in to your existing account on {% data variables.product.product_location %}. 詳しい情報については、「[新しい {% data variables.product.prodname_dotcom %} アカウントにサインアップする](/get-started/signing-up-for-github/signing-up-for-a-new-github-account)」を参照してください。
+Before creating an organization, you will need to create a personal account or log in to your existing account on {% data variables.product.product_location %}. 詳しい情報については、「[新しい {% data variables.product.prodname_dotcom %} アカウントにサインアップする](/get-started/signing-up-for-github/signing-up-for-a-new-github-account)」を参照してください。
 
-Once your user account is set up, you can create an organization and pick a plan. This is where you can choose a {% data variables.product.prodname_team %} subscription for your organization. 詳しい情報については、「[新しい Organization をゼロから作成する](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)」を参照してください。
+Once your personal account is set up, you can create an organization and pick a plan. This is where you can choose a {% data variables.product.prodname_team %} subscription for your organization. 詳しい情報については、「[新しい Organization をゼロから作成する](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)」を参照してください。
 
 ### 3. Managing billing for an organization
 You must manage billing settings, payment method, and paid features and products for each of your personal accounts and organizations separately. You can switch between settings for your different accounts using the context switcher in your settings. 詳しい情報については「[様々なアカウントの設定の切り替え](/billing/managing-your-github-billing-settings/about-billing-on-github#switching-between-settings-for-your-different-accounts)」を参照してください。

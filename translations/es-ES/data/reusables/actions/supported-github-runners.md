@@ -30,13 +30,13 @@ Windows Server 2019
 </tr>
 <tr>
 <td>
-Windows Server 2016<sup>[deprecated]</sup>
+Ubuntu 22.04
 </td>
 <td>
-<code>windows-2016</code>
+<code>ubuntu-22.04</code>
 </td>
 <td>
-Migrarse a Windows 2019 o Windows 2022. Para obtener más información, consulta <A href="https://github.blog/changelog/2021-10-19-github-actions-the-windows-2016-runner-image-will-be-removed-from-github-hosted-runners-on-march-15-2022/">la publicación del blog</A>.
+Ubuntu 22.04 is currently in public beta.
 </td>
 </tr>
 <tr>
@@ -45,8 +45,6 @@ Ubuntu 20.04
 </td>
 <td>
 <code>ubuntu-latest</code> o <code>ubuntu-20.04</code>
-</td>
-<td>
 </td>
 </tr>
 <tr>
@@ -57,6 +55,17 @@ Ubuntu 18.04
 <code>ubuntu-18.04</code>
 </td>
 <td>
+</td>
+</tr>
+<tr>
+<td>
+macOS Monterey 12
+</td>
+<td>
+<code>macos-12</code>
+</td>
+<td>
+macOS 12 is currently in public beta.
 </td>
 </tr>
 <tr>

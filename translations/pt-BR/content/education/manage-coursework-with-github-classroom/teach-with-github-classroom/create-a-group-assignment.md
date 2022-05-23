@@ -23,6 +23,8 @@ Você pode decidir quantas equipes uma atividade pode ter e quantos integrantes 
 
 Para uma demonstração de vídeo da criação de uma atividade de grupo, consulte "[Fundamentos de configuração de {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/basics-of-setting-up-github-classroom)".
 
+{% data reusables.classroom.reuse-assignment-link %}
+
 ## Pré-requisitos
 
 {% data reusables.classroom.assignments-classroom-prerequisite %}
@@ -93,6 +95,8 @@ Por padrão, uma nova atividade criará um repositório vazio para cada equipe c
 ### Escolhendo um ambiente integrado de desenvolvimento (IDE)
 
 {% data reusables.classroom.about-online-ides %} Para obter mais informações, consulte "[Integrar {% data variables.product.prodname_classroom %} com um IDE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide)."
+
+{% data reusables.classroom.classroom-codespaces-link %}
 
 {% data reusables.classroom.assignments-guide-choose-an-online-ide %}
 

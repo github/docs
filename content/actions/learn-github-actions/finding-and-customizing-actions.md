@@ -99,7 +99,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # This step checks out a copy of your repository.
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       # This step references the directory that contains the action.
       - uses: ./.github/actions/hello-world-action
 ```
@@ -117,7 +117,7 @@ jobs:
   my_first_job:
     steps:
       - name: My first step
-        uses: actions/setup-node@v1.1.0
+        uses: {% data reusables.actions.action-setup-node %}
 ```
 
 ### Referencing a container on Docker Hub

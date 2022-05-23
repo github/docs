@@ -24,7 +24,7 @@ shortTitle: 触发工作流程的事件
 
 某些事件具有多种活动类型。 对于这些事件，您可以指定将触发工作流程运行的活动类型。 有关每个活动类型的含义的详细信息，请参阅“[web 挂钩事件和有效负载](/developers/webhooks-and-events/webhook-events-and-payloads)”。 请注意，并非所有 web 挂钩事件都会触发工作流程。
 
-{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4968  %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae  %}
 ### `branch_protection_rule`
 
 | Web 挂钩事件有效负载                                                                                                            | 活动类型                                                   | `GITHUB_SHA` | `GITHUB_REF` |
@@ -899,7 +899,7 @@ on:
 
 jobs:
   if_merged:
-    if: github.event.pull_request_target.merged == true
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
     - run: |
@@ -1051,7 +1051,7 @@ on:
 
 {% endnote %}
 
-在存储库中发生发布活动时运行工作流程。 有关发行版 API 的信息，请参阅 GraphQL API 文档中的“[发行版](/graphql/reference/objects#release)”或 REST API 文档中的“[发行版](/rest/reference/repos#releases)”。
+在存储库中发生发布活动时运行工作流程。 有关发行版 API 的信息，请参阅 GraphQL API 文档中的“[发行版](/graphql/reference/objects#release)”或 REST API 文档中的“[发行版](/rest/reference/releases)”。
 
 例如，您可以在版本发布为 `published` 时运行工作流程。
 
@@ -1078,6 +1078,12 @@ on:
   repository_dispatch:
     types: [on-demand-test]
 ```
+
+{% note %}
+
+**注意：** `event_type` 值限制为 100 个字符。
+
+{% endnote %}
 
 通过 `client_payload` 参数发送的任何数据都将在工作流程中的 `github.event` 上下文中提供。 例如，如果在创建存储库调度事件时发送此请求正文：
 
@@ -1151,7 +1157,7 @@ jobs:
 
 您可以使用 [crontab guru](https://crontab.guru/) 帮助生成计划任务语法并确认它在何时运行。 为帮助您开始，我们还提供了一系列 [crontab guru 示例](https://crontab.guru/examples.html)。
 
-计划工作流程的通知将发送给最后修改工作流程文件中的 cron 语法的用户。 更多信息请参阅“[工作流程运行通知](/actions/guides/about-continuous-integration#notifications-for-workflow-runs)”。
+计划工作流程的通知将发送给最后修改工作流程文件中的 cron 语法的用户。 更多信息请参阅“[工作流程运行通知](/actions/monitoring-and-troubleshooting-workflows/notifications-for-workflow-runs)”。
 
 ### `状态`
 
@@ -1337,7 +1343,7 @@ jobs:
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} The `requested` activity type does not occur when a workflow is re-run. 有关每种活动类型的详细信息，请参阅“[web 挂钩事件和有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_run)”。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
+**注意**：{% data reusables.developer-site.multiple_activity_types %} 重新运行工作流程时，不会发生 `requested` 活动类型。 有关每种活动类型的详细信息，请参阅“[web 挂钩事件和有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_run)”。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
@@ -1429,7 +1435,7 @@ jobs:
         run: |
           mkdir -p ./pr
           echo $PR_NUMBER > ./pr/pr_number
-      - uses: actions/upload-artifact@v3
+      - uses: {% data reusables.actions.action-upload-artifact %}
         with:
           name: pr_number
           path: pr/
@@ -1451,7 +1457,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 'Download artifact'
-        uses: actions/github-script@v5
+        uses: {% data reusables.actions.action-github-script %}
         with:
           script: |
             let allArtifacts = await github.rest.actions.listWorkflowRunArtifacts({
@@ -1475,7 +1481,7 @@ jobs:
         run: unzip pr_number.zip
 
       - name: 'Comment on PR'
-        uses: actions/github-script@v5
+        uses: {% data reusables.actions.action-github-script %}
         with:
           github-token: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
           script: |

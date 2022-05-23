@@ -368,7 +368,7 @@ steps:
 
 过滤条件 `fruits.*.name` 返回数组 `[ "apple", "orange", "pear" ]`.
 
-You may also use the `*` syntax on an object. For example, suppose you have an object named `vegetables`.
+您也可以在对象上使用 `*` 语法。 例如，假设您有一个名为 `vegetables` 的对象。
 
 ```json
 
@@ -391,7 +391,7 @@ You may also use the `*` syntax on an object. For example, suppose you have an o
 }
 ```
 
-The filter `vegetables.*.ediblePortions` could evaluate to:
+筛选器 `vegetables.*.ediblePortions` 可求值为：
 
 ```json
 
@@ -402,4 +402,4 @@ The filter `vegetables.*.ediblePortions` could evaluate to:
 ]
 ```
 
-Since objects don't preserve order, the order of the output can not be guaranteed.
+由于对象不保持顺序，因此无法保证输出的顺序。

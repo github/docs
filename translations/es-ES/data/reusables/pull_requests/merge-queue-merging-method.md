@@ -1,2 +1,3 @@
-Una vez que se verifique la IC, {% data variables.product.product_name %} fusiona la solicitud de cambios reenviando la rama predeterminada. La cola de fusión utilizará confirmaciones de fusión si se apagó el ajuste de protección de rama "Requerir un historial linear" y utilizará el método de "Rebase y fusión" de otra forma. 
- 
+{% data variables.product.product_name %} fusiona la solicitud de cambios de acuerdo con la estrategia de fusión configurada en la protección de rama una vez que todas las verificaciones de IC hayan pasado.
+
+![Método de fusión de cola de fusión](/assets/images/help/pull_requests/merge-queue-merging-method.png)

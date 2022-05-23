@@ -91,7 +91,7 @@ sections:
         - '{% data variables.product.prodname_ghe_server %} now automatically generates a table of contents for Wikis, based on headings.'
         - When dragging and dropping files into a Markdown editor, such as images and videos, {% data variables.product.prodname_ghe_server %} now uses the mouse pointer location instead of the cursor location when placing the file.
     - 
-      heading: 'Issues and pull requests changes'
+      heading: 'Issue及びPull Requestの変更'
       notes:
         - 'You can now search issues by label using a logical OR operator. To filter issues using logical OR, use the comma syntax. For example, `label:"good first issue","bug"` will list all issues with a label of `good first issue` or `bug`. For more information, see "[Filtering and searching issues and pull requests](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests#about-search-terms)."'
         - |
@@ -107,7 +107,7 @@ sections:
         - You can now filter pull request searches to only include pull requests you are directly requested to review.
         - Filtered files in pull requests are now completely hidden from view, and are no longer shown as collapsed in the "Files Changed" tab. The "File Filter" menu has also been simplified. For more information, see "[Filtering files in a pull request](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/filtering-files-in-a-pull-request)."
     - 
-      heading: 'GitHub Actions changes'
+      heading: 'GitHub Actionsの変更'
       notes:
         - You can now create "composite actions" which combine multiple workflow steps into one action, and includes the ability to reference other actions. This makes it easier to reduce duplication in workflows. Previously, an action could only use scripts in its YAML definition. For more information, see "[Creating a composite action](/actions/creating-actions/creating-a-composite-action)."
         - 'Managing self-hosted runners at the enterprise level no longer requires using personal access tokens with the `admin:enterprise` scope. You can instead use the new `manage_runners:enterprise` scope to restrict the permissions on your tokens. Tokens with this scope can authenticate to [many REST API endpoints](/rest/reference/enterprise-admin#list-self-hosted-runner-groups-for-an-enterprise) to manage your enterprise''s self-hosted runners.'
@@ -123,16 +123,16 @@ sections:
           For more information, see "[Security hardening for {% data variables.product.prodname_actions %}](/actions/security-guides/security-hardening-for-github-actions#auditing-github-actions-events)."
         - Performance improvements have been made to {% data variables.product.prodname_actions %}, which may result in higher maximum job concurrency.
     - 
-      heading: 'GitHub Packages changes'
+      heading: 'GitHub Packagesの変更'
       notes:
         - When a repository is deleted, any associated package files are now immediately deleted from your {% data variables.product.prodname_registry %} external storage.
     - 
-      heading: 'Dependabot and Dependency graph changes'
+      heading: 'Dependabot及び依存関係グラフの変更'
       notes:
         - Dependency review is out of beta and is now generally available for {% data variables.product.prodname_GH_advanced_security %} customers. Dependency review provides an easy-to-understand view of dependency changes and their security impact in the "Files changed" tab of pull requests. It informs you of which dependencies were added, removed, or updated, along with vulnerability information. For more information, see "[Reviewing dependency changes in a pull request](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request)."
         - '{% data variables.product.prodname_dependabot %} is now available as a private beta, offering both version updates and security updates for several popular ecosystems. {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_ghe_server %} requires {% data variables.product.prodname_actions %} and a pool of self-hosted runners configured for {% data variables.product.prodname_dependabot %} use. {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_ghe_server %} also requires {% data variables.product.prodname_github_connect %} to be enabled. To learn more and sign up for the beta, contact the GitHub Sales team.'
     - 
-      heading: 'Code scanning and secret scanning changes'
+      heading: 'Code scanningとSecret scanningの変更'
       notes:
         - The depth of {% data variables.product.prodname_codeql %}'s analysis has been improved by adding support for more [libraries and frameworks](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/) and increasing the coverage of our existing library and framework models. [JavaScript](https://github.com/github/codeql/tree/main/javascript) analysis now supports most common templating languages, and [Java](https://github.com/github/codeql/tree/main/java) now covers more than three times the endpoints of previous {% data variables.product.prodname_codeql %} versions. As a result, {% data variables.product.prodname_codeql %} can now detect even more potential sources of untrusted user data, steps through which that data flows, and potentially dangerous sinks where the data could end up. This results in an overall improvement of the quality of {% data variables.product.prodname_code_scanning %} alerts.
         - '{% data variables.product.prodname_codeql %} now supports scanning standard language features in Java 16, such as records and pattern matching. {% data variables.product.prodname_codeql %} is able to analyze code written in Java version 7 through 16. For more information about supported languages and frameworks, see the [{% data variables.product.prodname_codeql %} documentation](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/#id5).'
@@ -176,7 +176,7 @@ sections:
     - pre-receive フックの処理に固有のリソース制限によって、pre-receive フックに失敗するものが生じることがあります。
   deprecations:
     - 
-      heading: Deprecation of GitHub Enterprise Server 2.22
+      heading: GitHub Enterprise Server 2.22の非推奨化
       notes:
         - '**{% data variables.product.prodname_ghe_server %} 2.22 was discontinued on September 23, 2021**. This means that no patch releases will be made, even for critical security issues, after this date. For better performance, improved security, and new features, [upgrade to the newest version of {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.3/admin/enterprise-management/upgrading-github-enterprise-server) as soon as possible.'
     - 

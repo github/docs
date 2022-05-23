@@ -15,7 +15,7 @@ redirect_from:
 
 ## 简介
 
-在本指南中，您将从[模板存储库](https://github.com/2percentsilk/haikus-for-codespaces)创建代码空间，并探索代码空间中可用的一些基本功能。
+在本指南中，您将从[模板存储库](https://github.com/github/haikus-for-codespaces)创建代码空间，并探索代码空间中可用的一些基本功能。
 
 在本快速入门中，您将了解如何创建代码空间、连接到转发的端口以查看正在运行的应用程序、在代码空间中使用版本控制以及使用扩展个性化设置。
 
@@ -23,11 +23,11 @@ redirect_from:
 
 ## 创建代码空间
 
-1. 导航到 [template repository（模板存储库）](https://github.com/2percentsilk/haikus-for-codespaces) 并选择 **Use this template（使用此模板）**。
+1. 导航到 [template repository（模板存储库）](https://github.com/github/haikus-for-codespaces) 并选择 **Use this template（使用此模板）**。
 
-2. 命名存储库，选择首选隐私设置，然后单击 **Create repository from this template（从此模板创建存储库）**。
+2. 命名存储库，选择首选隐私设置，然后单击 **Create repository from template（从模板创建存储库）**。
 
-3. 导航到新创建的存储库的主页。 在存储库名称下，使用 **{% octicon "code" aria-label="The code icon" %} 代码**下拉菜单，然后在**Codespaces（代码空间）**选项卡中，单击 {% octicon "plus" aria-label="The plus icon" %} **New codespace（新建代码空间）**。
+3. 导航到新创建的存储库的主页。 在存储库名称下，使用 **{% octicon "code" aria-label="The code icon" %} 代码**下拉菜单，然后在**Codespaces（代码空间）**选项卡中，单击 **Create codespace on main（在主分支上创建代码空间）**。
 
   ![新建代码空间按钮](/assets/images/help/codespaces/new-codespace-button.png)
 
@@ -41,7 +41,7 @@ redirect_from:
 
     如果按照其他应用程序类型进行操作，请为该项目输入相应的启动命令。
 
-2. 当应用程序启动时，代码空间会识别运行应用程序的端口，并显示转发该端口的提示，以便您可以连接到该端口。
+2. 当应用程序启动时，代码空间会识别运行应用程序的端口，并显示提示，让您知道它已被转发。
 
   ![端口转发信息框](/assets/images/help/codespaces/quickstart-port-toast.png)
 
@@ -72,7 +72,7 @@ redirect_from:
 
 ## 使用扩展进行个性化设置
 
-在代码空间内，您可以访问 Visual Studio Code Marketplace。 在本示例中，您将安装可更改主题的扩展，但您可以安装对工作流程有用的任何扩展。
+在代码空间中，您可以访问 {% data variables.product.prodname_vscode_marketplace %}。 在本示例中，您将安装可更改主题的扩展，但您可以安装对工作流程有用的任何扩展。
 
 1. 在左侧栏中，单击扩展图标。
 
@@ -84,7 +84,7 @@ redirect_from:
 
   ![选择 fairyfloss 主题](/assets/images/help/codespaces/fairyfloss.png)
 
-4. 在当前代码空间中对编辑器设置所做的更改，如主题和键盘绑定，将通过 [Settings Sync（设置同步）](https://code.visualstudio.com/docs/editor/settings-sync)自动同步到您打开的任何其他代码空间以及登录到您 GitHub 帐户的任何 Visual Studio Code 实例。
+4. 在当前代码空间中对编辑器设置所做的更改，如主题和键盘绑定，将通过 [Settings Sync（设置同步）](https://code.visualstudio.com/docs/editor/settings-sync)自动同步到您打开的任何其他代码空间以及登录到您 GitHub 帐户的任何 {% data variables.product.prodname_vscode %} 实例。
 
 ## 后续步骤
 
