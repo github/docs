@@ -1,5 +1,5 @@
 import { ArticleGuide } from 'components/context/ProductGuidesContext'
-import { Label } from '@primer/components'
+import { Label } from '@primer/react'
 
 type Props = {
   card: ArticleGuide

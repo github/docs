@@ -23,8 +23,8 @@ Quando você altera a duração do ciclo de cobrança, sua assinatura do {% data
 
 ## Alterar a duração do ciclo de cobrança da sua conta pessoal
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing_plans %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.billing_plans %}
 {% data reusables.dotcom_billing.change_plan_duration %}
 {% data reusables.dotcom_billing.confirm_duration_change %}
 

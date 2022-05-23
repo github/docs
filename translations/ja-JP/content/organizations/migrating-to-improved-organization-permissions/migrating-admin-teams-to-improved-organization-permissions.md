@@ -21,7 +21,7 @@ shortTitle: 管理Teamの移行
 
 レガシーの 管理者 Team を改善された Organization の権限に移行すれば、この機能をなくすことができます。
 
-For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
+詳しい情報については「[Organizationのリポジトリロール](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)」を参照してください。
 
 {% warning %}
 
@@ -40,6 +40,6 @@ For more information, see "[Repository roles for an organization](/organizations
 ## 1 つの管理者 Team を移行する
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 1. チーム説明のボックスで、[**Migrate team**] をクリックします。 ![[Migrate team] ボタン](/assets/images/help/teams/migrate-a-legacy-admin-team.png)

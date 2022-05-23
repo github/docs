@@ -16,14 +16,14 @@ topics:
 shortTitle: 配置自动链接
 ---
 
-Anyone with admin permissions to a repository can configure autolink references to link issues, pull requests, commit messages, and release descriptions to external third-party services.
+具有仓库管理员权限的任何人均可配置自动链接引用，将议题、拉取请求提交消息、和发行说明链接到外部第三方服务。
 
 如果您使用 Zendesk 跟踪用户报告的事件单，例如，您可以引用所打开拉取请求中的事件单号来解决问题。
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
-1. In the "Integrations" section of the sidebar, click **{% octicon "cross-reference" aria-label="The cross-reference icon" %} Autolink references**.
+1. 在边栏的“Integrations（集成）”部分中，单击 **{% octicon "cross-reference" aria-label="The cross-reference icon" %} 自动链接引用**。
 {% else %}
 1. 在左侧边栏中，单击 **Autolink references（自动链接引用）**。 ![左侧边栏中的自动链接引用选项卡](/assets/images/help/repository/autolink-references-tab.png)
 {% endif %}

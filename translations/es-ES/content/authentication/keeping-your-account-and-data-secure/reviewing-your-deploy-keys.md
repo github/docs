@@ -19,7 +19,7 @@ shortTitle: Llaves de implementación
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
-3. In the "Security" section of the sidebar, click **{% octicon "key" aria-label="The key icon" %} Deploy keys**.
+3. En la acción de "Seguridad" de la barra lateral, haz clic en**Desplegar llaves {% octicon "key" aria-label="The key icon" %}**.
 {% else %}
 3. En la barra lateral izquierda, haz clic en **Deploy keys** (Llaves de implementación). ![Parámetro de llaves de implementación](/assets/images/help/settings/settings-sidebar-deploy-keys.png)
 {% endif %}

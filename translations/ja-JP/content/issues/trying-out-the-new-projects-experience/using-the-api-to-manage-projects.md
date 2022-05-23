@@ -365,9 +365,9 @@ gh api graphql -f query='
 
 既に存在しているアイテムを追加しようとすると、代わりに既存のアイテムのIDが返されます。
 
-### Updating a project's settings
+### プロジェクトの設定の更新
 
-The following example will update your project's settings. `PROJECT_ID`をプロジェクトのノードIDで置き換えてください。 Set `public` to `true` to make your project public on {% data variables.product.product_name %}. Modify `description` to make changes to your project's README.
+以下の例は、プロジェクトの設定を更新します。 `PROJECT_ID`をプロジェクトのノードIDで置き換えてください。 プロジェクトを{% data variables.product.product_name %}上でパブリックにするために、`public`を`true`に設定してください。 `description`を修正して、プロジェクトのREADMEを変更してください。
 
 {% curl %}
 ```shell
@@ -398,7 +398,6 @@ gh api graphql -f query='
         shortDescription
       }
     }
-  }'
 ```
 {% endcli %}
 

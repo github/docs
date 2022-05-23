@@ -1,6 +1,6 @@
 ---
 title: Organization を安全に保つ
-intro: 'You can harden security for your organization by managing security settings,{% ifversion not ghae %} requiring two-factor authentication (2FA),{% endif %} and reviewing the activity and integrations within your organization.'
+intro: 'セキュリティ設定を管理し、{% ifversion not ghae %}2要素認証（2FA）を必須にし、{% endif %}Organization内のアクティビティとインテグレーションをレビューすることによって、Organizationのセキュリティを強化できます。'
 redirect_from:
   - /articles/preventing-unauthorized-access-to-organization-information
   - /articles/keeping-your-organization-secure

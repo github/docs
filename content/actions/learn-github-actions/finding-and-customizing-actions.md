@@ -51,6 +51,16 @@ You can add an action to your workflow by referencing the action in your workflo
 
 You can view the actions referenced in your {% data variables.product.prodname_actions %} workflows as dependencies in the dependency graph of the repository containing your workflows. For more information, see “[About the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph).”
 
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6269 %}
+
+{% note %}
+
+**Note:** To enhance security, {% data variables.product.prodname_actions %} is deprecating redirects for actions. This means that when the owner or name of an action's repository is changed, any workflows using that action with the previous name will fail.
+
+{% endnote %}
+
+{% endif %}
+
 ### Adding an action from {% data variables.product.prodname_marketplace %}
 
 An action's listing page includes the action's version and the workflow syntax required to use the action. To keep your workflow stable even when updates are made to an action, you can reference the version of the action to use by specifying the Git or Docker tag number in your workflow file.
@@ -89,7 +99,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # This step checks out a copy of your repository.
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       # This step references the directory that contains the action.
       - uses: ./.github/actions/hello-world-action
 ```
@@ -107,7 +117,7 @@ jobs:
   my_first_job:
     steps:
       - name: My first step
-        uses: actions/setup-node@v1.1.0
+        uses: {% data reusables.actions.action-setup-node %}
 ```
 
 ### Referencing a container on Docker Hub

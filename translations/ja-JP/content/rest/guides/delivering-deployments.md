@@ -20,7 +20,7 @@ topics:
 
 このAPIでは、ステータスAPIを使って、利用できる設定を示します。 このシナリオでは、以下を行います。
 
-* Merge a pull request.
+* Pull Requestをマージします。
 * CIが終了したら、それに応じてプルリクエストのステータスを設定します。
 * プルリクエストがマージされたら、サーバーでデプロイメントを実行します。
 
@@ -139,11 +139,11 @@ end
 
 ## おわりに
 
-GitHubでは長年、デプロイメントを管理するため[Heaven][heaven]の特定のバージョンを使用してきました。 A common flow is essentially the same as the server we've built above:
+GitHubでは長年、デプロイメントを管理するため[Heaven][heaven]の特定のバージョンを使用してきました。 一般的なフローは、上で構築したサーバーと本質的に同じです。
 
-* Wait for a response on the state of the CI checks (success or failure)
-* If the required checks succeed, merge the pull request
-* Heaven takes the merged code, and deploys it to staging and production servers
+* CIチェックのステータスに対する応答（成功もしくは失敗）を待つ
+* 必要なチェックが成功していれば、Pull Requestをマージする
+* Heavenはマージされたコードを取り込み、ステージング及びプロダクションサーバーにデプロイする
 * その間にHeavenは、当社のチャットルームに居座っている[Hubot][hubot]を通じて全員にビルドについて通知する
 
 これで完了です。 この例を使用するために、独自のデプロイメントを構築する必要はありません。 いつでも[GitHubインテグレーション][integrations]に頼ることができます。

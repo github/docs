@@ -18,6 +18,6 @@ Se você quiser usar {% data variables.product.prodname_vscode %} como seu edito
 
 ## Configurando o seu editor padrão
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.codespaces-tab %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.codespaces-tab %}
 1. Em "Editor de preferência", selecione a opção que você desejar. ![Setting your editor](/assets/images/help/codespaces/select-default-editor.png) Se você escolher **{% data variables.product.prodname_vscode %}**, {% data variables.product.prodname_codespaces %} será automaticamente aberto no aplicativo da área de trabalho na próxima vez que você criar um codespace. Talvez seja necessário permitir o acesso ao seu navegador e ao {% data variables.product.prodname_vscode %} para que seja aberto com sucesso. ![Configurando seu editor](/assets/images/help/codespaces/launch-default-editor.png)

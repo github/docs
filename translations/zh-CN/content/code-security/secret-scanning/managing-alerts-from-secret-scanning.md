@@ -22,6 +22,14 @@ shortTitle: 管理秘密警报
 
 ## 管理 {% data variables.product.prodname_secret_scanning %} 警报
 
+{% ifversion ghec %}
+{% note %}
+
+**注意：**仅为启用了 {% data variables.product.prodname_secret_scanning_GHAS %} 的存储库创建警报。 使用免费 {% data variables.product.prodname_secret_scanning_partner%} 服务在公共存储库中发现的机密将直接报告给合作伙伴，而无需创建警报。
+
+{% endnote %}
+{% endif %}
+
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 1. 在左侧边栏中，单击 **Secret scanning alerts（机密扫描警报）**。
@@ -41,7 +49,7 @@ shortTitle: 管理秘密警报
    {% ifversion ghae %}
    ![来自密码扫描的警报](/assets/images/enterprise/github-ae/repository/secret-scanning-click-alert-ghae.png)
    {% endif %}
-1. Optionally, select the {% ifversion fpt or ghec %}"Close as"{% elsif ghes or ghae %}"Mark as"{% endif %} drop-down menu and click a reason for resolving an alert.
+1. （可选）选择 {% ifversion fpt or ghec %}“Close as（关闭为）”{% elsif ghes or ghae %}“Mark as（标记为）”{% endif %} 下拉菜单，然后单击原因以解决警报。
    {% ifversion fpt or ghec %}
    ![用于解决来自密码扫描的警报的下拉菜单](/assets/images/help/repository/secret-scanning-resolve-alert.png)
    {% endif %}
@@ -56,10 +64,18 @@ shortTitle: 管理秘密警报
 - 对于受到威胁的 {% data variables.product.prodname_dotcom %} 个人访问令牌，请删除该令牌，创建新令牌，然后更新使用旧令牌的任何服务。 更多信息请参阅“[创建用于命令行的个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)。”
 - 对于所有其他密码，请先确认提交到 {% data variables.product.product_name %} 的密码是有效的。 如果有效，请创建新密码，更新使用旧密码的任何服务，然后删除旧密码。
 
+{% ifversion ghec %}
+{% note %}
+
+**注意：** 如果在 {% data variables.product.prodname_dotcom_the_website %} 上的公共存储库中检测到机密，并且该机密也与合作伙伴模式匹配，则会生成警报，并将潜在的机密报告给服务提供商。 有关合作伙伴模式的详细信息，请参阅“[合作伙伴模式支持的机密](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets-for-partner-patterns)”。
+
+{% endnote %}
+{% endif %}
+
 {% ifversion fpt or ghes > 3.1 or ghae-issue-4910 or ghec %}
 ## 配置 {% data variables.product.prodname_secret_scanning %} 警报的通知
 
-当检测到新的机密时，{% data variables.product.product_name %} 会根据用户的通知首选项通知对仓库安全警报具有访问权限的所有用户。 You will receive alerts if you are watching the repository, have enabled notifications for security alerts or for all the activity on the repository, are the author of the commit that contains the secret and are not ignoring the repository.
+当检测到新的机密时，{% data variables.product.product_name %} 会根据用户的通知首选项通知对仓库安全警报具有访问权限的所有用户。 如果您正在关注该仓库，已为仓库的安全警报或所有活动启用通知功能， 或者您是包含机密的提交的作者且未忽略该仓库，您将会收到警报。
 
 更多信息请参阅“[管理仓库的安全和分析设置](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)”和“[配置通知](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository)”。
 {% endif %}

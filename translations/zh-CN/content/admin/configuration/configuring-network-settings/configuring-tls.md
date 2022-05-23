@@ -50,7 +50,7 @@ topics:
 
   {% warning %}
 
-  **Warning**: Your key must be an RSA key and must not have a passphrase. 更多信息请参阅“[将密码从密钥文件中移除](/admin/guides/installation/troubleshooting-ssl-errors#removing-the-passphrase-from-your-key-file)”。
+  **警告**：您的密钥必须是 RSA 密钥，并且不能有密码。 更多信息请参阅“[将密码从密钥文件中移除](/admin/guides/installation/troubleshooting-ssl-errors#removing-the-passphrase-from-your-key-file)”。
 
   {% endwarning %}
 {% data reusables.enterprise_management_console.save-settings %}

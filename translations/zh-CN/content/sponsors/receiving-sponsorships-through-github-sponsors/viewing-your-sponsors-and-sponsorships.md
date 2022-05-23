@@ -50,13 +50,13 @@ shortTitle: 查看赞助者和赞助
 ## 查看最近的赞助活动
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
-{% data reusables.sponsors.activity-tab %}
+{% data reusables.sponsors.your-sponsors-tab %}
 
 ## 导出赞助数据
 
 您可以按月导出赞助事务。 {% data variables.product.company_short %} 将向您发送一封电子邮件，其中包含您所选月份所有赞助者的事务数据。 导出完成后，您可以导出另一个月的数据。 对于您的任何被赞助帐户，您每小时最多可以导出 10 组数据。
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
-{% data reusables.sponsors.activity-tab %}
-1. 单击 {% octicon "download" aria-label="The download icon" %} **Export（导出）**。 ![导出按钮](/assets/images/help/sponsors/export-all.png)
+{% data reusables.sponsors.your-sponsors-tab %}
+1. 在右上角，单击 {% octicon "download" aria-label="The download icon" %} **Export（导出）**。 ![导出按钮](/assets/images/help/sponsors/export-all.png)
 1. 选择您想导出的数据的时间范围和格式，然后单击 **Start export（开始导出）**。 ![数据导出选项](/assets/images/help/sponsors/export-your-sponsors.png)

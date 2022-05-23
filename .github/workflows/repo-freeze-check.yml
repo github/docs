@@ -15,6 +15,9 @@ on:
       - unlocked
     branches:
       - main
+  push:
+    branches:
+      - gh-readonly-queue/main/**
 
 permissions:
   contents: none

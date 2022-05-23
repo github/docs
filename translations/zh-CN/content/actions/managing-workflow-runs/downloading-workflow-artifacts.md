@@ -23,11 +23,9 @@ shortTitle: 下载工作流程构件
 {% data reusables.repositories.navigate-to-workflow %}
 {% data reusables.repositories.view-run %}
 1. 在**构件**下，单击您想要下载的构件。
-    {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
+
     ![下载构件下拉菜单](/assets/images/help/repository/artifact-drop-down-updated.png)
-    {% else %}
-    ![下载构件下拉菜单](/assets/images/help/repository/artifact-drop-down.png)
-    {% endif %}
+
 
 {% endwebui %}
 

@@ -12,7 +12,7 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Require 2FA
+shortTitle: 2FAの必須化
 ---
 
 ## Organization の2 要素認証について

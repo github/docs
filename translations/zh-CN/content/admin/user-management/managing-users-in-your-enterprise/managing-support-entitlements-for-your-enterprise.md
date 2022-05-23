@@ -15,7 +15,7 @@ shortTitle: 管理支持权利
 
 拥有企业帐户支持权限的人员可以使用支持门户打开、查看和评论与企业帐户相关的支持事件单。
 
-企业所有人和帐单管理员自动拥有支持权利。 Enterprise owners can add support entitlements to up to 20 additional members of organizations owned by their enterprise account.
+企业所有人和帐单管理员自动拥有支持权利。 企业所有者可以向企业帐户拥有的最多 20 个额外组织成员添加支持权利。
 
 ## 向企业成员添加支持权利
 
@@ -28,8 +28,8 @@ shortTitle: 管理支持权利
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 3. 在“Settings（设置）”下，单击 **Support（支持）**。 ![支持菜单项](/assets/images/help/enterprises/settings-support.png)
-4. 在“Add support member（添加支持成员）”下，开始键入要提供支持权利的人员的名称或用户名。 在匹配列表中单击其名称。 ![Add support entitlement search](/assets/images/help/enterprises/settings-support-entitlement-search.png)
-5. 单击 **Add support entitlement（添加支持权利）**。 ![Add support entitlement button](/assets/images/help/enterprises/settings-support-add-entitlement.png)
+4. 在“Add support member（添加支持成员）”下，开始键入要提供支持权利的人员的名称或用户名。 在匹配列表中单击其名称。 ![添加支持权利搜索](/assets/images/help/enterprises/settings-support-entitlement-search.png)
+5. 单击 **Add support entitlement（添加支持权利）**。 ![添加支持权利按钮](/assets/images/help/enterprises/settings-support-add-entitlement.png)
 
 ## 从企业成员删除支持权利
 

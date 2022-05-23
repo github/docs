@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
 import { LinkExternalIcon } from '@primer/octicons-react'
-import { ActionList } from '@primer/components'
+import { ActionList } from '@primer/react'
 
 import { useVersion } from 'components/hooks/useVersion'
 import { useMainContext } from 'components/context/MainContext'

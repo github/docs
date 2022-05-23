@@ -53,7 +53,7 @@ For information on setting or changing your remote URL, see "[Managing remote re
 
 The `https://` clone URLs are available on all repositories, regardless of visibility. `https://` clone URLs work even if you are behind a firewall or proxy.
 
-When you `git clone`, `git fetch`, `git pull`, or `git push` to a remote repository using HTTPS URLs on the command line, Git will ask for your {% data variables.product.product_name %} username and password. {% data reusables.user_settings.password-authentication-deprecation %}
+When you `git clone`, `git fetch`, `git pull`, or `git push` to a remote repository using HTTPS URLs on the command line, Git will ask for your {% data variables.product.product_name %} username and password. {% data reusables.user-settings.password-authentication-deprecation %}
 
 {% data reusables.command_line.provide-an-access-token %}
 
@@ -81,13 +81,9 @@ When you `git clone`, `git fetch`, `git pull`, or `git push` to a remote reposit
 
 {% endtip %}
 
-{% ifversion fpt or ghes or ghae or ghec %}
-
 ## Cloning with {% data variables.product.prodname_cli %}
 
 You can also install {% data variables.product.prodname_cli %} to use {% data variables.product.product_name %} workflows in your terminal. For more information, see "[About {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)."
-
-{% endif %}
 
 {% ifversion not ghae %}
 ## Cloning with Subversion

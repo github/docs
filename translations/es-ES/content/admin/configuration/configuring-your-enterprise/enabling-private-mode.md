@@ -22,7 +22,7 @@ topics:
   - Security
 ---
 
-Debes habilitar el modo privado si {% data variables.product.product_location %} es de acceso público por internet. En el modo privado, los usuarios no pueden clonar repositorios en forma anónima por `git://`. Si también está habilitada la autenticación incorporada, un administrador debe invitar a los nuevos usuarios para que creen una cuenta en la instancia. Para obtener más información, consulta "[Usar la autenticación incorporada](/enterprise/{{ currentVersion }}/admin/guides/user-management/using-built-in-authentication)."
+Debes habilitar el modo privado si {% data variables.product.product_location %} es de acceso público por internet. En el modo privado, los usuarios no pueden clonar repositorios en forma anónima por `git://`. Si también está habilitada la autenticación incorporada, un administrador debe invitar a los nuevos usuarios para que creen una cuenta en la instancia. Para obtener más información, consulta la sección "[Configurar la autenticación incorporada](/admin/identity-and-access-management/using-built-in-authentication/configuring-built-in-authentication)".
 
 {% data reusables.enterprise_installation.image-urls-viewable-warning %}
 

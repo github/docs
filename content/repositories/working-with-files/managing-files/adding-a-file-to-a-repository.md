@@ -72,4 +72,4 @@ You can upload an existing file to a repository on {% ifversion ghae %}{% data v
 
 ## Further reading
 
-- "[Adding an existing project to GitHub using the command line](/articles/adding-an-existing-project-to-github-using-the-command-line)"
+- "[Adding locally hosted code to {% data variables.product.product_name %}](/get-started/importing-your-projects-to-github/importing-source-code-to-github//adding-locally-hosted-code-to-github)"

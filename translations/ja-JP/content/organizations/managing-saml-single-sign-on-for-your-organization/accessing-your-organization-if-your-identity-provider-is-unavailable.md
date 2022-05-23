@@ -12,19 +12,11 @@ topics:
 shortTitle: 利用不可能なアイデンティティプロバイダ
 ---
 
-Organization の管理者は、シングルサインオンをバイパスするために、[ダウンロード済み、あるいは保存済みのリカバリコードのいずれか](/articles/downloading-your-organization-s-saml-single-sign-on-recovery-codes)を利用できます。 You may have saved these to a password manager, such as [LastPass](https://lastpass.com/) or [1Password](https://1password.com/).
+Organization の管理者は、シングルサインオンをバイパスするために、[ダウンロード済み、あるいは保存済みのリカバリコードのいずれか](/articles/downloading-your-organization-s-saml-single-sign-on-recovery-codes)を利用できます。 これらは、[LastPass](https://lastpass.com/)あるいは[1Password](https://1password.com/)などのパスワードマネージャーに保存しているかもしれません。
 
-{% note %}
+{% data reusables.saml.recovery-code-caveats %}
 
-**メモ:** リカバリコードは一度しか使えず、順番に使わなければなりません。 リカバリコードにより、アクセスが 24 時間許可されます。
-
-{% endnote %}
-
-1. シングルサインオンをバイパスするには、シングルサインオンダイアログの下部で、[**Use a recovery code**] をクリックします。 ![リカバリコードを入力するためのリンク](/assets/images/help/saml/saml_use_recovery_code.png)
-2. [Recovery Code] フィールドにリカバリコードを入力します。 ![リカバリコードを入力するフィールド](/assets/images/help/saml/saml_recovery_code_entry.png)
-3. [**Verify**] をクリックします。 ![リカバリコードを検証するボタン](/assets/images/help/saml/saml_verify_recovery_codes.png)
-
-一度使用したリカバリコードは二度と使用できないということを覚えておいてください。 リカバリコードは再利用できません。
+{% data reusables.saml.recovery-code-access %}
 
 ## 参考リンク
 

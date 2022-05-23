@@ -23,7 +23,6 @@ shortTitle: Recuperar una cuenta con 2FA
 **Advertencias**:
 
 - {% data reusables.two_fa.support-may-not-help %}
-- {% data reusables.accounts.you-must-know-your-password %}
 
 {% endwarning %}
 
@@ -33,7 +32,13 @@ shortTitle: Recuperar una cuenta con 2FA
 
 Utiliza uno de tus códigos de recuperación para recuperar automáticamente el ingreso a tu cuenta. Es posible que hayas guardado tus códigos de recuperación en un administrador de contraseñas o en la carpeta de descargas de tu computadora. El nombre de archivo por defecto para códigos de recuperación es `github-recovery-codes.txt`. Para obtener más información acerca de códigos de recuperación, consulta "[Configurar métodos de recuperación de autenticación de dos factores](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods#downloading-your-two-factor-authentication-recovery-codes)."
 
-{% data reusables.two_fa.username-password %}
+1. Teclea tu nombre de usuario y contraseña en el prompt de autenticación.
+
+    {% warning %}
+
+    **Advertencia**: {% data reusables.accounts.you-must-know-your-password %}
+
+    {% endwarning %}
 
 {% ifversion fpt or ghec %}
 1. Debajo de "¿Tienes problemas?", haz clic en **Utiliza un código de recuperación o solicita un restablecimiento**.

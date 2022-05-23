@@ -18,7 +18,7 @@ shortTitle: Solicitar um pacote de alunos
 Para se qualificar para o {% data variables.product.prodname_student_pack %}, você deve:
 - Estar atualmente matriculado em um curso superior ou curso que conceda um diploma, tal como ensino médio, ensino secundário, faculdade, universidade, educação domiciliar ou instituição de ensino similar
 - Ter um endereço de e-mail verificável concedido pela instituição de ensino ou fazer upload de documentos que comprovem seu status de estudante
-- Ter uma conta de usuário do [{% data variables.product.prodname_dotcom %}](/articles/signing-up-for-a-new-github-account)
+- Tenha uma [conta pessoal de {% data variables.product.prodname_dotcom %}](/articles/signing-up-for-a-new-github-account)
 - Ter pelo menos 13 anos
 
 Documentos que provam o seu estado atual do aluno incluem uma foto do seu ID da escola com a data atual de matrícula. cronograma de aula, histórico escolar e carta de verificação de afiliação ou inscrição.
@@ -27,7 +27,7 @@ Durante o período como estudante, pode ser que você seja solicitado a verifica
 
 {% note %}
 
-**Observação:** não é possível transferir descontos acadêmicos de uma conta para outra. Se você tiver mais de uma conta em que queira aplicar o desconto, considere [fazer merge](/articles/merging-multiple-user-accounts) das suas contas de usuários e [renomear](/articles/changing-your-github-username) a conta retida se desejado.
+**Observação:** não é possível transferir descontos acadêmicos de uma conta para outra. Se você tem mais de uma conta para aplicar o desconto a, considere fazer [merge](/articles/merging-multiple-user-accounts) das suas contas pessoais e [renomear](/articles/changing-your-github-username) a conta retida, se desejar.
 
 {% endnote %}
 
@@ -45,7 +45,11 @@ Para obter informações sobre como renovar seu {% data variables.product.prodna
 
 ## Vencimento e renovações
 
-Assim que seu acesso ao {% data variables.product.prodname_student_pack %} expirar, você poderá se recandidatar se ainda estiver qualificado, embora algumas das nossas ofertas de parceiro não possam ser renovadas. A maioria das ofertas com tempo limitado de nossos parceiros entra em vigor assim que você as configura. Para obter mais informações, consulte a página do [{% data variables.product.prodname_student_pack %}](https://education.github.com/pack).
+Assim que seu acesso ao {% data variables.product.prodname_student_pack %} expirar, você poderá se recandidatar se ainda estiver qualificado, embora algumas das nossas ofertas de parceiro não possam ser renovadas. A maioria das ofertas com tempo limitado de nossos parceiros entra em vigor assim que você as configura. Para aplicar novamente, basta retornar para https://education.github.com, clicar na imagem do perfil e em **Verificar novamente sua afiliação acadêmica**.
+
+![Opção do menu para verificar novamente a sua afiliação acadêmica](/assets/images/help/education/reverify-academic-affiliation.png)
+
+Para obter mais informações, consulte a página do [{% data variables.product.prodname_student_pack %}](https://education.github.com/pack).
 
 Para ver quando seu acesso grátis ao {% data variables.product.prodname_student_pack %} expira, visite as [configurações de cobrança](https://github.com/settings/billing) da sua conta.
 

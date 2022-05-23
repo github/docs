@@ -1,5 +1,6 @@
-import { getDOM, getJSON } from '../helpers/supertest.js'
 import { jest } from '@jest/globals'
+
+import { getDOM, getJSON } from '../helpers/e2etest.js'
 
 // TODO: Use `describeViaActionsOnly` instead. See tests/rendering/server.js
 const describeInternalOnly =
@@ -16,33 +17,33 @@ describe('breadcrumbs', () => {
 
     test('article pages have breadcrumbs with product, category, maptopic, and article', async () => {
       const $ = await getDOM(
-        '/account-and-profile/setting-up-and-managing-your-github-user-account/managing-email-preferences/adding-an-email-address-to-your-github-account'
+        '/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/adding-an-email-address-to-your-github-account'
       )
       const $breadcrumbs = $('[data-testid=breadcrumbs] a')
 
       expect($breadcrumbs).toHaveLength(8)
       expect($breadcrumbs[0].attribs.title).toBe('Account and profile')
-      expect($breadcrumbs[1].attribs.title).toBe('User accounts')
+      expect($breadcrumbs[1].attribs.title).toBe('Personal accounts')
       expect($breadcrumbs[2].attribs.title).toBe('Manage email preferences')
       expect($breadcrumbs[3].attribs.title).toBe('Add an email address')
     })
 
     test('maptopic pages include their own grayed-out breadcrumb', async () => {
       const $ = await getDOM(
-        '/account-and-profile/setting-up-and-managing-your-github-user-account/managing-email-preferences'
+        '/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences'
       )
       const $breadcrumbs = $('[data-testid=breadcrumbs] a')
 
       expect($breadcrumbs).toHaveLength(6)
       expect($breadcrumbs[0].attribs.title).toBe('Account and profile')
-      expect($breadcrumbs[1].attribs.title).toBe('User accounts')
+      expect($breadcrumbs[1].attribs.title).toBe('Personal accounts')
       expect($breadcrumbs[2].attribs.title).toBe('Manage email preferences')
       expect($breadcrumbs[2].attribs.class.includes('color-fg-muted')).toBe(true)
     })
 
     test('works for enterprise user pages', async () => {
       const $ = await getDOM(
-        '/en/enterprise-server/account-and-profile/setting-up-and-managing-your-github-user-account/managing-email-preferences/adding-an-email-address-to-your-github-account'
+        '/en/enterprise-server/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/adding-an-email-address-to-your-github-account'
       )
       const $breadcrumbs = $('[data-testid=breadcrumbs] a')
       expect($breadcrumbs).toHaveLength(8)
@@ -103,10 +104,8 @@ describe('breadcrumbs', () => {
       const $breadcrumbTitles = $('[data-testid=breadcrumbs] [data-testid=breadcrumb-title]')
       const $breadcrumbLinks = $('[data-testid=breadcrumbs] a')
 
-      expect($breadcrumbTitles).toHaveLength(4)
+      expect($breadcrumbTitles).toHaveLength(0)
       expect($breadcrumbLinks).toHaveLength(4)
-      expect($breadcrumbTitles[0].children[0].data).toBe('Early Access documentation')
-      expect($breadcrumbTitles[1].children[0].data).toBe('GitHub')
       expect($breadcrumbLinks[0].attribs.title).toBe(
         'Enforcing best practices with GitHub Policies'
       )
@@ -120,7 +119,6 @@ describe('breadcrumbs', () => {
       const breadcrumbs = await getJSON('/en/github?json=breadcrumbs')
       const expected = [
         {
-          documentType: 'product',
           href: '/en/github',
           title: 'GitHub',
         },
@@ -134,17 +132,14 @@ describe('breadcrumbs', () => {
       )
       const expected = [
         {
-          documentType: 'product',
           href: '/en/issues',
           title: 'GitHub Issues',
         },
         {
-          documentType: 'category',
           href: '/en/issues/tracking-your-work-with-issues',
           title: 'Issues',
         },
         {
-          documentType: 'article',
           href: '/en/issues/tracking-your-work-with-issues/quickstart',
           title: 'Quickstart for GitHub Issues',
         },
@@ -154,23 +149,20 @@ describe('breadcrumbs', () => {
 
     test('works on maptopic pages', async () => {
       const breadcrumbs = await getJSON(
-        '/en/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings?json=breadcrumbs'
+        '/en/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings?json=breadcrumbs'
       )
       const expected = [
         {
-          documentType: 'product',
           href: '/en/account-and-profile',
           title: 'Account and profile',
         },
         {
-          documentType: 'category',
-          href: '/en/account-and-profile/setting-up-and-managing-your-github-user-account',
-          title: 'User accounts',
+          href: '/en/account-and-profile/setting-up-and-managing-your-personal-account-on-github',
+          title: 'Personal accounts',
         },
         {
-          documentType: 'mapTopic',
-          href: '/en/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings',
-          title: 'User account settings',
+          href: '/en/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings',
+          title: 'Personal account settings',
         },
       ]
       expect(breadcrumbs).toEqual(expected)
@@ -178,27 +170,23 @@ describe('breadcrumbs', () => {
 
     test('works on articles that DO have maptopics ', async () => {
       const breadcrumbs = await getJSON(
-        '/en/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/about-your-personal-dashboard?json=breadcrumbs'
+        '/en/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/about-your-personal-dashboard?json=breadcrumbs'
       )
       const expected = [
         {
-          documentType: 'product',
           href: '/en/account-and-profile',
           title: 'Account and profile',
         },
         {
-          documentType: 'category',
-          href: '/en/account-and-profile/setting-up-and-managing-your-github-user-account',
-          title: 'User accounts',
+          href: '/en/account-and-profile/setting-up-and-managing-your-personal-account-on-github',
+          title: 'Personal accounts',
         },
         {
-          documentType: 'mapTopic',
-          href: '/en/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings',
-          title: 'User account settings',
+          href: '/en/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings',
+          title: 'Personal account settings',
         },
         {
-          documentType: 'article',
-          href: '/en/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/about-your-personal-dashboard',
+          href: '/en/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/about-your-personal-dashboard',
           title: 'Your personal dashboard',
         },
       ]
@@ -207,22 +195,19 @@ describe('breadcrumbs', () => {
 
     test('works on articles that DO NOT have maptopics ', async () => {
       const breadcrumbs = await getJSON(
-        '/github/site-policy/github-privacy-statement?json=breadcrumbs'
+        '/site-policy/privacy-policies/github-privacy-statement?json=breadcrumbs'
       )
       const expected = [
         {
-          documentType: 'product',
-          href: '/en/github',
-          title: 'GitHub',
-        },
-        {
-          documentType: 'category',
-          href: '/en/github/site-policy',
+          href: '/en/site-policy',
           title: 'Site policy',
         },
         {
-          documentType: 'article',
-          href: '/en/github/site-policy/github-privacy-statement',
+          href: '/en/site-policy/privacy-policies',
+          title: 'Privacy Policies',
+        },
+        {
+          href: '/en/site-policy/privacy-policies/github-privacy-statement',
           title: 'GitHub Privacy Statement',
         },
       ]

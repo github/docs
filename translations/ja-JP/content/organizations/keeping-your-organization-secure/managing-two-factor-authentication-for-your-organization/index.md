@@ -1,7 +1,7 @@
 ---
-title: Managing two-factor authentication for your organization
-shortTitle: Manage 2FA
-intro: You can view whether users with access to your organization have two-factor authentication (2FA) enabled and require 2FA.
+title: Organizationでの2要素認証の管理
+shortTitle: 2要素認証の管理
+intro: Organizationにアクセスしてくるユーザが2要素認証（2FA）を有効化しているか、そして2FAを必須にしているかを確認できます。
 versions:
   fpt: '*'
   ghes: '*'

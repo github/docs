@@ -24,7 +24,7 @@ Este resumen puede ayudarte a auditar el acceso a tu repositorio, incorporar o r
 
 {% data reusables.organizations.mixed-roles-warning %}
 
-Para obtener más información acerca de los roles de los repositorios, consulta las secciones "[Niveles de permiso para un repositorio de la cuenta de un usuario](/github/setting-up-and-managing-your-github-user-account/permission-levels-for-a-user-account-repository)" y "[Roles de respositorio para una organización](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)".
+Para obtener más información sobre los roles de repositorio, consulta las secciones "[Niveles de permiso para un repositorio de una cuenta personal](/github/setting-up-and-managing-your-github-user-account/permission-levels-for-a-user-account-repository)" y "[Roles de repositorio para una organización](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)".
 
 ![Resumen de gestión de accesos](/assets/images/help/repository/manage-access-overview.png)
 
@@ -37,7 +37,7 @@ Para obtener más información acerca de los roles de los repositorios, consulta
 {% else %}
 {% data reusables.repositories.navigate-to-manage-access %}
 {% endif %}
-1. Debajo de "Administrar acceso" en el campo de búsqueda, comienza a teclear el nombre del equipo o persona que quieres encontrar. Optionally, use the dropdown menus to filter your search. ![Campo de búsqueda para filtrar la lista de equipos o personas con acceso](/assets/images/help/repository/manage-access-filter.png)
+1. Debajo de "Administrar acceso" en el campo de búsqueda, comienza a teclear el nombre del equipo o persona que quieres encontrar. Opcionalmente, utiliza los menús desplegables para filtrar tu búsqueda. ![Campo de búsqueda para filtrar la lista de equipos o personas con acceso](/assets/images/help/repository/manage-access-filter.png)
 
 ## Cambiar permisos para un equipo o persona
 

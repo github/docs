@@ -49,12 +49,13 @@ Há dois {% data variables.contact.premium_support %} planos: Premium e Premium 
 | Membros com direito a suporte | 10                                                  | 25                                                       |
 | Recursos                      | Processamento de tíquete com prioridade             | <ul><li>Processamento de tíquete com prioridade</li><li>Engenheiro de Responsabilidade do Cliente Nomeado</li></ul>                                |
 | Verificações agendadas        | Verificação de integridade e relatórios semestrais  | <ul><li>Verificação de integridade e relatórios trimestrais</li><li>Revisões trimestrais de conta</li></ul>                                |
-| Assistência administrativa    |                                                     | 4 horas por mês                                          |
+| Assistência administrativa    | Nenhum                                              | 4 horas por mês                                          |
 
   {% note %}
 
   **Notas:**
-  - As verificações agendadas são limitadas a uma organização por trimestre. Você pode adicionar verificações programadas para organizações adicionais a qualquer momento por uma taxa adicional [entrando em contato com nossa equipe de gerenciamento de conta](https://enterprise.github.com/contact) ou ligando para [+1 (877) 448-4820](tel:+1-877-448-4820).
+  - As verificações agendadas são limitadas a uma organização por trimestre. Você pode adicionar verificações programadas para organizações adicionais a qualquer momento por uma taxa adicional [entrando em contato com nossa equipe de gerenciamento de conta](https://enterprise.github.com/contact) ou ligando para [+1 (877) 448-4820](tel:+1-877-448-4820).{% ifversion ghes %}
+  - Você pode gerar uma verificação de integridade a qualquer momento enviando um pacote de suporte. Para obter mais informações, consulte "[Gerando uma verificação de integridade para a sua empresa](/admin/enterprise-management/monitoring-your-appliance/generating-a-health-check-for-your-enterprise)."{% endif %}
   - Para o {% data variables.product.premium_plus_support_plan %}, 50% dos serviços gerenciados não utilizados vão para o próximo mês e expiram no final do trimestre.
   - Os proprietários das empresas e os gerentes de cobrança têm automaticamente direito a suporte. Os proprietários das empresas podem adicionar direitos de suporte aos integrantes de organizações pertencentes à sua conta corporativa. Para obter mais informações, consulte "[Gerenciar direitos de suporte para a sua empresa](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise)".
 

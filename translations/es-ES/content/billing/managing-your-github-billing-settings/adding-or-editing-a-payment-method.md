@@ -33,7 +33,7 @@ No entregamos facturas u órdenes de compra de respaldo a cuentas personales. En
 
 ## Actualizar el método de pago de tu cuenta personal
 
-{% data reusables.user_settings.billing_plans %}
+{% data reusables.user-settings.billing_plans %}
 {% data reusables.dotcom_billing.update_payment_method %}
 1. Si tu cuenta tiene información de facturación existente que quieras actualizar, haz clic en **Editar**. ![Botón de facturar con tarjeta nueva](/assets/images/help/billing/billing-information-edit-button.png)
 {% data reusables.dotcom_billing.enter-billing-info %}

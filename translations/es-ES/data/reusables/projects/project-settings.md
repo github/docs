@@ -1,2 +1,3 @@
-1. Navigate to your project.
-1. Click {% octicon "gear" aria-label="the gear icon" %} to access the project settings.
+1. Navegar a tu proyecto.
+1. En la parte superior derecha, haz clic en {% octicon "kebab-horizontal" aria-label="The menu icon" %} para abrir el menú.
+1. En el menú, haz clic en {% octicon "gear" aria-label="The gear icon" %} **Ajustes** para acceder a los ajustes del proyecto.

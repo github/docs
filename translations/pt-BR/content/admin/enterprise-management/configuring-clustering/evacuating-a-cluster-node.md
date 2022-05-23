@@ -13,33 +13,33 @@ topics:
   - Enterprise
 ---
 
-## About evacuation of cluster nodes
+## Sobre a evacuação dos nós de cluster
 
-In a cluster configuration for {% data variables.product.product_name %}, you can evacuate a node before taking the node offline. Evacuation ensures that the remaining nodes in a service tier contain all of the service's data. For example, when you replace the virtual machine for a node in your cluster, you should first evacuate the node.
+Em uma configuração de cluster para {% data variables.product.product_name %}, você pode evacuar um nó antes de deixar o nó off-line. A evacuação garante que os nós restantes de uma camada de serviço contenham todos os dados do serviço. Por exemplo, ao substituir a máquina virtual para um nó no seu cluster, você deve primeiro evacuar o nó.
 
-For more information about nodes and service tiers for {% data variables.product.prodname_ghe_server %}, see "[About cluster nodes](/admin/enterprise-management/configuring-clustering/about-cluster-nodes)."
+Para obter mais informações sobre os nós e níveis de serviço para {% data variables.product.prodname_ghe_server %}, consulte "[Sobre nós do cluster](/admin/enterprise-management/configuring-clustering/about-cluster-nodes)".
 
 {% warning %}
 
 **Avisos**:
 
-- To avoid data loss, {% data variables.product.company_short %} strongly recommends that you evacuate a node before taking the node offline.
+- Para evitar a perda de dados, {% data variables.product.company_short %} recomenda que você evacue um nó antes de tomá-lo off-line.
 
-- If you only have three nodes in your data services cluster, you can't evacuate the nodes because `ghe-spokes` doesn't have another place to make a copy. Se houver quatro ou mais nós, o `ghe-spokes` vai retirar todos os repositórios do nó removido.
+- Se houver somente três nós no seu cluster de serviços de dados, não será possível removê-los porque o `ghe-spokes` não tem outro local para fazer cópia. Se houver quatro ou mais nós, o `ghe-spokes` vai retirar todos os repositórios do nó removido.
 
 {% endwarning %}
 
 ## Remover um nó de cluster
 
-If you plan to take a node offline and the node runs a data service role like `git-server`, `pages-server`, or `storage-server`, evacuate each node before taking the node offline.
+Se você planeja deixar um nó off-line e o nó executar uma função de serviço de dados como `git-server`, `pages-servidor` ou `storage-server`, evacue cada nó antes de deixá-lo off-line.
 
 {% data reusables.enterprise_clustering.ssh-to-a-node %}
-1. To find the UUID of the node to evacuate, run the following command. Replace `HOSTNAME` with the node's hostname.
+1. Para encontrar o UUID do nó a ser evacuado, execute o seguinte comando. Substitua `HOSTNAME` pelo nome do host do nó.
 
    ```shell
    $ ghe-config cluster.<em>HOSTNAME</em>.uuid
    ```
-1. Monitor the node's status while {% data variables.product.product_name %} copies the data. Don't take the node offline until the copy is complete. To monitor the status of your node, run any of the following commands, replacing `UUID` with the UUID from step 2.
+1. Monitore o status do nó enquanto {% data variables.product.product_name %} copia os dados. Não desconecte o nó até que a cópia seja concluída. Para monitorar o status do seu nó, execute qualquer um dos comandos a seguir, substituindo `UUID` pelo UUID a partir da etapa 2.
 
    - **Git**:
 
@@ -53,12 +53,12 @@ If you plan to take a node offline and the node runs a data service role like `g
      $ echo "select count(*) from pages_replicas where host = 'pages-server-<em>UUID</em>'" | ghe-dbconsole -y
      ```
 
-   - **Storage**:
+   - **Armazenamento**:
 
      ```shell
      $ ghe-storage evacuation-status storage-server-<em>UUID</em>
      ```
-1. After the copy is complete, you can evacuate the node by running any of the following commands, replacing `UUID` with the UUID from step 2.
+1. Depois que a cópia for concluída, você pode evacuar o nó executando qualquer um dos comandos a seguir, substituindo `UUID` pelo UUID da etapa 2.
 
    - **Git**:
 
@@ -72,13 +72,13 @@ If you plan to take a node offline and the node runs a data service role like `g
      $ ghe-dpages evacuate pages-server-<em>UUID</em>
      ```
 
-   - For **storage**, first take the node offline by running the following command.
+   - Para o **armazenamento**, primeiro desconecte-se do node executando o seguinte comando.
 
      ```shell
      $ ghe-storage offline storage-server-<em>UUID</em>
      ```
 
-     After the storage node is offline, you can evacuate the node by running the following command.
+     Depois que o nó de armazenamento estiver off-line, você poderá evacuar o nó executando o seguinte comando.
 
      ```shell
      $ ghe-storage evacuate storage-server-<em>UUID</em>

@@ -1,1 +1,1 @@
-You can read documentation that reflects the features available to you on {% data variables.product.product_name %}. For more information, see "[About versions of {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs)."
+You can read documentation that reflects the features available to you on {% data variables.product.product_name %}. 更多信息请参阅“[关于 {% data variables.product.prodname_docs %} 的版本](/get-started/learning-about-github/about-versions-of-github-docs)”。

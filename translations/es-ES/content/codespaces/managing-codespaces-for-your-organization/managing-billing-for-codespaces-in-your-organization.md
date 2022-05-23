@@ -19,7 +19,7 @@ Para aprender más sobre los precios de los {% data variables.product.prodname_c
 
 {% data reusables.codespaces.codespaces-billing %}
 
-- As an organization owner or a billing manager you can manage {% data variables.product.prodname_codespaces %} billing for your organization: ["About billing for Codespaces"](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces)
+- Como propietario de una organización o como administrador de facturación, puedes administrar la facturación de los {% data variables.product.prodname_codespaces %} en tu organización: ["Acerca de la facturación para los Codespaces"](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces)
 
 - Hay una guía para los usuarios que explica cómo funciona la facturación: ["Entender la facturación para los Codespaces"](/codespaces/codespaces-reference/understanding-billing-for-codespaces)
 
@@ -41,7 +41,7 @@ Puedes limitar la elección de tipos de máquina que se encuentra disponible par
 
 ## Borrar los codespaces sin utilizar
 
-Tus usuarios pueden borrar sus codespaces en https://github.com/codespaces y desde dentro de Visual Studio Code. Para reducir el tamaño de un codespace, los usuarios pueden borrar archivos manualmente en la terminal o desde Visual Studio Code.
+Tus usuarios pueden borrar sus codespaces en https://github.com/codespaces y desde dentro de {% data variables.product.prodname_vscode %}. Para reducir el tamaño de un codespace, los usuarios pueden borrar los archivos manualmente utilizando la terminal o desde dentro de {% data variables.product.prodname_vscode_shortname %}.
 
 {% note %}
 

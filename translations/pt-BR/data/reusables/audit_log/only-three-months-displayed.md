@@ -1,0 +1,1 @@
+By default, only events from the past three months are displayed. To view older events, you must specify a date range with the `created` parameter. Para obter mais informações, consulte "[Entender a sintaxe de pesquisa](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax#query-for-dates)".

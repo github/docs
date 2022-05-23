@@ -16,11 +16,11 @@ shortTitle: Restore deleted repository
 ---
 
 {% ifversion fpt or ghec %}
-自分自身のアカウントで所有していて削除したリポジトリは、誰でも復元できます。 Organizationのオーナーは、そのOrganizationが所有していて削除したリポジトリを復元できます。
+Anyone can restore deleted repositories that were owned by their own personal account. Organizationのオーナーは、そのOrganizationが所有していて削除したリポジトリを復元できます。
 
 ## リポジトリの復元について
 
-削除したリポジトリは、そのリポジトリが現在空ではないフォークネットワークの一部でない限り、90日以内であれば復元できます。 フォークネットワークは、親リポジトリ、リポジトリのフォーク、リポジトリのフォークのフォークで構成されます。 リポジトリがフォークネットワークの一部だった場合は、ネットワークの他のリポジトリすべてが削除されるか、ネットワークから切り離されていない限り、復元できません。 フォークに関する詳細は「[フォークについて](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)」を参照してください。
+A deleted repository can be restored within {% ifversion fpt or ghec or ghes > 3.4 %}30{% else %}90{% endif %} days, unless the repository was part of a fork network that is not currently empty. フォークネットワークは、親リポジトリ、リポジトリのフォーク、リポジトリのフォークのフォークで構成されます。 リポジトリがフォークネットワークの一部だった場合は、ネットワークの他のリポジトリすべてが削除されるか、ネットワークから切り離されていない限り、復元できません。 フォークに関する詳細は「[フォークについて](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)」を参照してください。
 
 現在空ではないフォークネットワークの一部だったリポジトリを復元したい場合は、{% data variables.contact.contact_support %}にお問い合わせください。
 
@@ -28,13 +28,13 @@ shortTitle: Restore deleted repository
 
 リポジトリを復元しても、リリース添付ファイルやチーム権限は復元されません。 復元された Issue はラベル付けされません。
 
-## ユーザアカウントが所有していて削除したリポジトリを復元する
+## Restoring a deleted repository that was owned by a personal account
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.repo-tab %}
-{% data reusables.user_settings.deleted-repos %}
-{% data reusables.user_settings.restore-repo %}
-{% data reusables.user_settings.restore-confirmation %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.repo-tab %}
+{% data reusables.user-settings.deleted-repos %}
+{% data reusables.user-settings.restore-repo %}
+{% data reusables.user-settings.restore-confirmation %}
 
 ## Organizationが所有していて削除したリポジトリを復元する
 
@@ -42,8 +42,8 @@ shortTitle: Restore deleted repository
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.deleted-repos %}
-{% data reusables.user_settings.restore-repo %}
-{% data reusables.user_settings.restore-confirmation %}
+{% data reusables.user-settings.restore-repo %}
+{% data reusables.user-settings.restore-confirmation %}
 
 ## 参考リンク
 

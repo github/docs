@@ -22,7 +22,7 @@ shortTitle: Criar & testar o Java com o Maven
 
 ## Introdução
 
-Este guia mostra como criar um fluxo de trabalho que realiza a integração contínua (CI) para o seu projeto Java usando a ferramenta de gerenciamento de projeto do software Maven. O fluxo de trabalho que você criar permitirá que você veja quando commits em um pull request gerarão falhas de criação ou de teste em comparação com o seu branch-padrão. Essa abordagem pode ajudar a garantir que seu código seja sempre saudável. Você pode estender seu fluxo de trabalho de CI para memorizar arquivos e fazer o upload de artefatos a partir da execução de um fluxo de trabalho.
+Este guia mostra como criar um fluxo de trabalho que realiza a integração contínua (CI) para o seu projeto Java usando a ferramenta de gerenciamento de projeto do software Maven. O fluxo de trabalho que você criar permitirá que você veja quando commits em um pull request gerarão falhas de criação ou de teste em comparação com o seu branch-padrão. Essa abordagem pode ajudar a garantir que seu código seja sempre saudável. Você pode estender seu fluxo de trabalho de CI para {% if actions-caching %}arquivos de cache e{% endif %} fazer o upload de artefatos a partir da execução de um fluxo de trabalho.
 
 {% ifversion ghae %}
 {% data reusables.actions.self-hosted-runners-software %}
@@ -48,7 +48,6 @@ Para começar rapidamente, você pode escolher o fluxo de trabalho inicial pré-
 
 Você também pode adicionar este fluxo de trabalho manualmente, criando um novo arquivo no diretório `.github/workflows` do seu repositório.
 
-{% raw %}
 ```yaml{:copy}
 name: Java CI
 
@@ -59,16 +58,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Set up JDK 11
-        uses: actions/setup-java@v2
+        uses: {% data reusables.actions.action-setup-java %}
         with:
           java-version: '11'
           distribution: 'adopt'
       - name: Build with Maven
-        run: mvn --batch-mode --update-snapshots verify
+        run: mvn --batch-mode --update-snapshots package
 ```
-{% endraw %}
 
 Este fluxo de trabalho executa os seguintes passos:
 
@@ -78,9 +76,9 @@ Este fluxo de trabalho executa os seguintes passos:
 
 Os fluxos de trabalho inicial padrão são excelentes pontos de partida ao criar seu fluxo de trabalho de criação e teste, e você pode personalizar o fluxo de trabalho inicial para atender às necessidades do seu projeto.
 
-{% data reusables.github-actions.example-github-runner %}
+{% data reusables.actions.example-github-runner %}
 
-{% data reusables.github-actions.java-jvm-architecture %}
+{% data reusables.actions.java-jvm-architecture %}
 
 ## Criar e testar seu código
 
@@ -90,29 +88,28 @@ O fluxo de trabalho inicial executará o `pacote`-alvo por padrão. Na configura
 
 Se você usa comandos diferentes para criar seu projeto ou se desejar usar um alvo diferente, você poderá especificá-los. Por exemplo, você pode desejar executar o alvo de `verificar`, configurado em um arquivo _pom-ci.xml_.
 
-{% raw %}
 ```yaml{:copy}
 steps:
-  - uses: actions/checkout@v2
-  - uses: actions/setup-java@v2
+  - uses: {% data reusables.actions.action-checkout %}
+  - uses: {% data reusables.actions.action-setup-java %}
     with:
       java-version: '11'
       distribution: 'adopt'
   - name: Run the Maven verify phase
     run: mvn --batch-mode --update-snapshots verify
 ```
-{% endraw %}
+
+{% if actions-caching %}
 
 ## Memorizar dependências
 
-Ao usar executores hospedados em {% data variables.product.prodname_dotcom %}, você poderá armazenar em cache suas dependências para acelerar as execuções do seu fluxo de trabalho. Após a conclusão bem-sucedida, o seu repositório local do Maven será armazenado na infraestrutura do GitHub Actions. Para os fluxos de trabalho futuros, a cache será restaurada para que as dependências não precisem ser baixadas dos repositórios remotos do Maven. Você pode armazenar dependências simplesmente usando a ação [`setup-java`](https://github.com/marketplace/actions/setup-java-jdk) ou pode usar a ação [`cache` ](https://github.com/actions/cache) para uma configuração mais avançada e personalizada.
+Você pode armazenar as suas dependências para acelerar as execuções do seu fluxo de trabalho. Depois de uma execução bem-sucedida, seu repositório Maven local será armazenado em um cache. Para os fluxos de trabalho futuros, a cache será restaurada para que as dependências não precisem ser baixadas dos repositórios remotos do Maven. Você pode armazenar dependências simplesmente usando a ação [`setup-java`](https://github.com/marketplace/actions/setup-java-jdk) ou pode usar a ação [`cache` ](https://github.com/actions/cache) para uma configuração mais avançada e personalizada.
 
-{% raw %}
 ```yaml{:copy}
 steps:
-  - uses: actions/checkout@v2
+  - uses: {% data reusables.actions.action-checkout %}
   - name: Set up JDK 11
-    uses: actions/setup-java@v2
+    uses: {% data reusables.actions.action-setup-java %}
     with:
       java-version: '11'
       distribution: 'adopt'
@@ -120,9 +117,10 @@ steps:
   - name: Build with Maven
     run: mvn --batch-mode --update-snapshots verify
 ```
-{% endraw %}
 
 Este fluxo de trabalho salvará o conteúdo do repositório local do Maven, localizado no diretório `.m2` do diretório inicial do executor. A chave da cache será o conteúdo em hash do _pom.xml_. Portanto, as alterações em _pom.xml_ invalidarão a cache.
+
+{% endif %}
 
 ## Empacotar dados do fluxo de trabalho como artefatos
 
@@ -130,19 +128,17 @@ Após a sua criação ter sido criada com sucesso e os seus testes aprovados, é
 
 De modo geral, o Maven criará arquivos de saída como JARs, EARs ou WARs no diretório `alvo`. Para fazer o upload como artefatos, você pode copiá-los em um novo diretório que contém artefatos a serem subidos. Por exemplo, você pode criar um diretório denominado `treinamento`. Em seguida, você pode fazer o upload do conteúdo desse diretório usando a ação `upload-artifact`.
 
-{% raw %}
 ```yaml{:copy}
 steps:
-  - uses: actions/checkout@v2
-  - uses: actions/setup-java@v2
+  - uses: {% data reusables.actions.action-checkout %}
+  - uses: {% data reusables.actions.action-setup-java %}
     with:
       java-version: '11'
       distribution: 'adopt'
   - run: mvn --batch-mode --update-snapshots verify
   - run: mkdir staging && cp target/*.jar staging
-  - uses: actions/upload-artifact@v2
+  - uses: {% data reusables.actions.action-upload-artifact %}
     with:
       name: Package
       path: staging
 ```
-{% endraw %}

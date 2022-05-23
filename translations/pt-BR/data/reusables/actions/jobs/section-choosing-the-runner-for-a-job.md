@@ -1,18 +1,18 @@
-Use `jobs.<job_id>.runs-on` to define the type of machine to run the job on. {% ifversion fpt or ghec %}A máquina pode ser ou um executor hospedado em {% data variables.product.prodname_dotcom %} ou um executor auto-hospedado.{% endif %} Você pode fornecer `runs-on` como uma única string ou como uma matriz de strings. Se você especificar uma matriz de strings, o seu fluxo de trabalho será executado em um executor auto-hospedado cujas etiquetas correspondam a todos os valores de `runs-on`, se disponível. Se você quiser executar seu fluxo de trabalho em várias máquinas, use [`jobs.<job_id>.strategy`](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategy).
+Use `jobs.<job_id>.runs-on` para definir o tipo de máquina para executar o trabalho. {% ifversion fpt or ghec %}A máquina pode ser ou um executor hospedado em {% data variables.product.prodname_dotcom %} ou um executor auto-hospedado.{% endif %} Você pode fornecer `runs-on` como uma única string ou como uma matriz de strings. Se você especificar uma matriz de strings, o seu fluxo de trabalho será executado em um executor auto-hospedado cujas etiquetas correspondam a todos os valores de `runs-on`, se disponível. Se você quiser executar seu fluxo de trabalho em várias máquinas, use [`jobs.<job_id>.strategy`](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategy).
 
 
 {% ifversion fpt or ghec or ghes %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-### Choosing {% data variables.product.prodname_dotcom %}-hosted runners
+### Escolhendo executores hospedados em {% data variables.product.prodname_dotcom %}
 
 Se você usar um executor hospedado no {% data variables.product.prodname_dotcom %}, cada trabalho será executado em uma nova instância de um ambiente virtual especificado por `runs-on`.
 
 Os tipos de executor disponíveis para {% data variables.product.prodname_dotcom %} são:
 
-{% data reusables.github-actions.supported-github-runners %}
+{% data reusables.actions.supported-github-runners %}
 
-#### Example: Specifying an operating system
+#### Exemplo: Especificar um sistema operacional
 
 ```yaml
 runs-on: ubuntu-latest
@@ -22,14 +22,12 @@ Para obter mais informações, consulte "[Ambientes virtuais para executores hos
 {% endif %}
 
 {% ifversion fpt or ghec or ghes %}
-### Choosing self-hosted runners
+### Escolhendo executores auto-hospedados
 {% endif %}
 
-{% data reusables.actions.ae-self-hosted-runners-notice %}
+{% data reusables.actions.self-hosted-runner-labels-runs-on %}
 
-{% data reusables.github-actions.self-hosted-runner-labels-runs-on %}
-
-#### Example: Using labels for runner selection
+#### Exemplo: Usando etiquetas para seleção do executor
 
 ```yaml
 runs-on: [self-hosted, linux]

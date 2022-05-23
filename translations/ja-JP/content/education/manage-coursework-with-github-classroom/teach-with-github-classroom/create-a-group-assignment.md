@@ -23,6 +23,8 @@ redirect_from:
 
 グループ課題作成の方法を説明する動画については、「[{% data variables.product.prodname_classroom %}の設定の基本](/education/manage-coursework-with-github-classroom/basics-of-setting-up-github-classroom)」を参照してください。
 
+{% data reusables.classroom.reuse-assignment-link %}
+
 ## 必要な環境
 
 {% data reusables.classroom.assignments-classroom-prerequisite %}
@@ -93,6 +95,8 @@ redirect_from:
 ### Choosing an integrated development environment (IDE)
 
 {% data reusables.classroom.about-online-ides %}詳しい情報については、「[{% data variables.product.prodname_classroom %} と IDE の統合](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide)」を参照してください。
+
+{% data reusables.classroom.classroom-codespaces-link %}
 
 {% data reusables.classroom.assignments-guide-choose-an-online-ide %}
 

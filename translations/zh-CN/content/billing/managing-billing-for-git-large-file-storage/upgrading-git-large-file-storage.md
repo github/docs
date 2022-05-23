@@ -21,8 +21,8 @@ shortTitle: 升级 Git LFS 存储
 
 ## 为个人帐户购买额外的存储空间和带宽
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing_plans %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.billing_plans %}
 {% data reusables.dotcom_billing.lfs-add-data %}
 {% data reusables.large_files.pack_selection %}
 {% data reusables.large_files.pack_confirm %}

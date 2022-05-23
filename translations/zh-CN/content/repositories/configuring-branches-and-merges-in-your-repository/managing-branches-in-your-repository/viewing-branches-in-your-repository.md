@@ -18,7 +18,7 @@ shortTitle: 查看分支
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.navigate-to-branches %}
 3. 使用页面顶部的导航可查看特定的分支列表：
-    - **Your branches**: In repositories that you have push access to, the **Yours** view shows all branches that you’ve pushed to, excluding the default branch, with the most recent branches first.
+    - **Your branches（您的分支）**：在您有推送权限的仓库中，**Yours（您的）**视图显示您已推送的所有分支（默认分支除外），最近的分支最先显示。
     - **Active branches（活动分支）**：**Active（活动）**视图显示过去三个月内任何人提交的所有分支，按最近的提交最先显示的顺序排序分支。
     - **Stale branches（过时的分支）**：**Stale（过时）**视图显示过去三个月内没有人提交的所有分支，按最早的提交最先显示的顺序排序分支。 使用此列表可确定[要删除的分支](/articles/creating-and-deleting-branches-within-your-repository)。
     - **All branches（所有分支）**：**All（所有）**视图显示默认分支，后跟所有其他分支，按最近的提交最先显示的顺序排序分支。

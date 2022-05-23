@@ -24,7 +24,7 @@ Puedes ver y revocar la identidad vinculada de cada miembro, sesiones activas y 
 
 {% data reusables.saml.about-linked-identities %}
 
-Cuando esté disponible, la entrada incluirá datos de SCIM. Para obtener más información, consulta la sección "[Acerca de SCIM](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim)".
+Cuando esté disponible, la entrada incluirá datos de SCIM. Para obtener más información, consulta la sección "[SCIM para las organizaciones](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)".
 
 {% warning %}
 
@@ -39,7 +39,7 @@ Cuando esté disponible, la entrada incluirá datos de SCIM. Para obtener más i
 {% data reusables.identity-and-permissions.revoking-identity-team-sync %}
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.people %}
 {% data reusables.saml.click-person-revoke-identity %}
 {% data reusables.saml.saml-identity-linked %}
@@ -50,7 +50,7 @@ Cuando esté disponible, la entrada incluirá datos de SCIM. Para obtener más i
 ## Visualizar y revocar una sesión activa de SAML
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.people %}
 {% data reusables.saml.click-person-revoke-session %}
 {% data reusables.saml.saml-identity-linked %}
@@ -62,7 +62,7 @@ Cuando esté disponible, la entrada incluirá datos de SCIM. Para obtener más i
 {% data reusables.saml.about-authorized-credentials %}
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.people %}
 {% data reusables.saml.click-person-revoke-credentials %}
 {% data reusables.saml.saml-identity-linked %}

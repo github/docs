@@ -1,6 +1,6 @@
 ---
 title: ライブラリ
-intro: 'You can use the official Octokit library and other third-party libraries to extend and simplify how you use the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API.'
+intro: '公式のOctokitライブラリや、その他のサードパーティライブラリを使い、{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} APIの使い方を拡張し、シンプルにすることができます。'
 redirect_from:
   - /libraries
   - /v3/libraries
@@ -18,11 +18,17 @@ topics:
   <h1>Octokit にはいくつかの種類があります</h1>
   <p class="lead">公式の Octokit ライブラリを使用するか、利用可能なサードパーティライブラリのいずれかを選択します。</p>
   <div class="octokit-links"><br/>
-     <div class="octokit-language"> <span>Ruby → </span><a href="https://github.com/octokit/octokit.rb">octokit.rb</a></div><br/>
+     <div class="octokit-language"><span>Ruby → </span><a href="https://github.com/octokit/octokit.rb">octokit.rb</a></div><br/>
      <div class="octokit-language"><span>.NET → </span> <a href="https://github.com/octokit/octokit.net">octokit.net</a></div><br/>
      <div class="octokit-language"><span>JavaScript → </span> <a href="https://github.com/octokit/octokit.js">octokit/octokit.js</a></div><br/>
   </div>
 </div>
+
+{% warning %}
+
+警告: 2021年の10月下旬の時点では、公式のOctokitライブラリはメンテナンスされていません。 詳しい情報については[octokit.jsリポジトリのこのディスカッション](https://github.com/octokit/octokit.js/discussions/620)を参照してください。
+
+{% endwarning %}
 
 # サードパーティライブラリ
 
@@ -36,7 +42,7 @@ topics:
 
 | ライブラリ名          | リポジトリ                                                                   |
 | --------------- | ----------------------------------------------------------------------- |
-| **github.dart** | [DirectMyFile/github.dart](https://github.com/DirectMyFile/github.dart) |
+| **github.dart** | [SpinlockLabs/github.dart](https://github.com/SpinlockLabs/github.dart) |
 
 ### Emacs Lisp
 
@@ -135,9 +141,10 @@ topics:
 
 ### Rust
 
-| ライブラリ名       | リポジトリ                                                         |
-| ------------ | ------------------------------------------------------------- |
-| **Octocrab** | [XAMPPRocky/octocrab](https://github.com/XAMPPRocky/octocrab) |
+| ライブラリ名       | リポジトリ                                                             |
+| ------------ | ----------------------------------------------------------------- |
+| **Octocrab** | [XAMPPRocky/octocrab](https://github.com/XAMPPRocky/octocrab)     |
+| **Octocat**  | [octocat-rs/octocat-rs](https://github.com/octocat-rs/octocat-rs) |
 
 ### Scala
 

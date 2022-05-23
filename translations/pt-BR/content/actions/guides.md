@@ -13,7 +13,8 @@ learningTracks:
   - continuous_integration
   - continuous_deployment
   - deploy_to_the_cloud
-  - '{% ifversion ghec or ghes or ghae %}adopting_github_actions_for_your_enterprise{% endif %}'
+  - adopting_github_actions_for_your_enterprise_ghec
+  - adopting_github_actions_for_your_enterprise_ghes_and_ghae
   - hosting_your_own_runners
   - create_actions
 includeGuides:

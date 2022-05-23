@@ -31,7 +31,7 @@ shortTitle: 连接问题
 
 ## 切换克隆方法
 
-从通过 SSH 克隆切换到通过 HTTPS 克隆可改善连接，反之亦然。 For more information, see "[Troubleshooting cloning errors](/repositories/creating-and-managing-repositories/troubleshooting-cloning-errors)."
+从通过 SSH 克隆切换到通过 HTTPS 克隆可改善连接，反之亦然。 更多信息请参阅“[排查克隆错误](/repositories/creating-and-managing-repositories/troubleshooting-cloning-errors)”。
 
 如果您遇到 SSH 超时，请参阅“[错误：文件编号错误](/articles/error-bad-file-number)”。
 

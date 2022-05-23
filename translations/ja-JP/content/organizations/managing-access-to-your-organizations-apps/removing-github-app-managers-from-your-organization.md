@@ -15,7 +15,7 @@ topics:
 shortTitle: GitHub Appマネージャーの削除
 ---
 
-For more information about {% data variables.product.prodname_github_app %} manager permissions, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#github-app-managers)."
+{% data variables.product.prodname_github_app %}の管理者権限に関する詳しい情報については「[Organization内のロール](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#github-app-managers)」を参照してください。
 
 ## Organization 全体で {% data variables.product.prodname_github_app %} マネージャーの権限を削除する
 
@@ -29,7 +29,7 @@ For more information about {% data variables.product.prodname_github_app %} mana
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.github-apps-settings-sidebar %}
-1. Under "{% data variables.product.prodname_github_apps %}", click on the avatar of the app you'd like to remove a {% data variables.product.prodname_github_app %} manager from. ![{% data variables.product.prodname_github_app %} を選択](/assets/images/help/organizations/select-github-app.png)
+1. 「{% data variables.product.prodname_github_apps %}」の下で、{% data variables.product.prodname_github_app %}マネージャーを削除したいアプリケーションのアバターをクリックしてください。 ![{% data variables.product.prodname_github_app %} を選択](/assets/images/help/organizations/select-github-app.png)
 {% data reusables.organizations.app-managers-settings-sidebar %}
 1. [App managers] の下で、{% data variables.product.prodname_github_app %} マネージャー権限を削除する個人のユーザ名を探し、 [**Revoke**] をクリックします。 ![{% data variables.product.prodname_github_app %} マネージャー権限の削除](/assets/images/help/organizations/github-app-manager-revoke-permissions-individual-app.png)
 

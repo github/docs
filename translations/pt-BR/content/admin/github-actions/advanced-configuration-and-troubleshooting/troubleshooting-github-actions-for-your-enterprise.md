@@ -190,22 +190,22 @@ Há três maneiras de resolver este problema:
 
 <a name="bundled-actions"></a>
 
-## Troubleshooting bundled actions in {% data variables.product.prodname_actions %}
+## Solucionando problemas das ações agrupadas em {% data variables.product.prodname_actions %}
 
-If you receive the following error when installing {% data variables.product.prodname_actions %} in {% data variables.product.prodname_ghe_server %}, you can resolve the problem by installing the official bundled actions and starter workflows.
+Se você receber o erro a seguir ao instalar {% data variables.product.prodname_actions %} em {% data variables.product.prodname_ghe_server %}, você poderá resolver o problema instalando as ações oficiais empacotadas e os fluxos de trabalho iniciais.
 
 ```shell
-A part of the Actions setup had problems and needs an administrator to resolve.
+Uma parte da configuração de Ações teve problemas e precisa que um administrador resolva.
 ```
 
-To install the official bundled actions and starter workflows within a designated organization in {% data variables.product.prodname_ghe_server %}, follow this procedure.
+Para instalar as ações oficiais empacotadas e fluxos de trabalho iniciais dentro de uma organização designada em {% data variables.product.prodname_ghe_server %}, siga este procedimento.
 
-1. Identify an organization that will store the official bundled actions and starter worflows. You can create a new organization or reuse an existing one.
-    - To create a new organization, see "[Creating a new organization from scratch](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)."
-    - For assistance with choosing a name for this organization, see "[Reserved Names](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#reserved-names)."
+1. Identifique uma organização que armazenará as ações oficiais agrupadas e os fluxos de trabalho iniciais. Você pode criar uma nova organização ou reutilizar uma já existente.
+    - Para criar uma nova organização, consulte "[Criando uma nova organização a partir do zero](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)".
+    - Para obter assistência com a escolha de um nome para esta organização, consulte "[Nomes Reservados](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#reserved-names). "
 
 1. Efetue o login no shell administrativo usando SSH. Para obter mais informações, consulte "[Acessar o shell administrativo (SSH)](/admin/configuration/accessing-the-administrative-shell-ssh)".
-1. To designate your organization as the location to store the bundled actions, use the `ghe-config` command, replacing `ORGANIZATION` with the name of your organization.
+1. Para designar sua organização como a localização para armazenar as ações agrupadas, use o comando `ghe-config`, substituindo o `ORGANIZAÇÃO` pelo nome da sua organização.
     ```shell
     $ ghe-config app.actions.actions-org ORGANIZATION
     ```
@@ -213,7 +213,7 @@ To install the official bundled actions and starter workflows within a designate
     ```shell
     $ ghe-config app.actions.github-org ORGANIZATION
     ```
-1.  To add the bundled actions to your organization, unset the SHA.
+1.  Para adicionar as ações empacotadas à sua organização, cancele a definição do SHA.
     ```shell
     $ ghe-config --unset 'app.actions.actions-repos-sha1sum'
     ```
@@ -222,6 +222,6 @@ To install the official bundled actions and starter workflows within a designate
     $ ghe-config-apply
     ```
 
-After you've completed these steps, you can resume configuring {% data variables.product.prodname_actions %} at "[Managing access permissions for GitHub Actions in your enterprise](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#managing-access-permissions-for-github-actions-in-your-enterprise)."
+Depois de concluir esses passos, você poderá retomar a configuração de {% data variables.product.prodname_actions %} em[Gerenciando as permissões de acesso para o GitHub Actions na sua empresa](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#managing-access-permissions-for-github-actions-in-your-enterprise)."
 
 {% endif %}

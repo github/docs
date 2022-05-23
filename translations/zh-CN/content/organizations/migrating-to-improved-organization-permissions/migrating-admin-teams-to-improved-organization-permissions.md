@@ -40,6 +40,6 @@ shortTitle: 迁移管理团队
 ## 迁移单一管理员团队
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 1. 在团队说明框中，单击 **Migrate team（迁移团队）**。 ![迁移团队按钮](/assets/images/help/teams/migrate-a-legacy-admin-team.png)

@@ -4,7 +4,7 @@ intro: You can increase development velocity by enabling auto-merge for a pull r
 product: '{% data reusables.gated-features.auto-merge %}'
 versions:
   fpt: '*'
-  ghes: '>=3.1'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 topics:
@@ -47,7 +47,7 @@ People with write permissions to a repository can enable auto-merge for a pull r
 
   {% endnote %}
   {% endif %}
-  {% ifversion ghes > 3.0 or ghae or ghec %}
+  {% ifversion ghes or ghae or ghec %}
 1. If you chose the merge or squash and merge methods, type a commit message and description.
    ![Fields to enter commit message and description](/assets/images/help/pull_requests/pull-request-information-fields-enterprise.png)
   {% endif %}

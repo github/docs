@@ -14,6 +14,8 @@ Puedes utilizar un repositorio de plantilla en {% data variables.product.product
 
 Para utilizar el repositorio de plantilla para tu tarea, éste debe pertenecer a tu organización, o su visibilidad debe ser pública.
 
+Puedes reutilizar una tarea existente, incluso si utiliza un repositorio de plantilla, en cualquier otra aula a la cual tengas acceso administrativo, incluyendo aquellas en una organización diferente. Para obtener más información, consulta la sección "[Reutilizar una tarea](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/reuse-an-assignment)".
+
 ## Leer más
 
 - "[Crear una tarea individual](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)"

@@ -35,7 +35,7 @@ shortTitle: 选择集群或 HA
 
 ## 备份和灾难恢复
 
-Neither HA nor Clustering should be considered a replacement for regular backups. 更多信息请参阅“[在设备上配置备份](/enterprise/admin/guides/installation/configuring-backups-on-your-appliance)”。
+HA 或集群都不应被视为常规备份的替代品。 更多信息请参阅“[在设备上配置备份](/enterprise/admin/guides/installation/configuring-backups-on-your-appliance)”。
 
 ## 监视
 

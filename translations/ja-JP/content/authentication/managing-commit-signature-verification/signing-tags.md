@@ -23,7 +23,7 @@ topics:
   $ git tag -s <em>mytag</em>
   # 署名済みのタグを作成する
   ```
-2. `git tag -v [tag-name]`を実行して、署名したタグをベリファイします。
+2. Verify your signed tag by running `git tag -v [tag-name]`.
   ```shell
   $ git tag -v <em>mytag</em>
   # 署名済みのタグを検証する

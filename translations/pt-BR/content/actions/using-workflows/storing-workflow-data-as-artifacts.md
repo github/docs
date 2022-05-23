@@ -26,7 +26,7 @@ topics:
 
 Os artefatos permitem que você persista com os dados após um trabalho ter sido concluído e compartilhe os dados com outro trabalho no mesmo fluxo de trabalho. Um artefato é um arquivo ou uma coleção de arquivos produzidos durante a execução de um fluxo de trabalho. Por exemplo, você pode usar artefatos para salvar a sua criação e testar a saída após uma conclusão da execução do fluxo de trabalho. {% data reusables.actions.reusable-workflow-artifacts %}
 
-{% data reusables.github-actions.artifact-log-retention-statement %} O período de retenção para um pull request reinicia toda vez que alguém fizer um push de um novo commit para o pull request.
+{% data reusables.actions.artifact-log-retention-statement %} O período de retenção para um pull request reinicia toda vez que alguém fizer um push de um novo commit para o pull request.
 
 Esses são alguns dos artefatos comuns cujo upload você pode fazer:
 
@@ -37,11 +37,11 @@ Esses são alguns dos artefatos comuns cujo upload você pode fazer:
 
 {% ifversion fpt or ghec %}
 
-Armazenar artefatos consome espaço de armazenamento em {% data variables.product.product_name %}. {% data reusables.github-actions.actions-billing %} Para mais informações, consulte "[Gerenciando cobrança para {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)".
+Armazenar artefatos consome espaço de armazenamento em {% data variables.product.product_name %}. {% data reusables.actions.actions-billing %} Para mais informações, consulte "[Gerenciando cobrança para {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)".
 
 {% else %}
 
-Artifacts consume storage space on the external blob storage that is configured for {% data variables.product.prodname_actions %} on {% data variables.product.product_location %}.
+Os artefatos consomem espaço de armazenamento no bloco externo que está configurado para {% data variables.product.prodname_actions %} em {% data variables.product.product_location %}.
 
 {% endif %}
 
@@ -55,6 +55,14 @@ Para compartilhar dados entre trabalhos:
 * **Fazendo o download dos arquivos**: Você pode apenas fazer o download dos artefatos que foram subidos durante a mesma execução do fluxo de trabalho. Ao fazer o download de um arquivo, você pode fazer referenciá-lo pelo nome.
 
 As etapas de um trabalho compartilham o mesmo ambiente na máquina executora, mas são executados em seus próprios processos individuais. Para transmitir dados entre etapas de um trabalho, você pode usar entradas e saídas. Para obter mais informações sobre entradas e saídas, consulte "[Sintaxe de metadados para o {% data variables.product.prodname_actions %}](/articles/metadata-syntax-for-github-actions)".
+
+{% if actions-caching %}
+
+{% data reusables.actions.comparing-artifacts-caching %}
+
+Para obter mais informações sobre armazenamento de dependência em cache, consulte "[Armazenando as dependências em cache para acelerar fluxos de trabalho](/actions/using-workflows/caching-dependencies-to-speed-up-workflows#comparing-artifacts-and-dependency-caching)".
+
+{% endif %}
 
 ## Fazer upload da compilação e testar artefatos
 
@@ -80,7 +88,7 @@ Por exemplo, o seu repositório ou um aplicativo web pode conter arquivos SASS e
 |   
 ```
 
-Esse exemplo mostra como criar um fluxo de trabalho para um projeto Node.js que builds (compila) o código no diretório `src` e executa os testes no diretório `tests`. Você pode partir do princípio que executar `npm test` produz um relatório de cobertura de código denominado `code-coverage.html`, armazenado no diretório `output/test/`.
+Este exemplo mostra como criar um fluxo de trabalho para um projeto do Node.js que compila o código no diretório `src` e executa os testes no diretório `testes`. Você pode partir do princípio que executar `npm test` produz um relatório de cobertura de código denominado `code-coverage.html`, armazenado no diretório `output/test/`.
 
 O fluxo de trabalho faz o upload dos artefatos de produção no diretório `dist`, mas exclui todos os arquivos de markdown. Ele também faz o upload do relatório de `code-coverage.html` como outro artefato.
 
@@ -94,21 +102,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: {% data reusables.actions.action-checkout %}
       - name: npm install, build, and test
         run: |
           npm install
           npm run build --if-present
           npm test
       - name: Archive production artifacts
-        uses: actions/upload-artifact@v2
+        uses: {% data reusables.actions.action-upload-artifact %}
         with:
           name: dist-without-markdown
           path: |
             dist
             !dist/**/*.md
       - name: Archive code coverage results
-        uses: actions/upload-artifact@v2
+        uses: {% data reusables.actions.action-upload-artifact %}
         with:
           name: code-coverage-report
           path: output/test/code-coverage.html
@@ -120,7 +128,7 @@ Você pode definir um período de retenção personalizado para artefatos indivi
 
 ```yaml{:copy}
   - name: 'Upload Artifact'
-    uses: actions/upload-artifact@v2
+    uses: {% data reusables.actions.action-upload-artifact %}
     with:
       name: my-artifact
       path: my_file.txt
@@ -133,7 +141,7 @@ O valor `retention-days` não pode exceder o limite de retenção definido pelo 
 
 Durante a execução de um fluxo de trabalho, você pode usar a ação [`download-artifact`](https://github.com/actions/download-artifact)para fazer o download de artefatos previamente carregados na mesma execução de fluxo de trabalho.
 
-Após a conclusão da execução de um fluxo de trabalho, você pode fazer o download ou excluir artefatos em {% data variables.product.prodname_dotcom %} ou usar a API REST. For more information, see "[Downloading workflow artifacts](/actions/managing-workflow-runs/downloading-workflow-artifacts)," "[Removing workflow artifacts](/actions/managing-workflow-runs/removing-workflow-artifacts)," and the "[Artifacts REST API](/rest/reference/actions#artifacts)."
+Após a conclusão da execução de um fluxo de trabalho, você pode fazer o download ou excluir artefatos em {% data variables.product.prodname_dotcom %} ou usar a API REST. Para obter mais informações, consulte "[Fazendo o download de artefatos do fluxo de trabalho](/actions/managing-workflow-runs/downloading-workflow-artifacts), "[Removendo artefatos do fluxo de trabalho](/actions/managing-workflow-runs/removing-workflow-artifacts) e "[API REST dos artefatos](/rest/reference/actions#artifacts)".
 
 ### Fazer o download dos artefatos durante a execução de um fluxo de trabalho
 
@@ -149,7 +157,7 @@ Especifique o nome de um artefato para fazer o download de um artefato individua
 
 ```yaml
 - name: Download a single artifact
-  uses: actions/download-artifact@v2
+  uses: {% data reusables.actions.action-download-artifact %}
   with:
     name: my-artifact
 ```
@@ -158,12 +166,12 @@ Você também pode baixar todos os artefatos em uma execução de fluxo de traba
 
 ```yaml
 - name: Download all workflow run artifacts
-  uses: actions/download-artifact@v2
+  uses: {% data reusables.actions.action-download-artifact %}
 ```
 
 Se você fizer o download de todos os artefatos da execução de um fluxo de trabalho, será criado um diretório para cada artefato usando seu nome.
 
-For more information on syntax, see the {% ifversion fpt or ghec %}[actions/download-artifact](https://github.com/actions/download-artifact) action{% else %} `actions/download-artifact` action on {% data variables.product.product_location %}{% endif %}.
+Para obter mais informações sobre sintaxe, consulte as {% ifversion fpt or ghec %}[ações/baixar/artefato](https://github.com/actions/download-artifact) ação{% else %} `ações/baixar-artefato` ação em {% data variables.product.product_location %}{% endif %}.
 
 ## Transmitir dados entre trabalhos em um fluxo
 
@@ -200,7 +208,7 @@ jobs:
         run: |
           expr 3 + 7 > math-homework.txt
       - name: Upload math result for job 1
-        uses: actions/upload-artifact@v2
+        uses: {% data reusables.actions.action-upload-artifact %}
         with:
           name: homework
           path: math-homework.txt
@@ -211,7 +219,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Download math result for job 1
-        uses: actions/download-artifact@v2
+        uses: {% data reusables.actions.action-download-artifact %}
         with:
           name: homework
       - shell: bash
@@ -219,7 +227,7 @@ jobs:
           value=`cat math-homework.txt`
           expr $value \* 9 > math-homework.txt
       - name: Upload math result for job 2
-        uses: actions/upload-artifact@v2
+        uses: {% data reusables.actions.action-upload-artifact %}
         with:
           name: homework
           path: math-homework.txt
@@ -230,7 +238,7 @@ jobs:
     runs-on: macOS-latest
     steps:
       - name: Download math result for job 2
-        uses: actions/download-artifact@v2
+        uses: {% data reusables.actions.action-download-artifact %}
         with:
           name: homework
       - name: Print the final result
@@ -240,17 +248,12 @@ jobs:
           echo The result is $value
 ```
 
-A execução do fluxo de trabalho arquivará quaisquer artefatos gerados por ele. Para obter mais informações sobre o download de artefatos arquivados, consulte "[Fazer download dos artefatos de fluxo de trabalho](/actions/managing-workflow-runs/downloading-workflow-artifacts)".
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
-![Fluxo de trabalho que transmite dados entre trabalhos para executar cálculos matemáticos](/assets/images/help/repository/passing-data-between-jobs-in-a-workflow-updated.png)
-{% else %}
-![Fluxo de trabalho que transmite dados entre trabalhos para executar cálculos matemáticos](/assets/images/help/repository/passing-data-between-jobs-in-a-workflow.png)
-{% endif %}
+A execução do fluxo de trabalho arquivará quaisquer artefatos gerados por ele. Para obter mais informações sobre o download de artefatos arquivados, consulte "[Fazer download dos artefatos de fluxo de trabalho](/actions/managing-workflow-runs/downloading-workflow-artifacts)". ![Fluxo de trabalho que transmite dados entre trabalhos para executar cálculos matemáticos](/assets/images/help/repository/passing-data-between-jobs-in-a-workflow-updated.png)
 
 {% ifversion fpt or ghec %}
 
 ## Leia mais
 
-- "[Managing billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)".
+- "[Gerenciando a cobrança para {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)".
 
 {% endif %}

@@ -1,2 +1,2 @@
 {% data reusables.audit_log.audit-log-api-info %}
-* Eventos do Git, como clonar, buscar e fazer push
+{% ifversion fpt or ghec %}* Git events, such as cloning, fetching, and pushing{% endif %}

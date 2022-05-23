@@ -32,7 +32,7 @@ Você pode optar por permitir resultados de pesquisa para repositórios público
 
 Os usuários nunca poderão pesquisar em {% data variables.product.product_location %} a partir de {% data variables.product.prodname_dotcom_the_website %}, mesmo se tiverem acesso aos dois ambientes.
 
-Depois que você habilitar a pesquisa unificada para {% data variables.product.product_location %}, antes de os usuários individuais poderem visualizar os resultados de {% data variables.product.prodname_dotcom_the_website %} em {% data variables.product.product_location %}, cada usuário também deverá conectar sua conta pessoal em {% data variables.product.product_name %} a uma conta pessoal em {% data variables.product.prodname_dotcom_the_website %}. Para obter mais informações, consulte "[Habilitando a pesquisa de repositório {% data variables.product.prodname_dotcom_the_website %} na sua conta corporativa privada](/search-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-from-your-private-enterprise-environment)".
+Após habilitar a pesquisa unificada de {% data variables.product.product_location %}, antes que os usuários individuais possam ver os resultados da pesquida de repositórios privados em {% data variables.product.prodname_dotcom_the_website %} em {% data variables.product.product_location %}, cada usuário também deve conectar sua conta de usuário em {% data variables.product.product_name %} a uma conta de usuário em {% data variables.product.prodname_dotcom_the_website %}. Para obter mais informações, consulte "[Habilitando a pesquisa de repositório {% data variables.product.prodname_dotcom_the_website %} na sua conta corporativa privada](/search-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-from-your-private-enterprise-environment)".
 
 A pesquisa via APIs REST e GraphQL não inclui resultados do {% data variables.product.prodname_dotcom_the_website %}. Não há suporte para a pesquisa avançada e a pesquisa de wikis no {% data variables.product.prodname_dotcom_the_website %}.
 
@@ -44,7 +44,7 @@ Antes de você poder habilitar {% data variables.product.prodname_unified_search
 {% data reusables.github-connect.access-dotcom-and-enterprise %}
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.business %}
-{% ifversion ghes < 3.1 %}{% data reusables.enterprise-accounts.settings-tab %}{% endif %}{% data reusables.enterprise-accounts.github-connect-tab %}{% else %}
+{% data reusables.enterprise-accounts.github-connect-tab %}{% else %}
 1. Efetue o login em {% data variables.product.product_location %} e {% data variables.product.prodname_dotcom_the_website %}.
 {% data reusables.enterprise-accounts.access-enterprise %}{% data reusables.enterprise-accounts.github-connect-tab %}{% endif %}
 1. Em "Usuários podem pesquisarh {% data variables.product.prodname_dotcom_the_website %}", use the menu suspenso e clique em **Habilitado**. ![Habilitar a opção de pesquisa no menu suspenso de pesquisa do GitHub.com](/assets/images/enterprise/site-admin-settings/github-dotcom-enable-search.png)

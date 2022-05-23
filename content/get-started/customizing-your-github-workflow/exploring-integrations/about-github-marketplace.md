@@ -4,7 +4,7 @@ intro: '{% data variables.product.prodname_marketplace %} contains tools that ad
 redirect_from:
   - /articles/about-github-marketplace
   - /github/customizing-your-github-workflow/about-github-marketplace
-  - /github/customizing-your-github-workflow/exploring-integrations/about-github-marketplace  
+  - /github/customizing-your-github-workflow/exploring-integrations/about-github-marketplace
 versions:
   fpt: '*'
   ghec: '*'

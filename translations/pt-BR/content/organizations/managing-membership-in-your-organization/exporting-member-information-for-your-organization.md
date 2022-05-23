@@ -5,8 +5,6 @@ permissions: Organization owners can export member information for their organiz
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>=3.3'
-  ghae: issue-5146
 topics:
   - Organizations
   - Teams
@@ -28,6 +26,6 @@ Você pode obter informações dos membros diretamente da interface de usuário 
 Para obter mais informações sobre as APIs, consulte a nossa [API do GraphQL](/graphql/reference/objects#user) e [API REST](/rest/reference/users) documentação sobre os usuários.
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.people %}
 {% data reusables.organizations.people-export %}

@@ -1,19 +1,20 @@
-import fs from 'fs'
 import path from 'path'
 import slash from 'slash'
 import statsd from '../lib/statsd.js'
 import {
   firstVersionDeprecatedOnNewSite,
   lastVersionWithoutArchivedRedirectsFile,
+  deprecatedWithFunctionalRedirects,
 } from '../lib/enterprise-server-releases.js'
 import patterns from '../lib/patterns.js'
 import versionSatisfiesRange from '../lib/version-satisfies-range.js'
 import isArchivedVersion from '../lib/is-archived-version.js'
 import { setFastlySurrogateKey, SURROGATE_ENUMS } from './set-fastly-surrogate-key.js'
 import got from 'got'
-import { readCompressedJsonFileFallback } from '../lib/read-json-file.js'
+import { readCompressedJsonFileFallbackLazily } from '../lib/read-json-file.js'
 import { cacheControlFactory } from './cache-control.js'
 import { pathLanguagePrefixed, languagePrefixPathRegex } from '../lib/languages.js'
+import getRedirect, { splitPathByLanguage } from '../lib/get-redirect.js'
 
 function splitByLanguage(uri) {
   let language = null
@@ -25,46 +26,18 @@ function splitByLanguage(uri) {
   return [language, withoutLanguage]
 }
 
-function readJsonFileLazily(xpath) {
-  const cache = new Map()
-  // This will throw if the file isn't accessible at all, e.g. ENOENT
-  // But, the file might have been replaced by one called `SAMENAME.json.br`
-  // because in staging, we ship these files compressed to make the
-  // deployment faster. So, in our file-presence check, we need to
-  // account for that.
-  try {
-    fs.accessSync(xpath)
-  } catch (err) {
-    if (err.code === 'ENOENT') {
-      try {
-        fs.accessSync(xpath + '.br')
-      } catch (err) {
-        if (err.code === 'ENOENT') {
-          throw new Error(`Neither ${xpath} nor ${xpath}.br is accessible`)
-        }
-        throw err
-      }
-    } else {
-      throw err
-    }
-  }
-  return () => {
-    if (!cache.has(xpath)) cache.set(xpath, readCompressedJsonFileFallback(xpath))
-    return cache.get(xpath)
-  }
-}
-
 // These files are huge so lazy-load them. But note that the
 // `readJsonFileLazily()` function will, at import-time, check that
 // the path does exist.
-const archivedRedirects = readJsonFileLazily(
+const archivedRedirects = readCompressedJsonFileFallbackLazily(
   './lib/redirects/static/archived-redirects-from-213-to-217.json'
 )
-const archivedFrontmatterFallbacks = readJsonFileLazily(
+const archivedFrontmatterFallbacks = readCompressedJsonFileFallbackLazily(
   './lib/redirects/static/archived-frontmatter-fallbacks.json'
 )
 
 const cacheControl = cacheControlFactory(60 * 60 * 24 * 365)
+const noCacheControl = cacheControlFactory(0)
 
 // Combine all the things you need to make sure the response is
 // aggresively cached.
@@ -129,6 +102,39 @@ export default async function archivedEnterpriseVersions(req, res, next) {
 
   const redirectCode = pathLanguagePrefixed(req.path) ? 301 : 302
 
+  if (deprecatedWithFunctionalRedirects.includes(requestedVersion)) {
+    const redirectTo = getRedirect(req.path, req.context)
+    if (redirectTo) {
+      if (redirectCode === 301) {
+        cacheControl(res)
+      } else {
+        noCacheControl(res)
+      }
+      res.removeHeader('set-cookie')
+      return res.redirect(redirectCode, redirectTo)
+    }
+
+    const redirectJson = await getRemoteJSON(getProxyPath('redirects.json', requestedVersion), {
+      retry: retryConfiguration,
+      // This is allowed to be different compared to the other requests
+      // we make because downloading the `redirects.json` once is very
+      // useful because it caches so well.
+      // And, as of 2021 that `redirects.json` is 10MB so it's more likely
+      // to time out.
+      timeout: 1000,
+    })
+    const [language, withoutLanguage] = splitPathByLanguage(req.path, req.context.userLanguage)
+    const newRedirectTo = redirectJson[withoutLanguage]
+    if (newRedirectTo) {
+      if (redirectCode === 301) {
+        cacheControl(res)
+      } else {
+        noCacheControl(res)
+      }
+      res.removeHeader('set-cookie')
+      return res.redirect(redirectCode, `/${language}${newRedirectTo}`)
+    }
+  }
   // redirect language-prefixed URLs like /en/enterprise/2.10 -> /enterprise/2.10
   // (this only applies to versions <2.13)
   if (
@@ -165,7 +171,10 @@ export default async function archivedEnterpriseVersions(req, res, next) {
     }
   }
 
-  if (versionSatisfiesRange(requestedVersion, `>${lastVersionWithoutArchivedRedirectsFile}`)) {
+  if (
+    versionSatisfiesRange(requestedVersion, `>${lastVersionWithoutArchivedRedirectsFile}`) &&
+    !deprecatedWithFunctionalRedirects.includes(requestedVersion)
+  ) {
     const redirectJson = await getRemoteJSON(getProxyPath('redirects.json', requestedVersion), {
       retry: retryConfiguration,
       // This is allowed to be different compared to the other requests

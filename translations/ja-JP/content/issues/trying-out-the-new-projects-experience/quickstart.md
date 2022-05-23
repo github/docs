@@ -35,7 +35,7 @@ Organizationプロジェクトもしくはユーザプロジェクトを作成�
 
 {% data reusables.projects.create-user-project %}
 
-## Setting your project description and README
+## プロジェクトの説明とREADMEの設定
 
 {% data reusables.projects.project-description %}
 

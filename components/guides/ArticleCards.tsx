@@ -3,8 +3,8 @@ import React, { useEffect, useRef, useState } from 'react'
 import { ArticleGuide, useProductGuidesContext } from 'components/context/ProductGuidesContext'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { ArticleCard } from './ArticleCard'
-import { DropdownMenu } from '@primer/components'
-import { ItemInput } from '@primer/components/lib/ActionList/List'
+import { DropdownMenu } from '@primer/react'
+import { ItemInput } from '@primer/react/lib/ActionList/List'
 
 const PAGE_SIZE = 9
 export const ArticleCards = () => {

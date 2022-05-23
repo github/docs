@@ -22,7 +22,7 @@ shortTitle: View 2FA usage
 {% endnote %}
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.people %}
 4. To view organization members, including organization owners, who have enabled or disabled two-factor authentication, on the right, click **2FA**, and select **Enabled** or **Disabled**.
  ![filter-org-members-by-2fa](/assets/images/help/2fa/filter-org-members-by-2fa.png)

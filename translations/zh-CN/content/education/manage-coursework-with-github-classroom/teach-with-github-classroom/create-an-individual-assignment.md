@@ -20,6 +20,8 @@ shortTitle: 个人作业
 
 有关创建个人作业的视频演示，请参阅“[设置 {% data variables.product.prodname_classroom %} 的基本知识](/education/manage-coursework-with-github-classroom/basics-of-setting-up-github-classroom)”。
 
+{% data reusables.classroom.reuse-assignment-link %}
+
 ## 基本要求
 
 {% data reusables.classroom.assignments-classroom-prerequisite %}
@@ -76,6 +78,8 @@ shortTitle: 个人作业
 
 {% data reusables.classroom.about-online-ides %} 更多信息请参阅“[集成 {% data variables.product.prodname_classroom %} 与 IDE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide)”。
 
+{% data reusables.classroom.classroom-codespaces-link %}
+
 {% data reusables.classroom.assignments-guide-choose-an-online-ide %}
 
 ## 为作业提供反馈
@@ -101,20 +105,20 @@ shortTitle: 个人作业
 
 {% data reusables.classroom.assignments-guide-invite-students-to-assignment %}
 
-You can see whether a student has joined the classroom and accepted or submitted an assignment in the **Classroom roster** tab for the assignment. You can also link students' {% data variables.product.prodname_dotcom %} aliases to their associated roster identifier and vice versa in this tab. {% data reusables.classroom.assignments-to-prevent-submission %}
+您可以在作业的 **Classroom roster（课堂花名册）**选项卡中查看学生是否已进入教室或提交作业。 您还可以在此选项卡中将学生的 {% data variables.product.prodname_dotcom %} 别名链接到其关联的花名册标识符，反之亦然。 {% data reusables.classroom.assignments-to-prevent-submission %}
 
 <div class="procedural-image-wrapper">
   <img alt="个人作业" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignment-individual-hero.png">
 </div>
 
-## Monitoring students' progress
-The assignment overview page provides an overview of your assignment acceptances and student progress. You may have different summary information based on the configurations of your assignments.
+## 监控学生的进度
+作业概述页面提供了作业接受情况和学生进度的概述。 根据作业的配置，您可能有不同的摘要信息。
 
-- **Rostered students**: The number of students on the Classroom's roster.
-- **Added students**: The number of {% data variables.product.prodname_dotcom %} accounts that have accepted the assignment and are not associated with a roster identifier.
--  **Accepted students**: The number of accounts have accepted this assignment.
--  **Assignment submissions**: The number of students that have submitted the assignment. Submission is triggered at the assignment deadline.
--  **Passing students**: The number of students currently passing the autograding tests for this assignment.
+- **名册学生**：教室名册上的学生人数。
+- **已添加的学生**：已接受作业且未与名册标识符关联的 {% data variables.product.prodname_dotcom %} 帐户数。
+-  **已接受的学生**：已接受此作业的帐户数。
+-  **作业提交**：已提交作业的学生人数。 在作业截止日期触发提交。
+-  **及格学生**：当前通过此作业的自动评分测试的学生人数。
 
 ## 后续步骤
 

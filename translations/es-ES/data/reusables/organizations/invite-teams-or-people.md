@@ -1,1 +1,1 @@
-1. To the right of "Manage access", click **Add people** or **Add teams**. ![botón de "Invitar equipos o personas"](/assets/images/help/repository/manage-access-invite-button.png)
+1. A la derecha de "Administrar acceso", haz clic en **Agregar personas** o en **Agregar equipos**. ![botón de "Invitar equipos o personas"](/assets/images/help/repository/manage-access-invite-button.png)

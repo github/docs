@@ -71,7 +71,7 @@ DNS レコードの設定が正しいかどうかを検証するために利用�
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.sidebar-pages %}
 4. "Custom domain（カスタムドメイン）" の下で、カスタムドメインを入力して**Save（保存）**をクリックします。 これで_CNAME_ファイルを公開ソースのルートに追加するコミットが作成されます。 ![カスタムドメインの保存ボタン](/assets/images/help/pages/save-custom-apex-domain.png)
-5. DNS プロバイダに移動し、`ALIAS`、`ANAME`、または `A` レコードを作成します。 You can also create `AAAA` records for IPv6 support. {% data reusables.pages.contact-dns-provider %}
+5. DNS プロバイダに移動し、`ALIAS`、`ANAME`、または `A` レコードを作成します。 IPv6サポートのために`AAAA`レコードを作成することもできます。 {% data reusables.pages.contact-dns-provider %}
     - `ALIAS`または`ANAME`レコードを作成するには、Apexドメインをサイトのデフォルトドメインにポイントします。 {% data reusables.pages.default-domain-information %}
     - `A` レコードを作成するには、Apex ドメインが {% data variables.product.prodname_pages %} の IP アドレスを指すようにします。
       ```shell
@@ -80,7 +80,7 @@ DNS レコードの設定が正しいかどうかを検証するために利用�
       185.199.110.153
       185.199.111.153
       ```
-    - To create `AAAA` records, point your apex domain to the IP addresses for {% data variables.product.prodname_pages %}.
+    - `AAAA` レコードを作成するには、Apex ドメインが {% data variables.product.prodname_pages %} の IP アドレスを指すようにします。
       ```shell
       2606:50c0:8000::153
       2606:50c0:8001::153
@@ -91,7 +91,7 @@ DNS レコードの設定が正しいかどうかを検証するために利用�
 {% indented_data_reference reusables.pages.wildcard-dns-warning spaces=3 %}
 {% data reusables.command_line.open_the_multi_os_terminal %}
 6. DNS レコードが正しく設定されたことを確認するには、 `dig` コマンドを使います。_EXAMPLE.COM_ は、お使いの Apex ドメインに置き換えてください。 結果が、上記の {% data variables.product.prodname_pages %} の IP アドレスに一致することを確認します。
-   - For `A` records.
+   - `A`レコードの場合。
     ```shell
     $ dig <em>EXAMPLE.COM</em> +noall +answer -t A
     > <em>EXAMPLE.COM</em>     3600    IN A     185.199.108.153
@@ -99,7 +99,7 @@ DNS レコードの設定が正しいかどうかを検証するために利用�
     > <em>EXAMPLE.COM</em>     3600    IN A     185.199.110.153
     > <em>EXAMPLE.COM</em>     3600    IN A     185.199.111.153
     ```
-   - For `AAAA` records.
+   - `AAAA`レコードの場合。
     ```shell
     $ dig <em>EXAMPLE.COM</em> +noall +answer -t AAAA
     > <em>EXAMPLE.COM</em>     3600    IN AAAA     2606:50c0:8000::153
@@ -114,7 +114,7 @@ DNS レコードの設定が正しいかどうかを検証するために利用�
 
 Apexドメインを使う場合、コンテンツをApexドメインと`www`サブドメイン付きのドメインの双方でホストするよう{% data variables.product.prodname_pages %}サイトを設定することをおすすめします。
 
-Apexドメインと共に`www`サブドメインをセットアップするには、まずApexドメインを設定しします。そうすると、DNSプロバイダで`ALIAS`、`ANAME`、`A`のいずれかのレコードが作成されます。 詳しい情報については「[Apexドメインの設定](#configuring-an-apex-domain)」を参照してください。
+Apexドメインと共に`www`サブドメインをセットアップするには、DNSプロバイダで`ALIAS`、`ANAME`、`A`のいずれかのレコードが作成することによって、まずApexドメインを設定しします。 詳しい情報については「[Apexドメインの設定](#configuring-an-apex-domain)」を参照してください。
 
 Apexドメインを設定したら、DNSプロバイダでCNAMEレコードを設定しなければなりません。
 
@@ -134,9 +134,9 @@ Apexドメインを設定したら、DNSプロバイダでCNAMEレコードを�
 {% data reusables.pages.sidebar-pages %}
 4. "Custom domain（カスタムドメイン）"の下で、**Remove（削除）**をクリックしてください。 ![カスタムドメインの保存ボタン](/assets/images/help/pages/remove-custom-domain.png)
 
-## Securing your custom domain
+## カスタムドメインの保護
 
-{% data reusables.pages.secure-your-domain %} For more information, see "[Verifying your custom domain for {% data variables.product.prodname_pages %}](/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages)."
+{% data reusables.pages.secure-your-domain %} 詳しい情報については「[{% data variables.product.prodname_pages %}のカスタムドメインの検証](/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages)」を参照してください。
 
 ## 参考リンク
 

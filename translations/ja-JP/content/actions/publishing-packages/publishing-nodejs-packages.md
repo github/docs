@@ -43,7 +43,7 @@ Node.jsプロジェクトのためのCIワークフローの作成に関する�
 
  *package.json*ファイル中の`name`及び`version`フィールドは、レジストリがパッケージをレジストリにリンクするために利用するユニークな識別子を作成します。 *package.json*ファイル中に`description`を含めることによって、パッケージのリストページのためのまとめを追加できます。 詳しい情報については、npmのドキュメンテーション中の「[package.jsonファイルの作成](https://docs.npmjs.com/creating-a-package-json-file)」及び「[Node.jsモジュールの作成](https://docs.npmjs.com/creating-node-js-modules)」を参照してください。
 
-ローカルの*.npmrc*ファイルがあり、`registry`の値が指定されている場合、`npm publish`コマンドは*.npmrc*ファイルで設定されたレジストリを使います。 {% data reusables.github-actions.setup-node-intro %}
+ローカルの*.npmrc*ファイルがあり、`registry`の値が指定されている場合、`npm publish`コマンドは*.npmrc*ファイルで設定されたレジストリを使います。 {% data reusables.actions.setup-node-intro %}
 
 `setup-node`アクションを使えば、ランナーにインストールされたNode.jsのバージョンを指定できます。
 
@@ -61,7 +61,6 @@ By default, npm uses the `name` field of the *package.json* file to determine th
 
 以下の例は、`NPM_TOKEN`シークレットを環境変数の`NODE_AUTH_TOKEN`に保存します。 `setup-node`アクションが*.npmrc*ファイルを作成する際には、環境変数の`NODE_AUTH_TOKEN`からトークンを参照します。
 
-{% raw %}
 ```yaml{:copy}
 name: Publish Package to npmjs
 on:
@@ -71,18 +70,17 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       # Setup .npmrc file to publish to npm
-      - uses: actions/setup-node@v2
+      - uses: {% data reusables.actions.action-setup-node %}
         with:
           node-version: '16.x'
           registry-url: 'https://registry.npmjs.org'
       - run: npm ci
       - run: npm publish
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: {% raw %}${{ secrets.NPM_TOKEN }}{% endraw %}
 ```
-{% endraw %}
 
 上の例では、`setup-node`アクションは以下の内容でランナー上に*.npmrc*ファイルを作成します。
 
@@ -115,7 +113,7 @@ Please note that you need to set the `registry-url` to `https://registry.npmjs.o
 
 ### 宛先リポジトリへの認証
 
-ワークフロー中で{% data variables.product.prodname_registry %}レジストリに対して認証を受けた操作をするには、`GITHUB_TOKEN`が使えます。 {% data reusables.github-actions.github-token-permissions %}
+ワークフロー中で{% data variables.product.prodname_registry %}レジストリに対して認証を受けた操作をするには、`GITHUB_TOKEN`が使えます。 {% data reusables.actions.github-token-permissions %}
 
 パッケージを別のリポジトリに公開する場合は、宛先リポジトリ内のパッケージに書き込む権限を持つ個人アクセストークン (PAT) を使用する必要があります。 詳しい情報については、「[個人アクセストークンを作成する](/github/authenticating-to-github/creating-a-personal-access-token)」および「[暗号化されたシークレット](/actions/reference/encrypted-secrets)」を参照してください。
 
@@ -135,9 +133,9 @@ jobs:
       contents: read
       packages: write {% endif %}
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       # Setup .npmrc file to publish to GitHub Packages
-      - uses: actions/setup-node@v2
+      - uses: {% data reusables.actions.action-setup-node %}
         with:
           node-version: '16.x'
           registry-url: 'https://npm.pkg.github.com'
@@ -161,7 +159,6 @@ always-auth=true
 
 パッケージマネージャーのYarnを使う場合、Yarnを使ってパッケージのインストールと公開が行えます。
 
-{% raw %}
 ```yaml{:copy}
 name: Publish Package to npmjs
 on:
@@ -171,9 +168,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       # Setup .npmrc file to publish to npm
-      - uses: actions/setup-node@v2
+      - uses: {% data reusables.actions.action-setup-node %}
         with:
           node-version: '16.x'
           registry-url: 'https://registry.npmjs.org'
@@ -182,6 +179,5 @@ jobs:
       - run: yarn
       - run: yarn publish
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: {% raw %}${{ secrets.NPM_TOKEN }}{% endraw %}
 ```
-{% endraw %}

@@ -48,7 +48,7 @@ Para obter mais informações, consulte "[Criando fluxos de trabalho iniciais pa
 Um fluxo de trabalho reutilizável pode ser usado por outro fluxo de trabalho se {% ifversion ghes or ghec or ghae %}qualquer{% else %}ou{% endif %} dos pontos a seguir for verdadeiro:
 
 * Ambos os fluxos de trabalho estão no mesmo repositório.
-* O fluxo de trabalho chamado é armazenado em um repositório público.{% ifversion ghes or ghec or ghae %}
+* O fluxo de trabalho chamado é armazenado em um repositório público{% if actions-workflow-policy %}, e sua {% ifversion ghec %}empresa{% else %}organização{% endif %} permite que você use fluxos de trabalho públicos reutilizáveis{% endif %}.{% ifversion ghes or ghec or ghae %}
 * O fluxo de trabalho chamado é armazenado em um repositório interno e as configurações para esse repositório permitem que ele seja acessado. Para obter mais informações, consulte {% if internal-actions %}"[Compartilhando ações e fluxos de trabalho com a sua empresa](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise){% else %}"[Gerenciando configurações de {% data variables.product.prodname_actions %} para um repositório](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-an-internal-repository){% endif %}.{% endif %}
 
 ## Usando executores
@@ -63,7 +63,7 @@ A atribuição de executores hospedados em {% data variables.product.prodname_do
 
 {% endif %}
 
-Os fluxos de trabalho chamados podem acessar executores auto-hospedados no contexto do chamador. Isso significa que um fluxo de trabalho chamado pode acessar executores auto-hospedados que estão:
+Fluxos de trabalho chamados que são propriedade do mesmo usuário ou organização{% ifversion ghes or ghec or ghae %} ou empresa{% endif %}, uma vez que o fluxo de trabalho de chamadas pode acessar runners auto-hospedados no contexto do invocador. Isso significa que um fluxo de trabalho chamado pode acessar executores auto-hospedados que estão:
 * No repositório de chamada
 * Na organização{% ifversion ghes or ghec or ghae %} ou empresa {% endif %}do repositório de chamadas, desde que o executor tenha sido disponibilizado para o repositório de chamada
 
@@ -103,8 +103,13 @@ Você pode definir entradas e segredos, que podem ser passados do fluxo de traba
            required: true
    ```
    {% endraw %}
+   {% if actions-inherit-secrets-reusable-workflows %}
+   Para detalhes da sintaxe para definir entradas e segredos, consulte [`on.workflow_call.inputs`](/actions/reference/workflow-syntax-for-github-actions#onworkflow_callinputs), [`on.workflow_call.secrets`](/actions/reference/workflow-syntax-for-github-actions#onworkflow_callsecrets) and [`on.workflow_call.secrets.inherit`](/actions/using-workflows/workflow-syntax-for-github-actions#onworkflow_callsecretsinherit).
+1. No fluxo de trabalho reutilizável, faça referência à entrada ou segredo que você definiu na chave `on` chave na etapa anterior. Se os segredos são herdados usando `secrets: inherit`, você pode referenciá-los mesmo que eles não estejam definidos na chave `on`.
+   {%- else %}
    Para obter detalhes da sintaxe para definir as entradas e segredos, consulte [`on.workflow_call.inputs`](/actions/reference/workflow-syntax-for-github-actions#onworkflow_callinputs) e [`on.workflow_call.secrets`](/actions/reference/workflow-syntax-for-github-actions#onworkflow_callsecrets).
-1. Faça referência à entrada ou segredo no fluxo de trabalho reutilizável.
+1. No fluxo de trabalho reutilizável, faça referência à entrada ou segredo que você definiu na chave `on` chave na etapa anterior.
+   {%- endif %}
 
    {% raw %}
    ```yaml
@@ -113,7 +118,7 @@ Você pode definir entradas e segredos, que podem ser passados do fluxo de traba
        runs-on: ubuntu-latest
        environment: production
        steps:
-         - uses: ./.github/actions/my-action
+         - uses: ./.github/workflows/my-action
            with:
              username: ${{ inputs.username }}
              token: ${{ secrets.envPAT }}
@@ -154,7 +159,7 @@ jobs:
     name: Pass input and secrets to my-action
     runs-on: ubuntu-latest
     steps:
-      - uses: ./.github/actions/my-action
+      - uses: ./.github/workflows/my-action
         with:
           username: ${{ inputs.username }}
           token: ${{ secrets.token }}
@@ -189,6 +194,7 @@ Ao chamar um fluxo de trabalho reutilizável, você só poderá usar as palavras
 * [`jobs.<job_id>.with.<input_id>`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idwithinput_id)
 * [`jobs.<job_id>.secrets`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idsecrets)
 * [`jobs.<job_id>.secrets.<secret_id>`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idsecretssecret_id)
+ {% if actions-inherit-secrets-reusable-workflows %}* [`jobs.<job_id>.secrets.inherit`](/actions/using-workflows/workflow-syntax-for-github-actions#onworkflow_callsecretsinherit){% endif %}
 * [`jobs.<job_id>.needs`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idneeds)
 * [`jobs.<job_id>.if`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idif)
 * [`jobs.<job_id>.permissions`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idpermissions)
@@ -307,3 +313,5 @@ Para obter informações sobre o uso da API REST para consultar o log de auditor
 ## Próximas etapas
 
 Para continuar aprendendo sobre {% data variables.product.prodname_actions %}, consulte "[Eventos que desencadeiam fluxos de trabalho](/actions/learn-github-actions/events-that-trigger-workflows)".
+
+{% if restrict-groups-to-workflows %}Você pode padronizar implantações criando um grupo de executores auto-hospedados que só pode executar um fluxo de trabalho específico reutilizável. Para obter mais informações, consulte "[Gerenciando acesso a executores auto-hospedados usando grupos](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)."{% endif %}

@@ -26,11 +26,7 @@ Cuando tu GitHub App actúe en nombre de un usuario, ésta realiza solicitudes d
 
 Para autorizar a los usuarios para las apps estándar que se ejecutan en el buscador, utiliza el [flujo de aplicaciones web](#web-application-flow).
 
-{% ifversion fpt or ghae or ghes > 3.0 or ghec %}
-
 Para autorizar a los usuarios para apps sin interfaz gráfica sin acceso directo al buscador, tales como las herramientas de CLI o administradores de credenciales de Git, utiliza el [flujo del dispositivo](#device-flow). El flujo de dispositivos utiliza el [Otorgamiento de Autorizción de Dispositivos](https://tools.ietf.org/html/rfc8628) de OAuth 2.0.
-
-{% endif %}
 
 ## Flujo de aplicaciones Web
 
@@ -51,13 +47,13 @@ Cuando tu GitHub App especifica un parámetro de `login`, solicita a los usuario
 
 #### Parámetros
 
-| Nombre         | Tipo        | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| -------------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `client_id`    | `secuencia` | **Requerido.** La ID de cliente para tu GitHub App. Puedes encontrarla en los [Ajustes de tu GitHub App](https://github.com/settings/apps) cuando selecciones tu app. **Nota:** La ID de app y de cliente no son las mismas y no son intercambiables.                                                                                                                                                                        |
-| `redirect_uri` | `secuencia` | La URL en tu aplicación a donde se enviará a los usuarios después de la autorización. Esta debe ser una copia exacta de {% ifversion fpt or ghes > 3.0 or ghec %} una de las URL que proporcionaste como **URL de rellamado** {% else %} la URL que proporcionaste en el campo **URL de rellamado de autorización de usuario** {% endif %} cuando configuraste tu GitHub App y no puede contener ningún parámetro adicional. |
-| `state`        | `secuencia` | Este deberá contener una secuencia aleatoria para dar protección contra los ataques de falsificación y podría contener cualquier otros datos arbitrarios.                                                                                                                                                                                                                                                                    |
-| `login`        | `secuencia` | Sugiere una cuenta específica para utilizar para registrarse y autorizar la app.                                                                                                                                                                                                                                                                                                                                             |
-| `allow_signup` | `secuencia` | Ya sea que se ofrezca no una opción para que los usuarios autenticados se registren para {% data variables.product.prodname_dotcom %} durante el flujo de OAuth. la opción predeterminada es `true`. Utiliza `false` cuando una política prohíba los registros.                                                                                                                                                              |
+| Nombre         | Tipo        | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| -------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `client_id`    | `secuencia` | **Requerido.** La ID de cliente para tu GitHub App. Puedes encontrarla en los [Ajustes de tu GitHub App](https://github.com/settings/apps) cuando selecciones tu app. **Nota:** La ID de app y de cliente no son las mismas y no son intercambiables.                                                                                                                                                                                       |
+| `redirect_uri` | `secuencia` | La URL en tu aplicación a donde se enviará a los usuarios después de la autorización. Esto debe ser una coincidencia exacta con {% ifversion fpt or ghes or ghec %} una de las URL que proporcionaste como **URL de rellamado** {% else %} en la URL que proporcionaste dentro del campo **URL de rellamado para la autorización de usuario** {% endif %} cuando configuraste tu GitHub App y no puede contener ningún parámetro adicional. |
+| `state`        | `secuencia` | Este deberá contener una secuencia aleatoria para dar protección contra los ataques de falsificación y podría contener cualquier otros datos arbitrarios.                                                                                                                                                                                                                                                                                   |
+| `login`        | `secuencia` | Sugiere una cuenta específica para utilizar para registrarse y autorizar la app.                                                                                                                                                                                                                                                                                                                                                            |
+| `allow_signup` | `secuencia` | Ya sea que se ofrezca no una opción para que los usuarios autenticados se registren para {% data variables.product.prodname_dotcom %} durante el flujo de OAuth. la opción predeterminada es `true`. Utiliza `false` cuando una política prohíba los registros.                                                                                                                                                                             |
 
 {% note %}
 
@@ -75,9 +71,9 @@ Si el usuario acepta tu solicitud, GitHub te redirecciona de regreso a tu sitio 
 
 {% endnote %}
 
-Intercambia este `code` por un token de acceso.  Cuando se habilita el vencimiento de tokens, el token de acceso vence en 8 horas y el token de actualización en 6 meses. Cada que actualizas el token, obtienes un nuevo token de actualización. Para obtener más información, consulta la sección "[Actualizar los tokens de acceso de usuario a servidor](/developers/apps/refreshing-user-to-server-access-tokens)".
+Intercambia este `code` por un token de acceso.  Cuando se habilita el vencimiento de tokens, el token de acceso vence en 8 horas y el token de actualización en 6 meses. Cada que actualizas el token, obtienes un nuevo token de actualización. Para obtener más información, consulta la sección "[Actualziar los tokens de acceso usuario-servidor](/developers/apps/refreshing-user-to-server-access-tokens)".
 
-Los tokens de usuario con vigencia determinada son una característica opcional actualmente y están sujetos a cambios. Para decidir unirse a la característica de vigencia determinada de los tokens de usuario a servidor, consulta la sección "[Activar las características opcionales para las apps](/developers/apps/activating-optional-features-for-apps)".
+Los tokens de usuario con vigencia determinada son una característica opcional actualmente y están sujetos a cambios. Para decidir participar en la característica de vencimiento de tokens usuario-servidor, consulta la sección "[Activar las características opcionales para las apps](/developers/apps/activating-optional-features-for-apps)".
 
 Haz una solicitud a la siguiente terminal para recibir un token de acceso:
 
@@ -85,17 +81,17 @@ Haz una solicitud a la siguiente terminal para recibir un token de acceso:
 
 #### Parámetros
 
-| Nombre          | Tipo        | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| --------------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `client_id`     | `secuencia` | **Requerido.** La ID de cliente para tu GitHub App.                                                                                                                                                                                                                                                                                                                                                                          |
-| `client_secret` | `secuencia` | **Requerido.** El secreto de cliente para tu GitHub App.                                                                                                                                                                                                                                                                                                                                                                     |
-| `código`        | `secuencia` | **Requerido.** El código que recibiste como respuesta al Paso 1.                                                                                                                                                                                                                                                                                                                                                             |
-| `redirect_uri`  | `secuencia` | La URL en tu aplicación a donde se enviará a los usuarios después de la autorización. Esta debe ser una copia exacta de {% ifversion fpt or ghes > 3.0 or ghec %} una de las URL que proporcionaste como **URL de rellamado** {% else %} la URL que proporcionaste en el campo **URL de rellamado de autorización de usuario** {% endif %} cuando configuraste tu GitHub App y no puede contener ningún parámetro adicional. |
-| `state`         | `secuencia` | La secuencia aleatoria indescifrable que proporcionaste en el Paso 1.                                                                                                                                                                                                                                                                                                                                                        |
+| Nombre          | Tipo        | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `client_id`     | `secuencia` | **Requerido.** La ID de cliente para tu GitHub App.                                                                                                                                                                                                                                                                                                                                                                                         |
+| `client_secret` | `secuencia` | **Requerido.** El secreto de cliente para tu GitHub App.                                                                                                                                                                                                                                                                                                                                                                                    |
+| `código`        | `secuencia` | **Requerido.** El código que recibiste como respuesta al Paso 1.                                                                                                                                                                                                                                                                                                                                                                            |
+| `redirect_uri`  | `secuencia` | La URL en tu aplicación a donde se enviará a los usuarios después de la autorización. Esto debe ser una coincidencia exacta con {% ifversion fpt or ghes or ghec %} una de las URL que proporcionaste como **URL de rellamado** {% else %} en la URL que proporcionaste dentro del campo **URL de rellamado para la autorización de usuario** {% endif %} cuando configuraste tu GitHub App y no puede contener ningún parámetro adicional. |
+| `state`         | `secuencia` | La secuencia aleatoria indescifrable que proporcionaste en el Paso 1.                                                                                                                                                                                                                                                                                                                                                                       |
 
 #### Respuesta
 
-Predeterminadamente, la respuesta toma la siguiente forma. Los parámetros de respuesta `expires_in`, `refresh_token`,  y `refresh_token_expires_in` solo se devuelven cuando habilitas la vigencia determinada para los tokens de acceso de usuario a servidor.
+Predeterminadametne, la respuesta lleva el siguiente formato. Los parámetros de respuesta `expires_in`, `refresh_token`,  y `refresh_token_expires_in` solo se devuelven cuando habilitas la vigencia determinada para los tokens de acceso de usuario a servidor.
 
 ```json
 {
@@ -121,8 +117,6 @@ Por ejemplo, en curl, puedes configurar el encabezado de autorización de la sig
 curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre %}/user
 ```
 
-{% ifversion fpt or ghae or ghes > 3.0 or ghec %}
-
 ## Flujo de dispositivos
 
 {% note %}
@@ -133,12 +127,9 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 
 Este flujo de dispositivos te permite autorizar usuarios para una app sin encabezado, tal como una herramienta de CLI o un administrador de credenciales de Git.
 
-Para obtener más información acerca de autorizar a usuarios utilizando el flujo de dispositivos, consulta la sección "[Autorizar Apps de OAuth](/developers/apps/authorizing-oauth-apps#device-flow)".
-
-{% endif %}
+{% if device-flow-is-opt-in %}Antes de que puedas utilizar el flujo de dispositivos para identificar y autorizar usuarios, primero debes habilitarlo en los ajustes de tu app. Para obtener más información sobre cómo habilitar el flujo de dispositivos, consulta la sección "[Modificar una GitHub App](/developers/apps/managing-github-apps/modifying-a-github-app)". {% endif %}Para obtener más información sobre cómo autorizar usuarios utilizando el flujo de dispositivos, consulta la sección "[Autorizar las Apps de OAuth](/developers/apps/authorizing-oauth-apps#device-flow)".
 
 ## Revisar a qué recursos de instalación puede acceder un usuario
-
 
 Ya que tengas un token de OAuth para un usuario, puedes revisar a qué instalaciones puede acceder.
 
@@ -158,7 +149,7 @@ Si un usuario revoca su autorización de una GitHub App, dicha app recibirá el 
 
 ## Permisos a nivel de usuario
 
-Puedes agregar permisos a nivel de usuario a tu GitHub App para acceder a los recursos del usuario, tales como correos electrónicos del usuario, los cuales otorgan los usuarios independientes como parte del [flujo de autorización del usuario](#identifying-users-on-your-site). Los permisos a nivel de usuario difieren de los [permisos a nivel de organización y de repositorio](/rest/reference/permissions-required-for-github-apps), los cuales se otorgan en el momento de la instalación en una cuenta de usuario o de organización.
+Puedes agregar permisos a nivel de usuario a tu GitHub App para acceder a los recursos del usuario, tales como correos electrónicos del usuario, los cuales otorgan los usuarios independientes como parte del [flujo de autorización del usuario](#identifying-users-on-your-site). Los permisos a nivel de usuario difieren de los [permisos a nivel de organización y de repositorio](/rest/reference/permissions-required-for-github-apps), los cuales se otorgan en el momento de la instalación en una cuenta personal o de organización.
 
 Puedes seleccionar los permisos a nivel de usuario desde dentro de la configuración de tu GitHub App en la sección de **Permisos de usuario** de la página de **Permisos & webhooks**. Para obtener más información sobre seleccionar permisos, consulta la sección [Editar los permisos de una GitHub App](/apps/managing-github-apps/editing-a-github-app-s-permissions/)".
 
@@ -248,8 +239,8 @@ Mientras que la mayoría de tu interacción con la API deberá darse utilizando 
 
 * [Listar los despliegues](/rest/reference/deployments#list-deployments)
 * [Crear un despliegue](/rest/reference/deployments#create-a-deployment)
-* [Obtener un despliegue](/rest/reference/deployments#get-a-deployment){% ifversion fpt or ghes or ghae or ghec %}
-* [Borrar un despliegue](/rest/reference/deployments#delete-a-deployment){% endif %}
+* [Obtén un despliegue](/rest/reference/deployments#get-a-deployment)
+* [Borra un despliegue](/rest/reference/deployments#delete-a-deployment)
 
 #### Eventos
 
@@ -272,7 +263,8 @@ Mientras que la mayoría de tu interacción con la API deberá darse utilizando 
 
 #### Referencias de Git
 
-* [Crea una referencia](/rest/reference/git#create-a-reference)* [Obtén una referencia](/rest/reference/git#get-a-reference)
+* [Crear una referencia](/rest/reference/git#create-a-reference)
+* [Obtener una referencia](/rest/reference/git#get-a-reference)
 * [Lista las referencias coincidentes](/rest/reference/git#list-matching-references)
 * [Actualizar una referencia](/rest/reference/git#update-a-reference)
 * [Borrar una referencia](/rest/reference/git#delete-a-reference)
@@ -430,14 +422,12 @@ Mientras que la mayoría de tu interacción con la API deberá darse utilizando 
 * [Eliminar el requerir los ganchos de pre-recepción para una organización](/enterprise/user/rest/reference/enterprise-admin#remove-pre-receive-hook-enforcement-for-an-organization)
 {% endif %}
 
-{% ifversion fpt or ghes or ghae or ghec %}
 #### Poyectos de Equipo de una Organización
 
 * [Listar los proyectos de equipo](/rest/reference/teams#list-team-projects)
 * [Verificar los permisos del equipo para un proyecto](/rest/reference/teams#check-team-permissions-for-a-project)
 * [Agregar o actualizar los permisos de un proyecto de equipo](/rest/reference/teams#add-or-update-team-project-permissions)
 * [Eliminar a un proyecto de un equipo](/rest/reference/teams#remove-a-project-from-a-team)
-{% endif %}
 
 #### Repositorios de Equipo de la Organización
 
@@ -583,7 +573,7 @@ Mientras que la mayoría de tu interacción con la API deberá darse utilizando 
 
 #### Reacciones
 
-{% ifversion fpt or ghes or ghae or ghec %}*[Borrar una reacción](/rest/reference/reactions#delete-a-reaction-legacy){% else %}*[Borrar una reacción](/rest/reference/reactions#delete-a-reaction){% endif %}
+* [Borra una reacción](/rest/reference/reactions)
 * [Listar las reacciones a un comentario de una confirmación](/rest/reference/reactions#list-reactions-for-a-commit-comment)
 * [Crear una reacción para el comentario de una confirmación](/rest/reference/reactions#create-reaction-for-a-commit-comment)
 * [Listar las reacciones de un informe de problemas](/rest/reference/reactions#list-reactions-for-an-issue)
@@ -595,13 +585,13 @@ Mientras que la mayoría de tu interacción con la API deberá darse utilizando 
 * [Listar las reacciones para un comentario de debate de equipo](/rest/reference/reactions#list-reactions-for-a-team-discussion-comment)
 * [Crear una reacción para un comentario de debate de equipo](/rest/reference/reactions#create-reaction-for-a-team-discussion-comment)
 * [Listar las reaciones a un debate de equipo](/rest/reference/reactions#list-reactions-for-a-team-discussion)
-* [Crear una reacción para un debate de equipo](/rest/reference/reactions#create-reaction-for-a-team-discussion){% ifversion fpt or ghes or ghae or ghec %}
+* [Crear una reacción para un debate de equipo](/rest/reference/reactions#create-reaction-for-a-team-discussion)
 * [Borrar la reacción a un comentario de una confirmación](/rest/reference/reactions#delete-a-commit-comment-reaction)
 * [Borrar la reacción a un comentario](/rest/reference/reactions#delete-an-issue-reaction)
 * [Borrar la reacción a un comentario de una confirmación](/rest/reference/reactions#delete-an-issue-comment-reaction)
 * [Borrar la reacción a un comentario de una solicitud de extracción](/rest/reference/reactions#delete-a-pull-request-comment-reaction)
 * [Borrar la reacción a un debate de equipo](/rest/reference/reactions#delete-team-discussion-reaction)
-* [Borrar la reacción a un comentario de un debate de equipo](/rest/reference/reactions#delete-team-discussion-comment-reaction){% endif %}
+* [Borrar una reacción a un comentario en un debate de equipo](/rest/reference/reactions#delete-team-discussion-comment-reaction)
 
 #### Repositorios
 
@@ -715,11 +705,9 @@ Mientras que la mayoría de tu interacción con la API deberá darse utilizando 
 * [Obtener el README de un repositorio](/rest/reference/repos#get-a-repository-readme)
 * [Obtener la licencia para un repositorio](/rest/reference/licenses#get-the-license-for-a-repository)
 
-{% ifversion fpt or ghes or ghae or ghec %}
 #### Envíos de Evento de un Repositorio
 
 * [Crear un evento de envío de un repositorio](/rest/reference/repos#create-a-repository-dispatch-event)
-{% endif %}
 
 #### Ganchos de Repositorio
 

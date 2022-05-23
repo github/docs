@@ -2,7 +2,7 @@ import cx from 'classnames'
 import { useState } from 'react'
 
 import { ChevronDownIcon } from '@primer/octicons-react'
-import { ActionList } from '@primer/components'
+import { ActionList } from '@primer/react'
 
 import { ProductTreeNode, useMainContext } from 'components/context/MainContext'
 import { Link } from 'components/Link'
@@ -57,7 +57,7 @@ const ProductTreeNodeList = ({ treeNode }: { treeNode: ProductTreeNode }) => {
                 }}
               >
                 <Link className="d-block width-full" href={childNode.href}>
-                  {childNode.page.title}
+                  {childNode.renderedFullTitle}
                   {childNode.page.documentType === 'mapTopic' ? (
                     <small className="color-fg-muted d-inline-block">
                       &nbsp;&bull; {childNode.childPages.length} articles

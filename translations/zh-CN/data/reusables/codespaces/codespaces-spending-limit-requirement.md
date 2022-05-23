@@ -1,7 +1,9 @@
 {% note %}
 
-**Note:** You must set a spending limit before you can use {% data variables.product.prodname_codespaces %}.
+**注意：**必须先设置支出限额，然后才能使用 {% data variables.product.prodname_codespaces %}。
 
 {% endnote %}
 
-By default, your organization or enterprise will have a {% data variables.product.prodname_codespaces %} spending limit of $0, which prevents new codespaces from being created or existing codespaces from being opened. To allow your users to create codespaces in your organization, set the limit to a value higher than $0.
+默认情况下，您的组织或企业的 {% data variables.product.prodname_codespaces %} 支出限制为 $0，这将阻止创建新代码空间或打开现有代码空间。 若要允许用户在组织中创建代码空间，请将限制设置为大于 $0 的值。
+
+{% data reusables.billing.overages-billed-monthly %}

@@ -6,7 +6,7 @@ shortTitle: 依存関係のレビュー
 versions:
   fpt: '*'
   ghes: '>= 3.2'
-  ghae: issue-4864
+  ghae: '*'
   ghec: '*'
 type: overview
 topics:
@@ -27,23 +27,34 @@ redirect_from:
 
 プルリクエストがリポジトリのデフォルトブランチを対象とし、パッケージマニフェストまたはロックファイルへの変更が含まれている場合は、依存関係のレビューを表示して、何が変更されたかを確認できます。 依存関係のレビューには、ロックファイル内の間接的な依存関係への変更の詳細が含まれ、追加または更新された依存関係のいずれかに既知の脆弱性が含まれているかどうかが示されます。
 
-{% ifversion fpt or ghec %}
-依存関係のレビューは次の項目で確認できます。
-
-* すべてのパブリックリポジトリ
-* 依存関係グラフが有効になっている {% data variables.product.prodname_advanced_security %} ライセンスを持つ Organization が所有するプライベートリポジトリ。 詳しい情報については、「[リポジトリの依存関係を調べる](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository#enabling-and-disabling-the-dependency-graph-for-a-private-repository)」を参照してください。
-{% elsif ghes or ghae %}
-Dependency review is available when dependency graph is enabled for {% data variables.product.product_location %} and {% data variables.product.prodname_advanced_security %} is enabled for the organization or repository.
-{% endif %}
-
 時に、マニフェスト内の 1 つの依存関係のバージョンを更新して、プルリクエストを生成することがあります。 ただし、この直接依存関係の更新バージョンでも依存関係が更新されている場合は、プルリクエストに予想よりも多くの変更が加えられている可能性があります。 各マニフェストとロックファイルの依存関係のレビューにより、何が変更されたか、新しい依存関係バージョンのいずれかに既知の脆弱性が含まれているかどうかを簡単に確認できます。
 
 プルリクエストで依存関係のレビューを確認し、脆弱性としてフラグが付けられている依存関係を変更することで、プロジェクトに脆弱性が追加されるのを防ぐことができます。 依存関係のレビューの動作に関する詳しい情報については「[Pull Request中の依存関係の変更のレビュー](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request)」を参照してください。
 
-{% data variables.product.prodname_dependabot_alerts %} は、すでに依存関係にある脆弱性を検出しますが、あとで修正するよりも、潜在的な問題が持ち込まれることを回避する方がはるかに良いです。 {% data variables.product.prodname_dependabot_alerts %} に関する詳しい情報については、「[脆弱性のある依存関係に対するアラートについて](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies#dependabot-alerts-for-vulnerable-dependencies)」を参照してください。
+依存関係レビューの設定に関する詳しい情報については「[依存関係レビューの設定](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review)」を参照してください。
+
+{% data variables.product.prodname_dependabot_alerts %} は、すでに依存関係にある脆弱性を検出しますが、あとで修正するよりも、潜在的な問題が持ち込まれることを回避する方がはるかに良いです。 {% data variables.product.prodname_dependabot_alerts %}に関する詳しい情報については「[{% data variables.product.prodname_dependabot_alerts %}について](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies#dependabot-alerts-for-vulnerable-dependencies)」を参照してください。
 
 依存関係のレビューは、依存関係グラフと同じ言語とパッケージ管理エコシステムをサポートしています。 詳しい情報については、「[依存関係グラフについて](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems)」を参照してください。
 
-## Enabling dependency review
+{% data variables.product.product_name %}で利用できるサプライチェーンの機能に関する詳しい情報については「[サプライチェーンのセキュリティについて](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security)」を参照してください。
 
-The dependency review feature becomes available when you enable the dependency graph. {% ifversion fpt or ghec %}For more information, see "[Enabling the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph)."{% endif %}{% ifversion ghes or ghae %}For more information, see "[Enabling the dependency graph and {% data variables.product.prodname_dependabot_alerts %} for your enterprise](/admin/configuration/configuring-github-connect/enabling-the-dependency-graph-and-dependabot-alerts-for-your-enterprise)."{% endif %}
+{% ifversion ghec or ghes %}
+## 依存関係レビューの有効化
+
+依存関係レビューの機能は、依存関係グラフを有効化すると利用できるようになります。 詳しい情報については{% ifversion ghec %}「[依存関係グラフの有効化](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph)」{% elsif ghes %}「[Enterpriseでの依存関係グラフの有効化](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise)」{% endif %}を参照してください。
+{% endif %}
+
+{% ifversion fpt or ghec or ghes > 3.5 or ghae-issue-6396 %}
+## 依存関係レビューの施行
+
+{% data reusables.dependency-review.dependency-review-action-beta-note %}
+
+Dependency Review GitHub Actionをリポジトリで使って、Pull Requestに対する依存関係レビューを施行できます。 このアクションは、Pull Request中のパッケージバージョンの変更によってもたらされる依存関係の脆弱なバージョンをスキャンし、関連するセキュリティ脆弱性について警告してくれます。 これによって、Pull Requestで何が変更されるかが見えやすくなり、リポジトリに脆弱性が追加されることを避けやすくなります。 詳しい情報については[`dependency-review-action`](https://github.com/actions/dependency-review-action)を参照してください。
+
+![依存関係レビューアクションの例](/assets/images/help/graphs/dependency-review-action.png)
+
+Dependency Review GitHub Actionのチェックは、脆弱性のあるパッケージを見つけると失敗しますが、リポジトリのオーナーがマージの前にチェックをパスすることを必須としている場合にのみ、そのPull Requestがマージされるのをブロックします。 詳しい情報については、「[保護されたブランチについて](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-status-checks-before-merging)」を参照してください。
+
+このアクションはDependency Review REST APIを使ってベースコミットとheadコミット間の依存関係の変化のdiffを取得します。 Dependency Review API を使って、リポジトリでの任意の2つのコミット間の脆弱性のデータを含む依存関係の変化のdiffを取ることができます。 詳しい情報については「[依存関係レビュー](/rest/reference/dependency-graph#dependency-review)」を参照してください。
+{% endif %}

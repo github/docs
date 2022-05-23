@@ -20,7 +20,7 @@ topics:
 
 Este guia explica como usar {% data variables.product.prodname_actions %} para criar e publicar um projeto no [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/).
 
-{% ifversion fpt or ghec or ghae-issue-4856 %}
+{% ifversion fpt or ghec or ghae-issue-4856 or ghes > 3.4 %}
 
 {% note %}
 
@@ -73,7 +73,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
+    - uses: {% data reusables.actions.action-checkout %}
 
     - name: Azure Login
       uses: azure/login@89d153571fe9a34ed70fcf9f1d95ab8debea7a73

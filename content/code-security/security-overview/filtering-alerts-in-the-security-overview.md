@@ -1,11 +1,10 @@
 ---
 title: Filtering alerts in the security overview
-intro: 'Use filters to view specific categories of alerts'
-permissions: Organization owners and security managers can access the security overview for organizations. Members of a team can see the security overview for repositories that the team has admin privileges for.
+intro: Use filters to view specific categories of alerts
+permissions: '{% data reusables.security-center.permissions %}'
 product: '{% data reusables.gated-features.security-center %}'
 versions:
-  fpt: '*'
-  ghae: issue-4554
+  ghae: '*'
   ghes: '>3.1'
   ghec: '*'
 type: how_to
@@ -18,7 +17,9 @@ topics:
 shortTitle: Filtering alerts
 ---
 
+{% ifversion ghes < 3.5 or ghae %}
 {% data reusables.security-center.beta %}
+{% endif %}
 
 ## About filtering the security overview
 
@@ -52,7 +53,7 @@ Available in the organization-level and team-level overview.
 
 | Qualifier | Description |
 | -------- | -------- |
-{%- ifversion fpt or ghes or ghec %}
+{%- ifversion ghes or ghec %}
 | `is:public` | Display public repositories. |
 {%- endif %}
 {%- ifversion ghes or ghec or ghae %}
@@ -117,6 +118,17 @@ Available in the code scanning alert views. All code scanning alerts have one of
 |`severity:warning`|Displays {% data variables.product.prodname_code_scanning %} alerts categorized as warnings.|
 |`severity:note`|Displays {% data variables.product.prodname_code_scanning %} alerts categorized as notes.|
 
+{% if dependabot-alerts-vulnerable-calls %}
+## Filter by {% data variables.product.prodname_dependabot %} alert type
+
+Available in the {% data variables.product.prodname_dependabot %} alert views. You can filter the view to show {% data variables.product.prodname_dependabot_alerts %} that are ready to fix or where additional information about exposure is available. You can click any result to see full details of the alert.
+
+| Qualifier | Description |
+| -------- | -------- |
+|`has:patch`|Displays {% data variables.product.prodname_dependabot %} alerts for vulnerabilities where a secure version is already available.|
+|`has:vulnerable-calls`|Displays {% data variables.product.prodname_dependabot %} alerts where at least one call from the repository to a vulnerable function is detected. For more information, see "[Viewing and updating Dependabot alerts](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#about-the-detection-of-calls-to-vulnerable-functions)."|
+{% endif %}
+
 {% endif %}
 
 ## Filter by secret types
@@ -125,8 +137,8 @@ Available in the secret scanning alert views.
 
 | Qualifier | Description |
 | -------- | -------- |
-| `secret-type:SERVICE_PROVIDER` | Displays alerts for the specified secret and provider. For more information, see "[{% data variables.product.prodname_secret_scanning_caps %} partners](/code-security/secret-scanning/secret-scanning-partners)." |
-| `secret-type:CUSTOM-PATTERN` | Displays alerts for secrets matching the specified custom pattern. {% ifversion not fpt %}For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."{% endif %} |
+| `secret-type:SERVICE_PROVIDER` | Displays alerts for the specified secret and provider. For more information, see "[{% data variables.product.prodname_secret_scanning_caps %} patterns](/code-security/secret-scanning/secret-scanning-patterns)." |
+| `secret-type:CUSTOM-PATTERN` | Displays alerts for secrets matching the specified custom pattern. For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)." |
 
 ## Filter by provider
 
@@ -134,4 +146,4 @@ Available in the secret scanning alert views.
 
 | Qualifier | Description |
 | -------- | -------- |
-|`provider:PROVIDER_NAME` | Displays alerts for all secrets issues by the specified provider. For more information, see "[{% data variables.product.prodname_secret_scanning_caps %} partners](/code-security/secret-scanning/secret-scanning-partners)." |
+|`provider:PROVIDER_NAME` | Displays alerts for all secrets issues by the specified provider. For more information, see "[{% data variables.product.prodname_secret_scanning_caps %} patterns](/code-security/secret-scanning/secret-scanning-patterns)." |

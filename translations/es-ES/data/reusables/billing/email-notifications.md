@@ -2,4 +2,4 @@ Las notificaciones por correo electrónico se envían a los propietarios de cuen
 
 Puedes inhabilitar estas notificaciones en cualquier momento si navegas al final de la página del **Límite de Gastos**.
 
-![Screenshot of the billing email notification settings](/assets/images/help/billing/actions-packages-spending-limit-notifications.png)
+![Captura de pantalla de los ajustes de notificaciones de facturación por correo electrónico](/assets/images/help/billing/actions-packages-spending-limit-notifications.png)

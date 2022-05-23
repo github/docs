@@ -16,10 +16,6 @@ topics:
 shortTitle: Gerenciar a partir de sua caixa de entrada
 ---
 
-{% ifversion ghes %}
-{% data reusables.mobile.ghes-release-phase %}
-{% endif %}
-
 ## Sobre sua caixa de entrada
 
 {% ifversion fpt or ghes or ghec %}
@@ -116,13 +112,13 @@ Para filtrar notificações para uma atividade específica no {% data variables.
 - `is:gist`
 - `is:issue-or-pull-request`
 - `is:release`
-- `is:repository-invitation`{% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
+- `is:repository-invitation`{% ifversion fpt or ghes or ghae or ghec %}
 - `is:repository-vulnerability-alert`{% endif %}{% ifversion fpt or ghec %}
 - `is:repository-advisory`{% endif %}
 - `is:team-discussion`{% ifversion fpt or ghec %}
 - `is:discussion`{% endif %}
 
-{% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
+{% ifversion fpt or ghes or ghae or ghec %}
 Para informações sobre a redução de ruído de notificações para {% data variables.product.prodname_dependabot_alerts %}, consulte "[Configurar notificações para dependências vulneráveis](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies)".
 {% endif %}
 
@@ -146,7 +142,7 @@ Para filtrar notificações por motivos pelos quais recebeu uma atualização, v
 | `reason:invitation`       | Quando você for convidado para uma equipe, organização ou repositório.                                                            |
 | `reason:manual`           | Quando você clicar em **Assinar** em um problema ou uma pull request que você ainda não estava inscrito.                          |
 | `reason:mention`          | Você foi @mencionado diretamente.                                                                                                 |
-| `reason:review-requested` | Foi solicitado que você ou uma equipe revise um um pull request.{% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
+| `reason:review-requested` | Foi solicitado que você ou uma equipe revise um um pull request.{% ifversion fpt or ghes or ghae or ghec %}
 | `reason:security-alert`   | Quando um alerta de segurança é emitido para um repositório.{% endif %}
 | `reason:state-change`     | Quando o estado de uma pull request ou um problema é alterado. Por exemplo, um problema é fechado ou uma pull request é mesclada. |
 | `reason:team-mention`     | Quando uma equipe da qual você é integrante é @mencionada.                                                                        |
@@ -165,7 +161,7 @@ Por exemplo, para ver notificações da organização octo-org, use `org:octo-or
 
 {% endif %}
 
-{% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
+{% ifversion fpt or ghes or ghae or ghec %}
 ## Filtros personalizados de {% data variables.product.prodname_dependabot %}
 
 {% ifversion fpt or ghec or ghes > 3.2 %}
@@ -174,16 +170,16 @@ Se você usar {% data variables.product.prodname_dependabot %} para manter suas 
 - `reason:security_alert` para mostrar notificações para {% data variables.product.prodname_dependabot_alerts %} e pull requests das atualizações de segurança.
 - `author:app/dependabot` para mostrar as notificações geradas por {% data variables.product.prodname_dependabot %}. Isto inclui {% data variables.product.prodname_dependabot_alerts %}, pull requests para atualizações de segurança e pull requests para atualizações de versão.
 
-Para obter mais informações sobre {% data variables.product.prodname_dependabot %}, consulte "[Sobre o gerenciamento de dependências vulneráveis](/github/managing-security-vulnerabilities/about-managing-vulnerable-dependencies)".
+Para obter mais informações sobre {% data variables.product.prodname_dependabot %}, consulte "[Sobre {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)."
 {% endif %}
 
-{% ifversion ghes < 3.3 or ghae-issue-4864 %}
+{% ifversion ghes < 3.3 or ghae %}
 
 Se você usar {% data variables.product.prodname_dependabot %} para falar sobre dependências vulneráveis, você pode usar e salvar esses filtros personalizados para mostrar notificações para {% data variables.product.prodname_dependabot_alerts %}:
 - `is:repository_vulnerability_alert`
 - `reason:security_alert`
 
-Para obter mais informações sobre {% data variables.product.prodname_dependabot %}, consulte "[Sobre alertas para dependências vulneráveis](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)".
+Para obter mais informações sobre {% data variables.product.prodname_dependabot %}, consulte "[Sobre {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)."
 {% endif %}
 
 {% endif %}

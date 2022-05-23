@@ -7,7 +7,7 @@ import nock from 'nock'
 import japaneseCharacters from 'japanese-characters'
 
 import '../../lib/feature-flags.js'
-import { getDOM, getJSON } from '../helpers/supertest.js'
+import { getDOM, getJSON } from '../helpers/e2etest.js'
 import enterpriseServerReleases from '../../lib/enterprise-server-releases.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
@@ -45,9 +45,9 @@ describe('featuredLinks', () => {
 
       expect($featuredLinks.eq(8).attr('href')).toBe('/en/pages')
       expect($featuredLinks.eq(8).children('h3').text().startsWith('GitHub Pages')).toBe(true)
-      expect($featuredLinks.eq(8).children('p').text().startsWith('You can create a website')).toBe(
-        true
-      )
+      expect(
+        $featuredLinks.eq(8).children('p').text().startsWith('Learn how to create a website')
+      ).toBe(true)
     })
 
     test('localized intro links link to localized pages', async () => {
@@ -74,7 +74,7 @@ describe('featuredLinks', () => {
       expect($featuredLinks.eq(0).attr('href')).toBe(
         `/en/enterprise-server@${enterpriseServerReleases.latest}/github/getting-started-with-github/githubs-products`
       )
-      expect($featuredLinks.eq(0).children('h3').text().startsWith("GitHub's products")).toBe(true)
+      expect($featuredLinks.eq(0).children('h3').text().startsWith('GitHub’s products')).toBe(true)
       expect(
         $featuredLinks
           .eq(0)
@@ -101,9 +101,11 @@ describe('featuredLinks', () => {
 
       // Confirm that the following Dotcom-only links are NOT included on this Enterprise page.
       msg = `Dotcom-only article link is rendered, but should not be, on ${enterpriseVersionedLandingPage}`
-      expect($productArticlesLinks.text().includes('Working with the Container registry')).toBe(
-        false
-      )
+      expect(
+        $productArticlesLinks
+          .text()
+          .includes('Allowing your codespace to access a private image registry')
+      ).toBe(false)
       expect(
         $productArticlesLinks
           .text()

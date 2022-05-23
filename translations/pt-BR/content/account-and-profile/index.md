@@ -1,7 +1,7 @@
 ---
 title: Sua conta e seu perfil no GitHub
 shortTitle: Conta e perfil
-intro: 'Faça {% data variables.product.product_name %} funcionar melhor para você, ajustando as configurações para sua conta de usuário, personalizando a página do seu perfil e gerenciando as notificações que você recebe para atividades em {% data variables.product.prodname_dotcom %}.'
+intro: 'Faça {% data variables.product.product_name %} funcionar melhor para você, ajustando as configurações para sua conta pessoal, personalizando a página do seu perfil e gerenciando as notificações que você recebe para atividades em {% data variables.product.prodname_dotcom %}.'
 introLinks:
   quickstart: /get-started/onboarding/getting-started-with-your-github-account
 featuredLinks:
@@ -37,7 +37,7 @@ topics:
   - Profiles
   - Notifications
 children:
-  - /setting-up-and-managing-your-github-user-account
+  - /setting-up-and-managing-your-personal-account-on-github
   - /setting-up-and-managing-your-github-profile
   - /managing-subscriptions-and-notifications-on-github
 ---

@@ -4,7 +4,7 @@ redirect_from:
   - /articles/requesting-an-archive-of-your-personal-account-s-data
   - /articles/requesting-an-archive-of-your-personal-accounts-data
   - /github/understanding-how-github-uses-and-protects-your-data/requesting-an-archive-of-your-personal-accounts-data
-intro: '{% data reusables.user_settings.export-data %}'
+intro: '{% data reusables.user-settings.export-data %}'
 versions:
   fpt: '*'
   ghec: '*'
@@ -28,8 +28,8 @@ shortTitle: Request account archive
 
 ## 個人アカウントのデータのアーカイブをダウンロードする
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.account_settings %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.account_settings %}
 3. [Export account data] で、[**Start export**] または [**New export**] をクリックします。 ![強調表示された [Start export] ボタン](/assets/images/help/repository/export-personal-data.png) ![強調表示された [New export] ボタン](/assets/images/help/repository/new-export.png)
 4. エクスポートをダウンロードする準備が整ったら、{% data variables.product.product_name %} はお使いのプライマリメールアドレスにダウンロード リンクを送信します。
 5. メール内のダウンロードリンクをクリックし、要求されたらパスワードを再入力します。
@@ -37,6 +37,6 @@ shortTitle: Request account archive
 
 ## 個人アカウントのデータのアーカイブへのアクセスを削除する
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.account_settings %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.account_settings %}
 3. メールに送信されたダウンロードリンクを有効期限が切れる前に無効にするには、[Export account data] で無効にするデータエクスポートのダウンロードを探し、[**Delete**] をクリックします。 ![強調表示された [Delete personal data export package] ボタン](/assets/images/help/repository/delete-export-personal-account-data.png)

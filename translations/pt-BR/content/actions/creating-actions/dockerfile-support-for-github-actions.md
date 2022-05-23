@@ -105,7 +105,7 @@ Se você definir os `args` no arquivo de metadados da ação, os `args` irão su
 
 Se você usar `CMD` no seu `arquivo Docker`, siga essas diretrizes:
 
-{% data reusables.github-actions.dockerfile-guidelines %}
+{% data reusables.actions.dockerfile-guidelines %}
 
 ## Recursos compatíveis com o Linux
 

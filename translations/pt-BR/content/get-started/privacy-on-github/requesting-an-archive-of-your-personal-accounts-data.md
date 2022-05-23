@@ -4,7 +4,7 @@ redirect_from:
   - /articles/requesting-an-archive-of-your-personal-account-s-data
   - /articles/requesting-an-archive-of-your-personal-accounts-data
   - /github/understanding-how-github-uses-and-protects-your-data/requesting-an-archive-of-your-personal-accounts-data
-intro: '{% data reusables.user_settings.export-data %}'
+intro: '{% data reusables.user-settings.export-data %}'
 versions:
   fpt: '*'
   ghec: '*'
@@ -28,8 +28,8 @@ O arquivo `tar.gz` gerado reflete os dados armazenados no momento que você inic
 
 ## Fazer download de um arquivo dos dados da conta pessoal
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.account_settings %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.account_settings %}
 3. Em "Export account data" (Exportar dados da conta), clique em **Start export** (Iniciar exportação) ou **New export** (Nova exportação). ![Botão de início da exportação de dados pessoais em destaque](/assets/images/help/repository/export-personal-data.png) ![Botão de nova exportação de dados pessoais em destaque](/assets/images/help/repository/new-export.png)
 4. Quando a exportação estiver pronta para download, o {% data variables.product.product_name %} enviará um link para download ao seu endereço de e-mail principal.
 5. Clique no link para download no e-mail e insira novamente a senha quando solicitado.
@@ -37,6 +37,6 @@ O arquivo `tar.gz` gerado reflete os dados armazenados no momento que você inic
 
 ## Excluir o acesso a um arquivo de dados da conta pessoal
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.account_settings %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.account_settings %}
 3. Para desabilitar o link para download enviado para seu e-mail antes da data da expiração, em "Export account data" (Exportar dados da conta), encontre o download de exportação de dados que deseja desabilitar e clique em **Delete** (Excluir). ![Botão de exclusão do pacote de exportação de dados pessoais em destaque](/assets/images/help/repository/delete-export-personal-account-data.png)

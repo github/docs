@@ -50,8 +50,8 @@ Um aplicativo de senhas avulsas por tempo limitado (TOTP, Time-based One-Time Pa
 {% endtip %}
 
 1. Baixe um app TOTP.
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.security %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.security %}
 {% data reusables.two_fa.enable-two-factor-authentication %}
 {%- ifversion fpt or ghes > 3.1 %}
 5. Em "Autenticação de dois fatores", selecione **Configurar usando um aplicativo** e clique em **Continuar**.
@@ -88,8 +88,8 @@ Antes de usar esse método, certifique-se de que é possível receber mensagens 
 
 {% endwarning %}
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.security %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.security %}
 {% data reusables.two_fa.enable-two-factor-authentication %}
 4. Em "Autenticação de dois fatores", selecione **Configurar usando SMS** e clique em **Continuar**.
 5. Em "Verificação de autenticação", selecione o código do seu país e digite seu número de telefone celular, incluindo o código de área. Confirme se as informações estão corretas e clique em **Send authentication code** (Enviar código de autenticação).
@@ -114,8 +114,8 @@ A autenticação com uma chave de segurança é *uma alternativa* à autenticaç
 
 1. Você já deve ter configurado a 2FA usando um app móvel TOTP{% ifversion fpt or ghec %} ou por SMS{% endif %}.
 2. Certifique-se de que você tem uma chave de segurança compatível com o WebAuthn inserido em seu computador.
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.security %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.security %}
 5. Ao lado de "Security keys" (Chaves de segurança), clique em **Add** (Adicionar). ![Opção para adicionar chaves de segurança](/assets/images/help/2fa/add-security-keys-option.png)
 6. Em "Security keys" (Chaves de segurança), clique em **Register new security key** (Registrar nova chave de segurança). ![Registrar uma nova chave de segurança](/assets/images/help/2fa/security-key-register.png)
 7. Digite um apelido para a chave de segurança e clique em **Add** (Adicionar). ![Fornecer um apelido para uma chave de segurança](/assets/images/help/2fa/security-key-nickname.png)

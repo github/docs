@@ -23,7 +23,7 @@ Los mantenedores de equipo y propietarios de organización pueden configurar rec
 
 ## Crear un recordatorio programado para un equipo
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 {% data reusables.reminders.scheduled-reminders %}
@@ -46,7 +46,7 @@ Los mantenedores de equipo y propietarios de organización pueden configurar rec
 
 ## Administrar un recordatorio programado para un equipo
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 {% data reusables.reminders.scheduled-reminders %}
@@ -56,7 +56,7 @@ Los mantenedores de equipo y propietarios de organización pueden configurar rec
 
 ## Borrar un recordatorio programado para un equipo
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 {% data reusables.reminders.scheduled-reminders %}

@@ -60,7 +60,6 @@ Gist supports mapping GeoJSON files. These maps are displayed in embedded gists,
 
 Follow the steps below to create a gist.
 
-{% ifversion fpt or ghes or ghae or ghec %}
 {% note %}
 
 You can also create a gist using the {% data variables.product.prodname_cli %}. For more information, see "[`gh gist create`](https://cli.github.com/manual/gh_gist_create)" in the {% data variables.product.prodname_cli %} documentation.
@@ -68,7 +67,6 @@ You can also create a gist using the {% data variables.product.prodname_cli %}. 
 Alternatively, you can drag and drop a text file from your desktop directly into the editor.
 
 {% endnote %}
-{% endif %}
 
 1. Sign in to {% data variables.product.product_name %}.
 2. Navigate to your {% data variables.gists.gist_homepage %}.

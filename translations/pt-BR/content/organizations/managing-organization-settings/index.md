@@ -25,6 +25,7 @@ children:
   - /configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization
   - /setting-permissions-for-adding-outside-collaborators
   - /allowing-people-to-delete-issues-in-your-organization
+  - /enabling-or-disabling-github-discussions-for-an-organization
   - /managing-discussion-creation-for-repositories-in-your-organization
   - /setting-team-creation-permissions-in-your-organization
   - /managing-scheduled-reminders-for-your-organization

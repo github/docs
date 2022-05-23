@@ -16,6 +16,6 @@ topics:
 shortTitle: Permiso negado para other-repo
 ---
 
-Para resolverlo, elimina la llave de implementación del repositorio y [agrega la clave a tu cuenta](/articles/adding-a-new-ssh-key-to-your-github-account) en lugar de esa llave.
+Para corregir esto, elimina la clave de despliegue del repositorio y [agrégala a tu cuenta personal](/articles/adding-a-new-ssh-key-to-your-github-account) en su lugar.
 
 Si la clave que estás usando está diseñada para funcionar como una llave de implementación, consulta [nuestra guía sobre llaves de implementación](/guides/managing-deploy-keys) para conocer más detalles.

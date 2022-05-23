@@ -12,7 +12,7 @@ topics:
 shortTitle: Notas de versão automatizadas
 communityRedirect:
   name: Provide GitHub Feedback
-  href: 'https://github.com/github/feedback/discussions/categories/releases-feedback'
+  href: 'https://github.com/github/feedback/discussions/categories/general-feedback'
 ---
 
 ## Sobre notas de versão geradas automaticamente

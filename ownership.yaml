@@ -3,7 +3,7 @@ version: 1
 ownership:
   - name: docs-internal
     long_name: GitHub Help Docs
-    kind: heroku
+    kind: logical
     repo: https://github.com/github/docs-internal
     team: github/docs-engineering
     maintainer: chiedo

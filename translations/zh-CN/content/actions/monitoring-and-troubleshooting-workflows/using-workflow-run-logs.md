@@ -19,7 +19,7 @@ versions:
 
 {% data variables.product.prodname_actions %} 使用 Checks API 来输出工作流程的状态、结果和日志。 {% data variables.product.prodname_dotcom %} 对每个工作流程创建新检查套件。 检查套件包含检查工作流程中每项作业的运行，而每项作业包含步骤。 {% data variables.product.prodname_actions %} 作为工作流程中的一个步骤运行。 有关检查 API 的详细信息，请参阅“[检查](/rest/reference/checks)”。
 
-{% data reusables.github-actions.invalid-workflow-files %}
+{% data reusables.actions.invalid-workflow-files %}
 
 ## 查看日志以诊断故障
 
@@ -31,11 +31,11 @@ versions:
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
-{% data reusables.repositories.navigate-to-workflow-superlinter %}
-{% data reusables.repositories.view-run-superlinter %}
-{% data reusables.repositories.navigate-to-job-superlinter %}
-{% data reusables.repositories.view-failed-job-results-superlinter %}
-{% data reusables.repositories.view-specific-line-superlinter %}
+{% data reusables.repositories.navigate-to-workflow %}
+{% data reusables.repositories.view-run %}
+{% data reusables.repositories.navigate-to-job %}
+{% data reusables.repositories.view-failed-job-results %}
+{% data reusables.repositories.view-specific-line %}
 
 ## 搜索日志
 
@@ -43,15 +43,10 @@ versions:
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
-{% data reusables.repositories.navigate-to-workflow-superlinter %}
-{% data reusables.repositories.view-run-superlinter %}
-{% data reusables.repositories.navigate-to-job-superlinter %}
-1. 在日志输出的右上角，在 **Search logs（搜索日志）**搜索框中输入搜索查询。
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
-  ![搜索日志的搜索框](/assets/images/help/repository/search-log-box-updated-2.png)
-{% else %}
-  ![搜索日志的搜索框](/assets/images/help/repository/search-log-box-updated.png)
-{% endif %}
+{% data reusables.repositories.navigate-to-workflow %}
+{% data reusables.repositories.view-run %}
+{% data reusables.repositories.navigate-to-job %}
+1. 在日志输出的右上角，在 **Search logs（搜索日志）**搜索框中输入搜索查询。 ![搜索日志的搜索框](/assets/images/help/repository/search-log-box-updated-2.png)
 
 ## 下载日志
 
@@ -59,14 +54,22 @@ versions:
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
-{% data reusables.repositories.navigate-to-workflow-superlinter %}
-{% data reusables.repositories.view-run-superlinter %}
-{% data reusables.repositories.navigate-to-job-superlinter %}
-1. In the upper right corner, click {% ifversion fpt or ghes > 3.0 or ghae or ghec %}{% octicon "gear" aria-label="The gear icon" %}{% else %}{% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}{% endif %} and select **Download log archive**.
-  {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
+{% data reusables.repositories.navigate-to-workflow %}
+{% data reusables.repositories.view-run %}
+{% data reusables.repositories.navigate-to-job %}
+1. 在右上角，单击 {% octicon "gear" aria-label="The gear icon" %} ，然后选择 **Download log archive（下载日志存档）**。
+
   ![下载日志下拉菜单](/assets/images/help/repository/download-logs-drop-down-updated-2.png)
-  {% else %}
-  ![下载日志下拉菜单](/assets/images/help/repository/download-logs-drop-down-updated.png)
+
+
+  {% if re-run-jobs %}
+
+  {% note %}
+
+  **注意**：下载部分重新运行的工作流程的日志存档时，存档仅包括已重新运行的作业。 若要获取从工作流程运行的作业的完整日志集，必须下载运行其他作业的上一次运行尝试的日志存档。
+
+  {% endnote %}
+
   {% endif %}
 
 ## 删除日志
@@ -75,20 +78,16 @@ versions:
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
-{% data reusables.repositories.navigate-to-workflow-superlinter %}
-{% data reusables.repositories.view-run-superlinter %}
-1. In the upper right corner, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}.
-    {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
+{% data reusables.repositories.navigate-to-workflow %}
+{% data reusables.repositories.view-run %}
+1. 在右上角，单击 {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}。
+
     ![烤肉串水平图标](/assets/images/help/repository/workflow-run-kebab-horizontal-icon-updated-2.png)
-    {% else %}
-    ![烤肉串水平图标](/assets/images/help/repository/workflow-run-kebab-horizontal-icon-updated.png)
-    {% endif %}
+
 2. 要删除日志文件，单击 **Delete all logs（删除所有日志）**按钮并审查确认提示。
-  {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
+
   ![删除所有日志](/assets/images/help/repository/delete-all-logs-updated-2.png)
-  {% else %}
-  ![删除所有日志](/assets/images/help/repository/delete-all-logs-updated.png)
-  {% endif %}
+
 删除日志后，**Delete all logs（删除所有日志）** 按钮将会移除，以表示在工作流程运行中没有日志文件。
 
 ## 使用 {% data variables.product.prodname_cli %} 查看日志
