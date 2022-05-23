@@ -43,7 +43,7 @@ Cuando utilices una imagen con transparencia, toma en cuenta cómo se vería con
 
 {% tip %}
 
-**Tip:** If you aren't sure, we recommend using an image with a solid background.
+**Tip:** Si no estás seguro, te recomendamos utilizar una imagen con un fondo sólido.
 {% endtip %}
 
-![Social preview transparency](/assets/images/help/repository/social-preview-transparency.png)
+![Transparencia de vista previa social](/assets/images/help/repository/social-preview-transparency.png)

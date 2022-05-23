@@ -17,12 +17,12 @@ miniTocMaxHeadingLevel: 4
 
 {% note %}
 
-**Note:** A job that is skipped will report its status as "Success". It will not prevent a pull request from merging, even if it is a required check.
+**Nota:** Un job que se omita reportará su estado como "Exitoso". No prevendrá que se fusione una solicitud de cambios, incluso si es una verificación requerida.
 
 {% endnote %}
 
 {% data reusables.actions.jobs.section-using-conditions-to-control-job-execution %}
 
-You would see the following status on a skipped job:
+Verías el siguiente estado en un job omitido:
 
 ![Skipped-required-run-details](/assets/images/help/repository/skipped-required-run-details.png)

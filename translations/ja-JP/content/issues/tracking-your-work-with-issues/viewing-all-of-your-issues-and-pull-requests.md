@@ -25,4 +25,4 @@ Issue およびPull Requestダッシュボードは、すべてのページの�
 
 ## 参考リンク
 
-- "[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions#reviewing-repositories-that-youre-watching)"
+- 「[プランの表示](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions#reviewing-repositories-that-youre-watching)」

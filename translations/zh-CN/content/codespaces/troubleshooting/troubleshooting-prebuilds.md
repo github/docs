@@ -22,11 +22,11 @@ miniTocMaxHeadingLevel: 3
 
 ![可用计算机类型的列表](/assets/images/help/codespaces/choose-custom-machine-type.png)
 
-If you have your {% data variables.product.prodname_codespaces %} editor preference set to "{% data variables.product.prodname_vscode %} for Web" then the "Setting up your codespace" page will show the message "Prebuilt codespace found" if a prebuild is being used.
+如果将 {% data variables.product.prodname_codespaces %} 编辑器首选项设置为“{% data variables.product.prodname_vscode %} for Web”，则“设置代码空间”页面将显示消息“找到预构建的代码空间”（如果正在使用预构建）。
 
 ![“找到预构建的代码空间”消息](/assets/images/help/codespaces/prebuilt-codespace-found.png)
 
-Similarly, if your editor preference is "{% data variables.product.prodname_vscode_shortname %}" then the integrated terminal will contain the message "You are on a prebuilt codespace defined by the prebuild configuration for your repository" when you create a new codespace. 更多信息请参阅“[设置代码空间的默认编辑器](/codespaces/customizing-your-codespace/setting-your-default-editor-for-codespaces)”。
+同样，如果您的编辑器首选项是“{% data variables.product.prodname_vscode_shortname %}”，则当您创建新代码空间时，集成终端将包含消息“您正在使用由存储库的预构建配置定义的预构建代码空间”。 更多信息请参阅“[设置代码空间的默认编辑器](/codespaces/customizing-your-codespace/setting-your-default-editor-for-codespaces)”。
 
 创建代码空间后，可以通过在终端中运行以下 {% data variables.product.prodname_cli %} 命令来检查它是否是从预构建创建的：
 

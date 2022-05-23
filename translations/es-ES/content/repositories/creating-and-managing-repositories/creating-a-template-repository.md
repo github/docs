@@ -1,6 +1,6 @@
 ---
 title: Crear un repositorio desde una plantilla
-intro: 'You can make an existing repository a template, so you and others can generate new repositories with the same directory structure, branches, and files.'
+intro: 'Puedes convertir un repositorio existente en una plantilla para que tanto tú como otras personas puedan generar repositorios nuevos con la misma estructura de directorios, ramas y archivos.'
 permissions: Anyone with admin permissions to a repository can make the repository a template.
 redirect_from:
   - /articles/creating-a-template-repository
@@ -24,7 +24,7 @@ shortTitle: Crear un repositorio de plantilla
 
 Para crear un repositorio de plantilla, debes crear un repositorio y luego convertirlo en una plantilla. Para obtener más información sobre la creación de repositorios, consulta "[Crear un repositorio nuevo](/articles/creating-a-new-repository)."
 
-After you make your repository a template, anyone with access to the repository can generate a new repository with the same directory structure and files as your default branch. They can also choose to include all the other branches in your repository. Branches created from a template have unrelated histories, so you cannot create pull requests or merge between the branches. Para obtener más información, consulta "[Crear un repositorio a partir de una plantilla](/articles/creating-a-repository-from-a-template)".
+Después de convertir a tu repositorio en plantilla, cualquiera con acceso a dicho repositorio podrá generar uno nuevo con la misma estructura de directorios y archivos que tu rama predeterminada. También pueden elegir incluir el resto de las ramas en tu repositorio. Las ramas que se crean desde una plantilla tienen historias sin relación entre ellas, así que no puedes crear solicitudes de cambio ni hacer fusiones entre las ramas. Para obtener más información, consulta "[Crear un repositorio a partir de una plantilla](/articles/creating-a-repository-from-a-template)".
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}

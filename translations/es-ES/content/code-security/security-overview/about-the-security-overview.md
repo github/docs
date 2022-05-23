@@ -69,7 +69,7 @@ A nivel organizacional, el resumen de seguridad muestra seguridad agregada y esp
 
 {% ifversion ghec or ghes > 3.4 or ghae-issue-6199 %}
 ### Acerca del resumen de seguridad a nivel empresarial
-En el nivel empresarial, el resumen de seguridad muestra información de seguridad agregada y específica del repositorio para tu empresa. You can view repositories owned by your enterprise that have security alerts, view all security alerts, or security feature-specific alerts from across your enterprise.
+En el nivel empresarial, el resumen de seguridad muestra información de seguridad agregada y específica del repositorio para tu empresa. Puedes ver los repositorios que le pertenecen a tu empresa y que tienen alertas de seguridad, ver todas las alertas de seguridad o las alertas de seguridad con características específicas desde cualquier punto de tu empresa.
 
 Los propietarios de organizaciones y administradores de seguridad para las organizaciones de tu empresa también tienen acceso limitado al resumen de seguridad a nivel empresarial. Solo pueden ver los repositorios y alertas de las organizaciones a las cuales tienen acceso completo.
 

@@ -17,7 +17,7 @@ redirect_from:
 
 ## 关于 {% data variables.product.prodname_vscode_command_palette %}
 
-命令调色板是 {% data variables.product.prodname_vscode %} 的重点功能之一，可用于代码空间。 {% data variables.product.prodname_vscode_command_palette %} 允许您访问 {% data variables.product.prodname_codespaces %} 和 {% data variables.product.prodname_vscode_shortname %} 的许多命令。 For more information on using the {% data variables.product.prodname_vscode_command_palette_shortname %}, see "[User Interface](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette)" in the {% data variables.product.prodname_vscode_shortname %} documentation.
+命令调色板是 {% data variables.product.prodname_vscode %} 的重点功能之一，可用于代码空间。 {% data variables.product.prodname_vscode_command_palette %} 允许您访问 {% data variables.product.prodname_codespaces %} 和 {% data variables.product.prodname_vscode_shortname %} 的许多命令。 有关使用 {% data variables.product.prodname_vscode_command_palette_shortname %} 的更多信息，请参阅 {% data variables.product.prodname_vscode_shortname %} 文档中的[用户界面](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette)。
 
 ## 访问 {% data variables.product.prodname_vscode_command_palette_shortname %}
 

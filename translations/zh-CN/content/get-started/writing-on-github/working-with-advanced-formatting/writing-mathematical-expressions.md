@@ -1,28 +1,28 @@
 ---
-title: Writing mathematical expressions
-intro: 'Use Markdown to display mathematical expressions on {% data variables.product.company_short %}.'
+title: 编写数学表达式
+intro: '使用 Markdown 在 {% data variables.product.company_short %} 上显示数学表达式。'
 versions:
   feature: math
-shortTitle: Mathematical expressions
+shortTitle: 数学表达式
 ---
 
-To enable clear communication of mathematical expressions, {% data variables.product.product_name %} supports LaTeX formatted math within Markdown. For more information, see [LaTeX/Mathematics](http://en.wikibooks.org/wiki/LaTeX/Mathematics) in Wikibooks.
+为了清晰地沟通数学表达式，{% data variables.product.product_name %} 在 Markdown 中支持 LaTeX 格式的数学。 更多信息请参阅维基教科书中的 [LaTeX/Math](http://en.wikibooks.org/wiki/LaTeX/Mathematics)。
 
-{% data variables.product.company_short %}'s math rendering capability uses MathJax; an open source, JavaScript-based display engine. MathJax supports a wide range of LaTeX macros, and several useful accessibility extensions. For more information, see [the MathJax documentation](http://docs.mathjax.org/en/latest/input/tex/index.html#tex-and-latex-support) and [the MathJax Accessibility Extensions Documentation](https://mathjax.github.io/MathJax-a11y/docs/#reader-guide).
+{% data variables.product.company_short %} 的数学渲染能力使用 MathJax；这是一个开源、基于JavaScript 的显示引擎。 MathJax 支持广泛的 LaTeX 宏，以及几个有用的可访问性扩展。 更多信息请参阅 [MathJax 文档](http://docs.mathjax.org/en/latest/input/tex/index.html#tex-and-latex-support) 和 [MathJax 辅助功能扩展文档](https://mathjax.github.io/MathJax-a11y/docs/#reader-guide)。
 
-## Writing inline expressions
+## 编写内联表达式
 
-To include a math expression inline with your text, delimit the expression with a dollar symbol `$`.
+要在文本中包含内联的数学表达式，请使用美元符号 `$` 分隔表达式。
 
 ```
-This sentence uses `$` delimiters to show math inline:  $\sqrt{3x-1}+(1+x)^2$
+此句子使用 `$` 分隔符来显示内联数学：$\sqrt{3x-1}+(1+x)^2$
 ```
 
-![Inline math markdown rendering](/assets/images/help/writing/inline-math-markdown-rendering.png)
+![内联数学 Markdown 渲染](/assets/images/help/writing/inline-math-markdown-rendering.png)
 
-## Writing expressions as blocks
+## 将表达式编写为块
 
-To add a math expression as a block, start a new line and delimit the expression with two dollar symbols `$$`.
+要将数学表达式添加为块，请开始一个新行，并使用两个美元符号 `$$` 分隔表达式。
 
 ```
 **The Cauchy-Schwarz Inequality**
@@ -30,30 +30,30 @@ To add a math expression as a block, start a new line and delimit the expression
 $$\left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right)$$
 ```
 
-![Math expression as a block rendering](/assets/images/help/writing/math-expression-as-a-block-rendering.png)
+![作为块渲染的数学表达式](/assets/images/help/writing/math-expression-as-a-block-rendering.png)
 
-## Writing dollar signs in line with and within mathematical expressions
+## 联接数学表达式以及在数学表达式内编写美元符号
 
-To display a dollar sign as a character in the same line as a mathematical expression, you need to escape the non-delimiter `$` to ensure the line renders correctly.
+要将美元符号显示为与数学表达式相同的行中的字符，需要对非分隔符 `$` 进行转义，以确保该行正确呈现。
 
-  - Within a math expression, add a `\` symbol before the explicit `$`.
-
-  ```
-  This expression uses `\$` to display a dollar sign: $\sqrt{\$4}$
-  ```
-
-  ![Dollar sign within math expression](/assets/images/help/writing/dollar-sign-within-math-expression.png)
-
-  - Outside a math expression, but on the same line, use span tags around the explicit `$`.
+  - 在数学表达式中，在显式 `$`之前添加 `\` 符号。
 
   ```
-  To split <span>$</span>100 in half, we calculate $100/2$
+  此表达式使用 `\$` 来显示美元符号：$\sqrt{\$4}$
   ```
 
-  ![Dollar sign inline math expression](/assets/images/help/writing/dollar-sign-inline-math-expression.png)
+  ![数学表达式中的美元符号](/assets/images/help/writing/dollar-sign-within-math-expression.png)
+
+  - 在数学表达式之外，但在同一行上，在显式 `$` 周围使用 span 标记。
+
+  ```
+  要 <span>$</span>100 分成两半，我们计算 $100/2$
+  ```
+
+  ![数学表达式中嵌入的美元符号](/assets/images/help/writing/dollar-sign-inline-math-expression.png)
 
 ## 延伸阅读
 
-* [The MathJax website](http://mathjax.org)
+* [MathJax 网站](http://mathjax.org)
 * [开始在 GitHub 上编写和格式化](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github)
-* [GitHub Flavored Markdown Spec](https://github.github.com/gfm/)
+* [GitHub Flavored Markdown 规格](https://github.github.com/gfm/)
