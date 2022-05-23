@@ -186,6 +186,10 @@ For example, the following words are reserved, among others:
 
 For the full list or reserved words, navigate to "Reserved logins" in the site admin dashboard.
 
+## Reserved names
+
+When installing {% data variables.product.product_location %} a `github-enterprise` organization is created by default which is used by system services.
+
 {% if ghas-committers-calculator %}
 ## {% data variables.product.prodname_advanced_security %} Committers
 
