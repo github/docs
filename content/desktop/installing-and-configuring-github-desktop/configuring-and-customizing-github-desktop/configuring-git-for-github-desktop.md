@@ -56,7 +56,30 @@ versions:
 
 ### Overriding the email address GitHub Desktop uses for a repository
 
-In {% data variables.product.prodname_desktop %} you can change the email address associated with commits you make in a single repository. This will override your global Git configuration settings in this one repository, but will not affect any other repositories.
+In {% data variables.product.prodname_desktop %} you can change the name and email address used for commits in a specific repository. This will override your global Git configuration settings in this one repository, but will not affect any other repositories.
+
+{% mac %}
+
+{% data reusables.desktop.mac-repository-settings-menu %}
+{% data reusables.desktop.select-git-config %}
+{% data reusables.desktop.use-local-git-config %}
+{% data reusables.desktop.local-config-name %}
+{% data reusables.desktop.local-config-email %}
+{% data reusables.desktop.repository-settings-save %}
+
+{% endmac %}
+
+{% windows %}
+
+{% data reusables.desktop.windows-repository-settings-menu %}
+{% data reusables.desktop.select-git-config %}
+{% data reusables.desktop.use-local-git-config %}
+{% data reusables.desktop.local-config-name %}
+{% data reusables.desktop.local-config-email %}
+{% data reusables.desktop.repository-settings-save %}
+
+{% endwindows %}
+
 
 ### Configuring your default branch for new repositories
 
@@ -67,7 +90,7 @@ You can configure the default branch that will be used when creating a new repos
 {% data reusables.desktop.mac-select-desktop-menu %}
 1. In the Preferences window, click **Git**.
   ![The Git Pane in the Preferences menu](/assets/images/help/desktop/mac-select-git-pane.png)
-1. Under "Default branch name for new repositories", select the default branch name you would like to use or select "Other..." to enter a custom name
+1. Under "Default branch name for new repositories", select the default branch name you would like to use, or select "Other..." to enter a custom name.
   ![Default branch name selection options](/assets/images/help/desktop/mac-select-default-branch-name.png)
 {% data reusables.desktop.click-save-git-config %}
   ![Save button in Git configuration field](/assets/images/help/desktop/mac-save-git-config.png)
@@ -79,7 +102,7 @@ You can configure the default branch that will be used when creating a new repos
 {% data reusables.desktop.windows-choose-options %}
 1. In the Options window, click **Git**.
   ![The Git Pane in the Options menu](/assets/images/help/desktop/windows-select-git-pane.png)
-1. Under "Default branch name for new repositories", select the default branch name you would like to use or select "Other..." to enter a custom name
+1. Under "Default branch name for new repositories", select the default branch name you would like to use, or select "Other..." to enter a custom name.
   ![Default branch name selection options](/assets/images/help/desktop/windows-select-default-branch-name.png)
 {% data reusables.desktop.click-save-git-config %}
   ![Save button in Git configuration field](/assets/images/help/desktop/windows-save-git-config.png)
