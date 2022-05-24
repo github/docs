@@ -1,5 +1,5 @@
 ---
-title: Release Assets
+title: Ativos da versão
 intro: ''
 versions:
   fpt: '*'

@@ -41,7 +41,7 @@ Você pode criar notas de versão manualmente enquanto gerencia uma versão. Com
 {% endif %}
 
 {% ifversion fpt or ghec or ghes > 3.6 or ghae-issue-7054 %}
-When viewing the details for a release, the creation date for each release asset is shown next to the release asset.
+Ao ver os detalhes para uma versão, a data de criação para o ativo de cada versão é mostrada ao lado do ativo da versão.
 {% endif %}
 
 {% ifversion fpt or ghec %}
