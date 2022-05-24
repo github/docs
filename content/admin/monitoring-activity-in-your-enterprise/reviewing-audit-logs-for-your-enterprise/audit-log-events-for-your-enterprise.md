@@ -1199,6 +1199,16 @@ Action                        | Description
 | `secret_scanning.disable` | An organization owner disabled secret scanning for all existing{% ifversion ghec %} private or internal{% endif %} repositories. For more information, see "[About secret scanning](/github/administering-a-repository/about-secret-scanning)."
 | `secret_scanning.enable` | An organization owner enabled secret scanning for all existing{% ifversion ghec %} private or internal{% endif %} repositories.
 
+{% if secret-scanning-alert-audit-log %}
+### `secret_scanning_alert` category actions
+
+| Action | Description
+|------------------|-------------------
+| `secret_scanning_alert.create` | {% data variables.product.prodname_dotcom %} detected a secret and created a {% data variables.product.prodname_secret_scanning %} alert. For more information, see "[Managing alerts from {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/managing-alerts-from-secret-scanning)."
+| `secret_scanning_alert.reopen` | A user reopened a {% data variables.product.prodname_secret_scanning %} alert.
+| `secret_scanning_alert.resolve` | A user resolved a {% data variables.product.prodname_secret_scanning %} alert.
+{% endif %}
+
 ### `secret_scanning_new_repos` category actions
 
 | Action | Description
