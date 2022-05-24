@@ -56,7 +56,7 @@ versions:
 
 ### Overriding the email address GitHub Desktop uses for a repository
 
-In {% data variables.product.prodname_desktop %} you can change the name and email address used for commits in a specific repository. This will override your global Git configuration settings in this one repository, but will not affect any other repositories.
+In {% data variables.product.prodname_desktop %} you can change the name and email address used for commits in a specific repository. This local Git configuration will override your global Git configuration settings in this one repository, but will not affect any other repositories.
 
 {% mac %}
 
