@@ -16,13 +16,13 @@ shortTitle: Configurar la política de cambios de visibilidad
 permissions: Organization owners can restrict repository visibility changes for an organization.
 ---
 
-You can restrict who has the ability to change the visibility of repositories in your organization, such as changing a repository from private to public. For more information about repository visibility, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)."
+Puedes restringir quién tiene la capacidad de cambiar la visibilidad de los repositorios en tu organización, tal como cambiarlo de privado a público. Para obtener más información acerca de la visibilidad de los repositorios, consulta la sección "[Acerca de los repositorios](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)".
 
-You can restrict the ability to change repository visibility to organization owners only, or you can allow anyone with admin access to a repository to change visibility.
+Puedes restringir la capacidad de cambiar la visibilidad de los repositorios para que solo lo puedan hacer los propietarios de las organizaciones o puedes permitir que cualquier persona con permisos administrativos en dicho repositorio lo pueda hacer.
 
 {% warning %}
 
-**Warning**: If enabled, this setting allows people with admin access to choose any visibility for an existing repository, even if you do not allow that type of repository to be created. Para obtener más información acerca de cómo restringir la visibilidad de los repositorios durante su creación, consulta la sección "[Restringir la creación de repositorios en tu organización](/articles/restricting-repository-creation-in-your-organization)".
+**Advertencia**: De habilitarse, este ajuste permite que las personas con acceso administrativo elijan cualquier tipo de visibilidad en un repositorio existente, incluso si no permites que se cree ese tipo de repositorio. Para obtener más información acerca de cómo restringir la visibilidad de los repositorios durante su creación, consulta la sección "[Restringir la creación de repositorios en tu organización](/articles/restricting-repository-creation-in-your-organization)".
 
 {% endwarning %}
 

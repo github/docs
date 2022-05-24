@@ -27,7 +27,7 @@ shortTitle: 将 PR 链接到议题
 
 ## 关于链接的议题和拉取请求
 
-You can link an issue to a pull request manually or using a supported keyword in the pull request description.
+您可以手动将议题链接到拉取请求，也可以使用拉取请求描述中的受支持关键字。
 
 当您将拉取请求链接到拉取请求指向的议题，如果有人正在操作该议题，协作者可以看到。
 
@@ -57,7 +57,7 @@ You can link an issue to a pull request manually or using a supported keyword in
 | 不同仓库中的议题 | *KEYWORD* *OWNER*/*REPOSITORY*#*ISSUE-NUMBER* | `Fixes octo-org/octo-repo#100`                                 |
 | 多个议题     | 对每个议题使用完整语法                                   | `Resolves #10, resolves #123, resolves octo-org/octo-repo#100` |
 
-Only manually linked pull requests can be manually unlinked. To unlink an issue that you linked using a keyword, you must edit the pull request description to remove the keyword.
+只能手动取消链接手动链接的拉取请求。 要取消链接您使用关键词链接的议题，必须编辑拉取请求说明以删除该关键词。
 
 您也可以在提交消息中使用关闭关键词。 议题将在提交合并到默认分支时关闭，但包含提交的拉取请求不会列为链接的拉取请求。
 

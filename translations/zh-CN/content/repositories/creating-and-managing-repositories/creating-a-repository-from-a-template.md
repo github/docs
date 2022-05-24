@@ -41,6 +41,6 @@ shortTitle: 从模板创建
 {% data reusables.repositories.owner-drop-down %}
 {% data reusables.repositories.repo-name %}
 {% data reusables.repositories.choose-repo-visibility %}
-6. （可选）要包括模板中所有分支的目录结构和文件，而不仅仅是默认分支，请选择 **Include all branches（包括所有分支）**。 ![Include all branches checkbox](/assets/images/help/repository/include-all-branches.png)
+6. （可选）要包括模板中所有分支的目录结构和文件，而不仅仅是默认分支，请选择 **Include all branches（包括所有分支）**。 ![包括所有分支复选框](/assets/images/help/repository/include-all-branches.png)
 {% data reusables.repositories.select-marketplace-apps %}
 8. 单击 **Create repository from template（从模板创建仓库）**。

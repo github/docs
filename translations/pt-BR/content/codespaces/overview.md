@@ -34,7 +34,7 @@ Para personalizar os tempos de execução e ferramentas no seu codespace, é pos
 
 Se você não adicionar uma configuração de contêiner de desenvolvimento, o {% data variables.product.prodname_codespaces %} clonará seu repositório em um ambiente com a imagem de código padrão que inclui muitas ferramentas, linguagens e ambientes de tempo de execução. Para obter mais informações, consulte "[Introdução a contêineres de desenvolvimento](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)".
 
-Você também pode personalizar aspectos do ambiente do seu codespace usando um repositório público do [dotfiles](https://dotfiles.github.io/tutorials/) e [Sincronização de configurações](https://code.visualstudio.com/docs/editor/settings-sync). Personalization can include shell preferences, additional tools, editor settings, and {% data variables.product.prodname_vscode_shortname %} extensions. Para obter mais informações, consulte[Personalizando seu codespace](/codespaces/customizing-your-codespace)".
+Você também pode personalizar aspectos do ambiente do seu codespace usando um repositório público do [dotfiles](https://dotfiles.github.io/tutorials/) e [Sincronização de configurações](https://code.visualstudio.com/docs/editor/settings-sync). A personalização pode incluir preferências do shell, ferramentas adicionais, configurações do editor e extensões de {% data variables.product.prodname_vscode_shortname %}. Para obter mais informações, consulte[Personalizando seu codespace](/codespaces/customizing-your-codespace)".
 
 ## Sobre a cobrança do {% data variables.product.prodname_codespaces %}
 

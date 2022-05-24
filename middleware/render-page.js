@@ -67,7 +67,7 @@ export default async function renderPage(req, res, next) {
 
   // Just finish fast without all the details like Content-Length
   if (req.method === 'HEAD') {
-    return res.status(200).end()
+    return res.status(200).send('')
   }
 
   // Updating the Last-Modified header for substantive changes on a page for engineering

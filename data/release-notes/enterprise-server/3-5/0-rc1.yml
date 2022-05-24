@@ -141,7 +141,7 @@ sections:
       notes:
         # https://github.com/github/releases/issues/1503
         - |
-          You can now re-run only failed jobs or an individual job in a GitHub Actions workflow run. For more information, see "[Re-running workflows and jobs](/managing-workflow-runs/re-running-workflows-and-jobs)."
+          You can now re-run only failed jobs or an individual job in a GitHub Actions workflow run. For more information, see "[Re-running workflows and jobs](/actions/managing-workflow-runs/re-running-workflows-and-jobs)."
 
     - heading: Dependency graph supports GitHub Actions
       notes:
@@ -373,7 +373,7 @@ sections:
 
     # https://github.com/github/releases/issues/2054
     - |
-      New gists are now created with a default branch name of either `main` or the alternative default branch name defined in your user settings. This matches how other repositories are created on GitHub Enterprise Server. For more information, see "[About branches](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches#about-the-default-branch)" and "[Managing the default branch name for your repositories](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-the-default-branch-name-for-your-repositories)."
+      New gists are now created with a default branch name of either `main` or the alternative default branch name defined in your user settings. This matches how other repositories are created on GitHub Enterprise Server. For more information, see "[About branches](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches#about-the-default-branch)" and "[Managing the default branch name for your repositories](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-the-default-branch-name-for-your-repositories)."
 
     # https://github.com/github/releases/issues/2028
     - |

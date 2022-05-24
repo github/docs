@@ -40,6 +40,10 @@ topics:
 You can manually create release notes while managing a release. Alternatively, you can automatically generate release notes from a default template, or customize your own release notes template. For more information, see "[Automatically generated release notes](/repositories/releasing-projects-on-github/automatically-generated-release-notes)."
 {% endif %}
 
+{% ifversion fpt or ghec or ghes > 3.6 or ghae-issue-7054 %}
+When viewing the details for a release, the creation date for each release asset is shown next to the release asset.
+{% endif %}
+
 {% ifversion fpt or ghec %}
 リポジトリへの管理者権限を持つユーザは、{% data variables.large_files.product_name_long %}（{% data variables.large_files.product_name_short %}）オブジェクトを、{% data variables.product.product_name %} がリリースごとに作成する ZIP ファイルと tarball に含めるかどうかを選択できます。 詳しい情報については、「[リポジトリのアーカイブ内の {% data variables.large_files.product_name_short %} オブジェクトを管理する](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-git-lfs-objects-in-archives-of-your-repository)」を参照してください。
 

@@ -88,6 +88,8 @@ Por ejemplo, si un flujo de trabajo definió las entradas de `numOctocats` y `oc
 
 **Opcional** Los parámetros de salida te permiten declarar datos que una acción establece. Las acciones que se ejecutan más tarde en un flujo de trabajo pueden usar el conjunto de datos de salida en acciones de ejecución anterior.  Por ejemplo, si tuviste una acción que realizó la adición de dos entradas (x + y = z), la acción podría dar como resultado la suma (z) para que otras acciones la usen como entrada.
 
+{% data reusables.actions.output-limitations %}
+
 Si no declaras una salida en tu archivo de metadatos de acción, todavía puedes configurar las salidas y utilizarlas en un flujo de trabajo. Para obtener más información acerca de la configuración de salidas en una acción, consulta "[Comandos de flujo de trabajo para {% data variables.product.prodname_actions %}](/actions/reference/workflow-commands-for-github-actions/#setting-an-output-parameter)".
 
 ### Ejemplo: Declarar las salidas para las acciones de contenedores de Docker y JavaScript
@@ -109,6 +111,8 @@ outputs:
 ## `outputs` para las acciones compuestas
 
 Las `outputs` **opcionales** utilizan los mismos parámetros que `outputs.<output_id>` y `outputs.<output_id>.description` (consulta la sección de "[`outputs` para acciones de contenedores de Docker y JavaScript](#outputs-for-docker-container-and-javascript-actions)"), pero también incluye el token `value`.
+
+{% data reusables.actions.output-limitations %}
 
 ### Ejemplo: Declarar las salidas para las acciones compuestas
 
