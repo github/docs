@@ -88,6 +88,8 @@ Por exemplo, se um fluxo de trabalho definiu as entradas `numOctocats` e `octoca
 
 **Opcional** Os parâmetros de saída permitem que você declare os dados definidos por uma ação. As ações executadas posteriormente em um fluxo de trabalho podem usar os dados de saída definidos em ações executadas anteriormente.  Por exemplo, se uma ação executou a adição de duas entradas (x + y = z), a ação poderia usar o resultado da soma (z) como entrada em outras ações.
 
+{% data reusables.actions.output-limitations %}
+
 Se você não declarar uma saída no seu arquivo de metadados de ação, você ainda poderá definir as saídas e usá-las no seu fluxo de trabalho. Para obter mais informações sobre a definição de saídas em uma ação, consulte "[Comandos do fluxo de trabalho para {% data variables.product.prodname_actions %}](/actions/reference/workflow-commands-for-github-actions/#setting-an-output-parameter)."
 
 ### Exemplo: Declarando saídas para o contêiner do Docker e ações do JavaScript
@@ -109,6 +111,8 @@ saídas:
 ## `outputs` para ações compostas
 
 As **saídas** `opcionais` usam os mesmos parâmetros que `outputs.<output_id>` e `outputs.<output_id>escription` (consulte "[`saída` para o contêiner do Docker e ações do JavaScript](#outputs-for-docker-container-and-javascript-actions)"), mas também inclui o token do `valor`.
+
+{% data reusables.actions.output-limitations %}
 
 ### Exemplo: Declarando saídas para ações compostas
 
@@ -223,7 +227,7 @@ Por exemplo, este `cleanup.js` só será executado em executores baseados no Lin
 
 ### `runs.steps`
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 or ghec %}
+{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 **Obrigatório** As etapas de que você planeja executar nesta ação. Elas podem ser etapas de `run` ou etapas de `uses`.
 {% else %}
 **Obrigatório** As etapas de que você planeja executar nesta ação.
@@ -231,7 +235,7 @@ Por exemplo, este `cleanup.js` só será executado em executores baseados no Lin
 
 #### `runs.steps[*].run`
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 or ghec %}
+{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 **Optional** O comando que você deseja executar. Isso pode ser inline ou um script no seu repositório de ação:
 {% else %}
 **Obrigatório** O comando que você deseja executar. Isso pode ser inline ou um script no seu repositório de ação:
@@ -261,7 +265,7 @@ Para obter mais informações, consulte "[`github context`](/actions/reference/c
 
 #### `runs.steps[*].shell`
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 or ghec %}
+{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 **Opcional** O shell onde você deseja executar o comando. Você pode usar qualquer um dos shells listados [aqui](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsshell). Obrigatório se `run` estiver configurado.
 {% else %}
 **Obrigatório** O shell onde você quer executar o comando. Você pode usar qualquer um dos shells listados [aqui](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsshell). Obrigatório se `run` estiver configurado.
@@ -314,7 +318,7 @@ steps:
 
 **Opcional**  Especifica o diretório de trabalho onde o comando é executado.
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 or ghec %}
+{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 #### `runs.steps[*].uses`
 
 **Opcional**  Seleciona uma ação a ser executada como parte de uma etapa do seu trabalho. A ação é uma unidade reutilizável de código. Você pode usar uma ação definida no mesmo repositório que o fluxo de trabalho, um repositório público ou em uma [imagem publicada de contêiner Docker](https://hub.docker.com/).
@@ -391,7 +395,7 @@ runs:
 
 ### `runs.pre-entrypoint`
 
-**Opcional** Permite que você execute um script antes de a ação do `entrypoint` começar. Por exemplo, você pode usar o `pre-entrypoint:` para executar um pré-requisito do script da configuração. {% data variables.product.prodname_actions %} usa a `execução do docker` para lançar esta ação e executa o script dentro de um novo contêiner que usa a mesma imagem-base. Isso significa que o momento de execução é diferente do contêiner principal do `entrypoint` e qualquer status de que você precisar devem ser acessado na área de trabalho, em `HOME`, ou como uma variável `STATE_`. A ação `pre-entrypoint:` sempre é executada por padrão, mas você pode substitui-la usando [`runs.pre-if`](#runspre-if).
+**Opcional** Permite que você execute um script antes de a ação do `entrypoint` começar. Por exemplo, você pode usar o `pre-entrypoint:` para executar um pré-requisito do script da configuração. {% data variables.product.prodname_actions %} usa a `execução do docker` para lançar esta ação e executa o script dentro de um novo contêiner que usa a mesma imagem-base. Isso significa que o momento de execução é diferente do contêiner principal do `entrypoint` e todos os status que você precisar deverão ser acessados na área de trabalho, em `HOME` ou como uma variável `STATE_`. A ação `pre-entrypoint:` sempre é executada por padrão, mas você pode substitui-la usando [`runs.pre-if`](#runspre-if).
 
 O tempo de execução especificado com a sintaxe [`em uso`](#runsusing) irá executar este arquivo.
 

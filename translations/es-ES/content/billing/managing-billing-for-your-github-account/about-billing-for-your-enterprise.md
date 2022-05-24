@@ -53,7 +53,7 @@ Cada usuario en {% data variables.product.product_location %} consume una plaza 
 
 {% endif %}
 
-{% data reusables.billing.about-invoices-for-enterprises %} Para obtener más información sobre {% ifversion ghes %}las licencias, el uso y las facturas{% elsif ghec %}el uso y las facturas{% endif %}, consulta lo siguiente{% ifversion ghes %} en la documentación de {% data variables.product.prodname_ghe_cloud %}.{% else %}.{% endif %}
+{% ifversion ghec %}Para los clientes de {% data variables.product.prodname_ghe_cloud %} con una cuenta empresarial, {% data variables.product.company_short %} se factura mediante su cuenta empresarial en {% data variables.product.prodname_dotcom_the_website %}. Para los clientes que pagan por factura individual, cada {% elsif ghes %}Para los clientes de {% data variables.product.prodname_enterprise %} que pagan por factura individual, {% data variables.product.company_short %} emite las facturas mediante una cuenta empresarial en {% data variables.product.prodname_dotcom_the_website %}. Cada{% endif %} factura incluye un cargo único para todos tus servicios de paga de {% data variables.product.prodname_dotcom_the_website %} y para cualquier instancia de {% data variables.product.prodname_ghe_server %}. Para obtener más información sobre {% ifversion ghes %}las licencias, el uso y las facturas{% elsif ghec %}el uso y las facturas{% endif %}, consulta lo siguiente{% ifversion ghes %} en la documentación de {% data variables.product.prodname_ghe_cloud %}.{% else %}.{% endif %}
 
 {%- ifversion ghes %}
 - "[Acerca del precio por usuario](/enterprise-cloud@latest/billing/managing-billing-for-your-github-account/about-per-user-pricing)"

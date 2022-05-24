@@ -23,7 +23,7 @@ shortTitle: 为组织设置
 
 收到邀请您的组织加入 {% data variables.product.prodname_sponsors %} 的邀请后，您可以完成以下步骤以成为被赞助的组织。
 
-要作为组织外部的个人贡献者加入 {% data variables.product.prodname_sponsors %}，请参阅“[为个人帐户设置 {% data variables.product.prodname_sponsors %}](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account)”。
+要作为组织外部的个人贡献者加入 {% data variables.product.prodname_sponsors %}，请参阅“[为个人帐户设置 {% data variables.product.prodname_sponsors %}](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account)”。
 
 {% data reusables.sponsors.navigate-to-github-sponsors %}
 {% data reusables.sponsors.view-eligible-accounts %}

@@ -1,6 +1,6 @@
 ---
 title: Permitir alterações em um branch de pull request criado a partir de bifurcação
-intro: 'For greater collaboration, you can allow commits on branches you''ve created from forks owned by your personal account.'
+intro: 'Para obter mais colaboração, você pode permitir commits nos branches que criou a partir de bifurcações de propriedade de sua conta pessoal.'
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/working-with-forks/allowing-changes-to-a-pull-request-branch-created-from-a-fork
   - /articles/allowing-changes-to-a-pull-request-branch-created-from-a-fork

@@ -105,7 +105,7 @@ jobs:
 
 Para obtener más información, consulta la sección "[Definir los jobs de prerrequisito](/actions/using-jobs/using-jobs-in-a-workflow#defining-prerequisite-jobs)".
 
-### Using a matrix
+### Utilizar una matriz
 
 {% data reusables.actions.jobs.about-matrix-strategy %} The matrix is created using the `strategy` keyword, which receives the build options as an array. For example, this matrix will run the job multiple times, using different versions of Node.js:
 
@@ -122,7 +122,7 @@ jobs:
           node-version: {% raw %}${{ matrix.node }}{% endraw %}
 ```
 
-For more information, see "[Using a matrix for your jobs](/actions/using-jobs/using-a-matrix-for-your-jobs)."
+Para obtener más información, consulta la sección "[Utilizar una matriz para tus jobs](/actions/using-jobs/using-a-matrix-for-your-jobs)".
 
 {% if actions-caching %}
 ### Almacenar dependencias en caché

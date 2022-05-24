@@ -20,7 +20,7 @@ topics:
 
 O {% data variables.product.prodname_advisory_database %} contém uma lista de vulnerabilidades de segurança que você pode visualizar, pesquisar e filtrar. {% data reusables.security-advisory.link-browsing-advisory-db %}
 
-{% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
+{% ifversion fpt or ghes or ghae or ghec %}
 ## Disponível para todos os repositórios
 {% endif %}
 ### Política de segurança
@@ -40,7 +40,7 @@ Discute em particular e corrige vulnerabilidades de segurança no código do seu
 Ver alertas sobre dependências conhecidas por conter vulnerabilidades de segurança e escolher se deseja gerar pull requests para atualizar essas dependências automaticamente. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)" e "[Sobre {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)".
 {% endif %}
 
-{% ifversion ghes < 3.3 or ghae-issue-4864 %}
+{% ifversion ghes < 3.3 or ghae %}
 ### {% data variables.product.prodname_dependabot_alerts %}
 
 {% data reusables.dependabot.dependabot-alerts-beta %}
@@ -54,7 +54,7 @@ Exibir alertas sobre dependências conhecidas por conter vulnerabilidades de seg
 Use {% data variables.product.prodname_dependabot %} para levantar automaticamente os pull requests a fim de manter suas dependências atualizadas. Isso ajuda a reduzir a exposição a versões mais antigas de dependências. Usar versões mais recentes facilita a aplicação de patches, caso as vulnerabilidades de segurança sejam descobertas e também torna mais fácil para {% data variables.product.prodname_dependabot_security_updates %} levantar, com sucesso, os pull requests para atualizar as dependências vulneráveis. Para obter mais informações, consulte "[Sobre o {% data variables.product.prodname_dependabot_version_updates %}](/github/administering-a-repository/about-dependabot-version-updates)".
 {% endif %}
 
-{% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
+{% ifversion fpt or ghes or ghae or ghec %}
 ### Gráfico de dependências
 O gráfico de dependências permite explorar os ecossistemas e pacotes dos quais o repositório depende e os repositórios e pacotes que dependem do seu repositório.
 
@@ -99,13 +99,13 @@ Disponível apenas com uma licença para {% data variables.product.prodname_GH_a
 Detectar automaticamente tokens ou credenciais que foram verificados em um repositório. Você pode visualizar alertas para quaisquer segredos que {% data variables.product.company_short %} encontrar no seu código, para que você saiba quais tokens ou credenciais tratar como comprometidas. Para obter mais informações, consulte "[Sobre a varredura de segredos](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-advanced-security)."
 {% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghae-issue-4864 or ghec %}
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 ### Revisão de dependência
 
 Mostre o impacto completo das alterações nas dependências e veja detalhes de qualquer versão vulnerável antes de fazer merge de um pull request. Para obter mais informações, consulte "[Sobre a revisão de dependências](/code-security/supply-chain-security/about-dependency-review)".
 {% endif %}
 
-{% ifversion ghec or ghes > 3.1 or ghae-issue-4554 %}
+{% ifversion ghec or ghes > 3.1 or ghae %}
 ### Visão geral de segurança das organizações{% ifversion ghec or ghes > 3.4 or ghae-issue-6199 %}, empresas,{% endif %} e equipes
 
 {% ifversion ghec %}
