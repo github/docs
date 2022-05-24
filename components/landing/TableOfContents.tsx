@@ -66,7 +66,7 @@ export const TableOfContents = (props: Props) => {
                 }
               : {
                   key: href,
-                  title: title,
+                  title,
                   renderItem: () => (
                     <ActionList.Item className={cx('border-bottom')}>
                       <li key={href} className={cx('mt-2', isActive && 'color-fg-muted')}>
