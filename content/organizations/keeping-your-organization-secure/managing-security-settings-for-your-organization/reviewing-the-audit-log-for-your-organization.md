@@ -127,6 +127,9 @@ Using the qualifier `country`, you can filter events in the audit log based on t
 ## Exporting the audit log
 
 {% data reusables.audit_log.export-log %}
+
+{% data reusables.audit_log.git-events-export-limited %}
+
 {% data reusables.audit_log.exported-log-keys-and-values %}
 {% endif %}
 
