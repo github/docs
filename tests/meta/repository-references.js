@@ -25,6 +25,8 @@ const PUBLIC_REPOS = new Set([
   'codeql-action-sync-tool',
   'codeql-action',
   'codeql-cli-binaries',
+  'codeql',
+  'codeql-go',
   'platform-samples',
   'github-services',
   'explore',
