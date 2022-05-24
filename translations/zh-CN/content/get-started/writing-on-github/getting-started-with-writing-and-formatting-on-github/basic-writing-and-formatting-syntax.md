@@ -149,14 +149,19 @@ git commit
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5559 %}
 ### 指定图像显示的主题
 
-您可以通过在 Markdown 中将 `#gh-dark-mode-only` 或 `#gh-light-mode-only` 附加到图像 URL 的末尾来指定图像显示的主题。
+You can specify the theme an image is displayed for in Markdown by using the HTML `<picture>` element in combination with the `prefers-color-scheme` media feature. 我们区分浅色和深色模式，因此有两个选项可用。 您可以使用这些选项显示针对深色或浅色背景优化的图像。 这对于透明的 PNG 图像特别有用。
 
-我们区分浅色和深色模式，因此有两个选项可用。 您可以使用这些选项显示针对深色或浅色背景优化的图像。 这对于透明的 PNG 图像特别有用。
+For example, the following code displays a sun image for light themes and a moon for dark themes:
 
-| 上下文  | URL                                                                      |
-| ---- | ------------------------------------------------------------------------ |
-| 深色主题 | `![GitHub Light](https://github.com/github-light.png#gh-dark-mode-only)` |
-| 浅色主题 | `![GitHub Dark](https://github.com/github-dark.png#gh-light-mode-only)`  |
+```HTML
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://user-images.githubusercontent.com/25423296/163456776-7f95b81a-f1ed-45f7-b7ab-8fa810d529fa.png">
+  <source media="(prefers-color-scheme: light)" srcset="https://user-images.githubusercontent.com/25423296/163456779-a8556205-d0a5-45e2-ac17-42d089e3c3f8.png">
+  <img alt="Shows an illustrated sun in light color mode and a moon with stars in dark color mode." src="https://user-images.githubusercontent.com/25423296/163456779-a8556205-d0a5-45e2-ac17-42d089e3c3f8.png">
+</picture>
+```
+
+The old method of specifying images based on the theme, by using a fragment appended to the URL (`#gh-dark-mode-only` or `#gh-light-mode-only`), is deprecated and will be removed in favor of the new method described above.
 {% endif %}
 
 ## 列表

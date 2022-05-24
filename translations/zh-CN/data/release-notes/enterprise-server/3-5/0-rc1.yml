@@ -122,7 +122,7 @@ sections:
       heading: Re-run failed or individual GitHub Actions jobs
       notes:
         - |
-          You can now re-run only failed jobs or an individual job in a GitHub Actions workflow run. For more information, see "[Re-running workflows and jobs](/managing-workflow-runs/re-running-workflows-and-jobs)."
+          You can now re-run only failed jobs or an individual job in a GitHub Actions workflow run. For more information, see "[Re-running workflows and jobs](/actions/managing-workflow-runs/re-running-workflows-and-jobs)."
     - 
       heading: Dependency graph supports GitHub Actions
       notes:
@@ -313,7 +313,7 @@ sections:
     - |
       GitHub Enterprise Server can display several common image formats, including PNG, JPG, GIF, PSD, and SVG, and provides several ways to compare differences between versions. Now when reviewing added or changed images in a pull request, previews of those images are shown by default. Previously, you would see a message indicating that binary files could not be shown and you would need to toggle the "Display rich diff" option. For more information, see  "[Working with non-code files](/repositories/working-with-files/using-files/working-with-non-code-files)."
     - |
-      New gists are now created with a default branch name of either `main` or the alternative default branch name defined in your user settings. This matches how other repositories are created on GitHub Enterprise Server. For more information, see "[About branches](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches#about-the-default-branch)" and "[Managing the default branch name for your repositories](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-the-default-branch-name-for-your-repositories)."
+      New gists are now created with a default branch name of either `main` or the alternative default branch name defined in your user settings. This matches how other repositories are created on GitHub Enterprise Server. For more information, see "[About branches](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches#about-the-default-branch)" and "[Managing the default branch name for your repositories](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-the-default-branch-name-for-your-repositories)."
     - |
       Gists now only show the 30 most recent comments when first displayed. You can click **Load earlier comments...** to view more. This allows gists that have many comments to appear more quickly. For more information, see "[Editing and sharing content with gists](/get-started/writing-on-github/editing-and-sharing-content-with-gists)."
     - |
