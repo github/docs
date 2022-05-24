@@ -8,7 +8,7 @@ redirect_from:
 versions:
   fpt: '*'
 ---
-### About configuring Git
+## About configuring Git
 
 {% data variables.product.prodname_desktop %} allows you to set the name and email you would like associated with your commits. You can also choose the default branch you would like used when creating new repositories in {% data variables.product.prodname_desktop %}.
 
@@ -24,7 +24,7 @@ versions:
 
 {% endtip %}
 
-### Configuring your commit details
+## Configuring your commit details
 
 {% mac %}
 
@@ -54,7 +54,7 @@ versions:
 
 {% endwindows %}
 
-### Overriding the email address GitHub Desktop uses for a repository
+## Overriding the email address GitHub Desktop uses for a repository
 
 In {% data variables.product.prodname_desktop %} you can change the name and email address used for commits in a specific repository. This local Git configuration will override your global Git configuration settings in this one repository, but will not affect any other repositories.
 
@@ -81,7 +81,7 @@ In {% data variables.product.prodname_desktop %} you can change the name and ema
 {% endwindows %}
 
 
-### Configuring your default branch for new repositories
+## Configuring your default branch for new repositories
 
 You can configure the default branch that will be used when creating a new repository in {% data variables.product.prodname_desktop %}. The default branch is the base branch for pull requests and code commits. For more information about the default branch, see "[About the default branch](/github/collaborating-with-issues-and-pull-requests/about-branches#about-the-default-branch)."
 
