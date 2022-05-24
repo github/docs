@@ -1,7 +1,7 @@
 import overloadProtection from 'overload-protection'
 
 // Default is 42. We're being more conservative.
-const DEFAULT_MAX_DELAY_DEFAULT = 300
+const DEFAULT_MAX_DELAY_DEFAULT = 500
 
 const OVERLOAD_PROTECTION_MAX_DELAY = parseInt(
   process.env.OVERLOAD_PROTECTION_MAX_DELAY || DEFAULT_MAX_DELAY_DEFAULT,
