@@ -1,4 +1,4 @@
-import { jest } from '@jest/globals'
+import { jest, test } from '@jest/globals'
 import slugger from 'github-slugger'
 
 import { getDOM } from '../helpers/e2etest.js'
@@ -62,6 +62,20 @@ describe('REST references docs', () => {
     const differences = await getDiffOpenAPIContentRest()
     const errorMessage = formatErrors(differences)
     expect(Object.keys(differences).length, errorMessage).toBe(0)
+  })
+
+  test('REST reference pages have DOM markers needed for extracting search content', async () => {
+    // Pick an arbitrary REST reference page that is build from React
+    const $ = await getDOM('/en/rest/actions/artifacts')
+    const rootSelector = '[data-search=article-body]'
+    const $root = $(rootSelector)
+    expect($root.length).toBe(1)
+    // Within that, should expect a "lead" text.
+    // Note! Not all REST references pages have a lead. The one in this
+    // test does.
+    const leadSelector = '[data-search=lead] p'
+    const $lead = $root.find(leadSelector)
+    expect($lead.length).toBe(1)
   })
 })
 
