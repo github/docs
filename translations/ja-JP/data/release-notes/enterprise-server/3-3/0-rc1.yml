@@ -5,74 +5,74 @@ deprecated: true
 intro: |
   {% note %}
 
-  **Note:** If {% data variables.product.product_location %} is running a release candidate build, you can't upgrade with a hotpatch. We recommend only running release candidates on test environments.
+  **ノート:** {% data variables.product.product_location %}がリリース候補ビルドを実行している場合、ホットパッチでのアップグレードはできません。リリース候補はテスト環境でのみ実行することをおすすめします。
 
   {% endnote %}
 
-  For upgrade instructions, see "[Upgrading {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)."
+  アップグレードの手順については「[{% data variables.product.prodname_ghe_server %}のアップグレード](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)　」を参照してください。
 sections:
   features:
     - 
-      heading: Security Manager role
+      heading: セキュリティマネージャーのロール
       notes:
         - |
-          Organization owners can now grant teams the access to manage security alerts and settings on their repositories. The "security manager" role can be applied to any team and grants the team's members the following access:
+          Organizationのオーナーは、Teamに対してセキュリティアラートの管理とリポジトリへのアクセス設定へのアクセスを許可できるようになりました。"security manager"のロールを任意のTeamに適用して、Teamのメンバーに以下のアクセスを付与できます。
 
-          - Read access on all repositories in the organization.
-          - Write access on all security alerts in the organization.
-          - Access to the organization-level security tab.
-          - Write access on security settings at the organization level.
-          - Write access on security settings at the repository level.
+          - Organizationのすべてのリポジトリへの読み取りアクセス
+          - Organizationのすべてのセキュリティアラートへの書き込みアクセス
+          - Organizationレベルのセキュリティタブへのアクセス
+          - Organizationレベルのセキュリティ設定への書き込みアクセス
+          -リポジトリレベルのセキュリティ設定への書き込みアクセス
 
-          For more information, see "[Managing security managers in your organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)."
+          詳しい情報については「[Organizationのセキュリティマネージャーの管理](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)」を参照してください。
     - 
-      heading: 'Ephemeral self-hosted runners for GitHub Actions & new webhooks for auto-scaling'
+      heading: 'GitHub Actions及びオートスケーリングのための新しいwebhookのための一過性のセルフホストランナー'
       notes:
         - |
-          {% data variables.product.prodname_actions %} now supports ephemeral (single job) self-hosted runners and a new [`workflow_job`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job) webhook to make autoscaling runners easier.
+          {% data variables.product.prodname_actions %}は、オートスケールするランナーを容易にするため、一過性（単一ジョブ）のセルフホストランナーと、新しい [`workflow_job`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job) webhookをサポートしました。
 
-          Ephemeral runners are good for self-managed environments where each job is required to run on a clean image. After a job is run, ephemeral runners are automatically unregistered from {% data variables.product.product_location %}, allowing you to perform any post-job management.
+          一過性のランナーは、各ジョブがクリーンなイメージ上で実行されることが必要な、自己管理の環境に適しています。ジョブが実行されたあと、一過性のランナーは自動的に{% data variables.product.product_location %}から登録解除され、ジョブ後の管理が可能になります。
 
-          You can combine ephemeral runners with the new `workflow_job` webhook to automatically scale self-hosted runners in response to {% data variables.product.prodname_actions %} job requests.
+          一過性のランナーを新しい`workflow_job` webhookと組み合わせて、{% data variables.product.prodname_actions %}のジョブリクエストに応じてセルフホストランナーを自動的にスケールさせることができます。
 
-          For more information, see "[Autoscaling with self-hosted runners](/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners)" and "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job)."
+          詳しい情報については「[セルフホストランナーのオートスケーリング](/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners)」及び「[webhookイベントとペイロード](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job)」を参照してください。
     - 
-      heading: 'Dark high contrast theme'
+      heading: 'ダーク高コントラストテーマ'
       notes:
         - |
-          A dark high contrast theme, with greater contrast between foreground and background elements, is now available on {% data variables.product.prodname_ghe_server %} 3.3. This release also includes improvements to the color system across all {% data variables.product.company_short %} themes.
+          前面の要素と背景要素のコントラストを大きくしたダーク高コントラストテーマが{% data variables.product.prodname_ghe_server %} 3.3で利用できるようになりました。このリリースには、すべての{% data variables.product.company_short %}テーマに渡るカラーシステムの改善も含まれています。
 
-          ![Animated image of switching between dark default theme and dark high contrast on the appearance settings page](https://user-images.githubusercontent.com/334891/123645834-ad096c00-d7f4-11eb-85c9-b2c92b00d70a.gif)
+          ![外見設定ページでのダークデフォルトテーマとダーク高コントラストの切り替えのアニメーション画像](https://user-images.githubusercontent.com/334891/123645834-ad096c00-d7f4-11eb-85c9-b2c92b00d70a.gif)
 
-          For more information about changing your theme, see "[Managing your theme settings](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-your-theme-settings)."
+          テーマの切り替えに関する詳しい情報については「[テーマ設定の管理](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-your-theme-settings)」を参照してください。
   changes:
     - 
       heading: 管理に関する変更
       notes:
-        - '{% data variables.product.prodname_ghe_server %} 3.3 includes improvements to the maintenance of repositories, especially for repositories that contain many unreachable objects. Note that the first maintenance cycle after upgrading to {% data variables.product.prodname_ghe_server %} 3.3 may take longer than usual to complete.'
-        - '{% data variables.product.prodname_ghe_server %} 3.3 includes the public beta of a repository cache for geographically-distributed teams and CI infrastructure. The repository cache keeps a read-only copy of your repositories available in additional geographies, which prevents clients from downloading duplicate Git content from your primary instance. For more information, see "[About repository caching](/admin/enterprise-management/caching-repositories/about-repository-caching)."'
-        - '{% data variables.product.prodname_ghe_server %} 3.3 includes improvements to the user impersonation process. An impersonation session now requires a justification for the impersonation, actions are recorded in the audit log as being performed as an impersonated user, and the user who is impersonated will receive an email notification that they have been impersonated by an enterprise administrator. For more information, see "[Impersonating a user](/enterprise-server@3.3/admin/user-management/managing-users-in-your-enterprise/impersonating-a-user)."'
-        - A new stream processing service has been added to facilitate the growing set of events that are published to the audit log, including events associated with Git and {% data variables.product.prodname_actions %} activity.
+        - '{% data variables.product.prodname_ghe_server %} 3.3には、リポジトリのメンテナンスの改善、特に多くの到達不能なオブジェクトを含むリポジトリに対する改善が含まれます。{% data variables.product.prodname_ghe_server %} 3.3へのアップグレード後の最初のメンテナンスサイクルが完了するまでには、通常よりも長くかかるかもしれないことに注意してください。'
+        - '{% data variables.product.prodname_ghe_server %} 3.3には、地理的に分散したチームとCIインフラストラクチャのためのリポジトリキャッシュのパブリックベータが含まれています。このリポジトリキャッシュは、追加の地点で利用できる読み取りのみのリポジトリのコピーを保持するもので、クライアントがプライマリインスタンスから重複してGitのコンテンツをダウンロードすることを回避してくれます。詳しい情報については「[リポジトリのキャッシングについて](/admin/enterprise-management/caching-repositories/about-repository-caching)」を参照してください。'
+        - '{% data variables.product.prodname_ghe_server %} 3.3には、ユーザ偽装プロセスの改善が含まれています。偽装セッションには偽装の正当性が必要になり、アクションは偽装されたユーザとして行われたものとしてAudit logに記録され、偽装されたユーザには、Enterpriseの管理者によって偽装されたというメール通知が届きます。詳しい情報については「[ユーザの偽装](/enterprise-server@3.3/admin/user-management/managing-users-in-your-enterprise/impersonating-a-user)を参照してください。'
+        - Gitと{% data variables.product.prodname_actions %}のアクティビティに関連するイベントを含む、Audit logに公開されるイベントの増大を受けつけるために、新しいストリーム処理のサービスが追加されました。
     - 
       heading: トークンの変更
       notes:
         - |
-          An expiration date can now be set for new and existing personal access tokens. Setting an expiration date on personal access tokens is highly recommended to prevent older tokens from leaking and compromising security. Token owners will receive an email when it's time to renew a token that's about to expire. Tokens that have expired can be regenerated, giving users a duplicate token with the same properties as the original.
+          新しい個人アクセストークン及び既存の個人アクセストークンに、期限切れの期日を設定でいるようになりました。古いトークンが漏洩し、セキュリティを毀損することがないよう、個人アクセストークンには期限切れの期日を設定することを強くおすすめします。トークンのオーナーは、期限切れが近づいたトークンを更新する時期になるとメールを受信します。期限切れになったトークンは再生成することができ、ユーザはオリジナルと同じ属性を持つ重複したトークンを受け取ることになります。
 
-          When using a personal access token with the {% data variables.product.company_short %} API, a new `GitHub-Authentication-Token-Expiration` header is included in the response, which indicates the token's expiration date. For more information, see "[Creating a personal access token](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+          個人アクセストークンを{% data variables.product.company_short %} APIで使う場合、新しい`GitHub-Authentication-Token-Expiration`ヘッダがレスポンスに含まれます。これは、トークンの期限切れの期日を示します。詳しい情報については「[個人アクセストークンの作成](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)」を参照してください。
     - 
-      heading: 'Notifications changes'
+      heading: '通知の変更'
       notes:
-        - 'Notification emails from discussions now include `(Discussion #xx)` in the subject, so you can recognize and filter emails that reference discussions.'
+        - 'ディスカッションからの通知メールのタイトルには`(Discussion #xx)`が含まれるようになったので、ディスカッションを参照するメールを認識してフィルタリングできます。'
     - 
       heading: 'リポジトリの変更'
       notes:
-        - Public repositories now have a `Public` label next to their names like private and internal repositories. This change makes it easier to identify public repositories and avoid accidentally committing private code.
-        - If you specify the exact name of a branch when using the branch selector menu, the result now appears at the top of the list of matching branches. Previously, exact branch name matches could appear at the bottom of the list.
-        - When viewing a branch that has a corresponding open pull request, {% data variables.product.prodname_ghe_server %} now links directly to the pull request. Previously, there would be a prompt to contribute using branch comparison or to open a new pull request.
-        - You can now click a button to copy the full raw contents of a file to the clipboard. Previously, you would need to open the raw file, select all, and then copy. To copy the contents of a file, navigate to the file and click {% octicon "copy" aria-label="The copy icon" %} in the toolbar. Note that this feature is currently only available in some browsers.
-        - When creating a new release, you can now select or create the tag using a dropdown selector, rather than specifying the tag in a text field. For more information, see "[Managing releases in a repository](/repositories/releasing-projects-on-github/managing-releases-in-a-repository)."
-        - A warning is now displayed when viewing a file that contains bidirectional Unicode text. Bidirectional Unicode text can be interpreted or compiled differently than it appears in a user interface. For example, hidden bidirectional Unicode characters can be used to swap segments of text in a file. For more information about replacing these characters, see the [{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-10-31-warning-about-bidirectional-unicode-text/).
+        - パブリックリポジトリは、プライベート及びインターナルリポジトリのように名前の隣に`Public`というラベルが付くようになりました。この変更によって、パブリックリポジトリを特定し、誤ってプライベートなコードをコミットすることを避けるのが容易になります。
+        - ブランチ選択メニューを使う際に正確なブランチ名を指定すると、マッチするブランチの最上位にその結果が現れるようになりました。以前は厳密にマッチしたブランチ名がリストの末尾に表示されることがありました。
+        - 対応するオープンなPull Requestを持つブランチを表示する際に、{% data variables.product.prodname_ghe_server %}はPull Requestに直接リンクするようになりました。以前は、ブランチの比較を使って貢献するか、新しいPull Requestをオープンするためのプロンプトがありました。
+        - ボタンをクリックして、ファイルの生の内容をクリップボードにコピーできるようになりました。以前は、生のファイルを開き、すべてを選択し、コピーしなければなりませんでした。ファイルの内容をコピーするには、ファイルにアクセスし、ツールバーの{% octicon "copy" aria-label="The copy icon" %}をクリックしてください。この機能は現在、一部のブラウザでのみ利用可能であることに注意してください。
+        - 新しいリリースを作成する際に、タグをテキストフィールドで指定するのではなく、ドロップダウンセレクタを使ってタグを選択あるいは作成できるようになりました。詳しい情報については「[リポジトリのリリースの管理](/repositories/releasing-projects-on-github/managing-releases-in-a-repository)」を参照してください。
+        - 双方向のUnicodeテキストを含むファイルを表示する際に、警告が表示されるようになりました。双方向のUnicodeテキストは、ユーザインターフェースで表示されるのとは異なるように解釈あるいはコンパイルされることがあります。たとえば、非表示の双方向Unicode文字を使ってテキストファイルのセグメントをスワップさせることがでいいます。これらの文字の置き換えに関する詳しい情報については[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-10-31-warning-about-bidirectional-unicode-text/)を参照してください。
         - You can now use `CITATION.cff` files to let others know how you would like them to cite your work. `CITATION.cff` files are plain text files with human- and machine-readable citation information. {% data variables.product.prodname_ghe_server %} parses this information into common citation formats such as [APA](https://apastyle.apa.org) and [BibTeX](https://en.wikipedia.org/wiki/BibTeX). For more information, see "[About CITATION files](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-citation-files)."
     - 
       heading: 'Markdownの変更'

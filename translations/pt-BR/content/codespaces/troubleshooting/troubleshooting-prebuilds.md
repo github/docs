@@ -22,11 +22,11 @@ Ao criar um codespace, você pode escolher o tipo de máquina virtual que deseja
 
 ![Uma lista dos tipos de máquina disponíveis](/assets/images/help/codespaces/choose-custom-machine-type.png)
 
-If you have your {% data variables.product.prodname_codespaces %} editor preference set to "{% data variables.product.prodname_vscode %} for Web" then the "Setting up your codespace" page will show the message "Prebuilt codespace found" if a prebuild is being used.
+Se você tiver a sua preferência de editor de {% data variables.product.prodname_codespaces %} definida como "{% data variables.product.prodname_vscode %} para a Web", a página "Configurando seu codespace " mostrará a mensagem "Pré-compliação de codespace encontrada" se uma pré-compilação estiver sendo usada.
 
 ![A mensagem "codespaces da pre-criação encontrados"](/assets/images/help/codespaces/prebuilt-codespace-found.png)
 
-Similarly, if your editor preference is "{% data variables.product.prodname_vscode_shortname %}" then the integrated terminal will contain the message "You are on a prebuilt codespace defined by the prebuild configuration for your repository" when you create a new codespace. Para obter mais informações, consulte "[Definindo seu editor padrão para codespaces](/codespaces/customizing-your-codespace/setting-your-default-editor-for-codespaces)".
+Da mesma forma, se sua preferência de editor for "{% data variables.product.prodname_vscode_shortname %}", o terminal integrado conterá a mensagem "Você está em um codespace pré-criado e definido pela configuração de pré-compilação para seu repositório" ao criar um novo codespace. Para obter mais informações, consulte "[Definindo seu editor padrão para codespaces](/codespaces/customizing-your-codespace/setting-your-default-editor-for-codespaces)".
 
 Depois de criar um codespace, você pode verificar se ele foi criado a partir de uma pré-compilação executando o seguinte comando {% data variables.product.prodname_cli %} no terminal:
 
@@ -59,7 +59,7 @@ Essas são as coisas a serem verificadas se a etiqueta " Pré-compilação de {%
 
 ## Troubleshooting failed workflow runs for prebuilds
 
-If the workflow runs for a prebuild configuration are failing, you can temporarily disable the prebuild configuration while you investigate. For more information, see "[Managing prebuilds](/codespaces/prebuilding-your-codespaces/managing-prebuilds#disabling-a-prebuild-configuration)."
+Se o fluxo de trabalho for executado para uma configuração de pré-compilação falhar, você poderá desabilitar temporariamente a configuração de pré-compilação durante a investigação. Para obter mais informações, consulte "[Gereciando pré-compilações](/codespaces/prebuilding-your-codespaces/managing-prebuilds#disabling-a-prebuild-configuration)".
 
 ## Leia mais
 

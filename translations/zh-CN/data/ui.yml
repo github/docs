@@ -36,6 +36,7 @@ search:
 homepage:
   explore_by_product: 按产品浏览
   version_picker: 版本
+  description: Help for wherever you are on your GitHub journey.
 toc:
   getting_started: 入门指南
   popular: 热门

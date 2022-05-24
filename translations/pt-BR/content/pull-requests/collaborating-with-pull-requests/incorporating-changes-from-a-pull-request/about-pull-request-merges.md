@@ -24,7 +24,7 @@ topics:
 
 ### Mesclar mensagem para uma mesclagem por squash
 
-When you squash and merge, {% data variables.product.prodname_dotcom %} generates a default commit message, which you can edit. The default message depends on the number of commits in the pull request, not including merge commits.
+Ao fazer combinação por squash e merge, {% data variables.product.prodname_dotcom %} gera uma mensagem de commit padrão, que você pode editar. A mensagem padrão depende do número de commits no pull request, que não inclui commits de merge.
 
 | Número de commits | Sumário                                                                           | Descrição                                                                                        |
 | ----------------- | --------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
@@ -32,7 +32,7 @@ When you squash and merge, {% data variables.product.prodname_dotcom %} generate
 | Mais de um commit | Título da pull request, seguido do número da pull request                         | Uma lista das mensagens de commit para todos os commits combinados por squash, por ordem de data |
 
 {% ifversion fpt or ghec or ghes > 3.5 or ghae-issue-7042 %}
-People with admin access to a repository can configure the repository to use the title of the pull request as the default merge message for all squashed commits. For more information, see "[Configure commit squashing](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/configuring-commit-squashing-for-pull-requests)".
+As pessoas com acesso de administrador a um repositório podem configurar o repositório para usar o título do pull request como a mensagem de merge padrão para todos os commits combinados por squash. Para obter mais informações, consulte "[Configurar o commit combinado por squash](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/configuring-commit-squashing-for-pull-requests)".
 {% endif %}
 
 ### Fazendo combinação por squash e merge com um branch de longa duração

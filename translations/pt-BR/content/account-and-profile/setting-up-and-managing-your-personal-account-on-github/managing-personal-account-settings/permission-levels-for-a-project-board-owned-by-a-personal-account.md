@@ -1,5 +1,5 @@
 ---
-title: Permission levels for a project board owned by a personal account
+title: Níveis de permissão para um quadro de projeto pertencente a uma conta pessoal
 intro: 'Um quadro de projeto pertencente a uma conta pessoal tem dois níveis de permissão: o proprietário e colaboradores do quadro do projeto.'
 redirect_from:
   - /articles/permission-levels-for-user-owned-project-boards
