@@ -114,10 +114,10 @@ El flujo de trabajo anterior verifica el repositorio de {% data variables.produc
 
 {% data reusables.actions.release-trigger-workflow %}
 
-In the example workflow below, we use the Docker `login-action`{% ifversion fpt or ghec %}, `metadata-action`,{% endif %} and `build-push-action` actions to build the Docker image, and if the build succeeds, push the built image to {% data variables.product.prodname_registry %}.
+En el siguiente ejemplo de flujo de trabajo, utilizamos las acciones `login-action` {% ifversion fpt or ghec %}, `metadata-action`,{% endif %} y `build-push-action` de Docker para crear la imagen de Docker y, si la compilación tiene éxito, sube la imagen cargada al {% data variables.product.prodname_registry %}.
 
 Las opciones de `login-action` que se requieren para el {% data variables.product.prodname_registry %} son:
-* `registry`: Must be set to {% ifversion fpt or ghec %}`ghcr.io`{% elsif ghes > 3.4 %}`{% data reusables.package_registry.container-registry-hostname %}`{% else %}`docker.pkg.github.com`{% endif %}.
+* `registry`: Debe configurarse en {% ifversion fpt or ghec %}`ghcr.io`{% elsif ghes > 3.4 %}`{% data reusables.package_registry.container-registry-hostname %}`{% else %}`docker.pkg.github.com`{% endif %}.
 * `username`: Puedes utilizar el contexto {% raw %}`${{ github.actor }}`{% endraw %} para utilizar automáticamente el nombre de usuario del usuario que desencadenó la ejecución del flujo de trabajo. Para obtener más información, consulta "[Contextos](/actions/learn-github-actions/contexts#github-context)".
 * `password`: Puedes utilizar el secreto generado automáticamente `GITHUB_TOKEN` para la contraseña. Para más información, consulta "[Autenticando con el GITHUB_TOKEN](/actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token)."
 
@@ -126,15 +126,15 @@ La opción de `metadata-action` que se requiere para el {% data variables.produc
 * `images`: El designador de nombre de la imagen de Docker que estás compilando.
 {% endif %}
 
-The `build-push-action` options required for {% data variables.product.prodname_registry %} are:{% ifversion fpt or ghec %}
+Las opciones de `build-push-action` requeridas para el {% data variables.product.prodname_registry %} son:{% ifversion fpt or ghec %}
 * `context`: Define el contexto de la compilación como el conjunto de archivos que se ubican en la ruta especificada.{% endif %}
 * `push`: Si se configura en `true`, la imagen se cargará al registro si se compila con éxito.{% ifversion fpt or ghec %}
 * `tags` y `labels`: Estos se llenan con la salida de la `metadata-action`.{% else %}
-* `tags`: Must be set in the format {% ifversion ghes > 3.4 %}`{% data reusables.package_registry.container-registry-hostname %}/OWNER/REPOSITORY/IMAGE_NAME:VERSION`.
+* `tags`: Debe configurarse en el formato {% ifversion ghes > 3.4 %}`{% data reusables.package_registry.container-registry-hostname %}/OWNER/REPOSITORY/IMAGE_NAME:VERSION`.
 
-   For example, for an image named `octo-image` stored on {% data variables.product.prodname_ghe_server %} at `https://HOSTNAME/octo-org/octo-repo`, the `tags` option should be set to `{% data reusables.package_registry.container-registry-hostname %}/octo-org/octo-repo/octo-image:latest`{% else %}`docker.pkg.github.com/OWNER/REPOSITORY/IMAGE_NAME:VERSION`.
+   Por ejemplo, para una imagen que se llama `octo-image` y se almacena en {% data variables.product.prodname_ghe_server %} en `https://HOSTNAME/octo-org/octo-repo`, la opción de `tags` debe configurarse como `{% data reusables.package_registry.container-registry-hostname %}/octo-org/octo-repo/octo-image:latest`{% else %}`docker.pkg.github.com/OWNER/REPOSITORY/IMAGE_NAME:VERSION`.
 
-   For example, for an image named `octo-image` stored on {% data variables.product.prodname_dotcom %} at `http://github.com/octo-org/octo-repo`, the `tags` option should be set to `docker.pkg.github.com/octo-org/octo-repo/octo-image:latest`{% endif %}. Puedes configurar una tarjeta sencilla como se muestra a continuación o especificar etiquetas múltiples en una lista.{% endif %}
+   Por ejemplo, para el caso de una imagen que se llame `octo-image` y esté almacenada en {% data variables.product.prodname_dotcom %} en `http://github.com/octo-org/octo-repo`, la opción `tags` debe configurarse como `docker.pkg.github.com/octo-org/octo-repo/octo-image:latest`{% endif %}. Puedes configurar una tarjeta sencilla como se muestra a continuación o especificar etiquetas múltiples en una lista.{% endif %}
 
 {% ifversion fpt or ghec or ghes > 3.4 %}
 {% data reusables.package_registry.publish-docker-image %}
@@ -178,7 +178,7 @@ jobs:
             {% ifversion ghae %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}{% raw %}/${{ github.repository }}/octo-image:${{ github.event.release.tag_name }}{% endraw %}
 ```
 
-The above workflow checks out the {% data variables.product.product_name %} repository, uses the `login-action` to log in to the registry, and then uses the `build-push-action` action to: build a Docker image based on your repository's `Dockerfile`; push the image to the Docker registry, and apply the commit SHA and release version as image tags.
+El flujo de trabajo anterior verifica el repositorio de {% data variables.product.product_name %}, utiliza la `login-action` para iniciar sesión en el registro y luego utiliza la acción `build-push-action` para: compilar una imagen de Docker con base en el `Dockerfile` de tu repositorio; subir la imagen al registro de Docker y aplicar el SHA de confirmación y versión de lanzamiento como etiquetas de imagen.
 {% endif %}
 
 ## Publicar imágenes en Docker Hub y en {% data variables.product.prodname_registry %}
@@ -241,4 +241,4 @@ jobs:
           labels: {% raw %}${{ steps.meta.outputs.labels }}{% endraw %}
 ```
 
-The above workflow checks out the {% data variables.product.product_name %} repository, uses the `login-action` twice to log in to both registries and generates tags and labels with the `metadata-action` action. Then the `build-push-action` action builds and pushes the Docker image to Docker Hub and the {% ifversion fpt or ghec or ghes > 3.4 %}{% data variables.product.prodname_container_registry %}{% else %}Docker registry{% endif %}.
+El flujo de trabajo anterior verifica el repositorio de {% data variables.product.product_name %}, utiliza `login-action` dos veces para iniciar sesión en ambos registros y genera etiquetas y marcadores con la acción `metadata-action`. Entonces, la acción `build-push-action` crea y sube la imagen de Docker a Docker Hub y al {% ifversion fpt or ghec or ghes > 3.4 %}{% data variables.product.prodname_container_registry %}{% else %}registro de Docker{% endif %}.

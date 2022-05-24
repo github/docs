@@ -1,5 +1,5 @@
 ---
-title: Managing access to your personal account's project boards
+title: Gerenciando o acesso aos quadros de projetos da sua conta pessoal
 intro: 'Como proprietário de quadro de projeto, você pode adicionar ou remover um colaborador e personalizar as permissões dele em um quadro de projeto.'
 redirect_from:
   - /articles/managing-project-boards-in-your-repository-or-organization

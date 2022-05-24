@@ -55,7 +55,7 @@ topics:
 
 {% note %}
 
-**ノート:** ベータリリースの間、この機能は2022年4月14日*以降*に生成された新規のPythonアドバイザリと、過去のPythonのアドバイザリの一部に対してのみ有効です。 {% data variables.product.prodname_dotcom %} is working to backfill data across additional historical Python advisories, which are added on a rolling basis. 脆弱性のある呼び出しは、{% data variables.product.prodname_dependabot_alerts %}ページ上でのみハイライトされます。
+**ノート:** ベータリリースの間、この機能は2022年4月14日*以降*に生成された新規のPythonアドバイザリと、過去のPythonのアドバイザリの一部に対してのみ有効です。 {% data variables.product.prodname_dotcom %}は、さらなる過去のPythonアドバイザリにさかのぼってデータを加えていっています。これは、随時追加されていっています。 脆弱性のある呼び出しは、{% data variables.product.prodname_dependabot_alerts %}ページ上でのみハイライトされます。
 
 {% endnote %}
 
@@ -65,7 +65,7 @@ topics:
 
 脆弱性のある呼び出しが検出されたアラートについては、アラートの詳細ページに追加情報が表示されます。
 
-- One or more code blocks showing where the function is used.
+- 関数が使用されている場所を示す1つ以上のコードブロック。
 - 関数自体をリストしているアノテーション。関数が呼ばれている行へのリンク付きで。
 
 !["Vulnerable call"ラベルの付いたアラートのアラート詳細ページを表示しているスクリーンショット](/assets/images/help/repository/review-calls-to-vulnerable-functions.png)

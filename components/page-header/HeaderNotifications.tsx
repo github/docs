@@ -21,9 +21,9 @@ type Notif = {
 export const HeaderNotifications = () => {
   const router = useRouter()
   const { currentVersion } = useVersion()
-  const { relativePath, allVersions, data, userLanguage, currentPathWithoutLanguage, page } =
-    useMainContext()
-  const { languages } = useLanguages()
+  const { relativePath, allVersions, data, currentPathWithoutLanguage, page } = useMainContext()
+  const { languages, userLanguage } = useLanguages()
+
   const { t } = useTranslation('header')
 
   const translationNotices: Array<Notif> = []

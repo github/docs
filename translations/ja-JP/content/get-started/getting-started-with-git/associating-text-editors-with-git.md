@@ -28,9 +28,9 @@ shortTitle: Associate text editors
   $ git config --global core.editor "atom --wait"
   ```
 
-## エディタとして Visual Studio Code を使う
+## Using {% data variables.product.prodname_vscode %} as your editor
 
-1. [Visual Studio Code](https://code.visualstudio.com/) (VS Code) をインストールします。 詳細は、VS Code のドキュメンテーションで「[Visual Studio Code の設定](https://code.visualstudio.com/Docs/setup/setup-overview)」を参照してください。
+1. Install [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/) ({% data variables.product.prodname_vscode_shortname %}). For more information, see "[Setting up {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/Docs/setup/setup-overview)" in the {% data variables.product.prodname_vscode_shortname %} documentation.
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. 以下のコマンドを入力してください:
   ```shell
@@ -68,9 +68,9 @@ shortTitle: Associate text editors
   $ git config --global core.editor "atom --wait"
   ```
 
-## エディタとして Visual Studio Code を使う
+## Using {% data variables.product.prodname_vscode %} as your editor
 
-1. [Visual Studio Code](https://code.visualstudio.com/) (VS Code) をインストールします。 詳細は、VS Code のドキュメンテーションで「[Visual Studio Code の設定](https://code.visualstudio.com/Docs/setup/setup-overview)」を参照してください。
+1. Install [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/) ({% data variables.product.prodname_vscode_shortname %}). For more information, see "[Setting up {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/Docs/setup/setup-overview)" in the {% data variables.product.prodname_vscode_shortname %} documentation.
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. 以下のコマンドを入力してください:
   ```shell
@@ -107,9 +107,9 @@ shortTitle: Associate text editors
   $ git config --global core.editor "atom --wait"
   ```
 
-## エディタとして Visual Studio Code を使う
+## Using {% data variables.product.prodname_vscode %} as your editor
 
-1. [Visual Studio Code](https://code.visualstudio.com/) (VS Code) をインストールします。 詳細は、VS Code のドキュメンテーションで「[Visual Studio Code の設定](https://code.visualstudio.com/Docs/setup/setup-overview)」を参照してください。
+1. Install [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/) ({% data variables.product.prodname_vscode_shortname %}). For more information, see "[Setting up {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/Docs/setup/setup-overview)" in the {% data variables.product.prodname_vscode_shortname %} documentation.
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. 以下のコマンドを入力してください:
   ```shell

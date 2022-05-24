@@ -1,4 +1,4 @@
-Use `jobs.<job_id>.container.volumes` to set an `array` of volumes for the container to use. Puedes usar volúmenes para compartir datos entre servicios u otros pasos en un trabajo. Puedes especificar volúmenes Docker con nombre, volúmenes Docker anónimos o montajes de enlace en el host.
+Utiliza `jobs.<job_id>.container.volumes` para configurar un `array` de volúmenes para que lo utilice el contenedor. Puedes usar volúmenes para compartir datos entre servicios u otros pasos en un trabajo. Puedes especificar volúmenes Docker con nombre, volúmenes Docker anónimos o montajes de enlace en el host.
 
 Para especificar un volumen, especifica la ruta de origen y destino:
 
@@ -6,7 +6,7 @@ Para especificar un volumen, especifica la ruta de origen y destino:
 
 `<source>` es un nombre de volumen o una ruta absoluta en la máquina host, y `<destinationPath>` es una ruta absoluta en el contenedor.
 
-#### Example: Mounting volumes in a container
+#### Ejemplo: Montar volúmenes en un contenedor
 
 ```yaml
 volumes:

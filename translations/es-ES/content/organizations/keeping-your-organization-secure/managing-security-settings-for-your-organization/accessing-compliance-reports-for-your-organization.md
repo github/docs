@@ -1,6 +1,6 @@
 ---
 title: Acceder a los reportes de cumplimiento de tu organización
-intro: 'You can access {% data variables.product.company_short %}''s compliance reports, such as our SOC reports and Cloud Security Alliance CAIQ self-assessment (CSA CAIQ), for your organization.'
+intro: 'Puedes acceder a los reportes de cumplimiento de {% data variables.product.company_short %}, tales como los de SOC y a la autoevaluación del CAIQ de la Alianza de Seguridad en la Nube (CSA CAIQ) para tu organización.'
 versions:
   ghec: '*'
 type: how_to
@@ -13,14 +13,14 @@ shortTitle: Acceso a los reportes de cumplimiento
 
 ## Acerca de los reportes de cumplimiento de {% data variables.product.company_short %}
 
-You can access {% data variables.product.company_short %}'s compliance reports in your organization settings.
+Puedes acceder a los reportes de cumplimiento de {% data variables.product.company_short %} en tus ajustes de organización.
 
 {% data reusables.security.compliance-report-list %}
 
 
 {% note %}
 
-**Note:** To view compliance reports, your organization must use {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
+**Nota:** Para ver los reportes de cumplimiento, tu organización debe utilizar {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
 
 {% endnote %}
 

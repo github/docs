@@ -5368,7 +5368,7 @@ input CreateBranchProtectionRuleInput {
   pattern: String!
 
   """
-  A list of User, Team or App IDs allowed to push to matching branches.
+  A list of User, Team, or App IDs allowed to push to matching branches.
   """
   pushActorIds: [ID!]
 
@@ -39257,7 +39257,7 @@ input UpdateBranchProtectionRuleInput {
   pattern: String
 
   """
-  A list of User, Team or App IDs allowed to push to matching branches.
+  A list of User, Team, or App IDs allowed to push to matching branches.
   """
   pushActorIds: [ID!]
 

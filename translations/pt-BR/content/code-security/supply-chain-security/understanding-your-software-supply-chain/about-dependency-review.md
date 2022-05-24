@@ -37,6 +37,8 @@ Para obter mais informações sobre como configurar uma revisão de dependência
 
 A revisão de dependências é compatível com as mesmas linguagens e os mesmos ecossistemas de gestão de pacotes do gráfico de dependência. Para obter mais informações, consulte "[Sobre o gráfico de dependência](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems)".
 
+Para obter mais informações sobre as funcionalidades da cadeia de suprimentos disponíveis em {% data variables.product.product_name %}, consulte "[Sobre a segurança da cadeia de suprimentos](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security)."
+
 {% ifversion ghec or ghes %}
 ## Habilitar revisão de dependências
 

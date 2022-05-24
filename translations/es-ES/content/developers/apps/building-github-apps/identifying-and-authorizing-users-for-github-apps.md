@@ -239,8 +239,8 @@ Mientras que la mayoría de tu interacción con la API deberá darse utilizando 
 
 * [Listar los despliegues](/rest/reference/deployments#list-deployments)
 * [Crear un despliegue](/rest/reference/deployments#create-a-deployment)
-* [Get a deployment](/rest/reference/deployments#get-a-deployment)
-* [Delete a deployment](/rest/reference/deployments#delete-a-deployment)
+* [Obtén un despliegue](/rest/reference/deployments#get-a-deployment)
+* [Borra un despliegue](/rest/reference/deployments#delete-a-deployment)
 
 #### Eventos
 
@@ -573,7 +573,7 @@ Mientras que la mayoría de tu interacción con la API deberá darse utilizando 
 
 #### Reacciones
 
-* [Delete a reaction](/rest/reference/reactions)
+* [Borra una reacción](/rest/reference/reactions)
 * [Listar las reacciones a un comentario de una confirmación](/rest/reference/reactions#list-reactions-for-a-commit-comment)
 * [Crear una reacción para el comentario de una confirmación](/rest/reference/reactions#create-reaction-for-a-commit-comment)
 * [Listar las reacciones de un informe de problemas](/rest/reference/reactions#list-reactions-for-an-issue)
@@ -585,13 +585,13 @@ Mientras que la mayoría de tu interacción con la API deberá darse utilizando 
 * [Listar las reacciones para un comentario de debate de equipo](/rest/reference/reactions#list-reactions-for-a-team-discussion-comment)
 * [Crear una reacción para un comentario de debate de equipo](/rest/reference/reactions#create-reaction-for-a-team-discussion-comment)
 * [Listar las reaciones a un debate de equipo](/rest/reference/reactions#list-reactions-for-a-team-discussion)
-* [Create reaction for a team discussion](/rest/reference/reactions#create-reaction-for-a-team-discussion)
+* [Crear una reacción para un debate de equipo](/rest/reference/reactions#create-reaction-for-a-team-discussion)
 * [Borrar la reacción a un comentario de una confirmación](/rest/reference/reactions#delete-a-commit-comment-reaction)
 * [Borrar la reacción a un comentario](/rest/reference/reactions#delete-an-issue-reaction)
 * [Borrar la reacción a un comentario de una confirmación](/rest/reference/reactions#delete-an-issue-comment-reaction)
 * [Borrar la reacción a un comentario de una solicitud de extracción](/rest/reference/reactions#delete-a-pull-request-comment-reaction)
 * [Borrar la reacción a un debate de equipo](/rest/reference/reactions#delete-team-discussion-reaction)
-* [Delete team discussion comment reaction](/rest/reference/reactions#delete-team-discussion-comment-reaction)
+* [Borrar una reacción a un comentario en un debate de equipo](/rest/reference/reactions#delete-team-discussion-comment-reaction)
 
 #### Repositorios
 
