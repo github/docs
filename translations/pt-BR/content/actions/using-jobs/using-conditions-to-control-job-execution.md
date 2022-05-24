@@ -15,4 +15,14 @@ miniTocMaxHeadingLevel: 4
 
 ## Visão Geral
 
+{% note %}
+
+**Observação:** Um trabalho que ignorado irá relatar seu status como "Sucesso". Isso não impedirá o merge de um pull request mesmo que seja uma verificação necessária.
+
+{% endnote %}
+
 {% data reusables.actions.jobs.section-using-conditions-to-control-job-execution %}
+
+Você verá o seguinte status em um trabalho ignorado:
+
+![Skipped-required-run-details](/assets/images/help/repository/skipped-required-run-details.png)

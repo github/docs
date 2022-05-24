@@ -32,7 +32,7 @@ Este guia mostra como aplicar uma abordagem de gerenciamento centralizada para o
 1. Implantar um executor auto-hospedado para a sua empresa
 1. Criar um grupo para gerenciar o acesso aos executores disponíveis para sua empresa
 1. Opcionalmente, restringir ainda mais os repositórios que podem usar o executor
-{%- ifversion ghec or ghae-issue-4462 or ghes > 3.2 %}
+{%- ifversion ghec or ghae or ghes > 3.2 %}
 1. Opcionalmente, crie ferramentas personalizadas para dimensionar automaticamente seus executores auto-hospedados
 {% endif %}
 
@@ -122,7 +122,7 @@ Opcionalmente, os proprietários da organização podem restringir ainda mais a 
 
 Para obter mais informações, consulte "[Gerenciando acesso a runners auto-hospedados usando grupos](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#changing-the-access-policy-of-a-self-hosted-runner-group)".
 
-{% ifversion ghec or ghae-issue-4462 or ghes > 3.2 %}
+{% ifversion ghec or ghae or ghes > 3.2 %}
 
 ## 5. Dimensione automaticamente seus executores auto-hospedados
 

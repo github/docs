@@ -15,7 +15,7 @@ shortTitle: 更改站点可见性
 
 {% data reusables.pages.privately-publish-ghec-only %}
 
-If your enterprise uses {% data variables.product.prodname_emus %}, access control is not available, and all {% data variables.product.prodname_pages %} sites are only accessible to other enterprise members. 有关 {% data variables.product.prodname_emus %} 的更多信息，请参阅“[关于 {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#limitations-for-enterprise-managed-users)”。
+如果您的企业使用 {% data variables.product.prodname_emus %}，则访问控制不可用，并且所有 {% data variables.product.prodname_pages %} 站点仅供其他企业成员访问。 有关 {% data variables.product.prodname_emus %} 的更多信息，请参阅“[关于 {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#limitations-for-enterprise-managed-users)”。
 
 如果您的组织使用 {% data variables.product.prodname_ghe_cloud %} 而没有 {% data variables.product.prodname_emus %}，您可以选择在互联网上私下或公开地向任何人发布您的站点。 从组织拥有的私人或内部仓库发布的项目站点可使用访问控制。 您无法管理组织站点的访问控制。 有关 {% data variables.product.prodname_pages %} 站点类型的更多信息，请参阅“[关于 {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)”。
 

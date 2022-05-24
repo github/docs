@@ -34,7 +34,7 @@ Cada codespace tiene su propia red virtual aislada. Utilizamos cortafuegos para 
 
 ### Autenticación
 
-Puedes conectarte a un codespace utilizando un buscador web o desde Visual Studio Code. Si te conectas desde Visual Studio Code, se te pedirá autenticarte con {% data variables.product.product_name %}.
+Puedes conectarte a un codespace utilizando un buscador web o desde {% data variables.product.prodname_vscode %}. Si te conectas desde {% data variables.product.prodname_vscode_shortname %}, se te pedirá autenticarte con {% data variables.product.product_name %}.
 
 Cada vez que se cree o reinicie un codespace, se le asignará un token de {% data variables.product.company_short %} nuevo con un periodo de vencimiento automático. Este periodo te permite trabajar en el codespace sin necesitar volver a autenticarte durante un día de trabajo habitual, pero reduce la oportunidad de que dejes la conexión abierta cuando dejas de utilizar el codespace.
 
@@ -109,4 +109,4 @@ Ciertas características de desarrollo pueden agregar riesgos a tu ambiente pote
 
 #### Utilizar extensiones
 
-Cualquier extensión adicional de {% data variables.product.prodname_vscode %} que hayas instalado puede introducir más riesgos potencialmente. Para ayudar a mitigar este riesgo, asegúrate de que solo instales extensiones confiables y de que siempre se mantengan actualizadas.
+Cualquier extensión adicional de {% data variables.product.prodname_vscode_shortname %} que hayas instalado puede introducir más riesgos potencialmente. Para ayudar a mitigar este riesgo, asegúrate de que solo instales extensiones confiables y de que siempre se mantengan actualizadas.

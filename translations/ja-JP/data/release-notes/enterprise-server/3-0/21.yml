@@ -2,17 +2,17 @@
 date: '2021-12-07'
 sections:
   security_fixes:
-    - Support bundles could include sensitive files if they met a specific set of conditions.
-    - A UI misrepresentation vulnerability was identified in GitHub Enterprise Server that allowed more permissions to be granted during a GitHub App's user-authorization web flow than was displayed to the user during approval. This vulnerability affected all versions of GitHub Enterprise Server prior to 3.3 and was fixed in versions 3.2.5, 3.1.13, 3.0.21. This vulnerability was reported via the GitHub Bug Bounty program and has been assigned [CVE-2021-41598](https://www.cve.org/CVERecord?id=CVE-2021-41598).
-    - A remote code execution vulnerability was identified in GitHub Enterprise Server that could be exploited when building a GitHub Pages site. This vulnerability affected all versions of GitHub Enterprise Server prior to 3.3 and was fixed in versions 3.0.21, 3.1.13, 3.2.5. This vulnerability was reported via the GitHub Bug Bounty program and has been assigned [CVE-2021-41599](https://www.cve.org/CVERecord?id=CVE-2021-41599). Updated February 17, 2022.
+    - 特定の条件群が満たされる場合に、Support Bundleにセンシティブなファイルが含まれることがあります。
+    - 承認の際にユーザに表示される以上の権限が、GitHub Appのユーザ認証Webフローの間に付与されてしまうUIの表示ミスの脆弱性がGitHub Enterprise Serverで特定されました。この脆弱性は3.3以前のすべてのバージョンのGitHub Enterprise Serverに影響し、バージョン3.2.5、3.1.13、3.0.21で修正されました。この脆弱性はGitHub Bug Bountyプログラムを通じて報告され、[CVE-2021-41598](https://www.cve.org/CVERecord?id=CVE-2021-41598)が割り当てられました。
+    - GitHub Pagesのサイトをビルドする際に悪用されることがあるリモートコード実行の脆弱性が、GitHub Enterprise Serverで特定されました。この脆弱性は3.3以前のすべてのバージョンのGitHub Enterprise Serverに影響し、3.0.21、3.1.13、3.2.5で修正されました。この脆弱性はGitHub Bug Bountyプログラムを通じて報告され、[CVE-2021-41599]（https://www.cve.org/CVERecord?id=CVE-2021-41599）が割り当てられました。2022年2月17日更新。
   bugs:
-    - Running `ghe-config-apply` could sometimes fail because of permission issues in `/data/user/tmp/pages`.
-    - A misconfiguration in the Management Console caused scheduling errors.
-    - Docker would hold log files open after a log rotation.
-    - GraphQL requests did not set the GITHUB_USER_IP variable in pre-receive hook environments.
+    - '`ghe-config-apply`を実行すると、`/data/user/tmp/pages`における権限の問題のために失敗することがあります。'
+    - Management Consoleの設定ミスにより、スケジューリングのエラーが生じました。
+    - Dockerが、ログのローテーション後にログファイルをオープンしたまま保持します。
+    - pre-receiveフック環境において、GraphQLのリクエストがGITHUB_USER_IP変数を設定しませんでした。
   changes:
-    - Clarifies explanation of Actions path-style in documentation.
-    - Updates support contact URLs to use the current support site, support.github.com.
+    - ドキュメンテーションでActionsのパススタイルの説明を明確化します。
+    - サポートの連絡先URLが現在のサポートサイトであるsupport.github.comを使うよう更新。
   known_issues:
     - 新しくセットアップされたユーザを持たない{% data variables.product.prodname_ghe_server %}で、攻撃者が最初の管理ユーザを作成できました。
     - アップグレードの過程で、カスタムのファイアウォールのルールが削除されます。

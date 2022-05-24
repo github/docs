@@ -37,7 +37,7 @@ topics:
   - Profiles
   - Notifications
 children:
-  - /setting-up-and-managing-your-github-user-account
+  - /setting-up-and-managing-your-personal-account-on-github
   - /setting-up-and-managing-your-github-profile
   - /managing-subscriptions-and-notifications-on-github
 ---

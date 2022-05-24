@@ -35,7 +35,7 @@ Predeterminadamente, un codespace solo puede acceder al repositorio desde el cua
 {% ifversion fpt %}
 {% note %}
 
-**Note:** If you are a verified educator or a teacher, you must enable {% data variables.product.prodname_codespaces %} from a {% data variables.product.prodname_classroom %} to use your {% data variables.product.prodname_codespaces %} Education benefit. For more information, see "[Using GitHub Codespaces with GitHub Classroom](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/using-github-codespaces-with-github-classroom#about-the-codespaces-education-benefit-for-verified-teachers)."
+**Nota:** Si eres un maestro o docente verificado, debes habilitar {% data variables.product.prodname_codespaces %} desde un {% data variables.product.prodname_classroom %} para utilizar tu beneficio de docente de {% data variables.product.prodname_codespaces %}. Para obtener más información, consulta la sección "[Utilizar los Codespaces de GitHub con GitHub Clasroom](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/using-github-codespaces-with-github-classroom#about-the-codespaces-education-benefit-for-verified-teachers)".
 
 {% endnote %}
 {% endif %}

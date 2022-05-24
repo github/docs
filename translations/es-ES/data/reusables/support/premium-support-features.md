@@ -4,4 +4,4 @@ Adicionalmente a todos los beneficios de {% data variables.contact.enterprise_su
   - Un Acuerdo de nivel de servicio (SLA) con tiempos de respuesta iniciales garantizados.
   - Acceso a contenido prémium.
   - Verificaciones de salud programadas
-  - Administration assistance hours ({% data variables.product.premium_plus_support_plan %} only)
+  - Horas de asistencia (únicamente {% data variables.product.premium_plus_support_plan %})

@@ -13,6 +13,7 @@ topics:
   - Enterprise
   - Policies
 children:
+  - /about-enterprise-policies
   - /enforcing-repository-management-policies-in-your-enterprise
   - /enforcing-team-policies-in-your-enterprise
   - /enforcing-project-board-policies-in-your-enterprise

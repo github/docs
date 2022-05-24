@@ -50,10 +50,10 @@ Em um arquivo ou uma pull request, também é possível usar o menu {% octicon "
 
 {% if blame-ignore-revs %}
 
-## Ignore commits in the blame view
+## Ignorar commits na exibição do último responsável
 {% note %}
 
-**Note:** Ignoring commits in the blame view is currently in public beta and subject to change.
+**Observação:** Ignorar commits na visualização de último responsável encontra-se atualmente na versão beta pública e sujeita a alterações.
 
 {% endnote %}
 
@@ -70,13 +70,13 @@ All revisions specified in the `.git-blame-ignore-revs` file, which must be in t
     69d029cec8337c616552756310748c4a507bd75a
     ```
 
-3. Commit and push the changes.
+3. Faça o commit e faça push das alterações.
 
-Now when you visit the blame view, the listed revisions will not be included in the blame. You'll see an **Ignoring revisions in .git-blame-ignore-revs** banner indicating that some commits may be hidden:
+Agora, quando você visitar a visualização do último responsável, as revisões listadas não serão incluídas na visualização do último responsável. Você verá um banner **Ignoring revisions in .git-blame-ignore-revs** indicando que alguns commits podem ser ocultados:
 
-![Screenshot of a banner on the blame view linking to the .git-blame-ignore-revs file](/assets/images/help/repository/blame-ignore-revs-file.png)
+![Captura de tela de um banner na visualização dos últimos responsáveis vinculada ao arquivo .git-blame-ignore-revs](/assets/images/help/repository/blame-ignore-revs-file.png)
 
-This can be useful when a few commits make extensive changes to your code. You can use the file when running `git blame` locally as well:
+Isso pode ser útil quando alguns commits fizerem amplas alterações no seu código. Você pode usar o arquivo ao executar `git blame` localmente:
 
 ```shell
 git blame --ignore-revs-file .git-blame-ignore-revs

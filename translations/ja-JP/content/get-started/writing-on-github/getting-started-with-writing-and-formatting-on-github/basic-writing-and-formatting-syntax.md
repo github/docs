@@ -29,18 +29,19 @@ When you use two or more headings, GitHub automatically generates a table of con
 
 ![Screenshot highlighting the table of contents icon](/assets/images/help/repository/headings_toc.png)
 
-
 ## スタイル付きテキスト
 
-コメントフィールドと `.md` ファイルでは、太字、斜体、または取り消し線のテキストで強調を示すことができます。
+You can indicate emphasis with bold, italic, strikethrough, subscript, or superscript text in comment fields and `.md` files.
 
-| スタイル          | 構文                  | キーボードショートカット                                                                          | サンプル                      | 出力                      |
-| ------------- | ------------------- | ------------------------------------------------------------------------------------- | ------------------------- | ----------------------- |
-| 太字            | `** **`もしくは`__ __`  | <kbd>Command</kbd>+<kbd>B</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>B</kbd> (Windows/Linux) | `**これは太字のテキストです**`        | **これは太字のテキストです**        |
-| 斜体            | `* *`あるいは`_ _`      | <kbd>Command</kbd>+<kbd>I</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>I</kbd> (Windows/Linux) | `*このテキストは斜体です*`           | *このテキストは斜体です*           |
-| 取り消し線         | `~~ ~~`             |                                                                                       | `~~これは間違ったテキストでした~~`      | ~~これは間違ったテキストでした~~      |
-| 太字および太字中にある斜体 | `** **`及び`_ _`      |                                                                                       | `**このテキストは_きわめて_ 重要です**`  | **このテキストは_きわめて_重要です**   |
-| 全体が太字かつ斜体     | `*** ***`           |                                                                                       | `***すべてのテキストがきわめて重要です***` | ***すべてのテキストがきわめて重要です*** |
+| スタイル          | 構文                         | キーボードショートカット                                                                          | サンプル                                                | 出力                                    |
+| ------------- | -------------------------- | ------------------------------------------------------------------------------------- | --------------------------------------------------- | ------------------------------------- |
+| 太字            | `** **`もしくは`__ __`         | <kbd>Command</kbd>+<kbd>B</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>B</kbd> (Windows/Linux) | `**これは太字のテキストです**`                                  | **これは太字のテキストです**                      |
+| 斜体            | `* *`あるいは`_ _`             | <kbd>Command</kbd>+<kbd>I</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>I</kbd> (Windows/Linux) | `*このテキストは斜体です*`                                     | *このテキストは斜体です*                         |
+| 取り消し線         | `~~ ~~`                    |                                                                                       | `~~これは間違ったテキストでした~~`                                | ~~これは間違ったテキストでした~~                    |
+| 太字および太字中にある斜体 | `** **`及び`_ _`             |                                                                                       | `**このテキストは_きわめて_ 重要です**`                            | **このテキストは_きわめて_重要です**                 |
+| 全体が太字かつ斜体     | `*** ***`                  |                                                                                       | `***すべてのテキストがきわめて重要です***`                           | ***すべてのテキストがきわめて重要です***               |
+| Subscript     | `<sub> </sub>` |                                                                                       | `<sub>This is a subscript text</sub>`   | <sub>This is a subscript text</sub>   |
+| Superscript   | `<sup> </sup>` |                                                                                       | `<sup>This is a superscript text</sup>` | <sup>This is a superscript text</sup> |
 
 ## テキストの引用
 
@@ -90,6 +91,8 @@ git commit
 ## リンク
 
 リンクのテキストをブラケット `[ ]` で囲み、URL をカッコ `( )` で囲めば、インラインのリンクを作成できます。 {% ifversion fpt or ghae or ghes > 3.1 or ghec %}You can also use the keyboard shortcut <kbd>Command</kbd>+<kbd>K</kbd> to create a link.{% endif %}{% ifversion fpt or ghae-issue-5434 or ghes > 3.3 or ghec %} When you have text selected, you can paste a URL from your clipboard to automatically create a link from the selection.{% endif %}
+
+{% ifversion fpt or ghae-issue-7103 or ghes > 3.5 or ghec %} You can also create a Markdown hyperlink by highlighting the text and using the keyboard shortcut <kbd>Command</kbd>+<kbd>V</kbd>. If you'd like to replace the text with the link, use the keyboard shortcut <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd>.{% endif %}
 
 `このサイトは [GitHub Pages](https://pages.github.com/) を使って構築されています。`
 
@@ -235,7 +238,7 @@ If a task list item description begins with a parenthesis, you'll need to escape
 
 ## 人や Team のメンション
 
-{% data variables.product.product_name %}上の人あるいは [Team](/articles/setting-up-teams/) は、<kbd>@</kbd> に加えてユーザ名もしくは Team 名を入力することでメンションできます。 これにより通知がトリガーされ、会話に注意が向けられます。 コメントを編集してユーザ名や Team 名をメンションすれば、人々に通知を受信してもらえます。 通知の詳細は、{% ifversion fpt or ghes or ghae or ghec %}「[通知について](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}「[通知について](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}」を参照してください。
+{% data variables.product.product_name %}上の人あるいは [Team](/articles/setting-up-teams/) は、<kbd>@</kbd> に加えてユーザ名もしくは Team 名を入力することでメンションできます。 これにより通知がトリガーされ、会話に注意が向けられます。 コメントを編集してユーザ名や Team 名をメンションすれば、人々に通知を受信してもらえます。 通知に関する詳しい情報については「[通知について](/github/managing-subscriptions-and-notifications-on-github/about-notifications)」を参照してください。
 
 {% note %}
 
@@ -296,7 +299,7 @@ For more information about building a {% data variables.product.prodname_github_
 
 テキスト行の間に空白行を残すことで、新しいパラグラフを作成できます。
 
-{% ifversion fpt or ghae-issue-5180 or ghes > 3.2 or ghec %}
+{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
 ## Footnotes
 
 You can add footnotes to your content by using this bracket syntax:

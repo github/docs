@@ -19,6 +19,8 @@ topics:
 
 Basicamente, a segurança de abastecimento de software de ponta a ponta consiste em garantir que o código que você distribui não tenha sido adulterado. Anteriormente, os invasores focaram em direcionar as dependências que você usa, por exemplo, bibliotecas e estruturas. Os invasores agora expandiram o seu foco para incluir as contas de usuários direcionadas e criar processos. Portanto, esses sistemas também devem ser defendidos.
 
+Para obter informações sobre funcionalidades em {% data variables.product.prodname_dotcom %} que podem ajudar você a proteger dependências, consulte "[Sobre a segurança da cadeia de suprimentos](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security)."
+
 ## Sobre estes guias
 
 Esta série de guias explica como pensar em proteger sua cadeia de suprimentos de ponta a ponta: conta pessoal, código e processos de criação. Cada guia explica o risco para essa área e introduz as funcionalidades de {% data variables.product.product_name %} que podem ajudar você a resolver esse risco.
