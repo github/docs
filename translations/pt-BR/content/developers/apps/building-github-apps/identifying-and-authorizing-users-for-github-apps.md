@@ -239,8 +239,8 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 
 * [Listar implementações](/rest/reference/deployments#list-deployments)
 * [Criar uma implementação](/rest/reference/deployments#create-a-deployment)
-* [Get a deployment](/rest/reference/deployments#get-a-deployment)
-* [Delete a deployment](/rest/reference/deployments#delete-a-deployment)
+* [Obter uma implantação](/rest/reference/deployments#get-a-deployment)
+* [Excluir uma implantação](/rest/reference/deployments#delete-a-deployment)
 
 #### Eventos
 
@@ -573,7 +573,7 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 
 #### Reações
 
-* [Delete a reaction](/rest/reference/reactions)
+* [Excluir uma reação](/rest/reference/reactions)
 * [Listar reações para um comentário de commit](/rest/reference/reactions#list-reactions-for-a-commit-comment)
 * [Criar reação para um comentário de commit](/rest/reference/reactions#create-reaction-for-a-commit-comment)
 * [Listar reações para um problema](/rest/reference/reactions#list-reactions-for-an-issue)
@@ -585,13 +585,13 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 * [Listar reações para um comentário de discussão de equipe](/rest/reference/reactions#list-reactions-for-a-team-discussion-comment)
 * [Criar reação para um comentário de discussão em equipe](/rest/reference/reactions#create-reaction-for-a-team-discussion-comment)
 * [Listar reações para uma discussão de equipe](/rest/reference/reactions#list-reactions-for-a-team-discussion)
-* [Create reaction for a team discussion](/rest/reference/reactions#create-reaction-for-a-team-discussion)
+* [Criar reação para uma discussão em equipe](/rest/reference/reactions#create-reaction-for-a-team-discussion)
 * [Excluir uma reação de comentário de commit](/rest/reference/reactions#delete-a-commit-comment-reaction)
 * [Excluir uma reação do problema](/rest/reference/reactions#delete-an-issue-reaction)
 * [Excluir uma reação a um comentário do commit](/rest/reference/reactions#delete-an-issue-comment-reaction)
 * [Excluir reação de comentário do pull request](/rest/reference/reactions#delete-a-pull-request-comment-reaction)
 * [Excluir reação para discussão em equipe](/rest/reference/reactions#delete-team-discussion-reaction)
-* [Delete team discussion comment reaction](/rest/reference/reactions#delete-team-discussion-comment-reaction)
+* [Excluir reação para discussão em equipe](/rest/reference/reactions#delete-team-discussion-comment-reaction)
 
 #### Repositórios
 

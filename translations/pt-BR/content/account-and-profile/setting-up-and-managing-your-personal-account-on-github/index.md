@@ -1,6 +1,6 @@
 ---
-title: Setting up and managing your personal account on GitHub
-intro: 'You can manage settings for your personal account on {% data variables.product.prodname_dotcom %}, including email preferences, collaborator access for personal repositories, and organization memberships.'
+title: Configurar e gerenciar sua conta pessoal no GitHub
+intro: 'Você pode gerenciar as configurações da sua conta pessoal em {% data variables.product.prodname_dotcom %}, incluindo preferências de e-mail, acesso do colaborador a repositórios pessoais e associações da organização.'
 shortTitle: Contas pessoais
 redirect_from:
   - /categories/setting-up-and-managing-your-github-user-account

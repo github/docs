@@ -1485,14 +1485,14 @@ Esse evento ocorre quando alguém aciona a execução de um fluxo de trabalho no
 
 ### Objeto da carga do webhook
 
-| Tecla    | Tipo     | Descrição                                                                                                              |
-| -------- | -------- | ---------------------------------------------------------------------------------------------------------------------- |
-| `inputs` | `objeto` | Inputs to the workflow. Each key represents the name of the input while it's value represents the value of that input. |
+| Tecla    | Tipo     | Descrição                                                                                                                           |
+| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| `inputs` | `objeto` | Entradas para o fluxo de trabalho. Cada chave representa o nome do valor de entrada e o seu valor representa o valor dessa entrada. |
 {% data reusables.webhooks.org_desc %}
-| `ref` | `string` | The branch ref from which the workflow was run. |
+| `ref` | `string` | O ref do branch a partir do qual o fluxo de trabalho foi executado. |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.sender_desc %}
-| `workflow` | `string` | Relative path to the workflow file which contains the workflow. |
+| `workflow` | `string` | Caminho relativo para o arquivo do fluxo de trabalho, que contém o fluxo de trabalho. |
 
 ### Exemplo de carga de webhook
 

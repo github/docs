@@ -50,7 +50,7 @@ Para ayudar a prevenir la divulgación accidental, {% data variables.product.pro
 
 {% warning %}
 
-**Warning**: Any user with write access to your repository has read access to all secrets configured in your repository. Therefore, you should ensure that the credentials being used within workflows have the least privileges required.
+**Advertencia**: Cualquier usuario con acceso de escritura a tu repositorio tiene acceso de lectura para todos los secretos que se configuraron en tu repositorio. Por lo tanto, debes asegurarte de que las credenciales que están utilizando con los flujos de trabajo tienen los mínimos privilegios requeridos.
 
 {% endwarning %}
 
@@ -202,9 +202,9 @@ El mismo principio que se describió anteriormente para utilizar acciones de ter
 {% endif %}
 
 {% if allow-actions-to-approve-pr %}
-## Preventing {% data variables.product.prodname_actions %} from {% if allow-actions-to-approve-pr-with-ent-repo %}creating or {% endif %}approving pull requests
+## Prevenir que {% data variables.product.prodname_actions %} {% if allow-actions-to-approve-pr-with-ent-repo %}cree o {% endif %}apruebe solicitudes de cambios
 
-{% data reusables.actions.workflow-pr-approval-permissions-intro %} Allowing workflows, or any other automation, to {% if allow-actions-to-approve-pr-with-ent-repo %}create or {% endif %}approve pull requests could be a security risk if the pull request is merged without proper oversight.
+{% data reusables.actions.workflow-pr-approval-permissions-intro %} El permitir que los flujos de trabajo o cualquier otra automatzización {% if allow-actions-to-approve-pr-with-ent-repo %}creen o {% endif %}aprueben solicitudes de cambio podría representar un riesgo de seguridad si la solicitud de cambios se fusiona sin una supervisión adecuada.
 
 Para obtener más información sobre cómo configurar este ajuste, consulta la secciones {% if allow-actions-to-approve-pr-with-ent-repo %}{% ifversion ghes or ghec or ghae %}"[Requerir políticas para las {% data variables.product.prodname_actions %} en tu empresa](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#preventing-github-actions-from-creating-or-approving-pull-requests)",{% endif %}{% endif %} "[Inhabilitar o limitar las {% data variables.product.prodname_actions %} para tu organización](/github/setting-up-and-managing-organizations-and-teams/disabling-or-limiting-github-actions-for-your-organization#preventing-github-actions-from-{% if allow-actions-to-approve-pr-with-ent-repo %}creating-or-{% endif %}approving-pull-requests)"{% if allow-actions-to-approve-pr-with-ent-repo %} y "[Administrar los ajustes de las {% data variables.product.prodname_actions %} para un repositorio](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#preventing-github-actions-from-creating-or-approving-pull-requests)"{% endif %}.
 {% endif %}
@@ -264,9 +264,9 @@ Esta lista describe los acercamientos recomendatos para acceder alos datos de un
 3. **Tokens de {% data variables.product.prodname_github_app %}**
     - Las {% data variables.product.prodname_github_apps %} pueden instalarse en los repositorios seleccionados, e incluso tienen permisos granulares en los recursos dentro de ellos. Puedes crear una {% data variables.product.prodname_github_app %} interna a tu organización, instalarla en los repositorios a los que necesites tener acceso dentro de tu flujo de trabajo, y autenticarte como la instalación dentro del flujo de trabajo para acceder a esos repositorios.
 4. **Tokens de acceso personal**
-    - Jamás debes utilizar tokens de acceso personal desde tu propia cuenta. These tokens grant access to all repositories within the organizations that you have access to, as well as all personal repositories in your personal account. Esto otorga indirectamente un acceso amplio a todos los usuarios con acceso de escritura en el repositorio en el cual está el flujo de trabajo. Adicionalmente, si sales de una organización más adelante, los flujos de trabajo que utilicen este token fallarán inmediatamente, y depurar este problema puede ser difícil.
+    - Jamás debes utilizar tokens de acceso personal desde tu propia cuenta. Estos token otorgan acceso a todos los repositorios dentro de las organizaciones a las cuales tienes acceso, así como a todos los repositorios personales de tu cuenta personal. Esto otorga indirectamente un acceso amplio a todos los usuarios con acceso de escritura en el repositorio en el cual está el flujo de trabajo. Adicionalmente, si sales de una organización más adelante, los flujos de trabajo que utilicen este token fallarán inmediatamente, y depurar este problema puede ser difícil.
     - Si se utiliza un token de acceso personal, debe ser uno que se haya generado para una cuenta nueva a la que solo se le haya otorgado acceso para los repositorios específicos que se requieren para el flujo de trabajo. Nota que este acercamiento no es escalable y debe evitarse para favorecer otras alternativas, tales como las llaves de despliegue.
-5. **SSH keys on a personal account**
+5. **Llaves SSH en una cuenta personal**
     - Los flujos de trabajo jamás deben utilizar las llaves SSH en una cuenta personal. De forma similar a los tokens de acceso personal, estas otorgan permisos de lectura/escritura a todos tus repositorios personales así como a todos los repositorios a los que tengas acceso mediante la membercía de organización.  Esto otorga indirectamente un acceso amplio a todos los usuarios con acceso de escritura en el repositorio en el cual está el flujo de trabajo. Si pretendes utilizar una llave SSH porque solo necesitas llevar a cabo clonados de repositorio o subidas a éste, y no necesitas interactuar con una API pública, entonces mejor deberías utilizar llaves de despliegue individuales.
 
 ## Fortalecimiento para los ejecutores auto-hospedados
