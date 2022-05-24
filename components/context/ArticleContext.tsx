@@ -71,6 +71,6 @@ export const getArticleContextFromRequest = (req: any): ArticleContextT => {
     currentLearningTrack: req.context.currentLearningTrack,
     detectedPlatforms: page.detectedPlatforms || [],
     detectedTools: page.detectedTools || [],
-    allTools: page.allToolsParsed || [],
+    allTools: page.allToolsParsed || [], // this is set at the page level, see lib/page.js
   }
 }

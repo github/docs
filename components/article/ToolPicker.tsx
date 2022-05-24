@@ -16,7 +16,6 @@ import { useArticleContext } from 'components/context/ArticleContext'
 // find all platform-specific *block* elements and hide or show as appropriate
 // example: {% webui %} block content {% endwebui %}
 function showToolSpecificContent(tool: string, supportedTools: Array<string>) {
-  // const supportedTools = Object.keys(allTools)
   const markdowns = Array.from(document.querySelectorAll<HTMLElement>('.extended-markdown'))
   markdowns
     .filter((el) => supportedTools.some((tool) => el.classList.contains(tool)))
@@ -53,6 +52,7 @@ type Props = {
 }
 export const ToolPicker = ({ variant = 'subnav' }: Props) => {
   const { asPath } = useRouter()
+  // allTools comes from the ArticleContext which contains the list of tools available
   const { defaultTool, detectedTools, allTools } = useArticleContext()
   const [currentTool, setCurrentTool] = useState(getDefaultTool(defaultTool, detectedTools))
 
