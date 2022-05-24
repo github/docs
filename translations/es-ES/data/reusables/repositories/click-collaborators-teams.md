@@ -1,1 +1,1 @@
-1. In the "Access" section of the sidebar, click **{% octicon "people" aria-label="The people icon" %} Collaborators & teams**.
+1. En la sección de "Acceso" de la barra lateral, haz clic en **Colaboradores & equipos {% octicon "people" aria-label="The people icon" %}**.

@@ -22,6 +22,10 @@ CloudBees CodeShip | CloudBees CodeShip Credential
 Contributed Systems | Contributed Systems Credentials
 Databricks | Databricks Access Token
 Datadog | Datadog API Key
+DigitalOcean | DigitalOcean Personal Access Token
+DigitalOcean | DigitalOcean OAuth Token
+DigitalOcean | DigitalOcean Refresh Token
+DigitalOcean | DigitalOcean System Token
 Discord | Discord Bot Token
 Doppler | Doppler Personal Token
 Doppler | Doppler Service Token

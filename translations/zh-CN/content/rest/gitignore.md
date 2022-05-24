@@ -13,7 +13,7 @@ redirect_from:
   - /rest/reference/gitignore
 ---
 
-## About the Gitignore API
+## 关于 Gitignore API
 
 当您通过 API 在 {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} 上创建新仓库时，您可以指定一个 [.gitignore 模板](/github/getting-started-with-github/ignoring-files) 在创建时应用于仓库。 .gitignore 模板 API 可列出 {% data variables.product.product_name %} [.gitignore 仓库](https://github.com/github/gitignore)并从中获取模板。
 

@@ -19,7 +19,9 @@ topics:
 
 {% ifversion ghec %}
 
-Enterprise owners on {% data variables.product.product_name %} can control the requirements for authentication and access to the enterprise's resources. You can choose to allow members create and manage user accounts, or your enterprise can create and manage accounts for members. If you allow members to manage their own accounts, you can also configure SAML authentication to both increase security and centralize identity and access for the web applications that your team uses. If you choose to manage your members' user accounts, you must configure SAML authentication.
+Enterprise owners on {% data variables.product.product_name %} can control the requirements for authentication and access to the enterprise's resources.
+
+You can choose to allow members to create and manage user accounts, or your enterprise can create and manage accounts for members with {% data variables.product.prodname_emus %}. If you allow members to manage their own accounts, you can also configure SAML authentication to both increase security and centralize identity and access for the web applications that your team uses. If you choose to manage your members' user accounts, you must configure SAML authentication.
 
 ## Authentication methods for {% data variables.product.product_name %}
 

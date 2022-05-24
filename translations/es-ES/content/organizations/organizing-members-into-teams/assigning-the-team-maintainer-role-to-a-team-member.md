@@ -31,10 +31,9 @@ Las personas con el rol de mantenedor de equipo pueden administrar la membrecía
 - [Eliminar debates de equipo](/articles/managing-disruptive-comments/#deleting-a-comment)
 - [Agregar a miembros de la organización al equipo](/articles/adding-organization-members-to-a-team)
 - [Eliminar a miembros de la organización del equipo](/articles/removing-organization-members-from-a-team)
-- Eliminar el acceso del equipo a los repositorios {% ifversion fpt or ghes or ghae or ghec %}
-- [Administrar una tarea de revisión de código para el equipo](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team){% endif %}{% ifversion fpt or ghec %}
+- Eliminar el acceso del equipo a los repositorios
+- [Administrar una tarea de revisión de código para el equipo](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team){% ifversion fpt or ghec %}
 - [Administrar los recordatorios programados para las solicitudes de extracción](/organizations/organizing-members-into-teams/managing-scheduled-reminders-for-your-team){% endif %}
-
 
 ## Promover un miembro de la organización a mantenedor del equipo
 

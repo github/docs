@@ -53,7 +53,7 @@ Cada usuário em {% data variables.product.product_location %} consome uma esta�
 
 {% endif %}
 
-{% data reusables.billing.about-invoices-for-enterprises %} Para mais informações sobre {% ifversion ghes %} licenciamento, uso e faturas{% elsif ghec %}uso e faturas{% endif %}, consulte o seguinte{% ifversion ghes %} na documentação de {% data variables.product.prodname_ghe_cloud %}.{% else %}.{% endif %}
+{% ifversion ghec %}Para clientes de {% data variables.product.prodname_ghe_cloud %} com uma conta corporativa, {% data variables.product.company_short %} contas por meio da sua conta corporativa em {% data variables.product.prodname_dotcom_the_website %}. Para os clientes faturados, cada{% elsif ghes %}Para {% data variables.product.prodname_enterprise %} clientes faturados, {% data variables.product.company_short %} fatura por meio de uma conta corporativa em {% data variables.product.prodname_dotcom_the_website %}. Cada{% endif %}atura inclui uma única cobrança de fatura para todos os seus serviços de {% data variables.product.prodname_dotcom_the_website %} pagos e as instâncias de qualquer instância de {% data variables.product.prodname_ghe_server %}. Para mais informações sobre {% ifversion ghes %} licenciamento, uso e faturas{% elsif ghec %}uso e faturas{% endif %}, consulte o seguinte{% ifversion ghes %} na documentação de {% data variables.product.prodname_ghe_cloud %}.{% else %}.{% endif %}
 
 {%- ifversion ghes %}
 - "[Sobre preços por usuário](/enterprise-cloud@latest/billing/managing-billing-for-your-github-account/about-per-user-pricing)"

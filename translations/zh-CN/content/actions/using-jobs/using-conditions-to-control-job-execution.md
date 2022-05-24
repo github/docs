@@ -15,4 +15,14 @@ miniTocMaxHeadingLevel: 4
 
 ## 概览
 
+{% note %}
+
+**注意：** 跳过的作业将报告其状态为“成功”。 它不会阻止拉取请求合并，即使它是必需的检查。
+
+{% endnote %}
+
 {% data reusables.actions.jobs.section-using-conditions-to-control-job-execution %}
+
+您将在跳过的作业上看到以下状态：
+
+![Skipped-required-run-details](/assets/images/help/repository/skipped-required-run-details.png)

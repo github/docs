@@ -14,7 +14,7 @@ shortTitle: Extensions & integrations
 
 ## エディタツール
 
-Atom、Unity、Visual Studio などのサードパーティのエディタツール内で {% data variables.product.product_name %} リポジトリに接続できます。
+You can connect to {% data variables.product.product_name %} repositories within third-party editor tools, such as Atom, Unity, and {% data variables.product.prodname_vs %}.
 
 ### {% data variables.product.product_name %} for Atom
 
@@ -24,13 +24,13 @@ Atom、Unity、Visual Studio などのサードパーティのエディタツー
 
 {% data variables.product.product_name %} for Unityエディタ機能拡張を使うと、オープンソースのゲーム開発プラットフォームであるUnity上で開発を行い、作業内容を{% data variables.product.product_name %}上で見ることができます。 詳しい情報については公式のUnityエディタ機能拡張[サイト](https://unity.github.com/)あるいは[ドキュメンテーション](https://github.com/github-for-unity/Unity/tree/master/docs)を参照してください。
 
-### {% data variables.product.product_name %} for Visual Studio
+### {% data variables.product.product_name %} for {% data variables.product.prodname_vs %}
 
-{% data variables.product.product_name %} for Visual Studio機能拡張を使うと、Visual Studioから離れることなく{% data variables.product.product_name %}リポジトリ内で作業できます。 詳しい情報については、公式のVisual Studio機能拡張の[サイト](https://visualstudio.github.com/)あるいは[ドキュメンテーション](https://github.com/github/VisualStudio/tree/master/docs)を参照してください。
+With the {% data variables.product.product_name %} for {% data variables.product.prodname_vs %} extension, you can work in {% data variables.product.product_name %} repositories without leaving {% data variables.product.prodname_vs %}. For more information, see the official {% data variables.product.prodname_vs %} extension [site](https://visualstudio.github.com/) or [documentation](https://github.com/github/VisualStudio/tree/master/docs).
 
-### {% data variables.product.prodname_dotcom %} for Visual Studio Code
+### {% data variables.product.prodname_dotcom %} for {% data variables.product.prodname_vscode %}
 
-{% data variables.product.prodname_dotcom %} for Visual Studio Code 機能拡張を使うと、Visual Studio Code の {% data variables.product.product_name %} プルリクエストをレビューおよび管理できます。 詳しい情報については、公式の Visual Studio Code 機能拡張[サイト](https://vscode.github.com/)または[ドキュメンテーション](https://github.com/Microsoft/vscode-pull-request-github)を参照してください。
+With the {% data variables.product.prodname_dotcom %} for {% data variables.product.prodname_vscode %} extension, you can review and manage {% data variables.product.product_name %} pull requests in {% data variables.product.prodname_vscode_shortname %}. For more information, see the official {% data variables.product.prodname_vscode_shortname %} extension [site](https://vscode.github.com/) or [documentation](https://github.com/Microsoft/vscode-pull-request-github).
 
 ## プロジェクト管理ツール
 

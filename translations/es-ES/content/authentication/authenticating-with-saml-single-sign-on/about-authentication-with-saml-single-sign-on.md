@@ -48,11 +48,11 @@ Para utilizar un token de acceso personal existente o nuevo o una llave SSH con 
 
 ## Acerca de las {% data variables.product.prodname_oauth_apps %}, {% data variables.product.prodname_github_apps %} y el SSO de SAML
 
-You must have an active SAML session each time you authorize an {% data variables.product.prodname_oauth_app %} or {% data variables.product.prodname_github_app %} to access an organization that uses or enforces SAML SSO. You can create an active SAML session by navigating to `https://github.com/orgs/ORGANIZATION-NAME/sso` in your browser.
+Debes tener una sesión activa de SAML cada que autorices a una {% data variables.product.prodname_oauth_app %} o {% data variables.product.prodname_github_app %} para que acceda a una organización que utilice o requiera el SSO de SAML. Puedes crear una sesión activa de SAML si navegas a `https://github.com/orgs/ORGANIZATION-NAME/sso` en tu buscador.
 
 Después de que un propietario de empresa u organización habilita o requiere el SSO de SAML para una organización y después de que te autentiques a través del SAML por primera vez, debes volver a autorizar cualquier {% data variables.product.prodname_oauth_apps %} o {% data variables.product.prodname_github_apps %} que hayas autorizado anteriormente para que acceda a dicha organización.
 
-To see the {% data variables.product.prodname_oauth_apps %} you've authorized, visit your [{% data variables.product.prodname_oauth_apps %} page](https://github.com/settings/applications). To see the {% data variables.product.prodname_github_apps %} you've authorized, visit your [{% data variables.product.prodname_github_apps %} page](https://github.com/settings/apps/authorizations).
+Para ver las {% data variables.product.prodname_oauth_apps %} que hayas autorizado, visita tu [página de {% data variables.product.prodname_oauth_apps %}](https://github.com/settings/applications). Para ver las {% data variables.product.prodname_github_apps %} que autorizaste, visita nuestra [página de {% data variables.product.prodname_github_apps %}](https://github.com/settings/apps/authorizations).
 
 {% endif %}
 

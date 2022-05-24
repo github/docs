@@ -15,4 +15,14 @@ miniTocMaxHeadingLevel: 4
 
 ## Resumen
 
+{% note %}
+
+**Nota:** Un job que se omita reportará su estado como "Exitoso". No prevendrá que se fusione una solicitud de cambios, incluso si es una verificación requerida.
+
+{% endnote %}
+
 {% data reusables.actions.jobs.section-using-conditions-to-control-job-execution %}
+
+Verías el siguiente estado en un job omitido:
+
+![Skipped-required-run-details](/assets/images/help/repository/skipped-required-run-details.png)

@@ -50,7 +50,7 @@ Para ayudar a prevenir la divulgación accidental, {% data variables.product.pro
 
 {% warning %}
 
-**Warning**: Any user with write access to your repository has read access to all secrets configured in your repository. Therefore, you should ensure that the credentials being used within workflows have the least privileges required.
+**Advertencia**: Cualquier usuario con acceso de escritura a tu repositorio tiene acceso de lectura para todos los secretos que se configuraron en tu repositorio. Por lo tanto, debes asegurarte de que las credenciales que están utilizando con los flujos de trabajo tienen los mínimos privilegios requeridos.
 
 {% endwarning %}
 
@@ -159,7 +159,7 @@ Para obtener más información, consulta las secciones "[Acerca del {% data vari
 
 Para ayudarte a mitigar el resigo de un token expuesto, considera restringir los permisos asignados. Para obtener màs informaciòn, consulta la secciòn "[Modificar los permisos para el GITHUB_TOKEN](/actions/reference/authentication-in-a-workflow#modifying-the-permissions-for-the-github_token)".
 
-{% ifversion fpt or ghec or ghae-issue-4856 %}
+{% ifversion fpt or ghec or ghae-issue-4856 or ghes > 3.4 %}
 
 ## Utilizar OpenID connect para acceder a los recursos en la nube
 
@@ -199,6 +199,14 @@ El mismo principio que se describió anteriormente para utilizar acciones de ter
 ## Permitir que los flujos de trabajo accedan a los repositorios internos
 
 {% data reusables.actions.outside-collaborators-internal-actions %} Para obtener más información, consulta la sección "[Compartir acciones y flujos de trabajo con tu empresa](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)".
+{% endif %}
+
+{% if allow-actions-to-approve-pr %}
+## Prevenir que {% data variables.product.prodname_actions %} {% if allow-actions-to-approve-pr-with-ent-repo %}cree o {% endif %}apruebe solicitudes de cambios
+
+{% data reusables.actions.workflow-pr-approval-permissions-intro %} El permitir que los flujos de trabajo o cualquier otra automatzización {% if allow-actions-to-approve-pr-with-ent-repo %}creen o {% endif %}aprueben solicitudes de cambio podría representar un riesgo de seguridad si la solicitud de cambios se fusiona sin una supervisión adecuada.
+
+Para obtener más información sobre cómo configurar este ajuste, consulta la secciones {% if allow-actions-to-approve-pr-with-ent-repo %}{% ifversion ghes or ghec or ghae %}"[Requerir políticas para las {% data variables.product.prodname_actions %} en tu empresa](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#preventing-github-actions-from-creating-or-approving-pull-requests)",{% endif %}{% endif %} "[Inhabilitar o limitar las {% data variables.product.prodname_actions %} para tu organización](/github/setting-up-and-managing-organizations-and-teams/disabling-or-limiting-github-actions-for-your-organization#preventing-github-actions-from-{% if allow-actions-to-approve-pr-with-ent-repo %}creating-or-{% endif %}approving-pull-requests)"{% if allow-actions-to-approve-pr-with-ent-repo %} y "[Administrar los ajustes de las {% data variables.product.prodname_actions %} para un repositorio](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#preventing-github-actions-from-creating-or-approving-pull-requests)"{% endif %}.
 {% endif %}
 
 ## Utilizar las tarjetas de puntuación para asegurar los flujos de trabajo
@@ -256,10 +264,10 @@ Esta lista describe los acercamientos recomendatos para acceder alos datos de un
 3. **Tokens de {% data variables.product.prodname_github_app %}**
     - Las {% data variables.product.prodname_github_apps %} pueden instalarse en los repositorios seleccionados, e incluso tienen permisos granulares en los recursos dentro de ellos. Puedes crear una {% data variables.product.prodname_github_app %} interna a tu organización, instalarla en los repositorios a los que necesites tener acceso dentro de tu flujo de trabajo, y autenticarte como la instalación dentro del flujo de trabajo para acceder a esos repositorios.
 4. **Tokens de acceso personal**
-    - Jamás debes utilizar tokens de acceso personal desde tu propia cuenta. These tokens grant access to all repositories within the organizations that you have access to, as well as all personal repositories in your personal account. Esto otorga indirectamente un acceso amplio a todos los usuarios con acceso de escritura en el repositorio en el cual está el flujo de trabajo. Adicionalmente, si sales de una organización más adelante, los flujos de trabajo que utilicen este token fallarán inmediatamente, y depurar este problema puede ser difícil.
+    - Jamás debes utilizar tokens de acceso personal desde tu propia cuenta. Estos token otorgan acceso a todos los repositorios dentro de las organizaciones a las cuales tienes acceso, así como a todos los repositorios personales de tu cuenta personal. Esto otorga indirectamente un acceso amplio a todos los usuarios con acceso de escritura en el repositorio en el cual está el flujo de trabajo. Adicionalmente, si sales de una organización más adelante, los flujos de trabajo que utilicen este token fallarán inmediatamente, y depurar este problema puede ser difícil.
     - Si se utiliza un token de acceso personal, debe ser uno que se haya generado para una cuenta nueva a la que solo se le haya otorgado acceso para los repositorios específicos que se requieren para el flujo de trabajo. Nota que este acercamiento no es escalable y debe evitarse para favorecer otras alternativas, tales como las llaves de despliegue.
-5. **SSH keys on a personal account**
-    - Workflows should never use the SSH keys on a personal account. De forma similar a los tokens de acceso personal, estas otorgan permisos de lectura/escritura a todos tus repositorios personales así como a todos los repositorios a los que tengas acceso mediante la membercía de organización.  Esto otorga indirectamente un acceso amplio a todos los usuarios con acceso de escritura en el repositorio en el cual está el flujo de trabajo. Si pretendes utilizar una llave SSH porque solo necesitas llevar a cabo clonados de repositorio o subidas a éste, y no necesitas interactuar con una API pública, entonces mejor deberías utilizar llaves de despliegue individuales.
+5. **Llaves SSH en una cuenta personal**
+    - Los flujos de trabajo jamás deben utilizar las llaves SSH en una cuenta personal. De forma similar a los tokens de acceso personal, estas otorgan permisos de lectura/escritura a todos tus repositorios personales así como a todos los repositorios a los que tengas acceso mediante la membercía de organización.  Esto otorga indirectamente un acceso amplio a todos los usuarios con acceso de escritura en el repositorio en el cual está el flujo de trabajo. Si pretendes utilizar una llave SSH porque solo necesitas llevar a cabo clonados de repositorio o subidas a éste, y no necesitas interactuar con una API pública, entonces mejor deberías utilizar llaves de despliegue individuales.
 
 ## Fortalecimiento para los ejecutores auto-hospedados
 
@@ -291,7 +299,7 @@ Un ejecutor auto-hospedado puede agregarse a varios niveles en tu jerarquía de 
   - Si cada equipo administrará sus propios ejecutores auto-hospedados, entonces se recomienda agregarlos en el nivel más alto de propiedad del equipo. Por ejemplo, si cada equipo es dueño de su propia organización, entonces será más simple si los ejecutores se agregan a nivel de organización también.
   - También podrías agregar ejecutores a nivel de repositorio, pero esto agregará una sobrecarga de administración y también incrementará la cantidad de ejecutores que necesitas, ya que no puedes compartir ejecutores entre repositorios.
 
-{% ifversion fpt or ghec or ghae-issue-4856 %}
+{% ifversion fpt or ghec or ghae-issue-4856 or ghes > 3.4 %}
 ### Autenticarte a tu proveedor en la nube
 
 Si estás utilizando las {% data variables.product.prodname_actions %} para desplegar a un proveedor en la nube o si intentas utilizar HashiCorp Vault para la administración de secretos, entonces se recomienda que consideres utilizar OpenID Connect para crear tokens de acceso con un buen alcance y de vida corta para tus ejecuciones de flujo de trabajo. Para obtener más información, consulta la sección "[Acerca del fortalecimiento de seguridad con OpenID Connect](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)".
@@ -300,7 +308,7 @@ Si estás utilizando las {% data variables.product.prodname_actions %} para desp
 
 ## Auditar eventos de {% data variables.product.prodname_actions %}
 
-Puedes utilizar la bitácora de auditoría para monitorear las tareas administrativas en una organización. The audit log records the type of action, when it was run, and which personal account performed the action.
+Puedes utilizar la bitácora de auditoría para monitorear las tareas administrativas en una organización. La bitácora de auditoría registra el tipo de acción, cuándo se ejecutó y qué cuenta personal la llevó a cabo.
 
 Por ejemplo, puedes utilizar la bitácora de auditoría para rastrear el evento `org.update_actions_secret`, el cual rastrea los cambios en los secretos de la organización: ![Entradas de la bitácora de auditoría](/assets/images/help/repository/audit-log-entries.png)
 
@@ -322,7 +330,7 @@ Las siguientes tablas describen los eventos de {% data variables.product.prodnam
 | Acción                                | Descripción                                                                                                                                                                                                                                                                                                                           |
 | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `repo.actions_enabled`                | Se activa cuando {% data variables.product.prodname_actions %} se habilita en un repositorio. Puede visualizarse utilizando la IU. Este evento no es visible cuando accedes a la bitácora de auditoría utilizando la API de REST. Para obtener más información, consulta la sección "[Utilizar la API de REST](#using-the-rest-api)". |
-| `repo.update_actions_access_settings` | Triggered when the setting to control how your repository is used by {% data variables.product.prodname_actions %} workflows in other repositories is changed.                                                                                                                                                                        |
+| `repo.update_actions_access_settings` | Se activa cuando se cambia el ajuste para controlar cómo los flujos de trabajo de {% data variables.product.prodname_actions %} utilizan tu repositorio en otros repositorios.                                                                                                                                                        |
 {% endif %}
 
 ### Eventos para la administración de secretos

@@ -1,8 +1,8 @@
 ---
-title: GitHub Actions Artifacts
+title: GitHub Actions 构件
 allowTitleToDifferFromFilename: true
 shortTitle: 构件
-intro: 'The {% data variables.product.prodname_actions %} Artifacts API allows you to download, delete, and retrieve information about workflow artifacts.'
+intro: '{% data variables.product.prodname_actions %} 构件 API 允许您下载、删除和检索有关工作流程构件的信息。'
 topics:
   - API
 versions:
@@ -12,8 +12,8 @@ versions:
   ghec: '*'
 ---
 
-## About the Artifacts API
+## 关于构件 API
 
-The {% data variables.product.prodname_actions %} Artifacts API allows you to download, delete, and retrieve information about workflow artifacts. {% data reusables.actions.about-artifacts %}更多信息请参阅“[使用构件持久化工作流程](/actions/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)”。
+{% data variables.product.prodname_actions %} 构件 API 允许您下载、删除和检索有关工作流程构件的信息。 {% data reusables.actions.about-artifacts %}更多信息请参阅“[使用构件持久化工作流程](/actions/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)”。
 
 {% data reusables.actions.actions-authentication %} {% data reusables.actions.actions-app-actions-permissions-api %}

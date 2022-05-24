@@ -4,7 +4,7 @@ shortTitle: 供应链安全
 intro: 您可以可视化、维护和保护开发人员软件供应链中的依赖项。
 versions:
   ghes: '*'
-  ghae: issue-4864
+  ghae: '*'
 topics:
   - Enterprise
 children:

@@ -62,7 +62,7 @@ shortTitle: 快速入门
 
 仓库所有者和对仓库具有写入权限的人可以创建新类别来保持讨论井然有序。 同样，由于组织讨论基于源存储库，因此存储库所有者和对源存储库具有写入访问权限的人员可以为组织讨论创建新类别。
 
-参与和创建新讨论的协作者可以将讨论分组到最相关的现有类别。 讨论也可以在创建后重新分类。 For more information, see "[Managing categories for discussions](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions)."
+参与和创建新讨论的协作者可以将讨论分组到最相关的现有类别。 讨论也可以在创建后重新分类。 更多信息请参阅“[管理讨论的类别](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions)”。
 
 {% data reusables.discussions.you-can-label-discussions %}
 

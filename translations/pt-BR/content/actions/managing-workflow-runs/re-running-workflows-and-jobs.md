@@ -27,12 +27,12 @@ A reexecução de um fluxo de trabalho{% if re-run-jobs %} ou trabalhos em um fl
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow %}
 {% data reusables.repositories.view-run %}
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4721 or ghec %}
+{% ifversion fpt or ghes > 3.4 or ghae-issue-4721 or ghec %}
 1. No canto superior direito do fluxo de trabalho, use o menu suspenso **Reexecutar trabalhos** e selecione **Reexecutar todos os trabalhos**.
 
    Se nenhum trabalho falhar, você não verá o menu suspenso **Reexecutar trabalhos**. Em vez disso, clique em **Reexecutar todos os trabalhos**. ![Menu suspenso reexecutar](/assets/images/help/repository/rerun-checks-drop-down.png)
 {% endif %}
-{% ifversion ghes < 3.3 or ghae %}
+{% ifversion ghes < 3.5 or ghae %}
 1. No canto superior direito do fluxo de trabalho, use o menu suspenso **Reexecutar trabalhos** e selecione **Reexecutar todos os trabalhos**. ![Menu suspenso Re-run checks (Executar verificações novamente)](/assets/images/help/repository/rerun-checks-drop-down-updated.png)
 {% endif %}
 
@@ -109,7 +109,7 @@ gh run rerun --job <em>job-id</em>
 
 {% endif %}
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4721 or ghec %}
+{% ifversion fpt or ghes > 3.4 or ghae-issue-4721 or ghec %}
 ## Revisando execuções de workflows anteriores
 
 Você pode ver os resultados de suas tentativas anteriores de executar um fluxo de trabalho. Você também pode visualizar execuções de workflows anteriores do fluxo de trabalho usando a API. Para obter mais informações, consulte ["Obter uma execução de workflow"](/rest/reference/actions#get-a-workflow-run).
