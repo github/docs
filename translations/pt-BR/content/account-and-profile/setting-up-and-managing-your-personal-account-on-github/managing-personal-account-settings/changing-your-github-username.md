@@ -77,10 +77,10 @@ Após alteração do nome de usuário, os links para sua página de perfil anter
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.account_settings %}
-3. In the "Change username" section, click **Change username**. ![Change Username button](/assets/images/help/settings/settings-change-username.png){% ifversion fpt or ghec %}
-4. Leia os avisos sobre a mudança de seu nome de usuário. If you still want to change your username, click **I understand, let's change my username**. ![Botão de aviso Change Username (Alterar nome de usuário)](/assets/images/help/settings/settings-change-username-warning-button.png)
+3. Na seção "Alterar nome de usuário", clique em **Alterar nome de usuário**. ![Change Username button](/assets/images/help/settings/settings-change-username.png){% ifversion fpt or ghec %}
+4. Leia os avisos sobre a mudança de seu nome de usuário. Se você ainda quiser alterar seu nome de usuário, clique em **Eu entendo, vamos alterar o meu nome de usuário**. ![Botão de aviso Change Username (Alterar nome de usuário)](/assets/images/help/settings/settings-change-username-warning-button.png)
 5. Digite um novo nome de usuário. ![Campo New Username (Novo nome de usuário)](/assets/images/help/settings/settings-change-username-enter-new-username.png)
-6. If the username you've chosen is available, click **Change my username**. Se o nome que você escolheu estiver indisponível, tente um nome de usuário diferente ou uma das sugestões que aparecem. ![Botão de aviso Change Username (Alterar nome de usuário)](/assets/images/help/settings/settings-change-my-username-button.png)
+6. Se o nome de usuário que você escolheu estiver disponível, clique em **Alterar meu nome de usuário**. Se o nome que você escolheu estiver indisponível, tente um nome de usuário diferente ou uma das sugestões que aparecem. ![Botão de aviso Change Username (Alterar nome de usuário)](/assets/images/help/settings/settings-change-my-username-button.png)
 {% endif %}
 
 ## Leia mais

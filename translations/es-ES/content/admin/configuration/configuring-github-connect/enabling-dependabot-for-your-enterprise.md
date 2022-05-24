@@ -1,6 +1,6 @@
 ---
-title: Enabling Dependabot for your enterprise
-intro: 'You can allow users of {% data variables.product.product_location %} to find and fix vulnerabilities in code dependencies by enabling {% data variables.product.prodname_dependabot_alerts %}{% ifversion ghes > 3.2 %} and {% data variables.product.prodname_dependabot_updates %}{% endif %}.'
+title: Habilitar al Dependabot en tu empresa
+intro: 'Puedes permitir que los usuarios de {% data variables.product.product_location %} encuentren y corrijan las vulnerabilidades de las dependencias de código si habilitas las {% data variables.product.prodname_dependabot_alerts %}{% ifversion ghes > 3.2 %} y las {% data variables.product.prodname_dependabot_updates %}{% endif %}.'
 miniTocMaxHeadingLevel: 3
 shortTitle: Dependabot
 redirect_from:
@@ -24,7 +24,7 @@ topics:
   - Dependabot
 ---
 
-## About {% data variables.product.prodname_dependabot %} for {% data variables.product.product_name %}
+## Acerca del {% data variables.product.prodname_dependabot %} para {% data variables.product.product_name %}
 
 El {% data variables.product.prodname_dependabot %} ayuda a que los usuarios de {% data variables.product.product_location %} encuentren y corrijan vulnerabilidades en sus dependencias.{% ifversion ghes > 3.2 %} Puedes habilitar las {% data variables.product.prodname_dependabot_alerts %} para notificar a los usuarios sobre dependencias vulnerables y {% data variables.product.prodname_dependabot_updates %} para corregir las vulnerabilidades y mantener actualziadas las dependencias a su última versión.
 
@@ -37,19 +37,19 @@ Con las {% data variables.product.prodname_dependabot_alerts %}, {% data variabl
 
 {% data reusables.repositories.tracks-vulnerabilities %}
 
-After you enable {% data variables.product.prodname_dependabot_alerts %} for your enterprise, vulnerability data is synced from the {% data variables.product.prodname_advisory_database %} to your instance once every hour. Únicamente se sincronizan las asesorías que revisa {% data variables.product.company_short %}. {% data reusables.security-advisory.link-browsing-advisory-db %}
+Después de que habilitas las {% data variables.product.prodname_dependabot_alerts %} para tu empresa, los datos de las vulnerabilidades se sincronizan desde la {% data variables.product.prodname_advisory_database %} con tu instancia una vez por hora. Únicamente se sincronizan las asesorías que revisa {% data variables.product.company_short %}. {% data reusables.security-advisory.link-browsing-advisory-db %}
 
 También puedes elegir sincronizar manualmente los datos de vulnerabilidad en cualquier momento. Para obtener más información, consulta la sección "[Ver los datos de vulnerabilidad de tu empresa](/admin/code-security/managing-supply-chain-security-for-your-enterprise/viewing-the-vulnerability-data-for-your-enterprise)".
 
 {% note %}
 
-**Note:** When you enable {% data variables.product.prodname_dependabot_alerts %}, no code or information about code from {% data variables.product.product_location %} is uploaded to {% data variables.product.prodname_dotcom_the_website %}.
+**Nota:** cuando habilitas las {% data variables.product.prodname_dependabot_alerts %}, no se carga código ni información sobre este desde {% data variables.product.product_location %} hacia {% data variables.product.prodname_dotcom_the_website %}.
 
 {% endnote %}
 
-When {% data variables.product.product_location %} receives information about a vulnerability, it identifies repositories in  {% data variables.product.product_location %} that use the affected version of the dependency and generates {% data variables.product.prodname_dependabot_alerts %}. Puedes elegir si quieres notificar a los usuarios automáticamente acerca de las {% data variables.product.prodname_dependabot_alerts %} nuevas o no.
+Cuando {% data variables.product.product_location %} recibe la información sobre una vulnerabilidad, identifica los repositorios de {% data variables.product.product_location %} que utilizan la versión afectada de la dependencia y genera {% data variables.product.prodname_dependabot_alerts %}. Puedes elegir si quieres notificar a los usuarios automáticamente acerca de las {% data variables.product.prodname_dependabot_alerts %} nuevas o no.
 
-Para los repositorios que cuenten con las {% data variables.product.prodname_dependabot_alerts %} habilitadas, el escaneo se activa en cualquier subida a la rama predeterminada. Additionally, when a new vulnerability record is added to {% data variables.product.product_location %}, {% data variables.product.product_name %} scans all existing repositories on {% data variables.product.product_location %} and generates alerts for any repository that is vulnerable. Para obtener más información, consulta la sección "[Acerca de{% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)".
+Para los repositorios que cuenten con las {% data variables.product.prodname_dependabot_alerts %} habilitadas, el escaneo se activa en cualquier subida a la rama predeterminada. Adicionalmente, cuando se agrega un registro de vulnerabilidad nuevo a {% data variables.product.product_location %}, {% data variables.product.product_name %} escanea todos los repositorios existentes en {% data variables.product.product_location %} y genera alertas para cualquier repositorio que esté vulnerable. Para obtener más información, consulta la sección "[Acerca de{% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)".
 
 {% ifversion ghes > 3.2 %}
 ### Acerca de {% data variables.product.prodname_dependabot_updates %}

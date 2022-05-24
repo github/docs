@@ -63,10 +63,11 @@ import assetPreprocessing from './asset-preprocessing.js'
 import archivedAssetRedirects from './archived-asset-redirects.js'
 import favicons from './favicons.js'
 import setStaticAssetCaching from './static-asset-caching.js'
+import cacheFullRendering from './cache-full-rendering.js'
 import protect from './overload-protection.js'
 import fastHead from './fast-head.js'
-
 import fastlyCacheTest from './fastly-cache-test.js'
+import fastRootRedirect from './fast-root-redirect.js'
 
 const { DEPLOYMENT_ENV, NODE_ENV } = process.env
 const isDevelopment = NODE_ENV === 'development'
@@ -239,6 +240,7 @@ export default function (app) {
   }
 
   // *** Early exits ***
+  app.get('/', fastRootRedirect)
   app.use(instrument(handleInvalidPaths, './handle-invalid-paths'))
   app.use(asyncMiddleware(instrument(handleNextDataPath, './handle-next-data-path')))
 
@@ -316,6 +318,10 @@ export default function (app) {
   // Specifically deal with HEAD requests before doing the slower
   // full page rendering.
   app.head('/*', fastHead)
+
+  // For performance, this is before contextualizers if, on a cache hit,
+  // we can't reuse a rendered response without having to contextualize.
+  app.get('/*', asyncMiddleware(instrument(cacheFullRendering, './cache-full-rendering')))
 
   // *** Preparation for render-page: contextualizers ***
   app.use(asyncMiddleware(instrument(releaseNotes, './contextualizers/release-notes')))

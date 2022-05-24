@@ -1,5 +1,5 @@
 ---
-title: Deleting your personal account
+title: Excluindo sua conta pessoal
 intro: 'Você pode excluir sua conta pessoal em {% data variables.product.product_name %} a qualquer momento.'
 redirect_from:
   - /articles/deleting-a-user-account

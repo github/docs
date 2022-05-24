@@ -14,7 +14,7 @@ shortTitle: Extensões & integrações
 
 ## Ferramentas de edição
 
-You can connect to {% data variables.product.product_name %} repositories within third-party editor tools, such as Atom, Unity, and {% data variables.product.prodname_vs %}.
+Você pode se conectar a repositórios de {% data variables.product.product_name %} dentro de ferramentas de editor de terceiros, como o Atom, Unity e {% data variables.product.prodname_vs %}.
 
 ### {% data variables.product.product_name %} para Atom
 
@@ -24,13 +24,13 @@ You can connect to {% data variables.product.product_name %} repositories within
 
 Você pode desenvolver em Unity, a plataforma de desenvolvimento de jogos de código aberto, e ver seu trabalho em {% data variables.product.product_name %}, usando a extensão de editor {% data variables.product.product_name %} para Unity. Para obter mais informações, consulte o [site](https://unity.github.com/) oficial da extensão de editor Unity ou a [documentação](https://github.com/github-for-unity/Unity/tree/master/docs).
 
-### {% data variables.product.product_name %} for {% data variables.product.prodname_vs %}
+### {% data variables.product.product_name %} para {% data variables.product.prodname_vs %}
 
-With the {% data variables.product.product_name %} for {% data variables.product.prodname_vs %} extension, you can work in {% data variables.product.product_name %} repositories without leaving {% data variables.product.prodname_vs %}. For more information, see the official {% data variables.product.prodname_vs %} extension [site](https://visualstudio.github.com/) or [documentation](https://github.com/github/VisualStudio/tree/master/docs).
+Com {% data variables.product.product_name %} para a extensão de {% data variables.product.prodname_vs %}, você pode trabalhar em repositórios de {% data variables.product.product_name %} sem sair do {% data variables.product.prodname_vs %}. Para obter mais informações, consulte a extensão oficial do {% data variables.product.prodname_vs %} [site](https://visualstudio.github.com/) ou a [documentação](https://github.com/github/VisualStudio/tree/master/docs).
 
-### {% data variables.product.prodname_dotcom %} for {% data variables.product.prodname_vscode %}
+### {% data variables.product.prodname_dotcom %} para {% data variables.product.prodname_vscode %}
 
-With the {% data variables.product.prodname_dotcom %} for {% data variables.product.prodname_vscode %} extension, you can review and manage {% data variables.product.product_name %} pull requests in {% data variables.product.prodname_vscode_shortname %}. For more information, see the official {% data variables.product.prodname_vscode_shortname %} extension [site](https://vscode.github.com/) or [documentation](https://github.com/Microsoft/vscode-pull-request-github).
+Com a extensão de {% data variables.product.prodname_dotcom %} para {% data variables.product.prodname_vscode %}, você pode revisar e gerenciar {% data variables.product.product_name %} pull requests em {% data variables.product.prodname_vscode_shortname %}. Para obter mais informações, consulte a extensão oficial do {% data variables.product.prodname_vscode_shortname %} [site](https://vscode.github.com/) ou a [documentação](https://github.com/Microsoft/vscode-pull-request-github).
 
 ## Ferramentas de gerenciamento de projetos
 
