@@ -87,7 +87,6 @@ shortTitle: 了解搜索语法
 
 某些非字母数字符号（例如空格）会从引号内的代码搜索查询中删除，因此结果可能出乎意料。
 
-{% ifversion fpt or ghes or ghae or ghec %}
 ## 使用用户名的查询
 
 如果搜索查询包含需要用户名的限定符，例如 `user`、`actor` 或 `assignee`，您可以使用任何 {% data variables.product.product_name %} 用户名指定特定人员，或使用 `@me` 指定当前用户。
@@ -98,4 +97,3 @@ shortTitle: 了解搜索语法
 | `QUALIFIER:@me`      | [`is:issue assignee:@me`](https://github.com/search?q=is%3Aissue+assignee%3A%40me&type=Issues) 匹配已分配给结果查看者的议题 |
 
 `@me` 只能与限定符一起使用，而不能用作搜索词，例如 `@me main.workflow`。
-{% endif %}

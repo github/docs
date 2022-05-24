@@ -4,6 +4,8 @@ intro: 管理統計 API は、インストールに関するさまざまなメ�
 versions:
   ghes: '*'
   ghae: '*'
+  ghec: '*'
+  fpt: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3

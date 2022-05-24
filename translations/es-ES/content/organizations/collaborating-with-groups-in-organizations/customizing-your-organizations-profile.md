@@ -49,7 +49,7 @@ Puedes formatear el texto e incluir emojis, imágenes y GIFs en el README del pe
 
 ## Agregar un README de perfil de organización solo para miembros
 
-1. Si tu organización aún no tiene un repositorio `.github-private`, crea un `.github-private` público. Cualquier usuario que tenga acceso de escritura a dicho repositorio puede llevar a cabo esta acción.
+1. Si tu organización aún no tiene un repositorio `.github-private`, crea un repositorio privado llamado `.github-private`.
 2. En el repositorio `.github-private` de tu organización, crea un archivo `README.md` en la carpeta `profile`.
 3. Confirma los cambios al archivo `README.md`. El contenido del `README.md` se mostrará en la vista de miembros del perfil de tu organización.
 

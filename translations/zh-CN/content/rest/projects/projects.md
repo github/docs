@@ -1,6 +1,8 @@
 ---
-title: 项目
-intro: Projects API 允许您在仓库中创建、列出、更新、删除和自定义项目。
+title: 项目板
+shortTitle: 板
+allowTitleToDifferFromFilename: true
+intro: 项目板 API 允许您在存储库中创建和管理项目。
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,3 +13,4 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
+{% data reusables.projects.projects-api %}

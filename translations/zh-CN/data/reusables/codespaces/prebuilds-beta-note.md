@@ -1,5 +1,5 @@
 {% note %}
 
-**Note:** The ability to prebuild codespaces is currently in beta and subject to change.
+**注意：** 预构建代码空间的功能目前处于测试阶段，可能会发生变化。
 
 {% endnote %}

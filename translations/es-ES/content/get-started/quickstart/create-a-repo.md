@@ -5,7 +5,7 @@ redirect_from:
   - /articles/create-a-repo
   - /github/getting-started-with-github/create-a-repo
   - /github/getting-started-with-github/quickstart/create-a-repo
-intro: 'To put your project up on {% data variables.product.prodname_dotcom %}, you will need to create a repository for it to live in.'
+intro: 'Para poner tu proyecto en {% data variables.product.prodname_dotcom %}, necesitarás crear un repositorio en donde pueda vivir.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -22,7 +22,7 @@ topics:
 
 {% ifversion fpt or ghec %}
 
-Puedes almacenar distintos proyectos en los repositorios de {% data variables.product.prodname_dotcom %}, incluso proyectos de código abierto. With open source projects, you can share code to make better, more reliable software. Puedes utilizar los repositorios para colaborar con otros y rastrear tu trabajo. Para obtener más información, consulta la sección "[Acerca de los repositorios](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-repositories)". To learn more about open source projects, visit [OpenSource.org](http://opensource.org/about).
+Puedes almacenar distintos proyectos en los repositorios de {% data variables.product.prodname_dotcom %}, incluso proyectos de código abierto. Con los proyectos de código abierto, puedes compartir código para hacer software mejor y más confiable. Puedes utilizar los repositorios para colaborar con otros y rastrear tu trabajo. Para obtener más información, consulta la sección "[Acerca de los repositorios](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-repositories)". Para aprender más sobre los proyectos de código abierto, visita [OpenSource.org](http://opensource.org/about).
 
 {% elsif ghes or ghae %}
 
@@ -78,7 +78,7 @@ Confirmemos un cambio en el archivo *README*.
 2. En el contenido del archivo, haz clic en {% octicon "pencil" aria-label="The edit icon" %}.
 3. En la pestaña **Editar archivo**, escribe alguna información sobre ti. ![Nuevo contenido en el archivo](/assets/images/help/repository/edit-readme-light.png)
 {% data reusables.files.preview_change %}
-5. Revisa los cambios que realizaste en el archivo. You will see the new content in green. ![Vista previa del archivo](/assets/images/help/repository/create-commit-review.png)
+5. Revisa los cambios que realizaste en el archivo. Verás el contenido nuevo de color verde. ![Vista previa del archivo](/assets/images/help/repository/create-commit-review.png)
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_file_change %}

@@ -25,7 +25,7 @@ Para obter mais informações, consulte "[Introdução a contêineres de desenvo
 1. Crie um código a partir do branch pré-compilado cujo contêiner de desenvolvimento você deseja alterar. Para obter mais informações, consulte "[Criando um codespace ](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)".
 1. No codespaec, confira um branch de teste. Para obter mais informações, consulte "[Usando controle de origem no seu codespace](/codespaces/developing-in-codespaces/using-source-control-in-your-codespace#creating-or-switching-branches)."
 1. Faça as alterações necessárias na configuração do contêiner de desenvolvimento.
-1. Aplique as alterações recompilando o container. Para obter mais informações, consulte "[Introdução a contêineres de desenvolvimento](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#applying-changes-to-your-configuration)".
+1. Aplique as alterações recompilando o container. Para obter mais informações, consulte "[Introdução a contêineres de desenvolvimento](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#applying-configuration-changes-to-a-codespace)."
 1. Depois de tudo parecer bom, recomendamos também criar um novo codespace a partir de seu branch de teste para garantir que tudo está funcionando. Você pode então fazer commit das alterações no branch padrão do seu repositório ou em um branch de recurso ativo, acionando uma atualização do modelo de pré-criação para esse branch.
 
    {% note %}

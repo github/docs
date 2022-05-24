@@ -9,7 +9,7 @@ versions:
 
 ## What data is collected
 
-Data collected is described in the "[{% data variables.product.prodname_copilot %} Telemetry Terms](/github/copilot/github-copilot-telemetry-terms)." In addition, the {% data variables.product.prodname_copilot %} extension/plugin collects activity from the user's Integrated Development Environment (IDE), tied to a timestamp, and metadata collected by the extension/plugin telemetry package. When used with Visual Studio Code, IntelliJ, NeoVIM, or other IDEs, {% data variables.product.prodname_copilot %} collects the standard metadata provided by those IDEs.
+Data collected is described in the "[{% data variables.product.prodname_copilot %} Telemetry Terms](/github/copilot/github-copilot-telemetry-terms)." In addition, the {% data variables.product.prodname_copilot %} extension/plugin collects activity from the user's Integrated Development Environment (IDE), tied to a timestamp, and metadata collected by the extension/plugin telemetry package. When used with {% data variables.product.prodname_vscode %}, IntelliJ, NeoVIM, or other IDEs, {% data variables.product.prodname_copilot %} collects the standard metadata provided by those IDEs.
 
 ## How the data is used by {% data variables.product.company_short %}
 

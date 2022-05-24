@@ -55,14 +55,11 @@ shortTitle: 搜索议题和 PR
 
 {% data reusables.pull_requests.large-search-workaround %}
 
-
 | 限定符                       | 示例                                                                                                                                                                                       |
 | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | <code>user:<em>USERNAME</em></code> | [**user:defunkt ubuntu**](https://github.com/search?q=user%3Adefunkt+ubuntu&type=Issues) 匹配含有 "ubuntu" 字样、来自 @defunkt 拥有的仓库的议题。                                                          |
 | <code>org:<em>ORGNAME</em></code> | [**org:github**](https://github.com/search?q=org%3Agithub&type=Issues&utf8=%E2%9C%93) 匹配 GitHub 组织拥有的仓库中的议题。                                                                             |
 | <code>repo:<em>USERNAME/REPOSITORY</em></code> | [**repo:mozilla/shumway created:<2012-03-01**](https://github.com/search?q=repo%3Amozilla%2Fshumway+created%3A%3C2012-03-01&type=Issues) 匹配来自 @mozilla 的 shumway 项目、在 2012 年 3 月之前创建的议题。 |
-
-
 
 ## 按开放或关闭状态搜索
 
@@ -133,17 +130,15 @@ shortTitle: 搜索议题和 PR
 | <code>involves:<em>USERNAME</em></code> | **[involves:defunkt involves:jlord](https://github.com/search?q=involves%3Adefunkt+involves%3Ajlord&type=Issues)** 匹配涉及 @defunkt 或 @jlord 的议题。                |
 |                           | [**NOT bootstrap in:body involves:mdo**](https://github.com/search?q=NOT+bootstrap+in%3Abody+involves%3Amdo&type=Issues) 匹配涉及 @mdo 且正文中未包含 "bootstrap" 字样的议题。 |
 
-{% ifversion fpt or ghes or ghae or ghec %}
 ## 搜索链接的议题和拉取请求
 您可以将结果缩小到仅包括通过关闭引用链接到拉取请求的议题，或者链接到拉取请求可能关闭的议题的拉取请求。
 
-| 限定符             | 示例                                                                                                                                                                                            |
-| --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `linked:pr`     | [**repo:desktop/desktop is:open linked:pr**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aopen+linked%3Apr) 匹配 `desktop/desktop` 仓库中通过关闭引用链接到拉取请求的开放议题。                          |
-| `linked:issue`  | [**repo:desktop/desktop is:closed linked:issue**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aclosed+linked%3Aissue) 匹配 `desktop/desktop` 仓库中链接到拉取请求可能已关闭的议题的已关闭拉取请求。           |
-| `-linked:pr`    | [**repo:desktop/desktop is:open -linked:pr**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aopen+-linked%3Apr) 匹配 `desktop/desktop` 仓库中未通过关闭引用链接到拉取请求的开放议题。                       |
-| `-linked:issue` | [**repo:desktop/desktop is:open -linked:issue**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aopen+-linked%3Aissue) 匹配 `desktop/desktop` 仓库中未链接至拉取请求可能关闭的议题的开放拉取请求。 
-{% endif %}
+| 限定符             | 示例                                                                                                                                                                                  |
+| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `linked:pr`     | [**repo:desktop/desktop is:open linked:pr**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aopen+linked%3Apr) 匹配 `desktop/desktop` 仓库中通过关闭引用链接到拉取请求的开放议题。                |
+| `linked:issue`  | [**repo:desktop/desktop is:closed linked:issue**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aclosed+linked%3Aissue) 匹配 `desktop/desktop` 仓库中链接到拉取请求可能已关闭的议题的已关闭拉取请求。 |
+| `-linked:pr`    | [**repo:desktop/desktop is:open -linked:pr**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aopen+-linked%3Apr) 匹配 `desktop/desktop` 仓库中未通过关闭引用链接到拉取请求的开放议题。             |
+| `-linked:issue` | [**repo:desktop/desktop is:open -linked:issue**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aopen+-linked%3Aissue) 匹配 `desktop/desktop` 仓库中未链接至拉取请求可能关闭的议题的开放拉取请求。    |
 
 ## 按标签搜索
 
@@ -240,7 +235,10 @@ shortTitle: 搜索议题和 PR
 ## 搜索草稿拉取请求
 您可以过滤草稿拉取请求。 更多信息请参阅“[关于拉取请求](/articles/about-pull-requests#draft-pull-requests)”。
 
-| 限定符        | 示例 | ------------- | -------------{% ifversion fpt or ghes or ghae or ghec %} | `draft:true` | [**draft:true**](https://github.com/search?q=draft%3Atrue) 匹配拉取请求草稿。 | `draft:false` | [**draft:false**](https://github.com/search?q=draft%3Afalse) 匹配可供审查的拉取请求。{% else %} | `is:draft` | [**is:draft**](https://github.com/search?q=is%3Adraft) 匹配拉取请求草稿。{% endif %}
+| 限定符           | 示例                                                                        |
+| ------------- | ------------------------------------------------------------------------- |
+| `draft:true`  | [**draft:true**](https://github.com/search?q=draft%3Atrue) 匹配草稿拉取请求。      |
+| `draft:false` | [**draft:false**](https://github.com/search?q=draft%3Afalse) 匹配可供审核的拉取请求。 |
 
 ## 按拉取请求审查状态和审查者搜索
 
@@ -300,10 +298,10 @@ shortTitle: 搜索议题和 PR
 
 您可以使用 `is` 限定符基于拉取请求已合并还是未合并进行过滤。
 
-| 限定符           | 示例                                                                                                                            |
-| ------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| `is:merged`   | [**bug is:pr is:merged**](https://github.com/search?utf8=%E2%9C%93&q=bugfix+is%3Apr+is%3Amerged&type=) 匹配含有 "bug" 字样的已合并拉取请求。 |
-| `is:unmerged` | [**error is:unmerged**](https://github.com/search?utf8=%E2%9C%93&q=error+is%3Aunmerged&type=) 匹配含有 "error" 字样的已关闭议题和拉取请求。     |
+| 限定符           | 示例                                                                                                                                  |
+| ------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| `is:merged`   | [**bug is:pr is:merged**](https://github.com/search?utf8=%E2%9C%93&q=bugfix+is%3Apr+is%3Amerged&type=) 匹配含有 "bug" 字样的已合并拉取请求。       |
+| `is:unmerged` | [**error is:unmerged**](https://github.com/search?utf8=%E2%9C%93&q=error+is%3Aunmerged&type=) 将拉取请求与单词“error”匹配，这些请求的状态为打开或关闭，但未合并。 |
 
 ## 基于仓库是否已存档搜索
 

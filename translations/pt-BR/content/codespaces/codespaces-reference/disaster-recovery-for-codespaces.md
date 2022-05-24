@@ -42,7 +42,7 @@ Embora esta opção não configure um ambiente de desenvolvimento para você, el
 
 ## Opção 4: Usar contêineres remotos e o Docker para um ambiente contêinerizado local
 
-Se seu repositório tiver um `devcontainer.json`, considere o uso da [extensão Remote-Containers](https://code.visualstudio.com/docs/remote/containers#_quick-start-open-a-git-repository-or-github-pr-in-an-isolated-container-volume) no Visual Studio Code para criar e anexar a um contêiner de desenvolvimento local para seu repositório. O tempo de configuração desta opção irá variar dependendo das suas especificações locais e da complexidade da configuração do seu contêiner de desenvolvimento.
+Se o seu repositório tiver um `devcontainer.json`, considere o uso da [extensão Remote-Containers](https://code.visualstudio.com/docs/remote/containers#_quick-start-open-a-git-repository-or-github-pr-in-an-isolated-container-volume) em {% data variables.product.prodname_vscode %} para construir e anexar a um contêiner de desenvolvimento local para o seu repositório. O tempo de configuração desta opção irá variar dependendo das suas especificações locais e da complexidade da configuração do seu contêiner de desenvolvimento.
 
 {% note %}
 

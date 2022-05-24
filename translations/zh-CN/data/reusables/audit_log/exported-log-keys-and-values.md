@@ -1,4 +1,4 @@
-After you export the log, you'll see the following keys and values in the resulting file.
+导出日志后，您将在生成的文件中看到以下键和值。
 
 | 键                             | 示例值                                                                            |
 | ----------------------------- | ------------------------------------------------------------------------------ |

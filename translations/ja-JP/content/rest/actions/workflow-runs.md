@@ -1,6 +1,6 @@
 ---
 title: ワークフローの実行
-intro: 'The Workflow runs API allows you to view, re-run, cancel, and view logs for workflow runs.'
+intro: ワークフロー実行APIを使うと、ワークフロー実行の表示、再実行、キャンセル、ログの表示ができます。
 topics:
   - API
 versions:
@@ -10,8 +10,8 @@ versions:
   ghec: '*'
 ---
 
-## About the Workflow runs API
+## ワークフロー実行APIについて
 
-The Workflow runs API allows you to view, re-run, cancel, and view logs for workflow runs. {% data reusables.actions.about-workflow-runs %} 詳しい情報については「[ワークフローの実行の管理](/actions/automating-your-workflow-with-github-actions/managing-a-workflow-run)」を参照してください。
+ワークフロー実行APIを使うと、ワークフロー実行の表示、再実行、キャンセル、ログの表示ができます。 {% data reusables.actions.about-workflow-runs %} 詳しい情報については「[ワークフローの実行の管理](/actions/automating-your-workflow-with-github-actions/managing-a-workflow-run)」を参照してください。
 
 {% data reusables.actions.actions-authentication %} {% data reusables.actions.actions-app-actions-permissions-api %}

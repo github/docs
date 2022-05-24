@@ -111,19 +111,17 @@ Finalmente, você deve considerar o fortalecimento da segurança para os executo
 
 {% data reusables.actions.about-artifacts %} Para obter mais informações, consulte "[Armazenar dados do fluxo de trabalho como artefatos](/actions/advanced-guides/storing-workflow-data-as-artifacts)".
 
-![Captura de tela do artefato](/assets/images/help/repository/passing-data-between-jobs-in-a-workflow-updated.png)
+{% if actions-caching %}{% data variables.product.prodname_actions %} também tem um sistema de cache que você pode usar para armazenar dependências de cache a fim de acelerar as execuções do fluxo de trabalho. Para obter mais informações, consulte "[Armazenando as dependências em cache para acelerar fluxos de trabalho](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)".{% endif %}
 
 {% ifversion ghes %}
-Você deve configurar o armazenamento externo de blob para estes artefatos. Escolha qual provedor de armazenamento compatível a sua empresa irá usar. Para obter mais informações, consulte "[Primeiros passos com {% data variables.product.prodname_actions %} para {% data variables.product.product_name %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#external-storage-requirements)".
+Você deve configurar o armazenamento externo de blob para artefatos de fluxo de trabalho{% if actions-caching %}, caches,{% endif %} e outros logs de fluxo de trabalho. Escolha qual provedor de armazenamento compatível a sua empresa irá usar. Para obter mais informações, consulte "[Primeiros passos com {% data variables.product.prodname_actions %} para {% data variables.product.product_name %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#external-storage-requirements)".
 {% endif %}
 
 {% ifversion ghec or ghes %}
 
-{% data reusables.actions.artifact-log-retention-statement %}
+Você pode usar as configurações de política para {% data variables.product.prodname_actions %} para personalizar o armazenamento de artefatos de fluxo de trabalho{% if actions-caching %}, caches,{% endif %} e retenção de logs. Para obter mais informações, consulte "[Aplicar políticas para {% data variables.product.prodname_actions %} na sua empresa](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise)".
 
 {% endif %}
-
-Se você quiser manter registros e artefatos maiores que o limite superior que você pode configurar em {% data variables.product.product_name %}, você terá que planejar como exportar e armazenar os dados.
 
 {% ifversion ghec %}
 Um certo nível armazenamento está incluído na sua assinatura, mas o armazenamento adicional afetará o seu pagamento. Você deveria preparar-se para este custo. Para obter mais informações, consulte "[Sobre a cobrança do {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)."

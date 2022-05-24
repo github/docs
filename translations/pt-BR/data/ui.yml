@@ -36,6 +36,7 @@ search:
 homepage:
   explore_by_product: Explorar por produto
   version_picker: Versão
+  description: Help for wherever you are on your GitHub journey.
 toc:
   getting_started: Introdução
   popular: Popular
@@ -118,7 +119,7 @@ products:
       preview_notice_to_change: This API is under preview and subject to change
       works_with: Works with
       api_reference: REST API reference
-      enum_description_title: Valores possíveis
+      enum_description_title: Pode ser uma das ações a seguir
       required: Obrigatório
       headers: Headers
       query: Parâmetros de consulta

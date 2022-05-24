@@ -1,6 +1,6 @@
 ---
 title: 提交注释
-intro: The Commit comments API lets you create and edit comments that relate to specific commits.
+intro: 提交评论 API 允许您创建和编辑与特定提交相关的评论。
 versions:
   fpt: '*'
   ghes: '*'
@@ -12,9 +12,9 @@ miniTocMaxHeadingLevel: 3
 allowTitleToDifferFromFilename: true
 ---
 
-## About the commit comments API
+## 关于提交评论 API
 
-The Commit comments API lets you create and edit comments that relate to specific commits.
+提交评论 API 允许您创建和编辑与特定提交相关的评论。
 
 ### 提交评论的自定义媒体类型
 

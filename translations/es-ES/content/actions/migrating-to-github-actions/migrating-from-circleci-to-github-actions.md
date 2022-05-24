@@ -50,7 +50,7 @@ Tanto CircleCI como {% data variables.product.prodname_actions %} configuran `jo
 
 Tanto CircleCI como {% data variables.product.prodname_actions %} proporcionan un mecanismo para reutilizar y compartir tareas en un flujo de trabajo. CircleCi utiliza un concepto llamado orbes (orbs), escrito en YAML, que proporciona tareas que las personas pueden reutilizar en un flujo de trabajo. {% data variables.product.prodname_actions %} cuenta con componentes reutilizables poderosos y flexibles llamados acciones (actions), los cuales compilas ya sea con archivos de JavaScript o con imagenes de Docker. Puedes crear acciones si escribes tu código personalizado para que interactúe con tu repositorio en la forma que prefieras, lo cual incluye la integración con las API de {% data variables.product.product_name %} y con cualquier API de terceros disponible públicamente. Por ejemplo, una acción puede publicar módulos npm, enviar alertas por SMS cuando se crean propuestas urgentes o implementar un código listo para producción. Para obtener más información, consulta la sección "[Crear acciones](/actions/creating-actions)".
 
-Circle CI puede reutilizar partes de los flujos de trabajo con anclas y alias. {% data variables.product.prodname_actions %} supports the most common need for reusability using matrices. For more information about matrices, see "[Using a matrix for your jobs](/actions/using-jobs/using-a-matrix-for-your-jobs)."
+Circle CI puede reutilizar partes de los flujos de trabajo con anclas y alias. {% data variables.product.prodname_actions %} es compatible con las necesidades más comunes de reutilización utilizando matrices. Para obtener más información sobre las matrices, consulta la sección "[Utilizar una matriz para tus jobs](/actions/using-jobs/using-a-matrix-for-your-jobs)".
 
 ## Utilizar imágenes de Docker
 
@@ -81,6 +81,8 @@ Para obtener más información, consulta la sección "[Utilizar variables de amb
 ## Almacenamiento en caché
 
 CircleCI y {% data variables.product.prodname_actions %} proporcionan un método para almacenar archivos en cahcé manualmente en el archivo de configuración.
+
+{% if actions-caching %}
 
 Puedes encontrar un ejemplo de la sintaxis para cada sistema.
 
@@ -119,7 +121,11 @@ GitHub Actions
 </tr>
 </table>
 
-El almacenamiento en caché de las {% data variables.product.prodname_actions %} solo se aplica a los repositorios que se hospedan en {% data variables.product.prodname_dotcom_the_website %}. Para obtener más información, consulta la sección "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Almacenar las dependencias en caché para agilizar los flujos de trabajo</a>".
+{% else %}
+
+{% data reusables.actions.caching-availability %}
+
+{% endif %}
 
 {% data variables.product.prodname_actions %} no tiene un equivalente al Almacenamiento en Caché por Capas de Docker (o DLC, por sus siglas en inglés) que tiene CircleCI.
 
@@ -175,7 +181,7 @@ GitHub Actions
 </tr>
 </table>
 
-Para obtener más información, consulta "[Conservar datos de flujo de trabajo mediante artefactos](/actions/configuring-and-managing-workflows/persisting-workflow-data-using-artifacts)."
+Para obtener más información, consulta la sección "[Datos de flujo de trabajo persistentes que utilizan artefactos](/actions/configuring-and-managing-workflows/persisting-workflow-data-using-artifacts)".
 
 ## Usar bases de datos y contenedores de servicio
 

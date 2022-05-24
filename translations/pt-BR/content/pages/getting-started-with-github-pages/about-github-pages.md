@@ -81,6 +81,16 @@ Se você desejar manter os arquivos de origem do seu site em outro local, você 
 
 Se você escolher a pasta `/docs` de qualquer branch como a fonte de publicação, o {% data variables.product.prodname_pages %} lerá tudo a ser publicado no seu site{% ifversion fpt or ghec %}, inclusive o arquivo _CNAME_,{% endif %} na pasta `/docs`.{% ifversion fpt or ghec %} Por exemplo, quando você edita o domínio personalizado usando as configurações do {% data variables.product.prodname_pages %}, o domínio personalizado grava em `/docs/CNAME`. Para obter mais informações sobre arquivos _CNAME_, consulte "[Gerenciar um domínio personalizado para seu site do {% data variables.product.prodname_pages %}](/articles/managing-a-custom-domain-for-your-github-pages-site)".{% endif %}
 
+{% ifversion ghec %}
+## Limitações para {% data variables.product.prodname_emus %}
+Se você é um {% data variables.product.prodname_managed_user %}, seu uso de {% data variables.product.prodname_pages %} é limitado.
+
+  - Os sites de {% data variables.product.prodname_pages %} só podem ser publicados de repositórios pertencentes a organizações.
+  - Os sites de {% data variables.product.prodname_pages %} só são visíveis para os outros integrantes da empresa.
+
+Para obter mais informações sobre {% data variables.product.prodname_emus %}, consulte "[Sobre {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/about-enterprise-managed-users)".
+{% endif %}
+
 ## Geradores de site estáticos
 
 O {% data variables.product.prodname_pages %} publica qualquer arquivo estático do qual você faz push no repositório. É possível criar seus próprios arquivos estáticos ou usar um gerador de site estático para que ele crie o site para você. Também pode personalizar seu próprio processo de criação localmente ou em outro servidor. É recomendável usar o Jekyll, um gerador de site estático com suporte integrado para {% data variables.product.prodname_pages %} e um processo de compilação simplificado. Para obter mais informações, consulte "[Sobre o {% data variables.product.prodname_pages %} e o JJekyll](/articles/about-github-pages-and-jekyll)".
