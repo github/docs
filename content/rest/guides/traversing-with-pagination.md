@@ -84,6 +84,23 @@ and more importantly, `rel="prev"` lets you know the page number of the previous
 page. Using this information, you could construct some UI that lets users jump
 between the first, previous, next, or last list of results in an API call.
 
+### Example of Python Iteration over pages
+
+While getting data from GitHub and the amount of pages is unknown, the `reqeusts` can
+be `while` until the `next` will end, and we'll reach the last page and only `prev` and `first` will
+show in the headers.
+
+```python
+import requests
+
+url = "https://api.github.com/XXXX?simple=yes&per_page=100&page=1"
+res=requests.get(url,headers={"Authorization": git_token})
+repos=res.json()
+while 'next' in res.links.keys():
+  res=requests.get(res.links['next']['url'],headers={"Authorization": git_token})
+  repos.extend(res.json())
+```
+
 ### Changing the number of items received
 
 By passing the `per_page` parameter, you can specify how many items you want
