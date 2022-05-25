@@ -369,6 +369,10 @@ runs:
 ```
 {% endif %}
 
+#### `runs.steps[*].continue-on-error`
+
+**Optional**  Prevents the action from failing when a step fails. Set to `true` to allow the action to pass when this step fails.
+
 ## `runs` for Docker container actions
 
 **Required** Configures the image used for the Docker container action.

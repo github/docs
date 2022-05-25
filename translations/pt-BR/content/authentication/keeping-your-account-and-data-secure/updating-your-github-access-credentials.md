@@ -57,7 +57,7 @@ Consulte "[Revisar integrações autorizadas](/articles/reviewing-your-authorize
 
 {% ifversion not ghae %}
 
-If you have reset your account password and would also like to trigger a sign-out from the {% data variables.product.prodname_mobile %} app, you can revoke your authorization of the "GitHub iOS" or "GitHub Android" OAuth App. This will sign out all instances of the {% data variables.product.prodname_mobile %} app associated with your account. Para obter mais informações, consulte "[Revisar integrações autorizadas](/authentication/keeping-your-account-and-data-secure/reviewing-your-authorized-integrations)".
+Se você redefiniu sua senha da conta e gostaria de acionar um logout do aplicativo de {% data variables.product.prodname_mobile %}, você pode revogar a sua autorização do aplicativo OAuth "GitHub iOS" ou "GitHub Android". Isso encerrará todas as instâncias do aplicativo de {% data variables.product.prodname_mobile %} associado à sua conta. Para obter mais informações, consulte "[Revisar integrações autorizadas](/authentication/keeping-your-account-and-data-secure/reviewing-your-authorized-integrations)".
 
 {% endif %}
 

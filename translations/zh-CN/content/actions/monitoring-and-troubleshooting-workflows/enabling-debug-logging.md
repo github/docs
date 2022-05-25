@@ -22,6 +22,12 @@ versions:
 
 有关设置密码的更多信息，请参阅“[创建和使用加密密码](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)”。
 
+{% if debug-reruns %}
+
+Additionally, anyone who has access to run a workflow can enable runner diagnostic logging and step debug logging for a workflow re-run. For more information, see "[Re-running workflows and jobs](/actions/managing-workflow-runs/re-running-workflows-and-jobs)."
+
+ {% endif %}
+
 ## 启用运行程序诊断日志
 
 Runner diagnostic logging provides additional log files that contain information about how a runner is executing a job. 两个额外的日志文件被添加到日志存档中：

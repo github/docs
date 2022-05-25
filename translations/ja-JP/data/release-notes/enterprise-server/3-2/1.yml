@@ -4,20 +4,20 @@ sections:
   security_fixes:
     - 'パッケージが最新のセキュリティバージョンに更新されました。{% comment %} https://github.com/github/enterprise2/pull/27118, https://github.com/github/enterprise2/pull/27110 {% endcomment %}'
   bugs:
-    - 'Custom pre-receive hooks could have failed due to too restrictive virtual memory or CPU time limits. {% comment %} https://github.com/github/enterprise2/pull/26973, https://github.com/github/enterprise2/pull/26955 {% endcomment %}'
-    - 'In a GitHub Enterprise Server clustering configuration, Dependency Graph settings could have been incorrectly applied. {% comment %} https://github.com/github/enterprise2/pull/26981, https://github.com/github/enterprise2/pull/26861 {% endcomment %}'
-    - 'Attempting to wipe all existing configuration settings with `ghe-cleanup-settings` failed to restart the Management Console service. {% comment %} https://github.com/github/enterprise2/pull/26988, https://github.com/github/enterprise2/pull/26901 {% endcomment %}'
-    - 'During replication teardown via `ghe-repl-teardown` Memcached failed to be restarted. {% comment %} https://github.com/github/enterprise2/pull/26994, https://github.com/github/enterprise2/pull/26983 {% endcomment %}'
-    - 'During periods of high load, users would receive HTTP 503 status codes when upstream services failed internal healthchecks. {% comment %} https://github.com/github/enterprise2/pull/27083, https://github.com/github/enterprise2/pull/26999 {% endcomment %}'
-    - 'Pre-receive hook environments were forbidden from calling the cat command via BusyBox on Alpine. {% comment %} https://github.com/github/enterprise2/pull/27116, https://github.com/github/enterprise2/pull/27094 {% endcomment %}'
-    - 'Failing over from a primary Cluster datacenter to a secondary Cluster datacenter succeeds, but then failing back over to the original primary Cluster datacenter failed to promote Elasticsearch indicies. {% comment %} https://github.com/github/github/pull/193182, https://github.com/github/github/pull/192447 {% endcomment %}'
-    - 'The "Import teams" button on the Teams page for an Organization returned an HTTP 404. {% comment %} https://github.com/github/github/pull/193303 {% endcomment %}'
-    - 'Using the API to disable Secret Scanning correctly disabled the property but incorrectly returned an HTTP 422 and an error message. {% comment %} https://github.com/github/github/pull/193455, https://github.com/github/github/pull/192907 {% endcomment %}'
-    - 'In some cases, GitHub Enterprise Administrators attempting to view the `Dormant users` page received `502 Bad Gateway` or `504 Gateway Timeout` response. {% comment %} https://github.com/github/github/pull/194262, https://github.com/github/github/pull/193609 {% endcomment %}'
-    - 'Performance was negatively impacted in certain high load situations as a result of the increased number of `SynchronizePullRequestJob` jobs. {% comment %} https://github.com/github/github/pull/195256, https://github.com/github/github/pull/194591 {% endcomment %}'
-    - 'A user defined pattern created for Secret Scanning would continue getting scanned even after it was deleted. {% comment %} https://github.com/github/token-scanning-service/pull/1039, https://github.com/github/token-scanning-service/pull/822 {% endcomment %}'
+    - 'カスタムのpre-receive フックが、制約の厳しすぎる仮想メモリもしくはCPU時間の制限のために失敗することがありました。{% comment %}https://github.com/github/enterprise2/pull/26973, https://github.com/github/enterprise2/pull/26955 {% endcomment %}'
+    - 'GitHub Enterprise Serverのクラスタリング構成で、依存関係グラフの設定が不正確に適用されることがありました。{% comment %} https://github.com/github/enterprise2/pull/26981, https://github.com/github/enterprise2/pull/26861 {% endcomment %}'
+    - '`ghe-cleanup-settings`で既存のすべての設定を消去しようとすると、Management Consoleサービスの再起動に失敗しました。{% comment %} https://github.com/github/enterprise2/pull/26988, https://github.com/github/enterprise2/pull/26901 {% endcomment %}'
+    - '`ghe-repl-teardown` でのレプリケーションのティアダウンの間に、Memcachedが再起動に失敗しました。{% comment %} https://github.com/github/enterprise2/pull/26994, https://github.com/github/enterprise2/pull/26983 {% endcomment %}'
+    - '高負荷の間、上流のサービスが内部的なヘルスチェックに失敗した際に、ユーザがHTTPステータスコード503を受信することになります。{% comment %} https://github.com/github/enterprise2/pull/27083, https://github.com/github/enterprise2/pull/26999 {% endcomment %}'
+    - 'pre-receiveフック環境が、Alpine上のBusyBoxからcatコマンドを呼び出すことが禁じられていました。{% comment %} https://github.com/github/enterprise2/pull/27116, https://github.com/github/enterprise2/pull/27094 {% endcomment %}'
+    - 'プライマリのクラスタデータセンターからセカンダリのクラスタデータセンターへのフェイルオーバーは成功しますが、その後オリジナルのプライマリクラスタデータセンターへのフェイルバックがElasticsearchインデックスの昇格に失敗しました。{% comment %} https://github.com/github/github/pull/193182, https://github.com/github/github/pull/192447 {% endcomment %}'
+    - 'OrganizationのTeamsページの"Import teams"ボタンがHTTP 404を返しました。{% comment %} https://github.com/github/github/pull/193303 {% endcomment %}'
+    - 'APIを使用してSecret scanningを無効化すると、無効化は正しく行われますが、誤ってHTTP 422とエラーメッセージが返されました。{% comment %} https://github.com/github/github/pull/193455, https://github.com/github/github/pull/192907 {% endcomment %}'
+    - '場合によって、`Dormant users` ページを閲覧しようとしたGitHub Enterpriseの管理者が`502 Bad Gateway`もしくは`504 Gateway Timeout`レスポンスを受信しました。{% comment %} https://github.com/github/github/pull/194262, https://github.com/github/github/pull/193609 {% endcomment %}'
+    - '特定の高負荷状況において、`SynchronizePullRequestJob`ジョブ数の増大の結果として、パフォーマンスに負の影響がありました。{% comment %} https://github.com/github/github/pull/195256, https://github.com/github/github/pull/194591 {% endcomment %}'
+    - 'Secret scanning用に作成されたユーザ定義パターンが、削除されたあとにもスキャンされ続けます。{% comment %} https://github.com/github/token-scanning-service/pull/1039, https://github.com/github/token-scanning-service/pull/822 {% endcomment %}'
   changes:
-    - 'GitHub Apps now set the Secret Scanning feature on a repository consistently with the API. {% comment %} https://github.com/github/github/pull/193456, https://github.com/github/github/pull/193125 {% endcomment %}'
+    - 'GitHub Appsは、APIと整合性を持ってSecret scanningの機能を設定するようになりました。{% comment %} https://github.com/github/github/pull/193456, https://github.com/github/github/pull/193125 {% endcomment %}'
   known_issues:
     - 新しくセットアップされたユーザを持たない{% data variables.product.prodname_ghe_server %}で、攻撃者が最初の管理ユーザを作成できました。
     - アップグレードの過程で、カスタムのファイアウォールのルールが削除されます。

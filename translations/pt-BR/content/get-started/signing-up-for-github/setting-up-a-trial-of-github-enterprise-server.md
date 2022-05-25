@@ -39,7 +39,7 @@ Siga estas etapas para aproveitar ao máximo a versão de avaliação:
 
 1. [Crie uma organização](/enterprise-server@latest/admin/user-management/creating-organizations).
 2. Para aprender as noções básicas de uso do {% data variables.product.prodname_dotcom %}, consulte:
-   - Webcast [Guia de início rápido do {% data variables.product.prodname_dotcom %}](https://resources.github.com/webcasts/Quick-start-guide-to-GitHub/)
+   - [Intro to {% data variables.product.prodname_dotcom %}](https://resources.github.com/devops/methodology/maximizing-devops-roi/) webcast
    - [Entender o fluxo do {% data variables.product.prodname_dotcom %}](https://guides.github.com/introduction/flow/) nos guias do {% data variables.product.prodname_dotcom %}
    - [Hello World](https://guides.github.com/activities/hello-world/) nos guias do {% data variables.product.prodname_dotcom %}
    - "[Sobre as versões do {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs)"

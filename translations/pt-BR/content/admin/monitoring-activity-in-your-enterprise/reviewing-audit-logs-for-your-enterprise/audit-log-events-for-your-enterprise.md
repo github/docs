@@ -829,19 +829,19 @@ topics:
 
 ### ações da categoria `protected_branch`
 
-| Ação                                     | Descrição                                                              |
-| ---------------------------------------- | ---------------------------------------------------------------------- |
-| `protected_branch.create`                | A proteção de branch foi habilitada em um branch.                      |
-| `protected_branch.destroy`               | A proteção de branch foi desabilitada em um branch.                    |
-| `protected_branch.dismiss_stale_reviews` | Enforcement of dismissing stale pull requests was updated on a branch. |
+| Ação                                     | Descrição                                                             |
+| ---------------------------------------- | --------------------------------------------------------------------- |
+| `protected_branch.create`                | A proteção de branch foi habilitada em um branch.                     |
+| `protected_branch.destroy`               | A proteção de branch foi desabilitada em um branch.                   |
+| `protected_branch.dismiss_stale_reviews` | A execução de pull requests obsoletos foram atualizados em um branch. |
 {%- ifversion ghes %}
 | `protected_branch.dismissal_restricted_users_teams` | A exigência de restrição de usuários e/ou equipes que podem ignorar avaliações foi atualizada em um branch.
 {%- endif %}
 | `protected_branch.policy_override` | Um requisito de proteção de branch foi sobrescrito pelo administrador de um repositório. | `protected_branch.rejected_ref_update` | Uma tentativa de atualização de branch foi rejeitada. | `protected_branch.required_status_override` | O status exigido verifica se o requisito de proteção do branch foi substituído pelo administrador de um repositório. | `protected_branch.review_policy_and_required_status_override` | As revisões necessárias e os requisitos de proteção de status requeridos foram ignorados pelo administrador de um repositório. | `protected_branch.review_policy_override` | O requisito de proteção da branch de revisões necessário foi substituído pelo administrador de um repositório. | `protected_branch.update_admin_enforced` | A proteção do branch foi aplicada para os administradores do repositório.
 {%- ifversion ghes %}
-| `protected_branch.update_allow_deletions_enforcement_level` | A exigência de permitir aos usuários com acesso de push para excluir branches correspondentes foi atualizada em um branch. | `protected_branch.update_allow_force_pushes_enforcement_level` | A exigência da permissão de push forçado para todos os usuários com acesso de push foi atualizada em um branch. | `protected_branch.update_linear_history_requirement_enforcement_level` | Enforcement of requiring linear commit history was updated on a branch.
+| `protected_branch.update_allow_deletions_enforcement_level` | A exigência de permitir aos usuários com acesso de push para excluir branches correspondentes foi atualizada em um branch. | `protected_branch.update_allow_force_pushes_enforcement_level` | A exigência da permissão de push forçado para todos os usuários com acesso de push foi atualizada em um branch. | `protected_branch.update_linear_history_requirement_enforcement_level` | A aplicação da exigência do histórico do commit linear foi atualizada em um branch.
 {%- endif %}
-| `protected_branch.update_pull_request_reviews_enforcement_level` | Enforcement of required pull request reviews was updated on a branch. Pode ser `0`(desativado), `1`(não administrador), `2`(todos). | `protected_branch.update_require_code_owner_review` | Enforcement of required code owner review was updated on a branch. | `protected_branch.update_required_approving_review_count` | Enforcement of the required number of approvals before merging was updated on a branch. | `protected_branch.update_required_status_checks_enforcement_level` | Enforcement of required status checks was updated on a branch. | `protected_branch.update_signature_requirement_enforcement_level` | Enforcement of required commit signing was updated on a branch. | `protected_branch.update_strict_required_status_checks_policy` | Enforcement of required status checks was updated on a branch. | `protected_branch.update_name` | A branch name pattern was updated for a branch.
+| `protected_branch.update_pull_request_reviews_enforcement_level` | A aplicação das revisões exigidas do pull request foi atualizada em um branch. Pode ser `0`(desativado), `1`(não administrador), `2`(todos). | `protected_branch.update_require_code_owner_review` | A aplicação da revisão exigida de um proprietário de código foi atualizada em um branch. | `protected_branch.update_required_approving_review_count` | Enforcement of the required number of approvals before merging was updated on a branch. | `protected_branch.update_required_status_checks_enforcement_level` | Enforcement of required status checks was updated on a branch. | `protected_branch.update_signature_requirement_enforcement_level` | Enforcement of required commit signing was updated on a branch. | `protected_branch.update_strict_required_status_checks_policy` | Enforcement of required status checks was updated on a branch. | `protected_branch.update_name` | A branch name pattern was updated for a branch.
 
 ### ações de categoria `public_key`
 
@@ -1068,6 +1068,16 @@ topics:
 | `secret_scanning.disable` | An organization owner disabled secret scanning for all existing{% ifversion ghec %} private or internal{% endif %} repositories. Para obter mais informações, consulte "[Sobre a varredura de segredos](/github/administering-a-repository/about-secret-scanning)." |
 | `secret_scanning.enable`  | An organization owner enabled secret scanning for all existing{% ifversion ghec %} private or internal{% endif %} repositories.                                                                                                                                     |
 
+{% if secret-scanning-alert-audit-log %}
+### `secret_scanning_alert` category actions
+
+| Ação                            | Descrição                                                                                                                                                                                                                                                                                                                                  |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `secret_scanning_alert.create`  | {% data variables.product.prodname_dotcom %} detected a secret and created a {% data variables.product.prodname_secret_scanning %} alert. Para obter mais informações, consulte "[Gerenciando alertas do {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/managing-alerts-from-secret-scanning)." |
+| `secret_scanning_alert.reopen`  | A user reopened a {% data variables.product.prodname_secret_scanning %} alert.                                                                                                                                                                                                                                                           |
+| `secret_scanning_alert.resolve` | A user resolved a {% data variables.product.prodname_secret_scanning %} alert.                                                                                                                                                                                                                                                           |
+{% endif %}
+
 ### ações da categoria `secret_scanning_new_repos`
 
 | Ação                                | Descrição                                                                                                                                                                                                                                                      |
@@ -1167,11 +1177,11 @@ topics:
 
 ### ações de categoria de `team_discussions`
 
-| Ação                       | Descrição                                                                                                                                                                                                                                           |
-| -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `team_discussions.clear`   | An organization owner cleared the setting to allow team discussions for an organization or enterprise.                                                                                                                                              |
-| `team_discussions.disable` | An organization owner disabled team discussions for an organization. For more information, see "[Disabling team discussions for your organization](/organizations/organizing-members-into-teams/disabling-team-discussions-for-your-organization)." |
-| `team_discussions.enable`  | An organization owner enabled team discussions for an organization.                                                                                                                                                                                 |
+| Ação                       | Descrição                                                                                                                                                                                                                                                            |
+| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `team_discussions.clear`   | An organization owner cleared the setting to allow team discussions for an organization or enterprise.                                                                                                                                                               |
+| `team_discussions.disable` | An organization owner disabled team discussions for an organization. Para obter mais informações, consulte "[Desabilitar discussões de equipe para sua organização](/organizations/organizing-members-into-teams/disabling-team-discussions-for-your-organization)". |
+| `team_discussions.enable`  | An organization owner enabled team discussions for an organization.                                                                                                                                                                                                  |
 
 {%- ifversion ghec %}
 ### `team_sync_tenant` category actions
