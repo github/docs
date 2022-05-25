@@ -67,7 +67,7 @@ When generating credentials, we recommend that you grant the minimum permissions
 
 {% endnote %}
 
-## Creating encrypted secrets for a repository <!--TODO-->
+## Creating encrypted secrets for a repository
 
 {% data reusables.actions.permissions-statement-secrets-repository %}
 
