@@ -1,6 +1,6 @@
 ---
 title: Marcar com uma estrela
-intro: The Starring API lets you bookmark a repository.
+intro: A API favoritada permite que você marque um repositório.
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,9 +11,9 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## About the Starring API
+## Sobre a API favoritada
 
-The Starring API lets you bookmark a repository. As estrelas são exibidas ao lado dos repositórios para mostrar um nível de interesse aproximado. As estrelas não têm efeito nas notificações ou no feed da atividade. Para obter mais informações, consulte "[Salvar repositórios com estrelas](/get-started/exploring-projects-on-github/saving-repositories-with-stars)."
+A API favoritada permite que você marque um repositório. As estrelas são exibidas ao lado dos repositórios para mostrar um nível de interesse aproximado. As estrelas não têm efeito nas notificações ou no feed da atividade. Para obter mais informações, consulte "[Salvar repositórios com estrelas](/get-started/exploring-projects-on-github/saving-repositories-with-stars)."
 
 ### Marcar como estrela vs. Inspecionar
 

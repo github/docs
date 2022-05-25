@@ -1,6 +1,6 @@
 ---
 title: Alterar o stage de uma pull request
-intro: You can mark a draft pull request as ready for review or convert a pull request to a draft.
+intro: Você pode marcar um pull request como pronto para revisão ou converter um pull request em um rascunho.
 permissions: People with write permissions to a repository and pull request authors can change the stage of a pull request.
 product: '{% data reusables.gated-features.draft-prs %}'
 redirect_from:

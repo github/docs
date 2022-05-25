@@ -339,7 +339,7 @@ function ShowSearchResults({
   const versions = Array.from(latestVersions).map((version) => {
     return {
       title: allVersions[version].versionTitle,
-      version: version,
+      version,
     }
   })
 

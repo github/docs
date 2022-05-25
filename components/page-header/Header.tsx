@@ -6,6 +6,7 @@ import { useVersion } from 'components/hooks/useVersion'
 
 import { Link } from 'components/Link'
 import { useMainContext } from 'components/context/MainContext'
+import { useAuth } from 'components/context/DotComAuthenticatedContext'
 import { LanguagePicker } from './LanguagePicker'
 import { HeaderNotifications } from 'components/page-header/HeaderNotifications'
 import { ProductPicker } from 'components/page-header/ProductPicker'
@@ -17,13 +18,15 @@ import styles from './Header.module.scss'
 
 export const Header = () => {
   const router = useRouter()
-  const { isDotComAuthenticated, error } = useMainContext()
+  const { error } = useMainContext()
   const { currentVersion } = useVersion()
   const { t } = useTranslation(['header', 'homepage'])
   const [isMenuOpen, setIsMenuOpen] = useState(
     router.pathname !== '/' && router.query.query && true
   )
   const [scroll, setScroll] = useState(false)
+
+  const { isDotComAuthenticated } = useAuth()
 
   const signupCTAVisible =
     !isDotComAuthenticated &&
