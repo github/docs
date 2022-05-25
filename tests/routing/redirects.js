@@ -154,6 +154,22 @@ describe('redirects', () => {
       expect(res.headers.location).toBe('/ja')
       expect(res.headers['cache-control']).toBe('private, no-store')
     })
+    test('trailing slash on languaged homepage should permantently redirect', async () => {
+      const res = await get('/en/')
+      expect(res.statusCode).toBe(301)
+      expect(res.headers.location).toBe('/en')
+      expect(res.headers['set-cookie']).toBeUndefined()
+      expect(res.headers['cache-control']).toContain('public')
+      expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
+    })
+    test('trailing slash with query string on languaged homepage should permantently redirect', async () => {
+      const res = await get('/ja/?foo=bar&bar=foo')
+      expect(res.statusCode).toBe(301)
+      expect(res.headers.location).toBe('/ja?foo=bar&bar=foo')
+      expect(res.headers['set-cookie']).toBeUndefined()
+      expect(res.headers['cache-control']).toContain('public')
+      expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
+    })
   })
 
   describe('external redirects', () => {
