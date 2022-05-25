@@ -1,5 +1,5 @@
 ---
-title: Repository autolinks
+title: Autolinks do repositório
 allowTitleToDifferFromFilename: true
 shortTitle: Links automáticos
 intro: 'Para ajudar a agilizar o seu fluxo de trabalho, você pode usar a API para adicionar os links automáticos a recursos externos, como problemas do JIRA e tíquetes do Zendesk.'
@@ -13,7 +13,7 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## About the Repository autolinks API
+## Sobre a API de autolinks do repositório
 
 Para obter mais informações, consulte "[Configurar links automáticos para fazer referência a recursos externos](/github/administering-a-repository/configuring-autolinks-to-reference-external-resources)".
 

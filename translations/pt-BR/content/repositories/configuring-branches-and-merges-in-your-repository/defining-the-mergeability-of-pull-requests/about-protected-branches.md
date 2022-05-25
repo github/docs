@@ -51,7 +51,7 @@ Para cada regra de proteção do branch, você pode escolher habilitar ou desabi
 - [Exigir uma fila de fusão](#require-merge-queue)
 {% endif %}
 {%- if required-deployments %}
-- [Require deployments to succeed before merging](#require-deployments-to-succeed-before-merging)
+- [Exige implantações para ter sucesso antes do merge](#require-deployments-to-succeed-before-merging)
 {%- endif %}
 - [Incluir administradores](#include-administrators)
 - [Restringir quem pode fazer push para branches correspondentes](#restrict-who-can-push-to-matching-branches)
@@ -148,7 +148,7 @@ Antes de exigir um histórico de commit linear, seu repositório deve permitir m
 
 {% endif %}
 
-### Require deployments to succeed before merging
+### Exige implantações para ter sucesso antes do merge
 
 Você pode exigir que as alterações sejam implantadas em ambientes específicos antes de ua branch poder ser mesclado. Por exemplo, você pode usar essa regra para garantir que as alterações sejam implantadas com sucesso em um ambiente de teste antes das alterações sofrerem merge no seu branch padrão.
 

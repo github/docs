@@ -65,18 +65,20 @@ sections:
         - ボタンをクリックして、ファイルの生の内容をクリップボードにコピーできるようになりました。以前は、生のファイルを開き、すべてを選択し、コピーしなければなりませんでした。ファイルの内容をコピーするには、ファイルにアクセスし、ツールバーの{% octicon "copy" aria-label="The copy icon" %}をクリックしてください。この機能は現在、一部のブラウザでのみ利用可能であることに注意してください。
         - 新しいリリースを作成する際に、タグをテキストフィールドで指定するのではなく、ドロップダウンセレクタを使ってタグを選択あるいは作成できるようになりました。詳しい情報については「[リポジトリのリリースの管理](/repositories/releasing-projects-on-github/managing-releases-in-a-repository)」を参照してください。
         - 双方向のUnicodeテキストを含むファイルを表示する際に、警告が表示されるようになりました。双方向のUnicodeテキストは、ユーザインターフェースで表示されるのとは異なるように解釈あるいはコンパイルされることがあります。たとえば、非表示の双方向Unicode文字を使ってテキストファイルのセグメントをスワップさせることがでいいます。これらの文字の置き換えに関する詳しい情報については[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-10-31-warning-about-bidirectional-unicode-text/)を参照してください。
-        - You can now use `CITATION.cff` files to let others know how you would like them to cite your work. `CITATION.cff` files are plain text files with human- and machine-readable citation information. {% data variables.product.prodname_ghe_server %} parses this information into common citation formats such as [APA](https://apastyle.apa.org) and [BibTeX](https://en.wikipedia.org/wiki/BibTeX). For more information, see "[About CITATION files](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-citation-files)."
+        - '`CITATION.cff`ファイルを使って、自分の作品をどのように引用してほしいかを他者に知らせることができるようになりました。`CITATION.cff`ファイルはプレーンテキストファイルで、人間及び機会が読める引用情報を持ちます。{% data variables.product.prodname_ghe_server %}はこの情報を[APA](https://apastyle.apa.org)や[BibTeX](https://en.wikipedia.org/wiki/BibTeX)のような共通引用フォーマットにパースします。詳しい情報については「[CITATIONファイルについて](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-citation-files)」を参照してください。'
     - 
       heading: 'Markdownの変更'
       notes:
         - |
-          You can use new keyboard shortcuts for quotes and lists in Markdown files, issues, pull requests, and comments.
+          Markdownファイル、Issue、Pull Request、コメント内での引用符やリストに、新しいキーボードショートカットが使えるようになりました。
 
-          * To add quotes, use <kbd>cmd shift .</kbd> on Mac, or <kbd>ctrl shift .</kbd> on Windows and Linux.
-          * To add an ordered list, use <kbd>cmd shift 7</kbd> on Mac, or <kbd>ctrl shift 7</kbd> on Windows and Linux.
-          * To add an unordered list, use <kbd>cmd shift 8</kbd> on Mac, or <kbd>ctrl shift 8</kbd> on Windows and Linux.
+          * 引用符を追加するには、Macでは<kbd>cmd shift .</kbd> Windows及びLinuxでは<kbd>ctrl shift .</kbd>としてください。
 
-          See "[Keyboard shortcuts](/get-started/using-github/keyboard-shortcuts)" for a full list of available shortcuts.
+          * 順序付きリストを追加するには、Macでは<kbd>cmd shift 7</kbd> Windows及びLinuxでは<kbd>ctrl shift 7</kbd>としてください。
+
+          * 順序無しリストを追加するには、Macでは<kbd>cmd shift 8</kbd> Windows及びLinuxでは<kbd>ctrl shift 8</kbd>としてください。
+
+          利用可能なショートカットの完全なリストについては「[キーボードショートカット](/get-started/using-github/keyboard-shortcuts)」を参照してください。
         - 'You can now use footnote syntax in any Markdown field. Footnotes are displayed as superscript links that you can click to jump to the referenced information, which is displayed in a new section at the bottom of the document. For more information about the syntax, see "[Basic writing and formatting syntax](/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#footnotes)."'
         - When viewing Markdown files, you can now click {% octicon "code" aria-label="The code icon" %} in the toolbar to view the source of a Markdown file. Previously, you needed to use the blame view to link to specific line numbers in the source of a Markdown file.
         - You can now add images and videos to Markdown files in gists by pasting them into the Markdown body or selecting them from the dialog at the bottom of the Markdown file. For information about supported file types, see "[Attaching files](https://docs.github.com/en/github/writing-on-github/working-with-advanced-formatting/attaching-files)."

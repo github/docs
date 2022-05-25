@@ -1,5 +1,5 @@
 ---
-title: User migrations
+title: Migrações de usuários
 allowTitleToDifferFromFilename: true
 shortTitle: Usuários
 intro: ''
@@ -13,9 +13,9 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## About the User migrations API
+## Sobre a API de migrações de usuários
 
-The Users migrations API is only available to authenticated account owners. Para obter mais informações, consulte "[Outros métodos de autenticação](/rest/overview/other-authentication-methods)".
+A API de migrações do usuário só está disponível para proprietários de contas autenticadas. Para obter mais informações, consulte "[Outros métodos de autenticação](/rest/overview/other-authentication-methods)".
 
 {% data variables.migrations.user_migrations_intro %} Para obter uma lista dos dados de migração que você pode baixar, consulte "[Fazer download de um arquivo de migração do usuário](#download-a-user-migration-archive)".
 

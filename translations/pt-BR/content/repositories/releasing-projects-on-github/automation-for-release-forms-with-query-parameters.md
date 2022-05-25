@@ -32,5 +32,5 @@ Se você criar um URL inválido usando parâmetros de consulta, ou se não tiver
 
 ## Leia mais
 
-- "[Creating an issue from a URL query](/issues/tracking-your-work-with-issues/creating-an-issue#creating-an-issue-from-a-url-query)"
-- "[Using query parameters to create a pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/using-query-parameters-to-create-a-pull-request/)"
+- "[Criando um problema a partir da consulta de um URL](/issues/tracking-your-work-with-issues/creating-an-issue#creating-an-issue-from-a-url-query)"
+- "[Usando parâmetros de consulta para criar um pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/using-query-parameters-to-create-a-pull-request/)"

@@ -22,6 +22,12 @@ Esses registros adicionais são habilitados pela definição dos segredos no rep
 
 Para obter mais informações sobre segredos de configuração, consulte "[Criar e usar segredos criptografados](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)".
 
+{% if debug-reruns %}
+
+Additionally, anyone who has access to run a workflow can enable runner diagnostic logging and step debug logging for a workflow re-run. For more information, see "[Re-running workflows and jobs](/actions/managing-workflow-runs/re-running-workflows-and-jobs)."
+
+ {% endif %}
+
 ## Habilitar log de diagnóstico do runner
 
 O log de diagnóstico do executor fornece arquivos de log adicionais que contêm informações sobre como um executor está executando um trabalho. Dois arquivos de log extras foram adicionados ao arquivo de log:
