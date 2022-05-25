@@ -7,6 +7,7 @@ versions:
   versions:
   fpt: '*'
   ghec: '*'
+  ShortTitle: GitHub Copilot telemetry
 ---
 
 ## What data is collected
