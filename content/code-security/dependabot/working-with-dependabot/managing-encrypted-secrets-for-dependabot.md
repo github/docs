@@ -49,7 +49,6 @@ The name of a {% data variables.product.prodname_dependabot %} secret:
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.actions.sidebar-secret %}
 {% data reusables.dependabot.dependabot-secrets-button %}
 1. Click **New repository secret**.
 1. Type a name for your secret in the **Name** input box.
