@@ -13,7 +13,7 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## About the Team members API
+## Sobre a API de integrantes da equipe
 
 {% data reusables.organizations.team-api %}
 

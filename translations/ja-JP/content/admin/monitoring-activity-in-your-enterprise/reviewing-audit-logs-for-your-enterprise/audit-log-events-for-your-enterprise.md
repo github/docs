@@ -1068,6 +1068,16 @@ topics:
 | `secret_scanning.disable` | An organization owner disabled secret scanning for all existing{% ifversion ghec %} private or internal{% endif %} repositories. 詳しい情報については、「[シークレットスキャニングについて](/github/administering-a-repository/about-secret-scanning)」を参照してください。 |
 | `secret_scanning.enable`  | An organization owner enabled secret scanning for all existing{% ifversion ghec %} private or internal{% endif %} repositories.                                                                                                      |
 
+{% if secret-scanning-alert-audit-log %}
+### `secret_scanning_alert` category actions
+
+| アクション                           | 説明                                                                                                                                                                                                                                                                                                             |
+| ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `secret_scanning_alert.create`  | {% data variables.product.prodname_dotcom %} detected a secret and created a {% data variables.product.prodname_secret_scanning %} alert. 詳しい情報については、「[{% data variables.product.prodname_secret_scanning %} からのアラートを管理する](/code-security/secret-scanning/managing-alerts-from-secret-scanning)」を参照してください。 |
+| `secret_scanning_alert.reopen`  | A user reopened a {% data variables.product.prodname_secret_scanning %} alert.                                                                                                                                                                                                                               |
+| `secret_scanning_alert.resolve` | A user resolved a {% data variables.product.prodname_secret_scanning %} alert.                                                                                                                                                                                                                               |
+{% endif %}
+
 ### `secret_scanning_new_repos` カテゴリアクション
 
 | アクション                               | 説明                                                                                                                                                                                                                              |
@@ -1167,11 +1177,11 @@ topics:
 
 ### `team_discussions` カテゴリアクション
 
-| アクション                      | 説明                                                                                                                                                                                                                                                  |
-| -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `team_discussions.clear`   | An organization owner cleared the setting to allow team discussions for an organization or enterprise.                                                                                                                                              |
-| `team_discussions.disable` | An organization owner disabled team discussions for an organization. For more information, see "[Disabling team discussions for your organization](/organizations/organizing-members-into-teams/disabling-team-discussions-for-your-organization)." |
-| `team_discussions.enable`  | An organization owner enabled team discussions for an organization.                                                                                                                                                                                 |
+| アクション                      | 説明                                                                                                                                                                                                                          |
+| -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `team_discussions.clear`   | An organization owner cleared the setting to allow team discussions for an organization or enterprise.                                                                                                                      |
+| `team_discussions.disable` | An organization owner disabled team discussions for an organization. 詳しい情報については [Organization の Team ディスカッションの無効化](/organizations/organizing-members-into-teams/disabling-team-discussions-for-your-organization)を参照してください。 |
+| `team_discussions.enable`  | An organization owner enabled team discussions for an organization.                                                                                                                                                         |
 
 {%- ifversion ghec %}
 ### `team_sync_tenant` category actions

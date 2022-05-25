@@ -1,5 +1,5 @@
 ---
-title: Code Scanning
+title: Digitalização de código
 intro: 'A API de {% data variables.product.prodname_code_scanning %} permite que você recupere e atualize alertas de {% data variables.product.prodname_code_scanning %} alertas de um repositório.'
 versions:
   fpt: '*'
@@ -17,7 +17,7 @@ redirect_from:
 
 {% data reusables.code-scanning.beta %}
 
-## About the Code scanning API
+## Sobre a API de digitalização de código
 
 A API de {% data variables.product.prodname_code_scanning %} permite que você recupere e atualize alertas de {% data variables.product.prodname_code_scanning %} alertas de um repositório. Você pode usar os pontos de extremidade para criar relatórios automatizados para os alertas de {% data variables.product.prodname_code_scanning %} em uma organização ou fazer upload dos resultados de análise gerados usando as ferramentas off-line de {% data variables.product.prodname_code_scanning %}. Para obter mais informações, consulte "[Encontrar vulnerabilidades e erros de segurança no seu código](/github/finding-security-vulnerabilities-and-errors-in-your-code).
 

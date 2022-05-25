@@ -57,10 +57,10 @@ Em um arquivo ou uma pull request, também é possível usar o menu {% octicon "
 
 {% endnote %}
 
-All revisions specified in the `.git-blame-ignore-revs` file, which must be in the root directory of your repository, are hidden from the blame view using Git's `git blame --ignore-revs-file` configuration setting. For more information, see [`git blame --ignore-revs-file`](https://git-scm.com/docs/git-blame#Documentation/git-blame.txt---ignore-revs-fileltfilegt) in the Git documentation.
+Todas as revisões especificadas no arquivo `.git-blame-ignore-revs`, que deve estar no diretório raiz do repositório, estão ocultas da exibição de último responsável, que usa a configuração `git blame --ignore-revs-file`. Para obter mais informações, consulte [`git blame --ignore-revs-file`](https://git-scm.com/docs/git-blame#Documentation/git-blame.txt---ignore-revs-fileltfilegt) na documentação do Git.
 
-1. In the root directory of your repository, create a file named `.git-blame-ignore-revs`.
-2. Add the commit hashes you want to exclude from the blame view to that file. We recommend the file to be structured as follows, including comments:
+1. No diretório raiz do seu repositório, crie um arquivo denominado `.git-blame-ignore-revs`.
+2. Adicione as hashes de commit que você deseja excluir da visualização de último responsável para esse arquivo. Recomendamos que o arquivo seja estruturado da seguinte forma, incluindo comentários:
 
     ```ini
     # .git-blame-ignore-revs

@@ -87,7 +87,7 @@ Se você usar {% data variables.product.prodname_vss_ghe %}, a lista de convites
    ![Captura de tela da aba "Convites pendentes" na barra lateral](/assets/images/help/enterprises/pending-invitations-tab.png)
 1. Opcionalmente, para cancelar todos os convites de uma conta para participar de organizações pertencentes à sua empresa, à direita da conta, clique em {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} e depois clique em **Cancelar convite**.
 
-   ![Screenshot of the "Cancel invitation" button](/assets/images/help/enterprises/cancel-enterprise-member-invitation.png)
+   ![Captura de tela do botão "Cancelar convite"](/assets/images/help/enterprises/cancel-enterprise-member-invitation.png)
 1. Opcionalmente, para visualizar os convites pendentes para administradores corporativos ou colaboradores externos, em "Integrantes pendentes", clique em **Administradores** ou **Colaboradores externos**.
 
    ![Captura de tela das abas "Membros", "Administradores", e "Colaboradores externos"](/assets/images/help/enterprises/pending-invitations-type-tabs.png)

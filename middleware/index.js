@@ -3,7 +3,6 @@ import path from 'path'
 
 import express from 'express'
 
-import Sigsci from '../lib/sigsci.js'
 import instrument from '../lib/instrument-middleware.js'
 import haltOnDroppedConnection from './halt-on-dropped-connection.js'
 import abort from './abort.js'
@@ -20,7 +19,6 @@ import { setDefaultFastlySurrogateKey } from './set-fastly-surrogate-key.js'
 import setFastlyCacheHeaders from './set-fastly-cache-headers.js'
 import reqUtils from './req-utils.js'
 import recordRedirect from './record-redirect.js'
-import connectSlashes from 'connect-slashes'
 import handleErrors from './handle-errors.js'
 import handleInvalidPaths from './handle-invalid-paths.js'
 import handleNextDataPath from './handle-next-data-path.js'
@@ -68,6 +66,7 @@ import protect from './overload-protection.js'
 import fastHead from './fast-head.js'
 import fastlyCacheTest from './fastly-cache-test.js'
 import fastRootRedirect from './fast-root-redirect.js'
+import trailingSlashes from './trailing-slashes.js'
 
 const { DEPLOYMENT_ENV, NODE_ENV } = process.env
 const isDevelopment = NODE_ENV === 'development'
@@ -142,19 +141,6 @@ export default function (app) {
   // *** Observability ***
   if (process.env.DD_API_KEY) {
     app.use(datadog)
-  }
-
-  if (process.env.SIGSCI_RPC_ADDRESS) {
-    // Fastly Signal Sciences is a module that intercepts Express requests,
-    // and sends them to the Signal Science agent over TCP. That agent might
-    // then deem the request blockable and exits the request there.
-    // More information about the module here
-    // https://docs.fastly.com/signalsciences/install-guides/other-modules/nodejs-module/
-    const sigsci = new Sigsci({
-      host: process.env.SIGSCI_RPC_ADDRESS.split(':')[0],
-      port: process.env.SIGSCI_RPC_ADDRESS.split(':')[1],
-    })
-    app.use(sigsci.express())
   }
 
   // Must appear before static assets and all other requests
@@ -277,7 +263,7 @@ export default function (app) {
 
   // *** Redirects, 3xx responses ***
   // I ordered these by use frequency
-  app.use(connectSlashes(false))
+  app.use(instrument(trailingSlashes, './redirects/trailing-slashes'))
   app.use(instrument(redirectsExternal, './redirects/external'))
   app.use(instrument(languageCodeRedirects, './redirects/language-code-redirects')) // Must come before contextualizers
   app.use(instrument(handleRedirects, './redirects/handle-redirects')) // Must come before contextualizers
