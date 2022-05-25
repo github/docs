@@ -28,7 +28,7 @@ shortTitle: Editores de texto asociados
   $ git config --global core.editor "atom --wait"
   ```
 
-## Using {% data variables.product.prodname_vscode %} as your editor
+## Utilizar {% data variables.product.prodname_vscode %} como tu editor
 
 1. Omstañar [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/) ({% data variables.product.prodname_vscode_shortname %}). Para obtener más información, consulta la sección "[Configurar {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/Docs/setup/setup-overview)" en la documentación de {% data variables.product.prodname_vscode_shortname %}.
 {% data reusables.command_line.open_the_multi_os_terminal %}
@@ -68,7 +68,7 @@ shortTitle: Editores de texto asociados
   $ git config --global core.editor "atom --wait"
   ```
 
-## Using {% data variables.product.prodname_vscode %} as your editor
+## Utilizar {% data variables.product.prodname_vscode %} como tu editor
 
 1. Omstañar [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/) ({% data variables.product.prodname_vscode_shortname %}). Para obtener más información, consulta la sección "[Configurar {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/Docs/setup/setup-overview)" en la documentación de {% data variables.product.prodname_vscode_shortname %}.
 {% data reusables.command_line.open_the_multi_os_terminal %}
@@ -107,7 +107,7 @@ shortTitle: Editores de texto asociados
   $ git config --global core.editor "atom --wait"
   ```
 
-## Using {% data variables.product.prodname_vscode %} as your editor
+## Utilizar {% data variables.product.prodname_vscode %} como tu editor
 
 1. Omstañar [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/) ({% data variables.product.prodname_vscode_shortname %}). Para obtener más información, consulta la sección "[Configurar {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/Docs/setup/setup-overview)" en la documentación de {% data variables.product.prodname_vscode_shortname %}.
 {% data reusables.command_line.open_the_multi_os_terminal %}

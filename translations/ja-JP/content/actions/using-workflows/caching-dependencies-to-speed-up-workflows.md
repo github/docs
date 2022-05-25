@@ -37,7 +37,7 @@ To cache dependencies for a job, you can use {% data variables.product.prodname_
     <td><a href="https://github.com/actions/setup-node#caching-global-packages-data">setup-node</a></td>
   </tr>
   <tr>
-    <td>pip, pipenv</td>
+    <td>pip, pipenv, poetry</td>
     <td><a href="https://github.com/actions/setup-python#caching-packages-dependencies">setup-python</a></td>
   </tr>
   <tr>

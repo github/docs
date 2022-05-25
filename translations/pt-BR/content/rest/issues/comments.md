@@ -2,7 +2,7 @@
 title: Comentários dos problemas
 allowTitleToDifferFromFilename: true
 shortTitle: Comentários
-intro: The Issue comments API supports managing comments on issues and pull requests.
+intro: A API de comentários de problemas é compatível com o gerenciamento de comentários em problemas e pull requests.
 versions:
   fpt: '*'
   ghes: '*'
@@ -13,8 +13,8 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## About the Issue comments API
+## Sobre a API de comentários de problemas
 
-The Issue comments API supports managing comments on issues and pull requests. {% data reusables.pull_requests.issues-pr-shared-api %} To manage pull request review comments, use the [Pull request review comments API](/rest/pulls/comments) instead.
+A API de comentários de problemas é compatível com o gerenciamento de comentários em problemas e pull requests. {% data reusables.pull_requests.issues-pr-shared-api %} Para gerenciar os comentários de revisão de pull request, use a [API de comentários de revisão de pull request](/rest/pulls/comments).
 
 {% data reusables.pull_requests.issues-media-types %}

@@ -92,6 +92,8 @@ jobs:
           # Because the overload protection runs in NODE_ENV==production
           # and it can break the sync-search.
           DISABLE_OVERLOAD_PROTECTION: true
+          # Render caching won't help when we visit every page exactly once.
+          DISABLE_RENDERING_CACHE: true
 
         run: npm run sync-search
 

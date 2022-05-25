@@ -54,6 +54,10 @@ Other supply chain features on {% data variables.product.prodname_dotcom %} rely
 {% data variables.product.prodname_dependabot %} cross-references dependency data provided by the dependency graph with the list of known vulnerabilities published in the {% data variables.product.prodname_advisory_database %}, scans your dependencies and generates {% data variables.product.prodname_dependabot_alerts %} when a potential vulnerability is detected.
  {% endif %}
 
+{% ifversion fpt or ghec or ghes %}
+For best practice guides on end-to-end supply chain security including the protection of personal accounts, code, and build processes, see "[Securing your end-to-end supply chain](/code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview)."
+{% endif %}
+
 ## Feature overview
 
 ### What is the dependency graph

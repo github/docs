@@ -36,7 +36,7 @@ Issueは様々な方法で作成できるので、ワークフローで最も便
 
 ## 最新情報の確認
 
-Issueの最新のコメントの情報を得ておきたい場合には、Issueをサブスクライブして最新のコメントに関する通知を受け取ることができます。 サブスクライブした Issue の最新の更新へのリンクを素早く見つけるには、ダッシュボードにアクセスしてください。 For more information, see "[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications)" and "[About your personal dashboard](/articles/about-your-personal-dashboard)."
+Issueの最新のコメントの情報を得ておきたい場合には、Issueをサブスクライブして最新のコメントに関する通知を受け取ることができます。 サブスクライブした Issue の最新の更新へのリンクを素早く見つけるには、ダッシュボードにアクセスしてください。 詳しい情報については、「[通知について](/github/managing-subscriptions-and-notifications-on-github/about-notifications)」及び「[個人ダッシュボードについて](/articles/about-your-personal-dashboard)」を参照してください。
 
 ## コミュニティの管理
 

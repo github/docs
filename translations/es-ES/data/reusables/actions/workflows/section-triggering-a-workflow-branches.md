@@ -51,7 +51,7 @@ El orden en que defines los patrones importa.
 - Un patrón negativo de coincidencia (con prefijo `!`) luego de una coincidencia positiva excluirá la ref de Git.
 - Un patrón positivo de coincidencia luego de una coincidencia negativa volverá a incluir la ref de Git.
 
-The following workflow will run on `pull_request` events for pull requests that target `releases/10` or `releases/beta/mona`, but not for pull requests that target `releases/10-alpha` or `releases/beta/3-alpha` because the negative pattern `!releases/**-alpha` follows the positive pattern.
+El siguiente flujo de trabajo se ejecutará en los eventos de `pull_request` para aquellas solicitudes de cambios que apunten a `releases/10` o a `releases/beta/mona`, pero no para aquellas que apunten a `releases/10-alpha` o `releases/beta/3-alpha`, ya que el patrón negativo `!releases/**-alpha` sigue el patrón positivo.
 
 ```yaml
 on:

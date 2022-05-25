@@ -1483,6 +1483,17 @@ Este evento ocurre cuando alguien activa una ejecución de flujo de trabajo en G
 
 - Las {% data variables.product.prodname_github_apps %} deben tener el permiso `contents` para recibir este webhook.
 
+### Objeto de carga útil del webhook
+
+| Clave              | Tipo     | Descripción                                                                                                                       |
+| ------------------ | -------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| `inputs (entrada)` | `objeto` | Entradas al flujo de trabajo. Cada clave representa el nombre de la entrada mientras que su valor representa aquél de la entrada. |
+{% data reusables.webhooks.org_desc %}
+| `ref` | `string` | La ref de la rama desde la cual se ejecutó el flujo de trabajo. |
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.sender_desc %}
+| `workflow` | `string` | Ruta relativa al archivo de flujo de trabajo que lo contiene. |
+
 ### Ejemplo de carga útil del webhook
 
 {{ webhookPayloadsForCurrentVersion.workflow_dispatch }}

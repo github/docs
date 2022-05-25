@@ -4,79 +4,81 @@ intro: For upgrade instructions, see "[Upgrading {% data variables.product.prodn
 sections:
   features:
     - 
-      heading: Security Manager role
+      heading: セキュリティマネージャーのロール
       notes:
         - |
-          Organization owners can now grant teams the access to manage security alerts and settings on their repositories. The "security manager" role can be applied to any team and grants the team's members the following access:
+          Organizationのオーナーは、Teamに対してセキュリティアラートの管理とリポジトリへのアクセス設定へのアクセスを許可できるようになりました。"security manager"のロールを任意のTeamに適用して、Teamのメンバーに以下のアクセスを付与できます。
 
-          - Read access on all repositories in the organization.
-          - Write access on all security alerts in the organization.
-          - Access to the organization-level security tab.
-          - Write access on security settings at the organization level.
-          - Write access on security settings at the repository level.
+          - Organizationのすべてのリポジトリへの読み取りアクセス
+          - Organizationのすべてのセキュリティアラートへの書き込みアクセス
+          - Organizationレベルのセキュリティタブへのアクセス
+          - Organizationレベルのセキュリティ設定への書き込みアクセス
+          -リポジトリレベルのセキュリティ設定への書き込みアクセス
 
-          For more information, see "[Managing security managers in your organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)."
+          詳しい情報については「[Organizationのセキュリティマネージャーの管理](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)」を参照してください。
     - 
-      heading: 'Ephemeral self-hosted runners for GitHub Actions & new webhooks for auto-scaling'
+      heading: 'GitHub Actions及びオートスケーリングのための新しいwebhookのための一過性のセルフホストランナー'
       notes:
         - |
-          {% data variables.product.prodname_actions %} now supports ephemeral (single job) self-hosted runners and a new [`workflow_job`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job) webhook to make autoscaling runners easier.
+          {% data variables.product.prodname_actions %}は、オートスケールするランナーを容易にするため、一過性（単一ジョブ）のセルフホストランナーと、新しい [`workflow_job`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job) webhookをサポートしました。
 
-          Ephemeral runners are good for self-managed environments where each job is required to run on a clean image. After a job is run, ephemeral runners are automatically unregistered from {% data variables.product.product_location %}, allowing you to perform any post-job management.
+          一過性のランナーは、各ジョブがクリーンなイメージ上で実行されることが必要な、自己管理の環境に適しています。ジョブが実行されたあと、一過性のランナーは自動的に{% data variables.product.product_location %}から登録解除され、ジョブ後の管理が可能になります。
 
-          You can combine ephemeral runners with the new `workflow_job` webhook to automatically scale self-hosted runners in response to {% data variables.product.prodname_actions %} job requests.
+          一過性のランナーを新しい`workflow_job` webhookと組み合わせて、{% data variables.product.prodname_actions %}のジョブリクエストに応じてセルフホストランナーを自動的にスケールさせることができます。
 
-          For more information, see "[Autoscaling with self-hosted runners](/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners)" and "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job)."
+          詳しい情報については「[セルフホストランナーのオートスケーリング](/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners)」及び「[webhookイベントとペイロード](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job)」を参照してください。
     - 
-      heading: 'Dark high contrast theme'
+      heading: 'ダーク高コントラストテーマ'
       notes:
         - |
-          A dark high contrast theme, with greater contrast between foreground and background elements, is now available on {% data variables.product.prodname_ghe_server %} 3.3. This release also includes improvements to the color system across all {% data variables.product.company_short %} themes.
+          前面の要素と背景要素のコントラストを大きくしたダーク高コントラストテーマが{% data variables.product.prodname_ghe_server %} 3.3で利用できるようになりました。このリリースには、すべての{% data variables.product.company_short %}テーマに渡るカラーシステムの改善も含まれています。
 
-          ![Animated image of switching between dark default theme and dark high contrast on the appearance settings page](https://user-images.githubusercontent.com/334891/123645834-ad096c00-d7f4-11eb-85c9-b2c92b00d70a.gif)
+          ![外見設定ページでのダークデフォルトテーマとダーク高コントラストの切り替えのアニメーション画像](https://user-images.githubusercontent.com/334891/123645834-ad096c00-d7f4-11eb-85c9-b2c92b00d70a.gif)
 
-          For more information about changing your theme, see "[Managing your theme settings](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-your-theme-settings)."
+          テーマの切り替えに関する詳しい情報については「[テーマ設定の管理](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-your-theme-settings)」を参照してください。
   changes:
     - 
       heading: 管理に関する変更
       notes:
-        - '{% data variables.product.prodname_ghe_server %} 3.3 includes improvements to the maintenance of repositories, especially for repositories that contain many unreachable objects. Note that the first maintenance cycle after upgrading to {% data variables.product.prodname_ghe_server %} 3.3 may take longer than usual to complete.'
-        - '{% data variables.product.prodname_ghe_server %} 3.3 includes the public beta of a repository cache for geographically-distributed teams and CI infrastructure. The repository cache keeps a read-only copy of your repositories available in additional geographies, which prevents clients from downloading duplicate Git content from your primary instance. For more information, see "[About repository caching](/admin/enterprise-management/caching-repositories/about-repository-caching)."'
-        - '{% data variables.product.prodname_ghe_server %} 3.3 includes improvements to the user impersonation process. An impersonation session now requires a justification for the impersonation, actions are recorded in the audit log as being performed as an impersonated user, and the user who is impersonated will receive an email notification that they have been impersonated by an enterprise administrator. For more information, see "[Impersonating a user](/enterprise-server@3.3/admin/user-management/managing-users-in-your-enterprise/impersonating-a-user)."'
-        - A new stream processing service has been added to facilitate the growing set of events that are published to the audit log, including events associated with Git and {% data variables.product.prodname_actions %} activity.
+        - '{% data variables.product.prodname_ghe_server %} 3.3には、リポジトリのメンテナンスの改善、特に多くの到達不能なオブジェクトを含むリポジトリに対する改善が含まれます。{% data variables.product.prodname_ghe_server %} 3.3へのアップグレード後の最初のメンテナンスサイクルが完了するまでには、通常よりも長くかかるかもしれないことに注意してください。'
+        - '{% data variables.product.prodname_ghe_server %} 3.3には、地理的に分散したチームとCIインフラストラクチャのためのリポジトリキャッシュのパブリックベータが含まれています。このリポジトリキャッシュは、追加の地点で利用できる読み取りのみのリポジトリのコピーを保持するもので、クライアントがプライマリインスタンスから重複してGitのコンテンツをダウンロードすることを回避してくれます。詳しい情報については「[リポジトリのキャッシングについて](/admin/enterprise-management/caching-repositories/about-repository-caching)」を参照してください。'
+        - '{% data variables.product.prodname_ghe_server %} 3.3には、ユーザ偽装プロセスの改善が含まれています。偽装セッションには偽装の正当性が必要になり、アクションは偽装されたユーザとして行われたものとしてAudit logに記録され、偽装されたユーザには、Enterpriseの管理者によって偽装されたというメール通知が届きます。詳しい情報については「[ユーザの偽装](/enterprise-server@3.3/admin/user-management/managing-users-in-your-enterprise/impersonating-a-user)を参照してください。'
+        - Gitと{% data variables.product.prodname_actions %}のアクティビティに関連するイベントを含む、Audit logに公開されるイベントの増大を受けつけるために、新しいストリーム処理のサービスが追加されました。
         - The {% data variables.product.prodname_github_connect %} data connection record now includes a list of enabled {% data variables.product.prodname_github_connect %} features. [Updated 2021-12-09]
     - 
       heading: トークンの変更
       notes:
         - |
-          An expiration date can now be set for new and existing personal access tokens. Setting an expiration date on personal access tokens is highly recommended to prevent older tokens from leaking and compromising security. Token owners will receive an email when it's time to renew a token that's about to expire. Tokens that have expired can be regenerated, giving users a duplicate token with the same properties as the original.
+          新しい個人アクセストークン及び既存の個人アクセストークンに、期限切れの期日を設定でいるようになりました。古いトークンが漏洩し、セキュリティを毀損することがないよう、個人アクセストークンには期限切れの期日を設定することを強くおすすめします。トークンのオーナーは、期限切れが近づいたトークンを更新する時期になるとメールを受信します。期限切れになったトークンは再生成することができ、ユーザはオリジナルと同じ属性を持つ重複したトークンを受け取ることになります。
 
-          When using a personal access token with the {% data variables.product.company_short %} API, a new `GitHub-Authentication-Token-Expiration` header is included in the response, which indicates the token's expiration date. For more information, see "[Creating a personal access token](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+          個人アクセストークンを{% data variables.product.company_short %} APIで使う場合、新しい`GitHub-Authentication-Token-Expiration`ヘッダがレスポンスに含まれます。これは、トークンの期限切れの期日を示します。詳しい情報については「[個人アクセストークンの作成](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)」を参照してください。
     - 
-      heading: 'Notifications changes'
+      heading: '通知の変更'
       notes:
-        - 'Notification emails from discussions now include `(Discussion #xx)` in the subject, so you can recognize and filter emails that reference discussions.'
+        - 'ディスカッションからの通知メールのタイトルには`(Discussion #xx)`が含まれるようになったので、ディスカッションを参照するメールを認識してフィルタリングできます。'
     - 
       heading: 'リポジトリの変更'
       notes:
-        - Public repositories now have a `Public` label next to their names like private and internal repositories. This change makes it easier to identify public repositories and avoid accidentally committing private code.
-        - If you specify the exact name of a branch when using the branch selector menu, the result now appears at the top of the list of matching branches. Previously, exact branch name matches could appear at the bottom of the list.
-        - When viewing a branch that has a corresponding open pull request, {% data variables.product.prodname_ghe_server %} now links directly to the pull request. Previously, there would be a prompt to contribute using branch comparison or to open a new pull request.
-        - You can now click a button to copy the full raw contents of a file to the clipboard. Previously, you would need to open the raw file, select all, and then copy. To copy the contents of a file, navigate to the file and click {% octicon "copy" aria-label="The copy icon" %} in the toolbar. Note that this feature is currently only available in some browsers.
-        - When creating a new release, you can now select or create the tag using a dropdown selector, rather than specifying the tag in a text field. For more information, see "[Managing releases in a repository](/repositories/releasing-projects-on-github/managing-releases-in-a-repository)."
-        - A warning is now displayed when viewing a file that contains bidirectional Unicode text. Bidirectional Unicode text can be interpreted or compiled differently than it appears in a user interface. For example, hidden bidirectional Unicode characters can be used to swap segments of text in a file. For more information about replacing these characters, see the [{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-10-31-warning-about-bidirectional-unicode-text/).
-        - You can now use `CITATION.cff` files to let others know how you would like them to cite your work. `CITATION.cff` files are plain text files with human- and machine-readable citation information. {% data variables.product.prodname_ghe_server %} parses this information into common citation formats such as [APA](https://apastyle.apa.org) and [BibTeX](https://en.wikipedia.org/wiki/BibTeX). For more information, see "[About CITATION files](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-citation-files)."
+        - パブリックリポジトリは、プライベート及びインターナルリポジトリのように名前の隣に`Public`というラベルが付くようになりました。この変更によって、パブリックリポジトリを特定し、誤ってプライベートなコードをコミットすることを避けるのが容易になります。
+        - ブランチ選択メニューを使う際に正確なブランチ名を指定すると、マッチするブランチの最上位にその結果が現れるようになりました。以前は厳密にマッチしたブランチ名がリストの末尾に表示されることがありました。
+        - 対応するオープンなPull Requestを持つブランチを表示する際に、{% data variables.product.prodname_ghe_server %}はPull Requestに直接リンクするようになりました。以前は、ブランチの比較を使って貢献するか、新しいPull Requestをオープンするためのプロンプトがありました。
+        - ボタンをクリックして、ファイルの生の内容をクリップボードにコピーできるようになりました。以前は、生のファイルを開き、すべてを選択し、コピーしなければなりませんでした。ファイルの内容をコピーするには、ファイルにアクセスし、ツールバーの{% octicon "copy" aria-label="The copy icon" %}をクリックしてください。この機能は現在、一部のブラウザでのみ利用可能であることに注意してください。
+        - 新しいリリースを作成する際に、タグをテキストフィールドで指定するのではなく、ドロップダウンセレクタを使ってタグを選択あるいは作成できるようになりました。詳しい情報については「[リポジトリのリリースの管理](/repositories/releasing-projects-on-github/managing-releases-in-a-repository)」を参照してください。
+        - 双方向のUnicodeテキストを含むファイルを表示する際に、警告が表示されるようになりました。双方向のUnicodeテキストは、ユーザインターフェースで表示されるのとは異なるように解釈あるいはコンパイルされることがあります。たとえば、非表示の双方向Unicode文字を使ってテキストファイルのセグメントをスワップさせることがでいいます。これらの文字の置き換えに関する詳しい情報については[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-10-31-warning-about-bidirectional-unicode-text/)を参照してください。
+        - '`CITATION.cff`ファイルを使って、自分の作品をどのように引用してほしいかを他者に知らせることができるようになりました。`CITATION.cff`ファイルはプレーンテキストファイルで、人間及び機会が読める引用情報を持ちます。{% data variables.product.prodname_ghe_server %}はこの情報を[APA](https://apastyle.apa.org)や[BibTeX](https://en.wikipedia.org/wiki/BibTeX)のような共通引用フォーマットにパースします。詳しい情報については「[CITATIONファイルについて](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-citation-files)」を参照してください。'
     - 
       heading: 'Markdownの変更'
       notes:
         - |
-          You can use new keyboard shortcuts for quotes and lists in Markdown files, issues, pull requests, and comments.
+          Markdownファイル、Issue、Pull Request、コメント内での引用符やリストに、新しいキーボードショートカットが使えるようになりました。
 
-          * To add quotes, use <kbd>cmd shift .</kbd> on Mac, or <kbd>ctrl shift .</kbd> on Windows and Linux.
-          * To add an ordered list, use <kbd>cmd shift 7</kbd> on Mac, or <kbd>ctrl shift 7</kbd> on Windows and Linux.
-          * To add an unordered list, use <kbd>cmd shift 8</kbd> on Mac, or <kbd>ctrl shift 8</kbd> on Windows and Linux.
+          * 引用符を追加するには、Macでは<kbd>cmd shift .</kbd> Windows及びLinuxでは<kbd>ctrl shift .</kbd>としてください。
 
-          See "[Keyboard shortcuts](/get-started/using-github/keyboard-shortcuts)" for a full list of available shortcuts.
+          * 順序付きリストを追加するには、Macでは<kbd>cmd shift 7</kbd> Windows及びLinuxでは<kbd>ctrl shift 7</kbd>としてください。
+
+          * 順序無しリストを追加するには、Macでは<kbd>cmd shift 8</kbd> Windows及びLinuxでは<kbd>ctrl shift 8</kbd>としてください。
+
+          利用可能なショートカットの完全なリストについては「[キーボードショートカット](/get-started/using-github/keyboard-shortcuts)」を参照してください。
         - 'You can now use footnote syntax in any Markdown field. Footnotes are displayed as superscript links that you can click to jump to the referenced information, which is displayed in a new section at the bottom of the document. For more information about the syntax, see "[Basic writing and formatting syntax](/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#footnotes)."'
         - When viewing Markdown files, you can now click {% octicon "code" aria-label="The code icon" %} in the toolbar to view the source of a Markdown file. Previously, you needed to use the blame view to link to specific line numbers in the source of a Markdown file.
         - You can now add images and videos to Markdown files in gists by pasting them into the Markdown body or selecting them from the dialog at the bottom of the Markdown file. For information about supported file types, see "[Attaching files](https://docs.github.com/en/github/writing-on-github/working-with-advanced-formatting/attaching-files)."
@@ -116,16 +118,16 @@ sections:
         - '{% data variables.product.prodname_ghe_server %} 3.3 contains performance improvements for job concurrency with {% data variables.product.prodname_actions %}. For more information about the new performance targets for a range of CPU and memory configurations, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-considerations)."'
         - To mitigate insider man in the middle attacks when using actions resolved through {% data variables.product.prodname_github_connect %} to {% data variables.product.prodname_dotcom_the_website %} from {% data variables.product.prodname_ghe_server %}, the actions namespace (`owner/name`) is retired on use. Retiring the namespace prevents that namespace from being created on your {% data variables.product.prodname_ghe_server %} instance, and ensures all workflows referencing the action will download it from {% data variables.product.prodname_dotcom_the_website %}.
     - 
-      heading: 'GitHub Packages changes'
+      heading: 'GitHub Packagesの変更'
       notes:
         - When a repository is deleted, any associated package files are now immediately deleted from your {% data variables.product.prodname_registry %} external storage.
     - 
-      heading: 'Dependabot and Dependency graph changes'
+      heading: 'Dependabot及び依存関係グラフの変更'
       notes:
         - Dependency review is out of beta and is now generally available for {% data variables.product.prodname_GH_advanced_security %} customers. Dependency review provides an easy-to-understand view of dependency changes and their security impact in the "Files changed" tab of pull requests. It informs you of which dependencies were added, removed, or updated, along with vulnerability information. For more information, see "[Reviewing dependency changes in a pull request](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request)."
         - '{% data variables.product.prodname_dependabot %} is now available as a private beta, offering both version updates and security updates for several popular ecosystems. {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_ghe_server %} requires {% data variables.product.prodname_actions %} and a pool of self-hosted runners configured for {% data variables.product.prodname_dependabot %} use. {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_ghe_server %} also requires {% data variables.product.prodname_github_connect %} to be enabled. To learn more and sign up for the beta, contact the GitHub Sales team.'
     - 
-      heading: 'Code scanning and secret scanning changes'
+      heading: 'Code scanningとSecret scanningの変更'
       notes:
         - The depth of {% data variables.product.prodname_codeql %}'s analysis has been improved by adding support for more [libraries and frameworks](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/) and increasing the coverage of our existing library and framework models. [JavaScript](https://github.com/github/codeql/tree/main/javascript) analysis now supports most common templating languages, and [Java](https://github.com/github/codeql/tree/main/java) now covers more than three times the endpoints of previous {% data variables.product.prodname_codeql %} versions. As a result, {% data variables.product.prodname_codeql %} can now detect even more potential sources of untrusted user data, steps through which that data flows, and potentially dangerous sinks where the data could end up. This results in an overall improvement of the quality of {% data variables.product.prodname_code_scanning %} alerts.
         - '{% data variables.product.prodname_codeql %} now supports scanning standard language features in Java 16, such as records and pattern matching. {% data variables.product.prodname_codeql %} is able to analyze code written in Java version 7 through 16. For more information about supported languages and frameworks, see the [{% data variables.product.prodname_codeql %} documentation](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/#id5).'
@@ -172,7 +174,7 @@ sections:
     - '{% data variables.product.prodname_ghe_server %} 3.3 instances installed on Azure and provisioned with 32+ CPU cores would fail to launch, due to a bug present in the current Linux kernel. [Updated: 2022-04-08]'
   deprecations:
     - 
-      heading: Deprecation of GitHub Enterprise Server 2.22
+      heading: GitHub Enterprise Server 2.22の非推奨化
       notes:
         - '**{% data variables.product.prodname_ghe_server %} 2.22 was discontinued on September 23, 2021**. This means that no patch releases will be made, even for critical security issues, after this date. For better performance, improved security, and new features, [upgrade to the newest version of {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.3/admin/enterprise-management/upgrading-github-enterprise-server) as soon as possible.'
     - 

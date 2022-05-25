@@ -1,6 +1,6 @@
 ---
 title: Restringir el acceso a los tipos de máquina
-shortTitle: Restrict machine types
+shortTitle: Restringir los tipos de máquina
 intro: Puedes configurar restricciones en los tipos de máquina que los usuarios pueden elegir cuando crean codespaces en tu organizción.
 product: '{% data reusables.gated-features.codespaces %}'
 permissions: 'To manage access to machine types for the repositories in an organization, you must be an owner of the organization.'
@@ -57,7 +57,7 @@ Si agregas una política a nivel organizacional, deberías configurarla en la el
    ![Editar la restricción de tipo de máquina](/assets/images/help/codespaces/edit-machine-constraint.png)
 
 {% data reusables.codespaces.codespaces-policy-targets %}
-1. If you want to add another constraint to the policy, click **Add constraint** and choose another constraint. For information about other constraints, see "[Restricting the visibility of forwarded ports](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)" and "[Restricting the idle timeout period](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)."
+1. If you want to add another constraint to the policy, click **Add constraint** and choose another constraint. Para obtener más información sobre otras restricciones, consulta las secciones "[Restringir la visibilidad de los puertos reenviados](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)" y "[Restringir el periodo de tiempo de inactividad](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)".
 1. After you have finished adding constraints to your policy, click **Save**.
 ## Editar una política
 
