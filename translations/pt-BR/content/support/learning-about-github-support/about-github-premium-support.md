@@ -49,7 +49,7 @@ Há dois {% data variables.contact.premium_support %} planos: Premium e Premium 
 | Membros com direito a suporte | 10                                                  | 25                                                       |
 | Recursos                      | Processamento de tíquete com prioridade             | <ul><li>Processamento de tíquete com prioridade</li><li>Engenheiro de Responsabilidade do Cliente Nomeado</li></ul>                                |
 | Verificações agendadas        | Verificação de integridade e relatórios semestrais  | <ul><li>Verificação de integridade e relatórios trimestrais</li><li>Revisões trimestrais de conta</li></ul>                                |
-| Assistência administrativa    |                                                     | 4 horas por mês                                          |
+| Assistência administrativa    | Nenhum                                              | 4 horas por mês                                          |
 
   {% note %}
 

@@ -34,9 +34,9 @@ shortTitle: 您的支出限制
 
 由于您尚未启用超额，因此下次尝试发布包版本将失败。 您不会收到该月 0.1GB 超额费用的帐单。 但是，如果您启用了超额，您的第一个帐单将包括当前结算周期中 0.1GB 的现有超额以及您累积的任何其他超额。
 
-## 管理您用户帐户的 {% data variables.product.prodname_registry %} 支出限额
+## 管理您个人帐户的 {% data variables.product.prodname_registry %} 支出限额
 
-任何人都可管理其用户帐户的 {% data variables.product.prodname_registry %} 支出限额。
+任何人都可管理其个人帐户的 {% data variables.product.prodname_registry %} 支出限额。
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.billing_plans %}
@@ -53,6 +53,7 @@ shortTitle: 您的支出限制
 {% data reusables.dotcom_billing.monthly-spending-limit-actions-packages %}
 {% data reusables.dotcom_billing.update-spending-limit %}
 
+{% ifversion ghec %}
 ## 管理企业帐户的 {% data variables.product.prodname_registry %} 支出限额
 
 企业所有者和帐单管理员可管理企业帐户的 {% data variables.product.prodname_registry %} 支出限额。
@@ -63,6 +64,7 @@ shortTitle: 您的支出限制
 1. 在“{% data variables.product.prodname_actions %} and Packages monthly usage（GitHub Actions 和包每月使用）”上方，单击 **Spending Limit（支出限制）**。 ![支出限制选项卡](/assets/images/help/settings/spending-limit-tab-enterprise.png)
 {% data reusables.dotcom_billing.monthly-spending-limit %}
 {% data reusables.dotcom_billing.update-spending-limit %}
+{% endif %}
 
 ## 管理使用和支出限制电子邮件通知
 {% data reusables.billing.email-notifications %}

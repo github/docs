@@ -17,7 +17,7 @@ topics:
 
 ## 关于 {% data variables.product.product_name %} 上的关注者
 
-关注他人后，您将在消息馈送的活动视图中看到其公开活动。{% ifversion fpt or ghec %}如果您关注的人标注了某个公共仓库，{% data variables.product.product_name %} 可能会在您的消息馈送发现视图中向您推荐该仓库。{% endif %}
+关注用户后，您会在个人仪表板看到他们的公开活动。{% ifversion fpt or ghec %} 如果您关注的人将某个公共存储库标星， {% data variables.product.product_name %} 可能会向您推荐该存储库。{% endif %} 更多信息请参阅“[关于个人仪表板](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/about-your-personal-dashboard#staying-updated-with-activity-from-the-community)”。
 
 如果您不希望在 {% data variables.product.product_name %} 上看到某人的公开活动，则可以取消关注他们。
 

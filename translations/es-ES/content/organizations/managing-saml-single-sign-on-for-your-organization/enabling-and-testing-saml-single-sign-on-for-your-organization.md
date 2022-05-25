@@ -16,6 +16,8 @@ shortTitle: Habilitar & probar el SSO de SAML
 
 Puedes habilitar SAML SSO (inicio de sesión único) en tu organización sin requerir que todos los miembros lo usen. Habilitar pero no exigir SAML SSO en tu organización puede facilitar la adopción de SAML SSO por parte de la organización. Una vez que la mayoría de los miembros usen SAML SSO, podrás exigirlo en toda la organización.
 
+{% data reusables.saml.ghec-only %}
+
 Si habilitas pero no exiges SAML SSO, los miembros de la organización que elijan no usar SAML SSO pueden seguir siendo miembros de esta. Para obtener más información acerca de la exigencia de SAML SSO, consulta "[Exigir inicio de sesión único SAML para tu organización](/articles/enforcing-saml-single-sign-on-for-your-organization)".
 
 {% data reusables.saml.outside-collaborators-exemption %}
@@ -57,3 +59,4 @@ Haz clic en **Save ** (guardar). ![Botón para guardar la configuración de SAML
 ## Leer más
 
 - "[Acerca de la administración de identidad y el acceso con el inicio de sesión único de SAML](/articles/about-identity-and-access-management-with-saml-single-sign-on)"
+- "[Referencia de configuración de SAML](/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference)"

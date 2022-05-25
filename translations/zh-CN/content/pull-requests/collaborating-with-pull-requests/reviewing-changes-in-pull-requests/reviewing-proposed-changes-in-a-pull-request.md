@@ -31,13 +31,13 @@ shortTitle: 审核建议的更改
 {% data reusables.repositories.changed-files %}
 {% ifversion fpt or ghec or ghes > 3.3 or ghae %}
 
-   You can change the format of the diff view in this tab by clicking {% octicon "gear" aria-label="The Settings gear" %} and choosing the unified or split view. The choice you make will apply when you view the diff for other pull requests.
+   您可以在此选项卡中更改差异视图的格式，方法是单击 {% octicon "gear" aria-label="The Settings gear" %} 并选择统一视图或拆分视图。 当您查看其他拉取请求的差异时，您所做的选择将适用。
 
-   ![Diff view settings](/assets/images/help/pull_requests/diff-view-settings.png)
+   ![差异视图设置](/assets/images/help/pull_requests/diff-view-settings.png)
 
-   You can also choose to hide whitespace differences. The choice you make only applies to this pull request and will be remembered the next time you visit this page.
+   您也可以选择隐藏空白差异。 您所做的选择仅适用于此拉取请求，并在您下次访问此页面时被记住。
 {% endif %}
-1. Optionally, filter the files to show only the files you want to review{% if pr-tree-view %} or use the file tree to navigate to a specific file{% endif %}. For more information, see "[Filtering files in a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/filtering-files-in-a-pull-request)."
+1. （可选）筛选文件以仅显示要查看的文件{% if pr-tree-view %} 或使用文件树导航到特定文件{% endif %}。 更多信息请参阅“[过滤拉取请求中的文件](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/filtering-files-in-a-pull-request)”。
 {% data reusables.repositories.start-line-comment %}
 {% data reusables.repositories.type-line-comment %}
 {% data reusables.repositories.suggest-changes %}
@@ -54,7 +54,7 @@ shortTitle: 审核建议的更改
 
 {% codespaces %}
 
-You can use [{% data variables.product.prodname_codespaces %}](/codespaces/overview) to test, run, and review pull requests.
+您可以使用 [{% data variables.product.prodname_codespaces %}](/codespaces/overview) 来测试、运行和查看拉取请求。
 
 {% data reusables.codespaces.review-pr %}
 

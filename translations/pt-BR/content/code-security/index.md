@@ -54,6 +54,7 @@ children:
   - /code-scanning
   - /repository-security-advisories
   - /supply-chain-security
+  - /dependabot
   - /security-overview
   - /guides
 ---

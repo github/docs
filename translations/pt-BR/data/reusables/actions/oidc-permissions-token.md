@@ -5,7 +5,7 @@ A configuração `id-token: write` permite que o JWT seja solicitado do provedor
 - Usando variáveis de ambiente no executor (`ACTIONS_ID_TOKEN_REQUEST_URL` e `ACTIONS_ID_TOKEN_REQUEST_TOKEN`).
 - Usando `getIDToken()` do conjunto de ferramentas de ações.
 
-If you only need to fetch an OIDC token for a single job, then this permission can be set within that job. Por exemplo:
+Se você só precisa obter um token OIDC para um único trabalho, essa permissão poderá ser definida dentro desse trabalho. Por exemplo:
 
 ```yaml{:copy}
 permissions:

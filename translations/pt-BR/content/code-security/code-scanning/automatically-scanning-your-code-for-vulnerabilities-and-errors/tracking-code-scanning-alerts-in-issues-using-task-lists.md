@@ -39,7 +39,11 @@ Você pode usar mais de um problema para rastrear o mesmo alerta de {% data vari
 
 - Uma seção "rastreado em" também será exibida na página de alerta correspondente.
 
+  {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6249 %}
   ![A anotação rastreada na página de alerta de digitalização do código](/assets/images/help/repository/code-scanning-alert-tracked-in-pill.png)
+  {% else %}
+  ![A anotação rastreada na página de alerta de digitalização do código](/assets/images/enterprise/3.4/repository/code-scanning-alert-tracked-in-pill.png)
+  {% endif %}
 
 - No problema de rastreado, {% data variables.product.prodname_dotcom %} exibe um ícone do selo de segurança na lista de tarefas e no hovercard.
 
@@ -64,7 +68,12 @@ O status do alerta rastreado não mudará se você alterar o status da caixa de 
 {% data reusables.code-scanning.explore-alert %}
 1. Opcionalmente, para encontrar o alerta a rastrear, você pode usar a pesquisa de texto livre ou os menus suspensos para filtrar e localizar o alerta. Para obter mais informações, consulte "[Gerenciar alertas de varredura de código para seu repositório](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#filtering-code-scanning-alerts). "
 {% endif %}
-1. Na parte superior da página, no lado direito, clique em **Criar problema**. ![Crie um problema de rastreamento para o alerta de digitalização de código](/assets/images/help/repository/code-scanning-create-issue-for-alert.png)
+1. Na parte superior da página, no lado direito, clique em **Criar problema**.
+   {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6249 %}
+   ![Crie um problema de rastreamento para o alerta de digitalização de código](/assets/images/help/repository/code-scanning-create-issue-for-alert.png)
+   {% else %}
+   ![Crie um problema de rastreamento para o alerta de digitalização de código](/assets/images/enterprise/3.4/repository/code-scanning-create-issue-for-alert.png)
+   {% endif %}
    {% data variables.product.prodname_dotcom %} cria automaticamente um problema para acompanhar o alerta e adiciona o alerta como um item da lista de tarefas.
    {% data variables.product.prodname_dotcom %} preenche o problema:
    - O título contém o nome do alerta de {% data variables.product.prodname_code_scanning %}.

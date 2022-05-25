@@ -70,4 +70,10 @@ gh run watch
 
 REST API を使用する場合は、 `inputs`と`ref`をリクエストボディのパラメータとして設定してください。 入力を省略すると、ワークフローファイルで定義されているデフォルト値が使用されます。
 
+{% note %}
+
+**Note:** You can define up to 10 `inputs` for a `workflow_dispatch` event.
+
+{% endnote %}
+
 REST API の使用の詳細については、「[ワークフローディスパッチ イベントの作成](/rest/reference/actions/#create-a-workflow-dispatch-event)」を参照してください。

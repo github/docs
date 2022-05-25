@@ -37,13 +37,17 @@ async function buildRenderedPage(req) {
 async function buildMiniTocItems(req) {
   const { context } = req
   const { page } = context
+  const isRestReferencePage =
+    page.relativePath.startsWith('rest') &&
+    !page.relativePath.includes('rest/guides') &&
+    !page.relativePath.includes('rest/overview')
 
   // get mini TOC items on articles
   if (!page.showMiniToc) {
     return
   }
 
-  return getMiniTocItems(context.renderedPage, page.miniTocMaxHeadingLevel)
+  return getMiniTocItems(context.renderedPage, page.miniTocMaxHeadingLevel, '', isRestReferencePage)
 }
 
 export default async function renderPage(req, res, next) {
@@ -63,7 +67,7 @@ export default async function renderPage(req, res, next) {
 
   // Just finish fast without all the details like Content-Length
   if (req.method === 'HEAD') {
-    return res.status(200).end()
+    return res.status(200).send('')
   }
 
   // Updating the Last-Modified header for substantive changes on a page for engineering

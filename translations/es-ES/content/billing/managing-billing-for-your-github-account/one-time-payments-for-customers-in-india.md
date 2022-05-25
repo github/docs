@@ -45,21 +45,22 @@ If your billing cycle is due to renew after February 15th, we will attempt to ta
 
 In the meantime, we are actively working with our payment partners to restore recurring payments for impacted customers. For more information or questions, you can contact [GitHub Support](https://support.github.com/contact).
 
-### Impact to {% data variables.product.prodname_sponsors %}
+### Impacto a {% data variables.product.prodname_sponsors %}
 
-Existing sponsorships will remain in place during this period and maintainers will continue to be paid out as expected. Payments for the accrued sponsorship amounts from the funding account will be collected at the same time as other accrued charges.
+Los patrocinios existentes permanecerán en su lugar durante este periodo y se les seguirá pagando a los mantenedores conforme se esperaba. Los pagos para las cantidades de patrocinio acumuladas desde la cuenta financiadora se recolectarán al mismo tiempo que el resto de los cargos acumulados.
 
-## Making a one-time payment for a GitHub subscription
+## Realizar un pago de una sola vez para una suscripción de GitHub
 
 {% note %}
 
-**Note**: Affected customers will receive an email notification with a link to their billing settings when payment is due. Two further reminder emails will be sent 7 and 14 days later if payment has not been made. After 14 days, paid features and services will be locked until payment is made.
+**Nota**: Los clientes afectados recibirán una notificación por correo electrónico con un enlace a sus ajustes de facturación cuando venza el pago. Se enviarán dos correos electrónicos de recordatorio adicionales a los 7 y 14 días posteriores de que no se haya realizado el pago. Después de 14 días, las características y servicios de pago se bloquearán hasta que se realice el pago.
 
 {% endnote %}
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.billing_plans %}
-3. At the top of the page, click **Pay now**. ![One-time payment pay now button](/assets/images/help/billing/pay-now-button.png)
-4. Review your billing and payment information. If you need to make an edit, click **Edit** next to the relevant section. Otherwise, click **Submit payment**. ![One-time payment summary](/assets/images/help/billing/payment-summary.png)
+3. En la parte superior de la página, haz clic en **Pagar ahora**. ![Botón "pagar ahora" para el pago de única ocasión](/assets/images/help/billing/pay-now-button.png)
+4. Revisa tu información de pago y facturación. Si necesitas editar algo, haz clic en **Editar** junto a la sección relevante. De lo contrario, haz clic en **Enviar pago**. ![Resumen de pago de única ocasión](/assets/images/help/billing/payment-summary.png)
 5. Optionally, if you clicked **Edit**, make any necessary changes, and then click **Submit payment**. ![One-time payment edit summary](/assets/images/help/billing/payment-summary-edit.png)
 6. Once payment for the current billing cycle has been successfully made, the **Pay now** button on your "Billing & plans" page will be disabled until your next payment is due. ![One-time payment pay now button disabled](/assets/images/help/billing/pay-now-button-disabled.png)
+  

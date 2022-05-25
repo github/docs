@@ -11,6 +11,7 @@ import LunrIndex from './lunr-search-index.js'
 // Build a search data file for every combination of product version and language
 // e.g. `github-docs-dotcom-en.json` and `github-docs-2.14-ja.json`
 export default async function syncSearchIndexes(opts = {}) {
+  const t0 = new Date()
   if (opts.language) {
     if (!Object.keys(languages).includes(opts.language)) {
       console.log(
@@ -89,6 +90,9 @@ export default async function syncSearchIndexes(opts = {}) {
       }
     }
   }
+  const t1 = new Date()
+  const tookSec = (t1.getTime() - t0.getTime()) / 1000
 
   console.log('\nDone!')
+  console.log(`Took ${tookSec.toFixed(1)} seconds`)
 }

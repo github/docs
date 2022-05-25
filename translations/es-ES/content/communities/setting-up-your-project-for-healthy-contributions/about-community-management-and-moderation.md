@@ -17,6 +17,8 @@ shortTitle: Administración & moderación
 
 {% data variables.product.prodname_dotcom %} también ofrece herramientas para que los mantenedores de repositorios definan y den cumplimiento a los estándares más altos de comportamiento en sus propias comunidades dentro de {% data variables.product.prodname_dotcom_the_website %}.
 
+Los propietarios de las organizaciones pueden especificar a los miembros organizacionales como moderadores. Esto les otorga a estos miembros acceso a características de moderación que de otra forma están reservadas para los propietarios de las organizaciones. Para obtener más información, consulta la sección "[Administrar a los moderadores en tu organización](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-moderators-in-your-organization)".
+
 Una vez definidos los estándares de comportamiento de la comunidad, puedes exhortar a que se tenga un ambiente agradable y productivo respondiendo a los comportamientos perjudiciales de manera rápida y justa. Moderar tu comunidad con efectividad generará confianza y permitirá que los colaboradores se sientan seguros y bienvenidos en ella.
 
 ## Herramientas para moderar tu comunidad

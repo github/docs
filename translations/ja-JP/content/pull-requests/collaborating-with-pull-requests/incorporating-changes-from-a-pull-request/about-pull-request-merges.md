@@ -24,12 +24,16 @@ topics:
 
 ### squash マージのマージメッセージ
 
-squash してマージすると、{% data variables.product.prodname_dotcom %} はコミットメッセージを生成します。メッセージは必要に応じて変更できます。 メッセージのデフォルトは、プルリクエストに複数のコミットが含まれているか、1 つだけ含まれているかによって異なります。 We do not include merge commits when we count the total number of commits.
+When you squash and merge, {% data variables.product.prodname_dotcom %} generates a default commit message, which you can edit. The default message depends on the number of commits in the pull request, not including merge commits.
 
 | コミット数   | 概要                                      | 説明                                   |
 | ------- | --------------------------------------- | ------------------------------------ |
 | 単一のコミット | 単一のコミットのコミットメッセージのタイトルと、その後に続くプルリクエスト番号 | 単一のコミットのコミットメッセージの本文テキスト             |
 | 複数のコミット | プルリクエストのタイトルと、その後に続くプルリクエスト番号           | squash されたすべてのコミットのコミットメッセージの日付順のリスト |
+
+{% ifversion fpt or ghec or ghes > 3.5 or ghae-issue-7042 %}
+People with admin access to a repository can configure the repository to use the title of the pull request as the default merge message for all squashed commits. For more information, see "[Configure commit squashing](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/configuring-commit-squashing-for-pull-requests)".
+{% endif %}
 
 ### 長時間にわたるブランチを squash してマージする
 

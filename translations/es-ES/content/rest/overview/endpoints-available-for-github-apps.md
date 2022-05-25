@@ -14,4 +14,4 @@ topics:
 shortTitle: Terminales habilitadas para las GitHub Apps
 ---
 
-**The content of this page is rendered as a NextJS page component.**
+**El contenido de esta página se interpreta como un componente NextJS de la página.**

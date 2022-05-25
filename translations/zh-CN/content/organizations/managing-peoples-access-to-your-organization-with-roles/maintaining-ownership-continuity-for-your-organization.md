@@ -32,7 +32,7 @@ shortTitle: 保持所有权连续性
 {% endnote %}
 
 {% if enterprise-owner-join-org %}
-如果您的组织由企业帐户拥有，则任何企业所有者都可以将自己设为组织的所有者。 For more information, see "[Managing your role in an organization owned by your enterprise](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)."
+如果您的组织由企业帐户拥有，则任何企业所有者都可以将自己设为组织的所有者。 更多信息请参阅“[在企业拥有的组织中管理您的角色](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)”。
 {% endif %}
 
 ## 任命组织所有者

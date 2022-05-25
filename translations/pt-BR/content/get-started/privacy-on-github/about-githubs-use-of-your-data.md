@@ -16,19 +16,19 @@ shortTitle: Uso dos seus dados pelo GitHub
 
 ## Sobre o uso dos seus dados de {% data variables.product.product_name %}
 
-O {% data variables.product.product_name %} agrega metadados e analisa padrões de conteúdo com a finalidade de fornecer insights genéricos sobre o produto. Ele usa dados de repositórios públicos, além de usar metadados e agregar dados de repositórios privados quando o proprietário de um repositório opta por compartilhar os dados com o {% data variables.product.product_name %} por meio de aceitação. Se você optar por um repositório privado no uso de dados, será feita uma análise somente leitura desse repositório privado específico.
+O {% data variables.product.product_name %} agrega metadados e analisa padrões de conteúdo com a finalidade de fornecer insights genéricos sobre o produto. Ele usa dados de repositórios públicos, bem como metadados e dados agregados de repositórios privados quando o proprietário de um repositório escolheu compartilhar os dados com {% data variables.product.product_name %}, habilitando o gráfico de dependências. Se você habilitar o gráfico de dependências para um repositório privado, o {% data variables.product.product_name %} executará uma análise somente leitura deste repositório privado específico.
+
+Se você habilitar o uso de dados para um repositório privado, continuaremos a tratar seus dados privados, código-fonte e segredos comerciais como confidenciais e privados, de forma consistente com nossos [Termos de Serviço](/free-pro-team@latest/github/site-policy/github-terms-of-service). As informações apreendidas são provenientes apenas de dados agregados. Para obter mais informações, consulte "[Gerenciando configurações do uso de dados de seu repositório privado](/get-started/privacy-on-github/managing-data-use-settings-for-your-private-repository)".
 
 {% data reusables.repositories.about-github-archive-program %} Para mais informações, consulte "[Sobre arquivar conteúdo e dados no {% data variables.product.prodname_dotcom %}](/github/creating-cloning-and-archiving-repositories/about-archiving-content-and-data-on-github#about-the-github-archive-program)."
 
 {% data reusables.user-settings.export-data %} Para obter mais informações, consulte "[Solicitando um arquivamento dos dados da sua conta pessoal](/articles/requesting-an-archive-of-your-personal-account-s-data)".
 
-Se você aceitar o uso de dados para um repositório privado, continuaremos tratando seus dados privados, código-fonte ou segredos comerciais como confidenciais e privados em conformidade com nossos [Termos de Serviço](/free-pro-team@latest/github/site-policy/github-terms-of-service). As informações apreendidas são provenientes apenas de dados agregados. Para obter mais informações, consulte "[Gerenciando configurações do uso de dados de seu repositório privado](/get-started/privacy-on-github/managing-data-use-settings-for-your-private-repository)".
-
 Anunciaremos novos recursos importantes que usam metadados ou dados agregados no [blog do {% data variables.product.prodname_dotcom %}](https://github.com/blog).
 
 ## Como os dados melhoram as recomendações de segurança
 
-Para dar um exemplo de como os dados podem ser usados, podemos detectar e alertar você para uma vulnerabilidade de segurança nas dependências do seu repositório público. Para obter mais informações, consulte "[Sobre alertas para dependências vulneráveis](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)"
+Para dar um exemplo de como os dados podem ser usados, podemos detectar e alertar você para uma vulnerabilidade de segurança nas dependências do seu repositório público. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)".
 
 Para detectar possíveis vulnerabilidades de segurança, o {% data variables.product.product_name %} verifica o conteúdo do arquivo de manifesto de dependência para extrair uma lista de dependências do seu projeto.
 

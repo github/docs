@@ -1,5 +1,5 @@
 ---
-title: Managing billing for GitHub Advanced Security
+title: GitHub Advanced Securityの支払いの管理
 shortTitle: GitHub Advanced Security
 intro: '{% data variables.product.prodname_advanced_security %} のライセンスのシートの使用を表示および管理できます。'
 product: '{% data reusables.gated-features.ghas %}'

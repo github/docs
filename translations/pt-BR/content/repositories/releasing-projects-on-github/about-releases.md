@@ -32,12 +32,16 @@ Versões são iterações de software implementáveis que você pode empacotar e
 
 As versões se baseiam em [tags Git](https://git-scm.com/book/en/Git-Basics-Tagging), que marcam um ponto específico no histórico do seu repositório. Uma data de tag pode ser diferente de uma data de versão, já que elas podem ser criadas em momentos diferentes. Para obter mais informações sobre como visualizar as tags existentes, consulte "[Visualizar tags e versões do seu repositório](/github/administering-a-repository/viewing-your-repositorys-releases-and-tags)".
 
-Você pode receber notificações quando novas versões são publicadas em um repositório sem receber notificações sobre outras atualizações para o repositório. Para obter mais informações, consulte {% ifversion fpt or ghae or ghes or ghec %}"[Visualizando suas assinaturas](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions){% else %}"[Inspecionando e desinspecionando versões para um repositório](/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-releases-for-a-repository){% endif %}."
+Você pode receber notificações quando novas versões são publicadas em um repositório sem receber notificações sobre outras atualizações para o repositório. Para obter mais informações, consulte "[Visualizando suas assinaturas](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions)".
 
 Qualquer pessoa com acesso de leitura a um repositório pode ver e comparar versões, mas somente pessoas com permissões de gravação a um repositório podem gerenciar versões. Para obter mais informações, consulte "[Gerenciando versões em um repositório](/github/administering-a-repository/managing-releases-in-a-repository)."
 
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4974 %}
 Você pode criar notas de versão manualmente enquanto gerencia uma versão. Como alternativa, você pode gerar automaticamente notas de versão a partir de um modelo padrão, ou personalizar seu próprio modelo de notas de versão. Para obter mais informações, consulte "[Notas de versão geradas automaticamente](/repositories/releasing-projects-on-github/automatically-generated-release-notes)".
+{% endif %}
+
+{% ifversion fpt or ghec or ghes > 3.6 or ghae-issue-7054 %}
+Ao ver os detalhes para uma versão, a data de criação para o ativo de cada versão é mostrada ao lado do ativo da versão.
 {% endif %}
 
 {% ifversion fpt or ghec %}
@@ -48,7 +52,7 @@ Se uma versão consertar uma vulnerabilidade de segurança, você deverá public
 Você pode visualizar a aba **Dependentes** do gráfico de dependências para ver quais repositórios e pacotes dependem do código no repositório e pode, portanto, ser afetado por uma nova versão. Para obter mais informações, consulte "[Sobre o gráfico de dependência](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)".
 {% endif %}
 
-Você também pode usar a API de Releases para reunir informações, tais como o número de vezes que as pessoas baixam um ativo de versão. Para obter mais informações, consulte "[Versões](/rest/reference/repos#releases)".
+Você também pode usar a API de Releases para reunir informações, tais como o número de vezes que as pessoas baixam um ativo de versão. Para obter mais informações, consulte "[Versões](/rest/reference/releases)".
 
 {% ifversion fpt or ghec %}
 ## Cotas de armazenamento e banda

@@ -31,4 +31,4 @@ jobs:
     needs: [job1, job2]
 ```
 
-この例では、`job3`は条件式の`always()` を使っているので、`job1`と`job2`が成功したかどうかにかかわらず、それらのジョブが完了したら常に実行されます。 For more information, see "[Expressions](/actions/learn-github-actions/expressions#job-status-check-functions)."
+この例では、`job3`は条件式の`always()` を使っているので、`job1`と`job2`が成功したかどうかにかかわらず、それらのジョブが完了したら常に実行されます。 For more information, see "[Expressions](/actions/learn-github-actions/expressions#status-check-functions)."

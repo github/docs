@@ -20,7 +20,7 @@ Este artigo explica como a cobrança funciona para seus codespaces e explica com
 
 ## Obtendo acesso a {% data variables.product.prodname_codespaces %}
 
-O administrador da sua organização pode limitar o uso de {% data variables.product.prodname_codespaces %} para apenas contas de usuário específicas. Para obter acesso, você deverá entrar em contato com o gerente de faturamento. Para obter mais informações, consulte "[Gerenciar acesso e segurança para seus codespaces](/codespaces/managing-your-codespaces/managing-access-and-security-for-your-codespaces)".
+O administrador da sua organização pode limitar o uso de {% data variables.product.prodname_codespaces %} para apenas contas pessoais específicas. Para obter acesso, você deverá entrar em contato com o gerente de faturamento. Para obter mais informações, consulte "[Gerenciar acesso e segurança para seus codespaces](/codespaces/managing-your-codespaces/managing-access-and-security-for-your-codespaces)".
 
 ## Quanto custa usar {% data variables.product.prodname_codespaces %}
 

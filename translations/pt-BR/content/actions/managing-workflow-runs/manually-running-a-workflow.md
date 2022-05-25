@@ -70,4 +70,10 @@ gh run watch
 
 Ao usar a API REST, você configura as `entradas` e `ref` como parâmetros do texto da solicitação. Se as entradas forem omitidas, serão usados os valores-padrão definidos no arquivo de fluxo de trabalho.
 
+{% note %}
+
+**Nota:** Você pode definir até 10 `entradas` para um evento de `workflow_dispatch`.
+
+{% endnote %}
+
 Para obter mais informações sobre o uso da API REST, consulte o "[Criar um evento de envio de fluxo de trabalho](/rest/reference/actions/#create-a-workflow-dispatch-event)".

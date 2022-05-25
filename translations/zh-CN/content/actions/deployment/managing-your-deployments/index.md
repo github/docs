@@ -1,7 +1,7 @@
 ---
-title: Managing your deployments
-shortTitle: Managing your deployments
-intro: You can review the past activity of your deployments.
+title: 管理部署
+shortTitle: 管理部署
+intro: 您可以查看您的部署中过去的活动。
 versions:
   fpt: '*'
   ghes: '*'

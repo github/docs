@@ -16,6 +16,6 @@ topics:
 shortTitle: Permission denied other-repo
 ---
 
-これを解決するには、リポジトリからデプロイキーを削除し、代わりに[キーを自分のユーザアカウントに追加](/articles/adding-a-new-ssh-key-to-your-github-account)します。
+To fix this, remove the deploy key from the repository, and [add the key to your personal account](/articles/adding-a-new-ssh-key-to-your-github-account) instead.
 
 使用中のキーが、デプロイキーとしての使用が意図されたものである場合は、[デプロイキーのガイド](/guides/managing-deploy-keys)で詳細をご確認ください。

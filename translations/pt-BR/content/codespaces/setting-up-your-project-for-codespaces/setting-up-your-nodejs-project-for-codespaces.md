@@ -31,33 +31,37 @@ Este guia mostra como configurar seu projeto JavaScript, Node.js ou TypeScript e
 
 ## Etapa 1: Abra o seu projeto em um codespace
 
-1. No nome do repositório, use o menu suspenso **Código de {% octicon "code" aria-label="The code icon" %}** e na aba **Codespaces** de código, clique em {% octicon "plus" aria-label="The plus icon" %} **Novo codespace**.
+1. No nome do repositório, use o menu suspenso **Código de {% octicon "code" aria-label="The code icon" %}** e na guia **Codespaces**, clique em **Criar codespace no principal**.
 
-  ![Botão de codespace novo](/assets/images/help/codespaces/new-codespace-button.png)
+   ![Botão de codespace novo](/assets/images/help/codespaces/new-codespace-button.png)
 
-  Se você não vir esta opção, significa que {% data variables.product.prodname_codespaces %} não está disponível para o seu projeto. Consulte [Acesso a {% data variables.product.prodname_codespaces %}](/codespaces/developing-in-codespaces/creating-a-codespace#access-to-codespaces) para mais informações.
+   Se você não vir esta opção, significa que {% data variables.product.prodname_codespaces %} não está disponível para o seu projeto. Consulte [Acesso a {% data variables.product.prodname_codespaces %}](/codespaces/developing-in-codespaces/creating-a-codespace#access-to-codespaces) para mais informações.
 
 
 Ao criar um código, seu projeto será criado em uma VM remota dedicada a você. Por padrão, o contêiner para o seu código possui muitas linguagens e tempos de execução, incluindo Node.js, JavaScript, Typescript, nvm, npm e yarn. Ele também inclui um conjunto comum de ferramentas, como git, wget, rsync, openssh e nano.
 
-Você pode personalizar o seu codespace ajustando a quantidade de vCPUs e RAM, [adicionando dotfiles para personalizar seu ambiente](/codespaces/setting-up-your-codespace/personalizing-codespaces-for-your-account)ou modificando as ferramentas e scripts instalados.
+{% data reusables.codespaces.customize-vcpus-and-ram %}
 
-{% data variables.product.prodname_codespaces %} usa um arquivo denominado `devcontainer.json` para armazenar configurações. Ao iniciar, {% data variables.product.prodname_codespaces %} usa o arquivo para instalar quaisquer ferramentas, dependências ou outro conjunto que possa ser necessário para o projeto. Para obter mais informações, consulte "[Introdução a contêineres de desenvolvimento](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)".
+## Etapa 2: Adicionar uma configuração de contêiner de desenvolvimento ao repositório a partir de um modelo
 
-## Etapa 2: Adicione um contêiner de desenvolvimento ao seu codespace a partir de um modelo
+O contêiner de desenvolvimento padrão, ou "dev container", para {% data variables.product.prodname_github_codespaces %} é compatível com a execução de projetos do Node.js como [vscode-remote-try-node](https://github.com/microsoft/vscode-remote-try-node) de forma inovadora. No entanto, recomendamos que você configure seu próprio contêiner de desenvolvimento, pois isso permite que você defina todas as ferramentas e scripts específicos de que seu projeto precisa. Isso irá garantir um ambiente reproduzível para todos os usuários do codespace do GitHub no seu repositório.
 
-O contêiner de codespaces padrão será compatível com a execução de projetos de Node.js como [vscode-remote-try-node](https://github.com/microsoft/vscode-remote-try-node) fora da caixa. Ao configurar um contêiner personalizado, você poderá personalizar as ferramentas e scripts que são executados como parte da criação de código e garantir um ambiente reprodutível para todos os usuários de {% data variables.product.prodname_codespaces %} no seu repositório.
-
-Para configurar seu projeto com um contêiner personalizado, você deverá usar um arquivo `devcontainer.json` para definir o ambiente. Em {% data variables.product.prodname_codespaces %}, você pode adicionar isto a partir de um modelo ou você pode criar o seu próprio. Para obter mais informações sobre contêineres de desenvolvimento, consulte "[Introdução a contêineres de desenvolvimento](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)".
+{% data reusables.codespaces.setup-custom-devcontainer %}
 
 {% data reusables.codespaces.command-palette-container %}
-3. Para este exemplo, clique em **Node.js**.  Se você precisar de funcionalidades adicionais, você poderá selecionar qualquer contêiner específico para o Node ou uma combinação de ferramentas como Node e MongoDB. ![Selecione a opção Node na lista](/assets/images/help/codespaces/add-node-prebuilt-container.png)
-4. Clique na versão recomendada do Node.js. ![Seleção de versão do Node.js](/assets/images/help/codespaces/add-node-version.png)
+1. Para este exemplo, clique em **Node.js**.  Se você precisar de funcionalidades adicionais, você poderá selecionar qualquer contêiner específico para o Node ou uma combinação de ferramentas como Node e MongoDB.
+
+   ![Selecione a opção Node na lista](/assets/images/help/codespaces/add-node-prebuilt-container.png)
+
+1. Clique na versão recomendada do Node.js.
+
+   ![Seleção de versão do Node.js](/assets/images/help/codespaces/add-node-version.png)
+
 {% data reusables.codespaces.rebuild-command %}
 
 ### Anatomia do seu contêiner de desenvolvimento
 
-A adição do modelo de contêiner de desenvolvimento do Node.js adiciona uma pasta `.devcontainer` à raiz do repositório do seu projeto com os seguintes arquivos:
+A adição do modelo de contêiner de desenvolvimento do Node.js adiciona um diretório `.devcontainer` à raiz do repositório do seu projeto com os seguintes arquivos:
 
 - `devcontainer.json`
 - arquivo Docker
@@ -98,17 +102,17 @@ O arquivo recém-adicionado `devcontainer.json` define algumas propriedades que 
 }
 ```
 
-- **Nome** - Você pode dar qualquer nome ao seu contêiner de desenvolvimento. Este é apenas o padrão.
-- **Build** - As propriedades de compilação.
-  - **Arquivo Docker** - No objeto de compilação, o arquivo Docker é uma referência ao arquivo Docker que também foi adicionado a partir do modelo.
-  - **Args**
-    - **Variante**: Este arquivo contém apenas um argumento de compilação, que é a variante de nó que queremos usar e que é passada para o arquivo Docker.
-- **Configurações** - Estas são configurações de {% data variables.product.prodname_vscode %} que você pode definir.
-  - **Terminal.integrated.shell.linux** - Embora o bash seja o padrão, você pode usar outros shells do terminal, fazendo a modificação.
-- **Extensões** - Estas são extensões incluídas por padrão.
-  - <**Dbaeumer.vscode-eslint** - ES lint é uma ótima extensão para linting, mas para o JavaScript, há uma série de ótimas extensões do Marketplace que você também pode incluir.
+- **nome** - Você pode dar qualquer nome ao seu contêiner de desenvolvimento. Este é apenas o padrão.
+- **build** - As propriedades de compilação.
+  - **Arquivo Docker** - No objeto `construir`, `Arquivo Docker` contém o caminho para o arquivo Dockerfile que também foi adicionado a partir do modelo.
+  - **args**
+    - **variante**: Este arquivo contém apenas um argumento de compilação, que é a variante de nó que queremos usar e que é passada para o arquivo Docker.
+- **configurações** - Estas são configurações de {% data variables.product.prodname_vscode %} que você pode definir.
+  - **terminal.integrated.shell.linux** - Embora o bash seja o padrão, você pode usar outros shells do terminal, fazendo a modificação.
+- **extensões** - Estas são extensões incluídas por padrão.
+  - <**dbaeumer.vscode-eslint** - ES lint é uma ótima extensão para linting, mas para o JavaScript, há uma série de ótimas extensões do Marketplace que você também pode incluir.
 - **forwardPorts** - Todas as portas listadas aqui serão encaminhadas automaticamente. Para obter mais informações, consulte "[Encaminhando portas no seu codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)".
-- **postCreateCommand** - Se você quiser executar qualquer coisa depois de chegar ao seu codespace que não está definido no arquivo Docker, você poderá fazer isso aqui.
+- **postCreateCommand** - Use isto para executar comandos que não estão definidos no arquivo Docker depois que seu codespace for criado.
 - **remoteUser** - Por padrão, você está executando como usuário do vscode, mas, opcionalmente, você pode definir isso como root.
 
 #### arquivo Docker
@@ -130,29 +134,28 @@ FROM mcr.microsoft.com/vscode/devcontainers/javascript-node:0-${VARIANT}
 # RUN su node -c "npm install -g <your-package-list-here>"
 ```
 
-Você pode usar o arquivo Docker para adicionar camadas adicionais de contêiner para especificar os pacotes do sistema operacional, versões de nó ou pacotes globais que queremos que sejam incluídos no nosso arquivo Docker.
+Você pode usar o arquivo Docker para adicionar camadas adicionais de contêiner para especificar os pacotes do OS, versões de nó ou pacotes globais que queremos que sejam incluídos no nosso contêiner.
 
 ## Etapa 3: Modifique seu arquivo devcontainer.json
 
-Com o seu contêiner de desenvolvimento adicionado e um entendimento básico do que tudo faz, agora você pode fazer alterações para configurá-lo para o seu ambiente. Neste exemplo, você irá adicionar propriedades para instalar o npm quando seu codespace for lançado e para fazer uma lista de portas dentro do contêiner disponível localmente.
+Com a configuração do contêiner de desenvolvimento adicionada e um entendimento básico do que tudo faz, agora você pode fazer alterações para personalizar ainda mais seu ambiente. Neste exemplo, você irá adicionar propriedades para instalar o npm quando seu codespace for lançado e para fazer uma lista de portas dentro do contêiner disponível localmente.
 
 1. No Explorer, selecione o arquivo `devcontainer.json` a partir da árvore para abri-lo. Você pode ter que expandir a pasta `.devcontainer` para vê-la.
 
-  ![Arquivo devcontainer.json no Explorador](/assets/images/help/codespaces/devcontainers-options.png)
+   ![Arquivo devcontainer.json no Explorador](/assets/images/help/codespaces/devcontainers-options.png)
 
 2. Adicione as seguintes linhas ao seu arquivo `devcontainer.json` após as `extensões`:
 
-  ```json{:copy}
-  "postCreateCommand": "npm install",
-  "forwardPorts": [4000],
-  ```
+   ```json{:copy}
+   "postCreateCommand": "npm install",
+   "forwardPorts": [4000],
+   ```
 
-  Para obter mais informações sobre as propriedades `devcontainer.json`, consulte a referência de [devcontainer.json](https://code.visualstudio.com/docs/remote/devcontainerjson-reference) na documentação de {% data variables.product.prodname_vscode %}.
+   {% data reusables.codespaces.more-info-devcontainer %}
 
 {% data reusables.codespaces.rebuild-command %}
 
-  A reconstrução dentro do seu codespace garante que as suas alterações funcionem conforme o esperado antes de realizar o commit das alterações no repositório. Se algo falhar, você será colocado em um codespace com um contêiner de recuperação que você pode reconstruir para continuar ajustando o seu contêiner.
-
+   {% data reusables.codespaces.rebuild-reason %}
 
 ## Etapa 4: Execute o seu aplicativo
 
@@ -160,11 +163,11 @@ Na seção anterior, você usou o `postCreateCommand` para instalar um conjunto 
 
 1. Execute seu comando inicial no terminal com`npm start`.
 
-  ![início do npm no terminal](/assets/images/help/codespaces/codespaces-npmstart.png)
+   ![início do npm no terminal](/assets/images/help/codespaces/codespaces-npmstart.png)
 
 2. Quando o seu projeto for iniciado, você deverá ver um alerta no canto inferior direito com uma instrução para conectar-se à porta que seu projeto usa.
 
-  ![Notificação de encaminhamento de porta](/assets/images/help/codespaces/codespaces-port-toast.png)
+   ![Notificação de encaminhamento de porta](/assets/images/help/codespaces/codespaces-port-toast.png)
 
 ## Etapa 5: Faça commit das suas alterações
 
@@ -174,6 +177,4 @@ Na seção anterior, você usou o `postCreateCommand` para instalar um conjunto 
 
 Agora você deve estar pronto para começar a desenvolver seu projeto JavaScript em {% data variables.product.prodname_codespaces %}. Aqui estão alguns recursos adicionais para cenários mais avançados.
 
-- [Gerenciar segredos criptografados para seus codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)
-- [Gerenciar a verificação de GPG para {% data variables.product.prodname_codespaces %}](/codespaces/managing-your-codespaces/managing-gpg-verification-for-codespaces)
-- [Encaminhar portas no seu código](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)
+{% data reusables.codespaces.next-steps-adding-devcontainer %}

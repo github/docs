@@ -39,7 +39,7 @@ upgrade_your_instance:
     - /admin/enterprise-management/upgrading-github-enterprise-server
 adopting_github_actions_for_your_enterprise_ghec:
   title: 'Adoptar GitHub Actions para tu empresa'
-  description: 'Learn how to plan and implement a rollout of {% data variables.product.prodname_actions %} in your enterprise.'
+  description: 'Aprende a planear y hacer una implementación de {% data variables.product.prodname_actions %} en tu empresa.'
   versions:
     ghec: '*'
   guides:
@@ -52,7 +52,7 @@ adopting_github_actions_for_your_enterprise_ghec:
     - /billing/managing-billing-for-github-actions/about-billing-for-github-actions
 adopting_github_actions_for_your_enterprise_ghes_and_ghae:
   title: 'Adoptar GitHub Actions para tu empresa'
-  description: 'Learn how to plan and implement a rollout of {% data variables.product.prodname_actions %} in your enterprise.'
+  description: 'Aprende a planear y hacer una implementación de {% data variables.product.prodname_actions %} en tu empresa.'
   versions:
     ghes: '*'
     ghae: '*'
@@ -127,5 +127,4 @@ get_started_with_your_enterprise_account:
     - /admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise
     - /admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise
     - /admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise
-    - /admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise
-    - /admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise
+    - /admin/policies/enforcing-policies-for-your-enterprise/about-enterprise-policies

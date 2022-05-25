@@ -96,7 +96,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # Esta etapa faz checkout de uma cópia do seu repositório.
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       # This step references the directory that contains the action.
       - uses: ./.github/actions/hello-world-action
 ```
@@ -114,7 +114,7 @@ jobs:
   my_first_job:
     steps:
       - name: My first step
-        uses: actions/setup-node@v1.1.0
+        uses: {% data reusables.actions.action-setup-node %}
 ```
 
 ### Fazer referência a um contêiner no Docker Hub

@@ -1,6 +1,6 @@
 ---
 title: 拉取请求
-intro: 'Learn how to use pull requests to suggest changes to a project, receive suggested changes to your own projects, and address issues in pull requests, such as merge conflicts.'
+intro: 了解如何使用拉取请求来建议对项目的更改、接收对您自己的项目的建议更改，以及解决拉取请求中的问题，例如合并冲突。
 introLinks:
   overview: /pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests
 featuredLinks:

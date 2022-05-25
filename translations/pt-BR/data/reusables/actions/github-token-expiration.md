@@ -1,1 +1,1 @@
-The `GITHUB_TOKEN` expires when a job finishes or after a maximum of 24 hours.
+O `GITHUB_TOKEN` vence quando um trabalho for concluído ou após um máximo de 24 horas.

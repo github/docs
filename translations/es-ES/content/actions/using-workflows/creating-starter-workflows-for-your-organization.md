@@ -1,7 +1,7 @@
 ---
-title: Creating starter workflows for your organization
-shortTitle: Creating starter workflows
-intro: Learn how you can create starter workflows to help people in your team add new workflows more easily.
+title: Crear flujos de trabajo iniciales para tu organización
+shortTitle: Crear flujos de trabajo iniciales
+intro: Aprende cómo puedes crear flujos de trabajo iniciales para ayudar a las personas de tu equipo a agregar flujos de trabajo con mayor facilidad.
 redirect_from:
   - /actions/configuring-and-managing-workflows/sharing-workflow-templates-within-your-organization
   - /actions/learn-github-actions/creating-workflow-templates
@@ -26,29 +26,29 @@ topics:
 
 {% data reusables.actions.starter-workflow-categories %}
 
-## Creating a starter workflow
+## Crear un flujo de trabajo inicial
 
-Starter workflows can be created by users with write access to the organization's `.github` repository. These can then be used by organization members who have permission to create workflows.
+Los usuarios con acceso de escritura al repositorio `.github` de una organización pueden crear flujos de trabajo iniciales. Estos pueden utilizarse entonces por los miembros de las organizaciones que tienen permiso para crear flujos de trabajo.
 
 {% ifversion fpt %}
-Starter workflows created by users can only be used to create workflows in public repositories. Organizations using {% data variables.product.prodname_ghe_cloud %} can also use starter workflows to create workflows in private repositories. Para obtener más información, consulta la [documentación de {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/actions/learn-github-actions/creating-starter-workflows-for-your-organization).
+Los flujos de trabajo iniciales que crean los usuarios solo pueden utilizarse para crear flujos de trabajo en repositorios públicos. Las organizaciones que utilizan {% data variables.product.prodname_ghe_cloud %} también pueden utilizar flujos de trabajo iniciales para crear flujos de trabajo en repositorios privados. Para obtener más información, consulta la [documentación de {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/actions/learn-github-actions/creating-starter-workflows-for-your-organization).
 {% endif %}
 
 {% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
 {% note %}
 
-**Note:** To avoid duplication among starter workflows you can call reusable workflows from within a workflow. Esto puede ayudar a que tus flujos de trabajo se mantengan más fácilmente. Para obtener más información, consulta la sección "[Reutilizar flujos de trabajo](/actions/learn-github-actions/reusing-workflows)".
+**Nota:** Para evitar la duplicación entre los flujos de trabajo iniciales, puedes llamar flujos de trabajo reutilizables desde dentro de un flujo de trabajo. Esto puede ayudar a que tus flujos de trabajo se mantengan más fácilmente. Para obtener más información, consulta la sección "[Reutilizar flujos de trabajo](/actions/learn-github-actions/reusing-workflows)".
 
 {% endnote %}
 {% endif %}
 
-This procedure demonstrates how to create a starter workflow and metadata file. The metadata file describes how the starter workflows will be presented to users when they are creating a new workflow.
+Este procedimiento demuestra cómo crear un flujo de trabajo inicial y archivo de metadatos. El archivo de metadatos describe cómo se presentarán los flujos de trabajo inicial a los usuarios cuando estén creando uno nuevo.
 
 1. En caso de que no exista previamente, crea en tu organización un repositorio público nuevo que se llame `.github`.
 2. Crea un directorio que se llame `workflow-templates`.
 3. Crea tu nuevo archivo de flujo de trabajo dentro del directorio `workflow-templates`.
 
-   Si necesitas referirte a la rama predeterminada de un repositorio, puedes utilizar el marcador de posición `$default-branch`. When a workflow is created the placeholder will be automatically replaced with the name of the repository's default branch.
+   Si necesitas referirte a la rama predeterminada de un repositorio, puedes utilizar el marcador de posición `$default-branch`. Cuando un flujo de trabajo se crea, el marcador de posición se reemplazará automáticamente con el nombre de la rama predeterminada del repositorio.
 
    Por ejemplo, este archivo de nombre `octo-organization-ci.yml` ilustra un flujo de trabajo básico.
 
@@ -66,7 +66,7 @@ This procedure demonstrates how to create a starter workflow and metadata file. 
        runs-on: ubuntu-latest
 
        steps:
-         - uses: actions/checkout@v2
+         - uses: {% data reusables.actions.action-checkout %}
 
          - name: Run a one-line script
            run: echo Hello from Octo Organization
@@ -87,16 +87,16 @@ This procedure demonstrates how to create a starter workflow and metadata file. 
        ]
    }
    ```
-   * `name` - **Required.** The name of the workflow. Esta se muestra en la lista de flujos de trabajo disponibles.
-   * `description` - **Required.** The description of the workflow. Esta se muestra en la lista de flujos de trabajo disponibles.
-   * `iconName` - **Optional.** Specifies an icon for the workflow that's displayed in the list of workflows. The `iconName` must be the name of an SVG file, without the file name extension, stored in the `workflow-templates` directory. For example, an SVG file named `example-icon.svg` is referenced as `example-icon`.
-   * `categories` - **Opcional.** Define la categoría de lenguaje del flujo de trabajo. When a user views the available starter workflows for a repository, the workflows that match the identified language for the project are featured more prominently. Para obtener información sobre las categorías de lenguaje disponibles, consulta https://github.com/github/linguist/blob/master/lib/linguist/languages.yml.
-   * `filePatterns` - **Optional.** Allows the workflow to be used if the user's repository has a file in its root directory that matches a defined regular expression.
+   * `name` - **Requerido.** El nombre del flujo de trabajo. Esta se muestra en la lista de flujos de trabajo disponibles.
+   * `description` - **Requerido.** La descripción del flujo de trabajo. Esta se muestra en la lista de flujos de trabajo disponibles.
+   * `iconName` - **Opcional.** Especifica un icono para el flujo de trabajo que se muestra en la lista de flujos de trabajo. El `iconName` debe ser el mismo que el de un archivo SVG, sin la extensión del nombre del archivo, almacenado en el directorio `workflow-templates`. Por ejemplo, un archivo SVG llamado `example-icon.svg` se referencia como `example-icon`.
+   * `categories` - **Opcional.** Define la categoría de lenguaje del flujo de trabajo. Cuando un usuario ve los flujos iniciales disponibles de un repositorio, aquellos que coincidan con el lenguaje identificado del proyecto se mostrarán más destacadamente. Para obtener información sobre las categorías de lenguaje disponibles, consulta https://github.com/github/linguist/blob/master/lib/linguist/languages.yml.
+   * `filePatterns` - **Opcional.** Permite que se utilice el flujo de trabajo si el repositorio del usuario tiene un archivo en su directorio raíz, el cual empate con una expresión regular definida.
 
-To add another starter workflow, add your files to the same `workflow-templates` directory. Por ejemplo:
+Para agregar otro flujo de trabajo inicial, agrega tus archivos al mismo directorio de `workflow-templates`. Por ejemplo:
 
-![Workflow files](/assets/images/help/images/workflow-template-files.png)
+![Archivos de flujo de trabajo](/assets/images/help/images/workflow-template-files.png)
 
 ## Pasos siguientes
 
-To continue learning about {% data variables.product.prodname_actions %}, see "[Using starter workflows](/actions/using-workflows/using-starter-workflows)."
+Para seguir aprendiendo sobre las {% data variables.product.prodname_actions %}, consulta la sección "[Utilizar flujos de trabajo iniciales](/actions/using-workflows/using-starter-workflows)".
