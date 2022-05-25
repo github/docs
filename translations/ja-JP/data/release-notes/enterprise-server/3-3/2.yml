@@ -13,7 +13,7 @@ sections:
     - Storage settings could not be validated when configuring MinIO as blob storage for GitHub Packages.
     - GitHub Actions storage settings could not be validated and saved in the Management Console when "Force Path Style" was selected.
     - Actions would be left in a stopped state after an update with maintenance mode set.
-    - Running `ghe-config-apply` could sometimes fail because of permission issues in `/data/user/tmp/pages`.
+    - '`ghe-config-apply`を実行すると、`/data/user/tmp/pages`における権限の問題のために失敗することがあります。'
     - The save button in management console was unreachable by scrolling in lower resolution browsers.
     - IOPS and Storage Traffic monitoring graphs were not updating after collectd version upgrade.
     - Some webhook related jobs could generated large amount of logs.

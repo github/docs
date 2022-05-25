@@ -22,25 +22,25 @@ A navegação por código ajuda você a ler, navegar e compreender o código mos
 
 A navegação pelo código usa a biblioteca de código aberto [`tree-sitter`](https://github.com/tree-sitter/tree-sitter). As estratégias de linguagem e navegação a seguir são compatíveis:
 
-| Linguagem  | Search-based code navigation | Precise code navigation |
-|:----------:|:----------------------------:|:-----------------------:|
-|     C#     |              ✅               |                         |
-|   CodeQL   |              ✅               |                         |
-|   Elixir   |              ✅               |                         |
-|     Go     |              ✅               |                         |
-|    Java    |              ✅               |                         |
-| JavaScript |              ✅               |                         |
-|    PHP     |              ✅               |                         |
-|   Python   |              ✅               |            ✅            |
-|    Ruby    |              ✅               |                         |
-| TypeScript |              ✅               |                         |
+| Linguagem  | Navegação de código baseado em pesquisa | Navegação de código precisa |
+|:----------:|:---------------------------------------:|:---------------------------:|
+|     C#     |                    ✅                    |                             |
+|   CodeQL   |                    ✅                    |                             |
+|   Elixir   |                    ✅                    |                             |
+|     Go     |                    ✅                    |                             |
+|    Java    |                    ✅                    |                             |
+| JavaScript |                    ✅                    |                             |
+|    PHP     |                    ✅                    |                             |
+|   Python   |                    ✅                    |              ✅              |
+|    Ruby    |                    ✅                    |                             |
+| TypeScript |                    ✅                    |                             |
 
 
 Você não precisa configurar nada no seu repositório para habilitar a navegação do código. Nós iremos extrair automaticamente informações de navegação de código precisas e baseadas em pesquisa para essas linguagens compatíveis em todos os repositórios e você pode alternar entre as duas abordagens de navegação de código compatíveis se sua linguagem de programação for compatível com ambos.
 
 {% data variables.product.prodname_dotcom %} desenvolveu duas abordagens de código de navegação com base no código aberto [`tree-sitter`](https://github.com/tree-sitter/tree-sitter) e [`stack-graphs`](https://github.com/github/stack-graphs) library:
- - Search-based - searches all definitions and references across a repository to find entities with a given name
- - Precise - resolves definitions and references based on the set of classes, functions, and imported definitions at a given point in your code
+ - Baseado em pesquisa - Pesquisa todas as definições e referências em um repositório para encontrar entidades com um determinado nome
+ - Preciso - resolve definições e referências baseadas no conjunto de classes, funções, e definições importadas em um determinado ponto do seu código
 
 Para aprender mais sobre essas abordagens, consulte "[Navegação precisa e baseada em pesquisa](#precise-and-search-based-navigation)".
 

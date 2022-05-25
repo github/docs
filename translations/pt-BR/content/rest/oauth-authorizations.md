@@ -1,6 +1,6 @@
 ---
-title: OAuth authorizations
-intro: The OAuth authorizations lets you manage the access OAuth applications have to your account.
+title: Autorizações do OAuth
+intro: As autorizações do OAuth permitem gerenciar os aplicativos do OAuth para sua conta.
 versions:
   fpt: '*'
   ghec: '*'
@@ -12,7 +12,7 @@ redirect_from:
   - /rest/reference/oauth-authorizations
 ---
 
-## About the OAuth authorizations API
+## Sobre a API de autorizações do OAuth
 
 Você pode usar esta API para gerenciar o acesso do aplicativo OAuth à sua conta. Você só pode acessar esta API através da [Autenticação básica](/rest/overview/other-authentication-methods#basic-authentication) usando seu nome de usuário e senha, não tokens.
 

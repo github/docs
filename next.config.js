@@ -39,4 +39,7 @@ module.exports = {
     config.experiments.topLevelAwait = true
     return config
   },
+
+  // https://nextjs.org/docs/api-reference/next.config.js/compression
+  compress: false,
 }

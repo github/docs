@@ -41,7 +41,7 @@ Você também pode limitar os usuários individuais que podem usar {% data varia
 
 ## Excluindo codespaces não utilizados
 
-Your users can delete their codespaces in https://github.com/codespaces and from within {% data variables.product.prodname_vscode %}. To reduce the size of a codespace, users can manually delete files using the terminal or from within {% data variables.product.prodname_vscode_shortname %}.
+Seus usuários podem excluir seus codespaces em https://github.com/codespaces e de dentro de {% data variables.product.prodname_vscode %}. Para reduzir o tamanho de um codespace, os usuários podem excluir arquivos manualmente usando o terminal ou de dentro de {% data variables.product.prodname_vscode_shortname %}.
 
 {% note %}
 

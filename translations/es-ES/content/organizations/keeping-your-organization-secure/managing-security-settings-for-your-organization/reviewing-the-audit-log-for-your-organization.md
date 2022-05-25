@@ -128,6 +128,9 @@ Al utilizar el calificador `country`, puedes filtrar los eventos en la bitácora
 ## Exportar el registro de auditoría
 
 {% data reusables.audit_log.export-log %}
+
+{% data reusables.audit_log.git-events-export-limited %}
+
 {% data reusables.audit_log.exported-log-keys-and-values %}
 {% endif %}
 
@@ -492,11 +495,11 @@ Para obtener más información, consulta la sección "[Administrar la publicaci�
 
 ### Acciones de la categoría `org_secret_scanning_custom_pattern`
 
-| Acción           | Descripción                                                                                                                                                                                                                                                                                                                            |
-| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `create (crear)` | Triggered when a custom pattern is published for secret scanning in an organization. Para obtener más información, consulta la sección "[Definir los patrones personalizados para el escaneo de secretos](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-an-organization)". |
-| `actualización`  | Triggered when changes to a custom pattern are saved for secret scanning in an organization. Para obtener más información, consulta la sección "[Definir los patrones personalizados para el escaneo de secretos](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#editing-a-custom-pattern)".              |
-| `delete`         | Triggered when a custom pattern is removed from secret scanning in an organization. Para obtener más información, consulta la sección "[Definir los patrones personalizados para el escaneo de secretos](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#removing-a-custom-pattern)".                      |
+| Acción           | Descripción                                                                                                                                                                                                                                                                                                                                            |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `create (crear)` | Se activa cuando se publica un patrón personalizado para el escaneo de secretos en una organización. Para obtener más información, consulta la sección "[Definir los patrones personalizados para el escaneo de secretos](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-an-organization)". |
+| `actualización`  | Se activa cuando se guardan los cambios a un patrón personalizado para el escaneo de secretos en una organización. Para obtener más información, consulta la sección "[Definir los patrones personalizados para el escaneo de secretos](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#editing-a-custom-pattern)".        |
+| `delete`         | Se activa cuando se elimina un patrón personalizado desde un escaneo de secretos en una organización. Para obtener más información, consulta la sección "[Definir los patrones personalizados para el escaneo de secretos](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#removing-a-custom-pattern)".                    |
 
 {% endif %}
 ### Acciones de la categoría `organization_label`
@@ -523,9 +526,9 @@ Para obtener más información, consulta la sección "[Administrar la publicaci�
 | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `package_version_published` | Se activa cuando se publica una versión del paquete.                                                                                                                                                                                                                                 |
 | `package_version_deleted`   | Se activa cuando se borra una versión de un paquete específico.{% ifversion fpt or ghec or ghes > 3.1 or ghae %} Para obtener más información, consulta la sección "[Borrar y restablecer un paquete](/packages/learn-github-packages/deleting-and-restoring-a-package)".{% endif %}
-| `package_deleted`           | Triggered when an entire package is deleted.{% ifversion fpt or ghec or ghes > 3.1 or ghae %} For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)."{% endif %}
+| `package_deleted`           | Se activa cuando se borra todo un paquete.{% ifversion fpt or ghec or ghes > 3.1 or ghae %} Para obtener más información, consulta la sección "[Borrar y restablecer un paquete](/packages/learn-github-packages/deleting-and-restoring-a-package)".{% endif %}
 | `package_version_restored`  | Se activa cuando se borra una versión de un paquete específico.{% ifversion fpt or ghec or ghes > 3.1 or ghae %} Para obtener más información, consulta la sección "[Borrar y restablecer un paquete](/packages/learn-github-packages/deleting-and-restoring-a-package)".{% endif %}
-| `package_restored`          | Triggered when an entire package is restored.{% ifversion fpt or ghec or ghes > 3.1 or ghae %} For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)."{% endif %}
+| `package_restored`          | Se activa cuando se restablece todo un paquete.{% ifversion fpt or ghec or ghes > 3.1 or ghae %} Para obtener más información, consulta la sección "[Borrar y restablecer un paquete](/packages/learn-github-packages/deleting-and-restoring-a-package)".{% endif %}
 
 {% ifversion fpt or ghec %}
 
@@ -690,11 +693,11 @@ Para obtener más información, consulta la sección "[Administrar la publicaci�
 
 ### Acciones de la categoría `repository_secret_scanning_custom_pattern`
 
-| Acción           | Descripción                                                                                                                                                                                                                                                                                                                      |
-| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `create (crear)` | Triggered when a custom pattern is published for secret scanning in a repository. Para obtener más información, consulta la sección "[Definir los patrones personalizados para el escaneo de secretos](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-a-repository)". |
-| `actualización`  | Triggered when changes to a custom pattern are saved for secret scanning in a repository. Para obtener más información, consulta la sección "[Definir los patrones personalizados para el escaneo de secretos](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#editing-a-custom-pattern)".           |
-| `delete`         | Triggered when a custom pattern is removed from secret scanning in a repository. Para obtener más información, consulta la sección "[Definir los patrones personalizados para el escaneo de secretos](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#removing-a-custom-pattern)".                   |
+| Acción           | Descripción                                                                                                                                                                                                                                                                                                                                       |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `create (crear)` | Se activa cuando se publica un patrón personalizado para el escaneo de secretos de un repositorio. Para obtener más información, consulta la sección "[Definir los patrones personalizados para el escaneo de secretos](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-a-repository)". |
+| `actualización`  | Se activa cuando se guardan los cambios a un patrón personalizado para el escaneo de secretos en un repositorio. Para obtener más información, consulta la sección "[Definir los patrones personalizados para el escaneo de secretos](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#editing-a-custom-pattern)".     |
+| `delete`         | Se activa cuando se elimina un patrón personalizado desde el escaneo de secretos de un repositorio. Para obtener más información, consulta la sección "[Definir los patrones personalizados para el escaneo de secretos](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#removing-a-custom-pattern)".                 |
 
 {% endif %}{% if secret-scanning-audit-log-custom-patterns %}
 
@@ -739,7 +742,19 @@ Para obtener más información, consulta la sección "[Administrar la publicaci�
 | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `inhabilitar` | Se activa cuando el propietario de una organización inhabilita el escaneo de secretos para todos los repositorios{% ifversion ghec %} privados o internos{% endif %} existentes. Para obtener más información, consulta la sección "[Acerca del escaneo de secretos"](/github/administering-a-repository/about-secret-scanning). |
 | `habilitar`   | Se activa cuando un propietario de organización habilita el escaneo de secretos para todos los repositorios {% ifversion ghec %} privados o internos{% endif %} existentes.                                                                                                                                                      |
+{% endif %}
 
+{% if secret-scanning-alert-audit-log %}
+### `secret_scanning_alert` category actions
+
+| Acción           | Descripción                                                                                                                                                                                                                                                                                                                                                                       |
+| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `create (crear)` | Triggered when {% data variables.product.prodname_dotcom %} detects an exposed secret and creates a {% data variables.product.prodname_secret_scanning %} alert. Para obtener más información, consulta la sección "[Administrar las alertas de {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/managing-alerts-from-secret-scanning)". |
+| `reopen`         | Triggered when a user reopens a {% data variables.product.prodname_secret_scanning %} alert.                                                                                                                                                                                                                                                                                    |
+| `resolver`       | Triggered when a user resolves a {% data variables.product.prodname_secret_scanning %} alert.                                                                                                                                                                                                                                                                                   |
+{% endif %}
+
+{% ifversion ghec or ghes or ghae %}
 ### Acciones de la categoría `secret_scanning_new_repos`
 
 | Acción        | Descripción                                                                                                                                                                                                                                                                                                              |

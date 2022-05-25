@@ -11,13 +11,15 @@ shortTitle: 更改站点可见性
 
 ## 关于 {% data variables.product.prodname_pages %} 站点的访问控制
 
-如果对 {% data variables.product.prodname_pages %} 具有访问控制权限，您便可以通过私密发布站点来限制访问您的 {% data variables.product.prodname_pages %} 站点。 只有对发布站点的仓库具有读取权限的人才可访问私密发布的站点。 您可以使用私密发布的站点与企业成员分享您的内部文档或知识库。
+With access control for {% data variables.product.prodname_pages %}, you can restrict access to your project site by publishing the site privately. 只有对发布站点的仓库具有读取权限的人才可访问私密发布的站点。 您可以使用私密发布的站点与企业成员分享您的内部文档或知识库。
 
 {% data reusables.pages.privately-publish-ghec-only %}
 
 如果您的企业使用 {% data variables.product.prodname_emus %}，则访问控制不可用，并且所有 {% data variables.product.prodname_pages %} 站点仅供其他企业成员访问。 有关 {% data variables.product.prodname_emus %} 的更多信息，请参阅“[关于 {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#limitations-for-enterprise-managed-users)”。
 
-如果您的组织使用 {% data variables.product.prodname_ghe_cloud %} 而没有 {% data variables.product.prodname_emus %}，您可以选择在互联网上私下或公开地向任何人发布您的站点。 从组织拥有的私人或内部仓库发布的项目站点可使用访问控制。 您无法管理组织站点的访问控制。 有关 {% data variables.product.prodname_pages %} 站点类型的更多信息，请参阅“[关于 {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)”。
+If your organization uses {% data variables.product.prodname_ghe_cloud %} without {% data variables.product.prodname_emus %}, you can choose to publish your project sites privately or publicly to anyone on the internet.
+
+从组织拥有的私人或内部仓库发布的项目站点可使用访问控制。 您无法管理组织站点的访问控制。 有关 {% data variables.product.prodname_pages %} 站点类型的更多信息，请参阅“[关于 {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)”。
 
 ## 关于私下发布的网站的子域
 
