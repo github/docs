@@ -1,8 +1,8 @@
 ---
 title: Quadros de projeto
-shortTitle: Boards
+shortTitle: Quadros
 allowTitleToDifferFromFilename: true
-intro: The Project boards API lets you create and manage projects in a repository.
+intro: A API de quadros de projetos permite criar e gerenciar projetos em um repositório.
 versions:
   fpt: '*'
   ghes: '*'

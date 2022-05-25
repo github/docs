@@ -95,7 +95,10 @@ export default async function cacheFullRendering(req, res, next) {
         // and the NextJS data requests. These are not dependent on the
         // request cookie, so they're primed for caching in the CDN.
         const ct = res.get('content-type')
-        if (ct.startsWith('text/html')) {
+        // We also don't want to bother caching this if it doesn't
+        // appear to be a NextJS HTML output with
+        // its `<script id="__NEXT_DATA__">` tag.
+        if (ct.startsWith('text/html') && body.includes('__NEXT_DATA__')) {
           const $ = cheerio.load(body)
           const headers = res.getHeaders()
           cheerioCache.set(key, [$, headers])
