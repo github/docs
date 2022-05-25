@@ -9,6 +9,7 @@ redirect_from:
 intro: 'Após a criação de uma equipe, os administradores da organização podem adicionar usuários da {% data variables.product.product_location %} e determinar quais repositórios eles poderão acessar.'
 versions:
   ghes: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Access management
@@ -25,13 +26,17 @@ Cada equipe tem suas próprias [ permissões de acesso definidas individualmente
 ## Configurar uma equipe
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.invite_to_team %}
 {% data reusables.organizations.review-team-repository-access %}
+
+{% ifversion ghes %}
 
 ## Mapear equipes para grupos LDAP (em instâncias com sincronização LDAP para autenticação de usuários)
 
 {% data reusables.enterprise_management_console.badge_indicator %}
 
 Para adicionar um novo integrante a uma equipe sincronizada com um grupo LDAP, adicione o usuário como integrante do grupo LDAP ou entre em contato com o administrador do LDAP.
+
+{% endif %}

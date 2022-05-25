@@ -21,7 +21,7 @@ shortTitle: ボード上のカードのアーカイブ
 
 ## プロジェクトボード上のカードのアーカイブ
 
-1. In a project board, find the card you want to archive, then click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}. ![プロジェクトボードカードの編集オプションのリスト](/assets/images/help/projects/select-archiving-options-project-board-card.png)
+1. プロジェクトボードで、アーカイブしたいカードを見つけて {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} をクリックします。 ![プロジェクトボードカードの編集オプションのリスト](/assets/images/help/projects/select-archiving-options-project-board-card.png)
 2. [**Archive**] をクリックします。 ![メニューからのアーカイブオプションの選択](/assets/images/help/projects/archive-project-board-card.png)
 
 ## サイドバーからのプロジェクトボード上のカードのリストア

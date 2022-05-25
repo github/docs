@@ -13,6 +13,6 @@ children:
   - /configuring-clustering
   - /configuring-high-availability
   - /caching-repositories
-shortTitle: 监控、管理和更新
+shortTitle: 监控、管理和更新您的设备
 ---
 

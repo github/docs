@@ -22,9 +22,9 @@ webhookの作成は、2ステップのプロセスです。 まず、webhookを{
 
 ## ローカルホストをインターネットに公開する
 
-このチュートリアルでは、{% data variables.product.prodname_dotcom %}からメッセージを受信するためにローカルサーバーを使用します。 そのためには、まずローカル開発環境をインターネットに公開する必要があります。 そのためにngrokを使用しましょう。 ngrokは無料で、主要なオペレーティングシステムで利用できます。 詳しい情報については、[ngrokのダウンロードページ](https://ngrok.com/download)を参照してください。
+このチュートリアルでは、{% data variables.product.prodname_dotcom %}からメッセージを受信するためにローカルサーバーを使用します。 そのためには、まずローカル開発環境をインターネットに公開する必要があります。 そのためにngrokを使用しましょう。 ngrokは無料で、主要なオペレーティングシステムで利用できます。 For more information, see [the `ngrok` download page](https://ngrok.com/download).
 
-ngrokをインストールしたら、コマンドラインで `./ngrok http 4567` を実行してローカルホストを公開できます。 4567は、サーバーがメッセージを受信するポート番号です。 以下のような行が表示されるはずです。
+After installing `ngrok`, you can expose your localhost by running `./ngrok http 4567` on the command line. 4567は、サーバーがメッセージを受信するポート番号です。 以下のような行が表示されるはずです。
 
 ```shell
 $ Forwarding    http://7e9ea9dc.ngrok.io -> 127.0.0.1:4567

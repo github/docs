@@ -5,7 +5,7 @@ Use the `paths` filter when you want to include file path patterns or when you w
 
 If you define both `branches`/`branches-ignore` and `paths`, the workflow will only run when both filters are satisfied.
 
-The `paths` and `paths-ignore` keywords accept glob patterns that use the `*` and `**` wildcard characters to match more than one path name. For more information, see the "[Filter pattern cheat sheet]/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)."
+The `paths` and `paths-ignore` keywords accept glob patterns that use the `*` and `**` wildcard characters to match more than one path name. 詳しい情報については、「[フィルタパターンのチートシート](/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)」を参照してください。
 
 #### Example: Including paths
 
@@ -17,6 +17,12 @@ on:
     paths:
       - '**.js'
 ```
+
+{% note %}
+
+**Note:** If a workflow is skipped due to [path filtering](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore), [branch filtering](/actions/using-workflows/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore) or a [commit message](/actions/managing-workflow-runs/skipping-workflow-runs), then checks associated with that workflow will remain in a "Pending" state. A pull request that requires those checks to be successful will be blocked from merging. For more information, see "[Handling skipped but required checks](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/troubleshooting-required-status-checks#handling-skipped-but-required-checks)."
+
+{% endnote %}
 
 #### Example: Excluding paths
 
@@ -42,7 +48,7 @@ If you define a path with the `!` character, you must also define at least one p
 - 肯定のマッチの後に否定のマッチングパターン（`!`がプレフィックスされている）を置くと、パスが除外されます。
 - 否定のマッチングパターンの後に肯定のマッチングパターンを定義すると、パスを再び含めます。
 
-この例は、`push`イベントに`sub-project`ディレクトリあるいはそのサブディレクトリ内のファイルが含まれ、そのファイルが`sub-project/docs`ディレクトリ内にあるのでない場合に実行されます。 たとえば`sub-project/index.js`もしくは`sub-project/src/index.js`を変更するプッシュはワークフローを実行させますが、`sub-project/docs/readme.md`だけを変更するプッシュは実行させません。
+この例は、`push`イベントに`sub-project`ディレクトリあるいはそのサブディレクトリ内のファイルが含まれ、そのファイルが`sub-project/docs`ディレクトリ内にはない場合に実行されます。 たとえば`sub-project/index.js`もしくは`sub-project/src/index.js`を変更するプッシュはワークフローを実行させますが、`sub-project/docs/readme.md`だけを変更するプッシュは実行させません。
 
 ```yaml
 on:
@@ -52,7 +58,7 @@ on:
       - '!sub-project/docs/**'
 ```
 
-### Git diffの比較
+#### Git diffの比較
 
 {% note %}
 
@@ -69,4 +75,4 @@ on:
 
 Diffs are limited to 300 files. If there are files changed that aren't matched in the first 300 files returned by the filter, the workflow will not run. You may need to create more specific filters so that the workflow will run automatically.
 
-詳しい情報については「[プルリクエスト中のブランチの比較について](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-comparing-branches-in-pull-requests)」を参照してください。
+詳しい情報については「[Pull Request中のブランチの比較について](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-comparing-branches-in-pull-requests)」を参照してください。

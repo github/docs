@@ -30,7 +30,7 @@ shortTitle: 转换所有者团队
 {% endtip %}
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.owners-team %}
 {% data reusables.organizations.convert-owners-team-confirm %}
 5. 在团队名称字段中，为所有者团队选择一个新名称。 例如：
@@ -48,7 +48,7 @@ shortTitle: 转换所有者团队
 {% endwarning %}
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.owners-team %}
 {% data reusables.organizations.convert-owners-team-confirm %}
 5. 在页面底部，查看警告，然后单击 **Delete the Owners team（删除所有者团队）**。 ![删除所有者团队的链接](/assets/images/help/teams/owners-team-delete.png)

@@ -15,6 +15,8 @@ shortTitle: Llave SSH con SAML
 
 Puedes autorizar una clave SSH existente, o crear una nueva clave SSH, y luego autorizarla. Para más información sobre la creación de una nueva clave SSH, consulta "[Generar una nueva clave SSH y agregarla al ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)".
 
+{% data reusables.saml.must-authorize-linked-identity %}
+
 {% data reusables.saml.authorized-creds-info %}
 
 {% note %}
@@ -23,8 +25,8 @@ Puedes autorizar una clave SSH existente, o crear una nueva clave SSH, y luego a
 
 {% endnote %}
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.ssh %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.ssh %}
 3. Junto a la clave SSH que deseas autorizar, haz clic en **Enable SSO** (Habilitar SSO) o **Disable SSO** (Deshabilitar SSO). ![Botón para autorizar el token SSO](/assets/images/help/settings/ssh-sso-button.png)
 4. Busca la organización para la que deseas autorizar la clave SSH.
 5. Da clic en **Autorizar**. ![Botón para autorizar el token](/assets/images/help/settings/ssh-sso-authorize.png)

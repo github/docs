@@ -1,6 +1,6 @@
 {% data reusables.actions.registry-credentials %}
 
-#### Example: Defining credentials for a container registry
+#### Ejemplo: definir las credenciales para un registro de contenedores
 
 {% raw %}
 ```yaml
@@ -8,6 +8,6 @@ container:
   image: ghcr.io/owner/image
   credentials:
      username: ${{ github.actor }}
-     password: ${{ secrets.ghcr_token }}
+     password: ${{ secrets.github_token }}
 ```
 {% endraw %}

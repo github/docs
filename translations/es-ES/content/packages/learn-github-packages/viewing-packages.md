@@ -51,7 +51,7 @@ Puedes encontrar y ver un paquete que se ubique en un repositorio particular.
 Puedes ver y encontrar un paquete que se ubique en los repositorios de una organización a la cual pertenezcas.
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 3. Debajo del nombre de tu organización, haz clic en {% octicon "package" aria-label="The package icon" %} **Packages (Paquetes)**.
 {% data reusables.package_registry.navigate-to-packages %}
 

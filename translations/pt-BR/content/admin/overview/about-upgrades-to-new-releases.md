@@ -13,7 +13,7 @@ topics:
 
 {% ifversion ghes < 3.3 %}{% data reusables.enterprise.upgrade-ghes-for-features %}{% endif %}
 
-{% data variables.product.product_name %} está constantemente melhorando, com novas funcionalidades e correções de erros introduzidas por meio de de recursos e versões de patch. {% ifversion ghae %}{% data variables.product.prodname_ghe_managed %} é um serviço totalmente gerenciado. Portanto, {% data variables.product.company_short %} conclui o processo de atualização da sua empresa.{% endif %}
+{% data reusables.enterprise.constantly-improving %}{% ifversion ghae %}{% data variables.product.prodname_ghe_managed %} é um serviço totalmente gerenciado. Dessa forma, {% data variables.product.company_short %} conclui o processo de atualização para a sua empresa.{% endif %}
 
 As versões do recurso incluem novas funcionalidades e atualizações de recursos e, normalmente, ocorrem a cada trimestre. {% ifversion ghae %}{% data variables.product.company_short %} irá atualizar sua empresa para a versão mais recente do recurso. Você será avisado antecipadamente de qualquer período de inatividade planejado para sua empresa.{% endif %}
 

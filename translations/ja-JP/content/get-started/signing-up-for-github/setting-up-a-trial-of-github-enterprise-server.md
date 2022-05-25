@@ -19,7 +19,7 @@ shortTitle: Enterprise Server trial
 
 {% data variables.product.prodname_ghe_server %} を評価するための 45 日間トライアルをリクエストできます。 トライアルは仮想アプライアンスとしてインストールされ、オンプレミスまたはクラウドでのデプロイメントのオプションがあります。 サポートされている仮想化プラットフォームの一覧については「[GitHub Enterprise Server インスタンスをセットアップする](/enterprise-server@latest/admin/installation/setting-up-a-github-enterprise-server-instance)」を参照してください。
 
-{% ifversion ghes %}{% data variables.product.prodname_dependabot %}{% else %}現在、セキュリティ{% endif %}アラートと {% data variables.product.prodname_github_connect %} は {% data variables.product.prodname_ghe_server %} のトライアルでは利用できません。 これらの機能のデモについては、{% data variables.contact.contact_enterprise_sales %} にお問い合わせください。 For more information about these features, see "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)" and "[Connecting your enterprise account to {% data variables.product.prodname_ghe_cloud %}](/enterprise-server@latest/admin/configuration/managing-connections-between-your-enterprise-accounts/connecting-your-enterprise-account-to-github-enterprise-cloud)."
+{% ifversion ghes %}{% data variables.product.prodname_dependabot %}{% else %}現在、セキュリティ{% endif %}アラートと {% data variables.product.prodname_github_connect %} は {% data variables.product.prodname_ghe_server %} のトライアルでは利用できません。 これらの機能のデモについては、{% data variables.contact.contact_enterprise_sales %} にお問い合わせください。 For more information about these features, see "[About {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)" and "[Connecting your enterprise account to {% data variables.product.prodname_ghe_cloud %}](/enterprise-server@latest/admin/configuration/managing-connections-between-your-enterprise-accounts/connecting-your-enterprise-account-to-github-enterprise-cloud)."
 
 {% data variables.product.prodname_ghe_cloud %} のトライアルも利用できます。 詳しい情報については、「[{% data variables.product.prodname_ghe_cloud %} のトライアルを設定する](/articles/setting-up-a-trial-of-github-enterprise-cloud)」を参照してください。
 
@@ -39,7 +39,7 @@ shortTitle: Enterprise Server trial
 
 1. [Organization を作成します](/enterprise-server@latest/admin/user-management/creating-organizations)。
 2. {% data variables.product.prodname_dotcom %} の基本的な使い方を学ぶには、次を参照してください:
-   - [Quick start guide to {% data variables.product.prodname_dotcom %}](https://resources.github.com/webcasts/Quick-start-guide-to-GitHub/) ウェブキャスト
+   - [Intro to {% data variables.product.prodname_dotcom %}](https://resources.github.com/devops/methodology/maximizing-devops-roi/) webcast
    - {% data variables.product.prodname_dotcom %} ガイドの [Understanding the {% data variables.product.prodname_dotcom %}flow](https://guides.github.com/introduction/flow/)
    - {% data variables.product.prodname_dotcom %} ガイドの [Hello World](https://guides.github.com/activities/hello-world/)
    - "[About versions of {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs)"

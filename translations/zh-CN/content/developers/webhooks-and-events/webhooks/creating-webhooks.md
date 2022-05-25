@@ -22,9 +22,9 @@ topics:
 
 ## 向互联网显示本地主机
 
-在本教程中，我们将使用本地服务器接收来自 {% data variables.product.prodname_dotcom %} 的消息。 因此，首先，我们需要将我们的本地发展环境显示给互联网。 我们将使用 ngrok 实现此目的。 所有主要操作系统均可免费使用 ngrok。 更多信息请参阅 [ngrok 下载页面](https://ngrok.com/download)。
+在本教程中，我们将使用本地服务器接收来自 {% data variables.product.prodname_dotcom %} 的消息。 因此，首先，我们需要将我们的本地发展环境显示给互联网。 我们将使用 ngrok 实现此目的。 所有主要操作系统均可免费使用 ngrok。 更多信息请参阅 [`ngrok` 下载页面](https://ngrok.com/download)。
 
-在安装 ngrok 后，您可以在命令行上运行 `./ngrok http 4567` 以暴露本地主机。 4567 是我们服务器侦听消息的端口号。 您应该会看到如下所示的行：
+在安装 `ngrok` 后，您可以在命令行上运行 `./ngrok http 4567` 以暴露本地主机。 4567 是我们服务器侦听消息的端口号。 您应该会看到如下所示的行：
 
 ```shell
 $ Forwarding    http://7e9ea9dc.ngrok.io -> 127.0.0.1:4567

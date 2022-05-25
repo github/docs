@@ -29,8 +29,8 @@ describe('mobile-only products nav', () => {
     // Enterprise server
     ['/en/enterprise/admin', 'Enterprise administrators'],
     [
-      '/en/enterprise/user/github/importing-your-projects-to-github/importing-source-code-to-github/importing-a-git-repository-using-the-command-line',
-      'GitHub',
+      '/en/enterprise/get-started/importing-your-projects-to-github/importing-source-code-to-github/importing-a-git-repository-using-the-command-line',
+      'Get started',
     ],
 
     ['/desktop', 'GitHub Desktop'],

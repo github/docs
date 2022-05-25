@@ -1,7 +1,7 @@
 ---
 title: GitHub REST API
 shortTitle: REST API
-intro: 'To create integrations, retrieve data, and automate your workflows, build with the {% data variables.product.prodname_dotcom %} REST API.'
+intro: '要创建集成、检索数据和自动化工作流程，请使用 {% data variables.product.prodname_dotcom %} REST API 构建。'
 introLinks:
   quickstart: /rest/guides/getting-started-with-the-rest-api
 featuredLinks:
@@ -24,6 +24,7 @@ changelog:
 layout: product-landing
 redirect_from:
   - /v3
+  - /rest/reference
 versions:
   fpt: '*'
   ghes: '*'
@@ -31,7 +32,49 @@ versions:
   ghec: '*'
 children:
   - /overview
-  - /reference
   - /guides
+  - /actions
+  - /activity
+  - /apps
+  - /billing
+  - /branches
+  - /checks
+  - /codes-of-conduct
+  - /code-scanning
+  - /codespaces
+  - /collaborators
+  - /commits
+  - /dependabot
+  - /dependency-graph
+  - /deploy-keys
+  - /deployments
+  - /emojis
+  - /enterprise-admin
+  - /gists
+  - /git
+  - /gitignore
+  - /interactions
+  - /issues
+  - /licenses
+  - /markdown
+  - /meta
+  - /metrics
+  - /migrations
+  - /oauth-authorizations
+  - /orgs
+  - /packages
+  - /pages
+  - /projects
+  - /pulls
+  - /rate-limit
+  - /reactions
+  - /releases
+  - /repos
+  - /scim
+  - /search
+  - /secret-scanning
+  - /teams
+  - /users
+  - /webhooks
 ---
 

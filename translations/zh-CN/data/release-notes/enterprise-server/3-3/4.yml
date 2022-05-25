@@ -1,0 +1,25 @@
+---
+date: '2022-02-17'
+sections:
+  security_fixes:
+    - It was possible for a user to register a user or organization named "saml".
+    - 包已更新到最新的安全版本。
+  bugs:
+    - GitHub Packages storage settings could not be validated and saved in the Management Console when Azure Blob Storage was used.
+    - The mssql.backup.cadence configuration option failed ghe-config-check with an invalid characterset warning.
+    - Fixes SystemStackError (stack too deep) when getting more than 2<sup>^16</sup> keys from memcached.
+    - A number of select menus across the site rendered incorrectly and were not functional.
+  changes:
+    - Dependency Graph can now be enabled without vulnerability data, allowing customers to see what dependencies are in use and at what versions. Enabling Dependency Graph without enabling GitHub Connect will *not* provide vulnerability information.
+    - Secret scanning will skip scanning ZIP and other archive files for secrets.
+  known_issues:
+    - After upgrading to {% data variables.product.prodname_ghe_server %} 3.3, {% data variables.product.prodname_actions %} may fail to start automatically. To resolve this issue, connect to the appliance via SSH and run the `ghe-actions-start` command.
+    - 在新建的没有任何用户的 {% data variables.product.prodname_ghe_server %} 实例上，攻击者可以创建第一个管理员用户。
+    - 自定义防火墙规则在升级过程中被删除。
+    - Git LFS 跟踪的文件[通过 Web 界面上传](https://github.com/blog/2105-upload-files-to-your-repositories) 被错误地直接添加到仓库。
+    - 如果议题包含文件路径长于 255 个字符的同一仓库中 blob 的永久链接，则议题无法关闭。
+    - 对 GitHub Connect 启用“用户可以搜索 GitHub.com”后，私有和内部仓库中的议题不包括在 GitHub.com 搜索结果中。
+    - '{% data variables.product.prodname_registry %} npm 注册表不再返回元数据响应的时间值。这样做是为了大幅改善性能。作为元数据响应的一部分，我们继续拥有返回时间值所需的所有数据，并将在我们解决现有性能问题后恢复返回这个值。'
+    - 特定于处理预接收挂钩的资源限制可能会导致某些预接收挂钩失败。
+    - '{% data variables.product.prodname_actions %} storage settings cannot be validated and saved in the {% data variables.enterprise.management_console %} when "Force Path Style" is selected, and must instead be configured with the `ghe-actions-precheck` command line utility.'
+    - '{% data variables.product.prodname_ghe_server %} 3.3 instances installed on Azure and provisioned with 32+ CPU cores would fail to launch, due to a bug present in the current Linux kernel. [Updated: 2022-04-08]'

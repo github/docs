@@ -1,19 +1,26 @@
 ---
-title: About monitoring and troubleshooting
-intro: 'You can use the tools in {% data variables.product.prodname_actions %} to monitor and debug your workflows.'
+title: 关于监控和疑难解答
+intro: '您可以使用 {% data variables.product.prodname_actions %} 中的工具来监控和调试工作流程。'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: About monitoring and troubleshooting
+shortTitle: 关于监控和疑难解答
 miniTocMaxHeadingLevel: 3
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## Monitoring your workflows
+## 监控工作流程
+
+{% if github-runner-dashboard %}
+### 监控组织或企业中的当前作业
+
+{% data reusables.actions.github-hosted-runners-check-concurrency %}
+
+{% endif %}
 
 {% ifversion fpt or ghae or ghes > 3.0 or ghec %}
 
@@ -23,7 +30,7 @@ miniTocMaxHeadingLevel: 3
 
    ![工作流程图表](/assets/images/help/images/workflow-graph.png)
 
-For more information, see "[Using the visualization graph](/actions/monitoring-and-troubleshooting-workflows/using-the-visualization-graph)."
+更多信息请参阅“[使用可视化图](/actions/monitoring-and-troubleshooting-workflows/using-the-visualization-graph)”。
 
 {% endif %}
 
@@ -36,7 +43,7 @@ For more information, see "[Using the visualization graph](/actions/monitoring-a
 {% ifversion fpt or ghec %}
 ### 查看作业执行时间
 
-To identify how long a job took to run, you can view its execution time. 例如：
+要确定作业运行所花费的时间，可以查看其执行时间。 例如：
 
    ![运行和可计费时间详细信息链接](/assets/images/help/repository/view-run-billable-time.png)
 
@@ -45,17 +52,17 @@ To identify how long a job took to run, you can view its execution time. 例如�
 
 ### 查看工作流程运行历史记录
 
-You can view the status of each job and step in a workflow. 例如：
+您可以查看工作流程中每个作业和步骤的状态。 例如：
 
    ![工作流程运行的名称](/assets/images/help/repository/run-name.png)
 
 更多信息请参阅“[查看工作流程运行历史记录](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)”。
 
-## Troubleshooting your workflows
+## 工作流程疑难解答
 
 ### 使用工作流程运行日志
 
-Each workflow run generates activity logs that you can view, search, and download. 例如：
+每个工作流程运行都会生成活动日志，您可以查看、搜索和下载这些日志。 例如：
 
    ![Super linter 工作流程结果](/assets/images/help/repository/super-linter-workflow-results-updated-2.png)
 
@@ -67,6 +74,6 @@ Each workflow run generates activity logs that you can view, search, and downloa
 
 ## 自托管运行器的监控和故障排除
 
-If you use self-hosted runners, you can view their activity and diagnose common issues.
+如果您使用自托管运行器，则可以查看其活动并诊断常见问题。
 
 更多信息请参阅“[自托管运行器监控和故障排除](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners)”。

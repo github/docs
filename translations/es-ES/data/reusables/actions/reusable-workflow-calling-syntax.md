@@ -1,0 +1,4 @@
+* `{owner}/{repo}/.github/workflows/{filename}@{ref}`{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6000 %} para los flujos de trabajo reutilizables en repositorios públicos {% ifversion ghes or ghec or ghae %}o internos{% endif %}.
+* `./.github/workflows/{filename}` para los flujos de trabajo reutilizables en el mismo repositorio.{% endif %}
+
+`{ref}` puede ser un SHA, una etiqueta de lanzamiento o un nombre de rama. Utilizar el SHA de la confirmación es lo más seguro para la estabilidad y seguridad. Para obtener más información, consulta la sección "[Fortalecimiento de la seguridad para las GitHub Actions](/actions/learn-github-actions/security-hardening-for-github-actions#reusing-third-party-workflows)". {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6000 %}Si utilizas la segunda opción de sintaxis (sin `{owner}/{repo}` ni `@{ref}`), el flujo de trabajo llamado será de la misma confirmación que el llamante.{% endif %}

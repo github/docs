@@ -24,7 +24,7 @@ Se sua organização [exigir integrantes, use a autenticação de dois fatores](
 {% endif %}
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.people %}
 {% data reusables.organizations.people_tab_outside_collaborators %}
 {% ifversion fpt or ghec %}

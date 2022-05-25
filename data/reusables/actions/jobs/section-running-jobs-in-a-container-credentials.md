@@ -8,6 +8,6 @@ container:
   image: ghcr.io/owner/image
   credentials:
      username: ${{ github.actor }}
-     password: ${{ secrets.ghcr_token }}
+     password: ${{ secrets.github_token }}
 ```
 {% endraw %}

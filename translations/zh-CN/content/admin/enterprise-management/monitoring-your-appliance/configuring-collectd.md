@@ -47,7 +47,7 @@ topics:
 
 ## 使用 `ghe-export-graphs` 导出 collectd 数据
 
-命令行工具 `ghe-export-graphs` 将导出 `collectd` 存储在 RRD 数据库中的数据。 此命令会将数据转换为 XML 格式并导出到一个 tarball (.tgz) 中。
+命令行工具 `ghe-export-graphs` 将导出 `collectd` 存储在 RRD 数据库中的数据。 此命令会将数据转换为 XML 格式并导出到一个 tarball (`.tgz`) 中。
 
 此文件的主要用途是为 {% data variables.contact.contact_ent_support %} 团队提供关于 VM 性能的数据（无需下载整个支持包）， 不应包含在常规备份导出范围中，也没有对应的导入文件。 如果您联系 {% data variables.contact.contact_ent_support %}，我们可能会要求您提供此数据，以便协助故障排查。
 

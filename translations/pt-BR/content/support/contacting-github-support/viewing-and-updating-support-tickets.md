@@ -1,7 +1,7 @@
 ---
-title: Viewing and updating support tickets
-intro: 'You can view your support tickets{% ifversion ghes or ghec %}, collaborate with colleagues on tickets,{% endif %} and respond to {% data variables.contact.github_support %} using the {% data variables.contact.support_portal %}.'
-shortTitle: Managing your tickets
+title: Visualizando e atualizando tíquetes de suporte
+intro: 'Você pode visualizar os seus tíquetes de suporte{% ifversion ghes or ghec %}, colaborar com colegas em tíquetes,{% endif %} e responder a {% data variables.contact.github_support %} usando o {% data variables.contact.support_portal %}.'
+shortTitle: Gerenciando seus tíquetes
 versions:
   fpt: '*'
   ghec: '*'
@@ -10,37 +10,37 @@ topics:
   - Support
 ---
 
-## About ticket management
+## Sobre gestão de tíquetes
 
 {% data reusables.support.zendesk-old-tickets %}
 
-You can use the [GitHub Support Portal](https://support.github.com/) to view current and past support tickets and respond to {% data variables.contact.github_support %}.
+Você pode usar o [Portal de Suporte do GitHub](https://support.github.com/) para visualizar os tíquetes atuais e anteriores e responder a {% data variables.contact.github_support %}.
 
 {% ifversion ghes or ghec %}
 {% data reusables.enterprise-accounts.support-entitlements %}
 {% endif %}
 
-## Viewing your support tickets
+## Visualizando seus tíquetes de suporte
 
 {% data reusables.support.view-open-tickets %}
-1. Under the text box, you can read the comment history. The most recent response is at the top. ![Screenshot of support ticket comment history, with the most recent response at the top.](/assets/images/help/support/support-recent-response.png)
+1. Na caixa de texto, você pode ler o histórico de comentários. A resposta mais recente está na parte superior. ![Captura de tela do histórico de comentários do tíquete com a resposta mais recente na parte superior.](/assets/images/help/support/support-recent-response.png)
 
-## Updating support tickets
+## Atualizando suporte a tíquetes
 
 {% data reusables.support.view-open-tickets %}
-1. Optionally, if the issue is resolved, under the text box, click **Close ticket**. ![Screenshot showing location of the "Close ticket" button.](/assets/images/help/support/close-ticket.png)
-1. To respond to GitHub Support and add a new comment to the ticket, type your response in the text box. ![Screenshot of the "Add a comment" text field.](/assets/images/help/support/new-comment-field.png)
-1. To add your comment to the ticket, click **Comment**. ![Screenshot of the "Comment" button.](/assets/images/help/support/add-comment.png)
+1. Opcionalmente, se o problema for resolvido, na caixa de texto, clique em **Fechar tíquete**. ![Captura de tela que mostra a localização do botão "Fechar tíquete".](/assets/images/help/support/close-ticket.png)
+1. Para responder ao suporte do GitHub e adicionar um novo comentário ao tíquete, digite sua resposta na caixa de texto. ![Captura de tela do campo de texto "Adicionar um comentário".](/assets/images/help/support/new-comment-field.png)
+1. Para adicionar o seu comentário ao tíquete, clique em **Comentário**. ![Captura de tela do botão "Comentário"](/assets/images/help/support/add-comment.png)
 
 {% ifversion ghec or ghes %}
-## Collaborating on support tickets
+## Colaborando nos tíquetes de suporte
 
-You can collaborate with your colleagues on support tickets using the support portal. Owners, billing managers, and other enterprise members with support entitlements can view tickets associated with an enterprise account or an organization managed by an enterprise account. Para obter mais informações, consulte "[Gerenciar direitos de suporte para a sua empresa](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise)".
+Você pode colaborar com seus colegas nos tíquetes de suporte usando o portal de suporte. Proprietários, gerentes de cobrança e outros integrantes da empresa com direitos de suporte podem ver tíquetes associados a uma conta corporativa ou a uma organização gerenciada por uma conta corporativa. Para obter mais informações, consulte "[Gerenciar direitos de suporte para a sua empresa](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise)".
 
-In addition to viewing tickets, you can also add comments to support tickets if your email address is copied on the ticket or if the person who opened the ticket used an email address with a domain that is verified for the enterprise account or organization managed by an enterprise account. For more information about verifying a domain, see "[Verifying or approving a domain for your enterprise](/enterprise-cloud@latest/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)" and "[Verifying or approving a domain for your organization](/enterprise-cloud@latest/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)."
+Além de visualizar os tíquetes, você também pode adicionar comentários para apoiar os tíquetes se seu endereço de e-mail foi copiado no tíquete ou se a pessoa que abriu o tíquete usou um endereço de e-mail com um domínio verificado para a conta corporativa ou organização gerenciada por uma conta corporativa. Para obter mais informações sobre a verificação de um domínio, consulte "[Verificando ou aprovando um domínio para sua empresa](/enterprise-cloud@latest/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)" e "[Verificando ou aprovando um domínio para sua organização](/enterprise-cloud@latest/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)".
 
 {% endif %}
 
 ## Leia mais
 
-- "[About GitHub Support](/support/learning-about-github-support/about-github-support)"
+- "[Sobre o suporte do GitHub](/support/learning-about-github-support/about-github-support)"

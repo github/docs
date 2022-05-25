@@ -32,6 +32,7 @@ topics:
 - コード検索では、_デフォルトブランチ_のみインデックスされます。{% ifversion fpt or ghec %}
 - 384 KB より小さいファイルのみ検索可能です。{% else %}* 5 MB より小さいファイルのみ検索可能です。
 - 各ファイルの最初の 500 KB のみ検索可能です。{% endif %}
+- Up to 4,000 private{% ifversion ghec or ghes or ghae %} and internal{% endif %} repositories are searchable. These 4,000 repositories will be the most recently updated of the first 10,000 private{% ifversion ghec or ghes or ghae %} and internal{% endif %} repositories that you have access to.
 - 500,000 ファイル未満のリポジトリのみが検索可能です。{% ifversion fpt or ghec %}
 - 昨年アクティビティがあった、または検索結果に返されたリポジトリのみが検索可能です。{% endif %}
 - [`filename`](#search-by-filename) の検索を除き、ソースコードを検索する場合、常に少なくとも検索単語を 1 つ含める必要があります。 たとえば[`language:javascript`](https://github.com/search?utf8=%E2%9C%93&q=language%3Ajavascript&type=Code&ref=searchresults) は有効な検索ではありませんが、[`amazing language:javascript`](https://github.com/search?utf8=%E2%9C%93&q=amazing+language%3Ajavascript&type=Code&ref=searchresults) は有効な検索です。
@@ -62,14 +63,13 @@ topics:
 
 リポジトリの特定の場所に表示されているソースコードを探すには、`path` 修飾子を使います。 リポジトリの root レベルにあるファイルを検索するには、`path:/` を使います。 または、ディレクトリやそのサブディレクトリ内に存在しているファイルを検索するには、ディレクトリ名もしくはディレクトリへのパスを明示してください。
 
-| 修飾子                        | サンプル                                                                                                                                                                                                                                                                                                                             |
-| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>path:/</code>  | [**octocat filename:readme path:/**](https://github.com/search?utf8=%E2%9C%93&q=octocat+filename%3Areadme+path%3A%2F&type=Code) は、リポジトリの root レベルに存在する 「octocat」という単語がある _readme_ ファイルにマッチします。                                                                                                                                   |
-| <code>path:<em>DIRECTORY</em></code>  | [**form path:cgi-bin language:perl**](https://github.com/search?q=form+path%3Acgi-bin+language%3Aperl&type=Code) matches Perl files with the word "form" in the <em>cgi-bin</em> directory, or in any of its subdirectories.                                                                                              |
-| <code>path:<em>PATH/TO/DIRECTORY</em></code> | [**console path:app/public language:javascript**](https://github.com/search?q=console+path%3A%22app%2Fpublic%22+language%3Ajavascript&type=Code) matches JavaScript files with the word "console" in the <em>app/public</em> directory, or in any of its subdirectories (even if they reside in <em>app/public/js/form-validators</em>). |
+| 修飾子                        | サンプル                                                                                                                                                                                                                                                                                                                               |
+| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>path:/</code>  | [**octocat filename:readme path:/**](https://github.com/search?utf8=%E2%9C%93&q=octocat+filename%3Areadme+path%3A%2F&type=Code) は、リポジトリの root レベルに存在する 「octocat」という単語がある _readme_ ファイルにマッチします。                                                                                                                                     |
+| <code>path:<em>DIRECTORY</em></code>  | [**form path:cgi-bin language:perl**](https://github.com/search?q=form+path%3Acgi-bin+language%3Aperl&type=Code) matches Perl files with the word "form" in the <em>cgi-bin</em> directory, or in any of its subdirectories.                                                                                                |
+| <code>path:<em>PATH/TO/DIRECTORY</em></code> | [**`console path:app/public language:javascript`**](https://github.com/search?q=console+path%3A%22app%2Fpublic%22+language%3Ajavascript&type=Code) matches JavaScript files with the word "console" in the <em>app/public</em> directory, or in any of its subdirectories (even if they reside in <em>app/public/js/form-validators</em>). |
 
 ## 言語で検索
-<!-- If you make changes to this feature, update /getting-started-with-github/github-language-support to reflect any changes. -->
 
 コードが書かれた言語で検索することができます。 The `language` qualifier can be the language name or alias. For a full list of supported languages with their names and aliases, see the [github/linguist repository](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml).
 

@@ -1,1 +1,1 @@
-4. 左のサイドバーで**Repository roles（リポジトリのロール）**をクリックしてください。 ![Organization設定のリポジトリロールタブ](/assets/images/help/organizations/org-settings-repository-roles.png)
+1. In the "Access" section of the sidebar, click **{% octicon "id-badge" aria-label="The ID badge icon" %} Repository roles**.

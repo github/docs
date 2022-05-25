@@ -1,6 +1,6 @@
 ---
 title: 参与项目
-intro: Learn how to contribute to a project through forking.
+intro: 了解如何通过复刻参与项目。
 permissions: '{% data reusables.enterprise-accounts.emu-permission-fork %}'
 versions:
   fpt: '*'
@@ -14,25 +14,25 @@ topics:
   - Open Source
 ---
 
-## About forking
+## 关于复刻
 
-After using GitHub by yourself for a while, you may find yourself wanting to contribute to someone else’s project. Or maybe you’d like to use someone’s project as the starting point for your own. This process is known as forking.
+在自己使用 GitHub 一段时间后，您可能会发现自己也想参与别人的项目。 或者，也许您想使用某人的项目作为自己项目的起点。 此过程称为复刻。
 
-Creating a "fork" is producing a personal copy of someone else's project. Forks act as a sort of bridge between the original repository and your personal copy. You can submit pull requests to help make other people's projects better by offering your changes up to the original project. Forking is at the core of social coding at GitHub. 更多信息请参阅“[复刻仓库](/get-started/quickstart/fork-a-repo)”。
+创建“复刻”就是生成他人项目的个人副本。 复刻可作为原始存储库和个人副本之间的桥梁。 您可以提交拉取请求，通过提供对原始项目的更改来帮助改善其他人的项目。 复刻是 GitHub 社交编码的核心。 更多信息请参阅“[复刻仓库](/get-started/quickstart/fork-a-repo)”。
 
 ## 复刻仓库
 
-This tutorial uses [the Spoon-Knife project](https://github.com/octocat/Spoon-Knife), a test repository that's hosted on {% data variables.product.prodname_dotcom_the_website %} that lets you test the fork and pull request workflow.
+本教程使用 [Spoon-Knife 项目](https://github.com/octocat/Spoon-Knife)，这是一个托管在 {% data variables.product.prodname_dotcom_the_website %} 上的测试存储库，可让您测试复刻和拉取请求工作流程。
 
-1. Navigate to the `Spoon-Knife` project at https://github.com/octocat/Spoon-Knife.
-2. Click **Fork**. ![复刻按钮](/assets/images/help/repository/fork_button.jpg)
-1. {% data variables.product.product_name %} will take you to your copy (your fork) of the Spoon-Knife repository.
+1. 导航到 `Spoon-Knife` project at https://github.com/octocat/Spoon-Knife。
+2. 单击 **Fork（复刻）**。 ![复刻按钮](/assets/images/help/repository/fork_button.jpg)
+1. {% data variables.product.product_name %} 将带您进入 Spoon-Knife 存储库的副本（您的复刻）。
 
-## Cloning a fork
+## 克隆复刻
 
-You've successfully forked the Spoon-Knife repository, but so far, it only exists on {% data variables.product.product_name %}. To be able to work on the project, you will need to clone it to your computer.
+您已经成功复刻了 Spoon-Knife 存储库，但到目前为止，它仅存在于 {% data variables.product.product_name %} 上。 为了能够处理该项目，您需要将其克隆到您的计算机。
 
-You can clone your fork with the command line, {% data variables.product.prodname_cli %}, or {% data variables.product.prodname_desktop %}.
+您可以使用命令行、{% data variables.product.prodname_cli %} 或 {% data variables.product.prodname_desktop %} 克隆复刻。
 
 {% webui %}
 
@@ -79,11 +79,11 @@ gh repo fork <em>repository</em> --clone=true
 
 {% enddesktop %}
 
-## Making and pushing changes
+## 创建和推送更改
 
-Go ahead and make a few changes to the project using your favorite text editor, like [Atom](https://atom.io). You could, for example, change the text in `index.html` to add your GitHub username.
+继续使用您喜欢的文本编辑器对项目进行一些更改，例如 [Atom](https://atom.io)。 例如，您可以更改 `index.html` 中的文本以添加您的 GitHub 用户名。
 
-When you're ready to submit your changes, stage and commit your changes. `git add .` tells Git that you want to include all of your changes in the next commit. `git commit` takes a snapshot of those changes.
+当您准备好提交更改时，请暂存并提交更改。 `git add .` 告诉 Git 您希望在下一次提交中包含所有更改。 `git commit` 会拍摄这些更改的快照。
 
 {% webui %}
 
@@ -105,13 +105,13 @@ git commit -m "a short description of the change"
 
 {% desktop %}
 
-For more information about how to stage and commit changes in {% data variables.product.prodname_desktop %}, see "[Committing and reviewing changes to your project](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project#selecting-changes-to-include-in-a-commit)."
+有关如何在 {% data variables.product.prodname_desktop %} 中暂存和提交更改的详细信息，请参阅“[提交和审阅对项目的更改](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project#selecting-changes-to-include-in-a-commit)”。
 
 {% enddesktop %}
 
-When you stage and commit files, you essentially tell Git, "Okay, take a snapshot of my changes!" You can continue to make more changes, and take more commit snapshots.
+暂存和提交文件时，您主要是告诉 Git：“好吧，拍摄我的更改快照！” 您可以继续进行更多更改，并拍摄更多提交快照。
 
-Right now, your changes only exist locally. When you're ready to push your changes up to {% data variables.product.product_name %}, push your changes to the remote.
+目前，您的更改仅存在于本地。 当您准备好将更改推送到 {% data variables.product.product_name %} 时，请将更改推送到远程。
 
 {% webui %}
 
@@ -131,24 +131,24 @@ git push
 
 {% desktop %}
 
-For more information about how to push changes in {% data variables.product.prodname_desktop %}, see "[Pushing changes to GitHub](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/pushing-changes-to-github)."
+有关如何在 {% data variables.product.prodname_desktop %} 中推送更改的详细信息，请参阅“[将更改推送到 GitHub](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/pushing-changes-to-github)”。
 
 {% enddesktop %}
 
-## Making a pull request
+## 创建拉取请求
 
-At last, you're ready to propose changes into the main project! This is the final step in producing a fork of someone else's project, and arguably the most important. If you've made a change that you feel would benefit the community as a whole, you should definitely consider contributing back.
+最后，您可以对主项目提出更改建议了！ 这是产生他人项目复刻的最后一步，可以说是最重要的一步。 如果您做了您认为有益于整个社区的改变，绝对应该考虑回馈社区。
 
-To do so, head on over to the repository on {% data variables.product.product_name %} where your project lives. For this example, it would be at `https://www.github.com/<your_username>/Spoon-Knife`. You'll see a banner indicating that your branch is one commit ahead of `octocat:main`. Click **Contribute** and then **Open a pull request**.
+为此，请转到项目所在的 {% data variables.product.product_name %} 存储库。 对于此示例，它将位于 `https://www.github.com/<your_username>/Spoon-Knife`。 您将看到一个横幅，指示您的分支是 `octocat:main` 之前的一个提交。 单击 **Contribute（贡献）**，然后单击 **Open a pull request（打开拉取请求）**。
 
-{% data variables.product.product_name %} will bring you to a page that shows the differences between your fork and the `octocat/Spoon-Knife` repository. 单击 **Create pull request（创建拉取请求）**。
+{% data variables.product.product_name %} 将带您进入一个页面，其中显示了您的复刻与 `octocat/Spoon-Knife` 存储库之间的差异。 单击 **Create pull request（创建拉取请求）**。
 
-{% data variables.product.product_name %} will bring you to a page where you can enter a title and a description of your changes. It's important to provide as much useful information and a rationale for why you're making this pull request in the first place. The project owner needs to be able to determine whether your change is as useful to everyone as you think it is. Finally, click **Create pull request**.
+{% data variables.product.product_name %} 将带您进入一个页面，您可以在其中输入更改的标题和说明。 重要的是要提供尽可能多的有用信息，在首要位置说明您提出此拉取请求的理由。 项目所有者需要能够确定您的更改是否像您认为的那样对每个人都有用。 最后，单击 **Create pull request（创建拉取请求）**。
 
-## Managing feedback
+## 管理反馈
 
-Pull Requests are an area for discussion. In this case, the Octocat is very busy, and probably won't merge your changes. For other projects, don't be offended if the project owner rejects your pull request, or asks for more information on why it's been made. It may even be that the project owner chooses not to merge your pull request, and that's totally okay. Your copy will exist in infamy on the Internet. And who knows--maybe someone you've never met will find your changes much more valuable than the original project.
+拉取请求是一个讨论区域。 在这种情况下，Octocat 非常繁忙，可能不会合并您的更改。 对于其他项目，如果项目所有者拒绝您的拉取请求，或者要求提供有关请求原因的更多信息，请不要生气。 甚至可能是项目所有者选择不合并您的拉取请求，这完全没问题。 您的副本将存在于互联网上。 谁知道呢 - 也许您从未见过的人会发现您的更改比原始项目更有价值。
 
-## Finding projects
+## 查找项目
 
-You've successfully forked and contributed back to a repository. Go forth, and contribute some more!{% ifversion fpt %} For more information, see "[Finding ways to contribute to open source on GitHub](/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github)."{% endif %}
+您已成功复刻并回馈存储库。 去吧， 再贡献一些！{% ifversion fpt %} 更多信息请参阅“[在 GitHub上查找为开源做出贡献的方法](/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github)”。{% endif %}

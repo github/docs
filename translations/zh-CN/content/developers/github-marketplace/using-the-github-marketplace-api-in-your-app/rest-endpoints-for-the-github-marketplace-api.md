@@ -28,6 +28,6 @@ shortTitle: REST API
 
 {% note %}
 
-**注：**[REST API 的速率限制](/rest#rate-limiting)适用于所有 {% data variables.product.prodname_marketplace %} API 端点。
+**注：**[REST API 的速率限制](/rest/overview/resources-in-the-rest-api#rate-limiting)适用于所有 {% data variables.product.prodname_marketplace %} API 端点。
 
 {% endnote %}

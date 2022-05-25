@@ -5,7 +5,7 @@ Use the `paths` filter when you want to include file path patterns or when you w
 
 If you define both `branches`/`branches-ignore` and `paths`, the workflow will only run when both filters are satisfied.
 
-The `paths` and `paths-ignore` keywords accept glob patterns that use the `*` and `**` wildcard characters to match more than one path name. For more information, see the "[Filter pattern cheat sheet]/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)."
+The `paths` and `paths-ignore` keywords accept glob patterns that use the `*` and `**` wildcard characters to match more than one path name. 更多信息请参阅“[过滤器模式备忘清单](/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)”。
 
 #### 示例：包括路径
 
@@ -17,6 +17,12 @@ on:
     paths:
       - '**.js'
 ```
+
+{% note %}
+
+**注意：**如果由于[路径过滤](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore)、 [分支过滤](/actions/using-workflows/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore)或[提交消息](/actions/managing-workflow-runs/skipping-workflow-runs)而跳过工作流程，则与该工作流程关联的检查将保持“挂起”状态。 需要这些检查成功的拉取请求将被阻止合并。 For more information, see "[Handling skipped but required checks](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/troubleshooting-required-status-checks#handling-skipped-but-required-checks)."
+
+{% endnote %}
 
 #### Example: Excluding paths
 
@@ -52,7 +58,7 @@ on:
       - '!sub-project/docs/**'
 ```
 
-### Git 差异比较
+#### Git 差异比较
 
 {% note %}
 

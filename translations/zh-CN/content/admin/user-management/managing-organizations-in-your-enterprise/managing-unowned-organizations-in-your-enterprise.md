@@ -1,5 +1,5 @@
 ---
-title: Managing unowned organizations in your enterprise
+title: 管理企业中没有所有者的组织
 intro: 您可以成为企业帐户中目前没有所有者的组织的所有者。
 permissions: Enterprise owners can manage unowned organizations in an enterprise account.
 redirect_from:

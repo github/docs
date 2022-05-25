@@ -1,9 +1,9 @@
 ---
 title: Restringindo o acesso aos tipos de máquina
-shortTitle: Tipo de máquina acesso
+shortTitle: Restringir tipos de máquinas
 intro: Você pode definir restrições sobre os tipos de máquinas que os usuários podem escolher ao criarem os codespaces na sua organização.
 product: '{% data reusables.gated-features.codespaces %}'
-permissions: 'To manage access to machine types for the repositories in an organization, you must be an organization owner.'
+permissions: 'To manage access to machine types for the repositories in an organization, you must be an owner of the organization.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -20,7 +20,7 @@ Como proprietário da organização, você deverá configurar restrições sobre
 
 ### Comportamento quando você define uma restrição de tipo de máquina
 
-Se houver codespaces que já não estiverem em conformidade com uma política que você definiu, estes codespaces continuarão a funcionar até serem desativados. Quando o usuário tenta restabelecer o codespace, é exibida uma mensagem que diz que o tipo de máquina selecionada não é mais permitido para esta organização e o incentiva a escolher um tipo de máquina alternativo.
+Se houver códigos que não estiverem mais de acordo com uma política que você definiu, estes códigos continuarão a funcionar até que sejam interrompidos ou expirados. Quando o usuário tenta restabelecer o codespace, é exibida uma mensagem que diz que o tipo de máquina selecionada não é mais permitido para esta organização e o incentiva a escolher um tipo de máquina alternativo.
 
 Se você remover mais tipos de máquina de especificação exigidos pela configuração de {% data variables.product.prodname_codespaces %} para um repositório individual na organização, não será possível criar um codespace para esse repositório. Quando alguém tentar criar um codespace, verá uma mensagem dizendo que não há tipos de máquina válidos disponíveis que atendam aos requisitos da configuração de {% data variables.product.prodname_codespaces %} do repositório.
 
@@ -47,13 +47,7 @@ Se você adicionar uma política para toda a organização, você deverá config
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% data reusables.organizations.click-codespaces %}
-1. Em "Codedespaces", clique em **Política**.
-
-   ![Aba "Política" na barra lateral esquerda](/assets/images/help/organizations/codespaces-policy-sidebar.png)
-
-1. Na página "Políticas do codespace", clique em **Criar política**.
-1. Insira um nome para sua nova política.
+{% data reusables.codespaces.codespaces-org-policies %}
 1. Clique **Adicionar restrição** e escolha **Tipos de máquina**.
 
    ![Adicionar uma restrição para os tipos de máquina](/assets/images/help/codespaces/add-constraint-dropdown.png)
@@ -62,21 +56,12 @@ Se você adicionar uma política para toda a organização, você deverá config
 
    ![Editar a restrição de tipo de máquina](/assets/images/help/codespaces/edit-machine-constraint.png)
 
-1. Na área "Alterar destino da política", clique no botão suspenso.
-1. Selecione **Todos os repositórios** ou **Repositórios selecionados** para determinar em quais repositórios esta política será aplicada.
-1. Se você escolheu **repositórios selecionados**:
-   1. Clique em {% octicon "gear" aria-label="The settings icon" %}.
-
-      ![Editar as configurações da política](/assets/images/help/codespaces/policy-edit.png)
-
-   1. Selecione os repositórios aos quais você quer que esta política seja aplicada.
-   1. Na parte inferior da lista de repositórios, clique em **Selecionar repositórios**.
-
-      ![Selecionar repositórios para esta política](/assets/images/help/codespaces/policy-select-repos.png)
-
-1. Clique em **Salvar**.
-
+{% data reusables.codespaces.codespaces-policy-targets %}
+1. Se você quiser adicionar outra restrição à política, clique em **Adicionar restrição** e escolha outra restrição. Para informações sobre outras restrições, consulte "[Restringindo a visibilidade das portas encaminhadas](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)" e "[Restringindo o período de tempo ocioso](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period). "
+1. Após terminar de adicionar restrições à sua política, clique em **Salvar**.
 ## Editando uma política
+
+Você pode editar uma política existente. Por exemplo, você deve adicionar ou remover restrições de uma política.
 
 1. Exibir a página "Políticas de codespaces". Para obter mais informações, consulte "[Adicionar uma política para limitar os tipos de máquina disponíveis](#adding-a-policy-to-limit-the-available-machine-types)".
 1. Clique no nome da política que você deseja editar.

@@ -16,6 +16,7 @@ import chalk from 'chalk'
 import shortVersions from '../middleware/contextualizers/short-versions.js'
 import contextualize from '../middleware/context.js'
 import { languageKeys } from '../lib/languages.js'
+import getRedirect from '../lib/get-redirect.js'
 import warmServer from '../lib/warm-server.js'
 import renderContent from '../lib/render-content/index.js'
 import { deprecated } from '../lib/enterprise-server-releases.js'
@@ -389,8 +390,8 @@ function checkHrefLink(href, $, redirects, pageMap, checkAnchors = false) {
         if (!fs.existsSync(staticFilePath)) {
           return { CRITICAL: `Static file not found ${staticFilePath} (${pathname})` }
         }
-      } else if (redirects[pathname]) {
-        return { WARNING: `Redirect to ${redirects[pathname]}` }
+      } else if (getRedirect(pathname, { redirects, pages: pageMap })) {
+        return { WARNING: `Redirect to ${getRedirect(pathname, { redirects, pages: pageMap })}` }
       } else if (!pageMap[pathname]) {
         if (deprecatedVersionPrefixesRegex.test(pathname)) {
           return

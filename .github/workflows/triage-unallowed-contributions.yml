@@ -7,10 +7,10 @@ name: Check unallowed file changes
 on:
   pull_request_target:
     paths:
+      - '.devcontainer/**'
       - '.github/actions-scripts/**'
       - '.github/workflows/**'
       - '.github/CODEOWNERS'
-      - 'app.json'
       - 'assets/fonts/**'
       - 'data/graphql/**'
       - 'Dockerfile*'
@@ -20,9 +20,9 @@ on:
       - 'lib/webhooks/**'
       - 'lib/search/indexes/**'
       - 'package*.json'
-      - 'Procfile'
       - 'script/**'
       - 'translations/**'
+      - 'content/actions/deployment/security-hardening-your-deployments/**'
 
 permissions:
   pull-requests: write
@@ -55,10 +55,10 @@ jobs:
             openapi:
               - 'lib/rest/static/**'
             notAllowed:
+              - '.devcontainer/**'
               - '.github/actions-scripts/**'
               - '.github/workflows/**'
               - '.github/CODEOWNERS'
-              - 'app.json'
               - 'assets/fonts/**'
               - 'data/graphql/**'
               - 'Dockerfile*'
@@ -68,9 +68,9 @@ jobs:
               - 'lib/webhooks/**'
               - 'lib/search/indexes/**'
               - 'package*.json'
-              - 'Procfile'
               - 'scripts/**'
               - 'translations/**'
+              - 'content/actions/deployment/security-hardening-your-deployments/**'
 
       # When there are changes to files we can't accept, leave a comment
       # explaining this to the PR author
@@ -80,10 +80,10 @@ jobs:
         with:
           script: |
             const badFilesArr = [
+              '.devcontainer/**',
               '.github/actions-scripts/**',
               '.github/workflows/**',
               '.github/CODEOWNERS',
-              'app.json',
               'assets/fonts/**',
               'data/graphql/**',
               'Dockerfile*',
@@ -93,9 +93,9 @@ jobs:
               'lib/webhooks/**',
               'lib/search/indexes/**',
               'package*.json',
-              'Procfile',
               'scripts/**',
               'translations/**',
+              'content/actions/deployment/security-hardening-your-deployments/**',
             ]
 
             const badFiles = badFilesArr.join('\n')
@@ -111,7 +111,7 @@ jobs:
                 body: reviewMessage,
               })
 
-              workflowFailMessage = `${workflowFailMessage} Please see ${createdComment.data.html_url} for details.` 
+              workflowFailMessage = `${workflowFailMessage} Please see ${createdComment.data.html_url} for details.`
             } catch(err) {
               console.log("Error creating comment.", err)
             }

@@ -50,7 +50,7 @@ GitHubは、変更が有効になるとwebhookを送信します。 たとえば
 
 アップグレードURLを使い、ユーザをアプリケーションのUIからGitHub上でのアップグレードへリダイレクトできます。
 
-```
+```text
 https://www.github.com/marketplace/<LISTING_NAME>/upgrade/<LISTING_PLAN_NUMBER>/<CUSTOMER_ACCOUNT_ID>
 ```
 

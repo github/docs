@@ -55,14 +55,11 @@ shortTitle: Search issues & PRs
 
 {% data reusables.pull_requests.large-search-workaround %}
 
-
 | 修飾子                       | サンプル                                                                                                                                                                                                       |
 | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | <code>user:<em>USERNAME</em></code> | [**user:defunkt ubuntu**](https://github.com/search?q=user%3Adefunkt+ubuntu&type=Issues) は、@defunkt が保有するリポジトリからの「ubuntu」という単語がある Issue にマッチします。                                                           |
 | <code>org:<em>ORGNAME</em></code> | [**org:github**](https://github.com/search?q=org%3Agithub&type=Issues&utf8=%E2%9C%93) は、GitHub Organization が保有するリポジトリの Issue にマッチします。                                                                     |
 | <code>repo:<em>USERNAME/REPOSITORY</em></code> | [**repo:mozilla/shumway created:<2012-03-01**](https://github.com/search?q=repo%3Amozilla%2Fshumway+created%3A%3C2012-03-01&type=Issues) は、2012 年 3 月より前に作成された @mozilla の shumway プロジェクトからの Issue にマッチします。 |
-
-
 
 ## オープンかクローズかで検索
 
@@ -103,18 +100,18 @@ shortTitle: Search issues & PRs
 
 `mentions` 修飾子は、特定のユーザーにメンションしている Issue を表示します。 詳細は「[人およびチームにメンションする](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)」を参照してください。
 
-| 修飾子                       | サンプル                                                                                                                                                  |
-| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>mentions:<em>USERNAME</em></code> | [**resque mentions:defunkt**](https://github.com/search?q=resque+mentions%3Adefunkt&type=Issues) は、@defunkt にメンションしている「resque」という単語がある Issue にマッチします。 |
+| 修飾子                       | サンプル                                                                                                                                                            |
+| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>mentions:<em>USERNAME</em></code> | [**`resque mentions:defunkt`**](https://github.com/search?q=resque+mentions%3Adefunkt&type=Issues) matches issues with the word "resque" that mention @defunkt. |
 
 ## Team メンションで検索
 
 あなたが属する Organization および Team について、 `team` 修飾子により、Organization 内の一定の Team に @メンションしている Issue またはプルリクエストを表示します。 検索を行うには、これらのサンプルの名前をあなたの Organization および Team の名前に置き換えてください。
 
-| 修飾子                       | サンプル                                                                                 |
-| ------------------------- | ------------------------------------------------------------------------------------ |
-| <code>team:<em>ORGNAME/TEAMNAME</em></code> | **team:jekyll/owners** は、`@jekyll/owners` Team がメンションされている Issue にマッチします。            |
-|                           | **team:myorg/ops is:open is:pr** は、`@myorg/ops` Team がメンションされているオープンなプルリクエストにマッチします。 |
+| 修飾子                       | サンプル                                                                                  |
+| ------------------------- | ------------------------------------------------------------------------------------- |
+| <code>team:<em>ORGNAME/TEAMNAME</em></code> | **`team:jekyll/owners`** matches issues where the `@jekyll/owners` team is mentioned. |
+|                           | **team:myorg/ops is:open is:pr** は、`@myorg/ops` Team がメンションされているオープンなプルリクエストにマッチします。  |
 
 ## コメントした人で検索
 
@@ -133,17 +130,15 @@ shortTitle: Search issues & PRs
 | <code>involves:<em>USERNAME</em></code> | **[involves:defunkt involves:jlord](https://github.com/search?q=involves%3Adefunkt+involves%3Ajlord&type=Issues)** は、@defunkt または @jlord が関与している Issue にマッチします。               |
 |                           | [**NOT bootstrap in:body involves:mdo**](https://github.com/search?q=NOT+bootstrap+in%3Abody+involves%3Amdo&type=Issues)は、本文に「bootstrap」という単語を含まず、@mdo が関与している Issue にマッチします。 |
 
-{% ifversion fpt or ghes or ghae or ghec %}
 ## リンクされた Issue とプルリクエストを検索する
 結果を絞り込んで、クローズしているリファレンスによってプルリクエストにリンクされている、またはプルリクエストによってクローズされる可能性がある Issue にリンクされている Issue のみを表示することができます。
 
-| 修飾子             | サンプル                                                                                                                                                                                                                                     |
-| --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `linked:pr`     | [**repo:desktop/desktop is:open linked:pr**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aopen+linked%3Apr) は、`desktop/desktop` リポジトリの中で、クローズしているリファレンスによってプルリクエストにリンクされている Issue に一致します。                                   |
-| `linked:issue`  | [**repo:desktop/desktop is:closed linked:issue**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aclosed+linked%3Aissue) は、 `desktop/desktop` リポジトリの中で、プルリクエストによってクローズされた可能性がある Issue にリンクされていた、クローズされたプルリクエストに一致します。          |
-| `-linked:pr`    | [**repo:desktop/desktop is:open linked:pr**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aopen+-linked%3Apr) は、`desktop/desktop` リポジトリの中で、クローズしているリファレンスによってプルリクエストにリンクされていない Issue に一致します。                                 |
-| `-linked:issue` | [**repo:desktop/desktop is:open -linked:issue**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aopen+-linked%3Aissue) は、 `desktop/desktop` リポジトリの中で、プルリクエストによってクローズされる可能性がある Issue にリンクされていないオープンのプルリクエストに一致します。 
-{% endif %}
+| 修飾子             | サンプル                                                                                                                                                                                                                            |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `linked:pr`     | [**repo:desktop/desktop is:open linked:pr**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aopen+linked%3Apr) は、`desktop/desktop` リポジトリの中で、クローズしているリファレンスによってプルリクエストにリンクされている Issue に一致します。                          |
+| `linked:issue`  | [**repo:desktop/desktop is:closed linked:issue**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aclosed+linked%3Aissue) は、 `desktop/desktop` リポジトリの中で、プルリクエストによってクローズされた可能性がある Issue にリンクされていた、クローズされたプルリクエストに一致します。 |
+| `-linked:pr`    | [**repo:desktop/desktop is:open linked:pr**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aopen+-linked%3Apr) は、`desktop/desktop` リポジトリの中で、クローズしているリファレンスによってプルリクエストにリンクされていない Issue に一致します。                        |
+| `-linked:issue` | [**repo:desktop/desktop is:open -linked:issue**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aopen+-linked%3Aissue) は、 `desktop/desktop` リポジトリの中で、プルリクエストによってクローズされる可能性がある Issue にリンクされていないオープンのプルリクエストに一致します。     |
 
 ## ラベルで検索
 
@@ -176,7 +171,7 @@ shortTitle: Search issues & PRs
 
 ## コミットステータスで検索
 
-コミットのステータスでプルリクエストをフィルタリングできます。 [ステータス API](/rest/reference/repos#statuses) または CI サービスを使っている場合、特に役立ちます。
+コミットのステータスでプルリクエストをフィルタリングできます。 This is especially useful if you are using [the Status API](/rest/reference/commits#commit-statuses) or a CI service.
 
 | 修飾子              | サンプル                                                                                                                                                                                                                     |
 | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -212,7 +207,7 @@ shortTitle: Search issues & PRs
 
 ## コメントの数で検索
 
-コメントの数で検索するには、[不等号や範囲の修飾子](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax)とともに `comments` 修飾子を使います。
+You can use the `comments` qualifier along with [greater than, less than, and range qualifiers](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax) to search by the number of comments.
 
 | 修飾子                        | サンプル                                                                                                                                                      |
 | -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -221,7 +216,7 @@ shortTitle: Search issues & PRs
 
 ## インタラクションの数で検索
 
-`interactions` 修飾子と[不等号や範囲の修飾子](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax)を使って、Issue や プルリクエストをインタラクションの数でフィルタリングできます。 インタラクションの数とは、1 つの Issue またはプルリクエストにあるリアクションおよびコメントの数のことです。
+You can filter issues and pull requests by the number of interactions with the `interactions` qualifier along with [greater than, less than, and range qualifiers](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax). インタラクションの数とは、1 つの Issue またはプルリクエストにあるリアクションおよびコメントの数のことです。
 
 | 修飾子                        | サンプル                                                                                                                                          |
 | -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -230,7 +225,7 @@ shortTitle: Search issues & PRs
 
 ## リアクションの数で検索
 
-`reactions` 修飾子と[不等号や範囲の修飾子](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax)を使って、Issue や プルリクエストをリアクションの数でフィルタリングできます。
+You can filter issues and pull requests by the number of reactions using the `reactions` qualifier along with [greater than, less than, and range qualifiers](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax).
 
 | 修飾子                        | サンプル                                                                                                                                   |
 | -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
@@ -238,24 +233,27 @@ shortTitle: Search issues & PRs
 |                            | [**reactions:500..1000**](https://github.com/search?q=reactions%3A500..1000) は、リアクションの数が 500 から 1,000 までの範囲の Issue にマッチします。            |
 
 ## ドラフトプルリクエストを検索
-ドラフトプルリクエストをフィルタリングすることができます。 詳しい情報については[プルリクエストについて](/articles/about-pull-requests#draft-pull-requests)を参照してください。
+ドラフトプルリクエストをフィルタリングすることができます。 For more information, see "[About pull requests](/articles/about-pull-requests#draft-pull-requests)."
 
-| Qualifier        | Example | ------------- | -------------{% ifversion fpt or ghes or ghae or ghec %} | `draft:true` | [**draft:true**](https://github.com/search?q=draft%3Atrue) はドラフトプルリクエストに一致します。 | `draft:false` | [**draft:false**](https://github.com/search?q=draft%3Afalse) は、レビューの準備ができたプルリクエストに一致します。{% else %} | `is:draft` | [**is:draft**](https://github.com/search?q=is%3Adraft) はドラフトプルリクエストに一致します。{% endif %}
+| 修飾子           | サンプル                                                                                                          |
+| ------------- | ------------------------------------------------------------------------------------------------------------- |
+| `draft:true`  | [**draft:true**](https://github.com/search?q=draft%3Atrue) matches draft pull requests.                       |
+| `draft:false` | [**draft:false**](https://github.com/search?q=draft%3Afalse) matches pull requests that are ready for review. |
 
 ## プルリクエストレビューのステータスおよびレビュー担当者で検索
 
-レビュー担当者およびレビューリクエストを受けた人で、[レビューステータス](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews) (_none_、_required_、_approved_、または _changes requested_) でプルリクエストをフィルタリングできます。
+You can filter pull requests based on their [review status](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews) (_none_, _required_, _approved_, or _changes requested_), by reviewer, and by requested reviewer.
 
-| 修飾子                        | サンプル                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `review:none`              | [**type:pr review:none**](https://github.com/search?utf8=%E2%9C%93&q=type%3Apr+review%3Anone&type=Issues) は、レビューされていないプルリクエストにマッチします。                                                                                                                                                                                                                                                                                                    |
-| `review:required`          | [**type:pr review:required**](https://github.com/search?utf8=%E2%9C%93&q=type%3Apr+review%3Arequired&type=Issues) は、マージ前にレビューが必要なプルリクエストにマッチします。                                                                                                                                                                                                                                                                                         |
-| `review:approved`          | [**type:pr review:approved**](https://github.com/search?utf8=%E2%9C%93&q=type%3Apr+review%3Aapproved&type=Issues) は、レビュー担当者が承認したプルリクエストにマッチします。                                                                                                                                                                                                                                                                                          |
-| `review:changes_requested` | [**type:pr review:changes_requested**](https://github.com/search?utf8=%E2%9C%93&q=type%3Apr+review%3Achanges_requested&type=Issues) は、レビュー担当者が変更を求めたプルリクエストにマッチします。                                                                                                                                                                                                                                                                      |
-| <code>reviewed-by:<em>USERNAME</em></code> | [**type:pr reviewed-by:gjtorikian**](https://github.com/search?utf8=%E2%9C%93&q=type%3Apr+reviewed-by%3Agjtorikian&type=Issues) は、特定の人がレビューしたプルリクエストにマッチします。                                                                                                                                                                                                                                                                             |
-| <code>review-requested:<em>USERNAME</em></code> | [**type:pr review-requested:benbalter**](https://github.com/search?utf8=%E2%9C%93&q=type%3Apr+review-requested%3Abenbalter&type=Issues) は、特定の人にレビューがリクエストされているプルリクエストにマッチします。 リクエストを受けたレビュー担当者は、プルリクエストのレビュー後は検索結果に表示されなくなります。 If the requested person is on a team that is requested for review, then review requests for that team will also appear in the search results.{% ifversion fpt or ghae-issue-5181 or ghes > 3.2 or ghec %}
+| 修飾子                        | サンプル                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `review:none`              | [**type:pr review:none**](https://github.com/search?utf8=%E2%9C%93&q=type%3Apr+review%3Anone&type=Issues) matches pull requests that have not been reviewed.                                                                                                                                                                                                                                                                                                              |
+| `review:required`          | [**type:pr review:required**](https://github.com/search?utf8=%E2%9C%93&q=type%3Apr+review%3Arequired&type=Issues) matches pull requests that require a review before they can be merged.                                                                                                                                                                                                                                                                                  |
+| `review:approved`          | [**type:pr review:approved**](https://github.com/search?utf8=%E2%9C%93&q=type%3Apr+review%3Aapproved&type=Issues) matches pull requests that a reviewer has approved.                                                                                                                                                                                                                                                                                                     |
+| `review:changes_requested` | [**type:pr review:changes_requested**](https://github.com/search?utf8=%E2%9C%93&q=type%3Apr+review%3Achanges_requested&type=Issues) matches pull requests in which a reviewer has asked for changes.                                                                                                                                                                                                                                                                      |
+| <code>reviewed-by:<em>USERNAME</em></code> | [**type:pr reviewed-by:gjtorikian**](https://github.com/search?utf8=%E2%9C%93&q=type%3Apr+reviewed-by%3Agjtorikian&type=Issues) matches pull requests reviewed by a particular person.                                                                                                                                                                                                                                                                                    |
+| <code>review-requested:<em>USERNAME</em></code> | [**type:pr review-requested:benbalter**](https://github.com/search?utf8=%E2%9C%93&q=type%3Apr+review-requested%3Abenbalter&type=Issues) matches pull requests where a specific person is requested for review. リクエストを受けたレビュー担当者は、プルリクエストのレビュー後は検索結果に表示されなくなります。 If the requested person is on a team that is requested for review, then review requests for that team will also appear in the search results.{% ifversion fpt or ghae-issue-5181 or ghes > 3.2 or ghec %}
 | <code>user-review-requested:@me</code> | [**type:pr user-review-requested:@me**](https://github.com/search?q=is%3Apr+user-review-requested%3A%40me+) matches pull requests that you have directly been asked to review.{% endif %}
-| <code>team-review-requested:<em>TEAMNAME</em></code> | [**type:pr team-review-requested:atom/design**](https://github.com/search?q=type%3Apr+team-review-requested%3Aatom%2Fdesign&type=Issues) は、Team `atom/design`からのレビューリクエストがあるプルリクエストにマッチします。 リクエストを受けたレビュー担当者は、プルリクエストのレビュー後は検索結果に表示されなくなります。                                                                                                                                                                                             |
+| <code>team-review-requested:<em>TEAMNAME</em></code> | [**type:pr team-review-requested:atom/design**](https://github.com/search?q=type%3Apr+team-review-requested%3Aatom%2Fdesign&type=Issues) matches pull requests that have review requests from the team `atom/design`. リクエストを受けたレビュー担当者は、プルリクエストのレビュー後は検索結果に表示されなくなります。                                                                                                                                                                                                    |
 
 ## Issue やプルリクエストの作成時期や最終更新時期で検索
 
@@ -293,17 +291,17 @@ shortTitle: Search issues & PRs
 
 | 修飾子                        | サンプル                                                                                                                                                                                                                     |
 | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| <code>merged:<em>YYYY-MM-DD</em></code> | [**language:javascript merged:<2011-01-01**](https://github.com/search?q=language%3Ajavascript+merged%3A%3C2011-01-01+&type=Issues) は、2011 年より前にマージされた JavaScript のリポジトリにあるプルリクエストにマッチします。                               |
+| <code>merged:<em>YYYY-MM-DD</em></code> | [**`language:javascript merged:<2011-01-01`**](https://github.com/search?q=language%3Ajavascript+merged%3A%3C2011-01-01+&type=Issues) matches pull requests in JavaScript repositories that were merged before 2011.  |
 |                            | [**fast in:title language:ruby merged:>=2014-05-01**](https://github.com/search?q=fast+in%3Atitle+language%3Aruby+merged%3A%3E%3D2014-05-01+&type=Issues)は、2014 年 5 月以降にマージされた、タイトルに「fast」という単語がある Ruby のプルリクエストにマッチします。 |
 
 ## プルリクエストがマージされているかどうかで検索
 
 `is` 修飾子を使って、マージされたかどうかでプルリクエストをフィルタリングできます。
 
-| 修飾子           | サンプル                                                                                                                                               |
-| ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `is:merged`   | [**bugfix is:pr is:merged**](https://github.com/search?utf8=%E2%9C%93&q=bugfix+is%3Apr+is%3Amerged&type=) は、「bugfix」という単語がある、マージされたプルリクエストにマッチします。 |
-| `is:unmerged` | [**error is:unmerged**](https://github.com/search?utf8=%E2%9C%93&q=error+is%3Aunmerged&type=) は、「error」という単語がある、クローズされた Issue およびプルリクエストにマッチします。   |
+| 修飾子           | サンプル                                                                                                                                                                                                |
+| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `is:merged`   | [**bug is:pr is:merged**](https://github.com/search?utf8=%E2%9C%93&q=bugfix+is%3Apr+is%3Amerged&type=) matches merged pull requests with the word "bug."                                            |
+| `is:unmerged` | [**error is:unmerged**](https://github.com/search?utf8=%E2%9C%93&q=error+is%3Aunmerged&type=) matches pull requests with the word "error" that are either open or were closed without being merged. |
 
 ## リポジトリがアーカイブされているかどうかで検索
 

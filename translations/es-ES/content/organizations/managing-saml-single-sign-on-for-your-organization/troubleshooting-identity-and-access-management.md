@@ -1,47 +1,51 @@
 ---
-title: Troubleshooting identity and access management
-intro: 'Review and resolve common troubleshooting errors for managing your organization''s SAML SSO, team synchronization, or identity provider (IdP) connection.'
+title: Solucionar problemas de administración de acceso e identidad
+intro: 'Revisa y resuelve los errores comunes de las soluciones de problemas para administrar el SSO de SAML de tu organización, la sincronización de equipos o la conexión con el proveedor de identidad (IdP).'
 versions:
   ghec: '*'
 topics:
   - Organizations
   - Teams
-shortTitle: Troubleshooting access
+shortTitle: Solucionar problemas de acceso
 ---
 
-## Some users are not provisioned or deprovisioned by SCIM
+## Algunos usuarios no están aprovisionados o desaprovisionados por SCIM
 
-When you encounter provisioning issues with users, we recommend that you check if the users are missing SCIM metadata. If an organization member has missing SCIM metadata, then you can re-provision SCIM for the user manually through your IdP.
+Cuando encuentras problemas de aprovisionamiento con los usuarios, te recomendamos que verifiques si estos no tienen metadatos de SCIM.
 
-### Auditing users for missing SCIM metadata
+{% data reusables.scim.changes-should-come-from-idp %}
 
-If you suspect or notice that any users are not provisioned or deprovisioned as expected, we recommend that you audit all users in your organization.
+Si a un miembro de la organización el faltan metadatos de SCIM, entonces puedes volver a aprovisionar el SCIM para este de forma manual mediante tu IdP.
+
+### Auditar usarios para los metadatos perdidos de SCIM
+
+Si sospechas o notas que cualquier usuario no se aprovisionó o desaprovisionó como lo esperabas, te recomendamos que audites a todos los usuarios de tu organización.
 
 Para verificar si los usuarios tienen una identidad de SCIM (metadatos de SCIM) en su identidad externa, puedes revisar los metadatos de SCIM un miembro de la organización a la vez en {% data variables.product.prodname_dotcom %} o puedes revisar con programación a todos los miembros utilizando la API de {% data variables.product.prodname_dotcom %}.
 
-#### Auditing organization members on {% data variables.product.prodname_dotcom %}
+#### Auditar a los miembros de tu organización en {% data variables.product.prodname_dotcom %}
 
-As an organization owner, to confirm that SCIM metadata exists for a single organization member, visit this URL, replacing `<organization>` and `<username>`:
+Como propietario de organización, para confirmar que existen los metadatos de SCIM para un solo miembro de la organización, visita esta URL, reemplazando `<organization>` y `<username>`:
 
 > `https://github.com/orgs/<organization>/people/<username>/sso`
 
-If the user's external identity includes SCIM metadata, the organization owner should see a SCIM identity section on that page. If their external identity does not include any SCIM metadata, the SCIM Identity section will not exist.
+Si la identidad externa del usuario incluye metadatos de SCIM, el propietario de la organización debería ver una sección de identidad de SCIM en esa página. Si su identidad externa no incluye cualquier metadato de SCIM, la sección de identidad de SCIM no existirá.
 
-#### Auditing organization members through the {% data variables.product.prodname_dotcom %} API
+#### Auditar a los miembros de la organización mediante la API de {% data variables.product.prodname_dotcom %}
 
-As an organization owner, you can also query the SCIM REST API or GraphQL to list all SCIM provisioned identities in an organization.
+Como propietario de la organización, también puedes consultar la API de REST de SCIM o GraphQL para que listen todas las identidades de SCIM aprovisionadas en una organización.
 
 #### Utilizar la API de REST
 
-The SCIM REST API will only return data for users that have SCIM metadata populated under their external identities. We recommend you compare a list of SCIM provisioned identities with a list of all your organization members.
+La API de REST de SCIM solo devolverá datos para los usuarios que tengan metadatos de SCIM ya llenos en sus identidades externas. Te recomendamos comparar una lista de identidades aprovisionadas de SCIM con una lista de todos tus miembros organizacionales.
 
 Para obtener más información, consulta:
-  - "[List SCIM provisioned identities](/rest/reference/scim#list-scim-provisioned-identities)"
-  - "[List organization members](/rest/reference/orgs#list-organization-members)"
+  - "[Listar las identidades aprovisionadas de SCIM](/rest/reference/scim#list-scim-provisioned-identities)"
+  - "[Listar los miembros de la organización](/rest/reference/orgs#list-organization-members)"
 
-#### Using GraphQL
+#### Utilizar GraphQL
 
-This GraphQL query shows you the SAML `NameId`, the SCIM `UserName` and the {% data variables.product.prodname_dotcom %} username (`login`) for each user in the organization. To use this query, replace `ORG` with your organization name.
+Esta consulta de GraphQL te muestra la `NameId` de SAML, el `UserName` de SCIM y el nombre de usuario de {% data variables.product.prodname_dotcom %} (`login`) para cada usuario en la organización. Para utilizar esta consulta, reemplaza `ORG` con el nombre de tu organización.
 
 ```graphql
 {
@@ -72,14 +76,14 @@ This GraphQL query shows you the SAML `NameId`, the SCIM `UserName` and the {% d
 curl -X POST -H "Authorization: Bearer <personal access token>" -H "Content-Type: application/json" -d '{ "query": "{ organization(login: \"ORG\") { samlIdentityProvider { externalIdentities(first: 100) { pageInfo { endCursor startCursor hasNextPage } edges { cursor node { samlIdentity { nameId } scimIdentity {username}  user { login } } } } } } }" }'  https://api.github.com/graphql
 ```
 
-For more information on using the GraphQL API, see:
-   - "[GraphQL guides](/graphql/guides)"
-   - "[GraphQL explorer](/graphql/overview/explorer)"
+Para obtener más información sobre cómo utilizar la API de GraphQL, consulta:
+   - "[Guías de GraphQL](/graphql/guides)"
+   - "[Explorador de GraphQL](/graphql/overview/explorer)"
 
-### Re-provisioning SCIM for users through your identity provider
+### Volver a aprovisionar SCIM para los usuarios mediante tu proveedor de identidad
 
-You can re-provision SCIM for users manually through your IdP. For example, to resolve provisioning errors, in the Okta admin portal, you can unassign and reassign users to the {% data variables.product.prodname_dotcom %} app. This should trigger Okta to make an API call to populate the SCIM metadata for these users on {% data variables.product.prodname_dotcom %}. Para obtener más información, consulta la sección "[Desasignar a los usuarios de las aplicaciones](https://help.okta.com/en/prod/Content/Topics/users-groups-profiles/usgp-unassign-apps.htm)" o "[Asignar a los usuarios a las aplicaciones](https://help.okta.com/en/prod/Content/Topics/users-groups-profiles/usgp-assign-apps.htm)" en la documentación de Okta.
+Puedes volver a aprovisionar SCIM para los usuarios manualmente a través de tu IdP. Por ejemplo, para resolver los errores de aprovisionamiento para Okta, en el portal de administración de Okta, puedes desasignar y reasignar usuarios a la app de {% data variables.product.prodname_dotcom %}. Esto debería activar a Okta para hacer una llamada a la API para llenar los metadatos de SCIM para estos usuarios en {% data variables.product.prodname_dotcom %}. Para obtener más información, consulta la sección "[Desasignar a los usuarios de las aplicaciones](https://help.okta.com/en/prod/Content/Topics/users-groups-profiles/usgp-unassign-apps.htm)" o "[Asignar a los usuarios a las aplicaciones](https://help.okta.com/en/prod/Content/Topics/users-groups-profiles/usgp-assign-apps.htm)" en la documentación de Okta.
 
-To confirm that a user's SCIM identity is created, we recommend testing this process with a single organization member whom you have confirmed doesn't have a SCIM external identity. After manually updating the users in your IdP, you can check if the user's SCIM identity was created using the SCIM API or on {% data variables.product.prodname_dotcom %}. Para obtener más información, consulta la sección "[Auditar usuarios para los metadatos de SCIM no presentes](#auditing-users-for-missing-scim-metadata)" o la terminal de la API de REST "[Obtener información de aprovisionamiento de SCIM para un usuario](/rest/reference/scim#get-scim-provisioning-information-for-a-user)".
+Para confirmar que la identidad de SCIM de un usuario se creó, te recomendamos probar este proceso con un solo miembro organizacional de quien hayas confirmado que no existe una identidad externa de SCIM. Después de actualizar los usuarios manualmente en tu IdP, puedes verificar si la identidad de SCIM del usuario se creó utilizando la API de SCIM o en {% data variables.product.prodname_dotcom %}. Para obtener más información, consulta la sección "[Auditar usuarios para los metadatos de SCIM no presentes](#auditing-users-for-missing-scim-metadata)" o la terminal de la API de REST "[Obtener información de aprovisionamiento de SCIM para un usuario](/rest/reference/scim#get-scim-provisioning-information-for-a-user)".
 
-If re-provisioning SCIM for users doesn't help, please contact {% data variables.product.prodname_dotcom %} Support.
+Si volver a aprovisionar el SCIM para los usuarios no funciona, por favor, contacta al Soporte de {% data variables.product.prodname_dotcom %}.

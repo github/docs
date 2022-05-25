@@ -1,7 +1,7 @@
 ---
-title: Releasing and maintaining actions
-shortTitle: Releasing and maintaining actions
-intro: You can leverage automation and open source best practices to release and maintain actions.
+title: 发布和维护操作
+shortTitle: 发布和维护操作
+intro: 您可以利用自动化和开源最佳实践来发布和维护操作。
 type: tutorial
 topics:
   - Action development
@@ -19,77 +19,77 @@ versions:
 
 ## 简介
 
-After you create an action, you'll want to continue releasing new features while working with community contributions. This tutorial describes an example process you can follow to release and maintain actions in open source. The example:
+创建操作后，您需要继续发布新功能，同时处理社区贡献。 本教程介绍了一个示例过程，您可以遵循该过程在开源中发布和维护操作。 示例：
 
-* Leverages {% data variables.product.prodname_actions %} for continuous integration, dependency updates, release management, and task automation.
-* Provides confidence through automated tests and build badges.
-* Indicates how the action can be used, ideally as part of a broader workflow.
-* Signal what type of community contributions you welcome. (For example, issues, pull requests, or vulnerability reports.)
+* 利用 {% data variables.product.prodname_actions %} 实现持续集成、依赖项更新、版本管理和任务自动化。
+* 通过自动化测试和构建徽章提供信心。
+* 指示如何使用操作，理想情况下，作为更广泛的工作流程的一部分。
+* 表明您欢迎哪种类型的社区贡献。 （例如，议题、拉取请求或漏洞报告。）
 
-For an applied example of this process, see [github-developer/javascript-action](https://github.com/github-developer/javascript-action).
+有关此过程的应用示例，请参阅 [github-developer/javascript-action](https://github.com/github-developer/javascript-action)。
 
-## Developing and releasing actions
+## 开发和发布操作
 
-In this section, we discuss an example process for developing and releasing actions and show how to use {% data variables.product.prodname_actions %} to automate the process.
+在本节中，我们将讨论开发和发布操作的示例流程，并演示如何使用 {% data variables.product.prodname_actions %} 自动执行该过程。
 
-### About JavaScript actions
+### 关于 JavaScript 操作
 
-JavaScript actions are Node.js repositories with metadata. However, JavaScript actions have additional properties compared to traditional Node.js projects:
+JavaScript 操作是具有元数据的 Node.js 存储库。 但是，与传统的 Node.js 项目相比，JavaScript 操作具有其他属性：
 
-* Dependent packages are committed alongside the code, typically in a compiled and minified form. This means that automated builds and secure community contributions are important.
+* Dependent 包与代码一起提交，通常采用编译和缩小的形式。 这意味着自动化构建和安全的社区贡献非常重要。
 
 {% ifversion fpt or ghec %}
 
-* Tagged releases can be published directly to {% data variables.product.prodname_marketplace %} and consumed by workflows across {% data variables.product.prodname_dotcom %}.
+* 标记的版本可以直接发布到 {% data variables.product.prodname_marketplace %} ，并由跨 {% data variables.product.prodname_dotcom %} 工作流程使用。
 
 {% endif %}
 
-* Many actions make use of {% data variables.product.prodname_dotcom %}'s APIs and third party APIs, so we encourage robust end-to-end testing.
+* 许多操作都使用 {% data variables.product.prodname_dotcom %} 的 API 和第三方 API，因此我们鼓励进行强大的端到端测试。
 
-### Setting up {% data variables.product.prodname_actions %} workflows
+### 设置 {% data variables.product.prodname_actions %} 工作流程
 
-To support the developer process in the next section, add two {% data variables.product.prodname_actions %} workflows to your repository:
+要在下一节中支持开发人员流程，请将两个 {% data variables.product.prodname_actions %} 工作流程添加到存储库中：
 
-1. Add a workflow that triggers when a commit is pushed to a feature branch or to `main` or when a pull request is created. Configure the workflow to run your unit and integration tests. For an example, see [this workflow](https://github.com/github-developer/javascript-action/blob/963a3b9a9c662fd499419a240ed8c49411ff5add/.github/workflows/test.yml).
-2. Add a workflow that triggers when a release is published or edited. Configure the workflow to ensure semantic tags are in place. You can use an action like [JasonEtco/build-and-tag-action](https://github.com/JasonEtco/build-and-tag-action) to compile and bundle the JavaScript and metadata file and force push semantic major, minor, and patch tags. For an example, see [this workflow](https://github.com/github-developer/javascript-action/blob/963a3b9a9c662fd499419a240ed8c49411ff5add/.github/workflows/publish.yml). For more information about semantic tags, see "[About semantic versioning](https://docs.npmjs.com/about-semantic-versioning)."
+1. 添加在将提交推送到功能分支或 `main` 分支或者创建拉取请求时触发的工作流程。 配置工作流程以运行单元和集成测试。 有关示例，请参阅[此工作流程](https://github.com/github-developer/javascript-action/blob/963a3b9a9c662fd499419a240ed8c49411ff5add/.github/workflows/test.yml)。
+2. 添加在发布或编辑发布时触发的工作流程。 配置工作流程以确保语义标记已就位。 您可以使用像 [JasonEtco/build-and-tag-action](https://github.com/JasonEtco/build-and-tag-action) 这样的操作来编译和捆绑 JavaScript 和元数据文件，并强制推送语义主要、次要和补丁标记。 有关示例，请参阅[此工作流程](https://github.com/github-developer/javascript-action/blob/963a3b9a9c662fd499419a240ed8c49411ff5add/.github/workflows/publish.yml)。 有关语义标记的详细信息，请参阅“[关于语义版本控制](https://docs.npmjs.com/about-semantic-versioning)”。
 
-### Example developer process
+### 示例开发者流程
 
-Here is an example process that you can follow to automatically run tests, create a release{% ifversion fpt or ghec%} and publish to {% data variables.product.prodname_marketplace %}{% endif %}, and publish your action.
+下面是一个示例过程，您可以遵循该过程来自动运行测试、创建发行版{% ifversion fpt or ghec%}并发布到 {% data variables.product.prodname_marketplace %}{% endif %}，然后发布您的操作。
 
-1. Do feature work in branches per GitHub flow. For more information, see "[GitHub flow](/get-started/quickstart/github-flow)."
-   * Whenever a commit is pushed to the feature branch, your testing workflow will automatically run the tests.
+1. 在每个 GitHub 流程的分支中执行功能工作。 更多信息请参阅“[GitHub 流](/get-started/quickstart/github-flow)”。
+   * 每当将提交推送到功能分支时，测试工作流程将自动运行测试。
 
-2. Create pull requests to the `main` branch to initiate discussion and review, merging when ready.
+2. 创建对 `main` 分支的拉取请求，以启动讨论和审阅，并在准备就绪时合并。
 
-   * When a pull request is opened, either from a branch or a fork, your testing workflow will again run the tests, this time with the merge commit.
+   * 当从分支或复刻打开拉取请求时，测试工作流将再次运行测试，这次是合并提交。
 
-   * **Note:** for security reasons, workflows triggered by `pull_request` from forks have restricted `GITHUB_TOKEN` permissions and do not have access to secrets. If your tests or other workflows triggered upon pull request require access to secrets, consider using a different event like a [manual trigger](/actions/reference/events-that-trigger-workflows#manual-events) or a [`pull_request_target`](/actions/reference/events-that-trigger-workflows#pull_request_target). Read more [here](/actions/reference/events-that-trigger-workflows#pull-request-events-for-forked-repositories).
+   * **注意：**出于安全原因，由复刻中的 `pull_request` 触发的工作流程限制了 `GITHUB_TOKEN` 权限，并且无法访问机密。 如果在拉取请求时触发的测试或其他工作流程需要访问机密，请考虑使用其他事件，如 [manual trigger](/actions/reference/events-that-trigger-workflows#manual-events) 或 [`pull_request_target`](/actions/reference/events-that-trigger-workflows#pull_request_target)。 [在此](/actions/reference/events-that-trigger-workflows#pull-request-events-for-forked-repositories)处阅读更多。
 
-3. Create a semantically tagged release. {% ifversion fpt or ghec %} You may also publish to {% data variables.product.prodname_marketplace %} with a simple checkbox. {% endif %} For more information, see "[Managing releases in a repository](/github/administering-a-repository/managing-releases-in-a-repository#creating-a-release)"{% ifversion fpt or ghec %} and "[Publishing actions in {% data variables.product.prodname_marketplace %}](/actions/creating-actions/publishing-actions-in-github-marketplace#publishing-an-action)"{% endif %}.
+3. 创建语义标记的版本。 {% ifversion fpt or ghec %} 您也可以使用简单的复选框发布到 {% data variables.product.prodname_marketplace %}。 {% endif %} 更多信息请参阅“[管理存储库中的版本](/github/administering-a-repository/managing-releases-in-a-repository#creating-a-release)”{% ifversion fpt or ghec %}和“[在 {% data variables.product.prodname_marketplace %} 中发布操作](/actions/creating-actions/publishing-actions-in-github-marketplace#publishing-an-action)”{% endif %}。
 
-   * When a release is published or edited, your release workflow will automatically take care of compilation and adjusting tags.
+   * 发布或编辑版本时，发行版工作流程将自动负责编译和调整标记。
 
-   * We recommend creating releases using semantically versioned tags – for example, `v1.1.3` – and keeping major (`v1`) and minor (`v1.1`) tags current to the latest appropriate commit. For more information, see "[About custom actions](/actions/creating-actions/about-custom-actions#using-release-management-for-actions)" and "[About semantic versioning](https://docs.npmjs.com/about-semantic-versioning).
+   * 我们建议使用语义版本化的标记（例如，`v1.1.3` ）创建版本，并将主要（`v1`）和次要（`v1.1`）标记保持最新适当的提交。 更多信息请参阅“[关于自定义操作](/actions/creating-actions/about-custom-actions#using-release-management-for-actions)”和“[关于语义版本控制](https://docs.npmjs.com/about-semantic-versioning)”。
 
 ### 结果
 
-Unlike some other automated release management strategies, this process intentionally does not commit dependencies to the `main` branch, only to the tagged release commits. By doing so, you encourage users of your action to reference named tags or `sha`s, and you help ensure the security of third party pull requests by doing the build yourself during a release.
+与其他一些自动化版本管理策略不同，此过程有意不将依赖项提交到 `main` 分支，而只提交到标记的版本提交。 这样可以鼓励操作的用户引用命名标记或 `sha`s，并且通过在发布期间自己执行构建来帮助确保第三方拉取请求的安全性。
 
-Using semantic releases means that the users of your actions can pin their workflows to a version and know that they might continue to receive the latest stable, non-breaking features, depending on their comfort level:
+使用语义发行版意味着操作的用户可以将其工作流程固定到某个版本，并且知道他们可能会继续接收最新的稳定、不间断功能，具体取决于他们的舒适度：
 
-## Working with the community
+## 与社区合作
 
-{% data variables.product.product_name %} provides tools and guides to help you work with the open source community. Here are a few tools we recommend setting up for healthy bidirectional communication. By providing the following signals to the community, you encourage others to use, modify, and contribute to your action:
+{% data variables.product.product_name %} 提供工具和指南，帮助您与开源社区合作。 以下是我们建议为健康的双向通信设置的一些工具。 通过向社区提供以下信号，您可以鼓励其他人使用、修改和参与您的操作：
 
-* Maintain a `README` with plenty of usage examples and guidance. 更多信息请参阅“[关于自述文件](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)”。
-* Include a workflow status badge in your `README` file. 更多信息请参阅“[添加工作流程状态徽章](/actions/managing-workflow-runs/adding-a-workflow-status-badge)”。 Also visit [shields.io](https://shields.io/) to learn about other badges that you can add.{% ifversion fpt or ghec %}
-* Add community health files like `CODE_OF_CONDUCT`, `CONTRIBUTING`, and `SECURITY`. For more information, see "[Creating a default community health file](/github/building-a-strong-community/creating-a-default-community-health-file#supported-file-types)."{% endif %}
-* Keep issues current by utilizing actions like [actions/stale](https://github.com/actions/stale).
+* 维护一个其中包含大量使用示例和指南的 `README`。 更多信息请参阅“[关于自述文件](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)”。
+* 在 `README` 文件中包括工作流程状态徽章。 更多信息请参阅“[添加工作流程状态徽章](/actions/managing-workflow-runs/adding-a-workflow-status-badge)”。 另请访问 [shields.io](https://shields.io/)，了解您可以添加的其他徽章。{% ifversion fpt or ghec %}
+* 添加社区健康文件，如 `CODE_OF_CONDUCT`、`CONTRIBUTING` 和 `SECURITY`。 更多信息请参阅“[创建默认社区健康文件](/github/building-a-strong-community/creating-a-default-community-health-file#supported-file-types)”。{% endif %}
+* 利用 [actions/stale](https://github.com/actions/stale)等操作使议题保持最新。
 
 ## 延伸阅读
 
-Examples where similar patterns are employed include:
+采用类似模式的示例包括：
 
 * [github/super-linter](https://github.com/github/super-linter)
 * [octokit/request-action](https://github.com/octokit/request-action)

@@ -1,3 +1,3 @@
-1. En {% data variables.product.prodname_dotcom %}, navega hasta la página principal de tu cuenta de usuario.
+1. En {% data variables.product.prodname_dotcom %}, navega a la página principal de tu cuenta personal.
 2. En la esquina superior derecha de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.product.product_name %}{% endif %}, haz clic en tu foto de perfil y luego en **Tu perfil**. ![Foto de perfil](/assets/images/help/profile/top_right_avatar.png)
 3. En tu página de perfil, en la parte superior derecha, da clic en **Paquetes**. ![Opción de paquetes en la página de perfil](/assets/images/help/package-registry/packages-from-user-profile.png)

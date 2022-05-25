@@ -1,0 +1,1 @@
+To configure an environment in a personal account repository, you must be the repository owner. Para configurar um ambiente em um repositório da organização, é necessário ter acesso de `administrador`.

@@ -1,0 +1,76 @@
+date: '2022-04-04'
+sections:
+  security_fixes:
+    - 'MEDIA: Se identificó una vulnerabilidad de recorrido de ruta en la consola de administración de {% data variables.product.prodname_ghe_server %}, la cual permitió un puenteo de las protecciones CSRF. Esta vulnerabilidad afectó a todas las versiones de {% data variables.product.prodname_ghe_server %} anteriores a la 3.5 y se corrigió en las versiones 3.1.19, 3.2.11, 3.3.6 y 3.4.1. Esta vulnerabilidad se reportó mediante el programa de recompensas por errores de {% data variables.product.prodname_dotcom %} y se le asignó el CVE-2022-23732.'
+    - 'MEDIA: Se identificó una vulnerabilidad de desbordamiento de números enteros en la rama 1.x y 2.x de `yajil`, lo cual conllevó a una corrupción subsecuente de memoria dinámica al lidiar con entradas grandes (~2GB). Esta vulnerabilidad se reportó internamente y se le asignó el CVE-2022-24795. '
+    - 'Los paquetes de soporte podrían incluir archivos sensibles si es que se habilitaron las {% data variables.product.prodname_actions %}.'
+    - 'Los paquetes se actualizaron a las últimas versiones de seguridad.'
+  bugs:
+    - 'A workflow run may not complete if it uses composite-actions.'
+    - 'Al habilitar el {% data variables.product.prodname_dependabot %}, un error ocasionó que algunas asesorías de seguridad se leyeran temporalmente como no aplicables.'
+    - 'Los procesos de Minio tuvieron un uso alto de CPU si una opción de configuración estuvo presente después de mejorar a {% data variables.product.prodname_ghe_server %}.'
+    - 'Se mostraron las opciones para habilitar `TLS 1.0` y `TLS 1.1` en los ajustes de privacidad de la consola de administración a pesar de haber eliminado esas versiones de protocolo que ocurrieron en un lanzamiento anterior.'
+    - 'En un ambiente de HA, el configurar la replicación de MSSQL podría requerir pasos manuales adicionales después de habilitar las {% data variables.product.prodname_actions %} por primera ocasión.'
+    - 'Un subconjunto de archivos de configuración interna se actualiza de forma más confiable después de un hotpatch.'
+    - 'Algunas veces, el script `ghe-run-migrations` falló en generar nombres de certificados temporales correctamente.'
+    - 'Los ganchos de pre-recepción que utilizaron `gpg --import` agotaron su tiempo de espera debido a que no tuvieron los privilegios de `syscall` suficientes.'
+    - 'En algunas topologías de clúster, no estuvo disponible la información de entrega de webhooks.'
+    - 'La gráfica de despliegue de {% data variables.product.prodname_actions %} mostró un error al procesar un job pendiente.'
+    - 'La verificación de salud de Elasticsearch no permitió un estado de clúster amarillo al ejecutar las migraciones.'
+    - 'When using the [Migrations API](/rest/reference/migrations), queued export jobs were not processed.'
+    - 'Los repositorios mostraron una pestaña de debates sin funcionalidad en la IU web.'
+    - 'Las organizaciones que se crearon como resultado de que un usuario haya transformado su cuenta de usuario en una organización no se agregaron a la cuenta empresarial global.'
+    - 'Los jbs de sincronización de usuario de LDAP fallaron al intentar sincronizar claves GPG que se hubieran sincronizado anteriormente.'
+    - 'Se eliminaron los enlaces a las páginas inaccesibles.'
+    - 'Algunas instancias experimentaron un uso de CPU alto debido a que se estaban poniendo en cola cantidades innecesarias de jobs en segundo plano.'
+    - 'Empty repositories didnt sync correctly to cache servers.'
+    - 'El agregar a un equipo como revisor para una solicitud de cambios algunas veces muestra la cantidad incorrecta de miembros en un equipo.'
+    - 'La terminal de la API de eliminar membrecía de equipo respondió con un error al intentar eliminar a un miembro administrador externamente a través del grupo de SCIM.'
+    - 'Una gran cantidad de usuarios inactivos podría ocasionar que falle una configuración de {% data variables.product.prodname_github_connect %}.'
+    - 'La página de "Características e inscripciones beta" en la IU web del administrador de sitio estuvieron disponibles de forma incorrecta.'
+    - 'El enlace de "Modo de administrador de sitio" en el pie de página del sitio no cambió de estado cuando se hizo clic sobre este.'
+  changes:
+    - 'Los límites de conexión almacenados en la memoria de alto rendimiento se incrementaron para adaptarse mejor a las topologías de clústers grandes.'
+    - 'La API de la gráfica de dependencias se ejecutó previamente con un puerto definido estáticamente.'
+    - 'Se actualizó el conteo de fragmentos de los ajustes de fragmentos de la Elasticsearch relacionada con el clúster.'
+    - 'The [Migrations API](/rest/reference/migrations) now generates exports of repositories.'
+    - 'Cuando se filtraron los miembros de la empresa por rol en la organización en la página de "Personas", el texto de los elementos del menú desplegable se mejoraron.'
+    - 'Los roles de equipo de "Clasificación" y "Mantenimiento" se preservan durante las migraciones de repositorios.'
+    - 'Using ghe-migrator or exporting from GitHub.com, an export would not include Pull Request attachments.'
+    - 'Se mejoró el rendimiento para las solicitudes web que hicieron los propietarios de las empresas.'
+  known_issues:
+    - 'En una instancia recién configurada de {% data variables.product.prodname_ghe_server %} sin ningún usuario, un atacante podría crear el primer usuario adminsitrador.'
+    - 'Las reglas de cortafuegos personalizadas se eliminan durante el proceso de actualización.'
+    - 'Los archivos rastreados del LFS de Git que se [cargaron mediante la interface web](https://github.com/blog/2105-upload-files-to-your-repositories) se agregaron incorrecta y directamente al repositorio.'
+    - 'Las propuestas no pudieron cerrarse si contenían un permalink a un blob en el mismo repositorio en donde la ruta de archvio del blob era más grande a 255 caracteres.'
+    - 'Cuando se habilita la opción "Los usuarios pueden buscar en GitHub.com" con las propuestas de {% data variables.product.prodname_github_connect %}, las propuestas en los repositorios internos y privados no se incluyen en los resultados de búsqueda de {% data variables.product.prodname_dotcom_the_website %}.'
+    - 'El registor de npm del {% data variables.product.prodname_registry %} ya no regresa un valor de tiempo en las respuestas de metadatos. Esto se hizo para permitir mejoras de rendimiento sustanciales. Seguimos teniendo todos los datos necesarios para devolver un valor de tiempo como parte de la respuesta de metadatos y terminaremos de devolver este valor ene l futuro una vez que hayamos resuelto los problemas de rendimiento existentes.'
+    - 'Los límites de recursos que son específicos para procesar ganchos de pre-recepción podrían ocasionar que fallen algunos ganchos de pre-recepción.'
+    - "Cuando utilizas las aserciones cifradas con {% data variables.product.prodname_ghe_server %} 3.4.0 y 3.4.1, un atributo nuevo de XML `WantAssertionsEncrypted` en el `SPSSODescriptor` contiene un atributo inválido para los metadatos de SAML. Los IdP que consumen esta terminal de metadatos de SAML podrían encontrar errores al validar el modelo XML de los metadatos de SAML. Habrá una corrección disponible en el siguiente lanzamiento de parche. [Actualizado: 2022-04-11]\n\nPara darle una solución a este problema, puedes tomar una de las dos acciones siguientes.\n- Reconfigurar el IdP cargando una copia estática de los metadatos de SAML sin el atributo `WantAssertionsEncrypted`.\n- Copiar los metadatos de SAML, eliminar el atributo `WantAssertionsEncrypted`, hospedarlo en un servidor web y reconfigurar el IdP para que apunte a esa URL.\n"
+  deprecations:
+    - heading: 'Obsoletización de GitHub Enterprise Server 3.0'
+      notes:
+        - '**{% data variables.product.prodname_ghe_server %} 3.0 se descontinuó el 16 de febrero de 2022**. Esto significa que no se harán lanzamientos de parche, aún para los problemas de seguridad críticos, después de esta fecha. Para obtener un rendimiento mejor, una seguridad mejorada y características nuevas, [actualiza a la última versión de {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.4/admin/enterprise-management/upgrading-github-enterprise-server) tan pronto te sea posible.'
+    - heading: 'Obsoletización de GitHub Enterprise Server 3.1'
+      notes:
+        - '**{% data variables.product.prodname_ghe_server %} 3.1 se descontinuará el 3 de junio de 2022**. Eso significa que no se harán lanzamientos de parche, aún para los problemas de seguridad críticos, después de esta fecha. Para obtener un rendimiento mejor, una seguridad mejorada y características nuevas, [actualiza a la última versión de {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.4/admin/enterprise-management/upgrading-github-enterprise-server) tan pronto te sea posible.'
+    - heading: 'Obsoletización del soporte para XenServer Hypervisor'
+      notes:
+        - 'Desde {% data variables.product.prodname_ghe_server %} 3.3, se obsoletizó el {% data variables.product.prodname_ghe_server %} en XenServer y ya no es compatible. Contacta al [Soporte de GitHub](https://support.github.com) si tienes cualquier duda o pregunta.'
+    - heading: 'Obsoletización de la vista previa de la API de adjuntos de contenido'
+      notes:
+        - 'Debido a su poco uso, la vista previa de la API de referencias de contenido se hizo obsoleta en {% data variables.product.prodname_ghe_server %} 3.4. Anteriormente, se podía acceder a la API con el encabezado `corsair-preview`. Los usuarios pueden seguir navegando hacia URL externas sin esta API. Cualquier uso registrado de la API de referencias de contenido ya no recibirá una notificación de webhook para las URL de tus dominios registrados y ya no devolveremos códigos de respuesta válidos para los intentos de actualización a los adjuntos de contenido existentes.'
+    - heading: 'Obsoletización de la vista previa de la API de códigos de conducta'
+      notes:
+        - 'La vista previa de la API de códigos de conducta, a la cual se podía acceder con el encabezado `scarlet-witch-preview`, es obsoleta y ya no se puede acceder a ella en {% data variables.product.prodname_ghe_server %} 3.4. En vez de esto, te recomendamos utilizar la terminal de "[Obtén métricas de perfil comunitario](/rest/reference/repos#get-community-profile-metrics)" para recuperar información sobre un código de conducta de un repositorio. Para obtener más información, consulta el "[Aviso de obsolescencia: Vista previa de la API de códigos de conducta](https://github.blog/changelog/2021-10-06-deprecation-notice-codes-of-conduct-api-preview/)" en la bitácora de cambios de {% data variables.product.prodname_dotcom %}.'
+    - heading: 'Obsoletización de las terminales de la API de Aplicaciones OAuth y autenticación de la API a través de parámetros de consulta'
+      notes:
+        - "A partir de {% data variables.product.prodname_ghe_server %} 3.4, se retiró la [versión obsoleta de las terminales de la API de aplicación OAuth](https://developer.github.com/changes/2020-02-14-deprecating-oauth-app-endpoint/#endpoints-affected). Si te encuentras con errores 404 en estas terminales, convierte tu código a las versiones de la API de Aplicación OAuth que no tienen `access_tokens` en la URL. También inhabilitamos el uso de la autenticación de API utilizando parámetros de consulta. En vez de esto, te recomendamos utilizar [Autenticación de API en el encabezado de solicitud](https://developer.github.com/changes/2020-02-10-deprecating-auth-through-query-param/#changes-to-make).\n"
+    - heading: 'Obsoletización del ejecutor de CodeQL'
+      notes:
+        - 'EL ejecutor de {% data variables.product.prodname_codeql %} ya es obsoleto en {% data variables.product.prodname_ghe_server %} 3.4 y ya no hay compatibilidad con este. Esta obsolescencia solo afecta a los usuarios que utilizan el escaneo de código de {% data variables.product.prodname_codeql %} en un sistema de IC/DC de terceros; los usuarios de {% data variables.product.prodname_actions %} no se ven afectados. Recomendamos fuertemente que los clientes se migren al CLI de {% data variables.product.prodname_codeql %}, el cual es un reemplazo con todas las características del ejecutor de {% data variables.product.prodname_codeql %}. Para obtener más información, consulta la [Bitácora de cambios de {% data variables.product.prodname_dotcom %}](https://github.blog/changelog/2021-09-21-codeql-runner-deprecation/).'
+    - heading: 'Obsoletización de extensiones de bit-caché personalizadas'
+      notes:
+        - "Desde {% data variables.product.prodname_ghe_server %} 3.1, el soporte de las extensiones bit-cache propietarias de {% data variables.product.company_short %} se comenzó a eliminar paulatinamente. Estas extensiones son obsoletas en {% data variables.product.prodname_ghe_server %} 3.3 en adelante.\n\nCualquier repositorio que ya haya estado presente y activo en {% data variables.product.product_location %} ejecutando la versión 3.1 o 3.2 ya se actualizó automáticamente.\n\nLos repositorios que no estuvieron presentes y activos antes de mejorar a {% data variables.product.prodname_ghe_server %} 3.3 podrían no funcionar de forma óptima sino hasta que se ejecute una tarea de mantenimiento de repositorio y esta se complete exitosamente.\n\nPara iniciar una tarea de mantenimiento de repositorio manualmente, dirígete a `https://<hostname>/stafftools/repositories/<owner>/<repository>/network` en cada repositorio afectado y haz clic en el botón **Schedule**.\n"
+  backups:
+    - '{% data variables.product.prodname_ghe_server %} 3.4 requiere por lo menos de las [Utilidades de Respaldo de GitHub Enterprise 3.4.0](https://github.com/github/backup-utils) para la [Recuperación de Desastres y Respaldos](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance).'

@@ -39,7 +39,7 @@ shortTitle: 添加状态徽章
 
 ## 使用 `event` 参数
 
-This Markdown example adds a badge that displays the status of workflow runs triggered by the `push` event, which will show the status of the build for the current state of that branch.
+此 Markdown 示例添加了一个标志，该标志显示由`推送`事件触发的工作流程运行状态，该事件将显示该分支当前状态的生成状态。
 
 ```markdown
 ![example event parameter](https://github.com/github/docs/actions/workflows/main.yml/badge.svg?event=push)

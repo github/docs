@@ -79,7 +79,7 @@ $ ssh -T git@{% ifversion ghes or ghae %}hostname{% else %}github.com{% endif %}
 
 ### 您必须使用 SSH URL 检出代码
 
-SSH 转发仅适用于 SSH URL，而不是 HTTP(s) URL。 检查服务器上的 *.git/config* 文件，并确保 URL 是 SSH 样式的 URL，如下所示：
+SSH 转发仅适用于 SSH URL，而不是 HTTP(s) URL。 检查服务器上的 `.git/config` 文件，并确保 URL 是 SSH 样式的 URL，如下所示：
 
 ```shell
 [remote "origin"]
@@ -107,7 +107,7 @@ $ exit
 # Returns to your local command prompt
 ```
 
-在上面的示例中，先加载 *~/.ssh/config* 文件，然后读取 */etc/ssh_config* 文件。  通过运行以下命令，我们可以检查该文件以查看它是否覆盖了我们的选项：
+在上面的示例中，先加载 `~/.ssh/config` 文件，然后读取 `/etc/ssh_config` 文件。  通过运行以下命令，我们可以检查该文件以查看它是否覆盖了我们的选项：
 
 ```shell
 $ cat /etc/ssh_config
@@ -117,7 +117,7 @@ $ cat /etc/ssh_config
 >   ForwardAgent no
 ```
 
-在此示例中，我们的 */etc/ssh_config* 文件特别表示 `ForwardAgent no`，这是一种阻止代理转发的方式。 从文件中删除此行应该会使代理转发再次起作用。
+在此示例中，我们的 `/etc/ssh_config` 文件特别表示 `ForwardAgent no`，这是一种阻止代理转发的方式。 从文件中删除此行应该会使代理转发再次起作用。
 
 ### 您的服务器必须允许入站连接上的 SSH 代理转发
 

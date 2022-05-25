@@ -55,7 +55,7 @@ Existen varios tipos de datos que las aplicaciones pueden solicitar.
 
 {% tip %}
 
-**Sugerencia:** {% data reusables.user_settings.review_oauth_tokens_tip %}
+**Sugerencia:** {% data reusables.user-settings.review_oauth_tokens_tip %}
 
 {% endtip %}
 

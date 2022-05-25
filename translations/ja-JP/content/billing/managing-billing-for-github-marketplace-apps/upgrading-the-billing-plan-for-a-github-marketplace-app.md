@@ -23,8 +23,8 @@ shortTitle: 支払いプランのアップグレード
 
 ## 個人アカウントのアプリケーションをアップグレードする
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing_plans %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.billing_plans %}
 {% data reusables.marketplace.upgrade-app-billing-settings %}
 {% data reusables.marketplace.choose-new-plan %}
 {% data reusables.marketplace.choose-new-quantity %}

@@ -21,12 +21,11 @@ topics:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-
 ## Introdução
 
 Este guia explica como usar {% data variables.product.prodname_actions %} para criar, testar e implantar um projeto Node.js no [Azure App Service](https://azure.microsoft.com/services/app-service/).
 
-{% ifversion fpt or ghec or ghae-issue-4856 %}
+{% ifversion fpt or ghec or ghae-issue-4856 or ghes > 3.4 %}
 
 {% note %}
 
@@ -58,9 +57,7 @@ Antes de criar seu fluxo de trabalho de {% data variables.product.prodname_actio
 
 {% data reusables.actions.create-azure-publish-profile %}
 
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 5. Opcionalmente, configure um ambiente de implantação. {% data reusables.actions.about-environments %}
-{% endif %}
 
 ## Criar o fluxo de trabalho
 
@@ -89,10 +86,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: {% data reusables.actions.action-checkout %}
 
     - name: Set up Node.js
-      uses: actions/setup-node@v2
+      uses: {% data reusables.actions.action-setup-node %}
       with:
         node-version: {% raw %}${{ env.NODE_VERSION }}{% endraw %}
         cache: 'npm'
@@ -103,7 +100,7 @@ jobs:
         npm run build --if-present
         npm run test --if-present
     - name: Upload artifact for deployment job
-      uses: actions/upload-artifact@v2
+      uses: {% data reusables.actions.action-upload-artifact %}
       with:
         name: node-app
         path: .
@@ -117,7 +114,7 @@ jobs:
 
     steps:
     - name: Download artifact from build job
-      uses: actions/download-artifact@v2
+      uses: {% data reusables.actions.action-download-artifact %}
       with:
         name: node-app
 
@@ -137,4 +134,4 @@ Os seguintes recursos também podem ser úteis:
 * Para o fluxo de trabalho inicial original, consulte [`azure-webapps-node.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-webapps-node.yml) no repositório `starter-workflows` de {% data variables.product.prodname_actions %}.
 * A ação usada para fazer a implantação do aplicativo web é a ação oficial [`Azure/webapps-deploy`](https://github.com/Azure/webapps-deploy) do Azure.
 * Para obter mais exemplos de fluxos de trabalho do GitHub Action que fazem a implantação no Azure, consulte o repositório [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples).
-* O início rápido de "[Criar um aplicativo web Node.js no Azure](https://docs.microsoft.com/azure/app-service/quickstart-nodejs)" na documentação do aplicativo web do Azure mostra como usar o VS Code com a [extensão do Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice).
+* O início rápido "[Crie um aplicativo web do Node.js no Azure](https://docs.microsoft.com/azure/app-service/quickstart-nodejs)" na documentação do aplicativo Azure Web mostra como usar {% data variables.product.prodname_vscode %} com a [extensão do serviço do aplicativo Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice).

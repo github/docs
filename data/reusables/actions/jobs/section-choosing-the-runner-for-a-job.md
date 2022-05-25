@@ -10,7 +10,7 @@ If you use a {% data variables.product.prodname_dotcom %}-hosted runner, each jo
 
 Available {% data variables.product.prodname_dotcom %}-hosted runner types are:
 
-{% data reusables.github-actions.supported-github-runners %}
+{% data reusables.actions.supported-github-runners %}
 
 #### Example: Specifying an operating system
 
@@ -25,9 +25,7 @@ For more information, see "[Virtual environments for {% data variables.product.p
 ### Choosing self-hosted runners
 {% endif %}
 
-{% data reusables.actions.ae-self-hosted-runners-notice %}
-
-{% data reusables.github-actions.self-hosted-runner-labels-runs-on %}
+{% data reusables.actions.self-hosted-runner-labels-runs-on %}
 
 #### Example: Using labels for runner selection
 

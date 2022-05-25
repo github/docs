@@ -39,7 +39,7 @@ shortTitle: 身份验证
 {% endnote %}
 
 ## 验证私钥
-{% data variables.product.product_name %} generates a fingerprint for each private and public key pair using the SHA-256 hash function. 您可以生成私钥指纹，然后与 {% data variables.product.product_name %} 显示的指纹相比较，以验证私钥是否与 {% data variables.product.product_name %} 上存储的公钥匹配。
+{% data variables.product.product_name %} 使用 SHA-256 哈希函数为每对私钥和公钥生成指纹。 您可以生成私钥指纹，然后与 {% data variables.product.product_name %} 显示的指纹相比较，以验证私钥是否与 {% data variables.product.product_name %} 上存储的公钥匹配。
 
 要验证私钥：
 

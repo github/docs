@@ -5,8 +5,8 @@ sections:
     - 'Los paquetes se actualizaron a las últimas versiones de seguridad.'
   bugs:
     - 'Algunas operaciones de Git fallaron después de mejorar a {% data variables.product.prodname_ghe_server %} 3.x clúster debido a una configuración del HAProxy.'
-    - 'Unicorn worker counts might have been set incorrectly in clustering mode.'
-    - 'Resqued worker counts might have been set incorrectly in clustering mode.'
+    - 'Los conteos de trabajadores de Unicorn se configuraron incorrectamente en el modo de clústering.'
+    - 'Los conteos de trabajadores solicitados pudieron haberse configurado incorrectamente en el modo de clústering.'
     - 'Si el estado de Ubuntu''s Uncomplicated Firewall (UFW) fue inactivo, un cliente no pudo verlo claramente en las bitácoras.'
     - 'La actualización de {% data variables.product.prodname_ghe_server %} 2.x a 3.x falló cuando habían caracteres UTF8 en una configuración LDAP.'
     - 'Algunas páginas y jobs en segundo plano relacionados con Git podrían no ejecutarse en modo clúster con algunas configuraciones de clúster.'

@@ -24,7 +24,7 @@ topics:
 shortTitle: 关于计费
 ---
 
-For more information about the products available for your account, see "[{% data variables.product.prodname_dotcom %}'s products](/articles/github-s-products)." 您可以在 <{% data variables.product.pricing_url %}> 上查看每款产品的价格和完整功能列表。 {% data variables.product.product_name %} 不提供自定义产品或订阅。
+有关可用于您帐户的产品的更多信息，请参阅“[{% data variables.product.prodname_dotcom %} 的产品](/articles/github-s-products)”。 您可以在 <{% data variables.product.pricing_url %}> 上查看每款产品的价格和完整功能列表。 {% data variables.product.product_name %} 不提供自定义产品或订阅。
 
 您可以选择月度或年度计费，也可以随时升级或降级订阅。 更多信息请参阅“[管理您的 {% data variables.product.prodname_dotcom %} 帐户的计费](/articles/managing-billing-for-your-github-account)”。
 
@@ -32,7 +32,7 @@ For more information about the products available for your account, see "[{% dat
 
 {% data reusables.accounts.accounts-billed-separately %}
 
-{% data reusables.user_settings.context_switcher %}
+{% data reusables.user-settings.context_switcher %}
 
 {% tip %}
 

@@ -31,17 +31,16 @@ As pessoas com o papel de mantenedor da equipe podem gerenciar as configuraçõe
 - [Excluir discussões de equipe](/articles/managing-disruptive-comments/#deleting-a-comment)
 - [Adicionar integrantes da organização à equipe](/articles/adding-organization-members-to-a-team)
 - [Remover membros da organização da equipe](/articles/removing-organization-members-from-a-team)
-- Remover acesso da equipe aos repositórios{% ifversion fpt or ghes or ghae or ghec %}
-- [Gerenciar atribuição de código para a equipe](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team){% endif %}{% ifversion fpt or ghec %}
+- Removea o acesso da equipe aos repositórios
+- [Gerenciar atribuição de código para a equipe](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team){% ifversion fpt or ghec %}
 - [Gerenciar lembretes agendados para pull requests](/organizations/organizing-members-into-teams/managing-scheduled-reminders-for-your-team){% endif %}
-
 
 ## Promover um integrante de organização a mantenedor de equipe
 
 Antes de poder promover um integrante da organização para chefe de uma equipe, a pessoa deverá ser integrante da equipe.
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_members_tab %}
 4. Selecione a pessoa que você gostaria de promover a mantenedor de equipe. ![Caixa de seleção ao lado de integrante de organização](/assets/images/help/teams/team-member-check-box.png)

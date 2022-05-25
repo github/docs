@@ -39,9 +39,9 @@ shortTitle: 快速入门
         steps:
           - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
           - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
-          - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+          - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."{% endraw %}
           - name: Check out repository code
-            uses: actions/checkout@v2
+            uses: {% data reusables.actions.action-checkout %}{% raw %}
           - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
           - run: echo "🖥️ The workflow is now ready to test your code on the runner."
           - name: List files in the repository

@@ -41,7 +41,8 @@ topics:
 - {% data reusables.enterprise_installation.hotpatching-explanation %}
 - Es posible que un hotpatch requiera tiempo de inactividad si los servicios afectados (como kernel, MySQL, o Elasticsearch) requieren un reinicio de VM o un reinicio del servicio. Se te notificará cuando se necesite reiniciar. Puedes completar el reinicio más tarde.
 - Es necesario que haya un almacenamiento raíz adicional disponible cuando se actualiza a través de un hotpatch, ya que instala múltiples versiones de determinados servicios hasta que se completa la actualización. El control de prevuelo te notificará si no tienes suficiente almacenamiento de disco raíz.
-- Cuando se actualiza a través de un hotpatch, tu instancia no puede estar muy cargada, ya que puede impactar el proceso del hotpatch. Los controles de pre-vuelo considerarán la carga promedio y, posteriormente, la mejora fallará si dicha carga promedio es demasiado alta. - Mejorar a {% data variables.product.prodname_ghe_server %} 2.17 migrará sus registros de auditoría de Elasicsearch a MySQL. Esta migración también incrementa la cantidad de tiempo y el espacio en disco que lleva restaurar una instantánea. Antes de migrar, controla el número de bytes en tus índices de registro de auditoría de ElasticSearch con este comando:
+- Cuando se actualiza a través de un hotpatch, tu instancia no puede estar muy cargada, ya que puede impactar el proceso del hotpatch.
+- Actualizar a {% data variables.product.prodname_ghe_server %} 2.17 migra tus registros de auditoría desde Elasticsearch a MySQL. Esta migración también incrementa la cantidad de tiempo y el espacio en disco que lleva restaurar una instantánea. Antes de migrar, controla el número de bytes en tus índices de registro de auditoría de ElasticSearch con este comando:
 ``` shell
 curl -s http://localhost:9201/audit_log/_stats/store | jq ._all.primaries.store.size_in_bytes
 ```

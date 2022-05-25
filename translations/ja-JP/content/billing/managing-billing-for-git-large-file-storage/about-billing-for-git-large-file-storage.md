@@ -21,7 +21,7 @@ shortTitle: Git LFSの支払いについて
 
 {% data reusables.large_files.owner_quota_only %}
 
-{% data reusables.user_settings.context_switcher %}
+{% data reusables.user-settings.context_switcher %}
 
 ## 追加のストレージおよび帯域の購入
 

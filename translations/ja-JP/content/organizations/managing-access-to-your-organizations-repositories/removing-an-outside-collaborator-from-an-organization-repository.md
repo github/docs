@@ -33,7 +33,7 @@ shortTitle: コラボレータの削除
 ## 外部コラボレーターを Organization のすべてのリポジトリから削除する
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.people %}
 {% data reusables.organizations.people_tab_outside_collaborators %}
 5. Organization から削除する外部コラボレーターを 1 人以上選択します。 ![外部コラボレーターのリストで外部コラボレーターを 2 名選択](/assets/images/help/teams/list-of-outside-collaborators-selected-bulk.png)
@@ -45,7 +45,7 @@ shortTitle: コラボレータの削除
 外部コラボレーターを Organization の特定のリポジトリからのみ削除する場合、特定のリポジトリごとにアクセスを削除していきます。
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.people %}
 {% data reusables.organizations.people_tab_outside_collaborators %}
 5. 削除する個人のユーザ名の右側にある {% octicon "gear" aria-label="The Settings gear" %}ドロップダウンメニューで、[**Manage**] をクリックします。 ![[Manage access] ボタン](/assets/images/help/organizations/member-manage-access.png)
@@ -53,6 +53,9 @@ shortTitle: コラボレータの削除
 7. 外部コラボレーターのリポジトリへのアクセスを完全に削除するため、右上隅の [**Remove access to this repository**] をクリックします。 ![[Remove access to this repository] ボタン](/assets/images/help/organizations/remove-access-to-this-repository.png)
 8. 確定するため、[**Remove access**] をクリックします。 ![リポジトリから削除する外部コラボレータの確定](/assets/images/help/teams/confirm-remove-outside-collaborator-from-a-repository.png)
 
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5974 %}
+リポジトリ設定のアクセス概要でも、リポジトリから外部のコラボレータを削除できます。 詳細は、「[リポジトリへのアクセス権を持つ Team と人を管理する](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository#removing-access-for-a-team-or-person)」を参照してください。
+{% endif %}
 ## 参考リンク
 
 - [外部コラボレーターを Organization のリポジトリに追加する](/articles/adding-outside-collaborators-to-repositories-in-your-organization)

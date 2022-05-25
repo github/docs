@@ -26,7 +26,7 @@ Este guia explica como usar {% data variables.product.prodname_actions %} para c
 
 O GKE é um serviço de cluster gerenciado do Kubernetes pelo Google Cloud que pode hospedar suas cargas de trabalho containerizadas na nuvem ou em seu próprio centro de dados. Para obter mais informações, consulte [Google Kubernetes Engine](https://cloud.google.com/kubernetes-engine).
 
-{% ifversion fpt or ghec or ghae-issue-4856 %}
+{% ifversion fpt or ghec or ghae-issue-4856 or ghes > 3.4 %}
 
 {% note %}
 
@@ -90,8 +90,12 @@ Este procedimento demonstra como criar a conta de serviço para sua integração
   ```
   $ gcloud projects add-iam-policy-binding $GKE_PROJECT \
     --member=serviceAccount:$SA_EMAIL \
-    --role=roles/container.admin \
-    --role=roles/storage.admin \
+    --role=roles/container.admin
+  $ gcloud projects add-iam-policy-binding $GKE_PROJECT \
+    --member=serviceAccount:$SA_EMAIL \
+    --role=roles/storage.admin
+  $ gcloud projects add-iam-policy-binding $GKE_PROJECT \
+    --member=serviceAccount:$SA_EMAIL \
     --role=roles/container.clusterViewer
   ```
   {% endraw %}
@@ -114,13 +118,11 @@ Este procedimento demonstra como criar a conta de serviço para sua integração
 Armazene o nome do seu projeto como um segredo denominado `GKE_PROJECT`. Para obter mais informações sobre como armazenar um segredo, consulte "[Segredos criptografados](/actions/security-guides/encrypted-secrets)".
 
 ### (Opcional) Configurar kustomize
-Kustomize é uma ferramenta opcional usada para gerenciar especificações do YAML. Depois de criar um arquivo do _kustomization_, o fluxo de trabalho abaixo pode ser usado para definir dinamicamente os campos da imagem e adicionar o resultado ao `kubectl`. Para obter mais informações, consulte [uso de kustomize](https://github.com/kubernetes-sigs/kustomize#usage).
+Kustomize é uma ferramenta opcional usada para gerenciar especificações do YAML. Depois de criar um arquivo do `kustomization`, o fluxo de trabalho abaixo pode ser usado para definir dinamicamente os campos da imagem e adicionar o resultado ao `kubectl`. Para obter mais informações, consulte [uso de kustomize](https://github.com/kubernetes-sigs/kustomize#usage).
 
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 ### (Opcional) Configure um ambiente de implantação
 
 {% data reusables.actions.about-environments %}
-{% endif %}
 
 ## Criar o fluxo de trabalho
 
@@ -157,7 +159,7 @@ jobs:
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: {% data reusables.actions.action-checkout %}
 
     # Setup gcloud CLI
     - uses: google-github-actions/setup-gcloud@94337306dda8180d967a56932ceb4ddcf01edae7

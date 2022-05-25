@@ -28,6 +28,6 @@ Veja estas páginas para obter informações sobre como efetuar a autenticação
 
 {% note %}
 
-**Observação:** [Os limites de taxa para a API REST](/rest#rate-limiting) aplicam-se a todos os pontos de extremidade da API de {% data variables.product.prodname_marketplace %}.
+**Observação:** [Os limites de taxa para a API REST](/rest/overview/resources-in-the-rest-api#rate-limiting) aplicam-se a todos os pontos de extremidade da API de {% data variables.product.prodname_marketplace %}.
 
 {% endnote %}

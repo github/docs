@@ -28,12 +28,13 @@ shortTitle: Upgrading GHES
 ## アップグレードの準備
 
 1. アップグレードの戦略を決定し、アップグレード先のバージョンを選択してください。 For more information, see "[Upgrade requirements](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrade-requirements/)" and refer to the [{% data variables.enterprise.upgrade_assistant %}](https://support.github.com/enterprise/server-upgrade) to find the upgrade path from your current release version.
-3. {% data variables.product.prodname_enterprise_backup_utilities %} で、プライマリインスタンスの新しいバックアップを作成してください。 詳しい情報については、[{% data variables.product.prodname_enterprise_backup_utilities %}README.md ファイル](https://github.com/github/backup-utils#readme)を参照してください。
-4. アップグレードパッケージを使ってアップグレードをする場合は、{% data variables.product.prodname_ghe_server %} のエンドユーザのためにメンテナンス時間枠をスケジューリングしてください。 ホットパッチを利用している場合、メンテナンスモードは必要ありません。
+1. {% data variables.product.prodname_enterprise_backup_utilities %} で、プライマリインスタンスの新しいバックアップを作成してください。 詳しい情報については、[{% data variables.product.prodname_enterprise_backup_utilities %}README.md ファイル](https://github.com/github/backup-utils#readme)を参照してください。
+1. If {% data variables.product.product_location %} uses ephemeral self-hosted runners for {% data variables.product.prodname_actions %} and you've disabled automatic updates, upgrade your runners to the version of the runner application that your upgraded instance will run.
+1. アップグレードパッケージを使ってアップグレードをする場合は、{% data variables.product.prodname_ghe_server %} のエンドユーザのためにメンテナンス時間枠をスケジューリングしてください。 ホットパッチを利用しているなら、メンテナンスモードは必要ありません。
 
   {% note %}
 
-  **注釈:** メンテナンスウィンドウは、実行しようとしているアップグレードの種類によります。 ホットパッチを利用するアップグレードは、通常メンテナンスウィンドウを必要としません。 リブートが必要になることもあります。そのリブートは後で行うことができます。 MAJOR.FEATURE.PATCH というバージョン付けのスキームに従い、アップグレードパッケージを使ったパッチのリリースで生じるダウンタイムは、通常 5 分未満です。 データの移行を含むフィーチャリリースは、ストレージの性能および移行するデータの量に応じた時間がかかります。 詳しい情報については"[メンテナンスモードの有効化とスケジューリング](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)"を参照してください。
+  **注釈:** メンテナンスウィンドウは、実行しようとしているアップグレードの種類によります。 ホットパッチを利用するアップグレードは、通常メンテナンスウィンドウを必要としません。 リブートが必要になることもあります。そのリブートは後で行うことができます。 MAJOR.FEATURE.PATCH というバージョン付けのスキームに従ったパッチリリースをアップグレードパッケージを行うには、通常 5 分未満のダウンタイムだけが必要です。 データの移行を含むフィーチャリリースは、ストレージのパフォーマンス及び移行するデータの量に応じて時間が長くかかります。 詳しい情報については"[メンテナンスモードの有効化とスケジューリング](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)"を参照してください。
 
   {% endnote %}
 
@@ -41,7 +42,9 @@ shortTitle: Upgrading GHES
 
 ## スナップショットの取得
 
-スナップショットは、ある時点での仮想マシン（VM）のチェックポイントです。 アップグレードに失敗した場合にスナップショットからVMを回復できるよう、仮想マシンをアップグレードする前にスナップショットを取っておくことを強くおすすめします。 新しいフィーチャリリースにアップグレードするなら、VM のスナップショットを取らなければなりません。 パッチリリースへのアップグレードをするなら、既存のデータディスクをアタッチできます。
+スナップショットは、ある時点での仮想マシン（VM）のチェックポイントです。 アップグレードに失敗した場合にスナップショットからVMを回復できるよう、仮想マシンをアップグレードする前にスナップショットを取っておくことを強くおすすめします。 We only recommend taking a VM snapshot when the appliance is powered down or in maintenance mode and all background jobs have finished.
+
+新しいフィーチャリリースにアップグレードするなら、VM のスナップショットを取らなければなりません。 パッチリリースへのアップグレードをするなら、既存のデータディスクをアタッチできます。
 
 スナップショットには2種類あります。
 
@@ -67,7 +70,9 @@ shortTitle: Upgrading GHES
 
 ## ホットパッチでのアップグレード
 
-{% data reusables.enterprise_installation.hotpatching-explanation %}{% data variables.enterprise.management_console %} を使うと、ホットパッチを即座にインストールすることや、後にインストールするようにスケジュールすることができます。 管理シェルを使って `ghe-upgrade` ユーティリティでホットパッチをインストールすることもできます。 詳細は「[アップグレードの要求事項](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrade-requirements/)」を参照してください。
+{% data reusables.enterprise_installation.hotpatching-explanation %}
+
+Using the {% data variables.enterprise.management_console %}, you can install a hotpatch immediately or schedule it for later installation. 管理シェルを使って `ghe-upgrade` ユーティリティでホットパッチをインストールすることもできます。 詳細は「[アップグレードの要求事項](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrade-requirements/)」を参照してください。
 
 {% note %}
 
@@ -83,6 +88,10 @@ shortTitle: Upgrading GHES
 ### ホットパッチでの単一のアプライアンスのアップグレード
 
 #### {% data variables.enterprise.management_console %} を使ってホットパッチをインストールする
+
+You can use the {% data variables.enterprise.management_console %} to upgrade with a hotpatch by enabling automatic updates. You will then be presented with the latest available version of {% data variables.product.prodname_ghe_server %} that you can upgrade to.
+
+If the upgrade target you're presented with is a feature release instead of a patch release, you cannot use the {% data variables.enterprise.management_console %} to install a hotpatch. You must install the hotpatch using the administrative shell instead. For more information, see "[Installing a hotpatch using the administrative shell](#installing-a-hotpatch-using-the-administrative-shell)."
 
 1. 自動アップデートを有効化してください。 詳しい情報については「[自動アップデートの有効化](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-automatic-update-checks/)」を参照してください。
 {% data reusables.enterprise_site_admin_settings.access-settings %}
@@ -165,6 +174,9 @@ High Availability と Geo-replication が設定されたアプライアンスは
   Target root partition:  /dev/xvda2
   Proceed with installation? [y/N]
   ```
+{% if ip-exception-list %}
+1. Optionally, to validate the upgrade, configure an IP exception list to allow access to a specified list of IP addresses. For more information, see "[Validating changes in maintenance mode using the IP exception list](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode#validating-changes-in-maintenance-mode-using-the-ip-exception-list)."
+{% endif %}
 7. 単一アプライアンスのアップグレードであれば、メンテナンスモードを無効化してユーザが {% data variables.product.product_location %} を利用できるようにしてください。
 
   {% note %}

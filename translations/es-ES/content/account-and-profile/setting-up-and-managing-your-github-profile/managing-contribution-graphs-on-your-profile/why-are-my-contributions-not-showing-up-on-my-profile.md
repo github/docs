@@ -19,6 +19,8 @@ shortTitle: Contribuciones faltantes
 
 La gráfica de contribuciones en tu perfil es un registro de las contribuciones que has hecho en los repositorios {% ifversion ghae %}que le pertenecen{% else %}de{% endif %} {% data variables.product.product_location %}. Las contribuciones son registros horarios de acuerdo a la zona horaria universal coordinada (UTC) en lugar de tu zona horaria local. Las contribuciones solo se cuentan si cumplen con determinados criterios. En algunos casos, necesitamos reconstruir tu gráfico para que aparezcan las contribuciones.
 
+Si eres parte de una organización que utiliza el inicio de sesión único (SSO) de SAML, no podrás ver la actividad de las contribuciones desde la organización en tu perfil de no tener una sesión de SSO activa. Las personas que ven tu perfil desde fuera de tu organización verán una actividad de contribución anonimizada de aquella para tu organización.
+
 ## Contribuciones que se cuentan
 
 ### Propuestas, solicitudes de cambios y debates

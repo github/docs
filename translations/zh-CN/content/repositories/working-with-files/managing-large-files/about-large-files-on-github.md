@@ -1,6 +1,6 @@
 ---
-title: About large files on GitHub
-intro: '{% data variables.product.product_name %} limits the size of files you can track in regular Git repositories. Learn how to track or remove files that are beyond the limit.'
+title: 关于 GitHub 上的大文件
+intro: '{% data variables.product.product_name %} 限制了可以在常规 Git 存储库中跟踪的文件大小。 了解如何跟踪或删除超出限制的文件。'
 redirect_from:
   - /articles/distributing-large-binaries
   - /github/managing-large-files/distributing-large-binaries
@@ -21,18 +21,18 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: Large files
+shortTitle: 大文件
 ---
 
-## About size limits on {% data variables.product.product_name %}
+## 关于 {% data variables.product.product_name %} 的大小限制
 
 {% ifversion fpt or ghec %}
 {% data variables.product.product_name %} 尝试为所有 Git 仓库提供丰富的存储空间，尽管文件和仓库大小存在硬性限制。 为确保用户的性能和可靠性，我们积极监控整个仓库运行状况的信号。 仓库运行状况是各种交互因素共同作用的结果，包括大小、提交频率、内容和结构。
 
-### File size limits
+### 文件大小限制
 {% endif %}
 
-{% data variables.product.product_name %} limits the size of files allowed in repositories. 如果尝试添加或更新大于 {% data variables.large_files.warning_size %} 的文件，您将从 Git 收到警告。 更改仍将成功推送到仓库，但您可以考虑删除提交，以尽量减少对性能的影响。 更多信息请参阅“[从仓库的历史记录中删除文件](#removing-files-from-a-repositorys-history)”。
+{% data variables.product.product_name %} 限制存储库中允许的文件大小。 如果尝试添加或更新大于 {% data variables.large_files.warning_size %} 的文件，您将从 Git 收到警告。 更改仍将成功推送到仓库，但您可以考虑删除提交，以尽量减少对性能的影响。 更多信息请参阅“[从仓库的历史记录中删除文件](#removing-files-from-a-repositorys-history)”。
 
 {% note %}
 
@@ -40,16 +40,16 @@ shortTitle: Large files
 
 {% endnote %}
 
-{% ifversion ghes %}默认情况下， {% endif %}{% data variables.product.product_name %} 阻止超过 {% data variables.large_files.max_github_size %} 的推送。 {% ifversion ghes %}但站点管理员可为您的 {% data variables.product.product_location %} 配置不同的限制。  For more information, see "[Setting Git push limits](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-git-push-limits)."{% endif %}
+{% ifversion ghes %}默认情况下， {% endif %}{% data variables.product.product_name %} 阻止超过 {% data variables.large_files.max_github_size %} 的推送。 {% ifversion ghes %}但站点管理员可为您的 {% data variables.product.product_location %} 配置不同的限制。  更多信息请参阅“[设置 Git 推送限制](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-git-push-limits)”。{% endif %}
 
-To track files beyond this limit, you must use {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}). For more information, see "[About {% data variables.large_files.product_name_long %}](/repositories/working-with-files/managing-large-files/about-git-large-file-storage)."
+要跟踪超出此限制的文件，必须使用 {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %})。 更多信息请参阅“[关于 {% data variables.large_files.product_name_long %}](/repositories/working-with-files/managing-large-files/about-git-large-file-storage)”。
 
-If you need to distribute large files within your repository, you can create releases on {% data variables.product.product_location %} instead of tracking the files. 更多信息请参阅“[分发大型二进制文件](#distributing-large-binaries)”。
+如果需要在存储库中分发大文件，则可以在 {% data variables.product.product_location %} 上创建版本，而不是跟踪文件。 更多信息请参阅“[分发大型二进制文件](#distributing-large-binaries)”。
 
-Git is not designed to handle large SQL files. 要与其他开发者共享大型数据库，建议使用 [Dropbox](https://www.dropbox.com/)。
+Git 不是为处理大型 SQL 文件而设计的。 要与其他开发者共享大型数据库，建议使用 [Dropbox](https://www.dropbox.com/)。
 
 {% ifversion fpt or ghec %}
-### Repository size limits
+### 存储库大小限制
 
 建议仓库保持较小，理想情况下小于 1 GB，强烈建议小于 5 GB。 较小的仓库克隆速度更快，使用和维护更容易。 如果您的仓库过度影响我们的基础架构，您可能会收到来自 {% data variables.contact.github_support %} 的电子邮件，要求您采取纠正措施。 我们力求灵活，特别是对于拥有很多协作者的大型项目，并且尽可能与您一起找到解决方案。 您可以有效地管理仓库的大小和整体运行状况，以免您的仓库影响我们的基础架构。 在 [`github/git-sizer`](https://github.com/github/git-sizer) 仓库中可以找到用于仓库分析的建议和工具。
 

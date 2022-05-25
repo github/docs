@@ -14,15 +14,16 @@ shortTitle: PAT with SAML
 ---
 You can authorize an existing personal access token, or [create a new personal access token](/github/authenticating-to-github/creating-a-personal-access-token) and then authorize it.
 
+{% data reusables.saml.must-authorize-linked-identity %}
+
 {% data reusables.saml.authorized-creds-info %}
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.developer_settings %}
-{% data reusables.user_settings.personal_access_tokens %}
-3. Next to the token you'd like to authorize, click **Enable SSO** or **Disable SSO**.
-   ![SSO token authorize button](/assets/images/help/settings/sso-allowlist-button.png)
-4. Find the organization you'd like to authorize the access token for.
-4. Click **Authorize**.
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.developer_settings %}
+{% data reusables.user-settings.personal_access_tokens %}
+3. Next to the token you'd like to authorize, click **Configure SSO**.
+   ![Screenshot of the dropdown menu to configure SSO for a personal access token](/assets/images/help/settings/sso-allowlist-button.png)
+4. To the right of the organization you'd like to authorize the token for, click **Authorize**.
    ![Token authorize button](/assets/images/help/settings/token-authorize-button.png)
 
 ## Further reading

@@ -37,24 +37,25 @@ remote: error: Required status check "ci-build" is failing
 
 {% endnote %}
 
-{% ifversion fpt or ghae or ghes or ghec %}
-
 ## Conflicts between head commit and test merge commit
 
 テストマージコミットと head コミットのステータスチェックの結果が競合する場合があります。 テストマージコミットにステータスがある場合、そのテストマージコミットは必ずパスする必要があります。 それ以外の場合、ヘッドコミットのステータスは、ブランチをマージする前にパスする必要があります。 テストマージコミットに関する詳しい情報については、「[プル](/rest/reference/pulls#get-a-pull-request)」を参照してください。
 
 ![マージコミットが競合しているブランチ](/assets/images/help/repository/req-status-check-conflicting-merge-commits.png)
-{% endif %}
 
 ## Handling skipped but required checks
 
-Sometimes a required status check is skipped on pull requests due to path filtering. For example, a Node.JS test will be skipped on a pull request that just fixes a typo in your README file and makes no changes to the JavaScript and TypeScript files in the `scripts` directory.
+{% note %}
 
-If this check is required and it gets skipped, then the check's status is shown as pending, because it's required. In this situation you won't be able to merge the pull request.
+**Note:** If a workflow is skipped due to [path filtering](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore), [branch filtering](/actions/using-workflows/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore) or a [commit message](/actions/managing-workflow-runs/skipping-workflow-runs), then checks associated with that workflow will remain in a "Pending" state. A pull request that requires those checks to be successful will be blocked from merging.
+
+If a job in a workflow is skipped due to a conditional, it will report its status as "Success". For more information see [Skipping workflow runs](/actions/managing-workflow-runs/skipping-workflow-runs) and [Using conditions to control job execution](/actions/using-jobs/using-conditions-to-control-job-execution).
+
+{% endnote %}
 
 ### サンプル
 
-In this example you have a workflow that's required to pass.
+The following example shows a workflow that requires a "Successful" completion status for the `build` job, but the workflow will be skipped if the pull request does not change any files in the `scripts` directory.
 
 ```yaml
 name: ci
@@ -62,7 +63,6 @@ on:
   pull_request:
     paths:
       - 'scripts/**'
-      - 'middleware/**'
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -70,18 +70,18 @@ jobs:
       matrix:
         node-version: [12.x, 14.x, 16.x]
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v2
+    - uses: {% data reusables.actions.action-checkout %}
+    - name: Use Node.js {% raw %}${{ matrix.node-version }}{% endraw %}
+      uses: {% data reusables.actions.action-setup-node %}
       with:
-        node-version: ${{ matrix.node-version }}
+        node-version: {% raw %}${{ matrix.node-version }}{% endraw %}
         cache: 'npm'
     - run: npm ci
     - run: npm run build --if-present
     - run: npm test
 ```
 
-If someone submits a pull request that changes a markdown file in the root of the repository, then the workflow above won't run at all because of the path filtering. As a result you won't be able to merge the pull request. You would see the following status on the pull request:
+Due to [path filtering](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore), a pull request that only changes a file in the root of the repository will not trigger this workflow and is blocked from merging. You would see the following status on the pull request:
 
 ![Required check skipped but shown as pending](/assets/images/help/repository/PR-required-check-skipped.png)
 

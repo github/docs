@@ -219,7 +219,7 @@ A Git ref has been successfully synced to a cache replica. For more information,
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
-`sender` | `object` | `action` が `reopened_by_user` または `closed_by_user` の場合、`sender` オブジェクトは、イベントをトリガーしたユーザになります。 The `sender` object is {% ifversion fpt or ghec %}`github`{% elsif ghes > 3.0 or ghae %}`github-enterprise`{% else %}empty{% endif %} for all other actions.
+`sender` | `object` | `action` が `reopened_by_user` または `closed_by_user` の場合、`sender` オブジェクトは、イベントをトリガーしたユーザになります。 `sender`オブジェクトは、他の全てのアクションに対して{% ifversion fpt or ghec %}`github`{% elsif ghes or ghae %}`github-enterprise`{% else %}empty{% endif %}です。
 
 ### webhook ペイロードの例
 
@@ -353,10 +353,10 @@ webhook イベントは、登録したドメインの特異性に基づいてト
 
 ### webhook ペイロードオブジェクト
 
-| キー           | 種類                                          | 説明                                                              |
-| ------------ | ------------------------------------------- | --------------------------------------------------------------- |{% ifversion fpt or ghes or ghae or ghec %}
-| `action`     | `string`                                    | 実行されたアクション。 `created` を指定可。{% endif %}
-| `deployment` | `オブジェクト`                                    | The [deployment](/rest/reference/deployments#list-deployments). |
+| キー           | 種類       | 説明                                                       |
+| ------------ | -------- | -------------------------------------------------------- |
+| `action`     | `string` | 実行されたアクション。 `created `になりうる。                             |
+| `deployment` | `オブジェクト` | [デプロイメント](/rest/reference/deployments#list-deployments)。 |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -378,14 +378,14 @@ webhook イベントは、登録したドメインの特異性に基づいてト
 
 ### webhook ペイロードオブジェクト
 
-| キー                                 | 種類                                          | 説明                                                                                                  |
-| ---------------------------------- | ------------------------------------------- | --------------------------------------------------------------------------------------------------- |{% ifversion fpt or ghes or ghae or ghec %}
-| `action`                           | `string`                                    | 実行されたアクション。 `created` を指定可。{% endif %}
-| `deployment_status`                | `オブジェクト`                                    | The [deployment status](/rest/reference/deployments#list-deployment-statuses).                      |
-| `deployment_status["state"]`       | `string`                                    | 新しい状態。 `pending`、`success`、`failure`、`error` のいずれかを指定可。                                             |
-| `deployment_status["target_url"]`  | `string`                                    | ステータスに追加されたオプションのリンク。                                                                               |
-| `deployment_status["description"]` | `string`                                    | オプションの人間可読の説明がステータスに追加。                                                                             |
-| `deployment`                       | `オブジェクト`                                    | The [deployment](/rest/reference/deployments#list-deployments) that this status is associated with. |
+| キー                                 | 種類       | 説明                                                                         |
+| ---------------------------------- | -------- | -------------------------------------------------------------------------- |
+| `action`                           | `string` | 実行されたアクション。 `created `になりうる。                                               |
+| `deployment_status`                | `オブジェクト` | [デプロイメントステータス](/rest/reference/deployments#list-deployment-statuses)。      |
+| `deployment_status["state"]`       | `string` | 新しい状態。 `pending`、`success`、`failure`、`error` のいずれかを指定可。                    |
+| `deployment_status["target_url"]`  | `string` | ステータスに追加されたオプションのリンク。                                                      |
+| `deployment_status["description"]` | `string` | オプションの人間可読の説明がステータスに追加。                                                    |
+| `deployment`                       | `オブジェクト` | このステータスが関連付けられている [デプロイメント](/rest/reference/deployments#list-deployments)。 |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -811,8 +811,6 @@ GitHub Marketplace の購入に関連するアクティビティ。 {% data reus
 
 {% endif %}
 
-{% ifversion fpt or ghae or ghec %}
-
 ## package
 
 {% data variables.product.prodname_registry %} に関連するアクティビティ。 {% data reusables.webhooks.action_type_desc %} {% data variables.product.prodname_registry %} の詳細については、「[{% data variables.product.prodname_registry %} を使用してパッケージを管理する](/github/managing-packages-with-github-packages)」を参照してください。
@@ -832,7 +830,6 @@ GitHub Marketplace の購入に関連するアクティビティ。 {% data reus
 ### webhook ペイロードの例
 
 {{ webhookPayloadsForCurrentVersion.package.published }}
-{% endif %}
 
 ## page_build
 
@@ -1062,6 +1059,28 @@ GitHub Marketplace の購入に関連するアクティビティ。 {% data reus
 
 {{ webhookPayloadsForCurrentVersion.pull_request_review_comment.created }}
 
+## pull_request_review_thread
+
+{% data reusables.webhooks.pull_request_review_thread_short_desc %}
+
+### 利用の可否
+
+- リポジトリ webhook
+- Organization webhook
+- `pull_requests` 権限のある {% data variables.product.prodname_github_apps %}
+
+### webhook ペイロードオブジェクト
+
+{% data reusables.webhooks.pull_request_thread_properties %}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
+
+### webhook ペイロードの例
+
+{{ webhookPayloadsForCurrentVersion.pull_request_review_thread.resolved }}
+
 ## プッシュ
 
 {% data reusables.webhooks.push_short_desc %}
@@ -1135,7 +1154,6 @@ GitHub Marketplace の購入に関連するアクティビティ。 {% data reus
 
 {{ webhookPayloadsForCurrentVersion.release.published }}
 
-{% ifversion fpt or ghes or ghae or ghec %}
 ## repository_dispatch
 
 このイベントは、{% data variables.product.prodname_github_app %} が「[リポジトリディスパッチイベントの作成](/rest/reference/repos#create-a-repository-dispatch-event)」エンドポイントに `POST` リクエストを送信したときに発生します。
@@ -1147,7 +1165,6 @@ GitHub Marketplace の購入に関連するアクティビティ。 {% data reus
 ### webhook ペイロードの例
 
 {{ webhookPayloadsForCurrentVersion.repository_dispatch }}
-{% endif %}
 
 ## リポジトリ
 
@@ -1163,7 +1180,7 @@ GitHub Marketplace の購入に関連するアクティビティ。 {% data reus
 
 | キー       | 種類       | 説明                                                   |
 | -------- | -------- | ---------------------------------------------------- |
-| `action` | `string` | 実行されたアクション. これは次のいずれかになります。<ul><li>「created」- リポジトリが作成されます。</li><li>「deleted」- リポジトリが削除されます。</li><li>「archived」- リポジトリがアーカイブされます。</li><li>「unarchived」- リポジトリがアーカイブ解除されます。</li>{% ifversion ghes or ghae %}<li>「anonymous_access_enabled」- リポジトリは [enabled for anonymous Git access](/rest/overview/api-previews#anonymous-git-access-to-repositories)、「anonymous_access_disabled」 - リポジトリは [disabled for anonymous Git access](/rest/overview/api-previews#anonymous-git-access-to-repositories)</li>{% endif %}<li>「edited」- リポジトリの情報が編集されます。</li><li>「renamed」- リポジトリの名前が変更されます。</li><li>「transferred」- リポジトリが転送されます。</li><li>「publicized」- リポジトリが公開されます。</li><li> 「privatized」- リポジトリが非公開になります。</li></ul> |
+| `action` | `string` | 実行されたアクション. これは次のいずれかになります。<ul><li>「created」- リポジトリが作成されます。</li><li>「deleted」- リポジトリが削除されます。</li><li>「archived」- リポジトリがアーカイブされます。</li><li>「unarchived」- リポジトリがアーカイブ解除されます。</li>{% ifversion ghes or ghae %}<li>`anonymous_access_enabled` - A repository is [enabled for anonymous Git access](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise), `anonymous_access_disabled` - A repository is [disabled for anonymous Git access](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise)</li>{% endif %}<li>「edited」- リポジトリの情報が編集されます。</li><li>「renamed」- リポジトリの名前が変更されます。</li><li>「transferred」- リポジトリが転送されます。</li><li>「publicized」- リポジトリが公開されます。</li><li> 「privatized」- リポジトリが非公開になります。</li></ul> |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -1216,7 +1233,7 @@ GitHub Marketplace の購入に関連するアクティビティ。 {% data reus
 
 {% endif %}
 
-{% ifversion fpt or ghes > 3.0 or ghec %}
+{% ifversion ghes or ghec %}
 
 ## secret_scanning_alert
 
@@ -1241,12 +1258,35 @@ GitHub Marketplace の購入に関連するアクティビティ。 {% data reus
 {{ webhookPayloadsForCurrentVersion.secret_scanning_alert.reopened }}
 {% endif %}
 
+{% ifversion ghes > 3.4 or ghec or ghae-issue-6581 %}
+## secret_scanning_alert_location
+
+{% data reusables.webhooks.secret_scanning_alert_location_event_short_desc %}
+
+### 利用の可否
+
+- リポジトリ webhook
+- Organization webhook
+- `secret_scanning_alerts:read` 権限のある {% data variables.product.prodname_github_apps %}
+
+### webhook ペイロードオブジェクト
+
+{% data reusables.webhooks.secret_scanning_alert_location_event_properties %}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+
+### webhook ペイロードの例
+
+{{ webhookPayloadsForCurrentVersion.secret_scanning_alert_location.created }}
+{% endif %}
+
 {% ifversion fpt or ghes or ghec %}
 ## security_advisory
 
 Activity related to a security advisory that has been reviewed by {% data variables.product.company_short %}. A {% data variables.product.company_short %}-reviewed security advisory provides information about security-related vulnerabilities in software on {% data variables.product.prodname_dotcom %}.
 
-The security advisory dataset also powers the GitHub {% data variables.product.prodname_dependabot_alerts %}. 詳しい情報については、「[脆弱性のある依存関係に対するアラートについて](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies/)」を参照してください。
+The security advisory dataset also powers the GitHub {% data variables.product.prodname_dependabot_alerts %}. 詳しい情報については、「[{% data variables.product.prodname_dependabot_alerts %} について](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies/)」を参照してください。
 
 ### 利用の可否
 
@@ -1443,12 +1483,23 @@ The security advisory dataset also powers the GitHub {% data variables.product.p
 
 - この webhook を受信するには、{% data variables.product.prodname_github_apps %} に `contents` 権限が必要です。
 
+### webhook ペイロードオブジェクト
+
+| キー       | 種類       | 説明                                                                                                                     |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------------------- |
+| `inputs` | `オブジェクト` | Inputs to the workflow. Each key represents the name of the input while it's value represents the value of that input. |
+{% data reusables.webhooks.org_desc %}
+| `ref` | `string` | The branch ref from which the workflow was run. |
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.sender_desc %}
+| `workflow` | `string` | Relative path to the workflow file which contains the workflow. |
+
 ### webhook ペイロードの例
 
 {{ webhookPayloadsForCurrentVersion.workflow_dispatch }}
 {% endif %}
 
-{% ifversion fpt or ghes > 3.2 or ghec %}
+{% ifversion fpt or ghes > 3.2 or ghec or ghae %}
 
 ## workflow_job
 

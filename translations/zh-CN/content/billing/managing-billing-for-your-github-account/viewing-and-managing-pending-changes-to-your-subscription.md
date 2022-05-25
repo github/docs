@@ -24,8 +24,8 @@ shortTitle: 待定订阅更改
 
 ## 查看和管理对个人帐户订阅的待定更改
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing_plans %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.billing_plans %}
 {% data reusables.dotcom_billing.review-pending-changes %}
 {% data reusables.dotcom_billing.cancel-pending-changes %}
 {% data reusables.dotcom_billing.confirm-cancel-pending-changes %}

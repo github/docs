@@ -26,15 +26,14 @@ This guide will lead you through creating a user site at `username.github.io`.
 1. Enter `username.github.io` as the repository name. Replace `username` with your {% data variables.product.prodname_dotcom %} username. For example, if your username is `octocat`, the repository name should be `octocat.github.io`.
    ![Repository name field](/assets/images/help/pages/create-repository-name-pages.png)
 {% data reusables.repositories.sidebar-settings %}
-1. In the left sidebar, click **Pages**.
-   ![Page tab in the left-hand sidebar](/assets/images/help/pages/pages-tab.png)
+{% data reusables.pages.sidebar-pages %}
 1. Click **Choose a theme**.
    ![Choose a theme button](/assets/images/help/pages/choose-theme.png)
-1. The Theme Chooser will open. Browse the available themes, then click **Select theme** to select a theme. It's easy to change your theme later, so if you're not sure, just choose one for now.
+2. The Theme Chooser will open. Browse the available themes, then click **Select theme** to select a theme. It's easy to change your theme later, so if you're not sure, just choose one for now.
    ![Theme options and Select theme button](/assets/images/help/pages/select-theme.png)
-1. After you select a theme, your repository's `README.md` file will open in the file editor. The `README.md` file is where you will write the content for your site. You can edit the file or keep the default content for now.
-1. When you are done editing the file, click **Commit changes**.
-1. Visit `username.github.io` to view your new website. **Note:** It can take up to 20 minutes for changes to your site to publish after you push the changes to {% data variables.product.product_name %}.
+3. After you select a theme, your repository's `README.md` file will open in the file editor. The `README.md` file is where you will write the content for your site. You can edit the file or keep the default content for now.
+4. When you are done editing the file, click **Commit changes**.
+5. Visit `username.github.io` to view your new website. **Note:** It can take up to 20 minutes for changes to your site to publish after you push the changes to {% data variables.product.product_name %}.
 
 ## Changing the title and description
 

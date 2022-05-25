@@ -47,6 +47,8 @@ If you define `entrypoint` in an action's metadata file, it will override the `E
 
 The Docker `ENTRYPOINT` instruction has a _shell_ form and _exec_ form. The Docker `ENTRYPOINT` documentation recommends using the _exec_ form of the `ENTRYPOINT` instruction. For more information about _exec_ and _shell_ form, see the [ENTRYPOINT reference](https://docs.docker.com/engine/reference/builder/#entrypoint) in the Docker documentation.
 
+You should not use `WORKDIR` to specify your entrypoint in your Dockerfile. Instead, you should use an absolute path. For more information, see [WORKDIR](#workdir).
+
 If you configure your container to use the _exec_ form of the `ENTRYPOINT` instruction, the `args` configured in the action's metadata file won't run in a command shell. If the action's `args` contain an environment variable, the variable will not be substituted. For example, using the following _exec_ format will not print the value stored in `$GITHUB_SHA`, but will instead print `"$GITHUB_SHA"`.
 
 ```dockerfile
@@ -103,7 +105,7 @@ If you define `args` in the action's metadata file, `args` will override the `CM
 
 If you use `CMD` in your `Dockerfile`, follow these guidelines:
 
-{% data reusables.github-actions.dockerfile-guidelines %}
+{% data reusables.actions.dockerfile-guidelines %}
 
 ## Supported Linux capabilities
 

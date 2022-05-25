@@ -38,6 +38,8 @@ Você pode gerar uma solicitação de assinatura de certificado (CSR, Certificat
 
 ## Fazer upload de um certificado TLS personalizado
 
+{% data reusables.enterprise_site_admin_settings.tls-downtime %}
+
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.privacy %}
@@ -66,6 +68,8 @@ Você também pode usar o utilitário de linha de comando `ghe-ssl-acme` na {% d
 ## Configurar o TLS usando Let's Encrypt
 
 {% data reusables.enterprise_installation.lets-encrypt-prerequisites %}
+
+{% data reusables.enterprise_site_admin_settings.tls-downtime %}
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}

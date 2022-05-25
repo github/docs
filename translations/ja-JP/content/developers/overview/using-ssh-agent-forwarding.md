@@ -79,7 +79,7 @@ $ ssh -T git@{% ifversion ghes or ghae %}hostname{% else %}github.com{% endif %}
 
 ### コードをのチェックアウトにはSSH URLを使わなければならない
 
-SSH転送はHTTP(s) URLでは動作せず、SSH URLでのみ動作します。 サーバー上の*.git/config*ファイルを調べて、URLが以下のようなSSHスタイルのURLになっていることを確認してください。
+SSH転送はHTTP(s) URLでは動作せず、SSH URLでのみ動作します。 サーバー上の`.git/config`ファイルを調べて、URLが以下のようなSSHスタイルのURLになっていることを確認してください。
 
 ```shell
 [remote "origin"]
@@ -107,7 +107,7 @@ $ exit
 # Returns to your local command prompt
 ```
 
-上の例では、*~/.ssh/config*というファイルがまずロードされ、それから*/etc/ssh_config*が読まれます。  以下のコマンドを実行すれば、そのファイルが設定を上書きしているかを調べることができます。
+上の例では、`~/.ssh/config`というファイルがまずロードされ、それから`/etc/ssh_config`が読まれます。  以下のコマンドを実行すれば、そのファイルが設定を上書きしているかを調べることができます。
 
 ```shell
 $ cat /etc/ssh_config
@@ -117,7 +117,7 @@ $ cat /etc/ssh_config
 >   ForwardAgent no
 ```
 
-この例では、*/etc/ssh_config*ファイルが`ForwardAgent no`と具体的に指定しており、これはエージェント転送をブロックするやり方です。 この行をファイルから削除すれば、エージェント転送は改めて動作するようになります。
+この例では、`/etc/ssh_config`ファイルが`ForwardAgent no`と具体的に指定しており、これはエージェント転送をブロックするやり方です。 この行をファイルから削除すれば、エージェント転送は改めて動作するようになります。
 
 ### サーバーはインバウンド接続でSSHエージェント転送を許可していなければならない
 

@@ -7,37 +7,6 @@ import statsd from '../lib/statsd.js'
 import { isConnectionDropped } from './halt-on-dropped-connection.js'
 import { nextApp, nextHandleRequest } from './next.js'
 
-function cacheOnReq(fn) {
-  const cache = new Map()
-
-  return async function (req) {
-    const path = req.pagePath || req.path
-
-    // Is the request for the GraphQL Explorer page?
-    const isGraphQLExplorer =
-      req.context.currentPathWithoutLanguage === '/graphql/overview/explorer'
-
-    // Serve from the cache if possible
-    const isCacheable =
-      // Skip for HTTP methods other than GET
-      req.method === 'GET' &&
-      // Skip for JSON debugging info requests
-      !('json' in req.query) &&
-      // Skip for the GraphQL Explorer page
-      !isGraphQLExplorer
-
-    if (isCacheable && cache.has(path)) {
-      return cache.get(path)
-    }
-    const result = await fn(req)
-
-    if (result && isCacheable) {
-      cache.set(path, result)
-    }
-    return result
-  }
-}
-
 async function buildRenderedPage(req) {
   const { context } = req
   const { page } = context
@@ -68,16 +37,18 @@ async function buildRenderedPage(req) {
 async function buildMiniTocItems(req) {
   const { context } = req
   const { page } = context
+  const isRestReferencePage =
+    page.relativePath.startsWith('rest') &&
+    !page.relativePath.includes('rest/guides') &&
+    !page.relativePath.includes('rest/overview')
 
   // get mini TOC items on articles
   if (!page.showMiniToc) {
     return
   }
 
-  return getMiniTocItems(context.renderedPage, page.miniTocMaxHeadingLevel)
+  return getMiniTocItems(context.renderedPage, page.miniTocMaxHeadingLevel, '', isRestReferencePage)
 }
-
-const wrapRenderedPage = cacheOnReq(buildRenderedPage)
 
 export default async function renderPage(req, res, next) {
   const { context } = req
@@ -96,7 +67,7 @@ export default async function renderPage(req, res, next) {
 
   // Just finish fast without all the details like Content-Length
   if (req.method === 'HEAD') {
-    return res.status(200).end()
+    return res.status(200).send('')
   }
 
   // Updating the Last-Modified header for substantive changes on a page for engineering
@@ -114,7 +85,7 @@ export default async function renderPage(req, res, next) {
   // Stop processing if the connection was already dropped
   if (isConnectionDropped(req, res)) return
 
-  req.context.renderedPage = await wrapRenderedPage(req)
+  req.context.renderedPage = await buildRenderedPage(req)
   req.context.miniTocItems = await buildMiniTocItems(req)
 
   // Stop processing if the connection was already dropped

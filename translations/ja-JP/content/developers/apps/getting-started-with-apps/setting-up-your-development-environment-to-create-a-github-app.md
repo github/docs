@@ -54,7 +54,7 @@ $ git clone https://github.com/github-developer/github-app-template.git
 
 ## ステップ 1. 新しいSmeeチャンネルの開始
 
-ローカルのマシンをインターネットに公開することなく、GitHubがwebhookを送信するのを支援するために、Smeeというツールが利用できます。 まず https://smee.io にアクセスして、**Start a new channel**をクリックしてください。 [ngrok](https://dashboard.ngrok.com/get-started)や[localtunnel](https://localtunnel.github.io/www/)のような、ローカルマシンをインターネットに公開してくれる他のツールに慣れているなら、それらを使ってもかまいません。
+ローカルのマシンをインターネットに公開することなく、GitHubがwebhookを送信するのを支援するために、Smeeというツールが利用できます。 まず https://smee.io にアクセスして、**Start a new channel**をクリックしてください。 If you're already comfortable with other tools that expose your local machine to the internet like [`ngrok`](https://dashboard.ngrok.com/get-started) or [`localtunnel`](https://localtunnel.github.io/www/), feel free to use those.
 
 ![Smeeの新規チャンネルボタン](/assets/images/smee-new-channel.png)
 
@@ -91,7 +91,7 @@ $ git clone https://github.com/github-developer/github-app-template.git
 
 `smee --url <unique_channel>`というコマンドは、Smeeに対してSmeeのチャンネルが受信したすべてのwebhookイベントを、コンピューター上で動作するSmeeクライアントに転送するように指示しています。 `--path /event_handler`オプションは、イベントを`/event_handler`というルートに転送します。このルートについては[後のセクション](#step-5-review-the-github-app-template-code)で取り上げます。 `--port 3000`オプションはポート3000を指定しており、サーバーはこのポートで待ち受けます。 Smeeを使えば、GitHubからのwebhookを受信するためにあなたのマシンがパブリックなインターネットに対してオープンである必要はありません。 また、ブラウザでSmeeのURLを開いて、受信したwebhookのペイロードを調べることもできます。
 
-このターミナルのウィンドウは開いたままにしておき、このガイドの残りのステップを完了させるまでの間、Smeeに接続したままにしておくことをおすすめします。 ユニークなドメインを失うことなくSmeeのクライアントの接続を切って、接続しなおすことも_できます_が（ngrokとは違って）、これは接続したままにしておいて、別のターミナルウィンドウで他のコマンドラインのタスクを行うようにするほうが簡単でしょう。
+このターミナルのウィンドウは開いたままにしておき、このガイドの残りのステップを完了させるまでの間、Smeeに接続したままにしておくことをおすすめします。 Although you _can_ disconnect and reconnect the Smee client without losing your unique domain (unlike `ngrok`), you may find it easier to leave it connected and do other command-line tasks in a different Terminal window.
 
 ## ステップ 2. 新しいGitHub Appの登録
 
@@ -131,7 +131,7 @@ $ git clone https://github.com/github-developer/github-app-template.git
 
 アプリケーションを作成すると、[アプリケーションの設定ページ](https://github.com/settings/apps)に戻されます。 ここで行うことがあと2つあります。
 
-* **アプリケーションの秘密鍵の生成。**これは後でアプリケーションを認証するために必要です。 ページをスクロールダウンして、**Generate a private key（秘密鍵の生成）**をクリックしてください。 生成されたPEMファイル（_`app-name`_-_`date`_-private-key.pemというような名前）を、また見つけられるディレクトリに保存してください。
+* **アプリケーションの秘密鍵の生成。**これは後でアプリケーションを認証するために必要です。 ページをスクロールダウンして、**Generate a private key（秘密鍵の生成）**をクリックしてください。 Save the resulting `PEM` file (called something like  _`app-name`_-_`date`_-`private-key.pem`) in a directory where you can find it again.
 
     ![秘密鍵の生成ダイアログ](/assets/images/private_key.png)
 

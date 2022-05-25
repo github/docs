@@ -53,7 +53,7 @@ topics:
 
 {% tip %}
 
-**Tip:** You cannot create task list items within closed issues or issues with linked pull requests.
+**提示：**您不能在已关闭的议题或链接的拉取请求中创建任务列表项目。
 
 {% endtip %}
 
@@ -76,5 +76,5 @@ topics:
 
 ## 延伸阅读
 
-* "[Basic writing and formatting syntax](/articles/basic-writing-and-formatting-syntax)"{% ifversion fpt or ghes > 3.3 or ghae-issue-5036 %}
-* "[Tracking {% data variables.product.prodname_code_scanning %} alerts in issues using task lists](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/tracking-code-scanning-alerts-in-issues-using-task-lists)"{% endif %}
+* "[基本书写和格式语法](/articles/basic-writing-and-formatting-syntax)"{% if code-scanning-task-lists %}
+* "[使用任务列表跟踪议题中的 {% data variables.product.prodname_code_scanning %} 警报](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/tracking-code-scanning-alerts-in-issues-using-task-lists)"{% endif %}

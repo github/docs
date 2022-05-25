@@ -20,7 +20,7 @@ shortTitle: 关于计费
 
 {% data reusables.dotcom_billing.view-all-subscriptions %}
 
-{% data reusables.user_settings.context_switcher %}
+{% data reusables.user-settings.context_switcher %}
 
 ## 延伸阅读
 

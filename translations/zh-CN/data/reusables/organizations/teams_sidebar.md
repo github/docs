@@ -1,1 +1,5 @@
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
+1. 在边栏的“Access（访问）”部分中，单击 **{% octicon "comment-discussion" aria-label="The comment-discussion icon" %} Team discussions（团队讨论）**。
+{% else %}
 1. 在 Settings（设置）侧边栏中，单击 **Teams（团队）**。 ![组织设置侧边栏中的团队选项卡](/assets/images/help/settings/settings-sidebar-team-settings.png)
+{% endif %}

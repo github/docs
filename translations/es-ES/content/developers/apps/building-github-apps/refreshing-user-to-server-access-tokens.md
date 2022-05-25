@@ -16,7 +16,6 @@ shortTitle: Actualizar el acceso de usuario a servidor
 
 {% data reusables.pre-release-program.expiring-user-access-tokens %}
 
-
 ## Acerca de los tokens de acceso de usuario con caducidad
 
 Para cumplir con la rotación habitual de tokens y reducir el impacto de que se ponga en riesgo alguno de ellos, puedes configurar tu {% data variables.product.prodname_github_app %} para que utilice tokens de acceso de usuario con caducidad. Para obtener más información sobre cómo crear solicitudes de usuario a servidor, consulta la sección "[Identificar y autorizar usuarios para las GitHub Apps](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)".
@@ -60,8 +59,7 @@ Puedes habilitar o inhabilitar los tokens de autorización de usuario a servidor
 {% data reusables.user-settings.developer_settings %}
 {% data reusables.user-settings.github_apps %}
 4. Da clic en la opción**Editar** junto a la {% data variables.product.prodname_github_app %} que escogiste. ![Configuración para editar una GitHub App](/assets/images/github-apps/edit-test-app.png)
-5. En la barra lateral izquierda, haz clic en **{% ifversion ghes < 3.1 %} Características Beta {% else %} Características Opcionales {% endif %}**.
-  {% ifversion ghes < 3.1 %} ![Beta features tab](/assets/images/github-apps/beta-features-option.png) {% else %} ![Optional features tab](/assets/images/github-apps/optional-features-option.png) {% endif %}
+5. En la barra lateral izquierda, haz clic en **Características opcionales**. ![Pestaña de características opcionales](/assets/images/github-apps/optional-features-option.png)
 6. Junto a "caducidad de token de usuario a servidor", da clic en **Unirse** o en **No unirse**. Esta característica podría tardar un par de segundos para su aplicación.
 
 ## Decidir no unirse a los tokens con caducidad para las GitHub Apps nuevas

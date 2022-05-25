@@ -23,7 +23,7 @@ Recomendamos que vocÃª [configure o SSH](/articles/generating-an-ssh-key) ou faÃ
 
 {% endtip %}
 
-{% data reusables.user_settings.password-authentication-deprecation %}
+{% data reusables.user-settings.password-authentication-deprecation %}
 
 ## Atualizar credenciais pelo Keychain Access
 

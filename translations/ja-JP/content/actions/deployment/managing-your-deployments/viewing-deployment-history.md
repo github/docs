@@ -15,7 +15,7 @@ redirect_from:
 ---
 
 
-{% ifversion fpt or ghae or ghes > 3.0 or ghec %}{% data variables.product.prodname_actions %}及び環境、もしくは{% endif %}REST APIとサードパーティのアプリケーションを通じて、デプロイメントを配信できます。 {% ifversion fpt or ghae ghes > 3.0 or ghec %}For more information about using environments to deploy with {% data variables.product.prodname_actions %}, see "[Using environments for deployment](/actions/deployment/using-environments-for-deployment)." {% endif %} REST APIでのデプロイメントに関する詳しい情報については、「[リポジトリ](/rest/reference/repos#deployments)」を参照してください。
+You can deliver deployments through {% data variables.product.prodname_actions %} and environments or with the REST API and third party apps. {% ifversion fpt or ghae ghes > 3.0 or ghec %}For more information about using environments to deploy with {% data variables.product.prodname_actions %}, see "[Using environments for deployment](/actions/deployment/using-environments-for-deployment)." {% endif %} REST APIでのデプロイメントに関する詳しい情報については、「[リポジトリ](/rest/reference/repos#deployments)」を参照してください。
 
 現在及び過去のデプロイメントを表示するには、リポジトリのホームページの** Environments（環境）**をクリックしてください。
 {% ifversion ghae %}

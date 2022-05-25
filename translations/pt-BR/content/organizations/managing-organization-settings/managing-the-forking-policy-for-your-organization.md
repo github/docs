@@ -23,6 +23,7 @@ Se você permitir a bifurcação de repositórios privados{% ifversion ghes or g
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
+{% data reusables.profile.org_member_privileges %}
 1. Em "Bifurcação de repositório", selecione **Permitir bifurcação de repositórios {% ifversion ghec or ghes or ghae %}privados e {% endif %}internos**.
 
    {%- ifversion fpt %}

@@ -15,7 +15,7 @@ topics:
 shortTitle: 删除 GitHub 应用程序管理器
 ---
 
-For more information about {% data variables.product.prodname_github_app %} manager permissions, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#github-app-managers)."
+有关 {% data variables.product.prodname_github_app %} 管理员权限的详细信息，请参阅“[组织中的角色](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#github-app-managers)”。
 
 ## 删除整个组织的 {% data variables.product.prodname_github_app %}管理员权限
 

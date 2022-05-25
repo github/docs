@@ -1,6 +1,6 @@
 ---
 title: Enterprise 向けのパッケージエコシステムサポートを設定する
-intro: 'Docker、RubyGems、npm、Apache Maven、Gradle、NuGet など、Enterprise の個々のパッケージエコシステムをグローバルに有効または無効にすることで、Enterprise の {% data variables.product.prodname_registry %} を設定できます。 特定のパッケージエコシステムをサポートするための他の設定要件について学びます。'
+intro: 'You can configure {% data variables.product.prodname_registry %} for your enterprise by globally enabling or disabling individual package ecosystems on your enterprise, including {% ifversion ghes > 3.4 %}{% data variables.product.prodname_container_registry %}, {% endif %}Docker, and npm. 特定のパッケージエコシステムをサポートするための他の設定要件について学びます。'
 redirect_from:
   - /enterprise/admin/packages/configuring-packages-support-for-your-enterprise
   - /admin/packages/configuring-packages-support-for-your-enterprise
@@ -19,17 +19,19 @@ shortTitle: Configure package ecosystems
 
 新しいパッケージがアップロードされないようにするには、以前に有効にしたエコシステムを**読み取り専用**に設定し、既存のパッケージをダウンロードできるようにします。
 
-
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_site_admin_settings.packages-tab %}
 1. [Ecosystem Toggles] の下で、パッケージの種類ごとに [**Enabled**]、[**Read-Only**]、または [**Disabled**] を選択します。
-{% ifversion ghes > 3.1 %}
+   {%- ifversion ghes > 3.4 %}{% note -%}
+**Note**: Subdomain isolation must be enabled to toggle the
+   {% data variables.product.prodname_container_registry %} オプション.
+   {%- endnote %}{%- endif %}{%- ifversion ghes > 3.1 %}
   ![エコシステムの切り替え](/assets/images/enterprise/site-admin-settings/ecosystem-toggles.png){% else %}
 ![Ecosystem toggles](/assets/images/enterprise/3.1/site-admin-settings/ecosystem-toggles.png){% endif %}
 {% data reusables.enterprise_management_console.save-settings %}
 
-{% ifversion ghes = 3.0 or ghes > 3.0 %}
+{% ifversion ghes %}
 ## 公式 npm レジストリに接続する
 
 Enterprise で npm パッケージを有効にしていて、公式の npm レジストリと {% data variables.product.prodname_registry %} npm レジストリへのアクセスを許可する場合は、追加の設定を実行する必要があります。

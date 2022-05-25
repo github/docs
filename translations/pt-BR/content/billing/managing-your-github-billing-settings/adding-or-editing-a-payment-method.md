@@ -33,7 +33,7 @@ Não fornecemos fatura nem damos suporte a ordens de compra para contas pessoais
 
 ## Atualizar a forma de pagamento da sua conta pessoal
 
-{% data reusables.user_settings.billing_plans %}
+{% data reusables.user-settings.billing_plans %}
 {% data reusables.dotcom_billing.update_payment_method %}
 1. Se sua conta tiver informações de cobrança existentes que você deseja atualizar, clique em **Editar**. ![Botão de Cobrança de novo cartão](/assets/images/help/billing/billing-information-edit-button.png)
 {% data reusables.dotcom_billing.enter-billing-info %}

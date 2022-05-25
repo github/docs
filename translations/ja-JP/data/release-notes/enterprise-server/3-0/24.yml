@@ -1,0 +1,21 @@
+---
+date: '2022-02-01'
+sections:
+  security_fixes:
+    - パッケージは最新のセキュリティバージョンにアップデートされました。
+  bugs:
+    - '`nginx`が手動で再起動されるまで、MySQLのシークレットのローテーション後にPagesが利用できなくなります。'
+    - ISO 8601の日付でメンテナンススケジュールを設定すると、タイムゾーンがUTCに変換されないことから実際にスケジュールされる時間が一致しません。
+    - '`ghe-cluster-each`を使ってホットパッチをインストールすると、バージョン番号が正しく更新されません。'
+    - '`cloud-config.service`に関する誤ったエラーメッセージがコンソールに出力されます。'
+    - CAS認証を使用し、"Reactivate suspended users"オプションが有効化されている場合、サスペンドされたユーザは自動的に際アクティベートされませんでした。
+  changes:
+    - GitHub Connectのデータ接続レコードに、アクティブ及び休眠ユーザ数と、設定された休眠期間が含まれるようになりました。
+  known_issues:
+    - 新しくセットアップされたユーザを持たない{% data variables.product.prodname_ghe_server %}で、攻撃者が最初の管理ユーザを作成できました。
+    - アップグレードの過程で、カスタムのファイアウォールのルールが削除されます。
+    - Git LFSが追跡するファイル[Webインターフェースからアップロードされたもの](https://github.com/blog/2105-upload-files-to-your-repositories)が、不正にリポジトリに直接追加されてしまいます。
+    - 同じリポジトリ内のファイルパスが255文字を超えるblobへのパーマリンクを含むIssueをクローズできませんでした。
+    - GitHub Connectで"Users can search GitHub.com"が有効化されている場合、GitHub.comの検索結果にプライベート及びインターナルリポジトリのIssueが含まれません。
+    - High Availability構成でレプリカノードがオフラインの場合でも、{% data variables.product.product_name %}が{% data variables.product.prodname_pages %}リクエストをオフラインのノードにルーティングし続ける場合があり、それによってユーザにとっての{% data variables.product.prodname_pages %}の可用性が下がってしまいます。
+    - pre-receive フックの処理に固有のリソース制限によって、pre-receive フックに失敗するものが生じることがあります。

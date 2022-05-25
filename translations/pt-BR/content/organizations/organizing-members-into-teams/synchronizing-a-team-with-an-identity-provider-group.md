@@ -46,7 +46,7 @@ Para gerenciar o acesso ao repositório de qualquer equipe do {% data variables.
 
 Após conectar uma equipe a um grupo de IdP, a sincronização da equipe adicionará cada integrante do grupo IdP à equipe correspondente em {% data variables.product.product_name %} apenas se:
 - A pessoa for integrante da organização em {% data variables.product.product_name %}.
-- A pessoa já efetuou o login com sua conta de usuário em {% data variables.product.product_name %} e efetuou a autenticação na conta corporativa ou corporativa via logon único SAML pelo menos uma vez.
+- A pessoa já efetuou o login com sua conta pessoal em {% data variables.product.product_name %} e efetuou a autenticação na conta corporativa ou corporativa via logon único SAML pelo menos uma vez.
 - A identidade SSO da pessoa é um integrante do grupo IdP.
 
 As equipes ou integrantes de grupo que não atenderem a esses critérios serão automaticamente removidos da equipe em {% data variables.product.product_name %} e perderão o acesso aos repositórios. Revogar a identidade vinculada a um usuário também removerá o usuário de quaisquer equipes mapeadas com os grupos de IdP. Para obter mais informações, consulte "[Visualizando e gerenciando o acesso do SAML de um membro da sua organização](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization#viewing-and-revoking-a-linked-identity)" e "[Visualizando e gerenciando o acesso do SAML de um usuário da sua organização](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise#viewing-and-revoking-a-linked-identity)."
@@ -77,7 +77,7 @@ Quando o provisionamento de {% data variables.product.product_name %} for config
 Ao conectar um grupo de IdP a uma equipe de {% data variables.product.product_name %}, todos os usuários do grupo serão automaticamente adicionados à equipe. {% ifversion ghae %}Todos os usuários que não eram integrantes dos da organização principal também serão adicionados à organização.{% endif %}
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 {% ifversion ghec %}
@@ -90,7 +90,7 @@ Ao conectar um grupo de IdP a uma equipe de {% data variables.product.product_na
 Se desconectar um grupo de IdP de uma equipe do {% data variables.product.prodname_dotcom %}, os integrantes da equipe atribuídos à equipe do {% data variables.product.prodname_dotcom %} por meio do grupo de IdP serão removidos da equipe. {% ifversion ghae %} Todos os usuários que eram integrantes da organização principal apenas por causa da conexão com a equipe também serão removidos da organização.{% endif %}
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 {% ifversion ghec %}

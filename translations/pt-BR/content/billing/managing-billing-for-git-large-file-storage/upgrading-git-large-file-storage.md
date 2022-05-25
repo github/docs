@@ -21,8 +21,8 @@ shortTitle: Atualizar armazenamento do LFS do Git
 
 ## Comprar mais armazenamento e largura de banda para uma conta pessoal
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing_plans %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.billing_plans %}
 {% data reusables.dotcom_billing.lfs-add-data %}
 {% data reusables.large_files.pack_selection %}
 {% data reusables.large_files.pack_confirm %}

@@ -1,1 +1,1 @@
-You can configure repository caching by creating a special type of replica called a repository cache.
+Ahora puedes configurar el almacenamiento de repositorios en caché si creas un tipo especial de réplica llamado caché de repositorio.

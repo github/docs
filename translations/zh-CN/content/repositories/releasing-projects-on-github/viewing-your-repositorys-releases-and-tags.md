@@ -17,13 +17,11 @@ topics:
 shortTitle: 查看版本和标记
 ---
 
-{% ifversion fpt or ghae or ghes or ghec %}
 {% tip %}
 
 **提示**：您也可以使用 {% data variables.product.prodname_cli %} 查看发行版。 更多信息请参阅 {% data variables.product.prodname_cli %} 文档中的“[`gh 发行版视图`](https://cli.github.com/manual/gh_release_view)”。
 
 {% endtip %}
-{% endif %}
 
 ## 查看发行版
 

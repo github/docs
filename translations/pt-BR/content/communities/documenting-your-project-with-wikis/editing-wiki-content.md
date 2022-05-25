@@ -48,7 +48,7 @@ Para vincular a uma imagem em um repositório no {% data variables.product.produ
 ## Formatos do MediaWiki compatíveis
 
 Seja qual for a linguagem de marcação em que sua página wiki foi escrita, sempre haverá uma sintaxe do MediaWiki disponível para você.
-- Links ([exceto Asciidoc](https://github.com/gollum/gollum/commit/d1cf698b456cd6a35a54c6a8e7b41d3068acec3b))
+- Links ([exceto AsciiDoc](https://github.com/gollum/gollum/commit/d1cf698b456cd6a35a54c6a8e7b41d3068acec3b))
 - Regras horizontais via `---`
 - Entidades de símbolo abreviadas (como `&delta;` ou `&euro;`)
 

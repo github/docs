@@ -130,6 +130,10 @@ $ ghe-restore -c 169.154.1.1
 > Acesse https://169.154.1.1/setup/settings para revisar a configuração do appliance.
 ```
 
+{% if ip-exception-list %}
+Opcionalmente, para validar a restauração, configure uma lista de exceções IP para permitir o acesso a uma lista especificada de endereços IP. Para obter mais informações, consulte "[Validando as alterações no modo de manutenção usando a lista de exceção de IP](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode#validating-changes-in-maintenance-mode-using-the-ip-exception-list)".
+{% endif %}
+
 {% note %}
 
 **Observação:** as configurações de rede são excluídas do instantâneo de backup. Você deve configurar manualmente a rede no appliance de destino do {% data variables.product.prodname_ghe_server %} conforme o seu ambiente.
@@ -137,5 +141,5 @@ $ ghe-restore -c 169.154.1.1
 {% endnote %}
 
 Você pode usar estas opções adicionais com o comando `ghe-restore`:
-- O sinalizador `-c` substitui as configurações, os certificados e os dados de licença no host de destino, mesmo que já configurado. Omita esse sinalizador se você estiver configurando uma instância de preparo para fins de teste e se quiser manter a configuração no destino. Para obter mais informações, consulte a seção "Usar comandos de backup e restauração" do [README do {% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils#using-the-backup-and-restore-commands).
+- O sinalizador `-c` substitui as configurações, os certificados e os dados de licença no host de destino, mesmo que já configurado. Omita esse sinalizador se você estiver configurando uma instância de preparo para fins de teste e se quiser manter a configuração no destino. Para obter mais informações, consulte a seção "Usando comandos de backup e restauração" do [LEIAME do {% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils#using-the-backup-and-restore-commands).
 - O sinalizador `-s` permite selecionar outro instantâneo de backup.

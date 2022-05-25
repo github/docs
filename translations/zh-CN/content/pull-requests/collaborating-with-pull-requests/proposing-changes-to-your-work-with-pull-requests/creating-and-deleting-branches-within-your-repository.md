@@ -38,13 +38,16 @@ shortTitle: 创建和删除分支
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.navigate-to-branches %}
-1. 滚动到要删除的分支，然后单击 {% octicon "trash" aria-label="The trash icon to delete the branch" %}。 ![删除分支](/assets/images/help/branches/branches-delete.png)
+1. 滚动到要删除的分支，然后单击 {% octicon "trash" aria-label="The trash icon to delete the branch" %}。 ![delete the branch](/assets/images/help/branches/branches-delete.png) {% ifversion fpt or ghes > 3.5 or ghae-issue-6763 or ghec %}
+1. 如果尝试删除与至少一个打开的拉取请求关联的分支，则必须确认是否要关闭拉取请求。
+
+   ![确认删除分支](/assets/images/help/branches/confirm-deleting-branch.png){% endif %}
 
 {% data reusables.pull_requests.retargeted-on-branch-deletion %}
 更多信息请参阅“[关于分支](/github/collaborating-with-issues-and-pull-requests/about-branches#working-with-branches)”。
 
 ## 延伸阅读
 
-- "[About branches](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)"
+- "[关于分支](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)"
 - “[查看仓库中的分支](/github/administering-a-repository/viewing-branches-in-your-repository)”
 - "[删除和恢复拉取请求中的分支](/github/administering-a-repository/deleting-and-restoring-branches-in-a-pull-request)"

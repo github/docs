@@ -1,11 +1,9 @@
-# This Dockerfile can be used for docker-based deployments to platforms
-# like Now or Moda, but it is currently _not_ used by our Heroku deployments
-# It uses two multi-stage builds: `install` and the main build to keep the image size down.
+# This Dockerfile is used for docker-based deployments to Azure for both preview environments and production
 
 # --------------------------------------------------------------------------------
 # BASE IMAGE
 # --------------------------------------------------------------------------------
-FROM node:16.13.2-alpine@sha256:f21f35732964a96306a84a8c4b5a829f6d3a0c5163237ff4b6b8b34f8d70064b as base
+FROM node:16.15.0-alpine@sha256:1a9a71ea86aad332aa7740316d4111ee1bd4e890df47d3b5eff3e5bded3b3d10 as base
 
 # This directory is owned by the node user
 ARG APP_HOME=/home/node/app
@@ -21,10 +19,9 @@ WORKDIR $APP_HOME
 # ---------------
 FROM base as all_deps
 
-COPY --chown=node:node .npmrc ./
-COPY --chown=node:node package*.json ./
+COPY --chown=node:node package.json package-lock.json ./
 
-RUN npm ci
+RUN npm ci --no-optional --registry https://registry.npmjs.org/
 
 # For Next.js v12+
 # This the appropriate necessary extra for node:16-alpine
@@ -49,7 +46,6 @@ COPY stylesheets ./stylesheets
 COPY pages ./pages
 COPY components ./components
 COPY lib ./lib
-
 # One part of the build relies on this content file to pull all-products
 COPY content/index.md ./content/index.md
 
@@ -60,12 +56,12 @@ COPY next-env.d.ts ./next-env.d.ts
 RUN npm run build
 
 # --------------------------------------------------------------------------------
-# MAIN IMAGE
+# PREVIEW IMAGE - no translations
 # --------------------------------------------------------------------------------
 
-FROM base as production
+FROM base as preview
 
-# Copy just our prod dependencies
+# Copy just prod dependencies
 COPY --chown=node:node --from=prod_deps $APP_HOME/node_modules $APP_HOME/node_modules
 
 # Copy our front-end code
@@ -77,17 +73,20 @@ ENV NODE_ENV production
 # Whether to hide iframes, add warnings to external links
 ENV AIRGAP false
 
-# By default we typically don't want to run in clustered mode
-ENV WEB_CONCURRENCY 1
-
-# This makes sure server.mjs always picks up the preferred port
+# Preferred port for server.mjs
 ENV PORT 4000
+
+ENV ENABLED_LANGUAGES "en"
+
+# This makes it possible to set `--build-arg BUILD_SHA=abc123`
+# and it then becomes available as an environment variable in the docker run.
+ARG BUILD_SHA
+ENV BUILD_SHA=$BUILD_SHA
 
 # Copy only what's needed to run the server
 COPY --chown=node:node package.json ./
 COPY --chown=node:node assets ./assets
 COPY --chown=node:node includes ./includes
-COPY --chown=node:node translations ./translations
 COPY --chown=node:node content ./content
 COPY --chown=node:node lib ./lib
 COPY --chown=node:node middleware ./middleware
@@ -95,18 +94,16 @@ COPY --chown=node:node feature-flags.json ./
 COPY --chown=node:node data ./data
 COPY --chown=node:node next.config.js ./
 COPY --chown=node:node server.mjs ./server.mjs
+COPY --chown=node:node start-server.mjs ./start-server.mjs
 
 EXPOSE $PORT
 
 CMD ["node", "server.mjs"]
 
-
 # --------------------------------------------------------------------------------
-# MAIN IMAGE WITH EARLY ACCESS
+# PRODUCTION IMAGE - includes all translations
 # --------------------------------------------------------------------------------
+FROM preview as production
 
-FROM production as production_early_access
-
-COPY --chown=node:node content/early-access ./content/early-access
-
-CMD ["node", "server.mjs"]
+# Copy in all translations
+COPY --chown=node:node translations ./translations

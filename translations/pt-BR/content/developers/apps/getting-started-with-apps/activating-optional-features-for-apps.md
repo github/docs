@@ -16,18 +16,18 @@ shortTitle: Ativar funcionalidades opcionais
 
 {% warning %}
 
-**Aviso:** {% ifversion ghes < 3.1 %} Beta de {% else %} Funcionalidades opcionais {% endif %} estão sujeitos a alterações.
+**Aviso:** As funcionalidades opcionais estão sujeitas a alterações.
 
 {% endwarning %}
 
-## Ativar {% ifversion ghes < 3.1 %} {% else %} funcionalidades opcionais de beta {% endif %} para {% data variables.product.prodname_github_apps %}
+## Ativando funcionalidades opcionais para {% data variables.product.prodname_github_apps %}
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}
-3. Selecione o {% data variables.product.prodname_github_app %} que você deseja habilitar {% ifversion ghes < 3.1 %} um recurso beta {% else %} opcional {% endif %}.
+3. Selecione o {% data variables.product.prodname_github_app %} para o qual você deseja habilitar um recurso opcional.
 {% data reusables.apps.optional_feature_activation %}
 
-## Ativar {% ifversion ghes < 3.1 %} {% else %} funcionalidades opcionais de beta {% endif %} para {% data variables.product.prodname_oauth_apps %}
+## Ativando funcionalidades opcionais para {% data variables.product.prodname_oauth_apps %}
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}

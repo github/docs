@@ -33,11 +33,11 @@ shortTitle: 管理付款方式
 
 ## 更新个人帐户的付款方式
 
-{% data reusables.user_settings.billing_plans %}
+{% data reusables.user-settings.billing_plans %}
 {% data reusables.dotcom_billing.update_payment_method %}
-1. If your account has existing billing information that you want to update, click **Edit**. ![计费新卡按钮](/assets/images/help/billing/billing-information-edit-button.png)
+1. 如果您的帐户包含要更新的现有帐单信息，请单击 **Edit（编辑）**。 ![计费新卡按钮](/assets/images/help/billing/billing-information-edit-button.png)
 {% data reusables.dotcom_billing.enter-billing-info %}
-1. If your account has an existing payment method that you want to update, click **Edit**. ![计费新卡按钮](/assets/images/help/billing/billing-payment-method-edit-button.png)
+1. 如果您的帐户具有要更新的现有付款方式，请单击 **Edit（编辑）**。 ![计费新卡按钮](/assets/images/help/billing/billing-payment-method-edit-button.png)
 {% data reusables.dotcom_billing.enter-payment-info %}
 
 ## 更新组织的付款方式
