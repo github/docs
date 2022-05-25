@@ -415,7 +415,7 @@ _Import_
 
 _Reactions_
 
-- [`DELETE /reactions/:reaction_id`](/rest/reference/reactions#delete-a-reaction) (:write)
+- [`DELETE /reactions/:reaction_id`](/rest/reference/reactions#delete-a-reaction-legacy) (:write)
 - [`DELETE /repos/:owner/:repo/comments/:comment_id/reactions/:reaction_id`](/rest/reference/reactions#delete-a-commit-comment-reaction) (:write)
 - [`DELETE /repos/:owner/:repo/issues/:issue_number/reactions/:reaction_id`](/rest/reference/reactions#delete-an-issue-reaction) (:write)
 - [`DELETE /repos/:owner/:repo/issues/comments/:comment_id/reactions/:reaction_id`](/rest/reference/reactions#delete-an-issue-comment-reaction) (:write)
@@ -779,7 +779,7 @@ _Reactions_
 - [`POST /repos/:owner/:repo/issues/comments/:comment_id/reactions`](/rest/reference/reactions#create-reaction-for-an-issue-comment) (:write)
 - [`GET /repos/:owner/:repo/pulls/comments/:comment_id/reactions`](/rest/reference/reactions#list-reactions-for-a-pull-request-review-comment) (:read)
 - [`POST /repos/:owner/:repo/pulls/comments/:comment_id/reactions`](/rest/reference/reactions#create-reaction-for-a-pull-request-review-comment) (:write)
-- [`DELETE /reactions/:reaction_id`](/rest/reference/reactions#delete-a-reaction) (:write)
+- [`DELETE /reactions/:reaction_id`](/rest/reference/reactions#delete-a-reaction-legacy) (:write)
 - [`DELETE /repos/:owner/:repo/comments/:comment_id/reactions/:reaction_id`](/rest/reference/reactions#delete-a-commit-comment-reaction) (:write)
 - [`DELETE /repos/:owner/:repo/issues/:issue_number/reactions/:reaction_id`](/rest/reference/reactions#delete-an-issue-reaction) (:write)
 - [`DELETE /repos/:owner/:repo/issues/comments/:comment_id/reactions/:reaction_id`](/rest/reference/reactions#delete-an-issue-comment-reaction) (:write)
