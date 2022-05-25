@@ -11,6 +11,6 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## About the Users API
+## Sobre a API de usuários
 
 {% data reusables.user-settings.user-api %}

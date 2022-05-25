@@ -341,7 +341,7 @@ steps:
          - name: Decrypt large secret
            run: ./.github/scripts/decrypt_secret.sh
            env:
-             LARGE_SECRET_PASSPHRASE: {% raw %}${{ secrets. LARGE_SECRET_PASSPHRASE }}{% endraw %}
+             LARGE_SECRET_PASSPHRASE: {% raw %}${{ secrets.LARGE_SECRET_PASSPHRASE }}{% endraw %}
          # This command is just an example to show your secret being printed
          # Ensure you remove any print statements of your secrets. GitHub does
          # not hide secrets that use this workaround.

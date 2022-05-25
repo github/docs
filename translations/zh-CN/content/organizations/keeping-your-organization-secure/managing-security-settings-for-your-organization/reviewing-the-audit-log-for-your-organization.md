@@ -127,6 +127,9 @@ Using the qualifier `country`, you can filter events in the audit log based on t
 ## Exporting the audit log
 
 {% data reusables.audit_log.export-log %}
+
+{% data reusables.audit_log.git-events-export-limited %}
+
 {% data reusables.audit_log.exported-log-keys-and-values %}
 {% endif %}
 
@@ -737,7 +740,19 @@ For more information, see "[Managing the publication of {% data variables.produc
 |------------------|-------------------
 | `disable` | Triggered when an organization owner disables secret scanning for all existing{% ifversion ghec %}, private or internal{% endif %} repositories. For more information, see "[About secret scanning](/github/administering-a-repository/about-secret-scanning)."
 | `enable` | Triggered when an organization owner enables secret scanning for all existing{% ifversion ghec %}, private or internal{% endif %} repositories.
+{% endif %}
 
+{% if secret-scanning-alert-audit-log %}
+### `secret_scanning_alert` category actions
+
+| Action | Description
+|------------------|-------------------
+| `create` | Triggered when {% data variables.product.prodname_dotcom %} detects an exposed secret and creates a {% data variables.product.prodname_secret_scanning %} alert. For more information, see "[Managing alerts from {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/managing-alerts-from-secret-scanning)."
+| `reopen` | Triggered when a user reopens a {% data variables.product.prodname_secret_scanning %} alert.
+| `resolve` | Triggered when a user resolves a {% data variables.product.prodname_secret_scanning %} alert.
+{% endif %}
+
+{% ifversion ghec or ghes or ghae %}
 ### `secret_scanning_new_repos` category actions
 
 | Action | Description

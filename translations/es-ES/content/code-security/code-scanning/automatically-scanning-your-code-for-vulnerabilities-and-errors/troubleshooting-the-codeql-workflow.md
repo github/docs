@@ -269,6 +269,15 @@ Si el {% data variables.product.prodname_codeql_workflow %} aún falla en una co
 Este tipo de confirmación por fusión tiene como autor al {% data variables.product.prodname_dependabot %} y, por lo tanto, cualquier flujo de trabajo que se ejecute en la confirmación tendrá permisos de solo lectura. Si habilitaste las actualizaciones de seguridad o de versión del {% data variables.product.prodname_code_scanning %} y del {% data variables.product.prodname_dependabot %} en tu repositorio, te recomendamos que evites utilizar el comando `@dependabot squash and merge` del {% data variables.product.prodname_dependabot %}. En su lugar, puedes habilitar la fusión automática en tu repositorio. Esto significa que las solicitudes de cambio se fusionarán automáticamente cuando se cumplan todas las revisiones requeridas y cuando pasen todas las verificaciones de estado. Para obtener más información sobre cómo habilitar la fusión automática, consulta la sección "[Fusionar una solicitud de cambios automáticamente](/github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request#enabling-auto-merge)".
 {% endif %}
 
+## Error: "is not a .ql file, .qls file, a directory, or a query pack specification"
+
+You will see this error if CodeQL is unable to find the named query, query suite, or query pack at the location requested in the workflow. There are two common reasons for this error.
+
+- There is a typo in the workflow.
+- A resource the workflow refers to by path was renamed, deleted, or moved to a new location.
+
+After verifying the location of the resource, you can update the workflow to specify the correct location. If you run additional queries in Go analysis, you may have been affected by the relocation of the source files. For more information, see [Relocation announcement: `github/codeql-go` moving into `github/codeql`](https://github.com/github/codeql-go/issues/741) in the github/codeql-go repository.
+
 ## Warning: "git checkout HEAD^2 is no longer necessary"
 
 Si estás utilizando un flujo de trabajo de {% data variables.product.prodname_codeql %} antiguo, podrías obtener el siguiente mensaje de advertencia en la salida "inicializar {% data variables.product.prodname_codeql %}" de la acción:

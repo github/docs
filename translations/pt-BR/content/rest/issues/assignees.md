@@ -1,5 +1,5 @@
 ---
-title: Issue assignees
+title: Responsáveis pelo problema
 allowTitleToDifferFromFilename: true
 shortTitle: Responsáveis
 intro: ''
@@ -13,6 +13,6 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## About the Issue assignees API
+## Sobre a API de responsáveis pelo problema
 
-The Issue assignees API supports managing assignees on issues and pull requests. {% data reusables.pull_requests.issues-pr-shared-api %}
+A API de responsávels por problemas é compatível com o gerenciamento de responsáveis em problemas e pull requests. {% data reusables.pull_requests.issues-pr-shared-api %}
