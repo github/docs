@@ -163,6 +163,23 @@ For example, the following code displays a sun image for light themes and a moon
 The old method of specifying images based on the theme, by using a fragment appended to the URL (`#gh-dark-mode-only` or `#gh-light-mode-only`), is deprecated and will be removed in favor of the new method described above.
 {% endif %}
 
+### Animated images with Graphic Interchange Format (or GIFs)
+
+You can display an animated image by using the HTML `<img>` element or in combination with the `<picture>` for using with themes. These animated images supports embedding GIFs into your issues, pull requests, discussions, comments  and `.md` files.
+
+For example, the following code displays an animated octo-cat with `<img>` element:
+
+```HTML
+<img alt="This is GIF" src="https://raw.githubusercontent.com/LRANUL/docs/c2f6b7f68622266cf628b1773c98871e4d967261/assets/images/help/writing/base-octocat.gif">
+```
+
+<img alt="This is GIF" src="https://raw.githubusercontent.com/LRANUL/docs/c2f6b7f68622266cf628b1773c98871e4d967261/assets/images/help/writing/base-octocat.gif">
+
+
+{% tip %}
+
+**Tip:** When you want to display a GIF which is in GitHub, you should use GitHub raw URL links instead of GitHub content URL links.
+
 ## Lists
 
 You can make an unordered list by preceding one or more lines of text with <kbd>-</kbd> or <kbd>*</kbd>.
