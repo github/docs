@@ -31,17 +31,17 @@ shortTitle: 基本格式语法
 
 ## 样式文本
 
-You can indicate emphasis with bold, italic, strikethrough, subscript, or superscript text in comment fields and `.md` files.
+您可以在评论字段和 `.md` 文件中以粗体、斜体、删除线、下标或上标的文字表示强调。
 
-| 样式          | 语法                         | 键盘快捷键                                                                                | 示例                                                  | 输出                                    |
-| ----------- | -------------------------- | ------------------------------------------------------------------------------------ | --------------------------------------------------- | ------------------------------------- |
-| 粗体          | `** **` 或 `__ __`          | <kbd>Command</kbd>+<kbd>B</kbd> (Mac) 或 <kbd>Ctrl</kbd>+<kbd>B</kbd> (Windows/Linux) | `**这是粗体文本**`                                        | **这是粗体文本**                            |
-| 斜体          | `* *` 或 `_ _`              | <kbd>Command</kbd>+<kbd>I</kbd> (Mac) 或 <kbd>Ctrl</kbd>+<kbd>I</kbd> (Windows/Linux) | `*这是斜体文本*`                                          | *这是斜体文本*                              |
-| 删除线         | `~~ ~~`                    |                                                                                      | `~~这是错误文本~~`                                        | ~~这是错误文本~~                            |
-| 粗体和嵌入的斜体    | `** **` 和 `_ _`            |                                                                                      | `**此文本 _非常_ 重要**`                                   | **此文本_非常_重要**                         |
-| 全部粗体和斜体     | `*** ***`                  |                                                                                      | `***所有这些文本都很重要***`                                  | ***所有这些文本都是斜体***                      |
-| Subscript   | `<sub> </sub>` |                                                                                      | `<sub>This is a subscript text</sub>`   | <sub>This is a subscript text</sub>   |
-| Superscript | `<sup> </sup>` |                                                                                      | `<sup>This is a superscript text</sup>` | <sup>This is a superscript text</sup> |
+| 样式       | 语法                         | 键盘快捷键                                                                                | 示例                              | 输出                |
+| -------- | -------------------------- | ------------------------------------------------------------------------------------ | ------------------------------- | ----------------- |
+| 粗体       | `** **` 或 `__ __`          | <kbd>Command</kbd>+<kbd>B</kbd> (Mac) 或 <kbd>Ctrl</kbd>+<kbd>B</kbd> (Windows/Linux) | `**这是粗体文本**`                    | **这是粗体文本**        |
+| 斜体       | `* *` 或 `_ _`              | <kbd>Command</kbd>+<kbd>I</kbd> (Mac) 或 <kbd>Ctrl</kbd>+<kbd>I</kbd> (Windows/Linux) | `*这是斜体文本*`                      | *这是斜体文本*          |
+| 删除线      | `~~ ~~`                    |                                                                                      | `~~这是错误文本~~`                    | ~~这是错误文本~~        |
+| 粗体和嵌入的斜体 | `** **` 和 `_ _`            |                                                                                      | `**此文本 _非常_ 重要**`               | **此文本_非常_重要**     |
+| 全部粗体和斜体  | `*** ***`                  |                                                                                      | `***所有这些文本都很重要***`              | ***所有这些文本都是斜体***  |
+| 下标       | `<sub> </sub>` |                                                                                      | `<sub>这是下标文本</sub>` | <sub>这是下标文本</sub> |
+| 上标       | `<sup> </sup>` |                                                                                      | `<sup>这是上标文本</sup>` | <sup>这是上标文本</sup> |
 
 ## 引用文本
 
@@ -91,6 +91,8 @@ git commit
 ## 链接
 
 通过将链接文本包含在方括号 `[ ]` 内，然后将 URL 包含在括号 `( )` 内，可创建内联链接。 {% ifversion fpt or ghae or ghes > 3.1 or ghec %}您还可以使用键盘快捷键 <kbd>Command</kbd>+<kbd>K</kbd> 创建链接。{% endif %}{% ifversion fpt or ghae-issue-5434 or ghes > 3.3 or ghec %} 选择文本后，可以从剪贴板粘贴 URL，以自动从所选内容创建链接。{% endif %}
+
+{% ifversion fpt or ghae-issue-7103 or ghes > 3.5 or ghec %} You can also create a Markdown hyperlink by highlighting the text and using the keyboard shortcut <kbd>Command</kbd>+<kbd>V</kbd>. If you'd like to replace the text with the link, use the keyboard shortcut <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd>.{% endif %}
 
 `本站点是使用 [GitHub Pages](https://pages.github.com/) 构建的。`
 
@@ -147,14 +149,19 @@ git commit
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5559 %}
 ### 指定图像显示的主题
 
-您可以通过在 Markdown 中将 `#gh-dark-mode-only` 或 `#gh-light-mode-only` 附加到图像 URL 的末尾来指定图像显示的主题。
+You can specify the theme an image is displayed for in Markdown by using the HTML `<picture>` element in combination with the `prefers-color-scheme` media feature. 我们区分浅色和深色模式，因此有两个选项可用。 您可以使用这些选项显示针对深色或浅色背景优化的图像。 这对于透明的 PNG 图像特别有用。
 
-我们区分浅色和深色模式，因此有两个选项可用。 您可以使用这些选项显示针对深色或浅色背景优化的图像。 这对于透明的 PNG 图像特别有用。
+For example, the following code displays a sun image for light themes and a moon for dark themes:
 
-| 上下文  | URL                                                                      |
-| ---- | ------------------------------------------------------------------------ |
-| 深色主题 | `![GitHub Light](https://github.com/github-light.png#gh-dark-mode-only)` |
-| 浅色主题 | `![GitHub Dark](https://github.com/github-dark.png#gh-light-mode-only)`  |
+```HTML
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://user-images.githubusercontent.com/25423296/163456776-7f95b81a-f1ed-45f7-b7ab-8fa810d529fa.png">
+  <source media="(prefers-color-scheme: light)" srcset="https://user-images.githubusercontent.com/25423296/163456779-a8556205-d0a5-45e2-ac17-42d089e3c3f8.png">
+  <img alt="Shows an illustrated sun in light color mode and a moon with stars in dark color mode." src="https://user-images.githubusercontent.com/25423296/163456779-a8556205-d0a5-45e2-ac17-42d089e3c3f8.png">
+</picture>
+```
+
+The old method of specifying images based on the theme, by using a fragment appended to the URL (`#gh-dark-mode-only` or `#gh-light-mode-only`), is deprecated and will be removed in favor of the new method described above.
 {% endif %}
 
 ## 列表

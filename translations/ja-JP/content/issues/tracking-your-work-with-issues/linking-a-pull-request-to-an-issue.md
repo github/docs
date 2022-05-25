@@ -27,7 +27,7 @@ shortTitle: IssueへのPRのリンク
 
 ## リンクされたIssueとPull Requestについて
 
-You can link an issue to a pull request manually or using a supported keyword in the pull request description.
+手動で、またはPull Requestの説明でサポートされているキーワードを使用して、IssueをPull Requestにリンクすることができます。
 
 Pull Requestが対処するIssueにそのPull Requestをリンクすると、コラボレータは、誰かがそのIssueに取り組んでいることを確認できます。
 
@@ -57,7 +57,7 @@ Pull Requestの説明もしくはコミットメッセージ中でサポート�
 | Issueが別のリポジトリにある | *KEYWORD* *OWNER*/*REPOSITORY*#*ISSUE-NUMBER* | `Fixes octo-org/octo-repo#100`                                 |
 | 複数の Issue        | Issueごとに完全な構文を使用                              | `Resolves #10, resolves #123, resolves octo-org/octo-repo#100` |
 
-Only manually linked pull requests can be manually unlinked. To unlink an issue that you linked using a keyword, you must edit the pull request description to remove the keyword.
+手動でリンクされたPull Requestのみが手動でリンク解除できます。 キーワードを使用してリンクしたIssueのリンクを解除するには、Pull Requestの説明を編集してそのキーワードを削除する必要があります。
 
 クローズするキーワードは、コミットメッセージでも使用できます。 デフォルトブランチにコミットをマージするとIssueはクローズされますが、そのコミットを含むPull Requestは、リンクされたPull Requestとしてリストされません。
 

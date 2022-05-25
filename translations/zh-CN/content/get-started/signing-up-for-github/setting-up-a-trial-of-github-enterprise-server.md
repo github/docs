@@ -39,7 +39,7 @@ shortTitle: Enterprise Server 试用版
 
 1. [创建一个组织](/enterprise-server@latest/admin/user-management/creating-organizations)。
 2. 要了解使用 {% data variables.product.prodname_dotcom %} 的基础知识，请参阅：
-   - [{% data variables.product.prodname_dotcom %} 快速入门指南](https://resources.github.com/webcasts/Quick-start-guide-to-GitHub/)网络直播
+   - [Intro to {% data variables.product.prodname_dotcom %}](https://resources.github.com/devops/methodology/maximizing-devops-roi/) webcast
    - {% data variables.product.prodname_dotcom %} 指南中的[了解 {% data variables.product.prodname_dotcom %} 流程](https://guides.github.com/introduction/flow/)
    - {% data variables.product.prodname_dotcom %} 指南中的 [Hello World](https://guides.github.com/activities/hello-world/)
    - "[关于 {% data variables.product.prodname_docs %} 的版本](/get-started/learning-about-github/about-versions-of-github-docs)"

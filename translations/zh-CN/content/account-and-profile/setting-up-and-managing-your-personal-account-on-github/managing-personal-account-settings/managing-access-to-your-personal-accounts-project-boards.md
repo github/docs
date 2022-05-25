@@ -1,5 +1,5 @@
 ---
-title: Managing access to your personal account's project boards
+title: 管理对个人帐户项目板的访问
 intro: 作为项目板所有者，您可以添加或删除协作者，以及自定义他们对项目板的权限。
 redirect_from:
   - /articles/managing-project-boards-in-your-repository-or-organization

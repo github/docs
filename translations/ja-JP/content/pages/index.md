@@ -1,7 +1,7 @@
 ---
 title: GitHub Pagesのドキュメンテーション
 shortTitle: GitHub Pages
-intro: 'Learn how to create a website directly from a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}. Explore website building tools like Jekyll and troubleshoot issues with your {% data variables.product.prodname_pages %} site.'
+intro: '{% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}上のリポジトリから直接Webサイトを作成する方法を学んでください。 JekyllのようなWebサイトの構築ツールを調べて、{% data variables.product.prodname_pages %}サイトの問題をトラブルシュートしてください。'
 introLinks:
   quickstart: /pages/quickstart
   overview: /pages/getting-started-with-github-pages/about-github-pages

@@ -34,7 +34,7 @@ topics:
 
 如果不添加开发容器配置， {% data variables.product.prodname_codespaces %} 会将存储库克隆到具有默认代码空间映像的环境中，该映像包含许多工具、语言和运行时环境。 更多信息请参阅“[开发容器简介](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)”。
 
-您还可以通过使用公共 [dotfiles](https://dotfiles.github.io/tutorials/) 存储库和[设置同步](https://code.visualstudio.com/docs/editor/settings-sync)来个性化代码空间环境的各个方面。 Personalization can include shell preferences, additional tools, editor settings, and {% data variables.product.prodname_vscode_shortname %} extensions. 更多信息请参阅“[自定义代码空间](/codespaces/customizing-your-codespace)”。
+您还可以通过使用公共 [dotfiles](https://dotfiles.github.io/tutorials/) 存储库和[设置同步](https://code.visualstudio.com/docs/editor/settings-sync)来个性化代码空间环境的各个方面。 个性化可以包括 shell 首选项、其他工具、编辑器设置和 {% data variables.product.prodname_vscode_shortname %} 扩展。 更多信息请参阅“[自定义代码空间](/codespaces/customizing-your-codespace)”。
 
 ## 关于 {% data variables.product.prodname_codespaces %} 的计费
 

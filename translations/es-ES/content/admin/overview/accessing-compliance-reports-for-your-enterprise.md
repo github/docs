@@ -1,6 +1,6 @@
 ---
 title: Acceder a los reportes de cumplimiento de tu empresa
-intro: 'You can access {% data variables.product.company_short %}''s compliance reports, such as our SOC reports and Cloud Security Alliance CAIQ self-assessment (CSA CAIQ), for your enterprise.'
+intro: 'Puedes acceder a los reportes de cumplimiento de {% data variables.product.company_short %}, tales como nuestros reportes de SOC y la auto-valoración de CAIQ de la Alianza de Seguridad en la Nube (CSA CAIQ) para tu empresa.'
 versions:
   ghec: '*'
 type: how_to
@@ -14,7 +14,7 @@ shortTitle: Acceso a los reportes de cumplimiento
 
 ## Acerca de los reportes de cumplimiento de {% data variables.product.company_short %}
 
-You can access {% data variables.product.company_short %}'s compliance reports in your enterprise settings.
+Puedes acceder a los reportes de cumplimiento de {% data variables.product.company_short %} en los ajustes de tu empresa.
 
 {% data reusables.security.compliance-report-list %}
 
@@ -22,7 +22,7 @@ You can access {% data variables.product.company_short %}'s compliance reports i
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.enterprise-accounts-compliance-tab %}
-1. Under "Resources", to the right of the report you want to access, click {% octicon "download" aria-label="The Download icon" %} **Download** or {% octicon "link-external" aria-label="The external link icon" %} **View**.
+1. Debajo de "Recursos", a la derecha del reporte al cuál quieres acceder, haz clic en {% octicon "download" aria-label="The Download icon" %} **Descargar** o en {% octicon "link-external" aria-label="The external link icon" %} **Ver**.
 
    {% data reusables.security.compliance-report-screenshot %}
 

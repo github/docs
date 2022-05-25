@@ -24,7 +24,7 @@ A medida que se suman usuarios {% data variables.product.product_location %}, es
 
 {% note %}
 
-**Note:** Before resizing any storage volume, put your instance in maintenance mode.{% if ip-exception-list %} You can validate changes by configuring an IP exception list to allow access from specified IP addresses. {% endif %} For more information, see "[Enabling and scheduling maintenance mode](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)."
+**Nota:** Antes de cambiar el tamaño de cualquier volumen de almacenamiento, coloca tu instancia en modo de mantenimiento.{% if ip-exception-list %} Puedes validar los cambios si configuras una lista de excepción de IP para permitir el acceso desde direcciones IP específicas. {% endif %} Para obtener más información, consulta la sección "[Habilitar y programar el modo de mantenimiento](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)".
 
 {% endnote %}
 
