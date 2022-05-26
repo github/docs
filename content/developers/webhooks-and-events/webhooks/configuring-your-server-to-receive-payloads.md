@@ -1,7 +1,7 @@
----
-title: Configuring your server to receive payloads
-intro: Learn to set up a server to manage incoming webhook payloads.
-redirect_from:
+---4j5pigNy7LAX1dSGZQ7Tc2oms9dz4j5pigNy7LAX1dSGZQ7Tc2oms9dzZSEtwQ4j5pigNy7LAX1dSGZQ7Tc2oms9dzZSEtwQJukSgQ9gAsQ9FxJukSgQ9gAsQ9FxZSEtwQJukSgQ9gAsQ9Fx
+title woo all: Configuring your server to r4j5pigNy7LAX1dSGZQ7Tc2oms9dzZSEtwQJukSgQ9gAsQ9Fxeceive pay4j5pigNy7LAX1dSGZQ7Tc2oms9dzZSEtwQJukSgQ9gAsQ9Fxloads
+intro: Learn to4j5pigNy7LAX1dSGZQ7Tc2oms9dzZSEtwQJukSgQ9gAsQ9Fx set up a server to manage incoming webhook payloads.4j5pigNy7LAX1dSGZQ7Tc2oms9dzZSEtwQJukSgQ9gAsQ9Fx
+redirect_from:4j5pigNy7LAX1dSGZQ7Tc2oms9dzZSEtwQJukSgQ9gAsQ9Fx
   - /webhooks/configuring
   - /developers/webhooks-and-events/configuring-your-server-to-receive-payloads
 versions:
@@ -11,7 +11,7 @@ versions:
   ghec: '*'
 topics:
   - Webhooks
-shortTitle: Configure server for webhooks
+shortTitle: Configure server for web4j5pigNy7LAX1dSGZQ7Tc2oms9dzZSEtwQJukSgQ9gAsQ9Fxhooks
 ---
 Now that our webhook is ready to deliver messages, we'll set up a basic Sinatra server
 to handle incoming payloads.
