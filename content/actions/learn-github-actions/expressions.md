@@ -324,33 +324,20 @@ steps:
     if: {% raw %}${{ failure() }}{% endraw %}
 ```
 
-{% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}
-### Evaluate Status Explicitly
+### failure with conditions
 
-Instead of using one of the methods above, you can evaluate the status of the job or composite action that is executing the step directly:
+If you want to check more conditions on the failure step you can use `failure()` with additional conditions. Note `failure()` is always required or the step will be skipped on fail.
 
-#### Example for workflow step
-
+### Example
 ```yaml
 steps:
   ...
-  - name: The job has failed
-    if: {% raw %}${{ job.status == 'failure' }}{% endraw %}
+  - name: Failing job
+    id: demo
+    run: exit 1
+  - name: The demo job has failed
+    if: {% raw %}${{ failure() && steps.demo.conclusion == 'failure' }}{% endraw %}
 ```
-
-This is the same as using `if: failure()` in a job step.
-
-#### Example for composite action step
-
-```yaml
-steps:
-  ...
-  - name: The composite action has failed
-    if: {% raw %}${{ github.action_status == 'failure' }}{% endraw %}
-```
-
-This is the same as using `if: failure()` in a composite action step.
-{% endif %}
 
 ## Object filters
 
