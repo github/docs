@@ -1,24 +1,24 @@
 ---
 date: '2022-05-17'
-friendlyDate: 'May 17, 2022'
-title: 'May 17, 2022'
+friendlyDate: '17 de maio de 2022'
+title: '17 de maio de 2022'
 currentWeek: true
 sections:
   features:
     - 
-      heading: 'GitHub Advanced Security features are generally available'
+      heading: 'De modo geral, as funcionalidades de Segurança Avançada do GitHub estão disponíveis'
       notes:
         - |
-          Code scanning and secret scanning are now generally available for GitHub AE. For more information, see "[About code scanning](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)" and "[About secret scanning](/code-security/secret-scanning/about-secret-scanning)."
+          De modo geral, a digitalização de código de segredo estão disponíveis para o GitHub AE. Para obter mais informações, consulte "[Sobre a digitalização de código](/code-security/code-scanning/automaticamente-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)" e "[Sobre a digitalização de segredo](/code-security/secret-scanning/about-secret-scanning)."
         - |
-          Custom patterns for secret scanning is now generally available. For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."
+          De modo geral, os padrões personalizados para a digitalização de segredo estão disponíveis. Para obter mais informações, consulte "[Definindo padrões personalizados para a digitalização de segredo](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."
     - 
-      heading: 'View all code scanning alerts for a pull request'
+      heading: 'Exibir todos os códigos de verificação para um pull request'
       notes:
         - |
-          You can now find all code scanning alerts associated with your pull request with the new pull request filter on the code scanning alerts page. The pull request checks page shows the alerts introduced in a pull request, but not existing alerts on the pull request branch.  The new "View all branch alerts" link on the Checks page takes you to the code scanning alerts page with the specific pull request filter already applied, so you can see all the alerts associated with your pull request. This can be useful to manage lots of alerts, and to see more detailed information for individual alerts. For more information, see "[Managing code scanning alerts for your repository](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#filtering-code-scanning-alerts)."
+          Agora você pode encontrar todos os alertas de digitalização de código associados ao seu pull request com o novo filtro de pull request na página de alertas de digitalização de código. A página de verificação de pull request mostra os alertas introduzidos em um pull request, mas não os alertas existentes no branch do pull request. O novo link "Ver todos os alertas de branches" na página de verificações direciona você para a página de alertas de digitalização de código com o filtro de pull request específico já aplicado, assim você poderá ver todos os alertas associados ao seu pull request. Isso pode ser útil para gerenciar muitos alertas e ver informações mais detalhadas para alertas individuais. Para obter mais informações, consulte "[Gerenciar os alertas da digitalização de código para o seu repositório](/code-security/code-scanning/automaticamente-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#filtering-code-scanning-alerts)."
     - 
-      heading: 'Security overview for organizations'
+      heading: 'Visão geral de segurança para organizações'
       notes:
         - |
           GitHub Advanced Security now offers an organization-level view of the application security risks detected by code scanning, Dependabot, and secret scanning. The security overview shows the enablement status of security features on each repository, as well as the number of alerts detected.
@@ -30,7 +30,7 @@ sections:
       heading: 'Gráfico de dependências'
       notes:
         - |
-          Dependency graph is now available on GitHub AE. The dependency graph helps you understand the open source software that you depend on by parsing the dependency manifests checked into repositories. For more information, see "[About the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)."
+          O gráfico de dependências agora está disponível no GitHub AE. O gráfico de dependências ajuda você a entender o software de código aberto do qual você depende analisando os manifestos de dependências verificados nos repositórios. Para obter mais informações, consulte "[Sobre o gráfico de dependência](/code-security/supply chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)."
     - 
       heading: 'Alertas do Dependabot'
       notes:
@@ -42,17 +42,18 @@ sections:
       heading: 'Security manager role for organizations'
       notes:
         - |
-          Organizations can now grant teams permission to manage security alerts and settings on all their repositories. The "security manager" role can be applied to any team and grants the team's members the following permissions.
+          As organizações agora podem conceder permissões de equipes para gerenciar alertas de segurança e configurações em todos os seus repositórios. A função "gerente de segurança" pode ser aplicada a qualquer equipe e concede as seguintes permissões aos integrantes da equipe.
 
-          - Read access on all repositories in the organization
-          - Write access on all security alerts in the organization
-          - Access to the organization-level security tab
-          - Write access on security settings at the organization level
-          - Write access on security settings at the repository level
+          - Acesso de leitura em todos os repositórios na organização
+          - Acesso de gravação em todos os alertas de segurança na organização
+          - Acesso à guia de segurança a nível da organização
+          - Acesso de gravação às configurações de segurança no nível
+          da organização
+          - Acesso de gravação às configurações de segurança no nível do repositório
 
-          For more information, see "[Managing security managers in your organization](https://docs.github.com/en/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)." <!-- ⚠️ Article will be available when we toggle content feature flags -->
+          Para obter mais informações, consulte "[Gerenciando os gerentes de segurança na sua organização](https://docs. ithub.com/en/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)." <!-- ⚠️ O artigo estará disponível quando alternarmos os sinalizadores de recursos de conteúdo -->
     - 
-      heading: 'Ephemeral runners and autoscaling webhooks for GitHub Actions'
+      heading: 'Os executores efêmeros e webhooks que dimensionam automaticamente para o GitHub Actions'
       notes:
         - |
           GitHub AE now supports ephemeral (single job) self-hosted runners and a new [`workflow_job`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job) webhook to make autoscaling runners easier.
@@ -63,22 +64,22 @@ sections:
 
           For more information, see "[Autoscaling with self-hosted runners](/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners)" and "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job)." <!-- ⚠️ Article will be available when we toggle content feature flags -->
     - 
-      heading: 'Composite actions for GitHub Actions'
+      heading: 'Ações compostas para o GitHub Actions'
       notes:
         - |
-          You can reduce duplication in your workflows by using composition to reference other actions. Previously, actions written in YAML could only use scripts. For more information, see "[Creating a composite action](/actions/creating-actions/creating-a-composite-action)."
+          Você pode reduzir a duplicação em seus fluxos de trabalho usando a composição para fazer referência a outras ações. Anteriormente, as ações escritas em YAML só podiam usar scripts. Para obter mais informações, consulte "[Criando uma ação composta](/actions/creating-actions/creating-a-composite-action)".
     - 
-      heading: 'New token scope for management of self-hosted runners'
+      heading: 'Novo escopo de token para gerenciamento de executores auto-hospedados'
       notes:
         - |
-          Managing self-hosted runners at the enterprise level no longer requires using personal access tokens with the `admin:enterprise` scope. You can instead use the `new manage_runners:enterprise` scope to restrict the permissions on your tokens. Tokens with this scope can authenticate to many REST API endpoints to manage your enterprise's self-hosted runners.
+          O gerenciamento de executores auto-hospedados no nível corporativo não exige mais usar tokens de acesso pessoal com o escopo `admin:enterprise`. Em vez disso, você pode usar o escopo `new manage_runners:enterprise` para restringir as permissões em seus tokens. Tokens com este escopo podem efetuar a autenticação em vários pontos de extremidade da API REST para gerenciar os executores auto-hospedados da sua empresa.
     - 
-      heading: 'Audit log accessible via REST API'
+      heading: 'Log de auditoria acessível via API REST'
       notes:
         - |
-          You can now use the REST API to programmatically interface with the audit log. While audit log forwarding provides you with the ability to retain and analyze data with your own toolkit and determine patterns over time, the new REST API will help you perform limited analysis on events of note that have happened in recent history. For more information, see "[Reviewing the audit log for your organization](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization#using-the-rest-api)."
+          Agora você pode usar a API REST para fazer uma interface programática com o log de auditoria. Embora o encaminhamento de registro de auditoria ofereça a você a capacidade de manter e analisar dados com seu próprio kit de ferramentas e determinar padrões ao longo do tempo, a nova API REST irá ajudar você a fazer uma análise limitada sobre eventos da nota que aconteceram recentemente. Para obter mais informações, consulte "[Revisando o log de auditoria da sua organização](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization#using-the-rest-api)."
     - 
-      heading: 'Expiration dates for personal access tokens'
+      heading: 'Datas de vencimento para tokens de acesso pessoal'
       notes:
         - |
           You can now set an expiration date on new and existing personal access tokens. GitHub AE will send you an email when it's time to renew a token that's about to expire. Tokens that have expired can be regenerated, giving you a duplicate token with the same properties as the original. When using a token with the GitHub AE API, you'll see a new header, `GitHub-Authentication-Token-Expiration`, indicating the token's expiration date. You can use this in scripts, for example to log a warning message as the expiration date approaches. For more information, see "[Creating a personal access token](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)" and "[Getting started with the REST API](/rest/guides/getting-started-with-the-rest-api#using-personal-access-tokens)."

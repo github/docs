@@ -72,14 +72,14 @@ Os formatos recomendados definem explicitamente quais versões são usadas para 
 | NuGet                  | .NET languages (C#, F#, VB), C++ | `.csproj`, `.vbproj`, `.nuspec`, `.vcxproj`, `.fsproj` | `.csproj`, `.vbproj`, `.nuspec`, `.vcxproj`, `.fsproj`, `packages.config` |
 
 {%- if github-actions-in-dependency-graph %}
-| Fluxos de trabalho de {% data variables.product.prodname_actions %}
+| {% data variables.product.prodname_actions %} workflows
 
 <sup>[1]</sup> | YAML | `.yml`, `.yaml` | `.yml`, `.yaml` |
 {%- endif %}
-{%- ifversion fpt or ghes > 3.2 or ghae %}
-| Módulos do Go | Go | `go.sum` | `go.mod`, `go.sum` |
+{%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
+| Go modules | Go | `go.sum` | `go.mod`, `go.sum` |
 {%- elsif ghes = 3.2 %}
-| Módulos do Go | Go | `go.mod` | `go.mod` |
+| Go modules | Go | `go.mod` | `go.mod` |
 {%- endif %}
 | Maven | Java, Scala |  `pom.xml`  | `pom.xml`  | | npm | JavaScript |            `package-lock.json` | `package-lock.json`, `package.json`| | pip             | Python                    | `requirements.txt`, `pipfile.lock` | `requirements.txt`, `pipfile`, `pipfile.lock`, `setup.py`{% if github-actions-in-dependency-graph %}<sup>[2]</sup>{% else %}<sup>[1]</sup>{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4752 %}

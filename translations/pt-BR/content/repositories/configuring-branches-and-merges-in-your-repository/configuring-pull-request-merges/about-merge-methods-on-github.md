@@ -46,5 +46,6 @@ Para obter mais informações, consulte "[Configurar combinação de commits por
 
 Antes de habilitar o rebase de commit, leve em consideração estas desvantagens:
 - Os contribuidores do repositório podem ter que fazer rebase na linha de comando, resolver conflitos e forçar push de suas alterações no branch de tópico da pull request (ou branch de head remoto) para que possam usar a opção **rebase and merge** (fazer rebase e merge) no {% data variables.product.product_location %}. O push forçado deve ser feito com cuidado para que os contribuidores não substituam o trabalho que outras pessoas usaram como base para o respectivo trabalho. Para saber mais sobre quando a opção **Rebase and merge** (Fazer rebase e merge) é desabilitada no {% data variables.product.product_location %} e sobre o fluxo de trabalho para reabilitá-la, consulte "[Sobre merges de pull request](/articles/about-pull-request-merges/#rebase-and-merge-your-pull-request-commits)".
+- {% indented_data_reference reusables.pull_requests.rebase_and_merge_verification spaces=3 %}
 
 Para obter mais informações, consulte "[Configurar rebase de commit para pull requests](/articles/configuring-commit-rebasing-for-pull-requests)".

@@ -29,6 +29,7 @@ export type ArticleContextT = {
   currentLearningTrack?: LearningTrack
   detectedPlatforms: Array<string>
   detectedTools: Array<string>
+  allTools: Record<string, string>
 }
 
 export const ArticleContext = createContext<ArticleContextT | null>(null)
@@ -70,5 +71,6 @@ export const getArticleContextFromRequest = (req: any): ArticleContextT => {
     currentLearningTrack: req.context.currentLearningTrack,
     detectedPlatforms: page.detectedPlatforms || [],
     detectedTools: page.detectedTools || [],
+    allTools: page.allToolsParsed || [], // this is set at the page level, see lib/page.js
   }
 }
