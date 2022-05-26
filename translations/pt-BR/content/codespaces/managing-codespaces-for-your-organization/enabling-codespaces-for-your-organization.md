@@ -35,7 +35,7 @@ Por padrão, um codespace só pode acessar o repositório no qual ele foi criado
 {% ifversion fpt %}
 {% note %}
 
-**Note:** If you are a verified educator or a teacher, you must enable {% data variables.product.prodname_codespaces %} from a {% data variables.product.prodname_classroom %} to use your {% data variables.product.prodname_codespaces %} Education benefit. For more information, see "[Using GitHub Codespaces with GitHub Classroom](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/using-github-codespaces-with-github-classroom#about-the-codespaces-education-benefit-for-verified-teachers)."
+**Nota:** Se você for um educador ou professor verificado, você deverá habilitar {% data variables.product.prodname_codespaces %} a partir de um {% data variables.product.prodname_classroom %} para usar o seu benefício de educação de {% data variables.product.prodname_codespaces %}. Para obter mais informações, consulte "[Usando os codespaces do GitHub com GitHub Classroom](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/using-github-codespaces-with-github-classroom#about-the-codespaces-education-benefit-for-verified-teachers)".
 
 {% endnote %}
 {% endif %}

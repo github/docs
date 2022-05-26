@@ -322,7 +322,7 @@ updates:
 
 `ignore` オプションを使用して、更新する依存関係をカスタマイズできます。 `ignore` オプションは、次のオプションに対応しています。
 
-- `dependency-name`: 名前が一致する依存関係の更新を無視するために使用し、必要に応じて `*` を使用して 0 文字以上の文字と一致させます。 Javaの依存関係については、`dependency-name`属性のフォーマットは`groupId:artifactId`です（たとえば`org.kohsuke:github-api`）。
+- `dependency-name`: 名前が一致する依存関係の更新を無視するために使用し、必要に応じて `*` を使用して 0 文字以上の文字と一致させます。 Javaの依存関係については、`dependency-name`属性のフォーマットは`groupId:artifactId`です（たとえば`org.kohsuke:github-api`）。 {% if dependabot-grouped-dependencies %} {% data variables.product.prodname_dependabot %} がDefinitelyTypedからTypeScriptの型定義を自動的に更新しないようにするには、`@types/*`を使ってください。{% endif %}
 - `versions`: 特定のバージョンまたはバージョンの範囲を無視するために使用します。 範囲を定義する場合は、パッケージマネージャーの標準パターンを使用します（例: npm の場合は `^1.0.0`、Bundler の場合は `~> 2.0`）。
 - `update-types` - バージョン更新におけるsemverの`major`、`minor`、`patch`更新といった更新の種類を無視するために使います。（たとえば`version-update:semver-patch`でパッチアップデートが無視されます）。 これを`code>dependency-name: "*"`と組み合わせて、特定の`update-types`をすべての依存関係で無視できます。 現時点では、サポートされているオプションは`version-update:semver-major`、`version-update:semver-minor`、`version-update:semver-patch`のみです。 セキュリティの更新はこの設定には影響されません。
 

@@ -162,13 +162,13 @@ remote: error: Changes have been requested.
 如果您的仓库为使用 {% data variables.product.prodname_team %} 或 {% data variables.product.prodname_ghe_cloud %} 的组织所拥有，您可以启用分支限制。
 {% endif %}
 
-启用分支限制时，只有已授予权限的用户、团队或应用程序才能推送到受保护的分支。 您可以在受保护分支的设置中查看和编辑对受保护分支具有推送权限的用户、团队或应用程序。 When status checks are required, the people, teams, and apps that have permission to push to a protected branch will still be prevented from merging into the branch when the required checks fail. 当需要拉取请求时，有权推送到受保护分支的人员、团队和应用仍需要创建拉取请求。
+启用分支限制时，只有已授予权限的用户、团队或应用程序才能推送到受保护的分支。 您可以在受保护分支的设置中查看和编辑对受保护分支具有推送权限的用户、团队或应用程序。 当需要状态检查时，如果所需的检查失败，仍会阻止有权推送到受保护分支的人员、团队和应用合并到分支。 当需要拉取请求时，有权推送到受保护分支的人员、团队和应用仍需要创建拉取请求。
 
 {% if restrict-pushes-create-branch %}
-Optionally, you can apply the same restrictions to the creation of branches that match the rule. For example, if you create a rule that only allows a certain team to push to any branches that contain the word `release`, only members of that team would be able to create a new branch that contains the word `release`.
+（可选）您可以对创建与规则匹配的分支应用相同的限制。 例如，如果创建的规则仅允许某个团队推送到包含 `release` 一词的任何分支，则只有该团队的成员才能创建包含 `release` 一词的新分支。
 {% endif %}
 
-You can only give push access to a protected branch, or give permission to create a matching branch, to users, teams, or installed {% data variables.product.prodname_github_apps %} with write access to a repository. People and apps with admin permissions to a repository are always able to push to a protected branch or create a matching branch.
+您只能向具有存储库写入访问权限的用户、团队或已安装 {% data variables.product.prodname_github_apps %} 授予对受保护分支的推送访问权限，或授予创建匹配分支的权限。 对存储库具有管理员权限的人员和应用始终能够推送到受保护的分支或创建匹配的分支。
 
 ### 允许强制推送
 

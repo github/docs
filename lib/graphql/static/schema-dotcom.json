@@ -76417,7 +76417,7 @@
         },
         {
           "name": "pushActorIds",
-          "description": "<p>A list of User, Team or App IDs allowed to push to matching branches.</p>",
+          "description": "<p>A list of User, Team, or App IDs allowed to push to matching branches.</p>",
           "type": "[ID!]",
           "id": "id",
           "kind": "scalars",
@@ -82172,7 +82172,7 @@
         },
         {
           "name": "pushActorIds",
-          "description": "<p>A list of User, Team or App IDs allowed to push to matching branches.</p>",
+          "description": "<p>A list of User, Team, or App IDs allowed to push to matching branches.</p>",
           "type": "[ID!]",
           "id": "id",
           "kind": "scalars",

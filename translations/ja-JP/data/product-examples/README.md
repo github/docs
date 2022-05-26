@@ -10,7 +10,7 @@
 
 ## 動作の仕組み
 
-Example data for each product is defined in `data/product-landing-examples`, in a subdirectory named for the **product** and a YML file named for the **example type** (e.g., `data/product-examples/sponsors/user-examples.yml` or `data/product-examples/codespaces/code-examples.yml`). 現在は、製品ごとに1種類の例のみをサポートしています。
+それぞれの製品のサンプルデータは、`data/product-landing-examples`内の、**製品**の名前のサブディレクトリと**example type**という名前のYMLファイル（たとえば`data/product-examples/sponsors/user-examples.yml`あるいは`data/product-examples/codespaces/code-examples.yml`）中で定義されています。 現在は、製品ごとに1種類の例のみをサポートしています。
 
 ### バージョン管理
 

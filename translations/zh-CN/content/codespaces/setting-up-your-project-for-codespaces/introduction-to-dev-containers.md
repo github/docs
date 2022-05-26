@@ -110,11 +110,11 @@ RUN apt-get update && bash /tmp/library-scripts/github-debian.sh
 }
 ```
 
-有关在开发容器配置中使用 Dockerfile 的详细信息，请参阅 {% data variables.product.prodname_vscode %} 文档“[创建开发容器](https://code.visualstudio.com/docs/remote/create-dev-container#_dockerfile)”。
+有关在开发容器配置中使用 Dockerfile 的详细信息，请参阅 {% data variables.product.prodname_vscode_shortname %} 文档“[创建开发容器](https://code.visualstudio.com/docs/remote/create-dev-container#_dockerfile)”。
 
 ## 使用默认开发容器配置
 
-如果未在存储库中定义配置，{% data variables.product.prodname_dotcom %} 使用默认 Linux 映像创建代码空间。 这个 Linux 镜像包括 Python、Node.js、JavaScript、TypeScript、C++、Java、.NET、PHP、PowerShell、Go、Ruby 和 Rust 等语言和运行时。 它还包括其他开发工具和实用程序，例如 Git、GitHub CLI、yarn、openssh 和 vim。 要查看包含的所有语言、运行时和工具，请在代码空间终端内使用 `devcontainer-info content-url` 命令，然后遵循命令输出的 URL。
+如果未在存储库中定义配置，{% data variables.product.prodname_dotcom %} 使用默认 Linux 映像创建代码空间。 此 Linux 映像包括许多流行语言的运行时版本，如 Python、Node、PHP、Java、Go、C++、Ruby 和 .NET Core/C#。 使用这些语言的最新版本或 LTS 版本。 还有一些工具可以支持数据科学和机器学习，例如 JupyterLab 和 Conda。 该映像还包括其他开发人员工具和实用程序，如 Git、GitHub CLI、yarn、openssh 和 vim。 要查看包含的所有语言、运行时和工具，请在代码空间终端内使用 `devcontainer-info content-url` 命令，然后遵循命令输出的 URL。
 
 或者，要详细了解默认 Linux 映像中包含的所有内容，请参阅 [`microsoft/vscode-dev-containers`](https://github.com/microsoft/vscode-dev-containers/tree/main/containers/codespaces-linux) 仓库中的最新文件。
 
@@ -122,7 +122,7 @@ RUN apt-get update && bash /tmp/library-scripts/github-debian.sh
 
 ## 使用预定义的开发容器配置
 
-可以从预定义配置列表中进行选择，以便为存储库创建开发容器配置。 这些配置为特定项目类型提供了常见设置，并可以帮助您快速开始使用已具有相应容器选项、{% data variables.product.prodname_vscode %} 设置和应安装的 {% data variables.product.prodname_vscode %} 扩展的配置。
+可以从预定义配置列表中进行选择，以便为存储库创建开发容器配置。 这些配置为特定项目类型提供了常见设置，并可以帮助您快速开始使用已具有相应容器选项、{% data variables.product.prodname_vscode_shortname %} 设置和应安装的 {% data variables.product.prodname_vscode_shortname %} 扩展的配置。
 
 如果您需要一些额外的扩展性，使用预先定义的配置是一个好主意。 您也可以从预定义的配置开始，然后根据项目的需要对其进行修改。
 
@@ -138,7 +138,7 @@ RUN apt-get update && bash /tmp/library-scripts/github-debian.sh
 
    ![确定按钮](/assets/images/help/codespaces/prebuilt-container-ok-button.png)
 
-1. 如果在代码空间中工作，请应用更改，方法是单击窗口右下角消息中的**立即重新构建**。 For more information about rebuilding your container, see "[Applying changes to your configuration](#applying-configuration-changes-to-a-codespace)."
+1. 如果在代码空间中工作，请应用更改，方法是单击窗口右下角消息中的**立即重新构建**。 有关重建容器的更多信息，请参阅“[应用对配置的更改](#applying-configuration-changes-to-a-codespace)”。
 
    ![{% data variables.product.prodname_vscode_command_palette %} 中的"Codespaces：重新构建容器"](/assets/images/help/codespaces/rebuild-prompt.png)
 
@@ -163,7 +163,7 @@ RUN apt-get update && bash /tmp/library-scripts/github-debian.sh
 
    ![容器配置期间的选择其他功能菜单。](/assets/images/help/codespaces/select-additional-features.png)
 
-1. 要应用更改，请在屏幕右下角单击 **Rebuild now（立即重建）**。 For more information about rebuilding your container, see "[Applying changes to your configuration](#applying-configuration-changes-to-a-codespace)."
+1. 要应用更改，请在屏幕右下角单击 **Rebuild now（立即重建）**。 有关重建容器的更多信息，请参阅“[应用对配置的更改](#applying-configuration-changes-to-a-codespace)”。
 
    ![命令面板中的"Codespaces：重建容器"](/assets/images/help/codespaces/rebuild-prompt.png)
 
@@ -192,9 +192,9 @@ RUN apt-get update && bash /tmp/library-scripts/github-debian.sh
 
 ### 编辑 devcontainer.json 文件
 
-您可以在 `devcontainer.json` 文件中添加和编辑支持的配置键，以指定代码空间环境的各个方面，例如将安装哪些 {% data variables.product.prodname_vscode %} 扩展。 {% data reusables.codespaces.more-info-devcontainer %}
+您可以在 `devcontainer.json` 文件中添加和编辑支持的配置键，以指定代码空间环境的各个方面，例如将安装哪些 {% data variables.product.prodname_vscode_shortname %} 扩展。 {% data reusables.codespaces.more-info-devcontainer %}
 
-`devcontainer.json` 文件是使用 JSONC 格式编写的。 这允许您在配置文件中包含注释。 更多信息请参阅 {% data variables.product.prodname_vscode %} 文档中的“[使用 Visual Studio Code 编辑 JSON](https://code.visualstudio.com/docs/languages/json#_json-with-comments)”。
+`devcontainer.json` 文件是使用 JSONC 格式编写的。 这允许您在配置文件中包含注释。 更多信息请参阅 {% data variables.product.prodname_vscode_shortname %} 文档中的“[使用 {% data variables.product.prodname_vscode_shortname %} 编辑 JSON](https://code.visualstudio.com/docs/languages/json#_json-with-comments)”。
 
 {% note %}
 
@@ -202,16 +202,16 @@ RUN apt-get update && bash /tmp/library-scripts/github-debian.sh
 
 {% endnote %}
 
-### Visual Studio Code 的编辑器设置
+### {% data variables.product.prodname_vscode_shortname %}的编辑器设置
 
 {% data reusables.codespaces.vscode-settings-order %}
 
-您可以在两个地方定义 {% data variables.product.prodname_vscode %} 的默认编辑器设置。
+您可以在两个地方定义 {% data variables.product.prodname_vscode_shortname %} 的默认编辑器设置。
 
 * 在存储库的 `.vscode/settings.json` 文件中定义的编辑器设置将作为代码空间中_工作区_范围的设置进行应用。
 * `devcontainer.json` 文件的 `settings` 键中定义的编辑器设置在代码空间中用作 _Remote [Codespaces]_ 范围的设置。
 
-## Applying configuration changes to a codespace
+## 将配置更改应用于代码空间
 
 {% data reusables.codespaces.apply-devcontainer-changes %}
 

@@ -1,6 +1,6 @@
 ---
 title: Administración de accesos y de identidad
-intro: 'You can configure how people access {% ifversion ghec or ghae %}your enterprise on {% data variables.product.product_name %}{% elsif ghes %}{% data variables.product.product_location %}{% endif %}.'
+intro: 'Puedes configurar la forma en la que las personas acceden {% ifversion ghec or ghae %}a tu empresa en {% data variables.product.product_name %}{% elsif ghes %}{% data variables.product.product_location %}{% endif %}.'
 redirect_from:
   - /enterprise/admin/authentication
   - /admin/authentication

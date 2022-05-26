@@ -57,7 +57,7 @@ Consulta "[Revisar tus integraciones autorizadas](/articles/reviewing-your-autho
 
 {% ifversion not ghae %}
 
-Si restableciste la contraseña de tu cuenta y también te gustaría activar un cierre de sesión desde la app de GitHub Mobile, entonces puedes revocar tu autorización de la App de OAuth de "GitHub iOS" o "GitHub Android". Para obtener información adicional, consulta la sección "[Revisar tus integraciones autorizadas](/authentication/keeping-your-account-and-data-secure/reviewing-your-authorized-integrations)".
+Si restableciste tu contraseña de cuenta y te gustaría activar un cierre de sesión desde la aplicación de {% data variables.product.prodname_mobile %}, puedes revocar tu autorización de la App de OAuth de "GitHub iOS" o "GitHub Android". Esto saldrá de sesión en todas las instancias de la app de {% data variables.product.prodname_mobile %} asociada con tu cuenta. Para obtener información adicional, consulta la sección "[Revisar tus integraciones autorizadas](/authentication/keeping-your-account-and-data-secure/reviewing-your-authorized-integrations)".
 
 {% endif %}
 

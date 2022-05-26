@@ -50,7 +50,7 @@ export const ArticleCards = () => {
   const guides = isUserFiltering ? filteredResults : includeGuides || []
 
   const types = Object.entries(guideTypes).map(([key, val]) => {
-    return { text: val, key: key }
+    return { text: val, key }
   }) as ItemInput[]
 
   types.unshift({ text: t('filters.all'), key: undefined })

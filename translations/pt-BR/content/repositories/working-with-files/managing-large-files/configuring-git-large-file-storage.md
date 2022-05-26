@@ -41,11 +41,11 @@ Se houver arquivos no seu repositório com os quais deseja usar o {% data variab
 
   {% note %}
 
-  **Note:** We strongly suggest that you commit your local *.gitattributes* file into your repository.
+  **Observação:** É altamente recomendável que você faça o commit do seu arquivo local *.gitattributes* no seu repositório.
 
     - Depender de um arquivo *.gitattributes* global associado ao {% data variables.large_files.product_name_short %} pode causar conflitos durante a contribuição com outros projetos do Git.
-    - Including the *.gitattributes* file in the repository allows people creating forks or fresh clones to more easily collaborate using {% data variables.large_files.product_name_short %}.
-    - Including the *.gitattributes* file in the repository allows {% data variables.large_files.product_name_short %} objects to optionally be included in ZIP file and tarball archives.
+    - Incluir o arquivo *.gitattributes* no repositório permite que as pessoas que criam bifurcações ou clones frescos colaborem mais facilmente usando {% data variables.large_files.product_name_short %}.
+    - Incluir o arquivo *.gitattributes* no repositório permite que os objetos de {% data variables.large_files.product_name_short %} sejam incluídos opcionalmente no arquivo ZIP e nos arquivos do tarball.
 
   {% endnote %}
 
