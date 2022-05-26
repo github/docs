@@ -91,7 +91,7 @@ You can configure the default branch that will be used when creating a new repos
 1. Under "Default branch name for new repositories", select the default branch name you would like to use, or select "Other..." to enter a custom name.
   ![Default branch name selection options](/assets/images/help/desktop/mac-select-default-branch-name.png)
 {% data reusables.desktop.click-save-git-config %}
-  ![Save button in Git configuration field](/assets/images/help/desktop/mac-save-git-config.png)
+  ![Save button in Git configuration field](/assets/images/help/desktop/repository-settings-git-config-save.png)
 
 {% endmac %}
 
@@ -103,7 +103,7 @@ You can configure the default branch that will be used when creating a new repos
 1. Under "Default branch name for new repositories", select the default branch name you would like to use, or select "Other..." to enter a custom name.
   ![Default branch name selection options](/assets/images/help/desktop/windows-select-default-branch-name.png)
 {% data reusables.desktop.click-save-git-config %}
-  ![Save button in Git configuration field](/assets/images/help/desktop/windows-save-git-config.png)
+  ![Save button in Git configuration field](/assets/images/help/desktop/repository-settings-git-config-save.png)
 
 {% endwindows %}
 
