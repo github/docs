@@ -31,9 +31,9 @@ versions:
 
 ## 比较标记
 
-比较发行版标记将显示自上次发布以来您对仓库的更改。 For more information, see "[Comparing releases](/github/administering-a-repository/comparing-releases)."
+比较发行版标记将显示自上次发布以来您对仓库的更改。 更多信息请参阅“[比较发行版](/github/administering-a-repository/comparing-releases)”。
 
-To compare tags, you can select a tag name from the `compare` drop-down menu at the top of the page.
+要比较标记，您可以从页面顶部的 `compare（比较）`下拉菜单中选择标记名称。
 
 此处是[在两个标记之间进行比较](https://github.com/octocat/linguist/compare/v2.2.0...octocat:v2.3.3)的示例。
 

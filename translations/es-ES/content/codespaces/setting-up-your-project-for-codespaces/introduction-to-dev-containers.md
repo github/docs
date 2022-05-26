@@ -110,7 +110,7 @@ Para utilizar un Dockerfile como parte de una configuración de contenedor dev, 
 }
 ```
 
-Para obtener más información sobre cómo utilizar un Dockerfile en una configuración de contenedor dev, consulta la documentación de {% data variables.product.prodname_vscode %} "[Crear un contenedor de desarrollo](https://code.visualstudio.com/docs/remote/create-dev-container#_dockerfile)".
+For more information about using a Dockerfile in a dev container configuration, see the {% data variables.product.prodname_vscode_shortname %} documentation "[Create a development container](https://code.visualstudio.com/docs/remote/create-dev-container#_dockerfile)."
 
 ## Utilizar la configuración de contenedor dev predeterminada
 
@@ -122,7 +122,7 @@ La configuración predeterminada es una buena opción si estás trabajando en un
 
 ## Utilizar una configuración predeterminada de contenedor dev
 
-Puedes elegir de entre una lista de configuraciones predeterminadas para crear una configuración de contenedor dev para tu repositorio. Estas configuraciones proporcionan ajustes comunes para tipos de proyecto particulares y pueden ayudarte a iniciar rápidamente con una configuración que ya tenga las opciones de contenedor, ajustes de {% data variables.product.prodname_vscode %} y extensiones de {% data variables.product.prodname_vscode %} que deberían instalarse.
+Puedes elegir de entre una lista de configuraciones predeterminadas para crear una configuración de contenedor dev para tu repositorio. These configurations provide common setups for particular project types, and can help you quickly get started with a configuration that already has the appropriate container options, {% data variables.product.prodname_vscode_shortname %} settings, and {% data variables.product.prodname_vscode_shortname %} extensions that should be installed.
 
 Utilizar una configuración predefinida es una gran idea si necesitas extensibilidad adicional. También puedes comenzar con una configuración predeterminada y modificarla conforme la necesites para tu proyecto.
 
@@ -192,9 +192,9 @@ Si existe el archivo `.devcontainer/devcontainer.json` o `.devcontainer.json`, e
 
 ### Editar el archivo devcontainer.json
 
-Puedes agregar y editar las claves de configuración compatibles en el archivo `devcontainer.json` para especificar los aspectos del ambiente del codespace, como qué extensiones de {% data variables.product.prodname_vscode %} se instalarán. {% data reusables.codespaces.more-info-devcontainer %}
+You can add and edit the supported configuration keys in the `devcontainer.json` file to specify aspects of the codespace's environment, like which {% data variables.product.prodname_vscode_shortname %} extensions will be installed. {% data reusables.codespaces.more-info-devcontainer %}
 
-El archivo de `devcontainer.json` se escribe utilizando el formato JSONC. Esto te permite incluir comentarios dentro del archivo de configuración. For more information, see "[Editing JSON with Visual Studio Code](https://code.visualstudio.com/docs/languages/json#_json-with-comments)" in the {% data variables.product.prodname_vscode %} documentation.
+El archivo de `devcontainer.json` se escribe utilizando el formato JSONC. Esto te permite incluir comentarios dentro del archivo de configuración. For more information, see "[Editing JSON with {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/languages/json#_json-with-comments)" in the {% data variables.product.prodname_vscode_shortname %} documentation.
 
 {% note %}
 
@@ -202,11 +202,11 @@ El archivo de `devcontainer.json` se escribe utilizando el formato JSONC. Esto t
 
 {% endnote %}
 
-### Editor settings for Visual Studio Code
+### Editor settings for {% data variables.product.prodname_vscode_shortname %}
 
 {% data reusables.codespaces.vscode-settings-order %}
 
-Puedes definir la configuración predeterminada del editor para {% data variables.product.prodname_vscode %} en dos lugares.
+You can define default editor settings for {% data variables.product.prodname_vscode_shortname %} in two places.
 
 * Editor settings defined in the `.vscode/settings.json` file in your repository are applied as _Workspace_-scoped settings in the codespace.
 * Editor settings defined in the `settings` key in the `devcontainer.json` file are applied as _Remote [Codespaces]_-scoped settings in the codespace.

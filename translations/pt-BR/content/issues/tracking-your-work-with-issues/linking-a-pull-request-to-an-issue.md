@@ -27,7 +27,7 @@ shortTitle: Vincular PR a um problema
 
 ## Sobre problemas e pull requests vinculados
 
-You can link an issue to a pull request manually or using a supported keyword in the pull request description.
+Você pode vincular um problema a um pull request manualmente ou usar uma palavra-chave compatível na descrição do pull request.
 
 Quando você vincula uma pull request ao problema que a pull request tem de lidar, os colaboradores poderão ver que alguém está trabalhando no problema.
 
@@ -57,7 +57,7 @@ A sintaxe para fechar palavras-chave depende se o problema está no mesmo reposi
 | Problema em um repositório diferente | *KEYWORD* *OWNER*/*REPOSITORY*#*ISSUE-NUMBER* | `Fixes octo-org/octo-repo#100`                                 |
 | Múltiplos problemas                  | Usar sintaxe completa para cada problema      | `Resolves #10, resolves #123, resolves octo-org/octo-repo#100` |
 
-Only manually linked pull requests can be manually unlinked. To unlink an issue that you linked using a keyword, you must edit the pull request description to remove the keyword.
+Somente pull requests vinculados manualmente podem ser desvinculados. Para desvincular um problema que você vinculou usando uma palavra-chave, você deve editar a descrição da pull request para remover a palavra-chave.
 
 Você também pode usar palavras-chave de fechamento em uma mensagem de commit. O problema será encerrado quando você mesclar o commit no branch padrão, mas o pull request que contém o commit não será listado como um pull request vinculado.
 

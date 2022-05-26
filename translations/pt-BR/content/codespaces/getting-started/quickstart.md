@@ -72,7 +72,7 @@ Agora que você fez algumas alterações, você poderá usar o terminal integrad
 
 ## Personalizando com uma extensão
 
-Dentro de um codespace, você tem acesso ao Marketplace do Visual Studio Code. Para este exemplo, você instalará uma extensão que altera o tema, mas você pode instalar qualquer extensão que seja útil para o seu fluxo de trabalho.
+Dentro de um codespace, você tem acesso ao {% data variables.product.prodname_vscode_marketplace %}. Para este exemplo, você instalará uma extensão que altera o tema, mas você pode instalar qualquer extensão que seja útil para o seu fluxo de trabalho.
 
 1. Na barra lateral esquerda, clique no ícone Extensões.
 
@@ -84,7 +84,7 @@ Dentro de um codespace, você tem acesso ao Marketplace do Visual Studio Code. P
 
   ![Selecionar tema fairyfloss](/assets/images/help/codespaces/fairyfloss.png)
 
-4. As alterações feitas na configuração do seu ditor editor no codespace atual, como ligações de tema e teclado, são sincronizadas automaticamente por meio da [Sincronização das Configurações](https://code.visualstudio.com/docs/editor/settings-sync) para qualquer outro codespace que você abrir e quaisquer instâncias do Visual Studio Code que estiverem conectadas à sua conta do GitHub.
+4. As alterações feitas na configuração do seu ditor editor no codespace atual, como ligações de tema e teclado, são sincronizadas automaticamente por meio da [Sincronização das Configurações](https://code.visualstudio.com/docs/editor/settings-sync) para qualquer outro codespace que você abrir e quaisquer instâncias do {% data variables.product.prodname_vscode %} que estiverem conectadas à sua conta do GitHub.
 
 ## Próximos passos
 

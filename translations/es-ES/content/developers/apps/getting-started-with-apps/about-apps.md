@@ -85,7 +85,7 @@ Considera estas ideas cuando utilices tokens de acceso personal:
 * Puedes realizar solicitudes cURL de una sola ocasión.
 * Puedes ejecutar scripts personales.
 * No configures un script para que lo utilice todo tu equipo o compañía.
-* Don't set up a shared personal account to act as a bot user.{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
+* No configures una cuenta personal compartida para que actúe como un usuario bot.{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 * Sí debes establecer un vencimiento para tus tokens de acceso personal para que te ayuden a mantener tu información segura.{% endif %}
 
 ## Determinar qué integración debes crear

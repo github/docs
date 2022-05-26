@@ -25,4 +25,4 @@ type: how_to
 
 ## 延伸阅读
 
-- "[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions#reviewing-repositories-that-youre-watching)"
+- “[查看您的订阅](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions#reviewing-repositories-that-youre-watching)”

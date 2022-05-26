@@ -44,7 +44,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@1f8c6b94b26d0feae1e387ca63ccbdc44d27b561
         with:
-          node-version: 16.14.x
+          node-version: 16.15.x
           cache: npm
 
       - name: Install Node.js dependencies
@@ -57,6 +57,11 @@ jobs:
         env:
           NODE_ENV: production
           PORT: 4000
+          # Overload protection is on by default (when NODE_ENV==production)
+          # but it would help in this context.
+          DISABLE_OVERLOAD_PROTECTION: true
+          # Render caching won't help when we visit every page exactly once.
+          DISABLE_RENDERING_CACHE: true
         run: |
 
           node server.mjs &

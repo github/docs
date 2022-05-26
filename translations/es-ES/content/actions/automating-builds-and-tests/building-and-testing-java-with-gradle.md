@@ -22,7 +22,7 @@ shortTitle: Crear & probar con Java & Gradle
 
 ## Introducción
 
-Esta guía te muestra cómo crear un flujo de trabajo que realiza la integración continua (CI) para tu proyecto Java usando el sistema de construcción Gradle. El flujo de trabajo que creas te permitirá ver cuándo las confirmaciones de una solicitud de extracción causan la construcción o las fallas de prueba en tu rama por defecto; este enfoque puede ayudar a garantizar que tu código siempre sea correcto. You can extend your CI workflow to {% if actions-caching %}cache files and{% endif %} upload artifacts from a workflow run.
+Esta guía te muestra cómo crear un flujo de trabajo que realiza la integración continua (CI) para tu proyecto Java usando el sistema de construcción Gradle. El flujo de trabajo que creas te permitirá ver cuándo las confirmaciones de una solicitud de extracción causan la construcción o las fallas de prueba en tu rama por defecto; este enfoque puede ayudar a garantizar que tu código siempre sea correcto. Puedes extender tu flujo de trabajo de IC para {% if actions-caching %}guardar archivos en caché y{% endif %} cargar los artefactos desde una ejecución de flujo de trabajo.
 
 {% ifversion ghae %}
 {% data reusables.actions.self-hosted-runners-software %}
@@ -114,7 +114,7 @@ steps:
 
 ## Almacenar dependencias en caché
 
-Your build dependencies can be cached to speed up your workflow runs. Después de una ejecución exitosa, la `gradle/gradle-build-action` guarda en caché las partes importantes del directorio principal del usuario de Gradle. En los jobs futuros, el caché se restablecerá para que los scripts de compilación no necesiten recompilarse y las dependencias no necesiten descargarse desde los repositorios de paquetes remotos.
+Tus dependencias de compilación se pueden guardar en caché para acelerar tus ejecuciones de flujo de trabajo. Después de una ejecución exitosa, la `gradle/gradle-build-action` guarda en caché las partes importantes del directorio principal del usuario de Gradle. En los jobs futuros, el caché se restablecerá para que los scripts de compilación no necesiten recompilarse y las dependencias no necesiten descargarse desde los repositorios de paquetes remotos.
 
 El almacenamiento en caché se habilita predeterminadamente cuando se utiliza la acción `gradle/gradle-build-action`. Para obtener más información, consulta [`gradle/gradle-build-action`](https://github.com/gradle/gradle-build-action#caching).
 

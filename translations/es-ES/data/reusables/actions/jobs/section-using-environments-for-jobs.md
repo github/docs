@@ -9,7 +9,7 @@ environment: staging_environment
 ```
 {% endraw %}
 
-### Example: Using environment name and URL
+### Ejemplo: Utilizar una URL y nombre de ambiente
 
 ```yaml
 environment:
@@ -19,7 +19,7 @@ environment:
 
 La URL puede ser una expresión y puede utilizar cualquier contexto, excepto el de [`secrets`](/actions/learn-github-actions/contexts#contexts). Para obtener más información sobre las expresiones, consulta la sección "[Expresiones](/actions/learn-github-actions/expressions)".
 
-### Example: Using output as URL
+### Ejemplo: Utilizar una salida como URL
 {% raw %}
 ```yaml
 environment:
