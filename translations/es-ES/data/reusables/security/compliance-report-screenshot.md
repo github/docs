@@ -1,1 +1,1 @@
-![Screenshot of download button to the right of a compliance report](/assets/images/help/settings/compliance-report-download.png)
+![Captura de pantalla del botón de "descargar" a la derecha de un reporte de cumplimiento](/assets/images/help/settings/compliance-report-download.png)
