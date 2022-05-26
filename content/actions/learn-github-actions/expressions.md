@@ -326,16 +326,17 @@ steps:
 
 ### failure with conditions
 
-If you want to check more conditions on the failure step you can use `failure()` with additional conditions. Note `failure()` is always required or the step will be skipped on fail.
+For a step to run after a failure you can include extra conditions but you must include `failure()` for it to be detected as a step that should run.
 
-### Example
+#### Example
+
 ```yaml
 steps:
   ...
-  - name: Failing job
+  - name: Failing step
     id: demo
     run: exit 1
-  - name: The demo job has failed
+  - name: The demo step has failed
     if: {% raw %}${{ failure() && steps.demo.conclusion == 'failure' }}{% endraw %}
 ```
 
