@@ -1,7 +1,7 @@
 ---
 title: Configuring Git for GitHub Desktop
 shortTitle: Configuring Git
-intro: 'If you don''t already have Git installed, you must configure it before using GitHub Desktop.'
+intro: 'You can configure Git configuration settings in GitHub Desktop for your local repositories.'
 redirect_from:
   - /desktop/getting-started-with-github-desktop/configuring-git-for-github-desktop
   - /desktop/installing-and-configuring-github-desktop/configuring-git-for-github-desktop
@@ -10,13 +10,11 @@ versions:
 ---
 ## About configuring Git
 
-{% data variables.product.prodname_desktop %} allows you to set the name and email you would like associated with your commits. You can also choose the default branch you would like used when creating new repositories in {% data variables.product.prodname_desktop %}.
+{% data variables.product.prodname_desktop %} allows you to set the name and email address you would like associated with the commits you make in your repositories. If your name and email address have already been set in the global Git configuration, {% data variables.product.prodname_desktop %} will detect and use those values. {% data variables.product.prodname_desktop %} also allows you to set a specific name and email address for individual repositories. This is useful when you need to use a separate work email address for a specific repository.
 
-{% data variables.product.prodname_desktop %} uses the email address you set in your local Git configuration to connect commits with your account on {% data variables.product.product_name %}. When logged in to your {% data variables.product.product_name %} account the
+{% data variables.product.prodname_desktop %} will also show a warning prior to committing if the email address that has been set in your Git configuration does not match an email address associated with the {% data variables.product.product_name %} account you are currently logged in to.
 
-{% data variables.product.prodname_desktop %} will automatically detect if the email address being used does not match an email address associated with your current user.
-
-{% data reusables.desktop.update-email-address %}
+{% data variables.product.prodname_desktop %} also allows you to change the default branch name that you would like to use when creating new repositories. By default, {% data variables.product.prodname_desktop %} uses `main` as the default branch name in any new repositories you create.
 
 {% tip %}
 
