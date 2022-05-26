@@ -33,25 +33,6 @@ For more information about personal accounts on {% data variables.product.produc
 {% data reusables.education.plan-to-use-github %}
 {% data reusables.education.submit-application %}
 
-## Organization をアップグレードする
-
-教育者もしくは研究者割引のリクエストが承認されると、学習コミュニティで利用する Organization を {% data variables.product.prodname_team %} にアップグレードできます。これで、無料で無制限のユーザとプライベートリポジトリの全ての機能が利用できるようになります。 既存の Organization をアップグレードするか、アップグレードする新しい Organization を作成できます。
-
-### 既存の Organization をアップグレードする
-
-{% data reusables.education.upgrade-page %}
-{% data reusables.education.upgrade-organization %}
-
-### 新しい Organization をアップグレードする
-
-{% data reusables.education.upgrade-page %}
-1. [{% octicon "plus" aria-label="The plus symbol" %} **Create an organization**] をクリックします。 ![[Create an organization] ボタン](/assets/images/help/education/create-org-button.png)
-3. 情報を読んで、[**Create organization**] をクリックします。 ![[Create organization] ボタン](/assets/images/help/education/create-organization-button.png)
-4. [Choose a plan] の下で、[**Choose {% data variables.product.prodname_free_team %}**] をクリックします。
-5. プロンプトに従って Organization を作成します。
-{% data reusables.education.upgrade-page %}
-{% data reusables.education.upgrade-organization %}
-
 ## 参考リンク
 
 - [教育者あるいは研究者割引が承認されなかった理由は？](/articles/why-wasn-t-my-application-for-an-educator-or-researcher-discount-approved)

@@ -1,6 +1,6 @@
 ---
 title: Gists
-intro: 'The Gists API enables the authorized user to list, create, update and delete the public gists on GitHub.'
+intro: 'A API dos Gists permite que o usuário autorizado liste, crie e exclua os gists públicos no GitHub.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,9 +11,9 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## About the Gists API
+## Sobre a API de Gists
 
-The Gist API lets you view and modify gists. For more information about gists, see "[Editing and sharing content with gists](/get-started/writing-on-github/editing-and-sharing-content-with-gists)."
+A API do Gist permite que você veja e modifique os gists. Para obter mais informações sobre gists, consulte "[Editando e compartilhando o conteúdo com gists](/get-started/writing-on-github/editing-and-sharing-content-with-gists)".
 
 ### Autenticação
 

@@ -311,7 +311,6 @@ Los errores con `body` tendràn un prefijo de `body[i]` en donde `i` representa 
 body:
 - attributes:
     value: "Thanks for taking the time to fill out this bug! Si necesitas ayuda en tiempo real, únetenos en Discord."
-    preview_only: false
 ```
 
 El error puede corregirse si agregas la clave `type` con un tipo de entrada válido como el valor. Para los tipos de entrada de `body` disponibles y sus sintaxis, consulta la sección "[Sintaxis para el modelo de formato de {% data variables.product.prodname_dotcom %}](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema#keys)".
@@ -321,7 +320,6 @@ body:
 - type: markdown
   attributes:
     value: "Thanks for taking the time to fill out this bug! Si necesitas ayuda en tiempo real, únetenos en Discord."
-    preview_only: false
 ```
 
 ## Body[i]: `x` no es un tipo de entrada válido
@@ -337,7 +335,6 @@ body:
 - type: x
   attributes:
     value: "Thanks for taking the time to fill out this bug! Si necesitas ayuda en tiempo real, únetenos en Discord."
-    preview_only: false
 ```
 
 El error puede corregirse cambiando `x` a uno de los tipos válidos.
@@ -347,7 +344,6 @@ body:
 - type: markdown
   attributes:
     value: "Thanks for taking the time to fill out this bug! Si necesitas ayuda en tiempo real, únetenos en Discord."
-    preview_only: false
 ```
 
 ## Body[i]: falta la clave de atributo requerida `value`
@@ -363,7 +359,6 @@ body:
 - type: markdown
   attributes:
     value: "Thanks for taking the time to fill out this bug! Si necesitas ayuda en tiempo real, únetenos en Discord."
-    preview_only: false
 - type: markdown
 ```
 
@@ -374,7 +369,6 @@ body:
 - type: markdown
   attributes:
     value: "Thanks for taking the time to fill out this bug! Si necesitas ayuda en tiempo real, únetenos en Discord."
-    preview_only: false
 - type: markdown
   attributes:
     value: "This is working now!"

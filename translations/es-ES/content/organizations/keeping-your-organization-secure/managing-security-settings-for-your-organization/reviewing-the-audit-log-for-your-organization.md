@@ -128,6 +128,9 @@ Al utilizar el calificador `country`, puedes filtrar los eventos en la bitácora
 ## Exportar el registro de auditoría
 
 {% data reusables.audit_log.export-log %}
+
+{% data reusables.audit_log.git-events-export-limited %}
+
 {% data reusables.audit_log.exported-log-keys-and-values %}
 {% endif %}
 
@@ -739,7 +742,19 @@ Para obtener más información, consulta la sección "[Administrar la publicaci�
 | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `inhabilitar` | Se activa cuando el propietario de una organización inhabilita el escaneo de secretos para todos los repositorios{% ifversion ghec %} privados o internos{% endif %} existentes. Para obtener más información, consulta la sección "[Acerca del escaneo de secretos"](/github/administering-a-repository/about-secret-scanning). |
 | `habilitar`   | Se activa cuando un propietario de organización habilita el escaneo de secretos para todos los repositorios {% ifversion ghec %} privados o internos{% endif %} existentes.                                                                                                                                                      |
+{% endif %}
 
+{% if secret-scanning-alert-audit-log %}
+### `secret_scanning_alert` category actions
+
+| Acción           | Descripción                                                                                                                                                                                                                                                                                                                                                                       |
+| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `create (crear)` | Triggered when {% data variables.product.prodname_dotcom %} detects an exposed secret and creates a {% data variables.product.prodname_secret_scanning %} alert. Para obtener más información, consulta la sección "[Administrar las alertas de {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/managing-alerts-from-secret-scanning)". |
+| `reopen`         | Triggered when a user reopens a {% data variables.product.prodname_secret_scanning %} alert.                                                                                                                                                                                                                                                                                    |
+| `resolver`       | Triggered when a user resolves a {% data variables.product.prodname_secret_scanning %} alert.                                                                                                                                                                                                                                                                                   |
+{% endif %}
+
+{% ifversion ghec or ghes or ghae %}
 ### Acciones de la categoría `secret_scanning_new_repos`
 
 | Acción        | Descripción                                                                                                                                                                                                                                                                                                              |

@@ -1068,6 +1068,16 @@ topics:
 | `secret_scanning.disable` | An organization owner disabled secret scanning for all existing{% ifversion ghec %} private or internal{% endif %} repositories. Para obter mais informações, consulte "[Sobre a varredura de segredos](/github/administering-a-repository/about-secret-scanning)." |
 | `secret_scanning.enable`  | An organization owner enabled secret scanning for all existing{% ifversion ghec %} private or internal{% endif %} repositories.                                                                                                                                     |
 
+{% if secret-scanning-alert-audit-log %}
+### `secret_scanning_alert` category actions
+
+| Ação                            | Descrição                                                                                                                                                                                                                                                                                                                                  |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `secret_scanning_alert.create`  | {% data variables.product.prodname_dotcom %} detected a secret and created a {% data variables.product.prodname_secret_scanning %} alert. Para obter mais informações, consulte "[Gerenciando alertas do {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/managing-alerts-from-secret-scanning)." |
+| `secret_scanning_alert.reopen`  | A user reopened a {% data variables.product.prodname_secret_scanning %} alert.                                                                                                                                                                                                                                                           |
+| `secret_scanning_alert.resolve` | A user resolved a {% data variables.product.prodname_secret_scanning %} alert.                                                                                                                                                                                                                                                           |
+{% endif %}
+
 ### ações da categoria `secret_scanning_new_repos`
 
 | Ação                                | Descrição                                                                                                                                                                                                                                                      |
@@ -1167,11 +1177,11 @@ topics:
 
 ### ações de categoria de `team_discussions`
 
-| Ação                       | Descrição                                                                                                                                                                                                                                           |
-| -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `team_discussions.clear`   | An organization owner cleared the setting to allow team discussions for an organization or enterprise.                                                                                                                                              |
-| `team_discussions.disable` | An organization owner disabled team discussions for an organization. For more information, see "[Disabling team discussions for your organization](/organizations/organizing-members-into-teams/disabling-team-discussions-for-your-organization)." |
-| `team_discussions.enable`  | An organization owner enabled team discussions for an organization.                                                                                                                                                                                 |
+| Ação                       | Descrição                                                                                                                                                                                                                                                            |
+| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `team_discussions.clear`   | An organization owner cleared the setting to allow team discussions for an organization or enterprise.                                                                                                                                                               |
+| `team_discussions.disable` | An organization owner disabled team discussions for an organization. Para obter mais informações, consulte "[Desabilitar discussões de equipe para sua organização](/organizations/organizing-members-into-teams/disabling-team-discussions-for-your-organization)". |
+| `team_discussions.enable`  | An organization owner enabled team discussions for an organization.                                                                                                                                                                                                  |
 
 {%- ifversion ghec %}
 ### `team_sync_tenant` category actions

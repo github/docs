@@ -65,44 +65,46 @@ sections:
         - ボタンをクリックして、ファイルの生の内容をクリップボードにコピーできるようになりました。以前は、生のファイルを開き、すべてを選択し、コピーしなければなりませんでした。ファイルの内容をコピーするには、ファイルにアクセスし、ツールバーの{% octicon "copy" aria-label="The copy icon" %}をクリックしてください。この機能は現在、一部のブラウザでのみ利用可能であることに注意してください。
         - 新しいリリースを作成する際に、タグをテキストフィールドで指定するのではなく、ドロップダウンセレクタを使ってタグを選択あるいは作成できるようになりました。詳しい情報については「[リポジトリのリリースの管理](/repositories/releasing-projects-on-github/managing-releases-in-a-repository)」を参照してください。
         - 双方向のUnicodeテキストを含むファイルを表示する際に、警告が表示されるようになりました。双方向のUnicodeテキストは、ユーザインターフェースで表示されるのとは異なるように解釈あるいはコンパイルされることがあります。たとえば、非表示の双方向Unicode文字を使ってテキストファイルのセグメントをスワップさせることがでいいます。これらの文字の置き換えに関する詳しい情報については[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-10-31-warning-about-bidirectional-unicode-text/)を参照してください。
-        - You can now use `CITATION.cff` files to let others know how you would like them to cite your work. `CITATION.cff` files are plain text files with human- and machine-readable citation information. {% data variables.product.prodname_ghe_server %} parses this information into common citation formats such as [APA](https://apastyle.apa.org) and [BibTeX](https://en.wikipedia.org/wiki/BibTeX). For more information, see "[About CITATION files](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-citation-files)."
+        - '`CITATION.cff`ファイルを使って、自分の作品をどのように引用してほしいかを他者に知らせることができるようになりました。`CITATION.cff`ファイルはプレーンテキストファイルで、人間及び機会が読める引用情報を持ちます。{% data variables.product.prodname_ghe_server %}はこの情報を[APA](https://apastyle.apa.org)や[BibTeX](https://en.wikipedia.org/wiki/BibTeX)のような共通引用フォーマットにパースします。詳しい情報については「[CITATIONファイルについて](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-citation-files)」を参照してください。'
     - 
       heading: 'Markdownの変更'
       notes:
         - |
-          You can use new keyboard shortcuts for quotes and lists in Markdown files, issues, pull requests, and comments.
+          Markdownファイル、Issue、Pull Request、コメント内での引用符やリストに、新しいキーボードショートカットが使えるようになりました。
 
-          * To add quotes, use <kbd>cmd shift .</kbd> on Mac, or <kbd>ctrl shift .</kbd> on Windows and Linux.
-          * To add an ordered list, use <kbd>cmd shift 7</kbd> on Mac, or <kbd>ctrl shift 7</kbd> on Windows and Linux.
-          * To add an unordered list, use <kbd>cmd shift 8</kbd> on Mac, or <kbd>ctrl shift 8</kbd> on Windows and Linux.
+          * 引用符を追加するには、Macでは<kbd>cmd shift .</kbd> Windows及びLinuxでは<kbd>ctrl shift .</kbd>としてください。
 
-          See "[Keyboard shortcuts](/get-started/using-github/keyboard-shortcuts)" for a full list of available shortcuts.
-        - 'You can now use footnote syntax in any Markdown field. Footnotes are displayed as superscript links that you can click to jump to the referenced information, which is displayed in a new section at the bottom of the document. For more information about the syntax, see "[Basic writing and formatting syntax](/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#footnotes)."'
-        - When viewing Markdown files, you can now click {% octicon "code" aria-label="The code icon" %} in the toolbar to view the source of a Markdown file. Previously, you needed to use the blame view to link to specific line numbers in the source of a Markdown file.
-        - You can now add images and videos to Markdown files in gists by pasting them into the Markdown body or selecting them from the dialog at the bottom of the Markdown file. For information about supported file types, see "[Attaching files](https://docs.github.com/en/github/writing-on-github/working-with-advanced-formatting/attaching-files)."
-        - '{% data variables.product.prodname_ghe_server %} now automatically generates a table of contents for Wikis, based on headings.'
-        - When dragging and dropping files into a Markdown editor, such as images and videos, {% data variables.product.prodname_ghe_server %} now uses the mouse pointer location instead of the cursor location when placing the file.
+          * 順序付きリストを追加するには、Macでは<kbd>cmd shift 7</kbd> Windows及びLinuxでは<kbd>ctrl shift 7</kbd>としてください。
+
+          * 順序無しリストを追加するには、Macでは<kbd>cmd shift 8</kbd> Windows及びLinuxでは<kbd>ctrl shift 8</kbd>としてください。
+
+          利用可能なショートカットの完全なリストについては「[キーボードショートカット](/get-started/using-github/keyboard-shortcuts)」を参照してください。
+        - 'Markdownフィールドで脚注構文を使えるようになりました。脚注は、上付きリンクとして表示され、クリックすると参照された情報にジャンプできます。この情報は、ドキュメントの下部の新しいセクションに表示されます。この構文に関する詳しい情報については「[基本的な執筆とフォーマットの構文](/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#footnotes)を参照してください。'
+        - Markdownファイルが表示される場合、ツールバーの{% octicon "code" aria-label="The code icon" %}をクリックしてMarkdownファイルのソースを表示させられるようになりました。以前は、blameビューを使ってMarkdownファイルのソースの特定の行番号にリンクしなければなりませんでした。
+        - 画像やビデオを、Markdownの本文に貼り付けるか、Markdownファイルの末尾のダイアログから選択して、Gist中のMarkdownファイルに追加できるようになりました。サポートされるファイルタイプに関する情報については「[ファイルの添付](https://docs.github.com/en/github/writing-on-github/working-with-advanced-formatting/attaching-files)」を参照してください。
+        - '{% data variables.product.prodname_ghe_server %}はWikiについて、見出しに基づいて目次を自動的に生成するようになりました。'
+        - Markdownエディタに画像やビデオなどのファイルをドラッグアンドドロップする際に、{% data variables.product.prodname_ghe_server %}はファイルの置き場所としてカーソルの場所ではなく、マウスポインタの場所を使うようになりました。
     - 
       heading: 'Issue及びPull Requestの変更'
       notes:
-        - 'You can now search issues by label using a logical OR operator. To filter issues using logical OR, use the comma syntax. For example, `label:"good first issue","bug"` will list all issues with a label of `good first issue` or `bug`. For more information, see "[Filtering and searching issues and pull requests](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests#about-search-terms)."'
+        - '論理OR演算子を使用して、Issueをラベルで検索できるようになりました。論理ORを使ってIssueを検索するには、カンマ構文を使ってください。たとえば`label:"good first issue","bug"`とすれば、`good first issue`もしくは`bug`というラベルの付いたすべてのIssueがリストされます。詳しい情報については「[IssueとPull Requestのフィルタリングと検索](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests#about-search-terms)」を参照してください。'
         - |
-          Improvements have been made to help teams manage code review assignments. You can now:
+          Teamによるコードレビューの割り当てを支援する改善が行われました。以下のことができるようになりました:
 
-          - Limit assignment to only direct members of the team.
-          - Continue with automatic assignment even if one or more members of the team are already requested.
-          - Keep a team assigned to review even if one or more members is newly assigned.
+          - 割り当てをTeamの直接のメンバーに限定する
+          - Teamの1人以上のメンバーが既にリクエストされていても、自動割り当てを継続する
+          - 1人以上のメンバーが新たに割り当てられていても、レビューにTeamが割り当てられたままにする
 
-          The timeline and reviewers sidebar on the pull request page now indicate if a review request was automatically assigned to one or more team members.
+          Pull Requestページのタイムラインとレビュー担当者のサイドバーは、レビューリクエストが自動的に1人以上のTeamメンバーに割り当てられていれば、それを表示するようになりました。
 
-          For more information, see the [{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-09-29-new-code-review-assignment-settings-and-team-filtering-improvements/).
-        - You can now filter pull request searches to only include pull requests you are directly requested to review.
-        - Filtered files in pull requests are now completely hidden from view, and are no longer shown as collapsed in the "Files Changed" tab. The "File Filter" menu has also been simplified. For more information, see "[Filtering files in a pull request](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/filtering-files-in-a-pull-request)."
+          詳しい情報については[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-09-29-new-code-review-assignment-settings-and-team-filtering-improvements/)を参照してください。
+        - Pull Requestの検索に、直接自分がレビューをリクエストされているPull Requestだけを含むようにフィルタリングできるようになりました。
+        - Pull Requestでフィルタされたファイルはビューで完全に表示されなくなり、"Files Changed（変更されたファイル）"タブに折りたたんで表示されることもなくなりました。"File Filter（ファイルフィルタ）"メニューも単純化されました。詳しい情報については「[Pull Request中のファイルのフィルタリング](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/filtering-files-in-a-pull-request)」を参照してください。
     - 
       heading: 'GitHub Actionsの変更'
       notes:
-        - You can now create "composite actions" which combine multiple workflow steps into one action, and includes the ability to reference other actions. This makes it easier to reduce duplication in workflows. Previously, an action could only use scripts in its YAML definition. For more information, see "[Creating a composite action](/actions/creating-actions/creating-a-composite-action)."
-        - 'Managing self-hosted runners at the enterprise level no longer requires using personal access tokens with the `admin:enterprise` scope. You can instead use the new `manage_runners:enterprise` scope to restrict the permissions on your tokens. Tokens with this scope can authenticate to [many REST API endpoints](/rest/reference/enterprise-admin#list-self-hosted-runner-groups-for-an-enterprise) to manage your enterprise''s self-hosted runners.'
+        - 複数のワークフローステップを1つのアクションに結合し、他のアクションを参照できる機能を含む「複合アクション」を作成できるようになりました。これによって、ワークフロー中の重複を削減しやすくなります。以前は、アクションはYAML定義中でスクリプトを使うことしかできませんでした。詳しい情報については「[複合アクションの作成](/actions/creating-actions/creating-a-composite-action)」を参照してください。
+        - 'Enterpriseレベルでのセルフホストランナーの管理に、`admin:enterprise`スコープ付きの個人アクセストークンを使う必要がなくなりました。トークンの権限を制限するには、その代わりに`manage_runners:enterprise`スコープが利用できます。このスコープを持つトークンは、[多くのREST APIエンドポイント](/rest/reference/enterprise-admin#list-self-hosted-runner-groups-for-an-enterprise)で認証を受けて、Enterpriseのセルフホストランナーを管理できます。'
         - |
           The audit log now includes additional events for {% data variables.product.prodname_actions %}. Audit log entries are now recorded for the following events:
 
