@@ -149,14 +149,19 @@ Para obter mais informações, consulte[Links relativos,](#relative-links)."
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5559 %}
 ### Especificando o tema para o qual uma imagem será exibida
 
-Você pode especificar o tema para o qual uma imagem é exibida acrescentando `#gh-dark-mode-only` ou `#gh-light-mode-only` no final de uma URL da imagem, em Markdown.
+You can specify the theme an image is displayed for in Markdown by using the HTML `<picture>` element in combination with the `prefers-color-scheme` media feature. Nós distinguimos entre os modos de cores claro e escuro. Portanto, há duas opções disponíveis. Você pode usar essas opções para exibir imagens otimizadas para fundos escuros ou claros. Isso é particularmente útil para imagens PNG transparentes.
 
-Nós distinguimos entre os modos de cores claro e escuro. Portanto, há duas opções disponíveis. Você pode usar essas opções para exibir imagens otimizadas para fundos escuros ou claros. Isso é particularmente útil para imagens PNG transparentes.
+For example, the following code displays a sun image for light themes and a moon for dark themes:
 
-| Contexto    | URL                                                                      |
-| ----------- | ------------------------------------------------------------------------ |
-| Tema escuro | `![GitHub Light](https://github.com/github-light.png#gh-dark-mode-only)` |
-| Tema claro  | `![GitHub Dark](https://github.com/github-dark.png#gh-light-mode-only)`  |
+```HTML
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://user-images.githubusercontent.com/25423296/163456776-7f95b81a-f1ed-45f7-b7ab-8fa810d529fa.png">
+  <source media="(prefers-color-scheme: light)" srcset="https://user-images.githubusercontent.com/25423296/163456779-a8556205-d0a5-45e2-ac17-42d089e3c3f8.png">
+  <img alt="Shows an illustrated sun in light color mode and a moon with stars in dark color mode." src="https://user-images.githubusercontent.com/25423296/163456779-a8556205-d0a5-45e2-ac17-42d089e3c3f8.png">
+</picture>
+```
+
+The old method of specifying images based on the theme, by using a fragment appended to the URL (`#gh-dark-mode-only` or `#gh-light-mode-only`), is deprecated and will be removed in favor of the new method described above.
 {% endif %}
 
 ## Listas

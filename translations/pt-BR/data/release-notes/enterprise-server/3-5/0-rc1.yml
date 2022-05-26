@@ -13,12 +13,12 @@ intro: |
 sections:
   features:
     - 
-      heading: IP exception list for validation testing after maintenance
+      heading: Lista de exceção IP para testes de validação após manutenção
       notes:
         - |
-          You can now configure an allow list of IP addresses that can access application services on your GitHub Enterprise Server instance while maintenance mode is enabled. Administrators who visit the instance's web interface from an allowed IP address can validate the instance's functionality post-maintenance and before disabling maintenance mode. For more information, see "[Enabling and scheduling maintenance mode](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode#validating-changes-in-maintenance-mode-using-the-ip-exception-list)."
+          Agora você pode configurar uma lista de endereços IP que podem acessar os serviços do aplicativo na sua instância do GitHub Enterprise Server enquanto o modo de manutenção estiver habilitado. Os administradores que visitam a interface web da instância a partir de um endereço IP permitido podem validar a funcionalidade pós-manutenção e antes de desabilitar o modo de manutenção. Para obter mais informações, consulte "[Habilitando e agendando o modo de manutenção](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode#validating-changes-in-maintenance-mode-using-the-ip-exception-list)."
     - 
-      heading: Custom repository roles are generally available
+      heading: De modo geral, as funções personalizadas do repositório estão disponíveis
       notes:
         - |
           With custom repository roles, organizations now have more granular control over the repository access permissions they can grant to users. For more information, see "[Managing custom repository roles for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)."
@@ -29,26 +29,26 @@ sections:
 
           Custom repository roles are also fully supported in the GitHub Enterprise Server REST APIs. The Organizations API can be used to list all custom repository roles in an organization, and the existing APIs for granting repository access to individuals and teams have been extended to support custom repository roles. For more information, see "[Organizations](/rest/reference/orgs#list-custom-repository-roles-in-an-organization)" in the REST API documentation.
     - 
-      heading: GitHub Container registry in public beta
+      heading: Registro do Contêiner do GitHub em beta público
       notes:
         - |
-          The GitHub Container registry (GHCR) is now available in GitHub Enterprise Server 3.5 as a public beta, offering developers the ability to publish, download, and manage containers. GitHub Packages container support implements the OCI standards for hosting Docker images. For more information, see "[GitHub Container registry](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)."
+          O registro do GitHub Container (GHCR) agora está disponível no GitHub Enterprise Server 3.5 como beta público, oferecendo aos desenvolvedores a capacidade de publicar, fazer o download e gerenciar contêineres. O suporte ao contêiner do GitHub Packages implementa os padrões de OICM para hospedar imagens do Docker. Para obter mais informações, consulte "[Registro do GitHub Container](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)."
     - 
-      heading: Dependabot updates are generally available
+      heading: De modo geral, as atualizações do Dependabot estão disponíveis
       notes:
         - |
-          Dependabot version and security updates are now generally available in GitHub Enterprise Server 3.5. All the popular ecosystems and features that work on GitHub.com repositories now can be set up on your GitHub Enterprise Server instance. Dependabot on GitHub Enterprise Server requires GitHub Actions and a pool of self-hosted Dependabot runners, GitHub Connect enabled, and Dependabot enabled by an admin.
+          A versão do Dependabot e as atualizações de segurança agora estão geralmente disponíveis no GitHub Enterprise Server 3.5. Todos os ecossistemas e recursos populares que funcionam em repositórios do GitHub.com podem ser configurados na sua instância do GitHub Enterprise Server. O Dependabot no GitHub Enterprise Server requer exige o GitHub Actions e um conjunto de executores de Dependabot auto-hospedados, GitHub Connect habilitado e Dependabot habilitado por um administrador.
 
-          Following on from the public beta release, we will be supporting the use of GitHub Actions runners hosted on a Kubernetes setup.
+          Seguindo a versão beta pública, daremos suporte ao uso de executores do GitHub Actions hospedados em uma configuração do Kubernetes.
 
-          For more information, see "[Setting up Dependabot updates](https://docs.github.com/en/enterprise-server@3.5/admin/github-actions/enabling-github-actions-for-github-enterprise-server/setting-up-dependabot-updates)."
+          Para obter mais informações, consulte "[Configurar atualizações de dependabot](https://docs. ithub.com/pt/enterprise-server@3.5/admin/github-actions/enabling-github-actions-for-github-enterprise-server/setting-up-dependabot-updates)."
     - 
-      heading: Server Statistics in public beta
+      heading: Estatísticas do Servidor na versão beta pública
       notes:
         - |
           You can now analyze how your team works, understand the value you get from GitHub Enterprise Server, and help us improve our products by reviewing your instance's usage data and sharing this aggregate data with GitHub. You can use your own tools to analyze your usage over time by downloading your data in a CSV or JSON file or by accessing it using the REST API. To see the list of aggregate metrics collected, see "[About Server Statistics](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/about-server-statistics#server-statistics-data-collected)." Server Statistics data includes no personal data nor GitHub content, such as code, issues, comments, or pull requests content.  For a better understanding of how we store and secure Server Statistics data, see "[GitHub Security](https://github.com/security)."  For more information about Server Statistics, see "[Analyzing how your team works with Server Statistics](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics)." This feature is available in public beta.
     - 
-      heading: GitHub Actions rate limiting is now configurable
+      heading: O limite de taxa do GitHub Actions agora é pode ser configurado
       notes:
         - |
           Site administrators can now enable and configure a rate limit for GitHub Actions. By default, the rate limit is disabled. When workflow jobs cannot immediately be assigned to an available runner, they will wait in a queue until a runner is available. However, if GitHub Actions experiences a sustained high load, the queue can back up faster than it can drain and the performance of the GitHub Enterprise Server instance may degrade. To avoid this, an administrator can configure a rate limit. When the rate limit is exceeded, additional workflow runs will fail immediately rather than being put in the queue. Once the rate has stabilized below the threshold, new runs can be queued again. For more information, see "[Configuring rate limits](/admin/configuration/configuring-your-enterprise/configuring-rate-limits#configuring-rate-limits-for-github-actions)."
@@ -334,10 +334,10 @@ sections:
         - |
           The CodeQL runner is deprecated in favor of the CodeQL CLI. GitHub Enterprise Server 3.4 and later no longer include the CodeQL runner. This deprecation only affects users who use CodeQL code scanning in 3rd party CI/CD systems. GitHub Actions users are not affected. GitHub strongly recommends that customers migrate to the CodeQL CLI, which is a feature-complete replacement for the CodeQL runner and has many additional features. For more information, see "[Migrating from the CodeQL runner to CodeQL CLI](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/migrating-from-the-codeql-runner-to-codeql-cli)."
     - 
-      heading: Theme picker for GitHub Pages has been removed
+      heading: O seletor de temas para o GitHub Pages foi removido
       notes:
         - |
-          The theme picker for GitHub Pages has been removed from the Pages settings. For more information about configuration of themes for GitHub Pages, see "[Adding a theme to your GitHub Pages site using Jekyll](/pages/setting-up-a-github-pages-site-with-jekyll/adding-a-theme-to-your-github-pages-site-using-jekyll)."
+          O seletor de temas para o GitHub Pages foi removido das configurações de pagamento. Para obter mais informações sobre a configuração dos temas para o GitHub Pages, consulte "[Adicionando um tema ao site do GitHub Pages usando o Jekyll](/pages/setting-up-a-github-pages-site-with-jekyll/adding-a-theme-to-your-github-pages-site-using-jekyll)."
   known_issues:
     - Em uma instância de {% data variables.product.prodname_ghe_server %} recém-configurada sem usuários, um invasor pode criar o primeiro usuário administrador.
     - As regras de firewall personalizadas são removidas durante o processo de atualização.

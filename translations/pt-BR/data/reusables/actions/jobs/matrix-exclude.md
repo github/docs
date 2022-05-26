@@ -1,4 +1,4 @@
-To remove specific configurations defined in the matrix, use `jobs.<job_id>.strategy.matrix.exclude`. An excluded configuration only has to be a partial match for it to be excluded. For example, the following workflow will run nine jobs: one job for each of the 12 configurations, minus the one excluded job that matches `{os: macos-latest, version: 12, environment: production}`, and the two excluded jobs that match `{os: windows-latest, version: 16}`.
+Para remover configurações específicas definidas na matriz, use `jobs.<job_id>.strategy.matrix.exclude`. Uma configuração excluída só precisa ser uma correspondência parcial para que seja excluída. Por exemplo, o fluxo de trabalho a seguir irá executar nove trabalhos: um trabalho para cada uma das 12 configurações, menos a tarefa excluída que corresponde a `{os: macos-latest, version: 12, environment: production}`, e os dois trabalhos excluídos que correspondem a `{os: windows-latest, version: 16}`.
 
 ```yaml
 strategy:
