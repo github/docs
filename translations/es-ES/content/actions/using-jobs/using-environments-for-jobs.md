@@ -1,5 +1,5 @@
 ---
-title: Using environments for jobs
+title: Utilizar a los ambientes para los jobs
 shortTitle: Utiilizar ambientes para los jobs
 intro: Specify an environment for a job.
 versions:

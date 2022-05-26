@@ -20,7 +20,7 @@ El {% data variables.product.prodname_campus_program %} es un paquete de acceso 
 - Acceso exclusivo a las características nuevas, swag específico de la Educación de GitHub y herramientas de desarrollo gratuitas de los socios de {% data variables.product.prodname_dotcom %}
 - Acceso automatizado a las funciones premium de {% data variables.product.prodname_education %}, como {% data variables.product.prodname_student_pack %}
 
-To read about how GitHub is used by educators, see [GitHub Education stories](https://education.github.com/stories).
+Para leer sobre cómo los docentes utilizan GitHub, consulta las [historias de GitHub Education](https://education.github.com/stories).
 
 ## Términos y condiciones de {% data variables.product.prodname_campus_program %}
 
