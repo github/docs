@@ -1,4 +1,4 @@
-Utiliza `jobs.<job_id>.needs` para identificar cualquier job que deba completarse con éxito antes de que este se ejecute. Puede ser una cadena o matriz de cadenas. Si un job falla, se saltarán todos los jobs que lo necesiten a menos de que éstos utilicen una expresión condicional que ocasione que el job continúe.
+Utiliza `jobs.<job_id>.needs` para identificar cualquier job que deba completarse con éxito antes de que este se ejecute. Puede ser una cadena o matriz de cadenas. Si un job falla, se saltarán todos los jobs que lo necesiten a menos de que éstos utilicen una expresión condicional que ocasione que el job continúe. If a run contains a series of jobs that need each other, a failure applies to all jobs in the dependency chain from the point of failure onwards.
 
 #### Ejemplo: Requerir jobs dependientes exitosos
 

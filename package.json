@@ -59,7 +59,7 @@
     "msgpack5rpc": "^1.1.0",
     "next": "^11.1.3",
     "overload-protection": "^1.2.3",
-    "parse5": "^6.0.1",
+    "parse5": "7.0.0",
     "port-used": "^2.0.8",
     "quick-lru": "6.1.1",
     "react": "^17.0.2",

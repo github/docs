@@ -51,7 +51,7 @@ A ordem de definição dos padrões é importante.
 - Um padrão negativo (precedido por `!`) depois de uma correspondência positiva excluirá o Git ref.
 - Um padrão positivo correspondente após uma correspondência negativa incluirá a Git ref novamente.
 
-The following workflow will run on `pull_request` events for pull requests that target `releases/10` or `releases/beta/mona`, but not for pull requests that target `releases/10-alpha` or `releases/beta/3-alpha` because the negative pattern `!releases/**-alpha` follows the positive pattern.
+O fluxo de trabalho a seguir será executado em eventos `pull_request` para pull requests que apontem para `releases/10` ou `releases/beta/mona`, mas não para pull requests que apontam para `releases/10-alpha` ou `releases/beta/3-alpha` porque o padrão negativo `!releases/**-alpha` segue o padrão positivo.
 
 ```yaml
 on:

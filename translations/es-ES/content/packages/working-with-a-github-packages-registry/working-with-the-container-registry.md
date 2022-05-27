@@ -51,7 +51,7 @@ Cuando instalas o publicas una imagen de Docker, el {% data variables.product.pr
 
 ## Subir imágenes de contenedor
 
-This example pushes the latest version of `IMAGE_NAME`.
+Este ejemplo sube la última versión de `IMAGE_NAME`.
   ```shell
   $ docker push {% data reusables.package_registry.container-registry-hostname %}/OWNER/IMAGE_NAME:latest
   ```
