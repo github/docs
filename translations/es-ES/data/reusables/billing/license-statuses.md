@@ -1,6 +1,6 @@
 {% ifversion ghec %}
-Si tu licencia incluye {% data variables.product.prodname_vss_ghe %}, puedes identificar si una cuenta personal de {% data variables.product.prodname_dotcom_the_website %} coincidió exitosamente con un suscriptor de {% data variables.product.prodname_vs %} si descargas el archivo de CSV que contiene detalles de licencia adicionales. El estado de licencia será uno de los siguientes.
-- "Matched": La cuenta personal en {% data variables.product.prodname_dotcom_the_website %} está enlazada a un suscriptor de {% data variables.product.prodname_vs %}.
+If your license includes {% data variables.product.prodname_vss_ghe %}, you can identify whether a user account on {% data variables.product.prodname_dotcom_the_website %} has successfully matched with a {% data variables.product.prodname_vs %} subscriber by downloading the CSV file that contains additional license details. El estado de licencia será uno de los siguientes.
+- "Matched": The user account on {% data variables.product.prodname_dotcom_the_website %} is linked with a {% data variables.product.prodname_vs %} subscriber.
 - "Pending Invitation": Una invitación se envió a un suscriptor de {% data variables.product.prodname_vs %}, pero este no la ha aceptado.
-- En blanco: No hay asociación de {% data variables.product.prodname_vs %} a considerar para la cuenta personal de {% data variables.product.prodname_dotcom_the_website %}.
+- Blank: There is no {% data variables.product.prodname_vs %} association to consider for the user account on {% data variables.product.prodname_dotcom_the_website %}.
 {% endif %}

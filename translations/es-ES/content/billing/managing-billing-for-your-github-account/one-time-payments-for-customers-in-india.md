@@ -1,6 +1,6 @@
 ---
-title: One-time payments for customers in India
-intro: Customers in India who have been impacted by the Reserve Bank of India's recurring payment regulation can now make one-time payments for their GitHub subscriptions and services.
+title: Pagos de una sola exhibición para los clientes de la India
+intro: Los clientes de la India que se han visto impactados por la regulación de pagos recurrentes del Banco de Reserva de la India ahora pueden hacer pagos únicos para sus suscripciones y servicios de GitHub.
 redirect_from:
   - /early-access/billing/india-rbi-regulation
 versions:
@@ -10,30 +10,30 @@ topics:
   - Billing
   - Sponsors
   - Policy
-shortTitle: India one-time payments
+shortTitle: Pagos únicos en la India
 ---
 
 
-## About the Reserve Bank of India's recurring payments regulation
+## Acerca de la regulación de pagos recurrentes del Banco de Reserva de la India
 
-A new payments regulation from the Reserve Bank of India (RBI) recently came into effect. This regulation places additional requirements on recurring online transactions and has prevented some {% data variables.product.company_short %} customers in India from making recurring payments. Customers using payment methods issued in India for any recurring transactions on {% data variables.product.product_name %} may find that their payments are declined by their banks or card issuers. For more information, see [the RBI's press release](https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=51353).
+Recientemente, entró en vigor una regulación nueva para los pagos en el Banco de Reserva de la India (RBI, por sus siglas en inglés). Esta regulación coloca requisitos adicionales en las transacciones recurrentes en línea e impidió que algunos clientes de {% data variables.product.company_short %} en este país hicieran pagos recurrentes. Los clientes que utilizan métodos de pago emitidos en la India para cualquier transacción de {% data variables.product.product_name %} podrían notar que los bancos o emisores de tarjetas rechazan dichos pagos. Para obtener más información, consulta el [comunicado de prensa del RBI](https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=51353).
 
-The regulation applies to all recurring transactions, including:
-- {% data variables.product.prodname_dotcom %} plan subscriptions (Pro, Team, Enterprise)
-- {% data variables.product.prodname_marketplace %} purchases
-- {% data variables.product.prodname_sponsors %} transactions
-- Git Large File Storage purchases
-- {% data variables.product.prodname_actions %}, {% data variables.product.prodname_registry %}, and {% data variables.product.prodname_codespaces %} consumption
+La regulación aplica a todas las transacciones recurrentes, incluyendo:
+- Las suscripciones de plan de {% data variables.product.prodname_dotcom %} (Pro, Team, Enterprise)
+- Las compras de {% data variables.product.prodname_marketplace %}
+- Las transacciones de {% data variables.product.prodname_sponsors %}
+- Compras de Almacenamiento de Archivos Grandes de Git
+- Consumo de {% data variables.product.prodname_actions %}, {% data variables.product.prodname_registry %} y {% data variables.product.prodname_codespaces %}
 
-In order to minimize disruption, recurring payments for our affected customers were paused on October 29th, 2021. Paid features and services have remained available to customers impacted by the RBI regulation.
+Para minimizar la interrupción, se pausaron los pagos recurrentes de nuestros clientes afectados el 29 de octubre de 2021. Las características y servicios de pago se han mantenido disponibles para los clientes a los que impactó la regulación del RBI.
 
-## About one-time payments on {% data variables.product.company_short %}
+## Acerca de los pagos únicos en {% data variables.product.company_short %}
 
-As we work with our payment gateway provider to meet the new requirements, we are providing a temporary one-time payment option for impacted customers in India. From February 15th 2022, {% data variables.product.company_short %} customers in India who have been affected by the new RBI regulation will be able to make one-time payments on their regular billing cycle cadence.
+Conforme trabajamos con nuestro proveedor de puerta de enlace de pagos para que cumpla con los nuevos requisitos, estamos proporcionando una opción de pagos únicos temporal para los clientes impactados de la India. Desde el 15 de febrero de 2022, los clientes de {% data variables.product.company_short %} en la India, quienes se hayan visto afectados con la regulación nueva del RBI, podrán hacer pagos únicos en su frecuencia de ciclo de facturación normal.
 
-### For customers on monthly billing
+### Para los clientes con facturación mensual
 
-Customers on monthly billing plans will be able to make a one-time payment on the same day their billing cycle usually renews. For example, if you're usually billed on the 7th of each month, you will now be able to make a one-time payment from your account from the 7th of each month. Your first one-time payment will also include any accrued usage from October 2021 onwards.
+Los clientes con planes de facturación mensual podrán hacer pagos únicos en el mismo día en el que su ciclo de facturación se renueva habitualmente. Por ejemplo, si se te factura habitualmente en el día 7 de cada mes, ahora podrás hacer un pago único desde tu cuenta el día 7 de cada mes. Your first one-time payment will also include any accrued usage from October 2021 onwards.
 
 If you are currently billed monthly, and would like to switch to yearly billing, you can reduce the frequency of your one-time payments. For more information, see "[Changing the duration of your billing cycle](/en/billing/managing-your-github-billing-settings/changing-the-duration-of-your-billing-cycle)."
 

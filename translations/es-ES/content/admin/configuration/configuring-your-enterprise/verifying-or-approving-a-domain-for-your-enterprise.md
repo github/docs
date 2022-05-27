@@ -30,7 +30,7 @@ Puedes confirmar que tu empresa controle los sitios web y direcciones de correo 
 
 Después de que verificas la propiedad de los dominios de tus cuentas empresariales, se mostrará una insignia de "Verificado" en el perfil de cada organización que liste el dominio en su perfil. {% data reusables.organizations.verified-domains-details %}
 
-Los propietarios de las organizaciones podrán verificar la identidad de los miembros de éstas si visualizan la dirección de correo electrónico de cada miembro dentro del dominio verificado.
+For domains configured at the enterprise level, enterprise owners can verify the identity of organization members by viewing each member's email address within the verified domain. Enterprise owners can also view a list of enterprise members who don't have an email address from a verified domain associated with their user account on {% data variables.product.prodname_dotcom %}. For more information, see "[Viewing members without an email address from a verified domain](/admin/user-management/managing-users-in-your-enterprise/viewing-people-in-your-enterprise#viewing-members-without-an-email-address-from-a-verified-domain)."
 
 Después de que verificas los dominios para tu cuenta empresarial, puedes restringir las notificaciones de correo electrónico a los dominios verificados para todas las organizaciones que le pertenezcan a tu cuenta empresarial. Para obtener más información, consulta la sección "[Restringir las notificaciones por correo electrónico para tu empresa](/admin/policies/enforcing-policies-for-your-enterprise/restricting-email-notifications-for-your-enterprise)".
 
