@@ -14,9 +14,9 @@ miniTocMaxHeadingLevel: 3
 
 {% data reusables.codespaces.prebuilds-beta-note %}
 
-## Checking, changing, and deleting your prebuild configurations
+## Verificar, cambiar y borrar tus configuraciones de precompilación
 
-The prebuilds that you configure for a repository are created and updated using a {% data variables.product.prodname_actions %} workflow, managed by the {% data variables.product.prodname_codespaces %} service.
+Las precompilaciones que configuras para un repositorio se crean y actualizan utilizando un flujo de trabajo de {% data variables.product.prodname_actions %} que admistra el servicio de {% data variables.product.prodname_codespaces %}.
 
 Depending on the settings in a prebuild configuration, the workflow to update the prebuild template may be triggered by these events:
 

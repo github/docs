@@ -1,6 +1,6 @@
 ---
-title: Configuring prebuilds
-shortTitle: Configure prebuilds
+title: Configurar las precompilaciones
+shortTitle: Configurar las precompilaciones
 intro: Puedes configurar tu proyecto para que pre-configure un codespace automáticamente cada que subes un cambio a tu repositorio.
 versions:
   fpt: '*'
@@ -15,18 +15,18 @@ permissions: People with admin access to a repository can configure prebuilds fo
 
 {% data reusables.codespaces.prebuilds-beta-note %}
 
-You can set up a prebuild configuration for a specific branch of your repository.
+Puedes ajustar una configuración de precompilación para una rama específica de tu repositorio.
 
-Any branch created from a prebuild-enabled base branch will typically also get assigned a prebuild during codespace creation. This is true if the dev container on the branch is the same as on the base branch. This is because the majority of the prebuild configuration for branches with the same dev container configuration are identical, so developers can benefit from faster codespace creation times on those branches also. Para obtener más información, consulta la sección "[Introducción a los contenedores dev](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)".
+Habitualmente, a cualquier rama que se cree de una rama base con precompilación habilitada habitualmente también se le asignará una precompilación durante la creación del codespace. Esto es cierto si el contenedor dev en la rama es el mismo que en la rama base. Esto es porque la mayoría de las configuraciones de precompilación de las ramas con la misma configuración de contenedor dev son idénticas, así que los desarrolladores también pueden beneficiarse de tener tiempos más rápidos de creación de codespaces en dichas ramas. Para obtener más información, consulta la sección "[Introducción a los contenedores dev](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)".
 
-Typically, when you configure prebuilds for a branch, prebuilds will be available for {% data variables.product.prodname_codespaces %} machine types for that branch. However, if your repository is greater than 32 GB, prebuilds won't be available for 2-core and 4-core machine types, since the storage these provide is limited to 32 GB.
+Habitualmente, cuando configuras las precompilaciones de una rama, estas estarán disponibles para los tipos de máquina de {% data variables.product.prodname_codespaces %} para dicha rama. Sin embargo, si tu repositorio es mayor a 32 GB, las precompilaciones no estarán disponibles para los tipos de máquina de 2 y 4 núcleos, ya que el almacenamiento que estos proporcionan se limita a 32 GB.
 
 {% data reusables.codespaces.prebuilds-not-available %}
 
 ## Prerrequisitos
 
-Before you can configure prebuilds for your project the following must be true:
-* {% data variables.product.prodname_github_codespaces %} must be enabled for your organization. For more information, see "[Enabling {% data variables.product.prodname_codespaces %} for your organization](/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization)."
+Antes de que configures las precompilaciones para tu proyecto, se debe cumplir con lo siguiente:
+* Se deben habilitar los {% data variables.product.prodname_github_codespaces %} para tu organización. Para obtener más información, consulta la sección "[Habilitar los {% data variables.product.prodname_codespaces %} para tu organización](/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization)".
 * {% data variables.product.prodname_actions %} must be enabled for your repository. Each prebuild configuration needs to be able to trigger an associated Actions workflow. Para obtener más información, consulta la sección "[Administrar la configuración de {% data variables.product.prodname_actions %} en un repositorio](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository)".
 
 ## Configuring a prebuild
