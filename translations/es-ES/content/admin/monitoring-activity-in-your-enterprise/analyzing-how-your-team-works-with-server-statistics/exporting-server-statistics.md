@@ -38,6 +38,6 @@ Para aprender más sobre el {% data variables.product.prodname_github_connect %}
 
 2. In the list of organizations, next to the organization that's connected to {% data variables.product.product_location %}, click **Settings**. ![Settings button next to {% data variables.product.prodname_ghe_cloud %} organization](/assets/images/help/enterprises/settings-for-ghec-org.png)
 
-3. On the left, click **GitHub Connect**. ![GitHub Connect option in an organization account settings left sidebar](/assets/images/help/enterprises/github-connect-option-for-ghec-org.png)
+3. A la izquierda, haz clic en **GitHub Connect**. ![GitHub Connect option in an organization account settings left sidebar](/assets/images/help/enterprises/github-connect-option-for-ghec-org.png)
 
 {% data reusables.server-statistics.csv-download %}
