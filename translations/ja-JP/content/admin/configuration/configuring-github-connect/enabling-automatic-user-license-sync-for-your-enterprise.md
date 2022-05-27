@@ -18,7 +18,9 @@ topics:
 shortTitle: Automatic user license sync
 ---
 
-## ライセンスの同期について
+## About automatic license synchronization
+
+{% data reusables.enterprise-licensing.unique-user-licensing-model %}
 
 {% data reusables.enterprise-licensing.about-license-sync %} 詳しい情報については「[{% data variables.product.prodname_github_connect %}にちて](/admin/configuration/configuring-github-connect/about-github-connect#data-transmission-for-github-connect)」を参照してください。
 
