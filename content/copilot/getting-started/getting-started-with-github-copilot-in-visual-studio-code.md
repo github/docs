@@ -13,8 +13,7 @@ versions:
 
 ## Prerequisites
 
-- {% data variables.product.prodname_copilot %} is free to use for verified students and open source maintainers. 
-- If you are not a student or open source maintainer, you can try {% data variables.product.prodname_copilot %} for free with a one-time 60 day trial. After the free trial, a paid subscription is required for continued use. You must provide billing information in order to start a free trial. For more information, see "[About billing for {% data variables.product.prodname_copilot %}](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot)."
+{% data reusables.copilot.copilot-prerequisites %}
 - To use {% data variables.product.prodname_copilot %} in Visual Studio Code, you must have Visual Studio Code installed. For more information, see the [Visual Studio Code](https://code.visualstudio.com/) documentation.
 
 
@@ -23,7 +22,7 @@ versions:
 To use {% data variables.product.prodname_copilot %}, you must first install the Visual Studio Code extension.
 
 1. In the Visual Studio Code Marketplace, go to the [{% data variables.product.prodname_copilot %} extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) page and click **Install**.
-   ![Install GitHub Copilot extension Visual Studio Code](/assets/images/help/copilot/install-copilot-extension-visual-studio-code.png)
+   ![Install {% data variables.product.prodname_copilot %} extension Visual Studio Code](/assets/images/help/copilot/install-copilot-extension-visual-studio-code.png)
 2. A popup will appear, asking to open Visual Studio Code. Click **Open Visual Studio Code**.
 3. In the "Extension: {% data variables.product.prodname_copilot %}" tab in Visual Studio Code, click **Install**.
    ![Install button in Visual Studio Code](/assets/images/help/copilot/in-visual-studio-code-install-button.png)
@@ -32,17 +31,17 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 
 ## Seeing your first suggestion
 
-{% data variables.product.prodname_copilot %} provides suggestions for numerous languages and a wide variety of frameworks, but works especially well for Python, JavaScript, TypeScript, Ruby, and Go. The following samples are in JavaScript, but other languages will work similarly.
+{% data reusables.copilot.supported-languages %} The following samples are in JavaScript, but other languages will work similarly.
 
 {% data reusables.copilot.create-js-file %}
 {% data reusables.copilot.type-function-header %}
    {% data variables.product.prodname_copilot %} will automatically suggest an entire function body in grayed text, as shown below. The exact suggestion may vary.
    ![First suggestion Visual Studio Code](/assets/images/help/copilot/first-suggestion-visual-studio-code.png)
-3. To accept the suggestion, press `Tab`.
+{% data reusables.copilot.accept-suggestion %}
 
 ## Seeing alternative suggestions
 
-For any given input, {% data variables.product.prodname_copilot %} can offer multiple suggestions. You can select which suggestion to use, or reject them all.
+{% data reusables.copilot.alternative-suggestions %}
 
 {% data reusables.copilot.create-js-file %}
 {% data reusables.copilot.type-function-header %}
@@ -56,7 +55,7 @@ For any given input, {% data variables.product.prodname_copilot %} can offer mul
 
 ## Getting more suggestions
 
-You may not want any of the initial suggestions {% data variables.product.prodname_copilot %} offers. You can ask {% data variables.product.prodname_copilot %} to provide additional suggestions.
+{% data reusables.copilot.suggestions-new-tab %}
 
 {% data reusables.copilot.create-js-file %}
 {% data reusables.copilot.type-function-header %}
@@ -77,8 +76,35 @@ You may not want any of the initial suggestions {% data variables.product.prodna
    // and give them a red border
    function process() {
    ```
-   {% data variables.product.prodname_copilot %} will suggestion an implementation of the function.
+   {% data variables.product.prodname_copilot %} will suggest an implementation of the function.
 
 ## Using a framework
 
+You can also use {% data variables.product.prodname_copilot %} to generate suggestions for APIs and frameworks.This example uses {% data variables.product.prodname_copilot %} to create a simple Express server that returns the current time.
+
+{% data reusables.copilot.create-js-file %}
+1. In the JavaScript file, type the following comment and then press `Enter`:
+   ```
+   // Express server on port 3000
+   ```
+   {% data variables.product.prodname_copilot %} will suggest an implementation of the Express app.
+1. To accept each line, press `Tab`, then `Enter`.
+1. Type the following comment and then press `Enter`:
+   ```
+   // Return the current time
+   ```
+   {% data variables.product.prodname_copilot %} will suggest an implementation for the default handler. 
+1. To accept each line, press `Tab`.
+
 ## Enabling and disabling {% data variables.product.prodname_copilot %}
+
+The {% data variables.product.prodname_copilot %} status icon in the bottom panel of the Visual Studio Code window indicates whether {% data variables.product.prodname_copilot %} is enabled or disabled. When enabled, the background color of the icon will match the color of the status bar. When disabled, the background color of the icon will contrast the color of the status bar.
+
+1. To enable or disable {% data variables.product.prodname_copilot %}, click the status icon in the bottom panel of the Visual Studio Code window.
+   ![Status icon in Visual Studio Code](/assets/images/help/copilot/status-icon-visual-studio-code.png)
+2. If you are disabling {% data variables.product.prodname_copilot %}, you will be asked whether you want to disable it globally, or for the language of the file you are currently editing. To disable globally, click **Disable globally**. Alternatively, click the button to disable for the language of the file you are editing.
+   ![Disable {% data variables.product.prodname_copilot %} globally or for the current language](/assets/images/help/copilot/disable-copilot-global-or-langugage.png)
+
+## Further reading
+
+[About {% data variables.product.prodname_copilot %}](/overview-of-github-copilot/about-copilot)

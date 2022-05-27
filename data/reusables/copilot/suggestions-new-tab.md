@@ -1,0 +1,1 @@
+You may not want any of the initial suggestions {% data variables.product.prodname_copilot %} offers. You can ask {% data variables.product.prodname_copilot %} to provide additional suggestions.
