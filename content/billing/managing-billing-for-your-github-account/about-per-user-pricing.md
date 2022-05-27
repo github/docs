@@ -1,6 +1,6 @@
 ---
 title: About per-user pricing
-intro: '{% ifversion fpt or ghec %}For organizations {% ifversion ghec %}and enterprises {% endif %}, your {% else %}Your {% endif %}bill begins with the number of licensed seats you choose.'
+intro: '{% ifversion fpt or ghec %}For organizations{% ifversion ghec %} and enterprises{% endif %}, your {% else %}Your {% endif %}bill begins with the number of licensed seats you choose.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/about-per-user-pricing
   - /articles/about-per-user-pricing
