@@ -20,7 +20,7 @@ product: '{% data reusables.gated-features.pages %}'
 
 This guide will lead you through creating a user site at `username.github.io`.
 
-## Creating your website
+## Creating your website <!-- TODO -->
 
 {% data reusables.repositories.create_new %}
 1. Enter `username.github.io` as the repository name. Replace `username` with your {% data variables.product.prodname_dotcom %} username. For example, if your username is `octocat`, the repository name should be `octocat.github.io`.
