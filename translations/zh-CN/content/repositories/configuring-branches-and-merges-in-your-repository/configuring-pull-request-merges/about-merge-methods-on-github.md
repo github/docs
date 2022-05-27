@@ -46,5 +46,6 @@ shortTitle: 关于合并方法
 
 在启用提交变基之前，请考虑以下缺点：
 - 仓库贡献者可能必须在命令行上变基，解决任何冲突，并且将其更改推送到拉取请求的主题分支（或删除头部分支），然后才可在 {% data variables.product.product_location %} 上使用 **Rebase and merge（变基和合并）** 选项。 强制推送必须谨慎执行，以免贡献者覆盖别人在其工作基础上所做的工作。 要详细了解何时在 {% data variables.product.product_location %} 上禁用 **Rebase and merge（变基和合并）**选项以及重新启用它的工作流程，请参阅“[关于拉取请求合并](/articles/about-pull-request-merges/#rebase-and-merge-your-pull-request-commits)”。
+- {% indented_data_reference reusables.pull_requests.rebase_and_merge_verification spaces=3 %}
 
 更多信息请参阅“[为拉取请求配置提交变基](/articles/configuring-commit-rebasing-for-pull-requests)”。

@@ -90,7 +90,7 @@ When you use the web UI to attempt to commit a supported secret to a repository 
 
   ![Screenshot showing commit in web ui blocked because of secret scanning push protection](/assets/images/help/repository/secret-scanning-push-protection-web-ui-commit-blocked-banner.png)
 
-{% data variables.product.prodname_dotcom %} will only display one detected secret at a time in the web UI. If a particular secret has already been detected in the repository and an alert already exists, {% data variables.product.prodname_dotcom %} will not block that secret.
+{% data variables.product.prodname_dotcom %} will only display one detected secret at a time in the web UI. Si ya se detectó un secreto en particular en el repositorio y la alerta ya existe, {% data variables.product.prodname_dotcom %} no lo bloqueará.
 
 You can remove the secret from the file using the web UI. Once you remove the secret, the banner at the top of the page will change and tell you that you can now commit your changes.
 
@@ -98,16 +98,16 @@ You can remove the secret from the file using the web UI. Once you remove the se
 
 ### Bypassing push protection for a secret
 
-If {% data variables.product.prodname_dotcom %} blocks a secret that you believe is safe to push, you can allow the secret and specify the reason why it should be allowed. If you confirm a secret is real and that you intend to fix it later, you should aim to remediate the secret as soon as possible.
+Si {% data variables.product.prodname_dotcom %} bloquea un secreto que piensas se puede subir con seguridad, puedes permitirlo y especificar la razón por la cual se debería de permitir. Si confirmas que un secreto es real y que pretendes corregirlo después, debes intentar remediarlo tan pronto como sea posible.
 
 {% data reusables.secret-scanning.push-protection-allow-secrets-alerts %}
 
-If you confirm a secret is real and that you intend to fix it later, you should aim to remediate the secret as soon as possible.
+Si confirmas que un secreto es real y que pretendes corregirlo después, debes intentar remediarlo tan pronto como sea posible.
 
 1. In the banner that appeared at the top of the page when {% data variables.product.prodname_dotcom %} blocked your commit, click **Bypass protection**.
 {% data reusables.secret-scanning.push-protection-choose-allow-secret-options %}
 
-  ![Screenshot showing form with options for unblocking the push of a secret](/assets/images/help/repository/secret-scanning-push-protection-web-ui-allow-secret-options.png)
+  ![Captura de pantalla que muestra un formulario con opciones para desbloquear la subida de un secreto](/assets/images/help/repository/secret-scanning-push-protection-web-ui-allow-secret-options.png)
 
 1. Click **Allow secret**.
 

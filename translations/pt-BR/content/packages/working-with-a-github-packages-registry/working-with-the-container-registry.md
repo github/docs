@@ -51,14 +51,14 @@ Ao instalar ou publicar uma imagem Docker, a {% data variables.product.prodname_
 
 ## Fazer push das imagens do contêiner
 
-Este exemplo faz push da versão mais recente de `IMAGE-NAME`.
+This example pushes the latest version of `IMAGE_NAME`.
   ```shell
   $ docker push {% data reusables.package_registry.container-registry-hostname %}/OWNER/IMAGE_NAME:latest
   ```
 
 Este exemplo faz push da versão `2.5` da imagem.
   ```shell
-  $ docker push {% data reusables.package_registry.container-registry-hostname %}/OWNER/IMAGE-NAME:2.5
+  $ docker push {% data reusables.package_registry.container-registry-hostname %}/OWNER/IMAGE_NAME:2.5
   ```
 
 Ao publicar um pacote pela primeira vez a visibilidade-padrão será privada. Para alterar a visibilidade ou definir as permissões de acesso, consulte "[Configurar controle de acesso e visibilidade de um pacote](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)".
