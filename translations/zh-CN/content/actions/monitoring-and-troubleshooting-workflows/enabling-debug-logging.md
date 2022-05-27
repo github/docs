@@ -24,7 +24,7 @@ versions:
 
 {% if debug-reruns %}
 
-Additionally, anyone who has access to run a workflow can enable runner diagnostic logging and step debug logging for a workflow re-run. For more information, see "[Re-running workflows and jobs](/actions/managing-workflow-runs/re-running-workflows-and-jobs)."
+Additionally, anyone who has access to run a workflow can enable runner diagnostic logging and step debug logging for a workflow re-run. 更多信息请参阅“[重新运行工作流程和作业](/actions/managing-workflow-runs/re-running-workflows-and-jobs)”。
 
  {% endif %}
 
