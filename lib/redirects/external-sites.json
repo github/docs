@@ -21,5 +21,9 @@
   "/articles/github-security": "https://github.com/security",
   "/partnerships/integration-partners": "https://partner.github.com",
   "/partnerships": "https://partner.github.com",
-  "/desktop-classic": "https://desktop.github.com"
+  "/desktop-classic": "https://desktop.github.com",
+  "/github/copilot/research-recitation": "https://github.blog/2021-06-30-github-copilot-research-recitation/",
+  "/en/github/copilot/research-recitation": "https://github.blog/2021-06-30-github-copilot-research-recitation/",
+  "/early-access/github/copilot/research-recitation": "https://github.blog/2021-06-30-github-copilot-research-recitation/",
+  "/en/early-access/github/copilot/research-recitation": "https://github.blog/2021-06-30-github-copilot-research-recitation/"
 }

@@ -1,8 +1,8 @@
 ---
-title: Repository statistics
+title: Estatísticas do repositório
 shortTitle: Estatísticas
 allowTitleToDifferFromFilename: true
-intro: 'The Repository statistics API allows you to fetch the data that {% data variables.product.product_name %} uses for visualizing different types of repository activity.'
+intro: 'A API de estatísticas do repositório permite que você obtenha os dados que {% data variables.product.product_name %} usa para visualizar diferentes tipos de atividade de repositório.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -13,9 +13,9 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## About the Repository statistics API
+## Sobre a API de estatísticas do repositório
 
-The Repository statistics API allows you to fetch the data that {% data variables.product.product_name %} uses for visualizing different types of repository activity.
+A API de estatísticas do repositório permite que você obtenha os dados que {% data variables.product.product_name %} usa para visualizar diferentes tipos de atividade de repositório.
 
 ### Umas palavras sobre o armazenamento em cache
 

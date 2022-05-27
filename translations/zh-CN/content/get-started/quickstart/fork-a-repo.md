@@ -154,7 +154,7 @@ gh repo fork <em>repository</em> --clone=true
 
 6. 键入 `git remote add upstream`，然后粘贴您在第 3 步中复制的 URL 并按 **Enter** 键。 它将如下所示：
   ```shell
-  $ git remote add upstream https://{% data variables.command_line.codeblock %}/YOUR_USERNAME/Spoon-Knife.git
+  $ git remote add upstream https://{% data variables.command_line.codeblock %}/ORIGINAL_OWNER/Spoon-Knife.git
   ```
 
 7. 要验证为复刻指定的新上游仓库，请再次键入 `git remote -v`。 您应该看到复刻的 URL 为 `origin`，原始仓库的 URL 为 `upstream`。

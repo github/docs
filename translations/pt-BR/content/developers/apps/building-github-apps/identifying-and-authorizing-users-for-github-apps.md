@@ -239,8 +239,8 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 
 * [Listar implementações](/rest/reference/deployments#list-deployments)
 * [Criar uma implementação](/rest/reference/deployments#create-a-deployment)
-* [Obter uma implementação](/rest/reference/deployments#get-a-deployment){% ifversion fpt or ghes or ghae or ghec %}
-* [Excluir um deploy](/rest/reference/deployments#delete-a-deployment){% endif %}
+* [Obter uma implantação](/rest/reference/deployments#get-a-deployment)
+* [Excluir uma implantação](/rest/reference/deployments#delete-a-deployment)
 
 #### Eventos
 
@@ -422,14 +422,12 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 * [Remover a aplicação do hook pre-receive para uma organização](/enterprise/user/rest/reference/enterprise-admin#remove-pre-receive-hook-enforcement-for-an-organization)
 {% endif %}
 
-{% ifversion fpt or ghes or ghae or ghec %}
 #### Projetos da aquipe da organização
 
 * [Listar projetos da equipe](/rest/reference/teams#list-team-projects)
 * [Verificar permissões da equipe para um projeto](/rest/reference/teams#check-team-permissions-for-a-project)
 * [Adicionar ou atualizar as permissões do projeto da equipe](/rest/reference/teams#add-or-update-team-project-permissions)
 * [Remover um projeto de uma equipe](/rest/reference/teams#remove-a-project-from-a-team)
-{% endif %}
 
 #### Repositórios da equipe da organização
 
@@ -575,7 +573,7 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 
 #### Reações
 
-{% ifversion fpt or ghes or ghae or ghec %}* [Excluir uma reação](/rest/reference/reactions#delete-a-reaction-legacy){% else %}* [Excluir uma reação](/rest/reference/reactions#delete-a-reaction){% endif %}
+* [Excluir uma reação](/rest/reference/reactions)
 * [Listar reações para um comentário de commit](/rest/reference/reactions#list-reactions-for-a-commit-comment)
 * [Criar reação para um comentário de commit](/rest/reference/reactions#create-reaction-for-a-commit-comment)
 * [Listar reações para um problema](/rest/reference/reactions#list-reactions-for-an-issue)
@@ -587,13 +585,13 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 * [Listar reações para um comentário de discussão de equipe](/rest/reference/reactions#list-reactions-for-a-team-discussion-comment)
 * [Criar reação para um comentário de discussão em equipe](/rest/reference/reactions#create-reaction-for-a-team-discussion-comment)
 * [Listar reações para uma discussão de equipe](/rest/reference/reactions#list-reactions-for-a-team-discussion)
-* [Criar reação para uma discussão de equipe](/rest/reference/reactions#create-reaction-for-a-team-discussion){% ifversion fpt or ghes or ghae or ghec %}
+* [Criar reação para uma discussão em equipe](/rest/reference/reactions#create-reaction-for-a-team-discussion)
 * [Excluir uma reação de comentário de commit](/rest/reference/reactions#delete-a-commit-comment-reaction)
 * [Excluir uma reação do problema](/rest/reference/reactions#delete-an-issue-reaction)
 * [Excluir uma reação a um comentário do commit](/rest/reference/reactions#delete-an-issue-comment-reaction)
 * [Excluir reação de comentário do pull request](/rest/reference/reactions#delete-a-pull-request-comment-reaction)
 * [Excluir reação para discussão em equipe](/rest/reference/reactions#delete-team-discussion-reaction)
-* [Excluir reação de comentário para discussão de equipe](/rest/reference/reactions#delete-team-discussion-comment-reaction){% endif %}
+* [Excluir reação para discussão em equipe](/rest/reference/reactions#delete-team-discussion-comment-reaction)
 
 #### Repositórios
 
@@ -707,11 +705,9 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 * [Obter um README do repositório](/rest/reference/repos#get-a-repository-readme)
 * [Obter a licença para um repositório](/rest/reference/licenses#get-the-license-for-a-repository)
 
-{% ifversion fpt or ghes or ghae or ghec %}
 #### Envio de eventos do repositório
 
 * [Criar um evento de envio de repositório](/rest/reference/repos#create-a-repository-dispatch-event)
-{% endif %}
 
 #### Hooks do repositório
 

@@ -19,7 +19,7 @@ shortTitle: Recursos de aprendizagem
 
 ## Usar o Git
 
-Familiarize-se com o Git acessando o [site oficial do projeto Git](https://git-scm.com) e lendo o [livro do ProGit](http://git-scm.com/book). You can also review the [Git command list](https://git-scm.com/docs).
+Familiarize-se com o Git acessando o [site oficial do projeto Git](https://git-scm.com) e lendo o [livro do ProGit](http://git-scm.com/book). Você também pode revisar a [lista de comandos Git](https://git-scm.com/docs).
 
 ## Usar {% data variables.product.product_name %}
 

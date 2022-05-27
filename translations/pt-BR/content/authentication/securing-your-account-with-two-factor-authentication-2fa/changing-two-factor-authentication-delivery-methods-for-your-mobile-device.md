@@ -22,7 +22,7 @@ shortTitle: Altere método de entrega de 2FA
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.security %}
-3. Next to "Primary two-factor method", click **Change**. ![Edit primary delivery options](/assets/images/help/2fa/edit-primary-delivery-option.png)
+3. Ao lado de "Método primário de dois fatores", clique em **Alterar**. ![Editar opções de entrega primária](/assets/images/help/2fa/edit-primary-delivery-option.png)
 4. Em "Delivery options" (Opções de entrega), clique em **Reconfigure two-factor authentication** (Reconfigurar autenticação de dois fatores). ![Alternar as opções de entrega de 2FA](/assets/images/help/2fa/2fa-switching-methods.png)
 5. Decida se deseja configurar a autenticação de dois fatores usando um app móvel TOTP ou uma mensagem de texto. Para obter mais informações, consulte "[Configurar a autenticação de dois fatores](/articles/configuring-two-factor-authentication)".
     - Para configurar a autenticação de dois fatores usando um app móvel TOTP, clique em **Set up using an app** (Configurar usando um app).

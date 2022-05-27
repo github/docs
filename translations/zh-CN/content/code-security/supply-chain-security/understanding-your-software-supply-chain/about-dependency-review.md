@@ -6,7 +6,7 @@ shortTitle: 依赖项审查
 versions:
   fpt: '*'
   ghes: '>= 3.2'
-  ghae: issue-4864
+  ghae: '*'
   ghec: '*'
 type: overview
 topics:
@@ -36,6 +36,8 @@ redirect_from:
 {% data variables.product.prodname_dependabot_alerts %} 将会查找依赖项中存在的漏洞，但避免引入潜在问题比在以后修复它们要好得多。 有关 {% data variables.product.prodname_dependabot_alerts %} 的更多信息，请参阅“[关于 {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies#dependabot-alerts-for-vulnerable-dependencies)”。
 
 依赖项审查支持与依赖关系图相同的语言和包管理生态系统。 更多信息请参阅“[关于依赖关系图](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems)”。
+
+有关 {% data variables.product.product_name %} 上可用的供应链功能的更多信息，请参阅“[关于供应链安全](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security)”。
 
 {% ifversion ghec or ghes %}
 ## 启用依赖项审查

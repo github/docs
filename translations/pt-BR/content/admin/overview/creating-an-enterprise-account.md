@@ -16,7 +16,7 @@ shortTitle: Criar conta corporativa
 
 {% data variables.product.prodname_ghe_cloud %} inclui a opção de criar uma conta corporativa, que permite a colaboração entre várias organizações e fornece aos administradores um único ponto de visibilidade e gestão. Para obter mais informações, consulte "[Sobre contas corporativas](/admin/overview/about-enterprise-accounts)".
 
-{% data reusables.enterprise.create-an-enterprise-account %} Se você pagar por fatura, você poderá criar uma conta corporativa em {% data variables.product.prodname_dotcom %}. Caso contrário, você poderá [Entrar em contato com a nossa equipe de vendas](https://github.com/enterprise/contact?ref_page=/pricing&ref_cta=Contact%20Sales&ref_loc=cards) para passar para a faturação.
+{% data reusables.enterprise.create-an-enterprise-account %} Se você pagar por fatura, você poderá criar uma conta corporativa em {% data variables.product.prodname_dotcom %}. Caso contrário, você pode [entrar em contato com nossa equipe de vendas](https://github.com/enterprise/contact?ref_page=/pricing&ref_cta=Contact%20Sales&ref_loc=cards) para criar uma conta corporativa para você.
 
 Uma conta corporativa está incluída em {% data variables.product.prodname_ghe_cloud %}. Portanto, a criação de uma não afetará a sua conta.
 
@@ -29,7 +29,10 @@ Se a organização estiver conectada a {% data variables.product.prodname_ghe_se
 
 ## Criando uma conta corporativa em {% data variables.product.prodname_dotcom %}
 
-Para criar uma conta corporativa em {% data variables.product.prodname_dotcom %}, a sua organização deve usar {% data variables.product.prodname_ghe_cloud %} e pagar por fatura.
+Para criar uma conta corporativa, sua organização deve usar {% data variables.product.prodname_ghe_cloud %}.
+
+Se você pagar por fatura, você pode criar uma conta corporativa diretamente por meio de {% data variables.product.prodname_dotcom %}. Se você atualmente não paga por fatura, você pode [entrar em contato com nossa equipe de vendas](https://github.com/enterprise/contact?ref_page=/pricing&ref_cta=Contact%20Sales&ref_loc=cards) para criar uma conta corporativa para você.
+
 
 {% data reusables.organizations.billing-settings %}
 1. Clique **- Atualizar para a conta corporativa**.

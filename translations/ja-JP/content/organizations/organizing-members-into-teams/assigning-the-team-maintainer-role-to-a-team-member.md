@@ -31,10 +31,9 @@ permissions: Organization owners can promote team members to team maintainers.
 - [Teamディスカッションの削除](/articles/managing-disruptive-comments/#deleting-a-comment)
 - [OrganizationのメンバーのTeamへの追加](/articles/adding-organization-members-to-a-team)
 - [OrganizationメンバーのTeamからの削除](/articles/removing-organization-members-from-a-team)
-- リポジトリへのTeamのアクセスの削除{% ifversion fpt or ghes or ghae or ghec %}
-- [Teamのためのコードレビューの割り当て管理](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team){% endif %}{% ifversion fpt or ghec %}
+- リポジトリへのTeamのアクセス権の削除
+- [Teamのためのコードレビューの割り当て管理](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team){% ifversion fpt or ghec %}
 - [プルリクエストのスケジュールされたリマインダーの管理](/organizations/organizing-members-into-teams/managing-scheduled-reminders-for-your-team){% endif %}
-
 
 ## Organization メンバーをチームメンテナに昇格させる
 

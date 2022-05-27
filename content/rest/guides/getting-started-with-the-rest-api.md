@@ -148,7 +148,7 @@ When authenticating, you should see your rate limit bumped to 5,000 requests an 
 
 You can easily [create a **personal access token**][personal token] using your [Personal access tokens settings page][tokens settings]:
 
-{% ifversion fpt or ghes > 3.1 or ghae-issue-4374 or ghec %}
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 {% warning %}
 
 To help keep your information secure, we highly recommend setting an expiration for your personal access tokens.
@@ -164,7 +164,7 @@ To help keep your information secure, we highly recommend setting an expiration 
 ![Personal Token selection](/assets/images/help/personal_token_ghae.png)
 {% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghae-issue-4374 or ghec %}
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 API requests using an expiring personal access token will return that token's expiration date via the `GitHub-Authentication-Token-Expiration` header. You can use the header in your scripts to provide a warning message when the token is close to its expiration date.
 {% endif %}
 

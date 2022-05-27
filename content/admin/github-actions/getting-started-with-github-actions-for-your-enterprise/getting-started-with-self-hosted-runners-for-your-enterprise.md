@@ -1,12 +1,12 @@
 ---
 title: Getting started with self-hosted runners for your enterprise
 shortTitle: Self-hosted runners
-intro: You can configure a runner machine for your enterprise so your developers can start automating workflows with {% data variables.product.prodname_actions %}.
+intro: 'You can configure a runner machine for your enterprise so your developers can start automating workflows with {% data variables.product.prodname_actions %}.'
 versions:
   ghec: '*'
   ghes: '*'
   ghae: '*'
-permissions: Enterprise owners can configure policies for {% data variables.product.prodname_actions %} and add self-hosted runners to the enterprise.
+permissions: 'Enterprise owners can configure policies for {% data variables.product.prodname_actions %} and add self-hosted runners to the enterprise.'
 type: quick_start
 topics:
   - Actions
@@ -32,7 +32,7 @@ This guide shows you how to apply a centralized management approach to self-host
 1. Deploy a self-hosted runner for your enterprise
 1. Create a group to manage access to the runners available to your enterprise
 1. Optionally, further restrict the repositories that can use the runner
-{%- ifversion ghec or ghae-issue-4462 or ghes > 3.2 %}
+{%- ifversion ghec or ghae or ghes > 3.2 %}
 1. Optionally, build custom tooling to automatically scale your self-hosted runners
 {% endif %}
 
@@ -122,7 +122,7 @@ Optionally, organization owners can further restrict the access policy of the ru
 
 For more information, see "[Managing access to self-hosted runners using groups](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#changing-the-access-policy-of-a-self-hosted-runner-group)."
 
-{% ifversion ghec or ghae-issue-4462 or ghes > 3.2 %}
+{% ifversion ghec or ghae or ghes > 3.2 %}
 
 ## 5. Automatically scale your self-hosted runners
 

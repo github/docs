@@ -43,7 +43,7 @@ Puedes elegir si quieres mostrar tu patrocinio públicamente. Los patrocinios de
 
 Si la cuenta patrocinada retira tu nivel, éste permanecerá configurado hasta que elijas uno diferente o hasta que canceles tu suscripción. Para obtener más información, consulta "[Actualizar un patrocinio](/articles/upgrading-a-sponsorship)" y "[Bajar de categoría un patrocinio](/articles/downgrading-a-sponsorship)."
 
-Si la cuenta que quieres patrocinar no tiene un perfil en {% data variables.product.prodname_sponsors %}, puedes alentarla a que se una. Para obtener más información, consulta las secciones "[Configurar {% data variables.product.prodname_sponsors %} para tu cuenta personal](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account)" y "[Confgurar {% data variables.product.prodname_sponsors %} para tu organización](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)".
+Si la cuenta que quieres patrocinar no tiene un perfil en {% data variables.product.prodname_sponsors %}, puedes alentarla a que se una. Para obtener más información, consulta las secciones "[Configurar {% data variables.product.prodname_sponsors %} para tu cuenta personal](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account)" y "[Confgurar {% data variables.product.prodname_sponsors %} para tu organización](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)".
 
 {% data reusables.sponsors.sponsorships-not-tax-deductible %}
 

@@ -39,7 +39,7 @@ shortTitle: Enterprise Server trial
 
 1. [Organization を作成します](/enterprise-server@latest/admin/user-management/creating-organizations)。
 2. {% data variables.product.prodname_dotcom %} の基本的な使い方を学ぶには、次を参照してください:
-   - [Quick start guide to {% data variables.product.prodname_dotcom %}](https://resources.github.com/webcasts/Quick-start-guide-to-GitHub/) ウェブキャスト
+   - [Intro to {% data variables.product.prodname_dotcom %}](https://resources.github.com/devops/methodology/maximizing-devops-roi/) webcast
    - {% data variables.product.prodname_dotcom %} ガイドの [Understanding the {% data variables.product.prodname_dotcom %}flow](https://guides.github.com/introduction/flow/)
    - {% data variables.product.prodname_dotcom %} ガイドの [Hello World](https://guides.github.com/activities/hello-world/)
    - "[About versions of {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs)"

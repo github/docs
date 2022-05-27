@@ -37,14 +37,11 @@ remote: error: Required status check "ci-build" is failing
 
 {% endnote %}
 
-{% ifversion fpt or ghae or ghes or ghec %}
-
 ## 头部提交与测试合并提交之间的冲突
 
 有时，测试合并提交与头部提交的状态检查结果存在冲突。 如果测试合并提交具有状态，则测试合并提交必须通过。 否则，必须传递头部提交的状态后才可合并该分支。 有关测试合并提交的更多信息，请参阅“[拉取](/rest/reference/pulls#get-a-pull-request)”。
 
 ![具有冲突的合并提交的分支](/assets/images/help/repository/req-status-check-conflicting-merge-commits.png)
-{% endif %}
 
 ## 处理已跳过但需要检查
 

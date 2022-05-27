@@ -35,7 +35,7 @@ En la barra lateral izquierda de tu tablero, puedes acceder a los principales re
 
 En la sección "All activity" (Toda la actividad) de tus noticias, puedes ver actualizaciones de otros equipos y repositorios en tu organización.
 
-La sección "All activity" (Toda la actividad) muestra toda la actividad reciente en la organización, incluida la actividad en los repositorios a los que no estás suscrito y de las personas que no sigues. Para obtener más información, consulta las secciones {% ifversion fpt or ghes or ghae or ghec %}"[Acerca de las notificaciones](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[Observar y dejar de observar los repositorios](/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories){% endif %}" y "[Seguir a las personas](/articles/following-people)".
+La sección "All activity" (Toda la actividad) muestra toda la actividad reciente en la organización, incluida la actividad en los repositorios a los que no estás suscrito y de las personas que no sigues. Para obtener más información, consulta la sección "[Acerca de las notificaciones](/github/managing-subscriptions-and-notifications-on-github/about-notifications)" y "[Seguir a las personas](/articles/following-people)".
 
 Por ejemplo, las noticias de la organización muestran actualizaciones cuando alguien en la organización:
  - Crea una rama nueva.
