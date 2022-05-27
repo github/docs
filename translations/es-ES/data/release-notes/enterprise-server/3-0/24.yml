@@ -3,13 +3,13 @@ sections:
   security_fixes:
     - 'Los paquetes se actualizaron a las últimas versiones de seguridad.'
   bugs:
-    - 'Pages would become unavailable following a MySQL secret rotation until `nginx` was manually restarted.'
-    - 'When setting the maintenance schedule with a ISO 8601 date, the actual scheduled time wouldn''t match due to the timezone not being transformed to UTC.'
-    - 'The version number would not be correctly updated after a installing a hotpatch using `ghe-cluster-each`.'
-    - 'Spurious error messages concerning the `cloud-config.service` would be output to the console.'
-    - 'When using CAS authentication and the "Reactivate suspended users" option was enabled, suspended users were not automatically reactivated.'
+    - 'Las páginas se hicieron no disponibles siguiendo una rotación de secretos de MySQL hasta que `nginx` se restableció manualmente.'
+    - 'Cuando se configura la programación de mantenimiento con una fecha ISO 8601, el tiempo programado real no coincide debido a que la zona horaria no se transforma a UTC.'
+    - 'El número de versión no se pudo actualizar correctamente después de instalar un hotpatch utilizando `ghe-cluster-each`.'
+    - 'Los mensajes de errores espurios con respecto a `cloud-config.service` se sacarían a la consola.'
+    - 'Cuando se utilizó la autenticación CAS y se habilitó la opción de "Reactivar usuarios suspendidos", dichos usuarios no se reactivaron automáticamente.'
   changes:
-    - 'The GitHub Connect data connection record now includes a count of the number of active and dormant users and the configured dormancy period.'
+    - 'El registro de conexión de datos de GitHub Connect ahora incluye un conteo de la cantidad de usuarios inactivos y activo y el periodo de inactividad configurado.'
   known_issues:
     - 'En una instalación nueva de {% data variables.product.prodname_ghe_server %} que no tenga ningún usuario, cualquier atacante podría crear el primer usuario administrativo.'
     - 'Las reglas de cortafuegos personalizadas se eliminan durante el proceso de actualización.'

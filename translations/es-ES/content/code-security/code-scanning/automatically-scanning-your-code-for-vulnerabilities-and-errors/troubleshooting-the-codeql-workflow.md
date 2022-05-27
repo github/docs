@@ -271,12 +271,12 @@ Este tipo de confirmación por fusión tiene como autor al {% data variables.pro
 
 ## Error: "is not a .ql file, .qls file, a directory, or a query pack specification"
 
-You will see this error if CodeQL is unable to find the named query, query suite, or query pack at the location requested in the workflow. There are two common reasons for this error.
+Verás este error si CodeQL no puede encontrar la consulta, suite de consultas o paquete de consultas nombradas en la ubicación que se solicitó en el flujo de trabajo. Hay dos razones comunes para este error.
 
-- There is a typo in the workflow.
-- A resource the workflow refers to by path was renamed, deleted, or moved to a new location.
+- Hay un error tipográfico en el flujo de trabajo.
+- Un recurso al cual se refiere el flujo de trabajo por ruta se renombró, borró o movió a una ubicación nueva.
 
-After verifying the location of the resource, you can update the workflow to specify the correct location. If you run additional queries in Go analysis, you may have been affected by the relocation of the source files. For more information, see [Relocation announcement: `github/codeql-go` moving into `github/codeql`](https://github.com/github/codeql-go/issues/741) in the github/codeql-go repository.
+Después de verificar la ubicación del recurso, puedes actualizar el flujo de trabajo para especificar la ubicación correcta. Si ejecutas consultas adicionales en el análisis de Go, puede que te haya afectado la reubicación de los archivos fuente. Para obtener más información, consulta la sección [Anuncio de reubicaicón: `github/codeql-go` se está migrando a `github/codeql`](https://github.com/github/codeql-go/issues/741) en el repositorio github/codeql-go.
 
 ## Warning: "git checkout HEAD^2 is no longer necessary"
 

@@ -1,4 +1,4 @@
-You can specify multiple variables to create a multi-dimensional matrix. A job will run for each possible combination of the variables.
+You can specify multiple variables to create a multi-dimensional matrix. Un job se ejecutará para cada combinación posible de las variables.
 
 For example, the following workflow specifies two variables:
 
