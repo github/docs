@@ -60,6 +60,7 @@ const PUBLIC_REPOS = new Set([
   'advisory-database',
   'browser-support',
   'haikus-for-codespaces',
+  'actions-oidc-gateway-example',
 ])
 
 const ALLOW_DOCS_PATHS = [

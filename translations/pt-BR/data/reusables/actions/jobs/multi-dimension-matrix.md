@@ -1,4 +1,4 @@
-Você pode especificar diversas variáveis para criar uma matriz multidimensional. A job will run for each possible combination of the variables.
+Você pode especificar diversas variáveis para criar uma matriz multidimensional. Um trabalho será executado para cada combinação das variáveis possível.
 
 Por exemplo, o fluxo de trabalho a seguir especifica duas variáveis:
 

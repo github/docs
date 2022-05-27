@@ -35,34 +35,11 @@ Any options that also affect security updates are used the next time a security 
 
 The *dependabot.yml* file has two mandatory top-level keys: `version`, and `updates`. You can, optionally, include a top-level `registries` key{% ifversion fpt or ghec or ghes > 3.4 %} and/or a `enable-beta-ecosystems` key{% endif %}. The file must start with `version: 2`.
 
-## Configuration options for updates
+## Configuration options for the *dependabot.yml* file
 
 The top-level `updates` key is mandatory. You use it to configure how {% data variables.product.prodname_dependabot %} updates the versions or your project's dependencies. Each entry configures the update settings for a particular package manager. You can use the following options.
 
-| Option | Required | Description |
-|:---|:---:|:---|
-| [`package-ecosystem`](#package-ecosystem)                     | **X** | Package manager to use                |
-| [`directory`](#directory)                                     | **X** | Location of package manifests         |
-| [`schedule.interval`](#scheduleinterval)                      | **X** | How often to check for updates        |
-| [`allow`](#allow)                                             | | Customize which updates are allowed         |
-| [`assignees`](#assignees)                                     | | Assignees to set on pull requests           |
-| [`commit-message`](#commit-message)                           | | Commit message preferences                  |{% ifversion fpt or ghec or ghes > 3.4 %}
-| [`enable-beta-ecosystems`](#enable-beta-ecosystems)           | | Enable ecosystems that have beta-level support |{% endif %}
-| [`ignore`](#ignore)                                           | | Ignore certain dependencies or versions     |
-| [`insecure-external-code-execution`](#insecure-external-code-execution) | | Allow or deny code execution in manifest files |
-| [`labels`](#labels)                                           | | Labels to set on pull requests              |
-| [`milestone`](#milestone)                                     | | Milestone to set on pull requests           |
-| [`open-pull-requests-limit`](#open-pull-requests-limit)       | | Limit number of open pull requests for version updates|
-| [`pull-request-branch-name.separator`](#pull-request-branch-nameseparator) | | Change separator for pull request branch names |
-| [`rebase-strategy`](#rebase-strategy)                         | | Disable automatic rebasing                  |
-| [`registries`](#registries)                                   | | Private registries that {% data variables.product.prodname_dependabot %} can access|
-| [`reviewers`](#reviewers)                                     | | Reviewers to set on pull requests           |
-| [`schedule.day`](#scheduleday)                                | | Day of week to check for updates            |
-| [`schedule.time`](#scheduletime)                              | | Time of day to check for updates (hh:mm)    |
-| [`schedule.timezone`](#scheduletimezone)                      | | Timezone for time of day (zone identifier)  |
-| [`target-branch`](#target-branch)                             | | Branch to create pull requests against      |
-| [`vendor`](#vendor)                                           | | Update vendored or cached dependencies      |
-| [`versioning-strategy`](#versioning-strategy)                 | | How to update manifest version requirements |
+{% data reusables.dependabot.configuration-options %}
 
 These options fit broadly into the following categories.
 

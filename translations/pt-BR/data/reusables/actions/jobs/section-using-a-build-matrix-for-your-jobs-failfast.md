@@ -1,10 +1,10 @@
 Você pode controlar como falhas de trabalho são tratadas com `jobs.<job_id>.strategy.fail-fast` e `jobs.<job_id>.continue-on-error`.
 
-`jobs.<job_id>.strategy.fail-fast` aplica-se à matriz inteira. Se `jobs.<job_id>.strategy.fail-fast` estiver definido como `verdadeiro`, {% data variables.product.product_name %} cancelará todos os trabalhos em andamento e agendados na matriz se algum trabalho na matriz falhar. This property defaults to `true`.
+`jobs.<job_id>.strategy.fail-fast` aplica-se à matriz inteira. Se `jobs.<job_id>.strategy.fail-fast` estiver definido como `verdadeiro`, {% data variables.product.product_name %} cancelará todos os trabalhos em andamento e agendados na matriz se algum trabalho na matriz falhar. Esta propriedade padrão é `verdadeira`.
 
-`jobs.<job_id>.continue-on-error` applies to a single job. If `jobs.<job_id>.continue-on-error` is `true`, other jobs in the matrix will continue running even if the job with `jobs.<job_id>.continue-on-error: true` fails.
+`jobs.<job_id>.continue-on-error` aplica-se a um único trabalho. Se `jobs.<job_id>.continue-on-error` for `true`, os outros trabalhos na matriz continuarão sendo executados, ainda que o trabalho com `jobs.<job_id>.continue-on-error: true` falhe.
 
-You can use `jobs.<job_id>.strategy.fail-fast` and `jobs.<job_id>.continue-on-error` together. For example, the following workflow will start four jobs. For each job, `continue-on-error` is determined by the value of `matrix.experimental`. If any of the jobs with `continue-on-error: false` fail, all jobs that are in progress or queued will be cancelled. If the job with `continue-on-error: true` fails, the other jobs will not be affected.
+Você pode usar `jobs.<job_id>.strategy.fail-fast` e `jobs.<job_id>.continue-on-error` juntos. Por exemplo, o fluxo de trabalho a seguir dará início a quatro trabalhos. Para cada trabalho, `continue-on-error` é determinado pelo valor de `matriz.experimental`. Se algum dos jobs com `continue-on-error: false` falhar, todos os trabalhos em progresso ou na fila serão cancelados. Se o trabalho com `continue-on-error: true` falhar, os outros trabalhos não serão afetados.
 
 
 ```yaml
