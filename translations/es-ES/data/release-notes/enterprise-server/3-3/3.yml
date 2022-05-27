@@ -1,7 +1,7 @@
 date: '2022-02-01'
 sections:
   security_fixes:
-    - '**MEDIUM**:  Secret Scanning API calls could return alerts for repositories outside the scope of the request.'
+    - '**MEDIA**: Las llamadas a la API de escaneo de secretos podrían devolver alertas para los repositorios fuera del alcance de la solicitud.'
     - 'Los paquetes se actualizaron a las últimas versiones de seguridad.'
   bugs:
     - 'Las páginas se hicieron no disponibles siguiendo una rotación de secretos de MySQL hasta que `nginx` se restableció manualmente.'
