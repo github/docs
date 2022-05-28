@@ -280,6 +280,8 @@ updates:
       prefix-development: "pip dev"
       include: "scope"
 ```
+An example commit message based on your recent commit preferences would be `<prefix> (dev-deps): bump requests from 1.0.8 to 1.1.3`.
+
 ### `ignore`
 
 {% data reusables.dependabot.default-dependencies-allow-ignore %}
