@@ -17,22 +17,22 @@ intro: |
 sections:
   features:
     - 
-      heading: Secret scanning REST API now returns locations
+      heading: La API de REST del escaneo de secretos ahora devuelve ubicaciones
       notes:
         - |
           Los clientes de la {% data variables.product.prodname_GH_advanced_security %} ahora pueden utilizar la API de REST para recuperar detalles de confirmación de los secretos que se detectan en escaneos de repositorio privados. La terminal nueva devuelve los detalles de las primeras detecciones de secretos dentro de un archivo, incluyendo la ubicación de dicho secreto y el SHA de confirmación. Para obtener más información, consulta la sección "[Escaneo de secretos](/rest/reference/secret-scanning)" en la documentación de la API de REST.
     - 
-      heading: Export license data of committer-based billing for GitHub Advanced Security
+      heading: Exporta los datos de licencia de la facturación basada en los confirmantes para la GitHub Advanced Security
       notes:
         - |
           Los propietarios de empresas y organizaciones ahora pueden exportar sus datos de uso de licencia de {% data variables.product.prodname_GH_advanced_security %} a un archivo CSV. Los datos de facturación de {% data variables.product.prodname_advanced_security %} también pueden recuperarse a través de terminales de facturación en la API de REST. Para obtener más información, consulta la "[Bitácora de cambios de {% data variables.product.prodname_dotcom %}](https://github.blog/changelog/2021-11-11-export-github-advanced-security-license-usage-data/)".
     - 
-      heading: GitHub Actions reusable workflows in public beta
+      heading: Los flujos de trabajo reutilizables de GitHub Actions están en beta público
       notes:
         - |
           Ahora puedes reutilizar flujos de trabajo enteros como si fueran una acción. Esta característica está disponible en beta público. En vez de copiar y pegar las definiciones de flujos de trabajo entre repositorios, ahora puedes referenciar un flujo de trabajo existente con una sola línea de configuración. Para obtener más información, consulta la [Bitácora de cambios de {% data variables.product.prodname_dotcom %}](https://github.blog/changelog/2021-10-05-github-actions-dry-your-github-actions-configuration-by-reusing-workflows/)".
     - 
-      heading: Dependabot security and version updates in public beta
+      heading: La seguridad del dependabot y las actualizaciones de versión están en beta público
       notes:
         - |
           El {% data variables.product.prodname_dependabot %} ahora está disponible en {% data variables.product.prodname_ghe_server %} 3.4 como un beta público y ofrece tanto actualziaciones de versión como de seguridad para varios ecosistemas populares. El {% data variables.product.prodname_dependabot %} en {% data variables.product.prodname_ghe_server %} requiere {% data variables.product.prodname_actions %} y un conjunto de ejecutores auto-hospedados configurado para que el mismo {% data variables.product.prodname_dependabot %} los utilice. El {% data variables.product.prodname_dependabot %} en {% data variables.product.prodname_ghe_server %} también requiere que un administrador habilite tanto {% data variables.product.prodname_github_connect %} como el mismo {% data variables.product.prodname_dependabot %}. Puedes compartir tu retroalimentación y sugerencias en el [Debate de GitHub sobre la retroalimentación para el {% data variables.product.prodname_dependabot %}](https://github.com/github/feedback/discussions/categories/dependabot-feedback). Para obtener más información y probar el beta, consulta la sección "[Configurar la seguridad y las actualizaciones de versión del {% data variables.product.prodname_dependabot %} en tu empresa](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/setting-up-dependabot-updates)".
@@ -40,21 +40,21 @@ sections:
     - 
       heading: Cambios en la administración
       notes:
-        - Users can now choose the number of spaces a tab is equal to, by setting their preferred tab size in the "Appearance" settings of their user account. All code with a tab indent will render using the preferred tab size.
-        - The {% data variables.product.prodname_github_connect %} data connection record now includes a count of the number of active and dormant users and the configured dormancy period.
+        - Ahora los usuarios pueden elegir la cantidad de espacios que da una tabulación si configuran su tamaño de tabulación en los ajustes de "Apariencia" de sus cuentas de usuario. Todo el código con una sangría de tabulación se interpretará utilizando el tamaño de tabulación preferido.
+        - El registro de conexión de datos de {% data variables.product.prodname_github_connect %} ahora incluye un conteo de la cantidad de usuarios inactivos y activos y el periodo de inactividad configurado.
     - 
       heading: Cambios de rendimiento
       notes:
-        - WireGuard, used to secure communication between {% data variables.product.prodname_ghe_server %} instances in a High Availability configuration, has been migrated to the Kernel implementation.
+        - WireGuard, el cual se utiliza para asegurar la comunicación entre las instancias de {% data variables.product.prodname_ghe_server %} en una configuración de disponibilidad alta, se migró a la implementación del Kernel.
     - 
-      heading: Notification Changes
+      heading: Cambios en las notificaciones
       notes:
-        - Organization owners can now unsubscribe from email notifications when new deploy keys are added to repositories belonging to their organizations. For more information, see "[Configuring notifications](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications)."
-        - 'Notification emails from newly created issues and pull requests now include `(Issue #xx)` or `(PR #xx)` in the email subject, so you can recognize and filter emails that reference these types of issues.'
+        - Los propietarios de las organizaciones ahora pueden desuscribirse de las notificaciones por correo electrónico cuando se agregan llaves de despliegue nuevas a los repositorios que pertenecen a las organizaciones. Para obtener más información, consulta la sección "[Configurar notificaciones](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications)".
+        - 'Los correos electrónicos de notificación de las propuestas y solicitudes de extracción recién creadas ahora incluyen `(Issue #xx)` o `(PR #xx)` en el asunto del mensaje de correo electrónico para que puedas reconocer y filtrar si estos referencian esos tipos de propuestas.'
     - 
-      heading: Organization Changes
+      heading: Cambios en la organización
       notes:
-        - Organizations can now display a `README.md` file on their profile Overview. For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-09-14-readmes-for-organization-profiles/)."
+        - Ahora las organizaciones pueden mostrar un archivo `README.md` en su resumen de perfil. Para obtener más información, consulta la "[Bitácora de cambios de {% data variables.product.prodname_dotcom %}](https://github.blog/changelog/2021-09-14-readmes-for-organization-profiles/)".
         - 'Los miembros de las organizaciones ahora pueden ver una lista de los propietarios de su empresa debajo de la pestaña de "Personas" de la organización. También puede accederse a la lista de propietarios de la empresa utilizando la API de GraphQL. Para obtener más información, consulta el campo "[`enterpriseOwners`](/graphql/reference/objects#organization)" debajo del objeto de Organización en la documentación de la API de GraphQL.'
     - 
       heading: Cambios de repositorios
@@ -67,19 +67,19 @@ sections:
           *Administrar el acceso a los repositorios populares confiablemente, con paginación y menos tiempos de inactividad cuando grupos grandes de usuarios tienen acceso.
         - '{% data variables.product.prodname_ghe_server %} 3.4 incluye mejoras a la experiencia para invitar a los repositorios, tal como las notificaciones para las invitaciones a los repositorios privados, un mensaje en la IU al visitar un repositorio privado para el cual tienes una invitación pendiente y un letrero en la página de resumen de un repositorio público cuando existe una invitación pendiente.'
         - 'Ahora puedes utilizar prefijos de un solo carácter para los autoenlaces. Los prefijos de autoenlace ahora también permiten caracteres como `.`, `-`, `_`, `+`, `=`, `:`, `/` y `#`, así como alfanuméricos. Para obtener más información sobre los autoenlaces personalizados, consulta la sección "[Configurar autoenlaces para referenciar recursos externos](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-autolinks-to-reference-external-resources)".'
-        - A `CODE_OF_CONDUCT.md` file in the root of a repository is now highlighted in the "About" sidebar on the repository overview page.
+        - Un archivo de `CODE_OF_CONDUCT.md` en la raíz de un repositorio ahora se resalta en la barra lateral de "Acerca de" en la página de resumen del repositorio.
     - 
-      heading: 'Releases changes'
+      heading: 'Cambios a los lanzamientos'
       notes:
         - '{% data variables.product.prodname_ghe_server %} 3.4 incluye mejoras a la UI de lanzamientos, tales como notas de lanzamiento generadas automáticamente, las cuales muestran un resumen de todas las solicitudes de cambio para un lanzamiento en particular. Para obtener más información, consulta la "[Bitácora de cambios de {% data variables.product.prodname_dotcom %}](https://github.blog/changelog/2021-10-20-improvements-to-github-releases-generally-available/)".'
-        - When a release is published, an avatar list is now displayed at the bottom of the release. Avatars for all user accounts mentioned in the release notes are shown. For more information, see "[Managing releases in a repository](/repositories/releasing-projects-on-github/managing-releases-in-a-repository)."
+        - Cuando se publica un lanzamiento, ahora se mostrará una lista de avatares en la parte inferior de este. Se mostrarán los avatares de todas las cuentas de usuario mencionadas en las notas de lanzamiento. Para obtener más información, consulta la sección "[Administrar los lanzamientos de un repositorio](/repositories/releasing-projects-on-github/managing-releases-in-a-repository)".
     - 
       heading: 'Cambios en el Lenguaje de Marcado'
       notes:
         - Ahora puedes utilizar la página de ajustes de "Accesibilidad" para administrar tus atajos de teclado. Puedes elegir inhabilitar aquellos que solo utilicen caracteres sencillos como <kbd>S</kbd>, <kbd>G</kbd> <kbd>C</kbd> y <kbd>.</kbd> (la tecla de punto). Para obtener más información, consulta la "[Bitácora de cambios de {% data variables.product.prodname_dotcom %}](https://github.blog/changelog/2021-11-16-managing-keyboard-shortcuts-using-accessibility-settings/)".
-        - You can now choose to use a fixed-width font in Markdown-enabled fields, like issue comments and pull request descriptions. For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-10-12-fixed-width-font-support-in-markdown-enabled-fields/)."
+        - Ahora puedes decidir utilizar una fuente de ancho fijo en los campos habilitados para lenguaje de marcado, tal como los comentarios en las propuestas y las descripciones de las solicitudes de cambio. Para obtener más información, consulta la "[Bitácora de cambios de{% data variables.product.prodname_dotcom %}](https://github.blog/changelog/2021-10-12-fixed-width-font-support-in-markdown-enabled-fields/)".
         - Ahora puedes pegar la URL en el texto seleccionado para crear rápidamente un enlace de lenguaje de marcado. Esto funciona en todos los campos con lenguaje de marcado habilitado, tal como los comentarios en las propuestas y las descripciones en las solicitudes de cambio. Para obtener más información, consulta la sección "[Bitácora de cambios de {% data variables.product.prodname_dotcom %}](https://github.blog/changelog/2021-11-10-linkify-selected-text-on-url-paste/)".
-        - 'An image URL can now be appended with a theme context, such as `#gh-dark-mode-only`, to define how the Markdown image is displayed to a viewer. For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-11-24-specify-theme-context-for-images-in-markdown/)."'
+        - 'Una URL de imagen ahora se puede aplicar con un contexto de tema, tal como `#gh-dark-mode-only`, para definir cómo se muestra la imagen de lenguaje de marcado en un visor. Para obtener más información, consulta la la "[Bitácora de cambios de {% data variables.product.prodname_dotcom %}](https://github.blog/changelog/2021-11-24-specify-theme-context-for-images-in-markdown/)".'
         - Al crear o editar un archivo de gist con la extensión de archivo de lenguaje de marcado (`.md`), ahora puedes utilizar la pestaña de "Vista previa" o "Cambios a la vista previa" para mostrar un lenguaje de marcado que interprete el contenido del archivo. Para obtener más información, consulta la "[Bitácora de cambios de {% data variables.product.prodname_dotcom %}](https://github.blog/changelog/2021-11-17-preview-the-markdown-rendering-of-gists/)".
         - When typing the name of a {% data variables.product.prodname_dotcom %} user in issues, pull requests and discussions, the @mention suggester now ranks existing participants higher than other {% data variables.product.prodname_dotcom %} users, so that it's more likely the user you're looking for will be listed.
         - Los idiomas que se escriben de derecha a izquierda ahora son compatibles de forma nativa en los archivos de lenguaje de marcado, propuestas, solicitudes de cambios, debates y comentarios.

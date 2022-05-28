@@ -1,6 +1,6 @@
 ---
 title: Acerca del precio por usuario
-intro: '{% ifversion fpt or ghec %}For organizations{% ifversion ghec %} and enterprises{% endif %}, your {% else %}Your {% endif %}bill begins with the number of licensed seats you choose.'
+intro: '{% ifversion fpt or ghec %}Para las organizaciones{% ifversion ghec %} y empresas{% endif %}, tu {% else %}Tu {% endif %}factura comienza con la cantidad de plazas con licencia que elijas.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/about-per-user-pricing
   - /articles/about-per-user-pricing
@@ -26,18 +26,18 @@ Las organizaciones que usan una suscripción paga antes del 11 de mayo de 2016 p
 
 {% else %}
 
-The foundation of your bill is the number of standard licensed seats that you choose for your{% ifversion ghec %} organization or{% endif %} enterprise.
+La base de tu factura es la cantidad de plazas con licencia estándar que elijas para tu{% ifversion ghec %} organización o{% endif %} empresa.
 
 {% data reusables.enterprise-licensing.unique-user-licensing-model %}
 
-To ensure the same user isn't consuming more than one license for multiple enterprise deployments, you can synchronize license usage between your {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %} environments. For more information, see "[About licenses for GitHub Enterprise](/billing/managing-your-license-for-github-enterprise/about-licenses-for-github-enterprise)."
+Para garantizar que el mismo usuario no está consumiendo más de una licencia para varios despliegues empresariales, puedes sincronizar el uso de licencia entre tus ambientes de {% data variables.product.prodname_ghe_server %} y de {% data variables.product.prodname_ghe_cloud %}. Para obtener más información consulta la sección "[Acerca de las licencias para GitHub Enterprise](/billing/managing-your-license-for-github-enterprise/about-licenses-for-github-enterprise)".
 
-In addition to licensed seats, your bill may include other charges, such as {% data variables.product.prodname_GH_advanced_security %}. For more information, see "[About billing for your enterprise](/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise)."
+Adicionalmente a las plazas con licencia, tu factura podría incluir otros cambios, tales como {% data variables.product.prodname_GH_advanced_security %}. Para obtener más información, consulta la sección "[Acerca de la facturación para tu empresa](/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise)".
 {% endif %}
 
-## People that consume a license
+## Personas que consumen una licencia
 
-Each person consumes one license, and {% data variables.product.company_short %} identifies individuals by primary email address.
+Cada persona consume una licencia y {% data variables.product.company_short %} identifica a los individuos por dirección de correo electrónico principal.
 
 {% data variables.product.company_short %} cobra por las siguientes personas.
 
@@ -72,13 +72,13 @@ Each person consumes one license, and {% data variables.product.company_short %}
 
 {% endnote %}
 
-For more information, see {% ifversion not fpt %}"[Roles in an enterprise](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)" or {% endif %}"[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
+Para obtener más información, consulta la sección {% ifversion not fpt %}"[Roles en una empresa](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)" o {% endif %}"[Roles en una organizaciòn](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)".
 
-{% data variables.product.company_short %} counts each {% ifversion not fpt %}member or {% endif %}outside collaborator once for billing purposes, even if the user account has {% ifversion not fpt %}membership in multiple organizations in an enterprise or {% endif %}access to multiple repositories owned by your organization. Para obtener más información sobre los colaboradores externos, consulta la sección "[Agregar colaboradores externos a los repositorios de tu organización](/organizations/managing-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization)".
+{% data variables.product.company_short %} cuenta a cada {% ifversion not fpt %}miembro o {% endif %}colaborador externo una sola vez para propósitos de la facturación, incluso si la cuenta de usuario tiene una {% ifversion not fpt %}membrecía en varias organizaciones de una empresa o si tiene {% endif %}acceso a varios repositorios que le pertenezcan a tu organización. Para obtener más información sobre los colaboradores externos, consulta la sección "[Agregar colaboradores externos a los repositorios de tu organización](/organizations/managing-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization)".
 
-{% ifversion ghes %}Suspended users are not counted when calculating the number of licensed users consuming seats. For more information, see "[Suspending and unsuspending users](/admin/user-management/managing-users-in-your-enterprise/suspending-and-unsuspending-users)."{% endif %}
+{% ifversion ghes %}Los usuarios suspendidos no cuentan al calcular la cantidad de usuarios con licencia que consumen plazas. Para obtener más información, consulta la sección "[Suspender y dejar de suspender usuarios](/admin/user-management/managing-users-in-your-enterprise/suspending-and-unsuspending-users)".{% endif %}
 
-Dormant users do occupy a seat license.{% ifversion ghes %} As such, you can choose to suspend dormant users to release user licenses.{% endif %} For more information, see "[Managing dormant users](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users)."
+Los usuarios inactivos sí ocupan una licencia de plaza.{% ifversion ghes %} Como tal, puedes elegir suspenderlos para liberar licencias de usuario.{% endif %} Para obtener más información, consulta la sección "[Administrar usuarios inactivos](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users)".
 
 ## Acerca de los cambios a tu suscripción
 
@@ -90,7 +90,7 @@ Puedes cambiar tu suscripción de {% data variables.product.prodname_dotcom %} e
 
 {% endif %}
 
-You can add more licensed seats to your {% ifversion fpt or ghec %} organization{% endif %}{% ifversion ghec %} or{% endif %}{% ifversion ghec or ghes %} enterprise{% endif %} at any time. If you pay for more seats than are being used, you can also reduce the number of seats.{% ifversion fpt %} For more information, see "[Upgrading your {% data variables.product.prodname_dotcom %} subscription](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription)" and "[Downgrading your {% data variables.product.prodname_dotcom %} subscription](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription)."
+Puedes agregar más plazas con licencia para tu {% ifversion fpt or ghec %} organización{% endif %}{% ifversion ghec %} o{% endif %}{% ifversion ghec or ghes %} empresa{% endif %} en cualquier momento. Si pagas por más plazas que se estén utilizando, también puedes reducir la cantidad de asientos.{% ifversion fpt %} Para obtener más información, consulta las secciones "[Mejorar tu suscripción de {% data variables.product.prodname_dotcom %}](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription)" y "[Bajar de nivel tu suscripción de {% data variables.product.prodname_dotcom %}](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription)".
 
 Si tienes dudas sobre tu suscripción, contacta al{% data variables.contact.contact_support %}.
 
