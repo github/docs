@@ -30,8 +30,6 @@ on:
         description: 'Version to generate the search index for. Can be one of: `free-pro-team@latest`, `enterprise-server@<RELEASE NUMBER>`, `github-ae@latest`, `all` all versions.'
         required: false
         default: 'all'
-  schedule:
-    - cron: '53 0/8 * * *' # Run every eight hours at 53 minutes past the hour
 
 permissions:
   contents: none
