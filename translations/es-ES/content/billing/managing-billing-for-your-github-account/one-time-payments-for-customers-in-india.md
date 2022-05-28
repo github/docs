@@ -33,17 +33,17 @@ Conforme trabajamos con nuestro proveedor de puerta de enlace de pagos para que 
 
 ### Para los clientes con facturación mensual
 
-Los clientes con planes de facturación mensual podrán hacer pagos únicos en el mismo día en el que su ciclo de facturación se renueva habitualmente. Por ejemplo, si se te factura habitualmente en el día 7 de cada mes, ahora podrás hacer un pago único desde tu cuenta el día 7 de cada mes. Your first one-time payment will also include any accrued usage from October 2021 onwards.
+Los clientes con planes de facturación mensual podrán hacer pagos únicos en el mismo día en el que su ciclo de facturación se renueva habitualmente. Por ejemplo, si se te factura habitualmente en el día 7 de cada mes, ahora podrás hacer un pago único desde tu cuenta el día 7 de cada mes. Tu primer pago de una sola ocasión también incluirá cualquier uso acumulado desde octubre de 2021 en adelante.
 
-If you are currently billed monthly, and would like to switch to yearly billing, you can reduce the frequency of your one-time payments. For more information, see "[Changing the duration of your billing cycle](/en/billing/managing-your-github-billing-settings/changing-the-duration-of-your-billing-cycle)."
+Si actualmente se te cobra por mes y te gustaría cambiar a una facturación anual, puedes reducir la frecuencia de tus pagos de una sola ocasión. Para obtener más información, consulta la sección "[Cambiar la duración de tu ciclo de facturación](/en/billing/managing-your-github-billing-settings/changing-the-duration-of-your-billing-cycle)".
 
-### For customers on yearly billing
+### Para los clientes en facturación anual
 
-If you are billed yearly, and your renewal date was between October 1st, 2021 and February 14th, 2022, you will be able to make a one-time payment for your annual subscriptions from February 15th. This initial payment will include the prorated outstanding cost of your subscription for the period since your previous billing cycle ended.
+Si se te cobra anualmente y tu fecha de renovación fue entre el 1 de octubre de 2021 y el 14 de febrero de 2022, podrás hacer pagos de una sola ocasión para tus suscripciones anuales desde el 15 de febrero. Este pago inicial incluirá el costo pendiente prorrateado de tu suscripción para el periodo desde que haya terminado tu ciclo de facturación anterior.
 
-If your billing cycle is due to renew after February 15th, we will attempt to take the recurring payment. If the payment attempt is declined, you will then be able to make a one-time payment through your account's billing page.
+Si tu ciclo de facturación debe renovarse después del 15 de febrero, intentaremos tomar el pago recurrente. Si se rechaza el intento de pago, entonces podrás hacer un pago de una sola ocasión a través de la página de facturación de tu cuenta.
 
-In the meantime, we are actively working with our payment partners to restore recurring payments for impacted customers. For more information or questions, you can contact [GitHub Support](https://support.github.com/contact).
+Mientras tanto, estaremos trabajando activamente con nuestros socios de pago para restablecer los pagos recurrentes para los clientes impactados. Para obtener más información o hacer preguntas, puedes contactar a [GitHub Support](https://support.github.com/contact).
 
 ### Impacto a {% data variables.product.prodname_sponsors %}
 
@@ -61,6 +61,6 @@ Los patrocinios existentes permanecerán en su lugar durante este periodo y se l
 {% data reusables.user-settings.billing_plans %}
 3. En la parte superior de la página, haz clic en **Pagar ahora**. ![Botón "pagar ahora" para el pago de única ocasión](/assets/images/help/billing/pay-now-button.png)
 4. Revisa tu información de pago y facturación. Si necesitas editar algo, haz clic en **Editar** junto a la sección relevante. De lo contrario, haz clic en **Enviar pago**. ![Resumen de pago de única ocasión](/assets/images/help/billing/payment-summary.png)
-5. Optionally, if you clicked **Edit**, make any necessary changes, and then click **Submit payment**. ![One-time payment edit summary](/assets/images/help/billing/payment-summary-edit.png)
-6. Once payment for the current billing cycle has been successfully made, the **Pay now** button on your "Billing & plans" page will be disabled until your next payment is due. ![One-time payment pay now button disabled](/assets/images/help/billing/pay-now-button-disabled.png)
+5. Opcionalmente, si hiciste clic en **Editar**, haz cualquier cambio necesario y luego haz clic en **Enviar pago**. ![Resumen de ediciones de pagos de única ocasión](/assets/images/help/billing/payment-summary-edit.png)
+6. Una vez que se haya realizado con éxito el pago del ciclo de facturación actual, el botón de **Pagar ahora** en tu página de "Facturación & planes" se inhabilitará hasta que venza el siguiente pago. ![Botón de "hacer pago de una sola ocasión" inhabilitado](/assets/images/help/billing/pay-now-button-disabled.png)
   

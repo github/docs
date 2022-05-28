@@ -262,13 +262,13 @@ Por ejemplo, si una solicitud de cambios contiene una rama de `feature` y apunta
 {% data reusables.actions.cache-eviction-process %}
 
 {% if actions-cache-policy-apis %}
-For information on changing the policies for the repository cache size limit, see "[Enforcing policies for {% data variables.product.prodname_actions %} in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-cache-storage-in-your-enterprise)" and "[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-cache-storage-for-a-repository)."
+Para obtener más información sobre cómo cambiar las políticas del límite de tamaño del caché del repositorio, consulta las secciones "[Requerir políticas para las {% data variables.product.prodname_actions %} de tu empresa](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-cache-storage-in-your-enterprise)" y "[Administrar los ajustes de las {% data variables.product.prodname_actions %} de un repositorio](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-cache-storage-for-a-repository)".
 {% endif %}
 
 {% if actions-cache-management %}
 
-## Managing caches
+## Administrar los cachés
 
-You can use the {% data variables.product.product_name %} REST API to manage your caches. At present, you can use the API to see your cache usage, with more functionality expected in future updates. For more information, see the "[Actions](/rest/reference/actions#cache)" REST API documentation.
+Puedes utilizar la API de REST de {% data variables.product.product_name %} para administrar tus cachés. En la actualidad, puedes utilizar la API para ver tu uso de caché y esperamos tener más funcionalidades en las siguientes actualizaciones. Para obtener más información, consulta la sección "[Acciones](/rest/reference/actions#cache)" en la documentación de la API de REST.
 
 {% endif %}

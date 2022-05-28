@@ -15,9 +15,9 @@ You can get a list of all jobs currently running on {% data variables.product.pr
 
 {% data reusables.actions.github-hosted-runners-navigate-to-repo-org-enterprise %}
 {% data reusables.actions.github-hosted-runners-table-entry %}
-1. Review the "Active jobs" section, which contains a list of all jobs currently running on {% data variables.product.prodname_dotcom %}-hosted runners.
+1. Revisa la sección de "Jobs activos", la cual contiene una lista de todos los jobs que actualmente se ejecutan en los ejecutores hospedados en {% data variables.product.prodname_dotcom %}.
 
-  ![Screenshot of the list of active jobs](/assets/images/help/settings/actions-runner-active-jobs.png)
+  ![Captura de pantalla de la lista de jobs activos](/assets/images/help/settings/actions-runner-active-jobs.png)
 
 ## Ver los jobs en cola en tu organización o empresa
 
