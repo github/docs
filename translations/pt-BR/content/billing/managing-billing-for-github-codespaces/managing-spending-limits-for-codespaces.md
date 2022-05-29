@@ -38,6 +38,7 @@ Proprietários de organizações e gestores de faturamento podem gerenciar o lim
 {% data reusables.dotcom_billing.monthly-spending-limit-codespaces %}
 {% data reusables.dotcom_billing.update-spending-limit %}
 
+{% ifversion ghec %}
 ## Gerenciando o limite de gastos de {% data variables.product.prodname_codespaces %} para sua conta corporativa
 
 Proprietários de organizações e gestores de faturamento podem gerenciar o limite de gastos de {% data variables.product.prodname_codespaces %} para uma conta corporativa.
@@ -48,17 +49,18 @@ Proprietários de organizações e gestores de faturamento podem gerenciar o lim
 1. Acima do uso mensal de {% data variables.product.prodname_codespaces %}", clique em **Limite de gastos**. ![Aba limite de gastos](/assets/images/help/settings/spending-limit-tab-enterprise.png)
 {% data reusables.dotcom_billing.monthly-spending-limit %}
 {% data reusables.dotcom_billing.update-spending-limit %}
+{% endif %}
 
 ## Exportar alterações quando você atingir seu limite de gastos
 
 {% data reusables.codespaces.exporting-changes %}
 ## Gerenciamento de notificações por e-mail e limite de gastos
 
-Email notifications are sent to account owners and billing managers when spending reaches 50%, 75%, 90%, and 100% of your account's spending limit.
+As notificações de e-mail são enviadas para os proprietários de contas e gerentes de cobrança quando os gastos chegam a 50%, 75%, 90% e 100% do limite de gastos da sua conta.
 
 Você pode desabilitar essas notificações a qualquer momento, acessando a parte inferior da página **limite de gastos**.
 
-![Screenshot of the billing email notification settings](/assets/images/help/billing/codespaces-spending-limit-notifications.png)
+![Captura de tela das configurações de notificação de e-mail](/assets/images/help/billing/codespaces-spending-limit-notifications.png)
 
 ## Leia mais
 

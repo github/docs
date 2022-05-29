@@ -1,6 +1,6 @@
 ---
-title: Deploying Node.js to Azure App Service
-intro: You can deploy your Node.js project to Azure App Service as part of your continuous deployment (CD) workflows.
+title: Desplegar Node.js a Azure App Service
+intro: Puedes desplegar tu proyecto de Node.js a Azure App Service como parte de tus flujos de trabajo de despliegue continuo (DC).
 redirect_from:
   - /actions/guides/deploying-to-azure-app-service
   - /actions/deployment/deploying-to-azure-app-service
@@ -21,12 +21,11 @@ topics:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-
 ## Introducción
 
-This guide explains how to use {% data variables.product.prodname_actions %} to build, test, and deploy a Node.js project to [Azure App Service](https://azure.microsoft.com/services/app-service/).
+Esta guía explica cómo utilizar las {% data variables.product.prodname_actions %} para compilar, probar y desplegar un proyecto de Node.js a [Azure App Service](https://azure.microsoft.com/services/app-service/).
 
-{% ifversion fpt or ghec or ghae-issue-4856 %}
+{% ifversion fpt or ghec or ghae-issue-4856 or ghes > 3.4 %}
 
 {% note %}
 
@@ -44,7 +43,7 @@ Antes de crear tu flujo de trabajo de {% data variables.product.prodname_actions
 
 2. Crea una app web.
 
-   For example, you can use the Azure CLI to create an Azure App Service web app with a Node.js runtime:
+   Por ejemplo, puedes utilizar el CLI de Azure para crear una app web de Azure App Service con un tiempo de ejecución de Node.js:
 
    ```bash{:copy}
    az webapp create \
@@ -58,9 +57,7 @@ Antes de crear tu flujo de trabajo de {% data variables.product.prodname_actions
 
 {% data reusables.actions.create-azure-publish-profile %}
 
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 5. Optionally, configure a deployment environment. {% data reusables.actions.about-environments %}
-{% endif %}
 
 ## Crear un flujo de trabajo
 
@@ -68,7 +65,7 @@ Una vez que hayas completado los prerequisitos, puedes proceder con la creación
 
 El siguiente flujo de trabajo de ejemplo demuestra cómo crear, probar y desplegar el proyecto de Node.js a Azure App Service cuando haya una subida a la rama `main`.
 
-Asegúrate de configurar a `AZURE_WEBAPP_NAME` en la clave `env` del flujo de trabajo con el nombre de la app web que creaste. If the path to your project is not the repository root, change `AZURE_WEBAPP_PACKAGE_PATH`  to your project path. If you use a version of Node.js other than `10.x`, change `NODE_VERSION` to the version that you use.
+Asegúrate de configurar a `AZURE_WEBAPP_NAME` en la clave `env` del flujo de trabajo con el nombre de la app web que creaste. Si la ruta a tu proyecto no está en la raíz del repositorio, cambia la `AZURE_WEBAPP_PACKAGE_PATH` a tu ruta de proyecto. Si utilizas una versión de Node.js diferente a la `10.x`, cambia la `NODE_VERSION` a la versión que utilices.
 
 {% data reusables.actions.delete-env-key %}
 
@@ -89,10 +86,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: {% data reusables.actions.action-checkout %}
 
     - name: Set up Node.js
-      uses: actions/setup-node@v2
+      uses: {% data reusables.actions.action-setup-node %}
       with:
         node-version: {% raw %}${{ env.NODE_VERSION }}{% endraw %}
         cache: 'npm'
@@ -103,7 +100,7 @@ jobs:
         npm run build --if-present
         npm run test --if-present
     - name: Upload artifact for deployment job
-      uses: actions/upload-artifact@v2
+      uses: {% data reusables.actions.action-upload-artifact %}
       with:
         name: node-app
         path: .
@@ -117,7 +114,7 @@ jobs:
 
     steps:
     - name: Download artifact from build job
-      uses: actions/download-artifact@v2
+      uses: {% data reusables.actions.action-download-artifact %}
       with:
         name: node-app
 
@@ -137,4 +134,4 @@ Los siguientes recursos también pueden ser útiles:
 * Para encontrar el flujo de trabajo inicial original, consulta el archivo [`azure-webapps-node.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-webapps-node.yml) en el repositorio `starter-workflows` de {% data variables.product.prodname_actions %}.
 * La acción que se utilizó para desplegar la app web es la acción oficial [`Azure/webapps-deploy`](https://github.com/Azure/webapps-deploy) de Azure.
 * Para encontrar más ejemplos de flujos de trabajo de GitHub Actions que desplieguen a Azure, consulta el repositorio [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples).
-* La guía rápida de "[Crear una app web de Node.js en Azure](https://docs.microsoft.com/azure/app-service/quickstart-nodejs)" dentro de la documentación de la app web de Azure demuestra cómo utilizar VS Code con la [Extensión de Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice).
+* La guía de inicio rápido de "[Crear una app web con Node.js en Azure](https://docs.microsoft.com/azure/app-service/quickstart-nodejs)" en la documentación de la app web de Azure demuestra cómo se utiliza {% data variables.product.prodname_vscode %} con la [extensión de servicio de la app de Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice).

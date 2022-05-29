@@ -3,7 +3,7 @@ title: Gerenciar lembretes agendados para a sua equipe
 intro: Você pode receber lembretes no Slack quando sua equipe tiver pull requests à espera de revisão.
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-pull-requests
-  - /github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-your team
+  - /github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-your-team
 versions:
   fpt: '*'
   ghec: '*'
@@ -23,7 +23,7 @@ Os mantenedores de equipe e os proprietários da organização podem definir lem
 
 ## Criar um lembrete agendado para uma equipe
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 {% data reusables.reminders.scheduled-reminders %}
@@ -46,7 +46,7 @@ Os mantenedores de equipe e os proprietários da organização podem definir lem
 
 ## Gerenciar um lembrete agendado para uma equipe
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 {% data reusables.reminders.scheduled-reminders %}
@@ -56,7 +56,7 @@ Os mantenedores de equipe e os proprietários da organização podem definir lem
 
 ## Excluir um lembrete agendado para uma equipe
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 {% data reusables.reminders.scheduled-reminders %}

@@ -107,7 +107,7 @@ git@{% data variables.command_line.codeblock %}:<em>USERNAME</em>/<em>REPOSITORY
   > origin  https://{% data variables.command_line.codeblock %}/<em>USERNAME/REPOSITORY</em>.git (push)
   ```
 
-次にリモートリポジトリに対して `git fetch`、`git pull`、または `git push` を実行するときに、GitHub ユーザ名とパスワードを求められます。 {% data reusables.user_settings.password-authentication-deprecation %}
+次にリモートリポジトリに対して `git fetch`、`git pull`、または `git push` を実行するときに、GitHub ユーザ名とパスワードを求められます。 {% data reusables.user-settings.password-authentication-deprecation %}
 
 [認証情報ヘルパーを使用](/github/getting-started-with-github/caching-your-github-credentials-in-git)すると、Git が GitHub と通信するたびに、GitHub のユーザ名と個人アクセストークンを記憶します。
 

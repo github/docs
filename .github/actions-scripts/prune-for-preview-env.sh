@@ -20,5 +20,4 @@ mkdir translations
 # front-matter will be at play.
 # These static redirects json files are notoriously large
 echo '[]' > lib/redirects/static/archived-frontmatter-fallbacks.json
-echo '{}' > lib/redirects/static/developer.json
 echo '{}' > lib/redirects/static/archived-redirects-from-213-to-217.json

@@ -1,0 +1,1 @@
+{% data variables.product.company_short %} strongly recommends that you verify any new configuration for authentication in a staging environment. An incorrect configuration could result in downtime for {% data variables.product.product_location %}. 更多信息请参阅“[设置暂存实例](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance)”。

@@ -27,6 +27,20 @@ Para acompanhar como os problemas menores encaixam-se na meta maior, use a lista
 
 Os problemas e pull requests incluem funcionalidades embutidas para permitir que você se comunique facilmente com os seus colaboradores. Use @menções para alertar uma pessoa ou uma equipe inteira sobre um comentário. Atribua colaboradores a problemas para comunicar responsabilidade. Vincule a problemas relacionados ou pull requests para comunicar como eles estão conectados.
 
+## Fazer uso da descrição e do README
+
+Use a descrição do seu projeto e o README para compartilhar informações sobre o projeto.
+
+Por exemplo:
+
+- Explicando a finalidade do projeto.
+- Descrevendo as visualizações do projeto e como usá-las.
+- Incluindo links relevantes e pessoas para entrar em contato e obter mais informações.
+
+Os READMEs de projeto são compatíveis com Markdown, o que permite que você utilize imagens e formatação avançada, como links, listas e cabeçalhos.
+
+Para obter mais informações, consulte "[Criando um projeto (beta)](/issues/trying-out-the-new-projects-experience/creating-a-project#updating-your-project-description-and-readme)".
+
 ## Usar visualizações
 
 Use as visualizações do projeto para ver o seu projeto de ângulos diferentes.
@@ -61,7 +75,7 @@ Além disso, {% data variables.product.prodname_actions %} e a API do GraphQL pe
 
 Aproveite os vários tipos de campo para atender às suas necessidades.
 
-Use um campo de iteração para agendar o trabalho ou criar uma linha do tempo. Você pode agrupar por iteração para ver se os itens estão equilibrados entre iterações, ou você pode filtrar para focar em uma única iteração. Os campos de iteração também permitem ver o trabalho que você realizou em iterações anteriores, o que pode ajudar no planejamento de velocidade e refletir sobre as realizações da sua equipe.
+Use um campo de iteração para agendar o trabalho ou criar uma linha do tempo. Você pode agrupar por iteração para ver se os itens estão equilibrados entre iterações, ou você pode filtrar para focar em uma única iteração. Os campos de iteração também permitem ver o trabalho que você realizou em iterações anteriores, o que pode ajudar no planejamento de velocidade e refletir sobre as realizações da sua equipe. Os campos de iteração também são compatíveis com pausas para mostrar quando você e sua equipe estão tirando tempo de suas iterações. Para obter mais informações, consulte "[Gerenciando iterações nos projetos](/issues/trying-out-the-new-projects-experience/managing-iterations). "
 
 Use um único campo de seleção para rastrear informações sobre uma tarefa com base em uma lista de valores predefinidos. Por exemplo, monitore a prioridade ou a fase do projeto. Como os valores são selecionados a partir de uma lista predefinida, você pode facilmente agrupar ou filtrar focar em itens com um valor específico.
 

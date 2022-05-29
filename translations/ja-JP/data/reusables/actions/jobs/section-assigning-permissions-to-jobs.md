@@ -2,8 +2,8 @@ You can use `permissions` to modify the default permissions granted to the `GITH
 
 `permissions` は、最上位キーとしてワークフロー内のすべてのジョブに適用するために、または特定のジョブ内で使用できます。 特定のジョブ内に `permissions` キーを追加すると、`GITHUB_TOKEN` を使用するそのジョブ内のすべてのアクションと実行コマンドが、指定したアクセス権を取得します。  詳しい情報については、[`jobs.<job_id>.permissions`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idpermissions) を参照してください。
 
-{% data reusables.github-actions.github-token-available-permissions %}
-{% data reusables.github-actions.forked-write-permission %}
+{% data reusables.actions.github-token-available-permissions %}
+{% data reusables.actions.forked-write-permission %}
 
 ### Example: Assigning permissions to GITHUB_TOKEN
 

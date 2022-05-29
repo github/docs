@@ -1,7 +1,7 @@
 ---
-title: Learning about GitHub Support
+title: Aprendendo sobre o suporte do GitHub
 shortTitle: Sobre o GitHub Support
-intro: 'You can learn more about getting in touch with {% data variables.contact.github_support %}.'
+intro: 'Você pode aprender mais sobre como entrar em contato com {% data variables.contact.github_support %}.'
 versions:
   fpt: '*'
   ghec: '*'

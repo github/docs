@@ -11,16 +11,11 @@ import { jest } from '@jest/globals'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
+const siteData = loadSiteData()
+const pages = (await loadPages()).filter((page) => page.languageCode === 'en')
+
 describe('data references', () => {
   jest.setTimeout(60 * 1000)
-
-  let data, pages
-
-  beforeAll(async () => {
-    data = await loadSiteData()
-    pages = await loadPages()
-    pages = pages.filter((page) => page.languageCode === 'en')
-  })
 
   test('every data reference found in English content files is defined and has a value', () => {
     let errors = []
@@ -30,7 +25,7 @@ describe('data references', () => {
       const file = path.join('content', page.relativePath)
       const pageRefs = getDataReferences(page.markdown)
       pageRefs.forEach((key) => {
-        const value = get(data.en, key)
+        const value = get(siteData.en, key)
         if (typeof value !== 'string') errors.push({ key, value, file })
       })
     })
@@ -50,7 +45,7 @@ describe('data references', () => {
         const { data: metadata } = frontmatter(fileContents, { filepath: page.fullPath })
         const metadataRefs = getDataReferences(JSON.stringify(metadata))
         metadataRefs.forEach((key) => {
-          const value = get(data.en, key)
+          const value = get(siteData.en, key)
           if (typeof value !== 'string') errors.push({ key, value, metadataFile })
         })
       })
@@ -62,7 +57,7 @@ describe('data references', () => {
 
   test('every data reference found in English reusable files is defined and has a value', async () => {
     let errors = []
-    const allReusables = data.en.site.data.reusables
+    const allReusables = siteData.en.site.data.reusables
     const reusables = Object.values(allReusables)
     expect(reusables.length).toBeGreaterThan(0)
 
@@ -78,7 +73,7 @@ describe('data references', () => {
         const reusableRefs = getDataReferences(JSON.stringify(reusablesPerFile))
 
         reusableRefs.forEach((key) => {
-          const value = get(data.en, key)
+          const value = get(siteData.en, key)
           if (typeof value !== 'string') errors.push({ key, value, reusableFile })
         })
       })
@@ -90,7 +85,7 @@ describe('data references', () => {
 
   test('every data reference found in English variable files is defined and has a value', async () => {
     let errors = []
-    const allVariables = data.en.site.data.variables
+    const allVariables = siteData.en.site.data.variables
     const variables = Object.values(allVariables)
     expect(variables.length).toBeGreaterThan(0)
 
@@ -106,7 +101,7 @@ describe('data references', () => {
         const variableRefs = getDataReferences(JSON.stringify(variablesPerFile))
 
         variableRefs.forEach((key) => {
-          const value = get(data.en, key)
+          const value = get(siteData.en, key)
           if (typeof value !== 'string') errors.push({ key, value, variableFile })
         })
       })

@@ -25,11 +25,11 @@ featuredLinks:
     - /actions/learn-github-actions/environment-variables
     - /actions/security-guides/encrypted-secrets
   videos:
-    - title: "Inside GitHub: How we use GitHub Actions – Brian Douglas"
+    - title: 'Inside GitHub: How we use GitHub Actions – Brian Douglas'
       href: 'https://www.youtube-nocookie.com/embed/MW0V5Q9WJu4'
-    - title: "Advanced GitHub Actions – Jennifer Schelkopf"
+    - title: Advanced GitHub Actions – Jennifer Schelkopf
       href: 'https://www.youtube-nocookie.com/embed/wWOH44Lscoc'
-    - title: "GitHub Actions in action – Karan MV"
+    - title: GitHub Actions in action – Karan MV
       href: 'https://www.youtube-nocookie.com/embed/4SWO0Pc76CU'
   videosHeading: GitHub Universe 2021 videos
 product_video: 'https://www.youtube-nocookie.com/embed/cP0I9w2coGU'
@@ -63,7 +63,6 @@ children:
   - /using-github-hosted-runners
   - /hosting-your-own-runners
   - /security-guides
-  - /advanced-guides
   - /creating-actions
   - /guides
 ---

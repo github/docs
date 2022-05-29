@@ -5,7 +5,7 @@ intro: 'Puedes utilizar el {% data variables.product.prodname_codeql_cli %} para
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
   fpt: '*'
-  ghes: '>=3.1'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 topics:
@@ -50,9 +50,9 @@ Estos ejemplos asumen que el código fuente se verificó en el directorio de tra
 
 Estos ejemplos también asumen que el {% data variables.product.prodname_codeql_cli %} se coloca en la RUTA correcta.
 
-In these examples, a {% data variables.product.prodname_dotcom %} token with suitable scopes is stored in the `$TOKEN` environment variable and passed to the example commands via `stdin`, or is stored in the `$GITHUB_TOKEN` environment variable.
+En estos ejemplos, un token de {% data variables.product.prodname_dotcom %} con un alcance suficiente se almacena en la variable de ambiente `$TOKEN` y se pasa a los comandos de ejemplo a través de `stdin` o se almacena en la variable de ambiente `$GITHUB_TOKEN`.
 
-El nombre de ref y el SHA de confirmación que se verifican y analizan en estos ejemplos se conocen durante el flujo de trabajo. En el caso de las ramas, utiliza `refs/heads/BRANCH-NAME` como el ref. En el caso de la confirmación de encabezado de una solicitud de cambios, utiliza `refs/pulls/NUMBER/head`. En el caso de una confirmación de fusión generada por {% data variables.product.prodname_dotcom %} para una solicitud de cambios, utiliza `refs/pulls/NUMBER/merge`. Todos los siguientes ejemplos utilizan `refs/heads/main`. Si utilizas un nombre de rama diferente, debes modificar el código de muestra.
+El nombre de ref y el SHA de confirmación que se verifican y analizan en estos ejemplos se conocen durante el flujo de trabajo. En el caso de las ramas, utiliza `refs/heads/BRANCH-NAME` como el ref. Para la confirmación principal de una solicitud de cambios, utiliza `refs/pull/NUMBER/head`. Para una confirmación de fusión generada por {% data variables.product.prodname_dotcom %} de una solicitud de cambios, utiliza `refs/pull/NUMBER/merge`. Todos los siguientes ejemplos utilizan `refs/heads/main`. Si utilizas un nombre de rama diferente, debes modificar el código de muestra.
 
 ### Lenguaje sencillo no compilado (JavaScript)
 

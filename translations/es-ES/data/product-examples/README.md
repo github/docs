@@ -10,7 +10,7 @@ Las páginas que utilizan el diseño de `product-landing` podrían incluir una s
 
 ## Cómo funciona
 
-Example data for each product is defined in `data/product-landing-examples`, in a subdirectory named for the **product** and a YML file named for the **example type** (e.g., `data/product-examples/sponsors/user-examples.yml` or `data/product-examples/codespaces/code-examples.yml`). Actualmente solo tenemos compatibilidad con un tipo de ejemplo por producto.
+Los datos de ejemplo para cada producto se definen en `data/product-landing-examples`, en un subdirectorio nombrado para el **producto** y en un archivo de YML nombrado para el **tipo de ejemplo** (por ejemplo: `data/product-examples/sponsors/user-examples.yml` o `data/product-examples/codespaces/code-examples.yml`). Actualmente solo tenemos compatibilidad con un tipo de ejemplo por producto.
 
 ### Control de versiones
 

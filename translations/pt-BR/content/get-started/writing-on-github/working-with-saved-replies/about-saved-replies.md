@@ -16,7 +16,7 @@ versions:
 
 As respostas salvas permitem criar uma resposta reutilizável para problemas e pull requests. Ganhe tempo criando uma resposta salva para as respostas que você usa com mais frequência.
 
-Depois que uma resposta salva é adicionada, ela pode ser usada em problemas e pull requests. As respostas salvas são associadas a sua conta de usuário. Depois que forem criadas, você poderá usá-las nos repositórios e organizações.
+Depois que uma resposta salva é adicionada, ela pode ser usada em problemas e pull requests. As respostas salvas são associadas à sua conta pessoal. Depois que forem criadas, você poderá usá-las nos repositórios e organizações.
 
 É possível criar, no máximo, 100 respostas salvas. Se atingir o limite máximo, você poderá excluir respostas salvas que não usa mais ou editar as existentes.
 

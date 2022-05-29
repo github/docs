@@ -13,8 +13,8 @@ versions:
   ghec: '*'
 ---
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.saved_replies %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.saved_replies %}
 3. En "Respuestas guardadas", junto a la respuesta guardada que deseas editar, haz clic en {% octicon "pencil" aria-label="The pencil" %}.  
    ![Editar una respuesta guardada](/assets/images/help/settings/saved-replies-edit-existing.png)
 4. En "Editar una respuesta guardada", puedes editar el título y el contenido de la respuesta guardada. ![Editar título y contenido](/assets/images/help/settings/saved-replies-edit-existing-content.png)

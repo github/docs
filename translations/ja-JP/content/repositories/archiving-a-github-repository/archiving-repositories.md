@@ -27,6 +27,14 @@ topics:
 {% endnote %}
 {% endif %}
 
+{% ifversion ghec or ghes > 3.4 or ghae-issue-6329 %}
+{% note %}
+
+**Note:** Customers who use {% data variables.product.prodname_GH_advanced_security %} can enable {% data variables.product.prodname_secret_scanning %} on archived repositories. 詳しい情報については「[{% data variables.product.prodname_secret_scanning %}について](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-private-repositories)」を参照してください。
+
+{% endnote %}
+{% endif %}
+
 {% data reusables.repositories.archiving-repositories-recommendation %}
 
 リポジトリがアーカイブされると、コラボレータや Team の追加や削除ができなくなります。 リポジトリへのアクセス権を持つコントリビューターは、プロジェクトをフォークするか Star を付けることだけができます。

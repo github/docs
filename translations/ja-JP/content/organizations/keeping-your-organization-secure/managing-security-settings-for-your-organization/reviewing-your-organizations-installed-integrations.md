@@ -20,9 +20,9 @@ shortTitle: インストールされたインテグレーションのレビュ�
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
-1. In the "Integrations" section of the sidebar, click **{% octicon "apps" aria-label="The apps icon" %} {% data variables.product.prodname_github_apps %}**.
+1. サイドバーの「Integrations（インテグレーション）」セクションで、**{% octicon "apps" aria-label="The apps icon" %}{% data variables.product.prodname_github_apps %}**をクリックしてください。
 {% else %}
-1. In the left sidebar, click **Installed {% data variables.product.prodname_github_apps %}**. ![Installed {% data variables.product.prodname_github_apps %} tab in the organization settings sidebar](/assets/images/help/organizations/org-settings-installed-github-apps.png)
+1. 左のサイドバーで** Installed {% data variables.product.prodname_github_apps %}**をクリックしてください。 ![Organization設定のサイドバー内のインストールされた{% data variables.product.prodname_github_apps %}タブ](/assets/images/help/organizations/org-settings-installed-github-apps.png)
 {% endif %}
 2. レビューする {% data variables.product.prodname_github_app %}の横にある [**Configure**] をクリックします。 ![[Configure] ボタン](/assets/images/help/organizations/configure-installed-integration-button.png)
 6. {% data variables.product.prodname_github_app %} の権限とリポジトリのアクセス権をレビューします。 ![{% data variables.product.prodname_github_app %} にすべてのリポジトリまたは特定のリポジトリへのアクセス権を付与するためのオプション](/assets/images/help/organizations/toggle-integration-repo-access.png)

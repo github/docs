@@ -39,7 +39,7 @@ Cells can vary in width and do not need to be perfectly aligned within columns. 
 
 ![Rendered table with varied cell width](/assets/images/help/writing/table-varied-columns-rendered.png)
 
-{% data reusables.user_settings.enabling-fixed-width-fonts %}
+{% data reusables.user-settings.enabling-fixed-width-fonts %}
 
 ## Formatting content within your table
 

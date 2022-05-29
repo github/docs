@@ -1,4 +1,4 @@
-A workflow run is made up of one or more `jobs`, which run in parallel by default. Para executar trabalhos sequencialmente, você pode definir dependências em outros trabalhos usando a palavra-chave `jobs.<job_id>.needs`.
+A execução de um fluxo de trabalho é composta por uma ou mais `jobs`, que são executados em paralelo por padrão. Para executar trabalhos sequencialmente, você pode definir dependências em outros trabalhos usando a palavra-chave `jobs.<job_id>.needs`.
 
 Cada trabalho é executado em um ambiente de executor especificado por `runs-on`.
 

@@ -29,7 +29,7 @@ Você pode recuperar uma lista de endereços IP do {% data variables.product.pro
 
 Esses endereços IP são usados por {% data variables.product.prodname_dotcom %} para fornecer nosso conteúdo, webhooks e executar compilações de {% data variables.product.prodname_actions %} hospedadas.
 
-Esses intervalos estão na [notação CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation). You can use an online conversion tool to convert from CIDR notation to IP address ranges, for example: [CIDR to IPv4 conversion site](https://www.ipaddressguide.com/cidr).
+Esses intervalos estão na [notação CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation). Você pode usar uma ferramenta de conversão on-line para converter da notação CIDR para intervalos de endereços IP como, por exemplo, [CIDR para o site de conversão IPv4](https://www.ipaddressguide.com/cidr).
 
 Nós alteramos nossos endereços IP de vez em quando. Não recomendamos permitir por endereço IP. No entanto, se você usar esses intervalos de IP, é altamente recomendável o monitoramento regular da nossa API.
 

@@ -1,1 +1,1 @@
-If you need to reset the password for your setup user, contact {% data variables.contact.github_support %} through the {% data variables.contact.contact_enterprise_portal %}.
+Si necesitas restablecer la contraseña para tu usuario configurado, contacta al {% data variables.contact.github_support %} mediante el {% data variables.contact.contact_enterprise_portal %}.

@@ -1,0 +1,1 @@
+1. En la tabla de "Ejecutores", haz clic en la entrada de **Ejecutores hospedados en GitHub**. Esta entrada solo estará presente si estás utilizando ejecutores hospedados en {% data variables.product.prodname_dotcom %}.

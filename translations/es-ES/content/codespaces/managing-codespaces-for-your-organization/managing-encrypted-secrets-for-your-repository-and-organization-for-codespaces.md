@@ -41,7 +41,7 @@ Para crear secretos para un repositorio de la organización, debes tener acceso 
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-1. In the "Security" section of the sidebar, select **{% octicon "key-asterisk" aria-label="The key-asterisk icon" %} Secrets** then click **{% data variables.product.prodname_codespaces %}**.
+1. En la sección de "Seguridad" de la barra lateral, selecciona **{% octicon "key-asterisk" aria-label="The key-asterisk icon" %} Secretos** y luego haz clic en **{% data variables.product.prodname_codespaces %}**.
 2. En la parte superior de la página, haz clci en **Secreto de repositorio nuevo**.
 3. Teclea un nombre para tu secreto en el cuadro de entrada **Name**.
 4. Ingresa el valor de tu secreto.
@@ -51,11 +51,11 @@ Para crear secretos para un repositorio de la organización, debes tener acceso 
 
 Cuando creas un secreto en una organización, puedes utilizar una política para limitar el acceso de los repositorios a este. Por ejemplo, puedes otorgar acceso a todos los repositorios, o limitarlo a solo los repositorios privados o a una lista específica de estos.
 
-{% data reusables.github-actions.permissions-statement-secrets-organization %}
+{% data reusables.actions.permissions-statement-secrets-organization %}
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-1. In the "Security" section of the sidebar, select **{% octicon "key-asterisk" aria-label="The key-asterisk icon" %} Secrets** then click **{% data variables.product.prodname_codespaces %}**.
+1. En la sección de "Seguridad" de la barra lateral, selecciona **{% octicon "key-asterisk" aria-label="The key-asterisk icon" %} Secretos** y luego haz clic en **{% data variables.product.prodname_codespaces %}**.
 2. En la parte superior de la página, haz clic en **Nuego secreto de organización**.
 3. Teclea un nombre para tu secreto en el cuadro de entrada **Name**.
 4. Ingresa el **Valor** para tu secreto.
@@ -68,7 +68,7 @@ Puedes revisar qué políticas de acceso se aplican a un secreto en tu organizac
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-{% data reusables.github-actions.sidebar-secret %}
+{% data reusables.actions.sidebar-secret %}
 1. La lista de secretos incluye cualquier política y permiso configurado. Por ejemplo: ![Lista de secretos](/assets/images/help/settings/actions-org-secrets-list.png)
 1. Para encontrar más detalles sobre los permisos configurados para cada secreto, da clic en **Actualizar**.
 

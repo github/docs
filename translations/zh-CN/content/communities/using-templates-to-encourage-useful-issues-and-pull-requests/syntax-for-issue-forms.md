@@ -16,7 +16,7 @@ topics:
 
 当贡献者填写议题表单时，他们对每个输入的响应都会转换为 Markdown 并添加到议题正文中。 贡献者可以编辑使用议题表单创建的议题，其他人可以与议题（如通过其他方法创建的议题）进行交互。
 
-Issue forms are not supported for pull requests. You can create pull request templates in your repositories for collaborators to use. 更多信息请参阅"[为仓库创建拉取请求模板](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/creating-a-pull-request-template-for-your-repository)"。
+拉取请求不支持议题表单。 您可以在存储库中创建拉取请求模板，供协作者使用。 更多信息请参阅"[为仓库创建拉取请求模板](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/creating-a-pull-request-template-for-your-repository)"。
 
 此示例 YAML 配置文件使用多个输入报告漏洞来定义议题表单。
 
@@ -165,4 +165,4 @@ body:
 ## 延伸阅读
 
 - [YAML](https://yaml.org/)
-- [Common validation errors when creating issue forms](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/common-validation-errors-when-creating-issue-forms)
+- [创建议题表单时的常见验证错误](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/common-validation-errors-when-creating-issue-forms)

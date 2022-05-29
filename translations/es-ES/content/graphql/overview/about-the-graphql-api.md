@@ -12,7 +12,7 @@ topics:
 
 ## Resumen
 
-Here are some quick links to get you up and running with the GraphQL API:
+Aquí tienes algunos enlaces rápidos para ayudarte a iniciar con la API de GraphQL:
 
 * [Autenticación](/graphql/guides/forming-calls-with-graphql#authenticating-with-graphql)
 * [Terminal raíz](/graphql/guides/forming-calls-with-graphql#the-graphql-endpoint)
@@ -36,9 +36,9 @@ El lenguaje de consulta de [GraphQL](https://graphql.github.io/) es:
 
 ## Por qué GitHub utiliza GraphQL
 
-GitHub chose GraphQL because it offers significantly more flexibility for our integrators. The ability to define precisely the data you want&mdash;and _only_ the data you want&mdash;is a powerful advantage over traditional REST API endpoints. GraphQL te permite reemplazar varias solicitudes de REST con _una sola llamada_ para agregar los datos que especifiques.
+GitHub eligió a GraphQL porque ofrece significativamente más flexibilidad para nuestros integradores. La capacidad de definir precisamente los datos que quieres&mdash;y_únicamente_ estos&mdash; es una gran ventaja sobre las terminales tradicionales de la API de REST. GraphQL te permite reemplazar varias solicitudes de REST con _una sola llamada_ para agregar los datos que especifiques.
 
-For more details about why GitHub invested in GraphQL, see the original [announcement blog post](https://github.blog/2016-09-14-the-github-graphql-api/).
+Para obtener más detalles sobre porqué GitHub invirtió en GraphQL, consulta la [publicación original de anuncio del blog](https://github.blog/2016-09-14-the-github-graphql-api/).
 
 ## Acerca de la referencia del modelo de GraphQL
 

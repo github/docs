@@ -23,7 +23,7 @@ shortTitle: 带有 Maven 的 Java 包
 
 ## 简介
 
-{% data reusables.github-actions.publishing-java-packages-intro %}
+{% data reusables.actions.publishing-java-packages-intro %}
 
 ## 基本要求
 
@@ -74,7 +74,6 @@ _pom.xml_ 文件还包含 Maven 将在其中部署包的分配管理仓库的配
 在部署步骤中，您需要将环境变量设置为向仓库验证的用户名，以及用密码或令牌配置为进行身份验证的密钥。  更多信息请参阅“[创建和使用加密密码](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)”。
 
 
-{% raw %}
 ```yaml{:copy}
 name: Publish package to the Maven Central Repository
 on:
@@ -84,9 +83,9 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Set up Maven Central Repository
-        uses: actions/setup-java@v2
+        uses: {% data reusables.actions.action-setup-java %}
         with:
           java-version: '11'
           distribution: 'adopt'
@@ -96,16 +95,15 @@ jobs:
       - name: Publish package
         run: mvn --batch-mode deploy
         env:
-          MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
-          MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
+          MAVEN_USERNAME: {% raw %}${{ secrets.OSSRH_USERNAME }}{% endraw %}
+          MAVEN_PASSWORD: {% raw %}${{ secrets.OSSRH_TOKEN }}{% endraw %}
 ```
-{% endraw %}
 
 此工作流程执行以下步骤：
 
 1. 检出项目仓库的副本。
 1. 设置 Java JDK，同时使用 `MAVEN_USERNAME` 和 `MAVEN_PASSWORD` 环境变量配置 Maven _settings.xml_ 文件为 `ossrh` 仓库添加身份验证。
-1. {% data reusables.github-actions.publish-to-maven-workflow-step %}
+1. {% data reusables.actions.publish-to-maven-workflow-step %}
 
    有关在工作流程中使用密码的更多信息，请参阅“[创建和使用加密密码](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)”。
 
@@ -115,7 +113,7 @@ jobs:
 
 在此工作流程中，您可以使用 `setup-java` 操作。 此操作将给定版本的 JDK 安装到 `PATH`，并且设置 Maven _settings.xml_ 以将包发布到 {% data variables.product.prodname_registry %}。 生成的 _settings.xml_ 定义使用 `github` 的 `id` 向服务器验证，使用 `GITHUB_ACTOR` 环境变量作为用户名，`GITHUB_TOKEN` 环境变量作为密码。 `GITHUB_TOKEN` 环境变量将获分配特殊 `GITHUB_TOKEN` 密钥的值。
 
-{% data reusables.github-actions.github-token-permissions %}
+{% data reusables.actions.github-token-permissions %}
 
 对于基于 Maven的项目，您可以通过在 _pom.xml_ 文件中创建分发仓库来使用这些设置，该文件以 `github` 的 `id` 指向 {% data variables.product.prodname_registry %} 端点。
 
@@ -150,8 +148,8 @@ jobs:
       contents: read
       packages: write {% endif %}
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-java@v2
+      - uses: {% data reusables.actions.action-checkout %}
+      - uses: {% data reusables.actions.action-setup-java %}
         with:
           java-version: '11'
           distribution: 'adopt'
@@ -165,7 +163,7 @@ jobs:
 
 1. 检出项目仓库的副本。
 1. 设置 Java JDK，同时自动配置 Maven _settings.xml_ 文件为 `github` Maven 仓库添加身份验证，以使用 `GITHUB_TOKEN` 环境变量。
-1. {% data reusables.github-actions.publish-to-packages-workflow-step %}
+1. {% data reusables.actions.publish-to-packages-workflow-step %}
 
    有关在工作流程中使用密码的更多信息，请参阅“[创建和使用加密密码](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)”。
 
@@ -187,9 +185,9 @@ jobs:
       contents: read
       packages: write {% endif %}
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Set up Java for publishing to Maven Central Repository
-        uses: actions/setup-java@v2
+        uses: {% data reusables.actions.action-setup-java %}
         with:
           java-version: '11'
           distribution: 'adopt'
@@ -198,18 +196,18 @@ jobs:
           server-password: MAVEN_PASSWORD
       - name: Publish to the Maven Central Repository
         run: mvn --batch-mode deploy
-        env:{% raw %}
-          MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
-          MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
+        env:
+          MAVEN_USERNAME: {% raw %}${{ secrets.OSSRH_USERNAME }}{% endraw %}
+          MAVEN_PASSWORD: {% raw %}${{ secrets.OSSRH_TOKEN }}{% endraw %}
       - name: Set up Java for publishing to GitHub Packages
-        uses: actions/setup-java@v2
+        uses: {% data reusables.actions.action-setup-java %}
         with:
           java-version: '11'
           distribution: 'adopt'
       - name: Publish to GitHub Packages
         run: mvn --batch-mode deploy
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}{% endraw %}
+          GITHUB_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
 ```
 
 此工作流程将调用 `setup-java` 操作两次。  每次运行 `setup-java` 操作时，都会覆盖 Maven _settings.xml_ 文件以发布包。  为向仓库验证，_settings.xml_ 文件引用分发管理仓库 `id` 以及用户名和密码。
@@ -218,8 +216,8 @@ jobs:
 
 1. 检出项目仓库的副本。
 1. 第一次调用 `setup-java`。 这将为 `ossrh` 仓库配置 Maven _settings.xml_ 文件，并将身份验证选项设置为下一步定义的环境变量。
-1. {% data reusables.github-actions.publish-to-maven-workflow-step %}
+1. {% data reusables.actions.publish-to-maven-workflow-step %}
 1. 第二次调用 `setup-java`。 这将自动为 {% data variables.product.prodname_registry %} 配置 Maven _settings.xml_ 文件。
-1. {% data reusables.github-actions.publish-to-packages-workflow-step %}
+1. {% data reusables.actions.publish-to-packages-workflow-step %}
 
    有关在工作流程中使用密码的更多信息，请参阅“[创建和使用加密密码](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)”。

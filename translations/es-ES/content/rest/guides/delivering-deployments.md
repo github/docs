@@ -20,7 +20,7 @@ La [API de despliegues][deploy API] proporciona a tus proyectos hospedados en {%
 
 Esta guía utilizará la API para demostrar una configuración que puedes utilizar. En nuestro escenario, nosotros:
 
-* Merge a pull request.
+* Fusionamos una solicitud de cambios.
 * Cuando finaliza la IC, configuramos el estado de la solicitud de extracción según corresponda.
 * Cuando se fusiona la solicitud de extracción, ejecutamos nuestro despliegue en nuestro servidor.
 

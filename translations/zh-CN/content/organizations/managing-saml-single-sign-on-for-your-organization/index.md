@@ -1,6 +1,6 @@
 ---
 title: 管理组织的 SAML 单点登录
-intro: Organization owners can manage organization members' identities and access to the organization with SAML single sign-on (SSO).
+intro: 组织所有者可以使用 SAML 单点登录 (SSO) 管理组织成员的身份以及对组织的访问。
 redirect_from:
   - /articles/managing-member-identity-and-access-in-your-organization-with-saml-single-sign-on
   - /articles/managing-saml-single-sign-on-for-your-organization
@@ -12,7 +12,7 @@ topics:
   - Teams
 children:
   - /about-identity-and-access-management-with-saml-single-sign-on
-  - /about-scim
+  - /about-scim-for-organizations
   - /connecting-your-identity-provider-to-your-organization
   - /configuring-saml-single-sign-on-and-scim-using-okta
   - /enabling-and-testing-saml-single-sign-on-for-your-organization
@@ -25,3 +25,4 @@ children:
 shortTitle: 管理 SAML 单点登录
 ---
 
+{% data reusables.saml.ghec-only %}

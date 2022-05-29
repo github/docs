@@ -59,8 +59,8 @@ En los repositorios que te pertenecen, los usuarios bloqueados tampoco podrán:
 
 ## Bloquear a un usuario en tus parámetros de cuenta
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.blocked_users %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.blocked_users %}
 3. En "Block a user" (Bloquear a un usuario), escribe el nombre de usuario del usuario que deseas bloquear, luego haz clic en **Block user** (Bloquear usuario). ![Campo Username (Nombre de usuario) y botón Block (Bloquear)](/assets/images/help/settings/user-settings-block-user.png)
 4. Opcionalmente, para mostrar una advertencia al visitar un repositorio donde un usuario bloqueado es un colaborador, selecciona **Warn me when blocked user is a prior contributor to a repository** (Advertirme cuando un usuario bloqueado es un colaborador anterior del repositorio). ![Opción para advertir sobre usuarios bloqueados](/assets/images/help/settings/warn-block-user.png)
 

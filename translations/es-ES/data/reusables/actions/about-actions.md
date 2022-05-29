@@ -1,1 +1,1 @@
-{% data variables.product.prodname_actions %} is a continuous integration and continuous delivery (CI/CD) platform that allows you to automate your build, test, and deployment pipeline.
+{% data variables.product.prodname_actions %} es una plataforma de integración y despliegue continuos (IC/DC) que te permite automatizar tu mapa de compilación, pruebas y despliegue.

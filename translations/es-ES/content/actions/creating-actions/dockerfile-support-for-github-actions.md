@@ -105,7 +105,7 @@ Si defines el `args` en el archivo de metadatos de la acci√≥n, `args` invalidar√
 
 Si utilizas `CMD` en tu `Dockerfile`, sigue estos lineamientos:
 
-{% data reusables.github-actions.dockerfile-guidelines %}
+{% data reusables.actions.dockerfile-guidelines %}
 
 ## Capacidades de Linux compatibles
 

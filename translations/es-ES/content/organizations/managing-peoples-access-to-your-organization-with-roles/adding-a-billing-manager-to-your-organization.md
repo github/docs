@@ -66,4 +66,4 @@ La persona invitada recibirá una invitación por correo electrónico solicitán
 
 ## Leer más
 
-- "[Inviting people to manage your enterprise](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise)"{% ifversion fpt %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}
+- "[Invitar a las personas para que administren tu empresa](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise)"{% ifversion fpt %} en la documentación de {% data variables.product.prodname_ghe_cloud %}{% endif %}

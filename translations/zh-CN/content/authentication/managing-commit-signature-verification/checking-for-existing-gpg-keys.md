@@ -28,7 +28,12 @@ shortTitle: 现有 GPG 密钥
 {% data reusables.gpg.list-keys-with-note %}
 3. 检查命令输出以查看是否有 GPG 密钥对。
     * 如果没有 GPG 密钥对，或者您不想使用任何可用于签名提交和标记的密钥对，则[生成新的 GPG 密钥](/articles/generating-a-new-gpg-key)。
-    * 如果存在现有的 GPG 密钥对并且您要将其用于签名提交和标记，则[将 GPG 密钥添加到 GitHub 帐户](/articles/adding-a-new-gpg-key-to-your-github-account)。
+    * 如果存在现有的 GPG 密钥对，并且您希望使用它来对提交和标记进行签名，则可以使用以下命令显示公钥，并替换要使用的 GPG 密钥 ID。 在此例中，GPG 密钥 ID 是 `3AA5C34371567BD2`：
+      ```shell
+      $ gpg --armor --export <em>3AA5C34371567BD2</em>
+      # Prints the GPG key ID, in ASCII armor format
+      ```
+      然后，您可以[将 GPG 密钥添加到您的 GitHub 帐户](/articles/adding-a-new-gpg-key-to-your-github-account)。
 
 ## 延伸阅读
 

@@ -128,7 +128,7 @@ You can define a default platform in the frontmatter. For more information, see 
 
 ## Tool tags
 
-We occasionally need to write documentation for different tools (GitHub UI, GitHub CLI, GitHub Desktop, cURL, Codespaces, VS Code, GitHub Enterprise Importer CLI, GraphQL API). Each tool may require a different set of instructions. We use tool tags to demarcate information for each tool.
+We occasionally need to write documentation for different tools (GitHub UI, GitHub CLI, GitHub Desktop, cURL, Codespaces, VS Code, GitHub Enterprise Importer CLI, GraphQL API). Each tool may require a different set of instructions. We use tool tags to demarcate information for each tool. To modify the list of possible tools, edit [`lib/all-tools.js`](../lib/all-tools.js).
 
 ### Usage
 
@@ -194,6 +194,22 @@ These instructions are pertinent to GitHub Enterprise Importer CLI users.
 These instructions are pertinent to GraphQL API users.
 
 {% endgraphql %}
+```
+
+```
+{% powershell %}
+
+These instructions are pertinent to `pwsh` and `powershell` commands.
+
+{% endpowershell %}
+```
+
+```
+{% bash %}
+
+These instructions are pertinent to Bash shell commands.
+
+{% endbash %}
 ```
 
 You can define a default tool in the frontmatter. For more information, see the [content README](../content/README.md#defaulttool).

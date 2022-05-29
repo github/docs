@@ -27,6 +27,7 @@ shortTitle: 创建 GitHub Pages 站点
 
 {% data reusables.repositories.create_new %}
 {% data reusables.repositories.owner-drop-down %}
+{% indented_data_reference reusables.pages.emu-org-only spaces=3 %}
 {% data reusables.pages.create-repo-name %}
 {% data reusables.repositories.choose-repo-visibility %}
 {% data reusables.repositories.initialize-with-readme %}
@@ -45,13 +46,13 @@ shortTitle: 创建 GitHub Pages 站点
 
   {% tip %}
 
-  **Tip:** If `index.html` is present, this will be used instead of `index.md`. If neither `index.html` nor `index.md` are present, `README.md` will be used.
+  **提示：** 如果存在 `index.html`，则将使用它而不是 `index.md`。 如果没有 `index.html` 或 `index.md`，将使用 `README.md`。
 
   {% endtip %}
 {% data reusables.pages.configure-publishing-source %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.pages.sidebar-pages %}{% ifversion fpt or ghec %}
-{% data reusables.pages.choose-visibility %}{% endif %}
+{% data reusables.pages.sidebar-pages %}
+{% data reusables.pages.choose-visibility %}
 {% data reusables.pages.visit-site %}
 {% data reusables.pages.check-workflow-run %}
 

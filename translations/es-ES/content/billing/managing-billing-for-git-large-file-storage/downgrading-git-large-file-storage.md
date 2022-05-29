@@ -26,11 +26,11 @@ Si bajas de categoría tu cantidad de paquetes de datos, tu cambio entrará en v
 
 ## Bajar de categoría y reducir el ancho de banda para una cuenta personal
 
-{% data reusables.user_settings.access_settings %}
+{% data reusables.user-settings.access_settings %}
 
 
 
-{% data reusables.user_settings.billing_plans %}
+{% data reusables.user-settings.billing_plans %}
 
 
 

@@ -7,7 +7,7 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '>3.2'
-  ghae-issue-4974: '*'
+  ghae: issue-4974
 topics:
   - Repositories
 ---
@@ -26,5 +26,7 @@ Você pode fornecer o texto na sua consulta de pesquisa que será comparado com 
 | ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `draft:true`              | **draft:true** irá corresponder apenas ao rascunho das versões.                                                                                                                                                                                                                                 |
 | `draft:false`             | **draft:false** irá corresponder apenas às versões publicadas.                                                                                                                                                                                                                                  |
+| `prerelease:true`         | **prerelease:true** só corresponderá a pré-versões.                                                                                                                                                                                                                                             |
+| `prerelease:false`        | **prerelease:false** irá apenas corresponder a versões que não são pré-versões.                                                                                                                                                                                                                 |
 | <code>tag:<em>TAG</em></code> | **tag: v1** corresponde a uma versão com a etiqueta v1 e a todas as versões menores ou patches em v1, como v1.0, v1.2 e v1.2.5.                                                                                                                                                                 |
 | <code>created:<em>DATE</em></code> | **created:2021** irá corresponder às versões criadas em 2021. Você também pode fornecer intervalos de datas. Para obter mais informações, consulte "[Entender a sintaxe de pesquisa](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax#query-for-dates)". |

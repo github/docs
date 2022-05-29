@@ -3,7 +3,8 @@ updates:
   - package-ecosystem: npm
     directory: '/'
     schedule:
-      interval: monthly
+      interval: weekly
+      day: tuesday
     open-pull-requests-limit: 20 # default is 5
     ignore:
       - dependency-name: '*'
@@ -13,7 +14,8 @@ updates:
   - package-ecosystem: 'github-actions'
     directory: '/'
     schedule:
-      interval: monthly
+      interval: weekly
+      day: wednesday
     ignore:
       - dependency-name: '*'
         update-types:
@@ -22,8 +24,5 @@ updates:
   - package-ecosystem: 'docker'
     directory: '/'
     schedule:
-      interval: monthly
-    ignore:
-      - dependency-name: '*'
-        update-types:
-          ['version-update:semver-patch', 'version-update:semver-minor']
+      interval: weekly
+      day: thursday

@@ -23,7 +23,7 @@ shortTitle: Pacotes Java com Maven
 
 ## Introdução
 
-{% data reusables.github-actions.publishing-java-packages-intro %}
+{% data reusables.actions.publishing-java-packages-intro %}
 
 ## Pré-requisitos
 
@@ -74,7 +74,6 @@ Com esta configuração, é possível criar um fluxo de trabalho que publique se
 Na etapa de implementação, você deverá definir as variáveis de ambiente para o nome de usuário com o qual deseja fazer a autenticação no repositório e para um segredo que você configurou com a senha ou token para autenticação.  Para obter mais informações, consulte "[Criando e usando segredos encriptados](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)".
 
 
-{% raw %}
 ```yaml{:copy}
 name: Publish package to the Maven Central Repository
 on:
@@ -84,9 +83,9 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Set up Maven Central Repository
-        uses: actions/setup-java@v2
+        uses: {% data reusables.actions.action-setup-java %}
         with:
           java-version: '11'
           distribution: 'adopt'
@@ -96,16 +95,15 @@ jobs:
       - name: Publish package
         run: mvn --batch-mode deploy
         env:
-          MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
-          MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
+          MAVEN_USERNAME: {% raw %}${{ secrets.OSSRH_USERNAME }}{% endraw %}
+          MAVEN_PASSWORD: {% raw %}${{ secrets.OSSRH_TOKEN }}{% endraw %}
 ```
-{% endraw %}
 
 Este fluxo de trabalho executa os seguintes passos:
 
 1. Verifica uma cópia do repositório do projeto.
 1. Configura o Java JDK e o arquivo _settings.xml_ do Maven para adicionar autenticação ao repositório `ossrh` usando as variáveis de ambiente `MAVEN_USERNAME` e `MAVEN_PASSWORD`.
-1. {% data reusables.github-actions.publish-to-maven-workflow-step %}
+1. {% data reusables.actions.publish-to-maven-workflow-step %}
 
    Para obter mais informações sobre o uso de segredos no seu fluxo de trabalho, consulte "[Criando e usando segredos encriptados](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)".
 
@@ -115,7 +113,7 @@ Cada vez que você criar uma nova versão, você poderá acionar um fluxo de tra
 
 Neste fluxo de trabalho, você pode usar a ação `setup-java`. Esta ação instala a versão determinada do JDK no `PATH`, e também configura _settings.xml_ do Maven para a publicação {% data variables.product.prodname_registry %}. O _settings.xml_ gerado define a autenticação para um servidor com um `id` do `github`, usando a variável de ambiente `GITHUB_ACTOR` como o nome de usuário e a variável de ambiente `GITHUB_TOKEN` como a senha. A variável de ambiente `GITHUB_TOKEN` foi atribuída ao valor do segredo especial `GITHUB_TOKEN`.
 
-{% data reusables.github-actions.github-token-permissions %}
+{% data reusables.actions.github-token-permissions %}
 
 Para um projeto baseado no Maven, você pode usar essas configurações ao criar um repositório de distribuição no seu arquivo _pom.xml_ com um `id` do `github` que aponta para seu ponto final {% data variables.product.prodname_registry %}.
 
@@ -150,8 +148,8 @@ jobs:
       contents: read
       packages: write {% endif %}
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-java@v2
+      - uses: {% data reusables.actions.action-checkout %}
+      - uses: {% data reusables.actions.action-setup-java %}
         with:
           java-version: '11'
           distribution: 'adopt'
@@ -165,7 +163,7 @@ Este fluxo de trabalho executa os seguintes passos:
 
 1. Verifica uma cópia do repositório do projeto.
 1. Configura o Java JDK e também configura automaticamente o arquivo _settings.xml_ do Maven para adicionar autenticação para o repositório do `github` do Maven para usar a variável de ambiente `GITHUB_TOKEN`.
-1. {% data reusables.github-actions.publish-to-packages-workflow-step %}
+1. {% data reusables.actions.publish-to-packages-workflow-step %}
 
    Para obter mais informações sobre o uso de segredos no seu fluxo de trabalho, consulte "[Criando e usando segredos encriptados](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)".
 
@@ -187,9 +185,9 @@ jobs:
       contents: read
       packages: write {% endif %}
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Set up Java for publishing to Maven Central Repository
-        uses: actions/setup-java@v2
+        uses: {% data reusables.actions.action-setup-java %}
         with:
           java-version: '11'
           distribution: 'adopt'
@@ -198,18 +196,18 @@ jobs:
           server-password: MAVEN_PASSWORD
       - name: Publish to the Maven Central Repository
         run: mvn --batch-mode deploy
-        env:{% raw %}
-          MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
-          MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
+        env:
+          MAVEN_USERNAME: {% raw %}${{ secrets.OSSRH_USERNAME }}{% endraw %}
+          MAVEN_PASSWORD: {% raw %}${{ secrets.OSSRH_TOKEN }}{% endraw %}
       - name: Set up Java for publishing to GitHub Packages
-        uses: actions/setup-java@v2
+        uses: {% data reusables.actions.action-setup-java %}
         with:
           java-version: '11'
           distribution: 'adopt'
       - name: Publish to GitHub Packages
         run: mvn --batch-mode deploy
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}{% endraw %}
+          GITHUB_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
 ```
 
 Este fluxo de trabalho chama a ação `setup-java` duas vezes.  Cada vez que a ação `setup-java` é executada, ela sobrescreve o arquivo _settings.xml_ do Maven para a publicação de pacotes.  Para autenticação no repositório, o arquivo _settings.xml_ faz referência ao `ID`do repositório de gerenciamento de distribuição e ao nome de usuário e senha.
@@ -218,8 +216,8 @@ Este fluxo de trabalho executa os seguintes passos:
 
 1. Verifica uma cópia do repositório do projeto.
 1. Chama `setup-java` pela primeira vez. Isso configura o arquivo _settings.xml_ do Maven para o repositório `ossrh` e define as opções de autenticação para variáveis de ambiente definidas na próxima etapa.
-1. {% data reusables.github-actions.publish-to-maven-workflow-step %}
+1. {% data reusables.actions.publish-to-maven-workflow-step %}
 1. Chama `setup-java` pela segunda vez. Isso configura automaticamente o arquivo _settings.xml_ do Maven para {% data variables.product.prodname_registry %}.
-1. {% data reusables.github-actions.publish-to-packages-workflow-step %}
+1. {% data reusables.actions.publish-to-packages-workflow-step %}
 
    Para obter mais informações sobre o uso de segredos no seu fluxo de trabalho, consulte "[Criando e usando segredos encriptados](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)".

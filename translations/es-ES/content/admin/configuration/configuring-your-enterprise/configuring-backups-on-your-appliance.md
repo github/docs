@@ -130,6 +130,10 @@ $ ghe-restore -c 169.154.1.1
 > Visita https://169.154.1.1/setup/settings para revisar la configuración del aparato.
 ```
 
+{% if ip-exception-list %}
+Opcionalmente, para validar la restauración, configura una lista de excepción de IP para permitir el acceso una lista de direcciones IP específicas. Para obtener más información, consulta la sección "[Validar los cambios en modo de mantenimiento utilizando la lista de excepción de IP](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode#validating-changes-in-maintenance-mode-using-the-ip-exception-list)".
+{% endif %}
+
 {% note %}
 
 **Nota:** Los ajustes de red están excluidos de la instantánea de copias de seguridad. Debes configurar manualmente la red en el aparato objetivo para el {% data variables.product.prodname_ghe_server %} como obligatoria para tu entorno.
@@ -137,5 +141,5 @@ $ ghe-restore -c 169.154.1.1
 {% endnote %}
 
 Puedes utilizar estas otras opciones con el comando `ghe-restore`:
-- La marca `-c` sobrescribe los ajustes, el certificado y los datos de licencia en el host objetivo, incluso si ya está configurado. Omite esta marca si estás configurando una instancia de preparación con fines de prueba y si quieres conservar la configuración existente en el objetivo. For more information, see the "Using backup and restore commands" section of the [{% data variables.product.prodname_enterprise_backup_utilities %} README](https://github.com/github/backup-utils#using-the-backup-and-restore-commands).
+- La marca `-c` sobrescribe los ajustes, el certificado y los datos de licencia en el host objetivo, incluso si ya está configurado. Omite esta marca si estás configurando una instancia de preparación con fines de prueba y si quieres conservar la configuración existente en el objetivo. Para obtener más información, consulta la sección "Utilizar los comandos de restablecimiento y respaldo" del [README de {% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils#using-the-backup-and-restore-commands).
 - La marca `-s` te permite seleccionar otra instantánea de copias de seguridad.

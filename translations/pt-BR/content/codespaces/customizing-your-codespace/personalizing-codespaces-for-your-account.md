@@ -64,7 +64,7 @@ Quaisquer alterações nos seus dotfiles selecionados serão aplicadas apenas a 
 
 {% note %}
 
-**Observação:** Atualmente, o {% data variables.product.prodname_codespaces %} não é compatível com a personalização das configurações do _Usuário_ para o editor de {% data variables.product.prodname_vscode %} com o repositório `dotfiles`. É possível definir as configurações-padrão do _espaço de trabalho_ e _Remote [Codespaces]_ para um projeto específico no repositório do projeto. Para obter mais informações, consulte "[Configurar o {% data variables.product.prodname_codespaces %} para seu projeto](/github/developing-online-with-codespaces/configuring-codespaces-for-your-project#creating-a-custom-codespace-configuration)".
+**Observação:** Atualmente, o {% data variables.product.prodname_codespaces %} não é compatível com a personalização das configurações do _Usuário_ para o editor de {% data variables.product.prodname_vscode %} com o repositório `dotfiles`. É possível definir as configurações-padrão do _espaço de trabalho_ e _Remote [Codespaces]_ para um projeto específico no repositório do projeto. Para obter mais informações, consulte "[Introdução a contêineres de desenvolvimento](/github/developing-online-with-codespaces/configuring-codespaces-for-your-project#creating-a-custom-dev-container-configuration)".
 
 {% endnote %}
 
@@ -78,16 +78,18 @@ Você pode usar o repositório de Dotfiles selecionado para personalizar seu amb
 
 {% endwarning %}
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.codespaces-tab %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.codespaces-tab %}
 1. Em "Dotfiles", selecione **Instalar dotfiles automaticamente** para que {% data variables.product.prodname_codespaces %} instale automaticamente seus dotfiles em cada novo codespace que você criar. ![Instalando dotfiles](/assets/images/help/codespaces/install-custom-dotfiles.png)
 2. Escolha o repositório no qual você deseja instalar dotfiles. ![Selecionando um repositório de dotfiles](/assets/images/help/codespaces/select-dotfiles-repo.png)
 
 Você pode adicionar mais script, preferências e arquivos de configuração ao repositório de dotfiles ou editar arquivos existentes sempre que quiser. As alterações nas configurações só serão selecionadas por novos codespaces.
 
+Se o seu código não consegue pegar as configurações nos dotfiles, consulte "[Solução de problemas para {% data variables.product.prodname_codespaces %}](/codespaces/troubleshooting/troubleshooting-dotfiles-for-codespaces)".
+
 ## Outras configurações disponíveis
 
-Você também pode personalizar {% data variables.product.prodname_codespaces %} usando outras [Configurações de codespace](https://github.com/settings/codespaces):
+Você também pode personalizar {% data variables.product.prodname_codespaces %} usando [as configurações adicionais de {% data variables.product.prodname_codespaces %}de](https://github.com/settings/codespaces):
 
 - Para definir sua região padrão, consulte "[Definindo sua região padrão para {% data variables.product.prodname_codespaces %}](/codespaces/managing-your-codespaces/setting-your-default-region-for-codespaces)."
 - Para definir seu editor, consulte "[Definindo seu editor padrão para {% data variables.product.prodname_codespaces %}](/codespaces/managing-your-codespaces/setting-your-default-editor-for-codespaces)"

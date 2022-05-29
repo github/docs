@@ -6,13 +6,13 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '>3.3'
-  ghae: 'issue-4974'
+  ghae: issue-4974
 topics:
   - Repositories
 shortTitle: Automated release notes
 communityRedirect:
   name: Provide GitHub Feedback
-  href: 'https://github.com/github/feedback/discussions/categories/releases-feedback'
+  href: 'https://github.com/github/feedback/discussions/categories/general-feedback'
 ---
 
 ## About automatically generated release notes
@@ -44,7 +44,7 @@ Automatically generated release notes provide an automated alternative to manual
    ![Providing a DMG with the Release](/assets/images/help/releases/releases_adding_binary.gif)
 10. To notify users that the release is not ready for production and may be unstable, select **This is a pre-release**.
    ![Checkbox to mark a release as prerelease](/assets/images/help/releases/prerelease_checkbox.png)
-{%- ifversion fpt %}
+{%- ifversion fpt or ghec %}
 11. Optionally, select **Create a discussion for this release**, then select the **Category** drop-down menu and click a category for the release discussion.
   ![Checkbox to create a release discussion and drop-down menu to choose a category](/assets/images/help/releases/create-release-discussion.png)
 {%- endif %}

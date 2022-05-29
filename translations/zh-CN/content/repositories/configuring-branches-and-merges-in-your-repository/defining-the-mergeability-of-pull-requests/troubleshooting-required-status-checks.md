@@ -37,24 +37,25 @@ remote: error: Required status check "ci-build" is failing
 
 {% endnote %}
 
-{% ifversion fpt or ghae or ghes or ghec %}
-
-## Conflicts between head commit and test merge commit
+## 头部提交与测试合并提交之间的冲突
 
 有时，测试合并提交与头部提交的状态检查结果存在冲突。 如果测试合并提交具有状态，则测试合并提交必须通过。 否则，必须传递头部提交的状态后才可合并该分支。 有关测试合并提交的更多信息，请参阅“[拉取](/rest/reference/pulls#get-a-pull-request)”。
 
 ![具有冲突的合并提交的分支](/assets/images/help/repository/req-status-check-conflicting-merge-commits.png)
-{% endif %}
 
-## Handling skipped but required checks
+## 处理已跳过但需要检查
 
-Sometimes a required status check is skipped on pull requests due to path filtering. For example, a Node.JS test will be skipped on a pull request that just fixes a typo in your README file and makes no changes to the JavaScript and TypeScript files in the `scripts` directory.
+{% note %}
 
-If this check is required and it gets skipped, then the check's status is shown as pending, because it's required. In this situation you won't be able to merge the pull request.
+**注意：**如果由于[路径过滤](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore)、 [分支过滤](/actions/using-workflows/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore)或[提交消息](/actions/managing-workflow-runs/skipping-workflow-runs)而跳过工作流程，则与该工作流程关联的检查将保持“挂起”状态。 需要这些检查成功的拉取请求将被阻止合并。
+
+如果工作流程中的某个作业由于条件而被跳过，它将报告其状态为“成功”。 更多信息请参阅[跳过工作流程运行](/actions/managing-workflow-runs/skipping-workflow-runs)和[使用条件控制作业执行](/actions/using-jobs/using-conditions-to-control-job-execution)。
+
+{% endnote %}
 
 ### 示例
 
-In this example you have a workflow that's required to pass.
+下面的示例演示一个工作流程，该工作流程要求`构建`作业具有“成功”完成状态，但如果拉取请求未更改 `scripts` 目录中的任何文件，则该工作流程将被跳过。
 
 ```yaml
 name: ci
@@ -62,7 +63,6 @@ on:
   pull_request:
     paths:
       - 'scripts/**'
-      - 'middleware/**'
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -70,22 +70,22 @@ jobs:
       matrix:
         node-version: [12.x, 14.x, 16.x]
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v2
+    - uses: {% data reusables.actions.action-checkout %}
+    - name: Use Node.js {% raw %}${{ matrix.node-version }}{% endraw %}
+      uses: {% data reusables.actions.action-setup-node %}
       with:
-        node-version: ${{ matrix.node-version }}
+        node-version: {% raw %}${{ matrix.node-version }}{% endraw %}
         cache: 'npm'
     - run: npm ci
     - run: npm run build --if-present
     - run: npm test
 ```
 
-If someone submits a pull request that changes a markdown file in the root of the repository, then the workflow above won't run at all because of the path filtering. As a result you won't be able to merge the pull request. You would see the following status on the pull request:
+由于[路径过滤](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore)，仅更改存储库根目录中的文件的拉取请求将不会触发此工作流程，且被阻止合并。 您将在拉取请求上看到以下状态：
 
-![Required check skipped but shown as pending](/assets/images/help/repository/PR-required-check-skipped.png)
+![必需的检查已跳过，但显示为挂起](/assets/images/help/repository/PR-required-check-skipped.png)
 
-You can fix this by creating a generic workflow, with the same name, that will return true in any case similar to the workflow below :
+您可以通过创建具有相同名称的通用工作流程来解决此问题，该工作流程在任何情况下都将返回 true，类似于下面的工作流程：
 
 ```yaml
 name: ci
@@ -100,21 +100,21 @@ jobs:
     steps:
       - run: 'echo "No build required" '
 ```
-Now the checks will always pass whenever someone sends a pull request that doesn't change the files listed under `paths` in the first workflow.
+现在，每当有人发送拉取请求时，检查将始终通过，该请求不会更改第一个工作流程中`路径下`列出的文件。
 
-![Check skipped but passes due to generic workflow](/assets/images/help/repository/PR-required-check-passed-using-generic.png)
+![检查已跳过，但由于通用工作流程而通过](/assets/images/help/repository/PR-required-check-passed-using-generic.png)
 
 {% note %}
 
 **注意：**
-* Make sure that the `name` key and required job name in both the workflow files are the same. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions)".
-* The example above uses {% data variables.product.prodname_actions %} but this workaround is also applicable to other CI/CD providers that integrate with {% data variables.product.company_short %}.
+* 确保两个工作流程文件中`名称`键和所需的作业名称相同。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/actions/reference/workflow-syntax-for-github-actions)”。
+* 上面的示例使用 {% data variables.product.prodname_actions %} 但此解决方法也适用于与 {% data variables.product.company_short %} 集成的其他 CI/CD 提供程序。
 
 {% endnote %}
 
-{% ifversion fpt or ghes > 3.3 or ghae-issue-5379 or ghec %}It's also possible for a protected branch to require a status check from a specific {% data variables.product.prodname_github_app %}. If you see a message similar to the following, then you should verify that the check listed in the merge box was set by the expected app.
+{% ifversion fpt or ghes > 3.3 or ghae-issue-5379 or ghec %}受保护分支也可能要求特定 {% data variables.product.prodname_github_app %} 进行状态检查。 如果看到类似于以下内容的消息，则应验证合并框中列出的检查项是否由预期的应用设置。
 
 ```
-Required status check "build" was not set by the expected {% data variables.product.prodname_github_app %}.
+必需状态检查 "build" 未由预期的 {% data variables.product.prodname_github_app %} 设置。
 ```
 {% endif %}

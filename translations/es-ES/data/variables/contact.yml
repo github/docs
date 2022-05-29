@@ -11,7 +11,7 @@ contact_dmca: >-
 contact_privacy: >-
   {% ifversion fpt or ghec %}[Privacy contact form](https://github.com/contact/privacy){% endif %}
 contact_enterprise_sales: "[Equipo de ventas de GitHub](https://github.com/enterprise/contact)"
-contact_feedback_actions: '[Feedback discussion for GitHub Actions](https://github.com/github/feedback/discussions/categories/actions-and-packages-feedback)'
+contact_feedback_actions: '[Debate de retroalimentación para GitHub Actions](https://github.com/github/feedback/discussions/categories/actions-and-packages-feedback)'
 #The team that provides Standard Support
 enterprise_support: 'Soporte para GitHub Enterprise'
 #The larger team that includes Enterprise Support and Premium Support

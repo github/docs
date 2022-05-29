@@ -16,6 +16,7 @@ topics:
   - Enterprise
 children:
   - /about-enterprise-configuration
+  - /deploying-github-ae
   - /initializing-github-ae
   - /accessing-the-management-console
   - /accessing-the-administrative-shell-ssh
@@ -35,6 +36,7 @@ children:
   - /configuring-github-pages-for-your-enterprise
   - /configuring-the-referrer-policy-for-your-enterprise
   - /configuring-custom-footers
+  - /configuring-web-commit-signing
 shortTitle: Configurar tu empresa
 ---
 

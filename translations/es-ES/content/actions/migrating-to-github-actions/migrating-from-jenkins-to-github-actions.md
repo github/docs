@@ -83,9 +83,9 @@ Jenkins puede ejecutar las `stages` y `steps` en paralelo, mientras que, actualm
 | ------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [`parallel`](https://jenkins.io/doc/book/pipeline/syntax/#parallel) | [`jobs.<job_id>.strategy.max-parallel`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymax-parallel) |
 
-### Matriz de compilaciones
+### Matriz
 
-Tanto {% data variables.product.prodname_actions %} como Jenkins te permiten utilizar una matriz de compilaciones para definir diversas combinaciones de sistema.
+Tanto {% data variables.product.prodname_actions %} como Jenkis te permiten utilizar una matriz para definir varias combinaciones de sistema.
 
 | Jenkins                                                                  | {% data variables.product.prodname_actions %}
 | ------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -264,28 +264,26 @@ pipeline {
 </td>
 <td>
 
-{% raw %}
 ```yaml
 name: demo-workflow
 on:
   push:
 jobs:
   test:
-    runs-on: ${{ matrix.os }}
+    runs-on: {% raw %}${{ matrix.os }}{% endraw %}
     strategy:
       fail-fast: false
       matrix:
         os: [macos-latest, ubuntu-latest]
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: {% data reusables.actions.action-checkout %}
+      - uses: {% data reusables.actions.action-setup-node %}
         with:
           node-version: 12
       - run: npm install -g bats
       - run: bats tests
         working-directory: scripts/myapp
 ```
-{% endraw %}
 
 </td>
 </tr>

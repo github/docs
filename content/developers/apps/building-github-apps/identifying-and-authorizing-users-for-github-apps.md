@@ -25,11 +25,7 @@ When your GitHub App acts on behalf of a user, it performs user-to-server reques
 
 To authorize users for standard apps that run in the browser, use the [web application flow](#web-application-flow).
 
-{% ifversion fpt or ghae or ghes > 3.0 or ghec %}
-
 To authorize users for headless apps without direct access to the browser, such as CLI tools or Git credential managers, use the [device flow](#device-flow). The device flow uses the OAuth 2.0 [Device Authorization Grant](https://tools.ietf.org/html/rfc8628).
-
-{% endif %}
 
 ## Web application flow
 
@@ -53,7 +49,7 @@ When your GitHub App specifies a `login` parameter, it prompts users with a spec
 Name | Type | Description
 -----|------|------------
 `client_id` | `string` | **Required.** The client ID for your GitHub App. You can find this in your [GitHub App settings](https://github.com/settings/apps) when you select your app. **Note:** The app ID and client ID are not the same, and are not interchangeable.
-`redirect_uri` | `string` | The URL in your application where users will be sent after authorization. This must be an exact match to {% ifversion fpt or ghes > 3.0 or ghec %} one of the URLs you provided as a **Callback URL** {% else %} the URL you provided in the **User authorization callback URL** field{% endif %} when setting up your GitHub App and can't contain any additional parameters.
+`redirect_uri` | `string` | The URL in your application where users will be sent after authorization. This must be an exact match to {% ifversion fpt or ghes or ghec %} one of the URLs you provided as a **Callback URL** {% else %} the URL you provided in the **User authorization callback URL** field{% endif %} when setting up your GitHub App and can't contain any additional parameters.
 `state` | `string` | This should contain a random string to protect against forgery attacks and could contain any other arbitrary data.
 `login` | `string` | Suggests a specific account to use for signing in and authorizing the app.
 `allow_signup` | `string` | Whether or not unauthenticated users will be offered an option to sign up for {% data variables.product.prodname_dotcom %} during the OAuth flow. The default is `true`. Use `false` when a policy prohibits signups.
@@ -89,7 +85,7 @@ Name | Type | Description
 `client_id` | `string` | **Required.** The  client ID for your GitHub App.
 `client_secret` | `string`   | **Required.** The  client secret for your GitHub App.
 `code` | `string`   | **Required.** The code you received as a response to Step 1.
-`redirect_uri` | `string` | The URL in your application where users will be sent after authorization. This must be an exact match to {% ifversion fpt or ghes > 3.0 or ghec %} one of the URLs you provided as a **Callback URL** {% else %} the URL you provided in the **User authorization callback URL** field{% endif %} when setting up your GitHub App and can't contain any additional parameters.
+`redirect_uri` | `string` | The URL in your application where users will be sent after authorization. This must be an exact match to {% ifversion fpt or ghes or ghec %} one of the URLs you provided as a **Callback URL** {% else %} the URL you provided in the **User authorization callback URL** field{% endif %} when setting up your GitHub App and can't contain any additional parameters.
 `state` | `string` | The unguessable random string you provided in Step 1.
 
 #### Response
@@ -120,8 +116,6 @@ For example, in curl you can set the Authorization header like this:
 curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre %}/user
 ```
 
-{% ifversion fpt or ghae or ghes > 3.0 or ghec %}
-
 ## Device flow
 
 {% note %}
@@ -130,14 +124,11 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 
 {% endnote %}
 
-The device flow allows you to authorize users for a headless app, such as a CLI tool or Git credential manager.
+The device flow allows you to authorize users for a headless app, such as a CLI tool or Git credential manager. 
 
-For more information about authorizing users using the device flow, see "[Authorizing OAuth Apps](/developers/apps/authorizing-oauth-apps#device-flow)".
-
-{% endif %}
+{% if device-flow-is-opt-in %}Before you can use the device flow to identify and authorize users, you must first enable it in your app's settings. For more information on enabling device flow, see "[Modifying a GitHub App](/developers/apps/managing-github-apps/modifying-a-github-app)." {% endif %}For more information about authorizing users using the device flow, see "[Authorizing OAuth Apps](/developers/apps/authorizing-oauth-apps#device-flow)."
 
 ## Check which installation's resources a user can access
-
 
 Once you have an OAuth token for a user, you can check which installations that user can access.
 
@@ -157,7 +148,7 @@ If a user revokes their authorization of a GitHub App, the app will receive the 
 
 ## User-level permissions
 
-You can add user-level permissions to your GitHub App to access user resources, such as user emails, that are granted by individual users as part of the [user authorization flow](#identifying-users-on-your-site). User-level permissions differ from [repository and organization-level permissions](/rest/reference/permissions-required-for-github-apps), which are granted at the time of installation on an organization or user account.
+You can add user-level permissions to your GitHub App to access user resources, such as user emails, that are granted by individual users as part of the [user authorization flow](#identifying-users-on-your-site). User-level permissions differ from [repository and organization-level permissions](/rest/reference/permissions-required-for-github-apps), which are granted at the time of installation on an organization or personal account.
 
 You can select user-level permissions from within your GitHub App's settings in the **User permissions** section of the **Permissions & webhooks** page. For more information on selecting permissions, see "[Editing a GitHub App's permissions](/apps/managing-github-apps/editing-a-github-app-s-permissions/)."
 
@@ -247,8 +238,8 @@ While most of your API interaction should occur using your server-to-server inst
 
 * [List deployments](/rest/reference/deployments#list-deployments)
 * [Create a deployment](/rest/reference/deployments#create-a-deployment)
-* [Get a deployment](/rest/reference/deployments#get-a-deployment){% ifversion fpt or ghes or ghae or ghec %}
-* [Delete a deployment](/rest/reference/deployments#delete-a-deployment){% endif %}
+* [Get a deployment](/rest/reference/deployments#get-a-deployment)
+* [Delete a deployment](/rest/reference/deployments#delete-a-deployment)
 
 #### Events
 
@@ -271,7 +262,8 @@ While most of your API interaction should occur using your server-to-server inst
 
 #### Git Refs
 
-* [Create a reference](/rest/reference/git#create-a-reference)* [Get a reference](/rest/reference/git#get-a-reference)
+* [Create a reference](/rest/reference/git#create-a-reference)
+* [Get a reference](/rest/reference/git#get-a-reference)
 * [List matching references](/rest/reference/git#list-matching-references)
 * [Update a reference](/rest/reference/git#update-a-reference)
 * [Delete a reference](/rest/reference/git#delete-a-reference)
@@ -429,14 +421,12 @@ While most of your API interaction should occur using your server-to-server inst
 * [Remove pre-receive hook enforcement for an organization](/enterprise/user/rest/reference/enterprise-admin#remove-pre-receive-hook-enforcement-for-an-organization)
 {% endif %}
 
-{% ifversion fpt or ghes or ghae or ghec %}
 #### Organization Team Projects
 
 * [List team projects](/rest/reference/teams#list-team-projects)
 * [Check team permissions for a project](/rest/reference/teams#check-team-permissions-for-a-project)
 * [Add or update team project permissions](/rest/reference/teams#add-or-update-team-project-permissions)
 * [Remove a project from a team](/rest/reference/teams#remove-a-project-from-a-team)
-{% endif %}
 
 #### Organization Team Repositories
 
@@ -582,7 +572,7 @@ While most of your API interaction should occur using your server-to-server inst
 
 #### Reactions
 
-{% ifversion fpt or ghes or ghae or ghec %}* [Delete a reaction](/rest/reference/reactions#delete-a-reaction-legacy){% else %}* [Delete a reaction](/rest/reference/reactions#delete-a-reaction){% endif %}
+* [Delete a reaction](/rest/reference/reactions)
 * [List reactions for a commit comment](/rest/reference/reactions#list-reactions-for-a-commit-comment)
 * [Create reaction for a commit comment](/rest/reference/reactions#create-reaction-for-a-commit-comment)
 * [List reactions for an issue](/rest/reference/reactions#list-reactions-for-an-issue)
@@ -594,13 +584,13 @@ While most of your API interaction should occur using your server-to-server inst
 * [List reactions for a team discussion comment](/rest/reference/reactions#list-reactions-for-a-team-discussion-comment)
 * [Create reaction for a team discussion comment](/rest/reference/reactions#create-reaction-for-a-team-discussion-comment)
 * [List reactions for a team discussion](/rest/reference/reactions#list-reactions-for-a-team-discussion)
-* [Create reaction for a team discussion](/rest/reference/reactions#create-reaction-for-a-team-discussion){% ifversion fpt or ghes or ghae or ghec %}
+* [Create reaction for a team discussion](/rest/reference/reactions#create-reaction-for-a-team-discussion)
 * [Delete a commit comment reaction](/rest/reference/reactions#delete-a-commit-comment-reaction)
 * [Delete an issue reaction](/rest/reference/reactions#delete-an-issue-reaction)
 * [Delete a reaction to a commit comment](/rest/reference/reactions#delete-an-issue-comment-reaction)
 * [Delete a pull request comment reaction](/rest/reference/reactions#delete-a-pull-request-comment-reaction)
 * [Delete team discussion reaction](/rest/reference/reactions#delete-team-discussion-reaction)
-* [Delete team discussion comment reaction](/rest/reference/reactions#delete-team-discussion-comment-reaction){% endif %}
+* [Delete team discussion comment reaction](/rest/reference/reactions#delete-team-discussion-comment-reaction)
 
 #### Repositories
 
@@ -714,11 +704,9 @@ While most of your API interaction should occur using your server-to-server inst
 * [Get a repository README](/rest/reference/repos#get-a-repository-readme)
 * [Get the license for a repository](/rest/reference/licenses#get-the-license-for-a-repository)
 
-{% ifversion fpt or ghes or ghae or ghec %}
 #### Repository Event Dispatches
 
 * [Create a repository dispatch event](/rest/reference/repos#create-a-repository-dispatch-event)
-{% endif %}
 
 #### Repository Hooks
 

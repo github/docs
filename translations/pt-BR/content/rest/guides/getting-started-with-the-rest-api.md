@@ -104,7 +104,7 @@ Há algumas partes interessantes nos cabeçalhos da resposta. Como esperado, o `
 Qualquer cabeçalho que começar com `X -` é um cabeçalho personalizado e não está incluído nas especificações de HTTP. Por exemplo:
 
 * `X-GitHub-Media-Type` tem um valor de `github.v3`. Isso nos permite saber o [tipo de mídia][media types] para a resposta. Tipos de mídia nos ajudaram a criar uma versão da nossa saída na API v3. Vamos falar mais sobre isso mais adiante.
-* Anote os cabeçalhos `X-RateLimit-Limit` e `X-RateLimit-Remaining`. This pair of headers indicate [how many requests a client can make][rate-limiting] in a rolling time period (typically an hour) and how many of those requests the client has already spent.
+* Anote os cabeçalhos `X-RateLimit-Limit` e `X-RateLimit-Remaining`. Este par de cabeçalhos indica [quantas solicitações um cliente pode fazer][rate-limiting] em um período de tempo consecutivo (geralmente, uma hora) e quantas dessas solicitações o cliente já gastou.
 
 ## Autenticação
 
@@ -134,7 +134,7 @@ Ao efetuar a autenticação, você deverá ver seu limite de taxa disparado para
 
 Você pode facilmente [criar um **token de acesso pessoal**][personal token] usando a sua [página de configurações de tokens de acesso pessoal][tokens settings]:
 
-{% ifversion fpt or ghes > 3.1 or ghae-issue-4374 or ghec %}
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 {% warning %}
 
 Para ajudar a manter suas informações seguras, é altamente recomendável definir um vencimento para seus tokens de acesso pessoal.
@@ -150,7 +150,7 @@ Para ajudar a manter suas informações seguras, é altamente recomendável defi
 ![Seleção de Token Pessoal](/assets/images/help/personal_token_ghae.png)
 {% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghae-issue-4374 or ghec %}
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 As solicitações da API que usam um token de acesso pessoal vencido retornará a data de validade do token por meio do cabeçalho `GitHub-Authentication-Token-Expiration`. Você pode usar o cabeçalho nos seus scripts para fornecer uma mensagem de aviso quando o token estiver próximo da data de vencimento.
 {% endif %}
 
@@ -388,7 +388,7 @@ $    {% data variables.product.api_url_pre %}/users/defunkt
 > HTTP/2 304
 ```
 
-O status `304` indica que o recurso não mudou desde a última vez que pedimos e a resposta não conterá texto. As a bonus, `304` responses don't count against your [rate limit][rate-limiting].
+O status `304` indica que o recurso não mudou desde a última vez que pedimos e a resposta não conterá texto. Como um bônus, as respostas de `304` não contam contra o seu [limite de taxa][rate-limiting].
 
 Agora você sabe o básico da API {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}!
 

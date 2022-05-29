@@ -4,7 +4,7 @@ intro: You can increase development velocity by enabling auto-merge for a pull r
 product: '{% data reusables.gated-features.auto-merge %}'
 versions:
   fpt: '*'
-  ghes: '>=3.1'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 topics:
@@ -38,10 +38,20 @@ People with write permissions to a repository can enable auto-merge for a pull r
   !["Enable auto-merge" drop-down menu](/assets/images/help/pull_requests/enable-auto-merge-drop-down.png)
 1. Click **Enable auto-merge**.
   ![Button to enable auto-merge](/assets/images/help/pull_requests/enable-auto-merge-button.png)
+  {% ifversion fpt %}
 1. If you chose the merge or squash and merge methods, type a commit message and description and choose the email address you want to author the merge commit.
   ![Fields to enter commit message and description and choose commit author email](/assets/images/help/pull_requests/pull-request-information-fields.png)
+  {% note %}
+
+  **Note:** The email dropdown menu is not available if you have email privacy enabled or if you only have one verified and visible email associated with your {% data variables.product.company_short %} account.
+
+  {% endnote %}
+  {% endif %}
+  {% ifversion ghes or ghae or ghec %}
+1. If you chose the merge or squash and merge methods, type a commit message and description.
+   ![Fields to enter commit message and description](/assets/images/help/pull_requests/pull-request-information-fields-enterprise.png)
+  {% endif %}
 1. Click **Confirm auto-merge**.
-  ![Button to confirm auto-merge](/assets/images/help/pull_requests/confirm-auto-merge-button.png)
 
 ## Disabling auto-merge
 

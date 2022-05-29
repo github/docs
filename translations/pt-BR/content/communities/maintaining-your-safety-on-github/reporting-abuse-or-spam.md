@@ -21,7 +21,7 @@ Você pode denunciar usuários que violaram Diretrizes da comunidade ou Termos d
 
 Se o conteúdo denunciado estiver ativado para um repositório público, você também poderá denunciar o conteúdo diretamente aos mantenedores do repositório.
 
-Users in India can contact GitHub's Grievance Officer for India [here](https://support.github.com/contact/india-grievance-officer).
+Os usuários na Índia podem entrar em contato com o Oficial Grievance do GitHub da Índia [aqui](https://support.github.com/contact/india-grievance-officer).
 
 ## Denunciar um usuário
 

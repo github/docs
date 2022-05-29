@@ -19,7 +19,7 @@ Qualquer pessoa com permissões de administrador em um repositório pode habilit
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-3. Under {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6069 %}"Pull Requests"{% else %}"Merge button"{% endif %}, select or unselect **Automatically delete head branches**. ![Caixa de seleção para habilitar ou desabilitar a exclusão automática de branches](/assets/images/help/repository/automatically-delete-branches.png)
+3. Em {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6069 %}"Pull Requests"{% else %}"Botão de merge"{% endif %}, selecione ou desmarque **Excluir branches principais automaticamente**. ![Caixa de seleção para habilitar ou desabilitar a exclusão automática de branches](/assets/images/help/repository/automatically-delete-branches.png)
 
 ## Leia mais
 - "[Fazer merge de uma pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)"

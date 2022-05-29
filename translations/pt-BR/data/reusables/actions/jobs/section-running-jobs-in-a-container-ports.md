@@ -1,1 +1,1 @@
-Use `jobs.<job_id>.container.ports` to set an `array` of ports to expose on the container.
+Use `jobs.<job_id>.container.ports` para definir uma `matriz ` de portas para ser exposta no contêiner.

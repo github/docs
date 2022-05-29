@@ -23,7 +23,6 @@ shortTitle: Recuperar una cuenta con 2FA
 **Advertencias**:
 
 - {% data reusables.two_fa.support-may-not-help %}
-- {% data reusables.accounts.you-must-know-your-password %}
 
 {% endwarning %}
 
@@ -33,16 +32,22 @@ shortTitle: Recuperar una cuenta con 2FA
 
 Utiliza uno de tus códigos de recuperación para recuperar automáticamente el ingreso a tu cuenta. Es posible que hayas guardado tus códigos de recuperación en un administrador de contraseñas o en la carpeta de descargas de tu computadora. El nombre de archivo por defecto para códigos de recuperación es `github-recovery-codes.txt`. Para obtener más información acerca de códigos de recuperación, consulta "[Configurar métodos de recuperación de autenticación de dos factores](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods#downloading-your-two-factor-authentication-recovery-codes)."
 
-{% data reusables.two_fa.username-password %}
+1. Teclea tu nombre de usuario y contraseña en el prompt de autenticación.
+
+    {% warning %}
+
+    **Advertencia**: {% data reusables.accounts.you-must-know-your-password %}
+
+    {% endwarning %}
 
 {% ifversion fpt or ghec %}
-1. Under "Having problems?", click **Use a recovery code or request a reset**.
+1. Debajo de "¿Tienes problemas?", haz clic en **Utiliza un código de recuperación o solicita un restablecimiento**.
 
-   ![Screenshot of link to use a recovery code](/assets/images/help/2fa/2fa-recovery-code-link.png)
+   ![Captura de pantalla del enlace para utilizar un código de recuperación](/assets/images/help/2fa/2fa-recovery-code-link.png)
 {%- else %}
 1. En la página 2FA, dentro de "Don't have your phone?" (¿No tienes tu teléfono?), haz clic en **Enter a two-factor recovery code (Ingresar un código de recuperación de dos factores)**.
 
-   ![Screenshot of link to use a recovery code](/assets/images/help/2fa/2fa_recovery_dialog_box.png){% endif %}
+   ![Captura de pantalla del enlace para utilizar un código de recuperación](/assets/images/help/2fa/2fa_recovery_dialog_box.png){% endif %}
 1. Escribe uno de tus códigos de recuperación, después haz clic en **Verify (Verificar)**.
 
    ![Campo para escribir un código de recuperación y botón Verificar](/assets/images/help/2fa/2fa-type-verify-recovery-code.png)
@@ -60,11 +65,11 @@ Si has configurado autenticación de dos factores utilizando una clave de seguri
 {% ifversion fpt or ghec %}
 ## Autentificarse con un dispositivo verificado, token SSH, o token de acceso personal
 
-If you know your password for {% data variables.product.product_location %} but don't have the two-factor authentication credentials or your two-factor authentication recovery codes, you can have a one-time password sent to your verified email address to begin the verification process and regain access to your account.
+Si conoces tu contraseña de {% data variables.product.product_location %} pero no tienes credenciales de autenticación bifactorial ni códigos de recuperación de autenticación bifactorial, se te puede enviar una contraseña de única ocasión a tu dirección de correo electrónico verificada para comenzar el proceso de verificación y que vuelvas a acceder a tu cuenta.
 
 {% note %}
 
-**Note**: For security reasons, regaining access to your account by authenticating with a one-time password can take up to three business days. {% data variables.product.company_short %} will not review additional requests submitted during this time.
+**Nota**: Por razones de seguridad, el volver a tener acceso a tu cuenta autenticándote con una contraseña de única ocasión podría demorar hasta tres días hábiles. {% data variables.product.company_short %} no revisará solicitudes adicionales que se emitan durante este tiempo.
 
 {% endnote %}
 
@@ -77,30 +82,30 @@ Puedes utilizar tus credenciales de autenticación de dos factores para recobrar
     **Advertencia**: {% data reusables.accounts.you-must-know-your-password %}
 
     {% endwarning %}
-1. Under "Having problems?", click **Use a recovery code or request a reset**.
+1. Debajo de "¿Tienes problemas?", haz clic en **Utiliza un código de recuperación o solicita un restablecimiento**.
 
-   ![Screenshot of link if you don't have your 2fa device or recovery codes](/assets/images/help/2fa/no-access-link.png)
-1. To the right of "Locked out?", click **Try recovering your account**.
+   ![Captura de pantalla del enlace en caso de que no tengas tu dispositivo o códigos de recuperación de 2FA](/assets/images/help/2fa/no-access-link.png)
+1. A la derecha de "¿Te quedaste fuera?", haz clic en **Intenta recuperar tu cuenta**.
 
-   ![Screenshot of link to try recovering your account](/assets/images/help/2fa/try-recovering-your-account-link.png)
+   ![Captura de pantalla del enlace para intentar recuperar tu cuenta](/assets/images/help/2fa/try-recovering-your-account-link.png)
 1. Da clic en **Entiendo, comenzar** para solicitar un restablecimiento de tu configuración de autenticación.
 
-    ![Screenshot of button to start reset of authentication settings](/assets/images/help/2fa/reset-auth-settings.png)
-1. Click **Send one-time password** to send a one-time password to all eligible addresses associated with your account. Only verified emails are eligible for account recovery. If you've restricted password resets to your primary and/or backup addresses, these addresses are the only addresses eligible for account recovery.
+    ![Captura de pantalla del botón para comenzar a restablecer los ajustes de autenticación](/assets/images/help/2fa/reset-auth-settings.png)
+1. Haz clic en **Enviar contraseña de única ocasión** para que se te envíe a todas las direcciones elegibles asociadas con tu cuenta. Solo las direcciones de correo electrónico verificadas serán elegibles para recuperar una cuenta. Si restringiste los restablecimientos de contraseña a tu dirección primaria o de respaldo, estas serán las únicas elegibles para recuperar tu cuenta.
 
-   ![Screenshot of button to send one-time password](/assets/images/help/2fa/send-one-time-password.png)
+   ![Captura de pantalla del botó para enviar una contraseña de única ocasión](/assets/images/help/2fa/send-one-time-password.png)
 1. Debajo de "Contraseña de una sola vez", teclea la contraseña temporal del correo electrónico de recuperación que envió {% data variables.product.prodname_dotcom %}.
 
-   ![Screenshot of field to type one-time password](/assets/images/help/2fa/one-time-password-field.png)
+   ![Captura de pantalla del campo para teclear la contraseña de única ocasión](/assets/images/help/2fa/one-time-password-field.png)
 1. Da clic en **Verificar dirección de correo electrónico**.
 
-   ![Screenshot of button to verify email address](/assets/images/help/2fa/verify-email-address.png)
+   ![Captura de pantalla del botón para verificar las direcciones de correo electrónico](/assets/images/help/2fa/verify-email-address.png)
 1. Escoge un factor de verificación alterno.
     - Si utilizaste tu dispositivo actual para ingresar en esta cuenta anteriormente y te gustaría utilizarlo para verificación, haz clic en **Verificar con este dispositivo**.
     - Si has configurado una llave SSH previamente en esta cuenta y quieres utilizarla para verificación, da clic en **Llave SSH**.
     - Si configuraste un token de acceso personal previamente y te gustaría utilizarlo para verificación, da clic en **Token de acceso personal**.
 
-   ![Screenshot of buttons for alternative verification](/assets/images/help/2fa/alt-verifications.png)
-1. A member of {% data variables.contact.github_support %} will review your request and email you within three business days. Si se aprueba tu solicitud, recibirás un enlace para completar el proceso de recuperación de tu cuenta. Si se te niega la solicitud, el mensaje incluirá un medio para contactar a soporte con cualquier pregunta adicional.
+   ![Captura de pantalla de los botones para verificación alterna](/assets/images/help/2fa/alt-verifications.png)
+1. Un miembro de {% data variables.contact.github_support %} revisará tu solicitud y te enviará un correo electrónico en los tres días hábiles siguientes. Si se aprueba tu solicitud, recibirás un enlace para completar el proceso de recuperación de tu cuenta. Si se te niega la solicitud, el mensaje incluirá un medio para contactar a soporte con cualquier pregunta adicional.
 
 {% endif %}

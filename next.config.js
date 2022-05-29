@@ -19,7 +19,7 @@ module.exports = {
   },
   i18n: {
     // locales: Object.values(languages).map(({ code }) => code),
-    locales: ['en', 'cn', 'ja', 'es', 'pt', 'de'],
+    locales: ['en', 'cn', 'ja', 'es', 'pt'],
     defaultLocale: 'en',
   },
   sassOptions: {
@@ -34,4 +34,12 @@ module.exports = {
       }
     })
   },
+  webpack: (config) => {
+    config.experiments = config.experiments || {}
+    config.experiments.topLevelAwait = true
+    return config
+  },
+
+  // https://nextjs.org/docs/api-reference/next.config.js/compression
+  compress: false,
 }

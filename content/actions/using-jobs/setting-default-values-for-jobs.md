@@ -1,7 +1,7 @@
 ---
 title: Setting default values for jobs
 shortTitle: Setting default values for jobs
-intro: Define the default settings that will apply to all jobs in the workflow, or all steps in a job.
+intro: 'Define the default settings that will apply to all jobs in the workflow, or all steps in a job.'
 versions:
   fpt: '*'
   ghes: '*'

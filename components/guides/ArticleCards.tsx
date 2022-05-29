@@ -3,8 +3,8 @@ import React, { useEffect, useRef, useState } from 'react'
 import { ArticleGuide, useProductGuidesContext } from 'components/context/ProductGuidesContext'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { ArticleCard } from './ArticleCard'
-import { DropdownMenu } from '@primer/components'
-import { ItemInput } from '@primer/components/lib/ActionList/List'
+import { DropdownMenu } from '@primer/react'
+import { ItemInput } from '@primer/react/lib/ActionList/List'
 
 const PAGE_SIZE = 9
 export const ArticleCards = () => {
@@ -50,7 +50,7 @@ export const ArticleCards = () => {
   const guides = isUserFiltering ? filteredResults : includeGuides || []
 
   const types = Object.entries(guideTypes).map(([key, val]) => {
-    return { text: val, key: key }
+    return { text: val, key }
   }) as ItemInput[]
 
   types.unshift({ text: t('filters.all'), key: undefined })

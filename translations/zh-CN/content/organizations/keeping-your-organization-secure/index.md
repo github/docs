@@ -1,6 +1,6 @@
 ---
 title: 保护组织安全
-intro: 'You can harden security for your organization by managing security settings,{% ifversion not ghae %} requiring two-factor authentication (2FA),{% endif %} and reviewing the activity and integrations within your organization.'
+intro: '您可以通过管理安全设置、{% ifversion not ghae %} 需要双重身份验证 (2FA)、{% endif %} 以及查看组织内的活动和集成来加强组织的安全性。'
 redirect_from:
   - /articles/preventing-unauthorized-access-to-organization-information
   - /articles/keeping-your-organization-secure

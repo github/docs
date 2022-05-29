@@ -36,15 +36,15 @@ Se você não verificar seu endereço de e-mail, não poderá:
 
 **Avisos**:
 
-- {% data reusables.user_settings.no-verification-disposable-emails %}
-- {% data reusables.user_settings.verify-org-approved-email-domain %}
+- {% data reusables.user-settings.no-verification-disposable-emails %}
+- {% data reusables.user-settings.verify-org-approved-email-domain %}
 
 {% endwarning %}
 
 ## Verificar endereço de e-mail
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.emails %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.emails %}
 1. Sob o seu endereço de e-mail, clique em **Reenviar e-mail de verificação**. ![Reenviar link do e-mail de verificação](/assets/images/help/settings/email-verify-button.png)
 4. O {% data variables.product.prodname_dotcom %} enviará a você um e-mail com um link. Clicando nesse link, você será redirecionado para o painel do {% data variables.product.prodname_dotcom %} e verá um banner de confirmação. ![Banner confirmando que seu e-mail foi verificado](/assets/images/help/settings/email-verification-confirmation-banner.png)
 
@@ -52,7 +52,7 @@ Se você não verificar seu endereço de e-mail, não poderá:
 
 ### Não é possível enviar verificação de e-mail
 
-{% data reusables.user_settings.no-verification-disposable-emails %}
+{% data reusables.user-settings.no-verification-disposable-emails %}
 
 ### Página de erro depois de clicar no link de verificação
 

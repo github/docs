@@ -31,8 +31,8 @@ shortTitle: 拆分子文件夹
    $ cd <em>REPOSITORY-NAME</em>
    ```
 
-5. To filter out the subfolder from the rest of the files in the repository, run [`git filter-repo`](https://github.com/newren/git-filter-repo), supplying this information:
-   - `FOLDER-NAME`: The folder within your project where you'd like to create a separate repository.
+5. 要从仓库中的其余文件过滤出该子文件夹，请运行 [`git filter-repo`](https://github.com/newren/git-filter-repo)，提供以下信息：
+   - `FOLDER-NAME`：项目中您要从其创建单独仓库的文件夹。
 
    {% windows %}
 
@@ -51,11 +51,11 @@ shortTitle: 拆分子文件夹
    > Ref 'refs/heads/<em>BRANCH-NAME</em>' was rewritten
    ```
 
-   The repository should now only contain the files that were in your subfolder(s).
+   现在，该仓库应仅包含您的子文件夹中的文件。
 
 6. 在 {% data variables.product.product_name %} 上[创建新仓库](/articles/creating-a-new-repository/)。
 
-7. At the top of your new repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}'s Quick Setup page, click {% octicon "clippy" aria-label="The copy to clipboard icon" %} to copy the remote repository URL.
+7. 在新仓库顶部 {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} 的快速设置页面，点击 {% octicon "clippy" aria-label="The copy to clipboard icon" %} 以复制远程仓库 URL。
 
    ![创建远程仓库 URL 字段](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 

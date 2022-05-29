@@ -219,7 +219,7 @@ Se sincronizó una Git ref exitosamente en una réplica de caché. Para obtener 
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
-`sender` | `object` | Si la `action` está como `reopened_by_user` o `closed_by_user`, el objeto que sea el `sender` será el usuario que activó el evento. El objeto `sender` está {% ifversion fpt or ghec %}`github` {% elsif ghes > 3.0 or ghae %}`github-enterprise` {% else %}vacío{% endif %} para el resto de las acciones.
+`sender` | `object` | Si la `action` está como `reopened_by_user` o `closed_by_user`, el objeto que sea el `sender` será el usuario que activó el evento. El objeto `sender` está {% ifversion fpt or ghec %}`github` {% elsif ghes or ghae %}`github-enterprise` {% else %}vacío{% endif %} para el resto de las acciones.
 
 ### Ejemplo de carga útil del webhook
 
@@ -353,10 +353,10 @@ Los eventos de webhook se desencadenan basándose en la especificidad del domini
 
 ### Objeto de carga útil del webhook
 
-| Clave        | Tipo                                        | Descripción                                                    |
-| ------------ | ------------------------------------------- | -------------------------------------------------------------- |{% ifversion fpt or ghes or ghae or ghec %}
-| `Acción`     | `secuencia`                                 | La acción realizada. Puede ser `created`.{% endif %}
-| `deployment` | `objeto`                                    | El [despliegue](/rest/reference/deployments#list-deployments). |
+| Clave        | Tipo        | Descripción                                                    |
+| ------------ | ----------- | -------------------------------------------------------------- |
+| `Acción`     | `secuencia` | La acción realizada. Puede ser `created`.                      |
+| `deployment` | `objeto`    | El [despliegue](/rest/reference/deployments#list-deployments). |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -378,14 +378,14 @@ Los eventos de webhook se desencadenan basándose en la especificidad del domini
 
 ### Objeto de carga útil del webhook
 
-| Clave                              | Tipo                                        | Descripción                                                                                     |
-| ---------------------------------- | ------------------------------------------- | ----------------------------------------------------------------------------------------------- |{% ifversion fpt or ghes or ghae or ghec %}
-| `Acción`                           | `secuencia`                                 | La acción realizada. Puede ser `created`.{% endif %}
-| `deployment_status`                | `objeto`                                    | El [estado del despliegue](/rest/reference/deployments#list-deployment-statuses).               |
-| `deployment_status["state"]`       | `secuencia`                                 | El estado nuevo. Puede ser `pending`, `success`, `failure`, o `error`.                          |
-| `deployment_status["target_url"]`  | `secuencia`                                 | El enlace opcional agregado al estado.                                                          |
-| `deployment_status["description"]` | `secuencia`                                 | La descripción opcional legible para las personas que se agrega al estado.                      |
-| `deployment`                       | `objeto`                                    | El [despliegue](/rest/reference/deployments#list-deployments) con el que se asocia este estado. |
+| Clave                              | Tipo        | Descripción                                                                                     |
+| ---------------------------------- | ----------- | ----------------------------------------------------------------------------------------------- |
+| `Acción`                           | `secuencia` | La acción realizada. Puede ser `created`.                                                       |
+| `deployment_status`                | `objeto`    | El [estado del despliegue](/rest/reference/deployments#list-deployment-statuses).               |
+| `deployment_status["state"]`       | `secuencia` | El nuevo estado. Puede ser `pending`, `success`, `failure`, o `error`.                          |
+| `deployment_status["target_url"]`  | `secuencia` | El enlace opcional agregado al estado.                                                          |
+| `deployment_status["description"]` | `secuencia` | La descripción opcional legible para las personas que se agrega al estado.                      |
+| `deployment`                       | `objeto`    | El [despliegue](/rest/reference/deployments#list-deployments) con el que se asocia este estado. |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -811,8 +811,6 @@ Se eliminó el evento para el cual se configuró este webhook. Este evento únic
 
 {% endif %}
 
-{% ifversion fpt or ghae or ghec %}
-
 ## paquete
 
 Actividad relacionada con el {% data variables.product.prodname_registry %}. {% data reusables.webhooks.action_type_desc %} para obtener más información, consulta la sección "[Administrar paquetes con {% data variables.product.prodname_registry %}](/github/managing-packages-with-github-packages)" para aprender más sobre el {% data variables.product.prodname_registry %}.
@@ -832,7 +830,6 @@ Actividad relacionada con el {% data variables.product.prodname_registry %}. {% 
 ### Ejemplo de carga útil del webhook
 
 {{ webhookPayloadsForCurrentVersion.package.published }}
-{% endif %}
 
 ## page_build
 
@@ -1062,6 +1059,28 @@ Las entregas para los eventos `review_requested` y `review_request_removed` tend
 
 {{ webhookPayloadsForCurrentVersion.pull_request_review_comment.created }}
 
+## pull_request_review_thread
+
+{% data reusables.webhooks.pull_request_review_thread_short_desc %}
+
+### Disponibilidad
+
+- Webhooks de repositorio
+- Webhooks de organización
+- {% data variables.product.prodname_github_apps %} con el permiso `pull_requests`
+
+### Objeto de carga útil del webhook
+
+{% data reusables.webhooks.pull_request_thread_properties %}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
+
+### Ejemplo de carga útil del webhook
+
+{{ webhookPayloadsForCurrentVersion.pull_request_review_thread.resolved }}
+
 ## subir
 
 {% data reusables.webhooks.push_short_desc %}
@@ -1135,7 +1154,6 @@ Las entregas para los eventos `review_requested` y `review_request_removed` tend
 
 {{ webhookPayloadsForCurrentVersion.release.published }}
 
-{% ifversion fpt or ghes or ghae or ghec %}
 ## repository_dispatch
 
 Este evento ocurre cuando una {% data variables.product.prodname_github_app %} envía una solicitud de `POST` a la terminal "[Crear un evento de envío de repositorio](/rest/reference/repos#create-a-repository-dispatch-event)".
@@ -1147,7 +1165,6 @@ Este evento ocurre cuando una {% data variables.product.prodname_github_app %} e
 ### Ejemplo de carga útil del webhook
 
 {{ webhookPayloadsForCurrentVersion.repository_dispatch }}
-{% endif %}
 
 ## repositorio
 
@@ -1163,7 +1180,7 @@ Este evento ocurre cuando una {% data variables.product.prodname_github_app %} e
 
 | Clave    | Tipo        | Descripción                                                                              |
 | -------- | ----------- | ---------------------------------------------------------------------------------------- |
-| `Acción` | `secuencia` | La acción que se realizó. Esta puede ser una de las siguientes:<ul><li>`created` - Un repositorio se crea.</li><li>Un repositorio se borra.</li><li>`archived` - Un repositorio se archiva.</li><li>`unarchived` - Un repositorio se desarchiva.</li>{% ifversion ghes or ghae %}<li>`anonymous_access_enabled` - Un repositorio se [habilita para el acceso anónimo de Git](/rest/overview/api-previews#anonymous-git-access-to-repositories), `anonymous_access_disabled` - Un repositorio se [inhabilita para el acceso anónimo de Git](/rest/overview/api-previews#anonymous-git-access-to-repositories)</li>{% endif %}<li>`edited` - Se edita la información de un repositorio.</li><li>`renamed` - Un repositorio se renombra.</li><li>`transferred` - Un repositorio se transfiere.</li><li>`publicized` - Un repositorio se hace público.</li><li> `privatized` - Un repositorio se hace privado.</li></ul> |
+| `Acción` | `secuencia` | La acción que se realizó. Esta puede ser una de las siguientes:<ul><li>`created` - Un repositorio se crea.</li><li>Un repositorio se borra.</li><li>`archived` - Un repositorio se archiva.</li><li>`unarchived` - Un repositorio se desarchiva.</li>{% ifversion ghes or ghae %}<li>`anonymous_access_enabled` - Un repositorio está [habilitado para acceso anónimo a Git](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise), `anonymous_access_disabled` - Un repositorio está [inhabilitado para acceso anónimo a Git](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise)</li>{% endif %}<li>`edited` - Se edita la información de un repositorio.</li><li>`renamed` - Un repositorio se renombra.</li><li>`transferred` - Un repositorio se transfiere.</li><li>`publicized` - Un repositorio se hace público.</li><li> `privatized` - Un repositorio se hace privado.</li></ul> |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -1216,7 +1233,7 @@ Este evento ocurre cuando una {% data variables.product.prodname_github_app %} e
 
 {% endif %}
 
-{% ifversion fpt or ghes > 3.0 or ghec %}
+{% ifversion ghes or ghec %}
 
 ## secret_scanning_alert
 
@@ -1241,12 +1258,35 @@ Este evento ocurre cuando una {% data variables.product.prodname_github_app %} e
 {{ webhookPayloadsForCurrentVersion.secret_scanning_alert.reopened }}
 {% endif %}
 
+{% ifversion ghes > 3.4 or ghec or ghae-issue-6581 %}
+## secret_scanning_alert_location
+
+{% data reusables.webhooks.secret_scanning_alert_location_event_short_desc %}
+
+### Disponibilidad
+
+- Webhooks de repositorio
+- Webhooks de organización
+- Las {% data variables.product.prodname_github_apps %} con el permiso de `secret_scanning_alerts:read`
+
+### Objeto de carga útil del webhook
+
+{% data reusables.webhooks.secret_scanning_alert_location_event_properties %}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+
+### Ejemplo de carga útil del webhook
+
+{{ webhookPayloadsForCurrentVersion.secret_scanning_alert_location.created }}
+{% endif %}
+
 {% ifversion fpt or ghes or ghec %}
 ## security_advisory
 
 La actividad relacionada con una asesoría de seguridad que revisó {% data variables.product.company_short %}. Una asesoría de seguridad que haya revisado {% data variables.product.company_short %} proporciona información sobre las vulnerabilidades relacionadas con la seguridad en el software de {% data variables.product.prodname_dotcom %}.
 
-El conjunto de datos de asesoría de seguridad también impulsa las {% data variables.product.prodname_dependabot_alerts %} de GitHub. Para obtener más información, consulta la sección "[Acerca de las alertas para las dependencias vulnerables](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies/)".
+El conjunto de datos de asesoría de seguridad también impulsa las {% data variables.product.prodname_dependabot_alerts %} de GitHub. Para obtener más información, consulta la sección "[Acerca de las {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies/)".
 
 ### Disponibilidad
 
@@ -1328,7 +1368,7 @@ Solo puedes crear un webhook de patrocinio en {% data variables.product.prodname
 | ------------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `id`          | `número`    | El identificador único del estado.                                                                                                                                                                       |
 | `sha`         | `secuencia` | El SHA de la confirmación.                                                                                                                                                                               |
-| `state`       | `secuencia` | El estado nuevo. Puede ser `pending`, `success`, `failure`, o `error`.                                                                                                                                   |
+| `state`       | `secuencia` | El nuevo estado. Puede ser `pending`, `success`, `failure`, o `error`.                                                                                                                                   |
 | `descripción` | `secuencia` | La descripción opcional legible para las personas que se agrega al estado.                                                                                                                               |
 | `url_destino` | `secuencia` | El enlace opcional agregado al estado.                                                                                                                                                                   |
 | `branches`    | `arreglo`   | Un conjunto de objetos de la rama que contiene el SHA del estado. Cada rama contiene el SHA proporcionado, pero éste puede ser o no el encabezado de la rama. El conjunto incluye un máximo de 10 ramas. |
@@ -1443,12 +1483,23 @@ Este evento ocurre cuando alguien activa una ejecución de flujo de trabajo en G
 
 - Las {% data variables.product.prodname_github_apps %} deben tener el permiso `contents` para recibir este webhook.
 
+### Objeto de carga útil del webhook
+
+| Clave              | Tipo     | Descripción                                                                                                                       |
+| ------------------ | -------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| `inputs (entrada)` | `objeto` | Entradas al flujo de trabajo. Cada clave representa el nombre de la entrada mientras que su valor representa aquél de la entrada. |
+{% data reusables.webhooks.org_desc %}
+| `ref` | `string` | La ref de la rama desde la cual se ejecutó el flujo de trabajo. |
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.sender_desc %}
+| `workflow` | `string` | Ruta relativa al archivo de flujo de trabajo que lo contiene. |
+
 ### Ejemplo de carga útil del webhook
 
 {{ webhookPayloadsForCurrentVersion.workflow_dispatch }}
 {% endif %}
 
-{% ifversion fpt or ghes > 3.2 or ghec %}
+{% ifversion fpt or ghes > 3.2 or ghec or ghae %}
 
 ## workflow_job
 

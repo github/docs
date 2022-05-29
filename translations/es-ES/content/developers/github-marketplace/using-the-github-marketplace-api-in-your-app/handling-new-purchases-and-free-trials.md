@@ -59,7 +59,7 @@ Cuando un cliente compra tu app, debes enviar a dicho cliente a través del fluj
 
 * Si tu app es una {% data variables.product.prodname_oauth_app %}, inicia el flujo de autorización tan pronto como {% data variables.product.product_name %} redirija al cliente a la **URL de instalación**. Sigue los pasos de la sección "[Autorizar las {% data variables.product.prodname_oauth_apps %}](/apps/building-oauth-apps/authorizing-oauth-apps/)".
 
-For either type of app, the first step is to redirect the customer to [https://github.com/login/oauth/authorize](https://github.com/login/oauth/authorize).
+Para cualquier tipo de app, el primer paso es redirigir al cliente a [https://github.com/login/oauth/authorize](https://github.com/login/oauth/authorize).
 
 Después de que el ciente complete la autorización, tu app recibirá un token de acceso de OAuth para el cliente. Necesitas este token para el siguiente paso.
 

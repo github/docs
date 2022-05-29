@@ -36,11 +36,11 @@ shortTitle: 使用 HTTPS 保护站点
 {% data reusables.pages.sidebar-pages %}
 3. 在 "{% data variables.product.prodname_pages %}" 下，选择 **Enforce HTTPS（实施 HTTPS）**。 ![强制实施 HTTPS 复选框](/assets/images/help/pages/enforce-https-checkbox.png)
 
-## Troubleshooting certificate provisioning ("Certificate not yet created" error")
+## 证书预配疑难解答（”证书尚未创建“错误）
 
-When you set or change your custom domain in the Pages settings, an automatic DNS check begins. This check determines if your DNS settings are configured to allow {% data variables.product.prodname_dotcom %} to obtain a certificate automatically. If the check is successful, {% data variables.product.prodname_dotcom %} queues a job to request a TLS certificate from [Let's Encrypt](https://letsencrypt.org/). On receiving a valid certificate, {% data variables.product.prodname_dotcom %} automatically uploads it to the servers that handle TLS termination for Pages. When this process completes successfully, a check mark is displayed beside your custom domain name.
+当您在 Pages 设置中设置或更改自定义域名时，系统会开始自动进行 DNS 检查。 此检查确定您的 DNS 设置是否配置为允许 {% data variables.product.prodname_dotcom %} 自动获取证书。 如果检查成功，{% data variables.product.prodname_dotcom %} 将作业排队以从 [Let's Encrypt](https://letsencrypt.org/) 请求 TLS 证书。 收到有效证书后，{% data variables.product.prodname_dotcom %} 会自动将其上传到处理 Pages 的 TLS 终止的服务器。 成功完成此过程后，您的自定义域名旁边将显示一个复选标记。
 
-The process may take some time. If the process has not completed several minutes after you clicked **Save**, try clicking **Remove** next to your custom domain name. Retype the domain name and click **Save** again. This will cancel and restart the provisioning process.
+该过程可能需要一些时间。 如果在单击 **Save（保存）**后几分钟内该过程尚未完成，请尝试单击自定义域名旁边的 **Remove（删除）** 。 重新键入域名，然后再次单击 **Save（保存）** 。 这将取消并重新启动预配过程。
 
 ## 解决具有混合内容的问题
 

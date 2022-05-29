@@ -1,1 +1,1 @@
-1. In the "Integrations" section of the sidebar, click **{% octicon "key" aria-label="The key icon" %} Third-party access**.
+1. En la sección de "Integraciones" de la barra lateral, haz clic en **{% octicon "key" aria-label="The key icon" %} Acceso de terceros**.

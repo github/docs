@@ -32,5 +32,7 @@ You can enable the `same-origin` referrer policy to instruct modern browsers to 
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
-1. Under "User Agent Referrer Policy", select **Enable same origin referrer policy for all organizations**. ![Checkbox for enabling same origin referrer policy](/assets/images/enterprise/settings/referrer-policy-checkbox.png)
-1. 单击 **Save（保存）**。 ![Save button for enabling same origin referrer policy](/assets/images/enterprise/settings/referrer-policy-save-button.png)
+1. Under "User Agent Referrer Policy", select **Enable same origin referrer policy for all organizations**.
+  ![Checkbox for enabling same origin referrer policy](/assets/images/enterprise/settings/referrer-policy-checkbox.png)
+1. Click **Save**.
+  ![Save button for enabling same origin referrer policy](/assets/images/enterprise/settings/referrer-policy-save-button.png)

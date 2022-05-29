@@ -4,7 +4,7 @@ intro: 'Integrations are tools and services that connect with {% data variables.
 redirect_from:
   - /articles/about-integrations
   - /github/customizing-your-github-workflow/about-integrations
-  - /github/customizing-your-github-workflow/exploring-integrations/about-integrations  
+  - /github/customizing-your-github-workflow/exploring-integrations/about-integrations
 versions:
   fpt: '*'
   ghec: '*'

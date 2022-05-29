@@ -27,6 +27,20 @@ To track how smaller issues fit into the larger goal, use task lists, milestones
 
 Issues and pull requests include built-in features to let you easily communicate with your collaborators. Use @mentions to alert a person or entire team about a comment. Assign collaborators to issues to communicate responsibility. Link to related issues or pull requests to communicate how they are connected.
 
+## Make use of the description and README
+
+Use your project's description and README to share information about the project.
+
+For example:
+
+- Explaining the purpose of the project.
+- Describing the project views and how to use them.
+- Including relevant links and people to contact for more information.
+
+Project READMEs support Markdown which allows you to use images and advanced formatting such as links, lists, and headers. 
+
+For more information, see "[Creating a project (beta)](/issues/trying-out-the-new-projects-experience/creating-a-project#updating-your-project-description-and-readme)."
+
 ## Use views
 
 Use project views to look at your project from different angles.
@@ -61,7 +75,7 @@ Additionally, {% data variables.product.prodname_actions %} and the GraphQL API 
 
 Take advantage of the various field types to meet your needs.
 
-Use an iteration field to schedule work or create a timeline. You can group by iteration to see if items are balanced between iterations, or you can filter to focus on a single iteration. Iteration fields also let you view work that you completed in past iterations, which can help with velocity planning and reflecting on your team's accomplishments.
+Use an iteration field to schedule work or create a timeline. You can group by iteration to see if items are balanced between iterations, or you can filter to focus on a single iteration. Iteration fields also let you view work that you completed in past iterations, which can help with velocity planning and reflecting on your team's accomplishments. Iteration fields also support breaks to show when you and your team are taking time away from their iterations. For more information, see "[Managing iterations in projects](/issues/trying-out-the-new-projects-experience/managing-iterations)."
 
 Use a single select field to track information about a task based on a preset list of values. For example, track priority or project phase. Since the values are selected from a preset list, you can easily group or filter to focus on items with a specific value.
 

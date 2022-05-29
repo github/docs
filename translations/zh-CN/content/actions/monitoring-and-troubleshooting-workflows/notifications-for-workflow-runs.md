@@ -1,6 +1,6 @@
 ---
 title: 工作流程运行通知
-intro: You can subscribe to notifications about workflow runs that you trigger.
+intro: 您可以订阅有关触发的工作流程运行的通知。
 versions:
   fpt: '*'
   ghes: '*'

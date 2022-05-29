@@ -48,8 +48,11 @@ topics:
 - [要求签名提交](#require-signed-commits)
 - [需要线性历史记录](#require-linear-history)
 {% ifversion fpt or ghec %}
-- [Require merge queue](#require-merge-queue)
+- [需要合并队列](#require-merge-queue)
 {% endif %}
+{%- if required-deployments %}
+- [要求部署在合并之前成功](#require-deployments-to-succeed-before-merging)
+{%- endif %}
 - [包括管理员](#include-administrators)
 - [限制谁可以推送到匹配的分支](#restrict-who-can-push-to-matching-branches)
 - [允许强制推送](#allow-force-pushes)
@@ -88,7 +91,7 @@ remote: error: Changes have been requested.
 
 启用必需状态检查后，必须通过所有必需状态检查，协作者才能将更改合并到受保护分支。 所有必需状态检查通过后，必须将任何提交推送到另一个分支，然后合并或直接推送到受保护分支。
 
-Any person or integration with write permissions to a repository can set the state of any status check in the repository{% ifversion fpt or ghes > 3.3 or ghae-issue-5379 or ghec %}, but in some cases you may only want to accept a status check from a specific {% data variables.product.prodname_github_app %}. When you add a required status check, you can select an app that has recently set this check as the expected source of status updates.{% endif %} If the status is set by any other person or integration, merging won't be allowed. If you select "any source", you can still manually verify the author of each status, listed in the merge box.
+任何人或具有存储库写入权限的集成都可以在存储库中设置任何状态检查的状态{% ifversion fpt or ghes > 3.3 or ghae-issue-5379 or ghec %}，但在某些情况下，您可能只想接受来自特定 {% data variables.product.prodname_github_app %} 的状态检查。 添加所需的状态检查时，可以选择最近将此检查设置为预期状态更新源的应用。{% endif %} 如果状态由任何其他人员或集成设置，则不允许合并。 如果选择“任何来源”，您仍然可以手动验证合并框中列出的每个状态的作者。
 
 您可以将必需状态检查设置为“宽松”或“严格”。 您选择的必需状态检查类型确定合并之前是否需要使用基础分支将您的分支保持最新状态。
 
@@ -135,7 +138,7 @@ Any person or integration with write permissions to a repository can set the sta
 在需要线性提交历史记录之前，仓库必须允许压缩合并或变基合并。 更多信息请参阅“[配置拉取请求合并](/github/administering-a-repository/configuring-pull-request-merges)”。
 
 {% ifversion fpt or ghec %}
-### Require merge queue
+### 需要合并队列
 
 {% data reusables.pull_requests.merge-queue-beta %}
 {% data reusables.pull_requests.merge-queue-overview %}
@@ -144,6 +147,11 @@ Any person or integration with write permissions to a repository can set the sta
 {% data reusables.pull_requests.merge-queue-references %}
 
 {% endif %}
+
+### 要求部署在合并之前成功
+
+您可以要求先将更改成功部署到特定环境，然后才能合并分支。 例如，可以使用此规则确保在更改合并到默认分支之前，将更改成功部署到过渡环境。
+
 ### 包括管理员
 
 默认情况下，受保护分支规则不适用于对仓库具有管理员权限的人。 您可以启用此设置将管理员纳入受保护分支规则。
@@ -154,27 +162,31 @@ Any person or integration with write permissions to a repository can set the sta
 如果您的仓库为使用 {% data variables.product.prodname_team %} 或 {% data variables.product.prodname_ghe_cloud %} 的组织所拥有，您可以启用分支限制。
 {% endif %}
 
-启用分支限制时，只有已授予权限的用户、团队或应用程序才能推送到受保护的分支。 您可以在受保护分支的设置中查看和编辑对受保护分支具有推送权限的用户、团队或应用程序。 When status checks are required, the people, teams, and apps that have permission to push to a protected branch will still be prevented from merging if the required checks fail. People, teams, and apps that have permission to push to a protected branch will still need to create a pull request when pull requests are required.
+启用分支限制时，只有已授予权限的用户、团队或应用程序才能推送到受保护的分支。 您可以在受保护分支的设置中查看和编辑对受保护分支具有推送权限的用户、团队或应用程序。 当需要状态检查时，如果所需的检查失败，仍会阻止有权推送到受保护分支的人员、团队和应用合并到分支。 当需要拉取请求时，有权推送到受保护分支的人员、团队和应用仍需要创建拉取请求。
 
-您只能向对仓库具有 write 权限的用户、团队或已安装的 {% data variables.product.prodname_github_apps %} 授予推送到受保护分支的权限。 对仓库具有管理员权限的人员和应用程序始终能够推送到受保护分支。
+{% if restrict-pushes-create-branch %}
+（可选）您可以对创建与规则匹配的分支应用相同的限制。 例如，如果创建的规则仅允许某个团队推送到包含 `release` 一词的任何分支，则只有该团队的成员才能创建包含 `release` 一词的新分支。
+{% endif %}
+
+您只能向具有存储库写入访问权限的用户、团队或已安装 {% data variables.product.prodname_github_apps %} 授予对受保护分支的推送访问权限，或授予创建匹配分支的权限。 对存储库具有管理员权限的人员和应用始终能够推送到受保护的分支或创建匹配的分支。
 
 ### 允许强制推送
 
-{% ifversion fpt or ghec %}
-默认情况下，{% data variables.product.product_name %} 阻止对所有受保护分支的强制推送。 When you enable force pushes to a protected branch, you can choose one of two groups who can force push:
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5624 %}
+默认情况下，{% data variables.product.product_name %} 阻止对所有受保护分支的强制推送。 启用强制推送到受保护分支时，可以选择两个可以强制推送的组之一：
 
-1. Allow everyone with at least write permissions to the repository to force push to the branch, including those with admin permissions.
-1. Allow only specific people or teams to force push to the branch.
+1. 允许至少具有存储库写入权限的每个人强制推送到分支，包括具有管理员权限的人员。
+1. 仅允许特定人员或团队强制推送到分支。
 
-If someone force pushes to a branch, the force push may overwrite commits that other collaborators based their work on. People may have merge conflicts or corrupted pull requests.
+如果有人强制推送到分支，则强制推送可能会覆盖其他协作者基于其工作的承诺。 用户可能有合并冲突或损坏的拉取请求。
 
 {% else %}
-默认情况下，{% data variables.product.product_name %} 阻止对所有受保护分支的强制推送。 对受保护分支启用强制推送时，只要具有仓库写入权限，任何人（包括具有管理员权限的人）都可以强制推送到该分支。 If someone force pushes to a branch, the force push may overwrite commits that other collaborators based their work on. People may have merge conflicts or corrupted pull requests.
+默认情况下，{% data variables.product.product_name %} 阻止对所有受保护分支的强制推送。 对受保护分支启用强制推送时，只要具有仓库写入权限，任何人（包括具有管理员权限的人）都可以强制推送到该分支。 如果有人强制推送到分支，则强制推送可能会覆盖其他协作者基于其工作的承诺。 用户可能有合并冲突或损坏的拉取请求。
 {% endif %}
 
 启用强制推送不会覆盖任何其他分支保护规则。 例如，如果分支需要线性提交历史记录，则无法强制推送合并提交到该分支。
 
-{% ifversion ghes or ghae %}如果站点管理员阻止了强制推送到仓库中的所有分支，则无法对受保护分支启用强制推送。 更多信息请参阅“[阻止强制推送到用户帐户或组织拥有的仓库](/enterprise/{{ currentVersion }}/admin/developer-workflow/blocking-force-pushes-to-repositories-owned-by-a-user-account-or-organization)”。
+{% ifversion ghes or ghae %}如果站点管理员阻止了强制推送到仓库中的所有分支，则无法对受保护分支启用强制推送。 更多信息请参阅“[阻止强制推送到个人帐户或组织拥有的仓库](/enterprise/{{ currentVersion }}/admin/developer-workflow/blocking-force-pushes-to-repositories-owned-by-a-user-account-or-organization)”。
 
 如果站点管理员只阻止强制推送到默认分支，您仍然可以为任何其他受保护分支启用强制推送。{% endif %}
 

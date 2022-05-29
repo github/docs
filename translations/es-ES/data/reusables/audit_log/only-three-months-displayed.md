@@ -1,0 +1,1 @@
+Predeterminadamente, solo se muestran los eventos de los últimos tres meses. Para ver los eventos más viejos, debes especificar un rango de fechas con el parámetro `creado`. Para obtener más información, consulta la sección "[Entender la sintaxis de búsqueda](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax#query-for-dates)".

@@ -12,8 +12,8 @@ versions:
   ghec: '*'
 ---
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.saved_replies %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.saved_replies %}
 3. 在“Add a saved reply（添加已保存回复）”下，添加已保存回复的标题。 ![已保存回复标题](/assets/images/help/settings/saved-replies-title.png)
 4. 在“Write（撰写 ）”字段中，添加要用于已保存回复的内容。 有关在 {% data variables.product.product_name %} 上撰写的更多信息，请参阅“[基本撰写和格式语法](/articles/basic-writing-and-formatting-syntax)”。 ![撰写已保存回复](/assets/images/help/settings/saved-replies-settings-adding.png)
 5. 要查看回复，请单击 **Preview（预览）**。 ![添加已保存回复](/assets/images/help/settings/saved-replies-preview.png)

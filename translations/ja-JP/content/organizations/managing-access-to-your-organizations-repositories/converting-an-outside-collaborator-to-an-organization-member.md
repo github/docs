@@ -20,11 +20,11 @@ shortTitle: コラボレータをメンバーに変換
 Organization がユーザ単位の有料プランである場合、新しいメンバーを招待して参加させる、または Organization の以前のメンバーを復帰させる前に、そのためのライセンスが用意されている必要があります。 詳細は「[ユーザごとの価格付けについて](/articles/about-per-user-pricing)」を参照してください。 {% data reusables.organizations.org-invite-expiration %}{% endif %}
 
 {% ifversion not ghae %}
-If your organization [requires members to use two-factor authentication](/articles/requiring-two-factor-authentication-in-your-organization), users {% ifversion fpt or ghec %}you invite must [enable two-factor authentication](/articles/securing-your-account-with-two-factor-authentication-2fa) before they can accept the invitation.{% else %}must [enable two-factor authentication](/articles/securing-your-account-with-two-factor-authentication-2fa) before you can add them to the organization.{% endif %}
+Organization が[メンバーに 2 要素認証を使うことを要求](/articles/requiring-two-factor-authentication-in-your-organization)している場合、{% ifversion fpt or ghec %}招待されるユーザは招待を受諾する前に手元で [2 要素認証を有効化](/articles/securing-your-account-with-two-factor-authentication-2fa)しておく必要があります。{% else %}ユーザを Organization に追加する前にそのユーザは手元で [2 要素認証を有効化](/articles/securing-your-account-with-two-factor-authentication-2fa)しておく必要があります。{% endif %}
 {% endif %}
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.people %}
 {% data reusables.organizations.people_tab_outside_collaborators %}
 {% ifversion fpt or ghec %}

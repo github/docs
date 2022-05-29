@@ -50,7 +50,7 @@ In this guide, we will use the Docker `build-push-action` action to build the Do
 
 ## Publishing images to Docker Hub
 
-{% data reusables.github-actions.release-trigger-workflow %}
+{% data reusables.actions.release-trigger-workflow %}
 
 In the example workflow below, we use the Docker `login-action` and `build-push-action` actions to build the Docker image and, if the build succeeds, push the built image to Docker Hub.
 
@@ -78,10 +78,10 @@ on:
 jobs:
   push_to_registry:
     name: Push Docker image to Docker Hub
-    runs-on: ubuntu-latest
+    runs-on: {% ifversion ghes %}[self-hosted]{% else %}ubuntu-latest{% endif %}
     steps:
       - name: Check out the repo
-        uses: actions/checkout@v2
+        uses: {% data reusables.actions.action-checkout %}
       
       - name: Log in to Docker Hub
         uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
@@ -108,12 +108,16 @@ The above workflow checks out the {% data variables.product.prodname_dotcom %} r
 
 ## Publishing images to {% data variables.product.prodname_registry %}
 
-{% data reusables.github-actions.release-trigger-workflow %}
+{% ifversion ghes > 3.4 %}
+{% data reusables.package_registry.container-registry-ghes-beta %}
+{% endif %}
+
+{% data reusables.actions.release-trigger-workflow %}
 
 In the example workflow below, we use the Docker `login-action`{% ifversion fpt or ghec %}, `metadata-action`,{% endif %} and `build-push-action` actions to build the Docker image, and if the build succeeds, push the built image to {% data variables.product.prodname_registry %}.
 
 The `login-action` options required for {% data variables.product.prodname_registry %} are:
-* `registry`: Must be set to {% ifversion fpt or ghec %}`ghcr.io`{% else %}`docker.pkg.github.com`{% endif %}.
+* `registry`: Must be set to {% ifversion fpt or ghec %}`ghcr.io`{% elsif ghes > 3.4 %}`{% data reusables.package_registry.container-registry-hostname %}`{% else %}`docker.pkg.github.com`{% endif %}.
 * `username`: You can use the {% raw %}`${{ github.actor }}`{% endraw %} context to automatically use the username of the user that triggered the workflow run. For more information, see "[Contexts](/actions/learn-github-actions/contexts#github-context)."
 * `password`: You can use the automatically-generated `GITHUB_TOKEN` secret for the password. For more information, see "[Authenticating with the GITHUB_TOKEN](/actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token)."
 
@@ -126,12 +130,16 @@ The `build-push-action` options required for {% data variables.product.prodname_
 * `context`: Defines the build's context as the set of files located in the specified path.{% endif %}
 * `push`: If set to `true`, the image will be pushed to the registry if it is built successfully.{% ifversion fpt or ghec %}
 * `tags` and `labels`: These are populated by output from `metadata-action`.{% else %}
-* `tags`: Must be set in the format `docker.pkg.github.com/OWNER/REPOSITORY/IMAGE_NAME:VERSION`. For example, for an image named `octo-image` stored on {% data variables.product.prodname_dotcom %} at `http://github.com/octo-org/octo-repo`, the `tags` option should be set to `docker.pkg.github.com/octo-org/octo-repo/octo-image:latest`. You can set a single tag as shown below, or specify multiple tags in a list.{% endif %}
+* `tags`: Must be set in the format {% ifversion ghes > 3.4 %}`{% data reusables.package_registry.container-registry-hostname %}/OWNER/REPOSITORY/IMAGE_NAME:VERSION`. 
+  
+   For example, for an image named `octo-image` stored on {% data variables.product.prodname_ghe_server %} at `https://HOSTNAME/octo-org/octo-repo`, the `tags` option should be set to `{% data reusables.package_registry.container-registry-hostname %}/octo-org/octo-repo/octo-image:latest`{% else %}`docker.pkg.github.com/OWNER/REPOSITORY/IMAGE_NAME:VERSION`.
+  
+   For example, for an image named `octo-image` stored on {% data variables.product.prodname_dotcom %} at `http://github.com/octo-org/octo-repo`, the `tags` option should be set to `docker.pkg.github.com/octo-org/octo-repo/octo-image:latest`{% endif %}. You can set a single tag as shown below, or specify multiple tags in a list.{% endif %}
 
-{% ifversion fpt or ghec %}
+{% ifversion fpt or ghec or ghes > 3.4 %}
 {% data reusables.package_registry.publish-docker-image %}
 
-The above workflow if triggered by a push to the "release" branch. It checks out the GitHub repository, and uses the `login-action` to log in to the {% data variables.product.prodname_container_registry %}. It then extracts labels and tags for the Docker image. Finally, it uses the `build-push-action` action to build the image and publish it on the {% data variables.product.prodname_container_registry %}.
+The above workflow is triggered by a push to the "release" branch. It checks out the GitHub repository, and uses the `login-action` to log in to the {% data variables.product.prodname_container_registry %}. It then extracts labels and tags for the Docker image. Finally, it uses the `build-push-action` action to build the image and publish it on the {% data variables.product.prodname_container_registry %}.
 
 {% else %}
 ```yaml{:copy}
@@ -151,7 +159,7 @@ jobs:
       contents: read{% endif %}
     steps:
       - name: Check out the repo
-        uses: actions/checkout@v2
+        uses: {% data reusables.actions.action-checkout %}
       
       - name: Log in to GitHub Docker Registry
         uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
@@ -170,10 +178,14 @@ jobs:
             {% ifversion ghae %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}{% raw %}/${{ github.repository }}/octo-image:${{ github.event.release.tag_name }}{% endraw %}
 ```
 
-The above workflow checks out the {% data variables.product.prodname_dotcom %} repository, uses the `login-action` to log in to the registry, and then uses the `build-push-action` action to: build a Docker image based on your repository's `Dockerfile`; push the image to the Docker registry, and apply the commit SHA and release version as image tags.
+The above workflow checks out the {% data variables.product.product_name %} repository, uses the `login-action` to log in to the registry, and then uses the `build-push-action` action to: build a Docker image based on your repository's `Dockerfile`; push the image to the Docker registry, and apply the commit SHA and release version as image tags.
 {% endif %}
 
 ## Publishing images to Docker Hub and {% data variables.product.prodname_registry %}
+
+{% ifversion ghes > 3.4 %}
+{% data reusables.package_registry.container-registry-ghes-beta %}
+{% endif %}
 
 In a single workflow, you can publish your Docker image to multiple registries by using the `login-action` and `build-push-action` actions for each registry.
 
@@ -191,13 +203,13 @@ on:
 jobs:
   push_to_registries:
     name: Push Docker image to multiple registries
-    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
+    runs-on: {% ifversion ghes %}[self-hosted]{% else %}ubuntu-latest{% endif %}{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
     permissions:
       packages: write
       contents: read{% endif %}
     steps:
       - name: Check out the repo
-        uses: actions/checkout@v2
+        uses: {% data reusables.actions.action-checkout %}
       
       - name: Log in to Docker Hub
         uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
@@ -205,10 +217,10 @@ jobs:
           username: {% raw %}${{ secrets.DOCKER_USERNAME }}{% endraw %}
           password: {% raw %}${{ secrets.DOCKER_PASSWORD }}{% endraw %}
       
-      - name: Log in to the {% ifversion fpt or ghec %}Container{% else %}Docker{% endif %} registry
+      - name: Log in to the {% ifversion fpt or ghec or ghes > 3.4 %}Container{% else %}Docker{% endif %} registry
         uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
         with:
-          registry: {% ifversion fpt or ghec %}ghcr.io{% elsif ghae %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}
+          registry: {% ifversion fpt or ghec %}ghcr.io{% elsif ghae %}docker.YOUR-HOSTNAME.com{% elsif ghes > 3.4 %}{% data reusables.package_registry.container-registry-hostname %}{% else %}docker.pkg.github.com{% endif %}
           username: {% raw %}${{ github.actor }}{% endraw %}
           password: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
       
@@ -218,7 +230,7 @@ jobs:
         with:
           images: |
             my-docker-hub-namespace/my-docker-hub-repository
-            {% ifversion fpt or ghec %}ghcr.io/{% raw %}${{ github.repository }}{% endraw %}{% elsif ghae %}{% raw %}docker.YOUR-HOSTNAME.com/${{ github.repository }}/my-image{% endraw %}{% else %}{% raw %}docker.pkg.github.com/${{ github.repository }}/my-image{% endraw %}{% endif %}
+            {% ifversion fpt or ghec or ghes > 3.4 %}{% data reusables.package_registry.container-registry-hostname %}/{% raw %}${{ github.repository }}{% endraw %}{% elsif ghae %}{% raw %}docker.YOUR-HOSTNAME.com/${{ github.repository }}/my-image{% endraw %}{% else %}{% raw %}docker.pkg.github.com/${{ github.repository }}/my-image{% endraw %}{% endif %}
       
       - name: Build and push Docker images
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
@@ -229,5 +241,5 @@ jobs:
           labels: {% raw %}${{ steps.meta.outputs.labels }}{% endraw %}
 ```
 
-The above workflow checks out the {% data variables.product.prodname_dotcom %} repository, uses the `login-action` twice to log in to both registries and generates tags and labels with the `metadata-action` action.
-Then the `build-push-action` action builds and pushes the Docker image to Docker Hub and the {% ifversion fpt or ghec %}{% data variables.product.prodname_container_registry %}{% else %}Docker registry{% endif %}.
+The above workflow checks out the {% data variables.product.product_name %} repository, uses the `login-action` twice to log in to both registries and generates tags and labels with the `metadata-action` action.
+Then the `build-push-action` action builds and pushes the Docker image to Docker Hub and the {% ifversion fpt or ghec or ghes > 3.4 %}{% data variables.product.prodname_container_registry %}{% else %}Docker registry{% endif %}.

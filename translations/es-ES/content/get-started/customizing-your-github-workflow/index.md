@@ -1,6 +1,6 @@
 ---
 title: Personalizar tu flujo de trabajo de GitHub
-intro: 'Learn how you can customize your {% data variables.product.prodname_dotcom %} workflow with extensions, integrations, {% data variables.product.prodname_marketplace %}, and webhooks.'
+intro: 'Aprende cómo puedes personalizar tu flujo de trabajo de {% data variables.product.prodname_dotcom %} con extensiones, integraciones, {% data variables.product.prodname_marketplace %} y webhooks.'
 redirect_from:
   - /categories/customizing-your-github-workflow
   - /github/customizing-your-github-workflow

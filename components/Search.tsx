@@ -2,8 +2,8 @@ import React, { useState, useEffect, useRef, ReactNode, RefObject } from 'react'
 import { useRouter } from 'next/router'
 import useSWR from 'swr'
 import cx from 'classnames'
-import { ActionList, DropdownMenu, Flash, Label, Overlay } from '@primer/components'
-import { ItemInput } from '@primer/components/lib/ActionList/List'
+import { ActionList, DropdownMenu, Flash, Label } from '@primer/react'
+import { ItemInput } from '@primer/react/lib/ActionList/List'
 
 import { useTranslation } from 'components/hooks/useTranslation'
 import { sendEvent, EventType } from 'components/lib/events'
@@ -218,13 +218,19 @@ export function Search({
       <div className="position-relative z-2">
         <form role="search" className="width-full d-flex" noValidate onSubmit={onFormSubmit}>
           <label className="text-normal width-full">
-            <span className="visually-hidden">{t`placeholder`}</span>
+            <span
+              className="visually-hidden"
+              aria-label={t`label`}
+              aria-describedby={t`description`}
+            >{t`placeholder`}</span>
             <input
               data-testid="site-search-input"
               ref={inputRef}
               className={cx(
                 styles.searchInput,
+                iconSize === 24 && styles.searchIconBackground24,
                 iconSize === 24 && 'form-control px-6 f4',
+                iconSize === 16 && styles.searchIconBackground16,
                 iconSize === 16 && 'form-control px-5 f4',
                 variant === 'compact' && 'py-2',
                 variant === 'expanded' && 'py-3',
@@ -233,20 +239,17 @@ export function Search({
                 isHeaderSearch && query && styles.searchInputExpanded,
                 isHeaderSearch && query && 'position-absolute top-0 right-0'
               )}
-              style={{
-                background: `var(--color-canvas-default) url("/assets/images/octicons/search-${iconSize}.svg") no-repeat ${
-                  iconSize === 24 ? '12px' : '6px'
-                }`,
-              }}
               type="search"
               placeholder={t`placeholder`}
-              autoComplete="off"
+              autoComplete={localQuery ? 'on' : 'off'}
               autoCorrect="off"
               autoCapitalize="off"
               spellCheck="false"
               maxLength={512}
               onChange={onSearch}
               value={localQuery}
+              aria-label={t`label`}
+              aria-describedby={t`description`}
             />
           </label>
           <button className="d-none" type="submit" title="Submit the search query." hidden />
@@ -284,8 +287,6 @@ function useDebounce<T>(value: T, delay?: number): [T, (value: T) => void] {
 
 function ShowSearchError({
   error,
-  isHeaderSearch,
-  isMobileSearch,
 }: {
   error: Error
   isHeaderSearch: boolean
@@ -293,10 +294,7 @@ function ShowSearchError({
 }) {
   const { t } = useTranslation('search')
   return (
-    <Flash
-      variant="danger"
-      sx={{ margin: isMobileSearch || isHeaderSearch ? '2rem 2rem 0 2em' : '1rem' }}
-    >
+    <Flash variant="danger" sx={{ margin: '2rem 2rem 0 2em' }}>
       <p>{t('search_error')}</p>
       {process.env.NODE_ENV === 'development' && (
         <p>
@@ -310,12 +308,9 @@ function ShowSearchError({
 }
 
 function ShowSearchResults({
-  anchorRef,
   isHeaderSearch,
-  isMobileSearch,
   isLoading,
   results,
-  closeSearch,
   debug,
   query,
 }: {
@@ -344,7 +339,7 @@ function ShowSearchResults({
   const versions = Array.from(latestVersions).map((version) => {
     return {
       title: allVersions[version].versionTitle,
-      version: version,
+      version,
     }
   })
 
@@ -396,7 +391,12 @@ function ShowSearchResults({
             You're searching the <strong>{searchVersion}</strong> version.
           </p>
           <div className="float-right mr-4">
-            <p className={cx(styles.selectWording, 'f6 d-inline-block')}>Select version:</p>
+            <p
+              aria-describedby={`You're searching the ${searchVersion} version`}
+              className={cx(styles.selectWording, 'f6 d-inline-block')}
+            >
+              Select version:
+            </p>
             <DropdownMenu
               placeholder={searchVersion}
               items={searchVersions}
@@ -482,49 +482,7 @@ function ShowSearchResults({
         />
       </div>
     )
-    // When there are search results, it doesn't matter if this is overlay or not.
-    return (
-      <div>
-        {!isHeaderSearch && !isMobileSearch ? (
-          <>
-            <Overlay
-              initialFocusRef={anchorRef}
-              returnFocusRef={anchorRef}
-              ignoreClickRefs={[anchorRef]}
-              onEscape={() => closeSearch()}
-              onClickOutside={() => closeSearch()}
-              aria-labelledby="title"
-              sx={
-                isHeaderSearch
-                  ? {
-                      background: 'none',
-                      boxShadow: 'none',
-                      position: 'static',
-                      overflowY: 'auto',
-                      maxHeight: '80vh',
-                      maxWidth: '96%',
-                      margin: '1.5em 2em 0 0.5em',
-                      scrollbarWidth: 'none',
-                    }
-                  : window.innerWidth < 1012
-                  ? {
-                      marginTop: '28rem',
-                      marginLeft: '5rem',
-                    }
-                  : {
-                      marginTop: '15rem',
-                      marginLeft: '5rem',
-                    }
-              }
-            >
-              {ActionListResults}
-            </Overlay>
-          </>
-        ) : (
-          ActionListResults
-        )}
-      </div>
-    )
+    return <div>{ActionListResults}</div>
   }
 
   // We have no results at all, but perhaps we're waiting.

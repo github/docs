@@ -13,8 +13,8 @@ versions:
   ghec: '*'
 ---
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.saved_replies %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.saved_replies %}
 3. Em "Saved replies" (Respostas salvas), ao lado da resposta salva que deseja editar, clique em {% octicon "pencil" aria-label="The pencil" %}.  
    ![Editar resposta salva](/assets/images/help/settings/saved-replies-edit-existing.png)
 4. Em "Edit saved reply" (Editar resposta salva), é possível editar o título e o conteúdo da resposta salva. ![Editar título e conteúdo](/assets/images/help/settings/saved-replies-edit-existing-content.png)

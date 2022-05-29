@@ -47,7 +47,7 @@ Por defecto, el redireccionamiento `collectd` está inhabilitado en {% data vari
 
 ## Exportar los datos collectd con `ghe-export-graphs`
 
-La herramienta de la línea de comando `ghe-export-graphs` exportará los datos que `collectd` almacene en las bases de datos RRD. This command turns the data into XML and exports it into a single tarball (`.tgz`).
+La herramienta de la línea de comando `ghe-export-graphs` exportará los datos que `collectd` almacene en las bases de datos RRD. Este comando convierte los datos en XML y los exporta en un tarball único(`.tgz`).
 
 Su uso principal es proporcionarle al equipo de {% data variables.contact.contact_ent_support %} los datos sobre el desempeño de una VM, sin la necesidad de descargar un paquete de soporte completo. No se debe incluir en tus exportaciones de copias de seguridad regulares y no existe una contraparte de importación. Si te contactas con {% data variables.contact.contact_ent_support %}, puede que te solicitemos estos datos para ayudarte a solucionar los problemas.
 

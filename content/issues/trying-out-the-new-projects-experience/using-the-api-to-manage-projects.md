@@ -365,6 +365,43 @@ The response will contain the node ID of the newly created item.
 
 If you try to add an item that already exists, the existing item ID is returned instead.
 
+### Updating a project's settings
+
+The following example will update your project's settings. Replace `PROJECT_ID` with the node ID of your project. Set `public` to `true` to make your project public on {% data variables.product.product_name %}. Modify `description` to make changes to your project's README.
+
+{% curl %}
+```shell
+curl --request POST \
+--url https://api.github.com/graphql \
+--header 'Authorization: token <em>TOKEN</em>' \
+--data '{"query":"mutation { updateProjectNext(input: { projectId: \"<em>PROJECT_ID</em>\", title: \"Project title\", public: false, description: \"# Project README\n\nA long description\", shortDescription: \"A short description\"}) { projectNext { id, title, description, shortDescription }}}"}'
+```
+{% endcurl %}
+
+{% cli %}
+```shell
+gh api graphql -f query='
+  mutation {
+    updateProjectNext(
+      input: {
+        projectId: "<em>PROJECT_ID</em>", 
+        title: "Project title",
+        public: false,
+        description: "# Project README\n\nA long description",
+        shortDescription: "A short description"
+      }
+    ) {
+      projectNext {
+        id
+        title
+        description
+        shortDescription
+      }
+    }
+  }'
+```
+{% endcli %}
+
 ### Updating a custom text, number, or date field
 
 The following example will update the value of a date field for an item. Replace `PROJECT_ID` with the node ID of your project. Replace `ITEM_ID` with the node ID of the item you want to update. Replace `FIELD_ID` with the ID of the field that you want to update.

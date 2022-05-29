@@ -120,7 +120,7 @@ GraphQLは[イントロスペクション](https://graphql.github.io/learn/intro
 
   {% note %}
 
-  **Note**: If you get the response `"message": "Bad credentials"` or `401 Unauthorized`, check that you are using a valid token. 詳しい情報については、「[個人アクセストークンを作成する](/github/authenticating-to-github/creating-a-personal-access-token)」を参照してください。
+  **ノート**: `"message": "Bad credentials"`あるいは`401 Unauthorized`というレスポンスが返された場合は、有効なトークンを使っているか確認してください。 詳しい情報については、「[個人アクセストークンを作成する](/github/authenticating-to-github/creating-a-personal-access-token)」を参照してください。
 
   {% endnote %}
 

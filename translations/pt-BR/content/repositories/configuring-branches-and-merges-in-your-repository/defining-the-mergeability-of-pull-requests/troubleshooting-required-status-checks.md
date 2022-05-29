@@ -37,24 +37,25 @@ remote: error: Required status check "ci-build" is failing
 
 {% endnote %}
 
-{% ifversion fpt or ghae or ghes or ghec %}
-
 ## Conflitos entre o título do commit e o commit de merge do teste
 
 Por vezes, os resultados das verificações de status para o commit de mescla teste e o commit principal entrarão em conflito. Se o commit de merge de testes tem status, o commit de merge de testes deve passar. Caso contrário, o status do commit principal deve passar antes de você poder mesclar o branch. Para obter mais informações sobre commits de merge de teste, consulte "[Pulls](/rest/reference/pulls#get-a-pull-request)".
 
 ![Branch com commits de mescla conflitantes](/assets/images/help/repository/req-status-check-conflicting-merge-commits.png)
-{% endif %}
 
 ## Manipulação ignorada, mas verificações necessárias
 
-Às vezes, uma verificação de status exigida é ignorada nos pull requests devido ao filtro de caminho. Por exemplo, um teste do Node.JS será ignorado em um pull request que apenas corrige um erro no seu arquivo README e não faz alterações nos arquivos JavaScript e TypeScript no diretório `scripts`.
+{% note %}
 
-Se esta verificação é necessária e for ignorada, o status da verificação é exibido como pendente, porque é necessário. Nesse caso, você não poderá de fazer o merge do pull request.
+**Observação:** Se um fluxo de trabalho for ignorado devido à [filtragem do caminho](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore), a [filtragem do caminho](/actions/using-workflows/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore) ou [mensagem de commit](/actions/managing-workflow-runs/skipping-workflow-runs) as verificações associadas a esse fluxo de trabalho permanecerão em um estado "Pendente". Um pull request que requer que essas verificações sejam bem sucedidas será bloqueado do merge.
+
+Se um trabalho em um fluxo de trabalho for ignorado devido a uma condicional, ele informará seu status como "Sucesso". Para obter mais informações, consulte [Ignorando as execuções do fluxo de trabalho](/actions/managing-workflow-runs/skipping-workflow-runs) e [Usando condições para controlar a execução do trabalho](/actions/using-jobs/using-conditions-to-control-job-execution).
+
+{% endnote %}
 
 ### Exemplo
 
-Neste exemplo, você tem um fluxo de trabalho necessário para passar.
+O exemplo a seguir mostra um fluxo de trabalho que exige um status de conclusão de "Sucesso" para o trabalho de `criação`, mas o fluxo de trabalho será ignorado se o pull request não alterar quaisquer arquivos no diretório de `scripts`.
 
 ```yaml
 name: ci
@@ -62,7 +63,6 @@ on:
   pull_request:
     paths:
       - 'scripts/**'
-      - 'middleware/**'
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -70,18 +70,18 @@ jobs:
       matrix:
         node-version: [12.x, 14.x, 16.x]
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v2
+    - uses: {% data reusables.actions.action-checkout %}
+    - name: Use Node.js {% raw %}${{ matrix.node-version }}{% endraw %}
+      uses: {% data reusables.actions.action-setup-node %}
       with:
-        node-version: ${{ matrix.node-version }}
+        node-version: {% raw %}${{ matrix.node-version }}{% endraw %}
         cache: 'npm'
     - run: npm ci
     - run: npm run build --if-present
     - run: npm test
 ```
 
-Se alguém enviar um pull request que altere um arquivo de markdown na raiz do repositório, o fluxo de trabalho acima não será executado devido ao filtro de caminho. Como resultado, você não poderá fazer o merge do pull request. Você verá o seguinte status no pull request:
+Devido à [filtragem do caminho](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore), um pull request que apenas altera um arquivo na raiz do repositório não acionará esse fluxo de trabalho e está bloqueada de fazer merge. Você verá o seguinte status no pull request:
 
 ![Verificação obrigatória ignorada mas mostrada como pendente](/assets/images/help/repository/PR-required-check-skipped.png)
 

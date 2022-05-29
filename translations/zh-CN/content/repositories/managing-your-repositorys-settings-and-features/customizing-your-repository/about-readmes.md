@@ -18,7 +18,7 @@ topics:
 
 ## 关于自述文件
 
-您可以将 README 文件添加到仓库来交流有关您项目的重要信息。 A README, along with a repository license{% ifversion fpt or ghes > 3.2 or ghae-issue-4651 or ghec %}, citation file{% endif %}{% ifversion fpt or ghec %}, contribution guidelines, and a code of conduct{% elsif ghes %} and contribution guidelines{% endif %}, communicates expectations for your project and helps you manage contributions.
+您可以将 README 文件添加到仓库来交流有关您项目的重要信息。 自述文件以及存储库许可证{% ifversion fpt or ghes > 3.2 or ghae-issue-4651 or ghec %}、引文文件{% endif %}{% ifversion fpt or ghec %}、贡献指南以及行为准则{% elsif ghes %} 和贡献指南{% endif %} 传达了对项目的期望，并帮助您管理贡献。
 
 有关为项目提供指南的更多信息，请参阅 {% ifversion fpt or ghec %}“[为项目添加行为准则](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)”和{% endif %}“[设置健康参与的项目](/communities/setting-up-your-project-for-healthy-contributions)”。
 
@@ -29,7 +29,9 @@ topics:
 - 用户能从何处获取项目的帮助
 - 谁维护和参与项目
 
-如果将自述文件放在仓库的根目录 `docs` 或隐藏的目录 `.github` 中，{% data variables.product.product_name %} 将会识别您的自述文件并自动向仓库访问者显示。
+如果将自述文件放在仓库隐藏的 `.github` 目录、根目录或 `docs` 目录中，{% data variables.product.product_name %} 将会识别您的自述文件并自动向仓库访问者显示。
+
+如果仓库包含多个自述文件，则按以下顺序从位置中选择显示的文件：`.github` 目录，然后是仓库的根目录，最后是 `docs` 目录。
 
 ![Github/scientist 仓库的主页面及其自述文件](/assets/images/help/repository/repo-with-readme.png)
 
@@ -61,7 +63,7 @@ topics:
 
 ## Wikis
 
-A README should contain only the necessary information for developers to get started using and contributing to your project. Longer documentation is best suited for wikis. 更多信息请参阅“[关于 wiki](/communities/documenting-your-project-with-wikis/about-wikis)”。
+自述文件应仅包含开发人员开始使用和参与项目的必要信息。 较长的文档最适合维基。 更多信息请参阅“[关于 wiki](/communities/documenting-your-project-with-wikis/about-wikis)”。
 
 ## 延伸阅读
 

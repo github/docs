@@ -47,13 +47,13 @@ Os contêineres Docker criam um pacote do ambiente com o código {% data variabl
 
 Um contêiner Docker permite usar versões específicas de um sistema operacional, bem como as dependências, as ferramentas e o código. Para ações a serem executadas em uma configuração específica de ambiente, o Docker é a opção ideal porque permite personalizar o sistema operacional e as ferramentas. Por causa da latência para compilar e recuperar o contêiner, as ações de contêiner Docker são mais lentas que as ações JavaScripts.
 
-As ações do contêiner Docker podem apenas ser executadas em executores com o sistema operacional Linux. {% data reusables.github-actions.self-hosted-runner-reqs-docker %}
+As ações do contêiner Docker podem apenas ser executadas em executores com o sistema operacional Linux. {% data reusables.actions.self-hosted-runner-reqs-docker %}
 
 ### Ações JavaScript
 
 As ações do JavaScript podem ser executadas diretamente em uma máquina executora e separar o código de ação do ambiente usado para executar o código. Usar ações JavaScript simplifica o código da ação e é um processo mais rápido se comparado à opção do contêiner Docker.
 
-{% data reusables.github-actions.pure-javascript %}
+{% data reusables.actions.pure-javascript %}
 
 Se você estiver desenvolvendo um projeto Node.js, o kit de ferramentas {% data variables.product.prodname_actions %} fornecerá pacotes que você poderá usar para acelerar o desenvolvimento. Para obter mais informações, consulte o repositório [ações/conjuntos de ferramentas](https://github.com/actions/toolkit).
 
@@ -72,7 +72,6 @@ Ao armazenar uma ação no seu próprio repositório, fica mais fácil para a co
 {% data reusables.actions.internal-actions-summary %}
 
 {% ifversion fpt or ghec %}Se você estiver criando uma ação que não planeja disponibilizar para outras pessoas, você {% else %} Você{% endif %} pode armazenar os arquivos de ação em qualquer local do seu repositório. Se você planeja combinar ação, fluxo de trabalho e aplicativo em um só repositório, recomendamos armazenar as ações no diretório `.github`. Por exemplo, `.github/actions/action-a` e `.github/actions/action-b`.
-
 
 ## Compatibilidade com {% data variables.product.prodname_ghe_server %}
 
@@ -130,7 +129,7 @@ etapas:
 
 ### Usar um SHA do commit para o gerenciamento de versão
 
-Cada commit do Git recebe um valor SHA calculado, que é único e imutável. Os usuários da sua ação podem preferir depender de um valor SHA do commit, uma vez que esta abordagem pode ser mais confiável do que especificar uma tag, que pode ser excluída ou movida. No entanto, isso significa que os usuários não receberão mais atualizações realizadas na ação. {% ifversion fpt or ghes > 3.0 or ghae or ghec %}Você deve usar o valor completo do SHA de um commit e não um valor abreviado.{% else %}Usar o valor SHA completo de um commit em vez do valor abreviado pode ajudar a impedir que as pessoas usem um commit malicioso que usa a mesma abreviação.{% endif %}
+Cada commit do Git recebe um valor SHA calculado, que é único e imutável. Os usuários da sua ação podem preferir depender de um valor SHA do commit, uma vez que esta abordagem pode ser mais confiável do que especificar uma tag, que pode ser excluída ou movida. No entanto, isso significa que os usuários não receberão mais atualizações realizadas na ação. Você deve usar o valor SHA completo de um commit e não um valor abreviado.
 
 ```yaml
 etapas:

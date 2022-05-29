@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import cx from 'classnames'
 
-import { ActionList } from '@primer/components'
+import { ActionList } from '@primer/react'
 import { Link } from 'components/Link'
 import { BumpLink } from 'components/ui/BumpLink'
 import type { TocItem } from 'components/context/ProductLandingContext'
@@ -66,7 +66,7 @@ export const TableOfContents = (props: Props) => {
                 }
               : {
                   key: href,
-                  title: title,
+                  title,
                   renderItem: () => (
                     <ActionList.Item className={cx('border-bottom')}>
                       <li key={href} className={cx('mt-2', isActive && 'color-fg-muted')}>

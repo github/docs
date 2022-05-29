@@ -11,13 +11,15 @@ topics:
 redirect_from:
   - /github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository
   - /github/administering-a-repository/managing-repository-settings/enabling-or-disabling-github-discussions-for-a-repository
-shortTitle: ディスカッション
+shortTitle: Discussions
 ---
 
 ## Enabling or disabling {% data variables.product.prodname_discussions %} for your repository
 
 {% data reusables.discussions.enabling-or-disabling-github-discussions-for-your-repository %}
 1. Discussions を無効化するには、[Features] で [**Discussions**] の選択を解除します。
+
+You can also use organization discussions to facilitate conversations that span multiple repositories in your organization. For more information, see "[Enabling or disabling GitHub Discussions for an organization](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization)."
 
 ## 参考リンク
 

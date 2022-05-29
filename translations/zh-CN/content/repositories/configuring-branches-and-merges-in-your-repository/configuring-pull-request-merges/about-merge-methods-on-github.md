@@ -12,7 +12,7 @@ versions:
   ghec: '*'
 topics:
   - Repositories
-shortTitle: About merge methods
+shortTitle: 关于合并方法
 ---
 
 {% data reusables.pull_requests.configure_pull_request_merges_intro %} 您可以只对仓库启用所需的方法，以实施一种合并方法，如提交压缩或变基。
@@ -20,15 +20,14 @@ shortTitle: About merge methods
 {% ifversion fpt or ghec %}
 {% note %}
 
-**Note:** When using the merge queue, you no longer get to choose the merge method, as this is controlled by the queue. {% data reusables.pull_requests.merge-queue-references %}
+**注意：**使用合并队列时，您将无法再选择合并方法，因为这由队列控制。 {% data reusables.pull_requests.merge-queue-references %}
 
 {% endnote %}
 {% endif %}
 
 {% data reusables.pull_requests.default_merge_option %}
 
-{% ifversion fpt or ghae or ghes or ghec %}
-默认合并方法创建合并提交。 通过强制实施线性提交历史记录，可以防止任何人将合并提交推送到受保护分支。 更多信息请参阅“[关于受保护分支](/github/administering-a-repository/about-protected-branches#require-linear-history)”。{% endif %}
+默认合并方法创建合并提交。 通过强制实施线性提交历史记录，可以防止任何人将合并提交推送到受保护分支。 更多信息请参阅“[关于受保护分支](/github/administering-a-repository/about-protected-branches#require-linear-history)”。
 
 ## 压缩合并提交
 
@@ -47,5 +46,6 @@ shortTitle: About merge methods
 
 在启用提交变基之前，请考虑以下缺点：
 - 仓库贡献者可能必须在命令行上变基，解决任何冲突，并且将其更改推送到拉取请求的主题分支（或删除头部分支），然后才可在 {% data variables.product.product_location %} 上使用 **Rebase and merge（变基和合并）** 选项。 强制推送必须谨慎执行，以免贡献者覆盖别人在其工作基础上所做的工作。 要详细了解何时在 {% data variables.product.product_location %} 上禁用 **Rebase and merge（变基和合并）**选项以及重新启用它的工作流程，请参阅“[关于拉取请求合并](/articles/about-pull-request-merges/#rebase-and-merge-your-pull-request-commits)”。
+- {% indented_data_reference reusables.pull_requests.rebase_and_merge_verification spaces=3 %}
 
 更多信息请参阅“[为拉取请求配置提交变基](/articles/configuring-commit-rebasing-for-pull-requests)”。

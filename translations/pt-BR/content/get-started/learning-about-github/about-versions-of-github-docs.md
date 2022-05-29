@@ -1,6 +1,6 @@
 ---
 title: Sobre versões da Documentação do GitHub
-intro: "Você pode ler a documentação que reflete o produto de {% data variables.product.company_short %} que você está usando atualmente."
+intro: 'Você pode ler a documentação que reflete o produto de {% data variables.product.company_short %} que você está usando atualmente.'
 versions: '*'
 shortTitle: Versões da documentação
 ---
@@ -37,7 +37,7 @@ Na janela ampla de um navegador, não há texto que siga imediatamente o logotip
 
 Em {% data variables.product.prodname_dotcom_the_website %}, cada conta tem seu próprio plano. Cada conta pessoal tem um plano associado que oferece acesso a determinadas funcionalidades, e cada organização tem um plano associado diferente. Se a sua conta pessoal for integrante de uma organização em {% data variables.product.prodname_dotcom_the_website %}, você poderá ter acesso a diferentes funcionalidades quando usar recursos pertencentes a essa organização do que quando você usa recursos pertencentes à sua conta pessoal. Para obter mais informações, consulte "[Tipos de contas de {% data variables.product.prodname_dotcom %}](/get-started/learning-about-github/types-of-github-accounts)".
 
-Se você não sabe se uma organização usa o {% data variables.product.prodname_ghe_cloud %}, pergunte ao proprietário de uma organização. Para obter mais informações, consulte "[Visualizando as funções das pessoas em uma organização](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-your-membership-in-organizations/viewing-peoples-roles-in-an-organization)".
+Se você não sabe se uma organização usa o {% data variables.product.prodname_ghe_cloud %}, pergunte ao proprietário de uma organização. Para obter mais informações, consulte "[Visualizando as funções das pessoas em uma organização](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations/viewing-peoples-roles-in-an-organization)".
 
 ### {% data variables.product.prodname_ghe_server %}
 

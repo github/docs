@@ -9,9 +9,9 @@ sections:
       heading: 'GitHub Actions beta'
       notes:
         - |
-          [{% data variables.product.prodname_actions %}](https://github.com/features/actions) is a powerful, flexible solution for CI/CD and workflow automation. For more information, see "[Introduction to {% data variables.product.prodname_actions %}](/actions/learn-github-actions/introduction-to-github-actions)."
+          [{% data variables.product.prodname_actions %}](https://github.com/features/actions) é uma solução poderosa e flexível para CI/CD e automação do fluxo de trabalho. Para obter mais informações, consulte "[Introdução a {% data variables.product.prodname_actions %}](/actions/learn-github-actions/introduction-to-github-actions).
 
-          Please note that when {% data variables.product.prodname_actions %} is enabled during this upgrade, two organizations named "GitHub Actions" (@**actions** and @**github**) will appear in {% data variables.product.product_location %}. These organizations are required by {% data variables.product.prodname_actions %}. Users named @**ghost** and @**actions** appear as the actors for creation of these organizations in the audit log.
+          Observe que quando {% data variables.product.prodname_actions %} é habilitado durante esta atualização, duas organizações denominadas "GitHub Actions" (@**actions** and @**github**) aparecerão em {% data variables.product.product_location %}. Essas organizações são necessárias para {% data variables.product.prodname_actions %}. Os usuários nomeados @**ghost** e @**ações** aparecem como os atores para a criação dessas organizações no log de auditoria.
     - 
       heading: 'GitHub Packages beta'
       notes:

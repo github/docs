@@ -16,10 +16,6 @@ topics:
   - Notifications
 ---
 
-{% ifversion ghes %}
-{% data reusables.mobile.ghes-release-phase %}
-{% endif %}
-
 ## 通知とサブスクリプション
 
 サブスクリプションを通じて、{% data variables.product.product_location %} の特定のアクティビティに関する継続的な更新を受信するかを選択できます。 通知では、サブスクライブしている特定のアクティビティについての更新を受信します。
@@ -29,9 +25,8 @@ topics:
 サブスクライブできる通知は次のとおりです。
 - 特定の Issue、プルリクエスト、または Gist の会話。
 - リポジトリまたは Team ディスカッション内のすべてのアクティビティ。
-- {% data variables.product.prodname_actions %} で設定されたリポジトリ内のワークフローのステータスなどの CI アクティビティ。 {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
-- Repository {% data reusables.notifications-v2.custom-notification-types %} (if enabled).{% else %}
-- Releases in a repository.{% endif %}
+- {% data variables.product.prodname_actions %} で設定されたリポジトリ内のワークフローのステータスなどの CI アクティビティ。
+- Repository {% data reusables.notifications-v2.custom-notification-types %} (if enabled).
 
 フォークを除き、あなたがプッシュアクセスを持つすべてのリポジトリを自動的にWatchすることもできます。 [**Watch**] をクリックすると、手動でアクセスできる他のリポジトリを Watch できます。
 
@@ -49,7 +44,7 @@ topics:
 - Issue のクローズやプルリクエストのマージなどにより、スレッドの状態を変更した場合。
 - メンバーになっている Team が@メンションされていた場合。
 
-デフォルトで、作成したすべてのリポジトリと、ユーザアカウントが所有するすべてのリポジトリは、自動的に Watch されます。
+By default, you also automatically watch all repositories that you create and are owned by your personal account.
 
 自動的にサブスクライブしている会話をサブスクライブ解除するには、通知設定を変更するか、{% data variables.product.product_location %} のアクティビティを直接サブスクライブ解除または Watch 解除します。 詳しい情報については、「[サブスクリプションを管理する](/github/managing-subscriptions-and-notifications-on-github/managing-your-subscriptions)」を参照してください。
 

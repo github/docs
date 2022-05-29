@@ -1,7 +1,7 @@
 ---
-title: Managing security settings for your organization
-shortTitle: Manage security settings
-intro: 'You can manage security settings and review the audit log{% ifversion ghec %}, compliance reports,{% endif %} and integrations for your organization.'
+title: Gerenciando as configurações de segurança da sua organização
+shortTitle: Gerenciar configurações de segurança
+intro: 'Você pode gerenciar as configurações de segurança e revisar o log de auditoria{% ifversion ghec %}, relatórios de conformidade,{% endif %} e integrações para a sua organização.'
 versions:
   fpt: '*'
   ghes: '*'

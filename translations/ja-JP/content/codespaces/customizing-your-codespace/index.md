@@ -15,6 +15,5 @@ children:
   - /setting-your-default-editor-for-codespaces
   - /setting-your-default-region-for-codespaces
   - /setting-your-timeout-period-for-codespaces
-  - /prebuilding-codespaces-for-your-project
 ---
 

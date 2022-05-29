@@ -13,9 +13,12 @@ children:
   - /organizing-information-with-tables
   - /organizing-information-with-collapsed-sections
   - /creating-and-highlighting-code-blocks
+  - /creating-diagrams
+  - /writing-mathematical-expressions
   - /autolinked-references-and-urls
   - /attaching-files
   - /creating-a-permanent-link-to-a-code-snippet
   - /using-keywords-in-issues-and-pull-requests
 shortTitle: Work with advanced formatting
 ---
+

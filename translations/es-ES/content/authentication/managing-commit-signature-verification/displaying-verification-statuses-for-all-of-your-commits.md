@@ -33,8 +33,8 @@ Deberías habilitar el modo vigilante únicamente si firmas todas tus confirmaci
 
 ## Habilitar el modo vigilante
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.ssh %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.ssh %}
 3. En la página de configuración SSH, debajo de "Modo vigilante", selecciona **Marcar las confirmaciones sin firmar como no verificadas**.
 
    ![Casilla de verificación para marcar las confirmaciones no firmadas como sin verificar](/assets/images/help/commits/vigilant-mode-checkbox.png)

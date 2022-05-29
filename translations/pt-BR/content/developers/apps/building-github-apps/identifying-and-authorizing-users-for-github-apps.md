@@ -26,11 +26,7 @@ Quando o seu aplicativo GitHub age em nome de um usuário, ele realiza solicita�
 
 Para autorizar usuários para aplicativos-padrão executados no navegador, use o [fluxo de aplicativo web](#web-application-flow).
 
-{% ifversion fpt or ghae or ghes > 3.0 or ghec %}
-
 Para autorizar usuários para aplicativos sem acesso direto ao navegador, como ferramentas de CLI ou gerentes de credenciais do Git, use o [fluxo de dispositivos](#device-flow). O fluxo de dispositivo usa o OAuth 2.0 [Concessão de autorização do dispositivo](https://tools.ietf.org/html/rfc8628).
-
-{% endif %}
 
 ## Fluxo do aplicativo web
 
@@ -51,13 +47,13 @@ Quando seu aplicativo GitHub especifica um parâmetro do `login`, ele solicita a
 
 #### Parâmetros
 
-| Nome           | Tipo     | Descrição                                                                                                                                                                                                                                                                                                                                                                                         |
-| -------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `client_id`    | `string` | **Obrigatório.** O ID do cliente para o seu aplicativo GitHub. Você pode encontrá-lo em suas [configurações do aplicativo GitHub](https://github.com/settings/apps) quando você selecionar seu aplicativo. **Observação:** O ID do aplicativo e o ID do cliente não são iguais e não são intercambiáveis.                                                                                         |
-| `redirect_uri` | `string` | A URL no seu aplicativo para o qual os usuários serão enviados após a autorização. Este deve ser um match exato para {% ifversion fpt or ghes > 3.0 or ghec %} um dos URLs fornecidos como uma **URL de Callback**{% else %} a URL fornecida no campo de **URL de callback de autorização do usuário**{% endif %} ao configurar o aplicativo GitHub e não pode conter nenhum parâmetro adicional. |
-| `estado`       | `string` | Isso deve conter uma string aleatória para proteger contra ataques falsificados e pode conter quaisquer outros dados arbitrários.                                                                                                                                                                                                                                                                 |
-| `login`        | `string` | Sugere uma conta específica para iniciar a sessão e autorizar o aplicativo.                                                                                                                                                                                                                                                                                                                       |
-| `allow_signup` | `string` | Independentemente de os usuários autenticados ou não atenticados terem a opção de iscrever-se em {% data variables.product.prodname_dotcom %} durante o fluxo do OAuth. O padrão é `verdadeiro`. Use `falso` quando uma política proibir inscrições.                                                                                                                                              |
+| Nome           | Tipo     | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| -------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `client_id`    | `string` | **Obrigatório.** O ID do cliente para o seu aplicativo GitHub. Você pode encontrá-lo em suas [configurações do aplicativo GitHub](https://github.com/settings/apps) quando você selecionar seu aplicativo. **Observação:** O ID do aplicativo e o ID do cliente não são iguais e não são intercambiáveis.                                                                                                                   |
+| `redirect_uri` | `string` | A URL no seu aplicativo para o qual os usuários serão enviados após a autorização. Este deve ser uma correspondência exata para {% ifversion fpt or ghes or ghec %} um dos URLs fornecidos como uma **URL de chamada de retorno**{% else %} ao URL fornecido no campo de **URL de chamada de retorno de autorização do usuário**{% endif %} ao configurar o aplicativo GitHub e não pode conter nenhum parâmetro adicional. |
+| `estado`       | `string` | Isso deve conter uma string aleatória para proteger contra ataques falsificados e pode conter quaisquer outros dados arbitrários.                                                                                                                                                                                                                                                                                           |
+| `login`        | `string` | Sugere uma conta específica para iniciar a sessão e autorizar o aplicativo.                                                                                                                                                                                                                                                                                                                                                 |
+| `allow_signup` | `string` | Independentemente de os usuários autenticados ou não atenticados terem a opção de iscrever-se em {% data variables.product.prodname_dotcom %} durante o fluxo do OAuth. O padrão é `verdadeiro`. Use `falso` quando uma política proibir inscrições.                                                                                                                                                                        |
 
 {% note %}
 
@@ -85,13 +81,13 @@ Faça um pedido para o seguinte ponto de extremidade para receber um token de ac
 
 #### Parâmetros
 
-| Nome            | Tipo     | Descrição                                                                                                                                                                                                                                                                                                                                                                                         |
-| --------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `client_id`     | `string` | **Obrigatório.** O ID do cliente para o seu aplicativo GitHub.                                                                                                                                                                                                                                                                                                                                    |
-| `client_secret` | `string` | **Obrigatório.** O segredo do cliente do seu aplicativo GitHub.                                                                                                                                                                                                                                                                                                                                   |
-| `código`        | `string` | **Obrigatório.** O código que você recebeu como resposta ao Passo 1.                                                                                                                                                                                                                                                                                                                              |
-| `redirect_uri`  | `string` | A URL no seu aplicativo para o qual os usuários serão enviados após a autorização. Este deve ser um match exato para {% ifversion fpt or ghes > 3.0 or ghec %} um dos URLs fornecidos como uma **URL de Callback**{% else %} a URL fornecida no campo de **URL de callback de autorização do usuário**{% endif %} ao configurar o aplicativo GitHub e não pode conter nenhum parâmetro adicional. |
-| `estado`        | `string` | A string aleatória inexplicável que você forneceu na etapa 1.                                                                                                                                                                                                                                                                                                                                     |
+| Nome            | Tipo     | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `client_id`     | `string` | **Obrigatório.** O ID do cliente para o seu aplicativo GitHub.                                                                                                                                                                                                                                                                                                                                                              |
+| `client_secret` | `string` | **Obrigatório.** O segredo do cliente do seu aplicativo GitHub.                                                                                                                                                                                                                                                                                                                                                             |
+| `código`        | `string` | **Obrigatório.** O código que você recebeu como resposta ao Passo 1.                                                                                                                                                                                                                                                                                                                                                        |
+| `redirect_uri`  | `string` | A URL no seu aplicativo para o qual os usuários serão enviados após a autorização. Este deve ser uma correspondência exata para {% ifversion fpt or ghes or ghec %} um dos URLs fornecidos como uma **URL de chamada de retorno**{% else %} ao URL fornecido no campo de **URL de chamada de retorno de autorização do usuário**{% endif %} ao configurar o aplicativo GitHub e não pode conter nenhum parâmetro adicional. |
+| `estado`        | `string` | A string aleatória inexplicável que você forneceu na etapa 1.                                                                                                                                                                                                                                                                                                                                                               |
 
 #### Resposta
 
@@ -121,8 +117,6 @@ Por exemplo, no cURL você pode definir o cabeçalho de autorização da seguint
 curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre %}/user
 ```
 
-{% ifversion fpt or ghae or ghes > 3.0 or ghec %}
-
 ## Fluxo de dispositivo
 
 {% note %}
@@ -133,12 +127,9 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 
 O fluxo de dispositivos permite que você autorize usuários para um aplicativo sem cabeçalho, como uma ferramenta de CLI ou um gerenciador de credenciais do Git.
 
-Para obter mais informações sobre autorização de usuários que usam o fluxo do dispositivo, consulte "[Autorizar aplicativos OAuth](/developers/apps/authorizing-oauth-apps#device-flow)".
-
-{% endif %}
+{% if device-flow-is-opt-in %}Antes de poder usar usar o fluxo do dispositivo para identificar e autorizar usuários, primeiro você deve habilitá-lo nas configurações do aplicativo. Para obter mais informações sobre como habilitar o fluxo do dispositivo, consulte "[Modificando um aplicativo GitHub](/developers/apps/managing-github-apps/modifying-a-github-app)". {% endif %}Para obter mais informações sobre autorização de usuários que usam o fluxo do dispositivo, consulte "[Autorizar aplicativos OAuth](/developers/apps/authorizing-oauth-apps#device-flow)."
 
 ## Verifique quais recursos de instalação um usuário pode acessar
-
 
 Depois de ter um token OAuth para um usuário, você pode verificar quais instalações o usuário poderá acessar.
 
@@ -158,7 +149,7 @@ Se um usuário revogar sua autorização de um aplicativo GitHub, o aplicativo r
 
 ## Permissões no nível do usuário
 
-Você pode adicionar permissões de nível de usuário ao seu aplicativo GitHub para acessar os recursos de usuários, como, por exemplo, e-mails de usuários, concedidos por usuários individuais como parte do fluxo de autorização do usuário [](#identifying-users-on-your-site). As permissões de nível de usuário diferem das [permissões do repositório do nível de organização](/rest/reference/permissions-required-for-github-apps), que são concedidas no momento da instalação em uma conta de organização ou usuário.
+Você pode adicionar permissões de nível de usuário ao seu aplicativo GitHub para acessar os recursos de usuários, como, por exemplo, e-mails de usuários, concedidos por usuários individuais como parte do fluxo de autorização do usuário [](#identifying-users-on-your-site). As permissões de nível de usuário diferem das [permissões do repositório do nível de organização](/rest/reference/permissions-required-for-github-apps), que são concedidas no momento da instalação em uma conta de organização ou pessoal.
 
 Você pode selecionar permissões de nível de usuário nas configurações do seu aplicativo GitHub na seção **Permissões de usuário** na página **Permissões & webhooks**. Para obter mais informações sobre como selecionar permissões, consulte "[Editando permissões de um aplicativo GitHub](/apps/managing-github-apps/editing-a-github-app-s-permissions/)".
 
@@ -248,8 +239,8 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 
 * [Listar implementações](/rest/reference/deployments#list-deployments)
 * [Criar uma implementação](/rest/reference/deployments#create-a-deployment)
-* [Obter uma implementação](/rest/reference/deployments#get-a-deployment){% ifversion fpt or ghes or ghae or ghec %}
-* [Excluir um deploy](/rest/reference/deployments#delete-a-deployment){% endif %}
+* [Obter uma implantação](/rest/reference/deployments#get-a-deployment)
+* [Excluir uma implantação](/rest/reference/deployments#delete-a-deployment)
 
 #### Eventos
 
@@ -272,7 +263,8 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 
 #### Refs do Git
 
-* [Criar uma referência](/rest/reference/git#create-a-reference)* [Obter uma referência](/rest/reference/git#get-a-reference)
+* [Criar referência](/rest/reference/git#create-a-reference)
+* [Obter uma referência](/rest/reference/git#get-a-reference)
 * [Lista de referências correspondentes](/rest/reference/git#list-matching-references)
 * [Atualizar uma referência](/rest/reference/git#update-a-reference)
 * [Excluir uma referência](/rest/reference/git#delete-a-reference)
@@ -430,14 +422,12 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 * [Remover a aplicação do hook pre-receive para uma organização](/enterprise/user/rest/reference/enterprise-admin#remove-pre-receive-hook-enforcement-for-an-organization)
 {% endif %}
 
-{% ifversion fpt or ghes or ghae or ghec %}
 #### Projetos da aquipe da organização
 
 * [Listar projetos da equipe](/rest/reference/teams#list-team-projects)
 * [Verificar permissões da equipe para um projeto](/rest/reference/teams#check-team-permissions-for-a-project)
 * [Adicionar ou atualizar as permissões do projeto da equipe](/rest/reference/teams#add-or-update-team-project-permissions)
 * [Remover um projeto de uma equipe](/rest/reference/teams#remove-a-project-from-a-team)
-{% endif %}
 
 #### Repositórios da equipe da organização
 
@@ -583,7 +573,7 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 
 #### Reações
 
-{% ifversion fpt or ghes or ghae or ghec %}* [Excluir uma reação](/rest/reference/reactions#delete-a-reaction-legacy){% else %}* [Excluir uma reação](/rest/reference/reactions#delete-a-reaction){% endif %}
+* [Excluir uma reação](/rest/reference/reactions)
 * [Listar reações para um comentário de commit](/rest/reference/reactions#list-reactions-for-a-commit-comment)
 * [Criar reação para um comentário de commit](/rest/reference/reactions#create-reaction-for-a-commit-comment)
 * [Listar reações para um problema](/rest/reference/reactions#list-reactions-for-an-issue)
@@ -595,13 +585,13 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 * [Listar reações para um comentário de discussão de equipe](/rest/reference/reactions#list-reactions-for-a-team-discussion-comment)
 * [Criar reação para um comentário de discussão em equipe](/rest/reference/reactions#create-reaction-for-a-team-discussion-comment)
 * [Listar reações para uma discussão de equipe](/rest/reference/reactions#list-reactions-for-a-team-discussion)
-* [Criar reação para uma discussão de equipe](/rest/reference/reactions#create-reaction-for-a-team-discussion){% ifversion fpt or ghes or ghae or ghec %}
+* [Criar reação para uma discussão em equipe](/rest/reference/reactions#create-reaction-for-a-team-discussion)
 * [Excluir uma reação de comentário de commit](/rest/reference/reactions#delete-a-commit-comment-reaction)
 * [Excluir uma reação do problema](/rest/reference/reactions#delete-an-issue-reaction)
 * [Excluir uma reação a um comentário do commit](/rest/reference/reactions#delete-an-issue-comment-reaction)
 * [Excluir reação de comentário do pull request](/rest/reference/reactions#delete-a-pull-request-comment-reaction)
 * [Excluir reação para discussão em equipe](/rest/reference/reactions#delete-team-discussion-reaction)
-* [Excluir reação de comentário para discussão de equipe](/rest/reference/reactions#delete-team-discussion-comment-reaction){% endif %}
+* [Excluir reação para discussão em equipe](/rest/reference/reactions#delete-team-discussion-comment-reaction)
 
 #### Repositórios
 
@@ -715,11 +705,9 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 * [Obter um README do repositório](/rest/reference/repos#get-a-repository-readme)
 * [Obter a licença para um repositório](/rest/reference/licenses#get-the-license-for-a-repository)
 
-{% ifversion fpt or ghes or ghae or ghec %}
 #### Envio de eventos do repositório
 
 * [Criar um evento de envio de repositório](/rest/reference/repos#create-a-repository-dispatch-event)
-{% endif %}
 
 #### Hooks do repositório
 

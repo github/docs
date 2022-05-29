@@ -12,7 +12,7 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: View 2FA usage
+shortTitle: Visualiar uso de 2FA
 ---
 
 {% note %}
@@ -22,7 +22,7 @@ shortTitle: View 2FA usage
 {% endnote %}
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.people %}
 4. Para exibir os integrantes da organização, inclusive proprietários da organização, que habilitaram ou desabilitaram a autenticação de dois fatores, clique em **2FA** à direita e selecione **Enabled** (Habilitado) ou **Disabled** (Desabilitado). ![filter-org-members-by-2fa](/assets/images/help/2fa/filter-org-members-by-2fa.png)
 5. Clique em **Outside collaborators** (Colaboradores externos), na guia "People" (Pessoas), para exibir aqueles que pertencem à sua organização. ![select-outside-collaborators](/assets/images/help/organizations/select-outside-collaborators.png)

@@ -55,7 +55,7 @@ Também é possível configurar automações de fluxo de trabalho para manter se
 ## Criar um quadro de projeto em toda a organização
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.organization-wide-project %}
 {% data reusables.project-management.click-new-project %}
 {% data reusables.project-management.create-project-name-description %}

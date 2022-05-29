@@ -26,7 +26,7 @@ Esta guía te explica cómo utilizar las {% data variables.product.prodname_acti
 
 En cada subida nueva a `main` en tu repositorio de {% data variables.product.company_short %}, el flujo de trabajo de las {% data variables.product.prodname_actions %} creará y subirá una imagen de contenedor nueva hacia el ECR de Amazon y luego desplegará una definición de tarea nueva hacia el ECS de Amazon.
 
-{% ifversion fpt or ghec or ghae-issue-4856 %}
+{% ifversion fpt or ghec or ghae-issue-4856 or ghes > 3.4 %}
 
 {% note %}
 
@@ -45,7 +45,8 @@ Antes de que crees tu flujo de trabajo de {% data variables.product.prodname_act
    Por ejemplo, utiliza [el CLI de AWS](https://aws.amazon.com/cli/):
 
    {% raw %}```bash{:copy}
-   aws ecr create-repository \ --repository-name MY_ECR_REPOSITORY \ --region MY_AWS_REGION
+   aws ecr create-repository \
+    --repository-name MY_ECR_REPOSITORY \ --region MY_AWS_REGION
    ```{% endraw %}
 
    Asegúrate de que utilizas el mismo nombre de repositorio para amazon ECR (que se representa aquí como `MY_ECR_REPOSITORY`) para la variable `ECR_REPOSITORY` en el flujo de trabajo a continuación.
@@ -76,9 +77,7 @@ Antes de que crees tu flujo de trabajo de {% data variables.product.prodname_act
 
    Consulta la documentación para cada acción que se utiliza a continuación para las políticas recomendadas de IAM para el usuario de IAM y los métodos para manejar las credenciales de las llaves de acceso.
 
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 5. Optionally, configure a deployment environment. {% data reusables.actions.about-environments %}
-{% endif %}
 
 ## Creating the workflow
 
@@ -116,11 +115,11 @@ jobs:
     runs-on: ubuntu-latest
     environment: production
 
-    {% raw %}steps:
+    steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: {% data reusables.actions.action-checkout %}
 
-      - name: Configure AWS credentials
+      {% raw %}- name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@13d241b293754004c80624b5567555c4a39ffbe3
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
