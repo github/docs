@@ -19,6 +19,7 @@ children:
   - authentication
   - repositories
   - github
+  - a
   - admin
   - billing
   - site-policy
