@@ -20,12 +20,19 @@ product: '{% data reusables.gated-features.pages %}'
 
 This guide will lead you through creating a user site at `username.github.io`.
 
-## Creating your website <!-- TODO -->
+## Creating your website
 
 {% data reusables.repositories.create_new %}
 1. Enter `username.github.io` as the repository name. Replace `username` with your {% data variables.product.prodname_dotcom %} username. For example, if your username is `octocat`, the repository name should be `octocat.github.io`.
    ![Repository name field](/assets/images/help/pages/create-repository-name-pages.png)
-{% data reusables.repositories.sidebar-settings %}
+   
+   {% note %}
+   
+   **Note** : If you are on the GitHub Free 
+   
+   {% endnote %}
+2. Under your repository name, click **{% octicon "gear" aria-label="The gear icon" %} Settings**.
+   ![Repository settings button](/assets/images/help/pages/quickstart-settings-nav.png)
 {% data reusables.pages.sidebar-pages %}
 1. Click **Choose a theme**.
    ![Choose a theme button](/assets/images/help/pages/choose-theme.png)
