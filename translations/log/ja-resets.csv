@@ -80,7 +80,6 @@ translations/ja-JP/content/billing/managing-billing-for-github-advanced-security
 translations/ja-JP/content/billing/managing-billing-for-github-advanced-security/viewing-your-github-advanced-security-usage.md,rendering error
 translations/ja-JP/content/billing/managing-billing-for-github-packages/about-billing-for-github-packages.md,broken liquid tags
 translations/ja-JP/content/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise.md,broken liquid tags
-translations/ja-JP/content/billing/managing-billing-for-your-github-account/about-per-user-pricing.md,broken liquid tags
 translations/ja-JP/content/billing/managing-billing-for-your-github-account/how-does-upgrading-or-downgrading-affect-the-billing-process.md,broken liquid tags
 translations/ja-JP/content/billing/managing-billing-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account.md,broken liquid tags
 translations/ja-JP/content/billing/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise/about-visual-studio-subscriptions-with-github-enterprise.md,broken liquid tags
@@ -272,9 +271,9 @@ translations/ja-JP/data/reusables/dotcom_billing/lfs-remove-data.md,broken liqui
 translations/ja-JP/data/reusables/education/apply-for-team.md,broken liquid tags
 translations/ja-JP/data/reusables/enterprise-accounts/actions-tab.md,broken liquid tags
 translations/ja-JP/data/reusables/enterprise-accounts/hooks-tab.md,Listed in localization-support#489
-translations/ja-JP/data/reusables/enterprise-accounts/hooks-tab.md,rendering error
+translations/ja-JP/data/reusables/enterprise-accounts/hooks-tab.md,broken liquid tags
 translations/ja-JP/data/reusables/enterprise-accounts/messages-tab.md,Listed in localization-support#489
-translations/ja-JP/data/reusables/enterprise-accounts/messages-tab.md,rendering error
+translations/ja-JP/data/reusables/enterprise-accounts/messages-tab.md,broken liquid tags
 translations/ja-JP/data/reusables/enterprise-accounts/pages-tab.md,broken liquid tags
 translations/ja-JP/data/reusables/enterprise_installation/hardware-considerations-all-platforms.md,broken liquid tags
 translations/ja-JP/data/reusables/enterprise_installation/upgrade-hardware-requirements.md,broken liquid tags
