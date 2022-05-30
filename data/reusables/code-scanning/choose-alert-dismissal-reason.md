@@ -1,1 +1,1 @@
-It's important to choose the appropriate reason from the drop-down menu as this may affect whether a query continues to be included in future analysis.
+It's important to choose the appropriate reason from the drop-down menu as this may affect whether a query continues to be included in future analysis. {% if comment-dismissed-code-scanning-alert %}Optionally, you can comment on a dismissal to record the context of an alert dismissal. The dismissal comment is added to the alert timeline and can be used as justification during auditing and reporting.{% endif %}
