@@ -76,3 +76,11 @@ upcoming_changes:
     date: '2022-07-01T00:00:00+00:00'
     criticality: breaking
     owner: jdennes
+  - location: RemovePullRequestFromMergeQueueInput.branch
+    description: '`branch` will be removed.'
+    reason:
+      PRs are removed from the merge queue for the base branch, the `branch` argument
+      is now a no-op
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: jhunschejones
