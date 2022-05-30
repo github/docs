@@ -53,7 +53,7 @@ Before you submit your review, your line comments are _pending_ and only visible
 
 {% codespaces %}
 
-You can use [{% data variables.product.prodname_codespaces %}](/codespaces/overview) to test, run, and review pull requests.
+You can use [{% data variables.product.prodname_github_codespaces %}](/codespaces/overview) to test, run, and review pull requests.
 
 {% data reusables.codespaces.review-pr %}
 
