@@ -116,8 +116,10 @@ There are two types of {% data variables.product.prodname_dependabot_updates %}:
  - Triggered by a {% data variables.product.prodname_dependabot %} alert
  - Update dependencies to the minimum version that resolves a known vulnerability
  - Supported for ecosystems the dependency graph supports
+ - Does not require a configuration file, but you can use one to override the default behavior
  
 {% data variables.product.prodname_dependabot_version_updates %}:
+ - Requires a configuration file
  - Run on a schedule you configure
  - Update dependencies to the latest version that matches the configuration
  - Supported for a different group of ecosystems
