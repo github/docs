@@ -280,7 +280,11 @@ updates:
       prefix-development: "pip dev"
       include: "scope"
 ```
-An example commit message based on your recent commit preferences would be `<prefix> (dev-deps): bump requests from 1.0.8 to 1.1.3`.
+Example:
+Using these preferences, bumping the `requests` library in the `pip` Development dependency group generates a commit message of:
+
+   pip dev: bump requests from 1.0.0 to 1.0.1
+   
 
 ### `ignore`
 
