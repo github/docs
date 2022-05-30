@@ -81,13 +81,9 @@ SSH URL を使用して、`git clone`、`git fetch`、`git pull` または `git 
 
 {% endtip %}
 
-{% ifversion fpt or ghes or ghae or ghec %}
-
 ## {% data variables.product.prodname_cli %} を使ってクローンを作成する
 
 {% data variables.product.prodname_cli %} をインストールして、ターミナルで {% data variables.product.product_name %} ワークフローを使用することもできます。 詳しい情報については、「[{% data variables.product.prodname_cli %} について](/github-cli/github-cli/about-github-cli)」を参照してください。
-
-{% endif %}
 
 {% ifversion not ghae %}
 ## Subversion を使って複製する

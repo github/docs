@@ -63,7 +63,7 @@ Se as atualizações de segurança não estiverem habilitadas para o seu reposit
 Você pode habilitar ou desabilitar {% data variables.product.prodname_dependabot_security_updates %} para um repositório individual (veja abaixo).
 
 
-Você também pode habilitar ou desabilitar {% data variables.product.prodname_dependabot_security_updates %} para todos os repositórios pertencentes à sua conta pessoal ou organização. Para mais informações consulte "[Gerenciar as configurações de segurança e análise da sua conta pessoal](/github/setting-up-and-managing-your-github-user-account/managing-security-and-analysis-settings-for-your-user-account)" ou "[Gerenciar as configurações de segurança e análise da sua organização](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)".
+Você também pode habilitar ou desabilitar {% data variables.product.prodname_dependabot_security_updates %} para todos os repositórios pertencentes à sua conta pessoal ou organização. Para mais informações consulte "[Gerenciar as configurações de segurança e análise da sua conta pessoal](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-security-and-analysis-settings-for-your-personal-account)" ou "[Gerenciar as configurações de segurança e análise da sua organização](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)".
 
 O {% data variables.product.prodname_dependabot_security_updates %} exige configurações específicas do repositório. Para obter mais informações, consulte "[Repositórios compatíveis](#supported-repositories)".
 
@@ -75,6 +75,31 @@ O {% data variables.product.prodname_dependabot_security_updates %} exige config
 1. Em "Segurança e análise de código", à direita de "atualizações de segurança de {% data variables.product.prodname_dependabot %}", clique em **Habilitar** para habilitar o recurso ou **Desabilitar** para desabilitá-lo. {% ifversion fpt or ghec %}Para repositórios públicos, o botão fica desabilitado se o recurso estiver sempre habilitado.{% endif %}
   {% ifversion fpt or ghec %}!["Code security and analysis" section with button to enable {% data variables.product.prodname_dependabot_security_updates %}](/assets/images/help/repository/enable-dependabot-security-updates-button.png){% else %}!["Code security and analysis" section with button to enable {% data variables.product.prodname_dependabot_security_updates %}](/assets/images/enterprise/3.3/repository/security-and-analysis-disable-or-enable-ghes.png){% endif %}
 
+## Overriding the default behavior with a configuration file
+
+You can override the default behavior of {% data variables.product.prodname_dependabot_security_updates %} by adding a dependabot.yml file to your repository. For more information, see "[Configuration options for the dependabot.yml file](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file)."
+
+If you only require security updates and want to exclude version updates, you can set `open-pull-request-limit` to `0` in order to prevent version updates for a given `package-ecosystem`. For more information, see "[`open-pull-request-limit`](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#open-pull-requests-limit)."
+
+```
+# Example configuration file that:
+#  - Ignores lodash dependency
+#  - Disables version-updates
+
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    ignore:
+      - dependency-name: "lodash"
+        # For Lodash, ignore all updates
+    # Disable version updates for npm dependencies
+    open-pull-requests-limit: 0
+```
+
+For more information about the configuration options available for security updates, see the table in "[Configuration options for the dependabot.yml file](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#configuration-options-for-the-dependabotyml-file)."
 
 ## Leia mais
 

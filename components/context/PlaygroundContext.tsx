@@ -2,16 +2,12 @@ import React, { createContext, useContext, useState } from 'react'
 import { CodeLanguage, PlaygroundArticleT } from 'components/playground/types'
 import { useRouter } from 'next/router'
 
-import actionsJsArticle from 'components/playground/content/actions/guides/building-and-testing-nodejs-or-python/nodejs'
-import actionsPyArticle from 'components/playground/content/actions/guides/building-and-testing-nodejs-or-python/python'
 import codespacesJsArticle from 'components/playground/content/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces/nodejs'
 import codespacesPyArticle from 'components/playground/content/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces/python'
 import codespacesNetArticle from 'components/playground/content/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces/dotnet'
 import codespacesJavaArticle from 'components/playground/content/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces/java'
 
 const articles = [
-  actionsJsArticle,
-  actionsPyArticle,
   codespacesJsArticle,
   codespacesPyArticle,
   codespacesJavaArticle,

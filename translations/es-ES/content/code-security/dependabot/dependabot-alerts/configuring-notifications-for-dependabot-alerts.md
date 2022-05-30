@@ -9,7 +9,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: issue-4864
+  ghae: '*'
   ghec: '*'
 type: how_to
 topics:
@@ -31,7 +31,7 @@ Cuando el {% data variables.product.prodname_dependabot %} detecta las dependenc
 {% ifversion fpt or ghec %}Si eres un propietario de organización, puedes habilitar o inhabilitar las {% data variables.product.prodname_dependabot_alerts %} para todos los repositorios en tu organización con un clic. También puedes configurar si se habilitará o inhabilitará la detección de dependencias vulnerables para los repositorios recién creados. Para obtener más información, consulta la sección "[Administrar la configuración de análisis y seguridad para tu organización](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization#enabling-or-disabling-a-feature-for-all-new-repositories-when-they-are-added)".
 {% endif %}
 
-{% ifversion ghes or ghae-issue-4864 %}
+{% ifversion ghes or ghae %}
 Predeterminadamente, si el propietario de tu empresa configuró las notificaciones por correo electrónico en ella, recibirás las {% data variables.product.prodname_dependabot_alerts %} por este medio.
 
 Los propietarios de empresas también pueden habilitar las {% data variables.product.prodname_dependabot_alerts %} sin notificaciones. Para obtener más información, consulta la sección "[Habilitar la {% data variables.product.prodname_dependabot %} en tu empresa](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)".

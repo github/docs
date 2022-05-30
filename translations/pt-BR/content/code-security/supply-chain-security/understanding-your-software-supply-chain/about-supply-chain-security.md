@@ -8,7 +8,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: issue-4864
+  ghae: '*'
   ghec: '*'
 type: overview
 topics:
@@ -53,6 +53,10 @@ As outras funcionalidades da cadeia de suprimentos em {% data variables.product.
 {% ifversion ghes < 3.2 %}
 Os dados de dependência de referência cruzada de {% data variables.product.prodname_dependabot %} fornecidos pelo gráfico de dependências com a lista de vulnerabilidades conhecidas publicadas no {% data variables.product.prodname_advisory_database %}, verifica suas dependências e gera {% data variables.product.prodname_dependabot_alerts %} quando uma potencial vulnerabilidade é detectada.
  {% endif %}
+
+{% ifversion fpt or ghec or ghes %}
+Para oter guias sobre as práticas recomendadas de segurança da cadeia de suprimentos de ponta a ponta, incluindo a proteção de contas pessoais, código e processos de compilação, consulte "[Protegendo sua cadeia de suprimentos de ponta a ponta](/code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview)".
+{% endif %}
 
 ## Visão geral de recursos
 
@@ -112,8 +116,10 @@ Há dois tipos de {% data variables.product.prodname_dependabot_updates %}: {% d
  - Acionado por um alerta de {% data variables.product.prodname_dependabot %}
  - Atualizar dependências para a versão mínima que resolve uma vulnerabilidade conhecida
  - Compatível para os ecossistemas que o gráfico de dependências suporta
+ - Does not require a configuration file, but you can use one to override the default behavior
 
 {% data variables.product.prodname_dependabot_version_updates %}:
+ - Requires a configuration file
  - Executar em um calendário que você configura
  - Atualizar dependências para a última versão que corresponde à configuração
  - Compatível para um grupo diferente de ecossistemas
@@ -128,7 +134,7 @@ Para obter mais informações sobre {% data variables.product.prodname_dependabo
 Repositórios públicos:
 - **Gráfico de dependência**—habilitado por padrão e não pode ser desabilitado.
 - **Revisão de dependência**—habilitado por padrão e não pode ser desabilitado.
-- **{% data variables.product.prodname_dependabot_alerts %}**—não habilitado por padrão. {% data variables.product.prodname_dotcom %} detecta dependências vulneráveis e exibe informações no gráfico de dependência, mas não gera {% data variables.product.prodname_dependabot_alerts %} por padrão. Os proprietários do repositório ou pessoas com acesso de administrador podem habilitar {% data variables.product.prodname_dependabot_alerts %}. Você também pode habilitar ou desabilitar alertas do Dependabot para todos os repositórios pertencentes à sua conta de usuário ou organização. Para obter mais informações, consulte "[Gerenciando configurações de segurança e análise da sua conta de usuário](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-security-and-analysis-settings-for-your-user-account)" ou "[Gerenciando configurações de segurança e análise da sua organização](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)".
+- **{% data variables.product.prodname_dependabot_alerts %}**—não habilitado por padrão. {% data variables.product.prodname_dotcom %} detecta dependências vulneráveis e exibe informações no gráfico de dependência, mas não gera {% data variables.product.prodname_dependabot_alerts %} por padrão. Os proprietários do repositório ou pessoas com acesso de administrador podem habilitar {% data variables.product.prodname_dependabot_alerts %}. Você também pode habilitar ou desabilitar alertas do Dependabot para todos os repositórios pertencentes à sua conta de usuário ou organização. Para obter mais informações, consulte "[Gerenciando as configurações de segurança e análise da sua conta de usuário](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-security-and-analysis-settings-for-your-personal-account)" ou "[Gerenciando as configurações de segurança e análise da sua organização](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)".
 
 Repositórios privados:
 - **Gráfico de dependência**—não habilitado por padrão. O recurso pode ser habilitado pelos administradores do repositório. Para obter mais informações, consulte "[Explorar as dependências de um repositório](/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository#enabling-and-disabling-the-dependency-graph-for-a-private-repository)".
@@ -137,7 +143,7 @@ Repositórios privados:
 {% elsif ghec %}
 - **Revisão de dependência**— disponível em repositórios privados pertencentes a organizações, desde que você tenha uma licença para {% data variables.product.prodname_GH_advanced_security %} e o gráfico de dependências habilitado. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security)" e "[Explorando as dependências de um repositório](/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository#enabling-and-disabling-the-dependency-graph-for-a-private-repository)".
 {% endif %}
-- **{% data variables.product.prodname_dependabot_alerts %}**—não habilitado por padrão. Os proprietários de repositórios privados ou pessoas com acesso de administrador, podem habilitar o {% data variables.product.prodname_dependabot_alerts %} ativando o gráfico de dependências e {% data variables.product.prodname_dependabot_alerts %} para seus repositórios. Você também pode habilitar ou desabilitar alertas do Dependabot para todos os repositórios pertencentes à sua conta de usuário ou organização. Para obter mais informações, consulte "[Gerenciando configurações de segurança e análise da sua conta de usuário](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-security-and-analysis-settings-for-your-user-account)" ou "[Gerenciando configurações de segurança e análise da sua organização](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)".
+- **{% data variables.product.prodname_dependabot_alerts %}**—não habilitado por padrão. Os proprietários de repositórios privados ou pessoas com acesso de administrador, podem habilitar o {% data variables.product.prodname_dependabot_alerts %} ativando o gráfico de dependências e {% data variables.product.prodname_dependabot_alerts %} para seus repositórios. Você também pode habilitar ou desabilitar alertas do Dependabot para todos os repositórios pertencentes à sua conta de usuário ou organização. Para obter mais informações, consulte "[Gerenciando as configurações de segurança e análise da sua conta de usuário](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-security-and-analysis-settings-for-your-personal-account)" ou "[Gerenciando as configurações de segurança e análise da sua organização](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)".
 
 Qualquer tipo de repositório:
 - **{% data variables.product.prodname_dependabot_security_updates %}**—não habilitado por padrão. É possível habilitar o {% data variables.product.prodname_dependabot_security_updates %} para qualquer repositório que use {% data variables.product.prodname_dependabot_alerts %} e o gráfico de dependências. Para obter mais informações sobre habilitar atualizações de segurança, consulte "[Configurar {% data variables.product.prodname_dependabot_security_updates %}](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates)."

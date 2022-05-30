@@ -15,7 +15,7 @@ topics:
   - Secret scanning
 ---
 
-{% ifversion ghes < 3.3 or ghae %}
+{% ifversion ghes < 3.3 %}
 {% note %}
 
 **ノート:** {% data variables.product.prodname_secret_scanning %}のカスタムパターンは現在ベータであり、変更されることがあります。
@@ -33,7 +33,7 @@ topics:
 {%- else %}各OrganizationもしくはEnterpriseアカウントに対して、そしてリポジトリごとに20のカスタムパターンをサポートします。
 {%- endif %}
 
-{% ifversion ghes < 3.3 or ghae %}
+{% ifversion ghes < 3.3 %}
 {% note %}
 
 **ノート:** ベータの間、{% data variables.product.prodname_secret_scanning %}のカスタムパターンの使用には多少の制限があります。

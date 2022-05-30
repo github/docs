@@ -1,6 +1,6 @@
 ---
-title: Generating a Health Check for your enterprise
-intro: 'You can gain insight into the general health and Git and API requests of {% data variables.product.product_location %} by generating a Health Check.'
+title: Generar una verificación de salud para tu empresa
+intro: 'Puedes obtener perspectivas sobre la salud general y las solicitudes de {% data variables.product.product_location %} a la API y de Git si generas una verificación de salud.'
 versions:
   ghes: '*'
 type: how_to

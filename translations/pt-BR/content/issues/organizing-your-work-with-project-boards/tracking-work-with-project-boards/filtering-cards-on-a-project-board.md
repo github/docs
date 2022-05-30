@@ -30,8 +30,8 @@ Também é possível usar a barra de pesquisa "Filter cards" (Fitrar cartões) q
 - Filtrar cartões por status de verificação com `status:pending`, `status:success` ou `status:failure`
 - Filtrar cartões por tipo com `type:issue`, `type:pr` ou `type:note`
 - Filtrar cartões por estado e tipo com `is:open`, `is:closed` ou `is:merged`; e `is:issue`, `is:pr` ou `is:note`
-- Filtrar cartões por problemas vinculados a uma pull request por uma referência de fechamento usando `linked:pr`{% ifversion fpt or ghes or ghae or ghec %}
-- Filtrar cartões por repositório em um quadro de projetos de toda a organização usando `repo:ORGANIZATION/REPOSITORY`{% endif %}
+- Filtrar cartões por problemas vinculados a um pull request por uma referência de fechamento usando `linked:pr`
+- Filtrar cartões por repositório em um quadro de projetos de toda a organização com `repo:ORGANIZATION/REPOSITORY`
 
 1. Navegue até o quadro de projetos que contém os cartões que você deseja filtrar.
 2. Acima da coluna cartão de projeto, clique na barra de pesquisa "Filter cards" (Filtrar cartões) e digite uma consulta para filtrar os cartões. ![Barra de pesquisa Filter card (Filtrar cartões)](/assets/images/help/projects/filter-card-search-bar.png)

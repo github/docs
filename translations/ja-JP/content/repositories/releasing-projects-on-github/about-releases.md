@@ -32,12 +32,16 @@ topics:
 
 リリースは [Git タグ](https://git-scm.com/book/en/Git-Basics-Tagging)に基づきます。タグは、リポジトリの履歴の特定の地点をマークするものです。 タグの日付は異なる時点で作成できるため、リリースの日付とは異なる場合があります。 既存のタグの表示に関する詳細は「[リポジトリのリリースとタグを表示する](/github/administering-a-repository/viewing-your-repositorys-releases-and-tags)」を参照してください。
 
-リポジトリで新しいリリースが公開されたときに通知を受け取り、リポジトリで他の更新があったときには通知を受け取らないでいることができます。 詳しい情報については、{% ifversion fpt or ghae or ghes or ghec %}「[サブスクリプションを表示する](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions){% else %}「[リポジトリのリリースを Watch および Watch 解除する](/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-releases-for-a-repository){% endif %}」を参照してください。
+リポジトリで新しいリリースが公開されたときに通知を受け取り、リポジトリで他の更新があったときには通知を受け取らないでいることができます。 For more information, see "[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions)."
 
 リポジトリへの読み取りアクセス権を持つ人はリリースを表示および比較できますが、リリースの管理はリポジトリへの書き込み権限を持つ人のみができます。 詳細は「[リポジトリのリリースを管理する](/github/administering-a-repository/managing-releases-in-a-repository)」を参照してください。
 
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4974 %}
 You can manually create release notes while managing a release. Alternatively, you can automatically generate release notes from a default template, or customize your own release notes template. For more information, see "[Automatically generated release notes](/repositories/releasing-projects-on-github/automatically-generated-release-notes)."
+{% endif %}
+
+{% ifversion fpt or ghec or ghes > 3.6 or ghae-issue-7054 %}
+When viewing the details for a release, the creation date for each release asset is shown next to the release asset.
 {% endif %}
 
 {% ifversion fpt or ghec %}

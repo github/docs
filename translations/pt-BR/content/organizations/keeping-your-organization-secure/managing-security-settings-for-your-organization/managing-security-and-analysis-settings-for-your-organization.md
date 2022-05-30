@@ -156,5 +156,5 @@ Você pode gerenciar o acesso a funcionalidades de {% data variables.product.pro
 
 - "[Protegendo o seu repositório](/code-security/getting-started/securing-your-repository)"{% ifversion not fpt %}
 - "[Sobre a verificação de segredo](/github/administering-a-repository/about-secret-scanning)"{% endif %}{% ifversion not ghae %}
-- "[Sobre o gráfico de dependências](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)"{% endif %}{% ifversion fpt or ghec or ghes or ghae-issue-4864 %}
+- "[Sobre o gráfico de dependências](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)"{% endif %}{% ifversion fpt or ghec or ghes or ghae %}
 - "[Sobre a segurança da cadeia de suprimentos](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security)"{% endif %}

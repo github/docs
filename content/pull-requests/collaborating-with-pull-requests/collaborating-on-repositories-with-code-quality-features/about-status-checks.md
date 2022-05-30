@@ -76,3 +76,9 @@ To skip or request checks for your commit, add one of the following trailer line
   >
   request-checks: true"
   ```
+
+{% ifversion fpt or ghec %}
+### Retention of status checks
+
+{% data reusables.pull_requests.retention-checks-data %}
+{% endif %}

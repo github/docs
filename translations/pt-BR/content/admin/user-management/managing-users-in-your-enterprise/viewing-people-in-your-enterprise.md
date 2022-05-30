@@ -68,7 +68,15 @@ Você pode ver mais informações sobre o acesso da pessoa à sua empresa como, 
 {% ifversion ghec %}
 ## Visualizando convites pendentes
 
-Você pode ver todos os convites pendentes para se tornar administradores, integrantes ou colaboradores externos em sua empresa. É possível filtrar a lista de forma útil, por exemplo, por organização. Ou localizar uma determinada pessoa procurando pelo nome de usuário ou o nome de exibição dela.
+É possível ver todos os convites pendentes para se tornarem integrantes, administradores ou colaboradores externos na sua empresa. É possível filtrar a lista de forma útil, por exemplo, por organização. Ou localizar uma determinada pessoa procurando pelo nome de usuário ou o nome de exibição dela.
+
+Na lista de integrantes pendentes, para qualquer conta individual, você pode cancelar todos os convites para participar de organizações pertencentes à sua empresa. Isto não cancela nenhum convite para que essa mesma pessoa se torne administrador corporativo ou colaborador externo.
+
+{% note %}
+
+**Observação:** Se um convite foi fornecido via SCIM, você deve cancelar o convite pelo seu provedor de identidade (IdP) em vez de {% data variables.product.prodname_dotcom %}.
+
+{% endnote %}
 
 Se você usar {% data variables.product.prodname_vss_ghe %}, a lista de convites pendentes incluirá todos os assinantes de {% data variables.product.prodname_vs %} que não fizeram parte de nenhuma das suas organizações em {% data variables.product.prodname_dotcom %}, mesmo que o assinante não tenha um convite pendente para participar de uma organização. Para obter mais informações sobre como fazer com que os assinantes de {% data variables.product.prodname_vs %} acessem {% data variables.product.prodname_enterprise %}, consulte "[Configurando {% data variables.product.prodname_vss_ghe %}](/billing/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise/setting-up-visual-studio-subscriptions-with-github-enterprise)"
 
@@ -77,7 +85,9 @@ Se você usar {% data variables.product.prodname_vss_ghe %}, a lista de convites
 1. Em "Pessoas", clique em **Convites pendentes.**.
 
    ![Captura de tela da aba "Convites pendentes" na barra lateral](/assets/images/help/enterprises/pending-invitations-tab.png)
+1. Opcionalmente, para cancelar todos os convites de uma conta para participar de organizações pertencentes à sua empresa, à direita da conta, clique em {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} e depois clique em **Cancelar convite**.
 
+   ![Captura de tela do botão "Cancelar convite"](/assets/images/help/enterprises/cancel-enterprise-member-invitation.png)
 1. Opcionalmente, para visualizar os convites pendentes para administradores corporativos ou colaboradores externos, em "Integrantes pendentes", clique em **Administradores** ou **Colaboradores externos**.
 
    ![Captura de tela das abas "Membros", "Administradores", e "Colaboradores externos"](/assets/images/help/enterprises/pending-invitations-type-tabs.png)
@@ -96,6 +106,17 @@ Se sua empresa usa {% data variables.product.prodname_emus %}, você também pod
 ## Exibir usuários inativos
 
 Você pode ver uma lista de todos os usuários desativados {% ifversion ghes or ghae %} que não foram suspensos e {% endif %}que não são administradores do site. {% data reusables.enterprise-accounts.dormant-user-activity-threshold %} Para obter mais informações, consulte "[Gerenciar usuários inativos](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users)".
+
+{% ifversion ghec or ghes > 3.1 %}
+## Viewing members without an email address from a verified domain
+
+You can view a list of members in your enterprise who don't have an email address from a verified domain associated with their user account on {% data variables.product.prodname_dotcom_the_website %}.
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.verified-domains-tab %}
+1. Under "Notification preferences", click the {% octicon "eye" aria-label="The github eye icon" %} **View enterprise members without an approved or verified domain email** link.
+{% endif %}
 
 ## Leia mais
 

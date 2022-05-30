@@ -1,5 +1,5 @@
 - SOC 1, Tipo 2
 - SOC 2, Tipo 2
-- Cloud Security Alliance CAIQ self-assessment (CSA CAIQ)
-- ISO/IEC 27001:2013 certification
-- {% data variables.product.prodname_dotcom_the_website %} Services Continuity and Incident Management Plan
+- Autoevaluación del CAIQ de la Alianza de Seguridad en la Nube (CSA CAIQ)
+- Certificación ISO/IEC 27001:2013
+- Continuidad de Servicios de {% data variables.product.prodname_dotcom_the_website %} y Plan de Gestión de Incidentes

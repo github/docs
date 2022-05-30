@@ -5,7 +5,7 @@ shortTitle: Solucionar problemas do gráfico de dependências
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: issue-4864
+  ghae: '*'
   ghec: '*'
 type: how_to
 topics:

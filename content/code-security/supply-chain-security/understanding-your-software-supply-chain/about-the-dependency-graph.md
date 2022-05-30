@@ -7,7 +7,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: issue-4864
+  ghae: '*'
   ghec: '*'
 type: overview
 topics:
@@ -44,6 +44,8 @@ The dependency graph includes all the dependencies of a repository that are deta
 
 The dependency graph identifies indirect dependencies{% ifversion fpt or ghec %} either explicitly from a lock file or by checking the dependencies of your direct dependencies. For the most reliable graph, you should use lock files (or their equivalent) because they define exactly which versions of the direct and indirect dependencies you currently use. If you use lock files, you also ensure that all contributors to the repository are using the same versions, which will make it easier for you to test and debug code{% else %} from the lock files{% endif %}.
 
+For more information on how {% data variables.product.product_name %} helps you understand the dependencies in your environment, see "[About supply chain security](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security)."
+
 {% ifversion fpt or ghec %}
 
 ## Dependents included
@@ -70,7 +72,7 @@ The recommended formats explicitly define which versions are used for all direct
 {%- if github-actions-in-dependency-graph %}
 | {% data variables.product.prodname_actions %} workflows<sup>[1]</sup> | YAML | `.yml`, `.yaml` | `.yml`, `.yaml` |
 {%- endif %}
-{%- ifversion fpt or ghes > 3.2 or ghae %}
+{%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
 | Go modules | Go | `go.sum` | `go.mod`, `go.sum` |
 {%- elsif ghes = 3.2 %}
 | Go modules | Go | `go.mod` | `go.mod` |
