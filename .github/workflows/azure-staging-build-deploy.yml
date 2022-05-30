@@ -161,12 +161,3 @@ jobs:
       - name: 'Swap deployment slot to production'
         run: |
           az webapp deployment slot swap --slot ${{ env.SLOT_NAME }} --target-slot production -n ${{ env.APP_SERVICE_NAME }} -g ${{ env.RESOURCE_GROUP_NAME }}
-
-      - name: Send Slack notification if workflow failed
-        uses: someimportantcompany/github-actions-slack-message@f8d28715e7b8a4717047d23f48c39827cacad340
-        if: ${{ failure() }}
-        with:
-          channel: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
-          bot-token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
-          color: failure
-          text: Staging deployment (Azure) failed at commit ${{ env.COMMIT_REF }}. See https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
