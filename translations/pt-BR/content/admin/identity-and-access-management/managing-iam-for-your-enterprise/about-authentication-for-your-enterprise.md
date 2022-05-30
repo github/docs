@@ -19,7 +19,9 @@ topics:
 
 {% ifversion ghec %}
 
-Os proprietários das empresas em {% data variables.product.product_name %} podem controlar os requisitos de autenticação e acesso aos recursos da empresa. Você pode optar por permitir que os integrantescriem e gerenciem contas de usuário ou sua empresa pode criar e gerenciar contas para os integrantes. Se você permitir que os integrantes gerenciem suas próprias contas, você também pode configurar a autenticação SAML para aumentar a segurança e centralizar a identidade e o acesso dos aplicativos web que sua equipe usa. Se você optar por gerenciar as contas de usuário dos seus integrantes, será necessário configurar a autenticação SAML.
+Os proprietários das empresas em {% data variables.product.product_name %} podem controlar os requisitos de autenticação e acesso aos recursos da empresa.
+
+Você pode optar por permitir que os integrantes criem e gerenciem contas de usuário, ou sua empresa pode criar e gerenciar contas para integrantes com {% data variables.product.prodname_emus %}. Se você permitir que os integrantes gerenciem suas próprias contas, você também pode configurar a autenticação SAML para aumentar a segurança e centralizar a identidade e o acesso dos aplicativos web que sua equipe usa. Se você optar por gerenciar as contas de usuário dos seus integrantes, será necessário configurar a autenticação SAML.
 
 ## Métodos de autenticação para {% data variables.product.product_name %}
 

@@ -28,7 +28,7 @@ Puedes configurar una meta para tus patrocinios. Para obtener más información,
 
 ## Niveles de patrocinio
 
-{% data reusables.sponsors.tier-details %} For more information, see "[Setting up {% data variables.product.prodname_sponsors %} for your personal account](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account)," "[Setting up {% data variables.product.prodname_sponsors %} for your organization](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization), and "[Managing your sponsorship tiers](/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-tiers)."
+{% data reusables.sponsors.tier-details %} Para obtener más información, consulta las secciones "[Configurar {% data variables.product.prodname_sponsors %} para tu cuenta personal](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account)", "[Configurar {% data variables.product.prodname_sponsors %} para tu organización](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)" y "[Administrar tus niveles de patrocinio](/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-tiers)".
 
 Es mejor mantener una gama de opciones de patrocinio diferentes, incluyendo niveles mensuales y de una sola ocasión, para hacer más fácil que cualquiera apiye tu trabajo. Particularmente, los pagos de una sola ocasión le permiten a la spersonas recompensarte por tu esfuerzo sin preocuparse de que sus finanzas apoyen un programa de pagos constantes.
 

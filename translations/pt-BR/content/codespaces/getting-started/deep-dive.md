@@ -46,13 +46,13 @@ Uma vez que seu repositório é clonado na VM de host antes da criação do cont
 
 ### Etapa 3: Conectando-se ao codespace
 
-Quando seu contêiner for criado e qualquer outra inicialização for executada, você estará conectado ao seu codespace. You can connect to it through the web or via [{% data variables.product.prodname_vscode_shortname %}](/codespaces/developing-in-codespaces/using-codespaces-in-visual-studio-code), or both, if needed.
+Quando seu contêiner for criado e qualquer outra inicialização for executada, você estará conectado ao seu codespace. Você pode conectar-se por meio da web ou via [{% data variables.product.prodname_vscode_shortname %}](/codespaces/developing-in-codespaces/using-codespaces-in-visual-studio-code), ou ambos, se necessário.
 
 ### Passo 4: Configuração de pós-criação
 
 Uma vez que você estiver conectado ao seu codespace, a sua configuração automatizada poderá continuar compilando com base na configuração que você especificou no seu arquivo `devcontainer.json`. Você pode ver `postCreateCommand` e `postAttachCommand` serem executados.
 
-Se vocÊ quiser usar os hooks do Git no seu codespace, configure os hooks usando os scripts do ciclo de vida do [`devcontainer.json` ](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_lifecycle-scripts) como, por exemplo, `postCreateCommand`. For more information, see the [`devcontainer.json` reference](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_devcontainerjson-properties) in the {% data variables.product.prodname_vscode_shortname %} documentation.
+Se vocÊ quiser usar os hooks do Git no seu codespace, configure os hooks usando os scripts do ciclo de vida do [`devcontainer.json` ](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_lifecycle-scripts) como, por exemplo, `postCreateCommand`. Para obter mais informações, consulte a referência de [`devcontainer.json`](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_devcontainerjson-properties) na documentação de {% data variables.product.prodname_vscode_shortname %}.
 
 Se você tiver um repositório de dotfiles público para {% data variables.product.prodname_codespaces %}, você poderá habilitá-lo para uso com novos codespaces. Quando habilitado, seus dotfiles serão clonados para o contêiner e o script de instalação será invocado. Para obter mais informações, consulte "[Personalizar {% data variables.product.prodname_codespaces %} para sua conta](/github/developing-online-with-codespaces/personalizing-codespaces-for-your-account#dotfiles)".
 
@@ -93,7 +93,7 @@ A execução do seu aplicativo ao chegar pela primeira vez no seu codespace pode
 
 ## Enviando e fazendo push das suas alterações
 
-O Git está disponível por padrão no seu codespace. Portanto, você pode confiar no fluxo de trabalho do Git existente. You can work with Git in your codespace either via the Terminal or by using [{% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/editor/versioncontrol)'s source control UI. Para obter mais informações, consulte "[Usando controle de origem no seu codespace](/codespaces/developing-in-codespaces/using-source-control-in-your-codespace)"
+O Git está disponível por padrão no seu codespace. Portanto, você pode confiar no fluxo de trabalho do Git existente. Você pode trabalhar com o Git no seu codespace por meio do Terminal ou usando [a interface de usuário do controle de origem de {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/editor/versioncontrol). Para obter mais informações, consulte "[Usando controle de origem no seu codespace](/codespaces/developing-in-codespaces/using-source-control-in-your-codespace)"
 
 ![Executando o status do git no terminal do codespaces](/assets/images/help/codespaces/git-status.png)
 
@@ -107,7 +107,7 @@ Você pode criar um codespace a partir de qualquer branch, commit ou pull reques
 
 ## Personalizando seu codespace com extensões
 
-Using {% data variables.product.prodname_vscode_shortname %} in your codespace gives you access to the {% data variables.product.prodname_vscode_marketplace %} so that you can add any extensions you need. Para obter informações de como as extensões são executadas em {% data variables.product.prodname_codespaces %}, consulte [Suporte ao Desenvolvimento Remoto e aos codespaces do GitHub](https://code.visualstudio.com/api/advanced-topics/remote-extensions) na documentação de {% data variables.product.prodname_vscode_shortname %}.
+Usar {% data variables.product.prodname_vscode_shortname %} no seu codespace dá acesso aos {% data variables.product.prodname_vscode_marketplace %} para que você possa adicionar as extensões que precisar. Para obter informações de como as extensões são executadas em {% data variables.product.prodname_codespaces %}, consulte [Suporte ao Desenvolvimento Remoto e aos codespaces do GitHub](https://code.visualstudio.com/api/advanced-topics/remote-extensions) na documentação de {% data variables.product.prodname_vscode_shortname %}.
 
 Se você já usa o {% data variables.product.prodname_vscode_shortname %}, você pode usar as [Sincronização de configurações](https://code.visualstudio.com/docs/editor/settings-sync) para sincronizar automaticamente as extensões, configurações, temas, e atalhos de teclado entre sua instância local e todos {% data variables.product.prodname_codespaces %} que você criar.
 

@@ -3,10 +3,10 @@ translations/ja-JP/content/account-and-profile/managing-subscriptions-and-notifi
 translations/ja-JP/content/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications.md,broken liquid tags
 translations/ja-JP/content/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/sending-enterprise-contributions-to-your-githubcom-profile.md,broken liquid tags
 translations/ja-JP/content/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/viewing-contributions-on-your-profile.md,broken liquid tags
-translations/ja-JP/content/account-and-profile/setting-up-and-managing-your-github-user-account/managing-email-preferences/adding-an-email-address-to-your-github-account.md,broken liquid tags
-translations/ja-JP/content/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/about-your-personal-dashboard.md,broken liquid tags
-translations/ja-JP/content/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-the-default-branch-name-for-your-repositories.md,broken liquid tags
-translations/ja-JP/content/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/permission-levels-for-a-user-account-repository.md,broken liquid tags
+translations/ja-JP/content/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/adding-an-email-address-to-your-github-account.md,broken liquid tags
+translations/ja-JP/content/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/about-your-personal-dashboard.md,broken liquid tags
+translations/ja-JP/content/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-the-default-branch-name-for-your-repositories.md,broken liquid tags
+translations/ja-JP/content/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/permission-levels-for-a-personal-account-repository.md,broken liquid tags
 translations/ja-JP/content/actions/creating-actions/about-custom-actions.md,broken liquid tags
 translations/ja-JP/content/actions/creating-actions/publishing-actions-in-github-marketplace.md,broken liquid tags
 translations/ja-JP/content/actions/hosting-your-own-runners/about-self-hosted-runners.md,broken liquid tags
@@ -80,7 +80,6 @@ translations/ja-JP/content/billing/managing-billing-for-github-advanced-security
 translations/ja-JP/content/billing/managing-billing-for-github-advanced-security/viewing-your-github-advanced-security-usage.md,rendering error
 translations/ja-JP/content/billing/managing-billing-for-github-packages/about-billing-for-github-packages.md,broken liquid tags
 translations/ja-JP/content/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise.md,broken liquid tags
-translations/ja-JP/content/billing/managing-billing-for-your-github-account/about-per-user-pricing.md,broken liquid tags
 translations/ja-JP/content/billing/managing-billing-for-your-github-account/how-does-upgrading-or-downgrading-affect-the-billing-process.md,broken liquid tags
 translations/ja-JP/content/billing/managing-billing-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account.md,broken liquid tags
 translations/ja-JP/content/billing/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise/about-visual-studio-subscriptions-with-github-enterprise.md,broken liquid tags
@@ -237,6 +236,7 @@ translations/ja-JP/data/release-notes/enterprise-server/3-1/18.yml,broken liquid
 translations/ja-JP/data/release-notes/enterprise-server/3-1/19.yml,broken liquid tags
 translations/ja-JP/data/release-notes/enterprise-server/3-1/2.yml,broken liquid tags
 translations/ja-JP/data/release-notes/enterprise-server/3-1/20.yml,broken liquid tags
+translations/ja-JP/data/release-notes/enterprise-server/3-1/21.yml,broken liquid tags
 translations/ja-JP/data/release-notes/enterprise-server/3-1/3.yml,broken liquid tags
 translations/ja-JP/data/release-notes/enterprise-server/3-1/4.yml,broken liquid tags
 translations/ja-JP/data/release-notes/enterprise-server/3-1/5.yml,broken liquid tags
@@ -247,6 +247,8 @@ translations/ja-JP/data/release-notes/enterprise-server/3-1/9.yml,broken liquid 
 translations/ja-JP/data/release-notes/enterprise-server/3-2/0-rc1.yml,broken liquid tags
 translations/ja-JP/data/release-notes/enterprise-server/3-2/0.yml,broken liquid tags
 translations/ja-JP/data/release-notes/enterprise-server/3-2/3.yml,broken liquid tags
+translations/ja-JP/data/release-notes/enterprise-server/3-3/0-rc1.yml,broken liquid tags
+translations/ja-JP/data/release-notes/enterprise-server/3-3/0.yml,broken liquid tags
 translations/ja-JP/data/release-notes/github-ae/2021-03/2021-03-03.yml,broken liquid tags
 translations/ja-JP/data/reusables/actions/allow-specific-actions-intro.md,broken liquid tags
 translations/ja-JP/data/reusables/actions/disabling-github-actions.md,broken liquid tags
@@ -269,9 +271,9 @@ translations/ja-JP/data/reusables/dotcom_billing/lfs-remove-data.md,broken liqui
 translations/ja-JP/data/reusables/education/apply-for-team.md,broken liquid tags
 translations/ja-JP/data/reusables/enterprise-accounts/actions-tab.md,broken liquid tags
 translations/ja-JP/data/reusables/enterprise-accounts/hooks-tab.md,Listed in localization-support#489
-translations/ja-JP/data/reusables/enterprise-accounts/hooks-tab.md,rendering error
+translations/ja-JP/data/reusables/enterprise-accounts/hooks-tab.md,broken liquid tags
 translations/ja-JP/data/reusables/enterprise-accounts/messages-tab.md,Listed in localization-support#489
-translations/ja-JP/data/reusables/enterprise-accounts/messages-tab.md,rendering error
+translations/ja-JP/data/reusables/enterprise-accounts/messages-tab.md,broken liquid tags
 translations/ja-JP/data/reusables/enterprise-accounts/pages-tab.md,broken liquid tags
 translations/ja-JP/data/reusables/enterprise_installation/hardware-considerations-all-platforms.md,broken liquid tags
 translations/ja-JP/data/reusables/enterprise_installation/upgrade-hardware-requirements.md,broken liquid tags

@@ -30,7 +30,7 @@ También puedes usar la barra de búsqueda "Filtrar tarjetas" en la parte superi
 - Filtrar por comprobación de estado usando `status:pending`, `status:success` o `status:failure`
 - Filtrar tarjetas por tipo usando `type:issue`, `type:pr` o `type:note`
 - Filtrar tarjetas por estado y tipo usando `is:open`, `is:closed` o `is:merged` y `is:issue`, `is:pr` o `is:note`
-- Filter cards by issues that are linked to a pull request by a closing reference using `linked:pr`
+- Filtrar las tarjetas por las propuestas que están enlazadas a una solicitud de cambios mediante una referencia de cierre utilizando `linked:pr`
 - Filtrar tarjetas por repositorio en un tablero de proyecto de toda la organización usando `repo:ORGANIZATION/REPOSITORY`
 
 1. Dirígete al tablero de proyecto que contenga las tarjetas que desees filtrar.

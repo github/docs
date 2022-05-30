@@ -59,9 +59,9 @@ Travis CI puede utilizar `stages` para ejecutar jobs en paralelo. De forma simil
 
 Tanto Travis CI como {% data variables.product.prodname_actions %} son compatibles con las insignias de estado, lo cual te permite indicar si una compilación pasa o falla. Para obtener más información, consulta la sección "[Agregar una insignia de estado de un flujo de trabajo a tu repositorio](/actions/managing-workflow-runs/adding-a-workflow-status-badge)".
 
-### Using a matrix
+### Utilizar una matriz
 
-Travis CI and {% data variables.product.prodname_actions %} both support a matrix, allowing you to perform testing using combinations of operating systems and software packages. For more information, see "[Using a matrix for your jobs](/actions/using-jobs/using-a-matrix-for-your-jobs)."
+Tanto Travis CI como {% data variables.product.prodname_actions %} son compatibles con una matriz, lo cual te permite llevar a cabo pruebas utilizando combinaciones de sistemas operativos y paquetes de software. Para obtener más información, consulta la sección "[Utilizar una matriz para tus jobs](/actions/using-jobs/using-a-matrix-for-your-jobs)".
 
 A continuación podrás encontrar un ejemplo que compara la sintaxis para cada sistema:
 

@@ -42,7 +42,7 @@ Si bien esta opción no te configura un ambiente de desarrollo, te permitirá ha
 
 ## Opción 4: Utiliza los contenedores remotos y Docker para crear un ambiente contenido local
 
-If your repository has a `devcontainer.json`, consider using the [Remote-Containers extension](https://code.visualstudio.com/docs/remote/containers#_quick-start-open-a-git-repository-or-github-pr-in-an-isolated-container-volume) in {% data variables.product.prodname_vscode %} to build and attach to a local development container for your repository. El tiempo de configuración para esta opción variará dependiendo de tus especificaciones locales y de la complejidad de tu configuración de contenedor dev.
+Si tu repositorio tiene un `devontainer.json`, considera utilizar la [extensión de contenedores remotos](https://code.visualstudio.com/docs/remote/containers#_quick-start-open-a-git-repository-or-github-pr-in-an-isolated-container-volume) en {% data variables.product.prodname_vscode %} para crear y adjuntar un contenedor de desarrollo local para tu repositorio. El tiempo de configuración para esta opción variará dependiendo de tus especificaciones locales y de la complejidad de tu configuración de contenedor dev.
 
 {% note %}
 

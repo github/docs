@@ -4,15 +4,15 @@ sections:
     - 'Los paquetes se actualizaron a las últimas versiones de seguridad.'
   bugs:
     - 'Las páginas se hicieron no disponibles siguiendo una rotación de secretos de MySQL hasta que `nginx` se restableció manualmente.'
-    - 'Migrations could fail when {% data variables.product.prodname_actions %} was enabled.'
+    - 'Las migraciones pudieron haber fallado cuando se habilitó {% data variables.product.prodname_actions %}.'
     - 'Cuando se configura la programación de mantenimiento con una fecha ISO 8601, el tiempo programado real no coincide debido a que la zona horaria no se transforma a UTC.'
     - 'Los mensajes de errores espurios con respecto a `cloud-config.service` se sacarían a la consola.'
     - 'El número de versión no se pudo actualizar correctamente después de instalar un hotpatch utilizando `ghe-cluster-each`.'
-    - 'Webhook table cleanup jobs could run simultaneously, causing resource contention and increasing job run time.'
-    - 'When run from the primary, `ghe-repl-teardown` on a replica would not remove the replica from the MSSQL availability group.'
+    - 'Los jobs de limpieza de tabla de webhook pueden ejecutarse simultáneamente ocasionando contención de recursos e incrementando el tiempo de ejecución del job.'
+    - 'Cuando se ejecutó desde la principal, `ghe-repl-teardown` en una réplica no la eliminó del grupo de disponibilidad de MSSQL.'
     - 'Cuando se utilizó la autenticación CAS y se habilitó la autenticación de "Reactivar usuarios suspendidos", dichos usuarios no se reactivaron automáticamente.'
-    - 'The ability to limit email-based notifications to users with emails on a verified or approved domain did not work correctly.'
-    - 'A long-running database migration related to Security Alert settings could delay upgrade completion.'
+    - 'La capacidad de limitar las notificaciones basadas en correos electrónicos para los usuarios con correos electrónicos en un dominio aprobado o verificado no funcionó correctamente.'
+    - 'Una migración de base de datos de duración larga relacionada con los ajustes de Alertas de Seguridad pudo haber retrasado la finalización de la mejora.'
   changes:
     - 'El registro de conexión de datos de GitHub Connect ahora incluye un conteo de la cantidad de usuarios inactivos y activo y el periodo de inactividad configurado.'
   known_issues:

@@ -30,7 +30,7 @@ shortTitle: 在板上筛选卡
 - 使用 `status:pending`、`status:success` 或 `status:failure` 按检查状态过滤
 - 使用 `type:issue`、`type:pr` 或 `type:note` 按类型过滤卡
 - 使用 `is:open`、`is:closed` 或 `is:merged` 和 `is:issue`、`is:pr` 或 `is:note` 按状态和类型过滤卡
-- Filter cards by issues that are linked to a pull request by a closing reference using `linked:pr`
+- 使用 `linked:pr`，按通过结束引用链接到拉取请求的问题筛选卡片
 - 使用 `repo:ORGANIZATION/REPOSITORY` 在组织范围的项目板中按仓库过滤卡
 
 1. 导航到包含要过滤的卡的项目板。

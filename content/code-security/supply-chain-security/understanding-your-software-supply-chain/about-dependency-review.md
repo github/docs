@@ -37,6 +37,8 @@ For more information about configuring dependency review, see "[Configuring depe
 
 Dependency review supports the same languages and package management ecosystems as the dependency graph. For more information, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems)."
 
+For more information on supply chain features available on {% data variables.product.product_name %}, see "[About supply chain security](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security)."
+
 {% ifversion ghec or ghes %}
 ## Enabling dependency review
 

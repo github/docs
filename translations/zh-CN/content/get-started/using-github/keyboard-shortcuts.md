@@ -20,7 +20,7 @@ versions:
 在 {% data variables.product.prodname_dotcom %} 中输入 <kbd>?</kbd> 可弹出一个对话框，列出可用于该页面的键盘快捷键。 您可以使用这些键盘快捷键对站点执行操作，而无需使用鼠标导航。
 
 {% if keyboard-shortcut-accessibility-setting %}
-您可以在辅助功能设置中禁用字符键快捷键，同时仍允许使用修饰键的快捷键。 更多信息请参阅“[管理辅助功能设置](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-accessibility-settings)”。{% endif %}
+您可以在辅助功能设置中禁用字符键快捷键，同时仍允许使用修饰键的快捷键。 更多信息请参阅“[管理辅助功能设置](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-accessibility-settings)”。{% endif %}
 
 下面是一些可用键盘快捷键的列表。
 {% if command-palette %}
@@ -89,22 +89,24 @@ versions:
 
 ## 评论
 
-| 键盘快捷键                                                                                                                        | 描述                                                                                                                                                                           |
-| ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <kbd>Command</kbd>+<kbd>B</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>B</kbd> (Windows/Linux)                                   | 插入 Markdown 格式用于粗体文本                                                                                                                                                         |
-| <kbd>Command</kbd>+<kbd>I</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>I</kbd> (Windows/Linux)                                   | 插入斜体文本的 Markdown 格式{% ifversion fpt or ghae or ghes > 3.1 or ghec %}
-| <kbd>Command</kbd>+<kbd>E</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>E</kbd> (Windows/Linux)                                   | 在行内插入代码或命令的 Markdown 格式{% endif %}
-| <kbd>Command</kbd>+<kbd>K</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>K</kbd> (Windows/Linux)                                   | 插入 Markdown 格式用于创建链接                                                                                                                                                         |
-| <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux) | 在 **Write（撰写）**和 **Preview（预览）**评论选项卡之间切换{% ifversion fpt or ghae or ghes > 3.4 or ghec %}
-| <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd> (Windows/Linux) | 将 HTML 链接粘贴为纯文本{% endif %}{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
-| <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>7</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>7</kbd> (Windows/Linux) | 为有序列表插入 Markdown 格式                                                                                                                                                          |
-| <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>8</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>8</kbd> (Windows/Linux) | 为无序列表插入 Markdown 格式{% endif %}
-| <kbd>Command</kbd>+<kbd>Enter</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>Enter</kbd> (Windows/Linux)                           | 提交评论                                                                                                                                                                         |
-| <kbd>Ctrl</kbd>+<kbd>.</kbd>，然后 <kbd>Ctrl</kbd>+<kbd>[保存的回复编号]</kbd>                                                         | 打开已保存回复菜单，然后使用已保存回复自动填写评论字段。 更多信息请参阅“[关于已保存回复](/articles/about-saved-replies)”。{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
-| <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>.</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>.</kbd> (Windows/Linux) | 为报价插入 Markdown 格式{% endif %}{% ifversion fpt or ghec %}
-| <kbd>Command</kbd>+<kbd>G</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>G</kbd> (Windows/Linux)                                   | 插入建议。 更多信息请参阅“[审查拉取请求中提议的更改](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)”。 
+| 键盘快捷键                                                                                                                                                      | 描述                                                                                                                                                                           |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <kbd>Command</kbd>+<kbd>B</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>B</kbd> (Windows/Linux)                                                                 | 插入 Markdown 格式用于粗体文本                                                                                                                                                         |
+| <kbd>Command</kbd>+<kbd>I</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>I</kbd> (Windows/Linux)                                                                 | 插入斜体文本的 Markdown 格式{% ifversion fpt or ghae or ghes > 3.1 or ghec %}
+| <kbd>Command</kbd>+<kbd>E</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>E</kbd> (Windows/Linux)                                                                 | 在行中插入代码或命令的 Markdown 格式{% endif %}{% ifversion fpt or ghae-issue-5434 or ghes > 3.1 or ghec %}
+| <kbd>Command</kbd>+<kbd>K</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>K</kbd> (Windows/Linux)                                                                 | 插入用于创建链接的 Markdown 格式{% endif %}{% ifversion fpt or ghae-issue-7103 or ghes > 3.5 or ghec %}
+| <kbd>Command</kbd>+<kbd>V</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>V</kbd> (Windows/Linux)                                                                 | 在应用于突出显示的文本时创建 Markdown 链接{% endif %}
+| <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux)                               | 在 **Write（撰写）**和 **Preview（预览）**评论选项卡之间切换{% ifversion fpt or ghae or ghes > 3.4 or ghec %}
+| <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd> (Windows/Linux)                               | 将 HTML 链接粘贴为纯文本{% endif %}{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
+| <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>Opt</kbd>+<kbd>V</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>V</kbd> (Windows/Linux) | 将 HTML 链接粘贴为纯文本{% endif %}{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
+| <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>7</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>7</kbd> (Windows/Linux)                               | 为有序列表插入 Markdown 格式                                                                                                                                                          |
+| <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>8</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>8</kbd> (Windows/Linux)                               | 为无序列表插入 Markdown 格式{% endif %}
+| <kbd>Command</kbd>+<kbd>Enter</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>Enter</kbd> (Windows/Linux)                                                         | 提交评论                                                                                                                                                                         |
+| <kbd>Ctrl</kbd>+<kbd>.</kbd>，然后 <kbd>Ctrl</kbd>+<kbd>[保存的回复编号]</kbd>                                                                                       | 打开已保存回复菜单，然后使用已保存回复自动填写评论字段。 更多信息请参阅“[关于已保存回复](/articles/about-saved-replies)”。{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
+| <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>.</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>.</kbd> (Windows/Linux)                               | 为报价插入 Markdown 格式{% endif %}{% ifversion fpt or ghec %}
+| <kbd>Command</kbd>+<kbd>G</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>G</kbd> (Windows/Linux)                                                                 | 插入建议。 更多信息请参阅“[审查拉取请求中提议的更改](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)”。 
 {% endif %}
-| <kbd>R</kbd>                                                                                                                 | 在您的回复中引用所选的文本。 更多信息请参阅“[基本撰写和格式语法](/articles/basic-writing-and-formatting-syntax#quoting-text)”。                                                                             |
+| <kbd>R</kbd>                                                                                                                                               | 在您的回复中引用所选的文本。 更多信息请参阅“[基本撰写和格式语法](/articles/basic-writing-and-formatting-syntax#quoting-text)”。                                                                             |
 
 ## 议题和拉取请求列表
 
@@ -141,7 +143,7 @@ versions:
 | <kbd>J</kbd>                                         | 将所选内容在列表中向下移动                                                                                                                                                                                   |
 | <kbd>K</kbd>                                         | 将所选内容在列表中向上移动                                                                                                                                                                                   |
 | <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>Enter</kbd> | 添加一条有关拉取请求差异的评论                                                                                                                                                                                 |
-| <kbd>Alt</kbd> 并单击                                   | Toggle between collapsing and expanding all outdated review comments in a pull request by holding down <kbd>Alt</kbd> and clicking **Show outdated** or **Hide outdated**.                      |
+| <kbd>Alt</kbd> 并单击                                   | 通过按下 <kbd>Alt</kbd> 并单击 **Show outdated（显示已过期）**或 **Hide outdated（隐藏已过期）**，在折叠和展开拉取请求中所有过期的审查评论之间切换。                                                                                            |
 | 单击，然后按住 <kbd>Shift</kbd> 并单击                         | 单击一个行号，按住 <kbd>Shift</kbd>，然后单击另一行号，便可对拉取请求的多行发表评论。 更多信息请参阅“[评论拉取请求](/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request#adding-line-comments-to-a-pull-request)”。 |
 
 ## 项目板

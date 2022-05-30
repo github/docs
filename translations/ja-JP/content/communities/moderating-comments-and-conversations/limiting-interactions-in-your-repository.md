@@ -22,7 +22,7 @@ shortTitle: リポジトリ内でのインタラクションの制限
 
 {% data reusables.community.types-of-interaction-limits %}
 
-You can also enable activity limitations on all repositories owned by your personal account or an organization. ユーザ全体または Organization 全体の制限が有効になっている場合、そのアカウントが所有する個々のリポジトリのアクティビティを制限することはできません。 For more information, see "[Limiting interactions for your personal account](/communities/moderating-comments-and-conversations/limiting-interactions-for-your-user-account)" and "[Limiting interactions in your organization](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-organization)."
+You can also enable activity limitations on all repositories owned by your personal account or an organization. ユーザ全体または Organization 全体の制限が有効になっている場合、そのアカウントが所有する個々のリポジトリのアクティビティを制限することはできません。 For more information, see "[Limiting interactions for your personal account](/communities/moderating-comments-and-conversations/limiting-interactions-for-your-personal-account)" and "[Limiting interactions in your organization](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-organization)."
 
 ## リポジトリでのインタラクションを制限する
 
