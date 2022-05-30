@@ -33,7 +33,7 @@ To read about how GitHub is used by educators, see [GitHub Education stories](ht
 - Novas organizações da empresa são automaticamente adicionadas à sua conta corporativa. Para adicionar organizações que existiam antes de sua escola juntar-se à {% data variables.product.prodname_campus_program %}, entre em contato com o [suporte do GitHub Education](https://support.github.com/contact/education). Para obter mais informações sobre como administrar sua empresa, consulte a documentação de [administradores da empresa ](/admin). Novas organizações da empresa são automaticamente adicionadas à sua conta corporativa. Para adicionar organizações que existiam antes de sua escola juntar-se à {% data variables.product.prodname_campus_program %}, entre em contato com o suporte do GitHub Education.
 
 
-Para ler mais sobre as práticas de privacidade de {% data variables.product.prodname_dotcom %}, consulte ["Práticas Globais de Privacidade"](/github/site-policy/global-privacy-practices).
+To read more about {% data variables.product.prodname_dotcom %}'s privacy practices, see "[Global Privacy Practices](/github/site-policy/global-privacy-practices)."
 
 ## Elegibilidade do aplicativo de {% data variables.product.prodname_campus_program %}
 
