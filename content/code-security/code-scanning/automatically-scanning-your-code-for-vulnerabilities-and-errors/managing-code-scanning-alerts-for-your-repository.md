@@ -187,7 +187,7 @@ When you dismiss an alert:
 - The alert is removed from the number of current alerts for your project.
 - The alert is moved to the "Closed" list in the summary of alerts, from where you can reopen it, if required.
 - The reason why you closed the alert is recorded.{% if comment-dismissed-code-scanning-alert %} 
-- Optionally, you can comment on a dismissal to record the context of an alert dismissal. The dismissal note is added to the alert timeline.{% endif %}
+- Optionally, you can comment on a dismissal to record the context of an alert dismissal.{% endif %}
 - Next time {% data variables.product.prodname_code_scanning %} runs, the same code won't generate an alert.
 
 {% if delete-code-scanning-alerts %}When you delete an alert:
