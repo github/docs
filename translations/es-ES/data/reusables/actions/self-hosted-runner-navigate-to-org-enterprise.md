@@ -1,5 +1,5 @@
 {% ifversion fpt %}
-1. Navigate to the main page of the organization where your self-hosted runner is registered.
+1. Navega a la página principal de la organización en donde está registrado tu ejecutor auto-hospedado.
 2. Haz clic en {% octicon "gear" aria-label="The Settings gear" %} **Ajustes**.
 {% data reusables.organizations.settings-sidebar-actions-runners %}
 {% elsif ghec or ghes or ghae %}

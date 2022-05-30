@@ -79,7 +79,7 @@ _检查_与_状态_的不同之处在于它们提供行注解、更详细的信�
   ```
 
 {% ifversion fpt or ghec %}
-### Retention of status checks
+### 状态检查的保留
 
 {% data reusables.pull_requests.retention-checks-data %}
 {% endif %}

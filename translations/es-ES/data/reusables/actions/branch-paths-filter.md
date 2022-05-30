@@ -1,1 +1,1 @@
-If you use both the `branches` filter and the `paths` filter, the workflow will only run when both filters are satisfied.
+Si utilizas tanto el filtro de `branches` como el de `paths`, el flujo de trabajo solo se ejecutará cuando ambos se satisfagan.

@@ -32,7 +32,7 @@ To read about how GitHub is used by educators, see [GitHub Education stories](ht
 - New organizations in your enterprise are automatically added to your enterprise account. To add organizations that existed before your school joined the {% data variables.product.prodname_campus_program %}, please contact [GitHub Education Support](https://support.github.com/contact/education). For more information about administrating your enterprise, see the [enterprise administrators documentation](/admin). New organizations in your enterprise are automatically added to your enterprise account. To add organizations that existed before your school joined the {% data variables.product.prodname_campus_program %}, please contact GitHub Education Support. 
 
 
-To read more about {% data variables.product.prodname_dotcom %}'s privacy practices, see ["Global Privacy Practices"](/github/site-policy/global-privacy-practices).
+To read more about {% data variables.product.prodname_dotcom %}'s privacy practices, see "[Global Privacy Practices](/github/site-policy/global-privacy-practices)."
 
 ## {% data variables.product.prodname_campus_program %} Application Eligibility
 

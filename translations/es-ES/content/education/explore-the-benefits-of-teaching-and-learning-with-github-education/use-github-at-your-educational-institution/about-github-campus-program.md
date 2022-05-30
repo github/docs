@@ -33,7 +33,7 @@ Para leer sobre cómo los docentes utilizan GitHub, consulta las [historias de G
 - Las organizaciones nuevas en tu empresa se agregan automáticamente a tu cuenta empresarial. Para agregar organizaciones que existían antes de que tu escuela se uniera al {% data variables.product.prodname_campus_program %}, por favor, contacta al [Soporte de GitHub Education](https://support.github.com/contact/education). Para obtener más información sobre cómo administrar tu empresa, consulta la [documentación para administradores empresariales](/admin). Las organizaciones nuevas en tu empresa se agregan automáticamente a tu cuenta empresarial. Para agregar organizaciones que existían antes de que tu escuela se uniera al {% data variables.product.prodname_campus_program %}, por favor, contacta al Soporte de GitHub Education.
 
 
-Para leer más sobre las prácticas de seguridad de {% data variables.product.prodname_dotcom %}, consulta la sección "[Prácticas de privacidad globales"](/github/site-policy/global-privacy-practices).
+Para leer más sobre las prácticas de privacidad de {% data variables.product.prodname_dotcom %}, consulta la sección "[Prácticas de privacidad globales](/github/site-policy/global-privacy-practices)".
 
 ## Eligibilidad de solicitud al {% data variables.product.prodname_campus_program %}
 
