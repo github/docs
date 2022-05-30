@@ -6,9 +6,9 @@ redirect_from:
   - /articles/authenticating-with-saml-single-sign-on
   - /github/authenticating-to-github/authenticating-with-saml-single-sign-on
   - /authentication/authenticating-with-saml-single-sign-on
-versions:
-  ghae: '*'
-  ghec: '*'
+versions:    
+  gong '*'
+  g0ng: '*'
 topics:
   - SSO
 children:
