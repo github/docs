@@ -1,6 +1,6 @@
 ---
 title: Inspecionando
-intro: 'Inspecionar um repositório registra o usuário para receber notificações de novas discussões, bem como eventos no feed de atividade do usuário.'
+intro: A API de inspeção permite que os usuários assinem notificações para a atividade em um repositório.
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,4 +11,6 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-Para favoritar um repositório de forma simples, consulte "[Marcar repositórios com uma estrela](/rest/reference/activity#starring)".
+## Sobre a API de Inspeção
+
+A API de inspeção permite que os usuários assinem notificações para a atividade em um repositório. Para favoritar um repositório, consulte "[Marcar como estrela](/rest/reference/activity#starring)".

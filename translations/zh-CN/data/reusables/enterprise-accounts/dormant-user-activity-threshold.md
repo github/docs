@@ -1,1 +1,1 @@
-{% ifversion not ghec%}By default, a{% else %}A{% endif %} user account is considered to be dormant if it has not been active for 90 days. {% ifversion not ghec %}You can configure the length of time a user must be inactive to be considered dormant{% ifversion ghes%} and choose to suspend dormant users to release user licenses{% endif %}.{% endif %}
+{% ifversion not ghec%}默认情况下，如果{% else %}{% endif %} 用户帐户在 90 天内未处于活动状态，则该用户帐户被视为处于休眠状态。 {% ifversion not ghec %}您可以配置用户必须处于非活动状态才能被视为休眠{% ifversion ghes%} 的时间长度，并选择挂起休眠用户以释放用户许可证{% endif %}。{% endif %}

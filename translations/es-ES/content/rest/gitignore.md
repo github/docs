@@ -13,6 +13,8 @@ redirect_from:
   - /rest/reference/gitignore
 ---
 
+## About the Gitignore API
+
 Cuando creas un repositorio nuevo en {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} a través de la API, puedes especificar una [plantilla de.gitignore](/github/getting-started-with-github/ignoring-files) para aplicarla al repositorio cuando lo crees. La API de plantillas de .gitignore lista y recupera plantillas del [repositorio de .gitignore](https://github.com/github/gitignore) de {% data variables.product.product_name %}.
 
 ### Tipos de medios personalizados para gitignore

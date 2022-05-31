@@ -1,6 +1,6 @@
 ---
 title: Code Scanning
-intro: ''
+intro: '{% data variables.product.prodname_code_scanning %} APIを使うと、リオジトリから{% data variables.product.prodname_code_scanning %}アラートを取得して更新できます。'
 versions:
   fpt: '*'
   ghes: '*'
@@ -16,6 +16,8 @@ redirect_from:
 ---
 
 {% data reusables.code-scanning.beta %}
+
+## Code scanning APIについて
 
 {% data variables.product.prodname_code_scanning %} APIを使うと、リオジトリから{% data variables.product.prodname_code_scanning %}アラートを取得して更新できます。 このエンドポイントを使って、Organization内で{% data variables.product.prodname_code_scanning %}アラートの自動化されたレポートを作成したり、オフラインの{% data variables.product.prodname_code_scanning %}ツールを使って生成された分析結果をアップロードしたりできます。 詳しい情報については、「[コード内のセキュリティの脆弱性とエラーを検出する](/github/finding-security-vulnerabilities-and-errors-in-your-code)」を参照してください。
 

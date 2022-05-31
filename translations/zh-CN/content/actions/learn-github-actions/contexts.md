@@ -23,7 +23,7 @@ miniTocMaxHeadingLevel: 3
 
 上下文是一种访问工作流程运行、运行器环境、作业及步骤相关信息的方式。 每个上下文都是一个包含属性的对象，属性可以是字符串或其他对象。
 
-{% data reusables.actions.context-contents %} For example, the `matrix` context is only populated for jobs in a [matrix](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix).
+{% data reusables.actions.context-contents %} 例如，`matrix` 上下文中仅填充 [matrix](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix) 中的作业。
 
 您可以使用表达式语法访问上下文。 更多信息请参阅“[表达式](/actions/learn-github-actions/expressions)”。
 
@@ -192,7 +192,7 @@ jobs:
 | `github.event_path`        | `字符串` | 运行器上包含完整事件 web 挂钩负载的文件的路径。                                                                                                                                                                                                                                                                                                                                                                                    |
 | `github.graphql_url`       | `字符串` | {% data variables.product.prodname_dotcom %} GraphQL API 的 URL。                                                                                                                                                                                                                                                                                                                                               |
 | `github.head_ref`          | `字符串` | 工作流程运行中拉取请求的 `head_ref` 或来源分支。 此属性仅在触发工作流程运行的事件为 `pull_request` 或 `pull_request_target` 时才可用。                                                                                                                                                                                                                                                                                                                 |
-| `github.job`               | `字符串` | 当前作业的 [`job_id`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_id)。                                                                                                                                                                                                                                                                                                                           |
+| `github.job`               | `字符串` | 当前作业的 [`job_id`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_id)。 <br /> 注意：此上下文属性由 Actions 运行器设置，并且仅在作业的执行 `steps` 中可用。 否则，此属性的值将为 `null`。                                                                                                                                                                                                                                           |
 | `github.ref`               | `字符串` | 触发工作流程的分支或标记参考。 对于分支，格式为 `refs/heads/<branch_name>`，对于标记是 `refs/tags/<tag_name>`。                                                                                                                                                                                                                                                                                                                 |
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5338 %}
 | `github.ref_name` | `string` | {% data reusables.actions.ref_name-description %} | | `github.ref_protected` | `string` | {% data reusables.actions.ref_protected-description %} | | `github.ref_type` | `string` | {% data reusables.actions.ref_type-description %}
@@ -201,7 +201,7 @@ jobs:
 {%- ifversion fpt or ghec or ghes > 3.5 or ghae-issue-4722 %}
 | `github.run_attempt` | `string` | 在存储库中运行的特定工作流程的每次尝试的唯一编号。 对于工作流程运行的第一次尝试，此数字从 1 开始，并随着每次重新运行而递增。 |
 {%- endif %}
-| `github.server_url` | `string` | GitHub 服务器的 URL。 例如：`https://github.com`。 | | `github.sha` | `string` | 触发工作流运行的提交 SHA。 | | `github.token` | `string` | 用于代表存储库上安装的 GitHub 应用进行身份验证的令牌。 这在功能上等同于 `GITHUB_TOKEN` 密码。 更多信息请参阅“[自动令牌身份验证](/actions/security-guides/automatic-token-authentication)”。 | | `github.workflow` | `string` | 工作流程的名称。 如果工作流程文件未指定 `name`，此属性的值将是仓库中工作流程文件的完整路径。 | | `github.workspace` | `string` | 运行器上步骤的默认工作目录，以及使用[`检出`](https://github.com/actions/checkout)操作时存储库的默认位置。 |
+| `github.server_url` | `string` | GitHub 服务器的 URL。 例如：`https://github.com`。 | | `github.sha` | `string` | 触发工作流运行的提交 SHA。 | | `github.token` | `string` | 用于代表存储库上安装的 GitHub 应用进行身份验证的令牌。 这在功能上等同于 `GITHUB_TOKEN` 密码。 更多信息请参阅“[自动令牌身份验证](/actions/security-guides/automatic-token-authentication)”。  <br /> 注意：此上下文属性由 Actions 运行器设置，并且仅在作业的执行 `steps` 中可用。 否则，此属性的值将为 `null`。 | | `github.workflow` | `string` | 工作流程的名称。 如果工作流程文件未指定 `name`，此属性的值将是仓库中工作流程文件的完整路径。 | | `github.workspace` | `string` | 运行器上步骤的默认工作目录，以及使用[`检出`](https://github.com/actions/checkout)操作时存储库的默认位置。 |
 
 ### `github` 上下文的示例内容
 
@@ -537,19 +537,19 @@ jobs:
 
 ## `strategy` 上下文
 
-For workflows with a matrix, the `strategy` context contains information about the matrix execution strategy for the current job.
+对于具有矩阵的工作流程，`strategy` 上下文包含有关当前作业的矩阵执行策略的信息。
 
-| 属性名称                    | 类型    | 描述                                                                                                                                                                                                                                           |
-| ----------------------- | ----- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `strategy`              | `对象`  | 此上下文针对工作流程运行中的每项作业而改变。 您可以从工作流程中的任何作业或步骤访问此上下文。 此对象包含下面列出的所有属性。                                                                                                                                                                              |
-| `strategy.fail-fast`    | `字符串` | When `true`, all in-progress jobs are canceled if any job in a matrix fails. 更多信息请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategyfail-fast)”。 |
-| `strategy.job-index`    | `字符串` | The index of the current job in the matrix. **注意：** 此数字是零基数字。 The first job's index in the matrix is `0`.                                                                                                                                    |
-| `strategy.job-total`    | `字符串` | The total number of jobs in the matrix. **注意：** 此数字 **不是**从零基数字。 For example, for a matrix with four jobs, the value of `job-total` is `4`.                                                                                                  |
-| `strategy.max-parallel` | `字符串` | 使用 `matrix` 作业策略时可同时运行的最大作业数。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymax-parallel)”。                                             |
+| 属性名称                    | 类型    | 描述                                                                                                                                                                                                      |
+| ----------------------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `strategy`              | `对象`  | 此上下文针对工作流程运行中的每项作业而改变。 您可以从工作流程中的任何作业或步骤访问此上下文。 此对象包含下面列出的所有属性。                                                                                                                                         |
+| `strategy.fail-fast`    | `字符串` | 为 `true` 时，如果矩阵中的任何作业失败，所有正在进行的作业都将被取消。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategyfail-fast)”。 |
+| `strategy.job-index`    | `字符串` | 矩阵中当前作业的索引。 **注意：** 此数字是零基数字。 矩阵中第一个作业的索引是 `0`。                                                                                                                                                         |
+| `strategy.job-total`    | `字符串` | 矩阵中的作业总数。 **注意：** 此数字 **不是**从零基数字。 例如，对于具有四个作业的矩阵，`job-total` 的值为 `4`。                                                                                                                                  |
+| `strategy.max-parallel` | `字符串` | 使用 `matrix` 作业策略时可同时运行的最大作业数。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymax-parallel)”。        |
 
 ### `strategy` 上下文的示例内容
 
-The following example contents of the `strategy` context is from a matrix with four jobs, and is taken from the final job. 请注意零基 `job-index` 数字与 `job-total` （非零基）之间的差异。
+`strategy` 上下文的以下示例内容来自具有四个作业的矩阵，取自最终作业。 请注意零基 `job-index` 数字与 `job-total` （非零基）之间的差异。
 
 ```yaml
 {
@@ -562,7 +562,7 @@ The following example contents of the `strategy` context is from a matrix with f
 
 ### `strategy` 上下文的示例用法
 
-This example workflow uses the `strategy.job-index` property to set a unique name for a log file for each job in a matrix.
+此示例工作流程使用 `strategy.job-index` 属性为矩阵中每个作业的日志文件设置唯一名称。
 
 ```yaml{:copy}
 name: Test matrix
@@ -587,18 +587,18 @@ jobs:
 
 ## `matrix` 上下文
 
-For workflows with a matrix, the `matrix` context contains the matrix properties defined in the workflow file that apply to the current job. For example, if you configure a matrix with the `os` and `node` keys, the `matrix` context object includes the `os` and `node` properties with the values that are being used for the current job.
+对于具有矩阵的工作流程，`matrix` 上下文包含工作流程文件中定义的适用于当前作业的矩阵属性。 例如，如果使用 `os` 和 `node` 键配置矩阵，则 `matrix` 上下文对象将包括 `os` 和 `node` 属性，具有用于当前作业的值。
 
 `matrix` 上下文中没有标准属性，只有工作流程文件中定义的属性。
 
-| 属性名称                           | 类型    | 描述                                                                                                                                      |
-| ------------------------------ | ----- | --------------------------------------------------------------------------------------------------------------------------------------- |
-| `matrix`                       | `对象`  | This context is only available for jobs in a matrix, and changes for each job in a workflow run. 您可以从工作流程中的任何作业或步骤访问此上下文。 此对象包含下面列出的属性。 |
-| `matrix.<property_name>` | `字符串` | 矩阵属性的值。                                                                                                                                 |
+| 属性名称                           | 类型    | 描述                                                                            |
+| ------------------------------ | ----- | ----------------------------------------------------------------------------- |
+| `matrix`                       | `对象`  | 此上下文仅适用于矩阵中的作业，并且对于工作流程运行中的每个作业都会发生更改。 您可以从工作流程中的任何作业或步骤访问此上下文。 此对象包含下面列出的属性。 |
+| `matrix.<property_name>` | `字符串` | 矩阵属性的值。                                                                       |
 
 ### `matrix` 上下文的示例内容
 
-The following example contents of the `matrix` context is from a job in a matrix that has the `os` and `node` matrix properties defined in the workflow. 该作业执行 `ubuntu-latest` OS 和 Node.js 版本 `16` 的矩阵组合。
+`matrix` 上下文的以下示例内容来自矩阵中的作业，该矩阵具有工作流中定义的 `os` 和 `node` 矩阵属性。 该作业执行 `ubuntu-latest` OS 和 Node.js 版本 `16` 的矩阵组合。
 
 ```yaml
 {
@@ -609,7 +609,7 @@ The following example contents of the `matrix` context is from a job in a matrix
 
 ### `matrix` 上下文的示例用法
 
-This example workflow creates a matrix with `os` and `node` keys. 它使用 `matrix.os` 属性为每个作业设置运行器类型，并使用 `matrix.node` 属性为每个作业设置 Node.js 版本。
+此示例工作流程创建一个包含 `os` 和 `node` 键的矩阵。 它使用 `matrix.os` 属性为每个作业设置运行器类型，并使用 `matrix.node` 属性为每个作业设置 Node.js 版本。
 
 ```yaml{:copy}
 name: Test matrix

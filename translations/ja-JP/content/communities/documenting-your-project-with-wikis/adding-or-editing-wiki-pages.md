@@ -44,7 +44,7 @@ shortTitle: Wikiページの管理
 
 ### 手元のコンピュータへウィキをクローンする
 
-すべてのウィキは、その内容をあなたのコンピュータにクローンする簡単な方法を提供しています。 提供されている次の URL でお使いのコンピュータにリポジトリをクローンできます。
+すべてのウィキは、その内容をあなたのコンピュータにクローンする簡単な方法を提供しています。 Once you've created an initial page on {% data variables.product.product_name %}, you can clone the repository to your computer with the provided URL:
 
 ```shell
 $ git clone https://github.com/<em>YOUR_USERNAME</em>/<em>YOUR_REPOSITORY</em>.wiki.git

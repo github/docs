@@ -31,7 +31,7 @@ Una licencia de {% data variables.product.prodname_GH_advanced_security %} propo
 
 - **{% data variables.product.prodname_secret_scanning_caps %}** - Detecta secretos, por ejemplo claves y tokens, que se han verificado en el repositorio.{% if secret-scanning-push-protection %} Si se habilita la protección de subida, también detecta secretos cuando se suben a tu repositorio. Para obtener más información, consulta las secciones "[Acerca del {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/about-secret-scanning)" y "[Proteger las subidas con el {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)".{% else %} Para obtener más información, consulta la sección "[Acerca del {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/about-secret-scanning)".{% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghec or ghae-issue-4864 %}
+{% ifversion fpt or ghes > 3.1 or ghec or ghae %}
 - **Revisión de dependencias** - Muestra todo el impacto de los cambios a las dependencias y vee los detalles de las versiones vulnerables antes de que fusiones una solicitud de cambios. Para obtener más información, consulta la sección "[Acerca de la revisión de dependencias](/code-security/supply-chain-security/about-dependency-review)".
 {% endif %}
 

@@ -99,25 +99,22 @@ Você pode usar o comando `set-output` no seu fluxo de trabalho para definir o m
 
 A tabela a seguir mostra quais funções do conjunto de ferramentas estão disponíveis dentro de um fluxo de trabalho:
 
-| Função do kit de ferramentas | Comando equivalente do fluxo de trabalho                              |
-| ---------------------------- | --------------------------------------------------------------------- |
-| `core.addPath`               | Acessível usando o arquivo de ambiente `GITHUB_PATH`                  |
-| `core.debug`                 | `debug` |{% ifversion fpt or ghes > 3.2 or ghae-issue-4929 or ghec %}
+| Função do kit de ferramentas | Comando equivalente do fluxo de trabalho                         |
+| ---------------------------- | ---------------------------------------------------------------- |
+| `core.addPath`               | Acessível usando o arquivo de ambiente `GITHUB_PATH`             |
+| `core.debug`                 | `debug` |{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 | `core.notice`                | `notice` 
 {% endif %}
-| `core.error`                 | `erro`                                                                |
-| `core.endGroup`              | `endgroup`                                                            |
-| `core.exportVariable`        | Acessível usando o arquivo de ambiente `GITHUB_ENV`                   |
-| `core.getInput`              | Acessível por meio do uso da variável de ambiente `INPUT_{NAME}`      |
-| `core.getState`              | Acessível por meio do uso da variável de ambiente `STATE_{NAME}`      |
-| `core.isDebug`               | Acessível por meio do uso da variável de ambiente `RUNNER_DEBUG`      |
-| `core.saveState`             | `save-state`                                                          |
-| `core.setCommandEcho`        | `echo`                                                                |
-| `core.setFailed`             | Usado como um atalho para `::error` e `exit 1`                        |
-| `core.setOutput`             | `set-output`                                                          |
-| `core.setSecret`             | `add-mask`                                                            |
-| `core.startGroup`            | `grupo`                                                               |
-| `core.warning`               | `aviso`                                                               |
+| `core.error`                 | `erro`                                                           |
+| `core.endGroup`              | `endgroup`                                                       |
+| `core.exportVariable`        | Acessível usando o arquivo de ambiente `GITHUB_ENV`              |
+| `core.getInput`              | Acessível por meio do uso da variável de ambiente `INPUT_{NAME}` |
+| `core.getState`              | Acessível por meio do uso da variável de ambiente `STATE_{NAME}` |
+| `core.isDebug`               | Acessível por meio do uso da variável de ambiente `RUNNER_DEBUG` |
+{%- if actions-job-summaries %}
+| `core.summary` | Pode ser acessado usando a variável de ambiente `GITHUB_STEP_SUMMARY` |
+{%- endif %}
+| `core.saveState`  | `save-state` | | `core.setCommandEcho` | `echo` | | `core.setFailed`  | Usado como atalho para `::error` e `exit 1` | | `core.setOutput`  | `set-output` | | `core.setSecret`  | `add-mask` | | `core.startGroup` | `group` | | `core.warning`    | `warning` |
 
 ## Definir um parâmetro de saída
 
@@ -173,7 +170,7 @@ Write-Output "::debug::Set the Octocat variable"
 
 {% endpowershell %}
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4929 or ghec %}
+{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 
 ## Configurando uma mensagem de aviso
 
@@ -563,14 +560,16 @@ echo "{environment_variable_name}={value}" >> $GITHUB_ENV
 {% powershell %}
 
 - Usando a versão 6 ou superior do PowerShell:
-```pwsh{:copy}
-"{environment_variable_name}={value}" >> $env:GITHUB_ENV
-```
+
+  ```pwsh{:copy}
+  "{environment_variable_name}={value}" >> $env:GITHUB_ENV
+  ```
 
 - Usando a versão 5.1 ou inferior do PowerShell:
-```powershell{:copy}
-"{environment_variable_name}={value}" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
-```
+
+  ```powershell{:copy}
+  "{environment_variable_name}={value}" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+  ```
 
 {% endpowershell %}
 
@@ -657,6 +656,150 @@ steps:
 
 {% endpowershell %}
 
+{% if actions-job-summaries %}
+
+## Adicionando um resumo do trabalho
+
+{% bash %}
+
+```bash{:copy}
+echo "{markdown content}" >> $GITHUB_STEP_SUMMARY
+```
+
+{% endbash %}
+
+{% powershell %}
+
+```pwsh{:copy}
+"{markdown content}" >> $env:GITHUB_STEP_SUMMARY
+```
+
+{% endpowershell %}
+
+Você pode definir algum Markdown personalizado para cada trabalho para que seja exibido na página de resumo da execução de um fluxo de trabalho. Você pode usar resumos de trabalho para exibir e agrupar conteúdo único, como resumos de resultados de teste, para que alguém que visualizar o resultado da uma execução de um fluxo de trabalho não precise entrar nos registros para ver informações importantes relacionadas à execução como, por exemplo, falhas.
+
+Os resumos de trabalho são compatíveis com o [markdown em estilo {% data variables.product.prodname_dotcom %} em Markdown](https://github.github.com/gfm/), e você pode adicionar seu conteúdo de Markdown a uma etapa no arquivo de ambiente `GITHUB_STEP_SUMMARY`. `GITHUB_STEP_SUMMARY` é único para cada etapa de um trabalho. Para obter mais informações sobre o arquivo por etapa, ao qual o `GITHUB_STEP_SUMMARY` faz referência, consulte "[Arquivos do ambiente](#environment-files)".
+
+Quando um trabalho é concluído, os resumos de todas as etapas de um trabalho é agrupado em um único resumo do trabalho e exibido na página de resumo do fluxo de trabalho. Se vários trabalhos gerarem resumos, os resumos dos trabalhos serão ordenados por tempo de conclusão do trabalho.
+
+### Exemplo
+
+{% bash %}
+
+```bash{:copy}
+echo "### Hello world! :rocket:" >> $GITHUB_STEP_SUMMARY
+```
+
+{% endbash %}
+
+{% powershell %}
+
+```pwsh{:copy}
+"### Hello world! :rocket:" >> $env:GITHUB_STEP_SUMMARY
+```
+
+{% endpowershell %}
+
+![Exemplo de resumo de Markdown](/assets/images/actions-job-summary-simple-example.png)
+
+### Conteúdo de markdown de múltiplas linhas
+
+Para conteúdo Markdown de múltiplas linhas, você pode usar `>>` para anexar continuamente conteúdo à etapa atual. A cada operação adicionada, um caractere de nova linha é adicionado automaticamente.
+
+#### Exemplo
+
+{% bash %}
+
+```yaml
+- name: Generate list using Markdown
+  run: |
+    echo "This is the lead in sentence for the list" >> $GITHUB_STEP_SUMMARY
+    echo "" >> $GITHUB_STEP_SUMMARY # this is a blank line
+    echo "- Lets add a bullet point" >> $GITHUB_STEP_SUMMARY
+    echo "- Lets add a second bullet point" >> $GITHUB_STEP_SUMMARY
+    echo "- How about a third one?" >> $GITHUB_STEP_SUMMARY
+```
+
+{% endbash %}
+
+{% powershell %}
+
+```yaml
+- name: Generate list using Markdown
+  run: |
+    "This is the lead in sentence for the list" >> $env:GITHUB_STEP_SUMMARY
+    "" >> $env:GITHUB_STEP_SUMMARY # this is a blank line
+    "- Lets add a bullet point" >> $env:GITHUB_STEP_SUMMARY
+    "- Lets add a second bullet point" >> $env:GITHUB_STEP_SUMMARY
+    "- How about a third one?" >> $env:GITHUB_STEP_SUMMARY
+```
+
+{% endpowershell %}
+
+### Sobrescrevendo resumos de trabalho
+
+Para limpar todo o conteúdo da etapa atual, você pode usar `>` para sobrescrever qualquer conteúdo adicionado anteriormente.
+
+#### Exemplo
+
+{% bash %}
+
+```yaml
+- name: Overwrite Markdown
+  run: |
+    echo "Adding some Markdown content" >> $GITHUB_STEP_SUMMARY
+    echo "There was an error, we need to clear the previous Markdown with some new content." > $GITHUB_STEP_SUMMARY
+```
+
+{% endbash %}
+
+{% powershell %}
+
+```yaml
+- name: Overwrite Markdown
+  run: |
+    "Adding some Markdown content" >> $env:GITHUB_STEP_SUMMARY
+    "There was an error, we need to clear the previous Markdown with some new content." > $env:GITHUB_STEP_SUMMARY
+```
+
+{% endpowershell %}
+
+### Removendo resumos de trabalho
+
+Para remover completamente um resumo para a etapa atual, o arquivo ao qual `GITHUB_STEP_SUMMARY` faz referência pode ser excluído.
+
+#### Exemplo
+
+{% bash %}
+
+```yaml
+- name: Delete all summary content
+  run: |
+    echo "Adding Markdown content that we want to remove before the step ends" >> $GITHUB_STEP_SUMMARY
+    rm $GITHUB_STEP_SUMMARY
+```
+
+{% endbash %}
+
+{% powershell %}
+
+```yaml
+- name: Delete all summary content
+  run: |
+    "Adding Markdown content that we want to remove before the step ends" >> $env:GITHUB_STEP_SUMMARY
+    rm $env:GITHUB_STEP_SUMMARY
+```
+
+{% endpowershell %}
+
+Depois que uma etapa for concluída, faz-se o upload dos resumos dos trabalhos e as etapas subsequentes não podem modificar o conteúdo Markdown previamente carregado. Resumos mascaram automaticamente todos os segredos que possam ter sido adicionados acidentalmente. Se o resumo de um trabalho contiver informações sensíveis que devem ser excluídas, você poderá excluir todo o fluxo de trabalho executado para remover todos os resumos do trabalho. Para obter mais informações, consulte "[Excluir a execução de um fluxo de trabalho](/actions/managing-workflow-runs/deleting-a-workflow-run)".
+
+### Etapa de isolamento e limites
+
+Os resumos de trabalho são isolados entre as etapas e cada etapa é restrita ao tamanho máximo de 1 MiB. Isolamento é imposto entre os passos para que um Markdown potencialmente mal formado a partir de uma única etapa não possa quebrar a renderização Markdown para etapas subsequentes. Se mais de 1 MiB de conteúdo for adicionado para uma etapa, ocorrerá uma falha no upload para a etapa e será criado um erro de anotação. As falhas no upload de resumos de trabalhos não afetam o status geral de uma etapa ou trabalho. Um máximo de 20 resumos de trabalho das etapas são exibidos por trabalho.
+
+{% endif %}
+
 ## Adicionar um caminho do sistema
 
 Prepara um diretório para a variável `PATH` do sistema e disponibiliza automaticamente para todas as ações subsequentes no trabalho atual; a ação atualmente em execução não pode acessar a variável de caminho atualizada. Para ver os caminhos atualmente definidos para o seu trabalho, você pode usar o `echo "$PATH"` em uma etapa ou ação.
@@ -678,9 +821,9 @@ echo "{path}" >> $GITHUB_PATH
 
 ### Exemplo
 
-Este exemplo demonstra como adicionar o diretório `$HOME/.local/bin` ao `PATH`:
-
 {% bash %}
+
+Este exemplo demonstra como adicionar o diretório `$HOME/.local/bin` ao `PATH`:
 
 ```bash{:copy}
 echo "$HOME/.local/bin" >> $GITHUB_PATH
@@ -688,10 +831,9 @@ echo "$HOME/.local/bin" >> $GITHUB_PATH
 
 {% endbash %}
 
+{% powershell %}
 
 Este exemplo demonstra como adicionar o diretório do usuário `$env:HOMEPATH/.local/bin` a `PATH`:
-
-{% powershell %}
 
 ```pwsh{:copy}
 "$env:HOMEPATH/.local/bin" >> $env:GITHUB_PATH

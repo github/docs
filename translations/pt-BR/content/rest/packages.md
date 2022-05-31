@@ -11,7 +11,9 @@ redirect_from:
   - /rest/reference/packages
 ---
 
-The {% data variables.product.prodname_registry %} API enables you to manage packages using the REST API.{% ifversion fpt or ghec or ghes > 3.1 or ghae %} To learn more about restoring or deleting packages, see "[Restoring and deleting packages](/packages/learn-github-packages/deleting-and-restoring-a-package)."{% endif %}
+## Sobre a API do {% data variables.product.prodname_registry %}
+
+A API de {% data variables.product.prodname_registry %} permite que você gerencie pacotes usando a API REST.{% ifversion fpt or ghec or ghes > 3.1 or ghae %} Para saber mais sobre como restaurar ou excluir pacotes, consulte "[Restaurar e excluir pacotes](/packages/learn-github-packages/deleting-and-restoring-a-package)".{% endif %}
 
 Para usar essa API, você deve efetuar a autenticação usando um token de acesso pessoal.
   - Para acessar os metadados do pacote, seu token deve incluir o escopo `read:packages`.

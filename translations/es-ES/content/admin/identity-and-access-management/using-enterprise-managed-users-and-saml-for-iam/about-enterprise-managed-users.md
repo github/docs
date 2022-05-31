@@ -56,6 +56,7 @@ Los {% data variables.product.prodname_managed_users_caps %} solo pueden colabor
 * Otros usuarios de {% data variables.product.prodname_dotcom %} no pueden ver, mencionar o invitar a {% data variables.product.prodname_managed_user %} para colaborar.
 * Los {% data variables.product.prodname_managed_users_caps %} solo pueden ser propietarios de repositorios privados y los {% data variables.product.prodname_managed_users %} solo pueden invitar a otros miembros de la empresa para que colaboren con sus propios repositorios.
 * Solo se pueden crear repositorios internos y privados en las organizaciones que pertenezcan a una {% data variables.product.prodname_emu_enterprise %}, dependiendo de los ajustes de visibilidad del repositorio o empresa.
+* {% data variables.product.prodname_managed_users_caps %} are limited in their use of {% data variables.product.prodname_pages %}. Para obtener más información, consulta la sección "[Acerca de {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#limitations-for-enterprise-managed-users)".
 
 ## Acerca de las empresas con usuarios administrados
 
@@ -87,17 +88,8 @@ Los {% data variables.product.prodname_managed_users_caps %} se deben autenticar
 
 ## Nombres de usuario e información de perfil
 
-Cuando se cree tu {% data variables.product.prodname_emu_enterprise %}, elegirás un código corto que se utilizará como el sufijo de los nombres de usuario de los miembros de tu empresa. {% data reusables.enterprise-accounts.emu-shortcode %} El usuario de configuración que configure el SSO de SAML tendrá un nombre de usuario en el formato **@<em>SHORT-CODE</em>_admin**.
+{% data variables.product.product_name %} automatically creates a username for each person by normalizing an identifier provided by your IdP. Para obtener más información, consulta la sección "[Consideraciones de nombre de usuario para la autenticación externa](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication)".
 
-Cuando aprovisionas un usuario nuevo desde tu proveedor de identidad, el {% data variables.product.prodname_managed_user %} nuevo tendrá un nombre de usuario de {% data variables.product.prodname_dotcom %} en el formato de **@<em>IDP-USERNAME</em>_<em>SHORT-CODE</em>**.
-
-| Proveedor de identidad            | Nombre de usuario de {% data variables.product.prodname_dotcom %}
-| --------------------------------- | ----------------------------------------------------------------- |
-| Azure Active Directory (Azure AD) | <ul><li>El _IDP-USERNAME_ se conforma con la normalización de caracteres que preceden a `@` en el UPN (Nombre Principal del Usuario).</li><li>A las cuentas de invitado se les quita `#EXT` del UPN.</li></ul>                                         |
-| Okta                              | <ul><li>El _IDP-USERNAME_ es el atributo de nombre de usuario normalizado que proporciona el IdP.</li></ul>                                         |
-
-Es posible que ocurra algún conflicto al aprovisionar los usuarios si las partes únicas del nombre de usuario que proporciona tu IdP se eliminan cuando esto se normaliza. Si no puedes aprovisionar a un usuario debido a un conflicto de nombres de usuario, deberías modificar el nombre de usuario que proporcionó tu IdP.
-
-El nombre de usuario de la cuenta nueva que se aprovisionó en {% data variables.product.prodname_dotcom %}, incluyendo el guion bajo y código corto, no debe exceder los 39 caracteres.
+A conflict may occur when provisioning users if the unique parts of the identifier provided by your IdP are removed during normalization. If you're unable to provision a user due to a username conflict, you should modify the username provided by your IdP. For more information, see "[Resolving username conflicts](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication#resolving-username-conflicts)."
 
 El nombre de perfil y dirección de correo electrónico de un {% data variables.product.prodname_managed_user %} también lo proporciona el IdP. Los {% data variables.product.prodname_managed_users_caps %} no pueden cambiar su nombre de perfil ni dirección de correo electrónico en {% data variables.product.prodname_dotcom %}.

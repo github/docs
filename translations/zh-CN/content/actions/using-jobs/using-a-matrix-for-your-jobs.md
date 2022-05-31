@@ -1,7 +1,7 @@
 ---
-title: Using a matrix for your jobs
-shortTitle: Using a matrix
-intro: Create a matrix to define variations for each job.
+title: 对作业使用矩阵
+shortTitle: 使用矩阵
+intro: 创建矩阵以定义每个作业的变体。
 versions:
   fpt: '*'
   ghes: '*'
@@ -15,46 +15,46 @@ redirect_from:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## About matrix strategies
+## 关于矩阵策略
 
 {% data reusables.actions.jobs.about-matrix-strategy %}
 
-## Using a matrix strategy
+## 使用矩阵策略
 
 {% data reusables.actions.jobs.using-matrix-strategy %}
 
-### Example: Using a single-dimension matrix
+### 示例：使用单维矩阵
 
 {% data reusables.actions.jobs.single-dimension-matrix %}
 
-### Example: Using a multi-dimension matrix
+### 示例：使用多维矩阵
 
 {% data reusables.actions.jobs.multi-dimension-matrix %}
 
-### Example: Using contexts to create matrices
+### 示例：使用上下文创建矩阵
 
 {% data reusables.actions.jobs.matrix-from-context %}
 
-## Expanding or adding matrix configurations
+## 扩展或添加矩阵配置
 
 {% data reusables.actions.jobs.matrix-include %}
 
-### Example: Expanding configurations
+### 示例：展开配置
 
 {% data reusables.actions.jobs.matrix-expand-with-include %}
 
-### Example: Adding configurations
+### 示例：添加配置
 
 {% data reusables.actions.jobs.matrix-add-with-include %}
 
-## Excluding matrix configurations
+## 排除矩阵配置
 
 {% data reusables.actions.jobs.matrix-exclude %}
 
-## Handling failures
+## 失败处理
 
 {% data reusables.actions.jobs.section-using-a-build-matrix-for-your-jobs-failfast %}
 
-## Defining the maximum number of concurrent jobs
+## 定义并发作业的最大数量
 
 {% data reusables.actions.jobs.section-using-a-build-matrix-for-your-jobs-max-parallel %}

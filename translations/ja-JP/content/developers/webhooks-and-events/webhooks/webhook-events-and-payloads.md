@@ -353,10 +353,10 @@ webhook イベントは、登録したドメインの特異性に基づいてト
 
 ### webhook ペイロードオブジェクト
 
-| キー           | 種類                                          | 説明                                                              |
-| ------------ | ------------------------------------------- | --------------------------------------------------------------- |{% ifversion fpt or ghes or ghae or ghec %}
-| `action`     | `string`                                    | 実行されたアクション。 `created` を指定可。{% endif %}
-| `deployment` | `オブジェクト`                                    | The [deployment](/rest/reference/deployments#list-deployments). |
+| キー           | 種類       | 説明                                                       |
+| ------------ | -------- | -------------------------------------------------------- |
+| `action`     | `string` | 実行されたアクション。 `created `になりうる。                             |
+| `deployment` | `オブジェクト` | [デプロイメント](/rest/reference/deployments#list-deployments)。 |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -378,14 +378,14 @@ webhook イベントは、登録したドメインの特異性に基づいてト
 
 ### webhook ペイロードオブジェクト
 
-| キー                                 | 種類                                          | 説明                                                                                                  |
-| ---------------------------------- | ------------------------------------------- | --------------------------------------------------------------------------------------------------- |{% ifversion fpt or ghes or ghae or ghec %}
-| `action`                           | `string`                                    | 実行されたアクション。 `created` を指定可。{% endif %}
-| `deployment_status`                | `オブジェクト`                                    | The [deployment status](/rest/reference/deployments#list-deployment-statuses).                      |
-| `deployment_status["state"]`       | `string`                                    | 新しい状態。 `pending`、`success`、`failure`、`error` のいずれかを指定可。                                             |
-| `deployment_status["target_url"]`  | `string`                                    | ステータスに追加されたオプションのリンク。                                                                               |
-| `deployment_status["description"]` | `string`                                    | オプションの人間可読の説明がステータスに追加。                                                                             |
-| `deployment`                       | `オブジェクト`                                    | The [deployment](/rest/reference/deployments#list-deployments) that this status is associated with. |
+| キー                                 | 種類       | 説明                                                                         |
+| ---------------------------------- | -------- | -------------------------------------------------------------------------- |
+| `action`                           | `string` | 実行されたアクション。 `created `になりうる。                                               |
+| `deployment_status`                | `オブジェクト` | [デプロイメントステータス](/rest/reference/deployments#list-deployment-statuses)。      |
+| `deployment_status["state"]`       | `string` | 新しい状態。 `pending`、`success`、`failure`、`error` のいずれかを指定可。                    |
+| `deployment_status["target_url"]`  | `string` | ステータスに追加されたオプションのリンク。                                                      |
+| `deployment_status["description"]` | `string` | オプションの人間可読の説明がステータスに追加。                                                    |
+| `deployment`                       | `オブジェクト` | このステータスが関連付けられている [デプロイメント](/rest/reference/deployments#list-deployments)。 |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -1154,7 +1154,6 @@ GitHub Marketplace の購入に関連するアクティビティ。 {% data reus
 
 {{ webhookPayloadsForCurrentVersion.release.published }}
 
-{% ifversion fpt or ghes or ghae or ghec %}
 ## repository_dispatch
 
 このイベントは、{% data variables.product.prodname_github_app %} が「[リポジトリディスパッチイベントの作成](/rest/reference/repos#create-a-repository-dispatch-event)」エンドポイントに `POST` リクエストを送信したときに発生します。
@@ -1166,7 +1165,6 @@ GitHub Marketplace の購入に関連するアクティビティ。 {% data reus
 ### webhook ペイロードの例
 
 {{ webhookPayloadsForCurrentVersion.repository_dispatch }}
-{% endif %}
 
 ## リポジトリ
 
@@ -1485,12 +1483,23 @@ The security advisory dataset also powers the GitHub {% data variables.product.p
 
 - この webhook を受信するには、{% data variables.product.prodname_github_apps %} に `contents` 権限が必要です。
 
+### webhook ペイロードオブジェクト
+
+| キー       | 種類       | 説明                                                                                                                     |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------------------- |
+| `inputs` | `オブジェクト` | Inputs to the workflow. Each key represents the name of the input while it's value represents the value of that input. |
+{% data reusables.webhooks.org_desc %}
+| `ref` | `string` | The branch ref from which the workflow was run. |
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.sender_desc %}
+| `workflow` | `string` | Relative path to the workflow file which contains the workflow. |
+
 ### webhook ペイロードの例
 
 {{ webhookPayloadsForCurrentVersion.workflow_dispatch }}
 {% endif %}
 
-{% ifversion fpt or ghes > 3.2 or ghec or ghae-issue-4462 %}
+{% ifversion fpt or ghes > 3.2 or ghec or ghae %}
 
 ## workflow_job
 

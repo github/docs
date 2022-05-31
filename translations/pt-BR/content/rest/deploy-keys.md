@@ -1,6 +1,6 @@
 ---
-title: Chave de implantação
-intro: ''
+title: Chaves de implantação
+intro: A API de chaves de implantação permite criar e gerenciar chaves de implantação.
 versions:
   fpt: '*'
   ghes: '*'
@@ -13,6 +13,8 @@ allowTitleToDifferFromFilename: true
 redirect_from:
   - /rest/reference/deploy_keys
 ---
+
+## Sobre a API de chaves de implantação
 
 {% data reusables.repositories.deploy-keys %}
 

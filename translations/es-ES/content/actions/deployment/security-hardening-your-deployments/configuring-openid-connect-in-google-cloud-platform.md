@@ -7,6 +7,7 @@ versions:
   fpt: '*'
   ghae: issue-4856
   ghec: '*'
+  ghes: '>=3.5'
 type: tutorial
 topics:
   - Security
@@ -39,7 +40,7 @@ Orientación adicional para configurar el proveedor de identidad:
 
 - Para fortalecer la seguridad, asegúrate de haber revisado la sección ["Configurar la confianza de OIDC con la nube"](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#configuring-the-oidc-trust-with-the-cloud). Por ejemplo, consulta ["Configurar el tema en tu proveedor de servicios en la nube"](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#configuring-the-subject-in-your-cloud-provider).
 - Para que la cuenta de servicio esté disponible para su configuración, esta necesita estar asignada al rol `roles/iam.workloadIdentityUser`. Para obtener más información, consulta la "[Documentación de GCP](https://cloud.google.com/iam/docs/workload-identity-federation?_ga=2.114275588.-285296507.1634918453#conditions)".
-- La URL emisora a utilizar: `https://token.actions.githubusercontent.com`
+- La URL del emisor a utilizar: {% ifversion ghes %}`https://HOSTNAME/_services/token`{% else %}`https://token.actions.githubusercontent.com`{% endif %}
 
 ## Actualizar tu flujo de trabajo de {% data variables.product.prodname_actions %}
 

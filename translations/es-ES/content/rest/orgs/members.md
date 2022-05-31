@@ -1,5 +1,7 @@
 ---
-title: Miembros
+title: Miembros de la organización
+allowTitleToDifferFromFilename: true
+shortTitle: Miembros
 intro: ''
 versions:
   fpt: '*'

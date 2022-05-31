@@ -135,5 +135,4 @@ get_started_with_your_enterprise_account:
     - /admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise
     - /admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise
     - /admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise
-    - /admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise
-    - /admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise
+    - /admin/policies/enforcing-policies-for-your-enterprise/about-enterprise-policies

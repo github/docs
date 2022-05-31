@@ -64,7 +64,7 @@ Las bifurcaciones se detallan alfabéticamente por el nombre de usuario de la pe
 {% data reusables.repositories.accessing-repository-graphs %}
 3. En la barra lateral izquierda, haz clic en **Forks** (Bifurcaciones). ![Pestaña Forks (Bifurcaciones)](/assets/images/help/graphs/graphs-sidebar-forks-tab.png)
 
-{% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
+{% ifversion fpt or ghes or ghae or ghec %}
 ## Visualizar las dependencias de un repositorio
 
 Puedes utilizar la gráfica de dependencias para explorar el código del cual depende tu repositorio.

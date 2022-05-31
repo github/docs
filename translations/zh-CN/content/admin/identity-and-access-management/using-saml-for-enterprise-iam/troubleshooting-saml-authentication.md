@@ -1,7 +1,7 @@
 ---
 title: SAML 身份验证
-shortTitle: Troubleshoot SAML SSO
-intro: 'If you use SAML single sign-on (SSO) and people are unable to authenticate to access {% data variables.product.product_location %}, you can troubleshoot the problem.'
+shortTitle: SAML SSO 故障排除
+intro: '如果使用 SAML 单点登录 (SSO)，并且用户无法通过身份验证来访问 {% data variables.product.product_location %}，则可以对问题进行故障排除。'
 versions:
   ghes: '*'
 type: how_to
@@ -15,11 +15,11 @@ topics:
   - Troubleshooting
 ---
 
-## About problems with SAML authentication
+## 关于 SAML 身份验证的问题
 
-{% data variables.product.product_name %} logs error messages for failed SAML authentication in the authentication log at _/var/log/github/auth.log_. You can review responses in this log file, and you can also configure more verbose logging.
+{% data variables.product.product_name %} 在 _/var/log/github/auth.log_ 的身份验证日志中为失败的 SAML 身份验证记录错误消息。 您可以在此日志文件中查看响应，还可以配置更详细的日志记录。
 
-For more information about SAML response requirements, see "[SAML configuration reference](/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference#saml-response-requirements)."
+关于 SAML 响应要求的更多信息，请参阅“[SAML 配置参考](/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference#saml-response-requirements)”。
 
 ## 配置 SAML 调试
 
@@ -59,13 +59,13 @@ $ base64 --decode <em>ENCODED OUTPUT</em>
 
 ## Error: "Another user already owns the account"（错误：“其他用户已拥有该帐户”）
 
-When a user signs into {% data variables.product.product_location %} for the first time with SAML authentication, {% data variables.product.product_name %} creates a user account on the instance and maps the SAML `NameID` to the account.
+当用户首次使用 SAML 身份验证登录到 {% data variables.product.product_location %} 时， {% data variables.product.product_name %} 会在实例上创建一个用户帐户，并将 SAML `NameID` 映射到该帐户。
 
 当用户再次登录时，{% data variables.product.prodname_ghe_server %} 会比较帐户的 `NameID` 映射与 IdP 的响应。 如果 IdP 响应中的 `NameID` 不再与 {% data variables.product.product_name %} 对用户预期的 `NameID` 匹配， 登录将失败。 用户将看到以下消息。
 
 > 另一个用户已经拥有该帐户。 请让您的管理员检查身份验证日志。
 
-该消息通常表示此人的用户名或电子邮件地址已在 IdP 上更改。 确保 {% data variables.product.prodname_ghe_server %} 上用户帐户的 `NameID` 映射与 IdP 上的用户 `NameID` 相匹配。 For more information, see "[Updating a user's SAML `NameID`](/admin/identity-and-access-management/using-saml-for-enterprise-iam/updating-a-users-saml-nameid)."
+该消息通常表示此人的用户名或电子邮件地址已在 IdP 上更改。 确保 {% data variables.product.prodname_ghe_server %} 上用户帐户的 `NameID` 映射与 IdP 上的用户 `NameID` 相匹配。 更多信息请参阅“[更新用户的 SAML `NameID`](/admin/identity-and-access-management/using-saml-for-enterprise-iam/updating-a-users-saml-nameid)”。
 
 ## Error: Recipient in SAML response was blank or not valid（错误：SAML 响应中的收件人为空或无效）
 
@@ -99,4 +99,4 @@ SAML Response is not signed or has been modified.
 Audience is invalid. Audience is invalid. Audience attribute does not match your_instance_url
 ```
 
-Ensure that you set the value for `Audience` on your IdP to the `EntityId` for {% data variables.product.product_location %}, which is the full URL to your instance. 例如，`https://ghe.corp.example.com`。
+确保将 IdP 上 `Audience` 的值设置为 {% data variables.product.product_location %} 的 `EntityId`，这是实例的完整 URL。 例如，`https://ghe.corp.example.com`。

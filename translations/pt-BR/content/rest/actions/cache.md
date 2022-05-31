@@ -1,11 +1,16 @@
 ---
-title: Cache
-intro: 'The Cache API allows you to query and manage the {% data variables.product.prodname_actions %} cache for repositories.'
+title: Cache do GitHub Actions
+allowTitleToDifferFromFilename: true
+shortTitle: Cache
+intro: 'A API do cache do {% data variables.product.prodname_actions %} permite que você consulte e gerencie o cache {% data variables.product.prodname_actions %} para repositórios.'
 topics:
   - API
 versions:
   fpt: '*'
   ghec: '*'
+  ghes: '>3.4'
 ---
 
-The cache API allows you to query and manage the {% data variables.product.prodname_actions %} cache for repositories. Para obter mais informações, consulte "[Memorizar dependências para acelerar fluxos de trabalho](/actions/advanced-guides/caching-dependencies-to-speed-up-workflows#usage-limits-and-eviction-policy)".
+## About a API do cache
+
+A API do cache do {% data variables.product.prodname_actions %} permite que você consulte e gerencie o cache {% data variables.product.prodname_actions %} para repositórios. Para obter mais informações, consulte "[Memorizar dependências para acelerar fluxos de trabalho](/actions/advanced-guides/caching-dependencies-to-speed-up-workflows#usage-limits-and-eviction-policy)".

@@ -29,6 +29,14 @@ Esta guía de inicio rápido te muestra cómo configurar MinIO utilizando Docker
 
 Para obtener más información acerca las opciones que tienes, consulta los [documentos oficiales de MinIO](https://docs.min.io/).
 
+{% warning %}
+
+**Advertencia**: MinIO anunció la eliminación de MinIO Gateways. Desde el 1 de junio de 2022, tanto el soporte como las correcciones de errores para la implementación de la puerta de enlace de la NAS de MinIO estarán disponibles únicamente para los clientes con suscripciones de pago a través de su contrato de soporte LTS. Si quieres seguir utilizando MinIO Gateways con {% data variables.product.prodname_registry %}, te recomendamos migrarte al soporte LTS de MinIO. Para obtener más información, consulta el [programa para eliminar a MinIO Gateway para GCS, Azure, HDFS](https://github.com/minio/minio/issues/14331) en el repositorio minio/minio.
+
+Otros modos de MinIO siguen disponibles con el soporte estándar.
+
+{% endwarning %}
+
 ## 2. Instala, ejecuta e inicia sesión en MinIO
 
 1. Configura tus variables de ambiente preferidas para MinIO.

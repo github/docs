@@ -64,6 +64,6 @@ Se o seu IdP é compatível com o SCIM, o {% data variables.product.prodname_dot
 
 ## Leia mais
 
-- "[SAML configuration reference](/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference)"
+- "[Referência da configuração do SAML](/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference)"
 - "[Sobre a autenticação de dois fatores e o SAML de logon único](/articles/about-two-factor-authentication-and-saml-single-sign-on)"
 - "[Sobre a autenticação com logon único SAML](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)"

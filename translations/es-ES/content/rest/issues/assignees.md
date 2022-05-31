@@ -1,5 +1,7 @@
 ---
-title: Asignatarios
+title: Issue assignees
+allowTitleToDifferFromFilename: true
+shortTitle: Asignatarios
 intro: ''
 versions:
   fpt: '*'
@@ -11,3 +13,6 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
+## About the Issue assignees API
+
+The Issue assignees API supports managing assignees on issues and pull requests. {% data reusables.pull_requests.issues-pr-shared-api %}

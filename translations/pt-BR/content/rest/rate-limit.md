@@ -13,6 +13,8 @@ redirect_from:
   - /rest/reference/rate-limit
 ---
 
+## Sobre a API de limite de taxa
+
 A documentação geral da API REST descreve as [regras de limite de taxa](/rest/overview/resources-in-the-rest-api#rate-limiting). Você pode verificar seu status de limite de taxa atual a qualquer momento usando a API de limite de taxa descrita abaixo.
 
 ### Entender o seu status de limite de taxa

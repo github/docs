@@ -20,12 +20,6 @@ upcoming_changes:
     date: '2020-01-01T00:00:00+00:00'
     criticality: breaking
     owner: tambling
-  - location: EnterprisePendingMemberInvitationEdge.isUnlicensed
-    description: '`isUnlicensed` will be removed.'
-    reason: All pending members consume a license
-    date: '2020-07-01T00:00:00+00:00'
-    criticality: breaking
-    owner: BrentWheeldon
   - location: Issue.timeline
     description: '`timeline` will be removed. Use Issue.timelineItems instead.'
     reason: '`timeline` will be removed'
@@ -38,18 +32,6 @@ upcoming_changes:
     date: '2020-10-01T00:00:00+00:00'
     criticality: breaking
     owner: mikesea
-  - location: EnterpriseMemberEdge.isUnlicensed
-    description: '`isUnlicensed` will be removed.'
-    reason: All members consume a license
-    date: '2021-01-01T00:00:00+00:00'
-    criticality: breaking
-    owner: BrentWheeldon
-  - location: EnterpriseOutsideCollaboratorEdge.isUnlicensed
-    description: '`isUnlicensed` will be removed.'
-    reason: All outside collaborators consume a license
-    date: '2021-01-01T00:00:00+00:00'
-    criticality: breaking
-    owner: BrentWheeldon
   - location: MergeStateStatus.DRAFT
     description: '`DRAFT` will be removed. Use PullRequest.isDraft instead.'
     reason:
@@ -94,3 +76,11 @@ upcoming_changes:
     date: '2022-07-01T00:00:00+00:00'
     criticality: breaking
     owner: jdennes
+  - location: RemovePullRequestFromMergeQueueInput.branch
+    description: '`branch` will be removed.'
+    reason:
+      PRs are removed from the merge queue for the base branch, the `branch` argument
+      is now a no-op
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: jhunschejones

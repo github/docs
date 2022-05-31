@@ -30,12 +30,21 @@ Windows Server 2019
 </tr>
 <tr>
 <td>
+Ubuntu 22.04
+</td>
+<td>
+<code>ubuntu-22.04</code>
+</td>
+<td>
+Ubuntu 22.04 se encuentra actualmente en beta público.
+</td>
+</tr>
+<tr>
+<td>
 Ubuntu 20.04
 </td>
 <td>
 <code>ubuntu-latest</code> o <code>ubuntu-20.04</code>
-</td>
-<td>
 </td>
 </tr>
 <tr>
@@ -56,7 +65,7 @@ macOS Monterey 12
 <code>macos-12</code>
 </td>
 <td>
-macOS 12 is currently in public beta.
+macOS 12 se encuentra actualmente en beta público.
 </td>
 </tr>
 <tr>

@@ -11,9 +11,13 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-### Example of getting an Atom feed
+## Sobre a API de Feeds
 
-To get a feed in Atom format, you must specify the `application/atom+xml` type in the `Accept` header. For example, to get the Atom feed for GitHub security advisories:
+Para ver quais feeds estão disponíveis para você, use a operação [Obter feeds](#get-feeds). Em seguida, você poderá obter um feed enviando uma solicitação para uma das URLs do feed.
+
+### Exemplo de como obter um feed do Atom
+
+Para obter um feed no formato Atom você deve especificar o tipo `application/atom+xml` no cabeçalho `Aceitar`. Por exemplo, para obter o feed do Atom para consultorias de segurança do GitHub:
 
     curl -H "Accept: application/atom+xml" https://github.com/security-advisories
 

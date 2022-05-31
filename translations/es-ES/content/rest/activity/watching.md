@@ -1,6 +1,6 @@
 ---
 title: Observar
-intro: 'Observar un repositorio registra al usuario para recibir notificaciones en debates nuevos, así como en los eventos de los canales de actividad del mismo.'
+intro: The Watching API lets users subscribe to notifications for activity in a repository.
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,4 +11,6 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-Para marcar a un repositorio como favorito de forma sencilla, consulta la sección "[Marcar repositorios con una estrella](/rest/reference/activity#starring)".
+## About the Watching API
+
+La API de observados permite que los usuarios se suscriban a las notificaciones de la actividad de un repositorio. To bookmark a repository instead, see "[Starring](/rest/reference/activity#starring)."

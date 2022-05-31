@@ -18,11 +18,13 @@ topics:
 shortTitle: Sincronização automática da licença do usuário
 ---
 
-## Sobre a sincronização de licenças
+## About automatic license synchronization
+
+{% data reusables.enterprise-licensing.unique-user-licensing-model %}
 
 {% data reusables.enterprise-licensing.about-license-sync %} Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_github_connect %}de](/admin/configuration/configuring-github-connect/about-github-connect#data-transmission-for-github-connect)."
 
-Se você habilitar a sincronização automática de licença de usuário para a sua empresa, {% data variables.product.prodname_github_connect %} irá automaticamente sincronizar o uso da licença entre {% data variables.product.prodname_ghe_server %} e {% data variables.product.prodname_ghe_cloud %} semanalmente.
+Se você habilitar a sincronização automática da licença de usuário para sua empresa, {% data variables.product.prodname_github_connect %} irá sincronizar automaticamente o uso da licença entre {% data variables.product.prodname_ghe_server %} e {% data variables.product.prodname_ghe_cloud %} semanalmente.{% ifversion ghes > 3.4 %} Você também pode sincronizar os dados da sua licença a qualquer momento fora da sincronização automática semanal, acionando manualmente um trabalho de sincronização. Para obter mais informações, consulte "[Acionar um trabalho de sincronização de licença](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud#triggering-a-license-sync-job)".{% endif %}
 
 Se você usar várias instâncias de {% data variables.product.prodname_ghe_server %}, você pode habilitar a sincronização automática de licença entre cada uma de suas instâncias e a mesma organização ou conta corporativa em {% data variables.product.prodname_ghe_cloud %}.
 

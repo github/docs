@@ -238,8 +238,8 @@ While most of your API interaction should occur using your server-to-server inst
 
 * [List deployments](/rest/reference/deployments#list-deployments)
 * [Create a deployment](/rest/reference/deployments#create-a-deployment)
-* [Get a deployment](/rest/reference/deployments#get-a-deployment){% ifversion fpt or ghes or ghae or ghec %}
-* [Delete a deployment](/rest/reference/deployments#delete-a-deployment){% endif %}
+* [Get a deployment](/rest/reference/deployments#get-a-deployment)
+* [Delete a deployment](/rest/reference/deployments#delete-a-deployment)
 
 #### Events
 
@@ -421,14 +421,12 @@ While most of your API interaction should occur using your server-to-server inst
 * [Remove pre-receive hook enforcement for an organization](/enterprise/user/rest/reference/enterprise-admin#remove-pre-receive-hook-enforcement-for-an-organization)
 {% endif %}
 
-{% ifversion fpt or ghes or ghae or ghec %}
 #### Organization Team Projects
 
 * [List team projects](/rest/reference/teams#list-team-projects)
 * [Check team permissions for a project](/rest/reference/teams#check-team-permissions-for-a-project)
 * [Add or update team project permissions](/rest/reference/teams#add-or-update-team-project-permissions)
 * [Remove a project from a team](/rest/reference/teams#remove-a-project-from-a-team)
-{% endif %}
 
 #### Organization Team Repositories
 
@@ -574,7 +572,7 @@ While most of your API interaction should occur using your server-to-server inst
 
 #### Reactions
 
-{% ifversion fpt or ghes or ghae or ghec %}* [Delete a reaction](/rest/reference/reactions#delete-a-reaction-legacy){% else %}* [Delete a reaction](/rest/reference/reactions#delete-a-reaction){% endif %}
+* [Delete a reaction](/rest/reference/reactions)
 * [List reactions for a commit comment](/rest/reference/reactions#list-reactions-for-a-commit-comment)
 * [Create reaction for a commit comment](/rest/reference/reactions#create-reaction-for-a-commit-comment)
 * [List reactions for an issue](/rest/reference/reactions#list-reactions-for-an-issue)
@@ -586,13 +584,13 @@ While most of your API interaction should occur using your server-to-server inst
 * [List reactions for a team discussion comment](/rest/reference/reactions#list-reactions-for-a-team-discussion-comment)
 * [Create reaction for a team discussion comment](/rest/reference/reactions#create-reaction-for-a-team-discussion-comment)
 * [List reactions for a team discussion](/rest/reference/reactions#list-reactions-for-a-team-discussion)
-* [Create reaction for a team discussion](/rest/reference/reactions#create-reaction-for-a-team-discussion){% ifversion fpt or ghes or ghae or ghec %}
+* [Create reaction for a team discussion](/rest/reference/reactions#create-reaction-for-a-team-discussion)
 * [Delete a commit comment reaction](/rest/reference/reactions#delete-a-commit-comment-reaction)
 * [Delete an issue reaction](/rest/reference/reactions#delete-an-issue-reaction)
 * [Delete a reaction to a commit comment](/rest/reference/reactions#delete-an-issue-comment-reaction)
 * [Delete a pull request comment reaction](/rest/reference/reactions#delete-a-pull-request-comment-reaction)
 * [Delete team discussion reaction](/rest/reference/reactions#delete-team-discussion-reaction)
-* [Delete team discussion comment reaction](/rest/reference/reactions#delete-team-discussion-comment-reaction){% endif %}
+* [Delete team discussion comment reaction](/rest/reference/reactions#delete-team-discussion-comment-reaction)
 
 #### Repositories
 
@@ -706,11 +704,9 @@ While most of your API interaction should occur using your server-to-server inst
 * [Get a repository README](/rest/reference/repos#get-a-repository-readme)
 * [Get the license for a repository](/rest/reference/licenses#get-the-license-for-a-repository)
 
-{% ifversion fpt or ghes or ghae or ghec %}
 #### Repository Event Dispatches
 
 * [Create a repository dispatch event](/rest/reference/repos#create-a-repository-dispatch-event)
-{% endif %}
 
 #### Repository Hooks
 

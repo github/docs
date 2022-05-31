@@ -1,6 +1,8 @@
 ---
-title: ユーザ
-intro: Users migrations APIを利用できるのは、認証を受けたアカウントのオーナーのみです。
+title: ユーザの移行
+allowTitleToDifferFromFilename: true
+shortTitle: ユーザ
+intro: ''
 versions:
   fpt: '*'
   ghec: '*'
@@ -11,7 +13,9 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-詳細は、「[その他の認証方式](/rest/overview/other-authentication-methods)」を参照してください。
+## User migrations APIについて
+
+Users migrations APIを利用できるのは、認証を受けたアカウントのオーナーのみです。 詳細は、「[その他の認証方式](/rest/overview/other-authentication-methods)」を参照してください。
 
 {% data variables.migrations.user_migrations_intro %}ダウンロードできる移行データのリストは、「[ユーザー移行アーカイブをダウンロードする](#download-a-user-migration-archive)」を参照してください。
 

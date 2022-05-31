@@ -11,6 +11,10 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
+## Gists APIについて
+
+Gists APIを使うと、Gistの表示と編集ができます。 Gistに関する詳しい情報については「[Gistとのコンテンツの編集と共有](/get-started/writing-on-github/editing-and-sharing-content-with-gists)」を参照してください。
+
 ### 認証
 
 パブリック Gist {% ifversion ghae or ghes %} を読んで、トークンなしで匿名ユーザ向けに作成できます。{% else %} 匿名でも、Gist を作成するには GitHub にサインインする必要があります。{% endif %}ユーザに代わって Gist を読み書きするには、Gist OAuth スコープとトークンが必要です。 詳しい情報については、「[OAuth App のスコープ](/developers/apps/scopes-for-oauth-apps)」を参照してください。

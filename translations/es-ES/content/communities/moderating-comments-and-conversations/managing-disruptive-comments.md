@@ -47,11 +47,13 @@ Cualquiera con acceso de escritura a un repositorio puede editar comentarios sob
 
 Es adecuado editar un comentario y eliminar el contenido que no haga ninguna colaboración con la conversación y viole el código de conducta de tu comunidad{% ifversion fpt or ghec %} o los [Lineamientos comunitarios](/free-pro-team@latest/github/site-policy/github-community-guidelines) de GitHub{% endif %}.
 
-Cuando editas un comentario, toma nota de la ubicación desde la que se ha eliminado el contenido y, de manera opcional, la razón por la que se lo eliminó.
+Algunas veces podría ser coherente indicar claramente las ediciones y su justificación.
 
-Cualquier persona con acceso de lectura a un repositorio puede ver el historial de edición del comentario. El menú desplegable **editado** en la parte superior del comentario contiene un historial de las ediciones y muestra el usuario y el registro de horario de cada edición.
+Dicho esto, cualquiera con acceso de lectura a un repositorio puede ver el historial de edición de un comentario. El menú desplegable **editado** en la parte superior del comentario contiene un historial de las ediciones y muestra el usuario y el registro de horario de cada edición.
 
 ![Comentario con nota adicional que el contenido fue redactado](/assets/images/help/repository/content-redacted-comment.png)
+
+## Redactar la información sensible
 
 Los autores de los comentarios y cualquiera con acceso de escritura a un repositorio puede también eliminar información sensible de un historial de edición de los comentarios. Para obtener más información, consulta "[Rastrear los cambios en un comentario](/communities/moderating-comments-and-conversations/tracking-changes-in-a-comment)."
 
@@ -65,19 +67,21 @@ Los autores de los comentarios y cualquiera con acceso de escritura a un reposit
 
 Cualquiera con acceso de escritura a un repositorio puede borrar comentarios sobre reportes de problemas, solicitudes de extracción y confirmaciones. Los propietarios de organizaciones, mantenedores de equipos, y el autor del comentario también pueden borrarlo en la página del equipo.
 
+Si un comentario contiene algún contenido constructivo que suma a la conversación en cuanto a la propuesta o a la solicitud de extracción, puedes editar el comentario.
+
 Eliminar un comentario es tu último recurso como moderador. Es correcto eliminar un comentario si todo este falla en añadir contenido constructivo a una conversación y viola el código de conducta de tu comunidad{% ifversion fpt or ghec %} o los [Lineamientos comunitarios](/free-pro-team@latest/github/site-policy/github-community-guidelines) de GitHub{% endif %}.
 
 Eliminar un comentario crea un evento cronológico que es visible para todos aquellos que tienen acceso de lectura al repositorio. Sin embargo, el nombre de usuario de la persona que eliminó el comentario solo es visible para personas con acceso de escritura al repositorio. Para cualquiera que no tenga acceso de escritura, el evento de cronología es anónimo.
 
 ![Evento cronológico anónimo para un comentario eliminado](/assets/images/help/issues/anonymized-timeline-entry-for-deleted-comment.png)
 
-Si un comentario contiene algún contenido constructivo que sume a la conversación en cuanto a la propuesta o a la solicitud de extracción, puedes editar el comentario.
-
 {% note %}
 
 **Nota:** el comentario inicial (o cuerpo) de una propuesta o solicitud de extracción no puede eliminarse. Por el contrario, pueden editar los cuerpos de la propuesta o de la solicitud de extracción para eliminar el contenido no deseado.
 
 {% endnote %}
+
+### Pasos para borrar un comentario
 
 1. Navega hasta el comentario que deseas eliminar.
 2. En la esquina superior derecha del comentario, haz clic en {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, después haz clic en **Delete (Eliminar)**. ![El ícono de kebab horizontal y el menú de moderación de comentario que muestra las opciones Editar, Ocultar, Eliminar e Informar](/assets/images/help/repository/comment-menu.png)
