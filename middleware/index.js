@@ -29,7 +29,6 @@ import redirectsExternal from './redirects/external.js'
 import languageCodeRedirects from './redirects/language-code-redirects.js'
 import handleRedirects from './redirects/handle-redirects.js'
 import findPage from './find-page.js'
-import spotContentFlaws from './spot-content-flaws.js'
 import blockRobots from './block-robots.js'
 import archivedEnterpriseVersionsAssets from './archived-enterprise-versions-assets.js'
 import events from './events.js'
@@ -270,7 +269,6 @@ export default function (app) {
 
   // *** Config and context for rendering ***
   app.use(asyncMiddleware(instrument(findPage, './find-page'))) // Must come before archived-enterprise-versions, breadcrumbs, featured-links, products, render-page
-  app.use(asyncMiddleware(instrument(spotContentFlaws, './spot-content-flaws'))) // Must come after findPage
   app.use(instrument(blockRobots, './block-robots'))
 
   // Check for a dropped connection before proceeding
