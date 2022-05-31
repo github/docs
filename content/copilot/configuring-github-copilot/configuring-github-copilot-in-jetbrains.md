@@ -1,8 +1,41 @@
 ---
 title: Configuring GitHub Copilot in JetBrains
-intro: 'ADD INTRO.'
+intro: 'You can enable, configure, and disable {% data variables.product.prodname_copilot %} in JetBrains.'
+product: '{% data reusables.gated-features.copilot %}'
+topics:
+  - copilot
 versions:
   versions:
   fpt: '*'
   ghec: '*'
 ---
+
+## Keyboard shortcuts for {% data variables.product.prodname_copilot %}
+
+You can use the default keyboard shortcuts in JetBrains when using {% data variables.product.prodname_copilot %}. Alternatively, you can rebind the shortcuts to your preferred keyboard shortcuts for each specific command. For more information on rebinding keyboard shortcuts in JetBrains, see the [JetBrains](https://www.jetbrains.com/help/idea/mastering-keyboard-shortcuts.html#choose-keymap) documentation.
+
+| Action | Shortcut |
+|:---|:---:|
+|Accept an inline suggestion|`Tab`|
+|Dimiss an inline suggestion|`Esc`|
+|Show next inline suggestion|On macOS: `Option (⌥) or Alt`+`]`<br> On Windows: `Alt`+`]`|
+|Show previous inline suggestion|On macOS: `Option (⌥) or Alt`+`[`<br> On Windows: `Alt`+`[`|
+|Trigger inline suggestion|On macOS: `Option (⌥)`+`\`<br> On Windows: `Alt`+`\`|
+|Open {% data variables.product.prodname_copilot %} (additional suggestions in separate pane)|On macOS: `Option (⌥) or Alt`+`Enter`<br> On Windows: `Alt`+`Enter` |
+
+## Enabling and disabling {% data variables.product.prodname_copilot %}
+
+You can enable or disable {% data variables.product.prodname_copilot %} from within JetBrains. The {% data variables.product.prodname_copilot %} status icon in the bottom panel of the JetBrains window indicates whether {% data variables.product.prodname_copilot %} is enabled or disabled. When enabled, the icon is highlighted. When disabled, the icon is grayed out.
+
+1. To enable or disable {% data variables.product.prodname_copilot %}, click the status icon in the bottom panel of the JetBrains window.
+   ![Status icon in JetBrains](/assets/images/help/copilot/status-icon-jetbrains.png)
+2. If you are disabling {% data variables.product.prodname_copilot %}, you will be asked whether you want to disable it globally, or for the language of the file you are currently editing. To disable globally, click **Disable Completions**. Alternatively, click the button to disable completions for the language of the file you are currently editing.
+   ![Disable {% data variables.product.prodname_copilot %} globally or for the current language](/assets/images/help/copilot/disable-copilot-global-or-langugage-jetbrains.png)
+
+## Enabling and disabling {% data variables.product.prodname_copilot %} for specific languages
+
+You can specify which languages you want to enable or disable {% data variables.product.prodname_copilot %} for within JetBrains.
+
+1. In the **File** menu, click **Settings**.
+1. Under **Languages & Frameworks**, click **{% data variables.product.prodname_copilot %}**.
+1. Under "Disabled languages", use the checkboxes to select the languages you want to disable {% data variables.product.prodname_copilot %} for.

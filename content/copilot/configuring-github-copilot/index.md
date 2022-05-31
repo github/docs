@@ -1,7 +1,7 @@
 ---
 title: Configuring GitHub Copilot
 shortTitle: Configure GitHub Copilot
-intro: 'ADD INTRO.'
+intro: 'You can configure a variety of settings for {% data variables.product.prodname_copilot %}.'
 versions:
   fpt: '*'
   ghec: '*'
