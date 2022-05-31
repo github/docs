@@ -1,6 +1,6 @@
 ---
 title: Connecting to a private network
-intro: 'You can connect {% data variables.product.prodname_codespaces %} to resources on a private network, including package registries, license servers, and on-premises databases.'
+intro: 'You can connect {% data variables.product.prodname_github_codespaces %} to resources on a private network, including package registries, license servers, and on-premises databases.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'

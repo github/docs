@@ -1,6 +1,6 @@
 ---
-title: Managing spending limits for Codespaces
-intro: 'You can set a spending limit for {% data variables.product.prodname_codespaces %} usage.'
+title: Managing spending limits for GitHub Codespaces
+intro: 'You can set a spending limit for {% data variables.product.prodname_github_codespaces %} usage.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -15,7 +15,7 @@ topics:
   - Billing
 shortTitle: Spending limits
 ---
-## About spending limits for {% data variables.product.prodname_codespaces %}
+## About spending limits for {% data variables.product.prodname_github_codespaces %}
 
 {% data reusables.codespaces.codespaces-spending-limit-requirement %}
 

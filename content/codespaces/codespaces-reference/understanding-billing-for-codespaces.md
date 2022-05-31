@@ -1,6 +1,6 @@
 ---
-title: Understanding billing for Codespaces
-intro: 'Learn how your {% data variables.product.prodname_codespaces %} usage is billed.'
+title: Understanding billing for GitHub Codespaces
+intro: 'Learn how your {% data variables.product.prodname_github_codespaces %} usage is billed.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -18,9 +18,9 @@ shortTitle: Understanding billing
 
 This article explains how billing works for your codespaces, and explains how your organization's billing manager can help.
 
-## Getting access to {% data variables.product.prodname_codespaces %}
+## Getting access to {% data variables.product.prodname_github_codespaces %}
 
-Your organization's administrator might limit {% data variables.product.prodname_codespaces %} usage to only specific personal accounts. To get access, you will need to contact your billing manager. For more information, see "[Managing access and security for your codespaces](/codespaces/managing-your-codespaces/managing-access-and-security-for-your-codespaces)."
+Your organization's administrator might limit {% data variables.product.prodname_github_codespaces %} usage to only specific personal accounts. To get access, you will need to contact your billing manager. For more information, see "[Managing access and security for your codespaces](/codespaces/managing-your-codespaces/managing-access-and-security-for-your-codespaces)."
 
 ## How much it costs to use {% data variables.product.prodname_codespaces %}
 
@@ -36,7 +36,7 @@ If you enable prebuilding of codespaces this will incur additional charges. For 
 Your codespace is billed for the number of minutes that it's active. If your codespaces window is left idle for 30 minutes, it will automatically shutdown, and compute billing for the codespace will end until you start the codespace again.
 
 ### Understanding how codespace storage is billed
-For {% data variables.product.prodname_codespaces %}, storage is defined to include any files relating to your codespace, such as the cloned repository, configuration files, and extensions, among others. This storage is billed while your codespace is shutdown. The storage billing for a codespace ends when you manually delete it from https://github.com/codespaces.
+For {% data variables.product.prodname_github_codespaces %}, storage is defined to include any files relating to your codespace, such as the cloned repository, configuration files, and extensions, among others. This storage is billed while your codespace is shutdown. The storage billing for a codespace ends when you manually delete it from https://github.com/codespaces.
 
 ## How spending limits work
 

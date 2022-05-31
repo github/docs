@@ -1,6 +1,6 @@
 ---
 title: Reference
-intro: 'This section contains references that will allow you to be successful with {% data variables.product.prodname_codespaces %}'
+intro: 'This section contains references that will allow you to be successful with {% data variables.product.prodname_github_codespaces %}'
 versions:
   fpt: '*'
   ghec: '*'

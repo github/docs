@@ -1,6 +1,6 @@
 ---
-title: Security in Codespaces
-intro: 'Overview of the {% data variables.product.prodname_codespaces %} security architecture, with guidelines to help you maintain security and minimize the risk of attack.'
+title: Security in GitHub Codespaces
+intro: 'Overview of the {% data variables.product.prodname_github_codespaces %} security architecture, with guidelines to help you maintain security and minimize the risk of attack.'
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
@@ -14,13 +14,13 @@ shortTitle: Security in Codespaces
 
 ## Overview of codespace security
 
-{% data variables.product.prodname_codespaces %} is designed to be security hardened by default. Consequently, you will need to ensure that your software development practices do not risk reducing the security posture of your codespace. 
+{% data variables.product.prodname_github_codespaces %} is designed to be security hardened by default. Consequently, you will need to ensure that your software development practices do not risk reducing the security posture of your codespace. 
 
 This guide describes the way Codespaces keeps your development environment secure and provides some of the good practices that will help maintain your security as you work. As with any development tool, remember that you should only open and work within repositories you know and trust.
 
 ### Environment isolation
 
-{% data variables.product.prodname_codespaces %} is designed to keep your codespaces separate from each other, with each using its own virtual machine and network.
+{% data variables.product.prodname_github_codespaces %} is designed to keep your codespaces separate from each other, with each using its own virtual machine and network.
 
 #### Isolated virtual machines
 
@@ -48,7 +48,7 @@ An organization's administrators specify which repositories should be considered
 
 ### Codespace connections
 
-You can connect to your codespace using the TLS encrypted tunnel provided by the {% data variables.product.prodname_codespaces %} service. Only the creator of a codespace can connect to a codespace. Connections are authenticated with {% data variables.product.product_name %}.
+You can connect to your codespace using the TLS encrypted tunnel provided by the {% data variables.product.prodname_github_codespaces %} service. Only the creator of a codespace can connect to a codespace. Connections are authenticated with {% data variables.product.product_name %}.
 
 If you need to allow external access to services running on a codespace, you can enable port forwarding for private or public access.
 
