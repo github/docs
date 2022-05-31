@@ -13,7 +13,7 @@ children:
   - /personalizing-codespaces-for-your-account
   - /changing-the-machine-type-for-your-codespace
   - /setting-your-default-editor-for-github-codespaces
-  - /setting-your-default-region-for-codespaces
+  - /setting-your-default-region-for-github-codespaces
   - /setting-your-timeout-period-for-codespaces
 ---
  
