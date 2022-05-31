@@ -1,8 +1,8 @@
 ---
-title: About billing for Codespaces
+title: About billing for GitHub Codespaces
 shortTitle: About billing
-intro: 'View pricing and see how to manage {% data variables.product.prodname_codespaces %} billing for your organization.'
-permissions: 'To manage billing for Codespaces for an organization, you must be an organization owner or a billing manager.'
+intro: 'View pricing and see how to manage {% data variables.product.prodname_github_codespaces %} billing for your organization.'
+permissions: 'To manage billing for {% data variables.product.prodname_github_codespaces %} for an organization, you must be an organization owner or a billing manager.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -13,9 +13,9 @@ topics:
   - Billing
 ---
 
-## {% data variables.product.prodname_codespaces %} pricing
+## {% data variables.product.prodname_github_codespaces %} pricing
 
-{% data variables.product.prodname_codespaces %} usage is billed for all organization and enterprise accounts on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %}, which do not include any free minutes or storage. Personal accounts are not currently billed for {% data variables.product.prodname_codespaces %} usage. 
+{% data variables.product.prodname_github_codespaces %} usage is billed for all organization and enterprise accounts on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %}, which do not include any free minutes or storage. Personal accounts are not currently billed for {% data variables.product.prodname_codespaces %} usage. 
 
 {% data variables.product.prodname_codespaces %} usage is billed according to the units of measure in the following table:
 
