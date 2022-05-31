@@ -30,7 +30,7 @@
     "express-timeout-handler": "^2.2.2",
     "flat": "^5.0.2",
     "github-slugger": "^1.4.0",
-    "got": "^11.8.2",
+    "got": "^12.1.0",
     "gray-matter": "^4.0.3",
     "hast-util-from-parse5": "^7.1.0",
     "hast-util-parse-selector": "^3.1.0",
