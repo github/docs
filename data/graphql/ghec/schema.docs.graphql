@@ -24951,6 +24951,11 @@ type Organization implements Actor & MemberStatusable & Node & PackageOwner & Pr
   viewerIsAMember: Boolean!
 
   """
+  Whether or not this Organization is followed by the viewer.
+  """
+  viewerIsFollowing: Boolean!
+
+  """
   True if the viewer is sponsoring this user/organization.
   """
   viewerIsSponsoring: Boolean!
