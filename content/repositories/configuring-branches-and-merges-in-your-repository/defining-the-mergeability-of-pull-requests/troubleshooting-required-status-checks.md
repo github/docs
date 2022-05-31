@@ -36,14 +36,11 @@ remote: error: Required status check "ci-build" is failing
 
 {% endnote %}
 
-{% ifversion fpt or ghae or ghes or ghec %}
-
 ## Conflicts between head commit and test merge commit
 
 Sometimes, the results of the status checks for the test merge commit and head commit will conflict. If the test merge commit has a status, the test merge commit must pass. Otherwise, the status of the head commit must pass before you can merge the branch. For more information about test merge commits, see "[Pulls](/rest/reference/pulls#get-a-pull-request)."
 
 ![Branch with conflicting merge commits](/assets/images/help/repository/req-status-check-conflicting-merge-commits.png)
-{% endif %}
 
 ## Handling skipped but required checks
 

@@ -25,9 +25,9 @@ The `git filter-repo` tool and the BFG Repo-Cleaner rewrite your repository's hi
 
 {% warning %}
 
-This article tells you how to make commits with sensitive data unreachable from any branches or tags in your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}. ただし、こうしたコミットも、リポジトリのクローンやフォークからは、{% data variables.product.product_name %} でキャッシュされているビューの SHA-1 ハッシュによって直接、また参照元のプルリクエストによって、到達できる可能性があることに注意することが重要です。 You cannot remove sensitive data from other users' clones or forks of your repository, but you can permanently remove cached views and references to the sensitive data in pull requests on {% data variables.product.product_name %} by contacting {% data variables.contact.contact_support %}.
+**Warning**: This article tells you how to make commits with sensitive data unreachable from any branches or tags in your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}. However, those commits may still be accessible in any clones or forks of your repository, directly via their SHA-1 hashes in cached views on {% data variables.product.product_name %}, and through any pull requests that reference them. You cannot remove sensitive data from other users' clones or forks of your repository, but you can permanently remove cached views and references to the sensitive data in pull requests on {% data variables.product.product_name %} by contacting {% data variables.contact.contact_support %}.
 
-**Warning: Once you have pushed a commit to {% data variables.product.product_name %}, you should consider any sensitive data in the commit compromised.** If you committed a password, change it! キーをコミットした場合は、新たに生成してください。 Removing the compromised data doesn't resolve its initial exposure, especially in existing clones or forks of your repository. Consider these limitations in your decision to rewrite your repository's history.
+**Once you have pushed a commit to {% data variables.product.product_name %}, you should consider any sensitive data in the commit compromised.** If you committed a password, change it! キーをコミットした場合は、新たに生成してください。 Removing the compromised data doesn't resolve its initial exposure, especially in existing clones or forks of your repository. Consider these limitations in your decision to rewrite your repository's history.
 
 {% endwarning %}
 
@@ -152,7 +152,7 @@ To illustrate how `git filter-repo` works, we'll show you how to remove your fil
 
 After using either the BFG tool or `git filter-repo` to remove the sensitive data and pushing your changes to {% data variables.product.product_name %}, you must take a few more steps to fully remove the data from {% data variables.product.product_name %}.
 
-1. {% data variables.contact.contact_support %} に連絡し、{% data variables.product.product_name %} 上で、キャッシュされているビューと、プルリクエストでの機密データへの参照を削除するよう依頼します。 Please provide the name of the repository and/or a link to the commit you need removed.
+1. {% data variables.contact.contact_support %} に連絡し、{% data variables.product.product_name %} 上で、キャッシュされているビューと、プルリクエストでの機密データへの参照を削除するよう依頼します。 Please provide the name of the repository and/or a link to the commit you need removed.{% ifversion ghes %} For more information about how site administrators can remove unreachable Git objects, see "[Command line utilities](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-repo-gc)."{% endif %}
 
 2. コラボレータには、 作成したブランチを古い (汚染された) リポジトリ履歴から[リベース](https://git-scm.com/book/en/Git-Branching-Rebasing)する (マージ*しない*) よう伝えます。 マージコミットを 1 回でも行うと、パージで問題が発生したばかりの汚染された履歴の一部または全部が再導入されてしまいます。
 

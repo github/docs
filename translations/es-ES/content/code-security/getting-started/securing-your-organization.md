@@ -33,7 +33,7 @@ You can create a default security policy that will display in any of your organi
 
 {% endif %}
 
-{% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
+{% ifversion fpt or ghes or ghae or ghec %}
 ## Managing {% data variables.product.prodname_dependabot_alerts %} and the dependency graph
 
 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %} detects vulnerabilities in public repositories and displays the dependency graph. You can enable or disable {% data variables.product.prodname_dependabot_alerts %} for all public repositories owned by your organization. You can enable or disable {% data variables.product.prodname_dependabot_alerts %} and the dependency graph for all private repositories owned by your organization.
@@ -51,7 +51,7 @@ You can create a default security policy that will display in any of your organi
 For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)," "[Exploring the dependencies of a repository](/code-security/supply-chain-security/exploring-the-dependencies-of-a-repository#enabling-and-disabling-the-dependency-graph-for-a-private-repository)," and "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
 {% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghae-issue-4864 or ghec %}
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 
 ## Managing dependency review
 
@@ -138,7 +138,7 @@ You can view and manage alerts from security features to address dependencies an
 {% ifversion fpt or ghec %}If you have a security vulnerability, you can create a security advisory to privately discuss and fix the vulnerability. For more information, see "[About {% data variables.product.prodname_security_advisories %}](/code-security/security-advisories/about-github-security-advisories)" and "[Creating a security advisory](/code-security/security-advisories/creating-a-security-advisory)."
 {% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghec or ghae-issue-4554 %}{% ifversion ghes > 3.1 or ghec or ghae-issue-4554 %}You{% elsif fpt %}Organizations that use {% data variables.product.prodname_ghe_cloud %}{% endif %} can view, filter, and sort security alerts for repositories owned by {% ifversion ghes > 3.1 or ghec or ghae-issue-4554 %}your{% elsif fpt %}their{% endif %} organization in the security overview. For more information, see{% ifversion ghes or ghec or ghae-issue-4554 %} "[About the security overview](/code-security/security-overview/about-the-security-overview)."{% elsif fpt %} "[About the security overview](/enterprise-cloud@latest/code-security/security-overview/about-the-security-overview)" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% endif %}{% endif %}
+{% ifversion fpt or ghes > 3.1 or ghec or ghae %}{% ifversion ghes > 3.1 or ghec or ghae %}You{% elsif fpt %}Organizations that use {% data variables.product.prodname_ghe_cloud %}{% endif %} can view, filter, and sort security alerts for repositories owned by {% ifversion ghes > 3.1 or ghec or ghae %}your{% elsif fpt %}their{% endif %} organization in the security overview. For more information, see{% ifversion ghes or ghec or ghae %} "[About the security overview](/code-security/security-overview/about-the-security-overview)."{% elsif fpt %} "[About the security overview](/enterprise-cloud@latest/code-security/security-overview/about-the-security-overview)" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% endif %}{% endif %}
 
 
 {% ifversion ghec %}

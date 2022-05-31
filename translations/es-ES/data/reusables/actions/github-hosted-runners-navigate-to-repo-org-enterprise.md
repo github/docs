@@ -1,12 +1,12 @@
 {% ifversion fpt %}
-1. Navigate to the main page of the organization or repository.
+1. Navega a la página principal de la organización o repositorio.
 1. Haz clic en {% octicon "gear" aria-label="The Settings gear" %} **Ajustes**.
-1. In the left sidebar, click **Actions**, then click **Runners**.
+1. En la barra lateral izquierda, haz clic en **Acciones** y luego en **Ejecutores**.
 {% elsif ghec %}
-1. Navigate to your runner settings:
-   * **In an organization or repository**: Navigate to the main page, then click {% octicon "gear" aria-label="The Settings gear" %} **Settings**.
-   * **If using an enterprise account**: Navigate to your enterprise account by clicking your profile photo in the top-right corner of {% data variables.product.prodname_dotcom_the_website %}, then clicking **Your enterprises**, then clicking the enterprise.
+1. Navega a los ajustes de tu ejecutor:
+   * **En una organización o repositorio**: Navega a la página principal y luego haz clic en {% octicon "gear" aria-label="The Settings gear" %} **Ajustes**.
+   * **Si estás utilizando una cuenta empresarial**: Navega a tu cuenta empresarial haciendo clic en tu foto de perfil en la esquina superior derecha de {% data variables.product.prodname_dotcom_the_website %} y luego haz clic en **Tus empresas** y luego en la empresa que desees.
 1. Navega a los ajustes de {% data variables.product.prodname_actions %}:
-   * **In an organization or repository**: Click **Actions** in the left sidebar, then click **Runners**.
-   * **If using an enterprise account**: In the left sidebar, click **"{% octicon "law" aria-label="The law icon" %} Policies"**, then click **Actions**, then click the **Runners** tab.
+   * **En una organización o repositorio**: Haz clic en **Acciones** en la barra lateral izquierda y luego en **Ejecutores**.
+   * **Si estás utilizando una cuenta empresarial**: en la barra lateral izquierda, haz clic en **"{% octicon "law" aria-label="The law icon" %} Políticas"**, luego en **Acciones** y luego en la pestaña de **Ejecutores**.
 {% endif %}

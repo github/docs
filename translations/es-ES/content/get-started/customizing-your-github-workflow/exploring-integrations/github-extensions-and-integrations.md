@@ -14,7 +14,7 @@ shortTitle: Extensiones & integraciones
 
 ## Herramientas del editor
 
-Puedes conectarte a los repositorios de {% data variables.product.product_name %} dentro de las herramientas de edición de terceros tales como Atom, Unity y Visual Studio.
+Puedes conectarte a los repositorios de {% data variables.product.product_name %} con herramientas de editor de terceros, tales como Atom, Unity y {% data variables.product.prodname_vs %}.
 
 ### {% data variables.product.product_name %} para Atom
 
@@ -24,13 +24,13 @@ Con el {% data variables.product.product_name %} para la extensión de Atom, pue
 
 Con el {% data variables.product.product_name %} para la extensión del editor de Unity, puedes desarrollar en Unity, la plataforma de código abierto de desarrollo de juegos, y ver tu trabajo en {% data variables.product.product_name %}. Para obtener más información, consulta el [sitio](https://unity.github.com/) oficial de la extensión del editor de Unity o la [documentación](https://github.com/github-for-unity/Unity/tree/master/docs).
 
-### {% data variables.product.product_name %} para Visual Studio
+### {% data variables.product.product_name %} para {% data variables.product.prodname_vs %}
 
-Con el {% data variables.product.product_name %} para la extensión de Visual Studio, puedes trabajar en los repositorios {% data variables.product.product_name %} sin salir de Visual Studio. Para obtener más información, consulta el [sitio](https://visualstudio.github.com/) oficial de la extensión de Visual Studio o la [documentación](https://github.com/github/VisualStudio/tree/master/docs).
+Con la extensión de {% data variables.product.product_name %} para {% data variables.product.prodname_vs %}, puedes trabajar en los repositorios de {% data variables.product.product_name %} sin salir de {% data variables.product.prodname_vs %}. Para obtener más información, consulta el [sitio](https://visualstudio.github.com/) de la extensión oficial de {% data variables.product.prodname_vs %} o la [documentación](https://github.com/github/VisualStudio/tree/master/docs).
 
-### {% data variables.product.prodname_dotcom %} para Visual Studio Code
+### {% data variables.product.prodname_dotcom %} para {% data variables.product.prodname_vscode %}
 
-Con el {% data variables.product.prodname_dotcom %} para la extensión de Visual Studio Code, puedes revisar y administrar solicitudes de extracción {% data variables.product.product_name %} en Visual Studio Code. Para obtener más información, consulta el [sitio](https://vscode.github.com/) oficial de la extensión de Visual Studio Code o la [documentación](https://github.com/Microsoft/vscode-pull-request-github).
+Con la extensión de {% data variables.product.prodname_dotcom %} para {% data variables.product.prodname_vscode %}, puedes revisar y administrar las solicitudes de cambio de {% data variables.product.product_name %} en {% data variables.product.prodname_vscode_shortname %}. Para obtener más información, consulta el [sitio](https://vscode.github.com/) oficial de la extensión de {% data variables.product.prodname_vscode_shortname %} o la [documentación](https://github.com/Microsoft/vscode-pull-request-github).
 
 ## Herramientas de gestión de proyectos
 
@@ -46,12 +46,12 @@ Puedes integrar tu cuenta organizacional o personal en {% data variables.product
 
 ### Integración con Slack y con {% data variables.product.product_name %}
 
-The Slack + {% data variables.product.prodname_dotcom %} app lets you subscribe to your repositories or organizations and get realtime updates about issues, pull requests, commits, discussions, releases, deployment reviews and deployment statuses. You can also perform activities like opening and closing issues, and you can see detailed references to issues and pull requests without leaving Slack. The app will also ping you personally in Slack if you are mentioned as part of any {% data variables.product.prodname_dotcom %} notifications that you receive in your channels or personal chats.
+La app de Slack + {% data variables.product.prodname_dotcom %} permite que te suscribas a tus repositorios y organizaciones y obtengas actualizaciones en tiempo real sobre propuestas, solicitudes de cambio, debates, lanzamientos, revisiones de despliegues y estados de despliegue. También puedes lleva a cabo actividades como abrir y cerrar propuestas y puedes ver referencias detalladas de las propuestas y solicitudes de cambios sin salir de Slack. La app también te notificará personalmente en Slack si se te menciona como parte de cualquier notificación de {% data variables.product.prodname_dotcom %} que recibas en tus canales o chats personales.
 
-The Slack + {% data variables.product.prodname_dotcom %} app is also compatible with [Slack Enterprise Grid](https://slack.com/intl/en-in/help/articles/360000281563-Manage-apps-on-Enterprise-Grid). For more information, visit the [Slack + {% data variables.product.prodname_dotcom %} app](https://github.com/marketplace/slack-github) in the marketplace.
+La app de Slack + {% data variables.product.prodname_dotcom %} también es compatible con [Slack Enterprise Grid](https://slack.com/intl/en-in/help/articles/360000281563-Manage-apps-on-Enterprise-Grid). Para obtener más información, visita la [App de Slack + {% data variables.product.prodname_dotcom %}](https://github.com/marketplace/slack-github) en marketplace.
 
 ### Microsoft Teams y su integración con {% data variables.product.product_name %}
 
-The {% data variables.product.prodname_dotcom %} for Teams app lets you subscribe to your repositories or organizations and get realtime updates about issues, pull requests, commits, discussions, releases, deployment reviews and deployment statuses. You can also perform activities like opening and closing issues, commenting on your issues and pull requests, and you can see detailed references to issues and pull requests without leaving Microsoft Teams. The app will also ping you personally in Teams if you are mentioned as part of any {% data variables.product.prodname_dotcom %} notifications that you receive in your channels or personal chats.
+La app de {% data variables.product.prodname_dotcom %} para equipos te permite suscribirte a tus repositorios u organizaciones y obtener actualizaciones en tiempo real sobre propuestas, solicitudes de cambio, confirmaciones, debates, lanzamientos, revisiones de despliegue y estados de espliegue. También puedes realizar actividades como abrir y cerrar propuestas, comentar en tus propuestas y solicitudes de cambio y puedes ver referencias detalladas a las propuestas y solicitudes de cambio sin salir de Microsoft Teams. La app también te notificará personalmente en Teams si se te menciona como parte de cualquier notificación de {% data variables.product.prodname_dotcom %} que recibas en tus canales o chats personales.
 
-For more information, visit the [{% data variables.product.prodname_dotcom %} for Teams app](https://appsource.microsoft.com/en-us/product/office/WA200002077) in Microsoft AppSource.
+Para obtener más información, visita la [app de {% data variables.product.prodname_dotcom %} para equipos](https://appsource.microsoft.com/en-us/product/office/WA200002077) en Microsoft AppSource.

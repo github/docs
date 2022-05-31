@@ -141,9 +141,10 @@ Advertencia: Desde la segunda mitad de octubre del 2021, ya no se están manteni
 
 ### Rust
 
-| Nombre de la librería | Repositorio                                                   |
-| --------------------- | ------------------------------------------------------------- |
-| **Octocrab**          | [XAMPPRocky/octocrab](https://github.com/XAMPPRocky/octocrab) |
+| Nombre de la librería | Repositorio                                                       |
+| --------------------- | ----------------------------------------------------------------- |
+| **Octocrab**          | [XAMPPRocky/octocrab](https://github.com/XAMPPRocky/octocrab)     |
+| **Octocat**           | [octocat-rs/octocat-rs](https://github.com/octocat-rs/octocat-rs) |
 
 ### Scala
 

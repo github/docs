@@ -10,6 +10,6 @@ miniTocMaxHeadingLevel: 3
 allowTitleToDifferFromFilename: true
 ---
 
-## About the Blocking users API
+## Sobre a API Bloqueio de usuários
 
 {% data reusables.user-settings.user-api %}

@@ -15,7 +15,7 @@ topics:
   - Secret scanning
 ---
 
-{% ifversion ghes < 3.3 or ghae %}
+{% ifversion ghes < 3.3 %}
 {% note %}
 
 **Note:** Custom patterns for {% data variables.product.prodname_secret_scanning %} is currently in beta and is subject to change.
@@ -33,7 +33,7 @@ You can define custom patterns for your enterprise, organization, or repository.
 {%- else %} 20 custom patterns for each organization or enterprise account, and per repository.
 {%- endif %}
 
-{% ifversion ghes < 3.3 or ghae %}
+{% ifversion ghes < 3.3 %}
 {% note %}
 
 **Note:** During the beta, there are some limitations when using custom patterns for {% data variables.product.prodname_secret_scanning %}:

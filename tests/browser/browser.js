@@ -17,15 +17,6 @@ describe('homepage', () => {
 describe('browser search', () => {
   jest.setTimeout(60 * 1000)
 
-  it('works on the homepage', async () => {
-    await page.goto('http://localhost:4000/en')
-    await page.click('[data-testid=site-search-input]')
-    await page.type('[data-testid=site-search-input]', 'actions')
-    await page.waitForSelector('[data-testid=search-results]')
-    const hits = await page.$$('[data-testid=search-result]')
-    expect(hits.length).toBeGreaterThan(5)
-  })
-
   it('works on mobile landing pages', async () => {
     await page.goto('http://localhost:4000/en/actions')
     await page.click('[data-testid=mobile-menu-button]')

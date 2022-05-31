@@ -1,7 +1,7 @@
 ---
 title: Visualizando a visão geral de segurança
 intro: Acesse as diferentes visualizações disponíveis na visão geral de segurança
-permissions: Organization owners and security managers can access the security overview for organizations. Members of a team can see the security overview for repositories that the team has admin privileges for.
+permissions: '{% data reusables.security-center.permissions %}'
 product: '{% data reusables.gated-features.security-center %}'
 versions:
   ghae: issue-5503
@@ -17,7 +17,7 @@ topics:
 shortTitle: Ver visão geral de segurança
 ---
 
-{% ifversion ghes < 3.5 or ghae-issue-4554 %}
+{% ifversion ghes < 3.5 or ghae %}
 {% data reusables.security-center.beta %}
 {% endif %}
 
@@ -28,7 +28,8 @@ shortTitle: Ver visão geral de segurança
 1. Para visualizar informações agregadas sobre tipos de alertas, clique em **Mostrar mais**. ![Botão mostrar mais](/assets/images/help/organizations/security-overview-show-more-button.png)
 {% data reusables.organizations.filter-security-overview %}
 {% if security-overview-views %}
-1. Como alternativa, use a barra lateral à esquerda para filtrar informações por recurso de segurança. Em cada página, é possível usar filtros específicos para cada recurso para ajustar sua pesquisa. ![Captura de tela da página de digitalização específica do código](/assets/images/help/organizations/security-overview-code-scanning-alerts.png)
+{% data reusables.organizations.security-overview-feature-specific-page %}
+  ![Captura de tela da página de digitalização específica do código](/assets/images/help/organizations/security-overview-code-scanning-alerts.png)
 
 ## Visualizando alertas em toda a sua organização
 
@@ -42,6 +43,9 @@ shortTitle: Ver visão geral de segurança
 
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
 1. Na barra lateral esquerda, clique em {% octicon "shield" aria-label="The shield icon" %} **Código de Segurança**.
+{% if security-overview-feature-specific-alert-page %}
+{% data reusables.organizations.security-overview-feature-specific-page %}
+{% endif %}
 {% endif %}
 
 ## Visualizando alertas de um repositório

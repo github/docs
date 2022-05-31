@@ -1,6 +1,6 @@
 ---
 title: 在 Azure 上安装 GitHub Enterprise Server
-intro: 'To install {% data variables.product.prodname_ghe_server %} on Azure, you must deploy onto a memory-optimized instance that supports premium storage.'
+intro: '要在 Azure 上安装 {% data variables.product.prodname_ghe_server %}，必须部署到支持高级存储的内存优化实例上。'
 redirect_from:
   - /enterprise/admin/guides/installation/installing-github-enterprise-on-azure
   - /enterprise/admin/installation/installing-github-enterprise-server-on-azure
@@ -30,7 +30,7 @@ shortTitle: 在 Azure 上安装
 
 ## 确定虚拟机类型
 
-在 Azure 上启动 {% data variables.product.product_location %} 之前，您需要确定最符合您的组织需求的设备类型。 For more information about memory optimized machines, see "[Memory optimized virtual machine sizes](https://docs.microsoft.com/en-gb/azure/virtual-machines/sizes-memory)" in the Microsoft Azure documentation. To review the minimum resource requirements for {% data variables.product.product_name %}, see "[Minimum requirements](#minimum-requirements)."
+在 Azure 上启动 {% data variables.product.product_location %} 之前，您需要确定最符合您的组织需求的设备类型。 有关内存优化计算机的详细信息，请参阅 Microsoft Azure 文档中的“[内存优化虚拟机大小](https://docs.microsoft.com/en-gb/azure/virtual-machines/sizes-memory)”。 要查看 {% data variables.product.product_name %} 的最低资源要求，请参阅“[最低要求](#minimum-requirements)”。
 
 
 {% data reusables.enterprise_installation.warning-on-scaling %}

@@ -72,7 +72,7 @@ redirect_from:
 
 ## 使用扩展进行个性化设置
 
-在代码空间内，您可以访问 Visual Studio Code Marketplace。 在本示例中，您将安装可更改主题的扩展，但您可以安装对工作流程有用的任何扩展。
+在代码空间中，您可以访问 {% data variables.product.prodname_vscode_marketplace %}。 在本示例中，您将安装可更改主题的扩展，但您可以安装对工作流程有用的任何扩展。
 
 1. 在左侧栏中，单击扩展图标。
 
@@ -84,7 +84,7 @@ redirect_from:
 
   ![选择 fairyfloss 主题](/assets/images/help/codespaces/fairyfloss.png)
 
-4. 在当前代码空间中对编辑器设置所做的更改，如主题和键盘绑定，将通过 [Settings Sync（设置同步）](https://code.visualstudio.com/docs/editor/settings-sync)自动同步到您打开的任何其他代码空间以及登录到您 GitHub 帐户的任何 Visual Studio Code 实例。
+4. 在当前代码空间中对编辑器设置所做的更改，如主题和键盘绑定，将通过 [Settings Sync（设置同步）](https://code.visualstudio.com/docs/editor/settings-sync)自动同步到您打开的任何其他代码空间以及登录到您 GitHub 帐户的任何 {% data variables.product.prodname_vscode %} 实例。
 
 ## 后续步骤
 

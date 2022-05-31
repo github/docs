@@ -37,28 +37,25 @@ remote: error: Required status check "ci-build" is failing
 
 {% endnote %}
 
-{% ifversion fpt or ghae or ghes or ghec %}
-
 ## 头部提交与测试合并提交之间的冲突
 
 有时，测试合并提交与头部提交的状态检查结果存在冲突。 如果测试合并提交具有状态，则测试合并提交必须通过。 否则，必须传递头部提交的状态后才可合并该分支。 有关测试合并提交的更多信息，请参阅“[拉取](/rest/reference/pulls#get-a-pull-request)”。
 
 ![具有冲突的合并提交的分支](/assets/images/help/repository/req-status-check-conflicting-merge-commits.png)
-{% endif %}
 
 ## 处理已跳过但需要检查
 
 {% note %}
 
-**Note:** If a workflow is skipped due to [path filtering](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore), [branch filtering](/actions/using-workflows/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore) or a [commit message](/actions/managing-workflow-runs/skipping-workflow-runs), then checks associated with that workflow will remain in a "Pending" state. A pull request that requires those checks to be successful will be blocked from merging.
+**注意：**如果由于[路径过滤](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore)、 [分支过滤](/actions/using-workflows/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore)或[提交消息](/actions/managing-workflow-runs/skipping-workflow-runs)而跳过工作流程，则与该工作流程关联的检查将保持“挂起”状态。 需要这些检查成功的拉取请求将被阻止合并。
 
-If a job in a workflow is skipped due to a conditional, it will report its status as "Success". For more information see [Skipping workflow runs](/actions/managing-workflow-runs/skipping-workflow-runs) and [Using conditions to control job execution](/actions/using-jobs/using-conditions-to-control-job-execution).
+如果工作流程中的某个作业由于条件而被跳过，它将报告其状态为“成功”。 更多信息请参阅[跳过工作流程运行](/actions/managing-workflow-runs/skipping-workflow-runs)和[使用条件控制作业执行](/actions/using-jobs/using-conditions-to-control-job-execution)。
 
 {% endnote %}
 
 ### 示例
 
-The following example shows a workflow that requires a "Successful" completion status for the `build` job, but the workflow will be skipped if the pull request does not change any files in the `scripts` directory.
+下面的示例演示一个工作流程，该工作流程要求`构建`作业具有“成功”完成状态，但如果拉取请求未更改 `scripts` 目录中的任何文件，则该工作流程将被跳过。
 
 ```yaml
 name: ci
@@ -84,7 +81,7 @@ jobs:
     - run: npm test
 ```
 
-Due to [path filtering](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore), a pull request that only changes a file in the root of the repository will not trigger this workflow and is blocked from merging. 您将在拉取请求上看到以下状态：
+由于[路径过滤](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore)，仅更改存储库根目录中的文件的拉取请求将不会触发此工作流程，且被阻止合并。 您将在拉取请求上看到以下状态：
 
 ![必需的检查已跳过，但显示为挂起](/assets/images/help/repository/PR-required-check-skipped.png)
 

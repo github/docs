@@ -68,7 +68,15 @@ You can view more information about the person's access to your enterprise, such
 {% ifversion ghec %}
 ## Viewing pending invitations
 
-You can see all the pending invitations to become administrators, members, or outside collaborators in your enterprise. You can filter the list in useful ways, such as by organization. ユーザ名または表示名を検索して、特定の人を見つけることが可能です。
+You can see all the pending invitations to become members, administrators, or outside collaborators in your enterprise. You can filter the list in useful ways, such as by organization. ユーザ名または表示名を検索して、特定の人を見つけることが可能です。
+
+In the list of pending members, for any individual account, you can cancel all invitations to join organizations owned by your enterprise. This does not cancel any invitations for that same person to become an enterprise administrator or outside collaborator.
+
+{% note %}
+
+**Note:** If an invitation was provisioned via SCIM, you must cancel the invitation via your identity provider (IdP) instead of on {% data variables.product.prodname_dotcom %}.
+
+{% endnote %}
 
 If you use {% data variables.product.prodname_vss_ghe %}, the list of pending invitations includes all {% data variables.product.prodname_vs %} subscribers that haven't joined any of your organizations on {% data variables.product.prodname_dotcom %}, even if the subscriber does not have a pending invitation to join an organization. For more information about how to get {% data variables.product.prodname_vs %} subscribers access to {% data variables.product.prodname_enterprise %}, see "[Setting up {% data variables.product.prodname_vss_ghe %}](/billing/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise/setting-up-visual-studio-subscriptions-with-github-enterprise)."
 
@@ -77,7 +85,9 @@ If you use {% data variables.product.prodname_vss_ghe %}, the list of pending in
 1. Under "People", click **Pending invitations**.
 
    ![Screenshot of the "Pending invitations" tab in the sidebar](/assets/images/help/enterprises/pending-invitations-tab.png)
+1. Optionally, to cancel all invitations for an account to join organizations owned by your enterprise, to the right of the account, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **Cancel invitation**.
 
+   ![Screenshot of the "Cancel invitation" button](/assets/images/help/enterprises/cancel-enterprise-member-invitation.png)
 1. Optionally, to view pending invitations for enterprise administrators or outside collaborators, under "Pending members", click **Administrators** or **Outside collaborators**.
 
    ![Screenshot of the "Members", "Administrators", and "Outside collaborators" tabs](/assets/images/help/enterprises/pending-invitations-type-tabs.png)
@@ -85,7 +95,7 @@ If you use {% data variables.product.prodname_vss_ghe %}, the list of pending in
 
 ## Viewing suspended members in an {% data variables.product.prodname_emu_enterprise %}
 
-If your enterprise uses {% data variables.product.prodname_emus %}, you can also view suspended users. Suspended users are members who have been deprovisioned after being unassigned from the {% data variables.product.prodname_emu_idp_application %} application or deleted from the identity provider. For more information, see "[About Enterprise Managed Users](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/about-enterprise-managed-users)."
+If your enterprise uses {% data variables.product.prodname_emus %}, you can also view suspended users. Suspended users are members who have been deprovisioned after being unassigned from the {% data variables.product.prodname_emu_idp_application %} application or deleted from the identity provider. 詳しい情報については「[Enterpriseが管理しているユーザ](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/about-enterprise-managed-users)」を参照してください。
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
@@ -96,6 +106,17 @@ If your enterprise uses {% data variables.product.prodname_emus %}, you can also
 ## 休眠ユーザの表示
 
 You can view a list of all dormant users {% ifversion ghes or ghae %} who have not been suspended and {% endif %}who are not site administrators. {% data reusables.enterprise-accounts.dormant-user-activity-threshold %} 詳細は「[休眠ユーザを管理する](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users)」を参照してください。
+
+{% ifversion ghec or ghes > 3.1 %}
+## Viewing members without an email address from a verified domain
+
+You can view a list of members in your enterprise who don't have an email address from a verified domain associated with their user account on {% data variables.product.prodname_dotcom_the_website %}.
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.verified-domains-tab %}
+1. Under "Notification preferences", click the {% octicon "eye" aria-label="The github eye icon" %} **View enterprise members without an approved or verified domain email** link.
+{% endif %}
 
 ## 参考リンク
 

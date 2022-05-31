@@ -1,5 +1,5 @@
-{% ifversion fpt or ghes > 3.1 or ghae-issue-4864 or ghec %}
-{% ifversion fpt or ghec %}Predeterminadamente, recibirás notificaciones:{% endif %}{% ifversion ghes > 3.1 or ghae-issue-4864 %}Predeterminadamente, si tu propietario de empresa configuró las notificaciones por correo electrónico en tu instancia, recibiras {% data variables.product.prodname_dependabot_alerts %}:{% endif %}
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
+{% ifversion fpt or ghec %}Predeterminadamente, recibirás notificaciones:{% endif %}{% ifversion ghes > 3.1 or ghae %}Predeterminadamente, si tu propietario de empresa configuró las notificaciones por correo electrónico en tu instancia, recibiras {% data variables.product.prodname_dependabot_alerts %}:{% endif %}
 
 - por correo electrónico, se enviará un mensaje de correo electrónico cuando se habilite el {% data variables.product.prodname_dependabot %} para un repositorio cuando se confirme un archivo de manifiesto nuevo en dicho repositorio y cuando se encuentre una vulnerabilidad nueva de severidad crítica o alta (opción **Enviar un correo electrónico cada vez que se encuentra una vulnerabilidad**).
 - en la interface de usuario, se muestra una advertencia en tu archivo de repositorio y vistas de código si hay dependencias vulnerables (opción de **Alertas de la IU**).

@@ -267,6 +267,15 @@ Se o {% data variables.product.prodname_codeql_workflow %} ainda falhar em um co
 Este tipo de commit de merge foi criado por {% data variables.product.prodname_dependabot %} e, portanto, qualquer fluxo de trabalho que esteja em execução no commit terá permissões de somente leitura. Se você habilitou as atualizações de segurança de {% data variables.product.prodname_code_scanning %} e {% data variables.product.prodname_dependabot %} ou as atualizações da versão no seu repositório, recomendamos que você evite usar o comando {% data variables.product.prodname_dependabot %} `@dependabot squash e merge`. Em vez disso, você pode habilitar a mesclagem automática para o seu repositório. Isto significa que os pull requests serão automaticamente mesclados quando todas as revisões necessárias forem atendidas e as verificações de status forem aprovadas. Para obter mais informações sobre como habilitar o merge automático, consulte "[Merge automático de um pull request](/github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request#enabling-auto-merge)".
 {% endif %}
 
+## Error: "is not a .ql file, .qls file, a directory, or a query pack specification"
+
+You will see this error if CodeQL is unable to find the named query, query suite, or query pack at the location requested in the workflow. There are two common reasons for this error.
+
+- There is a typo in the workflow.
+- A resource the workflow refers to by path was renamed, deleted, or moved to a new location.
+
+After verifying the location of the resource, you can update the workflow to specify the correct location. If you run additional queries in Go analysis, you may have been affected by the relocation of the source files. For more information, see [Relocation announcement: `github/codeql-go` moving into `github/codeql`](https://github.com/github/codeql-go/issues/741) in the github/codeql-go repository.
+
 ## Aviso: "git checkout HEAD^2 is no longer necessary"
 
 Se você estiver usando um fluxo de trabalho antigo de {% data variables.product.prodname_codeql %}, você poderá receber o aviso a seguir na saída "Inicializar {% data variables.product.prodname_codeql %}" da ação:
