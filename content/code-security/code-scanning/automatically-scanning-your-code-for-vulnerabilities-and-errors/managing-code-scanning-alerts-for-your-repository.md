@@ -220,9 +220,9 @@ To dismiss {% if delete-code-scanning-alerts %}or delete{% endif %} alerts:
 {% else %}
   ![List of alerts from {% data variables.product.prodname_code_scanning %}](/assets/images/enterprise/3.1/help/repository/code-scanning-click-alert.png)
 {% endif %}
-1. Review the alert, then click **Dismiss** and choose a reason for closing the alert. {% if comment-dismissed-code-scanning-alert %}
+1. Review the alert, then click {% if comment-dismissed-code-scanning-alert %}**Dismiss alert** and choose, or type, a reason for closing the alert. 
   ![Screenshot of code scanning alert with dropdown to choose dismissal reason emphasized](/assets/images/help/repository/code-scanning-alert-drop-down-reason.png)
-{% else %}
+{% else %}**Dismiss** and choose a reason for closing the alert.
   ![Choosing a reason for dismissing an alert](/assets/images/help/repository/code-scanning-alert-close-drop-down.png)
 {% endif %}
 
