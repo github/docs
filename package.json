@@ -121,7 +121,7 @@
     "babel-preset-env": "^1.7.0",
     "chalk": "^5.0.0",
     "change-case": "^4.1.2",
-    "commander": "^8.3.0",
+    "commander": "^9.3.0",
     "cross-env": "^7.0.3",
     "csp-parse": "0.0.2",
     "dedent": "^0.7.0",
