@@ -9,8 +9,8 @@ import { GHAEReleaseNotesContextT, GHESReleaseNotesContextT } from 'components/r
 const liquid = new Liquid()
 type Props = {
   mainContext: MainContextT
-  ghaeContext?: GHAEReleaseNotesContextT
-  ghesContext?: GHESReleaseNotesContextT
+  ghaeContext: GHAEReleaseNotesContextT | null
+  ghesContext: GHESReleaseNotesContextT | null
 }
 export default function ReleaseNotes({ mainContext, ghesContext, ghaeContext }: Props) {
   return (
@@ -58,7 +58,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
                 ),
               },
             }
-          : undefined,
+          : null,
       ghaeContext:
         currentVersion.plan === 'github-ae'
           ? {
@@ -66,7 +66,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
               releaseNotes: req.context.releaseNotes,
               releases: req.context.releases,
             }
-          : undefined,
+          : null,
     },
   }
 }
