@@ -107,5 +107,5 @@ You can enable or disable {% data variables.product.prodname_copilot %} from wit
 
 ## Further reading
 
-[{% data variables.product.prodname_copilot %}](https://copilot.github.com/)
-[About {% data variables.product.prodname_copilot %}](/copilot/overview-of-github-copilot/about-github-copilot)
+- [{% data variables.product.prodname_copilot %}](https://copilot.github.com/)
+- [About {% data variables.product.prodname_copilot %}](/copilot/overview-of-github-copilot/about-github-copilot)

@@ -14,7 +14,7 @@ versions:
 {% data reusables.copilot.copilot-prerequisites %}
 - To use {% data variables.product.prodname_copilot %} in JetBrains, you must have JetBrains IDEs installed. For more information, see the [JetBrains IDEs](https://www.jetbrains.com/idea/download/) documentation.
 
-## Installing the Visual Studio code extension
+## Installing the JetBrains extension
 
 
 ## Seeing your first suggestion
@@ -97,5 +97,5 @@ You can enable or disable {% data variables.product.prodname_copilot %} from wit
 
 ## Further reading
 
-[{% data variables.product.prodname_copilot %}](https://copilot.github.com/)
-[About {% data variables.product.prodname_copilot %}](/copilot/overview-of-github-copilot/about-github-copilot)
+- [{% data variables.product.prodname_copilot %}](https://copilot.github.com/)
+- [About {% data variables.product.prodname_copilot %}](/copilot/overview-of-github-copilot/about-github-copilot)
