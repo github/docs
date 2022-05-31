@@ -10,7 +10,7 @@
   ],
   "dependencies": {
     "@github/failbot": "0.8.0",
-    "@primer/css": "^19.4.0",
+    "@primer/css": "^20.2.2",
     "@primer/octicons": "17.0.0",
     "@primer/octicons-react": "17.0.0",
     "@primer/react": "^34.7.1",
