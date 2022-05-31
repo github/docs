@@ -18,6 +18,6 @@ children:
   - /default-environment-variables-for-your-codespace
   - /connecting-to-a-private-network
   - /using-github-codespaces-in-visual-studio-code
-  - /using-codespaces-with-github-cli
+  - /using-github-codespaces-with-github-cli
 ---
  
