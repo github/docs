@@ -68,15 +68,15 @@ A finalidade principal da comunidade do GitHub é colaborar em projetos de softw
 
 ### *O que não é permitido*
 
-GitHub's [Acceptable Use Policies](/site-policy/acceptable-use-policies/github-acceptable-use-policies), which are part of GitHub's [Terms of Service](/github/site-policy/github-terms-of-service/), set a baseline for what is not allowed on GitHub. In addition, these terms restrictions apply to the GitHub Community Forum in the following way:
+As [Políticas de Uso Aceitável](/site-policy/acceptable-use-policies/github-acceptable-use-policies) do GitHub, que fazem parte dos [Termos de Serviço](/github/site-policy/github-terms-of-service/)do GitHub, definem uma linha de base para o que não é permitido no GitHub. Além disso, estas restrições de termos aplicam-se ao Fórum Comunitário do GitHub da seguinte forma:
 
 - **Qualquer um com menos de 13 anos.** Se você é uma criança com menos de 13 anos, você não pode ter uma conta no Fórum Comunitário do GitHub (ou no próprio GitHub). O GitHub não coleta informações nem direciona qualquer conteúdo especificamente a crianças com menos de 13 anos. Se descobrirmos ou tivermos motivos para suspeitar de que você é usuário e tem menos de 13 anos de idade, infelizmente teremos que encerrar a sua conta. Não pretendemos desmotivar o seu aprendizado na área de programação, mas devemos cumprir as regras. Consulte nossos [Termos de Serviço](/github/site-policy/github-terms-of-service/) e saiba mais sobre o encerramento de contas.
 
-- **Creating new account after account restriction.** GitHub's [Terms of Service](/github/site-policy/github-terms-of-service/) state that "One person or legal entity may maintain no more than one free Account." Additional free accounts created to inquire about flagged or suspended accounts in the GitHub Community Forum will be removed.
+- **Criando uma nova conta após a restrição de conta.** Os [Termos de Serviço](/github/site-policy/github-terms-of-service/) do GitHub afirmam que "Uma pessoa ou entidade legal pode manter não mais de uma conta grátis". Contas adicionais grátis criadas para perguntar sobre contas sinalizadas ou suspensas no Fórum da Comunidade do GitHub serão removidas.
 
 - **Outras condutas que poderiam ser razoavelmente consideradas inadequadas em um ambiente profissional.** O Fórum Comunitário do GitHub é um espaço profissional e deve ser tratado como tal.
 
-- **Violation of Terms of Service.** If your GitHub.com account is identified in violation of [Terms of Service](/github/site-policy/github-terms-of-service/) we will have to close your GitHub Community Forum account as well.
+- **Violação dos Termos de Serviço.** Se a sua conta do GitHub for identificada como violadora dos [Termos de Serviço](/github/site-policy/github-terms-of-service/) nós também teremos de fechar a sua conta de forum da comunidade do GitHub.
 
 ## Cumprimento da lei
 

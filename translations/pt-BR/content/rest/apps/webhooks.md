@@ -1,5 +1,7 @@
 ---
-title: Webhooks
+title: Webhooks do aplicativo GitHub
+allowTitleToDifferFromFilename: true
+shortTitle: Webhooks
 intro: ''
 topics:
   - API
@@ -11,4 +13,6 @@ versions:
   ghec: '*'
 ---
 
-A {% data variables.product.prodname_github_app %}'s webhook allows you to receive HTTP `POST` payloads whenever certain events happen for an app. {% data reusables.webhooks.webhooks-rest-api-links %}
+## Sobre a API de webhooks do {% data variables.product.prodname_github_app %}
+
+O webhook de {% data variables.product.prodname_github_app %} permite que você receba cargas `POST` de HTTP sempre que certos eventos ocorrerem para um aplicativo. {% data reusables.webhooks.webhooks-rest-api-links %}

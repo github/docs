@@ -144,9 +144,11 @@ steps:
 - run: bundle install
 ```
 
+{% if actions-caching %}
+
 ### 缓存依赖项
 
-如果您使用的是 {% data variables.product.prodname_dotcom %} 托管的运行器， `setup-ruby` 操作提供了在运行之间自动处理 gem 缓存的方法。
+`setup-ruby` 操作提供在运行之间自动处理 Gem 缓存的方法。
 
 要启用缓存，请设置以下内容。
 
@@ -159,11 +161,11 @@ steps:
 ```
 {% endraw %}
 
-这将配置 Bundler 以安装 gem 到 `vendor/cache`。 对于工作流程的每次成功运行，此文件夹将由 Actions 缓存，并重新下载用于后续的工作流程运行。 gemfile.lock 和 Ruby 版本的哈希值用作缓存密钥。 如果安装任何新 Gem 或更改版本，缓存将失效，Bundler 将进行全新安装。
+这将配置 Bundler 以安装 gem 到 `vendor/cache`。 对于工作流程的每次成功运行，此文件夹将由 {% data variables.product.prodname_actions %} 缓存，并重新下载用于后续的工作流程运行。 gemfile.lock 和 Ruby 版本的哈希值用作缓存密钥。 如果安装任何新 Gem 或更改版本，缓存将失效，Bundler 将进行全新安装。
 
 **无 setup-ruby 的缓存**
 
-为了加强缓存控制，如果您使用的是 {% data variables.product.prodname_dotcom %} 托管的运行器，可以直接使用 `actions/cache` 操作。 更多信息请参阅“<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">缓存依赖项以加快工作流程</a>”。
+为了加强对缓存的控制，您可以直接使用 `actions/cache` 操作。 更多信息请参阅“[缓存依赖项以加快工作流程](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)”。
 
 ```yaml
 steps:
@@ -194,6 +196,8 @@ steps:
     bundle config path vendor/bundle
     bundle install --jobs 4 --retry 3
 ```
+
+{% endif %}
 
 ## 测试代码的矩阵
 

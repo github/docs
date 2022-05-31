@@ -11,7 +11,7 @@ shortTitle: Ver alertas do Dependabot
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: issue-4864
+  ghae: '*'
   ghec: '*'
 type: how_to
 topics:
@@ -55,7 +55,7 @@ Para as linguagens compatíveis, {% data variables.product.prodname_dependabot %
 
 {% note %}
 
-**Observação:** Durante a versão beta, esse recurso está disponível apenas para novas consultorias do Python criadas *depois de* 14 de abril de 2022 e para um subconjunto de consultorias históricas do Python. O GitHub está trabalhando para preencher dados de backfill através de consultorias históricas no Python, que são adicionadas regularmente. As chamadas vulneráveis são destacadas apenas nas páginas de {% data variables.product.prodname_dependabot_alerts %}.
+**Observação:** Durante a versão beta, esse recurso está disponível apenas para novas consultorias do Python criadas *depois de* 14 de abril de 2022 e para um subconjunto de consultorias históricas do Python. {% data variables.product.prodname_dotcom %} está trabalhando para preencher dados através de consultorias históricas do Python, que são adicionadas constantemente. As chamadas vulneráveis são destacadas apenas nas páginas de {% data variables.product.prodname_dependabot_alerts %}.
 
 {% endnote %}
 
@@ -65,7 +65,7 @@ Você pode filtrar a visualização para mostrar apenas alertas em que {% data v
 
 Para alertas quando chamadas vulneráveis forem detectadas, a página de detalhes de alerta mostra informações adicionais:
 
-- Um bloco de código que mostra onde a função é usada ou, onde houver várias chamadas, a primeira chamada para a função.
+- Um ou mais blocos de código que mostram onde a função é usada.
 - Uma anotação que lista a função em si, com um link para a linha onde a função é chamada.
 
 ![Captura de tela que mostra a página de detalhes de alerta para um alerta com uma etiqueta "chamada vulnerável"](/assets/images/help/repository/review-calls-to-vulnerable-functions.png)

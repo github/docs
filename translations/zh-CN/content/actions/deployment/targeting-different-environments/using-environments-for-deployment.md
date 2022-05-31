@@ -18,7 +18,7 @@ versions:
 
 ## 关于环境
 
-Environments are used to describe a general deployment target like `production`, `staging`, or `development`. When a {% data variables.product.prodname_actions %} workflow deploys to an environment, the environment is displayed on the main page of the repository. 有关查看环境部署的详细信息，请参阅“[查看部署历史记录](/developers/overview/viewing-deployment-history)”。
+环境用于描述一般的部署目标，如`生产`、`暂存`或`开发`。 当 {% data variables.product.prodname_actions %} 工作流程部署到某个环境时，该环境将显示在存储库的主页上。 有关查看环境部署的详细信息，请参阅“[查看部署历史记录](/developers/overview/viewing-deployment-history)”。
 
 您可以使用保护规则和机密配置环境。 当工作流程引用环境时，作业在环境的所有保护规则通过之前不会开始。 在所有环境保护规则通过之前，作业也不能访问在环境中定义的机密。
 

@@ -56,6 +56,14 @@ To share data between jobs:
 
 The steps of a job share the same environment on the runner machine, but run in their own individual processes. To pass data between steps in a job, you can use inputs and outputs. For more information about inputs and outputs, see "[Metadata syntax for {% data variables.product.prodname_actions %}](/articles/metadata-syntax-for-github-actions)."
 
+{% if actions-caching %}
+
+{% data reusables.actions.comparing-artifacts-caching %}
+
+For more information on dependency caching, see "[Caching dependencies to speed up workflows](/actions/using-workflows/caching-dependencies-to-speed-up-workflows#comparing-artifacts-and-dependency-caching)."
+
+{% endif %}
+
 ## Uploading build and test artifacts
 
 You can create a continuous integration (CI) workflow to build and test your code. For more information about using {% data variables.product.prodname_actions %} to perform CI, see "[About continuous integration](/articles/about-continuous-integration)."

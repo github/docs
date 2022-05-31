@@ -10,7 +10,7 @@ versions:
   ghec: '*'
 ---
 
-## About the Workflows API
+## ワークフローAPIについて
 
 ワークフロー API を使用すると、リポジトリのワークフローを表示できます。 {% data reusables.actions.about-workflows %}詳しい情報については、「[GitHub Actions でワークフローを自動化する](/actions/automating-your-workflow-with-github-actions)」を参照してください。
 

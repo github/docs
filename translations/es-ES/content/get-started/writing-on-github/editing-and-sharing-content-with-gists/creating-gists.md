@@ -61,7 +61,6 @@ Git admite la asignación de archivos GeoJSON. Estas asignaciones se muestran co
 
 Sigue estos pasos para crear un gist.
 
-{% ifversion fpt or ghes or ghae or ghec %}
 {% note %}
 
 También puedes crear un gist si utilizas el {% data variables.product.prodname_cli %}. Para obtener más información, consulta "[`gh gist create`](https://cli.github.com/manual/gh_gist_create)" en el {% data variables.product.prodname_cli %}.
@@ -69,7 +68,6 @@ También puedes crear un gist si utilizas el {% data variables.product.prodname_
 Como alternativa, puedes arrastrar y soltar un archivo de texto desde tu escritorio directamente en el editor.
 
 {% endnote %}
-{% endif %}
 
 1. Inicia sesión en {% data variables.product.product_name %}.
 2. Dirígete a tu {% data variables.gists.gist_homepage %}.

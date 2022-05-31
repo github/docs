@@ -12,5 +12,6 @@ topics:
 children:
   - /reviewing-audit-logs-for-your-enterprise
   - /exploring-user-activity
+  - /analyzing-how-your-team-works-with-server-statistics
 shortTitle: Monitor activity
 ---

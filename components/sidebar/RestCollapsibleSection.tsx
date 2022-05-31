@@ -65,31 +65,33 @@ export const RestCollapsibleSection = (props: SectionProps) => {
   }, [])
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.target.id) {
-            const anchor = '#' + entry.target.id.split('--')[0]
-            if (entry.isIntersecting === true) setVisibleAnchor(anchor)
-          } else if (router.asPath.includes('#')) {
-            setVisibleAnchor('#' + router.asPath.split('#')[1])
-          } else {
-            setVisibleAnchor('')
-          }
-        })
-      },
-      { rootMargin: '0px 0px -85% 0px' }
-    )
-    // TODO: When we add the ## About the {title} API to each operation
-    // we can remove the h2 here
-    const headingsList = Array.from(document.querySelectorAll('h2, h3'))
+    if (!router.asPath.includes('guides') && !router.asPath.includes('overview')) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.target.id) {
+              const anchor = '#' + entry.target.id.split('--')[0]
+              if (entry.isIntersecting === true) setVisibleAnchor(anchor)
+            } else if (router.asPath.includes('#')) {
+              setVisibleAnchor('#' + router.asPath.split('#')[1])
+            } else {
+              setVisibleAnchor('')
+            }
+          })
+        },
+        { rootMargin: '0px 0px -85% 0px' }
+      )
+      // TODO: When we add the ## About the {title} API to each operation
+      // we can remove the h2 here
+      const headingsList = Array.from(document.querySelectorAll('h2, h3'))
 
-    headingsList.forEach((heading) => {
-      observer.observe(heading)
-    })
+      headingsList.forEach((heading) => {
+        observer.observe(heading)
+      })
 
-    return () => {
-      observer.disconnect()
+      return () => {
+        observer.disconnect()
+      }
     }
   }, [miniTocItems])
   // This wrapper solves the issue of having standalone categories not
@@ -147,7 +149,10 @@ export const RestCollapsibleSection = (props: SectionProps) => {
           )}
         >
           <div className="d-flex flex-justify-between">
-            <div className="pl-4 pr-1 py-2 f5 d-block flex-auto mr-3 color-fg-default no-underline text-bold">
+            <div
+              data-testid="rest-category"
+              className="pl-4 pr-1 py-2 f5 d-block flex-auto mr-3 color-fg-default no-underline text-bold"
+            >
               {title}
             </div>
             <span style={{ marginTop: 7 }} className="flex-shrink-0 pr-3">
@@ -162,7 +167,7 @@ export const RestCollapsibleSection = (props: SectionProps) => {
           {/* <!-- Render the maptopic level subcategory operation links e.g. --> */}
           <ul className="list-style-none position-relative">
             {page.childPages.length <= 0 ? (
-              <div data-testid="sidebar-article-group" className="pb-0">
+              <div className="pb-0">
                 {miniTocItems.length > 0 && (
                   <ActionList
                     {...{ as: 'ul' }}
@@ -189,12 +194,7 @@ export const RestCollapsibleSection = (props: SectionProps) => {
                         className="details-reset"
                       >
                         <summary>
-                          <div
-                            data-testid="sidebar-rest-subcategory"
-                            className={cx('pl-4 pr-5 py-2 no-underline')}
-                          >
-                            {childTitle}
-                          </div>
+                          <div className={cx('pl-4 pr-5 py-2 no-underline')}>{childTitle}</div>
                         </summary>
                         <div className="pb-0">
                           {miniTocItems.length > 0 && (
@@ -213,7 +213,7 @@ export const RestCollapsibleSection = (props: SectionProps) => {
                   // We're not on the current page so don't have any minitoc
                   // data so just render a link to the category page.
                   return (
-                    <li key={childTitle} data-testid="sidebar-article-group" className="pb-0">
+                    <li data-testid="rest-subcategory" key={childTitle} className="pb-0">
                       <Link
                         href={childPage.href}
                         className={cx(

@@ -154,7 +154,7 @@ When you fork a project in order to propose changes to the original repository, 
 
 6. Type `git remote add upstream`, and then paste the URL you copied in Step 3 and press **Enter**. It will look like this:
   ```shell
-  $ git remote add upstream https://{% data variables.command_line.codeblock %}/octocat/Spoon-Knife.git
+  $ git remote add upstream https://{% data variables.command_line.codeblock %}/ORIGINAL_OWNER/Spoon-Knife.git
   ```
 
 7. To verify the new upstream repository you have specified for your fork, type `git remote -v` again. You should see the URL for your fork as `origin`, and the URL for the original repository as `upstream`.
@@ -210,6 +210,6 @@ You have now forked a repository, practiced cloning your fork, and configured an
 
 * You can also create a new repository where you can put all your projects and share the code on {% data variables.product.prodname_dotcom %}. {% data reusables.getting-started.create-a-repository %}"
 
-* Each repository in {% data variables.product.product_name %} is owned by a person or an organization. You can interact with users, repositories, and organizations by connecting and following them on {% data variables.product.product_name %}. {% data reusables.getting-started.being-social %}
+* {% data reusables.getting-started.being-social %}
 
 * {% data reusables.support.connect-in-the-forum-bootcamp %}

@@ -1,5 +1,5 @@
 ---
-title: Pre-receive Environments
+title: Ambientes pre-receive
 intro: 'A API de Ambientes Pre-receive permite que você crie, liste, atualize e apague ambientes para hooks pre-receive.'
 versions:
   ghes: '*'

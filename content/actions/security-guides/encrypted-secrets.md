@@ -25,7 +25,7 @@ Secrets are encrypted environment variables that you create in an organization, 
 
 For secrets stored at the environment level, you can enable required reviewers to control access to the secrets. A workflow job cannot access environment secrets until approval is granted by required approvers.
 
-{% ifversion fpt or ghec or ghae-issue-4856 %}
+{% ifversion fpt or ghec or ghae-issue-4856 or ghes > 3.4 %}
 
 {% note %}
 
@@ -342,7 +342,7 @@ Secrets are limited to 64 KB in size. To use secrets that are larger than 64 KB,
          - name: Decrypt large secret
            run: ./.github/scripts/decrypt_secret.sh
            env:
-             LARGE_SECRET_PASSPHRASE: {% raw %}${{ secrets. LARGE_SECRET_PASSPHRASE }}{% endraw %}
+             LARGE_SECRET_PASSPHRASE: {% raw %}${{ secrets.LARGE_SECRET_PASSPHRASE }}{% endraw %}
          # This command is just an example to show your secret being printed
          # Ensure you remove any print statements of your secrets. GitHub does
          # not hide secrets that use this workaround.

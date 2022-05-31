@@ -25,7 +25,7 @@ Secrets are encrypted environment variables that you create in an organization, 
 
 環境レベルで保存されたシークレットについては、それらへのアクセスを制御するために必須のレビュー担当者を有効化することができます。 必須の承認者によって許可されるまで、ワークフローのジョブは環境のシークレットにアクセスできません。
 
-{% ifversion fpt or ghec or ghae-issue-4856 %}
+{% ifversion fpt or ghec or ghae-issue-4856 or ghes > 3.4 %}
 
 {% note %}
 
@@ -341,7 +341,7 @@ A workflow created in a repository can access the following number of secrets:
          - name: Decrypt large secret
            run: ./.github/scripts/decrypt_secret.sh
            env:
-             LARGE_SECRET_PASSPHRASE: {% raw %}${{ secrets. LARGE_SECRET_PASSPHRASE }}{% endraw %}
+             LARGE_SECRET_PASSPHRASE: {% raw %}${{ secrets.LARGE_SECRET_PASSPHRASE }}{% endraw %}
          # This command is just an example to show your secret being printed
          # Ensure you remove any print statements of your secrets. GitHub does
          # not hide secrets that use this workaround.

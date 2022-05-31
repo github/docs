@@ -42,7 +42,7 @@ topics:
 
 | 库名称             | 仓库                                                                      |
 | --------------- | ----------------------------------------------------------------------- |
-| **github.dart** | [DirectMyFile/github.dart](https://github.com/DirectMyFile/github.dart) |
+| **github.dart** | [SpinlockLabs/github.dart](https://github.com/SpinlockLabs/github.dart) |
 
 ### Emacs Lisp
 
@@ -141,9 +141,10 @@ topics:
 
 ### Rust
 
-| 库名称          | 仓库                                                            |
-| ------------ | ------------------------------------------------------------- |
-| **Octocrab** | [XAMPPRocky/octocrab](https://github.com/XAMPPRocky/octocrab) |
+| 库名称          | 仓库                                                                |
+| ------------ | ----------------------------------------------------------------- |
+| **Octocrab** | [XAMPPRocky/octocrab](https://github.com/XAMPPRocky/octocrab)     |
+| **Octocat**  | [octocat-rs/octocat-rs](https://github.com/octocat-rs/octocat-rs) |
 
 ### Scala
 

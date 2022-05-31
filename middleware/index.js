@@ -2,6 +2,7 @@ import fs from 'fs'
 import path from 'path'
 
 import express from 'express'
+
 import instrument from '../lib/instrument-middleware.js'
 import haltOnDroppedConnection from './halt-on-dropped-connection.js'
 import abort from './abort.js'
@@ -18,7 +19,6 @@ import { setDefaultFastlySurrogateKey } from './set-fastly-surrogate-key.js'
 import setFastlyCacheHeaders from './set-fastly-cache-headers.js'
 import reqUtils from './req-utils.js'
 import recordRedirect from './record-redirect.js'
-import connectSlashes from 'connect-slashes'
 import handleErrors from './handle-errors.js'
 import handleInvalidPaths from './handle-invalid-paths.js'
 import handleNextDataPath from './handle-next-data-path.js'
@@ -37,11 +37,11 @@ import search from './search.js'
 import healthz from './healthz.js'
 import anchorRedirect from './anchor-redirect.js'
 import remoteIP from './remote-ip.js'
+import buildInfo from './build-info.js'
 import archivedEnterpriseVersions from './archived-enterprise-versions.js'
 import robots from './robots.js'
 import earlyAccessLinks from './contextualizers/early-access-links.js'
 import categoriesForSupport from './categories-for-support.js'
-import loaderio from './loaderio-verification.js'
 import triggerError from './trigger-error.js'
 import releaseNotes from './contextualizers/release-notes.js'
 import whatsNewChangelog from './contextualizers/whats-new-changelog.js'
@@ -61,6 +61,12 @@ import assetPreprocessing from './asset-preprocessing.js'
 import archivedAssetRedirects from './archived-asset-redirects.js'
 import favicons from './favicons.js'
 import setStaticAssetCaching from './static-asset-caching.js'
+import cacheFullRendering from './cache-full-rendering.js'
+import protect from './overload-protection.js'
+import fastHead from './fast-head.js'
+import fastlyCacheTest from './fastly-cache-test.js'
+import fastRootRedirect from './fast-root-redirect.js'
+import trailingSlashes from './trailing-slashes.js'
 
 const { DEPLOYMENT_ENV, NODE_ENV } = process.env
 const isDevelopment = NODE_ENV === 'development'
@@ -113,6 +119,15 @@ export default function (app) {
   //    left-most entry in the X-Forwarded-For header.
   //
   app.set('trust proxy', true)
+
+  // *** Overload Protection ***
+  // Only used in production because our tests can overload the server
+  if (
+    process.env.NODE_ENV === 'production' &&
+    !JSON.parse(process.env.DISABLE_OVERLOAD_PROTECTION || 'false')
+  ) {
+    app.use(protect)
+  }
 
   // *** Request logging ***
   // Enabled in development and azure deployed environments
@@ -211,6 +226,7 @@ export default function (app) {
   }
 
   // *** Early exits ***
+  app.get('/', fastRootRedirect)
   app.use(instrument(handleInvalidPaths, './handle-invalid-paths'))
   app.use(asyncMiddleware(instrument(handleNextDataPath, './handle-next-data-path')))
 
@@ -247,7 +263,7 @@ export default function (app) {
 
   // *** Redirects, 3xx responses ***
   // I ordered these by use frequency
-  app.use(connectSlashes(false))
+  app.use(instrument(trailingSlashes, './redirects/trailing-slashes'))
   app.use(instrument(redirectsExternal, './redirects/external'))
   app.use(instrument(languageCodeRedirects, './redirects/language-code-redirects')) // Must come before contextualizers
   app.use(instrument(handleRedirects, './redirects/handle-redirects')) // Must come before contextualizers
@@ -266,6 +282,7 @@ export default function (app) {
   app.use('/healthz', asyncMiddleware(instrument(healthz, './healthz')))
   app.use('/anchor-redirect', asyncMiddleware(instrument(anchorRedirect, './anchor-redirect')))
   app.get('/_ip', asyncMiddleware(instrument(remoteIP, './remoteIP')))
+  app.get('/_build', asyncMiddleware(instrument(buildInfo, './buildInfo')))
 
   // Check for a dropped connection before proceeding (again)
   app.use(haltOnDroppedConnection)
@@ -279,11 +296,18 @@ export default function (app) {
     '/categories.json',
     asyncMiddleware(instrument(categoriesForSupport, './categories-for-support'))
   )
-  app.use(instrument(loaderio, './loaderio-verification'))
   app.get('/_500', asyncMiddleware(instrument(triggerError, './trigger-error')))
 
   // Check for a dropped connection before proceeding (again)
   app.use(haltOnDroppedConnection)
+
+  // Specifically deal with HEAD requests before doing the slower
+  // full page rendering.
+  app.head('/*', fastHead)
+
+  // For performance, this is before contextualizers if, on a cache hit,
+  // we can't reuse a rendered response without having to contextualize.
+  app.get('/*', asyncMiddleware(instrument(cacheFullRendering, './cache-full-rendering')))
 
   // *** Preparation for render-page: contextualizers ***
   app.use(asyncMiddleware(instrument(releaseNotes, './contextualizers/release-notes')))
@@ -299,6 +323,11 @@ export default function (app) {
 
   app.use(asyncMiddleware(instrument(featuredLinks, './featured-links')))
   app.use(asyncMiddleware(instrument(learningTrack, './learning-track')))
+
+  // The fastlyCacheTest middleware is intended to be used with Fastly to test caching behavior.
+  // This middleware will intercept ALL requests routed to it, so be careful if you need to
+  // make any changes to the following line:
+  app.use('/fastly-cache-test/*', fastlyCacheTest)
 
   // *** Headers for pages only ***
   app.use(setFastlyCacheHeaders)

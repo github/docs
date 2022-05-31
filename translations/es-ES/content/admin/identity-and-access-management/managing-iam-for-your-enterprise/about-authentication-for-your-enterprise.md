@@ -1,5 +1,5 @@
 ---
-title: About authentication for your enterprise
+title: Acerca de la autenticación para tu empresa
 shortTitle: Acerca de la autenticación
 intro: 'Debes {% ifversion ghae %}configurar el inicio de sesión único (SSO) de SAML para que las personas puedan{% else %}puedes elegir cómo las personas pueden{% endif %} autenticarse para acceder a {% ifversion ghec %}los recursos de tu empresa en {% data variables.product.product_name %}{% elsif ghes %}{% data variables.product.product_location %}{% elsif ghae %}tu empresa de {% data variables.product.product_name %}{% endif %}.'
 versions:
@@ -19,15 +19,17 @@ topics:
 
 {% ifversion ghec %}
 
-Enterprise owners on {% data variables.product.product_name %} can control the requirements for authentication and access to the enterprise's resources. You can choose to allow members create and manage user accounts, or your enterprise can create and manage accounts for members. If you allow members to manage their own accounts, you can also configure SAML authentication to both increase security and centralize identity and access for the web applications that your team uses. If you choose to manage your members' user accounts, you must configure SAML authentication.
+Enterprise owners on {% data variables.product.product_name %} can control the requirements for authentication and access to the enterprise's resources.
 
-## Authentication methods for {% data variables.product.product_name %}
+You can choose to allow members to create and manage user accounts, or your enterprise can create and manage accounts for members with {% data variables.product.prodname_emus %}. If you allow members to manage their own accounts, you can also configure SAML authentication to both increase security and centralize identity and access for the web applications that your team uses. If you choose to manage your members' user accounts, you must configure SAML authentication.
+
+## Métodos de autenticación para {% data variables.product.product_name %}
 
 The following options are available for account management and authentication on {% data variables.product.product_name %}.
 
-- [Authentication through {% data variables.product.product_location %}](#authentication-through-githubcom)
-- [Authentication through {% data variables.product.product_location %} with additional SAML access restriction](#authentication-through-githubcom-with-additional-saml-access-restriction)
-- [Authentication with {% data variables.product.prodname_emus %} and SAML SSO](#authentication-with-enterprise-managed-users-and-saml-sso)
+- [Autenticación mediante {% data variables.product.product_location %}](#authentication-through-githubcom)
+- [Autenticación mediante {% data variables.product.product_location %} con restricción de acceso adicional de SAML](#authentication-through-githubcom-with-additional-saml-access-restriction)
+- [Autenticación con las {% data variables.product.prodname_emus %} y el SSO de SAML](#authentication-with-enterprise-managed-users-and-saml-sso)
 
 ### Autenticación mediante {% data variables.product.product_location %}
 
@@ -51,8 +53,8 @@ Site administrators can decide how people authenticate to access a {% data varia
 
 The following authentication methods are available for {% data variables.product.product_name %}.
 
-- [Built-in authentication](#built-in-authentication)
-- [External authentication](#external-authentication)
+- [Autenticación incorporada](#built-in-authentication)
+- [Autenticación externa](#external-authentication)
 
 ### Autenticación incorporada
 
@@ -62,9 +64,9 @@ The following authentication methods are available for {% data variables.product
 
 If you use an external directory or identity provider (IdP) to centralize access to multiple web applications, you may be able to configure external authentication for {% data variables.product.product_location %}. Para obtener más información, consulta lo siguiente.
 
-- "[Using CAS for enterprise IAM](/admin/identity-and-access-management/using-cas-for-enterprise-iam)"
-- "[Using LDAP for enterprise IAM](/admin/identity-and-access-management/using-ldap-for-enterprise-iam)"
-- "[Using SAML for enterprise IAM](/admin/identity-and-access-management/using-saml-for-enterprise-iam)"
+- "[Utilizar CAS para el IAM empresarial](/admin/identity-and-access-management/using-cas-for-enterprise-iam)"
+- "[Utilizar LDAP para el IAM empresarial](/admin/identity-and-access-management/using-ldap-for-enterprise-iam)"
+- "[Utilizar SAML para el IAM empresarial](/admin/identity-and-access-management/using-saml-for-enterprise-iam)"
 
 If you choose to use external authentication, you can also configure fallback authentication for people who don't have an account on your external authentication provider. For example, you may want to grant access to a contractor or machine user. Para obtener más información, consulta la sección "[Permitir la autenticación integrada para los usuarios fuera de tu proveedor](/admin/identity-and-access-management/managing-iam-for-your-enterprise/allowing-built-in-authentication-for-users-outside-your-provider)".
 

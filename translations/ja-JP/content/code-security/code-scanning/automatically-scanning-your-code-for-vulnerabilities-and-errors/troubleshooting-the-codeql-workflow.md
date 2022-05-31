@@ -98,6 +98,8 @@ topics:
 
 ワークフローでエラー `No source code was seen during the build` または `The process '/opt/hostedtoolcache/CodeQL/0.0.0-20200630/x64/codeql/codeql' failed with exit code 32` が発生した場合、{% data variables.product.prodname_codeql %} がコードを監視できなかったことを示しています。 このようなエラーが発生する理由として、次のようなものがあります。
 
+1. リポジトリには、{% data variables.product.prodname_codeql %}にサポートされている言語で書かれたソースコードは含まれていないかもしれません。 サポートされている言語のリストを確認し、{% data variables.product.prodname_codeql %}ワークフローを削除してください。 詳しい情報については「[CodeQLでのコードスキャンニングについて](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql#about-codeql)」を参照してください。
+
 1. 自動言語検出により、サポートされている言語が特定されたが、リポジトリにその言語の分析可能なコードがない。 一般的な例としては、言語検出サービスが `.h` や `.gyp` ファイルなどの特定のプログラミング言語に関連付けられたファイルを見つけたが、対応する実行可能コードがリポジトリに存在しない場合です。 この問題を解決するには、`language` マトリクスにある言語のリストを更新し、解析する言語を手動で定義します。 たとえば、次の設定では Go と JavaScript のみを分析します。
 
   ```yaml
@@ -266,6 +268,15 @@ on:
 
 この種のマージコミットは{% data variables.product.prodname_dependabot %}によって作成されるので、このコミットで実行されるワークフローは読み取りのみの権限を持つことになります。 {% data variables.product.prodname_code_scanning %}と{% data variables.product.prodname_dependabot %}のセキュリティ更新またはバージョン更新をリポジトリで有効化した場合は、{% data variables.product.prodname_dependabot %}の`@dependabot squash and merge`コマンドは使わないことをおすすめします。 その代わりに、リポジトリで自動マージを有効化できます。 これは、すべての必須レビューが満たされ、ステータスチェックをパスしたら、Pyll Requestは自動的にマージされるということです。 自動マージの有効化に関する詳しい情報については「[Pull Requestの自動マージ](/github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request#enabling-auto-merge)」を参照してください。
 {% endif %}
+
+## エラー: "is not a .ql file, .qls file, a directory, or a query pack specification"
+
+CodeQLが名前付きクエリ、クエリスイート、あるいはクエリパックをワークフロー中のリクエストされた場所で見つけられなかった場合、このエラーが表示されます。 このエラーには、2つの一般的な原因があります。
+
+- ワークフロー中にタイプミスがある。
+- ワークフローがパスで参照しているリソースの名前が変更されたり、削除されたり、新しい場所に移動されたりしている。
+
+リソースの場所を確認したあと、ワークフローを更新して正しい場所を指定できます。 Goの分析で追加のクエリを実行する場合、ソースファイルの移動の影響を受けているかもしれません。 詳しい情報については、github/codeql-goリポジトリの[場所の移動のお知らせ:`github/codeql-go`は`github/codeql`に移動しました](https://github.com/github/codeql-go/issues/741)を参照してください。
 
 ## Warning: "git checkout HEAD^2 is no longer necessary"
 

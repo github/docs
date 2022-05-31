@@ -11,3 +11,19 @@ jobs:
       envPAT: ${{ secrets.envPAT }}
 ```
 {% endraw %}
+
+{% if actions-inherit-secrets-reusable-workflows %}
+Los flujos de trabajo que llaman a los reutilizables en la misma organización o empresa pueden utilizar la palabra clave `inherit` para pasar los secretos de forma implícita.
+
+{% raw %}
+```yaml
+jobs:
+  call-workflow-passing-data:
+    uses: octo-org/example-repo/.github/workflows/reusable-workflow.yml@main
+    with:
+      username: mona
+    secrets: inherit
+```
+{% endraw %}
+
+{%endif%}
