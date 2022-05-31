@@ -12,7 +12,7 @@ children:
   - /creating-a-codespace
   - /developing-in-a-codespace
   - /using-source-control-in-your-codespace
-  - /using-codespaces-for-pull-requests
+  - /using-github-codespaces-for-pull-requests
   - /deleting-a-codespace
   - /forwarding-ports-in-your-codespace
   - /default-environment-variables-for-your-codespace

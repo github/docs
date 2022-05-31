@@ -11,6 +11,8 @@ topics:
   - Codespaces
   - Visual Studio Code
   - Developer
+redirect_from:
+  - /codespaces/developing-in-codespaces/using-codespaces-for-pull-requests
 ---
 
 ## About pull requests in {% data variables.product.prodname_github_codespaces %}
