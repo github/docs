@@ -23,7 +23,7 @@ To include forks in the search results, you will need to add `fork:true` or `for
 
 ## Search by repository name, description, or contents of the README file
 
-With the `in` qualifier you can restrict your search to the repository name, repository description, contents of the README file, or any combination of these.
+With the `in` qualifier you can restrict your search to the repository name, repository description, contents of the README file, or any combination of these. When you omit this qualifier, only the repository name, description, and topics are searched.
 
 | Qualifier  | Example
 | ------------- | -------------
