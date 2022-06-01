@@ -1,7 +1,7 @@
 ---
-title: Reviewing your security logs for Codespaces
+title: Reviewing your security logs for GitHub Codespaces
 shortTitle: Security logs
-intro: 'You can use the security log to review all actions related to {% data variables.product.prodname_codespaces %}.'
+intro: 'You can use the security log to review all actions related to {% data variables.product.prodname_github_codespaces %}.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
@@ -14,9 +14,9 @@ topics:
 
  
 
-## About security logs for {% data variables.product.prodname_codespaces %}
+## About security logs for {% data variables.product.prodname_github_codespaces %}
 
-When you perform an action related to {% data variables.product.prodname_codespaces %} in repositories owned by your personal account, you can review the actions in the security log. For information about accessing the log, see "[Reviewing your security log](/github/authenticating-to-github/reviewing-your-security-log#accessing-your-security-log)."
+When you perform an action related to {% data variables.product.prodname_github_codespaces %} in repositories owned by your personal account, you can review the actions in the security log. For information about accessing the log, see "[Reviewing your security log](/github/authenticating-to-github/reviewing-your-security-log#accessing-your-security-log)."
 
 ![security log with Codespaces information](/assets/images/help/settings/codespaces-audit-log.png)
 

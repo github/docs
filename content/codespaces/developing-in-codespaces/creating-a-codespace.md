@@ -43,11 +43,11 @@ If you want to use Git hooks for your codespace, then you should set up hooks us
 
 {% data reusables.codespaces.prebuilds-crossreference %}
 
-## Access to {% data variables.product.prodname_codespaces %}
+## Access to {% data variables.product.prodname_github_codespaces %}
 
 {% data reusables.codespaces.availability %}
 
-When you have access to {% data variables.product.prodname_codespaces %}, you'll see a "Codespaces" tab within the **{% octicon "code" aria-label="The code icon" %} Code** drop-down menu when you view a repository.
+When you have access to {% data variables.product.prodname_github_codespaces %}, you'll see a "Codespaces" tab within the **{% octicon "code" aria-label="The code icon" %} Code** drop-down menu when you view a repository.
 
 You'll have access to codespaces under the following conditions:
 
@@ -65,7 +65,7 @@ Organization owners can allow all members of the organization to create codespac
 
 Before {% data variables.product.prodname_codespaces %} can be used in an organization, an owner or billing manager must have set a spending limit. For more information, see "[About spending limits for Codespaces](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces#about-spending-limits-for-codespaces)."
 
-If you would like to create a codespace for a repository owned by your personal account or another user, and you have permission to create repositories in an organization that has enabled {% data variables.product.prodname_codespaces %}, you can fork user-owned repositories to that organization and then create a codespace for the fork. 
+If you would like to create a codespace for a repository owned by your personal account or another user, and you have permission to create repositories in an organization that has enabled {% data variables.product.prodname_github_codespaces %}, you can fork user-owned repositories to that organization and then create a codespace for the fork. 
 
 ## Creating a codespace
 

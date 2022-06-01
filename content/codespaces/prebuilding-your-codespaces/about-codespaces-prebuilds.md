@@ -1,7 +1,7 @@
 ---
-title: About Codespaces prebuilds
+title: About GitHub Codespaces prebuilds
 shortTitle: About prebuilds
-intro: Codespaces prebuilds help to speed up the creation of new codespaces.
+intro: GitHub Codespaces prebuilds help to speed up the creation of new codespaces.
 versions:
   fpt: '*'
   ghec: '*'
@@ -16,7 +16,7 @@ product: '{% data reusables.gated-features.codespaces %}'
 
 Prebuilding your codespaces allows you to be more productive and access your codespace faster, regardless of the size and complexity of your project. This is because any source code, editor extensions, project dependencies, commands, and configurations have already been downloaded, installed, and applied before you create a codespace for your project. Think of a prebuild as a "ready-to-go" template for a codespace. 
 
-By default, whenever you push changes to your repository, {% data variables.product.prodname_codespaces %} uses {% data variables.product.prodname_actions %} to automatically update your prebuilds.
+By default, whenever you push changes to your repository, {% data variables.product.prodname_github_codespaces %} uses {% data variables.product.prodname_actions %} to automatically update your prebuilds.
 
 When prebuilds are available for a particular branch of a repository, and for your region, you'll see the "{% octicon "zap" aria-label="The zap icon" %} Prebuild ready" label in the list of machine type options when you create a codespace. For more information, see "[Creating a codespace](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)."
 

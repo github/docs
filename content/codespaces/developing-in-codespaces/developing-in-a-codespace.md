@@ -19,9 +19,9 @@ shortTitle: Develop in a codespace
 
  
 
-## About development with {% data variables.product.prodname_codespaces %}
+## About development with {% data variables.product.prodname_github_codespaces %}
 
-{% data variables.product.prodname_codespaces %} provides you with the full development experience of {% data variables.product.prodname_vscode %}. {% data reusables.codespaces.use-visual-studio-features %}
+{% data variables.product.prodname_github_codespaces %} provides you with the full development experience of {% data variables.product.prodname_vscode %}. {% data reusables.codespaces.use-visual-studio-features %}
 
 {% data reusables.codespaces.links-to-get-started %}
 

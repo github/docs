@@ -16,7 +16,7 @@ miniTocMaxHeadingLevel: 3
 
 ## Checking, changing, and deleting your prebuild configurations
 
-The prebuilds that you configure for a repository are created and updated using a {% data variables.product.prodname_actions %} workflow, managed by the {% data variables.product.prodname_codespaces %} service. 
+The prebuilds that you configure for a repository are created and updated using a {% data variables.product.prodname_actions %} workflow, managed by the {% data variables.product.prodname_github_codespaces %} service. 
 
 Depending on the settings in a prebuild configuration, the workflow to update the prebuild template may be triggered by these events:
 

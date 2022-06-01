@@ -20,7 +20,7 @@ shortTitle: Encrypted secrets
  
 
 
-## About encrypted secrets for {% data variables.product.prodname_codespaces %}
+## About encrypted secrets for {% data variables.product.prodname_github_codespaces %}
 
 You can add encrypted secrets to your personal account that you want to use in your codespaces. For example, you may want to store and access the following sensitive information as encrypted secrets.
 
@@ -41,7 +41,7 @@ You can choose which repositories should have access to each secret. Then, you c
 
 ### Limits for secrets
 
-You can store up to 100 secrets for {% data variables.product.prodname_codespaces %}.
+You can store up to 100 secrets for {% data variables.product.prodname_github_codespaces %}.
 
 Secrets are limited to 64 KB in size.
 

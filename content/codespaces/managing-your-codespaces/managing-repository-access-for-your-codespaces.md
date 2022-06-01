@@ -2,7 +2,7 @@
 title: Managing access to other repositories within your codespace
 allowTitleToDifferFromFilename: true
 shortTitle: Repository access
-intro: 'You can manage the repositories that {% data variables.product.prodname_codespaces %} can access.'
+intro: 'You can manage the repositories that {% data variables.product.prodname_github_codespaces %} can access.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'

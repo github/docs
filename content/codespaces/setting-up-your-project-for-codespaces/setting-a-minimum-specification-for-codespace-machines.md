@@ -1,7 +1,7 @@
 ---
 title: Setting a minimum specification for codespace machines
 shortTitle: Set a minimum machine spec
-intro: 'You can avoid under-resourced machine types being used for {% data variables.product.prodname_codespaces %} for your repository.'
+intro: 'You can avoid under-resourced machine types being used for {% data variables.product.prodname_github_codespaces %} for your repository.'
 permissions: People with write permissions to a repository can create or edit the codespace configuration.
 versions:
   fpt: '*'
@@ -27,7 +27,7 @@ If your project needs a certain level of compute power, you can configure {% dat
 
 ## Setting a minimum machine specification
 
-1. {% data variables.product.prodname_codespaces %} for your repository are configured in a `devcontainer.json` file. If your repository does not already contain a `devcontainer.json` file, add one now. See "[Add a dev container configuration to your repository](/free-pro-team@latest/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces)."
+1. {% data variables.product.prodname_github_codespaces %} for your repository are configured in a `devcontainer.json` file. If your repository does not already contain a `devcontainer.json` file, add one now. See "[Add a dev container configuration to your repository](/free-pro-team@latest/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces)."
 1. Edit the `devcontainer.json` file, adding a `hostRequirements` property such as this:
 
    ```json{:copy}
@@ -40,7 +40,7 @@ If your project needs a certain level of compute power, you can configure {% dat
 
    You can specify any or all of the options: `cpus`, `memory`, and `storage`.
    
-   To check the specifications of the {% data variables.product.prodname_codespaces %} machine types that are currently available for your repository, step through the process of creating a codespace until you see the choice of machine types. For more information, see "[Creating a codespace](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)."
+   To check the specifications of the {% data variables.product.prodname_github_codespaces %} machine types that are currently available for your repository, step through the process of creating a codespace until you see the choice of machine types. For more information, see "[Creating a codespace](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)."
    
 1. Save the file and commit your changes to the required branch of the repository.
 

@@ -1,7 +1,7 @@
 ---
-title: 'Setting up your repository for {% data variables.product.prodname_codespaces %}'
+title: 'Setting up your repository for {% data variables.product.prodname_github_codespaces %}'
 allowTitleToDifferFromFilename: true
-intro: 'Learn how to get started with {% data variables.product.prodname_codespaces %}, including set up and configuration for specific languages.'
+intro: 'Learn how to get started with {% data variables.product.prodname_github_codespaces %}, including set up and configuration for specific languages.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'

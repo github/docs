@@ -1,7 +1,7 @@
 ---
-title: Reviewing your organization's audit logs for Codespaces
+title: Reviewing your organization's audit logs for GitHub Codespaces
 shortTitle: Audit logs
-intro: 'You can use the audit log to review all actions related to {% data variables.product.prodname_codespaces %}.'
+intro: 'You can use the audit log to review all actions related to {% data variables.product.prodname_github_codespaces %}.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
@@ -15,7 +15,7 @@ topics:
 
  
 
-When any member of your organization performs an action related to {% data variables.product.prodname_codespaces %}, you can review the actions in the audit log. For information about accessing the log, see "[Reviewing your audit log](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#accessing-the-audit-log)."
+When any member of your organization performs an action related to {% data variables.product.prodname_github_codespaces %}, you can review the actions in the audit log. For information about accessing the log, see "[Reviewing your audit log](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#accessing-the-audit-log)."
 
 ![Audit log with Codespaces information](/assets/images/help/settings/codespaces-audit-log-org.png)
 
