@@ -1,6 +1,6 @@
 import getApplicableVersions from '../../lib/get-applicable-versions.js'
 
-export default async function features(req, res, next) {
+export default function features(req, res, next) {
   if (!req.context.page) return next()
 
   // Determine whether the currentVersion belongs to the list of versions the feature is available in.
