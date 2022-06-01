@@ -140,7 +140,7 @@ jobs:
             {% raw %}${{ runner.os }}-build-{% endraw %}
             {% raw %}${{ runner.os }}-{% endraw %}
 
-      - if: {% raw %}${{ steps.cache-npm.outputs.cache-hit == false }}{% endraw %}
+      - if: {% raw %}${{ steps.cache-npm.outputs.cache-hit == 'false' }}{% endraw %}
         name: List the state of node modules
         continue-on-error: true
         run: npm list
@@ -196,7 +196,7 @@ Puedes utilizar la salida de la acción `cache` para hacer algo con base en si s
 En el flujo de trabajo del ejemplo anterior, hay un paso que lista el estado de los módulos de nodo si se suscitó una omisión de caché:
 
 ```yaml
-- if: {% raw %}${{ steps.cache-npm.outputs.cache-hit == false }}{% endraw %}
+- if: {% raw %}${{ steps.cache-npm.outputs.cache-hit == 'false' }}{% endraw %}
   name: List the state of node modules
   continue-on-error: true
   run: npm list

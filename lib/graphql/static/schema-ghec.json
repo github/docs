@@ -36241,6 +36241,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "viewerIsFollowing",
+          "description": "<p>Whether or not this Organization is followed by the viewer.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "viewerIsSponsoring",
           "description": "<p>True if the viewer is sponsoring this user/organization.</p>",
           "type": "Boolean!",
