@@ -6,4 +6,6 @@ versions:
   fpt: '*'
   ghec: '*'
 shortTitle: Quickstart
+topics: 
+  - Copilot
 ---
