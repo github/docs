@@ -53,6 +53,9 @@ jobs:
           DISABLE_RENDER_CACHING: true
           # We don't want or need the changelog entries in this context.
           CHANGELOG_DISABLED: true
+          # The default is 10s. But because this runs overnight, we can
+          # be a lot more patient.
+          REQUEST_TIMEOUT: 20000
         run: |
           node server.mjs &
           sleep 5

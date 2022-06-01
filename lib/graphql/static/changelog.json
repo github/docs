@@ -4,6 +4,19 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "Field `viewerIsFollowing` was added to object type `Organization`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-05-31"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "Type `ExternalIdentityAttribute` was added",
           "Type `IssueClosedStateReason` was added",
           "Type `IssueStateReason` was added",
