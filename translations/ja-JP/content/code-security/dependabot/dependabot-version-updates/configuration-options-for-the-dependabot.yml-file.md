@@ -35,35 +35,11 @@ shortTitle: dependabot.ymlの設定
 
 *dependabot.yml* ファイルには、必須の最上位キーに `version` と `updates` の 2 つがあります。 あるいは、トップレベルの`registries`キー{% ifversion fpt or ghec or ghes > 3.4 %}や`enable-beta-ecosystems`キー{% endif %}を含めることができます。 ファイルは、`version: 2` で始まる必要があります。
 
-## 更新の設定オプション
+## *dependabot.yml*ファイルの設定オプション
 
 最上位の `updates` キーは必須です。 これを使用することで、{% data variables.product.prodname_dependabot %} がバージョンやプロジェクトの依存性を更新する方法を設定できます。 各エントリは、特定のパッケージマネージャーの更新設定を行います。 次のオプションを使用できます。
 
-| オプション                                                                      |  必須   | 説明                                                                      |
-|:-------------------------------------------------------------------------- |:-----:|:----------------------------------------------------------------------- |
-| [`package-ecosystem`](#package-ecosystem)                                  | **X** | 使用するパッケージマネージャー                                                         |
-| [`directory`](#directory)                                                  | **X** | パッケージマニフェストの場所                                                          |
-| [`schedule.interval`](#scheduleinterval)                                   | **X** | 更新を確認する頻度                                                               |
-| [`allow`](#allow)                                                          |       | 許可する更新をカスタマイズする                                                         |
-| [`assignees`](#assignees)                                                  |       | プルリクエストのアサイン担当者                                                         |
-| [`commit-message`](#commit-message)                                        |       | コミットメッセージの設定                 |{% ifversion fpt or ghec or ghes > 3.4 %}
-| [`enable-beta-ecosystems`](#enable-beta-ecosystems)                        |       | ベータレベルのサポートがあるエコシステムを有効にする 
-{% endif %}
-| [`ignore`](#ignore)                                                        |       | 特定の依存関係またはバージョンを無視する                                                    |
-| [`insecure-external-code-execution`](#insecure-external-code-execution)    |       | マニフェストファイル内でコードの実行を許可または拒否する                                            |
-| [`labels`](#labels)                                                        |       | プルリクエストに設定するラベル                                                         |
-| [`マイルストーン`](#milestone)                                                    |       | プルリクエストに設定するマイルストーン                                                     |
-| [`open-pull-requests-limit`](#open-pull-requests-limit)                    |       | バージョン更新時のオープンなプルリクエスト数を制限する                                             |
-| [`pull-request-branch-name.separator`](#pull-request-branch-nameseparator) |       | プルリクエストブランチ名の区切り文字を変更する                                                 |
-| [`rebase-strategy`](#rebase-strategy)                                      |       | 自動リベースを無効にする                                                            |
-| [`registries`](#registries)                                                |       | {% data variables.product.prodname_dependabot %} がアクセスできるプライベートリポジトリ    |
-| [`レビュー担当者`](#reviewers)                                                    |       | プルリクエストのレビュー担当者                                                         |
-| [`schedule.day`](#scheduleday)                                             |       | 更新を確認する曜日                                                               |
-| [`schedule.time`](#scheduletime)                                           |       | 更新を確認する時刻 (hh:mm)                                                       |
-| [`schedule.timezone`](#scheduletimezone)                                   |       | 時刻のタイムゾーン（ゾーン識別子）                                                       |
-| [`target-branch`](#target-branch)                                          |       | プルリクエストを作成するブランチ                                                        |
-| [`vendor`](#vendor)                                                        |       | ベンダーまたはキャッシュされた依存関係を更新する                                                |
-| [`versioning-strategy`](#versioning-strategy)                              |       | マニフェストのバージョン要件の更新方法                                                     |
+{% data reusables.dependabot.configuration-options %}
 
 これらのオプションは、次のようなカテゴリに幅広く適合しています。
 
@@ -316,7 +292,7 @@ updates:
 
 リポジトリが`ignore`の設定を保存したかは、リポジトリで`"@dependabot ignore" in:comments`を検索すれば調べられます。 この方法で無視された依存関係の無視を解除したいなら、Pull Requestを再度オープンしてください。
 
-`@dependabot ignore` コマンドに関する詳細については、「[依存関係の更新に関するプルリクエストを管理する](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands)」をご覧ください。
+`@dependabot ignore` コマンドに関する詳細については、「[依存関係の更新に関するPull Requestの管理](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands)」をご覧ください。
 
 #### 無視する依存関係とバージョンを指定する
 

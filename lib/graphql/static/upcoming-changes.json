@@ -8,6 +8,14 @@
         "date": "2022-10-01",
         "criticality": "breaking",
         "owner": "memex"
+      },
+      {
+        "location": "RemovePullRequestFromMergeQueueInput.branch",
+        "description": "<p><code>branch</code> will be removed.</p>",
+        "reason": "<p>PRs are removed from the merge queue for the base branch, the <code>branch</code> argument is now a no-op</p>",
+        "date": "2022-10-01",
+        "criticality": "breaking",
+        "owner": "jhunschejones"
       }
     ],
     "2022-07-01": [
@@ -150,6 +158,14 @@
         "date": "2022-10-01",
         "criticality": "breaking",
         "owner": "memex"
+      },
+      {
+        "location": "RemovePullRequestFromMergeQueueInput.branch",
+        "description": "<p><code>branch</code> will be removed.</p>",
+        "reason": "<p>PRs are removed from the merge queue for the base branch, the <code>branch</code> argument is now a no-op</p>",
+        "date": "2022-10-01",
+        "criticality": "breaking",
+        "owner": "jhunschejones"
       }
     ],
     "2022-07-01": [
@@ -1024,6 +1040,16 @@
     ]
   },
   "ghae": {
+    "2022-10-01": [
+      {
+        "location": "RemovePullRequestFromMergeQueueInput.branch",
+        "description": "<p><code>branch</code> will be removed.</p>",
+        "reason": "<p>PRs are removed from the merge queue for the base branch, the <code>branch</code> argument is now a no-op</p>",
+        "date": "2022-10-01",
+        "criticality": "breaking",
+        "owner": "jhunschejones"
+      }
+    ],
     "2022-07-01": [
       {
         "location": "Enterprise.userAccounts",

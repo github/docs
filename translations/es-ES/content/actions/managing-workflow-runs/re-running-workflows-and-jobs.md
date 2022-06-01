@@ -17,7 +17,7 @@ versions:
 
 ## Acerca de volver a ejecutar flujos de trabajo y jobs
 
-Volver a ejecutar un flujo de tabajo{% if re-run-jobs %} o los jobs dentro de este{% endif %} utiliza los mismos `GITHUB_SHA` (SHA de confirmación) y `GITHUB_REF` (Git ref) del evento original que activó la ejecución de flujo de trabajo. You can re-run a workflow{% if re-run-jobs %} or jobs in a workflow{% endif %} for up to 30 days after the initial run.{% if debug-reruns %} When you re-run a workflow or jobs in a workflow, you can enable debug logging for the re-run. This will enable runner diagnostic logging and step debug logging for the re-run. For more information about debug logging, see "[Enabling debug logging](/actions/monitoring-and-troubleshooting-workflows/enabling-debug-logging)."{% endif %}
+Volver a ejecutar un flujo de tabajo{% if re-run-jobs %} o los jobs dentro de este{% endif %} utiliza los mismos `GITHUB_SHA` (SHA de confirmación) y `GITHUB_REF` (Git ref) del evento original que activó la ejecución de flujo de trabajo. Puedes volver a ejecutar un flujo de trabajo{% if re-run-jobs %} o jobs en un flujo de trabajo{% endif %} hasta en los 30 días posteriores a la ejecución inicial.{% if debug-reruns %} Cuando vuelves a ejecutar un flujo de trabajo o jobs en un flujo de trabajo, puedes habilitar el registro de depuración para dicha re-ejecución. Esto habilitará el registro de diagnóstico del ejecutor y el registro de depuración de pasos para la re-ejecución. Para obtener más información sobre el registro de depuración, consulta la sección "[Habilitar el registro de depuración](/actions/monitoring-and-troubleshooting-workflows/enabling-debug-logging)".{% endif %}
 
 ## Volver a ejecutar todos los jobs en un flujo de trabajo
 
