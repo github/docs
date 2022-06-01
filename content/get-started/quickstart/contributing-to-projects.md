@@ -26,7 +26,7 @@ This tutorial uses [the Spoon-Knife project](https://github.com/octocat/Spoon-Kn
 
 1. Navigate to the `Spoon-Knife` project at https://github.com/octocat/Spoon-Knife.
 2. Click **Fork**.
-   ![Fork button](/assets/images/help/repository/fork_button.jpg)
+   ![Fork button](/assets/images/help/repository/fork_button.png)
 1. {% data variables.product.product_name %} will take you to your copy (your fork) of the Spoon-Knife repository.
 
 ## Cloning a fork
