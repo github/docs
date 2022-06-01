@@ -92,7 +92,7 @@ git commit
 
 通过将链接文本包含在方括号 `[ ]` 内，然后将 URL 包含在括号 `( )` 内，可创建内联链接。 {% ifversion fpt or ghae or ghes > 3.1 or ghec %}您还可以使用键盘快捷键 <kbd>Command</kbd>+<kbd>K</kbd> 创建链接。{% endif %}{% ifversion fpt or ghae-issue-5434 or ghes > 3.3 or ghec %} 选择文本后，可以从剪贴板粘贴 URL，以自动从所选内容创建链接。{% endif %}
 
-{% ifversion fpt or ghae-issue-7103 or ghes > 3.5 or ghec %} You can also create a Markdown hyperlink by highlighting the text and using the keyboard shortcut <kbd>Command</kbd>+<kbd>V</kbd>. If you'd like to replace the text with the link, use the keyboard shortcut <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd>.{% endif %}
+{% ifversion fpt or ghae-issue-7103 or ghes > 3.5 or ghec %} 您还可以通过突出显示文本并使用键盘快捷键 <kbd>Command</kbd>+<kbd>V</kbd> 来创建 Markdown 超链接。 如果要将文本替换为链接，请使用键盘快捷键 <kbd>命令</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd>。{% endif %}
 
 `本站点是使用 [GitHub Pages](https://pages.github.com/) 构建的。`
 
@@ -161,7 +161,7 @@ For example, the following code displays a sun image for light themes and a moon
 </picture>
 ```
 
-The old method of specifying images based on the theme, by using a fragment appended to the URL (`#gh-dark-mode-only` or `#gh-light-mode-only`), is deprecated and will be removed in favor of the new method described above.
+基于主题通过使用附加到 URL 的片段（`#gh-dark-mode-only` 或 `#gh-light-mode-only`）指定图像的旧方法已弃用，并将被删除以支持上述新方法。
 {% endif %}
 
 ## 列表

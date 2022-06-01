@@ -1069,7 +1069,7 @@ topics:
 | `secret_scanning.enable`  | An organization owner enabled secret scanning for all existing{% ifversion ghec %} private or internal{% endif %} repositories.                                                                                                                                                  |
 
 {% if secret-scanning-alert-audit-log %}
-### `secret_scanning_alert` category actions
+### Acciones de la categoría `secret_scanning_alert`
 
 | Acción                          | Descripción                                                                                                                                                                                                                                                                                                                                                |
 | ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

@@ -30,7 +30,7 @@ redirect_from:
 
 验证企业帐户域的所有权后，每个在其资料中列出域的组织资料中将显示"已验证"徽章。 {% data reusables.organizations.verified-domains-details %}
 
-组织所有者将能够通过查看已验证域中的每个成员的电子邮件地址来验证组织成员的身份。
+For domains configured at the enterprise level, enterprise owners can verify the identity of organization members by viewing each member's email address within the verified domain. Enterprise owners can also view a list of enterprise members who don't have an email address from a verified domain associated with their user account on {% data variables.product.prodname_dotcom %}. For more information, see "[Viewing members without an email address from a verified domain](/admin/user-management/managing-users-in-your-enterprise/viewing-people-in-your-enterprise#viewing-members-without-an-email-address-from-a-verified-domain)."
 
 验证企业帐户的域后，您可以将企业帐户拥有的所有组织的电子邮件通知限制为已验证域。 更多信息请参阅“[限制企业的电子邮件通知](/admin/policies/enforcing-policies-for-your-enterprise/restricting-email-notifications-for-your-enterprise)”。
 

@@ -1,1 +1,1 @@
-1. On the main page of the repository, click the commits to navigate to the commits page. ![Screenshot of the repository main page with the commits emphasized](/assets/images/help/commits/commits-page.png) 
+1. En la página principal del repositorio, haz clic en las confirmaciones para navegar a sus páginas. ![Captura de pantalla de la página principal del repositorio con las confirmaciones enfatizadas](/assets/images/help/commits/commits-page.png) 
