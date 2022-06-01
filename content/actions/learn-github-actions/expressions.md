@@ -324,11 +324,11 @@ steps:
     if: {% raw %}${{ failure() }}{% endraw %}
 ```
 
-### failure with conditions
+#### failure with conditions
 
-For a step to run after a failure you can include extra conditions but you must include `failure()` for it to be detected as a step that should run.
+You can include extra conditions for a step to run after a failure, but you must still include `failure()` to override the default status check of `success()` that is automatically applied to `if` conditions that don't contain a status check function.
 
-#### Example
+##### Example
 
 ```yaml
 steps:
