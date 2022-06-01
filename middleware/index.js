@@ -29,7 +29,6 @@ import redirectsExternal from './redirects/external.js'
 import languageCodeRedirects from './redirects/language-code-redirects.js'
 import handleRedirects from './redirects/handle-redirects.js'
 import findPage from './find-page.js'
-import spotContentFlaws from './spot-content-flaws.js'
 import blockRobots from './block-robots.js'
 import archivedEnterpriseVersionsAssets from './archived-enterprise-versions-assets.js'
 import events from './events.js'
@@ -69,7 +68,6 @@ import fastRootRedirect from './fast-root-redirect.js'
 import trailingSlashes from './trailing-slashes.js'
 
 const { DEPLOYMENT_ENV, NODE_ENV } = process.env
-const isDevelopment = NODE_ENV === 'development'
 const isAzureDeployment = DEPLOYMENT_ENV === 'azure'
 const isTest = NODE_ENV === 'test' || process.env.GITHUB_ACTIONS === 'true'
 
@@ -78,26 +76,6 @@ const isTest = NODE_ENV === 'test' || process.env.GITHUB_ACTIONS === 'true'
 const asyncMiddleware = (fn) => (req, res, next) => {
   Promise.resolve(fn(req, res, next)).catch(next)
 }
-
-// By default, `:remote-addr` is described as following in the morgon docs:
-//
-//    The remote address of the request. This will use req.ip, otherwise
-//    the standard req.connection.remoteAddress value (socket address).
-//
-// But in production, by default, `req.ip` is the IP of the Azure machine
-// which is something like "104.156.87.177:28244" which is *not* the
-// end user. BUT! Because we configure `app.set('trust proxy', true)`
-// *before* morgain is enabled, it will use the first entry from
-// the `x-forwarded-for` header which is looking like this:
-// "75.40.90.27, 157.52.111.52, 104.156.87.177:5786" which is
-// "{USER'S IP}, {FASTLY'S POP IP}, {AZURE'S IP}".
-// Incidentally, that first IP in the comma separated list is the
-// same as the value of `req.headers['fastly-client-ip']` but
-// Fastly will put that into the X-Forwarded-IP.
-// By leaning in to X-Forwarded-IP (*and* the use
-// `app.set('trust proxy', true)`) we can express ourselves here
-// without having to use vendor specific headers.
-const productionLogFormat = `:remote-addr - ":method :url" :status - :response-time ms`
 
 export default function (app) {
   // *** Request connection management ***
@@ -130,13 +108,10 @@ export default function (app) {
   }
 
   // *** Request logging ***
-  // Enabled in development and azure deployed environments
-  // Not enabled in Heroku because the Heroku router + papertrail already logs the request information
-  app.use(
-    morgan(isAzureDeployment ? productionLogFormat : 'dev', {
-      skip: (req, res) => !(isDevelopment || isAzureDeployment),
-    })
-  )
+  // Not enabled in Azure deployment because the request information is logged via another layer of the stack
+  if (!isAzureDeployment) {
+    app.use(morgan('dev'))
+  }
 
   // *** Observability ***
   if (process.env.DD_API_KEY) {
@@ -270,7 +245,6 @@ export default function (app) {
 
   // *** Config and context for rendering ***
   app.use(asyncMiddleware(instrument(findPage, './find-page'))) // Must come before archived-enterprise-versions, breadcrumbs, featured-links, products, render-page
-  app.use(asyncMiddleware(instrument(spotContentFlaws, './spot-content-flaws'))) // Must come after findPage
   app.use(instrument(blockRobots, './block-robots'))
 
   // Check for a dropped connection before proceeding

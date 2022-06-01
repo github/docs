@@ -32181,6 +32181,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "viewerIsFollowing",
+          "description": "<p>Whether or not this Organization is followed by the viewer.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "websiteUrl",
           "description": "<p>The organization's public profile URL.</p>",
           "type": "URI",
