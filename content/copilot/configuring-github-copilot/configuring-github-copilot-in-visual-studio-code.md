@@ -24,7 +24,7 @@ You can use the default keyboard shortcuts in Visual Studio Code when using {% d
 |Open {% data variables.product.prodname_copilot %} (additional suggestions in separate pane)|`Ctrl`+`Enter`|github.copilot.generate|
 |Toggle {% data variables.product.prodname_copilot %} on/off|_No default shortcut_|github.copilot.toggleCopilot|
 
-### Rebinding keyboard shortcuts
+## Rebinding keyboard shortcuts
 
 1. In the **File** menu, navigate to **Preferences** and click **Keyboard Shortcuts**.
 ![Visual Studio Code keyboard shortcuts](/assets/images/help/copilot/vsc-keyboard-shortcuts.png)
@@ -51,7 +51,7 @@ You can choose to enable or disable inline suggestions in Visual Studio Code.
 1. In the **File** menu, navigate to **Preferences** and click **Settings**.
 ![Visual Studio Code settings](/assets/images/help/copilot/vsc-settings.png)
 1. In the left-side panel of the settings tab, click **Extensions** and then select **Copilot**.
-1. Under "Inline Suggest:Enabled", select or deselect the checkbox to enable or disable inline suggestions.
+1. Under "Inline Suggest:Enabled", select or deselect to enable or disable inline suggestions.
 
 ## Enabling and disabling {% data variables.product.prodname_copilot %} for specific languages
 

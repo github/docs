@@ -3,6 +3,7 @@ title: About GitHub Copilot telemetry
 intro: '{% data variables.product.prodname_copilot %} collects and relies on additional telemetry data beyond what other {% data variables.product.company_short %} products and services collect.'
 redirect_from:
   - /early-access/github/copilot/about-github-copilot-telemetry
+  - /github/copilot/about-github-copilot-telemetry
 versions:
   versions:
   fpt: '*'
