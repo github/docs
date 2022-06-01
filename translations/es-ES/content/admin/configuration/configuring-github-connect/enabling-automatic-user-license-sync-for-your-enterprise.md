@@ -18,7 +18,7 @@ topics:
 shortTitle: Sincronización automática de licencias de usuario
 ---
 
-## About automatic license synchronization
+## Acerca de la sincronización automática de licencias
 
 {% data reusables.enterprise-licensing.unique-user-licensing-model %}
 
