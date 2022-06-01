@@ -1,5 +1,5 @@
 ---
-title: Configuring GitHub Copilot in Visual Studio
+title: Configuring GitHub Copilot in Visual Studio Code
 intro: 'ADD INTRO.'
 versions:
   versions:
