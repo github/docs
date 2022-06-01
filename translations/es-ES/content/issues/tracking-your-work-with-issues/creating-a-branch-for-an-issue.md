@@ -1,6 +1,6 @@
 ---
-title: Creating a branch to work on an issue
-intro: You can create a branch to work on an issue directly from the issue page and get started right away.
+title: Crear una rama para trabajar en una propuesta
+intro: Puedes crear una rama para trabajar en una propuesta directamente desde la página de propuestas e iniciar de inmediato.
 versions:
   fpt: '*'
   ghes: '>=3.5'
@@ -9,26 +9,26 @@ versions:
 allowTitleToDifferFromFilename: true
 topics:
   - Issues
-shortTitle: Create branch for issue
+shortTitle: Crear una rama para una propuesta
 ---
 
 {% note %}
 
-**Note:** The ability to create a branch for an issue is currently in public beta and subject to change.
+**Nota:** La capacidad de crear una rama para una propuesta se encuentra actualmente en beta y está sujeta a cambios.
 
 {% endnote %}
 
-## About branches connected to an issue
-Branches connected to an issue are shown under the "Development" section in the sidebar of an issue. When you create a pull request for one of these branches, it is automatically linked to the issue. The connection with that branch is removed and only the pull request is shown in the "Development" section. Para obtener más información, consulta la sección "[Vincular una solicitud de extracción a un informe de problemas](/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue)".
+## Acerca de las ramas conectadas a una propuesta
+Las ramas conectadas a una propuesta se muestran bajo la sección de "Desarrollo" en la barra lateral de una propuesta. Cuando creas una solicitud de cambios para alguna de estas ramas, esta se enlaza automáticamente a la propuesta. La conexión con esa rama se elimina y solo se muestra la solicitud de cambios en la sección de "Desarrollo". Para obtener más información, consulta la sección "[Vincular una solicitud de extracción a un informe de problemas](/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue)".
 
-## Creating a branch for an issue
+## Crear una rama para una propuesta
 
-Anyone with write permission to a repository can create a branch for an issue. You can link multiple branches for an issue.
+Cualquiera con permisos de escritura en un repositorio puede crear una rama para una propuesta. Puedes enlazar ramas múltiples para una propuesta.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issues %}
-3. In the list of issues, click the issue that you would like to create a branch for.
-4. In the right sidebar under "Development", click **Create a branch**. If the issue already has a linked branch or pull request, click {% octicon "gear" aria-label="The Gear icon" %} and at the bottom of the drop-down menu click **Create a branch**. ![Screenshot showing Create a branch option highlighted in sidebar](/assets/images/help/issues/create-a-branch.png)
-5. By default, the new branch is created in the current repository from the default branch. Edit the branch name and details as required in the "Create a branch for this issue" dialog. ![Screenshot showing Create a branch dialog options](/assets/images/help/issues/create-a-branch-options.png)
-6. Choose whether to work on the branch locally or to open it in GitHub Desktop.
-7. When you are ready to create the branch, click **Create branch**.
+3. En la lista de propuestas, haz clic en aquella para la cuál t gustaría crear una rama.
+4. En la barra lateral derecha, debajo de "Desarrollo", haz clic en **Crear una rama**. Si la propuesta ya tiene una rama o solicitud de cambios enlazada, haz cli en {% octicon "gear" aria-label="The Gear icon" %} y, en la parte inferior del menú desplegable, haz clic en **Crear una rama**. ![Captura de pantalla que muestra la opción de crear rama en la barra lateral](/assets/images/help/issues/create-a-branch.png)
+5. Predeterminadamente, se creará la rama nueva en el repositorio actual de la rama predeterminada. Edita el nombre de rama y los detalles como se requiera en el diálogo "Crear una rama para esta propuesta". ![Captura de pantalla que muestra las opciones de diálogo de crear una rama](/assets/images/help/issues/create-a-branch-options.png)
+6. Elige si quieres trabajar en la rama localmente o abrirla en GitHub Desktop.
+7. Cuando estés listo para crear la rama, haz clic en **Crear rama**.

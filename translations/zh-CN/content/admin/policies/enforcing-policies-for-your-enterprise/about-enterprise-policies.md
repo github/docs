@@ -1,6 +1,6 @@
 ---
-title: About enterprise policies
-intro: 'With enterprise policies, you can manage the policies for all the organizations owned by your enterprise.'
+title: 关于企业策略
+intro: 使用企业策略，您可以管理企业拥有的所有组织的策略。
 versions:
   ghec: '*'
   ghes: '*'
@@ -11,7 +11,7 @@ topics:
   - Policies
 ---
 
-To help you enforce business rules and regulatory compliance, policies provide a single point of management for all the organizations owned by an enterprise account.
+为了帮助您实施业务规则和法规遵从性，策略为企业帐户拥有的所有组织提供了单一管理点。
 
 {% data reusables.enterprise.about-policies %}
 
@@ -22,7 +22,7 @@ By default, no enterprise policies are enforced. To identify policies that shoul
 While you're configuring enterprise policies, to help you understand the impact of changing each policy, you can view the current configurations for the organizations owned by your enterprise.
 
 {% ifversion ghes %}
-Another way to enforce standards within your enterprise is to use pre-receive hooks, which are scripts that run on {% data variables.product.product_location %} to implement quality checks. For more information, see "[Enforcing policy with pre-receive hooks](/admin/policies/enforcing-policy-with-pre-receive-hooks)."
+Another way to enforce standards within your enterprise is to use pre-receive hooks, which are scripts that run on {% data variables.product.product_location %} to implement quality checks. 更多信息请参阅“[使用预接收挂钩实施策略](/admin/policies/enforcing-policy-with-pre-receive-hooks)”。
 {% endif %}
 
 ## 延伸阅读
