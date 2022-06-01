@@ -1,0 +1,1 @@
+{% data variables.product.prodname_copilot %} is available to {% data variables.product.company_short %} customers with a personal account on {% data variables.product.prodname_dotcom_the_website %}.

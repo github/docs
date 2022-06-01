@@ -1,0 +1,1 @@
+1. To accept the suggestion, press `Tab`.
