@@ -7,7 +7,7 @@ import yaml from 'js-yaml'
 import revalidator from 'revalidator'
 import { fromMarkdown } from 'mdast-util-from-markdown'
 import { visit } from 'unist-util-visit'
-import readFileAsync from '../../lib/readfile-async.js'
+import fs from 'fs/promises'
 import frontmatter from '../../lib/frontmatter.js'
 import languages from '../../lib/languages.js'
 import { tags } from '../../lib/liquid-tags/extended-markdown.js'
@@ -453,7 +453,7 @@ describe('lint markdown content', () => {
       ifConditionals
 
     beforeAll(async () => {
-      const fileContents = await readFileAsync(markdownAbsPath, 'utf8')
+      const fileContents = await fs.readFile(markdownAbsPath, 'utf8')
       const { data, content: bodyContent, errors } = frontmatter(fileContents)
 
       content = bodyContent
@@ -718,7 +718,7 @@ describe('lint yaml content', () => {
     let dictionaryError = false
 
     beforeAll(async () => {
-      const fileContents = await readFileAsync(yamlAbsPath, 'utf8')
+      const fileContents = await fs.readFile(yamlAbsPath, 'utf8')
       try {
         dictionary = yaml.load(fileContents, { filename: yamlRelPath })
       } catch (error) {
@@ -955,7 +955,7 @@ describe('lint GHES release notes', () => {
     let dictionaryError = false
 
     beforeAll(async () => {
-      const fileContents = await readFileAsync(yamlAbsPath, 'utf8')
+      const fileContents = await fs.readFile(yamlAbsPath, 'utf8')
       try {
         dictionary = yaml.load(fileContents, { filename: yamlRelPath })
       } catch (error) {
@@ -1011,7 +1011,7 @@ describe('lint GHAE release notes', () => {
     let dictionaryError = false
 
     beforeAll(async () => {
-      const fileContents = await readFileAsync(yamlAbsPath, 'utf8')
+      const fileContents = await fs.readFile(yamlAbsPath, 'utf8')
       try {
         dictionary = yaml.load(fileContents, { filename: yamlRelPath })
       } catch (error) {
@@ -1077,7 +1077,7 @@ describe('lint learning tracks', () => {
     let dictionaryError = false
 
     beforeAll(async () => {
-      const fileContents = await readFileAsync(yamlAbsPath, 'utf8')
+      const fileContents = await fs.readFile(yamlAbsPath, 'utf8')
       try {
         dictionary = yaml.load(fileContents, { filename: yamlRelPath })
       } catch (error) {
@@ -1102,7 +1102,7 @@ describe('lint learning tracks', () => {
       // inside the product TOC frontmatter to see which versions the product is available in.
       const product = path.posix.basename(yamlRelPath, '.yml')
       const productTocPath = path.posix.join('content', product, 'index.md')
-      const productContents = await readFileAsync(productTocPath, 'utf8')
+      const productContents = await fs.readFile(productTocPath, 'utf8')
       const { data } = frontmatter(productContents)
       const productVersions = getApplicableVersions(data.versions, productTocPath)
 
@@ -1161,7 +1161,7 @@ describe('lint feature versions', () => {
     let dictionaryError = false
 
     beforeAll(async () => {
-      const fileContents = await readFileAsync(yamlAbsPath, 'utf8')
+      const fileContents = await fs.readFile(yamlAbsPath, 'utf8')
       try {
         dictionary = yaml.load(fileContents, { filename: yamlRelPath })
       } catch (error) {
