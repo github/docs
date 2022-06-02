@@ -6,11 +6,8 @@ product: '{% data reusables.gated-features.copilot %}'
 topics:
   - copilot
 versions:
-  versions:
-  fpt: '*'
-  ghec: '*'
-topics: 
-  - Copilot
+  feature: 'copilot'
+
 ---
 
 ## Prerequisites
