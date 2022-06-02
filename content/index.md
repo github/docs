@@ -27,7 +27,6 @@ children:
   - issues
   - actions
   - copilot
-  - github
   - codespaces
   - packages
   - search-github
