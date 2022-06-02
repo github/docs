@@ -3,8 +3,7 @@ title: Getting started with GitHub Copilot
 shortTitle: Get started with GitHub Copilot
 intro: 'You can start using {% data variables.product.prodname_copilot %} by installing the extension in your preferred environment.'
 versions:
-  fpt: '*'
-  ghec: '*'
+  feature: 'copilot'
 topics:
   - Copilot
 children:

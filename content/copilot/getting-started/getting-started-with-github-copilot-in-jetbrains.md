@@ -5,8 +5,7 @@ intro: 'Learn how to install {% data variables.product.prodname_copilot %} in Je
 product: '{% data reusables.gated-features.copilot %}'
 versions:
   versions:
-  fpt: '*'
-  ghec: '*'
+  feature: 'copilot'
 topics: 
   - Copilot
 ---

@@ -4,8 +4,7 @@ shortTitle: Neovim
 intro: 'Learn how to install {% data variables.product.prodname_copilot %} in Neovim, and start seeing suggestions as you write comments and code.'
 versions:
   versions:
-  fpt: '*'
-  ghec: '*'
+  feature: 'copilot'
 topics: 
   - Copilot
 ---

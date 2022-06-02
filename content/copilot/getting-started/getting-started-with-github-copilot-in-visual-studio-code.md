@@ -7,7 +7,6 @@ topics:
   - copilot
 versions:
   feature: 'copilot'
-
 ---
 
 ## Prerequisites
