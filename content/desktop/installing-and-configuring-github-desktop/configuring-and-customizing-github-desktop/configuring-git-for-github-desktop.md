@@ -10,6 +10,8 @@ versions:
 ---
 ## About Git configuration for {% data variables.product.prodname_desktop %}
 
+{% data variables.product.prodname_desktop %} uses your existing global Git configuration settings by default, but provides the option to configure your global author information and the default branch that is used when creating a new repository.
+
 {% data variables.product.prodname_desktop %} allows you to set the name and email address you would like associated with the commits you make in your repositories. If your name and email address have already been set in the global Git configuration for your computer, {% data variables.product.prodname_desktop %} will detect and use those values. {% data variables.product.prodname_desktop %} also allows you to set a different name and email address for an individual repository. This is useful when you need to use a separate work email address for a specific repository.
 
 If the email address that has been set in your Git configuration does not match an email address associated with the {% data variables.product.product_name %} account you are currently logged in to, {% data variables.product.prodname_desktop %} will show a warning prior to committing.
@@ -23,6 +25,8 @@ If the email address that has been set in your Git configuration does not match 
 {% endtip %}
 
 ## Configuring your global author information
+
+Configuring your global author information in {% data variables.product.prodname_desktop %} will update the name and email address in your global Git configuration. This will be the default name and email address for all new local repositories you create in {% data variables.product.prodname_desktop %}.
 
 {% mac %}
 
