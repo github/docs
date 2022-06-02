@@ -36,6 +36,6 @@ You can enable or disable {% data variables.product.prodname_copilot %} from wit
 
 You can specify which languages you want to enable or disable {% data variables.product.prodname_copilot %} for within JetBrains.
 
-1. In the **File** menu, click **Settings**.
+1. In JetBrains, under the **File** menu, click **Settings**.
 1. Under **Languages & Frameworks**, click **{% data variables.product.prodname_copilot %}**.
 1. Under "Disabled languages", select the languages you want to disable {% data variables.product.prodname_copilot %} for.

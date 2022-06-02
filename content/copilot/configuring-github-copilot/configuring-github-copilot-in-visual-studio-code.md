@@ -18,9 +18,9 @@ You can use the default keyboard shortcuts in Visual Studio Code when using {% d
 |:---|:---:|:---:|
 |Accept an inline suggestion|`Tab`|editor.action.inlineSuggest.commit|
 |Dismiss an inline suggestion|`Esc`|editor.action.inlineSuggest.hide|
-|Show next inline suggestion|On macOS: `Option (⌥) or Alt`+`]`<br> On Windows: `Alt`+`]` |editor.action.inlineSuggest.showNext|
-|Show previous inline suggestion|On macOS: `Option (⌥) or Alt`+`[`<br> On Windows: `Alt`+`[`|editor.action.inlineSuggest.showPrevious|
-|Trigger inline suggestion|On macOS: `Option (⌥)`+`\`<br> On Windows: `Alt`+`\`|editor.action.inlineSuggest.trigger|
+|Show next inline suggestion|On macOS: `Option (⌥)`+`]`<br> On Windows or Linux: `Alt`+`]` |editor.action.inlineSuggest.showNext|
+|Show previous inline suggestion|On macOS: `Option (⌥)`+`[`<br> On Windows or Linux: `Alt`+`[`|editor.action.inlineSuggest.showPrevious|
+|Trigger inline suggestion|On macOS: `Option (⌥)`+`\`<br> On Windows or Linux: `Alt`+`\`|editor.action.inlineSuggest.trigger|
 |Open {% data variables.product.prodname_copilot %} (additional suggestions in separate pane)|`Ctrl`+`Enter`|github.copilot.generate|
 |Toggle {% data variables.product.prodname_copilot %} on/off|_No default shortcut_|github.copilot.toggleCopilot|
 
