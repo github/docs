@@ -52,10 +52,7 @@ Como parte de uma expressão, você pode acessar informações de contexto usand
 - Sintaxe de índice: `github['sha']`;
 - Sintaxe de propriedade de desreferência: `github.sha`
 
-Para usar a sintaxe de propriedade de desreferência, o nome da propriedade deve:
-
-- começar com `a-Z` ou `_`;
-- ser seguido por `a-Z` `0-9` `-` ou `_`.
+In order to use property dereference syntax, the property name must start with a letter or `_` and contain only alphanumeric characters, `-`, or `_`.
 
 Se você tentar desfazer uma propriedade inexistente, isso irá retornar uma string vazia.
 
