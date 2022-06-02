@@ -1,1 +1,1 @@
-1. Alternatively, to reject all suggestions, press `Esc`.
+1. Alternatively, to reject all suggestions, press <kbd>Esc</kbd>.
