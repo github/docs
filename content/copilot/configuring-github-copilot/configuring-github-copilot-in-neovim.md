@@ -15,5 +15,3 @@ For guidance on configuring {% data variables.product.prodname_copilot %} in Neo
       ```
       :help copilot
       ```
-
-      
