@@ -1,0 +1,1 @@
+1. Alternatively, to reject all suggestions, press `Esc`.
