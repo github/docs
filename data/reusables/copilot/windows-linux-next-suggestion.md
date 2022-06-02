@@ -1,1 +1,1 @@
-- On Windows or Linux, press `Alt`+`]` for the next suggestion, or `Alt`+`[` for the previous suggestion.
+- On Windows or Linux, press <kbd>Alt</kbd>+<kbd>]</kbd> for the next suggestion, or <kbd>Alt</kbd>+<kbd>[</kbd> for the previous suggestion.
