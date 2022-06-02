@@ -1,1 +1,1 @@
-1. Create a new JavaScript (.js) file.
+1. Create a new JavaScript (_*.js_) file.
