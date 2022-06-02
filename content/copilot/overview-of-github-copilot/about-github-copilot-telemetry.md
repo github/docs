@@ -5,8 +5,7 @@ redirect_from:
   - /early-access/github/copilot/about-github-copilot-telemetry
 versions:
   versions:
-  fpt: '*'
-  ghec: '*'
+  feature: 'copilot'
 topics: 
   - Copilot
 ---
