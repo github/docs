@@ -43,7 +43,7 @@ You successfully installed {% data variables.product.prodname_copilot %} and rec
 
 - [Getting Started](/copilot/getting-started): You've learned how to get your first suggestion in Visual Studio Code. These guides show you how to set up and navigate the various functions of {% data variables.product.prodname_copilot %} across all of the supported environments.
 - [{% data variables.product.prodname_copilot %} in practice](/copilot/overview-of-github-copilot/github-copilot-in-practice): This article details some of the additional ways {% data variables.product.prodname_copilot %} can help you.
-- [Configuring {% data variables.product.prodname_copilot %}](/copilot/configuring-github-copilot): This guide provides details on how to configure {% data variables.product.prodname_copilot %} to your personal preferences.
+- [Configuring {% data variables.product.prodname_copilot %}](/copilot/configuring-github-copilot): These guides provide details on how to configure {% data variables.product.prodname_copilot %} to your personal preferences.
 
 
 ## Further reading
