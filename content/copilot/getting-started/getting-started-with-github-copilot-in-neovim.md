@@ -1,6 +1,7 @@
 ---
 title: Getting started with GitHub Copilot in NeoVim
 shortTitle: Neovim
+product: '{% data reusables.gated-features.copilot %}'
 intro: 'Learn how to install {% data variables.product.prodname_copilot %} in Neovim, and start seeing suggestions as you write comments and code.'
 versions:
   versions:
@@ -11,48 +12,74 @@ topics:
 
 ## Prerequisites
 
-{% data reusables.copilot.copilot-prerequisites %}
 - To use {% data variables.product.prodname_copilot %} in Neovim you must have Neovim and Node.js version 17 or below installed. For more information, see the [Neovim](https://neovim.io/doc/) documentation and the [Node.js](https://nodejs.org/en/) website.
 
 ## Installing the Neovim extension
 
 {% mac %}
 
+1. To use {% data variables.product.prodname_copilot %} in Neovim, install the {% data variables.product.prodname_copilot %} plugin:
+   - You can install `github/copilot.vim` with a plugin manager, such as vim-plug or packer.nvim. For more information, see the [vim plug]() documentation, or the [packer.nvim]() documentation.
+   - Alternatively, you can install the {% data variables.product.prodname_copilot %} plugin directly into your Neovim config file by running the following command in Terminal:
+
+      ```
+      git clone https://github.com/github/copilot.vim.git \
+      ~/.config/PATH/TO/YOUR/NEOVIM/CONFIG/FILE/copilot.vim
+      ```
+1. To authenticate and invoke {% data variables.product.prodname_copilot %} run the following command in Neovim:
+
+      ```
+      :Copilot setup
+      ```
 
 {% endmac %}
 
 
 {% windows %}
 
+1. To use {% data variables.product.prodname_copilot %} in Neovim, install the {% data variables.product.prodname_copilot %} plugin:
+   - You can install `github/copilot.vim` with a plugin manager, such as vim-plug or packer.nvim. For more information, see the [vim-plug](https://github.com/junegunn/vim-plug) documentation, or the [packer.nvim](https://github.com/wbthomason/packer.nvim) documentation.
+   - Alternatively, you can install the {% data variables.product.prodname_copilot %} plugin directly into your Neovim config file by running the following command in Git Bash:
 
+      ```
+      git clone https://github.com/github/copilot.vim.git \
+      ~/.config/PATH/TO/YOUR/NEOVIM/CONFIG/FILE/copilot.vim
+1. To authenticate and invoke {% data variables.product.prodname_copilot %} run the following command in Neovim:
+
+      ```
+      :Copilot setup
+      ```
+     ```
 
 {% endwindows %}
 
 
-
-
 {% linux %}
 
+1. To use {% data variables.product.prodname_copilot %} in Neovim, install the {% data variables.product.prodname_copilot %} plugin:
+   - You can install `github/copilot.vim` with a plugin manager, such as vim-plug or packer.nvim. For more information, see the [vim plug]() documentation, or the [packer.nvim]() documentation.
+   - Alternatively, you can install the {% data variables.product.prodname_copilot %} plugin directly into your Neovim config file by running the following command in the terminal:
 
+      ```
+      git clone https://github.com/github/copilot.vim.git \
+      ~/.config/PATH/TO/YOUR/NEOVIM/CONFIG/FILE/copilot.vim
+      ```
+1. To authenticate and invoke {% data variables.product.prodname_copilot %} run the following command in Neovim:
 
+      ```
+      :Copilot setup
+      ```
 {% endlinux %}
 
-## Seeing your first suggestion
+## Seeing suggestions in Neovim
 
-{% data reusables.copilot.supported-languages %}
+For guidance on using {% data variables.product.prodname_copilot %} in Neovim, invoke the {% data variables.product.prodname_copilot %} documentation in Neovim by running the following command:
 
-1. To authenticate and invoke {% data variables.product.prodname_copilot %} in Neovim, type the following command:
-    ```
-      :Copilot setup
-    ```
-1. To see your first suggestion, begin typing a comment or code snippet. {% data variables.product.prodname_copilot %} will make a suggestion for you.
-1. To accept the suggestion, press `Tab`.
+      ```
+      :help copilot
+      ```
 
-## Seeing alternative suggestions
+## Further reading
 
-{% data reusables.copilot.alternative-suggestions %}
-
-1. To see alternative suggestions, begin typing a comment or code snippet. {% data variables.product.prodname_copilot %} will make a suggestion for you.
-      - To see the next suggestion, press `<M-]>`.
-      - To see the previous suggestion, press `<M-[>`.
-      - To reject all suggestions, press `<C-]>`.
+- [{% data variables.product.prodname_copilot %}](https://copilot.github.com/)
+- [About {% data variables.product.prodname_copilot %}](/copilot/overview-of-github-copilot/about-github-copilot)

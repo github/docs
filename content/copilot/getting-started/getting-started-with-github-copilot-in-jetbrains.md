@@ -4,7 +4,6 @@ shortTitle: JetBrains
 intro: 'Learn how to install {% data variables.product.prodname_copilot %} in JetBrains, and start seeing suggestions as you write comments and code.'
 product: '{% data reusables.gated-features.copilot %}'
 versions:
-  versions:
   feature: 'copilot'
 topics: 
   - Copilot
