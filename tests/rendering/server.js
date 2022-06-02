@@ -704,14 +704,6 @@ describe('server', () => {
       expect(res.headers['cache-control']).toContain('public')
       expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
     })
-
-    test('redirects Desktop Classic paths to desktop.github.com', async () => {
-      const res = await get('/desktop-classic')
-      expect(res.statusCode).toBe(301)
-      expect(res.headers.location).toBe('https://desktop.github.com')
-      expect(res.headers['set-cookie']).toBeUndefined()
-      expect(res.headers['cache-control']).toBeUndefined()
-    })
   })
 
   describe('categories and map topics', () => {
