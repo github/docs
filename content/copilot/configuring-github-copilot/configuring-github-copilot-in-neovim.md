@@ -1,8 +1,19 @@
 ---
 title: Configuring GitHub Copilot in NeoVim
-intro: 'ADD INTRO.'
+intro: 'You can enable, configure, and disable {% data variables.product.prodname_copilot %} in Neovim.'
+product: '{% data reusables.gated-features.copilot %}'
 versions:
   versions:
   fpt: '*'
   ghec: '*'
 ---
+
+## Configuring GitHub Copilot in Neovim
+
+For guidance on configuring {% data variables.product.prodname_copilot %} in Neovim, invoke the {% data variables.product.prodname_copilot %} documentation in Neovim by running the following command:
+
+      ```
+      :help copilot
+      ```
+
+      
