@@ -3,8 +3,7 @@ title: Overview of GitHub Copilot
 shortTitle: Overview of GitHub Copilot
 intro: 'ADD INTRO.'
 versions:
-  fpt: '*'
-  ghec: '*'
+  feature: 'copilot'
 topics:
   - Copilot
 children:
