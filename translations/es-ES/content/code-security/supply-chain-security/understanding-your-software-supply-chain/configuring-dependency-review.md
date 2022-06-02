@@ -5,7 +5,7 @@ shortTitle: Configure dependency review
 versions:
   fpt: '*'
   ghes: '>= 3.2'
-  ghae: issue-4864
+  ghae: '*'
   ghec: '*'
 type: how_to
 topics:
@@ -35,7 +35,7 @@ La revisión de dependencias se incluye en {% data variables.product.product_nam
 {% data reusables.dependabot.enabling-disabling-dependency-graph-private-repo %}
 1. If "{% data variables.product.prodname_GH_advanced_security %}" is not enabled, click **Enable** next to the feature. ![Screenshot of GitHub Advanced Security feature with "Enable" button emphasized](/assets/images/help/security/enable-ghas-private-repo.png)
 
-{% elsif ghes or ghae %}
+{% elsif ghes %}
 La revisión de dependencias se encuentra disponible cuando se habilita la gráfica de dependencias de {% data variables.product.product_location %} y cuando se habilita la {% data variables.product.prodname_advanced_security %} para la organización o el repositorio. Para obtener más información, consulta la sección "[Habilitar la {% data variables.product.prodname_GH_advanced_security %} en tu empresa](/admin/code-security/managing-github-advanced-security-for-your-enterprise/enabling-github-advanced-security-for-your-enterprise)".
 
 ### Checking if the dependency graph is enabled

@@ -27,7 +27,7 @@ shortTitle: Vincular PR a um problema
 
 ## Sobre problemas e pull requests vinculados
 
-Você pode vincular um problema a uma pull request {% ifversion fpt or ghes or ghae or ghec %}manualmente ou {% endif %}usando uma palavra-chave suportada na descrição da pull request.
+Você pode vincular um problema a um pull request manualmente ou usar uma palavra-chave compatível na descrição do pull request.
 
 Quando você vincula uma pull request ao problema que a pull request tem de lidar, os colaboradores poderão ver que alguém está trabalhando no problema.
 
@@ -35,7 +35,7 @@ Quando você mescla uma pull request vinculada no branch padrão de um repositó
 
 ## Vinculando uma pull request a um problema usando uma palavra-chave
 
-You can link a pull request to an issue by using a supported keyword in the pull request's description or in a commit message. The pull request **must be** on the default branch.
+Você pode vincular um pull request a um problema, usando uma palavra-chave suportada na descrição do pull request ou em uma mensagem de commit. O pull request **deve estar** no branch padrão.
 
 * close
 * closes
@@ -47,7 +47,7 @@ You can link a pull request to an issue by using a supported keyword in the pull
 * resolve
 * resolved
 
-Se você usar uma palavra-chave para fazer referência a um comentário de um pull request em outr pull request, os pull requests serão vinculados. Merging the referencing pull request also closes the referenced pull request.
+Se você usar uma palavra-chave para fazer referência a um comentário de um pull request em outr pull request, os pull requests serão vinculados. O merge da solicitação do pull request de referência também fecha o pull request referenciado.
 
 A sintaxe para fechar palavras-chave depende se o problema está no mesmo repositório que a pull request.
 
@@ -57,11 +57,10 @@ A sintaxe para fechar palavras-chave depende se o problema está no mesmo reposi
 | Problema em um repositório diferente | *KEYWORD* *OWNER*/*REPOSITORY*#*ISSUE-NUMBER* | `Fixes octo-org/octo-repo#100`                                 |
 | Múltiplos problemas                  | Usar sintaxe completa para cada problema      | `Resolves #10, resolves #123, resolves octo-org/octo-repo#100` |
 
-{% ifversion fpt or ghes or ghae or ghec %}Somente pull requests vinculadas manualmente podem ser desvinculadas. Para desvincular um problema que você vinculou usando uma palavra-chave, você deve editar a descrição da pull request para remover a palavra-chave.{% endif %}
+Somente pull requests vinculados manualmente podem ser desvinculados. Para desvincular um problema que você vinculou usando uma palavra-chave, você deve editar a descrição da pull request para remover a palavra-chave.
 
 Você também pode usar palavras-chave de fechamento em uma mensagem de commit. O problema será encerrado quando você mesclar o commit no branch padrão, mas o pull request que contém o commit não será listado como um pull request vinculado.
 
-{% ifversion fpt or ghes or ghae or ghec %}
 ## Vinculando manualmente uma pull request a um problema
 
 Qualquer pessoa com permissões de gravação em um repositório pode vincular manualmente uma pull request a um problema.
@@ -77,7 +76,6 @@ Você pode vincular manualmente até dez problemas para cada pull request. O pro
 4. Na barra lateral direita, clique em **Linked issues** (Problemas vinculados) ![Problemas vinculados na barra lateral direita](/assets/images/help/pull_requests/linked-issues.png)
 {% endif %}
 5. Clique no problema que você deseja associar à pull request. ![Menu suspenso para problemas vinculados](/assets/images/help/pull_requests/link-issue-drop-down.png)
-{% endif %}
 
 ## Leia mais
 

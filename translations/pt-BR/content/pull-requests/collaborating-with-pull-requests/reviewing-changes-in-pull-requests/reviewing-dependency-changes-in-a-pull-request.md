@@ -5,7 +5,7 @@ product: '{% data reusables.gated-features.dependency-review %}'
 versions:
   fpt: '*'
   ghes: '>= 3.2'
-  ghae: issue-4864
+  ghae: '*'
   ghec: '*'
 type: how_to
 topics:
@@ -36,7 +36,7 @@ shortTitle: Revisar alterações de dependência
 Revisão de dependência permite a você "desloque para a esquerda". Você pode usar as informações preditivas fornecidas para capturar dependências vulneráveis antes que elas cheguem à produção. Para obter mais informações, consulte "[Sobre a revisão de dependências](/code-security/supply-chain-security/about-dependency-review)".
 
 {% ifversion fpt or ghec or ghes > 3.5 or ghae-issue-6396 %}
-You can use the Dependency Review GitHub Action to help enforce dependency reviews on pull requests in your repository. For more information, see "[Dependency review enforcement](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review#dependency-review-enforcement)."
+Você pode usar a Revisão de Dependência do GitHub Action para ajudar a implementar revisões de dependências em pull requests no seu repositório. Para obter mais informações, consulte "[Aplicação da revisão de dependências](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review#dependency-review-enforcement)".
 {% endif %}
 
 ## Revisar as dependências em um pull request

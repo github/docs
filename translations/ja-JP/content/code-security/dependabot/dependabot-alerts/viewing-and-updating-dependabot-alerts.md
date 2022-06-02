@@ -11,7 +11,7 @@ shortTitle: Dependabotアラートの表示
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: issue-4864
+  ghae: '*'
   ghec: '*'
 type: how_to
 topics:
@@ -55,7 +55,7 @@ topics:
 
 {% note %}
 
-**ノート:** ベータリリースの間、この機能は2022年4月14日*以降*に生成された新規のPythonアドバイザリと、過去のPythonのアドバイザリの一部に対してのみ有効です。 GitHubは、さらなる過去のPythonアドバイザリにさかのぼってデータを加えていっています。これは、随時追加されていっています。 脆弱性のある呼び出しは、{% data variables.product.prodname_dependabot_alerts %}ページ上でのみハイライトされます。
+**ノート:** ベータリリースの間、この機能は2022年4月14日*以降*に生成された新規のPythonアドバイザリと、過去のPythonのアドバイザリの一部に対してのみ有効です。 {% data variables.product.prodname_dotcom %}は、さらなる過去のPythonアドバイザリにさかのぼってデータを加えていっています。これは、随時追加されていっています。 脆弱性のある呼び出しは、{% data variables.product.prodname_dependabot_alerts %}ページ上でのみハイライトされます。
 
 {% endnote %}
 
@@ -65,7 +65,7 @@ topics:
 
 脆弱性のある呼び出しが検出されたアラートについては、アラートの詳細ページに追加情報が表示されます。
 
-- 関数が使われている場所、もしくは複数の呼び出しがある場合には最初の呼び出しがあるコードブロック。
+- 関数が使用されている場所を示す1つ以上のコードブロック。
 - 関数自体をリストしているアノテーション。関数が呼ばれている行へのリンク付きで。
 
 !["Vulnerable call"ラベルの付いたアラートのアラート詳細ページを表示しているスクリーンショット](/assets/images/help/repository/review-calls-to-vulnerable-functions.png)

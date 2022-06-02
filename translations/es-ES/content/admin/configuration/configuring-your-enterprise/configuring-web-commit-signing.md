@@ -37,7 +37,7 @@ You can enable web commit signing, rotate the private key used for web commit si
    ```bash{:copy}
    ghe-config-apply
    ```
-1. Create a new user on {% data variables.product.product_location %} via built-in authentication or external authentication. For more information, see "[About authentication for your enterprise](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise)."
+1. Create a new user on {% data variables.product.product_location %} via built-in authentication or external authentication. Para obtener más información, consulta la sección "[Acerca de la autenticación para tu empresa](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise)".
    - The user's username must be `web-flow`.
    - The user's email address must be the same address you used for the PGP key.
 {% data reusables.enterprise_site_admin_settings.add-key-to-web-flow-user %}

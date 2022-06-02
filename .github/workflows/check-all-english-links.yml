@@ -30,17 +30,37 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@1f8c6b94b26d0feae1e387ca63ccbdc44d27b561
         with:
-          node-version: 16.14.x
+          node-version: 16.15.x
           cache: npm
-      - name: npm ci
+
+      - name: Install dependencies
         run: npm ci
+
       - name: Cache nextjs build
         uses: actions/cache@48af2dc4a9e8278b89d7fa154b955c30c6aaab09
         with:
           path: .next/cache
           key: ${{ runner.os }}-nextjs-${{ hashFiles('package*.json') }}
-      - name: npm run build
+
+      - name: Build server
         run: npm run build
+
+      - name: Start server in the background
+        env:
+          NODE_ENV: production
+          PORT: 4000
+          DISABLE_OVERLOAD_PROTECTION: true
+          DISABLE_RENDER_CACHING: true
+          # We don't want or need the changelog entries in this context.
+          CHANGELOG_DISABLED: true
+          # The default is 10s. But because this runs overnight, we can
+          # be a lot more patient.
+          REQUEST_TIMEOUT: 20000
+        run: |
+          node server.mjs &
+          sleep 5
+          curl --retry-connrefused --retry 3 -I http://localhost:4000/
+
       - name: Run script
         run: |
           script/check-english-links.js > broken_links.md
@@ -54,6 +74,16 @@ jobs:
       # https://docs.github.com/actions/reference/context-and-expression-syntax-for-github-actions#job-status-check-functions
 
       - if: ${{ failure() }}
+        name: Debug broken_links.md
+        run: |
+          ls -lh broken_links.md
+          wc -l broken_links.md
+      - uses: actions/upload-artifact@6673cd052c4cd6fcf4b4e6e60ea986c889389535
+        if: ${{ failure() }}
+        with:
+          name: broken_links
+          path: ./broken_links.md
+      - if: ${{ failure() }}
         name: Get title for issue
         id: check
         run: echo "::set-output name=title::$(head -1 broken_links.md)"
@@ -63,7 +93,6 @@ jobs:
         uses: peter-evans/create-issue-from-file@b4f9ee0a9d4abbfc6986601d9b1a4f8f8e74c77e
         with:
           token: ${{ env.GITHUB_TOKEN }}
-
           title: ${{ steps.check.outputs.title }}
           content-filepath: ./broken_links.md
           repository: ${{ env.REPORT_REPOSITORY }}

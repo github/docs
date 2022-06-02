@@ -7,6 +7,8 @@ versions:
   versions:
   fpt: '*'
   ghec: '*'
+topics: 
+  - Copilot
 ---
 
 ## Prerequisites

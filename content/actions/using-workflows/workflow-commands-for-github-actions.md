@@ -102,7 +102,7 @@ The following table shows which toolkit functions are available within a workflo
 | Toolkit function | Equivalent workflow command |
 | ----------------- |  ------------- |
 | `core.addPath`    | Accessible using environment file `GITHUB_PATH` |
-| `core.debug`      | `debug` |{% ifversion fpt or ghes > 3.2 or ghae-issue-4929 or ghec %}
+| `core.debug`      | `debug` |{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 | `core.notice`     | `notice` |{% endif %}
 | `core.error`      | `error` |
 | `core.endGroup`   | `endgroup` |
@@ -175,7 +175,7 @@ Write-Output "::debug::Set the Octocat variable"
 
 {% endpowershell %}
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4929 or ghec %}
+{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 
 ## Setting a notice message
 

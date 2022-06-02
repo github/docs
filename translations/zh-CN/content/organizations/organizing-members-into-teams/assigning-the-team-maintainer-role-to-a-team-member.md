@@ -31,10 +31,9 @@ permissions: Organization owners can promote team members to team maintainers.
 - [删除团队讨论](/articles/managing-disruptive-comments/#deleting-a-comment)
 - [添加组织成员到团队](/articles/adding-organization-members-to-a-team)
 - [从团队中删除组织成员](/articles/removing-organization-members-from-a-team)
-- 删除团队对仓库的访问权限{% ifversion fpt or ghes or ghae or ghec %}
-- [管理团队的代码审查任务](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team){% endif %}{% ifversion fpt or ghec %}
+- 删除团队对仓库的访问权限
+- [管理团队的代码审查任务](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team){% ifversion fpt or ghec %}
 - [管理拉取请求的预定提醒](/organizations/organizing-members-into-teams/managing-scheduled-reminders-for-your-team){% endif %}
-
 
 ## 将组织成员升级为团队维护员
 

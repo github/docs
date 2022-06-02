@@ -146,7 +146,7 @@ Algumas das funcionalidades listadas abaixo estão limitadas a organizações qu
 {% endif %}
 | Gerenciar revisões de pull request na organização (consulte "[Gerenciando revisões de pull request na sua organização](/organizations/managing-organization-settings/managing-pull-request-reviews-in-your-organization)")                                                                                                                           |     **X**     |             |             |                      |                             |
 
-{% elsif ghes > 3.2 or ghae-issue-4999 %}
+{% elsif ghes > 3.2 or ghae %}
 <!-- GHES 3.3+ and eventual GHAE release don't have the extra columns for Moderators and Billing managers. -->
 
 | Ação da organização                                                                                                                                                                                                                                                                                                                                  | Proprietários | Integrantes |            Gerentes de segurança             |

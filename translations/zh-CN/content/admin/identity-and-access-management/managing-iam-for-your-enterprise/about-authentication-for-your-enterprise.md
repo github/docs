@@ -19,7 +19,9 @@ topics:
 
 {% ifversion ghec %}
 
-{% data variables.product.product_name %} 上的企业所有者可以控制身份验证和访问企业资源的要求。 您可以选择允许成员创建和管理用户帐户，或者您的企业可以为成员创建和管理帐户。 如果您允许成员管理自己的帐户，则还可以配置 SAML 身份验证，以提高安全性，并集中团队使用的 Web 应用程序的身份和访问权限。 如果选择管理成员的用户帐户，则必须配置 SAML 身份验证。
+{% data variables.product.product_name %} 上的企业所有者可以控制身份验证和访问企业资源的要求。
+
+You can choose to allow members to create and manage user accounts, or your enterprise can create and manage accounts for members with {% data variables.product.prodname_emus %}. 如果您允许成员管理自己的帐户，则还可以配置 SAML 身份验证，以提高安全性，并集中团队使用的 Web 应用程序的身份和访问权限。 如果选择管理成员的用户帐户，则必须配置 SAML 身份验证。
 
 ## {% data variables.product.product_name %} 的身份验证方法
 

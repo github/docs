@@ -1,7 +1,7 @@
 ---
 title: Viewing the security overview
 intro: Navigate to the different views available in the security overview
-permissions: Organization owners and security managers can access the security overview for organizations. Members of a team can see the security overview for repositories that the team has admin privileges for.
+permissions: '{% data reusables.security-center.permissions %}'
 product: '{% data reusables.gated-features.security-center %}'
 versions:
   ghae: issue-5503
@@ -17,7 +17,7 @@ topics:
 shortTitle: View the security overview
 ---
 
-{% ifversion ghes < 3.5 or ghae-issue-4554 %}
+{% ifversion ghes < 3.5 or ghae %}
 {% data reusables.security-center.beta %}
 {% endif %}
 
@@ -29,7 +29,7 @@ shortTitle: View the security overview
   ![Show more button](/assets/images/help/organizations/security-overview-show-more-button.png)
 {% data reusables.organizations.filter-security-overview %}
 {% if security-overview-views %}
-1. Alternatively and optionally, use the sidebar on the left to filter information per security feature. On each page, you can use filters that are specific to each feature to fine-tune your search.
+{% data reusables.organizations.security-overview-feature-specific-page %}
   ![Screenshot of the code scanning-specific page](/assets/images/help/organizations/security-overview-code-scanning-alerts.png)
 
 ## Viewing alerts across your organization
@@ -46,6 +46,9 @@ shortTitle: View the security overview
 
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
 1. In the left sidebar, click {% octicon "shield" aria-label="The shield icon" %} **Code Security**.
+{% if security-overview-feature-specific-alert-page %}
+{% data reusables.organizations.security-overview-feature-specific-page %}
+{% endif %}
 {% endif %}
 
 ## Viewing alerts for a repository

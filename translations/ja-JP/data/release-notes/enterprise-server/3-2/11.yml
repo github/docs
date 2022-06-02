@@ -15,15 +15,15 @@ sections:
     - In a cluster environment, Git LFS operations could fail with failed internal API calls that crossed multiple web nodes.
     - Pre-receive hooks that used `gpg --import` timed out due to insufficient `syscall` privileges.
     - In some cluster topologies, webhook delivery information was not available.
-    - In HA configurations, tearing down a replica would fail if {% data variables.product.prodname_actions %} had previously been enabled.
+    - HA設定では、{% data variables.product.prodname_actions %}が以前に有効化されていた場合、レプリカの破棄が失敗します。
     - Elasticsearch health checks would not allow a yellow cluster status when running migrations.
     - Organizations created as a result of a user transforming their user account into an organization were not added to the global enterprise account.
-    - When using `ghe-migrator` or exporting from {% data variables.product.prodname_dotcom_the_website %}, a long-running export would fail when data was deleted mid-export.
+    - '`ghe-migrator`を使う場合、もしくは{% data variables.product.prodname_dotcom_the_website %}からエクスポートする場合、データがエクスポート中に削除されると実行に長時間かかるエクスポートが失敗します。'
     - The {% data variables.product.prodname_actions %} deployment graph would display an error when rendering a pending job.
     - Links to inaccessible pages were removed.
-    - Navigating away from a comparison of two commits in the web UI would have the diff persist in other pages.
+    - Web UIで2つのコミットの比較から別のところに移動すると、他のページにdiffが保持されます。
     - Adding a team as a reviewer to a pull request would sometimes show the incorrect number of members on that team.
-    - 'The [Remove team membership for a user](/rest/reference/teams#remove-team-membership-for-a-user) API endpoint would respond with an error when attempting to remove a member managed externally by a SCIM group.'
+    - '外部でSCIMグループにょって管理されているメンバーを削除しようとすると、[Remove team membership for a user](/rest/reference/teams#remove-team-membership-for-a-user) API エンドポイントがエラーを返します。'
     - A large number of dormant users could cause a {% data variables.product.prodname_github_connect %} configuration to fail.
     - The "Feature & beta enrollments" page in the Site admin web UI was incorrectly available.
     - The "Site admin mode" link in the site footer did not change state when clicked.
@@ -35,7 +35,7 @@ sections:
     - The “Triage” and “Maintain” team roles are preserved during repository migrations.
     - Performance has been improved for web requests made by enterprise owners.
   known_issues:
-    - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
+    - 新しくセットアップされたユーザを持たない{% data variables.product.prodname_ghe_server %}インスタンスで、攻撃者が最初の管理ユーザを作成できました。
     - アップグレードの過程で、カスタムのファイアウォールのルールが削除されます。
     - Git LFSが追跡するファイル[Webインターフェースからアップロードされたもの](https://github.com/blog/2105-upload-files-to-your-repositories)が、不正にリポジトリに直接追加されてしまいます。
     - 同じリポジトリ内のファイルパスが255文字を超えるblobへのパーマリンクを含むIssueをクローズできませんでした。
