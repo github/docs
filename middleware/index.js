@@ -67,10 +67,12 @@ import fastHead from './fast-head.js'
 import fastlyCacheTest from './fastly-cache-test.js'
 import fastRootRedirect from './fast-root-redirect.js'
 import trailingSlashes from './trailing-slashes.js'
+import fastlyBehavior from './fastly-behavior.js'
 
 const { DEPLOYMENT_ENV, NODE_ENV } = process.env
 const isDevelopment = NODE_ENV === 'development'
 const isAzureDeployment = DEPLOYMENT_ENV === 'azure'
+const isStaging = process.env.HEROKU_APP_NAME === 'help-docs-staging'
 const isTest = NODE_ENV === 'test' || process.env.GITHUB_ACTIONS === 'true'
 
 // Catch unhandled promise rejections and passing them to Express's error handler
@@ -244,6 +246,11 @@ export default function (app) {
   app.use(csp) // Must come after helmet
   app.use(cookieParser) // Must come before csrf
   app.use(express.json()) // Must come before csrf
+
+  if (isStaging) {
+    app.use(fastlyBehavior) // FOR TESTING. Must come before csrf
+  }
+
   app.use(csrf)
   app.use(handleCsrfErrors) // Must come before regular handle-errors
 
@@ -324,10 +331,12 @@ export default function (app) {
   app.use(asyncMiddleware(instrument(featuredLinks, './featured-links')))
   app.use(asyncMiddleware(instrument(learningTrack, './learning-track')))
 
-  // The fastlyCacheTest middleware is intended to be used with Fastly to test caching behavior.
-  // This middleware will intercept ALL requests routed to it, so be careful if you need to
-  // make any changes to the following line:
-  app.use('/fastly-cache-test/*', fastlyCacheTest)
+  if (isStaging) {
+    // The fastlyCacheTest middleware is intended to be used with Fastly to test caching behavior.
+    // This middleware will intercept ALL requests routed to it, so be careful if you need to
+    // make any changes to the following line:
+    app.use('/fastly-cache-test', fastlyCacheTest)
+  }
 
   // *** Headers for pages only ***
   app.use(setFastlyCacheHeaders)
