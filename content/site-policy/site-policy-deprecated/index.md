@@ -2,6 +2,8 @@
 title: Deprecated site policy articles
 allowTitleToDifferFromFilename: true
 hidden: true
+redirect_from:
+  - /github/site-policy-deprecated
 versions:
   fpt: '*'
 children:

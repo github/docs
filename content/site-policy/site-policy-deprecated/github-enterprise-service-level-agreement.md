@@ -6,6 +6,7 @@ redirect_from:
   - /github-business-cloud-addendum
   - /articles/github-enterprise-cloud-addendum
   - /github/site-policy/github-enterprise-service-level-agreement
+  - /github/site-policy-deprecated/github-enterprise-cloud-addendum
 versions:
   fpt: '*'
 ---

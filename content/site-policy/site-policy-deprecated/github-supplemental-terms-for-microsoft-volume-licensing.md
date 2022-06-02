@@ -5,6 +5,7 @@ redirect_from:
   - /articles/GitHub-Supplemental-Terms-for-Microsoft-Volume-Licensing
   - /articles/github-supplemental-terms-for-microsoft-volume-licensing
   - /github/site-policy/github-supplemental-terms-for-microsoft-volume-licensing
+  - /github/site-policy-deprecated/github-supplemental-terms-for-microsoft-volume-licensing
 versions:
   fpt: '*'
 ---
