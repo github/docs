@@ -35,6 +35,21 @@ Secure access to your enterprise on {% data variables.product.prodname_ghe_manag
 
 {% data variables.product.prodname_ghe_managed %} is available in the Azure Government cloud, the trusted cloud for US government agencies and their partners. {% data variables.product.prodname_ghe_managed %} is also available in the commercial cloud, so you can choose the hosting environment that is right for your organization.
 
+## Compliance accreditations
+
+{% data variables.product.company_short %} continues to invest in security best practices to make sure your data is safe, your developers are productive, and your team can focus on solving problems. As part of that commitment to security, {% data variables.product.prodname_ghe_managed %} maintains compliance with the following accreditations.
+
+- FedRAMP High Authorization to Operate (ATO)
+- SOC 1, SOC 2 Type II, and SOC 3
+- ISO/IEC certifications
+   - ISO/IEC 27001:2013 
+   - ISO/IEC 27701:2019
+   - ISO/IEC 9001:2015
+   - ISO/IEC 22301:2019 
+   - ISO/IEC 27018:2014 
+   - ISO/IEC 20000-1:2018 
+   - ISO/IEC 27017:2015
+
 ## Further reading
 
 - "[About versions of {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs)"

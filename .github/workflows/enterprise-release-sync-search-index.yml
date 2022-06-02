@@ -50,9 +50,9 @@ jobs:
           token: ${{ secrets.DOCUBOT_REPO_PAT }}
 
       - name: Setup Node
-        uses: actions/setup-node@1f8c6b94b26d0feae1e387ca63ccbdc44d27b561
+        uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048
         with:
-          node-version: 16.15.x
+          node-version: '16.15.0'
           cache: npm
 
       - name: Install dependencies
