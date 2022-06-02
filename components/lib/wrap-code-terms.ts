@@ -12,12 +12,11 @@ export default function wrapCodeTerms() {
   if (!codeTerms) return
 
   codeTerms.forEach((node) => {
-    // Return early if a child node is an anchor element
-    const hasChildAnchor = Array.from(node.childNodes).some((child) => child.nodeName === 'A')
-    if (hasChildAnchor) return
-
-    // Do the wrapping on the inner text only
+    // Do the wrapping on the inner text only.  With anchor element children
+    // we'll only handle the case where the code term only has a single child
+    // and that child is an anchor element.
     const oldText = escape(node.textContent || '')
+    const anchorChild = node.querySelector('a')
 
     const newText = oldText.replace(wordsLongerThan18Chars, (str) => {
       return (
@@ -33,6 +32,10 @@ export default function wrapCodeTerms() {
       )
     })
 
-    node.innerHTML = node.innerHTML.replace(oldText, newText)
+    if (anchorChild && node.childNodes.length === 1) {
+      anchorChild.innerHTML = anchorChild.innerHTML.replace(oldText, newText)
+    } else {
+      node.innerHTML = node.innerHTML.replace(oldText, newText)
+    }
   })
 }
