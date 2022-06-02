@@ -1,5 +1,5 @@
 ---
-title: Publishing a repository security advisory
+title: Publicar una asesoría de seguridad de repositorio
 intro: Puedes publicar una asesoría de seguridad para alertar a tu comunidad sobre la vulnerabilidad de seguridad en tu proyecto.
 redirect_from:
   - /articles/publishing-a-maintainer-security-advisory
@@ -15,7 +15,7 @@ topics:
   - Vulnerabilities
   - CVEs
   - Repositories
-shortTitle: Publish repository advisories
+shortTitle: Publicar asesorías de repositorio
 ---
 
 <!--Marketing-LINK: From /features/security/software-supply-chain page "Publishing a security advisory".-->
@@ -28,7 +28,7 @@ Cualquiera con permisos de administrador en una asesoría de seguridad puede pub
 
 Antes de que puedas publicar una asesoría de seguridad o solicitar un número de identificación de CVE, debes crear un borrador de asesoría de seguridad y proporcionar información acerca de las versiones de tu proyecto que se vieron afectadas por la vulnerabilidad de seguridad. Para obtener más información, consulta la sección "[Crear una asesoría de seguridad de repositorio](/code-security/repository-security-advisories/creating-a-repository-security-advisory)".
 
-Si creaste una asesoría de seguridad pero no has proporcionado detalles sobre las versiones de tu proyecto que afectó la vulnerabilidad, puedes editarla. For more information, see "[Editing a repository security advisory](/code-security/repository-security-advisories/editing-a-repository-security-advisory)."
+Si creaste una asesoría de seguridad pero no has proporcionado detalles sobre las versiones de tu proyecto que afectó la vulnerabilidad, puedes editarla. Para obtener más información, consulta la sección "[Editar una asesoría de seguridad de repositorio](/code-security/repository-security-advisories/editing-a-repository-security-advisory)".
 
 ## Acerca de publicar una asesoría de seguridad
 
@@ -36,7 +36,7 @@ Cuando publicas una asesoría de seguridad, notificas a tu comunidad acerca de l
 
 {% data reusables.repositories.security-advisories-republishing %}
 
-Antes de que publiques una asesoría de seguridad, puedes hacer una colaboración privada para arreglar la vulnerabilidad en una bifurcación privada. For more information, see "[Collaborating in a temporary private fork to resolve a repository security vulnerability](/code-security/repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability)."
+Antes de que publiques una asesoría de seguridad, puedes hacer una colaboración privada para arreglar la vulnerabilidad en una bifurcación privada. Para obtener más información, consulta la sección "[Colaborar en una bifurcación privada temporal para resolver una vulnerabilidad de seguridad](/code-security/repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability)".
 
 {% warning %}
 
@@ -81,7 +81,7 @@ El publicar una asesoría de seguridad borra la bifurcación temporal privada pa
 
 ## Solicitar un número de identificación de CVE (Opcional)
 
-{% data reusables.repositories.request-security-advisory-cve-id %} For more information, see "[About {% data variables.product.prodname_security_advisories %} for repositories](/code-security/repository-security-advisories/about-github-security-advisories-for-repositories#cve-identification-numbers)."
+{% data reusables.repositories.request-security-advisory-cve-id %} Para obtener más información, consulta la sección "[Acerca de las {% data variables.product.prodname_security_advisories %} para los repositorios](/code-security/repository-security-advisories/about-github-security-advisories-for-repositories#cve-identification-numbers)".
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
@@ -92,4 +92,4 @@ El publicar una asesoría de seguridad borra la bifurcación temporal privada pa
 
 ## Leer más
 
-- "[Withdrawing a repository security advisory](/code-security/repository-security-advisories/withdrawing-a-repository-security-advisory)"
+- "[Retirar una asesoría de seguridad de repositorio](/code-security/repository-security-advisories/withdrawing-a-repository-security-advisory)"

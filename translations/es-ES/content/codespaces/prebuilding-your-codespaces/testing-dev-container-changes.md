@@ -1,5 +1,5 @@
 ---
-title: Testing dev container configuration changes on a prebuild-enabled branch
+title: Probar los cambios de configuración de contenedor dev en una rama con precompilación habilitada
 shortTitle: Cambios de contenedor dev de pruebas
 allowTitleToDifferFromFilename: true
 intro: 'Cuando cambias la configuración del contenedor dev para una rama que se habilita para las precompilaciones, debes probar tus cambios en un codespace.'

@@ -124,7 +124,7 @@ sections:
       heading: 'パフォーマンス'
       notes:
         - |
-          Page loads and jobs are now significantly faster for repositories with many Git refs.
+          多くのGit refを持つリポジトリで、ページのロードとジョブが大幅に高速化されました。
     - 
       heading: '管理'
       notes:
