@@ -1,1 +1,1 @@
-1. Create a new Java (.java) file.
+1. Create a new Java (_*.java_) file.
