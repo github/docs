@@ -2,7 +2,7 @@ import { cacheControlFactory } from './cache-control.js'
 
 const noCacheControl = cacheControlFactory(0)
 
-export default async function remoteIp(req, res, next) {
+export default function remoteIp(req, res, next) {
   noCacheControl(res)
   res.json({
     ip: req.ip,

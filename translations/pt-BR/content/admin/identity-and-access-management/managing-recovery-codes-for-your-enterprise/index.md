@@ -10,7 +10,7 @@ topics:
   - Enterprise
   - SSO
 children:
-  - /downloading-your-enterprise-accounts-saml-single-sign-on-recovery-codes
+  - /downloading-your-enterprise-accounts-single-sign-on-recovery-codes
   - /accessing-your-enterprise-account-if-your-identity-provider-is-unavailable
 ---
 

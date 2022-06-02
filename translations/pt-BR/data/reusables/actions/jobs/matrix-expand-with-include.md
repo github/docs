@@ -1,4 +1,4 @@
-For example, the following workflow will run six jobs, one for each combination of `os` and `node`. When the job for the `os` value of `windows-latest` and `node` value of `16` runs, an additional variable called `npm` with the value of `6` will be included in the job.
+Por exemplo, o fluxo de trabalho a seguir irá executar seis trabalhos, um para cada combinação de `os` e `node`. Quando o valor do trabalho para o `os` de `windows-latest` e o valor `node` de `16` for executado, uma variável adicional chamada `npm` com o valor de `6` será incluída no trabalho.
 
 ```yaml
 jobs:
