@@ -45,6 +45,9 @@ prodname_github_connect: 'GitHub Connect'
 prodname_unified_contributions: 'unified contributions'
 prodname_unified_search: 'unified search'
 
+# GitHub Enterprise migration tool
+prodname_importer_proper_name: 'GitHub Enterprise Importer'
+
 # GitHub Education
 prodname_education: 'GitHub Education'
 prodname_education_community: 'Education Community'
@@ -102,10 +105,11 @@ prodname_discussions: 'GitHub Discussions'
 
 # GitHub Enterprise Managed Users
 prodname_emu_idp_application: 'GitHub Enterprise Managed User'
+prodname_emu_idp_oidc_application: 'GitHub Enterprise Managed User (OIDC)'
 prodname_emus: 'Enterprise Managed Users'
-prodname_managed_user: 'managed user'
-prodname_managed_users: 'managed users'
-prodname_managed_users_caps: 'Managed users'
+prodname_managed_user: 'managed user account'
+prodname_managed_users: 'managed user accounts'
+prodname_managed_users_caps: 'Managed user accounts'
 prodname_emu_enterprise: 'enterprise with managed users'
 prodname_emu_org: 'organization with managed users'
 
