@@ -1,5 +1,5 @@
 ---
-title: About GitHub Security Advisories for repositories
+title: Acerca de las asesorías de seguridad de GitHub para los repositorios
 intro: 'Puedes usar {% data variables.product.prodname_security_advisories %} para discutir, corregir y publicar información sobre vulnerabilidades de seguridad en tu repositorio.'
 redirect_from:
   - /articles/about-maintainer-security-advisories
@@ -14,7 +14,7 @@ topics:
   - Security advisories
   - Vulnerabilities
   - CVEs
-shortTitle: Repository security advisories
+shortTitle: Asesorías de seguridad de los repositorios
 ---
 
 {% data reusables.repositories.security-advisory-admin-permissions %}
@@ -29,17 +29,17 @@ shortTitle: Repository security advisories
 
 Con {% data variables.product.prodname_security_advisories %}, puedes:
 
-1. Crear un borrador de asesoría de seguridad y utilizarlo para debatir de manera privada sobre el impacto de la vulnerabilidad en tu proyecto. For more information, see "[Creating a repository security advisory](/code-security/repository-security-advisories/creating-a-repository-security-advisory)."
+1. Crear un borrador de asesoría de seguridad y utilizarlo para debatir de manera privada sobre el impacto de la vulnerabilidad en tu proyecto. Para obtener más información, consulta la sección "[Crear una asesoría de seguridad de repositorio](/code-security/repository-security-advisories/creating-a-repository-security-advisory)".
 2. Colaborar en privado para solucionar la vulnerabilidad en una bifurcación privada temporaria.
-3. Publica la asesoría de seguridad para alertar a tu comunidad sobre la vulnerabilidad una vez que se lance el parche. For more information, see "[Publishing a repository security advisory](/code-security/repository-security-advisories/publishing-a-repository-security-advisory)."
+3. Publica la asesoría de seguridad para alertar a tu comunidad sobre la vulnerabilidad una vez que se lance el parche. Para obtener más información, consulta la sección "[Publicar una asesoría de seguridad de repositorio](/code-security/repository-security-advisories/publishing-a-repository-security-advisory)".
 
 {% data reusables.repositories.security-advisories-republishing %}
 
-Puedes dar crédito a los individuos que contribuyeron con una asesoría de seguridad. For more information, see "[Editing a repository security advisory](/code-security/repository-security-advisories/editing-a-repository-security-advisory#about-credits-for-security-advisories)."
+Puedes dar crédito a los individuos que contribuyeron con una asesoría de seguridad. Para obtener más información, consulta la sección "[Editar una asesoría de seguridad de repositorio](/code-security/repository-security-advisories/editing-a-repository-security-advisory#about-credits-for-security-advisories)".
 
 {% data reusables.repositories.security-guidelines %}
 
-Si creaste una asesoría de seguridad en tu repositorio, esta permanecerá en tu repositorio. Publicamos las asesorías de seguridad para cualquiera de los ecosistemas compatibles con la gráfica de dependencias de la {% data variables.product.prodname_advisory_database %} en [github.com/advisories](https://github.com/advisories). Anyone can submit a change to an advisory published in the {% data variables.product.prodname_advisory_database %}. For more information, see "[Editing security advisories in the {% data variables.product.prodname_advisory_database %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/editing-security-advisories-in-the-github-advisory-database)."
+Si creaste una asesoría de seguridad en tu repositorio, esta permanecerá en tu repositorio. Publicamos las asesorías de seguridad para cualquiera de los ecosistemas compatibles con la gráfica de dependencias de la {% data variables.product.prodname_advisory_database %} en [github.com/advisories](https://github.com/advisories). Cualquiera puede enviar un cambio a una asesoría que se haya publicado en la {% data variables.product.prodname_advisory_database %}. Para obtener más información, consulta la sección "[Editar las asesorías de seguridad en la {% data variables.product.prodname_advisory_database %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/editing-security-advisories-in-the-github-advisory-database)".
 
 Si una asesoría de seguridad es específicamente para npm, también la publicamos en las asesorías de seguridad de npm. Para obtener más información, consulta el sitio [npmjs.com/advisories](https://www.npmjs.com/advisories).
 

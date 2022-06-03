@@ -123,7 +123,7 @@ Predeterminadamente, cuando creas una organización nueva, `GITHUB_TOKEN` solo t
 1. Da clic en **Guardar** para aplicar la configuración.
 
 {% if allow-actions-to-approve-pr %}
-### Preventing {% data variables.product.prodname_actions %} from {% if allow-actions-to-approve-pr-with-ent-repo %}creating or {% endif %}approving pull requests
+### Prevenir que {% data variables.product.prodname_actions %} {% if allow-actions-to-approve-pr-with-ent-repo %}cree o {% endif %}apruebe solicitudes de cambios
 
 {% data reusables.actions.workflow-pr-approval-permissions-intro %}
 

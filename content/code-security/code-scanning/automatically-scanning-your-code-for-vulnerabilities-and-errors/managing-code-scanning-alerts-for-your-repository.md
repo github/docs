@@ -186,7 +186,8 @@ When you dismiss an alert:
 - It's dismissed in all branches.
 - The alert is removed from the number of current alerts for your project.
 - The alert is moved to the "Closed" list in the summary of alerts, from where you can reopen it, if required.
-- The reason why you closed the alert is recorded.
+- The reason why you closed the alert is recorded.{% if comment-dismissed-code-scanning-alert %} 
+- Optionally, you can comment on a dismissal to record the context of an alert dismissal.{% endif %}
 - Next time {% data variables.product.prodname_code_scanning %} runs, the same code won't generate an alert.
 
 {% if delete-code-scanning-alerts %}When you delete an alert:
@@ -219,8 +220,11 @@ To dismiss {% if delete-code-scanning-alerts %}or delete{% endif %} alerts:
 {% else %}
   ![List of alerts from {% data variables.product.prodname_code_scanning %}](/assets/images/enterprise/3.1/help/repository/code-scanning-click-alert.png)
 {% endif %}
-1. Review the alert, then click **Dismiss** and choose a reason for closing the alert.
-   ![Choosing a reason for dismissing an alert](/assets/images/help/repository/code-scanning-alert-close-drop-down.png)
+1. Review the alert, then click {% if comment-dismissed-code-scanning-alert %}**Dismiss alert** and choose, or type, a reason for closing the alert. 
+  ![Screenshot of code scanning alert with dropdown to choose dismissal reason emphasized](/assets/images/help/repository/code-scanning-alert-drop-down-reason.png)
+{% else %}**Dismiss** and choose a reason for closing the alert.
+  ![Choosing a reason for dismissing an alert](/assets/images/help/repository/code-scanning-alert-close-drop-down.png)
+{% endif %}
 
    {% data reusables.code-scanning.choose-alert-dismissal-reason %}
 

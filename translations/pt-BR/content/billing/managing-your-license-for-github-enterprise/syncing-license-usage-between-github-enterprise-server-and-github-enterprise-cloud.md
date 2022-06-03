@@ -14,6 +14,8 @@ shortTitle: Sincronizar uso da licença
 
 ## Sobre a sincronização do uso da licença
 
+{% data reusables.enterprise-licensing.unique-user-licensing-model %}
+
 {% data reusables.enterprise-licensing.about-license-sync %}
 
 Para garantir que você irá ver os detalhes de licença atualizados sobre {% data variables.product.prodname_dotcom_the_website %}, você pode sincronizar o uso da licença entre os ambientes automaticamente, usando {% data variables.product.prodname_github_connect %}. Para obter mais informações sobre {% data variables.product.prodname_github_connect %}, consulte "[Sobre {% data variables.product.prodname_github_connect %}]({% ifversion ghec %}/enterprise-server@latest{% endif %}/admin/configuration/configuring-github-connect/about-github-connect){% ifversion ghec %}" na documentação de {% data variables.product.prodname_ghe_server %}.{% elsif ghes %}."{% endif %}

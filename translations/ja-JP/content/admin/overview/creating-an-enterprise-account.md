@@ -16,7 +16,7 @@ shortTitle: Create enterprise account
 
 {% data variables.product.prodname_ghe_cloud %} includes the option to create an enterprise account, which enables collaboration between multiple organizations and gives administrators a single point of visibility and management. 詳細は「[Enterprise アカウントについて](/admin/overview/about-enterprise-accounts)」を参照してください。
 
-{% data reusables.enterprise.create-an-enterprise-account %} If you pay by invoice, you can create an enterprise account yourself on {% data variables.product.prodname_dotcom %}. If not, you can [contact our sales team](https://github.com/enterprise/contact?ref_page=/pricing&ref_cta=Contact%20Sales&ref_loc=cards) to move to invoicing.
+{% data reusables.enterprise.create-an-enterprise-account %} If you pay by invoice, you can create an enterprise account yourself on {% data variables.product.prodname_dotcom %}. If not, you can [contact our sales team](https://github.com/enterprise/contact?ref_page=/pricing&ref_cta=Contact%20Sales&ref_loc=cards) to create an enterprise account for you.
 
 An enterprise account is included in {% data variables.product.prodname_ghe_cloud %}, so creating one will not affect your bill.
 
@@ -29,7 +29,10 @@ If the organization is connected to {% data variables.product.prodname_ghe_serve
 
 ## Creating an enterprise account on {% data variables.product.prodname_dotcom %}
 
-To create an enterprise account on {% data variables.product.prodname_dotcom %}, your organization must be using {% data variables.product.prodname_ghe_cloud %} and paying by invoice.
+To create an enterprise account, your organization must be using {% data variables.product.prodname_ghe_cloud %}.
+
+If you pay by invoice, you can create an enterprise account directly through {% data variables.product.prodname_dotcom %}. If you do not currently pay by invoice, you can [contact our sales team](https://github.com/enterprise/contact?ref_page=/pricing&ref_cta=Contact%20Sales&ref_loc=cards) to create an enterprise account for you.
+
 
 {% data reusables.organizations.billing-settings %}
 1. Click **Upgrade to enterprise account**.

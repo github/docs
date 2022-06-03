@@ -61,11 +61,11 @@ Apenas os integrantes da organização com a função de *proprietário* ou *ger
 
 Uma conta corporativa permite que você gerencie centralmente as políticas e configurações para várias organizações {% data variables.product.prodname_dotcom %}, incluindo acesso de integrantes, cobrança e uso e segurança. Para obter mais informações, consulte "[Sobre contas corporativas](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts)".
 
-#### 2. Creating an enterpise account
+#### 2. Criando uma conta corporativa
 
- {% data variables.product.prodname_ghe_cloud %} customers paying by invoice can create an enterprise account directly through {% data variables.product.prodname_dotcom %}. For more information, see "[Creating an enterprise account](/enterprise-cloud@latest/admin/overview/creating-an-enterprise-account)."
+ Os clientes de {% data variables.product.prodname_ghe_cloud %} que pagam por fatura podem criar uma conta corporativa diretamente por meio de {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte[Criando uma conta corporativa](/enterprise-cloud@latest/admin/overview/creating-an-enterprise-account)".
 
- {% data variables.product.prodname_ghe_cloud %} customers not currently paying by invoice can contact [{% data variables.product.prodname_dotcom %}'s Sales team](https://enterprise.github.com/contact) to create an enterprise account for you.
+ Os clientes de {% data variables.product.prodname_ghe_cloud %} que não pagam por fatura podem entrar em contato com a [equipe de vendas de {% data variables.product.prodname_dotcom %}](https://enterprise.github.com/contact) para criar uma conta corporativa para você.
 
 #### 3. Adicionar organizações à conta corporativa
 
