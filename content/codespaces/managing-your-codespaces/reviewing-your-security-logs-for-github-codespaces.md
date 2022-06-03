@@ -10,6 +10,8 @@ topics:
   - Codespaces
   - Developer
   - Security
+redirect_from:
+  - /codespaces/managing-your-codespaces/reviewing-your-security-logs-for-codespaces
 ---
 
  
