@@ -11,6 +11,6 @@ children:
   - /using-github-copilot-in-github-codespaces
   - /using-the-vs-code-command-palette-in-codespaces
   - /security-in-github-codespaces
-  - /disaster-recovery-for-codespaces
+  - /disaster-recovery-for-github-codespaces
 ---
 

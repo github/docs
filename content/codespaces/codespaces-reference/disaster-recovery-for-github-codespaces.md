@@ -8,6 +8,8 @@ product: '{% data reusables.gated-features.codespaces %}'
 topics:
   - Codespaces
 shortTitle: Disaster recovery
+redirect_from:
+  - /codespaces/codespaces-reference/disaster-recovery-for-codespaces
 ---
 
 We work hard to make sure that {% data variables.product.prodname_github_codespaces %} is always available to you. However, forces beyond our control sometimes impact the service in ways that can cause unplanned service disruptions.
