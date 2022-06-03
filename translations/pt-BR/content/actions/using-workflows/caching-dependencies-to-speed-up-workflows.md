@@ -160,7 +160,7 @@ jobs:
             {% raw %}${{ runner.os }}-build-{% endraw %}
             {% raw %}${{ runner.os }}-{% endraw %}
 
-      - if: {% raw %}${{ steps.cache-npm.outputs.cache-hit == false }}{% endraw %}
+      - if: {% raw %}${{ steps.cache-npm.outputs.cache-hit == 'false' }}{% endraw %}
         name: List the state of node modules
         continue-on-error: true
         run: npm list
@@ -230,7 +230,7 @@ No exemplo de fluxo de trabalho acima, há uma etapa que lista o estado dos mód
 
 
 ```yaml
-- if: {% raw %}${{ steps.cache-npm.outputs.cache-hit == false }}{% endraw %}
+- if: {% raw %}${{ steps.cache-npm.outputs.cache-hit == 'false' }}{% endraw %}
   name: List the state of node modules
   continue-on-error: true
   run: npm list

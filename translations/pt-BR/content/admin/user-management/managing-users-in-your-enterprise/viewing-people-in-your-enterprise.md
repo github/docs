@@ -87,7 +87,7 @@ Se você usar {% data variables.product.prodname_vss_ghe %}, a lista de convites
    ![Captura de tela da aba "Convites pendentes" na barra lateral](/assets/images/help/enterprises/pending-invitations-tab.png)
 1. Opcionalmente, para cancelar todos os convites de uma conta para participar de organizações pertencentes à sua empresa, à direita da conta, clique em {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} e depois clique em **Cancelar convite**.
 
-   ![Screenshot of the "Cancel invitation" button](/assets/images/help/enterprises/cancel-enterprise-member-invitation.png)
+   ![Captura de tela do botão "Cancelar convite"](/assets/images/help/enterprises/cancel-enterprise-member-invitation.png)
 1. Opcionalmente, para visualizar os convites pendentes para administradores corporativos ou colaboradores externos, em "Integrantes pendentes", clique em **Administradores** ou **Colaboradores externos**.
 
    ![Captura de tela das abas "Membros", "Administradores", e "Colaboradores externos"](/assets/images/help/enterprises/pending-invitations-type-tabs.png)
@@ -106,6 +106,17 @@ Se sua empresa usa {% data variables.product.prodname_emus %}, você também pod
 ## Exibir usuários inativos
 
 Você pode ver uma lista de todos os usuários desativados {% ifversion ghes or ghae %} que não foram suspensos e {% endif %}que não são administradores do site. {% data reusables.enterprise-accounts.dormant-user-activity-threshold %} Para obter mais informações, consulte "[Gerenciar usuários inativos](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users)".
+
+{% ifversion ghec or ghes > 3.1 %}
+## Viewing members without an email address from a verified domain
+
+You can view a list of members in your enterprise who don't have an email address from a verified domain associated with their user account on {% data variables.product.prodname_dotcom_the_website %}.
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.verified-domains-tab %}
+1. Under "Notification preferences", click the {% octicon "eye" aria-label="The github eye icon" %} **View enterprise members without an approved or verified domain email** link.
+{% endif %}
 
 ## Leia mais
 

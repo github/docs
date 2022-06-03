@@ -1,5 +1,5 @@
 ---
-title: Pre-receive Hooks
+title: Hooks pre-receive
 intro: 'A API de hooks pre-receive permite que você crie, liste, atualize e apague hooks pre-receive.'
 versions:
   ghes: '*'
