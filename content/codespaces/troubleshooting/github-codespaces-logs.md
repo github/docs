@@ -10,6 +10,8 @@ topics:
   - Codespaces
   - Logging
 shortTitle: Codespaces logs
+redirect_from:
+  - /codespaces/troubleshooting/codespaces-logs
 ---
 
 
