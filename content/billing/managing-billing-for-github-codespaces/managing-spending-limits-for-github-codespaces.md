@@ -14,6 +14,8 @@ topics:
   - User account
   - Billing
 shortTitle: Spending limits
+redirect_from:
+  - /billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces
 ---
 ## About spending limits for {% data variables.product.prodname_github_codespaces %}
 
