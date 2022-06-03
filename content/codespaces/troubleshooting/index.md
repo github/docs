@@ -15,7 +15,7 @@ children:
   - /github-codespaces-logs
   - /exporting-changes-to-a-branch
   - /troubleshooting-creation-and-deletion-of-codespaces
-  - /troubleshooting-your-connection-to-codespaces
+  - /troubleshooting-your-connection-to-github-codespaces
   - /troubleshooting-prebuilds
   - /troubleshooting-dotfiles-for-codespaces
   - /troubleshooting-port-forwarding-for-codespaces
