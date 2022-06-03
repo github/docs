@@ -1,6 +1,6 @@
 ---
 title: Using GitHub Copilot in GitHub Codespaces
-intro: You can use Copilot in {% data variables.product.prodname_github_codespaces %} by adding the extension.
+intro: 'You can use Copilot in {% data variables.product.prodname_github_codespaces %} by adding the extension.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -13,6 +13,7 @@ product: '{% data reusables.gated-features.codespaces %}'
 shortTitle: Copilot in Codespaces
 redirect_from:
   - /codespaces/codespaces-reference/using-copilot-in-codespaces
+  - /codespaces/codespaces-reference/using-github-copilot-in-codespaces
 ---
 
 ## Using {% data variables.product.prodname_copilot %}
