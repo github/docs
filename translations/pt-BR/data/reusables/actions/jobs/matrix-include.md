@@ -32,7 +32,7 @@ resultará em seis trabalhos com as seguintes combinações de matriz:
 seguindo esta lógica:
 
 - `{color: green}` é adicionado a todas as combinações de matrizes originais, porque pode ser adicionado sem substituir nenhuma parte das combinações originais.
-- `{color: pink, animal: cat}` adiciona `color>pink` apenas para as combinações originais da matriz que incluem `animal: cat`. This overwrites the `color: green` that was added by the previous `include` entry.
-- `{fruit: apple, shape: circle}` adds `shape: circle` only to the original matrix combinations that include `fruit: apple`.
-- `{fruit: banana}` cannot be added to any original matrix combination without overwriting a value, so it is added as an additional matrix combination.
-- `{fruit: banana, animal: cat}` cannot be added to any original matrix combination without overwriting a value, so it is added as an additional matrix combination. It does not add to the `{fruit: banana}` matrix combination because that combination was not one of the original matrix combinations.
+- `{color: pink, animal: cat}` adiciona `color>pink` apenas para as combinações originais da matriz que incluem `animal: cat`. Isto sobrescreve `color: green` que foi adicionada pela entrada `incluir` anterior.
+- `{fruit: apple, shape: circle}` adiciona `shape: circle` apenas às combinações da matriz original que incluem `fruit: apple`.
+- `{fruit: banana}` não pode ser adicionado a qualquer combinação da matriz original sem substituir um valor. Portanto, ele é adicionado como uma combinação da matriz adicional.
+- `{fruit: banana, animal: cat}` não pode ser adicionado a qualquer combinação da matriz original sem substituir um valor. Portanto, ele é adicionado como uma combinação da matriz adicional. Não se adiciona à combinação da matriz `{fruit: banana}` porque essa combinação não era uma das combinações originais da matriz.

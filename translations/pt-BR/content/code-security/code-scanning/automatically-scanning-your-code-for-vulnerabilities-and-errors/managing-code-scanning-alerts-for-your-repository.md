@@ -180,7 +180,8 @@ Ao descartar um alerta:
 - Ele é ignorado em todos os branches.
 - O alerta é removido do número de alertas atuais para o seu projeto.
 - O alerta é movido para a lista "Fechado" no resumo dos alertas, onde você pode reabri-lo, se necessário.
-- O motivo pelo qual você fechou o alerta foi gravado.
+- The reason why you closed the alert is recorded.{% if comment-dismissed-code-scanning-alert %}
+- Optionally, you can comment on a dismissal to record the context of an alert dismissal.{% endif %}
 - Da próxima vez que {% data variables.product.prodname_code_scanning %} for executado, o mesmo código não gerará um alerta.
 
 {% if delete-code-scanning-alerts %}Ao excluir um alerta:
@@ -213,7 +214,10 @@ Para ignorar{% if delete-code-scanning-alerts %}ou excluir{% endif %} alertas:
 {% else %}
   ![Lista de alertas de {% data variables.product.prodname_code_scanning %}](/assets/images/enterprise/3.1/help/repository/code-scanning-click-alert.png)
 {% endif %}
-1. Revise o alerta e clique em **Ignorar** e escolha um motivo para fechar o alerta. ![Escolher um motivo para ignorar um alerta](/assets/images/help/repository/code-scanning-alert-close-drop-down.png)
+1. Review the alert, then click {% if comment-dismissed-code-scanning-alert %}**Dismiss alert** and choose, or type, a reason for closing the alert. ![Screenshot of code scanning alert with dropdown to choose dismissal reason emphasized](/assets/images/help/repository/code-scanning-alert-drop-down-reason.png)
+{% else %}**Dismiss** and choose a reason for closing the alert.
+  ![Escolher um motivo para ignorar um alerta](/assets/images/help/repository/code-scanning-alert-close-drop-down.png)
+{% endif %}
 
    {% data reusables.code-scanning.choose-alert-dismissal-reason %}
 

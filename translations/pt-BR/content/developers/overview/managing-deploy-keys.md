@@ -4,6 +4,9 @@ intro: Aprenda maneiras diferentes de gerenciar chaves SSH em seus servidores ao
 redirect_from:
   - /guides/managing-deploy-keys
   - /v3/guides/managing-deploy-keys
+  - /deploy-keys
+  - /articles/managing-deploy-keys
+  - /multiple-keys
 versions:
   fpt: '*'
   ghes: '*'

@@ -7,9 +7,9 @@ sections:
     - 'Los ajustes de almacenamiento de GitHub Packages no pudieron validarse y se guardaron en la Consola de Administración cuando se utilizó Azure Blob Storage.'
     - 'La opción de configuración mssql.backup.cadence falló la ghe-config-check con una advertencia de conjunto de caracteres inválida.'
     - 'Corrige SystemStackError (se apilaron demasiado profundamente) al obtener más de 2<sup>^16</sup> llaves del memcached.'
-    - 'A number of select menus across the site rendered incorrectly and were not functional.'
+    - 'Varios menús selectos en todo el sitio se mostraron incorrectamente y no fueron funcionales.'
   changes:
-    - 'Dependency Graph can now be enabled without vulnerability data, allowing customers to see what dependencies are in use and at what versions. Enabling Dependency Graph without enabling GitHub Connect will *not* provide vulnerability information.'
+    - 'La gráfica de dependencias ahora puede habilitarse sin datos de vulnerabilidades, lo que permite a los clientes ver qué dependencias se utilizan y en qué versiones. El habilitar la gráfica de dependencias sin habilitar a GitHub Connect *no* proporcionará información de la vulnerabilidad.'
     - 'EL escaneo de secretos dejará de escanear los archivos ZIP y de otros tipos en búsqueda de secretos.'
   known_issues:
     - 'Después de haber actualizado a {% data variables.product.prodname_ghe_server %} 3.3, podría que las {% data variables.product.prodname_actions %} no inicien automáticamente. Para resolver este problema, conéctate al aplicativo a través de SSH y ejecuta el comando `ghe-actions-start`.'
