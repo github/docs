@@ -1,20 +1,37 @@
----
-title: 'Setting up your repository for {% data variables.product.prodname_codespaces %}'
-allowTitleToDifferFromFilename: true
-intro: 'Learn how to get started with {% data variables.product.prodname_codespaces %}, including set up and configuration for specific languages.'
-product: '{% data reusables.gated-features.codespaces %}'
-versions:
-  fpt: '*'
-  ghec: '*'
-redirect_from:
-  - /codespaces/getting-started-with-codespaces
-children:
-  - /introduction-to-dev-containers
-  - /setting-up-your-project-for-codespaces
-  - /setting-up-your-nodejs-project-for-codespaces
-  - /setting-up-your-dotnet-project-for-codespaces
-  - /setting-up-your-java-project-for-codespaces
-  - /setting-up-your-python-project-for-codespaces
-  - /setting-a-minimum-specification-for-codespace-machines
----
+#include <stdio.h>
+#include <conio.h>
+void main()
+{
 
+    int i, replace, replaced;
+    int len;
+    system("cls");
+    system("cls");
+    printf("Enter the arrey length:");
+    scanf("%d", &len);
+    int arrey[len];
+
+    printf("enter  %d arrey elements:", len);
+    for (i = 0; i < len; i++)
+    {
+        printf(" arr[%d] = ", i);
+        scanf("%d", &arrey[i]);
+    }
+
+    printf("\nenter the number you wanna replace = ");
+    scanf("%d", &replace);
+    printf("\nenter the element to be placed = ");
+    scanf("%d", &replaced);
+
+    for (i = 0; i < len; i++)
+    {
+        if (arrey[i] == replace)
+            arrey[i] = replaced;
+    }
+
+    printf("\nupdated arrey=");
+    for (i = 0; i < len; i++)
+    {
+        printf("\narrey[%d] = %d", i, arrey[i]);
+    }
+}
