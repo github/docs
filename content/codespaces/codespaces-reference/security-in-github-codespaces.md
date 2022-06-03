@@ -10,6 +10,8 @@ topics:
   - Security
 type: reference
 shortTitle: Security in Codespaces
+redirect_from:
+  - /codespaces/codespaces-reference/security-in-codespaces
 ---
 
 ## Overview of codespace security

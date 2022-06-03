@@ -10,7 +10,7 @@ children:
   - /allowing-your-codespace-to-access-a-private-image-registry
   - /using-github-copilot-in-github-codespaces
   - /using-the-vs-code-command-palette-in-codespaces
-  - /security-in-codespaces
+  - /security-in-github-codespaces
   - /disaster-recovery-for-codespaces
 ---
 
