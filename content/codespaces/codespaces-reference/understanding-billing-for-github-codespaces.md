@@ -8,6 +8,7 @@ redirect_from:
   - /github/developing-online-with-codespaces/about-billing-for-codespaces
   - /codespaces/getting-started-with-codespaces/about-billing-for-codespaces
   - /codespaces/codespaces-reference/about-billing-for-codespaces
+  - /codespaces/codespaces-reference/understanding-billing-for-codespaces
 type: reference
 topics:
   - Codespaces
