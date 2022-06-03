@@ -10,6 +10,7 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/configuring-scim-provisioning-for-enterprise-managed-users-with-okta
   - /admin/authentication/managing-your-enterprise-users-with-your-identity-provider/configuring-scim-provisioning-for-enterprise-managed-users-with-okta
   - /admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users-with-okta
+  - /admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/configuring-scim-provisioning-for-enterprise-managed-users-with-okta
 type: tutorial
 topics:
   - Accounts
@@ -20,9 +21,9 @@ topics:
 
 ## Sobre o provisionamento com Okta
 
-Você pode usar {% data variables.product.prodname_emus %} com o Okta como seu provedor de identidade para fornecer novas contas, gerenciar a associação da empresa e gerenciar as associações das equipes para as organizações na sua empresa. Para obter mais informações sobre provisionamento para {% data variables.product.prodname_emus %}, consulte "[Configurando provisionamento de SCIM para usuários corporativos gerenciados](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/configuring-scim-provisioning-for-enterprise-managed-users)".
+Você pode usar {% data variables.product.prodname_emus %} com o Okta como seu provedor de identidade para fornecer novas contas, gerenciar a associação da empresa e gerenciar as associações das equipes para as organizações na sua empresa. Para obter mais informações sobre provisionamento para {% data variables.product.prodname_emus %}, consulte "[Configurando provisionamento de SCIM para usuários corporativos gerenciados](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users)".
 
-Antes de configurar o provisionamento com o Okta, você deverá configurar o logon único SAML. Para obter mais informações, consulte "[Configurando o logon único SAML para Usuários Gerenciados pela Empresa](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/configuring-saml-single-sign-on-for-enterprise-managed-users)."
+Antes de configurar o provisionamento com o Okta, você deverá configurar o logon único SAML. Para obter mais informações, consulte "[Configurando o logon único SAML para Usuários Gerenciados pela Empresa](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-saml-single-sign-on-for-enterprise-managed-users)."
 
 Para configurar o provisionamento com o Okta, você deverá definir o nome da sua empresa no aplicativo {% data variables.product.prodname_emu_idp_application %} e inserir o token de acesso pessoal do seu usuário. Em seguida, você poderá começar a provisionar usuários no Okta.
 
@@ -79,7 +80,7 @@ Depois de configurar o SAML SSO e o provisionamento, você poderá fornecer novo
 
 {% data reusables.scim.emu-scim-rate-limit %}
 
-Você também pode gerenciar automaticamente a associação da organização ao atribuir grupos ao aplicativo e adicioná-los à aba "Grupos de Push" no Okta. Quando o grupo for provisionado com sucesso, ele estará disponível para conectar-se a equipes das organizações da empresa. Para obter mais informações sobre gerenciamento de equipes, consulte "[Gerenciando associações de equipe com grupos de provedores de identidade](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/managing-team-memberships-with-identity-provider-groups)".
+Você também pode gerenciar automaticamente a associação da organização ao atribuir grupos ao aplicativo e adicioná-los à aba "Grupos de Push" no Okta. Quando o grupo for provisionado com sucesso, ele estará disponível para conectar-se a equipes das organizações da empresa. Para obter mais informações sobre gerenciamento de equipes, consulte "[Gerenciando associações de equipe com grupos de provedores de identidade](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/managing-team-memberships-with-identity-provider-groups)".
 
 Ao atribuir aos usuários, você poderá usar o atributo "Funções" no aplicativo de {% data variables.product.prodname_emu_idp_application %} para definir a função de um usuário na sua empresa em {% data variables.product.product_name %}. Para obter mais informações sobre funções, consulte "[Funções em uma empresa](/github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise/roles-in-an-enterprise)".
 
