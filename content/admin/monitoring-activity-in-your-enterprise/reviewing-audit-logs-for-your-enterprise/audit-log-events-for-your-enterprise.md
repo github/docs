@@ -22,8 +22,18 @@ topics:
   - Security
 ---
 
+{% ifversion ghec%}
+## About audit log events for your enterprise
+
+The scope of the events that appear in your enterprise's audit log depend on whether your enterprise uses {% data variables.product.prodname_emus %}. For more information about {% data variables.product.prodname_emus %}, see "[About {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/about-enterprise-managed-users)."
+
+- If your enterprise does not use {% data variables.product.prodname_emus %}, the audit log only includes events related to the enterprise account and the organizations within the enterprise account, which are listed in this article.
+- If your enterprise uses {% data variables.product.prodname_emus %}, the audit log also includes user events for {% data variables.product.prodname_managed_users %}, such as each time the user logs in to {% data variables.product.product_name %}. For a list of these events, see "[Reviewing your security log](/authentication/keeping-your-account-and-data-secure/reviewing-your-security-log#security-log-actions)."
+{% endif %}
+
+
 {%- ifversion fpt or ghec %}
-### `account` category actions
+## `account` category actions
 
 | Action | Description
 |--------|-------------
@@ -34,7 +44,7 @@ topics:
 {%- endif %}
 
 {%- ifversion fpt or ghec %}
-### `advisory_credit` category actions
+## `advisory_credit` category actions
 
 | Action | Description
 |--------|-------------
@@ -44,14 +54,14 @@ topics:
 | `advisory_credit.destroy` | The administrator of a security advisory removed someone from the credit section.
 {%- endif %}
 
-### `artifact` category actions
+## `artifact` category actions
 
 | Action | Description
 |--------|-------------
 | `artifact.destroy`    | A workflow run artifact was manually deleted.
 
 {%- ifversion ghec %}
-### `audit_log_streaming` category actions
+## `audit_log_streaming` category actions
 
 | Action | Description
 |--------|-------------
@@ -62,7 +72,7 @@ topics:
 {%- endif %}
 
 {%- ifversion fpt or ghec %}
-### `billing` category actions
+## `billing` category actions
 
 | Action | Description
 |--------|-------------
@@ -70,7 +80,7 @@ topics:
 | `billing.change_email` | An organization's billing email address changed. For more information, see "[Setting your billing email](/billing/managing-your-github-billing-settings/setting-your-billing-email)."
 {%- endif %}
 
-### `business` category actions
+## `business` category actions
 
 | Action | Description
 |--------|-------------
@@ -148,7 +158,7 @@ topics:
 {%- endif %}
 
 {%- if secret-scanning-audit-log-custom-patterns %}
-### `business_secret_scanning_custom_pattern` category actions
+## `business_secret_scanning_custom_pattern` category actions
 
 Action                        | Description
 ----------------------------- | -----------------------------------------------
@@ -157,7 +167,7 @@ Action                        | Description
 | `business_secret_scanning_custom_pattern.update` | Changes to an enterprise-level custom pattern are saved for secret scanning.
 {%- endif %}
 
-### `checks` category actions
+## `checks` category actions
 
 | Action | Description
 |--------|-------------
@@ -168,7 +178,7 @@ Action                        | Description
 {%- endif %}
 
 {%- ifversion fpt or ghec %}
-### `codespaces` category actions
+## `codespaces` category actions
 
 | Action | Description
 |--------|-------------
@@ -184,7 +194,7 @@ Action                        | Description
 {%- endif %}
 
 {%- ifversion fpt or ghec %}
-### `commit_comment` category actions
+## `commit_comment` category actions
 
 | Action | Description
 |--------|-------------
@@ -193,7 +203,7 @@ Action                        | Description
 {%- endif %}
 
 {%- ifversion ghes %}
-### `config_entry` category actions
+## `config_entry` category actions
 
 | Action | Description
 |--------|-------------
@@ -203,21 +213,21 @@ Action                        | Description
 {%- endif %}
 
 {%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
-### `dependabot_alerts` category actions
+## `dependabot_alerts` category actions
 
 | Action | Description
 |--------|-------------
 | `dependabot_alerts.disable` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} disabled {% data variables.product.prodname_dependabot_alerts %} for all existing {% ifversion fpt or ghec %}private {% endif %}repositories. For more information, see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
 | `dependabot_alerts.enable` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} enabled {% data variables.product.prodname_dependabot_alerts %} for all existing {% ifversion fpt or ghec %}private {% endif %}repositories.
 
-### `dependabot_alerts_new_repos` category actions
+## `dependabot_alerts_new_repos` category actions
 
 | Action | Description
 |--------|-------------
 | `dependabot_alerts_new_repos.disable` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} disabled {% data variables.product.prodname_dependabot_alerts %} for all new {% ifversion fpt or ghec %}private {% endif %}repositories. For more information, see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
 | `dependabot_alerts_new_repos.enable` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} enabled {% data variables.product.prodname_dependabot_alerts %} for all new {% ifversion fpt or ghec %}private {% endif %}repositories.
 
-### `dependabot_repository_access`category actions
+## `dependabot_repository_access`category actions
 
 | Action | Description
 |--------|-------------
@@ -225,14 +235,14 @@ Action                        | Description
 {%- endif %}
 
 {%- ifversion fpt or ghec or ghes > 3.2 %}
-### `dependabot_security_updates` category actions
+## `dependabot_security_updates` category actions
 
 | Action | Description
 |--------|-------------
 | `dependabot_security_updates.disable` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} disabled {% data variables.product.prodname_dependabot_security_updates %} for all existing repositories. For more information, see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
 | `dependabot_security_updates.enable` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} enabled {% data variables.product.prodname_dependabot_security_updates %} for all existing repositories.
 
-### `dependabot_security_updates_new_repos` category actions
+## `dependabot_security_updates_new_repos` category actions
 
 | Action | Description
 |--------|-------------
@@ -241,14 +251,14 @@ Action                        | Description
 {%- endif %}
 
 {%- ifversion fpt or ghec or ghes or ghae %}
-### `dependency_graph` category actions
+## `dependency_graph` category actions
 
 | Action | Description
 |--------|-------------
 | `dependency_graph.disable` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} disabled the dependency graph for all existing repositories. For more information, see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
 | `dependency_graph.enable` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} enabled the dependency graph for all existing repositories.
 
-### `dependency_graph_new_repos` category actions
+## `dependency_graph_new_repos` category actions
 
 | Action | Description
 |--------|-------------
@@ -257,27 +267,27 @@ Action                        | Description
 {%- endif %}
 
 {%- ifversion fpt or ghec %}
-### `discussion` category actions
+## `discussion` category actions
 
 | Action | Description
 |--------|-------------
 | `discussion.destroy` | A team discussion was deleted.
 
-### `discussion_comment` category actions
+## `discussion_comment` category actions
 
 | Action | Description
 |--------|-------------
 | `discussion_comment.destroy` | A [comment on a team discussion post was deleted](/communities/moderating-comments-and-conversations/managing-disruptive-comments#deleting-a-comment).
 | `discussion_comment.update` | A [comment on a team discussion post was edited](/communities/moderating-comments-and-conversations/managing-disruptive-comments#editing-a-comment).
 
-### `discussion_post` category actions
+## `discussion_post` category actions
 
 | Action | Description
 |--------|-------------
 | `discussion_post.destroy` | A [team discussion post was deleted](/organizations/collaborating-with-your-team/editing-or-deleting-a-team-discussion).
 | `discussion_post.update` | A [team discussion post was edited](/organizations/collaborating-with-your-team/editing-or-deleting-a-team-discussion).
 
-### `discussion_post_reply` category actions
+## `discussion_post_reply` category actions
 
 | Action | Description
 |--------|-------------
@@ -286,7 +296,7 @@ Action                        | Description
 {%- endif %}
 
 {%- ifversion ghec or ghes %}
-### `dotcom_connection` category actions
+## `dotcom_connection` category actions
 
 | Action | Description
 |--------|-------------
@@ -297,7 +307,7 @@ Action                        | Description
 | `dotcom_connection.upload_usage_metrics` | {% data variables.product.prodname_ghe_server %} usage metrics were uploaded to {% data variables.product.prodname_dotcom_the_website %}.
 {%- endif %}
 
-### `enterprise` category actions
+## `enterprise` category actions
 
 | Action | Description
 |--------|-------------
@@ -326,7 +336,7 @@ Action                        | Description
 {%- endif %}
 
 {%- ifversion ghec %}
-### `enterprise_domain` category actions
+## `enterprise_domain` category actions
 
 | Action | Description
 |--------|-------------
@@ -335,7 +345,7 @@ Action                        | Description
 | `enterprise_domain.destroy` | An enterprise domain was removed from an enterprise. For more information, see "[Removing an approved or verified domain](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise#removing-an-approved-or-verified-domain)."
 | `enterprise_domain.verify` | An enterprise domain was verified for an enterprise. For more information, see "[Verifying a domain for your enterprise account](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise#verifying-a-domain-for-your-enterprise-account)."
 
-### `enterprise_installation` category actions
+## `enterprise_installation` category actions
 
 | Action | Description
 |--------|-------------
@@ -345,7 +355,7 @@ Action                        | Description
 {%- endif %}
 
 {%- ifversion fpt or ghec %}
-### `environment` category actions
+## `environment` category actions
 
 | Action | Description
 |--------|-------------
@@ -359,7 +369,7 @@ Action                        | Description
 {%- endif %}
 
 {%- ifversion ghae %}
-### `external_group` category actions
+## `external_group` category actions
 
 | Action | Description
 |--------|-------------
@@ -369,7 +379,7 @@ Action                        | Description
 | `external_group.unlink` | An Okta group was unmapped from a {% data variables.product.prodname_ghe_managed %} team. For more information, see "[Mapping Okta groups to teams](/admin/identity-and-access-management/configuring-authentication-and-provisioning-with-your-identity-provider/mapping-okta-groups-to-teams)."
 | `external_group.update` | An Okta group's settings were updated. For more information, see "[Mapping Okta groups to teams](/admin/identity-and-access-management/configuring-authentication-and-provisioning-with-your-identity-provider/mapping-okta-groups-to-teams)."
 
-### `external_identity` category actions
+## `external_identity` category actions
 | Action | Description
 |--------|-------------
 | `external_identity.deprovision` | A user was removed from an Okta group and was subsequently deprovisioned from {% data variables.product.prodname_ghe_managed %}. For more information, see "[Mapping Okta groups to teams](/admin/identity-and-access-management/configuring-authentication-and-provisioning-with-your-identity-provider/mapping-okta-groups-to-teams)."
@@ -377,7 +387,7 @@ Action                        | Description
 | `external_identity.update` | An Okta user's settings were updated. For more information, see "[Mapping Okta groups to teams](/admin/identity-and-access-management/configuring-authentication-and-provisioning-with-your-identity-provider/mapping-okta-groups-to-teams)."
 {%- endif %}
 
-### `gist` category actions
+## `gist` category actions
 
 | Action | Description
 |--------|-------------
@@ -386,7 +396,7 @@ Action                        | Description
 | `gist.visibility_change` | The visibility of a gist is changed.
 
 {% ifversion ghec or ghes > 3.4 or ghae-issue-6724 %}
-### `git` category actions
+## `git` category actions
 
 | Action | Description
 |--------|-------------
@@ -395,7 +405,7 @@ Action                        | Description
 | `git.push`  | Changes were pushed to a repository.
 {% endif %}
 
-### `hook` category actions
+## `hook` category actions
 
 | Action | Description
 |--------|-------------
@@ -407,7 +417,7 @@ Action                        | Description
 | `hook.destroy`                    | A hook was deleted.
 | `hook.events_changed`             | A hook's configured events were changed.
 
-### `integration` category actions
+## `integration` category actions
 
 | Action | Description
 |--------|-------------
@@ -420,7 +430,7 @@ Action                        | Description
 | `integration.revoke_all_tokens` | All user tokens for an integration were requested to be revoked.
 | `integration.revoke_tokens` | Token(s) for an integration were revoked.
 
-### `integration_installation`category actions
+## `integration_installation`category actions
 
 | Action | Description
 |--------|-------------
@@ -435,7 +445,7 @@ Action                        | Description
 {%- endif %}
 | `integration_installation.version_updated` | Permissions for an integration were updated.
 
-### `integration_installation_request` category actions
+## `integration_installation_request` category actions
 
 | Action | Description
 |--------|-------------
@@ -443,7 +453,7 @@ Action                        | Description
 | `integration_installation_request.close` | A request to install an integration for use in an enterprise or organization was either approved or denied by an owner, or canceled by the member who opened the request.
 
 {%- ifversion ghec or ghae %}
-### `ip_allow_list` category actions
+## `ip_allow_list` category actions
 
 | Action | Description
 |--------|-------------
@@ -452,7 +462,7 @@ Action                        | Description
 | `ip_allow_list.disable`              | An IP allow list was disabled.
 | `ip_allow_list.disable_for_installed_apps` | An IP allow list was disabled for installed {% data variables.product.prodname_github_apps %}.
 
-### `ip_allow_list_entry` category actions
+## `ip_allow_list_entry` category actions
 
 | Action | Description
 |--------|-------------
@@ -461,7 +471,7 @@ Action                        | Description
 | `ip_allow_list_entry.destroy` | An IP address was deleted from an IP allow list.
 {%- endif %}
 
-### `issue` category actions
+## `issue` category actions
 
 | Action | Description
 |--------|-------------
@@ -470,7 +480,7 @@ Action                        | Description
 | `issue.transfer`                     | An issue was transferred to another repository. For more information, see "[Transferring an issue to another repository](/issues/tracking-your-work-with-issues/transferring-an-issue-to-another-repository)."
 | `issue.unpinned`                     | An issue was unpinned from a repository. For more information, see "[Pinning an issue to your repository](/issues/tracking-your-work-with-issues/pinning-an-issue-to-your-repository)."
 
-### `issue_comment` category actions
+## `issue_comment` category actions
 
 | Action | Description
 |--------|-------------
@@ -479,7 +489,7 @@ Action                        | Description
 | `issue_comment.unpinned` | A comment on an issue was unpinned from a repository.
 | `issue_comment.update`   | A comment on an issue (other than the initial one) changed.
 
-### `issues` category actions
+## `issues` category actions
 
 | Action | Description
 |--------|-------------
@@ -488,13 +498,13 @@ Action                        | Description
 | `issues.deletes_policy_cleared` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} cleared the policy setting for allowing members to delete issues in an enterprise. For more information, see "[Enforcing a policy for deleting issues](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-deleting-issues)."
 
 {%- ifversion fpt or ghec %}
-### `marketplace_agreement_signature` category actions
+## `marketplace_agreement_signature` category actions
 
 | Action | Description
 |--------|-------------
 | `marketplace_agreement_signature.create` | A user signed the {% data variables.product.prodname_marketplace %} Developer Agreement on behalf of an organization.
 
-### `marketplace_listing` category actions
+## `marketplace_listing` category actions
 
 | Action | Description
 |--------|-------------
@@ -506,21 +516,21 @@ Action                        | Description
 | `marketplace_listing.reject` | A listing was not accepted for inclusion in {% data variables.product.prodname_marketplace %}.
 {%- endif %}
 
-### `members_can_create_pages` category actions
+## `members_can_create_pages` category actions
 
 | Action | Description
 |--------|-------------
 | `members_can_create_pages.disable` | The ability for members to publish {% data variables.product.prodname_pages %} was disabled. Members cannot publish {% data variables.product.prodname_pages %} in an organization. For more information, see "[Managing the publication of GitHub Pages sites for your organization](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)."
 | `members_can_create_pages.enable` | The ability for members to publish {% data variables.product.prodname_pages %} was enabled. Members can publish {% data variables.product.prodname_pages %} in an organization. For more information, see "[Managing the publication of GitHub Pages sites for your organization](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)."
 
-### `members_can_create_private_pages` category actions
+## `members_can_create_private_pages` category actions
 
 | Action | Description
 |--------|-------------
 | `members_can_create_private_pages.disable` | The ability for members to publish private {% data variables.product.prodname_pages %} was disabled. Members cannot publish private {% data variables.product.prodname_pages %} in an organization. For more information, see "[Managing the publication of GitHub Pages sites for your organization](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)."
 | `members_can_create_private_pages.enable` |  The ability for members to publish private {% data variables.product.prodname_pages %} was enabled. Members can publish private {% data variables.product.prodname_pages %} in an organization. For more information, see "[Managing the publication of GitHub Pages sites for your organization](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)."
 
-### `members_can_create_public_pages` category actions
+## `members_can_create_public_pages` category actions
 
 | Action | Description
 |--------|-------------
@@ -528,7 +538,7 @@ Action                        | Description
 | `members_can_create_public_pages.enable` |  The ability for members to publish public {% data variables.product.prodname_pages %} was enabled. Members can publish public {% data variables.product.prodname_pages %} in an organization. For more information, see "[Managing the publication of GitHub Pages sites for your organization](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)."
 
 {%- ifversion ghec or ghes or ghae %}
-### `members_can_delete_repos` category actions
+## `members_can_delete_repos` category actions
 
 | Action | Description
 |--------|-------------
@@ -536,7 +546,7 @@ Action                        | Description
 | `members_can_delete_repos.disable` | The ability for enterprise members to delete repositories was disabled. Members cannot delete or transfer repositories in any organizations in an enterprise. For more information, see "[Enforcing a policy for repository deletion and transfer](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-repository-deletion-and-transfer)."
 | `members_can_delete_repos.enable` |  The ability for enterprise members to delete repositories was enabled. Members can delete or transfer repositories in any organizations in an enterprise. For more information, see "[Enforcing a policy for repository deletion and transfer](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-repository-deletion-and-transfer)."
 
-### `members_can_view_dependency_insights` category actions
+## `members_can_view_dependency_insights` category actions
 
 | Action | Description
 |--------|-------------
@@ -544,7 +554,7 @@ Action                        | Description
 | `members_can_view_dependency_insights.disable` | The ability for enterprise members to view dependency insights was disabled. Members cannot view dependency insights in any organizations in an enterprise.{% ifversion ghec %} For more information, see "[Enforcing a policy for visibility of dependency insights](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-dependency-insights-in-your-enterprise)."{% endif %}
 | `members_can_view_dependency_insights.enable` |  The ability for enterprise members to view dependency insights was enabled. Members can view dependency insights in any organizations in an enterprise.{% ifversion ghec %} For more information, see "[Enforcing a policy for visibility of dependency insights](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-dependency-insights-in-your-enterprise)."{% endif %}
 
-### `migration` category actions
+## `migration` category actions
 
 | Action | Description
 |--------|-------------
@@ -553,7 +563,7 @@ Action                        | Description
 |  `migration.download` | A migration file for transferring data from a *source* location (such as a {% data variables.product.prodname_dotcom_the_website %} organization or a {% data variables.product.prodname_ghe_server %} instance) to a *target* {% data variables.product.prodname_ghe_server %} instance was downloaded.
 {%- endif %}
 
-### `oauth_access` category actions
+## `oauth_access` category actions
 
 | Action | Description
 |--------|-------------
@@ -562,7 +572,7 @@ Action                        | Description
 
   [OAuth access token]: /developers/apps/building-oauth-apps/authorizing-oauth-apps
 
-### `oauth_application` category actions
+## `oauth_application` category actions
 
 | Action | Description
 |--------|-------------
@@ -585,7 +595,7 @@ Action                        | Description
   [OAuth application]: /guides/basics-of-authentication/#registering-your-app
 
 {%- ifversion fpt or ghec %}
-### `oauth_authorization` category actions
+## `oauth_authorization` category actions
 
 | Action | Description
 |--------|-------------
@@ -594,7 +604,7 @@ Action                        | Description
 | `oauth_authorization.update`          | An authorization for an OAuth application was updated. For more information, see "[Authorizing OAuth Apps](/authentication/keeping-your-account-and-data-secure/authorizing-oauth-apps)."
 {%- endif %}
 
-### `org` category actions
+## `org` category actions
 
 | Action | Description
 |--------|-------------
@@ -743,7 +753,7 @@ Action                        | Description
 {%- endif %}
 
 {%- ifversion ghec or ghes or ghae %}
-### `org_credential_authorization` category actions
+## `org_credential_authorization` category actions
 
 | Action | Description
 |--------|-------------
@@ -753,7 +763,7 @@ Action                        | Description
 {%- endif %}
 
 {%- if secret-scanning-audit-log-custom-patterns %}
-### `org_secret_scanning_custom_pattern` category actions
+## `org_secret_scanning_custom_pattern` category actions
 
 | Action | Description
 |--------|---------------
@@ -762,7 +772,7 @@ Action                        | Description
 | `org_secret_scanning_custom_pattern.update` |Changes to a custom pattern are saved for secret scanning in an organization. For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#editing-a-custom-pattern)."
 {%- endif %}
 
-### `organization_default_label` category actions
+## `organization_default_label` category actions
 
 | Action | Description
 |--------|-------------
@@ -771,7 +781,7 @@ Action                        | Description
 | `organization_default_label.destroy` | A default label for repositories in an organization was deleted. For more information, see "[Deleting a default label](/organizations/managing-organization-settings/managing-default-labels-for-repositories-in-your-organization#deleting-a-default-label)."
 
 {%- ifversion fpt or ghec or ghes > 3.1 %}
-### `organization_domain` category actions
+## `organization_domain` category actions
 
 | Action | Description
 |--------|-------------
@@ -780,7 +790,7 @@ Action                        | Description
 | `organization_domain.destroy` | An enterprise domain was removed from an organization. For more information, see "[Removing an approved or verified domain](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization#removing-an-approved-or-verified-domain)."
 | `organization_domain.verify` | An enterprise domain was verified for an organization. For more information, see "[Verifying a domain for your organization](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization#verifying-a-domain-for-your-organization)."
 
-### `organization_projects_change` category actions
+## `organization_projects_change` category actions
 
 | Action | Description
 |--------|-------------
@@ -790,7 +800,7 @@ Action                        | Description
 {%- endif %}
 
 {%- ifversion fpt or ghec or ghes > 3.0 or ghae %}
-### `packages` category actions
+## `packages` category actions
 
 | Action | Description
 |--------|-------------
@@ -808,7 +818,7 @@ Action                        | Description
 {%- endif %}
 
 {%- ifversion fpt or ghec %}
-### `pages_protected_domain` category actions
+## `pages_protected_domain` category actions
 
 | Action | Description
 |--------|-------------
@@ -816,7 +826,7 @@ Action                        | Description
 | `pages_protected_domain.delete` | A {% data variables.product.prodname_pages %} verified domain was deleted from an organization or enterprise. For more information, see "[Verifying your custom domain for {% data variables.product.prodname_pages %}](/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages)."
 | `pages_protected_domain.verify`  | A {% data variables.product.prodname_pages %} domain was verified for an organization or enterprise. For more information, see "[Verifying your custom domain for {% data variables.product.prodname_pages %}](/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages)."
 
-### `payment_method` category actions
+## `payment_method` category actions
 
 | Action | Description
 |--------|-------------
@@ -824,7 +834,7 @@ Action                        | Description
 | `payment_method.remove` | A payment method was removed.
 | `payment_method.update` | An existing payment method was updated.
 
-### `prebuild_configuration` category actions
+## `prebuild_configuration` category actions
 
 | Action | Description
 |--------|-------------
@@ -835,7 +845,7 @@ Action                        | Description
 {%- endif %}
 
 {%- ifversion ghes %}
-### `pre_receive_environment` category actions
+## `pre_receive_environment` category actions
 
 | Action | Description
 | ------ | -----------
@@ -844,7 +854,7 @@ Action                        | Description
 | `pre_receive_environment.download` | A pre-receive hook environment was downloaded. For more information, see "[Creating a pre-receive hook environment](/admin/policies/enforcing-policy-with-pre-receive-hooks/creating-a-pre-receive-hook-environment)."
 | `pre_receive_environment.update` | A pre-receive hook environment was updated. For more information, see "[Creating a pre-receive hook environment](/admin/policies/enforcing-policy-with-pre-receive-hooks/creating-a-pre-receive-hook-environment)."
 
-### `pre_receive_hook` category actions
+## `pre_receive_hook` category actions
 
 | Action | Description
 |--------|-------------
@@ -856,7 +866,7 @@ Action                        | Description
 | `pre_receive_hook.warned_push` | A pre-receive hook warned about a push.
 {%- endif %}
 
-### `private_repository_forking` category actions
+## `private_repository_forking` category actions
 
 | Action | Description
 |--------|-------------
@@ -865,14 +875,14 @@ Action                        | Description
 | `private_repository_forking.enable` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} enabled the policy setting for allowing forks of private and internal repositories, for a repository, organization or enterprise. Private and internal repositories are always allowed to be forked. For more information, see "[Managing the forking policy for your repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-forking-policy-for-your-repository), "[Managing the forking policy for your organization](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization) and for enterprises "[Enforcing a policy for forking private or internal repositories](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-forking-private-or-internal-repositories)."
 
 {%- ifversion fpt or ghec %}
-### `profile_picture` category actions
+## `profile_picture` category actions
 
 | Action | Description
 |--------|-------------
 | `profile_picture.update` | A profile picture was updated.
 {%- endif %}
 
-### `project` category actions
+## `project` category actions
 
 | Action | Description
 |--------|-------------
@@ -889,14 +899,14 @@ Action                        | Description
 | `project.update_user_permission` | An organization member or outside collaborator was added to or removed from a project board or had their permission level changed. For more information, see "[Managing an individual’s access to an organization project board](/organizations/managing-access-to-your-organizations-project-boards/managing-an-individuals-access-to-an-organization-project-board)."
 
 {%- ifversion fpt or ghec %}
-### `project_field` category actions
+## `project_field` category actions
 
 | Action | Description
 |--------|-------------
 | `project_field.create` | A field was created in a project board. For more information, see "[Creating a project (beta)](/issues/trying-out-the-new-projects-experience/creating-a-project#adding-fields)."
 | `project_field.delete` | A field was deleted in a project board. For more information, see "[Creating a project (beta)](/issues/trying-out-the-new-projects-experience/creating-a-project#adding-fields)."
 
-### `project_view` category actions
+## `project_view` category actions
 
 | Action | Description
 |--------|-------------
@@ -904,7 +914,7 @@ Action                        | Description
 | `project_view.delete` | A view was deleted in a project board. For more information, see "[Customizing your project (beta) views](/issues/trying-out-the-new-projects-experience/customizing-your-project-views#deleting-a-saved-view)."
 {%- endif %}
 
-### `protected_branch` category actions
+## `protected_branch` category actions
 
 | Action | Description
 |--------|-------------
@@ -933,7 +943,7 @@ Action                        | Description
 | `protected_branch.update_strict_required_status_checks_policy` | Enforcement of required status checks was updated on a branch.
 | `protected_branch.update_name` | A branch name pattern was updated for a branch.
 
-### `public_key` category actions
+## `public_key` category actions
 
 | Action | Description
 |--------|-------------
@@ -949,7 +959,7 @@ Action                        | Description
   [deploy key]: /developers/overview/managing-deploy-keys#deploy-keys
 
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
-### `pull_request` category actions
+## `pull_request` category actions
 
 | Action | Description
 |--------|-------------
@@ -967,7 +977,7 @@ Action                        | Description
 | `pull_request_review.dismiss` | A review on a pull request was dismissed. For more information, see "[Dismissing a pull request review](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)."
 | `pull_request_review.submit` | A review was submitted for a pull request. For more information, see "[About pull request reviews](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)."
 
-### `pull_request_review` category actions
+## `pull_request_review` category actions
 
 | Action | Description
 |--------|-------------
@@ -975,7 +985,7 @@ Action                        | Description
 | `pull_request_review.dismiss` | A review on a pull request was dismissed. For more information, see "[Dismissing a pull request review](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)."
 | `pull_request_review.submit` | A review on a pull request was submitted. For more information, see "[Submitting your review](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request#submitting-your-review)."
 
-### `pull_request_review_comment` category actions
+## `pull_request_review_comment` category actions
 
 | Action | Description
 |--------|-------------
@@ -984,7 +994,7 @@ Action                        | Description
 | `pull_request_review_comment.update` | A review comment on a pull request was changed.
 {%- endif %}
 
-### `repo` category actions
+## `repo` category actions
 
 | Action | Description
 |--------|-------------
@@ -1060,7 +1070,7 @@ Action                        | Description
 | `repo.update_member` | A user's permission to a repository was changed.
 
 {%- ifversion fpt or ghec %}
-### `repository_advisory` category actions
+## `repository_advisory` category actions
 
 | Action | Description
 |--------|-------------
@@ -1073,14 +1083,14 @@ Action                        | Description
 | `repository_advisory.reopen` | Someone reopened as draft security advisory.
 | `repository_advisory.update` | Someone edited a draft or published security advisory.
 
-### `repository_content_analysis` category actions
+## `repository_content_analysis` category actions
 
 | Action | Description
 |--------|-------------
 | `repository_content_analysis.enable` | An organization owner or repository administrator [enabled data use settings for a private repository](/get-started/privacy-on-github/managing-data-use-settings-for-your-private-repository).
 | `repository_content_analysis.disable` | An organization owner or repository administrator [disabled data use settings for a private repository](/get-started/privacy-on-github/managing-data-use-settings-for-your-private-repository).
 
-### `repository_dependency_graph` category actions
+## `repository_dependency_graph` category actions
 
 | Action | Description
 |--------|-------------
@@ -1088,14 +1098,14 @@ Action                        | Description
 | `repository_dependency_graph.enable` | A repository owner or administrator enabled the dependency graph for a private repository.
 {%- endif %}
 
-### `repository_image` category actions
+## `repository_image` category actions
 
 | Action | Description
 |--------|-------------
 | `repository_image.create` | An image to represent a repository was uploaded.
 | `repository_image.destroy` | An image to represent a repository was deleted.
 
-### `repository_invitation` category actions
+## `repository_invitation` category actions
 
 | Action | Description
 |--------|-------------
@@ -1103,7 +1113,7 @@ Action                        | Description
 | `repository_invitation.create` | An invitation to join a repository was sent.
 | `repository_invitation.reject` | An invitation to join a repository was canceled.
 
-### `repository_projects_change` category actions
+## `repository_projects_change` category actions
 
 | Action | Description
 |--------|-------------
@@ -1112,7 +1122,7 @@ Action                        | Description
 | `repository_projects_change.enable` | Repository projects were enabled for a repository, all repositories in an organization, or all organizations in an enterprise.
 
 {%- ifversion ghec or ghes or ghae %}
-### `repository_secret_scanning` category actions
+## `repository_secret_scanning` category actions
 
 | Action | Description
 |--------|-------------
@@ -1122,7 +1132,7 @@ Action                        | Description
 
 {%- if secret-scanning-audit-log-custom-patterns %}
 
-### `repository_secret_scanning_custom_pattern` category actions
+## `repository_secret_scanning_custom_pattern` category actions
 
 | Action | Description
 |------------------|-------------------
@@ -1130,14 +1140,14 @@ Action                        | Description
 | `repository_secret_scanning_custom_pattern.delete` | A custom pattern is removed from secret scanning in a repository. For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#removing-a-custom-pattern)."
 | `repository_secret_scanning_custom_pattern.update` | Changes to a custom pattern are saved for secret scanning in a repository. For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#editing-a-custom-pattern)."
 
-### `repository_secret_scanning_push_protection` category actions
+## `repository_secret_scanning_push_protection` category actions
 
 | Action | Description
 |------------------|-------------------
 | `repository_secret_scanning_push_protection.disable` | A repository owner or administrator  disabled secret scanning for a repository. For more information, see "[Protecting pushes with secret scanning](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
 | `repository_secret_scanning_push_protection.enable` | A repository owner or administrator  enabled secret scanning for a repository. For more information, see "[Protecting pushes with secret scanning](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
 {%- endif %}
-### `repository_visibility_change` category actions
+## `repository_visibility_change` category actions
 
 | Action | Description
 |--------|-------------
@@ -1146,7 +1156,7 @@ Action                        | Description
 | `repository_visibility_change.enable` | The ability for enterprise members to update a repository's visibility was enabled. Members are able to change repository visibilities in an organization, or all organizations in an enterprise.
 
 {%- ifversion fpt or ghec or ghes or ghae %}
-### `repository_vulnerability_alert` category actions
+## `repository_vulnerability_alert` category actions
 
 | Action | Description
 |--------|-------------
@@ -1156,7 +1166,7 @@ Action                        | Description
 {%- endif %}
 
 {%- ifversion fpt or ghec %}
-### `repository_vulnerability_alerts` category actions
+## `repository_vulnerability_alerts` category actions
 
 | Action | Description
 |--------|-------------
@@ -1165,7 +1175,7 @@ Action                        | Description
 | `repository_vulnerability_alerts.enable` | A repository owner or repository administrator enabled {% data variables.product.prodname_dependabot_alerts %}.
 {%- endif %}
 
-### `required_status_check` category actions
+## `required_status_check` category actions
 
 | Action | Description
 |--------|-------------
@@ -1173,7 +1183,7 @@ Action                        | Description
 | `required_status_check.destroy` | A status check was no longer marked as required for a protected branch. For more information, see "[Require status checks before merging](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-status-checks-before-merging)."
 
 {%- ifversion ghec or ghes > 3.1 %}
-### `restrict_notification_delivery` category actions
+## `restrict_notification_delivery` category actions
 
 | Action | Description
 |--------|-------------
@@ -1182,7 +1192,7 @@ Action                        | Description
 {%- endif %}
 
 {%- if custom-repository-roles %}
-### `role` category actions
+## `role` category actions
 
 | Action | Description
 |--------|-------------
@@ -1192,7 +1202,7 @@ Action                        | Description
 {%- endif %}
 
 {%- ifversion ghec or ghes or ghae %}
-### `secret_scanning` category actions
+## `secret_scanning` category actions
 
 | Action | Description
 |--------|-------------
@@ -1200,7 +1210,7 @@ Action                        | Description
 | `secret_scanning.enable` | An organization owner enabled secret scanning for all existing{% ifversion ghec %} private or internal{% endif %} repositories.
 
 {% if secret-scanning-alert-audit-log %}
-### `secret_scanning_alert` category actions
+## `secret_scanning_alert` category actions
 
 | Action | Description
 |------------------|-------------------
@@ -1209,7 +1219,7 @@ Action                        | Description
 | `secret_scanning_alert.resolve` | A user resolved a {% data variables.product.prodname_secret_scanning %} alert.
 {% endif %}
 
-### `secret_scanning_new_repos` category actions
+## `secret_scanning_new_repos` category actions
 
 | Action | Description
 |--------|-------------
@@ -1218,7 +1228,7 @@ Action                        | Description
 {%- endif %}
 
 {%- ifversion ghec or ghes or ghae %}
-### `security_key` category actions
+## `security_key` category actions
 
 | Action | Description
 |--------|-------------
@@ -1227,7 +1237,7 @@ Action                        | Description
 {%- endif %}
 
 {%- ifversion fpt or ghec %}
-### `sponsors` category actions
+## `sponsors` category actions
 
 | Action | Description
 |--------|-------------
@@ -1253,14 +1263,14 @@ Action                        | Description
 {%- endif %}
 
 {%- ifversion ghec or ghes or ghae %}
-### `ssh_certificate_authority` category actions
+## `ssh_certificate_authority` category actions
 
 | Action | Description
 |--------|-------------
 | `ssh_certificate_authority.create` | An SSH certificate authority for an organization or enterprise was created. For more information, see "[Managing your organization's SSH certificate authorities](/organizations/managing-git-access-to-your-organizations-repositories/managing-your-organizations-ssh-certificate-authorities)" and "[Managing SSH certificate authorities for your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-ssh-certificate-authorities-for-your-enterprise)."
 | `ssh_certificate_authority.destroy` | An SSH certificate authority for an organization or enterprise was deleted. For more information, see "[Managing your organization's SSH certificate authorities](/organizations/managing-git-access-to-your-organizations-repositories/managing-your-organizations-ssh-certificate-authorities)" and "[Managing SSH certificate authorities for your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-ssh-certificate-authorities-for-your-enterprise)."
 
-### `ssh_certificate_requirement` category actions
+## `ssh_certificate_requirement` category actions
 
 | Action | Description
 |--------|-------------
@@ -1268,7 +1278,7 @@ Action                        | Description
 | `ssh_certificate_requirement.disable` | The requirement for members to use SSH certificates to access an organization resources was disabled. For more information, see "[Managing your organization's SSH certificate authorities](/organizations/managing-git-access-to-your-organizations-repositories/managing-your-organizations-ssh-certificate-authorities)" and "[Managing SSH certificate authorities for your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-ssh-certificate-authorities-for-your-enterprise)."
 {%- endif %}
 
-### `staff` category actions
+## `staff` category actions
 
 | Action | Description
 |--------|-------------
@@ -1293,7 +1303,7 @@ Action                        | Description
 | `staff.view_audit_log` | A site administrator viewed the site admin audit log.
 {%- endif %}
 
-### `team` category actions
+## `team` category actions
 
 | Action | Description
 |--------|-------------
@@ -1314,7 +1324,7 @@ Action                        | Description
 | `team.update_permission` | A team's access was changed.
 | `team.update_repository_permission` | A team's permission to a repository was changed.
 
-### `team_discussions` category actions
+## `team_discussions` category actions
 
 | Action | Description
 |--------|-------------
@@ -1323,7 +1333,7 @@ Action                        | Description
 | `team_discussions.enable` | An organization owner enabled team discussions for an organization.
 
 {%- ifversion ghec %}
-### `team_sync_tenant` category actions
+## `team_sync_tenant` category actions
 
 | Action | Description
 |--------|-------------
@@ -1333,7 +1343,7 @@ Action                        | Description
 {%- endif %}
 
 {%- ifversion fpt or ghes %}
-### `two_factor_authentication` category actions
+## `two_factor_authentication` category actions
 
 | Action | Description
 |--------|-------------
@@ -1348,7 +1358,7 @@ Action                        | Description
   [2fa]: /authentication/securing-your-account-with-two-factor-authentication-2fa/about-two-factor-authentication
 
 {%- ifversion fpt or ghes or ghae %}
-### `user` category actions
+## `user` category actions
 
 | Action | Description
 |--------|-------------
@@ -1400,7 +1410,7 @@ Action                        | Description
 {%- endif %}
 
 {%- ifversion ghec or ghes %}
-### `user_license` category actions
+## `user_license` category actions
 
 | Action | Description
 |--------|-------------
@@ -1410,7 +1420,7 @@ Action                        | Description
 {%- endif %}
 
 {% ifversion fpt or ghec or ghes > 3.1 or ghae %}
-### `workflows` category actions
+## `workflows` category actions
 
 {% data reusables.audit_log.audit-log-events-workflows %}
 {%- endif %}
