@@ -8,7 +8,7 @@ versions:
 product: '{% data reusables.gated-features.codespaces %}'
 children:
   - /about-billing-for-github-codespaces
-  - /viewing-your-codespaces-usage
+  - /viewing-your-github-codespaces-usage
   - /managing-spending-limits-for-codespaces
 ---
 

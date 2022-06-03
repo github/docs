@@ -11,6 +11,8 @@ type: overview
 topics:
   - Codespaces
   - Billing
+redirect_from:
+  - /billing/managing-billing-for-github-codespaces/viewing-your-codespaces-usage
 ---
 
 ## Viewing {% data variables.product.prodname_github_codespaces %} usage for your organization
