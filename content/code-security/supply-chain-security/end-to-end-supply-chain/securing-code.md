@@ -7,6 +7,7 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
+  ghae: '*'
 type: overview
 topics:
   - Dependabot
@@ -80,7 +81,7 @@ If your organization uses {% data variables.product.prodname_GH_advanced_securit
 You can configure {% data variables.product.prodname_secret_scanning %} to check for secrets issued by many service providers and to notify you when any are detected. You can also define custom patterns to detect additional secrets at the repository, organization, or enterprise level. For more information, see "[About secret scanning](/code-security/secret-scanning/about-secret-scanning)" and "[Secret scanning patterns](/code-security/secret-scanning/secret-scanning-patterns)."
 {% endif %}
 
-{% ifversion fpt or ghec or ghes > 3.2 %}
+{% ifversion fpt or ghec or ghes > 3.2 or ghae %}
 ### Secure storage of secrets you use in {% data variables.product.product_name %}
 {% endif %}
 
@@ -88,8 +89,8 @@ You can configure {% data variables.product.prodname_secret_scanning %} to check
 Besides your code, you probably need to use secrets in other places. For example, to allow {% data variables.product.prodname_actions %} workflows, {% data variables.product.prodname_dependabot %}, or your {% data variables.product.prodname_codespaces %} development environment to communicate with other systems. For more information on how to securely store and use secrets, see "[Encrypted secrets in Actions](/actions/security-guides/encrypted-secrets)," "[Managing encrypted secrets for Dependabot](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot)," and "[Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)."
 {% endif %}
 
-{% ifversion ghes > 3.2 %}
-Besides your code, you probably need to use secrets in other places. For example, to allow {% data variables.product.prodname_actions %} workflows or {% data variables.product.prodname_dependabot %} to communicate with other systems. For more information on how to securely store and use secrets, see "[Encrypted secrets in Actions](/actions/security-guides/encrypted-secrets)", and "[Managing encrypted secrets for Dependabot](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot)."
+{% ifversion ghes > 3.2 or ghae %}
+Besides your code, you probably need to use secrets in other places. For example, to allow {% data variables.product.prodname_actions %} workflows{% ifversion ghes %} or {% data variables.product.prodname_dependabot %}{% endif %} to communicate with other systems. For more information on how to securely store and use secrets, see "[Encrypted secrets in Actions](/actions/security-guides/encrypted-secrets){% ifversion ghes %}" and "[Managing encrypted secrets for Dependabot](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot)."{% else %}."{% endif %}
 {% endif %}
 
 ## Keep vulnerable coding patterns out of your repository
