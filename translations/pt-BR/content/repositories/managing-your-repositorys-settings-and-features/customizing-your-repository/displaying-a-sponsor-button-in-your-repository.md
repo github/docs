@@ -58,7 +58,7 @@ custom: ["https://www.paypal.me/octocat", octocat.com]
 
 {% endnote %}
 
-You can create a default sponsor button for your organization or personal account. Para obter mais informações, consulte "[Criando um arquivo padrão de integridade da comunidade](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
+Você pode criar um botão de patrocinador padrão para sua organização ou conta pessoal. Para obter mais informações, consulte "[Criando um arquivo padrão de integridade da comunidade](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
 
 {% note %}
 

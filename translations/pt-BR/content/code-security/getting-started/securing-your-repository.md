@@ -44,7 +44,7 @@ Na página principal do seu repositório, clique em **{% octicon "gear" aria-lab
 
 Para obter mais informações, consulte "[Adicionar uma política de segurança ao seu repositório](/code-security/getting-started/adding-a-security-policy-to-your-repository)".
 
-{% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
+{% ifversion fpt or ghes or ghae or ghec %}
 ## Gerenciar o gráfico de dependências
 
 {% ifversion fpt or ghec %}
@@ -61,7 +61,7 @@ Para obter mais informações, consulte "[Explorar as dependências de um reposi
 
 {% endif %}
 
-{% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
+{% ifversion fpt or ghes or ghae or ghec %}
 ## Gerenciar {% data variables.product.prodname_dependabot_alerts %}
 
 {% data variables.product.prodname_dependabot_alerts %} são gerados quando {% data variables.product.prodname_dotcom %} identifica uma dependência no gráfico de dependências com uma vulnerabilidade. {% ifversion fpt or ghec %}Você pode habilitar {% data variables.product.prodname_dependabot_alerts %} para qualquer repositório.{% endif %}
@@ -75,11 +75,11 @@ Para obter mais informações, consulte "[Explorar as dependências de um reposi
 {% data reusables.dependabot.dependabot-alerts-beta %}
 {% data reusables.dependabot.dependabot-alerts-dependency-graph-enterprise %}
 
-Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies){% ifversion fpt or ghec %}" e "[Gerenciando configurações de segurança e análise da sua conta pessoal](/github/setting-up-and-managing-your-github-user-account/managing-security-and-analysis-settings-for-your-user-account){% endif %}".
+Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies){% ifversion fpt or ghec %}" e "[Gerenciando configurações de segurança e análise da sua conta pessoal](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-security-and-analysis-settings-for-your-personal-account){% endif %}".
 
 {% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghae-issue-4864 or ghec %}
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 ## Gerenciando revisão de dependências
 
 A revisão de dependências permite visualizar alterações de dependência em pull requests antes de serem mescladas nos seus repositórios. Para obter mais informações, consulte "[Sobre a revisão de dependências](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review)".

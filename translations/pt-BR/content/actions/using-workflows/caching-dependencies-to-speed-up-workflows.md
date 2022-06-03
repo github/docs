@@ -37,7 +37,7 @@ Para armazenar dependências em cache para um trabalho, você pode usar a ação
     <td><a href="https://github.com/actions/setup-node#caching-global-packages-data">setup-node</a></td>
   </tr>
   <tr>
-    <td>pip, pipenv</td>
+    <td>pip, pipenv, poetry</td>
     <td><a href="https://github.com/actions/setup-python#caching-packages-dependencies">setup-python</a></td>
   </tr>
   <tr>
@@ -160,7 +160,7 @@ jobs:
             {% raw %}${{ runner.os }}-build-{% endraw %}
             {% raw %}${{ runner.os }}-{% endraw %}
 
-      - if: {% raw %}${{ steps.cache-npm.outputs.cache-hit == false }}{% endraw %}
+      - if: {% raw %}${{ steps.cache-npm.outputs.cache-hit == 'false' }}{% endraw %}
         name: List the state of node modules
         continue-on-error: true
         run: npm list
@@ -230,7 +230,7 @@ No exemplo de fluxo de trabalho acima, há uma etapa que lista o estado dos mód
 
 
 ```yaml
-- if: {% raw %}${{ steps.cache-npm.outputs.cache-hit == false }}{% endraw %}
+- if: {% raw %}${{ steps.cache-npm.outputs.cache-hit == 'false' }}{% endraw %}
   name: List the state of node modules
   continue-on-error: true
   run: npm list

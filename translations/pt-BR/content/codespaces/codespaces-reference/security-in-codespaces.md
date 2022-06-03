@@ -34,7 +34,7 @@ Cada codespace tem a sua própria rede virtual isolada. Usamos firewalls para bl
 
 ### Autenticação
 
-Você pode se conectar a um codespace usando um navegador da web ou o Visual Studio Code. Se você se conectar a partir do Visual Studio Code, será solicitado que você efetue a autenticação com {% data variables.product.product_name %}.
+Você pode se conectar a um codespace usando um navegador da web ou a partir de {% data variables.product.prodname_vscode %}. Se você se conectar a partir de {% data variables.product.prodname_vscode_shortname %}, será solicitado que você efetue a autenticação com {% data variables.product.product_name %}.
 
 Toda vez que um codespace é criado ou reiniciado, atribui-se um novo token de {% data variables.product.company_short %} com um período de vencimento automático. Este período permite que você trabalhe no código sem precisar efetuar a autenticação novamente durante um dia de trabalho típico, mas reduz a chance de deixar uma conexão aberta quando você parar de usar o codespace.
 
@@ -109,4 +109,4 @@ Certos recursos de desenvolvimento podem potencialmente adicionar risco ao seu a
 
 #### Usando extensões
 
-Qualquer extensão adicional de {% data variables.product.prodname_vscode %} que você tenha instalado pode potencialmente introduzir mais risco. Para ajudar a mitigar esse risco, certifique-se de que você só instale extensões confiáveis, e que elas sejam sempre atualizadas.
+Qualquer extensão adicional de {% data variables.product.prodname_vscode_shortname %} que você tenha instalado pode potencialmente introduzir mais risco. Para ajudar a mitigar esse risco, certifique-se de que você só instale extensões confiáveis, e que elas sejam sempre atualizadas.

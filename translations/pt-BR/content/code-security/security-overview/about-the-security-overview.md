@@ -1,13 +1,13 @@
 ---
 title: Sobre a visão geral de segurança
 intro: 'Você pode visualizar, filtrar e classificar alertas de segurança para repositórios pertencentes à sua organização ou equipe em um só lugar: a página de Visão Geral de Segurança.'
-permissions: Organization owners and security managers can access the security overview for organizations. Members of a team can see the security overview for repositories that the team has admin privileges for.
+permissions: '{% data reusables.security-center.permissions %}'
 product: '{% data reusables.gated-features.security-center %}'
 redirect_from:
   - /code-security/security-overview/exploring-security-alerts
 versions:
   fpt: '*'
-  ghae: issue-4554
+  ghae: '*'
   ghes: '>3.1'
   ghec: '*'
 type: how_to
@@ -22,7 +22,7 @@ topics:
 shortTitle: Sobre a visão geral de segurança
 ---
 
-{% ifversion ghes < 3.5 or ghae-issue-4554 %}
+{% ifversion ghes < 3.5 or ghae %}
 {% data reusables.security-center.beta %}
 {% endif %}
 
@@ -69,7 +69,7 @@ A nível da organização, a visão geral de segurança exibe informações de s
 
 {% ifversion ghec or ghes > 3.4 or ghae-issue-6199 %}
 ### Sobre a visão geral de segurança do nível da empresa
-A nível da empresa, a visão geral de segurança exibe informações de segurança agregadas e específicas ao repositório para sua empresa. Você pode visualizar repositórios pertencentes à sua empresa que tenham alertas de segurança ou ver todos os alertas de {% data variables.product.prodname_secret_scanning %} de toda a sua empresa.
+A nível da empresa, a visão geral de segurança exibe informações de segurança agregadas e específicas ao repositório para sua empresa. É possível visualizar repositórios pertencentes à sua empresa que tenham alertas de segurança, visualizar todos os alertas de segurança ou alertas específicos de segurança de toda a empresa.
 
 Os proprietários da organização e os gerentes de segurança das organizações da sua empresa também têm acesso limitado à visão geral de segurança no nível da empresa. Eles só podem ver repositórios e alertas das organizações aos quais têm acesso total.
 

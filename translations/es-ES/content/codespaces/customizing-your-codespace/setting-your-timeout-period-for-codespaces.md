@@ -12,7 +12,7 @@ shortTitle: Configurar el tiempo de inactividad
 
 Un codespace dejará de ejecutarse después de un periodo de inactividad. Puedes especificar la longitud de este periodo. El ajuste actualizado se aplicará a cualquier codespace recién creado.
 
-Some organizations may have a maximum idle timeout policy. If an organization policy sets a maximum timeout which is less than the default timeout you have set, the organization's timeout will be used instead of your setting, and you will be notified of this after the codespace is created. For more information, see "[Restricting the idle timeout period](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)."
+Algunas organizaciones podrían tener una política de tiempo de inactividad máximo. Si una política de organización configura un tiempo de inactividad máximo, el cual sea menos que el predeterminado que ya hayas configurado, el tiempo de espera de la organización se utilizará en vez de tu ajuste y se te notificará de esto después de que se haya creado el codespace. Para obtener más información, consulta la sección "[Restringir el periodo de tiempo de inactividad](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)".
 
 {% warning %}
 

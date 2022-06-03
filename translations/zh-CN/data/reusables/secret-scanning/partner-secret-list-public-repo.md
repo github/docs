@@ -22,6 +22,10 @@
 | Contributed Systems       | Contributed Systems 凭据              |
 | Databricks                | Databricks 访问令牌                     |
 | Datadog                   | Datadog API 密钥                      |
+| DigitalOcean              | DigitalOcean Personal Access Token  |
+| DigitalOcean              | DigitalOcean OAuth Token            |
+| DigitalOcean              | DigitalOcean Refresh Token          |
+| DigitalOcean              | DigitalOcean System Token           |
 | Discord                   | Discord 自动程序令牌                      |
 | Doppler                   | Doppler 个人令牌                        |
 | Doppler                   | Doppler 服务令牌                        |

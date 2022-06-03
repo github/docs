@@ -1,6 +1,6 @@
 ---
 title: Implantações
-intro: The Deployments API allows you to create and delete deployments and deployment environments.
+intro: A API de implantações permite que você crie e exclua implantações e ambientes de implantação.
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,7 +11,7 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## About the deployments API
+## Sobre a API de implantações
 
 As implantações são solicitações para implantar um ref específico (branch, SHA, tag). O GitHub envia um [ evento de `implantação`](/developers/webhooks-and-events/webhook-events-and-payloads#deployment) pelo qual os serviços externos podem ouvir e atuar quando novas implantações são criadas. As implantações permitem que os desenvolvedores e as organizações construam ferramentas associadas em torno de implantações sem ter que se preocupar com os detalhes de implementação da entrega de diferentes tipos de aplicativos (p. ex., web, nativo).
 

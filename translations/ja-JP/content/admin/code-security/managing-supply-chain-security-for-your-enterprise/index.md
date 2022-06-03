@@ -4,7 +4,7 @@ shortTitle: サプライチェーンのセキュリティ
 intro: 'You can visualize, maintain, and secure the dependencies in your developers'' software supply chain.'
 versions:
   ghes: '*'
-  ghae: issue-4864
+  ghae: '*'
 topics:
   - Enterprise
 children:

@@ -19,7 +19,7 @@ shortTitle: Control origen
 
 Puedes llevar a cabo todas las acciones de Git que necesites directamente dentro de tu codespace. Por ejemplo, puedes recuperar cambios del repositorio remoto, cambiar de rama, crear una rama nueva, confirmar y subir cambios y crear solicitudes de cambios. Puedes utilizar la terminal integrada dentro de tu codespace para ingresar comandos de Git o puedes hacer clic en los iconos u opciones de menú para completar las tareas más comunes de Git. Esta guía te explica cómo utilizar la interface de usuario gráfica para el control de código fuente.
 
-El control de fuentes en {% data variables.product.prodname_github_codespaces %} utiliza el mismo flujo de trabajo que {% data variables.product.prodname_vscode %}. Para obtener más información, consulta la sección de la documentación de {% data variables.product.prodname_vscode %} "[Utilizar el control de versiones en VS Code](https://code.visualstudio.com/docs/editor/versioncontrol#_git-support)".
+El control de fuentes en {% data variables.product.prodname_github_codespaces %} utiliza el mismo flujo de trabajo que {% data variables.product.prodname_vscode %}. Para obtener más información, consulta la documentación de {% data variables.product.prodname_vscode_shortname %} en la sección "[Utilizar el control de versiones en {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/editor/versioncontrol#_git-support)".
 
 Un flujo de trabajo típico para actualizar un archivo utilizando {% data variables.product.prodname_github_codespaces %} sería:
 

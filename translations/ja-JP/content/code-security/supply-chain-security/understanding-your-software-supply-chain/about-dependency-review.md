@@ -6,7 +6,7 @@ shortTitle: 依存関係のレビュー
 versions:
   fpt: '*'
   ghes: '>= 3.2'
-  ghae: issue-4864
+  ghae: '*'
   ghec: '*'
 type: overview
 topics:
@@ -36,6 +36,8 @@ redirect_from:
 {% data variables.product.prodname_dependabot_alerts %} は、すでに依存関係にある脆弱性を検出しますが、あとで修正するよりも、潜在的な問題が持ち込まれることを回避する方がはるかに良いです。 {% data variables.product.prodname_dependabot_alerts %}に関する詳しい情報については「[{% data variables.product.prodname_dependabot_alerts %}について](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies#dependabot-alerts-for-vulnerable-dependencies)」を参照してください。
 
 依存関係のレビューは、依存関係グラフと同じ言語とパッケージ管理エコシステムをサポートしています。 詳しい情報については、「[依存関係グラフについて](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems)」を参照してください。
+
+{% data variables.product.product_name %}で利用できるサプライチェーンの機能に関する詳しい情報については「[サプライチェーンのセキュリティについて](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security)」を参照してください。
 
 {% ifversion ghec or ghes %}
 ## 依存関係レビューの有効化

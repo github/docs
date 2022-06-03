@@ -1,1 +1,1 @@
-You can configure repository caching by creating a special type of replica called a repository cache.
+您可以通过创建一种称为存储库缓存的特殊类型的副本来配置存储库缓存。

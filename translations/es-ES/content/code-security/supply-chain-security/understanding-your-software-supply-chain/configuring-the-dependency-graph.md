@@ -6,7 +6,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: issue-4864
+  ghae: '*'
   ghec: '*'
 type: how_to
 topics:
@@ -25,7 +25,7 @@ Para obtener más información, consulta la sección "[Acerca de la gráfica de 
 {% ifversion fpt or ghec %} ## About configuring the dependency graph {% endif %}
 {% ifversion fpt or ghec %}Para generar una gráfica de dependencias, {% data variables.product.product_name %} necesita acceso de solo lectura a los archivos de manifiesto y de bloqueo de un repositorio. La gráfica de dependencias se genera automáticamente para todos los repositorios públicos y puedes elegir habilitarla para los privados. For more information on viewing the dependency graph, see "[Exploring the dependencies of a repository](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository)."{% endif %}
 
-{% ifversion ghes or ghae %} ## Enabling the dependency graph
+{% ifversion ghes %} ## Enabling the dependency graph
 {% data reusables.dependabot.ghes-ghae-enabling-dependency-graph %}{% endif %}{% ifversion fpt or ghec %}
 
 ### Habilitar e inhabilitar la gráfica de dependencias para un repositorio privado
@@ -38,5 +38,5 @@ Cuando la gráfica de dependencias se habilita por primera vez, cualquier manifi
 ## Leer más
 
 {% ifversion ghec %}- "[Viewing insights for your organization](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-your-organization)"{% endif %}
-- "[Ver las {% data variables.product.prodname_dependabot_alerts %} para las dependencias vulnerables](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)"
+- "[Visualizar las {% data variables.product.prodname_dependabot_alerts %} para las dependencias vulnerables](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)"
 - "[Solucionar problemas en la detección de dependencias vulnerables](/github/managing-security-vulnerabilities/troubleshooting-the-detection-of-vulnerable-dependencies)"

@@ -3,7 +3,6 @@ import path from 'path'
 import { expect, jest } from '@jest/globals'
 
 import '../../lib/feature-flags.js'
-import readFileAsync from '../../lib/readfile-async.js'
 import getApplicableVersions from '../../lib/get-applicable-versions.js'
 import frontmatter from '../../lib/read-frontmatter.js'
 import { getDOM } from '../helpers/e2etest.js'
@@ -124,7 +123,7 @@ describe('sidebar', () => {
     // Create a ContentCheck object that has all the categories/subcategories and get the title from frontmatter
     async function createContentCheckDirectory() {
       for (const filename of contentFiles) {
-        const { data } = frontmatter(await readFileAsync(filename, 'utf8'))
+        const { data } = frontmatter(await fs.promises.readFile(filename, 'utf8'))
         const applicableVersions = getApplicableVersions(data.versions, filename)
         const splitPath = filename.split('/')
         let category = ''

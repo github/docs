@@ -18,11 +18,13 @@ topics:
 shortTitle: Sincronización automática de licencias de usuario
 ---
 
-## Acerca de la sincronización de licencias
+## Acerca de la sincronización automática de licencias
+
+{% data reusables.enterprise-licensing.unique-user-licensing-model %}
 
 {% data reusables.enterprise-licensing.about-license-sync %} Para obtener más información, consulta la sección "[Acerca de {% data variables.product.prodname_github_connect %}](/admin/configuration/configuring-github-connect/about-github-connect#data-transmission-for-github-connect)".
 
-If you enable automatic user license sync for your enterprise, {% data variables.product.prodname_github_connect %} will automatically synchronize license usage between {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %} weekly.{% ifversion ghes > 3.4 %} You can also synchronize your license data at any time outside of the automatic weekly sync, by manually triggering a license sync job. For more information, see "[Triggering a license sync job](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud#triggering-a-license-sync-job)."{% endif %}
+Si habilitas la sincronización automática de licencias de usuario para tu empresa, {% data variables.product.prodname_github_connect %} sincronizará automáticamente el uso de licencias entre {% data variables.product.prodname_ghe_server %} y {% data variables.product.prodname_ghe_cloud %} semanalmente.{% ifversion ghes > 3.4 %} También puedes sincronizar tus datos de licencia en cualquier momento fuera de la sincronización semanal automática si activas un job de sincronización de licencias manualmente. Para obtener más información, consulta la sección "[Activar un job de sincronización de licencia](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud#triggering-a-license-sync-job)".{% endif %}
 
 Si utilizas instancias múltiples de {% data variables.product.prodname_ghe_server %}, puedes habilitar la sincronización automática de licencias entre cada una de tus instancias y la misma cuenta de empresa u organización en {% data variables.product.prodname_ghe_cloud %}.
 

@@ -146,7 +146,7 @@ shortTitle: 组织中的角色
 {% endif %}
 | 管理组织中的拉取请求审核（请参阅“[管理组织中的拉取请求审核](/organizations/managing-organization-settings/managing-pull-request-reviews-in-your-organization)”）                                                                                                           | **X** |       |       |       |                             |
 
-{% elsif ghes > 3.2 or ghae-issue-4999 %}
+{% elsif ghes > 3.2 or ghae %}
 <!-- GHES 3.3+ and eventual GHAE release don't have the extra columns for Moderators and Billing managers. -->
 
 | 组织操作                                                                                                                                                                                                                                          |  所有者  |  成员   |                    安全管理员                     |

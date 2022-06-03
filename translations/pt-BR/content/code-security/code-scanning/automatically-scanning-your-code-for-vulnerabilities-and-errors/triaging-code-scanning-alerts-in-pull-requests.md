@@ -27,8 +27,17 @@ topics:
 
 ## Sobre os resultados de {% data variables.product.prodname_code_scanning %} em pull requests
 
-Em repositórios onde {% data variables.product.prodname_code_scanning %} está configurado como uma verificação de pull request, {% data variables.product.prodname_code_scanning %} verifica o código no pull request. Por padrão, isso é limitado a pull requests que visam o branch-padrão ou branches protegidos, mas você pode alterar esta configuração em {% data variables.product.prodname_actions %} ou em um sistema de CI/CD de terceiros. Se o merge das alterações introduziria novos alertas de {% data variables.product.prodname_code_scanning %} no branch de destino, estes serão relatados como resultados de verificação no pull request. Os alertas também são exibidos como anotações na aba **Arquivos alterados** do pull request. Se você tiver permissão de gravação no repositório, você poderá ver qualquer alerta de {% data variables.product.prodname_code_scanning %} existente na aba **Segurança**. Para obter informações sobre os alertas do repositório, consulte "[Gerenciar alertas de {% data variables.product.prodname_code_scanning %} do repositório](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository)".
-{% ifversion fpt or ghes > 3.2 or ghae-issue-5093 or ghec %}
+Em repositórios onde {% data variables.product.prodname_code_scanning %} está configurado como uma verificação de pull request, {% data variables.product.prodname_code_scanning %} verifica o código no pull request. Por padrão, isso é limitado a pull requests que visam o branch-padrão ou branches protegidos, mas você pode alterar esta configuração em {% data variables.product.prodname_actions %} ou em um sistema de CI/CD de terceiros. If merging the changes would introduce new {% data variables.product.prodname_code_scanning %} alerts to the target branch, the alerts are reported in multiple places.
+
+- Check results in the pull request {% if code-scanning-pr-conversations-tab %}
+- The **Conversation** tab of the pull request, as part of a pull request review {% endif %}
+- The **Files changed** tab of the pull request
+
+{% if code-scanning-pr-conversations-tab %} {% endif %}
+
+Se você tiver permissão de gravação no repositório, você poderá ver qualquer alerta de {% data variables.product.prodname_code_scanning %} existente na aba **Segurança**. Para obter informações sobre os alertas do repositório, consulte "[Gerenciar alertas de {% data variables.product.prodname_code_scanning %} do repositório](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository)".
+
+{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 Em repositórios em que {% data variables.product.prodname_code_scanning %} está configurado para digitalizar sempre que o código é enviado por push, o {% data variables.product.prodname_code_scanning %} também mapeará os resultados com qualquer solicitação de pull pull aberto e irá adicionar os alertas como anotações nos mesmos lugares que as outras verificações de pull request. Para obter mais informações, consulte "[Digitalizando ao enviar por push](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#scanning-on-push)".
 {% endif %}
 
@@ -42,7 +51,7 @@ Há muitas opções para configurar {% data variables.product.prodname_code_scan
 
 Para todas as configurações de {% data variables.product.prodname_code_scanning %}, a verificação que contém os resultados de {% data variables.product.prodname_code_scanning %} é: **resultados de {% data variables.product.prodname_code_scanning_capc %}**. Os resultados de cada ferramenta de análise utilizada são mostrados separadamente. Todos os novos alertas gerados por alterações no pull request são exibidos como anotações.
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4902 or ghec %} Para ver o conjunto completo de alertas para o branch analisado, clique em **Ver todos os alertas do branch**. Isso abre a visualização completa de alerta onde você pode filtrar todos os alertas sobre o branch por tipo, gravidade, tag, etc. Para obter mais informações, consulte "[Gerenciar alertas de varredura de código para seu repositório](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#filtering-and-searching-for-code-scanning-alerts). "
+{% ifversion fpt or ghes > 3.2 or ghae or ghec %} Para ver o conjunto completo de alertas para o branch analisado, clique em **Ver todos os alertas do branch**. Isso abre a visualização completa de alerta onde você pode filtrar todos os alertas sobre o branch por tipo, gravidade, tag, etc. Para obter mais informações, consulte "[Gerenciar alertas de varredura de código para seu repositório](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#filtering-and-searching-for-code-scanning-alerts). "
 
 ![Verificação de resultados de {% data variables.product.prodname_code_scanning_capc %} em um pull request](/assets/images/help/repository/code-scanning-results-check.png)
 {% endif %}
@@ -66,9 +75,18 @@ Assim como com outras verificações de pull request, você poderá ver informa�
 
 ## Visualizando um alerta no seu pull request
 
+{% if code-scanning-pr-conversations-tab %}
+You can see any {% data variables.product.prodname_code_scanning %} alerts introduced in a pull request by viewing the **Conversation** tab. {% data variables.product.prodname_code_scanning_capc %} posts a pull request review that shows each alert as an annotation on the lines of code that triggered the alert. You can comment on the alerts, dismiss the alerts, and view paths for the alerts, directly from the annotations. You can view the full details of an alert by clicking the "Show more details" link, which will take you to the alert details page.
+
+![Alert annotation within a pull request Conversations tab](/assets/images/help/repository/code-scanning-pr-conversation-tab.png)
+
+You can also view all {% data variables.product.prodname_code_scanning %} alerts in the **Files changed** tab of the pull request. Existing {% data variables.product.prodname_code_scanning %} alerts on a file that are outside the diff of the changes introduced in the pull request will only appear in the **Files changed** tab.
+
+{% else %}
 Você pode ver todos os alertas de {% data variables.product.prodname_code_scanning %} introduzidos em um pull request que exibem a guia **Arquivos alterados**. Cada alerta é exibido como uma anotação nas linhas de código que acionaram o alerta. A gravidade do alerta é exibida na anotação.
 
 ![Alerta de anotação em um diff de pull request](/assets/images/help/repository/code-scanning-pr-annotation.png)
+{% endif %}
 
 Se você tiver permissão de gravação para o repositório, algumas anotações conterão links com contexto adicional para o alerta. No exemplo acima, da análise de {% data variables.product.prodname_codeql %}, você pode clicar em **valor fornecido pelo usuário** para ver onde os dados não confiáveis entram no fluxo de dados (isso é referido como a fonte). Neste caso, você também pode ver o caminho completo desde a fonte até o código que usa os dados (o sumidouro), clicando em **Mostrar caminhos**. Isto faz com que seja fácil verificar se os dados não são confiáveis ou se a análise não reconheceu uma etapa de sanitização de dados entre a fonte e o destino. Para obter informações sobre a análise do fluxo de dados usando {% data variables.product.prodname_codeql %}, consulte "[Sobre a análise do fluxo de dados](https://codeql.github.com/docs/writing-codeql-queries/about-data-flow-analysis/)".
 
@@ -85,6 +103,14 @@ Na visualização detalhada de um alerta, algumas ferramentas de {% data variabl
 {% else %}
 ![Descrição do alerta e link para mostrar mais informações](/assets/images/enterprise/3.4/repository/code-scanning-pr-alert.png)
 {% endif %}
+
+{% if code-scanning-pr-conversations-tab %}
+## Commenting on an alert in a pull request
+
+You can comment on any {% data variables.product.prodname_code_scanning %} alert introduced by the changes in a pull request. Alerts appear as annotations in the **Conversation** tab of a pull request, as part of a  pull request review, and also are shown in the **Files changed** tab. You can only comment on alerts introduced by the changes in a pull request. Existing {% data variables.product.prodname_code_scanning %} alerts, on files that are outside the changes introduced in the pull request, will appear in the **Files changed** tab but cannot be commented on.
+
+You can choose to require all conversations in a pull request, including those on {% data variables.product.prodname_code_scanning %} alerts, to be resolved before a pull request can be merged. Para obter mais informações, consulte "[Sobre branches protegidos](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-conversation-resolution-before-merging)."
+{% endif %}
 ## Corrigir de um alerta no seu pull request
 
 Qualquer pessoa com acesso push a um pull request pode corrigir um alerta de {% data variables.product.prodname_code_scanning %} que seja identificado nesse pull request. Se você fizer commit de alterações na solicitação do pull request, isto acionará uma nova execução das verificações do pull request. Se suas alterações corrigirem o problema, o alerta será fechado e a anotação removida.
@@ -92,9 +118,11 @@ Qualquer pessoa com acesso push a um pull request pode corrigir um alerta de {% 
 ## Ignorar um alerta no seu pull request
 
 Uma forma alternativa de fechar um alerta é ignorá-lo. Você pode descartar um alerta se não acha que ele precisa ser corrigido. {% data reusables.code-scanning.close-alert-examples %} Se você tem permissão de gravação no repositório, o botão **Ignorar** estará disponível nas anotações de código e no resumo de alertas. Ao clicar em **Ignorar** será solicitado que você escolha um motivo para fechar o alerta.
-
+{% if comment-dismissed-code-scanning-alert %}
+![Screenshot of code scanning alert with dropdown to choose dismissal reason emphasized](/assets/images/help/repository/code-scanning-alert-drop-down-reason.png)
+{% else %}
 ![Escolher um motivo para ignorar um alerta](/assets/images/help/repository/code-scanning-alert-close-drop-down.png)
-
+{% endif %}
 {% data reusables.code-scanning.choose-alert-dismissal-reason %}
 
 {% data reusables.code-scanning.false-positive-fix-codeql %}

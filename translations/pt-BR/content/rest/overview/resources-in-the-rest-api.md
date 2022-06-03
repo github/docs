@@ -120,7 +120,7 @@ Você não conseguirá efetuar a autenticação usando sua chave e segredo do OA
 
 {% ifversion fpt or ghec %}
 
-Leia [Mais informações sobre limitação da taxa não autenticada](#increasing-the-unauthenticated-rate-limit-for-oauth-applications).
+Leia [mais informações sobre limitação da taxa não autenticada](#increasing-the-unauthenticated-rate-limit-for-oauth-apps).
 
 {% endif %}
 
@@ -326,7 +326,7 @@ Além disso, a API de pesquisa tem limites dedicados. Para obter mais informaç�
 
 {% data reusables.rest-api.always-check-your-limit %}
 
-### Requests from personal accounts
+### Solicitações de contas pessoais
 
 Os pedidos diretos da API que você autentica com um token de acesso pessoal são solicitações do usuário para servidor. Um aplicativo OAuth ou GitHub também pode fazer uma solicitação de usuário para servidor em seu nome depois de autorizar o aplicativo. Para obter mais informações, consulte[Criando um token de acesso pessoal](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token), "[Autorizando aplicativos OAuth](/authentication/keeping-your-account-and-data-secure/authorizing-oauth-apps)" e "[Autorizando aplicativos GitHub](/authentication/keeping-your-account-and-data-secure/authorizing-github-apps)".
 
