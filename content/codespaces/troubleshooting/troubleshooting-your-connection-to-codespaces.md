@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting your connection to Codespaces
-intro: 'Troubleshooting help for connecting to {% data variables.product.prodname_codespaces %}.'
+title: Troubleshooting your connection to GitHub Codespaces
+intro: 'Troubleshooting help for connecting to {% data variables.product.prodname_github_codespaces %}.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
