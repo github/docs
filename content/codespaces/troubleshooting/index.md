@@ -18,7 +18,7 @@ children:
   - /troubleshooting-your-connection-to-github-codespaces
   - /troubleshooting-prebuilds
   - /troubleshooting-dotfiles-for-codespaces
-  - /troubleshooting-port-forwarding-for-codespaces
+  - /troubleshooting-port-forwarding-for-github-codespaces
   - /troubleshooting-codespaces-clients
   - /working-with-support-for-codespaces
 ---

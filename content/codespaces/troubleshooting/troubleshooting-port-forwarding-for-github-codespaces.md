@@ -9,6 +9,8 @@ type: reference
 topics:
   - Codespaces
 shortTitle: Port forwarding
+redirect_from:
+  - /codespaces/troubleshooting/troubleshooting-port-forwarding-for-codespaces
 ---
 
 When an application running inside a codespace outputs a port to the console, {% data variables.product.prodname_github_codespaces %}  detects the localhost URL pattern and automatically forwards the port. For more information, see "[Forwarding ports in your codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)."
