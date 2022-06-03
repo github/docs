@@ -13,6 +13,6 @@ children:
   - /managing-encrypted-secrets-for-your-codespaces
   - /managing-repository-access-for-your-codespaces
   - /reviewing-your-security-logs-for-github-codespaces
-  - /managing-gpg-verification-for-codespaces
+  - /managing-gpg-verification-for-github-codespaces
 ---
  
