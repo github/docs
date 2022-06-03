@@ -12,7 +12,7 @@ shortTitle: Change a remote's URL
 {% mac %}
 
 {% data reusables.desktop.mac-repository-settings-menu %}
-2. Click **Remote**, and under **Primary remote repository**, type the desired URL.
+2. Click **Remote**, and, under **Primary remote repository**, type the desired URL.
 ![Primary remote repository field](/assets/images/help/desktop/repository-settings-remote.png)
 {% data reusables.desktop.repository-settings-save %}
 
