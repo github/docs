@@ -69,6 +69,8 @@ The IP exception list provides controlled and restricted access to {% data varia
 
 If you re-enable maintenance mode, the IP exception list will be disabled and {% data variables.product.product_location %} will return to maintenance mode. If you just disable the IP exception list, {% data variables.product.product_location %} will return to normal operation.
 
+You can also use a command-line utility to configure the IP exception list. For more information, see "[Command-line utilities](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-maintenance)" and "[Accessing the administrative shell (SSH)](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
+
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 1. At the top of the {% data variables.enterprise.management_console %}, click **Maintenance**, and confirm maintenance mode is already enabled.
