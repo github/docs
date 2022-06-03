@@ -1,47 +1,30 @@
-import request from 'supertest'
-import nock from 'nock'
-import cheerio from 'cheerio'
-import createApp from '../../lib/app.js'
-import { jest } from '@jest/globals'
-
-jest.useFakeTimers('legacy')
+import { expect, jest } from '@jest/globals'
+import { CookieJar } from 'tough-cookie'
+import { getDOM, post } from '../helpers/e2etest.js'
 
 describe('POST /events', () => {
   jest.setTimeout(60 * 1000)
 
-  const app = createApp()
   let csrfToken = ''
-  let agent
+  const cookieJar = new CookieJar()
 
   beforeEach(async () => {
-    process.env.AIRTABLE_API_KEY = '$AIRTABLE_API_KEY$'
-    process.env.AIRTABLE_BASE_KEY = '$AIRTABLE_BASE_KEY$'
-    process.env.HYDRO_SECRET = '$HYDRO_SECRET$'
-    process.env.HYDRO_ENDPOINT = 'http://example.com/hydro'
-    agent = request.agent(app)
-    const csrfRes = await agent.get('/en')
-    const $ = cheerio.load(csrfRes.text || '', { xmlMode: true })
+    const $ = await getDOM('/en', { cookieJar })
     csrfToken = $('meta[name="csrf-token"]').attr('content')
-    nock('http://example.com').post('/hydro').reply(200, {})
-  })
-
-  afterEach(() => {
-    delete process.env.AIRTABLE_API_KEY
-    delete process.env.AIRTABLE_BASE_KEY
-    delete process.env.HYDRO_SECRET
-    delete process.env.HYDRO_ENDPOINT
-    csrfToken = ''
-
-    nock.cleanAll()
   })
 
   async function checkEvent(data, code) {
-    return agent
-      .post('/events')
-      .send(data)
-      .set('Accept', 'application/json')
-      .set('csrf-token', csrfToken)
-      .expect(code)
+    const combined = Object.assign({ _csrf: csrfToken }, data)
+    const body = JSON.stringify(combined)
+    const res = await post('/events', {
+      body,
+      headers: {
+        'content-type': 'application/json',
+        'csrf-token': csrfToken,
+      },
+      cookieJar,
+    })
+    expect(res.statusCode).toBe(code)
   }
 
   const baseExample = {
