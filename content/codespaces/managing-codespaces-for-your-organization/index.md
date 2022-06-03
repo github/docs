@@ -12,7 +12,7 @@ children:
   - /managing-billing-for-github-codespaces-in-your-organization
   - /managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces
   - /managing-repository-access-for-your-organizations-codespaces
-  - /reviewing-your-organizations-audit-logs-for-codespaces
+  - /reviewing-your-organizations-audit-logs-for-github-codespaces
   - /restricting-access-to-machine-types
   - /restricting-the-visibility-of-forwarded-ports
   - /restricting-the-idle-timeout-period
