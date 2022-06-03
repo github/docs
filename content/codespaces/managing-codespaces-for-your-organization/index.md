@@ -8,7 +8,7 @@ versions:
 topics:
   - Codespaces
 children:
-  - /enabling-codespaces-for-your-organization
+  - /enabling-github-codespaces-for-your-organization
   - /managing-billing-for-codespaces-in-your-organization
   - /managing-encrypted-secrets-for-your-repository-and-organization-for-codespaces
   - /managing-repository-access-for-your-organizations-codespaces

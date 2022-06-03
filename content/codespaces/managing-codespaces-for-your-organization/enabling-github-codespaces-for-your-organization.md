@@ -6,6 +6,7 @@ product: '{% data reusables.gated-features.codespaces %}'
 permissions: 'To manage user permissions for {% data variables.product.prodname_github_codespaces %} for an organization, you must be an organization owner.'
 redirect_from:
   - /codespaces/managing-codespaces-for-your-organization/managing-user-permissions-for-your-organization
+  - /codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization
 versions:
   fpt: '*'
   ghec: '*'
