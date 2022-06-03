@@ -1,8 +1,8 @@
 ---
-title: Codespaces repository secrets
+title: Segredos do repositório de codespaces
 allowTitleToDifferFromFilename: true
-shortTitle: Repository secrets
-intro: 'The Codespaces repository secrets API allows a user to create, list, and delete secrets (such as access tokens for cloud services) for repositories that the user has access to in a codespace.'
+shortTitle: Segredos do repositório
+intro: 'A API de segredos de repositórios do codespaces permite que um usuário crie, liste e exclua segredos (como tokens de acesso para serviços de nuvem) para repositórios aos quais o usuário tem acesso em um codespace.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -11,6 +11,6 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## About the Codespaces repository secrets API
+## Sobre a API de segredos do repositório de codespaces
 
-The Codespaces repository secrets API allows a user to create, list, and delete secrets (such as access tokens for cloud services) for repositories that the user has access to. Estes segredos são disponibilizados para o codespace em tempo de execução. Para obter mais informações, consulte "[Gerenciar segredos criptografados para seus codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)".
+A API de segredos de repositórios do codespaces permite que um usuário crie, liste e exclua segredos (como tokens de acesso para serviços de nuvem) para repositórios aos quais o usuário tem acesso. Estes segredos são disponibilizados para o codespace em tempo de execução. Para obter mais informações, consulte "[Gerenciar segredos criptografados para seus codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)".

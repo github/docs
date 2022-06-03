@@ -149,14 +149,19 @@ Para obtener más información, consulta la sección "[Enlaces relativos](#relat
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5559 %}
 ### Especificar un tema en el que se muestra una imagen
 
-Puedes especificar el tema en el cual se muestra una imagen si agregas `#gh-dark-mode-only` o `#gh-light-mode-only` al final de la URL de una imagen en lenguaje de marcado.
+Puedes especificar el tema para el cual se muestra una imagen en el lenguaje de marcado si utilizas el elemento HTML `<picture>` combinado con la característica de medios `prefers-color-scheme`. Distinguimos entre modos de color oscuro y claro, así que existen dos opciones disponibles. Puedes utilizar estas opciones para mostrar imágenes optimizadas para los fondos claros u oscuros. Esto es especialmente útil para las imágenes PNG transparentes.
 
-Distinguimos entre modos de color oscuro y claro, así que existen dos opciones disponibles. Puedes utilizar estas opciones para mostrar imágenes optimizadas para los fondos claros u oscuros. Esto es especialmente útil para las imágenes PNG transparentes.
+Por ejemplo, el siguiente código muestra una imagen de un sol para los temas claros y una luna para los oscuros:
 
-| Contexto    | URL                                                                          |
-| ----------- | ---------------------------------------------------------------------------- |
-| Tema oscuro | `![GitHub Brillante](https://github.com/github-light.png#gh-dark-mode-only)` |
-| Tema claro  | `![GitHub Oscuro](https://github.com/github-dark.png#gh-light-mode-only)`    |
+```HTML
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://user-images.githubusercontent.com/25423296/163456776-7f95b81a-f1ed-45f7-b7ab-8fa810d529fa.png">
+  <source media="(prefers-color-scheme: light)" srcset="https://user-images.githubusercontent.com/25423296/163456779-a8556205-d0a5-45e2-ac17-42d089e3c3f8.png">
+  <img alt="Shows an illustrated sun in light color mode and a moon with stars in dark color mode." src="https://user-images.githubusercontent.com/25423296/163456779-a8556205-d0a5-45e2-ac17-42d089e3c3f8.png">
+</picture>
+```
+
+El método antiguo para especificar las imágenes con base en el tema, que es utilizando un fragmento anexo a la URL (`#gh-dark-mode-only` o `#gh-light-mode-only`), será obsoleto y se eliminará para favorecer al método nuevo que se menciona anteriormente.
 {% endif %}
 
 ## Listas

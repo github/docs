@@ -1068,6 +1068,16 @@ topics:
 | `secret_scanning.disable` | An organization owner disabled secret scanning for all existing{% ifversion ghec %} private or internal{% endif %} repositories. Para obtener más información, consulta la sección "[Acerca del escaneo de secretos"](/github/administering-a-repository/about-secret-scanning). |
 | `secret_scanning.enable`  | An organization owner enabled secret scanning for all existing{% ifversion ghec %} private or internal{% endif %} repositories.                                                                                                                                                  |
 
+{% if secret-scanning-alert-audit-log %}
+### Acciones de la categoría `secret_scanning_alert`
+
+| Acción                          | Descripción                                                                                                                                                                                                                                                                                                                                                |
+| ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `secret_scanning_alert.create`  | {% data variables.product.prodname_dotcom %} detected a secret and created a {% data variables.product.prodname_secret_scanning %} alert. Para obtener más información, consulta la sección "[Administrar las alertas de {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/managing-alerts-from-secret-scanning)". |
+| `secret_scanning_alert.reopen`  | A user reopened a {% data variables.product.prodname_secret_scanning %} alert.                                                                                                                                                                                                                                                                           |
+| `secret_scanning_alert.resolve` | A user resolved a {% data variables.product.prodname_secret_scanning %} alert.                                                                                                                                                                                                                                                                           |
+{% endif %}
+
 ### Acciones de la categoría `secret_scanning_new_repos`
 
 | Acción                              | Descripción                                                                                                                                                                                                                                                                 |
@@ -1151,15 +1161,15 @@ topics:
 
 ### acciones de la categoría `team`
 
-| Acción                    | Descripción                                                                                                                                                                                                                               |
-| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `team.add_member`         | A member of an organization was added to a team. Para obtener más información, consulta la sección "[Agregar miembros organizacionales a un equipo](/organizations/organizing-members-into-teams/adding-organization-members-to-a-team)". |
-| `team.add_repository`     | A team was given access and permissions to a repository.                                                                                                                                                                                  |
-| `team.change_parent_team` | A child team was created or a child team's parent was changed. For more information, see "[Moving a team in your organization’s hierarchy](/organizations/organizing-members-into-teams/moving-a-team-in-your-organizations-hierarchy)."  |
-| `team.change_privacy`     | A team's privacy level was changed. For more information, see "[Changing team visibility](/organizations/organizing-members-into-teams/changing-team-visibility)."                                                                        |
-| `team.create`             | Se agregó una cuenta de usuario o repositorio a un equipo.                                                                                                                                                                                |
-| `team.delete`             | Se eliminó una cuenta de usuario o repositorio de un equipo.                                                                                                                                                                              |
-| `team.destroy`            | Se eliminó un equipo.                                                                                                                                                                                                                     |
+| Acción                    | Descripción                                                                                                                                                                                                                                 |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `team.add_member`         | A member of an organization was added to a team. Para obtener más información, consulta la sección "[Agregar miembros de la organización a un equipo](/organizations/organizing-members-into-teams/adding-organization-members-to-a-team)". |
+| `team.add_repository`     | A team was given access and permissions to a repository.                                                                                                                                                                                    |
+| `team.change_parent_team` | A child team was created or a child team's parent was changed. For more information, see "[Moving a team in your organization’s hierarchy](/organizations/organizing-members-into-teams/moving-a-team-in-your-organizations-hierarchy)."    |
+| `team.change_privacy`     | A team's privacy level was changed. For more information, see "[Changing team visibility](/organizations/organizing-members-into-teams/changing-team-visibility)."                                                                          |
+| `team.create`             | Se agregó una cuenta de usuario o repositorio a un equipo.                                                                                                                                                                                  |
+| `team.delete`             | Se eliminó una cuenta de usuario o repositorio de un equipo.                                                                                                                                                                                |
+| `team.destroy`            | Se eliminó un equipo.                                                                                                                                                                                                                       |
 {%- ifversion ghec or ghes or ghae %}
 | `team.demote_maintainer` | A user was demoted from a team maintainer to a team member. | `team.promote_maintainer` | A user was promoted from a team member to a team maintainer. For more information, see "[Promoting an organization member to team maintainer](/organizations/organizing-members-into-teams/assigning-the-team-maintainer-role-to-a-team-member#promoting-an-organization-member-to-team-maintainer)."
 {%- endif %}
@@ -1167,11 +1177,11 @@ topics:
 
 ### acciones de la categoría `team_discussions`
 
-| Acción                     | Descripción                                                                                                                                                                                                                                         |
-| -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `team_discussions.clear`   | An organization owner cleared the setting to allow team discussions for an organization or enterprise.                                                                                                                                              |
-| `team_discussions.disable` | An organization owner disabled team discussions for an organization. For more information, see "[Disabling team discussions for your organization](/organizations/organizing-members-into-teams/disabling-team-discussions-for-your-organization)." |
-| `team_discussions.enable`  | An organization owner enabled team discussions for an organization.                                                                                                                                                                                 |
+| Acción                     | Descripción                                                                                                                                                                                                                                                            |
+| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `team_discussions.clear`   | An organization owner cleared the setting to allow team discussions for an organization or enterprise.                                                                                                                                                                 |
+| `team_discussions.disable` | An organization owner disabled team discussions for an organization. Para obtener más información, consulta "[Desactivar los debates del equipo para tu organización](/organizations/organizing-members-into-teams/disabling-team-discussions-for-your-organization)". |
+| `team_discussions.enable`  | An organization owner enabled team discussions for an organization.                                                                                                                                                                                                    |
 
 {%- ifversion ghec %}
 ### `team_sync_tenant` category actions

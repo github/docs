@@ -35,35 +35,11 @@ shortTitle: 配置 dependabot.yml
 
 *dependabot.yml* 文件有两个必需的顶级密钥：`version` 和 `updates`。 您可以选择包括顶级 `registries` 密钥{% ifversion fpt or ghec or ghes > 3.4 %} 和/或 `enable-beta-ecosystems` 密钥{% endif %}。 该文件必须以 `version: 2` 开头。
 
-## 更新的配置选项
+## Configuration options for the *dependabot.yml* file
 
 顶级 `updates` 密钥是必需的。 您使用它来配置 {% data variables.product.prodname_dependabot %} 如何更新版本或项目的依赖项。 每个条目都为特定的包管理器配置更新设置。 您可以使用以下选项。
 
-| 选项                                                                         |  必选   | 描述                                                                  |
-|:-------------------------------------------------------------------------- |:-----:|:------------------------------------------------------------------- |
-| [`package-ecosystem`](#package-ecosystem)                                  | **X** | 要使用的包管理器                                                            |
-| [`目录`](#directory)                                                         | **X** | 包清单位置                                                               |
-| [`schedule.interval`](#scheduleinterval)                                   | **X** | 检查更新的频率                                                             |
-| [`allow`](#allow)                                                          |       | 自定义允许的更新                                                            |
-| [`assignees`](#assignees)                                                  |       | 要在拉取请求上设置的受让人                                                       |
-| [`commit-message`](#commit-message)                                        |       | 提交消息首选项                  |{% ifversion fpt or ghec or ghes > 3.4 %}
-| [`enable-beta-ecosystems`](#enable-beta-ecosystems)                        |       | 启用具有测试版级支持的生态系统
-{% endif %}
-| [`ignore`](#ignore)                                                        |       | 忽略某些依赖项或版本                                                          |
-| [`insecure-external-code-execution`](#insecure-external-code-execution)    |       | 允许或拒绝清单文件中的代码执行                                                     |
-| [`labels`](#labels)                                                        |       | 要在拉取请求上设置的标签                                                        |
-| [`里程碑`](#milestone)                                                        |       | 要在拉取请求上设置的里程碑                                                       |
-| [`open-pull-requests-limit`](#open-pull-requests-limit)                    |       | 限制对版本更新打开的拉取请求数                                                     |
-| [`pull-request-branch-name.separator`](#pull-request-branch-nameseparator) |       | 更改拉取请求分支名称的分隔符                                                      |
-| [`rebase-strategy`](#rebase-strategy)                                      |       | 禁用自动变基                                                              |
-| [`registries`](#registries)                                                |       | {% data variables.product.prodname_dependabot %} 可以访问的私有注册表         |
-| [`reviewers`](#reviewers)                                                  |       | 要在拉取请求上设置的审查者                                                       |
-| [`schedule.day`](#scheduleday)                                             |       | 检查更新的周日期                                                            |
-| [`schedule.time`](#scheduletime)                                           |       | 每天检查更新的时间 (hh:mm)                                                   |
-| [`schedule.timezone`](#scheduletimezone)                                   |       | 一天中时间的时区（区域标识符）                                                     |
-| [`target-branch`](#target-branch)                                          |       | 对其创建拉取请求的分支                                                         |
-| [`vendor`](#vendor)                                                        |       | 更新供应或缓存的依赖项                                                         |
-| [`versioning-strategy`](#versioning-strategy)                              |       | 如何更新清单版本要求                                                          |
+{% data reusables.dependabot.configuration-options %}
 
 这些选项大致分为以下类别。
 
@@ -81,7 +57,7 @@ shortTitle: 配置 dependabot.yml
 
 仅对默认分支上有漏洞的包清单提出安全更新。 如果为同一分支设置配置选项（不使用 `target-branch` 时为 true），并为有漏洞的清单指定 `package-ecosystem` 和 `directory`，则安全更新的拉取请求使用相关选项。
 
-一般而言，安全更新会使用影响拉取请求的任何配置选项，例如添加元数据或改变其行为。 有关安全更新的更多信息，请参阅“[配置 {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-dependabot-security-updates)”。
+一般而言，安全更新会使用影响拉取请求的任何配置选项，例如添加元数据或改变其行为。 For more information about security updates, see "[Configuring {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-dependabot-security-updates)."
 
 {% endnote %}
 
@@ -316,7 +292,7 @@ updates:
 
 您可以搜索仓库中是否有 `"@dependabot ignore" in:comments`，以检查仓库是否存储了 `ignore` 首选项。 如果您希望取消忽略以这种方式忽略的依赖项，请重新打开拉取请求。
 
-有关 `@dependabot ignore` 命令的更多信息，请参阅“[管理依赖关系更新的拉取请求](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands)”。
+For more information about the `@dependabot ignore` commands, see "[Managing pull requests for dependency updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands)."
 
 #### 指定要忽略的依赖项和版本
 

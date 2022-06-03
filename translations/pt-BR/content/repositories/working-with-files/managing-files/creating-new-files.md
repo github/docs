@@ -16,7 +16,7 @@ topics:
 
 Ao criar um arquivo no {% data variables.product.product_name %}, lembre-se do seguinte:
 
-- If you try to create a new file in a repository that you don’t have access to, we will fork the project to your personal account and help you send [a pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests) to the original repository after you commit your change.
+- Se você tentar criar um arquivo em um repositório ao qual não tem acesso, bifurcaremos o projeto para sua conta pessoal e ajudaremos você a enviar [um pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests) para o repositório original depois que fizer o commit da alteração.
 - Os nomes de arquivos criados por meio da interface da web podem conter apenas caracteres alfanuméricos e hífens (`-`). Para usar outros caracteres, [crie e faça commit dos arquivos localmente e, em seguida, faça push deles no repositório do {% data variables.product.product_name %}](/articles/adding-a-file-to-a-repository-using-the-command-line).
 
 {% data reusables.repositories.sensitive-info-warning %}

@@ -20,8 +20,8 @@ versions:
   ghae: '*'
 children:
   - /about-billing-for-github-accounts
-  - /about-per-user-pricing
   - /about-billing-for-your-enterprise
+  - /about-per-user-pricing
   - /viewing-the-subscription-and-usage-for-your-enterprise-account
   - /upgrading-your-github-subscription
   - /viewing-and-managing-pending-changes-to-your-subscription

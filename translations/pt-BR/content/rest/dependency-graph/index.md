@@ -1,6 +1,6 @@
 ---
 title: Gráfico de Dependência
-intro: 'With the Dependency Graph API, you can view dependency changes and their security impact on your repository.'
+intro: 'Com a API do gráfico dependência, você pode ver as alterações de dependência e o impacto de segurança no seu repositório.'
 versions:
   fpt: '*'
   ghes: '>=3.6'

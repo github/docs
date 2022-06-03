@@ -72,7 +72,7 @@ The recommended formats explicitly define which versions are used for all direct
 {%- if github-actions-in-dependency-graph %}
 | {% data variables.product.prodname_actions %} workflows<sup>[1]</sup> | YAML | `.yml`, `.yaml` | `.yml`, `.yaml` |
 {%- endif %}
-{%- ifversion fpt or ghes > 3.2 or ghae %}
+{%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
 | Go modules | Go | `go.sum` | `go.mod`, `go.sum` |
 {%- elsif ghes = 3.2 %}
 | Go modules | Go | `go.mod` | `go.mod` |

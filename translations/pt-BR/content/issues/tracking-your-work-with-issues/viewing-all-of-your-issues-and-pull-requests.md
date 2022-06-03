@@ -25,4 +25,4 @@ Os painéis de problemas e pull requests estão disponíveis na parte superior d
 
 ## Leia mais
 
-- "[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions#reviewing-repositories-that-youre-watching)"
+- "[Visualizando suas assinaturas](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions#reviewing-repositories-that-youre-watching)"
