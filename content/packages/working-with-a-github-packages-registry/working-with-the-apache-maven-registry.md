@@ -1,3 +1,4 @@
+![qrcode_twitter com (4)](https://user-images.githubusercontent.com/98547032/172018934-96acd370-6caf-436d-842f-2f911c345e52.png)
 ---
 title: Working with the Apache Maven registry
 intro: 'You can configure Apache Maven to publish packages to {% data variables.product.prodname_registry %} and to use packages stored on {% data variables.product.prodname_registry %} as dependencies in a Java project.'
