@@ -7,8 +7,7 @@ versions:
   fpt: '*'
   ghec: '*'
 type: overview
-topics:
-  - Projects
+topics:- Projects
 ---
 
 {% data reusables.projects.projects-beta %}
