@@ -1,0 +1,15 @@
+[head]Code (PHP)[/head]
+
+[php]
+
+<?
+
+/ /околоколоколоколономом МуSQL Check колоколоколоколоколоколом // mysql_connect("localhost", "root","root"); mysql_select_db("mydatabase");
+
+$strSQL = "SELECT * FROM user WHERE UserName = "" trim($_POST["User"]).""" $objQuery = mysql_query($strSQL); $intRows = mysql_num_rows($objQuery); if($intRows>0)
+
+{
+
+echo "["$_POST["User"]."] already exists.":
+
+[/php]
