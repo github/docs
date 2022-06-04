@@ -1,6 +1,6 @@
 ---
-title: Migrating from SAML to OIDC
-shortTitle: Migrating from SAML to OIDC
+title: Migrando do SAML para o OIDC
+shortTitle: Migrando do SAML para o OIDC
 intro: 'If you''re using SAML to authenticate members in your {% data variables.product.prodname_emu_enterprise %}, you can migrate to OpenID Connect (OIDC) and benefit from support for your IdP''s Conditional Access Policy.'
 product: '{% data reusables.gated-features.emus %}'
 versions:
@@ -54,5 +54,5 @@ If you're new to {% data variables.product.prodname_emus %} and haven't yet conf
 1. To test the configuration, click **Test Connection**.
 1. To save your changes, at the top of the form, click **Save**.
 1. In Azure Portal, copy the users and groups from the old {% data variables.product.prodname_emu_idp_application %} application to the new {% data variables.product.prodname_emu_idp_oidc_application %} application.
-1. Test your configuration by provisioning a single new user.
-1. If your test is successful, start provisioning for all users by clicking **Start provisioning**.
+1. Teste sua configuração provisionando um único novo usuário.
+1. Se o teste for bem-sucedido, comece a provisionar para todos os usuários clicando em **Comece a provisionar**.

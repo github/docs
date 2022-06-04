@@ -21,7 +21,7 @@ topics:
 
 ## Sobre o {% data variables.product.prodname_emus %}
 
-Com {% data variables.product.prodname_emus %}, você pode controlar as contas de usuário dos integrantes da empresa por meio do provedor de identidade (IdP). You can simplify authentication with SAML{% if oidc-for-emu %} or OIDC{% endif %} single sign-on (SSO) and provision, update, and deprovision user accounts for your enterprise members. Os usuários atribuídos ao aplicativo {% data variables.product.prodname_emu_idp_application %} no seu IdP são provisionados como novas contas de usuário em {% data variables.product.prodname_dotcom %} e adicionados à sua empresa. Você controla nomes de usuários, dados de perfil, associação de equipe e acesso ao repositório a partir do seu IdP.
+Com {% data variables.product.prodname_emus %}, você pode controlar as contas de usuário dos integrantes da empresa por meio do provedor de identidade (IdP). Você pode simplificar a autenticação com o logon único (SSO){% if oidc-for-emu %} SAML ou OIDC{% endif %} e provisionar, atualizar e desprovisionar as contas de usuário para seus inetegrantes corporativos. Os usuários atribuídos ao aplicativo {% data variables.product.prodname_emu_idp_application %} no seu IdP são provisionados como novas contas de usuário em {% data variables.product.prodname_dotcom %} e adicionados à sua empresa. Você controla nomes de usuários, dados de perfil, associação de equipe e acesso ao repositório a partir do seu IdP.
 
 No seu IdP, você pode dar a cada {% data variables.product.prodname_managed_user %} a função do proprietário da empresa, usuário ou gerente de cobrança. {% data variables.product.prodname_managed_users_caps %} pode possuir organizações dentro da sua empresa e pode adicionar outros {% data variables.product.prodname_managed_users %} às organizações e equipes internamente. Para obter mais informações, consulte "[Funções em uma empresa](/github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise/roles-in-an-enterprise)" e "[Sobre as organizações](/organizations/collaborating-with-groups-in-organizations/about-organizations)".
 
@@ -29,7 +29,7 @@ Os integrantes da organização podem ser gerenciados manualmente ou atualizados
 
 {% if oidc-for-emu %}
 
-{% data reusables.enterprise-accounts.emu-cap-validates %} For more information, see "[About support for your IdP's Conditional Access Policy](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-support-for-your-idps-conditional-access-policy)."
+{% data reusables.enterprise-accounts.emu-cap-validates %} Para obter mais informações, consulte "[Sobre o suporte à política de acesso condicional do seu IdP](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-support-for-your-idps-conditional-access-policy)."
 
 {% endif %}
 
@@ -39,19 +39,19 @@ Os nomes de usuário do {% data variables.product.prodname_managed_users %} da e
 
 {% data reusables.enterprise-accounts.emu-forks %}
 
-Os proprietários de empresas podem auditar todas as ações de {% data variables.product.prodname_managed_users %}' em {% data variables.product.prodname_dotcom %}. For more information, see "[Audit log events for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#about-audit-log-events-for-your-enterprise)."
+Os proprietários de empresas podem auditar todas as ações de {% data variables.product.prodname_managed_users %}' em {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Eventos de log de auditoria para a sua empresa](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#about-audit-log-events-for-your-enterprise)".
 
 Para usar {% data variables.product.prodname_emus %}, você precisa de um tipo de conta corporativa separado com {% data variables.product.prodname_emus %} habilitado. Para obter mais informações sobre a criação desta conta, consulte "[Sobre empresas com usuários gerenciados](#about-enterprises-with-managed-users)".
 
 
 ## Suporte do provedor de identidade
 
-{% data variables.product.prodname_emus %} supports the following IdPs{% if oidc-for-emu %} and authentication methods:
+{% data variables.product.prodname_emus %} é compatível com os seguintes IdPs{% if oidc-for-emu %} e métodos de autenticação:
 
-|                        | SAML                                          | OIDC (beta)                                   |
-| ---------------------- | --------------------------------------------- | --------------------------------------------- |
-| Azure Active Directory | {% octicon "check" aria-label="Check icon" %} | {% octicon "check" aria-label="Check icon" %}
-| Okta                   | {% octicon "check" aria-label="Check icon" %} |                                               |
+|                          | SAML                                          | OIDC (beta)                                   |
+| ------------------------ | --------------------------------------------- | --------------------------------------------- |
+| Diretório Ativo do Azure | {% octicon "check" aria-label="Check icon" %} | {% octicon "check" aria-label="Check icon" %}
+| Okta                     | {% octicon "check" aria-label="Check icon" %} |                                               |
 {% else %}:
 
 {% data reusables.enterprise-accounts.emu-supported-idps %}
@@ -73,15 +73,15 @@ O {% data variables.product.prodname_managed_users_caps %} só pode contribuir p
 * Apenas repositórios privados e internos podem ser criados em organizações pertencentes a um {% data variables.product.prodname_emu_enterprise %}, dependendo das configurações de visibilidade da organização e do repositório corporativo.
 * {% data variables.product.prodname_managed_users_caps %} são limitados em seu uso de {% data variables.product.prodname_pages %}. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#limitations-for-enterprise-managed-users)".
 
-## Getting started with {% data variables.product.prodname_emus %}
+## Primeiros passos com {% data variables.product.prodname_emus %}
 
-Before your developers can use {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_emus %}, you must follow a series of configuration steps.
+Antes que seus desenvolvedores possam usar {% data variables.product.prodname_ghe_cloud %} com {% data variables.product.prodname_emus %}, você deve seguir uma série de etapas de configuração.
 
 1. Para usar {% data variables.product.prodname_emus %}, você precisa de um tipo de conta corporativa separado com {% data variables.product.prodname_emus %} habilitado. Para experimentar {% data variables.product.prodname_emus %} ou para discutir opções para a migração da sua empresa existente, entre em contato com a [Equipe de vendas de {% data variables.product.prodname_dotcom %}](https://enterprise.github.com/contact).
 
   Seu contato na equipe do GitHub de vendas vai trabalhar com você para criar seu novo {% data variables.product.prodname_emu_enterprise %}. Você deverá fornecer o endereço de e-mail para o usuário que irá configurar sua empresa e um código curto que será usado como sufixo para os nomes de usuários da sua empresa. {% data reusables.enterprise-accounts.emu-shortcode %} Para obter mais informações, consulte "[Nomes de usuário e informações do perfil](#usernames-and-profile-information)"
 
-2. Após criarmos sua empresa, você receberá um e-mail de {% data variables.product.prodname_dotcom %} convidando você a escolher uma senha para o usuário de configuração da sua empresa, que será o primeiro proprietário da empresa. Use uma janela de navegação anônima ou privada ao definir a senha. The setup user is only used to configure single sign-on and SCIM provisioning integration for the enterprise. It will no longer have access to administer the enterprise account once SSO is successfully enabled. O nome do usuário de configuração é o código curto da sua empresa com o sufixo `_admin`.
+2. Após criarmos sua empresa, você receberá um e-mail de {% data variables.product.prodname_dotcom %} convidando você a escolher uma senha para o usuário de configuração da sua empresa, que será o primeiro proprietário da empresa. Use uma janela de navegação anônima ou privada ao definir a senha. O usuário de configuração é usado apenas para configurar a integração do logon único e provisionamento do SCIM para a empresa. Ele não terá mais acesso para administrar a conta corporativa assim que o SSO for habilitado com sucesso. O nome do usuário de configuração é o código curto da sua empresa com o sufixo `_admin`.
 
   {% note %}
 
@@ -89,20 +89,20 @@ Before your developers can use {% data variables.product.prodname_ghe_cloud %} w
 
   {% endnote %}
 
-3. After you log in to your setup user, get started by configuring {% if oidc-for-emu %}how your members will authenticate. If you are using Azure Active Directory as your identity provider, you can choose between OpenID Connect (OIDC) and Security Assertion Markup Language (SAML). Both options provide a seamless sign-in experience for your members, but only OIDC includes support for Conditional Access Policies (CAP). If you are using Okta as your identity provider, you can use SAML to authenticate your members.{% else %}SAML SSO for your enterprise. For more information, see "[Configuring SAML single sign-on for Enterprise Managed Users](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-saml-single-sign-on-for-enterprise-managed-users)."{% endif %}
+3. Depois de efetuar o login no usuário de configuração, comece configurando {% if oidc-for-emu %} como seus integrantes efetuarão a autenticação. Se você estiver usando o Diretório Ativo do Azure como seu provedor de identidade, você poderá escolher entre o OpenID Connect (OIDC) e o Security Assertion Markup Language (SAML). Ambas as opções fornecem uma experiência perfeita de login para seus integrantes, mas apenas o OIDC inclui suporte para políticas de acesso condicional (CAP). Se você estiver usando o Okta como seu provedor de identidade, você pode usar o SAML para autenticar seus integrantes .{% else %}SAML SSO para sua empresa. Para obter mais informações, consulte "[Configurando o logon único SAML para Usuários Gerenciados pela Empresa](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-saml-single-sign-on-for-enterprise-managed-users)."{% endif %}
 
   {% if oidc-for-emu %}
 
-  To get started, read the guide for your chosen authentication method.
+  Para começar, leia o guia do método de autenticação escolhido.
 
-    - "[Configuring OIDC for Enterprise Managed Users](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-oidc-for-enterprise-managed-users)."
-    - "[Configuring SAML single sign-on for Enterprise Managed Users](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-saml-single-sign-on-for-enterprise-managed-users)."
+    - "[Configurando OIDC para usuários gerenciados por empresas](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-oidc-for-enterprise-managed-users)."
+    - "[Configurando o logon único SAML para Usuários Gerenciados pela Empresa](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-saml-single-sign-on-for-enterprise-managed-users)."
 
   {% endif %}
 
-4. Once you have configured SSO, you can configure SCIM provisioning. SCIM is how your identity provider will provision and manage member accounts and teams on {% data variables.product.prodname_dotcom_the_website %}. For more information on configuring SCIM provisioning, see "[Configuring SCIM provisioning for enterprise managed users](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users)."
+4. Uma vez configurado SSO, você poderá configurar o provisionamento do SCIM. O SCIM é como seu provedor de identidade irá prover e gerenciar contas de integrantes e equipes em {% data variables.product.prodname_dotcom_the_website %}. Para obter mais informações sobre como configurar o provisionamento do SCIM, consulte "[Configurando o provisionamento de SCIM para usuários gerenciados pela empresa](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users)".
 
-5. Once authentication and provisioning are configured, you can start provisioning members and managing teams. Para obter mais informações, consulte "[Gerenciar associações de equipe com grupos de provedor de identidade](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/managing-team-memberships-with-identity-provider-groups)".
+5. Uma vez configurados a autenticação e provisionamento, você pode começar a provisionar os integrantes e gerenciar as equipes. Para obter mais informações, consulte "[Gerenciar associações de equipe com grupos de provedor de identidade](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/managing-team-memberships-with-identity-provider-groups)".
 
 ## Efetuar a autenticação um {% data variables.product.prodname_managed_user %}
 

@@ -1,7 +1,7 @@
 ---
 title: Exemplos
 shortTitle: Exemplos
-intro: 'Example workflows that demonstrate the CI/CD features of {% data variables.product.prodname_actions %}.'
+intro: 'Exemplos de fluxos de trabalho que demonstram as funcionalidades de CI/CD de {% data variables.product.prodname_actions %}.'
 versions:
   fpt: '*'
   ghes: '*'
