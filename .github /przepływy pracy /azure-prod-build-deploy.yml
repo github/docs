@@ -124,7 +124,7 @@ jobs:
                 hasStopped = states.some((s) => s === 'STOPPED')
               }
 
-              const isAllReady = states.every((s) => s === 'READY')
+              const isAllReady = states.every((s) => s === 'READY') 
 
               if (hasStopped && isAllReady) {
                 process.exit(0) // success
