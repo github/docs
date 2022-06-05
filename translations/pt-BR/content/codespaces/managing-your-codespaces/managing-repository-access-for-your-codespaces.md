@@ -25,7 +25,7 @@ Quando as permissões são listadas no arquivo `devcontainer.json`, será solici
 Para criar codespaces com permissões personalizadas definidas, você deve usar um dos seguintes:
 * A interface de usuário web do {% data variables.product.prodname_dotcom %}
 * [CLI de {% data variables.product.prodname_dotcom %}](https://github.com/cli/cli/releases/latest) 2.5.2 ou posterior
-* [{% data variables.product.prodname_github_codespaces %} {% data variables.product.prodname_vscode %} extension](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces) 1.5.3 or later
+* [{% data variables.product.prodname_github_codespaces %} {% data variables.product.prodname_vscode %} extensão ](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces) 1.5.3 ou posterior
 
 ## Configurando permissões adicionais do repositório
 

@@ -1,6 +1,6 @@
 date: '2022-05-10'
 release_candidate: true
-deprecated: false
+deprecated: true
 intro: |
   {% note %}
 
@@ -141,7 +141,7 @@ sections:
       notes:
         # https://github.com/github/releases/issues/1503
         - |
-          You can now re-run only failed jobs or an individual job in a GitHub Actions workflow run. For more information, see "[Re-running workflows and jobs](/managing-workflow-runs/re-running-workflows-and-jobs)."
+          You can now re-run only failed jobs or an individual job in a GitHub Actions workflow run. For more information, see "[Re-running workflows and jobs](/actions/managing-workflow-runs/re-running-workflows-and-jobs)."
 
     - heading: Dependency graph supports GitHub Actions
       notes:
@@ -373,7 +373,7 @@ sections:
 
     # https://github.com/github/releases/issues/2054
     - |
-      New gists are now created with a default branch name of either `main` or the alternative default branch name defined in your user settings. This matches how other repositories are created on GitHub Enterprise Server. For more information, see "[About branches](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches#about-the-default-branch)" and "[Managing the default branch name for your repositories](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-the-default-branch-name-for-your-repositories)."
+      New gists are now created with a default branch name of either `main` or the alternative default branch name defined in your user settings. This matches how other repositories are created on GitHub Enterprise Server. For more information, see "[About branches](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches#about-the-default-branch)" and "[Managing the default branch name for your repositories](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-the-default-branch-name-for-your-repositories)."
 
     # https://github.com/github/releases/issues/2028
     - |
@@ -390,6 +390,11 @@ sections:
     # https://github.com/github/releases/issues/1983
     - |
         Creating and removing repository invitations, whether done through the API or web interface, are now subject to rate limits that may be enabled on your GitHub Enterprise Server instance. For more information about rate limits, see "[Configuring rate limits](/admin/configuration/configuring-your-enterprise/configuring-rate-limits)."
+
+    # https://github.com/github/releases/issues/2291
+    - |
+        MinIO has announced the removal of the MinIO Gateways starting June 1st, 2022. While MinIO Gateway for NAS continues to be one of the supported storage providers for Github Actions and Github Packages, we recommend moving to MinIO LTS support to avail support and bug fixes from MinIO. For more information about rate limits, see "[Scheduled removal of MinIO Gateway for GCS, Azure, HDFS in the minio/minio repository](https://github.com/minio/minio/issues/14331)."
+
 
   deprecations:
     - heading: Change to the format of authentication tokens
