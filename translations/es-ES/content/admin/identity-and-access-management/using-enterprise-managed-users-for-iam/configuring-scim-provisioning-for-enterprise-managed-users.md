@@ -7,6 +7,7 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/configuring-scim-provisioning-for-enterprise-managed-users
   - /admin/authentication/managing-your-enterprise-users-with-your-identity-provider/configuring-scim-provisioning-for-enterprise-managed-users
   - /admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users
+  - /admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/configuring-scim-provisioning-for-enterprise-managed-users
 versions:
   ghec: '*'
 topics:
@@ -18,13 +19,16 @@ topics:
 
 Debes configurar el aprovisionamiento de {% data variables.product.prodname_emus %} para crear, administrar y desactivar las cuentas de usuario para los miembros de las empresas. Cuando configuras el aprovisionamiento para {% data variables.product.prodname_emus %}, los usuarios que se asignaron a la aplicación de {% data variables.product.prodname_emu_idp_application %} en tu proveedor de identidad se aprovisionan como cuentas de usuario nuevas en {% data variables.product.prodname_dotcom %} a través de SCIM y los usuarios se agregan a tu empresa.
 
-Cuando actualzias la información asociada con la identidad de un usuario en tu IdP, este actualizará la cuenta de usuario en GitHub.com. Cuando desasignas al usuario desde la aplicación de {% data variables.product.prodname_emu_idp_application %} o cuando desactivas una cuenta de usuario en tu IdP, dicho IdP se comunicará con {% data variables.product.prodname_dotcom %} para invalidar las sesiones de SAML e inhabilitar la cuenta del miembro. La información de la cuenta inhabilitada se mantiene y su nombre de usuario se cambia por un hash del nombre de usuario original con el código corto anexo. Si reasignas a un usuario a la aplicación de {% data variables.product.prodname_emu_idp_application %} o reactivas su cuenta en tu IdP, la cuenta de {% data variables.product.prodname_managed_user %} en {% data variables.product.prodname_dotcom %} se reactivará y el nombre de usuario se restablecerá.
+Cuando actualzias la información asociada con la identidad de un usuario en tu IdP, este actualizará la cuenta de usuario en GitHub.com. When you unassign the user from the {% data variables.product.prodname_emu_idp_application %} application or deactivate a user's account on your IdP, your IdP will communicate with {% data variables.product.prodname_dotcom %} to invalidate any sessions and disable the member's account. La información de la cuenta inhabilitada se mantiene y su nombre de usuario se cambia por un hash del nombre de usuario original con el código corto anexo. Si reasignas a un usuario a la aplicación de {% data variables.product.prodname_emu_idp_application %} o reactivas su cuenta en tu IdP, la cuenta de {% data variables.product.prodname_managed_user %} en {% data variables.product.prodname_dotcom %} se reactivará y el nombre de usuario se restablecerá.
 
-Los grupos en tu IdP pueden utilizarse para administrar la membrecía de equipo dentro de las organizaciones de tu empresa, permitiéndote configurar el acceso y los permisos del repositorio mediante tu IdP. Para obtener más información, consulta la sección "[Administrar las membrecías de equipo con los grupos de proveedor de identidades](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/managing-team-memberships-with-identity-provider-groups)".
+Los grupos en tu IdP pueden utilizarse para administrar la membrecía de equipo dentro de las organizaciones de tu empresa, permitiéndote configurar el acceso y los permisos del repositorio mediante tu IdP. Para obtener más información, consulta la sección "[Administrar las membrecías de equipo con los grupos de proveedor de identidades](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/managing-team-memberships-with-identity-provider-groups)".
 
 ## Prerrequisitos
 
-Antes de que puedas configurar el aprovisionamiento para {% data variables.product.prodname_emus %}, debes configurar el inicio de sesión único de SAML. Para obtener más información, consulta la sección "[Configurar el inicio de sesión único de SAML para los Usuarios Administrados Empresariales](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/configuring-saml-single-sign-on-for-enterprise-managed-users)".
+Before you can configure provisioning for {% data variables.product.prodname_emus %}, you must configure SAML{% if oidc-for-emu %} or OIDC{% endif %} single-sign on. {% if oidc-for-emu %}
+
+- For more information on configuring OIDC, see "[Configuring OIDC for Enterprise Managed Users](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-oidc-for-enterprise-managed-users)"
+- {% endif %}For information on configuring SAML, see "[Configuring SAML single sign-on for Enterprise Managed Users](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-saml-single-sign-on-for-enterprise-managed-users)."
 
 ## Crear un token de acceso personal
 
@@ -54,7 +58,11 @@ Después de crear tu token de acceso personal y almacenarlo de forma segura, pue
 
 {% data reusables.scim.emu-scim-rate-limit %}
 
-Para configurar a Azure Active Directory para que aprovisione usuarios para tu {% data variables.product.prodname_emu_enterprise %}, consulta el [Tutorial: Configurar a los Usuarios Administrados Empresariales de Github para un aprovisionamiento de usuarios automático](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/github-enterprise-managed-user-provisioning-tutorial) en la documentación de Azure AD.
+To configure provisioning, follow the appropriate link from the table below.
 
-Para configurar Okta para que aprovisione usuarios para tu {% data variables.product.prodname_emu_enterprise %}, consulta la sección "[Configurar el aprovisionamiento de SCIM para los Usuarios Administrados Empresariales con Okta](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/configuring-scim-provisioning-for-enterprise-managed-users-with-okta)".
-
+| Proveedor de identidad | SSO method | Más información                                                                                                                                                                                                                                               |
+| ---------------------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |{% if oidc-for-emu %}
+| Azure AD               | OIDC       | [Tutorial: Configure GitHub Enterprise Managed User (OIDC) for automatic user provisioning](https://docs.microsoft.com/azure/active-directory/saas-apps/github-enterprise-managed-user-oidc-provisioning-tutorial) in the Azure AD documentation 
+{% endif %}
+| Azure AD               | SAML       | [Tutorial: Configure GitHub Enterprise Managed User for automatic user provisioning](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/github-enterprise-managed-user-provisioning-tutorial) in the Azure AD documentation                    |
+| Okta                   | SAML       | [Configurar el aprovisionamiento de SCIM para los Usuarios Administrados Empresariales con Okta](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users-with-okta)       |

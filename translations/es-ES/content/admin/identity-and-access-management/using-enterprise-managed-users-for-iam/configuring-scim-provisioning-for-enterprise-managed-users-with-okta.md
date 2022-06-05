@@ -10,6 +10,7 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/configuring-scim-provisioning-for-enterprise-managed-users-with-okta
   - /admin/authentication/managing-your-enterprise-users-with-your-identity-provider/configuring-scim-provisioning-for-enterprise-managed-users-with-okta
   - /admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users-with-okta
+  - /admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/configuring-scim-provisioning-for-enterprise-managed-users-with-okta
 type: tutorial
 topics:
   - Accounts
@@ -20,9 +21,9 @@ topics:
 
 ## Acerca del aprovisionamiento con Okta
 
-Puedes utilizar los {% data variables.product.prodname_emus %} con Okta como tu proveedor de identidad para aprovisionar cuentas nuevas, administrar la membrecía empresarial y administrar las membrecías de equipo para las organizaciones de tu empresa. Para obtener más información sobre cómo aprovisionar para los {% data variables.product.prodname_emus %}, consulta la sección "[Configurar el aprovisionamiento de SCIM para los usuarios administrados empresariales](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/configuring-scim-provisioning-for-enterprise-managed-users)".
+Puedes utilizar los {% data variables.product.prodname_emus %} con Okta como tu proveedor de identidad para aprovisionar cuentas nuevas, administrar la membrecía empresarial y administrar las membrecías de equipo para las organizaciones de tu empresa. Para obtener más información sobre cómo aprovisionar para los {% data variables.product.prodname_emus %}, consulta la sección "[Configurar el aprovisionamiento de SCIM para los usuarios administrados empresariales](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users)".
 
-Antes de que puedas configurar el aprovisionamiento con Okta, debes configurar el inicio de sesión único de SAML. Para obtener más información, consulta la sección "[Configurar el inicio de sesión único de SAML para los Usuarios Administrados Empresariales](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/configuring-saml-single-sign-on-for-enterprise-managed-users)".
+Antes de que puedas configurar el aprovisionamiento con Okta, debes configurar el inicio de sesión único de SAML. Para obtener más información, consulta la sección "[Configurar el inicio de sesión único de SAML para los Usuarios Administrados Empresariales](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-saml-single-sign-on-for-enterprise-managed-users)".
 
 Para configurar el aprovisionamiento con Okta, debes configurar el nombre de tu empresa en la aplicación de {% data variables.product.prodname_emu_idp_application %} e ingresar el token de acceso personal del usuario de configuración. Entonces podrás aprovisionar usuarios en Okta.
 
@@ -79,7 +80,7 @@ Después de haber configurado el SSO de SAML y el aprovisionamiento, podrás apr
 
 {% data reusables.scim.emu-scim-rate-limit %}
 
-También puedes administrar las membrecías organizacionales automáticamente si asignas grupos a la aplicación y los agregas a la pestaña de "Push Groups" en Okta. Cuando el grupo se aprovisione con éxito, este estará disponible para conectarse a los equipos en las organizaciones de la empresa. Para obtener más información sobre cómo administrar los equipos, consulta la sección "[Administrar las membrecías de los quipos con grupos de proveedor de identidad](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/managing-team-memberships-with-identity-provider-groups)".
+También puedes administrar las membrecías organizacionales automáticamente si asignas grupos a la aplicación y los agregas a la pestaña de "Push Groups" en Okta. Cuando el grupo se aprovisione con éxito, este estará disponible para conectarse a los equipos en las organizaciones de la empresa. Para obtener más información sobre cómo administrar los equipos, consulta la sección "[Administrar las membrecías de los quipos con grupos de proveedor de identidad](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/managing-team-memberships-with-identity-provider-groups)".
 
 Cuando asignas usuarios, puedes utilizar el atributo de "Roles" en la aplicación de {% data variables.product.prodname_emu_idp_application %} para configurar el rol de un usuario en tu empresa en {% data variables.product.product_name %}. Para obtener más información sobre los roles, consulta la sección "[Roles en una empresa](/github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise/roles-in-an-enterprise)".
 

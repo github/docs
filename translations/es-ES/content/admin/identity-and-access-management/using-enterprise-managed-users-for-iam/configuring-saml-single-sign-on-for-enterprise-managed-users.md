@@ -7,6 +7,7 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/configuring-saml-single-sign-on-for-enterprise-managed-users
   - /admin/authentication/managing-your-enterprise-users-with-your-identity-provider/configuring-saml-single-sign-on-for-enterprise-managed-users
   - /admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-saml-single-sign-on-for-enterprise-managed-users
+  - /admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/configuring-saml-single-sign-on-for-enterprise-managed-users
 versions:
   ghec: '*'
 type: tutorial
@@ -107,5 +108,5 @@ Después de que instalas y configuras la aplicación de {% data variables.produc
 
 ### Habilitar el aprovisionamiento
 
-Después de que habilitas el SSO de SAML, habilita el aprovisionamiento. Para obtener más información, consulta la sección "[Configurar el aprovisionamiento de SCIM para los usuarios administrados de las empresas](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/configuring-scim-provisioning-for-enterprise-managed-users)".
+Después de que habilitas el SSO de SAML, habilita el aprovisionamiento. Para obtener más información, consulta la sección "[Configurar el aprovisionamiento de SCIM para los usuarios administrados de las empresas](//admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users)".
 
