@@ -19,6 +19,14 @@ communityRedirect:
 
 Automatically generated release notes provide an automated alternative to manually writing release notes for your {% data variables.product.prodname_dotcom %} releases. With automatically generated release notes, you can quickly generate an overview of the contents of a release. You can also customize your automated release notes, using labels to create custom categories to organize pull requests you want to include, and exclude certain labels and users from appearing in the output.
 
+### Contents of automatically generated release notes
+
+The automatically generated release notes include:
+
+* A list of merged pull requests.
+* A list of contributors to the release.
+* A link to a full changelog.
+
 ## Creating automatically generated release notes for a new release
 
 {% data reusables.repositories.navigate-to-repo %}
