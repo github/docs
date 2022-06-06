@@ -57,7 +57,7 @@ You might fork a project to propose changes to the upstream, or original, reposi
 
 1. On {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.product.product_location %}{% endif %}, navigate to the [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) repository.
 2. In the top-right corner of the page, click **Fork**.
-![Fork button](/assets/images/help/repository/fork_button.jpg)
+![Fork button](/assets/images/help/repository/fork_button.png)
 
 {% endwebui %}
 
