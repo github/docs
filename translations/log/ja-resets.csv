@@ -166,7 +166,6 @@ translations/ja-JP/content/get-started/getting-started-with-git/updating-credent
 translations/ja-JP/content/get-started/learning-about-github/about-github-advanced-security.md,Listed in localization-support#489
 translations/ja-JP/content/get-started/learning-about-github/about-github-advanced-security.md,rendering error
 translations/ja-JP/content/get-started/privacy-on-github/managing-data-use-settings-for-your-private-repository.md,broken liquid tags
-translations/ja-JP/content/get-started/quickstart/git-and-github-learning-resources.md,broken liquid tags
 translations/ja-JP/content/get-started/using-github/github-mobile.md,broken liquid tags
 translations/ja-JP/content/get-started/writing-on-github/editing-and-sharing-content-with-gists/creating-gists.md,broken liquid tags
 translations/ja-JP/content/issues/tracking-your-work-with-issues/planning-and-tracking-work-for-your-team-or-project.md,broken liquid tags
@@ -273,9 +272,9 @@ translations/ja-JP/data/reusables/dotcom_billing/lfs-remove-data.md,broken liqui
 translations/ja-JP/data/reusables/education/apply-for-team.md,broken liquid tags
 translations/ja-JP/data/reusables/enterprise-accounts/actions-tab.md,broken liquid tags
 translations/ja-JP/data/reusables/enterprise-accounts/hooks-tab.md,Listed in localization-support#489
-translations/ja-JP/data/reusables/enterprise-accounts/hooks-tab.md,broken liquid tags
+translations/ja-JP/data/reusables/enterprise-accounts/hooks-tab.md,rendering error
 translations/ja-JP/data/reusables/enterprise-accounts/messages-tab.md,Listed in localization-support#489
-translations/ja-JP/data/reusables/enterprise-accounts/messages-tab.md,broken liquid tags
+translations/ja-JP/data/reusables/enterprise-accounts/messages-tab.md,rendering error
 translations/ja-JP/data/reusables/enterprise-accounts/pages-tab.md,broken liquid tags
 translations/ja-JP/data/reusables/enterprise_installation/hardware-considerations-all-platforms.md,broken liquid tags
 translations/ja-JP/data/reusables/enterprise_installation/upgrade-hardware-requirements.md,broken liquid tags

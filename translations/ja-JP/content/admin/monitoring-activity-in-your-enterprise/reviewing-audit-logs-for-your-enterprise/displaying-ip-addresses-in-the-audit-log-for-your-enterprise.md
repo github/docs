@@ -28,7 +28,7 @@ You are responsible for meeting any legal obligations that accompany the viewing
 
 If you choose to display IP addresses, the IP addresses only appear in your enterprise's audit log. IP addresses will not appear for events in the audit logs for individual organizations owned by your enterprise. For more information about organization audit logs, see "[Reviewing the audit log for your organization](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization)."
 
-You can display IP addresses in the audit log regardless of which authentication method you use for your enterprise on {% data variables.product.product_location %}. For more information, see "[About authentication for your enterprise](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise)."
+You can display IP addresses in the audit log regardless of which authentication method you use for your enterprise on {% data variables.product.product_location %}. 詳しい情報については「[Enterpriseでの認証について](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise)」を参照してください。
 
 When anyone creates an account on {% data variables.product.product_location %}, the person agrees to {% data variables.product.company_short %}'s collection of basic information about connections to {% data variables.product.company_short %}'s services, including source IP address. For more information, see "[GitHub Privacy Statement](/free-pro-team@latest/site-policy/privacy-policies/github-privacy-statement#usage-information)."
 

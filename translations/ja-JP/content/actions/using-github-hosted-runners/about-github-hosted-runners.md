@@ -187,11 +187,8 @@ Dockerコンテナで実行されるアクションには、 `/github`パスの�
 - `/github/workspace` - {% data reusables.repositories.action-root-user-required %}
 - `/github/workflow`
 
-{% ifversion fpt or ghec %}
-
 ## 参考リンク
 - 「[{% data variables.product.prodname_actions %} の支払いを管理する](/billing/managing-billing-for-github-actions)」
-
-{% endif %}
+- You can use a matrix strategy to run your jobs on multiple images. For more information, see "[Using a matrix for your jobs](/actions/using-jobs/using-a-matrix-for-your-jobs)."
 
 {% endif %}
