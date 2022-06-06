@@ -35,15 +35,15 @@ Você habilita {% data variables.product.prodname_dependabot_version_updates %},
 
 ## Habilitar {% data variables.product.prodname_dependabot_version_updates %}
 
-You enable {% data variables.product.prodname_dependabot_version_updates %} by commiting a *dependabot.yml* configuration file to your repository.
-{% if dependabot-settings-update-37 %}If you enable the feature in your settings page, GitHub creates a basic file which you can edit, otherwise you can create the file using any file editor.
+Você habilita {% data variables.product.prodname_dependabot_version_updates %} enviando um arquivo de configuração de *dependabot.yml* para o seu repositório.
+{% if dependabot-settings-update-37 %}Se você habilitar o recurso na sua página de configurações, o GitHub criará um arquivo básico que você pode editar, caso contrário você pode criar o arquivo usando qualquer editor de arquivo.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
-1. Under "Code security and analysis", to the right of "{% data variables.product.prodname_dependabot_version_updates %}", click **Enable** to open a basic *dependabot.yml* configuration file in the `.github` directory of your repository.
+1. Em "Código de segurança e análise", à direita de "{% data variables.product.prodname_dependabot_version_updates %}", clique em **Habilitar** para abrir um arquivo básico de configuração *dependabot.yml* no diretório do `.github` do seu repositório.
 {% else %}
-1. Create a *dependabot.yml* configuration file in the `.github` directory of your repository.
+1. Crie um arquivo de configuração *dependabot.yml* no diretório `.github` do seu repositório.
 {% endif %}
 1. Adicione uma `versão`.
 1. Opcionalmente, se você tiver dependências em um registro privado, adicione uma seção de `registros` que contém detalhes de autenticação.
@@ -54,7 +54,7 @@ You enable {% data variables.product.prodname_dependabot_version_updates %} by c
     - `schedule.interval` para especificar com que frequência verificar novas versões.
 {% data reusables.dependabot.check-in-dependabot-yml %}
 
-For information about all the configuration options, see "[Configuration options for the dependabot.yml file](/github/administering-a-repository/configuration-options-for-dependency-updates)."
+Para obter mais informações sobre as opções de configuração, consulte "[Opções de configuração para o arquivo dependabot.yml](/github/administering-a-repository/configuration-options-for-dependency-updates)".
 
 ### Exemplo: arquivo *dependabot.yml*
 

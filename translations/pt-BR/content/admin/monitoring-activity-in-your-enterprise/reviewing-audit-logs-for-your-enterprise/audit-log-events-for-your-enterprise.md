@@ -860,7 +860,7 @@ O escopo dos eventos que aparecem no log de auditoria da sua empresa depende se 
 | `public_key.create`                 | Uma chave SSH foi [adicionada][add key] a uma conta de usuário ou uma [chave de implantação][] foi adicionada ao repositório. |
 | `public_key.delete`                 | Uma chave SSH foi removida de uma conta de usuário ou uma [chave de implantação][] foi removida de um repositório.            |
 | `public_key.update`                 | A chave SSH de uma conta de usuário ou a [chave de implantação de um repositório][] foi atualizada.                           |
-| `public_key.unverification_failure` | A user account's SSH key or a repository's [deploy key][] was unable to be unverified.                                        |
+| `public_key.unverification_failure` | Não foi possível cancelar a verificação da chave SSH de uma conta de usuário ou a [chave de implantação][].                   |
 | `public_key.unverify`               | A user account's SSH key or a repository's [deploy key][] was unverified.                                                     |
 | `public_key.verification_failure`   | A user account's SSH key or a repository's [deploy key][] was unable to be verified.                                          |
 | `public_key.verify`                 | A user account's SSH key or a repository's [deploy key][] was verified.                                                       |
@@ -1079,7 +1079,7 @@ O escopo dos eventos que aparecem no log de auditoria da sua empresa depende se 
 | `secret_scanning.enable`  | O proprietário de uma organização habilitou a digitalisação de segredo de todos os repositórios{% ifversion ghec %} privados ou internos{% endif %}.                                                                                                                                      |
 
 {% if secret-scanning-alert-audit-log %}
-## `secret_scanning_alert` category actions
+## Ações da categoria `secret_scanning_alert`
 
 | Ação                            | Descrição                                                                                                                                                                                                                                                                                                                                     |
 | ------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

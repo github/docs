@@ -90,7 +90,7 @@ Além do seu código, você provavelmente precisa usar segredos em outros lugare
 {% endif %}
 
 {% ifversion ghes > 3.2 or ghae %}
-Além do seu código, você provavelmente precisa usar segredos em outros lugares. For example, to allow {% data variables.product.prodname_actions %} workflows{% ifversion ghes %} or {% data variables.product.prodname_dependabot %}{% endif %} to communicate with other systems. For more information on how to securely store and use secrets, see "[Encrypted secrets in Actions](/actions/security-guides/encrypted-secrets){% ifversion ghes %}" and "[Managing encrypted secrets for Dependabot](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot)."{% else %}."{% endif %}
+Além do seu código, você provavelmente precisa usar segredos em outros lugares. Por exemplo, para permitir que {% data variables.product.prodname_actions %} os fluxos de trabalho {% ifversion ghes %} ou {% data variables.product.prodname_dependabot %}{% endif %} se comuniquem com outros sistemas. Para obter mais informações sobre como armazenar e usar segredos de forma segura, consulte "[segredos criptografados em Ações](/actions/security-guides/encrypted-secrets){% ifversion ghes %}" e "[Gerenciando segredos criptografados para o Dependabot](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot).{% else %}."{% endif %}
 {% endif %}
 
 ## Mantenha padrões de codificação vulneráveis fora do seu repositório
