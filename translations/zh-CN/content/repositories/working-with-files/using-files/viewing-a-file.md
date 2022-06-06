@@ -51,11 +51,6 @@ shortTitle: 查看文件和跟踪文件更改
 {% if blame-ignore-revs %}
 
 ## 在追溯视图中忽略提交
-{% note %}
-
-**注意：** 在追溯视图中忽略提交目前处于公开测试阶段，可能会发生变化。
-
-{% endnote %}
 
 在 `.git-blame-ignore-revs` 文件中指定的所有修订（必须位于存储库的根目录中）都使用 Git 的 `git blame --ignore-revs-file` 配置设置从追溯视图中隐藏。 更多信息请参阅 Git 文档中的 [`git blame --ignore-revs-file`](https://git-scm.com/docs/git-blame#Documentation/git-blame.txt---ignore-revs-fileltfilegt)。
 

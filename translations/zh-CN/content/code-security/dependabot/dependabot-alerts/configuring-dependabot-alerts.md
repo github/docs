@@ -68,8 +68,8 @@ Dependabot 执行扫描以检测有漏洞的依赖项，并在将新漏洞添加
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
-1. 在“Code security and analysis（代码安全性和分析）”下，单击 {% data variables.product.prodname_dependabot_alerts %} 右侧的 **Disable（禁用）**或 **Enable（启用）**。 ![对 Dependabot 警报强调显示"禁用"按钮的"配置安全性和分析"功能的屏幕截图](/assets/images/help/dependabot/dependabot-alerts-disable-or-enable-fpt-private.png)
- {% endif %}{% ifversion ghes or ghae %}
+1. Under "Code security and analysis", to the right of {% data variables.product.prodname_dependabot_alerts %}, click **Enable** to enable alerts or **Disable** to disable alerts. ![Screenshot of "Code security and analysis" section with button to enable {% data variables.product.prodname_dependabot_security_updates %}](/assets/images/help/repository/security-and-analysis-disable-or-enable-fpt-private.png)
+{% endif %}{% ifversion ghes or ghae %}
 
 您的企业所有者可以启用或禁用存储库的 {% data variables.product.prodname_dependabot_alerts %}。 更多信息请参阅“[为企业启用 Dependabot](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)”。
 {% endif %}

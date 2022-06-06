@@ -52,10 +52,7 @@ As part of an expression, you can access context information using one of two sy
 - インデックス構文: `github['sha']`
 - プロパティ参照外しの構文: `github.sha`
 
-プロパティ参照外しの構文を使用するには、プロパティ名に次の条件が必要です。
-
-- `a-Z` または `_` で始まる。
-- `a-Z` 、`0-9`、 `-`、または`_`が続く。
+In order to use property dereference syntax, the property name must start with a letter or `_` and contain only alphanumeric characters, `-`, or `_`.
 
 If you attempt to dereference a non-existent property, it will evaluate to an empty string.
 

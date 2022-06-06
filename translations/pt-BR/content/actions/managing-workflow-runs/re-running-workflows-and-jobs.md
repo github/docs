@@ -17,7 +17,7 @@ versions:
 
 ## Sobre a reexecução de fluxos de trabalho e trabalhos
 
-A reexecução de um fluxo de trabalho{% if re-run-jobs %} ou trabalhos em um fluxo de trabalho{% endif %} usa o mesmo `GITHUB_SHA` (commit SHA) e `GITHUB_REF` (Git ref) do evento original que acionou a execução do fluxo de trabalho. You can re-run a workflow{% if re-run-jobs %} or jobs in a workflow{% endif %} for up to 30 days after the initial run.{% if debug-reruns %} When you re-run a workflow or jobs in a workflow, you can enable debug logging for the re-run. This will enable runner diagnostic logging and step debug logging for the re-run. For more information about debug logging, see "[Enabling debug logging](/actions/monitoring-and-troubleshooting-workflows/enabling-debug-logging)."{% endif %}
+A reexecução de um fluxo de trabalho{% if re-run-jobs %} ou trabalhos em um fluxo de trabalho{% endif %} usa o mesmo `GITHUB_SHA` (commit SHA) e `GITHUB_REF` (Git ref) do evento original que acionou a execução do fluxo de trabalho. Você pode executar novamente um fluxo de trabalho{% if re-run-jobs %} ou trabalhos em um fluxo de trabalho{% endif %} por até 30 dias após a execução inicial.{% if debug-reruns %} Ao executar novamente um fluxo de travalho ou trabalhos em um fluxo de trabalho, você pode habilitar o registro de depuração para a nova execução. Isso permitirá o registro de diagnóstico do executor e o registro de depuração de etapas para a nova execução. Para obter mais informações sobre o registro de depuração, consulte "[Habilitando o registro de depuração](/actions/monitoring-and-troubleshooting-workflows/enabling-debug-logging)"{% endif %}
 
 ## Reexecutar todos os trabalhos em um fluxo de trabalho
 
