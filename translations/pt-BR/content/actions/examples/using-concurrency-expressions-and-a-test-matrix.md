@@ -1,7 +1,7 @@
 ---
-title: 'Using concurrency, expressions, and a test matrix'
-shortTitle: 'Using concurrency, expressions, and a test matrix'
-intro: 'How to use advanced {% data variables.product.prodname_actions %} features for continuous integration (CI).'
+title: 'Usando concorrência, expressões e uma matriz de teste'
+shortTitle: 'Usando concorrência, expressões e uma matriz de teste'
+intro: 'Como usar funcionalidades avançadas de {% data variables.product.prodname_actions %} para integração contínua (IC).'
 versions:
   fpt: '*'
   ghes: '>= 3.5'
@@ -15,21 +15,21 @@ topics:
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-- [Example overview](#example-overview)
-- [Features used in this example](#features-used-in-this-example)
+- [Visão geral do exemplo](#example-overview)
+- [Características utilizadas neste exemplo](#features-used-in-this-example)
 - [Exemplo de fluxo de trabalho](#example-workflow)
-- [Understanding the example](#understanding-the-example)
+- [Entendendo o exemplo](#understanding-the-example)
 - [Próximas etapas](#next-steps)
 
-## Example overview
+## Visão geral do exemplo
 
-{% data reusables.actions.example-workflow-intro-ci %} When this workflow is triggered, it tests your code using a matrix of test combinations with `npm test`.
+{% data reusables.actions.example-workflow-intro-ci %} Quando este fluxo de trabalho é acionado, ele testa seu código usando uma matriz de combinações de teste com `teste de npm`.
 
 {% data reusables.actions.example-diagram-intro %}
 
-![Overview diagram of workflow steps](/assets/images/help/images/overview-actions-using-concurrency-expressions-and-a-test-matrix.png)
+![Diagrama de visão geral das etapas do fluxo de trabalho](/assets/images/help/images/overview-actions-using-concurrency-expressions-and-a-test-matrix.png)
 
-## Features used in this example
+## Características utilizadas neste exemplo
 
 {% data reusables.actions.example-table-intro %}
 
@@ -41,12 +41,12 @@ topics:
 {% data reusables.actions.cron-table-entry %}
 {% data reusables.actions.permissions-table-entry %}
 {% data reusables.actions.concurrency-table-entry %}
-| Running the job on different runners, depending on the repository: | [`runs-on`](/actions/using-jobs/choosing-the-runner-for-a-job)|
+| Executando o trabalho em diferentes corredores, dependendo do repositório: | [`runs-on`](/actions/using-jobs/choosing-the-runner-for-a-job)|
 {% data reusables.actions.if-conditions-table-entry %}
-| Using a matrix to create different test configurations: | [`matrix`](/actions/using-jobs/using-a-build-matrix-for-your-jobs)|
+| Usando uma matriz para criar diferentes configurações de teste: | [`matriz`](/actions/using-jobs/using-a-build-matrix-for-your-jobs)|
 {% data reusables.actions.checkout-action-table-entry %}
 {% data reusables.actions.setup-node-table-entry %}
-| Caching dependencies: | [`actions/cache`](/actions/advanced-guides/caching-dependencies-to-speed-up-workflows)| | Running tests on the runner: | `npm test`|
+| Deoendências de cache: | [`actions/cache`](/actions/advanced-guides/caching-dependencies-to-speed-up-workflows)| | Executando testes no executor: | `teste do npm`|
 
 ## Exemplo de fluxo de trabalho
 
@@ -218,7 +218,7 @@ jobs:
 </tbody>
 </table>
 
-## Understanding the example
+## Entendendo o exemplo
 
  {% data reusables.actions.example-explanation-table-intro %}
 
@@ -226,7 +226,7 @@ jobs:
 <thead>
   <tr>
     <th style="width:60%"><b>Código</b></th>
-    <th style="width:40%"><b>Explanation</b></th>
+    <th style="width:40%"><b>Explicação</b></th>
   </tr>
 </thead>
 <tbody>
@@ -251,7 +251,7 @@ on:
 </td>
 <td>
 
-The `on` keyword lets you define the events that trigger when the workflow is run. You can define multiple events here. For more information, see "[Triggering a workflow](/actions/using-workflows/triggering-a-workflow#using-events-to-trigger-workflows)."
+A palavra-chave 'on' permite definir os eventos que acionam quando o fluxo de trabalho é executado. Você pode definir vários eventos aqui. Para obter mais informações, consulte "[Acionando um fluxo de trabalho](//actions/using-workflows/triggering-a-workflow#using-events-to-trigger-workflows)."
 </td>
 </tr>
 <tr>
@@ -263,7 +263,7 @@ The `on` keyword lets you define the events that trigger when the workflow is ru
 </td>
 <td>
 
-Add the `workflow_dispatch` event if you want to be able to manually run this workflow in the UI. For more information, see [`workflow_dispatch`](/actions/reference/events-that-trigger-workflows#workflow_dispatch).
+Adicione o evento "workflow_dispatch" se você quiser poder executar manualmente este fluxo de trabalho na interface do usuário. Para obter mais informações, consulte ['workflow_dispatch'](/actions/reference/events-that-trigger-workflows#workflow_dispatch).
 </td>
 </tr>
 <tr>
@@ -275,7 +275,7 @@ Add the `workflow_dispatch` event if you want to be able to manually run this wo
 </td>
 <td>
 
-Add the `pull_request` event, so that the workflow runs automatically every time a pull request is created or updated. For more information, see [`pull_request`](/actions/using-workflows/events-that-trigger-workflows#pull_request).
+Adicione o evento "pull_request", para que o fluxo de trabalho seja executado automaticamente toda vez que um pull request for criado ou atualizado. Para obter mais informações, consulte ['pull_request'](/actions/using-workflows/events-that-trigger-workflows#pull_request).
 </td>
 </tr>
 <tr>
@@ -289,7 +289,7 @@ Add the `pull_request` event, so that the workflow runs automatically every time
 </td>
 <td>
 
-Add the `push` event, so that the workflow runs automatically every time a commit is pushed to a branch matching the filter `gh-readonly-queue/main/**`. For more information, see [`push`](/actions/using-workflows/events-that-trigger-workflows#push).
+Adicione o evento "push", de modo que o fluxo de trabalho seja executado automaticamente toda vez que um commit for enviado por push para um branch que corresponde ao filtro "gh-readonly-queue/main/**". Para obter mais informações, consulte ['push'](/actions/using-workflows/events-that-trigger-workflows#push).
 </td>
 </tr>
 <tr>
@@ -303,7 +303,7 @@ permissions:
 </td>
 <td>
 
-Modifies the default permissions granted to `GITHUB_TOKEN`. This will vary depending on the needs of your workflow. For more information, see "[Assigning permissions to jobs](/actions/using-jobs/assigning-permissions-to-jobs)."
+Modifica as permissões padrão concedidas a "GITHUB_TOKEN". Isso vai variar dependendo das necessidades do seu fluxo de trabalho. Para obter mais informações, consulte "[Atribuindo permissões a trabalhos](/actions/using-jobs/assigning-permissions-to-jobs)."
 </td>
 </tr>
 <tr>
@@ -317,7 +317,7 @@ concurrency:
 </td>
 <td>
 
-Creates a concurrency group for specific events, and uses the `||` operator to define fallback values. For more information, see "[Using concurrency](/actions/using-jobs/using-concurrency)."
+Cria um grupo de concorrência para eventos específicos e usa o operador "||" para definir valores de recuo. Para obter mais informações, consulte "[Usando concorrência](/actions/using-jobs/using-concurrency)."
 </td>
 </tr>
 <tr>
@@ -329,7 +329,7 @@ Creates a concurrency group for specific events, and uses the `||` operator to d
 </td>
 <td>
 
-Cancels any currently running job or workflow in the same concurrency group.
+Cancela qualquer trabalho ou fluxo de trabalho em execução no mesmo grupo de concorrência.
 </td>
 </tr>
 <tr>

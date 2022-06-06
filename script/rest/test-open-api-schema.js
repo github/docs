@@ -9,7 +9,6 @@ import fs from 'fs'
 import path from 'path'
 import _ from 'lodash'
 
-import readFileAsync from '../../lib/readfile-async.js'
 import frontmatter from '../../lib/read-frontmatter.js'
 import getApplicableVersions from '../../lib/get-applicable-versions.js'
 import { allVersions } from '../../lib/all-versions.js'
@@ -86,7 +85,7 @@ async function createCheckContentDirectory(contentFiles) {
   }, {})
 
   for (const filename of contentFiles) {
-    const { data } = frontmatter(await readFileAsync(filename, 'utf8'))
+    const { data } = frontmatter(await fs.promises.readFile(filename, 'utf8'))
     const applicableVersions = getApplicableVersions(data.versions, filename)
     const splitPath = filename.split('/')
     const subCategory = splitPath[splitPath.length - 1].replace('.md', '')

@@ -66,7 +66,7 @@ A lista de exceções de IP fornece acesso controlado e restrito a {% data varia
 
 Se você reabilitar o modo de manutenção, a lista de exceções de IP será desabilitada e {% data variables.product.product_location %} retornará ao modo de manutenção. Se você desabilitar a lista de exceção de IP, {% data variables.product.product_location %} retornará para a operação normal.
 
-You can also use a command-line utility to configure the IP exception list. Para obter mais informações, consulte "[Utilitários de linha de comando](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-maintenance)" e "[Acessando o shell administrativo (SSH)](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)".
+Você também pode usar um utilitário de linha de comando para configurar a lista de exceção de IP. Para obter mais informações, consulte "[Utilitários de linha de comando](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-maintenance)" e "[Acessando o shell administrativo (SSH)](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)".
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}

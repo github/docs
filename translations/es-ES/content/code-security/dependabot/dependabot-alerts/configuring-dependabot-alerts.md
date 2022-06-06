@@ -68,8 +68,8 @@ Predeterminadamente, notificamos a las personas con permisos administrativos en 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
-1. Under "Code security and analysis", to the right of {% data variables.product.prodname_dependabot_alerts %}, click **Disable** or **Enable**. ![Screenshot of "Configure security and analysis" features with the "Disable" button emphasized for Dependabot alerts](/assets/images/help/dependabot/dependabot-alerts-disable-or-enable-fpt-private.png)
- {% endif %}{% ifversion ghes or ghae %}
+1. Under "Code security and analysis", to the right of {% data variables.product.prodname_dependabot_alerts %}, click **Enable** to enable alerts or **Disable** to disable alerts. ![Screenshot of "Code security and analysis" section with button to enable {% data variables.product.prodname_dependabot_security_updates %}](/assets/images/help/repository/security-and-analysis-disable-or-enable-fpt-private.png)
+{% endif %}{% ifversion ghes or ghae %}
 
 {% data variables.product.prodname_dependabot_alerts %} for your repository can be enabled or disabled by your enterprise owner. Para obtener más información, consulta la sección "[Habilitar al Dependabot para tu empresa](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)".
 {% endif %}
