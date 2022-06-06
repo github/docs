@@ -242,7 +242,7 @@ jobs:
 </td>
 <td>
 
-Groups together all the jobs that run in the workflow file.
+Agrupa todos os trabalhos executados no arquivo do fluxo de trabalho.
 </td>
 </tr>
 <tr>
@@ -320,7 +320,7 @@ Agrupa todos os passos que serão executados como parte do trabalho "check_all_e
 </td>
 <td>
 
-The `uses` keyword tells the job to retrieve the action named `actions/checkout`. Esta é uma ação que verifica seu repositório e o faz o download do runner, permitindo que você execute ações contra seu código (como, por exemplo, ferramentas de teste). Você deve usar a ação de checkout sempre que o fluxo de trabalho for executado no código do repositório ou você estiver usando uma ação definida no repositório.
+A palavra-chave "uses" diz para o trabalho recuperar a ação denominada "actions/checkout". Esta é uma ação que verifica seu repositório e o faz o download do runner, permitindo que você execute ações contra seu código (como, por exemplo, ferramentas de teste). Você deve usar a ação de checkout sempre que o fluxo de trabalho for executado no código do repositório ou você estiver usando uma ação definida no repositório.
 </td>
 </tr>
 <tr>
@@ -336,7 +336,7 @@ The `uses` keyword tells the job to retrieve the action named `actions/checkout`
 </td>
 <td>
 
-This step uses the `actions/setup-node` action to install the specified version of the `node` software package on the runner, which gives you access to the `npm` command.
+Esta etapa usa a ação `actions/setup-node` para instalar a versão especificada do pacote do "node" de software no executor, que lhe dá acesso ao comando `npm`.
 </td>
 </tr>
 <tr>
