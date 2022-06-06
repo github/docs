@@ -72,7 +72,7 @@ miniTocMaxHeadingLevel: 3
 1. 单击 **Save（保存）**。
 
 {% ifversion fpt or ghec %}
-## 配置公共复刻工作流程所需的批准
+## 控制从复刻到公共存储库中工作流程的更改
 
 {% data reusables.actions.workflow-run-approve-public-fork %}
 
@@ -86,7 +86,7 @@ miniTocMaxHeadingLevel: 3
 {% data reusables.actions.workflow-run-approve-link %}
 {% endif %}
 
-## 为私有仓库复刻启用工作流程
+## 为私有仓库的复刻启用工作流程
 
 {% data reusables.actions.private-repository-forks-overview %}
 
@@ -94,7 +94,7 @@ miniTocMaxHeadingLevel: 3
 
 {% data reusables.actions.private-repository-forks-options %}
 
-### 为仓库配置私有复刻策略
+### 为私有仓库配置复刻策略
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}

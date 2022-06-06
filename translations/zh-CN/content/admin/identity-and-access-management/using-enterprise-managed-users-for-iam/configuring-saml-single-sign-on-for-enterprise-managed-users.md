@@ -7,6 +7,7 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/configuring-saml-single-sign-on-for-enterprise-managed-users
   - /admin/authentication/managing-your-enterprise-users-with-your-identity-provider/configuring-saml-single-sign-on-for-enterprise-managed-users
   - /admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-saml-single-sign-on-for-enterprise-managed-users
+  - /admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/configuring-saml-single-sign-on-for-enterprise-managed-users
 versions:
   ghec: '*'
 type: tutorial
@@ -107,5 +108,5 @@ topics:
 
 ### 启用预配
 
-启用 SAML SSO 后，请启用置备。 更多信息请参阅“[配置企业托管用户的 SCIM 预配](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/configuring-scim-provisioning-for-enterprise-managed-users)”。
+启用 SAML SSO 后，请启用置备。 更多信息请参阅“[配置企业托管用户的 SCIM 预配](//admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users)”。
 
