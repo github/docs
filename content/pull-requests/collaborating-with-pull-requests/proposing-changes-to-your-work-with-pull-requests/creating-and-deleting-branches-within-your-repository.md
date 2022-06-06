@@ -25,9 +25,9 @@ You can create a branch a few different ways on GitHub.
 1. Navigate to the the branches page by clicking {% octicon "git-branch" aria-label="the branch icon" %} **<em>NUMBER</em> branches**
     ![Branches link on overview page](/assets/images/help/branches/branches-link.png)
 1. Click "New branch"
-    <img width="1409" alt="New Branch button" src="https://user-images.githubusercontent.com/90000203/172206811-a1f799f1-d218-44e7-88c7-6c3cbf6be252.png">
+    <img width="1200" alt="New Branch button" src="https://user-images.githubusercontent.com/90000203/172206811-a1f799f1-d218-44e7-88c7-6c3cbf6be252.png">
 1. Enter a name for the new branch and optionally change the branch source, then select **Create branch**.
-    <img width="474" alt="Create a branch" src="https://user-images.githubusercontent.com/90000203/172206897-63cddfaf-e49d-47fa-9234-d0a7f9a4bfc6.png">
+    <img width="300" alt="Create a branch" src="https://user-images.githubusercontent.com/90000203/172206897-63cddfaf-e49d-47fa-9234-d0a7f9a4bfc6.png">
 
 Note: You can only create a branch on a repository to which you have push access.
 
