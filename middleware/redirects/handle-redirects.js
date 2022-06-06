@@ -77,7 +77,7 @@ export default function handleRedirects(req, res, next) {
   }
 
   // do not redirect if the redirected page can't be found
-  if (!req.context.pages[removeQueryParams(redirect)]) {
+  if (!req.context.pages[removeQueryParams(redirect)] && !redirect.includes('://')) {
     // display error on the page in development, but not in production
     // include final full redirect path in the message
     if (process.env.NODE_ENV !== 'production' && req.context) {
@@ -90,13 +90,13 @@ export default function handleRedirects(req, res, next) {
   res.removeHeader('set-cookie')
 
   // do the redirect if the from-URL already had a language in it
-  if (pathLanguagePrefixed(req.path)) {
+  if (pathLanguagePrefixed(req.path) || redirect.includes('://')) {
     cacheControl(res)
   } else {
     noCacheControl(res)
   }
 
-  const permanent = usePermanentRedirect(req)
+  const permanent = redirect.includes('://') || usePermanentRedirect(req)
   return res.redirect(permanent ? 301 : 302, redirect)
 }
 

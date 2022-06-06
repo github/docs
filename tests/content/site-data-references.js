@@ -6,7 +6,6 @@ import { loadPages } from '../../lib/page-data.js'
 import getDataReferences from '../../lib/get-liquid-data-references.js'
 import frontmatter from '../../lib/read-frontmatter.js'
 import fs from 'fs/promises'
-import readFileAsync from '../../lib/readfile-async.js'
 import { jest } from '@jest/globals'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
@@ -41,7 +40,7 @@ describe('data references', () => {
     await Promise.all(
       pages.map(async (page) => {
         const metadataFile = path.join('content', page.relativePath)
-        const fileContents = await readFileAsync(path.join(__dirname, '../..', metadataFile))
+        const fileContents = await fs.readFile(path.join(__dirname, '../..', metadataFile))
         const { data: metadata } = frontmatter(fileContents, { filepath: page.fullPath })
         const metadataRefs = getDataReferences(JSON.stringify(metadata))
         metadataRefs.forEach((key) => {
