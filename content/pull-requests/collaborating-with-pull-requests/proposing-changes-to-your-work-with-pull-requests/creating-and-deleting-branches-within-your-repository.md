@@ -19,12 +19,29 @@ shortTitle: Create & delete branches
 
 {% data reusables.repositories.navigate-to-repo %}
 
+You can create a branch a few different ways on GitHub. 
+
+###  1. Create a branch on the branches page.
+1. Navigate to the the branches page by clicking {% octicon "git-branch" aria-label="the branch icon" %} **<em>NUMBER</em> branches**
+    ![Branches link on overview page](/assets/images/help/branches/branches-link.png)
+1. Click "New branch"
+    <img width="1409" alt="New Branch button" src="https://user-images.githubusercontent.com/90000203/172206811-a1f799f1-d218-44e7-88c7-6c3cbf6be252.png">
+1. Enter a name for the new branch and optionally change the branch source, then select **Create branch**.
+    <img width="474" alt="Create a branch" src="https://user-images.githubusercontent.com/90000203/172206897-63cddfaf-e49d-47fa-9234-d0a7f9a4bfc6.png">
+
+Note: You can only create a branch on a repository to which you have push access.
+
+
+### 2. Create a branch from the branch selector menu
 1. Optionally, if you want to create your new branch from a branch other than the default branch for the repository, click {% octicon "git-branch" aria-label="The branch icon" %} **<em>NUMBER</em> branches** then choose another branch:
     ![Branches link on overview page](/assets/images/help/branches/branches-link.png)
 1. Click the branch selector menu.
     ![branch selector menu](/assets/images/help/branch/branch-selection-dropdown.png)
 1. Type a unique name for your new branch, then select **Create branch**.
     ![branch creation text box](/assets/images/help/branch/branch-creation-text-box.png)
+
+### 3. Create a branch for an issue
+Read more about [creating a branch for an issue]([url](https://docs.github.com/en/issues/tracking-your-work-with-issues/creating-a-branch-for-an-issue)).
 
 ## Deleting a branch
 
