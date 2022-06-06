@@ -21,13 +21,13 @@ topics:
 
 ## About {% data variables.product.prodname_emus %}
 
-With {% data variables.product.prodname_emus %}, you can control the user accounts of your enterprise members through your identity provider (IdP). You can simplify authentication with SAML{% if oidc-for-emu %} or OIDC{% endif %} single sign-on (SSO) and provision, update, and deprovision user accounts for your enterprise members. Users assigned to the {% data variables.product.prodname_emu_idp_application %} application in your IdP are provisioned as new user accounts on {% data variables.product.prodname_dotcom %} and added to your enterprise. You control usernames, profile data, team membership, and repository access from your IdP.
+With {% data variables.product.prodname_emus %}, you can control the user accounts of your enterprise members through your identity provider (IdP). You can simplify authentication with SAML{% ifversion oidc-for-emu %} or OIDC{% endif %} single sign-on (SSO) and provision, update, and deprovision user accounts for your enterprise members. Users assigned to the {% data variables.product.prodname_emu_idp_application %} application in your IdP are provisioned as new user accounts on {% data variables.product.prodname_dotcom %} and added to your enterprise. You control usernames, profile data, team membership, and repository access from your IdP.
 
 In your IdP, you can give each {% data variables.product.prodname_managed_user %} the role of user, enterprise owner, or billing manager. {% data variables.product.prodname_managed_users_caps %} can own organizations within your enterprise and can add other {% data variables.product.prodname_managed_users %} to the organizations and teams within. For more information, see "[Roles in an enterprise](/github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise/roles-in-an-enterprise)" and "[About organizations](/organizations/collaborating-with-groups-in-organizations/about-organizations)."
 
 Organization membership can be managed manually or updated automatically as {% data variables.product.prodname_managed_users %} are added to IdP groups that are connected to teams within the organization. When a {% data variables.product.prodname_managed_user %} is manually added to an organization, unassigning them from the {% data variables.product.prodname_emu_idp_application %} application on your IdP will suspend the user but not remove them from the organization. For more information about managing organization and team membership automatically, see "[Managing team memberships with identity provider groups](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/managing-team-memberships-with-identity-provider-groups)."
 
-{% if oidc-for-emu %}
+{% ifversion oidc-for-emu %}
 
 {% data reusables.enterprise-accounts.emu-cap-validates %} For more information, see "[About support for your IdP's Conditional Access Policy](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-support-for-your-idps-conditional-access-policy)."
 
@@ -46,7 +46,7 @@ To use {% data variables.product.prodname_emus %}, you need a separate type of e
 
 ## Identity provider support
 
-{% data variables.product.prodname_emus %} supports the following IdPs{% if oidc-for-emu %} and authentication methods:
+{% data variables.product.prodname_emus %} supports the following IdPs{% ifversion oidc-for-emu %} and authentication methods:
 
 |                                  | SAML                                          | OIDC (beta)                                   |
 |----------------------------------|-----------------------------------------------|-----------------------------------------------|
@@ -89,9 +89,9 @@ Before your developers can use {% data variables.product.prodname_ghe_cloud %} w
   
   {% endnote %}
   
-3. After you log in to your setup user, get started by configuring {% if oidc-for-emu %}how your members will authenticate. If you are using Azure Active Directory as your identity provider, you can choose between OpenID Connect (OIDC) and Security Assertion Markup Language (SAML). Both options provide a seamless sign-in experience for your members, but only OIDC includes support for Conditional Access Policies (CAP). If you are using Okta as your identity provider, you can use SAML to authenticate your members.{% else %}SAML SSO for your enterprise. For more information, see "[Configuring SAML single sign-on for Enterprise Managed Users](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-saml-single-sign-on-for-enterprise-managed-users)."{% endif %}
+3. After you log in to your setup user, get started by configuring {% ifversion oidc-for-emu %}how your members will authenticate. If you are using Azure Active Directory as your identity provider, you can choose between OpenID Connect (OIDC) and Security Assertion Markup Language (SAML). Both options provide a seamless sign-in experience for your members, but only OIDC includes support for Conditional Access Policies (CAP). If you are using Okta as your identity provider, you can use SAML to authenticate your members.{% else %}SAML SSO for your enterprise. For more information, see "[Configuring SAML single sign-on for Enterprise Managed Users](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-saml-single-sign-on-for-enterprise-managed-users)."{% endif %}
   
-  {% if oidc-for-emu %}
+  {% ifversion oidc-for-emu %}
   
   To get started, read the guide for your chosen authentication method.
   

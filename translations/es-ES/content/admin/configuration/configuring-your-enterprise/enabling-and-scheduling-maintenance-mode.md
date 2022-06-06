@@ -41,7 +41,7 @@ Cuando la instancia está en modo de mantenimiento, se rechazan todos los acceso
 
 ![La pantalla de presentación del modo de mantenimiento](/assets/images/enterprise/maintenance/maintenance-mode-maintenance-page.png)
 
-{% if ip-exception-list %}
+{% ifversion ip-exception-list %}
 
 Puedes llevar a cabo una validación inicial de tu operación de mantenimiento si configuras una lista de IP de excepción para permitir el acceso a {% data variables.product.product_location %} solo desde las direcciones IP y rangos de ellas que proporcionaste. Los intentos para acceder a {% data variables.product.product_location %} desde las direcciones IP que no se especifican en la lista de excepciones IP recibirán una respuesta consistente con aquellas enviadas cuando la instancia esté en modo de mantenimiento.
 
@@ -58,7 +58,7 @@ Puedes llevar a cabo una validación inicial de tu operación de mantenimiento s
 4. Selecciona **Habilitar el modo de mantenimiento**. ![Casilla de verificación para habilitar o programar el modo de mantenimiento](/assets/images/enterprise/maintenance/enable-maintenance-mode-checkbox.png)
 {% data reusables.enterprise_management_console.save-settings %}
 
-{% if ip-exception-list %}
+{% ifversion ip-exception-list %}
 
 ## Validar los cambios en el modo de mantenimiento utilizando la lista de excepciones de IP
 

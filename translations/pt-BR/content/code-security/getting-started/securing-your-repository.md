@@ -111,7 +111,7 @@ Para obter mais informações, consulte "[Sobre {% data variables.product.prodna
 
 Você pode habilitar {% data variables.product.prodname_dependabot %} para aumentar automaticamente os pull requests para manter suas dependências atualizadas. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_dependabot_version_updates %}](/code-security/supply-chain-security/about-dependabot-version-updates)".
 
-{% if dependabot-settings-update-37 %}
+{% ifversion dependabot-settings-update-37 %}
 1. Na página principal do repositório, clique em **{% octicon "gear" aria-label="The Settings gear" %} Configurações**.
 2. Clique em **Segurança & análise**.
 3. Ao lado de {% data variables.product.prodname_dependabot_version_updates %}, clique em **Habilitar** para criar um arquivo de configuração básico de *dependabot.yml*.

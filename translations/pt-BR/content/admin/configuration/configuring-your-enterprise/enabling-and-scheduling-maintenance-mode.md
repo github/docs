@@ -41,7 +41,7 @@ Quando a instância estiver em modo de manutenção, todos os acessos regulares 
 
 ![Tela inicial do modo de manutenção](/assets/images/enterprise/maintenance/maintenance-mode-maintenance-page.png)
 
-{% if ip-exception-list %}
+{% ifversion ip-exception-list %}
 
 Você pode executar a validação inicial da sua operação de manutenção configurando uma lista de exceção de IP para permitir acesso a {% data variables.product.product_location %} apenas dos endereços IP e das faixas fornecidas. As tentativas de acessar {% data variables.product.product_location %} de endereços IP não especificados na lista de exceções IP receverão uma resposta consistente com aquelas enviadas quando a instância estiver em modo de manutenção.
 
@@ -58,7 +58,7 @@ Você pode executar a validação inicial da sua operação de manutenção conf
 4. Selecione **Enable maintenance mode** (Habilitar modo de manutenção). ![Caixa de seleção para habilitar ou programar o modo de manutenção](/assets/images/enterprise/maintenance/enable-maintenance-mode-checkbox.png)
 {% data reusables.enterprise_management_console.save-settings %}
 
-{% if ip-exception-list %}
+{% ifversion ip-exception-list %}
 
 ## Validando alterações no modo de manutenção usando a lista de exceção de IP
 

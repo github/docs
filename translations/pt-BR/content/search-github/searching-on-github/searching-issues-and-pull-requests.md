@@ -72,7 +72,7 @@ Você pode filtrar somente problemas e pull requests abertos ou fechados usando 
 | `is:open`      | [**performance is:open is:issue**](https://github.com/search?q=performance+is%3Aopen+is%3Aissue&type=Issues) identifica os problemas abertos com a palavra "performance".                                           |
 | `is:closed`    | [**android is:closed**](https://github.com/search?utf8=%E2%9C%93&q=android+is%3Aclosed&type=) identifica os problemas e as pull requests fechados com a palavra "android".                                          |
 
-{% if issue-close-reasons %}
+{% ifversion issue-close-reasons %}
 ## Search by the reason an issue was closed
 
 You can filter issues based on the reason given when the issue was closed, using the `reason` qualifier.

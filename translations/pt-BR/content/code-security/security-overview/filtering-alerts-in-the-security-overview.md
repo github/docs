@@ -101,7 +101,7 @@ Disponível na visão geral no nível da organização.
 | ------------------------- | ------------------------------------------------------------ |
 | <code>topic:<em>TOPIC-NAME</em></code> | Exibe repositórios que são classificados com o *TOPIC-NAME*. |
 
-{% if security-overview-views %}
+{% ifversion security-overview-views %}
 
 ## Filtrar por gravidade
 
@@ -117,7 +117,7 @@ Disponível na visualização de alerta de digitalização de código. Todos os 
 | `severity:warning`  | Exibe alertas de {% data variables.product.prodname_code_scanning %} categorizados como avisos.      |
 | `severity:note`     | Exibe alertas de {% data variables.product.prodname_code_scanning %} categorizados como observações. |
 
-{% if dependabot-alerts-vulnerable-calls %}
+{% ifversion dependabot-alerts-vulnerable-calls %}
 ## Filtrar por tipo de alerta de {% data variables.product.prodname_dependabot %}
 
 Disponível nas visualizações de alerta de {% data variables.product.prodname_dependabot %}. Você pode filtrar a visualização para mostrar {% data variables.product.prodname_dependabot_alerts %} que estão prontos para corrigir ou onde estão disponíveis informações adicionais sobre exposição. Você pode clicar em qualquer resultado para ver detalhes completos do alerta.
