@@ -35,7 +35,16 @@ shortTitle: 配置版本更新
 
 ## 启用 {% data variables.product.prodname_dependabot_version_updates %}
 
-{% data reusables.dependabot.create-dependabot-yml %} 有关信息，请参阅“[dependabot.yml 文件的配置选项](/github/administering-a-repository/configuration-options-for-dependency-updates)”。
+You enable {% data variables.product.prodname_dependabot_version_updates %} by commiting a *dependabot.yml* configuration file to your repository.
+{% if dependabot-settings-update-37 %}If you enable the feature in your settings page, GitHub creates a basic file which you can edit, otherwise you can create the file using any file editor.
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.navigate-to-code-security-and-analysis %}
+1. Under "Code security and analysis", to the right of "{% data variables.product.prodname_dependabot_version_updates %}", click **Enable** to open a basic *dependabot.yml* configuration file in the `.github` directory of your repository.
+{% else %}
+1. Create a *dependabot.yml* configuration file in the `.github` directory of your repository.
+{% endif %}
 1. 添加 `version`。
 1. （可选）如果您在私人注册表中包含依赖项，请添加包含身份验证详细信息的 `registries` 部分。
 1. 添加 `updates` 部分，并输入您希望 {% data variables.product.prodname_dependabot %} 监控的每个包管理器的条目。
@@ -44,6 +53,8 @@ shortTitle: 配置版本更新
     - `directory` 指定清单或其他定义文件的位置。
     - `schedule.interval` 指定检查新版本的频率。
 {% data reusables.dependabot.check-in-dependabot-yml %}
+
+For information about all the configuration options, see "[Configuration options for the dependabot.yml file](/github/administering-a-repository/configuration-options-for-dependency-updates)."
 
 ### 示例 *dependabot.yml* 文件
 

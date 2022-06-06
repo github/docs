@@ -17,7 +17,7 @@ versions:
 
 ## 关于重新运行工作流程和作业
 
-重新运行工作流程{% if re-run-jobs %} 或工作流程中的作业{% endif %} 会使用触发工作流程运行的原始事件的 `GITHUB_SHA`（提交 SHA）和 `GITHUB_REF` (Git ref)。 You can re-run a workflow{% if re-run-jobs %} or jobs in a workflow{% endif %} for up to 30 days after the initial run.{% if debug-reruns %} When you re-run a workflow or jobs in a workflow, you can enable debug logging for the re-run. This will enable runner diagnostic logging and step debug logging for the re-run. For more information about debug logging, see "[Enabling debug logging](/actions/monitoring-and-troubleshooting-workflows/enabling-debug-logging)."{% endif %}
+重新运行工作流程{% if re-run-jobs %} 或工作流程中的作业{% endif %} 会使用触发工作流程运行的原始事件的 `GITHUB_SHA`（提交 SHA）和 `GITHUB_REF` (Git ref)。 在初始运行后最长 30 天内，您可以重新运行工作流程{% if re-run-jobs %} 或工作流程中的作业{% endif %}。{% if debug-reruns %} 在重新运行工作流程或工作流程中的作业时，可以为重新运行启用调试日志记录。 这将为重新运行启用运行程序诊断日志记录和步骤调试日志记录。 有关调试日志记录的更多信息，请参阅“[启用调试日志记录](/actions/monitoring-and-troubleshooting-workflows/enabling-debug-logging)”。{% endif %}
 
 ## 重新运行工作流程中的所有作业
 
