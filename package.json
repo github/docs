@@ -163,6 +163,7 @@
     "start-server-and-test": "^1.14.0",
     "strip-ansi": "^7.0.1",
     "supertest": "^6.2.2",
+    "tough-cookie": "4.0.0",
     "typescript": "^4.5.5"
   },
   "engines": {

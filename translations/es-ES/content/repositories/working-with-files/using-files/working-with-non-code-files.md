@@ -333,7 +333,7 @@ $ jupyter nbconvert --to html <em>NOTEBOOK-NAME.ipynb</em>
 ### Leer más
 
 - [Repositorio GitHub de notebook Jupyter](https://github.com/jupyter/jupyter_notebook)
-- [Galería de notebooks Jupyter](https://github.com/jupyter/jupyter/wiki/A-gallery-of-interesting-Jupyter-Notebooks)
+- [Galería de notebooks Jupyter](https://github.com/jupyter/jupyter/wiki)
 
 {% if mermaid %}
 ## Mostrar los archivos de Mermaid en {% data variables.product.prodname_dotcom %}

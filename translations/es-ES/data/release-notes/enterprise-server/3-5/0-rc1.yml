@@ -1,6 +1,6 @@
 date: '2022-05-10'
 release_candidate: true
-deprecated: false
+deprecated: true
 intro: "{% note %}\n\n**Nota:** Si {% data variables.product.product_location %} está ejecutando una comilación candidata a lanzamiento, no podrás mejorar la versión con un hotpatch. Te reocmendamos que solo ejecutes candidatos a lanzamiento en ambientes de prueba.\n\n{% endnote %}\n\nPara encontrar las instrucciones de mejora de versiones, consulta la sección \"[Mejorar la versión de {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)\".\n"
 sections:
   features:
