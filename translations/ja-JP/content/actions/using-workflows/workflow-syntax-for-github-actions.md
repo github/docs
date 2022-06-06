@@ -331,7 +331,7 @@ steps:
 
 #### Example: Using status check functions
 
-`my backup step`は、ジョブの前のステップが失敗した場合にのみ実行されます。 For more information, see "[Expressions](/actions/learn-github-actions/expressions#job-status-check-functions)."
+`my backup step`は、ジョブの前のステップが失敗した場合にのみ実行されます。 For more information, see "[Expressions](/actions/learn-github-actions/expressions#status-check-functions)."
 
 ```yaml
 steps:
@@ -991,6 +991,42 @@ jobs:
       access-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
 ```
 {% endraw %}
+
+{% if actions-inherit-secrets-reusable-workflows %}
+
+### `jobs.<job_id>.secrets.inherit`
+
+Use the `inherit` keyword to pass all the calling workflow's secrets to the called workflow. This includes all secrets the calling workflow has access to, namely organization, repository, and environment secrets. The `inherit` keyword can be used to pass secrets across repositories within the same organization, or across organizations within the same enterprise.
+
+#### サンプル
+
+{% raw %}
+
+```yaml
+on:
+  workflow_dispatch:
+
+jobs:
+  pass-secrets-to-workflow:
+    uses: ./.github/workflows/called-workflow.yml
+    secrets: inherit
+```
+
+```yaml
+on:
+  workflow_call:
+
+jobs:
+  pass-secret-to-action:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Use a repo or org secret from the calling workflow.
+        run: echo ${{ secrets.CALLING_WORKFLOW_SECRET }}
+```
+
+{% endraw %}
+
+{%endif%}
 
 ### `jobs.<job_id>.secrets.<secret_id>`
 

@@ -99,25 +99,22 @@ core.setOutput('SELECTED_COLOR', 'green');
 
 以下の表は、ワークフロー内で使えるツールキット関数を示しています。
 
-| ツールキット関数              | 等価なワークフローのコマンド                                                        |
-| --------------------- | --------------------------------------------------------------------- |
-| `core.addPath`        | Accessible using environment file `GITHUB_PATH`                       |
-| `core.debug`          | `debug` |{% ifversion fpt or ghes > 3.2 or ghae-issue-4929 or ghec %}
+| ツールキット関数              | 等価なワークフローのコマンド                                             |
+| --------------------- | ---------------------------------------------------------- |
+| `core.addPath`        | Accessible using environment file `GITHUB_PATH`            |
+| `core.debug`          | `debug` |{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 | `core.notice`         | `notice` 
 {% endif %}
-| `core.error`          | `error`                                                               |
-| `core.endGroup`       | `endgroup`                                                            |
-| `core.exportVariable` | Accessible using environment file `GITHUB_ENV`                        |
-| `core.getInput`       | 環境変数の`INPUT_{NAME}`を使ってアクセス可能                                         |
-| `core.getState`       | 環境変数の`STATE_{NAME}`を使ってアクセス可能                                         |
-| `core.isDebug`        | 環境変数の`RUNNER_DEBUG`を使ってアクセス可能                                         |
-| `core.saveState`      | `save-state`                                                          |
-| `core.setCommandEcho` | `echo`                                                                |
-| `core.setFailed`      | `::error`及び`exit 1`のショートカットとして使われる                                    |
-| `core.setOutput`      | `set-output`                                                          |
-| `core.setSecret`      | `add-mask`                                                            |
-| `core.startGroup`     | `group`                                                               |
-| `core.warning`        | `警告`                                                                  |
+| `core.error`          | `error`                                                    |
+| `core.endGroup`       | `endgroup`                                                 |
+| `core.exportVariable` | Accessible using environment file `GITHUB_ENV`             |
+| `core.getInput`       | 環境変数の`INPUT_{NAME}`を使ってアクセス可能                              |
+| `core.getState`       | 環境変数の`STATE_{NAME}`を使ってアクセス可能                              |
+| `core.isDebug`        | 環境変数の`RUNNER_DEBUG`を使ってアクセス可能                              |
+{%- if actions-job-summaries %}
+| `core.summary` | Accessible using environment variable `GITHUB_STEP_SUMMARY` |
+{%- endif %}
+| `core.saveState`  | `save-state` | | `core.setCommandEcho` | `echo` | | `core.setFailed`  | Used as a shortcut for `::error` and `exit 1` | | `core.setOutput`  | `set-output` | | `core.setSecret`  | `add-mask` | | `core.startGroup` | `group` | | `core.warning`    | `warning` |
 
 ## 出力パラメータの設定
 
@@ -173,7 +170,7 @@ Write-Output "::debug::Set the Octocat variable"
 
 {% endpowershell %}
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4929 or ghec %}
+{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 
 ## Setting a notice message
 
@@ -310,7 +307,7 @@ jobs:
 ::add-mask::{value}
 ```
 
-値をマスクすることにより、文字列または値がログに出力されることを防ぎます。 空白で分離された、マスクされた各語は "`*`" という文字で置き換えられます。 マスクの `value` には、環境変数または文字列を用いることができます。 When you mask a value, it is treated as a secret and will be redacted on the runner. For example, after you mask a value, you won't be able to set that value as an output.
+値をマスクすることにより、文字列または値がログに出力されることを防ぎます。 空白で分離された、マスクされた各語は "`*`" という文字で置き換えられます。 マスクの `value` には、環境変数または文字列を持ちいることができます。 When you mask a value, it is treated as a secret and will be redacted on the runner. For example, after you mask a value, you won't be able to set that value as an output.
 
 ### Example: Masking a string
 
@@ -334,7 +331,7 @@ Write-Output "::add-mask::Mona The Octocat"
 
 ### Example: Masking an environment variable
 
-変数 `MY_NAME` または値 `"Mona The Octocat"` をログに出力すると、`"Mona The Octocat"` の代わりに `"***"` が表示されます。
+変数 `MY_NAME` または値 `"Mona The Octocat"` をログに出力すると。`"Mona The Octocat"` の代わりに `"***"` が表示されます。
 
 {% bash %}
 
@@ -563,14 +560,16 @@ echo "{environment_variable_name}={value}" >> $GITHUB_ENV
 {% powershell %}
 
 - Using PowerShell version 6 and higher:
-```pwsh{:copy}
-"{environment_variable_name}={value}" >> $env:GITHUB_ENV
-```
+
+  ```pwsh{:copy}
+  "{environment_variable_name}={value}" >> $env:GITHUB_ENV
+  ```
 
 - Using PowerShell version 5.1 and below:
-```powershell{:copy}
-"{environment_variable_name}={value}" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
-```
+
+  ```powershell{:copy}
+  "{environment_variable_name}={value}" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+  ```
 
 {% endpowershell %}
 
@@ -657,6 +656,150 @@ steps:
 
 {% endpowershell %}
 
+{% if actions-job-summaries %}
+
+## Adding a job summary
+
+{% bash %}
+
+```bash{:copy}
+echo "{markdown content}" >> $GITHUB_STEP_SUMMARY
+```
+
+{% endbash %}
+
+{% powershell %}
+
+```pwsh{:copy}
+"{markdown content}" >> $env:GITHUB_STEP_SUMMARY
+```
+
+{% endpowershell %}
+
+You can set some custom Markdown for each job so that it will be displayed on the summary page of a workflow run. You can use job summaries to display and group unique content, such as test result summaries, so that someone viewing the result of a workflow run doesn't need to go into the logs to see important information related to the run, such as failures.
+
+Job summaries support [{% data variables.product.prodname_dotcom %} flavored Markdown](https://github.github.com/gfm/), and you can add your Markdown content for a step to the `GITHUB_STEP_SUMMARY` environment file. `GITHUB_STEP_SUMMARY` is unique for each step in a job. For more information about the per-step file that `GITHUB_STEP_SUMMARY` references, see "[Environment files](#environment-files)."
+
+When a job finishes, the summaries for all steps in a job are grouped together into a single job summary and are shown on the workflow run summary page. If multiple jobs generate summaries, the job summaries are ordered by job completion time.
+
+### サンプル
+
+{% bash %}
+
+```bash{:copy}
+echo "### Hello world! :rocket:" >> $GITHUB_STEP_SUMMARY
+```
+
+{% endbash %}
+
+{% powershell %}
+
+```pwsh{:copy}
+"### Hello world! :rocket:" >> $env:GITHUB_STEP_SUMMARY
+```
+
+{% endpowershell %}
+
+![Markdown summary example](/assets/images/actions-job-summary-simple-example.png)
+
+### Multiline Markdown content
+
+For multiline Markdown content, you can use `>>` to continuously append content for the current step. With every append operation, a newline character is automatically added.
+
+#### サンプル
+
+{% bash %}
+
+```yaml
+- name: Generate list using Markdown
+  run: |
+    echo "This is the lead in sentence for the list" >> $GITHUB_STEP_SUMMARY
+    echo "" >> $GITHUB_STEP_SUMMARY # this is a blank line
+    echo "- Lets add a bullet point" >> $GITHUB_STEP_SUMMARY
+    echo "- Lets add a second bullet point" >> $GITHUB_STEP_SUMMARY
+    echo "- How about a third one?" >> $GITHUB_STEP_SUMMARY
+```
+
+{% endbash %}
+
+{% powershell %}
+
+```yaml
+- name: Generate list using Markdown
+  run: |
+    "This is the lead in sentence for the list" >> $env:GITHUB_STEP_SUMMARY
+    "" >> $env:GITHUB_STEP_SUMMARY # this is a blank line
+    "- Lets add a bullet point" >> $env:GITHUB_STEP_SUMMARY
+    "- Lets add a second bullet point" >> $env:GITHUB_STEP_SUMMARY
+    "- How about a third one?" >> $env:GITHUB_STEP_SUMMARY
+```
+
+{% endpowershell %}
+
+### Overwriting job summaries
+
+To clear all content for the current step, you can use `>` to overwrite any previously added content.
+
+#### サンプル
+
+{% bash %}
+
+```yaml
+- name: Overwrite Markdown
+  run: |
+    echo "Adding some Markdown content" >> $GITHUB_STEP_SUMMARY
+    echo "There was an error, we need to clear the previous Markdown with some new content." > $GITHUB_STEP_SUMMARY
+```
+
+{% endbash %}
+
+{% powershell %}
+
+```yaml
+- name: Overwrite Markdown
+  run: |
+    "Adding some Markdown content" >> $env:GITHUB_STEP_SUMMARY
+    "There was an error, we need to clear the previous Markdown with some new content." > $env:GITHUB_STEP_SUMMARY
+```
+
+{% endpowershell %}
+
+### Removing job summaries
+
+To completely remove a summary for the current step, the file that `GITHUB_STEP_SUMMARY` references can be deleted.
+
+#### サンプル
+
+{% bash %}
+
+```yaml
+- name: Delete all summary content
+  run: |
+    echo "Adding Markdown content that we want to remove before the step ends" >> $GITHUB_STEP_SUMMARY
+    rm $GITHUB_STEP_SUMMARY
+```
+
+{% endbash %}
+
+{% powershell %}
+
+```yaml
+- name: Delete all summary content
+  run: |
+    "Adding Markdown content that we want to remove before the step ends" >> $env:GITHUB_STEP_SUMMARY
+    rm $env:GITHUB_STEP_SUMMARY
+```
+
+{% endpowershell %}
+
+After a step has completed, job summaries are uploaded and subsequent steps cannot modify previously uploaded Markdown content. Summaries automatically mask any secrets that might have been added accidentally. If a job summary contains sensitive information that must be deleted, you can delete the entire workflow run to remove all its job summaries. For more information see "[Deleting a workflow run](/actions/managing-workflow-runs/deleting-a-workflow-run)."
+
+### Step isolation and limits
+
+Job summaries are isolated between steps and each step is restricted to a maximum size of 1MiB. Isolation is enforced between steps so that potentially malformed Markdown from a single step cannot break Markdown rendering for subsequent steps. If more than 1MiB of content is added for a step, then the upload for the step will fail and an error annotation will be created. Upload failures for job summaries do not affect the overall status of a step or a job. A maximum of 20 job summaries from steps are displayed per job.
+
+{% endif %}
+
 ## システムパスの追加
 
 Prepends a directory to the system `PATH` variable and automatically makes it available to all subsequent actions in the current job; the currently running action cannot access the updated path variable. ジョブに現在定義されているパスを見るには、ステップもしくはアクション中で`echo "$PATH"`を使うことができます。
@@ -678,9 +821,9 @@ echo "{path}" >> $GITHUB_PATH
 
 ### サンプル
 
-この例は、ユーザの`$HOME/.local/bin`ディレクトリを`PATH`に追加する方法を示しています。
-
 {% bash %}
+
+この例は、ユーザの`$HOME/.local/bin`ディレクトリを`PATH`に追加する方法を示しています。
 
 ```bash{:copy}
 echo "$HOME/.local/bin" >> $GITHUB_PATH
@@ -688,10 +831,9 @@ echo "$HOME/.local/bin" >> $GITHUB_PATH
 
 {% endbash %}
 
+{% powershell %}
 
 This example demonstrates how to add the user `$env:HOMEPATH/.local/bin` directory to `PATH`:
-
-{% powershell %}
 
 ```pwsh{:copy}
 "$env:HOMEPATH/.local/bin" >> $env:GITHUB_PATH

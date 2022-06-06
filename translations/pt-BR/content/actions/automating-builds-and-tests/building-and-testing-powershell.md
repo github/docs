@@ -104,7 +104,7 @@ Executores hospedados em {% data variables.product.prodname_dotcom %} têm Power
 
 {% endnote %}
 
-Ao usar executores hospedados em {% data variables.product.prodname_dotcom %}, você também poderá armazenar em cache dependências para acelerar seu fluxo de trabalho. Para obter mais informações, consulte "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Memorizar dependências para acelerar fluxos de trabalho</a>".
+{% if actions-caching %}Você também pode armazenar dependências em cache para acelerar seu fluxo de trabalho. Para obter mais informações, consulte "[Armazenando as dependências em cache para acelerar fluxos de trabalho](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)".{% endif %}
 
 Por exemplo, o trabalho a seguir instala os módulos `SqlServer` e `PSScriptAnalyzer`:
 
@@ -128,9 +128,11 @@ jobs:
 
 {% endnote %}
 
+{% if actions-caching %}
+
 ### Memorizar dependências
 
-Ao usar executores hospedados em {% data variables.product.prodname_dotcom %}, você poderá armazenar em cache dependências do PowerShell usando uma chave única, o que permite que você restaure as dependências para futuros fluxos de trabalho com a ação [`cache`](https://github.com/marketplace/actions/cache). Para obter mais informações, consulte "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Memorizar dependências para acelerar fluxos de trabalho</a>".
+Você pode armazenar em cache dependências do PowerShell usando uma chave única, o que lhe permite restaurar as dependências para futuros fluxos de trabalho com a ação [`cache`](https://github.com/marketplace/actions/cache). Para obter mais informações, consulte "[Memorizar dependências para acelerar fluxos de trabalho](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)".
 
 O PowerShell armazena suas dependências em diferentes locais, dependendo do sistema operacional do executor. Por exemplo, o `caminho` local usado no exemplo do Ubuntu a seguir será diferente para um sistema operacional Windows.
 
@@ -150,6 +152,8 @@ steps:
       Set-PSRepository PSGallery -InstallationPolicy Trusted
       Install-Module SqlServer, PSScriptAnalyzer -ErrorAction Stop
 ```
+
+{% endif %}
 
 ## Testar seu código
 

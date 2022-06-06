@@ -49,7 +49,7 @@ OrganizationのプロフィールのREADMEにどういった情報を含める�
 
 ## メンバーのみのOrganizationプロフィールのREADMEの追加
 
-1. Organizationがまだ`.github-private`リポジトリを持っていないなら、パブリックな`.github-private`リポジトリを作成してください。 この操作は、そのリポジトリへの書き込みアクセスを持つユーザなら誰でも行えます。
+1. Organizationがまだ`.github-private`リポジトリを持っていないなら、プライベートな`.github-private`というリポジトリを作成してください。
 2. Organizationの`.github-private`リポジトリで、`profile`フォルダ内に`README.md`というファイルを作成してください。
 3. `README.md`ファイルへの変更をコミットしてください。 `README.md`の内容は、Organizationプロフィールのメンバービューに表示されます。
 

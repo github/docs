@@ -68,7 +68,7 @@ Com o qualificador `language`, você pode pesquisar usuários com base na lingua
 | <code>language:<em>LANGUAGE</em></code> | [**language:javascript location:russia**](https://github.com/search?q=language%3Ajavascript+location%3Arussia&type=Users) identificar os usuários na Russia com a maior parte dos repositórios escritos em JavaScript.            |
 |                           | [**jenny language:javascript in:fullname**](https://github.com/search?q=jenny+language%3Ajavascript+in%3Afullname&type=Users) identificar os usuários com repositórios em JavaScript cujo nome completo contém a palavra "jenny". |
 
-## Search by when a personal account was created
+## Pesquisar por quando uma conta pessoal foi criada
 
 Você pode filtrar usuários com base na data de ingresso no {% data variables.product.product_name %} com o qualificador `created`. Esse qualificador usa uma data como parâmetro. {% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
 

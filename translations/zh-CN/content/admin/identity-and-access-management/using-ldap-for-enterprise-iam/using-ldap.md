@@ -11,7 +11,7 @@ redirect_from:
   - /admin/authentication/using-ldap
   - /enterprise/admin/authentication/authenticating-users-for-your-github-enterprise-server-instance/using-ldap
   - /admin/identity-and-access-management/authenticating-users-for-your-github-enterprise-server-instance/using-ldap
-intro: 'If you use Lightweight Directory Access Protocol (LDAP) to centralize access across applications, you can integrate {% data variables.product.product_name %} by configuring LDAP authentication for your instance.'
+intro: '如果您使用轻量级目录访问协议 (LDAP) 来集中访问应用程序，则可以通过为实例配置 LDAP 身份验证来集成 {% data variables.product.product_name %}。'
 versions:
   ghes: '*'
 type: how_to
@@ -22,11 +22,11 @@ topics:
   - Identity
 ---
 
-## About LDAP authentication for {% data variables.product.product_name %}
+## 关于 {% data variables.product.product_name %} 的 LDAP 身份验证
 
-LDAP is a popular application protocol for access and maintenance of directory information services, and is one of the most common protocols for integration of third-party software with large company user directories. For more information, see "[Lightweight Directory Access Protocol](https://en.wikipedia.org/wiki/Lightweight_Directory_Access_Protocol)" on Wikipedia.
+LDAP 是用于访问和维护目录信息服务的常用应用程序协议，是将第三方软件与大型公司用户目录集成的最常见协议之一。 更多信息请参阅维基百科上的“[轻量级目录访问协议](https://en.wikipedia.org/wiki/Lightweight_Directory_Access_Protocol)”。
 
-If you use an LDAP directory for centralized authentication, you can configure LDAP authentication for the people who use {% data variables.product.product_location %}.
+如果使用 LDAP 目录进行集中式身份验证，则可以为使用 {% data variables.product.product_location %} 的人员配置 LDAP 身份验证。
 
 {% data reusables.enterprise_user_management.built-in-authentication %}
 
@@ -43,7 +43,7 @@ If you use an LDAP directory for centralized authentication, you can configure L
 
 ## 使用 LDAP 时的用户名考量因素
 
-{% data reusables.enterprise_user_management.consider-usernames-for-external-authentication %} For more information, see "[Username considerations for external authentication](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication)."
+{% data reusables.enterprise_user_management.consider-usernames-for-external-authentication %} 更多信息请参阅“[外部身份验证的用户名注意事项](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication)”。
 
 ## 在 {% data variables.product.product_location %} 上配置 LDAP
 

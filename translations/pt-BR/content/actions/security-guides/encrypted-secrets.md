@@ -25,7 +25,7 @@ Os segredos são variáveis de ambiente criptografadas que você cria em uma org
 
 Para segredos armazenados no nível do ambiente, você pode habilitar os revisores necessários para controlar o acesso aos segredos. Um trabalho de fluxo de trabalho não pode acessar segredos de ambiente até que a aprovação seja concedida por aprovadores necessários.
 
-{% ifversion fpt or ghec or ghae-issue-4856 %}
+{% ifversion fpt or ghec or ghae-issue-4856 or ghes > 3.4 %}
 
 {% note %}
 
@@ -341,7 +341,7 @@ Os segredos são limitados a 64 kB. Para usar segredos maiores que 64 kB, você 
          - name: Decrypt large secret
            run: ./.github/scripts/decrypt_secret.sh
            env:
-             LARGE_SECRET_PASSPHRASE: {% raw %}${{ secrets. LARGE_SECRET_PASSPHRASE }}{% endraw %}
+             LARGE_SECRET_PASSPHRASE: {% raw %}${{ secrets.LARGE_SECRET_PASSPHRASE }}{% endraw %}
          # This command is just an example to show your secret being printed
          # Ensure you remove any print statements of your secrets. GitHub does
          # not hide secrets that use this workaround.

@@ -8,8 +8,11 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
+  ghes: '*'
 shortTitle: 访问控制和可见性
 ---
+
+{% data reusables.package_registry.container-registry-ghes-beta %}
 
 具有精细权限的包仅限于个人用户或组织帐户。 您可以从与包相连（或链接）的仓库分别更改包的访问控制和可见性。
 
@@ -27,7 +30,7 @@ shortTitle: 访问控制和可见性
 
 如果您的软件包是私人或内部的并且由组织拥有，则您只能向其他组织成员或团队授予访问。
 
-{% data reusables.package_registry.package-settings-from-user-level %}
+{% data reusables.package_registry.package-settings-option %}
 1. 在软件包设置页面上，单击 **Invite teams or people（邀请团队或人员）**，然后输入名称、用户名或您想要授予访问权限的人员的电子邮件地址。 不能授予团队访问个人帐户拥有的容器映像。 ![容器访问邀请按钮](/assets/images/help/package-registry/container-access-invite.png)
 1. 在用户名或团队名称旁边，使用“Role（角色）”下拉菜单选择所需的权限级别。 ![容器访问选项](/assets/images/help/package-registry/container-access-control-options.png)
 
@@ -40,6 +43,7 @@ shortTitle: 访问控制和可见性
 如果您的软件包是私人或内部的并且由组织拥有，则您只能向其他组织成员或团队授予访问。
 
 {% data reusables.package_registry.package-settings-from-org-level %}
+{% data reusables.package_registry.package-settings-option %}
 1. 在软件包设置页面上，单击 **Invite teams or people（邀请团队或人员）**，然后输入名称、用户名或您想要授予访问权限的人员的电子邮件地址。 您还可以从组织输入团队名称，以允许所有团队成员访问。 ![容器访问邀请按钮](/assets/images/help/package-registry/container-access-invite.png)
 1. 在用户名或团队名称旁边，使用“Role（角色）”下拉菜单选择所需的权限级别。 ![容器访问选项](/assets/images/help/package-registry/container-access-control-options.png)
 
@@ -54,6 +58,7 @@ shortTitle: 访问控制和可见性
 仓库一旦同步，您就无法访问包的精细访问设置。 要通过精细的包访问设置自定义包的权限，您必须先删除同步的仓库。
 
 {% data reusables.package_registry.package-settings-from-org-level %}
+{% data reusables.package_registry.package-settings-option %}
 2. 在“Repository source（仓库来源）”下，选择 **Inherit access from repository (recommended)（从仓库继承访问权限 [推荐]）**。 ![继承仓库访问权限复选框](/assets/images/help/package-registry/inherit-repo-access-for-package.png)
 
 ## 确保工作流程访问您的包
@@ -70,7 +75,7 @@ shortTitle: 访问控制和可见性
 
 ### 用户帐户拥有的容器映像的 {% data variables.product.prodname_actions %} 访问权限
 
-{% data reusables.package_registry.package-settings-from-user-level %}
+{% data reusables.package_registry.package-settings-option %}
 1. 在左侧边栏中，单击 **Actions access（操作访问）**。 ![左侧菜单中的"Actions access（操作访问）"选项](/assets/images/help/package-registry/organization-repo-access-for-a-package.png)
 2. 为确保工作流程有权访问容器包，您必须添加存储工作流程的仓库。 单击 **Add repository（添加仓库）**并搜索要添加的仓库。 !["添加仓库"按钮](/assets/images/help/package-registry/add-repository-button.png)
 3. （使用“role（角色）”下拉菜单，选择您希望仓库访问您的容器映像所必须拥有的默认访问权限。 ![授予仓库的权限访问级别](/assets/images/help/package-registry/repository-permission-options-for-package-access-through-actions.png)
@@ -80,12 +85,14 @@ shortTitle: 访问控制和可见性
 ### 组织拥有的容器映像的 {% data variables.product.prodname_actions %} 访问权限
 
 {% data reusables.package_registry.package-settings-from-org-level %}
+{% data reusables.package_registry.package-settings-option %}
 1. 在左侧边栏中，单击 **Actions access（操作访问）**。 ![左侧菜单中的"Actions access（操作访问）"选项](/assets/images/help/package-registry/organization-repo-access-for-a-package.png)
 2. 单击 **Add repository（添加仓库）**并搜索要添加的仓库。 !["添加仓库"按钮](/assets/images/help/package-registry/add-repository-button.png)
 3. 使用“role（角色）”下拉菜单，选择您希望仓库成员访问您的容器映像所必须拥有的默认访问权限。 外部协作者将不包括在内。 ![授予仓库的权限访问级别](/assets/images/help/package-registry/repository-permission-options-for-package-access-through-actions.png)
 
 要进一步自定义对容器映像的访问，请参阅“[配置对组织的容器映像的访问](#configuring-access-to-container-images-for-an-organization)”。
 
+{% ifversion fpt or ghec %}
 ## 确保 {% data variables.product.prodname_codespaces %} 访问您的软件包
 
 默认情况下，代码空间可以无缝访问 {% data variables.product.prodname_dotcom %} 容器注册表中的某些包，例如在选中了 **Inherit access（继承访问）**选项的同一仓库中发布的包。 有关自动配置哪些访问权限的详细信息，请参阅“[访问存储在容器注册表 {% data variables.product.prodname_dotcom %} 中的映像](/codespaces/codespaces-reference/allowing-your-codespace-to-access-a-private-image-registry#accessing-images-stored-in-github-container-registry)”。
@@ -114,13 +121,14 @@ shortTitle: 访问控制和可见性
 
    !["Remove repository（删除仓库）"按钮](/assets/images/help/package-registry/manage-codespaces-access-item.png)
 
+{% endif %}
 ## 为个人帐户配置容器映像的可见性
 
 首次发布包时，默认可见性是私有的，只有您才能看到包。 您可以通过更改访问设置来修改私有或公共容器映像的访问权限。
 
 公共包可以匿名访问，无需身份验证。 包一旦被设为公共，便无法再次将其设为私有。
 
-{% data reusables.package_registry.package-settings-from-user-level %}
+{% data reusables.package_registry.package-settings-option %}
 5. 在“Danger Zone（危险区域）”下，选择可见性设置：
     - 要使容器映像对任何人都可见，请单击“**Make public（设为公共）**”。
     {% warning %}
@@ -149,6 +157,7 @@ shortTitle: 访问控制和可见性
 公共包可以匿名访问，无需身份验证。 包一旦被设为公共，便无法再次将其设为私有。
 
 {% data reusables.package_registry.package-settings-from-org-level %}
+{% data reusables.package_registry.package-settings-option %}
 5. 在“Danger Zone（危险区域）”下，选择可见性设置：
     - 要使容器映像对任何人都可见，请单击“**Make public（设为公共）**”。
     {% warning %}

@@ -11,9 +11,9 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## About the Feeds API
+## 关于馈送 API
 
-To see what feeds are available to you, use the [Get feeds](#get-feeds) operation. You can then get a feed by sending a request to one of the feed URLs.
+要查看哪些源可供您使用，请使用[获取馈送](#get-feeds)操作。 然后，您可以通过向其中一个馈送 URL 发送请求来获取馈送。
 
 ### 获取 Atom 馈送的示例
 

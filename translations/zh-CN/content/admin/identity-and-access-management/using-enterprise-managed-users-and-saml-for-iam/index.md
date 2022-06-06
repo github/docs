@@ -1,6 +1,6 @@
 ---
-title: Using Enterprise Managed Users and SAML for IAM
-shortTitle: Enterprise Managed Users
+title: 使用适用于 IAM 的企业托管用户和 SAML
+shortTitle: 企业托管用户
 product: '{% data reusables.gated-features.emus %}'
 intro: 您可以使用身份提供程序管理身份和访问权限，并预配只能参与您的企业的帐户。
 redirect_from:

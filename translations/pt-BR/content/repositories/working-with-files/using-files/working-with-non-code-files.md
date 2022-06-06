@@ -42,8 +42,8 @@ O {% data variables.product.product_name %} pode exibir diversos formatos comuns
 {% note %}
 
 **Observação:**
-- {% data variables.product.prodname_dotcom %} does not support comparing the differences between PSD files.
-- If you are using the Firefox browser, SVGs on {% data variables.product.prodname_dotcom %} may not render.
+- {% data variables.product.prodname_dotcom %} não é compatível com a comparação de diferenças entre arquivos PSD.
+- Se você estiver utilizando o navegador Firefox, os SVGs em {% data variables.product.prodname_dotcom %} não poderão ser interpretados.
 
 {% endnote %}
 
@@ -308,7 +308,7 @@ Ainda pode ser possível renderizar os dados convertendo o arquivo `.geojson` em
 
 ### Leia mais
 
-* [Leaflet.js documentation](https://leafletjs.com/)
+* [Documentação do Leaflet.js](https://leafletjs.com/)
 * [Documentação MapBox marcadores de estilo](http://www.mapbox.com/developers/simplestyle/)
 * [Wiki TopoJSON](https://github.com/mbostock/topojson/wiki)
 
@@ -333,7 +333,7 @@ $ jupyter nbconvert --to html <em>NOTEBOOK-NAME.ipynb</em>
 ### Leia mais
 
 - [Repositório do GitHub do Jupyter Notebook](https://github.com/jupyter/jupyter_notebook)
-- [Galeria de Jupyter Notebooks](https://github.com/jupyter/jupyter/wiki/A-gallery-of-interesting-Jupyter-Notebooks)
+- [Galeria de Jupyter Notebooks](https://github.com/jupyter/jupyter/wiki)
 
 {% if mermaid %}
 ## Exibindo arquivos do Mermaid em {% data variables.product.prodname_dotcom %}

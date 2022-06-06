@@ -25,7 +25,7 @@ redirect_from:
 若要创建定义了自定义权限的代码空间，必须使用下列方法之一：
 * {% data variables.product.prodname_dotcom %} web UI
 * [{% data variables.product.prodname_dotcom %} CLI](https://github.com/cli/cli/releases/latest) 2.5.2 或更高版本
-* [{% data variables.product.prodname_github_codespaces %} Visual Studio Code 扩展](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces) 1.5.3 或更高版本
+* [{% data variables.product.prodname_github_codespaces %} {% data variables.product.prodname_vscode %} 扩展](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces) 1.5.3 或更高版本
 
 ## 设置其他存储库权限
 
@@ -87,7 +87,7 @@ redirect_from:
   }
   ```
 
-  要设置给定存储库的所有权限，请在 `permissions` 对象中使用 `read-all` 或 `write-all`
+  要设置给定存储库的所有权限，请在存储库对象中使用 `"permissions": "read-all"` 或 `"permissions": "write-all"`。
 
   ```json
   {
@@ -95,9 +95,7 @@ redirect_from:
       "codespaces": {
         "repositories": {
           "my_org/my_repo": {
-            "permissions": {
-              "write-all"
-            }
+            "permissions": "write-all"
           }
         }
       }

@@ -52,10 +52,7 @@ As part of an expression, you can access context information using one of two sy
 - Index syntax: `github['sha']`
 - Property dereference syntax: `github.sha`
 
-In order to use property dereference syntax, the property name must:
-
-- start with `a-Z` or `_`.
-- be followed by `a-Z` `0-9` `-` or `_`.
+In order to use property dereference syntax, the property name must start with a letter or `_` and contain only alphanumeric characters, `-`, or `_`.
 
 If you attempt to dereference a non-existent property, it will evaluate to an empty string.
 
@@ -195,7 +192,7 @@ The `github` context contains information about the workflow run and the event t
 | `github.event_path` | `string` | The path to the file on the runner that contains the full event webhook payload. |
 | `github.graphql_url` | `string` | The URL of the {% data variables.product.prodname_dotcom %} GraphQL API. |
 | `github.head_ref` | `string` | The `head_ref` or source branch of the pull request in a workflow run. This property is only available when the event that triggers a workflow run is either `pull_request` or `pull_request_target`. |
-| `github.job` | `string` | The [`job_id`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_id) of the current job. |
+| `github.job` | `string` | The [`job_id`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_id) of the current job. <br /> Note: This context property is set by the Actions runner, and is only available within the execution `steps` of a job. Otherwise, the value of this property will be `null`. |
 | `github.ref` | `string` | The branch or tag ref that triggered the workflow run. For branches this is the format  `refs/heads/<branch_name>`, and for tags it is `refs/tags/<tag_name>`. |
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5338 %}
 | `github.ref_name` | `string` | {% data reusables.actions.ref_name-description %} |
@@ -214,7 +211,7 @@ The `github` context contains information about the workflow run and the event t
 {%- endif %}
 | `github.server_url` | `string` | The URL of the GitHub server. For example: `https://github.com`. |
 | `github.sha` | `string` | The commit SHA that triggered the workflow run. |
-| `github.token` | `string` | A token to authenticate on behalf of the GitHub App installed on your repository. This is functionally equivalent to the `GITHUB_TOKEN` secret. For more information, see "[Automatic token authentication](/actions/security-guides/automatic-token-authentication)." |
+| `github.token` | `string` | A token to authenticate on behalf of the GitHub App installed on your repository. This is functionally equivalent to the `GITHUB_TOKEN` secret. For more information, see "[Automatic token authentication](/actions/security-guides/automatic-token-authentication)."  <br /> Note: This context property is set by the Actions runner, and is only available within the execution `steps` of a job. Otherwise, the value of this property will be `null`. |
 | `github.workflow` | `string` | The name of the workflow. If the workflow file doesn't specify a `name`, the value of this property is the full path of the workflow file in the repository. |
 | `github.workspace` | `string` | The default working directory on the runner for steps, and the default location of your repository when using the [`checkout`](https://github.com/actions/checkout) action. |
 

@@ -1,1 +1,1 @@
-{% data variables.product.company_short %} recommends a minimum of 8 vCPU and 64 GB memory to run {% data variables.product.prodname_actions %}.
+{% data variables.product.company_short %} recomienda tener un mínimo de 8 vCPU y 64 GB de memoria para ejecutar {% data variables.product.prodname_actions %}.

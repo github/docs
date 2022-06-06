@@ -22,7 +22,7 @@ shortTitle: Criar & testar Java & Gradle
 
 ## Introdução
 
-Este guia mostra como criar um fluxo de trabalho que realiza a integração contínua (CI) para o seu projeto Java usando o sistema de criação do Gradle. O fluxo de trabalho que você criar permitirá que você veja quando commits em um pull request gerarão falhas de criação ou de teste em comparação com o seu branch-padrão. Essa abordagem pode ajudar a garantir que seu código seja sempre saudável. Você pode estender seu fluxo de trabalho de CI para memorizar arquivos e fazer o upload de artefatos a partir da execução de um fluxo de trabalho.
+Este guia mostra como criar um fluxo de trabalho que realiza a integração contínua (CI) para o seu projeto Java usando o sistema de criação do Gradle. O fluxo de trabalho que você criar permitirá que você veja quando commits em um pull request gerarão falhas de criação ou de teste em comparação com o seu branch-padrão. Essa abordagem pode ajudar a garantir que seu código seja sempre saudável. Você pode estender seu fluxo de trabalho de CI para {% if actions-caching %}arquivos de cache e{% endif %} fazer o upload de artefatos a partir da execução de um fluxo de trabalho.
 
 {% ifversion ghae %}
 {% data reusables.actions.self-hosted-runners-software %}
@@ -110,11 +110,15 @@ steps:
       arguments: -b ci.gradle package
 ```
 
+{% if actions-caching %}
+
 ## Memorizar dependências
 
-Ao usar executores hospedados em {% data variables.product.prodname_dotcom %}, as dependências de construção podem ser armazenadas em cache para acelerar a execução do seu fluxo de trabalho. Após uma execução bem-sucedida, a ação `gradle/gradle-build-action` armazena em cache partes importantes do diretório inicial do usuário do Gradle. Em trabalhos futuros, o cache será restaurado para que os scripts de compilação não precisem ser recalculados e as dependências não precisem ser baixadas a partir de repositórios remotos de pacotes.
+Suas dependências de compilação podem ser armazenadas em cache para acelerar as execuções do seu fluxo de trabalho. Após uma execução bem-sucedida, a ação `gradle/gradle-build-action` armazena em cache partes importantes do diretório inicial do usuário do Gradle. Em trabalhos futuros, o cache será restaurado para que os scripts de compilação não precisem ser recalculados e as dependências não precisem ser baixadas a partir de repositórios remotos de pacotes.
 
 O cache é habilitado por padrão ao usar a ação `grades/gradle-build-action`. Para obter mais informações, consulte [`gradle/gradle-build-action`](https://github.com/gradle/gradle-build-action#caching).
+
+{% endif %}
 
 ## Empacotar dados do fluxo de trabalho como artefatos
 

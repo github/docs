@@ -14,7 +14,7 @@ topics:
   - Authentication
   - Enterprise
 type: how_to
-shortTitle: Configure SAML SSO with Okta
+shortTitle: 使用 Okta 配置 SAML SSO
 ---
 
 {% data reusables.enterprise-accounts.emu-saml-note %}

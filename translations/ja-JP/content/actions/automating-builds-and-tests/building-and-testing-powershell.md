@@ -104,7 +104,7 @@ jobs:
 
 {% endnote %}
 
-{% data variables.product.prodname_dotcom %}ホストランナーを使用する場合、依存関係をキャッシュしてワークフローの実行を高速化することもできます。 詳しい情報については、「<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">ワークフローを高速化するための依存関係のキャッシュ</a>」を参照してください。
+{% if actions-caching %}You can also cache dependencies to speed up your workflow. For more information, see "[Caching dependencies to speed up workflows](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."{% endif %}
 
 たとえば以下のジョブは、`SqlServer`及び`PSScriptAnalyzer`モジュールをインストールします。
 
@@ -128,9 +128,11 @@ jobs:
 
 {% endnote %}
 
+{% if actions-caching %}
+
 ### 依存関係のキャッシング
 
-{% data variables.product.prodname_dotcom %} ホストランナーを使用する場合、一意のキーを使用してPowerShellの依存関係をキャッシュし、[`cache`](https://github.com/marketplace/actions/cache)アクションで将来のワークフローを実行するときに依存関係を復元できます。 詳しい情報については、「<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">ワークフローを高速化するための依存関係のキャッシュ</a>」を参照してください。
+You can cache PowerShell dependencies using a unique key, which allows you to restore the dependencies for future workflows with the [`cache`](https://github.com/marketplace/actions/cache) action. 詳しい情報については、「[ワークフローを高速化するための依存関係のキャッシュ](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)」を参照してください。
 
 PowerShellは、ランナーのオペレーティングシステムによって依存関係を様々な場所にキャッシュします。 たとえば以下のUbuntuの例で使われる`path`の場所は、Windowsオペレーティングシステムの場合とは異なります。
 
@@ -150,6 +152,8 @@ steps:
       Set-PSRepository PSGallery -InstallationPolicy Trusted
       Install-Module SqlServer, PSScriptAnalyzer -ErrorAction Stop
 ```
+
+{% endif %}
 
 ## コードのテスト
 

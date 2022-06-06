@@ -58,7 +58,20 @@ Exibe o histórico de execução de fluxo de trabalho para pré-compilações pa
 
 1. Faça as alterações necessárias na configuração de pré-compilação e, em seguida, clique em **Atualizar**.
 
-### Excluir uma configuração de pré-compilação
+### Desabilitando configuração de pré-compilação
+
+Para pausar a atualização dos modelos de pré-compilação para uma configuração, você pode desabilitar as execuções de fluxo de trabalho para a configuração. Desabilitar as execuções de fluxo de trabalho para uma configuração de pré-compilação não exclui nenhum modelo de pré-compilação previamente criado para essa configuração e, como resultado, os codespaces continuarão sendo gerados a partir de um modelo de pré-compilação existente.
+
+Desabilitar as execuções de fluxo de trabalho para uma configuração de pré-compilação é útil se você precisar investigar as falhas de criação de modelo.
+
+1. Na página de {% data variables.product.prodname_codespaces %} das configurações do repositório, clique nas reticências à direita da configuração de pré-compilação que você deseja desabilitar.
+1. No menu suspenso, clique em **Desabilitar execuções**.
+
+   ![A opção "Desabilitar execuções" no menu suspenso](/assets/images/help/codespaces/prebuilds-disable.png)
+
+1. Para confirmar que você deseja desabilitar esta configuração, clique em **OK**.
+
+### Excluindo a configuração de uma pré-compilação
 
 A exclusão de uma configuração de pré-compilação também exclui todos os modelos de pré-compilação criados anteriormente para essa configuração. Como resultado, logo após você excluir uma configuração, as pré-compilações geradas por essa configuração não estarão disponíveis ao criar um novo codespace.
 

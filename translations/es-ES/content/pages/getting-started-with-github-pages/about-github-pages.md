@@ -81,6 +81,16 @@ If you want to keep the source files for your site in a different location, you 
 
 If you choose the `/docs` folder of any branch as your publishing source, {% data variables.product.prodname_pages %} will read everything to publish your site{% ifversion fpt or ghec %}, including the _CNAME_ file,{% endif %} from the `/docs` folder.{% ifversion fpt or ghec %} For example, when you edit your custom domain through the {% data variables.product.prodname_pages %} settings, the custom domain will write to `/docs/CNAME`. For more information about _CNAME_ files, see "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/articles/managing-a-custom-domain-for-your-github-pages-site)."{% endif %}
 
+{% ifversion ghec %}
+## Limitations for {% data variables.product.prodname_emus %}
+If you're a {% data variables.product.prodname_managed_user %}, your use of {% data variables.product.prodname_pages %} is limited.
+
+  - {% data variables.product.prodname_pages %} sites can only be published from repositories owned by organizations.
+  - {% data variables.product.prodname_pages %} sites are only visible to other members of the enterprise.
+
+For more information about {% data variables.product.prodname_emus %}, see "[About {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/about-enterprise-managed-users)."
+{% endif %}
+
 ## Static site generators
 
 {% data variables.product.prodname_pages %} publishes any static files that you push to your repository. You can create your own static files or use a static site generator to build your site for you. You can also customize your own build process locally or on another server. We recommend Jekyll, a static site generator with built-in support for {% data variables.product.prodname_pages %} and a simplified build process. For more information, see "[About {% data variables.product.prodname_pages %} and Jekyll](/articles/about-github-pages-and-jekyll)."

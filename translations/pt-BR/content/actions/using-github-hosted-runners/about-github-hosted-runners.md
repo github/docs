@@ -9,6 +9,7 @@ redirect_from:
   - /actions/reference/virtual-environments-for-github-hosted-runners
   - /actions/reference/software-installed-on-github-hosted-runners
   - /actions/reference/specifications-for-github-hosted-runners
+miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
   ghes: '*'
@@ -19,35 +20,69 @@ shortTitle: Executores hospedados no GitHub
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## Sobre os executores hospedados no {% data variables.product.prodname_dotcom %}
+## Overview of {% data variables.product.prodname_dotcom %}-hosted runners
 
-Um executor hospedado no {% data variables.product.prodname_dotcom %} é uma máquina virtual hospedada pelo {% data variables.product.prodname_dotcom %} com o aplicativo do executor {% data variables.product.prodname_actions %} instalado. O {% data variables.product.prodname_dotcom %} oferece executores com os sistemas operacionais Linux, Windows e macOS.
+Runners are the machines that execute jobs in a {% data variables.product.prodname_actions %} workflow. For example, a runner can clone your repository locally, install testing software, and then run commands that evaluate your code.
 
-Ao usar um executor hospedada no {% data variables.product.prodname_dotcom %}, a manutenção e as atualizações da máquina são feitas para você. É possível executar fluxos de trabalho diretamente na máquina virtual ou em um contêiner Docker.
-
-Você pode especificar o tipo de executor para cada trabalho em um fluxo de trabalho. Cada trabalho em um fluxo de trabalho é executado em uma nova instância da máquina virtual. Todas as etapas de um trabalho são executadas na mesma instância da máquina virtual, o que permite que ações de cada trabalho compartilhem informações usando o sistema de arquivos.
+{% data variables.product.prodname_dotcom %} provides runners that you can use to run your jobs, or you can [host your own runners](/actions/hosting-your-own-runners/about-self-hosted-runners). Each {% data variables.product.prodname_dotcom %}-hosted runner is a new virtual machine (VM) hosted by {% data variables.product.prodname_dotcom %} with the runner application and other tools preinstalled, and is available with Ubuntu Linux, Windows, or macOS operating systems. Ao usar um executor hospedada no {% data variables.product.prodname_dotcom %}, a manutenção e as atualizações da máquina são feitas para você.
 
 {% ifversion not ghes %}
 
+## Usando um executor hospedado em {% data variables.product.prodname_dotcom %}
+
+To use a {% data variables.product.prodname_dotcom %}-hosted runner, create a job and use `runs-on` to specify the type of runner that will process the job, such as `ubuntu-latest`, `windows-latest`, or `macos-latest`. For the full list of runner types, see "[Supported runners and hardware resources](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources)."
+
+When the job begins, {% data variables.product.prodname_dotcom %} automatically provisions a new VM for that job. All steps in the job execute on the VM, allowing the steps in that job to share information using the runner's filesystem. You can run workflows directly on the VM or in a Docker container. When the job has finished, the VM is automatically decommissioned.
+
+The following diagram demonstrates how two jobs in a workflow are executed on two different {% data variables.product.prodname_dotcom %}-hosted runners.
+
+![Two runners processing separate jobs](/assets/images/help/images/overview-github-hosted-runner.png)
+
+The following example workflow has two jobs, named `Run-npm-on-Ubuntu` and `Run-PSScriptAnalyzer-on-Windows`. When this workflow is triggered, {% data variables.product.prodname_dotcom %} provisions a new virtual machine for each job.
+
+- The job named `Run-npm-on-Ubuntu` is executed on a Linux VM, because the job's `runs-on:` specifies `ubuntu-latest`.
+- The job named `Run-PSScriptAnalyzer-on-Windows` is executed on a Windows VM, because the job's `runs-on:` specifies `windows-latest`.
+
+```yaml{:copy}
+name: Run commands on different operating systems
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  Run-npm-on-Ubuntu:
+    name: Run npm on Ubuntu
+    runs-on: ubuntu-latest
+    steps:
+      - uses: {% data reusables.actions.action-checkout %}
+      - uses: {% data reusables.actions.action-setup-node %}
+        with:
+          node-version: '14'
+      - run: npm help
+
+  Run-PSScriptAnalyzer-on-Windows:
+    name: Run PSScriptAnalyzer on Windows
+    runs-on: windows-latest
+    steps:
+      - uses: {% data reusables.actions.action-checkout %}
+      - name: Install PSScriptAnalyzer module
+        shell: pwsh
+        run: |
+          Set-PSRepository PSGallery -InstallationPolicy Trusted
+          Install-Module PSScriptAnalyzer -ErrorAction Stop
+      - name: Get list of rules
+        shell: pwsh
+        run: |
+          Get-ScriptAnalyzerRule
+```
+
+While the job runs, the logs and output can be viewed in the {% data variables.product.prodname_dotcom %} UI:
+
+![Job output in the Actions UI](/assets/images/help/repository/actions-runner-output.png)
+
 {% data reusables.actions.runner-app-open-source %}
-
-### Hosts da nuvem para os executores hospedados em {% data variables.product.prodname_dotcom %}
-
-O {% data variables.product.prodname_dotcom %} hospeda executores do Linux e Windows no Standard_DS2_v2 máquinas virtuais no Microsoft Azure com o aplicativo do executor {% data variables.product.prodname_actions %} instalado. A o aplicativo do executor hospedado no {% data variables.product.prodname_dotcom %} é uma bifurcação do agente do Azure Pipelines. Os pacotes ICMP de entrada estão bloqueados para todas as máquinas virtuais do Azure. Portanto, é possível que os comandos ping ou traceroute não funcionem. Para obter mais informações sobre os recursos da máquina Standard_DS2_v2, consulte "[Dv2 e DSv2-series](https://docs.microsoft.com/azure/virtual-machines/dv2-dsv2-series#dsv2-series)" na documentação do Microsoft Azure.
-
-{% data variables.product.prodname_dotcom %} hospedas executores do macOS na nuvem do macOS do próprio {% data variables.product.prodname_dotcom %}.
-
-### Continuidade do fluxo de trabalho para executores hospedados em {% data variables.product.prodname_dotcom %}
-
-{% data reusables.actions.runner-workflow-continuity %}
-
-Além disso, se a execução do fluxo de trabalho entrar na fila com sucesso, mas não foi processado por um executor hospedado em {% data variables.product.prodname_dotcom %} dentro de 45 minutos, a execução do fluxo de trabalho na fila será descartada.
-
-### Privilégios administrativos os executores hospedados no {% data variables.product.prodname_dotcom %}
-
-As máquinas virtuais Linux e macOS executam usando autenticação sem senha `sudo`. Quando precisar executar comandos ou instalar ferramentas que exigem mais permissões que o usuário atual possui, você pode usar `sudo` sem a necessidade de fornecer uma senha. Para obter mais informações, consulte o "[Manual do Sudo](https://www.sudo.ws/man/1.8.27/sudo.man.html)".
-
-As máquinas virtuais do Windows estão configuradas para ser executadas como administradores com Controle de Conta de Usuário (UAC) desativado. Para obter mais informações, consulte "[Como funciona o Controle de Conta de Usuário](https://docs.microsoft.com/windows/security/identity-protection/user-account-control/how-user-account-control-works)" na documentação do Windows.
 
 ## Executores e recursos de hardware compatíveis
 
@@ -58,7 +93,7 @@ Especificação de hardware para máquinas virtuais do Windows e Linux:
 
 Especificação de hardware para máquinas virtuais do macOS:
 - CPU de 3 núcleos
-- 14 GB de memória RAM
+- 14 GB of RAM memory
 - 14 GB de espaço de disco SSD
 
 {% data reusables.actions.supported-github-runners %}
@@ -78,6 +113,7 @@ Para a lista geral das ferramentas incluídas para cada sistema operacional do e
 * [Ubuntu 18.04 LTS](https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu1804-Readme.md)
 * [Windows Server 2022](https://github.com/actions/virtual-environments/blob/main/images/win/Windows2022-Readme.md)
 * [Windows Server 2019](https://github.com/actions/virtual-environments/blob/main/images/win/Windows2019-Readme.md)
+* [macOS 12](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-12-Readme.md)
 * [macOS 11](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-11-Readme.md)
 * [macOS 10.15](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-10.15-Readme.md)
 
@@ -94,6 +130,24 @@ Se houver uma ferramenta que você queira solicitar, abra um problema em [action
 ### Instalando software adicional
 
 Você pode instalar um software adicional em executores hospedados em {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Personalizar executores hospedados no GitHub](/actions/using-github-hosted-runners/customizing-github-hosted-runners)".
+
+## Cloud hosts used by {% data variables.product.prodname_dotcom %}-hosted runners
+
+{% data variables.product.prodname_dotcom %} hosts Linux and Windows runners on `Standard_DS2_v2` virtual machines in Microsoft Azure with the {% data variables.product.prodname_actions %} runner application installed. A o aplicativo do executor hospedado no {% data variables.product.prodname_dotcom %} é uma bifurcação do agente do Azure Pipelines. Os pacotes ICMP de entrada estão bloqueados para todas as máquinas virtuais do Azure. Portanto, é possível que os comandos ping ou traceroute não funcionem. For more information about the `Standard_DS2_v2` resources, see "[Dv2 and DSv2-series](https://docs.microsoft.com/azure/virtual-machines/dv2-dsv2-series#dsv2-series)" in the Microsoft Azure documentation.
+
+{% data variables.product.prodname_dotcom %} hospedas executores do macOS na nuvem do macOS do próprio {% data variables.product.prodname_dotcom %}.
+
+## Workflow continuity
+
+{% data reusables.actions.runner-workflow-continuity %}
+
+Além disso, se a execução do fluxo de trabalho entrar na fila com sucesso, mas não foi processado por um executor hospedado em {% data variables.product.prodname_dotcom %} dentro de 45 minutos, a execução do fluxo de trabalho na fila será descartada.
+
+## Administrative privileges
+
+As máquinas virtuais Linux e macOS executam usando autenticação sem senha `sudo`. Quando precisar executar comandos ou instalar ferramentas que exigem mais permissões que o usuário atual possui, você pode usar `sudo` sem a necessidade de fornecer uma senha. Para obter mais informações, consulte o "[Manual do Sudo](https://www.sudo.ws/man/1.8.27/sudo.man.html)".
+
+As máquinas virtuais do Windows estão configuradas para ser executadas como administradores com Controle de Conta de Usuário (UAC) desativado. For more information, see "[How User Account Control works](https://docs.microsoft.com/windows/security/identity-protection/user-account-control/how-user-account-control-works)" in the Windows documentation.
 
 ## Endereços IP
 

@@ -26,7 +26,7 @@ Este artículo explica cómo los administradores de sitio pueden habilitar {% da
 
 {% data reusables.enterprise.upgrade-ghes-for-actions %}
 
-{% data reusables.actions.ghes-actions-not-enabled-by-default %} Necesitarás determinar si tu instancia tiene recursos de CPU y memoria adecuados para manejar la carga de {% data variables.product.prodname_actions %} sin causar una pérdida de rendimiento e incrementar esos recursos posiblemente. También necesitarás decidir qué proveedor de almacenamiento utilizarás para el almacenamiento de blobs que se requiere para almacenar artefactos que generan las ejecuciones de flujo de trabajo. Entonces, habilitarás las {% data variables.product.prodname_actions %} para tu empresa, administrarás los permisos de acceso y agregarás los ejecutores auto-hospedados para ejecutar los flujos de trabajo.
+{% data reusables.actions.ghes-actions-not-enabled-by-default %} Necesitarás determinar si tu instancia tiene recursos de CPU y memoria adecuados para manejar la carga de {% data variables.product.prodname_actions %} sin causar una pérdida de rendimiento e incrementar esos recursos posiblemente. También necesitarás decidir qué proveedor de almacenamiento utilizarás para el almacenamiento de blobs que se requiere para almacenar los artefactos{% if actions-caching %} y cachés{% endif %} que se generan con las ejecuciones de trabajo. Entonces, habilitarás las {% data variables.product.prodname_actions %} para tu empresa, administrarás los permisos de acceso y agregarás los ejecutores auto-hospedados para ejecutar los flujos de trabajo.
 
 {% data reusables.actions.introducing-enterprise %}
 
@@ -81,6 +81,20 @@ La simultaneidad máxima se midió utilizando repositorios múltiples, una durac
 
 {%- endif %}
 
+{%- ifversion ghes = 3.5 %}
+
+{% data reusables.actions.hardware-requirements-3.5 %}
+
+{% data variables.product.company_short %} midió la concurrencia máxima utilizando repositorios múltiples, duraciones de job de aproximadamente 10 minutos y cargas de artefactos de 10 MB. Puedes experimentar rendimientos diferentes dependiendo de los niveles de actividad generales de tu instancia.
+
+{% note %}
+
+**Nota:** Comenzando con {% data variables.product.prodname_ghe_server %} 3.5, las pruebas internas de {% data variables.product.company_short %} utilizan CPU de tercera generación para reflejar mejor una configuración de cliente habitual. Este cambio en el CPU representa una porción pequeña de los cambios a los objetivos de desempeño en esta versión de {% data variables.product.prodname_ghe_server %}.
+
+{% endnote %}
+
+{%- endif %}
+
 Si planeas habilitar las {% data variables.product.prodname_actions %} para los usuarios de una instancia existente, revisa los niveles de actividad para los usuarios y automatizaciones en la instancia y asegúrate de haber proporcionado memoria y CPU adecuados para tus usuarios. Para obtener más información acerca de cómo monitorear la capacidad y rendimiento de {% data variables.product.prodname_ghe_server %}, consulta la sección "[Monitorear tu aplicativo](/admin/enterprise-management/monitoring-your-appliance)".
 
 Para obtener más información acerca de los requisitos mínimos de {% data variables.product.product_location %}, consulta las consideraciones de hardware para la plataforma de tu instancia.
@@ -97,7 +111,7 @@ Para obtener más información acerca de los requisitos mínimos de {% data vari
 
 {% ifversion ghes > 3.4 %}
 
-Optionally, you can limit resource consumption on {% data variables.product.product_location %} by configuring a rate limit for {% data variables.product.prodname_actions %}. Para obtener más información, consulta "[Configurar límites de tasa](/admin/configuration/configuring-your-enterprise/configuring-rate-limits#configuring-rate-limits-for-github-actions)."
+Opcionalmente, puedes limitar el consumo de recursos en {% data variables.product.product_location %} si configuras un límite de tasa para {% data variables.product.prodname_actions %}. Para obtener más información, consulta "[Configurar límites de tasa](/admin/configuration/configuring-your-enterprise/configuring-rate-limits#configuring-rate-limits-for-github-actions)."
 
 {% endif %}
 
@@ -105,7 +119,7 @@ Optionally, you can limit resource consumption on {% data variables.product.prod
 
 Para habilitar {% data variables.product.prodname_actions %} en {% data variables.product.prodname_ghe_server %}, debes tener acceso al almacenamiento externo de blobs.
 
-{% data variables.product.prodname_actions %} utiliza el almacenamiento de blobs para almacenar artefactos que se generan con las ejecuciones de flujo de trabajo, tales como las bitácoras de flujo de trabajo y los artefactos de compilaciones que sube el usuario. La cantidad de almacenamiento requerida dependerá de tu uso de {% data variables.product.prodname_actions %}. Sólo se admite una sola configuración de almacenamiento externo y no puedes utilizar varios proveedores de almacenamiento al mismo tiempo.
+{% data variables.product.prodname_actions %} utiliza el almacenamiento de blobs para almacenar los datos que generan las ejecuciones de flujo de trabajo, tales como las bitácoras de flujos de trabajo{% if actions-caching %}, los cachés{% endif %} y los artefactos de compilación que suben los usuarios. La cantidad de almacenamiento requerida dependerá de tu uso de {% data variables.product.prodname_actions %}. Sólo se admite una sola configuración de almacenamiento externo y no puedes utilizar varios proveedores de almacenamiento al mismo tiempo.
 
 {% data variables.product.prodname_actions %} es compatible con estos proveedores de almacenamiento:
 
@@ -118,6 +132,8 @@ Para habilitar {% data variables.product.prodname_actions %} en {% data variable
 **Nota:** Estos son los únicos proveedores de almacenamiento compatibles con {% data variables.product.company_short %} y sobre los que éste puede proporcionar asistencia. Es muy poco probable que otros proveedores de almacenamiento de S3 compatibles con la API funcionen, debido a las diferencias de la API de S3. [Contáctanos](https://support.github.com/contact) para solicitar soporte para proveedores de almacenamiento adicionales.
 
 {% endnote %}
+
+{% data reusables.actions.minio-gateways-removal %}
 
 Antes de que habilites las {% data variables.product.prodname_actions %}, puedes probar tu configuración de almacenamiento desde el shell administrativo con la utilidad `ghe-actions-precheck`. Para obtener más información, consulta las secciones "[Utilidades de línea de comandos](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-actions-check)" y "[Acceder al shell administrativo (SSH)](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)".
 

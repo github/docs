@@ -104,7 +104,11 @@ Você pode definir entradas e segredos, que podem ser passados do fluxo de traba
    ```
    {% endraw %}
    Para obter detalhes da sintaxe para definir as entradas e segredos, consulte [`on.workflow_call.inputs`](/actions/reference/workflow-syntax-for-github-actions#onworkflow_callinputs) e [`on.workflow_call.secrets`](/actions/reference/workflow-syntax-for-github-actions#onworkflow_callsecrets).
+   {% if actions-inherit-secrets-reusable-workflows %}
+1. No fluxo de trabalho reutilizável, faça referência à entrada ou segredo que você definiu na chave `on` chave na etapa anterior. Se os segredos são herdados usando `secrets: inherit`, você pode referenciá-los mesmo que eles não estejam definidos na chave `on`.
+   {%- else %}
 1. No fluxo de trabalho reutilizável, faça referência à entrada ou segredo que você definiu na chave `on` chave na etapa anterior.
+   {%- endif %}
 
    {% raw %}
    ```yaml
@@ -189,9 +193,11 @@ Ao chamar um fluxo de trabalho reutilizável, você só poderá usar as palavras
 * [`jobs.<job_id>.with.<input_id>`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idwithinput_id)
 * [`jobs.<job_id>.secrets`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idsecrets)
 * [`jobs.<job_id>.secrets.<secret_id>`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idsecretssecret_id)
+ {% if actions-inherit-secrets-reusable-workflows %}* [`jobs.<job_id>.secrets.inherit`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idsecretsinherit){% endif %}
 * [`jobs.<job_id>.needs`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idneeds)
 * [`jobs.<job_id>.if`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idif)
 * [`jobs.<job_id>.permissions`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idpermissions)
+* [`jobs.<job_id>.concurrency`](/actions/reference/workflow-syntax-for-github-actions#concurrency)
 
    {% note %}
 

@@ -76,12 +76,39 @@ shortTitle: 推送保护
 
 如果确认某个机密是真实的，并且打算稍后修复它，则应尽快修复。 例如，您可以撤销密钥，并从存储库的提交历史记录中删除密钥。 更多信息请参阅“[从仓库中删除敏感数据](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository)”。
 
-当您允许推送密钥时，将在“Security（安全）”选项卡中创建警报。 如果指定机密为误报或仅在测试中使用，则警报将关闭且不会发送任何通知。 如果您指定密钥是真实的，并且稍后将修复它，则安全警报将保持打开状态，并向提交管理员和存储库管理员的作者发送通知。 更多信息请参阅“[管理来自密码扫描的警报](/code-security/secret-scanning/managing-alerts-from-secret-scanning)”。
+{% data reusables.secret-scanning.push-protection-allow-secrets-alerts %}
 
 1. 访问 {% data variables.product.prodname_dotcom %} 在推送被阻止时返回的 URL。 ![显示包含用于取消阻止密钥推送的选项的表单屏幕截图](/assets/images/help/repository/secret-scanning-unblock-form.png)
-2. 选择最准确描述为什么您应该能够推送密钥的选项。
-    - 如果机密仅在测试中使用，并且不构成威胁，请单击 **It's used in tests（它在测试中使用）**。
-    - 如果检测到的字符串不是机密，请单击 **It's a false positive（这是误报）**。
-    - 如果密钥是真实的，但您打算稍后修复它，请单击 **I'll fix it later（稍后修复）**。
-3. 单击 **Allow me to push this secret（允许我推送此机密）**。
-4. 在三小时内重新尝试在命令行上推送。 如果您在三小时内没有推送，则需要重复此过程。
+{% data reusables.secret-scanning.push-protection-choose-allow-secret-options %}
+1. 单击 **Allow me to push this secret（允许我推送此机密）**。
+2. 在三小时内重新尝试在命令行上推送。 如果您在三小时内没有推送，则需要重复此过程。
+
+{% if secret-scanning-push-protection-web-ui %}
+## 使用密钥扫描作为 Web UI 的推送保护
+
+当您使用 Web UI 尝试将受支持的密钥提交到启用了机密扫描作为推送保护的存储库或组织时，{% data variables.product.prodname_dotcom %} 将阻止提交。 您将在页面顶部看到一个横幅，其中包含有关密钥位置的信息，并且密钥也将在文件中加下划线，以便您可以轻松找到它。
+
+  ![显示由于机密扫描推送保护而在 Web UI 中阻止提交的屏幕截图](/assets/images/help/repository/secret-scanning-push-protection-web-ui-commit-blocked-banner.png)
+
+{% data variables.product.prodname_dotcom %} 将在 Web UI 中一次仅显示一个检测到的机密。 如果已在存储库中检测到特定机密，并且警报已存在，{% data variables.product.prodname_dotcom %} 不会阻止该机密。
+
+可以使用 Web UI 从文件中删除机密。 删除机密后，页面顶部的横幅将更改，并告诉您现在可以提交更改。
+
+  ![显示密钥修复后允许在 Web UI 中提交的屏幕截图](/assets/images/help/repository/secret-scanning-push-protection-web-ui-commit-allowed.png)
+
+### 绕过密钥的推送保护
+
+如果 {% data variables.product.prodname_dotcom %} 阻止了您认为可以安全推送的机密，则可以允许该机密并说明应允许该机密的原因。 如果确认某个机密是真实的，并且打算稍后修复它，则应尽快修复。
+
+{% data reusables.secret-scanning.push-protection-allow-secrets-alerts %}
+
+如果确认某个机密是真实的，并且打算稍后修复它，则应尽快修复。
+
+1. 在 {% data variables.product.prodname_dotcom %} 阻止提交时显示在页面顶部的横幅中，单击 **Bypass protection（绕过保护）**。
+{% data reusables.secret-scanning.push-protection-choose-allow-secret-options %}
+
+  ![显示包含用于取消阻止密钥推送的选项的表单屏幕截图](/assets/images/help/repository/secret-scanning-push-protection-web-ui-allow-secret-options.png)
+
+1. 单击 **Allow secret（允许密钥）**。
+
+{% endif %}

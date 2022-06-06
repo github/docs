@@ -48,7 +48,7 @@ Para obtener más información, consulta la sección "[Crear flujos de trabajo i
 Un flujo de trabajo reutilizable puede utilizar otro de ellos si {% ifversion ghes or ghec or ghae %}alguna{% else %}cualquiera{% endif %} de las siguientes condiciones es verdadera:
 
 * Ambos flujos de trabajo están en el mismo repositorio.
-* The called workflow is stored in a public repository{% if actions-workflow-policy %}, and your {% ifversion ghec %}enterprise{% else %}organization{% endif %} allows you to use public reusable workflows{% endif %}.{% ifversion ghes or ghec or ghae %}
+* El flujo de trabajo llamado se almacena en un repositorio público{% if actions-workflow-policy %} y tu {% ifversion ghec %}empresa{% else %}organización{% endif %} te permite utilizar flujos de trabajo reutilizables y públicos{% endif %}.{% ifversion ghes or ghec or ghae %}
 * El flujo de trabajo llamado se almacena en un repositorio interno y los ajustes de dicho repositorio permiten que se acceda a él. Para obtener más información, consulta la sección {% if internal-actions %}"[Compartir acciones y flujos de trabajo con tu empresa](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise){% else %}"[Administrar los ajustes de las {% data variables.product.prodname_actions %} en un repositorio](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-an-internal-repository){% endif %}".{% endif %}
 
 ## Utilizar ejecutores
@@ -104,7 +104,11 @@ Puedes definir entradas y secretos, las cuales pueden pasarse desde el flujo de 
    ```
    {% endraw %}
    Para encontrar los detalles de la sintaxis para definir entradas y secretos, consulta [`on.workflow_call.inputs`](/actions/reference/workflow-syntax-for-github-actions#onworkflow_callinputs) y [`on.workflow_call.secrets`](/actions/reference/workflow-syntax-for-github-actions#onworkflow_callsecrets).
-1. In the reusable workflow, reference the input or secret that you defined in the `on` key in the previous step.
+   {% if actions-inherit-secrets-reusable-workflows %}
+1. En el flujo de trabajo reutilizable, referencia la entrada o secreto que definiste en la clave `on` en el paso anterior. Si los secretos se heredan utilizando `secrets: inherit`, puedes referenciarlos incluso si no se definen en la clave `on`.
+   {%- else %}
+1. En el flujo de trabajo reutilizable, referencia la entrada o secreto que definiste en la clave `on` en el paso anterior.
+   {%- endif %}
 
    {% raw %}
    ```yaml
@@ -189,9 +193,11 @@ Cuando llamas a un flujo de trabajo reutilizable, solo puedes utilizar las sigui
 * [`jobs.<job_id>.with.<input_id>`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idwithinput_id)
 * [`jobs.<job_id>.secrets`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idsecrets)
 * [`jobs.<job_id>.secrets.<secret_id>`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idsecretssecret_id)
+ {% if actions-inherit-secrets-reusable-workflows %}* [`jobs.<job_id>.secrets.inherit`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idsecretsinherit){% endif %}
 * [`jobs.<job_id>.needs`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idneeds)
 * [`jobs.<job_id>.if`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idif)
 * [`jobs.<job_id>.permissions`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idpermissions)
+* [`jobs.<job_id>.concurrency`](/actions/reference/workflow-syntax-for-github-actions#concurrency)
 
    {% note %}
 

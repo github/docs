@@ -20,7 +20,7 @@ prodname_ghe_one: 'GitHub One'
 prodname_docs: 'GitHub Docs'
 ## Use these variables when referring specifically to a location within a product
 product_location: >-
-  {% ifversion ghes %}your GitHub Enterprise Server instance{% elsif ghae %}your enterprise{% else %}GitHub.com{% endif %}
+  {% ifversion ghes %}您的 GitHub Enterprise Server 实例{% elsif ghae %}您的企业{% else %}GitHub.com{% endif %}
 #Used ONLY when you need to refer to a GHES instance in an article that is versioned for non-GHES versions.
 #Do not use in other situations!
 product_location_enterprise: '您的 GitHub Enterprise Server 实例'
@@ -78,13 +78,13 @@ prodname_debug: 'GitHub Debug'
 #GitHub Discussions
 prodname_discussions: 'GitHub Discussions'
 #GitHub Enterprise Managed Users
-prodname_emu_idp_application: 'GitHub Enterprise Managed User'
-prodname_emus: 'Enterprise Managed Users'
-prodname_managed_user: 'managed user'
-prodname_managed_users: 'managed users'
-prodname_managed_users_caps: 'Managed users'
-prodname_emu_enterprise: 'enterprise with managed users'
-prodname_emu_org: 'organization with managed users'
+prodname_emu_idp_application: 'GitHub Enterprise 托管用户'
+prodname_emus: '企业托管用户'
+prodname_managed_user: '托管用户'
+prodname_managed_users: '托管用户'
+prodname_managed_users_caps: '托管用户'
+prodname_emu_enterprise: '具有托管用户的企业'
+prodname_emu_org: '具有托管用户的组织'
 #GitHub Issues
 prodname_github_issues: 'GitHub Issues'
 #GitHub Packages
@@ -119,7 +119,7 @@ support_ticket_priority_high: '高'
 support_ticket_priority_normal: '普通'
 support_ticket_priority_low: '低'
 #GitHub Professional Services
-prodname_professional_services: 'GitHub Professional Services'
+prodname_professional_services: 'GitHub 专业服务'
 prodname_professional_services_team: '专业服务'
 #Security features / code scanning platform / Security Lab
 prodname_security: 'GitHub Security Lab'
@@ -128,11 +128,11 @@ prodname_security_advisories: 'GitHub Security Advisories'
 #Security features and code scanning platform
 prodname_secret_scanning: '秘密扫描' #Overall feature name and name for GHES and GHAE
 prodname_secret_scanning_caps: '秘密扫描'
-prodname_secret_scanning_partner: 'secret scanning for partner patterns' #GitHub.com feature for public repos only
-prodname_secret_scanning_partner_caps: 'Secret scanning for partner patterns'
-prodname_secret_scanning_GHAS: '>- {% ifversion fpt or ghec %}secret scanning for advanced security{% else %}secret scanning{% endif %}' #Includes GitHub.com name for GHAS licenced feature
+prodname_secret_scanning_partner: '秘密扫描合作伙伴模式' #GitHub.com feature for public repos only
+prodname_secret_scanning_partner_caps: '秘密扫描合作伙伴模式'
+prodname_secret_scanning_GHAS: '> - {% ifversion fpt or ghec %}秘密扫描，用于高级安全{% else %}秘密扫描{% endif %}' #Includes GitHub.com name for GHAS licenced feature
 prodname_secret_scanning_GHAS_caps: >-
-  {% ifversion fpt or ghec %}Secret scanning for advanced security{% else %}Secret scanning{% endif %}
+  {% ifversion fpt or ghec %}秘密扫描，用于高级安全{% else %}秘密扫描{% endif %}
 prodname_code_scanning: '代码扫描'
 prodname_code_scanning_capc: '代码扫描'
 prodname_codeql_runner: 'CodeQL runner'
@@ -140,10 +140,15 @@ prodname_advisory_database: 'GitHub Advisory Database'
 prodname_codeql_workflow: 'CodeQL 分析工作流程'
 #Visual Studio
 prodname_vs: 'Visual Studio'
+prodname_vscode_shortname: 'VS 代码'
 prodname_vscode: 'Visual Studio Code'
-prodname_vss_ghe: 'Visual Studio subscriptions with GitHub Enterprise'
+prodname_vs_subscriber: '{% data variables.product.prodname_vs %} subscriber'
+prodname_vss_ghe: '包含 GitHub Enterprise 的 Visual Studio 订阅'
 prodname_vss_admin_portal_with_url: '[Visual Studio 订阅的管理员门户](https://visualstudio.microsoft.com/subscriptions-administration/)'
-prodname_vscode_command_palette: 'VS 代码命令面板'
+prodname_vscode_command_palette_shortname: 'VS 代码命令面板'
+prodname_vscode_command_palette: 'Visual Studio 代码命令面板'
+prodname_vscode_marketplace: 'Visual Studio 代码市场'
+prodname_vs_marketplace_shortname: 'VS 代码市场'
 #GitHub Dependabot
 prodname_dependabot: 'Dependabot'
 prodname_dependabot_alerts: 'Dependabot 警报'
@@ -158,6 +163,8 @@ prodname_copilot: 'GitHub Copilot'
 prodname_copilot_short: 'Copilot'
 #Command Palette
 prodname_command_palette: 'GitHub 命令面板'
+#Server Statistics
+prodname_server_statistics: '服务器统计信息'
 #Links
 product_url: >-
   {% ifversion fpt or ghec %}github.com{% else %}[hostname]{% endif %}

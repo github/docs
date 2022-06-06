@@ -15,7 +15,7 @@ topics:
   - Secret scanning
 ---
 
-{% ifversion ghes < 3.3 or ghae %}
+{% ifversion ghes < 3.3 %}
 {% note %}
 
 **注意：**{% data variables.product.prodname_secret_scanning %} 的自定义模式目前处于测试阶段，可能会更改。
@@ -33,7 +33,7 @@ topics:
 {%- else %} 每个组织或企业帐户有 20 个自定义模式，每个存储库有 个自定义模式。
 {%- endif %}
 
-{% ifversion ghes < 3.3 or ghae %}
+{% ifversion ghes < 3.3 %}
 {% note %}
 
 **注意：** 在测试版中，对 {% data variables.product.prodname_secret_scanning %} 使用自定义模式时存在一些限制：
@@ -124,8 +124,7 @@ aAAAe9
 {% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}
 {%- if secret-scanning-org-dry-runs %}
 1. 当您准备好测试新的自定义模式时，要识别所选存储库中的匹配项而不创建警报，请单击 **Save and dry run（保存并试运行）**。
-1. 搜索并选择要在其中执行试运行的存储库。 您最多可以选择 10 个存储库。 ![显示为试运行选择的存储库的屏幕截图](/assets/images/help/repository/secret-scanning-dry-run-custom-pattern-select-repo.png)
-1. 当您准备好测试新的自定义模式时，请单击 **Dry run（试运行）**。
+{% data reusables.advanced-security.secret-scanning-dry-run-select-repos %}
 {% data reusables.advanced-security.secret-scanning-dry-run-results %}
 {%- endif %}
 {% data reusables.advanced-security.secret-scanning-create-custom-pattern %}
@@ -142,7 +141,14 @@ aAAAe9
 
 {% note %}
 
+{% if secret-scanning-enterprise-dry-runs %}
+**注意：**
+- 在企业级别，只有自定义模式的创建者才能编辑该模式，并在试运行中使用它。
+- 企业所有者只能使用他们有权访问的存储库上的试运行，而企业所有者不一定有权访问企业内的所有组织或存储库。
+{% else %}
 **注意：** 由于没有试运行功能，我们建议您先在存储库中测试自定义模式，然后再为整个企业定义它们。 这样，可以避免创建过多的误报 {% data variables.product.prodname_secret_scanning %} 警报。
+
+{% endif %}
 
 {% endnote %}
 
@@ -152,6 +158,11 @@ aAAAe9
 {% data reusables.enterprise-accounts.advanced-security-security-features %}
 1. 在“Secret scanning custom patterns（机密扫描自定义模式）”下，单击 {% ifversion ghes = 3.2 %}**New custom pattern（新建自定义模式）**{% else %}**New pattern（新建模式）**{% endif %}。
 {% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}
+{%- if secret-scanning-enterprise-dry-runs %}
+1. 当您准备好测试新的自定义模式时，要识别存储库中的匹配项而不创建警报，请单击 **Save and dry run（保存并空运行）**。
+{% data reusables.advanced-security.secret-scanning-dry-run-select-repos %}
+{% data reusables.advanced-security.secret-scanning-dry-run-results %}
+{%- endif %}
 {% data reusables.advanced-security.secret-scanning-create-custom-pattern %}
 
 创建模式后，{% data variables.product.prodname_secret_scanning %} 扫描企业组织内存储库中的任何机密，并启用 {% data variables.product.prodname_GH_advanced_security %}，包括其所有分支上的整个 Git 历史记录。 组织所有者和仓库管理员将会收到发现的任何密钥警报通知，并且可以审查发现密钥的仓库中的警报。 有关查看 {% data variables.product.prodname_secret_scanning %} 警报的详细信息，请参阅“[管理来自 {% data variables.product.prodname_secret_scanning %} 的警报](/code-security/secret-security/managing-alerts-from-secret-scanning)”。

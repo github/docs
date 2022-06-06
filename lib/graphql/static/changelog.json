@@ -4,6 +4,79 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "Field `viewerIsFollowing` was added to object type `Organization`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-05-31"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Type `ExternalIdentityAttribute` was added",
+          "Type `IssueClosedStateReason` was added",
+          "Type `IssueStateReason` was added",
+          "Member `App` was added to Union type `BranchActorAllowanceActor`",
+          "Input field `stateReason` was added to input object type `CloseIssueInput`",
+          "Field `stateReason` was added to object type `ClosedEvent`",
+          "Field `attributes` was added to object type `ExternalIdentitySamlAttributes`",
+          "Field `stateReason` was added to object type `Issue`",
+          "Enum value 'FAILED_VALIDATION` was added to enum `MigrationState'",
+          "Enum value 'PENDING_VALIDATION` was added to enum `MigrationState'",
+          "Field `stateReason` was added to object type `ReopenedEvent`",
+          "Member `App` was added to Union type `ReviewDismissalAllowanceActor`",
+          "Input field `StartRepositoryMigrationInput.accessToken` changed type from `String` to `String!`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [
+      {
+        "title": "The following changes will be made to the schema:",
+        "changes": [
+          "On member `RemovePullRequestFromMergeQueueInput.branch`:`branch` will be removed. **Effective 2022-10-01**."
+        ]
+      }
+    ],
+    "date": "2022-05-29"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Type `FollowOrganizationInput` was added",
+          "Type `FollowOrganizationPayload` was added",
+          "Type `UnfollowOrganizationInput` was added",
+          "Type `UnfollowOrganizationPayload` was added",
+          "Type `UpdateTeamsRepositoryInput` was added",
+          "Type `UpdateTeamsRepositoryPayload` was added",
+          "Argument 'organizationLogins: [String!]` added to field `EnterpriseOwnerInfo.pendingMemberInvitations'",
+          "Field `migrationLogUrl` was added to interface `Migration`",
+          "Field `repositoryName` was added to interface `Migration`",
+          "Field `followOrganization` was added to object type `Mutation`",
+          "Field `unfollowOrganization` was added to object type `Mutation`",
+          "Field `updateTeamsRepository` was added to object type `Mutation`",
+          "Argument `repositoryName: String` added to field `Organization.repositoryMigrations`",
+          "Field `items` was added to object type `ProjectView`",
+          "Field `migrationLogUrl` was added to object type `RepositoryMigration`",
+          "Field `repositoryName` was added to object type `RepositoryMigration`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-05-10"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "Type `PatchStatus` was added",
           "Field `isUnlicensed` (deprecated) was removed from object type `EnterpriseMemberEdge`",
           "Field `isUnlicensed` (deprecated) was removed from object type `EnterpriseOutsideCollaboratorEdge`",

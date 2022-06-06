@@ -78,24 +78,6 @@ Você pode usar o qualificador `comments` com os qualificadores maior que, menor
 | <code>comments:<em>n</em></code> | [**comments:&gt;100**](https://github.com/search?q=comments%3A%3E100&type=Discussions) corresponde a discussões com mais de 100 comentários.              |
 |                           | [**comments:500..1000**](https://github.com/search?q=comments%3A500..1000&type=Discussions) corresponde a discussões com comentários que variam de 500 a 1.000. |
 
-## Pesquisar por número de interações
-
-Você pode filtrar discussões pelo número de interações com o qualificador de `interações` com os qualificadores maior que, menor que e intervalo. A contagem das interações é o número de reações e comentários em uma discussão. Para obter mais informações, consulte "[Entender a sintaxe de pesquisa](/github/searching-for-information-on-github/understanding-the-search-syntax)".
-
-| Qualifier                 | Exemplo                                                                                                                                               |
-|:------------------------- |:----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>interactions:<em>n</em></code> | [** interactions:&gt;2000**](https://github.com/search?q=interactions%3A%3E2000) corresponde a discussões com mais de 2.000 interações.     |
-|                           | [**interactions:500..1000**](https://github.com/search?q=interactions%3A500..1000) corresponde a discussões com interações que variam de 500 a 1.000. |
-
-## Pesquisar por número de reações
-
-Você pode filtrar discussões pelo número de reações usando o qualificador de `reações`, junto os qualificadores maior que, menor que e de intervalo. Para obter mais informações, consulte "[Entender a sintaxe de pesquisa](/github/searching-for-information-on-github/understanding-the-search-syntax)".
-
-| Qualifier                 | Exemplo                                                                                                                               |
-|:------------------------- |:------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>reactions:<em>n</em></code> | [** reactions:&gt;1000**](https://github.com/search?q=reactions%3A%3E500) corresponde a discussões com mais de 500 reações. |
-|                           | [**reactions:500..1000**](https://github.com/search?q=reactions%3A500..1000) corresponde a discussões com 500 a 1.000 reações.        |
-
 ## Procurar por quando uma discussão foi criada ou quando foi atualizada por último
 
 Você pode filtrar discussões com base no tempo de criação, ou quando a discussão foi atualizada pela última vez. Para a criação de discussões, você pode usar o qualificador `criado`; para saber quando uma discussão foi atualizada pela última vez, use o qualificador `atualizada`.
@@ -104,9 +86,9 @@ Ambos os qualificadores tomam uma data como parâmetro. {% data reusables.time_d
 
 {% data reusables.search.date_gt_lt %}
 
-| Qualifier                  | Exemplo                                                                                                                                                                                                                                |
-|:-------------------------- |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>created:<em>YYYY-MM-DD</em></code>  | [**created:>2020-11-15**](https://github.com/search?q=created%3A%3E%3D2020-11-15&type=discussions) corresponde a discussões que foram criadas após 15 de novembro de 2020.                                                             |
+| Qualifier                 | Exemplo                                                                                                                                                                                                                                |
+|:------------------------- |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>created:<em>YYYY-MM-DD</em></code> | [**created:>2020-11-15**](https://github.com/search?q=created%3A%3E%3D2020-11-15&type=discussions) corresponde a discussões que foram criadas após 15 de novembro de 2020.                                                             |
 | <code>updated:<em>YYYY-MM-DD</em></code> | [**weird in:body updated:>=2020-02-01**](https://github.com/search?q=weird+in%3Abody+updated%3A%3E%3D2020-12-01&type=Discussions) corresponde a discussões com a palavra "weird" no texto que foram atualizadas após dezembro de 2020. |
 
 ## Leia mais

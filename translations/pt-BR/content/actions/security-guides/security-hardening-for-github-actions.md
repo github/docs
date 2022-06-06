@@ -159,7 +159,7 @@ Para obter mais informações, consulte "[Sobre {% data variables.product.prodna
 
 Para ajudar a mitigar o risco de um token exposto, considere restringir as permissões atribuídas. Para obter mais informações, consulte "[Modificar as permissões para o GITHUB_TOKEN](/actions/reference/authentication-in-a-workflow#modifying-the-permissions-for-the-github_token)".
 
-{% ifversion fpt or ghec or ghae-issue-4856 %}
+{% ifversion fpt or ghec or ghae-issue-4856 or ghes > 3.4 %}
 
 ## Usando o OpenID Connect para acessar os recursos da nuvem
 
@@ -199,6 +199,14 @@ Os mesmos princípios descritos acima para o uso de ações de terceiros também
 ## Permitir que os fluxos de trabalho acessem repositórios internos
 
 {% data reusables.actions.outside-collaborators-internal-actions %} Para obter mais informações, consulte "[Compartilhando ações e fluxos de trabalho com a sua empresa](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)".
+{% endif %}
+
+{% if allow-actions-to-approve-pr %}
+## Impedindo que {% data variables.product.prodname_actions %} de {% if allow-actions-to-approve-pr-with-ent-repo %}crie ou {% endif %}aprove pull requests
+
+{% data reusables.actions.workflow-pr-approval-permissions-intro %} A permissão de fluxos de trabalho ou qualquer outra automação, para {% if allow-actions-to-approve-pr-with-ent-repo %}criar ou {% endif %}aprovar pull requests poderia ser um risco de segurança se o pull request fosse mesclado sem a supervisão adequada.
+
+Para obter mais informações sobre como definir essa configuração, consulte {% if allow-actions-to-approve-pr-with-ent-repo %}{% ifversion ghes or ghec or ghae %}"[Aplicando políticas para {% data variables.product.prodname_actions %} na sua empresa](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#preventing-github-actions-from-creating-or-approving-pull-requests)",{% endif %}{% endif %} "[Desabilitando ou limitando {% data variables.product.prodname_actions %} para a sua organização](/github/setting-up-and-managing-organizations-and-teams/disabling-or-limiting-github-actions-for-your-organization#preventing-github-actions-from-{% if allow-actions-to-approve-pr-with-ent-repo %}creating-or-{% endif %}approving-pull-requests)"{% if allow-actions-to-approve-pr-with-ent-repo %}, and "[Gerenciando as configurações de {% data variables.product.prodname_actions %} para um repositório](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#preventing-github-actions-from-creating-or-approving-pull-requests)"{% endif %}.
 {% endif %}
 
 ## Usando os Scorecards OpenSSF para proteger fluxos de trabalho
@@ -291,7 +299,7 @@ Um executor auto-hospedado pode ser adicionado aos vários níveis na sua hierar
   - Se cada equipe gerenciar seus próprios corredores hospedados, a recomendação será adicionar os executores ao mais alto nível de propriedade da equipe. Por exemplo, se cada equipe possui sua própria organização, será mais simples se os executores também forem adicionados ao nível da organização.
   - Você também pode adicionar executores no nível de repositório, mas isso adicionará uma sobrecarga de gerenciamento e também aumentará o número de executores necessários já que você não pode compartilhar executores entre repositórios.
 
-{% ifversion fpt or ghec or ghae-issue-4856 %}
+{% ifversion fpt or ghec or ghae-issue-4856 or ghes > 3.4 %}
 ### Efetuando a autenticação para seu provedor de nuvem
 
 Se você está usando {% data variables.product.prodname_actions %} para implantar para um provedor da nuvem, ou pretender usar o HashiCorp Vault para o gerenciamento de segredos, recomenda-se que você use o OpenID Connect para criar tokens de acesso com escopos bem definidos, curtos e para as execuções do seu fluxo de trabalho. Para obter mais informações, consulte[Sobre o enrijecimento da segurança com o OpenID Connect](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)".

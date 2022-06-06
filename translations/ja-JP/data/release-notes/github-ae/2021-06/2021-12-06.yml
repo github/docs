@@ -2,7 +2,7 @@
 date: '2021-12-06'
 friendlyDate: 'December 6, 2021'
 title: 'December 6, 2021'
-currentWeek: true
+currentWeek: false
 sections:
   features:
     - 
@@ -102,7 +102,7 @@ sections:
         - |
           People with maintain access can now manage the repository-level "Allow auto-merge" setting. This setting, which is off by default, controls whether auto-merge is available on pull requests in the repository. Previously, only people with admin access could manage this setting. Additionally, this setting can now by controlled using the "[Create a repository](/rest/reference/repos#create-an-organization-repository)" and "[Update a repository](/rest/reference/repos#update-a-repository)" REST APIs. For more information, see "[Managing auto-merge for pull requests in your repository](/github/administering-a-repository/configuring-pull-request-merges/managing-auto-merge-for-pull-requests-in-your-repository)."
         - |
-          The assignees selection for issues and pull requests now supports type ahead searching so you can find users in your organization faster. Additionally, search result rankings have been updated to prefer matches at the start of a person's username or profile name.
+          Issue及びPull Requestのアサインされた人のセクションは先行タイプ検索をサポートしたので、Organization内のユーザを素早く見つけられるようになりました。加えて、検索結果のランキングはユーザのユーザ名もしくはプロフィール名の先頭へのマッチを優先するように更新されました。
     - 
       heading: 'リポジトリ'
       notes:

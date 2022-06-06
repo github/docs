@@ -32,17 +32,17 @@ A conta corporativa em {% ifversion ghes %}{% data variables.product.product_loc
 
 {% endif %}
 
-As organizações são contas compartilhadas em que os integrantes da empresa podem colaborar em muitos projetos de uma só vez. Os proprietários da organização podem gerenciar o acesso aos dados e projetos da organização, com recursos sofisticados de segurança e administrativos. Para obter mais informações, consulte {% ifversion ghec %}"[Sobre as organizações](/organizations/collaborating-with-groups-in-organizations/about-organizations).{% elsif ghes or ghae %}"[Sobre as organizações](/organizations/collaborating-with-groups-in-organizations/about-organizations)" e "[Gerenciando usuários, organizações e repositórios](/admin/user-management)".{% endif %}
+As organizações são contas compartilhadas em que os integrantes da empresa podem colaborar em muitos projetos de uma só vez. Os proprietários da organização podem gerenciar o acesso aos dados e projetos da organização, com recursos sofisticados de segurança e administrativos. Para obter mais informações, consulte "[Sobre organizações](/organizations/collaborating-with-groups-in-organizations/about-organizations)".
+
+{% ifversion ghec %}
+Os proprietários da empresa podem convidar organizações existentes para participar da conta corporativa ou criar novas organizações nas configurações da empresa.
+{% endif %}
+
+Sua conta corporativa permite que você gerencie e aplique as políticas para todas as organizações pertencentes à empresa. {% data reusables.enterprise.about-policies %} Para obter mais informações, consulte "[Sobre as políticas corporativas](/admin/policies/enforcing-policies-for-your-enterprise/about-enterprise-policies)".
 
 {% ifversion ghec %}
 
-Os proprietários das empresas podem criar organizações e vincular as organizações à empresa. Como alternativa, você pode convidar uma organização existente para participar da conta corporativa. Depois de adicionar organizações à conta corporativa, você pode gerenciar e aplicar políticas para as organizações. Opções específicas de aplicação variam de acordo com a configuração; normalmente, é possível optar por aplicar uma única política para cada organização na sua conta corporativa ou permitir que proprietários definam a política no nível da organização. Para obter mais informações, consulte "[Definindo políticas para a sua empresa](/admin/policies)".
-
 {% data reusables.enterprise.create-an-enterprise-account %} Para obter mais informações, consulte "[Criando uma conta corporativa](/admin/overview/creating-an-enterprise-account)".
-
-{% elsif ghes or ghae %}
-
-Para obter mais informações sobre o gerenciamento de políticas para a conta corporativa, consulte "[Políticas de configuração para a sua empresa](/admin/policies)".
 
 {% endif %}
 

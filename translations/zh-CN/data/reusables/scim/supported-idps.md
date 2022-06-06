@@ -2,5 +2,5 @@
 
 {% ifversion ghae %}
 - Azure AD
-- Okta (currently in beta)
+- Okta（目前处于测试阶段）
 {% endif %}

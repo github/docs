@@ -1159,12 +1159,14 @@ type AutoMergeRequest {
   authorEmail: String
 
   """
-  The commit message of the auto-merge request.
+  The commit message of the auto-merge request. If a merge queue is required by
+  the base branch, this value will be set by the merge queue when merging.
   """
   commitBody: String
 
   """
-  The commit title of the auto-merge request.
+  The commit title of the auto-merge request. If a merge queue is required by
+  the base branch, this value will be set by the merge queue when merging
   """
   commitHeadline: String
 
@@ -1179,7 +1181,8 @@ type AutoMergeRequest {
   enabledBy: Actor
 
   """
-  The merge method of the auto-merge request.
+  The merge method of the auto-merge request. If a merge queue is required by
+  the base branch, this value will be set by the merge queue when merging.
   """
   mergeMethod: PullRequestMergeMethod!
 
@@ -1544,7 +1547,7 @@ type Bot implements Actor & Node & UniformResourceLocatable {
 """
 Types which can be actors for `BranchActorAllowance` objects.
 """
-union BranchActorAllowanceActor = Team | User
+union BranchActorAllowanceActor = App | Team | User
 
 """
 A branch protection rule.
@@ -1913,16 +1916,16 @@ type BranchProtectionRuleEdge {
 }
 
 """
-A team or user who has the ability to bypass a force push requirement on a protected branch.
+A user, team, or app who has the ability to bypass a force push requirement on a protected branch.
 """
 type BypassForcePushAllowance implements Node {
   """
-  The actor that can dismiss.
+  The actor that can force push.
   """
   actor: BranchActorAllowanceActor
 
   """
-  Identifies the branch protection rule associated with the allowed user or team.
+  Identifies the branch protection rule associated with the allowed user, team, or app.
   """
   branchProtectionRule: BranchProtectionRule
   id: ID!
@@ -1969,16 +1972,16 @@ type BypassForcePushAllowanceEdge {
 }
 
 """
-A team or user who has the ability to bypass a pull request requirement on a protected branch.
+A user, team, or app who has the ability to bypass a pull request requirement on a protected branch.
 """
 type BypassPullRequestAllowance implements Node {
   """
-  The actor that can dismiss.
+  The actor that can bypass.
   """
   actor: BranchActorAllowanceActor
 
   """
-  Identifies the branch protection rule associated with the allowed user or team.
+  Identifies the branch protection rule associated with the allowed user, team, or app.
   """
   branchProtectionRule: BranchProtectionRule
   id: ID!
@@ -3232,6 +3235,11 @@ input CloseIssueInput {
   ID of the issue to be closed.
   """
   issueId: ID! @possibleTypes(concreteTypes: ["Issue"])
+
+  """
+  The reason the issue is to be closed.
+  """
+  stateReason: IssueClosedStateReason
 }
 
 """
@@ -3308,6 +3316,11 @@ type ClosedEvent implements Node & UniformResourceLocatable {
   The HTTP path for this closed event.
   """
   resourcePath: URI!
+
+  """
+  The reason the issue state was changed to closed.
+  """
+  stateReason: IssueStateReason
 
   """
   The HTTP URL for this closed event.
@@ -5338,12 +5351,12 @@ input CreateBranchProtectionRuleInput {
   blocksCreations: Boolean
 
   """
-  A list of User or Team IDs allowed to bypass force push targeting matching branches.
+  A list of User, Team, or App IDs allowed to bypass force push targeting matching branches.
   """
   bypassForcePushActorIds: [ID!]
 
   """
-  A list of User or Team IDs allowed to bypass pull requests targeting matching branches.
+  A list of User, Team, or App IDs allowed to bypass pull requests targeting matching branches.
   """
   bypassPullRequestActorIds: [ID!]
 
@@ -5368,7 +5381,7 @@ input CreateBranchProtectionRuleInput {
   pattern: String!
 
   """
-  A list of User, Team or App IDs allowed to push to matching branches.
+  A list of User, Team, or App IDs allowed to push to matching branches.
   """
   pushActorIds: [ID!]
 
@@ -5438,7 +5451,7 @@ input CreateBranchProtectionRuleInput {
   restrictsReviewDismissals: Boolean
 
   """
-  A list of User or Team IDs allowed to dismiss reviews on pull requests targeting matching branches.
+  A list of User, Team, or App IDs allowed to dismiss reviews on pull requests targeting matching branches.
   """
   reviewDismissalActorIds: [ID!]
 }
@@ -10863,6 +10876,11 @@ type EnterpriseOwnerInfo {
     last: Int
 
     """
+    Only return invitations within the organizations with these logins
+    """
+    organizationLogins: [String!]
+
+    """
     The search string to look for.
     """
     query: String
@@ -11870,6 +11888,26 @@ type ExternalIdentity implements Node {
 }
 
 """
+An attribute for the External Identity attributes collection
+"""
+type ExternalIdentityAttribute {
+  """
+  The attribute metadata as JSON
+  """
+  metadata: String
+
+  """
+  The attribute name
+  """
+  name: String!
+
+  """
+  The attribute value
+  """
+  value: String!
+}
+
+"""
 The connection type for ExternalIdentity.
 """
 type ExternalIdentityConnection {
@@ -11913,6 +11951,11 @@ type ExternalIdentityEdge {
 SAML attributes for the External Identity
 """
 type ExternalIdentitySamlAttributes {
+  """
+  SAML Identity attributes
+  """
+  attributes: [ExternalIdentityAttribute!]!
+
   """
   The emails associated with the SAML identity
   """
@@ -12145,6 +12188,36 @@ enum FileViewedState {
   The file has been marked as viewed.
   """
   VIEWED
+}
+
+"""
+Autogenerated input type of FollowOrganization
+"""
+input FollowOrganizationInput {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  ID of the organization to follow.
+  """
+  organizationId: ID! @possibleTypes(concreteTypes: ["Organization"])
+}
+
+"""
+Autogenerated return type of FollowOrganization
+"""
+type FollowOrganizationPayload {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  The organization that was followed.
+  """
+  organization: Organization
 }
 
 """
@@ -13797,6 +13870,11 @@ type Issue implements Assignable & Closable & Comment & Labelable & Lockable & N
   state: IssueState!
 
   """
+  Identifies the reason for the issue state.
+  """
+  stateReason: IssueStateReason
+
+  """
   A list of events, comments, commits, etc. associated with the issue.
   """
   timeline(
@@ -13941,6 +14019,21 @@ type Issue implements Assignable & Closable & Comment & Labelable & Lockable & N
   Identifies if the viewer is watching, not watching, or ignoring the subscribable entity.
   """
   viewerSubscription: SubscriptionState
+}
+
+"""
+The possible state reasons of a closed issue.
+"""
+enum IssueClosedStateReason {
+  """
+  An issue that has been closed as completed
+  """
+  COMPLETED
+
+  """
+  An issue that has been closed as not planned
+  """
+  NOT_PLANNED
 }
 
 """
@@ -14398,6 +14491,26 @@ enum IssueState {
   An issue that is still open
   """
   OPEN
+}
+
+"""
+The possible state reasons of an issue.
+"""
+enum IssueStateReason {
+  """
+  An issue that has been closed as completed
+  """
+  COMPLETED
+
+  """
+  An issue that has been closed as not planned
+  """
+  NOT_PLANNED
+
+  """
+  An issue that has been reopened
+  """
+  REOPENED
 }
 
 """
@@ -16171,9 +16284,19 @@ interface Migration {
   id: ID!
 
   """
+  The URL for the migration log (expires 1 day after migration completes).
+  """
+  migrationLogUrl: URI
+
+  """
   The Octoshift migration source.
   """
   migrationSource: MigrationSource!
+
+  """
+  The target repository name.
+  """
+  repositoryName: String!
 
   """
   The Octoshift migration source URL.
@@ -16248,6 +16371,11 @@ enum MigrationState {
   FAILED
 
   """
+  The Octoshift migration has invalid credentials.
+  """
+  FAILED_VALIDATION
+
+  """
   The Octoshift migration is in progress.
   """
   IN_PROGRESS
@@ -16256,6 +16384,11 @@ enum MigrationState {
   The Octoshift migration has not started.
   """
   NOT_STARTED
+
+  """
+  The Octoshift migration needs to have its credentials validated.
+  """
+  PENDING_VALIDATION
 
   """
   The Octoshift migration has been queued.
@@ -17426,6 +17559,16 @@ type Mutation {
   ): EnablePullRequestAutoMergePayload
 
   """
+  Follow an organization.
+  """
+  followOrganization(
+    """
+    Parameters for FollowOrganization
+    """
+    input: FollowOrganizationInput!
+  ): FollowOrganizationPayload
+
+  """
   Follow a user.
   """
   followUser(
@@ -17764,6 +17907,16 @@ type Mutation {
     """
     input: UnarchiveRepositoryInput!
   ): UnarchiveRepositoryPayload
+
+  """
+  Unfollow an organization.
+  """
+  unfollowOrganization(
+    """
+    Parameters for UnfollowOrganization
+    """
+    input: UnfollowOrganizationInput!
+  ): UnfollowOrganizationPayload
 
   """
   Unfollow a user.
@@ -18301,6 +18454,16 @@ type Mutation {
     """
     input: UpdateTeamReviewAssignmentInput!
   ): UpdateTeamReviewAssignmentPayload @preview(toggledBy: "stone-crop-preview")
+
+  """
+  Update team repository.
+  """
+  updateTeamsRepository(
+    """
+    Parameters for UpdateTeamsRepository
+    """
+    input: UpdateTeamsRepositoryInput!
+  ): UpdateTeamsRepositoryPayload
 
   """
   Replaces the repository's topics with the given topics.
@@ -22123,6 +22286,11 @@ type Organization implements Actor & MemberStatusable & Node & ProfileOwner & Pr
     orderBy: RepositoryMigrationOrder = {field: CREATED_AT, direction: ASC}
 
     """
+    Filter repository migrations by repository name.
+    """
+    repositoryName: String
+
+    """
     Filter repository migrations by state.
     """
     state: MigrationState
@@ -22268,6 +22436,11 @@ type Organization implements Actor & MemberStatusable & Node & ProfileOwner & Pr
   Viewer is an active member of this organization.
   """
   viewerIsAMember: Boolean!
+
+  """
+  Whether or not this Organization is followed by the viewer.
+  """
+  viewerIsFollowing: Boolean!
 
   """
   The organization's public profile URL.
@@ -27209,7 +27382,7 @@ type Push implements Node {
 }
 
 """
-A team, user or app who has the ability to push to a protected branch.
+A team, user, or app who has the ability to push to a protected branch.
 """
 type PushAllowance implements Node {
   """
@@ -27218,7 +27391,7 @@ type PushAllowance implements Node {
   actor: PushAllowanceActor
 
   """
-  Identifies the branch protection rule associated with the allowed user or team.
+  Identifies the branch protection rule associated with the allowed user, team, or app.
   """
   branchProtectionRule: BranchProtectionRule
   id: ID!
@@ -29157,6 +29330,11 @@ type ReopenedEvent implements Node {
   """
   createdAt: DateTime!
   id: ID!
+
+  """
+  The reason the issue state was changed to open.
+  """
+  stateReason: IssueStateReason
 }
 
 """
@@ -33460,9 +33638,19 @@ type RepositoryMigration implements Migration & Node {
   id: ID!
 
   """
+  The URL for the migration log (expires 1 day after migration completes).
+  """
+  migrationLogUrl: URI
+
+  """
   The Octoshift migration source.
   """
   migrationSource: MigrationSource!
+
+  """
+  The target repository name.
+  """
+  repositoryName: String!
 
   """
   The Octoshift migration source URL.
@@ -34436,7 +34624,7 @@ type RestrictedContribution implements Contribution {
 }
 
 """
-A team or user who has the ability to dismiss a review on a protected branch.
+A user, team, or app who has the ability to dismiss a review on a protected branch.
 """
 type ReviewDismissalAllowance implements Node {
   """
@@ -34445,7 +34633,7 @@ type ReviewDismissalAllowance implements Node {
   actor: ReviewDismissalAllowanceActor
 
   """
-  Identifies the branch protection rule associated with the allowed user or team.
+  Identifies the branch protection rule associated with the allowed user, team, or app.
   """
   branchProtectionRule: BranchProtectionRule
   id: ID!
@@ -34454,7 +34642,7 @@ type ReviewDismissalAllowance implements Node {
 """
 Types that can be an actor.
 """
-union ReviewDismissalAllowanceActor = Team | User
+union ReviewDismissalAllowanceActor = App | Team | User
 
 """
 The connection type for ReviewDismissalAllowance.
@@ -35646,7 +35834,7 @@ input StartRepositoryMigrationInput {
   """
   The Octoshift migration source access token.
   """
-  accessToken: String
+  accessToken: String!
 
   """
   A unique identifier for the client performing the mutation.
@@ -38588,6 +38776,36 @@ type UnassignedEvent implements Node {
 }
 
 """
+Autogenerated input type of UnfollowOrganization
+"""
+input UnfollowOrganizationInput {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  ID of the organization to unfollow.
+  """
+  organizationId: ID! @possibleTypes(concreteTypes: ["Organization"])
+}
+
+"""
+Autogenerated return type of UnfollowOrganization
+"""
+type UnfollowOrganizationPayload {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  The organization that was unfollowed.
+  """
+  organization: Organization
+}
+
+"""
 Autogenerated input type of UnfollowUser
 """
 input UnfollowUserInput {
@@ -39107,12 +39325,12 @@ input UpdateBranchProtectionRuleInput {
   branchProtectionRuleId: ID! @possibleTypes(concreteTypes: ["BranchProtectionRule"])
 
   """
-  A list of User or Team IDs allowed to bypass force push targeting matching branches.
+  A list of User, Team, or App IDs allowed to bypass force push targeting matching branches.
   """
   bypassForcePushActorIds: [ID!]
 
   """
-  A list of User or Team IDs allowed to bypass pull requests targeting matching branches.
+  A list of User, Team, or App IDs allowed to bypass pull requests targeting matching branches.
   """
   bypassPullRequestActorIds: [ID!]
 
@@ -39137,7 +39355,7 @@ input UpdateBranchProtectionRuleInput {
   pattern: String
 
   """
-  A list of User, Team or App IDs allowed to push to matching branches.
+  A list of User, Team, or App IDs allowed to push to matching branches.
   """
   pushActorIds: [ID!]
 
@@ -39202,7 +39420,7 @@ input UpdateBranchProtectionRuleInput {
   restrictsReviewDismissals: Boolean
 
   """
-  A list of User or Team IDs allowed to dismiss reviews on pull requests targeting matching branches.
+  A list of User, Team, or App IDs allowed to dismiss reviews on pull requests targeting matching branches.
   """
   reviewDismissalActorIds: [ID!]
 }
@@ -41063,6 +41281,51 @@ type UpdateTeamReviewAssignmentPayload {
   The team that was modified
   """
   team: Team
+}
+
+"""
+Autogenerated input type of UpdateTeamsRepository
+"""
+input UpdateTeamsRepositoryInput {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  Permission that should be granted to the teams.
+  """
+  permission: RepositoryPermission!
+
+  """
+  Repository ID being granted access to.
+  """
+  repositoryId: ID! @possibleTypes(concreteTypes: ["Repository"])
+
+  """
+  A list of teams being granted access. Limit: 10
+  """
+  teamIds: [ID!]! @possibleTypes(concreteTypes: ["Team"])
+}
+
+"""
+Autogenerated return type of UpdateTeamsRepository
+"""
+type UpdateTeamsRepositoryPayload {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  The repository that was updated.
+  """
+  repository: Repository
+
+  """
+  The teams granted permission on the repository.
+  """
+  teams: [Team!]
 }
 
 """

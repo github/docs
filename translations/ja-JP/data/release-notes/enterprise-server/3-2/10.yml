@@ -2,12 +2,12 @@
 date: '2022-03-01'
 sections:
   security_fixes:
-    - "HIGH: An integer overflow vulnerability was identified in GitHub's markdown parser that could potentially lead to information leaks and RCE. This vulnerability was reported through the GitHub Bug Bounty program by Felix Wilhelm of Google's Project Zero and has been assigned CVE-2022-24724."
+    - "高: GitHubのMarkdownパーサーで、情報漏洩とRCEにつながる整数オーバーフローの脆弱性が特定されました。この脆弱性は、GoogleのProject ZeroのFelix WilhelmによってGitHub Bug Bountyプログラムを通じて報告され、CVE-2022-24724が割り当てられました。"
   bugs:
-    - Upgrades could sometimes fail if a high-availability replica's clock was out of sync with the primary.
-    - 'OAuth Applications created after September 1st, 2020 were not able to use the [Check an Authorization](https://docs.github.com/en/enterprise-server@3.2/rest/reference/apps#check-an-authorization) API endpoint.'
+    - 高可用性レプリカのクロックがプライマリと同期していない場合、アップグレードが失敗することがありました。
+    - '2020年9月1日以降に作成されたOAuthアプリケーションは、 [Check an Authorization](https://docs.github.com/en/enterprise-server@3.2/rest/reference/apps#check-an-authorization) API エンドポイントを使用できませんでした。'
   known_issues:
-    - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
+    - 新しくセットアップされたユーザを持たない{% data variables.product.prodname_ghe_server %}インスタンスで、攻撃者が最初の管理ユーザを作成できました。
     - アップグレードの過程で、カスタムのファイアウォールのルールが削除されます。
     - Git LFSが追跡するファイル[Webインターフェースからアップロードされたもの](https://github.com/blog/2105-upload-files-to-your-repositories)が、不正にリポジトリに直接追加されてしまいます。
     - 同じリポジトリ内のファイルパスが255文字を超えるblobへのパーマリンクを含むIssueをクローズできませんでした。
