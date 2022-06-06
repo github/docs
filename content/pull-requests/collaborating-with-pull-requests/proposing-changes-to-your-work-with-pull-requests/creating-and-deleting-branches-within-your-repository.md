@@ -42,7 +42,7 @@ Note: You can only create a branch on a repository to which you have push access
     ![branch creation text box](/assets/images/help/branch/branch-creation-text-box.png)
 
 ### 3. Create a branch for an issue
-Read more about [creating a branch for an issue]([url](/issues/tracking-your-work-with-issues/creating-a-branch-for-an-issue)).
+Read more about [creating a branch for an issue](/issues/tracking-your-work-with-issues/creating-a-branch-for-an-issue).
 
 ## Deleting a branch
 
