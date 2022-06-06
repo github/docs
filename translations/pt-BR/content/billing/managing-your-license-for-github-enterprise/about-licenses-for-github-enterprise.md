@@ -1,6 +1,6 @@
 ---
 title: Sobre licenças para o GitHub Enterprise
-intro: '{% ifversion ghec %}If you deploy {% data variables.product.prodname_ghe_server %} in addition to using {% data variables.product.prodname_ghe_cloud %}, you{% else %}You{% endif %} can synchronize your license usage between{% ifversion ghes %} {% data variables.product.prodname_enterprise %}{% endif %} deployments, and use a license file to unlock each {% data variables.product.prodname_ghe_server %} instance.'
+intro: '{% ifversion ghec %}Se você implantar {% data variables.product.prodname_ghe_server %} além de usar {% data variables.product.prodname_ghe_cloud %}, você{% else %}Você{% endif %} pode sincronizar o uso da sua licença entre{% ifversion ghes %} {% data variables.product.prodname_enterprise %}{% endif %} implantações e usar um arquivo de licença para desbloquear cada instância do {% data variables.product.prodname_ghe_server %}.'
 versions:
   ghec: '*'
   ghes: '*'
@@ -17,13 +17,13 @@ shortTitle: Sobre licenças
 
 {% data reusables.enterprise-licensing.unique-user-licensing-model %}
 
-To ensure the same user isn't consuming more than one license for multiple enterprise deployments, you can synchronize license usage between your {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %} deployments.
+Para garantir que o mesmo usuário não esteja consumindo mais de uma licença para várias implantações corporativas, você pode sincronizar o uso da licença entre as suas implentações {% data variables.product.prodname_ghe_server %} e {% data variables.product.prodname_ghe_cloud %}.
 
-In order to use a {% data variables.product.prodname_ghe_server %} instance, you must upload a license file that {% data variables.product.company_short %} provides when you purchase, renew, or add user licenses to {% data variables.product.prodname_enterprise %}.
+Para usar uma instância de {% data variables.product.prodname_ghe_server %}, você deve fazer o upload de um arquivo de licença que {% data variables.product.company_short %} fornece quando você compra, renovar ou adicionar licenças de usuário para {% data variables.product.prodname_enterprise %}.
 
 ## Sobre a sincronização do uso da licença para {% data variables.product.prodname_enterprise %}
 
-{% data reusables.enterprise-licensing.about-license-sync %} For more information, see "[Syncing license usage between {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %}](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud)."
+{% data reusables.enterprise-licensing.about-license-sync %} Para obter mais informações, consulte "[Sincronizando uso de licença entre {% data variables.product.prodname_ghe_server %} e {% data variables.product.prodname_ghe_cloud %}](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud)".
 
 ## Sobre os arquivos de licença para {% data variables.product.prodname_enterprise %}
 

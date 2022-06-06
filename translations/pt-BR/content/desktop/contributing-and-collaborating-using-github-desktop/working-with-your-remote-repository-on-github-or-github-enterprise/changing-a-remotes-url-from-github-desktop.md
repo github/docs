@@ -13,7 +13,7 @@ shortTitle: Alterar URL do controle remoto
 {% mac %}
 
 {% data reusables.desktop.mac-repository-settings-menu %}
-2. Click **Remote**, and, under **Primary remote repository**, type the desired URL. ![Campo <strong>Primary remote repository</strong> (Repositório remote principal)](/assets/images/help/desktop/repository-settings-remote.png)
+2. Clique em **Remoto** e, em **Repositório remoto primário**, digite o URL desejado. ![Campo <strong>Primary remote repository</strong> (Repositório remote principal)](/assets/images/help/desktop/repository-settings-remote.png)
 {% data reusables.desktop.repository-settings-save %}
 
 {% endmac %}
@@ -21,7 +21,7 @@ shortTitle: Alterar URL do controle remoto
 {% windows %}
 
 {% data reusables.desktop.windows-repository-settings-menu %}
-2. Click **Remote**, and, under **Primary remote repository**, type the desired URL. ![Campo <strong>Primary remote repository</strong> (Repositório remote principal)](/assets/images/help/desktop/repository-settings-remote.png)
+2. Clique em **Remoto** e, em **Repositório remoto primário**, digite o URL desejado. ![Campo <strong>Primary remote repository</strong> (Repositório remote principal)](/assets/images/help/desktop/repository-settings-remote.png)
 {% data reusables.desktop.repository-settings-save %}
 
 {% endwindows %}

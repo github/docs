@@ -260,7 +260,7 @@ jobs:
 </td>
 <td>
 
-Groups together all the jobs that run in the workflow file.
+Agrupa todos os trabalhos executados no arquivo do fluxo de trabalho.
 </td>
 </tr>
 <tr>
@@ -286,7 +286,7 @@ Define uma trabalho com o ID "check-links" que é armazenado dentro da chave "jo
 </td>
 <td>
 
-Configures the job to run on a {% data variables.product.prodname_dotcom %}-hosted runner or a self-hosted runner, depending on the repository running the workflow. In this example, the job will run on a self-hosted runner if the repository is named `docs-internal` and is within the `github` organization. If the repository doesn't match this path, then it will run on an `ubuntu-latest` runner hosted by {% data variables.product.prodname_dotcom %}. For more information on these options see "[Choosing the runner for a job](/actions/using-jobs/choosing-the-runner-for-a-job)."
+Configura o trabalho a ser executado em um executor hospedado em {% data variables.product.prodname_dotcom %} ou em um executor auto-hospedado, dependendo do repositório que executa o fluxo de trabalho. Neste exemplo, o trabalho será executado em um runner auto-hospedado se o repositório for denominado "docs-internal" e estiver dentro da organização "github". Se o repositório não corresponder a este caminho, então ele será executado em um executor "ubuntu-latest" hospedado por {% data variables.product.prodname_dotcom %}. Para obter mais informações sobre essas opções consulte "[Escolhendo o executor para um trabalho](/actions/using-jobs/choosing-the-runner-for-a-job)".
 </td>
 </tr>
 <tr>
@@ -298,7 +298,7 @@ Configures the job to run on a {% data variables.product.prodname_dotcom %}-host
 </td>
 <td>
 
-Agrupa todos as etapas que serão executados como parte do trabalho `check-links`. Each job in a workflow has its own `steps` section.
+Agrupa todos as etapas que serão executados como parte do trabalho `check-links`. Cada trabalho em um fluxo de trabalho tem sua própria seção "etapas".
 </td>
 </tr>
 <tr>
@@ -311,7 +311,7 @@ Agrupa todos as etapas que serão executados como parte do trabalho `check-links
 </td>
 <td>
 
-The `uses` keyword tells the job to retrieve the action named `actions/checkout`. Esta é uma ação que verifica seu repositório e o faz o download do runner, permitindo que você execute ações contra seu código (como, por exemplo, ferramentas de teste). Você deve usar a ação de checkout sempre que o fluxo de trabalho for executado no código do repositório ou você estiver usando uma ação definida no repositório.
+A palavra-chave "uses" diz para o trabalho recuperar a ação denominada "actions/checkout". Esta é uma ação que verifica seu repositório e o faz o download do runner, permitindo que você execute ações contra seu código (como, por exemplo, ferramentas de teste). Você deve usar a ação de checkout sempre que o fluxo de trabalho for executado no código do repositório ou você estiver usando uma ação definida no repositório.
 </td>
 </tr>
 <tr>
@@ -357,7 +357,7 @@ A palavra-chave `executar` diz ao trabalho para executar um comando no executor.
 </td>
 <td>
 
-Usa a ação `trilom/file-changes-action` para coletar todos os arquivos alterados. This example is pinned to a specific version of the action, using the `a6ca26c14274c33b15e6499323aac178af06ad4b` SHA.
+Usa a ação `trilom/file-changes-action` para coletar todos os arquivos alterados. Este exemplo está fixado a uma versão específica da ação usando o SHA `a6ca26c14274c33b15e6499323aac178af06ad4b`.
 </td>
 </tr>
 
