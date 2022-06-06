@@ -17,7 +17,6 @@ translations/ja-JP/content/actions/learn-github-actions/finding-and-customizing-
 translations/ja-JP/content/actions/managing-workflow-runs/removing-workflow-artifacts.md,broken liquid tags
 translations/ja-JP/content/actions/publishing-packages/about-packaging-with-github-actions.md,broken liquid tags
 translations/ja-JP/content/actions/quickstart.md,broken liquid tags
-translations/ja-JP/content/actions/using-github-hosted-runners/about-github-hosted-runners.md,broken liquid tags
 translations/ja-JP/content/actions/using-workflows/storing-workflow-data-as-artifacts.md,broken liquid tags
 translations/ja-JP/content/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance.md,broken liquid tags
 translations/ja-JP/content/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-secret-scanning-for-your-appliance.md,broken liquid tags
@@ -250,6 +249,8 @@ translations/ja-JP/data/release-notes/enterprise-server/3-2/0.yml,broken liquid 
 translations/ja-JP/data/release-notes/enterprise-server/3-2/3.yml,broken liquid tags
 translations/ja-JP/data/release-notes/enterprise-server/3-3/0-rc1.yml,broken liquid tags
 translations/ja-JP/data/release-notes/enterprise-server/3-3/0.yml,broken liquid tags
+translations/ja-JP/data/release-notes/enterprise-server/3-4/0-rc1.yml,broken liquid tags
+translations/ja-JP/data/release-notes/enterprise-server/3-4/0.yml,broken liquid tags
 translations/ja-JP/data/release-notes/github-ae/2021-03/2021-03-03.yml,broken liquid tags
 translations/ja-JP/data/reusables/actions/allow-specific-actions-intro.md,broken liquid tags
 translations/ja-JP/data/reusables/actions/disabling-github-actions.md,broken liquid tags
@@ -272,9 +273,9 @@ translations/ja-JP/data/reusables/dotcom_billing/lfs-remove-data.md,broken liqui
 translations/ja-JP/data/reusables/education/apply-for-team.md,broken liquid tags
 translations/ja-JP/data/reusables/enterprise-accounts/actions-tab.md,broken liquid tags
 translations/ja-JP/data/reusables/enterprise-accounts/hooks-tab.md,Listed in localization-support#489
-translations/ja-JP/data/reusables/enterprise-accounts/hooks-tab.md,rendering error
+translations/ja-JP/data/reusables/enterprise-accounts/hooks-tab.md,broken liquid tags
 translations/ja-JP/data/reusables/enterprise-accounts/messages-tab.md,Listed in localization-support#489
-translations/ja-JP/data/reusables/enterprise-accounts/messages-tab.md,rendering error
+translations/ja-JP/data/reusables/enterprise-accounts/messages-tab.md,broken liquid tags
 translations/ja-JP/data/reusables/enterprise-accounts/pages-tab.md,broken liquid tags
 translations/ja-JP/data/reusables/enterprise_installation/hardware-considerations-all-platforms.md,broken liquid tags
 translations/ja-JP/data/reusables/enterprise_installation/upgrade-hardware-requirements.md,broken liquid tags

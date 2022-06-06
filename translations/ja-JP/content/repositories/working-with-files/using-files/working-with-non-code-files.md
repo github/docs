@@ -333,7 +333,7 @@ $ jupyter nbconvert --to html <em>NOTEBOOK-NAME.ipynb</em>
 ### 参考リンク
 
 - [Jupyter notebook の GitHub リポジトリ](https://github.com/jupyter/jupyter_notebook)
-- [Jupyter notebooks のギャラリー](https://github.com/jupyter/jupyter/wiki/A-gallery-of-interesting-Jupyter-Notebooks)
+- [Jupyter notebooks のギャラリー](https://github.com/jupyter/jupyter/wiki)
 
 {% if mermaid %}
 ## Displaying Mermaid files on {% data variables.product.prodname_dotcom %}
