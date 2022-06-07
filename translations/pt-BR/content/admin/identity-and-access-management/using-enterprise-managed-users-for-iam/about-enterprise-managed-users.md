@@ -2,7 +2,6 @@
 title: Sobre usuários gerenciados pela empresa
 shortTitle: Sobre usuários gerenciados
 intro: 'Você pode gerenciar centralmente a identidade e o acesso dos integrantes da empresa em {% data variables.product.prodname_dotcom %} a partir do seu provedor de identidade.'
-product: '{% data reusables.gated-features.emus %}'
 redirect_from:
   - /early-access/github/articles/get-started-with-managed-users-for-your-enterprise
   - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users
@@ -21,11 +20,11 @@ topics:
 
 ## Sobre o {% data variables.product.prodname_emus %}
 
-Com {% data variables.product.prodname_emus %}, você pode controlar as contas de usuário dos integrantes da empresa por meio do provedor de identidade (IdP). Você pode simplificar a autenticação com o logon único (SSO){% if oidc-for-emu %} SAML ou OIDC{% endif %} e provisionar, atualizar e desprovisionar as contas de usuário para seus inetegrantes corporativos. Os usuários atribuídos ao aplicativo {% data variables.product.prodname_emu_idp_application %} no seu IdP são provisionados como novas contas de usuário em {% data variables.product.prodname_dotcom %} e adicionados à sua empresa. Você controla nomes de usuários, dados de perfil, associação de equipe e acesso ao repositório a partir do seu IdP.
+Com {% data variables.product.prodname_emus %}, você pode controlar as contas de usuário dos integrantes da empresa por meio do provedor de identidade (IdP). Os usuários atribuídos ao aplicativo {% data variables.product.prodname_emu_idp_application %} no seu IdP são provisionados como novas contas de usuário em {% data variables.product.prodname_dotcom %} e adicionados à sua empresa. You control usernames, profile data, team membership, and repository access for the user accounts from your IdP.
 
 No seu IdP, você pode dar a cada {% data variables.product.prodname_managed_user %} a função do proprietário da empresa, usuário ou gerente de cobrança. {% data variables.product.prodname_managed_users_caps %} pode possuir organizações dentro da sua empresa e pode adicionar outros {% data variables.product.prodname_managed_users %} às organizações e equipes internamente. Para obter mais informações, consulte "[Funções em uma empresa](/github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise/roles-in-an-enterprise)" e "[Sobre as organizações](/organizations/collaborating-with-groups-in-organizations/about-organizations)".
 
-Os integrantes da organização podem ser gerenciados manualmente ou atualizados automaticamente, já que {% data variables.product.prodname_managed_users %} são adicionados aos grupos do IdP que estão conectados às equipes dentro da organização. Quando um {% data variables.product.prodname_managed_user %} é adicionado manualmente a uma organização, o cancelamento a atribuição do aplicativo de {% data variables.product.prodname_emu_idp_application %} no seu IdP irá suspender o usuário, mas não removê-lo da organização. Para obter mais informações sobre o gerenciamento da organização e a associação à equipe automaticamente, consulte "[Gerenciando associações de equipe com grupos de provedores de identidade](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/managing-team-memberships-with-identity-provider-groups)".
+Organization membership can be managed manually, or you can update membership automatically as {% data variables.product.prodname_managed_users %} are added to IdP groups that are connected to teams within the organization. Quando um {% data variables.product.prodname_managed_user %} é adicionado manualmente a uma organização, o cancelamento a atribuição do aplicativo de {% data variables.product.prodname_emu_idp_application %} no seu IdP irá suspender o usuário, mas não removê-lo da organização. Para obter mais informações sobre o gerenciamento da organização e a associação à equipe automaticamente, consulte "[Gerenciando associações de equipe com grupos de provedores de identidade](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/managing-team-memberships-with-identity-provider-groups)".
 
 {% if oidc-for-emu %}
 
@@ -33,7 +32,7 @@ Os integrantes da organização podem ser gerenciados manualmente ou atualizados
 
 {% endif %}
 
-Você pode conceder {% data variables.product.prodname_managed_users %} acesso e a capacidade de contribuir para repositórios na sua empresa, mas {% data variables.product.prodname_managed_users %} não pode criar conteúdo público ou colaborar com outros usuários, organizações e empresas no resto de {% data variables.product.prodname_dotcom %}. O {% data variables.product.prodname_managed_users %} provisionado para sua empresa não pode ser convidado para organizações ou repositórios fora da empresa, nem {% data variables.product.prodname_managed_users %} pode ser convidado para outras empresas. Os colaboradores externos não são compatíveis com {% data variables.product.prodname_emus %}.
+You can grant {% data variables.product.prodname_managed_users %} access to and the ability to contribute to repositories within your enterprise, but {% data variables.product.prodname_managed_users %} cannot create public content or collaborate with other users, organizations, and enterprises on the rest of {% data variables.product.prodname_dotcom %}. For more information, see "[Abilities and restrictions of {% data variables.product.prodname_managed_users %}](#abilities-and-restrictions-of-enterprise-managed-users)."
 
 Os nomes de usuário do {% data variables.product.prodname_managed_users %} da empresa e as suas informações de perfil como, por exemplo, nomes de exibição e endereços de e-mail, são definidos por meio do seu IdP e não podem ser alterados pelos próprios usuários. Para obter mais informações, consulte "[Nomes de usuário e informações do perfil](#usernames-and-profile-information)".
 
@@ -43,6 +42,11 @@ Os proprietários de empresas podem auditar todas as ações de {% data variable
 
 Para usar {% data variables.product.prodname_emus %}, você precisa de um tipo de conta corporativa separado com {% data variables.product.prodname_emus %} habilitado. Para obter mais informações sobre a criação desta conta, consulte "[Sobre empresas com usuários gerenciados](#about-enterprises-with-managed-users)".
 
+{% note %}
+
+**Note:** There are multiple options for identity and access management with {% data variables.product.prodname_ghe_cloud %}, and {% data variables.product.prodname_emus %} is not the best solution for every customer. For more information about whether {% data variables.product.prodname_emus %} is right for your enterprise, see "[About authentication for your enterprise](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#identifying-the-best-authentication-method-for-your-enterprise)."
+
+{% endnote %}
 
 ## Suporte do provedor de identidade
 
@@ -62,6 +66,8 @@ Para usar {% data variables.product.prodname_emus %}, você precisa de um tipo d
 
 O {% data variables.product.prodname_managed_users_caps %} só pode contribuir para repositórios privados e internos da sua empresa e repositórios privados pertencentes à sua conta de usuário. {% data variables.product.prodname_managed_users_caps %} tem acesso somente leitura a toda a comunidade de {% data variables.product.prodname_dotcom %} em geral. Estas restrições de acesso e visibilidade para usuários e conteúdo aplicam-se a todas as solicitações, incluindo solicitações da API.
 
+* {% data variables.product.prodname_managed_users %} cannot be invited to organizations or repositories outside of the enterprise, nor can the {% data variables.product.prodname_managed_users %} be invited to other enterprises.
+* Os colaboradores externos não são compatíveis com {% data variables.product.prodname_emus %}.
 * {% data variables.product.prodname_managed_users_caps %} não pode criar problemas ou pull requests, comentar ou adicionar reações, nem estrelas, inspeção ou repositórios de bifurcação fora da empresa.
 * {% data variables.product.prodname_managed_users_caps %} pode visualizar todos os repositórios públicos em {% data variables.product.prodname_dotcom_the_website %}, mas não pode fazer push de código para repositórios fora da empresa.
 * {% data variables.product.prodname_managed_users_caps %} e o conteúdo que criaa é visível apenas para outros integrantes da empresa.
@@ -70,6 +76,7 @@ O {% data variables.product.prodname_managed_users_caps %} só pode contribuir p
 * {% data variables.product.prodname_managed_users_caps %} não pode instalar {% data variables.product.prodname_github_apps %} nas suas contas de usuário.
 * Outros usuários de {% data variables.product.prodname_dotcom %} não podem ver, mencionar ou convidar um {% data variables.product.prodname_managed_user %} para colaborar.
 * {% data variables.product.prodname_managed_users_caps %} só pode criar repositórios privados e {% data variables.product.prodname_managed_users %} só pode convidar outros integrantes da empresa para colaborar nos seus próprios repositórios.
+* {% data reusables.enterprise-accounts.emu-forks %}
 * Apenas repositórios privados e internos podem ser criados em organizações pertencentes a um {% data variables.product.prodname_emu_enterprise %}, dependendo das configurações de visibilidade da organização e do repositório corporativo.
 * {% data variables.product.prodname_managed_users_caps %} são limitados em seu uso de {% data variables.product.prodname_pages %}. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#limitations-for-enterprise-managed-users)".
 

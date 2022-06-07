@@ -39,6 +39,14 @@ topics:
 | `repo.name`           | 仓库名称，包括所有者和仓库的名称。 例如，`octocat/hello-world` 是 `octocat` 个人帐户拥有的 `hello-world` 仓库的名称。 |
 | `repo.url`            | 用于检索仓库对象的 REST API URL，其中包括更多仓库信息。                                                  |
 | `payload`             | 事件有效负载对象对于事件类型是唯一的。 关于事件 API `payload` 对象，请参阅下面的事件类型。                               |
+| `public`              | 事件是否对所有用户可见。                                                                        |
+| `created_at`          | 触发事件的日期和时间。 它根据 ISO 8601 进行格式化。                                                     |
+| `org`                 | 由参与者选择执行触发事件的操作的组织。<br />_此属性仅在适用时才出现在事件对象中。_                               |
+| `org.id`              | 组织的唯一标识符。                                                                           |
+| `org.login`           | 组织的名称。                                                                              |
+| `org.gravatar_id`     | 组织 Gravatar 资料的唯一标识符。                                                               |
+| `org.url`             | 用于检索组织对象的 REST API URL，其中包括其他组织信息。                                                  |
+| `org.avatar_url`      | 组织资料图片的 URL。                                                                        |
 
 ### WatchEvent 事件对象示例
 

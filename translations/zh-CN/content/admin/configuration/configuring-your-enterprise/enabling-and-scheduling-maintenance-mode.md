@@ -66,6 +66,8 @@ IP 例外列表提供对 {% data variables.product.product_location %} 的受控
 
 如果重新启用维护模式，IP 例外列表将被禁用，{% data variables.product.product_location %} 将恢复到维护模式。 如果只是禁用 IP 例外列表，{% data variables.product.product_location %} 将恢复正常操作。
 
+您还可以使用命令行实用程序来配置 IP 例外列表。 更多信息请参阅“[命令行实用程序](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-maintenance)”和“[访问管理 shell (SSH)](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)”。
+
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 1. 在 {% data variables.enterprise.management_console %} 顶部，单击 **Maintenance（维护）**，然后确认已启用维护模式。 ![Maintenance 选项卡](/assets/images/enterprise/management-console/maintenance-tab.png)
