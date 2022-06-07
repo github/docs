@@ -37,7 +37,8 @@ Automatically generated release notes provide an automated alternative to manual
   {% ifversion fpt or ghec %}![Choose a branch](/assets/images/help/releases/releases-choose-branch.png)
   {% else %}![Releases tagged branch](/assets/images/enterprise/releases/releases-tag-branch.png)
   {% endif %}
-{% data reusables.releases.previous-release-tag %}7. To the top right of the description text box, click {% if previous-release-tag %}**Generate release notes**{% else %}**Auto-generate release notes**{% endif %}.{% if previous-release-tag %}
+{% data reusables.releases.previous-release-tag %}
+7. To the top right of the description text box, click {% if previous-release-tag %}**Generate release notes**{% else %}**Auto-generate release notes**{% endif %}.{% if previous-release-tag %}
   ![Generate release notes](/assets/images/help/releases/generate-release-notes.png){% else %}
   ![Auto-generate release notes](/assets/images/enterprise/3.5/releases/auto-generate-release-notes.png){% endif %}
 8. Check the generated notes to ensure they include all (and only) the information you want to include.
