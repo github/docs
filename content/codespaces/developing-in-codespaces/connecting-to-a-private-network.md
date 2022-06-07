@@ -30,6 +30,7 @@ There are also a number of third party solutions that, while not explicitly endo
 
 These third party solutions include:
 
+- [Twingate](https://github.com/Twingate-Labs/tg-github-codespaces/)
 - [Tailscale](https://tailscale.com/kb/1160/github-codespaces/)
 
 ### Allowlisting private resources for codespaces
