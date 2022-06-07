@@ -87,6 +87,22 @@ For more information, see "[Creating and highlighting code blocks](/articles/cre
 
 {% data reusables.user-settings.enabling-fixed-width-fonts %}
 
+## Supported color models
+
+You can call out color within a sentence with single backticks. A supported color model within backticks will display a small visualization of the color.
+
+```markdown
+The background color should be `#ffffff` for light mode and `#0d1117` for dark mode.
+```
+
+Here are the currently supported color models.
+
+| Color | Syntax | Output |
+|---|---|---|
+| HEX | `#1a74dc` |        |
+| RGB | `rgb(26, 116, 220)` |        |
+| HSL | `hsl(212, 79%, 48%)` |        |
+
 ## Links
 
 You can create an inline link by wrapping link text in brackets `[ ]`, and then wrapping the URL in parentheses `( )`. {% ifversion fpt or ghae or ghes > 3.1 or ghec %}You can also use the keyboard shortcut <kbd>Command</kbd>+<kbd>K</kbd> to create a link.{% endif %}{% ifversion fpt or ghae-issue-5434 or ghes > 3.3 or ghec %} When you have text selected, you can paste a URL from your clipboard to automatically create a link from the selection.{% endif %}
