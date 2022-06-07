@@ -134,7 +134,7 @@ git commit
 | ------------------ | ---------------------------------------------------------------------- |
 | 在同一个分支上的 `.md` 文件中 | `/assets/images/electrocat.png`                                        |
 | 在另一个分支的 `.md` 文件中  | `/../main/assets/images/electrocat.png`                                |
-| 在仓库的议题、拉取请求和评论中    | `../blob/main/assets/images/electrocat.png`                            |
+| 在仓库的议题、拉取请求和评论中    | `../blob/main/assets/images/electrocat.png?raw=true`                   |
 | 在另一个仓库的 `.md` 文件中  | `/../../../../github/docs/blob/main/assets/images/electrocat.png`      |
 | 在另一个仓库的议题、拉取请求和评论中 | `../../../github/docs/blob/main/assets/images/electrocat.png?raw=true` |
 
