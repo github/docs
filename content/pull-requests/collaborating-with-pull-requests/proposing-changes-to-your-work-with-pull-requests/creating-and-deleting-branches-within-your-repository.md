@@ -31,7 +31,7 @@ You can create a branch a few different ways on GitHub.
 
 {% note %}
 
-**Note:** You can only create a branch on a repository to which you have push access.
+**Note:** You can only create a branch in a repository to which you have push access.
 
 {% endnote %}
 
