@@ -1,6 +1,6 @@
 ---
 title: Sobre preços por usuário
-intro: '{% ifversion fpt or ghec %}For organizations{% ifversion ghec %} and enterprises{% endif %}, your {% else %}Your {% endif %}bill begins with the number of licensed seats you choose.'
+intro: '{% ifversion fpt or ghec %}Para organizações{% ifversion ghec %} e empresas{% endif %}, sua conta de {% else %}Sua {% endif %}cobrança com o número de estações licenciadas que você escolher.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/about-per-user-pricing
   - /articles/about-per-user-pricing
@@ -26,7 +26,7 @@ As organizações que usam uma assinatura paga realizada antes de 11 de maio de 
 
 {% else %}
 
-The foundation of your bill is the number of standard licensed seats that you choose for your{% ifversion ghec %} organization or{% endif %} enterprise.
+A base da sua conta é o número de estações licenciadas padrão que você escolhe para a sua organização{% ifversion ghec %} ou{% endif %} empresa.
 
 {% data reusables.enterprise-licensing.unique-user-licensing-model %}
 
@@ -60,8 +60,8 @@ Cada pessoa consome uma licença e {% data variables.product.company_short %} id
 - Gerentes corporativos de cobrança
 {%- endif %}
 - Gerentes de cobrança da organização{% ifversion ghec %} para organizações individuais em {% data variables.product.prodname_ghe_cloud %}{% endif %}
-- Anyone with a pending invitation to become an{% ifversion ghec %} enterprise or{% endif %} organization billing manager
-- Anyone with a pending invitation to become an outside collaborator on a public repository owned by your organization
+- Qualquer pessoa com um convite pendente para se tornar um gerente de cobrança de{% ifversion ghec %} empresa ou organização{% endif %}
+- Qualquer pessoa com um convite pendente para se tornar um colaborador externo em um repositório público pertencente à sua organização
 {%- ifversion ghes %}
 - Usuários suspensos
 {%- endif %}
@@ -72,13 +72,13 @@ Cada pessoa consome uma licença e {% data variables.product.company_short %} id
 
 {% endnote %}
 
-For more information, see {% ifversion not fpt %}"[Roles in an enterprise](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)" or {% endif %}"[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
+Para obter mais informações, consulte {% ifversion not fpt %}"[Funções em uma empresa](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)" ou {% endif %}"[Funções em uma organização](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)".
 
-{% data variables.product.company_short %} counts each {% ifversion not fpt %}member or {% endif %}outside collaborator once for billing purposes, even if the user account has {% ifversion not fpt %}membership in multiple organizations in an enterprise or {% endif %}access to multiple repositories owned by your organization. Para obter mais informações sobre colaboradores externos, consulte "[Adicionando colaboradores externos aos repositórios da organização](/organizations/managing-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization)".
+{% data variables.product.company_short %} conta cada {% ifversion not fpt %}integrante ou {% endif %}colaborador externo uma vez para fins de cobrança, mesmo que a conta de usuário tenha {% ifversion not fpt %}associaão de várias organizações em uma empresa ou {% endif %}acesso a vários repositórios pertencentes à organização. Para obter mais informações sobre colaboradores externos, consulte "[Adicionando colaboradores externos aos repositórios da organização](/organizations/managing-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization)".
 
-{% ifversion ghes %}Suspended users are not counted when calculating the number of licensed users consuming seats. For more information, see "[Suspending and unsuspending users](/admin/user-management/managing-users-in-your-enterprise/suspending-and-unsuspending-users)."{% endif %}
+{% ifversion ghes %}Usuários suspensos não são contados no cálculo do número de usuários licenciados que consomem estações. Para obter mais informações, consulte "[Suspender e cancelar a suspensão de usuários](/admin/user-management/managing-users-in-your-enterprise/suspending-and-unsuspending-users)."{% endif %}
 
-Dormant users do occupy a seat license.{% ifversion ghes %} As such, you can choose to suspend dormant users to release user licenses.{% endif %} For more information, see "[Managing dormant users](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users)."
+Os usuários inativos ocupam a licença de uma estação.{% ifversion ghes %} Dessa forma, você pode optar por suspender os usuários inativos para liberar licenças de usuário.{% endif %} Para obter mais informações, consulte "[Gerenciando usuários inativos](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users)".
 
 ## Sobre as alterações na sua assinatura
 
@@ -90,7 +90,7 @@ Você pode alterar a sua assinatura de {% data variables.product.prodname_dotcom
 
 {% endif %}
 
-You can add more licensed seats to your {% ifversion fpt or ghec %} organization{% endif %}{% ifversion ghec %} or{% endif %}{% ifversion ghec or ghes %} enterprise{% endif %} at any time. If you pay for more seats than are being used, you can also reduce the number of seats.{% ifversion fpt %} For more information, see "[Upgrading your {% data variables.product.prodname_dotcom %} subscription](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription)" and "[Downgrading your {% data variables.product.prodname_dotcom %} subscription](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription)."
+Você pode adicionar mais estações licenciadas à sua {% ifversion fpt or ghec %} organização{% endif %}{% ifversion ghec %} ou{% endif %}{% ifversion ghec or ghes %} empresa{% endif %} a qualquer momento. Se você pagar por mais estações do que você está usando, você também poderá reduzir o número de estações.{% ifversion fpt %} Para obter mais informações, consulte "[Atualizando a sua assinatura de {% data variables.product.prodname_dotcom %}](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription)" e "[Fazendo o downgrade da sua assinatura de {% data variables.product.prodname_dotcom %}](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription)."
 
 Se você tiver dúvidas sobre a sua assinatura, entre em contato com {% data variables.contact.contact_support %}.
 

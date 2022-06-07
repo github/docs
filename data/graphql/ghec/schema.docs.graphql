@@ -14755,7 +14755,7 @@ union IpAllowListOwner = App | Enterprise | Organization
 """
 An Issue is a place to discuss ideas, enhancements, tasks, and bugs for a project.
 """
-type Issue implements Assignable & Closable & Comment & Labelable & Lockable & Node & ProjectNextOwner & ProjectV2Owner & Reactable & RepositoryNode & Subscribable & UniformResourceLocatable & Updatable & UpdatableComment {
+type Issue implements Assignable & Closable & Comment & Labelable & Lockable & Node & ProjectNextOwner & Reactable & RepositoryNode & Subscribable & UniformResourceLocatable & Updatable & UpdatableComment {
   """
   Reason that the conversation was locked.
   """
@@ -23816,7 +23816,7 @@ type OrgUpdateMemberRepositoryInvitationPermissionAuditEntry implements AuditEnt
 """
 An account on GitHub, with one or more owners, that has repositories, members and teams.
 """
-type Organization implements Actor & MemberStatusable & Node & PackageOwner & ProfileOwner & ProjectNextOwner & ProjectOwner & ProjectV2Owner & RepositoryDiscussionAuthor & RepositoryDiscussionCommentAuthor & RepositoryOwner & Sponsorable & UniformResourceLocatable {
+type Organization implements Actor & MemberStatusable & Node & PackageOwner & ProfileOwner & ProjectNextOwner & ProjectOwner & RepositoryDiscussionAuthor & RepositoryDiscussionCommentAuthor & RepositoryOwner & Sponsorable & UniformResourceLocatable {
   """
   Determine if this repository owner has any items that can be pinned to their profile.
   """
@@ -28384,13 +28384,6 @@ enum ProjectTemplate {
 }
 
 """
-Represents an owner of a project (beta).
-"""
-interface ProjectV2Owner {
-  id: ID!
-}
-
-"""
 A view within a Project.
 """
 type ProjectView implements Node {
@@ -28618,7 +28611,7 @@ type PublicKeyEdge {
 """
 A repository pull request.
 """
-type PullRequest implements Assignable & Closable & Comment & Labelable & Lockable & Node & ProjectNextOwner & ProjectV2Owner & Reactable & RepositoryNode & Subscribable & UniformResourceLocatable & Updatable & UpdatableComment {
+type PullRequest implements Assignable & Closable & Comment & Labelable & Lockable & Node & ProjectNextOwner & Reactable & RepositoryNode & Subscribable & UniformResourceLocatable & Updatable & UpdatableComment {
   """
   Reason that the conversation was locked.
   """
@@ -31763,6 +31756,11 @@ type Query {
     before: String
 
     """
+    A list of classifications to filter advisories by.
+    """
+    classifications: [SecurityAdvisoryClassification!]
+
+    """
     Returns the first _n_ elements from the list.
     """
     first: Int
@@ -31816,6 +31814,11 @@ type Query {
     Returns the elements in the list that come before the specified cursor.
     """
     before: String
+
+    """
+    A list of advisory classifications to filter vulnerabilities by.
+    """
+    classifications: [SecurityAdvisoryClassification!]
 
     """
     An ecosystem to filter vulnerabilities by.
@@ -39816,6 +39819,11 @@ A GitHub Security Advisory
 """
 type SecurityAdvisory implements Node {
   """
+  The classification of the advisory
+  """
+  classification: SecurityAdvisoryClassification!
+
+  """
   The CVSS associated with this advisory
   """
   cvss: CVSS!
@@ -39921,6 +39929,11 @@ type SecurityAdvisory implements Node {
     before: String
 
     """
+    A list of advisory classifications to filter vulnerabilities by.
+    """
+    classifications: [SecurityAdvisoryClassification!]
+
+    """
     An ecosystem to filter vulnerabilities by.
     """
     ecosystem: SecurityAdvisoryEcosystem
@@ -39955,6 +39968,21 @@ type SecurityAdvisory implements Node {
   When the advisory was withdrawn, if it has been withdrawn
   """
   withdrawnAt: DateTime
+}
+
+"""
+Classification of the advisory.
+"""
+enum SecurityAdvisoryClassification {
+  """
+  Classification of general advisories.
+  """
+  GENERAL
+
+  """
+  Classification of malware advisories.
+  """
+  MALWARE
 }
 
 """
@@ -47674,7 +47702,7 @@ type UpdateTopicsPayload {
 """
 A user is an individual's account on GitHub that owns repositories and can make new content.
 """
-type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectNextOwner & ProjectOwner & ProjectV2Owner & RepositoryDiscussionAuthor & RepositoryDiscussionCommentAuthor & RepositoryOwner & Sponsorable & UniformResourceLocatable {
+type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectNextOwner & ProjectOwner & RepositoryDiscussionAuthor & RepositoryDiscussionCommentAuthor & RepositoryOwner & Sponsorable & UniformResourceLocatable {
   """
   Determine if this repository owner has any items that can be pinned to their profile.
   """

@@ -20,28 +20,28 @@ shortTitle: Executores hospedados no GitHub
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## Overview of {% data variables.product.prodname_dotcom %}-hosted runners
+## Visão geral dos executores hospedados em {% data variables.product.prodname_dotcom %}
 
-Runners are the machines that execute jobs in a {% data variables.product.prodname_actions %} workflow. For example, a runner can clone your repository locally, install testing software, and then run commands that evaluate your code.
+Os executores são as máquinas que executam trabalhos em um fluxo de trabalho de {% data variables.product.prodname_actions %}. Por exemplo, um executor pode clonar seu repositório localmente, instalar um software de teste e, em seguida, executar comandos que avaliam seu código.
 
-{% data variables.product.prodname_dotcom %} provides runners that you can use to run your jobs, or you can [host your own runners](/actions/hosting-your-own-runners/about-self-hosted-runners). Each {% data variables.product.prodname_dotcom %}-hosted runner is a new virtual machine (VM) hosted by {% data variables.product.prodname_dotcom %} with the runner application and other tools preinstalled, and is available with Ubuntu Linux, Windows, or macOS operating systems. Ao usar um executor hospedada no {% data variables.product.prodname_dotcom %}, a manutenção e as atualizações da máquina são feitas para você.
+{% data variables.product.prodname_dotcom %} fornece executores que você pode usar para executar seus trabalhos ou você pode [hospedar seus próprios executores](/actions/hosting-your-own-runners/about-self-hosted-runners). Cada executor hospedado de {% data variables.product.prodname_dotcom %} é uma nova máquina virtual (VM) hospedada por {% data variables.product.prodname_dotcom %} com o aplicativo do executor e outras ferramentas pré-instaladas e está disponível com sistemas operacionais Ubuntu Linux, Windows ou macOS. Ao usar um executor hospedada no {% data variables.product.prodname_dotcom %}, a manutenção e as atualizações da máquina são feitas para você.
 
 {% ifversion not ghes %}
 
 ## Usando um executor hospedado em {% data variables.product.prodname_dotcom %}
 
-To use a {% data variables.product.prodname_dotcom %}-hosted runner, create a job and use `runs-on` to specify the type of runner that will process the job, such as `ubuntu-latest`, `windows-latest`, or `macos-latest`. For the full list of runner types, see "[Supported runners and hardware resources](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources)."
+Para usar um executor hospedado em {% data variables.product.prodname_dotcom %}, crie um trabalho e use `runs-on` para especificar o tipo de executor que irá processar o trabalho como, por exemplo, `ubuntu-latest`, `windows-latest` ou `macos-latest`. Para oter a lista completa de tipos de executores, consulte "[Executores e recursos de hardware compatíveis](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources)".
 
-When the job begins, {% data variables.product.prodname_dotcom %} automatically provisions a new VM for that job. All steps in the job execute on the VM, allowing the steps in that job to share information using the runner's filesystem. You can run workflows directly on the VM or in a Docker container. When the job has finished, the VM is automatically decommissioned.
+Quando o trabalho começa, {% data variables.product.prodname_dotcom %} probisiona automaticamente uma nova VM para esse trabalho. Todas as etapas no trabalho são executadas na VM, o que permite que as etapas do trabalho compartilhem informações usando o sistema de arquivos do executor. Você pode executar fluxos de trabalho diretamente na VM ou em um contêiner Docker. Quando o trabalho é concluído, a VM é desativada automaticamente.
 
-The following diagram demonstrates how two jobs in a workflow are executed on two different {% data variables.product.prodname_dotcom %}-hosted runners.
+O diagrama a seguir demonstra como dois trabalhos em um fluxo de trabalho são executados em dois executores diferentes hospedados em {% data variables.product.prodname_dotcom %}.
 
-![Two runners processing separate jobs](/assets/images/help/images/overview-github-hosted-runner.png)
+![Dois executores processando trabalhos separados](/assets/images/help/images/overview-github-hosted-runner.png)
 
-The following example workflow has two jobs, named `Run-npm-on-Ubuntu` and `Run-PSScriptAnalyzer-on-Windows`. When this workflow is triggered, {% data variables.product.prodname_dotcom %} provisions a new virtual machine for each job.
+O fluxo de trabalho a seguir tem dois trabalhos, denminados `Run-npm-on-Ubuntu` e `Run-PSScriptAnalyzer-on-Windows`. Quando este fluxo de trabalho é acionado, {% data variables.product.prodname_dotcom %} disponibiliza uma nova máquina virtual para cada trabalho.
 
-- The job named `Run-npm-on-Ubuntu` is executed on a Linux VM, because the job's `runs-on:` specifies `ubuntu-latest`.
-- The job named `Run-PSScriptAnalyzer-on-Windows` is executed on a Windows VM, because the job's `runs-on:` specifies `windows-latest`.
+- O trabalho denominado `Run-npm-on-Ubuntu` é executado em uma VM do Linux, porque o trabalho `runs-on:` especifica `ubuntu-latest`.
+- O trabalho denominado `Run-PSScriptAnalyzer-on-Windows` é executado na VM do Windows, porque o trabalho `runs-on:` especifica `windows-latest`.
 
 ```yaml{:copy}
 name: Run commands on different operating systems
@@ -78,9 +78,9 @@ jobs:
           Get-ScriptAnalyzerRule
 ```
 
-While the job runs, the logs and output can be viewed in the {% data variables.product.prodname_dotcom %} UI:
+Enquanto o trabalho é executado, os logs e saídas podem ser visualizados na interface de usuário de {% data variables.product.prodname_dotcom %}:
 
-![Job output in the Actions UI](/assets/images/help/repository/actions-runner-output.png)
+![Saída do trabalho na Interface de usuário do Actions](/assets/images/help/repository/actions-runner-output.png)
 
 {% data reusables.actions.runner-app-open-source %}
 
@@ -93,7 +93,7 @@ Especificação de hardware para máquinas virtuais do Windows e Linux:
 
 Especificação de hardware para máquinas virtuais do macOS:
 - CPU de 3 núcleos
-- 14 GB of RAM memory
+- 14 GB de memória RAM
 - 14 GB de espaço de disco SSD
 
 {% data reusables.actions.supported-github-runners %}
@@ -131,23 +131,23 @@ Se houver uma ferramenta que você queira solicitar, abra um problema em [action
 
 Você pode instalar um software adicional em executores hospedados em {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Personalizar executores hospedados no GitHub](/actions/using-github-hosted-runners/customizing-github-hosted-runners)".
 
-## Cloud hosts used by {% data variables.product.prodname_dotcom %}-hosted runners
+## Hosts na nuvem usados por executores hospedados em {% data variables.product.prodname_dotcom %}
 
-{% data variables.product.prodname_dotcom %} hosts Linux and Windows runners on `Standard_DS2_v2` virtual machines in Microsoft Azure with the {% data variables.product.prodname_actions %} runner application installed. A o aplicativo do executor hospedado no {% data variables.product.prodname_dotcom %} é uma bifurcação do agente do Azure Pipelines. Os pacotes ICMP de entrada estão bloqueados para todas as máquinas virtuais do Azure. Portanto, é possível que os comandos ping ou traceroute não funcionem. For more information about the `Standard_DS2_v2` resources, see "[Dv2 and DSv2-series](https://docs.microsoft.com/azure/virtual-machines/dv2-dsv2-series#dsv2-series)" in the Microsoft Azure documentation.
+{% data variables.product.prodname_dotcom %} hospeda executores do Linux e do Windows em máquinas virtuais de `Standard_DS2_v2` no Microsoft Azure com o aplicativo do executor de {% data variables.product.prodname_actions %} instalado. A o aplicativo do executor hospedado no {% data variables.product.prodname_dotcom %} é uma bifurcação do agente do Azure Pipelines. Os pacotes ICMP de entrada estão bloqueados para todas as máquinas virtuais do Azure. Portanto, é possível que os comandos ping ou traceroute não funcionem. Para obter mais informações sobre os recursos de `Standard_DS2_v2`, consulte "[Dv2 e DSv2-series](https://docs.microsoft.com/azure/virtual-machines/dv2-dsv2-series#dsv2-series)" na documentação do Microsoft Azure.
 
 {% data variables.product.prodname_dotcom %} hospedas executores do macOS na nuvem do macOS do próprio {% data variables.product.prodname_dotcom %}.
 
-## Workflow continuity
+## Continuidade do fluxo de trabalho
 
 {% data reusables.actions.runner-workflow-continuity %}
 
 Além disso, se a execução do fluxo de trabalho entrar na fila com sucesso, mas não foi processado por um executor hospedado em {% data variables.product.prodname_dotcom %} dentro de 45 minutos, a execução do fluxo de trabalho na fila será descartada.
 
-## Administrative privileges
+## Privilégios administrativos
 
 As máquinas virtuais Linux e macOS executam usando autenticação sem senha `sudo`. Quando precisar executar comandos ou instalar ferramentas que exigem mais permissões que o usuário atual possui, você pode usar `sudo` sem a necessidade de fornecer uma senha. Para obter mais informações, consulte o "[Manual do Sudo](https://www.sudo.ws/man/1.8.27/sudo.man.html)".
 
-As máquinas virtuais do Windows estão configuradas para ser executadas como administradores com Controle de Conta de Usuário (UAC) desativado. For more information, see "[How User Account Control works](https://docs.microsoft.com/windows/security/identity-protection/user-account-control/how-user-account-control-works)" in the Windows documentation.
+As máquinas virtuais do Windows estão configuradas para ser executadas como administradores com Controle de Conta de Usuário (UAC) desativado. Para obter mais informações, consulte "[Como funciona o Controle de Conta de Usuário](https://docs.microsoft.com/windows/security/identity-protection/user-account-control/how-user-account-control-works)" na documentação do Windows.
 
 ## Endereços IP
 
@@ -187,11 +187,8 @@ O {% data variables.product.prodname_dotcom %} reserva o prefixo de caminho `/gi
 - `/github/workspace` - {% data reusables.repositories.action-root-user-required %}
 - `/github/workflow`
 
-{% ifversion fpt or ghec %}
-
 ## Leia mais
 - "[Gerenciando cobrança para {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)"
-
-{% endif %}
+- You can use a matrix strategy to run your jobs on multiple images. Para obter mais informações, consulte "[Usando uma matriz para seus trabalhos](/actions/using-jobs/using-a-matrix-for-your-jobs)".
 
 {% endif %}

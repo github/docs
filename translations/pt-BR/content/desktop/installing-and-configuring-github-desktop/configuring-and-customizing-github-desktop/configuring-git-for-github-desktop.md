@@ -1,7 +1,7 @@
 ---
 title: Configurar o Git para o GitHub Desktop
 shortTitle: Configurar o Git
-intro: 'You can manage Git configuration settings for your local repositories with {% data variables.product.prodname_desktop %}.'
+intro: 'Você pode gerenciar as configurações do Git para seus repositórios locais com {% data variables.product.prodname_desktop %}.'
 redirect_from:
   - /desktop/getting-started-with-github-desktop/configuring-git-for-github-desktop
   - /desktop/installing-and-configuring-github-desktop/configuring-git-for-github-desktop
@@ -9,15 +9,15 @@ versions:
   fpt: '*'
 ---
 
-## About Git configuration for {% data variables.product.prodname_desktop %}
+## Sobre a configuração do Git para {% data variables.product.prodname_desktop %}
 
-{% data variables.product.prodname_desktop %} uses your local Git configuration settings and provides the option to configure some of these settings, such as the global author information and the default branch that is used when creating a new repository.
+{% data variables.product.prodname_desktop %} usa as configurações locais do Git e fornece a opção de configurar algumas dessas configurações, como a informação do autor global e o branch padrão que é usado ao criar um novo repositório.
 
-{% data variables.product.prodname_desktop %} allows you to set the name and email address you would like associated with the commits you make in your repositories. If your name and email address have already been set in the global Git configuration for your computer, {% data variables.product.prodname_desktop %} will detect and use those values. {% data variables.product.prodname_desktop %} also allows you to set a different name and email address for an individual repository. This is useful when you need to use a separate work email address for a specific repository.
+{% data variables.product.prodname_desktop %} permite que você defina o nome e o endereço de e-mail que você deseja que sejam associados aos commits que você criar nos seus repositórios. Se seu nome e endereço de e-mail já foram definidos na configuração global do Git para seu computador, {% data variables.product.prodname_desktop %} irá detectar e usar esses valores. {% data variables.product.prodname_desktop %} também permite que você defina um nome e endereço de e-mail diferente para um repositório individual. Isso é útil quando você precisa usar um endereço de e-mail trabalho separado para um repositório específico.
 
-If the email address that has been set in your Git configuration does not match an email address associated with the {% data variables.product.product_name %} account you are currently logged in to, {% data variables.product.prodname_desktop %} will show a warning prior to committing.
+Se o endereço de e-mail que foi configurado na configuração do Git não coincide com um endereço de e-mail associado à conta do {% data variables.product.product_name %} à qual você está conectado atualmente, {% data variables.product.prodname_desktop %} mostrará um aviso antes do commit.
 
-{% data variables.product.prodname_desktop %} also allows you to change the default branch name that you would like to use when creating new repositories. By default, {% data variables.product.prodname_desktop %} uses `main` as the default branch name in any new repositories you create.
+O {% data variables.product.prodname_desktop %} também permite que você altere o nome do branch padrão que você gostaria de usar ao criar novos repositórios. Por padrão, {% data variables.product.prodname_desktop %} usa o `principal` como o nome de branch padrão em qualquer novo repositório que você criar.
 
 {% tip %}
 
@@ -25,9 +25,9 @@ If the email address that has been set in your Git configuration does not match 
 
 {% endtip %}
 
-## Configuring your global author information
+## Configurando suas informações de autor global
 
-Configuring your global author information in {% data variables.product.prodname_desktop %} will update the name and email address in your global Git configuration. This will be the default name and email address for all new local repositories you create in {% data variables.product.prodname_desktop %}.
+Configurar suas informações de autor global em {% data variables.product.prodname_desktop %} irá atualizar o nome e endereço de e-mail em sua configuração global do Git. Este será o nome e endereço de email padrão para todos os novos repositórios locais que você criar em {% data variables.product.prodname_desktop %}.
 
 {% mac %}
 
@@ -36,7 +36,7 @@ Configuring your global author information in {% data variables.product.prodname
 {% data reusables.desktop.name-field-git-config %}
   ![O campo de nome da configuração do Git](/assets/images/help/desktop/mac-name-git-config.png)
 {% data reusables.desktop.select-email-git-config %}
-  ![Select email address in Git configuration field](/assets/images/help/desktop/mac-email-git-config.png)
+  ![Selecione o endereço de e-mail no campo de configuração do Git](/assets/images/help/desktop/mac-email-git-config.png)
 {% data reusables.desktop.click-save-git-config %}
   ![Botão para salvar no campo de configuração do Git](/assets/images/help/desktop/mac-save-git-config.png)
 
@@ -49,15 +49,15 @@ Configuring your global author information in {% data variables.product.prodname
 {% data reusables.desktop.name-field-git-config %}
   ![O campo de nome da configuração do Git](/assets/images/help/desktop/windows-name-git-config.png)
 {% data reusables.desktop.select-email-git-config %}
-  ![Select email address in Git configuration field](/assets/images/help/desktop/windows-email-git-config.png)
+  ![Selecione o endereço de e-mail no campo de configuração do Git](/assets/images/help/desktop/windows-email-git-config.png)
 {% data reusables.desktop.click-save-git-config %}
   ![Botão para salvar no campo de configuração do Git](/assets/images/help/desktop/windows-save-git-config.png)
 
 {% endwindows %}
 
-## Configuring different author information for an individual repository
+## Configurar diferentes informações do autor para um repositório individual
 
-You can change the name and email address used to author commits in a specific repository. This local Git configuration will override your global Git configuration settings for this one repository only.
+Você pode alterar o nome e o endereço de email usados para commits de autor em um repositório específico. Esta configuração local do Git irá substituir as configurações globais do Git apenas para este repositório.
 
 {% mac %}
 
@@ -82,15 +82,15 @@ You can change the name and email address used to author commits in a specific r
 {% endwindows %}
 
 
-## Configuring your default branch for new repositories
+## Configurar o branch padrão para novos repositórios
 
-You can configure the default branch that will be used when you create a new repository in {% data variables.product.prodname_desktop %}. For more information about the default branch, see "[About the default branch](/github/collaborating-with-issues-and-pull-requests/about-branches#about-the-default-branch)."
+Você pode configurar o branch padrão que será usado quando você criar um novo repositório em {% data variables.product.prodname_desktop %}. Para obter mais informações sobre o branch padrão, consulte "[Sobre o branch padrão](/github/collaborating-with-issues-and-pull-requests/about-branches#about-the-default-branch)".
 
 {% mac %}
 
 {% data reusables.desktop.mac-select-desktop-menu %}
 1. Na janela de Preferências, clique em **Git**. ![O Painel Git no menu Preferences (Preferências)](/assets/images/help/desktop/mac-select-git-pane.png)
-1. Under "Default branch name for new repositories", select the default branch name you would like to use, or, to enter a custom name, select "Other...". ![Default branch name selection options](/assets/images/help/desktop/mac-select-default-branch-name.png)
+1. Em "Nome de branch padrão para novos repositórios", selecione o nome padrão do branch que você gostaria de usar, ou, para digitar um nome personalizado, selecione "Outro..." ![Opções de seleção de nome de branch padrão](/assets/images/help/desktop/mac-select-default-branch-name.png)
 {% data reusables.desktop.click-save-git-config %}
   ![Botão para salvar no campo de configuração do Git](/assets/images/help/desktop/repository-settings-git-config-save.png)
 
@@ -100,7 +100,7 @@ You can configure the default branch that will be used when you create a new rep
 
 {% data reusables.desktop.windows-choose-options %}
 1. Na janela de Opções, clique em **Git**. ![O Painel Git no menu Options (Opções)](/assets/images/help/desktop/windows-select-git-pane.png)
-1. Under "Default branch name for new repositories", select the default branch name you would like to use, or select "Other..." to enter a custom name. ![Default branch name selection options](/assets/images/help/desktop/windows-select-default-branch-name.png)
+1. Em "Nome do branch padrão para novos repositórios", selecione o nome padrão do branch que você gostaria de usar, ou selecione "Outro..." para digitar um nome personalizado. ![Opções de seleção de nome de branch padrão](/assets/images/help/desktop/windows-select-default-branch-name.png)
 {% data reusables.desktop.click-save-git-config %}
   ![Botão para salvar no campo de configuração do Git](/assets/images/help/desktop/repository-settings-git-config-save.png)
 
