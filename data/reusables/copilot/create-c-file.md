@@ -1,1 +1,1 @@
-1. Create a new C# file.
+1. Create a new C# (_*.cs_) file.

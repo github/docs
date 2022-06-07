@@ -12,19 +12,22 @@ topics:
 
 {% data reusables.copilot.copilot-prerequisites %}
 - To use {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}, you must have {% data variables.product.prodname_vs %} 2022 17.1 or later installed. For more information, see the [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) documentation.
+- {% data variables.product.prodname_copilot %} is not available for use with Visual Studio for Mac.
 
 ## Installing the {% data variables.product.prodname_vs %} extension
 
 To use {% data variables.product.prodname_copilot %}, you must first install the {% data variables.product.prodname_vs %} extension.
-1. In Extensions | Manage Extensions, from the Visual Studio Marketplace, search for the {% data variables.product.prodname_copilot %} extension and click **Download**.
+1. In the Visual Studio toolbar, under **Extensions**, click **Manage Extensions**.
+   ![Screenshot of the Visual Studio toolbar](/assets/images/help/copilot/visual-studio-toolbar.png)
+1. In the "Manage Extensions" dialogue, click **Visual Studio Marketplace**, search for the {% data variables.product.prodname_copilot %} extension and click **Download**.
    ![Screenshot of GitHub Copilot extension for Visual Studio with the download button emphasized](/assets/images/help/copilot/install-copilot-extension-visual-studio.png)
-2. Close the dialog, then exit and relaunch {% data variables.product.prodname_vs %}.
-3. After restarting {% data variables.product.prodname_vs %}, use Extensions | Manage Extensions | Installed to confirm that the {% data variables.product.prodname_copilot %} extension is installed and enabled.
+2. Close the "Manage Extensions" dialog, then exit and relaunch {% data variables.product.prodname_vs %}.
+3. Optionally, to check that {% data variables.product.prodname_copilot %} is installed and enabled, go back to **Manage Extensions**, click **Installed** to view your currently installed extensions and click **{% data variables.product.prodname_copilot %}** to see status information.
   ![Screenshot of installed extensions in Visual Studio with GitHub Copilot emphasized](/assets/images/help/copilot/installed-copilot-extension-visual-studio.png)
 
 ## Authorizing {% data variables.product.prodname_copilot %}
 
-1. Create a new C# Console App project. For more information, see steps 1 and 2 in "[Tutorial: Create a simple C# console app in Visual Studio](https://docs.microsoft.com/en-us/visualstudio/get-started/csharp/tutorial-console?view=vs-2022)". 
+1. Create a new C# Console App project. For more information, see steps 1 and 2 in "[Tutorial: Create a simple C# console app in Visual Studio](https://docs.microsoft.com/en-us/visualstudio/get-started/csharp/tutorial-console?view=vs-2022)" in the Microsoft Visual Studio documentation. 
 2. Name your project "Copilot Demo" and click **Next**.
    ![Screenshot of the new project window with the project name emphasized](/assets/images/help/copilot/visual-studio-new-project.png)
 3. Click **Create** to create the project.
@@ -43,6 +46,7 @@ After installation, a {% data variables.product.prodname_copilot %} icon should 
 ## Seeing your first suggestion
 {% data reusables.copilot.supported-languages %} The following samples are in C#, but other languages will work similarly.
 
+{% data reusables.copilot.create-c-file %}
 {% data reusables.copilot.type-function-header-c %}
     {% data variables.product.prodname_copilot %} will automatically suggest an entire function body in grayed text, as shown below. The exact suggestion may vary.
     ![First suggestion Visual Studio Code](/assets/images/help/copilot/first-suggestion-visual-studio.png)
