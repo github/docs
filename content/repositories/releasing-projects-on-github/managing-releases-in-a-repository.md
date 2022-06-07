@@ -52,7 +52,7 @@ You can choose whether {% data variables.large_files.product_name_long %} ({% da
 
    {% ifversion fpt or ghec or ghes > 3.2 or ghae-issue-4865 %}![Choose a branch](/assets/images/help/releases/releases-choose-branch.png)
    {% else %}![Releases tagged branch](/assets/images/enterprise/releases/releases-tag-branch.png){% endif %}
-{% data reusables.releases.previous-release-tag %}
+{%- data reusables.releases.previous-release-tag %}
 6. Type a title and description for your release.
    {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4972 %}
    If you @mention any {% data variables.product.product_name %} users in the description, the published release will include a **Contributors** section with an avatar list of all the mentioned users.
