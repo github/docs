@@ -51,11 +51,6 @@ Em um arquivo ou uma pull request, também é possível usar o menu {% octicon "
 {% if blame-ignore-revs %}
 
 ## Ignorar commits na exibição do último responsável
-{% note %}
-
-**Observação:** Ignorar commits na visualização de último responsável encontra-se atualmente na versão beta pública e sujeita a alterações.
-
-{% endnote %}
 
 Todas as revisões especificadas no arquivo `.git-blame-ignore-revs`, que deve estar no diretório raiz do repositório, estão ocultas da exibição de último responsável, que usa a configuração `git blame --ignore-revs-file`. Para obter mais informações, consulte [`git blame --ignore-revs-file`](https://git-scm.com/docs/git-blame#Documentation/git-blame.txt---ignore-revs-fileltfilegt) na documentação do Git.
 

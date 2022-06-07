@@ -72,7 +72,7 @@ Puedes inhabilitar las {% data variables.product.prodname_actions %} para un rep
 1. Haz clic en **Save ** (guardar).
 
 {% ifversion fpt or ghec %}
-## Configurar las aprobaciones requeridas para los flujos de trabajo desde las bifurcaciones pùblicas
+## Controlling changes from forks to workflows in public repositories
 
 {% data reusables.actions.workflow-run-approve-public-fork %}
 
@@ -86,7 +86,7 @@ Puedes configurar este comportamiento para un repositorio si utilizas el siguien
 {% data reusables.actions.workflow-run-approve-link %}
 {% endif %}
 
-## Habilitar flujos de trabajo para las bifurcaciones de repositorios privados
+## Enabling workflows for forks of private repositories
 
 {% data reusables.actions.private-repository-forks-overview %}
 
@@ -94,7 +94,7 @@ Si se inhabilita una política para una {% ifversion ghec or ghae or ghes %}empr
 
 {% data reusables.actions.private-repository-forks-options %}
 
-### Configurar la política de bifurcaciones privadas para un repositorio
+### Configuring the fork policy for a private repository
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
