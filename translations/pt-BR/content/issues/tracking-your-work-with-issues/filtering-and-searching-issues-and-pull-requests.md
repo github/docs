@@ -175,7 +175,8 @@ Com os termos da pesquisa de problemas e pull requests, é possível:
 
 Para problemas, você também pode usar a busca para:
 
-- Filtrar por problemas que estão vinculados a uma pull request por uma referência de fechamento: `linked:pr`
+- Filter for issues that are linked to a pull request by a closing reference: `linked:pr`{% if issue-close-reasons %}
+- Filter issues by the reason they were closed: `is:closed reason:complete` or `is:closed reason:"not planned"`{% endif %}
 
 Para pull requests, você também pode usar a pesquisa para:
 - Filtrar pull requests de [rascunho](/articles/about-pull-requests#draft-pull-requests): `is:draft`

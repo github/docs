@@ -51,11 +51,6 @@ En un archivo o solicitud de extracción, también puedes utilizar el menú {% o
 {% if blame-ignore-revs %}
 
 ## Ignorar las confirmaciones en la vista de último responsable
-{% note %}
-
-**Nota:** El ignorar las confirmaciones en la vista de último responsable está actualmente en beta público y está sujeto a cambios.
-
-{% endnote %}
 
 Todas las revisiones que se especifican en el archivo `.git-blame-ignore-revs`, el cual debe estar en el directorio raíz de tu repositorio, se ocultan de la vista de último responsable utilizando el ajuste de configuración `git blame --ignore-revs-file` de Git. Para obtener más información, consulta [`git blame --ignore-revs-file`](https://git-scm.com/docs/git-blame#Documentation/git-blame.txt---ignore-revs-fileltfilegt) en la documentación de Git.
 

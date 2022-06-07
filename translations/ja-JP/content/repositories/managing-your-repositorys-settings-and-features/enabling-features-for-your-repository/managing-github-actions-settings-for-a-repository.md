@@ -72,7 +72,7 @@ You can disable {% data variables.product.prodname_actions %} for a repository, 
 1. [**Save**] をクリックします。
 
 {% ifversion fpt or ghec %}
-## パブリックフォークからのワークフローに対する必須の承認の設定
+## Controlling changes from forks to workflows in public repositories
 
 {% data reusables.actions.workflow-run-approve-public-fork %}
 
@@ -86,7 +86,7 @@ You can configure this behavior for a repository using the procedure below. Modi
 {% data reusables.actions.workflow-run-approve-link %}
 {% endif %}
 
-## プライベートリポジトリのフォークのワークフローを有効にする
+## Enabling workflows for forks of private repositories
 
 {% data reusables.actions.private-repository-forks-overview %}
 
@@ -94,7 +94,7 @@ If a policy is disabled for an {% ifversion ghec or ghae or ghes %}enterprise or
 
 {% data reusables.actions.private-repository-forks-options %}
 
-### リポジトリのプライベートフォークポリシーを設定する
+### Configuring the fork policy for a private repository
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}

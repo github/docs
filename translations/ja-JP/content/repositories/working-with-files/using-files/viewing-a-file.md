@@ -51,11 +51,6 @@ Blame ビューでは、{% octicon "versions" aria-label="The prior blame icon" 
 {% if blame-ignore-revs %}
 
 ## Ignore commits in the blame view
-{% note %}
-
-**Note:** Ignoring commits in the blame view is currently in public beta and subject to change.
-
-{% endnote %}
 
 All revisions specified in the `.git-blame-ignore-revs` file, which must be in the root directory of your repository, are hidden from the blame view using Git's `git blame --ignore-revs-file` configuration setting. For more information, see [`git blame --ignore-revs-file`](https://git-scm.com/docs/git-blame#Documentation/git-blame.txt---ignore-revs-fileltfilegt) in the Git documentation.
 

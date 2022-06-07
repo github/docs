@@ -1,12 +1,12 @@
 ---
-title: Git and GitHub learning resources
+title: Git と GitHub の学習リソース
 redirect_from:
   - /articles/good-resources-for-learning-git-and-github
   - /articles/what-are-other-good-resources-for-learning-git-and-github
   - /articles/git-and-github-learning-resources
   - /github/getting-started-with-github/git-and-github-learning-resources
   - /github/getting-started-with-github/quickstart/git-and-github-learning-resources
-intro: 'There are a lot of helpful Git and {% data variables.product.product_name %} resources on the web. This is a short list of our favorites!'
+intro: 'ウェブ上には数多くの役に立つ Git と {% data variables.product.product_name %} のリソースが存在します。 おすすめのものをまとめました。'
 versions:
   fpt: '*'
   ghes: '*'
@@ -16,48 +16,49 @@ authors:
   - GitHub
 shortTitle: Learning resources
 ---
-## Using Git
 
-Familiarize yourself with Git by visiting the [official Git project site](https://git-scm.com) and reading the [ProGit book](http://git-scm.com/book). You can also review the [Git command list](https://git-scm.com/docs).
+## Git を使用する
 
-## Using {% data variables.product.product_name %}
+[公式 Git プロジェクトサイト](https://git-scm.com)にアクセスして [ProGit book](http://git-scm.com/book) を読み、Git に慣れましょう。 You can also review the [Git command list](https://git-scm.com/docs).
+
+## {% data variables.product.product_name %}を使用する
 
 {% ifversion fpt or ghec %}
 
-{% data variables.product.prodname_learning %} offers free interactive courses that are built into {% data variables.product.prodname_dotcom %} with instant automated feedback and help. Learn to open your first pull request, make your first open source contribution, create a {% data variables.product.prodname_pages %} site, and more. For more information about course offerings, see [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}).
+{% data variables.product.prodname_learning %} では、即座に自動化されたフィードバックやヘルプとともに、{% data variables.product.prodname_dotcom %} に組み込まれた無料のインタラクティブなコースを提供しています。 最初のプルリクエストをオープンしたり、最初のオープンソースへのコントリビューションを行ったり、{% data variables.product.prodname_pages %} のサイトを作成したりできます。 コースについての詳細は、[{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}) をご覧ください。
 
 {% endif %}
 
-Become better acquainted with {% data variables.product.product_name %} through our [getting started](/categories/getting-started-with-github/) articles. See our [{% data variables.product.prodname_dotcom %} flow](https://guides.github.com/introduction/flow) for a process introduction. Refer to our [overview guides](https://guides.github.com) to walk through basic concepts.
+[使ってみる](/categories/getting-started-with-github/)という記事を通して、{% data variables.product.product_name %} について理解を深めましょう。 [{% data variables.product.prodname_dotcom %} のフロー](https://guides.github.com/introduction/flow)でプロセスの紹介をご確認ください。 [概要ガイド](https://guides.github.com)を参照して基本的な概念をご覧ください。
 
 {% data reusables.support.ask-and-answer-forum %}
 
-### Branches, forks, and pull requests
+### ブランチ、フォーク、プルリクエスト
 
-Learn about [Git branching](http://learngitbranching.js.org/) using an interactive tool. Read about [forks](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks) and [pull requests](/articles/using-pull-requests) as well as [how we use pull requests](https://github.com/blog/1124-how-we-use-pull-requests-to-build-github) at {% data variables.product.prodname_dotcom %}. Access references about using {% data variables.product.prodname_dotcom %} from the [command line](https://cli.github.com/).
+インタラクティブなツールを使用して、[Git のブランチ](http://learngitbranching.js.org/)について学びましょう。 [フォーク](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)や[プルリクエスト](/articles/using-pull-requests)、および {% data variables.product.prodname_dotcom %} で[プルリクエストがどのように使用されているのか](https://github.com/blog/1124-how-we-use-pull-requests-to-build-github)をお読みください。 [コマンドライン](https://cli.github.com/)から {% data variables.product.prodname_dotcom %} の使用に関するリファレンスにアクセスしてください。
 
-### Tune in
+### 動画
 
-Our {% data variables.product.prodname_dotcom %} [YouTube Training and Guides channel](https://youtube.com/githubguides) offers tutorials about [pull requests](https://www.youtube.com/watch?v=d5wpJ5VimSU&list=PLg7s6cbtAD15G8lNyoaYDuKZSKyJrgwB-&index=19), [forking](https://www.youtube.com/watch?v=5oJHRbqEofs), [rebase](https://www.youtube.com/watch?v=SxzjZtJwOgo&list=PLg7s6cbtAD15G8lNyoaYDuKZSKyJrgwB-&index=22), and [reset](https://www.youtube.com/watch?v=BKPjPMVB81g) functions. Each topic is covered in 5 minutes or less.
+{% data variables.product.prodname_dotcom %}[YouTube のトレーニングおよびガイドチャンネル](https://youtube.com/githubguides)では、[プルリクエスト](https://www.youtube.com/watch?v=d5wpJ5VimSU&list=PLg7s6cbtAD15G8lNyoaYDuKZSKyJrgwB-&index=19)、[フォーキング](https://www.youtube.com/watch?v=5oJHRbqEofs)、[リベース](https://www.youtube.com/watch?v=SxzjZtJwOgo&list=PLg7s6cbtAD15G8lNyoaYDuKZSKyJrgwB-&index=22)、および[リセット](https://www.youtube.com/watch?v=BKPjPMVB81g)機能についてのチュートリアルを提供しています。 各トピックの所要時間は 5 分以内です。
 
-## Training
+## トレーニング
 
-### Free courses
+### 無料コース
 
-{% data variables.product.product_name %} offers a series of interactive, [on-demand training courses](https://lab.github.com/) including [Introduction to {% data variables.product.prodname_dotcom %}](https://lab.github.com/githubtraining/introduction-to-github); courses on programming languages and tools such as HTML, Python, and NodeJS; and courses on {% data variables.product.product_name %} specific tools such as {% data variables.product.prodname_actions %}.
+{% data variables.product.product_name %} offers a series of interactive, [on-demand training courses](https://skills.github.com/) including [Introduction to {% data variables.product.prodname_dotcom %}](https://github.com/skills/introduction-to-github); and courses on {% data variables.product.product_name %} specific tools such as {% data variables.product.prodname_actions %}.
 
-### {% data variables.product.prodname_dotcom %}'s web-based educational programs
+### {% data variables.product.prodname_dotcom %}のウェブベース教育プログラム
 
-{% data variables.product.prodname_dotcom %} offers live [trainings](https://services.github.com/#upcoming-events) with a hands-on, project-based approach for those who love the command line and those who don't.
+{% data variables.product.prodname_dotcom %} では、生中継の[トレーニング](https://services.github.com/#upcoming-events)を提供しています。コマンドラインの好き嫌いにかかわらず、すべてのユーザに向けたハンズオン、プロジェクトベースのアプローチを紹介しています。
 
-### Training for your company
+### 企業向けトレーニング
 
-{% data variables.product.prodname_dotcom %} offers [in-person classes](https://services.github.com/#offerings) taught by our highly-experienced educators. [Contact us](https://services.github.com/#contact) to ask your training-related questions.
+{% data variables.product.prodname_dotcom %} では、経験豊富な教育者による[対面式のクラス](https://services.github.com/#offerings)を提供しています。 トレーニングに関するお問い合わせについては、[こちら](https://services.github.com/#contact)までどうぞ。
 
-## Extras
+## その他
 
-An interactive [online Git course](https://www.pluralsight.com/courses/code-school-git-real) from [Pluralsight](https://www.pluralsight.com/codeschool) has seven levels with dozens of exercises in a fun game format. Feel free to adapt our [.gitignore templates](https://github.com/github/gitignore) to meet your needs.
+An interactive [online Git course](https://www.pluralsight.com/courses/code-school-git-real) from [Pluralsight](https://www.pluralsight.com/codeschool) has seven levels with dozens of exercises in a fun game format. [.gitignore テンプレート](https://github.com/github/gitignore)では、お客様のニーズに合わせることができます。
 
-Extend your {% data variables.product.prodname_dotcom %} reach through {% ifversion fpt or ghec %}[integrations](/articles/about-integrations){% else %}integrations{% endif %}, or by installing [{% data variables.product.prodname_desktop %}](https://desktop.github.com) and the robust [Atom](https://atom.io) text editor.
+{% data variables.product.prodname_dotcom %} のリーチを、{% ifversion fpt or ghec %}[インテグレーション](/articles/about-integrations){% else %}インテグレーション{% endif %}、または[{% data variables.product.prodname_desktop %}](https://desktop.github.com) と堅牢な [Atom](https://atom.io) テキストエディタで拡張しましょう。
 
-Learn how to launch and grow your open source project with the [Open Source Guides](https://opensource.guide/).
+[オープンソースのガイド](https://opensource.guide/)で、オープンソースのプロジェクトを立ち上げ成長させる方法をご確認ください。

@@ -4,6 +4,9 @@ intro: 了解在自动化部署脚本时管理服务器上的 SSH 密钥的不�
 redirect_from:
   - /guides/managing-deploy-keys
   - /v3/guides/managing-deploy-keys
+  - /deploy-keys
+  - /articles/managing-deploy-keys
+  - /multiple-keys
 versions:
   fpt: '*'
   ghes: '*'
