@@ -87,6 +87,36 @@ For more information, see "[Creating and highlighting code blocks](/articles/cre
 
 {% data reusables.user-settings.enabling-fixed-width-fonts %}
 
+{% ifversion fpt or ghec %}
+
+## Colors
+
+You can even render a color using backticks(<code>\`</code>). The backticks should contain the color represented by a supported color model. Currently only hex, RGB and HSL models are supported.
+
+| Color Model | Syntax |
+|-----|-----|
+| HEX | \`#61dee1\` |
+| RGB | \`rgb(231,239,54)\` |
+| HSL | \`hsl(328,84%,66%)\` |
+
+A live example :
+
+<pre>
+# What should be the button color ?
+
+- [ ] ![Blue colored button](link-to-image) `#61dee1`
+- [ ] ![Yellow colored button](link-to-image) `rgb(231,239,54)`
+- [ ] ![Pink colored button](link-to-image) `hsl(328,84%,66%)`
+</pre>
+
+![Rendered Color Models](/assets/images/help/writing/color-models-rendered.png)
+
+{% note %}
+**Note** : The backticks(<code>\`</code>) containing the color model should **not** contain any leading or trailing spaces.
+{% endnote %}
+
+{% endif %}
+
 ## Links
 
 You can create an inline link by wrapping link text in brackets `[ ]`, and then wrapping the URL in parentheses `( )`. {% ifversion fpt or ghae or ghes > 3.1 or ghec %}You can also use the keyboard shortcut <kbd>Command</kbd>+<kbd>K</kbd> to create a link.{% endif %}{% ifversion fpt or ghae-issue-5434 or ghes > 3.3 or ghec %} When you have text selected, you can paste a URL from your clipboard to automatically create a link from the selection.{% endif %}
