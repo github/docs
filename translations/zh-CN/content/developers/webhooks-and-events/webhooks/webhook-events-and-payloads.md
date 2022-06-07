@@ -965,7 +965,7 @@ Key | Type | Description
 
 {{ webhookPayloadsForCurrentVersion.project_column.created }}
 
-{% if project-beta-webhooks %}
+{% ifversion project-beta-webhooks %}
 
 ## projects_v2_item
 

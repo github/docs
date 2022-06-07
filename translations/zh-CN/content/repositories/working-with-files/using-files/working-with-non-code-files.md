@@ -132,7 +132,7 @@ SVG 目前不支持内联脚本或动画。
 
 {% endtip %}
 
-{% if mermaid %}
+{% ifversion mermaid %}
 ### 在 Markdown 中渲染
 
 您可以直接在 Markdown 中嵌入 ASCII STL 语法。 更多信息请参阅“[创建示意图](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-stl-3d-models)”。
@@ -282,7 +282,7 @@ GitHub 支持呈现 PDF 文档。
 
 {% endtip %}
 
-{% if mermaid %}
+{% ifversion mermaid %}
 ### 在 Markdown 嵌入地图
 
 您可以直接在 Markdown 中嵌入 geoJSON 和 topoJSON。 更多信息请参阅“[创建示意图](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-geojson-and-topojson-maps)”。
@@ -335,7 +335,7 @@ $ jupyter nbconvert --to html <em>NOTEBOOK-NAME.ipynb</em>
 - [Jupyter Notebook 的 GitHub 仓库](https://github.com/jupyter/jupyter_notebook)
 - [Jupyter Notebook 的图片库](https://github.com/jupyter/jupyter/wiki)
 
-{% if mermaid %}
+{% ifversion mermaid %}
 ## 在 {% data variables.product.prodname_dotcom %} 上显示 Mermaid 文件
 
 {% data variables.product.product_name %} 支持在存储库中呈现 Mermaid 文件。 像往常一样使用 `.mermaid` 或 `.mmd` 扩展名提交文件。 然后，导航到 {% data variables.product.prodname_dotcom %}上的 Mermaid 文件的路径。

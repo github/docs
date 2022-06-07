@@ -22,7 +22,7 @@ versions:
 
 有关设置密码的更多信息，请参阅“[创建和使用加密密码](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)”。
 
-{% if debug-reruns %}
+{% ifversion debug-reruns %}
 
 此外，有权运行工作流程的任何人都可以为重新运行的工作流程启用运行器诊断日志记录和步骤调试日志记录。 更多信息请参阅“[重新运行工作流程和作业](/actions/managing-workflow-runs/re-running-workflows-and-jobs)”。
 

@@ -29,11 +29,11 @@ miniTocMaxHeadingLevel: 3
 
 您可以对您的仓库启用 {% data variables.product.prodname_actions %}。 {% data reusables.actions.enabled-actions-description %} 您可以对您的仓库完全禁用 {% data variables.product.prodname_actions %}。 {% data reusables.actions.disabled-actions-description %}
 
-或者，您也可以在存储库中启用 {% data variables.product.prodname_actions %}，但限制工作流程可以运行的操作{% if actions-workflow-policy %}和可重用工作流程{% endif %}。
+或者，您也可以在存储库中启用 {% data variables.product.prodname_actions %}，但限制工作流程可以运行的操作{% ifversion actions-workflow-policy %}和可重用工作流程{% endif %}。
 
 ## 管理仓库的 {% data variables.product.prodname_actions %} 权限
 
-您可以禁用存储库的 {% data variables.product.prodname_actions %} ，或设置策略来配置可在存储库中使用的 {% if actions-workflow-policy %} 和可重用工作流{% endif %} 。
+您可以禁用存储库的 {% data variables.product.prodname_actions %} ，或设置策略来配置可在存储库中使用的 {% ifversion actions-workflow-policy %} 和可重用工作流{% endif %} 。
 
 {% note %}
 
@@ -48,7 +48,7 @@ miniTocMaxHeadingLevel: 3
 
    {% indented_data_reference reusables.actions.actions-use-policy-settings spaces=3 %}
 
-   {% if actions-workflow-policy %}
+   {% ifversion actions-workflow-policy %}
    ![为此存储库设置操作策略](/assets/images/help/repository/actions-policy-with-workflows.png)
    {%- else %}
    ![为此存储库设置操作策略](/assets/images/help/repository/actions-policy.png)
@@ -62,7 +62,7 @@ miniTocMaxHeadingLevel: 3
 {% data reusables.repositories.settings-sidebar-actions-general %}
 1. 在 Actions permissions（操作权限）下，选择 {% data reusables.actions.policy-label-for-select-actions-workflows %} 并将所需操作添加到列表中。
 
-   {% if actions-workflow-policy%}
+   {% ifversion actions-workflow-policy%}
    ![将操作和可重用工作流程添加到允许列表](/assets/images/help/repository/actions-policy-allow-list-with-workflows.png)
    {%- elsif ghes %}
    ![向允许列表添加操作](/assets/images/help/repository/actions-policy-allow-list.png)
@@ -112,7 +112,7 @@ miniTocMaxHeadingLevel: 3
 
 ### 配置默认 `GITHUB_TOKENN` 权限
 
-{% if allow-actions-to-approve-pr-with-ent-repo %}
+{% ifversion allow-actions-to-approve-pr-with-ent-repo %}
 默认情况下，当您在个人帐户中创建新存储库时，`GITHUB_TOKEN` 仅对 `contents` 范围具有读取访问权限。 如果您在组织中创建新存储库，则该设置将继承自组织设置中的配置。
 {% endif %}
 
@@ -121,11 +121,11 @@ miniTocMaxHeadingLevel: 3
 {% data reusables.repositories.settings-sidebar-actions-general %}
 1. 在“Workflow permissions（工作流程权限）”下，选择您是否想要 `GITHUB_TOKENN` 读写所有范围限， 或者只读`内容`范围。
 
-   ![为此仓库设置 GITHUB_TOKENN 权限](/assets/images/help/settings/actions-workflow-permissions-repository{% if allow-actions-to-approve-pr-with-ent-repo %}-with-pr-approval{% endif %}.png)
+   ![为此仓库设置 GITHUB_TOKENN 权限](/assets/images/help/settings/actions-workflow-permissions-repository{% ifversion allow-actions-to-approve-pr-with-ent-repo %}-with-pr-approval{% endif %}.png)
 
 1. 单击 **Save（保存）**以应用设置。
 
-{% if allow-actions-to-approve-pr-with-ent-repo %}
+{% ifversion allow-actions-to-approve-pr-with-ent-repo %}
 ### 阻止 {% data variables.product.prodname_actions %} 创建或批准拉取请求
 
 {% data reusables.actions.workflow-pr-approval-permissions-intro %}
@@ -147,7 +147,7 @@ miniTocMaxHeadingLevel: 3
 
 企业成员可以使用内部存储库来处理项目，而无需公开共享信息。 更多信息请参阅“[关于仓库](/repositories/creating-and-managing-repositories/about-repositories#about-internal-repositories)”。
 
-您可以使用以下步骤配置是否可以从存储库外部访问内部存储库中的 {% if internal-actions%}操作和 {% endif %}工作流程。{% if internal-actions %} 更多信息请参阅“[与企业共享操作和工作流程](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)”。 或者，您可以使用 REST API 来设置或获取访问级别的详细信息。 更多信息请参阅“[获取存储库外部工作流程的访问级别](/rest/reference/actions#get-the-level-of-access-for-workflows-outside-of-the-repository#get-the-level-of-access-for-workflows-outside-of-the-repository)”和“[设置存储库外部工作流程的访问级别](/rest/reference/actions#get-the-level-of-access-for-workflows-outside-of-the-repository#set-the-level-of-access-for-workflows-outside-of-the-repository)”。{% endif %}
+您可以使用以下步骤配置是否可以从存储库外部访问内部存储库中的 {% ifversion internal-actions%}操作和 {% endif %}工作流程。{% ifversion internal-actions %} 更多信息请参阅“[与企业共享操作和工作流程](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)”。 或者，您可以使用 REST API 来设置或获取访问级别的详细信息。 更多信息请参阅“[获取存储库外部工作流程的访问级别](/rest/reference/actions#get-the-level-of-access-for-workflows-outside-of-the-repository#get-the-level-of-access-for-workflows-outside-of-the-repository)”和“[设置存储库外部工作流程的访问级别](/rest/reference/actions#get-the-level-of-access-for-workflows-outside-of-the-repository#set-the-level-of-access-for-workflows-outside-of-the-repository)”。{% endif %}
 
 1. 在 {% data variables.product.prodname_dotcom %} 上，导航到内部仓库的主页面。
 1. 在仓库名称下，单击 {% octicon "gear" aria-label="The gear icon" %}**Settings（设置）**。
@@ -177,7 +177,7 @@ miniTocMaxHeadingLevel: 3
 {% data reusables.repositories.settings-sidebar-actions-general %}
 {% data reusables.actions.change-retention-period-for-artifacts-logs  %}
 
-{% if actions-cache-policy-apis %}
+{% ifversion actions-cache-policy-apis %}
 
 ## 为存储库配置缓存存储
 

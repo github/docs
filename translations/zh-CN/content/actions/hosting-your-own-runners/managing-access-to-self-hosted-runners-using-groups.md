@@ -32,9 +32,9 @@ shortTitle: 管理对运行器的访问
 
 {% ifversion ghec or ghes or ghae %}
 自托管运行器组用于控制对组织和企业级自托管运行器的访问。 企业所有者可以配置访问策略来控制企业中哪些组织
-{% if restrict-groups-to-workflows %}和工作流程{% endif %}可以访问运行器组。 组织所有者可以配置访问策略，以控制组织中哪些存储库{% if restrict-groups-to-workflows %} 和工作流程{% endif %} 可以访问运行器组。
+{% ifversion restrict-groups-to-workflows %}和工作流程{% endif %}可以访问运行器组。 组织所有者可以配置访问策略，以控制组织中哪些存储库{% ifversion restrict-groups-to-workflows %} 和工作流程{% endif %} 可以访问运行器组。
 
-当企业所有者授予组织对运行器组的访问权限时，组织所有者可以看到组织的自托管运行器设置中列出的运行器组。 然后，组织所有者可以为企业运行器组分配更细致的存储库{% if restrict-groups-to-workflows %} 和工作流程{% endif %} 访问策略。
+当企业所有者授予组织对运行器组的访问权限时，组织所有者可以看到组织的自托管运行器设置中列出的运行器组。 然后，组织所有者可以为企业运行器组分配更细致的存储库{% ifversion restrict-groups-to-workflows %} 和工作流程{% endif %} 访问策略。
 
 新运行器在创建时，将自动分配给默认组。 运行器每次只能在一个组中。 您可以将运行器从默认组移到另一组。 更多信息请参阅“[将自托管运行器移动到组](#moving-a-self-hosted-runner-to-a-group)”。
 
@@ -44,7 +44,7 @@ shortTitle: 管理对运行器的访问
 
 自托管运行器在创建时会自动分配给默认组，并且每次只能成为一个组的成员。 您可以将运行器从默认组移到您创建的任何组。
 
-创建组时，必须选择一个策略，用于定义哪些存储库{% if restrict-groups-to-workflows %} 和工作流程{% endif %} 有权访问运行器组。
+创建组时，必须选择一个策略，用于定义哪些存储库{% ifversion restrict-groups-to-workflows %} 和工作流程{% endif %} 有权访问运行器组。
 
 {% ifversion ghec or ghes > 3.3 or ghae-issue-5091 %}
 {% data reusables.organizations.navigate-to-org %}
@@ -61,7 +61,7 @@ shortTitle: 管理对运行器的访问
    更多信息请参阅“[关于自托管运行器](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)”。
 
    {% endwarning %}
-{% data reusables.actions.runner-group-assign-policy-workflow %}{%- if restrict-groups-to-workflows %} 组织拥有的运行器组无法访问企业中其他组织的工作流程；相反，您必须创建企业拥有的运行器组。{% endif %}
+{% data reusables.actions.runner-group-assign-policy-workflow %}{%- ifversion restrict-groups-to-workflows %} 组织拥有的运行器组无法访问企业中其他组织的工作流程；相反，您必须创建企业拥有的运行器组。{% endif %}
 {% data reusables.actions.self-hosted-runner-create-group %}
 {% elsif ghae or ghes < 3.4 %}
 {% data reusables.organizations.navigate-to-org %}
@@ -92,7 +92,7 @@ shortTitle: 管理对运行器的访问
 
 ## 为企业创建自托管运行器组
 
-企业可以将其自托管的运行器添加到组以进行访问管理。 企业可以创建自托管运行器组，这些组可供企业帐户中的特定组织{% if restrict-groups-to-workflows %} 或特定工作流程{% endif %} 访问。 然后，组织所有者可以为企业运行器组分配更细致的存储库{% if restrict-groups-to-workflows %} 和工作流程{% endif %} 访问策略。 有关如何使用 REST API 创建自托管运行器组的信息，请参阅 [{% data variables.product.prodname_actions %} REST API](/rest/reference/actions#self-hosted-runner-groups) 中的企业端点。
+企业可以将其自托管的运行器添加到组以进行访问管理。 企业可以创建自托管运行器组，这些组可供企业帐户中的特定组织{% ifversion restrict-groups-to-workflows %} 或特定工作流程{% endif %} 访问。 然后，组织所有者可以为企业运行器组分配更细致的存储库{% ifversion restrict-groups-to-workflows %} 和工作流程{% endif %} 访问策略。 有关如何使用 REST API 创建自托管运行器组的信息，请参阅 [{% data variables.product.prodname_actions %} REST API](/rest/reference/actions#self-hosted-runner-groups) 中的企业端点。
 
 自托管运行器在创建时会自动分配给默认组，并且每次只能成为一个组的成员。 您可以在注册过程中将运行器分配给特定组，也可以稍后将运行器从默认组移到自定义组。
 
@@ -126,7 +126,7 @@ shortTitle: 管理对运行器的访问
 
 ## 更改自托管运行器组的访问策略
 
-对于企业中的运行器组，您可以更改企业中可以访问运行器组的组织{% if restrict-groups-to-workflows %} 或限制运行器组可以运行的工作流程{% endif %}。 对于组织中的运行器组，您可以更改组织中可以访问运行器组的存储库{% if restrict-groups-to-workflows %} 或限制运行器组可以运行的工作流程{% endif %}。
+对于企业中的运行器组，您可以更改企业中可以访问运行器组的组织{% ifversion restrict-groups-to-workflows %} 或限制运行器组可以运行的工作流程{% endif %}。 对于组织中的运行器组，您可以更改组织中可以访问运行器组的存储库{% ifversion restrict-groups-to-workflows %} 或限制运行器组可以运行的工作流程{% endif %}。
 
 ### 更改可以访问运行器组的组织或存储库
 
@@ -150,7 +150,7 @@ shortTitle: 管理对运行器的访问
 {% data reusables.actions.self-hosted-runner-configure-runner-group-access %}
 {% endif %}
 
-{% if restrict-groups-to-workflows %}
+{% ifversion restrict-groups-to-workflows %}
 ### 更改可以访问运行器组的工作流程
 您可以将自托管运行器组配置为运行选定的工作流程或所有工作流程。 例如，可以使用此设置来保护存储在自托管运行器上的机密，或者通过将运行器组限制为仅运行特定的可重用工作流程来标准化部署工作流程。 如果配置企业共享的组织的运行组，则不能覆盖此设置。
 {% data reusables.actions.self-hosted-runner-groups-navigate-to-repo-org-enterprise %}

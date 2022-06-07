@@ -450,7 +450,7 @@ jobs:
 | ------------------- | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `runner`            | `对象`  | 此上下文针对工作流程运行中的每项作业而改变。 此对象包含下面列出的所有属性。                                                                                                                          |
 | `runner.name`       | `字符串` | {% data reusables.actions.runner-name-description %}
-| `runner.os`         | `字符串` | {% data reusables.actions.runner-os-description %} |{% if actions-runner-arch-envvars %}
+| `runner.os`         | `字符串` | {% data reusables.actions.runner-os-description %} |{% ifversion actions-runner-arch-envvars %}
 | `runner.arch`       | `字符串` | {% data reusables.actions.runner-arch-description %} 
 {% endif %}
 | `runner.temp`       | `字符串` | {% data reusables.actions.runner-temp-directory-description %}

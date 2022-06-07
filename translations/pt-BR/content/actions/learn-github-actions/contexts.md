@@ -450,7 +450,7 @@ O contexto do `executor` contém informações sobre o executor que está execut
 | ------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `runner`            | `objeto` | Esse contexto altera cada trabalho em uma execução de fluxo de trabalho. Este objeto contém todas as propriedades listadas abaixo.                              |
 | `runner.name`       | `string` | {% data reusables.actions.runner-name-description %}
-| `runner.os`         | `string` | {% data reusables.actions.runner-os-description %} |{% if actions-runner-arch-envvars %}
+| `runner.os`         | `string` | {% data reusables.actions.runner-os-description %} |{% ifversion actions-runner-arch-envvars %}
 | `runner.arch`       | `string` | {% data reusables.actions.runner-arch-description %} 
 {% endif %}
 | `runner.temp`       | `string` | {% data reusables.actions.runner-temp-directory-description %}

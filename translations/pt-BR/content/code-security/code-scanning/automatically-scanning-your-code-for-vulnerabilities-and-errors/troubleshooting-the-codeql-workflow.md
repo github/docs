@@ -208,7 +208,7 @@ Por padrão, existem três principais conjuntos de consultas disponíveis para c
 
 Você pode executar consultas adicionais ou conjuntos de consulta além das consultas padrão. Verifique se o fluxo de trabalho define um conjunto de consultas adicional ou consultas adicionais a serem executadas usando o elemento `consultas`. Você pode experimentar desabilitar o conjunto de consultas adicionais ou consultas. Para obter mais informações, consulte "[Configurando {% data variables.product.prodname_code_scanning %}](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#using-queries-in-ql-packs)."
 
-{% if codeql-ml-queries %}
+{% ifversion codeql-ml-queries %}
 {% note %}
 
 **Observação:** Se você executar `security-extended` ou a consulta `security-and-quality` para o JavaScript, algumas consultas irão usar a tecnologia experimental. Para obter mais informações, consulte "[Sobre a alertas da digitalização de código](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-experimental-alerts)".
