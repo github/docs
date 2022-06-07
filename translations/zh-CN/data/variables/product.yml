@@ -105,12 +105,12 @@ prodname_advanced_security: 'Advanced Security'
 prodname_codespaces: 'Codespaces'
 prodname_github_codespaces: 'GitHub Codespaces'
 prodname_serverless: '基于 Web 的编辑器'
-#GitHub resources: blog, jobs, Learning Lab
+#GitHub resources: blog, jobs, skills
 prodname_gcf: 'GitHub Community Support'
 prodname_blog: 'GitHub 博客'
 prodname_jobs: 'GitHub Jobs'
-prodname_learning: 'GitHub Learning Lab'
-prodname_learning_link: 'https://lab.github.com/'
+prodname_learning: 'GitHub Skills'
+prodname_learning_link: 'https://skills.github.com/'
 prodname_roadmap: 'GitHub 公共路线图'
 prodname_roadmap_link: 'https://github.com/github/roadmap#github-public-roadmap'
 #GitHub support

@@ -187,11 +187,8 @@ API 返回的 {% data variables.product.prodname_actions %} IP 地址列表每�
 - `/github/workspace` - {% data reusables.repositories.action-root-user-required %}
 - `/github/workflow`
 
-{% ifversion fpt or ghec %}
-
 ## 延伸阅读
 - "[管理 {% data variables.product.prodname_actions %} 的计费](/billing/managing-billing-for-github-actions)"
-
-{% endif %}
+- You can use a matrix strategy to run your jobs on multiple images. 更多信息请参阅“[对作业使用矩阵](/actions/using-jobs/using-a-matrix-for-your-jobs)”。
 
 {% endif %}
