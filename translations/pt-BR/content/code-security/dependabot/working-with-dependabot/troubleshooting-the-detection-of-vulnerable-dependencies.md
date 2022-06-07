@@ -84,6 +84,12 @@ A contagem de {% data variables.product.prodname_dependabot_alerts %} em {% data
 **Verifique**: Se houver discrepância no total que você está vendo, verifique se você não está comparando números de alerta com números de dependência. Também verifique se você está visualizando todos os alertas e não um subconjunto de alertas filtrados.
 {% endif %}
 
+{% ifversion fpt or ghec or ghes > 3.2 %}
+## Depende pode ignorar dependências específicas?
+
+Você pode configurar {% data variables.product.prodname_dependabot %} para ignorar dependências específicas no arquivo de configuração, o que irá impedir a segurança e atualizações de versão para essas dependências. Se você deseja usar apenas atualizações de segurança, você deverá substituir o comportamento padrão por um arquivo de configuração. Para obter mais informações, consulte "[Substituindo o comportamento padrão com um arquivo de configuração](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates#overriding-the-default-behavior-with-a-configuration-file)" para evitar que as atualizações da versão sejam ativadas. Para obter informações sobre como ignorar as dependências, consulte "[`ignorar`](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#ignore)"
+{% endif %}
+
 ## Leia mais
 
 - "[Sobre {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)"

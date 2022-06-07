@@ -11,9 +11,9 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## About the Feeds API
+## Sobre a API de Feeds
 
-To see what feeds are available to you, use the [Get feeds](#get-feeds) operation. You can then get a feed by sending a request to one of the feed URLs.
+Para ver quais feeds estão disponíveis para você, use a operação [Obter feeds](#get-feeds). Em seguida, você poderá obter um feed enviando uma solicitação para uma das URLs do feed.
 
 ### Exemplo de como obter um feed do Atom
 

@@ -17,7 +17,6 @@ translations/ja-JP/content/actions/learn-github-actions/finding-and-customizing-
 translations/ja-JP/content/actions/managing-workflow-runs/removing-workflow-artifacts.md,broken liquid tags
 translations/ja-JP/content/actions/publishing-packages/about-packaging-with-github-actions.md,broken liquid tags
 translations/ja-JP/content/actions/quickstart.md,broken liquid tags
-translations/ja-JP/content/actions/using-github-hosted-runners/about-github-hosted-runners.md,broken liquid tags
 translations/ja-JP/content/actions/using-workflows/storing-workflow-data-as-artifacts.md,broken liquid tags
 translations/ja-JP/content/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance.md,broken liquid tags
 translations/ja-JP/content/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-secret-scanning-for-your-appliance.md,broken liquid tags
@@ -80,7 +79,6 @@ translations/ja-JP/content/billing/managing-billing-for-github-advanced-security
 translations/ja-JP/content/billing/managing-billing-for-github-advanced-security/viewing-your-github-advanced-security-usage.md,rendering error
 translations/ja-JP/content/billing/managing-billing-for-github-packages/about-billing-for-github-packages.md,broken liquid tags
 translations/ja-JP/content/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise.md,broken liquid tags
-translations/ja-JP/content/billing/managing-billing-for-your-github-account/about-per-user-pricing.md,broken liquid tags
 translations/ja-JP/content/billing/managing-billing-for-your-github-account/how-does-upgrading-or-downgrading-affect-the-billing-process.md,broken liquid tags
 translations/ja-JP/content/billing/managing-billing-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account.md,broken liquid tags
 translations/ja-JP/content/billing/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise/about-visual-studio-subscriptions-with-github-enterprise.md,broken liquid tags
@@ -88,6 +86,7 @@ translations/ja-JP/content/billing/managing-licenses-for-visual-studio-subscript
 translations/ja-JP/content/billing/managing-your-license-for-github-enterprise/about-licenses-for-github-enterprise.md,broken liquid tags
 translations/ja-JP/content/billing/managing-your-license-for-github-enterprise/downloading-your-license-for-github-enterprise.md,broken liquid tags
 translations/ja-JP/content/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud.md,broken liquid tags
+translations/ja-JP/content/billing/managing-your-license-for-github-enterprise/troubleshooting-license-usage-for-github-enterprise.md,broken liquid tags
 translations/ja-JP/content/billing/managing-your-license-for-github-enterprise/uploading-a-new-license-to-github-enterprise-server.md,broken liquid tags
 translations/ja-JP/content/billing/managing-your-license-for-github-enterprise/viewing-license-usage-for-github-enterprise.md,broken liquid tags
 translations/ja-JP/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts.md,broken liquid tags
@@ -167,7 +166,6 @@ translations/ja-JP/content/get-started/getting-started-with-git/updating-credent
 translations/ja-JP/content/get-started/learning-about-github/about-github-advanced-security.md,Listed in localization-support#489
 translations/ja-JP/content/get-started/learning-about-github/about-github-advanced-security.md,rendering error
 translations/ja-JP/content/get-started/privacy-on-github/managing-data-use-settings-for-your-private-repository.md,broken liquid tags
-translations/ja-JP/content/get-started/quickstart/git-and-github-learning-resources.md,broken liquid tags
 translations/ja-JP/content/get-started/using-github/github-mobile.md,broken liquid tags
 translations/ja-JP/content/get-started/writing-on-github/editing-and-sharing-content-with-gists/creating-gists.md,broken liquid tags
 translations/ja-JP/content/issues/tracking-your-work-with-issues/planning-and-tracking-work-for-your-team-or-project.md,broken liquid tags
@@ -248,6 +246,10 @@ translations/ja-JP/data/release-notes/enterprise-server/3-1/9.yml,broken liquid 
 translations/ja-JP/data/release-notes/enterprise-server/3-2/0-rc1.yml,broken liquid tags
 translations/ja-JP/data/release-notes/enterprise-server/3-2/0.yml,broken liquid tags
 translations/ja-JP/data/release-notes/enterprise-server/3-2/3.yml,broken liquid tags
+translations/ja-JP/data/release-notes/enterprise-server/3-3/0-rc1.yml,broken liquid tags
+translations/ja-JP/data/release-notes/enterprise-server/3-3/0.yml,broken liquid tags
+translations/ja-JP/data/release-notes/enterprise-server/3-4/0-rc1.yml,broken liquid tags
+translations/ja-JP/data/release-notes/enterprise-server/3-4/0.yml,broken liquid tags
 translations/ja-JP/data/release-notes/github-ae/2021-03/2021-03-03.yml,broken liquid tags
 translations/ja-JP/data/reusables/actions/allow-specific-actions-intro.md,broken liquid tags
 translations/ja-JP/data/reusables/actions/disabling-github-actions.md,broken liquid tags

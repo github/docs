@@ -12,7 +12,7 @@ topics:
   - API
 ---
 
-Você pode acessar a maioria dos objetos do GitHub (usuários, problemas, pull requests, etc.) usando a API REST ou a API do GraphQL. Com uma atualização recente [](https://developer.github.com/changes/2017-12-19-graphql-node-id/), você pode encontrar o **ID do nó global** de muitos objetos na API REST e usar esses IDs nas operações do GraphQL.
+Você pode acessar a maioria dos objetos do GitHub (usuários, problemas, pull requests, etc.) usando a API REST ou a API do GraphQL. You can find the **global node ID** of many objects from within the REST API and use these IDs in your GraphQL operations. For more information, see "[Preview GraphQL API v4 Node IDs in REST API v3 resources](https://developer.github.com/changes/2017-12-19-graphql-node-id/)."
 
 {% note %}
 

@@ -62,9 +62,8 @@ export default async function buildRecords(
     .on('page', (page) => {
       process.stdout.write(pageMarker)
       const newRecord = parsePageSectionsIntoRecords(page)
-      const hrefWithoutLocale = page.href.split('/').slice(2).join('/')
-
-      const popularity = (hasPopularPages && popularPages[hrefWithoutLocale]) || 0.0
+      const pathArticle = page.relativePath.replace('/index.md', '').replace('.md', '')
+      const popularity = (hasPopularPages && popularPages[pathArticle]) || 0.0
       newRecord.popularity = popularity
       process.stdout.write(recordMarker)
       records.push(newRecord)

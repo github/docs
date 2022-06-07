@@ -1,2 +1,2 @@
-1. Under **Artifact and log retention**, enter a new value.
+1. Debajo de **Retención de bitácoras y artefactos**, ingresa un valor nuevo.
 1. Da clic en **Guardar** para aplicar el cambio.

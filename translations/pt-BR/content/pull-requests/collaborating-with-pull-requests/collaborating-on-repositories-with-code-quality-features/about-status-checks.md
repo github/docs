@@ -77,3 +77,9 @@ Para ignorar ou solicitar verificações para seu commit, adicione uma das segui
   >
   request-checks: true"
   ```
+
+{% ifversion fpt or ghec %}
+### Retenção de verificações de status
+
+{% data reusables.pull_requests.retention-checks-data %}
+{% endif %}

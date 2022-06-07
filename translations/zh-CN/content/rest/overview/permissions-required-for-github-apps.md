@@ -41,7 +41,7 @@ GitHub 应用程序默认具有 `Read-only` 元数据权限。 元数据权限�
 - [`GET /orgs/:org/repos`](/rest/reference/repos#list-organization-repositories)
 - [`GET /rate_limit`](/rest/reference/rate-limit#get-rate-limit-status-for-the-authenticated-user)
 - [`GET /repos/:owner/:repo`](/rest/reference/repos#get-a-repository)
-{% ifversion fpt -%}
+{% ifversion fpt or ghec -%}
 - [`GET /repos/:owner/:repo/community/profile`](/rest/reference/repository-metrics#get-community-profile-metrics)
 {% endif -%}
 - [`GET /repos/:owner/:repo/contributors`](/rest/reference/repos#list-repository-contributors)
@@ -128,7 +128,7 @@ _搜索_
 - [`GET /repos/:owner/:repo/actions/jobs/:job_id/logs`](/rest/reference/actions#download-job-logs-for-a-workflow-run) (:read)
 - [`GET /repos/:owner/:repo/actions/runs`](/rest/reference/actions#list-workflow-runs-for-a-repository) (:read)
 - [`GET /repos/:owner/:repo/actions/runs/:run_id`](/rest/reference/actions#get-a-workflow-run) (:read)
-{% ifversion fpt -%}
+{% ifversion fpt or ghec -%}
 - [`POST /repos/:owner/:repo/actions/runs/:run_id/approve`](/rest/reference/actions#approve-a-workflow-run-for-a-fork-pull-request) (:write)
 {% endif -%}
 - [`GET /repos/:owner/:repo/actions/runs/:run_id/artifacts`](/rest/reference/actions#list-workflow-run-artifacts) (:read)
@@ -156,27 +156,27 @@ _搜索_
 - [`PUT /repos/:owner/:repo/actions/runners/:runner_id/labels`](/rest/reference/actions#set-custom-labels-for-a-self-hosted-runner-for-a-repository) (:write)
 - [`DELETE /repos/:owner/:repo/actions/runners/:runner_id/labels`](/rest/reference/actions#remove-all-custom-labels-from-a-self-hosted-runner-for-a-repository) (:write)
 - [`DELETE /repos/:owner/:repo/actions/runners/:runner_id/labels/:name`](/rest/reference/actions#remove-a-custom-label-from-a-self-hosted-runner-for-a-repository) (:write)
-{% ifversion fpt or ghes -%}
+{% ifversion fpt or ghec or ghes -%}
 - [`POST /repos/:owner/:repo/actions/runners/registration-token`](/rest/reference/actions#create-a-registration-token-for-a-repository) (:write)
 - [`POST /repos/:owner/:repo/actions/runners/remove-token`](/rest/reference/actions#create-a-remove-token-for-a-repository) (:write)
 {% endif -%}
-{% ifversion fpt -%}
+{% ifversion fpt or ghec -%}
 - [`PUT /repos/:owner/:repo/automated-security-fixes`](/rest/reference/repos#enable-automated-security-fixes) (:write)
 {% endif -%}
-{% ifversion fpt -%}
+{% ifversion fpt or ghec -%}
 - [`DELETE /repos/:owner/:repo/automated-security-fixes`](/rest/reference/repos#disable-automated-security-fixes) (:write)
 {% endif -%}
 - [`POST /repos/:owner/:repo/forks`](/rest/reference/repos#create-a-fork) (:write)
-{% ifversion fpt -%}
+{% ifversion fpt or ghec -%}
 - [`GET /repos/:owner/:repo/interaction-limits`](/rest/reference/interactions#get-interaction-restrictions-for-a-repository) (:read)
 {% endif -%}
-{% ifversion fpt -%}
+{% ifversion fpt or ghec -%}
 - [`PUT /repos/:owner/:repo/interaction-limits`](/rest/reference/interactions#set-interaction-restrictions-for-a-repository) (:write)
 {% endif -%}
-{% ifversion fpt -%}
+{% ifversion fpt or ghec -%}
 - [`DELETE /repos/:owner/:repo/interaction-limits`](/rest/reference/interactions#remove-interaction-restrictions-for-a-repository) (:write)
 {% endif -%}
-{% ifversion fpt -%}
+{% ifversion fpt or ghec -%}
 - [`GET /repos/:owner/:repo/pages/health`](/rest/reference/pages#get-a-dns-health-check-for-github-pages) (:write)
 {% endif -%}
 {% ifversion ghes > 3.3 -%}
@@ -184,13 +184,13 @@ _搜索_
 {% endif -%}
 - [`PUT /repos/:owner/:repo/topics`](/rest/reference/repos#replace-all-repository-topics) (:write)
 - [`POST /repos/:owner/:repo/transfer`](/rest/reference/repos#transfer-a-repository) (:write)
-{% ifversion fpt -%}
+{% ifversion fpt or ghec -%}
 - [`GET /repos/:owner/:repo/vulnerability-alerts`](/rest/reference/repos#enable-vulnerability-alerts) (:write)
 {% endif -%}
-{% ifversion fpt -%}
+{% ifversion fpt or ghec -%}
 - [`PUT /repos/:owner/:repo/vulnerability-alerts`](/rest/reference/repos#enable-vulnerability-alerts) (:write)
 {% endif -%}
-{% ifversion fpt -%}
+{% ifversion fpt or ghec -%}
 - [`DELETE /repos/:owner/:repo/vulnerability-alerts`](/rest/reference/repos#disable-vulnerability-alerts) (:write)
 {% endif -%}
 - [`PATCH /user/repository_invitations/:invitation_id`](/rest/reference/collaborators#accept-a-repository-invitation) (:write)
@@ -226,9 +226,7 @@ _分支_
 - [`POST /repos/:owner/:repo/branches/:branch/protection/restrictions/users`](/rest/reference/branches#add-user-access-restrictions) (:write)
 - [`PUT /repos/:owner/:repo/branches/:branch/protection/restrictions/users`](/rest/reference/branches#set-user-access-restrictions) (:write)
 - [`DELETE /repos/:owner/:repo/branches/:branch/protection/restrictions/users`](/rest/reference/branches#remove-user-access-restrictions) (:write)
-{% ifversion fpt or ghes or ghae -%}
 - [`POST /repos/:owner/:repo/branches/:branch/rename`](/rest/reference/branches#rename-a-branch) (:write)
-{% endif %}
 
 _协作者_
 - [`PUT /repos/:owner/:repo/collaborators/:username`](/rest/reference/collaborators#add-a-repository-collaborator) (:write)
@@ -281,7 +279,7 @@ _流量_
 - [`GET /repos/:owner/:repo/commits/:sha/check-runs`](/rest/reference/checks#list-check-runs-for-a-git-reference) (:read)
 - [`GET /repos/:owner/:repo/commits/:sha/check-suites`](/rest/reference/checks#list-check-suites-for-a-git-reference) (:read)
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ### 对“代码空间”的权限
 
 - [`GET /repos/:owner/:repo/codespaces/machines`](/rest/reference/codespaces#list-available-machine-types-for-a-repository)
@@ -289,67 +287,67 @@ _流量_
 ### 有关“内容”的权限
 
 - [`GET /repos/:owner/:repo/:archive_format/:ref`](/rest/reference/repos#download-a-repository-archive) (:read)
-{% ifversion fpt -%}
+{% ifversion fpt or ghec -%}
 - [`GET /repos/:owner/:repo/actions/artifacts/:artifact_id`](/rest/reference/actions#get-an-artifact) (:read)
 {% endif -%}
-{% ifversion fpt -%}
+{% ifversion fpt or ghec -%}
 - [`DELETE /repos/:owner/:repo/actions/artifacts/:artifact_id`](/rest/reference/actions#delete-an-artifact) (:write)
 {% endif -%}
-{% ifversion fpt -%}
+{% ifversion fpt or ghec -%}
 - [`GET /repos/:owner/:repo/actions/artifacts/:artifact_id/zip`](/rest/reference/actions#download-an-artifact) (:read)
 {% endif -%}
-{% ifversion fpt -%}
+{% ifversion fpt or ghec -%}
 - [`GET /repos/:owner/:repo/actions/jobs/:job_id`](/rest/reference/actions#get-a-job-for-a-workflow-run) (:read)
 {% endif -%}
-{% ifversion fpt -%}
+{% ifversion fpt or ghec -%}
 - [`GET /repos/:owner/:repo/actions/jobs/:job_id/logs`](/rest/reference/actions#download-job-logs-for-a-workflow-run) (:read)
 {% endif -%}
-{% ifversion fpt -%}
+{% ifversion fpt or ghec -%}
 - [`GET /repos/:owner/:repo/actions/runs`](/rest/reference/actions#list-workflow-runs-for-a-repository) (:read)
 {% endif -%}
-{% ifversion fpt -%}
+{% ifversion fpt or ghec -%}
 - [`GET /repos/:owner/:repo/actions/runs/:run_id`](/rest/reference/actions#get-a-workflow-run) (:read)
 {% endif -%}
-{% ifversion fpt -%}
+{% ifversion fpt or ghec -%}
 - [`GET /repos/:owner/:repo/actions/runs/:run_id/artifacts`](/rest/reference/actions#list-workflow-run-artifacts) (:read)
 {% endif -%}
 {% ifversion fpt -%}
 - [`POST /repos/:owner/:repo/actions/runs/:run_id/cancel`](/rest/reference/actions#cancel-a-workflow-run) (:write)
 {% endif -%}
-{% ifversion fpt -%}
+{% ifversion fpt or ghec -%}
 - [`GET /repos/:owner/:repo/actions/runs/:run_id/jobs`](/rest/reference/actions#list-jobs-for-a-workflow-run) (:read)
 {% endif -%}
-{% ifversion fpt -%}
+{% ifversion fpt or ghec -%}
 - [`GET /repos/:owner/:repo/actions/runs/:run_id/logs`](/rest/reference/actions#download-workflow-run-logs) (:read)
 {% endif -%}
-{% ifversion fpt -%}
+{% ifversion fpt or ghec -%}
 - [`DELETE /repos/:owner/:repo/actions/runs/:run_id/logs`](/rest/reference/actions#delete-workflow-run-logs) (:write)
 {% endif -%}
 {% ifversion fpt -%}
 - [`POST /repos/:owner/:repo/actions/runs/:run_id/rerun`](/rest/reference/actions#re-run-a-workflow) (:write)
 {% endif -%}
-{% ifversion fpt -%}
+{% ifversion fpt or ghec -%}
 - [`GET /repos/:owner/:repo/actions/secrets`](/rest/reference/actions#list-repository-secrets) (:write)
 {% endif -%}
-{% ifversion fpt -%}
+{% ifversion fpt or ghec -%}
 - [`GET /repos/:owner/:repo/actions/secrets/:name`](/rest/reference/actions#get-a-repository-secret) (:write)
 {% endif -%}
-{% ifversion fpt -%}
+{% ifversion fpt or ghec -%}
 - [`PUT /repos/:owner/:repo/actions/secrets/:name`](/rest/reference/actions#create-or-update-a-repository-secret) (:write)
 {% endif -%}
-{% ifversion fpt -%}
+{% ifversion fpt or ghec -%}
 - [`DELETE /repos/:owner/:repo/actions/secrets/:name`](/rest/reference/actions#delete-a-repository-secret) (:write)
 {% endif -%}
-{% ifversion fpt -%}
+{% ifversion fpt or ghec -%}
 - [`GET /repos/:owner/:repo/actions/secrets/public-key`](/rest/reference/actions#get-a-repository-public-key) (:write)
 {% endif -%}
-{% ifversion fpt -%}
+{% ifversion fpt or ghec -%}
 - [`GET /repos/:owner/:repo/actions/workflows`](/rest/reference/actions#list-repository-workflows) (:read)
 {% endif -%}
-{% ifversion fpt -%}
+{% ifversion fpt or ghec -%}
 - [`GET /repos/:owner/:repo/actions/workflows/:workflow_id`](/rest/reference/actions#get-a-workflow) (:read)
 {% endif -%}
-{% ifversion fpt -%}
+{% ifversion fpt or ghec -%}
 - [`GET /repos/:owner/:repo/actions/workflows/:workflow_id/runs`](/rest/reference/actions#list-workflow-runs) (:read)
 {% endif -%}
 - [`GET /repos/:owner/:repo/check-runs/:check_run_id`](/rest/reference/checks#get-a-check-run) (:read)
@@ -367,9 +365,7 @@ _流量_
 - [`GET /repos/:owner/:repo/community/code_of_conduct`](/rest/reference/codes-of-conduct#get-the-code-of-conduct-for-a-repository) (:read)
 - [`GET /repos/:owner/:repo/compare/:base...:head`](/rest/reference/commits#compare-two-commits) (:read)
 - [`GET /repos/:owner/:repo/contents/:path`](/rest/reference/repos#get-repository-content) (:read)
-{% ifversion fpt or ghes or ghae -%}
 - [`POST /repos/:owner/:repo/dispatches`](/rest/reference/repos#create-a-repository-dispatch-event) (:write)
-{% endif -%}
 - [`POST /repos/:owner/:repo/forks`](/rest/reference/repos#create-a-fork) (:read)
 - [`POST /repos/:owner/:repo/merges`](/rest/reference/branches#merge-a-branch) (:write)
 - [`PUT /repos/:owner/:repo/pulls/:pull_number/merge`](/rest/reference/pulls#merge-a-pull-request) (:write)
@@ -382,9 +378,7 @@ _分支_
 - [`POST /repos/:owner/:repo/branches/:branch/protection/restrictions/apps`](/rest/reference/branches#add-app-access-restrictions) (:write)
 - [`PUT /repos/:owner/:repo/branches/:branch/protection/restrictions/apps`](/rest/reference/branches#set-app-access-restrictions) (:write)
 - [`DELETE /repos/:owner/:repo/branches/:branch/protection/restrictions/apps`](/rest/reference/branches#remove-user-access-restrictions) (:write)
-{% ifversion fpt or ghes or ghae -%}
 - [`POST /repos/:owner/:repo/branches/:branch/rename`](/rest/reference/branches#rename-a-branch) (:write)
-{% endif %}
 
 _提交注释_
 - [`PATCH /repos/:owner/:repo/comments/:comment_id`](/rest/reference/commits#update-a-commit-comment) (:write)
@@ -421,19 +415,13 @@ _导入_
 
 _反应_
 
-{% ifversion fpt or ghes or ghae -%}
 - [`DELETE /reactions/:reaction_id`](/rest/reference/reactions#delete-a-reaction-legacy) (:write)
-{% else -%}
-- [`DELETE /reactions/:reaction_id`](/rest/reference/reactions#delete-a-reaction) (:write)
-{% endif -%}
-{% ifversion fpt or ghes or ghae -%}
 - [`DELETE /repos/:owner/:repo/comments/:comment_id/reactions/:reaction_id`](/rest/reference/reactions#delete-a-commit-comment-reaction) (:write)
 - [`DELETE /repos/:owner/:repo/issues/:issue_number/reactions/:reaction_id`](/rest/reference/reactions#delete-an-issue-reaction) (:write)
 - [`DELETE /repos/:owner/:repo/issues/comments/:comment_id/reactions/:reaction_id`](/rest/reference/reactions#delete-an-issue-comment-reaction) (:write)
 - [`DELETE /repos/:owner/:repo/pulls/comments/:comment_id/reactions/:reaction_id`](/rest/reference/reactions#delete-a-pull-request-comment-reaction) (:write)
 - [`DELETE /orgs/:org/teams/:team_slug/discussions/:discussion_number/reactions/:reaction_id`](/rest/reference/reactions#delete-team-discussion-reaction) (:write)
 - [`DELETE /orgs/:org/teams/:team_slug/discussions/:discussion_number/comments/:comment_number/reactions/:reaction_id`](/rest/reference/reactions#delete-team-discussion-comment-reaction) (:write)
-{% endif %}
 
 _版本发布_
 - [`GET /repos/:owner/:repo/releases`](/rest/reference/repos/#list-releases) (:read)
@@ -453,9 +441,7 @@ _版本发布_
 - [`GET /repos/:owner/:repo/deployments`](/rest/reference/deployments#list-deployments) (:read)
 - [`POST /repos/:owner/:repo/deployments`](/rest/reference/deployments#create-a-deployment) (:write)
 - [`GET /repos/:owner/:repo/deployments/:deployment_id`](/rest/reference/deployments#get-a-deployment) (:read)
-{% ifversion fpt or ghes or ghae -%}
 - [`DELETE /repos/:owner/:repo/deployments/:deployment_id`](/rest/reference/deployments#delete-a-deployment) (:write)
-{% endif -%}
 - [`GET /repos/:owner/:repo/deployments/:deployment_id/statuses`](/rest/reference/deployments#list-deployment-statuses) (:read)
 - [`POST /repos/:owner/:repo/deployments/:deployment_id/statuses`](/rest/reference/deployments#create-a-deployment-status) (:write)
 - [`GET /repos/:owner/:repo/deployments/:deployment_id/statuses/:status_id`](/rest/reference/deployments#get-a-deployment-status) (:read)
@@ -463,7 +449,7 @@ _版本发布_
 {% ifversion fpt or ghes or ghec %}
 ### 有关“电子邮件”的权限
 
-{% ifversion fpt -%}
+{% ifversion fpt or ghec -%}
 - [`PATCH /user/email/visibility`](/rest/reference/users#set-primary-email-visibility-for-the-authenticated-user) (:write)
 {% endif -%}
 - [`GET /user/emails`](/rest/reference/users#list-email-addresses-for-the-authenticated-user) (:read)
@@ -552,7 +538,6 @@ _反应_
 - [`POST /repos/:owner/:repo/issues/comments/:comment_id/reactions`](/rest/reference/reactions#create-reaction-for-an-issue-comment) (:write)
 - [`GET /repos/:owner/:repo/issues/:issue_number/reactions`](/rest/reference/reactions#list-reactions-for-an-issue) (:read)
 - [`POST /repos/:owner/:repo/issues/:issue_number/reactions`](/rest/reference/reactions#create-reaction-for-an-issue) (:write)
-{% ifversion fpt or ghes or ghae -%}
 - [`DELETE /reactions/:reaction_id`](/rest/reference/reactions#delete-a-reaction-legacy) (:write)
 - [`DELETE /repos/:owner/:repo/comments/:comment_id/reactions/:reaction_id`](/rest/reference/reactions#delete-a-commit-comment-reaction) (:write)
 - [`DELETE /repos/:owner/:repo/issues/:issue_number/reactions/:reaction_id`](/rest/reference/reactions#delete-an-issue-reaction) (:write)
@@ -560,9 +545,6 @@ _反应_
 - [`DELETE /repos/:owner/:repo/pulls/comments/:comment_id/reactions/:reaction_id`](/rest/reference/reactions#delete-a-pull-request-comment-reaction) (:write)
 - [`DELETE /orgs/:org/teams/:team_slug/discussions/:discussion_number/reactions/:reaction_id`](/rest/reference/reactions#delete-team-discussion-reaction) (:write)
 - [`DELETE /orgs/:org/teams/:team_slug/discussions/:discussion_number/comments/:comment_number/reactions/:reaction_id`](/rest/reference/reactions#delete-team-discussion-comment-reaction) (:write)
-{% else -%}
-- [`DELETE /reactions/:reaction_id`](/rest/reference/reactions#delete-a-reaction) (:write)
-{% endif %}
 
 ### 有关“键”的权限
 
@@ -574,35 +556,35 @@ _键_
 
 ### 有关“成员”的权限
 
-{% ifversion fpt -%}
+{% ifversion fpt or ghec -%}
 - [`GET /organizations/:org_id/team/:team_id/team-sync/group-mappings`](/rest/reference/teams#list-idp-groups-for-a-team) (:write)
 {% endif -%}
-{% ifversion fpt -%}
+{% ifversion fpt or ghec  -%}
 - [`PATCH /organizations/:org_id/team/:team_id/team-sync/group-mappings`](/rest/reference/teams#create-or-update-idp-group-connections) (:write)
 {% endif -%}
 - [`GET /orgs/:org/outside_collaborators`](/rest/reference/orgs#list-outside-collaborators-for-an-organization) (:read)
 - [`PUT /orgs/:org/outside_collaborators/:username`](/rest/reference/orgs#convert-an-organization-member-to-outside-collaborator) (:write)
 - [`DELETE /orgs/:org/outside_collaborators/:username`](/rest/reference/orgs#remove-outside-collaborator-from-an-organization) (:write)
-{% ifversion fpt -%}
-- [`GET /orgs/:org/team-sync/groups`](/rest/reference/teams#list-idp-groups-for-an-organization) (:write)
+{% ifversion fpt or ghec -%}
+- [`GET /orgs/:org/team-sync/groups`](/rest/teams/team-sync#list-idp-groups-for-an-organization) (:write)
 {% endif -%}
-- [`GET /orgs/:org/team/:team_id`](/rest/reference/teams#get-a-team-by-name) (:read)
-{% ifversion fpt -%}
+- [`GET /orgs/:org/team/:team_id`](/rest/teams/teams#get-a-team-by-name) (:read)
+{% ifversion fpt or ghec -%}
 - [`GET /scim/v2/orgs/:org/Users`](/rest/reference/scim#list-scim-provisioned-identities) (:read)
 {% endif -%}
-{% ifversion fpt -%}
+{% ifversion fpt or ghec -%}
 - [`POST /scim/v2/orgs/:org/Users`](/rest/reference/scim#provision-and-invite-a-scim-user) (:write)
 {% endif -%}
-{% ifversion fpt -%}
+{% ifversion fpt or ghec -%}
 - [`GET /scim/v2/orgs/:org/Users/:external_identity_guid`](/rest/reference/scim#get-scim-provisioning-information-for-a-user) (:read)
 {% endif -%}
-{% ifversion fpt -%}
+{% ifversion fpt or ghec -%}
 - [`PUT /scim/v2/orgs/:org/Users/:external_identity_guid`](/rest/reference/scim#set-scim-information-for-a-provisioned-user) (:write)
 {% endif -%}
-{% ifversion fpt -%}
+{% ifversion fpt or ghec -%}
 - [`PATCH /scim/v2/orgs/:org/Users/:external_identity_guid`](/rest/reference/scim#update-an-attribute-for-a-scim-user) (:write)
 {% endif -%}
-{% ifversion fpt -%}
+{% ifversion fpt or ghec -%}
 - [`DELETE /scim/v2/orgs/:org/Users/:external_identity_guid`](/rest/reference/scim#delete-a-scim-user-from-an-organization) (:write)
 {% endif %}
 
@@ -637,12 +619,10 @@ _团队_
 - [`GET /orgs/:org/teams/:team_slug`](/rest/reference/teams#get-a-team-by-name) (:read)
 - [`PATCH /teams/:team_id`](/rest/reference/teams#update-a-team) (:write)
 - [`DELETE /teams/:team_id`](/rest/reference/teams#delete-a-team) (:write)
-{% ifversion fpt or ghes or ghae -%}
 - [`GET /teams/:team_id/projects`](/rest/reference/teams#list-team-projects) (:read)
 - [`GET /teams/:team_id/projects/:project_id`](/rest/reference/teams#check-team-permissions-for-a-project) (:read)
 - [`PUT /teams/:team_id/projects/:project_id`](/rest/reference/teams#add-or-update-team-project-permissions) (:read)
 - [`DELETE /teams/:team_id/projects/:project_id`](/rest/reference/teams#remove-a-project-from-a-team) (:read)
-{% endif -%}
 - [`GET /teams/:team_id/repos`](/rest/reference/teams#list-team-repositories) (:read)
 - [`GET /teams/:team_id/repos/:owner/:repo`](/rest/reference/teams#check-team-permissions-for-a-repository) (:read)
 - [`PUT /teams/:team_id/repos/:owner/:repo`](/rest/reference/teams#add-or-update-team-repository-permissions) (:read)
@@ -656,13 +636,13 @@ _团队_
 - [`GET /orgs/:org/actions/cache/usage`](/rest/reference/actions#get-github-actions-cache-usage-for-an-organization) (:read)
 - [`GET /orgs/:org/actions/cache/usage-by-repository`](/rest/reference/actions#list-repositories-with-github-actions-cache-usage-for-an-organization) (:read)
 {% endif -%}
-{% ifversion fpt -%}
+{% ifversion fpt or ghec -%}
 - [`GET /orgs/:org/interaction-limits`](/rest/reference/interactions#get-interaction-restrictions-for-an-organization) (:read)
 {% endif -%}
-{% ifversion fpt -%}
+{% ifversion fpt or ghec -%}
 - [`PUT /orgs/:org/interaction-limits`](/rest/reference/interactions#set-interaction-restrictions-for-an-organization) (:write)
 {% endif -%}
-{% ifversion fpt -%}
+{% ifversion fpt or ghec -%}
 - [`DELETE /orgs/:org/interaction-limits`](/rest/reference/interactions#remove-interaction-restrictions-for-an-organization) (:write)
 {% endif %}
 
@@ -730,7 +710,7 @@ _团队_
 - [`POST /repos/:owner/:repo/pages/builds`](/rest/reference/pages#request-a-github-pages-build) (:write)
 - [`GET /repos/:owner/:repo/pages/builds/:build_id`](/rest/reference/pages#get-github-pages-build) (:read)
 - [`GET /repos/:owner/:repo/pages/builds/latest`](/rest/reference/pages#get-latest-pages-build) (:read)
-{% ifversion fpt -%}
+{% ifversion fpt or ghec -%}
 - [`GET /repos/:owner/:repo/pages/health`](/rest/reference/pages#get-a-dns-health-check-for-github-pages) (:write)
 {% endif %}
 
@@ -799,7 +779,6 @@ _反应_
 - [`POST /repos/:owner/:repo/issues/comments/:comment_id/reactions`](/rest/reference/reactions#create-reaction-for-an-issue-comment) (:write)
 - [`GET /repos/:owner/:repo/pulls/comments/:comment_id/reactions`](/rest/reference/reactions#list-reactions-for-a-pull-request-review-comment) (:read)
 - [`POST /repos/:owner/:repo/pulls/comments/:comment_id/reactions`](/rest/reference/reactions#create-reaction-for-a-pull-request-review-comment) (:write)
-{% ifversion fpt or ghes or ghae -%}
 - [`DELETE /reactions/:reaction_id`](/rest/reference/reactions#delete-a-reaction-legacy) (:write)
 - [`DELETE /repos/:owner/:repo/comments/:comment_id/reactions/:reaction_id`](/rest/reference/reactions#delete-a-commit-comment-reaction) (:write)
 - [`DELETE /repos/:owner/:repo/issues/:issue_number/reactions/:reaction_id`](/rest/reference/reactions#delete-an-issue-reaction) (:write)
@@ -807,9 +786,6 @@ _反应_
 - [`DELETE /repos/:owner/:repo/pulls/comments/:comment_id/reactions/:reaction_id`](/rest/reference/reactions#delete-a-pull-request-comment-reaction) (:write)
 - [`DELETE /orgs/:org/teams/:team_slug/discussions/:discussion_number/reactions/:reaction_id`](/rest/reference/reactions#delete-team-discussion-reaction) (:write)
 - [`DELETE /orgs/:org/teams/:team_slug/discussions/:discussion_number/comments/:comment_number/reactions/:reaction_id`](/rest/reference/reactions#delete-team-discussion-comment-reaction) (:write)
-{% else -%}
-- [`DELETE /reactions/:reaction_id`](/rest/reference/reactions#delete-a-reaction) (:write)
-{% endif %}
 
 _请求的审查者_
 - [`GET /repos/:owner/:repo/pulls/:pull_number/requested_reviewers`](/rest/reference/pulls#list-requested-reviewers-for-a-pull-request) (:read)
@@ -923,18 +899,18 @@ _团队_
 - [`GET /repos/:owner/:repo/code-scanning/alerts`](/rest/reference/code-scanning#list-code-scanning-alerts-for-a-repository) (:read)
 - [`GET /repos/:owner/:repo/code-scanning/alerts/:alert_number`](/rest/reference/code-scanning#get-a-code-scanning-alert) (:read)
 - [`PATCH /repos/:owner/:repo/code-scanning/alerts/:alert_number`](/rest/reference/code-scanning#update-a-code-scanning-alert) (:write)
-{% ifversion fpt or ghes > 3.0 or ghae -%}
+{% ifversion fpt or ghec or ghes > 3.0 or ghae -%}
 - [`GET /repos/:owner/:repo/code-scanning/alerts/:alert_number/instances`](/rest/reference/code-scanning#list-instances-of-a-code-scanning-alert) (:read)
 {% endif -%}
 - [`GET /repos/:owner/:repo/code-scanning/analyses`](/rest/reference/code-scanning#list-code-scanning-analyses-for-a-repository) (:read)
-{% ifversion fpt or ghes > 3.0 or ghae -%}
+{% ifversion fpt or ghec or ghes > 3.0 or ghae -%}
 - [`GET /repos/:owner/:repo/code-scanning/analyses/:analysis_id`](/rest/reference/code-scanning#get-a-code-scanning-analysis-for-a-repository) (:read)
 {% endif -%}
-{% ifversion fpt or ghes > 3.0 -%}
+{% ifversion fpt or ghec or ghes > 3.0 -%}
 - [`DELETE /repos/:owner/:repo/code-scanning/analyses/:analysis_id`](/rest/reference/code-scanning#delete-a-code-scanning-analysis-from-a-repository) (:write)
 {% endif -%}
 - [`POST /repos/:owner/:repo/code-scanning/sarifs`](/rest/reference/code-scanning#upload-an-analysis-as-sarif-data) (:write)
-{% ifversion fpt or ghes > 3.0 or ghae -%}
+{% ifversion fpt or ghec or ghes > 3.0 or ghae -%}
 - [`GET /repos/:owner/:repo/code-scanning/sarifs/:sarif_id`](/rest/reference/code-scanning#get-information-about-a-sarif-upload) (:read)
 {% endif -%}
 {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5435 -%}

@@ -2,16 +2,16 @@
 date: '2022-02-17'
 sections:
   security_fixes:
-    - It was possible for a user to register a user or organization named "saml".
+    - ユーザが、"saml"というユーザもしくはOrganizationを登録することが可能でした。
     - パッケージは最新のセキュリティバージョンにアップデートされました。
   bugs:
-    - GitHub Packages storage settings could not be validated and saved in the Management Console when Azure Blob Storage was used.
-    - The mssql.backup.cadence configuration option failed ghe-config-check with an invalid characterset warning.
+    - Azure Blob Storageが使われている場合、Management ConsoleでGitHub Packagesのストレージ設定を検証して保存することができませんでした。
+    - 不正な文字セットの警告で、設定オプションのmssql.backup.cadenceによってghe-config-checkが失敗しました。
     - memcachedから2<sup>^16</sup>以上のキーを取得する際のSystemStackError（スタックが深すぎる）を修正しました。
   changes:
-    - Secret scanning will skip scanning ZIP and other archive files for secrets.
+    - Secret scaningがZIP及び他のアーカイブファイルでシークレットのスキャンをスキップしてしまいます。
   known_issues:
-    - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
+    - 新しくセットアップされたユーザを持たない{% data variables.product.prodname_ghe_server %}インスタンスで、攻撃者が最初の管理ユーザを作成できました。
     - アップグレードの過程で、カスタムのファイアウォールのルールが削除されます。
     - Git LFSが追跡するファイル[Webインターフェースからアップロードされたもの](https://github.com/blog/2105-upload-files-to-your-repositories)が、不正にリポジトリに直接追加されてしまいます。
     - 同じリポジトリ内のファイルパスが255文字を超えるblobへのパーマリンクを含むIssueをクローズできませんでした。

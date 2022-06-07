@@ -13,7 +13,7 @@ redirect_from:
   - /rest/reference/licenses
 ---
 
-## About the Licenses API
+## Sobre a API de licenças
 
 A API de Licenças usa [a Licença de código aberto do Gem do Ruby](https://github.com/benbalter/licensee) para tentar identificar a licença do projeto. A licença corresponde ao conteúdo do arquivo `LICENÇA` de um projeto (se existir) em comparação com uma pequena lista de licenças conhecidas. Como resultado, a API não leva em conta as licenças das dependências do projeto ou outros meios de documentar a licença de um projeto, como, por exemplo, referências ao nome da licença na documentação.
 

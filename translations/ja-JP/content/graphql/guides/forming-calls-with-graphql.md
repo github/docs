@@ -32,14 +32,14 @@ GraphQLサーバーと通信するには、適切なスコープを持つOAuth�
 
 
 ```
-user{% ifversion not ghae %}
-public_repo{% endif %}
 repo
-repo_deployment
 repo:status
-read:repo_hook
+repo_deployment{% ifversion not ghae %}
+public_repo{% endif %}
 read:org
 read:public_key
+read:repo_hook
+user
 read:gpg_key
 ```
 

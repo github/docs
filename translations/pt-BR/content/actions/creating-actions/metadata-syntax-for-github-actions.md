@@ -369,6 +369,10 @@ runs:
 ```
 {% endif %}
 
+#### `runs.steps[*].continue-on-error`
+
+**Opcional** impede que a ação falhe quando uma etapa falha. Definido como `verdadeiro` para permitir que a ação passe quando esta etapa falhar.
+
 ## `runs` par ações do contêiner do Docker
 
 **Obrigatório** Configura a imagem usada para a ação do contêiner do Docker.
@@ -395,7 +399,7 @@ runs:
 
 ### `runs.pre-entrypoint`
 
-**Opcional** Permite que você execute um script antes de a ação do `entrypoint` começar. Por exemplo, você pode usar o `pre-entrypoint:` para executar um pré-requisito do script da configuração. {% data variables.product.prodname_actions %} usa a `execução do docker` para lançar esta ação e executa o script dentro de um novo contêiner que usa a mesma imagem-base. Isso significa que o momento de execução é diferente do contêiner principal do `entrypoint` e todos os status que você precisar deverão ser acessados na área de trabalho, em `HOME` ou como uma variável `STATE_`. A ação `pre-entrypoint:` sempre é executada por padrão, mas você pode substitui-la usando [`runs.pre-if`](#runspre-if).
+**Opcional** Permite que você execute um script antes de a ação do `entrypoint` começar. Por exemplo, você pode usar o `pre-entrypoint:` para executar um pré-requisito do script da configuração. {% data variables.product.prodname_actions %} usa a `execução do docker` para lançar esta ação e executa o script dentro de um novo contêiner que usa a mesma imagem-base. Isso significa que o momento de execução é diferente do contêiner principal do `entrypoint` e qualquer status de que você precisar devem ser acessado na área de trabalho, em `HOME`, ou como uma variável `STATE_`. A ação `pre-entrypoint:` sempre é executada por padrão, mas você pode substitui-la usando [`runs.pre-if`](#runspre-if).
 
 O tempo de execução especificado com a sintaxe [`em uso`](#runsusing) irá executar este arquivo.
 

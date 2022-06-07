@@ -103,11 +103,10 @@ Puedes definir entradas y secretos, las cuales pueden pasarse desde el flujo de 
            required: true
    ```
    {% endraw %}
+   Para encontrar los detalles de la sintaxis para definir entradas y secretos, consulta [`on.workflow_call.inputs`](/actions/reference/workflow-syntax-for-github-actions#onworkflow_callinputs) y [`on.workflow_call.secrets`](/actions/reference/workflow-syntax-for-github-actions#onworkflow_callsecrets).
    {% if actions-inherit-secrets-reusable-workflows %}
-   Para encontrar más detalles sobre la sintaxis para definir entradas y secretos, consulta [`on.workflow_call.inputs`](/actions/reference/workflow-syntax-for-github-actions#onworkflow_callinputs), [`on.workflow_call.secrets`](/actions/reference/workflow-syntax-for-github-actions#onworkflow_callsecrets) y [`on.workflow_call.secrets.inherit`](/actions/using-workflows/workflow-syntax-for-github-actions#onworkflow_callsecretsinherit).
 1. En el flujo de trabajo reutilizable, referencia la entrada o secreto que definiste en la clave `on` en el paso anterior. Si los secretos se heredan utilizando `secrets: inherit`, puedes referenciarlos incluso si no se definen en la clave `on`.
    {%- else %}
-   Para encontrar los detalles de la sintaxis para definir entradas y secretos, consulta [`on.workflow_call.inputs`](/actions/reference/workflow-syntax-for-github-actions#onworkflow_callinputs) y [`on.workflow_call.secrets`](/actions/reference/workflow-syntax-for-github-actions#onworkflow_callsecrets).
 1. En el flujo de trabajo reutilizable, referencia la entrada o secreto que definiste en la clave `on` en el paso anterior.
    {%- endif %}
 
@@ -194,10 +193,11 @@ Cuando llamas a un flujo de trabajo reutilizable, solo puedes utilizar las sigui
 * [`jobs.<job_id>.with.<input_id>`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idwithinput_id)
 * [`jobs.<job_id>.secrets`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idsecrets)
 * [`jobs.<job_id>.secrets.<secret_id>`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idsecretssecret_id)
- {% if actions-inherit-secrets-reusable-workflows %}* [`jobs.<job_id>.secrets.inherit`](/actions/using-workflows/workflow-syntax-for-github-actions#onworkflow_callsecretsinherit){% endif %}
+ {% if actions-inherit-secrets-reusable-workflows %}* [`jobs.<job_id>.secrets.inherit`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idsecretsinherit){% endif %}
 * [`jobs.<job_id>.needs`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idneeds)
 * [`jobs.<job_id>.if`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idif)
 * [`jobs.<job_id>.permissions`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idpermissions)
+* [`jobs.<job_id>.concurrency`](/actions/reference/workflow-syntax-for-github-actions#concurrency)
 
    {% note %}
 

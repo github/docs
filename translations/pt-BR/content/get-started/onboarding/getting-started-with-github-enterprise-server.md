@@ -120,7 +120,7 @@ Os membros da sua empresa podem aprender mais sobre o Git e {% data variables.pr
 Você pode ler a documentação que reflete as funcionalidades disponíveis com {% data variables.product.prodname_ghe_server %}. Para obter mais informações, consulte "[Sobre as versões do {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs)."
 
 ### 2. Aprendendo com {% data variables.product.prodname_learning %}
-{% data reusables.getting-started.learning-lab-enterprise %}
+{% data reusables.getting-started.learning-enterprise %}
 
 ### 3. Trabalhando com o Suporte do Enterprise de {% data variables.product.prodname_dotcom %}
 {% data reusables.getting-started.contact-support-enterprise %}

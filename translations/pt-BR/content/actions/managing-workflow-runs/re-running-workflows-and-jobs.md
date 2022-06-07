@@ -17,7 +17,7 @@ versions:
 
 ## Sobre a reexecução de fluxos de trabalho e trabalhos
 
-A reexecução de um fluxo de trabalho{% if re-run-jobs %} ou trabalhos em um fluxo de trabalho{% endif %} usa o mesmo `GITHUB_SHA` (commit SHA) e `GITHUB_REF` (Git ref) do evento original que acionou a execução do fluxo de trabalho. Você pode executar novamente um fluxo de trabalho{% if re-run-jobs %} ou trabalhos em um fluxo de trabalho{% endif %} por até 30 dias após a execução inicial.
+A reexecução de um fluxo de trabalho{% if re-run-jobs %} ou trabalhos em um fluxo de trabalho{% endif %} usa o mesmo `GITHUB_SHA` (commit SHA) e `GITHUB_REF` (Git ref) do evento original que acionou a execução do fluxo de trabalho. Você pode executar novamente um fluxo de trabalho{% if re-run-jobs %} ou trabalhos em um fluxo de trabalho{% endif %} por até 30 dias após a execução inicial.{% if debug-reruns %} Ao executar novamente um fluxo de travalho ou trabalhos em um fluxo de trabalho, você pode habilitar o registro de depuração para a nova execução. Isso permitirá o registro de diagnóstico do executor e o registro de depuração de etapas para a nova execução. Para obter mais informações sobre o registro de depuração, consulte "[Habilitando o registro de depuração](/actions/monitoring-and-troubleshooting-workflows/enabling-debug-logging)"{% endif %}
 
 ## Reexecutar todos os trabalhos em um fluxo de trabalho
 
@@ -35,6 +35,7 @@ A reexecução de um fluxo de trabalho{% if re-run-jobs %} ou trabalhos em um fl
 {% ifversion ghes < 3.5 or ghae %}
 1. No canto superior direito do fluxo de trabalho, use o menu suspenso **Reexecutar trabalhos** e selecione **Reexecutar todos os trabalhos**. ![Menu suspenso Re-run checks (Executar verificações novamente)](/assets/images/help/repository/rerun-checks-drop-down-updated.png)
 {% endif %}
+{% data reusables.actions.enable-debug-logging %}
 
 {% endwebui %}
 
@@ -47,6 +48,15 @@ Para executar novamente um fluxo de trabalho com falha, use o subcomando `execut
 ```shell
 gh run rerun <em>run-id</em>
 ```
+
+{% if debug-reruns %}
+{% data reusables.actions.enable-debug-logging-cli %}
+
+```shell
+gh run rerun <em>run-id</em> --debug
+```
+
+{% endif %}
 
 Para visualizar o progresso da execução do fluxo de trabalho, use o subcomando `executar inspeção` e selecione a execução na lista interativa.
 
@@ -68,6 +78,7 @@ Se qualquer trabalho na execução de um fluxo de trabalho falhar, você poderá
 {% data reusables.repositories.navigate-to-workflow %}
 {% data reusables.repositories.view-run %}
 1. No canto superior direito do fluxo de trabalho, use o menu suspenso **Reexecutar trabalhos** e selecione **Reexecutar trabalhos com falhas**. ![Menu suspenso de executar novamente trabalhos com falha](/assets/images/help/repository/rerun-failed-jobs-drop-down.png)
+{% data reusables.actions.enable-debug-logging %}
 
 {% endwebui %}
 
@@ -79,6 +90,14 @@ Para executar novamente trabalhos que falharam em um fluxo de trabalho executado
 gh run rerun <em>run-id</em> --failed
 ```
 
+{% if debug-reruns %}
+{% data reusables.actions.enable-debug-logging-cli %}
+
+```shell
+gh run rerun <em>run-id</em> --failed --debug
+```
+
+{% endif %}
 {% endcli %}
 
 ## Reexecutando um trabalho específico em um fluxo de trabalho
@@ -94,6 +113,7 @@ Ao executar novamente um trabalho específico em um fluxo de trabalho, uma nova 
 1. Ao lado do trabalho que você deseja executar novamente, clique em {% octicon "sync" aria-label="The re-run icon" %}. ![Reexecutar trabalho selecionado](/assets/images/help/repository/re-run-selected-job.png)
 
    Alternativamente, clique em um trabalho para visualizar o registro. No registro, clique em {% octicon "sync" aria-label="The re-run icon" %}. ![Reexecutar trabalho selecionado](/assets/images/help/repository/re-run-single-job-from-log.png)
+{% data reusables.actions.enable-debug-logging %}
 
 {% endwebui %}
 
@@ -105,6 +125,14 @@ Para executar novamente um trabalho específico em uma execução de fluxo de tr
 gh run rerun --job <em>job-id</em>
 ```
 
+{% if debug-reruns %}
+{% data reusables.actions.enable-debug-logging-cli %}
+
+```shell
+gh run rerun --job <em>job-id</em> --debug
+```
+
+{% endif %}
 {% endcli %}
 
 {% endif %}

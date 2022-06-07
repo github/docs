@@ -27,7 +27,16 @@ topics:
 
 ## 关于拉取请求上的 {% data variables.product.prodname_code_scanning %} 结果
 
-在仓库中，如果 {% data variables.product.prodname_code_scanning %} 被配置为拉取请求检查，则 {% data variables.product.prodname_code_scanning %} 将检查拉取请求中的代码。 默认情况下，这仅限于针对默认分支的拉取请求，但是您可以在 {% data variables.product.prodname_actions %} 或第三方 CI/CD 系统中更改此配置。 如果合并分支给目标分支带来新的 {% data variables.product.prodname_code_scanning %} 警报，这些警报将在拉取请求中被报告为检查结果。 警报还将在拉取请求的 **Files changed（文件已更改）**选项卡中显示为注释。 如果您拥有仓库的写入权限，您可以在 **Security（安全）**选项卡中查看任何现有的 {% data variables.product.prodname_code_scanning %} 警报。 有关仓库警报的更多信息，请参阅“[管理仓库的 {% data variables.product.prodname_code_scanning %} 警报](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository)”。
+在仓库中，如果 {% data variables.product.prodname_code_scanning %} 被配置为拉取请求检查，则 {% data variables.product.prodname_code_scanning %} 将检查拉取请求中的代码。 默认情况下，这仅限于针对默认分支的拉取请求，但是您可以在 {% data variables.product.prodname_actions %} 或第三方 CI/CD 系统中更改此配置。 如果合并更改会向目标分支引入新的 {% data variables.product.prodname_code_scanning %} 警报，则会在多个位置报告警报。
+
+- 在拉取请求 {% if code-scanning-pr-conversations-tab %} 中检查结果
+- 拉取请求的 **Conversation（对话）** 选项卡，作为拉取请求审查的一部分{% endif %}
+- 拉取请求的 **Files changed（文件已更改）**选项卡
+
+{% if code-scanning-pr-conversations-tab %} {% endif %}
+
+如果您拥有仓库的写入权限，您可以在 **Security（安全）**选项卡中查看任何现有的 {% data variables.product.prodname_code_scanning %} 警报。 有关仓库警报的更多信息，请参阅“[管理仓库的 {% data variables.product.prodname_code_scanning %} 警报](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository)”。
+
 {% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 在 {% data variables.product.prodname_code_scanning %} 配置为在每次推送代码时扫描的存储库中，{% data variables.product.prodname_code_scanning %} 还会将结果映射到任何打开的拉取请求，并将警报作为注释添加到与其他拉取请求检查相同的位置。 更多信息请参阅“[在推送时扫描](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#scanning-on-push)”。
 {% endif %}
@@ -66,9 +75,18 @@ topics:
 
 ## 查看拉取请求上的警报
 
+{% if code-scanning-pr-conversations-tab %}
+通过查看 **Conversation（对话）**选项卡，可以查看拉取请求中引入的任何 {% data variables.product.prodname_code_scanning %} 警报。 {% data variables.product.prodname_code_scanning_capc %} 发布拉取请求审查，将每个警报显示为触发警报的代码行上的注释。 可以直接从注释中对警报进行注释、消除警报以及查看警报的路径。 您可以通过单击“Show more details（显示更多详细信息）”链接来查看警报的完整详细信息，该链接将带您进入警报详细信息页面。
+
+![拉取请求“Conversations（对话）”选项卡中的警报注释](/assets/images/help/repository/code-scanning-pr-conversation-tab.png)
+
+您还可以在拉取请求的 **Files changed（文件已更改）**选项卡中查看所有 {% data variables.product.prodname_code_scanning %} 警报。 在拉取请求中引入的更改差异之外的文件现有 {% data variables.product.prodname_code_scanning %} 警报将仅显示在 **Files changed（文件已更改）**选项卡中。
+
+{% else %}
 您可以通过显示 **Files changed（已更改的文件）**选项卡来查看拉取请求中引入的任何 {% data variables.product.prodname_code_scanning %} 警报。 每个警报都显示为触发警报的代码行上的注释。 警报的严重性显示在注释中。
 
 ![拉取请求差异中的警报注释](/assets/images/help/repository/code-scanning-pr-annotation.png)
+{% endif %}
 
 如果您拥有仓库的写入权限，则某些注释将包含警报额外上下文的链接。 在上例中，您可以在 {% data variables.product.prodname_codeql %} 分析中单击 **user-provided value（用户提供的值）**，以查看不受信任的数据进入数据流的位置（这被称为源）。 在此例中，您还可以通过单击 **Show paths（显示路径）**来查看从源到使用数据的代码（池）的完整路径。 这样就很容易检查数据是否不受信任，或者分析是否无法识别源与池之间的数据净化步骤。 有关使用 {% data variables.product.prodname_codeql %} 分析数据流的信息，请参阅“[关于数据流分析](https://codeql.github.com/docs/writing-codeql-queries/about-data-flow-analysis/)”。
 
@@ -85,6 +103,14 @@ topics:
 {% else %}
 ![显示更多信息的警报说明和链接](/assets/images/enterprise/3.4/repository/code-scanning-pr-alert.png)
 {% endif %}
+
+{% if code-scanning-pr-conversations-tab %}
+## 评论拉取请求中的警报
+
+您可以对拉取请求中的更改引入的任何 {% data variables.product.prodname_code_scanning %} 警报进行评论。 警报作为评论显示在拉取请求的 **Conversation（对话）**选项卡中，作为拉取请求审查的一部分，并且还显示在 **Files changed（文件已更改）**选项卡中。 只能对拉取请求中的更改引入的警报进行评论。 对于在拉取请求中引入的更改之外的文件，现有 {% data variables.product.prodname_code_scanning %} 警报将显示在 **Files changed（文件已更改）**选项卡中，但无法对其进行评论。
+
+您可以选择要求在合并拉取请求之前解析拉取请求中的所有对话，包括 {% data variables.product.prodname_code_scanning %} 警报上的对话。 更多信息请参阅“[关于受保护分支](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-conversation-resolution-before-merging)”。
+{% endif %}
 ## 修复拉取请求上的警报
 
 任何对拉取请求具有推送权限的人都可以修复在该拉取请求上已识别的 {% data variables.product.prodname_code_scanning %} 警报。 如果将更改提交到拉取请求，这将触发拉取请求检查的新运行。 如果您的更改修复了问题，则警报将被关闭，注释将被删除。
@@ -92,9 +118,11 @@ topics:
 ## 忽略拉取请求上的警报
 
 关闭警报的另一种办法是忽略它。 您可以忽略您认为不需要修复的警报。 {% data reusables.code-scanning.close-alert-examples %} 如果您对仓库有写入权限，则 **Dismiss（忽略）**按钮在代码注释和警报摘要中可用。 单击 **Dismiss（忽略）**时，您将被提示选择关闭警报的原因。
-
+{% if comment-dismissed-code-scanning-alert %}
+![用于强调选择解除原因的下拉列表代码扫描警报屏幕截图](/assets/images/help/repository/code-scanning-alert-drop-down-reason.png)
+{% else %}
 ![选择忽略警报的原因](/assets/images/help/repository/code-scanning-alert-close-drop-down.png)
-
+{% endif %}
 {% data reusables.code-scanning.choose-alert-dismissal-reason %}
 
 {% data reusables.code-scanning.false-positive-fix-codeql %}

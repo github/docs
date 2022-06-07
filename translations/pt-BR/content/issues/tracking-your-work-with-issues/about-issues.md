@@ -36,7 +36,7 @@ Para obter mais informações sobre os projetos, consulte {% ifversion fpt or gh
 
 ## Mantenha-se atualizado
 
-Para manter-se atualizado sobre os comentários mais recentes em um problema, você pode assinar um problema para receber notificações sobre os comentários mais recentes. Para encontrar links para problemas atualizados recentemente nos quais você está inscrito, visite seu painel. For more information, see "[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications)" and "[About your personal dashboard](/articles/about-your-personal-dashboard)."
+Para manter-se atualizado sobre os comentários mais recentes em um problema, você pode assinar um problema para receber notificações sobre os comentários mais recentes. Para encontrar links para problemas atualizados recentemente nos quais você está inscrito, visite seu painel. Para obter mais informações, consulte "[Sobre as notificações](/github/managing-subscriptions-and-notifications-on-github/about-notifications)" e "[Sobre o seu painel pessoal](/articles/about-your-personal-dashboard)".
 
 ## Gerenciamento da comunidade
 

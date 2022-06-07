@@ -1,33 +1,33 @@
 ---
 date: '2022-05-10'
 release_candidate: true
-deprecated: false
+deprecated: true
 intro: |
   {% note %}
 
-  **Note:** If {% data variables.product.product_location %} is running a release candidate build, you can't upgrade with a hotpatch. We recommend only running release candidates on test environments.
+  **ノート:** {% data variables.product.product_location %}がリリース候補ビルドを実行している場合、ホットパッチでのアップグレードはできません。リリース候補はテスト環境でのみ実行することをおすすめします。
 
   {% endnote %}
 
-  For upgrade instructions, see "[Upgrading {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)."
+  アップグレードの手順については「[{% data variables.product.prodname_ghe_server %}のアップグレード](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)　」を参照してください。
 sections:
   features:
     - 
-      heading: IP exception list for validation testing after maintenance
+      heading: メンテナンス後の検証テストのためのIP例外リスト
       notes:
         - |
-          You can now configure an allow list of IP addresses that can access application services on your GitHub Enterprise Server instance while maintenance mode is enabled. Administrators who visit the instance's web interface from an allowed IP address can validate the instance's functionality post-maintenance and before disabling maintenance mode. For more information, see "[Enabling and scheduling maintenance mode](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode#validating-changes-in-maintenance-mode-using-the-ip-exception-list)."
+          メンテナンスモードが有効化されている間に、GitHub Enterprise Serverインスタンス上のアプリケーションサービスにアクセスできるIPアドレスの許可リストを設定できるようになりました。許可されたIPアドレスからインスタンスのWebインターフェースにアクセスする管理者は、メンテナンス後及びメンテナンスモードを無効化する前にインスタンスの機能を検証できます。詳しい情報については「[メンテナンスモードの有効化とスケジューリング](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode#validating-changes-in-maintenance-mode-using-the-ip-exception-list)」を参照してください。
     - 
-      heading: Custom repository roles are generally available
+      heading: カスタムリポジトリロールの一般提供
       notes:
         - |
-          With custom repository roles, organizations now have more granular control over the repository access permissions they can grant to users. For more information, see "[Managing custom repository roles for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)."
+          Organizationは、カスタムリポジトリロールを使用してユーザに付与するリポジトリへのアクセス権限をより細かく制御できるようになりました。詳しい情報については「[Organizationのカスタムリポジトリロールの管理](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)」を参照してください。
 
-          A custom repository role is created by an organization owner, and is available across all repositories in that organization. Each role can be given a custom name, and a description. It can be configured from a set of over 40 fine grained permissions. Once created, repository admins can assign a custom role to any user, team or outside collaborator in their repository.
+          カスタムリポジトリロールはOrganizationのオーナーによって作成され、そのOrganization内のすべてのリポジトリに渡って利用できます。それぞれのロールにはカスタムの名前と説明が与えられます。ロールは、40以上の細かな権限のセットから設定できます。いったん作成されると、リポジトリの管理者は自分のリポジトリでカスタムロールを任意のユーザ、Team、外部のコラボレータに割り当てることができます。
 
-          Custom repository roles can be created, viewed, edited and deleted via the new **Repository roles** tab in an organization's settings. A maximum of 3 custom roles can be created within an organization.
+          カスタムリポジトリロールは、Organizationの設定の新しい**Repository roles（リポジトリロール）**タブから作成、表示、編集、削除できます。
 
-          Custom repository roles are also fully supported in the GitHub Enterprise Server REST APIs. The Organizations API can be used to list all custom repository roles in an organization, and the existing APIs for granting repository access to individuals and teams have been extended to support custom repository roles. For more information, see "[Organizations](/rest/reference/orgs#list-custom-repository-roles-in-an-organization)" in the REST API documentation.
+          カスタムリポジトリロールは、GitHub Enterprise ServerのREST APIでも完全にサポートされています。Organization APIを使ってOrganization内のすべてのカスタムリポジトリロールをリストでき、個人やTeamにリポジトリへのアクセスを付与するための既存のAPIは、カスタムリポジトリロールをサポートするために拡張されました。詳しい情報については、REST APIドキュメンテーションの「[Organizations](/rest/reference/orgs#list-custom-repository-roles-in-an-organization)」を参照してください。
     - 
       heading: GitHub Container registry in public beta
       notes:
@@ -122,7 +122,7 @@ sections:
       heading: Re-run failed or individual GitHub Actions jobs
       notes:
         - |
-          You can now re-run only failed jobs or an individual job in a GitHub Actions workflow run. For more information, see "[Re-running workflows and jobs](/managing-workflow-runs/re-running-workflows-and-jobs)."
+          You can now re-run only failed jobs or an individual job in a GitHub Actions workflow run. For more information, see "[Re-running workflows and jobs](/actions/managing-workflow-runs/re-running-workflows-and-jobs)."
     - 
       heading: Dependency graph supports GitHub Actions
       notes:
@@ -313,7 +313,7 @@ sections:
     - |
       GitHub Enterprise Server can display several common image formats, including PNG, JPG, GIF, PSD, and SVG, and provides several ways to compare differences between versions. Now when reviewing added or changed images in a pull request, previews of those images are shown by default. Previously, you would see a message indicating that binary files could not be shown and you would need to toggle the "Display rich diff" option. For more information, see  "[Working with non-code files](/repositories/working-with-files/using-files/working-with-non-code-files)."
     - |
-      New gists are now created with a default branch name of either `main` or the alternative default branch name defined in your user settings. This matches how other repositories are created on GitHub Enterprise Server. For more information, see "[About branches](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches#about-the-default-branch)" and "[Managing the default branch name for your repositories](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-the-default-branch-name-for-your-repositories)."
+      New gists are now created with a default branch name of either `main` or the alternative default branch name defined in your user settings. This matches how other repositories are created on GitHub Enterprise Server. For more information, see "[About branches](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches#about-the-default-branch)" and "[Managing the default branch name for your repositories](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-the-default-branch-name-for-your-repositories)."
     - |
       Gists now only show the 30 most recent comments when first displayed. You can click **Load earlier comments...** to view more. This allows gists that have many comments to appear more quickly. For more information, see "[Editing and sharing content with gists](/get-started/writing-on-github/editing-and-sharing-content-with-gists)."
     - |
@@ -322,6 +322,8 @@ sections:
       Focusing or hovering over a label now displays the label description in a tooltip.
     - |
       Creating and removing repository invitations, whether done through the API or web interface, are now subject to rate limits that may be enabled on your GitHub Enterprise Server instance. For more information about rate limits, see "[Configuring rate limits](/admin/configuration/configuring-your-enterprise/configuring-rate-limits)."
+    - |
+      MinIO has announced the removal of the MinIO Gateways starting June 1st, 2022. While MinIO Gateway for NAS continues to be one of the supported storage providers for Github Actions and Github Packages, we recommend moving to MinIO LTS support to avail support and bug fixes from MinIO. For more information about rate limits, see "[Scheduled removal of MinIO Gateway for GCS, Azure, HDFS in the minio/minio repository](https://github.com/minio/minio/issues/14331)."
   deprecations:
     - 
       heading: Change to the format of authentication tokens
@@ -334,12 +336,12 @@ sections:
         - |
           The CodeQL runner is deprecated in favor of the CodeQL CLI. GitHub Enterprise Server 3.4 and later no longer include the CodeQL runner. This deprecation only affects users who use CodeQL code scanning in 3rd party CI/CD systems. GitHub Actions users are not affected. GitHub strongly recommends that customers migrate to the CodeQL CLI, which is a feature-complete replacement for the CodeQL runner and has many additional features. For more information, see "[Migrating from the CodeQL runner to CodeQL CLI](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/migrating-from-the-codeql-runner-to-codeql-cli)."
     - 
-      heading: Theme picker for GitHub Pages has been removed
+      heading: GitHub Pagesのテーマピッカーの削除
       notes:
         - |
-          The theme picker for GitHub Pages has been removed from the Pages settings. For more information about configuration of themes for GitHub Pages, see "[Adding a theme to your GitHub Pages site using Jekyll](/pages/setting-up-a-github-pages-site-with-jekyll/adding-a-theme-to-your-github-pages-site-using-jekyll)."
+          GitHub Pagesのテーマピッカーは、Pagesの設定から削除されました。GitHub Pagesのテーマ設定に関する詳しい情報については「[Jekyllを使ったGitHub Pagesサイトへのテーマの追加(/pages/setting-up-a-github-pages-site-with-jekyll/adding-a-theme-to-your-github-pages-site-using-jekyll)を参照してください。
   known_issues:
-    - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
+    - 新しくセットアップされたユーザを持たない{% data variables.product.prodname_ghe_server %}インスタンスで、攻撃者が最初の管理ユーザを作成できました。
     - アップグレードの過程で、カスタムのファイアウォールのルールが削除されます。
     - Git LFSが追跡するファイル[Webインターフェースからアップロードされたもの](https://github.com/blog/2105-upload-files-to-your-repositories)が、不正にリポジトリに直接追加されてしまいます。
     - 同じリポジトリ内のファイルパスが255文字を超えるblobへのパーマリンクを含むIssueをクローズできませんでした。

@@ -169,17 +169,6 @@ describe('server', () => {
     expect($.res.statusCode).toBe(400)
   })
 
-  // see issue 12427
-  test('renders a 404 for leading slashes', async () => {
-    let $ = await getDOM('//foo.com/enterprise', { allow404: true })
-    expect($('h1').text()).toBe('Ooops!')
-    expect($.res.statusCode).toBe(404)
-
-    $ = await getDOM('///foo.com/enterprise', { allow404: true })
-    expect($('h1').text()).toBe('Ooops!')
-    expect($.res.statusCode).toBe(404)
-  })
-
   test('renders a 500 page when errors are thrown', async () => {
     const $ = await getDOM('/_500', { allow500s: true })
     expect($('h1').text()).toBe('Ooops!')
@@ -714,14 +703,6 @@ describe('server', () => {
       expect(res.statusCode).toBe(301)
       expect(res.headers['cache-control']).toContain('public')
       expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
-    })
-
-    test('redirects Desktop Classic paths to desktop.github.com', async () => {
-      const res = await get('/desktop-classic')
-      expect(res.statusCode).toBe(301)
-      expect(res.headers.location).toBe('https://desktop.github.com')
-      expect(res.headers['set-cookie']).toBeUndefined()
-      expect(res.headers['cache-control']).toBeUndefined()
     })
   })
 

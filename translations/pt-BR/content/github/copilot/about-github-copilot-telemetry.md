@@ -9,7 +9,7 @@ versions:
 
 ## Quais dados são coletados
 
-Os dados coletados são descritos nos Termos de Telemetria de[{% data variables.product.prodname_copilot %}](/github/copilot/github-copilot-telemetry-terms)." Além disso, a extensão/plugin de {% data variables.product.prodname_copilot %} coleta a atividade do Ambiente Integrado de Desenvolvimento (IDE), vinculado a um registro de hora, e metadados coletados pelo pacote de telemetria da extensão/plugin. When used with {% data variables.product.prodname_vscode %}, IntelliJ, NeoVIM, or other IDEs, {% data variables.product.prodname_copilot %} collects the standard metadata provided by those IDEs.
+Os dados coletados são descritos nos Termos de Telemetria de[{% data variables.product.prodname_copilot %}](/github/copilot/github-copilot-telemetry-terms)." Além disso, a extensão/plugin de {% data variables.product.prodname_copilot %} coleta a atividade do Ambiente Integrado de Desenvolvimento (IDE), vinculado a um registro de hora, e metadados coletados pelo pacote de telemetria da extensão/plugin. Quando usado com {% data variables.product.prodname_vscode %}, IntelliJ, NeoVIM, ou outros IDEs, {% data variables.product.prodname_copilot %} coleta os metadados padrão fornecidos por esses IDEs.
 
 ## Como os dados são usados pelo {% data variables.product.company_short %}
 

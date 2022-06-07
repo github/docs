@@ -267,6 +267,15 @@ Se o {% data variables.product.prodname_codeql_workflow %} ainda falhar em um co
 Este tipo de commit de merge foi criado por {% data variables.product.prodname_dependabot %} e, portanto, qualquer fluxo de trabalho que esteja em execução no commit terá permissões de somente leitura. Se você habilitou as atualizações de segurança de {% data variables.product.prodname_code_scanning %} e {% data variables.product.prodname_dependabot %} ou as atualizações da versão no seu repositório, recomendamos que você evite usar o comando {% data variables.product.prodname_dependabot %} `@dependabot squash e merge`. Em vez disso, você pode habilitar a mesclagem automática para o seu repositório. Isto significa que os pull requests serão automaticamente mesclados quando todas as revisões necessárias forem atendidas e as verificações de status forem aprovadas. Para obter mais informações sobre como habilitar o merge automático, consulte "[Merge automático de um pull request](/github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request#enabling-auto-merge)".
 {% endif %}
 
+## Erro: "não é um arquivo .ql, arquivo, não é um arquivo .qls, um diretório ou uma especificação de consulta de pacote"
+
+Você verá este erro se o CodeQL não conseguir encontrar a consulta nomeada, conjunto de consultas ou pacote de consultas no local solicitado no fluxo de trabalho. Há duas razões comuns para este erro.
+
+- Há um erro de digitação no fluxo de trabalho.
+- Um recurso que o fluxo de trabalho se refere por caminho foi renomeado, excluído ou transferido para um novo local.
+
+Depois de verificar a localização do recurso, você pode atualizar o fluxo de trabalho para especificar a localização correta. Se você executar consultas adicionais em análise do Go, é possível que você tenha sido afetado pela deslocalização dos arquivos de origem. Para obter mais informações, consulte [Anúncio de realocação: `github/codeql-go` transferindo-se para `github/codeql`](https://github.com/github/codeql-go/issues/741) no repositório github/codeql-go.
+
 ## Aviso: "git checkout HEAD^2 is no longer necessary"
 
 Se você estiver usando um fluxo de trabalho antigo de {% data variables.product.prodname_codeql %}, você poderá receber o aviso a seguir na saída "Inicializar {% data variables.product.prodname_codeql %}" da ação:

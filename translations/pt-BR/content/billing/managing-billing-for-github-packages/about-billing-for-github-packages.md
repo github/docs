@@ -50,9 +50,9 @@ Todos os dados transferidos, quando acionados por {% data variables.product.prod
 
 O uso do armazenamento é compartilhado com artefatos de construção produzidos por {% data variables.product.prodname_actions %} para repositórios de sua conta. Para obter mais informações, consulte "[Sobre a cobrança do {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)."
 
-O {% data variables.product.prodname_dotcom %} cobra o uso da conta que possui o repositório onde o pacote é publicado. If your account's usage surpasses these limits and you have set a spending limit above $0 USD, you will pay $0.008 USD per GB of storage per day and $0.50 USD per GB of data transfer.
+O {% data variables.product.prodname_dotcom %} cobra o uso da conta que possui o repositório onde o pacote é publicado. Se o uso da sua conta ultrapassar esses limites e você definir um limite de gastos acima de US$ 0, você pagará US$ 0,008 por GB de armazenamento por dia e US$ 0,50 por GB de transferência de dados.
 
-Por exemplo, se sua organização usa {% data variables.product.prodname_team %}, permite gastos ilimitados, usa 150GB de armazenamento, e possui 50GB de transferência de dados durante um mês, a organização teria excessos de 148GB para armazenamento e 40GB para transferência de dados para esse mês. The storage overage would cost $0.008 USD per GB per day or $37 USD. O excesso para transferência de dados custaria US$ 0,50 ou US$ 20 por GB.
+Por exemplo, se sua organização usa {% data variables.product.prodname_team %}, permite gastos ilimitados, usa 150GB de armazenamento, e possui 50GB de transferência de dados durante um mês, a organização teria excessos de 148GB para armazenamento e 40GB para transferência de dados para esse mês. O excesso de armazenamento custaria US$ 0,008 por GB por dia ou US$ 37. O excesso para transferência de dados custaria US$ 0,50 ou US$ 20 por GB.
 
 {% data reusables.dotcom_billing.pricing_calculator.pricing_cal_packages %}
 

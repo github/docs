@@ -140,7 +140,7 @@ jobs:
             {% raw %}${{ runner.os }}-build-{% endraw %}
             {% raw %}${{ runner.os }}-{% endraw %}
 
-      - if: {% raw %}${{ steps.cache-npm.outputs.cache-hit == false }}{% endraw %}
+      - if: {% raw %}${{ steps.cache-npm.outputs.cache-hit == 'false' }}{% endraw %}
         name: List the state of node modules
         continue-on-error: true
         run: npm list
@@ -196,7 +196,7 @@ You can use the output of the `cache` action to do something based on whether a 
 In the example workflow above, there is a step that lists the state of the Node modules if a cache miss occurred:
 
 ```yaml
-- if: {% raw %}${{ steps.cache-npm.outputs.cache-hit == false }}{% endraw %}
+- if: {% raw %}${{ steps.cache-npm.outputs.cache-hit == 'false' }}{% endraw %}
   name: List the state of node modules
   continue-on-error: true
   run: npm list
