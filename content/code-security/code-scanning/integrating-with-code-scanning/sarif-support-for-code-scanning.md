@@ -211,11 +211,12 @@ This SARIF output file has example values to show the minimum required propertie
               "id": "R01"
                       ...
               "properties" : {
-               "id" : "java/unsafe-deserialization",
-               "kind" : "path-problem",
-               "name" : "...",
-               "problem.severity" : "error",
-               "security-severity" : "9.8",
+                 "id" : "java/unsafe-deserialization",
+                 "kind" : "path-problem",
+                 "name" : "...",
+                 "problem.severity" : "error",
+                 "security-severity" : "9.8",
+               }
             }
           ]
         }
