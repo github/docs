@@ -105,7 +105,7 @@ describe('lint Liquid versioning', () => {
 function validateVersion(version) {
   const isSupported = allowedVersionNames.includes(version)
   const isException = Object.values(allVersions).some(
-    (v) => v.allowedInlinePattern && v.allowedInlinePattern.test(version)
+    (v) => v.allowedInlinePattern && new RegExp(v.allowedInlinePattern).test(version)
   )
   const isValid = isSupported || isException
 
