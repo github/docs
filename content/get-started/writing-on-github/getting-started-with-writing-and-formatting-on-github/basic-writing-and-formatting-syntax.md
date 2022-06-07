@@ -103,6 +103,12 @@ Here are the currently supported color models.
 | RGB | `rgb(26, 116, 220)` |        |
 | HSL | `hsl(212, 79%, 48%)` |        |
 
+{% note %}
+
+**Note:** A supported color model cannot have any leading or trailing spaces within the backticks.
+
+{% endnote %}
+
 ## Links
 
 You can create an inline link by wrapping link text in brackets `[ ]`, and then wrapping the URL in parentheses `( )`. {% ifversion fpt or ghae or ghes > 3.1 or ghec %}You can also use the keyboard shortcut <kbd>Command</kbd>+<kbd>K</kbd> to create a link.{% endif %}{% ifversion fpt or ghae-issue-5434 or ghes > 3.3 or ghec %} When you have text selected, you can paste a URL from your clipboard to automatically create a link from the selection.{% endif %}
