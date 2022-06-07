@@ -465,7 +465,7 @@ The `runner` context contains information about the runner that is executing the
 |---------------|------|-------------|
 | `runner` | `object` | This context changes for each job in a workflow run. This object contains all the properties listed below. |
 | `runner.name` | `string` | {% data reusables.actions.runner-name-description %} |
-| `runner.os` | `string` | {% data reusables.actions.runner-os-description %} |{% if actions-runner-arch-envvars %}
+| `runner.os` | `string` | {% data reusables.actions.runner-os-description %} |{% ifversion actions-runner-arch-envvars %}
 | `runner.arch` | `string` | {% data reusables.actions.runner-arch-description %} |{% endif %}
 | `runner.temp` | `string` | {% data reusables.actions.runner-temp-directory-description %} |
 | `runner.tool_cache` | `string` | {% ifversion ghae %}{% data reusables.actions.self-hosted-runners-software %} {% else %} {% data reusables.actions.runner-tool-cache-description %} {% endif %}|

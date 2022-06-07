@@ -41,7 +41,7 @@ shortTitle: 配置维护模式
 
 ![维护模式启动屏幕](/assets/images/enterprise/maintenance/maintenance-mode-maintenance-page.png)
 
-{% if ip-exception-list %}
+{% ifversion ip-exception-list %}
 
 您可以通过配置 IP 例外列表来执行维护操作的初始验证，以仅允许从提供的 IP 地址和范围访问 {% data variables.product.product_location %}。 尝试从 IP 例外列表中未指定的 IP 地址访问 {% data variables.product.product_location %} 将收到与实例处于维护模式时发送的响应一致的响应。
 
@@ -58,7 +58,7 @@ shortTitle: 配置维护模式
 4. 选择 **Enable maintenance mode**。 ![启用或排定维护模式的复选框](/assets/images/enterprise/maintenance/enable-maintenance-mode-checkbox.png)
 {% data reusables.enterprise_management_console.save-settings %}
 
-{% if ip-exception-list %}
+{% ifversion ip-exception-list %}
 
 ## 在维护模式下使用 IP 例外列表验证更改
 

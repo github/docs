@@ -48,7 +48,7 @@ En un archivo o solicitud de extracción, también puedes utilizar el menú {% o
 3. En la esquina superior derecha de la vista del archivo, haz clic en **Blame** (Último responsable) para abrir la vista del último responsable. ![Botón Blame (Último responsable)](/assets/images/help/repository/blame-button.png)
 4. Para ver versiones anteriores de una línea específica, o el siguiente último responsable, haz clic en {% octicon "versions" aria-label="The prior blame icon" %} hasta que hayas encontrado los cambios que quieres ver. ![Botón Prior blame (Último responsable anterior)](/assets/images/help/repository/prior-blame-button.png)
 
-{% if blame-ignore-revs %}
+{% ifversion blame-ignore-revs %}
 
 ## Ignorar las confirmaciones en la vista de último responsable
 

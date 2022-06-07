@@ -257,15 +257,15 @@ Por ejemplo, si una solicitud de cambios contiene una rama de `feature` y apunta
 
 ## Límites de uso y política de desalojo
 
-{% data variables.product.prodname_dotcom %} eliminará todas las entradas de caché a las que no se haya accedido en más de 7 días. No hay límite en la cantidad de cachés que puedes almacenar, pero el tamaño total de todos ellos en un repositorio se limita{% if actions-cache-policy-apis %}. Predeterminadamente, el límite es de 10 GB por repositorio, pero este límite podría ser diferente dependiendo de las políticas que configuren tus propietarios de empresa o administradores de repositorio.{% else %} a 10 GB.{% endif %}
+{% data variables.product.prodname_dotcom %} eliminará todas las entradas de caché a las que no se haya accedido en más de 7 días. No hay límite en la cantidad de cachés que puedes almacenar, pero el tamaño total de todos ellos en un repositorio se limita{% ifversion actions-cache-policy-apis %}. Predeterminadamente, el límite es de 10 GB por repositorio, pero este límite podría ser diferente dependiendo de las políticas que configuren tus propietarios de empresa o administradores de repositorio.{% else %} a 10 GB.{% endif %}
 
 {% data reusables.actions.cache-eviction-process %}
 
-{% if actions-cache-policy-apis %}
+{% ifversion actions-cache-policy-apis %}
 Para obtener más información sobre cómo cambiar las políticas del límite de tamaño del caché del repositorio, consulta las secciones "[Requerir políticas para las {% data variables.product.prodname_actions %} de tu empresa](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-cache-storage-in-your-enterprise)" y "[Administrar los ajustes de las {% data variables.product.prodname_actions %} de un repositorio](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-cache-storage-for-a-repository)".
 {% endif %}
 
-{% if actions-cache-management %}
+{% ifversion actions-cache-management %}
 
 ## Administrar los cachés
 

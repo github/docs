@@ -966,7 +966,7 @@ GitHub Marketplace の購入に関連するアクティビティ。 {% data reus
 
 {{ webhookPayloadsForCurrentVersion.project_column.created }}
 
-{% if project-beta-webhooks %}
+{% ifversion project-beta-webhooks %}
 
 ## projects_v2_item
 

@@ -23,7 +23,7 @@ This guide shows you how to configure security features for an organization. You
 
 ## Managing access to your organization
 
-You can use roles to control what actions people can take in your organization. {% if security-managers %}For example, you can assign the security manager role to a team to give them the ability to manage security settings across your organization, as well as read access to all repositories.{% endif %} For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
+You can use roles to control what actions people can take in your organization. {% ifversion security-managers %}For example, you can assign the security manager role to a team to give them the ability to manage security settings across your organization, as well as read access to all repositories.{% endif %} For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
 
 {% ifversion fpt or ghes > 3.0 or ghec %}
 

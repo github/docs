@@ -28,7 +28,7 @@ shortTitle: View the security overview
 1. To view aggregate information about alert types, click **Show more**.
   ![Show more button](/assets/images/help/organizations/security-overview-show-more-button.png)
 {% data reusables.organizations.filter-security-overview %}
-{% if security-overview-views %}
+{% ifversion security-overview-views %}
 {% data reusables.organizations.security-overview-feature-specific-page %}
   ![Screenshot of the code scanning-specific page](/assets/images/help/organizations/security-overview-code-scanning-alerts.png)
 
@@ -46,7 +46,7 @@ shortTitle: View the security overview
 
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
 1. In the left sidebar, click {% octicon "shield" aria-label="The shield icon" %} **Code Security**.
-{% if security-overview-feature-specific-alert-page %}
+{% ifversion security-overview-feature-specific-alert-page %}
 {% data reusables.organizations.security-overview-feature-specific-page %}
 {% endif %}
 {% endif %}

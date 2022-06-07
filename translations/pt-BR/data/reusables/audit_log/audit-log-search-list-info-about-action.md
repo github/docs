@@ -9,6 +9,6 @@ Cada entrada do log de auditoria mostra informações aplicáveis sobre um event
 - A ação que foi executada
 - Em que país a ação foi executada
 - A data e a hora que a ação foi executada
-{%- if enterprise-audit-log-ip-addresses %}
+{%- ifversion enterprise-audit-log-ip-addresses %}
 - Optionally, the source IP address for the user (actor) who performed the action
 {%- endif %}

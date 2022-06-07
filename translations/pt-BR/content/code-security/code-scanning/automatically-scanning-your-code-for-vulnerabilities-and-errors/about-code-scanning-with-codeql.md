@@ -47,7 +47,7 @@ O {% data variables.product.prodname_codeql %} é compatível com linguagens com
 
 Você pode executar consultas adicionais como parte da sua análise de digitalização de código.
 
-{%- if codeql-packs %}
+{%- ifversion codeql-packs %}
 Essas consultas devem pertencer a um pacote de consulta de {% data variables.product.prodname_codeql %} publicado (beta) ou um pacote QL em um repositório. Os pacotes (beta) de {% data variables.product.prodname_codeql %} oferecem os seguintes benefícios sobre os pacotes QL tradicionais:
 
 - Quando um pacote de consulta (beta) {% data variables.product.prodname_codeql %} é publicado em {% data variables.product.company_short %} {% data variables.product.prodname_container_registry %}, todas as dependências transitórias exigidas pelas consultas e um cache de compilação estão incluídas no pacote. Isto melhora o desempenho e garante que a execução de consultas no pacote dê resultados idênticos toda vez até que você fizer a autalização para uma nova versão do pacote ou para o CLI.

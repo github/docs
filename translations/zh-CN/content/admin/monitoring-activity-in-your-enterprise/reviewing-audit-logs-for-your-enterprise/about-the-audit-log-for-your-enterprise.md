@@ -36,7 +36,7 @@ topics:
 作为企业所有者{% ifversion ghes %} 或站点管理员{% endif %}，您可以通过多种方式与企业的审核日志数据进行交互：
 - 您可以查看企业的审核日志。 更多信息请参阅“[访问企业的审核日志](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for-your-enterprise)”。
 - 您可以在审核日志中搜索特定事件{% ifversion ghec %} 并导出审核日志数据{% endif %}。 更多信息请参阅“[搜索企业的审核日志](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/searching-the-audit-log-for-your-enterprise)”{% ifversion ghec %} 和“[导出企业的审核日志](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/exporting-audit-log-activity-for-your-enterprise)”{% endif %}。
-{%- if enterprise-audit-log-ip-addresses %}
+{%- ifversion enterprise-audit-log-ip-addresses %}
 - You can display the IP address associated with events in the audit log. For more information, see "[Displaying IP addresses in the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/displaying-ip-addresses-in-the-audit-log-for-your-enterprise)."
 {%- endif %}
 {%- ifversion ghec %}

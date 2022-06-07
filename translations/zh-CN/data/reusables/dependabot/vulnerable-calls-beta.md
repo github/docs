@@ -1,4 +1,4 @@
-{% if dependabot-alerts-vulnerable-calls %}
+{% ifversion dependabot-alerts-vulnerable-calls %}
 
 {% note %}
 

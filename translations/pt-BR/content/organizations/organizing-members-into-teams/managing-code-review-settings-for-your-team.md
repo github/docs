@@ -19,7 +19,7 @@ permissions: Team maintainers and organization owners can configure code review 
 
 ## Sobre as configurações de revisão de código
 
-{% if only-notify-requested-members %}
+{% ifversion only-notify-requested-members %}
 Para reduzir o ruído para sua equipe e esclarecer a responsabilidade individual pelas análises de pull requests, você pode definir as configurações de revisão de código.
 
 - Notificações da equipe
@@ -46,7 +46,7 @@ O algoritmo do balanço de carga escolhe os revisores com base no número total 
 
 Todos os integrantes da equipe que definiram seu status como "Ocupado" não serão selecionados para revisão. Se todos os integrantes da equipe estiverem ocupados, o pull request permanecerá atribuído à própria equipe. Para obter mais informações sobre os status do usuário, consulte "[Configurando um status](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile#setting-a-status)".
 
-{% if only-notify-requested-members %}
+{% ifversion only-notify-requested-members %}
 ## Configurando notificações da equipe
 
 {% data reusables.profile.access_org %}

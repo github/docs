@@ -50,7 +50,7 @@ Your enterprise account allows you to manage and enforce policies for all the or
 
 {% ifversion ghes or ghae %}
 
-From your enterprise account on {% ifversion ghae %}{% data variables.product.product_name %}{% elsif ghes %}a {% data variables.product.prodname_ghe_server %} instance{% endif %}, administrators can view{% if remove-enterprise-members %} and manage{% endif %} enterprise membership{% if enterprise-owner-join-org %}, manage their own membership in organizations owned by the enterprise,{% endif %} and manage the following for the {% ifversion ghes %}{% data variables.product.prodname_ghe_server %} instance{% elsif ghae %}enterprise on {% data variables.product.prodname_ghe_managed %}{% endif %}.
+From your enterprise account on {% ifversion ghae %}{% data variables.product.product_name %}{% elsif ghes %}a {% data variables.product.prodname_ghe_server %} instance{% endif %}, administrators can view{% ifversion remove-enterprise-members %} and manage{% endif %} enterprise membership{% ifversion enterprise-owner-join-org %}, manage their own membership in organizations owned by the enterprise,{% endif %} and manage the following for the {% ifversion ghes %}{% data variables.product.prodname_ghe_server %} instance{% elsif ghae %}enterprise on {% data variables.product.prodname_ghe_managed %}{% endif %}.
 
 {% ifversion ghes %}
 - License usage{% endif %}
@@ -65,7 +65,7 @@ From your enterprise account on {% ifversion ghae %}{% data variables.product.pr
 
 {% endif %}
 
-{% ifversion ghec or ghes %}When you try or purchase {% data variables.product.prodname_enterprise %}, you can{% ifversion ghes %} also{% endif %} create an enterprise account for {% data variables.product.prodname_ghe_cloud %} on {% data variables.product.prodname_dotcom_the_website %}. Administrators for the enterprise account on {% data variables.product.prodname_dotcom_the_website %} can view {% if remove-enterprise-members %} and manage{% endif %} enterprise membership{% if enterprise-owner-join-org %}, manage their own membership in organizations owned by the enterprise,{% endif %} and manage the following for the enterprise account{% ifversion ghes %} on {% data variables.product.prodname_dotcom_the_website %}{% endif %}.
+{% ifversion ghec or ghes %}When you try or purchase {% data variables.product.prodname_enterprise %}, you can{% ifversion ghes %} also{% endif %} create an enterprise account for {% data variables.product.prodname_ghe_cloud %} on {% data variables.product.prodname_dotcom_the_website %}. Administrators for the enterprise account on {% data variables.product.prodname_dotcom_the_website %} can view {% ifversion remove-enterprise-members %} and manage{% endif %} enterprise membership{% ifversion enterprise-owner-join-org %}, manage their own membership in organizations owned by the enterprise,{% endif %} and manage the following for the enterprise account{% ifversion ghes %} on {% data variables.product.prodname_dotcom_the_website %}{% endif %}.
 
 - Billing and usage (services on {% data variables.product.prodname_dotcom_the_website %}, {% data variables.product.prodname_GH_advanced_security %}, user licenses)
 - Security (single sign-on, IP allow lists, SSH certificate authorities, two-factor authentication)

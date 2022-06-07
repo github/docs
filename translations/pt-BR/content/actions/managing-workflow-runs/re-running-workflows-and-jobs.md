@@ -1,6 +1,6 @@
 ---
 title: Reexecutando fluxos de trabalho e trabalhos
-intro: 'Você pode executar novamente um fluxo de trabalho{% if re-run-jobs %}, todos os trabalhos que falharam na execução de um fluxo de trabalho, ou trabalhos específicos em uma execução de fluxo de trabalho{% endif %} até 30 dias após sua execução inicial.'
+intro: 'Você pode executar novamente um fluxo de trabalho{% ifversion re-run-jobs %}, todos os trabalhos que falharam na execução de um fluxo de trabalho, ou trabalhos específicos em uma execução de fluxo de trabalho{% endif %} até 30 dias após sua execução inicial.'
 permissions: People with write permissions to a repository can re-run workflows in the repository.
 miniTocMaxHeadingLevel: 3
 redirect_from:
@@ -17,7 +17,7 @@ versions:
 
 ## Sobre a reexecução de fluxos de trabalho e trabalhos
 
-A reexecução de um fluxo de trabalho{% if re-run-jobs %} ou trabalhos em um fluxo de trabalho{% endif %} usa o mesmo `GITHUB_SHA` (commit SHA) e `GITHUB_REF` (Git ref) do evento original que acionou a execução do fluxo de trabalho. Você pode executar novamente um fluxo de trabalho{% if re-run-jobs %} ou trabalhos em um fluxo de trabalho{% endif %} por até 30 dias após a execução inicial.{% if debug-reruns %} Ao executar novamente um fluxo de travalho ou trabalhos em um fluxo de trabalho, você pode habilitar o registro de depuração para a nova execução. Isso permitirá o registro de diagnóstico do executor e o registro de depuração de etapas para a nova execução. Para obter mais informações sobre o registro de depuração, consulte "[Habilitando o registro de depuração](/actions/monitoring-and-troubleshooting-workflows/enabling-debug-logging)"{% endif %}
+A reexecução de um fluxo de trabalho{% ifversion re-run-jobs %} ou trabalhos em um fluxo de trabalho{% endif %} usa o mesmo `GITHUB_SHA` (commit SHA) e `GITHUB_REF` (Git ref) do evento original que acionou a execução do fluxo de trabalho. Você pode executar novamente um fluxo de trabalho{% ifversion re-run-jobs %} ou trabalhos em um fluxo de trabalho{% endif %} por até 30 dias após a execução inicial.{% ifversion debug-reruns %} Ao executar novamente um fluxo de travalho ou trabalhos em um fluxo de trabalho, você pode habilitar o registro de depuração para a nova execução. Isso permitirá o registro de diagnóstico do executor e o registro de depuração de etapas para a nova execução. Para obter mais informações sobre o registro de depuração, consulte "[Habilitando o registro de depuração](/actions/monitoring-and-troubleshooting-workflows/enabling-debug-logging)"{% endif %}
 
 ## Reexecutar todos os trabalhos em um fluxo de trabalho
 
@@ -49,7 +49,7 @@ Para executar novamente um fluxo de trabalho com falha, use o subcomando `execut
 gh run rerun <em>run-id</em>
 ```
 
-{% if debug-reruns %}
+{% ifversion debug-reruns %}
 {% data reusables.actions.enable-debug-logging-cli %}
 
 ```shell
@@ -66,7 +66,7 @@ gh run watch
 
 {% endcli %}
 
-{% if re-run-jobs %}
+{% ifversion re-run-jobs %}
 ## Reexecutar trabalhos que falharam em um fluxo de trabalho
 
 Se qualquer trabalho na execução de um fluxo de trabalho falhar, você poderá executar novamente apenas os trabalhos que falharam. Ao reexecutar trabalhos que falharam em fluxo de trabalho, uma nova execução do fluxo de trabalho será iniciada para todos os trabalhos que falharam e seus dependentes. Todas as saídas para quaisquer trabalhos bem-sucedidos na execução anterior do fluxo de trabalho serão usadas para a nova execução. Todos os artefatos criados na execução inicial estarão disponíveis na reexecução. Todas as regras de proteção de ambiente que passaram na execução anterior serão automaticamente passadas na reexecução.
@@ -90,7 +90,7 @@ Para executar novamente trabalhos que falharam em um fluxo de trabalho executado
 gh run rerun <em>run-id</em> --failed
 ```
 
-{% if debug-reruns %}
+{% ifversion debug-reruns %}
 {% data reusables.actions.enable-debug-logging-cli %}
 
 ```shell
@@ -125,7 +125,7 @@ Para executar novamente um trabalho específico em uma execução de fluxo de tr
 gh run rerun --job <em>job-id</em>
 ```
 
-{% if debug-reruns %}
+{% ifversion debug-reruns %}
 {% data reusables.actions.enable-debug-logging-cli %}
 
 ```shell
@@ -146,7 +146,7 @@ Você pode ver os resultados de suas tentativas anteriores de executar um fluxo 
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow %}
 {% data reusables.repositories.view-run %}
-{%- if re-run-jobs %}
+{%- ifversion re-run-jobs %}
 1. Quaisquer tentativas anteriores de execução são exibidas no menu suspenso **mais recentes**. ![Tentativas de execução anteriores](/assets/images/help/repository/previous-run-attempts.png)
 {%- else %}
 1. Todas as tentativas anteriores de execução são mostradas no painel esquerdo. ![Reexecutar fluxo de trabalho](/assets/images/help/settings/actions-review-workflow-rerun.png)
