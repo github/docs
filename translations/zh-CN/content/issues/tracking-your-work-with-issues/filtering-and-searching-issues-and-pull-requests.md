@@ -175,7 +175,7 @@ gh pr list --search "team:octo-org/octo-team"
 
 对于议题，您还可以使用搜索来：
 
-- Filter for issues that are linked to a pull request by a closing reference: `linked:pr`{% if issue-close-reasons %}
+- Filter for issues that are linked to a pull request by a closing reference: `linked:pr`{% ifversion issue-close-reasons %}
 - Filter issues by the reason they were closed: `is:closed reason:complete` or `is:closed reason:"not planned"`{% endif %}
 
 对于拉取请求，您还可以使用搜索来：

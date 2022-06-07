@@ -72,7 +72,7 @@ shortTitle: 搜索议题和 PR
 | `is:open`      | [**performance is:open is:issue**](https://github.com/search?q=performance+is%3Aopen+is%3Aissue&type=Issues) 匹配含有 "performance" 字样的开放议题。                                 |
 | `is:closed`    | [**android is:closed**](https://github.com/search?utf8=%E2%9C%93&q=android+is%3Aclosed&type=) 匹配含有 "android" 字样的已关闭议题和拉取请求。                                              |
 
-{% if issue-close-reasons %}
+{% ifversion issue-close-reasons %}
 ## Search by the reason an issue was closed
 
 You can filter issues based on the reason given when the issue was closed, using the `reason` qualifier.
