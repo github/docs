@@ -89,7 +89,7 @@ For more information, see "[Creating and highlighting code blocks](/articles/cre
 
 ## Supported color models
 
-You can call out color within a sentence with single backticks. A supported color model within backticks will display a small visualization of the color.
+You can call out color within a sentence with single backticks. A supported color model within backticks will display a visualization of the color.
 
 ```markdown
 The background color should be `#ffffff` for light mode and `#0d1117` for dark mode.
@@ -98,10 +98,10 @@ The background color should be `#ffffff` for light mode and `#0d1117` for dark m
 Here are the currently supported color models.
 
 | Color | Syntax | Output |
-|---|---|---|
-| HEX | `#1a74dc` |        |
-| RGB | `rgb(26, 116, 220)` |        |
-| HSL | `hsl(212, 79%, 48%)` |        |
+| --- | --- | --- |
+| HEX | `#1a74dc` | ![Supported color model HEX rendered.](/assets/images/help/writing/supported-color-models-hex-rendered.svg) |
+| RGB | `rgb(26, 116, 220)` | ![Supported color model RGB rendered.](/assets/images/help/writing/supported-color-models-rgb-rendered.svg) |
+| HSL | `hsl(212, 79%, 48%)` | ![Supported color model HSL rendered.](/assets/images/help/writing/supported-color-models-hsl-rendered.svg) |
 
 {% note %}
 
