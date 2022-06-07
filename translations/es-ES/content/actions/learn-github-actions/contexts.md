@@ -52,10 +52,7 @@ As part of an expression, you can access context information using one of two sy
 - Index syntax: `github['sha']`
 - Property dereference syntax: `github.sha`
 
-In order to use property dereference syntax, the property name must:
-
-- start with `a-Z` or `_`.
-- be followed by `a-Z` `0-9` `-` or `_`.
+In order to use property dereference syntax, the property name must start with a letter or `_` and contain only alphanumeric characters, `-`, or `_`.
 
 If you attempt to dereference a non-existent property, it will evaluate to an empty string.
 

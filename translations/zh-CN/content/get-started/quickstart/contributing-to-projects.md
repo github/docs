@@ -25,7 +25,7 @@ topics:
 本教程使用 [Spoon-Knife 项目](https://github.com/octocat/Spoon-Knife)，这是一个托管在 {% data variables.product.prodname_dotcom_the_website %} 上的测试存储库，可让您测试复刻和拉取请求工作流程。
 
 1. 导航到 `Spoon-Knife` project at https://github.com/octocat/Spoon-Knife。
-2. 单击 **Fork（复刻）**。 ![复刻按钮](/assets/images/help/repository/fork_button.jpg)
+2. 单击 **Fork（复刻）**。 ![复刻按钮](/assets/images/help/repository/fork_button.png)
 1. {% data variables.product.product_name %} 将带您进入 Spoon-Knife 存储库的副本（您的复刻）。
 
 ## 克隆复刻

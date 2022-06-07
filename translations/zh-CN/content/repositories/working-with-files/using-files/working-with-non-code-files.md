@@ -333,7 +333,7 @@ $ jupyter nbconvert --to html <em>NOTEBOOK-NAME.ipynb</em>
 ### 延伸阅读
 
 - [Jupyter Notebook 的 GitHub 仓库](https://github.com/jupyter/jupyter_notebook)
-- [Jupyter Notebook 的图片库](https://github.com/jupyter/jupyter/wiki/A-gallery-of-interesting-Jupyter-Notebooks)
+- [Jupyter Notebook 的图片库](https://github.com/jupyter/jupyter/wiki)
 
 {% if mermaid %}
 ## 在 {% data variables.product.prodname_dotcom %} 上显示 Mermaid 文件

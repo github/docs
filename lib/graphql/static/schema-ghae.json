@@ -126,6 +126,14 @@
             "description": "<p>Returns the elements in the list that come before the specified cursor.</p>"
           },
           {
+            "name": "classifications",
+            "type": "[SecurityAdvisoryClassification!]",
+            "id": "securityadvisoryclassification",
+            "kind": "enums",
+            "href": "/graphql/reference/enums#securityadvisoryclassification",
+            "description": "<p>A list of classifications to filter advisories by.</p>"
+          },
+          {
             "name": "first",
             "type": "Int",
             "id": "int",
@@ -182,6 +190,14 @@
             "kind": "scalars",
             "href": "/graphql/reference/scalars#string",
             "description": "<p>Returns the elements in the list that come before the specified cursor.</p>"
+          },
+          {
+            "name": "classifications",
+            "type": "[SecurityAdvisoryClassification!]",
+            "id": "securityadvisoryclassification",
+            "kind": "enums",
+            "href": "/graphql/reference/enums#securityadvisoryclassification",
+            "description": "<p>A list of advisory classifications to filter vulnerabilities by.</p>"
           },
           {
             "name": "ecosystem",
@@ -32181,6 +32197,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "viewerIsFollowing",
+          "description": "<p>Whether or not this Organization is followed by the viewer.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "websiteUrl",
           "description": "<p>The organization's public profile URL.</p>",
           "type": "URI",
@@ -49087,6 +49111,14 @@
       ],
       "fields": [
         {
+          "name": "classification",
+          "description": "<p>The classification of the advisory.</p>",
+          "type": "SecurityAdvisoryClassification!",
+          "id": "securityadvisoryclassification",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#securityadvisoryclassification"
+        },
+        {
           "name": "cvss",
           "description": "<p>The CVSS associated with this advisory.</p>",
           "type": "CVSS!",
@@ -49266,6 +49298,16 @@
                 "id": "string",
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "classifications",
+              "description": "<p>A list of advisory classifications to filter vulnerabilities by.</p>",
+              "type": {
+                "name": "[SecurityAdvisoryClassification!]",
+                "id": "securityadvisoryclassification",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#securityadvisoryclassification"
               }
             },
             {
@@ -62940,6 +62982,23 @@
         {
           "name": "USER",
           "description": "<p>Returns results matching users and organizations on GitHub.</p>"
+        }
+      ]
+    },
+    {
+      "name": "SecurityAdvisoryClassification",
+      "kind": "enums",
+      "id": "securityadvisoryclassification",
+      "href": "/graphql/reference/enums#securityadvisoryclassification",
+      "description": "<p>Classification of the advisory.</p>",
+      "values": [
+        {
+          "name": "GENERAL",
+          "description": "<p>Classification of general advisories.</p>"
+        },
+        {
+          "name": "MALWARE",
+          "description": "<p>Classification of malware advisories.</p>"
         }
       ]
     },

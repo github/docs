@@ -72,7 +72,7 @@ When attempting to match users across enterprises, {% data variables.product.com
 Your license usage is recalculated shortly after each license sync is performed. You can view the timestamp of the last license sync job, and, if a job hasn't run since an email address was updated or verified, to resolve an issue with your consumed license report you can manually trigger one. For more information, see "[Syncing license usage between GitHub Enterprise Server and GitHub Enterprise Cloud](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud)."
 
 {% ifversion ghec or ghes > 3.1 %}
-If your enterprise uses verified domains, review the list of enterprise members who do not have an email address from a verified domain associated with their {% data variables.product.prodname_dotcom_the_website %} account. Often, these are the users who erroneously consume more than one licensed seat. For more information, see "[Viewing members without an email address from a verified domain](/admin/user-management/managing-users-in-your-enterprise/viewing-people-in-your-enterprise#viewing-members-without-an-email-address-from-a-verified-domain)."
+If your enterprise uses verified domains, review the list of enterprise members who do not have an email address from a verified domain associated with their {% data variables.product.prodname_dotcom_the_website %} account. Often, these are the users who erroneously consume more than one licensed seat. 更多信息请参阅“[查看来自已验证域的电子邮件地址的成员](/admin/user-management/managing-users-in-your-enterprise/viewing-people-in-your-enterprise#viewing-members-without-an-email-address-from-a-verified-domain)”。
 {% endif %}
 
 {% note %}

@@ -4,6 +4,41 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "Type `SecurityAdvisoryClassification` was added",
+          "Type 'ProjectV2Owner' was removed",
+          "`Issue` object type no longer implements 'ProjectV2Owner' interface",
+          "`Organization` object type no longer implements 'ProjectV2Owner' interface",
+          "`PullRequest` object type no longer implements 'ProjectV2Owner' interface",
+          "Argument 'classifications: [SecurityAdvisoryClassification!]` added to field `Query.securityAdvisories'",
+          "Argument 'classifications: [SecurityAdvisoryClassification!]` added to field `Query.securityVulnerabilities'",
+          "Field `classification` was added to object type `SecurityAdvisory`",
+          "Argument 'classifications: [SecurityAdvisoryClassification!]` added to field `SecurityAdvisory.vulnerabilities'",
+          "`User` object type no longer implements 'ProjectV2Owner' interface"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-06-06"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Field `viewerIsFollowing` was added to object type `Organization`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-05-31"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "Type `ExternalIdentityAttribute` was added",
           "Type `IssueClosedStateReason` was added",
           "Type `IssueStateReason` was added",

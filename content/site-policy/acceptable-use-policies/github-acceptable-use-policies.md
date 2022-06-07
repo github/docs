@@ -81,14 +81,14 @@ You may use information from our Service for the following reasons, regardless o
 
 Scraping refers to extracting information from our Service via an automated process, such as a bot or webcrawler. Scraping does not refer to the collection of information through our API. Please see Section H of our [Terms of Service](/articles/github-terms-of-service#h-api-terms) for our API Terms. 
 
-You may not use information from the Service (whether scraped, collected through our API, or obtained otherwise) for spamming purposes, including for the purposes of sending unsolicited emails to users or selling User Personal Information (as defined in the [GitHub Privacy Statement](/github/site-policy/github-privacy-statement)), such as to recruiters, headhunters, and job boards.
+You may not use information from the Service (whether scraped, collected through our API, or obtained otherwise) for spamming purposes, including for the purposes of sending unsolicited emails to users or selling personal information, such as to recruiters, headhunters, and job boards.
 
 Your use of information from the Service must comply with the [GitHub Privacy Statement](/github/site-policy/github-privacy-statement).
 
 ## 8. Privacy
-Misuse of User Personal Information is prohibited.
+Misuse of personal information is prohibited.
 
-Any person, entity, or service collecting data from the Service must comply with the [GitHub Privacy Statement](/articles/github-privacy-statement), particularly in regards to the collection of User Personal Information. If you collect any User Personal Information from the Service, you agree that you will only use that User Personal Information for the purpose for which that User has authorized it. You agree that you will reasonably secure any User Personal Information you have gathered from the Service, and you will respond promptly to complaints, removal requests, and "do not contact" requests from us or other users.
+Any person, entity, or service collecting data from the Service must comply with the [GitHub Privacy Statement](/articles/github-privacy-statement), particularly in regards to the collection of personal information. If you collect any personal information from the Service, you agree that you will only use that personal information for the purpose for which that User has authorized it. You agree that you will reasonably secure any personal information you have gathered from the Service, and you will respond promptly to complaints, removal requests, and "do not contact" requests from us or other users.
 
 ## 9. Excessive Bandwidth Use
 The Service's bandwidth limitations vary based on the features you use. If we determine your bandwidth usage to be significantly excessive in relation to other users of similar features, we reserve the right to suspend your Account, throttle your file hosting, or otherwise limit your activity until you can reduce your bandwidth consumption. We also reserve the right—after providing advance notice—to delete repositories that we determine to be placing undue strain on our infrastructure. For guidance on acceptable use of object storage in repositories, refer to "[What is my disk quota?](/github/managing-large-files/what-is-my-disk-quota)". For more details on specific features' bandwidth limitations, see the [GitHub Additional Product Terms](/github/site-policy/github-additional-product-terms).
