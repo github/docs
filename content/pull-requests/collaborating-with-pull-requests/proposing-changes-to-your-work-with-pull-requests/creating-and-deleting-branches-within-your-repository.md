@@ -17,7 +17,6 @@ shortTitle: Create & delete branches
 ---
 ## Creating a branch
 
-
 You can create a branch a few different ways on GitHub. 
 
 ###  1. Create a branch on the branches page.
