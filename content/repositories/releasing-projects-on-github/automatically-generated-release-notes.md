@@ -39,8 +39,10 @@ You can also customize your automated release notes, using labels to create cust
   {% ifversion fpt or ghec %}![Choose a branch](/assets/images/help/releases/releases-choose-branch.png)
   {% else %}![Releases tagged branch](/assets/images/enterprise/releases/releases-tag-branch.png)
   {% endif %}
-7. To the top right of the description text box, click **Auto-generate release notes**.
-  ![Auto-generate release notes](/assets/images/help/releases/auto-generate-release-notes.png)
+{%- data reusables.releases.previous-release-tag %}
+7. To the top right of the description text box, click {% if previous-release-tag %}**Generate release notes**{% else %}**Auto-generate release notes**{% endif %}.{% if previous-release-tag %}
+  ![Generate release notes](/assets/images/help/releases/generate-release-notes.png){% else %}
+  ![Auto-generate release notes](/assets/images/enterprise/3.5/releases/auto-generate-release-notes.png){% endif %}
 8. Check the generated notes to ensure they include all (and only) the information you want to include.
 9. Optionally, to include binary files such as compiled programs in your release, drag and drop or manually select files in the binaries box.
    ![Providing a DMG with the Release](/assets/images/help/releases/releases_adding_binary.gif)
