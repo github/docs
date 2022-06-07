@@ -794,6 +794,18 @@ describe('catches errors thrown in Page class', () => {
     await expect(getPage).rejects.toThrowError('versions')
   })
 
+  test('invalid versions frontmatter', async () => {
+    async function getPage() {
+      return await Page.init({
+        relativePath: 'page-with-invalid-product-version.md',
+        basePath: path.join(__dirname, '../fixtures'),
+        languageCode: 'en',
+      })
+    }
+
+    await expect(getPage).rejects.toThrowError('versions')
+  })
+
   test('English page with a version in frontmatter that its parent product is not available in', async () => {
     async function getPage() {
       return await Page.init({
