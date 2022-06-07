@@ -966,7 +966,7 @@ Atividade relacionada a {% data variables.product.prodname_registry %}. {% data 
 
 {{ webhookPayloadsForCurrentVersion.project_column.created }}
 
-{% if project-beta-webhooks %}
+{% ifversion project-beta-webhooks %}
 
 ## projects_v2_item
 

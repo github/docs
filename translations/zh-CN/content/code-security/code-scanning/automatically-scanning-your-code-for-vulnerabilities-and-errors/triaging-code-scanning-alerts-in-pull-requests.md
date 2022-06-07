@@ -29,11 +29,11 @@ topics:
 
 在仓库中，如果 {% data variables.product.prodname_code_scanning %} 被配置为拉取请求检查，则 {% data variables.product.prodname_code_scanning %} 将检查拉取请求中的代码。 默认情况下，这仅限于针对默认分支的拉取请求，但是您可以在 {% data variables.product.prodname_actions %} 或第三方 CI/CD 系统中更改此配置。 如果合并更改会向目标分支引入新的 {% data variables.product.prodname_code_scanning %} 警报，则会在多个位置报告警报。
 
-- 在拉取请求 {% if code-scanning-pr-conversations-tab %} 中检查结果
+- 在拉取请求 {% ifversion code-scanning-pr-conversations-tab %} 中检查结果
 - 拉取请求的 **Conversation（对话）** 选项卡，作为拉取请求审查的一部分{% endif %}
 - 拉取请求的 **Files changed（文件已更改）**选项卡
 
-{% if code-scanning-pr-conversations-tab %} {% endif %}
+{% ifversion code-scanning-pr-conversations-tab %} {% endif %}
 
 如果您拥有仓库的写入权限，您可以在 **Security（安全）**选项卡中查看任何现有的 {% data variables.product.prodname_code_scanning %} 警报。 有关仓库警报的更多信息，请参阅“[管理仓库的 {% data variables.product.prodname_code_scanning %} 警报](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository)”。
 
@@ -75,7 +75,7 @@ topics:
 
 ## 查看拉取请求上的警报
 
-{% if code-scanning-pr-conversations-tab %}
+{% ifversion code-scanning-pr-conversations-tab %}
 通过查看 **Conversation（对话）**选项卡，可以查看拉取请求中引入的任何 {% data variables.product.prodname_code_scanning %} 警报。 {% data variables.product.prodname_code_scanning_capc %} 发布拉取请求审查，将每个警报显示为触发警报的代码行上的注释。 可以直接从注释中对警报进行注释、消除警报以及查看警报的路径。 您可以通过单击“Show more details（显示更多详细信息）”链接来查看警报的完整详细信息，该链接将带您进入警报详细信息页面。
 
 ![拉取请求“Conversations（对话）”选项卡中的警报注释](/assets/images/help/repository/code-scanning-pr-conversation-tab.png)
@@ -104,7 +104,7 @@ topics:
 ![显示更多信息的警报说明和链接](/assets/images/enterprise/3.4/repository/code-scanning-pr-alert.png)
 {% endif %}
 
-{% if code-scanning-pr-conversations-tab %}
+{% ifversion code-scanning-pr-conversations-tab %}
 ## 评论拉取请求中的警报
 
 您可以对拉取请求中的更改引入的任何 {% data variables.product.prodname_code_scanning %} 警报进行评论。 警报作为评论显示在拉取请求的 **Conversation（对话）**选项卡中，作为拉取请求审查的一部分，并且还显示在 **Files changed（文件已更改）**选项卡中。 只能对拉取请求中的更改引入的警报进行评论。 对于在拉取请求中引入的更改之外的文件，现有 {% data variables.product.prodname_code_scanning %} 警报将显示在 **Files changed（文件已更改）**选项卡中，但无法对其进行评论。
@@ -118,7 +118,7 @@ topics:
 ## 忽略拉取请求上的警报
 
 关闭警报的另一种办法是忽略它。 您可以忽略您认为不需要修复的警报。 {% data reusables.code-scanning.close-alert-examples %} 如果您对仓库有写入权限，则 **Dismiss（忽略）**按钮在代码注释和警报摘要中可用。 单击 **Dismiss（忽略）**时，您将被提示选择关闭警报的原因。
-{% if comment-dismissed-code-scanning-alert %}
+{% ifversion comment-dismissed-code-scanning-alert %}
 ![用于强调选择解除原因的下拉列表代码扫描警报屏幕截图](/assets/images/help/repository/code-scanning-alert-drop-down-reason.png)
 {% else %}
 ![选择忽略警报的原因](/assets/images/help/repository/code-scanning-alert-close-drop-down.png)
@@ -127,4 +127,4 @@ topics:
 
 {% data reusables.code-scanning.false-positive-fix-codeql %}
 
-有关消除警报的详细信息，请参阅 {% if delete-code-scanning-alerts %}“[管理存储库的 {% data variables.product.prodname_code_scanning %} 警报](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository#dismissing-or-deleting-alerts)”。{% else %} “[管理存储库的 {% data variables.product.prodname_code_scanning %} 警报](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#dismissing--alerts)”。{% endif %}
+有关消除警报的详细信息，请参阅 {% ifversion delete-code-scanning-alerts %}“[管理存储库的 {% data variables.product.prodname_code_scanning %} 警报](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository#dismissing-or-deleting-alerts)”。{% else %} “[管理存储库的 {% data variables.product.prodname_code_scanning %} 警报](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#dismissing--alerts)”。{% endif %}

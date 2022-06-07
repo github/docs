@@ -29,11 +29,11 @@ topics:
 
 Em repositórios onde {% data variables.product.prodname_code_scanning %} está configurado como uma verificação de pull request, {% data variables.product.prodname_code_scanning %} verifica o código no pull request. Por padrão, isso é limitado a pull requests que visam o branch-padrão ou branches protegidos, mas você pode alterar esta configuração em {% data variables.product.prodname_actions %} ou em um sistema de CI/CD de terceiros. Se fazer merge das alterações introduzirá novos alertas de {% data variables.product.prodname_code_scanning %} no branch de destino, os alertas serão relatados em vários lugares.
 
-- Verifique o resultado no pull request de {% if code-scanning-pr-conversations-tab %}
+- Verifique o resultado no pull request de {% ifversion code-scanning-pr-conversations-tab %}
 - A guia **Conversa** do pull request, como parte de uma revisão de pull request {% endif %}
 - A aba **Arquivos alterarados** do pull request
 
-{% if code-scanning-pr-conversations-tab %} {% endif %}
+{% ifversion code-scanning-pr-conversations-tab %} {% endif %}
 
 Se você tiver permissão de gravação no repositório, você poderá ver qualquer alerta de {% data variables.product.prodname_code_scanning %} existente na aba **Segurança**. Para obter informações sobre os alertas do repositório, consulte "[Gerenciar alertas de {% data variables.product.prodname_code_scanning %} do repositório](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository)".
 
@@ -75,7 +75,7 @@ Assim como com outras verificações de pull request, você poderá ver informa�
 
 ## Visualizando um alerta no seu pull request
 
-{% if code-scanning-pr-conversations-tab %}
+{% ifversion code-scanning-pr-conversations-tab %}
 Você pode ver quaisquer alertas de {% data variables.product.prodname_code_scanning %} introduzidos em um pull request visualizando a guia **Conversa**. {% data variables.product.prodname_code_scanning_capc %} publica uma revisão de pull request que mostra cada alerta como uma anotação nas linhas de código que acionou o alerta. Você pode comentar nos alertas, ignorar os alertas e ver os caminhos para os alertas, diretamente das anotações. Você pode ver os detalhes completos de um alerta clicando no link "Mostrar mais detalhes" que levará você à página de detalhes do alerta.
 
 ![Anotações de alerta em uma aba de conversas de pull request](/assets/images/help/repository/code-scanning-pr-conversation-tab.png)
@@ -104,7 +104,7 @@ Na visualização detalhada de um alerta, algumas ferramentas de {% data variabl
 ![Descrição do alerta e link para mostrar mais informações](/assets/images/enterprise/3.4/repository/code-scanning-pr-alert.png)
 {% endif %}
 
-{% if code-scanning-pr-conversations-tab %}
+{% ifversion code-scanning-pr-conversations-tab %}
 ## Comentando em um alerta em um pull request
 
 Você pode comentar em qualquer alerta de {% data variables.product.prodname_code_scanning %} introduzido pelas alterações em um pull request. Os alertas aparecem como anotações na guia **Conversa** de um pull request, como parte de uma revisão de pull request, e também são exibidos na aba **Arquivos alterados**. Você só pode comentar em alertas introduzidos pelas alterações em um pull request. Os alertas existentes de {% data variables.product.prodname_code_scanning %}, em arquivos que estão fora das alterações introduzidas no pull request, aparecerão na guia **Arquivos alterados** mas não pode recever comentários.
@@ -118,7 +118,7 @@ Qualquer pessoa com acesso push a um pull request pode corrigir um alerta de {% 
 ## Ignorar um alerta no seu pull request
 
 Uma forma alternativa de fechar um alerta é ignorá-lo. Você pode descartar um alerta se não acha que ele precisa ser corrigido. {% data reusables.code-scanning.close-alert-examples %} Se você tem permissão de gravação no repositório, o botão **Ignorar** estará disponível nas anotações de código e no resumo de alertas. Ao clicar em **Ignorar** será solicitado que você escolha um motivo para fechar o alerta.
-{% if comment-dismissed-code-scanning-alert %}
+{% ifversion comment-dismissed-code-scanning-alert %}
 ![Captura de tela do alerta de verificação de código com menu suspenso para escolher o motivo da rejeição destacado](/assets/images/help/repository/code-scanning-alert-drop-down-reason.png)
 {% else %}
 ![Escolher um motivo para ignorar um alerta](/assets/images/help/repository/code-scanning-alert-close-drop-down.png)
@@ -127,4 +127,4 @@ Uma forma alternativa de fechar um alerta é ignorá-lo. Você pode descartar um
 
 {% data reusables.code-scanning.false-positive-fix-codeql %}
 
-Para obter mais informações sobre ignorar alertas, consulte {% if delete-code-scanning-alerts %}"[Gerenciando alertas de {% data variables.product.prodname_code_scanning %} para o seu repositório](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository#dismissing-or-deleting-alerts).{% else %} "[Gerenciando alertas de {% data variables.product.prodname_code_scanning %} para o seu repositório](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#dismissing--alerts)".{% endif %}
+Para obter mais informações sobre ignorar alertas, consulte {% ifversion delete-code-scanning-alerts %}"[Gerenciando alertas de {% data variables.product.prodname_code_scanning %} para o seu repositório](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository#dismissing-or-deleting-alerts).{% else %} "[Gerenciando alertas de {% data variables.product.prodname_code_scanning %} para o seu repositório](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#dismissing--alerts)".{% endif %}

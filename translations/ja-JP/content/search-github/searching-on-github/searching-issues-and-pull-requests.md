@@ -72,7 +72,7 @@ shortTitle: Search issues & PRs
 | `is:open`      | [**performance is:open is:issue**](https://github.com/search?q=performance+is%3Aopen+is%3Aissue&type=Issues) は、「performance」という単語があるオープン Issue にマッチします。                                        |
 | `is:closed`    | [**android is:closed**](https://github.com/search?utf8=%E2%9C%93&q=android+is%3Aclosed&type=) は、「android」という単語があるクローズされた Issue とプルリクエストにマッチします。                                                |
 
-{% if issue-close-reasons %}
+{% ifversion issue-close-reasons %}
 ## Search by the reason an issue was closed
 
 You can filter issues based on the reason given when the issue was closed, using the `reason` qualifier.

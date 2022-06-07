@@ -305,7 +305,7 @@ jobs:
 
 Travis CIと{% data variables.product.prodname_actions %}では、後で利用できるよう依存関係を手動でキャッシュできます。
 
-{% if actions-caching %}
+{% ifversion actions-caching %}
 
 以下の例は、それぞれのシステムでのキャッシュの構文を示します。
 

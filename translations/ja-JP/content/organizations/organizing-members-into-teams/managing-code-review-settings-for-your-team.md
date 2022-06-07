@@ -19,7 +19,7 @@ permissions: Team maintainers and organization owners can configure code review 
 
 ## コードレビューの設定について
 
-{% if only-notify-requested-members %}
+{% ifversion only-notify-requested-members %}
 Teamのノイズを減らし、Pull Requestレビューに対する個人の責任を明確にするために、コードレビューの設定ができます。
 
 - Teamの通知
@@ -46,7 +46,7 @@ Teamのノイズを減らし、Pull Requestレビューに対する個人の責�
 
 ステータスを"Busy"に設定したTeamメンバーは、レビューに選択されません。 すべてのTeamメンバーがBusyの場合、Pull RequestはTeam自体に割り当てられたままになります。 ユーザのステータスに関する詳しい情報については「[ステータスの設定](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile#setting-a-status)」を参照してください。
 
-{% if only-notify-requested-members %}
+{% ifversion only-notify-requested-members %}
 ## Team通知の設定
 
 {% data reusables.profile.access_org %}

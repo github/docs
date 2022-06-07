@@ -1,6 +1,6 @@
 ---
 title: 重新运行工作流程和作业
-intro: '您可以工作流程运行初始运行后最长 30 天内重新运行工作流程运行{% if re-run-jobs %}、工作流程运行中所有失败的作业或工作流程运行中的特定作业{% endif %}。'
+intro: '您可以工作流程运行初始运行后最长 30 天内重新运行工作流程运行{% ifversion re-run-jobs %}、工作流程运行中所有失败的作业或工作流程运行中的特定作业{% endif %}。'
 permissions: People with write permissions to a repository can re-run workflows in the repository.
 miniTocMaxHeadingLevel: 3
 redirect_from:
@@ -17,7 +17,7 @@ versions:
 
 ## 关于重新运行工作流程和作业
 
-重新运行工作流程{% if re-run-jobs %} 或工作流程中的作业{% endif %} 会使用触发工作流程运行的原始事件的 `GITHUB_SHA`（提交 SHA）和 `GITHUB_REF` (Git ref)。 在初始运行后最长 30 天内，您可以重新运行工作流程{% if re-run-jobs %} 或工作流程中的作业{% endif %}。{% if debug-reruns %} 在重新运行工作流程或工作流程中的作业时，可以为重新运行启用调试日志记录。 这将为重新运行启用运行程序诊断日志记录和步骤调试日志记录。 有关调试日志记录的更多信息，请参阅“[启用调试日志记录](/actions/monitoring-and-troubleshooting-workflows/enabling-debug-logging)”。{% endif %}
+重新运行工作流程{% ifversion re-run-jobs %} 或工作流程中的作业{% endif %} 会使用触发工作流程运行的原始事件的 `GITHUB_SHA`（提交 SHA）和 `GITHUB_REF` (Git ref)。 在初始运行后最长 30 天内，您可以重新运行工作流程{% ifversion re-run-jobs %} 或工作流程中的作业{% endif %}。{% ifversion debug-reruns %} 在重新运行工作流程或工作流程中的作业时，可以为重新运行启用调试日志记录。 这将为重新运行启用运行程序诊断日志记录和步骤调试日志记录。 有关调试日志记录的更多信息，请参阅“[启用调试日志记录](/actions/monitoring-and-troubleshooting-workflows/enabling-debug-logging)”。{% endif %}
 
 ## 重新运行工作流程中的所有作业
 
@@ -49,7 +49,7 @@ versions:
 gh run rerun <em>run-id</em>
 ```
 
-{% if debug-reruns %}
+{% ifversion debug-reruns %}
 {% data reusables.actions.enable-debug-logging-cli %}
 
 ```shell
@@ -66,7 +66,7 @@ gh run watch
 
 {% endcli %}
 
-{% if re-run-jobs %}
+{% ifversion re-run-jobs %}
 ## 重新运行工作流程中失败的作业
 
 如果工作流程运行中的任何作业失败，您可以仅重新运行失败的作业。 在重新运行工作流程中失败的作业时，将为所有失败的作业及其依赖项启动新的工作流程运行。 上一个工作流程运行中任何成功作业的任何输出都将用于重新运行。 在初始运行中创建的任何构件都将在重新运行中可用。 在上一次运行中通过的任何环境保护规则都将自动在重新运行中通过。
@@ -90,7 +90,7 @@ gh run watch
 gh run rerun <em>run-id</em> --failed
 ```
 
-{% if debug-reruns %}
+{% ifversion debug-reruns %}
 {% data reusables.actions.enable-debug-logging-cli %}
 
 ```shell
@@ -125,7 +125,7 @@ gh run rerun <em>run-id</em> --failed --debug
 gh run rerun --job <em>job-id</em>
 ```
 
-{% if debug-reruns %}
+{% ifversion debug-reruns %}
 {% data reusables.actions.enable-debug-logging-cli %}
 
 ```shell
@@ -146,7 +146,7 @@ gh run rerun --job <em>job-id</em> --debug
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow %}
 {% data reusables.repositories.view-run %}
-{%- if re-run-jobs %}
+{%- ifversion re-run-jobs %}
 1. 任何以前的运行尝试都显示在 **Latest（最新）**下拉菜单中。 ![以前的运行尝试](/assets/images/help/repository/previous-run-attempts.png)
 {%- else %}
 1. 任何以前的运行尝试都显示在左窗格中。 ![重新运行工作流程](/assets/images/help/settings/actions-review-workflow-rerun.png)

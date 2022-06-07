@@ -101,7 +101,7 @@ Organizationレベルの概要で利用できます。
 | ------------------------- | ------------------------------ |
 | <code>topic:<em>TOPIC-NAME</em></code> | *TOPIC-NAME*で分類されるリポジトリを表示します。 |
 
-{% if security-overview-views %}
+{% ifversion security-overview-views %}
 
 ## 重要度でのフィルタリング
 
@@ -117,7 +117,7 @@ Code scanningアラートビューで利用できます。 すべてのCode scan
 | `severity:warning`  | warningsとして分類される{% data variables.product.prodname_code_scanning %}アラートを表示します。 |
 | `severity:note`     | notesとして分類される{% data variables.product.prodname_code_scanning %}アラートを表示します。    |
 
-{% if dependabot-alerts-vulnerable-calls %}
+{% ifversion dependabot-alerts-vulnerable-calls %}
 ## {% data variables.product.prodname_dependabot %}アラートタイプによるフィルタリング
 
 {% data variables.product.prodname_dependabot %}アラートビューで利用できます。 修正の準備ができているか、露出に関する追加情報がある{% data variables.product.prodname_dependabot_alerts %}を表示するために、ビューをフィルタリングできます。 いずれの結果も、クリックすると完全なアラートの詳細を見ることができます。

@@ -17,7 +17,7 @@
 {%- ifversion ghec or ghes or ghae %}
 | `business`  | Contains activities related to business settings for an enterprise.
 {%- endif %}
-{%- if secret-scanning-audit-log-custom-patterns %}
+{%- ifversion secret-scanning-audit-log-custom-patterns %}
 | `business_secret_scanning_custom_pattern` | Contains activities related to custom patterns for secret scanning in an enterprise.
 {%- endif %}
 | `checks`   | Contains activities related to check suites and runs.
@@ -75,7 +75,7 @@
 {%- ifversion ghec or ghes or ghae %}
 | `org_credential_authorization` | Contains activities related to authorizing credentials for use with SAML single sign-on.
 {%- endif %}
-{%- if secret-scanning-audit-log-custom-patterns %}
+{%- ifversion secret-scanning-audit-log-custom-patterns %}
 | `org_secret_scanning_custom_pattern` | Contains activities related to custom patterns for secret scanning in an organization. 更多信息请参阅“[定义机密扫描的自定义模式](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)”。 | `org.secret_scanning_push_protection` | Contains activities related to secret scanning custom patterns in an organization. 更多信息请参阅“[使用机密扫描保护推送](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)”。
 {%- endif %}
 | `organization_default_label` | Contains activities related to default labels for repositories in an organization.
@@ -110,8 +110,8 @@
 {%- ifversion ghec or ghes or ghae %}
 | `repository_secret_scanning`  | Contains repository-level activities related to secret scanning. 更多信息请参阅“[关于密钥扫描](/github/administering-a-repository/about-secret-scanning)”。
 {%- endif %}
-{%- if secret-scanning-audit-log-custom-patterns %}
-| `repository_secret_scanning_custom_pattern` | Contains activities related to secret scanning custom patterns in a repository. 更多信息请参阅“[定义机密扫描的自定义模式](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)”。 |{% endif %}{% if secret-scanning-audit-log-custom-patterns %}| | `repository_secret_scanning_push_protection` | Contains activities related to secret scanning custom patterns in a repository. 更多信息请参阅“[使用机密扫描保护推送](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)”。
+{%- ifversion secret-scanning-audit-log-custom-patterns %}
+| `repository_secret_scanning_custom_pattern` | Contains activities related to secret scanning custom patterns in a repository. 更多信息请参阅“[定义机密扫描的自定义模式](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)”。 |{% endif %}{% ifversion secret-scanning-audit-log-custom-patterns %}| | `repository_secret_scanning_push_protection` | Contains activities related to secret scanning custom patterns in a repository. 更多信息请参阅“[使用机密扫描保护推送](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)”。
 {%- endif %}
 {%- ifversion fpt or ghec %}
 | `repository_visibility_change` | Contains activities related to allowing organization members to change repository visibilities for the organization.
@@ -125,7 +125,7 @@
 {%- ifversion ghec or ghes > 3.1 %}
 | `restrict_notification_delivery` | Contains activities related to the restriction of email notifications to approved or verified domains for an enterprise.
 {%- endif %}
-{%- if custom-repository-roles %}
+{%- ifversion custom-repository-roles %}
 | `role` | Contains activities related to [custom repository roles](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization).
 {%- endif %}
 {%- ifversion ghec or ghes or ghae %}
