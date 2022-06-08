@@ -17,7 +17,7 @@ describe('sidebar', () => {
   beforeAll(async () => {
     ;[$homePage, $githubPage, $enterprisePage, $restPage] = await Promise.all([
       getDOM('/en'),
-      getDOM('/en/github'),
+      getDOM('/en/get-started'),
       getDOM('/en/enterprise/admin'),
       getDOM('/en/rest'),
     ])

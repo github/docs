@@ -41,13 +41,13 @@ describe('redirects', () => {
     expect(pageRedirects['/articles']).toBe('/github')
     expect(pageRedirects['/common-issues-and-questions']).toBe('/github')
     expect(pageRedirects[`/enterprise-server@${enterpriseServerReleases.latest}/articles`]).toBe(
-      `/enterprise-server@${enterpriseServerReleases.latest}/github`
+      `/enterprise-server@${enterpriseServerReleases.latest}`
     )
     expect(
       pageRedirects[
         `/enterprise-server@${enterpriseServerReleases.latest}/common-issues-and-questions`
       ]
-    ).toBe(`/enterprise-server@${enterpriseServerReleases.latest}/github`)
+    ).toBe(`/enterprise-server@${enterpriseServerReleases.latest}`)
   })
 
   test('converts single `redirect_from` strings values into arrays', async () => {
@@ -425,7 +425,7 @@ describe('redirects', () => {
   })
 
   describe('enterprise user homepage', () => {
-    const enterpriseUser = `/en/enterprise-server@${enterpriseServerReleases.latest}/github`
+    const enterpriseUser = `/en/enterprise-server@${enterpriseServerReleases.latest}`
     const japaneseEnterpriseUser = enterpriseUser.replace('/en/', '/ja/')
 
     test('no product redirects to GitHub.com product', async () => {
@@ -435,7 +435,7 @@ describe('redirects', () => {
     })
 
     test('no language code redirects to english', async () => {
-      const res = await get(`/enterprise/${enterpriseServerReleases.latest}/user/github`)
+      const res = await get(`/enterprise/${enterpriseServerReleases.latest}/user`)
       expect(res.statusCode).toBe(302)
       expect(res.headers.location).toBe(enterpriseUser)
     })
