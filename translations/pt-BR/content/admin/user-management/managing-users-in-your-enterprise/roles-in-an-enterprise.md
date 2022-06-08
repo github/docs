@@ -34,13 +34,13 @@ Para obter mais informações sobre como adicionar pessoas à sua empresa, consu
 
 Os proprietários corporativos têm controle total da empresa e podem executar todas as ações, incluindo:
 - Gerenciar os administradores
-- {% ifversion ghec %}Adicionando e removendo {% elsif ghae or ghes %}gerenciando{% endif %} organizações {% ifversion ghec %}de {% elsif ghae or ghes %} na{% endif %} empresa{% if remove-enterprise-members %}
+- {% ifversion ghec %}Adicionando e removendo {% elsif ghae or ghes %}gerenciando{% endif %} organizações {% ifversion ghec %}de {% elsif ghae or ghes %} na{% endif %} empresa{% ifversion remove-enterprise-members %}
 - Removendo integrantes da empresa de todas as organizações pertencentes à empresa{% endif %}
 - Gerenciar as configurações da empresa
 - Aplicar a política nas organizações
 {% ifversion ghec %}- Managing billing settings{% endif %}
 
-{% if enterprise-owner-join-org %}
+{% ifversion enterprise-owner-join-org %}
 Os proprietários das empresas não têm acesso às configurações da organização ou ao conteúdo por padrão. Para obter acesso, os proprietários das empresas podem se juntar a qualquer organização pertencente à sua empresa. Para obter mais informações, consulte "[Gerenciando sua função em uma organização pertencente à sua empresa](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)".
 
 Os proprietários de organizações na sua empresa não têm acesso à empresa propriamente dita, a não ser que você os torne proprietários da empresa.

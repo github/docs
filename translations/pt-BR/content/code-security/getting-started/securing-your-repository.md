@@ -111,11 +111,11 @@ Para obter mais informações, consulte "[Sobre {% data variables.product.prodna
 
 Você pode habilitar {% data variables.product.prodname_dependabot %} para aumentar automaticamente os pull requests para manter suas dependências atualizadas. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_dependabot_version_updates %}](/code-security/supply-chain-security/about-dependabot-version-updates)".
 
-{% if dependabot-settings-update-37 %}
+{% ifversion dependabot-settings-update-37 %}
 1. Na página principal do repositório, clique em **{% octicon "gear" aria-label="The Settings gear" %} Configurações**.
 2. Clique em **Segurança & análise**.
-3. Next to {% data variables.product.prodname_dependabot_version_updates %}, click **Enable** to create a basic *dependabot.yml* configuration file.
-4. Specify the dependencies to update and commit the file to the repository. For more information, see "[Configuring Dependabot version updates](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates#enabling-dependabot-version-updates)."
+3. Ao lado de {% data variables.product.prodname_dependabot_version_updates %}, clique em **Habilitar** para criar um arquivo de configuração básico de *dependabot.yml*.
+4. Especifique as dependências para atualizar e fazer commit do arquivo no repositório. Para obter mais informações, consulte "[Configurando as atualizações da versão do Dependabot](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates#enabling-dependabot-version-updates)".
 
 {% else %}
 Para habilitar {% data variables.product.prodname_dependabot_version_updates %}, você deve criar um arquivo de configuração *dependabot.yml*. Para obter mais informações, consulte "[Configurando as atualizações da versão de {% data variables.product.prodname_dependabot %}](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates)".

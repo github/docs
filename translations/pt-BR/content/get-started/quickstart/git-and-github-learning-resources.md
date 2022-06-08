@@ -45,7 +45,7 @@ Nosso {% data variables.product.prodname_dotcom %} [canal do YouTube de Treiname
 
 ### Cursos grátis
 
-{% data variables.product.product_name %} oferece uma série de treinamentos interativos, [sob demanda](https://lab.github.com/), incluindo [Introdução a {% data variables.product.prodname_dotcom %}](https://lab.github.com/githubtraining/introduction-to-github); cursos sobre linguagens de programação e ferramentas, como HTML, Python e NodeJS; e cursos sobre ferramentas específicas de {% data variables.product.product_name %}, como {% data variables.product.prodname_actions %}.
+{% data variables.product.product_name %} offers a series of interactive, [on-demand training courses](https://skills.github.com/) including [Introduction to {% data variables.product.prodname_dotcom %}](https://github.com/skills/introduction-to-github); and courses on {% data variables.product.product_name %} specific tools such as {% data variables.product.prodname_actions %}.
 
 ### Programas educacionais online do {% data variables.product.prodname_dotcom %}
 
