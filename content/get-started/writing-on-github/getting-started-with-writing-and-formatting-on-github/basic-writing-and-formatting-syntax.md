@@ -95,9 +95,9 @@ You can even render a color using backticks(<code>\`</code>). The backticks shou
 
 | Color Model | Syntax | Example |
 |-----|-----|-----|
-| HEX | `#RRGGBB` where `RR`(Red),`GG`(Green) & `BB`(Blue) are hexadecimal integers from `00` to `FF` representing color intensity of respective colors. | <code>\`#61dee1\`</code> |
-| RGB | `rgb(red,green,blue)` where every parameter(red, green and blue) defines the color intensity and ranges from `0` to `255`. | <code>\`rgb(231,239,54)\`</code> |
-| HSL | `hsl(hue, saturation, lightness)` where hue is a degree on color wheel ranging from `0` to `360`, saturation and lightness denote color saturation and lightness of the color respectively in percentages(`%`). | <code>\`hsl(328,84%,66%)\`</code> |
+| HEX | <code>\`#RRGGBB\`</code> where `RR`(Red),`GG`(Green) & `BB`(Blue) are hexadecimal integers from `00` to `FF` representing color intensity of respective colors. | <code>\`#61dee1\`</code> |
+| RGB | <code>\`rgb(red,green,blue)\`</code> where every parameter(red, green and blue) defines the color intensity and ranges from `0` to `255`. | <code>\`rgb(231,239,54)\`</code> |
+| HSL | <code>\`hsl(hue, saturation, lightness)\`</code> where hue is a degree on color wheel ranging from `0` to `360`, saturation and lightness denote color saturation and lightness of the color respectively in percentages(`%`). | <code>\`hsl(328,84%,66%)\`</code> |
 
 A live example :
 
