@@ -2,8 +2,7 @@
 title: GitHub Copilot in practice
 intro: 'ADD INTRO.'
 versions:
-  fpt: '*'
-  ghec: '*'
+  feature: 'copilot'
 topics:
   - Copilot
 shortTitle: GitHub Copilot in practice
