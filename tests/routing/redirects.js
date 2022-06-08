@@ -41,13 +41,13 @@ describe('redirects', () => {
     expect(pageRedirects['/articles']).toBe('/github')
     expect(pageRedirects['/common-issues-and-questions']).toBe('/github')
     expect(pageRedirects[`/enterprise-server@${enterpriseServerReleases.latest}/articles`]).toBe(
-      `/enterprise-server@${enterpriseServerReleases.latest}/github`
+      `/enterprise-server@${enterpriseServerReleases.latest}`
     )
     expect(
       pageRedirects[
         `/enterprise-server@${enterpriseServerReleases.latest}/common-issues-and-questions`
       ]
-    ).toBe(`/enterprise-server@${enterpriseServerReleases.latest}/github`)
+    ).toBe(`/enterprise-server@${enterpriseServerReleases.latest}`)
   })
 
   test('converts single `redirect_from` strings values into arrays', async () => {
