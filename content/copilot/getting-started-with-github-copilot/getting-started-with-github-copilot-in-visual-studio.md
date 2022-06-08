@@ -36,7 +36,7 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
     ![Screenshot of the popup with the message to active your connection to GitHub](/assets/images/help/copilot/first-run-authorize-visual-studio.png)
 5. A device code will be copied automatically to the clipboard. Paste it on the {% data variables.product.company_short %} device authorization page that will open. If you miss the device code, you will find it in the status bar, at the bottom left of {% data variables.product.prodname_vs %}, as well as on the {% data variables.product.prodname_copilot %} output window pane.
    ![Screenshot of the Visual Studio status bar with the device activation code](/assets/images/help/copilot/first-run-authorize-visual-studio.png)
-6. After successful authorization, proceed to read and approve the [{% data variables.product.prodname_copilot %} Telemetry Terms](/github/copilot/github-copilot-telemetry-terms).
+6. After successful authorization, proceed to read and approve the [{% data variables.product.prodname_copilot %} Telemetry Terms](/free-pro-team@latest/site-policy/github-terms/github-copilot-telemetry-terms).
    ![Screenshot of the GitHub Copilot Telemetry Terms popup with "yes" button emphasized](/assets/images/help/copilot/telemetry-terms-visual-studio.png)
    
 After installation, a {% data variables.product.prodname_copilot %} icon should appear in the editor margin at the bottom of your {% data variables.product.prodname_vs %} window, in the lower left.  
