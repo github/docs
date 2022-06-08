@@ -19,6 +19,12 @@ shortTitle: Create & delete branches
 ## Creating a branch
 You can create a branch in different ways on {% data variables.product.product_name %}.
 
+{% note %}
+
+**Note:** You can only create a branch in a repository to which you have push access.
+
+{% endnote %}
+
 ### Creating a branch via the branches overview
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.navigate-to-branches %}
@@ -27,12 +33,6 @@ You can create a branch in different ways on {% data variables.product.product_n
 2. In the pop-up, enter the branch name and optionally change the branch source. 
 3. Click **Create branch**.
    ![Screenshot of branch creation modal with create branch button emphasized](/assets/images/help/branches/branch-creation-popup.png)
-
-{% note %}
-
-**Note:** You can only create a branch in a repository to which you have push access.
-
-{% endnote %}
 
 ### Creating a branch using the branch dropdown
 {% data reusables.repositories.navigate-to-repo %}
