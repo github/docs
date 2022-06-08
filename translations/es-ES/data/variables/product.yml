@@ -105,12 +105,12 @@ prodname_advanced_security: 'Advanced Security'
 prodname_codespaces: 'Codespaces'
 prodname_github_codespaces: 'Acerca de GitHub Codespaces'
 prodname_serverless: 'editor basado en la web'
-#GitHub resources: blog, jobs, Learning Lab
+#GitHub resources: blog, jobs, skills
 prodname_gcf: 'Soporte de la Comunidad de GitHub'
 prodname_blog: 'el blog de GitHub'
 prodname_jobs: 'Empleos GitHub'
-prodname_learning: 'Laboratorio de aprendizaje de GitHub'
-prodname_learning_link: 'https://lab.github.com/'
+prodname_learning: 'GitHub Skills'
+prodname_learning_link: 'https://skills.github.com/'
 prodname_roadmap: 'Itinerario público de GitHub'
 prodname_roadmap_link: 'https://github.com/github/roadmap#github-public-roadmap'
 #GitHub support

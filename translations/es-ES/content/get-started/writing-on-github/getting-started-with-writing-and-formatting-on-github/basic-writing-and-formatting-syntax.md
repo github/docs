@@ -134,7 +134,7 @@ Aquí tienes algunos ejemplos para utilizar enlaces relativos para mostrar una i
 | ----------------------------------------------------------------------- | ---------------------------------------------------------------------- |
 | En un archivo `.md` en la misma rama                                    | `/assets/images/electrocat.png`                                        |
 | En un archivo `.md` en otra rama                                        | `/../main/assets/images/electrocat.png`                                |
-| En propuestas, solicitudes de cambio y comentarios del repositorio      | `../blob/main/assets/images/electrocat.png`                            |
+| En propuestas, solicitudes de cambio y comentarios del repositorio      | `../blob/main/assets/images/electrocat.png?raw=true`                   |
 | En un archivo `.md` en otro repositorio                                 | `/../../../../github/docs/blob/main/assets/images/electrocat.png`      |
 | En propuestas, solicitudes de cambios y comentarios de otro repositorio | `../../../github/docs/blob/main/assets/images/electrocat.png?raw=true` |
 

@@ -34,7 +34,7 @@ topics:
 
 {% note %}
 
-**メモ:** オープンソースプロジェクトのパブリックリポジトリを作成できます。 パブリックリポジトリを作成する際は、他のユーザにどのようにプロジェクトを共有してほしいのかを定義する[ライセンスファイル](https://choosealicense.com/)を含めるようにしてください。 {% data reusables.open-source.open-source-guide-repositories %} {% data reusables.open-source.open-source-learning-lab %}
+**メモ:** オープンソースプロジェクトのパブリックリポジトリを作成できます。 パブリックリポジトリを作成する際は、他のユーザにどのようにプロジェクトを共有してほしいのかを定義する[ライセンスファイル](https://choosealicense.com/)を含めるようにしてください。 {% data reusables.open-source.open-source-guide-repositories %} {% data reusables.open-source.open-source-learning %}
 
 {% endnote %}
 

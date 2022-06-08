@@ -63,5 +63,5 @@ permissions: Organization owners can remove members from an organization.
 
 ## 延伸阅读
 
-- "[从团队中移除组织成员](/articles/removing-organization-members-from-a-team)"{% if remove-enterprise-members %}
+- "[从团队中移除组织成员](/articles/removing-organization-members-from-a-team)"{% ifversion remove-enterprise-members %}
 - "[从企业中移除成员](/admin/user-management/managing-users-in-your-enterprise/removing-a-member-from-your-enterprise)"{% endif %}

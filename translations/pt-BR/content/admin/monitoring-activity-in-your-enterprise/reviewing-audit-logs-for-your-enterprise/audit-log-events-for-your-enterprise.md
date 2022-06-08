@@ -143,7 +143,7 @@ O escopo dos eventos que aparecem no log de auditoria da sua empresa depende se 
 | `business.update_saml_provider_settings` | As configurações do fornecedor do logon único SAML de uma empresa foram alteradas.
 {%- endif %}
 
-{%- if secret-scanning-audit-log-custom-patterns %}
+{%- ifversion secret-scanning-audit-log-custom-patterns %}
 ## Categoria de ações `business_secret_scanning_custom_pattern`
 
 | Ação | Descrição                                                                                                                                                                                                                                                                                                                                                                                   |
@@ -642,7 +642,7 @@ O escopo dos eventos que aparecem no log de auditoria da sua empresa depende se 
 {%- ifversion fpt or ghec %}
 | `org.runner_group_visiblity_updated` | A visibilidade de um grupo de executores auto-hospedados de foi atualizada por meio da API REST. Para obter mais informações, consulte "[Atualize um grupo de executores auto-hospedados para uma organização](/rest/reference/actions#update-a-self-hosted-runner-group-for-an-organization)".
 {%- endif %}
-{%- if secret-scanning-audit-log-custom-patterns %}
+{%- ifversion secret-scanning-audit-log-custom-patterns %}
 | `org.secret_scanning_push_protection_disable` | O proprietário ou administrador de uma organização desabilitou a proteção de push para a digitalização de segredo. Para obter mais informações, consulte "[Protegendo pushes com digitalização de segredo](/enterprise-cloud@latest/code-security/secret-scanning/protecting-pushes-with-secret-scanning)". | `org.secret_scanning_push_protection_enable` | O proprietário ou administrador de uma organização habilitou a proteção de push para a digitalização de segredo.
 {%- endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
@@ -685,7 +685,7 @@ O escopo dos eventos que aparecem no log de auditoria da sua empresa depende se 
 | `org_credential_authorization.revoke`                                                                                                                                                      | Um proprietário revogou as credenciais autorizadas. {% ifversion ghec %}Para obter mais informações, consulte "[Visualizando e gerenciando suas sessões de SAML ativas](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization)".{% endif %}
 {%- endif %}
 
-{%- if secret-scanning-audit-log-custom-patterns %}
+{%- ifversion secret-scanning-audit-log-custom-patterns %}
 ## Ações da categoria `org_secret_scanning_custom_pattern`
 
 | Ação                                        | Descrição                                                                                                                                                                                                                                                                                                                       |
@@ -860,7 +860,7 @@ O escopo dos eventos que aparecem no log de auditoria da sua empresa depende se 
 | `public_key.create`                 | Uma chave SSH foi [adicionada][add key] a uma conta de usuário ou uma [chave de implantação][] foi adicionada ao repositório. |
 | `public_key.delete`                 | Uma chave SSH foi removida de uma conta de usuário ou uma [chave de implantação][] foi removida de um repositório.            |
 | `public_key.update`                 | A chave SSH de uma conta de usuário ou a [chave de implantação de um repositório][] foi atualizada.                           |
-| `public_key.unverification_failure` | A user account's SSH key or a repository's [deploy key][] was unable to be unverified.                                        |
+| `public_key.unverification_failure` | Não foi possível cancelar a verificação da chave SSH de uma conta de usuário ou a [chave de implantação][].                   |
 | `public_key.unverify`               | A user account's SSH key or a repository's [deploy key][] was unverified.                                                     |
 | `public_key.verification_failure`   | A user account's SSH key or a repository's [deploy key][] was unable to be verified.                                          |
 | `public_key.verify`                 | A user account's SSH key or a repository's [deploy key][] was verified.                                                       |
@@ -999,7 +999,7 @@ O escopo dos eventos que aparecem no log de auditoria da sua empresa depende se 
 | `repository_secret_scanning.enable`  | Um proprietário do repositório ou administrador habilitou a digitalização de segredo para um repositório {% ifversion ghec %}privado ou interno {% endif %}.                                                                                                                                      |
 {%- endif %}
 
-{%- if secret-scanning-audit-log-custom-patterns %}
+{%- ifversion secret-scanning-audit-log-custom-patterns %}
 
 ## Ações da categoria `repository_secret_scanning_custom_pattern`
 
@@ -1060,7 +1060,7 @@ O escopo dos eventos que aparecem no log de auditoria da sua empresa depende se 
 | `restrict_notification_delivery.disable` | As restrições de notificação por e-mail para uma organização ou empresa foram desabilitadas. Para obter mais informações, consulte "[Restringindo notificações de e-mail para sua organização](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/restricting-email-notifications-for-your-organization)" e "[Restringindo notificações de e-mail para sua empresa](/admin/policies/enforcing-policies-for-your-enterprise/restricting-email-notifications-for-your-enterprise)". |
 {%- endif %}
 
-{%- if custom-repository-roles %}
+{%- ifversion custom-repository-roles %}
 ## ações da categoria `função`
 
 | Ação      | Descrição                                                                                                                                                                                                                                                                                                                                      |
@@ -1078,8 +1078,8 @@ O escopo dos eventos que aparecem no log de auditoria da sua empresa depende se 
 | `secret_scanning.disable` | O proprietário de uma organização desabilitou a digitalisação de segredo de todos os repositórios{% ifversion ghec %} privados ou internos{% endif %}. Para obter mais informações, consulte "[Sobre a varredura de segredos](/github/administering-a-repository/about-secret-scanning)." |
 | `secret_scanning.enable`  | O proprietário de uma organização habilitou a digitalisação de segredo de todos os repositórios{% ifversion ghec %} privados ou internos{% endif %}.                                                                                                                                      |
 
-{% if secret-scanning-alert-audit-log %}
-## `secret_scanning_alert` category actions
+{% ifversion secret-scanning-alert-audit-log %}
+## Ações da categoria `secret_scanning_alert`
 
 | Ação                            | Descrição                                                                                                                                                                                                                                                                                                                                     |
 | ------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

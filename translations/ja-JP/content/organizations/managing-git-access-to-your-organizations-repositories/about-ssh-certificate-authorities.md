@@ -42,6 +42,12 @@ OrganizationがSSH証明書を必要としない場合は、メンバーは自�
 
 各証明書を発行する際には、その証明書がどの{% data variables.product.product_name %}ユーザー用かを示すエクステンションを指定する必要があります。 たとえば、OpenSSH の`ssh-keygen` コマンドを以下のように使用することができます。_KEY-IDENTITY_ は特定のキー IDに、_USERNAME_ は {% data variables.product.product_name %} ユーザ名に置き換えます。 あなたが生成する証明書は、あなたのOrganizationのリソースに対してそのユーザの代わりに振る舞うことを認可されるようになります。 証明書を発行する前に、そのユーザのアイデンティティを必ず検証してください。
 
+{% note %}
+
+**Note:** You must update to OpenSSH 7.6 or later to use these commands.
+
+{% endnote %}
+
 ```shell
 $ ssh-keygen -s ./ca-key -V '+1d' -I <em>KEY-IDENTITY</em> -O extension:login@{% data variables.product.product_url %}=<em>USERNAME</em> ./user-key.pub
 ```

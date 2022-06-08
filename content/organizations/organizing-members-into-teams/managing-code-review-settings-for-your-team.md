@@ -19,7 +19,7 @@ permissions: Team maintainers and organization owners can configure code review 
 
 ## About code review settings
 
-{% if only-notify-requested-members %}
+{% ifversion only-notify-requested-members %}
 To reduce noise for your team and clarify individual responsibility for pull request reviews, you can configure code review settings.
 
 - Team notifications
@@ -46,7 +46,7 @@ The load balance algorithm chooses reviewers based on each member's total number
 
 Any team members that have set their status to "Busy" will not be selected for review. If all team members are busy, the pull request will remain assigned to the team itself. For more information about user statuses, see "[Setting a status](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile#setting-a-status)."
 
-{% if only-notify-requested-members %}
+{% ifversion only-notify-requested-members %}
 ## Configuring team notifications
 
 {% data reusables.profile.access_org %}

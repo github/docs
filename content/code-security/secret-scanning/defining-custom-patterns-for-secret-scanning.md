@@ -122,7 +122,7 @@ Before defining a custom pattern, you must ensure that you enable {% data variab
 {% data reusables.repositories.navigate-to-ghas-settings %}
 {% data reusables.advanced-security.secret-scanning-new-custom-pattern %}
 {% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}
-{%- if secret-scanning-org-dry-runs %}
+{%- ifversion secret-scanning-org-dry-runs %}
 1. When you're ready to test your new custom pattern, to identify matches in select repositories without creating alerts, click **Save and dry run**.
 {% data reusables.advanced-security.secret-scanning-dry-run-select-repos %}
 {% data reusables.advanced-security.secret-scanning-dry-run-results %}
@@ -141,7 +141,7 @@ Before defining a custom pattern, you must ensure that you enable secret scannin
 
 {% note %}
 
-{% if secret-scanning-enterprise-dry-runs %}
+{% ifversion secret-scanning-enterprise-dry-runs %}
 **Notes:**
 - At the enterprise level, only the creator of a custom pattern can edit the pattern, and use it in a dry run. 
 - Enterprise owners can only make use of dry runs on repositories that they have access to, and enterprise owners do not necessarily have access to all the organizations or repositories within the enterprise.
@@ -158,7 +158,7 @@ Before defining a custom pattern, you must ensure that you enable secret scannin
 {% data reusables.enterprise-accounts.advanced-security-security-features %}
 1. Under "Secret scanning custom patterns", click {% ifversion ghes = 3.2 %}**New custom pattern**{% else %}**New pattern**{% endif %}.
 {% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}
-{%- if secret-scanning-enterprise-dry-runs %}
+{%- ifversion secret-scanning-enterprise-dry-runs %}
 1. When you're ready to test your new custom pattern, to identify matches in the repository without creating alerts, click **Save and dry run**.
 {% data reusables.advanced-security.secret-scanning-dry-run-select-repos %}
 {% data reusables.advanced-security.secret-scanning-dry-run-results %}

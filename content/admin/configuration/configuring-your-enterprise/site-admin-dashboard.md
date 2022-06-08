@@ -186,7 +186,7 @@ For example, the following words are reserved, among others:
 
 For the full list or reserved words, navigate to "Reserved logins" in the site admin dashboard.
 
-{% if ghas-committers-calculator %}
+{% ifversion ghas-committers-calculator %}
 ## {% data variables.product.prodname_advanced_security %} Committers
 
 You can see the number of active committers that are currently using seats for {% data variables.product.prodname_GH_advanced_security %}, and you can calculate how many additional seats would be used if you enabled {% data variables.product.prodname_GH_advanced_security %} for more organizations and repositories.

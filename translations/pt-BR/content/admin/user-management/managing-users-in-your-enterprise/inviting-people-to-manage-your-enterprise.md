@@ -45,7 +45,7 @@ Se sua empresa usa {% data variables.product.prodname_emus %}, os proprietários
 
 {% ifversion ghec %}Depois de convidar alguém para juntar-se à conta corporativa, a pessoa deverá aceitar o convite por e-mail antes que possa acessar a conta corporativa. Convites pendentes vencem após 7 dias.{% endif %}
 
-{% if enterprise-membership-view-improvements %}
+{% ifversion enterprise-membership-view-improvements %}
 É possível ver todos os convites pendentes para se tornar um administrador da sua conta corporativa. Para obter mais informações, consulte "[Visualizar pessoas na sua empresa](/admin/user-management/managing-users-in-your-enterprise/viewing-people-in-your-enterprise#viewing-pending-invitations)".
 {% endif %}
 

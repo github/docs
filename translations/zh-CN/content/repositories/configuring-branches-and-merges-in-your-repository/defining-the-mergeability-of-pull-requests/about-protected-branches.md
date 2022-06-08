@@ -50,7 +50,7 @@ topics:
 {% ifversion fpt or ghec %}
 - [需要合并队列](#require-merge-queue)
 {% endif %}
-{%- if required-deployments %}
+{%- ifversion required-deployments %}
 - [要求部署在合并之前成功](#require-deployments-to-succeed-before-merging)
 {%- endif %}
 - [包括管理员](#include-administrators)
@@ -164,7 +164,7 @@ remote: error: Changes have been requested.
 
 启用分支限制时，只有已授予权限的用户、团队或应用程序才能推送到受保护的分支。 您可以在受保护分支的设置中查看和编辑对受保护分支具有推送权限的用户、团队或应用程序。 当需要状态检查时，如果所需的检查失败，仍会阻止有权推送到受保护分支的人员、团队和应用合并到分支。 当需要拉取请求时，有权推送到受保护分支的人员、团队和应用仍需要创建拉取请求。
 
-{% if restrict-pushes-create-branch %}
+{% ifversion restrict-pushes-create-branch %}
 （可选）您可以对创建与规则匹配的分支应用相同的限制。 例如，如果创建的规则仅允许某个团队推送到包含 `release` 一词的任何分支，则只有该团队的成员才能创建包含 `release` 一词的新分支。
 {% endif %}
 
