@@ -80,7 +80,7 @@ Before you can enable {% data variables.product.prodname_dependabot_alerts %}:
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.github-connect-tab %}
-{%- if dependabot-updates-github-connect %}
+{%- ifversion dependabot-updates-github-connect %}
 1. Under "{% data variables.product.prodname_dependabot %}", to the right of "Users can receive vulnerability alerts for open source code dependencies", select the dropdown menu and click **Enabled without notifications**. Optionally, to enable alerts with notifications, click **Enabled with notifications**.
 
    ![Screenshot of the dropdown menu to enable scanning repositories for vulnerabilities](/assets/images/enterprise/site-admin-settings/dependabot-alerts-dropdown.png)
@@ -95,7 +95,7 @@ Before you can enable {% data variables.product.prodname_dependabot_alerts %}:
 
    {% endtip %}
 
-{% if dependabot-updates-github-connect %}
+{% ifversion dependabot-updates-github-connect %}
 ## Enabling {% data variables.product.prodname_dependabot_updates %}
 
 After you enable {% data variables.product.prodname_dependabot_alerts %} for your enterprise, you can enable {% data variables.product.prodname_dependabot_updates %}.

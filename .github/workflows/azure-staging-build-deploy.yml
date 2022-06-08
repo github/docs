@@ -20,12 +20,144 @@ permissions:
   contents: read
   deployments: write
 
+# This allows a subsequently queued workflow run to take priority over
+# previously queued runs but NOT interrupt currently executing runs
+concurrency:
+  group: 'staging-env @ ${{ github.head_ref || github.run_id }} for ${{ github.event.number || github.event.inputs.PR_NUMBER }}'
+  cancel-in-progress: true
+
 jobs:
   azure-staging-build-and-deploy:
     if: ${{ github.repository == 'github/docs-internal' }}
     runs-on: ubuntu-latest
+    timeout-minutes: 20
+    environment:
+      # TODO: Update name and url to point to a specific slot for the branch/PR
+      name: staging-env
+      url: ${{ env.APP_URL }}
+    env:
+      PR_NUMBER: ${{ github.event.number || github.event.inputs.PR_NUMBER || github.run_id }}
+      COMMIT_REF: ${{ github.event.pull_request.head.sha || github.event.inputs.COMMIT_REF }}
+      IMAGE_REPO: ${{ github.repository }}/pr-${{ github.event.number || github.event.inputs.PR_NUMBER || github.run_id }}
+      RESOURCE_GROUP_NAME: docs-staging
+      APP_SERVICE_NAME: ghdocs-staging
+      SLOT_NAME: canary
 
     steps:
-      - name: 'No-op'
+      - name: 'Az CLI login'
+        uses: azure/login@1f63701bf3e6892515f1b7ce2d2bf1708b46beaf
+        with:
+          creds: ${{ secrets.PROD_AZURE_CREDENTIALS }}
+
+      - name: 'Docker login'
+        uses: azure/docker-login@81744f9799e7eaa418697cb168452a2882ae844a
+        with:
+          login-server: ${{ secrets.NONPROD_REGISTRY_SERVER }}
+          username: ${{ secrets.NONPROD_REGISTRY_USERNAME }}
+          password: ${{ secrets.NONPROD_REGISTRY_PASSWORD }}
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@94ab11c41e45d028884a99163086648e898eed25
+
+      - name: Check out repo
+        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
+        with:
+          ref: ${{ env.COMMIT_REF }}
+          # To prevent issues with cloning early access content later
+          persist-credentials: 'false'
+          lfs: 'true'
+
+      - name: Check out LFS objects
+        run: git lfs checkout
+
+      - name: 'Set env vars'
         run: |
-          echo "No-op"
+          # Set APP_URL
+          echo "APP_URL=${{ secrets.STAGING_APP_URL }}" >> $GITHUB_ENV
+          # Image tag is unique to each workflow run so that it always triggers a new deployment
+          echo "DOCKER_IMAGE=${{ secrets.NONPROD_REGISTRY_SERVER }}/${{ env.IMAGE_REPO }}:${{ env.COMMIT_REF }}-${{ github.run_number }}-${{ github.run_attempt }}" >> $GITHUB_ENV
+
+      - name: Setup node
+        uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048
+        with:
+          node-version: '16.15.0'
+          cache: npm
+
+      - name: Clone docs-early-access
+        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
+        with:
+          repository: github/docs-early-access
+          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+          path: docs-early-access
+          ref: main
+
+      - name: Merge docs-early-access repo's folders
+        run: .github/actions-scripts/merge-early-access.sh
+
+      - name: 'Build and push image'
+        uses: docker/build-push-action@7f9d37fa544684fb73bfe4835ed7214c255ce02b
+        with:
+          context: .
+          push: true
+          target: production
+          tags: ${{ env.DOCKER_IMAGE }}
+          build-args: |
+            BUILD_SHA=${{ env.COMMIT_REF }}
+
+      - name: 'Update docker-compose.staging.yaml template file'
+        run: |
+          sed 's|#{IMAGE}#|${{ env.DOCKER_IMAGE }}|g' docker-compose.staging.tmpl.yaml > docker-compose.staging.yaml
+
+      - name: 'Apply updated docker-compose.staging.yaml config to deployment slot'
+        run: |
+          az webapp config container set --multicontainer-config-type COMPOSE --multicontainer-config-file docker-compose.staging.yaml --slot ${{ env.SLOT_NAME }} -n ${{ env.APP_SERVICE_NAME }} -g ${{ env.RESOURCE_GROUP_NAME }}
+
+      # Watch deployment slot instances to see when all the instances are ready
+      - name: Check that deployment slot is ready
+        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
+        env:
+          CHECK_INTERVAL: 10000
+        with:
+          script: |
+            const { execSync } = require('child_process')
+
+            const slotName = process.env.SLOT_NAME
+            const appServiceName = process.env.APP_SERVICE_NAME
+            const resourceGroupName = process.env.RESOURCE_GROUP_NAME
+
+            const getStatesForSlot = (slot, appService, resourceGroup) => {
+              return JSON.parse(
+                execSync(
+                  `az webapp list-instances --slot ${slot} --query "[].state" -n ${appService} -g ${resourceGroup}`,
+                  { encoding: 'utf8' }
+                )
+              )
+            }
+
+            let hasStopped = false
+            const waitDuration = parseInt(process.env.CHECK_INTERVAL, 10) || 10000
+            async function doCheck() {
+              const states = getStatesForSlot(slotName, appServiceName, resourceGroupName)
+              console.log(`Instance states:`, states)
+
+              // We must wait until at-least 1 instance has STOPPED to know we're looking at the "next" deployment and not the "previous" one
+              // That way we don't immediately succeed just because all the previous instances were READY
+              if (!hasStopped) {
+                hasStopped = states.some((s) => s === 'STOPPED')
+              }
+
+              const isAllReady = states.every((s) => s === 'READY')
+
+              if (hasStopped && isAllReady) {
+                process.exit(0) // success
+              }
+
+              console.log(`checking again in ${waitDuration}ms`)
+              setTimeout(doCheck, waitDuration)
+            }
+
+            doCheck()
+
+      - name: 'Swap deployment slot to production'
+        run: |
+          az webapp deployment slot swap --slot ${{ env.SLOT_NAME }} --target-slot production -n ${{ env.APP_SERVICE_NAME }} -g ${{ env.RESOURCE_GROUP_NAME }}

@@ -112,7 +112,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       # You can use PyPy versions in python-version.
-      # For example, {% if actions-node16-action %}pypy-2.7 and pypy-3.8{% else %}pypy2 and pypy3{% endif %}
+      # For example, {% ifversion actions-node16-action %}pypy-2.7 and pypy-3.8{% else %}pypy2 and pypy3{% endif %}
       matrix:
         python-version: ["2.7", "3.6", "3.7", "3.8", "3.9"]
 
@@ -173,7 +173,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        python-version: ["3.6", "3.7", "3.8", "3.9", {% if actions-node16-action %}pypy-2.7, pypy-3.8{% else %}pypy2, pypy3{% endif %}]
+        python-version: ["3.6", "3.7", "3.8", "3.9", {% ifversion actions-node16-action %}pypy-2.7, pypy-3.8{% else %}pypy2, pypy3{% endif %}]
         exclude:
           - os: macos-latest
             python-version: "3.6"
@@ -195,7 +195,7 @@ jobs:
 
 {% data variables.product.prodname_dotcom %} 托管的运行器安装了 pip 软件包管理器。 在构建和测试代码之前，您可以使用 pip 从 PyPI 软件包注册表安装依赖项。 例如，下面的 YAML 安装或升级 `pip` 软件包安装程序以及 `setuptools` 和 `wheel` 软件包。
 
-{% if actions-caching %}您也可以缓存依赖项来加快工作流程。 更多信息请参阅“[缓存依赖项以加快工作流程](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)”。{% endif %}
+{% ifversion actions-caching %}您也可以缓存依赖项来加快工作流程。 更多信息请参阅“[缓存依赖项以加快工作流程](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)”。{% endif %}
 
 ```yaml{:copy}
 steps:
@@ -225,7 +225,7 @@ steps:
     pip install -r requirements.txt
 ```
 
-{% if actions-caching %}
+{% ifversion actions-caching %}
 
 ### 缓存依赖项
 

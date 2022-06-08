@@ -3,8 +3,7 @@ title: Configuring GitHub Copilot
 shortTitle: Configure GitHub Copilot
 intro: 'You can configure a variety of settings for {% data variables.product.prodname_copilot %}.'
 versions:
-  fpt: '*'
-  ghec: '*'
+  feature: 'copilot'
 topics:
   - Copilot
 children:

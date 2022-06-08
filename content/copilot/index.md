@@ -8,12 +8,13 @@ changelog:
   label: copilot
 layout: product-landing
 versions:
-  fpt: '*'
-  ghec: '*'
+  feature: 'copilot'
 children:
   - /quickstart
   - /overview-of-github-copilot
-  - /getting-started
+  - /getting-started-with-github-copilot
   - /configuring-github-copilot
+topics: 
+  - Copilot
 ---
 

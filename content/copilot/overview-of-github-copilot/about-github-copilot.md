@@ -2,8 +2,7 @@
 title: About GitHub Copilot
 intro: 'ADD INTRO.'
 versions:
-  fpt: '*'
-  ghec: '*'
+  feature: 'copilot'
 topics:
   - Copilot
 shortTitle: About GitHub Copilot

@@ -68,7 +68,7 @@ env:
   myIntegerNumber: ${{ 711 }}
   myFloatNumber: ${{ -9.2 }}
   myHexNumber: ${{ 0xff }}
-  myExponentialNumber: ${{ -2.99-e2 }}
+  myExponentialNumber: ${{ -2.99e-2 }}
   myString: Mona the Octocat
   myStringInBraces: ${{ 'It''s open source!' }}
 ```
@@ -324,33 +324,21 @@ steps:
     if: {% raw %}${{ failure() }}{% endraw %}
 ```
 
-{% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}
-### Evaluar los estados explícitamente
+#### failure with conditions
 
-En vez de utilizar alguno de los métodos anteriores, puedes evaluar el estado del job o de la acción compuesta que esté ejecutando el paso directamente:
+You can include extra conditions for a step to run after a failure, but you must still include `failure()` to override the default status check of `success()` that is automatically applied to `if` conditions that don't contain a status check function.
 
-#### Ejemplo de un paso de flujo de trabajo
-
-```yaml
-steps:
-  ...
-  - name: The job has failed
-    if: {% raw %}${{ job.status == 'failure' }}{% endraw %}
-```
-
-Esto es lo mismo que utilizar `if: failure()` en un paso de un job.
-
-#### Ejemplo de un paso de una acción compuesta
+##### Ejemplo
 
 ```yaml
 steps:
   ...
-  - name: The composite action has failed
-    if: {% raw %}${{ github.action_status == 'failure' }}{% endraw %}
+  - name: Failing step
+    id: demo
+    run: exit 1
+  - name: The demo step has failed
+    if: {% raw %}${{ failure() && steps.demo.conclusion == 'failure' }}{% endraw %}
 ```
-
-Esto es lo mismo que utilizar `if: failure()` en un paso de acción compuesta.
-{% endif %}
 
 ## Filtros de objetos
 
