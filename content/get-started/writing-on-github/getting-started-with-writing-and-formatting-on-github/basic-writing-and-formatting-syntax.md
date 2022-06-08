@@ -112,7 +112,9 @@ A live example :
 ![Rendered Color Models](/assets/images/help/writing/color-models-rendered.png)
 
 {% note %}
+
 **Note** : The backticks(<code>\`</code>) containing the color model should **not** contain any leading or trailing spaces.
+
 {% endnote %}
 
 {% endif %}
