@@ -12,7 +12,7 @@ versions:
 children:
   - /quickstart
   - /overview-of-github-copilot
-  - /getting-started
+  - /getting-started-with-github-copilot
   - /configuring-github-copilot
 topics: 
   - Copilot
