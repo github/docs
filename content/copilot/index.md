@@ -1,11 +1,25 @@
 ---
 title: GitHub Copilot
 shortTitle: GitHub Copilot
-intro: 'Learn how to setup and configure GitHub Copilot, to utilize AI pair programming and get autocomplete-style suggestions as you write code.'
+intro: 'Learn how to setup and configure GitHub Copilot to utilize AI pair programming and get autocomplete-style suggestions as you code.'
 redirect_from:
   - /github/copilot
 changelog:
   label: copilot
+introLinks:
+  overview: /copilot/overview-of-github-copilot/about-github-copilot
+  quickstart: /copilot/quickstart
+featuredLinks:
+  guides:
+    - /copilot/getting-started/getting-started-with-github-copilot-in-visual-studio-code
+    - /copilot/getting-started/getting-started-with-github-copilot-in-jetbrains
+    - /copilot/getting-started/getting-started-with-github-copilot-in-visual-studio
+    - /copilot/getting-started/getting-started-with-github-copilot-in-neovim
+  popular:
+    - /billing/managing-billing-for-github-copilot/about-billing-for-github-copilot
+    - /copilot/configuring-github-copilot/configuring-github-copilot-in-visual-studio-code
+    - /copilot/configuring-github-copilot/configuring-github-copilot-in-jetbrains
+    - /copilot/configuring-github-copilot/configuring-github-copilot-in-visual-studio
 layout: product-landing
 versions:
   feature: 'copilot'
