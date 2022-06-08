@@ -59,3 +59,4 @@ You can specify which languages you want to enable or disable {% data variables.
 1. Display the **Copilot** section in the **Extensions** tab of the Visual Studio Code settings page. For more information, see "[Enabling and disabling inline suggestions](#enabling-and-disabling-inline-suggestions)."
 1. Under "Enable or disable Copilot for specified languages", click **Edit in settings.json**.
 1. In the settings.json file, add or remove the languages you want to enable or disable {% data variables.product.prodname_copilot %} for. For example, to enable Python in {% data variables.product.prodname_copilot %}, add `"python": true` to the JSON list.
+

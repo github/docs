@@ -4,10 +4,9 @@ intro: 'You can enable, configure, and disable {% data variables.product.prodnam
 product: '{% data reusables.gated-features.copilot %}'
 versions:
   feature: 'copilot'
-topics:
-  - copilot
-shortTitle: NeoVim
----
+topics: 
+  - Copilot
+shortTitle: Neovim
 
 ## Configuring GitHub Copilot in Neovim
 
@@ -16,3 +15,4 @@ For guidance on configuring {% data variables.product.prodname_copilot %} in Neo
       ```
       :help copilot
       ```
+      
