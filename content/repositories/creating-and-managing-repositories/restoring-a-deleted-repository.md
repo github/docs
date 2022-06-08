@@ -1,6 +1,7 @@
 ---
 title: Restoring a deleted repository
-intro: You can restore some deleted repositories to recover their contents.
+intro: '{% ifversion ghes or ghae %}An enterprise owner{% elsif fpt or ghec %}You{% endif %} can restore some deleted repositories to recover their contents.'
+permissions: '{% ifversion ghes or ghae %}{% elsif fpt or ghec %}Anyone can restore deleted repositories that were owned by their own personal account. Organization owners can restore deleted repositories that were owned by the organization.{% endif %}'
 redirect_from:
   - /articles/restoring-a-deleted-repository
   - /github/administering-a-repository/restoring-a-deleted-repository
@@ -14,8 +15,12 @@ topics:
   - Repositories
 shortTitle: Restore deleted repository
 ---
-{% ifversion fpt or ghec %}
-Anyone can restore deleted repositories that were owned by their own personal account. Organization owners can restore deleted repositories that were owned by the organization.
+
+{% ifversion ghes or ghae %}
+
+Usually, deleted repositories can be restored within 90 days by an enterprise owner{% ifversion ghes %} on {% data variables.product.product_location %}{% endif %}. For more information, see "[Restoring a deleted repository](/admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository)." 
+
+{% else %}
 
 ## About repository restoration
 
@@ -48,6 +53,4 @@ Restoring a repository will not restore release attachments or team permissions.
 
 - "[Deleting a repository](/articles/deleting-a-repository)"
 
-{% else %}
-Usually, deleted repositories can be restored within 90 days by a {% data variables.product.prodname_enterprise %} site administrator. For more information, see "[Restoring a deleted repository](/admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository)." 
 {% endif %}
