@@ -67,10 +67,10 @@ Por ejemplo, para resaltar la sintaxis del código Ruby:
 
 Usamos [Lingüista](https://github.com/github/linguist) para realizar la detección del idioma y seleccionar [gramáticas independientes](https://github.com/github/linguist/blob/master/vendor/README.md) para el resaltado de la sintaxis. Puedes conocer las palabra clave válidas en [el archivo YAML de idiomas](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml).
 
-{% if mermaid %}
+{% ifversion mermaid %}
 ## Crear diagramas
 
-You can also use code blocks to create diagrams in Markdown. GitHub supports Mermaid, geoJSON, topoJSON, and ASCII STL syntax. Para obtener más información, consulta la sección "[Crear diagramas](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams)".
+También puedes usar bloques de código para crear diagramas en el lenguaje de marcado. GitHub es compatible con la sintaxis de Mermaid, geoJSON, topoJSON y ASCII STL. Para obtener más información, consulta la sección "[Crear diagramas](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams)".
 
 {% endif %}
 ## Leer más

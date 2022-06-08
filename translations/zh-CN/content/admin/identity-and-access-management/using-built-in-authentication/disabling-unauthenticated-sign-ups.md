@@ -7,7 +7,7 @@ redirect_from:
   - /admin/authentication/disabling-unauthenticated-sign-ups
   - /enterprise/admin/authentication/authenticating-users-for-your-github-enterprise-server-instance/disabling-unauthenticated-sign-ups
   - /admin/identity-and-access-management/authenticating-users-for-your-github-enterprise-server-instance/disabling-unauthenticated-sign-ups
-intro: 'If you''re using built-in authentication for {% data variables.product.product_location %}, you can block unauthenticated people from creating new user accounts on your instance.'
+intro: '如果您对 {% data variables.product.product_location %} 使用内置身份验证，则可以阻止未经身份验证的人员在您的实例上创建新的用户帐户。'
 permissions: 'Site administrators can disable unauthenticated sign-ups on a {% data variables.product.product_name %} instance.'
 versions:
   ghes: '*'
@@ -17,12 +17,12 @@ topics:
   - Authentication
   - Enterprise
   - Identity
-shortTitle: Block unauthenticated sign-up
+shortTitle: 阻止未经身份验证的注册
 ---
 
-## About unauthenticated sign-ups
+## 关于未经身份验证的注册
 
-{% data reusables.enterprise_user_management.built-in-authentication-new-accounts %} {% data reusables.enterprise_user_management.unauthenticated-sign-ups %} You can disable unauthenticated sign-ups and require an invitation to create a new user account on your instance.
+{% data reusables.enterprise_user_management.built-in-authentication-new-accounts %} {% data reusables.enterprise_user_management.unauthenticated-sign-ups %} 您可以禁用未经身份验证的注册，并需要邀请才能在您的实例上创建新的用户帐户。
 
 {% data reusables.enterprise_user_management.alternatively-enable-external-authentication %}
 

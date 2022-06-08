@@ -1,4 +1,4 @@
-{% ifversion ghae-issue-5752 %}
+{% ifversion ghae %}
 
 <!-- Remove this reusable and all references for GA release -->
 

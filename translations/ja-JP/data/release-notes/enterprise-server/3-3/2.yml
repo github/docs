@@ -2,31 +2,31 @@
 date: '2022-01-18'
 sections:
   security_fixes:
-    - 'Packages have been updated to the latest security versions. In these updates, Log4j has been updated to version 2.17.1. Note: previous mitigations released in 3.3.1, 3.2.6, 3.1.14, and 3.0.22 are sufficient to address the impact of CVE-2021-44228, CVE-2021-45046, CVE-2021-45105, and CVE-2021-44832 in these versions of GitHub Enterprise Server.'
-    - Sanitize more secrets in the generated support bundles
-    - Users on teams with the Security Manger role will now be notified about security alerts for repositories they are watching.
-    - The security managers component will show a less-aggressive warning once the maximum number of teams has been reached.
-    - The repository manage access page should return 403 when attempting to remove a security manager team from the repository.
+    - 'パッケージは最新のセキュリティバージョンに更新されました。これらの更新で、Log4jはバージョン2.17.1に更新されました。ノート: 3.3.1、3.2.6、3.1.14、3.0.22でリリースされた以前の緩和対応は、GitHub Enterprise ServerのこれらのバージョンにおけるCVE-2021-44228、CVE-2021-45046、CVE-2021-45105、CVE-2021-44832の影響に対応するには十分なものです。'
+    - 生成されるSupport Bundleでのより多くのシークレットのサニタイズ
+    - TeamでSecurity Mangerのロールを持つユーザは、Watchしているリポジトリでのセキュリティアラートに関する通知を受けるようになりました。
+    - セキュリティマネージャーのコンポーネントは、Teamの最大数に達すると、それほど強くない警告を表示します。
+    - リポジトリ管理アクセスページは、リポジトリからセキュリティマネージャーのTeamを削除しようとすると403を返さなければなりません。
     - パッケージは最新のセキュリティバージョンにアップデートされました。
   bugs:
-    - Actions self hosted runners would fail to self-update or run new jobs after upgrading from an older GHES installation.
-    - Storage settings could not be validated when configuring MinIO as blob storage for GitHub Packages.
-    - GitHub Actions storage settings could not be validated and saved in the Management Console when "Force Path Style" was selected.
-    - Actions would be left in a stopped state after an update with maintenance mode set.
-    - Running `ghe-config-apply` could sometimes fail because of permission issues in `/data/user/tmp/pages`.
-    - The save button in management console was unreachable by scrolling in lower resolution browsers.
-    - IOPS and Storage Traffic monitoring graphs were not updating after collectd version upgrade.
-    - Some webhook related jobs could generated large amount of logs.
-    - A Billing navigation item was visible in the site admin pages.
-    - Several documentation links resulted in a 404 Not Found error.
+    - Actionsのセルフホストランナーは、古いGHESのインストールからのアップグレード後に、自己更新あるいは新しいジョブの実行に失敗します。
+    - MinIOをGitHub Packagesのblobストレージとして設定しようとすると、ストレージ設定が検証できませんでした。
+    - '"Force Path Style（パススタイルの強制）"が選択されている場合、Management ConsoleでGitHub Actionsのストレージ設定が検証できず、保存できませんでした。'
+    - メンテナンスモードが設定された更新後、Actionsが停止状態のままになります。
+    - '`ghe-config-apply`を実行すると、`/data/user/tmp/pages`における権限の問題のために失敗することがあります。'
+    - 低解像度のブラウザで、スクロールしてもManagement ConsoleのSaveボタンに到達できませんでした。
+    - collectdのバージョンアップグレード後、IOPSとストレージトラフィックのモニタリンググラフが更新されませんでした。
+    - 一部のwebhookに関連するジョブが、大量のログを発生させることがありました。
+    - 支払いのナビゲーションアイテムがサイトアドミンページに表示されていました。
+    - いくつのかのドキュメンテーションリンクが404 Not Found errorになりました。
   known_issues:
-    - After upgrading to {% data variables.product.prodname_ghe_server %} 3.3, {% data variables.product.prodname_actions %} may fail to start automatically. To resolve this issue, connect to the appliance via SSH and run the `ghe-actions-start` command.
-    - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
+    - '{% data variables.product.prodname_ghe_server %} 3.3にアップグレード後、{% data variables.product.prodname_actions %}が自動起動に失敗することがあります。この問題を解決するためには、アプライアンスにSSHで接続し、`ghe-actions-start`コマンドを実行してください。'
+    - 新しくセットアップされたユーザを持たない{% data variables.product.prodname_ghe_server %}インスタンスで、攻撃者が最初の管理ユーザを作成できました。
     - アップグレードの過程で、カスタムのファイアウォールのルールが削除されます。
     - Git LFSが追跡するファイル[Webインターフェースからアップロードされたもの](https://github.com/blog/2105-upload-files-to-your-repositories)が、不正にリポジトリに直接追加されてしまいます。
     - 同じリポジトリ内のファイルパスが255文字を超えるblobへのパーマリンクを含むIssueをクローズできませんでした。
     - GitHub Connectで"Users can search GitHub.com"が有効化されている場合、GitHub.comの検索結果にプライベート及びインターナルリポジトリのIssueが含まれません。
     - '{% data variables.product.prodname_registry %}のnpmレジストリは、メタデータのレスポンス中で時間の値を返さなくなります。これは、大きなパフォーマンス改善のために行われました。メタデータレスポンスの一部として時間の値を返すために必要なすべてのデータは保持し続け、既存のパフォーマンスの問題を解決した将来に、この値を返すことを再開します。'
     - pre-receive フックの処理に固有のリソース制限によって、pre-receive フックに失敗するものが生じることがあります。
-    - '{% data variables.product.prodname_actions %} storage settings cannot be validated and saved in the {% data variables.enterprise.management_console %} when "Force Path Style" is selected, and must instead be configured with the `ghe-actions-precheck` command line utility.'
-    - '{% data variables.product.prodname_ghe_server %} 3.3 instances installed on Azure and provisioned with 32+ CPU cores would fail to launch, due to a bug present in the current Linux kernel. [Updated: 2022-04-08]'
+    - '{% data variables.product.prodname_actions %}のストレージ設定は、"Force Path Style（パススタイルの強制）"が選択されている場合、検証できず{% data variables.enterprise.management_console %}に保存できません。その代わりに、`ghe-actions-precheck`コマンドラインユーティリティで設定しなければなりません。'
+    - '現在のLinuxカーネルにあるバグのために、Azureにインストールされ、32以上のCPUコアをプロビジョニングされた{% data variables.product.prodname_ghe_server %} 3.3インスタンスが起動に失敗します。[更新:2022年04月08日]'

@@ -1,6 +1,6 @@
 ---
 title: Conectar una suscripción de Azure a tu empresa
-intro: 'Puedes utilizar tu Acuerdo de Microsoft Enterprise para habilitar y pagar por el uso de las {% data variables.product.prodname_actions %} y del {% data variables.product.prodname_registry %} más allá de las cantidades que se incluyen para tu empresa.'
+intro: 'Puedes utilizar tu Acuerdo de Microsoft Enterprise para habilitar y pagar por el uso de {% data variables.product.prodname_actions %}, del {% data variables.product.prodname_registry %} y de los {% data variables.product.prodname_codespaces %}.'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-account/connecting-an-azure-subscription-to-your-enterprise
   - /github/setting-up-and-managing-billing-and-payments-on-github/connecting-an-azure-subscription-to-your-enterprise
@@ -14,7 +14,17 @@ shortTitle: Conectar una suscripción de Azure
 
 {% data reusables.enterprise-accounts.billing-microsoft-ea-overview %} Para obtener más información, consulta las secciones "[Acerca de la facturación para las {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)" y "[Acerca de la facturación para el {% data variables.product.prodname_registry %}](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)".
 
-Una vez que conectes una suscripción de Azure, también podrás administrar tu límite de gastos. Para obtener más información sobre cómo administrar y cambiar el límite de gastos de tu cuenta, consulta las secciones "[Administrar tu límite de gastos para el {% data variables.product.prodname_registry %}](/billing/managing-billing-for-github-packages/managing-your-spending-limit-for-github-packages)" y "[Administrar tu límite de gastos para las {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/managing-your-spending-limit-for-github-actions)".
+{% note %}
+
+**Nota:** Si tu cuenta empresarial está en un Acuerdo de Microsoft Enterprise, conectar una suscripción de Azure es la única forma de utilizar {% data variables.product.prodname_actions %} y el {% data variables.product.prodname_registry %} más allá de las cantidades incluidas o para utilizar los {% data variables.product.prodname_codespaces %} en general.
+
+{% endnote %}
+
+Después de que conectes una suscripción de Azure, también podrás administrar tus límites de gastos.
+
+- "[Administrar tu límite de gastos para el {% data variables.product.prodname_registry %}](/billing/managing-billing-for-github-packages/managing-your-spending-limit-for-github-packages)"
+- "[Administrar tu límite de gastos para las {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/managing-your-spending-limit-for-github-actions)"
+- "[Administrar tu límite de gastos para {% data variables.product.prodname_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)"
 
 ## Conectar tu suscripción de Azure con tu cuenta empresarial
 

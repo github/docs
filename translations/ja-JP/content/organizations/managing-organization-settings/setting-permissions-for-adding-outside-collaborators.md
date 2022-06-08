@@ -1,6 +1,6 @@
 ---
 title: 外部のコラボレーターを追加するための権限を設定する
-intro: Organization のデータを保護し、Organization 内で使用されている有料ライセンスの数が無駄遣いされないようにするために、外部コラボレーターを Organization のリポジトリに招待することをオーナーのみに許可できます。
+intro: Organization のデータを保護し、Organization 内で使用されている有料ライセンスの数が無駄遣いされないようにするために、外部コラボレーターをOrganizationのリポジトリに招待できる人を設定できます。
 redirect_from:
   - /articles/restricting-the-ability-to-add-outside-collaborators-to-organization-repositories
   - /articles/setting-permissions-for-adding-outside-collaborators
@@ -15,7 +15,7 @@ topics:
 shortTitle: コラボレータポリシーの設定
 ---
 
-デフォルトでは、リポジトリへの管理アクセスを持つ人は、そのリポジトリで作業してもらうために外部のコラボレータを招待できます。 外部のコラボレータを招待する機能は、Organizationのオーナーのみに制限することもできます。
+デフォルトでは、リポジトリへの管理アクセスを持つ人は、そのリポジトリで作業してもらうために外部のコラボレータを招待できます。 外部のコラボレータを追加する機能は、Organizationのオーナーのみに制限することもできます。
 
 {% ifversion ghec %}
 {% note %}
@@ -31,6 +31,7 @@ shortTitle: コラボレータポリシーの設定
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% data reusables.organizations.member-privileges %}
-5. [Repository invitations] の下で、[**Allow members to invite outside collaborators to repositories for this organization**] を選択します。 ![外部コラボレーターを Organization リポジトリに招待することをメンバーに許可するためのチェックボックス](/assets/images/help/organizations/repo-invitations-checkbox-updated.png)
+{% data reusables.organizations.member-privileges %}{% ifversion ghes < 3.3 %}
+5. [Repository invitations] の下で、[**Allow members to invite outside collaborators to repositories for this organization**] を選択します。 ![Checkbox to allow members to invite outside collaborators to organization repositories](/assets/images/help/organizations/repo-invitations-checkbox-old.png){% else %}
+5. [Repository outside collaborators] の下で、[**Allow repository administrators to invite outside collaborators to repositories for this organization**]の選択を解除します。 ![Checkbox to allow repository administrators to invite outside collaborators to organization repositories](/assets/images/help/organizations/repo-invitations-checkbox-updated.png){% endif %}
 6. [**Save**] をクリックします。

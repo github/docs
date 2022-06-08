@@ -4,14 +4,14 @@ sections:
   security_fixes:
     - パッケージは最新のセキュリティバージョンにアップデートされました。
   bugs:
-    - Pre-receive hooks would fail due to undefined `PATH`.
-    - 'Running `ghe-repl-setup` would return an error: `cannot create directory /data/user/elasticsearch: File exists` if the instance had previously been configured as a replica.'
-    - In large cluster environments, the authentication backend could be unavailable on a subset of frontend nodes.
-    - Some critical services may not have been available on backend nodes in GHES Cluster.
+    - pre-receiveフックが`PATH`の未定義で失敗します。
+    - 'インスタンスが以前にレプリカとして設定されていた場合、`ghe-repl-setup`を実行すると`cannot create directory /data/user/elasticsearch: File exists`というエラーが返されます。'
+    - 大規模なクラスタ環境に置いて、一部のフロントエンドノードで認証バックエンドが利用できなくなることがあります。
+    - GHESクラスタにおいて、一部の重要なサービスがバックエンドノードで利用できないことがあります。
   changes:
-    - An additional outer layer of `gzip` compression when creating a cluster support bundle with `ghe-cluster-suport-bundle` is now turned off by default. This outer compression can optionally be applied with the `ghe-cluster-suport-bundle -c` command line option.
-    - We have added extra text to the admin console to remind users about the mobile apps' data collection for experience improvement purposes.
-    - The {% data variables.product.prodname_github_connect %} data connection record now includes a list of enabled {% data variables.product.prodname_github_connect %} features. [Updated 2021-12-09]
+    - '`ghe-cluster-suport-bundle`でクラスタSupport Bundleを作成する際の`gzip`圧縮の追加外部レイヤーは、デフォルトでオフになりました。この外部圧縮は、ghe-cluster-suport-bundle -c`コマンドラインオプションで適用できます。'
+    - 体験を改善するためのモバイルアプリケーションのデータ収集についてユーザにリマインドするために、管理コンソールにテキストを追加しました。
+    - '{% data variables.product.prodname_github_connect %}データ接続レコードには、有効化された{% data variables.product.prodname_github_connect %}機能のリストが含まれるようになりました。[2021年12月09日更新]'
   known_issues:
     - 新しくセットアップされたユーザを持たない{% data variables.product.prodname_ghe_server %}で、攻撃者が最初の管理ユーザを作成できました。
     - アップグレードの過程で、カスタムのファイアウォールのルールが削除されます。

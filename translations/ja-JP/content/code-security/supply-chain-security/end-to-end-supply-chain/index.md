@@ -1,10 +1,11 @@
 ---
-title: End-to-end supply chain
-intro: 'How to think about securing your user accounts, your code, and your build process'
+title: エンドツーエンドサプライチェーン
+intro: ユーザアカウント、コード、ビルドプロセスの保護に関する考え方
 versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
+  ghae: '*'
 topics:
   - Security overview
   - Organizations

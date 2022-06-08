@@ -210,7 +210,7 @@ ghe-logs-tail
 
 ### ghe-maintenance
 
-Este utilitário permite controlar o estado do modo de manutenção da instalação. Ele foi desenvolvido para uso principalmente nos bastidores do {% data variables.enterprise.management_console %}, mas também pode ser usado diretamente.
+Este utilitário permite controlar o estado do modo de manutenção da instalação. Ele foi desenvolvido para uso principalmente nos bastidores do {% data variables.enterprise.management_console %}, mas também pode ser usado diretamente. Para obter mais informações, consulte "[Habilitar e programar o modo de manutenção](/admin/guides/installation/enabling-and-scheduling-maintenance-mode)".
 
 ```shell
 ghe-maintenance -h
@@ -673,6 +673,12 @@ ghe-repo <em>username</em>/<em>reponame</em>
 Este utilitário reempacota manualmente uma rede de repositórios para otimizar o armazenamento do pacote. Se você tem um repositório muito grande, esse comando pode ajudar a reduzir o tamanho. O {% data variables.product.prodname_enterprise %} executa automaticamente este comando durante toda a sua interação com uma rede de repositórios.
 
 Você pode adicionar o argumento opcional `--prune` para remover objetos inacessíveis do Git que não são referenciados em um branch, tag ou qualquer outra referência. Fazer isso é útil principalmente para remover de imediato [informações confidenciais já eliminadas](/enterprise/user/articles/remove-sensitive-data/).
+
+{% warning %}
+
+**Aviso**: Antes de usar o argumento `--prune` para remover objetos Git inacessíveis, coloque {% data variables.product.product_location %} em modo de manutenção, ou certifique-se de que o repositório esteja off-line. Para obter mais informações, consulte "[Habilitar e programar o modo de manutenção](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode)".
+
+{% endwarning %}
 
 ```shell
 ghe-repo-gc <em>username</em>/<em>reponame</em>

@@ -29,7 +29,7 @@ on:
 When a pattern matches the `branches-ignore` pattern, the workflow will not run. The patterns defined in `branches` are evaluated against the Git ref's name. For example, the following workflow would run whenever there is a `pull_request` event unless the pull request is targeting:
 
 - A branch named `mona/octocat` (`refs/heads/mona/octocat`)
-- A branch whose name matches `releases/**-alpha`, like `beta/3-alpha` (`refs/releases/beta/3-alpha`)
+- A branch whose name matches `releases/**-alpha`, like `releases/beta/3-alpha` (`refs/heads/releases/beta/3-alpha`)
 
 ```yaml
 on:
@@ -51,7 +51,7 @@ If you define a branch with the `!` character, you must also define at least one
 - 肯定匹配后的匹配否定模式（前缀为 `!`）将排除 Git 引用。
 - 否定匹配后的匹配肯定模式将再次包含 Git 引用。
 
-The following workflow will run on `pull_request` events for pull requests that target `releases/10` or `releases/beta/mona`, but for pull requests that target `releases/10-alpha` or `releases/beta/3-alpha` because the negative pattern `!releases/**-alpha` follows the positive pattern.
+The following workflow will run on `pull_request` events for pull requests that target `releases/10` or `releases/beta/mona`, but not for pull requests that target `releases/10-alpha` or `releases/beta/3-alpha` because the negative pattern `!releases/**-alpha` follows the positive pattern.
 
 ```yaml
 on:

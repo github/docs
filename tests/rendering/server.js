@@ -29,8 +29,13 @@ describe('server', () => {
   test('supports HEAD requests', async () => {
     const res = await head('/en')
     expect(res.statusCode).toBe(200)
-    expect(res.headers).not.toHaveProperty('content-length')
+    expect(res.headers['content-length']).toBe('0')
     expect(res.text).toBe('')
+    // Because the HEAD requests can't be different no matter what's
+    // in the request headers (Accept-Language or Cookies)
+    // it's safe to let it cache. The only key is the URL.
+    expect(res.headers['cache-control']).toContain('public')
+    expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
   })
 
   test('renders the homepage', async () => {
@@ -162,17 +167,6 @@ describe('server', () => {
   test.skip('renders a 400 for invalid paths', async () => {
     const $ = await getDOM('/en/%7B%')
     expect($.res.statusCode).toBe(400)
-  })
-
-  // see issue 12427
-  test('renders a 404 for leading slashes', async () => {
-    let $ = await getDOM('//foo.com/enterprise', { allow404: true })
-    expect($('h1').text()).toBe('Ooops!')
-    expect($.res.statusCode).toBe(404)
-
-    $ = await getDOM('///foo.com/enterprise', { allow404: true })
-    expect($('h1').text()).toBe('Ooops!')
-    expect($.res.statusCode).toBe(404)
   })
 
   test('renders a 500 page when errors are thrown', async () => {
@@ -710,14 +704,6 @@ describe('server', () => {
       expect(res.headers['cache-control']).toContain('public')
       expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
     })
-
-    test('redirects Desktop Classic paths to desktop.github.com', async () => {
-      const res = await get('/desktop-classic')
-      expect(res.statusCode).toBe(301)
-      expect(res.headers.location).toBe('https://desktop.github.com')
-      expect(res.headers['set-cookie']).toBeUndefined()
-      expect(res.headers['cache-control']).toBeUndefined()
-    })
   })
 
   describe('categories and map topics', () => {
@@ -963,20 +949,6 @@ describe('search', () => {
   function findDupesInArray(arr) {
     return lodash.filter(arr, (val, i, iteratee) => lodash.includes(iteratee, val, i + 1))
   }
-
-  it('homepage does not render any elements with duplicate IDs', async () => {
-    const $ = await getDOM('/en')
-    const ids = $('body')
-      .find('[id]')
-      .map((i, el) => $(el).attr('id'))
-      .get()
-      .sort()
-    const dupes = findDupesInArray(ids)
-    const message = `Oops found duplicate DOM id(s): ${dupes.join(', ')}`
-    expect(ids.length).toBeGreaterThan(0)
-    expect(dupes.length === 0, message).toBe(true)
-  })
-
   // SKIPPING: Can we have duplicate IDs? search-input-container and search-results-container are duplicated for mobile and desktop
   // Docs Engineering issue: 969
   it.skip('articles pages do not render any elements with duplicate IDs', async () => {

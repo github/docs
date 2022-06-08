@@ -144,9 +144,11 @@ steps:
 - run: bundle install
 ```
 
+{% ifversion actions-caching %}
+
 ### 依存関係のキャッシング
 
-{% data variables.product.prodname_dotcom %}ホストランナーを使っているなら、`setup-ruby`は実行間でのgemのキャッシュを自動的に処理する方法を提供します。
+The `setup-ruby` actions provides a method to automatically handle the caching of your gems between runs.
 
 キャッシングを有効にするには、以下の設定をしてください。
 
@@ -159,11 +161,11 @@ steps:
 ```
 {% endraw %}
 
-これで、gemを`vendor/cache`にインストールするようbundlerが設定されます。 ワークフローの実行が成功するたびに、このフォルダーはアクションによってキャッシュされ、それ以降のワークフローの実行の際に再ダウンロードされます。 キャッシュのキーとしては、gemfile.lockのハッシュとRubyのバージョンが使われます。 新しいgemをインストールしたり、バージョンを変更したりすると、キャッシュは無効になり、bundlerは新しくインストールを行います。
+これで、gemを`vendor/cache`にインストールするようbundlerが設定されます。 For each successful run of your workflow, this folder will be cached by {% data variables.product.prodname_actions %} and re-downloaded for subsequent workflow runs. キャッシュのキーとしては、gemfile.lockのハッシュとRubyのバージョンが使われます。 新しいgemをインストールしたり、バージョンを変更したりすると、キャッシュは無効になり、bundlerは新しくインストールを行います。
 
 **setup-rubyを使わないキャッシング**
 
-キャッシュをさらに制御するには、{% data variables.product.prodname_dotcom %}ホストランナーを使っているなら、`actions/cache`アクションを直接使うことができます。 詳しい情報については、「<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">ワークフローを高速化するための依存関係のキャッシュ</a>」を参照してください。
+For greater control over caching, you can use the `actions/cache` action directly. 詳しい情報については、「[ワークフローを高速化するための依存関係のキャッシュ](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)」を参照してください。
 
 ```yaml
 steps:
@@ -194,6 +196,8 @@ steps:
     bundle config path vendor/bundle
     bundle install --jobs 4 --retry 3
 ```
+
+{% endif %}
 
 ## コードのマトリクステスト
 

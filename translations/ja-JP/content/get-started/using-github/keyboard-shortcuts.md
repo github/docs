@@ -19,22 +19,22 @@ versions:
 
 Typing <kbd>?</kbd> on {% data variables.product.prodname_dotcom %} brings up a dialog box that lists the keyboard shortcuts available for that page. マウスを使用して移動しなくても、これらのキーボードショートカットを使用して、サイト全体でアクションを実行できます。
 
-{% if keyboard-shortcut-accessibility-setting %}
-You can disable character key shortcuts, while still allowing shortcuts that use modifier keys, in your accessibility settings. For more information, see "[Managing accessibility settings](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-accessibility-settings)."{% endif %}
+{% ifversion keyboard-shortcut-accessibility-setting %}
+You can disable character key shortcuts, while still allowing shortcuts that use modifier keys, in your accessibility settings. For more information, see "[Managing accessibility settings](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-accessibility-settings)."{% endif %}
 
 以下は利用可能なキーボードショートカットのリストです:
-{% if command-palette %}
+{% ifversion command-palette %}
 The {% data variables.product.prodname_command_palette %} also gives you quick access to a wide range of actions, without the need to remember keyboard shortcuts. For more information, see "[{% data variables.product.prodname_command_palette %}](/get-started/using-github/github-command-palette)."{% endif %}
 
 ## サイト全体のショートカット
 
-| キーボードショートカット                  | 説明                                                                                                                                                                                                                                                                               |
-| ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <kbd>S</kbd> または <kbd>/</kbd> | 検索バーにフォーカスします。 詳細は「[{% data variables.product.company_short %} での検索について](/search-github/getting-started-with-searching-on-github/about-searching-on-github)」を参照してください。                                                                                                           |
-| <kbd>G</kbd> <kbd>N</kbd>     | 通知に移動します。 詳しい情報については、{% ifversion fpt or ghes or ghae or ghec %}「[通知について](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}「[通知について](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}」を参照してください。 |
-| <kbd>Esc</kbd>                | ユーザ、Issue、またはプルリクエストのホバーカードにフォーカスすると、ホバーカードが閉じ、ホバーカードが含まれている要素に再フォーカスします                                                                                                                                                                                                         |
+| キーボードショートカット                  | 説明                                                                                                                                                                     |
+| ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <kbd>S</kbd> または <kbd>/</kbd> | 検索バーにフォーカスします。 詳細は「[{% data variables.product.company_short %} での検索について](/search-github/getting-started-with-searching-on-github/about-searching-on-github)」を参照してください。 |
+| <kbd>G</kbd> <kbd>N</kbd>     | 通知に移動します。 詳しい情報については、「[通知について](/github/managing-subscriptions-and-notifications-on-github/about-notifications)」を参照してください。                                              |
+| <kbd>Esc</kbd>                | ユーザ、Issue、またはプルリクエストのホバーカードにフォーカスすると、ホバーカードが閉じ、ホバーカードが含まれている要素に再フォーカスします                                                                                               |
 
-{% if command-palette %}
+{% ifversion command-palette %}
 
 <kbd>Command</kbd>+<kbd>K</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>K</kbd> (Windows/Linux) | Opens the {% data variables.product.prodname_command_palette %}. If you are editing Markdown text, open the command palette with <kbd>Command</kbd>+<kbd>Option</kbd>+<kbd>K</kbd> or <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>K</kbd>. For more information, see "[{% data variables.product.prodname_command_palette %}](/get-started/using-github/github-command-palette)."{% endif %}
 
@@ -89,23 +89,24 @@ The {% data variables.product.prodname_command_palette %} also gives you quick a
 
 ## コメント
 
-| キーボードショートカット                                                                                                                  | 説明                                                                                                                                                                                              |
-| ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <kbd>Command</kbd>+<kbd>B</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>B</kbd> (Windows/Linux)                                   | 太字テキストの Markdown 書式を挿入します                                                                                                                                                                       |
-| <kbd>Command</kbd>+<kbd>I</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>I</kbd> (Windows/Linux)                                   | Inserts Markdown formatting for italicizing text{% ifversion fpt or ghae or ghes > 3.1 or ghec %}
-| <kbd>Command</kbd>+<kbd>E</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>E</kbd> (Windows/Linux)                                   | Inserts Markdown formatting for code or a command within a line{% endif %}
-| <kbd>Command</kbd>+<kbd>K</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>K</kbd> (Windows/Linux)                                   | リンクを作成するための Markdown 書式を挿入します                                                                                                                                                                   |
-| <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux) | Toggles between the **Write** and **Preview** comment tabs{% ifversion fpt or ghae or ghes > 3.4 or ghec %}
-| <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd> (Windows/Linux) | Pastes HTML link as plain text{% endif %}{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
-| <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>7</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>7</kbd> (Windows/Linux) | Inserts Markdown formatting for an ordered list                                                                                                                                                 |
-| <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>8</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>8</kbd> (Windows/Linux) | Inserts Markdown formatting for an unordered list{% endif %}
-| <kbd>Command</kbd>+<kbd>Enter</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Enter</kbd> (Windows/Linux)                           | コメントをサブミットします                                                                                                                                                                                   |
-| <kbd>Ctrl</kbd>+<kbd>.</kbd> and then <kbd>Ctrl</kbd>+<kbd>[saved reply number]</kbd>                                         | 返信テンプレートメニューを開き、コメントフィールドに返信テンプレートを自動入力します。 詳細は「[返信テンプレートについて](/articles/about-saved-replies)」を参照してください。{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
-| <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>.</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>.</kbd> (Windows/Linux) | Inserts Markdown formatting for a quote{% endif %}{% ifversion fpt or ghec %}
-| <kbd>Command</kbd>+<kbd>G</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>G</kbd> (Windows/Linux)                                   | 提案を挿入します。 詳細は「[プルリクエストで提案された変更をレビューする](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)」を参照してください。 
+| キーボードショートカット                                                                                                                                                | 説明                                                                                                                                                                                              |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <kbd>Command</kbd>+<kbd>B</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>B</kbd> (Windows/Linux)                                                                 | 太字テキストの Markdown 書式を挿入します                                                                                                                                                                       |
+| <kbd>Command</kbd>+<kbd>I</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>I</kbd> (Windows/Linux)                                                                 | Inserts Markdown formatting for italicizing text{% ifversion fpt or ghae or ghes > 3.1 or ghec %}
+| <kbd>Command</kbd>+<kbd>E</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>E</kbd> (Windows/Linux)                                                                 | Inserts Markdown formatting for code or a command within a line{% endif %}{% ifversion fpt or ghae-issue-5434 or ghes > 3.1 or ghec %}
+| <kbd>Command</kbd>+<kbd>K</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>K</kbd> (Windows/Linux)                                                                 | Inserts Markdown formatting for creating a link{% endif %}{% ifversion fpt or ghae-issue-7103 or ghes > 3.5 or ghec %}
+| <kbd>Command</kbd>+<kbd>V</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>V</kbd> (Windows/Linux)                                                                 | Creates a Markdown link when applied over highlighted text{% endif %}
+| <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux)                               | Toggles between the **Write** and **Preview** comment tabs{% ifversion fpt or ghae or ghes > 3.4 or ghec %}
+| <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd> (Windows/Linux)                               | Pastes HTML link as plain text{% endif %}{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
+| <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>Opt</kbd>+<kbd>V</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>V</kbd> (Windows/Linux) | Pastes HTML link as plain text{% endif %}{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
+| <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>7</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>7</kbd> (Windows/Linux)                               | Inserts Markdown formatting for an ordered list                                                                                                                                                 |
+| <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>8</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>8</kbd> (Windows/Linux)                               | Inserts Markdown formatting for an unordered list{% endif %}
+| <kbd>Command</kbd>+<kbd>Enter</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Enter</kbd> (Windows/Linux)                                                         | コメントをサブミットします                                                                                                                                                                                   |
+| <kbd>Ctrl</kbd>+<kbd>.</kbd> and then <kbd>Ctrl</kbd>+<kbd>[saved reply number]</kbd>                                                                       | 返信テンプレートメニューを開き、コメントフィールドに返信テンプレートを自動入力します。 詳細は「[返信テンプレートについて](/articles/about-saved-replies)」を参照してください。{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
+| <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>.</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>.</kbd> (Windows/Linux)                               | Inserts Markdown formatting for a quote{% endif %}{% ifversion fpt or ghec %}
+| <kbd>Command</kbd>+<kbd>G</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>G</kbd> (Windows/Linux)                                                                 | 提案を挿入します。 詳細は「[プルリクエストで提案された変更をレビューする](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)」を参照してください。 
 {% endif %}
-| <kbd>R</kbd>                                                                                                                  | 返信で選択したテキストを引用します。 For more information, see "[Basic writing and formatting syntax](/articles/basic-writing-and-formatting-syntax#quoting-text)."                                               |
-
+| <kbd>R</kbd>                                                                                                                                                | 返信で選択したテキストを引用します。 For more information, see "[Basic writing and formatting syntax](/articles/basic-writing-and-formatting-syntax#quoting-text)."                                               |
 
 ## Issue およびプルリクエストのリスト
 
@@ -135,16 +136,15 @@ The {% data variables.product.prodname_command_palette %} also gives you quick a
 
 ## プルリクエストの変更
 
-| キーボードショートカット                                         | 説明                                                                                                                                                                                                                                                                                                               |
-| ---------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <kbd>C</kbd>                                         | プルリクエスト内のコミットのリストを開きます                                                                                                                                                                                                                                                                                           |
-| <kbd>T</kbd>                                         | プルリクエストで変更されたファイルのリストを開きます                                                                                                                                                                                                                                                                                       |
-| <kbd>J</kbd>                                         | リストで選択を下に移動します                                                                                                                                                                                                                                                                                                   |
-| <kbd>K</kbd>                                         | リストで選択を上に移動します                                                                                                                                                                                                                                                                                                   |
-| <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>Enter</kbd> | プルリクエストの差分にコメントを 1 つ追加します                                                                                                                                                                                                                                                                                        |
-| <kbd>Alt</kbd> およびクリック                               | Toggle between collapsing and expanding all outdated review comments in a pull request by holding down <kbd>Alt</kbd> and clicking **Show outdated** or **Hide outdated**.|{% ifversion fpt or ghes or ghae or ghec %}
-| Click, then <kbd>Shift</kbd> and click               | Comment on multiple lines of a pull request by clicking a line number, holding <kbd>Shift</kbd>, then clicking another line number. 詳しい情報については、「[プルリクエストへコメントする](/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request#adding-line-comments-to-a-pull-request)」を参照してください。
-{% endif %}
+| キーボードショートカット                                         | 説明                                                                                                                                                                                                                                                                                                   |
+| ---------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <kbd>C</kbd>                                         | プルリクエスト内のコミットのリストを開きます                                                                                                                                                                                                                                                                               |
+| <kbd>T</kbd>                                         | プルリクエストで変更されたファイルのリストを開きます                                                                                                                                                                                                                                                                           |
+| <kbd>J</kbd>                                         | リストで選択を下に移動します                                                                                                                                                                                                                                                                                       |
+| <kbd>K</kbd>                                         | リストで選択を上に移動します                                                                                                                                                                                                                                                                                       |
+| <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>Enter</kbd> | プルリクエストの差分にコメントを 1 つ追加します                                                                                                                                                                                                                                                                            |
+| <kbd>Alt</kbd> およびクリック                               | Toggle between collapsing and expanding all outdated review comments in a pull request by holding down <kbd>Alt</kbd> and clicking **Show outdated** or **Hide outdated**.                                                                                                                           |
+| Click, then <kbd>Shift</kbd> and click               | Comment on multiple lines of a pull request by clicking a line number, holding <kbd>Shift</kbd>, then clicking another line number. 詳しい情報については、「[プルリクエストへコメントする](/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request#adding-line-comments-to-a-pull-request)」を参照してください。 |
 
 ## プロジェクトボード
 
@@ -200,21 +200,14 @@ The {% data variables.product.prodname_command_palette %} also gives you quick a
 {% endif %}
 
 ## 通知
-{% ifversion fpt or ghes or ghae or ghec %}
+
 | キーボードショートカット                  | 説明           |
 | ----------------------------- | ------------ |
 | <kbd>E</kbd>                  | 完了済としてマークします |
 | <kbd>Shift</kbd>+<kbd>U</kbd> | 未読としてマークします  |
-| <kbd>Shift</kbd>+<kbd>I</kbd> | 既読としてマークします  |
+| <kbd>Shift</kbd>+<kbd>I</kbd> | 既読としてマーク     |
 | <kbd>Shift</kbd>+<kbd>M</kbd> | サブスクライブ解除します |
 
-{% else %}
-
-| キーボードショートカット                                 | 説明           |
-| -------------------------------------------- | ------------ |
-| <kbd>E</kbd> or <kbd>I</kbd> or <kbd>Y</kbd> | 既読としてマークします  |
-| <kbd>Shift</kbd>+<kbd>M</kbd>                | スレッドをミュートします |
-{% endif %}
 
 ## ネットワークグラフ
 

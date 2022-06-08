@@ -41,7 +41,7 @@ Almacenar artefactos consume espacio de almacenamiento en {% data variables.prod
 
 {% else %}
 
-Artifacts consume storage space on the external blob storage that is configured for {% data variables.product.prodname_actions %} on {% data variables.product.product_location %}.
+Los artefactos consumen espacio de almacenamiento en el almacenamiento de blobs externo que se configura para {% data variables.product.prodname_actions %} en {% data variables.product.product_location %}.
 
 {% endif %}
 
@@ -55,6 +55,14 @@ Para compartir datos entre puestos:
 * **Descargar archivos**: Solo puedes descargar artefactos que se hayan subido durante la misma ejecución del flujo de trabajo. Cuando descargas un archivo, puedes referenciarlo por su nombre.
 
 Los pasos de un job comparten el mismo ambiente en la máquina ejecutora, pero se ejecutan en su propio proceso individual. Para pasar datos entre pasos en un trabajo, puedes usar entradas y salidas. Para obtener más información sobre entradas y salidas, consulta "[Sintaxis de metadatos para {% data variables.product.prodname_actions %}](/articles/metadata-syntax-for-github-actions)".
+
+{% ifversion actions-caching %}
+
+{% data reusables.actions.comparing-artifacts-caching %}
+
+Para obtener más información sobre el almacenamiento de dependencias en caché, consulta la sección "[Almacenar dependencias en caché para agilizar los flujos de trabajo](/actions/using-workflows/caching-dependencies-to-speed-up-workflows#comparing-artifacts-and-dependency-caching)".
+
+{% endif %}
 
 ## Cargar artefactos de construcción y prueba
 
@@ -80,7 +88,7 @@ Por ejemplo, tu repositorio o una aplicación web podrían contener archivos de 
 |   
 ```
 
-En este ejemplo se muestra cómo crear un flujo de trabajo para un proyecto Node.js que construye el código en el directorio `src` y ejecuta las pruebas en el directorio `tests`. Puedes suponer que la ejecución `npm test` produce un informe de cobertura de código denominado `code-coverage.html` almacenada en el directorio `output/test/`.
+En este ejemplo se muestra cómo crear un flujo de trabajo para un proyecto de Node.js que compila el código en el directorio `src` y ejecuta las pruebas en el directorio `tests`. Puedes suponer que la ejecución `npm test` produce un informe de cobertura de código denominado `code-coverage.html` almacenada en el directorio `output/test/`.
 
 El flujo de trabajo carga los artefactos de producción en el directorio `dist`, pero excluye cualquier archivo de markdown. También carga el reporte de `code-coverage.html` como otro artefacto.
 

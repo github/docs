@@ -4,6 +4,8 @@ intro: A API de Estatísticas Administrativas fornece uma variedade de métricas
 versions:
   ghes: '*'
   ghae: '*'
+  ghec: '*'
+  fpt: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3

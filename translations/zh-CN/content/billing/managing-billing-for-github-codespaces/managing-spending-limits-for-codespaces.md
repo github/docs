@@ -58,7 +58,7 @@ shortTitle: 支出限额
 
 当支出达到帐户支出限制的 50%、75%、90% 和 100% 时，系统会向帐户所有者和帐单管理员发送电子邮件通知。
 
-You can disable these notifications anytime by navigating to the bottom of the **Spending Limit** page.
+您可以随时通过导航到**支出限额**页面底部禁用这些通知。
 
 ![帐单邮箱通知设置的屏幕截图](/assets/images/help/billing/codespaces-spending-limit-notifications.png)
 

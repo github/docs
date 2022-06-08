@@ -56,6 +56,14 @@ Para compartilhar dados entre trabalhos:
 
 As etapas de um trabalho compartilham o mesmo ambiente na máquina executora, mas são executados em seus próprios processos individuais. Para transmitir dados entre etapas de um trabalho, você pode usar entradas e saídas. Para obter mais informações sobre entradas e saídas, consulte "[Sintaxe de metadados para o {% data variables.product.prodname_actions %}](/articles/metadata-syntax-for-github-actions)".
 
+{% ifversion actions-caching %}
+
+{% data reusables.actions.comparing-artifacts-caching %}
+
+Para obter mais informações sobre armazenamento de dependência em cache, consulte "[Armazenando as dependências em cache para acelerar fluxos de trabalho](/actions/using-workflows/caching-dependencies-to-speed-up-workflows#comparing-artifacts-and-dependency-caching)".
+
+{% endif %}
+
 ## Fazer upload da compilação e testar artefatos
 
 Você pode criar um fluxo de trabalho de integração contínua (CI) para criar e testar o seu código. Para obter mais informações sobre o uso do {% data variables.product.prodname_actions %} para executar CI, consulte "[Sobre integração contínua](/articles/about-continuous-integration)."
@@ -80,7 +88,7 @@ Por exemplo, o seu repositório ou um aplicativo web pode conter arquivos SASS e
 |   
 ```
 
-Esse exemplo mostra como criar um fluxo de trabalho para um projeto Node.js que builds (compila) o código no diretório `src` e executa os testes no diretório `tests`. Você pode partir do princípio que executar `npm test` produz um relatório de cobertura de código denominado `code-coverage.html`, armazenado no diretório `output/test/`.
+Este exemplo mostra como criar um fluxo de trabalho para um projeto do Node.js que compila o código no diretório `src` e executa os testes no diretório `testes`. Você pode partir do princípio que executar `npm test` produz um relatório de cobertura de código denominado `code-coverage.html`, armazenado no diretório `output/test/`.
 
 O fluxo de trabalho faz o upload dos artefatos de produção no diretório `dist`, mas exclui todos os arquivos de markdown. Ele também faz o upload do relatório de `code-coverage.html` como outro artefato.
 

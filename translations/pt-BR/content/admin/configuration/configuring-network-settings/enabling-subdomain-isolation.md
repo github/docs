@@ -24,23 +24,25 @@ O isolamento de subdomínios reduz os problemas de script entre sites e outras v
 
 Quando o isolamento do subdomínio está ativado, o {% data variables.product.prodname_ghe_server %} substitui vários caminhos pelos subdomínios. Depois de habilitar o isolamento de subdomínio, as tentativas de acessar os caminhos anteriores para alguns conteúdos fornecidos pelo usuário como `http(s)://HOSTNAME/raw/` podem retornar erros de `404`.
 
-| Caminho sem isolamento de subdomínio   | Caminho com isolamento de subdomínio                        |
-| -------------------------------------- | ----------------------------------------------------------- |
-| `http(s)://HOSTNAME/assets/`           | `http(s)://assets.HOSTNAME/`                                |
-| `http(s)://HOSTNAME/avatars/`          | `http(s)://avatars.HOSTNAME/`                               |
-| `http(s)://HOSTNAME/codeload/`         | `http(s)://codeload.HOSTNAME/`                              |
-| `http(s)://HOSTNAME/gist/`             | `http(s)://gist.HOSTNAME/`                                  |
-| `http(s)://HOSTNAME/media/`            | `http(s)://media.HOSTNAME/`                                 |
-| `http(s)://HOSTNAME/pages/`            | `http(s)://pages.HOSTNAME/`                                 |
-| `http(s)://HOSTNAME/raw/`              | `http(s)://raw.HOSTNAME/`                                   |
-| `http(s)://HOSTNAME/render/`           | `http(s)://render.HOSTNAME/`                                |
-| `http(s)://HOSTNAME/reply/`            | `http(s)://reply.HOSTNAME/`                                 |
-| `http(s)://HOSTNAME/uploads/`          | `http(s)://uploads.HOSTNAME/`                               |{% ifversion ghes %}
+| Caminho sem isolamento de subdomínio   | Caminho com isolamento de subdomínio                           |
+| -------------------------------------- | -------------------------------------------------------------- |
+| `http(s)://HOSTNAME/assets/`           | `http(s)://assets.HOSTNAME/`                                   |
+| `http(s)://HOSTNAME/avatars/`          | `http(s)://avatars.HOSTNAME/`                                  |
+| `http(s)://HOSTNAME/codeload/`         | `http(s)://codeload.HOSTNAME/`                                 |
+| `http(s)://HOSTNAME/gist/`             | `http(s)://gist.HOSTNAME/`                                     |
+| `http(s)://HOSTNAME/media/`            | `http(s)://media.HOSTNAME/`                                    |
+| `http(s)://HOSTNAME/pages/`            | `http(s)://pages.HOSTNAME/`                                    |
+| `http(s)://HOSTNAME/raw/`              | `http(s)://raw.HOSTNAME/`                                      |
+| `http(s)://HOSTNAME/render/`           | `http(s)://render.HOSTNAME/`                                   |
+| `http(s)://HOSTNAME/reply/`            | `http(s)://reply.HOSTNAME/`                                    |
+| `http(s)://HOSTNAME/uploads/`          | `http(s)://uploads.HOSTNAME/`                                  |{% ifversion ghes %}
 | `https://HOSTNAME/_registry/docker/`   | `http(s)://docker.HOSTNAME/`{% endif %}{% ifversion ghes %}
-| `https://HOSTNAME/_registry/npm/`      | `https://npm.HOSTNAME/`                                     |
-| `https://HOSTNAME/_registry/rubygems/` | `https://rubygems.HOSTNAME/`                                |
-| `https://HOSTNAME/_registry/maven/`    | `https://maven.HOSTNAME/`                                   |
-| `https://HOSTNAME/_registry/nuget/`    | `https://nuget.HOSTNAME/`{% endif %}
+| `https://HOSTNAME/_registry/npm/`      | `https://npm.HOSTNAME/`                                        |
+| `https://HOSTNAME/_registry/rubygems/` | `https://rubygems.HOSTNAME/`                                   |
+| `https://HOSTNAME/_registry/maven/`    | `https://maven.HOSTNAME/`                                      |
+| `https://HOSTNAME/_registry/nuget/`    | `https://nuget.HOSTNAME/`{% endif %}{% ifversion ghes > 3.4 %}
+| Não compatível                         | `https://containers.HOSTNAME/` 
+{% endif %}
 
 ## Pré-requisitos
 

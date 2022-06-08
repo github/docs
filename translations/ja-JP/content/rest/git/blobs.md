@@ -1,8 +1,8 @@
 ---
-title: Git blobs
+title: Git blob
 shortTitle: Blob
 allowTitleToDifferFromFilename: true
-intro: 'The Git blob API lets you create and get a Git blob (binary large object), the object type used to store the contents of each file in a repository.'
+intro: Git blob APIを使うと、リポジトリ中でそれぞれのファイルの内容を保存するために使われるオブジェクトタイプであるGit blob（バイナリラージオブジェクト）の作成と取得ができます。
 versions:
   fpt: '*'
   ghes: '*'
@@ -13,7 +13,7 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## About the Git blob API
+## Git blob APIについて
 
 Git blob (バイナリラージオブジェクト) は、各ファイルのコンテンツをリポジトリに保存する際に使用されるオブジェクトタイプです。 ファイルの SHA-1 ハッシュが計算され、blob オブジェクトに保存されます。 これらのエンドポイントを使用すると、{% data variables.product.product_name %} 上の Git データベースに対して [blob オブジェクト](https://git-scm.com/book/en/v1/Git-Internals-Git-Objects)の読み書きができます。 blob は[これらのカスタムメディアタイプ](#custom-media-types-for-blobs)を利用します。 API でのメディアタイプの使用について詳しくは、[こちら](/rest/overview/media-types)をご覧ください。
 

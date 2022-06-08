@@ -7,6 +7,7 @@ versions:
   fpt: '*'
   ghae: issue-4856
   ghec: '*'
+  ghes: '>=3.5'
 type: tutorial
 topics:
   - Security
@@ -39,7 +40,7 @@ OpenID Connect (OIDC) 允许您的 {% data variables.product.prodname_actions %}
 
 - 为强化安全，请确保您已查看[“使用云配置 OIDC 信任”](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#configuring-the-oidc-trust-with-the-cloud)。 有关示例，请参阅[“在云提供商中配置主题”](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#configuring-the-subject-in-your-cloud-provider)。
 - 要使服务帐户可用于配置，需要将其分配给 `roles/iam.workloadIdentityUser` 角色。 更多信息请参阅 [GCP 文档](https://cloud.google.com/iam/docs/workload-identity-federation?_ga=2.114275588.-285296507.1634918453#conditions)。
-- 要使用的颁发者 URL：`https://token.actions.githubusercontent.com`
+- 要使用的颁发者 URL：{% ifversion ghes %}`https://HOSTNAME/_services/token`{% else %}`https://token.actions.githubusercontent.com`{% endif %}
 
 ## 更新 {% data variables.product.prodname_actions %} 工作流程
 

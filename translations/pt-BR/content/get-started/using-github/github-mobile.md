@@ -25,9 +25,12 @@ Com o {% data variables.product.prodname_mobile %} você pode:
 - Leia, analisar e colaborar em problemas e pull requests
 - Pesquisar, navegar e interagir com usuários, repositórios e organizações
 - Receber uma notificação push quando alguém mencionar seu nome de usuário
-{% ifversion fpt or ghec %}- Proteja sua conta do GitHub.com com autenticação de dois fatores{% endif %}
+{% ifversion fpt or ghec %}- Proteja sua conta do GitHub.com com autenticação de dois fatores
+- Verifique suas tentativas de login em dispositivos não reconhecidos{% endif %}
 
 Para mais informações sobre notificações para {% data variables.product.prodname_mobile %}, consulte "[Configurando notificações](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#enabling-push-notifications-with-github-mobile)."
+
+{% ifversion fpt or ghec %}- Para mais informações sobre a autenticação de dois fatores que usa {% data variables.product.prodname_mobile %}, consulte "[Configurando {% data variables.product.prodname_mobile %}](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication#configuring-two-factor-authentication-using-github-mobile) e [Efetuando a autenticação usando {% data variables.product.prodname_mobile %}](/authentication/securing-your-account-with-two-factor-authentication-2fa/accessing-github-using-two-factor-authentication##verifying-with-github-mobile)". {% endif %}
 
 ## Instalar o {% data variables.product.prodname_mobile %}
 
@@ -73,7 +76,7 @@ Se você configurar o idioma do seu dispositivo para um idioma compatível, {% d
 
 {% data variables.product.prodname_mobile %} ativa automaticamente o Universal Links para iOS. Quando você clica em qualquer link {% data variables.product.product_name %}, a URL de destino vai abrir em {% data variables.product.prodname_mobile %} em vez do Safari. Para obter mais informações, consulte [Universal Links](https://developer.apple.com/ios/universal-links/)  no site de desenvolvedor da Apple
 
-Para desabilitar os links universais, mantenha qualquer link {% data variables.product.product_name %} pressionado e, em seguida, pressione **Abrir**. Toda vez que você clica em um link {% data variables.product.product_name %} no futuro, a URL de destino abrirá no Safari em vez do {% data variables.product.prodname_mobile %}.
+Para desabilitar os links universais, pressione qualquer link de {% data variables.product.product_name %} e, em seguida, toque em **Abrir**. Toda vez que você clicar em um link {% data variables.product.product_name %} no futuro, o URL de destino será aberto no Safari em vez do {% data variables.product.prodname_mobile %}.
 
 Para reabilitar o Universal Links, mantenha pressionado qualquer link {% data variables.product.product_name %}, depois clique em **Abrir em {% data variables.product.prodname_dotcom %}**.
 

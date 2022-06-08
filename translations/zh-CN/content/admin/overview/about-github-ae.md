@@ -35,6 +35,21 @@ topics:
 
 {% data variables.product.prodname_ghe_managed %} 可用于 Azure Government 云（是美国政府机构及其伙伴信任的云）。 {% data variables.product.prodname_ghe_managed %} 也可在商业云中使用，因此您可以选择适合您组织的托管环境。
 
+## 合规认证
+
+{% data variables.product.company_short %} 继续投资于安全最佳实践，以确保您的数据安全，开发人员的工作效率，并且您的团队可以专注于解决问题。 作为安全承诺的一部分，{% data variables.product.prodname_ghe_managed %} 遵守以下认证。
+
+- FedRAMP High Authorization to Operate (ATO)
+- SOC 1、SOC 2 Type II 和 SOC 3
+- ISO/IEC 认证
+   - ISO/IEC 27001:2013
+   - ISO/IEC 27701:2019
+   - ISO/IEC 9001:2015
+   - ISO/IEC 22301:2019
+   - ISO/IEC 27018:2014
+   - ISO/IEC 20000-1:2018
+   - ISO/IEC 27017:2015
+
 ## 延伸阅读
 
 - "[关于 {% data variables.product.prodname_docs %} 的版本](/get-started/learning-about-github/about-versions-of-github-docs)"

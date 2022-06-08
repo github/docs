@@ -169,7 +169,7 @@ Custom fields can be text, number, date, single select, or iteration:
 6. If you specified **Single select** as the type, enter the options.
 7. If you specified **Iteration** as the type, enter the start date of the first iteration and the duration of the iteration. Three iterations are automatically created, and you can add additional iterations on the project's settings page.
 
-You can later edit the drop down options for single select and iteration fields.
+You can also edit your custom fields.
 
 {% data reusables.projects.project-settings %}
 1. Under **Fields**, select the field that you want to edit.

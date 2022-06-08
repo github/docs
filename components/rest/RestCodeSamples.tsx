@@ -36,6 +36,10 @@ const responseSelectOptions = [
   { key: 'schema', text: 'Response schema' },
 ]
 
+function getLanguageHighlight(selectedLanguage: string) {
+  return selectedLanguage === JSKEY ? 'javascript' : 'curl'
+}
+
 export function RestCodeSamples({ operation, slug }: Props) {
   const { t } = useTranslation('products')
 
@@ -144,7 +148,7 @@ export function RestCodeSamples({ operation, slug }: Props) {
     const reqElem = responseCodeExample.current
     const scrollElem = scrollRef.current
 
-    // Reset scroll position to the top when switching bteween example response and
+    // Reset scroll position to the top when switching between example response and
     // response schema
     if (scrollElem) {
       scrollElem.scrollTop = 0
@@ -255,8 +259,12 @@ export function RestCodeSamples({ operation, slug }: Props) {
 
         {/* Example requests */}
         <div
-          className={cx(styles.codeBlock, styles.requestCodeBlock, 'border-top rounded-0 my-0')}
-          data-highlight={selectedLanguage === JSKEY ? 'javascript' : 'curl'}
+          className={cx(
+            styles.codeBlock,
+            styles.requestCodeBlock,
+            `border-top rounded-1 my-0 ${getLanguageHighlight(selectedLanguage)}`
+          )}
+          data-highlight={getLanguageHighlight(selectedLanguage)}
         >
           <code ref={requestCodeExample}>{displayedExample[selectedLanguage]}</code>
         </div>
@@ -306,7 +314,7 @@ export function RestCodeSamples({ operation, slug }: Props) {
               className={cx(
                 styles.codeBlock,
                 styles.responseCodeBlock,
-                'border-top rounded-0 my-0'
+                'border-top rounded-1 my-0'
               )}
               data-highlight={'json'}
               style={{ maxHeight: responseMaxHeight }}
