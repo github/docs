@@ -1,10 +1,11 @@
 ---
-title: End-to-end supply chain
-intro: 'How to think about securing your user accounts, your code, and your build process'
+title: Cadena de suministro de extremo a extremo
+intro: 'Cómo considerar asegurar tus cuentas de usuario, tu código y tu proceso de compilación'
 versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
+  ghae: '*'
 topics:
   - Security overview
   - Organizations

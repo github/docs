@@ -3,9 +3,9 @@ title: Getting started with GitHub Copilot in Visual Studio
 shortTitle: Visual Studio
 intro: 'Learn how to install {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}, and start seeing suggestions as you write comments and code.'
 versions:
-  versions:
-  fpt: '*'
-  ghec: '*'
+  feature: 'copilot'
+topics: 
+  - Copilot
 ---
 
 ## Prerequisites

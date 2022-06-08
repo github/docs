@@ -30,36 +30,36 @@ The foundation of your bill is the number of standard licensed seats that you ch
 
 {% data reusables.enterprise-licensing.unique-user-licensing-model %}
 
-To ensure the same user isn't consuming more than one license for multiple enterprise deployments, you can synchronize license usage between your {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %} environments. For more information, see "[About licenses for GitHub Enterprise](/billing/managing-your-license-for-github-enterprise/about-licenses-for-github-enterprise)."
+Para garantir que o mesmo usuário não esteja consumindo mais de uma licença para várias implantações corporativas, você pode sincronizar o uso da licença entre seus ambientes {% data variables.product.prodname_ghe_server %} e {% data variables.product.prodname_ghe_cloud %}. Para obter mais informações, consulte[Sobre licenças para o GitHub Enterprise](/billing/managing-your-license-for-github-enterprise/about-licenses-for-github-enterprise)."
 
-In addition to licensed seats, your bill may include other charges, such as {% data variables.product.prodname_GH_advanced_security %}. For more information, see "[About billing for your enterprise](/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise)."
+Além das estações licenciadas, sua fatura pode incluir outras taxas, como {% data variables.product.prodname_GH_advanced_security %}. Para obter mais informações, consulte "[Sobre a cobrança para a sua empresa](/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise)".
 {% endif %}
 
-## People that consume a license
+## As pessoas que consomem uma licença
 
-Each person consumes one license, and {% data variables.product.company_short %} identifies individuals by primary email address.
+Cada pessoa consome uma licença e {% data variables.product.company_short %} identifica indivíduos por endereço de e-mail principal.
 
-{% data variables.product.company_short %} bills for the following people.
+{% data variables.product.company_short %} realiza a cobrança para as seguintes pessoas.
 
 {%- ifversion ghec %}
-- Enterprise owners who are a member or owner of at least one organization in the enterprise
+- Os proprietários das empresas que são integrantes ou proprietários de pelo menos uma organização na empresa
 {%- endif %}
-- Organization members, including owners
-- Outside collaborators on private{% ifversion ghec %} or internal{% endif %} repositories owned by your organization, excluding forks
-- Anyone with a pending invitation to become an organization owner or member
-- Anyone with a pending invitation to become an outside collaborator on private{% ifversion ghec %} or internal{% endif %} repositories owned by your organization, excluding forks
+- Integrantes da organização, incluindo proprietários
+- Fora dos colaboradores em repositórios{% ifversion ghec %} privados {% endif %} ou internos pertencentes à sua organização, excluindo bifurcações
+- Qualquer pessoa com um convite pendente para se tornar um proprietário ou integrante da organização
+- Qualquer pessoa com um convite pendente para se tornar um colaborador externo em repositórios{% ifversion ghec %} privados ou internos {% endif %} pertencentes à sua organização, excluindo bifurcações
 {%- ifversion ghec %}
-- Each user on any {% data variables.product.prodname_ghe_server %} instance that you deploy
+- Cada usuário em qualquer instância de {% data variables.product.prodname_ghe_server %} que você implantar
 {%- endif %}
 - Usuários inativos
 
-{% data variables.product.company_short %} does not bill for any of the following people.
+{% data variables.product.company_short %} não realiza cobrança para nenhuma das seguintes pessoas.
 
 {%- ifversion ghec %}
-- Enterprise owners who are not a member or owner of at least one organization in the enterprise
-- Enterprise billing managers
+- Os proprietários das empresas que não são integrantes ou proprietários de pelo menos uma organização na empresa
+- Gerentes corporativos de cobrança
 {%- endif %}
-- Organization billing managers{% ifversion ghec %} for individual organizations on {% data variables.product.prodname_ghe_cloud %}{% endif %}
+- Gerentes de cobrança da organização{% ifversion ghec %} para organizações individuais em {% data variables.product.prodname_ghe_cloud %}{% endif %}
 - Anyone with a pending invitation to become an{% ifversion ghec %} enterprise or{% endif %} organization billing manager
 - Anyone with a pending invitation to become an outside collaborator on a public repository owned by your organization
 {%- ifversion ghes %}

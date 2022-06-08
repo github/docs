@@ -93,6 +93,7 @@ Ao contrário dos aplicativos OAuth, os aplicativos GitHub têm permissões dire
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Por padrão, os aplicativos GitHub têm um único webhook que recebe os eventos que estão configurados para receber para cada repositório ao qual têm acesso. | Os aplicativos OAuth solicitam o escopo do webhook para criar um webhook do repositório para cada repositório do qual precisam receber eventos.                                            |
 | O aplicativo GitHub recebe certos eventos a nível da organização com a permissão do integrante da organização.                                             | Os aplicativos OAuth solicitam o escopo do webhook da organização para criar um webhook da organização para cada organização da qual precisam para receber eventos a nível da organização. |
+| Webhooks are automatically disabled when the GitHub App is uninstalled.                                                                                    | Webhooks are not automatically disabled if an OAuth App's access token is deleted, and there is no way to clean them up automatically. You will have to ask users to do this manually.     |
 
 ## Acesso Git
 

@@ -1,0 +1,1 @@
+1. Under "For this repository I wish to", select **Use a local Git config**. ![Campo <strong>Primary remote repository</strong> (Repositório remote principal)](/assets/images/help/desktop/use-local-git-config.png)
