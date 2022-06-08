@@ -11,10 +11,10 @@ introLinks:
   quickstart: /copilot/quickstart
 featuredLinks:
   guides:
-    - /copilot/getting-started/getting-started-with-github-copilot-in-visual-studio-code
-    - /copilot/getting-started/getting-started-with-github-copilot-in-jetbrains
-    - /copilot/getting-started/getting-started-with-github-copilot-in-visual-studio
-    - /copilot/getting-started/getting-started-with-github-copilot-in-neovim
+    - /copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio-code
+    - /copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-jetbrains
+    - /copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio
+    - /copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-neovim
   popular:
     - /billing/managing-billing-for-github-copilot/about-billing-for-github-copilot
     - /copilot/configuring-github-copilot/configuring-github-copilot-in-visual-studio-code
