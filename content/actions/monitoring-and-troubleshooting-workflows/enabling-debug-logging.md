@@ -22,6 +22,12 @@ These extra logs are enabled by setting secrets in the repository containing the
 
 For more information on setting secrets, see "[Creating and using encrypted secrets](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
 
+{% ifversion debug-reruns %}
+
+Additionally, anyone who has access to run a workflow can enable runner diagnostic logging and step debug logging for a workflow re-run. For more information, see "[Re-running workflows and jobs](/actions/managing-workflow-runs/re-running-workflows-and-jobs)."
+
+ {% endif %}
+
 ## Enabling runner diagnostic logging
 
 Runner diagnostic logging provides additional log files that contain information about how a runner is executing a job. Two extra log files are added to the log archive:

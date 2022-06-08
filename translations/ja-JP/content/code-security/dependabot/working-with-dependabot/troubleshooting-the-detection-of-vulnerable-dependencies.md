@@ -9,7 +9,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: issue-4864
+  ghae: '*'
   ghec: '*'
 type: how_to
 topics:
@@ -36,7 +36,7 @@ topics:
 *   {% data variables.product.prodname_dependabot %} scans any push, to the default branch, that contains a manifest file. When a new vulnerability record is added, it scans all existing repositories and generates an alert for each vulnerable repository. {% data variables.product.prodname_dependabot_alerts %} are aggregated at the repository level, rather than creating one alert per vulnerability. For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)."
 *   {% ifversion fpt or ghec or ghes > 3.2 %}{% data variables.product.prodname_dependabot_security_updates %} are triggered when you receive an alert about a vulnerable dependency in your repository. Where possible, {% data variables.product.prodname_dependabot %} creates a pull request in your repository to upgrade the vulnerable dependency to the minimum possible secure version needed to avoid the vulnerability. For more information, see "[About {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)" and "[Troubleshooting {% data variables.product.prodname_dependabot %} errors](/github/managing-security-vulnerabilities/troubleshooting-dependabot-errors)."
   
-    {% endif %}{% data variables.product.prodname_dependabot %} doesn't scan repositories for vulnerable dependencies on a schedule, but rather when something changes. For example, a scan is triggered when a new dependency is added ({% data variables.product.prodname_dotcom %} checks for this on every push), or when a new vulnerability is added to the advisory database{% ifversion ghes or ghae-issue-4864 %} and synchronized to {% data variables.product.product_location %}{% endif %}. For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies#detection-of-vulnerable-dependencies)."
+    {% endif %}{% data variables.product.prodname_dependabot %} doesn't scan repositories for vulnerable dependencies on a schedule, but rather when something changes. For example, a scan is triggered when a new dependency is added ({% data variables.product.prodname_dotcom %} checks for this on every push), or when a new vulnerability is added to the advisory database{% ifversion ghes or ghae %} and synchronized to {% data variables.product.product_location %}{% endif %}. For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies#detection-of-vulnerable-dependencies)."
 
 ## Do {% data variables.product.prodname_dependabot_alerts %} only relate to vulnerable dependencies in manifests and lockfiles?
 
@@ -82,6 +82,12 @@ Legacy {% data variables.product.prodname_dependabot_alerts %} were grouped into
 The {% data variables.product.prodname_dependabot_alerts %} count in {% data variables.product.prodname_dotcom %} shows a total for the number of alerts, which is the number of vulnerabilities, not the number of dependencies.
 
 **Check**: If there is a discrepancy in the totals you are seeing, check that you are not comparing alert numbers with dependency numbers. Also check that you are viewing all alerts and not a subset of filtered alerts.
+{% endif %}
+
+{% ifversion fpt or ghec or ghes > 3.2 %}
+## Can Dependabot ignore specific dependencies?
+
+You can configure {% data variables.product.prodname_dependabot %} to ignore specific dependencies in the configuration file, which will prevent security and version updates for those dependencies. If you only wish to use security updates, you will need to override the default behavior with a configuration file. For more information, see "[Overriding the default behavior with a configuration file](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates#overriding-the-default-behavior-with-a-configuration-file)" to prevent version updates from being activated. For information about ignoring dependencies, see "[`ignore`](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#ignore)."
 {% endif %}
 
 ## Further reading

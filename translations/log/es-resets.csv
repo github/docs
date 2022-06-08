@@ -2,13 +2,6 @@ file,reason
 translations/es-ES/content/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications.md,broken liquid tags
 translations/es-ES/content/account-and-profile/managing-subscriptions-and-notifications-on-github/viewing-and-triaging-notifications/managing-notifications-from-your-inbox.md,Listed in localization-support#489
 translations/es-ES/content/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile.md,Listed in localization-support#489
-translations/es-ES/content/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/changing-your-github-username.md,Listed in localization-support#489
-translations/es-ES/content/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/deleting-your-user-account.md,Listed in localization-support#489
-translations/es-ES/content/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-security-and-analysis-settings-for-your-user-account.md,Listed in localization-support#489
-translations/es-ES/content/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-your-tab-size-rendering-preference.md,Listed in localization-support#489
-translations/es-ES/content/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-your-theme-settings.md,Listed in localization-support#489
-translations/es-ES/content/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/merging-multiple-user-accounts.md,Listed in localization-support#489
-translations/es-ES/content/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/permission-levels-for-a-user-account-repository.md,Listed in localization-support#489
 translations/es-ES/content/actions/automating-builds-and-tests/about-continuous-integration.md,broken liquid tags
 translations/es-ES/content/actions/automating-builds-and-tests/building-and-testing-powershell.md,Listed in localization-support#489
 translations/es-ES/content/actions/automating-builds-and-tests/building-and-testing-python.md,Listed in localization-support#489
@@ -133,6 +126,7 @@ translations/es-ES/content/codespaces/developing-in-codespaces/using-codespaces-
 translations/es-ES/content/codespaces/developing-in-codespaces/using-codespaces-with-github-cli.md,Listed in localization-support#489
 translations/es-ES/content/codespaces/getting-started/deep-dive.md,Listed in localization-support#489
 translations/es-ES/content/codespaces/index.md,Listed in localization-support#489
+translations/es-ES/content/codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces.md,broken liquid tags
 translations/es-ES/content/codespaces/overview.md,Listed in localization-support#489
 translations/es-ES/content/codespaces/setting-up-your-project-for-codespaces/setting-up-your-dotnet-project-for-codespaces.md,Listed in localization-support#489
 translations/es-ES/content/codespaces/setting-up-your-project-for-codespaces/setting-up-your-java-project-for-codespaces.md,Listed in localization-support#489
@@ -151,6 +145,7 @@ translations/es-ES/content/discussions/index.md,Listed in localization-support#4
 translations/es-ES/content/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork/why-wasnt-my-application-for-a-student-developer-pack-approved.md,broken liquid tags
 translations/es-ES/content/education/guides.md,Listed in localization-support#489
 translations/es-ES/content/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/about-using-makecode-arcade-with-github-classroom.md,broken liquid tags
+translations/es-ES/content/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/integrate-github-classroom-with-an-ide.md,rendering error
 translations/es-ES/content/education/manage-coursework-with-github-classroom/teach-with-github-classroom/connect-a-learning-management-system-to-github-classroom.md,Listed in localization-support#489
 translations/es-ES/content/education/manage-coursework-with-github-classroom/teach-with-github-classroom/connect-a-learning-management-system-to-github-classroom.md,broken liquid tags
 translations/es-ES/content/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-a-group-assignment.md,Listed in localization-support#489
@@ -308,6 +303,7 @@ translations/es-ES/content/support/learning-about-github-support/about-github-su
 translations/es-ES/data/release-notes/enterprise-server/3-2/0-rc1.yml,broken liquid tags
 translations/es-ES/data/release-notes/enterprise-server/3-2/0.yml,broken liquid tags
 translations/es-ES/data/release-notes/github-ae/2021-06/2021-12-06.yml,broken liquid tags
+translations/es-ES/data/release-notes/github-ae/2022-05/2022-05-17.yml,broken liquid tags
 translations/es-ES/data/reusables/actions/contacting-support.md,broken liquid tags
 translations/es-ES/data/reusables/actions/enterprise-marketplace-actions.md,broken liquid tags
 translations/es-ES/data/reusables/actions/enterprise-storage-ha-backups.md,broken liquid tags

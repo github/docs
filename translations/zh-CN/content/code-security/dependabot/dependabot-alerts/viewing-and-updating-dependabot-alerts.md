@@ -11,7 +11,7 @@ shortTitle: 查看 Dependabot 警报
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: issue-4864
+  ghae: '*'
   ghec: '*'
 type: how_to
 topics:
@@ -44,7 +44,7 @@ topics:
 每个 {% data variables.product.prodname_dependabot %} 警报都有一个唯一的数字标识符，{% data variables.product.prodname_dependabot_alerts %} 选项卡列出了每个检测到的漏洞的警报。 旧版 {% data variables.product.prodname_dependabot_alerts %} 按依赖项对漏洞进行分组，并为每个依赖项生成一个警报。 如果导航到旧版 {% data variables.product.prodname_dependabot %} 警报，则会将您重定向到为该包筛选的 {% data variables.product.prodname_dependabot_alerts %} 选项卡。 {% endif %}
 {% endif %}
 
-{% if dependabot-alerts-vulnerable-calls %}
+{% ifversion dependabot-alerts-vulnerable-calls %}
 ## 关于检测对有漏洞函数的调用
 
 {% data reusables.dependabot.vulnerable-calls-beta %}
@@ -55,7 +55,7 @@ topics:
 
 {% note %}
 
-**注意：** 在测试版期间，此功能仅适用于在 2022 年 4 月 14 日*之后*创建的新 Python 公告，以及历史 Python 公告的子集。 GitHub 正在努力回填其他历史 Python 公告的数据，这些公告是滚动添加的。 有漏洞的调用仅在 {% data variables.product.prodname_dependabot_alerts %} 页面上突出显示。
+**注意：** 在测试版期间，此功能仅适用于在 2022 年 4 月 14 日*之后*创建的新 Python 公告，以及历史 Python 公告的子集。 {% data variables.product.prodname_dotcom %} 正在努力回填其他历史 Python 公告的数据，这些公告是滚动添加的。 有漏洞的调用仅在 {% data variables.product.prodname_dependabot_alerts %} 页面上突出显示。
 
 {% endnote %}
 
@@ -65,7 +65,7 @@ topics:
 
 对于检测到有漏洞的调用的警报，警报详细信息页面将显示其他信息：
 
-- 显示函数使用位置或者在有多个调用时显示对函数的第一次调用的代码块。
+- 一个或多个代码块，显示函数的使用位置。
 - 列出函数本身以及指向调用函数的行的链接的注释。
 
 ![显示警报的并带有"有漏洞的调用"标签的警报详细信息页面屏幕截图](/assets/images/help/repository/review-calls-to-vulnerable-functions.png)
@@ -98,7 +98,7 @@ topics:
 
 如果修补的版本不可用，或者您无法更新到安全版本，{% data variables.product.prodname_dependabot %} 会共享其他信息，以帮助您确定后续步骤。 单击以查看 {% data variables.product.prodname_dependabot %} 警报时，可以看到依赖项的安全通告的完整详细信息，包括受影响的功能。 然后，可以检查代码是否调用受影响的函数。 此信息可以帮助您进一步评估风险级别，并确定解决方法或是否能够接受安全漏洞所代表的风险。
 
-{% if dependabot-alerts-vulnerable-calls %}
+{% ifversion dependabot-alerts-vulnerable-calls %}
 
 对于支持的语言，{% data variables.product.prodname_dependabot %} 为您检测对有漏洞函数的调用。 当您查看标记为“有漏洞的调用”的警报时，详细信息包括函数的名称以及指向调用该函数的代码的链接。 通常，您将能够根据此信息做出决策，而无需进一步探索。
 
@@ -124,9 +124,9 @@ topics:
 如果计划大量工作来升级依赖项，或者决定不需要修复警报，则可以忽略警报。 通过忽略已评估的警报，可以更轻松地在新警报出现时对其进行分类。
 
 1. 查看警报的详细信息。 更多信息请参阅“[查看有漏洞的依赖项](#viewing-vulnerable-dependencies)”（上文）。
-1. 选择“Dismiss（忽略）”下拉列表，然后单击忽略警报的原因。{% if reopen-dependabot-alerts %} 未修复的已忽略警报可以稍后重新打开。{% endif %} ![选择通过 "Dismiss（忽略）"下拉菜单忽略警报的原因](/assets/images/help/repository/dependabot-alert-dismiss-drop-down-ungrouped.png)
+1. 选择“Dismiss（忽略）”下拉列表，然后单击忽略警报的原因。{% ifversion reopen-dependabot-alerts %} 未修复的已忽略警报可以稍后重新打开。{% endif %} ![选择通过 "Dismiss（忽略）"下拉菜单忽略警报的原因](/assets/images/help/repository/dependabot-alert-dismiss-drop-down-ungrouped.png)
 
-{% if reopen-dependabot-alerts %}
+{% ifversion reopen-dependabot-alerts %}
 
 ## 查看和更新已关闭的警报
 

@@ -15,7 +15,7 @@ topics:
   - Secret scanning
 ---
 
-{% ifversion ghes < 3.3 or ghae %}
+{% ifversion ghes < 3.3 %}
 {% note %}
 
 **Observação:** Os padrões personalizados para {% data variables.product.prodname_secret_scanning %} estão atualmente em fase beta e sujeitos a alterações.
@@ -33,7 +33,7 @@ Você pode definir padrões personalizados para identificar segredos que não s�
 {%- else %} 20 padrões personalizados para cada organização ou conta corporativa, e por repositório.
 {%- endif %}
 
-{% ifversion ghes < 3.3 or ghae %}
+{% ifversion ghes < 3.3 %}
 {% note %}
 
 **Observação:** No beta, existem algumas limitações ao usar padrões personalizados para {% data variables.product.prodname_secret_scanning %}:
@@ -122,7 +122,7 @@ Antes de definir um padrão personalizado, você deverá habilitar {% data varia
 {% data reusables.repositories.navigate-to-ghas-settings %}
 {% data reusables.advanced-security.secret-scanning-new-custom-pattern %}
 {% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}
-{%- if secret-scanning-org-dry-runs %}
+{%- ifversion secret-scanning-org-dry-runs %}
 1. Quando você estiver pronto para testar seu novo padrão personalizado, para identificar correspondências em repositórios selecionados sem criar alertas, clique em **Salvar e testar**.
 {% data reusables.advanced-security.secret-scanning-dry-run-select-repos %}
 {% data reusables.advanced-security.secret-scanning-dry-run-results %}
@@ -141,10 +141,10 @@ Antes de definir um padrão personalizado, você deverá garantir que você habi
 
 {% note %}
 
-{% if secret-scanning-enterprise-dry-runs %}
+{% ifversion secret-scanning-enterprise-dry-runs %}
 **Notas:**
-- At the enterprise level, only the creator of a custom pattern can edit the pattern, and use it in a dry run.
-- Enterprise owners can only make use of dry runs on repositories that they have access to, and enterprise owners do not necessarily have access to all the organizations or repositories within the enterprise.
+- No nível corporativo, apenas o criador de um padrão personalizado pode editar o padrão e usá-lo em um teste.
+- Os proprietários de empresas só podem usar testes em repositórios aos quais têm acesso, e os proprietários de empresas não têm necessariamente acesso a todas as organizações ou repositórios da empresa.
 {% else %}
 **Observação:** Como não há nenhuma funcionalidade de teste, recomendamos que você teste seus padrões personalizados em um repositório antes de defini-los para toda sua empresa. Dessa forma, você pode evitar criar alertas falsos-positivos de {% data variables.product.prodname_secret_scanning %}.
 
@@ -158,7 +158,7 @@ Antes de definir um padrão personalizado, você deverá garantir que você habi
 {% data reusables.enterprise-accounts.advanced-security-security-features %}
 1. Em "Padrões de personalização de digitalização de segredos", clique em {% ifversion ghes = 3.2 %}**Novo padrão personalizado**{% else %}**Novo padrão**{% endif %}.
 {% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}
-{%- if secret-scanning-enterprise-dry-runs %}
+{%- ifversion secret-scanning-enterprise-dry-runs %}
 1. Quando estiver pronto para testar seu novo padrão personalizado, para identificar correspondências no repositório sem criar alertas, clique em **Salvar testar**.
 {% data reusables.advanced-security.secret-scanning-dry-run-select-repos %}
 {% data reusables.advanced-security.secret-scanning-dry-run-results %}

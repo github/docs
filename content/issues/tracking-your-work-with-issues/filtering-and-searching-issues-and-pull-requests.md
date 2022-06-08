@@ -178,11 +178,10 @@ With issue and pull request search terms, you can:
 {% endtip %}
 {% endif %}
 
-{% ifversion fpt or ghes or ghae or ghec %}
 For issues, you can also use search to:
 
-- Filter for issues that are linked to a pull request by a closing reference: `linked:pr`
-{% endif %}
+- Filter for issues that are linked to a pull request by a closing reference: `linked:pr`{% ifversion issue-close-reasons %}
+- Filter issues by the reason they were closed: `is:closed reason:complete` or `is:closed reason:"not planned"`{% endif %}
 
 For pull requests, you can also use search to:
 - Filter [draft](/articles/about-pull-requests#draft-pull-requests) pull requests: `is:draft`
@@ -193,8 +192,8 @@ For pull requests, you can also use search to:
 - Filter pull requests by [reviewer](/articles/about-pull-request-reviews/): `state:open type:pr reviewed-by:octocat`
 - Filter pull requests by the specific user [requested for review](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/requesting-a-pull-request-review): `state:open type:pr review-requested:octocat`{% ifversion fpt or ghae-issue-5181 or ghes > 3.2 or ghec %}
 - Filter pull requests that someone has asked you directly to review: `state:open type:pr user-review-requested:@me`{% endif %}
-- Filter pull requests by the team requested for review: `state:open type:pr team-review-requested:github/atom`{% ifversion fpt or ghes or ghae or ghec %}
-- Filter for pull requests that are linked to an issue that the pull request may close: `linked:issue`{% endif %}
+- Filter pull requests by the team requested for review: `state:open type:pr team-review-requested:github/atom`
+- Filter for pull requests that are linked to an issue that the pull request may close: `linked:issue`
 
 ## Sorting issues and pull requests
 
@@ -216,7 +215,6 @@ You can sort any filtered view by:
   ![Using the Sort drop-down tab](/assets/images/help/issues/issues_sort_dropdown.png)
 
 To clear your sort selection, click **Sort** > **Newest**.
-
 
 ## Sharing filters
 

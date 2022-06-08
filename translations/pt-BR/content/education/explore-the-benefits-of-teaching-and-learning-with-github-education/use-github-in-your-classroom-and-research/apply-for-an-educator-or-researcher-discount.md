@@ -33,25 +33,6 @@ Para obter mais informações sobre contas pessoais em {% data variables.product
 {% data reusables.education.plan-to-use-github %}
 {% data reusables.education.submit-application %}
 
-## Atualizar sua organização
-
-Depois que sua solicitação para desconto de educador ou pesquisador for aprovada, você poderá atualizar as organizações que usa com sua comunidade de aprendizagem para o {% data variables.product.prodname_team %}, o que permite usuários ilimitados e repositórios privados com recursos completos, gratuitamente. Você pode atualizar uma organização existente ou criar uma para atualizar.
-
-### Atualizar uma organização existente
-
-{% data reusables.education.upgrade-page %}
-{% data reusables.education.upgrade-organization %}
-
-### Atualizar uma nova organização
-
-{% data reusables.education.upgrade-page %}
-1. Clique em {% octicon "plus" aria-label="The plus symbol" %} **Create an organization** (Criar uma organização). ![Botão Create an organization (Criar uma organização)](/assets/images/help/education/create-org-button.png)
-3. Leia as informações e clique em **Criar organização**. ![Botão Create an organization (Criar uma organização)](/assets/images/help/education/create-organization-button.png)
-4. Em "Choose a plan" (Escolher um plano), clique em **Escolher {% data variables.product.prodname_free_team %}**.
-5. Siga as instruções para criar sua organização.
-{% data reusables.education.upgrade-page %}
-{% data reusables.education.upgrade-organization %}
-
 ## Leia mais
 
 - "[Por que minha solicitação para desconto de educador ou pesquisador não foi aprovada?](/articles/why-wasn-t-my-application-for-an-educator-or-researcher-discount-approved)"

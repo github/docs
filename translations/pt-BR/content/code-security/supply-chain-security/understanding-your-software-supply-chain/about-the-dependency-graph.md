@@ -7,7 +7,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: issue-4864
+  ghae: '*'
   ghec: '*'
 type: overview
 topics:
@@ -45,6 +45,8 @@ O gráfico de dependências inclui todas as dependências de um repositório det
 
 O gráfico de dependências identifica as dependências indiretas{% ifversion fpt or ghec %} explicitamente a partir de um arquivo de bloqueio ou verificando as dependências das suas dependências diretas. Para o gráfico mais confiável, você deve usar os arquivos de bloqueio (ou o equivalente deles), pois definem exatamente quais versões das dependências diretas e indiretas você usa atualmente. Se você usar arquivos de bloqueio, você também terá certeza de que todos os contribuidores do repositório usarão as mesmas versões, o que facilitará para você testar e depurar o código{% else %} dos arquivos de bloqueio{% endif %}.
 
+Para obter mais informações sobre como {% data variables.product.product_name %} ajuda você a entender as dependências do seu ambiente, consulte "[Sobre a segurança da cadeia de suprimentos](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security)."
+
 {% ifversion fpt or ghec %}
 
 ## Dependentes incluídos
@@ -69,21 +71,21 @@ Os formatos recomendados definem explicitamente quais versões são usadas para 
 | Composer               | PHP                              | `composer.lock`                                        | `composer.json`, `composer.lock`                                          |
 | NuGet                  | .NET languages (C#, F#, VB), C++ | `.csproj`, `.vbproj`, `.nuspec`, `.vcxproj`, `.fsproj` | `.csproj`, `.vbproj`, `.nuspec`, `.vcxproj`, `.fsproj`, `packages.config` |
 
-{%- if github-actions-in-dependency-graph %}
-| Fluxos de trabalho de {% data variables.product.prodname_actions %}
+{%- ifversion github-actions-in-dependency-graph %}
+| {% data variables.product.prodname_actions %} workflows
 
 <sup>[1]</sup> | YAML | `.yml`, `.yaml` | `.yml`, `.yaml` |
 {%- endif %}
-{%- ifversion fpt or ghes > 3.2 or ghae %}
-| Módulos do Go | Go | `go.sum` | `go.mod`, `go.sum` |
+{%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
+| Go modules | Go | `go.sum` | `go.mod`, `go.sum` |
 {%- elsif ghes = 3.2 %}
-| Módulos do Go | Go | `go.mod` | `go.mod` |
+| Go modules | Go | `go.mod` | `go.mod` |
 {%- endif %}
-| Maven | Java, Scala |  `pom.xml`  | `pom.xml`  | | npm | JavaScript |            `package-lock.json` | `package-lock.json`, `package.json`| | pip             | Python                    | `requirements.txt`, `pipfile.lock` | `requirements.txt`, `pipfile`, `pipfile.lock`, `setup.py`{% if github-actions-in-dependency-graph %}<sup>[2]</sup>{% else %}<sup>[1]</sup>{% endif %}
+| Maven | Java, Scala |  `pom.xml`  | `pom.xml`  | | npm | JavaScript |            `package-lock.json` | `package-lock.json`, `package.json`| | pip             | Python                    | `requirements.txt`, `pipfile.lock` | `requirements.txt`, `pipfile`, `pipfile.lock`, `setup.py`{% ifversion github-actions-in-dependency-graph %}<sup>[2]</sup>{% else %}<sup>[1]</sup>{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4752 %}
 | Python Poetry | Python                    | `poetry.lock` | `poetry.lock`, `pyproject.toml` |{% endif %} | RubyGems             | Ruby           | `Gemfile.lock` | `Gemfile.lock`, `Gemfile`, `*.gemspec` | | Yarn | JavaScript | `yarn.lock` | `package.json`, `yarn.lock` |
 
-{% if github-actions-in-dependency-graph %}
+{% ifversion github-actions-in-dependency-graph %}
 [1] Observe que os fluxos de trabalho de {% data variables.product.prodname_actions %} devem estar localizados no diretório `.github/workflows/` de um repositório para serem reconhecidos como manifestos. Todas as ações ou fluxos de trabalho referenciados que usam a sintaxe `jobs[*].steps[*].uses` or `jobs.<job_id>.uses` serão analisados como dependências. Para obter mais informações, consulte " Sintaxe de fluxo de trabalho[para o GitHub Actions](/actions/using-workflows/workflow-syntax-for-github-actions)".
 
 [2] Se você listar suas dependências do Python nas no arquivo `setup.py`, é possível que não possamos analisar e listar todas as dependências do seu projeto.
@@ -92,7 +94,7 @@ Os formatos recomendados definem explicitamente quais versões são usadas para 
 [1] Se você listar suas dependências do Python no arquivo `setup.py`, é possível que não possamos analisar e listar todas as dependências do seu projeto.
 {% endif %}
 
-{% if github-actions-in-dependency-graph %}
+{% ifversion github-actions-in-dependency-graph %}
 {% note %}
 
 **Observação:** As dependências do fluxo de trabalho de {% data variables.product.prodname_actions %} são exibidas no gráfico de dependências para fins informativos. Os alertas de dependência não são atualmente compatíveis com os fluxos de trabalho de {% data variables.product.prodname_actions %}.

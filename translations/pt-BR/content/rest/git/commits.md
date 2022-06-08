@@ -1,8 +1,8 @@
 ---
-title: Git commits
+title: Commits do Git
 shortTitle: Commits
 allowTitleToDifferFromFilename: true
-intro: 'The Git commits API lets you read and write commit objects to your Git database on {% data variables.product.product_name %}.'
+intro: 'A API de commits do Git permite ler e escrever objetos de commit no banco de dados do seu Git em {% data variables.product.product_name %}.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -13,6 +13,6 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## About the Git commits API
+## Sobre A API de commits do Git
 
-Um commit do Git é um instantâneo da hierarquia ([árvore do Git](/rest/reference/git#trees)) e o conteúdo dos arquivos ([Blob do Git](/rest/reference/git#blobs)) em um repositório do Git. These endpoints allow you to read and write [commit objects](https://git-scm.com/book/en/v1/Git-Internals-Git-Objects#Commit-Objects) to your Git database on {% data variables.product.product_name %}.
+Um commit do Git é um instantâneo da hierarquia ([árvore do Git](/rest/reference/git#trees)) e o conteúdo dos arquivos ([Blob do Git](/rest/reference/git#blobs)) em um repositório do Git. Estes pontos de extremidade permitem ler e escrever [objetos de commit](https://git-scm.com/book/en/v1/Git-Internals-Git-Objects#Commit-Objects) no seu banco de dados do Git em {% data variables.product.product_name %}.

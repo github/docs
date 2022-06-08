@@ -2,8 +2,7 @@
 title: About GitHub Copilot
 intro: 'Learn how {% data variables.product.prodname_copilot %} can help you by offering autocomplete-style suggestions as you code, and what you need to consider when writing code with {% data variables.product.prodname_copilot %}.'
 versions:
-  fpt: '*'
-  ghec: '*'
+  feature: 'copilot'
 topics:
   - Copilot
 shortTitle: About GitHub Copilot

@@ -208,7 +208,8 @@ Os trabalhos simultâneos e os tempos de execução do fluxo de trabalho em {% d
 ### Usar diferentes linguagens em {% data variables.product.prodname_actions %}
 
 Ao trabalhar com diferentes linguagens em {% data variables.product.prodname_actions %}, você pode criar uma etapa no seu trabalho para configurar as dependências da sua linguagem. Para obter mais informações sobre como trabalhar com uma linguagem em particular, consulte o guia específico:
-  - [Criar e testar Node.js ou Python](/actions/guides/building-and-testing-nodejs-or-python)
+  - [Criar e testar Node.js](/actions/guides/building-and-testing-nodejs)
+  - [Criar e testar o Python](/actions/guides/building-and-testing-python)
   - [Criar e testar PowerShell](/actions/guides/building-and-testing-powershell)
   - [Criar e estar o Java com o Maven](/actions/guides/building-and-testing-java-with-maven)
   - [Criar e estar o Java com o Gradle](/actions/guides/building-and-testing-java-with-gradle)
@@ -304,7 +305,7 @@ jobs:
 
 O Travis CI e {% data variables.product.prodname_actions %} permitem que você armazene as as dependências em cache manualmente para reutilização posterior.
 
-{% if actions-caching %}
+{% ifversion actions-caching %}
 
 Esse exemplo demonstra a sintaxe do cache para cada sistema.
 

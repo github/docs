@@ -11,7 +11,7 @@ versions:
   ghec: '*'
 ---
 
-## About the {% data variables.product.prodname_marketplace %} API
+## Sobre a API do {% data variables.product.prodname_marketplace %}
 
 Para obter mais informações sobre {% data variables.product.prodname_marketplace %}, consulte "[GitHub Marketplace](/marketplace/)".
 

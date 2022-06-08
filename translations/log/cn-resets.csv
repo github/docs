@@ -4,10 +4,10 @@ translations/zh-CN/content/account-and-profile/managing-subscriptions-and-notifi
 translations/zh-CN/content/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/sending-enterprise-contributions-to-your-githubcom-profile.md,broken liquid tags
 translations/zh-CN/content/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/viewing-contributions-on-your-profile.md,broken liquid tags
 translations/zh-CN/content/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/why-are-my-contributions-not-showing-up-on-my-profile.md,broken liquid tags
-translations/zh-CN/content/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/about-your-personal-dashboard.md,broken liquid tags
-translations/zh-CN/content/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/changing-your-github-username.md,rendering error
-translations/zh-CN/content/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-the-default-branch-name-for-your-repositories.md,broken liquid tags
-translations/zh-CN/content/account-and-profile/setting-up-and-managing-your-github-user-account/managing-your-membership-in-organizations/about-organization-membership.md,broken liquid tags
+translations/zh-CN/content/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/about-your-personal-dashboard.md,broken liquid tags
+translations/zh-CN/content/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/changing-your-github-username.md,rendering error
+translations/zh-CN/content/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-the-default-branch-name-for-your-repositories.md,broken liquid tags
+translations/zh-CN/content/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations/about-organization-membership.md,broken liquid tags
 translations/zh-CN/content/actions/automating-builds-and-tests/about-continuous-integration.md,broken liquid tags
 translations/zh-CN/content/actions/deployment/about-deployments/deploying-with-github-actions.md,broken liquid tags
 translations/zh-CN/content/actions/hosting-your-own-runners/about-self-hosted-runners.md,broken liquid tags
@@ -16,11 +16,9 @@ translations/zh-CN/content/actions/hosting-your-own-runners/adding-self-hosted-r
 translations/zh-CN/content/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners.md,Listed in localization-support#489
 translations/zh-CN/content/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners.md,broken liquid tags
 translations/zh-CN/content/actions/learn-github-actions/usage-limits-billing-and-administration.md,broken liquid tags
-translations/zh-CN/content/actions/managing-workflow-runs/re-running-workflows-and-jobs.md,rendering error
 translations/zh-CN/content/actions/managing-workflow-runs/removing-workflow-artifacts.md,broken liquid tags
 translations/zh-CN/content/actions/managing-workflow-runs/reviewing-deployments.md,Listed in localization-support#489
 translations/zh-CN/content/actions/security-guides/security-hardening-for-github-actions.md,broken liquid tags
-translations/zh-CN/content/actions/using-github-hosted-runners/about-github-hosted-runners.md,broken liquid tags
 translations/zh-CN/content/actions/using-workflows/reusing-workflows.md,rendering error
 translations/zh-CN/content/actions/using-workflows/storing-workflow-data-as-artifacts.md,broken liquid tags
 translations/zh-CN/content/actions/using-workflows/using-github-cli-in-workflows.md,broken liquid tags
@@ -38,6 +36,7 @@ translations/zh-CN/content/admin/configuration/configuring-github-connect/enabli
 translations/zh-CN/content/admin/configuration/configuring-github-connect/managing-github-connect.md,broken liquid tags
 translations/zh-CN/content/admin/configuration/configuring-network-settings/configuring-an-outbound-web-proxy-server.md,broken liquid tags
 translations/zh-CN/content/admin/configuration/configuring-network-settings/network-ports.md,broken liquid tags
+translations/zh-CN/content/admin/configuration/configuring-network-settings/using-github-enterprise-server-with-a-load-balancer.md,broken liquid tags
 translations/zh-CN/content/admin/configuration/configuring-your-enterprise/accessing-the-management-console.md,broken liquid tags
 translations/zh-CN/content/admin/configuration/configuring-your-enterprise/command-line-utilities.md,broken liquid tags
 translations/zh-CN/content/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance.md,broken liquid tags
@@ -75,11 +74,10 @@ translations/zh-CN/content/admin/github-actions/managing-access-to-actions-from-
 translations/zh-CN/content/admin/github-actions/using-github-actions-in-github-ae/index.md,broken liquid tags
 translations/zh-CN/content/admin/identity-and-access-management/index.md,rendering error
 translations/zh-CN/content/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication.md,broken liquid tags
-translations/zh-CN/content/admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/about-enterprise-managed-users.md,broken liquid tags
-translations/zh-CN/content/admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/configuring-scim-provisioning-for-enterprise-managed-users-with-okta.md,broken liquid tags
-translations/zh-CN/content/admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/configuring-scim-provisioning-for-enterprise-managed-users.md,broken liquid tags
-translations/zh-CN/content/admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/managing-team-memberships-with-identity-provider-groups.md,broken liquid tags
-translations/zh-CN/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/about-saml-for-enterprise-iam.md,broken liquid tags
+translations/zh-CN/content/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users.md,broken liquid tags
+translations/zh-CN/content/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-scim-provisioning-for-enterprise-managed-users-with-okta.md,broken liquid tags
+translations/zh-CN/content/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-scim-provisioning-for-enterprise-managed-users.md,broken liquid tags
+translations/zh-CN/content/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/managing-team-memberships-with-identity-provider-groups.md,broken liquid tags
 translations/zh-CN/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise.md,broken liquid tags
 translations/zh-CN/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-user-provisioning-for-your-enterprise.md,broken liquid tags
 translations/zh-CN/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/index.md,broken liquid tags
@@ -125,6 +123,7 @@ translations/zh-CN/content/billing/managing-billing-for-github-advanced-security
 translations/zh-CN/content/billing/managing-billing-for-github-advanced-security/viewing-your-github-advanced-security-usage.md,broken liquid tags
 translations/zh-CN/content/billing/managing-billing-for-github-packages/about-billing-for-github-packages.md,broken liquid tags
 translations/zh-CN/content/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise.md,broken liquid tags
+translations/zh-CN/content/billing/managing-billing-for-your-github-account/about-per-user-pricing.md,rendering error
 translations/zh-CN/content/billing/managing-billing-for-your-github-account/discounted-subscriptions-for-github-accounts.md,broken liquid tags
 translations/zh-CN/content/billing/managing-billing-for-your-github-account/index.md,broken liquid tags
 translations/zh-CN/content/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription.md,rendering error
@@ -199,6 +198,7 @@ translations/zh-CN/content/developers/github-marketplace/github-marketplace-over
 translations/zh-CN/content/developers/github-marketplace/using-the-github-marketplace-api-in-your-app/handling-new-purchases-and-free-trials.md,broken liquid tags
 translations/zh-CN/content/developers/overview/secret-scanning-partner-program.md,broken liquid tags
 translations/zh-CN/content/developers/webhooks-and-events/webhooks/about-webhooks.md,broken liquid tags
+translations/zh-CN/content/developers/webhooks-and-events/webhooks/webhook-events-and-payloads.md,rendering error
 translations/zh-CN/content/discussions/collaborating-with-your-community-using-discussions/about-discussions.md,broken liquid tags
 translations/zh-CN/content/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-at-your-educational-institution/about-campus-advisors.md,broken liquid tags
 translations/zh-CN/content/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-at-your-educational-institution/about-github-campus-program.md,broken liquid tags
@@ -208,6 +208,7 @@ translations/zh-CN/content/education/manage-coursework-with-github-classroom/int
 translations/zh-CN/content/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/using-github-codespaces-with-github-classroom.md,broken liquid tags
 translations/zh-CN/content/education/manage-coursework-with-github-classroom/learn-with-github-classroom/view-autograding-results.md,broken liquid tags
 translations/zh-CN/content/get-started/customizing-your-github-workflow/exploring-integrations/about-github-marketplace.md,broken liquid tags
+translations/zh-CN/content/get-started/customizing-your-github-workflow/exploring-integrations/github-extensions-and-integrations.md,broken liquid tags
 translations/zh-CN/content/get-started/customizing-your-github-workflow/index.md,broken liquid tags
 translations/zh-CN/content/get-started/exploring-projects-on-github/following-organizations.md,broken liquid tags
 translations/zh-CN/content/get-started/getting-started-with-git/about-remote-repositories.md,broken liquid tags
@@ -294,6 +295,7 @@ translations/zh-CN/data/release-notes/enterprise-server/2-21/6.yml,Listed in loc
 translations/zh-CN/data/release-notes/enterprise-server/2-22/22.yml,broken liquid tags
 translations/zh-CN/data/release-notes/enterprise-server/3-0/0.yml,broken liquid tags
 translations/zh-CN/data/release-notes/enterprise-server/3-0/16.yml,broken liquid tags
+translations/zh-CN/data/release-notes/enterprise-server/3-0/19.yml,broken liquid tags
 translations/zh-CN/data/release-notes/enterprise-server/3-1/0.yml,broken liquid tags
 translations/zh-CN/data/release-notes/enterprise-server/3-1/1.yml,broken liquid tags
 translations/zh-CN/data/release-notes/enterprise-server/3-1/10.yml,broken liquid tags
@@ -308,6 +310,7 @@ translations/zh-CN/data/release-notes/enterprise-server/3-1/18.yml,broken liquid
 translations/zh-CN/data/release-notes/enterprise-server/3-1/19.yml,broken liquid tags
 translations/zh-CN/data/release-notes/enterprise-server/3-1/2.yml,broken liquid tags
 translations/zh-CN/data/release-notes/enterprise-server/3-1/20.yml,broken liquid tags
+translations/zh-CN/data/release-notes/enterprise-server/3-1/21.yml,broken liquid tags
 translations/zh-CN/data/release-notes/enterprise-server/3-1/3.yml,broken liquid tags
 translations/zh-CN/data/release-notes/enterprise-server/3-1/4.yml,broken liquid tags
 translations/zh-CN/data/release-notes/enterprise-server/3-1/5.yml,broken liquid tags
@@ -317,6 +320,9 @@ translations/zh-CN/data/release-notes/enterprise-server/3-1/8.yml,broken liquid 
 translations/zh-CN/data/release-notes/enterprise-server/3-1/9.yml,broken liquid tags
 translations/zh-CN/data/release-notes/enterprise-server/3-2/0-rc1.yml,broken liquid tags
 translations/zh-CN/data/release-notes/enterprise-server/3-2/0.yml,broken liquid tags
+translations/zh-CN/data/release-notes/enterprise-server/3-2/3.yml,broken liquid tags
+translations/zh-CN/data/release-notes/enterprise-server/3-3/0-rc1.yml,broken liquid tags
+translations/zh-CN/data/release-notes/enterprise-server/3-3/0.yml,broken liquid tags
 translations/zh-CN/data/release-notes/github-ae/2021-03/2021-03-03.yml,broken liquid tags
 translations/zh-CN/data/reusables/actions/actions-use-policy-settings.md,broken liquid tags
 translations/zh-CN/data/reusables/actions/enterprise-common-prereqs.md,broken liquid tags
@@ -335,6 +341,7 @@ translations/zh-CN/data/reusables/code-scanning/enterprise-enable-code-scanning.
 translations/zh-CN/data/reusables/code-scanning/run-additional-queries.md,broken liquid tags
 translations/zh-CN/data/reusables/code-scanning/upload-sarif-ghas.md,broken liquid tags
 translations/zh-CN/data/reusables/dependabot/dependabot-alerts-dependency-graph-enterprise.md,broken liquid tags
+translations/zh-CN/data/reusables/dependabot/enterprise-enable-dependabot.md,broken liquid tags
 translations/zh-CN/data/reusables/dotcom_billing/downgrade-org-to-free.md,broken liquid tags
 translations/zh-CN/data/reusables/enterprise-accounts/emu-password-reset-session.md,broken liquid tags
 translations/zh-CN/data/reusables/enterprise-accounts/emu-short-summary.md,rendering error

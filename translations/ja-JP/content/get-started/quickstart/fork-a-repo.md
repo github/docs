@@ -42,7 +42,7 @@ Most commonly, forks are used to either propose changes to someone else's projec
 
 他のユーザのプロジェクトのフォークからパブリックリポジトリを作成する際は、プロジェクトの他者との共有方法を定義するライセンスファイルを必ず含めてください。 詳しい情報については、choosealicense.com の「[オープンソースのライセンスを選択する](https://choosealicense.com/)」を参照してください。
 
-{% data reusables.open-source.open-source-guide-repositories %} {% data reusables.open-source.open-source-learning-lab %}
+{% data reusables.open-source.open-source-guide-repositories %} {% data reusables.open-source.open-source-learning %}
 
 {% endif %}
 
@@ -57,7 +57,7 @@ If you have not yet, you should first [set up Git](/articles/set-up-git). [Git �
 上流または元のリポジトリへの変更を提案するために、プロジェクトをフォークする場合があります。 この場合、自分のフォークを上流のリポジトリと定期的に同期させるとよいでしょう。 これには、コマンドラインで Git を使用する必要があります。 先程フォークした同じ [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) リポジトリを使用して、上流リポジトリの設定を練習できます。
 
 1. On {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.product.product_location %}{% endif %}, navigate to the [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) repository.
-2. ページの右上にある [**Fork**] をクリックします。 ![[Fork] ボタン](/assets/images/help/repository/fork_button.jpg)
+2. ページの右上にある [**Fork**] をクリックします。 ![[Fork] ボタン](/assets/images/help/repository/fork_button.png)
 
 {% endwebui %}
 
@@ -154,7 +154,7 @@ When you fork a project in order to propose changes to the original repository, 
 
 6. Type `git remote add upstream`, and then paste the URL you copied in Step 3 and press **Enter**. 次のようになります:
   ```shell
-  $ git remote add upstream https://{% data variables.command_line.codeblock %}/YOUR_USERNAME/Spoon-Knife.git
+  $ git remote add upstream https://{% data variables.command_line.codeblock %}/ORIGINAL_OWNER/Spoon-Knife.git
   ```
 
 7. To verify the new upstream repository you have specified for your fork, type `git remote -v` again. フォークの URL が `origin` として、オリジナルのリポジトリの URL が `upstream` として表示されるはずです。

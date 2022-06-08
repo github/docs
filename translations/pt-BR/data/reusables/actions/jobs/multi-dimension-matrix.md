@@ -1,11 +1,11 @@
-You can specify multiple variables to create a multi-dimensional matrix. A job will run for each possible combination of the variables.
+Você pode especificar diversas variáveis para criar uma matriz multidimensional. Um trabalho será executado para cada combinação das variáveis possível.
 
-For example, the following workflow specifies two variables:
+Por exemplo, o fluxo de trabalho a seguir especifica duas variáveis:
 
-- Two operating systems specified in the `os` variable
-- Three Node.js versions specified in the `version` variable
+- Dois sistemas operacionais especificados na variável `os`
+- Três versões do Node.js especificadas na variável `versão`
 
-The workflow will run six jobs, one for each combination of the `os` and `version` variables. Each job will set the `runs-on` value to the current `os` value and will pass the current `version` value to the `actions/setup-node` action.
+O fluxo de trabalho irá executar seis trabalhos, um para cada combinação das variáveis `os` e `versão`. Cada trabalho irá definir o valor `runs-on` para o valor atual de `os` e vai passar o valor atual de `versão` para a ação `actions/setup-node`.
 
 ```yaml
 jobs:

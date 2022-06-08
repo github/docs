@@ -56,7 +56,7 @@ Para compartilhar dados entre trabalhos:
 
 As etapas de um trabalho compartilham o mesmo ambiente na máquina executora, mas são executados em seus próprios processos individuais. Para transmitir dados entre etapas de um trabalho, você pode usar entradas e saídas. Para obter mais informações sobre entradas e saídas, consulte "[Sintaxe de metadados para o {% data variables.product.prodname_actions %}](/articles/metadata-syntax-for-github-actions)".
 
-{% if actions-caching %}
+{% ifversion actions-caching %}
 
 {% data reusables.actions.comparing-artifacts-caching %}
 

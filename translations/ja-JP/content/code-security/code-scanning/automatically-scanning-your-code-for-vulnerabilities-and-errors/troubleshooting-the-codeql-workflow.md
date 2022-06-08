@@ -210,7 +210,7 @@ C/C++、C#、Go、Javaなどのコンパイル言語については、{% data va
 
 デフォルトのクエリに加えて、追加のクエリもしくはクエリスイートを実行することもできます。 実行する追加のクエリスイートもしくは追加のクエリをワークフローが定義しているかは、`queries`要素を使って確認してください。 追加のクエリスイートもしくはクエリを無効化して、試してみることができます。 詳しい情報については、「[{% data variables.product.prodname_code_scanning %} を設定する](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#using-queries-in-ql-packs)」を参照してください。
 
-{% if codeql-ml-queries %}
+{% ifversion codeql-ml-queries %}
 {% note %}
 
 **ノート:** JavaScriptに対して`security-extended`もしくは`security-and-quality`クエリスイートを実行する場合、クエリの中には実験的な技術を使っているものがあります。 詳しい情報については「[Code scanningアラートについて](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-experimental-alerts)」を参照してください。
@@ -268,6 +268,15 @@ on:
 
 この種のマージコミットは{% data variables.product.prodname_dependabot %}によって作成されるので、このコミットで実行されるワークフローは読み取りのみの権限を持つことになります。 {% data variables.product.prodname_code_scanning %}と{% data variables.product.prodname_dependabot %}のセキュリティ更新またはバージョン更新をリポジトリで有効化した場合は、{% data variables.product.prodname_dependabot %}の`@dependabot squash and merge`コマンドは使わないことをおすすめします。 その代わりに、リポジトリで自動マージを有効化できます。 これは、すべての必須レビューが満たされ、ステータスチェックをパスしたら、Pyll Requestは自動的にマージされるということです。 自動マージの有効化に関する詳しい情報については「[Pull Requestの自動マージ](/github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request#enabling-auto-merge)」を参照してください。
 {% endif %}
+
+## エラー: "is not a .ql file, .qls file, a directory, or a query pack specification"
+
+CodeQLが名前付きクエリ、クエリスイート、あるいはクエリパックをワークフロー中のリクエストされた場所で見つけられなかった場合、このエラーが表示されます。 このエラーには、2つの一般的な原因があります。
+
+- ワークフロー中にタイプミスがある。
+- ワークフローがパスで参照しているリソースの名前が変更されたり、削除されたり、新しい場所に移動されたりしている。
+
+リソースの場所を確認したあと、ワークフローを更新して正しい場所を指定できます。 Goの分析で追加のクエリを実行する場合、ソースファイルの移動の影響を受けているかもしれません。 詳しい情報については、github/codeql-goリポジトリの[場所の移動のお知らせ:`github/codeql-go`は`github/codeql`に移動しました](https://github.com/github/codeql-go/issues/741)を参照してください。
 
 ## Warning: "git checkout HEAD^2 is no longer necessary"
 

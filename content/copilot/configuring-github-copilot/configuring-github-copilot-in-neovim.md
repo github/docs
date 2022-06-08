@@ -2,7 +2,7 @@
 title: Configuring GitHub Copilot in NeoVim
 intro: 'ADD INTRO.'
 versions:
-  versions:
-  fpt: '*'
-  ghec: '*'
+  feature: 'copilot'
+topics: 
+  - Copilot
 ---

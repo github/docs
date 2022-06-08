@@ -82,7 +82,7 @@ Para obtener más información, consulta la sección "[Utilizar variables de amb
 
 CircleCI y {% data variables.product.prodname_actions %} proporcionan un método para almacenar archivos en cahcé manualmente en el archivo de configuración.
 
-{% if actions-caching %}
+{% ifversion actions-caching %}
 
 Puedes encontrar un ejemplo de la sintaxis para cada sistema.
 
@@ -181,7 +181,7 @@ GitHub Actions
 </tr>
 </table>
 
-For more information, see "[Persisting workflow data using artifacts](/actions/configuring-and-managing-workflows/persisting-workflow-data-using-artifacts)."
+Para obtener más información, consulta la sección "[Datos de flujo de trabajo persistentes que utilizan artefactos](/actions/configuring-and-managing-workflows/persisting-workflow-data-using-artifacts)".
 
 ## Usar bases de datos y contenedores de servicio
 

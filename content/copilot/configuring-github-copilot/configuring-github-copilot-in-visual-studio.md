@@ -1,8 +1,8 @@
 ---
-title: Configuring GitHub Copilot in Visual Studio Code
+title: Configuring GitHub Copilot in Visual Studio
 intro: 'ADD INTRO.'
 versions:
-  versions:
-  fpt: '*'
-  ghec: '*'
+  feature: 'copilot'
+topics: 
+  - Copilot
 ---

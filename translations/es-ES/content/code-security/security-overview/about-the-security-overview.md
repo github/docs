@@ -1,13 +1,13 @@
 ---
 title: Acerca del resumen de seguridad
 intro: 'Puedes ver, filtrar y clasificar las alertas de seguridad para los repositorios que pertenezcan a tu organización o equipo en un solo lugar: la página de Resumen de Seguridad.'
-permissions: Organization owners and security managers can access the security overview for organizations. Members of a team can see the security overview for repositories that the team has admin privileges for.
+permissions: '{% data reusables.security-center.permissions %}'
 product: '{% data reusables.gated-features.security-center %}'
 redirect_from:
   - /code-security/security-overview/exploring-security-alerts
 versions:
   fpt: '*'
-  ghae: issue-4554
+  ghae: '*'
   ghes: '>3.1'
   ghec: '*'
 type: how_to
@@ -22,7 +22,7 @@ topics:
 shortTitle: Acerca del resumen de seguridad
 ---
 
-{% ifversion ghes < 3.5 or ghae-issue-4554 %}
+{% ifversion ghes < 3.5 or ghae %}
 {% data reusables.security-center.beta %}
 {% endif %}
 
@@ -41,7 +41,7 @@ El equipo de seguridad de aplicaciones en tu compañía puede utilizar el resume
 
 En el resumen de seguridad, puedes ver, clasificar y filtrar las alertas para entender los riesgos de seguridad en tu organización y en los repositorios específicos. El resumen de seguridad es altamente interactivo, lo cual te permite investigar las categorías de información específicas con base en los calificadores como nivel de riesgo de alerta, tipo de alerta y habilitación de características. También puedes aplicar filtros múltiples para enfocarte en áreas de interés más específicas. Por ejemplo, puedes identificar repositorios privados que tengan una gran cantidad de {% data variables.product.prodname_dependabot_alerts %} o repositorios que no tengan alertas del {% data variables.product.prodname_code_scanning %}. Para obtener más información, consulta la sección "[Filtrar las alertas en el resumen de seguridad](/code-security/security-overview/filtering-alerts-in-the-security-overview)".
 
-{% if security-overview-views %}
+{% ifversion security-overview-views %}
 
 En el resumen de seguridad, tanto a nivel de repositorio como de organización, hay vistas dedicadas para las características de seguridad específicas, tales como alertas de escaneo de secretos y de escaneo de código. Puedes utilizar estas vistas para limitar tu análisis a un conjunto de alertas específico y reducirlos aún más con un rango de filtros específico para cada vista. Por ejemplo, en la vista de alertas del escaneo de secretos, puedes utilizar el filtro `Secret type` para ver solo las alertas de escaneo de secretos para un secreto específico, como un Token de Acceso Personal de GitHub. A nivel de repositorio, puedes utilizar el resumen de seguridad para valorar el estado de seguridad actual del repositorio específico y configurar cualquier característica de seguridad adicional que no esté utilizando el repositorio.
 
@@ -69,7 +69,7 @@ A nivel organizacional, el resumen de seguridad muestra seguridad agregada y esp
 
 {% ifversion ghec or ghes > 3.4 or ghae-issue-6199 %}
 ### Acerca del resumen de seguridad a nivel empresarial
-En el nivel empresarial, el resumen de seguridad muestra información de seguridad agregada y específica del repositorio para tu empresa. Puedes ver los repositorios que pertenecen a tu empresa, los cuales tengan alertas de seguridad, o ver todas las alertas del {% data variables.product.prodname_secret_scanning %} de toda tu empresa.
+En el nivel empresarial, el resumen de seguridad muestra información de seguridad agregada y específica del repositorio para tu empresa. Puedes ver los repositorios que le pertenecen a tu empresa y que tienen alertas de seguridad, ver todas las alertas de seguridad o las alertas de seguridad con características específicas desde cualquier punto de tu empresa.
 
 Los propietarios de organizaciones y administradores de seguridad para las organizaciones de tu empresa también tienen acceso limitado al resumen de seguridad a nivel empresarial. Solo pueden ver los repositorios y alertas de las organizaciones a las cuales tienen acceso completo.
 
