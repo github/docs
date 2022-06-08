@@ -7,7 +7,5 @@ versions:
 topics:
   - Copilot
 children:
- - /about-github-copilot-telemetry
  - /about-github-copilot
- - /github-copilot-in-practice
 ---
