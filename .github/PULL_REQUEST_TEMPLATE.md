@@ -11,8 +11,8 @@ If there's _not_ an existing issue, please open one first to make it more likely
 
 ### What's being changed (if available, include any code snippets, screenshots, or gifs):
 
-<!-- Let us know what you are changing. Share any code snippets, screenshots, gifs, or anything else that could provide the most context.
-If you made changes to the `content` directory, a table will populate in a comment below with links to the preview and current production article links -->
+<!-- Let us know what you are changing. Share anything that could provide the most context.
+If you made changes to the `content` directory, a table will populate in a comment below with links to the preview and current production articles. -->
 
 ### Check off the following:
 
