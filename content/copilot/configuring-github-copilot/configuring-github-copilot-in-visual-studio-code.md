@@ -40,7 +40,7 @@ You can enable or disable {% data variables.product.prodname_copilot %} from wit
 
 1. To enable or disable {% data variables.product.prodname_copilot %}, click the status icon in the bottom panel of the Visual Studio Code window.
    ![Status icon in Visual Studio Code](/assets/images/help/copilot/status-icon-visual-studio-code.png)
-2. If you are disabling {% data variables.product.prodname_copilot %}, you will be asked whether you want to disable it globally, or for the language of the file you are currently editing. To disable globally, click **Disable globally**. Alternatively, click the button to disable for the language of the file you are editing.
+2. If you are disabling {% data variables.product.prodname_copilot %}, Visual Studio Code will ask whether you want to disable it globally, or only for the language of the file you are currently editing. To disable globally, click **Disable globally**. Alternatively, click the language-specific button.
    ![Disable {% data variables.product.prodname_copilot %} globally or for the current language](/assets/images/help/copilot/disable-copilot-global-or-langugage.png)
 
 ## Enabling and disabling inline suggestions
@@ -58,5 +58,5 @@ You can specify which languages you want to enable or disable {% data variables.
 
 1. Display the **Copilot** section in the **Extensions** tab of the Visual Studio Code settings page. For more information, see "[Enabling and disabling inline suggestions](#enabling-and-disabling-inline-suggestions)."
 1. Under "Enable or disable Copilot for specified languages", click **Edit in settings.json**.
-1. In the settings.json file, add or remove the languages you want to enable or disable {% data variables.product.prodname_copilot %} for. For example, to enable Python in {% data variables.product.prodname_copilot %}, add `"python": true` to the JSON list.
+1. In the settings.json file, add or remove the languages for which you want to enable or disable {% data variables.product.prodname_copilot %}. For example, to enable Python in {% data variables.product.prodname_copilot %}, add `"python": true` to the JSON list.
 

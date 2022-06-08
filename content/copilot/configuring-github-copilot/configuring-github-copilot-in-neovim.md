@@ -7,6 +7,7 @@ versions:
 topics: 
   - Copilot
 shortTitle: Neovim
+---
 
 ## Configuring GitHub Copilot in Neovim
 
