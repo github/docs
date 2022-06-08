@@ -7,4 +7,5 @@ versions:
   ghec: '*'
 children:
   - /about-billing-for-github-copilot
+  - /managing-your-github-copilot-subscription
 ---

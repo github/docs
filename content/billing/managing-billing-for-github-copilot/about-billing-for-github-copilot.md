@@ -4,7 +4,8 @@ intro: 'ADD INTRO.'
 versions:
   fpt: '*'
   ghec: '*'
+type: overview
 topics:
-  - copilot
+  - Copilot
 shortTitle: Billing for GitHub Copilot
 ---
