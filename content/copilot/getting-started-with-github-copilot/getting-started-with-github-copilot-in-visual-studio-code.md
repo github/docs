@@ -11,7 +11,7 @@ topics:
 
 ## Prerequisites
 
-{% data reusables.copilot.copilot-prerequisites %}
+
 - To use {% data variables.product.prodname_copilot %} in Visual Studio Code, you must have Visual Studio Code installed. For more information, see the [Visual Studio Code](https://code.visualstudio.com/) documentation.
 
 
@@ -34,7 +34,7 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 {% data reusables.copilot.create-js-file %}
 {% data reusables.copilot.type-function-header %}
    {% data variables.product.prodname_copilot %} will automatically suggest an entire function body in grayed text, as shown below. The exact suggestion may vary.
-   ![First suggestion Visual Studio Code](/assets/images/help/copilot/first-suggestion-visual-studio-code.png)
+   ![Screenshot of a first suggestion Visual Studio Code](/assets/images/help/copilot/first-suggestion-visual-studio-code.png)
 {% data reusables.copilot.accept-suggestion %}
 
 ## Seeing alternative suggestions
@@ -45,10 +45,10 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 {% data reusables.copilot.type-function-header %}
   {% data variables.product.prodname_copilot %} will show you a suggestion.
 3. To see alternate suggestions:
-   - On macOS, press `Option (⌥) or Alt`+`]` (or `Option (⌥) or Alt`+`[`).
-   - On Windows, press `Alt`+`]` (or `Alt`+`[`).
-4. If {% data variables.product.prodname_copilot %} offers a suggestion you want to accept, press `Tab`.
-5. Alternatively, to reject all suggestions, press `Esc`.
+   - On macOS, press <kbd>Option (⌥) or Alt</kbd>+<kbd>]</kbd> (or <kbd>Option (⌥) or Alt</kbd>+<kbd>[</kbd>).
+   - On Windows or Linux, press <kbd>Alt</kbd>+<kbd>]</kbd> (or <kbd>Alt</kbd>+<kbd>[</kbd>).
+4. If {% data variables.product.prodname_copilot %} offers a suggestion you want to accept, press <kbd>Tab</kbd>.
+5. Alternatively, to reject all suggestions, press <kbd>Esc</kbd>.
 6. Optionally, you can hover over the suggestion to see the {% data variables.product.prodname_copilot %} command palette for choosing suggestions.
 
 ## Getting more suggestions
@@ -58,9 +58,9 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 {% data reusables.copilot.create-js-file %}
 {% data reusables.copilot.type-function-header %}
   {% data variables.product.prodname_copilot %} will show you a suggestion.
-2. To open a new tab with multiple additional options, press `Ctrl`+`Enter`.
+2. To open a new tab with multiple additional options, press <kbd>Ctrl</kbd>+<kbd>Enter</kbd>.
 3. To accept a suggestion from the new tab, above the suggestion you want to accept, click **Accept solution**.
-   ![Suggestions pane in Visual Studio Code](/assets/images/help/copilot/suggestions-pane-visual-studio-code.png)
+   ![Screenshot of the suggestions pane in Visual Studio Code](/assets/images/help/copilot/suggestions-pane-visual-studio-code.png)
 4. Alternatively, to reject all the suggestions, close the "Copilot" tab.
 
 ## Generating code suggestions from comments
@@ -81,27 +81,27 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 You can also use {% data variables.product.prodname_copilot %} to generate suggestions for APIs and frameworks.This example uses {% data variables.product.prodname_copilot %} to create a simple Express server that returns the current time.
 
 {% data reusables.copilot.create-js-file %}
-1. In the JavaScript file, type the following comment and then press `Enter`:
+1. In the JavaScript file, type the following comment and then press <kbd>Enter</kbd>:
    ```
    // Express server on port 3000
    ```
    {% data variables.product.prodname_copilot %} will suggest an implementation of the Express app.
-1. To accept each line, press `Tab`, then `Enter`.
-1. Type the following comment and then press `Enter`:
+1. To accept each line, press <kbd>Tab</kbd>, then <kbd>Enter</kbd>.
+1. Type the following comment and then press <kbd>Enter</kbd>:
    ```
    // Return the current time
    ```
    {% data variables.product.prodname_copilot %} will suggest an implementation for the default handler. 
-1. To accept each line, press `Tab`.
+1. To accept each line, press <kbd>Tab</kbd>.
 
 ## Enabling and disabling {% data variables.product.prodname_copilot %}
 
 You can enable or disable {% data variables.product.prodname_copilot %} from within Visual Studio Code. The {% data variables.product.prodname_copilot %} status icon in the bottom panel of the Visual Studio Code window indicates whether {% data variables.product.prodname_copilot %} is enabled or disabled. When enabled, the background color of the icon will match the color of the status bar. When disabled, the background color of the icon will contrast the color of the status bar.
 
 1. To enable or disable {% data variables.product.prodname_copilot %}, click the status icon in the bottom panel of the Visual Studio Code window.
-   ![Status icon in Visual Studio Code](/assets/images/help/copilot/status-icon-visual-studio-code.png)
-2. If you are disabling {% data variables.product.prodname_copilot %}, you will be asked whether you want to disable it globally, or for the language of the file you are currently editing. To disable globally, click **Disable globally**. Alternatively, click the button to disable for the language of the file you are editing.
-   ![Disable {% data variables.product.prodname_copilot %} globally or for the current language](/assets/images/help/copilot/disable-copilot-global-or-langugage.png)
+   ![Screenshot of the status icon in Visual Studio Code](/assets/images/help/copilot/status-icon-visual-studio-code.png)
+2. If you are disabling {% data variables.product.prodname_copilot %}, you will be asked whether you want to disable it globally, or for the language of the file you are currently editing. To disable globally, click **Disable globally**. Alternatively, click the language-specific button to disable {% data variables.product.prodname_copilot %} for the specified language.
+   ![Screenshot of option to disable {% data variables.product.prodname_copilot %} globally or for the current language](/assets/images/help/copilot/disable-copilot-global-or-langugage.png)
 
 ## Further reading
 

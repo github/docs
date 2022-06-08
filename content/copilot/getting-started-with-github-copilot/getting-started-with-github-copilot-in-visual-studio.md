@@ -1,6 +1,7 @@
 ---
 title: Getting started with GitHub Copilot in Visual Studio
 shortTitle: Visual Studio
+product: '{% data reusables.gated-features.copilot %}'
 intro: 'Learn how to install {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}, and start seeing suggestions as you write comments and code.'
 versions:
   feature: 'copilot'
@@ -10,7 +11,6 @@ topics:
 
 ## Prerequisites
 
-{% data reusables.copilot.copilot-prerequisites %}
 - To use {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}, you must have {% data variables.product.prodname_vs %} 2022 17.1 or later installed. For more information, see the [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) documentation.
 - {% data variables.product.prodname_copilot %} is not available for use with Visual Studio for Mac.
 
@@ -49,7 +49,7 @@ After installation, a {% data variables.product.prodname_copilot %} icon should 
 {% data reusables.copilot.create-c-file %}
 {% data reusables.copilot.type-function-header-c %}
     {% data variables.product.prodname_copilot %} will automatically suggest an entire function body in grayed text, as shown below. The exact suggestion may vary.
-    ![First suggestion Visual Studio Code](/assets/images/help/copilot/first-suggestion-visual-studio.png)
+    ![Screenshot of a first suggestion Visual Studio Code](/assets/images/help/copilot/first-suggestion-visual-studio.png)
 {% data reusables.copilot.accept-suggestion %}
  
 ## Seeing alternative suggestions
@@ -57,9 +57,9 @@ After installation, a {% data variables.product.prodname_copilot %} icon should 
 {% data reusables.copilot.create-c-file %}
 {% data reusables.copilot.type-function-header-c %}
   {% data variables.product.prodname_copilot %} will show you a suggestion.
-3. To see alternate suggestions, press `Alt`+`]` (or `Alt`+`[`).
-4. If {% data variables.product.prodname_copilot %} offers a suggestion you want to accept, press `Tab`.
-5. Alternatively, to reject all suggestions, press `Esc`.
+3. To see alternate suggestions, press <kbd>Alt</kbd>+<kbd>]</kbd> (or <kbd>Alt</kbd>+<kbd>[</kbd>).
+4. If {% data variables.product.prodname_copilot %} offers a suggestion you want to accept, press <kbd>Tab</kbd>.
+5. Alternatively, to reject all suggestions, press <kbd>Esc</kbd>.
 6. Optionally, you can hover over the suggestion to see the {% data variables.product.prodname_copilot %} command palette for choosing suggestions.
 
 ## Generating code suggestions from comments
@@ -82,7 +82,7 @@ After installation, a {% data variables.product.prodname_copilot %} icon should 
 
 The {% data variables.product.prodname_copilot %} status icon in the bottom panel of the {% data variables.product.prodname_vs %} window indicates whether {% data variables.product.prodname_copilot %} is enabled or disabled. When enabled, the background color of the icon will match the color of the status bar. When disabled, it will have a diagonal line through it.
 
-1. To enable or disable {% data variables.product.prodname_copilot %}, click the status icon in the bottom panel of the {% data variables.product.prodname_vs %} window.
+1. To enable or disable {% data variables.product.prodname_copilot %}, click the {% data variables.product.prodname_copilot %} icon in the bottom panel of the {% data variables.product.prodname_vs %} window.
   ![Screenshot of editor margin in Visual Studio with the GitHub Copilot icon emphasized](/assets/images/help/copilot/editor-margin-visual-studio.png)
 2. If you are disabling {% data variables.product.prodname_copilot %}, you will be asked whether you want to disable it globally, for the file you are currently editing, or for the current file type. 
 
