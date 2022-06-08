@@ -29,7 +29,7 @@ Os {% data reusables.organizations.owners-and-admins-can %} excluem um repositó
 
 {% endwarning %}
 
-Alguns repositórios excluídos podem ser restaurados em {% ifversion fpt or ghec or ghes > 3.4 %}30{% else %}90{% endif%} dias de exclusão. {% ifversion ghes or ghae %}O administrador do seu site pode ser capaz de restaurar um repositório excluído para você. Para obter mais informações, consulte "[Restaurar um repositório excluído](/admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository)". {% else %}Para obter mais informações, consulte "[Restaurar um repositório excluído](/articles/restoring-a-deleted-repository)".{% endif %}
+Alguns repositórios excluídos podem ser restaurados dentro de 90 dias de exclusão. {% ifversion ghes or ghae %}O administrador do seu site pode ser capaz de restaurar um repositório excluído para você. Para obter mais informações, consulte "[Restaurar um repositório excluído](/admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository)". {% else %}Para obter mais informações, consulte "[Restaurar um repositório excluído](/articles/restoring-a-deleted-repository)".{% endif %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}

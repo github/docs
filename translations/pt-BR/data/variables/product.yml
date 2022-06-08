@@ -20,7 +20,7 @@ prodname_ghe_one: 'GitHub One'
 prodname_docs: 'GitHub Docs'
 ## Use these variables when referring specifically to a location within a product
 product_location: >-
-  {% ifversion ghes %}sua instância do GitHub Enterprise Server{% elsif ghae %}enterprise{% else %}GitHub.com{% endif %}
+  {% ifversion ghes %}your GitHub Enterprise Server instance{% elsif ghae %}your enterprise{% else %}GitHub.com{% endif %}
 #Used ONLY when you need to refer to a GHES instance in an article that is versioned for non-GHES versions.
 #Do not use in other situations!
 product_location_enterprise: 'sua instância do GitHub Enterprise Server'
