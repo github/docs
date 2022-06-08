@@ -145,6 +145,16 @@ When you participate in certain programs, {% data variables.product.prodname_dot
 
 {% endif %}
 
+{% ifversion fpt or ghec %}
+
+## Earning Achievements
+
+Achievements celebrate specific events and actions that happen on GitHub. They will appear as small badges listed in the sidebar of your profile. Clicking on an achievement will populate a detail view that will hint at how it was earned, like a short description and a link to the event that unlocked it. The event link will only be visible to users that have access to the repository or organization that the event took place in. Event links will appear inaccessible to all users without access. 
+
+To stop private contributions from counting toward your Achievements or to turn off Achievements entirely, see "[Showing your private contributions and Achievements on your profile](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)."
+
+{% endif %}
+
 ## List of qualifying repositories for Mars 2020 Helicopter Contributor achievement
 
 If you authored any commit(s) present in the commit history for the listed tag of one or more of the repositories below, you'll receive the Mars 2020 Helicopter Contributor achievement on your profile. The authored commit must be with a verified email address, associated with your account at the time {% data variables.product.prodname_dotcom %} determined the eligible contributions, in order to be attributed to you. You can be the original author or [one of the co-authors](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors) of the commit. Future changes to verified emails will not have an effect on the badge. We built the list based on information received from NASA's Jet Propulsion Laboratory.
