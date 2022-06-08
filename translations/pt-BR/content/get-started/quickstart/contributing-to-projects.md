@@ -25,7 +25,7 @@ A criação de uma "bifurcação" produz uma cópia pessoal do projeto de outra 
 Este tutorial usa [o projeto Spoon-Knife](https://github.com/octocat/Spoon-Knife), um repositório de teste hospedado em {% data variables.product.prodname_dotcom_the_website %} que permite testar o fluxo de trabalho de bifurcação e pull request.
 
 1. Acecsse o projeto `Spoon-Knife` em https://github.com/octocat/Spoon-Knife.
-2. Clique em **Bifurcação**. ![Botão Fork (Bifurcação)](/assets/images/help/repository/fork_button.jpg)
+2. Clique em **Bifurcação**. ![Botão Fork (Bifurcação)](/assets/images/help/repository/fork_button.png)
 1. {% data variables.product.product_name %} irá direcionar você para sua cópia (sua bifurcação) do repositório Spoon-Knife.
 
 ## Clonando uma bifurcação

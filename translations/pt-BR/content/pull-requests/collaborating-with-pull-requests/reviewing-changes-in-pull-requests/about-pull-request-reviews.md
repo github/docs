@@ -20,7 +20,7 @@ shortTitle: Sobre revisões de PR
 
 Após a abertura de uma pull request, qualquer pessoa com acesso *de leitura* pode revisar e comentar nas alterações que ela propõe. Você também pode sugerir alterações específicas às linhas de código, que o autor pode aplicar diretamente a partir da pull request. Para obter mais informações, consulte "[Revisar alterações propostas em uma pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)".
 
-{% if pull-request-approval-limit %}{% data reusables.pull_requests.code-review-limits %}{% endif %}
+{% ifversion pull-request-approval-limit %}{% data reusables.pull_requests.code-review-limits %}{% endif %}
 
 Os proprietários de repositório e colaboradores podem solicitar uma revisão de pull request de uma pessoa específica. Os integrantes da organização também podem solicitar uma revisão de pull request de uma equipe com acesso de leitura ao repositório. Para obter mais informações, consulte "[Solicitar uma revisão de pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/requesting-a-pull-request-review)". Você pode especificar um subconjunto de integrantes da equipe a ser atribuído automaticamente no lugar de toda equipe. Para obter mais informações, consulte "[Gerenciando as configurações de revisão de código para a sua equipe](/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team)."
 

@@ -23,7 +23,7 @@ No fork e pull model, qualquer um pode bifurcar um repositório existente e faze
 
 {% tip %}
 
-**Dica:** {% data reusables.open-source.open-source-guide-general %} {% data reusables.open-source.open-source-learning-lab %}
+**Dica:** {% data reusables.open-source.open-source-guide-general %} {% data reusables.open-source.open-source-learning %}
 
 {% endtip %}
 

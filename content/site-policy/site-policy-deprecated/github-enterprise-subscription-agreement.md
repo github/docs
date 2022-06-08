@@ -5,7 +5,7 @@ redirect_from:
   - /articles/github-enterprise-agreement
   - /articles/github-enterprise-subscription-agreement
   - /github/site-policy/github-enterprise-subscription-agreement
-  - /github/site-policy-deprecated/github-enterprise-subscription-agreement/
+  - /github/site-policy-deprecated/github-enterprise-subscription-agreement
 versions:
   fpt: '*'
 ---

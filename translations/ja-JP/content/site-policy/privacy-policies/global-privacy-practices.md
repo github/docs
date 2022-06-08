@@ -27,7 +27,7 @@ SCCの詳細については、欧州委員会のウェブサイトにある[こ�
 
 欧州司法裁判所の判決 (Case C-311/18) に基づいて、GitHubは、個人情報の転送に関する法的根拠としてはEU-米国プライバシーシールドフレームワークに依拠しないものの、EU-米国およびスイス-米国のプライバシーシールドフレームワークの認証を受け、そこに含まれる義務を履行します。
 
-EU-米国およびスイス-米国プライバシーシールドフレームワークはEU、イギリスおよびスイスから米国へ転送されたユーザ個人情報の収集、利用および保持について、米国商務省により定められたものです。 GitHubは、プライバシーシールド原則を遵守することを商務省に証明しています。 当社のベンダーや関連会社が、いずれかのプライバシーシールドフレームワークの原則に反した方法でユーザ個人情報を処理する場合は、損害を発生させた事象について当社に責任がないことを証明しない限り、GitHubが責任を負います。
+The EU-US and Swiss-US Privacy Shield Frameworks are set forth by the US Department of Commerce regarding the collection, use, and retention of personal information transferred from the European Union, the UK, and Switzerland to the United States. GitHubは、プライバシーシールド原則を遵守することを商務省に証明しています。 If our vendors or affiliates process personal information on our behalf in a manner inconsistent with the principles of either Privacy Shield Framework, GitHub remains liable unless we prove we are not responsible for the event giving rise to the damage.
 
 プライバシーシールドフレームワークに基づく認証において、本グローバルプライバシープラクティスとプライバシープライバシーシールド原則の条項の間に何らかの矛盾がある場合、プライバシーシールド原則を優先するものとします。 プライバシーシールプログラムについて詳細を知りたい場合、および、当社の証明を閲覧したい場合、[プライバシーシールドウェブサイト](https://www.privacyshield.gov/)を確認ください。
 
