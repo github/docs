@@ -29,87 +29,87 @@ sections:
 
           カスタムリポジトリロールは、GitHub Enterprise ServerのREST APIでも完全にサポートされています。Organization APIを使ってOrganization内のすべてのカスタムリポジトリロールをリストでき、個人やTeamにリポジトリへのアクセスを付与するための既存のAPIは、カスタムリポジトリロールをサポートするために拡張されました。詳しい情報については、REST APIドキュメンテーションの「[Organizations](/rest/reference/orgs#list-custom-repository-roles-in-an-organization)」を参照してください。
     - 
-      heading: GitHub Container registry in public beta
+      heading: GitHubコンテナレジストリのパブリックベータ
       notes:
         - |
-          The GitHub Container registry (GHCR) is now available in GitHub Enterprise Server 3.5 as a public beta, offering developers the ability to publish, download, and manage containers. GitHub Packages container support implements the OCI standards for hosting Docker images. For more information, see "[GitHub Container registry](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)."
+          GitHubコンテナレジストリ（GHCR）はGitHub Enterprise Server 3.5でパブリックベータとして利用できるようになり、開発者はコンテナを公開、ダウンロード、管理できるようになりました。GitHub Packagesコンテナは、DockerイメージのホストのOCI標準の実装をサポートしています。詳しい情報については「[GitHubコンテナレジストリ](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)」を参照してください。
     - 
-      heading: Dependabot updates are generally available
+      heading: Depandabotアップデートの一般提供
       notes:
         - |
-          Dependabot version and security updates are now generally available in GitHub Enterprise Server 3.5. All the popular ecosystems and features that work on GitHub.com repositories now can be set up on your GitHub Enterprise Server instance. Dependabot on GitHub Enterprise Server requires GitHub Actions and a pool of self-hosted Dependabot runners, GitHub Connect enabled, and Dependabot enabled by an admin.
+          Dependabotバージョン及びセキュリティアップデートは、GitHub Enterprise Server 3.5で一般提供になりました。GitHub.comリポジトリで動作する一般的なすべてのエコシステムと機能は、GitHub Enterprise Serverインスタンスでセットアップできます。GitHub Enterprise Server上のDependabotにはGitHub ActionsとセルフホストのDependabotランナーのプール、GitHub Connectの有効化、管理者によるDependabotの有効化が必要です。
 
-          Following on from the public beta release, we will be supporting the use of GitHub Actions runners hosted on a Kubernetes setup.
+          パブリックベータでのリリース以降、Kubernetes環境でホストされたGitHub Actionsランナーの利用がサポートされます。
 
-          For more information, see "[Setting up Dependabot updates](https://docs.github.com/en/enterprise-server@3.5/admin/github-actions/enabling-github-actions-for-github-enterprise-server/setting-up-dependabot-updates)."
+          詳しい情報については「[Dependabotアップデートのセットアップ](https://docs.github.com/en/enterprise-server@3.5/admin/github-actions/enabling-github-actions-for-github-enterprise-server/setting-up-dependabot-updates)」を参照してください。
     - 
-      heading: Server Statistics in public beta
+      heading: Server Statisticsのパブリックベータ
       notes:
         - |
-          You can now analyze how your team works, understand the value you get from GitHub Enterprise Server, and help us improve our products by reviewing your instance's usage data and sharing this aggregate data with GitHub. You can use your own tools to analyze your usage over time by downloading your data in a CSV or JSON file or by accessing it using the REST API. To see the list of aggregate metrics collected, see "[About Server Statistics](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/about-server-statistics#server-statistics-data-collected)." Server Statistics data includes no personal data nor GitHub content, such as code, issues, comments, or pull requests content.  For a better understanding of how we store and secure Server Statistics data, see "[GitHub Security](https://github.com/security)."  For more information about Server Statistics, see "[Analyzing how your team works with Server Statistics](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics)." This feature is available in public beta.
+          インスタンスの利用状況のデータをレビューし、その集約データをGitHubと共有することによって、チームの作業の様子を分析し、GitHub Enterprise Serverから得ている価値を理解し、弊社が製品を改善するのを支援していただけるようになりました。データをCSVもしくはJSONファイルとしてダウンロードするか、REST APIを使ってデータにアクセスすることによって、時間の経過に伴う利用状況の分析に独自のツールを使うことができます。収集された集約メトリクスのリストを見るには、「[Server Statisticsについて](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/about-server-statistics#server-statistics-data-collected)」を参照してください。Server Statisticsのデータには、個人情報や、コード、Issue、コメント、Pull Requestの内容といったGitHubの内容は含まれません。弊社がどのようにServer Statisticsのデータを保存し、保護しているかをよく理解していただくには、「[GitHubセキュリティ](https://github.com/security)」を参照してください。Server Statisticsに関する詳しい情報については「[Server StatisticsでのTeamの作業の分析](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics)」を参照してください。この機能はパブリックベータとして利用できます。
     - 
-      heading: GitHub Actions rate limiting is now configurable
+      heading: GitHub Actionsのレート制限が設定可能に
       notes:
         - |
-          Site administrators can now enable and configure a rate limit for GitHub Actions. By default, the rate limit is disabled. When workflow jobs cannot immediately be assigned to an available runner, they will wait in a queue until a runner is available. However, if GitHub Actions experiences a sustained high load, the queue can back up faster than it can drain and the performance of the GitHub Enterprise Server instance may degrade. To avoid this, an administrator can configure a rate limit. When the rate limit is exceeded, additional workflow runs will fail immediately rather than being put in the queue. Once the rate has stabilized below the threshold, new runs can be queued again. For more information, see "[Configuring rate limits](/admin/configuration/configuring-your-enterprise/configuring-rate-limits#configuring-rate-limits-for-github-actions)."
+          サイト管理者は、GitHub Actionsのレート制限を有効化し、設定できるようになりました。デフォルトでは、レート制限は無効化されています。ワークフローのジョブが利用可能なランナーにすぐに割り当てできない場合、そのジョブはランナーが利用可能になるまでキューで待ちます。しかし、もしもGitHub Actionsが継続的に高負荷になり続けているなら、キューは消費されるよりも早く積み上がっていくことになり、GitHub Enterprise Serverインスタンスのパフォーマンスは低下してしまうかもしれません。これを避けるために、管理者はレート制限を設定できます。レート制限を超えると、追加のワークフローの実行はキューに置かれるのではなく、即座に失敗するようになります。レートが閾値以下で安定すれば、新しい実行は再びキューイングできるようになります。詳しい情報については「[レート制限の設定](/admin/configuration/configuring-your-enterprise/configuring-rate-limits#configuring-rate-limits-for-github-actions)」を参照してください。
     - 
-      heading: OpenID Connect (OIDC) for secure deployments with GitHub Actions
+      heading: GitHub ActionsでのセキュアなデプロイメントのためのOpenID Connect (OIDC)
       notes:
         - |
-          GitHub Actions on GitHub Enterprise Server now supports OIDC for secure deployments to cloud providers, which uses short-lived tokens that are automatically rotated for each deployment. OIDC enables the following functionality.
+          GitHub Enterprise Server上のGitHub Actionsは、クラウドプロバイダへのセキュアなデプロイメントのためのOIDCをサポートしました。これは、デプロイメントのたびに自動的にローテートされる短期間有効なトークンを使います。OIDCは、以下の機能を有効化します。
 
-          - Seamless authentication between cloud providers and GitHub Enterprise Server without the need for storing any long-lived cloud secrets on your instance
-          - Cloud administrators can rely on the security mechanisms of a particular cloud provider to ensure that GitHub Actions workflows have minimal access to cloud resources. There is no duplication of secret management between GitHub Enterprise Server and the cloud.
+          - 長期間有効なクラウドのシークレットをインスタンスに保存する必要のない、クラウドプロバイダとGitHub Enterprise Server間のシームレスな認証
+          - クラウドの管理者は、GitHub Actionsのワークフローがクラウドのリソースに最小限のアクセスだけを持つことを保証する、特定のクラウドプロバイダのセキュリティメカニズムに依存可能GitHub Enterprise Serverとクラウド間で、重複するシークレットの管理はない
 
-          For more information, see "[Security hardening your deployments](/actions/deployment/security-hardening-your-deployments)."
+          詳しい情報については「[デプロイメントのセキュリティ強化](/actions/deployment/security-hardening-your-deployments)」を参照してください。
     - 
-      heading: Sharing GitHub Actions within your enterprise is generally available
+      heading: Enterprise内でのGitHub Actionsの共有の一般提供
       notes:
         - |
-          Support for GitHub Actions in internal repositories is now generally available for organizations on your GitHub Enterprise Server instance. You can innersource automation by sharing actions in internal repositories. You can manage a repository's settings or use the REST API to allow access to workflows in other repositories within the organization or in any organization on the instance. For more information, see "[Sharing actions and workflows with your enterprise](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)," "[Managing GitHub Actions settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-an-internal-repository)," and "[Actions Permissions](/rest/actions/permissions#get-the-level-of-access-for-workflows-outside-of-the-repository)" in the REST API documentation.
+          インターナルリポジトリでのGitHub Actionsのサポートが、GitHub Enterprise Serverインスタンス上のOrganizationで一般提供になりました。インターナルリポジトリでアクションを共有することで、自動化をインナーソースできます。Organization内、あるいはインスタンス上の任意のOrganization内の他のリポジトリのワークフローへのアクセス許可を、リポジトリの設定で管理したり、REST APIを使って許可したりできます。詳しい情報については「[EnterpriseでのActionsとワークフローの共有](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)」、「[リポジトリのGitHub Actionsの設定の管理](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-an-internal-repository)」、REST APIドキュメンテーションの「[Actionsの権限](/rest/actions/permissions#get-the-level-of-access-for-workflows-outside-of-the-repository)」を参照してください。
     - 
-      heading: Cache support for GitHub Actions on GitHub Enterprise Server is now generally available
+      heading: GitHub Enterprise Server上のGitHub Actionsのキャッシュサポートを一般提供
       notes:
         - |
-          You can now use dependency caching to speed up your GitHub Actions workflows. To cache dependencies for a job, you can include the [actions/cache](https://github.com/actions/cache) action to create a cache with a unique key. You can share caches across all workflows in the same repository. These workflows can then restore the cache and run faster.
+          GitHub Actionsのワークフローを高速化するために依存関係のキャッシングが利用できるようになりました。ジョブの依存関係をキャッシュするには、[actions/cache](https://github.com/actions/cache)アクションを含めて一意のキーと合わせてキャッシュを生成できます。キャッシュは同じリポジトリ内のすべてのワークフロー間で共有できます。そしてそれらのワークフローは、キャッシュを復元して高速に動作できます。
 
-          Actions users can also use our cache APIs to:
+          Actionsのユーザは、キャッシュAPIを使って以下のこともできます。
 
-          - Define the enterprise policy for cache size range allowed per repository.
-          - Query the cache usage within each repository and monitor if the total size of all caches is reaching the upper limit.
-          - Increase the maximum cache size for a repository within the allowed enterprise limits, based on the cache requirements of the repository.
-          - Monitor aggregate cache usage at organization level or at enterprise level.
+          - リポジトリごとに許可されるキャッシュサイズの範囲に関するEnterpriseポリシーの定義
+          - 各リポジトリ内のキャッシュの利用状況を問い合わせ、すべてのキャッシュの合計サイズが上限に達していないかをモニタリング
+          - リポジトリにおけるキャッシュの要求に基づき、Entepriseの制限内でリポジトリの最大キャッシュサイズを増やす
+          - OrganizationレベルもしくはEnterpriseレベルで集約されたキャッシュの利用状況のモニタリング
 
-          The external blob storage that is configured within your enterprise account will now be shared across workflow artifacts, logs, and also the caches. For more information, see "[Caching dependencies to speed up workflows](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."
+          Enterpriseアカウント内で設定された外部blobストレージは、ワークフローの成果物、ログ、そしてキャッシュ間で共有されるようになりました。詳しい情報については「[ワークフローの高速化のための依存関係のキャッシュ](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)」を参照してください。
     - 
-      heading: Automatically sign commits made in the web UI
+      heading: Web UIで作成されたコミットへの自動署名
       notes:
         - |
-          You can now configure GitHub Enterprise Server to automatically sign commits made in the web interface, such as from editing a file or merging a pull request. Signed commits increase confidence that changes come from trusted sources. This feature allows the [Require signed commits](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-signed-commits) branch protection setting to block unsigned commits from entering a repository, while allowing entry of signed commits – even those made in the web interface. For more information, see "[Configuring web commit signing](/admin/configuration/configuring-your-enterprise/configuring-web-commit-signing)."
+          ファイルを編集したり、Pull Requestをマージしたりといった、Webインターフェースで作成されたコミットに自動的に署名するよう、GitHub Enterprise Serverを設定できるようになりました。署名されたコミットは、変更が信頼できるソースから来たものであるという確信を増してくれます。この機能によって、[コミットの署名を必須にする](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-signed-commits)ブランチ保護設定がWebインターフェースで作成されたものも含めて署名されたコミットが入ってくるのを許しながら、署名されていないコミットがリポジトリに入り込むのをブロックするようにできます。詳しい情報については「[Webのコミット署名の設定](/admin/configuration/configuring-your-enterprise/configuring-web-commit-signing)」を参照してください。
     - 
-      heading: Sync license usage any time
+      heading: いつでもライセンスの利用状況を同期
       notes:
         - |
-          For customers that sync license usage between GitHub Enterprise Server and GitHub Enterprise Cloud automatically using GitHub Connect, you now have the ability to sync your license usage independently of the automatic weekly sync. This feature also reports the status of sync job. For more information, see "[Syncing license usage between GitHub Enterprise Server and GitHub Enterprise Cloud](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud#manually-syncing-license-usage)."
+          GitHub Connectを使ってGitHub Enterprise ServerとGitHub Enterprise Cloudの間でライセンスの使用状況を自動的に同期しているお客様は、自動的な週次の同期とは独立してライセンスの使用状況を同期できるようになりました。この機能は同期ジョブのステータスも報告します。詳しい情報については「[GitHub Enterprise ServerとGitHub Enterprise Cloud間のライセンス使用状況の同期](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud#manually-syncing-license-usage)」を参照してください。
     - 
-      heading: Reusable workflows for GitHub Actions are generally available
+      heading: GitHub Actionsのための再利用可能なワークフローの一般提供
       notes:
         - |
-          Reusable workflows are now generally available. Reusable workflows help you reduce duplication by enabling you to reuse an entire workflow as if it were an action. With the general availability release, a number of improvements are now available for GitHub Enterprise Server. For more information, see "[Reusing workflows](/actions/using-workflows/reusing-workflows)."
+          再利用可能なワークフローが一般提供になりました。再利用可能なワークフローは、ワークフロー全体を1つのアクションであるかのように再利用できるようにすることで、重複を減らすための役に立ちます。一般提供リリースで、GitHub Enterprise Serverには多くの改善が利用可能になりました。詳しい情報については「[ワークフローの再利用](/actions/using-workflows/reusing-workflows)」を参照してください。
 
-          - You can utilize outputs to pass data from reusable workflows to other jobs in the caller workflow.
-          - You can pass environment secrets to reusable workflows.
-          - The audit log includes information about which reusable workflows are used.
-          - Reusable workflows in the same repository as the calling repository can be referenced with just the path and filename (`PATH/FILENAME`). The called workflow will be from the same commit as the caller workflow.
+          - 出力を使って、データを再利用可能なワークフローから呼び出し側のワークフロー内の他のジョブに渡すことができます。
+          - 環境のシークレットを再利用可能なワークフローに渡すことができます。
+          - Audit logにはどの再利用可能なワークフローが使われたのかということに関する情報が含まれます。
+          - 呼び出し元のリポジトリと同じリポジトリ内にある再利用可能なワークフローは、パスとファイル名だけで参照できます（`PATH/FILENAME`）。呼び出されたワークフローは、呼び出し元のワークフローと同じコミットからのものになります。
     - 
-      heading: Self-hosted runners for GitHub Actions can now disable automatic updates
+      heading: GitHub Actionsのセルフホストランナーは自動アップデートを無効化可能に
       notes:
         - |
-          You now have more control over when your self-hosted runners perform software updates. If you specify the `--disableupdate` flag to the runner then it will not try to perform an automatic software update if a newer version of the runner is available. This allows you to update the self-hosted runner on your own schedule, and is especially convenient if your self-hosted runner is in a container.
+          セルフホストランナーがソフトウェアアップデートをいつ行うかを、これまでよりも制御できるようになりました。ランナーに`--disableupdate`フラグを指定すれば、新しいバージョンのランナーが利用可能であっても、自動的なソフトウェアアップデートを行おうとはしなくなります。こうすることで、独自のスケジュールの下でセルフホストランナーを更新できるようになり、特にセルフホストランナーがコンテナ内にある場合に便利です。
 
-           For compatibility with the GitHub Actions service, you will need to manually update your runner within 30 days of a new runner version being available.  For instructions on how to install the latest runner version, please see the installation instructions for [the latest release in the runner repo](https://github.com/actions/runner/releases).
+          GitHub Actionsサービスとの互換性のために、ランナーは新しいバージョンが利用可能になってから30日以内に手動でアップデートする必要があります。最新のランナーバージョンのインストール方法については、[ランナーリポジトリの最新リリース](https://github.com/actions/runner/releases)のインストール手順を参照してください。
     - 
-      heading: Secure self-hosted runners for GitHub Actions by limiting workflows
+      heading: ワークフローに制限によるGitHub Actionsのためのセルフホストランナーの保護
       notes:
         - |
           Organization owners can now increase the security of CI/CD workflows on self-hosted runners by choosing which workflows can access a runner group. Previously, any workflow in a repository, such as an issue labeler, could access the self-hosted runners available to an organization. For more information, see "[Managing access to self-hosted runners using groups](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#changing-what-workflows-can-access-a-runner-group)" and the [GitHub Blog](https://github.blog/2022-03-23-github-actions-secure-self-hosted-runners-specific-workflows/).
