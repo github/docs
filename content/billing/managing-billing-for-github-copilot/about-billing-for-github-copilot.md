@@ -4,6 +4,6 @@ intro: 'ADD INTRO.'
 versions:
   feature: 'copilot'
 topics:
-  - copilot
+  - Copilot
 shortTitle: Billing for GitHub Copilot
 ---
