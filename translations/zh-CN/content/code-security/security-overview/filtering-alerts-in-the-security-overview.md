@@ -101,7 +101,7 @@ shortTitle: 筛选警报
 | ------------------------- | ----------------------- |
 | <code>topic:<em>TOPIC-NAME</em></code> | 显示分类为 *TOPIC-NAME* 的仓库。 |
 
-{% if security-overview-views %}
+{% ifversion security-overview-views %}
 
 ## 按严重程度筛选
 
@@ -117,7 +117,7 @@ shortTitle: 筛选警报
 | `severity:warning`  | 显示分类为警告的 {% data variables.product.prodname_code_scanning %} 警报。 |
 | `severity:note`     | 显示分类为注释的 {% data variables.product.prodname_code_scanning %} 警报。 |
 
-{% if dependabot-alerts-vulnerable-calls %}
+{% ifversion dependabot-alerts-vulnerable-calls %}
 ## 按 {% data variables.product.prodname_dependabot %} 警报类型筛选
 
 在 {% data variables.product.prodname_dependabot %} 警报视图中可用。 您可以筛选视图以显示可以修复的 {% data variables.product.prodname_dependabot_alerts %}，或有关曝光的其他信息可用的位置。 可以单击任何结果以查看警报的完整详细信息。

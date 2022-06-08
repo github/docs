@@ -52,10 +52,7 @@ As part of an expression, you can access context information using one of two sy
 - Index syntax: `github['sha']`
 - Property dereference syntax: `github.sha`
 
-In order to use property dereference syntax, the property name must:
-
-- start with `a-Z` or `_`.
-- be followed by `a-Z` `0-9` `-` or `_`.
+In order to use property dereference syntax, the property name must start with a letter or `_` and contain only alphanumeric characters, `-`, or `_`.
 
 If you attempt to dereference a non-existent property, it will evaluate to an empty string.
 
@@ -468,7 +465,7 @@ The `runner` context contains information about the runner that is executing the
 |---------------|------|-------------|
 | `runner` | `object` | This context changes for each job in a workflow run. This object contains all the properties listed below. |
 | `runner.name` | `string` | {% data reusables.actions.runner-name-description %} |
-| `runner.os` | `string` | {% data reusables.actions.runner-os-description %} |{% if actions-runner-arch-envvars %}
+| `runner.os` | `string` | {% data reusables.actions.runner-os-description %} |{% ifversion actions-runner-arch-envvars %}
 | `runner.arch` | `string` | {% data reusables.actions.runner-arch-description %} |{% endif %}
 | `runner.temp` | `string` | {% data reusables.actions.runner-temp-directory-description %} |
 | `runner.tool_cache` | `string` | {% ifversion ghae %}{% data reusables.actions.self-hosted-runners-software %} {% else %} {% data reusables.actions.runner-tool-cache-description %} {% endif %}|

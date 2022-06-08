@@ -5,7 +5,6 @@ redirect_from:
   - /v3/previews
 versions:
   ghes: <3.4
-  ghae: '*'
 topics:
   - API
 ---
@@ -146,7 +145,7 @@ Ahora puedes proporcionar más información en GitHub para las URL que enlazan a
 **Tipo de medios personalizados:** `corsair-preview` **Anunciado en:**[2018-12-10](https://developer.github.com/changes/2018-12-10-content-attachments-api/)
 
 {% endif %}
-{% ifversion ghae or ghes < 3.3 %}
+{% ifversion ghes < 3.3 %}
 
 ## Habilitar e inhabilitar las páginas
 

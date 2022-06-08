@@ -30,7 +30,7 @@ shortTitle: 组织中的角色
 
 您可以将个人或团队分配到各种组织级角色，以控制成员对组织及其资源的访问权限。 有关每个角色中包含的各个权限的更多详细信息，请参阅“[组织角色的权限](#permissions-for-organization-roles)”。
 
-{% if enterprise-owner-join-org %}
+{% ifversion enterprise-owner-join-org %}
 如果您的组织由企业帐户拥有，则企业所有者可以选择以任何角色加入您的组织。 更多信息请参阅“[在企业拥有的组织中管理您的角色](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)”。
 {% endif %}
 
@@ -49,7 +49,7 @@ shortTitle: 组织中的角色
 
 {% endif %}
 
-{% if security-managers %}
+{% ifversion security-managers %}
 ### 安全管理员
 
 {% data reusables.organizations.security-manager-beta-note %}
@@ -191,7 +191,7 @@ shortTitle: 组织中的角色
 | 将组织成员转换为[外部协作者](#outside-collaborators)                                                                                                                                                                                                       | **X** |       |                                              |
 | [查看对组织仓库具有访问权限的人员](/articles/viewing-people-with-access-to-your-repository)                                                                                                                                                                   | **X** |       |                                              |
 | [导出具有组织仓库访问权限人员的列表](/articles/viewing-people-with-access-to-your-repository/#exporting-a-list-of-people-with-access-to-your-repository)                                                                                                       | **X** |       |                                              |
-| 管理默认标签（请参阅“[管理组织中仓库的默认标签](/articles/managing-default-labels-for-repositories-in-your-organization)”）                                                                                                                                          | **X** |       |    |{% if pull-request-approval-limit %}
+| 管理默认标签（请参阅“[管理组织中仓库的默认标签](/articles/managing-default-labels-for-repositories-in-your-organization)”）                                                                                                                                          | **X** |       |    |{% ifversion pull-request-approval-limit %}
 | 管理组织中的拉取请求审核（请参阅“[管理组织中的拉取请求审核](/organizations/managing-organization-settings/managing-pull-request-reviews-in-your-organization)”）                                                                                                           | **X** |       |               |  
 {% endif %}
 {% ifversion ghae %}| 管理 IP 允许列表（请参阅“[限制到企业的网络流量](/admin/configuration/restricting-network-traffic-to-your-enterprise)”）| **X** | |  |{% endif %}

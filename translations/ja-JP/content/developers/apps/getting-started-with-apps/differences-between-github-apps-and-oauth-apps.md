@@ -89,10 +89,11 @@ OAuth App と異なり、GitHub App には必要なアクセス権のみをリ�
 
 ## webhook
 
-| GitHub Apps                                                                                     | OAuth App                                                                                                                      |
-| ----------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| デフォルトでは、GitHub App には webhook が 1 つあり、その webhook は、アクセス権のあるすべてのリポジトリにおいて、受信するよう設定されたイベントを受信します。 | OAuth App は、イベントを受信する必要がある各リポジトリに対し、リポジトリ webhook を作成するため webhook スコープをリクエストします。                                               |
-| GitHub App は、Organization メンバーの権限で、特定の Organization レベルのイベントを受信します。                             | OAuth App は、Organization レベルのイベントを受信する必要がある各 Organization に対し、Organization webhook を作成するため Organization webhook スコープをリクエストします。 |
+| GitHub Apps                                                                                     | OAuth App                                                                                                                                                                              |
+| ----------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| デフォルトでは、GitHub App には webhook が 1 つあり、その webhook は、アクセス権のあるすべてのリポジトリにおいて、受信するよう設定されたイベントを受信します。 | OAuth App は、イベントを受信する必要がある各リポジトリに対し、リポジトリ webhook を作成するため webhook スコープをリクエストします。                                                                                                       |
+| GitHub App は、Organization メンバーの権限で、特定の Organization レベルのイベントを受信します。                             | OAuth App は、Organization レベルのイベントを受信する必要がある各 Organization に対し、Organization webhook を作成するため Organization webhook スコープをリクエストします。                                                         |
+| Webhooks are automatically disabled when the GitHub App is uninstalled.                         | Webhooks are not automatically disabled if an OAuth App's access token is deleted, and there is no way to clean them up automatically. You will have to ask users to do this manually. |
 
 ## Git アクセス
 
