@@ -4,9 +4,7 @@ intro: '{% data variables.product.prodname_copilot %} collects and relies on add
 redirect_from:
   - /early-access/github/copilot/about-github-copilot-telemetry
 versions:
-  versions:
-  fpt: '*'
-  ghec: '*'
+  feature: 'copilot'
 topics: 
   - Copilot
 ---
