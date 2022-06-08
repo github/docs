@@ -22,7 +22,7 @@ topics:
    - Alternatively, you can install the {% data variables.product.prodname_copilot %} plugin directly into your Neovim config file by running the following command in Terminal:
 
       ```
-      git clone https://github.com/github/copilot.vim.git \
+      git clone https://github.com/github/copilot.vim \
       ~/.config/PATH/TO/YOUR/NEOVIM/CONFIG/FILE/copilot.vim
       ```
 1. To authenticate and invoke {% data variables.product.prodname_copilot %} run the following command in Neovim:
@@ -41,7 +41,7 @@ topics:
    - Alternatively, you can install the {% data variables.product.prodname_copilot %} plugin directly into your Neovim config file by running the following command in Git Bash:
 
       ```
-      git clone https://github.com/github/copilot.vim.git \
+      git clone https://github.com/github/copilot.vim \
       ~/.config/PATH/TO/YOUR/NEOVIM/CONFIG/FILE/copilot.vim
 1. To authenticate and invoke {% data variables.product.prodname_copilot %} run the following command in Neovim:
 
@@ -60,7 +60,7 @@ topics:
    - Alternatively, you can install the {% data variables.product.prodname_copilot %} plugin directly into your Neovim config file by running the following command in the terminal:
 
       ```
-      git clone https://github.com/github/copilot.vim.git \
+      git clone https://github.com/github/copilot.vim \
       ~/.config/PATH/TO/YOUR/NEOVIM/CONFIG/FILE/copilot.vim
       ```
 1. To authenticate and invoke {% data variables.product.prodname_copilot %} run the following command in Neovim:
