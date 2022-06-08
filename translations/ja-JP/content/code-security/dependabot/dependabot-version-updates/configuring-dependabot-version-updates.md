@@ -36,7 +36,7 @@ shortTitle: バージョンアップデートの設定
 ## {% data variables.product.prodname_dependabot_version_updates %} を有効化する
 
 設定ファイルの*dependabot.yml*をリポジトリにコミットすることによって、{% data variables.product.prodname_dependabot_version_updates %}を有効化します。
-{% if dependabot-settings-update-37 %}設定ページでこの機能を有効化すると、GitHubは基本のファイルを作成します。このファイルは編集可能です。あるいは、任意のファイルエディタを使ってこのファイルを作成できます。
+{% ifversion dependabot-settings-update-37 %}設定ページでこの機能を有効化すると、GitHubは基本のファイルを作成します。このファイルは編集可能です。あるいは、任意のファイルエディタを使ってこのファイルを作成できます。
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}

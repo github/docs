@@ -48,8 +48,8 @@ Para obter mais informações, consulte "[Criando fluxos de trabalho iniciais pa
 Um fluxo de trabalho reutilizável pode ser usado por outro fluxo de trabalho se {% ifversion ghes or ghec or ghae %}qualquer{% else %}ou{% endif %} dos pontos a seguir for verdadeiro:
 
 * Ambos os fluxos de trabalho estão no mesmo repositório.
-* O fluxo de trabalho chamado é armazenado em um repositório público{% if actions-workflow-policy %}, e sua {% ifversion ghec %}empresa{% else %}organização{% endif %} permite que você use fluxos de trabalho públicos reutilizáveis{% endif %}.{% ifversion ghes or ghec or ghae %}
-* O fluxo de trabalho chamado é armazenado em um repositório interno e as configurações para esse repositório permitem que ele seja acessado. Para obter mais informações, consulte {% if internal-actions %}"[Compartilhando ações e fluxos de trabalho com a sua empresa](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise){% else %}"[Gerenciando configurações de {% data variables.product.prodname_actions %} para um repositório](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-an-internal-repository){% endif %}.{% endif %}
+* O fluxo de trabalho chamado é armazenado em um repositório público{% ifversion actions-workflow-policy %}, e sua {% ifversion ghec %}empresa{% else %}organização{% endif %} permite que você use fluxos de trabalho públicos reutilizáveis{% endif %}.{% ifversion ghes or ghec or ghae %}
+* O fluxo de trabalho chamado é armazenado em um repositório interno e as configurações para esse repositório permitem que ele seja acessado. Para obter mais informações, consulte {% ifversion internal-actions %}"[Compartilhando ações e fluxos de trabalho com a sua empresa](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise){% else %}"[Gerenciando configurações de {% data variables.product.prodname_actions %} para um repositório](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-an-internal-repository){% endif %}.{% endif %}
 
 ## Usando executores
 
@@ -104,7 +104,7 @@ Você pode definir entradas e segredos, que podem ser passados do fluxo de traba
    ```
    {% endraw %}
    Para obter detalhes da sintaxe para definir as entradas e segredos, consulte [`on.workflow_call.inputs`](/actions/reference/workflow-syntax-for-github-actions#onworkflow_callinputs) e [`on.workflow_call.secrets`](/actions/reference/workflow-syntax-for-github-actions#onworkflow_callsecrets).
-   {% if actions-inherit-secrets-reusable-workflows %}
+   {% ifversion actions-inherit-secrets-reusable-workflows %}
 1. No fluxo de trabalho reutilizável, faça referência à entrada ou segredo que você definiu na chave `on` chave na etapa anterior. Se os segredos são herdados usando `secrets: inherit`, você pode referenciá-los mesmo que eles não estejam definidos na chave `on`.
    {%- else %}
 1. No fluxo de trabalho reutilizável, faça referência à entrada ou segredo que você definiu na chave `on` chave na etapa anterior.
@@ -193,7 +193,7 @@ Ao chamar um fluxo de trabalho reutilizável, você só poderá usar as palavras
 * [`jobs.<job_id>.with.<input_id>`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idwithinput_id)
 * [`jobs.<job_id>.secrets`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idsecrets)
 * [`jobs.<job_id>.secrets.<secret_id>`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idsecretssecret_id)
- {% if actions-inherit-secrets-reusable-workflows %}* [`jobs.<job_id>.secrets.inherit`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idsecretsinherit){% endif %}
+ {% ifversion actions-inherit-secrets-reusable-workflows %}* [`jobs.<job_id>.secrets.inherit`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idsecretsinherit){% endif %}
 * [`jobs.<job_id>.needs`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idneeds)
 * [`jobs.<job_id>.if`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idif)
 * [`jobs.<job_id>.permissions`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idpermissions)
@@ -314,4 +314,4 @@ Para obter informações sobre o uso da API REST para consultar o log de auditor
 
 Para continuar aprendendo sobre {% data variables.product.prodname_actions %}, consulte "[Eventos que desencadeiam fluxos de trabalho](/actions/learn-github-actions/events-that-trigger-workflows)".
 
-{% if restrict-groups-to-workflows %}Você pode padronizar implantações criando um grupo de executores auto-hospedados que só pode executar um fluxo de trabalho específico reutilizável. Para obter mais informações, consulte "[Gerenciando acesso a executores auto-hospedados usando grupos](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)."{% endif %}
+{% ifversion restrict-groups-to-workflows %}Você pode padronizar implantações criando um grupo de executores auto-hospedados que só pode executar um fluxo de trabalho específico reutilizável. Para obter mais informações, consulte "[Gerenciando acesso a executores auto-hospedados usando grupos](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)."{% endif %}

@@ -257,15 +257,15 @@ restore-keys: |
 
 ## 使用限制和收回政策
 
-{% data variables.product.prodname_dotcom %} 将删除 7 天内未被访问的任何缓存条目。 可以存储的缓存数没有限制，但存储库中所有缓存的总大小限制为{% if actions-cache-policy-apis %} 默认情况下，每个存储库的限制为 10 GB，但此限制可能会有所不同，具体取决于企业所有者或存储库管理员设置的策略。{% else %} 10 GB。{% endif %}
+{% data variables.product.prodname_dotcom %} 将删除 7 天内未被访问的任何缓存条目。 可以存储的缓存数没有限制，但存储库中所有缓存的总大小限制为{% ifversion actions-cache-policy-apis %} 默认情况下，每个存储库的限制为 10 GB，但此限制可能会有所不同，具体取决于企业所有者或存储库管理员设置的策略。{% else %} 10 GB。{% endif %}
 
 {% data reusables.actions.cache-eviction-process %}
 
-{% if actions-cache-policy-apis %}
+{% ifversion actions-cache-policy-apis %}
 有关更改存储库缓存大小限制的策略的信息，请参阅“[在企业中实施 {% data variables.product.prodname_actions %} 策略](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-cache-storage-in-your-enterprise)”和“[管理存储库的 {% data variables.product.prodname_actions %} 设置](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-cache-storage-for-a-repository)”。
 {% endif %}
 
-{% if actions-cache-management %}
+{% ifversion actions-cache-management %}
 
 ## 管理缓存
 

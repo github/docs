@@ -12,13 +12,17 @@ import frontmatter from '../../lib/frontmatter.js'
 import loadSiteData from '../../lib/site-data.js'
 
 const versionShortNames = Object.values(allVersions).map((v) => v.shortName)
-const versionKeywords = versionShortNames.concat(['currentVersion', 'enterpriseServerReleases'])
 const versionShortNameExceptions = ['ghae-next', 'ghae-issue-']
 
 jest.useFakeTimers('legacy')
 
 const siteData = loadSiteData()
 const featureVersions = Object.entries(siteData.en.site.data.features)
+const featureVersionNames = featureVersions.map((fv) => fv[0])
+
+const versionKeywords = versionShortNames
+  .concat(['currentVersion', 'enterpriseServerReleases'])
+  .concat(featureVersionNames)
 
 // Make sure data/features/*.yml contains valid versioning.
 describe('lint feature versions', () => {
@@ -66,14 +70,13 @@ describe('lint Liquid versioning', () => {
       )
     })
 
-    // TODO expand `ifversion` to support feature-based versioning.
+    // `ifversion` supports both standard and feature-based versioning.
     test('ifversion conditionals are valid', async () => {
       const errors = validateIfversionConditionals(ifversionConditionals)
       expect(errors.length, errors.join('\n')).toBe(0)
     })
 
-    // TODO once `ifversion` supports feature-based versioning, change
-    // this test to verify there are no `if` tags used anywhere.
+    // Now that `ifversion` supports feature-based versioning, we should have few other `if` tags.
     test('ifversion, not if, is used for versioning', async () => {
       const ifsForVersioning = ifConditionals.filter((cond) =>
         versionKeywords.some((keyword) => cond.includes(keyword))
@@ -98,7 +101,8 @@ describe('lint Liquid versioning', () => {
 function validateVersion(version) {
   return (
     versionShortNames.includes(version) ||
-    versionShortNameExceptions.some((exception) => version.startsWith(exception))
+    versionShortNameExceptions.some((exception) => version.startsWith(exception)) ||
+    featureVersionNames.includes(version)
   )
 }
 
@@ -110,7 +114,8 @@ function validateIfversionConditionals(conds) {
     // * Length 1: `<version>` (example: `fpt`)
     // * Length 2: `not <version>` (example: `not ghae`)
     // * Length 3: `<version> <operator> <release>` (example: `ghes > 3.0`)
-    // Note that Length 1 and Length 2, but NOT Length 3, may be used with feature-based versioning.
+    //
+    // Note that Lengths 1 and 2 may be used with feature-based versioning, but NOT Length 3.
     const condParts = cond.split(/ (or|and) /).filter((part) => !(part === 'or' || part === 'and'))
 
     condParts.forEach((str) => {
@@ -120,7 +125,7 @@ function validateIfversionConditionals(conds) {
         const version = strParts[0]
         const isValidVersion = validateVersion(version)
         if (!isValidVersion) {
-          errors.push(`"${version}" is not a valid short version name`)
+          errors.push(`"${version}" is not a valid short version or feature version name`)
         }
       }
 

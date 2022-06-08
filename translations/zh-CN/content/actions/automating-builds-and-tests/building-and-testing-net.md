@@ -120,7 +120,7 @@ steps:
   run: dotnet add package Newtonsoft.Json --version 12.0.1
 ```
 
-{% if actions-caching %}
+{% ifversion actions-caching %}
 
 ### 缓存依赖项
 

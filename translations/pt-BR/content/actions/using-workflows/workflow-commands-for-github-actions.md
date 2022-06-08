@@ -111,7 +111,7 @@ A tabela a seguir mostra quais funções do conjunto de ferramentas estão dispo
 | `core.getInput`              | Acessível por meio do uso da variável de ambiente `INPUT_{NAME}` |
 | `core.getState`              | Acessível por meio do uso da variável de ambiente `STATE_{NAME}` |
 | `core.isDebug`               | Acessível por meio do uso da variável de ambiente `RUNNER_DEBUG` |
-{%- if actions-job-summaries %}
+{%- ifversion actions-job-summaries %}
 | `core.summary` | Pode ser acessado usando a variável de ambiente `GITHUB_STEP_SUMMARY` |
 {%- endif %}
 | `core.saveState`  | `save-state` | | `core.setCommandEcho` | `echo` | | `core.setFailed`  | Usado como atalho para `::error` e `exit 1` | | `core.setOutput`  | `set-output` | | `core.setSecret`  | `add-mask` | | `core.startGroup` | `group` | | `core.warning`    | `warning` |
@@ -656,7 +656,7 @@ steps:
 
 {% endpowershell %}
 
-{% if actions-job-summaries %}
+{% ifversion actions-job-summaries %}
 
 ## Adicionando um resumo do trabalho
 
