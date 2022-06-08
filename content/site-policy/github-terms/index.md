@@ -11,7 +11,6 @@ children:
   - /github-terms-for-additional-products-and-features
   - /github-community-guidelines
   - /github-community-forum-code-of-conduct
-  - /github-copilot-telemetry-terms
   - /github-sponsors-additional-terms
   - /github-registered-developer-agreement
   - /github-marketplace-terms-of-service
