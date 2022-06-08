@@ -41,7 +41,7 @@ shortTitle: 关于安全概述
 
 在安全概述中，您可以查看、排序和筛选警报，以了解组织和特定仓库中的安全风险。 安全摘要具有高度交互性，允许您根据警报风险级别、警报类型和功能启用等限定符调查特定类别的信息。 您还可以应用多个筛选器来关注更小的兴趣领域。 例如，您可以识别具有大量 {% data variables.product.prodname_dependabot_alerts %} 的私有仓库或者没有 {% data variables.product.prodname_code_scanning %} 警报的仓库。 更多信息请参阅“[在安全概述中的筛选警报](/code-security/security-overview/filtering-alerts-in-the-security-overview)”。
 
-{% if security-overview-views %}
+{% ifversion security-overview-views %}
 
 在安全概述中，在组织和存储库级别，都有特定安全功能（如机密扫描警报和代码扫描警报）的专用视图。 您可以使用这些视图将分析限制为一组特定的警报，并使用特定于每个视图的一系列筛选器进一步缩小结果范围。 例如，在机密扫描警报视图中，可以使用`机密类型`筛选器仅查看特定机密（如 GitHub 个人访问令牌）的机密扫描警报。 在存储库级别，您可以使用安全概述来评估特定存储库的当前安全状态，并配置存储库中尚未使用的任何其他安全功能。
 

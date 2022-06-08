@@ -45,7 +45,7 @@ shortTitle: 邀请人员进行管理
 
 {% ifversion ghec %}在邀请别人加入企业帐户后，他们必须接受电子邮件邀请，然后才可访问企业帐户。 待处理的邀请将在 7 天后过期。{% endif %}
 
-{% if enterprise-membership-view-improvements %}
+{% ifversion enterprise-membership-view-improvements %}
 您可以查看所有待处理的邀请，以成为企业帐户的管理员。 更多信息请参阅“[查看企业中的人员](/admin/user-management/managing-users-in-your-enterprise/viewing-people-in-your-enterprise#viewing-pending-invitations)”。
 {% endif %}
 

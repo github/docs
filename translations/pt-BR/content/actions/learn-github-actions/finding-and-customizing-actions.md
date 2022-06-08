@@ -24,7 +24,7 @@ topics:
 
 As ações que você usa no seu fluxo de trabalho podem ser definidas em:
 
-- O mesmo repositório do seu arquivo do fluxo de trabalho{% if internal-actions %}
+- O mesmo repositório do seu arquivo do fluxo de trabalho{% ifversion internal-actions %}
 - Um repositório interno na mesma conta corporativa que está configurado para permitir acesso aos fluxos de trabalho{% endif %}
 - Qualquer repositório público
 - Em uma imagem de contêiner Docker publicada no Docker Hub.
@@ -107,7 +107,7 @@ O arquivo `action.yml` é usado para fornecer metadados para a ação. Saiba mai
 
 Se uma ação for definida em um repositório diferente do arquivo de fluxo de trabalho, você pode fazer referência à ação com a sintaxe `{owner}/{repo}@{ref}` no seu arquivo de fluxo de trabalho.
 
-A ação deve ser armazenada em um repositório público{% if internal-actions %} ou um repositório interno que esteja configurado para permitir acesso a fluxos de trabalho. Para obter mais informações, consulte "[Compartilhando ações e fluxos de trabalho com a sua empresa](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)".{% else %}.{% endif %}
+A ação deve ser armazenada em um repositório público{% ifversion internal-actions %} ou um repositório interno que esteja configurado para permitir acesso a fluxos de trabalho. Para obter mais informações, consulte "[Compartilhando ações e fluxos de trabalho com a sua empresa](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)".{% else %}.{% endif %}
 
 ```yaml
 jobs:

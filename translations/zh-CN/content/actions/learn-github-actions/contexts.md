@@ -52,10 +52,7 @@ miniTocMaxHeadingLevel: 3
 - 索引语法：`github['sha']`
 - 属性解除参考语法：`github.sha`
 
-要使用属性解除参考语法，属性名称必须：
-
-- 以 `a-Z` 或 `_` 开头。
-- 后跟 `a-Z` `0-9` `-` 或 `_`。
+要使用属性取消引用语法，属性名称必须以字母或 `_` 开头，并且仅包含字母数字字符、`-` 或 `_`。
 
 如果尝试取消引用不存在的属性，则该属性的计算结果将为空字符串。
 
@@ -453,7 +450,7 @@ jobs:
 | ------------------- | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `runner`            | `对象`  | 此上下文针对工作流程运行中的每项作业而改变。 此对象包含下面列出的所有属性。                                                                                                                          |
 | `runner.name`       | `字符串` | {% data reusables.actions.runner-name-description %}
-| `runner.os`         | `字符串` | {% data reusables.actions.runner-os-description %} |{% if actions-runner-arch-envvars %}
+| `runner.os`         | `字符串` | {% data reusables.actions.runner-os-description %} |{% ifversion actions-runner-arch-envvars %}
 | `runner.arch`       | `字符串` | {% data reusables.actions.runner-arch-description %} 
 {% endif %}
 | `runner.temp`       | `字符串` | {% data reusables.actions.runner-temp-directory-description %}

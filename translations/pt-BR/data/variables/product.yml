@@ -20,7 +20,7 @@ prodname_ghe_one: 'GitHub One'
 prodname_docs: 'GitHub Docs'
 ## Use these variables when referring specifically to a location within a product
 product_location: >-
-  {% ifversion ghes %}your GitHub Enterprise Server instance{% elsif ghae %}your enterprise{% else %}GitHub.com{% endif %}
+  {% ifversion ghes %}sua instância do GitHub Enterprise Server{% elsif ghae %}enterprise{% else %}GitHub.com{% endif %}
 #Used ONLY when you need to refer to a GHES instance in an article that is versioned for non-GHES versions.
 #Do not use in other situations!
 product_location_enterprise: 'sua instância do GitHub Enterprise Server'
@@ -105,12 +105,12 @@ prodname_advanced_security: 'Segurança Avançada'
 prodname_codespaces: 'Codespaces'
 prodname_github_codespaces: 'GitHub Codespaces'
 prodname_serverless: 'editor baseado na web'
-#GitHub resources: blog, jobs, Learning Lab
+#GitHub resources: blog, jobs, skills
 prodname_gcf: 'Suporte à Comunidade GitHub'
 prodname_blog: 'GitHub Blog'
 prodname_jobs: 'GitHub Jobs'
-prodname_learning: 'GitHub Learning Lab'
-prodname_learning_link: 'https://lab.github.com/'
+prodname_learning: 'GitHub Skills'
+prodname_learning_link: 'https://skills.github.com/'
 prodname_roadmap: 'Itinerário público do GitHub'
 prodname_roadmap_link: 'https://github.com/github/roadmap#github-public-roadmap'
 #GitHub support

@@ -34,7 +34,7 @@ topics:
 
 {% note %}
 
-**注：**您可以为开源项目创建公共仓库。 创建公共仓库时，请确保包含[许可文件](https://choosealicense.com/)以确定您希望与其他人共享项目。 {% data reusables.open-source.open-source-guide-repositories %} {% data reusables.open-source.open-source-learning-lab %}
+**注：**您可以为开源项目创建公共仓库。 创建公共仓库时，请确保包含[许可文件](https://choosealicense.com/)以确定您希望与其他人共享项目。 {% data reusables.open-source.open-source-guide-repositories %} {% data reusables.open-source.open-source-learning %}
 
 {% endnote %}
 
