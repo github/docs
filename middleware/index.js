@@ -65,10 +65,13 @@ import fastHead from './fast-head.js'
 import fastlyCacheTest from './fastly-cache-test.js'
 import fastRootRedirect from './fast-root-redirect.js'
 import trailingSlashes from './trailing-slashes.js'
+import fastlyBehavior from './fastly-behavior.js'
 
 const { DEPLOYMENT_ENV, NODE_ENV } = process.env
 const isAzureDeployment = DEPLOYMENT_ENV === 'azure'
 const isTest = NODE_ENV === 'test' || process.env.GITHUB_ACTIONS === 'true'
+
+const ENABLE_FASTLY_TESTING = JSON.parse(process.env.ENABLE_FASTLY_TESTING || 'false')
 
 // Catch unhandled promise rejections and passing them to Express's error handler
 // https://medium.com/@Abazhenov/using-async-await-in-express-with-node-8-b8af872c0016
@@ -218,6 +221,11 @@ export default function (app) {
   app.use(csp) // Must come after helmet
   app.use(cookieParser) // Must come before csrf
   app.use(express.json()) // Must come before csrf
+
+  if (ENABLE_FASTLY_TESTING) {
+    app.use(fastlyBehavior) // FOR TESTING. Must come before csrf
+  }
+
   app.use(csrf)
   app.use(handleCsrfErrors) // Must come before regular handle-errors
 
@@ -296,10 +304,12 @@ export default function (app) {
   app.use(asyncMiddleware(instrument(featuredLinks, './featured-links')))
   app.use(asyncMiddleware(instrument(learningTrack, './learning-track')))
 
-  // The fastlyCacheTest middleware is intended to be used with Fastly to test caching behavior.
-  // This middleware will intercept ALL requests routed to it, so be careful if you need to
-  // make any changes to the following line:
-  app.use('/fastly-cache-test/*', fastlyCacheTest)
+  if (ENABLE_FASTLY_TESTING) {
+    // The fastlyCacheTest middleware is intended to be used with Fastly to test caching behavior.
+    // This middleware will intercept ALL requests routed to it, so be careful if you need to
+    // make any changes to the following line:
+    app.use('/fastly-cache-test', fastlyCacheTest)
+  }
 
   // *** Headers for pages only ***
   app.use(setFastlyCacheHeaders)

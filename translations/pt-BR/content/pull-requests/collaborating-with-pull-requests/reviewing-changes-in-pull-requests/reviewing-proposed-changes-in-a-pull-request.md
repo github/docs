@@ -37,7 +37,7 @@ Você pode revisar as alterações em um arquivo de pull request por vez. Ao rev
 
    Você também pode optar por ocultar as diferenças nos espaços em branco. A escolha que você fizer só se aplica a este pull request e será lembrada na próxima vez que você acessar esta página.
 {% endif %}
-1. Opcionalmente, filtre os arquivos para mostrar apenas os arquivos que deseja revisar{% if pr-tree-view %} ou usar a árvore de arquivos para acessar um arquivo específico{% endif %}. Para obter mais informações, consulte "[Filtrando arquivos em um pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/filtering-files-in-a-pull-request)".
+1. Opcionalmente, filtre os arquivos para mostrar apenas os arquivos que deseja revisar{% ifversion pr-tree-view %} ou usar a árvore de arquivos para acessar um arquivo específico{% endif %}. Para obter mais informações, consulte "[Filtrando arquivos em um pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/filtering-files-in-a-pull-request)".
 {% data reusables.repositories.start-line-comment %}
 {% data reusables.repositories.type-line-comment %}
 {% data reusables.repositories.suggest-changes %}

@@ -11,7 +11,7 @@ topics:
 shortTitle: 自定义组织配置文件
 ---
 
-{% if org-profile-pin-private %}
+{% ifversion org-profile-pin-private %}
 
 ## 关于组织的资料页面
 
@@ -45,7 +45,7 @@ shortTitle: 自定义组织配置文件
 
    ![组织的公共 README 的图像](/assets/images/help/organizations/org_public_readme.png)
 
-{% if org-profile-pin-private %}
+{% ifversion org-profile-pin-private %}
 
 ## 添加成员专享组织资料 README
 

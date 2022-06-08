@@ -82,7 +82,7 @@ Para obter mais informações, consulte "[Usar variáveis de ambiente](/actions/
 
 O CircleCI e o {% data variables.product.prodname_actions %} fornecem um método para armazenar arquivos de cache no arquivo de configuração manualmente.
 
-{% if actions-caching %}
+{% ifversion actions-caching %}
 
 Abaixo, há um exemplo da sintaxe para cada sistema.
 
