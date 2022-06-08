@@ -4,8 +4,8 @@ import schema from '../helpers/schemas/products-schema.js'
 
 describe('products module', () => {
   test('is an object with product ids as keys', () => {
-    expect('github' in productMap).toBe(true)
     expect('desktop' in productMap).toBe(true)
+    expect('get-started' in productMap).toBe(true)
   })
 
   test('every product is valid', () => {
