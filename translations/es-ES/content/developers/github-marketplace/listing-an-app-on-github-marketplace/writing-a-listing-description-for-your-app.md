@@ -168,7 +168,7 @@ Puedes agregar más información en el campo opcional "Descripción detallada". 
 
   ### Adquiere las habilidades que necesitas
 
-  GitHub Skills can help you learn how to use GitHub, communicate more effectively with Markdown, handle merge conflicts, and more.
+  GitHub Skills puede ayudarte a aprender cómo utilizar GitHub, comunicarte con mayor eficacia con el lenguaje de marcado, manejar conflictos de fusión y más.
 
 - Usa mayúscula inicial únicamente en nombres propios.
 
