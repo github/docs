@@ -93,11 +93,11 @@ For more information, see "[Creating and highlighting code blocks](/articles/cre
 
 You can even render a color using backticks(<code>\`</code>). The backticks should contain the color represented by a supported color model. Currently only hex, RGB and HSL models are supported.
 
-| Color Model | Syntax |
-|-----|-----|
-| HEX | \`#61dee1\` |
-| RGB | \`rgb(231,239,54)\` |
-| HSL | \`hsl(328,84%,66%)\` |
+| Color Model | Syntax | Example |
+|-----|-----|-----|
+| HEX | `#RRGGBB` where `RR`(Red),`GG`(Green) & `BB`(Blue) are hexadecimal integers from `00` to `FF` representing color intensity of respective colors. | <code>\`#61dee1\`</code> |
+| RGB | `rgb(red,green,blue)` where every parameter(red, green and blue) defines the color intensity and ranges from `0` to `255`. | <code>\`rgb(231,239,54)\`</code> |
+| HSL | `hsl(hue, saturation, lightness)` where hue is a degree on color wheel ranging from `0` to `360`, saturation and lightness denote color saturation and lightness of the color respectively in percentages(`%`). | <code>\`hsl(328,84%,66%)\`</code> |
 
 A live example :
 
