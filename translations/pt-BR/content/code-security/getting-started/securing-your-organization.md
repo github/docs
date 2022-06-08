@@ -23,7 +23,7 @@ Este guia mostra como configurar os recursos de segurança de uma organização.
 
 ## Gerenciando o acesso à sua organização
 
-Você pode usar as funções para controlar as ações que as pessoas podem tomar na sua organização. {% if security-managers %}Por exemplo, você pode atribuir o papel de gerente de segurança a uma equipe para que possam gerenciar configurações de segurança em toda a sua organização, assim como acesso de leitura a todos os repositórios.{% endif %} Para obter mais informações, consulte "[Funçõesem uma organização](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)".
+Você pode usar as funções para controlar as ações que as pessoas podem tomar na sua organização. {% ifversion security-managers %}Por exemplo, você pode atribuir o papel de gerente de segurança a uma equipe para que possam gerenciar configurações de segurança em toda a sua organização, assim como acesso de leitura a todos os repositórios.{% endif %} Para obter mais informações, consulte "[Funçõesem uma organização](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)".
 
 {% ifversion fpt or ghes > 3.0 or ghec %}
 

@@ -72,6 +72,18 @@ shortTitle: Search issues & PRs
 | `is:open`      | [**performance is:open is:issue**](https://github.com/search?q=performance+is%3Aopen+is%3Aissue&type=Issues) は、「performance」という単語があるオープン Issue にマッチします。                                        |
 | `is:closed`    | [**android is:closed**](https://github.com/search?utf8=%E2%9C%93&q=android+is%3Aclosed&type=) は、「android」という単語があるクローズされた Issue とプルリクエストにマッチします。                                                |
 
+{% ifversion issue-close-reasons %}
+## Search by the reason an issue was closed
+
+You can filter issues based on the reason given when the issue was closed, using the `reason` qualifier.
+
+| 修飾子                    | サンプル                                                                                                                                                                                                                 |
+| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `reason:complete`      | [**libraries is:closed reason:complete**](https://github.com/search?q=libraries+is%3Aclosed+reason%3Acompleted&type=Issues) matches issues with the word "libraries" that were closed as "completed."                |
+| `reason:"not planned"` | [**libraries is:closed reason:"not planned"**](https://github.com/search?q=libraries+is%3Aclosed+reason%3A%22not+planned%22&type=Issues) matches issues with the word "libraries" that were closed as "not planned." |
+
+{% endif %}
+
 ## リポジトリの可視性によるフィルタ
 
 `is` 修飾子を使用して、Issue とプルリクエストを含むリポジトリの可視性でフィルタできます。 For more information, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)."
@@ -125,10 +137,10 @@ shortTitle: Search issues & PRs
 
 `involves` 修飾子は、特定のユーザが何らかの方法で関与する Issue を表示します。 `involves` 修飾子は、単一ユーザについて、`author`、`assignee`、`mentions`、および `commenter` を論理 OR でつなげます。 言い換えれば、この修飾子は、特定のユーザが作成した、当該ユーザにアサインされた、当該ユーザをメンションした、または、当該ユーザがコメントした、Issue およびプルリクエストを表示します。
 
-| 修飾子                       | サンプル                                                                                                                                                                          |
-| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>involves:<em>USERNAME</em></code> | **[involves:defunkt involves:jlord](https://github.com/search?q=involves%3Adefunkt+involves%3Ajlord&type=Issues)** は、@defunkt または @jlord が関与している Issue にマッチします。               |
-|                           | [**NOT bootstrap in:body involves:mdo**](https://github.com/search?q=NOT+bootstrap+in%3Abody+involves%3Amdo&type=Issues)は、本文に「bootstrap」という単語を含まず、@mdo が関与している Issue にマッチします。 |
+| 修飾子                       | サンプル                                                                                                                                                                                                              |
+| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>involves:<em>USERNAME</em></code> | **[involves:defunkt involves:jlord](https://github.com/search?q=involves%3Adefunkt+involves%3Ajlord&type=Issues)** は、@defunkt または @jlord が関与している Issue にマッチします。                                                   |
+|                           | [**NOT bootstrap in:body involves:mdo**](https://github.com/search?q=NOT+bootstrap+in%3Abody+involves%3Amdo&type=Issues) matches issues @mdo is involved in that do not contain the word "bootstrap" in the body. |
 
 ## リンクされた Issue とプルリクエストを検索する
 結果を絞り込んで、クローズしているリファレンスによってプルリクエストにリンクされている、またはプルリクエストによってクローズされる可能性がある Issue にリンクされている Issue のみを表示することができます。
@@ -144,10 +156,10 @@ shortTitle: Search issues & PRs
 
 `label` 修飾子を使って、ラベルで検索結果を絞り込むことができます。 Issue は複数のラベルがある可能性があることから、各 Issue について異なる修飾子を記載できます。
 
-| 修飾子                        | サンプル                                                                                                                                                                                                          |
-| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>label:<em>LABEL</em></code> | [**label:"help wanted" language:ruby**](https://github.com/search?utf8=%E2%9C%93&q=label%3A%22help+wanted%22+language%3Aruby&type=Issues) は、Ruby のリポジトリにある「help wanted」のラベルがある Issue にマッチします。                 |
-|                            | [**broken in:body -label:bug label:priority**](https://github.com/search?q=broken+in%3Abody+-label%3Abug+label%3Apriority&type=Issues)は、「bug」ラベルはないが「priority」ラベルがある、本文に「broken」という単語がある Issue にマッチします。**     |
+| 修飾子                        | サンプル                                                                                                                                                                                                                                                     |
+| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>label:<em>LABEL</em></code> | [**label:"help wanted" language:ruby**](https://github.com/search?utf8=%E2%9C%93&q=label%3A%22help+wanted%22+language%3Aruby&type=Issues) matches issues with the label "help wanted" that are in Ruby repositories.                                     |
+|                            | [**broken in:body -label:bug label:priority**](https://github.com/search?q=broken+in%3Abody+-label%3Abug+label%3Apriority&type=Issues) matches issues with the word "broken" in the body, that lack the label "bug", but *do* have the label "priority." |
 |                            | [**label:bug label:resolved**](https://github.com/search?l=&q=label%3Abug+label%3Aresolved&type=Issues) matches issues with the labels "bug" and "resolved."{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 |                            | [**label:bug,resolved**](https://github.com/search?q=label%3Abug%2Cresolved&type=Issues) matches issues with the label "bug" or the label "resolved."{% endif %}
 
@@ -155,73 +167,73 @@ shortTitle: Search issues & PRs
 
 `milestone` 修飾子は、リポジトリ内の[マイルストーン](/articles/about-milestones)の一部である Issue またはプルリクエストを表示します。
 
-| 修飾子                        | サンプル                                                                                                                                                     |
-| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>milestone:<em>MILESTONE</em></code> | [**milestone:"overhaul"**](https://github.com/search?utf8=%E2%9C%93&q=milestone%3A%22overhaul%22&type=Issues)は、「overhaul」という名前のマイルストーンにある Issue にマッチします。 |
-|                            | [**milestone:"bug fix"**](https://github.com/search?utf8=%E2%9C%93&q=milestone%3A%22bug+fix%22&type=Issues)は、「bug fix」という名前のマイルストーンにある Issue にマッチします。    |
+| 修飾子                        | サンプル                                                                                                                                                                   |
+| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>milestone:<em>MILESTONE</em></code> | [**milestone:"overhaul"**](https://github.com/search?utf8=%E2%9C%93&q=milestone%3A%22overhaul%22&type=Issues) matches issues that are in a milestone named "overhaul." |
+|                            | [**milestone:"bug fix"**](https://github.com/search?utf8=%E2%9C%93&q=milestone%3A%22bug+fix%22&type=Issues) matches issues that are in a milestone named "bug fix."    |
 
 ## プロジェクトボードで検索
 
 リポジトリまたは Organization にある特定の[プロジェクトボード](/articles/about-project-boards/)と関連する Issue を表示するには、`project` 修飾子を使います。 プロジェクトボードはプロジェクトボード番号で検索する必要があります。 プロジェクトボードの URL の末尾に、プロジェクトボード番号が表示されています。
 
-| 修飾子                        | サンプル                                                                                           |
-| -------------------------- | ---------------------------------------------------------------------------------------------- |
-| <code>project:<em>PROJECT_BOARD</em></code> | **project:github/57** は、Organization のプロジェクトボード 57 に関連付けられている、GitHub が所有する Issue にマッチします。      |
-| <code>project:<em>REPOSITORY/PROJECT_BOARD</em></code> | **project:github/linguist/1** は、@github の Linguist リポジトリのプロジェクトボード 1 に関連付けられている Issue にマッチします。 |
+| 修飾子                        | サンプル                                                                                                                    |
+| -------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| <code>project:<em>PROJECT_BOARD</em></code> | **project:github/57** matches issues owned by GitHub that are associated with the organization's project board 57.      |
+| <code>project:<em>REPOSITORY/PROJECT_BOARD</em></code> | **project:github/linguist/1** matches issues that are associated with project board 1 in @github's linguist repository. |
 
 ## コミットステータスで検索
 
 コミットのステータスでプルリクエストをフィルタリングできます。 This is especially useful if you are using [the Status API](/rest/reference/commits#commit-statuses) or a CI service.
 
-| 修飾子              | サンプル                                                                                                                                                                                                                     |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `status:pending` | [**language:go status:pending**](https://github.com/search?utf8=%E2%9C%93&q=language%3Ago+status%3Apending) は、ステータスが pending になっている Go リポジトリにオープンしたプルリクエストにマッチします。                                                       |
-| `status:success` | [**is:open status:success finally in:body**](https://github.com/search?utf8=%E2%9C%93&q=is%3Aopen+status%3Asuccess+finally+in%3Abody&type=Issues) は、ステータスが successful になっている body に「finally」という単語があるオープンなプルリクエストにマッチします。 |
-| `status:failure` | [**created:2015-05-01..2015-05-30 status:failure**](https://github.com/search?utf8=%E2%9C%93&q=created%3A2015-05-01..2015-05-30+status%3Afailure&type=Issues) は、ステータスが failed になっている 2015 年 5 月にオープンしたプルリクエストにマッチします。    |
+| 修飾子              | サンプル                                                                                                                                                                                                                                       |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `status:pending` | [**language:go status:pending**](https://github.com/search?utf8=%E2%9C%93&q=language%3Ago+status%3Apending) matches pull requests opened into Go repositories where the status is pending.                                                 |
+| `status:success` | [**is:open status:success finally in:body**](https://github.com/search?utf8=%E2%9C%93&q=is%3Aopen+status%3Asuccess+finally+in%3Abody&type=Issues) matches open pull requests with the word "finally" in the body with a successful status. |
+| `status:failure` | [**created:2015-05-01..2015-05-30 status:failure**](https://github.com/search?utf8=%E2%9C%93&q=created%3A2015-05-01..2015-05-30+status%3Afailure&type=Issues) matches pull requests opened on May 2015 with a failed status.               |
 
 ## コミット SHA で検索
 
 コミットの特定の SHA ハッシュを知っている場合、その SHA を含むプルリクエストを検索するために使えます。 SHA の構文は、7 字以上であることが必要です。
 
-| 修飾子                        | サンプル                                                                                                                                             |
-| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| <code><em>SHA</em></code> | [**e1109ab**](https://github.com/search?q=e1109ab&type=Issues) は、`e1109ab` で始まるコミット SHA のプルリクエストにマッチします。                                         |
-|                            | [**0eff326d6213c is:merged**](https://github.com/search?q=0eff326d+is%3Amerged&type=Issues) は、`0eff326d6213c`で始まるコミット SHA のマージされたプルリクエストにマッチします。 |
+| 修飾子                        | サンプル                                                                                                                                                                         |
+| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code><em>SHA</em></code> | [**e1109ab**](https://github.com/search?q=e1109ab&type=Issues) matches pull requests with a commit SHA that starts with `e1109ab`.                                           |
+|                            | [**0eff326d6213c is:merged**](https://github.com/search?q=0eff326d+is%3Amerged&type=Issues) matches merged pull requests with a commit SHA that starts with `0eff326d6213c`. |
 
 ## ブランチ名で検索
 
 元のブランチ (「head」ブランチ) またはマージされるブランチ (「base」ブランチ) でプルリクエストをフィルタリングできます。
 
-| 修飾子                        | サンプル                                                                                                                                                                               |
-| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>head:<em>HEAD_BRANCH</em></code> | [**head:change is:closed is:unmerged**](https://github.com/search?utf8=%E2%9C%93&q=head%3Achange+is%3Aclosed+is%3Aunmerged) は、クローズされた「change」という単語から始まる名前のブランチから開かれたプルリクエストに一致します。 |
-| <code>base:<em>BASE_BRANCH</em></code> | [**base:gh-pages**](https://github.com/search?utf8=%E2%9C%93&q=base%3Agh-pages) は、`gh-pages` ブランチにマージされるプルリクエストにマッチします。                                                            |
+| 修飾子                        | サンプル                                                                                                                                                                                                                         |
+| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>head:<em>HEAD_BRANCH</em></code> | [**head:change is:closed is:unmerged**](https://github.com/search?utf8=%E2%9C%93&q=head%3Achange+is%3Aclosed+is%3Aunmerged) matches pull requests opened from branch names beginning with the word "change" that are closed. |
+| <code>base:<em>BASE_BRANCH</em></code> | [**base:gh-pages**](https://github.com/search?utf8=%E2%9C%93&q=base%3Agh-pages) matches pull requests that are being merged into the `gh-pages` branch.                                                                      |
 
 ## 言語で検索
 
 `language` 修飾子により、特定の言語で記述されたリポジトリ内の Issue およびプルリクエストを検索できます。
 
-| 修飾子                        | サンプル                                                                                                                                     |
-| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>language:<em>LANGUAGE</em></code> | [**language:ruby state:open**](https://github.com/search?q=language%3Aruby+state%3Aopen&type=Issues) は、Ruby のリポジトリにあるオープン Issue にマッチします。 |
+| 修飾子                        | サンプル                                                                                                                                                    |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>language:<em>LANGUAGE</em></code> | [**language:ruby state:open**](https://github.com/search?q=language%3Aruby+state%3Aopen&type=Issues) matches open issues that are in Ruby repositories. |
 
 ## コメントの数で検索
 
 You can use the `comments` qualifier along with [greater than, less than, and range qualifiers](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax) to search by the number of comments.
 
-| 修飾子                        | サンプル                                                                                                                                                      |
-| -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>comments:<em>n</em></code> | [**state:closed comments:&gt;100**](https://github.com/search?q=state%3Aclosed+comments%3A%3E100&type=Issues)は、コメント数が 100 を超えるクローズした Issue にマッチします。 |
-|                            | [**comments:500..1000**](https://github.com/search?q=comments%3A500..1000&type=Issues)は、500 から 1,000 までの範囲のコメント数の Issue にマッチします。                          |
+| 修飾子                        | サンプル                                                                                                                                                                   |
+| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>comments:<em>n</em></code> | [**state:closed comments:&gt;100**](https://github.com/search?q=state%3Aclosed+comments%3A%3E100&type=Issues) matches closed issues with more than 100 comments. |
+|                            | [**comments:500..1000**](https://github.com/search?q=comments%3A500..1000&type=Issues) matches issues with comments ranging from 500 to 1,000.                         |
 
 ## インタラクションの数で検索
 
 You can filter issues and pull requests by the number of interactions with the `interactions` qualifier along with [greater than, less than, and range qualifiers](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax). インタラクションの数とは、1 つの Issue またはプルリクエストにあるリアクションおよびコメントの数のことです。
 
-| 修飾子                        | サンプル                                                                                                                                          |
-| -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>interactions:<em>n</em></code> | [** interactions:&gt;2000**](https://github.com/search?q=interactions%3A%3E2000) は、インタラクションの数が 2,000 を超えるプルリクエストまたは Issue にマッチします。  |
-|                            | [**interactions:500..1000**](https://github.com/search?q=interactions%3A500..1000) は、インタラクションの数が 500 から 1,000 までの範囲のプルリクエストまたは Issue にマッチします。 |
+| 修飾子                        | サンプル                                                                                                                                                            |
+| -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>interactions:<em>n</em></code> | [** interactions:&gt;2000**](https://github.com/search?q=interactions%3A%3E2000) は、インタラクションの数が 2,000 を超えるプルリクエストまたは Issue にマッチします。                    |
+|                            | [**interactions:500..1000**](https://github.com/search?q=interactions%3A500..1000) matches pull requests or issues with interactions ranging from 500 to 1,000. |
 
 ## リアクションの数で検索
 
@@ -230,7 +242,7 @@ You can filter issues and pull requests by the number of reactions using the `re
 | 修飾子                        | サンプル                                                                                                                                   |
 | -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
 | <code>reactions:<em>n</em></code> | [** reactions:&gt;1000**](https://github.com/search?q=reactions%3A%3E1000&type=Issues) は、リアクションの数が 1,000 を超える Issue にマッチします。 |
-|                            | [**reactions:500..1000**](https://github.com/search?q=reactions%3A500..1000) は、リアクションの数が 500 から 1,000 までの範囲の Issue にマッチします。            |
+|                            | [**reactions:500..1000**](https://github.com/search?q=reactions%3A500..1000) matches issues with reactions ranging from 500 to 1,000.  |
 
 ## ドラフトプルリクエストを検索
 ドラフトプルリクエストをフィルタリングすることができます。 For more information, see "[About pull requests](/articles/about-pull-requests#draft-pull-requests)."

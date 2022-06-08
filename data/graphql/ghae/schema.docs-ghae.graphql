@@ -27656,6 +27656,11 @@ type Query {
     before: String
 
     """
+    A list of classifications to filter advisories by.
+    """
+    classifications: [SecurityAdvisoryClassification!]
+
+    """
     Returns the first _n_ elements from the list.
     """
     first: Int
@@ -27699,6 +27704,11 @@ type Query {
     Returns the elements in the list that come before the specified cursor.
     """
     before: String
+
+    """
+    A list of advisory classifications to filter vulnerabilities by.
+    """
+    classifications: [SecurityAdvisoryClassification!]
 
     """
     An ecosystem to filter vulnerabilities by.
@@ -35250,6 +35260,11 @@ A GitHub Security Advisory
 """
 type SecurityAdvisory implements Node {
   """
+  The classification of the advisory
+  """
+  classification: SecurityAdvisoryClassification!
+
+  """
   The CVSS associated with this advisory
   """
   cvss: CVSS!
@@ -35355,6 +35370,11 @@ type SecurityAdvisory implements Node {
     before: String
 
     """
+    A list of advisory classifications to filter vulnerabilities by.
+    """
+    classifications: [SecurityAdvisoryClassification!]
+
+    """
     An ecosystem to filter vulnerabilities by.
     """
     ecosystem: SecurityAdvisoryEcosystem
@@ -35384,6 +35404,21 @@ type SecurityAdvisory implements Node {
   When the advisory was withdrawn, if it has been withdrawn
   """
   withdrawnAt: DateTime
+}
+
+"""
+Classification of the advisory.
+"""
+enum SecurityAdvisoryClassification {
+  """
+  Classification of general advisories.
+  """
+  GENERAL
+
+  """
+  Classification of malware advisories.
+  """
+  MALWARE
 }
 
 """
