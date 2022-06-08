@@ -5,9 +5,8 @@ product: '{% data reusables.gated-features.copilot %}'
 topics:
   - copilot
 versions:
-  versions:
-  fpt: '*'
-  ghec: '*'
+  feature: 'copilot'
+shortTitle: Visual Studio Code
 ---
 
 ## Keyboard shortcuts for {% data variables.product.prodname_copilot %}
