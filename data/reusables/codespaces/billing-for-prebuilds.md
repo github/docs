@@ -4,4 +4,4 @@ If you are an organization owner, you can track usage of prebuild workflows by d
 
 To reduce consumption of Actions minutes, you can set a prebuild template to be updated only when you make a change to your dev container configuration files, or only on a custom schedule. For more information, see "[Configuring prebuilds](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-a-prebuild)." 
 
-While {% data variables.product.prodname_codespaces %} prebuilds is in beta there is no charge for storage of templates. When prebuilds become generally available, you will be billed for storing prebuild templates for each prebuild configuration in each region selected for that configuration. 
+Storage of prebuild templates is billed at the same rate as storage of codespaces.

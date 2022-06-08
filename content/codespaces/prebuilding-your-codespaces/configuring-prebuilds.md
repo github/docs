@@ -13,8 +13,6 @@ product: '{% data reusables.gated-features.codespaces %}'
 permissions: People with admin access to a repository can configure prebuilds for the repository.
 ---
 
-{% data reusables.codespaces.prebuilds-beta-note %}
-
 You can set up a prebuild configuration for a specific branch of your repository.
 
 Any branch created from a prebuild-enabled base branch will typically also get assigned a prebuild during codespace creation. This is true if the dev container on the branch is the same as on the base branch. This is because the majority of the prebuild configuration for branches with the same dev container configuration are identical, so developers can benefit from faster codespace creation times on those branches also. For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)."
@@ -67,6 +65,18 @@ Before you can configure prebuilds for your project the following must be true:
    * **Scheduled** - With this setting, you can have your prebuild configurations update on a custom schedule that's defined by you. This can reduce consumption of Actions minutes, and reduce the amount of time during which prebuilds are unavailable because they are being updated. However, with this option, codespaces may be created that do not use the latest dev container configuration changes.
 
    ![The prebuild trigger options](/assets/images/help/codespaces/prebuilds-triggers.png)
+
+1. Set the number of prebuild template versions to retain. You can input any number less than or equal to 5. The default number of versions saved is 5.
+
+   Retaining older versions of prebuild templates enables you to create a prebuild from an older commit with a different dev container configuration than the current prebuild template. This is useful because, depending on your trigger settings, your prebuild template could change with each push or on each dev container configuration change. Since there is a storage cost associated with retaining prebuild template versions, you can choose to change the number of versions to be retained, based on the needs of your team. For more information on billing for {% data variables.product.prodname_codespaces %}, see "[About billing for {% data variables.product.prodname_codespaces %}](https://docs.github.com/en/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces#codespaces-pricing)."
+
+   If you set the number of prebuild template versions to save to 0, {% data variables.product.prodname_codespaces %} will delete the older version of the prebuild template each time it is updated, and you will not have a prebuilt codespace if you go back to an older dev container configuration.
+
+   ![The prebuild template history setting](/assets/images/help/codespaces/codespaces-prebuilds-template-history-setting.png)
+
+1. Add users or teams to notify when your prebuild workflow runs fail for this particular prefuild configuration. You can begin typing a username, team name, or full name, then click the name once it appears to add them to the list. Those you add will receive an email immediately after prebuild failures containing a link to the workflow run logs.
+
+   ![The prebuild failure notification setting](/assets/images/help/codespaces/codespaces-prebuilds-failure-notification-setting.png)
 
 1. Click **Create**.
 
