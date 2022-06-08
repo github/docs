@@ -48,7 +48,6 @@ topics:
       ```
       :Copilot setup
       ```
-     ```
 
 {% endwindows %}
 
