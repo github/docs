@@ -33,21 +33,19 @@ describe('redirects', () => {
 
   test('dotcom homepage page.buildRedirects()', async () => {
     const page = await Page.init({
-      relativePath: 'github/index.md',
+      relativePath: 'issues/index.md',
       basePath: path.join(__dirname, '../../content'),
       languageCode: 'en',
     })
     const pageRedirects = page.buildRedirects()
-    expect(pageRedirects['/articles']).toBe('/github')
-    expect(pageRedirects['/common-issues-and-questions']).toBe('/github')
-    expect(pageRedirects[`/enterprise-server@${enterpriseServerReleases.latest}/articles`]).toBe(
-      `/enterprise-server@${enterpriseServerReleases.latest}`
-    )
+    expect(pageRedirects['/about-issues']).toBe('/issues')
+    expect(pageRedirects['/creating-an-issue']).toBe('/issues')
     expect(
-      pageRedirects[
-        `/enterprise-server@${enterpriseServerReleases.latest}/common-issues-and-questions`
-      ]
-    ).toBe(`/enterprise-server@${enterpriseServerReleases.latest}`)
+      pageRedirects[`/enterprise-server@${enterpriseServerReleases.latest}/about-issues`]
+    ).toBe(`/enterprise-server@${enterpriseServerReleases.latest}/issues`)
+    expect(
+      pageRedirects[`/enterprise-server@${enterpriseServerReleases.latest}/creating-an-issue`]
+    ).toBe(`/enterprise-server@${enterpriseServerReleases.latest}/issues`)
   })
 
   test('converts single `redirect_from` strings values into arrays', async () => {
