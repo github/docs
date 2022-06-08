@@ -44,3 +44,9 @@ Elige qué ecosistemas de paquetes te gustaría habilitar, inhabilitar o configu
 Si el aislamiento de subdominios se habilita para {% data variables.product.product_location %}, necesitarás crear y cargar un certificado TLS que permita la URL del host de paquetes para cada ecosistema que quieras utilizar, tal como `{% data reusables.package_registry.container-registry-hostname %}`. Asegúrate de que cada URL de host de paquete incluya `https://`.
 
   Puedes crear el certificado manualmente, o puedes utilizar _Let's Encrypt_. Si ya utilizas _Let's Encrypt_, debes solicitar un certificado TLS nuevo después de habilitar el {% data variables.product.prodname_registry %}. Para obtener más información acerca de las URL del host de los paquetes, consulta "[Habilitar el aislamiento de subdominios](/enterprise/admin/configuration/enabling-subdomain-isolation)". Para obtener más información sobre cómo cargar certificados TLS a {% data variables.product.product_name %}, consulta la sección "[Configurar el TLS](/enterprise/admin/configuration/configuring-tls)".
+
+## Step 5: Check for and rename reserved names
+
+If you want to use the Docker ecosystem with subdomain isolation disabled, you **must** first rename any user or organization named `v2` on {% data variables.product.product_location %}, prior to enabling Docker ecosystem support in the {% data variables.enterprise.management_console %}. Docker uses a `v2` account name to manage path conflicts with the Docker API, and once Docker registry support is enabled, you won't be able to use this name anymore.
+
+You can view a full list of logins reserved for internal use by navigating to the "Reserved logins" page in the Site admin dashboard. For more information, see "[Reserved logins](/admin/configuration/configuring-your-enterprise/site-admin-dashboard#reserved-logins)."

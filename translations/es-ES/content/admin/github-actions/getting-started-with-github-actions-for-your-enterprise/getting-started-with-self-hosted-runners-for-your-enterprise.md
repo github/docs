@@ -14,7 +14,7 @@ topics:
   - Fundamentals
 ---
 
-## About self-hosted runners for {% data variables.product.prodname_actions %}
+## Acerca de los ejecutores auto-hospedados para las {% data variables.product.prodname_actions %}
 
 {% data reusables.actions.about-actions-for-enterprises %} For more information, see "[About {% data variables.product.prodname_actions %} for enterprises](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)."
 
@@ -48,7 +48,7 @@ After you finish the guide, {% ifversion ghec or ghae %}members of your enterpri
 
 ## 1. Configure policies for {% data variables.product.prodname_actions %}
 
-Primero, habilita las {% data variables.product.prodname_actions %} para todas las organizaciones y configura una política para restringir las acciones{% ifversion actions-workflow-policy %} y flujos de trabajo reutilizables{% endif %} que pueden ejecutarse {% ifversion ghec or ghae%}dentro de tu empresa en {% data variables.product.product_name %}{% elsif ghes %}en {% data variables.product.product_location %}{% endif %}. Optionally, organization owners can further restrict these policies for each organization.
+First, enable {% data variables.product.prodname_actions %} for all organizations, and configure a policy to restrict the actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} that can run {% ifversion ghec or ghae%}within your enterprise on {% data variables.product.product_name %}{% elsif ghes %}on {% data variables.product.product_location %}{% endif %}. Optionally, organization owners can further restrict these policies for each organization.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
