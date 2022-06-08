@@ -65,7 +65,14 @@ Puedes administrar el servicio de ejecutor en la aplicación de **Servicios** de
    sudo ./svc.sh install
    ```
 
+1. Alternatively, the command takes an optional `user` argument to install the service as a different user.
+
+  ```shell
+  ./svc.sh install <em>USERNAME</em>
+  ```
+
 {% endlinux %}
+
 {% mac %}
 
 ## Instalar el servicio
@@ -77,12 +84,6 @@ Puedes administrar el servicio de ejecutor en la aplicación de **Servicios** de
    ./svc.sh install
    ```
 {% endmac %}
-
-El comando toma un argumento de `user` opcional para instalar el servicio como un usuario diferente.
-
-```shell
-./svc.sh install <em>USERNAME</em>
-```
 
 ## Iniciar el servicio
 

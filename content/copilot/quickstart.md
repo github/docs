@@ -2,9 +2,9 @@
 title: Quickstart for GitHub Copilot
 intro: '{% data variables.product.prodname_copilot %} can help you work, by offering inline suggestions as you code.'
 product: '{% data reusables.gated-features.copilot %}'
+allowTitleToDifferFromFilename: true
 versions:
-  fpt: '*'
-  ghec: '*'
+  feature: 'copilot'
 shortTitle: Quickstart
 topics:
   - Copilot

@@ -188,7 +188,7 @@ jobs:
           # `main-docker-cache.yml` handles updating the remote cache so we don't pollute it with PR specific code
           cache-to: ''
           build-args: |
-            BUILD_SHA=${{ github.sha }}
+            BUILD_SHA=${{ env.COMMIT_REF }}
 
       # Succeed despite any non-zero exit code (e.g. if there is no deployment to cancel)
       - name: 'Cancel any existing deployments for this PR'
@@ -198,7 +198,16 @@ jobs:
       # Deploy ARM template is idempotent
       # Note: once the resources exist the image tag must change for a new deployment to occur (the image tag includes workflow run number, run attempt, as well as sha)
       - name: Run ARM deploy
-        id: deploy
+        # This 'if' will be truth, if this workflow is...
+        #  - run as a workflow_dispatch
+        #  - run because of a push to main (or gh-readonly-queue/main)
+        #  - run as a regular pull request
+        # But if it's a pull request, *and* for whatever reason, the pull
+        # request has "Auto-merge" enabled, don't bother.
+        # The idea is that if auto-merge has been abled, by humans or by
+        # bots, they have no intention of viewing the deployed preview anyway.
+        # This saves time because the PR can merge sooner.
+        if: ${{ !github.event.pull_request.auto_merge }}
         uses: azure/arm-deploy@841b12551939c88af8f6df767c24c38a5620fd0d
         with:
           resourceGroupName: ${{ secrets.PREVIEW_ENV_RESOURCE_GROUP }}

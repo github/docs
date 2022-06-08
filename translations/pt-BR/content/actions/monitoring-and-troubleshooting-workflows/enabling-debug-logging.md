@@ -24,7 +24,7 @@ Para obter mais informações sobre segredos de configuração, consulte "[Criar
 
 {% if debug-reruns %}
 
-Additionally, anyone who has access to run a workflow can enable runner diagnostic logging and step debug logging for a workflow re-run. For more information, see "[Re-running workflows and jobs](/actions/managing-workflow-runs/re-running-workflows-and-jobs)."
+Além disso, qualquer pessoa com acesso a executar um fluxo de trabalho pode habilitar o registro de diagnóstico do executor e o registro de depuração de passos para executar novamente o fluxo de trabalho. Para obter mais informações, consulte "[Executando novamente os fluxos de trabalho e trabalhos](/actions/managing-workflow-runs/re-running-workflows-and-jobs)".
 
  {% endif %}
 

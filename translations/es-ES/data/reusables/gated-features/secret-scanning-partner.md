@@ -1,8 +1,9 @@
 {%- ifversion fpt %}
-{% data variables.product.prodname_secret_scanning_partner_caps %} is automatically run on public repositories in all products on {% data variables.product.prodname_dotcom_the_website %}. {% data variables.product.prodname_secret_scanning_GHAS_caps %} is available for repositories owned by organizations that use {% data variables.product.prodname_ghe_cloud %} and have a license for {% data variables.product.prodname_GH_advanced_security %}.
+{% data variables.product.prodname_secret_scanning_partner_caps %} se ejecuta automáticamente en los repositorios públicos en todos los productos de {% data variables.product.prodname_dotcom_the_website %}. {% data variables.product.prodname_secret_scanning_GHAS_caps %} se encuentra disponible para los repositorios que pertenecen a las organizaciones que utilizan {% data variables.product.prodname_ghe_cloud %} y tienen una licencia para la {% data variables.product.prodname_GH_advanced_security %}.
 
 {%- elsif ghec %}
-{% data variables.product.prodname_secret_scanning_partner_caps %} is automatically run on all public repositories. If you have a license for {% data variables.product.prodname_GH_advanced_security %}, you can enable and configure {% data variables.product.prodname_secret_scanning_GHAS %} for any repository owned by an organization.
+{% data variables.product.prodname_secret_scanning_partner_caps %} se ejecuta automáticamente en todos los repositorios públicos. Si tienes una licencia de {% data variables.product.prodname_GH_advanced_security %}, puedes habilitar y configurar el 
+{% data variables.product.prodname_secret_scanning_GHAS %} para cualquier repositorio que le pertenezca a una organización.
 
 {%- elsif ghes %}
 El {% data variables.product.prodname_secret_scanning_caps %} se encuentra disponible para los repositorios que pertenecen a organizaciones de {% data variables.product.product_name %} si tu empresa tiene una licencia de {% data variables.product.prodname_GH_advanced_security %}.

@@ -15,5 +15,7 @@ children:
   - /overview-of-github-copilot
   - /getting-started
   - /configuring-github-copilot
+topics: 
+  - Copilot
 ---
 
