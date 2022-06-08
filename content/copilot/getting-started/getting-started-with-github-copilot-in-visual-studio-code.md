@@ -3,8 +3,6 @@ title: Getting started with GitHub Copilot in Visual Studio Code
 shortTitle: Visual Studio Code
 intro: 'Learn how to install {% data variables.product.prodname_copilot %} in Visual Studio Code, and start seeing suggestions as you write comments and code.'
 product: '{% data reusables.gated-features.copilot %}'
-topics:
-  - copilot
 versions:
   feature: 'copilot'
 topics: 
