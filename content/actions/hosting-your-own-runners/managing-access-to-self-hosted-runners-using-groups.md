@@ -30,9 +30,9 @@ If you use {% data variables.product.prodname_ghe_cloud %}, you can create addit
 {% endif %}
 
 {% ifversion ghec or ghes or ghae %}
-Self-hosted runner groups are used to control access to self-hosted runners at the organization and enterprise level. Enterprise owners can configure access policies that control which organizations {% if restrict-groups-to-workflows %}and workflows {% endif %}in an enterprise have access to the runner group. Organization owners can configure access policies that control which repositories{% if restrict-groups-to-workflows %} and workflows{% endif %} in an organization have access to the runner group.
+Self-hosted runner groups are used to control access to self-hosted runners at the organization and enterprise level. Enterprise owners can configure access policies that control which organizations {% ifversion restrict-groups-to-workflows %}and workflows {% endif %}in an enterprise have access to the runner group. Organization owners can configure access policies that control which repositories{% ifversion restrict-groups-to-workflows %} and workflows{% endif %} in an organization have access to the runner group.
 
-When an enterprise owner grants an organization access to a runner group, organization owners can see the runner group listed in the organization's self-hosted runner settings. The organization owners can then assign additional granular repository{% if restrict-groups-to-workflows %} and workflow{% endif %} access policies to the enterprise runner group.
+When an enterprise owner grants an organization access to a runner group, organization owners can see the runner group listed in the organization's self-hosted runner settings. The organization owners can then assign additional granular repository{% ifversion restrict-groups-to-workflows %} and workflow{% endif %} access policies to the enterprise runner group.
 
 When new runners are created, they are automatically assigned to the default group. Runners can only be in one group at a time. You can move runners from the default group to another group. For more information, see "[Moving a self-hosted runner to a group](#moving-a-self-hosted-runner-to-a-group)."
 
@@ -42,7 +42,7 @@ All organizations have a single default self-hosted runner group. Organizations 
 
 Self-hosted runners are automatically assigned to the default group when created, and can only be members of one group at a time. You can move a runner from the default group to any group you create.
 
-When creating a group, you must choose a policy that defines which repositories{% if restrict-groups-to-workflows %} and workflows{% endif %} have access to the runner group.
+When creating a group, you must choose a policy that defines which repositories{% ifversion restrict-groups-to-workflows %} and workflows{% endif %} have access to the runner group.
 
 {% ifversion ghec or ghes > 3.3 or ghae-issue-5091 %}
 {% data reusables.organizations.navigate-to-org %}
@@ -59,7 +59,7 @@ When creating a group, you must choose a policy that defines which repositories{
    For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)."
 
    {% endwarning %}
-{% data reusables.actions.runner-group-assign-policy-workflow %}{%- if restrict-groups-to-workflows %} Organization-owned runner groups cannot access workflows from a different organization in the enterprise; instead, you must create an enterprise-owned runner group.{% endif %}
+{% data reusables.actions.runner-group-assign-policy-workflow %}{%- ifversion restrict-groups-to-workflows %} Organization-owned runner groups cannot access workflows from a different organization in the enterprise; instead, you must create an enterprise-owned runner group.{% endif %}
 {% data reusables.actions.self-hosted-runner-create-group %}
 {% elsif ghae or ghes < 3.4 %}
 {% data reusables.organizations.navigate-to-org %}
@@ -90,7 +90,7 @@ When creating a group, you must choose a policy that defines which repositories{
 
 ## Creating a self-hosted runner group for an enterprise
 
-Enterprises can add their self-hosted runners to groups for access management. Enterprises can create groups of self-hosted runners that are accessible to specific organizations in the enterprise account{% if restrict-groups-to-workflows %} or to specific workflows{% endif %}. Organization owners can then assign additional granular repository{% if restrict-groups-to-workflows %} or workflow{% endif %} access policies to the enterprise runner groups. For information about how to create a self-hosted runner group with the REST API, see the enterprise endpoints in the [{% data variables.product.prodname_actions %} REST API](/rest/reference/actions#self-hosted-runner-groups).
+Enterprises can add their self-hosted runners to groups for access management. Enterprises can create groups of self-hosted runners that are accessible to specific organizations in the enterprise account{% ifversion restrict-groups-to-workflows %} or to specific workflows{% endif %}. Organization owners can then assign additional granular repository{% ifversion restrict-groups-to-workflows %} or workflow{% endif %} access policies to the enterprise runner groups. For information about how to create a self-hosted runner group with the REST API, see the enterprise endpoints in the [{% data variables.product.prodname_actions %} REST API](/rest/reference/actions#self-hosted-runner-groups).
 
 Self-hosted runners are automatically assigned to the default group when created, and can only be members of one group at a time. You can assign the runner to a specific group during the registration process, or you can later move the runner from the default group to a custom group.
 
@@ -124,7 +124,7 @@ When creating a group, you must choose a policy that defines which organizations
 
 ## Changing the access policy of a self-hosted runner group
 
-For runner groups in an enterprise, you can change what organizations in the enterprise can access a runner group{% if restrict-groups-to-workflows %} or restrict what workflows a runner group can run{% endif %}. For runner groups in an organization, you can change what repositories in the organization can access a runner group{% if restrict-groups-to-workflows %} or restrict what workflows a runner group can run{% endif %}.
+For runner groups in an enterprise, you can change what organizations in the enterprise can access a runner group{% ifversion restrict-groups-to-workflows %} or restrict what workflows a runner group can run{% endif %}. For runner groups in an organization, you can change what repositories in the organization can access a runner group{% ifversion restrict-groups-to-workflows %} or restrict what workflows a runner group can run{% endif %}.
 
 ### Changing what organizations or repositories can access a runner group
 
@@ -148,7 +148,7 @@ For runner groups in an enterprise, you can change what organizations in the ent
 {% data reusables.actions.self-hosted-runner-configure-runner-group-access %}
 {% endif %}
 
-{% if restrict-groups-to-workflows %}
+{% ifversion restrict-groups-to-workflows %}
 ### Changing what workflows can access a runner group
 You can configure a self-hosted runner group to run either selected workflows or all workflows. For example, you might use this setting to protect secrets that are stored on self-hosted runners or to standardize deployment workflows by restricting a runner group to run only a specific reusable workflow. This setting cannot be overridden if you are configuring an organization's runner group that was shared by an enterprise. 
 {% data reusables.actions.self-hosted-runner-groups-navigate-to-repo-org-enterprise %}

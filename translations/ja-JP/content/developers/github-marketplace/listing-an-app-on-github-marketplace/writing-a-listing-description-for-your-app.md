@@ -168,7 +168,7 @@ shortTitle: リストの説明を書く
 
   ### 必要なスキルを学ぶ
 
-  GitHub Learning Labでは、GitHubの使い方を学習、Markdownによる効果的な連絡、マージコンフリクトの処理などが可能です。
+  GitHub Skills can help you learn how to use GitHub, communicate more effectively with Markdown, handle merge conflicts, and more.
 
 - 大文字で始めて英文字表記するのは固有名詞だけです。
 

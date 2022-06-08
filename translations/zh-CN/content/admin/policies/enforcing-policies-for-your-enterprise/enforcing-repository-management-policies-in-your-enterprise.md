@@ -115,7 +115,7 @@ shortTitle: 仓库管理策略
 
 ## 执行邀请{% ifversion ghec %} 外部{% endif %} 协作者参与仓库的策略
 
-在企业拥有的所有组织中，您可以允许成员邀请{% ifversion ghec %}外部{% endif %} 协作者访问存储库，限制{% ifversion ghec %}外部协作者 {% endif %}邀请组织所有者，{% if prevent-org-admin-add-outside-collaborator %}限制{% ifversion ghec %}外部协作者 {% endif %}邀请企业所有者，{% endif %}或允许组织所有者在组织级别管理设置。
+在企业拥有的所有组织中，您可以允许成员邀请{% ifversion ghec %}外部{% endif %} 协作者访问存储库，限制{% ifversion ghec %}外部协作者 {% endif %}邀请组织所有者，{% ifversion prevent-org-admin-add-outside-collaborator %}限制{% ifversion ghec %}外部协作者 {% endif %}邀请企业所有者，{% endif %}或允许组织所有者在组织级别管理设置。
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}

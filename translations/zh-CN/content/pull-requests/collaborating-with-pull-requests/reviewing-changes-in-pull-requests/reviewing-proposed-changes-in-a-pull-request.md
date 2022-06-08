@@ -37,7 +37,7 @@ shortTitle: 审核建议的更改
 
    您也可以选择隐藏空白差异。 您所做的选择仅适用于此拉取请求，并在您下次访问此页面时被记住。
 {% endif %}
-1. （可选）筛选文件以仅显示要查看的文件{% if pr-tree-view %} 或使用文件树导航到特定文件{% endif %}。 更多信息请参阅“[过滤拉取请求中的文件](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/filtering-files-in-a-pull-request)”。
+1. （可选）筛选文件以仅显示要查看的文件{% ifversion pr-tree-view %} 或使用文件树导航到特定文件{% endif %}。 更多信息请参阅“[过滤拉取请求中的文件](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/filtering-files-in-a-pull-request)”。
 {% data reusables.repositories.start-line-comment %}
 {% data reusables.repositories.type-line-comment %}
 {% data reusables.repositories.suggest-changes %}

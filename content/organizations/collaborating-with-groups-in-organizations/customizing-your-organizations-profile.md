@@ -11,7 +11,7 @@ topics:
 shortTitle: Customize organization profile
 ---
 
-{% if org-profile-pin-private %}
+{% ifversion org-profile-pin-private %}
 
 ## About your organization's profile page
 
@@ -45,7 +45,7 @@ You can format text and include emoji, images, and GIFs in your organization pro
 
    ![Image of an organization's public README](/assets/images/help/organizations/org_public_readme.png)
 
-{% if org-profile-pin-private %}
+{% ifversion org-profile-pin-private %}
 
 ## Adding a member-only organization profile README
 
