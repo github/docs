@@ -12,6 +12,11 @@ featuredLinks:
     - /get-started/importing-your-projects-to-github/importing-source-code-to-github/adding-locally-hosted-code-to-github
     - /get-started/getting-started-with-git/managing-remote-repositories
     - /pages
+redirect_from:
+  - /github
+  - /articles
+  - /common-issues-and-questions
+  - /troubleshooting-common-issues
 versions: '*'
 children:
   - get-started

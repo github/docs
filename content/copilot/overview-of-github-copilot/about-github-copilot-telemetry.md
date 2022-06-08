@@ -2,8 +2,12 @@
 title: About GitHub Copilot telemetry
 intro: '{% data variables.product.prodname_copilot %} collects and relies on additional telemetry data beyond what other {% data variables.product.company_short %} products and services collect.'
 redirect_from:
+<<<<<<< HEAD
   - /early-access/github/copilot/about-github-copilot-telemetry
   - /github/copilot/about-github-copilot-telemetry
+=======
+  - /early-access/copilot/overview-of-github-copilot/about-github-copilot-telemetry
+>>>>>>> copilot-ga-megabranch
 versions:
   feature: 'copilot'
 topics: 
@@ -12,7 +16,7 @@ topics:
 
 ## What data is collected
 
-Data collected is described in the "[{% data variables.product.prodname_copilot %} Telemetry Terms](/site-policy/github-terms/github-copilot-telemetry-terms)." In addition, the {% data variables.product.prodname_copilot %} extension/plugin collects activity from the user's Integrated Development Environment (IDE), tied to a timestamp, and metadata collected by the extension/plugin telemetry package. When used with {% data variables.product.prodname_vscode %}, IntelliJ, NeoVIM, or other IDEs, {% data variables.product.prodname_copilot %} collects the standard metadata provided by those IDEs. 
+Data collected is described in the "[{% data variables.product.prodname_copilot %} Telemetry Terms](/free-pro-team@latest/site-policy/github-terms/github-copilot-telemetry-terms)." In addition, the {% data variables.product.prodname_copilot %} extension/plugin collects activity from the user's Integrated Development Environment (IDE), tied to a timestamp, and metadata collected by the extension/plugin telemetry package. When used with {% data variables.product.prodname_vscode %}, IntelliJ, NeoVIM, or other IDEs, {% data variables.product.prodname_copilot %} collects the standard metadata provided by those IDEs. 
 
 ## How the data is used by {% data variables.product.company_short %}
 
