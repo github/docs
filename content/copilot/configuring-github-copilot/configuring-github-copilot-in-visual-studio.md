@@ -25,7 +25,7 @@ You can use the default keyboard shortcuts in Visual Studio when using {% data v
    ![Screenshot of the Options option in the Visual Studio toolbar](/assets/images/help/copilot/vs-toolbar-options.png)
 1. In the "Options" dialog, under **Environment**, click **Keyboard**.
    ![Screenshot of the Keyboard option in the "Options" dialog](/assets/images/help/copilot/vs-options-dialogue.png)
-1. Under "Show commands containing", search for the command you want to rebind.
+1. Under "Show commands containing:", search for the command you want to rebind.
    ![Screenshot of the show commands containing searchbar](/assets/images/help/copilot/vs-show-commands-containing.png)
 1. Under "Press shortcut keys" type the shorcut you want to assign to the command and click **Assign**.
    ![Screenshot of the keyboard shortcut assignment](/assets/images/help/copilot/vs-rebind-shortcut.png)

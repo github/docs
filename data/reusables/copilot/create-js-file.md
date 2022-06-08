@@ -1,0 +1,1 @@
+1. Create a new JavaScript (_*.js_) file.
