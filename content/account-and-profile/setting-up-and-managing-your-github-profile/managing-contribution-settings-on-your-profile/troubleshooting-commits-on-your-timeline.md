@@ -5,6 +5,7 @@ redirect_from:
   - /articles/troubleshooting-commits-on-your-timeline
   - /github/setting-up-and-managing-your-github-profile/troubleshooting-commits-on-your-timeline
   - /github/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/troubleshooting-commits-on-your-timeline
+  - /account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/troubleshooting-commits-on-your-timeline
 versions:
   fpt: '*'
   ghes: '*'
