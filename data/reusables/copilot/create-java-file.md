@@ -1,1 +1,1 @@
-1. Create a new Java (_*.java_) file.
+1. In your JetBrains IDE, create a new Java (_*.java_) file.

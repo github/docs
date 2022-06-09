@@ -9,6 +9,12 @@ topics:
   - Copilot
 ---
 
+## About {% data variables.product.prodname_copilot %} and Visual Studio
+
+{% data reusables.copilot.procedural-intro %}
+
+ADD MORE HERE!
+
 ## Prerequisites
 
 To use {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}, you must have {% data variables.product.prodname_vs %} 2022 17.1 or later installed. For more information, see the [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) documentation.
@@ -51,26 +57,30 @@ After installation, a {% data variables.product.prodname_copilot %} icon will ap
 {% data reusables.copilot.supported-languages %} The following samples are in C#, but other languages will work similarly.
 
 {% data reusables.copilot.create-c-file %}
-{% data reusables.copilot.type-function-header-c %}
-    {% data variables.product.prodname_copilot %} will automatically suggest an entire function body in grayed text, as shown below. The exact suggestion may vary.
-    ![Screenshot of a first suggestion Visual Studio Code](/assets/images/help/copilot/first-suggestion-visual-studio.png)
+1. In the C# file, type the following function header. {% data variables.product.prodname_copilot %} will automatically suggest an entire function body in grayed text, as shown below. The exact suggestion may vary.
+  ```csharp{:copy}
+  function calculateDaysBetweenDates(begin, end) {
+  ```
+  ![Screenshot of a first suggestion Visual Studio Code](/assets/images/help/copilot/first-suggestion-visual-studio.png)
 {% data reusables.copilot.accept-suggestion %}
  
 ## Seeing alternative suggestions
 {% data reusables.copilot.alternative-suggestions %}
 {% data reusables.copilot.create-c-file %}
-{% data reusables.copilot.type-function-header-c %}
-  {% data variables.product.prodname_copilot %} will show you a suggestion.
-3. To see alternative suggestions, press <kbd>Alt</kbd>+<kbd>]</kbd> (or <kbd>Alt</kbd>+<kbd>[</kbd>).
-4. If {% data variables.product.prodname_copilot %} offers a suggestion you want to accept, press <kbd>Tab</kbd>.
-5. Alternatively, to reject all suggestions, press <kbd>Esc</kbd>.
-6. Optionally, you can hover over the suggestion to see the {% data variables.product.prodname_copilot %} command palette for choosing suggestions.
+1. In the C# file, type the following function header. {% data variables.product.prodname_copilot %} will show you a suggestion.
+```csharp{:copy}
+  function calculateDaysBetweenDates(begin, end) {
+  ```
+1. To see alternative suggestions, press <kbd>Alt</kbd>+<kbd>]</kbd> (or <kbd>Alt</kbd>+<kbd>[</kbd>).
+1. Optionally, you can hover over the suggestion to see the {% data variables.product.prodname_copilot %} command palette for choosing suggestions.
+{% data reusables.copilot.accept-or-reject-suggestion %}
 
 ## Generating code suggestions from comments
-{% data variables.product.prodname_copilot %} can also generate code suggestions from comments.
+
+{% data reusables.copilot.generating-suggestions-from-comments %}
 
 {% data reusables.copilot.create-c-file %}
-1. In the C# file, type the following comment.
+1. In the C# file, type the following comment. {% data variables.product.prodname_copilot %} will suggest an implementation of the function.
    ```csharp{:copy}
    using System.Xml.Linq;
 
@@ -78,7 +88,6 @@ After installation, a {% data variables.product.prodname_copilot %} icon will ap
    
    // find all images
    ```
-  {% data variables.product.prodname_copilot %} will suggest an implementation of the function.
 {% data reusables.copilot.accept-suggestion %}
 
 
@@ -88,9 +97,11 @@ The {% data variables.product.prodname_copilot %} status icon in the bottom pane
 
 1. To enable or disable {% data variables.product.prodname_copilot %}, click the {% data variables.product.prodname_copilot %} icon in the bottom panel of the {% data variables.product.prodname_vs %} window.
   ![Screenshot of editor margin in Visual Studio with the GitHub Copilot icon emphasized](/assets/images/help/copilot/editor-margin-visual-studio.png)
-2. If you are disabling {% data variables.product.prodname_copilot %}, you will be asked whether you want to disable it globally, for the file you are currently editing, or for the current file type. 
+2. If you are disabling {% data variables.product.prodname_copilot %}, you will be asked whether you want to disable suggestions globally, or for the language of the file you are currently editing.
+
+   - To disable suggestions from {% data variables.product.prodname_copilot %} globally, click **Enable Globally**.
+   - To disable suggestions from {% data variables.product.prodname_copilot %} for the specified language, click **Enable for _LANGUAGE_**.
 
 ## Further reading
 
 - [{% data variables.product.prodname_copilot %}](https://copilot.github.com/)
-- [About {% data variables.product.prodname_copilot %}](/copilot/overview-of-github-copilot/about-github-copilot)

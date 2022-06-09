@@ -1,6 +1,6 @@
 ---
-title: Getting started with GitHub Copilot in JetBrains
-shortTitle: JetBrains
+title: Getting started with GitHub Copilot in a JetBrains IDE
+shortTitle: JetBrains IDE
 intro: 'Learn how to install {% data variables.product.prodname_copilot %} in JetBrains, and start seeing suggestions as you write comments and code.'
 product: '{% data reusables.gated-features.copilot %}'
 versions:
@@ -9,9 +9,15 @@ topics:
   - Copilot
 ---
 
+## About {% data variables.product.prodname_copilot %} and JetBrains
+
+{% data reusables.copilot.procedural-intro %}
+
+If you use a JetBrains IDE, you can view and incorporate suggestions from {% data variables.product.prodname_copilot %} directly within the editor. This guide demonstrates how to use {% data variables.product.prodname_copilot %} within a JetBrains IDE for macOS, Windows, or Linux.
+
 ## Prerequisites
 
-- To use {% data variables.product.prodname_copilot %} in JetBrains, you must have JetBrains IDEs installed. For more information, see the [JetBrains IDEs](https://www.jetbrains.com/idea/download/) documentation.
+- To use {% data variables.product.prodname_copilot %} in JetBrains, you must have a compatible JetBrains IDE installed. {% data variables.product.prodname_copilot %} is compatible with IntelliJ IDEA (Ultimate, Community, Educational), Android Studio, AppCode, CLion, Code With Me Guest, DataGrip, DataSpell, GoLand, JetBrains Client, MPS, PhpStorm, PyCharm (Professional, Community, Educational), Rider, RubyMine, WebStorm. For more information, see the [JetBrains IDEs](https://www.jetbrains.com/products/) tool finder.
 
 ## Installing the JetBrains extension
 
@@ -26,9 +32,7 @@ topics:
    ![Screenshot of the Java class body suggestion](/assets/images/help/copilot/java-class-body-suggestion-jetbrains.png)
 {% data reusables.copilot.accept-suggestion %}
 1. To prompt {% data variables.product.prodname_copilot %} to suggest a function body, type the following line below the bracket of the `main` function. The exact suggestion may vary.
-    ```java{:copy}
-    int calculateDaysBetweenDates
-    ```
+    {% data reusables.copilot.java-int-snippet %}
     ![Screenshot of the Java function body suggestion](/assets/images/help/copilot/java-function-body-suggestion-jetbrains.png)
 {% data reusables.copilot.accept-suggestion %}
 
@@ -40,10 +44,7 @@ topics:
 
 {% data reusables.copilot.create-java-file %}
 1. To prompt {% data variables.product.prodname_copilot %} to show you a suggestion, type the following line in the Java file.
-
-   ```java{:copy}
-    int calculateDaysBetweenDates(
-    ```
+   {% data reusables.copilot.java-int-snippet %}
 1. Optionally, you can see alternative suggestions.
 
    | OS | See next suggestion | See previous suggestion |
@@ -51,7 +52,7 @@ topics:
    | macOS | <kbd>Option</kbd>+<kbd>]</kbd> | <kbd>Option</kbd>+<kbd>[</kbd> |
    | Windows | <kbd>Alt</kbd>+<kbd>]</kbd> | <kbd>Alt</kbd>+<kbd>[</kbd> |
    | Linux | <kbd>Alt</kbd>+<kbd>]</kbd> | <kbd>Alt</kbd>+<kbd>[</kbd> |
-1. To accept a suggestion, press <kbd>Tab</kbd>. To reject all suggestions, press <kbd>Esc</kbd>.
+{% data reusables.copilot.accept-or-reject-suggestion %}
 
 ## Seeing multiple suggestions in a new tab
 
@@ -59,9 +60,7 @@ topics:
 
 {% data reusables.copilot.create-java-file %}
 1. In the Java file, type the following:
-    ```
-    int calculateDaysBetweenDates(
-    ```
+    {% data reusables.copilot.java-int-snippet %}
   {% data variables.product.prodname_copilot %} will show you a suggestion.
 1. Open a new tab with multiple additional suggestions.
     - On macOS, press <kbd>Option</kbd>+<kbd>Enter</kbd>, then click **Open GitHub Copilot**.
@@ -71,7 +70,7 @@ topics:
 
 ## Generating code suggestions from comments
 
-{% data variables.product.prodname_copilot %} can also generate code suggestions from comments.
+{% data reusables.copilot.generating-suggestions-from-comments %}
 
 {% data reusables.copilot.create-java-file %}
 1. To prompt {% data variables.product.prodname_copilot %} to suggest an implementation of a function in the Java file, type the following lines.
@@ -84,10 +83,10 @@ topics:
 
 ## Enabling and disabling {% data variables.product.prodname_copilot %}
 
-You can enable or disable {% data variables.product.prodname_copilot %} from within JetBrains. The {% data variables.product.prodname_copilot %} status icon in the bottom panel of the JetBrains window indicates whether {% data variables.product.prodname_copilot %} is enabled or disabled. When enabled, the icon is highlighted. When disabled, the icon is grayed out.
+You can enable or disable {% data variables.product.prodname_copilot %} for all languages, or for individual languages. The {% data variables.product.prodname_copilot %} status icon in the bottom panel of your JetBrains IDE window indicates whether {% data variables.product.prodname_copilot %} is enabled or disabled. When enabled, the icon is highlighted. When disabled, the icon is grayed out.
 
 1. To enable or disable {% data variables.product.prodname_copilot %}, click the status icon in the bottom panel of the JetBrains window.
-   ![Screenshot of the status icon in JetBrains](/assets/images/help/copilot/status-icon-jetbrains.png)
+   ![Screenshot of the status icon in IntelliJ IDEA](/assets/images/help/copilot/status-icon-jetbrains.png)
 2. If you are disabling {% data variables.product.prodname_copilot %}, you will be asked whether you want to disable it globally, or for the language of the file you are currently editing.
 
    - To disable suggestions from {% data variables.product.prodname_copilot %} globally, click **Disable Completions**.
@@ -98,4 +97,3 @@ You can enable or disable {% data variables.product.prodname_copilot %} from wit
 ## Further reading
 
 - [{% data variables.product.prodname_copilot %}](https://copilot.github.com/)
-- [About {% data variables.product.prodname_copilot %}](/copilot/overview-of-github-copilot/about-github-copilot)
