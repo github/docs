@@ -310,6 +310,14 @@ For information about using the REST API to query the audit log for an organizat
 
 {% endnote %}
 
+{% ifversion partial-reruns-with-reusable %}
+
+## Re-running workflows and jobs with reusable workflows
+
+{% data reusables.actions.partial-reruns-with-reusable %}
+
+{% endif %}
+
 ## Next steps
 
 To continue learning about {% data variables.product.prodname_actions %}, see "[Events that trigger workflows](/actions/learn-github-actions/events-that-trigger-workflows)."
