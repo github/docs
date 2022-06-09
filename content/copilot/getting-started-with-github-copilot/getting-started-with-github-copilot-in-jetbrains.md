@@ -29,7 +29,6 @@ topics:
     ```java{:copy}
     int calculateDaysBetweenDates
     ```
-    {% data variables.product.prodname_copilot %} will automatically suggest a function body in grayed text, as shown below. The exact suggestion may vary.
     ![Screenshot of the Java function body suggestion](/assets/images/help/copilot/java-function-body-suggestion-jetbrains.png)
 {% data reusables.copilot.accept-suggestion %}
 
