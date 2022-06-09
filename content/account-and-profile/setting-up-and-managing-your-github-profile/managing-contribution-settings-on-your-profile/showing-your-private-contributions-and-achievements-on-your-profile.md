@@ -3,8 +3,9 @@ title: Showing your private contributions and achievements on your profile
 intro: 'Your {% data variables.product.product_name %} profile shows a graph of your repository contributions over the past year. You can choose to show anonymized activity from {% ifversion fpt or ghes or ghec %}private and internal{% else %}private{% endif %} repositories{% ifversion fpt or ghes or ghec %} in addition to the activity from public repositories{% endif %}.'
 redirect_from:
   - /articles/publicizing-or-hiding-your-private-contributions-on-your-profile
-  - /github/setting-up-and-managing-your-github-profile/showing-your-private-contributions-and-achievements-on-your-profile
-  - /github/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/showing-your-private-contributions-and-achievements-on-your-profile
+  - /github/setting-up-and-managing-your-github-profile/publicizing-or-hiding-your-private-contributions-on-your-profile
+  - /github/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/publicizing-or-hiding-your-private-contributions-on-your-profile
+  - /account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/publicizing-or-hiding-your-private-contributions-on-your-profile
 versions:
   fpt: '*'
   ghes: '*'
