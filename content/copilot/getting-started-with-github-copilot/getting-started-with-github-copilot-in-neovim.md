@@ -71,7 +71,7 @@ To use {% data variables.product.prodname_copilot %} in Neovim you must have Neo
 
 ## Learning to use {% data variables.product.prodname_copilot %} in Neovim
 
-For guidance on using {% data variables.product.prodname_copilot %} in Neovim, invoke the {% data variables.product.prodname_copilot %} documentation in Neovim by running the following command:
+For guidance on using {% data variables.product.prodname_copilot %} in Neovim, you can view the plugin documentation. To see the documentation, open Neovim and run the following command.
 
       ```
       :help copilot
