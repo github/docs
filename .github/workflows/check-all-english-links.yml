@@ -17,7 +17,7 @@ jobs:
   check_all_english_links:
     name: Check all links
     if: github.repository == 'github/docs-internal'
-    runs-on: ubuntu-latest
+    runs-on: ${{ fromJSON('["ubuntu-latest", "self-hosted"]')[github.repository == 'github/docs-internal'] }}
     env:
       GITHUB_TOKEN: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
       FIRST_RESPONDER_PROJECT: Docs content first responder
@@ -56,10 +56,21 @@ jobs:
           # The default is 10s. But because this runs overnight, we can
           # be a lot more patient.
           REQUEST_TIMEOUT: 20000
+          # The default is 300 which works OK on a fast macbook pro
+          # but so well in Actions.
+          LINKINATOR_CONCURRENCY: 100
         run: |
-          node server.mjs &
+          node server.mjs > /tmp/stdout.log 2> /tmp/stderr.log &
           sleep 5
-          curl --retry-connrefused --retry 3 -I http://localhost:4000/
+          curl --retry-connrefused --retry 4 -I http://localhost:4000/
+
+      - if: ${{ failure() }}
+        name: Debug server outputs on errors
+        run: |
+          echo "____STDOUT____"
+          cat /tmp/stdout.log
+          echo "____STDERR____"
+          cat /tmp/stderr.log
 
       - name: Run script
         run: |
