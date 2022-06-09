@@ -70,7 +70,7 @@ After installation, a {% data variables.product.prodname_copilot %} icon will ap
 {% data variables.product.prodname_copilot %} can also generate code suggestions from comments.
 
 {% data reusables.copilot.create-c-file %}
-1. In the C# file, type the following comment:
+1. In the C# file, type the following comment.
    ```csharp{:copy}
    using System.Xml.Linq;
 
