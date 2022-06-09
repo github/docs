@@ -44,7 +44,6 @@ topics:
    ```java{:copy}
     int calculateDaysBetweenDates(
     ```
-  {% data variables.product.prodname_copilot %} will show you a suggestion.
 1. To see alternative suggestions:
     - On macOS, press <kbd>Option</kbd>+<kbd>]</kbd> for the next suggestion, or <kbd>Option</kbd>+<kbd>[</kbd> for the previous suggestion.
     - On Windows or Linux, press <kbd>Alt</kbd>+<kbd>]</kbd> for the next suggestion, or <kbd>Alt</kbd>+<kbd>[</kbd> for the previous suggestion.
