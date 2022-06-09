@@ -153,7 +153,11 @@ Achievements celebrate specific events and actions that happen on GitHub. They w
 
 To stop private contributions from counting toward your Achievements or to turn off Achievements entirely, see "[Showing your private contributions and Achievements on your profile](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)."
 
-Note: This feature is currently in beta and subject to change.
+{% note %}
+
+**Note:** This feature is currently in beta and subject to change.
+
+{% endnote %}
 
 {% endif %}
 
