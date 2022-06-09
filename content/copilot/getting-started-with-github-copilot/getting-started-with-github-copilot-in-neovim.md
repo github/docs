@@ -1,5 +1,5 @@
 ---
-title: Getting started with GitHub Copilot in NeoVim
+title: Getting started with GitHub Copilot in Neovim
 shortTitle: Neovim
 product: '{% data reusables.gated-features.copilot %}'
 intro: 'Learn how to install {% data variables.product.prodname_copilot %} in Neovim, and start seeing suggestions as you write comments and code.'
