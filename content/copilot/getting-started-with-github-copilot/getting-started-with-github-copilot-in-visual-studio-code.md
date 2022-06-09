@@ -87,7 +87,7 @@ You can also use {% data variables.product.prodname_copilot %} to generate sugge
    ```
    {% data variables.product.prodname_copilot %} will suggest an implementation of the Express app.
 1. To accept each line, press <kbd>Tab</kbd>, then <kbd>Enter</kbd>.
-1. Type the following comment and then press <kbd>Enter</kbd>:
+1. Type the following comment and then press <kbd>Enter</kbd>.
    ```
    // Return the current time
    ```
