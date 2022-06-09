@@ -310,6 +310,14 @@ Para obter informações sobre o uso da API REST para consultar o log de auditor
 
 {% endnote %}
 
+{% ifversion partial-reruns-with-reusable %}
+
+## Re-running workflows and jobs with reusable workflows
+
+{% data reusables.actions.partial-reruns-with-reusable %}
+
+{% endif %}
+
 ## Próximas etapas
 
 Para continuar aprendendo sobre {% data variables.product.prodname_actions %}, consulte "[Eventos que desencadeiam fluxos de trabalho](/actions/learn-github-actions/events-that-trigger-workflows)".
