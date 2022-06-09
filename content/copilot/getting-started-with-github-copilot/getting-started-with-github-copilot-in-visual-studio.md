@@ -43,7 +43,7 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 6. After successful authorization, proceed to read and approve the [{% data variables.product.prodname_copilot %} Telemetry Terms](/free-pro-team@latest/site-policy/github-terms/github-copilot-telemetry-terms).
    ![Screenshot of the GitHub Copilot Telemetry Terms popup with "yes" button emphasized](/assets/images/help/copilot/telemetry-terms-visual-studio.png)
    
-After installation, a {% data variables.product.prodname_copilot %} icon should appear in the editor margin at the bottom of your {% data variables.product.prodname_vs %} window, in the lower left.  
+After installation, a {% data variables.product.prodname_copilot %} icon will appear within the margin for the editor, in the lower-left corner of your {% data variables.product.prodname_vs %} window.  
 
 ![Screenshot of editor margin in Visual Studio with the GitHub Copilot icon emphasized](/assets/images/help/copilot/editor-margin-visual-studio.png)
 
