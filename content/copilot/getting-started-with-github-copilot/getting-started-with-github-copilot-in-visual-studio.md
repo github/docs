@@ -37,7 +37,7 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
    ![Screenshot of the new project window with the project name emphasized](/assets/images/help/copilot/visual-studio-new-project.png)
 3. Click **Create** to create the project.
     ![Screenshot of the new project window with the "create" button emphasized](/assets/images/help/copilot/visual-studio-create-new-project.png)
-4. A popup will appear with a message to activate your connection to {% data variables.product.company_short %}.
+4. To copy your device activation code, in the dialog box about authorizing {% data variables.product.prodname_copilot %}, click **OK**.
     ![Screenshot of the popup with the message to active your connection to GitHub](/assets/images/help/copilot/first-run-authorize-visual-studio.png)
 5. A device code will be copied automatically to the clipboard. Paste it on the {% data variables.product.company_short %} device authorization page that will open. If you miss the device code, you will find it in the status bar, at the bottom left of {% data variables.product.prodname_vs %}, as well as on the {% data variables.product.prodname_copilot %} output window pane.
    ![Screenshot of the Visual Studio status bar with the device activation code](/assets/images/help/copilot/first-run-authorize-visual-studio.png)
