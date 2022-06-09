@@ -55,20 +55,17 @@ Dependency review is available when dependency graph is enabled for {% data vari
 ## Configuring the {% data variables.product.prodname_dependency_review_action %}
 
 {% data reusables.dependency-review.dependency-review-action-beta-note %}
+{% data reusables.dependency-review.dependency-review-action-overview %}
 
-The {% data variables.product.prodname_dependency_review_action %} scans your pull requests for dependency changes and raises an error if any new dependencies have existing vulnerabilities. The action is supported by an API endpoint that diffs the dependencies between any two revisions.
+The following configuration options are available.
 
-For more information about the action and the API endpoint, see "[About dependency review](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review#dependency-review-reinforcement)" and [Dependency review](/rest/dependency-graph/dependency-review) in the API documentation, respectively.
-
-The available configuration options are described below.
-
-| Property | Required / optional | Description |
+| Option | Required | Usage |
 |------------------|-------------------------------|--------|
-| `fail_on_severity` | Optional | Specifies the level of severity (`low`, `moderate`, `high`, `critical`) that causes the action to fail. |
-| `allow_licenses` | Optional | .|
-| `deny_licenses` | Optional | .|
+| `fail_on_severity` | Optional | Defines the threshold for level of severity (`low`, `moderate`, `high`, `critical`).</br>The action will fail on pull requests containing vulnerabilities of the specified severity level. |
+| `allow_licenses` | Optional | Contains a list of allowed licenses. You can find the possible values for this parameter in the [Licenses](https://docs.github.com/en/rest/licenses) page of the API documentation.</br>The action will fail on pull requests that introduce dependencies with licenses that do not match the list.|
+| `deny_licenses` | Optional | Contains a list of prohibited licenses. You can find the possible values for this parameter in the [Licenses](https://docs.github.com/en/rest/licenses) page of the API documentation.</br>The action will fail on pull requests that introduce dependencies with licenses that match the list.|
 
-The {% data variables.product.prodname_dependency_review_action %} file below shows an example of use of these properties.
+This {% data variables.product.prodname_dependency_review_action %} example file illustrates how you can use these configuration options.
 
 ```yaml{:copy}
 name: 'Dependency Review'
