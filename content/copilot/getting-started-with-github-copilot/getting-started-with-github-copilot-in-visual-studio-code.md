@@ -12,7 +12,7 @@ topics:
 ## Prerequisites
 
 
-- To use {% data variables.product.prodname_copilot %} in Visual Studio Code, you must have Visual Studio Code installed. For more information, see the [Visual Studio Code](https://code.visualstudio.com/) documentation.
+To use {% data variables.product.prodname_copilot %} in Visual Studio Code, you must have Visual Studio Code installed. For more information, see the [Visual Studio Code download page](https://code.visualstudio.com/Download).
 
 
 ## Installing the Visual Studio code extension
