@@ -61,7 +61,7 @@ After installation, a {% data variables.product.prodname_copilot %} icon will ap
 {% data reusables.copilot.create-c-file %}
 {% data reusables.copilot.type-function-header-c %}
   {% data variables.product.prodname_copilot %} will show you a suggestion.
-3. To see alternate suggestions, press <kbd>Alt</kbd>+<kbd>]</kbd> (or <kbd>Alt</kbd>+<kbd>[</kbd>).
+3. To see alternative suggestions, press <kbd>Alt</kbd>+<kbd>]</kbd> (or <kbd>Alt</kbd>+<kbd>[</kbd>).
 4. If {% data variables.product.prodname_copilot %} offers a suggestion you want to accept, press <kbd>Tab</kbd>.
 5. Alternatively, to reject all suggestions, press <kbd>Esc</kbd>.
 6. Optionally, you can hover over the suggestion to see the {% data variables.product.prodname_copilot %} command palette for choosing suggestions.
