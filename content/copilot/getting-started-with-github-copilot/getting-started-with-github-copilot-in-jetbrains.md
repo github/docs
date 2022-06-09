@@ -64,8 +64,8 @@ topics:
     ```
   {% data variables.product.prodname_copilot %} will show you a suggestion.
 1. Open a new tab with multiple additional suggestions.
-    - On macOS, press <kbd>Option</kbd>+<kbd>Enter</kbd>, and select **Open Copilot**.
-    - On Windows or Linux, press <kbd>Ctrl</kbd>+<kbd>Enter</kbd>, and select **Open Copilot**.
+    - On macOS, press <kbd>Option</kbd>+<kbd>Enter</kbd>, then click **Open GitHub Copilot**.
+    - On Windows or Linux, press <kbd>Ctrl</kbd>+<kbd>Enter</kbd>, then click **Open GitHub Copilot**.
   ![Screenshot of dialogue to open Copilot](/assets/images/help/copilot/open-copilot-tab-jetbrains.png)
   {% data variables.product.prodname_copilot %} will open a new tab and suggest multiple options.
 1. If you want to accept one of the suggestions, above that suggestion, click **Accept Solution**.
