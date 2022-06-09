@@ -69,7 +69,7 @@ To use {% data variables.product.prodname_copilot %} in Neovim you must have Neo
       ```
 {% endlinux %}
 
-## Seeing suggestions in Neovim
+## Learning to use {% data variables.product.prodname_copilot %} in Neovim
 
 For guidance on using {% data variables.product.prodname_copilot %} in Neovim, invoke the {% data variables.product.prodname_copilot %} documentation in Neovim by running the following command:
 
