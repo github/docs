@@ -7,6 +7,7 @@ redirect_from:
   - /articles/sending-your-github-enterprise-server-contributions-to-your-githubcom-profile
   - /github/setting-up-and-managing-your-github-profile/sending-your-github-enterprise-server-contributions-to-your-githubcom-profile
   - /github/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/sending-your-github-enterprise-server-contributions-to-your-githubcom-profile
+  - /account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/sending-enterprise-contributions-to-your-githubcom-profile
 versions:
   fpt: '*'
   ghes: '*'
