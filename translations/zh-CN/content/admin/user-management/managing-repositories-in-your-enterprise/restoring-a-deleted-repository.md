@@ -1,6 +1,7 @@
 ---
 title: 恢复已删除的仓库
-intro: 站点管理员可以恢复已删除的仓库来恢复其内容。
+intro: You can restore deleted repositories to recover their contents.
+permissions: Enterprise owners can restore a deleted repository.
 versions:
   ghes: '*'
   ghae: '*'
@@ -11,9 +12,11 @@ topics:
 shortTitle: 恢复已删除的仓库
 ---
 
-通常情况下，如果有人删除仓库，它将在磁盘上保留 90 天并且可以通过站点管理员仪表板进行恢复。 除非法定保留对用户或组织有效，否则 90 天后，存储库将被清除并永久删除。
-
 ## 关于仓库恢复
+
+通常情况下，如果有人删除仓库，它将在磁盘上保留 90 天并且可以通过站点管理员仪表板进行恢复。 更多信息请参阅“[站点管理仪表板](/admin/configuration/configuring-your-enterprise/site-admin-dashboard)”。
+
+除非法定保留对用户或组织有效，否则 90 天后，存储库将被清除并永久删除。
 
 如果存储库在被删除时是复刻网络的一部分，则还原的存储库将与原始复刻网络分离。
 

@@ -11,12 +11,10 @@ versions:
   ghae: '*'
   ghec: '*'
 type: tutorial
-hidden: true
 topics:
   - CI
   - Python
 shortTitle: Build & test Python
-hasExperimentalAlternative: true
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -114,7 +112,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       # python-version内のPyPyのバージョンが利用できる。
-      # For example, {% if actions-node16-action %}pypy-2.7 and pypy-3.8{% else %}pypy2 and pypy3{% endif %}
+      # For example, {% ifversion actions-node16-action %}pypy-2.7 and pypy-3.8{% else %}pypy2 and pypy3{% endif %}
       matrix:
         python-version: ["2.7", "3.6", "3.7", "3.8", "3.9"]
 
@@ -175,7 +173,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        python-version: ["3.6", "3.7", "3.8", "3.9", {% if actions-node16-action %}pypy-2.7, pypy-3.8{% else %}pypy2, pypy3{% endif %}]
+        python-version: ["3.6", "3.7", "3.8", "3.9", {% ifversion actions-node16-action %}pypy-2.7, pypy-3.8{% else %}pypy2, pypy3{% endif %}]
         exclude:
           - os: macos-latest
             python-version: "3.6"
@@ -197,7 +195,7 @@ jobs:
 
 {% data variables.product.prodname_dotcom %}ホストランナーには、パッケージマネージャーのpipがインストールされています。 コードのビルドとテストに先立って、pipを使ってパッケージレジストリのPyPIから依存関係をインストールできます。 たとえば以下のYAMLは`pip`パッケージインストーラーと`setuptools`及び`wheel`パッケージのインストールやアップグレードを行います。
 
-{% if actions-caching %}You can also cache dependencies to speed up your workflow. For more information, see "[Caching dependencies to speed up workflows](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."{% endif %}
+{% ifversion actions-caching %}You can also cache dependencies to speed up your workflow. For more information, see "[Caching dependencies to speed up workflows](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."{% endif %}
 
 ```yaml{:copy}
 steps:
@@ -227,7 +225,7 @@ steps:
     pip install -r requirements.txt
 ```
 
-{% if actions-caching %}
+{% ifversion actions-caching %}
 
 ### 依存関係のキャッシング
 
@@ -246,7 +244,7 @@ steps:
 - run: pip test
 ```
 
-By default, the `setup-python` action searches for the dependency file (`requirements.txt` for pip or `Pipfile.lock` for pipenv) in the whole repository. For more information, see "[Caching packages dependencies](https://github.com/actions/setup-python#caching-packages-dependencies)" in the `setup-python` README.
+By default, the `setup-python` action searches for the dependency file (`requirements.txt` for pip, `Pipfile.lock` for pipenv or `poetry.lock` for poetry) in the whole repository. For more information, see "[Caching packages dependencies](https://github.com/actions/setup-python#caching-packages-dependencies)" in the `setup-python` README.
 
 If you have a custom requirement or need finer controls for caching, you can use the [`cache` action](https://github.com/marketplace/actions/cache). ランナーのオペレーティングシステムによって、pipは依存関係を様々な場所にキャッシュします。 The path you'll need to cache may differ from the Ubuntu example above, depending on the operating system you use. For more information, see [Python caching examples](https://github.com/actions/cache/blob/main/examples.md#python---pip) in the `cache` action repository.
 

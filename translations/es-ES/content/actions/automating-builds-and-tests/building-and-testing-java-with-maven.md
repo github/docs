@@ -22,7 +22,7 @@ shortTitle: Crear & probar en Java con Maven
 
 ## Introducción
 
-Esta guía te muestra cómo crear un flujo de trabajo que realiza la integración continua (CI) para tu proyecto Java utilizando la herramienta de gestión de proyectos de software Maven. El flujo de trabajo que creas te permitirá ver cuándo las confirmaciones de una solicitud de extracción causan la construcción o las fallas de prueba en tu rama por defecto; este enfoque puede ayudar a garantizar que tu código siempre sea correcto. You can extend your CI workflow to {% if actions-caching %}cache files and{% endif %} upload artifacts from a workflow run.
+Esta guía te muestra cómo crear un flujo de trabajo que realiza la integración continua (CI) para tu proyecto Java utilizando la herramienta de gestión de proyectos de software Maven. El flujo de trabajo que creas te permitirá ver cuándo las confirmaciones de una solicitud de extracción causan la construcción o las fallas de prueba en tu rama por defecto; este enfoque puede ayudar a garantizar que tu código siempre sea correcto. You can extend your CI workflow to {% ifversion actions-caching %}cache files and{% endif %} upload artifacts from a workflow run.
 
 {% ifversion ghae %}
 {% data reusables.actions.self-hosted-runners-software %}
@@ -99,11 +99,11 @@ steps:
     run: mvn --batch-mode --update-snapshots verify
 ```
 
-{% if actions-caching %}
+{% ifversion actions-caching %}
 
 ## Almacenar dependencias en caché
 
-Puedes almacenar en caché tus dependencias para acelerar tus ejecuciones de flujo de trabajo. After a successful run, your local Maven repository will be stored in a cache. En las ejecuciones de flujo de trabajo futuras, el caché se restaurará para que las dependencias no necesiten descargarse desde los repositorios remotos de Maven. Puedes guardar las dependencias en caché utilizando simplemente la [acción `setup-java`](https://github.com/marketplace/actions/setup-java-jdk) o puedes utilizar la [Acción `cache`](https://github.com/actions/cache) para tener una configuración personalizada y más avanzada.
+Puedes almacenar en caché tus dependencias para acelerar tus ejecuciones de flujo de trabajo. Después de una ejecución exitosa, tu repositorio local de Maven se almacenará en un caché. En las ejecuciones de flujo de trabajo futuras, el caché se restaurará para que las dependencias no necesiten descargarse desde los repositorios remotos de Maven. Puedes guardar las dependencias en caché utilizando simplemente la [acción `setup-java`](https://github.com/marketplace/actions/setup-java-jdk) o puedes utilizar la [Acción `cache`](https://github.com/actions/cache) para tener una configuración personalizada y más avanzada.
 
 ```yaml{:copy}
 steps:

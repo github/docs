@@ -19,7 +19,7 @@ children:
   - /using-cas-for-enterprise-iam
   - /using-ldap-for-enterprise-iam
   - /using-saml-for-enterprise-iam
-  - /using-enterprise-managed-users-and-saml-for-iam
+  - /using-enterprise-managed-users-for-iam
   - /managing-recovery-codes-for-your-enterprise
 ---
 

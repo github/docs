@@ -36,12 +36,12 @@ Quando o isolamento do subdomínio está ativado, o {% data variables.product.pr
 | `http(s)://HOSTNAME/render/`           | `http(s)://render.HOSTNAME/`                                   |
 | `http(s)://HOSTNAME/reply/`            | `http(s)://reply.HOSTNAME/`                                    |
 | `http(s)://HOSTNAME/uploads/`          | `http(s)://uploads.HOSTNAME/`                                  |{% ifversion ghes %}
-| `https://HOSTNAME/_registry/docker/`   | `http(s)://docker.HOSTNAME/`{% endif %}{% ifversion ghes %}
+| `https://HOSTNAME/`                    | `http(s)://docker.HOSTNAME/`{% endif %}{% ifversion ghes %}
 | `https://HOSTNAME/_registry/npm/`      | `https://npm.HOSTNAME/`                                        |
 | `https://HOSTNAME/_registry/rubygems/` | `https://rubygems.HOSTNAME/`                                   |
 | `https://HOSTNAME/_registry/maven/`    | `https://maven.HOSTNAME/`                                      |
 | `https://HOSTNAME/_registry/nuget/`    | `https://nuget.HOSTNAME/`{% endif %}{% ifversion ghes > 3.4 %}
-| Not supported                          | `https://containers.HOSTNAME/` 
+| Não compatível                         | `https://containers.HOSTNAME/` 
 {% endif %}
 
 ## Pré-requisitos

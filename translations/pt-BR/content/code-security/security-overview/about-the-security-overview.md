@@ -1,13 +1,13 @@
 ---
 title: Sobre a visão geral de segurança
 intro: 'Você pode visualizar, filtrar e classificar alertas de segurança para repositórios pertencentes à sua organização ou equipe em um só lugar: a página de Visão Geral de Segurança.'
-permissions: Organization owners and security managers can access the security overview for organizations. Members of a team can see the security overview for repositories that the team has admin privileges for.
+permissions: '{% data reusables.security-center.permissions %}'
 product: '{% data reusables.gated-features.security-center %}'
 redirect_from:
   - /code-security/security-overview/exploring-security-alerts
 versions:
   fpt: '*'
-  ghae: issue-4554
+  ghae: '*'
   ghes: '>3.1'
   ghec: '*'
 type: how_to
@@ -22,7 +22,7 @@ topics:
 shortTitle: Sobre a visão geral de segurança
 ---
 
-{% ifversion ghes < 3.5 or ghae-issue-4554 %}
+{% ifversion ghes < 3.5 or ghae %}
 {% data reusables.security-center.beta %}
 {% endif %}
 
@@ -41,7 +41,7 @@ A equipe de segurança de aplicativos da sua empresa pode usar a visão geral de
 
 No resumo da segurança, é possível visualizar, ordenar e filtrar alertas para entender os riscos de segurança na sua organização e nos repositórios específicos. O resumo de segurança é altamente interativo e permite que você investigue categorias específicas de informações, baseado em qualificações, como nível de risco de alerta, tipo de alerta e habilitação de funcionamento. Você também pode aplicar vários filtros para focar em áreas de interesse mais estreitas. Por exemplo, você pode identificar repositórios privados que têm um número elevado de {% data variables.product.prodname_dependabot_alerts %} ou repositórios que não têm alertas {% data variables.product.prodname_code_scanning %}. Para obter mais informações, consulte "[Filtrando alertas na visão geral de segurança](/code-security/security-overview/filtering-alerts-in-the-security-overview)".
 
-{% if security-overview-views %}
+{% ifversion security-overview-views %}
 
 Na visão geral de segurança, tanto ao nível da organização como ao nível do repositório. existem visualizações dedicadas a recursos de segurança específicos, como alertas de digitalização de segredos e alertas de digitalização de código. Você pode usar essas visualizações para limitar sua análise para um conjunto específico de alertas e estreitar os resultados com uma variedade de filtros específicos para cada visualização. Por exemplo, na vista de alerta de digitalização de segredo, você pode usar o filtro do tipo `secredo` para visualizar somente alertas de digitalização de segredo para um segredo específico, como um Token de Acesso Pessoal do GitHub. No nível do repositório, é possível usar a visão geral de segurança para avaliar o status de segurança atual do repositório específico e configurar todos as funcionalidades adicionais de segurança que ainda não estão sendo usadas no repositório.
 
@@ -69,7 +69,7 @@ A nível da organização, a visão geral de segurança exibe informações de s
 
 {% ifversion ghec or ghes > 3.4 or ghae-issue-6199 %}
 ### Sobre a visão geral de segurança do nível da empresa
-A nível da empresa, a visão geral de segurança exibe informações de segurança agregadas e específicas ao repositório para sua empresa. Você pode visualizar repositórios pertencentes à sua empresa que tenham alertas de segurança ou ver todos os alertas de {% data variables.product.prodname_secret_scanning %} de toda a sua empresa.
+A nível da empresa, a visão geral de segurança exibe informações de segurança agregadas e específicas ao repositório para sua empresa. É possível visualizar repositórios pertencentes à sua empresa que tenham alertas de segurança, visualizar todos os alertas de segurança ou alertas específicos de segurança de toda a empresa.
 
 Os proprietários da organização e os gerentes de segurança das organizações da sua empresa também têm acesso limitado à visão geral de segurança no nível da empresa. Eles só podem ver repositórios e alertas das organizações aos quais têm acesso total.
 

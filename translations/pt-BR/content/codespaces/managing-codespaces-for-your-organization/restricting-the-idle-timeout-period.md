@@ -1,7 +1,7 @@
 ---
-title: Restricting the idle timeout period
-shortTitle: Restrict timeout periods
-intro: You can set a maximum timeout period for any codespaces owned by your organization.
+title: Restringindo o período de tempo limite ocioso
+shortTitle: Restringir períodos de tempo limite
+intro: Você pode definir um período máximo de tempo limite para quaisquer codespaces pertencentes à sua organização.
 product: '{% data reusables.gated-features.codespaces %}'
 permissions: 'To manage timeout constraints for an organization''s codespaces, you must be an owner of the organization.'
 versions:
@@ -14,66 +14,66 @@ topics:
 
 ## Visão Geral
 
-By default, codespaces time out after 30 minutes of inactivity. When a codespace times out it is stopped and will no longer incur charges for compute usage.
+Por padrão, os códigos vencem após 30 minutos de inatividade. Quando um tempo de um codespace se esgota, ele é interrompido e deixa de se cobrar pelo uso de computação.
 
-The personal settings of a {% data variables.product.prodname_dotcom %} user allow them to define their own timeout period for codespaces they create. This may be longer than the default 30-minute period. For more information, see "[Setting your timeout period for Codespaces](/codespaces/customizing-your-codespace/setting-your-timeout-period-for-codespaces)."
+As configurações pessoais de um usuário {% data variables.product.prodname_dotcom %} permitem que ele defina seu próprio período de tempo limite para os codespaces que cria. Este período pode ser maior do que o período padrão de 30 minutos. Para obter mais informações, consulte "[Definindo seu período de tempo limite para os codespaces](/codespaces/customizing-your-codespace/setting-your-timeout-period-for-codespaces)".
 
-As an organization owner, you may want to configure constraints on the maximum idle timeout period for codespaces owned by your organization. This can help you limit costs associated with codespaces that are left to timeout after long periods of inactivity. You can set a maximum timeout for all codespaces owned by your organization, or for the codespaces of specific repositories.
+Como proprietário da organização, você deve configurar restrições sobre o período máximo de tempo ocioso para codespaces pertencentes à sua organização. Isso pode ajudar você a limitar os custos associados aos codespaces que ficam em tempo limite após longos períodos de inatividade. É possível definir o tempo limite máximo para todos os codespaces pertencentes à sua organização ou para os codespaces de repositórios específicos.
 
 {% note %}
 
-**Note**: Maximum idle timeout constraints only apply to codespaces that are owned by your organization.
+**Observação**: Máximo de restrições de tempo limite só se aplica a codespaces que pertencem à sua organização.
 
 {% endnote %}
 
-For more information about pricing for {% data variables.product.prodname_codespaces %} compute usage, see "[About billing for Codespaces](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces#codespaces-pricing)."
+Para obter mais informações sobre os preços para uso de computação de {% data variables.product.prodname_codespaces %}, consulte "[Sobre cobrança para os codespaces](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces#codespaces-pricing)".
 
-### Behavior when you set a maximum idle timeout constraint
+### Comportamento ao definir uma restrição de tempo limite máximo
 
-If someone sets the default idle timeout to 90 minutes in their personal settings and they then start a codespace for a repository with a maximum idle timeout constraint of 60 minutes, the codespace will time out after 60 minutes of inactivity. When codespace creation completes, a message explaining this will be displayed:
+Se alguém definir o tempo ocioso padrão como 90 minutos nas suas configurações pessoais e iniciar um codespace para um repositório com uma restrição de tempo limite máximo de 60 minutos o tempo do codespace irá esgotar-se após 60 minutos de inatividade. Após a conclusão da criação do codespace, será exibida uma mensagem com a seguinte explicação:
 
-> Idle timeout for this codespace is set to 60 minutes in compliance with your organization’s policy.
+> O tempo limite de espera para este codespace é definido como 60 minutos, de acordo com a política da sua organização.
 
 ### Definindo políticas específicas da organização e do repositório
 
-When you create a policy, you choose whether it applies to all repositories in your organization, or only to specified repositories. If you create an organization-wide policy with a timeout constraint, then the timeout constraints in any policies that are targeted at specific repositories must fall within the restriction configured for the entire organization. The shortest timeout period - in an organization-wide policy, a policy targeted at specified repositories, or in someone's personal settings - is applied.
+Ao criar uma política, você define se ela se aplica a todos os repositórios da organização ou apenas a repositórios específicos. Se você criar uma política para toda a organização com restrição de tempo limite, as restrições de tempo limite em todas as políticas direcionadas a repositórios específicos devem estar dentro da restrição configurada para toda a organização. Aplica-se o período de tempo limite mais curto, em uma política para toda a organização, uma política orientada a determinados repositórios ou em configurações pessoais de alguém.
 
-If you add an organization-wide policy with a timeout constraint, you should set the timeout to the longest acceptable period. You can then add separate policies that set the maximum timeout to a shorter period for specific repositories in your organization.
+Se você adicionar uma política para toda a organização com uma restrição de tempo limite, você deverá definir o tempo limite como o período de tempo mais longo. Em seguida, é possível adicionar políticas separadas que definam o tempo limite máximo para um período mais curto para repositórios específicos na sua organização.
 
-## Adding a policy to set a maximum idle timeout period
+## Adicionando uma política para definir um período máximo de tempo ocioso
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.codespaces.codespaces-org-policies %}
-1. Click **Add constraint** and choose **Maximum idle timeout**.
+1. Clique **Adicionar restrição** e escolha **Tempo máximo de espera**.
 
-   ![Add a constraint for idle timeout](/assets/images/help/codespaces/add-constraint-dropdown-timeout.png)
+   ![Adicionar restrição ao tempo ocioso](/assets/images/help/codespaces/add-constraint-dropdown-timeout.png)
 
 1. Clique {% octicon "pencil" aria-label="The edit icon" %} para editar a restrição.
 
-   ![Edit the timeout constraint](/assets/images/help/codespaces/edit-timeout-constraint.png)
+   ![Editar a restrição de tempo limite](/assets/images/help/codespaces/edit-timeout-constraint.png)
 
-1. Enter the maximum number of minutes codespaces can remain inactive before they time out, then click **Save**.
+1. Insira o número máximo de minutos que os codespaces podem permanecer inativos antes do tempo limite e, em seguida, clique em **Salvar**.
 
    ![Escolha as opções de visibilidade da porta](/assets/images/help/codespaces/maximum-minutes-timeout.png)
 
 {% data reusables.codespaces.codespaces-policy-targets %}
-1. If you want to add another constraint to the policy, click **Add constraint** and choose another constraint. For information about other constraints, see "[Restricting access to machine types](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)" and "[Restricting the visibility of forwarded ports](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)."
-1. After you have finished adding constraints to your policy, click **Save**.
+1. Se você quiser adicionar outra restrição à política, clique em **Adicionar restrição** e escolha outra restrição. Para informações sobre outras restrições, consulte "[Restringindo o acesso aos tipos de máquina](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)" e "[Restringindo a visibilidade das portas encaminhadas](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)".
+1. Após terminar de adicionar restrições à sua política, clique em **Salvar**.
 
-The policy will be applied to all new codespaces that are created, and to existing codespaces the next time they are started.
+A política será aplicada a todos os novos codespaces que forem criados e a codespaces existentes na próxima vez que forem iniciados.
 
 ## Editando uma política
 
-You can edit an existing policy. For example, you may want to add or remove constraints to or from a policy.
+Você pode editar uma política existente. Por exemplo, você deve adicionar ou remover restrições de uma política.
 
-1. Exibir a página "Políticas de codespaces". For more information, see "[Adding a policy to set a maximum idle timeout period](#adding-a-policy-to-set-a-maximum-idle-timeout-period)."
+1. Exibir a página "Políticas de codespaces". Para obter mais informações, consulte "[Adicionando uma política para definir um período máximo de tempo limite ocioso](#adding-a-policy-to-set-a-maximum-idle-timeout-period)."
 1. Clique no nome da política que você deseja editar.
 1. Faça as alterações necessárias e, em seguida, clique em **Salvar**.
 
 ## Excluindo uma política
 
-1. Exibir a página "Políticas de codespaces". For more information, see "[Adding a policy to set a maximum idle timeout period](#adding-a-policy-to-set-a-maximum-idle-timeout-period)."
+1. Exibir a página "Políticas de codespaces". Para obter mais informações, consulte "[Adicionando uma política para definir um período máximo de tempo limite ocioso](#adding-a-policy-to-set-a-maximum-idle-timeout-period)."
 1. Clique no botão excluir à direita da política que você deseja excluir.
 
    ![O botão de excluir uma política](/assets/images/help/codespaces/policy-delete.png)

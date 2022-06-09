@@ -187,7 +187,7 @@ Travis CI から移行する場合は、{% data variables.product.prodname_actio
 
 ### シークレットを保存する
 
-{% data variables.product.prodname_actions %} を使用すると、シークレットを保存して、ジョブで参照できます。 {% data variables.product.prodname_actions %} Organization は、Organization のシークレットにアクセスできるリポジトリを制限できます。 Environment protection rules can require manual approval for a workflow to access environment secrets. For more information, see "[Encrypted secrets](/actions/reference/encrypted-secrets)."
+{% data variables.product.prodname_actions %} を使用すると、シークレットを保存して、ジョブで参照できます。 {% data variables.product.prodname_actions %} Organization は、Organization のシークレットにアクセスできるリポジトリを制限できます。 Environment protection rules can require manual approval for a workflow to access environment secrets. 詳しい情報については「[暗号化されたシークレット](/actions/reference/encrypted-secrets)」を参照してください。
 
 ### ジョブとワークフロー間でファイルを共有する
 
@@ -208,7 +208,8 @@ Travis CI から移行する場合は、{% data variables.product.prodname_actio
 ### {% data variables.product.prodname_actions %} で様々な言語を使用する
 
 {% data variables.product.prodname_actions %} でさまざまな言語を使用する場合、ジョブにステップを作成して言語の依存関係を設定できます。 特定の言語での作業の詳細については、それぞれのガイドを参照してください。
-  - [Building and testing Node.js or Python](/actions/guides/building-and-testing-nodejs-or-python)
+  - [Node.js のビルドとテスト](/actions/guides/building-and-testing-nodejs)
+  - [Python のビルドとテスト](/actions/guides/building-and-testing-python)
   - [PowerShell のビルドとテスト](/actions/guides/building-and-testing-powershell)
   - [MavenでのJavaのビルドとテスト](/actions/guides/building-and-testing-java-with-maven)
   - [GradleでのJavaのビルドとテスト](/actions/guides/building-and-testing-java-with-gradle)
@@ -304,7 +305,7 @@ jobs:
 
 Travis CIと{% data variables.product.prodname_actions %}では、後で利用できるよう依存関係を手動でキャッシュできます。
 
-{% if actions-caching %}
+{% ifversion actions-caching %}
 
 以下の例は、それぞれのシステムでのキャッシュの構文を示します。
 

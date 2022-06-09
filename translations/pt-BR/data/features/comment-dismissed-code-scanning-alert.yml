@@ -1,0 +1,6 @@
+---
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.6'
+  ghae: 'issue-2191'

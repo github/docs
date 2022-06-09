@@ -34,13 +34,13 @@ Para obtener más información acerca de cómo agregar personas a tu empresa, co
 
 Los propietarios de las empresas tienen el control absoluto de las mismas y pueden tomar todas las acciones, incluyendo:
 - Gestionar administradores
-- {% ifversion ghec %}Agregar y eliminar {% elsif ghae or ghes %}Administrar{% endif %} organizaciones {% ifversion ghec %}hacia y desde {% elsif ghae or ghes %} en{% endif %} la empresa{% if remove-enterprise-members %}
+- {% ifversion ghec %}Agregar y eliminar {% elsif ghae or ghes %}Administrar{% endif %} organizaciones {% ifversion ghec %}hacia y desde {% elsif ghae or ghes %} en{% endif %} la empresa{% ifversion remove-enterprise-members %}
 - Eliminar miembros empresariales desde todas las organizaciones que pertenecen a la empresa{% endif %}
 - Administrar parámetros de la empresa
 - Aplicar políticas en las organizaciones
 {% ifversion ghec %}- Administrar la configuración de facturación{% endif %}
 
-{% if enterprise-owner-join-org %}
+{% ifversion enterprise-owner-join-org %}
 Los propietarios empresariales no tienen acceso a los ajustes o contenido de la organización predeterminadamente. Para obtener acceso, los propietarios de empresas pueden unirse a cualquier organización que le pertenezca a su empresa. Para obtener más información, consulta la sección "[Administrar tu rol en una organización que le pertenezca a tu empresa](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)".
 
 Los propietarios de las organizaciones en tu empresa no tienen acceso a la empresa misma a menos de que los hagas propietarios de la misma.

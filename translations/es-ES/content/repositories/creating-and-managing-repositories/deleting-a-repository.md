@@ -29,7 +29,7 @@ topics:
 
 {% endwarning %}
 
-Some deleted repositories can be restored within {% ifversion fpt or ghec or ghes > 3.4 %}30{% else %}90{% endif%} days of deletion. {% ifversion ghes or ghae %}Tu administrador de sitio podría ser capaz de restablecer un repositorio borrado para ti. Para obtener más información, consulta "[Restaurar un repositorio eliminado](/admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository)". {% else %}Para obtener más información, consulta la sección"[Restaurar un repositorio eliminado](/articles/restoring-a-deleted-repository)".{% endif %}
+Algunos repositorios borrados pueden restablecerse dentro de los primeros 90 días después de haberse borrado. {% ifversion ghes or ghae %}Tu administrador de sitio podría ser capaz de restablecer un repositorio borrado para ti. Para obtener más información, consulta "[Restaurar un repositorio eliminado](/admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository)". {% else %}Para obtener más información, consulta la sección"[Restaurar un repositorio eliminado](/articles/restoring-a-deleted-repository)".{% endif %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}

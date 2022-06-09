@@ -53,7 +53,7 @@ If you're a member of an {% data variables.product.prodname_emu_enterprise %}, y
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.security %}
 {% data reusables.two_fa.enable-two-factor-authentication %}
-{%- ifversion fpt or ghes > 3.1 %}
+{%- ifversion fpt or ghec or ghes > 3.1 %}
 5. Under "Two-factor authentication", select **Set up using an app** and click **Continue**.
 6. Under "Authentication verification", do one of the following:
     - QR コードを、モバイルデバイスのアプリでスキャンする。 スキャン後、アプリは {% data variables.product.product_name %} で入力する 6 桁の数字を表示します。

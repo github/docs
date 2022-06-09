@@ -71,13 +71,13 @@ changelog:
 featuredLinks:
   guides:
     - '{% ifversion ghae %}/admin/user-management/auditing-users-across-your-enterprise{% endif %}'
+    - /admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise
+    - /admin/policies/enforcing-policies-for-your-enterprise/about-enterprise-policies
     - '{% ifversion ghae %}/admin/configuration/restricting-network-traffic-to-your-enterprise{% endif %}'
     - '{% ifversion ghes %}/admin/configuration/configuring-backups-on-your-appliance{% endif %}'
     - '{% ifversion ghes %}/admin/enterprise-management/creating-a-high-availability-replica{% endif %}'
     - '{% ifversion ghes %}/admin/overview/about-upgrades-to-new-releases{% endif %}'
     - '{% ifversion ghec %}/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise{% endif %}'
-    - '{% ifversion ghec %}/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/about-enterprise-managed-users{% endif %}'
-    - '{% ifversion ghec %}/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-identity-and-access-management-for-your-enterprise{% endif %}'
     - '{% ifversion ghec %}/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise{% endif %}'
     - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-self-hosted-runners-for-your-enterprise
   guideCards:

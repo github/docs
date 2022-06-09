@@ -20,7 +20,7 @@ shortTitle: Programa de campus do GitHub
 - Acesso exclusivo a novas funcionalidades, swage específico do GitHub Education e ferramentas grátis de desenvolvedor dos parceiros de {% data variables.product.prodname_dotcom %}
 - Acesso automatizado a recursos premium do {% data variables.product.prodname_education %}, como o {% data variables.product.prodname_student_pack %}
 
-Para ler sobre como o GitHub é usado pelos educadores, consulte [histórias do GitHub Education](https://education.github.com/stories).
+Para ler sobre como o GitHub é usado pelos educadores, consulte [Histórias do GitHub Education](https://education.github.com/stories).
 
 ## Termos e condições de {% data variables.product.prodname_campus_program %}
 
@@ -33,7 +33,7 @@ Para ler sobre como o GitHub é usado pelos educadores, consulte [histórias do 
 - Novas organizações da empresa são automaticamente adicionadas à sua conta corporativa. Para adicionar organizações que existiam antes de sua escola juntar-se à {% data variables.product.prodname_campus_program %}, entre em contato com o [suporte do GitHub Education](https://support.github.com/contact/education). Para obter mais informações sobre como administrar sua empresa, consulte a documentação de [administradores da empresa ](/admin). Novas organizações da empresa são automaticamente adicionadas à sua conta corporativa. Para adicionar organizações que existiam antes de sua escola juntar-se à {% data variables.product.prodname_campus_program %}, entre em contato com o suporte do GitHub Education.
 
 
-Para ler mais sobre as práticas de privacidade de {% data variables.product.prodname_dotcom %}, consulte ["Práticas Globais de Privacidade"](/github/site-policy/global-privacy-practices)
+Para ler mais sobre as práticas de privacidade de {% data variables.product.prodname_dotcom %}, consulte ["Práticas Globais de Privacidade"](/github/site-policy/global-privacy-practices)."
 
 ## Elegibilidade do aplicativo de {% data variables.product.prodname_campus_program %}
 

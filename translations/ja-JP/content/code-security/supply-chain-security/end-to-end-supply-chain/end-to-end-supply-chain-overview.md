@@ -7,6 +7,7 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
+  ghae: '*'
 type: overview
 topics:
   - Organizations
@@ -18,6 +19,8 @@ topics:
 ## エンドツーエンドのサプライチェーンとは何か？
 
 エンドツーエンドのソフトウェアサプライチェーンのセキュリティとは、その中核において、配布するコードが改ざんされていないことを確実にすることです。 以前は、たとえばライブラリやフレームワークなど、使用される依存関係をターゲットとすることに攻撃者は集中していました。 今日、攻撃者はその焦点を広げ、ユーザアカウントやビルドプロセスを含めているので、それらのシステムも防御されなければなりません。
+
+依存関係の保護に役立つ{% data variables.product.prodname_dotcom %}の機能に関する情報については「[サプライチェーンのセキュリティ](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security)」を参照してください。
 
 ## これらのガイドについて
 

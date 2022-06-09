@@ -1,7 +1,7 @@
 ---
 title: About SAML for enterprise IAM
 shortTitle: About SAML for IAM
-intro: 'You can use SAML single sign-on (SSO) {% ifversion ghec or ghae %}and System for Cross-domain Identity Management (SCIM) {% endif %}to centrally manage access {% ifversion ghec %}to organizations owned by your enterprise on {% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}to {% data variables.product.product_location %}{% elsif ghae %}to {% data variables.product.product_location %}{% endif %}.'
+intro: 'You can use SAML single sign-on (SSO) {% ifversion ghae %}and System for Cross-domain Identity Management (SCIM) {% endif %}to centrally manage access {% ifversion ghec %}to organizations owned by your enterprise on {% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}to {% data variables.product.product_location %}{% elsif ghae %}to {% data variables.product.product_location %}{% endif %}.'
 versions:
   ghec: '*'
   ghes: '*'
@@ -28,9 +28,11 @@ redirect_from:
 
 {% ifversion ghec %}
 
-{% data reusables.saml.dotcom-saml-explanation %} {% data reusables.saml.about-saml-enterprise-accounts %} For more information, see "[Configuring SAML single sign-on for your enterprise](/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)."
+If your enterprise members manage their own user accounts on {% data variables.product.product_location %}, you can configure SAML authentication as an additional access restriction for your enterprise or organization. {% data reusables.saml.dotcom-saml-explanation %} 
 
-If your enterprise members manage their own personal accounts on {% data variables.product.product_location %}, you can configure SAML authentication as an additional access restriction for your enterprise or organization. Alternatively, you can provision and manage the accounts of your enterprise members on {% data variables.product.product_location %} by using an enterprise account with {% data variables.product.prodname_emus %} enabled. For more information, see "[About authentication for your enterprise](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#authentication-methods-for-github-enterprise-cloud)."
+{% data reusables.saml.about-saml-enterprise-accounts %} For more information, see "[Configuring SAML single sign-on for your enterprise](/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)."
+
+Alternatively, you can provision and manage the accounts of your enterprise members with {% data variables.product.prodname_emus %}. To help you determine whether SAML SSO or {% data variables.product.prodname_emus %} is better for your enterprise, see "[About authentication for your enterprise](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#identifying-the-best-authentication-method-for-your-enterprise)."
 
 {% data reusables.enterprise-accounts.about-recovery-codes %} For more information, see "[Managing recovery codes for your enterprise](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise)."
 
@@ -38,19 +40,13 @@ After you enable SAML SSO, depending on the IdP you use, you may be able to enab
 
 If you use Azure AD as your IDP, you can use team synchronization to manage team membership within each organization. {% data reusables.identity-and-permissions.about-team-sync %} For more information, see "[Managing team synchronization for organizations in your enterprise account](/admin/authentication/managing-identity-and-access-for-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise)."
 
-{% data reusables.saml.switching-from-org-to-enterprise %} For more information, see "[Switching your SAML configuration from an organization to an enterprise account](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account)."
-
-## About {% data variables.product.prodname_emus %}
-
-{% data reusables.enterprise-accounts.emu-short-summary %}
-
 {% note %}
 
 **Note:** You cannot use SCIM at the enterprise level unless your enterprise is enabled for {% data variables.product.prodname_emus %}.
 
 {% endnote %}
 
-Configuring {% data variables.product.prodname_emus %} for SAML single-sign on and user provisioning involves following a different process than you would for an enterprise that isn't using {% data variables.product.prodname_managed_users %}. If your enterprise uses {% data variables.product.prodname_emus %}, see "[Configuring SAML single sign-on for Enterprise Managed Users](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/configuring-saml-single-sign-on-for-enterprise-managed-users)."
+{% data reusables.saml.switching-from-org-to-enterprise %} For more information, see "[Switching your SAML configuration from an organization to an enterprise account](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account)."
 
 {% elsif ghes %}
 

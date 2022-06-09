@@ -157,42 +157,6 @@ jobs:
 ```
 {% endraw %}
 
-{% if actions-inherit-secrets-reusable-workflows %}
-
-#### `on.workflow_call.secrets.inherit`
-
-Use the `inherit` keyword to pass all the calling workflow's secrets to the called workflow. This includes all secrets the calling workflow has access to, namely organization, repository, and environment secrets. The `inherit` keyword can be used to pass secrets across repositories within the same organization, or across organizations within the same enterprise.
-
-#### Exemplo
-
-{% raw %}
-
-```yaml
-on:
-  workflow_dispatch:
-
-jobs:
-  pass-secrets-to-workflow:
-      uses: ./.github/workflows/called-workflow.yml
-      secrets: inherit
-```
-
-```yaml
-on:
-  workflow_call:
-
-jobs:
-  pass-secret-to-action:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Use a repo or org secret from the calling workflow.
-        uses: echo ${{ secrets.CALLING_WORKFLOW_SECRET }}
-```
-
-{% endraw %}
-
-{%endif%}
-
 #### `on.workflow_call.secrets.<secret_id>`
 
 Um identificador de string para associar ao segredo.
@@ -781,21 +745,21 @@ Se o tempo-limite exceder o tempo limite de execução do trabalho para o runner
 
 ## `jobs.<job_id>.strategy`
 
-Use `jobs.<job_id>.strategy` to use a matrix strategy for your jobs. {% data reusables.actions.jobs.about-matrix-strategy %} For more information, see "[Using a matrix for your jobs](/actions/using-jobs/using-a-matrix-for-your-jobs)."
+Use `trabalhos.<job_id>.strategy` para usar uma estratégia matriz para seus trabalhos. {% data reusables.actions.jobs.about-matrix-strategy %} Para obter mais informações, consulte "[Usando uma matriz para seus trabalhos "](/actions/using-jobs/using-a-matrix-for-your-jobs)".
 
 ### `jobs.<job_id>.strategy.matrix`
 
 {% data reusables.actions.jobs.using-matrix-strategy %}
 
-#### Example: Using a single-dimension matrix
+#### Exemplo: Usando uma matriz de dimensão única
 
 {% data reusables.actions.jobs.single-dimension-matrix %}
 
-#### Example: Using a multi-dimension matrix
+#### Exemplo: Usando uma matriz de múltiplas dimensões
 
 {% data reusables.actions.jobs.multi-dimension-matrix %}
 
-#### Example: Using contexts to create matrices
+#### Exemplo: Usando contextos para criar matrizes
 
 {% data reusables.actions.jobs.matrix-from-context %}
 
@@ -803,11 +767,11 @@ Use `jobs.<job_id>.strategy` to use a matrix strategy for your jobs. {% data reu
 
 {% data reusables.actions.jobs.matrix-include %}
 
-#### Example: Expanding configurations
+#### Exemplo: Expandir configurações
 
 {% data reusables.actions.jobs.matrix-expand-with-include %}
 
-#### Example: Adding configurations
+#### Exemplo: Adicionar configurações
 
 {% data reusables.actions.jobs.matrix-add-with-include %}
 
@@ -1027,6 +991,42 @@ jobs:
       access-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
 ```
 {% endraw %}
+
+{% ifversion actions-inherit-secrets-reusable-workflows %}
+
+### `jobs.<job_id>.secrets.inherit`
+
+Use a a palavra-chave `herdar` para passar todos os segredos do fluxo de trabalho chamando para o fluxo de trabalho. Isso inclui todos os segredos aos quais o fluxo de trabalho da chamada tem acesso, nomeadamente organização, repositório e segredos de ambiente. A palavra-chave `herdar` pode ser usada para passar segredos por meio de repositórios dentro da mesma organização ou em organizações dentro da mesma empresa.
+
+#### Exemplo
+
+{% raw %}
+
+```yaml
+on:
+  workflow_dispatch:
+
+jobs:
+  pass-secrets-to-workflow:
+    uses: ./.github/workflows/called-workflow.yml
+    secrets: inherit
+```
+
+```yaml
+on:
+  workflow_call:
+
+jobs:
+  pass-secret-to-action:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Use a repo or org secret from the calling workflow.
+        run: echo ${{ secrets.CALLING_WORKFLOW_SECRET }}
+```
+
+{% endraw %}
+
+{%endif%}
 
 ### `jobs.<job_id>.secrets.<secret_id>`
 

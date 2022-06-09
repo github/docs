@@ -11,7 +11,7 @@ shortTitle: Ver alertas do Dependabot
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: issue-4864
+  ghae: '*'
   ghec: '*'
 type: how_to
 topics:
@@ -44,7 +44,7 @@ A aba de {% data variables.product.prodname_dependabot_alerts %} do seu reposit�
 Cada alerta de {% data variables.product.prodname_dependabot %} tem um identificador único de número e a aba de {% data variables.product.prodname_dependabot_alerts %} lista um alerta para cada vulnerabilidade detectada. O legado de {% data variables.product.prodname_dependabot_alerts %} agrupou as vulnerabilidades por dependência e gerou um único alerta por dependência. Se você acessar um alerta de legado {% data variables.product.prodname_dependabot %}, você será redirecionado para uma aba de {% data variables.product.prodname_dependabot_alerts %} filtrada para esse pacote. {% endif %}
 {% endif %}
 
-{% if dependabot-alerts-vulnerable-calls %}
+{% ifversion dependabot-alerts-vulnerable-calls %}
 ## Sobre a detecção de chamadas para funções vulneráveis
 
 {% data reusables.dependabot.vulnerable-calls-beta %}
@@ -55,7 +55,7 @@ Para as linguagens compatíveis, {% data variables.product.prodname_dependabot %
 
 {% note %}
 
-**Observação:** Durante a versão beta, esse recurso está disponível apenas para novas consultorias do Python criadas *depois de* 14 de abril de 2022 e para um subconjunto de consultorias históricas do Python. O GitHub está trabalhando para preencher dados de backfill através de consultorias históricas no Python, que são adicionadas regularmente. As chamadas vulneráveis são destacadas apenas nas páginas de {% data variables.product.prodname_dependabot_alerts %}.
+**Observação:** Durante a versão beta, esse recurso está disponível apenas para novas consultorias do Python criadas *depois de* 14 de abril de 2022 e para um subconjunto de consultorias históricas do Python. {% data variables.product.prodname_dotcom %} está trabalhando para preencher dados através de consultorias históricas do Python, que são adicionadas constantemente. As chamadas vulneráveis são destacadas apenas nas páginas de {% data variables.product.prodname_dependabot_alerts %}.
 
 {% endnote %}
 
@@ -65,7 +65,7 @@ Você pode filtrar a visualização para mostrar apenas alertas em que {% data v
 
 Para alertas quando chamadas vulneráveis forem detectadas, a página de detalhes de alerta mostra informações adicionais:
 
-- Um bloco de código que mostra onde a função é usada ou, onde houver várias chamadas, a primeira chamada para a função.
+- Um ou mais blocos de código que mostram onde a função é usada.
 - Uma anotação que lista a função em si, com um link para a linha onde a função é chamada.
 
 ![Captura de tela que mostra a página de detalhes de alerta para um alerta com uma etiqueta "chamada vulnerável"](/assets/images/help/repository/review-calls-to-vulnerable-functions.png)
@@ -98,7 +98,7 @@ Se uma versão alterada estiver disponível, é possível gerar um pull request 
 
 Nos casos em que uma versão alterada não está disponível ou em que você não puder atualizar para a versão segura, {% data variables.product.prodname_dependabot %} irá compartilhar informações adicionais para ajudar você a determinar as próximas etapas. Ao clicar para ver um alerta de {% data variables.product.prodname_dependabot %}, você pode ver todos os detalhes da consultoria de segurança para a dependência, incluindo as funções afetadas. Você pode então verificar se seu código chama as funções afetadas. Essa informação pode ajudar você a avaliar seu nível de risco e determinar soluções alternativas ou se você pode aceitar o risco representado pela vulnerabilidade de segurança.
 
-{% if dependabot-alerts-vulnerable-calls %}
+{% ifversion dependabot-alerts-vulnerable-calls %}
 
 Para as linguagens compatíveis, {% data variables.product.prodname_dependabot %} detecta chamadas para funções vulneráveis para você. Ao ver um alerta marcado como "Chamada vulnerável", os detalhes incluem o nome da função e um link para o código que a chama. Muitas vezes, é possível tomar decisões com base nestas informações, sem ter de continuar explorando.
 
@@ -124,9 +124,9 @@ Para as linguagens compatíveis, {% data variables.product.prodname_dependabot %
 Se você agendar um extenso trabalho para atualizar uma dependência ou decidir que um alerta não precisa ser corrigido, você poderá ignorar o alerta. Ignorando alertas que você já avaliou facilita a triagem de novos alertas conforme eles aparecem.
 
 1. Ver detalhes de um alerta. Para obter mais informações, consulte "[Visualizando dependências vulneráveis](#viewing-vulnerable-dependencies)" (acima).
-1. Selecione o menu suspenso "Ignorar" e clique em um motivo para ignorar o alerta.{% if reopen-dependabot-alerts %} Alertas não descartados podem ser reabertos posteriormente.{% endif %} ![Escolher o motivo para ignorar o alerta a partir do menu suspenso "Ignorar"down](/assets/images/help/repository/dependabot-alert-dismiss-drop-down-ungrouped.png)
+1. Selecione o menu suspenso "Ignorar" e clique em um motivo para ignorar o alerta.{% ifversion reopen-dependabot-alerts %} Alertas não descartados podem ser reabertos posteriormente.{% endif %} ![Escolher o motivo para ignorar o alerta a partir do menu suspenso "Ignorar"down](/assets/images/help/repository/dependabot-alert-dismiss-drop-down-ungrouped.png)
 
-{% if reopen-dependabot-alerts %}
+{% ifversion reopen-dependabot-alerts %}
 
 ## Visualizando e atualizando alertas fechados
 

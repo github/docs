@@ -32,7 +32,7 @@ Este guia explica como configurar o AWS para confiar no OIDC de {% data variable
 
 Para adicionar o provedor OIDC de {% data variables.product.prodname_dotcom %} ao IAM, consulte a [documentação AWS](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html).
 
-- For the provider URL: Use {% ifversion ghes %}`https://HOSTNAME/_services/token`{% else %}`https://token.actions.githubusercontent.com`{% endif %}
+- Para o URL do provedor: Use {% ifversion ghes %}`https://HOSTNAME/_services/token`{% else %}`https://token.actions.githubusercontent.com`{% endif %}
 - Para o "público": Use `sts.amazonaws.com` se você estiver usando a [ação oficial](https://github.com/aws-actions/configure-aws-credentials).
 
 ### Configurando a função e a política de confiança
@@ -43,7 +43,7 @@ Edite o relacionamento de confiança para adicionar o campo `sub` às condiçõe
 
 ```json{:copy}
 "Condition": {
-  "ForAllValues:StringEquals": {
+  "StringEquals": {
     "{% ifversion ghes %}HOSTNAME/_services/token{% else %}token.actions.githubusercontent.com{% endif %}:aud": "sts.amazonaws.com",
     "{% ifversion ghes %}HOSTNAME/_services/token{% else %}token.actions.githubusercontent.com{% endif %}:sub": "repo:octo-org/octo-repo:ref:refs/heads/octo-branch"
   }

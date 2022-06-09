@@ -3,7 +3,7 @@ title: ソフトウェアサプライチェーンの理解
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: issue-4864
+  ghae: '*'
   ghec: '*'
 topics:
   - Dependency graph

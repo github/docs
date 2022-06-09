@@ -4,7 +4,7 @@
 | Día de Martin Luther King, Jr.    | Tercer lunes de enero       |
 | Día de los Presidentes            | Tercer lunes de febrero     |
 | Día de los Caídos                 | Último lunes de mayo        |
-| Día de la Independencia           | 5 de julio                  |
+| Día de la Independencia           | 4 de julio                  |
 | Día del Trabajo                   | Primer lunes de septiembre  |
 | Día de los Veteranos              | 11 de noviembre             |
 | Día de Acción de Gracias          | Cuarto jueves de noviembre  |

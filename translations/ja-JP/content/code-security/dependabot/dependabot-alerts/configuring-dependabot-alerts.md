@@ -5,7 +5,7 @@ shortTitle: Dependabotアラートの設定
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: issue-4864
+  ghae: '*'
   ghec: '*'
 type: how_to
 topics:
@@ -68,8 +68,8 @@ Dependabotは、新しい脆弱性がGitHub Advisory Databaseに追加された�
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
-1. "Code security and analysis（コードのセキュリティと分析）"の下、{% data variables.product.prodname_dependabot_alerts %}の右で、**Disable（無効化）**あるいは**Enable（有効化）**をクリックしてください。 ![Dependabotアラートの"無効化"ボタンが強調された"セキュリティと分析の設定"機能のスクリーンショット](/assets/images/help/dependabot/dependabot-alerts-disable-or-enable-fpt-private.png)
- {% endif %}{% ifversion ghes or ghae %}
+1. "Code security and analysis（コードのセキュリティと分析）"の下、{% data variables.product.prodname_dependabot_alerts %}の右側にある**Enable（有効化）**をクリックしてアラートを有効化、または**Disable（無効化）**をクリックしてアラートを無効化してください。 ![{% data variables.product.prodname_dependabot_security_updates %} を有効にするボタンのある"Code security and analysis"セクションのスクリーンショット](/assets/images/help/repository/security-and-analysis-disable-or-enable-fpt-private.png)
+{% endif %}{% ifversion ghes or ghae %}
 
 リポジトリに対する{% data variables.product.prodname_dependabot_alerts %}は、Enterpriseオーナーが有効化あるいは無効化できます。 詳しい情報については「[EnterpriseでのDependabotの有効化](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)」を参照してください。
 {% endif %}

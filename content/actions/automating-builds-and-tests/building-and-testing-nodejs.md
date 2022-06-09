@@ -11,13 +11,11 @@ versions:
   ghae: '*'
   ghec: '*'
 type: tutorial
-hidden: true
 topics:
   - CI
   - Node
   - JavaScript
 shortTitle: Build & test Node.js
-hasExperimentalAlternative: true
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -136,7 +134,7 @@ If you don't specify a Node.js version, {% data variables.product.prodname_dotco
 
 {% data variables.product.prodname_dotcom %}-hosted runners have npm and Yarn dependency managers installed. You can use npm and Yarn to install dependencies in your workflow before building and testing your code. The Windows and Linux {% data variables.product.prodname_dotcom %}-hosted runners also have Grunt, Gulp, and Bower installed.
 
-{% if actions-caching %}You can also cache dependencies to speed up your workflow. For more information, see "[Caching dependencies to speed up workflows](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."{% endif %}
+{% ifversion actions-caching %}You can also cache dependencies to speed up your workflow. For more information, see "[Caching dependencies to speed up workflows](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."{% endif %}
 
 ### Example using npm
 
@@ -228,7 +226,7 @@ The example above creates an *.npmrc* file with the following contents:
 always-auth=true
 ```
 
-{% if actions-caching %}
+{% ifversion actions-caching %}
 
 ### Example caching dependencies
 

@@ -58,7 +58,7 @@ For more information about installing and using self-hosted runners, see "[Addin
 - Are customizable to your hardware, operating system, software, and security requirements.
 - Don't need to have a clean instance for every job execution.
 - Are free to use with {% data variables.product.prodname_actions %}, but you are responsible for the cost of maintaining your runner machines.{% ifversion ghec or ghes or ghae %}
-- Can be organized into groups to restrict access to specific {% if restrict-groups-to-workflows %}workflows, {% endif %}organizations and repositories. For more information, see "[Managing access to self-hosted runners using groups](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)."{% endif %}
+- Can be organized into groups to restrict access to specific {% ifversion restrict-groups-to-workflows %}workflows, {% endif %}organizations and repositories. For more information, see "[Managing access to self-hosted runners using groups](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)."{% endif %}
 
 ## Requirements for self-hosted runner machines
 
@@ -69,7 +69,7 @@ You can use any machine as a self-hosted runner as long at it meets these requir
 * The machine has enough hardware resources for the type of workflows you plan to run. The self-hosted runner application itself only requires minimal resources.
 * If you want to run workflows that use Docker container actions or service containers, you must use a Linux machine and Docker must be installed.
 
-{% ifversion fpt or ghes > 3.2 or ghec or ghae-issue-4462 %}
+{% ifversion fpt or ghes > 3.2 or ghec or ghae %}
 ## Autoscaling your self-hosted runners
 
 You can automatically increase or decrease the number of self-hosted runners in your environment in response to the webhook events you receive. For more information, see "[Autoscaling with self-hosted runners](/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners)."

@@ -42,6 +42,12 @@ SSH 证书是一种机制：一个 SSH 密钥对另一个 SSH 密钥签名。 �
 
 在颁发每个证书时，必须包含扩展，以指定证书用于哪个 {% data variables.product.product_name %} 用户。 例如，您可以使用 OpenSSH 的 `ssh-keygen` 命令，将 _KEY-IDENTITY_ 替换为密钥标识，_USERNAME_ 替换为 {% data variables.product.product_name %} 用户名： 您生成的证书将授权代表该用户使用您组织的任何资源。 在签发证书之前，请确保验证用户的身份。
 
+{% note %}
+
+**注意：** 您必须更新到 OpenSSH 7.6 或更高版本才能使用这些命令。
+
+{% endnote %}
+
 ```shell
 $ ssh-keygen -s ./ca-key -V '+1d' -I <em>KEY-IDENTITY</em> -O extension:login@{% data variables.product.product_url %}=<em>USERNAME</em> ./user-key.pub
 ```
