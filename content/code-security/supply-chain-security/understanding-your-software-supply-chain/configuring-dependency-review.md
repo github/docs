@@ -50,3 +50,56 @@ Dependency review is available when dependency graph is enabled for {% data vari
   ![Screenshot of "Code security and analysis" features"](/assets/images/enterprise/3.2/repository/code-security-and-analysis-enable-ghas-3.2.png){% endif %}{% ifversion ghes > 3.2 %}
     ![Screenshot of "Code security and analysis" features"](/assets/images/enterprise/3.4/repository/code-security-and-analysis-enable-ghas-3.4.png){% endif %}
 {% endif %}
+
+{% ifversion dependency-review-action-configuration %}
+## Configuring the {% data variables.product.prodname_dependency_review_action %}
+
+The {% data variables.product.prodname_dependency_review_action %} scans your pull requests for dependency changes and raises an error if any new dependencies have existing vulnerabilities. The action is supported by an API endpoint that diffs the dependencies between any two revisions.
+
+For more information about the action and the API endpoint, see "[About dependency review](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review#dependency-review-reinforcement)" and [Dependency review](/rest/dependency-graph/dependency-review) in the API documentation, respectively.
+
+The available configuration options are described below.
+
+| Property | Required / optional | Description |
+|------------------|-------------------------------|--------|
+| `fail_on_severity` | Optional | Specifies the level of severity (`low`, `moderate`, `high`, `critical`) that causes the action to fail. |
+| `allow_licenses` | Optional | .|
+| `deny_licenses` | Optional | .|
+
+The {% data variables.product.prodname_dependency_review_action %} file below shows an example of use of these properties.
+
+```yaml{:copy}
+name: 'Dependency Review'
+on: [pull_request]
+
+permissions:
+  contents: read
+
+jobs:
+  dependency-review:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout Repository'
+        uses: actions/checkout@v3
+      - name: Dependency Review
+        uses: actions/dependency-review-action@main
+        with:
+          # Possible values: "critical", "high", "moderate", "low" 
+          fail_on_severity: critical
+
+          # ([String]). Only allow these licenses (optional)
+          # Possible values: Any value(s) from https://docs.github.com/en/rest/licenses 
+          allow_licenses:
+            - "GPL 3.0"
+            - "BSD 3 Clause"
+            - "MIT"
+
+          # ([String]). Block the pull request on these licenses (optional)
+          # Possible values: Any value(s) from https://docs.github.com/en/rest/licenses 
+          deny_licenses:
+            - "LGPL 2.0"
+            - "BSD 2 Clause"
+```
+
+For further details about the configuration options, see [`dependency-review-action`](https://github.com/actions/dependency-review-action#readme).
+{% endif %}
