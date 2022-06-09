@@ -44,7 +44,7 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 {% data reusables.copilot.create-js-file %}
 {% data reusables.copilot.type-function-header %}
   {% data variables.product.prodname_copilot %} will show you a suggestion.
-3. To see alternate suggestions:
+3. Optionally, you can see alternative suggestions.
    - On macOS, press <kbd>Option (⌥) or Alt</kbd>+<kbd>]</kbd> (or <kbd>Option (⌥) or Alt</kbd>+<kbd>[</kbd>).
    - On Windows or Linux, press <kbd>Alt</kbd>+<kbd>]</kbd> (or <kbd>Alt</kbd>+<kbd>[</kbd>).
 4. If {% data variables.product.prodname_copilot %} offers a suggestion you want to accept, press <kbd>Tab</kbd>.
