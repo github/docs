@@ -67,9 +67,7 @@ topics:
     - On macOS, press <kbd>Option</kbd>+<kbd>Enter</kbd>, then click **Open GitHub Copilot**.
     - On Windows or Linux, press <kbd>Ctrl</kbd>+<kbd>Enter</kbd>, then click **Open GitHub Copilot**.
   ![Screenshot of dialogue to open Copilot](/assets/images/help/copilot/open-copilot-tab-jetbrains.png)
-1. If you want to accept one of the suggestions, above that suggestion, click **Accept Solution**.
-  ![Screenshot of Accept Solution button](/assets/images/help/copilot/copilot-tab-jetbrains.png)
-1. Alternatively, to reject all suggestions, close the suggestions tab.
+1. To accept a suggestion, above the suggestion, click **Accept Solution**. To reject all suggestions, close the tab.
 
 ## Generating code suggestions from comments
 
