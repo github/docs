@@ -2,11 +2,11 @@
 title: Configuring GitHub Copilot in JetBrains
 intro: 'You can enable, configure, and disable {% data variables.product.prodname_copilot %} in JetBrains.'
 product: '{% data reusables.gated-features.copilot %}'
+topics:
+  - copilot
 versions:
  feature: 'copilot'
 shortTitle: JetBrains
-topics: 
-  - Copilot
 ---
 
 ## Keyboard shortcuts for {% data variables.product.prodname_copilot %}
@@ -15,12 +15,12 @@ You can use the default keyboard shortcuts in JetBrains when using {% data varia
 
 | Action | Shortcut |
 |:---|:---:|
-|Accept an inline suggestion|`Tab`|
-|Dimiss an inline suggestion|`Esc`|
-|Show next inline suggestion|On macOS: `Option (⌥) or Alt`+`]`<br> On Windows: `Alt`+`]`|
-|Show previous inline suggestion|On macOS: `Option (⌥) or Alt`+`[`<br> On Windows: `Alt`+`[`|
-|Trigger inline suggestion|On macOS: `Option (⌥)`+`\`<br> On Windows: `Alt`+`\`|
-|Open {% data variables.product.prodname_copilot %} (additional suggestions in separate pane)|On macOS: `Option (⌥) or Alt`+`Enter`<br> On Windows: `Alt`+`Enter` |
+|Accept an inline suggestion|<kbd>Tab</kbd>|
+|Dimiss an inline suggestion|<kbd>Esc</kbd>|
+|Show next inline suggestion|On macOS: <kbd>Option (⌥) or Alt</kbd>+<kbd>]</kbd><br> On Windows: <kbd>Alt</kbd>+<kbd>]</kbd>|
+|Show previous inline suggestion|On macOS: <kbd>Option (⌥) or Alt</kbd>+<kbd>[</kbd><br> On Windows: <kbd>Alt</kbd>+<kbd>[</kbd>|
+|Trigger inline suggestion|On macOS: <kbd>Option (⌥)</kbd>+<kbd>\</kbd><br> On Windows: <kbd>Alt</kbd>+<kbd>\</kbd>|
+|Open {% data variables.product.prodname_copilot %} (additional suggestions in separate pane)|On macOS: <kbd>Option (⌥) or Alt</kbd>+<kbd>Enter</kbd><br> On Windows: <kbd>Alt</kbd>+<kbd>Enter</kbd> |
 
 ## Enabling and disabling {% data variables.product.prodname_copilot %}
 
@@ -28,7 +28,7 @@ You can enable or disable {% data variables.product.prodname_copilot %} from wit
 
 1. To enable or disable {% data variables.product.prodname_copilot %}, click the status icon in the bottom panel of the JetBrains window.
    ![Status icon in JetBrains](/assets/images/help/copilot/status-icon-jetbrains.png)
-2. If you are disabling {% data variables.product.prodname_copilot %}, you will be asked whether you want to disable it globally, or for the language of the file you are currently editing. To disable globally, click **Disable Completions**. Alternatively, click the language-specific button to disable it for the specified language.
+2. If you are disabling {% data variables.product.prodname_copilot %}, you will be asked whether you want to disable it globally, or for the language of the file you are currently editing. To disable globally, click **Disable Completions**. Alternatively, click the language-specific button to disable {% data variables.product.prodname_copilot %} for the specified language.
    ![Disable {% data variables.product.prodname_copilot %} globally or for the current language](/assets/images/help/copilot/disable-copilot-global-or-langugage-jetbrains.png)
 
 ## Enabling and disabling {% data variables.product.prodname_copilot %} for specific languages

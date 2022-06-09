@@ -15,19 +15,19 @@ You can use the default keyboard shortcuts in Visual Studio Code when using {% d
 
 | Action | Shortcut | Command name |
 |:---|:---:|:---:|
-|Accept an inline suggestion|`Tab`|editor.action.inlineSuggest.commit|
-|Dismiss an inline suggestion|`Esc`|editor.action.inlineSuggest.hide|
-|Show next inline suggestion|On macOS: `Option (⌥)`+`]`<br> On Windows or Linux: `Alt`+`]` |editor.action.inlineSuggest.showNext|
-|Show previous inline suggestion|On macOS: `Option (⌥)`+`[`<br> On Windows or Linux: `Alt`+`[`|editor.action.inlineSuggest.showPrevious|
-|Trigger inline suggestion|On macOS: `Option (⌥)`+`\`<br> On Windows or Linux: `Alt`+`\`|editor.action.inlineSuggest.trigger|
-|Open {% data variables.product.prodname_copilot %} (additional suggestions in separate pane)|`Ctrl`+`Enter`|github.copilot.generate|
+|Accept an inline suggestion|<kbd>Tab</kbd>|editor.action.inlineSuggest.commit|
+|Dismiss an inline suggestion|<kbd>Esc</kbd>|editor.action.inlineSuggest.hide|
+|Show next inline suggestion|On macOS: <kbd>Option (⌥)</kbd>+<kbd>]</kbd><br> On Windows or Linux: <kbd>Alt</kbd>+<kbd>]</kbd> |editor.action.inlineSuggest.showNext|
+|Show previous inline suggestion|On macOS: <kbd>Option (⌥)</kbd>+<kbd>[</kbd><br> On Windows or Linux: <kbd>Alt</kbd>+<kbd>[</kbd>|editor.action.inlineSuggest.showPrevious|
+|Trigger inline suggestion|On macOS: <kbd>Option (⌥)</kbd>+<kbd>\</kbd><br> On Windows or Linux: <kbd>Alt</kbd>+<kbd>\</kbd>|editor.action.inlineSuggest.trigger|
+|Open {% data variables.product.prodname_copilot %} (additional suggestions in separate pane)|<kbd>Ctrl</kbd>+<kbd>Enter</kbd>|github.copilot.generate|
 |Toggle {% data variables.product.prodname_copilot %} on/off|_No default shortcut_|github.copilot.toggleCopilot|
 
 ## Rebinding keyboard shortcuts
 
 1. In the **File** menu, navigate to **Preferences** and click **Keyboard Shortcuts**.
 ![Visual Studio Code keyboard shortcuts](/assets/images/help/copilot/vsc-keyboard-shortcuts.png)
-1. In the **Keyboard Shortcuts** editor, search for the command name of the keyboard shortcut you want to change.
+1. In the "Keyboard Shortcuts" editor, search for the command name of the keyboard shortcut you want to change.
 ![Keyboard shortcut search bar](/assets/images/help/copilot/vsc-shortcut-search-bar.png)
 1. Next to the command you want to change, click the pencil icon.
 ![Keyboard shortcut editor](/assets/images/help/copilot/vsc-edit-shortcuts.png)

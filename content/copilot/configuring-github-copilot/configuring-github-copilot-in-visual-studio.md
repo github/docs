@@ -15,9 +15,9 @@ You can use the default keyboard shortcuts in Visual Studio when using {% data v
 
 | Action | Shortcut | Command name |
 |:---|:---:|:---:|
-|Show next inline suggestion|`Ctrl`+`Alt`+`]`|Tools.Nextsuggestion|
-|Show previous inline suggestion|`Ctrl`+`Alt`+`[`|Tools.Previoussuggestion|
-|Trigger inline suggestion|`Ctrl`+`Alt`+`\`|Edit.Copilot.TriggerInlineSuggestion|
+|Show next inline suggestion|<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>]</kbd>|Tools.Nextsuggestion|
+|Show previous inline suggestion|<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>[</kbd>|Tools.Previoussuggestion|
+|Trigger inline suggestion|<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>\</kbd>|Edit.Copilot.TriggerInlineSuggestion|
 
 ## Rebinding keyboard shortcuts
 
