@@ -5,6 +5,7 @@ redirect_from:
   - /articles/showing-an-overview-of-your-activity-on-your-profile
   - /github/setting-up-and-managing-your-github-profile/showing-an-overview-of-your-activity-on-your-profile
   - /github/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/showing-an-overview-of-your-activity-on-your-profile
+  - /account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/showing-an-overview-of-your-activity-on-your-profile
 versions:
   fpt: '*'
   ghes: '*'
