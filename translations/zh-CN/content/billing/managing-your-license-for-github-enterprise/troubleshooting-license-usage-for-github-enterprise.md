@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting license usage for GitHub Enterprise
-intro: You can troubleshoot license usage for your enterprise by auditing license reports.
+title: GitHub Enterprise 的许可证使用疑难解答
+intro: 您可以通过审核许可证报告来排查企业的许可证使用问题。
 permissions: 'Enterprise owners can review license usage for {% data variables.product.prodname_enterprise %}.'
 versions:
   ghec: '*'
@@ -9,22 +9,22 @@ type: how_to
 topics:
   - Enterprise
   - Licensing
-shortTitle: Troubleshoot license usage
+shortTitle: 排查许可证使用问题
 ---
 
-## About unexpected license usage
+## 关于意外的许可证使用
 
-If the number of consumed licenses for your enterprise is unexpected, you can review your consumed license report to audit your license usage across all your enterprise deployments and subscriptions. If you find errors, you can try troubleshooting steps. For more information about viewing your license usage, see "[Viewing license usage for GitHub Enterprise](/billing/managing-your-license-for-github-enterprise/viewing-license-usage-for-github-enterprise)" and "[Viewing the subscription and usage for your enterprise account](/billing/managing-billing-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account)."
+如果企业使用的许可证数量不符合预期，可以查看已使用的许可证报告，以审核所有企业部署和订阅中的许可证使用情况。 如果发现错误，可以尝试排查步骤。 有关查看许可证使用情况的详细信息，请参阅“[查看 GitHub Enterprise 的许可证使用情况](/billing/managing-your-license-for-github-enterprise/viewing-license-usage-for-github-enterprise)”和“[查看企业帐户的订阅和使用情况](/billing/managing-billing-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account)”。
 
-For privacy reasons, enterprise owners cannot directly access the details of user accounts.
+出于隐私原因，企业所有者无法直接访问用户帐户的详细信息。
 
-## About the calculation of consumed licenses
+## 关于已用许可证的计算
 
-{% data variables.product.company_short %} bills for each person who uses deployments of {% data variables.product.prodname_ghe_server %}, is a member of an organization on {% data variables.product.prodname_ghe_cloud %}, or is a {% data variables.product.prodname_vs_subscriber %}. For more information about the people in your enterprise who are counted as consuming a license, see "[About per-user pricing](/billing/managing-billing-for-your-github-account/about-per-user-pricing)."
+{% data variables.product.company_short %} 对使用 {% data variables.product.prodname_ghe_server %} 部署的每个人、{% data variables.product.prodname_ghe_cloud %} 组织的成员或 {% data variables.product.prodname_vs_subscriber %} 计费。 有关企业中计为使用许可证的人员的详细信息，请参阅“[关于每用户定价](/billing/managing-billing-for-your-github-account/about-per-user-pricing)”。
 
 {% data reusables.enterprise-licensing.about-license-sync %}
 
-## Fields in the consumed license files
+## 已使用的许可文件中的字段
 
 The {% data variables.product.prodname_dotcom_the_website %} license usage report and {% data variables.product.prodname_ghe_server %} exported license usage file include a variety of fields to help you troubleshoot license usage for your enterprise.
 ### {% data variables.product.prodname_dotcom_the_website %} license usage report (CSV file)
@@ -36,8 +36,8 @@ The license usage report for your enterprise is a CSV file that contains the fol
 | 名称              | First and last name for the user's account on GHEC.                                                                                                                                                                                                                                   |
 | Handle or email | GHEC username, or the email address associated with the user's account on GHES.                                                                                                                                                                                                       |
 | Profile link    | Link to the {% data variables.product.prodname_dotcom_the_website %} profile page for the user's account on GHEC.                                                                                                                                                                   |
-| License type    | Can be one of: `Visual Studio subscription` or `Enterprise`.                                                                                                                                                                                                                          |
-| License status  | Identifies if a user account on {% data variables.product.prodname_dotcom_the_website %} successfully matched either a {% data variables.product.prodname_vs_subscriber %} or GHES user.<br><br>Can be one of: `Matched`, `Pending Invitation`, `Server Only`, blank. |
+| License type    | 可以是以下之一： `Visual Studio 订阅` 或 `Enterprise`。                                                                                                                                                                                                                                           |
+| 许可证状态           | Identifies if a user account on {% data variables.product.prodname_dotcom_the_website %} successfully matched either a {% data variables.product.prodname_vs_subscriber %} or GHES user.<br><br>Can be one of: `Matched`, `Pending Invitation`, `Server Only`, blank. |
 | Member roles    | For each of the organizations the user belongs to on GHEC, the organization name and the person's role in that organization (`Owner` or `Member`) separated by a colon<br><br>Each organization is delimited by a comma.                                                  |
 | 企业角色            | Can be one of: `Owner` or `Member`.                                                                                                                                                                                                                                                   |
 
