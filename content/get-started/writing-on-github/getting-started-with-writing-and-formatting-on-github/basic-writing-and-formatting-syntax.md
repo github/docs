@@ -97,11 +97,11 @@ The background color should be `#ffffff` for light mode and `#0d1117` for dark m
 
 Here are the currently supported color models.
 
-| Color | Syntax | Output |
-| --- | --- | --- |
-| HEX | `#1a74dc` | ![Supported color model HEX rendered.](/assets/images/help/writing/supported-color-models-hex-rendered.svg) |
-| RGB | `rgb(26, 116, 220)` | ![Supported color model RGB rendered.](/assets/images/help/writing/supported-color-models-rgb-rendered.svg) |
-| HSL | `hsl(212, 79%, 48%)` | ![Supported color model HSL rendered.](/assets/images/help/writing/supported-color-models-hsl-rendered.svg) |
+| Color | Syntax | Example | Output |
+| --- | --- | --- | --- |
+| HEX | <code>\`#RRGGBB\`</code> | <code>\`#0969DA\`</code> | ![Supported color model HEX rendered.](/assets/images/help/writing/supported-color-models-hex-rendered.svg) |
+| RGB | <code>\`rgb(R,G,B)\`</code> | <code>\`rgb(9, 105, 218)\`</code> | ![Supported color model RGB rendered.](/assets/images/help/writing/supported-color-models-rgb-rendered.svg) |
+| HSL | <code>\`hsl(H,S,L)\`</code> | <code>\`hsl(212, 92%, 45%)\`</code> | ![Supported color model HSL rendered.](/assets/images/help/writing/supported-color-models-hsl-rendered.svg) |
 
 {% note %}
 
