@@ -37,9 +37,9 @@ If you publicize your private contributions, people without access to the privat
 
 {% data reusables.user-settings.access_settings %}
 1. Show or hide Achievements on your profile:
-    - To show Achievements on your profile, navigate to **Profile settings**, and check **Show Achievements on my profile.**
+    - To show Achievements on your profile, navigate to **Profile settings**, and select the checkbox next to **Show Achievements on my profile.**
   ![Enable visitors to see Achievements from profile settings](/assets/images/achievements-profile-settings-off.png)
-    - To hide Achievements from your profile, navigate to **Profile settings**, and uncheck **Show Achievements on my profile.**
+    - To hide Achievements from your profile, navigate to **Profile settings**, and unselect the checkbox next to **Show Achievements on my profile.**
   ![Hide Achievements from visitors in profile settings](/assets/images/achievements-profile-settings-on.png)
 
 ## Further reading
