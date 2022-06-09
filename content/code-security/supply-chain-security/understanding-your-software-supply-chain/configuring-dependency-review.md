@@ -54,6 +54,8 @@ Dependency review is available when dependency graph is enabled for {% data vari
 {% ifversion dependency-review-action-configuration %}
 ## Configuring the {% data variables.product.prodname_dependency_review_action %}
 
+{% data reusables.dependency-review.dependency-review-action-beta-note %}
+
 The {% data variables.product.prodname_dependency_review_action %} scans your pull requests for dependency changes and raises an error if any new dependencies have existing vulnerabilities. The action is supported by an API endpoint that diffs the dependencies between any two revisions.
 
 For more information about the action and the API endpoint, see "[About dependency review](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review#dependency-review-reinforcement)" and [Dependency review](/rest/dependency-graph/dependency-review) in the API documentation, respectively.
@@ -80,7 +82,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 'Checkout Repository'
-        uses: actions/checkout@v3
+        uses: {% data reusables.actions.action-checkout %}
       - name: Dependency Review
         uses: actions/dependency-review-action@main
         with:
