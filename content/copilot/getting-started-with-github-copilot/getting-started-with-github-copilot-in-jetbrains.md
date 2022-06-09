@@ -44,9 +44,13 @@ topics:
    ```java{:copy}
     int calculateDaysBetweenDates(
     ```
-1. To see alternative suggestions:
-    - On macOS, press <kbd>Option</kbd>+<kbd>]</kbd> for the next suggestion, or <kbd>Option</kbd>+<kbd>[</kbd> for the previous suggestion.
-    - On Windows or Linux, press <kbd>Alt</kbd>+<kbd>]</kbd> for the next suggestion, or <kbd>Alt</kbd>+<kbd>[</kbd> for the previous suggestion.
+1. Optionally, you can see alternative suggestions.
+
+   | OS | See next suggestion | See previous suggestion |
+   | :- | :- | :- |
+   | macOS | <kbd>Option</kbd>+<kbd>]</kbd> | <kbd>Option</kbd>+<kbd>[</kbd> |
+   | Windows | <kbd>Alt</kbd>+<kbd>]</kbd> | <kbd>Alt</kbd>+<kbd>[</kbd> |
+   | Linux | <kbd>Alt</kbd>+<kbd>]</kbd> | <kbd>Alt</kbd>+<kbd>[</kbd> |
 1. If {% data variables.product.prodname_copilot %} offers a suggestion you want to accept, press <kbd>Tab</kbd>.
 1. Alternatively, to reject all suggestions, press <kbd>Esc</kbd>.
 
