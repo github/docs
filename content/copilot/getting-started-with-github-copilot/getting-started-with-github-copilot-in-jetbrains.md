@@ -80,7 +80,6 @@ topics:
     // and give them a red border
     void process () {
     ```
-  {% data variables.product.prodname_copilot %} will suggest an implementation of the function.
   ![Screenshot of the Java function body suggestion](/assets/images/help/copilot/comment-suggestion-jetbrains.png)
 
 ## Enabling and disabling {% data variables.product.prodname_copilot %}
