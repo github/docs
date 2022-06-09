@@ -194,7 +194,7 @@ Proctorio | Proctorio Secret Key | proctorio_secret_key
 Pulumi | Pulumi Access Token | pulumi_access_token
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
 PyPI | PyPI API Token | pypi_api_token{% endif %}
-{%- ifversion fpt or ghec or ghes > 3.5 or ghae-issue-7375 %}
+{%- ifversion ghec or ghes > 3.5 or ghae-issue-7375 %}
 redirect.pizza | redirect.pizza API Token | redirect_pizza_api_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
 RubyGems | RubyGems API Key | rubygems_api_key{% endif %}
