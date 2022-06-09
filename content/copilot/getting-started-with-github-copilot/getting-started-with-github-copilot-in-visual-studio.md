@@ -67,7 +67,7 @@ After installation, a {% data variables.product.prodname_copilot %} icon should 
 
 {% data reusables.copilot.create-c-file %}
 1. In the C# file, type the following comment:
-   ```csharp
+   ```csharp{:copy}
    using System.Xml.Linq;
 
    var doc = XDocument.Load("index.xhml");
