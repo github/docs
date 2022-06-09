@@ -39,8 +39,9 @@ topics:
 {% data reusables.copilot.alternative-suggestions %}
 
 {% data reusables.copilot.create-java-file %}
-1. In the Java file, type the following:
-    ```
+1. To prompt {% data variables.product.prodname_copilot %} to show you a suggestion, type the following line in the Java file.
+
+   ```java{:copy}
     int calculateDaysBetweenDates(
     ```
   {% data variables.product.prodname_copilot %} will show you a suggestion.
