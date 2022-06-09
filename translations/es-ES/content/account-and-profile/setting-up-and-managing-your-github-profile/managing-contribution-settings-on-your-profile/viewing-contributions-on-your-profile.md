@@ -1,6 +1,6 @@
 ---
 title: Ver contribuciones en tu perfil
-intro: 'Tu perfil de {% data variables.product.product_name %} presume {% ifversion fpt or ghes or ghec %}tus repositorios anclados, así como{% endif %} una gráfica de tus contribuciones al repositorio en el último año.'
+intro: 'Your {% data variables.product.product_name %} profile shows off {% ifversion fpt or ghes or ghec %}your pinned repositories, Achievements, and{% endif %} a graph of your repository contributions over the past year.'
 redirect_from:
   - /articles/viewing-contributions
   - /articles/viewing-contributions-on-your-profile-page
@@ -17,7 +17,7 @@ topics:
 shortTitle: Visualizar contribuciones
 ---
 
-{% ifversion fpt or ghes or ghec %}Tu gráfica de contribuciones muestra la actividad de los repositorios públicos. {% endif %}Puedes elegir que se muestre la actividad tanto de {% ifversion fpt or ghes or ghec %}los repositorios públicos como la de {% endif %}los privados, con detalles específicos de tu actividad anonimizada en los repositorios privados. Para obtener más información, consulte "[Publicar u ocultar tus contribuciones privadas en tu perfil](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)."
+{% ifversion fpt or ghes or ghec %}Your contribution graph and Achievements show activity from public repositories. {% endif %}Puedes elegir que se muestre la actividad tanto de {% ifversion fpt or ghes or ghec %}los repositorios públicos como la de {% endif %}los privados, con detalles específicos de tu actividad anonimizada en los repositorios privados. Para obtener más información, consulte "[Publicar u ocultar tus contribuciones privadas en tu perfil](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)."
 
 {% note %}
 

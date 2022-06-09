@@ -972,24 +972,24 @@ Actividad relacionada con el {% data variables.product.prodname_registry %}. {% 
 
 {% note %}
 
-**Note:** Webhook events for Projects (beta) are currently in beta and subject to change. To share feedback about Projects (beta) webhooks with {% data variables.product.product_name %}, see the [Projects (beta) webhook feedback discussion](https://github.com/github/feedback/discussions/17405).
+**Nota:** Los eventos de webhook para los proyectos (beta) se encuentran actualmente en beta y están sujetos a cambios. Para compartir retroalimentación sobre los webhooks de los proyectos (beta) con {% data variables.product.product_name %}, consulta el [debate de retroalimentación de webhooks de proyectos (beta)](https://github.com/github/feedback/discussions/17405).
 
 {% endnote %}
 
-Activity related to items in a Projects (beta) project. {% data reusables.webhooks.action_type_desc %} For more information, see "[About projects (beta)](/issues/trying-out-the-new-projects-experience/about-projects)."
+La actividad relacionada con los elementos en un proyecto de Proyectos (beta). {% data reusables.webhooks.action_type_desc %} Para obtener más información, consulta la sección "[Acerca de los proyectos (beta)](/issues/trying-out-the-new-projects-experience/about-projects)".
 
 ### Disponibilidad
 
 - Webhooks de organización
-- {% data variables.product.prodname_github_apps %} with the `organization_projects` permission
+- {% data variables.product.prodname_github_apps %} con el permiso `organization_projects`
 
 ### Objeto de carga útil del webhook
 
-| Clave              | Tipo        | Descripción                                                                                                                                                                                                                                                                                                                                                                           |
-| ------------------ | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Acción`           | `secuencia` | The action that was performed on the project item. Can be one of `archived`, `converted`, `created`, `edited`, `restored`, `deleted`, or `reordered`.                                                                                                                                                                                                                                 |
-| `projects_v2_item` | `objeto`    | The project item itself. To find more information about the project item, you can use `node_id` (the node ID of the project item) and `project_node_id` (the node ID of the project) to query information in the GraphQL API. For more information, see "[Using the API to manage projects (beta)](/issues/trying-out-the-new-projects-experience/using-the-api-to-manage-projects)." |
-| `changes`          | `objeto`    | The changes to the project item.                                                                                                                                                                                                                                                                                                                                                      |
+| Clave              | Tipo        | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| ------------------ | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `Acción`           | `secuencia` | La acción se llevó a cabo en el elemento del proyecto. Puede ser una de entre `archived`, `converted`, `created`, `edited`, `restored`, `deleted` o `reordered`.                                                                                                                                                                                                                                                               |
+| `projects_v2_item` | `objeto`    | El mismo elemento del proyecto. Para encontrar más información sobre el elemento del proyecto, puedes utilizar `node_id` (la ID de nodo del elemento de proyecto) y `project_node_id` (la ID de nodo del proyecto) para consultar la información en la API de GraphQL. For more information, see "[Using the API to manage projects (beta)](/issues/trying-out-the-new-projects-experience/using-the-api-to-manage-projects)." |
+| `changes`          | `objeto`    | Los cambios al elemento del proyecto.                                                                                                                                                                                                                                                                                                                                                                                          |
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
 {% data reusables.webhooks.sender_desc %}
