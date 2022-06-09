@@ -33,7 +33,7 @@ topics:
     ![Screenshot of the Java function body suggestion](/assets/images/help/copilot/java-function-body-suggestion-jetbrains.png)
 {% data reusables.copilot.accept-suggestion %}
 
-{% data variables.product.prodname_copilot %} will attempt to match the context and style of your code. You can edit the suggested code as is necessary.
+{% data variables.product.prodname_copilot %} will attempt to match the context and style of your code. You can always edit the suggested code.
 
 ## Seeing alternative suggestions
 
