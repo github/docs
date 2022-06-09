@@ -1,7 +1,50 @@
-<svg width="134" height="19" viewBox="0 0 134 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="133.52" height="18.76" rx="6" fill="white"/>
-<rect width="133.52" height="18.76" rx="6" fill="#AFB8C1" fill-opacity="0.2"/>
-<text fill="#24292F" xml:space="preserve" style="white-space: pre" font-family="ui-monospace,SFMono-Regular,SF Mono,Menlo,Consolas,Liberation Mono,monospace" font-size="11.9" letter-spacing="0em"><tspan x="5.14725" y="12.2678">rgb(26, 116, 220)</tspan></text>
-<rect x="120.76" y="5.38" width="8" height="8" rx="4" fill="#1A74DC"/>
-<rect x="121.26" y="5.88" width="7" height="7" rx="3.5" stroke="#1B1F24" stroke-opacity="0.15"/>
+<svg width="127" height="19" viewBox="0 0 127 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <style>
+        :root {
+            --color-fg-default: #24292f;
+            --color-border-subtle: rgba(27,31,36,0.15);
+            --color-neutral-muted: rgba(175,184,193,0.2);
+        }
+
+        #background {
+            fill: var(--color-neutral-muted);
+            width: 100%;
+            height: 100%;
+            rx: 6;
+        }
+
+        #text {
+            fill: var(--color-fg-default);
+            font-family: ui-monospace,SFMono-Regular,SF Mono,Menlo,Consolas,Liberation Mono,monospace;
+            font-size: 11.9px;
+            alignment-baseline: text-before-edge;
+        }
+
+        #circle-fill {
+            fill: #0969DA;
+            width: 8px;
+            height: 8px;
+            rx: 4;
+        }
+
+        #circle-stroke {
+            width: 7px;
+            height: 7px;
+            stroke: var(--color-border-subtle);
+            stroke-opacity: 0.15;
+            rx: 4;
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --color-fg-default: #c9d1d9;
+                --color-border-subtle: rgba(240,246,252,0.1);
+                --color-neutral-muted: rgba(110,118,129,0.4);
+            }
+        }
+    </style>
+    <rect id="background"></rect>
+    <text x="4.8" y="2.4" id="text">rgb(9, 105, 218)</text>
+    <rect id="circle-fill" x="114.2" y="5.5" />
+    <rect id="circle-stroke" x="114.7" y="6" />
 </svg>
