@@ -63,7 +63,7 @@ topics:
     int calculateDaysBetweenDates(
     ```
   {% data variables.product.prodname_copilot %} will show you a suggestion.
-1. To open a new tab with multiple additional options: 
+1. Open a new tab with multiple additional suggestions.
     - On macOS, press <kbd>Option</kbd>+<kbd>Enter</kbd>, and select **Open Copilot**.
     - On Windows or Linux, press <kbd>Ctrl</kbd>+<kbd>Enter</kbd>, and select **Open Copilot**.
   ![Screenshot of dialogue to open Copilot](/assets/images/help/copilot/open-copilot-tab-jetbrains.png)
