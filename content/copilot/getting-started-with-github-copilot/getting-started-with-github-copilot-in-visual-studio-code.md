@@ -78,7 +78,7 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 
 ## Using a framework
 
-You can also use {% data variables.product.prodname_copilot %} to generate suggestions for APIs and frameworks.This example uses {% data variables.product.prodname_copilot %} to create a simple Express server that returns the current time.
+You can also use {% data variables.product.prodname_copilot %} to generate suggestions for APIs and frameworks. The following example uses {% data variables.product.prodname_copilot %} to create a simple Express server that returns the current time.
 
 {% data reusables.copilot.create-js-file %}
 1. In the JavaScript file, type the following comment and then press <kbd>Enter</kbd>:
