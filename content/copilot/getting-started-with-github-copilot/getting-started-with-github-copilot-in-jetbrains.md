@@ -25,7 +25,7 @@ topics:
    {% data variables.product.prodname_copilot %} will automatically suggest a class body in grayed text, as shown below. The exact suggestion may vary.
    ![Screenshot of the Java class body suggestion](/assets/images/help/copilot/java-class-body-suggestion-jetbrains.png)
 {% data reusables.copilot.accept-suggestion %}
-1. Below the bracket of the `main` function, type the following function header:
+1. To prompt {% data variables.product.prodname_copilot %} to suggest a function body, type the following line below the bracket of the `main` function. The exact suggestion may vary.
     ```java{:copy}
     int calculateDaysBetweenDates
     ```
