@@ -11,7 +11,7 @@ topics:
 
 ## Prerequisites
 
-- To use {% data variables.product.prodname_copilot %} in Neovim you must have Neovim and Node.js version 17 or below installed. For more information, see the [Neovim](https://neovim.io/doc/) documentation and the [Node.js](https://nodejs.org/en/) website.
+To use {% data variables.product.prodname_copilot %} in Neovim you must have Neovim and Node.js version 17 or below installed. For more information, see the [Neovim documentation](https://neovim.io/doc/) and the [Node.js website](https://nodejs.org/en/).
 
 ## Installing the Neovim extension
 
