@@ -88,7 +88,10 @@ You can enable or disable {% data variables.product.prodname_copilot %} from wit
 
 1. To enable or disable {% data variables.product.prodname_copilot %}, click the status icon in the bottom panel of the JetBrains window.
    ![Screenshot of the status icon in JetBrains](/assets/images/help/copilot/status-icon-jetbrains.png)
-2. If you are disabling {% data variables.product.prodname_copilot %}, you will be asked whether you want to disable it globally, or for the language of the file you are currently editing. To disable globally, click **Disable Completions**. Alternatively, click the language-specific button to disable completions for the specified language.
+2. If you are disabling {% data variables.product.prodname_copilot %}, you will be asked whether you want to disable it globally, or for the language of the file you are currently editing.
+
+   - To disable suggestions from {% data variables.product.prodname_copilot %} globally, click **Disable Completions**.
+   - To disable suggestions from {% data variables.product.prodname_copilot %} for the specified language, click **Disable Completions for _LANGUAGE_**.
    ![Screenshot of option to disable {% data variables.product.prodname_copilot %} globally or for the current language](/assets/images/help/copilot/disable-copilot-global-or-langugage-jetbrains.png)
 
 
