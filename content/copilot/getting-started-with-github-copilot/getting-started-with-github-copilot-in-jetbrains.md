@@ -74,8 +74,8 @@ topics:
 {% data variables.product.prodname_copilot %} can also generate code suggestions from comments.
 
 {% data reusables.copilot.create-java-file %}
-1. In the Java file, type the following:
-    ```
+1. To prompt {% data variables.product.prodname_copilot %} to suggest an implementation of a function in the Java file, type the following lines.
+    ```java{:copy}
     // find all images without alternate text
     // and give them a red border
     void process () {
