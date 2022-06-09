@@ -66,19 +66,19 @@ Before you can configure prebuilds for your project the following must be true:
 
    ![The prebuild trigger options](/assets/images/help/codespaces/prebuilds-triggers.png)
 
-1. Set the number of prebuild template versions to be retained. You can input any number less than or equal to 5. The default number of versions saved is 5.
+1. Set the number of prebuild template versions to be retained. You can input any number between 1 and 5. The default number of saved versions is 2, which means that only the latest template version and the previous version are saved.
 
    Depending on your prebuild trigger settings, your prebuild template could change with each push or on each dev container configuration change. Retaining older versions of prebuild templates enables you to create a prebuild from an older commit with a different dev container configuration than the current prebuild template. Since there is a storage cost associated with retaining prebuild template versions, you can choose the number of versions to be retained based on the needs of your team. For more information on billing, see "[About billing for {% data variables.product.prodname_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces#codespaces-pricing)."
 
-   If you set the number of prebuild template versions to save to 0, {% data variables.product.prodname_codespaces %} will delete the older version of the prebuild template each time the template is updated, and you will not get a prebuilt codespace if you go back to an older dev container configuration.
+   If you set the number of prebuild template versions to save to 1, {% data variables.product.prodname_codespaces %} will only save the latest version of the prebuild template and will delete the older version each time the template is updated. This means you will not get a prebuilt codespace if you back to any older dev container configuration.
 
    ![The prebuild template history setting](/assets/images/help/codespaces/codespaces-prebuilds-template-history-setting.png)
 
-2. Add users or teams to notify when your prebuild workflow runs fail for this particular prebuild configuration. You can begin typing a username, team name, or full name, then click the name once it appears to add them to the list. Those you add will receive an email immediately after prebuild failures containing a link to the workflow run logs.
+1. Add users or teams to notify when your prebuild workflow runs fail for this particular prebuild configuration. You can begin typing a username, team name, or full name, then click the name once it appears to add them to the list. The users or teams you add will receive an email when prebuild failures occur, containing a link to the workflow run logs to help with further investigation.
 
    ![The prebuild failure notification setting](/assets/images/help/codespaces/codespaces-prebuilds-failure-notification-setting.png)
 
-3. Click **Create**.
+1. Click **Create**.
 
    The prebuild configuration is listed on the {% data variables.product.prodname_codespaces %} page of your repository settings. A {% data variables.product.prodname_actions %} workflow is queued and then run to create prebuild templates, based on the branch you selected, in the regions you specified. 
 
