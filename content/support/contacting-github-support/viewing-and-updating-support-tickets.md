@@ -16,15 +16,29 @@ topics:
 
 You can use the [GitHub Support Portal](https://support.github.com/) to view current and past support tickets and respond to {% data variables.contact.github_support %}.
 
+{% ifversion ghec or ghes or ghae %}
+Resolved tickets older than 120 days are archived but can still be accessed.
+{% endif %}
+
 {% ifversion ghes or ghec %}
 {% data reusables.enterprise-accounts.support-entitlements %}
 {% endif %}
 
-## Viewing your support tickets
+## Viewing your recent support tickets
 
 {% data reusables.support.view-open-tickets %}
 1. Under the text box, you can read the comment history. The most recent response is at the top.
 ![Screenshot of support ticket comment history, with the most recent response at the top.](/assets/images/help/support/support-recent-response.png)
+
+{% ifversion ghec or ghes or ghae %}
+
+## Viewing your archived support tickets
+
+_This applies only to enterprise accounts, versioned for GitHub Enterprise Cloud._
+
+You can view your archived support tickets by scrolling to the end of the table of your current tickets and clicking on "View archived tickets".
+
+{% endif %}
 
 ## Updating support tickets
 
