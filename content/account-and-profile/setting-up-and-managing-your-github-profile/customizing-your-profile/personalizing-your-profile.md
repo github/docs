@@ -149,9 +149,9 @@ When you participate in certain programs, {% data variables.product.prodname_dot
 
 ## Earning Achievements
 
-Achievements celebrate specific events and actions that happen on GitHub. They will appear as small badges listed in the sidebar of your profile. Clicking or hovering on an achievement will populate a detail view that hints at how the achievement was earned with a short description and links to the contributing events. The event links will only be visible to users that have access to the repository or organization that the event took place in. Event links will appear inaccessible to all users without access. 
+Achievements celebrate specific events and actions that happen on {% data variables.product.prodname_dotcom %}. They will appear as small badges listed in the sidebar of your profile. Clicking or hovering on an achievement will show a detailed view that hints at how the achievement was earned, with a short description and links to the contributing events. The event links will only be visible to users that have access to the repository or organization that the event took place in. Event links will appear inaccessible to all users without access.
 
-To stop private contributions from counting toward your Achievements or to turn off Achievements entirely, see "[Showing your private contributions and Achievements on your profile](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)."
+To stop private contributions from counting toward your Achievements, or to turn off Achievements entirely, see "[Showing your private contributions and Achievements on your profile](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)."
 
 {% note %}
 
