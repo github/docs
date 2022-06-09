@@ -11,8 +11,13 @@ topics:
 
 ## Prerequisites
 
-- To use {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}, you must have {% data variables.product.prodname_vs %} 2022 17.1 or later installed. For more information, see the [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) documentation.
-- {% data variables.product.prodname_copilot %} is not available for use with Visual Studio for Mac.
+To use {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}, you must have {% data variables.product.prodname_vs %} 2022 17.1 or later installed. For more information, see the [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) documentation.
+
+{% note %}
+
+**Note**: {% data variables.product.prodname_copilot %} is not currently available for use with Visual Studio for Mac.
+
+{% endnote %}
 
 ## Installing the {% data variables.product.prodname_vs %} extension
 
