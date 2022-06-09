@@ -53,7 +53,7 @@ topics:
    | Linux | <kbd>Alt</kbd>+<kbd>]</kbd> | <kbd>Alt</kbd>+<kbd>[</kbd> |
 1. To accept a suggestion, press <kbd>Tab</kbd>. To reject all suggestions, press <kbd>Esc</kbd>.
 
-## Getting more suggestions
+## Seeing multiple suggestions in a new tab
 
 {% data reusables.copilot.suggestions-new-tab %}
 
