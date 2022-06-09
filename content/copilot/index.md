@@ -1,7 +1,7 @@
 ---
 title: GitHub Copilot
 shortTitle: GitHub Copilot
-intro: 'Learn how to setup and configure GitHub Copilot to utilize AI pair programming and get autocomplete-style suggestions as you code.'
+intro: 'You can use {% data variables.product.prodname_copilot %} to get autocomplete-style suggestions from an AI pair programmer as you code.'
 redirect_from:
   - /github/copilot
 changelog:
