@@ -82,7 +82,7 @@ You can also use {% data variables.product.prodname_copilot %} to generate sugge
 
 {% data reusables.copilot.create-js-file %}
 1. In the JavaScript file, type the following comment and then press <kbd>Enter</kbd>.
-   ```
+   ```javascript{:copy}
    // Express server on port 3000
    ```
    {% data variables.product.prodname_copilot %} will suggest an implementation of the Express app.
