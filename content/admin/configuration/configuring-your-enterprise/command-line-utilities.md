@@ -31,7 +31,7 @@ $ ghe-announce -s MESSAGE
 $ ghe-announce -u
 > Removed the announcement message
 ```
-
+{% if ghe-announce-dismiss %}
 To make an announcement that each user can dismiss for themselves:
 ```shell
 # Sets a user-dismissible message that's visible to everyone
@@ -41,6 +41,7 @@ $ ghe-announce -d -s MESSAGE
 $ ghe-announce -u
 > Removed the announcement message, which was user dismissible: MESSAGE
 ```
+{% endif %}
 
 {% ifversion ghes %}
 You can also set an announcement banner using the enterprise settings on {% data variables.product.product_name %}. For more information, see "[Customizing user messages on your instance](/enterprise/admin/user-management/customizing-user-messages-on-your-instance#creating-a-global-announcement-banner)."
