@@ -46,3 +46,4 @@ If you publicize your private contributions, people without access to the privat
 
 - "[Viewing contributions on your profile page](/articles/viewing-contributions-on-your-profile-page)"
 - "[Why are my contributions not showing up on my profile?](/articles/why-are-my-contributions-not-showing-up-on-my-profile)"
+showing-your-private-contributions-and-achievements-on-your-profile.md
