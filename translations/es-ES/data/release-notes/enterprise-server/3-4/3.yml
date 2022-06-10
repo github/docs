@@ -17,12 +17,13 @@ sections:
     - 'Los videos que se suben a los comentarios de las propuestas no se representaron adecuadamente.'
     - 'When using GitHub Enterprise Importer to import a repository, some issues would fail to import due to incorrectly configured project timeline events.'
     - 'Al utilizar `ghe-migrator`, una migración falló en importar los archivos de video adjuntos en las propuestas y solicitudes de cambios.'
+    - 'The Releases page would return a 500 error when the repository has tags that contain non-ASCII characters. [Updated: 2022-06-10]'
   changes:
     - 'En las configuraciones de disponibilidad alta, se aclara que la página de resumen de replicación en la consola de administración solo muestra la configuración de replicación actual y no el estado de replicación actual.'
     - 'The Nomad allocation timeout for Dependency Graph has been increased to ensure post-upgrade migrations can complete.'
     - 'Cuando habilites el {% data variables.product.prodname_registry %}, aclara que, actualmente, no hay compatibilidad con utilizar el token de Firma de Acceso Compartida (SAS, por sus siglas en inglés) como secuencia de conexión.'
     - 'Los paquetes de soporte ahora incluyen el conteo de filas de las tablas que se almacenan en MySQL.'
-    - 'When determining which repository networks to schedule maintenance on, we no longer count the size of unreachable objects.'
+    - 'Al determinar en qué redes de repositorio se programará el mantenimiento, ya no se contará el tamaño de los objetos inalcanzables.'
     - 'The `run_started_at` response field is now included in the [Workflow runs API](/rest/actions/workflow-runs) and the `workflow_run` event webhook payload.'
   known_issues:
     - 'En una instancia recién configurada de {% data variables.product.prodname_ghe_server %} sin ningún usuario, un atacante podría crear el primer usuario adminsitrador.'

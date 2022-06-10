@@ -13,7 +13,7 @@ shortTitle: Cambiar una URL de un remoto
 {% mac %}
 
 {% data reusables.desktop.mac-repository-settings-menu %}
-2. Click **Remote**, and, under **Primary remote repository**, type the desired URL. ![Campo Primary remote repository (Repositorio remoto principal)](/assets/images/help/desktop/repository-settings-remote.png)
+2. Haz clic en **Remoto** y, debajo de **Repositorio remoto primario**, teclea la URL que desees. ![Campo Primary remote repository (Repositorio remoto principal)](/assets/images/help/desktop/repository-settings-remote.png)
 {% data reusables.desktop.repository-settings-save %}
 
 {% endmac %}
@@ -21,7 +21,7 @@ shortTitle: Cambiar una URL de un remoto
 {% windows %}
 
 {% data reusables.desktop.windows-repository-settings-menu %}
-2. Click **Remote**, and, under **Primary remote repository**, type the desired URL. ![Campo Primary remote repository (Repositorio remoto principal)](/assets/images/help/desktop/repository-settings-remote.png)
+2. Haz clic en **Remoto** y, debajo de **Repositorio remoto primario**, teclea la URL que desees. ![Campo Primary remote repository (Repositorio remoto principal)](/assets/images/help/desktop/repository-settings-remote.png)
 {% data reusables.desktop.repository-settings-save %}
 
 {% endwindows %}

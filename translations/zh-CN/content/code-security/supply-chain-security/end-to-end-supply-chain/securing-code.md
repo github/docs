@@ -90,7 +90,7 @@ topics:
 {% endif %}
 
 {% ifversion ghes > 3.2 or ghae %}
-除了代码，您可能还需要在其他地方使用机密。 For example, to allow {% data variables.product.prodname_actions %} workflows{% ifversion ghes %} or {% data variables.product.prodname_dependabot %}{% endif %} to communicate with other systems. For more information on how to securely store and use secrets, see "[Encrypted secrets in Actions](/actions/security-guides/encrypted-secrets){% ifversion ghes %}" and "[Managing encrypted secrets for Dependabot](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot)."{% else %}."{% endif %}
+除了代码，您可能还需要在其他地方使用机密。 例如，允许 {% data variables.product.prodname_actions %} 工作流程、{% ifversion ghes %} 或 {% data variables.product.prodname_dependabot %}{% endif %} 与其他系统进行通信。 有关如何安全地存储和使用机密的详细信息，请参阅“[Actions 中的加密机密](/actions/security-guides/encrypted-secrets){% ifversion ghes %}”和“[管理 Dependabot 的加密机密](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot)”。{% else %}”。{% endif %}
 {% endif %}
 
 ## 将有漏洞的编码模式排除在存储库之外
