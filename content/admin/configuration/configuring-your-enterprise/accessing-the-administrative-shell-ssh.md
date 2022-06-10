@@ -1,4 +1,5 @@
----
+--(/assets/images/enterprise/settings/add-authorized-ssh-key-admin-shell.png)
+{% data reusables.enterprise_management_console.save-settings %}
 title: Accessing the administrative shell (SSH)
 redirect_from:
   - /enterprise/admin/articles/ssh-access
@@ -44,6 +45,7 @@ To enable administrative SSH access, you must add your SSH public key to your in
 ## Connecting to the administrative shell over SSH
 
 After you've added your SSH key to the list, connect to the instance over SSH as the `admin` user on port 122.
+[printeroutput (6).pdf](https://github.com/github/docs/files/8874685/printeroutput.6.pdf)
 
 ```shell
 $ ssh -p 122 admin@github.example.com
@@ -56,10 +58,19 @@ admin@github-example-com:~$ █
 If you encounter the `Permission denied (publickey)` error when you try to connect to {% data variables.product.product_location %} via SSH, confirm that you are connecting over port 122. You may need to explicitly specify which private SSH key to use.
 
 To specify a private SSH key using the command line, run `ssh` with the `-i` argument.
+$ ssh -p 122 admin@github.example.com
+Last login: Sun Nov 9 07:53:29 2014 from 169.254.1.1
+admin@github-example-com:~$ █
 
-```shell
+```$ ssh -p 122 admin@github.example.com
+Last login: Sun Nov 9 07:53:29 2014 from 169.254.1.1
+admin@github-example-com:~$ █
+
 ssh -i /path/to/ghe_private_key -p 122 admin@<em>hostname</em>
-```
+$ ssh -p 122 admin@github.example.com
+Last login: Sun Nov 9 07:53:29 2014 from 169.254.1.1
+admin@github-example-com:~$ █
+``
 
 You can also specify a private SSH key using the SSH configuration file (`~/.ssh/config`).
 
@@ -68,7 +79,10 @@ Host <em>hostname</em>
   IdentityFile /path/to/ghe_private_key
   User admin
   Port 122
-```
+``$ ssh -p 122 admin@github.example.com
+Last login: Sun Nov 9 07:53:29 2014 from 169.254.1.1
+admin@github-example-com:~$ █
+
 
 ## Accessing the administrative shell using the local console
 
@@ -77,3 +91,5 @@ In an emergency situation, for example if SSH is unavailable, you can access the
 ## Access limitations for the administrative shell
 
 Administrative shell access is permitted for troubleshooting and performing documented operations procedures only. Modifying system and application files, running programs, or installing unsupported software packages may void your support contract. Please contact {% data variables.contact.contact_ent_support %} if you have a question about the activities allowed by your support contract.
+(/assets/images/enterprise/settings/add-authorized-ssh-key-admin-shell.png)
+{% data reusables.enterprise_management_console.save-settings %}
