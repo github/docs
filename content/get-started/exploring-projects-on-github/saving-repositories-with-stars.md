@@ -124,6 +124,11 @@ You can use sorting or filtering to customize how you see starred repositories a
 1. To filter your list of stars based on repository or topic, click on the desired option.
 ![Filter stars by topic](/assets/images/help/stars/stars_filter_topic.png)
 
+## Viewing a list of users that have starred a repository
+* append /stargazers to the end of a url of a repository
+* Example: [https://github.com/github/docs/stargazers](https://github.com/github/docs/stargazers)
+* This will only work on public repositories or private repositories you have access to
+
 ## Further reading
 
 - "[Classifying your repository with topics](/articles/classifying-your-repository-with-topics)"
