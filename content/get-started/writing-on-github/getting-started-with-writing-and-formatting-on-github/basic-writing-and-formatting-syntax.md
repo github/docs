@@ -95,13 +95,15 @@ You can call out color within a sentence with single backticks. A supported colo
 The background color should be `#ffffff` for light mode and `#0d1117` for dark mode.
 ```
 
+![Rendered supported color model.](/assets/images/help/writing/supported-color-models-rendered.png)
+
 Here are the currently supported color models.
 
 | Color | Syntax | Example | Output |
 | --- | --- | --- | --- |
-| HEX | <code>\`#RRGGBB\`</code> | <code>\`#0969DA\`</code> | ![Supported color model HEX rendered.](/assets/images/help/writing/supported-color-models-hex-rendered.svg) |
-| RGB | <code>\`rgb(R,G,B)\`</code> | <code>\`rgb(9, 105, 218)\`</code> | ![Supported color model RGB rendered.](/assets/images/help/writing/supported-color-models-rgb-rendered.svg) |
-| HSL | <code>\`hsl(H,S,L)\`</code> | <code>\`hsl(212, 92%, 45%)\`</code> | ![Supported color model HSL rendered.](/assets/images/help/writing/supported-color-models-hsl-rendered.svg) |
+| HEX | <code>\`#RRGGBB\`</code> | <code>\`#0969DA\`</code> | ![Rendered supported color model in HEX format.](/assets/images/help/writing/supported-color-models-hex-rendered.png) |
+| RGB | <code>\`rgb(R,G,B)\`</code> | <code>\`rgb(9, 105, 218)\`</code> | ![Rendered supported color model in RGB format.](/assets/images/help/writing/supported-color-models-rgb-rendered.png) |
+| HSL | <code>\`hsl(H,S,L)\`</code> | <code>\`hsl(212, 92%, 45%)\`</code> | ![Rendered supported color model in HSL format.](/assets/images/help/writing/supported-color-models-hsl-rendered.png) |
 
 {% note %}
 
