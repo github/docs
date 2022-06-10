@@ -16,7 +16,7 @@ You can use the default keyboard shortcuts in JetBrains when using {% data varia
 | Action | Shortcut |
 |:---|:---:|
 |Accept an inline suggestion|<kbd>Tab</kbd>|
-|Dimiss an inline suggestion|<kbd>Esc</kbd>|
+|Dismiss an inline suggestion|<kbd>Esc</kbd>|
 |Show next inline suggestion|On macOS: <kbd>Option (⌥) or Alt</kbd>+<kbd>]</kbd><br> On Windows: <kbd>Alt</kbd>+<kbd>]</kbd>|
 |Show previous inline suggestion|On macOS: <kbd>Option (⌥) or Alt</kbd>+<kbd>[</kbd><br> On Windows: <kbd>Alt</kbd>+<kbd>[</kbd>|
 |Trigger inline suggestion|On macOS: <kbd>Option (⌥)</kbd>+<kbd>\</kbd><br> On Windows: <kbd>Alt</kbd>+<kbd>\</kbd>|
