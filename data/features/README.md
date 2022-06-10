@@ -21,7 +21,7 @@ The format and allowed values are the same as the [frontmatter versions property
 
 ### Liquid conditionals
 
-Now you can use `{% if meow %} ... {% endif %}` in content files! Note this is the `if` tag, not the new `ifversion` tag.
+Now you can use `{% ifversion meow %} ... {% endif %}` in content files!
 
 ### Frontmatter
 
