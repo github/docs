@@ -13,7 +13,5 @@ shortTitle: Neovim
 
 For guidance on configuring {% data variables.product.prodname_copilot %} in Neovim, invoke the {% data variables.product.prodname_copilot %} documentation in Neovim by running the following command:
 
-      ```
-      :help copilot
-      ```
-      
+
+    :help copilot
