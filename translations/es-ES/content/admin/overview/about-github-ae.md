@@ -35,13 +35,13 @@ Asegura el acceso a tu empresa en {% data variables.product.prodname_ghe_managed
 
 {% data variables.product.prodname_ghe_managed %} se encuentra disponible en la nube de Azure Government, la nube de confianza de las agencias gubernamentales de los EE.UU. y de sus socios. {% data variables.product.prodname_ghe_managed %} también se encuentra disponible en la nube comercial, para que puedas elegir el ambiente de hospedaje que se adecua a tu organización.
 
-## Compliance accreditations
+## Acreditacioens de cumplimiento
 
-{% data variables.product.company_short %} continues to invest in security best practices to make sure your data is safe, your developers are productive, and your team can focus on solving problems. As part of that commitment to security, {% data variables.product.prodname_ghe_managed %} maintains compliance with the following accreditations.
+{% data variables.product.company_short %} sigue invirtiendo en las mejores prácticas de seguridad para garantizar la seguridad de tus datos, que tus desarrolladores sean productivos y que tu equipo pueda enfocarse en solucionar problemas. Como parte de este compromiso con la seguridad, {% data variables.product.prodname_ghe_managed %} mantiene el cumplimiento con las siguientes acreditaciones.
 
-- FedRAMP High Authorization to Operate (ATO)
-- SOC 1, SOC 2 Type II, and SOC 3
-- ISO/IEC certifications
+- Autorización Alta para Operar (ATO) de FedRAMP
+- SOC 1, SOC 2 Tipo II y SOC 3
+- Certificaciones ISO/IEC
    - ISO/IEC 27001:2013
    - ISO/IEC 27701:2019
    - ISO/IEC 9001:2015
