@@ -44,6 +44,6 @@ If you use ReSharper, {% data variables.product.prodname_copilot %} may work bes
 
 1. In the Visual Studio toolbar, under **Tools**, click **Options**.
    ![Screenshot of the Options option in the Visual Studio toolbar](/assets/images/help/copilot/vs-toolbar-options.png)
-1. In the "Options" dialog, under **Environment**, click **IntelliSense** and then click **General.
+1. In the "Options" dialog, under **Environment**, click **IntelliSense** and then click **General**.
     ![Screenshot of the IntelliSense option in the "Options" dialog](/assets/images/help/copilot/vs-options-intellisense.png)
 1. Under "General" select **Visual Studio** and then click **Save**.
