@@ -1,4 +1,4 @@
-{% if actions-unified-inputs %}
+{% ifversion actions-unified-inputs %}
 
 {% note %}
 
