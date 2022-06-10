@@ -21,7 +21,7 @@ versions:
 
 ### Liquidの条件演算子
 
-コンテンツファイルで`{% if meow %} ... {% endif %}`が使えるようになりました！ これは`if`タグであり、新しい`ifversion`タグではないことに注意してください。
+コンテンツファイルで`{% ifversion meow %} ... {% endif %}`が使えるようになりました！
 
 ### Frontmatter
 
