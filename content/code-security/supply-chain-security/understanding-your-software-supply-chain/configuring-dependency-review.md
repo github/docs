@@ -65,6 +65,12 @@ The following configuration options are available.
 | `allow_licenses` | Optional | Contains a list of allowed licenses. You can find the possible values for this parameter in the [Licenses](/rest/licenses) page of the API documentation.</br>The action will fail on pull requests that introduce dependencies with licenses that do not match the list.|
 | `deny_licenses` | Optional | Contains a list of prohibited licenses. You can find the possible values for this parameter in the [Licenses](/rest/licenses) page of the API documentation.</br>The action will fail on pull requests that introduce dependencies with licenses that match the list.|
 
+{% tip %}
+
+**Tip:** The  `allow_licenses` and  `deny_licenses` options are mutually exclusive.
+
+{% endtip %}
+
 This {% data variables.product.prodname_dependency_review_action %} example file illustrates how you can use these configuration options.
 
 ```yaml{:copy}

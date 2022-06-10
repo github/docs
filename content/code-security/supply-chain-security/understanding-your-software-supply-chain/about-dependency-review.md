@@ -50,13 +50,13 @@ The dependency review feature becomes available when you enable the dependency g
 
 {% data reusables.dependency-review.dependency-review-action-beta-note %}
 
-The action is available for all public repositories, as well as private repositories that have {% data variables.product.prodname_GH_advanced_security %} enabled.
+The action is available for {% ifversion not ghae %}all public repositories, as well as {% endif %}private repositories that have {% data variables.product.prodname_GH_advanced_security %} enabled.
 
 You can use the {% data variables.product.prodname_dependency_review_action %} in your repository to enforce dependency reviews on your pull requests. The action scans for vulnerable versions of dependencies introduced by package version changes in pull requests, and warns you about the associated security vulnerabilities. This gives you better visibility of what's changing in a pull request, and helps prevent vulnerabilities being added to your repository. For more information, see [`dependency-review-action`](https://github.com/actions/dependency-review-action).
 
 ![Dependency review action example](/assets/images/help/graphs/dependency-review-action.png)
 
-The {% data variables.product.prodname_dependency_review_action %} check will fail if it discovers any vulnerable package, but will only block a pull request from being merged if the repository owner has required the check to pass before merging. For more information, see "[About protected branches](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-status-checks-before-merging)."
+By default, the {% data variables.product.prodname_dependency_review_action %} check will fail if it discovers any vulnerable package, but will only block a pull request from being merged if the repository owner has required the check to pass before merging. For more information, see "[About protected branches](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-status-checks-before-merging)."
 
 The action uses the Dependency Review REST API to get the diff of dependency changes between the base commit and head commit. You can use the Dependency Review API to get the diff of dependency changes, including vulnerability data, between any two commits on a repository. For more information, see "[Dependency review](/rest/reference/dependency-graph#dependency-review)."
 
