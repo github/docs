@@ -11750,12 +11750,12 @@ The possible roles for enterprise membership.
 """
 enum EnterpriseUserAccountMembershipRole {
   """
-  The user is a member of the enterprise membership.
+  The user is a member of an organization in the enterprise.
   """
   MEMBER
 
   """
-  The user is an owner of the enterprise membership.
+  The user is an owner of an organization in the enterprise.
   """
   OWNER
 }
@@ -32815,6 +32815,11 @@ type Repository implements Node & ProjectOwner & RepositoryInfo & Starrable & Su
   Whether or not squash-merging is enabled on this repository.
   """
   squashMergeAllowed: Boolean!
+
+  """
+  Whether a squash merge commit can use the pull request title as default.
+  """
+  squashPrTitleUsedAsDefault: Boolean!
 
   """
   The SSH URL to clone this repository
