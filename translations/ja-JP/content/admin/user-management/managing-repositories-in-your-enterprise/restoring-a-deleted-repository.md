@@ -1,6 +1,7 @@
 ---
 title: 削除したリポジトリの復元
-intro: Site administrators can restore deleted repositories to recover their contents.
+intro: You can restore deleted repositories to recover their contents.
+permissions: Enterprise owners can restore a deleted repository.
 versions:
   ghes: '*'
   ghae: '*'
@@ -11,9 +12,11 @@ topics:
 shortTitle: Restore a deleted repository
 ---
 
-通常は、誰かがリポジトリを削除するとそのリポジトリは90日間はディスク上にあり、サイト管理ダッシュボード経由でリストアできます。 Unless a legal hold is in effect on a user or organization, after 90 days the repository is purged and deleted forever.
-
 ## リポジトリの復元について
+
+通常は、誰かがリポジトリを削除するとそのリポジトリは90日間はディスク上にあり、サイト管理ダッシュボード経由でリストアできます。 詳しい情報については「[サイトアドミンのダッシュボード](/admin/configuration/configuring-your-enterprise/site-admin-dashboard)」を参照してください。
+
+Unless a legal hold is in effect on a user or organization, after 90 days the repository is purged and deleted forever.
 
 If a repository was part of a fork network when it was deleted, the restored repository will be detached from the original fork network.
 

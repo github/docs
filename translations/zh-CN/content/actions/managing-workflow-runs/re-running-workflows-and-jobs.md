@@ -137,6 +137,14 @@ gh run rerun --job <em>job-id</em> --debug
 
 {% endif %}
 
+{% ifversion partial-reruns-with-reusable %}
+
+## Re-running workflows and jobs with reusable workflows
+
+{% data reusables.actions.partial-reruns-with-reusable %}
+
+{% endif %}
+
 {% ifversion fpt or ghes > 3.4 or ghae-issue-4721 or ghec %}
 ## 查看以前的工作流程运行
 

@@ -22,3 +22,4 @@ Si eres un miembro de un club de robótica FIRST, tu mentor puede solicitar un d
 ## Leer más
 
 - "[Acerca de {% data variables.product.prodname_education %} para educadores e investigadores](/articles/about-github-education-for-educators-and-researchers)"
+- "[Acerca de {% data variables.product.prodname_community_exchange %}](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork/about-github-community-exchange)"

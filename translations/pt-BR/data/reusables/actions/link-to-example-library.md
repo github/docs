@@ -1,0 +1,1 @@
+Para obter exemplos que demonstram características mais complexas do {% data variables.product.prodname_actions %}, consulte "[Exemplos](/actions/examples)". Você pode ver exemplos detalhados que explicam como testar seu código em um executor, acessar a CLI de {% data variables.product.prodname_dotcom %} e usar funcionalidades avançadas como matrizes de concorrência e teste.

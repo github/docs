@@ -57,7 +57,7 @@ Essas são as coisas a serem verificadas se a etiqueta " Pré-compilação de {%
 * Verifique se uma alteração para a configuração do contêiner de desenvolvimento foi enviada por push para o branch habilitado pela pré-compilação recentemente. Se for dessa forma, normalmente você terá que esperar até que o fluxo de trabalho de pré-criação, aguarde até que a execução do fluxo de trabalho de pré-compilação seja concluída antes que as pré-criações estejam disponíveis novamente.
 * Se nenhuma alteração de configuração foi realizada recentemente, acesse a aba **Ações** do seu repositório, clique em **{% octicon "codespaces" aria-label="The Codespaces icon" %} Pré-compilações de {% data variables.product.prodname_codespaces %}** na lista de fluxos de trabalho e verifique se as execuções do fluxo de trabalho de pré-compilação são sendo bem-sucedidas. Se as últimas execuções de um fluxo de trabalho falharem e uma ou mais dessas execuções falharam continham alterações na configuração do contêiner de desenvolvimento, não haverá pré-compilações disponíveis para o branch associado.
 
-## Troubleshooting failed workflow runs for prebuilds
+## Solucionando problemas de execução de fluxo de trabalho com falhas para pré-compilações
 
 Se o fluxo de trabalho for executado para uma configuração de pré-compilação falhar, você poderá desabilitar temporariamente a configuração de pré-compilação durante a investigação. Para obter mais informações, consulte "[Gereciando pré-compilações](/codespaces/prebuilding-your-codespaces/managing-prebuilds#disabling-a-prebuild-configuration)".
 

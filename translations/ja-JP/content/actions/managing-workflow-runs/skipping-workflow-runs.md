@@ -26,7 +26,9 @@ Workflows that would otherwise be triggered using `on: push` or `on: pull_reques
 * `[skip actions]`
 * `[actions skip]`
 
-または、コミットメッセージを 2 行の空行で終了し、その後に `skip-checks: true` または `skip-checks:true` のいずれかを続けることもできます。
+Alternatively, you can end the commit message with two empty lines followed by either:
+- `skip-checks:true`
+- `skip-checks: true`
 
 最初にリポジトリがパスするための特定のチェックを受けるように設定されている場合、プルリクエストをマージすることはできません。 プルリクエストをマージできるようにするには、コミットメッセージのスキップ命令なしでプルリクエストに新しいコミットをプッシュできます。
 
