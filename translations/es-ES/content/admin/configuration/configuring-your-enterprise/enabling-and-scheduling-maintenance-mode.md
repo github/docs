@@ -41,7 +41,7 @@ Cuando la instancia está en modo de mantenimiento, se rechazan todos los acceso
 
 ![La pantalla de presentación del modo de mantenimiento](/assets/images/enterprise/maintenance/maintenance-mode-maintenance-page.png)
 
-{% if ip-exception-list %}
+{% ifversion ip-exception-list %}
 
 Puedes llevar a cabo una validación inicial de tu operación de mantenimiento si configuras una lista de IP de excepción para permitir el acceso a {% data variables.product.product_location %} solo desde las direcciones IP y rangos de ellas que proporcionaste. Los intentos para acceder a {% data variables.product.product_location %} desde las direcciones IP que no se especifican en la lista de excepciones IP recibirán una respuesta consistente con aquellas enviadas cuando la instancia esté en modo de mantenimiento.
 
@@ -58,7 +58,7 @@ Puedes llevar a cabo una validación inicial de tu operación de mantenimiento s
 4. Selecciona **Habilitar el modo de mantenimiento**. ![Casilla de verificación para habilitar o programar el modo de mantenimiento](/assets/images/enterprise/maintenance/enable-maintenance-mode-checkbox.png)
 {% data reusables.enterprise_management_console.save-settings %}
 
-{% if ip-exception-list %}
+{% ifversion ip-exception-list %}
 
 ## Validar los cambios en el modo de mantenimiento utilizando la lista de excepciones de IP
 
@@ -66,7 +66,7 @@ La lista de excepciones de IP proporciona un acceso restringido y controlado a {
 
 Si vuelves a habilitar el modo de mantenimiento, se inhabilitará la lista de excepción de IP se y {% data variables.product.product_location %} regresará al modo de mantenimiento. Si simplemente inhabilitas la lista de excepción de IP, {% data variables.product.product_location %} regresará a su operación normal.
 
-You can also use a command-line utility to configure the IP exception list. Para obtener más información, consulta las secciones "[Utilidades de línea de comandos](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-maintenance)" y "[Acceder al shell administrativo (SSH)](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)".
+También puedes utilizar una utilidad de línea de comandos para configurar la lista de excepción de IP. Para obtener más información, consulta las secciones "[Utilidades de línea de comandos](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-maintenance)" y "[Acceder al shell administrativo (SSH)](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)".
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}

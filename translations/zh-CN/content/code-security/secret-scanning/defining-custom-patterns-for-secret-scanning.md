@@ -122,7 +122,7 @@ aAAAe9
 {% data reusables.repositories.navigate-to-ghas-settings %}
 {% data reusables.advanced-security.secret-scanning-new-custom-pattern %}
 {% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}
-{%- if secret-scanning-org-dry-runs %}
+{%- ifversion secret-scanning-org-dry-runs %}
 1. 当您准备好测试新的自定义模式时，要识别所选存储库中的匹配项而不创建警报，请单击 **Save and dry run（保存并试运行）**。
 {% data reusables.advanced-security.secret-scanning-dry-run-select-repos %}
 {% data reusables.advanced-security.secret-scanning-dry-run-results %}
@@ -141,7 +141,7 @@ aAAAe9
 
 {% note %}
 
-{% if secret-scanning-enterprise-dry-runs %}
+{% ifversion secret-scanning-enterprise-dry-runs %}
 **注意：**
 - 在企业级别，只有自定义模式的创建者才能编辑该模式，并在试运行中使用它。
 - 企业所有者只能使用他们有权访问的存储库上的试运行，而企业所有者不一定有权访问企业内的所有组织或存储库。
@@ -158,7 +158,7 @@ aAAAe9
 {% data reusables.enterprise-accounts.advanced-security-security-features %}
 1. 在“Secret scanning custom patterns（机密扫描自定义模式）”下，单击 {% ifversion ghes = 3.2 %}**New custom pattern（新建自定义模式）**{% else %}**New pattern（新建模式）**{% endif %}。
 {% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}
-{%- if secret-scanning-enterprise-dry-runs %}
+{%- ifversion secret-scanning-enterprise-dry-runs %}
 1. 当您准备好测试新的自定义模式时，要识别存储库中的匹配项而不创建警报，请单击 **Save and dry run（保存并空运行）**。
 {% data reusables.advanced-security.secret-scanning-dry-run-select-repos %}
 {% data reusables.advanced-security.secret-scanning-dry-run-results %}

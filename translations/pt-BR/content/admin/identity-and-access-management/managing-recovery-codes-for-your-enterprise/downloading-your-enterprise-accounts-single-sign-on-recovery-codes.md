@@ -25,7 +25,7 @@ Se você não salvou seus códigos de recuperação ao configurar SSO, você ain
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.security-tab %}
 
-1. Under{% if oidc-for-emu %} either{% endif %} "Exigir autenticação do SAML"{% if oidc-for-emu %} ou "Exigir autenticação do OIDC"{% endif %}, clique em **Salvar os seus códigos de recuperação**.{% if oidc-for-emu %}
+1. Under{% ifversion oidc-for-emu %} either{% endif %} "Exigir autenticação do SAML"{% ifversion oidc-for-emu %} ou "Exigir autenticação do OIDC"{% endif %}, clique em **Salvar os seus códigos de recuperação**.{% ifversion oidc-for-emu %}
   {% note %}
 
   **Observação:** O SSO do OIDC só está disponível para {% data variables.product.prodname_emus %}. Para obter mais informações, consulte[Sobre usuários gerenciados pela empresa](/admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/about-enterprise-managed-users)".

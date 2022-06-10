@@ -83,7 +83,7 @@ Se você confirmar que um segredo é real e pretender corrigi-lo mais tarde, voc
 1. Clique **Me permite enviar por push este segredo**.
 2. Tente novamente na linha de comando em três horas. Se não enviou por push em três horas, você terá de repetir este processo.
 
-{% if secret-scanning-push-protection-web-ui %}
+{% ifversion secret-scanning-push-protection-web-ui %}
 ## Usando a digitalização de segredo como uma proteção de push da interface de usuário web
 
 Ao usar a interface de usuário web para tentar confirmar um segredo suportado para um repositório ou organização com digitalização de segredo como uma proteção de push habilitada {% data variables.product.prodname_dotcom %} bloqueará o commit. Você verá um banner no topo da página com informações sobre a localização do segredo, e o segredo também será sublinhado no arquivo para que você possa encontrá-lo facilmente.

@@ -57,7 +57,7 @@ You can choose whether {% data variables.large_files.product_name_long %} ({% da
    {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4972 %}
    If you @mention any {% data variables.product.product_name %} users in the description, the published release will include a **Contributors** section with an avatar list of all the mentioned users.
    {%- endif %}
-   {% ifversion fpt or ghec or ghes > 3.3 %} Alternatively, you can automatically generate your release notes by clicking {% if previous-release-tag %}**Generate release notes**{% else %}**Auto-generate release notes**{% endif %}.{% endif %}{% if previous-release-tag %}
+   {% ifversion fpt or ghec or ghes > 3.3 %} Alternatively, you can automatically generate your release notes by clicking {% ifversion previous-release-tag %}**Generate release notes**{% else %}**Auto-generate release notes**{% endif %}.{% endif %}{% ifversion previous-release-tag %}
    ![Releases description](/assets/images/help/releases/releases_description_auto.png){% else %}
    ![Releases description](/assets/images/enterprise/3.5/releases/releases_description_auto.png){% endif %}
 1. Optionally, to include binary files such as compiled programs in your release, drag and drop or manually select files in the binaries box.

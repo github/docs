@@ -45,6 +45,8 @@ prodname_classroom: 'GitHub 课堂'
 prodname_classroom_with_url: '[GitHub Classroom](https://classroom.github.com/login)'
 prodname_campus_program: 'GitHub 校园计划'
 prodname_student_pack: 'GitHub Student Developer Pack'
+prodname_global_campus: 'GitHub Global Campus'
+prodname_community_exchange: 'GitHub Community Exchange'
 #GitHub CLI
 prodname_cli: 'GitHub CLI'
 #GitHub Desktop

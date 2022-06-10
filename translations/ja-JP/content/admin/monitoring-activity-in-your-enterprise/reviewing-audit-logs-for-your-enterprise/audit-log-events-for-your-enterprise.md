@@ -143,7 +143,7 @@ The scope of the events that appear in your enterprise's audit log depend on whe
 | `business.update_saml_provider_settings` | The SAML single sign-on provider settings for an enterprise were updated.
 {%- endif %}
 
-{%- if secret-scanning-audit-log-custom-patterns %}
+{%- ifversion secret-scanning-audit-log-custom-patterns %}
 ## `business_secret_scanning_custom_pattern` category actions
 
 | アクション | 説明                                                                                                                                                                                                                                                                                                                                   |
@@ -642,7 +642,7 @@ The scope of the events that appear in your enterprise's audit log depend on whe
 {%- ifversion fpt or ghec %}
 | `org.runner_group_visiblity_updated` | The visibility of a self-hosted runner group was updated via the REST API. For more information, see "[Update a self-hosted runner group for an organization](/rest/reference/actions#update-a-self-hosted-runner-group-for-an-organization)."
 {%- endif %}
-{%- if secret-scanning-audit-log-custom-patterns %}
+{%- ifversion secret-scanning-audit-log-custom-patterns %}
 | `org.secret_scanning_push_protection_disable` | An organization owner or administrator disabled push protection for secret scanning. 詳しい情報については「[Secret scanningでのプッシュの保護](/enterprise-cloud@latest/code-security/secret-scanning/protecting-pushes-with-secret-scanning)」を参照してください。 | `org.secret_scanning_push_protection_enable` | An organization owner or administrator enabled push protection for secret scanning.
 {%- endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
@@ -685,7 +685,7 @@ The scope of the events that appear in your enterprise's audit log depend on whe
 | `org_credential_authorization.revoke`                                                                                                                                  | An owner revoked authorized credentials. {% ifversion ghec %}For more information, see "[Viewing and managing your active SAML sessions](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization)."{% endif %}
 {%- endif %}
 
-{%- if secret-scanning-audit-log-custom-patterns %}
+{%- ifversion secret-scanning-audit-log-custom-patterns %}
 ## `org_secret_scanning_custom_pattern`カテゴリアクション
 
 | アクション                                       | 説明                                                                                                                                                                                                                                                   |
@@ -999,7 +999,7 @@ The scope of the events that appear in your enterprise's audit log depend on whe
 | `repository_secret_scanning.enable`  | A repository owner or administrator enabled secret scanning for a {% ifversion ghec %}private or internal {% endif %}repository.                                                                                                      |
 {%- endif %}
 
-{%- if secret-scanning-audit-log-custom-patterns %}
+{%- ifversion secret-scanning-audit-log-custom-patterns %}
 
 ## `repository_secret_scanning_custom_pattern`カテゴリアクション
 
@@ -1060,7 +1060,7 @@ The scope of the events that appear in your enterprise's audit log depend on whe
 | `restrict_notification_delivery.disable` | Email notification restrictions for an organization or enterprise were disabled. For more information, see "[Restricting email notifications for your organization](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/restricting-email-notifications-for-your-organization)" and "[Restricting email notifications for your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/restricting-email-notifications-for-your-enterprise)." |
 {%- endif %}
 
-{%- if custom-repository-roles %}
+{%- ifversion custom-repository-roles %}
 ## `role`カテゴリアクション
 
 | アクション     | 説明                                                                                                                                                                                                                                                 |
@@ -1078,7 +1078,7 @@ The scope of the events that appear in your enterprise's audit log depend on whe
 | `secret_scanning.disable` | An organization owner disabled secret scanning for all existing{% ifversion ghec %} private or internal{% endif %} repositories. 詳しい情報については、「[シークレットスキャニングについて](/github/administering-a-repository/about-secret-scanning)」を参照してください。 |
 | `secret_scanning.enable`  | An organization owner enabled secret scanning for all existing{% ifversion ghec %} private or internal{% endif %} repositories.                                                                                                      |
 
-{% if secret-scanning-alert-audit-log %}
+{% ifversion secret-scanning-alert-audit-log %}
 ## `secret_scanning_alert`カテゴリアクション
 
 | アクション                           | 説明                                                                                                                                                                                                                                                                                                             |

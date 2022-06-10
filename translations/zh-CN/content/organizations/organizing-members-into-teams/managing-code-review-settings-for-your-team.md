@@ -19,7 +19,7 @@ permissions: Team maintainers and organization owners can configure code review 
 
 ## 关于代码审查设置
 
-{% if only-notify-requested-members %}
+{% ifversion only-notify-requested-members %}
 为减少团队的干扰并阐明拉取请求审查的个人责任，可以配置代码审查设置。
 
 - 团队通知
@@ -46,7 +46,7 @@ permissions: Team maintainers and organization owners can configure code review 
 
 任何将状态设置为“忙碌”的团队成员将不会被选中进行审核。 如果所有团队成员都忙碌，拉取请求仍将分配给团队本身。 有关用户状态的更多信息，请参阅“[设置状态](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile#setting-a-status)”。
 
-{% if only-notify-requested-members %}
+{% ifversion only-notify-requested-members %}
 ## 配置团队通知
 
 {% data reusables.profile.access_org %}
