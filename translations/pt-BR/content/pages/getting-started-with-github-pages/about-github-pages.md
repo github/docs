@@ -137,5 +137,5 @@ Quando um site de {% data variables.product.prodname_pages %} é acessado, o end
 
 ## Leia mais
 
-- [{% data variables.product.prodname_pages %}](https://lab.github.com/githubtraining/github-pages) em {% data variables.product.prodname_learning %}
+- [{% data variables.product.prodname_pages %}](https://github.com/skills/github-pages) em {% data variables.product.prodname_learning %}
 - "[{% data variables.product.prodname_pages %}](/rest/reference/repos#pages)"

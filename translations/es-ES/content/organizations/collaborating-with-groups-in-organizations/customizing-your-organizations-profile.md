@@ -11,7 +11,7 @@ topics:
 shortTitle: Personalizar el perfil de una organización
 ---
 
-{% if org-profile-pin-private %}
+{% ifversion org-profile-pin-private %}
 
 ## Acerca de la página de perfil de la organización
 
@@ -45,7 +45,7 @@ Puedes formatear el texto e incluir emojis, imágenes y GIFs en el README del pe
 
    ![Imagen de un README público de una organización](/assets/images/help/organizations/org_public_readme.png)
 
-{% if org-profile-pin-private %}
+{% ifversion org-profile-pin-private %}
 
 ## Agregar un README de perfil de organización solo para miembros
 

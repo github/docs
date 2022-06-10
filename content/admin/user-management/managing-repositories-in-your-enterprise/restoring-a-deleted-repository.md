@@ -1,6 +1,7 @@
 ---
 title: Restoring a deleted repository
-intro: Site administrators can restore deleted repositories to recover their contents.
+intro: You can restore deleted repositories to recover their contents.
+permissions: Enterprise owners can restore a deleted repository.
 versions:
   ghes: '*'
   ghae: '*'
@@ -10,9 +11,12 @@ topics:
   - Repositories
 shortTitle: Restore a deleted repository
 ---
-Usually, if someone deletes a repository, it will be available on disk for 90 days and can be restored via the site admin dashboard. Unless a legal hold is in effect on a user or organization, after 90 days the repository is purged and deleted forever.
 
 ## About repository restoration
+
+Usually, if someone deletes a repository, it will be available on disk for 90 days and can be restored via the site admin dashboard. For more information, see "[Site admin dashboard](/admin/configuration/configuring-your-enterprise/site-admin-dashboard)."
+
+Unless a legal hold is in effect on a user or organization, after 90 days the repository is purged and deleted forever.
 
 If a repository was part of a fork network when it was deleted, the restored repository will be detached from the original fork network.
 

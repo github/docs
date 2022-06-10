@@ -1,6 +1,6 @@
 ---
 title: Monitorear tus jobs actuales
-intro: 'Monitor how {% data variables.product.prodname_dotcom %}-hosted runners are processing jobs in your organization or enterprise, and identify any related constraints.'
+intro: 'Monitorea cómo los ejecutores hospedados en {% data variables.product.prodname_dotcom %} procesan jobs en tu organización o empresa e identifican cualquier limitación relacionada.'
 versions:
   feature: github-runner-dashboard
 shortTitle: Monitorear tus jobs actuales
@@ -9,15 +9,15 @@ shortTitle: Monitorear tus jobs actuales
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## Viewing active jobs in your organization or enterprise
+## Ver los jobs activos en tu organización o empresa
 
-You can get a list of all jobs currently running on {% data variables.product.prodname_dotcom %}-hosted runners in your organization or enterprise.
+Puedes obtener una lista de todos los jobs que se ejecutan actualmente en los ejecutores hospedados en {% data variables.product.prodname_dotcom %} en tu organización o empresa.
 
 {% data reusables.actions.github-hosted-runners-navigate-to-repo-org-enterprise %}
 {% data reusables.actions.github-hosted-runners-table-entry %}
-1. Review the "Active jobs" section, which contains a list of all jobs currently running on {% data variables.product.prodname_dotcom %}-hosted runners.
+1. Revisa la sección de "Jobs activos", la cual contiene una lista de todos los jobs que actualmente se ejecutan en los ejecutores hospedados en {% data variables.product.prodname_dotcom %}.
 
-  ![Screenshot of the list of active jobs](/assets/images/help/settings/actions-runner-active-jobs.png)
+  ![Captura de pantalla de la lista de jobs activos](/assets/images/help/settings/actions-runner-active-jobs.png)
 
 ## Ver los jobs en cola en tu organización o empresa
 

@@ -4,6 +4,73 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "Type `SecurityAdvisoryClassification` was added",
+          "Type 'ProjectV2Owner' was removed",
+          "`Issue` object type no longer implements 'ProjectV2Owner' interface",
+          "`Organization` object type no longer implements 'ProjectV2Owner' interface",
+          "`PullRequest` object type no longer implements 'ProjectV2Owner' interface",
+          "Argument 'classifications: [SecurityAdvisoryClassification!]` added to field `Query.securityAdvisories'",
+          "Argument 'classifications: [SecurityAdvisoryClassification!]` added to field `Query.securityVulnerabilities'",
+          "Field `classification` was added to object type `SecurityAdvisory`",
+          "Argument 'classifications: [SecurityAdvisoryClassification!]` added to field `SecurityAdvisory.vulnerabilities'",
+          "`User` object type no longer implements 'ProjectV2Owner' interface"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-06-06"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Field `viewerIsFollowing` was added to object type `Organization`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-05-31"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Type `ExternalIdentityAttribute` was added",
+          "Type `IssueClosedStateReason` was added",
+          "Type `IssueStateReason` was added",
+          "Member `App` was added to Union type `BranchActorAllowanceActor`",
+          "Input field `stateReason` was added to input object type `CloseIssueInput`",
+          "Field `stateReason` was added to object type `ClosedEvent`",
+          "Field `attributes` was added to object type `ExternalIdentitySamlAttributes`",
+          "Field `stateReason` was added to object type `Issue`",
+          "Enum value 'FAILED_VALIDATION` was added to enum `MigrationState'",
+          "Enum value 'PENDING_VALIDATION` was added to enum `MigrationState'",
+          "Field `stateReason` was added to object type `ReopenedEvent`",
+          "Member `App` was added to Union type `ReviewDismissalAllowanceActor`",
+          "Input field `StartRepositoryMigrationInput.accessToken` changed type from `String` to `String!`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [
+      {
+        "title": "The following changes will be made to the schema:",
+        "changes": [
+          "On member `RemovePullRequestFromMergeQueueInput.branch`:`branch` will be removed. **Effective 2022-10-01**."
+        ]
+      }
+    ],
+    "date": "2022-05-29"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "Type `FollowOrganizationInput` was added",
           "Type `FollowOrganizationPayload` was added",
           "Type `UnfollowOrganizationInput` was added",

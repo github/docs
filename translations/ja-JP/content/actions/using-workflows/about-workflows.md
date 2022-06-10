@@ -124,7 +124,7 @@ jobs:
 
 For more information, see "[Using a matrix for your jobs](/actions/using-jobs/using-a-matrix-for-your-jobs)."
 
-{% if actions-caching %}
+{% ifversion actions-caching %}
 ### 依存関係のキャッシング
 
 If your jobs regularly reuse dependencies, you can consider caching these files to help improve performance. キャッシュが作成されると、同じリポジトリ内のすべてのワークフローで使用できるようになります。

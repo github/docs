@@ -111,7 +111,7 @@ core.setOutput('SELECTED_COLOR', 'green');
 | `core.getInput`       | 可使用环境变量 `INPUT_{NAME}` 访问                                  |
 | `core.getState`       | 可使用环境变量 `STATE_{NAME}` 访问                                  |
 | `core.isDebug`        | 可使用环境变量 `RUNNER_DEBUG` 访问                                  |
-{%- if actions-job-summaries %}
+{%- ifversion actions-job-summaries %}
 | `core.summary` | 可使用环境变量 `GITHUB_STEP_SUMMARY` 访问 |
 {%- endif %}
 | `core.saveState`  | `save-state` | | `core.setCommandEcho` | `echo` | | `core.setFailed`  | Used as a shortcut for `::error` and `exit 1` | | `core.setOutput`  | `set-output` | | `core.setSecret`  | `add-mask` | | `core.startGroup` | `group` | | `core.warning`    | `warning` |
@@ -656,7 +656,7 @@ steps:
 
 {% endpowershell %}
 
-{% if actions-job-summaries %}
+{% ifversion actions-job-summaries %}
 
 ## 添加作业摘要
 

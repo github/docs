@@ -12,7 +12,7 @@ redirect_from:
 
 {% data variables.product.prodname_classroom %}の設定や使い方について、手短なビデオチュートリアルのシリーズをご覧いただけます。 すべてのビデオをプレイリストで再生したい場合は、YouTube上の[{% data variables.product.prodname_classroom %} Getting Started Guide](https://www.youtube.com/playlist?list=PLIRjfNq867bewk3ZGV6Z7a16YDNRCpK3u)を参照してください。
 
-{% data variables.product.prodname_classroom %}の用語に関する詳細については、「[用語集](/education/manage-coursework-with-github-classroom/glossary)」を参照してください。
+For more information about terminology for {% data variables.product.prodname_classroom %}, see "[Glossary](/education/manage-coursework-with-github-classroom/glossary)."
 
 1. <a href="https://youtu.be/xVVeqIDgCvM" target="_blank">はじめに</a> {% octicon "link-external" aria-label="The external link icon" %}
 2. <a href="https://youtu.be/DTzrKduaHj8" target="_blank">学生の名簿を追加する</a> {% octicon "link-external" aria-label="The external link icon" %}
