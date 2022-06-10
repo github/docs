@@ -5,6 +5,7 @@ redirect_from:
   - /articles/why-are-my-contributions-not-showing-up-on-my-profile
   - /github/setting-up-and-managing-your-github-profile/why-are-my-contributions-not-showing-up-on-my-profile
   - /github/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/why-are-my-contributions-not-showing-up-on-my-profile
+  - /account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/why-are-my-contributions-not-showing-up-on-my-profile
 versions:
   fpt: '*'
   ghes: '*'
@@ -80,7 +81,7 @@ If the email address used for the commit is not connected to your account on {% 
 
 コミットがデフォルト以外または `gh-pages` 以外のブランチにあり、コントリビューションにカウントする場合は、以下のうち 1 つを行う必要があります:
 - 変更をデフォルトのブランチまたは `gh-pages` ブランチにマージするには、[プルリクエストを開きます](/articles/creating-a-pull-request)。
-- リポジトリの[デフォルトブランチを変更します](/github/administering-a-repository/changing-the-default-branch)。
+- [Change the default branch](/github/administering-a-repository/changing-the-default-branch) of the repository.
 
 {% warning %}
 
@@ -92,7 +93,7 @@ If the email address used for the commit is not connected to your account on {% 
 
 フォークで行われたコミットは、 コントリビューションにはカウントされません。 カウントには、次のいずれかを実行する必要があります:
 - 変更内容を親リポジトリにマージするために、[プルリクエストを開きます](/articles/creating-a-pull-request)。
-- フォークをデタッチして、{% data variables.product.product_location %} 上のスタンドアロンリポジトリに変換するために、{% data variables.contact.contact_support %} に連絡してください。 フォークに独自のフォークがある場合は、フォークがリポジトリと一緒に新しいネットワークに移動するのか、現在のネットワークに残るのかを {% data variables.contact.contact_support %}に連絡してください。 詳細は「[フォークについて](/articles/about-forks/)」を参照してください。
+- To detach the fork and turn it into a standalone repository on {% data variables.product.product_location %}, contact {% data variables.contact.contact_support %}. If the fork has forks of its own, let {% data variables.contact.contact_support %} know if the forks should move with your repository into a new network or remain in the current network. 詳細は「[フォークについて](/articles/about-forks/)」を参照してください。
 
 ## 参考リンク
 
