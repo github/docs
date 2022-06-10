@@ -2,7 +2,7 @@ import { jest } from '@jest/globals'
 import fs from 'fs/promises'
 import revalidator from 'revalidator'
 import semver from 'semver'
-import { allVersions } from '../../lib/all-versions.js'
+import { allVersions, allVersionShortnames } from '../../lib/all-versions.js'
 import { supported, next, nextNext, deprecated } from '../../lib/enterprise-server-releases.js'
 import { getLiquidConditionals } from '../../script/helpers/get-liquid-conditionals.js'
 import allowedVersionOperators from '../../lib/liquid-tags/ifversion-supported-operators.js'
@@ -11,18 +11,20 @@ import walkFiles from '../../script/helpers/walk-files'
 import frontmatter from '../../lib/frontmatter.js'
 import loadSiteData from '../../lib/site-data.js'
 
-const versionShortNames = Object.values(allVersions).map((v) => v.shortName)
-const versionShortNameExceptions = ['ghae-next', 'ghae-issue-']
+/*
+  NOTE: This test suite does NOT validate the `versions` frontmatter in content files.
+  That's because lib/page.js validates frontmatter when loading all the pages (which happens
+  when running npm start or tests) and throws an error immediately if there are any issues.
+  This test suite DOES validate the data/features `versions` according to the same FM schema.
+  Some tests/unit/page.js tests also exercise the frontmatter validation.
+*/
 
 jest.useFakeTimers('legacy')
 
 const siteData = loadSiteData()
 const featureVersions = Object.entries(siteData.en.site.data.features)
 const featureVersionNames = featureVersions.map((fv) => fv[0])
-
-const versionKeywords = versionShortNames
-  .concat(['currentVersion', 'enterpriseServerReleases'])
-  .concat(featureVersionNames)
+const allowedVersionNames = Object.keys(allVersionShortnames).concat(featureVersionNames)
 
 // Make sure data/features/*.yml contains valid versioning.
 describe('lint feature versions', () => {
@@ -79,7 +81,7 @@ describe('lint Liquid versioning', () => {
     // Now that `ifversion` supports feature-based versioning, we should have few other `if` tags.
     test('ifversion, not if, is used for versioning', async () => {
       const ifsForVersioning = ifConditionals.filter((cond) =>
-        versionKeywords.some((keyword) => cond.includes(keyword))
+        allowedVersionNames.some((keyword) => cond.includes(keyword))
       )
       const errorMessage = `Found ${
         ifsForVersioning.length
@@ -98,12 +100,16 @@ describe('lint Liquid versioning', () => {
   })
 })
 
+// Return true if the shortname in the conditional is supported (fpt, ghec, ghes, ghae, all feature names).
+// If not, see if the shortname matches any exception pattern defined in lib/all-versions.js.
 function validateVersion(version) {
-  return (
-    versionShortNames.includes(version) ||
-    versionShortNameExceptions.some((exception) => version.startsWith(exception)) ||
-    featureVersionNames.includes(version)
+  const isSupported = allowedVersionNames.includes(version)
+  const isException = Object.values(allVersions).some(
+    (v) => v.allowedInlinePattern && new RegExp(v.allowedInlinePattern).test(version)
   )
+  const isValid = isSupported || isException
+
+  return isValid
 }
 
 function validateIfversionConditionals(conds) {
