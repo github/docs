@@ -31,9 +31,9 @@ Ações são frequentemente atualizadas com correções de bugs e novos recursos
 
 ## Habilitando {% data variables.product.prodname_dependabot_version_updates %} para ações
 
-You can configure {% data variables.product.prodname_dependabot_version_updates %} to maintain your actions as well as the libraries and packages you depend on.
+Você pode configurar {% data variables.product.prodname_dependabot_version_updates %} para manter suas ações, bem como as bibliotecas e pacotes dos quais você depende.
 
-1. If you have already enabled {% data variables.product.prodname_dependabot_version_updates %} for other ecosystems or package managers, simply open the existing *dependabot.yml* file. Otherwise, create a *dependabot.yml* configuration file in the `.github` directory of your repository. For more information, see "[Configuring Dependabot version updates](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates#enabling-dependabot-version-updates)."
+1. Se você já habilitou {% data variables.product.prodname_dependabot_version_updates %} para outros ecossistemas ou gerentes de pacotes, basta abrir o arquivo *dependabot.yml* existente. Caso contrário, crie um arquivo de configuração *dependabot.yml* no diretório `.github` do seu repositório. Para obter mais informações, consulte "[Configurando as atualizações da versão do Dependabot](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates#enabling-dependabot-version-updates)".
 1. Especifique `"github-actions"` como um `package-ecosystem` para monitorar.
 1. Defina o `directory` como `"/"` para verificar os arquivos de fluxo de trabalho em `.github/workflows`.
 1. Defina um `schedule.interval` para especificar quantas vezes procurar por novas versões.

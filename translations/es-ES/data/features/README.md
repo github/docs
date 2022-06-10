@@ -21,7 +21,7 @@ El formato y los valores permitidos son los mismos que en la [propiedad prelimin
 
 ### Condicionales líquidas
 
-¡Ahora puedes utilizar `{% if meow %} ... {% endif %}` en los archivos de contenido! Toma en cuenta que esta es la etiqueta `if` y no la `ifversion`.
+¡Ahora puedes utilizar `{% ifversion meow %} ... {% endif %}` en los archivos de contenido!
 
 ### Preliminar
 

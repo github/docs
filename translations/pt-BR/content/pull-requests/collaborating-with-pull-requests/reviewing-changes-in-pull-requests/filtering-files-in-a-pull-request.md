@@ -1,6 +1,6 @@
 ---
 title: Filtrar arquivos em uma pull request
-intro: 'Para ajudar você a revisar rapidamente as alterações em grande pull request, você pode filtrar arquivos alterados{% if pr-tree-view %} ou usar a árvore de arquivos para navegar entre os arquivos{% endif %}.'
+intro: 'Para ajudar você a revisar rapidamente as alterações em grande pull request, você pode filtrar arquivos alterados{% ifversion pr-tree-view %} ou usar a árvore de arquivos para navegar entre os arquivos{% endif %}.'
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/reviewing-changes-in-pull-requests/filtering-files-in-a-pull-request
   - /articles/filtering-files-in-a-pull-request-by-file-type
@@ -17,7 +17,7 @@ topics:
 shortTitle: Filtrar arquivos
 ---
 
-Você pode filtrar arquivos em um pull request por tipo de extensão de arquivo, como `. tml` ou `.js`, falta de extensão, propriedade de código ou dotfiles.{% if pr-tree-view %} Você também pode usar a árvore de arquivos para filtrar por caminho de arquivo, navegar entre arquivos ou ver uma visão de alto nível os arquivos alterados.{% endif %}
+Você pode filtrar arquivos em um pull request por tipo de extensão de arquivo, como `. tml` ou `.js`, falta de extensão, propriedade de código ou dotfiles.{% ifversion pr-tree-view %} Você também pode usar a árvore de arquivos para filtrar por caminho de arquivo, navegar entre arquivos ou ver uma visão de alto nível os arquivos alterados.{% endif %}
 
 ## Usando o menu de filtros de arquivo
 
@@ -33,7 +33,7 @@ Você pode filtrar arquivos em um pull request por tipo de extensão de arquivo,
 4. Use o menu suspenso File filter (Filtro de arquivo) e selecione, desmarque ou clique nos filtros desejados. ![Opção File filter (Filtro de arquivo) acima do diff da pull request](/assets/images/help/pull_requests/file-filter-option.png)
 5. Como opção, para limpar a seleção de filtro, abaixo da aba **Files changed** (Arquivos alterados) clique em **Clear** (Limpar). ![Limpar a seleção File filter (Filtro de arquivo)](/assets/images/help/pull_requests/clear-file-filter.png)
 
-{% if pr-tree-view %}
+{% ifversion pr-tree-view %}
 ## Usando a árvore de arquivos
 
 {% data reusables.repositories.sidebar-pr %}

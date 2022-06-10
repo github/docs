@@ -40,7 +40,7 @@ When the instance is in maintenance mode, all normal HTTP and Git access is refu
 
 ![The maintenance mode splash screen](/assets/images/enterprise/maintenance/maintenance-mode-maintenance-page.png)
 
-{% if ip-exception-list %}
+{% ifversion ip-exception-list %}
 
 You can perform initial validation of your maintenance operation by configuring an IP exception list to allow access to {% data variables.product.product_location %} from only the IP addresses and ranges provided. Attempts to access {% data variables.product.product_location %} from IP addresses not specified on the IP exception list will receive a response consistent with those sent when the instance is in maintenance mode. 
 
@@ -61,7 +61,7 @@ You can perform initial validation of your maintenance operation by configuring 
   ![Checkbox for enabling or scheduling maintenance mode](/assets/images/enterprise/maintenance/enable-maintenance-mode-checkbox.png)
 {% data reusables.enterprise_management_console.save-settings %}
 
-{% if ip-exception-list %}
+{% ifversion ip-exception-list %}
 
 ## Validating changes in maintenance mode using the IP exception list
 

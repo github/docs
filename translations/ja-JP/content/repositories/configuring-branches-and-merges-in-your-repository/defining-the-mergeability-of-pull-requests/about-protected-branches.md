@@ -50,7 +50,7 @@ topics:
 {% ifversion fpt or ghec %}
 - [Require merge queue](#require-merge-queue)
 {% endif %}
-{%- if required-deployments %}
+{%- ifversion required-deployments %}
 - [Require deployments to succeed before merging](#require-deployments-to-succeed-before-merging)
 {%- endif %}
 - [管理者を含める](#include-administrators)
@@ -164,7 +164,7 @@ You can enable branch restrictions if your repository is owned by an organizatio
 
 ブランチ制限を有効にすると、権限を与えられたユーザ、チーム、またはアプリのみが保護されたブランチにプッシュできます。 保護されたブランチの設定で、保護されたブランチへのプッシュアクセスを使用して、ユーザ、チーム、またはアプリを表示および編集できます。 When status checks are required, the people, teams, and apps that have permission to push to a protected branch will still be prevented from merging into the branch when the required checks fail. People, teams, and apps that have permission to push to a protected branch will still need to create a pull request when pull requests are required.
 
-{% if restrict-pushes-create-branch %}
+{% ifversion restrict-pushes-create-branch %}
 Optionally, you can apply the same restrictions to the creation of branches that match the rule. For example, if you create a rule that only allows a certain team to push to any branches that contain the word `release`, only members of that team would be able to create a new branch that contains the word `release`.
 {% endif %}
 

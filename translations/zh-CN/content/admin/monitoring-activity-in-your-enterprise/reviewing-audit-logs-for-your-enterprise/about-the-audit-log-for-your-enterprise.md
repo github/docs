@@ -36,6 +36,9 @@ topics:
 作为企业所有者{% ifversion ghes %} 或站点管理员{% endif %}，您可以通过多种方式与企业的审核日志数据进行交互：
 - 您可以查看企业的审核日志。 更多信息请参阅“[访问企业的审核日志](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for-your-enterprise)”。
 - 您可以在审核日志中搜索特定事件{% ifversion ghec %} 并导出审核日志数据{% endif %}。 更多信息请参阅“[搜索企业的审核日志](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/searching-the-audit-log-for-your-enterprise)”{% ifversion ghec %} 和“[导出企业的审核日志](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/exporting-audit-log-activity-for-your-enterprise)”{% endif %}。
+{%- ifversion enterprise-audit-log-ip-addresses %}
+- 您可以在审核日志中显示与事件关联的 IP 地址。 更多信息请参阅“[在企业的审核日志中显示 IP 地址](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/displaying-ip-addresses-in-the-audit-log-for-your-enterprise)”。
+{%- endif %}
 {%- ifversion ghec %}
 - 您可以将审核和 Git 事件数据从 {% data variables.product.prodname_dotcom %} 流式传输到外部数据管理系统。 更多信息请参阅“[流式传输企业的审核日志](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise)”。
 {%- else %}

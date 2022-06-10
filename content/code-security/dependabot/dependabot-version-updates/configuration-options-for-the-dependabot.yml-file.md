@@ -280,6 +280,10 @@ updates:
       prefix-development: "pip dev"
       include: "scope"
 ```
+If you use the same configuration as in the example above, bumping the `requests` library in the `pip` development dependency group will generate a commit message of:
+
+   `pip dev: bump requests from 1.0.0 to 1.0.1`
+   
 ### `ignore`
 
 {% data reusables.dependabot.default-dependencies-allow-ignore %}
@@ -298,7 +302,7 @@ For more information about the `@dependabot ignore` commands, see "[Managing pul
 
 You can use the `ignore` option to customize which dependencies are updated. The `ignore` option supports the following options.
 
-- `dependency-name`—use to ignore updates for dependencies with matching names, optionally using `*` to match zero or more characters. For Java dependencies, the format of the `dependency-name` attribute is: `groupId:artifactId` (for example: `org.kohsuke:github-api`). {% if dependabot-grouped-dependencies %} To prevent {% data variables.product.prodname_dependabot %} from automatically updating TypeScript type definitions from DefinitelyTyped, use `@types/*`.{% endif %}
+- `dependency-name`—use to ignore updates for dependencies with matching names, optionally using `*` to match zero or more characters. For Java dependencies, the format of the `dependency-name` attribute is: `groupId:artifactId` (for example: `org.kohsuke:github-api`). {% ifversion dependabot-grouped-dependencies %} To prevent {% data variables.product.prodname_dependabot %} from automatically updating TypeScript type definitions from DefinitelyTyped, use `@types/*`.{% endif %}
 - `versions`—use to ignore specific versions or ranges of versions. If you want to define a range, use the standard pattern for the package manager (for example: `^1.0.0` for npm, or `~> 2.0` for Bundler).
 - `update-types`—use to ignore types of updates, such as semver `major`, `minor`, or `patch` updates on version updates (for example: `version-update:semver-patch` will ignore patch updates). You can combine this with `dependency-name: "*"` to ignore particular `update-types` for all dependencies. Currently, `version-update:semver-major`, `version-update:semver-minor`, and `version-update:semver-patch` are the only supported options. Security updates are unaffected by this setting.
 

@@ -47,7 +47,7 @@ Se você não quiser manter uma infraestrutura separada para um Gateway da API, 
 Existem várias desvantagens nessa abordagem:
 
 - Para chegar ao WireGuard em execução em seu serviço privado, você precisará de um endereço IP bem conhecido e porta aos quais o seu fluxo de trabalho pode fazer referência: pode ser um endereço IP e porta IP públicos, um mapeamento de porta em um gateway de rede ou um serviço que atualiza dinamicamente o DNS.
-- WireGuard doesn't handle NAT traversal out of the box, so you'll need to identify a way to provide this service.
+- O WireGuard não lida com a deslocamento do NAT de forma inovadora. Portanto, você deverá identificar uma maneira de fornecer esse serviço.
 - Esta conexão é de um para um, por isso, se você precisa de alta disponibilidade ou alta produtividade, você precisará construir isso no WireGuard.
 - Você precisará gerar e armazenar as chaves com segurança para o executor e para o seu serviço privado. O WireGuard usa UDP. Portanto, sua rede deve ser compatível com o tráfego do UDP.
 
@@ -99,6 +99,6 @@ O Tailscale é um produto comercial criado sobre o WireGuard. Esta opção é mu
 
 As desvantagens são semelhantes ao WireGuard: A conexão é de uma para outra, por isso você pode precisar fazer trabalho adicional por alta disponibilidade ou por altas velocidades. Você ainda precisa gerar e armazenar as chaves de forma segura. O protocolo ainda é UDP, então sua rede deve ser compatível com o tráfego do UDP.
 
-However, there are some advantages over WireGuard: NAT traversal is built-in, so you don't need to expose a port to the public internet. É de longe a mais rápida dessas opções para colocar em funcionamento, já que o Tailscale fornece um fluxo de trabalho de {% data variables.product.prodname_actions %} com um único passo para conectar à rede de sobreposição.
+No entanto, existem algumas vantagens sobre o WireGuard: o deslocamento do NAT é incorporado, então você não precisa expor uma porta à internet pública. É de longe a mais rápida dessas opções para colocar em funcionamento, já que o Tailscale fornece um fluxo de trabalho de {% data variables.product.prodname_actions %} com um único passo para conectar à rede de sobreposição.
 
 Para obter mais informações, consulte [GitHub Action do Tailscale](https://github.com/tailscale/github-action), assim como "[Segredos criptografados](/actions/security-guides/encrypted-secrets)" para saber como armazenar as chaves com segurança.

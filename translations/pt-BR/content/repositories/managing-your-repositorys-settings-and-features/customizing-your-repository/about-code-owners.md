@@ -54,7 +54,7 @@ Um arquivo CODEOWNERS usa um padrão que segue a maioria das mesmas regras usada
 
 Os caminhos dos CODEOWNERS diferenciam maiúsculas de minúsculas, porque {% data variables.product.prodname_dotcom %} usa um sistema de arquivos que diferencia maiúsculas e minúsculas. Uma vez que os CODEOWNERS são avaliados por {% data variables.product.prodname_dotcom %}, até mesmo sistemas que diferenciam maiúsculas de minúsculas (por exemplo, macOS) devem usar caminhos e arquivos que são tratados corretamente no arquivo dos CODEOWNERS.
 
-{% if codeowners-errors %}
+{% ifversion codeowners-errors %}
 Se alguma linha do seu arquivo do CODEOWNERS contiver uma sintaxe inválida, essa linha será ignorada. Ao acessar o arquivo do CODEOWNERS no seu repositório em {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, você poderá ver todos os erros destacados. Uma lista de erros no arquivo CODEOWNERS de um repositório também pode ser acessada por meio da API. Para obter mais informações, consulte "[Repositórios](/rest/reference/repos#list-codeowners-errors)" na documentação da API REST.
 {% else %}
 Se qualquer linha do seu arquivo CODEOWNERS contiver uma sintaxe inválida, o arquivo não será detectado e não será usado para solicitar revisões.

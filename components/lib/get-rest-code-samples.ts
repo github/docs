@@ -42,7 +42,7 @@ export function getShellExample(operation: Operation, codeSample: CodeSample) {
 
   const args = [
     operation.verb !== 'get' && `-X ${operation.verb.toUpperCase()}`,
-    `-H "Accept: ${defaultAcceptHeader}"`,
+    `-H "Accept: ${defaultAcceptHeader}" \\ \n  -H "Authorization: token <TOKEN>"`,
     `${operation.serverUrl}${requestPath}`,
     requestBodyParams,
   ].filter(Boolean)

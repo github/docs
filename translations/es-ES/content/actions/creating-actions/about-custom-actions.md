@@ -26,7 +26,7 @@ topics:
 Puedes crear acciones por medio de a escritura de un código personalizado que interactúe con tu repositorio de la manera que desees, incluida la integración con las API de {% data variables.product.prodname_dotcom %} y cualquier API de terceros disponible públicamente. Por ejemplo, una acción puede publicar módulos npm, enviar alertas por SMS cuando se crean propuestas urgentes o implementar un código listo para producción.
 
 {% ifversion fpt or ghec %}
-Puedes escribir tus propias acciones para usar en tu flujo de trabajo o compartir las acciones que crees con la comunidad {% data variables.product.prodname_dotcom %}. Para compartir las acciones que creaste con todos, tu repositorio debe ser público. {% if internal-actions %}Para compartir las acciones únicamente con tu empresa, tu repositorio debe ser interno.{% endif %}
+Puedes escribir tus propias acciones para usar en tu flujo de trabajo o compartir las acciones que crees con la comunidad {% data variables.product.prodname_dotcom %}. Para compartir las acciones que creaste con todos, tu repositorio debe ser público. {% ifversion internal-actions %}Para compartir las acciones únicamente con tu empresa, tu repositorio debe ser interno.{% endif %}
 {% endif %}
 
 Las acciones pueden ejecutarse directamente en una máquina o en un contenedor Docker. Puedes definir las entradas, salidas y variables de entorno de una acción.

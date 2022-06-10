@@ -6,8 +6,8 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-  redirect_from:
-    - /github/writing-on-github/working-with-advanced-formatting/using-keywords-in-issues-and-pull-requests
+redirect_from:
+  - /github/writing-on-github/working-with-advanced-formatting/using-keywords-in-issues-and-pull-requests
 topics:
   - Issues
   - Pull requests

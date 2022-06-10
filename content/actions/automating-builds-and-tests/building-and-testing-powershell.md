@@ -104,7 +104,7 @@ The table below describes the locations for various PowerShell modules in each {
 
 {% endnote %}
 
-{% if actions-caching %}You can also cache dependencies to speed up your workflow. For more information, see "[Caching dependencies to speed up workflows](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."{% endif %}
+{% ifversion actions-caching %}You can also cache dependencies to speed up your workflow. For more information, see "[Caching dependencies to speed up workflows](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."{% endif %}
 
 For example, the following job installs the `SqlServer` and `PSScriptAnalyzer` modules:
 
@@ -128,7 +128,7 @@ jobs:
 
 {% endnote %}
 
-{% if actions-caching %}
+{% ifversion actions-caching %}
 
 ### Caching dependencies
 
