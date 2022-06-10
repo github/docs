@@ -186,9 +186,9 @@ sections:
       heading: Secret scanningはアーカイブされたリポジトリをサポートしました
       notes:
         - |
-          GitHub Advanced Security customers can now enable secret scanning for archived repositories via the UI and API. For more information, see "[About secret scanning](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-private-repositories)," "[About archived repositories](/repositories/archiving-a-github-repository/archiving-repositories)," and "[Repositories](/rest/repos/repos#update-a-repository)" in the REST API documentation.
+          GitHub Advanced Securityのお客様は、UI及びAPIを通じてアーカイブされたリポジトリのSecret scanningを有効化できるようになりました。詳しい情報については「[Secret scanningについて](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-private-repositories)」、「[アーカイブされたリポジトリについて](/repositories/archiving-a-github-repository/archiving-repositories)」、REST APIドキュメンテーションの「[リポジトリ](/rest/repos/repos#update-a-repository)」を参照してください。
     - 
-      heading: Secret scanning webhooks for alert locations
+      heading: アラートの場所に関するSecret scanningのwebhook
       notes:
         - |
           GitHub Advanced Security customers using secret scanning can now opt to receive a webhook each time a secret is detected in a new location. The `secret_scanning_alert_location` webhook event includes location details, like the commit SHA, and the associated alert for the detection. A location is created for every new file path containing the detected secret. For more information, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#secret_scanning_alert_location)."
