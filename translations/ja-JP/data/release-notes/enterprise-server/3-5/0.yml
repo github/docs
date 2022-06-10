@@ -105,78 +105,78 @@ sections:
       heading: ワークフローに制限によるGitHub Actionsのためのセルフホストランナーの保護
       notes:
         - |
-          Organization owners can now increase the security of CI/CD workflows on self-hosted runners by choosing which workflows can access a runner group. Previously, any workflow in a repository, such as an issue labeler, could access the self-hosted runners available to an organization. For more information, see "[Managing access to self-hosted runners using groups](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#changing-what-workflows-can-access-a-runner-group)" and the [GitHub Blog](https://github.blog/2022-03-23-github-actions-secure-self-hosted-runners-specific-workflows/).
+          Organizationのオーナーは、セルフホストランナー上のCI/CDワークフローのセキュリティを、ランナーグループにアクセスできるワークフローを選択することによって向上させられるようになりました。以前は、Issueへのラベル付けなど、リポジトリ内の任意のワークフローがOrganizationで利用できるセルフホストランナーにアクセスできました。詳しい情報については「[グループを使ったセルフホストランナーへのアクセスの管理](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#changing-what-workflows-can-access-a-runner-group)」及び[GitHub Blog](https://github.blog/2022-03-23-github-actions-secure-self-hosted-runners-specific-workflows/)を参照してください。
     - 
-      heading: Prevent GitHub Actions from approving pull requests
+      heading: GitHub ActionsによるPull Requestの承認の回避
       notes:
         - |
-          You can now control whether GitHub Actions can approve pull requests. This feature protects against a user using GitHub Actions to satisfy the "Required approvals" branch protection requirement and merging a change that was not reviewed by another user. To prevent breaking existing workflows, **Allow GitHub Actions reviews to count towards required approval** is enabled by default. Organization owners can disable the feature in the organization's GitHub Actions settings. For more information, see "[Disabling or limiting GitHub Actions for your organization](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#preventing-github-actions-from-approving-pull-requests)."
+          GitHub ActionsがPull Requestを承認できるかを制御できるようになりました。この機能は、ユーザがGitHub Actionsを使って"Required approvals（必須の承認）"ブランチ保護要求を満たし、他のユーザがレビューしてない変更をマージしてしまうことに対する保護になります。既存のワークフローを壊してしまわないように、**Allow GitHub Actions reviews to count towards required approval　（GitHub Actionsレビューを必須の承認に対してカウントすることの許可）**はデフォルトで有効になっています。Organizationのオーナーはこの機能をOrganizationのGitHub Actions設定で無効化できます。詳しい情報については「[OrganizationでのGitHub Actionsの無効化もしくは制限(/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#preventing-github-actions-from-approving-pull-requests)」を参照してください。
     - 
-      heading: Re-run failed or individual GitHub Actions jobs
+      heading: 失敗もしくは個々のGitHub Actionsのジョブの再実行
       notes:
         - |
-          You can now re-run only failed jobs or an individual job in a GitHub Actions workflow run. For more information, see "[Re-running workflows and jobs](/actions/managing-workflow-runs/re-running-workflows-and-jobs)."
+          失敗したジョブ、あるいはGitHub Actionsワークフローの実行中の個別のジョブだけを再実行できるようになりました。詳しい情報については「[ワークフローとジョブの再実行](/actions/managing-workflow-runs/re-running-workflows-and-jobs)」を参照してください。
     - 
-      heading: Dependency graph supports GitHub Actions
+      heading: 依存関係グラフによるGitHub Actionsのサポート
       notes:
         - |
-          The dependency graph now detects YAML files for GitHub Actions workflows. GitHub Enterprise Server will display the workflow files within the **Insights** tab's dependency graph section. Repositories that publish actions will also be able to see the number of repositories that depend on that action from the "Used By" control on the repository homepage. For more information, see "[About the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)."
+          依存関係グラフは、GitHub ActionsワークフローのYAMLファイルを検出するようになりました。GitHub Enterprise Serverは、**Insights**タブの依存関係グラフセクションの中にワークフローファイルを表示します。アクションを公開するリポジトリは、リポジトリのホームページの"Used By（利用先）"コントロールからそのアクションに依存しているリポジトリ数を見ることができるようにもなりました。詳しい情報については「[依存関係グラフについて](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)」を参照してください。
     - 
-      heading: Security overview for enterprises in public beta
+      heading: Enterpriseのセキュリティ概要のパブリックベータ
       notes:
         - |
-          GitHub Advanced Security customers can now view an overview of security alerts at the enterprise level. The new **Security** tab at the enterprise level provides a repository-centric view of application security risks, as well as an alert-centric view of all secret scanning alerts. For more information, see "[About the security overview](/code-security/security-overview/about-the-security-overview)."
+          GitHub Advanced Securityのお客様は、Enterpriseレベルでセキュリティアラートの概要を見ることができるようになりました。Enterpriseレベルの新たな**Security**タブは、アプリケーションのセキュリティリスクのリポジトリ中心のビューとともに、すべてのSecret scanningアラートのアラート中心のビューを提供します。詳しい情報については「[セキュリティの概要について](/code-security/security-overview/about-the-security-overview)」を参照してください。
     - 
-      heading: Security view for organizations is generally available
+      heading: Organizationのセキュリティビューの一般提供
       notes:
         - |
-          The overview of security alerts at the organization level is now generally available. GitHub Advanced Security customers can use the security overview to view a repository-centric view of application security risks, or an alert-centric view of all code scanning, Dependabot, and secret scanning alerts for all repositories in an organization. For more information, see "[About the security overview](/code-security/security-overview/about-the-security-overview)."
+          Organizationレベルのセキュリティアラートの概要が、一般提供になりました。GitHub Advanced Securityのお客様は、セキュリティの概要を使ってアプリケーションのセキュリティリスクのリポジトリ中心のビューを見たり、Organization内のすべてのリポジトリに対するCode scanning、Dependabot、Secret scanningのすべてのアラートのアラート中心のビューを見たりすることができます。詳しい情報については「[セキュリティの概要について](/code-security/security-overview/about-the-security-overview)」を参照してください。
     - 
-      heading: Code scanning detects more security issues, supports new language versions
+      heading: Code scanningはより多くのセキュリティの問題を検出し、新しい言語のバージョンをサポート
       notes:
         - |
-          Code scanning now detects a larger number of CWEs, and CodeQL code scanning fully supports the standard language features in the following language releases.
+          Code scanningは多くのCWEを検出するようになり、CodeQLによるコードスキャンニングは以下の言語のリリースの標準的な言語機能を完全にサポートします。
 
           - C# 10 / .NET 6
           - Python 3.10
           - Java 17
           - TypeScript 4.5
 
-          For more information, see the [GitHub Blog](https://github.blog/changelog/2022-02-25-code-scanning-detects-more-security-issues-supports-new-language-versions/).
+          詳しい情報については[GitHub Blog](https://github.blog/changelog/2022-02-25-code-scanning-detects-more-security-issues-supports-new-language-versions/)を参照してください。
     - 
-      heading: View code scanning alerts across an organization
+      heading: Organization全体のコードスキャンニングアラートの表示
       notes:
         - |
-          GitHub Advanced Security customers can now view code scanning alerts in an organization's **Security** tab. This view is available to organization owners and members of teams with the [security manager role](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization). For more information, see "[About the security overview](/code-security/security-overview/about-the-security-overview)."
+          GitHub Advanced Securityのお客様は、Organizationの**Security*タブでコードスキャンニングアラートを見ることができるようになりました。このビューは、Organizationのオーナーと、[セキュリティ管理者のロール](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)を持つTeamのメンバーが利用できます。詳しい情報については「[セキュリティの概要について](/code-security/security-overview/about-the-security-overview)」を参照してください。
         - |
-          Users can now retrieve code scanning alerts for an organization on your GitHub Enterprise Server instance via the REST API. This new API endpoint supplements the existing [endpoint for repositories](/rest/reference/code-scanning#list-code-scanning-alerts-for-a-repository). For more information, see [Code Scanning](/rest/code-scanning) in the REST API documentation.
+          ユーザは、REST APIを通じてGitHub Enterprise Serverインスタンス上のOrganizationのコードスキャンニングアラートを取得できるようになりました。この新しいAPIエンドポイントは、既存の[リポジトリのエンドポイント](/rest/reference/code-scanning#list-code-scanning-alerts-for-a-repository)を補完するものです。詳しい情報については、REST APIドキュメンテーションの[Code scanning](/rest/code-scanning)を参照してください。
     - 
-      heading: Secret scanning available as a push protection
+      heading: プッシュ保護としてSecret scanningが利用可能
       notes:
         - |
-          GitHub Enterprise Server can now block any pushes where a token is detected with high confidence. Developers can bypass the block by providing details of why the secret needs to be committed via a web UI. For more information, see "[Protecting pushes with secret scanning](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
+          GitHub Enterprise Serverは、高い信頼度でトークンが検出されたプッシュをブロックできるようになりました。開発者は、シークレットをコミットしなければならない理由ｍの詳細をWeb UIから提供することによって、このブロックをバイパスできます。詳しい情報については「[Secret scanningでのプッシュの保護](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)」を参照してください。
     - 
-      heading: Dry runs for custom patterns with secret scanning
+      heading: Secret Scanningのカスタムパターンのdry run
       notes:
         - |
-          GitHub Advanced Security customers can now dry run custom secret scanning patterns at the organization or repository level. Dry runs allow people with owner or admin access to review and hone their patterns before publishing them and generating alerts. You can compose a pattern, then use **Save and dry run** to retrieve results. The scans typically take just a few seconds, but GitHub Enterprise Server will also notify organization owners or repository admins via email when dry run results are ready. For more information, see "[About secret scanning](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-private-repositories)" and "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."
+          GitHub Advanced Securityのお客様は、Organizationあるいはリポジトリレベルのカスタムのシークレットスキャンニングパターンをdry runできるようになりました。dry runを行うことで、オーナーもしくは管理アクセスを持つ人は、パターンを公開してアラートを発生させる前に、そのパターンをレビューして磨きあげることができます。パターンを作成し、**Save and dry run（保存してdry run）**を使って結果を取得してください。スキャンには通常数秒しかかかりませんが、GitHub Enterprise Serverはdry runの結果が準備できればメールでOrganizationのオーナーもしくはリポジトリ管理者に通知も行います。詳しい情報については「[Secret scanningについて](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-private-repositories)」及び「[Secret scanningのカスタムパターンの定義](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)」を参照してください。
     - 
-      heading: Secret scanning custom pattern events now in the audit log
+      heading: Secret scanningのカスタムパターンイベントがAudit logに記録されるようになりました
       notes:
         - |
-          The audit log now includes events associated with secret scanning custom patterns. This data helps GitHub Advanced Security customers understand actions taken on their [repository](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization#repository_secret_scanning_custom_pattern-category-actions)-, [organization](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization#org_secret_scanning_custom_pattern-category-actions)-, or [enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#business_secret_scanning_custom_pattern-category-actions)-level custom patterns for security and compliance audits. For more information, see "[Reviewing the audit log for your organization](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization)" or "[Reviewing audit logs for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise)."
+          Audit logには、シークレットスキャンニングのカスタムパターンに関連するイベントが含まれるようになりました。このデータは、GitHub Advanced Securityのお客様がセキュリティ及びコンプライアンスの監査のために[リポジトリ](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization#repository_secret_scanning_custom_pattern-category-actions)、[Organization](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization#org_secret_scanning_custom_pattern-category-actions)、[Enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#business_secret_scanning_custom_pattern-category-actions)レベルのカスタムパターンに対して行われたアクションを理解するための役に立ちます。詳しい情報については「[OrganizationのAudit logのレビュー](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization)」あるいは「[EnterpriseのAudit logのレビュー](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise)」を参照してください。
     - 
-      heading: Configure permissions for secret scanning with custom repository roles
+      heading: カスタムリポジトリロールでのSecret scanningの権限設定
       notes:
         - |
-          You can now configure two new permissions for secret scanning when managing custom repository roles.
+          カスタムリポジトリロールを管理する際に、Secret scanningのための2つの新たな権限を設定できるようになりました。
 
-          - View secret scanning results
-          - Dismiss or reopen secret scanning results
+          - Secret scanningの結果表示
+          - Secret scanningの結果の却下もしくは再オープン
 
-          For more information, see  "[Managing custom repository roles for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)."
+          詳しい情報については「[Organizationのカスタムリポジトリロールの管理](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)」を参照してください。
     - 
-      heading: Secret scanning now supports archived repositories
+      heading: Secret scanningはアーカイブされたリポジトリをサポートしました
       notes:
         - |
           GitHub Advanced Security customers can now enable secret scanning for archived repositories via the UI and API. For more information, see "[About secret scanning](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-private-repositories)," "[About archived repositories](/repositories/archiving-a-github-repository/archiving-repositories)," and "[Repositories](/rest/repos/repos#update-a-repository)" in the REST API documentation.
