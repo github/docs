@@ -134,6 +134,7 @@ translations/zh-CN/content/billing/managing-licenses-for-visual-studio-subscript
 translations/zh-CN/content/billing/managing-your-license-for-github-enterprise/about-licenses-for-github-enterprise.md,broken liquid tags
 translations/zh-CN/content/billing/managing-your-license-for-github-enterprise/downloading-your-license-for-github-enterprise.md,rendering error
 translations/zh-CN/content/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud.md,rendering error
+translations/zh-CN/content/billing/managing-your-license-for-github-enterprise/troubleshooting-license-usage-for-github-enterprise.md,broken liquid tags
 translations/zh-CN/content/billing/managing-your-license-for-github-enterprise/uploading-a-new-license-to-github-enterprise-server.md,broken liquid tags
 translations/zh-CN/content/billing/managing-your-license-for-github-enterprise/viewing-license-usage-for-github-enterprise.md,broken liquid tags
 translations/zh-CN/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts.md,broken liquid tags
