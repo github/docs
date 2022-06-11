@@ -59,9 +59,9 @@ Travis CI は、`stages` を使用してジョブを並行して実行できま�
 
 Travis CI と {% data variables.product.prodname_actions %} はどちらもステータスバッジをサポートしており、ビルドが成功したか失敗したかを示すことができます。 詳しい情報については、「[リポジトリにワークフローステータスバッジを追加する](/actions/managing-workflow-runs/adding-a-workflow-status-badge)」を参照してください。
 
-### ビルドマトリックスを使用する
+### Using a matrix
 
-Travis CI と {% data variables.product.prodname_actions %} はどちらもビルドマトリックスをサポートしているため、オペレーティングシステムとソフトウェアパッケージの組み合わせを使用してテストを実行できます。 詳しい情報については、「[ビルドマトリックスを使用する](/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix)」を参照してください。
+Travis CI and {% data variables.product.prodname_actions %} both support a matrix, allowing you to perform testing using combinations of operating systems and software packages. For more information, see "[Using a matrix for your jobs](/actions/using-jobs/using-a-matrix-for-your-jobs)."
 
 以下は、各システムの構文を比較した例です。
 
@@ -164,13 +164,13 @@ git:
 {% endraw %}
 </td>
 <td class="d-table-cell v-align-top">
-{% raw %}
+
 ```yaml
-- uses: actions/checkout@v2
+- uses: {% data reusables.actions.action-checkout %}
   with:
     submodules: false
 ```
-{% endraw %}
+
 </td>
 </tr>
 </table>
@@ -179,7 +179,7 @@ git:
 
 Travis CI と {% data variables.product.prodname_actions %} はどちらも、カスタム環境変数をテストマトリックスに追加できます。これにより、後のステップで変数を参照できます。
 
-{% data variables.product.prodname_actions %} では、`include` キーを使用して、カスタム環境変数をマトリックスに追加できます。 {% data reusables.github-actions.matrix-variable-example %}
+{% data variables.product.prodname_actions %} では、`include` キーを使用して、カスタム環境変数をマトリックスに追加できます。 {% data reusables.actions.matrix-variable-example %}
 
 ## {% data variables.product.prodname_actions %} の主な機能
 
@@ -187,7 +187,7 @@ Travis CI から移行する場合は、{% data variables.product.prodname_actio
 
 ### シークレットを保存する
 
-{% data variables.product.prodname_actions %} を使用すると、シークレットを保存して、ジョブで参照できます。 {% data variables.product.prodname_actions %} Organization は、Organization のシークレットにアクセスできるリポジトリを制限できます。 {% ifversion fpt or ghes > 3.0 or ghae or ghec %}環境保護ルールでは、ワークフローが環境シークレットにアクセスするための手動承認が必要になる場合があります。 {% endif %}詳しい情報については、「[暗号化されたシークレット](/actions/reference/encrypted-secrets)」を参照してください。
+{% data variables.product.prodname_actions %} を使用すると、シークレットを保存して、ジョブで参照できます。 {% data variables.product.prodname_actions %} Organization は、Organization のシークレットにアクセスできるリポジトリを制限できます。 Environment protection rules can require manual approval for a workflow to access environment secrets. 詳しい情報については「[暗号化されたシークレット](/actions/reference/encrypted-secrets)」を参照してください。
 
 ### ジョブとワークフロー間でファイルを共有する
 
@@ -208,7 +208,8 @@ Travis CI から移行する場合は、{% data variables.product.prodname_actio
 ### {% data variables.product.prodname_actions %} で様々な言語を使用する
 
 {% data variables.product.prodname_actions %} でさまざまな言語を使用する場合、ジョブにステップを作成して言語の依存関係を設定できます。 特定の言語での作業の詳細については、それぞれのガイドを参照してください。
-  - [Building and testing Node.js or Python](/actions/guides/building-and-testing-nodejs-or-python)
+  - [Node.js のビルドとテスト](/actions/guides/building-and-testing-nodejs)
+  - [Python のビルドとテスト](/actions/guides/building-and-testing-python)
   - [PowerShell のビルドとテスト](/actions/guides/building-and-testing-powershell)
   - [MavenでのJavaのビルドとテスト](/actions/guides/building-and-testing-java-with-maven)
   - [GradleでのJavaのビルドとテスト](/actions/guides/building-and-testing-java-with-gradle)
@@ -283,26 +284,30 @@ script:
 {% endraw %}
 </td>
 <td class="d-table-cell v-align-top">
-{% raw %}
+
 ```yaml
 jobs:
   run_python:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/setup-python@v2
+      - uses: {% data reusables.actions.action-setup-python %}
         with:
           python-version: '3.7'
           architecture: 'x64'
       - run: python script.py
 ```
-{% endraw %}
+
 </td>
 </tr>
 </table>
 
 ## 依存関係のキャッシング
 
-Travis CIと{% data variables.product.prodname_actions %}では、後で利用できるよう依存関係を手動でキャッシュできます。 以下の例は、それぞれのシステムでのキャッシュの構文を示します。
+Travis CIと{% data variables.product.prodname_actions %}では、後で利用できるよう依存関係を手動でキャッシュできます。
+
+{% ifversion actions-caching %}
+
+以下の例は、それぞれのシステムでのキャッシュの構文を示します。
 
 <table>
 <tr>
@@ -323,21 +328,25 @@ cache: npm
 {% endraw %}
 </td>
 <td class="d-table-cell v-align-top">
-{% raw %}
+
 ```yaml
 - name: Cache node modules
-  uses: actions/cache@v2
+  uses: {% data reusables.actions.action-cache %}
   with:
     path: ~/.npm
-    key: v1-npm-deps-${{ hashFiles('**/package-lock.json') }}
+    key: {% raw %}v1-npm-deps-${{ hashFiles('**/package-lock.json') }}{% endraw %}
     restore-keys: v1-npm-deps-
 ```
-{% endraw %}
+
 </td>
 </tr>
 </table>
 
-{% data variables.product.prodname_actions %} キャッシュは、{% data variables.product.prodname_dotcom_the_website %} でホストされているリポジトリにのみ適用できます。 詳しい情報については、「<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">ワークフローを高速化するための依存関係のキャッシュ</a>」を参照してください。
+{% else %}
+
+{% data reusables.actions.caching-availability %}
+
+{% endif %}
 
 ## 一般的なタスクの例
 
@@ -402,7 +411,7 @@ script:
 {% endraw %}
 </td>
 <td>
-{% raw %}
+
 ```yaml
 name: Node.js CI
 on: [push]
@@ -410,16 +419,16 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Use Node.js
-        uses: actions/setup-node@v2
+        uses: {% data reusables.actions.action-setup-node %}
         with:
           node-version: '12.x'
       - run: npm install
       - run: npm run build
       - run: npm test
 ```
-{% endraw %}
+
 </td>
 </tr>
 </table>

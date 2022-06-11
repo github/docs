@@ -27,7 +27,7 @@ topics:
 
 Como proprietário de uma empresa, você pode permitir que os usuários finais enviem contagens de contribuições anônimas pelo trabalho deles de {% data variables.product.product_location %} para seu gráfico de contribuição de {% data variables.product.prodname_dotcom_the_website %}.
 
-Após habilitar {% data variables.product.prodname_unified_contributions %}, antes que os usuários individuais possam enviar contagens de contribuição de {% data variables.product.product_location %} para {% data variables.product.prodname_dotcom_the_website %}, cada usuário também deverá conectar a sua conta pessoal em {% data variables.product.product_name %} com uma conta pessoal em {% data variables.product.prodname_dotcom_the_website %}. Para obter mais informações, consulte "[Enviando contribuições corporativas para seu perfil de {% data variables.product.prodname_dotcom_the_website %}](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/sending-enterprise-contributions-to-your-githubcom-profile)".
+Após habilitar {% data variables.product.prodname_unified_contributions %}, antes que os usuários individuais possam enviar contagens de contribuição de {% data variables.product.product_location %} para {% data variables.product.prodname_dotcom_the_website %}, cada usuário também deverá conectar a sua conta de usuário em {% data variables.product.product_name %} com uma conta pessoal em {% data variables.product.prodname_dotcom_the_website %}. Para obter mais informações, consulte "[Enviando contribuições corporativas para seu perfil de {% data variables.product.prodname_dotcom_the_website %}](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/sending-enterprise-contributions-to-your-githubcom-profile)".
 
 {% data reusables.github-connect.sync-frequency %}
 
@@ -43,7 +43,7 @@ Antes de habilitar {% data variables.product.prodname_unified_contributions %} e
 {% data reusables.github-connect.access-dotcom-and-enterprise %}
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.business %}
-{% ifversion ghes < 3.1 %}{% data reusables.enterprise-accounts.settings-tab %}{% endif %}{% data reusables.enterprise-accounts.github-connect-tab %}{% else %}
+{% data reusables.enterprise-accounts.github-connect-tab %}{% else %}
 1. Entre na {% data variables.product.product_location %} e no {% data variables.product.prodname_dotcom_the_website %}.
 {% data reusables.enterprise-accounts.access-enterprise %}{% data reusables.enterprise-accounts.github-connect-tab %}{% endif %}
 1. Em "Usuários podem compartilhar contagens de contribuição em {% data variables.product.prodname_dotcom_the_website %}", clique em **Solicitar acesso**. ![Request access to unified contributions option](/assets/images/enterprise/site-admin-settings/dotcom-ghe-connection-request-access.png){% ifversion ghes %}

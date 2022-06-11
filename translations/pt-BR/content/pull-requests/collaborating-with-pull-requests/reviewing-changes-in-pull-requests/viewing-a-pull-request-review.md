@@ -28,3 +28,4 @@ Quando você exibe uma revisão completa, vê a mesma versão da pull request qu
 
 - "[Sobre revisões de solicitação pull](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)"
 - "[Revisando alterações propostas em uma pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)"
+- "[Triando alertas de digitalização de códigos em pull requests](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/triaging-code-scanning-alerts-in-pull-requests)"

@@ -20,15 +20,15 @@ type: how_to
 
 Se você precisar compartilhar fluxos de trabalho e outros recursos de {% data variables.product.prodname_actions %} com a sua equipe, considere colaborar dentro de uma organização de {% data variables.product.prodname_dotcom %}. Uma organização permite que você armazene e gerencie, centralizadamente, segredos, artefatos e executores auto-hospedados. Você também pode criar fluxos de trabalho iniciantes no repositório `.github` e compartilhá-los com outros usuários na sua organização.
 
-## Compartilhando {% if internal-actions %}ações e {% endif %}fluxos de trabalho
+## Compartilhando {% ifversion internal-actions %}ações e {% endif %}fluxos de trabalho
 
-{% if internal-actions %}
+{% ifversion internal-actions %}
 Você pode compartilhar ações individuais e fluxos de trabalho inteiros com sua organização, com ou sem publicar as ações ou fluxos de trabalho publicamente. Você pode reutilizar ações e fluxos de trabalho exatamente referenciando-os no seu arquivo de fluxo de trabalho e você pode criar fluxos de trabalho iniciais que fornecem modelos para novos fluxos de trabalho.
 {% else %}
 A sua organização pode compartilhar fluxos de trabalho reutilizando os fluxos de trabalho exatamente ou criando fluxos de trabalho iniciais que fornecem modelos para novos fluxos de trabalho.
 {% endif %}
 
-{% if internal-actions %}
+{% ifversion internal-actions %}
 ### Compartilhando ações com sua empresa
 
 {% data reusables.actions.internal-actions-summary %}
@@ -50,11 +50,11 @@ Você pode gerenciar seus segredos centralmente dentro de uma organização e, e
 
 Ao criar um segredo em uma organização, você pode usar uma política para limitar quais repositórios podem acessar esse segredo. Por exemplo, você pode conceder acesso a todos os repositórios ou limitar o acesso a apenas repositórios privados ou a uma lista específica de repositórios.
 
-{% data reusables.github-actions.permissions-statement-secrets-organization %}
+{% data reusables.actions.permissions-statement-secrets-organization %}
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-{% data reusables.github-actions.sidebar-secret %}
+{% data reusables.actions.sidebar-secret %}
 1. Clique em **Novo segredo**.
 1. Digite um nome para o seu segredo na caixa de entrada **Nome**.
 1. Insira o **Valor** para o seu segredo.

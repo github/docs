@@ -18,11 +18,17 @@ topics:
   <h1>O Octokit tem muitos sabores</h1>
   <p class="lead">Use a biblioteca oficial do Octokit ou escolha entre qualquer uma das bibliotecas de terceiros disponíveis.</p>
   <div class="octokit-links"><br/>
-     <div class="octokit-language"> <span>Ruby → </span><a href="https://github.com/octokit/octokit.rb">octokit.rb</a></div><br/>
+     <div class="octokit-language"><span>Ruby → </span><a href="https://github.com/octokit/octokit.rb">octokit.rb</a></div><br/>
      <div class="octokit-language"><span>.NET → </span> <a href="https://github.com/octokit/octokit.net">octokit.net</a></div><br/>
      <div class="octokit-language"><span>JavaScript → </span> <a href="https://github.com/octokit/octokit.js">octokit/octokit.js</a></div><br/>
   </div>
 </div>
+
+{% warning %}
+
+Aviso: A partir de fim de Outubro de 2021, as bibliotecas oficiais do Octokit não serão mantidas atualmente. Para obter mais informações, consulte [Esta discussão no repositório do octokit.js](https://github.com/octokit/octokit.js/discussions/620).
+
+{% endwarning %}
 
 # Bibliotecas de terceiros
 
@@ -36,7 +42,7 @@ topics:
 
 | Nome da Biblioteca | Repositório                                                             |
 | ------------------ | ----------------------------------------------------------------------- |
-| **github.dart**    | [DirectMyFile/github.dart](https://github.com/DirectMyFile/github.dart) |
+| **github.dart**    | [SpinlockLabs/github.dart](https://github.com/SpinlockLabs/github.dart) |
 
 ### Emacs Lisp
 
@@ -135,9 +141,10 @@ topics:
 
 ### Rust
 
-| Nome da Biblioteca | Repositório                                                   |
-| ------------------ | ------------------------------------------------------------- |
-| **Octocrab**       | [XAMPPRocky/octocrab](https://github.com/XAMPPRocky/octocrab) |
+| Nome da Biblioteca | Repositório                                                       |
+| ------------------ | ----------------------------------------------------------------- |
+| **Octocrab**       | [XAMPPRocky/octocrab](https://github.com/XAMPPRocky/octocrab)     |
+| **Octocat**        | [octocat-rs/octocat-rs](https://github.com/octocat-rs/octocat-rs) |
 
 ### Scala
 

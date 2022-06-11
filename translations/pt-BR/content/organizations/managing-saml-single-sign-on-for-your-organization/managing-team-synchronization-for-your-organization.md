@@ -24,6 +24,8 @@ shortTitle: Gerenciar sincronização de equipe
 
 {% data reusables.identity-and-permissions.about-team-sync %}
 
+{% data reusables.saml.ghec-only %}
+
 {% data reusables.identity-and-permissions.supported-idps-team-sync %}
 
 {% data reusables.identity-and-permissions.sync-team-with-idp-group %}
@@ -42,7 +44,7 @@ As etapas para habilitar a sincronização de equipe dependem do IdP que você d
 
 {% data reusables.identity-and-permissions.team-sync-required-permissions %}
 
-Você deve habilitar o logon único SAML para sua organização e seu IdP compatível. Para obter mais informações, consulte "[Aplicando o logon único SAML para a sua organização](/articles/enforcing-saml-single-sign-on-for-your-organization)".
+Você deve habilitar o logon único SAML para sua organização e seu IdP compatível. Para obter mais informações, consulte "[Aplicar o logon único SAML para a sua organização](/articles/enforcing-saml-single-sign-on-for-your-organization)".
 
 Você deve ter uma identidade SAML vinculada. Para criar uma identidade vinculada, você deve efetuar a autenticação na sua organização usando o SAML SSO e o IdP compatível pelo menos uma vez. Para obter mais informações, consulte "[Autenticar com logon único de SAML](/articles/authenticating-with-saml-single-sign-on)".
 

@@ -1,6 +1,6 @@
 ---
 title: Creating an enterprise account
-intro: 'If you''re currently using {% data variables.product.prodname_ghe_cloud %} with a single organization, you can create an enterprise account to centrally manage multiple organizations.'
+intro: "If you're currently using {% data variables.product.prodname_ghe_cloud %} with a single organization, you can create an enterprise account to centrally manage multiple organizations."
 versions:
   ghec: '*'
 type: how_to
@@ -14,17 +14,25 @@ shortTitle: Create enterprise account
 
 ## About enterprise account creation
 
-{% data variables.product.prodname_ghe_cloud %} includes the option to create an enterprise account, which enables collaboration between multiple organizations and gives administrators a single point of visibility and management. 更多信息请参阅“[关于企业帐户](/admin/overview/about-enterprise-accounts)”。
+{% data variables.product.prodname_ghe_cloud %} includes the option to create an enterprise account, which enables collaboration between multiple organizations and gives administrators a single point of visibility and management. For more information, see "[About enterprise accounts](/admin/overview/about-enterprise-accounts)."
 
-{% data reusables.enterprise.create-an-enterprise-account %} If you pay by invoice, you can create an enterprise account yourself on {% data variables.product.prodname_dotcom %}. If not, you can [contact our sales team](https://github.com/enterprise/contact?ref_page=/pricing&ref_cta=Contact%20Sales&ref_loc=cards) to move to invoicing.
+{% data reusables.enterprise.create-an-enterprise-account %} If you pay by invoice, you can create an enterprise account yourself on {% data variables.product.prodname_dotcom %}. If not, you can [contact our sales team](https://github.com/enterprise/contact?ref_page=/pricing&ref_cta=Contact%20Sales&ref_loc=cards) to create an enterprise account for you.
 
 An enterprise account is included in {% data variables.product.prodname_ghe_cloud %}, so creating one will not affect your bill.
 
 When you create an enterprise account, your existing organization will automatically be owned by the enterprise account. All current owners of your organization will become owners of the enterprise account. All current billing managers of the organization will become billing managers of the new enterprise account. The current billing details of the organization, including the organization's billing email address, will become billing details of the new enterprise account.
 
+If the organization is connected to {% data variables.product.prodname_ghe_server %} or {% data variables.product.prodname_ghe_managed %} via {% data variables.product.prodname_github_connect %}, upgrading the organization to an enterprise account **will not** update the connection. If you want to connect to the new enterprise account, you must disable and re-enable {% data variables.product.prodname_github_connect %}.
+
+- "[Managing {% data variables.product.prodname_github_connect %}](/enterprise-server@latest/admin/configuration/configuring-github-connect/managing-github-connect)" in the {% data variables.product.prodname_ghe_server %} documentation
+- "[Managing {% data variables.product.prodname_github_connect %}](/github-ae@latest/admin/configuration/configuring-github-connect/managing-github-connect)" in the {% data variables.product.prodname_ghe_managed %} documentation
+
 ## Creating an enterprise account on {% data variables.product.prodname_dotcom %}
 
-To create an enterprise account on {% data variables.product.prodname_dotcom %}, your organization must be using {% data variables.product.prodname_ghe_cloud %} and paying by invoice.
+To create an enterprise account, your organization must be using {% data variables.product.prodname_ghe_cloud %}.
+
+If you pay by invoice, you can create an enterprise account directly through {% data variables.product.prodname_dotcom %}. If you do not currently pay by invoice, you can [contact our sales team](https://github.com/enterprise/contact?ref_page=/pricing&ref_cta=Contact%20Sales&ref_loc=cards) to create an enterprise account for you.
+
 
 {% data reusables.organizations.billing-settings %}
 1. Click **Upgrade to enterprise account**.
@@ -43,6 +51,6 @@ To create an enterprise account on {% data variables.product.prodname_dotcom %},
 
    ![Screenshot of the "Create enterprise account" button](/assets/images/help/business-accounts/create-enterprise-account-button.png)
 
-## 后续步骤
+## Next steps
 
 After your enterprise account is created, we recommend learning more about how enterprise accounts work and configuring settings and policies. For more information, follow the "[Get started with your enterprise account](/admin/guides#get-started-with-your-enterprise-account)" learning path.

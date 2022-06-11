@@ -51,21 +51,21 @@ jobs:
           exit 1 # prevents further steps from running
       # Check out internal docs repository
       - name: checkout
-        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
+        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
         with:
           token: ${{ secrets.DOCS_BOT_FR }}
 
       - name: Setup Node
-        uses: actions/setup-node@1f8c6b94b26d0feae1e387ca63ccbdc44d27b561
+        uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048
         with:
-          node-version: 16.14.x
+          node-version: '16.15.0'
           cache: npm
 
       - name: Install dependencies
         run: npm ci
 
       - name: Cache nextjs build
-        uses: actions/cache@937d24475381cd9c75ae6db12cb4e79714b926ed
+        uses: actions/cache@48af2dc4a9e8278b89d7fa154b955c30c6aaab09
         with:
           path: .next/cache
           key: ${{ runner.os }}-nextjs-${{ hashFiles('package*.json') }}
@@ -77,6 +77,24 @@ jobs:
         env:
           VERSION: ${{ github.event.inputs.version }}
           LANGUAGE: ${{ github.event.inputs.language }}
+          # We don't want or need the changelog entries in this context.
+          # Pages that display the content from these isn't included
+          # in search index bodies anyway.
+          CHANGELOG_DISABLED: true
+          # If a reusable, or anything in the `data/*` directory is deleted
+          # you might get a
+          #
+          #   RenderError: Can't find the key 'site.data.reusables...' in the scope
+          #
+          # But that'll get fixed in the next translation pipeline. For now,
+          # let's just accept an empty string instead.
+          THROW_ON_EMPTY: false
+          # Because the overload protection runs in NODE_ENV==production
+          # and it can break the sync-search.
+          DISABLE_OVERLOAD_PROTECTION: true
+          # Render caching won't help when we visit every page exactly once.
+          DISABLE_RENDERING_CACHE: true
+
         run: npm run sync-search
 
       - name: Update private docs repository search indexes

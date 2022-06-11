@@ -22,7 +22,7 @@ shortTitle: 使用 Maven 构建和测试 Java
 
 ## 简介
 
-本指南介绍如何使用 Maven 软件项目管理工具为 Java 项目创建执行持续集成 (CI) 的工作流程。 您创建的工作流程将允许您查看拉取请求提交何时会在默认分支上导致构建或测试失败； 这个方法可帮助确保您的代码始终是健康的。 您可以扩展 CI 工作流程以缓存文件并且从工作流程运行上传构件。
+本指南介绍如何使用 Maven 软件项目管理工具为 Java 项目创建执行持续集成 (CI) 的工作流程。 您创建的工作流程将允许您查看拉取请求提交何时会在默认分支上导致构建或测试失败； 这个方法可帮助确保您的代码始终是健康的。 您可以扩展 CI 工作流程以{% ifversion actions-caching %}缓存文件并且{% endif %}从工作流程运行上传构件。
 
 {% ifversion ghae %}
 {% data reusables.actions.self-hosted-runners-software %}
@@ -40,15 +40,14 @@ shortTitle: 使用 Maven 构建和测试 Java
 
 {% data reusables.actions.enterprise-setup-prereq %}
 
-## Using the Maven starter workflow
+## 使用 Maven 入门工作流程
 
-{% data variables.product.prodname_dotcom %} provides a Maven starter workflow that will work for most Maven-based Java projects. For more information, see the [Maven starter workflow](https://github.com/actions/starter-workflows/blob/main/ci/maven.yml).
+{% data variables.product.prodname_dotcom %} 提供有 Maven 入门工作流程，适用于大多数基于 Maven 的 Java 项目。 更多信息请参阅 [Maven 入门工作流程](https://github.com/actions/starter-workflows/blob/main/ci/maven.yml)。
 
-To get started quickly, you can choose the preconfigured Maven starter workflow when you create a new workflow. 更多信息请参阅“[{% data variables.product.prodname_actions %} 快速入门](/actions/quickstart)”。
+要快速开始，您可以在创建新工作流程时选择预配置的 Maven 入门工作流程。 更多信息请参阅“[{% data variables.product.prodname_actions %} 快速入门](/actions/quickstart)”。
 
 您也可以通过在仓库的 `.github/workflow` 目录中创建新文件来手动添加此工作流程。
 
-{% raw %}
 ```yaml{:copy}
 name: Java CI
 
@@ -59,16 +58,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Set up JDK 11
-        uses: actions/setup-java@v2
+        uses: {% data reusables.actions.action-setup-java %}
         with:
           java-version: '11'
           distribution: 'adopt'
       - name: Build with Maven
-        run: mvn --batch-mode --update-snapshots verify
+        run: mvn --batch-mode --update-snapshots package
 ```
-{% endraw %}
 
 此工作流程执行以下步骤：
 
@@ -76,11 +74,11 @@ jobs:
 2. `setup-java` 步骤配置 Adoptium 的 Java 11 JDK。
 3. “使用 Maven 构建”步骤以非交互模式运行 Maven `package` 目标，以确保创建代码版本、测试通行证和软件包。
 
-The default starter workflows are excellent starting points when creating your build and test workflow, and you can customize the starter workflow to suit your project’s needs.
+在创建构建和测试工作流程时，默认入门工作流程是很好的起点，然后您可以自定义入门工作流程以满足项目的需求。
 
-{% data reusables.github-actions.example-github-runner %}
+{% data reusables.actions.example-github-runner %}
 
-{% data reusables.github-actions.java-jvm-architecture %}
+{% data reusables.actions.java-jvm-architecture %}
 
 ## 构建和测试代码
 
@@ -90,29 +88,28 @@ The default starter workflows are excellent starting points when creating your b
 
 如果使用不同的命令来构建项目，或者想要使用不同的目标，则可以指定这些命令。 例如，您可能想要运行在 _pom-ci.xml_ 文件中配置的 `verify` 目标。
 
-{% raw %}
 ```yaml{:copy}
 steps:
-  - uses: actions/checkout@v2
-  - uses: actions/setup-java@v2
+  - uses: {% data reusables.actions.action-checkout %}
+  - uses: {% data reusables.actions.action-setup-java %}
     with:
       java-version: '11'
       distribution: 'adopt'
   - name: Run the Maven verify phase
     run: mvn --batch-mode --update-snapshots verify
 ```
-{% endraw %}
+
+{% ifversion actions-caching %}
 
 ## 缓存依赖项
 
-使用 {% data variables.product.prodname_dotcom %} 托管的运行器时，您可以缓存依赖项以加速工作流程运行。 运行成功后，您的本地 Maven 仓库将存储在 GitHub Actions 基础架构中。 在未来的工作流程运行中，缓存将会恢复，因此不需要从远程 Maven 仓库下载依赖项。 您可以简单地使用 [`setup-java` 操作](https://github.com/marketplace/actions/setup-java-jdk)缓存依赖项，也可使用 [`cache` 操作](https://github.com/actions/cache)进行自定义和更高级的配置。
+您可以缓存依赖项来加快工作流程运行。 成功运行后，本地 Maven 存储库将存储在缓存中。 在未来的工作流程运行中，缓存将会恢复，因此不需要从远程 Maven 仓库下载依赖项。 您可以简单地使用 [`setup-java` 操作](https://github.com/marketplace/actions/setup-java-jdk)缓存依赖项，也可使用 [`cache` 操作](https://github.com/actions/cache)进行自定义和更高级的配置。
 
-{% raw %}
 ```yaml{:copy}
 steps:
-  - uses: actions/checkout@v2
+  - uses: {% data reusables.actions.action-checkout %}
   - name: Set up JDK 11
-    uses: actions/setup-java@v2
+    uses: {% data reusables.actions.action-setup-java %}
     with:
       java-version: '11'
       distribution: 'adopt'
@@ -120,9 +117,10 @@ steps:
   - name: Build with Maven
     run: mvn --batch-mode --update-snapshots verify
 ```
-{% endraw %}
 
 此工作流程将保存本地 Maven 存储库的内容，位于运行器主目录的 `.m2` 目录。 缓存密钥是 _pom.xml_ 的哈希内容，因此更改 _pom.xml_ 将使缓存失效。
+
+{% endif %}
 
 ## 将工作流数据打包为构件
 
@@ -130,19 +128,17 @@ steps:
 
 Maven 通常会在 `target` 目录中创建 JAR、EAR 或 WAR 等输出文件。 要将这些项目上传为构件，可以将它们复制到包含要上传的构件的新目录中。 例如，您可以创建一个名为 `staging` 的目录。 然后您可以使用 `upload-artifact` 操作上传该目录的内容。
 
-{% raw %}
 ```yaml{:copy}
 steps:
-  - uses: actions/checkout@v2
-  - uses: actions/setup-java@v2
+  - uses: {% data reusables.actions.action-checkout %}
+  - uses: {% data reusables.actions.action-setup-java %}
     with:
       java-version: '11'
       distribution: 'adopt'
   - run: mvn --batch-mode --update-snapshots verify
   - run: mkdir staging && cp target/*.jar staging
-  - uses: actions/upload-artifact@v2
+  - uses: {% data reusables.actions.action-upload-artifact %}
     with:
       name: Package
       path: staging
 ```
-{% endraw %}

@@ -1,41 +1,47 @@
 ---
-title: Organizing information with collapsed sections
-intro: You can streamline your Markdown by creating a collapsed section with the `<details>` tag.
+title: Organizar información con secciones colapsadas
+intro: Puedes optimizar tu lenguaje de marcado si creas una sección colapsada con la etiqueta `<details>`.
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
-  redirect_from:
-    - /github/writing-on-github/working-with-advanced-formatting/organizing-information-with-collapsed-sections
-shortTitle: Collapsed sections
+redirect_from:
+  - /github/writing-on-github/working-with-advanced-formatting/organizing-information-with-collapsed-sections
+shortTitle: Secciones colapsadas
 ---
 
-## Creating a collapsed section
+## Crear una sección colapsada
 
-You can temporarily obscure sections of your Markdown by creating a collapsed section that the reader can choose to expand. For example, when you want to include technical details in an issue comment that may not be relevant or interesting to every reader, you can put those details in a collapsed section.
+Puedes ocultar las secciones de tu lenguaje de marcado temporalmente si creas una sección colapsada que el lector pueda elegir desplegar. Por ejemplo, cuando incluyes detalles técnicas en un comentario de una propuesta, los cuales podrían no ser relevantes o de interés para todos los lectores, puedes ponerlos en una sección colapsada.
 
-Any Markdown within the `<details>` block will be collapsed until the reader clicks {% octicon "triangle-right" aria-label="The right triange icon" %} to expand the details. Within the `<details>` block, use the `<summary>` tag to create a label to the right of {% octicon "triangle-right" aria-label="The right triange icon" %}.
+Cualquier lenguaje de mrcado dentro del bloque `<details>` se colapsará hasta que el lector haga clic en {% octicon "triangle-right" aria-label="The right triange icon" %} para expandir los detalles. Dentro del bloque de `<details>`, utiliza la marca `<summary>` para crear una etiqueta a la derecha de {% octicon "triangle-right" aria-label="The right triange icon" %}.
 
-```markdown
+````markdown
 <details><summary>CLICK ME</summary>
+
+
 <p>
 
 #### We can hide anything, even code!
 
-    ```ruby
-      puts "Hello World"
-    ```
+```ruby
+   puts "Hello World"
+```
 
-</details> ```</p>
+</p>
 
-The Markdown will be collapsed by default.
 
-![Rendered collapsed](/assets/images/help/writing/collapsed-section-view.png)
+</details>
+````
 
-After a reader clicks {% octicon "triangle-right" aria-label="The right triange icon" %}, the details are expanded.
+El lenguaje de marcado se colapsará predeterminadamente.
 
-![Rendered open](/assets/images/help/writing/open-collapsed-section.png)
+![Representación colapsada](/assets/images/help/writing/collapsed-section-view.png)
+
+Después de que un lector hace clic en {% octicon "triangle-right" aria-label="The right triange icon" %}, los detalles se expandirán.
+
+![Representación abierta](/assets/images/help/writing/open-collapsed-section.png)
 
 ## Leer más
 

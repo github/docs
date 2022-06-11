@@ -1,8 +1,8 @@
 ---
 title: Enabling the dependency graph for your enterprise
-intro: "You can allow users to identify their projects' dependencies by enabling the dependency graph."
+intro: You can allow users to identify their projects' dependencies by enabling the dependency graph.
 shortTitle: Enable dependency graph
-permissions: 'Site administrators can enable the dependency graph.'
+permissions: Site administrators can enable the dependency graph.
 versions:
   ghes: '*'
 type: how_to

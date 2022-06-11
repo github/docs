@@ -1,5 +1,5 @@
 ---
-title: Privacy on GitHub
+title: Privacidad en GitHub
 redirect_from:
   - /categories/understanding-how-github-uses-and-protects-your-data
   - /github/understanding-how-github-uses-and-protects-your-data

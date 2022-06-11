@@ -23,17 +23,17 @@ shortTitle: 在 GitHub 上编写和格式化
 
 {% data variables.product.product_name %} 上的每个评论字段都包含文本格式工具栏，用于格式化文本，而无需了解 Markdown 语法。 除了 Markdown 格式（如粗体和斜体样式）和创建标题、链接及列表等之外，工具栏还包括 {% data variables.product.product_name %} 特定的功能，如 @提及、任务列表以及链接到议题和拉取请求。
 
-{% if fixed-width-font-gfm-fields %}
+{% ifversion fixed-width-font-gfm-fields %}
 
-## Enabling fixed-width fonts in the editor
+## 在编辑器中启用固定宽度字体
 
-You can enable a fixed-width font in every comment field on {% data variables.product.product_name %}. Each character in a fixed-width, or monospace, font occupies the same horizontal space which can make it easier to edit advanced Markdown structures such as tables and code snippets.
+您可以在 {% data variables.product.product_name %} 的每个注释字段中启用固定宽度的字体。 固定宽度或等宽字体中的每个字符都占用相同的水平空间，这样可以更轻松地编辑高级 Markdown 结构，如表格和代码段。
 
-![Screenshot showing the {% data variables.product.product_name %} comment field with fixed-width fonts enabled](/assets/images/help/writing/fixed-width-example.png)
+![显示启用了固定宽度字体的 {% data variables.product.product_name %} 注释字段的屏幕截图](/assets/images/help/writing/fixed-width-example.png)
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.appearance-settings %}
-1. Under "Markdown editor font preference", select **Use a fixed-width (monospace) font when editing Markdown**. ![Screenshot showing the {% data variables.product.product_name %} comment field with fixed width fonts enabled](/assets/images/help/writing/enable-fixed-width.png)
+1. 在“Markdown editor font preference（Markdown 编辑器字体首选项）”下，选择 **Use a fixed-width (monospace) font when editing Markdown（编辑 Markdown 时使用固定宽度（等宽）字体）**。 ![显示启用了固定宽度字体的 {% data variables.product.product_name %} 注释字段的屏幕截图](/assets/images/help/writing/enable-fixed-width.png)
 
 {% endif %}
 

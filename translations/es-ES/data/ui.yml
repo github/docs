@@ -1,4 +1,6 @@
 ---
+meta:
+  default_description: Inicia, soluciona problemas y saca el mayor provecho de GitHub. Documentación para usuarios nuevos, desarrolladores, administradores y todos los productos de GitHub.
 header:
   github_docs: GitHub Docs
   contact: Contacto
@@ -22,16 +24,19 @@ release_notes:
   banner_text: GitHub comenzó a implementar estos cambios en empresas en
 search:
   need_help: '¿Necesitas ayuda?'
-  placeholder: Busca temas, productos...
+  placeholder: Buscar en los GitHub Docs
   loading: Cargando
   no_results: No se encontró ningún resultado
   search_results_for: Buscar resultados para
   no_content: Sin contenido
   matches_displayed: Coincidencias mostradas
   search_error: Ocurrió un error al intentar realizar la búsqueda.
+  description: Ingrese un término de búsqueda para encontrarlo en la Documentación de GitHub.
+  label: Buscar en los GitHub Docs
 homepage:
   explore_by_product: Explorar por producto
   version_picker: Versión
+  description: Ayuda para donde sea que estés en tu camino dentro de GitHub.
 toc:
   getting_started: Empezar
   popular: Popular
@@ -78,6 +83,7 @@ contribution_cta:
 products:
   graphql:
     reference:
+      implements: Implementa
       fields: Campos
       arguments: Argumentos
       name: Nombre
@@ -92,8 +98,17 @@ products:
       deprecation_notice: Aviso de depreciación
   rest:
     reference:
+      default: Predeterminado
+      name: Nombre
+      in: En
+      type: Tipo
+      description: Descripción
+      notes: Notas
       parameters: Parámetros
       response: Respuesta
+      example_response: Respuesta de ejemplo
+      status_code: Código de estado
+      http_status_code: Códigos de estado de respuesta HTTP
       code_sample: Ejemplo de código
       code_samples: Ejemplos de código
       preview_notice: Aviso de previsualización
@@ -101,6 +116,15 @@ products:
       see_preview_notice: Ver aviso de previsualización
       see_preview_notices: Ver avisos de previsualización
       preview_header_is_required: El encabezado es <strong>requerido</strong>
+      preview_notice_to_change: Esta API está en vista previa y sujeta al cambio
+      works_with: Funciona con
+      api_reference: Referencia de la API de REST
+      enum_description_title: Puede ser una de las siguientes
+      required: Requerido
+      headers: Encabezados
+      query: Parámetros de consulta
+      path: Parámetros de ruta
+      body: Parámetros de cuerpo
 footer:
   all_rights_reserved: Todos los derechos reservados
   terms: Términos

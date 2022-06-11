@@ -63,6 +63,15 @@ topics:
 3. 选择拉取请求或议题所在的仓库。 您可以输入仓库名称的一部分来缩小选项范围。
 4. 选择议题或拉取请求。 您可以键入标题的一部分以缩小选项范围。
 
+#### 从存储库添加多个议题或拉取请求
+
+1. 在 {% data variables.product.product_location %} 上，导航到包含要添加到项目中的议题或拉取请求的存储库。
+{% data reusables.repositories.sidebar-issue-pr %}
+1. 在每个议题标题的左侧，选择要添加到项目中的议题。 ![显示用于选择议题或拉取请求的复选框的屏幕截图](/assets/images/help/issues/select-issue-checkbox.png)
+1. （可选）若要选择页面上的每个议题或拉取请求，请在议题或拉取请求列表的顶部选择全部。 ![显示用于全选的复选框的屏幕截图](/assets/images/help/issues/select-all-checkbox.png)
+1. 在议题列表或拉取请求上方，单击 **Projects (beta)（项目[测试版]）**。 ![显示用于全选的复选框的屏幕截图](/assets/images/help/issues/projects-beta-assign-button.png)
+1. 单击要向其添加所选议题或拉取请求的项目。 ![显示用于全选的复选框的屏幕截图](/assets/images/help/issues/projects-beta-assign-dropdown.png)
+
 #### 从议题或拉取请求中分配项目
 
 1. 导航到要添加到项目的议题或拉取请求。
@@ -102,7 +111,20 @@ topics:
 
 ## 恢复存档的项
 
-要恢复存档的项，请导航到议题或拉取请求。 在议题或拉取请求的项目侧栏中，对要将项还原到的项目单击 **Restore（恢复）**。 草稿议题无法恢复。
+1. 导航到您的项目。
+1. 在右上角，单击 {% octicon "kebab-horizontal" aria-label="the kebab icon" %}。
+1. 在菜单中，单击 **Archived items（已存档的项）**。
+1. （可选）要筛选显示的已存档项，请在项列表上方的文本框中键入筛选器。 有关可用筛选器的详细信息，请参阅“[筛选项目 （测试版）](/issues/trying-out-the-new-projects-experience/filtering-projects)”。
+
+   ![显示用于筛选已存档项的字段的屏幕截图](/assets/images/help/issues/filter-archived-items.png)
+
+1. 在每个项标题的左侧，选择要恢复的项。
+
+   ![显示已存档项旁边复选框的屏幕截图](/assets/images/help/issues/select-archived-item.png)
+
+1. 要恢复所选项，请在项列表上方单击 **Restore（恢复）**。
+
+   ![显示"恢复"按钮的屏幕截图](/assets/images/help/issues/restore-archived-item-button.png)
 
 ## 添加字段
 
@@ -131,7 +153,7 @@ topics:
 - 数字：值必须是数字。
 - 日期：值必须是日期。
 - 单选：必须从一组指定的值中选择值。
-- 迭代：必须从一组日期范围（迭代）中选择值。 过去的迭代将自动标记为“已完成”，覆盖当前日期范围的迭代将标记为“当前”。
+- 迭代：必须从一组日期范围（迭代）中选择值。 过去的迭代将自动标记为“已完成”，覆盖当前日期范围的迭代将标记为“当前”。 更多信息请参阅“[管理项目中的迭代](/issues/trying-out-the-new-projects-experience/managing-iterations)”。
 
 1. {% data reusables.projects.open-command-palette %} 开始输入 "Create new field" 的任何部分。 当 "Create new field" 显示在命令板中时，选择它。
 2. 或者，单击最右侧字段标题中的 {% octicon "plus" aria-label="the plus icon" %} 。 将显示带有项目字段的下拉菜单。 单击 **New field（新建字段）**。
@@ -141,12 +163,14 @@ topics:
 6. 如果您指定**单选**为类型，请输入选项。
 7. 如果指定**迭代**为类型，请输入第一个迭代的开始日期和迭代的持续时间。 将自动创建三个迭代，您可以在项目的设置页上添加其他迭代。
 
-您可以稍后编辑单选和迭代字段的下拉选项。
+您还可以编辑自定义字段。
 
 {% data reusables.projects.project-settings %}
 1. 在 **Fields（字段）**下，选择要编辑的字段。
 1. 对于单选字段，您可以添加、删除或重新排序选项。
-2. 对于迭代字段，您可以添加或删除迭代、更改迭代名称以及更改迭代的开始日期和持续时间。
+1. 对于迭代字段，您可以添加或删除迭代、更改迭代名称以及更改迭代的开始日期和持续时间。
+
+   有关修改迭代字段的详细信息，请参阅“[管理项目中的迭代](/issues/trying-out-the-new-projects-experience/managing-iterations)”。
 
 ## 自定义视图
 

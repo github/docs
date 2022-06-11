@@ -1,6 +1,6 @@
 ---
 title: インテグレーターのためのベストプラクティス
-intro: 'Build an app that reliably interacts with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API and provides the best experience for your users.'
+intro: '信頼性を持って{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} APIとやりとりをするアプリケーションを構築し、ユーザに最善の体験を提供してください。'
 redirect_from:
   - /guides/best-practices-for-integrators
   - /v3/guides/best-practices-for-integrators
@@ -143,11 +143,11 @@ GitHub APIの[レート制限](/rest/overview/resources-in-the-rest-api#rate-lim
 
 [レート制限ステータスの確認](/rest/reference/rate-limit)はいつでも可能です。 レート制限を確認しても、その通信量はレート制限に影響しません。
 
-## Dealing with secondary rate limits
+## セカンダリレート制限の扱い
 
-[Secondary rate limits](/rest/overview/resources-in-the-rest-api#secondary-rate-limits) are another way we ensure the API's availability. この制限に到達することを避けるため、アプリケーションは以下のガイドラインに従うようにしてください。
+[セカンダリレート制限](/rest/overview/resources-in-the-rest-api#secondary-rate-limits)は、APIの可用性を保証するもう1つの方法です。 この制限に到達することを避けるため、アプリケーションは以下のガイドラインに従うようにしてください。
 
-* 認証済みのリクエストを行うか、アプリケーションのクライアントIDとシークレットを使用してください。 Unauthenticated requests are subject to more aggressive secondary rate limiting.
+* 認証済みのリクエストを行うか、アプリケーションのクライアントIDとシークレットを使用してください。 認証されていないリクエストには、より強いセカンダリレート制限が適用されます。
 * 単一のユーザまたはクライアントIDに順番にリクエストを行ってください。 単一のユーザまたはクライアントIDのリクエストは同時に行わないでください。
 * 単一のユーザまたはクライアントIDで多数の`POST`、`PATCH`、`PUT`、`DELETE`リクエストを行う場合には、リクエストごとに少なくとも1秒の間隔をとってください。
 * 制限がかかっている間は、速さを遅くするため`Retry-After`レスポンスヘッダを使用します。 `Retry-After`ヘッダの値は常に整数とします。この値は、再度リクエストを行う前に待機すべき秒数を示します。 たとえば、`Retry-After: 30`は、次のリクエストを送信するまで30秒待機する必要があることを意味します。

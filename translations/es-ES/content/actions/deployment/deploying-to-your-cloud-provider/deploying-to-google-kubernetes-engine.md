@@ -26,7 +26,7 @@ Esta guía te explica cómo utilizar las {% data variables.product.prodname_acti
 
 GKE es un agrupamiento administrado de Kubernetes de Google Cloud que puede hospedar tus cargas de trabajo contenerizadas en la nube o en tu propio centro de datos. Para obtener más información, consulta la página de [Google Kubernetes Engine](https://cloud.google.com/kubernetes-engine).
 
-{% ifversion fpt or ghec or ghae-issue-4856 %}
+{% ifversion fpt or ghec or ghae-issue-4856 or ghes > 3.4 %}
 
 {% note %}
 
@@ -120,11 +120,9 @@ Almacenar el nombre de tu proyecto como un secreto llamado `GKE_PROJECT`. Para o
 ### (Opcional) Configurar kustomize
 Kustomize es una herramietna opcional que se utiliza para administrar las especificaciones YAML. Después de crear un archivo de `kustomization`, el siguiente flujo de trabajo puede utilizarse para configurar campos de la imagen dinámicamente y agregar el resultado en `kubectl`. Para obtener más información, consulta la sección [uso de kustomize](https://github.com/kubernetes-sigs/kustomize#usage).
 
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 ### (Opcional) Configurar un ambiente de despliegue
 
 {% data reusables.actions.about-environments %}
-{% endif %}
 
 ## Crear un flujo de trabajo
 
@@ -161,7 +159,7 @@ jobs:
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: {% data reusables.actions.action-checkout %}
 
     # Setup gcloud CLI
     - uses: google-github-actions/setup-gcloud@94337306dda8180d967a56932ceb4ddcf01edae7

@@ -65,15 +65,15 @@ job1:
 {% endraw %}
 </td>
 <td class="d-table-cell v-align-top">
-{% raw %}
+
 ```yaml
 jobs:
   job1:
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - run: echo "Run your script here"
 ```
-{% endraw %}
+
 </td>
 </tr>
 </table>
@@ -212,7 +212,7 @@ jobs:
 </tr>
 </table>
 
-For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
+更多信息请参阅“[表达式](/actions/learn-github-actions/expressions)”。
 
 ## 作业之间的依赖关系
 
@@ -309,6 +309,8 @@ GitLab CI/CD 和 {% data variables.product.prodname_actions %} 支持在管道�
 
 GitLab CI/CD 和 {% data variables.product.prodname_actions %} 在配置文件中提供了手动缓存工作流程文件的方法。
 
+{% ifversion actions-caching %}
+
 下面是每个系统的语法示例：
 
 <table class="d-block">
@@ -341,25 +343,29 @@ test_async:
 {% endraw %}
 </td>
 <td class="d-table-cell v-align-top">
-{% raw %}
+
 ```yaml
 jobs:
   test_async:
     runs-on: ubuntu-latest
     steps:
     - name: Cache node modules
-      uses: actions/cache@v2
+      uses: {% data reusables.actions.action-cache %}
       with:
         path: ~/.npm
-        key: v1-npm-deps-${{ hashFiles('**/package-lock.json') }}
+        key: {% raw %}v1-npm-deps-${{ hashFiles('**/package-lock.json') }}{% endraw %}
         restore-keys: v1-npm-deps-
 ```
-{% endraw %}
+
 </td>
 </tr>
 </table>
 
-{% data variables.product.prodname_actions %} 缓存仅适用于 {% data variables.product.prodname_dotcom_the_website %} 托管的仓库。 更多信息请参阅“<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">缓存依赖项以加快工作流程</a>”。
+{% else %}
+
+{% data reusables.actions.caching-availability %}
+
+{% endif %}
 
 ## 构件
 
@@ -388,15 +394,15 @@ artifacts:
 {% endraw %}
 </td>
 <td class="d-table-cell v-align-top">
-{% raw %}
+
 ```yaml
 - name: Upload math result for job 1
-  uses: actions/upload-artifact@v2
+  uses: {% data reusables.actions.action-upload-artifact %}
   with:
     name: homework
     path: math-homework.txt
 ```
-{% endraw %}
+
 </td>
 </tr>
 </table>
@@ -448,7 +454,7 @@ container-job:
 {% endraw %}
 </td>
 <td class="d-table-cell v-align-top">
-{% raw %}
+
 ```yaml
 jobs:
   container-job:
@@ -463,7 +469,7 @@ jobs:
 
     steps:
       - name: Check out repository code
-        uses: actions/checkout@v2
+        uses: {% data reusables.actions.action-checkout %}
 
       # Performs a clean installation of all dependencies
       # in the `package.json` file
@@ -481,7 +487,7 @@ jobs:
           # The default PostgreSQL port
           POSTGRES_PORT: 5432
 ```
-{% endraw %}
+
 </td>
 </tr>
 </table>

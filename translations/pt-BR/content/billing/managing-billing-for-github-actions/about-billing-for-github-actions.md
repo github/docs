@@ -16,9 +16,9 @@ shortTitle: Cobrança para o GitHub Actions
 
 ## Sobre a cobrança do {% data variables.product.prodname_actions %}
 
-{% data reusables.github-actions.actions-billing %}
+{% data reusables.actions.actions-billing %}
 
-{% data reusables.github-actions.actions-spending-limit-brief %} Para obter mais informações, consulte "[Sobre limites de gastos](#about-spending-limits)".
+{% data reusables.actions.actions-spending-limit-brief %} Para obter mais informações, consulte "[Sobre limites de gastos](#about-spending-limits)".
 
 {% ifversion ghec %}
 Se você comprou {% data variables.product.prodname_enterprise %} por meio de um Contrato da Microsoft Enterprise, você pode conectar o ID da sua assinatura do Azure à sua conta corporativa para habilitar e pagar pelo uso de {% data variables.product.prodname_actions %} além dos valores incluindo na sua conta. Para obter mais informações, consulte "[Conectar uma assinatura do Azure à sua empresa](/billing/managing-billing-for-your-github-account/connecting-an-azure-subscription-to-your-enterprise)".
@@ -48,7 +48,7 @@ Os trabalhos que são executados em Windows e macOS runners que o {% data variab
 
 O armazenamento usado por um repositório é o armazenamento total usado por artefatos {% data variables.product.prodname_actions %} e {% data variables.product.prodname_registry %}. Seu custo de armazenamento é o uso total de todos os repositórios de sua conta. Para obter mais informações sobre preços para  {% data variables.product.prodname_registry %}, consulte "[Sobre cobrança para {% data variables.product.prodname_registry %}](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)."
 
- Se o uso da sua conta ultrapassar esses limites e você definir um limite de gastos acima de US$ 0, você pagará US$ 0,25 por GB de armazenamento por mês e uso por minuto, dependendo do sistema operacional usado pelo executor hospedado em {% data variables.product.prodname_dotcom %}. {% data variables.product.prodname_dotcom %} arredonda os minutos que cada trabalho usa até o minuto mais próximo.
+ Se o uso da sua conta ultrapassar esses limites e você definir um limite de gastos acima de US$ 0, você pagará US$ 0,008 por GB de armazenamento por dia e uso por minuto, dependendo do sistema operacional usado pelo executor hospedado em {% data variables.product.prodname_dotcom %}. {% data variables.product.prodname_dotcom %} arredonda os minutos que cada trabalho usa até o minuto mais próximo.
 
 {% note %}
 
@@ -70,7 +70,7 @@ O número de trabalhos que você pode executar simultaneamente em todos os repos
 
 ## Calculando minutos e gastos de armazenamento
 
-{% data reusables.dotcom_billing.pricing_cal %}
+{% data reusables.dotcom_billing.pricing_calculator.pricing_cal_actions %}
 
 No final do mês, {% data variables.product.prodname_dotcom %} calcula o custo de minutos e armazenamento usado sobre o valor incluído em sua conta.
 
@@ -99,7 +99,7 @@ Se uso de {% data variables.product.prodname_actions %} compartilha a data de co
 
 ## Sobre limites de gastos
 
-{% data reusables.github-actions.actions-spending-limit-detailed %}
+{% data reusables.actions.actions-spending-limit-detailed %}
 
 Para obter informações sobre como gerenciar e alterar o limite de gastos da sua conta, consulte "[Gerenciar seu limite de gastos para {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/managing-your-spending-limit-for-github-actions)".
 

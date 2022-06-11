@@ -60,9 +60,9 @@ Travis CI can use `stages` to run jobs in parallel. Similarly, {% data variables
 Travis CI and {% data variables.product.prodname_actions %} both support status badges, which let you indicate whether a build is passing or failing.
 For more information, see ["Adding a workflow status badge to your repository](/actions/managing-workflow-runs/adding-a-workflow-status-badge)."
 
-### Using a build matrix
+### Using a matrix
 
-Travis CI and {% data variables.product.prodname_actions %} both support a build matrix, allowing you to perform testing using combinations of operating systems and software packages. For more information, see "[Using a build matrix](/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix)."
+Travis CI and {% data variables.product.prodname_actions %} both support a matrix, allowing you to perform testing using combinations of operating systems and software packages. For more information, see "[Using a matrix for your jobs](/actions/using-jobs/using-a-matrix-for-your-jobs)."
 
 Below is an example comparing the syntax for each system:
 
@@ -165,13 +165,13 @@ git:
 {% endraw %}
 </td>
 <td class="d-table-cell v-align-top">
-{% raw %}
+
 ```yaml
-- uses: actions/checkout@v2
+- uses: {% data reusables.actions.action-checkout %}
   with:
     submodules: false
 ```
-{% endraw %}
+
 </td>
 </tr>
 </table>
@@ -180,7 +180,7 @@ git:
 
 Travis CI and {% data variables.product.prodname_actions %} can both add custom environment variables to a test matrix, which allows you to refer to the variable in a later step.
 
-In {% data variables.product.prodname_actions %}, you can use the `include` key to add custom environment variables to a matrix. {% data reusables.github-actions.matrix-variable-example %}
+In {% data variables.product.prodname_actions %}, you can use the `include` key to add custom environment variables to a matrix. {% data reusables.actions.matrix-variable-example %}
 
 ## Key features in {% data variables.product.prodname_actions %}
 
@@ -188,7 +188,7 @@ When migrating from Travis CI, consider the following key features in {% data va
 
 ### Storing secrets
 
-{% data variables.product.prodname_actions %} allows you to store secrets and reference them in your jobs. {% data variables.product.prodname_actions %} organizations can limit which repositories can access organization secrets. {% ifversion fpt or ghes > 3.0 or ghae or ghec %}Environment protection rules can require manual approval for a workflow to access environment secrets. {% endif %}For more information, see "[Encrypted secrets](/actions/reference/encrypted-secrets)."
+{% data variables.product.prodname_actions %} allows you to store secrets and reference them in your jobs. {% data variables.product.prodname_actions %} organizations can limit which repositories can access organization secrets. Environment protection rules can require manual approval for a workflow to access environment secrets. For more information, see "[Encrypted secrets](/actions/reference/encrypted-secrets)."
 
 ### Sharing files between jobs and workflows
 
@@ -209,7 +209,8 @@ The concurrent jobs and workflow execution times in {% data variables.product.pr
 ### Using different languages in {% data variables.product.prodname_actions %}
 
 When working with different languages in {% data variables.product.prodname_actions %}, you can create a step in your job to set up your language dependencies. For more information about working with a particular language, see the specific guide:
-  - [Building and testing Node.js or Python](/actions/guides/building-and-testing-nodejs-or-python)
+  - [Building and testing Node.js](/actions/guides/building-and-testing-nodejs)
+  - [Building and testing Python](/actions/guides/building-and-testing-python)
   - [Building and testing PowerShell](/actions/guides/building-and-testing-powershell)
   - [Building and testing Java with Maven](/actions/guides/building-and-testing-java-with-maven)
   - [Building and testing Java with Gradle](/actions/guides/building-and-testing-java-with-gradle)
@@ -284,26 +285,30 @@ script:
 {% endraw %}
 </td>
 <td class="d-table-cell v-align-top">
-{% raw %}
+
 ```yaml
 jobs:
   run_python:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/setup-python@v2
+      - uses: {% data reusables.actions.action-setup-python %}
         with:
           python-version: '3.7'
           architecture: 'x64'
       - run: python script.py
 ```
-{% endraw %}
+
 </td>
 </tr>
 </table>
 
 ## Caching dependencies
 
-Travis CI and {% data variables.product.prodname_actions %} let you manually cache dependencies for later reuse. This example demonstrates the cache syntax for each system.
+Travis CI and {% data variables.product.prodname_actions %} let you manually cache dependencies for later reuse.
+
+{% ifversion actions-caching %}
+
+This example demonstrates the cache syntax for each system.
 
 <table>
 <tr>
@@ -324,21 +329,25 @@ cache: npm
 {% endraw %}
 </td>
 <td class="d-table-cell v-align-top">
-{% raw %}
+
 ```yaml
 - name: Cache node modules
-  uses: actions/cache@v2
+  uses: {% data reusables.actions.action-cache %}
   with:
     path: ~/.npm
-    key: v1-npm-deps-${{ hashFiles('**/package-lock.json') }}
+    key: {% raw %}v1-npm-deps-${{ hashFiles('**/package-lock.json') }}{% endraw %}
     restore-keys: v1-npm-deps-
 ```
-{% endraw %}
+
 </td>
 </tr>
 </table>
 
-{% data variables.product.prodname_actions %} caching is only applicable for repositories hosted on {% data variables.product.prodname_dotcom_the_website %}. For more information, see "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Caching dependencies to speed up workflows</a>."
+{% else %}
+
+{% data reusables.actions.caching-availability %}
+
+{% endif %}
 
 ## Examples of common tasks
 
@@ -403,7 +412,7 @@ script:
 {% endraw %}
 </td>
 <td>
-{% raw %}
+
 ```yaml
 name: Node.js CI
 on: [push]
@@ -411,16 +420,16 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Use Node.js
-        uses: actions/setup-node@v2
+        uses: {% data reusables.actions.action-setup-node %}
         with:
           node-version: '12.x'
       - run: npm install
       - run: npm run build
       - run: npm test
 ```
-{% endraw %}
+
 </td>
 </tr>
 </table>

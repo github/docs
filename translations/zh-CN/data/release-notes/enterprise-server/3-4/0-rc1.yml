@@ -1,7 +1,7 @@
 ---
-date: '2022-03-15'
+date: '2022-02-15'
 release_candidate: true
-deprecated: false
+deprecated: true
 intro: |
   {% note %}
 
@@ -43,7 +43,7 @@ sections:
         - Users can now choose the number of spaces a tab is equal to, by setting their preferred tab size in the "Appearance" settings of their user account. All code with a tab indent will render using the preferred tab size.
         - The {% data variables.product.prodname_github_connect %} data connection record now includes a count of the number of active and dormant users and the configured dormancy period.
     - 
-      heading: Performance Changes
+      heading: 性能更改
       notes:
         - WireGuard, used to secure communication between {% data variables.product.prodname_ghe_server %} instances in a High Availability configuration, has been migrated to the Kernel implementation.
     - 
@@ -57,7 +57,7 @@ sections:
         - Organizations can now display a `README.md` file on their profile Overview. For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-09-14-readmes-for-organization-profiles/)."
         - 'Members of organizations can now view a list of their enterprise owners under the organization''s "People" tab. The enterprise owners list is also now accessible using the GraphQL API. For more information, see the "[`enterpriseOwners`](/graphql/reference/objects#organization)" field under the Organization object in the GraphQL API documentation.'
     - 
-      heading: Repositories changes
+      heading: 存储库更改
       notes:
         - |
           A "Manage Access" section is now shown on the "Collaborators and teams" page in your repository settings. The new section makes it easier for repository administrators to see and manage who has access to their repository, and the level of access granted to each user. Administrators can now:
@@ -74,7 +74,7 @@ sections:
         - '{% data variables.product.prodname_ghe_server %} 3.4 includes improvements to the Releases UI, such as automatically generated release notes which display a summary of all the pull requests for a given release. For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-10-20-improvements-to-github-releases-generally-available/)."'
         - When a release is published, an avatar list is now displayed at the bottom of the release. Avatars for all user accounts mentioned in the release notes are shown. For more information, see "[Managing releases in a repository](/repositories/releasing-projects-on-github/managing-releases-in-a-repository)."
     - 
-      heading: 'Markdown changes'
+      heading: 'Markdown 更改'
       notes:
         - You can now use the new "Accessibility" settings page to manage your keyboard shortcuts. You can choose to disable keyboard shortcuts that only use single characters like <kbd>S</kbd>, <kbd>G</kbd> <kbd>C</kbd>, and <kbd>.</kbd> (the period key). For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-11-16-managing-keyboard-shortcuts-using-accessibility-settings/)."
         - You can now choose to use a fixed-width font in Markdown-enabled fields, like issue comments and pull request descriptions. For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-10-12-fixed-width-font-support-in-markdown-enabled-fields/)."
@@ -84,12 +84,12 @@ sections:
         - When typing the name of a {% data variables.product.prodname_dotcom %} user in issues, pull requests and discussions, the @mention suggester now ranks existing participants higher than other {% data variables.product.prodname_dotcom %} users, so that it's more likely the user you're looking for will be listed.
         - Right-to-left languages are now supported natively in Markdown files, issues, pull requests, discussions, and comments.
     - 
-      heading: 'Issues and pull requests changes'
+      heading: '议题和拉取请求更改'
       notes:
         - The diff setting to hide whitespace changes in the pull request "Files changed" tab is now retained for your user account for that pull request. The setting you have chosen is automatically reapplied if you navigate away from the page and then revisit the "Files changed" tab of the same pull request.
         - When using auto assignment for pull request code reviews, you can now choose to only notify requested team members independently of your auto assignment settings. This setting is useful in scenarios where many users are auto assigned but not all users require notification. For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-11-10-team-member-pull-request-review-notifications-can-be-configured-independently-of-auto-assignment/)."
     - 
-      heading: 'Branches changes'
+      heading: '分支更改'
       notes:
         - 'Organization and repository administrators can now trigger webhooks to listen for changes to branch protection rules on their repositories. For more information, see the "[branch_protection_rule](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#branch_protection_rule)" event in the webhooks events and payloads documentation.'
         - When configuring protected branches, you can now enforce that a required status check is provided by a specific {% data variables.product.prodname_github_app %}. If a status is then provided by a different application, or by a user via a commit status, merging is prevented. This ensures all changes are validated by the intended application. For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-12-01-ensure-required-status-checks-provided-by-the-intended-app/)."
@@ -98,7 +98,7 @@ sections:
         - Administrators can now allow only specific users and teams to force push to a repository. For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-12-21-specify-who-can-force-push-to-a-repository/)."
         - When requiring pull requests for all changes to a protected branch, administrators can now choose if approved reviews are also a requirement. For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-11-10-require-pull-requests-without-requiring-reviews/)."
     - 
-      heading: 'GitHub Actions changes'
+      heading: 'GitHub Actions 更改'
       notes:
         - '{% data variables.product.prodname_actions %} workflows triggered by {% data variables.product.prodname_dependabot %} for the `create`, `deployment`, and `deployment_status` events now always receive a read-only token and no secrets. Similarly, workflows triggered by {% data variables.product.prodname_dependabot %} for the `pull_request_target` event on pull requests where the base ref was created by {% data variables.product.prodname_dependabot %}, now always receive a read-only token and no secrets. These changes are designed to prevent potentially malicious code from executing in a privileged workflow. For more information, see "[Automating {% data variables.product.prodname_dependabot %} with {% data variables.product.prodname_actions %}](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/automating-dependabot-with-github-actions)."'
         - Workflow runs on `push` and `pull_request` events triggered by {% data variables.product.prodname_dependabot %} will now respect the permissions specified in your workflows, allowing you to control how you manage automatic dependency updates. The default token permissions will remain read-only. For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-10-06-github-actions-workflows-triggered-by-dependabot-prs-will-respect-permissions-key-in-workflows/)."
@@ -110,13 +110,13 @@ sections:
         - The search order behavior for self-hosted runners has now changed, so that the first available matching runner at any level will run the job in all cases. This allows jobs to be sent to self-hosted runners much faster, especially for organizations and enterprises with lots of self-hosted runners. Previously, when running a job that required a self-hosted runner, {% data variables.product.prodname_actions %} would look for self-hosted runners in the repository, organization, and enterprise, in that order.
         - 'Runner labels for {% data variables.product.prodname_actions %} self-hosted runners can now be listed, added and removed using the REST API. For more information about using the new APIs at a repository, organization, or enterprise level, see "[Repositories](/rest/reference/actions#list-labels-for-a-self-hosted-runner-for-a-repository)", "[Organizations](/rest/reference/actions#add-custom-labels-to-a-self-hosted-runner-for-an-organization)", and "[Enterprises](/rest/reference/enterprise-admin#list-labels-for-a-self-hosted-runner-for-an-enterprise)" in the REST API documentation.'
     - 
-      heading: 'Dependabot and Dependency graph changes'
+      heading: 'Dependabot 和依赖关系图更改'
       notes:
         - Dependency graph now supports detecting Python dependencies in repositories that use the Poetry package manager. Dependencies will be detected from both `pyproject.toml` and `poetry.lock` manifest files.
         - When configuring {% data variables.product.prodname_dependabot %} security and version updates on GitHub Enterprise Server, we recommend you also enable {% data variables.product.prodname_dependabot %} in {% data variables.product.prodname_github_connect %}. This will allow {% data variables.product.prodname_dependabot %} to retrieve an updated list of dependencies and vulnerabilities from {% data variables.product.prodname_dotcom_the_website %}, by querying for information such as the changelogs of the public releases of open source code that you depend upon. For more information, see "[Enabling the dependency graph and Dependabot alerts for your enterprise](/admin/configuration/configuring-github-connect/enabling-the-dependency-graph-and-dependabot-alerts-for-your-enterprise)."
         - '{% data variables.product.prodname_dependabot_alerts %} alerts can now be dismissed using the GraphQL API. For more information, see the "[dismissRepositoryVulnerabilityAlert](/graphql/reference/mutations#dismissrepositoryvulnerabilityalert)" mutation in the GraphQL API documentation.'
     - 
-      heading: 'Code scanning and secret scanning changes'
+      heading: '代码扫描和秘密扫描更改'
       notes:
         - The {% data variables.product.prodname_codeql %} CLI now supports including markdown-rendered query help in SARIF files, so that the help text can be viewed in the {% data variables.product.prodname_code_scanning %} UI when the query generates an alert. For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-11-23-display-help-text-for-your-custom-codeql-queries-in-code-scanning/)."
         - The {% data variables.product.prodname_codeql %} CLI and {% data variables.product.prodname_vscode %} extension now support building databases and analyzing code on machines powered by Apple Silicon, such as Apple M1. For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-11-10-codeql-now-supports-apple-silicon-m1/)."
@@ -141,17 +141,17 @@ sections:
   #bugs:
   #- PLACEHOLDER
   known_issues:
-    - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
+    - 在新建的没有任何用户的 {% data variables.product.prodname_ghe_server %} 实例上，攻击者可以创建第一个管理员用户。
     - 自定义防火墙规则在升级过程中被删除。
     - Git LFS 跟踪的文件[通过 Web 界面上传](https://github.com/blog/2105-upload-files-to-your-repositories) 被错误地直接添加到仓库。
     - 如果议题包含文件路径长于 255 个字符的同一仓库中 blob 的永久链接，则议题无法关闭。
     - 对 GitHub Connect 启用“用户可以搜索 GitHub.com”后，私有和内部仓库中的议题不包括在 GitHub.com 搜索结果中。
     - '{% data variables.product.prodname_registry %} npm 注册表不再返回元数据响应的时间值。这样做是为了大幅改善性能。作为元数据响应的一部分，我们继续拥有返回时间值所需的所有数据，并将在我们解决现有性能问题后恢复返回这个值。'
-    - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.
+    - 特定于处理预接收挂钩的资源限制可能会导致某些预接收挂钩失败。
     - Actions services needs to be restarted after restoring appliance from backup taken on a different host.
   deprecations:
     - 
-      heading: Deprecation of GitHub Enterprise Server 3.0
+      heading: 弃用 GitHub Enterprise Server 3.0
       notes:
         - '**{% data variables.product.prodname_ghe_server %} 3.0 was discontinued on February 16, 2022**. This means that no patch releases will be made, even for critical security issues, after this date. For better performance, improved security, and new features, [upgrade to the newest version of {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.4/admin/enterprise-management/upgrading-github-enterprise-server) as soon as possible.'
     - 
@@ -171,16 +171,16 @@ sections:
       notes:
         - 'The Codes of Conduct API preview, which was accessible with the `scarlet-witch-preview` header, is deprecated and no longer accessible in {% data variables.product.prodname_ghe_server %} 3.4. We instead recommend using the "[Get community profile metrics](/rest/reference/repos#get-community-profile-metrics)" endpoint to retrieve information about a repository''s code of conduct. For more information, see the "[Deprecation Notice: Codes of Conduct API preview](https://github.blog/changelog/2021-10-06-deprecation-notice-codes-of-conduct-api-preview/)" in the {% data variables.product.prodname_dotcom %} changelog.'
     - 
-      heading: Deprecation of OAuth Application API endpoints and API authentication using query parameters
+      heading: OAuth 应用程序 API 端点的弃用和通过查询参数的 API 身份验证
       notes:
         - |
           Starting with {% data variables.product.prodname_ghe_server %} 3.4, the [deprecated version of the OAuth Application API endpoints](https://developer.github.com/changes/2020-02-14-deprecating-oauth-app-endpoint/#endpoints-affected) have been removed. If you encounter 404 error messages on these endpoints, convert your code to the versions of the OAuth Application API that do not have `access_tokens` in the URL. We've also disabled the use of API authentication using query parameters. We instead recommend using [API authentication in the request header](https://developer.github.com/changes/2020-02-10-deprecating-auth-through-query-param/#changes-to-make).
     - 
-      heading: Deprecation of the CodeQL runner
+      heading: 废弃 CodeQL 运行器
       notes:
         - The {% data variables.product.prodname_codeql %} runner is deprecated in {% data variables.product.prodname_ghe_server %} 3.4 and is no longer supported. The deprecation only affects users who use {% data variables.product.prodname_codeql %} code scanning in third party CI/CD systems; {% data variables.product.prodname_actions %} users are not affected. We strongly recommend that customers migrate to the {% data variables.product.prodname_codeql %} CLI, which is a feature-complete replacement for the {% data variables.product.prodname_codeql %} runner. For more information, see the [{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-09-21-codeql-runner-deprecation/).
     - 
-      heading: Deprecation of custom bit-cache extensions
+      heading: 废弃自定义位缓存扩展
       notes:
         - |
           Starting in {% data variables.product.prodname_ghe_server %} 3.1, support for {% data variables.product.company_short %}'s proprietary bit-cache extensions began to be phased out. These extensions are deprecated in {% data variables.product.prodname_ghe_server %} 3.3 onwards.

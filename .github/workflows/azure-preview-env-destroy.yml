@@ -39,7 +39,7 @@ jobs:
           creds: ${{ secrets.NONPROD_AZURE_CREDENTIALS }}
 
       - name: Check out repo
-        uses: actions/checkout@1e204e9a9253d643386038d443f96446fa156a97
+        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
 
       - name: Get preview app info
         env:
@@ -61,7 +61,7 @@ jobs:
       # This will fail if the IMAGE_REPO doesn't exist, but we don't care
       - name: 'Untag all docker images for this PR'
         run: |
-          az acr repository delete -n ${{ secrets.NONPROD_REGISTRY_NAME }} --repository ${{ env.IMAGE_REPO }} -y || true
+          az acr repository delete -n ${{ secrets.NONPROD_REGISTRY_SERVER }} --repository ${{ env.IMAGE_REPO }} -y || true
 
       # Remove all GitHub deployments from this environment and remove the environment
       - uses: strumwolf/delete-deployment-environment@45c821e46baa405e25410700fe2e9643929706a0

@@ -20,14 +20,7 @@ miniTocMaxHeadingLevel: 3
 
 ## About workflow triggers
 
-Workflow triggers are events that cause a workflow to run. These events can be:
-
-- Events that occur in your workflow's repository
-- Events that occur outside of {% data variables.product.product_name %} and trigger a `repository_dispatch` event on {% data variables.product.product_name %}
-- Scheduled times
-- Manual
-
-For example, you can configure your workflow to run when a push is made to the default branch of your repository, when a release is created, or when an issue is opened.
+{% data reusables.actions.about-triggers %}
 
 Workflow triggers are defined with the `on` key. 詳しい情報については、「[{% data variables.product.prodname_actions %} のワークフロー構文](/articles/workflow-syntax-for-github-actions#on)」を参照してください。
 
@@ -41,9 +34,9 @@ Workflow triggers are defined with the `on` key. 詳しい情報については�
 
 ### Triggering a workflow from a workflow
 
-{% data reusables.github-actions.actions-do-not-trigger-workflows %} 詳しい情報については「[GITHUB_TOKENでの認証](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)」を参照してください。
+{% data reusables.actions.actions-do-not-trigger-workflows %} For more information, see "[Authenticating with the GITHUB_TOKEN](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)."
 
-If you do want to trigger a workflow from within a workflow run, you can use a personal access token instead of `GITHUB_TOKEN` to trigger events that require a token. 個人アクセストークンを作成し、それをシークレットとして保存する必要があります。 {% data variables.product.prodname_actions %}の利用コストを最小化するために、再帰的あるいは意図しないワークフローの実行が生じないようにしてください。 個人アクセストークンの作成に関する詳しい情報については「[個人アクセストークンの作成](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)」を参照してください。 For more information about storing a personal access token as a secret, see "[Creating and storing encrypted secrets](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)."
+If you do want to trigger a workflow from within a workflow run, you can use a personal access token instead of `GITHUB_TOKEN` to trigger events that require a token. 個人アクセストークンを作成し、それをシークレットとして保存する必要があります。 {% data variables.product.prodname_actions %}の利用コストを最小化するために、再帰的あるいは意図しないワークフローの実行が生じないようにしてください。 For more information about creating a personal access token, see "[Creating a personal access token](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)." For more information about storing a personal access token as a secret, see "[Creating and storing encrypted secrets](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)."
 
 For example, the following workflow uses a personal access token (stored as a secret called `MY_TOKEN`) to add a label to an issue via {% data variables.product.prodname_cli %}. Any workflows that run when a label is added will run once this step is performed.
 
@@ -89,23 +82,23 @@ Use the `on` key to specify what events trigger your workflow. For more informat
 
 ### Using a single event
 
-{% data reusables.github-actions.on-single-example %}
+{% data reusables.actions.on-single-example %}
 
 ### Using multiple events
 
-{% data reusables.github-actions.on-multiple-example %}
+{% data reusables.actions.on-multiple-example %}
 
 ### Using activity types and filters with multiple events
 
-You can use activity types and filters to further control when your workflow will run. For more information, see [Using event activity types](#using-event-activity-types) and [Using filters](#using-filters). {% data reusables.github-actions.actions-multiple-types %}
+You can use activity types and filters to further control when your workflow will run. For more information, see [Using event activity types](#using-event-activity-types) and [Using filters](#using-filters). {% data reusables.actions.actions-multiple-types %}
 
 ## Using event activity types
 
-{% data reusables.github-actions.actions-activity-types %}
+{% data reusables.actions.actions-activity-types %}
 
 ## Using filters
 
-{% data reusables.github-actions.actions-filters %}
+{% data reusables.actions.actions-filters %}
 
 ### Using filters to target specific branches for pull request events
 
@@ -125,7 +118,7 @@ You can use activity types and filters to further control when your workflow wil
 
 ## Defining inputs for manually triggered workflows
 
-{% data reusables.github-actions.workflow-dispatch-inputs %}
+{% data reusables.actions.workflow-dispatch-inputs %}
 
 {% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
 ## Defining inputs, outputs, and secrets for reusable workflows
@@ -195,7 +188,11 @@ If you want more granular control than events, event activity types, or event fi
 
 ### Using conditionals
 
-You can use conditionals to further control whether jobs or steps in your workflow will run. For example, if you want the workflow to run when a specific label is added to an issue, you can trigger on the `issues labeled` event activity type and use a conditional to check what label triggered the workflow. The following workflow will run when any label is added to an issue in the workflow's repository, but the `run_if_label_matches` job will only execute if the label is named `bug`.
+You can use conditionals to further control whether jobs or steps in your workflow will run.
+
+#### Example using a value in the event payload
+
+For example, if you want the workflow to run when a specific label is added to an issue, you can trigger on the `issues labeled` event activity type and use a conditional to check what label triggered the workflow. The following workflow will run when any label is added to an issue in the workflow's repository, but the `run_if_label_matches` job will only execute if the label is named `bug`.
 
 ```yaml
 on:
@@ -211,7 +208,34 @@ jobs:
       - run: echo 'The label was bug'
 ```
 
-For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
+#### Example using event type
+
+For example, if you want to run different jobs or steps depending on what event triggered the workflow, you can use a conditional to check whether a specific event type exists in the event context. The following workflow will run whenever an issue or pull request is closed. If the workflow ran because an issue was closed, the `github.event` context will contain a value for `issue` but not for `pull_request`. Therefore, the `if_issue` step will run but the `if_pr` step will not run. Conversely, if the workflow ran because a pull request was closed, the `if_pr` step will run but the `if_issue` step will not run.
+
+```yaml
+on:
+  issues:
+    types:
+      - closed
+  pull_request:
+    types:
+      - closed
+
+jobs:
+  state_event_type:
+    runs-on: ubuntu-latest
+    steps:
+    - name: if_issue
+      if: github.event.issue
+      run: |
+        echo An issue was closed
+    - name: if_pr
+      if: github.event.pull_request
+      run: |
+        echo A pull request was closed
+```
+
+For more information about what information is available in the event context, see "[Using event information](#using-event-information)." For more information about how to use conditionals, see "[Expressions](/actions/learn-github-actions/expressions)."
 
 {% ifversion fpt or ghae or ghes > 3.1 or ghec %}
 

@@ -18,11 +18,11 @@ featuredLinks:
     - /codespaces/getting-started-with-codespaces/getting-started-with-your-java-project-in-codespaces
     - /codespaces/getting-started-with-codespaces/getting-started-with-your-dotnet-project
   videos:
-    - title: "Inside GitHub: Moving GitHub's Development to Codespaces – Cory Wilkerson"
+    - title: 'Inside GitHub: Moving GitHub''s Development to Codespaces – Cory Wilkerson'
       href: 'https://www.youtube-nocookie.com/embed/Lj_RpjEuESE'
-    - title: "Making Codespaces Work for You – Allison Weins, Bailey Brooks"
+    - title: 'Making Codespaces Work for You – Allison Weins, Bailey Brooks'
       href: 'https://www.youtube-nocookie.com/embed/X9Z-rUixnzk'
-    - title: "Coding in the cloud with GitHub Codespaces and VS Code – Damian Brady"
+    - title: Coding in the cloud with GitHub Codespaces and VS Code – Damian Brady
       href: 'https://www.youtube-nocookie.com/embed/xWr_yH_AGVs'
   videosHeading: GitHub Universe 2021 videos
   guideCards:

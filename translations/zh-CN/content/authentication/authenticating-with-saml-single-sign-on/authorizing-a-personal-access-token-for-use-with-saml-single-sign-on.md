@@ -15,13 +15,15 @@ shortTitle: 使用 SAML 的 PAT
 
 您可以授权现有的个人访问令牌，或者[创建新的个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token)，然后再授权。
 
+{% data reusables.saml.must-authorize-linked-identity %}
+
 {% data reusables.saml.authorized-creds-info %}
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}
 {% data reusables.user-settings.personal_access_tokens %}
-3. Next to the token you'd like to authorize, click **Configure SSO**. ![Screenshot of the dropdown menu to configure SSO for a personal access token](/assets/images/help/settings/sso-allowlist-button.png)
-4. To the right of the organization you'd like to authorize the token for, click **Authorize**. ![令牌授权按钮](/assets/images/help/settings/token-authorize-button.png)
+3. 在要授权的令牌旁边，单击 **Configure SSO（配置 SSO）**。 ![用于为个人访问令牌配置 SSO 的下拉菜单的屏幕截图](/assets/images/help/settings/sso-allowlist-button.png)
+4. 在要为其授权令牌的组织右侧，单击 **Authorize（授权）**。 ![令牌授权按钮](/assets/images/help/settings/token-authorize-button.png)
 
 ## 延伸阅读
 

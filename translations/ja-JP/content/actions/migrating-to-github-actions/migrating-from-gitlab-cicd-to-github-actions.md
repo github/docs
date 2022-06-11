@@ -65,15 +65,15 @@ job1:
 {% endraw %}
 </td>
 <td class="d-table-cell v-align-top">
-{% raw %}
+
 ```yaml
 jobs:
   job1:
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - run: echo "Run your script here"
 ```
-{% endraw %}
+
 </td>
 </tr>
 </table>
@@ -309,6 +309,8 @@ GitLab CI/CD および {% data variables.product.prodname_actions %} は、パ�
 
 GitLab CI/CD と {% data variables.product.prodname_actions %} では、設定ファイルにワークフローファイルを手動でキャッシュするためのメソッドがあります。
 
+{% ifversion actions-caching %}
+
 以下が、それぞれのシステムの構文の例です。
 
 <table class="d-block">
@@ -341,25 +343,29 @@ test_async:
 {% endraw %}
 </td>
 <td class="d-table-cell v-align-top">
-{% raw %}
+
 ```yaml
 jobs:
   test_async:
     runs-on: ubuntu-latest
     steps:
     - name: Cache node modules
-      uses: actions/cache@v2
+      uses: {% data reusables.actions.action-cache %}
       with:
         path: ~/.npm
-        key: v1-npm-deps-${{ hashFiles('**/package-lock.json') }}
+        key: {% raw %}v1-npm-deps-${{ hashFiles('**/package-lock.json') }}{% endraw %}
         restore-keys: v1-npm-deps-
 ```
-{% endraw %}
+
 </td>
 </tr>
 </table>
 
-{% data variables.product.prodname_actions %} キャッシュは、{% data variables.product.prodname_dotcom_the_website %} でホストされているリポジトリにのみ適用できます。 詳しい情報については、「<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">ワークフローを高速化するための依存関係のキャッシュ</a>」を参照してください。
+{% else %}
+
+{% data reusables.actions.caching-availability %}
+
+{% endif %}
 
 ## 成果物
 
@@ -388,15 +394,15 @@ artifacts:
 {% endraw %}
 </td>
 <td class="d-table-cell v-align-top">
-{% raw %}
+
 ```yaml
 - name: Upload math result for job 1
-  uses: actions/upload-artifact@v2
+  uses: {% data reusables.actions.action-upload-artifact %}
   with:
     name: homework
     path: math-homework.txt
 ```
-{% endraw %}
+
 </td>
 </tr>
 </table>
@@ -448,7 +454,7 @@ container-job:
 {% endraw %}
 </td>
 <td class="d-table-cell v-align-top">
-{% raw %}
+
 ```yaml
 jobs:
   container-job:
@@ -463,25 +469,25 @@ jobs:
 
     steps:
       - name: Check out repository code
-        uses: actions/checkout@v2
+        uses: {% data reusables.actions.action-checkout %}
 
-      # 「package.json」ファイル内のすべての依存関係の 
-      # クリーンインストールを実行する
+      # Performs a clean installation of all dependencies
+      # in the `package.json` file
       - name: Install dependencies
         run: npm ci
 
       - name: Connect to PostgreSQL
-        # PostgreSQL クライアントを作成してクライアントにデータを入力し 
-        # データを取得するスクリプトを実行する
+        # Runs a script that creates a PostgreSQL client,
+        # populates the client with data, and retrieves data
         run: node client.js
         env:
-          # PostgreSQL サービスコンテナとの通信に
-          # 使用されるホスト名
+          # The hostname used to communicate with the
+          # PostgreSQL service container
           POSTGRES_HOST: postgres
-          # デフォルトの PostgreSQL ポート
+          # The default PostgreSQL port
           POSTGRES_PORT: 5432
 ```
-{% endraw %}
+
 </td>
 </tr>
 </table>

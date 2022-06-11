@@ -4,6 +4,9 @@ intro: デプロイメントのスクリプトを自動化する際にサーバ�
 redirect_from:
   - /guides/managing-deploy-keys
   - /v3/guides/managing-deploy-keys
+  - /deploy-keys
+  - /articles/managing-deploy-keys
+  - /multiple-keys
 versions:
   fpt: '*'
   ghes: '*'
@@ -78,7 +81,7 @@ See [our guide on creating a personal access token](/authentication/keeping-your
 
 #### セットアップ
 
-1. [Run the `ssh-keygen` procedure][generating-ssh-keys] on your server, and remember where you save the generated public and private rsa key pair key pair.
+1. [Run the `ssh-keygen` procedure][generating-ssh-keys] on your server, and remember where you save the generated public and private rsa key pair.
 2. {% data variables.product.product_name %}の任意のページの右上で、プロフィールの写真をクリックし、続いて**Your profile（あなたのプロフィール）**をクリックしてください。 ![プロフィールへのアクセス](/assets/images/profile-page.png)
 3. プロフィールページで**Repositories（リポジトリ）**をクリックし、続いてリポジトリの名前をクリックしてください。 ![リポジトリのリンク](/assets/images/repos.png)
 4. リポジトリで**Settings（設定）**をクリックしてください。 ![リポジトリの設定](/assets/images/repo-settings.png)
@@ -117,7 +120,7 @@ $ git clone git@{% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.c
 
 サーバーがOrganizationをまたいでリポジトリにアクセスする必要がある場合、GitHub Appで必要なアクセスを定義して、そのGitHub Appから_スコープを厳格に設定した_、_サーバー対サーバー_のトークンを生成します。 サーバー対サーバーのトークンは単一または複数のリポジトリをスコープとすることができ、権限を細かく設定できます。 たとえば、リポジトリのコンテンツへの読み取り専用アクセス権を持つトークンを生成できます。
 
-GitHub Appは{% data variables.product.product_name %}でも主役級の存在なので、サーバー間トークンはあらゆるGitHubユーザから分離され、「サービストークン」に相当します。 さらに、サーバー間トークンには独自のレート制限があり、その制限は実行されるOrganizationの規模に応じて拡大されます。 詳しい情報については、「[Github Appsのレート制限](/developers/apps/rate-limits-for-github-apps)」を参照してください。
+GitHub Appは{% data variables.product.product_name %}でも主役級の存在なので、サーバー間トークンはあらゆるGitHubユーザから分離され、「サービストークン」に相当します。 さらに、サーバー間トークンには独自のレート制限があり、その制限は実行されるOrganizationの規模に応じて拡大されます。 For more information, see [Rate limits for {% data variables.product.prodname_github_apps %}](/developers/apps/rate-limits-for-github-apps).
 
 #### 長所
 

@@ -36,13 +36,13 @@ Antes de fazer push do repositório original para sua nova cópia ou _espelho_ d
   ```
 3. Faça espelhamento/push no novo repositório.
   ```shell
-  $ cd <em>old-repository</em>
+  $ cd <em>old-repository.git</em>
   $ git push --mirror https://{% data variables.command_line.codeblock %}/<em>exampleuser</em>/<em>new-repository</em>.git
   ```
 4. Remova o repositório local temporário que você criou anteriormente.
   ```shell
   $ cd ..
-  $ rm -rf <em>old-repository</em>
+  $ rm -rf <em>old-repository.git</em>
   ```
 
 ## Espelhar um repositório que contém objetos do {% data variables.large_files.product_name_long %}
@@ -54,7 +54,7 @@ Antes de fazer push do repositório original para sua nova cópia ou _espelho_ d
   ```
 3. Navegue até o repositório que você acabou de clonar.
   ```shell
-  $ cd <em>old-repository</em>
+  $ cd <em>old-repository.git</em>
   ```
 4. Extraia os objetos do {% data variables.large_files.product_name_long %} do repositório.
   ```shell
@@ -71,7 +71,7 @@ Antes de fazer push do repositório original para sua nova cópia ou _espelho_ d
 7. Remova o repositório local temporário que você criou anteriormente.
   ```shell
   $ cd ..
-  $ rm -rf <em>old-repository</em>
+  $ rm -rf <em>old-repository.git</em>
   ```
 
 ## Espelhar um repositório em outro local

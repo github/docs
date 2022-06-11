@@ -1,13 +1,13 @@
 import { fileURLToPath } from 'url'
 import path from 'path'
 import { isPlainObject } from 'lodash-es'
-import supertest from 'supertest'
-import createApp from '../../lib/app.js'
+import { expect, jest, test } from '@jest/globals'
+
 import enterpriseServerReleases from '../../lib/enterprise-server-releases.js'
 import Page from '../../lib/page.js'
-import { get } from '../helpers/supertest.js'
+import { get, head } from '../helpers/e2etest.js'
 import versionSatisfiesRange from '../../lib/version-satisfies-range.js'
-import { jest } from '@jest/globals'
+import { PREFERRED_LOCALE_COOKIE_NAME } from '../../middleware/detect-language.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
@@ -106,13 +106,15 @@ describe('redirects', () => {
     })
 
     test('are absent from all destination URLs', async () => {
-      const values = Object.values(redirects)
+      const values = Object.entries(redirects)
+        .filter(([from_, to]) => !to.includes('://'))
+        .map(([from_]) => from_)
       expect(values.length).toBeGreaterThan(100)
       expect(values.every((value) => !value.endsWith('/'))).toBe(true)
     })
 
     test('are redirected for HEAD requests (not just GET requests)', async () => {
-      const res = await supertest(createApp()).head('/articles/closing-issues-via-commit-messages/')
+      const res = await head('/articles/closing-issues-via-commit-messages/')
       expect(res.statusCode).toBe(301)
       expect(res.headers.location).toBe('/articles/closing-issues-via-commit-messages')
     })
@@ -132,31 +134,147 @@ describe('redirects', () => {
       expect(res.headers.location).toBe('/ja')
       expect(res.headers['cache-control']).toBe('private, no-store')
     })
+    test('homepage redirects to preferred language by cookie', async () => {
+      const res = await get('/', {
+        headers: {
+          Cookie: `${PREFERRED_LOCALE_COOKIE_NAME}=ja`,
+          'Accept-Language': 'es', // note how this is going to be ignored
+        },
+      })
+      expect(res.statusCode).toBe(302)
+      expect(res.headers.location).toBe('/ja')
+      expect(res.headers['cache-control']).toBe('private, no-store')
+    })
+    test('homepage redirects to preferred language by cookie if valid', async () => {
+      const res = await get('/', {
+        headers: {
+          Cookie: `${PREFERRED_LOCALE_COOKIE_NAME}=xy`,
+          'Accept-Language': 'ja', // note how this is going to be ignored
+        },
+      })
+      expect(res.statusCode).toBe(302)
+      expect(res.headers.location).toBe('/ja')
+      expect(res.headers['cache-control']).toBe('private, no-store')
+    })
+    test('trailing slash on languaged homepage should permantently redirect', async () => {
+      const res = await get('/en/')
+      expect(res.statusCode).toBe(301)
+      expect(res.headers.location).toBe('/en')
+      expect(res.headers['set-cookie']).toBeUndefined()
+      expect(res.headers['cache-control']).toContain('public')
+      expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
+    })
+    test('trailing slash with query string on languaged homepage should permantently redirect', async () => {
+      const res = await get('/ja/?foo=bar&bar=foo')
+      expect(res.statusCode).toBe(301)
+      expect(res.headers.location).toBe('/ja?foo=bar&bar=foo')
+      expect(res.headers['set-cookie']).toBeUndefined()
+      expect(res.headers['cache-control']).toContain('public')
+      expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
+    })
   })
 
   describe('external redirects', () => {
+    test('no external redirect starts with a language prefix', () => {
+      const values = Object.entries(redirects)
+        .filter(([from_, to]) => to.includes('://'))
+        .map(([from_]) => from_)
+        .filter((from_) => from_.startsWith('/en/'))
+      expect(values.length).toBe(0)
+    })
+
+    test('no external redirect should go to developer.github.com', () => {
+      const values = Object.values(redirects)
+        .filter((to) => to.includes('://'))
+        .filter((to) => new URL(to).hostname === 'developer.github.com')
+      expect(values.length).toBe(0)
+    })
+
     test('work for top-level request paths', async () => {
       const res = await get('/git-ready')
       expect(res.statusCode).toBe(301)
-      expect(res.headers.location).toBe('http://gitready.com/')
+      expect(res.headers.location).toBe('https://gitready.com/')
+      expect(res.headers['set-cookie']).toBeUndefined()
+      expect(res.headers['cache-control']).toContain('public')
+      expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
     })
 
-    test('work for article-level request paths', async () => {
-      const res = await get('/articles/testing-webhooks')
+    test('work for top-level request paths with /en/ prefix', async () => {
+      const res = await get('/en/git-ready')
       expect(res.statusCode).toBe(301)
-      expect(res.headers.location).toBe('http://developer.github.com/webhooks/testing/')
+      expect(res.headers.location).toBe('https://gitready.com/')
+    })
+
+    test('work for top-level request paths with /ja/ prefix', async () => {
+      const res = await get('/ja/git-ready')
+      expect(res.statusCode).toBe(301)
+      expect(res.headers.location).toBe('https://gitready.com/')
     })
   })
 
   describe('localized redirects', () => {
+    const redirectFrom =
+      '/desktop/contributing-to-projects/changing-a-remote-s-url-from-github-desktop'
+    const redirectTo =
+      '/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/changing-a-remotes-url-from-github-desktop'
+
     test('redirect_from for renamed pages', async () => {
-      const { res } = await get(
-        '/ja/desktop/contributing-to-projects/changing-a-remote-s-url-from-github-desktop'
-      )
+      const res = await get(`/ja${redirectFrom}`)
       expect(res.statusCode).toBe(301)
-      const expected =
-        '/ja/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/changing-a-remotes-url-from-github-desktop'
+      const expected = `/ja${redirectTo}`
       expect(res.headers.location).toBe(expected)
+    })
+
+    test('redirect_from for renamed pages by Accept-Language header', async () => {
+      const res = await get(redirectFrom, {
+        headers: {
+          'Accept-Language': 'ja',
+        },
+      })
+      expect(res.statusCode).toBe(302)
+      const expected = `/ja${redirectTo}`
+      expect(res.headers.location).toBe(expected)
+      expect(res.headers['cache-control']).toBe('private, no-store')
+    })
+
+    test('redirect_from for renamed pages but ignore Accept-Language header if not recognized', async () => {
+      const res = await get(redirectFrom, {
+        headers: {
+          // None of these are recognized
+          'Accept-Language': 'sv,fr,gr',
+        },
+      })
+      expect(res.statusCode).toBe(302)
+      const expected = `/en${redirectTo}`
+      expect(res.headers.location).toBe(expected)
+      expect(res.headers['cache-control']).toBe('private, no-store')
+    })
+
+    test('redirect_from for renamed pages but ignore unrecognized Accept-Language header values', async () => {
+      const res = await get(redirectFrom, {
+        headers: {
+          // Only the last one is recognized
+          'Accept-Language': 'sv,ja',
+        },
+      })
+      expect(res.statusCode).toBe(302)
+      const expected = `/ja${redirectTo}`
+      expect(res.headers.location).toBe(expected)
+      expect(res.headers['cache-control']).toBe('private, no-store')
+    })
+
+    test('will inject the preferred language from cookie', async () => {
+      const res = await get(redirectFrom, {
+        headers: {
+          Cookie: `${PREFERRED_LOCALE_COOKIE_NAME}=ja`,
+          'Accept-Language': 'es', // note how this is going to be ignored
+        },
+      })
+      // 302 because the redirect depended on cookie
+      expect(res.statusCode).toBe(302)
+      const expected = `/ja${redirectTo}`
+      expect(res.headers.location).toBe(expected)
+      expect(res.headers['cache-control']).toBe('private, no-store')
     })
   })
 

@@ -22,6 +22,14 @@ shortTitle: Gerenciar alertas de segredos
 
 ## Gerenciando alertas de {% data variables.product.prodname_secret_scanning %}
 
+{% ifversion ghec %}
+{% note %}
+
+**Nota:** Os alertas são criados apenas para repositórios com {% data variables.product.prodname_secret_scanning_GHAS %} habilitado. Os segredos encontrados em repositórios públicos que usam o serviço gratuito de {% data variables.product.prodname_secret_scanning_partner%} são informados diretamente ao parceiro, sem criar um alerta.
+
+{% endnote %}
+{% endif %}
+
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 1. Na barra lateral esquerda, clique em **Alertas de varredura de segredo**.
@@ -55,6 +63,14 @@ Uma vez que um segredo tenha sido committed a um repositório, você deve consid
 
 - Para um token de acesso pessoal do {% data variables.product.prodname_dotcom %}, exclua o token comprometido, crie outro token e atualize os serviços que usam o token antigo. Para obter mais informações, consulte "[Criar um token de acesso pessoal para a linha de comando](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)".
 - Para todos os outros segredos, primeiro, verifique se o segredo commited para {% data variables.product.product_name %} é válido. Se sim, crie um novo segredo, atualize quaisquer serviços que utilizam o segredo antigo, e depois exclua o segredo antigo.
+
+{% ifversion ghec %}
+{% note %}
+
+**Nota:** Se um segredo for detectado em um repositório público em {% data variables.product.prodname_dotcom_the_website %} e o segredo também corresponder ao padrão de um parceiro, será gerado um alerta e o segredo potencial será informado ao provedor de serviços. Para obter detalhes sobre os padrões de parceiros, consulte "[segredos compatíveis com os padrões de parceiro](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets-for-partner-patterns)".
+
+{% endnote %}
+{% endif %}
 
 {% ifversion fpt or ghes > 3.1 or ghae-issue-4910 or ghec %}
 ## Configurando notificações para alertas de {% data variables.product.prodname_secret_scanning %}

@@ -14,6 +14,8 @@ Você pode utilizar um repositório de modelo em {% data variables.product.produ
 
 Para usar o repositório de modelo para a sua atribuição, o repositório de modelo deve pertencer à sua organização, ou a visibilidade do repositório de modelos deverá ser pública.
 
+É possível reutilizar uma atividade existente, mesmo que ela use um repositório modelo, em qualquer outra sala de aula à qual você tenha acesso administrativo, inclusive salas de aula de uma organização diferente. Para obter mais informações, consulte "[Reutilizar uma atividade](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/reuse-an-assignment)".
+
 ## Leia mais
 
 - "[Criar uma atividade individual](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)"

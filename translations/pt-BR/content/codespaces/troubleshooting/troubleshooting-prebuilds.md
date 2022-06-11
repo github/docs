@@ -1,7 +1,7 @@
 ---
-title: Troubleshooting prebuilds
-shortTitle: Codespaces prebuilds
-intro: You can use prebuilds to speed up the creation of codespaces. This article provides troubleshooting steps for common issues with prebuilds.
+title: Solução de problemas de pré-compilações
+shortTitle: Pré-compilações de codespaces
+intro: Você pode usar as pré-compilações para acelerar a criação de codespaces. Este artigo fornece etapas de solução de problemas para problemas comuns com pré-compilações.
 versions:
   fpt: '*'
   ghec: '*'
@@ -14,46 +14,54 @@ miniTocMaxHeadingLevel: 3
 
 {% data reusables.codespaces.prebuilds-beta-note %}
 
-For more information about {% data variables.product.prodname_codespaces %} prebuilds, see "[Prebuilding your codespaces](/codespaces/prebuilding-your-codespaces)."
+Para obter mais informações sobre as pré-compilações de {% data variables.product.prodname_codespaces %}, consulte "[Pré-compilando os seus codespaces](/codespaces/prebuilding-your-codespaces)".
 
-## Checking whether a codespace was created from a prebuild?
+## Verificando se um código foi criado a partir de uma pré-compilação?
 
-If multiple machine types are available when you create a codespace then a dialog box is displayed giving you a choice of machine types. This will display the "{% octicon "zap" aria-label="The zap icon" %} Prebuild ready" label beside machine types for which prebuilds are available.
+Ao criar um codespace, você pode escolher o tipo de máquina virtual que deseja usar. Se uma pré-criação estiver disponível para o tipo de máquina virtual, "Pré-criação pronta para{% octicon "zap" aria-label="The zap icon" %}" será exibida ao lado.
 
-![The dialog box for choosing a machine type](/assets/images/help/codespaces/choose-custom-machine-type.png)
+![Uma lista dos tipos de máquina disponíveis](/assets/images/help/codespaces/choose-custom-machine-type.png)
 
-If you have your {% data variables.product.prodname_codespaces %} editor preference set to "Visual Studio Code for Web" then the "Setting up your codespace" page will show the message "Prebuilt codespace found" if a prebuild is being used. Similarly, if your editor preference is "Visual Studio Code" then the integrated terminal will contain the message "You are on a prebuilt codespace defined by the prebuild configuration for your repository" when you create a new codespace. For more information, see "[Setting your default editor for Codespaces](/codespaces/customizing-your-codespace/setting-your-default-editor-for-codespaces)."
+Se você tiver a sua preferência de editor de {% data variables.product.prodname_codespaces %} definida como "{% data variables.product.prodname_vscode %} para a Web", a página "Configurando seu codespace " mostrará a mensagem "Pré-compliação de codespace encontrada" se uma pré-compilação estiver sendo usada.
 
-After you have created a codespace you can check whether it was created from a prebuild by running the following {% data variables.product.prodname_cli %} command in the terminal:
+![A mensagem "codespaces da pre-criação encontrados"](/assets/images/help/codespaces/prebuilt-codespace-found.png)
+
+Da mesma forma, se sua preferência de editor for "{% data variables.product.prodname_vscode_shortname %}", o terminal integrado conterá a mensagem "Você está em um codespace pré-criado e definido pela configuração de pré-compilação para seu repositório" ao criar um novo codespace. Para obter mais informações, consulte "[Definindo seu editor padrão para codespaces](/codespaces/customizing-your-codespace/setting-your-default-editor-for-codespaces)".
+
+Depois de criar um codespace, você pode verificar se ele foi criado a partir de uma pré-compilação executando o seguinte comando {% data variables.product.prodname_cli %} no terminal:
 
 ```shell{:copy}
 gh api /user/codespaces/$CODESPACE_NAME --jq .prebuild
 ```
 
-This returns `true` if the codespace was created using a prebuild.
+Isso retorna `verdadeiro` se o código foi criado usando a pré-compilação.
 
-Alternatively, if {% data variables.product.prodname_cli %} (`gh`) is not installed, you can use the following command, which returns `createFromPrebuild` if the codespace was created from a prebuild:
+Como alternativa, se {% data variables.product.prodname_cli %} (`gh`) não estiver instalado, você pode usar o seguinte comando, que retorna `createFromPrebuild` se o codespace foi criado a partir de uma pré-compilação:
 
 ```shell{:copy}
 cat /workspaces/.codespaces/shared/environment-variables.json | jq '.ACTION_NAME'
 ```
 
-## The "Prebuild Ready" label is sometimes missing
+## A etiqueta "Pré-compilação pronta" às vezes está ausente
 
-You may notice that sometimes, when you create a new codespace from a prebuild-enabled branch, the "{% octicon "zap" aria-label="The zap icon" %} Prebuild Ready" label is not displayed in the dialog box for choosing a machine type. This means that prebuilds are not currently available.
+Você pode notar que, às vezes, quando você cria um novo codespace a partir de um branch habilitado por uma pré-compilaçã, a etiqueta "Pré-compilação de {% octicon "zap" aria-label="The zap icon" %} pronta" não é exibida na caixa de diálogo para escolher um tipo de máquina. Isto significa que pré-compilações não estão disponíveis no momento.
 
-Each time you push to a prebuild-enabled branch, the prebuild template is updated. If the push involves a change to the dev container then, while the update is in progress, the "{% octicon "zap" aria-label="The zap icon" %} Prebuild Ready" label is removed from the machine types dialog box. During this time you can still create codespaces without a prebuild template.
+Por padrão, a cada vez que você fizer push para um branch habilitado por uma pré-criação, o template de pré-criação será atualizado. Se o push envolver uma alteração na configuração do contêiner de desenvolvimento, enquanto a atualização estiver em andamento, a etiqueta "Pré-criação pronta de {% octicon "zap" aria-label="The zap icon" %} será removida da lista de tipos de máquina. Neste tempo, você ainda pode criar codespaces sem um modelo de pré-compilação. Se necessário, você pode reduzir as ocasiões em que as pré-criações não estão disponíveis para um repositório, definindo o template de pré-criação para ser atualizado somente quando você fizer uma alteração nos arquivos de configuração do contêiner de desenvolvimento ou apenas em um agendamento personalizado. Para obter mais informações, consulte "[Configurando pré-criações](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-a-prebuild)".
 
-If your branch is not specifically enabled for prebuilds it may still benefit from prebuilds if it was branched from a prebuild-enabled branch. However, if the dev container is changed on your branch, so that it's not the same as the dev container on the base branch, prebuilds will no longer be available on your branch.
+Se seu branch não estiver especificamente habilitado para pré-compilações, ele ainda poderá se beneficiar de pré-compilações se ele foi criado a partir de um branch habilitado por pré-compilação. No entanto, se a configuração do contêiner de desenvolvimento for alterada no seu branch, para que não seja igual à configuração no branch de base, as pré-criações não estarão mais disponíveis no seu branch.
 
-Here are things to check if the "{% octicon "zap" aria-label="The zap icon" %} Prebuild Ready" label is not displayed for a particular branch:
+Essas são as coisas a serem verificadas se a etiqueta " Pré-compilação de {% octicon "zap" aria-label="The zap icon" %} pronta" não for exibido para um determinado branch:
 
-* Confirm that a prebuild configuration exists for this branch. If you’re not a repository administrator, you'll need to reach out to one to confirm this.
-* Confirm that the prebuild configuration includes your region.
-* Check whether a change to the dev container configuration was pushed to the prebuild-enabled branch recently. If so, you will have to wait until the prebuild workflow run for this push completes before prebuilds are available again.
-* If no configuration changes were recently made, go to the **Actions** tab of your repository, click **{% octicon "codespaces" aria-label="The Codespaces icon" %} {% data variables.product.prodname_codespaces %} Prebuilds** in the workflows list, and check that prebuild workflow runs for the branch are succeeding. If latest runs of a workflow failed, and one or more of these failed runs contained changes to the dev container, then there will be no available prebuilds for the associated branch.
+* Confirme que existe uma configuração de pré-compilação para este branch. Se você não for administrador do repositório, entre em contato com um para confirmar.
+* Confirme que a configuração de pré-compilação inclui sua região.
+* Verifique se uma alteração para a configuração do contêiner de desenvolvimento foi enviada por push para o branch habilitado pela pré-compilação recentemente. Se for dessa forma, normalmente você terá que esperar até que o fluxo de trabalho de pré-criação, aguarde até que a execução do fluxo de trabalho de pré-compilação seja concluída antes que as pré-criações estejam disponíveis novamente.
+* Se nenhuma alteração de configuração foi realizada recentemente, acesse a aba **Ações** do seu repositório, clique em **{% octicon "codespaces" aria-label="The Codespaces icon" %} Pré-compilações de {% data variables.product.prodname_codespaces %}** na lista de fluxos de trabalho e verifique se as execuções do fluxo de trabalho de pré-compilação são sendo bem-sucedidas. Se as últimas execuções de um fluxo de trabalho falharem e uma ou mais dessas execuções falharam continham alterações na configuração do contêiner de desenvolvimento, não haverá pré-compilações disponíveis para o branch associado.
+
+## Solucionando problemas de execução de fluxo de trabalho com falhas para pré-compilações
+
+Se o fluxo de trabalho for executado para uma configuração de pré-compilação falhar, você poderá desabilitar temporariamente a configuração de pré-compilação durante a investigação. Para obter mais informações, consulte "[Gereciando pré-compilações](/codespaces/prebuilding-your-codespaces/managing-prebuilds#disabling-a-prebuild-configuration)".
 
 ## Leia mais
 
-- "[Configuring prebuilds](/codespaces/prebuilding-your-codespaces/configuring-prebuilds)"
-- "[Managing prebuilds](/codespaces/prebuilding-your-codespaces/managing-prebuilds)"
+- "[Configurando pré-compilações](/codespaces/prebuilding-your-codespaces/configuring-prebuilds)"
+- "[Gerenciando pré-compilações](/codespaces/prebuilding-your-codespaces/managing-prebuilds)"

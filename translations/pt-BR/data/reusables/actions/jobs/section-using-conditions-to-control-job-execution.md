@@ -1,6 +1,6 @@
 Você pode usar a condicional `jobs.<job_id>.if` para evitar que um trabalho seja executado a não ser que determinada condição seja atendida. Você pode usar qualquer contexto e expressão compatível para criar uma condicional.
 
-{% data reusables.github-actions.expression-syntax-if %} Para obter mais informações, consulte "[Expressões](/actions/learn-github-actions/expressions)".
+{% data reusables.actions.expression-syntax-if %} Para obter mais informações, consulte "[Expressões](/actions/learn-github-actions/expressions)".
 
 ### Exemplo: Somente executar o trabalho para um repositório específico
 
@@ -14,8 +14,8 @@ jobs:
     if: github.repository == 'octo-org/octo-repo-prod'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: {% data reusables.actions.action-checkout %}
+      - uses: {% data reusables.actions.action-setup-node %}
         with:
           node-version: '14'
       - run: npm install -g bats

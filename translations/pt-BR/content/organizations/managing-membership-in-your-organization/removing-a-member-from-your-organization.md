@@ -13,9 +13,8 @@ topics:
   - Organizations
   - Teams
 shortTitle: Remover um integrante
+permissions: Organization owners can remove members from an organization.
 ---
-
-Somente proprietários da organização podem remover integrantes da organização.
 
 {% ifversion fpt or ghec %}
 
@@ -24,6 +23,7 @@ Somente proprietários da organização podem remover integrantes da organizaç�
 **Aviso:** Ao remover integrantes de uma organização:
 - O número de licenças pagas não faz o downgrade automaticamente. Para pagar menos licenças depois de remover os usuários da sua organização, siga as etapas em "[Fazer o downgrade das estações pagas da sua organização](/articles/downgrading-your-organization-s-paid-seats)".
 - Os integrantes removidos perderão o acesso às bifurcações privadas dos repositórios privados da sua organização, mas ainda poderão ter cópias locais. No entanto, eles não conseguem sincronizar as cópias locais com os repositórios da organização. As bifurcações privadas poderão ser restauradas se o usuário for [restabelecido como um integrante da organização](/articles/reinstating-a-former-member-of-your-organization) em até três meses após sua remoção da organização. Em última análise, você é responsável por garantir que as pessoas que perderam o acesso a um repositório excluam qualquer informação confidencial ou de propriedade intelectual.
+- Quando os repositórios privados são bifurcados para outras organizações, essas organizações conseguem controlar o acesso à rede da bifurcação. Isso significa que os usuários podem manter o acesso às bifurcações mesmo depois de perder o acesso à organização original, porque ainda terão acesso explícito através de uma bifurgação.
 {%- ifversion ghec %}
 -  Os integrantes removidos também perderão acesso a bifurcações privadas dos repositórios internos da sua organização, se o integrante removido não for integrante de qualquer outra organização pertencente à mesma conta corporativa. Para obter mais informações, consulte "[Sobre contas corporativas](/admin/overview/about-enterprise-accounts)".
 {%- endif %}
@@ -63,4 +63,5 @@ Para auxiliar a transição e garantir a exclusão das informações confidencia
 
 ## Leia mais
 
-- "[Remover integrantes da organização de uma equipe](/articles/removing-organization-members-from-a-team)"
+- "[Removendo integrantes da organização de uma equipe](/articles/removing-organization-members-from-a-team)"{% ifversion remove-enterprise-members %}
+- "[Removendo um integrante da sua empresa](/admin/user-management/managing-users-in-your-enterprise/removing-a-member-from-your-enterprise)"{% endif %}

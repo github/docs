@@ -47,7 +47,6 @@ PowerShellとPesterでテストを自動化するには、変更がリポジト�
 
 以下の例のワークフローファイルは、リポジトリの`.github/workflows/`ディレクトリに追加しなければなりません。
 
-{% raw %}
 ```yaml
 name: Test PowerShell on Ubuntu
 on: push
@@ -58,7 +57,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
-        uses: actions/checkout@v2
+        uses: {% data reusables.actions.action-checkout %}
       - name: Perform a Pester test from the command-line
         shell: pwsh
         run: Test-Path resultsfile.log | Should -Be $true
@@ -67,17 +66,14 @@ jobs:
         run: |
           Invoke-Pester Unit.Tests.ps1 -Passthru
 ```
-{% endraw %}
 
 * `shell: pwsh` `run`コマンドの実行時にPowerShellを使うようにジョブを設定します。
 * `run: Test-Path resultsfile.log` - リポジトリのルートディレクトリに`resultsfile.log`というファイルが存在するかをチェックします。
 * `Should -Be $true` - Pesterを使って期待される結果を定義します。 結果が期待どおりではなかった場合、{% data variables.product.prodname_actions %}はこれを失敗したテストとしてフラグを立てます。 例:
 
-  {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
+
   ![失敗したPesterテスト](/assets/images/help/repository/actions-failed-pester-test-updated.png)
-  {% else %}
-  ![失敗したPesterテスト](/assets/images/help/repository/actions-failed-pester-test.png)
-  {% endif %}
+
 
 * `Invoke-Pester Unit.Tests.ps1 -Passthru` - Pesterを使って`Unit.Tests.ps1`というファイルに定義されたテストを実行します。 たとえば上記の同じテストを実行するには、`Unit.Tests.ps1`には以下を含めます。
   ```
@@ -108,25 +104,23 @@ jobs:
 
 {% endnote %}
 
-{% data variables.product.prodname_dotcom %}ホストランナーを使用する場合、依存関係をキャッシュしてワークフローの実行を高速化することもできます。 詳しい情報については、「<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">ワークフローを高速化するための依存関係のキャッシュ</a>」を参照してください。
+{% ifversion actions-caching %}You can also cache dependencies to speed up your workflow. For more information, see "[Caching dependencies to speed up workflows](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."{% endif %}
 
 たとえば以下のジョブは、`SqlServer`及び`PSScriptAnalyzer`モジュールをインストールします。
 
-{% raw %}
 ```yaml
 jobs:
   install-dependencies:
     name: Install dependencies
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Install from PSGallery
         shell: pwsh
         run: |
           Set-PSRepository PSGallery -InstallationPolicy Trusted
           Install-Module SqlServer, PSScriptAnalyzer
 ```
-{% endraw %}
 
 {% note %}
 
@@ -134,22 +128,23 @@ jobs:
 
 {% endnote %}
 
+{% ifversion actions-caching %}
+
 ### 依存関係のキャッシング
 
-{% data variables.product.prodname_dotcom %} ホストランナーを使用する場合、一意のキーを使用してPowerShellの依存関係をキャッシュし、[`cache`](https://github.com/marketplace/actions/cache)アクションで将来のワークフローを実行するときに依存関係を復元できます。 詳しい情報については、「<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">ワークフローを高速化するための依存関係のキャッシュ</a>」を参照してください。
+You can cache PowerShell dependencies using a unique key, which allows you to restore the dependencies for future workflows with the [`cache`](https://github.com/marketplace/actions/cache) action. 詳しい情報については、「[ワークフローを高速化するための依存関係のキャッシュ](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)」を参照してください。
 
 PowerShellは、ランナーのオペレーティングシステムによって依存関係を様々な場所にキャッシュします。 たとえば以下のUbuntuの例で使われる`path`の場所は、Windowsオペレーティングシステムの場合とは異なります。
 
-{% raw %}
 ```yaml
 steps:
-  - uses: actions/checkout@v2
+  - uses: {% data reusables.actions.action-checkout %}
   - name: Setup PowerShell module cache
     id: cacher
-    uses: actions/cache@v2
+    uses: {% data reusables.actions.action-cache %}
     with:
       path: "~/.local/share/powershell/Modules"
-      key: ${{ runner.os }}-SqlServer-PSScriptAnalyzer
+      key: {% raw %}${{ runner.os }}-SqlServer-PSScriptAnalyzer{% endraw %}
   - name: Install required PowerShell modules
     if: steps.cacher.outputs.cache-hit != 'true'
     shell: pwsh
@@ -157,7 +152,8 @@ steps:
       Set-PSRepository PSGallery -InstallationPolicy Trusted
       Install-Module SqlServer, PSScriptAnalyzer -ErrorAction Stop
 ```
-{% endraw %}
+
+{% endif %}
 
 ## コードのテスト
 
@@ -167,13 +163,12 @@ steps:
 
 以下の例は`PSScriptAnalyzer`をインストールし、それを使ってリポジトリ内のすべての`ps1`ファイルの文法チェックを行います。 詳しい情報については[GitHub上のPSScriptAnalyzer](https://github.com/PowerShell/PSScriptAnalyzer)を参照してください。
 
-{% raw %}
 ```yaml
   lint-with-PSScriptAnalyzer:
     name: Install and run PSScriptAnalyzer
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Install PSScriptAnalyzer module
         shell: pwsh
         run: |
@@ -191,7 +186,6 @@ steps:
               Write-Output "There were $($errors.Count) errors and $($warnings.Count) warnings total."
           }
 ```
-{% endraw %}
 
 ## 成果物としてのワークフローのデータのパッケージ化
 
@@ -199,7 +193,6 @@ steps:
 
 以下の例は、`upload-artifact`アクションを使って`Invoke-Pester`から受信したテスト結果をアーカイブする方法を示しています。 詳しい情報については[`upload-artifact`アクション](https://github.com/actions/upload-artifact)を参照してください。
 
-{% raw %}
 ```yaml
 name: Upload artifact from Ubuntu
 
@@ -210,18 +203,17 @@ jobs:
     name: Run Pester and upload results
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Test with Pester
         shell: pwsh
         run: Invoke-Pester Unit.Tests.ps1 -Passthru | Export-CliXml -Path Unit.Tests.xml
       - name: Upload test results
-        uses: actions/upload-artifact@v2
+        uses: {% data reusables.actions.action-upload-artifact %}
         with:
           name: ubuntu-Unit-Tests
           path: Unit.Tests.xml
-    if: ${{ always() }}
+    if: {% raw %}${{ always() }}{% endraw %}
 ```
-{% endraw %}
 
 `always()`関数は、テストに失敗があっても継続するようにジョブを設定しています。 詳しい情報については「[ always](/actions/reference/context-and-expression-syntax-for-github-actions#always)」を参照してください。
 
@@ -231,7 +223,6 @@ CIテストにパスしたら、PowerShellモジュールをPowerShell Gallery�
 
 以下の例は、パッケージを作成し、`Publish-Module`を使ってそのパッケージをPowerShell Galleryに公開します。
 
-{% raw %}
 ```yaml
 name: Publish PowerShell Module
 
@@ -243,13 +234,12 @@ jobs:
   publish-to-gallery:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Build and publish
         env:
-          NUGET_KEY: ${{ secrets.NUGET_KEY }}
+          NUGET_KEY: {% raw %}${{ secrets.NUGET_KEY }}{% endraw %}
         shell: pwsh
         run: |
           ./build.ps1 -Path /tmp/samplemodule
           Publish-Module -Path /tmp/samplemodule -NuGetApiKey $env:NUGET_KEY -Verbose
 ```
-{% endraw %}

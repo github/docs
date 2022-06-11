@@ -1,6 +1,6 @@
 ---
-title: Viewing a file
-intro: You can view raw file content or trace changes to lines in a file and discover how parts of the file evolved over time.
+title: Ver un archivo
+intro: Puedes ver el contenido sin procesar de los archivos o rastrear cambios en las líneas de un archivo y descubrir cómo evolucionaron las partes de este con el tiempo.
 redirect_from:
   - /articles/using-git-blame-to-trace-changes-in-a-file
   - /articles/tracing-changes-in-a-file
@@ -15,19 +15,19 @@ versions:
   ghec: '*'
 topics:
   - Repositories
-shortTitle: View files and track file changes
+shortTitle: Ver los archivos y rastrear los cambios en ellos
 ---
 
-## Viewing or copying the raw file content
+## Ver o copiar el contenido sin procesar de los archivos
 
-With the raw view, you can view or copy the raw content of a file without any styling.
+Con la vista de contenido sin procesar, puedes ver o copiar el contenido sin procesar de un archivo sin ningún tipo de formato.
 
 {% data reusables.repositories.navigate-to-repo %}
-1. Click the file that you want to view.
-2. In the upper-right corner of the file view, click **Raw**. ![Screenshot of the Raw button in the file header](/assets/images/help/repository/raw-file-button.png)
-3. Optionally, to copy the raw file content, in the upper-right corner of the file view, click **{% octicon "copy" aria-label="The copy icon" %}**.
+1. Haz clic en el archivo que quieras ver.
+2. En la esquina superior derecha de la vista de archivo, haz clic en**Sin procesar**. ![Captura de pantalla del botón "sin procesar" en el encabezado del archivo](/assets/images/help/repository/raw-file-button.png)
+3. Opcionalmente, para copiar el contenido sin procesar del archivo, en la esquina superior derecha de la vista de archivo, haz clic en **{% octicon "copy" aria-label="The copy icon" %}**.
 
-## Viewing the line-by-line revision history for a file
+## Ver el historial de revisión línea por línea de un archivo
 
 Con la vista de último responsable, puedes ver el historial de revisión línea por línea para todo un archivo o ver el historial de revisión de una única línea dentro de un archivo haciendo clic en {% octicon "versions" aria-label="The prior blame icon" %}. Cada vez que hagas clic en {% octicon "versions" aria-label="The prior blame icon" %}, verás la información de revisión anterior para esa línea, incluido quién y cuándo confirmó el cambio.
 
@@ -47,3 +47,34 @@ En un archivo o solicitud de extracción, también puedes utilizar el menú {% o
 2. Haz clic para abrir el archivo cuyo historial de líneas quieres ver.
 3. En la esquina superior derecha de la vista del archivo, haz clic en **Blame** (Último responsable) para abrir la vista del último responsable. ![Botón Blame (Último responsable)](/assets/images/help/repository/blame-button.png)
 4. Para ver versiones anteriores de una línea específica, o el siguiente último responsable, haz clic en {% octicon "versions" aria-label="The prior blame icon" %} hasta que hayas encontrado los cambios que quieres ver. ![Botón Prior blame (Último responsable anterior)](/assets/images/help/repository/prior-blame-button.png)
+
+{% ifversion blame-ignore-revs %}
+
+## Ignorar las confirmaciones en la vista de último responsable
+
+Todas las revisiones que se especifican en el archivo `.git-blame-ignore-revs`, el cual debe estar en el directorio raíz de tu repositorio, se ocultan de la vista de último responsable utilizando el ajuste de configuración `git blame --ignore-revs-file` de Git. Para obtener más información, consulta [`git blame --ignore-revs-file`](https://git-scm.com/docs/git-blame#Documentation/git-blame.txt---ignore-revs-fileltfilegt) en la documentación de Git.
+
+1. En el directorio de tu repositorio, crea un archivo llamado `.git-blame-ignore-revs`.
+2. Agrega los hashes de confirmación que quieras excluir de la vista de último responsable a ese archivo. Te recomendamos que el archivo se estructure de la siguiente forma, incluyendo los comentarios:
+
+    ```ini
+    # .git-blame-ignore-revs
+    # Removed semi-colons from the entire codebase
+    a8940f7fbddf7fad9d7d50014d4e8d46baf30592
+    # Converted all JavaScript to TypeScript
+    69d029cec8337c616552756310748c4a507bd75a
+    ```
+
+3. Confirma y sube los cambios.
+
+Ahora, cuando visites la vista de último responsable, las revisiones listadas no se incluirán en ella. Verás un letrero de **ignorando las revisiones en .git-blame-ignore-revs** indicando que algunas confirmaciones podrían estar ocultas:
+
+![Captura de pantalla de un letrero con la vista de último responsable que enlaza al archivo .git-blame-ignore-revs](/assets/images/help/repository/blame-ignore-revs-file.png)
+
+Esto puede ser útil cuando algunas cuantas confirmaciones hacen cambios extensos a tu código. Puedes utilizar el archivo al ejecutar `git blame` localmente también:
+
+```shell
+git blame --ignore-revs-file .git-blame-ignore-revs
+```
+
+{% endif %}

@@ -2,8 +2,8 @@ Para um trabalho específico, você pode usar `jobs.<job_id>.permissions` para m
 
 Ao especificar a permissão de uma definição de trabalho, você pode configurar um conjunto diferente de permissões para o `GITHUB_TOKEN` para cada trabalho, se necessário. Como alternativa, você pode especificar as permissões para todas as tarefas do fluxo de trabalho. Para informações sobre como definir permissões no nível do fluxo de trabalho, consulte [`permissões`](/actions/using-workflows/workflow-syntax-for-github-actions#permissions).
 
-{% data reusables.github-actions.github-token-available-permissions %}
-{% data reusables.github-actions.forked-write-permission %}
+{% data reusables.actions.github-token-available-permissions %}
+{% data reusables.actions.forked-write-permission %}
 
 #### Exemplo: Configurar permissões para um trabalho específico
 
@@ -19,5 +19,5 @@ jobs:
       pull-requests: write
 
     steps:
-      - uses: actions/stale@v3
+      - uses: {% data reusables.actions.action-stale %}
 ```

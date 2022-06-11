@@ -19,7 +19,7 @@ permissions: Team maintainers and organization owners can configure code review 
 
 ## Sobre as configurações de revisão de código
 
-{% if only-notify-requested-members %}
+{% ifversion only-notify-requested-members %}
 Para reduzir o ruído para sua equipe e esclarecer a responsabilidade individual pelas análises de pull requests, você pode definir as configurações de revisão de código.
 
 - Notificações da equipe
@@ -36,10 +36,6 @@ Ao habilitar a atribuição automática, qualquer momento em que for solicitado 
 
 Quando se solicita que os proprietários do código façam a revisão automaticamente, a equipe ainda será removida e substituída por indivíduos, a menos que uma regra de proteção de branch esteja configurada que exija revisão dos proprietários de código. Se essa regra de proteção de ramificação estiver em vigor, a solicitação de equipe não poderá ser removida, fazendo com que a solicitação individual seja exibida.
 
-{% ifversion fpt %}
-Para desenvolver ainda mais as habilidades de colaboração da sua equipe, você pode fazer a atualização para {% data variables.product.prodname_ghe_cloud %}, que inclui funcionalidades como branches protegidos e proprietários de códigos em repositórios privados. {% data reusables.enterprise.link-to-ghec-trial %}
-{% endif %}
-
 ### Encaminhar algoritmos
 
 Escolha as atribuições de revisão de código e atribua os revisores automaticamente com base em um dos dois algoritmos possíveis.
@@ -50,7 +46,7 @@ O algoritmo do balanço de carga escolhe os revisores com base no número total 
 
 Todos os integrantes da equipe que definiram seu status como "Ocupado" não serão selecionados para revisão. Se todos os integrantes da equipe estiverem ocupados, o pull request permanecerá atribuído à própria equipe. Para obter mais informações sobre os status do usuário, consulte "[Configurando um status](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile#setting-a-status)".
 
-{% if only-notify-requested-members %}
+{% ifversion only-notify-requested-members %}
 ## Configurando notificações da equipe
 
 {% data reusables.profile.access_org %}

@@ -65,15 +65,11 @@ To unwatch (or unsubscribe from) repositories quickly, navigate to [github.com/w
   ![[Manage notifications] ドロップダウンメニューオプション](/assets/images/help/notifications-v2/manage-notifications-options.png)
 
 2. Watch しているリポジトリのページで、Watchしているリポジトリを評価した後、次のいずれかを選択します。
-   {%- ifversion fpt or ghes > 3.0 or ghae or ghec %}
+
    - リポジトリの Watch 解除
    - Ignore all notifications for a repository
    - If enabled, customize the types of event you receive notifications for ({% data reusables.notifications-v2.custom-notification-types %})
-   {%- else %}
-   - リポジトリの Watch 解除
-   - Only watch releases for a repository
-   - Ignore all notifications for a repository
-   {%- endif %}
+
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5819 %}
 1. Optionally, to unsubscribe from all repositories owned by a given user or organization, select the **Unwatch all** dropdown and click the organization whose repositories you'd like to unsubscribe from. The button to unwatch all repositories is only available if you are watching all activity or custom notifications on over 10 repositories.
 

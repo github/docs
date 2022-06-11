@@ -24,8 +24,10 @@ export const DefaultLayout = (props: Props) => {
     fullUrl,
     status,
   } = useMainContext()
-  const { t } = useTranslation(['errors', 'scroll_button'])
+  const { t } = useTranslation(['errors', 'meta', 'scroll_button'])
   const router = useRouter()
+  const metaDescription = page.introPlainText ? page.introPlainText : t('default_description')
+
   return (
     <div className="d-lg-flex">
       <Head>
@@ -37,7 +39,7 @@ export const DefaultLayout = (props: Props) => {
         ) : null}
 
         {/* For Google and Bots */}
-        {page.introPlainText && <meta name="description" content={page.introPlainText} />}
+        <meta name="description" content={metaDescription} />
         {page.hidden && <meta name="robots" content="noindex" />}
         {page.languageVariants.map((languageVariant) => {
           return (
@@ -87,12 +89,9 @@ export const DefaultLayout = (props: Props) => {
       <SidebarNav />
       {/* Need to set an explicit height for sticky elements since we also
           set overflow to auto */}
-      <div
-        className="flex-column flex-1 overflow-auto print-overflow-visible"
-        style={{ height: '100vh' }}
-      >
+      <div className="flex-column flex-1">
         <Header />
-        <main id="main-content">
+        <main id="main-content" style={{ scrollMarginTop: '5rem' }}>
           <DeprecationBanner />
           <RestBanner />
 
@@ -102,7 +101,7 @@ export const DefaultLayout = (props: Props) => {
           <SupportSection />
           <SmallFooter />
           <ScrollButton
-            className="position-fixed bottom-0 mb-4 right-0 mr-4"
+            className="position-fixed bottom-0 mb-4 right-0 mr-4 z-1"
             ariaLabel={t('scroll_to_top')}
           />
         </footer>

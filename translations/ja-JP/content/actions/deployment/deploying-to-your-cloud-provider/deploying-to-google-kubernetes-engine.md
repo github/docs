@@ -26,7 +26,7 @@ This guide explains how to use {% data variables.product.prodname_actions %} to 
 
 GKEはGoogle CloudによるマネージドなKubernetesクラスタサービスで、コンテナ化されたワークロードをクラウドもしくはユーザ自身のデータセンターでホストできます。 詳しい情報については[Google Kubernetes Engine](https://cloud.google.com/kubernetes-engine)を参照してください。
 
-{% ifversion fpt or ghec or ghae-issue-4856 %}
+{% ifversion fpt or ghec or ghae-issue-4856 or ghes > 3.4 %}
 
 {% note %}
 
@@ -120,11 +120,9 @@ Store the name of your project as a secret named `GKE_PROJECT`. For more informa
 ### （オプション）kustomizeの設定
 Kustomizeは、YAML仕様を管理するために使われるオプションのツールです。 After creating a `kustomization` file, the workflow below can be used to dynamically set fields of the image and pipe in the result to `kubectl`. 詳しい情報については、「[kustomize の使い方](https://github.com/kubernetes-sigs/kustomize#usage)」を参照してください。
 
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 ### (Optional) Configure a deployment environment
 
 {% data reusables.actions.about-environments %}
-{% endif %}
 
 ## ワークフローの作成
 
@@ -161,7 +159,7 @@ jobs:
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: {% data reusables.actions.action-checkout %}
 
     # Setup gcloud CLI
     - uses: google-github-actions/setup-gcloud@94337306dda8180d967a56932ceb4ddcf01edae7

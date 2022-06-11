@@ -84,7 +84,7 @@ end
 
 サーバーの環境を整えたところで、最初の要件、すなわちCIステータスの設定 (および更新) を行う準備が整いました。 サーバーを更新するごとに、[**Redeliver**]をクリックして同じペイロードを送信できます。 変更を行うたびに新しいプルリクエストを作成する必要はありません。
 
-Since we're interacting with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, we'll use [Octokit.rb][octokit.rb] to manage our interactions. そのクライアントは、以下のように構成します。
+{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} APIとやりとりをしているので、そのやりとりを管理するために[Octokit.rb][octokit.rb]を使います。 そのクライアントは、以下のように構成します。
 
 ``` ruby
 # !!! DO NOT EVER USE HARD-CODED VALUES IN A REAL APP !!!

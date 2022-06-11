@@ -1,12 +1,13 @@
 ---
 title: About security hardening with OpenID Connect
 shortTitle: About security hardening with OpenID Connect
-intro: 'OpenID Connect allows your workflows to exchange short-lived tokens directly from your cloud provider.'
+intro: OpenID Connect allows your workflows to exchange short-lived tokens directly from your cloud provider.
 miniTocMaxHeadingLevel: 4
 versions:
   fpt: '*'
-  ghae: 'issue-4856'
+  ghae: issue-4856
   ghec: '*'
+  ghes: '>=3.5'
 type: tutorial
 topics:
   - Security
@@ -66,11 +67,14 @@ The following example OIDC token uses a subject (`sub`) that references a job en
   "jti": "example-id",
   "sub": "repo:octo-org/octo-repo:environment:prod",
   "environment": "prod",
-  "aud": "https://github.com/octo-org",
+  "aud": "{% ifversion ghes %}https://HOSTNAME{% else %}https://github.com{% endif %}/octo-org",
   "ref": "refs/heads/main",
   "sha": "example-sha",
   "repository": "octo-org/octo-repo",
   "repository_owner": "octo-org",
+  "actor_id": "12",
+  "repository_id": "74",
+  "repository_owner_id": "65",
   "run_id": "example-run-id",
   "run_number": "10",
   "run_attempt": "2",
@@ -81,21 +85,22 @@ The following example OIDC token uses a subject (`sub`) that references a job en
   "event_name": "workflow_dispatch",
   "ref_type": "branch",
   "job_workflow_ref": "octo-org/octo-automation/.github/workflows/oidc.yml@refs/heads/main",
-  "iss": "https://token.actions.githubusercontent.com",
+  "iss": "{% ifversion ghes %}https://HOSTNAME/_services/token{% else %}https://token.actions.githubusercontent.com{% endif %}",
   "nbf": 1632492967,
   "exp": 1632493867,
   "iat": 1632493567
 }
 ```
 
-To see all the claims supported by {% data variables.product.prodname_dotcom %}'s OIDC provider, review the `claims_supported` entries at https://token.actions.githubusercontent.com/.well-known/openid-configuration. 
+To see all the claims supported by {% data variables.product.prodname_dotcom %}'s OIDC provider, review the `claims_supported` entries at 
+{% ifversion ghes %}`https://HOSTNAME/_services/token/.well-known/openid-configuration`{% else %}https://token.actions.githubusercontent.com/.well-known/openid-configuration{% endif %}.
 
 The token includes the standard audience, issuer, and subject claims:
 
 |    Claim    | Description            |
 | ----------- | ---------------------- |
 | `aud`| _(Audience)_ By default, this is the URL of the repository owner, such as the organization that owns the repository. This is the only claim that can be customized. You can set a custom audience with a toolkit command: [`core.getIDToken(audience)`](https://www.npmjs.com/package/@actions/core/v/1.6.0)          | 
-| `iss`| _(Issuer)_ The issuer of the OIDC token: `https://token.actions.githubusercontent.com`                   | 
+| `iss`| _(Issuer)_ The issuer of the OIDC token: {% ifversion ghes %}`https://HOSTNAME/_services/token`{% else %}`https://token.actions.githubusercontent.com`{% endif %}                   | 
 | `sub`| _(Subject)_ Defines the subject claim that is to be validated by the cloud provider. This setting is essential for making sure that access tokens are only allocated in a predictable way.|
 
 The OIDC token also includes additional standard claims:
@@ -114,7 +119,8 @@ The token also includes custom claims provided by {% data variables.product.prod
 
 |    Claim    | Description            |
 | ----------- | ---------------------- |
-| `actor`| The user account that initiated the workflow run.                   | 
+| `actor`| The personal account that initiated the workflow run.                   | 
+| `actor_id`| The ID of personal account that initiated the workflow run.             |
 | `base_ref`| The target branch of the pull request in a workflow run.                   | 
 | `environment`| The name of the environment used by the job.                    | 
 | `event_name`| The name of the event that triggered the workflow run.                    | 
@@ -123,7 +129,9 @@ The token also includes custom claims provided by {% data variables.product.prod
 | `ref`| _(Reference)_ The git ref that triggered the workflow run.                   | 
 | `ref_type`| The type of `ref`, for example: "branch".                  | 
 | `repository`| The repository from where the workflow is running.                   | 
+| `repository_id`| The ID of the repository from where the workflow is running.  |
 | `repository_owner`| The name of the organization in which the `repository` is stored.                   | 
+| `repository_owner_id`| The ID of the organization in which the `repository` is stored.            |
 | `run_id`| The ID of the workflow run that triggered the workflow.                   | 
 | `run_number`| The number of times this workflow has been run.                   | 
 | `run_attempt`| The number of times this workflow run has been retried.                    | 
@@ -164,7 +172,7 @@ You can configure a subject that filters for a specific [environment](/actions/d
 
 #### Filtering for `pull_request` events
 
-The subject claim includes the `pull_request` string when the workflow is triggered by a pull request event.
+The subject claim includes the `pull_request` string when the workflow is triggered by a pull request event, but only if the job doesn't reference an environment.
 
 You can configure a subject that filters for the [`pull_request`](/actions/learn-github-actions/events-that-trigger-workflows#pull_request) event. In this example, the workflow run must have been triggered by a `pull_request` event in a repository named `octo-repo` that is owned by the `octo-org` organization:
 
@@ -201,7 +209,7 @@ To configure the subject in your cloud provider's trust relationship, you must a
 
 |        |             |
 | ------ | ----------- |
-| Amazon Web Services | `"token.actions.githubusercontent.com:sub": "repo:octo-org/octo-repo:ref:refs/heads/demo-branch"`      | 
+| Amazon Web Services | `"{% ifversion ghes %}HOSTNAME/_services/token{% else %}token.actions.githubusercontent.com{% endif %}:sub": "repo:octo-org/octo-repo:ref:refs/heads/demo-branch"`      | 
 | Azure| `repo:octo-org/octo-repo:ref:refs/heads/demo-branch`      |
 | Google Cloud Platform| `(assertion.sub=='repo:octo-org/octo-repo:ref:refs/heads/demo-branch')`      |
 | HashiCorp Vault| `bound_subject="repo:octo-org/octo-repo:ref:refs/heads/demo-branch" `      |

@@ -38,7 +38,7 @@ Cada arquivo CODEOWNERS atribui os proprietários do código para um único bran
 
 Para que os proprietários do código recebam solicitações de revisão, o arquivo CODEOWNERS deve estar no branch base da pull request. Por exemplo, se você atribuir `@octocat` como o proprietário do código para arquivos *.js* no branch `gh-pages` do seu repositório, `@octocat` receberá solicitações de revisão quando uma pull request com alterações nos arquivos *.js* for aberta entre o branch head e `gh-pages`.
 
-{% ifversion fpt or ghec or ghes > 3.2 or ghae-issue-9273 %}
+{% ifversion fpt or ghec or ghes > 3.2 or ghae-issue-4675 %}
 ## Tamanho do arquivo CODEOWNERS
 
 Os arquivos CODEOWNERS devem ter menos de 3 MB. Um arquivo CODEOWNERS acima deste limite não será carregado, o que significa que as informações do proprietário do código não serão mostradas e não será solicitado que os proprietários do código apropriado revise as alterações em um pull request.
@@ -48,11 +48,13 @@ Para reduzir o tamanho do seu arquivo CODEOWNERS, considere o uso de padrões cu
 
 ## Sintaxe de CODEOWNERS
 
-Um arquivo CODEOWNERS usa um padrão que segue a maioria das mesmas regras usadas nos arquivos [gitignore](https://git-scm.com/docs/gitignore#_pattern_format), com [algumas exceções](#syntax-exceptions). O padrão é seguido por um ou mais nomes de usuário ou nomes de equipe do {% data variables.product.prodname_dotcom %} usando o formato padrão `@username` ou `@org/team-name`. Os usuários devem ter acessso de `leitura` ao repositório e as equipes devem ter acesso explícito de `gravação`, mesmo que os integrantes da equipe já tenham acesso. Você também pode se referir a um usuário por um endereço de e-mail que foi adicionado à sua conta em {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, por exemplo `user@example.com`.
+Um arquivo CODEOWNERS usa um padrão que segue a maioria das mesmas regras usadas nos arquivos [gitignore](https://git-scm.com/docs/gitignore#_pattern_format), com [algumas exceções](#syntax-exceptions). O padrão é seguido por um ou mais nomes de usuário ou nomes de equipe do {% data variables.product.prodname_dotcom %} usando o formato padrão `@username` ou `@org/team-name`. Os usuários devem ter acessso de `leitura` ao repositório e as equipes devem ter acesso explícito de `gravação`, mesmo que os integrantes da equipe já tenham acesso.
+
+{% ifversion fpt or ghec%}Na maioria dos casos você{% else %}Você{% endif %} também pode se referir a um usuário por um endereço de e-mail que foi adicionado a sua conta em {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, por exemplo, `user@example tom`. {% ifversion fpt or ghec %} Você não pode usar um endereço de e-mail para fazer referência a um {% data variables.product.prodname_managed_user %}. Para obter mais informações sobre {% data variables.product.prodname_managed_users %}, consulte "[Sobre {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/about-enterprise-managed-users){% ifversion fpt %}" na documentação de {% data variables.product.prodname_ghe_cloud %}.{% else %}."{% endif %}{% endif %}
 
 Os caminhos dos CODEOWNERS diferenciam maiúsculas de minúsculas, porque {% data variables.product.prodname_dotcom %} usa um sistema de arquivos que diferencia maiúsculas e minúsculas. Uma vez que os CODEOWNERS são avaliados por {% data variables.product.prodname_dotcom %}, até mesmo sistemas que diferenciam maiúsculas de minúsculas (por exemplo, macOS) devem usar caminhos e arquivos que são tratados corretamente no arquivo dos CODEOWNERS.
 
-{% if codeowners-errors %}
+{% ifversion codeowners-errors %}
 Se alguma linha do seu arquivo do CODEOWNERS contiver uma sintaxe inválida, essa linha será ignorada. Ao acessar o arquivo do CODEOWNERS no seu repositório em {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, você poderá ver todos os erros destacados. Uma lista de erros no arquivo CODEOWNERS de um repositório também pode ser acessada por meio da API. Para obter mais informações, consulte "[Repositórios](/rest/reference/repos#list-codeowners-errors)" na documentação da API REST.
 {% else %}
 Se qualquer linha do seu arquivo CODEOWNERS contiver uma sintaxe inválida, o arquivo não será detectado e não será usado para solicitar revisões.

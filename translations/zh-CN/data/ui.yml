@@ -1,4 +1,6 @@
 ---
+meta:
+  default_description: 开始使用、排除故障并充分利用 GitHub。新用户、开发人员、管理员和所有 GitHub 产品的文档。
 header:
   github_docs: GitHub Docs
   contact: 联系我们
@@ -15,36 +17,39 @@ header:
     ghes_release_notes_upgrade_patch_and_release: '📣 这不是此版本系列的<a href="#{{ latestPatch }}">最新修补版</a>，也不是 Enterprise Server 的<a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">最新版本</a>。'
   sign_up_cta: 注册
 picker:
-  language_picker_default_text: Choose a language
-  product_picker_default_text: All products
-  version_picker_default_text: Choose a version
+  language_picker_default_text: 选择语言
+  product_picker_default_text: 所有产品
+  version_picker_default_text: 选择版本
 release_notes:
-  banner_text: GitHub began rolling these changes out to enterprises on
+  banner_text: GitHub 已经开始向企业推广这些变化
 search:
   need_help: 需要帮助？
-  placeholder: 搜索主题、产品......
+  placeholder: 搜索 GitHub 文档
   loading: 正在加载
   no_results: 未找到结果
-  search_results_for: Search results for
-  no_content: No content
-  matches_displayed: Matches displayed
-  search_error: An error occurred trying to perform the search.
+  search_results_for: 搜索结果
+  no_content: 没有内容
+  matches_displayed: 显示的匹配项
+  search_error: 尝试执行搜索时出错。
+  description: 输入搜索词以在 GitHub 文档中查找。
+  label: 搜索 GitHub 文档
 homepage:
   explore_by_product: 按产品浏览
   version_picker: 版本
+  description: 无论您在 GitHub 历程中的哪个阶段，都能获得帮助。
 toc:
   getting_started: 入门指南
   popular: 热门
   guides: 指南
   whats_new: 新增内容
   videos: 视频
-  all_changelogs: All changelog posts
+  all_changelogs: 所有变更日志帖子
 pages:
   article_version: '文章版本'
   miniToc: 本文内容
   contributor_callout: 这篇文章的参与者和维护者是
-  all_enterprise_releases: All Enterprise Server releases
-  about_versions: About versions
+  all_enterprise_releases: 所有 Enterprise Server 版本
+  about_versions: 关于版本
 errors:
   oops: 哎呀！
   something_went_wrong: 看来出现了错误。
@@ -63,8 +68,8 @@ survey:
   optional: 可选
   required: 必选
   email_placeholder: email@example.com
-  email_label: If we can contact you with more questions, please enter your email address
-  email_validation: Please enter a valid email address
+  email_label: 如果我们有更多问题可以与您联系，请输入您的电子邮件地址
+  email_validation: 请输入有效的电子邮件地址
   send: 发送​​
   feedback: 谢谢！我们收到了您的反馈。
   not_support: 如果您需要回复，请联系客服。
@@ -78,6 +83,7 @@ contribution_cta:
 products:
   graphql:
     reference:
+      implements: 实现
       fields: 字段
       arguments: 参数
       name: 名称
@@ -92,8 +98,17 @@ products:
       deprecation_notice: 废弃通知
   rest:
     reference:
+      default: 默认值
+      name: 名称
+      in: 在
+      type: 类型
+      description: 描述
+      notes: 注：
       parameters: 参数
       response: 响应
+      example_response: 示例响应
+      status_code: 状态代码
+      http_status_code: HTTP 响应状态代码
       code_sample: 代码示例
       code_samples: 代码示例
       preview_notice: 预览通知
@@ -101,6 +116,15 @@ products:
       see_preview_notice: 查看预览通知
       see_preview_notices: 查看预览通知
       preview_header_is_required: 此标头<strong>必填</strong>
+      preview_notice_to_change: 此 API 是预览版，可能会发生更改
+      works_with: 使用
+      api_reference: REST API 参考
+      enum_description_title: 可以是以下其中之一
+      required: 必选
+      headers: 标头
+      query: 查询参数
+      path: 路径参数
+      body: 正文参数
 footer:
   all_rights_reserved: 保留所有权利
   terms: 条款
@@ -146,8 +170,8 @@ product_landing:
   guides: 指南
   code_examples: 代码示例
   search_code_examples: 搜索代码示例
-  search_results_for: Search results for
-  matches_displayed: Matches displayed
+  search_results_for: 搜索结果
+  matches_displayed: 显示的匹配项
   show_more: 显示更多
   explore_people_and_projects: 探索人员和项目
   sorry: 抱歉，找不到结果
@@ -162,12 +186,12 @@ product_landing:
   release_notes_for: 发行说明
   upgrade_from: 升级自
   browse_all_docs: 浏览所有文档
-  browse_all: Browse all
+  browse_all: 浏览全部
   docs: 文档
   explore_release_notes: 浏览发行说明
   view: 查看所有
 product_guides:
-  start_path: Start learning path
+  start_path: 开始学习路径
   learning_paths: '{{ productMap[currentProduct].name }} 学习路径'
   learning_paths_desc: 学习路径是一系列帮助您掌握特定主题的指南。
   guides: '{{ productMap[currentProduct].name }} 指南'

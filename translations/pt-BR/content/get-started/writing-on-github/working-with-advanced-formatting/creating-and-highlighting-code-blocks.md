@@ -50,7 +50,7 @@ Look! Você pode ver minhas aspas.
 
 ## Realce de sintaxe
 
-<!-- If you make changes to this feature, update /getting-started-with-github/github-language-support to reflect any changes to supported languages. -->
+<!-- If you make changes to this feature, check whether any of the changes affect languages listed in /get-started/learning-about-github/github-language-support. If so, please update the language support article accordingly. -->
 
 Você pode adicionar um identificador de linguagem opcional para habilitar o realce de sintaxe no bloco de código isolado.
 
@@ -67,13 +67,12 @@ Por exemplo, para código Ruby do realce de sintaxe:
 
 Usamos [Linguist](https://github.com/github/linguist) para executar a detecção de linguagem e selecionar [gramáticas de terceiros](https://github.com/github/linguist/blob/master/vendor/README.md) para realce de sintaxe. Você pode descobrir quais palavras-chave são válidas no [arquivo YAML de linguagem](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml).
 
-{% if mermaid %}
+{% ifversion mermaid %}
 ## Criando diagramas
 
-Você pode usar a sintaxe do Mermaid para adicionar diagramas. Para obter mais informações, consulte "[Criando diagramas](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams)".
+Você também pode usar blocos de código para criar diagramas em Markdown. O GitHub é compatível com a sintaxe do Mermaid, geoJSON, topoJSON e ASCII STL. Para obter mais informações, consulte "[Criando diagramas](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams)".
 
 {% endif %}
-
 ## Leia mais
 
 - [Especificações de markdown em estilo {% data variables.product.prodname_dotcom %}](https://github.github.com/gfm/)

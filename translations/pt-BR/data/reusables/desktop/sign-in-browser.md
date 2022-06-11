@@ -1,0 +1,1 @@
+1. In the "Sign in Using Your Browser" pane, click **Continue With Browser**. {% data variables.product.prodname_desktop %} abrirá seu navegador padrão. ![Link Sign in using your browser (Entrar via navegador)](/assets/images/help/desktop/sign-in-browser.png)

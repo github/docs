@@ -13,9 +13,8 @@ topics:
   - Organizations
   - Teams
 shortTitle: メンバーの削除
+permissions: Organization owners can remove members from an organization.
 ---
-
-Organization からメンバーを削除できるのは、Organization のオーナーだけです。
 
 {% ifversion fpt or ghec %}
 
@@ -24,6 +23,7 @@ Organization からメンバーを削除できるのは、Organization のオー
 **警告:** Organization からメンバーを削除する際は次の点にご注意ください:
 - 有料ライセンスのカウントは自動的にはダウングレードされません。 Organization からユーザを削除したあとに有料シートの数を減らすには、「[Organization の有料ライセンスをダウングレードする](/articles/downgrading-your-organization-s-paid-seats)」の手順に従ってください。
 - 削除されたメンバーは Organization のプライベートリポジトリのプライベートフォークへのアクセスは失いますが、ローカルコピーを自分で持っておくことは可能です。 ただし、ローカルコピーを Organization のリポジトリと同期させることはできません。 そのプライベートフォークは、そのユーザが Organization から削除されてから 3 か月以内に [Organization メンバーとして復帰した](/articles/reinstating-a-former-member-of-your-organization)場合、リストアできます。 最終的に、リポジトリへのアクセスを失った個人に、機密情報や知的財産を確実に削除してもらうのは、あなたの責任です。
+- プライベートリポジトリが他のOrganizationにフォークされた場合、それらのOrganizationはフォークネットワークへのアクセスを制御できます。 これはすなわち、オリジナルのOrganizaitionへのアクセスをユーザが失っても、そのユーザは依然としてフォークへの明示的なアクセスを持ち続け、フォークへのアクセスは残されるかもしれないということです。
 {%- ifversion ghec %}
 -  削除されたメンバーは、同じEnterpriseアカウントが所有する他のOrganizationのメンバーではない場合、Organizationのインターナルリポジトリのプライベートフォークへのアクセスも失うことになります。 詳細は「[Enterprise アカウントについて](/admin/overview/about-enterprise-accounts)」を参照してください。
 {%- endif %}
@@ -63,4 +63,5 @@ Organization から削除する個人の移行と、その個人による機密�
 
 ## 参考リンク
 
-- 「[チームから Organization メンバーを削除する](/articles/removing-organization-members-from-a-team)」
+- 「[TeamからのOrganizationメンバーの削除](/articles/removing-organization-members-from-a-team)」{% ifversion remove-enterprise-members %}
+- 「[Enterpriseからのメンバーの削除](/admin/user-management/managing-users-in-your-enterprise/removing-a-member-from-your-enterprise)」{% endif %}

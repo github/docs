@@ -26,7 +26,7 @@ Este artigo explica como os administradores do site podem configurar {% data var
 
 {% data reusables.enterprise.upgrade-ghes-for-actions %}
 
-Por padrão, {% data variables.product.prodname_actions %} não está habilitado para {% data variables.product.prodname_ghe_server %}. Você precisará determinar se a sua instância tem recursos adequados de CPU e memória para administrar a carga do {% data variables.product.prodname_actions %} sem causar perda de desempenho, e possivelmente aumentar esses recursos. Você também deverá decidir qual provedor de armazenamento você usará para o armazenamento do blob necessário para armazenar os artefatos gerados pela execução do fluxo de trabalho. Em seguida, você irá habilitar {% data variables.product.prodname_actions %} para a sua empresa, gerenciar permissões de acesso e adicionar executores auto-hospedados para executar fluxos de trabalho.
+{% data reusables.actions.ghes-actions-not-enabled-by-default %} Você deberá determinar se a sua instância possui recursos adequados de CPU e memória para lidar com a carga do {% data variables.product.prodname_actions %} sem causar perda de desempenho e possivelmente aumentar esses recursos. Você também precisará decidir qual provedor de armazenamento irá usar para o armazenamento do blob necessário para armazenar os artefatos{% ifversion actions-caching %} e caches{% endif %} gerados pela execução do fluxo de trabalho. Em seguida, você irá habilitar {% data variables.product.prodname_actions %} para a sua empresa, gerenciar permissões de acesso e adicionar executores auto-hospedados para executar fluxos de trabalho.
 
 {% data reusables.actions.introducing-enterprise %}
 
@@ -34,15 +34,6 @@ Por padrão, {% data variables.product.prodname_actions %} não está habilitado
 
 ## Revisar os requisitos de hardware
 
-{% ifversion ghes = 3.0 %}
-
-{% note %}
-
-**Observação**: Se você estiver atualizando uma instância de {% data variables.product.prodname_ghe_server %} existente para 3.0 ou posterior e deseja configurar {% data variables.product.prodname_actions %}, observe que os requisitos mínimos de hardware aumentaram. Para obter mais informações, consulte "[Atualizar o {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/upgrading-github-enterprise-server#about-minimum-requirements-for-github-enterprise-server-30-and-later)".
-
-{% endnote %}
-
-{% endif %}
 
 {%- ifversion ghes < 3.2 %}
 
@@ -90,6 +81,20 @@ A simultaneidade máxima foi medida usando vários repositórios, a duração do
 
 {%- endif %}
 
+{%- ifversion ghes = 3.5 %}
+
+{% data reusables.actions.hardware-requirements-3.5 %}
+
+{% data variables.product.company_short %} mediu a concorrência máxima usando vários repositórios, a duração do trabalho de aproximadamente 10 minutos e o upload do artefato de 10 MB. Você pode ter um desempenho diferente dependendo dos níveis gerais de atividade na sua instância.
+
+{% note %}
+
+**Observação:** Começando com o {% data variables.product.prodname_ghe_server %} 3.5, o teste interno de {% data variables.product.company_short %} usa CPUs de terceira geração para refletir melhor uma configuração típica do cliente. Essa alteração na CPU representa uma pequena parte das alterações nos objetivos de desempenho nesta versão de {% data variables.product.prodname_ghe_server %}.
+
+{% endnote %}
+
+{%- endif %}
+
 Se você planeja habilitar {% data variables.product.prodname_actions %} para os usuários de uma instância existente, revise os níveis de atividade para usuários e automações na instância e garanta que você tenha fornecido CPU e memória adequadas para seus usuários. Para obter mais informações sobre o monitoramento da capacidade e desempenho de {% data variables.product.prodname_ghe_server %}, consulte "[Monitoramento do seu aplicativo](/admin/enterprise-management/monitoring-your-appliance)".
 
 Para obter mais informações sobre os requisitos mínimos de hardware para {% data variables.product.product_location %}, consulte as considerações sobre hardware para a plataforma da sua instância.
@@ -104,11 +109,17 @@ Para obter mais informações sobre os requisitos mínimos de hardware para {% d
 
 {% data reusables.enterprise_installation.about-adjusting-resources %}
 
+{% ifversion ghes > 3.4 %}
+
+Opcionalmente, você pode limitar o consumo de recursos em {% data variables.product.product_location %}, configurando um limite de taxa para {% data variables.product.prodname_actions %}. Para obter mais informações, consulte "[Configurar limites de taxa](/admin/configuration/configuring-your-enterprise/configuring-rate-limits#configuring-rate-limits-for-github-actions)".
+
+{% endif %}
+
 ## Requisitos de armazenamento externo
 
 Para habilitar o {% data variables.product.prodname_actions %} em {% data variables.product.prodname_ghe_server %}, você deve ter acesso ao armazenamento externo do blob.
 
-O {% data variables.product.prodname_actions %} usa armazenamento do blob para armazenar artefatos gerados pelas execuções do fluxo de trabalho, como registros de fluxo de trabalho e artefatos de criação enviados pelo usuário. A quantidade de armazenamento necessária depende do seu uso de {% data variables.product.prodname_actions %}. Somente uma única configuração de armazenamento externo é compatível, e você não pode usar vários provedores de armazenamento ao mesmo tempo.
+{% data variables.product.prodname_actions %} usa armazenamento do blob para armazenar dados gerados pela execução de fluxo de trabalho, tais como logs de fluxo de trabalho{% ifversion actions-caching %}, caches,{% endif %} e artefatos de compilação enviados pelo usuário. A quantidade de armazenamento necessária depende do seu uso de {% data variables.product.prodname_actions %}. Somente uma única configuração de armazenamento externo é compatível, e você não pode usar vários provedores de armazenamento ao mesmo tempo.
 
 {% data variables.product.prodname_actions %} é compatível com estes provedores de armazenamento:
 
@@ -121,6 +132,8 @@ O {% data variables.product.prodname_actions %} usa armazenamento do blob para a
 **Observação:** Estes são os únicos provedores de armazenamento com os quais {% data variables.product.company_short %} é compatível e podem fornecer ajuda. Outros provedores de armazenamento compatíveis com a API do S3 provavelmente não funcionarão devido a diferenças em relação à API do S3. [Entre em contato conosco](https://support.github.com/contact) para pedir suporte para provedores de armazenamento adicionais.
 
 {% endnote %}
+
+{% data reusables.actions.minio-gateways-removal %}
 
 Antes de habilitar o {% data variables.product.prodname_actions %}, você pode testar a sua configuração de armazenamento a partir do shell administrativo com o utilitário `ghe-actions-precheck`. Para obter mais informações, consulte "[Utilitários de linha de comando](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-actions-check)" e "[Acessando o shell administrativo (SSH)](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)".
 

@@ -22,11 +22,11 @@ topics:
 
 ## Sobre bifurcações
 
-O uso mais comum das bifurcações são propostas de mudanças no projeto de alguma outra pessoa ou o uso do projeto de outra pessoa como ponto de partida para sua própria ideia. Você pode bifurcar um repositório para criar uma cópia do repositório e fazer alterações sem afetar o repositório upstream. Para obter mais informações, consulte "[Trabalhando com as bifurcações](/github/collaborating-with-issues-and-pull-requests/working-with-forks)".
+Mais comumente, as bifurcações são usadas para propor mudanças no projeto de outra pessoa ao qual você não tem acesso de gravação, ou para usar o projeto de outra pessoa como ponto de partida para sua própria ideia. Você pode bifurcar um repositório para criar uma cópia do repositório e fazer alterações sem afetar o repositório upstream. Para obter mais informações, consulte "[Trabalhando com as bifurcações](/github/collaborating-with-issues-and-pull-requests/working-with-forks)".
 
 ### Proponha mudanças no projeto de outra pessoa
 
-Por exemplo, você pode usar bifurcações para propor alterações relacionadas à correção de um bug. Em vez de registrar um erro encontrado, é possível:
+Por exemplo, você pode usar bifurcações para propor alterações relacionadas à correção de um bug. Em vez de registrar um problema para um erro que você encontrou, você pode:
 
 - Bifurcar o repositório.
 - Fazer a correção.
@@ -42,7 +42,7 @@ Para obter mais informações sobre a aplicação dos princípios de código abe
 
 Ao criar um repositório público a partir de uma bifurcação do projeto de outra pessoa, confirme que incluiu um arquivo de licença que estabelece como você quer que seu projeto seja compartilhado com outros. Para obter mais informações, consulte [Escolha uma licença de código aberto](https://choosealicense.com/)" em choosealicense.com.
 
-{% data reusables.open-source.open-source-guide-repositories %} {% data reusables.open-source.open-source-learning-lab %}
+{% data reusables.open-source.open-source-guide-repositories %} {% data reusables.open-source.open-source-learning %}
 
 {% endif %}
 
@@ -57,7 +57,7 @@ Se ainda não o fez, primeiro [configure o Git](/articles/set-up-git). Lembre-se
 Você pode bifurcar um projeto para propor alterações no repositório upstream ou original. Nesse caso, uma boa prática é sincronizar regularmente sua bifurcação com o repositório upstream. Para isso, é necessário usar Git na linha de comando. Você pode praticar configurando o repositório upstream com o mesmo repositório [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) que você acabou de bifurcar.
 
 1. Em {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.product.product_location %}{% endif %}, acesse o repositório [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife).
-2. No canto superior direito da página, clique em **Fork** (Bifurcação). ![Botão Fork (Bifurcação)](/assets/images/help/repository/fork_button.jpg)
+2. No canto superior direito da página, clique em **Fork** (Bifurcação). ![Botão Fork (Bifurcação)](/assets/images/help/repository/fork_button.png)
 
 {% endwebui %}
 
@@ -152,9 +152,9 @@ Ao bifurcar um projeto para propor mudanças no repositório original, é possí
   > origin  https://{% data variables.command_line.codeblock %}/<em>YOUR_USERNAME</em>/<em>YOUR_FORK</em>.git (push)
   ```
 
-6. Digite `git remote add upstream`, cole a URL que você copiou na etapa 2 e pressione **Enter**. Ficará assim:
+6. Digite `git remote add upstream`, cole o URL que você copiou na etapa 3 e pressione **Enter**. Ficará assim:
   ```shell
-  $ git remote add upstream https://{% data variables.command_line.codeblock %}/octocat/Spoon-Knife.git
+  $ git remote add upstream https://{% data variables.command_line.codeblock %}/ORIGINAL_OWNER/Spoon-Knife.git
   ```
 
 7. Para verificar o novo repositório upstream que você especificou para sua bifurcação, digite novamente `git remote -v`. Você deverá visualizar a URL da sua bifurcação como `origin` (origem) e a URL do repositório original como `upstream`.
@@ -188,7 +188,7 @@ gh repo fork <em>repository</em> --remote-name "main-remote-repo"
 
 {% endcli %}
 
-### Próximas etapas
+### Editando uma bifurcação
 
 Você pode fazer alterações em uma bifurcação, incluindo:
 
@@ -202,12 +202,14 @@ Bifurque um repositório para começar a contribuir com um projeto. {% data reus
 
 {% endif %}
 
-## Comemore
+## Próximos passos
 
-Você já bifurcou um repositório, treinou clonar sua bifurcação e configurou um repositório upstream. Para obter mais informações sobre a clonagem da bifurcação e sincronizar as alterações em um repositório bifurcado a partir do seu computador"[Configurar o Git](/articles/set-up-git)".
+Você já bifurcou um repositório, treinou clonar sua bifurcação e configurou um repositório upstream.
 
-Você também pode criar um novo repositório onde você pode colocar todos os seus projetos e compartilhar o código em {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Criar um repositório](/articles/create-a-repo)".
+* Para obter mais informações sobre a clonagem da bifurcação e sincronizar as alterações em um repositório bifurcado a partir do seu computador, consulte "[Configurar o Git](/articles/set-up-git)".
 
-Cada repositório em {% data variables.product.product_name %} pertence a uma pessoa ou organização. Você pode interagir com as pessoas, repositórios e organizações, conectando-se e seguindo-as em {% data variables.product.product_name %}. Para obter mais informações, consulte "[Seja social](/articles/be-social)".
+* Você também pode criar um novo repositório onde você pode colocar todos os seus projetos e compartilhar o código em {% data variables.product.prodname_dotcom %}. {% data reusables.getting-started.create-a-repository %}"
 
-{% data reusables.support.connect-in-the-forum-bootcamp %}
+* {% data reusables.getting-started.being-social %}
+
+* {% data reusables.support.connect-in-the-forum-bootcamp %}

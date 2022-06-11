@@ -1,4 +1,6 @@
 ---
+meta:
+  default_description: Get started, troubleshoot, and make the most of GitHub. Documentation for new users, developers, administrators, and all of GitHub's products.
 header:
   github_docs: GitHub Docs
   contact: Contato
@@ -22,16 +24,19 @@ release_notes:
   banner_text: GitHub began rolling these changes out to enterprises on
 search:
   need_help: Precisa de ajuda?
-  placeholder: Pesquisar tópicos, produtos...
+  placeholder: Search GitHub Docs
   loading: Carregando
   no_results: Nenhum resultado encontrado
   search_results_for: Search results for
   no_content: No content
   matches_displayed: Matches displayed
   search_error: An error occurred trying to perform the search.
+  description: Enter a search term to find it in the GitHub Documentation.
+  label: Search GitHub Docs
 homepage:
   explore_by_product: Explorar por produto
   version_picker: Versão
+  description: Help for wherever you are on your GitHub journey.
 toc:
   getting_started: Introdução
   popular: Popular
@@ -78,6 +83,7 @@ contribution_cta:
 products:
   graphql:
     reference:
+      implements: Implements
       fields: Campos
       arguments: Argumentos
       name: Nome
@@ -92,8 +98,17 @@ products:
       deprecation_notice: Aviso de descontinuação
   rest:
     reference:
+      default: Padrão
+      name: Nome
+      in: In
+      type: Tipo
+      description: Descrição
+      notes: Observações
       parameters: Parâmetros
       response: Resposta
+      example_response: Example response
+      status_code: Status code
+      http_status_code: HTTP response status codes
       code_sample: Amostra de código
       code_samples: Amostras de código
       preview_notice: Aviso de pré-visualização
@@ -101,6 +116,15 @@ products:
       see_preview_notice: Ver aviso de pré-visualização
       see_preview_notices: Ver avisos de pré-visualização
       preview_header_is_required: Este cabeçalho é <strong>obrigatório</strong>
+      preview_notice_to_change: This API is under preview and subject to change
+      works_with: Works with
+      api_reference: REST API reference
+      enum_description_title: Pode ser uma das ações a seguir
+      required: Obrigatório
+      headers: Headers
+      query: Parâmetros de consulta
+      path: Path parameters
+      body: Body parameters
 footer:
   all_rights_reserved: Todos os direitos reservados
   terms: Termos

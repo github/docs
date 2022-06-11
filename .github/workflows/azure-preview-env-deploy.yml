@@ -27,6 +27,9 @@ on:
         description: 'The commit SHA to build'
         type: string
         required: true
+  push:
+    branches:
+      - gh-readonly-queue/main/**
 
 permissions:
   contents: read
@@ -50,12 +53,13 @@ jobs:
       # to link a PR to a list of environments later.
       url: ${{ env.APP_URL }}
     env:
-      PR_NUMBER: ${{ github.event.number || github.event.inputs.PR_NUMBER }}
+      PR_NUMBER: ${{ github.event.number || github.event.inputs.PR_NUMBER || github.run_id }}
       COMMIT_REF: ${{ github.event.pull_request.head.sha || github.event.inputs.COMMIT_REF }}
       BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
       IS_INTERNAL_BUILD: ${{ github.repository == 'github/docs-internal' }}
       # This may also run in forked repositories, not just 'github/docs'
       IS_PUBLIC_BUILD: ${{ github.repository != 'github/docs-internal' }}
+      NONPROD_REGISTRY_USERNAME: ${{ fromJSON('["ghdocs", "ghdocsinternal"]')[github.repository == 'github/docs-internal'] }}
 
     steps:
       - name: 'Az CLI login'
@@ -67,7 +71,7 @@ jobs:
         uses: azure/docker-login@81744f9799e7eaa418697cb168452a2882ae844a
         with:
           login-server: ${{ secrets.NONPROD_REGISTRY_SERVER }}
-          username: ${{ secrets.NONPROD_REGISTRY_USERNAME }}
+          username: ${{ env.NONPROD_REGISTRY_USERNAME }}
           password: ${{ secrets.NONPROD_REGISTRY_PASSWORD }}
 
       - name: Set up Docker Buildx
@@ -75,7 +79,7 @@ jobs:
 
       - if: ${{ env.IS_PUBLIC_BUILD == 'true' }}
         name: Check out main branch
-        uses: actions/checkout@1e204e9a9253d643386038d443f96446fa156a97
+        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
         with:
           ref: 'main'
           persist-credentials: 'false'
@@ -83,7 +87,7 @@ jobs:
 
       - if: ${{ env.IS_INTERNAL_BUILD == 'true' }}
         name: Check out PR code
-        uses: actions/checkout@1e204e9a9253d643386038d443f96446fa156a97
+        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
         with:
           ref: ${{ env.COMMIT_REF }}
           # To prevent issues with cloning early access content later
@@ -135,7 +139,7 @@ jobs:
 
       - if: ${{ env.IS_INTERNAL_BUILD == 'true' }}
         name: Clone docs-early-access
-        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
+        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
         with:
           repository: github/docs-early-access
           token: ${{ secrets.DOCUBOT_REPO_PAT }}
@@ -148,7 +152,7 @@ jobs:
 
       - if: ${{ env.IS_PUBLIC_BUILD == 'true' }}
         name: Check out user code to temp directory
-        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
+        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
         with:
           path: ./user-code
           ref: ${{ env.COMMIT_REF }}
@@ -162,6 +166,11 @@ jobs:
           rsync -rptovR ./user-code/content/./**/*.md ./content
           rsync -rptovR ./user-code/assets/./**/*.png ./assets
           rsync -rptovR ./user-code/data/./**/*.{yml,md} ./data
+          rsync -rptovR ./user-code/components/./**/*.{scss,ts,tsx} ./components
+          rsync -rptovR --ignore-missing-args ./user-code/lib/./**/*.{js,ts} ./lib
+          rsync -rptovR --ignore-missing-args ./user-code/middleware/./**/*.{js,ts} ./middleware
+          rsync -rptovR ./user-code/pages/./**/*.tsx ./pages
+          rsync -rptovR ./user-code/stylesheets/./**/*.scss ./stylesheets
 
       # In addition to making the final image smaller, we also save time by not sending unnecessary files to the docker build context
       - name: 'Prune for preview env'
@@ -178,6 +187,8 @@ jobs:
           cache-from: type=registry,ref=${{ secrets.NONPROD_REGISTRY_SERVER }}/${{ github.repository }}:main-preview
           # `main-docker-cache.yml` handles updating the remote cache so we don't pollute it with PR specific code
           cache-to: ''
+          build-args: |
+            BUILD_SHA=${{ env.COMMIT_REF }}
 
       # Succeed despite any non-zero exit code (e.g. if there is no deployment to cancel)
       - name: 'Cancel any existing deployments for this PR'
@@ -187,7 +198,16 @@ jobs:
       # Deploy ARM template is idempotent
       # Note: once the resources exist the image tag must change for a new deployment to occur (the image tag includes workflow run number, run attempt, as well as sha)
       - name: Run ARM deploy
-        id: deploy
+        # This 'if' will be truth, if this workflow is...
+        #  - run as a workflow_dispatch
+        #  - run because of a push to main (or gh-readonly-queue/main)
+        #  - run as a regular pull request
+        # But if it's a pull request, *and* for whatever reason, the pull
+        # request has "Auto-merge" enabled, don't bother.
+        # The idea is that if auto-merge has been abled, by humans or by
+        # bots, they have no intention of viewing the deployed preview anyway.
+        # This saves time because the PR can merge sooner.
+        if: ${{ !github.event.pull_request.auto_merge }}
         uses: azure/arm-deploy@841b12551939c88af8f6df767c24c38a5620fd0d
         with:
           resourceGroupName: ${{ secrets.PREVIEW_ENV_RESOURCE_GROUP }}
@@ -195,13 +215,7 @@ jobs:
           template: ./azure-preview-env-template.json
           deploymentName: ${{ env.DEPLOYMENT_NAME }}
           parameters: appName="${{ env.APP_NAME }}"
-            location="${{ env.PREVIEW_ENV_LOCATION }}"
             containerImage="${{ env.DOCKER_IMAGE }}"
             dockerRegistryUrl="${{ secrets.NONPROD_REGISTRY_SERVER }}"
-            dockerRegistryUsername="${{ secrets.NONPROD_REGISTRY_USERNAME }}"
+            dockerRegistryUsername="${{ env.NONPROD_REGISTRY_USERNAME }}"
             dockerRegistryPassword="${{ secrets.NONPROD_REGISTRY_PASSWORD }}"
-            storageAccountName="${{ secrets.AZURE_STORAGE_ACCOUNT_NAME }}"
-            storageAccountKey="${{ secrets.AZURE_STORAGE_ACCOUNT_KEY }}"
-          # this shows warnings in the github actions console, because the flag is passed through a validation run,
-          # but it *is* functional during the actual execution
-          additionalArguments: --no-wait

@@ -10,7 +10,7 @@ redirect_from:
   - /actions/deployment/using-environments-for-deployment
 versions:
   fpt: '*'
-  ghes: '>=3.1'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 ---
@@ -69,13 +69,21 @@ Los secretos que se almacenan en un ambiente sólo se encuentran disponibles par
 
 ## Crear un ambiente
 
-{% data reusables.github-actions.permissions-statement-environment %}
+{% data reusables.actions.permissions-statement-environment %}
+
+{% ifversion fpt or ghec %}
+{% note %}
+
+**Nota:** Para crear un ambiente en un repositorio privado, tu organización debe utilizar {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
+
+{% endnote %}
+{% endif %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.github-actions.sidebar-environment %}
-{% data reusables.github-actions.new-environment %}
-{% data reusables.github-actions.name-environment %}
+{% data reusables.actions.sidebar-environment %}
+{% data reusables.actions.new-environment %}
+{% data reusables.actions.name-environment %}
 1. Opcionalmente, personas o equipos específicos deben aprobar los jobs de flujo de trabajo que utilicen este ambiente.
    1. Selecciona **Revisores requeridos**.
    1. Ingresa hasta 6 personas o equipos. Solo uno de los revisores requeridos necesita aprobar el job para que éste pueda proceder.
@@ -107,13 +115,13 @@ Cuando un flujo de trabajo referencia un ambiente, éste aparecerá en los despl
 
 ## Borrar un ambiente
 
-{% data reusables.github-actions.permissions-statement-environment %}
+{% data reusables.actions.permissions-statement-environment %}
 
 El borrar un ambiente borrará todos los secretos y reglas de protección asociadas con éste. Cualquier job que esté actualmente en espera porque depende de las reglas de protección del ambiente que se borró, fallará automáticamente.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.github-actions.sidebar-environment %}
+{% data reusables.actions.sidebar-environment %}
 1. Junto al ambiente que quieres borrar, haz clic en {% octicon "trash" aria-label="The trash icon" %}.
 2. Da clic en **Entiendo, borra este ambiente**.
 

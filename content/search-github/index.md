@@ -1,6 +1,6 @@
 ---
 title: Searching for information on GitHub
-intro: Learn how to use the search functions available on GitHub to find different types of information, like projects, people, and code.
+intro: 'Learn how to use the search functions available on GitHub to find different types of information, like projects, people, and code.'
 introLinks:
   overview: /search-github/getting-started-with-searching-on-github/about-searching-on-github
 featuredLinks:
@@ -19,7 +19,7 @@ featuredLinks:
     - /search-github/searching-on-github/searching-topics
     - /search-github/searching-on-github/searching-for-packages
 changelog:
-  label: 'search'
+  label: search
 layout: product-landing
 redirect_from:
   - /categories/78/articles
@@ -38,3 +38,4 @@ children:
   - /searching-on-github
 shortTitle: Search on GitHub
 ---
+

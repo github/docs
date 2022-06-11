@@ -19,25 +19,32 @@ shortTitle: Initiate failover to appliance
 
 {% data reusables.enterprise_installation.promoting-a-replica %}
 
-1. アプライアンスを切り替える前にレプリケーションを終了できるようにするには、プライマリアプライアンスをメンテナンスモードにします。
-    - Management Console を使用するには、「[メンテナンスモードの有効化とスケジュール設定](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode/)」を参照してください。
-    - `ghe-maintenance -s` コマンドも使用できます。
+1. If the primary appliance is available, to allow replication to finish before you switch appliances, on the primary appliance, put the primary appliance into maintenance mode.
+
+    - Put the appliance into maintenance mode.
+
+       - Management Console を使用するには、「[メンテナンスモードの有効化とスケジュール設定](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode/)」を参照してください。
+
+       - `ghe-maintenance -s` コマンドも使用できます。
+         ```shell
+         $ ghe-maintenance -s
+         ```
+
+   - When the number of active Git operations, MySQL queries, and Resque jobs reaches zero, wait 30 seconds.
+
+      {% note %}
+
+      **Note:** Nomad will always have jobs running, even in maintenance mode, so you can safely ignore these jobs.
+
+      {% endnote %}
+
+   - すべてのレプリケーションチャネルが `OK` を報告することを確認するには、`ghe-repl-status -vv` コマンドを使用します。
+
       ```shell
-      $ ghe-maintenance -s
+      $ ghe-repl-status -vv
       ```
-2.  When the number of active Git operations, MySQL queries, and Resque jobs reaches zero, wait 30 seconds.
 
-    {% note %}
-
-    **Note:** Nomad will always have jobs running, even in maintenance mode, so you can safely ignore these jobs.
-
-    {% endnote %}
-
-3. すべてのレプリケーションチャネルが `OK` を報告することを確認するには、`ghe-repl-status -vv` コマンドを使用します。
-  ```shell
-  $ ghe-repl-status -vv
-  ```
-4. レプリケーションを停止してレプリカアプライアンスをプライマリステータスに昇格するには、`ghe-repl-encourage` コマンドを使用します。 到達可能であれば、これによりプライマリノードも自動的にメンテナンスノードになります。
+4. On the replica appliance, to stop replication and promote the replica appliance to primary status, use the `ghe-repl-promote` command. 到達可能であれば、これによりプライマリノードも自動的にメンテナンスノードになります。
   ```shell
   $ ghe-repl-promote
   ```

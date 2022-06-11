@@ -15,14 +15,18 @@ versions:
 
 这些额外的日志将通过在包含工作流程的仓库中设置密码来启用，因此将应用相同的权限要求：
 
-- {% data reusables.github-actions.permissions-statement-secrets-repository %}
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
-- {% data reusables.github-actions.permissions-statement-secrets-environment %}
-{% endif %}
-- {% data reusables.github-actions.permissions-statement-secrets-organization %}
-- {% data reusables.github-actions.permissions-statement-secrets-api %}
+- {% data reusables.actions.permissions-statement-secrets-repository %}
+- {% data reusables.actions.permissions-statement-secrets-environment %}
+- {% data reusables.actions.permissions-statement-secrets-organization %}
+- {% data reusables.actions.permissions-statement-secrets-api %}
 
 有关设置密码的更多信息，请参阅“[创建和使用加密密码](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)”。
+
+{% ifversion debug-reruns %}
+
+此外，有权运行工作流程的任何人都可以为重新运行的工作流程启用运行器诊断日志记录和步骤调试日志记录。 更多信息请参阅“[重新运行工作流程和作业](/actions/managing-workflow-runs/re-running-workflows-and-jobs)”。
+
+ {% endif %}
 
 ## 启用运行程序诊断日志
 

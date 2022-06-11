@@ -1,6 +1,6 @@
 ---
 title: 管理仓库设置
-intro: You can choose the way your repository functions by managing repository settings.
+intro: 您可以通过管理存储库设置来选择存储库的运行方式。
 versions:
   fpt: '*'
   ghes: '*'
@@ -17,6 +17,7 @@ children:
   - /enabling-anonymous-git-read-access-for-a-repository
   - /about-email-notifications-for-pushes-to-your-repository
   - /configuring-autolinks-to-reference-external-resources
+  - /configuring-tag-protection-rules
 shortTitle: 管理仓库设置
 ---
 

@@ -88,6 +88,8 @@ Por exemplo, se um fluxo de trabalho definiu as entradas `numOctocats` e `octoca
 
 **Opcional** Os parâmetros de saída permitem que você declare os dados definidos por uma ação. As ações executadas posteriormente em um fluxo de trabalho podem usar os dados de saída definidos em ações executadas anteriormente.  Por exemplo, se uma ação executou a adição de duas entradas (x + y = z), a ação poderia usar o resultado da soma (z) como entrada em outras ações.
 
+{% data reusables.actions.output-limitations %}
+
 Se você não declarar uma saída no seu arquivo de metadados de ação, você ainda poderá definir as saídas e usá-las no seu fluxo de trabalho. Para obter mais informações sobre a definição de saídas em uma ação, consulte "[Comandos do fluxo de trabalho para {% data variables.product.prodname_actions %}](/actions/reference/workflow-commands-for-github-actions/#setting-an-output-parameter)."
 
 ### Exemplo: Declarando saídas para o contêiner do Docker e ações do JavaScript
@@ -109,6 +111,8 @@ saídas:
 ## `outputs` para ações compostas
 
 As **saídas** `opcionais` usam os mesmos parâmetros que `outputs.<output_id>` e `outputs.<output_id>escription` (consulte "[`saída` para o contêiner do Docker e ações do JavaScript](#outputs-for-docker-container-and-javascript-actions)"), mas também inclui o token do `valor`.
+
+{% data reusables.actions.output-limitations %}
 
 ### Exemplo: Declarando saídas para ações compostas
 
@@ -223,7 +227,7 @@ Por exemplo, este `cleanup.js` só será executado em executores baseados no Lin
 
 ### `runs.steps`
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 or ghec %}
+{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 **Obrigatório** As etapas de que você planeja executar nesta ação. Elas podem ser etapas de `run` ou etapas de `uses`.
 {% else %}
 **Obrigatório** As etapas de que você planeja executar nesta ação.
@@ -231,7 +235,7 @@ Por exemplo, este `cleanup.js` só será executado em executores baseados no Lin
 
 #### `runs.steps[*].run`
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 or ghec %}
+{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 **Optional** O comando que você deseja executar. Isso pode ser inline ou um script no seu repositório de ação:
 {% else %}
 **Obrigatório** O comando que você deseja executar. Isso pode ser inline ou um script no seu repositório de ação:
@@ -261,7 +265,7 @@ Para obter mais informações, consulte "[`github context`](/actions/reference/c
 
 #### `runs.steps[*].shell`
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 or ghec %}
+{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 **Opcional** O shell onde você deseja executar o comando. Você pode usar qualquer um dos shells listados [aqui](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsshell). Obrigatório se `run` estiver configurado.
 {% else %}
 **Obrigatório** O shell onde você quer executar o comando. Você pode usar qualquer um dos shells listados [aqui](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsshell). Obrigatório se `run` estiver configurado.
@@ -272,7 +276,7 @@ Para obter mais informações, consulte "[`github context`](/actions/reference/c
 
 **Opcional** Você pode usar o `if` condicional para evitar que uma etapa seja executada, a menos que uma condição seja atendida. Você pode usar qualquer contexto e expressão compatível para criar uma condicional.
 
-{% data reusables.github-actions.expression-syntax-if %} Para obter mais informações, consulte "[Expressões](/actions/learn-github-actions/expressions)".
+{% data reusables.actions.expression-syntax-if %} Para obter mais informações, consulte "[Expressões](/actions/learn-github-actions/expressions)".
 
 **Exemplo: Usando contextos**
 
@@ -286,7 +290,7 @@ steps:
 
 **Exemplo: Usando funções de verificação de status**
 
-A função `my backup step` somente é executada quando houver falha uma ação composta da etapa anterior do trabalho. Para obter mais informações, consulte "[Expressões](/actions/learn-github-actions/expressions#job-status-check-functions)".
+A função `my backup step` somente é executada quando houver falha uma ação composta da etapa anterior do trabalho. Para obter mais informações, consulte "[Expressões](/actions/learn-github-actions/expressions#status-check-functions)".
 
 ```yaml
 steps:
@@ -314,7 +318,7 @@ steps:
 
 **Opcional**  Especifica o diretório de trabalho onde o comando é executado.
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 or ghec %}
+{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 #### `runs.steps[*].uses`
 
 **Opcional**  Seleciona uma ação a ser executada como parte de uma etapa do seu trabalho. A ação é uma unidade reutilizável de código. Você pode usar uma ação definida no mesmo repositório que o fluxo de trabalho, um repositório público ou em uma [imagem publicada de contêiner Docker](https://hub.docker.com/).
@@ -333,9 +337,9 @@ runs:
     # Reference a specific commit
     - uses: actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675
     # Reference the major version of a release
-    - uses: actions/checkout@v2
+    - uses: {% data reusables.actions.action-checkout %}
     # Reference a specific version
-    - uses: actions/checkout@v2.2.0
+    - uses: {% data reusables.actions.action-checkout %}.2.0
     # Reference a branch
     - uses: actions/checkout@main
     # References a subdirectory in a public GitHub repository at a specific branch, ref, or SHA
@@ -364,6 +368,10 @@ runs:
         last_name: Octocat  
 ```
 {% endif %}
+
+#### `runs.steps[*].continue-on-error`
+
+**Opcional** impede que a ação falhe quando uma etapa falha. Definido como `verdadeiro` para permitir que a ação passe quando esta etapa falhar.
 
 ## `runs` par ações do contêiner do Docker
 
@@ -441,7 +449,7 @@ runs:
 
 `args` são usados em substituição à instrução `CMD` em um `Dockerfile`. Se você usar `CMD` no `Dockerfile`, use as diretrizes ordenadas por preferência:
 
-{% data reusables.github-actions.dockerfile-guidelines %}
+{% data reusables.actions.dockerfile-guidelines %}
 
 Se você precisar passar variáveis de ambiente para uma ação, certifique-se de que sua ação executa um shell de comando para realizar a substituição de variáveis. Por exemplo, se seu atributo `entrypoint` é definido como `"sh -c"`, os `args` serão executados em um terminal de comando. Como alternativa, se o seu `arquivo Docker` usar um `Entrypoint` para executar o mesmo comando (`"sh-c"`), os `Args` serão executado em um shell de comando.
 

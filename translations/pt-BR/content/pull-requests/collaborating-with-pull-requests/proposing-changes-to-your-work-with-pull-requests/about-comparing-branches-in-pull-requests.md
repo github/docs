@@ -48,9 +48,21 @@ Para simplificar a revisão das alterações em um pull request extenso, é poss
 
   ![Menu suspenso File filter (Filtro de arquivo)](/assets/images/help/pull_requests/file-filter-menu.png)
 
+## Motivos pelos quais os diffs não serão exibidos
+- Você excedeu o limite total de arquivos ou de determinados tipos de arquivo. Para obter mais informações, consulte "[Sobre repositórios](/repositories/creating-and-managing-repositories/about-repositories#limits-for-viewing-content-and-diffs-in-a-repository)".
+- Seu arquivo corresponde a uma regra no arquivo *.gitattributes* do repositório para impedir esse arquivo de ser exibido por padrão. Para obter mais informações, consulte "[Personalizar como os arquivos alterados aparecem no GitHub](/articles/customizing-how-changed-files-appear-on-github)".
+
 ## Comparações de diff do Git de três pontos e dois pontos
 
-Por padrão, as pull requests no {% data variables.product.prodname_dotcom %} mostram um diff de três pontos ou uma comparação entre a versão mais recente do branch de tópico e o commit onde o branch de tópico foi sincronizado pela última vez com o branch base.
+Existem dois métodos de comparação para o comando `git diff`; dois pontos (`git diff A..B`) e três pontos (`git diff A...B`). Por padrão, os pull requests em {% data variables.product.prodname_dotcom %} mostram um diff de três pontos.
+
+### Comparação do diff de três pontos do Git
+
+A comparação de três pontos mostra a diferença entre o último commit comum de ambos os branches (merge base) e a versão mais recente do branch do tópico.
+
+### Comparação do diff de dois pontos Git
+
+A comparação de dois pontos mostra a diferença entre o estado mais recente do branch de base (por exemplo, `principal`) e a versão mais recente do branch de tópico.
 
 Para ver duas referências de committish em uma comparação de diff de dois pontos no {% data variables.product.prodname_dotcom %}, você pode editar o URL da página "Comparing changes" (Comparar alterações) do seu repositório. Para obter mais informações, consulte [Glossário do Git para "committish"](https://git-scm.com/docs/gitglossary#gitglossary-aiddefcommit-ishacommit-ishalsocommittish) no book site do _Pro Git_.
 
@@ -62,9 +74,17 @@ Se desejar simular um diff de dois pontos em uma pull request e ver uma compara�
 
 Para obter mais informações sobre os comandos do Git para comparar alterações, consulte "[Opções de diff do Git](https://git-scm.com/docs/git-diff#git-diff-emgitdiffemltoptionsgtltcommitgtltcommitgt--ltpathgt82308203)" no site do livro do _Pro Git_.
 
-## Motivos pelos quais os diffs não serão exibidos
-- Você excedeu o limite total de arquivos ou de determinados tipos de arquivo. Para obter mais informações, consulte "[Sobre repositórios](/repositories/creating-and-managing-repositories/about-repositories#limits-for-viewing-content-and-diffs-in-a-repository)".
-- Seu arquivo corresponde a uma regra no arquivo *.gitattributes* do repositório para impedir esse arquivo de ser exibido por padrão. Para obter mais informações, consulte "[Personalizar como os arquivos alterados aparecem no GitHub](/articles/customizing-how-changed-files-appear-on-github)".
+## Sobre a comparação de três pontos em {% data variables.product.prodname_dotcom %}
+
+Como a comparação de três pontos é comparada com a base de merge, ela está focada no "que um pull request apresenta".
+
+Ao usar uma comparação de dois pontos, o diff muda quando o branch base é atualizado, mesmo que não tenha feito nenhuma alteração no branch de tópico. Além disso, uma comparação de dois pontos foca no branch de base. Isso significa que qualquer coisa que você adicionar será exibida como ausente no branch base, como se fosse uma exclusão e vice-versa. Como resultado, as alterações que o branch do tópico introduz tornam-se ambíguas.
+
+Em contraste, comparando os branches usando a comparação de três pontos, as alterações no branch de tópico estão sempre no diff se o branch base for atualizado, porque o diff mostra todas as alterações desde que os branches dibergiram.
+
+### Fazendo o merge frequentemente
+
+Para evitar confusão, faça o merge do branch de base (por exemplo, `principal`) no seu branch de tópico com frequência. Ao fazer o merge do branch de base, os diffs mostrados pelas comparações de dois pontos e três pontos são iguais. Recomendamos o merge de um pull request assim que possível. Isso incentiva os contribuidores a diminuir o número de pull requests, o que é recomendado de forma geral.
 
 ## Leia mais
 

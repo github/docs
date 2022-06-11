@@ -1,7 +1,7 @@
 ---
-title: Managing two-factor authentication for your organization
-shortTitle: Manage 2FA
-intro: You can view whether users with access to your organization have two-factor authentication (2FA) enabled and require 2FA.
+title: 管理组织的双重身份验证
+shortTitle: 管理 2FA
+intro: 您可以查看有权访问您组织的用户是否启用了双重身份验证 (2FA) 并要求 2FA。
 versions:
   fpt: '*'
   ghes: '*'

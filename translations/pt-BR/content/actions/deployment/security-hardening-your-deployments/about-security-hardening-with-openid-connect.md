@@ -7,6 +7,7 @@ versions:
   fpt: '*'
   ghae: issue-4856
   ghec: '*'
+  ghes: '>=3.5'
 type: tutorial
 topics:
   - Security
@@ -66,11 +67,14 @@ O exemplo a seguir do token do OIDC usa um assunto (`sub`) que faz referência a
   "jti": "example-id",
   "sub": "repo:octo-org/octo-repo:environment:prod",
   "environment": "prod",
-  "aud": "https://github.com/octo-org",
+  "aud": "{% ifversion ghes %}https://HOSTNAME{% else %}https://github.com{% endif %}/octo-org",
   "ref": "refs/heads/main",
   "sha": "example-sha",
   "repository": "octo-org/octo-repo",
   "repository_owner": "octo-org",
+  "actor_id": "12",
+  "repository_id": "74",
+  "repository_owner_id": "65",
   "run_id": "example-run-id",
   "run_number": "10",
   "run_attempt": "2",
@@ -81,22 +85,25 @@ O exemplo a seguir do token do OIDC usa um assunto (`sub`) que faz referência a
   "event_name": "workflow_dispatch",
   "ref_type": "branch",
   "job_workflow_ref": "octo-org/octo-automation/.github/workflows/oidc.yml@refs/heads/main",
-  "iss": "https://token.actions.githubusercontent.com",
+  "iss": "{% ifversion ghes %}https://HOSTNAME/_services/token{% else %}https://token.actions.githubusercontent.com{% endif %}",
   "nbf": 1632492967,
   "exp": 1632493867,
   "iat": 1632493567
 }
 ```
 
-Para ver todas as reivindicações compatíveis com o provedor do OIDC de {% data variables.product.prodname_dotcom %}, revise as entradas `claims_supported` em https://token.actions.githubusercontent.com/.well-known/openid-configuration.
+Para ver todas as reivindicações compatíveis com o provedor do OIDC de {% data variables.product.prodname_dotcom %}, revise as entradas `claims_supported` em
+{% ifversion ghes %}`https://HOSTNAME/_services/token/.well-known/openid-configuration`{% else %}https://token.actions.githubusercontent.com/.well-known/openid-configuration{% endif %}.
 
 O token inclui as reivindicações padrão de audiência, emissor e assunto:
 
-| Reivindicação | Descrição                                                                                                                                                                                                                                                                                                                                                |
-| ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `aud`         | _(Audiência)_ por padrão, esta é a URL do proprietário do repositório, como a organização proprietária do repositório. Esta é a única reivindicação que pode ser personalizada. Você pode definir um público personalizado com um comando de conjunto de ferramentas: [`core.getIDToken(audience)`](https://www.npmjs.com/package/@actions/core/v/1.6.0) |
-| `iss`         | _(Emissor)_ O emissor do token do OIDC: `https://token.actions.githubusercontent.com`                                                                                                                                                                                                                                                                    |
-| `sub`         | _(Assunto)_ Define o assunto indicado para ser validado pelo provedor da nuvem. Esta configuração é essencial para garantir que os tokens de acesso sejam apenas alocados de forma previsível.                                                                                                                                                           |
+| Reivindicação                                                                                                            | Descrição                                                                                                                                                                                                                                                                                                                                                |
+| ------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `aud`                                                                                                                    | _(Audiência)_ por padrão, esta é a URL do proprietário do repositório, como a organização proprietária do repositório. Esta é a única reivindicação que pode ser personalizada. Você pode definir um público personalizado com um comando de conjunto de ferramentas: [`core.getIDToken(audience)`](https://www.npmjs.com/package/@actions/core/v/1.6.0) |
+| `iss`                                                                                                                    | _(Emissor)_ O emissor do token do OIDC:                                                                                                                                                                                                                                                                                                                  |
+| {% ifversion ghes %}`https://HOSTNAME/_services/token`{% else %}`https://token.actions.githubusercontent.com`{% endif %} |                                                                                                                                                                                                                                                                                                                                                          |
+|                                                                                                                          |                                                                                                                                                                                                                                                                                                                                                          |
+| `sub`                                                                                                                    | _(Assunto)_ Define o assunto indicado para ser validado pelo provedor da nuvem. Esta configuração é essencial para garantir que os tokens de acesso sejam apenas alocados de forma previsível.                                                                                                                                                           |
 
 O token do OIDC também inclui reivindicações padrão adicionais:
 
@@ -112,22 +119,25 @@ O token do OIDC também inclui reivindicações padrão adicionais:
 
 O token também inclui reivindicações personalizadas fornecidas por {% data variables.product.prodname_dotcom %}:
 
-| Reivindicação       | Descrição                                                                                                                                                                                                                                                                                          |
-| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `actor`             | A conta de usuário que iniciou a execução do fluxo de trabalho.                                                                                                                                                                                                                                    |
-| `base_ref`          | O branch de destino do pull request na execução de um fluxo de trabalho.                                                                                                                                                                                                                           |
-| `ambiente`          | O nome do ambiente usado pelo trabalho.                                                                                                                                                                                                                                                            |
-| `event_name`        | Nome do evento que acionou a execução do fluxo de trabalho.                                                                                                                                                                                                                                        |
-| `head_ref`          | O branch de origem do pull request na execução de um fluxo de trabalho.                                                                                                                                                                                                                            |
-| `job_workflow_ref`  | Este é o caminho ref para o fluxo de trabalho reutilizável usado por este trabalho. Para obter mais informações, consulte "["Usando o OpenID Connect com fluxos de trabalho reutilizáveis"](/actions/deployment/security-hardening-your-deployments/using-openid-connect-with-reusable-workflows). |
-| `ref`               | _(Referência)_ A ref do git que acionou a execução do fluxo de trabalho.                                                                                                                                                                                                                           |
-| `ref_type`          | O tipo de `ref`, por exemplo: "branch".                                                                                                                                                                                                                                                            |
-| `repositório`       | O repositório de onde o fluxo de trabalho está sendo executado.                                                                                                                                                                                                                                    |
-| `repository_owner`  | O nome da organização em que o `repositório` é armazenado.                                                                                                                                                                                                                                         |
-| `run_id`            | O ID da execução do fluxo de trabalho que acionou o fluxo de trabalho.                                                                                                                                                                                                                             |
-| `run_number`        | O número de vezes que este fluxo de trabalho foi executado.                                                                                                                                                                                                                                        |
-| `run_attempt`       | O número de vezes que este fluxo de trabalho foi executado.                                                                                                                                                                                                                                        |
-| `fluxo de trabalho` | Nome do fluxo de trabalho.                                                                                                                                                                                                                                                                         |
+| Reivindicação         | Descrição                                                                                                                                                                                                                                                                                          |
+| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `actor`               | A conta pessoal que iniciou a execução do fluxo de trabalho.                                                                                                                                                                                                                                       |
+| `actor_id`            | O ID da conta pessoal que iniciou a execução do fluxo de trabalho.                                                                                                                                                                                                                                 |
+| `base_ref`            | O branch de destino do pull request na execução de um fluxo de trabalho.                                                                                                                                                                                                                           |
+| `ambiente`            | O nome do ambiente usado pelo trabalho.                                                                                                                                                                                                                                                            |
+| `event_name`          | Nome do evento que acionou a execução do fluxo de trabalho.                                                                                                                                                                                                                                        |
+| `head_ref`            | O branch de origem do pull request na execução de um fluxo de trabalho.                                                                                                                                                                                                                            |
+| `job_workflow_ref`    | Este é o caminho ref para o fluxo de trabalho reutilizável usado por este trabalho. Para obter mais informações, consulte "["Usando o OpenID Connect com fluxos de trabalho reutilizáveis"](/actions/deployment/security-hardening-your-deployments/using-openid-connect-with-reusable-workflows). |
+| `ref`                 | _(Referência)_ A ref do git que acionou a execução do fluxo de trabalho.                                                                                                                                                                                                                           |
+| `ref_type`            | O tipo de `ref`, por exemplo: "branch".                                                                                                                                                                                                                                                            |
+| `repositório`         | O repositório de onde o fluxo de trabalho está sendo executado.                                                                                                                                                                                                                                    |
+| `repository_id`       | O ID do repositório de onde o fluxo de trabalho está sendo executado.                                                                                                                                                                                                                              |
+| `repository_owner`    | O nome da organização em que o `repositório` é armazenado.                                                                                                                                                                                                                                         |
+| `repository_owner_id` | O ID da organização em que o `repositório` é armazenado.                                                                                                                                                                                                                                           |
+| `run_id`              | O ID da execução do fluxo de trabalho que acionou o fluxo de trabalho.                                                                                                                                                                                                                             |
+| `run_number`          | O número de vezes que este fluxo de trabalho foi executado.                                                                                                                                                                                                                                        |
+| `run_attempt`         | O número de vezes que este fluxo de trabalho foi executado.                                                                                                                                                                                                                                        |
+| `fluxo de trabalho`   | Nome do fluxo de trabalho.                                                                                                                                                                                                                                                                         |
 
 ### Definir condições de confiança em funções de nuvem usando as reivindicações do OIDC
 
@@ -164,7 +174,7 @@ Você pode configurar um assunto que filtra um nome de [ambiente](/actions/deplo
 
 #### Filtrando eventos `pull_request`
 
-A reivindicação do assunto inclui a string `pull_request` quando o fluxo de trabalho é acionado por um evento de pull request.
+A reivindicação do titular inclui a string `pull_request` quando o fluxo de trabalho é acionado por um evento de pull request, mas apenas se o trabalho não fizer referência a um ambiente.
 
 Você pode configurar um assunto que filtra o evento [`pull_request`](/actions/learn-github-actions/events-that-trigger-workflows#pull_request). Neste exemplo, a execução do fluxo de trabalho deve ter sido acionada por um evento `pull_request` em um repositório denominado `octo-repo` que pertence à organização `octo-org`:
 
@@ -199,12 +209,12 @@ Você pode criar um assunto que filtra uma tag específica. Neste exemplo, a exe
 
 Para configurar o assunto no relacionamento de confiança do seu provedor de nuvem, você deve adicionar a string de assunto à sua configuração de confiança. Os exemplos a seguir demonstram como vários provedores de nuvem podem aceitar o mesmo assunto `repo:octo-org/octo-repo:ref:refs/heads/demo-branch` de diferentes maneiras:
 
-|                       |                                                                                                   |
-| --------------------- | ------------------------------------------------------------------------------------------------- |
-| Amazon Web Services   | `"token.actions.githubusercontent.com:sub": "repo:octo-org/octo-repo:ref:refs/heads/demo-branch"` |
-| Azure                 | `repo:octo-org/octo-repo:ref:refs/heads/demo-branch`                                              |
-| Google Cloud Platform | `(assertion.sub=='repo:octo-org/octo-repo:ref:refs/heads/demo-branch')`                           |
-| HashiCorp Vault       | `bound_subject="repo:octo-org/octo-repo:ref:refs/heads/demo-branch"`                              |
+|                       |                                                                                                                                                                    |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Amazon Web Services   | `"{% ifversion ghes %}HOSTNAME/_services/token{% else %}token.actions.githubusercontent.com{% endif %}:sub": "repo:octo-org/octo-repo:ref:refs/heads/demo-branch"` |
+| Azure                 | `repo:octo-org/octo-repo:ref:refs/heads/demo-branch`                                                                                                               |
+| Google Cloud Platform | `(assertion.sub=='repo:octo-org/octo-repo:ref:refs/heads/demo-branch')`                                                                                            |
+| HashiCorp Vault       | `bound_subject="repo:octo-org/octo-repo:ref:refs/heads/demo-branch"`                                                                                               |
 
 Para obter mais informações, consulte os guias listados em "[Habilitando o OpenID Connect para o seu provedor de nuvem](#enabling-openid-connect-for-your-cloud-provider)".
 

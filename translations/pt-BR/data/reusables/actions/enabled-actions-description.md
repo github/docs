@@ -1,0 +1,1 @@
+Ao habilitar {% data variables.product.prodname_actions %}, os fluxos de trabalho podem executar ações {% ifversion actions-workflow-policy %}e fluxos de trabalho reutilizáveis{% endif %} localizados no repositório e em qualquer outro{% ifversion fpt %} repositório público{% elsif ghec or ghes %} público ou interno{% elsif ghae %} interno{% endif %}.

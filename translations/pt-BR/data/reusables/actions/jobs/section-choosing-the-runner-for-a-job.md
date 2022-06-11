@@ -10,7 +10,7 @@ Se você usar um executor hospedado no {% data variables.product.prodname_dotcom
 
 Os tipos de executor disponíveis para {% data variables.product.prodname_dotcom %} são:
 
-{% data reusables.github-actions.supported-github-runners %}
+{% data reusables.actions.supported-github-runners %}
 
 #### Exemplo: Especificar um sistema operacional
 
@@ -25,9 +25,7 @@ Para obter mais informações, consulte "[Ambientes virtuais para executores hos
 ### Escolhendo executores auto-hospedados
 {% endif %}
 
-{% data reusables.actions.ae-self-hosted-runners-notice %}
-
-{% data reusables.github-actions.self-hosted-runner-labels-runs-on %}
+{% data reusables.actions.self-hosted-runner-labels-runs-on %}
 
 #### Exemplo: Usando etiquetas para seleção do executor
 

@@ -15,14 +15,18 @@ versions:
 
 これらの追加ログは、ワークフローを含むリポジトリにシークレットを設定することで有効になるため、同じ権限要件が適用されます。
 
-- {% data reusables.github-actions.permissions-statement-secrets-repository %}
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
-- {% data reusables.github-actions.permissions-statement-secrets-environment %}
-{% endif %}
-- {% data reusables.github-actions.permissions-statement-secrets-organization %}
-- {% data reusables.github-actions.permissions-statement-secrets-api %}
+- {% data reusables.actions.permissions-statement-secrets-repository %}
+- {% data reusables.actions.permissions-statement-secrets-environment %}
+- {% data reusables.actions.permissions-statement-secrets-organization %}
+- {% data reusables.actions.permissions-statement-secrets-api %}
 
 シークレットの設定に関する詳しい情報については、「[暗号化されたシークレットの作成と利用](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)」を参照してください。
+
+{% ifversion debug-reruns %}
+
+Additionally, anyone who has access to run a workflow can enable runner diagnostic logging and step debug logging for a workflow re-run. For more information, see "[Re-running workflows and jobs](/actions/managing-workflow-runs/re-running-workflows-and-jobs)."
+
+ {% endif %}
 
 ## ランナーの診断ロギングの有効化
 
@@ -37,7 +41,7 @@ versions:
 
 ## ステップのデバッグロギングの有効化
 
-ステップのデバッグロギングは、ジョブの実行の間と実行後のジョブのログの詳細度を高めます。
+酢鉄粉デバッグロギングは、ジョブの実行の間と実行後のジョブのログの詳細度を高めます。
 
 1. ステップのデバッグロギングを有効化するには、ワークフローを含むリポジトリで以下のシークレットを設定しなければなりません： `ACTIONS_STEP_DEBUG`を`true`にしてください。
 

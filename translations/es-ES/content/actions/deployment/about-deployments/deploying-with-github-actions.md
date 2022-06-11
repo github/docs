@@ -3,7 +3,7 @@ title: Desplegar con GitHub Actions
 intro: Aprende a controlar los despliegues con características como ambientes y concurrencia.
 versions:
   fpt: '*'
-  ghes: '>=3.1'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 type: overview
@@ -132,6 +132,8 @@ jobs:
         # ...deployment-specific steps
 ```
 
+Para obtener orientación sobre cómo escribir pasos específicos para los despliegues, consulta la sección "[Encontrar ejemplos de despliegues](#finding-deployment-examples)".
+
 ## Visualizar el historial de despliegues
 
 Cuando se despliega un flujo de trabajo de {% data variables.product.prodname_actions %} en un ambiente, dicho ambiente se desplegará en la página principal del repositorio. Para obtener más información sobre cómo visualizar los despliegues hacia los ambientes, consulta la sección "[Ver el historial de despliegue](/developers/overview/viewing-deployment-history)".
@@ -154,7 +156,7 @@ También puedes crear una app que utilice despliegues y webhooks de estados de d
 
 ## Elegir un ejecutor
 
-Puedes ejecutar tu flujo de trabajo de despliegue en los ejecutores hospedados en {% data variables.product.company_short %} o en los auto-hospedados. El tráfico de los ejecutores hospedados en {% data variables.product.company_short %} puede venir desde un [rango amplio de direcciones de red](/rest/reference/meta#get-github-meta-information). Si estás desplegando hacia un ambiente interno y tu compañía restringe el tráfico externo en las redes privadas, podría ser que los flujos de trabajo de {% data variables.product.prodname_actions %} que se ejecuten en ejecutores hospedados en {% data variables.product.company_short %} no se estén comunicando con tus servicios o recursos internos. Para superar esto, puedes hospedar tus propios ejecutores. Para obtener más información, consulta las secciones "[Acerca de los ejecutores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners)" y "[Acercad e los ejecutores hospedados en GitHub](/actions/using-github-hosted-runners/about-github-hosted-runners)".
+Puedes ejecutar tu flujo de trabajo de despliegue en los ejecutores hospedados en {% data variables.product.company_short %} o en los auto-hospedados. El tráfico de los ejecutores hospedados en {% data variables.product.company_short %} puede venir desde un [rango amplio de direcciones de red](/rest/reference/meta#get-github-meta-information). Si estás desplegando hacia un ambiente interno y tu empresa restringe el tráfico externo en las redes privadas, los flujos de trabajo de {% data variables.product.prodname_actions %} que se ejecutan en los ejecutores hospedados en {% data variables.product.company_short %} podrían no tener la capacidad de comunicarse con tus recursos o servicios internos. Para superar esto, puedes hospedar tus propios ejecutores. Para obtener más información, consulta las secciones "[Acerca de los ejecutores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners)" y "[Acercad e los ejecutores hospedados en GitHub](/actions/using-github-hosted-runners/about-github-hosted-runners)".
 
 {% endif %}
 
@@ -164,7 +166,7 @@ Puedes utilizar una insignia de estado para mostrar el estado de tu flujo de tra
 
 Para obtener más información, consulta la sección "[Agregar una insignia de estado de flujo de trabajo](/actions/managing-workflow-runs/adding-a-workflow-status-badge)".
 
-## Pasos siguientes
+## Encontrar ejemplos de despliegues
 
 Este artículo demostró características de las {% data variables.product.prodname_actions %} que puedes agregar a tus flujos de trabajo de despliegue.
 

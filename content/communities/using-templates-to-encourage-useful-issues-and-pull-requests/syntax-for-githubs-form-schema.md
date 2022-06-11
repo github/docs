@@ -101,7 +101,8 @@ For multi-line text, you can use the pipe operator.
 ```YAML{:copy}
 body:
 - type: markdown
-  value: "## Thank you for contributing to our project!"
+  attributes:
+    value: "## Thank you for contributing to our project!"
 - type: markdown
   attributes:
     value: |
@@ -183,7 +184,7 @@ body:
   attributes:
     label: Bug prevalence
     description: "How often do you or others encounter this bug?"
-    placeholder: "Example: Whenever I visit the user account page (1-2 times a week)"
+    placeholder: "Example: Whenever I visit the personal account page (1-2 times a week)"
   validations:
     required: true
 ```

@@ -15,7 +15,7 @@ topics:
 shortTitle: 关于 HA 配置
 ---
 
-配置高可用性时，会自动设置将所有数据存储（Git 仓库、MySQL、Redis 和 Elasticsearch）单向、异步地从主设备复制到副本。 还会复制大多数 {% data variables.product.prodname_ghe_server %} 配置设置，包括 {% data variables.enterprise.management_console %} 密码。 For more information, see "[Accessing the management console](/admin/configuration/configuring-your-enterprise/accessing-the-management-console)."
+配置高可用性时，会自动设置将所有数据存储（Git 仓库、MySQL、Redis 和 Elasticsearch）单向、异步地从主设备复制到副本。 还会复制大多数 {% data variables.product.prodname_ghe_server %} 配置设置，包括 {% data variables.enterprise.management_console %} 密码。 更多信息请参阅“[访问管理控制台](/admin/configuration/configuring-your-enterprise/accessing-the-management-console)”。
 
 {% data variables.product.prodname_ghe_server %} 支持主动/被动配置，在这些配置下，副本作为备用设备运行，并且数据库服务在复制模式下运行，但应用程序服务将停止。
 

@@ -15,10 +15,10 @@ miniTocMaxHeadingLevel: 3
 
 ## 监控工作流程
 
-{% if github-runner-dashboard %}
+{% ifversion github-runner-dashboard %}
 ### 监控组织或企业中的当前作业
 
-{% data reusables.github-actions.github-hosted-runners-check-concurrency %}
+{% data reusables.actions.github-hosted-runners-check-concurrency %}
 
 {% endif %}
 

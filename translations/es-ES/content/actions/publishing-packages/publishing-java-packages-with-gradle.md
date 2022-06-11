@@ -23,7 +23,7 @@ shortTitle: Paquetes de Java con Gradle
 
 ## Introducción
 
-{% data reusables.github-actions.publishing-java-packages-intro %}
+{% data reusables.actions.publishing-java-packages-intro %}
 
 ## Prerrequisitos
 
@@ -87,16 +87,16 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Set up Java
-        uses: actions/setup-java@v2
+        uses: {% data reusables.actions.action-setup-java %}
         with:
           java-version: '11'
           distribution: 'adopt'
       - name: Validate Gradle wrapper
         uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
       - name: Publish package
-        uses: gradle/gradle-build-action@937999e9cc2425eddc7fd62d1053baf041147db7
+        uses: gradle/gradle-build-action@0d13054264b0bb894ded474f08ebb30921341cee
         with:
           arguments: publish
         env:
@@ -104,7 +104,7 @@ jobs:
           MAVEN_PASSWORD: {% raw %}${{ secrets.OSSRH_TOKEN }}{% endraw %}
 ```
 
-{% data reusables.github-actions.gradle-workflow-steps %}
+{% data reusables.actions.gradle-workflow-steps %}
 1. Ejecuta la acción [`gradle/gradle-build-action`](https://github.com/gradle/gradle-build-action) con el argumento `publish` para publicar en el repositorio `OSSRH` de Maven. La variable de entorno `MAVEN_USERNAME` se establecerá con los contenidos de tu `OSSRH_USERNAME` secreto, y la variable de entorno `MAVEN_PASSWORD` se establecerá con los contenidos de tu `OSSRH_TOKEN` secreto.
 
    Para obtener más información acerca del uso de secretos en tu flujo de trabajo, consulta "[Crear y usar secretos cifrados](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)".
@@ -115,7 +115,7 @@ Cada vez que creas un lanzamiento nuevo, puedes desencadenar un flujo de trabajo
 
 Puedes definir un nuevo repositorio de Maven en el bloque de publicación de tu _build.gradle_ que apunte a {% data variables.product.prodname_registry %}.  En esa configuración de repositorio, también puedes aprovechar las variables de entorno establecidas en tu ejecución de flujo de trabajo de CI.  Puedes usar la variable de entorno `GITHUB_ACTOR` como nombre de usuario y puedes establecer la variable de entorno `GITHUB_TOKEN` con tu `GITHUB_TOKEN` secreto.
 
-{% data reusables.github-actions.github-token-permissions %}
+{% data reusables.actions.github-token-permissions %}
 
 Por ejemplo, si tu organización se llama "octocat" y tu repositorio se llama "hello-world", entonces la configuración {% data variables.product.prodname_registry %} en _build.gradle_ tendría un aspecto similar al ejemplo a continuación.
 
@@ -159,22 +159,22 @@ jobs:
       contents: read
       packages: write {% endif %}
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-java@v2
+      - uses: {% data reusables.actions.action-checkout %}
+      - uses: {% data reusables.actions.action-setup-java %}
         with:
           java-version: '11'
           distribution: 'adopt'
       - name: Validate Gradle wrapper
         uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
       - name: Publish package
-        uses: gradle/gradle-build-action@937999e9cc2425eddc7fd62d1053baf041147db7
+        uses: gradle/gradle-build-action@0d13054264b0bb894ded474f08ebb30921341cee
         with:
           arguments: publish
         env:
           GITHUB_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
 ```
 
-{% data reusables.github-actions.gradle-workflow-steps %}
+{% data reusables.actions.gradle-workflow-steps %}
 1. Ejecuta la acción [`gradle/gradle-build-action`](https://github.com/gradle/gradle-build-action) con el argumento `publish` para publicar al {% data variables.product.prodname_registry %}. La variable de entorno `GITHUB_TOKEN` se establecerá con el contenido del `GITHUB_TOKEN` secreto. {% ifversion fpt or ghes > 3.1 or ghae or ghec %}La clave de `permissions` especifica el acceso que permitirá el secreto del `GITHUB_TOKEN`.{% endif %}
 
    Para obtener más información acerca del uso de secretos en tu flujo de trabajo, consulta "[Crear y usar secretos cifrados](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)".
@@ -237,16 +237,16 @@ jobs:
       contents: read
       packages: write {% endif %}
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Set up Java
-        uses: actions/setup-java@v2
+        uses: {% data reusables.actions.action-setup-java %}
         with:
           java-version: '11'
           distribution: 'adopt'
       - name: Validate Gradle wrapper
         uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
       - name: Publish package
-        uses: gradle/gradle-build-action@937999e9cc2425eddc7fd62d1053baf041147db7
+        uses: gradle/gradle-build-action@0d13054264b0bb894ded474f08ebb30921341cee
         with:
           arguments: publish
         env: {% raw %}
@@ -255,7 +255,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}{% endraw %}
 ```
 
-{% data reusables.github-actions.gradle-workflow-steps %}
+{% data reusables.actions.gradle-workflow-steps %}
 1. Ejecuta la acción [`gradle/gradle-build-action`](https://github.com/gradle/gradle-build-action) con el argumento `publish` para publicar en el repositorio `OSSRH` de Maven y en el {% data variables.product.prodname_registry %}. La variable de entorno `MAVEN_USERNAME` se establecerá con los contenidos de tu `OSSRH_USERNAME` secreto, y la variable de entorno `MAVEN_PASSWORD` se establecerá con los contenidos de tu `OSSRH_TOKEN` secreto. La variable de entorno `GITHUB_TOKEN` se establecerá con el contenido del `GITHUB_TOKEN` secreto. {% ifversion fpt or ghes > 3.1 or ghae or ghec %}La clave de `permissions` especifica el acceso que permitirá el secreto del `GITHUB_TOKEN`.{% endif %}
 
    Para obtener más información acerca del uso de secretos en tu flujo de trabajo, consulta "[Crear y usar secretos cifrados](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)".

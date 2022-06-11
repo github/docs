@@ -168,7 +168,7 @@ Você pode adicionar mais informações ao campo opcional "Descrição detalhada
 
   ### Aprenda as habilidades de que você precisa
 
-  O GitHub Learning Lab pode ajudá-lo a aprender como usar o GitHub, comunicar-se de modo mais efetivo com o Markdown, gerenciar conflitos de merge, entre outros.
+  O GitHub Skills pode ajudar você a aprender como usar o GitHub, comunicar-se de modo mais efetivo com o Markdown, gerenciar conflitos de merge, entre outros.
 
 - Use maiúscula apenas para os substantivos próprios.
 

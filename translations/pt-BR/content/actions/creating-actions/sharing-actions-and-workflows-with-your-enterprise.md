@@ -10,12 +10,6 @@ topics:
 shortTitle: Compartilhe com sua empresa
 ---
 
-{% note %}
-
-**Observação:** Permitir que os fluxos de trabalho acessem as ações em repositórios internos está atualmente na versão beta e sujeito a alterações.
-
-{% endnote %}
-
 ## Sobre o acesso de {% data variables.product.prodname_actions %} a repositórios internos
 
 Se sua organização pertence a uma conta corporativa, você pode compartilhar ações e fluxos de trabalho dentro de sua empresa, sem publicar a ação ou fluxo de trabalho publicamente, permitindo que os fluxos de trabalho de {% data variables.product.prodname_actions %} acessem um repositório interno que contém a ação ou o fluxo de trabalho.

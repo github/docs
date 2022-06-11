@@ -28,10 +28,9 @@ When you use two or more headings, GitHub automatically generates a table of con
 
 ![Screenshot highlighting the table of contents icon](/assets/images/help/repository/headings_toc.png)
 
-
 ## Styling text
 
-You can indicate emphasis with bold, italic, or strikethrough text in comment fields and `.md` files.  
+You can indicate emphasis with bold, italic, strikethrough, subscript, or superscript text in comment fields and `.md` files.  
 
 | Style | Syntax | Keyboard shortcut | Example | Output |
 | --- | --- | --- | --- | --- |
@@ -40,6 +39,8 @@ You can indicate emphasis with bold, italic, or strikethrough text in comment fi
 | Strikethrough | `~~ ~~` | | `~~This was mistaken text~~` | ~~This was mistaken text~~ |
 | Bold and nested italic | `** **` and `_ _` | | `**This text is _extremely_ important**` | **This text is _extremely_ important** |
 | All bold and italic | `*** ***` | | `***All this text is important***` | ***All this text is important*** |
+| Subscript | `<sub> </sub>` | | `<sub>This is a subscript text</sub>` | <sub>This is a subscript text</sub> |
+| Superscript | `<sup> </sup>` | | `<sup>This is a superscript text</sup>` | <sup>This is a superscript text</sup> |
 
 ## Quoting text
 
@@ -90,6 +91,8 @@ For more information, see "[Creating and highlighting code blocks](/articles/cre
 
 You can create an inline link by wrapping link text in brackets `[ ]`, and then wrapping the URL in parentheses `( )`. {% ifversion fpt or ghae or ghes > 3.1 or ghec %}You can also use the keyboard shortcut <kbd>Command</kbd>+<kbd>K</kbd> to create a link.{% endif %}{% ifversion fpt or ghae-issue-5434 or ghes > 3.3 or ghec %} When you have text selected, you can paste a URL from your clipboard to automatically create a link from the selection.{% endif %}
 
+{% ifversion fpt or ghae-issue-7103 or ghes > 3.5 or ghec %} You can also create a Markdown hyperlink by highlighting the text and using the keyboard shortcut <kbd>Command</kbd>+<kbd>V</kbd>. If you'd like to replace the text with the link, use the keyboard shortcut <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd>.{% endif %}
+
 `This site was built using [GitHub Pages](https://pages.github.com/).`
 
 ![Rendered link](/assets/images/help/writing/link-rendered.png)
@@ -130,7 +133,7 @@ Here are some examples for using relative links to display an image.
 | ------ | -------- |
 | In a `.md` file on the same branch | `/assets/images/electrocat.png` |
 | In a `.md` file on another branch | `/../main/assets/images/electrocat.png` |
-| In issues, pull requests and comments of the repository | `../blob/main/assets/images/electrocat.png` |
+| In issues, pull requests and comments of the repository | `../blob/main/assets/images/electrocat.png?raw=true` |
 | In a `.md` file in another repository | `/../../../../github/docs/blob/main/assets/images/electrocat.png` |
 | In issues, pull requests and comments of another repository | `../../../github/docs/blob/main/assets/images/electrocat.png?raw=true` |
 
@@ -145,14 +148,19 @@ For more information, see "[Relative Links](#relative-links)."
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5559 %}
 ### Specifying the theme an image is shown to
 
-You can specify the theme an image is displayed to by appending `#gh-dark-mode-only` or `#gh-light-mode-only` to the end of an image URL, in Markdown.
+You can specify the theme an image is displayed for in Markdown by using the HTML `<picture>` element in combination with the `prefers-color-scheme` media feature. We distinguish between light and dark color modes, so there are two options available. You can use these options to display images optimized for dark or light backgrounds. This is particularly helpful for transparent PNG images.
 
-We distinguish between light and dark color modes, so there are two options available. You can use these options to display images optimized for dark or light backgrounds. This is particularly helpful for transparent PNG images.
+For example, the following code displays a sun image for light themes and a moon for dark themes:
 
-| Context | URL |
-|--------|--------|
-| Dark Theme | `![GitHub Light](https://github.com/github-light.png#gh-dark-mode-only)` |
-| Light Theme | `![GitHub Dark](https://github.com/github-dark.png#gh-light-mode-only)` |
+```HTML
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://user-images.githubusercontent.com/25423296/163456776-7f95b81a-f1ed-45f7-b7ab-8fa810d529fa.png">
+  <source media="(prefers-color-scheme: light)" srcset="https://user-images.githubusercontent.com/25423296/163456779-a8556205-d0a5-45e2-ac17-42d089e3c3f8.png">
+  <img alt="Shows an illustrated sun in light color mode and a moon with stars in dark color mode." src="https://user-images.githubusercontent.com/25423296/163456779-a8556205-d0a5-45e2-ac17-42d089e3c3f8.png">
+</picture>
+```
+
+The old method of specifying images based on the theme, by using a fragment appended to the URL (`#gh-dark-mode-only` or `#gh-light-mode-only`), is deprecated and will be removed in favor of the new method described above.
 {% endif %}
 
 ## Lists
@@ -188,6 +196,12 @@ To create a nested list using the web editor on {% data variables.product.produc
    - First nested list item
      - Second nested list item
 ```
+
+{% tip %}
+
+**Note**: In the web-based editor, you can indent or dedent one or more lines of text by first highlighting the desired lines and then using <kbd>Tab</kbd> or <kbd>Shift</kbd>+<kbd>Tab</kbd> respectively.
+
+{% endtip %}
 
 ![Nested list with alignment highlighted](/assets/images/help/writing/nested-list-alignment.png)
 
@@ -228,7 +242,13 @@ For more information, see "[About task lists](/articles/about-task-lists)."
 
 ## Mentioning people and teams
 
-You can mention a person or [team](/articles/setting-up-teams/) on {% data variables.product.product_name %} by typing <kbd>@</kbd> plus their username or team name. This will trigger a notification and bring their attention to the conversation. People will also receive a notification if you edit a comment to mention their username or team name. For more information about notifications, see {% ifversion fpt or ghes or ghae or ghec %}"[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[About notifications](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}."
+You can mention a person or [team](/articles/setting-up-teams/) on {% data variables.product.product_name %} by typing <kbd>@</kbd> plus their username or team name. This will trigger a notification and bring their attention to the conversation. People will also receive a notification if you edit a comment to mention their username or team name. For more information about notifications, see "[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications)."
+
+{% note %}
+
+**Note:** A person will only be notified about a mention if the person has read access to the repository and, if the repository is owned by an organization, the person is a member of the organization.
+
+{% endnote %}
 
 `@github/support What do you think about these updates?`
 
@@ -283,7 +303,7 @@ For a full list of available emoji and codes, check out [the Emoji-Cheat-Sheet](
 
 You can create a new paragraph by leaving a blank line between lines of text.
 
-{% ifversion fpt or ghae-issue-5180 or ghes > 3.2 or ghec %}
+{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
 ## Footnotes
 
 You can add footnotes to your content by using this bracket syntax:
@@ -310,6 +330,8 @@ The footnote will render like this:
 {% tip %}
 
 **Note**: The position of a footnote in your Markdown does not influence where the footnote will be rendered. You can write a footnote right after your reference to the footnote, and the footnote will still render at the bottom of the Markdown.
+
+Footnotes are not supported in wikis.
 
 {% endtip %}
 {% endif %}

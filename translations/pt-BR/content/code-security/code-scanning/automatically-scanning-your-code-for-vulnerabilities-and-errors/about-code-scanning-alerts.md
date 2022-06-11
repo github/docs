@@ -1,6 +1,6 @@
 ---
 title: About code scanning alerts
-intro: 'Learn about the different types of code scanning alerts and the information that helps you understand the problem each alert highlights.'
+intro: Learn about the different types of code scanning alerts and the information that helps you understand the problem each alert highlights.
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
   fpt: '*'
@@ -27,7 +27,15 @@ By default, {% data variables.product.prodname_code_scanning %} analyzes your co
 
 Each alert highlights a problem with the code and the name of the tool that identified it. You can see the line of code that triggered the alert, as well as properties of the alert, such as the alert severity{% ifversion fpt or ghes > 3.1 or ghae or ghec %}, security severity,{% endif %} and the nature of the problem. Alerts also tell you when the issue was first introduced. For alerts identified by {% data variables.product.prodname_codeql %} analysis, you will also see information on how to fix the problem.
 
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6249 %}
+{% data reusables.code-scanning.alert-default-branch %}
+{% endif %}
+
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6249 %}
 ![Example alert from {% data variables.product.prodname_code_scanning %}](/assets/images/help/repository/code-scanning-alert.png)
+{% else %}
+![Example alert from {% data variables.product.prodname_code_scanning %}](/assets/images/enterprise/3.4/repository/code-scanning-alert.png)
+{% endif %}
 
 If you set up {% data variables.product.prodname_code_scanning %} using {% data variables.product.prodname_codeql %}, you can also find data-flow problems in your code. Data-flow analysis finds potential security issues in code, such as: using data insecurely, passing dangerous arguments to functions, and leaking sensitive information.
 
@@ -48,6 +56,22 @@ To calculate the security severity of an alert, we use Common Vulnerability Scor
 
 By default, any {% data variables.product.prodname_code_scanning %} results with a security severity of `Critical` or `High` will cause a check failure. You can specify which security severity level for {% data variables.product.prodname_code_scanning %} results should cause a check failure. For more information, see "[Defining the severities causing pull request check failure](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#defining-the-severities-causing-pull-request-check-failure)."{% endif %}
 
+{% ifversion fpt or ghes > 3.4 or ghae-issue-6251 or ghec %}
+### About analysis origins
+
+You can set up multiple configurations of code analysis on a repository, using different tools and targeting different languages or areas of the code. Each configuration of code scanning is the analysis origin for all the alerts it generates. For example, an alert generated using the default CodeQL analysis with GitHub Actions will have a different analysis origin from an alert generated externally and uploaded via the code scanning API.
+
+If you use multiple configurations to analyze a file, any problems detected by the same query are reported as alerts with multiple analysis origins. If an alert has more than one analysis origin, a {% octicon "workflow" aria-label="The workflow icon" %} icon will appear next to any relevant branch in the **Affected branches** section on the right-hand side of the alert page. You can hover over the {% octicon "workflow" aria-label="The workflow icon" %} icon to see the names of each analysis origin and the status of the alert for that analysis origin. You can also view the history of when alerts appeared in each analysis origin in the timeline on the alert page. If an alert only has one analysis origin, no information about analysis origins is displayed on the alert page.
+
+![Code scanning alert with multiple analysis origins](/assets/images/help/repository/code-scanning-analysis-origins.png)
+
+{% note %}
+
+**Note:** Sometimes a code scanning alert displays as fixed for one analysis origin but is still open for a second analysis origin. You can resolve this by re-running the second code scanning configuration to update the alert status for that analysis origin.
+
+{% endnote %}
+
+{% endif %}
 ### About labels for alerts that are not found in application code
 
 {% data variables.product.product_name %} assigns a category label to alerts that are not found in application code. The label relates to the location of the alert.
@@ -67,7 +91,7 @@ On the alert page, you can see that the filepath is marked as library code (`Lib
 
 ![Code scanning library alert details](/assets/images/help/repository/code-scanning-library-alert-show.png)
 
-{% if codeql-ml-queries %}
+{% ifversion codeql-ml-queries %}
 
 ## About experimental alerts
 
@@ -100,7 +124,7 @@ The default {% data variables.product.prodname_codeql %} query suites do not inc
 When you update your workflow to run an additional query suite this will increase the analysis time.
 
 ``` yaml
-- uses: github/codeql-action/init@v1
+- uses: {% data reusables.actions.action-codeql-action-init %}
   with:
     # Run extended queries including queries using machine learning
     queries: security-extended

@@ -12,6 +12,8 @@ topics:
 shortTitle: Prepare-se para aplicar o SSO do SAML
 ---
 
+{% data reusables.saml.ghec-only %}
+
 {% data reusables.saml.when-you-enforce %} antes de aplicar o SAML SSO na sua organização, você deverá revisar a associação da organização, habilitar o SAML SSO e revisar o acesso SAML dos integrantes da organização. Para obter mais informações, consulte o seguinte.
 
 | Tarefa                                                                                         | Mais informações          |

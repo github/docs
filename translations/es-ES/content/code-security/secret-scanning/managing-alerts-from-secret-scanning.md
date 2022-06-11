@@ -22,6 +22,14 @@ shortTitle: Administrar las alertas de los secretos
 
 ## Administrar las alertas del {% data variables.product.prodname_secret_scanning %}
 
+{% ifversion ghec %}
+{% note %}
+
+**Nota:** Las alertas se crean únicamente para los repositorios que tienen habilitada la {% data variables.product.prodname_secret_scanning_GHAS %}. Los secretos que se encuentran en los repositorios públicos utilizando el servicio gratuito de {% data variables.product.prodname_secret_scanning_partner%} se reportan directamente al socio, sin crear una alerta.
+
+{% endnote %}
+{% endif %}
+
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 1. En la barra lateral izquierda, haz clic en **Alertas del escaneo de secretos**.
@@ -55,6 +63,14 @@ Cuando un secreto se haya confirmado en un repositorio, deberás considerarlo en
 
 - Para un token de acceso personal de {% data variables.product.prodname_dotcom %} comprometido, elimina el token comprometido, crea un nuevo token y actualiza todo servicio que use el token antiguo. Para obtener más información, consulta la sección "[Crear un token de acceso personal para la línea de comandos](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)".
 - Para todos los demás secretos, verifica primero que aquellos que se hayan confirmado en {% data variables.product.product_name %} sean válidos. De ser así, crea un secreto nuevo, actualiza cualquier servicio que utilice el secreto anterior, y luego bórralo.
+
+{% ifversion ghec %}
+{% note %}
+
+**Nota:** Si se detecta un secreto en un repositorio público en {% data variables.product.prodname_dotcom_the_website %} y dicho secreto también empata con un patrón asociado, se generará una alerta y el secreto potencial se reporta al proveedor de servicios. Para obtener más detalles sobre los patrones asociados, consulta la sección "[Secretos compatibles para los patrones asociados](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets-for-partner-patterns)".
+
+{% endnote %}
+{% endif %}
 
 {% ifversion fpt or ghes > 3.1 or ghae-issue-4910 or ghec %}
 ## Configurar las notificaciones para las alertas del {% data variables.product.prodname_secret_scanning %}

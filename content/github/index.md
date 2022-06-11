@@ -12,6 +12,6 @@ versions:
   ghae: '*'
 children:
   - /copilot
-  - /site-policy
   - /site-policy-deprecated
 ---
+

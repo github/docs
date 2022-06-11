@@ -1,0 +1,16 @@
+---
+date: '2022-03-01'
+sections:
+  security_fixes:
+    - "高: GitHubのMarkdownパーサーで、情報漏洩とRCEにつながる整数オーバーフローの脆弱性が特定されました。この脆弱性は、GoogleのProject ZeroのFelix WilhelmによってGitHub Bug Bountyプログラムを通じて報告され、CVE-2022-24724が割り当てられました。"
+  bugs:
+    - 高可用性レプリカのクロックがプライマリと同期していない場合、アップグレードが失敗することがありました。
+    - '2020年9月1日以降に作成されたOAuthアプリケーションは、 [Check an Authorization](https://docs.github.com/en/enterprise-server@3.2/rest/reference/apps#check-an-authorization) API エンドポイントを使用できませんでした。'
+  known_issues:
+    - 新しくセットアップされたユーザを持たない{% data variables.product.prodname_ghe_server %}インスタンスで、攻撃者が最初の管理ユーザを作成できました。
+    - アップグレードの過程で、カスタムのファイアウォールのルールが削除されます。
+    - Git LFSが追跡するファイル[Webインターフェースからアップロードされたもの](https://github.com/blog/2105-upload-files-to-your-repositories)が、不正にリポジトリに直接追加されてしまいます。
+    - 同じリポジトリ内のファイルパスが255文字を超えるblobへのパーマリンクを含むIssueをクローズできませんでした。
+    - GitHub Connectで"Users can search GitHub.com"が有効化されている場合、GitHub.comの検索結果にプライベート及びインターナルリポジトリのIssueが含まれません。
+    - '{% data variables.product.prodname_registry %}のnpmレジストリは、メタデータのレスポンス中で時間の値を返さなくなります。これは、大きなパフォーマンス改善のために行われました。メタデータレスポンスの一部として時間の値を返すために必要なすべてのデータは保持し続け、既存のパフォーマンスの問題を解決した将来に、この値を返すことを再開します。'
+    - pre-receive フックの処理に固有のリソース制限によって、pre-receive フックに失敗するものが生じることがあります。

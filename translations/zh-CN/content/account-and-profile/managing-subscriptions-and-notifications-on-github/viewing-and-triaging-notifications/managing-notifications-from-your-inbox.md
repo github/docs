@@ -16,10 +16,6 @@ topics:
 shortTitle: 从收件箱管理
 ---
 
-{% ifversion ghes %}
-{% data reusables.mobile.ghes-release-phase %}
-{% endif %}
-
 ## 关于收件箱
 
 {% ifversion fpt or ghes or ghec %}
@@ -109,20 +105,20 @@ shortTitle: 从收件箱管理
 
 ### 支持的 `is:` 查询
 
-要在 {% data variables.product.product_location %} 上过滤特定活动的通知，您可以使用 `is` 查询。 For example, to only see repository invitation updates, use `is:repository-invitation`{% ifversion not ghae %}, and to only see {% data variables.product.prodname_dependabot_alerts %}, use `is:repository-vulnerability-alert`{% endif %}.
+要在 {% data variables.product.product_location %} 上过滤特定活动的通知，您可以使用 `is` 查询。 例如，若要仅查看存储库邀请更新，请使用 `is:repository-invitation`{% ifversion not ghae %}，若要仅查看 {% data variables.product.prodname_dependabot_alerts %}，则使用 `is:repository-vulnerability-alert`{% endif %}。
 
 - `is:check-suite`
 - `is:commit`
 - `is:gist`
 - `is:issue-or-pull-request`
 - `is:release`
-- `is:repository-invitation`{% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
+- `is:repository-invitation`{% ifversion fpt or ghes or ghae or ghec %}
 - `is:repository-vulnerability-alert`{% endif %}{% ifversion fpt or ghec %}
 - `is:repository-advisory`{% endif %}
 - `is:team-discussion`{% ifversion fpt or ghec %}
 - `is:discussion`{% endif %}
 
-{% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
+{% ifversion fpt or ghes or ghae or ghec %}
 有关减少 {% data variables.product.prodname_dependabot_alerts %} 通知干扰的信息，请参阅“[配置漏洞依赖项的通知](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies)”。
 {% endif %}
 
@@ -137,20 +133,20 @@ shortTitle: 从收件箱管理
 
 要根据收到更新的原因过滤通知，您可以使用 `reason:` 查询。 例如，要查看当您（或您所属团队）被请求审查拉取请求时的通知，请使用 `reason:review-requested`。 更多信息请参阅“[关于通知](/github/managing-subscriptions-and-notifications-on-github/about-notifications#reasons-for-receiving-notifications)”。
 
-| 查询                        | 描述                                                                       |
-| ------------------------- | ------------------------------------------------------------------------ |
-| `reason:assign`           | 分配给您的议题或拉取请求有更新时。                                                        |
-| `reason:author`           | 当您打开拉取请求或议题并且有更新或新评论时。                                                   |
-| `reason:comment`          | 当您评论了议题、拉取请求或团队讨论时。                                                      |
-| `reason:participating`    | 当您评论了议题、拉取请求或团队讨论或者被@提及时。                                                |
-| `reason:invitation`       | 当您被邀请加入团队、组织或仓库时。                                                        |
-| `reason:manual`           | 当您在尚未订阅的议题或拉取请求上单击 **Subscribe（订阅）**时。                                   |
-| `reason:mention`          | 您被直接@提及。                                                                 |
-| `reason:review-requested` | 您或您所属的团队被请求审查拉取请求。{% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
+| 查询                        | 描述                                                            |
+| ------------------------- | ------------------------------------------------------------- |
+| `reason:assign`           | 分配给您的议题或拉取请求有更新时。                                             |
+| `reason:author`           | 当您打开拉取请求或议题并且有更新或新评论时。                                        |
+| `reason:comment`          | 当您评论了议题、拉取请求或团队讨论时。                                           |
+| `reason:participating`    | 当您评论了议题、拉取请求或团队讨论或者被@提及时。                                     |
+| `reason:invitation`       | 当您被邀请加入团队、组织或仓库时。                                             |
+| `reason:manual`           | 当您在尚未订阅的议题或拉取请求上单击 **Subscribe（订阅）**时。                        |
+| `reason:mention`          | 您被直接@提及。                                                      |
+| `reason:review-requested` | 您或您所属的团队被请求审查拉取请求。{% ifversion fpt or ghes or ghae or ghec %}
 | `reason:security-alert`   | 为仓库发出安全警报时。{% endif %}
-| `reason:state-change`     | 当拉取请求或议题的状态改变时。 例如，议题已关闭或拉取请求合并时。                                        |
-| `reason:team-mention`     | 您所在的团队被@提及时。                                                             |
-| `reason:ci-activity`      | 当仓库有 CI 更新时，例如新的工作流程运行状态。                                                |
+| `reason:state-change`     | 当拉取请求或议题的状态改变时。 例如，议题已关闭或拉取请求合并时。                             |
+| `reason:team-mention`     | 您所在的团队被@提及时。                                                  |
+| `reason:ci-activity`      | 当仓库有 CI 更新时，例如新的工作流程运行状态。                                     |
 
 {% ifversion fpt or ghec %}
 ### 支持的 `author:` 查询
@@ -165,7 +161,7 @@ shortTitle: 从收件箱管理
 
 {% endif %}
 
-{% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
+{% ifversion fpt or ghes or ghae or ghec %}
 ## {% data variables.product.prodname_dependabot %} 自定义过滤器
 
 {% ifversion fpt or ghec or ghes > 3.2 %}
@@ -174,16 +170,16 @@ shortTitle: 从收件箱管理
 - `reason:security_alert`，显示 {% data variables.product.prodname_dependabot_alerts %} 的通知和安全更新拉取请求。
 - `author:app/dependabot`，显示 {% data variables.product.prodname_dependabot %} 生成的通知。 这包括 {% data variables.product.prodname_dependabot_alerts %}、安全更新拉取请求和版本更新拉取请求。
 
-有关 {% data variables.product.prodname_dependabot %} 的更多信息，请参阅“[关于管理有漏洞的依赖项](/github/managing-security-vulnerabilities/about-managing-vulnerable-dependencies)”。
+有关 {% data variables.product.prodname_dependabot %} 的更多信息，请参阅“[关于 {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)”。
 {% endif %}
 
-{% ifversion ghes < 3.3 or ghae-issue-4864 %}
+{% ifversion ghes < 3.3 or ghae %}
 
-If you use {% data variables.product.prodname_dependabot %} to tell you about vulnerable dependencies, you can use and save these custom filters to show notifications for {% data variables.product.prodname_dependabot_alerts %}:
+如果使用 {% data variables.product.prodname_dependabot %} 来告知易受攻击的依赖项，则可以使用并保存这些自定义筛选器来显示 {% data variables.product.prodname_dependabot_alerts %} 的通知：
 - `is:repository_vulnerability_alert`
 - `reason:security_alert`
 
-有关 {% data variables.product.prodname_dependabot %} 的更多信息，请参阅“[关于有漏洞依赖项的警报](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)”。
+有关 {% data variables.product.prodname_dependabot %} 的更多信息，请参阅“[关于 {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)”。
 {% endif %}
 
 {% endif %}

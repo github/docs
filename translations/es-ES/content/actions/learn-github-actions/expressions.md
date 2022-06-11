@@ -25,9 +25,9 @@ Debes usar una sintaxis específica para decirle a {% data variables.product.pro
 `${{ <expression> }}`
 {% endraw %}
 
-{% data reusables.github-actions.expression-syntax-if %} Para obtener más información acerca de los condicionales `if`, consulta la sección "[sintaxis de flujo de trabajo para {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)".
+{% data reusables.actions.expression-syntax-if %} Para obtener más información acerca de los condicionales `if`, consulta la sección "[sintaxis de flujo de trabajo para {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)".
 
-{% data reusables.github-actions.context-injection-warning %}
+{% data reusables.actions.context-injection-warning %}
 
 #### Expresión de ejemplo en un condicional `if`
 
@@ -68,7 +68,7 @@ env:
   myIntegerNumber: ${{ 711 }}
   myFloatNumber: ${{ -9.2 }}
   myHexNumber: ${{ 0xff }}
-  myExponentialNumber: ${{ -2.99-e2 }}
+  myExponentialNumber: ${{ -2.99e-2 }}
   myString: Mona the Octocat
   myStringInBraces: ${{ 'It''s open source!' }}
 ```
@@ -252,7 +252,7 @@ jobs:
 
 `hashFiles(path)`
 
-Arroja un solo hash para el conjunto de archivos que coincide con el patrón de `path`. Puedes proporcionar un patrón de `path` o `path` múltiples se parados por comas. El `path` está relacionado con el directorio `GITHUB_WORKSPACE` y solo puede incluir archivos dentro del directorio `GITHUB_WORKSPACE`. Esta función calcula un hash SHA-256 individual para cada archivo coincidente, y luego usa esos hashes para calcular un hash SHA-256 final para el conjunto de archivos. Para más información sobre SHA-256, consulta "[SHA-2](https://en.wikipedia.org/wiki/SHA-2)".
+Arroja un solo hash para el conjunto de archivos que coincide con el patrón de `path`. Puedes proporcionar un patrón de `path` o `path` múltiples se parados por comas. El `path` está relacionado con el directorio `GITHUB_WORKSPACE` y solo puede incluir archivos dentro del directorio `GITHUB_WORKSPACE`. Esta función calcula un hash SHA-256 individual para cada archivo coincidente, y luego usa esos hashes para calcular un hash SHA-256 final para el conjunto de archivos. Si el patrón `path` no empata con ningún archivo, esto devolverá una secuencia vacía. Para más información sobre SHA-256, consulta "[SHA-2](https://en.wikipedia.org/wiki/SHA-2)".
 
 Puedes usar caracteres de coincidencia de patrones para encontrar nombres de archivos. La coincidencia de patrones no distingue mayúsculas de minúsculas en Windows. Para obtener más información acerca de los caracteres compatibles con los patrones, consulta "[Sintaxis de flujo de trabajo para {% data variables.product.prodname_actions %}](/actions/using-workflows/workflow-syntax-for-github-actions/#filter-pattern-cheat-sheet)".
 
@@ -324,33 +324,21 @@ steps:
     if: {% raw %}${{ failure() }}{% endraw %}
 ```
 
-{% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}
-### Evaluar los estados explícitamente
+#### failure with conditions
 
-En vez de utilizar alguno de los métodos anteriores, puedes evaluar el estado del job o de la acción compuesta que esté ejecutando el paso directamente:
+You can include extra conditions for a step to run after a failure, but you must still include `failure()` to override the default status check of `success()` that is automatically applied to `if` conditions that don't contain a status check function.
 
-#### Ejemplo de un paso de flujo de trabajo
-
-```yaml
-steps:
-  ...
-  - name: The job has failed
-    if: {% raw %}${{ job.status == 'failure' }}{% endraw %}
-```
-
-Esto es lo mismo que utilizar `if: failure()` en un paso de un job.
-
-#### Ejemplo de un paso de una acción compuesta
+##### Ejemplo
 
 ```yaml
 steps:
   ...
-  - name: The composite action has failed
-    if: {% raw %}${{ github.action_status == 'failure' }}{% endraw %}
+  - name: Failing step
+    id: demo
+    run: exit 1
+  - name: The demo step has failed
+    if: {% raw %}${{ failure() && steps.demo.conclusion == 'failure' }}{% endraw %}
 ```
-
-Esto es lo mismo que utilizar `if: failure()` en un paso de acción compuesta.
-{% endif %}
 
 ## Filtros de objetos
 
@@ -366,4 +354,40 @@ Por ejemplo, considera una matriz de objetos llamada `fruits`.
 ]
 ```
 
-El filtro `fruits.*.name` devuelve la matriz `[ "apple", "orange", "pear" ]`
+El filtro `fruits.*.name` devuelve la matriz `[ "apple", "orange", "pear" ]`.
+
+También puedes utilizar la sintaxis `*` en un objeto. Por ejemplo, supón que tienes un objeto que se llama `vegetables`.
+
+```json
+
+{
+  "scallions":
+  {
+    "colors": ["green", "white", "red"],
+    "ediblePortions": ["roots", "stalks"],
+  },
+  "beets":
+  {
+    "colors": ["purple", "red", "gold", "white", "pink"],
+    "ediblePortions": ["roots", "stems", "leaves"],
+  },
+  "artichokes":
+  {
+    "colors": ["green", "purple", "red", "black"],
+    "ediblePortions": ["hearts", "stems", "leaves"],
+  },
+}
+```
+
+El filtro `vegetables.*.ediblePortions` puede evaluarse como:
+
+```json
+
+[
+  ["roots", "stalks"],
+  ["hearts", "stems", "leaves"],
+  ["roots", "stems", "leaves"],
+]
+```
+
+Ya que los objetos no preservan el orden, el orden de salida no se puede garantizar.

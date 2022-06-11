@@ -1,6 +1,6 @@
 ---
 title: GitHub のプランをアップグレードする
-intro: 'You can upgrade the subscription for any type of account on {% data variables.product.product_location %} at any time.'
+intro: '{% data variables.product.product_location %}のいずれの種類のアカウントでも、いつでもプランをアップグレードできます。'
 miniTocMaxHeadingLevel: 3
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/upgrading-your-github-subscription
@@ -32,15 +32,15 @@ topics:
 shortTitle: サブスクリプションのアップグレード
 ---
 
-## About subscription upgrades
+## プランのアップグレードについて
 
 {% data reusables.accounts.accounts-billed-separately %}
 
-When you upgrade the subscription for an account, the upgrade changes the paid features available for that account only, and not any other accounts you use.
+アカウントのプランをアップグレードすると、そのアカウントで利用できる有料機能が変更され、使用している他のアカウントでは変更されません。
 
 ## 個人アカウントのプランをアップグレードする
 
-You can upgrade your personal account from {% data variables.product.prodname_free_user %} to {% data variables.product.prodname_pro %} to get advanced code review tools on private repositories owned by your user account. Upgrading your personal account does not affect any organizations you may manage or repositories owned by those organizations. {% data reusables.gated-features.more-info %}
+個人アカウントを{% data variables.product.prodname_free_user %}から{% data variables.product.prodname_pro %}にアップグレードして、個人アカウントが所有するプライベートリポジトリで高度なコードレビューツールを使えるようにすることができます。 個人アカウントをアップグレードしても、管理するOrganizationや、それらのOrganizationが所有するリポジトリには影響しません。 {% data reusables.gated-features.more-info %}
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.billing_plans %}
@@ -52,13 +52,13 @@ You can upgrade your personal account from {% data variables.product.prodname_fr
 {% data reusables.dotcom_billing.enter-payment-info %}
 {% data reusables.dotcom_billing.finish_upgrade %}
 
-## Managing your organization's subscription
+## Organizationのプランの管理
 
-You can upgrade your organization's subscription to a different product, add seats to your existing product, or switch from per-repository to per-user pricing.
+Organizationのプランを様々な製品にアップグレードしたり、既存の製品にシートを追加したり、リポジトリごとの価格付けからユーザごとの価格付けに切り替えたりできます。
 
 ### Organization のプランをアップグレードする
 
-Organization を {% data variables.product.prodname_free_team %} から {% data variables.product.prodname_team %} にアップグレードすると、チーム用の高度なコラボレーションおよび管理ツールにアクセスできます。また、{% data variables.product.prodname_ghe_cloud %} にアップグレードすると、セキュリティ、コンプライアンス、およびデプロイメントの管理を強化できます。 Upgrading an organization does not affect your personal account or repositories owned by your personal account. {% data reusables.gated-features.more-info-org-products %}
+Organization を {% data variables.product.prodname_free_team %} から {% data variables.product.prodname_team %} にアップグレードすると、チーム用の高度なコラボレーションおよび管理ツールにアクセスできます。また、{% data variables.product.prodname_ghe_cloud %} にアップグレードすると、セキュリティ、コンプライアンス、およびデプロイメントの管理を強化できます。 Organizationをアップグレードしても、個人アカウントや個人アカウントが所有するリポジトリには影響しません。 {% data reusables.gated-features.more-info-org-products %}
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 
@@ -73,9 +73,9 @@ Organization を {% data variables.product.prodname_free_team %} から {% data 
 
 ### {% data variables.product.prodname_ghe_cloud %} を使用する Organization の次のステップ
 
-Organization を {% data variables.product.prodname_ghe_cloud %} にアップグレードした場合は、ここで Organization の ID とアクセス管理を設定できます。 For more information, see "[Managing SAML single sign-on for your organization](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
+Organization を {% data variables.product.prodname_ghe_cloud %} にアップグレードした場合は、ここで Organization の ID とアクセス管理を設定できます。 詳しい情報については{% ifversion fpt %}{% data variables.product.prodname_ghe_cloud %}ドキュメンテーション中の{% else %}{% endif %}「[OrganizationでのSAMLシングルサインオンの管理](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization)」を参照してください。
 
-{% data variables.product.prodname_ghe_cloud %} で Enterprise アカウントを使いたい場合は、{% data variables.contact.contact_enterprise_sales %} に連絡してください。 For more information, see "[About enterprise accounts](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
+{% data variables.product.prodname_ghe_cloud %} で Enterprise アカウントを使いたい場合は、{% data variables.contact.contact_enterprise_sales %} に連絡してください。 詳しい情報については{% ifversion fpt %}、{% data variables.product.prodname_ghe_cloud %}ドキュメンテーションの{% else %}、{% endif %}「[Enterpriseアカウントについて](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts)を参照してください。
 
 ### Organization にシートを追加する
 

@@ -1,7 +1,7 @@
 ---
-title: Organization および Team
+title: OrganizationとTeam
 shortTitle: Organization
-intro: 'You can use organizations to collaborate with an unlimited number of people across many projects at once, while managing access to your data and customizing settings.'
+intro: Organizationを使えば、データへのアクセスを管理し、設定をカスタマイズしながら、多くのプロジェクトに渡る人々と人数に制限なく同時にコラボレーションできます。
 redirect_from:
   - /articles/about-improved-organization-permissions
   - /categories/setting-up-and-managing-organizations-and-teams

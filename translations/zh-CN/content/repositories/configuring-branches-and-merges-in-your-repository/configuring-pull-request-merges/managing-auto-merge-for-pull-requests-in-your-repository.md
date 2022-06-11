@@ -4,7 +4,7 @@ intro: 您可以允许或禁止仓库中拉取请求的自动合并。
 product: '{% data reusables.gated-features.auto-merge %}'
 versions:
   fpt: '*'
-  ghes: '>=3.1'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 permissions: People with maintainer permissions can manage auto-merge for pull requests in a repository.

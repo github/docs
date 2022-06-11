@@ -37,6 +37,11 @@ Os commits e tags têm o seguinte status de verificação, dependendo se você h
 | **Não verificado**        | O commit foi assinado, mas não foi possível verificar a assinatura. |
 | Sem status de verificação | O commit não foi assinado.                                          |
 
+### Verificação de assinatura para rebase e merge
+{% data reusables.pull_requests.rebase_and_merge_verification %}
+
+Para obter mais informações, consulte "[Fazendo rebase e merge dos seus commits](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/about-merge-methods-on-github#rebasing-and-merging-your-commits)."
+
 ### Status com modo vigilante habilitado
 
 {% data reusables.identity-and-permissions.vigilant-mode-verification-statuses %}
@@ -49,8 +54,11 @@ Os administradores do repositório podem impor a assinatura de commit obrigatór
 
 {% data reusables.identity-and-permissions.verification-status-check %}
 
-{% ifversion fpt or ghec %}
-{% data variables.product.product_name %} usará automaticamente o GPG para assinar os commits que você criar usando a interface web de {% data variables.product.product_name %}. Commits assinados por {% data variables.product.product_name %} terão um status de verificado em {% data variables.product.product_name %}. É possível verificar a assinatura localmente usando a chave pública disponível em https://github.com/web-flow.gpg. A impressão digital completa da chave é `5DE3 E050 9C47 EA3C F04A 42D3 4AEE 18F8 3AFD EB23`. Opcionalmente, você pode escolher que {% data variables.product.product_name %} assine os commits que você fizer em {% data variables.product.prodname_codespaces %}. Para obter mais informações sobre como habilitar a verificação de GPG para os seus códigos, consulte "[Gerenciar a verificação de GPG para {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-gpg-verification-for-codespaces)".
+{% ifversion fpt or ghec or ghes > 3.4 %}
+{% ifversion ghes %}Se um administrador do site tiver habilitado a assinatura de commit da web, {% data variables.product.product_name %} usará automaticamente o GPG para assinar os commits que você criar usando a interface da web. Os commits assinados por {% data variables.product.product_name %} terão um status verificado. Você pode verificar a assinatura localmente usando a chave pública disponível em `https://HOSTNAME/web-flow.gpg`. Para obter mais informações, consulte "[Configurando a assinatura de commit da web](/admin/configuration/configuring-your-enterprise/configuring-web-commit-signing). "
+{% else %}{% data variables.product.prodname_dotcom %} usará automaticamente o GPG para assinar os commits que você criar usando a interface da web. Os commits assinados por {% data variables.product.prodname_dotcom %} terão um status verificado. É possível verificar a assinatura localmente usando a chave pública disponível em https://github.com/web-flow.gpg. A impressão digital completa da chave é `5DE3 E050 9C47 EA3C F04A 42D3 4AEE 18F8 3AFD EB23`.
+
+Opcionalmente, você pode escolher que {% data variables.product.prodname_dotcom %} assine os commits que você fizer em {% data variables.product.prodname_codespaces %}. Para obter mais informações sobre como habilitar a verificação do GPG para os seus codespaces, consulte "[Gerenciando a verificação do GPG para {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-gpg-verification-for-codespaces)."{% endif %}
 {% endif %}
 
 ## Verificação da assinatura de commit GPG
@@ -72,7 +80,7 @@ Para assinar commits usando GPG e para que esses commits sejam verificados no {%
 
 Você pode usar S/MIME para assinar commits com uma chave X.509 emitida pela organização.
 
-O {% data variables.product.product_name %} usa [o pacote Debian ca-certificates](https://packages.debian.org/hu/jessie/ca-certificates), a mesma loja confiável usada pelos navegadores Mozilla, para confirmar se seus commits e tags localmente assinados são criptograficamente verificáveis em uma chave pública em um certificado raiz confiável.
+O {% data variables.product.product_name %} usa [o pacote Debian ca-certificates](https://packages.debian.org/bullseye/ca-certificates), a mesma loja confiável usada pelos navegadores Mozilla, para confirmar se seus commits e tags localmente assinados são criptograficamente verificáveis em uma chave pública em um certificado raiz confiável.
 
 {% data reusables.gpg.smime-git-version %}
 

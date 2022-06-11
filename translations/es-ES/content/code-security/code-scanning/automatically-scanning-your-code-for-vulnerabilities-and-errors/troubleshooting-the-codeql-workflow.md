@@ -51,10 +51,11 @@ Puedes obtener artefactos para que te ayuden a depurar {% data variables.product
 
 ```yaml
 - name: Initialize CodeQL
-  uses: github/codeql-action/init@v1
+  uses: {% data reusables.actions.action-codeql-action-init %}
   with:
     debug: true
 ```
+
 Los artefactos de depuración se cargarán a la ejecución de flujo de trabajo como un artefacto de nombre `debug-artifacts`. Los datos contienen las bitácoras de {% data variables.product.prodname_codeql %}. la(s) base(s) de datos de {% data variables.product.prodname_codeql %} y cualquier archivo SARIF que produzca el flujo de trabajo.
 
 Estos artefactos te ayudarán a depurar los problemas con el escaneo de código de {% data variables.product.prodname_codeql %}. Si contactas al soporte de GitHub, podrían pedirte estos datos.
@@ -67,7 +68,7 @@ Si una compilación automática de código para un lenguaje compilado dentro de 
 
 - Elimina el paso de `autobuild` de tu flujo de trabajo de {% data variables.product.prodname_code_scanning %} y agrega los pasos de compilación específicos. Para obtener información sobre cómo editar el flujo de trabajo, consulta la sección "[Configurar el {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/configuring-code-scanning#editing-a-code-scanning-workflow)". Para obtener más información sobre cómo reemplazar el paso de `autobuild`, consulta la sección "[Configurar el flujo de trabajo de {% data variables.product.prodname_codeql %} para los lenguajes compilados](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)".
 
-- Si tu flujo de trabajo no especifica explícitamente los lenguajes a analizar, {% data variables.product.prodname_codeql %} detectará implícitamente los lenguajes compatibles en tu código base. En esta configuración, fuera de los lenguajes compilados C/C++, C#, y Java, {% data variables.product.prodname_codeql %} solo analizará el lenguaje presente en la mayoría de los archivos de origen. Edita el flujo de trabajo y agrega una matriz de compilación que especifique los lenguajes que quieres analizar. El flujo de análisis predeterminado de CodeQL utiliza dicha matriz.
+- Si tu flujo de trabajo no especifica explícitamente los lenguajes a analizar, {% data variables.product.prodname_codeql %} detectará implícitamente los lenguajes compatibles en tu código base. En esta configuración, fuera de los lenguajes compilados C/C++, C#, y Java, {% data variables.product.prodname_codeql %} solo analizará el lenguaje presente en la mayoría de los archivos de origen. Edita el flujo de trabajo y agrega una matriz que especifique los lenguajes que quieras analizar. El flujo de análisis predeterminado de CodeQL utiliza dicha matriz.
 
   Los siguientes extractos de un flujo de trabajo te muestran cómo puedes utilizar una matriz dentro de la estrategia del job para especificar lenguajes, y luego hace referencia a cada uno de ellos con el paso de "Inicializar {% data variables.product.prodname_codeql %}":
 
@@ -86,7 +87,7 @@ Si una compilación automática de código para un lenguaje compilado dentro de 
       steps:
       ...
         - name: Initialize {% data variables.product.prodname_codeql %}
-          uses: github/codeql-action/init@v1
+          uses: {% data reusables.actions.action-codeql-action-init %}
           with:
             languages: {% raw %}${{ matrix.language }}{% endraw %}
   ```
@@ -96,6 +97,8 @@ Si una compilación automática de código para un lenguaje compilado dentro de 
 ## No se encontró código durante la compilación
 
 Si tu flujo de trabajo falla con un error de `No source code was seen during the build` o de `The process '/opt/hostedtoolcache/CodeQL/0.0.0-20200630/x64/codeql/codeql' failed with exit code 32`, esto indica que {% data variables.product.prodname_codeql %} no pudo monitorear tu código. Hay muchas razones que podrían explicar esta falla:
+
+1. Puede que el repositorio no contenga código fuente que esté escrito en los idiomas que son compatibles con {% data variables.product.prodname_codeql %}. Haz clic en la lista de lenguajes compatibles y, si es necesario, elimina el flujo de trabajo de {% data variables.product.prodname_codeql %}. Para obtener más información, consulta la sección "[Acerca del escaneo de código con CodeQL](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql#about-codeql)
 
 1. La detección automática del lenguaje identificó un lenguaje compatible, pero no hay código analizable en dicho lenguaje dentro del repositorio. Un ejemplo típico es cuando nuestro servicio de detección de lenguaje encuentra un archivo que se asocia con un lenguaje de programación específico como un archivo `.h`, o `.gyp`, pero no existe el código ejecutable correspondiente a dicho lenguaje en el repositorio. Para resolver el problema, puedes definir manualmente los lenguajes que quieras analizar si actualizas la lista de éstos en la matriz de `language`. Por ejemplo, la siguiente configuración analizará únicamente a Go y a Javascript.
 
@@ -150,7 +153,7 @@ Podrías entender por qué algunos archivos de código fuente no se ha analizado
 
 ```yaml
 - name: Initialize CodeQL
-  uses: github/codeql-action/init@v1
+  uses: {% data reusables.actions.action-codeql-action-init %}
   with:
     debug: true
 ```
@@ -158,6 +161,11 @@ Podrías entender por qué algunos archivos de código fuente no se ha analizado
 Esto carga la base de datos como un artefacto de acciones que puedes descargar en tu máquina local. Para obtener más información, consulta la sección "[Almacenar artefactos de los flujos de trabajo ](/actions/guides/storing-workflow-data-as-artifacts)".
 
 El artefacto contendrá una copia archivada de los archivos de código fuente que escaneó el {% data variables.product.prodname_codeql %} llamada _src.zip_. Si comparas los archivos de código fuente en el repositorio con los archivos en _src.zip_, puedes ver qué tipos de archivo faltan. Una vez que sepas qué tipos de archivo son los que no se analizan es más fácil entender cómo podrías cambiar el flujo de trabajo para el análisis de {% data variables.product.prodname_codeql %}.
+
+## Alertas que se encuentran en el código generado
+
+{% data reusables.code-scanning.alerts-found-in-generated-code %}
+
 
 ## Extracción de errores en la base de datos
 
@@ -182,15 +190,13 @@ Si utilizas ejecutores auto-hospedados para ejecutar el análisis de {% data var
 
 ### Utilizar matrices de compilación para paralelizar el análisis
 
-El {% data variables.product.prodname_codeql_workflow %} predeterminado utiliza una matriz de lenguajes, la cual causa que el análisis de cada uno de ellos se ejecute en paralelo. Si especificaste los lenguajes que quieres analizar directamente en el paso de "Inicializar CodeQL", el análisis de cada lenguaje ocurrirá de forma secuencial. Para agilizar el análisis de lenguajes múltiples, modifica tu flujo de trabajo para utilizar una matriz. Para obtener más información, consulta el extracto de flujo de trabajo en la sección "[Compilación automática para los fallos de un lenguaje compilado](#automatic-build-for-a-compiled-language-fails)" que se trata anteriormente.
+El {% data variables.product.prodname_codeql_workflow %} predeterminado utiliza una matriz de lenguajes, lo cual ocasiona que el análisis de cada uno de ellos se ejecute en paralelo. Si especificaste los lenguajes que quieres analizar directamente en el paso de "Inicializar CodeQL", el análisis de cada lenguaje ocurrirá de forma secuencial. Para agilizar el análisis de lenguajes múltiples, modifica tu flujo de trabajo para utilizar una matriz. Para obtener más información, consulta el extracto de flujo de trabajo en la sección "[Compilación automática para los fallos de un lenguaje compilado](#automatic-build-for-a-compiled-language-fails)" que se trata anteriormente.
 
 ### Reducir la cantidad de código que se está analizando en un solo flujo de trabajo
 
 El tiempo de análisis es habitualmente proporcional a la cantidad de código que se esté analizando. Puedes reducir el tiempo de análisis si reduces la cantidad de código que se analice en cada vez, por ejemplo, si excluyes el código de prueba o si divides el análisis en varios flujos de trabajo que analizan únicamente un subconjunto de tu código a la vez.
 
-Para los lenguajes compilados como Java, C, C++ y C#, {% data variables.product.prodname_codeql %} analiza todo el código que se haya compilado durante la ejecución del flujo de trabajo. Para limitar la cantidad de código que se está analizando, compila únicamente el código que quieres analizar especificando tus propios pasos de compilación en un bloque de `run`. Puedes combinar el especificar tus propios pasos de compilación con el uso de filtros de `paths` o `paths-ignore` en los eventos de `pull_request` y de `push` para garantizar que tu flujo de trabajo solo se ejecute cuando se cambia el código específico. Para obtener más información, consulta la sección "[Sintaxis de flujo de trabajo para {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore)".
-
-En el caso de los lenguajes como Go, JavaScript, Python y TypeScript, los cuales analiza {% data variables.product.prodname_codeql %} sin compilar el código fuente, puedes especificar opciones adicionales de configuración para limitar la cantidad de código a analizar. Para obtener más información, consulta la sección "[Especificar los directorios a escanear](/code-security/secure-coding/configuring-code-scanning#specifying-directories-to-scan)".
+{% data reusables.code-scanning.alerts-found-in-generated-code %}
 
 Si divides tu análisis en varios flujos de trabajo como se describió anteriormente, aún te recomendamos que por lo menos tengas un flujo de trabajo que se ejecute con un `schedule` que analice todo el código en tu repositorio. Ya que {% data variables.product.prodname_codeql %} analiza los flujos de datos entre componentes, algunos comportamientos de seguridad complejos podrían detectarse únicamente en una compilación completa.
 
@@ -204,7 +210,7 @@ Predeterminadamente, existen tres suites de consultas principales disponibles pa
 
 Podrías estar ejecutando consultas o suites de consultas adicionales además de aquellas predeterminadas. Verifica si el flujo de trabajo define una consulta o suite de consultas adicionales a ejecutar utilizando el elemento `queries`. Puedes probar el inhabilitar la consulta o suite de consultas adicionales. Para obtener más información, consulta "[Configurar {% data variables.product.prodname_code_scanning %}](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#using-queries-in-ql-packs)".
 
-{% if codeql-ml-queries %}
+{% ifversion codeql-ml-queries %}
 {% note %}
 
 **Nota:** Si ejecutas la suite de consultas `security-extended` o `security-and-quality` para JavaScript, entonces algunas consultas utilizarán tecnología experimental. Para obtener más información, consulta la sección "[Acerca de las alertas del escaneo de código](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-experimental-alerts)".
@@ -263,6 +269,15 @@ Si el {% data variables.product.prodname_codeql_workflow %} aún falla en una co
 Este tipo de confirmación por fusión tiene como autor al {% data variables.product.prodname_dependabot %} y, por lo tanto, cualquier flujo de trabajo que se ejecute en la confirmación tendrá permisos de solo lectura. Si habilitaste las actualizaciones de seguridad o de versión del {% data variables.product.prodname_code_scanning %} y del {% data variables.product.prodname_dependabot %} en tu repositorio, te recomendamos que evites utilizar el comando `@dependabot squash and merge` del {% data variables.product.prodname_dependabot %}. En su lugar, puedes habilitar la fusión automática en tu repositorio. Esto significa que las solicitudes de cambio se fusionarán automáticamente cuando se cumplan todas las revisiones requeridas y cuando pasen todas las verificaciones de estado. Para obtener más información sobre cómo habilitar la fusión automática, consulta la sección "[Fusionar una solicitud de cambios automáticamente](/github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request#enabling-auto-merge)".
 {% endif %}
 
+## Error: "is not a .ql file, .qls file, a directory, or a query pack specification"
+
+Verás este error si CodeQL no puede encontrar la consulta, suite de consultas o paquete de consultas nombradas en la ubicación que se solicitó en el flujo de trabajo. Hay dos razones comunes para este error.
+
+- Hay un error tipográfico en el flujo de trabajo.
+- Un recurso al cual se refiere el flujo de trabajo por ruta se renombró, borró o movió a una ubicación nueva.
+
+Después de verificar la ubicación del recurso, puedes actualizar el flujo de trabajo para especificar la ubicación correcta. Si ejecutas consultas adicionales en el análisis de Go, puede que te haya afectado la reubicación de los archivos fuente. Para obtener más información, consulta la sección [Anuncio de reubicaicón: `github/codeql-go` se está migrando a `github/codeql`](https://github.com/github/codeql-go/issues/741) en el repositorio github/codeql-go.
+
 ## Warning: "git checkout HEAD^2 is no longer necessary"
 
 Si estás utilizando un flujo de trabajo de {% data variables.product.prodname_codeql %} antiguo, podrías obtener el siguiente mensaje de advertencia en la salida "inicializar {% data variables.product.prodname_codeql %}" de la acción:
@@ -292,11 +307,11 @@ La sección revisada de `steps` en el flujo de trabajo se deberá ver así:
 ```yaml
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: {% data reusables.actions.action-checkout %}
 
       # Initializes the {% data variables.product.prodname_codeql %} tools for scanning.
       - name: Initialize {% data variables.product.prodname_codeql %}
-        uses: github/codeql-action/init@v1
+        uses: {% data reusables.actions.action-codeql-action-init %}
 
       ...
 ```

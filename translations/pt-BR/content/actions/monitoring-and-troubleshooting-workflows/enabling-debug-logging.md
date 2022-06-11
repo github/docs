@@ -15,14 +15,18 @@ versions:
 
 Esses registros adicionais são habilitados pela definição dos segredos no repositório que contém o fluxo de trabalho. Portanto, aplicam-se os mesmos requisitos de permissão:
 
-- {% data reusables.github-actions.permissions-statement-secrets-repository %}
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
-- {% data reusables.github-actions.permissions-statement-secrets-environment %}
-{% endif %}
-- {% data reusables.github-actions.permissions-statement-secrets-organization %}
-- {% data reusables.github-actions.permissions-statement-secrets-api %}
+- {% data reusables.actions.permissions-statement-secrets-repository %}
+- {% data reusables.actions.permissions-statement-secrets-environment %}
+- {% data reusables.actions.permissions-statement-secrets-organization %}
+- {% data reusables.actions.permissions-statement-secrets-api %}
 
 Para obter mais informações sobre segredos de configuração, consulte "[Criar e usar segredos criptografados](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)".
+
+{% ifversion debug-reruns %}
+
+Além disso, qualquer pessoa com acesso a executar um fluxo de trabalho pode habilitar o registro de diagnóstico do executor e o registro de depuração de passos para executar novamente o fluxo de trabalho. Para obter mais informações, consulte "[Executando novamente os fluxos de trabalho e trabalhos](/actions/managing-workflow-runs/re-running-workflows-and-jobs)".
+
+ {% endif %}
 
 ## Habilitar log de diagnóstico do runner
 

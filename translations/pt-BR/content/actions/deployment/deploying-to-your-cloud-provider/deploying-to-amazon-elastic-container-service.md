@@ -26,7 +26,7 @@ Este guia explica como usar {% data variables.product.prodname_actions %} para c
 
 Em cada novo push para o `principal` no seu repositório de {% data variables.product.company_short %}, as compilações de fluxo de trabalho de {% data variables.product.prodname_actions %} e cria e faz push de uma nova imagem de contêiner para o Amazon ECR e, em seguida, implementa uma nova definição de tarefa para o Amazon ECS.
 
-{% ifversion fpt or ghec or ghae-issue-4856 %}
+{% ifversion fpt or ghec or ghae-issue-4856 or ghes > 3.4 %}
 
 {% note %}
 
@@ -45,7 +45,8 @@ Antes de criar seu fluxo de trabalho de {% data variables.product.prodname_actio
    Usando, por exemplo, [CLI AWS](https://aws.amazon.com/cli/):
 
    {% raw %}```bash{:copy}
-   aws ecr create-repository \ --repository-name MY_ECR_REPOSITORY \ --region MY_AWS_REGION
+   aws ecr create-repository \
+    --repository-name MY_ECR_REPOSITORY \ --region MY_AWS_REGION
    ```{% endraw %}
 
    Certifique-se de usar o mesmo nome de repositório do Amazon ECR (representado aqui por `MY_ECR_REPOSITORY`) para a variável `ECR_REPOSITORY` no fluxo de trabalho abaixo.
@@ -76,13 +77,11 @@ Antes de criar seu fluxo de trabalho de {% data variables.product.prodname_actio
 
    Veja a documentação para cada ação usada abaixo para as políticas recomendadas de IAM para o usuário de IAM, bem como os métodos para lidar com as credenciais de acesso.
 
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 5. Opcionalmente, configure um ambiente de implantação. {% data reusables.actions.about-environments %}
-{% endif %}
 
 ## Creating the workflow
 
-Após concluir os pré-requisitos, você poderá prosseguir com a criação do fluxo de trabalho.
+Após você ter atendido aos pré-requisitos, você poderá proceder com a criação do fluxo de trabalho.
 
 O fluxo de trabalho a seguir demonstra como construir uma imagem de contêiner e enviá-lo para o Amazon ECR. Em seguida, ele atualiza a definição da tarefa com o novo ID de imagem e implanta a definição da tarefa no Amazon ECS.
 
@@ -116,11 +115,11 @@ jobs:
     runs-on: ubuntu-latest
     environment: production
 
-    {% raw %}steps:
+    steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: {% data reusables.actions.action-checkout %}
 
-      - name: Configure AWS credentials
+      {% raw %}- name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@13d241b293754004c80624b5567555c4a39ffbe3
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}

@@ -2,7 +2,7 @@
 title: About coordinated disclosure of security vulnerabilities
 intro: Vulnerability disclosure is a coordinated effort between security reporters and repository maintainers.
 redirect_from:
-- /code-security/security-advisories/about-coordinated-disclosure-of-security-vulnerabilities
+  - /code-security/security-advisories/about-coordinated-disclosure-of-security-vulnerabilities
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'

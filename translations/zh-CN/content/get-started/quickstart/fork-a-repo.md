@@ -22,7 +22,7 @@ topics:
 
 ## 关于复刻
 
-复刻最常见的用法是对其他人的项目提出更改或将其他人的项目用作自己创意的起点。 您可以复刻仓库以创建仓库的副本，并在不影响上游仓库的情况下进行更改。 更多信息请参阅“[使用复刻](/github/collaborating-with-issues-and-pull-requests/working-with-forks)”。
+最常见的是，复刻用于对其他人的项目提出您没有写入权限的项目的更改，或者使用其他人的项目作为您自己想法的起点。 您可以复刻仓库以创建仓库的副本，并在不影响上游仓库的情况下进行更改。 更多信息请参阅“[使用复刻](/github/collaborating-with-issues-and-pull-requests/working-with-forks)”。
 
 ### 对其他人的项目提出更改
 
@@ -42,7 +42,7 @@ topics:
 
 从其他人的项目复刻创建公共仓库时，请确保包含许可文件以确定您希望与其他人共享项目。 更多信息请参阅 choosealicense.com 上的“[选择开源许可](https://choosealicense.com/)”。
 
-{% data reusables.open-source.open-source-guide-repositories %} {% data reusables.open-source.open-source-learning-lab %}
+{% data reusables.open-source.open-source-guide-repositories %} {% data reusables.open-source.open-source-learning %}
 
 {% endif %}
 
@@ -57,7 +57,7 @@ topics:
 您可能为了对上游或原始仓库提议更改而复刻项目。 在这种情况下，最好定期将您的复刻与上游仓库同步。 为此，您需要在命令行上使用 Git。 您可以使用刚才复刻的 [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) 仓库练习设置上游仓库。
 
 1. 在 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.product.product_location %}{% endif %} 上，导航到 [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) 存储库。
-2. 在页面的右上角，单击 **Fork（复刻）**。 ![复刻按钮](/assets/images/help/repository/fork_button.jpg)
+2. 在页面的右上角，单击 **Fork（复刻）**。 ![复刻按钮](/assets/images/help/repository/fork_button.png)
 
 {% endwebui %}
 
@@ -152,9 +152,9 @@ gh repo fork <em>repository</em> --clone=true
   > origin  https://{% data variables.command_line.codeblock %}/<em>YOUR_USERNAME</em>/<em>YOUR_FORK</em>.git (push)
   ```
 
-6. 键入 `git remote add upstream`，然后粘贴您在第 2 步中复制的 URL 并按 **Enter** 键。 它将如下所示：
+6. 键入 `git remote add upstream`，然后粘贴您在第 3 步中复制的 URL 并按 **Enter** 键。 它将如下所示：
   ```shell
-  $ git remote add upstream https://{% data variables.command_line.codeblock %}/octocat/Spoon-Knife.git
+  $ git remote add upstream https://{% data variables.command_line.codeblock %}/ORIGINAL_OWNER/Spoon-Knife.git
   ```
 
 7. 要验证为复刻指定的新上游仓库，请再次键入 `git remote -v`。 您应该看到复刻的 URL 为 `origin`，原始仓库的 URL 为 `upstream`。
@@ -188,7 +188,7 @@ gh repo fork <em>repository</em> --remote-name "main-remote-repo"
 
 {% endcli %}
 
-### 后续步骤
+### 编辑复刻
 
 您可以对复刻进行任何更改，包括：
 
@@ -202,12 +202,14 @@ gh repo fork <em>repository</em> --remote-name "main-remote-repo"
 
 {% endif %}
 
-## 祝贺
+## 后续步骤
 
-您现在已经复刻了仓库、练习了克隆复刻并配置了上游仓库。 有关克隆复刻和从计算机同步复刻仓库更改的更多信息，请参阅“[设置 Git](/articles/set-up-git)”。
+您现在已经复刻了仓库、练习了克隆复刻并配置了上游仓库。
 
-您也可以创建一个新的仓库，以将所有项目放在 {% data variables.product.prodname_dotcom %} 上并共享代码。 更多信息请参阅“[创建仓库](/articles/create-a-repo)”。
+* 有关克隆复刻和从计算机同步复刻仓库更改的更多信息，请参阅“[设置 Git](/articles/set-up-git)”。
 
-{% data variables.product.product_name %} 中的每个仓库均归个人或组织所有。 您可以在 {% data variables.product.product_name %} 上连接和关注人员、仓库和组织以与之进行交互。 更多信息请参阅“[社交](/articles/be-social)”。
+* 您也可以创建一个新的仓库，以将所有项目放在 {% data variables.product.prodname_dotcom %} 上并共享代码。 {% data reusables.getting-started.create-a-repository %}"
 
-{% data reusables.support.connect-in-the-forum-bootcamp %}
+* {% data reusables.getting-started.being-social %}
+
+* {% data reusables.support.connect-in-the-forum-bootcamp %}
