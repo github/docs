@@ -31,12 +31,12 @@ Se você mostrar suas contribuições privadas, pessoas sem acesso aos repositó
     - Para mostrar suas contribuições privadas, use o menu suspenso **Contribution settings** (Configurações de contribuição) localizado acima do gráfico de contribuições e marque **Private contributions** (Contribuições privadas). Os visitantes verão sua contagem de contribuições privadas sem informações adicionais. ![Habilitar visitantes para ver contribuições privadas a partir do menu suspenso contribution settings (configurações de contribuição)](/assets/images/help/profile/private-contributions-on.png)
     - Para ocultar suas contribuições privadas, use o menu suspenso **Contribution settings** (Configurações de contribuição) localizado acima do gráfico de contribuições e desmarque **Private contributions** (Contribuições privadas). Os visitantes verão apenas suas contribuições públicas. ![Habilitar visitantes para ver contribuições privadas a partir do menu suspenso contribution settings (configurações de contribuição)](/assets/images/help/profile/private-contributions-off.png)
 
-## Changing the visibility of Achievements
+## Mudando a visibilidade das conquistas
 
 {% data reusables.user-settings.access_settings %}
-1. Show or hide Achievements on your profile:
-    - To show Achievements on your profile, navigate to **Profile settings**, and select the checkbox next to **Show Achievements on my profile.** ![Enable visitors to see Achievements from profile settings](/assets/images/achievements-profile-settings-off.png)
-    - To hide Achievements from your profile, navigate to **Profile settings**, and unselect the checkbox next to **Show Achievements on my profile.** ![Hide Achievements from visitors in profile settings](/assets/images/achievements-profile-settings-on.png)
+1. Mostre ou oculte as conquistas em seu perfil:
+    - Para mostrar as conquistas em seu perfil, navegue para **Profile settings**, e selecione a checkbox ao lado de **Show Achievements on my profile.** ![Enable visitors to see Achievements from profile settings](/assets/images/achievements-profile-settings-off.png)
+    - Para ocultar as conquistas do seu perfil, navegue para **Profile settings**, e desmarque a checkbox ao lado de **Show Achievements on my profile.** ![Hide Achievements from visitors in profile settings](/assets/images/achievements-profile-settings-on.png)
 
 ## Leia mais
 
