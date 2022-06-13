@@ -19,29 +19,30 @@ This guide will show you how to sign up for {% data variables.product.prodname_c
 ## Prerequisites
 
 {% data reusables.copilot.copilot-prerequisites %}
-- To use {% data variables.product.prodname_copilot %} in Visual Studio Code, you must have Visual Studio Code installed. For more information, see the [Visual Studio Code](https://code.visualstudio.com/) documentation.
+- To use {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %}, you must have {% data variables.product.prodname_vscode %} installed. For more information, see the [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/) documentation.
 
 ## Signing up for {% data variables.product.prodname_copilot %}
 
 
-## Installing the {% data variables.product.prodname_copilot %} extension for Visual Studio Code
+## Installing the {% data variables.product.prodname_copilot %} extension for {% data variables.product.prodname_vscode %}
 
 
 ## Getting your first suggestion
 
 {% data reusables.copilot.supported-languages %} The following samples are in JavaScript, but other languages will work similarly.
 
+1. Open {% data variables.product.prodname_vscode %}.
 {% data reusables.copilot.create-js-file %}
 {% data reusables.copilot.type-function-header %}
    {% data variables.product.prodname_copilot %} will automatically suggest an entire function body in grayed text, as shown below. The exact suggestion may vary.
-   ![First suggestion Visual Studio Code](/assets/images/help/copilot/first-suggestion-visual-studio-code.png)
+   ![First suggestion {% data variables.product.prodname_vscode %}](/assets/images/help/copilot/first-suggestion-visual-studio-code.png)
 {% data reusables.copilot.accept-suggestion %}
 
 ## Next Steps
 
 You successfully installed {% data variables.product.prodname_copilot %} and received your first suggestion, but that's just the beginning! Here are some helpful resources for taking your next steps with {% data variables.product.prodname_copilot %}.
 
-- [Getting Started](/copilot/getting-started-with-github-copilot): You've learned how to get your first suggestion in Visual Studio Code. These guides show you how to set up and navigate the various functions of {% data variables.product.prodname_copilot %} across all of the supported environments.
+- [Getting Started](/copilot/getting-started-with-github-copilot): You've learned how to get your first suggestion in {% data variables.product.prodname_vscode %}. These guides show you how to set up and navigate the various functions of {% data variables.product.prodname_copilot %} across all of the supported environments.
 - [{% data variables.product.prodname_copilot %}](https://copilot.github.com/): See practical examples of how {% data variables.product.prodname_copilot %} can help you work.
 - [Configuring {% data variables.product.prodname_copilot %}](/copilot/configuring-github-copilot): These guides provide details on how to configure {% data variables.product.prodname_copilot %} to your personal preferences.
 
