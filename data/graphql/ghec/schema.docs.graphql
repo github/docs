@@ -8067,6 +8067,9 @@ type DependencyGraphDependency @preview(toggledBy: "hawkgirl-preview") {
   The original name of the package, as it appears in the manifest.
   """
   packageLabel: String!
+    @deprecated(
+      reason: "`packageLabel` will be removed. Use normalized `packageName` field instead. Removal on 2022-10-01 UTC."
+    )
 
   """
   The dependency package manager
