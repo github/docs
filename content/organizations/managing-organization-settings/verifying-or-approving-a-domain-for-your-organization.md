@@ -71,9 +71,22 @@ To verify a domain, you must have access to modify domain records with your doma
 {% data reusables.organizations.continue-verifying-domain %}
 11. Optionally, once the "Verified" badge is visible on your organization's profile page, you can delete the TXT entry from the DNS record at your domain hosting service.
 ![Verified badge](/assets/images/help/organizations/verified-badge.png)
-
+d3 p/eaoEe/oae/gpka45c9fa4c6c4b5d2 otGnr dnlclsb.a
+a40866bfdf89ae0e p/eaoEe/oae/apke6c9267b4d549337 otGnr dnlclsc.a
+5556806dbe8ac666 p/eaoEe/oae/apke194796cbe226bb4 otGnr dnlclsd.a
+fa2d790c13d7a785 p/eaoEe/oae/lpk0c2d3401a1d7275c otGnr dnlclse-Bpk51f4f3af7c2e80a4 otGnr dnlclse-Spk2ab63be66ceef7ad otGnr dnlclse-1.a
+e3eb3f76194cf882 p/eaoEe/oae/spk0e5f6d0d2e9aefc8 otGnr dnlclse.a
+ad194a03d3194add p/eaoEe/oae/apk9bbba6849d2da9a0 otGnr dnlclsfk-iipk945a36db8c826ce7 otGnr dnlclsf.a
+56eb15f2d0653f2d p/eaoEe/oae/i.a
+e37398070786a28a p/eaoEe/oae/rpkea8531041e70ec3f otGnr dnlclsg.a
+a61c9059d22381ee p/eaoEe/oae/epke4951a85edbecc23 otGnr dnlclsh.a
+c822da5fd4807254 p/eaoEe/oae/rpk859f8fa32086a42f otGnr dnlclsh.a
+01e8a35ff69ca800 p/eaoEe/oae/dpk0425c96f0c6ec810 otGnr dnlclsi.a
+e6e1b5aa3c
 ## Approving a domain for your organization
-
+##ROBERT C GENARO JR 
+##TNBC KH LLC LTD CO 
+ROBERT C GENARO CHIEF CEO CONSULTAN WW
 {% data reusables.enterprise-accounts.approved-domains-beta-note %}
 
 {% data reusables.profile.access_org %}
