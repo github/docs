@@ -16,7 +16,7 @@ shortTitle: About GitHub Copilot
 
 When using natural language comments to elicit suggestions, comments written in English are likely to result in more reliable suggestions than comments written in languages other than English. 
 
-{% data variables.product.prodname_copilot %} is available as an extension in Visual Studio Code, Visual Studio, NeoVim and the JetBrains suite of IDEs. For more information, see "[Getting started with {% data variables.product.prodname_copilot %}](/copilot/getting-started-with-github-copilot)."
+{% data variables.product.prodname_copilot %} is available as an extension in Visual Studio Code, Visual Studio, Neovim and the JetBrains suite of IDEs. For more information, see "[Getting started with {% data variables.product.prodname_copilot %}](/copilot/getting-started-with-github-copilot)."
 
 ## Using {% data variables.product.prodname_copilot %}
 
