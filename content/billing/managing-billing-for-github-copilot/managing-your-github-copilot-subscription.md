@@ -1,6 +1,6 @@
 ---
 title: Managing your GitHub Copilot subscription
-intro: 'ADD INTRO.'
+intro: 'Set up your {% data variables.product.prodname_copilot %} trial and see how to manage your subscription.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -28,9 +28,11 @@ shortTitle: Your Github Copilot subscription
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.billing_plans %}
-1. In the "{% data variables.product.prodname_copilot %}" section, click **Edit**.
+1. In the "{% data variables.product.prodname_copilot %}" section, use the **Edit** drop-down.
+   - If you have a monthly billing cycle, select **Change to yearly billing**.
+   - If you have a yearly billing cycle, select **Change to monthly billing**.
    ![Screenshot of GitHub Copilot section on billing page with edit dropdown emphasized](/assets/images/help/copilot/copilot-settings-edit-dropdown.png)
-2. 
+   
 
 ## Canceling your {% data variables.product.prodname_copilot %} subscription
 
