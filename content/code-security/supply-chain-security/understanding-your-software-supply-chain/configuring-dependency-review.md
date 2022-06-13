@@ -87,18 +87,18 @@ jobs:
       - name: 'Checkout Repository'
         uses: {% data reusables.actions.action-checkout %}
       - name: Dependency Review
-        uses: actions/dependency-review-action@main
+        uses: actions/dependency-review-action@v2
         with:
           # Possible values: "critical", "high", "moderate", "low" 
           fail_on_severity: critical
-
+          # You can only can only include one of these two options: `allow_licenses` and `deny-licences`
           # ([String]). Only allow these licenses (optional)
-          # Possible values: Any value(s) from https://docs.github.com/en/rest/licenses 
-          allow_licenses: GPL 3.0, BSD 3 Clause, MIT
+          # Possible values: Any `spdx_id` value(s) from https://docs.github.com/en/rest/licenses 
+          # allow_licenses: GPL 3.0, BSD 3 Clause, MIT
 
           # ([String]). Block the pull request on these licenses (optional)
-          # Possible values: Any value(s) from https://docs.github.com/en/rest/licenses 
-          deny_licenses: LGPL 2.0, BSD 2 Clause
+          # Possible values: Any  `spdx_id` value(s) from https://docs.github.com/en/rest/licenses 
+          # deny_licenses: LGPL 2.0, BSD 2 Clause
 ```
 
 For further details about the configuration options, see [`dependency-review-action`](https://github.com/actions/dependency-review-action#readme).
