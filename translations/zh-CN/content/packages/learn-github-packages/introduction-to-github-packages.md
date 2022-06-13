@@ -75,11 +75,9 @@ For more information, see "[About permissions for {% data variables.product.prod
 {% ifversion ghes %}
 {% note %}
 
-**Note:** Docker is not supported when subdomain isolation is disabled.
+**Note:** When enabling the Docker registry, we highly recommend also enabling subdomain isolation. For more information, see "[Enabling subdomain isolation](/admin/configuration/configuring-network-settings/enabling-subdomain-isolation)."
 
 {% endnote %}
-
-For more information about subdomain isolation, see "[Enabling subdomain isolation](/enterprise/admin/configuration/enabling-subdomain-isolation)."
 
 {% endif %}
 

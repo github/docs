@@ -81,7 +81,7 @@ Consulta [nuestra guía para crear tokens de acceso personal](/authentication/ke
 
 #### Configuración
 
-1. [Run the `ssh-keygen` procedure][generating-ssh-keys] on your server, and remember where you save the generated public and private rsa key pair.
+1. [Ejecuta el procedimiento `ssh-keygen`][generating-ssh-keys] en tu servidor y recuerda dónde guardas el par de llaves pública y privada de rsa.
 2. En la esquina superior derecha de cualquier página de {% data variables.product.product_name %}, da clic en tu foto de perfil y luego da clic en **Tu perfil**. ![Navegación al perfil](/assets/images/profile-page.png)
 3. En tu página de perfil, da clic en **Repositorios** y luego en el nombre de tu repositorio. ![Enlace de los repositorios](/assets/images/repos.png)
 4. Desde tu repositorio, da clic en **Configuración**. ![Configuración del repositorio](/assets/images/repo-settings.png)
