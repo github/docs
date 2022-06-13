@@ -36,25 +36,13 @@ Before you can configure prebuilds for your project the following must be true:
 
    ![The 'Set up prebuilds' button](/assets/images/help/codespaces/prebuilds-set-up.png)
 
-1. Choose the branch for which you want to set up a prebuild. 
+1. Choose the branch for which you want to set up a prebuild.
 
    ![The Branch drop-down menu](/assets/images/help/codespaces/prebuilds-choose-branch.png)
 
    {% note %} 
 
    **Note**: Any branches created from a prebuild-enabled base branch will typically also get prebuilds. For example, if you enable prebuilds for the default branch of the repository, branches based on the default branch will, in most cases, also get prebuilds.
-
-   {% endnote %}
-
-1. Choose the regions in which you want to set up a prebuild. Developers must be located in a region you select to be able to create codespaces from a prebuild. Alternatively, select **All regions**.
-
-   ![The region selection options](/assets/images/help/codespaces/prebuilds-regions.png)
-
-   {% note %}
-
-   **Notes**: 
-   * The prebuild template for each region will incur individual charges. You should, therefore, only enable prebuilds for regions in which you know they'll be used. For more information, see "[About {% data variables.product.prodname_codespaces %} prebuilds](/codespaces/prebuilding-your-codespaces/about-codespaces-prebuilds#about-billing-for-codespaces-prebuilds)."
-   * Developers can set their default region for {% data variables.product.prodname_codespaces %}, which can allow you to enable prebuilds for fewer regions. For more information, see "[Setting your default region for {% data variables.product.prodname_codespaces %}](/codespaces/customizing-your-codespace/setting-your-default-region-for-codespaces)."
 
    {% endnote %}
 
@@ -66,17 +54,29 @@ Before you can configure prebuilds for your project the following must be true:
 
    ![The prebuild trigger options](/assets/images/help/codespaces/prebuilds-triggers.png)
 
+1. Select **Reduce prebuild available to only specific regions** if you only want your prebuilt image available to certain regions, then select which regions you want it available in. Developers must be located in a region you select to be able to create codespaces from a prebuild. By default, your prebuilt image is available to all regions where codespaces is available and storage costs apply for each region.
+
+   ![The region selection options](/assets/images/help/codespaces/prebuilds-regions.png)
+
+   {% note %}
+
+   **Notes**: 
+   * The prebuild template for each region will incur individual charges. You should, therefore, only enable prebuilds for regions in which you know they'll be used. For more information, see "[About {% data variables.product.prodname_codespaces %} prebuilds](/codespaces/prebuilding-your-codespaces/about-codespaces-prebuilds#about-billing-for-codespaces-prebuilds)."
+   * Developers can set their default region for {% data variables.product.prodname_codespaces %}, which can allow you to enable prebuilds for fewer regions. For more information, see "[Setting your default region for {% data variables.product.prodname_codespaces %}](/codespaces/customizing-your-codespace/setting-your-default-region-for-codespaces)."
+
+   {% endnote %}
+
 1. Set the number of prebuild template versions to be retained. You can input any number between 1 and 5. The default number of saved versions is 2, which means that only the latest template version and the previous version are saved.
 
    Depending on your prebuild trigger settings, your prebuild template could change with each push or on each dev container configuration change. Retaining older versions of prebuild templates enables you to create a prebuild from an older commit with a different dev container configuration than the current prebuild template. Since there is a storage cost associated with retaining prebuild template versions, you can choose the number of versions to be retained based on the needs of your team. For more information on billing, see "[About billing for {% data variables.product.prodname_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces#codespaces-pricing)."
 
    If you set the number of prebuild template versions to save to 1, {% data variables.product.prodname_codespaces %} will only save the latest version of the prebuild template and will delete the older version each time the template is updated. This means you will not get a prebuilt codespace if you back to any older dev container configuration.
 
-   ![The prebuild template history setting](/assets/images/help/codespaces/codespaces-prebuilds-template-history-setting.png)
+   ![The prebuild template history setting](/assets/images/help/codespaces/prebuilds-template-history-setting.png)
 
 1. Add users or teams to notify when your prebuild workflow runs fail for this particular prebuild configuration. You can begin typing a username, team name, or full name, then click the name once it appears to add them to the list. The users or teams you add will receive an email when prebuild failures occur, containing a link to the workflow run logs to help with further investigation.
 
-   ![The prebuild failure notification setting](/assets/images/help/codespaces/codespaces-prebuilds-failure-notification-setting.png)
+   ![The prebuild failure notification setting](/assets/images/help/codespaces/prebuilds-failure-notification-setting.png)
 
 1. Click **Create**.
 
