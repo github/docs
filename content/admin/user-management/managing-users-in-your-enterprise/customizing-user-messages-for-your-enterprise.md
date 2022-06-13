@@ -107,16 +107,6 @@ You can also set an announcement banner{% ifversion ghes %} in the administrativ
 
 You can also set an announcement banner in the administrative shell using a command line utility. For more information, see "[Command-line utilities](/enterprise/admin/configuration/command-line-utilities#ghe-announce)."
 
-{% endif %}
-
-{% ifversion ghe-announce-dismiss %}
-{% note %}
-
-**Note:** If you want to allow users to dismiss the announcement banner for themselves, you must use the administrative shell using a command line utility. For more information, see "[Command-line utilities](/enterprise/admin/configuration/command-line-utilities#ghe-announce)."
-
-{% endnote %}
-{% endif }
-
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.messages-tab %}
