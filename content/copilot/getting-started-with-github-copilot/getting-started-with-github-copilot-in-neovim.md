@@ -13,7 +13,7 @@ topics:
 
 {% data reusables.copilot.procedural-intro %}
 
-ADD MORE HERE!
+If you use a Neovim, you can view and incorporate suggestions from {% data variables.product.prodname_copilot %} directly within the editor.
 
 ## Prerequisites
 

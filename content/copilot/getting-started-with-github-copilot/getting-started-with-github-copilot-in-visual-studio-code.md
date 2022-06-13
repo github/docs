@@ -1,7 +1,7 @@
 ---
 title: Getting started with GitHub Copilot in Visual Studio Code
 shortTitle: Visual Studio Code
-intro: 'Learn how to install {% data variables.product.prodname_copilot %} in Visual Studio Code, and start seeing suggestions as you write comments and code.'
+intro: 'Learn how to install {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %}, and start seeing suggestions as you write comments and code.'
 product: '{% data reusables.gated-features.copilot %}'
 versions:
   feature: 'copilot'
@@ -9,27 +9,26 @@ topics:
   - Copilot
 ---
 
-## About {% data variables.product.prodname_copilot %} and Visual Studio Code
+## About {% data variables.product.prodname_copilot %} and {% data variables.product.prodname_vscode %}
 
 {% data reusables.copilot.procedural-intro %}
 
-ADD MORE HERE!
+If you use {% data variables.product.prodname_vscode %}, you can view and incorporate suggestions from {% data variables.product.prodname_copilot %} directly within the editor. This guide demonstrates how to use {% data variables.product.prodname_copilot %} within {% data variables.product.prodname_vscode %} for macOS, Windows, or Linux.
 
 ## Prerequisites
 
-To use {% data variables.product.prodname_copilot %} in Visual Studio Code, you must have Visual Studio Code installed. For more information, see the [Visual Studio Code download page](https://code.visualstudio.com/Download).
+To use {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %}, you must have {% data variables.product.prodname_vscode %} installed. For more information, see the [{% data variables.product.prodname_vscode %} download page](https://code.visualstudio.com/Download).
 
-## Installing the Visual Studio code extension
+## Installing the {% data variables.product.prodname_vscode %} extension
 
-To use {% data variables.product.prodname_copilot %}, you must first install the Visual Studio Code extension.
+To use {% data variables.product.prodname_copilot %}, you must first install the {% data variables.product.prodname_vscode %} extension.
 
-1. In the Visual Studio Code Marketplace, go to the [{% data variables.product.prodname_copilot %} extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) page and click **Install**.
-   ![Install {% data variables.product.prodname_copilot %} extension Visual Studio Code](/assets/images/help/copilot/install-copilot-extension-visual-studio-code.png)
-2. A popup will appear, asking to open Visual Studio Code. Click **Open Visual Studio Code**.
-3. In the "Extension: {% data variables.product.prodname_copilot %}" tab in Visual Studio Code, click **Install**.
-   ![Install button in Visual Studio Code](/assets/images/help/copilot/in-visual-studio-code-install-button.png)
+1. In the {% data variables.product.prodname_vscode %} Marketplace, go to the [{% data variables.product.prodname_copilot %} extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) page and click **Install**.
+   ![Install {% data variables.product.prodname_copilot %} extension {% data variables.product.prodname_vscode %}](/assets/images/help/copilot/install-copilot-extension-visual-studio-code.png)
+2. A popup will appear, asking to open {% data variables.product.prodname_vscode %}. Click **Open {% data variables.product.prodname_vscode %}**.
+3. In the "Extension: {% data variables.product.prodname_copilot %}" tab in {% data variables.product.prodname_vscode %}, click **Install**.
+   ![Install button in {% data variables.product.prodname_vscode %}](/assets/images/help/copilot/in-visual-studio-code-install-button.png)
 4. 
-
 
 ## Seeing your first suggestion
 
@@ -40,7 +39,7 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
   ```javascript{:copy}
   function calculateDaysBetweenDates(begin, end) {
   ```
-   ![Screenshot of a first suggestion Visual Studio Code](/assets/images/help/copilot/first-suggestion-visual-studio-code.png)
+   ![Screenshot of a first suggestion {% data variables.product.prodname_vscode %}](/assets/images/help/copilot/first-suggestion-visual-studio-code.png)
 {% data reusables.copilot.accept-suggestion %}
 
 ## Seeing alternative suggestions
@@ -85,7 +84,7 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
    // and give them a red border
    function process() {
    ```
-   
+
 ## Using a framework
 
 You can also use {% data variables.product.prodname_copilot %} to generate suggestions for APIs and frameworks. The following example uses {% data variables.product.prodname_copilot %} to create a simple Express server that returns the current time.
@@ -105,10 +104,10 @@ You can also use {% data variables.product.prodname_copilot %} to generate sugge
 
 ## Enabling and disabling {% data variables.product.prodname_copilot %}
 
-You can enable or disable {% data variables.product.prodname_copilot %} from within Visual Studio Code. The {% data variables.product.prodname_copilot %} status icon in the bottom panel of the Visual Studio Code window indicates whether {% data variables.product.prodname_copilot %} is enabled or disabled. When enabled, the background color of the icon will match the color of the status bar. When disabled, the background color of the icon will contrast with the color of the status bar.
+You can enable or disable {% data variables.product.prodname_copilot %} from within {% data variables.product.prodname_vscode %}. The {% data variables.product.prodname_copilot %} status icon in the bottom panel of the {% data variables.product.prodname_vscode %} window indicates whether {% data variables.product.prodname_copilot %} is enabled or disabled. When enabled, the background color of the icon will match the color of the status bar. When disabled, the background color of the icon will contrast with the color of the status bar.
 
-1. To enable or disable {% data variables.product.prodname_copilot %}, click the status icon in the bottom panel of the Visual Studio Code window.
-   ![Screenshot of the status icon in Visual Studio Code](/assets/images/help/copilot/status-icon-visual-studio-code.png)
+1. To enable or disable {% data variables.product.prodname_copilot %}, click the status icon in the bottom panel of the {% data variables.product.prodname_vscode %} window.
+   ![Screenshot of the status icon in {% data variables.product.prodname_vscode %}](/assets/images/help/copilot/status-icon-visual-studio-code.png)
 2. If you are disabling {% data variables.product.prodname_copilot %}, you will be asked whether you want to disable suggestions globally, or for the language of the file you are currently editing.
 
    - To disable suggestions from {% data variables.product.prodname_copilot %} globally, click **Disable Globally**.
