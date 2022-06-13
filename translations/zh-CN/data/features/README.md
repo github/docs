@@ -45,7 +45,7 @@ versions:
 
 ## 架构执行
 
-验证功能版本管理的架构位于 [`tests/helpers/schemas/feature-versions-schema.js`](/tests/helpers/schemas/feature-versions-schema.js) 中，通过 [`tests/linting/lint-files.js`](/tests/linting/lint-files.js) 执行。
+验证功能版本管理的架构位于 [`tests/helpers/schemas/feature-versions-schema.js`](/tests/helpers/schemas/feature-versions-schema.js) 中，通过 [`tests/linting/lint-versioning.js`](/tests/linting/lint-versioning.js) 执行。
 
 ## 删除功能标签的脚本
 
