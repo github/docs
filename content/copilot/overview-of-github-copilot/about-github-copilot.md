@@ -1,6 +1,6 @@
 ---
 title: About GitHub Copilot
-intro: 'Learn how {% data variables.product.prodname_copilot %} can help you by offering autocomplete-style suggestions as you code, and what you need to consider when writing code with {% data variables.product.prodname_copilot %}.'
+intro: '{% data variables.product.prodname_copilot %} can help you code by offering autocomplete-style suggestions. You can learn what to consider while using {% data variables.product.prodname_copilot %}, and how {% data variables.product.prodname_copilot %} works.'
 versions:
   feature: 'copilot'
 topics:
@@ -10,15 +10,15 @@ shortTitle: About GitHub Copilot
 
 ## About {% data variables.product.prodname_copilot %}
 
-{% data variables.product.prodname_copilot %} is an AI pair programmer that offers autocomplete-style suggestions as you code. You can receive suggestions from {% data variables.product.prodname_copilot %} either by starting to write the code you want to use, or by writing a natural language comment describing what you want a function to do. {% data variables.product.prodname_copilot %} analyzes the context in the file you are editing, as well as neighboring or related files, and offers suggestions from within your text editor. For real-world examples of {% data variables.product.prodname_copilot %} in action, see [{% data variables.product.prodname_copilot %}](https://copilot.github.com/).
+{% data variables.product.prodname_copilot %} is an AI pair programmer that offers autocomplete-style suggestions as you code. You can receive suggestions from {% data variables.product.prodname_copilot %} either by starting to write the code you want to use, or by writing a natural language comment describing what you want the code to do. {% data variables.product.prodname_copilot %} analyzes the context in the file you are editing, as well as related files, and offers suggestions from within your text editor.
 
-{% data variables.product.prodname_copilot %} is powered by OpenAI Codex, a new AI system created by OpenAI. You can use {% data variables.product.prodname_copilot %} to generate suggestions in numerous languages and a wide variety of frameworks, but it works especially well for Python, JavaScript, TypeScript, Ruby, Go, C# and C++. 
-
-When using natural language comments to elicit suggestions, comments written in English are likely to result in more reliable suggestions than comments written in languages other than English. 
+{% data variables.product.prodname_copilot %} is powered by OpenAI Codex, a new AI system created by OpenAI. You can use {% data variables.product.prodname_copilot %} to generate suggestions in numerous languages and a wide variety of frameworks, but it works especially well for Python, JavaScript, TypeScript, Ruby, Go, C# and C++. When you write a natural language comment for {% data variables.product.prodname_copilot %} to interpret, you'll receive the best suggestions if your comment is written in English. {% data variables.product.prodname_copilot %} will try to interpret comments written in other languages, but the quality of the suggestions may vary.
 
 {% data variables.product.prodname_copilot %} is available as an extension in Visual Studio Code, Visual Studio, Neovim and the JetBrains suite of IDEs. For more information, see "[Getting started with {% data variables.product.prodname_copilot %}](/copilot/getting-started-with-github-copilot)."
 
 ## Using {% data variables.product.prodname_copilot %}
+
+You can see real-world examples of {% data variables.product.prodname_copilot %} in action. For more information, see the [{% data variables.product.prodname_copilot %}](https://copilot.github.com/) website. 
 
 {% data variables.product.prodname_copilot %} has been trained on billions of lines of publicly available open source code. As a result, the training set for {% data variables.product.prodname_copilot %} may contain insecure coding patterns, bugs, or references to outdated APIs or idioms. When {% data variables.product.prodname_copilot %} produces suggestions based on this training data, those suggestions may also contain undesirable patterns. 
 
