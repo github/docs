@@ -302,9 +302,27 @@ Secrets are limited to 64 KB in size. To use secrets that are larger than 64 KB,
 
 1. Create a new secret that contains the passphrase. For example, create a new secret with the name `LARGE_SECRET_PASSPHRASE` and set the value of the secret to the passphrase you selected in the step above.
 
-1. Copy your encrypted file into your repository and commit it. In this example, the encrypted file is `my_secret.json.gpg`.
+{% warning %}
 
-1. Create a shell script to decrypt the password. Save this file as `decrypt_secret.sh`.
+**Warning**: In the next step, make sure to copy the encrypted `my_secret.json.gpg` file (**with the `.gpg` extension**) and **not** the unencrypted `my_secret.json` file.
+
+{% endwarning %}
+
+1. Copy your encrypted file into your repository's `.github/secrets` directory (either using your file explorer such as Finder or using the `mv` command as shown in the example below). In this example, the encrypted file will be located in `.github/secrets/my_secret.json.gpg`. This will require you to have created this directory in advance (e.g. with `mkdir -p .github/secrets`).
+
+  ```shell
+  $ mv /path/to/my_secret.json.gpg .github/secrets/my_secret.json.gpg
+  ```
+
+1. Commit the encrypted file to your repository.
+
+  ``` shell
+  $ git add .github/secrets/my_secret.json.gpg
+  $ git commit -m "Add new encrypted secret JSON file"
+  $ git push
+  ```
+
+1. Create a shell script to decrypt the password. Save this file as `.github/scripts/decrypt_secret.sh`. This will require you to have created this directory in advance with (e.g. with `mkdir -p .github/scripts`).
 
   ``` shell
   #!/bin/sh
@@ -314,14 +332,14 @@ Secrets are limited to 64 KB in size. To use secrets that are larger than 64 KB,
   # --batch to prevent interactive command
   # --yes to assume "yes" for questions
   gpg --quiet --batch --yes --decrypt --passphrase="$LARGE_SECRET_PASSPHRASE" \
-  --output $HOME/secrets/my_secret.json my_secret.json.gpg
+  --output $HOME/secrets/my_secret.json .github/secrets/my_secret.json.gpg
   ```
 
 1. Ensure your shell script is executable before checking it in to your repository.
 
   ``` shell
-  $ chmod +x decrypt_secret.sh
-  $ git add decrypt_secret.sh
+  $ chmod +x .github/scripts/decrypt_secret.sh
+  $ git add .github/scripts/decrypt_secret.sh
   $ git commit -m "Add new decryption script"
   $ git push
   ```
