@@ -1,6 +1,6 @@
 When using the `workflow_dispatch` event, you can optionally specify inputs that are passed to the workflow.
 
-The triggered workflow receives the inputs in the {% if actions-unified-inputs %}`inputs`{% else %}`github.event.inputs`{% endif %} context. For more information, see "[Contexts]({% if actions-unified-inputs %}/actions/learn-github-actions/contexts#inputs-context{% else %}/actions/learn-github-actions/contexts#github-context{% endif %})."
+The triggered workflow receives the inputs in the {% ifversion actions-unified-inputs %}`inputs`{% else %}`github.event.inputs`{% endif %} context. For more information, see "[Contexts]({% ifversion actions-unified-inputs %}/actions/learn-github-actions/contexts#inputs-context{% else %}/actions/learn-github-actions/contexts#github-context{% endif %})."
 
 {% data reusables.actions.inputs-vs-github-event-inputs %}
 
@@ -33,8 +33,8 @@ on:
 jobs:
   print-tag:
     runs-on: ubuntu-latest
-    if: {% if actions-unified-inputs %}{% raw %} ${{ inputs.print_tags }} {% endraw %}{% else %}{% raw %} ${{ github.event.inputs.print_tags == 'true' }} {% endraw %}{% endif %}
+    if: {% ifversion actions-unified-inputs %}{% raw %} ${{ inputs.print_tags }} {% endraw %}{% else %}{% raw %} ${{ github.event.inputs.print_tags == 'true' }} {% endraw %}{% endif %}
     steps:
       - name: Print the input tag to STDOUT
-        run: {% if actions-unified-inputs %}echo {% raw %} The tags are ${{ inputs.tags }} {% endraw %}{% else %}echo {% raw %} The tags are ${{ github.event.inputs.tags }} {% endraw %}{% endif %}
+        run: {% ifversion actions-unified-inputs %}echo {% raw %} The tags are ${{ inputs.tags }} {% endraw %}{% else %}echo {% raw %} The tags are ${{ github.event.inputs.tags }} {% endraw %}{% endif %}
 ```

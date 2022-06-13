@@ -16,7 +16,7 @@ shortTitle: Remover artefatos de fluxo de trabalho
 
 {% warning %}
 
-**Aviso:** Após a exclusão de um artefato, este não poderá ser restaurado.
+**Warning:** Once you delete an artifact, it cannot be restored.
 
 {% endwarning %}
 

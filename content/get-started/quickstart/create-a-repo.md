@@ -33,7 +33,10 @@ You can store a variety of projects in {% data variables.product.product_name %}
 
 {% note %}
 
-**Note:** You can create public repositories for an open source project. When creating your public repository, make sure to include a [license file](https://choosealicense.com/) that determines how you want your project to be shared with others. {% data reusables.open-source.open-source-guide-repositories %} {% data reusables.open-source.open-source-learning %}
+**Notes:** 
+- You can create public repositories for an open source project. When creating your public repository, make sure to include a [license file](https://choosealicense.com/) that determines how you want your project to be shared with others. {% data reusables.open-source.open-source-guide-repositories %} 
+- {% data reusables.open-source.open-source-learning %} 
+- You can also add community health files to your repositories, to set guidelines on how to contribute, keep your repositories safe, and much more. For more information, see "[Creating a default community health file](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)." 
 
 {% endnote %}
 
