@@ -179,7 +179,7 @@ We retain and use your information as described in this Privacy Statement, but b
  
 If GitHub processes Personal Data other than your profile information, such as information about you GitHub receives from [third parties](/github/site-policy/github-privacy-statement#information-we-collect-from-third-parties), then you may, subject to applicable law, access, update, alter, delete, object to or restrict the processing of your Personal Data by contacting [GitHub Support](https://support.github.com/contact) or [GitHub Premium Support](https://enterprise.githubsupport.com/hc/en-us).  
  
-You can adjust the settings on your Account regarding the display of your Personal Data in private or public repositories or Personal Data processed in connection with Community Features (such as the GitHub Feed, the GitHub Globe, GitHub Explore, the GitHub Discussion Leaderboard) through [profile settings](https://github.com/settings/profile).
+You can adjust the settings on your Account regarding the display of your Personal Data in private or public repositories or Personal Data processed in connection with Community Features (such as GitHub Feed, GitHub Sponsors, and GitHub Explore) through [profile settings](https://github.com/settings/profile).
  
 Additionally, if you are unable to access certain Personal Data we have via the means described above, you can request access by contacting us as described at the bottom of this privacy statement.
 
