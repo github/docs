@@ -49,6 +49,9 @@ jobs:
         run: cat $HOME/files.json
 
       - name: Link check (warnings, changed files)
+        env:
+          # Don't care about CDN caching image URLs
+          DISABLE_REWRITE_ASSET_URLS: true
         run: |
           ./script/rendered-content-link-checker.mjs \
             --language en \
@@ -59,6 +62,9 @@ jobs:
             --list $HOME/files.json
 
       - name: Link check (critical, all files)
+        env:
+          # Don't care about CDN caching image URLs
+          DISABLE_REWRITE_ASSET_URLS: true
         run: |
           ./script/rendered-content-link-checker.mjs \
             --language en \
