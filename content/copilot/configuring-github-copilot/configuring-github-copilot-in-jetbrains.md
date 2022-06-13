@@ -39,4 +39,6 @@ You can manage a number of advanced {% data variables.product.prodname_copilot %
 1. Under **Languages & Frameworks**, click **{% data variables.product.prodname_copilot %}**.
 1. Under "Disabled languages", select the languages you want to disable {% data variables.product.prodname_copilot %} for.
 
+AWAITING CONFIRMATION ON QUESTION IN PR
+
 {% data reusables.copilot.dotcom-settings %}
