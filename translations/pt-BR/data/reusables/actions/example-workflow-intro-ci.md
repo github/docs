@@ -1,1 +1,1 @@
-This article uses an example workflow to demonstrate some of the main CI features of {% data variables.product.prodname_actions %}. 
+Este artigo usa um exemplo de fluxo de trabalho para demonstrar algumas das principais funcionalidades da CI de {% data variables.product.prodname_actions %}. 

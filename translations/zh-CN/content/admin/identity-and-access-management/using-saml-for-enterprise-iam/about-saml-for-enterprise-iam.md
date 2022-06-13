@@ -28,11 +28,11 @@ redirect_from:
 
 {% ifversion ghec %}
 
-If your enterprise members manage their own user accounts on {% data variables.product.product_location %}, you can configure SAML authentication as an additional access restriction for your enterprise or organization. {% data reusables.saml.dotcom-saml-explanation %}
+如果您的企业成员在 {% data variables.product.product_location %} 上管理自己的用户帐户，则可以将 SAML 身份验证配置为企业或组织的额外访问限制。 {% data reusables.saml.dotcom-saml-explanation %}
 
 {% data reusables.saml.about-saml-enterprise-accounts %} 更多信息请参阅“[配置企业的 SAML 单点登录](/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)”。
 
-Alternatively, you can provision and manage the accounts of your enterprise members with {% data variables.product.prodname_emus %}. To help you determine whether SAML SSO or {% data variables.product.prodname_emus %} is better for your enterprise, see "[About authentication for your enterprise](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#identifying-the-best-authentication-method-for-your-enterprise)."
+或者，您可以使用 {% data variables.product.prodname_emus %} 来配置和管理企业成员的帐户。 为了帮助您确定 SAML SSO 或 {% data variables.product.prodname_emus %} 是否更适合您的企业，请参阅“[关于企业的身份验证](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#identifying-the-best-authentication-method-for-your-enterprise)”。
 
 {% data reusables.enterprise-accounts.about-recovery-codes %} 更多信息请参阅“[管理企业的恢复代码](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise)”。
 

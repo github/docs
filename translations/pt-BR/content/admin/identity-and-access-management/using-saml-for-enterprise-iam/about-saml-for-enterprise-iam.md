@@ -28,11 +28,11 @@ redirect_from:
 
 {% ifversion ghec %}
 
-If your enterprise members manage their own user accounts on {% data variables.product.product_location %}, you can configure SAML authentication as an additional access restriction for your enterprise or organization. {% data reusables.saml.dotcom-saml-explanation %}
+Se os integrantes da sua empresa gerenciarem suas próprias contas de usuários em {% data variables.product.product_location %}, você pode configurar a autenticação SAML como uma restrição de acesso adicional para sua empresa ou organização. {% data reusables.saml.dotcom-saml-explanation %}
 
 {% data reusables.saml.about-saml-enterprise-accounts %} Para obter mais informações, consulte "[Configurar logon único SAML para a sua empresa](/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)".
 
-Alternatively, you can provision and manage the accounts of your enterprise members with {% data variables.product.prodname_emus %}. To help you determine whether SAML SSO or {% data variables.product.prodname_emus %} is better for your enterprise, see "[About authentication for your enterprise](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#identifying-the-best-authentication-method-for-your-enterprise)."
+Como alternativa, você pode fornecer e gerenciar as contas dos integrantes da empresa com {% data variables.product.prodname_emus %}. Para ajudar você a determinar se o SAML SSO ou {% data variables.product.prodname_emus %} é melhor para sua empresa, consulte "[Sobre autenticação para sua empresa](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#identifying-the-best-authentication-method-for-your-enterprise)".
 
 {% data reusables.enterprise-accounts.about-recovery-codes %} Para obter mais informações, consulte "[Gerenciar a códigos de recuperação para a sua empresa](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise)".
 

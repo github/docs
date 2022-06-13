@@ -1250,12 +1250,13 @@ on: workflow_dispatch
 
 #### Fornecendo entradas
 
-É possível configurar as propriedades de entrada definidas por personalização, os valores-padrão de entrada e as entradas obrigatórias para o evento diretamente no seu fluxo de trabalho. Ao iniciar o evento, você pode fornecer `ref` e qualquer `entradas`. Quando o fluxo de trabalho é executado, você pode acessar os valores de entrada no contexto `github.event.inputs`. Para obter mais informações, consulte "[Contextos](/actions/learn-github-actions/contexts)".
+É possível configurar as propriedades de entrada definidas por personalização, os valores-padrão de entrada e as entradas obrigatórias para o evento diretamente no seu fluxo de trabalho. Ao iniciar o evento, você pode fornecer `ref` e qualquer `entradas`. When the workflow runs, you can access the input values in the {% ifversion actions-unified-inputs %}`inputs`{% else %}`github.event.inputs`{% endif %} context. Para obter mais informações, consulte "[Contextos](/actions/learn-github-actions/contexts)".
+
+{% data reusables.actions.inputs-vs-github-event-inputs %}
 
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5511 %}
-Este exemplo define as entradas chamadas `logLevel`, `tags` e `ambiente`. Você passa os valores destas entradas para o fluxo de trabalho quando o executa. Esse fluxo de trabalho imprime os valores no registro, usando as propriedades de contexto `github.event.inputs.logLevel`, `github.event.inputs.tags` e  `github.event.inputs.environment`.
+Este exemplo define as entradas chamadas `logLevel`, `tags` e `ambiente`. Você passa os valores destas entradas para o fluxo de trabalho quando o executa. This workflow then prints the values to the log, using the {% ifversion actions-unified-inputs %}`inputs.logLevel`, `inputs.tags`, and  `inputs.environment`{% else %}`github.event.inputs.logLevel`, `github.event.inputs.tags`, and  `github.event.inputs.environment`{% endif %} context properties.
 
-{% raw %}
 ```yaml
 on: 
   workflow_dispatch:
@@ -1287,11 +1288,10 @@ jobs:
           echo "Tags: $TAGS"
           echo "Environment: $ENVIRONMENT"
         env:
-          LEVEL: ${{ github.event.inputs.logLevel }}
-          TAGS: ${{ github.event.inputs.tags }}
-          ENVIRONMENT: ${{ github.event.inputs.environment }}
+          LEVEL: {% ifversion actions-unified-inputs %}{% raw %}${{ inputs.logLevel }}{% endraw %}{% else %}{% raw %}${{ github.event.inputs.logLevel }}{% endraw %}{% endif %}
+          TAGS: {% ifversion actions-unified-inputs %}{% raw %}${{ inputs.tags }}{% endraw %}{% else %}{% raw %}${{ github.event.inputs.tags }}{% endraw %}{% endif %}
+          ENVIRONMENT: {% ifversion actions-unified-inputs %}{% raw %}${{ inputs.environment }}{% endraw %}{% else %}{% raw %}${{ github.event.inputs.environment }}{% endraw %}{% endif %}
 ```
-{% endraw %}
 
 Se você executar este fluxo de trabalho em um navegador, você deverá inserir valores para as entradas necessárias manualmente antes de o fluxo de trabalho ser executado.
 
@@ -1306,7 +1306,7 @@ gh workflow run run-tests.yml -f logLevel=warning -f tags=false -f environment=s
 Para obter mais informações, consulte as informações do {% data variables.product.prodname_cli %} em "[Executando um fluxo de trabalho manualmente](/actions/managing-workflow-runs/manually-running-a-workflow)".
 
 {% else %}
-Este exemplo define as entradas do `nome` e `home` e as imprime usando os contextos `github.event.inputs.name` e `github.event.inputs.home`. Se `home` não for fornecido, será impresso o valor-padrão 'The Octoverse'.
+This example defines the `name` and `home` inputs and prints them using the {% ifversion actions-unified-inputs %}`inputs.name` and `inputs.home`{% else %}`github.event.inputs.name` and `github.event.inputs.home`{% endif %} contexts. Se `home` não for fornecido, será impresso o valor-padrão 'The Octoverse'.
 
 ```yaml
 name: Manually triggered workflow
@@ -1330,8 +1330,8 @@ jobs:
           echo Hello $NAME!
           echo -in $HOME
         env:
-          NAME: {% raw %}${{ github.event.inputs.name }}{% endraw %}
-          HOME: {% raw %}${{ github.event.inputs.home }}{% endraw %}
+          NAME: {% ifversion actions-unified-inputs %}{% raw %}${{ inputs.name }}{% endraw %}{% else %}{% raw %}${{ github.event.inputs.name }}{% endraw %}{% endif %}
+          HOME: {% ifversion actions-unified-inputs %}{% raw %}${{ github.event.inputs.home }}{% endraw %}{% else %}{% raw %}${{ github.event.inputs.home }}{% endraw %}{% endif %}
 ```
 {% endif %}
 

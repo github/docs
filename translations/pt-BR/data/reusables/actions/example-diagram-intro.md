@@ -1,1 +1,1 @@
-The following diagram shows a high level view of the workflow's steps and how they run within the job:
+O diagrama a seguir mostra uma visão de alto nível das etapas do fluxo de trabalho e como elas são executadas dentro do trabalho:
