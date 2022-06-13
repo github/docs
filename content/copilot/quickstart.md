@@ -14,7 +14,7 @@ topics:
 
 {% data variables.product.prodname_copilot %} is an AI pair programmer. You can use {% data variables.product.prodname_copilot %} to get suggestions for whole lines or entire functions right inside your editor.
 
-This guide will show you how to sign up for {% data variables.product.prodname_copilot %}, install the {% data variables.product.prodname_copilot %} extension, and get your first suggestion, within Visual Studio Code. For more information on {% data variables.product.prodname_copilot %}, see "[About {% data variables.product.prodname_copilot %}](/copilot/overview-of-github-copilot/about-github-copilot)." For more in-depth information on how to use {% data variables.product.prodname_copilot %} in a variety of environments, see  the [Getting Started](/copilot/getting-started-with-github-copilot) documentation."
+This guide will show you how to sign up for {% data variables.product.prodname_copilot %}, install the {% data variables.product.prodname_copilot %} extension in {% data variables.product.prodname_vscode %}, and get your first suggestion. For more information on {% data variables.product.prodname_copilot %}, see "[About {% data variables.product.prodname_copilot %}](/copilot/overview-of-github-copilot/about-github-copilot)." For more in-depth information on how to use {% data variables.product.prodname_copilot %} in a variety of environments, see "[Getting Started](/copilot/getting-started-with-github-copilot)."
 
 ## Prerequisites
 
