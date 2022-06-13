@@ -32,6 +32,7 @@ children:
   - search-github
   - developers
   - rest
+  - crescent
   - graphql
   - github-cli
   - discussions
