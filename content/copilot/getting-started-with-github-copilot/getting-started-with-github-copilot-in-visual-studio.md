@@ -13,7 +13,7 @@ topics:
 
 {% data reusables.copilot.procedural-intro %}
 
-ADD MORE HERE!
+If you use {% data variables.product.prodname_vs %}, you can view and incorporate suggestions from {% data variables.product.prodname_copilot %} directly within the editor. This guide demonstrates how to use {% data variables.product.prodname_copilot %} within {% data variables.product.prodname_vs %} for Windows.
 
 ## Prerequisites
 
