@@ -80,6 +80,9 @@ Committing the workflow file to a branch in your repository triggers the `push` 
 
 {% data reusables.actions.workflow-template-overview %}
 
+## More complex examples
+{% data reusables.actions.link-to-example-library %}
+
 ## Next steps
 
 The example workflow you just added runs each time code is pushed to the branch, and shows you how {% data variables.product.prodname_actions %} can work with the contents of your repository. But this is only the beginning of what you can do with {% data variables.product.prodname_actions %}:

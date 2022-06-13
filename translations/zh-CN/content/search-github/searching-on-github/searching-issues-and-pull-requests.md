@@ -73,14 +73,14 @@ shortTitle: 搜索议题和 PR
 | `is:closed`    | [**android is:closed**](https://github.com/search?utf8=%E2%9C%93&q=android+is%3Aclosed&type=) 匹配含有 "android" 字样的已关闭议题和拉取请求。                                              |
 
 {% ifversion issue-close-reasons %}
-## Search by the reason an issue was closed
+## 按议题关闭原因进行搜索
 
-You can filter issues based on the reason given when the issue was closed, using the `reason` qualifier.
+您可以使用 `reason` 限定符，根据议题关闭时给出的原因筛选议题。
 
-| 限定符                    | 示例                                                                                                                                                                                                                   |
-| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `reason:complete`      | [**libraries is:closed reason:complete**](https://github.com/search?q=libraries+is%3Aclosed+reason%3Acompleted&type=Issues) matches issues with the word "libraries" that were closed as "completed."                |
-| `reason:"not planned"` | [**libraries is:closed reason:"not planned"**](https://github.com/search?q=libraries+is%3Aclosed+reason%3A%22not+planned%22&type=Issues) matches issues with the word "libraries" that were closed as "not planned." |
+| 限定符                    | 示例                                                                                                                                                                         |
+| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `reason:complete`      | [**libraries is:closed reason:complete**](https://github.com/search?q=libraries+is%3Aclosed+reason%3Acompleted&type=Issues) 匹配包含文字 "libraries"、已因“完成”而关闭的议题。               |
+| `reason:"not planned"` | [**libraries is:closed reason:"not planned"**](https://github.com/search?q=libraries+is%3Aclosed+reason%3A%22not+planned%22&type=Issues) 匹配包含文字 "libraries"、已因“未计划”而关闭的议题。 |
 
 {% endif %}
 
@@ -156,10 +156,10 @@ You can filter issues based on the reason given when the issue was closed, using
 
 您可以使用 `label` 限定符按标签缩小结果范围。 由于议题可有多个标签，因此您可为每个议题列出单独的限定符。
 
-| 限定符                        | 示例                                                                                                                                                                                                                                                       |
-| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>label:<em>LABEL</em></code> | [**label:"help wanted" language:ruby**](https://github.com/search?utf8=%E2%9C%93&q=label%3A%22help+wanted%22+language%3Aruby&type=Issues) matches issues with the label "help wanted" that are in Ruby repositories.                                     |
-|                            | [**broken in:body -label:bug label:priority**](https://github.com/search?q=broken+in%3Abody+-label%3Abug+label%3Apriority&type=Issues) matches issues with the word "broken" in the body, that lack the label "bug", but *do* have the label "priority." |
+| 限定符                        | 示例                                                                                                                                                                                           |
+| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>label:<em>LABEL</em></code> | [**label:"help wanted" language:ruby**](https://github.com/search?utf8=%E2%9C%93&q=label%3A%22help+wanted%22+language%3Aruby&type=Issues) 匹配标签为 "help wanted"、位于 Ruby 仓库中的议题。                |
+|                            | [**broken in:body -label:bug label:priority**](https://github.com/search?q=broken+in%3Abody+-label%3Abug+label%3Apriority&type=Issues) 匹配正文中含有 "broken" 字样、没有 "bug" 标签但*有* "priority" 标签的议题。 |
 |                            | [**label:bug label:resolved**](https://github.com/search?l=&q=label%3Abug+label%3Aresolved&type=Issues) 匹配含有 "bug" 和 "resolved" 标签的议题。{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 |                            | [**label:bug label:resolved**](https://github.com/search?q=label%3Abug%2Cresolved&type=Issues) 匹配含有 "bug" 或 "resolved" 标签的议题。{% endif %}
 
@@ -167,82 +167,82 @@ You can filter issues based on the reason given when the issue was closed, using
 
 `milestone` 限定符查找作为仓库内[里程碑](/articles/about-milestones)组成部分的议题或拉取请求。
 
-| 限定符                        | 示例                                                                                                                                                                     |
-| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>milestone:<em>MILESTONE</em></code> | [**milestone:"overhaul"**](https://github.com/search?utf8=%E2%9C%93&q=milestone%3A%22overhaul%22&type=Issues) matches issues that are in a milestone named "overhaul." |
-|                            | [**milestone:"bug fix"**](https://github.com/search?utf8=%E2%9C%93&q=milestone%3A%22bug+fix%22&type=Issues) matches issues that are in a milestone named "bug fix."    |
+| 限定符                        | 示例                                                                                                                                        |
+| -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>milestone:<em>MILESTONE</em></code> | [**milestone:"overhaul"**](https://github.com/search?utf8=%E2%9C%93&q=milestone%3A%22overhaul%22&type=Issues) 匹配位于名为 "overhaul" 的里程碑中的议题。 |
+|                            | [**milestone:"bug fix"**](https://github.com/search?utf8=%E2%9C%93&q=milestone%3A%22bug+fix%22&type=Issues) 匹配位于名为 "bug fix" 的里程碑中的议题。    |
 
 ## 按项目板搜索
 
 您可以使用 `project` 限定符查找与仓库或组织中特定[项目板](/articles/about-project-boards/)关联的议题。 必须按项目板编号搜索项目板。 您可在项目板 URL 的末尾找到项目板编号。
 
-| 限定符                        | 示例                                                                                                                      |
-| -------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| <code>project:<em>PROJECT_BOARD</em></code> | **project:github/57** matches issues owned by GitHub that are associated with the organization's project board 57.      |
-| <code>project:<em>REPOSITORY/PROJECT_BOARD</em></code> | **project:github/linguist/1** matches issues that are associated with project board 1 in @github's linguist repository. |
+| 限定符                        | 示例                                                                    |
+| -------------------------- | --------------------------------------------------------------------- |
+| <code>project:<em>PROJECT_BOARD</em></code> | **project:github/57** 匹配 GitHub 拥有的、与组织项目板 57 关联的议题。                  |
+| <code>project:<em>REPOSITORY/PROJECT_BOARD</em></code> | **project:github/linguist/1** 匹配与 @github 的 linguist 仓库中的项目板 1 关联的议题。 |
 
 ## 按提交状态搜索
 
 您可以基于提交的状态过滤拉取请求。 这在使用 [Status API](/rest/reference/commits#commit-statuses) 或 CI 服务时特别有用。
 
-| 限定符              | 示例                                                                                                                                                                                                                                         |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `status:pending` | [**language:go status:pending**](https://github.com/search?utf8=%E2%9C%93&q=language%3Ago+status%3Apending) matches pull requests opened into Go repositories where the status is pending.                                                 |
-| `status:success` | [**is:open status:success finally in:body**](https://github.com/search?utf8=%E2%9C%93&q=is%3Aopen+status%3Asuccess+finally+in%3Abody&type=Issues) matches open pull requests with the word "finally" in the body with a successful status. |
-| `status:failure` | [**created:2015-05-01..2015-05-30 status:failure**](https://github.com/search?utf8=%E2%9C%93&q=created%3A2015-05-01..2015-05-30+status%3Afailure&type=Issues) matches pull requests opened on May 2015 with a failed status.               |
+| 限定符              | 示例                                                                                                                                                                                          |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `status:pending` | [**language:go status:pending**](https://github.com/search?utf8=%E2%9C%93&q=language%3Ago+status%3Apending) 匹配在状态为待定的 Go 仓库中打开的拉取请求。                                                        |
+| `status:success` | [**is:open status:success finally in:body**](https://github.com/search?utf8=%E2%9C%93&q=is%3Aopen+status%3Asuccess+finally+in%3Abody&type=Issues) 匹配正文中含有 "finally" 字样、具有成功状态的打开拉取请求。       |
+| `status:failure` | [**created:2015-05-01..2015-05-30 status:failure**](https://github.com/search?utf8=%E2%9C%93&q=created%3A2015-05-01..2015-05-30+status%3Afailure&type=Issues) 匹配在 2015 年 5 月打开、具有失败状态的拉取请求。 |
 
 ## 按提交 SHA 搜索
 
 如果您知道提交的特定 SHA 哈希，您可以使用它来搜索包含该 SHA 的拉取请求。 SHA 语法必须至少 7 个字符。
 
-| 限定符                        | 示例                                                                                                                                                                           |
-| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code><em>SHA</em></code> | [**e1109ab**](https://github.com/search?q=e1109ab&type=Issues) matches pull requests with a commit SHA that starts with `e1109ab`.                                           |
-|                            | [**0eff326d6213c is:merged**](https://github.com/search?q=0eff326d+is%3Amerged&type=Issues) matches merged pull requests with a commit SHA that starts with `0eff326d6213c`. |
+| 限定符                        | 示例                                                                                                                                   |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| <code><em>SHA</em></code> | [**e1109ab**](https://github.com/search?q=e1109ab&type=Issues) 匹配具有开头为 `e1109ab` 的提交 SHA 的拉取请求。                                      |
+|                            | [**0eff326d6213c is:merged**](https://github.com/search?q=0eff326d+is%3Amerged&type=Issues) 匹配具有开头为 `0eff326d6213c` 的提交 SHA 的合并拉取请求。 |
 
 ## 按分支名称搜索
 
 您可以基于拉取请求来自的分支（"head" 分支）或其合并到的分支（"base" 分支）来过滤拉取请求。
 
-| 限定符                        | 示例                                                                                                                                                                                                                           |
-| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>head:<em>HEAD_BRANCH</em></code> | [**head:change is:closed is:unmerged**](https://github.com/search?utf8=%E2%9C%93&q=head%3Achange+is%3Aclosed+is%3Aunmerged) matches pull requests opened from branch names beginning with the word "change" that are closed. |
-| <code>base:<em>BASE_BRANCH</em></code> | [**base:gh-pages**](https://github.com/search?utf8=%E2%9C%93&q=base%3Agh-pages) matches pull requests that are being merged into the `gh-pages` branch.                                                                      |
+| 限定符                        | 示例                                                                                                                                                             |
+| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>head:<em>HEAD_BRANCH</em></code> | [**head:change is:closed is:unmerged**](https://github.com/search?utf8=%E2%9C%93&q=head%3Achange+is%3Aclosed+is%3Aunmerged) 匹配从名称以 "change" 字样开头的已关闭分支打开的拉取请求。 |
+| <code>base:<em>BASE_BRANCH</em></code> | [**base:gh-pages**](https://github.com/search?utf8=%E2%9C%93&q=base%3Agh-pages) 匹配合并到 `gh-pages` 分支中的拉取请求。                                                     |
 
 ## 按语言搜索
 
 通过 `language` 限定符，您可以搜索以特定语言编写的仓库内的议题和拉取请求。
 
-| 限定符                        | 示例                                                                                                                                                      |
-| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>language:<em>LANGUAGE</em></code> | [**language:ruby state:open**](https://github.com/search?q=language%3Aruby+state%3Aopen&type=Issues) matches open issues that are in Ruby repositories. |
+| 限定符                        | 示例                                                                                                                     |
+| -------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| <code>language:<em>LANGUAGE</em></code> | [**language:ruby state:open**](https://github.com/search?q=language%3Aruby+state%3Aopen&type=Issues) 匹配 Ruby 仓库中的开放议题。 |
 
 ## 按评论数量搜索
 
 您可以使用 `comments` 限定符以及[大于、小于和范围限定符](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax)以按评论数量搜索。
 
-| 限定符                        | 示例                                                                                                                                                                     |
-| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>comments:<em>n</em></code> | [**state:closed comments:&gt;100**](https://github.com/search?q=state%3Aclosed+comments%3A%3E100&type=Issues) matches closed issues with more than 100 comments. |
-|                            | [**comments:500..1000**](https://github.com/search?q=comments%3A500..1000&type=Issues) matches issues with comments ranging from 500 to 1,000.                         |
+| 限定符                        | 示例                                                                                                                                        |
+| -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>comments:<em>n</em></code> | [**state:closed comments:&gt;100**](https://github.com/search?q=state%3Aclosed+comments%3A%3E100&type=Issues) 匹配具有超过 100 条评论的已关闭议题。 |
+|                            | [**comments:500..1000**](https://github.com/search?q=comments%3A500..1000&type=Issues) 匹配具有 500 到 1,000 条评论的议题。                           |
 
 ## 按交互数量搜索
 
 您可以使用 `interactions` 限定符以及[大于、小于和范围限定符](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax)按交互数量过滤议题和拉取请求。 交互数量是对议题或拉取请求的反应和评论数量。
 
-| 限定符                        | 示例                                                                                                                                                              |
-| -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>interactions:<em>n</em></code> | [** interactions:&gt;2000**](https://github.com/search?q=interactions%3A%3E2000) 匹配超过 2000 个交互的拉取请求或议题。                                               |
-|                            | [**interactions:500..1000**](https://github.com/search?q=interactions%3A500..1000) matches pull requests or issues with interactions ranging from 500 to 1,000. |
+| 限定符                        | 示例                                                                                                                |
+| -------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| <code>interactions:<em>n</em></code> | [** interactions:&gt;2000**](https://github.com/search?q=interactions%3A%3E2000) 匹配超过 2000 个交互的拉取请求或议题。 |
+|                            | [**interactions:500..1000**](https://github.com/search?q=interactions%3A500..1000) 匹配 500 至 1,000 个交互的拉取请求或议题。    |
 
 ## 按反应数量搜索
 
 您可以使用 `reactions` 限定符以及 [大于、小于和范围限定符](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax)按反应数量过滤议题和拉取请求。
 
-| 限定符                        | 示例                                                                                                                                    |
-| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>reactions:<em>n</em></code> | [** reactions:&gt;1000**](https://github.com/search?q=reactions%3A%3E1000&type=Issues) 匹配超过 1000 个反应的议题。                    |
-|                            | [**reactions:500..1000**](https://github.com/search?q=reactions%3A500..1000) matches issues with reactions ranging from 500 to 1,000. |
+| 限定符                        | 示例                                                                                                                 |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| <code>reactions:<em>n</em></code> | [** reactions:&gt;1000**](https://github.com/search?q=reactions%3A%3E1000&type=Issues) 匹配超过 1000 个反应的议题。 |
+|                            | [**reactions:500..1000**](https://github.com/search?q=reactions%3A500..1000) 匹配 500 至 1000 个反应的议题。                 |
 
 ## 搜索草稿拉取请求
 您可以过滤草稿拉取请求。 更多信息请参阅“[关于拉取请求](/articles/about-pull-requests#draft-pull-requests)”。

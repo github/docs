@@ -1,7 +1,7 @@
 ---
 title: Configurar Git para GitHub Desktop
 shortTitle: Configurar Git
-intro: 'You can manage Git configuration settings for your local repositories with {% data variables.product.prodname_desktop %}.'
+intro: 'Puedes administrar los ajustes de configuración de Git para tus repositorios locales con {% data variables.product.prodname_desktop %}.'
 redirect_from:
   - /desktop/getting-started-with-github-desktop/configuring-git-for-github-desktop
   - /desktop/installing-and-configuring-github-desktop/configuring-git-for-github-desktop
@@ -9,15 +9,15 @@ versions:
   fpt: '*'
 ---
 
-## About Git configuration for {% data variables.product.prodname_desktop %}
+## Acerca de la configuración de Git para {% data variables.product.prodname_desktop %}
 
-{% data variables.product.prodname_desktop %} uses your local Git configuration settings and provides the option to configure some of these settings, such as the global author information and the default branch that is used when creating a new repository.
+{% data variables.product.prodname_desktop %} Utiliza tus ajustes locales de configuración de Git y proporciona la opción para configurar algunos de estos, tal como la información de autor global y la rama predeterminada que se utiliza al crear un repositorio nuevo.
 
-{% data variables.product.prodname_desktop %} allows you to set the name and email address you would like associated with the commits you make in your repositories. If your name and email address have already been set in the global Git configuration for your computer, {% data variables.product.prodname_desktop %} will detect and use those values. {% data variables.product.prodname_desktop %} also allows you to set a different name and email address for an individual repository. This is useful when you need to use a separate work email address for a specific repository.
+{% data variables.product.prodname_desktop %} te permite seleccionar el nombre y la dirección de correo electrónico que te gustaría asociar con las confirmaciones que hagas en tus repositorios. Si tu nombre y dirección de correo electrónico ya se ajustaron en la configuración global de Git para tu computadora, {% data variables.product.prodname_desktop %} detectará y utilizará esos valores. {% data variables.product.prodname_desktop %} también te permite configurar un nombre y dirección de correo electrónico diferentes para un repositorio individual. Esto es útil cuando necesitas utilizar una dirección de correo electrónico por separado para un repositorio específico.
 
-If the email address that has been set in your Git configuration does not match an email address associated with the {% data variables.product.product_name %} account you are currently logged in to, {% data variables.product.prodname_desktop %} will show a warning prior to committing.
+Si la dirección de correo electrónico que se ajustó en tu configuración de Git no coincide con aquella asociada con la cuenta de {% data variables.product.product_name %} en la que estás actualmente, {% data variables.product.prodname_desktop %} mostrará una advertencia antes de realizar las confirmaciones.
 
-{% data variables.product.prodname_desktop %} also allows you to change the default branch name that you would like to use when creating new repositories. By default, {% data variables.product.prodname_desktop %} uses `main` as the default branch name in any new repositories you create.
+{% data variables.product.prodname_desktop %} también te permite cambiar el nombre de la rama predeterminada que te gustaría utilizar cuando crees repositorios nuevos. By default, {% data variables.product.prodname_desktop %} uses `main` as the default branch name in any new repositories you create.
 
 {% tip %}
 

@@ -4,6 +4,20 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "Enum value `RUST` was added to enum `DependencyGraphEcosystem`",
+          "Field `squashPrTitleUsedAsDefault` was added to object type `Repository`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-06-10"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "Type `SecurityAdvisoryClassification` was added",
           "Type 'ProjectV2Owner' was removed",
           "`Issue` object type no longer implements 'ProjectV2Owner' interface",

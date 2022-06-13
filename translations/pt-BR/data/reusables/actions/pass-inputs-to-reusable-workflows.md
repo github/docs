@@ -13,7 +13,7 @@ jobs:
 {% endraw %}
 
 {% ifversion actions-inherit-secrets-reusable-workflows %}
-Workflows that call reusable workflows in the same organization or enterprise can use the `inherit` keyword to implicitly pass the secrets.
+Os fluxos de trabalho que chamam fluxos de trabalho reutilizáveis na mesma organização ou empresa podem usar a palavra-chave `herdar` para passar implicitamente os segredos.
 
 {% raw %}
 ```yaml

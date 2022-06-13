@@ -1,7 +1,7 @@
 ---
 title: Using the GitHub CLI on a runner
 shortTitle: Using the GitHub CLI on a runner
-intro: 'How to use advanced {% data variables.product.prodname_actions %} features for continuous integration (CI).'
+intro: '如何使用高级 {% data variables.product.prodname_actions %} 功能进行持续集成 (CI)。'
 versions:
   fpt: '*'
   ghes: '> 3.1'
@@ -15,21 +15,21 @@ topics:
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-- [Example overview](#example-overview)
-- [Features used in this example](#features-used-in-this-example)
+- [示例概述](#example-overview)
+- [此示例中使用的功能](#features-used-in-this-example)
 - [示例工作流程](#example-workflow)
-- [Understanding the example](#understanding-the-example)
+- [了解示例](#understanding-the-example)
 - [后续步骤](#next-steps)
 
-## Example overview
+## 示例概述
 
 {% data reusables.actions.example-workflow-intro-ci %} When this workflow is triggered, it automatically runs a script that checks whether the {% data variables.product.prodname_dotcom %} Docs site has any broken links. If any broken links are found, the workflow uses the {% data variables.product.prodname_dotcom %} CLI to create a {% data variables.product.prodname_dotcom %} issue with the details.
 
 {% data reusables.actions.example-diagram-intro %}
 
-![Overview diagram of workflow steps](/assets/images/help/images/overview-actions-using-cli-ci-example.png)
+![工作流程步骤概览图](/assets/images/help/images/overview-actions-using-cli-ci-example.png)
 
-## Features used in this example
+## 此示例中使用的功能
 
 {% data reusables.actions.example-table-intro %}
 
@@ -177,7 +177,7 @@ jobs:
 </tbody>
 </table>
 
-## Understanding the example
+## 了解示例
 
 {% data reusables.actions.example-explanation-table-intro %}
 
@@ -185,7 +185,7 @@ jobs:
 <thead>
   <tr>
     <th style="width:60%"><b>代码</b></th>
-    <th style="width:40%"><b>Explanation</b></th>
+    <th style="width:40%"><b>说明</b></th>
   </tr>
 </thead>
 <tbody>
@@ -230,7 +230,7 @@ permissions:
 </td>
 <td>
 
-Modifies the default permissions granted to `GITHUB_TOKEN`. This will vary depending on the needs of your workflow. For more information, see "[Assigning permissions to jobs](/actions/using-jobs/assigning-permissions-to-jobs)."
+修改授予“GITHUB_TOKEN”的默认权限。 这将因工作流程的需求而异。 更多信息请参阅“[为作业分配权限](/actions/using-jobs/assigning-permissions-to-jobs)”。
 </td>
 </tr>
 <tr>
@@ -242,7 +242,7 @@ jobs:
 </td>
 <td>
 
-Groups together all the jobs that run in the workflow file.
+将工作流程文件中运行的所有作业组合在一起。
 </td>
 </tr>
 <tr>
@@ -320,7 +320,7 @@ Groups together all the steps that will run as part of the `check_all_english_li
 </td>
 <td>
 
-The `uses` keyword tells the job to retrieve the action named `actions/checkout`. 这是检出仓库并将其下载到运行器的操作，允许针对您的代码运行操作（例如测试工具）。 只要工作流程针对仓库的代码运行，或者您使用仓库中定义的操作，您都必须使用检出操作。
+“uses”关键字告诉作业检索名为“actions/checkout”的操作。 这是检出仓库并将其下载到运行器的操作，允许针对您的代码运行操作（例如测试工具）。 只要工作流程针对仓库的代码运行，或者您使用仓库中定义的操作，您都必须使用检出操作。
 </td>
 </tr>
 <tr>
@@ -336,7 +336,7 @@ The `uses` keyword tells the job to retrieve the action named `actions/checkout`
 </td>
 <td>
 
-This step uses the `actions/setup-node` action to install the specified version of the `node` software package on the runner, which gives you access to the `npm` command.
+此步骤使用“actions/setup-node”操作在运行器上安装指定版本的“node”软件包，这使您可以访问“npm”命令。
 </td>
 </tr>
 <tr>

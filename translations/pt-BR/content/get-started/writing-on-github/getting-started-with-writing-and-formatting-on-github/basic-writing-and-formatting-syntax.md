@@ -200,7 +200,7 @@ Para criar uma lista aninhada usando o editor web do {% data variables.product.p
 
 {% tip %}
 
-**Note**: In the web-based editor, you can indent or dedent one or more lines of text by first highlighting the desired lines and then using <kbd>Tab</kbd> or <kbd>Shift</kbd>+<kbd>Tab</kbd> respectively.
+**Nota**: No editor baseado na web, você pode colocar ou retirar uma ou mais linhas de texto primeiro destacando as linhas desejadas e, em seguida, usar <kbd>Tab</kbd> ou <kbd>Shift</kbd>+<kbd>Aba</kbd> respectivamente.
 
 {% endtip %}
 

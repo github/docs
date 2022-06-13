@@ -35,7 +35,7 @@ Quaisquer opções que também afetem as atualizações de segurança são usada
 
 O arquivo *dependabot.yml* tem duas chaves obrigatórias de nível superior: `versão`e `atualizações`. Você pode, opcionalmente, incluir uma chave `registros` de nível superior {% ifversion fpt or ghec or ghes > 3.4 %} e/ou uma chave `enable-beta-ecosystem` key{% endif %}. O arquivo deve começar com a `versão: 2`.
 
-## Configuration options for the *dependabot.yml* file
+## Opções de configuração para o arquivo *dependabot.yml*
 
 A chave `atualizações` de nível superior é obrigatória. Você a utiliza para configurar como {% data variables.product.prodname_dependabot %} atualiza as versões ou as dependências do seu projeto. Cada entrada configura as configurações de atualização para um gerenciador de pacotes específico. Você pode usar o seguinte opções.
 
@@ -280,6 +280,10 @@ updates:
       prefix-development: "pip dev"
       include: "scope"
 ```
+If you use the same configuration as in the example above, bumping the `requests` library in the `pip` development dependency group will generate a commit message of:
+
+   `pip dev: bump requests from 1.0.0 to 1.0.1`
+
 ### `ignore`
 
 {% data reusables.dependabot.default-dependencies-allow-ignore %}
