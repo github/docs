@@ -17,7 +17,7 @@ jobs:
   check_all_english_links:
     name: Check all links
     if: github.repository == 'github/docs-internal'
-    runs-on: ${{ fromJSON('["ubuntu-latest", "self-hosted"]')[github.repository == 'github/docs-internal'] }}
+    runs-on: self-hosted
     env:
       GITHUB_TOKEN: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
       FIRST_RESPONDER_PROJECT: Docs content first responder
@@ -56,6 +56,8 @@ jobs:
           # The default is 10s. But because this runs overnight, we can
           # be a lot more patient.
           REQUEST_TIMEOUT: 20000
+          # Don't care about CDN caching image URLs
+          DISABLE_REWRITE_ASSET_URLS: true
           # The default is 300 which works OK on a fast macbook pro
           # but so well in Actions.
           LINKINATOR_CONCURRENCY: 100
