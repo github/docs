@@ -12,6 +12,7 @@ sections:
     - Issueコメントにアップロードされたビデオが適切にレンダリングされません。
     - SAML暗号化されたアサーションを利用する場合、一部のアサーションは正しくSSHキーを検証済みとしてマークしませんでした。
     - '`ghe-migrator`を使う場合、移行はIssueやPull Request内のビデオの添付ファイルのインポートに失敗します。'
+    - 'The Releases page would return a 500 error when the repository has tags that contain non-ASCII characters. [Updated: 2022-06-10]'
   changes:
     - 高可用性構成では、Management Consoleのレプリケーションの概要ページが現在のレプリケーションのステータスではなく、現在のレプリケーション設定だけを表示することを明確にしてください。
     - '{% data variables.product.prodname_registry %}を有効化する場合、接続文字列としてのShared Access Signature (SAS)トークンの利用は現在サポートされていないことを明確にしてください。'

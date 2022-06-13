@@ -116,10 +116,10 @@ Há dois tipos de {% data variables.product.prodname_dependabot_updates %}: {% d
  - Acionado por um alerta de {% data variables.product.prodname_dependabot %}
  - Atualizar dependências para a versão mínima que resolve uma vulnerabilidade conhecida
  - Compatível para os ecossistemas que o gráfico de dependências suporta
- - Does not require a configuration file, but you can use one to override the default behavior
+ - Não exige um arquivo de configuração, mas você pode usar um para substituir o comportamento padrão
 
 {% data variables.product.prodname_dependabot_version_updates %}:
- - Requires a configuration file
+ - Exige um arquivo de configuração
  - Executar em um calendário que você configura
  - Atualizar dependências para a última versão que corresponde à configuração
  - Compatível para um grupo diferente de ecossistemas

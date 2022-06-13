@@ -73,14 +73,14 @@ Você pode filtrar somente problemas e pull requests abertos ou fechados usando 
 | `is:closed`    | [**android is:closed**](https://github.com/search?utf8=%E2%9C%93&q=android+is%3Aclosed&type=) identifica os problemas e as pull requests fechados com a palavra "android".                                          |
 
 {% ifversion issue-close-reasons %}
-## Search by the reason an issue was closed
+## Pesquisr o motivo pelo qual um problema foi fechado
 
-You can filter issues based on the reason given when the issue was closed, using the `reason` qualifier.
+Você pode filtrar problemas com base no motivo indicado quando o problema foi fechado, usando o qualificador do `motivo`.
 
-| Qualifier              | Exemplo                                                                                                                                                                                                              |
-| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `reason:complete`      | [**libraries is:closed reason:complete**](https://github.com/search?q=libraries+is%3Aclosed+reason%3Acompleted&type=Issues) matches issues with the word "libraries" that were closed as "completed."                |
-| `reason:"not planned"` | [**libraries is:closed reason:"not planned"**](https://github.com/search?q=libraries+is%3Aclosed+reason%3A%22not+planned%22&type=Issues) matches issues with the word "libraries" that were closed as "not planned." |
+| Qualifier              | Exemplo                                                                                                                                                                                                                               |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `reason:complete`      | [**libraries is:closed reason:complete**](https://github.com/search?q=libraries+is%3Aclosed+reason%3Acompleted&type=Issues) corresponde a problemas com a palavra "bibliotecas" que foram fechada como "concluídas".                  |
+| `reason:"not planned"` | [**libraries is:closed reason:"not planned"**](https://github.com/search?q=libraries+is%3Aclosed+reason%3A%22not+planned%22&type=Issues) corresponde a problemas com a palavra "bibliotecas" que foram fechada como "não planejadas". |
 
 {% endif %}
 
@@ -158,7 +158,7 @@ Você pode limitar os resultados por etiquetas usando o qualificador `label`. Al
 
 | Qualifier                  | Exemplo                                                                                                                                                                                                                                                      |
 | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| <code>label:<em>LABEL</em></code> | [**label:"help wanted" language:ruby**](https://github.com/search?utf8=%E2%9C%93&q=label%3A%22help+wanted%22+language%3Aruby&type=Issues) matches issues with the label "help wanted" that are in Ruby repositories.                                         |
+| <code>label:<em>LABEL</em></code> | [**label:"help wanted" language:ruby**](https://github.com/search?utf8=%E2%9C%93&q=label%3A%22help+wanted%22+language%3Aruby&type=Issues) identifica os problemas com a etiqueta "help wanted" nos repositórios de Ruby.                                     |
 |                            | [**broken in:body -label:bug label:priority**](https://github.com/search?q=broken+in%3Abody+-label%3Abug+label%3Apriority&type=Issues) identifica problemas com a palavra "broken" no texto e que não têm a etiqueta "bug", mas *têm* a etiqueta "priority". |
 |                            | [**label:bug label:resolved**](https://github.com/search?l=&q=label%3Abug+label%3Aresolved&type=Issues) corresponde problemas com as etiquetas "bug" e "resolved"."{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 |                            | [**rótulo:bug,resolvido**](https://github.com/search?q=label%3Abug%2Cresolved&type=Issues) corresponde a problemas com a etiqueta "erro" ou a etiqueta "resolvido".{% endif %}
@@ -167,73 +167,73 @@ Você pode limitar os resultados por etiquetas usando o qualificador `label`. Al
 
 O qualificador `milestone` encontra problemas ou pull requests que fazem parte de um [marco](/articles/about-milestones) em um repositório.
 
-| Qualifier                  | Exemplo                                                                                                                                                                |
-| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>milestone:<em>MILESTONE</em></code> | [**milestone:"overhaul"**](https://github.com/search?utf8=%E2%9C%93&q=milestone%3A%22overhaul%22&type=Issues) matches issues that are in a milestone named "overhaul." |
-|                            | [**milestone:"bug fix"**](https://github.com/search?utf8=%E2%9C%93&q=milestone%3A%22bug+fix%22&type=Issues) matches issues that are in a milestone named "bug fix."    |
+| Qualifier                  | Exemplo                                                                                                                                                                         |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>milestone:<em>MILESTONE</em></code> | [**milestone:"overhaul"**](https://github.com/search?utf8=%E2%9C%93&q=milestone%3A%22overhaul%22&type=Issues) identifica os problemas que estão em um marco chamado "overhaul". |
+|                            | [**milestone:"bug fix"**](https://github.com/search?utf8=%E2%9C%93&q=milestone%3A%22bug+fix%22&type=Issues) identifica os problemas que estão em um marco chamado "bug fix".    |
 
 ## Pesquisar por quadro de projeto
 
 Você pode usar o qualificador `project` para encontrar problemas associados a um [quadro de projeto](/articles/about-project-boards/) específico em um repositório ou uma organização. Você deve pesquisar pelo número do quadro de projeto. Você pode encontrar o número do quadro de projeto no final da URL do quadro de projeto.
 
-| Qualifier                  | Exemplo                                                                                                                 |
-| -------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| <code>project:<em>PROJECT_BOARD</em></code> | **project:github/57** matches issues owned by GitHub that are associated with the organization's project board 57.      |
-| <code>project:<em>REPOSITORY/PROJECT_BOARD</em></code> | **project:github/linguist/1** matches issues that are associated with project board 1 in @github's linguist repository. |
+| Qualifier                  | Exemplo                                                                                                                     |
+| -------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| <code>project:<em>PROJECT_BOARD</em></code> | **project:github/57** identifica os problemas do GitHub associados aos quadros de projeto 57 da organização.                |
+| <code>project:<em>REPOSITORY/PROJECT_BOARD</em></code> | **project:github/linguist/1** identifica os problemas associados ao quadro de projeto 1 no repositório Linguist de @github. |
 
 ## Pesquisar por status do commit
 
 Você pode filtrar pull requests com base no status dos commits. Isso é especialmente útil se você estiver usando [a API de Status](/rest/reference/commits#commit-statuses) ou um serviço de CI.
 
-| Qualifier        | Exemplo                                                                                                                                                                                                                                    |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `status:pending` | [**language:go status:pending**](https://github.com/search?utf8=%E2%9C%93&q=language%3Ago+status%3Apending) matches pull requests opened into Go repositories where the status is pending.                                                 |
-| `status:success` | [**is:open status:success finally in:body**](https://github.com/search?utf8=%E2%9C%93&q=is%3Aopen+status%3Asuccess+finally+in%3Abody&type=Issues) matches open pull requests with the word "finally" in the body with a successful status. |
-| `status:failure` | [**created:2015-05-01..2015-05-30 status:failure**](https://github.com/search?utf8=%E2%9C%93&q=created%3A2015-05-01..2015-05-30+status%3Afailure&type=Issues) matches pull requests opened on May 2015 with a failed status.               |
+| Qualifier        | Exemplo                                                                                                                                                                                                                                       |
+| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `status:pending` | [**language:go status:pending**](https://github.com/search?utf8=%E2%9C%93&q=language%3Ago+status%3Apending) identifica as pull requests abertas nos repositórios de Go com status pendente.                                                   |
+| `status:success` | [**is:open status:success finally in:body**](https://github.com/search?utf8=%E2%9C%93&q=is%3Aopen+status%3Asuccess+finally+in%3Abody&type=Issues) identifica as pull requests abertas com a palavra "finally" no texto com status de sucesso. |
+| `status:failure` | [**created:2015-05-01..2015-05-30 status:failure**](https://github.com/search?utf8=%E2%9C%93&q=created%3A2015-05-01..2015-05-30+status%3Afailure&type=Issues) identifica os pull requests abertos em maio de 2015 com status de falha.        |
 
 ## Pesquisar por SHA do commit
 
 Se você souber o hash SHA de um commit, poderá usá-lo para pesquisar pull requests que contêm esse SHA. A sintaxe do SHA deve ter no mínimo sete caracteres.
 
-| Qualifier                  | Exemplo                                                                                                                                                                      |
-| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code><em>SHA</em></code> | [**e1109ab**](https://github.com/search?q=e1109ab&type=Issues) matches pull requests with a commit SHA that starts with `e1109ab`.                                           |
-|                            | [**0eff326d6213c is:merged**](https://github.com/search?q=0eff326d+is%3Amerged&type=Issues) matches merged pull requests with a commit SHA that starts with `0eff326d6213c`. |
+| Qualifier                  | Exemplo                                                                                                                                                                                    |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| <code><em>SHA</em></code> | [**e1109ab**](https://github.com/search?q=e1109ab&type=Issues) identifica os pull requests com um SHA de commit que começa com `e1109ab`.                                                  |
+|                            | [**0eff326d6213c is:merged**](https://github.com/search?q=0eff326d+is%3Amerged&type=Issues) identifica as pull requests com merge que têm um SHA de commit que começa com `0eff326d6213c`. |
 
 ## Pesquisar por nome do branch
 
 Você pode filtrar pull requests com base no branch de origem (branch "head") ou no branch do merge (branch "base").
 
-| Qualifier                  | Exemplo                                                                                                                                                                                                                      |
-| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>head:<em>HEAD_BRANCH</em></code> | [**head:change is:closed is:unmerged**](https://github.com/search?utf8=%E2%9C%93&q=head%3Achange+is%3Aclosed+is%3Aunmerged) matches pull requests opened from branch names beginning with the word "change" that are closed. |
-| <code>base:<em>BASE_BRANCH</em></code> | [**base:gh-pages**](https://github.com/search?utf8=%E2%9C%93&q=base%3Agh-pages) matches pull requests that are being merged into the `gh-pages` branch.                                                                      |
+| Qualifier                  | Exemplo                                                                                                                                                                                                                               |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>head:<em>HEAD_BRANCH</em></code> | [**head:change is:closed is:unmerged**](https://github.com/search?utf8=%E2%9C%93&q=head%3Achange+is%3Aclosed+is%3Aunmerged) identifica os pull requests abertos em branches cujo nome começa com a palavra "change" e estão fechados. |
+| <code>base:<em>BASE_BRANCH</em></code> | [**base:gh-pages**](https://github.com/search?utf8=%E2%9C%93&q=base%3Agh-pages) identifica os pull requests que estão sendo incorporados ao branch `gh-pages`.                                                                        |
 
 ## Pesquisar por linguagem
 
 Com o qualificador `language`, você pode pesquisar problemas e pull requests em repositórios que foram escritos em uma linguagem específica.
 
-| Qualifier                  | Exemplo                                                                                                                                                 |
-| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>language:<em>LANGUAGE</em></code> | [**language:ruby state:open**](https://github.com/search?q=language%3Aruby+state%3Aopen&type=Issues) matches open issues that are in Ruby repositories. |
+| Qualifier                  | Exemplo                                                                                                                                                                 |
+| -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>language:<em>LANGUAGE</em></code> | [**language:ruby state:open**](https://github.com/search?q=language%3Aruby+state%3Aopen&type=Issues) identifica os problemas abertos que estão em repositórios de Ruby. |
 
 ## Pesquisar por número de comentários
 
 Você pode usar o qualificador `comments` com os [qualificadores maior que, menor que e intervalo](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax) para pesquisar pelo número de comentários.
 
-| Qualifier                  | Exemplo                                                                                                                                                                |
-| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>comments:<em>n</em></code> | [**state:closed comments:&gt;100**](https://github.com/search?q=state%3Aclosed+comments%3A%3E100&type=Issues) matches closed issues with more than 100 comments. |
-|                            | [**comments:500..1000**](https://github.com/search?q=comments%3A500..1000&type=Issues) matches issues with comments ranging from 500 to 1,000.                         |
+| Qualifier                  | Exemplo                                                                                                                                                                           |
+| -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>comments:<em>n</em></code> | [**state:closed comments:&gt;100**](https://github.com/search?q=state%3Aclosed+comments%3A%3E100&type=Issues) identifica os problemas fechados com mais de 100 comentários. |
+|                            | [**comments:500..1000**](https://github.com/search?q=comments%3A500..1000&type=Issues) identifica os problemas com 500 a 1.000 comentários.                                       |
 
 ## Pesquisar por número de interações
 
 Você pode filtrar problemas e pull requests pelo número de interações com o qualificador `interactions` e os [qualificadores maior que, menor que e intervalo](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax). O número de interações é o número de interações e comentários em um problema ou uma pull request.
 
-| Qualifier                  | Exemplo                                                                                                                                                         |
-| -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>interactions:<em>n</em></code> | [** interactions:&gt;2000**](https://github.com/search?q=interactions%3A%3E2000) identifica pull requests ou problemas com mais de 2.000 interações.  |
-|                            | [**interactions:500..1000**](https://github.com/search?q=interactions%3A500..1000) matches pull requests or issues with interactions ranging from 500 to 1,000. |
+| Qualifier                  | Exemplo                                                                                                                                                        |
+| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>interactions:<em>n</em></code> | [** interactions:&gt;2000**](https://github.com/search?q=interactions%3A%3E2000) identifica pull requests ou problemas com mais de 2.000 interações. |
+|                            | [**interactions:500..1000**](https://github.com/search?q=interactions%3A500..1000) identifica pull requests ou problemas com 500 a 1.000 interações.           |
 
 ## Pesquisar por número de reações
 
@@ -242,7 +242,7 @@ Você pode filtrar problemas e pull requests pelo número de reações usando o 
 | Qualifier                  | Exemplo                                                                                                                                             |
 | -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
 | <code>reactions:<em>n</em></code> | [** reactions:&gt;1000**](https://github.com/search?q=reactions%3A%3E1000&type=Issues) identifica os problemas com mais de 1.000 reações. |
-|                            | [**reactions:500..1000**](https://github.com/search?q=reactions%3A500..1000) matches issues with reactions ranging from 500 to 1,000.               |
+|                            | [**reactions:500..1000**](https://github.com/search?q=reactions%3A500..1000) identifica os problemas com 500 a 1.000 reações.                       |
 
 ## Pesquisar por pull requests de rascunho
 Você pode filtrar por pull requests de rascunho. Para obter mais informações, consulte "[Sobre pull requests](/articles/about-pull-requests#draft-pull-requests)".

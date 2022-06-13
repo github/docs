@@ -147,6 +147,8 @@ Plivo | Plivo Auth ID | plivo_auth_id{% endif %}
 Plivo | Plivo 验证令牌 | plivo_auth_token{% endif %} Postman | Postman API 密钥 | postman_api_key Proctorio | Proctorio 消费者密钥 | proctorio_consumer_key Proctorio | Proctorio 链接密钥 | proctorio_linkage_key Proctorio | Proctorio 注册密钥 | proctorio_registration_key Proctorio | Proctorio 密钥 | proctorio_secret_key Pulumi | Pulumi 访问令牌 | pulumi_access_token
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
 PyPI | PyPI API Token | pypi_api_token{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.5 or ghae-issue-7375 %}
+redirect.pizza | redirect.pizza API Token | redirect_pizza_api_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
 RubyGems | RubyGems API 密钥 | rubygems_api_key{% endif %} Samsara | Samsara API 令牌 | samsara_api_token Samsara | Samsara OAuth 访问令牌 | samsara_oauth_access_token
 {%- ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6944 %}
