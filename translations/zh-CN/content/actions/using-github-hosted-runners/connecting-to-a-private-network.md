@@ -1,6 +1,6 @@
 ---
 title: 连接到专用网络
-intro: 'You can connect {% data variables.product.prodname_dotcom %}-hosted runners to resources on a private network, including package registries, secret managers, and other on-premises services.'
+intro: '可以将 {% data variables.product.prodname_dotcom %} 托管的运行器连接到专用网络上的资源，包括包注册表、机密管理器和其他本地服务。'
 versions:
   fpt: '*'
   ghes: '*'
@@ -14,57 +14,57 @@ topics:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## About {% data variables.product.prodname_dotcom %}-hosted runners networking
+## 关于 {% data variables.product.prodname_dotcom %} 托管的运行器联网
 
-By default, {% data variables.product.prodname_dotcom %}-hosted runners have access to the public internet. However, you may also want these runners to access resources on your private network, such as a package registry, a secret manager, or other on-premise services.
+默认情况下，{% data variables.product.prodname_dotcom %} 托管的运行器可以访问公共互联网。 但是，您可能还希望这些运行器访问专用网络上的资源，例如程序包注册表、机密管理器或其他本地服务。
 
-{% data variables.product.prodname_dotcom %}-hosted runners are shared across all {% data variables.product.prodname_dotcom %} customers, so you will need a way of connecting your private network to just your runners while they are running your workflows. There are a few different approaches you could take to configure this access, each with different advantages and disadvantages.
+{% data variables.product.prodname_dotcom %} 托管的运行器在所有 {% data variables.product.prodname_dotcom %} 客户之间共享，因此您需要一种方法，在运行器运行工作流程时，将您的专用网络仅连接到他们的运行器。 您可以采取几种不同的方法来配置此访问，每种方法都有不同的优点和缺点。
 
 {% ifversion fpt or ghec or ghes > 3.4 %}
-### Using an API Gateway with OIDC
+### 将 API 网关与 OIDC 配合使用
 
-With {% data variables.product.prodname_actions %}, you can use OpenID Connect (OIDC) tokens to authenticate your workflow outside of {% data variables.product.prodname_actions %}. For example, you could run an API Gateway on the edge of your private network that authenticates incoming requests with the OIDC token and then makes API requests on behalf of your workflow in your private network.
+借助 {% data variables.product.prodname_actions %}，您可以使用 OpenID Connect (OIDC) 令牌在 {% data variables.product.prodname_actions %} 之外验证工作流程。 例如，您可以在专用网络的边缘运行 API 网关，该网关使用 OIDC 令牌对传入请求进行身份验证，然后代表专用网络中的工作流程发出 API 请求。
 
-The following diagram gives an overview of this solution's architecture:
+下图概述了此解决方案的架构：
 
-![Diagram of an OIDC gateway](/assets/images/help/images/actions-oidc-gateway.png)
+![OIDC 网关的示意图](/assets/images/help/images/actions-oidc-gateway.png)
 
-It's important that you authenticate not just that the OIDC token came from {% data variables.product.prodname_actions %}, but that it came specifically from your expected workflows, so that other {% data variables.product.prodname_actions %} users aren't able to access services in your private network. You can use OIDC claims to create these conditions. For more information, see "[Defining trust conditions on cloud roles using OIDC claims](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#defining-trust-conditions-on-cloud-roles-using-oidc-claims)."
+重要的是，您不仅要验证 OIDC 令牌来自 {% data variables.product.prodname_actions %}，还要特别验证它来自预期的工作流程，以便其他 {% data variables.product.prodname_actions %} 用户无法访问您的专用网络中的服务。 您可以使用 OIDC 声明来创建这些条件。 更多信息请参阅“[使用 OIDC 声明定义云角色上的信任条件](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#defining-trust-conditions-on-cloud-roles-using-oidc-claims)”。
 
-The main disadvantage of this approach is you have to implement the API gateway to make requests on your behalf, as well as run it on the edge of your network.
+此方法的主要缺点是您必须实现 API 网关以代表您发出请求，并在网络边界运行它。
 
-But there are various advantages too:
-- You don't need to configure any firewalls, or modify the routing of your private network.
-- The API gateway is stateless, and so it scales horizontally to handle high availability and high throughput.
+但也有各种优点：
+- 您无需配置任何防火墙，也无需修改专用网络的路由。
+- API 网关是无状态的，因此可以水平扩展以处理高可用性和高吞吐量。
 
-For more information, see [a reference implementation of an API Gateway](https://github.com/github/actions-oidc-gateway-example) (note that this requires customization for your use case and is not ready-to-run as-is), and "[About security hardening with OpenID Connect](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)".
+更多信息请参阅 [API Gateway 的参考实现](https://github.com/github/actions-oidc-gateway-example)（请注意，这需要针对您的使用情况进行自定义，并且不能按原样运行）和[关于使用 OpenID Connect 进行安全强化](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)”。
 {% endif %}
 
-### Using WireGuard to create a network overlay
+### 使用 WireGuard 创建网络覆盖
 
-If you don't want to maintain separate infrastructure for an API Gateway, you can create an overlay network between your runner and a service in your private network, by running WireGuard in both places.
+如果您不想为 API Gateway 维护单独的基础设施，则可以通过在两个地方运行 WireGuard，在运行器和专用网络中的服务之间创建一个覆盖网络。
 
-There are various disadvantages to this approach:
+这种方法有几个缺点：
 
-- To reach WireGuard running on your private service, you will need a well-known IP address and port that your workflow can reference: this can either be a public IP address and port, a port mapping on a network gateway, or a service that dynamically updates DNS.
-- WireGuard doesn't handle NAT traversal out of the box, so you'll need to identify a way to provide this service.
-- This connection is one-to-one, so if you need high availability or high throughput you'll need to build that on top of WireGuard.
-- You'll need to generate and securely store keys for both the runner and your private service. WireGuard uses UDP, so your network must support UDP traffic.
+- 要访问在专用服务上运行的 WireGuard，需要工作流程可以引用的已知 IP 地址和端口：这可以是公共 IP 地址和端口、网络网关上的端口映射或动态更新 DNS 的服务。
+- WireGuard 不会开箱即用地处理 NAT 遍历，因此您需要确定一种提供此服务的方法。
+- 这种连接是一对一的，因此，如果需要高可用性或高吞吐量，则需要在WireGuard 之上构建它。
+- 您需要为运行器和私有服务生成并安全地存储密钥。 WireGuard 使用 UDP，因此您的网络必须支持 UDP 流量。
 
-There are some advantages too, as you can run WireGuard on an existing server so you don't have to maintain separate infrastructure, and it's well supported on {% data variables.product.prodname_dotcom %}-hosted runners.
+还有一些优点，因为您可以在现有的服务器上运行 WireGuard，所以你不必维护单独的基础设施，而且它在 {% data variables.product.prodname_dotcom %} 托管的运行器上得到了很好的支持。
 
-### Example: Configuring WireGuard
+### 示例：配置 WireGuard
 
-This example workflow configures WireGuard to connect to a private service.
+此示例工作流程将 WireGuard 配置为连接到专用服务。
 
-For this example, the WireGuard instance running in the private network has this configuration:
-- Overlay network IP address of `192.168.1.1`
-- Public IP address and port of `1.2.3.4:56789`
-- Public key `examplepubkey1234...`
+对于此示例，在专用网络中运行的 WireGuard 实例具有以下配置：
+- `192.168.1.1` 的覆盖网络 IP 地址
+- `1.2.3.4:56789` 的公共 IP 地址和端口
+- 公钥 `examplepubkey1234...`
 
-The WireGuard instance in the {% data variables.product.prodname_actions %} runner has this configuration:
-- Overlay network IP address of `192.168.1.2`
-- Private key stores as an {% data variables.product.prodname_actions %} secret under `WIREGUARD_PRIVATE_KEY`
+{% data variables.product.prodname_actions %} 运行器中的 WireGuard 实例具有以下配置：
+- `192.168.1.2` 的覆盖网络 IP 地址
+- 私钥作为 {% data variables.product.prodname_actions %} 机密存储在 `WIREGUARD_PRIVATE_KEY`下
 
 ```yaml
 name: WireGuard example
@@ -91,14 +91,14 @@ jobs:
       - run: curl -vvv http://192.168.1.1
 ```
 
-For more information, see [WireGuard's Quick Start](https://www.wireguard.com/quickstart/), as well as "[Encrypted Secrets](/actions/security-guides/encrypted-secrets)" for how to securely store keys.
+有关更多信息，请参阅 [WireGuard 快速入门](https://www.wireguard.com/quickstart/)，以及“[加密机密](/actions/security-guides/encrypted-secrets)”了解如何安全存储密钥。
 
-### Using Tailscale to create a network overlay
+### 使用 Tailscale 创建网络叠加
 
-Tailscale is a commercial product built on top of WireGuard. This option is very similar to WireGuard, except Tailscale is more of a complete product experience instead of an open source component.
+Tailscale 是建立在 WireGuard 之上的商业产品。 此选项与 WireGuard 非常相似，除了 Tailscale 更像是完整的产品体验，而不是开源组件。
 
-It's disadvantages are similar to WireGuard: The connection is one-to-one, so you might need to do additional work for high availability or high throughput. You still need to generate and securely store keys. The protocol is still UDP, so your network must support UDP traffic.
+它的缺点与 WireGuard 类似：连接是一对一的，因此您可能需要执行额外的工作以实现高可用性或高吞吐量。 您仍然需要生成并安全地存储密钥。 该协议仍然是 UDP，因此您的网络必须支持 UDP 流量。
 
-However, there are some advantages over WireGuard: NAT traversal is built-in, so you don't need to expose a port to the public internet. It is by far the quickest of these options to get up and running, since Tailscale provides an {% data variables.product.prodname_actions %} workflow with a single step to connect to the overlay network.
+但与 WireGuard 相比有一些优势：NAT 遍历是内置的，因此您无需向公共互联网公开端口。 到目前为止，它是这些选项中启动和运行最快的选项，因为 Tailscale 提供 {% data variables.product.prodname_actions %} 工作流程，只需一步即可连接到覆盖网络。
 
-For more information, see the [Tailscale GitHub Action](https://github.com/tailscale/github-action), as well as "[Encrypted Secrets](/actions/security-guides/encrypted-secrets)" for how to securely store keys.
+更多信息请参阅 [Tailscale GitHub Action](https://github.com/tailscale/github-action)，以及参阅“[加密机密](/actions/security-guides/encrypted-secrets)”，了解如何安全存储密钥。

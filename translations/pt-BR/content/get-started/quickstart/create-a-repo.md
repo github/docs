@@ -34,7 +34,10 @@ Você pode armazenar uma série de projetos em repositórios de {% data variable
 
 {% note %}
 
-**Observação:** você pode criar repositórios públicos para um projeto de código aberto. Ao criar um repositório público, certifique-se de incluir um [arquivo de licença](https://choosealicense.com/) que determina como deseja que seu projeto seja compartilhado com outras pessoas. {% data reusables.open-source.open-source-guide-repositories %} {% data reusables.open-source.open-source-learning %}
+**Notas:**
+- You can create public repositories for an open source project. Ao criar um repositório público, certifique-se de incluir um [arquivo de licença](https://choosealicense.com/) que determina como deseja que seu projeto seja compartilhado com outras pessoas. {% data reusables.open-source.open-source-guide-repositories %}
+- {% data reusables.open-source.open-source-learning %}
+- You can also add community health files to your repositories, to set guidelines on how to contribute, keep your repositories safe, and much more. Para obter mais informações, consulte "[Criando um arquivo padrão de integridade da comunidade](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
 
 {% endnote %}
 

@@ -86,5 +86,14 @@ export default {
       description: 'final name used to map GraphQL and webhook schema names to the current version',
       type: 'string',
     },
+    allowedFrontmatterPattern: {
+      desciption: 'pattern used in a regex to validate versions frontmatter in lib/frontmatter.js',
+      type: 'string',
+    },
+    allowedInlinePattern: {
+      desciption:
+        'pattern used in a regex to valid ifversion tag in tests/linting/lint-versioning.js',
+      type: 'string',
+    },
   },
 }

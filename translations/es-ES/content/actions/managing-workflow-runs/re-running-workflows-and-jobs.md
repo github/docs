@@ -17,7 +17,7 @@ versions:
 
 ## Acerca de volver a ejecutar flujos de trabajo y jobs
 
-Volver a ejecutar un flujo de tabajo{% ifversion re-run-jobs %} o los jobs dentro de este{% endif %} utiliza los mismos `GITHUB_SHA` (SHA de confirmación) y `GITHUB_REF` (Git ref) del evento original que activó la ejecución de flujo de trabajo. Puedes volver a ejecutar un flujo de trabajo{% ifversion re-run-jobs %} o jobs en un flujo de trabajo{% endif %} hasta en los 30 días posteriores a la ejecución inicial.{% ifversion debug-reruns %} Cuando vuelves a ejecutar un flujo de trabajo o jobs en un flujo de trabajo, puedes habilitar el registro de depuración para dicha re-ejecución. Esto habilitará el registro de diagnóstico del ejecutor y el registro de depuración de pasos para la re-ejecución. Para obtener más información sobre el registro de depuración, consulta la sección "[Habilitar el registro de depuración](/actions/monitoring-and-troubleshooting-workflows/enabling-debug-logging)".{% endif %}
+Volver a ejecutar un flujo de tabajo{% ifversion re-run-jobs %} o los jobs dentro de este{% endif %} utiliza los mismos `GITHUB_SHA` (SHA de confirmación) y `GITHUB_REF` (Git ref) del evento original que activó la ejecución de flujo de trabajo. You can re-run a workflow{% ifversion re-run-jobs %} or jobs in a workflow{% endif %} for up to 30 days after the initial run.{% ifversion re-run-jobs %} You cannot re-run jobs in a workflow once its logs have passed their retention limits. Para obtener más información, consulta la sección "[Límites de uso, facturación y adminsitración](/actions/learn-github-actions/usage-limits-billing-and-administration#artifact-and-log-retention-policy)".{% endif %}{% ifversion debug-reruns %} Cuando vuelves a ejecutar un flujo de trabajo o jobs en alguno de ellos, puedes habilitar el registro de depuración para la re-ejecución. Esto habilitará el registro de diagnóstico del ejecutor y el registro de depuración de pasos para la re-ejecución. Para obtener más información sobre el registro de depuración, consulta la sección "[Habilitar el registro de depuración](/actions/monitoring-and-troubleshooting-workflows/enabling-debug-logging)".{% endif %}
 
 ## Volver a ejecutar todos los jobs en un flujo de trabajo
 
@@ -134,6 +134,14 @@ gh run rerun --job <em>job-id</em> --debug
 
 {% endif %}
 {% endcli %}
+
+{% endif %}
+
+{% ifversion partial-reruns-with-reusable %}
+
+## Volver a ejecutar los flujos de trabajo y los jobs con flujos de trabajo reutilizables
+
+{% data reusables.actions.partial-reruns-with-reusable %}
 
 {% endif %}
 
