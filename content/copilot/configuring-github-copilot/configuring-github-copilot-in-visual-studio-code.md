@@ -31,7 +31,7 @@ You can use the default keyboard shortcuts in {% data variables.product.prodname
 ![Keyboard shortcut search bar](/assets/images/help/copilot/vsc-shortcut-search-bar.png)
 1. Next to the command you want to change, click the pencil icon.
 ![Keyboard shortcut editor](/assets/images/help/copilot/vsc-edit-shortcuts.png)
-1. Type the keystrokes you want to use for the command, and press **Enter**.
+1. Type the keystrokes you want to use for the command, then press <kbd>Enter</kbd>/<kbd>Return</kbd>.
 ![Edit keyboard shortcut](/assets/images/help/copilot/vsc-edit-shortcuts-textbox.png)
 
 ## Enabling and disabling {% data variables.product.prodname_copilot %}
