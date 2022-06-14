@@ -116,12 +116,12 @@ You can also set an announcement banner in the administrative shell using a comm
   ![Add announcement button](/assets/images/enterprise/site-admin-settings/add-announcement-button.png)
 1. Under "Announcement", in the text field, type the announcement you want displayed in a banner.
   ![Text field to enter announcement](/assets/images/enterprise/site-admin-settings/announcement-text-field.png)
+1. Optionally, under "Expires on", select the calendar drop-down menu and click an expiration date.
+  ![Calendar drop-down menu to choose expiration date](/assets/images/enterprise/site-admin-settings/expiration-drop-down.png)
 {% ifversion ghe-announce-dismiss %}
 1. Optionally, enable the "User dismissible" checkbox to make the announcement dismissible by each user.
   ![User dismissible checkbox](/assets/images/enterprise/site-admin-settings/user-dismissible-checkbox.png)
 {% endif %}
-1. Optionally, under "Expires on", select the calendar drop-down menu and click an expiration date.
-  ![Calendar drop-down menu to choose expiration date](/assets/images/enterprise/site-admin-settings/expiration-drop-down.png)
 
 {% data reusables.enterprise_site_admin_settings.message-preview-save %}
 {% endif %}
