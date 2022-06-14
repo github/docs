@@ -1337,6 +1337,34 @@ Key | Type | Description
 
 {% endif %}
 
+{% ifversion ghas-enablement-webhook %}
+
+## security_and_analysis
+
+Activity related to enabling or disabling code security and analysis features for a repository or organization.
+
+### Availability
+
+- Repository webhooks
+- Organization webhooks
+- {% data variables.product.prodname_github_apps %} with at least `read-only` access on repositories administration
+
+### Webhook payload object
+
+Key | Type | Description
+----|------|-------------
+`changes`|`object` | The changes that were made to the code security and analysis features.
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
+
+### Webhook payload example
+
+{{ webhookPayloadsForCurrentVersion.security_and_analysis }}
+
+{% endif %}
+
 {% ifversion fpt or ghec %}
 ## sponsorship
 
