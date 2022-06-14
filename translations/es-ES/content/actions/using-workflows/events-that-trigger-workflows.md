@@ -1250,12 +1250,12 @@ on: workflow_dispatch
 
 #### Proporcionar entradas
 
-Puedes configurar propiedades de entrada definidas personalmente, valores de entrada predeterminados y entradas requeridas para el evento directamente en tu flujo de trabajo. Cuando activas el evento, puedes proporcionar el `ref` y cualquier `inputs`. When the workflow runs, you can access the input values in the {% ifversion actions-unified-inputs %}`inputs`{% else %}`github.event.inputs`{% endif %} context. Para obtener más información, consulta "[Contextos](/actions/learn-github-actions/contexts)".
+Puedes configurar propiedades de entrada definidas personalmente, valores de entrada predeterminados y entradas requeridas para el evento directamente en tu flujo de trabajo. Cuando activas el evento, puedes proporcionar el `ref` y cualquier `inputs`. Cuando el flujo de trabajo se ejecuta, puedes acceder a los valores de entrada en el contexto {% ifversion actions-unified-inputs %}`inputs`{% else %}`github.event.inputs`{% endif %}. Para obtener más información, consulta "[Contextos](/actions/learn-github-actions/contexts)".
 
 {% data reusables.actions.inputs-vs-github-event-inputs %}
 
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5511 %}
-Este ejemplo define las entradas llamadas `logLevel`, `tags` y `environment`. Pasarás los valores para estas entradas al flujo de trabajo cuando lo ejecutes. This workflow then prints the values to the log, using the {% ifversion actions-unified-inputs %}`inputs.logLevel`, `inputs.tags`, and  `inputs.environment`{% else %}`github.event.inputs.logLevel`, `github.event.inputs.tags`, and  `github.event.inputs.environment`{% endif %} context properties.
+Este ejemplo define las entradas llamadas `logLevel`, `tags` y `environment`. Pasarás los valores para estas entradas al flujo de trabajo cuando lo ejecutes. Entonces, este flujo de trabajo imprime los valores en la bitácora, utilizando las propiedades de contexto {% ifversion actions-unified-inputs %}`inputs.logLevel`, `inputs.tags` y `inputs.environment`{% else %}`github.event.inputs.logLevel`, `github.event.inputs.tags` y `github.event.inputs.environment`{% endif %}.
 
 ```yaml
 on: 
@@ -1306,7 +1306,7 @@ gh workflow run run-tests.yml -f logLevel=warning -f tags=false -f environment=s
 Para obtener más información, consulta la información del {% data variables.product.prodname_cli %} en la sección "[Ejecutar un flujo de trabajo manualmente](/actions/managing-workflow-runs/manually-running-a-workflow)".
 
 {% else %}
-This example defines the `name` and `home` inputs and prints them using the {% ifversion actions-unified-inputs %}`inputs.name` and `inputs.home`{% else %}`github.event.inputs.name` and `github.event.inputs.home`{% endif %} contexts. Si no se proporciona un `home`, se imprime el valor predeterminado 'The Octoverse'.
+Este ejemplo define las entradas de `name` y `home` y las imprime utilizando los contextos de {% ifversion actions-unified-inputs %}`inputs.name` y `inputs.home`{% else %}`github.event.inputs.name` y `github.event.inputs.home`{% endif %}. Si no se proporciona un `home`, se imprime el valor predeterminado 'The Octoverse'.
 
 ```yaml
 name: Manually triggered workflow

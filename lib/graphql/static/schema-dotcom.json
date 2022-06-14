@@ -14804,7 +14804,9 @@
           "type": "String!",
           "id": "string",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#string"
+          "href": "/graphql/reference/scalars#string",
+          "isDeprecated": true,
+          "deprecationReason": "<p><code>packageLabel</code> will be removed. Use normalized <code>packageName</code> field instead. Removal on 2022-10-01 UTC.</p>"
         },
         {
           "name": "packageManager",

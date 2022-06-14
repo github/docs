@@ -124,7 +124,7 @@ aws ec2 run-instances \
 
 Si esta es una instancia de producción, recomendamos firmemente asignar una IP elástica (EIP) y asociarla con la instancia antes de continuar con la configuración del {% data variables.product.prodname_ghe_server %}. De lo contrario, la dirección IP pública de la instancia no se conservará después de que se reinicie la instancia. Para obtener más información, consulta "[Asignar una dirección IP elástica](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#using-instance-addressing-eips-allocating)" y "[Asociar una dirección IP elástica con una instancia en ejecución](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#using-instance-addressing-eips-associating)" en la documentación de Amazon.
 
-Tanto en la instancia principal y en la de réplica deberían asignarse EIP separadas en las configuraciones de alta disponibilidad de producción. Para obtener más información, consulta "[Configurar el {% data variables.product.prodname_ghe_server %} para alta disponibilidad](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-github-enterprise-server-for-high-availability/)."
+Tanto en la instancia principal y en la de réplica deberían asignarse EIP separadas en las configuraciones de alta disponibilidad de producción. Para obtener más información, consulta "[Configurar {% data variables.product.prodname_ghe_server %} para alta disponibilidad](/enterprise/admin/guides/installation/configuring-github-enterprise-server-for-high-availability/)."
 
 ## Configurar la instancia de {% data variables.product.prodname_ghe_server %}
 

@@ -342,3 +342,4 @@ sections:
     - Os limites de recursos que são específicos para processamento de hooks pre-receive podem causar falha em alguns hooks pre-receive.
     - Os serviços de ações precisam ser reiniciados após a restauração de um dispositivo de um backup em um host diferente.
     - 'Deleted repositories will not be purged from disk automatically after the 90-day retention period ends. [Updated: 2022-06-08]'
+    - 'The Management Console cannot be accessed on an under-provisioned instance. [Updated: 2022-06-14]'
