@@ -17,7 +17,7 @@ shortTitle: Recover a HA configuration
 
 ## About recovery for a high availability configuration
 
-You can use the former primary appliance as the new replica appliance if the failover was planned or was not related to the health of the appliance. If the failover was related to an issue with the primary appliance, you may prefer to create a new replica appliance. For more information, see "[Creating a high availability replica](/enterprise/{{ currentVersion }}/admin/guides/installation/creating-a-high-availability-replica/)."
+You can use the former primary appliance as the new replica appliance if the failover was planned or was not related to the health of the appliance. If the failover was related to an issue with the primary appliance, you may prefer to create a new replica appliance. For more information, see "[Creating a high availability replica](/enterprise/admin/guides/installation/creating-a-high-availability-replica/)."
 
 {% warning %}
 
