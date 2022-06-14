@@ -22,7 +22,7 @@ You can use the Dependency submission API in a {% data variables.product.prodnam
 - translate the list of dependencies into the format accepted by the Dependency submission API. For more information about the format, see the body parameters for the "Create a repository snapshot" API operation in the [Dependency submission REST API documentation](/rest/dependency-graph/dependency-submission).
 - submit the formatted list of dependencies to the Dependency submission API.
 
-Actions that perform these steps for various ecosystems are available on {% data variables.product.prodname_marketplace %}.
+Actions that perform these steps for various ecosystems are available on {% data variables.product.prodname_marketplace %}. You can find links to the available actions in the table below: 
 
 Ecosystem | Action |
 --- | --- |
