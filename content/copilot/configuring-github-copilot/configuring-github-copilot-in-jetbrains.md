@@ -1,6 +1,6 @@
 ---
 title: Configuring GitHub Copilot in JetBrains
-intro: 'You can enable, configure, and disable {% data variables.product.prodname_copilot %} in JetBrains.'
+intro: 'You can enable, configure, and disable {% data variables.product.prodname_copilot %} in a JetBrains IDE.'
 product: '{% data reusables.gated-features.copilot %}'
 topics:
   - Copilot
