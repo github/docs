@@ -1,7 +1,7 @@
 ---
 title: Configuring GitHub Copilot
 shortTitle: Configure GitHub Copilot
-intro: 'You can configure a variety of settings for {% data variables.product.prodname_copilot %}.'
+intro: 'You can enable, configure, or disable {% data variables.product.prodname_copilot %} in a supported IDE.'
 versions:
   feature: 'copilot'
 topics:
