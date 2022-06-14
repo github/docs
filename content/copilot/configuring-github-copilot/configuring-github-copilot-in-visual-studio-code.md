@@ -38,7 +38,7 @@ You can use the default keyboard shortcuts in {% data variables.product.prodname
 
 You can enable or disable {% data variables.product.prodname_copilot %} from within {% data variables.product.prodname_vscode %}. The {% data variables.product.prodname_copilot %} status icon in the bottom panel of the {% data variables.product.prodname_vscode %} window indicates whether {% data variables.product.prodname_copilot %} is enabled or disabled. When enabled, the background color of the icon will match the color of the status bar. When disabled, the background color of the icon will contrast the color of the status bar.
 
-1. To enable or disable {% data variables.product.prodname_copilot %}, click the status icon in the bottom panel of the Visual Studio Code window.
+1. To enable or disable {% data variables.product.prodname_copilot %}, click the status icon in the bottom panel of the {% data variables.product.prodname_vscode %} window.
    ![Status icon in Visual Studio Code](/assets/images/help/copilot/status-icon-visual-studio-code.png)
 2. If you are disabling {% data variables.product.prodname_copilot %}, Visual Studio Code will ask whether you want to disable it globally, or only for the language of the file you are currently editing. To disable globally, click **Disable globally**. Alternatively, click the language-specific button to disable {% data variables.product.prodname_copilot %} for the specified language.
    ![Disable {% data variables.product.prodname_copilot %} globally or for the current language](/assets/images/help/copilot/disable-copilot-global-or-langugage.png)
