@@ -52,7 +52,7 @@ You can choose to enable or disable inline suggestions in Visual Studio Code.
 1. In the left-side panel of the settings tab, click **Extensions** and then select **Copilot**.
 1. Under "Inline Suggest:Enabled", select or deselect to enable or disable inline suggestions.
 
-## Enabling and disabling {% data variables.product.prodname_copilot %} for specific languages
+## Enabling or disabling {% data variables.product.prodname_copilot %} for specific languages
 
 You can specify which languages you want to enable or disable {% data variables.product.prodname_copilot %} for.
 
