@@ -24,7 +24,7 @@ You can use the default keyboard shortcuts in JetBrains when using {% data varia
 
 ## Enabling or disabling {% data variables.product.prodname_copilot %}
 
-You can enable or disable {% data variables.product.prodname_copilot %} from within JetBrains. The {% data variables.product.prodname_copilot %} status icon in the bottom panel of the JetBrains window indicates whether {% data variables.product.prodname_copilot %} is enabled or disabled. When enabled, the icon is highlighted. When disabled, the icon is grayed out.
+You can enable or disable {% data variables.product.prodname_copilot %} from within your JetBrains IDE. The {% data variables.product.prodname_copilot %} status icon in the bottom panel of the JetBrains window indicates whether {% data variables.product.prodname_copilot %} is enabled or disabled. When enabled, the icon is highlighted. When disabled, the icon is grayed out.
 
 1. To enable or disable {% data variables.product.prodname_copilot %}, click the status icon in the bottom panel of the JetBrains window.
    ![Status icon in JetBrains](/assets/images/help/copilot/status-icon-jetbrains.png)
