@@ -1,6 +1,6 @@
 ---
 title: Configuring GitHub Copilot in Visual Studio Code
-intro: 'You can enable, configure, and disable {% data variables.product.prodname_copilot %} in Visual Studio.'
+intro: 'You can enable, configure, and disable {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %}.'
 product: '{% data reusables.gated-features.copilot %}'
 versions:
   feature: 'copilot'
