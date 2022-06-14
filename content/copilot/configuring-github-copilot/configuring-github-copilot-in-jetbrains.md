@@ -31,7 +31,7 @@ You can enable or disable {% data variables.product.prodname_copilot %} from wit
 2. If you are disabling {% data variables.product.prodname_copilot %}, you will be asked whether you want to disable it globally, or for the language of the file you are currently editing. To disable globally, click **Disable Completions**. Alternatively, click the language-specific button to disable {% data variables.product.prodname_copilot %} for the specified language.
    ![Disable {% data variables.product.prodname_copilot %} globally or for the current language](/assets/images/help/copilot/disable-copilot-global-or-langugage-jetbrains.png)
 
-## Enabling and disabling advanced settings for {% data variables.product.prodname_copilot %}
+## Configuring advanced settings for {% data variables.product.prodname_copilot %}
 
 You can manage a number of advanced {% data variables.product.prodname_copilot %} settings, such as how code completions are displayed, and which languages you want to enable or disable {% data variables.product.prodname_copilot %} for, within JetBrains.
 
