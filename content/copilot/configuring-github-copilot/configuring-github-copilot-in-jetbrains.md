@@ -35,7 +35,7 @@ You can enable or disable {% data variables.product.prodname_copilot %} from wit
 
 You can manage advanced settings for {% data variables.product.prodname_copilot %} in your JetBrains IDE, such as how your IDE displays code completions, and which languages you want to enable or disable for {% data variables.product.prodname_copilot %}.
 
-1. In JetBrains, under the **File** menu, click **Settings**.
+1. In your JetBrains IDE, click the **File** menu, then click **Settings**.
 1. Under **Languages & Frameworks**, click **{% data variables.product.prodname_copilot %}**.
 1. Under "Disabled languages", select the languages you want to disable {% data variables.product.prodname_copilot %} for.
 
