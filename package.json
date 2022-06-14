@@ -146,7 +146,7 @@
     "jest-slow-test-reporter": "^1.0.0",
     "kill-port": "2.0.0",
     "linkinator": "^3.0.3",
-    "lint-staged": "^12.3.3",
+    "lint-staged": "^13.0.1",
     "make-promises-safe": "^5.1.0",
     "minimatch": "^5.0.0",
     "mkdirp": "^1.0.4",
