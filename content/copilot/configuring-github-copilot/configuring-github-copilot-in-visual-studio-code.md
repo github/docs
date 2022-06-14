@@ -11,7 +11,7 @@ topics:
 
 ## Keyboard shortcuts for {% data variables.product.prodname_copilot %}
 
-You can use the default keyboard shortcuts in Visual Studio Code when using {% data variables.product.prodname_copilot %}. Alternatively, you can rebind the shortcuts in the Keyboard Shortcuts editor using your preferred keyboard shortcuts for each specific command. You can search for each keyboard shortcut by its command name in the Keyboard Shortcuts editor.
+You can use the default keyboard shortcuts in {% data variables.product.prodname_vscode %} when using {% data variables.product.prodname_copilot %}. Alternatively, you can rebind the shortcuts in the Keyboard Shortcuts editor using your preferred keyboard shortcuts for each specific command. You can search for each keyboard shortcut by command name in the Keyboard Shortcuts editor.
 
 | Action | Shortcut | Command name |
 |:---|:---|:---|
