@@ -14,7 +14,7 @@ shortTitle: JetBrains
 You can use the default keyboard shortcuts in JetBrains when using {% data variables.product.prodname_copilot %}. Alternatively, you can rebind the shortcuts to your preferred keyboard shortcuts for each specific command. For more information on rebinding keyboard shortcuts in JetBrains, see the [JetBrains](https://www.jetbrains.com/help/idea/mastering-keyboard-shortcuts.html#choose-keymap) documentation.
 
 | Action | Shortcut |
-|:---|:---:|
+|:---|:---|
 |Accept an inline suggestion|<kbd>Tab</kbd>|
 |Dismiss an inline suggestion|<kbd>Esc</kbd>|
 |Show next inline suggestion|On macOS: <kbd>Option (⌥) or Alt</kbd>+<kbd>]</kbd><br> On Windows: <kbd>Alt</kbd>+<kbd>]</kbd>|
