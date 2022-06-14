@@ -50,7 +50,7 @@ If your {% data variables.product.product_location %} uses clustering, you canno
     ```{% endif %}
    {% note %}
 
-   **Note**: For more information about enabling access to the administrative shell via SSH, see "[Accessing the administrative shell (SSH)](/enterprise/{{ currentVersion }}/admin/configuration/accessing-the-administrative-shell-ssh)."
+   **Note**: For more information about enabling access to the administrative shell via SSH, see "[Accessing the administrative shell (SSH)](/enterprise/admin/configuration/accessing-the-administrative-shell-ssh)."
 
    {% endnote %}
 2. Apply the configuration.
