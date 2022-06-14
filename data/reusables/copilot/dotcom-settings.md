@@ -1,4 +1,4 @@
-## Configuring {% data variables.product.prodname_copilot %} settings in {% data variables.product.prodname_dotcom %}
+## Configuring {% data variables.product.prodname_copilot %} settings on {% data variables.product.prodname_dotcom_the_website %}
 
 Once you have an active {% data variables.product.prodname_copilot %} trial or subscription, in the settings page of your {% data variables.product.prodname_dotcom %} personal account, you can adjust specific {% data variables.product.prodname_copilot %} settings relating to the suggestions {% data variables.product.prodname_copilot %} offers, and how your {% data variables.product.prodname_copilot %} telemetry data is used.
 
