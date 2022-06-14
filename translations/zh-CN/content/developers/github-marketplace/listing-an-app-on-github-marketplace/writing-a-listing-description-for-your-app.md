@@ -168,7 +168,7 @@ shortTitle: 写入列表说明
 
   ### 学习所需的技能
 
-  GitHub Learning Lab 可以帮助您学习如何使用 GitHub、如何使用 Markdown 更有效地沟通以及如何处理合并冲突等。
+  GitHub Skills 可以帮助您学习如何使用 GitHub、如何使用 Markdown 更有效地沟通以及如何处理合并冲突等。
 
 - 仅大写专有名词。
 

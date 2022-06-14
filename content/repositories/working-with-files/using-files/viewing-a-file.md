@@ -50,7 +50,7 @@ In a file or pull request, you can also use the {% octicon "kebab-horizontal" ar
 4. To see earlier revisions of a specific line, or reblame, click {% octicon "versions" aria-label="The prior blame icon" %} until you've found the changes you're interested in viewing.
 ![Prior blame button](/assets/images/help/repository/prior-blame-button.png)
 
-{% if blame-ignore-revs %}
+{% ifversion blame-ignore-revs %}
 
 ## Ignore commits in the blame view
 

@@ -48,7 +48,7 @@ Blame ビューでは、{% octicon "versions" aria-label="The prior blame icon" 
 3. ファイルビューの右上隅で [**Blame**] をクリックして blame ビューを開きます。 ![[Blame] ボタン](/assets/images/help/repository/blame-button.png)
 4. 特定の行の過去のリビジョンを表示するには、見てみたい変更が見つかるまで {% octicon "versions" aria-label="The prior blame icon" %} をクリックします。 ![さらに前の状態に遡るボタン](/assets/images/help/repository/prior-blame-button.png)
 
-{% if blame-ignore-revs %}
+{% ifversion blame-ignore-revs %}
 
 ## Ignore commits in the blame view
 

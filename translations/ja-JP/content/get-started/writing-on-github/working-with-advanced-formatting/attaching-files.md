@@ -44,7 +44,7 @@ The maximum file size is:
 * PNG (*.png*)
 * GIF (*.gif*)
 * JPEG (*.jpg*)
-{%- if svg-support %}
+{%- ifversion svg-support %}
 * SVG (*.svg*)
 {%- endif %}
 * ログファイル (*.log*)

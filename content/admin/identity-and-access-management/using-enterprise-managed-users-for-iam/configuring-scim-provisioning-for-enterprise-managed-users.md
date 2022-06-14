@@ -25,7 +25,7 @@ Groups in your IdP can be used to manage team membership within your enterprise'
 
 ## Prerequisites
 
-Before you can configure provisioning for {% data variables.product.prodname_emus %}, you must configure SAML{% if oidc-for-emu %} or OIDC{% endif %} single-sign on. {% if oidc-for-emu %}
+Before you can configure provisioning for {% data variables.product.prodname_emus %}, you must configure SAML{% ifversion oidc-for-emu %} or OIDC{% endif %} single-sign on. {% ifversion oidc-for-emu %}
 
 - For more information on configuring OIDC, see "[Configuring OIDC for Enterprise Managed Users](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-oidc-for-enterprise-managed-users)" 
 - {% endif %}For information on configuring SAML, see "[Configuring SAML single sign-on for Enterprise Managed Users](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-saml-single-sign-on-for-enterprise-managed-users)."
@@ -66,7 +66,7 @@ After creating your personal access token and storing it securely, you can confi
 To configure provisioning, follow the appropriate link from the table below.
 
 | Identity provider | SSO method | More information |
-|---|---|---|{% if oidc-for-emu %}
+|---|---|---|{% ifversion oidc-for-emu %}
 | Azure AD | OIDC | [Tutorial: Configure GitHub Enterprise Managed User (OIDC) for automatic user provisioning](https://docs.microsoft.com/azure/active-directory/saas-apps/github-enterprise-managed-user-oidc-provisioning-tutorial) in the Azure AD documentation |{% endif %}
 | Azure AD | SAML | [Tutorial: Configure GitHub Enterprise Managed User for automatic user provisioning](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/github-enterprise-managed-user-provisioning-tutorial) in the Azure AD documentation |
 | Okta | SAML | [Configuring SCIM provisioning for Enterprise Managed Users with Okta](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users-with-okta) |

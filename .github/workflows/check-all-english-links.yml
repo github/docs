@@ -17,7 +17,7 @@ jobs:
   check_all_english_links:
     name: Check all links
     if: github.repository == 'github/docs-internal'
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     env:
       GITHUB_TOKEN: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
       FIRST_RESPONDER_PROJECT: Docs content first responder
@@ -50,18 +50,32 @@ jobs:
           NODE_ENV: production
           PORT: 4000
           DISABLE_OVERLOAD_PROTECTION: true
-          DISABLE_RENDER_CACHING: true
+          DISABLE_RENDERING_CACHE: true
           # We don't want or need the changelog entries in this context.
           CHANGELOG_DISABLED: true
           # The default is 10s. But because this runs overnight, we can
           # be a lot more patient.
           REQUEST_TIMEOUT: 20000
+          # Don't care about CDN caching image URLs
+          DISABLE_REWRITE_ASSET_URLS: true
         run: |
-          node server.mjs &
+          node server.mjs > /tmp/stdout.log 2> /tmp/stderr.log &
           sleep 5
-          curl --retry-connrefused --retry 3 -I http://localhost:4000/
+          curl --retry-connrefused --retry 4 -I http://localhost:4000/
+
+      - if: ${{ failure() }}
+        name: Debug server outputs on errors
+        run: |
+          echo "____STDOUT____"
+          cat /tmp/stdout.log
+          echo "____STDERR____"
+          cat /tmp/stderr.log
 
       - name: Run script
+        env:
+          # The default is 300 which works OK on a fast macbook pro
+          # but not so well in Actions.
+          LINKINATOR_CONCURRENCY: 100
         run: |
           script/check-english-links.js > broken_links.md
 
@@ -73,11 +87,6 @@ jobs:
       #
       # https://docs.github.com/actions/reference/context-and-expression-syntax-for-github-actions#job-status-check-functions
 
-      - if: ${{ failure() }}
-        name: Debug broken_links.md
-        run: |
-          ls -lh broken_links.md
-          wc -l broken_links.md
       - uses: actions/upload-artifact@6673cd052c4cd6fcf4b4e6e60ea986c889389535
         if: ${{ failure() }}
         with:

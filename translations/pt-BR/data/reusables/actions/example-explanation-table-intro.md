@@ -1,1 +1,1 @@
-The following table explains how each of these features are used when creating a {% data variables.product.prodname_actions %} workflow.
+A tabela a seguir explica como cada um desses recursos são usados ao criar um fluxo de trabalho de {% data variables.product.prodname_actions %}.

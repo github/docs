@@ -36,7 +36,7 @@ shortTitle: 启用子域隔离
 | `http(s)://HOSTNAME/render/`           | `http(s)://render.HOSTNAME/`                                   |
 | `http(s)://HOSTNAME/reply/`            | `http(s)://reply.HOSTNAME/`                                    |
 | `http(s)://HOSTNAME/uploads/`          | `http(s)://uploads.HOSTNAME/`                                  |{% ifversion ghes %}
-| `https://HOSTNAME/_registry/docker/`   | `http(s)://docker.HOSTNAME/`{% endif %}{% ifversion ghes %}
+| `https://HOSTNAME/`                    | `http(s)://docker.HOSTNAME/`{% endif %}{% ifversion ghes %}
 | `https://HOSTNAME/_registry/npm/`      | `https://npm.HOSTNAME/`                                        |
 | `https://HOSTNAME/_registry/rubygems/` | `https://rubygems.HOSTNAME/`                                   |
 | `https://HOSTNAME/_registry/maven/`    | `https://maven.HOSTNAME/`                                      |

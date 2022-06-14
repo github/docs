@@ -63,5 +63,5 @@ Para ayudar con la transición de la persona que estás eliminando de tu organiz
 
 ## Leer más
 
-- "[Eliminar a los miembros organizacionales de un equipo](/articles/removing-organization-members-from-a-team)"{% if remove-enterprise-members %}
+- "[Eliminar a los miembros organizacionales de un equipo](/articles/removing-organization-members-from-a-team)"{% ifversion remove-enterprise-members %}
 - "[Eliminar a um miembro de tu empresa](/admin/user-management/managing-users-in-your-enterprise/removing-a-member-from-your-enterprise)"{% endif %}

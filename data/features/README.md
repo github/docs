@@ -21,7 +21,7 @@ The format and allowed values are the same as the [frontmatter versions property
 
 ### Liquid conditionals
 
-Now you can use `{% if meow %} ... {% endif %}` in content files! Note this is the `if` tag, not the new `ifversion` tag.
+Now you can use `{% ifversion meow %} ... {% endif %}` in content files!
 
 ### Frontmatter
 
@@ -45,7 +45,7 @@ versions:
 
 ## Schema enforcement
 
-The schema for validating the feature versioning lives in [`tests/helpers/schemas/feature-versions-schema.js`](/tests/helpers/schemas/feature-versions-schema.js) and is exercised by [`tests/linting/lint-files.js`](/tests/linting/lint-files.js).
+The schema for validating the feature versioning lives in [`tests/helpers/schemas/feature-versions-schema.js`](/tests/helpers/schemas/feature-versions-schema.js) and is exercised by [`tests/linting/lint-versioning.js`](/tests/linting/lint-versioning.js).
 
 ## Script to remove feature tags
 

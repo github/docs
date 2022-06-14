@@ -72,6 +72,18 @@ shortTitle: 搜索议题和 PR
 | `is:open`      | [**performance is:open is:issue**](https://github.com/search?q=performance+is%3Aopen+is%3Aissue&type=Issues) 匹配含有 "performance" 字样的开放议题。                                 |
 | `is:closed`    | [**android is:closed**](https://github.com/search?utf8=%E2%9C%93&q=android+is%3Aclosed&type=) 匹配含有 "android" 字样的已关闭议题和拉取请求。                                              |
 
+{% ifversion issue-close-reasons %}
+## 按议题关闭原因进行搜索
+
+您可以使用 `reason` 限定符，根据议题关闭时给出的原因筛选议题。
+
+| 限定符                    | 示例                                                                                                                                                                         |
+| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `reason:complete`      | [**libraries is:closed reason:complete**](https://github.com/search?q=libraries+is%3Aclosed+reason%3Acompleted&type=Issues) 匹配包含文字 "libraries"、已因“完成”而关闭的议题。               |
+| `reason:"not planned"` | [**libraries is:closed reason:"not planned"**](https://github.com/search?q=libraries+is%3Aclosed+reason%3A%22not+planned%22&type=Issues) 匹配包含文字 "libraries"、已因“未计划”而关闭的议题。 |
+
+{% endif %}
+
 ## 按仓库可见性过滤
 
 您可以使用 `is` 限定符，按包含议题和拉取请求的仓库的可见性进行过滤。 更多信息请参阅“[关于仓库](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)”。

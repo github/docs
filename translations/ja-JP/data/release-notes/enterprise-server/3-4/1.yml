@@ -10,41 +10,41 @@ sections:
     - 複合アクションを使っている場合、ワークフローの実行が完了しないことがあります。
     - '{% data variables.product.prodname_dependabot %}を有効にするとき、エラーによって一部のセキュリティアドバイザリが一時的に適用不能になったものとして読まれました。'
     - '{% data variables.product.prodname_ghe_server %}のアップグレード後に、古い設定オプションが残っている場合、MinioのプロセスのCPU使用率が高くなります。'
-    - The options to enable `TLS 1.0` and `TLS 1.1` in the Privacy settings of the Management Console were shown, although removal of those protocol versions occurred in an earlier release.
-    - In a HA environment, configuring MSSQL replication could require additional manual steps after enabling {% data variables.product.prodname_actions %} for the first time.
-    - A subset of internal configuration files are more reliably updated after a hotpatch.
-    - The `ghe-run-migrations` script would sometimes fail to generate temporary certificate names correctly.
-    - Pre-receive hooks that used `gpg --import` timed out due to insufficient `syscall` privileges.
-    - In some cluster topologies, webhook delivery information was not available.
-    - The {% data variables.product.prodname_actions %} deployment graph would display an error when rendering a pending job.
-    - Elasticsearch health checks would not allow a yellow cluster status when running migrations.
-    - When using the [Migrations API](/rest/reference/migrations), queued export jobs were not processed.
-    - Repositories would display a non-functional Discussions tab in the web UI.
-    - Organizations created as a result of a user transforming their user account into an organization were not added to the global enterprise account.
-    - LDAP user sync jobs would fail when trying to sync GPG keys that had been synced previously.
-    - Links to inaccessible pages were removed.
-    - Some instances experienced high CPU usage due to large amounts unnecessary background jobs being queued.
-    - Empty repositories didnt sync correctly to cache servers.
-    - Adding a team as a reviewer to a pull request would sometimes show the incorrect number of members on that team.
-    - The remove team membership API endpoint would respond with an error when attempting to remove member externally managed via a SCIM Group.
-    - A large number of dormant users could cause a {% data variables.product.prodname_github_connect %} configuration to fail.
-    - The "Feature & beta enrollments" page in the Site admin web UI was incorrectly available.
-    - The "Site admin mode" link in the site footer did not change state when clicked.
+    - Management Consolemのプライバシー設定で`TLS 1.0`と`TLS 1.1`の有効化のオプションが表示されていましたが、これらのプロトコルバージョンは以前のリリースで削除されていました。
+    - HA環境において、MSSQLのレプリケーション設定には初回の{% data variables.product.prodname_actions %}の有効化のあとに、手作業の追加ステップが必要になることがあります。
+    - 内部設定ファイルの一部は、ホットパッチ後にさらに確実に更新されます。
+    - '`ghe-run-migrations`スクリプトは、一時的な証明書名を正しく生成するのに失敗することがあります。'
+    - '`gpg --import`を使うpre-receiveフックが、不十分な`syscall`権限のためにタイムアウトしました。'
+    - 一部のクラスタトポロジーにおいて、webhookの配信情報が利用できませんでした。
+    - '{% data variables.product.prodname_actions %}デプロイメントグラフで、保留中のジョブの連打リンクの際にエラーが表示されます。'
+    - 移行の実行中に、Elasticsearchのヘルスチェックが黄色のクラスタのステータスを許しません。
+    - '[Migrations API](/rest/reference/migrations)を使う場合、キューイングされたエクスポートジョブが処理されませんでした。'
+    - リポジトリは、機能しないディスカッションタブをWeb UIに表示します。
+    - ユーザが自分のアカウントをOrganizationに変換した結果作成されたOrganizationが、グローバルなEnterpriseアカウントに追加されませんでした。
+    - 以前に同期されていなかったGPGキーを同期しようとした際に、LDAPユーザの同期ジョブが失敗します。
+    - アクセスできないページへのリンクが削除されました。
+    - 大量の不要なバックグラウンドジョブがキューイングされたために、一部のインスタンスでCPU使用率が高くなりました。
+    - 空のリポジトリは、キャッシュサーバーに正しく同期されませんでした。
+    - TeamをPull Requestのレビュー担当者として追加すると、そのTeamのメンバー数が正しく表示されないことがあります。
+    - SCIMグループを通じて外部で管理されているメンバーを削除しようとすると、Teamメンバーシップの削除のAPIエンドポイントがエラーを返します。
+    - 大量の休眠ユーザによって{% data variables.product.prodname_github_connect %}の設定が失敗することがあります。
+    - サイトアドミンのWeb UIの"Feature & beta enrollments（機能とベータ登録）"ページが誤って利用可能でした。
+    - サイトのフッタの"Site admin mode（サイトアドミンモード）"リンクが、クリックされても状態が変化しませんでした。
   changes:
-    - Memcached connection limits were increased to better accommodate large cluster topologies.
-    - The Dependency Graph API previously ran with a statically defined port.
-    - The default shard counts for cluster-related Elasticsearch shard settings have been updated.
-    - The [Migrations API](/rest/reference/migrations) now generates exports of repositories.
-    - When filtering enterprise members by organization role on the "People" page, the text for the dropdown menu items has been improved.
-    - The “Triage” and “Maintain” team roles are preserved during repository migrations.
-    - Using ghe-migrator or exporting from GitHub.com, an export would not include Pull Request attachments.
-    - Performance has been improved for web requests made by enterprise owners.
+    - 大規模なクラスタトポロジーへの対応を改善するため、Memcachedの接続制限が引き上げられました。
+    - Dependency Graph APIは、以前は静的に定義されたポートで実行されていました。
+    - クラスタ関連のElasticsearchのシャード設定のデフォルトのシャード数が更新されました。
+    - '[Migrations API](/rest/reference/migrations)がリポジトリのエクスポートを生成するようになりました。'
+    - '"People"ページでOrganizationのロールによってEnterpriseメンバーをフィルタリングする場合のドロップダウンメニューアイテムのテキストが改善されました。'
+    - Teamロールの“Triage”及び“Maintain”は、リポジトリの移行中に保持されます。
+    - GitHub.comからのエクスポートにghe-migratorを使うと、エクスポートにはPull Requestの添付ファイルが含まれません。
+    - Enterpriseのオーナーによって発行されたWebリクエストのパフォーマンスが改善されました。
   known_issues:
     - 新しくセットアップされたユーザを持たない{% data variables.product.prodname_ghe_server %}インスタンスで、攻撃者が最初の管理ユーザを作成できました。
     - アップグレードの過程で、カスタムのファイアウォールのルールが削除されます。
     - Git LFSが追跡するファイル[Webインターフェースからアップロードされたもの](https://github.com/blog/2105-upload-files-to-your-repositories)が、不正にリポジトリに直接追加されてしまいます。
     - 同じリポジトリ内のファイルパスが255文字を超えるblobへのパーマリンクを含むIssueをクローズできませんでした。
-    - When "Users can search GitHub.com" is enabled with {% data variables.product.prodname_github_connect %}, issues in private and internal repositories are not included in {% data variables.product.prodname_dotcom_the_website %} search results.
+    - '{% data variables.product.prodname_github_connect %}で"Users can search GitHub.com（ユーザはGitHub.comの検索が可能）" が有効化されたとき、プライベート及びインターナルリポジトリのIssueが{% data variables.product.prodname_dotcom_the_website %}の検索結果に含まれません。'
     - '{% data variables.product.prodname_registry %}のnpmレジストリは、メタデータのレスポンス中で時間の値を返さなくなります。これは、大きなパフォーマンス改善のために行われました。メタデータレスポンスの一部として時間の値を返すために必要なすべてのデータは保持し続け、既存のパフォーマンスの問題を解決した将来に、この値を返すことを再開します。'
     - pre-receive フックの処理に固有のリソース制限によって、pre-receive フックに失敗するものが生じることがあります。
     - |

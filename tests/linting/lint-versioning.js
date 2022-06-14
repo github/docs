@@ -2,7 +2,7 @@ import { jest } from '@jest/globals'
 import fs from 'fs/promises'
 import revalidator from 'revalidator'
 import semver from 'semver'
-import { allVersions } from '../../lib/all-versions.js'
+import { allVersions, allVersionShortnames } from '../../lib/all-versions.js'
 import { supported, next, nextNext, deprecated } from '../../lib/enterprise-server-releases.js'
 import { getLiquidConditionals } from '../../script/helpers/get-liquid-conditionals.js'
 import allowedVersionOperators from '../../lib/liquid-tags/ifversion-supported-operators.js'
@@ -11,14 +11,20 @@ import walkFiles from '../../script/helpers/walk-files'
 import frontmatter from '../../lib/frontmatter.js'
 import loadSiteData from '../../lib/site-data.js'
 
-const versionShortNames = Object.values(allVersions).map((v) => v.shortName)
-const versionKeywords = versionShortNames.concat(['currentVersion', 'enterpriseServerReleases'])
-const versionShortNameExceptions = ['ghae-next', 'ghae-issue-']
+/*
+  NOTE: This test suite does NOT validate the `versions` frontmatter in content files.
+  That's because lib/page.js validates frontmatter when loading all the pages (which happens
+  when running npm start or tests) and throws an error immediately if there are any issues.
+  This test suite DOES validate the data/features `versions` according to the same FM schema.
+  Some tests/unit/page.js tests also exercise the frontmatter validation.
+*/
 
 jest.useFakeTimers('legacy')
 
 const siteData = loadSiteData()
 const featureVersions = Object.entries(siteData.en.site.data.features)
+const featureVersionNames = featureVersions.map((fv) => fv[0])
+const allowedVersionNames = Object.keys(allVersionShortnames).concat(featureVersionNames)
 
 // Make sure data/features/*.yml contains valid versioning.
 describe('lint feature versions', () => {
@@ -66,17 +72,16 @@ describe('lint Liquid versioning', () => {
       )
     })
 
-    // TODO expand `ifversion` to support feature-based versioning.
+    // `ifversion` supports both standard and feature-based versioning.
     test('ifversion conditionals are valid', async () => {
       const errors = validateIfversionConditionals(ifversionConditionals)
       expect(errors.length, errors.join('\n')).toBe(0)
     })
 
-    // TODO once `ifversion` supports feature-based versioning, change
-    // this test to verify there are no `if` tags used anywhere.
+    // Now that `ifversion` supports feature-based versioning, we should have few other `if` tags.
     test('ifversion, not if, is used for versioning', async () => {
       const ifsForVersioning = ifConditionals.filter((cond) =>
-        versionKeywords.some((keyword) => cond.includes(keyword))
+        allowedVersionNames.some((keyword) => cond.includes(keyword))
       )
       const errorMessage = `Found ${
         ifsForVersioning.length
@@ -95,11 +100,16 @@ describe('lint Liquid versioning', () => {
   })
 })
 
+// Return true if the shortname in the conditional is supported (fpt, ghec, ghes, ghae, all feature names).
+// If not, see if the shortname matches any exception pattern defined in lib/all-versions.js.
 function validateVersion(version) {
-  return (
-    versionShortNames.includes(version) ||
-    versionShortNameExceptions.some((exception) => version.startsWith(exception))
+  const isSupported = allowedVersionNames.includes(version)
+  const isException = Object.values(allVersions).some(
+    (v) => v.allowedInlinePattern && new RegExp(v.allowedInlinePattern).test(version)
   )
+  const isValid = isSupported || isException
+
+  return isValid
 }
 
 function validateIfversionConditionals(conds) {
@@ -110,7 +120,8 @@ function validateIfversionConditionals(conds) {
     // * Length 1: `<version>` (example: `fpt`)
     // * Length 2: `not <version>` (example: `not ghae`)
     // * Length 3: `<version> <operator> <release>` (example: `ghes > 3.0`)
-    // Note that Length 1 and Length 2, but NOT Length 3, may be used with feature-based versioning.
+    //
+    // Note that Lengths 1 and 2 may be used with feature-based versioning, but NOT Length 3.
     const condParts = cond.split(/ (or|and) /).filter((part) => !(part === 'or' || part === 'and'))
 
     condParts.forEach((str) => {
@@ -120,7 +131,7 @@ function validateIfversionConditionals(conds) {
         const version = strParts[0]
         const isValidVersion = validateVersion(version)
         if (!isValidVersion) {
-          errors.push(`"${version}" is not a valid short version name`)
+          errors.push(`"${version}" is not a valid short version or feature version name`)
         }
       }
 

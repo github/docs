@@ -144,7 +144,7 @@ steps:
 - run: bundle install
 ```
 
-{% if actions-caching %}
+{% ifversion actions-caching %}
 
 ### Caching dependencies
 

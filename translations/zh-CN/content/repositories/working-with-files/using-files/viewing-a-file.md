@@ -48,7 +48,7 @@ shortTitle: 查看文件和跟踪文件更改
 3. 在文件视图的右上角，单击 **Blame（追溯）**可打开追溯视图。 ![追溯按钮](/assets/images/help/repository/blame-button.png)
 4. 要查看特定行的早期修订，或重新追溯，请单击 {% octicon "versions" aria-label="The prior blame icon" %}，直至找到您有兴趣查看的更改。 ![追溯前按钮](/assets/images/help/repository/prior-blame-button.png)
 
-{% if blame-ignore-revs %}
+{% ifversion blame-ignore-revs %}
 
 ## 在追溯视图中忽略提交
 

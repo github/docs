@@ -24,7 +24,7 @@ shortTitle: 增加存储容量
 
 {% note %}
 
-**注意：** 在调整任何存储卷的大小之前，请将您的实例置于维护模式。{% if ip-exception-list %} 您可以通过配置 IP 例外列表以允许从指定的 IP 地址进行访问来验证更改。 {% endif %} 更多信息请参阅“[启用和计划维护模式](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)”。
+**注意：** 在调整任何存储卷的大小之前，请将您的实例置于维护模式。{% ifversion ip-exception-list %} 您可以通过配置 IP 例外列表以允许从指定的 IP 地址进行访问来验证更改。 {% endif %} 更多信息请参阅“[启用和计划维护模式](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)”。
 
 {% endnote %}
 
