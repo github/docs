@@ -14,7 +14,7 @@ topics:
 You can use the default keyboard shortcuts in Visual Studio Code when using {% data variables.product.prodname_copilot %}. Alternatively, you can rebind the shortcuts in the Keyboard Shortcuts editor using your preferred keyboard shortcuts for each specific command. You can search for each keyboard shortcut by its command name in the Keyboard Shortcuts editor.
 
 | Action | Shortcut | Command name |
-|:---|:---:|:---:|
+|:---|:---|:---|
 |Accept an inline suggestion|<kbd>Tab</kbd>|editor.action.inlineSuggest.commit|
 |Dismiss an inline suggestion|<kbd>Esc</kbd>|editor.action.inlineSuggest.hide|
 |Show next inline suggestion|On macOS: <kbd>Option (⌥)</kbd>+<kbd>]</kbd><br> On Windows or Linux: <kbd>Alt</kbd>+<kbd>]</kbd> |editor.action.inlineSuggest.showNext|
