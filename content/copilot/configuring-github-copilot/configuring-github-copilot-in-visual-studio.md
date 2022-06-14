@@ -30,7 +30,7 @@ You can use the default keyboard shortcuts in Visual Studio when using {% data v
 1. Under "Press shortcut keys", type the shorcut you want to assign to the command, then click **Assign**.
    ![Screenshot of the keyboard shortcut assignment](/assets/images/help/copilot/vs-rebind-shortcut.png)
 
-## Enabling and disabling {% data variables.product.prodname_copilot %}
+## Enabling or disabling {% data variables.product.prodname_copilot %}
 
 The {% data variables.product.prodname_copilot %} status icon in the bottom panel of the {% data variables.product.prodname_vs %} window indicates whether {% data variables.product.prodname_copilot %} is enabled or disabled. When enabled, the background color of the icon will match the color of the status bar. When disabled, it will have a diagonal line through it.
 
