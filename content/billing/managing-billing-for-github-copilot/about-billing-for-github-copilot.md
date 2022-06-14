@@ -19,4 +19,4 @@ You can set up a 60-day trial to evaluate {% data variables.product.prodname_cop
 
 You will be billed $10 USD per month for {% data variables.product.prodname_copilot_short %} if you use a monthly billing cycle. You will be billed $100 USD per year for {% data variables.product.prodname_copilot_short %} if you use a yearly billing cycle. 
 
-As a verified student or open source maintainer, you are eligible to use {% data variables.product.prodname_copilot_short %} for free. For more information about applying for a student developer pack, see "[Apply for a student developer pack](en/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork/apply-for-a-student-developer-pack)".
+As a verified student or open source maintainer, you are eligible to use {% data variables.product.prodname_copilot_short %} for free. For more information about applying for a student developer pack, see "[Apply for a student developer pack](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork/apply-for-a-student-developer-pack)".
