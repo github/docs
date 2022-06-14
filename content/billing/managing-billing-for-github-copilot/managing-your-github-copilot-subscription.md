@@ -19,7 +19,7 @@ shortTitle: Your Github Copilot subscription
 3. Choose whether you want to pay monthly or yearly, and click **Continue to get access to Copilot**.
    - If you are a student or open source maintainer, you can skip ahead to step 6.
   ![Screenshot of trial setup with Continue to get access to Copilot button emphasized](/assets/images/help/copilot/copilot-billing-cycle.png)
-4. Confirm your payment details. <!--- add links to eligibility info articles --->
+4. Confirm your payment details. 
 5. Select your preferences, then click **Save and get started**.
 
 {% data variables.product.prodname_copilot %} is now ready to pair. For more information, see "[Getting started with {% data variables.product.prodname_copilot %}](/en/copilot/getting-started)".
@@ -59,10 +59,3 @@ You can cancel your {% data variables.product.prodname_copilot %} subscription a
 3. {% data variables.product.prodname_copilot %} is cancelled, and a confirmation message is shown.
 
    ![Screenshot of GitHub Copilot cancel confirmation message](/assets/images/help/copilot/copilot-cancel-confirmation-message.png)
-
-<!---
-- Starting a GitHub Copilot subscription (with bullet point for free users and paid user and instruction to skip over billing section for free users and links to eligibility info articles)
-- Modifying your GitHub Copilot subscription
-- Cancelling your GitHub Copilot Subscription
- (use bullet points to differentiate trial/active subscription)
- --->
