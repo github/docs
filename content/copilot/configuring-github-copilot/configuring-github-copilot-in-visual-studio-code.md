@@ -36,7 +36,7 @@ You can use the default keyboard shortcuts in {% data variables.product.prodname
 
 ## Enabling or disabling {% data variables.product.prodname_copilot %}
 
-You can enable or disable {% data variables.product.prodname_copilot %} from within Visual Studio Code. The {% data variables.product.prodname_copilot %} status icon in the bottom panel of the Visual Studio Code window indicates whether {% data variables.product.prodname_copilot %} is enabled or disabled. When enabled, the background color of the icon will match the color of the status bar. When disabled, the background color of the icon will contrast the color of the status bar.
+You can enable or disable {% data variables.product.prodname_copilot %} from within {% data variables.product.prodname_vscode %}. The {% data variables.product.prodname_copilot %} status icon in the bottom panel of the {% data variables.product.prodname_vscode %} window indicates whether {% data variables.product.prodname_copilot %} is enabled or disabled. When enabled, the background color of the icon will match the color of the status bar. When disabled, the background color of the icon will contrast the color of the status bar.
 
 1. To enable or disable {% data variables.product.prodname_copilot %}, click the status icon in the bottom panel of the Visual Studio Code window.
    ![Status icon in Visual Studio Code](/assets/images/help/copilot/status-icon-visual-studio-code.png)
