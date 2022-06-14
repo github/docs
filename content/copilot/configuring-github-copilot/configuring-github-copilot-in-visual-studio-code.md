@@ -25,7 +25,7 @@ You can use the default keyboard shortcuts in Visual Studio Code when using {% d
 
 ## Rebinding keyboard shortcuts
 
-1. In the **File** menu, navigate to **Preferences** and click **Keyboard Shortcuts**.
+1. Click the **File** menu, click **Preferences**, then click **Keyboard Shortcuts**.
 ![Visual Studio Code keyboard shortcuts](/assets/images/help/copilot/vsc-keyboard-shortcuts.png)
 1. In the "Keyboard Shortcuts" editor, search for the command name of the keyboard shortcut you want to change.
 ![Keyboard shortcut search bar](/assets/images/help/copilot/vsc-shortcut-search-bar.png)
