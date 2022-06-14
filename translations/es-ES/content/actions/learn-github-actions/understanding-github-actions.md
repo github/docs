@@ -86,7 +86,7 @@ Para obtener más información, consulta la sección "[Crear acciones](/actions/
 
 {% data reusables.actions.workflow-basic-example-and-explanation %}
 
-## More complex examples
+## Ejemplos más complejos
 {% data reusables.actions.link-to-example-library %}
 
 ## Pasos siguientes
