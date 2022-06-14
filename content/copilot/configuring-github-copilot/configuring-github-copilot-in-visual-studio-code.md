@@ -43,7 +43,7 @@ You can enable or disable {% data variables.product.prodname_copilot %} from wit
 2. If you are disabling {% data variables.product.prodname_copilot %}, Visual Studio Code will ask whether you want to disable it globally, or only for the language of the file you are currently editing. To disable globally, click **Disable globally**. Alternatively, click the language-specific button to disable {% data variables.product.prodname_copilot %} for the specified language.
    ![Disable {% data variables.product.prodname_copilot %} globally or for the current language](/assets/images/help/copilot/disable-copilot-global-or-langugage.png)
 
-## Enabling and disabling inline suggestions
+## Enabling or disabling inline suggestions
 
 You can choose to enable or disable inline suggestions in Visual Studio Code. 
 
