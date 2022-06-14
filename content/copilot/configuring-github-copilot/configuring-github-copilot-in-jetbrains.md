@@ -22,7 +22,7 @@ You can use the default keyboard shortcuts in JetBrains when using {% data varia
 |Trigger inline suggestion|On macOS: <kbd>Option (⌥)</kbd>+<kbd>\</kbd><br> On Windows: <kbd>Alt</kbd>+<kbd>\</kbd>|
 |Open {% data variables.product.prodname_copilot %} (additional suggestions in separate pane)|On macOS: <kbd>Option (⌥) or Alt</kbd>+<kbd>Enter</kbd><br> On Windows: <kbd>Alt</kbd>+<kbd>Enter</kbd> |
 
-## Enabling and disabling {% data variables.product.prodname_copilot %}
+## Enabling or disabling {% data variables.product.prodname_copilot %}
 
 You can enable or disable {% data variables.product.prodname_copilot %} from within JetBrains. The {% data variables.product.prodname_copilot %} status icon in the bottom panel of the JetBrains window indicates whether {% data variables.product.prodname_copilot %} is enabled or disabled. When enabled, the icon is highlighted. When disabled, the icon is grayed out.
 
