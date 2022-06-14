@@ -10,7 +10,7 @@ redirect_from:
   - /actions/getting-started-with-github-actions/getting-started-with-github-actions
   - /articles/getting-started-with-github-actions
   - /github/automating-your-workflow-with-github-actions/about-github-actions
-  - /actions/automating-your-workflow-with-github-actions/about-github-actions
+  - /actions/automating-your-workflow-with-github-actions/about-github-action
   - /github/automating-your-workflow-with-github-actions/getting-started-with-github-actions
   - /actions/automating-your-workflow-with-github-actions/getting-started-with-github-actions
 versions:
