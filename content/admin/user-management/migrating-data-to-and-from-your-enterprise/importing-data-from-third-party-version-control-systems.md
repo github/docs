@@ -26,7 +26,7 @@ shortTitle: Import from another VCS
   ```shell
   $ git-import-rewrite --flavor hg --authors /<em>PATH</em>/<em>AUTHORS-MAP-FILE</em>.csv /<em>PATH</em>/<em>REPO-NAME</em>.git
   ```
-5. If you haven't yet, [create a new empty repository on {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/user/articles/creating-a-new-repository).
+5. If you haven't yet, [create a new empty repository on {% data variables.product.prodname_ghe_server %}](/enterprise/user/articles/creating-a-new-repository).
 {% data reusables.command_line.switching_directories_procedural %}
 7. Push the imported repository to {% data variables.product.prodname_ghe_server %}:
   ```shell
@@ -46,7 +46,7 @@ shortTitle: Import from another VCS
   ```shell
   $ git-import-rewrite --flavor svn --authors /<em>PATH</em>/<em>AUTHORS-MAP-FILE</em>.csv /<em>PATH</em>/<em>REPO-NAME</em>.git
   ```
-5. If you haven't yet, [create a new empty repository on {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/user/articles/creating-a-new-repository).
+5. If you haven't yet, [create a new empty repository on {% data variables.product.prodname_ghe_server %}](/enterprise/user/articles/creating-a-new-repository).
 {% data reusables.command_line.switching_directories_procedural %}
 7. Push the imported repository to {% data variables.product.prodname_ghe_server %}:
   ```shell
@@ -66,7 +66,7 @@ shortTitle: Import from another VCS
   ```shell
   $ git-import-rewrite --flavor tfs --authors /<em>PATH</em>/<em>AUTHORS-MAP-FILE</em>.csv /<em>PATH</em>/<em>REPO-NAME</em>.git
   ```
-5. If you haven't yet, [create a new empty repository on {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/user/articles/creating-a-new-repository).
+5. If you haven't yet, [create a new empty repository on {% data variables.product.prodname_ghe_server %}](/enterprise/user/articles/creating-a-new-repository).
 {% data reusables.command_line.switching_directories_procedural %}
 7. Push the imported repository to {% data variables.product.prodname_ghe_server %}:
   ```shell
@@ -75,4 +75,4 @@ shortTitle: Import from another VCS
 
 ## Further reading
 
-- "[Command-line-utilities](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities/#import-and-export)"
+- "[Command-line-utilities](/enterprise/admin/guides/installation/command-line-utilities/#import-and-export)"

@@ -60,7 +60,7 @@ We recommend reviewing the following caveats before you change the visibility of
 {%- endif %}
 
 {%- ifversion ghes %}
-* Anonymous Git read access is no longer available. For more information, see "[Enabling anonymous Git read access for a repository](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)."
+* Anonymous Git read access is no longer available. For more information, see "[Enabling anonymous Git read access for a repository](/enterprise/user/articles/enabling-anonymous-git-read-access-for-a-repository)."
 {%- endif %}
 
 {% ifversion ghes or ghec or ghae %}
