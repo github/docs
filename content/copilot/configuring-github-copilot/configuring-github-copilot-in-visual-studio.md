@@ -21,7 +21,7 @@ You can use the default keyboard shortcuts in Visual Studio when using {% data v
 
 ## Rebinding keyboard shortcuts
 
-1. In the Visual Studio toolbar, under **Tools**, click **Options**.
+1. In the {% data variables.product.prodname_vs %} toolbar, under **Tools**, click **Options**.
    ![Screenshot of the Options option in the Visual Studio toolbar](/assets/images/help/copilot/vs-toolbar-options.png)
 1. In the "Options" dialog, under **Environment**, click **Keyboard**.
    ![Screenshot of the Keyboard option in the "Options" dialog](/assets/images/help/copilot/vs-options-dialogue.png)
