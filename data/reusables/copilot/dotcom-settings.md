@@ -1,6 +1,6 @@
 ## Configuring {% data variables.product.prodname_copilot %} settings on {% data variables.product.prodname_dotcom_the_website %}
 
-Once you have an active {% data variables.product.prodname_copilot %} trial or subscription, in the settings page of your {% data variables.product.prodname_dotcom %} personal account, you can adjust specific {% data variables.product.prodname_copilot %} settings relating to the suggestions {% data variables.product.prodname_copilot %} offers, and how your {% data variables.product.prodname_copilot %} telemetry data is used.
+Once you have an active {% data variables.product.prodname_copilot %} trial or subscription, you can adjust {% data variables.product.prodname_copilot %} settings for your personal account on {% data variables.product.prodname_dotcom %}. The settings apply anywhere that you use {% data variables.product.prodname_copilot %}. You can configure the suggestions that {% data variables.product.prodname_copilot %} offers and how {% data variables.product.company_short %} uses your telemetry data.
 
 ### Enabling or disabling duplication detection
 
