@@ -54,7 +54,7 @@ Before you can configure prebuilds for your project the following must be true:
 
    ![The prebuild trigger options](/assets/images/help/codespaces/prebuilds-triggers.png)
 
-1. Select **Reduce prebuild available to only specific regions** if you only want your prebuilt image available to certain regions, then select which regions you want it available in. Developers must be located in a region you select to be able to create codespaces from a prebuild. By default, your prebuilt image is available to all regions where codespaces is available and storage costs apply for each region.
+1. Select **Reduce prebuild available to only specific regions** to limit access to your prebuilt image, then select which regions you want it available in. Developers can only create codespaces from a prebuild if they are located in a region you select. By default, your prebuilt image is available to all regions where codespaces is available and storage costs apply for each region.
 
    ![The region selection options](/assets/images/help/codespaces/prebuilds-regions.png)
 
@@ -74,7 +74,7 @@ Before you can configure prebuilds for your project the following must be true:
 
    ![The prebuild template history setting](/assets/images/help/codespaces/prebuilds-template-history-setting.png)
 
-1. Add users or teams to notify when your prebuild workflow runs fail for this particular prebuild configuration. You can begin typing a username, team name, or full name, then click the name once it appears to add them to the list. The users or teams you add will receive an email when prebuild failures occur, containing a link to the workflow run logs to help with further investigation.
+1. Add users or teams to notify when the prebuild workflow run fails for this configuration. You can begin typing a username, team name, or full name, then click the name once it appears to add them to the list. The users or teams you add will receive an email when prebuild failures occur, containing a link to the workflow run logs to help with further investigation.
 
    ![The prebuild failure notification setting](/assets/images/help/codespaces/prebuilds-failure-notification-setting.png)
 
