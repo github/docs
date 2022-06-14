@@ -618,7 +618,7 @@ jobs:
 </td>
 <td>
 
-This step uses the `actions/cache` action to cache the Next.js build, so that the workflow will attempt to retrieve a cache of the build, and not rebuild it from scratch every time. For more information, see "[Caching dependencies to speed up workflows](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."
+此步骤使用“actions/cache”操作来缓存 Next.js 构建，以便工作流程尝试检索构建的缓存，而不是每次都从头开始重新构建。 更多信息请参阅“[缓存依赖关系以加快工作流程](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)”。
 </td>
 </tr>
 <tr>
@@ -631,7 +631,7 @@ This step uses the `actions/cache` action to cache the Next.js build, so that th
 </td>
 <td>
 
-This step runs the build script.
+此步骤运行构建脚本。
 </td>
 </tr>
 <tr>
@@ -647,7 +647,7 @@ This step runs the build script.
 </td>
 <td>
 
-This step runs the tests using `npm test`, and the test matrix provides a different value for {% raw %}`${{ matrix.test-group }}`{% endraw %} for each job in the matrix. It uses the `DIFF_FILE` environment variable to know which files have changed, and uses the `CHANGELOG_CACHE_FILE_PATH` environment variable for the changelog cache file.
+此步骤使用“npm test”运行测试，并且测试矩阵为矩阵中的每个作业提供不同的 {% raw %}`${{ matrix.test-group }}`{% endraw %} 值。 它使用“DIFF_FILE”环境变量来了解哪些文件已更改，并将“CHANGELOG_CACHE_FILE_PATH”环境变量用于更改日志缓存文件。
 </td>
 </tr>
 </tbody>
