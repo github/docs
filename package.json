@@ -139,7 +139,7 @@
     "http-status-code": "^2.1.0",
     "husky": "^7.0.4",
     "japanese-characters": "^1.1.0",
-    "jest": "^27.4.7",
+    "jest": "^28.1.1",
     "jest-environment-puppeteer": "5.0.4",
     "jest-fail-on-console": "^2.2.3",
     "jest-github-actions-reporter": "^1.0.3",
