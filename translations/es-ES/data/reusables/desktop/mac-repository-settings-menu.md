@@ -1,0 +1,1 @@
+1. En el menú de **Repositorio**, da clic en **Configuración de repositorio...**. ![Opciones del menú Repository Settings (Configuración del repositorio)](/assets/images/help/desktop/repository-settings-mac.png)

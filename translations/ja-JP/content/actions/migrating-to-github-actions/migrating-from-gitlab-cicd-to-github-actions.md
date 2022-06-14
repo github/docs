@@ -309,7 +309,7 @@ GitLab CI/CD および {% data variables.product.prodname_actions %} は、パ�
 
 GitLab CI/CD と {% data variables.product.prodname_actions %} では、設定ファイルにワークフローファイルを手動でキャッシュするためのメソッドがあります。
 
-{% if actions-caching %}
+{% ifversion actions-caching %}
 
 以下が、それぞれのシステムの構文の例です。
 

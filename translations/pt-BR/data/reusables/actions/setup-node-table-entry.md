@@ -1,1 +1,1 @@
-| Installing `node` on the runner: | [`actions/setup-node`](https://github.com/actions/setup-node) |
+| Instalando o `nó` no executor: | [`actions/setup-node`](https://github.com/actions/setup-node) |

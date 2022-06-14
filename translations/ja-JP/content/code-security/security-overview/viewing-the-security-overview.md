@@ -27,7 +27,7 @@ shortTitle: セキュリティの概要の表示
 {% data reusables.organizations.security-overview %}
 1. アラートの種類に対する集約された情報を見るには、**Show more（さらに表示）**をクリックしてください。 ![さらに表示ボタン](/assets/images/help/organizations/security-overview-show-more-button.png)
 {% data reusables.organizations.filter-security-overview %}
-{% if security-overview-views %}
+{% ifversion security-overview-views %}
 {% data reusables.organizations.security-overview-feature-specific-page %}
   ![Code scanning固有のページのスクリーンショット](/assets/images/help/organizations/security-overview-code-scanning-alerts.png)
 
@@ -43,7 +43,7 @@ shortTitle: セキュリティの概要の表示
 
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
 1. ひだりのサイドバーで{% octicon "shield" aria-label="The shield icon" %}**Code Security（コードセキュリティ）**をクリックしてください。
-{% if security-overview-feature-specific-alert-page %}
+{% ifversion security-overview-feature-specific-alert-page %}
 {% data reusables.organizations.security-overview-feature-specific-page %}
 {% endif %}
 {% endif %}

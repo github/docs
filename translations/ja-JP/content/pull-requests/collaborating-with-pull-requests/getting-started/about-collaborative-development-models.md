@@ -23,7 +23,7 @@ In the fork and pull model, anyone can fork an existing repository and push chan
 
 {% tip %}
 
-**ヒント：**{% data reusables.open-source.open-source-guide-general %} {% data reusables.open-source.open-source-learning-lab %}
+**ヒント：**{% data reusables.open-source.open-source-guide-general %} {% data reusables.open-source.open-source-learning %}
 
 {% endtip %}
 
