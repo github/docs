@@ -25,7 +25,7 @@ You must enable private mode if {% data variables.product.product_location %} is
 
 {% data reusables.enterprise_installation.image-urls-viewable-warning %}
 
-With private mode enabled, you can allow unauthenticated Git operations (and anyone with network access to {% data variables.product.product_location %}) to read a public repository's code on your instance with anonymous Git read access enabled. For more information, see "[Allowing admins to enable anonymous Git read access to public repositories](/enterprise/{{ currentVersion }}/admin/guides/user-management/allowing-admins-to-enable-anonymous-git-read-access-to-public-repositories)."
+With private mode enabled, you can allow unauthenticated Git operations (and anyone with network access to {% data variables.product.product_location %}) to read a public repository's code on your instance with anonymous Git read access enabled. For more information, see "[Allowing admins to enable anonymous Git read access to public repositories](/enterprise/admin/guides/user-management/allowing-admins-to-enable-anonymous-git-read-access-to-public-repositories)."
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
