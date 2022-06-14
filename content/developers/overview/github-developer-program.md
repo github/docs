@@ -33,3 +33,10 @@ Membership is open to individual developers and companies who have:
 
 * An integration in production or development using the GitHub API.
 * An email address where GitHub users can contact you for support.
+
+
+## Sample of created application that integrates with GitHub
+
+Bellow you can find list of examples and sammple apps that integrates with GitHub so you can learn more about the possibilities
+and get some ideas help you to build your own app
+ 
