@@ -332,7 +332,7 @@ sections:
       heading: Theme picker for GitHub Pages has been removed
       notes:
         - |
-          The theme picker for GitHub Pages has been removed from the Pages settings. For more information about configuration of themes for GitHub Pages, see "[Adding a theme to your GitHub Pages site using Jekyll](/pages/setting-up-a-github-pages-site-with-jekyll/adding-a-theme-to-your-github-pages-site-using-jekyll)."
+          El selector de tema de GitHub Pages se eliminó de los ajustes de las páginas. Para obtener más información sobre la configuración de temas para GitHub Pages, consulta la sección "[Agregar un tema a tu sitio de GitHub pages utilizando Jekyll](/pages/setting-up-a-github-pages-site-with-jekyll/adding-a-theme-to-your-github-pages-site-using-jekyll)".
   known_issues:
     - En una instancia recién configurada de {% data variables.product.prodname_ghe_server %} sin ningún usuario, un atacante podría crear el primer usuario adminsitrador.
     - Las reglas de cortafuegos personalizadas se eliminan durante el proceso de actualización.
@@ -343,3 +343,4 @@ sections:
     - Los límites de recursos que son específicos para procesar ganchos de pre-recepción podrían ocasionar que fallen algunos ganchos de pre-recepción.
     - Actions services need to be restarted after restoring an appliance from a backup taken on a different host.
     - 'Deleted repositories will not be purged from disk automatically after the 90-day retention period ends. [Updated: 2022-06-08]'
+    - 'The Management Console cannot be accessed on an under-provisioned instance. [Updated: 2022-06-14]'
