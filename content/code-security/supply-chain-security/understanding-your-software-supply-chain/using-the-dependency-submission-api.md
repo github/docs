@@ -44,8 +44,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 'Checkout Repository'
-        uses: actions/checkout@v3
-      - uses: actions/setup-go@v3
+        uses: {% data reusables.actions.action-checkout %}
+      - uses: {% data reusables.actions.action-setup-go %}
         with:
           go-version: ">=1.18.0"
       - name: Run snapshot action
