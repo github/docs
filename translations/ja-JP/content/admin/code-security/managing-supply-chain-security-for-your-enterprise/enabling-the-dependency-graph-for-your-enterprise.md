@@ -1,6 +1,6 @@
 ---
 title: Enabling the dependency graph for your enterprise
-intro: You can allow users to identify their projects' dependencies by enabling the dependency graph.
+intro: 依存関係グラフを有効にすることによって、ユーザが自分のプロジェクトの依存関係を特定できるようになります。
 shortTitle: Enable dependency graph
 permissions: Site administrators can enable the dependency graph.
 versions:
@@ -49,7 +49,7 @@ If your {% data variables.product.product_location %} uses clustering, you canno
     ```{% endif %}
    {% note %}
 
-   **Note**: For more information about enabling access to the administrative shell via SSH, see "[Accessing the administrative shell (SSH)](/enterprise/{{ currentVersion }}/admin/configuration/accessing-the-administrative-shell-ssh)."
+   **Note**: For more information about enabling access to the administrative shell via SSH, see "[Accessing the administrative shell (SSH)](/enterprise/admin/configuration/accessing-the-administrative-shell-ssh)."
 
    {% endnote %}
 2. 設定を適用します。
