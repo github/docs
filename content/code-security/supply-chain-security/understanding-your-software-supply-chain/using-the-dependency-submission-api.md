@@ -24,7 +24,9 @@ You can use the Dependency submission API in a {% data variables.product.prodnam
 
 Actions that perform these steps for various ecosystems are available on {% data variables.product.prodname_marketplace %}.
 
-TODO add list/table of supported actions
+Ecosystem | Action |
+--- | --- |
+TBD | TBD |
 
 For example, the following [Go Dependency Submission](https://github.com/dsp-testing/go-dependency-submission) workflow calculates the dependencies for a Go build-target (a Go file with a `main` function) and submits the list to the Dependency Submission API. 
 
