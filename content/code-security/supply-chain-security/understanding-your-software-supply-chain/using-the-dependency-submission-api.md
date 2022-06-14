@@ -16,35 +16,51 @@ For more information about the Dependency submission API, see the [Dependency su
 
 ## Submitting dependencies at build-time
 
-You can use the Dependency submission API in a {% data variables.product.prodname_actions %} workflow to submit dependencies for your project when your project is built. You workflow should:
+You can use the Dependency submission API in a {% data variables.product.prodname_actions %} workflow to submit dependencies for your project when your project is built. Your workflow should:
 
 - generate a list of dependencies for your project.
 - translate the list of dependencies into the format accepted by the Dependency submission API. For more information about the format, see the body parameters for the "Create a repository snapshot" API operation in the [Dependency submission REST API documentation](/rest/dependency-graph/dependency-submission).
 - submit the formatted list of dependencies to the Dependency submission API.
 
-Actions that perform these steps for various ecosystems are available on {% data variables.product.prodname_marketplace %}. todo link to them once available, or tell users how to find them.
+Actions that perform these steps for various ecosystems are available on {% data variables.product.prodname_marketplace %}.
 
-For example, this workflow uses the [anchore/sbom-action](https://github.com/marketplace/actions/anchore-sbom-action) action to submit dependencies . Todo change this to match whatever the starter workflow will use, and give more guidance if needed.
+TODO add list/table of supported actions
+
+For example, the following [Go Dependency Submission](https://github.com/dsp-testing/go-dependency-submission) workflow calculates the dependencies for a Go build-target (a Go file with a `main` function) and submits the list to the Dependency Submission API. 
 
 ```yaml
-{% data reusables.actions.actions-not-certified-by-github-comment %}
 
-name: Submit dependencies
-
+name: Go Dependency Submission
 on:
   push:
-    branches:    
-      - 'main'
-
+    branches:
+      - main
+# Envionment variables to configure Go and Go modules. Customize as necessary
+env:
+  GOPROXY: '' # A Go Proxy server to be used
+  GOPRIVATE: '' # A list of modules are considered private and not requested from GOPROXY
 jobs:
-  submit-dependencies:
+  go-action-detection:
     runs-on: ubuntu-latest
     steps:
-    - uses: anchore/sbom-action@bb716408e75840bbb01e839347cd213767269d4a
-      with:
-        image: ghcr.io/example/image_name:tag
+      - name: 'Checkout Repository'
+        uses: actions/checkout@v3
+      - uses: actions/setup-go@v3
+        with:
+          go-version: ">=1.18.0"
+      - name: Run snapshot action
+        uses: @dsp-testing/go-snapshot-action
+        with:
+            # Required: Define the repo path to the go.mod file used by the
+            # build target
+            go-mod-path: go-example/go.mod
+            #
+            # Define the repo path of a build target (a file with a
+            # `main()` function) If not defined, this Action will collect all
+            # dependencies used by all build targets for the module, which may
+            # include Go dependencies used by tests and tooling.
+            go-build-target: go-example/cmd/octocat.go
+
 ```
 
-Alternatively, you can write your own action to perform these steps. {% data variables.product.product_name %} maintains the [Dependency Submission Toolkit](https://github.com/github/dependency-submission-toolkit), a TypeScript library to help you write an action to perform these steps. For more information about writing an action, see "[Creating actions](/actions/creating-actions)". todo ensure that this repo will be public, or else delete this link. todo is "maintains" too strong a word?
-
-todo link to starter workflows once available
+Alternatively, you can write your own action to perform these steps. {% data variables.product.product_name %} maintains the [Dependency Submission Toolkit](https://github.com/github/dependency-submission-toolkit), a TypeScript library to help you build your own GitHub Action for submitting dependencies to the Dependency Submission API. For more information about writing an action, see "[Creating actions](/actions/creating-actions)".
