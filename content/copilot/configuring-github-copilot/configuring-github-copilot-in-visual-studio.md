@@ -43,7 +43,7 @@ The {% data variables.product.prodname_copilot %} status icon in the bottom pane
 If you use ReSharper, {% data variables.product.prodname_copilot %} may work best when you configure ReSharper to use {% data variables.product.prodname_copilot %}'s native IntelliSense. For more information about ReSharper, see the [ReSharper documentation](https://www.jetbrains.com/resharper/documentation/documentation.html)
 
 1. In the {% data variables.product.prodname_vs %} toolbar, under **Tools**, click **Options**.
-   ![Screenshot of the Options option in the Visual Studio toolbar](/assets/images/help/copilot/vs-toolbar-options.png)
+   ![Screenshot of the Options option in the {% data variables.product.prodname_vs %} toolbar](/assets/images/help/copilot/vs-toolbar-options.png)
 1. In the "Options" dialog, under **Environment**, click **IntelliSense** and then click **General**.
     ![Screenshot of the IntelliSense option in the "Options" dialog](/assets/images/help/copilot/vs-options-intellisense.png)
 1. Under "General" select **Visual Studio** and then click **Save**.
