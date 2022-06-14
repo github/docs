@@ -18,7 +18,7 @@ Teams are central to many of {% data variables.product.prodname_dotcom %}'s coll
 
 A team can represent a group within your company or include people with certain interests or expertise. For example, a team of accessibility experts on {% data variables.product.product_location %} could comprise of people from several different departments. Teams can represent functional concerns that complement a company's existing divisional hierarchy.
 
-Organizations can create multiple levels of nested teams to reflect a company or group's hierarchy structure. For more information, see "[About teams](/enterprise/{{ currentVersion }}/user/articles/about-teams/#nested-teams)."
+Organizations can create multiple levels of nested teams to reflect a company or group's hierarchy structure. For more information, see "[About teams](/enterprise/user/articles/about-teams/#nested-teams)."
 
 ## Creating a team
 
