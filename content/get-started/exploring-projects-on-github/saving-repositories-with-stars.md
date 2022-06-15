@@ -50,7 +50,6 @@ You can view everyone who has starred a public repository or a private repositor
 
 View a list of the users that have starred a repository by appending /stargazers to the end of a url of a repository.
 
-This feature is helpful if you are curious to know who has starred your or someone else's repository.
 
 ## Organizing starred repositories with lists
 
