@@ -111,7 +111,7 @@ The following authentication methods are available for {% data variables.product
 
 ### Built-in authentication
 
-{% data reusables.enterprise_user_management.built-in-authentication-new-accounts %} To access your instance, people authenticate with the credentials for the account. For more information, see "[Configuring built-in authentication](/admin/identity-and-access-management/using-built-in-authentication/configuring-built-in-authentication)."
+{% data reusables.enterprise_user_management.built-in-authentication-new-accounts %} To access your instance, people authenticate with the credentials for the account. 詳しい情報については、「[ビルトイン認証の設定](/admin/identity-and-access-management/using-built-in-authentication/configuring-built-in-authentication)」を参照してください。
 
 ### External authentication
 

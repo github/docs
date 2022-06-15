@@ -1,5 +1,5 @@
 ---
-title: Content Removal Policies
+title: Políticas de eliminación de contenido
 versions:
   fpt: '*'
 topics:
