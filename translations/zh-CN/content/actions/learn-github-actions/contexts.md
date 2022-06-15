@@ -45,7 +45,7 @@ miniTocMaxHeadingLevel: 3
 | `matrix`   | `对象` | 包含在工作流程中定义的应用于当前作业的矩阵属性。 更多信息请参阅 [`matrix` 上下文](#matrix-context)。 |
 | `needs`    | `对象` | 包含定义为当前作业依赖项的所有作业的输出。 更多信息请参阅 [`needs` 上下文](#needs-context)。      |
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4757 %}
-| `inputs` | `object` | Contains the inputs of a reusable {% ifversion actions-unified-inputs %}or manually triggered {% endif %}workflow. 更多信息请参阅 [`inputs` 上下文](#inputs-context)。 |{% endif %}
+| `inputs` | `object` | 包含可重用 {% ifversion actions-unified-inputs %}或手动触发 {% endif %}工作流程的输入。 更多信息请参阅 [`inputs` 上下文](#inputs-context)。 |{% endif %}
 
 作为表达式的一部分，您可以使用以下两种语法之一访问上下文信息。
 
@@ -699,20 +699,20 @@ jobs:
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4757 %}
 ## `inputs` 上下文
 
-The `inputs` context contains input properties passed to a reusable workflow{% ifversion actions-unified-inputs %} or to a manually triggered workflow{% endif %}. {% ifversion actions-unified-inputs %}For reusable workflows, the{% else %}The{% endif %} input names and types are defined in the [`workflow_call` event configuration](/actions/learn-github-actions/events-that-trigger-workflows#workflow-reuse-events) of a reusable workflow, and the input values are passed from [`jobs.<job_id>.with`](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idwith) in an external workflow that calls the reusable workflow. {% ifversion actions-unified-inputs %}For manually triggered workflows, the inputs are defined in the [`workflow_dispatch` event configuration](/actions/learn-github-actions/events-that-trigger-workflows#workflow_dispatch) of a workflow.{% endif %}
+`inputs` 上下文包含传递给可重用工作流程{% ifversion actions-unified-inputs %} 或手动触发的工作流{% endif %} 的输入属性。 {% ifversion actions-unified-inputs %}对于可重用的工作流程，{% else %}{% endif %}输入名称和类型在可重用工作流程的 [`workflow_call` 事件配置](/actions/learn-github-actions/events-that-trigger-workflows#workflow-reuse-events)中定义，输入值从调用可重用工作流程的外部工作流中的 [`jobs.<job_id>.with`](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idwith) 传递。 {% ifversion actions-unified-inputs %}对于手动触发的工作流，输入在工作流程的 [`workflow_dispatch` 事件配置](/actions/learn-github-actions/events-that-trigger-workflows#workflow_dispatch)中定义。{% endif %}
 
-There are no standard properties in the `inputs` context, only those which are defined in the workflow file.
+`inputs` 上下文中没有标准属性，只有工作流程文件中定义的属性。
 
 {% data reusables.actions.reusable-workflows-ghes-beta %}
 
-| 属性名称                  | 类型                              | 描述                                                                                                                                                                                                                                                                                                                                             |
-| --------------------- | ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `inputs`              | `对象`                            | This context is only available in a [reusable workflow](/actions/learn-github-actions/reusing-workflows){% ifversion actions-unified-inputs %} or in a workflow triggered by the [`workflow_dispatch` event](/actions/learn-github-actions/events-that-trigger-workflows#workflow_dispatch){% endif %}. 您可以从工作流程中的任何作业或步骤访问此上下文。 此对象包含下面列出的属性。 |
-| `inputs.<name>` | `string` 或 `number` 或 `boolean` | 从外部工作流传递的每个输入值。                                                                                                                                                                                                                                                                                                                                |
+| 属性名称                  | 类型                              | 描述                                                                                                                                                                                                                                                                                         |
+| --------------------- | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `inputs`              | `对象`                            | 此上下文仅在 [reusable workflow](/actions/learn-github-actions/reusing-workflows){% ifversion actions-unified-inputs %} 或由 [`workflow_dispatch` 事件](/actions/learn-github-actions/events-that-trigger-workflows#workflow_dispatch){% endif %} 触发的工作流程中可用。 您可以从工作流程中的任何作业或步骤访问此上下文。 此对象包含下面列出的属性。 |
+| `inputs.<name>` | `string` 或 `number` 或 `boolean` | 从外部工作流传递的每个输入值。                                                                                                                                                                                                                                                                            |
 
 ### `inputs` 上下文的示例内容
 
-The following example contents of the `inputs` context is from a workflow that has defined the `build_id`, `deploy_target`, and `perform_deploy` inputs.
+以下 `inputs` 上下文的示例内容来自定义了 `build_id`、`deploy_target` 和 `perform_deploy` 输入的工作流程。
 
 ```yaml
 {
@@ -722,9 +722,9 @@ The following example contents of the `inputs` context is from a workflow that h
 }
 ```
 
-### Example usage of the `inputs` context in a reusable workflow
+### 可重用工作流程中 `inputs` 上下文的示例用法
 
-This example reusable workflow uses the `inputs` context to get the values of the `build_id`, `deploy_target`, and `perform_deploy` inputs that were passed to the reusable workflow from the caller workflow.
+此示例可重用工作流程使用 `inputs` 上下文来获取从调用方工作流程传递到可重用工作流程的 `build_id`、`deploy_target` 和 `perform_deploy` 输入的值。
 
 {% raw %}
 ```yaml{:copy}
@@ -753,9 +753,9 @@ jobs:
 {% endraw %}
 
 {% ifversion actions-unified-inputs %}
-### Example usage of the `inputs` context in a manually triggered workflow
+### 手动触发的工作流程中 `inputs` 上下文的示例用法
 
-This example workflow triggered by a `workflow_dispatch` event uses the `inputs` context to get the values of the `build_id`, `deploy_target`, and `perform_deploy` inputs that were passed to the workflow.
+此示例工作流程由 `workflow_dispatch` 事件触发，它使用 `inputs` 上下文来获取传递给工作流程的 `build_id`、`deploy_target` 和 `perform_deploy` 输入的值。
 
 {% raw %}
 ```yaml{:copy}
