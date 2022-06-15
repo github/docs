@@ -2,7 +2,6 @@
 title: About billing for GitHub Copilot
 intro: 'If you want to use {% data variables.product.prodname_copilot %}, you need a subscription for your {% data variables.product.prodname_dotcom %} account.'
 versions:
-  fpt: '*'
   ghec: '*'
   feature: 'copilot'
 topics:
