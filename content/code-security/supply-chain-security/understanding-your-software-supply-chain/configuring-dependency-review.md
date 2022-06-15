@@ -50,3 +50,56 @@ Dependency review is available when dependency graph is enabled for {% data vari
   ![Screenshot of "Code security and analysis" features"](/assets/images/enterprise/3.2/repository/code-security-and-analysis-enable-ghas-3.2.png){% endif %}{% ifversion ghes > 3.2 %}
     ![Screenshot of "Code security and analysis" features"](/assets/images/enterprise/3.4/repository/code-security-and-analysis-enable-ghas-3.4.png){% endif %}
 {% endif %}
+
+{% ifversion dependency-review-action-configuration %}
+## Configuring the {% data variables.product.prodname_dependency_review_action %}
+
+{% data reusables.dependency-review.dependency-review-action-beta-note %}
+{% data reusables.dependency-review.dependency-review-action-overview %}
+
+The following configuration options are available.
+
+| Option | Required | Usage |
+|------------------|-------------------------------|--------|
+| `fail-on-severity` | Optional | Defines the threshold for level of severity (`low`, `moderate`, `high`, `critical`).</br>The action will fail on any pull requests that introduce vulnerabilities of the specified severity level or higher. |
+| `allow-licenses` | Optional | Contains a list of allowed licenses. You can find the possible values for this parameter in the [Licenses](/rest/licenses) page of the API documentation.</br>The action will fail on pull requests that introduce dependencies with licenses that do not match the list.|
+| `deny-licenses` | Optional | Contains a list of prohibited licenses. You can find the possible values for this parameter in the [Licenses](/rest/licenses) page of the API documentation.</br>The action will fail on pull requests that introduce dependencies with licenses that match the list.|
+
+{% tip %}
+
+**Tip:** The  `allow-licenses` and  `deny-licenses` options are mutually exclusive.
+
+{% endtip %}
+
+This {% data variables.product.prodname_dependency_review_action %} example file illustrates how you can use these configuration options.
+
+```yaml{:copy}
+name: 'Dependency Review'
+on: [pull_request]
+
+permissions:
+  contents: read
+
+jobs:
+  dependency-review:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout Repository'
+        uses: {% data reusables.actions.action-checkout %}
+      - name: Dependency Review
+        uses: actions/dependency-review-action@v2
+        with:
+          # Possible values: "critical", "high", "moderate", "low" 
+          fail-on-severity: critical
+          # You can only can only include one of these two options: `allow-licenses` and `deny-licences`
+          # ([String]). Only allow these licenses (optional)
+          # Possible values: Any `spdx_id` value(s) from https://docs.github.com/en/rest/licenses 
+          # allow-licenses: GPL-3.0, BSD-3-Clause, MIT
+
+          # ([String]). Block the pull request on these licenses (optional)
+          # Possible values: Any  `spdx_id` value(s) from https://docs.github.com/en/rest/licenses 
+          # deny-licenses: LGPL-2.0, BSD-2-Clause
+```
+
+For further details about the configuration options, see [`dependency-review-action`](https://github.com/actions/dependency-review-action#readme).
+{% endif %}
