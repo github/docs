@@ -25,6 +25,10 @@ shortTitle: Dependency graph
 
 When you push a commit to {% data variables.product.product_name %} that changes or adds a supported manifest or lock file to the default branch, the dependency graph is automatically updated.{% ifversion fpt or ghec %} In addition, the graph is updated when anyone pushes a change to the repository of one of your dependencies.{% endif %} For information on the supported ecosystems and manifest files, see "[Supported package ecosystems](#supported-package-ecosystems)" below.
 
+{% ifversion dependency-submission-api %} 
+{% data reusables.dependency-submission.dependency-submission-link %}
+{% endif %}
+
 {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 When you create a pull request containing changes to dependencies that targets the default branch, {% data variables.product.prodname_dotcom %} uses the dependency graph to add dependency reviews to the pull request. These indicate whether the dependencies contain vulnerabilities and, if so, the version of the dependency in which the vulnerability was fixed. For more information, see "[About dependency review](/code-security/supply-chain-security/about-dependency-review)."
 {% endif %}
@@ -106,6 +110,8 @@ The recommended formats explicitly define which versions are used for all direct
 
 {% endnote %}
 {% endif %}
+
+{% ifversion dependency-submission-api %}You can use the Dependency submission API (beta) to add dependencies from the package manager or ecosystem of your choice to the dependency graph, even if the ecosystem is not in the list above, for support of manifest or lock file analysis. The dependency graph will display the submitted dependencies grouped by ecosystem, but separately from the dependencies parsed from manifest or lock files. For more information on the Dependency submission API, see "[Using the Dependency submission API](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api)."{% endif %}
 ## Further reading
 
 - "[Dependency graph](https://en.wikipedia.org/wiki/Dependency_graph)" on Wikipedia
