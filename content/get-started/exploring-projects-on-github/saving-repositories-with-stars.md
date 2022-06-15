@@ -44,7 +44,6 @@ Starring a repository is a simple two-step process.
 
 ## Viewing who has starred a repository
 
-{% note %}
 
 **Note:** This will only work on public repositories and private repositories that you have access to
 
