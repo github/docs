@@ -8,7 +8,7 @@ export type LearningTrack = {
 }
 
 export type MiniTocItem = {
-  platform: string
+  platform?: string
   contents: {
     href: string
     title: string
