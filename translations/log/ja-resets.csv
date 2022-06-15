@@ -31,7 +31,6 @@ translations/ja-JP/content/admin/configuration/configuring-your-enterprise/site-
 translations/ja-JP/content/admin/enterprise-management/configuring-clustering/monitoring-cluster-nodes.md,Listed in localization-support#489
 translations/ja-JP/content/admin/enterprise-management/configuring-clustering/monitoring-cluster-nodes.md,rendering error
 translations/ja-JP/content/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/increasing-cpu-or-memory-resources.md,broken liquid tags
-translations/ja-JP/content/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrade-requirements.md,broken liquid tags
 translations/ja-JP/content/admin/github-actions/advanced-configuration-and-troubleshooting/index.md,broken liquid tags
 translations/ja-JP/content/admin/github-actions/advanced-configuration-and-troubleshooting/troubleshooting-github-actions-for-your-enterprise.md,broken liquid tags
 translations/ja-JP/content/admin/github-actions/enabling-github-actions-for-github-enterprise-server/index.md,broken liquid tags
@@ -58,7 +57,6 @@ translations/ja-JP/content/admin/packages/getting-started-with-github-packages-f
 translations/ja-JP/content/admin/packages/quickstart-for-configuring-your-minio-storage-bucket-for-github-packages.md,broken liquid tags
 translations/ja-JP/content/admin/policies/enforcing-policy-with-pre-receive-hooks/creating-a-pre-receive-hook-environment.md,Listed in localization-support#489
 translations/ja-JP/content/admin/policies/enforcing-policy-with-pre-receive-hooks/creating-a-pre-receive-hook-environment.md,rendering error
-translations/ja-JP/content/admin/policies/enforcing-policy-with-pre-receive-hooks/creating-a-pre-receive-hook-script.md,broken liquid tags
 translations/ja-JP/content/admin/policies/enforcing-policy-with-pre-receive-hooks/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance.md,Listed in localization-support#489
 translations/ja-JP/content/admin/policies/enforcing-policy-with-pre-receive-hooks/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance.md,rendering error
 translations/ja-JP/content/admin/user-management/managing-organizations-in-your-enterprise/creating-teams.md,broken liquid tags
@@ -251,6 +249,7 @@ translations/ja-JP/data/release-notes/enterprise-server/3-3/0.yml,broken liquid 
 translations/ja-JP/data/release-notes/enterprise-server/3-4/0-rc1.yml,broken liquid tags
 translations/ja-JP/data/release-notes/enterprise-server/3-4/0.yml,broken liquid tags
 translations/ja-JP/data/release-notes/github-ae/2021-03/2021-03-03.yml,broken liquid tags
+translations/ja-JP/data/release-notes/github-ae/2021-06/2021-12-06.yml,broken liquid tags
 translations/ja-JP/data/reusables/actions/allow-specific-actions-intro.md,broken liquid tags
 translations/ja-JP/data/reusables/actions/disabling-github-actions.md,broken liquid tags
 translations/ja-JP/data/reusables/actions/enterprise-common-prereqs.md,broken liquid tags

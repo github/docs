@@ -280,7 +280,7 @@ updates:
       prefix-development: "pip dev"
       include: "scope"
 ```
-If you use the same configuration as in the example above, bumping the `requests` library in the `pip` development dependency group will generate a commit message of:
+如果使用与上述示例中相同的配置，则在 `pip` 开发依赖项组中刷入 `requests` 库将生成以下提交消息：
 
    `pip dev: bump requests from 1.0.0 to 1.0.1`
 
