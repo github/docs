@@ -18,7 +18,7 @@ Before you can start using {% data variables.product.prodname_copilot %}, you wi
 2. On the {% data variables.product.prodname_copilot %} settings page, click **Start your free trial**. 
    ![Screenshot of GitHub Copilot settings with start your free trial button emphasized](/assets/images/help/copilot/copilot-settings-start-trial-button.png) 
 3. Choose whether you want to pay monthly or yearly, and click **Continue to get access to Copilot**.
-   - If you are a student or open source maintainer, you can skip ahead to step 6.
+   - If your personal account meets the criteria for a free {% data variables.product.prodname_copilot %} subscription, you will automatically be taken to step 6.
   ![Screenshot of trial setup with Continue to get access to Copilot button emphasized](/assets/images/help/copilot/copilot-billing-cycle.png)
 4. Confirm your payment details. 
 5. Select your preferences, then click **Save and get started**.
