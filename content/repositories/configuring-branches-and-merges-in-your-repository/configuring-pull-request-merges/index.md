@@ -15,7 +15,7 @@ children:
   - /about-merge-methods-on-github
   - /configuring-commit-squashing-for-pull-requests
   - /configuring-commit-rebasing-for-pull-requests
-  - /using-a-merge-queue
+  - /managing-a-merge-queue
   - /managing-suggestions-to-update-pull-request-branches
   - /managing-auto-merge-for-pull-requests-in-your-repository
   - /managing-the-automatic-deletion-of-branches

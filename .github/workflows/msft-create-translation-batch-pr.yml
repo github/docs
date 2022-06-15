@@ -1,0 +1,204 @@
+name: Create translation Batch Pull Request
+
+# **What it does**:
+#  - Creates one pull request per language after running a series of automated checks,
+#    removing translations that are broken in any known way
+# **Why we have it**:
+#  - To deploy translations
+# **Who does it impact**: It automates what would otherwise be manual work,
+#   helping docs engineering focus on higher value work
+
+on:
+  workflow_dispatch:
+  # TODO: bring schedule back in
+  # schedule:
+  #   - cron: '02 17 * * *' # Once a day at 17:02 UTC / 9:02 PST
+
+permissions:
+  contents: write
+
+jobs:
+  create-translation-batch:
+    name: Create translation batch
+    if: github.repository == 'github/docs-internal'
+    runs-on: ubuntu-latest
+    # A sync's average run time is ~3.2 hours.
+    # This sets a maximum execution time of 300 minutes (5 hours) to prevent the workflow from running longer than necessary.
+    timeout-minutes: 300
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix:
+        include:
+          # TODO: replace language_repos with actual repos once created
+          # - language: pt
+          #   crowdin_language: pt-BR
+          #   language_dir: translations/pt-BR
+          #   language_repo: github/docs-translations-pt-br
+
+          - language: es
+            crowdin_language: es-ES
+            language_dir: translations/es-ES
+            language_repo: github/docs-localization-test-es-es
+
+          # - language: cn
+          #   crowdin_language: zh-CN
+          #   language_dir: translations/zh-CN
+          #   language_repo: github/docs-translations-zh-cn
+
+          # - language: ja
+          #   crowdin_language: ja
+          #   language_dir: translations/ja-JP
+          #   language_repo: github/docs-translations-ja-jp
+
+    # TODO: replace the branch name
+    steps:
+      - name: Set branch name
+        id: set-branch
+        run: |
+          echo "::set-output name=BRANCH_NAME::msft-translation-batch-${{ matrix.language }}-$(date +%Y-%m-%d__%H-%M)"
+
+      - run: git config --global user.name "docubot"
+      - run: git config --global user.email "67483024+docubot@users.noreply.github.com"
+
+      - name: Checkout the docs-internal repo
+        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
+        with:
+          fetch-depth: 0
+          lfs: true
+
+      - name: Create a branch for the current language
+        run: git checkout -b ${{ steps.set-branch.outputs.BRANCH_NAME }}
+
+      - name: Remove unwanted git hooks
+        run: rm .git/hooks/post-checkout
+
+      - name: Remove all language translations
+        run: |
+          git rm -rf --quiet ${{ matrix.language_dir }}/content
+          git rm -rf --quiet ${{ matrix.language_dir }}/data
+
+      - name: Checkout the language-specific repo
+        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
+        with:
+          repository: ${{ matrix.language_repo }}
+          token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
+          path: ${{ matrix.language_dir }}
+
+      - name: Remove .git from the language-specific repo
+        run: rm -rf ${{ matrix.language_dir }}/.git
+
+      # TODO: Rename this step
+      - name: Commit crowdin sync
+        run: |
+          git add ${{ matrix.language_dir }}
+          git commit -m "Add crowdin translations" || echo "Nothing to commit"
+
+      - name: 'Setup node'
+        uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048
+        with:
+          node-version: '16.15.0'
+
+      - run: npm ci
+
+      # step 6 in docs-engineering/crowdin.md
+      - name: Homogenize frontmatter
+        run: |
+          node script/i18n/homogenize-frontmatter.js
+          git add ${{ matrix.language_dir }} && git commit -m "Run script/i18n/homogenize-frontmatter.js" || echo "Nothing to commit"
+
+      # step 7 in docs-engineering/crowdin.md
+      - name: Fix translation errors
+        run: |
+          node script/i18n/fix-translation-errors.js
+          git add ${{ matrix.language_dir }} && git commit -m "Run script/i18n/fix-translation-errors.js" || echo "Nothing to commit"
+
+      # step 8a in docs-engineering/crowdin.md
+      - name: Check parsing
+        run: |
+          node script/i18n/lint-translation-files.js --check parsing | tee -a /tmp/batch.log | cat
+          git add ${{ matrix.language_dir }} && git commit -m "Run script/i18n/lint-translation-files.js --check parsing" || echo "Nothing to commit"
+
+      # step 8b in docs-engineering/crowdin.md
+      - name: Check rendering
+        run: |
+          node script/i18n/lint-translation-files.js --check rendering | tee -a /tmp/batch.log | cat
+          git add ${{ matrix.language_dir }} && git commit -m "Run script/i18n/lint-translation-files.js --check rendering" || echo "Nothing to commit"
+
+      - name: Reset files with broken liquid tags
+        run: |
+          node script/i18n/reset-files-with-broken-liquid-tags.js --language=${{ matrix.language }} | tee -a /tmp/batch.log | cat
+          git add ${{ matrix.language_dir }} && git commit -m "run script/i18n/reset-files-with-broken-liquid-tags.js --language=${{ matrix.language }}" || echo "Nothing to commit"
+
+      # step 5 in docs-engineering/crowdin.md using script from docs-internal#22709
+      - name: Reset known broken files
+        run: |
+          node script/i18n/reset-known-broken-translation-files.js | tee -a /tmp/batch.log | cat
+          git add ${{ matrix.language_dir }} && git commit -m "run script/i18n/reset-known-broken-translation-files.js" || echo "Nothing to commit"
+        env:
+          GITHUB_TOKEN: ${{ secrets.DOCUBOT_REPO_PAT }}
+
+      - name: Check in CSV report
+        run: |
+          mkdir -p translations/log
+          csvFile=translations/log/${{ matrix.language }}-resets.csv
+          script/i18n/report-reset-files.js --report-type=csv --language=${{ matrix.language }} --log-file=/tmp/batch.log > $csvFile
+          git add -f $csvFile && git commit -m "Check in ${{ matrix.language }} CSV report" || echo "Nothing to commit"
+
+      - name: Write the reported files that were reset to /tmp/pr-body.txt
+        run: script/i18n/report-reset-files.js --report-type=pull-request-body --language=${{ matrix.language }} --log-file=/tmp/batch.log > /tmp/pr-body.txt
+
+      - name: Push filtered translations
+        run: git push origin ${{ steps.set-branch.outputs.BRANCH_NAME }}
+
+      # TODO: bring this step back
+      # - name: Close existing stale batches
+      #   uses: lee-dohm/close-matching-issues@e9e43aad2fa6f06a058cedfd8fb975fd93b56d8f
+      #   with:
+      #     token: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
+      #     query: 'type:pr label:translation-batch-${{ matrix.language }}'
+
+      # TODO: bring labels back into the PR script
+      - name: Create translation batch pull request
+        env:
+          GITHUB_TOKEN: ${{ secrets.DOCUBOT_REPO_PAT }}
+          TITLE: '[DO NOT MERGE] Msft: New translation batch for ${{ matrix.language }}'
+          BASE: 'main'
+          HEAD: ${{ steps.set-branch.outputs.BRANCH_NAME }}
+          LANGUAGE: ${{ matrix.language }}
+          BODY_FILE: '/tmp/pr-body.txt'
+        run: .github/actions-scripts/msft-create-translation-batch-pr.js
+
+      # TODO: bring back these steps
+      # - name: Approve PR
+      #   if: github.ref_name == 'main'
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
+      #   run: gh pr review --approve || echo "Nothing to approve"
+
+      # - name: Set auto-merge
+      #   if: github.ref_name == 'main'
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
+      #   run: gh pr merge ${{ steps.set-branch.outputs.BRANCH_NAME }} --auto --squash || echo "Nothing to merge"
+
+      # # When the maximum execution time is reached for this job, Actions cancels the workflow run.
+      # # This emits a notification for the first responder to triage.
+      # - name: Send Slack notification if workflow is cancelled
+      #   uses: someimportantcompany/github-actions-slack-message@f8d28715e7b8a4717047d23f48c39827cacad340
+      #   if: cancelled()
+      #   with:
+      #     channel: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+      #     bot-token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+      #     color: failure
+      #     text: 'The new translation batch for ${{ matrix.language }} was cancelled.'
+
+      # # Emit a notification for the first responder to triage if the workflow failed.
+      # - name: Send Slack notification if workflow failed
+      #   uses: someimportantcompany/github-actions-slack-message@f8d28715e7b8a4717047d23f48c39827cacad340
+      #   if: failure()
+      #   with:
+      #     channel: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+      #     bot-token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+      #     color: failure
+      #     text: 'The new translation batch for ${{ matrix.language }} failed.'

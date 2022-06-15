@@ -50,6 +50,9 @@ topics:
 {% ifversion fpt or ghec %}
 - [Require merge queue](#require-merge-queue)
 {% endif %}
+{%- ifversion required-deployments %}
+- [Require deployments to succeed before merging](#require-deployments-to-succeed-before-merging)
+{%- endif %}
 - [管理者を含める](#include-administrators)
 - [一致するブランチにプッシュできるユーザを制限](#restrict-who-can-push-to-matching-branches)
 - [フォースプッシュを許可](#allow-force-pushes)
@@ -144,6 +147,11 @@ Requires all comments on the pull request to be resolved before it can be merged
 {% data reusables.pull_requests.merge-queue-references %}
 
 {% endif %}
+
+### Require deployments to succeed before merging
+
+You can require that changes are successfully deployed to specific environments before a branch can be merged. For example, you can use this rule to ensure that changes are successfully deployed to a staging environment before the changes merge to your default branch.
+
 ### 管理者を含める
 
 デフォルトでは、保護されたブランチのルールは、リポジトリの管理者権限を持つユーザには適用されません。 この設定を有効化すると、保護されたブランチのルールを管理者にも適用できます。
@@ -154,9 +162,13 @@ Requires all comments on the pull request to be resolved before it can be merged
 You can enable branch restrictions if your repository is owned by an organization using {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %}.
 {% endif %}
 
-ブランチ制限を有効にすると、権限を与えられたユーザ、チーム、またはアプリのみが保護されたブランチにプッシュできます。 保護されたブランチの設定で、保護されたブランチへのプッシュアクセスを使用して、ユーザ、チーム、またはアプリを表示および編集できます。 When status checks are required, the people, teams, and apps that have permission to push to a protected branch will still be prevented from merging if the required checks fail. People, teams, and apps that have permission to push to a protected branch will still need to create a pull request when pull requests are required.
+ブランチ制限を有効にすると、権限を与えられたユーザ、チーム、またはアプリのみが保護されたブランチにプッシュできます。 保護されたブランチの設定で、保護されたブランチへのプッシュアクセスを使用して、ユーザ、チーム、またはアプリを表示および編集できます。 When status checks are required, the people, teams, and apps that have permission to push to a protected branch will still be prevented from merging into the branch when the required checks fail. People, teams, and apps that have permission to push to a protected branch will still need to create a pull request when pull requests are required.
 
-ユーザ、チーム、またはリポジトリへの write 権限を持つインストール済みの {% data variables.product.prodname_github_apps %} にのみ、保護されたブランチへのプッシュアクセス付与できます。 リポジトリへの管理者権限を持つユーザとアプリケーションは、いつでも保護されたブランチにプッシュできます。
+{% ifversion restrict-pushes-create-branch %}
+Optionally, you can apply the same restrictions to the creation of branches that match the rule. For example, if you create a rule that only allows a certain team to push to any branches that contain the word `release`, only members of that team would be able to create a new branch that contains the word `release`.
+{% endif %}
+
+You can only give push access to a protected branch, or give permission to create a matching branch, to users, teams, or installed {% data variables.product.prodname_github_apps %} with write access to a repository. People and apps with admin permissions to a repository are always able to push to a protected branch or create a matching branch.
 
 ### フォースプッシュを許可
 
@@ -174,7 +186,7 @@ If someone force pushes to a branch, the force push may overwrite commits that o
 
 フォースプッシュを有効化しても、他のブランチ保護ルールは上書きされません。 たとえば、ブランチに直線状のコミット履歴が必要な場合、そのブランチにマージコミットをフォースプッシュすることはできません。
 
-{% ifversion ghes or ghae %}サイト管理者がリポジトリ内のすべてのブランチへのフォースプッシュをブロックしている場合、保護されたブランチのフォースプッシュを有効にすることはできません。 詳しい情報については、「[ユーザアカウントもしくはOrganizationが所有するリポジトリへのフォースプッシュのブロック](/enterprise/{{ currentVersion }}/admin/developer-workflow/blocking-force-pushes-to-repositories-owned-by-a-user-account-or-organization)」を参照してください。
+{% ifversion ghes or ghae %}サイト管理者がリポジトリ内のすべてのブランチへのフォースプッシュをブロックしている場合、保護されたブランチのフォースプッシュを有効にすることはできません。 For more information, see "[Blocking force pushes to repositories owned by a personal account or organization](/enterprise/admin/developer-workflow/blocking-force-pushes-to-repositories-owned-by-a-user-account-or-organization)."
 
 サイト管理者がデフォルトブランチへのフォースプッシュのみをブロックしている場合、他の保護されたブランチに対してフォースプッシュを有効にできます。{% endif %}
 

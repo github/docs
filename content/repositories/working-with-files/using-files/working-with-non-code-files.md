@@ -37,11 +37,13 @@ shortTitle: Working with non-code files
 
 ## Rendering and diffing images
 
-{% data variables.product.product_name %} can display several common image formats, including PNG, JPG, GIF, PSD, and SVG. In addition to simply displaying them, there are several ways to compare differences between versions of those image formats.'
+{% data variables.product.product_name %} can display several common image formats, including PNG, JPG, GIF, PSD, and SVG. In addition to simply displaying them, there are several ways to compare differences between versions of those image formats.
 
 {% note %}
 
-**Note:** If you are using the Firefox browser, SVGs on {% data variables.product.prodname_dotcom %} may not render.
+**Note:** 
+- {% data variables.product.prodname_dotcom %} does not support comparing the differences between PSD files. 
+- If you are using the Firefox browser, SVGs on {% data variables.product.prodname_dotcom %} may not render.
 
 {% endnote %}
 
@@ -130,7 +132,7 @@ By default, the embedded renderer is 420 pixels wide by 620 pixels high, but you
 
 {% endtip %}
 
-{% if mermaid %}
+{% ifversion mermaid %}
 ### Rendering in Markdown
 
 You can embed ASCII STL syntax directly in Markdown. For more information, see "[Creating diagrams](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-stl-3d-models)."
@@ -287,7 +289,7 @@ By default, the embedded map 420px x 620px, but you can customize the output by 
 
 {% endtip %}
 
-{% if mermaid %}
+{% ifversion mermaid %}
 ### Mapping in Markdown
 
 You can embed geoJSON and topoJSON directly in Markdown. For more information, see "[Creating diagrams](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-geojson-and-topojson-maps)."
@@ -313,7 +315,7 @@ It may still be possible to render the data by converting the `.geojson` file to
 
 ### Further reading
 
-* [Leaflet.js geojson documentation](http://leafletjs.com/examples/geojson.html)
+* [Leaflet.js documentation](https://leafletjs.com/)
 * [MapBox marker-styling documentation](http://www.mapbox.com/developers/simplestyle/)
 * [TopoJSON Wiki](https://github.com/mbostock/topojson/wiki)
 
@@ -338,9 +340,9 @@ $ jupyter nbconvert --to html <em>NOTEBOOK-NAME.ipynb</em>
 ### Further reading
 
 - [Jupyter Notebook's GitHub repository](https://github.com/jupyter/jupyter_notebook)
-- [Gallery of Jupyter Notebooks](https://github.com/jupyter/jupyter/wiki/A-gallery-of-interesting-Jupyter-Notebooks)
+- [Gallery of Jupyter Notebooks](https://github.com/jupyter/jupyter/wiki)
 
-{% if mermaid %}
+{% ifversion mermaid %}
 ## Displaying Mermaid files on {% data variables.product.prodname_dotcom %}
 
 {% data variables.product.product_name %} supports rendering Mermaid files within repositories. Commit the file as you would normally using a `.mermaid` or `.mmd` extension. Then, navigate to the path of the Mermaid file on {% data variables.product.prodname_dotcom %}.

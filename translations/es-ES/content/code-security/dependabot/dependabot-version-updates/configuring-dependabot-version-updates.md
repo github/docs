@@ -35,7 +35,16 @@ Habilitarás {% data variables.product.prodname_dependabot_version_updates %} me
 
 ## Habilitar las {% data variables.product.prodname_dependabot_version_updates %}
 
-{% data reusables.dependabot.create-dependabot-yml %} For information, see "[Configuration options for the dependabot.yml file](/github/administering-a-repository/configuration-options-for-dependency-updates)."
+You enable {% data variables.product.prodname_dependabot_version_updates %} by commiting a *dependabot.yml* configuration file to your repository.
+{% ifversion dependabot-settings-update-37 %}If you enable the feature in your settings page, GitHub creates a basic file which you can edit, otherwise you can create the file using any file editor.
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.navigate-to-code-security-and-analysis %}
+1. Under "Code security and analysis", to the right of "{% data variables.product.prodname_dependabot_version_updates %}", click **Enable** to open a basic *dependabot.yml* configuration file in the `.github` directory of your repository.
+{% else %}
+1. Create a *dependabot.yml* configuration file in the `.github` directory of your repository.
+{% endif %}
 1. Agrega una `version`.
 1. Opcionalmente, si tienes dependencias en un registro privado, agrega una sección de `registries` que contenga los detalles de autenticación.
 1. Agrega una sección de `updates` con una entrada para cada administrador de paquetes que quieras que monitoree el {% data variables.product.prodname_dependabot %}.
@@ -44,6 +53,8 @@ Habilitarás {% data variables.product.prodname_dependabot_version_updates %} me
     - `directory` para especificar la ubicación del manifiesto u otros archivos de definición.
     - `schedule.interval` para especificar qué tan a menudo se debe revisar si hay nuevas versiones.
 {% data reusables.dependabot.check-in-dependabot-yml %}
+
+For information about all the configuration options, see "[Configuration options for the dependabot.yml file](/github/administering-a-repository/configuration-options-for-dependency-updates)."
 
 ### Archivo *dependabot.yml* de ejemplo
 

@@ -1,5 +1,5 @@
 ---
-title: Enabling Codespaces for your organization
+title: Organization の Codespaces を有効にする
 shortTitle: Enable Codespaces
 intro: 'Organization 内のどのユーザが {% data variables.product.prodname_codespaces %} を使用できるかを制御できます。'
 product: '{% data reusables.gated-features.codespaces %}'
@@ -32,6 +32,13 @@ By default, a codespace can only access the repository from which it was created
 
 ## Enable {% data variables.product.prodname_codespaces %} for users in your organization
 
+{% ifversion fpt %}
+{% note %}
+
+**Note:** If you are a verified educator or a teacher, you must enable {% data variables.product.prodname_codespaces %} from a {% data variables.product.prodname_classroom %} to use your {% data variables.product.prodname_codespaces %} Education benefit. For more information, see "[Using GitHub Codespaces with GitHub Classroom](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/using-github-codespaces-with-github-classroom#about-the-codespaces-education-benefit-for-verified-teachers)."
+
+{% endnote %}
+{% endif %}
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.click-codespaces %}

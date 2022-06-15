@@ -41,10 +41,7 @@ Una ejecución de verificación es una prueba individual que forma parte de una 
 
 ![Flujo de trabajo de las ejecuciones de verificación](/assets/images/check_runs.png)
 
-{% ifversion fpt or ghes or ghae or ghec %}
-Si una ejecución de verificación permanece en un estado incompleto por más de 14 días, entonces las `conclusion` de dicha ejecución se convierten en `stale` y aparecen en
-{% data variables.product.prodname_dotcom %} como quedadas con el {% octicon "issue-reopened" aria-label="The issue-reopened icon" %}. Solo {% data variables.product.prodname_dotcom %} puede marcar las ejecuciones de verificación como `stale`. Para obtener más información acerca de las conclusiones posibles para una ejecución de verificación, consulta el [parámetro de `conclusion`](/rest/reference/checks#create-a-check-run--parameters).
-{% endif %}
+Si una ejecución de verificación permanece en un estado incompleto por más de 14 días, entonces la `conclusion` de ésta se convierte en `stale` y aparece en {% data variables.product.prodname_dotcom %} como quedada con el {% octicon "issue-reopened" aria-label="The issue-reopened icon" %}. Solo {% data variables.product.prodname_dotcom %} puede marcar las ejecuciones de verificación como `stale`. Para obtener más información acerca de las conclusiones posibles para una ejecución de verificación, consulta el [parámetro de `conclusion`](/rest/reference/checks#create-a-check-run--parameters).
 
 Puedes crear la ejecución de verificación tan pronto como recibas el webhook de [`check_suite`](/webhooks/event-payloads/#check_suite), aún si ésta todavía no se completa. Puedes actualizar el `status` de la ejecución de verificación ya que se completa con los valores `queued`, `in_progress`, o `completed`, y puedes actualizar la `output` conforme vayan estando disponibles los detalles adicionales. Una ejecución de verificación puede contener estampas de tiempo, un enlace para encontrar más detalles en tu sitio externo, anotaciones detalladas para líneas de código específcas, e información acerca del análisis que se llevó a cabo.
 
@@ -77,3 +74,9 @@ Para crear un botón que pueda solicitarle a tu app acciones adicionales, utiliz
 Cuando un usuario da clic en el botón, {% data variables.product.prodname_dotcom %} envía el [webhook de `check_run.requested_action`](/webhooks/event-payloads/#check_run) a tu app. Cuando tu app recibe el evento de webhook de `check_run.requested_action`, este puede buscar la clave de `requested_action.identifier` en la carga útil del webhook para determinar qué botón se pulsó y llevar a cabo la tarea solicitada.
 
 Para obtener un ejemplo detallado de cómo configurar las acciones solicitadas con la API de Verificaciones, consulta la sección "[Crear pruebas de IC con la API de verificaciones](/apps/quickstart-guides/creating-ci-tests-with-the-checks-api/#part-2-creating-the-octo-rubocop-ci-test)".
+
+{% ifversion fpt or ghec %}
+## Retención de datos de verificaciones
+
+{% data reusables.pull_requests.retention-checks-data %}
+{% endif %}

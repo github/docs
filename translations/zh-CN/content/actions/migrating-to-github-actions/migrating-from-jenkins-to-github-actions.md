@@ -83,9 +83,9 @@ Jenkins 可以并行运行 `stages` 和 `steps`，而 {% data variables.product.
 | ------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [`parallel`](https://jenkins.io/doc/book/pipeline/syntax/#parallel) | [`jobs.<job_id>.strategy.max-parallel`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymax-parallel) |
 
-### 构建矩阵
+### 矩阵
 
-{% data variables.product.prodname_actions %} 和 Jenkins 都允许您使用构建矩阵来定义各种系统组合。
+{% data variables.product.prodname_actions %} 和 Jenkins 都允许您使用矩阵来定义各种系统组合。
 
 | Jenkins                                                                  | {% data variables.product.prodname_actions %}
 | ------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -264,28 +264,26 @@ pipeline {
 </td>
 <td>
 
-{% raw %}
 ```yaml
 name: demo-workflow
 on:
   push:
 jobs:
   test:
-    runs-on: ${{ matrix.os }}
+    runs-on: {% raw %}${{ matrix.os }}{% endraw %}
     strategy:
       fail-fast: false
       matrix:
         os: [macos-latest, ubuntu-latest]
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: {% data reusables.actions.action-checkout %}
+      - uses: {% data reusables.actions.action-setup-node %}
         with:
           node-version: 12
       - run: npm install -g bats
       - run: bats tests
         working-directory: scripts/myapp
 ```
-{% endraw %}
 
 </td>
 </tr>

@@ -4,10 +4,7 @@ intro: Puedes utilizar las vistas previas de la API para probar características
 redirect_from:
   - /v3/previews
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
+  ghes: <3.4
 topics:
   - API
 ---
@@ -49,14 +46,6 @@ Obtén una [lista de eventos](/rest/reference/issues#timeline) para un informe d
 
 {% endif %}
 
-{% ifversion ghes %}
-## Ambientes de pre-recepción
-
-Crea, lista, actualiza y borra ambientes para los ganchos de pre-recepción.
-
-**Tipo de medios personalizados:** `eye-scream-preview` **Anunciado en:**[2015-07-29](/rest/reference/enterprise-admin#pre-receive-environments)
-{% endif %}
-
 {% ifversion ghes < 3.3 %}
 ## Proyectos
 
@@ -90,7 +79,7 @@ Ver todos los [códigos de conducta](/rest/reference/codes-of-conduct) u obtener
 
 {% endif %}
 
-{% ifversion ghae or ghes %}
+{% ifversion ghes < 3.3 %}
 
 ## Webhooks globales
 
@@ -118,16 +107,6 @@ Ahora puedes [requerir múltiples revisiones de aprobación](/rest/reference/rep
 
 {% endif %}
 
-
-{% ifversion ghes %}
-
-## Acceso anónimo de Git a los repositorios
-
-Cuando una instancia de {% data variables.product.prodname_ghe_server %} está en modo privado, los administradores de sitio y de repositorio pueden habilitar el acceso anónimo de Git para los repositorios públicos.
-
-**Tipo de medios personalizados:** `x-ray-preview` **Anunciado en:**[2018-07-12](https://blog.github.com/2018-07-12-introducing-enterprise-2-14/)
-
-{% endif %}
 {% ifversion ghes < 3.3 %}
 
 ## Detalles de la tarjeta de proyecto
@@ -135,15 +114,6 @@ Cuando una instancia de {% data variables.product.prodname_ghe_server %} está e
 Las respuestas de la API de REST para los [eventos de los informes de problemas](/rest/reference/issues#events) y para [los eventos de la línea de tiempo de los informes de problemas](/rest/reference/issues#timeline) ahora devuelven el campo `project_card` para los eventos relacionados con los proyectos.
 
 **Tipo de medios personalizados:** `starfox-preview` **Anunciado en:**[2018-09-05](https://developer.github.com/changes/2018-09-05-project-card-events)
-
-{% endif %}
-{% ifversion fpt or ghec %}
-
-## Manifiestos de las GitHub Apps
-
-Los Manifiestos de las GitHub Apps permiten a las personas crear GitHub Apps preconfiguradas. Consulta la sección "[Crear GitHub Apps desde un manifiesto](/apps/building-github-apps/creating-github-apps-from-a-manifest/)" para obtener más detalles.
-
-**Tipo de medios personalizado:** `fury-preview`
 
 {% endif %}
 
@@ -175,7 +145,7 @@ Ahora puedes proporcionar más información en GitHub para las URL que enlazan a
 **Tipo de medios personalizados:** `corsair-preview` **Anunciado en:**[2018-12-10](https://developer.github.com/changes/2018-12-10-content-attachments-api/)
 
 {% endif %}
-{% ifversion ghae or ghes < 3.3 %}
+{% ifversion ghes < 3.3 %}
 
 ## Habilitar e inhabilitar las páginas
 

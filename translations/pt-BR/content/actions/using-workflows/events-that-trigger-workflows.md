@@ -24,7 +24,7 @@ Os acionadores de fluxo de trabalho são eventos que fazem com que um fluxo de t
 
 Alguns eventos têm vários tipos de atividades. Para esses eventos, você pode especificar quais tipos de atividade ativarão a execução de um fluxo de trabalho. Para obter mais informações sobre o significado de cada tipo de atividade, consulte "[Eventos de webhook e cargas](/developers/webhooks-and-events/webhook-events-and-payloads)". Observe que nem todos os eventos de webhook acionam fluxos de trabalho.
 
-{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4968  %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae  %}
 ### `branch_protection_rule`
 
 | Carga de evento webhook                                                                                                 | Tipos de atividade                                     | `GITHUB_SHA`                   | `GITHUB_REF`  |
@@ -899,7 +899,7 @@ on:
 
 jobs:
   if_merged:
-    if: github.event.pull_request_target.merged == true
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
     - run: |
@@ -1051,7 +1051,7 @@ em:
 
 {% endnote %}
 
-Executa o fluxo de trabalho quando a atividade de da versão no repositório ocorre. Para obter informações sobre as APIs de versões, consulte "[Release](/graphql/reference/objects#release)" na documentação da API do GraphQL ou "[Versões](/rest/reference/repos#releases)" na documentação da API REST.
+Executa o fluxo de trabalho quando a atividade de da versão no repositório ocorre. Para obter informações sobre as APIs de versões, consulte "[Release](/graphql/reference/objects#release)" na documentação da API do GraphQL ou "[Versões](/rest/reference/releases)" na documentação da API REST.
 
 Por exemplo, você pode executar um fluxo de trabalho quando uma versão tiver sido `published`.
 
@@ -1078,6 +1078,12 @@ on:
   repository_dispatch:
     types: [on-demand-test]
 ```
+
+{% note %}
+
+**Observação:** O valor do `event_type` é limitado a 100 caracteres.
+
+{% endnote %}
 
 Todos os dados que você enviar através do parâmetro `client_payload` estarão disponíveis no contexto `github.event` no seu fluxo de trabalho. Por exemplo, se você enviar esse texto de solicitação quando criar um evento de despacho de repositório:
 
@@ -1151,7 +1157,7 @@ Você pode usar estes operadores em qualquer um dos cinco campos:
 
 Você pode usar [crontab guru](https://crontab.guru/) para ajudar a gerar a sintaxe cron e confirmar a hora em que ela será executada. Para ajudar você a começar, há também uma lista de [exemplos de crontab guru](https://crontab.guru/examples.html).
 
-As notificações de fluxos de trabalho agendados são enviadas ao usuário que modificou a sintaxe cron no arquivo do fluxo de trabalho. Para obter mais informações, consulte "[Notificações para execuções de fluxo de trabalho](/actions/guides/about-continuous-integration#notifications-for-workflow-runs)".
+As notificações de fluxos de trabalho agendados são enviadas ao usuário que modificou a sintaxe cron no arquivo do fluxo de trabalho. Para obter mais informações, consulte "[Notificações para execuções de fluxo de trabalho](/actions/monitoring-and-troubleshooting-workflows/notifications-for-workflow-runs)".
 
 ### `status`
 
@@ -1196,7 +1202,7 @@ jobs:
 
 {% note %}
 
-**Observação**: {% data reusables.developer-site.multiple_activity_types %} Embora apenas o tipo de atividade `iniciado` seja compatível, especificarque o tipo de atividade manterá seu fluxo de trabalho específico se mais tipos de atividade forem adicionados posteriormente. Para obter informações sobre cada tipo de atividade, consulte "[Eventos Webhook e cargas](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#watch)". {% data reusables.developer-site.limit_workflow_to_activity_types %}
+**Observação**: {% data reusables.developer-site.multiple_activity_types %} Embora apenas o tipo de atividade `iniciado` seja compatível, especificarque o tipo de atividade manterá seu fluxo de trabalho específico se mais tipos de atividade forem adicionados posteriormente. Para obter informações sobre cada tipo de atividade, consulte "[Eventos de webhook e cargas](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#watch)". {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
@@ -1244,12 +1250,13 @@ on: workflow_dispatch
 
 #### Fornecendo entradas
 
-É possível configurar as propriedades de entrada definidas por personalização, os valores-padrão de entrada e as entradas obrigatórias para o evento diretamente no seu fluxo de trabalho. Ao iniciar o evento, você pode fornecer `ref` e qualquer `entradas`. Quando o fluxo de trabalho é executado, você pode acessar os valores de entrada no contexto `github.event.inputs`. Para obter mais informações, consulte "[Contextos](/actions/learn-github-actions/contexts)".
+É possível configurar as propriedades de entrada definidas por personalização, os valores-padrão de entrada e as entradas obrigatórias para o evento diretamente no seu fluxo de trabalho. Ao iniciar o evento, você pode fornecer `ref` e qualquer `entradas`. When the workflow runs, you can access the input values in the {% ifversion actions-unified-inputs %}`inputs`{% else %}`github.event.inputs`{% endif %} context. Para obter mais informações, consulte "[Contextos](/actions/learn-github-actions/contexts)".
+
+{% data reusables.actions.inputs-vs-github-event-inputs %}
 
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5511 %}
-Este exemplo define as entradas chamadas `logLevel`, `tags` e `ambiente`. Você passa os valores destas entradas para o fluxo de trabalho quando o executa. Esse fluxo de trabalho imprime os valores no registro, usando as propriedades de contexto `github.event.inputs.logLevel`, `github.event.inputs.tags` e  `github.event.inputs.environment`.
+Este exemplo define as entradas chamadas `logLevel`, `tags` e `ambiente`. Você passa os valores destas entradas para o fluxo de trabalho quando o executa. This workflow then prints the values to the log, using the {% ifversion actions-unified-inputs %}`inputs.logLevel`, `inputs.tags`, and  `inputs.environment`{% else %}`github.event.inputs.logLevel`, `github.event.inputs.tags`, and  `github.event.inputs.environment`{% endif %} context properties.
 
-{% raw %}
 ```yaml
 on: 
   workflow_dispatch:
@@ -1281,11 +1288,10 @@ jobs:
           echo "Tags: $TAGS"
           echo "Environment: $ENVIRONMENT"
         env:
-          LEVEL: ${{ github.event.inputs.logLevel }}
-          TAGS: ${{ github.event.inputs.tags }}
-          ENVIRONMENT: ${{ github.event.inputs.environment }}
+          LEVEL: {% ifversion actions-unified-inputs %}{% raw %}${{ inputs.logLevel }}{% endraw %}{% else %}{% raw %}${{ github.event.inputs.logLevel }}{% endraw %}{% endif %}
+          TAGS: {% ifversion actions-unified-inputs %}{% raw %}${{ inputs.tags }}{% endraw %}{% else %}{% raw %}${{ github.event.inputs.tags }}{% endraw %}{% endif %}
+          ENVIRONMENT: {% ifversion actions-unified-inputs %}{% raw %}${{ inputs.environment }}{% endraw %}{% else %}{% raw %}${{ github.event.inputs.environment }}{% endraw %}{% endif %}
 ```
-{% endraw %}
 
 Se você executar este fluxo de trabalho em um navegador, você deverá inserir valores para as entradas necessárias manualmente antes de o fluxo de trabalho ser executado.
 
@@ -1300,7 +1306,7 @@ gh workflow run run-tests.yml -f logLevel=warning -f tags=false -f environment=s
 Para obter mais informações, consulte as informações do {% data variables.product.prodname_cli %} em "[Executando um fluxo de trabalho manualmente](/actions/managing-workflow-runs/manually-running-a-workflow)".
 
 {% else %}
-Este exemplo define as entradas do `nome` e `home` e as imprime usando os contextos `github.event.inputs.name` e `github.event.inputs.home`. Se `home` não for fornecido, será impresso o valor-padrão 'The Octoverse'.
+This example defines the `name` and `home` inputs and prints them using the {% ifversion actions-unified-inputs %}`inputs.name` and `inputs.home`{% else %}`github.event.inputs.name` and `github.event.inputs.home`{% endif %} contexts. Se `home` não for fornecido, será impresso o valor-padrão 'The Octoverse'.
 
 ```yaml
 name: Manually triggered workflow
@@ -1324,8 +1330,8 @@ jobs:
           echo Hello $NAME!
           echo -in $HOME
         env:
-          NAME: {% raw %}${{ github.event.inputs.name }}{% endraw %}
-          HOME: {% raw %}${{ github.event.inputs.home }}{% endraw %}
+          NAME: {% ifversion actions-unified-inputs %}{% raw %}${{ inputs.name }}{% endraw %}{% else %}{% raw %}${{ github.event.inputs.name }}{% endraw %}{% endif %}
+          HOME: {% ifversion actions-unified-inputs %}{% raw %}${{ github.event.inputs.home }}{% endraw %}{% else %}{% raw %}${{ github.event.inputs.home }}{% endraw %}{% endif %}
 ```
 {% endif %}
 
@@ -1429,7 +1435,7 @@ jobs:
         run: |
           mkdir -p ./pr
           echo $PR_NUMBER > ./pr/pr_number
-      - uses: actions/upload-artifact@v3
+      - uses: {% data reusables.actions.action-upload-artifact %}
         with:
           name: pr_number
           path: pr/
@@ -1451,7 +1457,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 'Download artifact'
-        uses: actions/github-script@v5
+        uses: {% data reusables.actions.action-github-script %}
         with:
           script: |
             let allArtifacts = await github.rest.actions.listWorkflowRunArtifacts({
@@ -1475,7 +1481,7 @@ jobs:
         run: unzip pr_number.zip
 
       - name: 'Comment on PR'
-        uses: actions/github-script@v5
+        uses: {% data reusables.actions.action-github-script %}
         with:
           github-token: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
           script: |

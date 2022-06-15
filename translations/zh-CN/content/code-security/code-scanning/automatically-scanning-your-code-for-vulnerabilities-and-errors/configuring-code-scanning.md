@@ -73,7 +73,7 @@ By default, the {% data variables.product.prodname_codeql_workflow %} uses the `
 
 If you scan on push, then the results appear in the **Security** tab for your repository. For more information, see "[Managing code scanning alerts for your repository](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)."
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-5093 or ghec %}
+{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 Additionally, when an `on:push` scan returns results that can be mapped to an open pull request, these alerts will automatically appear on the pull request in the same places as other pull request alerts. The alerts are identified by comparing the existing analysis of the head of the branch to the analysis for the target branch. For more information on {% data variables.product.prodname_code_scanning %} alerts in pull requests, see "[Triaging {% data variables.product.prodname_code_scanning %} alerts in pull requests](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)."  
 {% endif %}
 
@@ -85,7 +85,7 @@ For more information about the `pull_request` event, see "[Events that trigger w
 
 If you scan pull requests, then the results appear as alerts in a pull request check. For more information, see "[Triaging code scanning alerts in pull requests](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)."
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-5093 or ghec %}
+{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
  Using the `pull_request` trigger, configured to scan the pull request's merge commit rather than the head commit, will produce more efficient and accurate results than scanning the head of the branch on each push. However, if you use a CI/CD system that cannot be configured to trigger on pull requests, you can still use the `on:push` trigger and {% data variables.product.prodname_code_scanning %} will map the results to open pull requests on the branch and add the alerts as annotations on the pull request. For more information, see "[Scanning on push](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#scanning-on-push)."
 {% endif %}
 
@@ -96,7 +96,7 @@ By default, only alerts with the severity level of `Error`{% ifversion fpt or gh
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.navigate-to-security-and-analysis %}
+{% data reusables.repositories.navigate-to-code-security-and-analysis %}
 1. Under "Code scanning", to the right of "Check Failure", use the drop-down menu to select the level of severity you would like to cause a pull request check failure. 
 {% ifversion fpt or ghes > 3.1  or ghae or ghec %}
 ![Check failure setting](/assets/images/help/repository/code-scanning-check-failure-setting.png)
@@ -180,11 +180,9 @@ jobs:
     runs-on: [self-hosted, ubuntu-latest]
 ```
 
-{% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} supports the latest versions of Ubuntu, Windows, and macOS. Typical values for this setting are therefore: `ubuntu-latest`, `windows-latest`, and `macos-latest`. For more information, see {% ifversion ghes %}"[Workflow syntax for GitHub Actions](/actions/reference/workflow-syntax-for-github-actions#self-hosted-runners)" and "[Using labels with self-hosted runners](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners){% else %}"[Workflow syntax for GitHub Actions](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on){% endif %}."
+{% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} supports the latest versions of Ubuntu, Windows, and macOS. Typical values for this setting are therefore: `ubuntu-latest`, `windows-latest`, and `macos-latest`. For more information, see "[Choosing the runner for a job](/actions/using-jobs/choosing-the-runner-for-a-job)" and "[Using labels with self-hosted runners](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)."
 
-{% ifversion ghes %}You must ensure that Git is in the PATH variable on your self-hosted runners.{% else %}If you use a self-hosted runner, you must ensure that Git is in the PATH variable.{% endif %}
-
-For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners)" and "[Adding self-hosted runners](/actions/hosting-your-own-runners/adding-self-hosted-runners)."
+{% ifversion ghes %}You must ensure that Git is in the PATH variable on your self-hosted runners.{% else %}If you use a self-hosted runner, you must ensure that Git is in the PATH variable.{% endif %} For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners)" and "[Adding self-hosted runners](/actions/hosting-your-own-runners/adding-self-hosted-runners)."
 
 For recommended specifications (RAM, CPU cores, and disk) for running {% data variables.product.prodname_codeql %} analysis{% ifversion not ghes %} on self-hosted machines{% endif %}, see  "[Recommended hardware resources for running {% data variables.product.prodname_codeql %}](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/recommended-hardware-resources-for-running-codeql)."
 
@@ -193,13 +191,11 @@ For recommended specifications (RAM, CPU cores, and disk) for running {% data va
 
 In general, you do not need to worry about where the {% data variables.product.prodname_codeql_workflow %} places {% data variables.product.prodname_codeql %} databases since later steps will automatically find databases created by previous steps. However, if you are writing a custom workflow step that requires the {% data variables.product.prodname_codeql %} database to be in a specific disk location, for example to upload the database as a workflow artifact, you can specify that location using the `db-location` parameter under the `init` action.
 
-{% raw %}
 ``` yaml
-- uses: github/codeql-action/init@v1
+- uses: {% data reusables.actions.action-codeql-action-init %}
   with:
-    db-location: '${{ github.workspace }}/codeql_dbs'
+    db-location: {% raw %}'${{ github.workspace }}/codeql_dbs'{% endraw %}
 ```
-{% endraw %}
 
 The {% data variables.product.prodname_codeql_workflow %} will expect the path provided in `db-location` to be writable, and either not exist, or be an empty directory. When using this parameter in a job running on a self-hosted runner or using a Docker container, it's the responsibility of the user to ensure that the chosen directory is cleared between runs, or that the databases are removed once they are no longer needed. {% ifversion fpt or ghec or ghes %} This is not necessary for jobs running on {% data variables.product.prodname_dotcom %}-hosted runners, which obtain a fresh instance and a clean filesystem each time they run. For more information, see "[About {% data variables.product.prodname_dotcom %}-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners)."{% endif %}
 
@@ -212,7 +208,7 @@ If this parameter is not used, the {% data variables.product.prodname_codeql_wor
 
 {% data reusables.code-scanning.codeql-languages-bullets %}
 
-The default {% data variables.product.prodname_codeql_workflow %} file contains a build matrix called `language` which lists the languages in your repository that are analyzed. {% data variables.product.prodname_codeql %} automatically populates this matrix when you add {% data variables.product.prodname_code_scanning %} to a repository. Using the `language` matrix optimizes {% data variables.product.prodname_codeql %} to run each analysis in parallel. We recommend that all workflows adopt this configuration due to the performance benefits of parallelizing builds. For more information about build matrices, see "[Managing complex workflows](/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix)."
+The default {% data variables.product.prodname_codeql_workflow %} file contains a matrix called `language` which lists the languages in your repository that are analyzed. {% data variables.product.prodname_codeql %} automatically populates this matrix when you add {% data variables.product.prodname_code_scanning %} to a repository. Using the `language` matrix optimizes {% data variables.product.prodname_codeql %} to run each analysis in parallel. We recommend that all workflows adopt this configuration due to the performance benefits of parallelizing builds. For more information about matrices, see "[Using a matrix for your jobs](/actions/using-jobs/using-a-matrix-for-your-jobs)."
 
 {% data reusables.code-scanning.specify-language-to-analyze %}
 
@@ -232,7 +228,7 @@ jobs:
 If your workflow does not contain a matrix called `language`, then {% data variables.product.prodname_codeql %} is configured to run analysis sequentially. If you don't specify languages in the workflow, {% data variables.product.prodname_codeql %} automatically detects, and attempts to analyze, any supported languages in the repository. If you want to choose which languages to analyze, without using a matrix, you can use the `languages` parameter under the `init` action.
 
 ```yaml
-- uses: github/codeql-action/init@v1
+- uses: {% data reusables.actions.action-codeql-action-init %}
   with:
     languages: cpp, csharp, python
 ```
@@ -257,9 +253,9 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: {% data reusables.actions.action-checkout %}
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: {% data reusables.actions.action-setup-python %}
         with:
           python-version: '3.x'
       - name: Install dependencies
@@ -272,7 +268,7 @@ jobs:
           # that includes the dependencies
           echo "CODEQL_PYTHON=$(which python)" >> $GITHUB_ENV
       - name: Initialize CodeQL
-        uses: github/codeql-action/init@v1
+        uses: {% data reusables.actions.action-codeql-action-init %}
         with:
           languages: python
           # Override the default behavior so that the action doesn't attempt
@@ -288,17 +284,15 @@ Use `category` to distinguish between multiple analyses for the same tool and co
 
 This parameter is particularly useful if you work with monorepos and have multiple SARIF files for different components of the monorepo.
 
-{% raw %}
 ``` yaml
     - name: Perform CodeQL Analysis
-      uses: github/codeql-action/analyze
+      uses: {% data reusables.actions.action-codeql-action-analyze %}
       with:
         # Optional. Specify a category to distinguish between multiple analyses
         # for the same tool and ref. If you don't use `category` in your workflow, 
         # GitHub will generate a default category name for you
         category: "my_category"
 ```
-{% endraw %}
 
 If you don't specify a `category` parameter in your workflow, {% data variables.product.product_name %} will generate a category name for you, based on the name of the workflow file triggering the action, the action name, and any matrix variables. For example:
 - The `.github/workflows/codeql-analysis.yml` workflow and the `analyze` action will produce the category `.github/workflows/codeql.yml:analyze`.
@@ -314,12 +308,12 @@ Your specified category will not overwrite the details of the `runAutomationDeta
 
 {% data reusables.code-scanning.run-additional-queries %}
 
-{% if codeql-packs %}
+{% ifversion codeql-packs %}
 ### Using {% data variables.product.prodname_codeql %} query packs
 
 {% data reusables.code-scanning.beta-codeql-packs-cli %}
 
-To add one or more {% data variables.product.prodname_codeql %} query packs (beta), add a `with: packs:` entry within the `uses: github/codeql-action/init@v1` section of the workflow. Within `packs` you specify one or more packages to use and, optionally, which version to download. Where you don't specify a version, the latest version is downloaded. If you want to use packages that are not publicly available, you need to set the `GITHUB_TOKEN` environment variable to a secret that has access to the packages. For more information, see "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow)" and "[Encrypted secrets](/actions/reference/encrypted-secrets)."
+To add one or more {% data variables.product.prodname_codeql %} query packs (beta), add a `with: packs:` entry within the `uses: {% data reusables.actions.action-codeql-action-init %}` section of the workflow. Within `packs` you specify one or more packages to use and, optionally, which version to download. Where you don't specify a version, the latest version is downloaded. If you want to use packages that are not publicly available, you need to set the `GITHUB_TOKEN` environment variable to a secret that has access to the packages. For more information, see "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow)" and "[Encrypted secrets](/actions/reference/encrypted-secrets)."
 
 {% note %}
 
@@ -329,59 +323,55 @@ To add one or more {% data variables.product.prodname_codeql %} query packs (bet
 
 In the example below, `scope` is the organization or personal account that published the package. When the workflow runs, the three {% data variables.product.prodname_codeql %} query packs are downloaded from {% data variables.product.product_name %} and the default queries or query suite for each pack run. The latest version of `pack1` is downloaded as no version is specified. Version 1.2.3 of `pack2` is downloaded, as well as the latest version of `pack3` that is compatible with version 1.2.3.
 
-{% raw %}
 ``` yaml
-- uses: github/codeql-action/init@v1
+- uses: {% data reusables.actions.action-codeql-action-init %}
   with:
     # Comma-separated list of packs to download
     packs: scope/pack1,scope/pack2@1.2.3,scope/pack3@~1.2.3
 ```
-{% endraw %}
 
 ### Using queries in QL packs
 {% endif %}
-To add one or more queries, add a `with: queries:` entry within the `uses: github/codeql-action/init@v1` section of the workflow. If the queries are in a private repository, use the `external-repository-token` parameter to specify a token that has access to checkout the private repository.
+To add one or more queries, add a `with: queries:` entry within the `uses: {% data reusables.actions.action-codeql-action-init %}` section of the workflow. If the queries are in a private repository, use the `external-repository-token` parameter to specify a token that has access to checkout the private repository.
 
-{% raw %}
 ``` yaml
-- uses: github/codeql-action/init@v1
+- uses: {% data reusables.actions.action-codeql-action-init %}
   with:
     queries: COMMA-SEPARATED LIST OF PATHS
     # Optional. Provide a token to access queries stored in private repositories.
-    external-repository-token: ${{ secrets.ACCESS_TOKEN }}
+    external-repository-token: {% raw %}${{ secrets.ACCESS_TOKEN }}{% endraw %}
 ```
-{% endraw %}
 
 You can also specify query suites in the value of `queries`. Query suites are collections of queries, usually grouped by purpose or language.
 
 {% data reusables.code-scanning.codeql-query-suites-explanation %}
 
-{% if codeql-packs %}
+{% ifversion codeql-packs %}
 ### Working with custom configuration files
 {% endif %}
 
-If you also use a configuration file for custom settings, any additional {% if codeql-packs %}packs or {% endif %}queries specified in your workflow are used instead of those specified in the configuration file. If you want to run the combined set of additional {% if codeql-packs %}packs or {% endif %}queries, prefix the value of {% if codeql-packs %}`packs` or {% endif %}`queries` in the workflow with the `+` symbol. For more information, see "[Using a custom configuration file](#using-a-custom-configuration-file)."
+If you also use a configuration file for custom settings, any additional {% ifversion codeql-packs %}packs or {% endif %}queries specified in your workflow are used instead of those specified in the configuration file. If you want to run the combined set of additional {% ifversion codeql-packs %}packs or {% endif %}queries, prefix the value of {% ifversion codeql-packs %}`packs` or {% endif %}`queries` in the workflow with the `+` symbol. For more information, see "[Using a custom configuration file](#using-a-custom-configuration-file)."
 
-In the following example, the `+` symbol ensures that the specified additional {% if codeql-packs %}packs and {% endif %}queries are used together with any specified in the referenced configuration file.
+In the following example, the `+` symbol ensures that the specified additional {% ifversion codeql-packs %}packs and {% endif %}queries are used together with any specified in the referenced configuration file.
 
 ``` yaml
-- uses: github/codeql-action/init@v1
+- uses: {% data reusables.actions.action-codeql-action-init %}
   with:
     config-file: ./.github/codeql/codeql-config.yml
     queries: +security-and-quality,octo-org/python-qlpack/show_ifs.ql@main
-    {%- if codeql-packs %}
+    {%- ifversion codeql-packs %}
     packs: +scope/pack1,scope/pack2@v1.2.3
-    {% endif %}
+    {%- endif %}
 ```
 
 ## Using a custom configuration file
 
-A custom configuration file is an alternative way to specify additional {% if codeql-packs %}packs and {% endif %}queries to run. You can also use the file to disable the default queries and to specify which directories to scan during analysis.
+A custom configuration file is an alternative way to specify additional {% ifversion codeql-packs %}packs and {% endif %}queries to run. You can also use the file to disable the default queries and to specify which directories to scan during analysis.
 
 In the workflow file, use the `config-file` parameter of the `init` action to specify the path to the configuration file you want to use. This example loads the configuration file _./.github/codeql/codeql-config.yml_.
 
 ``` yaml
-- uses: github/codeql-action/init@v1
+- uses: {% data reusables.actions.action-codeql-action-init %}
   with:
     config-file: ./.github/codeql/codeql-config.yml
 ```
@@ -390,17 +380,15 @@ In the workflow file, use the `config-file` parameter of the `init` action to sp
 
 If the configuration file is located in an external private repository, use the `external-repository-token` parameter of the `init` action to specify a token that has access to the private repository.
 
-{% raw %}
 ```yaml
-- uses: github/codeql-action/init@v1
+- uses: {% data reusables.actions.action-codeql-action-init %}
   with:
-    external-repository-token: ${{ secrets.ACCESS_TOKEN }}
+    external-repository-token: {% raw %}${{ secrets.ACCESS_TOKEN }}{% endraw %}
 ```
-{% endraw %}
 
 The settings in the configuration file are written in YAML format.
 
-{% if codeql-packs %}
+{% ifversion codeql-packs %}
 ### Specifying {% data variables.product.prodname_codeql %} query packs
 
 {% data reusables.code-scanning.beta-codeql-packs-cli %}

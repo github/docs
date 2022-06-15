@@ -81,7 +81,7 @@ O qualificador `org` limita as ações a uma organização específica. Por exem
 
 ### Pesquisar com base na ação
 
-O qualificador `action` pesquisa eventos específicos, agrupados em categorias. Para informações sobre os eventos associados a essas categorias, consulte "[Ações auditadas](/admin/user-management/audited-actions)".
+O qualificador `action` pesquisa eventos específicos, agrupados em categorias. Para obter informações sobre os eventos associados a essas categorias, consulte "[Eventos de log de auditoria para sua empresa](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)".
 
 | Categoria | Descrição                                                                         |
 | --------- | --------------------------------------------------------------------------------- |
@@ -113,7 +113,7 @@ O qualificador `country` filtra as ações com base no país de origem.
 
 O qualificador `created` filtra as ações com base na hora em que elas ocorreram.
 - Defina as datas usando o formato `YYYY-MM-DD` (ano, mês, dia).
-- As datas têm qualificadores [antes de, depois de e intervalos](/enterprise/{{ currentVersion }}/user/articles/search-syntax). Por exemplo:
+- As datas têm qualificadores [antes de, depois de e intervalos](/enterprise/user/articles/search-syntax). Por exemplo:
   * `created:2014-07-08` localiza todos os eventos ocorridos em 8 de julho de 2014;
   * `created:>=2014-07-01` localiza todos os eventos ocorridos depois de 8 de julho de 2014;
   * `created:<=2014-07-01`  localiza todos os eventos ocorridos antes de 8 de julho de 2014;

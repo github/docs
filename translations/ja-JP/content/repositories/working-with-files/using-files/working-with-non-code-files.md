@@ -37,11 +37,13 @@ shortTitle: 非コードファイルでの作業
 
 ## 画像をレンダリングして違いを見極める
 
-{% data variables.product.product_name %} では、一般的な画像形式のいくつか (PNG、JPG、GIF、PSD、SVG など) を表示できます。 In addition to simply displaying them, there are several ways to compare differences between versions of those image formats.'
+{% data variables.product.product_name %} では、一般的な画像形式のいくつか (PNG、JPG、GIF、PSD、SVG など) を表示できます。 単に表示するだけではなく、画像を異なるバージョン間で比較する方法もいくつかあります。
 
 {% note %}
 
-**メモ:** Firefox ブラウザを使用している場合、{% data variables.product.prodname_dotcom %} では SVG がレンダリングされない可能性があります。
+**注釈:**
+- {% data variables.product.prodname_dotcom %} does not support comparing the differences between PSD files.
+- If you are using the Firefox browser, SVGs on {% data variables.product.prodname_dotcom %} may not render.
 
 {% endnote %}
 
@@ -130,7 +132,7 @@ For example, if your model's URL is [`github.com/skalnik/secret-bear-clip/blob/m
 
 {% endtip %}
 
-{% if mermaid %}
+{% ifversion mermaid %}
 ### Rendering in Markdown
 
 You can embed ASCII STL syntax directly in Markdown. For more information, see "[Creating diagrams](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-stl-3d-models)."
@@ -280,7 +282,7 @@ GeoJSON マップを {% data variables.product.product_name %} 以外の場所�
 
 {% endtip %}
 
-{% if mermaid %}
+{% ifversion mermaid %}
 ### Mapping in Markdown
 
 You can embed geoJSON and topoJSON directly in Markdown. For more information, see "[Creating diagrams](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-geojson-and-topojson-maps)."
@@ -306,7 +308,7 @@ geoJSON ファイルのレンダリングに問題がある場合は、[geoJSON 
 
 ### 参考リンク
 
-* [Leaflet.js geojson ドキュメント](http://leafletjs.com/examples/geojson.html)
+* [Leaflet.js documentation](https://leafletjs.com/)
 * [MapBox マーカースタイリングのドキュメント](http://www.mapbox.com/developers/simplestyle/)
 * [TopoJSON Wiki](https://github.com/mbostock/topojson/wiki)
 
@@ -331,9 +333,9 @@ $ jupyter nbconvert --to html <em>NOTEBOOK-NAME.ipynb</em>
 ### 参考リンク
 
 - [Jupyter notebook の GitHub リポジトリ](https://github.com/jupyter/jupyter_notebook)
-- [Jupyter notebooks のギャラリー](https://github.com/jupyter/jupyter/wiki/A-gallery-of-interesting-Jupyter-Notebooks)
+- [Jupyter notebooks のギャラリー](https://github.com/jupyter/jupyter/wiki)
 
-{% if mermaid %}
+{% ifversion mermaid %}
 ## Displaying Mermaid files on {% data variables.product.prodname_dotcom %}
 
 {% data variables.product.product_name %} supports rendering Mermaid files within repositories. Commit the file as you would normally using a `.mermaid` or `.mmd` extension. Then, navigate to the path of the Mermaid file on {% data variables.product.prodname_dotcom %}.

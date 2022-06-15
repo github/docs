@@ -18,6 +18,12 @@ on:
       - '**.js'
 ```
 
+{% note %}
+
+**Observação:** Se um fluxo de trabalho for ignorado devido à [filtragem do caminho](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore), a [filtragem do caminho](/actions/using-workflows/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore) ou [mensagem de commit](/actions/managing-workflow-runs/skipping-workflow-runs) as verificações associadas a esse fluxo de trabalho permanecerão em um estado "Pendente". Um pull request que requer que essas verificações sejam bem sucedidas será bloqueado do merge. Para obter mais informações, consulte "[Manuseio ignorado, mas exigiu verificações](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/troubleshooting-required-status-checks#handling-skipped-but-required-checks)".
+
+{% endnote %}
+
 #### Exemplo: Excluindo caminhos
 
 Quando todos os caminhos de nome correspondem a padrões em `paths-ignore`, o fluxo de trabalho não será executado. Se qualquer nome de caminho não corresponder a padrões em `paths-ignore`, mesmo que alguns nomes de caminhos correspondam aos padrões, o fluxo de trabalho será executado.

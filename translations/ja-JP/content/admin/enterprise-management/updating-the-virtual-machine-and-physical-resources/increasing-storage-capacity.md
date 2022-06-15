@@ -24,7 +24,7 @@ shortTitle: Increase storage capacity
 
 {% note %}
 
-**Note:** Before resizing any storage volume, put your instance in maintenance mode. 詳しい情報については"[メンテナンスモードの有効化とスケジューリング](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)"を参照してください。
+**Note:** Before resizing any storage volume, put your instance in maintenance mode.{% ifversion ip-exception-list %} You can validate changes by configuring an IP exception list to allow access from specified IP addresses. {% endif %} For more information, see "[Enabling and scheduling maintenance mode](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode)."
 
 {% endnote %}
 
@@ -36,7 +36,7 @@ shortTitle: Increase storage capacity
 
 1. 仮想化プラットフォームのツールを使用して、既存のユーザーボリュームのディスクのサイズを変更します。
 {% data reusables.enterprise_installation.ssh-into-instance %}
-3. アプライアンスをメンテナンスモードにしてください。 詳しい情報については"[メンテナンスモードの有効化とスケジューリング](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)"を参照してください。
+3. アプライアンスをメンテナンスモードにしてください。 詳しい情報については"[メンテナンスモードの有効化とスケジューリング](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode)"を参照してください。
 4. アプライアンスを再起動して、新しいストレージ割り当てを検出します。
   ```shell
   $ sudo reboot
@@ -48,7 +48,7 @@ shortTitle: Increase storage capacity
 
 ## 新しいアプライアンスを使用したルートパーティションサイズの増加
 
-1. 現在のアプライアンスと同じバージョンを使用して、より大きなルートディスクで新たな {% data variables.product.prodname_ghe_server %} をセットアップします。 詳細は「[{% data variables.product.prodname_ghe_server %} インスタンスをセットアップする](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-github-enterprise-server-instance)」を参照してください。
+1. 現在のアプライアンスと同じバージョンを使用して、より大きなルートディスクで新たな {% data variables.product.prodname_ghe_server %} をセットアップします。 詳細は「[{% data variables.product.prodname_ghe_server %}インスタンスをセットアップする](/enterprise/admin/guides/installation/setting-up-a-github-enterprise-server-instance)」を参照してください。
 2. 現在のアプライアンスをシャットダウンします。
   ```shell
   $ sudo poweroff
@@ -60,7 +60,7 @@ shortTitle: Increase storage capacity
 
 {% warning %}
 
-**Warning:** Before increasing the root partition size, you must put your instance in maintenance mode. 詳しい情報については"[メンテナンスモードの有効化とスケジューリング](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)"を参照してください。
+**Warning:** Before increasing the root partition size, you must put your instance in maintenance mode. 詳しい情報については"[メンテナンスモードの有効化とスケジューリング](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode)"を参照してください。
 
 {% endwarning %}
 

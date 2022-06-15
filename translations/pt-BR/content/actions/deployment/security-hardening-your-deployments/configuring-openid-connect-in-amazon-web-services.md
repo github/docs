@@ -7,6 +7,7 @@ versions:
   fpt: '*'
   ghae: issue-4856
   ghec: '*'
+  ghes: '>=3.5'
 type: tutorial
 topics:
   - Security
@@ -31,7 +32,7 @@ Este guia explica como configurar o AWS para confiar no OIDC de {% data variable
 
 Para adicionar o provedor OIDC de {% data variables.product.prodname_dotcom %} ao IAM, consulte a [documentação AWS](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html).
 
-- Para a URL do provedor: Use `https://token.actions.githubusercontent.com`
+- Para o URL do provedor: Use {% ifversion ghes %}`https://HOSTNAME/_services/token`{% else %}`https://token.actions.githubusercontent.com`{% endif %}
 - Para o "público": Use `sts.amazonaws.com` se você estiver usando a [ação oficial](https://github.com/aws-actions/configure-aws-credentials).
 
 ### Configurando a função e a política de confiança
@@ -42,9 +43,9 @@ Edite o relacionamento de confiança para adicionar o campo `sub` às condiçõe
 
 ```json{:copy}
 "Condition": {
-  "ForAllValues:StringEquals": {
-    "token.actions.githubusercontent.com:aud": "sts.amazonaws.com",
-    "token.actions.githubusercontent.com:sub": "repo:octo-org/octo-repo:ref:refs/heads/octo-branch"
+  "StringEquals": {
+    "{% ifversion ghes %}HOSTNAME/_services/token{% else %}token.actions.githubusercontent.com{% endif %}:aud": "sts.amazonaws.com",
+    "{% ifversion ghes %}HOSTNAME/_services/token{% else %}token.actions.githubusercontent.com{% endif %}:sub": "repo:octo-org/octo-repo:ref:refs/heads/octo-branch"
   }
 }
 ```
@@ -79,13 +80,13 @@ env:
 # permission can be added at job level or workflow level    
 permissions:
       id-token: write
-      contents: read    # This is required for actions/checkout@v2
+      contents: read    # This is required for actions/checkout
 jobs:
   S3PackageUpload:
     runs-on: ubuntu-latest
     steps:
       - name: Git clone the repository
-        uses: actions/checkout@v2
+        uses: {% data reusables.actions.action-checkout %}
       - name: configure aws credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:

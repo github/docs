@@ -1,4 +1,4 @@
-Available scopes and access values:
+Los alcances y valores de acceso disponibles:
 
 ```yaml
 permissions:
@@ -17,15 +17,15 @@ permissions:
   statuses: read|write|none
 ```
 
-If you specify the access for any of these scopes, all of those that are not specified are set to `none`.
+Si especificas el acceso para cualquiera de estos alcances, todos aquellos que no se especifiquen se configuran como `none`.
 
-You can use the following syntax to define read or write access for all of the available scopes:
+Puedes utilizar la siguiente sintaxis para definir el acceso de lectura o escritura para todos los alcances disponibles:
 
 ```yaml
 permissions: read-all|write-all
 ```
 
-You can use the following syntax to disable permissions for all of the available scopes:
+Puedes utilizar la siguiente sintaxis para inhabilitar los permisos para todos los alcances disponibles:
 
 ```yaml
 permissions: {}

@@ -7,6 +7,7 @@ versions:
   fpt: '*'
   ghae: issue-4856
   ghec: '*'
+  ghes: '>=3.5'
 type: tutorial
 topics:
   - Security
@@ -31,7 +32,7 @@ OpenID Connect (OIDC) 允许您的 {% data variables.product.prodname_actions %}
 
 要将 {% data variables.product.prodname_dotcom %} OIDC 提供商添加到 IAM，请参阅 [AWS 文档](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html)。
 
-- 对于提供商 URL：使用 `https://token.actions.githubusercontent.com`
+- 对于提供程序 URL：使用 {% ifversion ghes %}`https://HOSTNAME/_services/token`{% else %}`https://token.actions.githubusercontent.com`{% endif %}
 - 对于“受众”：如果您使用的是[官方操作](https://github.com/aws-actions/configure-aws-credentials)，请使用 `sts.amazonaws.com`。
 
 ### 配置角色和信任策略
@@ -42,9 +43,9 @@ OpenID Connect (OIDC) 允许您的 {% data variables.product.prodname_actions %}
 
 ```json{:copy}
 "Condition": {
-  "ForAllValues:StringEquals": {
-    "token.actions.githubusercontent.com:aud": "sts.amazonaws.com",
-    "token.actions.githubusercontent.com:sub": "repo:octo-org/octo-repo:ref:refs/heads/octo-branch"
+  "StringEquals": {
+    "{% ifversion ghes %}HOSTNAME/_services/token{% else %}token.actions.githubusercontent.com{% endif %}:aud": "sts.amazonaws.com",
+    "{% ifversion ghes %}HOSTNAME/_services/token{% else %}token.actions.githubusercontent.com{% endif %}:sub": "repo:octo-org/octo-repo:ref:refs/heads/octo-branch"
   }
 }
 ```
@@ -79,13 +80,13 @@ env:
 # permission can be added at job level or workflow level    
 permissions:
       id-token: write
-      contents: read    # This is required for actions/checkout@v2
+      contents: read    # This is required for actions/checkout
 jobs:
   S3PackageUpload:
     runs-on: ubuntu-latest
     steps:
       - name: Git clone the repository
-        uses: actions/checkout@v2
+        uses: {% data reusables.actions.action-checkout %}
       - name: configure aws credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:

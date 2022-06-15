@@ -15,15 +15,29 @@ topics:
 
 ## About insights
 
-You can use insights to view and customize charts that use the items added to your project as their source data. The default "Burn up" chart shows item status over time, allowing you to visualize progress. You can apply filters to the default chart and also customize and save charts that are available to everyone that can view the project.
+Puedes utilizar las perspectivas para ver y personalizar los gráficos que utilizan los elementos que se agregaron a tu proyecto, como los datos fuente. El gráfico predeterminado de "Burn up" muestra el estado del elemento contra el tiempo, lo cual te permite visualizar el progreso y notar patrones a lo largo del tiempo.
 
-![Screenshot showing an example of the default burn up chart for the current iteration](/assets/images/help/issues/burnup-example.png)
+![Captura de pantalla que muestra un ejemplo del gráfico predeterminado de 'burn up' para la iteración actual](/assets/images/help/issues/burnup-example.png)
 
-## Creating a chart
+Puedes aplicar filtros al gráfico predeterminado y también crear los tuyos propios. Cuando creas un gráfico, configuras los filtros, tipo de gráfico y la información mostrada y dicho gráfico se encuentra disponible para todos los que puedan ver el proyecto.
 
-1. Navegar a tu proyecto.
-2. In the top-right, click {% octicon "graph" aria-label="the graph icon" %} to access insights. This feature is currently in a private preview and is not yet available to all organizations. If insights is not yet enabled for your organization, the {% octicon "graph" aria-label="the graph icon" %} icon will not be available.
-3. In the menu on the left, click **New chart**.
-4. Optionally, to change the name of the new chart, click {% octicon "triangle-down" aria-label="The triangle icon" %}, type a new name, and press <kbd>Return</kbd>.
-5. Above the chart, type filters to change the data used to build the chart. Para obtener más información, consulta la sección "[Filtrar proyectos](/issues/trying-out-the-new-projects-experience/filtering-projects)".
-6. To the right of the filter text box, click **Save changes**.
+![Captura de pantalla que muestra un gráfico de columnas apilado que muestra tipos de elemento para cada iteración](/assets/images/help/issues/column-chart-example.png)
+
+## Crear un gráfico
+
+{% data reusables.projects.access-insights %}
+3. En el menú de la izquierda, haz clic en **Gráfico nuevo**.
+4. Opcionalmente, para cambiar el nombre del gráfico nuevo, haz clic en {% octicon "triangle-down" aria-label="The triangle icon" %}, escribe un nombre nuevo y presiona <kbd>Return</kbd>.
+5. Sobre el gráfico, escribe los filtros para cambiar los datos que se utilizan para crearlo. Para obtener más información, consulta la sección "[Filtrar proyectos](/issues/trying-out-the-new-projects-experience/filtering-projects)".
+6. A la derecha de la casilla de texto del filtro, haz clic en **Guardar cambios**.
+
+## Configurar un gráfico
+
+{% data reusables.projects.access-insights %}
+1. En el menú de la izquierda, haz clic en el gráfico que te gustaría configurar.
+1. A la derecha de la página, haz clic en **Configurar**. Se abrirá un panel a la derecha.
+1. Para cambiar el tipo de gráfico, selecciona el menú desplegable de **Diseño** y haz clic en el tipo de gráfico que quieras utilizar.
+1. Para cambiar el campo que se utiliza para el eje X de tu gráfico, selecciona el menú desplegable de **Eje X** y haz clic en el campo que quieras utilizar.
+1. Opcionalmente, para agrupar los elementos en tu eje X por otro campo, selecciona **Agrupar por** y haz clic en el campo que quieras utilizar o haz clic en "Ninguno" para inhabilitar el agrupamiento.
+1. Opcionalmente, si tu proyecto contiene campos numéricos y quieres que el eje Y muestre la suma, promedio, mínimo o máximo de alguno de estos campos de número, selecciona **Eje Y** y haz clic en alguna de las opciones. Posteriormente, selecciona el menú desplegable que se muestra debajo y haz clic en el campo de número que quieras utilizar.
+1. Para guardar tu gráfico, haz clic en **Guardar cambios**.

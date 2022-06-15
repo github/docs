@@ -68,7 +68,7 @@ env:
   myIntegerNumber: ${{ 711 }}
   myFloatNumber: ${{ -9.2 }}
   myHexNumber: ${{ 0xff }}
-  myExponentialNumber: ${{ -2.99-e2 }}
+  myExponentialNumber: ${{ -2.99e-2 }}
   myString: Mona the Octocat
   myStringInBraces: ${{ 'It''s open source!' }}
 ```
@@ -324,33 +324,21 @@ steps:
     if: {% raw %}${{ failure() }}{% endraw %}
 ```
 
-{% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}
-### Evaluate Status Explicitly
+#### failure with conditions
 
-Instead of using one of the methods above, you can evaluate the status of the job or composite action that is executing the step directly:
+You can include extra conditions for a step to run after a failure, but you must still include `failure()` to override the default status check of `success()` that is automatically applied to `if` conditions that don't contain a status check function.
 
-#### Example for workflow step
-
-```yaml
-steps:
-  ...
-  - name: The job has failed
-    if: {% raw %}${{ job.status == 'failure' }}{% endraw %}
-```
-
-This is the same as using `if: failure()` in a job step.
-
-#### Example for composite action step
+##### サンプル
 
 ```yaml
 steps:
   ...
-  - name: The composite action has failed
-    if: {% raw %}${{ github.action_status == 'failure' }}{% endraw %}
+  - name: Failing step
+    id: demo
+    run: exit 1
+  - name: The demo step has failed
+    if: {% raw %}${{ failure() && steps.demo.conclusion == 'failure' }}{% endraw %}
 ```
-
-This is the same as using `if: failure()` in a composite action step.
-{% endif %}
 
 ## オブジェクトフィルタ
 
@@ -366,4 +354,40 @@ This is the same as using `if: failure()` in a composite action step.
 ]
 ```
 
-`fruits.*.name`というフィルタを指定すると、配列`[ "apple", "orange", "pear" ]`が返されます。
+The filter `fruits.*.name` returns the array `[ "apple", "orange", "pear" ]`.
+
+You may also use the `*` syntax on an object. For example, suppose you have an object named `vegetables`.
+
+```json
+
+{
+  "scallions":
+  {
+    "colors": ["green", "white", "red"],
+    "ediblePortions": ["roots", "stalks"],
+  },
+  "beets":
+  {
+    "colors": ["purple", "red", "gold", "white", "pink"],
+    "ediblePortions": ["roots", "stems", "leaves"],
+  },
+  "artichokes":
+  {
+    "colors": ["green", "purple", "red", "black"],
+    "ediblePortions": ["hearts", "stems", "leaves"],
+  },
+}
+```
+
+The filter `vegetables.*.ediblePortions` could evaluate to:
+
+```json
+
+[
+  ["roots", "stalks"],
+  ["hearts", "stems", "leaves"],
+  ["roots", "stems", "leaves"],
+]
+```
+
+Since objects don't preserve order, the order of the output can not be guaranteed.

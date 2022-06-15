@@ -44,12 +44,12 @@ Há dois {% data variables.contact.premium_support %} planos: Premium e Premium 
 | ----------------------------- | --------------------------------------------------- | -------------------------------------------------------- |
 | Horas de operação             | 24 x 7                                              | 24 x 7                                                   |
 | Tempo inicial de resposta     | <ul><li>30 minutos para {% data variables.product.support_ticket_priority_urgent %}</li><li>4 hours para {% data variables.product.support_ticket_priority_high %}</li></ul>                           | <ul><li>30 minutos para {% data variables.product.support_ticket_priority_urgent %}</li><li>4 hours para {% data variables.product.support_ticket_priority_high %}</li></ul>                                |
-| Canais de suporte             | <ul><li>Envio do tíquete on-line</li><li>Suporte por telefone em inglês via solicitação de retorno de chamada</li></ul>                           | <ul><li>Envio do tíquete on-line</li><li>Suporte por telefone em inglês via solicitação de retorno de chamada</li><li>Compartilhamento de tela para problemas críticos</li></ul>                                |
+| Canais de suporte             | <ul><li>Envio do tíquete on-line</li><li>Suporte por telefone em inglês via solicitação de retorno de chamada</li><li>Compartilhamento de tela para problemas críticos</li></ul>                           | <ul><li>Envio do tíquete on-line</li><li>Suporte por telefone em inglês via solicitação de retorno de chamada</li><li>Compartilhamento de tela para problemas críticos</li></ul>                                |
 | Treinamentos                  | Acesso a conteúdo premium                           | <ul><li>Acesso a conteúdo premium</li><li>1 aula de treinamento virtual por ano</li></ul>                                |
 | Membros com direito a suporte | 10                                                  | 25                                                       |
 | Recursos                      | Processamento de tíquete com prioridade             | <ul><li>Processamento de tíquete com prioridade</li><li>Engenheiro de Responsabilidade do Cliente Nomeado</li></ul>                                |
 | Verificações agendadas        | Verificação de integridade e relatórios semestrais  | <ul><li>Verificação de integridade e relatórios trimestrais</li><li>Revisões trimestrais de conta</li></ul>                                |
-| Assistência administrativa    |                                                     | 4 horas por mês                                          |
+| Assistência administrativa    | Nenhum                                              | 4 horas por mês                                          |
 
   {% note %}
 

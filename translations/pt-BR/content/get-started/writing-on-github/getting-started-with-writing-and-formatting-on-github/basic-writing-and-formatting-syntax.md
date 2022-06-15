@@ -29,18 +29,19 @@ Ao usar dois ou mais cabeçalhos, o GitHub gera automaticamente uma tabela de co
 
 ![Captura de tela que destaca o ícone da tabela de conteúdo](/assets/images/help/repository/headings_toc.png)
 
-
 ## Estilizar texto
 
-Você pode indicar ênfase com texto em negrito, itálico ou riscado em campos de comentários e arquivos de `.md`.
+Você pode indicar o texto em destque, negrito, itálico, riscado, sublinhado ou sobrescrito nos campos de comentário e nos arquivos `.md`
 
-| Estilo                     | Sintaxe             | Atalho                                                                                | Exemplo                                      | Resultado                                  |
-| -------------------------- | ------------------- | ------------------------------------------------------------------------------------- | -------------------------------------------- | ------------------------------------------ |
-| Negrito                    | `** **` ou `__ __`  | <kbd>Command</kbd>+<kbd>B</kbd> (Mac) ou <kbd>Ctrl</kbd>+<kbd>B</kbd> (Windows/Linux) | `**Esse texto está em negrito**`             | **Esse texto está em negrito**             |
-| Itálico                    | `* *` ou `_ _`      | <kbd>Command</kbd>+<kbd>I</kbd> (Mac) ou <kbd>Ctrl</kbd>+<kbd>I</kbd> (Windows/Linux) | `*Esse texto está em itálico*`               | *Esse texto está em itálico*               |
-| Tachado                    | `~~ ~~`             |                                                                                       | `~~Esse texto estava errado~~`               | ~~Esse texto estava errado~~               |
-| Negrito e itálico aninhado | `** **` e `_ _`     |                                                                                       | `**Esse texto é _extremamente_ importante**` | **Esse texto é _extremamente_ importante** |
-| Todo em negrito e itálico  | `*** ***`           |                                                                                       | `***Todo esse texto é importante***`         | ***Todo esse texto é importante***         |
+| Estilo                     | Sintaxe                    | Atalho                                                                                | Exemplo                                              | Resultado                                  |
+| -------------------------- | -------------------------- | ------------------------------------------------------------------------------------- | ---------------------------------------------------- | ------------------------------------------ |
+| Negrito                    | `** **` ou `__ __`         | <kbd>Command</kbd>+<kbd>B</kbd> (Mac) ou <kbd>Ctrl</kbd>+<kbd>B</kbd> (Windows/Linux) | `**Esse texto está em negrito**`                     | **Esse texto está em negrito**             |
+| Itálico                    | `* *` ou `_ _`             | <kbd>Command</kbd>+<kbd>I</kbd> (Mac) ou <kbd>Ctrl</kbd>+<kbd>I</kbd> (Windows/Linux) | `*Esse texto está em itálico*`                       | *Esse texto está em itálico*               |
+| Tachado                    | `~~ ~~`                    |                                                                                       | `~~Esse texto estava errado~~`                       | ~~Esse texto estava errado~~               |
+| Negrito e itálico aninhado | `** **` e `_ _`            |                                                                                       | `**Esse texto é _extremamente_ importante**`         | **Esse texto é _extremamente_ importante** |
+| Todo em negrito e itálico  | `*** ***`                  |                                                                                       | `***Todo esse texto é importante***`                 | ***Todo esse texto é importante***         |
+| Sublinhado                 | `<sub> </sub>` |                                                                                       | `<sub>Este é um texto sublinhado</sub>`  | <sub>Este é um texto de sublinhado</sub>   |
+| Sobrescrito                | `<sup> </sup>` |                                                                                       | `<sup>Este é um texto sobrescrito</sup>` | <sup>Este é um texto sobrescrito</sup>     |
 
 ## Citar texto
 
@@ -91,6 +92,8 @@ Para obter mais informações, consulte "[Criar e destacar blocos de código](/a
 
 Você pode criar um link inline colocando o texto do link entre colchetes `[ ]` e, em seguida, o URL entre parênteses `( )`. {% ifversion fpt or ghae or ghes > 3.1 or ghec %}Você também pode usar o atalho de teclado <kbd>Command</kbd>+<kbd>K</kbd> para criar um link.{% endif %}{% ifversion fpt or ghae-issue-5434 or ghes > 3.3 or ghec %} Quando você tiver selecionado texto, você poderá colar um URL da sua área de transferência para criar automaticamente um link a partir da seleção.{% endif %}
 
+{% ifversion fpt or ghae-issue-7103 or ghes > 3.5 or ghec %} Você também pode criar um hiperlink de Markdown destacando o texto e usando o atalho de teclado <kbd>Command</kbd>+<kbd>V</kbd>. Se você deseja substituir o texto pelo link, use o atalho de teclado <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd>.{% endif %}
+
 `Este site foi construído usando [GitHub Pages](https://pages.github.com/).`
 
 ![Link renderizado](/assets/images/help/writing/link-rendered.png)
@@ -131,7 +134,7 @@ Aqui estão alguns exemplos para usar links relativos para exibir uma imagem.
 | -------------------------------------------------------------- | ---------------------------------------------------------------------- |
 | Em um arquivo `.md` no mesmo branch                            | `/assets/images/electrocat.png`                                        |
 | Em um arquivo `.md` em outro branch                            | `/../main/assets/images/electrocat.png`                                |
-| Em problemas, pull requests e comentários do repositório       | `../blob/main/assets/images/electrocat.png`                            |
+| Em problemas, pull requests e comentários do repositório       | `../blob/main/assets/images/electrocat.png?raw=true`                   |
 | Em um arquivo `.md` em outro repositório                       | `/../../../../github/docs/blob/main/assets/images/electrocat.png`      |
 | Em problemas, pull requests e comentários de outro repositório | `../../../github/docs/blob/main/assets/images/electrocat.png?raw=true` |
 
@@ -146,14 +149,19 @@ Para obter mais informações, consulte[Links relativos,](#relative-links)."
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5559 %}
 ### Especificando o tema para o qual uma imagem será exibida
 
-Você pode especificar o tema para o qual uma imagem é exibida acrescentando `#gh-dark-mode-only` ou `#gh-light-mode-only` no final de uma URL da imagem, em Markdown.
+Você pode especificar o tema para o qual uma imagem é exibida em Markdown usando o elemento HTML `<picture>` em combinação com o recurso de mídia de `prefers-color-scheme`. Nós distinguimos entre os modos de cores claro e escuro. Portanto, há duas opções disponíveis. Você pode usar essas opções para exibir imagens otimizadas para fundos escuros ou claros. Isso é particularmente útil para imagens PNG transparentes.
 
-Nós distinguimos entre os modos de cores claro e escuro. Portanto, há duas opções disponíveis. Você pode usar essas opções para exibir imagens otimizadas para fundos escuros ou claros. Isso é particularmente útil para imagens PNG transparentes.
+Por exemplo, o código a seguir mostra uma imagem de sol para temas claros e uma lua para temas escuros:
 
-| Contexto    | URL                                                                      |
-| ----------- | ------------------------------------------------------------------------ |
-| Tema escuro | `![GitHub Light](https://github.com/github-light.png#gh-dark-mode-only)` |
-| Tema claro  | `![GitHub Dark](https://github.com/github-dark.png#gh-light-mode-only)`  |
+```HTML
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://user-images.githubusercontent.com/25423296/163456776-7f95b81a-f1ed-45f7-b7ab-8fa810d529fa.png">
+  <source media="(prefers-color-scheme: light)" srcset="https://user-images.githubusercontent.com/25423296/163456779-a8556205-d0a5-45e2-ac17-42d089e3c3f8.png">
+  <img alt="Shows an illustrated sun in light color mode and a moon with stars in dark color mode." src="https://user-images.githubusercontent.com/25423296/163456779-a8556205-d0a5-45e2-ac17-42d089e3c3f8.png">
+</picture>
+```
+
+O método antigo de especificar as imagens baseado no tema, ao usar um fragmento anexado ao URL (`#gh-dark-mode-only` ou `#gh-light-mode-only`), está obsoleto e será removido a favor do novo método descrito acima.
 {% endif %}
 
 ## Listas
@@ -189,6 +197,12 @@ Para criar uma lista aninhada usando o editor web do {% data variables.product.p
    - Primeiro item de lista aninhado
      - Segundo item de lista aninhada
 ```
+
+{% tip %}
+
+**Nota**: No editor baseado na web, você pode colocar ou retirar uma ou mais linhas de texto primeiro destacando as linhas desejadas e, em seguida, usar <kbd>Tab</kbd> ou <kbd>Shift</kbd>+<kbd>Aba</kbd> respectivamente.
+
+{% endtip %}
 
 ![Lista aninhada com alinhamento destacado](/assets/images/help/writing/nested-list-alignment.png)
 
@@ -229,7 +243,13 @@ Para obter mais informações, consulte "[Sobre listas de tarefas](/articles/abo
 
 ## Mencionar pessoas e equipes
 
-Você pode mencionar uma pessoa ou [equipe](/articles/setting-up-teams/) no {% data variables.product.product_name %} digitando <kbd>@</kbd> mais o nome de usuário ou nome da equipe. Isto desencadeará uma notificação e chamará a sua atenção para a conversa. As pessoas também receberão uma notificação se você editar um comentário para mencionar o respectivo nome de usuário ou da equipe. Para obter mais informações, sobre notificações, consulte {% ifversion fpt or ghes or ghae or ghec %}"[Sobre notificações](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[Sobre notificações](/github/receiving-notifications-about-activity-on-github/about-notifications)"{% endif %}."
+Você pode mencionar uma pessoa ou [equipe](/articles/setting-up-teams/) no {% data variables.product.product_name %} digitando <kbd>@</kbd> mais o nome de usuário ou nome da equipe. Isto desencadeará uma notificação e chamará a sua atenção para a conversa. As pessoas também receberão uma notificação se você editar um comentário para mencionar o respectivo nome de usuário ou da equipe. Para obter mais informações sobre as notificações, consulte "[Sobre as notificações](/github/managing-subscriptions-and-notifications-on-github/about-notifications)".
+
+{% note %}
+
+**Observação:** Uma pessoa só será notificada sobre uma menção se a pessoa tiver acesso de leitura ao repositório e, se o repositório pertencer a uma organização, a pessoa é integrante da organização.
+
+{% endnote %}
 
 `@github/suporte O que você acha dessas atualizações?`
 
@@ -284,7 +304,7 @@ Para obter uma lista completa dos emojis e códigos disponíveis, confira [a lis
 
 Você pode criar um parágrafo deixando uma linha em branco entre as linhas de texto.
 
-{% ifversion fpt or ghae-issue-5180 or ghes > 3.2 or ghec %}
+{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
 ## Notas de rodapé
 
 Você pode adicionar notas de rodapé ao seu conteúdo usando esta sintaxe entre colchetes:
@@ -311,6 +331,8 @@ A nota de rodapé será interpretada da seguinte forma:
 {% tip %}
 
 **Observação**: A posição de uma nota de rodapé no seu Markdown não influencia o lugar onde a nota de rodapé será interpretada. Você pode escrever uma nota de rodapé logo após sua referência à nota de rodapé, e ela continuará sendo interpretada na parte inferior do Markdown.
+
+Notas de rodapé não são compatíveis nos wikis.
 
 {% endtip %}
 {% endif %}

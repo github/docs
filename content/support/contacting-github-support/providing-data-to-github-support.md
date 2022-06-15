@@ -68,7 +68,7 @@ You can use this method if you don't have your SSH key readily available.
 
 You can use this method without signing into the {% data variables.enterprise.management_console %}.
 
-Use the [ghe-diagnostics](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities#ghe-diagnostics) command-line utility to retrieve the diagnostics for your instance.
+Use the [ghe-diagnostics](/enterprise/admin/guides/installation/command-line-utilities#ghe-diagnostics) command-line utility to retrieve the diagnostics for your instance.
 
 ```shell
 $ ssh -p122 admin@<em>hostname</em> -- 'ghe-diagnostics' > diagnostics.txt
@@ -89,7 +89,7 @@ After you submit your support request, we may ask you to share a support bundle 
 - `collectd/logs/collectd.log`: Collectd logs
 - `mail-logs/mail.log`: SMTP email delivery logs
 
-For more information, see "[Audit logging](/enterprise/{{ currentVersion }}/admin/guides/installation/audit-logging)."
+For more information, see "[About the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise)."
 
 Support bundles include logs from the past two days. To get logs from the past seven days, you can download an extended support bundle. For more information, see "[Creating and sharing extended support bundles](#creating-and-sharing-extended-support-bundles)."
 

@@ -5,14 +5,14 @@
 {% elsif ghec or ghes or ghae %}
 1. Navega a donde se ubiquen tus grupos de ejecutores auto-hospedados:
    * **En una organización**: navega a la página principal y da clic en {% octicon "gear" aria-label="The Settings gear" %} **Configuración**.
-   * **If using an enterprise-level group**:
+   * **Si utilizas un grupo a nivel de empresa**:
 
 {% indented_data_reference reusables.enterprise-accounts.access-enterprise spaces=5 %}
 2. Navega a los ajustes de los "Grupos de ejecutores":
-   * **In an organization**:
+   * **En una organización**:
 
 {% indented_data_reference reusables.actions.settings-ui.settings-actions-runner-groups spaces=5 %}
-   * **If using an enterprise-level group**:
+   * **Si estás utilizando un grupo a nivel de empresa**:
 
 {% indented_data_reference reusables.enterprise-accounts.policies-tab spaces=5 %}
 {% indented_data_reference reusables.enterprise-accounts.actions-tab spaces=5 %}

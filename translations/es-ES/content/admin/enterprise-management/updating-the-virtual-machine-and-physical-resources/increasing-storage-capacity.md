@@ -24,7 +24,7 @@ A medida que se suman usuarios {% data variables.product.product_location %}, es
 
 {% note %}
 
-**Nota:** Antes de ajustar el tamaño de cualquier volumen de almacenamiento, pon tu instancia en modo de mantenimiento. Para obtener más información, consulta "[Habilitar y programar el modo mantenimiento](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)."
+**Nota:** Antes de cambiar el tamaño de cualquier volumen de almacenamiento, coloca tu instancia en modo de mantenimiento.{% ifversion ip-exception-list %} Puedes validar los cambios si configuras una lista de excepción de IP para permitir el acceso desde direcciones IP específicas. {% endif %} Para obtener más información, consulta la sección "[Habilitar y programar el modo de mantenimiento](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode)".
 
 {% endnote %}
 
@@ -36,7 +36,7 @@ A medida que se suman usuarios {% data variables.product.product_location %}, es
 
 1. Ajusta el disco de volumen existente del usuario utilizando las herramientas de tu plataforma de virtualización.
 {% data reusables.enterprise_installation.ssh-into-instance %}
-3. Pon el aparato en modo mantenimiento. Para obtener más información, consulta "[Habilitar y programar el modo mantenimiento](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)."
+3. Pon el aparato en modo mantenimiento. Para obtener más información, consulta "[Habilitar y programar el modo mantenimiento](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode)."
 4. Reinicia el aparato para detectar la nueva asignación de almacenamiento:
   ```shell
   $ sudo reboot
@@ -48,7 +48,7 @@ A medida que se suman usuarios {% data variables.product.product_location %}, es
 
 ## Aumentar el tamaño de partición raíz utilizando un nuevo aparato
 
-1. Configura una nueva instancia {% data variables.product.prodname_ghe_server %} con un disco raíz más grande utilizando la misma versión que tu aparato actual. Para obtener más información, consulta "[Configurar una instancia {% data variables.product.prodname_ghe_server %} ](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-github-enterprise-server-instance)."
+1. Configura una nueva instancia {% data variables.product.prodname_ghe_server %} con un disco raíz más grande utilizando la misma versión que tu aparato actual. Para obtener más información, consulta "[Configurar una instancia del {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/installation/setting-up-a-github-enterprise-server-instance)."
 2. Cierra el aparato actual:
   ```shell
   $ sudo poweroff
@@ -60,7 +60,7 @@ A medida que se suman usuarios {% data variables.product.product_location %}, es
 
 {% warning %}
 
-**Advertencia:** Antes de incrementar el tamaño de la partición raíz, debes poner tu instancia en modo de mantenimiento. Para obtener más información, consulta "[Habilitar y programar el modo mantenimiento](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)."
+**Advertencia:** Antes de incrementar el tamaño de la partición raíz, debes poner tu instancia en modo de mantenimiento. Para obtener más información, consulta "[Habilitar y programar el modo mantenimiento](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode)."
 
 {% endwarning %}
 

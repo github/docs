@@ -41,7 +41,7 @@ Almacenar artefactos consume espacio de almacenamiento en {% data variables.prod
 
 {% else %}
 
-Artifacts consume storage space on the external blob storage that is configured for {% data variables.product.prodname_actions %} on {% data variables.product.product_location %}.
+Los artefactos consumen espacio de almacenamiento en el almacenamiento de blobs externo que se configura para {% data variables.product.prodname_actions %} en {% data variables.product.product_location %}.
 
 {% endif %}
 
@@ -55,6 +55,14 @@ Para compartir datos entre puestos:
 * **Descargar archivos**: Solo puedes descargar artefactos que se hayan subido durante la misma ejecución del flujo de trabajo. Cuando descargas un archivo, puedes referenciarlo por su nombre.
 
 Los pasos de un job comparten el mismo ambiente en la máquina ejecutora, pero se ejecutan en su propio proceso individual. Para pasar datos entre pasos en un trabajo, puedes usar entradas y salidas. Para obtener más información sobre entradas y salidas, consulta "[Sintaxis de metadatos para {% data variables.product.prodname_actions %}](/articles/metadata-syntax-for-github-actions)".
+
+{% ifversion actions-caching %}
+
+{% data reusables.actions.comparing-artifacts-caching %}
+
+Para obtener más información sobre el almacenamiento de dependencias en caché, consulta la sección "[Almacenar dependencias en caché para agilizar los flujos de trabajo](/actions/using-workflows/caching-dependencies-to-speed-up-workflows#comparing-artifacts-and-dependency-caching)".
+
+{% endif %}
 
 ## Cargar artefactos de construcción y prueba
 
@@ -80,7 +88,7 @@ Por ejemplo, tu repositorio o una aplicación web podrían contener archivos de 
 |   
 ```
 
-En este ejemplo se muestra cómo crear un flujo de trabajo para un proyecto Node.js que construye el código en el directorio `src` y ejecuta las pruebas en el directorio `tests`. Puedes suponer que la ejecución `npm test` produce un informe de cobertura de código denominado `code-coverage.html` almacenada en el directorio `output/test/`.
+En este ejemplo se muestra cómo crear un flujo de trabajo para un proyecto de Node.js que compila el código en el directorio `src` y ejecuta las pruebas en el directorio `tests`. Puedes suponer que la ejecución `npm test` produce un informe de cobertura de código denominado `code-coverage.html` almacenada en el directorio `output/test/`.
 
 El flujo de trabajo carga los artefactos de producción en el directorio `dist`, pero excluye cualquier archivo de markdown. También carga el reporte de `code-coverage.html` como otro artefacto.
 
@@ -94,21 +102,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: {% data reusables.actions.action-checkout %}
       - name: npm install, build, and test
         run: |
           npm install
           npm run build --if-present
           npm test
       - name: Archive production artifacts
-        uses: actions/upload-artifact@v3
+        uses: {% data reusables.actions.action-upload-artifact %}
         with:
           name: dist-without-markdown
           path: |
             dist
             !dist/**/*.md
       - name: Archive code coverage results
-        uses: actions/upload-artifact@v3
+        uses: {% data reusables.actions.action-upload-artifact %}
         with:
           name: code-coverage-report
           path: output/test/code-coverage.html
@@ -120,7 +128,7 @@ Puedes definir un periodo de retención personalizado para los artefactos indivu
 
 ```yaml{:copy}
   - name: 'Upload Artifact'
-    uses: actions/upload-artifact@v3
+    uses: {% data reusables.actions.action-upload-artifact %}
     with:
       name: my-artifact
       path: my_file.txt
@@ -149,7 +157,7 @@ Especificar el nombre de un artefacto para descargar un artefacto individual. Si
 
 ```yaml
 - name: Download a single artifact
-  uses: actions/download-artifact@v3
+  uses: {% data reusables.actions.action-download-artifact %}
   with:
     name: my-artifact
 ```
@@ -158,7 +166,7 @@ También puedes descargar todos los artefactos en una ejecución de flujo de tra
 
 ```yaml
 - name: Download all workflow run artifacts
-  uses: actions/download-artifact@v3
+  uses: {% data reusables.actions.action-download-artifact %}
 ```
 
 Si descargas todos los artefactos de una ejecución de flujo de trabajo, se creará un directorio para cada uno de ellos utilizando su nombre.
@@ -200,7 +208,7 @@ jobs:
         run: |
           expr 3 + 7 > math-homework.txt
       - name: Upload math result for job 1
-        uses: actions/upload-artifact@v3
+        uses: {% data reusables.actions.action-upload-artifact %}
         with:
           name: homework
           path: math-homework.txt
@@ -211,7 +219,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Download math result for job 1
-        uses: actions/download-artifact@v3
+        uses: {% data reusables.actions.action-download-artifact %}
         with:
           name: homework
       - shell: bash
@@ -219,7 +227,7 @@ jobs:
           value=`cat math-homework.txt`
           expr $value \* 9 > math-homework.txt
       - name: Upload math result for job 2
-        uses: actions/upload-artifact@v3
+        uses: {% data reusables.actions.action-upload-artifact %}
         with:
           name: homework
           path: math-homework.txt
@@ -230,7 +238,7 @@ jobs:
     runs-on: macOS-latest
     steps:
       - name: Download math result for job 2
-        uses: actions/download-artifact@v3
+        uses: {% data reusables.actions.action-download-artifact %}
         with:
           name: homework
       - name: Print the final result

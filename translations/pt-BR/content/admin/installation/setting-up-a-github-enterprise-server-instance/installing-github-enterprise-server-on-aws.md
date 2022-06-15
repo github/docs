@@ -55,10 +55,9 @@ As AMIs para o {% data variables.product.prodname_ghe_server %} estão disponív
 
 ### Usar o portal do {% data variables.product.prodname_ghe_server %} para selecionar uma AMI
 
-{% data reusables.enterprise_installation.enterprise-download-procedural %}
 {% data reusables.enterprise_installation.download-appliance %}
-3. No menu suspenso Select your platform (Selecionar plataforma), clique em **Amazon Web Services**.
-4. No menu suspenso Select your AWS region (Selecionar região do AWS), escolha a região.
+3. Em "Na nuvem de {% data variables.product.prodname_dotcom %}", selecione o menu suspenso "Selecione sua plataforma" e clique em **Amazon Web Services**.
+4. Selecione "Selecione sua região AWS" no menu suspenso e clique na região desejada.
 5. Anote a ID da AMI.
 
 ### Usar a CLI do AWS para selecionar uma AMI
@@ -125,7 +124,7 @@ aws ec2 run-instances \
 
 Se for uma instância de produção, é recomendável alocar uma IP Elástica (EIP) e associá-la à instância antes de seguir para a configuração do {% data variables.product.prodname_ghe_server %}. Caso contrário, o endereço IP público da instância não será retido após a reinicialização da instância. Para obter mais informações, consulte "[Alocar um endereço de IP elástica](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#using-instance-addressing-eips-allocating)" e "[Associar um endereço de IP elástica a uma instância em execução](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#using-instance-addressing-eips-associating)" na documentação da Amazon.
 
-As instâncias primária e de réplica devem receber EIPs separados nas configurações de alta disponibilidade de produção. Para obter mais informações, consulte "[Configurar o {% data variables.product.prodname_ghe_server %} para alta disponibilidade](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-github-enterprise-server-for-high-availability/)".
+As instâncias primária e de réplica devem receber EIPs separados nas configurações de alta disponibilidade de produção. Para obter mais informações, consulte "[Configurar o {% data variables.product.prodname_ghe_server %} para alta disponibilidade](/enterprise/admin/guides/installation/configuring-github-enterprise-server-for-high-availability/)".
 
 ## Configurar a instância do {% data variables.product.prodname_ghe_server %}
 

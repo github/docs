@@ -252,6 +252,7 @@ sections:
     - The {% data variables.product.prodname_registry %} npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
     - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.
     - '{% data variables.product.prodname_actions %} storage settings cannot be validated and saved in the {% data variables.enterprise.management_console %} when "Force Path Style" is selected, and must instead be configured with the `ghe-actions-precheck` command line utility.'
+    - '{% data variables.product.prodname_ghe_server %} 3.3 instances installed on Azure and provisioned with 32+ CPU cores would fail to launch, due to a bug present in the current Linux kernel. [Updated: 2022-04-08]'
 
   deprecations:
     - heading: Deprecation of GitHub Enterprise Server 2.22
@@ -293,6 +294,12 @@ sections:
           Repositories which were not present and active before upgrading to {% data variables.product.prodname_ghe_server %} 3.3 may not perform optimally until a repository maintenance task is run and has successfully completed.
 
           To start a repository maintenance task manually, browse to `https://<hostname>/stafftools/repositories/<owner>/<repository>/network` for each affected repository and click the **Schedule** button.
+
+    - heading: Change to the format of authentication tokens affects GitHub Connect
+      notes:
+        # https://github.com/github/releases/issues/1235
+        - |
+          GitHub Connect will no longer work after June 3rd for instances running GitHub Enterprise Server 3.1 or older, due to the format of GitHub authentication tokens changing. To continue using GitHub Connect, upgrade to GitHub Enterprise Server 3.2 or later. For more information, see the [GitHub Blog](https://github.blog/2022-05-20-action-needed-by-github-connect-customers-using-ghes-3-1-and-older-to-adopt-new-authentication-token-format-updates/). [Updated: 2022-06-14]
 
   backups:
     - '{% data variables.product.prodname_ghe_server %} 3.3 requires at least [GitHub Enterprise Backup Utilities 3.3.0](https://github.com/github/backup-utils) for [Backups and Disaster Recovery](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance).'

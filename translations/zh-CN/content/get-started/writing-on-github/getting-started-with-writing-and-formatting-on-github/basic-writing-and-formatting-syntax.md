@@ -25,26 +25,27 @@ shortTitle: 基本格式语法
 
 ![渲染的 H1、H2 和 H6 标题](/assets/images/help/writing/headings-rendered.png)
 
-When you use two or more headings, GitHub automatically generates a table of contents which you can access by clicking {% octicon "list-unordered" aria-label="The unordered list icon" %} within the file header. Each heading title is listed in the table of contents and you can click a title to navigate to the selected section.
+当您使用两个或多个标题时，GitHub 会自动生成一个目录，您可以通过单击文件标头中的 {% octicon "list-unordered" aria-label="The unordered list icon" %} 来访问该目录。 每个标题都列在目录中，您可以单击标题导航到所选部分。
 
-![Screenshot highlighting the table of contents icon](/assets/images/help/repository/headings_toc.png)
-
+![突出显示目录图标的屏幕截图](/assets/images/help/repository/headings_toc.png)
 
 ## 样式文本
 
-您可以在评论字段和 `.md` 文件中以粗体、斜体或删除线的文字表示强调。
+您可以在评论字段和 `.md` 文件中以粗体、斜体、删除线、下标或上标的文字表示强调。
 
-| 样式       | 语法                 | 键盘快捷键                                                                                 | 示例                 | 输出               |
-| -------- | ------------------ | ------------------------------------------------------------------------------------- | ------------------ | ---------------- |
-| 粗体       | `** **` 或 `__ __`  | <kbd>Command</kbd>+<kbd>B</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>B</kbd> (Windows/Linux) | `**这是粗体文本**`       | **这是粗体文本**       |
-| 斜体       | `* *` 或 `_ _`      | <kbd>Command</kbd>+<kbd>I</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>I</kbd> (Windows/Linux) | `*这是斜体文本*`         | *这是斜体文本*         |
-| 删除线      | `~~ ~~`            |                                                                                       | `~~这是错误文本~~`       | ~~这是错误文本~~       |
-| 粗体和嵌入的斜体 | `** **` 和 `_ _`    |                                                                                       | `**此文本 _非常_ 重要**`  | **此文本_非常_重要**    |
-| 全部粗体和斜体  | `*** ***`          |                                                                                       | `***所有这些文本都很重要***` | ***所有这些文本都是斜体*** |
+| 样式       | 语法                         | 键盘快捷键                                                                                | 示例                              | 输出                |
+| -------- | -------------------------- | ------------------------------------------------------------------------------------ | ------------------------------- | ----------------- |
+| 粗体       | `** **` 或 `__ __`          | <kbd>Command</kbd>+<kbd>B</kbd> (Mac) 或 <kbd>Ctrl</kbd>+<kbd>B</kbd> (Windows/Linux) | `**这是粗体文本**`                    | **这是粗体文本**        |
+| 斜体       | `* *` 或 `_ _`              | <kbd>Command</kbd>+<kbd>I</kbd> (Mac) 或 <kbd>Ctrl</kbd>+<kbd>I</kbd> (Windows/Linux) | `*这是斜体文本*`                      | *这是斜体文本*          |
+| 删除线      | `~~ ~~`                    |                                                                                      | `~~这是错误文本~~`                    | ~~这是错误文本~~        |
+| 粗体和嵌入的斜体 | `** **` 和 `_ _`            |                                                                                      | `**此文本 _非常_ 重要**`               | **此文本_非常_重要**     |
+| 全部粗体和斜体  | `*** ***`                  |                                                                                      | `***所有这些文本都很重要***`              | ***所有这些文本都是斜体***  |
+| 下标       | `<sub> </sub>` |                                                                                      | `<sub>这是下标文本</sub>` | <sub>这是下标文本</sub> |
+| 上标       | `<sup> </sup>` |                                                                                      | `<sup>这是上标文本</sup>` | <sup>这是上标文本</sup> |
 
 ## 引用文本
 
-You can quote text with a <kbd>></kbd>.
+您可以使用 <kbd>></kbd> 引用文本。
 
 ```markdown
 Text that is not a quote
@@ -56,13 +57,13 @@ Text that is not a quote
 
 {% tip %}
 
-**Tip:** When viewing a conversation, you can automatically quote text in a comment by highlighting the text, then typing <kbd>R</kbd>. 您可以单击 {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} 和 **Quote reply（引用回复）**引用整个评论。 有关键盘快捷键的更多信息，请参阅“[键盘快捷键](/articles/keyboard-shortcuts/)”。
+**提示：**在查看转换时，您可以突出显示文本，然后输入代码 <kbd>R</kbd>，以自动引用评论中的文本。 您可以单击 {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} 和 **Quote reply（引用回复）**引用整个评论。 有关键盘快捷键的更多信息，请参阅“[键盘快捷键](/articles/keyboard-shortcuts/)”。
 
 {% endtip %}
 
 ## 引用代码
 
-使用单反引号可标注句子中的代码或命令。 The text within the backticks will not be formatted.{% ifversion fpt or ghae or ghes > 3.1 or ghec %} You can also press the <kbd>Command</kbd>+<kbd>E</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>E</kbd> (Windows/Linux) keyboard shortcut to insert the backticks for a code block within a line of Markdown.{% endif %}
+使用单反引号可标注句子中的代码或命令。 反引号中的文本不会设置格式。{% ifversion fpt or ghae or ghes > 3.1 or ghec %} 您还可以按 <kbd>Command</kbd>+<kbd>E</kbd> (Mac) 或 <kbd>Ctrl</kbd>+<kbd>E</kbd> (Windows/Linux) 键盘快捷键，在 Markdown 的行内插入代码块的反引号。{% endif %}
 
 ```markdown
 使用 `git status` 列出尚未提交的所有新文件或已修改文件。
@@ -89,7 +90,9 @@ git commit
 
 ## 链接
 
-通过将链接文本包含在方括号 `[ ]` 内，然后将 URL 包含在括号 `( )` 内，可创建内联链接。 {% ifversion fpt or ghae or ghes > 3.1 or ghec %}You can also use the keyboard shortcut <kbd>Command</kbd>+<kbd>K</kbd> to create a link.{% endif %}{% ifversion fpt or ghae-issue-5434 or ghes > 3.3 or ghec %} When you have text selected, you can paste a URL from your clipboard to automatically create a link from the selection.{% endif %}
+通过将链接文本包含在方括号 `[ ]` 内，然后将 URL 包含在括号 `( )` 内，可创建内联链接。 {% ifversion fpt or ghae or ghes > 3.1 or ghec %}您还可以使用键盘快捷键 <kbd>Command</kbd>+<kbd>K</kbd> 创建链接。{% endif %}{% ifversion fpt or ghae-issue-5434 or ghes > 3.3 or ghec %} 选择文本后，可以从剪贴板粘贴 URL，以自动从所选内容创建链接。{% endif %}
+
+{% ifversion fpt or ghae-issue-7103 or ghes > 3.5 or ghec %} 您还可以通过突出显示文本并使用键盘快捷键 <kbd>Command</kbd>+<kbd>V</kbd> 来创建 Markdown 超链接。 如果要将文本替换为链接，请使用键盘快捷键 <kbd>命令</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd>。{% endif %}
 
 `本站点是使用 [GitHub Pages](https://pages.github.com/) 构建的。`
 
@@ -111,7 +114,7 @@ git commit
 
 ## 图像
 
-You can display an image by adding <kbd>!</kbd> and wrapping the alt text in `[ ]`. 然后将图像链接包装在括号 `()` 中。
+您可以通过添加 <kbd>!</kbd> 并在`[ ]`中包装 alt 文本来显示图像。 然后将图像链接包装在括号 `()` 中。
 
 `![This is an image](https://myoctocat.com/assets/images/base-octocat.svg)`
 
@@ -131,7 +134,7 @@ You can display an image by adding <kbd>!</kbd> and wrapping the alt text in `[ 
 | ------------------ | ---------------------------------------------------------------------- |
 | 在同一个分支上的 `.md` 文件中 | `/assets/images/electrocat.png`                                        |
 | 在另一个分支的 `.md` 文件中  | `/../main/assets/images/electrocat.png`                                |
-| 在仓库的议题、拉取请求和评论中    | `../blob/main/assets/images/electrocat.png`                            |
+| 在仓库的议题、拉取请求和评论中    | `../blob/main/assets/images/electrocat.png?raw=true`                   |
 | 在另一个仓库的 `.md` 文件中  | `/../../../../github/docs/blob/main/assets/images/electrocat.png`      |
 | 在另一个仓库的议题、拉取请求和评论中 | `../../../github/docs/blob/main/assets/images/electrocat.png?raw=true` |
 
@@ -144,16 +147,21 @@ You can display an image by adding <kbd>!</kbd> and wrapping the alt text in `[ 
 更多信息请参阅“[相对链接](#relative-links)”。
 
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5559 %}
-### Specifying the theme an image is shown to
+### 指定图像显示的主题
 
-You can specify the theme an image is displayed to by appending `#gh-dark-mode-only` or `#gh-light-mode-only` to the end of an image URL, in Markdown.
+您可以通过将 HTML `<picture>` 元素与 `prefers-color-scheme` 媒体功能结合使用来指定在 Markdown 中显示图像的主题。 我们区分浅色和深色模式，因此有两个选项可用。 您可以使用这些选项显示针对深色或浅色背景优化的图像。 这对于透明的 PNG 图像特别有用。
 
-We distinguish between light and dark color modes, so there are two options available. You can use these options to display images optimized for dark or light backgrounds. This is particularly helpful for transparent PNG images.
+例如，下面的代码为浅色主题显示一个太阳图像，为深色主题显示一个月亮：
 
-| 上下文         | URL                                                                      |
-| ----------- | ------------------------------------------------------------------------ |
-| Dark Theme  | `![GitHub Light](https://github.com/github-light.png#gh-dark-mode-only)` |
-| Light Theme | `![GitHub Dark](https://github.com/github-dark.png#gh-light-mode-only)`  |
+```HTML
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://user-images.githubusercontent.com/25423296/163456776-7f95b81a-f1ed-45f7-b7ab-8fa810d529fa.png">
+  <source media="(prefers-color-scheme: light)" srcset="https://user-images.githubusercontent.com/25423296/163456779-a8556205-d0a5-45e2-ac17-42d089e3c3f8.png">
+  <img alt="Shows an illustrated sun in light color mode and a moon with stars in dark color mode." src="https://user-images.githubusercontent.com/25423296/163456779-a8556205-d0a5-45e2-ac17-42d089e3c3f8.png">
+</picture>
+```
+
+基于主题通过使用附加到 URL 的片段（`#gh-dark-mode-only` 或 `#gh-light-mode-only`）指定图像的旧方法已弃用，并将被删除以支持上述新方法。
 {% endif %}
 
 ## 列表
@@ -190,6 +198,12 @@ We distinguish between light and dark color modes, so there are two options avai
      - 第二个嵌套列表项
 ```
 
+{% tip %}
+
+**注意**：在基于 Web 的编辑器中，您可以缩进或缩减一行文本，方法是首先突出显示所需的行，然后分别使用 <kbd>Tab</kbd> 或 <kbd>Shift</kbd>+<kbd>Tab</kbd>。
+
+{% endtip %}
+
 ![突出显示对齐的嵌套列表](/assets/images/help/writing/nested-list-alignment.png)
 
 ![含两级嵌套项的列表](/assets/images/help/writing/nested-list-example-1.png)
@@ -221,7 +235,7 @@ We distinguish between light and dark color modes, so there are two options avai
 
 {% data reusables.repositories.task-list-markdown %}
 
-If a task list item description begins with a parenthesis, you'll need to escape it with <kbd>\\</kbd>:
+如果任务列表项说明以括号开头，则需要使用 <kbd>\\</kbd> 进行规避：
 
 `- [ ] \(Optional) 打开后续议题`
 
@@ -229,7 +243,13 @@ If a task list item description begins with a parenthesis, you'll need to escape
 
 ## 提及人员和团队
 
-您可以在 {% data variables.product.product_name %} 上提及人员或[团队](/articles/setting-up-teams/)，方法是键入 <kbd>@</kbd> 加上其用户名或团队名称。 这将触发通知并提请他们注意对话。 如果您在编辑的评论中提及某人的用户名或团队名称，该用户也会收到通知。 有关通知的更多信息，请参阅{% ifversion fpt or ghes or ghae or ghec %}"[关于通知](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}“[关于通知](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}”。
+您可以在 {% data variables.product.product_name %} 上提及人员或[团队](/articles/setting-up-teams/)，方法是键入 <kbd>@</kbd> 加上其用户名或团队名称。 这将触发通知并提请他们注意对话。 如果您在编辑的评论中提及某人的用户名或团队名称，该用户也会收到通知。 有关通知的详细信息，请参阅“[关于通知](/github/managing-subscriptions-and-notifications-on-github/about-notifications)”。
+
+{% note %}
+
+**注意：**某人仅在其对存储库具有读取权限以及为组织成员（如果存储库归组织所有）时，才会收到有关提及的通知。
+
+{% endnote %}
 
 `@github/support 您如何看待这些更新？`
 
@@ -262,7 +282,7 @@ If a task list item description begins with a parenthesis, you'll need to escape
 
 内容附件不会显示在属于 markdown 链接的 URL 中。
 
-For more information about building a {% data variables.product.prodname_github_app %} that uses content attachments, see "[Using Content Attachments](/apps/using-content-attachments)."{% endif %}
+有关构建使用内容附件的 {% data variables.product.prodname_github_app %} 的详细信息，请参阅“[使用内容附件](/apps/using-content-attachments)”。{% endif %}
 
 ## 上传资产
 
@@ -284,7 +304,7 @@ For more information about building a {% data variables.product.prodname_github_
 
 通过在文本行之间留一个空白行，可创建新段落。
 
-{% ifversion fpt or ghae-issue-5180 or ghes > 3.2 or ghec %}
+{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
 ## 脚注
 
 您可以使用此括号语法为您的内容添加脚注：
@@ -312,6 +332,8 @@ You can also use words, to fit your writing style more closely[^note].
 
 **注意**：Markdown 中脚注的位置不会影响该脚注的呈现位置。 您可以在引用脚注后立即写脚注，脚注仍将呈现在 Markdown 的底部。
 
+维基不支持脚注。
+
 {% endtip %}
 {% endif %}
 
@@ -325,7 +347,7 @@ You can also use words, to fit your writing style more closely[^note].
 
 ## 忽略 Markdown 格式
 
-You can tell {% data variables.product.product_name %} to ignore (or escape) Markdown formatting by using <kbd>\\</kbd> before the Markdown character.
+通过在 Markdown 字符前面输入 <kbd>\\</kbd>，可告诉 {% data variables.product.product_name %} 忽略（或规避）Markdown 格式。
 
 `让我们将 \*our-new-project\* 重命名为 \*our-old-project\*。`
 

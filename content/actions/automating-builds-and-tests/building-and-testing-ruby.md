@@ -52,7 +52,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Set up Ruby
         uses: ruby/setup-ruby@359bebbc29cbe6c87da6bc9ea3bc930432750108
         with:
@@ -71,17 +71,15 @@ Using Ruby's `ruby/setup-ruby` action is the recommended way of using Ruby with 
 
 The `setup-ruby` action takes a Ruby version as an input and configures that version on the runner.
 
-{% raw %}
 ```yaml
 steps:
-- uses: actions/checkout@v2
+- uses: {% data reusables.actions.action-checkout %}
 - uses: ruby/setup-ruby@359bebbc29cbe6c87da6bc9ea3bc930432750108
   with:
     ruby-version: '3.1' # Not needed with a .ruby-version file
 - run: bundle install
 - run: bundle exec rake
 ```
-{% endraw %}
 
 Alternatively, you can check a `.ruby-version` file  into the root of your repository and `setup-ruby` will use the version defined in that file.
 
@@ -122,7 +120,7 @@ jobs:
         ruby-version: ['3.1', '3.0', '2.7']
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: {% raw %}Set up Ruby ${{ matrix.ruby-version }}{% endraw %}
         uses: ruby/setup-ruby@359bebbc29cbe6c87da6bc9ea3bc930432750108
         with:
@@ -137,20 +135,20 @@ jobs:
 
 The `setup-ruby` action will automatically install bundler for you. The version is determined by your `gemfile.lock` file. If no version is present in your lockfile, then the latest compatible version will be installed.
 
-{% raw %}
 ```yaml
 steps:
-- uses: actions/checkout@v2
+- uses: {% data reusables.actions.action-checkout %}
 - uses: ruby/setup-ruby@359bebbc29cbe6c87da6bc9ea3bc930432750108
   with:
     ruby-version: '3.1'
 - run: bundle install
 ```
-{% endraw %}
+
+{% ifversion actions-caching %}
 
 ### Caching dependencies
 
-If you are using {% data variables.product.prodname_dotcom %}-hosted runners, the `setup-ruby` actions provides a method to automatically handle the caching of your gems between runs.
+The `setup-ruby` actions provides a method to automatically handle the caching of your gems between runs.
 
 To enable caching, set the following.
 
@@ -163,45 +161,43 @@ steps:
 ```
 {% endraw %}
 
-This will configure bundler to install your gems to `vendor/cache`. For each successful run of your workflow, this folder will be cached by Actions and re-downloaded for subsequent workflow runs. A hash of your gemfile.lock and the Ruby version are used as the cache key. If you install any new gems, or change a version, the cache will be invalidated and bundler will do a fresh install.
+This will configure bundler to install your gems to `vendor/cache`. For each successful run of your workflow, this folder will be cached by {% data variables.product.prodname_actions %} and re-downloaded for subsequent workflow runs. A hash of your gemfile.lock and the Ruby version are used as the cache key. If you install any new gems, or change a version, the cache will be invalidated and bundler will do a fresh install.
 
 **Caching without setup-ruby**
 
-For greater control over caching, if you are using {% data variables.product.prodname_dotcom %}-hosted runners, you can use the `actions/cache` Action directly. For more information, see "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Caching dependencies to speed up workflows</a>."
+For greater control over caching, you can use the `actions/cache` action directly. For more information, see "[Caching dependencies to speed up workflows](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."
 
-{% raw %}
 ```yaml
 steps:
-- uses: actions/cache@v2
+- uses: {% data reusables.actions.action-cache %}
   with:
     path: vendor/bundle
-    key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+    key: {% raw %}${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}{% endraw %}
     restore-keys: |
-      ${{ runner.os }}-gems-
+      {% raw %}${{ runner.os }}-gems-{% endraw %}
 - name: Bundle install
   run: |
     bundle config path vendor/bundle
     bundle install --jobs 4 --retry 3
 ```
-{% endraw %}
 
 If you're using a matrix build, you will want to include the matrix variables in your cache key. For example, if you have a matrix strategy for different ruby versions (`matrix.ruby-version`) and different operating systems (`matrix.os`), your workflow steps might look like this:
 
-{% raw %}
 ```yaml
 steps:
-- uses: actions/cache@v2
+- uses: {% data reusables.actions.action-cache %}
   with:
     path: vendor/bundle
-    key: bundle-use-ruby-${{ matrix.os }}-${{ matrix.ruby-version }}-${{ hashFiles('**/Gemfile.lock') }}
+    key: {% raw %}bundle-use-ruby-${{ matrix.os }}-${{ matrix.ruby-version }}-${{ hashFiles('**/Gemfile.lock') }}{% endraw %}
     restore-keys: |
-      bundle-use-ruby-${{ matrix.os }}-${{ matrix.ruby-version }}-
+      {% raw %}bundle-use-ruby-${{ matrix.os }}-${{ matrix.ruby-version }}-{% endraw %}
 - name: Bundle install
   run: |
     bundle config path vendor/bundle
     bundle install --jobs 4 --retry 3
 ```
-{% endraw %}
+
+{% endif %}
 
 ## Matrix testing your code
 
@@ -228,7 +224,7 @@ jobs:
         ruby: [2.5, 2.6, 2.7, head, debug, jruby, jruby-head, truffleruby, truffleruby-head]
     continue-on-error: {% raw %}${{ endsWith(matrix.ruby, 'head') || matrix.ruby == 'debug' }}{% endraw %}
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - uses: ruby/setup-ruby@477b21f02be01bcb8030d50f37cfec92bfa615b6
         with:
           ruby-version: {% raw %}${{ matrix.ruby }}{% endraw %}
@@ -251,7 +247,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - uses: ruby/setup-ruby@477b21f02be01bcb8030d50f37cfec92bfa615b6
         with:
           ruby-version: 2.6
@@ -288,8 +284,8 @@ jobs:
       packages: write
       contents: read{% endif %}
 
-    steps:{% raw %}
-      - uses: actions/checkout@v2
+    steps:
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Set up Ruby 2.6
         uses: ruby/setup-ruby@477b21f02be01bcb8030d50f37cfec92bfa615b6
         with:
@@ -297,7 +293,7 @@ jobs:
       - run: bundle install
 
       - name: Publish to GPR
-        run: |
+        run: |{% raw %}
           mkdir -p $HOME/.gem
           touch $HOME/.gem/credentials
           chmod 0600 $HOME/.gem/credentials

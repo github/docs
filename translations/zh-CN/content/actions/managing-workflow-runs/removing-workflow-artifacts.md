@@ -16,7 +16,7 @@ shortTitle: Remove workflow artifacts
 
 {% warning %}
 
-**Warning:** Once you delete an artifact, it can not be restored.
+**Warning:** Once you delete an artifact, it cannot be restored.
 
 {% endwarning %}
 

@@ -32,4 +32,5 @@ shortTitle: 自动发布表单
 
 ## 延伸阅读
 
-- "[关于使用查询参数自动化议题和拉取请求](/articles/about-automation-for-issues-and-pull-requests-with-query-parameters)"
+- “[从 URL 查询创建议题](/issues/tracking-your-work-with-issues/creating-an-issue#creating-an-issue-from-a-url-query)”
+- “[使用查询参数创建拉取请求](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/using-query-parameters-to-create-a-pull-request/)”

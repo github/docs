@@ -297,24 +297,6 @@ describe('Page class', () => {
         return page.render(context)
       }).not.toThrow()
     })
-
-    test('support next GitHub AE version in frontmatter', async () => {
-      // This fixture has `github-ae: 'next'` hardcoded in the frontmatter
-      const page = await Page.init({
-        relativePath: 'page-versioned-for-ghae-next.md',
-        basePath: path.join(__dirname, '../fixtures'),
-        languageCode: 'en',
-      })
-      // set version to @latest
-      const context = {
-        currentVersion: 'github-ae@latest',
-        currentLanguage: 'en',
-      }
-      context.currentPath = `/${context.currentLanguage}/${context.currentVersion}`
-      await expect(() => {
-        return page.render(context)
-      }).not.toThrow()
-    })
   })
 
   test('preserves `languageCode`', async () => {
@@ -609,6 +591,21 @@ describe('Page class', () => {
     })
   })
 
+  describe('introLinks', () => {
+    it('includes the links specified in the introLinks frontmatter', async () => {
+      const page = await Page.init({
+        relativePath: 'article-with-introLinks.md',
+        basePath: path.join(__dirname, '../fixtures'),
+        languageCode: 'en',
+      })
+
+      expect(page.introLinks).toStrictEqual({
+        overview: 'https://github.com',
+        'custom link!': 'https://github.com/features',
+      })
+    })
+  })
+
   describe('Page.parseFrontmatter()', () => {
     it('throws an error on bad input', () => {
       const markdown = null
@@ -771,6 +768,18 @@ describe('catches errors thrown in Page class', () => {
     async function getPage() {
       return await Page.init({
         relativePath: 'page-with-missing-product-versions.md',
+        basePath: path.join(__dirname, '../fixtures'),
+        languageCode: 'en',
+      })
+    }
+
+    await expect(getPage).rejects.toThrowError('versions')
+  })
+
+  test('invalid versions frontmatter', async () => {
+    async function getPage() {
+      return await Page.init({
+        relativePath: 'page-with-invalid-product-version.md',
         basePath: path.join(__dirname, '../fixtures'),
         languageCode: 'en',
       })

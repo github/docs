@@ -173,11 +173,10 @@ Com os termos da pesquisa de problemas e pull requests, é possível:
 {% endtip %}
 {% endif %}
 
-{% ifversion fpt or ghes or ghae or ghec %}
 Para problemas, você também pode usar a busca para:
 
-- Filtrar por problemas que estão vinculados a uma pull request por uma referência de fechamento: `linked:pr`
-{% endif %}
+- Filtro problemas vinculados a um pull request por uma referência de fechamento: `linked:pr`{% ifversion issue-close-reasons %}
+- Filtrar problemas pelo motivo pelo qual foram fechados: `is:closed reason:complete` or `is:closed reason:"not planned"`{% endif %}
 
 Para pull requests, você também pode usar a pesquisa para:
 - Filtrar pull requests de [rascunho](/articles/about-pull-requests#draft-pull-requests): `is:draft`
@@ -188,8 +187,8 @@ Para pull requests, você também pode usar a pesquisa para:
 - Filtrar pull requests por [revisor](/articles/about-pull-request-reviews/): `state:open type:pr reviewed-by:octocat`
 - Filtrar pull requests por usuário específico [solicitado para revisão](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/requesting-a-pull-request-review): `state:open type:pr review-requested:octocat`{% ifversion fpt or ghae-issue-5181 or ghes > 3.2 or ghec %}
 - Filtrar pull requests que alguém pediu para você revisar diretamente: `state:open type:pr user-review-requested:@me`{% endif %}
-- Filtrar pull requests pela equipe solicitada para revisão: `state:open type:pr team-review-requested:github/atom`{% ifversion fpt or ghes or ghae or ghec %}
-- Filtro por pull requests que estão vinculadas a um problema que a pull request pode concluir: `linked:issue`{% endif %}
+- Filtrar pull requests pela equipe solicitada para revisão: `state:open type:pr team-review-requested:github/atom`
+- Filtro por pull requests que estão vinculadas a um problema que a pull request pode concluir: `linked:issue`
 
 ## Ordenar problemas e pull requests
 
@@ -210,7 +209,6 @@ Você pode ordenar qualquer exibição filtrada por:
 1. No canto superior direito, selecione o menu suspenso Sort (Ordenar). ![Usar a aba suspensa Sort (Ordenar)](/assets/images/help/issues/issues_sort_dropdown.png)
 
 Para limpar a seleção da ordenação, clique em **Sort** (Ordenar) > **Newest** (Mais recente).
-
 
 ## Compartilhar filtros
 

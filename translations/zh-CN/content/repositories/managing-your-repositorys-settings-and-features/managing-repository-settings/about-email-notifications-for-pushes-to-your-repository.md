@@ -31,7 +31,7 @@ shortTitle: 用于推送的电子邮件通知
 - 作为提交一部分所更改的文件
 - 提交消息
 
-您可以过滤因推送到仓库而收到的电子邮件通知。 更多信息请参阅{% ifversion fpt or ghae or ghes or ghec %}“[配置通知](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#filtering-email-notifications){% else %}”[关于通知电子邮件](/github/receiving-notifications-about-activity-on-github/about-email-notifications)”。 您还可以对推送关闭电子邮件通知。 更多信息请参阅“[选择通知的递送方式](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications){% endif %}”。
+您可以过滤因推送到仓库而收到的电子邮件通知。 更多信息请参阅“[配置通知](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#filtering-email-notifications)”。
 
 ## 对推送到仓库启用电子邮件通知
 
@@ -43,10 +43,5 @@ shortTitle: 用于推送的电子邮件通知
 7. 单击 **Setup notifications（设置通知）**。 ![设置通知按钮](/assets/images/help/settings/setup_notifications_settings.png)
 
 ## 延伸阅读
-{% ifversion fpt or ghae or ghes or ghec %}
 - "[关于通知](/github/managing-subscriptions-and-notifications-on-github/about-notifications)"
-{% else %}
-- "[关于通知](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/about-notifications)"
-- "[选择通知的递送方式](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications)"
-- "[关于电子邮件通知](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/about-email-notifications)"
-- "[关于 web 通知](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/about-web-notifications)"{% endif %}
+

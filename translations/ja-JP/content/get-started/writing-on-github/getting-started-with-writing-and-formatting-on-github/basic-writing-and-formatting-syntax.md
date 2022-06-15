@@ -29,18 +29,19 @@ When you use two or more headings, GitHub automatically generates a table of con
 
 ![Screenshot highlighting the table of contents icon](/assets/images/help/repository/headings_toc.png)
 
-
 ## スタイル付きテキスト
 
-コメントフィールドと `.md` ファイルでは、太字、斜体、または取り消し線のテキストで強調を示すことができます。
+You can indicate emphasis with bold, italic, strikethrough, subscript, or superscript text in comment fields and `.md` files.
 
-| スタイル          | 構文                  | キーボードショートカット                                                                          | サンプル                      | 出力                      |
-| ------------- | ------------------- | ------------------------------------------------------------------------------------- | ------------------------- | ----------------------- |
-| 太字            | `** **`もしくは`__ __`  | <kbd>Command</kbd>+<kbd>B</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>B</kbd> (Windows/Linux) | `**これは太字のテキストです**`        | **これは太字のテキストです**        |
-| 斜体            | `* *`あるいは`_ _`      | <kbd>Command</kbd>+<kbd>I</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>I</kbd> (Windows/Linux) | `*このテキストは斜体です*`           | *このテキストは斜体です*           |
-| 取り消し線         | `~~ ~~`             |                                                                                       | `~~これは間違ったテキストでした~~`      | ~~これは間違ったテキストでした~~      |
-| 太字および太字中にある斜体 | `** **`及び`_ _`      |                                                                                       | `**このテキストは_きわめて_ 重要です**`  | **このテキストは_きわめて_重要です**   |
-| 全体が太字かつ斜体     | `*** ***`           |                                                                                       | `***すべてのテキストがきわめて重要です***` | ***すべてのテキストがきわめて重要です*** |
+| スタイル          | 構文                         | キーボードショートカット                                                                          | サンプル                                                | 出力                                    |
+| ------------- | -------------------------- | ------------------------------------------------------------------------------------- | --------------------------------------------------- | ------------------------------------- |
+| 太字            | `** **`もしくは`__ __`         | <kbd>Command</kbd>+<kbd>B</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>B</kbd> (Windows/Linux) | `**これは太字のテキストです**`                                  | **これは太字のテキストです**                      |
+| 斜体            | `* *`あるいは`_ _`             | <kbd>Command</kbd>+<kbd>I</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>I</kbd> (Windows/Linux) | `*このテキストは斜体です*`                                     | *このテキストは斜体です*                         |
+| 取り消し線         | `~~ ~~`                    |                                                                                       | `~~これは間違ったテキストでした~~`                                | ~~これは間違ったテキストでした~~                    |
+| 太字および太字中にある斜体 | `** **`及び`_ _`             |                                                                                       | `**このテキストは_きわめて_ 重要です**`                            | **このテキストは_きわめて_重要です**                 |
+| 全体が太字かつ斜体     | `*** ***`                  |                                                                                       | `***すべてのテキストがきわめて重要です***`                           | ***すべてのテキストがきわめて重要です***               |
+| Subscript     | `<sub> </sub>` |                                                                                       | `<sub>This is a subscript text</sub>`   | <sub>This is a subscript text</sub>   |
+| Superscript   | `<sup> </sup>` |                                                                                       | `<sup>This is a superscript text</sup>` | <sup>This is a superscript text</sup> |
 
 ## テキストの引用
 
@@ -91,6 +92,8 @@ git commit
 
 リンクのテキストをブラケット `[ ]` で囲み、URL をカッコ `( )` で囲めば、インラインのリンクを作成できます。 {% ifversion fpt or ghae or ghes > 3.1 or ghec %}You can also use the keyboard shortcut <kbd>Command</kbd>+<kbd>K</kbd> to create a link.{% endif %}{% ifversion fpt or ghae-issue-5434 or ghes > 3.3 or ghec %} When you have text selected, you can paste a URL from your clipboard to automatically create a link from the selection.{% endif %}
 
+{% ifversion fpt or ghae-issue-7103 or ghes > 3.5 or ghec %} You can also create a Markdown hyperlink by highlighting the text and using the keyboard shortcut <kbd>Command</kbd>+<kbd>V</kbd>. If you'd like to replace the text with the link, use the keyboard shortcut <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd>.{% endif %}
+
 `このサイトは [GitHub Pages](https://pages.github.com/) を使って構築されています。`
 
 ![表示されたリンク](/assets/images/help/writing/link-rendered.png)
@@ -131,7 +134,7 @@ Here are some examples for using relative links to display an image.
 | ----------------------------------------------------------- | ---------------------------------------------------------------------- |
 | In a `.md` file on the same branch                          | `/assets/images/electrocat.png`                                        |
 | In a `.md` file on another branch                           | `/../main/assets/images/electrocat.png`                                |
-| In issues, pull requests and comments of the repository     | `../blob/main/assets/images/electrocat.png`                            |
+| In issues, pull requests and comments of the repository     | `../blob/main/assets/images/electrocat.png?raw=true`                   |
 | In a `.md` file in another repository                       | `/../../../../github/docs/blob/main/assets/images/electrocat.png`      |
 | In issues, pull requests and comments of another repository | `../../../github/docs/blob/main/assets/images/electrocat.png?raw=true` |
 
@@ -146,14 +149,19 @@ For more information, see "[Relative Links](#relative-links)."
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5559 %}
 ### Specifying the theme an image is shown to
 
-You can specify the theme an image is displayed to by appending `#gh-dark-mode-only` or `#gh-light-mode-only` to the end of an image URL, in Markdown.
+You can specify the theme an image is displayed for in Markdown by using the HTML `<picture>` element in combination with the `prefers-color-scheme` media feature. We distinguish between light and dark color modes, so there are two options available. You can use these options to display images optimized for dark or light backgrounds. This is particularly helpful for transparent PNG images.
 
-We distinguish between light and dark color modes, so there are two options available. You can use these options to display images optimized for dark or light backgrounds. This is particularly helpful for transparent PNG images.
+For example, the following code displays a sun image for light themes and a moon for dark themes:
 
-| コンテキスト      | URL                                                                      |
-| ----------- | ------------------------------------------------------------------------ |
-| Dark Theme  | `![GitHub Light](https://github.com/github-light.png#gh-dark-mode-only)` |
-| Light Theme | `![GitHub Dark](https://github.com/github-dark.png#gh-light-mode-only)`  |
+```HTML
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://user-images.githubusercontent.com/25423296/163456776-7f95b81a-f1ed-45f7-b7ab-8fa810d529fa.png">
+  <source media="(prefers-color-scheme: light)" srcset="https://user-images.githubusercontent.com/25423296/163456779-a8556205-d0a5-45e2-ac17-42d089e3c3f8.png">
+  <img alt="Shows an illustrated sun in light color mode and a moon with stars in dark color mode." src="https://user-images.githubusercontent.com/25423296/163456779-a8556205-d0a5-45e2-ac17-42d089e3c3f8.png">
+</picture>
+```
+
+The old method of specifying images based on the theme, by using a fragment appended to the URL (`#gh-dark-mode-only` or `#gh-light-mode-only`), is deprecated and will be removed in favor of the new method described above.
 {% endif %}
 
 ## リスト
@@ -189,6 +197,12 @@ We distinguish between light and dark color modes, so there are two options avai
    - 最初の入れ子になったリストアイテム
      - 2 番目の入れ子になったリストアイテム
 ```
+
+{% tip %}
+
+**Note**: In the web-based editor, you can indent or dedent one or more lines of text by first highlighting the desired lines and then using <kbd>Tab</kbd> or <kbd>Shift</kbd>+<kbd>Tab</kbd> respectively.
+
+{% endtip %}
 
 ![並びがハイライトされた入れ子になったリスト](/assets/images/help/writing/nested-list-alignment.png)
 
@@ -229,7 +243,13 @@ If a task list item description begins with a parenthesis, you'll need to escape
 
 ## 人や Team のメンション
 
-{% data variables.product.product_name %}上の人あるいは [Team](/articles/setting-up-teams/) は、<kbd>@</kbd> に加えてユーザ名もしくは Team 名を入力することでメンションできます。 これにより通知がトリガーされ、会話に注意が向けられます。 コメントを編集してユーザ名や Team 名をメンションすれば、人々に通知を受信してもらえます。 通知の詳細は、{% ifversion fpt or ghes or ghae or ghec %}「[通知について](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}「[通知について](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}」を参照してください。
+{% data variables.product.product_name %}上の人あるいは [Team](/articles/setting-up-teams/) は、<kbd>@</kbd> に加えてユーザ名もしくは Team 名を入力することでメンションできます。 これにより通知がトリガーされ、会話に注意が向けられます。 コメントを編集してユーザ名や Team 名をメンションすれば、人々に通知を受信してもらえます。 通知に関する詳しい情報については「[通知について](/github/managing-subscriptions-and-notifications-on-github/about-notifications)」を参照してください。
+
+{% note %}
+
+**Note:** A person will only be notified about a mention if the person has read access to the repository and, if the repository is owned by an organization, the person is a member of the organization.
+
+{% endnote %}
 
 `@github/support これらのアップデートについてどう思いますか？`
 
@@ -284,7 +304,7 @@ For more information about building a {% data variables.product.prodname_github_
 
 テキスト行の間に空白行を残すことで、新しいパラグラフを作成できます。
 
-{% ifversion fpt or ghae-issue-5180 or ghes > 3.2 or ghec %}
+{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
 ## Footnotes
 
 You can add footnotes to your content by using this bracket syntax:
@@ -311,6 +331,8 @@ The footnote will render like this:
 {% tip %}
 
 **Note**: The position of a footnote in your Markdown does not influence where the footnote will be rendered. You can write a footnote right after your reference to the footnote, and the footnote will still render at the bottom of the Markdown.
+
+Footnotes are not supported in wikis.
 
 {% endtip %}
 {% endif %}

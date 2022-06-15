@@ -46,7 +46,7 @@ Você pode conferir se os colaboradores dos quais você se beneficiou de ter per
 
 ## Pesquisar por um projeto ou colaborador específico
 
-Em https://github.com/sponsors/community, você pode procurar pelo ecossistema mais usado, atualizado recentemente e muito mais. É possível filtrar os resultados da busca para a conta pessoal do usuário ou para as organizações das quais você é integrante.
+Em https://github.com/sponsors/community, você pode procurar pelo ecossistema mais usado, atualizado recentemente e muito mais. É possível filtrar os resultados da busca para a conta pessoal ou para as organizações das quais você é integrante.
 
 ## Próximas etapas
 

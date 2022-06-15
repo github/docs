@@ -19,7 +19,7 @@ shortTitle: 源控制
 
 您可以直接在代码空间内执行所需的所有 Git 操作。 例如，您可以从远程仓库获取更改、切换分支、创建新分支、提交和推送更改，以及创建拉取请求。 您可以使用代码空间内的集成终端输入 Git 命令，也可以单击图标和菜单选项以完成所有最常见的 Git 任务。 本指南解释如何使用图形用户界面来控制源代码。
 
-在 {% data variables.product.prodname_github_codespaces %} 中的源控制使用与 {% data variables.product.prodname_vscode %} 相同的工作流程。 更多信息请参阅 {% data variables.product.prodname_vscode %} 文档“[在 VS 代码中使用版本控制](https://code.visualstudio.com/docs/editor/versioncontrol#_git-support)”。
+在 {% data variables.product.prodname_github_codespaces %} 中的源控制使用与 {% data variables.product.prodname_vscode %} 相同的工作流程。 更多信息请参阅 {% data variables.product.prodname_vscode_shortname %} 文档“[在 {% data variables.product.prodname_vscode_shortname %} 代码中使用版本控制](https://code.visualstudio.com/docs/editor/versioncontrol#_git-support)”。
 
 使用 {% data variables.product.prodname_github_codespaces %} 更新文件的典型工作流程将是：
 
@@ -47,7 +47,7 @@ shortTitle: 源控制
 1. 在侧边栏的顶部，单击省略号 (**...**)。 ![查看和更多操作的省略号按钮](/assets/images/help/codespaces/source-control-ellipsis-button.png)
 1. 在下拉菜单中，单击 **Pull（拉取）**。
 
-如果自创建代码空间以来开发容器配置已更改，则可以通过为代码空间重建容器来应用更改。 更多信息请参阅“[开发容器简介](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project#applying-changes-to-your-configuration)”。
+如果自创建代码空间以来开发容器配置已更改，则可以通过为代码空间重建容器来应用更改。 更多信息请参阅“[开发容器简介](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project#applying-configuration-changes-to-a-codespace)”。
 
 ## 设置代码空间以自动获取新更改
 

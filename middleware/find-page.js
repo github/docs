@@ -1,7 +1,7 @@
 import getRedirect from '../lib/get-redirect.js'
 // This middleware uses the request path to find a page in the preloaded context.pages object
 
-export default async function findPage(req, res, next) {
+export default function findPage(req, res, next) {
   let page = req.context.pages[req.pagePath]
 
   // When a user navigates to a translated page that doesn't yet exists

@@ -1,0 +1,32 @@
+---
+date: '2022-04-20'
+sections:
+  security_fixes:
+    - パッケージは最新のセキュリティバージョンにアップデートされました。
+  bugs:
+    - マニフェストファイルがリポジトリから削除されたとき、そのマニフェストがリポジトリの"Dependency graph（依存関係グラフ）"ページから削除されません。
+    - '{% data variables.product.prodname_actions %}の成果物の取得とログアーカイブのダウンロードの一貫した失敗につながりうるリグレッションが解決されました。環境によっては`localhost`を使った内部的な通信のURLの解決を停止し、その代わりにインスタンスのホスト名を誤って使用していました。'
+    - アップグレードパッケージで高可用性ペアのノードをアップグレードすると、Elasticsearchが不整合な状態になることがあります。
+    - '`.backup`という拡張子を持つローテートされたログファイルが、システムログを含むディレクトリに蓄積されます。'
+    - 一部のクラスタトポロジでは、コマンドラインユーティリティの`ghe-spokesctl`及び`ghe-btop`の実行が失敗します。
+    - パッケージのアップグレードの間に、`elasticsearch-upgrade`サービスが複数回並列に実行されることから、Elasticsearchのインデックスが複製されることがあります。
+    - Pull Requestとコメントのビューで、リッチdiffがGit LFSによって追跡されている一部のファイルのロードに失敗します。
+    - ユーザアカウントをOrganizationに変換する際に、そのユーザアカウントが{% data variables.product.prodname_ghe_server %} Enterpriseアカウントのオーナーだった場合、変換されたOrganizationは誤ってEntepriseオーナーのリストに表示されます。
+    - OAuth Application IDがマッチするインテグレーションが既に存在する場合、Enterprise Administration REST APIを使った偽装OAuthトークンの作成はエラーになりました。
+    - 検出されたシークレットにUTF8文字がある場合、Secret Scanning REST APIがレスポンスコード`500`を返します。
+    - データがローカルキャッシュの場所から利用できる場合であっても、リポジトリキャッシュサーバーが非キャッシュの場所からデータを提供することがあります。
+  changes:
+    - 設定の適用の実行を停止させる設定エラーは、設定ログに加えてターミナルにも出力されるようになりました。
+    - Memcachedで許されている最大よりも長い値をキャッシュしようとするとエラーが生じますが、キーは報告されませんでした。
+    - インスタンスで{% data variables.product.prodname_GH_advanced_security %}の機能が有効化されている場合、リポジトリのコントリビューションに対するバッチを処理している際のバックグラウンドジョブのパフォーマンスが改善されました。
+  known_issues:
+    - '{% data variables.product.prodname_ghe_server %} 3.3にアップグレード後、{% data variables.product.prodname_actions %}が自動起動に失敗することがあります。この問題を解決するためには、アプライアンスにSSHで接続し、`ghe-actions-start`コマンドを実行してください。'
+    - 新しくセットアップされたユーザを持たない{% data variables.product.prodname_ghe_server %}インスタンスで、攻撃者が最初の管理ユーザを作成できました。
+    - アップグレードの過程で、カスタムのファイアウォールのルールが削除されます。
+    - Git LFSが追跡するファイル[Webインターフェースからアップロードされたもの](https://github.com/blog/2105-upload-files-to-your-repositories)が、不正にリポジトリに直接追加されてしまいます。
+    - 同じリポジトリ内のファイルパスが255文字を超えるblobへのパーマリンクを含むIssueをクローズできませんでした。
+    - '{% data variables.product.prodname_github_connect %}で"Users can search GitHub.com（ユーザはGitHub.comの検索が可能）" が有効化されたとき、プライベート及びインターナルリポジトリのIssueが{% data variables.product.prodname_dotcom_the_website %}の検索結果に含まれません。'
+    - '{% data variables.product.prodname_registry %}のnpmレジストリは、メタデータのレスポンス中で時間の値を返さなくなります。これは、大きなパフォーマンス改善のために行われました。メタデータレスポンスの一部として時間の値を返すために必要なすべてのデータは保持し続け、既存のパフォーマンスの問題を解決した将来に、この値を返すことを再開します。'
+    - pre-receive フックの処理に固有のリソース制限によって、pre-receive フックに失敗するものが生じることがあります。
+    - '{% data variables.product.prodname_actions %}のストレージ設定は、"Force Path Style（パススタイルの強制）"が選択されている場合、検証できず{% data variables.enterprise.management_console %}に保存できません。その代わりに、`ghe-actions-precheck`コマンドラインユーティリティで設定しなければなりません。'
+    - '現在のLinuxカーネルにあるバグのために、Azureにインストールされ、32以上のCPUコアをプロビジョニングされた{% data variables.product.prodname_ghe_server %} 3.3インスタンスが起動に失敗します。[更新:2022年04月08日]'

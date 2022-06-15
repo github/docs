@@ -81,7 +81,7 @@ Audit log には、Enterprise 内で行われたアクションに関する次�
 
 ### 実行されたアクションに基づく検索
 
-`action`修飾子は、特定のイベントをカテゴリ内でグループ化して検索します。 以下のカテゴリに関連するイベントの詳しい情報については「[監査済みのアクション](/admin/user-management/audited-actions)」を参照してください。
+`action`修飾子は、特定のイベントをカテゴリ内でグループ化して検索します。 For information on the events associated with these categories, see "[Audit log events for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)".
 
 | カテゴリ名  | 説明                                           |
 | ------ | -------------------------------------------- |
@@ -113,7 +113,7 @@ Audit log には、Enterprise 内で行われたアクションに関する次�
 
 `created`修飾子は、発生した時刻でアクションをフィルタリングします。
 - 日付には `YYYY-MM-DD` という形式を使います。これは、年の後に月、その後に日が続きます。
-- 日付では[大なり、小なりおよび範囲指定](/enterprise/{{ currentVersion }}/user/articles/search-syntax)を使用できます。 例:
+- 日付では[大なり、小なりおよび範囲指定](/enterprise/user/articles/search-syntax)を使用できます。 例:
   * `created:2014-07-08` は、2014 年 7 月 8 日に発生したイベントをすべて検索します。
   * `created:>=2014-07-01` は、2014 年 7 月 1 日かそれ以降に生じたすべてのイベントを検索します。
   * `created:<=2014-07-01`は、2014 年 7 月 1 日かそれ以前に生じたすべてのイベントを検索します。

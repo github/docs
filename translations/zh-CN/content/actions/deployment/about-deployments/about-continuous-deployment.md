@@ -31,7 +31,7 @@ _持续部署_ (CD) 是使用自动化发布和部署软件更新的做法。 �
 
 {% data variables.product.prodname_actions %} 提供的功能使您可以更好地控制部署。 例如，您可以使用环境来要求批准才能继续作业，限制哪些分支可以触发工作流程，或限制对机密的访问。 {% ifversion fpt or ghae or ghes > 3.1 or ghec %} 可以使用并发性将 CD 管道限制为最多一个正在进行的部署和一个挂起的部署。 {% endif %}有关这些功能的详细信息，请参阅“[使用 GitHub Actions 进行部署](/actions/deployment/deploying-with-github-actions)”和“[使用环境进行部署](/actions/deployment/using-environments-for-deployment)”。
 
-{% ifversion fpt or ghec or ghae-issue-4856 %}
+{% ifversion fpt or ghec or ghae-issue-4856 or ghes > 3.4 %}
 
 ## 使用 OpenID Connect 访问云资源
 

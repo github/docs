@@ -1,7 +1,7 @@
 ---
-title: Defining outputs for jobs
+title: Definir las salidas para los jobs
 shortTitle: Definir las salidas para los jobs
-intro: Create a map of outputs for your jobs.
+intro: Crea un mapa de salidas para tus jobs.
 versions:
   fpt: '*'
   ghes: '*'

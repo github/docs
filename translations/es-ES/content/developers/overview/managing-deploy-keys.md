@@ -4,6 +4,9 @@ intro: Aprende las diversas formas de administrar llaves SSH en tus servidores c
 redirect_from:
   - /guides/managing-deploy-keys
   - /v3/guides/managing-deploy-keys
+  - /deploy-keys
+  - /articles/managing-deploy-keys
+  - /multiple-keys
 versions:
   fpt: '*'
   ghes: '*'
@@ -78,7 +81,7 @@ Consulta [nuestra guía para crear tokens de acceso personal](/authentication/ke
 
 #### Configuración
 
-1. [Ejecuta el procedimiento `ssh-keygen`][generating-ssh-keys] en tu servidor y recuerda dónde guardaste l par de llaves pública y privada de RSA generado.
+1. [Ejecuta el procedimiento `ssh-keygen`][generating-ssh-keys] en tu servidor y recuerda dónde guardas el par de llaves pública y privada de rsa.
 2. En la esquina superior derecha de cualquier página de {% data variables.product.product_name %}, da clic en tu foto de perfil y luego da clic en **Tu perfil**. ![Navegación al perfil](/assets/images/profile-page.png)
 3. En tu página de perfil, da clic en **Repositorios** y luego en el nombre de tu repositorio. ![Enlace de los repositorios](/assets/images/repos.png)
 4. Desde tu repositorio, da clic en **Configuración**. ![Configuración del repositorio](/assets/images/repo-settings.png)
@@ -117,7 +120,7 @@ $ git clone git@{% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.c
 
 Si tu servidor necesita acceder a repositorios a lo largo de una o más organizaciones, puedes utilizar una GitHub app para definir el acceso que necesitas y luego generar tokens de _alcance limitado_ de _servidor a servidor_ desde dicha GitHub App. Se puede ajustar el alcance de los tokens de servidor a servidor para repositorios múltiples y pueden tener permisos específicos. Por ejemplo, puedes generar un token con acceso de solo lectura al contenido de un repositorio.
 
-Ya que las GitHub Apps son un actor de primera clase en {% data variables.product.product_name %}, los tokens de servidor a servidor se desacoplan de cualquier usuario de GitHub, lo cual los hace comparables con los "tokens de servicio". Adicionalmente, los tokens de servidor a servidor. tienen límites de tasa dedicados que se escalan de acuerdo con el tamaño de las organizaciones sobre las cuales actúan. Para obtener más información, consulta la sección [Límites de tasa para las GitHub Apps](/developers/apps/rate-limits-for-github-apps).
+Ya que las GitHub Apps son un actor de primera clase en {% data variables.product.product_name %}, los tokens de servidor a servidor se desacoplan de cualquier usuario de GitHub, lo cual los hace comparables con los "tokens de servicio". Adicionalmente, los tokens de servidor a servidor. tienen límites de tasa dedicados que se escalan de acuerdo con el tamaño de las organizaciones sobre las cuales actúan. Para obtener más información, consulta la sección [Límites de tasa para {% data variables.product.prodname_github_apps %}](/developers/apps/rate-limits-for-github-apps).
 
 #### Pros
 

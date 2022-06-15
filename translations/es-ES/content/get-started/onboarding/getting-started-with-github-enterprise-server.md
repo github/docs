@@ -67,12 +67,12 @@ Como propietario empresarial o administrador, puedes administrar los ajustes a n
 ## Parte 3: Compilar de forma segura
 Para aumentar la seguridad de {% data variables.product.product_location %}, puedes configurar la autenticación para los miembros empresariales, utilizar herramientas y registro en bitácoras de auditoría para permanecer en cumplimiento, configurar las características de seguridad y análisis para tus organizaciones y, opcionalmente, habilitar la {% data variables.product.prodname_GH_advanced_security %}.
 ### 1. Autenticar a los miembros empresariales
-Puedes utilizar el método de autenticación integrado en {% data variables.product.product_name %} o puedes elegir entre un proveedor de autenticación establecido, tal como CAS, LDAP o SAML, para integrar tus cuentas existentes y administrar centralmente el acceso de los usuarios a {% data variables.product.product_location %}. Para obtener más información, consulta la sección "[Autenticar usuarios en {% data variables.product.product_location %}](/admin/authentication/authenticating-users-for-your-github-enterprise-server-instance)".
+Puedes utilizar el método de autenticación integrado de {% data variables.product.product_name %} o puedes elegir entre un proveedor de autenticación externo, tal como CAS, LDAP o SAML, para integrar tus cuentas existentes y administrar centralmente el acceso de los usuarios a {% data variables.product.product_location %}. Para obtener más información, consulta la sección "[Acerca de la autenticación para tu empresa](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise)".
 
 También puedes requerir la autenticación bifactorial para cada una de tus organizaciones. Para obtener más información, consulta la sección "[Requerir la autenticación bifactorial en una organización](/admin/user-management/managing-organizations-in-your-enterprise/requiring-two-factor-authentication-for-an-organization)".
 
 ### 2. Mantenerse en cumplimiento
-Puedes implementar las verificaciones de estado requeridas y confirmar las verificaciones para hacer cumplir los estándares de cumplimiento de tu organización y automatizar los flujos de trabajo de cumplimiento. También puedes utilizar la bitácora de auditoría de tu organización para revisar las acciones que realiza tu equipo. Para obtener más información, consulta las secciones "[Requerir la política con ganchos de pre-recepción](/admin/policies/enforcing-policy-with-pre-receive-hooks)" y "[Generar bitácoras de auditoría](/admin/user-management/monitoring-activity-in-your-enterprise/audit-logging)".
+Puedes implementar las verificaciones de estado requeridas y confirmar las verificaciones para hacer cumplir los estándares de cumplimiento de tu organización y automatizar los flujos de trabajo de cumplimiento. También puedes utilizar la bitácora de auditoría de tu organización para revisar las acciones que realiza tu equipo. Para obtener más información, consulta las secciones "[requerir una política con ganchos de pre-recepción](/admin/policies/enforcing-policy-with-pre-receive-hooks)" y "[Acerca de la bitácora de auditoría para tu empresa](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise)".
 
 {% ifversion ghes %}
 ### 3. Configurar las características de seguridad para tus organizaciones
@@ -120,7 +120,7 @@ Los miembros de tu empresa pueden aprender más sobre Git y sobre {% data variab
 Puedes leer la documentación que refleje las características disponibles en {% data variables.product.prodname_ghe_server %}. Para obtener más información, consulta la sección "[Acerca de las versiones de {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs)".
 
 ### 2. Aprender con {% data variables.product.prodname_learning %}
-{% data reusables.getting-started.learning-lab-enterprise %}
+{% data reusables.getting-started.learning-enterprise %}
 
 ### 3. Trabajar con {% data variables.product.prodname_dotcom %} Enterprise Support
 {% data reusables.getting-started.contact-support-enterprise %}

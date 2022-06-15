@@ -27,7 +27,7 @@ For both owners and contributors, contribution guidelines save time and hassle c
 
 {% ifversion fpt or ghes or ghec %}
 
-You can create default contribution guidelines for your organization{% ifversion fpt or ghes or ghec %} or user account{% endif %}. For more information, see "[Creating a default community health file](//communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
+You can create default contribution guidelines for your organization{% ifversion fpt or ghes or ghec %} or personal account{% endif %}. For more information, see "[Creating a default community health file](//communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
 
 {% endif %}
 

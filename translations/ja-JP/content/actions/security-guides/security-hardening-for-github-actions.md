@@ -48,6 +48,12 @@ miniTocMaxHeadingLevel: 3
 - **シークレットへのアクセスのレビューを必須とすることを検討する**
     - 必須のレビュー担当者を使って環境のシークレットを保護できます。 レビュー担当者によって許可されるまで、ワークフローのジョブは環境のシークレットにアクセスできません。 For more information about storing secrets in environments or requiring reviews for environments, see "[Encrypted secrets](/actions/reference/encrypted-secrets)" and "[Using environments for deployment](/actions/deployment/using-environments-for-deployment)."
 
+{% warning %}
+
+**Warning**: Any user with write access to your repository has read access to all secrets configured in your repository. Therefore, you should ensure that the credentials being used within workflows have the least privileges required.
+
+{% endwarning %}
+
 ## Using `CODEOWNERS` to monitor changes
 
 You can use the `CODEOWNERS` feature to control how changes are made to your workflow files. For example, if all your workflow files are stored in `.github/workflows`, you can add this directory to the code owners list, so that any proposed changes to these files will first require approval from a designated reviewer.
@@ -153,7 +159,7 @@ For more information, see "[About {% data variables.product.prodname_code_scanni
 
 To help mitigate the risk of an exposed token, consider restricting the assigned permissions. For more information, see "[Modifying the permissions for the GITHUB_TOKEN](/actions/reference/authentication-in-a-workflow#modifying-the-permissions-for-the-github_token)."
 
-{% ifversion fpt or ghec or ghae-issue-4856 %}
+{% ifversion fpt or ghec or ghae-issue-4856 or ghes > 3.4 %}
 
 ## Using OpenID Connect to access cloud resources
 
@@ -189,10 +195,18 @@ To help mitigate the risk of an exposed token, consider restricting the assigned
 The same principles described above for using third-party actions also apply to using third-party workflows. You can help mitigate the risks associated with reusing workflows by following the same good practices outlined above. For more information, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
 {% endif %}
 
-{% if internal-actions %}
+{% ifversion internal-actions %}
 ## Allowing workflows to access internal repositories
 
 {% data reusables.actions.outside-collaborators-internal-actions %} For more information, see "[Sharing actions and workflows with your enterprise](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)."
+{% endif %}
+
+{% ifversion allow-actions-to-approve-pr %}
+## Preventing {% data variables.product.prodname_actions %} from {% ifversion allow-actions-to-approve-pr-with-ent-repo %}creating or {% endif %}approving pull requests
+
+{% data reusables.actions.workflow-pr-approval-permissions-intro %} Allowing workflows, or any other automation, to {% ifversion allow-actions-to-approve-pr-with-ent-repo %}create or {% endif %}approve pull requests could be a security risk if the pull request is merged without proper oversight.
+
+For more information on how to configure this setting, see {% ifversion allow-actions-to-approve-pr-with-ent-repo %}{% ifversion ghes or ghec or ghae %}"[Enforcing policies for {% data variables.product.prodname_actions %} in your enterprise](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#preventing-github-actions-from-creating-or-approving-pull-requests)",{% endif %}{% endif %} "[Disabling or limiting {% data variables.product.prodname_actions %} for your organization](/github/setting-up-and-managing-organizations-and-teams/disabling-or-limiting-github-actions-for-your-organization#preventing-github-actions-from-{% ifversion allow-actions-to-approve-pr-with-ent-repo %}creating-or-{% endif %}approving-pull-requests)"{% ifversion allow-actions-to-approve-pr-with-ent-repo %}, and "[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#preventing-github-actions-from-creating-or-approving-pull-requests)"{% endif %}.
 {% endif %}
 
 ## Using OpenSSF Scorecards to secure workflows
@@ -203,7 +217,7 @@ The same principles described above for using third-party actions also apply to 
 
 These sections consider some of the steps an attacker can take if they're able to run malicious commands on a {% data variables.product.prodname_actions %} runner.
 
-### Accessing secrets
+### シークレットへのアクセス
 
 Workflows triggered using the `pull_request` event have read-only permissions and have no access to secrets. However, these permissions differ for various event triggers such as `issue_comment`, `issues` and `push`, where the attacker could attempt to steal repository secrets or use the write permission of the job's [`GITHUB_TOKEN`](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token).
 
@@ -250,10 +264,10 @@ The attacker server can use the {% ifversion fpt or ghec %}{% data variables.pro
 3. **{% data variables.product.prodname_github_app %} トークン**
     - {% data variables.product.prodname_github_apps %} は、選択したリポジトリにインストールでき、リポジトリ内のリソースに対する詳細な権限を持つこともできます。 Organization の内部で {% data variables.product.prodname_github_app %} を作成し、ワークフロー内でアクセスする必要があるリポジトリにインストールして、それらのリポジトリにアクセスするためのワークフロー内のインストールとして認証できます。
 4. **個人アクセストークン**
-    - 自分のアカウントから個人アクセストークンを使用しないでください。 これらのトークンは、アクセスできる Organization 内のすべてのリポジトリ、およびユーザアカウントのすべての個人リポジトリへのアクセスを許可します。 これにより、ワークフローが含まれているリポジトリのすべての書き込みアクセスユーザに間接的に広範なアクセス権が付与されます。 さらに、後で Organization を離れると、このトークンを使用するワークフローはすぐに中断され、この問題のデバッグが困難になる場合があります。
+    - 自分のアカウントから個人アクセストークンを使用しないでください。 These tokens grant access to all repositories within the organizations that you have access to, as well as all personal repositories in your personal account. これにより、ワークフローが含まれているリポジトリのすべての書き込みアクセスユーザに間接的に広範なアクセス権が付与されます。 さらに、後で Organization を離れると、このトークンを使用するワークフローはすぐに中断され、この問題のデバッグが困難になる場合があります。
     - 個人アクセストークンを使用する場合は、ワークフローに必要な特定のリポジトリへのアクセスのみが許可される新しいアカウント用に生成されたものを使用してください。 このアプローチはスケーラブルではないため、デプロイキーなどの代替案を優先して避ける必要があります。
-5. **ユーザアカウントの SSH キー**
-    - ワークフローでは、ユーザアカウントの SSH キーを使用しないでください。 これらは、個人アクセストークンと同様に、すべての個人リポジトリと、Organization のメンバーシップを通じてアクセスできるすべてのリポジトリに読み取り/書き込み権限を付与します。  これにより、ワークフローが含まれているリポジトリのすべての書き込みアクセスユーザに間接的に広範なアクセス権が付与されます。 リポジトリのクローンまたはプッシュのみを実行する必要があり、パブリック API とやり取りする必要がないため、SSH キーを使用する場合は、代わりに個別のデプロイキーを使用する必要があります。
+5. **SSH keys on a personal account**
+    - Workflows should never use the SSH keys on a personal account. これらは、個人アクセストークンと同様に、すべての個人リポジトリと、Organization のメンバーシップを通じてアクセスできるすべてのリポジトリに読み取り/書き込み権限を付与します。  これにより、ワークフローが含まれているリポジトリのすべての書き込みアクセスユーザに間接的に広範なアクセス権が付与されます。 リポジトリのクローンまたはプッシュのみを実行する必要があり、パブリック API とやり取りする必要がないため、SSH キーを使用する場合は、代わりに個別のデプロイキーを使用する必要があります。
 
 ## セルフホストランナーを強化する
 
@@ -265,7 +279,7 @@ The attacker server can use the {% ifversion fpt or ghec %}{% data variables.pro
 
 {% ifversion fpt or ghec %}As a result, self-hosted runners should almost [never be used for public repositories](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories) on {% data variables.product.product_name %}, because any user can open pull requests against the repository and compromise the environment. Similarly, be{% elsif ghes or ghae %}Be{% endif %} cautious when using self-hosted runners on private or internal repositories, as anyone who can fork the repository and open a pull request (generally those with read access to the repository) are able to compromise the self-hosted runner environment, including gaining access to secrets and the `GITHUB_TOKEN` which{% ifversion fpt or ghes > 3.1 or ghae or ghec %}, depending on its settings, can grant {% else %} grants {% endif %}write access to the repository. ワークフローは、環境と必要なレビューを使用して環境シークレットへのアクセスを制御できますが、これらのワークフローは分離された環境では実行されず、セルフホストランナーで実行した場合でも同じリスクの影響を受けやすくなります。
 
-セルフホストランナーがOrganizationもしくはEnterpriseのレベルで定義されているなら、{% data variables.product.product_name %}は同じランナー上で複数のリポジトリからのワークフローをスケジューリングするかもしれません。 したがって、これらの環境へのセキュリティ侵害は、大きな影響をもたらす可能性があります。 侵害の範囲を狭めるために、セルフホストランナーを個別のグループにまとめることで、境界を作ることができます。 You can restrict what {% if restrict-groups-to-workflows %}workflows, {% endif %}organizations and repositories can access runner groups. 詳しい情報については、「[グループを使用したセルフホストランナーへのアクセスを管理する](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)」を参照してください。
+セルフホストランナーがOrganizationもしくはEnterpriseのレベルで定義されているなら、{% data variables.product.product_name %}は同じランナー上で複数のリポジトリからのワークフローをスケジューリングするかもしれません。 したがって、これらの環境へのセキュリティ侵害は、大きな影響をもたらす可能性があります。 侵害の範囲を狭めるために、セルフホストランナーを個別のグループにまとめることで、境界を作ることができます。 You can restrict what {% ifversion restrict-groups-to-workflows %}workflows, {% endif %}organizations and repositories can access runner groups. 詳しい情報については、「[グループを使用したセルフホストランナーへのアクセスを管理する](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)」を参照してください。
 
 次のように、セルフホストランナーマシンの環境も考慮する必要があります。
 - セルフホストランナーとして設定されたマシンにはどのような機密情報が存在するか。 たとえば、SSH 秘密鍵、API アクセストークンなどです。
@@ -285,7 +299,7 @@ A self-hosted runner can be added to various levels in your {% data variables.pr
   - If each team will manage their own self-hosted runners, then the recommendation is to add the runners at the highest level of team ownership. For example, if each team owns their own organization, then it will be simplest if the runners are added at the organization level too.
   - You could also add runners at the repository level, but this will add management overhead and also increases the numbers of runners you need, since you cannot share runners between repositories.
 
-{% ifversion fpt or ghec or ghae-issue-4856 %}
+{% ifversion fpt or ghec or ghae-issue-4856 or ghes > 3.4 %}
 ### Authenticating to your cloud provider
 
 If you are using {% data variables.product.prodname_actions %} to deploy to a cloud provider, or intend to use HashiCorp Vault for secret management, then its recommended that you consider using OpenID Connect to create short-lived, well-scoped access tokens for your workflow runs. For more information, see "[About security hardening with OpenID Connect](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)."
@@ -294,11 +308,11 @@ If you are using {% data variables.product.prodname_actions %} to deploy to a cl
 
 ## {% data variables.product.prodname_actions %}イベントの監査
 
-Organizationの管理タスクをモニタするために、監査ログを使用できます。 監査ログは、アクションの種類、実行された時刻、実行したユーザアカウントを記録します。
+Organizationの管理タスクをモニタするために、監査ログを使用できます。 The audit log records the type of action, when it was run, and which personal account performed the action.
 
 たとえば、監査ログを使用して、Organization のシークレットへの変更を追跡する `org.update_actions_secret` イベントを追跡できます。 ![監査ログのエントリ](/assets/images/help/repository/audit-log-entries.png)
 
-以下の表は、監査ログにある{% data variables.product.prodname_actions %}のイベントを示します。 For more information on using the audit log, see "[Reviewing the audit log for your organization](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#searching-the-audit-log)."
+以下の表は、監査ログにある{% data variables.product.prodname_actions %}のイベントを示します。 For more information on using the audit log, see "[Reviewing the audit log for your organization](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#searching-the-audit-log)" and "[Reviewing audit logs for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise)."
 
 {% ifversion fpt or ghec %}
 ### 環境のイベント
@@ -313,9 +327,10 @@ Organizationの管理タスクをモニタするために、監査ログを使�
 
 {% ifversion fpt or ghes or ghec %}
 ### 設定変更のイベント
-| アクション                  | 説明                                                                                                                                                                                                            |
-| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `repo.actions_enabled` | リポジトリに対して {% data variables.product.prodname_actions %} が有効化されたときにトリガーされます。 UI を使用して表示できます。 このイベントは、REST API を使用して Audit log にアクセスした場合には表示されません。 詳しい情報については、「[REST API を使用する](#using-the-rest-api)」を参照してください。 |
+| アクション                                 | 説明                                                                                                                                                                                                            |
+| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `repo.actions_enabled`                | リポジトリに対して {% data variables.product.prodname_actions %} が有効化されたときにトリガーされます。 UI を使用して表示できます。 このイベントは、REST API を使用して Audit log にアクセスした場合には表示されません。 詳しい情報については、「[REST API を使用する](#using-the-rest-api)」を参照してください。 |
+| `repo.update_actions_access_settings` | Triggered when the setting to control how your repository is used by {% data variables.product.prodname_actions %} workflows in other repositories is changed.                                                |
 {% endif %}
 
 ### シークレット管理のイベント

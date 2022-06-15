@@ -37,11 +37,13 @@ shortTitle: Trabalhar com arquivos que não envolvem código
 
 ## Renderizar e comparar imagens
 
-O {% data variables.product.product_name %} pode exibir diversos formatos comuns de imagem, incluindo PNG, JPG, GIF, PSD e SVG. Além de exibir as imagens, existem diversas formas de comparara as diferenças entre as versões desses formatos de imagem.'
+O {% data variables.product.product_name %} pode exibir diversos formatos comuns de imagem, incluindo PNG, JPG, GIF, PSD e SVG. Além de exibir as imagens, existem diversas formas de comparara as diferenças entre as versões desses formatos de imagem.
 
 {% note %}
 
-**Observação:** os arquivos SVGs no {% data variables.product.prodname_dotcom %} podem não renderizar no navegador Firefox.
+**Observação:**
+- {% data variables.product.prodname_dotcom %} não é compatível com a comparação de diferenças entre arquivos PSD.
+- Se você estiver utilizando o navegador Firefox, os SVGs em {% data variables.product.prodname_dotcom %} não poderão ser interpretados.
 
 {% endnote %}
 
@@ -130,7 +132,7 @@ Por padrão, o renderizador incorporado tem 420 pixels de largura por 620 pixels
 
 {% endtip %}
 
-{% if mermaid %}
+{% ifversion mermaid %}
 ### Interpretação em Markdown
 
 Você pode incorporar a sintaxe do ASCII STL diretamente ao Markdown. Para obter mais informações, consulte "[Criando diagramas](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-stl-3d-models)".
@@ -280,7 +282,7 @@ Por padrão, o mapa incorporado tem 420px x 620px, mas é possível personalizar
 
 {% endtip %}
 
-{% if mermaid %}
+{% ifversion mermaid %}
 ### Mapeamento em Markdown
 
 Você pode incorporar geoJSON e topoJSON diretamente ao Markdown. Para obter mais informações, consulte "[Criando diagramas](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-geojson-and-topojson-maps)".
@@ -306,7 +308,7 @@ Ainda pode ser possível renderizar os dados convertendo o arquivo `.geojson` em
 
 ### Leia mais
 
-* [Documentação geojson Leaflet.js](http://leafletjs.com/examples/geojson.html)
+* [Documentação do Leaflet.js](https://leafletjs.com/)
 * [Documentação MapBox marcadores de estilo](http://www.mapbox.com/developers/simplestyle/)
 * [Wiki TopoJSON](https://github.com/mbostock/topojson/wiki)
 
@@ -331,9 +333,9 @@ $ jupyter nbconvert --to html <em>NOTEBOOK-NAME.ipynb</em>
 ### Leia mais
 
 - [Repositório do GitHub do Jupyter Notebook](https://github.com/jupyter/jupyter_notebook)
-- [Galeria de Jupyter Notebooks](https://github.com/jupyter/jupyter/wiki/A-gallery-of-interesting-Jupyter-Notebooks)
+- [Galeria de Jupyter Notebooks](https://github.com/jupyter/jupyter/wiki)
 
-{% if mermaid %}
+{% ifversion mermaid %}
 ## Exibindo arquivos do Mermaid em {% data variables.product.prodname_dotcom %}
 
 {% data variables.product.product_name %} é compatível com os arquivos de interpretação do Mermaid dentro dos repositórios. Faça o commit do arquivo como você faria normalmente, usando a extensão `.mermaid` ou `.mmd`. Em seguida, acesse o caminho do arquivo do Mermaid em {% data variables.product.prodname_dotcom %}.
