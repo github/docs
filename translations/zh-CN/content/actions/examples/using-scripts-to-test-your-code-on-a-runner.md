@@ -1,7 +1,7 @@
 ---
-title: Using scripts to test your code on a runner
-shortTitle: Using scripts to test your code on a runner
-intro: 'How to use essential {% data variables.product.prodname_actions %} features for continuous integration (CI).'
+title: 使用脚本在运行器上测试代码
+shortTitle: 使用脚本在运行器上测试代码
+intro: '如何使用必要 {% data variables.product.prodname_actions %} 功能进行持续集成 (CI)。'
 versions:
   fpt: '*'
   ghes: '> 3.1'
@@ -23,7 +23,7 @@ topics:
 
 ## 示例概述
 
-{% data reusables.actions.example-workflow-intro-ci %} When this workflow is triggered, it automatically runs a script that checks whether the {% data variables.product.prodname_dotcom %} Docs site has any broken links.
+{% data reusables.actions.example-workflow-intro-ci %} 此工作流程被触发时，它会自动运行一个脚本，用于检查 {% data variables.product.prodname_dotcom %} 文档网站是否有任何断开的链接。
 
 {% data reusables.actions.example-diagram-intro %}
 
@@ -44,7 +44,7 @@ topics:
 |在不同的运行器上运行作业，具体取决于存储库：| [`runs-on`](/actions/using-jobs/choosing-the-runner-for-a-job)|
 {% data reusables.actions.checkout-action-table-entry %}
 {% data reusables.actions.setup-node-table-entry %}
-| Using a third-party action: | [`trilom/file-changes-action`](https://github.com/trilom/file-changes-action)| | Running a script on the runner: | Using `./script/rendered-content-link-checker.mjs` |
+|使用第三方操作：| [`trilom/file-changes-action`](https://github.com/trilom/file-changes-action)| |在运行器上运行脚本：|使用 `./script/rendered-content-link-checker.mjs` |
 
 ## 示例工作流程
 
@@ -181,7 +181,7 @@ on:
 </td>
 <td>
 
-Add the `workflow_dispatch` event if you want to be able to manually run this workflow from the UI. For more information, see [`workflow_dispatch`](/actions/using-workflows/events-that-trigger-workflows#workflow_dispatch).
+如果您希望能够从 UI 手动运行此工作流程，请添加“workflow_dispatch”事件。 更多信息请参阅 [`workflow_dispatch`](/actions/using-workflows/events-that-trigger-workflows#workflow_dispatch)。
 </td>
 </tr>
 <tr>
@@ -195,7 +195,7 @@ Add the `workflow_dispatch` event if you want to be able to manually run this wo
 </td>
 <td>
 
-Add the `push` event, so that the workflow runs automatically every time a commit is pushed to a branch called `main`. 更多信息请参阅 [`push`](/actions/using-workflows/events-that-trigger-workflows#push)。
+添加 'push' 事件，以便每次将提交推送到分支 `main` 时，工作流程都会自动运行。 更多信息请参阅 [`push`](/actions/using-workflows/events-that-trigger-workflows#push)。
 </td>
 </tr>
 <tr>
@@ -272,7 +272,7 @@ jobs:
 </td>
 <td>
 
-Defines a job with the ID `check-links` that is stored within the `jobs` key.
+定义 ID 为“check-links”的作业，该作业存储在“jobs”键中。
 </td>
 </tr>
 <tr>
@@ -298,7 +298,7 @@ Defines a job with the ID `check-links` that is stored within the `jobs` key.
 </td>
 <td>
 
-Groups together all the steps that will run as part of the `check-links` job. 工作流程中的每个作业都有自己的“steps”部分。
+组合将作为“check-links”作业一部分运行的所有步骤。 工作流程中的每个作业都有自己的“steps”部分。
 </td>
 </tr>
 <tr>
@@ -327,7 +327,7 @@ Groups together all the steps that will run as part of the `check-links` job. �
 </td>
 <td>
 
-This step uses the `actions/setup-node` action to install the specified version of the Node.js software package on the runner, which gives you access to the `npm` command.
+此步骤使用“actions/setup-node”操作在运行器上安装指定版本的 Node.js 软件包，这使您可以访问“npm”命令。
 </td>
 </tr>
 
@@ -341,7 +341,7 @@ This step uses the `actions/setup-node` action to install the specified version 
 </td>
 <td>
 
-The `run` keyword tells the job to execute a command on the runner. In this case, `npm ci` is used to install the npm software packages for the project.
+“run”关键字指示作业在运行器上执行命令。 在这种情况下，“npm ci”用于为项目安装 npm 软件包。
 </td>
 </tr>
 
@@ -357,7 +357,7 @@ The `run` keyword tells the job to execute a command on the runner. In this case
 </td>
 <td>
 
-Uses the `trilom/file-changes-action` action to gather all the changed files. 此示例使用 'a6ca26c14274c33b15e6499323aac178af06ad4b' SHA固定到操作的特定版本。
+使用“trilom/file-changes-action”操作来收集所有已更改的文件。 此示例使用 'a6ca26c14274c33b15e6499323aac178af06ad4b' SHA固定到操作的特定版本。
 </td>
 </tr>
 
@@ -371,7 +371,7 @@ Uses the `trilom/file-changes-action` action to gather all the changed files. �
 </td>
 <td>
 
-Lists the contents of `files.json`. This will be visible in the workflow run's log, and can be useful for debugging.
+列出“files.json”的内容。 这将在工作流程运行的日志中可见，并且对于调试非常有用。
 </td>
 </tr>
 <tr>
@@ -391,7 +391,7 @@ Lists the contents of `files.json`. This will be visible in the workflow run's l
 </td>
 <td>
 
-This step uses `run` command to execute a script that is stored in the repository at `script/rendered-content-link-checker.mjs` and passes all the parameters it needs to run.
+此步骤使用“run”命令执行存储在存储库中的“script/rendered-content-link-checker.mjs”中的脚本，并传递运行所需的所有参数。
 </td>
 </tr>
 <tr>
@@ -410,7 +410,7 @@ This step uses `run` command to execute a script that is stored in the repositor
 </td>
 <td>
 
-This step also uses `run` command to execute a script that is stored in the repository at `script/rendered-content-link-checker.mjs` and passes a different set of parameters.
+此步骤还使用“run”命令来执行存储在存储库中的“script/rendered-content-link-checker.mjs”中的脚本，并传递一组不同的参数。
 </tr>
 
 </tbody>
