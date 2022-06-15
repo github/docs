@@ -141,6 +141,7 @@ For more information, see "[Docker login](https://docs.docker.com/engine/referen
   $ docker build -t <em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION</em> <em>PATH</em>
   ```
   {% endif %}
+  
   {% endif %}
 4. Publish the image to {% data variables.product.prodname_registry %}.
   {% ifversion fpt or ghec %}
