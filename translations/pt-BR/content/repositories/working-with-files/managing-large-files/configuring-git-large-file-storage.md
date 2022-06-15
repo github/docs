@@ -22,7 +22,7 @@ Se houver arquivos no seu repositório com os quais deseja usar o {% data variab
 
 {% tip %}
 
-**Observação:** antes de tentar fazer push de um arquivo grande no {% data variables.product.product_name %}, certifique-se de que habilitou o {% data variables.large_files.product_name_short %} no seu aplicativo. Para obter mais informações, consulte "[Configurar o Git Large File Storage no GitHub Enterprise Server](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-git-large-file-storage-on-github-enterprise-server/)".
+**Observação:** antes de tentar fazer push de um arquivo grande no {% data variables.product.product_name %}, certifique-se de que habilitou o {% data variables.large_files.product_name_short %} no seu aplicativo. Para obter mais informações, consulte "[Configurar o Git Large File Storage no GitHub Enterprise Server](/enterprise/admin/guides/installation/configuring-git-large-file-storage-on-github-enterprise-server/)".
 
 {% endtip %}
 

@@ -343,3 +343,4 @@ sections:
     - pre-receive フックの処理に固有のリソース制限によって、pre-receive フックに失敗するものが生じることがあります。
     - 別のホスト上で取られたバックアップからのアプライアンスのリストア後、Actionsサービスを再起動する必要があります。
     - '削除されたリポジトリは、90日の保存期間が終了したあとに自動的にディスクから削除されません。[2022年06月08日更新]'
+    - 'The Management Console cannot be accessed on an under-provisioned instance. [Updated: 2022-06-14]'

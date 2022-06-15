@@ -3,6 +3,24 @@
     "schemaChanges": [
       {
         "title": "The GraphQL schema includes these changes:",
+        "changes": []
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [
+      {
+        "title": "The following changes will be made to the schema:",
+        "changes": [
+          "On member `DependencyGraphDependency.packageLabel`:`packageLabel` will be removed. Use normalized `packageName` field instead. **Effective 2022-10-01**."
+        ]
+      }
+    ],
+    "date": "2022-06-13"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
         "changes": [
           "Enum value `RUST` was added to enum `DependencyGraphEcosystem`",
           "Field `squashPrTitleUsedAsDefault` was added to object type `Repository`"
