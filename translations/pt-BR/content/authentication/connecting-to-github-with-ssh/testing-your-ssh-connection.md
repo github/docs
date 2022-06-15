@@ -57,4 +57,10 @@ Quando você testar a conexão, precisará autenticar essa ação usando sua sen
 
   {% endlinux %}
 
+   {% note %}
+
+   **Note:** The remote command should exit with code 1.
+
+   {% endnote %}
+
 4. Verifique se a mensagem resultante contém seu nome de usuário. Se você receber uma mensagem de "permissão negada", consulte ["Erro: permissão negada (publickey)"](/articles/error-permission-denied-publickey).
