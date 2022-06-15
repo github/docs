@@ -42,7 +42,7 @@ Starring a repository is a simple two-step process.
 
 {% ifversion fpt or ghec %}
 
-## Viewing a list of users that have starred a repository
+## Viewing who has starred a repository
 
 {% note %}
 
