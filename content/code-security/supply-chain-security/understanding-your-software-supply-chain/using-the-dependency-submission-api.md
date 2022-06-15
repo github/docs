@@ -25,7 +25,7 @@ You can use the Dependency submission API in a {% data variables.product.prodnam
 
 ### Using pre-made actions
 
-The simplest way to use the Dependency submission API is by adding a pre-made action to your repository that will gather and convert the list of dependencies to the required snapshot format and submit the list to the API. Actions that complete these steps for various ecosystems are available on {% data variables.product.prodname_marketplace %} and more actions will be created during the course of the beta. You can find links to the currently available actions in the table below:
+The simplest way to use the Dependency submission API is by adding a pre-made action to your repository that will gather and convert the list of dependencies to the required snapshot format and submit the list to the API. Actions that complete these steps for various ecosystems are available on {% data variables.product.prodname_marketplace %} and more actions will be created during the course of the beta and beyond. You can find links to the currently available actions in the table below:
 
 Ecosystem | Action |
 --- | --- |
