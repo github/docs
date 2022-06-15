@@ -5,7 +5,6 @@ redirect_from:
   - /v3/previews
 versions:
   ghes: <3.4
-  ghae: '*'
 topics:
   - API
 ---
@@ -146,7 +145,7 @@ Organization メンバーによるリポジトリの作成可否、および作�
 **カスタムメディアタイプ:** `corsair-preview` **発表日:** [2018-12-10](https://developer.github.com/changes/2018-12-10-content-attachments-api/)
 
 {% endif %}
-{% ifversion ghae or ghes < 3.3 %}
+{% ifversion ghes < 3.3 %}
 
 ## Pages の有効化と無効化
 

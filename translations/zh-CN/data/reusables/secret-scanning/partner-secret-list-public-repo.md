@@ -77,6 +77,7 @@
 | Proctorio                 | Proctorio 密钥                        |
 | Pulumi                    | Pulumi 访问令牌                         |
 | PyPI                      | PyPI API 令牌                         |
+| redirect.pizza            | redirect.pizza API Token            |
 | RubyGems                  | RubyGems API 密钥                     |
 | Samsara                   | Samsara API 令牌                      |
 | Samsara                   | Samsara OAuth 访问令牌                  |

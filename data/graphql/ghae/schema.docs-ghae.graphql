@@ -11750,12 +11750,12 @@ The possible roles for enterprise membership.
 """
 enum EnterpriseUserAccountMembershipRole {
   """
-  The user is a member of the enterprise membership.
+  The user is a member of an organization in the enterprise.
   """
   MEMBER
 
   """
-  The user is an owner of the enterprise membership.
+  The user is an owner of an organization in the enterprise.
   """
   OWNER
 }
@@ -27656,6 +27656,11 @@ type Query {
     before: String
 
     """
+    A list of classifications to filter advisories by.
+    """
+    classifications: [SecurityAdvisoryClassification!]
+
+    """
     Returns the first _n_ elements from the list.
     """
     first: Int
@@ -27699,6 +27704,11 @@ type Query {
     Returns the elements in the list that come before the specified cursor.
     """
     before: String
+
+    """
+    A list of advisory classifications to filter vulnerabilities by.
+    """
+    classifications: [SecurityAdvisoryClassification!]
 
     """
     An ecosystem to filter vulnerabilities by.
@@ -32807,6 +32817,11 @@ type Repository implements Node & ProjectOwner & RepositoryInfo & Starrable & Su
   squashMergeAllowed: Boolean!
 
   """
+  Whether a squash merge commit can use the pull request title as default.
+  """
+  squashPrTitleUsedAsDefault: Boolean!
+
+  """
   The SSH URL to clone this repository
   """
   sshUrl: GitSSHRemote!
@@ -35250,6 +35265,11 @@ A GitHub Security Advisory
 """
 type SecurityAdvisory implements Node {
   """
+  The classification of the advisory
+  """
+  classification: SecurityAdvisoryClassification!
+
+  """
   The CVSS associated with this advisory
   """
   cvss: CVSS!
@@ -35355,6 +35375,11 @@ type SecurityAdvisory implements Node {
     before: String
 
     """
+    A list of advisory classifications to filter vulnerabilities by.
+    """
+    classifications: [SecurityAdvisoryClassification!]
+
+    """
     An ecosystem to filter vulnerabilities by.
     """
     ecosystem: SecurityAdvisoryEcosystem
@@ -35384,6 +35409,21 @@ type SecurityAdvisory implements Node {
   When the advisory was withdrawn, if it has been withdrawn
   """
   withdrawnAt: DateTime
+}
+
+"""
+Classification of the advisory.
+"""
+enum SecurityAdvisoryClassification {
+  """
+  Classification of general advisories.
+  """
+  GENERAL
+
+  """
+  Classification of malware advisories.
+  """
+  MALWARE
 }
 
 """

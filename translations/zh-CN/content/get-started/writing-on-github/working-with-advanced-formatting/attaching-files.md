@@ -44,7 +44,7 @@ topics:
 * PNG (*.png*)
 * GIF (*.gif*)
 * JPEG (*.jpg*)
-{%- if svg-support %}
+{%- ifversion svg-support %}
 * SVG (*.svg*)
 {%- endif %}
 * 日志文件 (*.log*)

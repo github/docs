@@ -61,7 +61,7 @@ Recomendamos revisar as seguintes advertências antes de alterar a visibilidade 
 {%- endif %}
 
 {%- ifversion ghes %}
-* O acesso de leitura anônimo do Git não está mais disponível. Para obter mais informações, consulte "[Habilitar acesso de leitura anônimo do Git para um repositório](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)".
+* O acesso de leitura anônimo do Git não está mais disponível. Para obter mais informações, consulte "[Habilitar acesso de leitura anônimo do Git para um repositório](/enterprise/user/articles/enabling-anonymous-git-read-access-for-a-repository)".
 {%- endif %}
 
 {% ifversion ghes or ghec or ghae %}

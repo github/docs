@@ -144,7 +144,7 @@ steps:
 - run: bundle install
 ```
 
-{% if actions-caching %}
+{% ifversion actions-caching %}
 
 ### 依存関係のキャッシング
 

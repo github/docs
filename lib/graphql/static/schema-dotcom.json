@@ -200,6 +200,14 @@
             "description": "<p>Returns the elements in the list that come before the specified cursor.</p>"
           },
           {
+            "name": "classifications",
+            "type": "[SecurityAdvisoryClassification!]",
+            "id": "securityadvisoryclassification",
+            "kind": "enums",
+            "href": "/graphql/reference/enums#securityadvisoryclassification",
+            "description": "<p>A list of classifications to filter advisories by.</p>"
+          },
+          {
             "name": "first",
             "type": "Int",
             "id": "int",
@@ -272,6 +280,14 @@
             "kind": "scalars",
             "href": "/graphql/reference/scalars#string",
             "description": "<p>Returns the elements in the list that come before the specified cursor.</p>"
+          },
+          {
+            "name": "classifications",
+            "type": "[SecurityAdvisoryClassification!]",
+            "id": "securityadvisoryclassification",
+            "kind": "enums",
+            "href": "/graphql/reference/enums#securityadvisoryclassification",
+            "description": "<p>A list of advisory classifications to filter vulnerabilities by.</p>"
           },
           {
             "name": "ecosystem",
@@ -14788,7 +14804,9 @@
           "type": "String!",
           "id": "string",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#string"
+          "href": "/graphql/reference/scalars#string",
+          "isDeprecated": true,
+          "deprecationReason": "<p><code>packageLabel</code> will be removed. Use normalized <code>packageName</code> field instead. Removal on 2022-10-01 UTC.</p>"
         },
         {
           "name": "packageManager",
@@ -24019,11 +24037,6 @@
           "name": "ProjectNextOwner",
           "id": "projectnextowner",
           "href": "/graphql/reference/interfaces#projectnextowner"
-        },
-        {
-          "name": "ProjectV2Owner",
-          "id": "projectv2owner",
-          "href": "/graphql/reference/interfaces#projectv2owner"
         },
         {
           "name": "Reactable",
@@ -34049,11 +34062,6 @@
           "href": "/graphql/reference/interfaces#projectowner"
         },
         {
-          "name": "ProjectV2Owner",
-          "id": "projectv2owner",
-          "href": "/graphql/reference/interfaces#projectv2owner"
-        },
-        {
           "name": "RepositoryDiscussionAuthor",
           "id": "repositorydiscussionauthor",
           "href": "/graphql/reference/interfaces#repositorydiscussionauthor"
@@ -40703,11 +40711,6 @@
           "name": "ProjectNextOwner",
           "id": "projectnextowner",
           "href": "/graphql/reference/interfaces#projectnextowner"
-        },
-        {
-          "name": "ProjectV2Owner",
-          "id": "projectv2owner",
-          "href": "/graphql/reference/interfaces#projectv2owner"
         },
         {
           "name": "Reactable",
@@ -52967,6 +52970,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "squashPrTitleUsedAsDefault",
+          "description": "<p>Whether a squash merge commit can use the pull request title as default.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "sshUrl",
           "description": "<p>The SSH URL to clone this repository.</p>",
           "type": "GitSSHRemote!",
@@ -55398,6 +55409,14 @@
       ],
       "fields": [
         {
+          "name": "classification",
+          "description": "<p>The classification of the advisory.</p>",
+          "type": "SecurityAdvisoryClassification!",
+          "id": "securityadvisoryclassification",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#securityadvisoryclassification"
+        },
+        {
           "name": "cvss",
           "description": "<p>The CVSS associated with this advisory.</p>",
           "type": "CVSS!",
@@ -55577,6 +55596,16 @@
                 "id": "string",
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "classifications",
+              "description": "<p>A list of advisory classifications to filter vulnerabilities by.</p>",
+              "type": {
+                "name": "[SecurityAdvisoryClassification!]",
+                "id": "securityadvisoryclassification",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#securityadvisoryclassification"
               }
             },
             {
@@ -62011,11 +62040,6 @@
           "href": "/graphql/reference/interfaces#projectowner"
         },
         {
-          "name": "ProjectV2Owner",
-          "id": "projectv2owner",
-          "href": "/graphql/reference/interfaces#projectv2owner"
-        },
-        {
           "name": "RepositoryDiscussionAuthor",
           "id": "repositorydiscussionauthor",
           "href": "/graphql/reference/interfaces#repositorydiscussionauthor"
@@ -67218,14 +67242,6 @@
       ]
     },
     {
-      "name": "ProjectV2Owner",
-      "kind": "interfaces",
-      "id": "projectv2owner",
-      "href": "/graphql/reference/interfaces#projectv2owner",
-      "description": "<p>Represents an owner of a project (beta).</p>",
-      "fields": []
-    },
-    {
       "name": "Reactable",
       "kind": "interfaces",
       "id": "reactable",
@@ -69159,6 +69175,10 @@
         {
           "name": "RUBYGEMS",
           "description": "<p>Ruby gems hosted at RubyGems.org.</p>"
+        },
+        {
+          "name": "RUST",
+          "description": "<p>Rust crates.</p>"
         }
       ]
     },
@@ -69616,11 +69636,11 @@
       "values": [
         {
           "name": "MEMBER",
-          "description": "<p>The user is a member of the enterprise membership.</p>"
+          "description": "<p>The user is a member of an organization in the enterprise.</p>"
         },
         {
           "name": "OWNER",
-          "description": "<p>The user is an owner of the enterprise membership.</p>"
+          "description": "<p>The user is an owner of an organization in the enterprise.</p>"
         }
       ]
     },
@@ -72402,6 +72422,23 @@
         {
           "name": "USER",
           "description": "<p>Returns results matching users and organizations on GitHub.</p>"
+        }
+      ]
+    },
+    {
+      "name": "SecurityAdvisoryClassification",
+      "kind": "enums",
+      "id": "securityadvisoryclassification",
+      "href": "/graphql/reference/enums#securityadvisoryclassification",
+      "description": "<p>Classification of the advisory.</p>",
+      "values": [
+        {
+          "name": "GENERAL",
+          "description": "<p>Classification of general advisories.</p>"
+        },
+        {
+          "name": "MALWARE",
+          "description": "<p>Classification of malware advisories.</p>"
         }
       ]
     },

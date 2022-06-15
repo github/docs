@@ -22,7 +22,7 @@ shortTitle: Configure Git LFS
 
 {% tip %}
 
-**注釈:** 大容量ファイルを {% data variables.product.product_name %} にプッシュする前に、Enterprise で {% data variables.large_files.product_name_short %} を有効化していることを確認してください。 詳しい情報については「[GitHub Enterprise Server で Git Large File Storage を設定する](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-git-large-file-storage-on-github-enterprise-server/)」を参照してください。
+**注釈:** 大容量ファイルを {% data variables.product.product_name %} にプッシュする前に、Enterprise で {% data variables.large_files.product_name_short %} を有効化していることを確認してください。 詳しい情報については「[GitHub Enterprise Server で Git Large File Storage を設定する](/enterprise/admin/guides/installation/configuring-git-large-file-storage-on-github-enterprise-server/)」を参照してください。
 
 {% endtip %}
 

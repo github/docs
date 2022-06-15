@@ -82,7 +82,7 @@ CircleCIと{% data variables.product.prodname_actions %}は、設定ファイル
 
 CircleCIと{% data variables.product.prodname_actions %}は、設定ファイル中で手動でファイルをキャッシュする方法を提供しています。
 
-{% if actions-caching %}
+{% ifversion actions-caching %}
 
 以下は、それぞれのシステムにおける構文の例です。
 

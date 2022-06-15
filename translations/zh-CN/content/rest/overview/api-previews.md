@@ -5,7 +5,6 @@ redirect_from:
   - /v3/previews
 versions:
   ghes: <3.4
-  ghae: '*'
 topics:
   - API
 ---
@@ -146,7 +145,7 @@ REST API 对[议题事件](/rest/reference/issues#events)和[议题时间表事�
 **自定义媒体类型：** `corsair-preview` **公布日期：** [2018-12-10](https://developer.github.com/changes/2018-12-10-content-attachments-api/)
 
 {% endif %}
-{% ifversion ghae or ghes < 3.3 %}
+{% ifversion ghes < 3.3 %}
 
 ## 启用和禁用页面
 
