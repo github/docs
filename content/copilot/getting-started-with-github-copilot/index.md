@@ -9,6 +9,6 @@ topics:
 children:
   - /getting-started-with-github-copilot-in-visual-studio-code
   - /getting-started-with-github-copilot-in-visual-studio
-  - /getting-started-with-github-copilot-in-jetbrains
+  - /getting-started-with-github-copilot-in-a-jetbrains-ide
   - /getting-started-with-github-copilot-in-neovim
 ---
