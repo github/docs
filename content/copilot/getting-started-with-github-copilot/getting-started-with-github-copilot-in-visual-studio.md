@@ -32,26 +32,16 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
    ![Screenshot of the Visual Studio toolbar](/assets/images/help/copilot/visual-studio-toolbar.png)
 1. In the "Manage Extensions" dialogue, click **Visual Studio Marketplace**, search for the {% data variables.product.prodname_copilot %} extension and click **Download**.
    ![Screenshot of GitHub Copilot extension for Visual Studio with the download button emphasized](/assets/images/help/copilot/install-copilot-extension-visual-studio.png)
-2. Close the "Manage Extensions" dialog, then exit and relaunch {% data variables.product.prodname_vs %}.
-3. Optionally, to check that {% data variables.product.prodname_copilot %} is installed and enabled, go back to **Manage Extensions**, click **Installed** to view your currently installed extensions and click **{% data variables.product.prodname_copilot %}** to see status information.
+1. Close the "Manage Extensions" dialog, then exit and relaunch {% data variables.product.prodname_vs %}.
+1. Optionally, to check that {% data variables.product.prodname_copilot %} is installed and enabled, go back to **Manage Extensions**, click **Installed** to view your currently installed extensions and click **{% data variables.product.prodname_copilot %}** to see status information.
   ![Screenshot of installed extensions in Visual Studio with GitHub Copilot emphasized](/assets/images/help/copilot/installed-copilot-extension-visual-studio.png)
-
-## Authorizing {% data variables.product.prodname_copilot %}
-
-1. Create a new C# Console App project. For more information, see steps 1 and 2 in "[Tutorial: Create a simple C# console app in Visual Studio](https://docs.microsoft.com/en-us/visualstudio/get-started/csharp/tutorial-console?view=vs-2022)" in the Microsoft Visual Studio documentation. 
-2. Name your project "Copilot Demo" and click **Next**.
-   ![Screenshot of the new project window with the project name emphasized](/assets/images/help/copilot/visual-studio-new-project.png)
-3. Click **Create** to create the project.
-    ![Screenshot of the new project window with the "create" button emphasized](/assets/images/help/copilot/visual-studio-create-new-project.png)
-4. To copy your device activation code, in the dialog box about authorizing {% data variables.product.prodname_copilot %}, click **OK**.
-    ![Screenshot of the popup with the message to active your connection to GitHub](/assets/images/help/copilot/first-run-authorize-visual-studio.png)
-5. A device code will be copied automatically to the clipboard. Paste it on the {% data variables.product.company_short %} device authorization page that will open. If you miss the device code, you will find it in the status bar, at the bottom left of {% data variables.product.prodname_vs %}, as well as on the {% data variables.product.prodname_copilot %} output window pane.
-6. After successful authorization, proceed to read and approve the [{% data variables.product.prodname_copilot %} Telemetry Terms](/free-pro-team@latest/site-policy/github-terms/github-copilot-telemetry-terms).
-   ![Screenshot of the GitHub Copilot Telemetry Terms popup with "yes" button emphasized](/assets/images/help/copilot/telemetry-terms-visual-studio.png)
-   
-After installation, a {% data variables.product.prodname_copilot %} icon will appear within the margin for the editor, in the lower-left corner of your {% data variables.product.prodname_vs %} window.  
-
-![Screenshot of editor margin in Visual Studio with the GitHub Copilot icon emphasized](/assets/images/help/copilot/editor-margin-visual-studio.png)
+1. Open or create a new project in {% data variables.product.prodname_vs %}. 
+1. In the "Microsoft {% data variables.product.prodname_vs %}" dialogue box, to copy your device activation code, click **OK**.
+   ![Screenshot of the Microsoft {% data variables.product.prodname_vs %} dialogue box](/assets/images/help/copilot/vs-auth-dialogue.png)
+1. A device activation window will open in your browser. Press <kbd>Ctrl</kbd>+<kbd>V</kbd> to paste the device code and click **Continue**.
+1. {% data variables.product.prodname_dotcom %} will request the necessary permissions for {% data variables.product.prodname_copilot %}. To approve these permissions, click **Authorize {% data variables.product.prodname_copilot %} Plugin** To refuse the permissions, click **Cancel**.
+1. Once the permissions have been approved, {% data variables.product.prodname_vs %} will show a confirmation.
+   ![Screenshot of {% data variables.product.prodname_vs %} permissions confirmation](/assets/images/help/copilot/vs-confirmation.png)
 
 ## Seeing your first suggestion
 {% data reusables.copilot.supported-languages %} The following samples are in C#, but other languages will work similarly.
