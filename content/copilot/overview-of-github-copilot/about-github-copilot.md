@@ -30,6 +30,6 @@ You are responsible for ensuring the security and quality of your code. We recom
 
 {% data variables.product.prodname_copilot %} is a paid feature, requiring a monthly or yearly subscription. Verified students and maintainers of popular open source respositories on {% data variables.product.prodname_dotcom %} are eligible to use {% data variables.product.prodname_copilot %} for free. For all other {% data variables.product.prodname_dotcom %} customers, a one-time 60 day free trial is available, after which a paid subscription is required for continued use. For more information, see "[About billing for {% data variables.product.prodname_copilot %}](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot)."
 
-## {% data variables.product.prodname_copilot %} JetBrains Plugin Licensing Information
+## {% data variables.product.prodname_copilot %} Licensing Information for JetBrains Plugin
 
 {% data variables.product.prodname_dotcom %}, Inc. is the licensor of the JetBrains plugin. The end user license agreement for this plugin is the [{% data variables.product.prodname_dotcom %} Terms of Service](/free-pro-team@latest/site-policy/github-terms-of-service) and use of this plugin is subject to those terms. JetBrains has no responsibility or liability in connection with the plugin or such agreement. By using the plugin, you agree to the foregoing terms.
