@@ -45,7 +45,7 @@ Starring a repository is a simple two-step process.
 ## Viewing who has starred a repository
 
 
-**Note:** This will only work on public repositories and private repositories that you have access to
+You can view everyone who has starred a public repository or a private repository you have access to. 
 
 
 View a list of the users that have starred a repository by appending /stargazers to the end of a url of a repository.
