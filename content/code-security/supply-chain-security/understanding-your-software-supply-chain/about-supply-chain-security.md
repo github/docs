@@ -68,6 +68,10 @@ To generate the dependency graph, {% data variables.product.company_short %} loo
 - The dependency graph is automatically updated when you push a commit to {% data variables.product.company_short %} that changes or adds a supported manifest or lock file to the default branch, and when anyone pushes a change to the repository of one of your dependencies.
 - You can see the dependency graph by opening the repository's main page on {% data variables.product.product_name %}, and navigating to the **Insights** tab.
 
+{% ifversion dependency-submission-api %} 
+{% data reusables.dependency-submission.dependency-submission-link %}
+{% endif %}
+
 For more information about the dependency graph, see "[About the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)."
 
 {% ifversion fpt or ghec or ghes > 3.1 or ghae %}
