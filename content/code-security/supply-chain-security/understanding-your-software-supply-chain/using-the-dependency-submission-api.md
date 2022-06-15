@@ -2,6 +2,11 @@
 title: Using the Dependency submission API
 intro: 'You can use the Dependency submission API to submit dependencies for projects that resolve dependencies when the project is built or compiled.'
 shortTitle: Dependency submission API
+topics:
+  - API
+  - Dependency graph
+  - Dependencies
+  - REST
 versions:
   feature: dependency-submission-api
 ---
@@ -26,9 +31,9 @@ Actions that perform these steps for various ecosystems are available on {% data
 
 Ecosystem | Action |
 --- | --- |
-TBD | TBD |
+Go | [Go Dependency Submission](https://github.com/actions/go-dependency-submission)
 
-For example, the following [Go Dependency Submission](https://github.com/dsp-testing/go-dependency-submission) workflow calculates the dependencies for a Go build-target (a Go file with a `main` function) and submits the list to the Dependency Submission API. 
+For example, the following [Go Dependency Submission](https://github.com/actions/go-dependency-submission) workflow calculates the dependencies for a Go build-target (a Go file with a `main` function) and submits the list to the Dependency Submission API. 
 
 ```yaml
 
@@ -57,12 +62,13 @@ jobs:
             # build target
             go-mod-path: go-example/go.mod
             #
-            # Define the repo path of a build target (a file with a
-            # `main()` function) If not defined, this Action will collect all
-            # dependencies used by all build targets for the module, which may
+            # Optional. Define the repo path of a build target,
+            # a file with a `main()` function.
+            # If undefined, this action will collect all dependencies
+            # used by all build targets for the module. This may
             # include Go dependencies used by tests and tooling.
             go-build-target: go-example/cmd/octocat.go
 
 ```
 
-Alternatively, you can write your own action to perform these steps. {% data variables.product.product_name %} maintains the [Dependency Submission Toolkit](https://github.com/github/dependency-submission-toolkit), a TypeScript library to help you build your own GitHub Action for submitting dependencies to the Dependency Submission API. For more information about writing an action, see "[Creating actions](/actions/creating-actions)".
+Alternatively, you can write your own action to perform these steps. {% data variables.product.product_name %} maintains the [Dependency Submission Toolkit](https://github.com/github/dependency-submission-toolkit), a TypeScript library to help you build your own GitHub Action for submitting dependencies to the Dependency submission API. For more information about writing an action, see "[Creating actions](/actions/creating-actions)".
