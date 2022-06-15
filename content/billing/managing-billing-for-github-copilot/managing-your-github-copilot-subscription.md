@@ -23,7 +23,6 @@ Before you can start using {% data variables.product.prodname_copilot %}, you wi
 4. Confirm your payment details. 
 5. Select your preferences, then click **Save and get started**.
 
-{% data variables.product.prodname_copilot %} is now ready to pair. For more information, see "[Getting started with {% data variables.product.prodname_copilot %}](/en/copilot/getting-started)".
 
 ## Modifying your {% data variables.product.prodname_copilot %} subscription
 
