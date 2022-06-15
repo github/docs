@@ -77,14 +77,7 @@ If you don't want to use the default keyboard shortcuts in {% data variables.pro
 1. Type the keystrokes you want to use for the command, then press <kbd>Enter</kbd>/<kbd>Return</kbd>.
 ![Screenshot of Edit keyboard shortcut textbox](/assets/images/help/copilot/vsc-edit-shortcuts-textbox.png)
 
-## Enabling or disabling {% data variables.product.prodname_copilot %}
-
-You can enable or disable {% data variables.product.prodname_copilot %} from within {% data variables.product.prodname_vscode %}. The {% data variables.product.prodname_copilot %} status icon in the bottom panel of the {% data variables.product.prodname_vscode %} window indicates whether {% data variables.product.prodname_copilot %} is enabled or disabled. When enabled, the background color of the icon will match the color of the status bar. When disabled, the background color of the icon will contrast the color of the status bar.
-
-1. To enable or disable {% data variables.product.prodname_copilot %}, click the status icon in the bottom panel of the {% data variables.product.prodname_vscode %} window.
-   ![Screenshot of status icon in {% data variables.product.prodname_vscode %}](/assets/images/help/copilot/status-icon-visual-studio-code.png)
-2. If you are disabling {% data variables.product.prodname_copilot %}, Visual Studio Code will ask whether you want to disable it globally, or only for the language of the file you are currently editing. To disable globally, click **Disable globally**. Alternatively, click the language-specific button to disable {% data variables.product.prodname_copilot %} for the specified language.
-   ![Screenshot of disable {% data variables.product.prodname_copilot %} globally or for the current language option](/assets/images/help/copilot/disable-copilot-global-or-langugage.png)
+{% data reusables.copilot.enabling-and-disabling-in-vsc %}
 
 ## Enabling or disabling inline suggestions
 

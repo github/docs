@@ -40,13 +40,7 @@ If you don't want to use the default keyboard shortcuts in {% data variables.pro
 1. Under "Press shortcut keys", type the shorcut you want to assign to the command, then click **Assign**.
    ![Screenshot of the keyboard shortcut assignment](/assets/images/help/copilot/vs-rebind-shortcut.png)
 
-## Enabling or disabling {% data variables.product.prodname_copilot %}
-
-The {% data variables.product.prodname_copilot %} status icon in the bottom panel of the {% data variables.product.prodname_vs %} window indicates whether {% data variables.product.prodname_copilot %} is enabled or disabled. When enabled, the background color of the icon will match the color of the status bar. When disabled, it will have a diagonal line through it.
-
-1. To enable or disable {% data variables.product.prodname_copilot %}, click the {% data variables.product.prodname_copilot %} icon in the bottom panel of the {% data variables.product.prodname_vs %} window.
-  ![Screenshot of editor margin in {% data variables.product.prodname_vs %} with the {% data variables.product.prodname_copilot %} icon emphasized](/assets/images/help/copilot/editor-margin-visual-studio.png)
-1. If you are disabling {% data variables.product.prodname_copilot %}, you will be asked whether you want to disable it globally, for the file you are currently editing, or for the current file type. 
+{% data reusables.copilot.enabling-and-disabling-vs %}
 
 ## Configuring ReSharper for {% data variables.product.prodname_copilot %}
 
