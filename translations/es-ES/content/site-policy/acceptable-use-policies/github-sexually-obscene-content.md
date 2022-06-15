@@ -1,6 +1,6 @@
 ---
-title: GitHub Sexually Obscene Content
-shortTitle: Sexually Obscene Content
+title: Contenido Sexualmente Obsceno de GitHub
+shortTitle: Contenido Sexualmente Obsceno
 versions:
   fpt: '*'
 topics:
@@ -11,10 +11,10 @@ redirect_from:
   - /github/site-policy/github-community-guidelines#sexually-obscene-content
 ---
 
-We do not tolerate content associated with sexual exploitation or abuse of another individual, including where minors are concerned. We do not allow sexually themed or suggestive content that serves little or no purpose other than to solicit an erotic or shocking response, particularly where that content is amplified by its placement in profiles or other social contexts. Esto incluye:
+No toleramos contenido asociado con la exploración sexual o abuso de otro individuo, incluyendo aquél en donde se involucra a menores. No permitimos contenido sugestivo o con temática sexual que tenga poco o ningún propósito mas que solicitar una respuesta impactante o erótica, en particular, cuando dicho contenido se amplifica por su colocación en perfiles u otros contextos sociales. Esto incluye:
 
-- Pornographic content
-- Non-consensual intimate imagery
-- Graphic depictions of sexual acts including photographs, video, animation, drawings, computer-generated images, or text-based content
+- Contenido pornográfico
+- Imagenes íntimas no consensuadas
+- Representaciones gráficas de actos sexuales, incluyendo fotografías, video, animación, dibujos, imágenes generadas por cómputo o contenido basado en texto
 
-We recognize that not all nudity or content related to sexuality is obscene. We may allow visual and/or textual depictions in artistic, educational, historical or journalistic contexts, or as it relates to victim advocacy. In some cases a disclaimer can help communicate the context of the project. However, please understand that we may choose to limit the content by giving users the option to opt in before viewing.
+Reconocemos que no toda la desnudez o el contenido relacionado con la sexualidad es obsceno. Podríamos permitir representaciones visuales o textuales en contextos artísticos, educativos, históricos, de prensa o en los que se relacionan con la defensa de víctimas. En algunos casos, una renuncia de responsabilidad puede ayudar a comunicar el contexto del proyecto. Sin embargo, debes entender que podríamos limitar el contenido al darle a los usuarios la opción de decidir ingresar antes de que lo vean.

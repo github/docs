@@ -1,4 +1,4 @@
-| Proveedor                 | Secreto compatible                                 | Secret type                                              |
+| Proveedor                 | Secreto compatible                                 | Tipo de secreto                                          |
 | ------------------------- | -------------------------------------------------- | -------------------------------------------------------- |
 | Adafruit IO               | Clave de IO de Adafruit                            | adafruit_io_key                                        |
 | Alibaba Cloud             | ID de Clave de Acceso a la Nube de Alibaba         | alibaba_cloud_access_key_id                          |
@@ -17,10 +17,10 @@
 | Checkout.com              | Clave secreta de productión de Checkout.com        | checkout_production_secret_key                         |
 | Clojars                   | Token de Despliegue de Clojars                     | clojars_deploy_token                                   |
 | Databricks                | Token de Acceso de Databricks                      | databricks_access_token                                |
-| DigitalOcean              | DigitalOcean Personal Access Token                 | digitalocean_personal_access_token                     |
-| DigitalOcean              | DigitalOcean OAuth Token                           | digitalocean_oauth_token                               |
-| DigitalOcean              | DigitalOcean Refresh Token                         | digitalocean_refresh_token                             |
-| DigitalOcean              | DigitalOcean System Token                          | digitalocean_system_token                              |
+| DigitalOcean              | Token de Acceso Personal de DigitalOcean           | digitalocean_personal_access_token                     |
+| DigitalOcean              | Token OAuth de DigitalOcean                        | digitalocean_oauth_token                               |
+| DigitalOcean              | Token de Actualización de DigitalOcean             | digitalocean_refresh_token                             |
+| DigitalOcean              | Token de Sistema de DigitalOcean                   | digitalocean_system_token                              |
 | Discord                   | Token de Bot de Discord                            | discord_bot_token                                      |
 | Doppler                   | Token Personal de Doppler                          | doppler_personal_token                                 |
 | Doppler                   | Token de Servicio de Doppler                       | doppler_service_token                                  |
