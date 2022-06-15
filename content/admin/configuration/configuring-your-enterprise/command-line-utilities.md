@@ -31,8 +31,9 @@ $ ghe-announce -s MESSAGE
 $ ghe-announce -u
 > Removed the announcement message
 ```
+
 {% ifversion ghe-announce-dismiss %}
-To make an announcement that each user can dismiss for themselves:
+To allow each user to dismiss the announcement for themselves, use the `-d` flag.
 ```shell
 # Sets a user-dismissible message that's visible to everyone
 $ ghe-announce -d -s MESSAGE
