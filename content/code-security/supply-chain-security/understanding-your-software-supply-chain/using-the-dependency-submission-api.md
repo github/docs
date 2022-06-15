@@ -1,6 +1,6 @@
 ---
 title: Using the Dependency submission API
-intro: 'You can use the Dependency submission API to submit dependencies for projects that resolve dependencies when the project is built or compiled.'
+intro: 'You can use the Dependency submission API to submit dependencies for projects that resolve dependencies when the project is built or compiled, providing a fuller picture of your project's dependencies for the dependency graph.'
 shortTitle: Dependency submission API
 topics:
   - API
@@ -17,17 +17,15 @@ versions:
 
 {% data reusables.dependency-submission.about-dependency-submission %}
 
-For more information about the Dependency submission API, see the [Dependency submission REST API documentation](/rest/dependency-graph/dependency-submission).
+Dependencies are submitted to the dependency submission API in the form of a snapshot, a set of dependencies, associated with a commit SHA and other metadata, that reflects the current state of your repository for the commit. For more information about the Dependency submission API, see the [Dependency submission REST API documentation](/rest/dependency-graph/dependency-submission).
 
 ## Submitting dependencies at build-time
 
-You can use the Dependency submission API in a {% data variables.product.prodname_actions %} workflow to submit dependencies for your project when your project is built. Your workflow should:
+You can use the Dependency submission API in a {% data variables.product.prodname_actions %} workflow to submit dependencies for your project when your project is built. 
 
-- generate a list of dependencies for your project.
-- translate the list of dependencies into the format accepted by the Dependency submission API. For more information about the format, see the body parameters for the "Create a repository snapshot" API operation in the [Dependency submission REST API documentation](/rest/dependency-graph/dependency-submission).
-- submit the formatted list of dependencies to the Dependency submission API.
+### Using pre-made actions
 
-Actions that perform these steps for various ecosystems are available on {% data variables.product.prodname_marketplace %}. You can find links to the available actions in the table below: 
+The simplest way to use the Dependency submission API is by adding a pre-made action to your repository that will gather and convert the list of dependencies to the required snapshot format and submit the list to the API. Actions that complete these steps for various ecosystems are available on {% data variables.product.prodname_marketplace %} and more actions will be created during the course of the beta. You can find links to the currently available actions in the table below:
 
 Ecosystem | Action |
 --- | --- |
@@ -70,5 +68,12 @@ jobs:
             go-build-target: go-example/cmd/octocat.go
 
 ```
+### Creating your own action
 
-Alternatively, you can write your own action to perform these steps. {% data variables.product.product_name %} maintains the [Dependency Submission Toolkit](https://github.com/github/dependency-submission-toolkit), a TypeScript library to help you build your own GitHub Action for submitting dependencies to the Dependency submission API. For more information about writing an action, see "[Creating actions](/actions/creating-actions)".
+Alternatively, you can write your own action to submit dependencies for your project at build-time. Your workflow should:
+
+  1. Generate a list of dependencies for your project.
+  2. Translate the list of dependencies into the snapshot format accepted by the Dependency submission API. For more information about the format, see the body parameters for the "Create a repository snapshot" API operation in the [Dependency submission REST API documentation](/rest/dependency-graph/dependency-submission).
+  3. Submit the formatted list of dependencies to the Dependency submission API.
+
+ {% data variables.product.product_name %} maintains the [Dependency Submission Toolkit](https://github.com/github/dependency-submission-toolkit), a TypeScript library to help you build your own GitHub Action for submitting dependencies to the Dependency submission API. For more information about writing an action, see "[Creating actions](/actions/creating-actions)".
