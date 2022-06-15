@@ -11,6 +11,8 @@ shortTitle: Your Github Copilot subscription
 
 ## Setting up a trial of {% data variables.product.prodname_copilot %} 
 
+Before you can start using {% data variables.product.prodname_copilot %}, you will need to set up a free trial or subscription.
+
 {% data reusables.user-settings.access_settings %}
 1. In the "Code, planning and automation" section of the sidebar, click **GitHub Copilot**. <!--- add {% octicon "copilot" aria-label="The copilot icon" %} here, but it's giving errors at the moment. --->
 2. On the {% data variables.product.prodname_copilot %} settings page, click **Start your free trial**. 
