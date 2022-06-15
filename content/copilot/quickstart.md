@@ -23,9 +23,32 @@ This guide will show you how to sign up for {% data variables.product.prodname_c
 
 ## Signing up for {% data variables.product.prodname_copilot %}
 
+Before you can start using {% data variables.product.prodname_copilot %}, you will need to set up a free trial or subscription.
+
+{% data reusables.user-settings.access_settings %}
+1. In the "Code, planning and automation" section of the sidebar, click ** {% octicon "copilot" aria-label="The copilot icon" %} GitHub Copilot**.
+2. On the {% data variables.product.prodname_copilot %} settings page, click **Start your free trial**. 
+   ![Screenshot of GitHub Copilot settings with start your free trial button emphasized](/assets/images/help/copilot/copilot-settings-start-trial-button.png) 
+3. Choose whether you want to pay monthly or yearly, and click **Continue to get access to Copilot**.
+      - If your personal account meets the criteria for a free {% data variables.product.prodname_copilot %} subscription, you will automatically be taken to step 6.
+  ![Screenshot of trial setup with Continue to get access to Copilot button emphasized](/assets/images/help/copilot/copilot-billing-cycle.png)
+4. Confirm your payment details. 
+5. Select your preferences, then click **Save and get started**.
 
 ## Installing the {% data variables.product.prodname_copilot %} extension for {% data variables.product.prodname_vscode %}
 
+To use {% data variables.product.prodname_copilot %}, you must first install the {% data variables.product.prodname_vscode %} extension.
+
+1. In the {% data variables.product.prodname_vscode %} Marketplace, go to the [{% data variables.product.prodname_copilot %} extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) page and click **Install**.
+   ![Install {% data variables.product.prodname_copilot %} extension {% data variables.product.prodname_vscode %}](/assets/images/help/copilot/install-copilot-extension-visual-studio-code.png)
+1. A popup will appear, asking to open {% data variables.product.prodname_vscode %}. Click **Open {% data variables.product.prodname_vscode %}**.
+1. In the "Extension: {% data variables.product.prodname_copilot %}" tab in {% data variables.product.prodname_vscode %}, click **Install**.
+   ![Install button in {% data variables.product.prodname_vscode %}](/assets/images/help/copilot/in-visual-studio-code-install-button.png)
+1. If you have not previously authorized {% data variables.product.prodname_vscode %} in your {% data variables.product.prodname_dotcom %} account, you will be prompted to sign in to {% data variables.product.prodname_dotcom %} in {% data variables.product.prodname_vscode %}.
+   - If you have previously authorized {% data variables.product.prodname_vscode %} in your {% data variables.product.prodname_dotcom %} account, {% data variables.product.prodname_copilot %} will be automatically authorized.
+   ![Screen shot of {% data variables.product.prodname_vscode %} authorization screen](/assets/images/help/copilot/vsc-copilot-authorize.png)
+1. In your browser, {% data variables.product.prodname_dotcom %} will request the necessary permissions for {% data variables.product.prodname_copilot %}. To approve these permissions, click **Authorize {% data variables.product.prodname_vscode %}**. To refuse the permissions, click **Cancel**.
+1. In {% data variables.product.prodname_vscode %}, in the "{% data variables.product.prodname_vscode %}" dialogue box, to confirm the authentication, click **Open**. To cancel the authentication, click **Cancel**.
 
 ## Getting your first suggestion
 
