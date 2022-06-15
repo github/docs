@@ -61,7 +61,7 @@ To use {% data variables.product.prodname_copilot %} in a JetBrains IDE, you mus
 {% data reusables.copilot.create-java-file %}
 1. To prompt {% data variables.product.prodname_copilot %} to show you a suggestion, type the following line in the Java file.
    {% data reusables.copilot.java-int-snippet %}
-1. Optionally, you can see alternative suggestions.
+{% data reusables.copilot.see-alternative-suggestions %}
 
    | OS | See next suggestion | See previous suggestion |
    | :- | :- | :- |

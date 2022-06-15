@@ -71,7 +71,7 @@ After installation, a {% data variables.product.prodname_copilot %} icon will ap
 ```csharp{:copy}
   function calculateDaysBetweenDates(begin, end) {
   ```
-1. To see alternative suggestions, press <kbd>Alt</kbd>+<kbd>]</kbd> (or <kbd>Alt</kbd>+<kbd>[</kbd>).
+1. If alternative suggestions are available, you can see these alternatives by pressing <kbd>Alt</kbd>+<kbd>]</kbd> (or <kbd>Alt</kbd>+<kbd>[</kbd>).
 1. Optionally, you can hover over the suggestion to see the {% data variables.product.prodname_copilot %} command palette for choosing suggestions.
 {% data reusables.copilot.accept-or-reject-suggestion %}
 
