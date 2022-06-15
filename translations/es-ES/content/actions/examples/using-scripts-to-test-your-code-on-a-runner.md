@@ -15,13 +15,13 @@ topics:
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-- [Example overview](#example-overview)
-- [Features used in this example](#features-used-in-this-example)
+- [Resumen de ejemplo](#example-overview)
+- [Características utilizadas en este ejemplo](#features-used-in-this-example)
 - [Ejemplo de flujo de trabajo](#example-workflow)
 - [Understanding the example](#understanding-the-example)
 - [Pasos siguientes](#next-steps)
 
-## Example overview
+## Resumen de ejemplo
 
 {% data reusables.actions.example-workflow-intro-ci %} When this workflow is triggered, it automatically runs a script that checks whether the {% data variables.product.prodname_dotcom %} Docs site has any broken links.
 
@@ -29,7 +29,7 @@ topics:
 
 ![Overview diagram of workflow steps](/assets/images/help/images/overview-actions-using-scripts-ci-example.png)
 
-## Features used in this example
+## Características utilizadas en este ejemplo
 
 {% data reusables.actions.example-table-intro %}
 

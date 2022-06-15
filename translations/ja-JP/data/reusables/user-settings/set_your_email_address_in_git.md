@@ -1,1 +1,1 @@
-Gitでメールアドレスを設定してください。 {% ifversion fpt or ghec %}[{% data variables.product.product_name %}が提供する`no-reply`メールアドレス](/articles/setting-your-commit-email-address)もしくは{% endif %}任意のメールアドレスが利用できます。
+Gitでメールアドレスを設定してください。 You can use {% ifversion fpt or ghec %}your [{% data variables.product.product_name %}-provided `noreply` email address](/articles/setting-your-commit-email-address) or {% endif %}any email address.

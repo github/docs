@@ -57,4 +57,10 @@ Cuando pruebes tu conexión, tendrás que autenticar esta acción utilizando tu 
 
   {% endlinux %}
 
+   {% note %}
+
+   **Note:** The remote command should exit with code 1.
+
+   {% endnote %}
+
 4. Comprueba que el mensaje resultante contenga tu nombre de usuario. Si recibes un mensaje de "permiso denegado", consulta ["Error: Permiso denegado (publickey)"](/articles/error-permission-denied-publickey).
