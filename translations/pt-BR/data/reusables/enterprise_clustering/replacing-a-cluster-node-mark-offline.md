@@ -1,4 +1,4 @@
-1. Para marcar a falha do nó offline, em qualquer nó, modifique o [cluster configuration file](/enterprise/{{ currentVersion }}/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file) (`cluster.conf`) na seção nó relevante para incluir o texto `offline = true`.
+1. Para marcar a falha do nó offline, em qualquer nó, modifique o [cluster configuration file](/enterprise/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file) (`cluster.conf`) na seção nó relevante para incluir o texto `offline = true`.
 
   Por exemplo, esta modificação `cluster.conf` irá marcar o nó `ghe-data-node-3` como offline:
 

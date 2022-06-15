@@ -6,8 +6,8 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-  redirect_from:
-    - /github/writing-on-github/working-with-advanced-formatting/organizing-information-with-collapsed-sections
+redirect_from:
+  - /github/writing-on-github/working-with-advanced-formatting/organizing-information-with-collapsed-sections
 shortTitle: Seções colapsadas
 ---
 
@@ -17,17 +17,23 @@ Você pode obscurecer temporariamente seções do seu Markdown criando uma seç�
 
 Qualquer Markdown dentro do bloco `<details>` estará recolhido até que o leitor clique em {% octicon "triangle-right" aria-label="The right triange icon" %} para expandir os detalhes. Dentro do bloco `<details>`, use a tag `<summary>` para criar uma etiqueta à direita de {% octicon "triangle-right" aria-label="The right triange icon" %}.
 
-```markdown
+````markdown
 <details><summary>CLICK ME</summary>
+
+
 <p>
 
 #### We can hide anything, even code!
 
-    ```ruby
-      puts "Hello World"
-    ```
+```ruby
+   puts "Hello World"
+```
 
-</details> ```</p>
+</p>
+
+
+</details>
+````
 
 O Markdown irá recolher-se por defeito.
 

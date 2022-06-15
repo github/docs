@@ -14,9 +14,9 @@ topics:
 shortTitle: Habilitar las verificaciones de actualización automáticas
 ---
 
-Cuando un paquete de actualizaciones se descarga automáticamente para {% data variables.product.product_location %}, recibirás un mensaje informándote que puedes actualizar el {% data variables.product.prodname_ghe_server %}. Descarga de paquetes para el directorio `/var/lib/ghe-updates` en {% data variables.product.product_location %}. Para obtener más información, consulta "[Actualizar {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrading-github-enterprise-server)."
+Cuando un paquete de actualizaciones se descarga automáticamente para {% data variables.product.product_location %}, recibirás un mensaje informándote que puedes actualizar el {% data variables.product.prodname_ghe_server %}. Descarga de paquetes para el directorio `/var/lib/ghe-updates` en {% data variables.product.product_location %}. Para obtener más información, consulta "[Actualizar {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/installation/upgrading-github-enterprise-server)."
 
-Si está disponible un hotpatch para una actualización, el `.hpkg` se descargará automáticamente. En la consola de administración puedes elegir instalar el hotpatch de inmediato o programar la instalación para otro momento. Para obtener más información, consulta "[Actualizar con un hotpatch](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrading-github-enterprise-server#upgrading-with-a-hotpatch)."
+Si está disponible un hotpatch para una actualización, el `.hpkg` se descargará automáticamente. En la consola de administración puedes elegir instalar el hotpatch de inmediato o programar la instalación para otro momento. Para obtener más información, consulta "[Actualizar con un hotpatch](/enterprise/admin/guides/installation/upgrading-github-enterprise-server#upgrading-with-a-hotpatch)."
 
 {% tip %}
 

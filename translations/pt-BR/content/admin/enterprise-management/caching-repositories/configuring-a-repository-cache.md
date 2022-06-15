@@ -62,10 +62,10 @@ Em seguida, quando for dito para buscar `https://github.example.com/myorg/myrepo
    $ ghe-repl-setup <em>PRIMARY IP</em>
    ```
 
-1. Defina um `cache_location` para o cache do repositório, substituindo *CACHE-LOCATION* por um identificador alfanumérico, como a região onde o cache é implantado.
+1. Defina um `cache_location` para o cache do repositório, substituindo *CACHE-LOCATION* por um identificador alfanumérico, como a região onde o cache é implantado. Also set a datacenter name for this cache; new caches will attempt to seed from another cache in the same datacenter.
 
    ```shell
-   $ ghe-repl-node --cache <em>CACHE-LOCATION</em>
+   $ ghe-repl-node --cache <em>CACHE-LOCATION</em> --datacenter <em>REPLICA-DC-NAME</em>
    ```
 
 {% data reusables.enterprise_installation.replication-command %}

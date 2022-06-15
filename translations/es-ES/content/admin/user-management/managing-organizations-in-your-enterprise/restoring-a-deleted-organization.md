@@ -25,15 +25,15 @@ You can also use the audit log to help you manually re-add teams and organizatio
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 1. Under "Search users, organizations, enterprises, teams, repositories, gists, and applications", search for the organization.
 
-  ![Screenshot of the search field and Search button](/assets/images/enterprise/stafftools/search-field.png)
+  ![Captura de pantalla del campo y botón de búsqueda](/assets/images/enterprise/stafftools/search-field.png)
 
-1. Under "Deleted accounts", to the right of the organization you want to restore, select the {% octicon "kebab-horizontal" aria-label="The edit icon" %} dropdown menu, then click **Recreate**.
+1. Deabjo de "Cuentas borradas", a la derecha de la organización que quieres restablecer, selecciona el menú desplegable {% octicon "kebab-horizontal" aria-label="The edit icon" %} y luego haz clic en **Recrear**.
 
-   ![Screenshot of the dropdown menu for a deleted organization](/assets/images/enterprise/stafftools/recreate-organization.png)
+   ![Captura de pantalla del menú desplegable para una organización borrada](/assets/images/enterprise/stafftools/recreate-organization.png)
 
-## Restoring members and teams
+## Restablecer miembros y equipos
 
-You can use the audit log to find a list of the previous members and teams of the organization, then recreate them manually. For more information about using the audit log, see "[Auditing users across your enterprise](/admin/user-management/managing-users-in-your-enterprise/auditing-users-across-your-enterprise)."
+Puedes utilizar la bitácora de auditoría para encontrar una lista de los miembros y equipos anteriores de la organización y luego recrearlos manualmente. Para obtener más información sobre cómo utilizar la bitácora de auditoría, consulta la sección "[Auditar a los usuarios en toda tu empresa](/admin/user-management/managing-users-in-your-enterprise/auditing-users-across-your-enterprise)".
 
 En todas las frases de búsqueda siguientes, reemplaza a ORGANIZATION con el nombre de la organizacióny a TEAM con el del equipo.
 

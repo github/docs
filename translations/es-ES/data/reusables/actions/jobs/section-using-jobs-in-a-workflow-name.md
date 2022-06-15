@@ -1,1 +1,1 @@
-Utiliza `jobs.<job_id>.name` para un nombre del job, el cual se muestra en {% data variables.product.prodname_dotcom %}.
+Utiliza `jobs.<job_id>.name` para configurar un nombre para el job, lo cuál se muestra en la IU {% data variables.product.prodname_dotcom %}.

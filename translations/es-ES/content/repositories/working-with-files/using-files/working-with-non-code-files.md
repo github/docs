@@ -132,7 +132,7 @@ Por defecto, la representación insertada es de 420 píxeles de ancho por 620 de
 
 {% endtip %}
 
-{% if mermaid %}
+{% ifversion mermaid %}
 ### Representar en lenguaje de marcado
 
 Puedes embeber una sintaxis de ASCII STL directamente en el lenguaje de marcado. Para obtener más información, consulta la sección "[Crear diagramas](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-stl-3d-models)".
@@ -282,7 +282,7 @@ Por defecto, el mapa incrustado es 420px x 620px, pero puedes personalizar el re
 
 {% endtip %}
 
-{% if mermaid %}
+{% ifversion mermaid %}
 ### Mapear en lenguaje de marcado
 
 Puedes embeber geoJSON y topoJSON directamente en el lenguaje de marcado. Para obtener más información, consulta la sección "[Crear diagramas](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-geojson-and-topojson-maps)".
@@ -333,9 +333,9 @@ $ jupyter nbconvert --to html <em>NOTEBOOK-NAME.ipynb</em>
 ### Leer más
 
 - [Repositorio GitHub de notebook Jupyter](https://github.com/jupyter/jupyter_notebook)
-- [Galería de notebooks Jupyter](https://github.com/jupyter/jupyter/wiki/A-gallery-of-interesting-Jupyter-Notebooks)
+- [Galería de notebooks Jupyter](https://github.com/jupyter/jupyter/wiki)
 
-{% if mermaid %}
+{% ifversion mermaid %}
 ## Mostrar los archivos de Mermaid en {% data variables.product.prodname_dotcom %}
 
 {% data variables.product.product_name %} es compatible con el procesamiento de archivos de Mermaid dentro de los repositorios. Confirma el archivo como lo harías habitualmente utilizando una extensión `.mermaid` o `.mmd`. Luego, navega a la ruta del archivo Mermaid en {% data variables.product.prodname_dotcom %}.

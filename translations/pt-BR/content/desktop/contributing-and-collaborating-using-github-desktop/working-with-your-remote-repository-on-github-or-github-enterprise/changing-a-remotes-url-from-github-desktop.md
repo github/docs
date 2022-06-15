@@ -12,16 +12,16 @@ shortTitle: Alterar URL do controle remoto
 
 {% mac %}
 
-1. No menu **Repository** (Repositório), clique em **Repository Settings...** (Configurações do repositório...). ![Opção de menu Repository Settings (Configurações do repositório)](/assets/images/help/desktop/repository-settings-mac.png)
-2. No campo **Primary remote repository** (Repositório remote principal), digite a URL. ![Campo <strong>Primary remote repository</strong> (Repositório remote principal)](/assets/images/help/desktop/repository-settings-remote-mac.png)
-3. Clique em **Salvar**. ![Botão Save (Salvar)](/assets/images/help/desktop/repository-settings-save-mac.png)
+{% data reusables.desktop.mac-repository-settings-menu %}
+2. Clique em **Remoto** e, em **Repositório remoto primário**, digite o URL desejado. ![Campo <strong>Primary remote repository</strong> (Repositório remote principal)](/assets/images/help/desktop/repository-settings-remote.png)
+{% data reusables.desktop.repository-settings-save %}
 
 {% endmac %}
 
 {% windows %}
 
-1. No menu **Repository** (Repositório), clique em **Repository Settings...** (Configurações do repositório...). ![Opção de menu Repository Settings (Configurações do repositório)](/assets/images/help/desktop/repository-settings-win.png)
-2. No campo **Primary remote repository** (Repositório remote principal), digite a URL. ![Campo <strong>Primary remote repository</strong> (Repositório remote principal)](/assets/images/help/desktop/repository-settings-remote-win.png)
-3. Clique em **Salvar**. ![Botão Save (Salvar)](/assets/images/help/desktop/repository-settings-save-win.png)
+{% data reusables.desktop.windows-repository-settings-menu %}
+2. Clique em **Remoto** e, em **Repositório remoto primário**, digite o URL desejado. ![Campo <strong>Primary remote repository</strong> (Repositório remote principal)](/assets/images/help/desktop/repository-settings-remote.png)
+{% data reusables.desktop.repository-settings-save %}
 
 {% endwindows %}

@@ -7,6 +7,7 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
+  ghae: '*'
 type: overview
 topics:
   - Organizations
@@ -118,9 +119,9 @@ Se você for proprietário de uma organização, você poderá ver quais usuári
 
 ## Conectar a {% data variables.product.product_name %} usando chaves SSH
 
-Existem outras maneiras de interagir com {% data variables.product.product_name %} além de entrar no site. Muitas pessoas autorizam o código que enviam por push para {% data variables.product.prodname_dotcom %} com uma chave privada SSH. Para obter mais informações, consulte[Sobre SSH](/authentication/connecting-to-github-with-ssh/about-ssh)".
+Existem outras maneiras de interagir com {% data variables.product.product_name %} além de entrar no site{% ifversion ghae %} através do seu IdP{% endif %}. Muitas pessoas autorizam o código que enviam por push para {% data variables.product.prodname_dotcom %} com uma chave privada SSH. Para obter mais informações, consulte[Sobre SSH](/authentication/connecting-to-github-with-ssh/about-ssh)".
 
-Assim como a senha da sua conta, se um invasor conseguir obter a sua chave SSH privada, ele poderá se passar por você e enviar código malicioso para qualquer repositório ao qual você tenha acesso de gravação. Se você armazenar sua chave SSH privada em um disco, é uma boa ideia protegê-la com uma senha. Para obter mais informações, consulte "[Trabalhar com frases secretas da chave SSH](/authentication/connecting-to-github-with-ssh/working-with-ssh-key-passphrases)".
+Como {% ifversion ghae %}a senha da sua conta do IdP{% else %}a senha da sua conta{% endif %}, se um invasor conseguir obter sua chave SSH privada, ele poderá se passar por você e enviar código malicioso para qualquer repositório que você tenha acesso de escrita. Se você armazenar sua chave SSH privada em um disco, é uma boa ideia protegê-la com uma senha. Para obter mais informações, consulte "[Trabalhar com frases secretas da chave SSH](/authentication/connecting-to-github-with-ssh/working-with-ssh-key-passphrases)".
 
 Outra opção é gerar chaves SSH em uma chave de segurança de hardware. Você pode usar a mesma chave que você está usando no 2FA. É muito difícil comprometer as chaves de segurança de hardware remotamente, porque a chave SSH privada permanece no hardware e não pode ser acessada diretamente por meio do software. Para obter mais informações, consulte "[Gerando uma nova chave SSH para uma chave de segurança de hardware](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key-for-a-hardware-security-key)".
 
