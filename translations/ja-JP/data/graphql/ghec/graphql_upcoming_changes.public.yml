@@ -99,6 +99,13 @@ upcoming_changes:
     criticality: 破壊的
     owner: cheshire137
   - 
+    location: DependencyGraphDependency.packageLabel
+    description: '`packageLabel` will be removed. Use normalized `packageName` field instead.'
+    reason: '`packageLabel` will be removed.'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: github/dependency_graph
+  - 
     location: RemovePullRequestFromMergeQueueInput.branch
     description: '`branch`は削除されます。'
     reason: PRはベースブランチのマージキューから削除され、引数`branch`はno-opになりました。

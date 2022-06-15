@@ -46713,6 +46713,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "squashPrTitleUsedAsDefault",
+          "description": "<p>Whether a squash merge commit can use the pull request title as default.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "sshUrl",
           "description": "<p>The SSH URL to clone this repository.</p>",
           "type": "GitSSHRemote!",
@@ -60566,11 +60574,11 @@
       "values": [
         {
           "name": "MEMBER",
-          "description": "<p>The user is a member of the enterprise membership.</p>"
+          "description": "<p>The user is a member of an organization in the enterprise.</p>"
         },
         {
           "name": "OWNER",
-          "description": "<p>The user is an owner of the enterprise membership.</p>"
+          "description": "<p>The user is an owner of an organization in the enterprise.</p>"
         }
       ]
     },

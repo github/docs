@@ -132,23 +132,23 @@ shortTitle: 个性化
 
 {% ifversion fpt or ghec %}
 
-## Earning Achievements
+## 获取成就
 
-Achievements celebrate specific events and actions that happen on {% data variables.product.prodname_dotcom %}. They will appear as small badges listed in the sidebar of your profile. Clicking or hovering on an achievement will show a detailed view that hints at how the achievement was earned, with a short description and links to the contributing events. The event links will only be visible to users that have access to the repository or organization that the event took place in. Event links will appear inaccessible to all users without access.
+成就用于庆祝 {% data variables.product.prodname_dotcom %} 上发生的具体活动和行动。 它们将显示为小徽章，列在个人资料的侧边栏中。 单击或悬停在成就上将显示一个详细视图，提示该成就是如何获得的，并带有简短描述和指向贡献事件的链接。 事件链接仅对有权访问事件发生的存储库或组织的用户可见。 没有访问权限的所有用户都将无法访问事件链接。
 
-To stop private contributions from counting toward your Achievements, or to turn off Achievements entirely, see "[Showing your private contributions and Achievements on your profile](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)."
+要阻止私人贡献计入您的成就，或完全关闭成就，请参阅“[在个人资料上显示您的私人贡献和成就](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)”。
 
 {% note %}
 
-**Note:** This feature is currently in beta and subject to change.
+**注意**：此功能目前在测试中，可能会更改。
 
 {% endnote %}
 
 {% endif %}
 
-## List of qualifying repositories for Mars 2020 Helicopter Contributor achievement
+## Mars 2020 Helicopter 贡献者成就的合格仓库列表
 
-If you authored any commit(s) present in the commit history for the listed tag of one or more of the repositories below, you'll receive the Mars 2020 Helicopter Contributor achievement on your profile. 撰写的提交必须有验证过的电子邮件地址，该电子邮件地址在 {% data variables.product.prodname_dotcom %} 确定符合条件的贡献时与您帐户关联，表示该贡献归属于您。 您可以是提交的原始作者或 [共同作者](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors)。 将来对经过验证的电子邮件的更改不会对徽章产生影响。 我们根据从美国航天局喷气推进实验室获得的资料编制了清单。
+如果您为下面一个或多个仓库列出的标记撰写了提交历史记录中的任何提交，您的个人资料中将获得 Mars 2020 Helicopter 贡献者成就。 撰写的提交必须有验证过的电子邮件地址，该电子邮件地址在 {% data variables.product.prodname_dotcom %} 确定符合条件的贡献时与您帐户关联，表示该贡献归属于您。 您可以是提交的原始作者或 [共同作者](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors)。 将来对经过验证的电子邮件的更改不会对徽章产生影响。 我们根据从美国航天局喷气推进实验室获得的资料编制了清单。
 
 | {% data variables.product.prodname_dotcom %} 仓库                               | 版本        | 标记                                                                                                         |
 | ----------------------------------------------------------------------------- | --------- | ---------------------------------------------------------------------------------------------------------- |

@@ -1,4 +1,4 @@
-| Proveedor   | Secreto compatible      | Secret type       |
+| Proveedor   | Secreto compatible      | Tipo de secreto   |
 | ----------- | ----------------------- | ----------------- |
 | Adafruit IO | Clave de IO de Adafruit | adafruit_io_key |
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
@@ -147,6 +147,8 @@ Plivo | ID de Auth de Plivo | plivo_auth_id{% endif %}
 Plivo | Token de Autenticación a Plivo | plivo_auth_token{% endif %} Postman | Llave de la API de Postman | postman_api_key Proctorio | Llave de Consumidor de Proctorio | proctorio_consumer_key Proctorio | Llave de Vinculación de Proctorio | proctorio_linkage_key Proctorio | Llave de Registro de Proctorio | proctorio_registration_key Proctorio | Llave de Secreto de Proctorio | proctorio_secret_key Pulumi | Toekn de Acceso a Pulumi | pulumi_access_token
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
 PyPI | Token de la API de PyPI | pypi_api_token{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.5 or ghae-issue-7375 %}
+redirect.pizza | Token de la API de redirect.pizza | redirect_pizza_api_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
 RubyGems | Llave de la API de RubyGems | rubygems_api_key{% endif %} Samsara | Token de la API de Samsara | samsara_api_token Samsara | Token de Acceso OAuth a Samsara | samsara_oauth_access_token
 {%- ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6944 %}
