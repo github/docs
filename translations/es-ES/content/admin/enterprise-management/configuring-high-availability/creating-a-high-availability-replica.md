@@ -18,7 +18,7 @@ shortTitle: Create HA replica
 
 ## Creating a high availability replica
 
-1. Set up a new {% data variables.product.prodname_ghe_server %} appliance on your desired platform. The replica appliance should mirror the primary appliance's CPU, RAM, and storage settings. We recommend that you install the replica appliance in an independent environment. The underlying hardware, software, and network components should be isolated from those of the primary appliance. If you are a using a cloud provider, use a separate region or zone. For more information, see ["Setting up a {% data variables.product.prodname_ghe_server %} instance"](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-github-enterprise-server-instance).
+1. Set up a new {% data variables.product.prodname_ghe_server %} appliance on your desired platform. The replica appliance should mirror the primary appliance's CPU, RAM, and storage settings. We recommend that you install the replica appliance in an independent environment. The underlying hardware, software, and network components should be isolated from those of the primary appliance. If you are a using a cloud provider, use a separate region or zone. For more information, see ["Setting up a {% data variables.product.prodname_ghe_server %} instance"](/enterprise/admin/guides/installation/setting-up-a-github-enterprise-server-instance).
 1. Ensure that both the primary appliance and the new replica appliance can communicate with each other over ports 122/TCP and 1194/UDP. For more information, see "[Network ports](/admin/configuration/configuring-network-settings/network-ports#administrative-ports)."
 1. In a browser, navigate to the new replica appliance's IP address and upload your {% data variables.product.prodname_enterprise %} license.
 {% data reusables.enterprise_installation.replica-steps %}
@@ -37,7 +37,7 @@ shortTitle: Create HA replica
 
 ## Creating geo-replication replicas
 
-This example configuration uses a primary and two replicas, which are located in three different geographic regions. While the three nodes can be in different networks, all nodes are required to be reachable from all the other nodes. At the minimum, the required administrative ports should be open to all the other nodes. For more information about the port requirements, see "[Network Ports](/enterprise/{{ currentVersion }}/admin/guides/installation/network-ports/#administrative-ports)."
+This example configuration uses a primary and two replicas, which are located in three different geographic regions. While the three nodes can be in different networks, all nodes are required to be reachable from all the other nodes. At the minimum, the required administrative ports should be open to all the other nodes. For more information about the port requirements, see "[Network Ports](/enterprise/admin/guides/installation/network-ports/#administrative-ports)."
 
 1. Create the first replica the same way you would for a standard two node configuration by running `ghe-repl-setup` on the first replica.
   ```shell
@@ -97,6 +97,6 @@ For testing, you can add entries to the local workstation's `hosts` file (for ex
 
 ## Further reading
 
-- "[About high availability configuration](/enterprise/{{ currentVersion }}/admin/guides/installation/about-high-availability-configuration)"
-- "[Utilities for replication management](/enterprise/{{ currentVersion }}/admin/guides/installation/about-high-availability-configuration/#utilities-for-replication-management)"
-- "[About geo-replication](/enterprise/{{ currentVersion }}/admin/guides/installation/about-geo-replication/)"
+- "[About high availability configuration](/enterprise/admin/guides/installation/about-high-availability-configuration)"
+- "[Utilities for replication management](/enterprise/admin/guides/installation/about-high-availability-configuration/#utilities-for-replication-management)"
+- "[About geo-replication](/enterprise/admin/guides/installation/about-geo-replication/)"
