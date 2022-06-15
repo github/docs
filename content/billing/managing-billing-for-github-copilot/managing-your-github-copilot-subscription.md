@@ -2,7 +2,7 @@
 title: Managing your GitHub Copilot subscription
 intro: 'Set up your {% data variables.product.prodname_copilot %} trial and manage your subscription.'
 versions:
-  fpt: '*'
+  feature: 'copilot'
   ghec: '*'
 type: how_to
 topics:
