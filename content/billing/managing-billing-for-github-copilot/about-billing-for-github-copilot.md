@@ -9,7 +9,7 @@ shortTitle: Billing for GitHub Copilot
 ---
 ## About billing for {% data variables.product.prodname_copilot %}
 
-If you want to use {% data variables.product.prodname_copilot %}, you need a subscription for your {% data variables.product.prodname_dotcom %} account. For more information about {% data variables.product.prodname_copilot_short %}, see "[About {% data variables.product.prodname_copilot %}](/en/copilot/overview-of-github-copilot/about-github-copilot)".
+If you want to use {% data variables.product.prodname_copilot %}, you will need a subscription for your {% data variables.product.prodname_dotcom %} personal account. For more information about {% data variables.product.prodname_copilot %}, see "[About {% data variables.product.prodname_copilot %}](/en/copilot/overview-of-github-copilot/about-github-copilot)."
 
 You can set up a 60-day trial to evaluate {% data variables.product.prodname_copilot_short %}. When creating a trial, you need to choose a monthly or yearly billing cycle, and provide a payment method. The trial converts to a paid subscription after the trial period ends. You can cancel {% data variables.product.prodname_copilot_short %} at any time during your trial and you won't be charged. For more information, see "[Managing your GitHub Copilot subscription](/en/billing/managing-billing-for-github-copilot/managing-your-github-copilot-subscription)".
 
