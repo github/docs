@@ -34,4 +34,4 @@ Geo-replication は、{% data variables.product.prodname_ghe_server %} インス
 {% data reusables.enterprise_installation.monitoring-replicas %}
 
 ## 参考リンク
-- "[Geo-replicationレプリカの作成](/enterprise/{{ currentVersion }}/admin/guides/installation/creating-a-high-availability-replica/#creating-geo-replication-replicas)"
+- "[Geo-replicationレプリカの作成](/enterprise/admin/guides/installation/creating-a-high-availability-replica/#creating-geo-replication-replicas)"

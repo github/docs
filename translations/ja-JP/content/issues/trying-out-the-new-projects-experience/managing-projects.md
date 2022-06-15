@@ -1,6 +1,6 @@
 ---
-title: Managing projects (beta)
-intro: 'You can close and re-open projects, or you can permanently delete projects.'
+title: プロジェクト（ベータ）の管理
+intro: プロジェクトをクローズしたり再オープンしたり、あるいは完全に削除できます。
 allowTitleToDifferFromFilename: true
 miniTocMaxHeadingLevel: 2
 versions:
@@ -11,33 +11,33 @@ topics:
   - Organizations
 ---
 
-## Deleting a project
+## プロジェクトの削除
 
-You can delete a project to permanently remove it.
-
-{% data reusables.projects.project-settings %}
-1. At the bottom of the page, click **Delete this project**. ![Screenshot showing project delete button](/assets/images/help/issues/delete-project-button.png)
-1. Read the warnings, then type the name of your project into the text box. ![Screenshot showing project delete confirmation](/assets/images/help/issues/project-delete-confirm.png)
-1. Click **I understand the consequences, delete this project**.
-
-## Closing a project
-
-You can close a project to remove it from the list of projects but retain the contents and ability to re-open the project later.
+プロジェクトを削除して、完全に除去できます。
 
 {% data reusables.projects.project-settings %}
-1. At the bottom of the page, click **Close this project**. ![Screenshot showing project close button](/assets/images/help/issues/close-project-button.png)
+1. ページの下部で**Delete this project（このプロジェクトを削除）**をクリックしてください。 ![プロジェクトの削除ボタンが表示されているスクリーンショット](/assets/images/help/issues/delete-project-button.png)
+1. 警告を読み、プロジェクト名をテキストボックスに入力してください。 ![プロジェクトの削除の確認が表示されているスクリーンショット](/assets/images/help/issues/project-delete-confirm.png)
+1. **I understand the consequences, delete this project（生じることを理解したので、このプロジェクトを削除してください）**をクリックしてください。
 
-## Re-opening an organization project
+## プロジェクトのクローズ
 
-You can reopen a previously closed project.
+プロジェクトをクローズしてプロジェクトのリストから削除し、ただしその内容を残し、後に再オープンできるようにしておくことができます。
+
+{% data reusables.projects.project-settings %}
+1. ページの下部で**Close this project（このプロジェクトをクローズ）**をクリックしてください。 ![プロジェクトのクローズボタンが表示されているスクリーンショット](/assets/images/help/issues/close-project-button.png)
+
+## Organizationプロジェクトの再オープン
+
+以前にクローズしたプロジェクトを再オープンできます。
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
 {% data reusables.projects.reopen-a-project %}
 
-## Re-opening a user project
+## ユーザプロジェクトの再オープン
 
-You can reopen a previously closed project.
+以前にクローズしたプロジェクトを再オープンできます。
 
 {% data reusables.profile.access_profile %}
 {% data reusables.projects.reopen-a-project %}

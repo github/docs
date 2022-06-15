@@ -1010,7 +1010,7 @@ Action                        | Description
 | `repo.code_scanning_analysis_deleted` | Code scanning analysis for a repository was deleted. For more information, see "[Delete a code scanning analysis from a repository](/rest/reference/code-scanning#delete-a-code-scanning-analysis-from-a-repository)."
 | `repo.change_merge_setting` | Pull request merge options were changed for a repository.
 | `repo.clear_actions_settings` | A repository administrator cleared {% data variables.product.prodname_actions %} policy settings for a repository.
-| `repo.config`         | A repository administrator blocked force pushes. For more information, see [Blocking force pushes to a repository](/enterprise/{{ currentVersion }}/admin/guides/developer-workflow/blocking-force-pushes-to-a-repository/) to a repository.
+| `repo.config`         | A repository administrator blocked force pushes. For more information, see [Blocking force pushes to a repository](/enterprise/admin/guides/developer-workflow/blocking-force-pushes-to-a-repository/) to a repository.
 {%- ifversion fpt or ghec %}
 | `repo.config.disable_collaborators_only` | The interaction limit for collaborators only was disabled. For more information, see "[Limiting interactions in your repository](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)."
 | `repo.config.disable_contributors_only` | The interaction limit for prior contributors only was disabled in a repository. For more information, see "[Limiting interactions in your repository](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)."

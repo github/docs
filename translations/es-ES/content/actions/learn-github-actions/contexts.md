@@ -193,7 +193,7 @@ The `github` context contains information about the workflow run and the event t
 | `github.graphql_url` | `string` | The URL of the {% data variables.product.prodname_dotcom %} GraphQL API. |
 | `github.head_ref` | `string` | The `head_ref` or source branch of the pull request in a workflow run. This property is only available when the event that triggers a workflow run is either `pull_request` or `pull_request_target`. |
 | `github.job` | `string` | The [`job_id`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_id) of the current job. <br /> Note: This context property is set by the Actions runner, and is only available within the execution `steps` of a job. Otherwise, the value of this property will be `null`. |
-| `github.ref` | `string` | The branch or tag ref that triggered the workflow run. For branches this is the format  `refs/heads/<branch_name>`, and for tags it is `refs/tags/<tag_name>`. |
+| `github.ref` | `string` | {% data reusables.actions.ref-description %} |
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5338 %}
 | `github.ref_name` | `string` | {% data reusables.actions.ref_name-description %} |
 | `github.ref_protected` | `string` | {% data reusables.actions.ref_protected-description %} |
