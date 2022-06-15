@@ -1,6 +1,6 @@
 ---
 title: Using the Dependency submission API
-intro: 'You can use the Dependency submission API to submit dependencies for projects that resolve dependencies when the project is built or compiled, providing a fuller picture of your project's dependencies for the dependency graph.'
+intro: 'You can use the Dependency submission API to submit dependencies for projects that resolve dependencies when the project is built or compiled, providing a fuller picture of dependencies for the project''s dependency graph.'
 shortTitle: Dependency submission API
 topics:
   - API
