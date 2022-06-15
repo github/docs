@@ -1,6 +1,6 @@
 ---
 title: Using the Dependency submission API
-intro: 'You can use the Dependency submission API to submit dependencies for projects that resolve dependencies when the project is built or compiled, providing a fuller picture of dependencies for the project''s dependency graph.'
+intro: 'You can use the Dependency submission API to submit dependencies for projects, such as the dependencies resolved when a project is built or compiled.'
 shortTitle: Dependency submission API
 topics:
   - API
@@ -17,7 +17,7 @@ versions:
 
 {% data reusables.dependency-submission.about-dependency-submission %}
 
-Dependencies are submitted to the dependency submission API in the form of a snapshot, a set of dependencies, associated with a commit SHA and other metadata, that reflects the current state of your repository for the commit. For more information about the Dependency submission API, see the [Dependency submission REST API documentation](/rest/dependency-graph/dependency-submission).
+Dependencies are submitted to the dependency submission API in the form of a snapshot. A snapshot is a set of dependencies associated with a commit SHA and other metadata, that reflects the current state of your repository for a commit. For more information about the Dependency submission API, see the [Dependency submission REST API documentation](/rest/dependency-graph/dependency-submission).
 
 ## Submitting dependencies at build-time
 
