@@ -1,7 +1,7 @@
 ---
 title: Getting started with GitHub Copilot in a JetBrains IDE
 shortTitle: JetBrains IDE
-intro: 'Learn how to install {% data variables.product.prodname_copilot %} in JetBrains, and start seeing suggestions as you write comments and code.'
+intro: 'Learn how to install {% data variables.product.prodname_copilot %} in a JetBrains IDE, and start seeing suggestions as you write comments and code.'
 product: '{% data reusables.gated-features.copilot %}'
 versions:
   feature: 'copilot'
