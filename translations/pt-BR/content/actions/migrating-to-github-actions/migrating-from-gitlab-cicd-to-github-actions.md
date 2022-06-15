@@ -309,7 +309,7 @@ Para obter mais informações, consulte "[Variáveis de ambiente](/actions/refer
 
 GitLab CI/CD e {% data variables.product.prodname_actions %} fornecem um método no arquivo de configuração para armazenar os arquivos do fluxo de trabalho manualmente.
 
-{% if actions-caching %}
+{% ifversion actions-caching %}
 
 Abaixo, há um exemplo da sintaxe para cada sistema:
 

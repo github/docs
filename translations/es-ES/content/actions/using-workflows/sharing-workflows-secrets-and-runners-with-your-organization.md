@@ -20,15 +20,15 @@ type: how_to
 
 Si necesitas compartir flujos de trabajo y otras características de {% data variables.product.prodname_actions %} con tu equipo, entonces considera colaborar dentrod e una organización de {% data variables.product.prodname_dotcom %}. Una organización te permite almacenar centralmente y administrar secretos, artefactos y ejecutores auto-hospedados. También puedes crear flujos de trabajo iniciales en el repositorio `.github` y compartirlos con otros usuarios en tu organización.
 
-## Compartir {% if internal-actions %}acciones y {% endif %}flujos de trabajo
+## Compartir {% ifversion internal-actions %}acciones y {% endif %}flujos de trabajo
 
-{% if internal-actions %}
+{% ifversion internal-actions %}
 Puedes compartir tanto acciones individuales como flujos de trabajo enteros con tu organización ya sea que los publiques o no al público en general. Puedes reutilizar las acciones y flujos de trabajo exactamente al referenciarlos en tu archivo de flujo de trabajo y puedes crear flujos de trabajo iniciales que proporcionen plantillas para flujos nuevos.
 {% else %}
 Tu organización puede compartir flujos de trabajo al reutilizarlos exactamente o creando flujos de trabajo que proporcionen plantillas para otros nuevos.
 {% endif %}
 
-{% if internal-actions %}
+{% ifversion internal-actions %}
 ### Compartir acciones con tu empresa
 
 {% data reusables.actions.internal-actions-summary %}

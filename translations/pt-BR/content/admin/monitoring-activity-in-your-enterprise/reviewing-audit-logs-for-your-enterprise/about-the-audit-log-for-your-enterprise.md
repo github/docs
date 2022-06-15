@@ -36,6 +36,9 @@ Além de visualizar seu registro de auditoria, você pode monitorar atividades n
 Como proprietário corporativo{% ifversion ghes %} ou administrador do site{% endif %}, você pode interagir com os dados do log de auditoria na sua empresa de várias maneiras:
 - Você pode visualizar o log de auditoria da sua empresa. Para obter mais informações, consulte[Acessando o log de auditoria para sua empresa](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for-your-enterprise)".
 - Você pode pesquisar eventos específicos no log de auditoria{% ifversion ghec %} e exportar dados de log de auditoria{% endif %}. Para obter mais informações, consulte "[Pesquisando o log de auditoria para a sua empresa](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/searching-the-audit-log-for-your-enterprise)"{% ifversion ghec %} e "[Exportando o log de auditoria para a sua empresa](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/exporting-audit-log-activity-for-your-enterprise)"{% endif %}.
+{%- ifversion enterprise-audit-log-ip-addresses %}
+- Você pode exibir o endereço IP associado a eventos no log de auditoria. Para obter mais informações, consulte[Exibindo endereços IP no log de auditoria para sua empresa](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/displaying-ip-addresses-in-the-audit-log-for-your-enterprise)".
+{%- endif %}
 {%- ifversion ghec %}
 - Você pode transmitir dados de auditoria e eventos do Git de {% data variables.product.prodname_dotcom %} para um sistema externo de gerenciamento de dados. Para obter mais informações, consulte[Transmitindo o log de auditoria para sua empresa](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise)".
 {%- else %}

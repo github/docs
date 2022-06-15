@@ -122,7 +122,7 @@ aAAAe9
 {% data reusables.repositories.navigate-to-ghas-settings %}
 {% data reusables.advanced-security.secret-scanning-new-custom-pattern %}
 {% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}
-{%- if secret-scanning-org-dry-runs %}
+{%- ifversion secret-scanning-org-dry-runs %}
 1. 新しいカスタムパターンをテストする準備ができたら、アラートを作成することなく選択したリポジトリ内のマッチを特定するために、**Save and dry run（保存してdry run）**をクリックしてください。
 {% data reusables.advanced-security.secret-scanning-dry-run-select-repos %}
 {% data reusables.advanced-security.secret-scanning-dry-run-results %}
@@ -141,7 +141,7 @@ aAAAe9
 
 {% note %}
 
-{% if secret-scanning-enterprise-dry-runs %}
+{% ifversion secret-scanning-enterprise-dry-runs %}
 **ノート:**
 - Enterpriseレベルでは、カスタムパターンを編集でき、dry runで使えるのはカスタムパターンの作者だけです。
 - Enterpriseオーナーは、アクセスできるリポジトリ上でのみdry runを利用できますが、必ずしもEnterprise内のすべてのOrganizationやリポジトリにアクセスできるわけではありません。
@@ -158,7 +158,7 @@ aAAAe9
 {% data reusables.enterprise-accounts.advanced-security-security-features %}
 1. "Secret scanning custom patterns（シークレットスキャンニングのカスタムパターン）"の下で、{% ifversion ghes = 3.2 %}**New custom pattern（新規カスタムパターン）**{% else %}**New pattern（新規パターン）**{% endif %}をクリックしてください。
 {% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}
-{%- if secret-scanning-enterprise-dry-runs %}
+{%- ifversion secret-scanning-enterprise-dry-runs %}
 1. 新しいカスタムパターンをテストする準備ができたら、アラートを作成することなくリポジトリ内のマッチを特定するために、**Save and dry run（保存してdry run）**をクリックしてください。
 {% data reusables.advanced-security.secret-scanning-dry-run-select-repos %}
 {% data reusables.advanced-security.secret-scanning-dry-run-results %}

@@ -1,8 +1,8 @@
 file,reason
 translations/ja-JP/content/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications.md,Listed in localization-support#489
 translations/ja-JP/content/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications.md,broken liquid tags
-translations/ja-JP/content/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/sending-enterprise-contributions-to-your-githubcom-profile.md,broken liquid tags
-translations/ja-JP/content/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/viewing-contributions-on-your-profile.md,broken liquid tags
+translations/ja-JP/content/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/sending-enterprise-contributions-to-your-githubcom-profile.md,broken liquid tags
+translations/ja-JP/content/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/viewing-contributions-on-your-profile.md,broken liquid tags
 translations/ja-JP/content/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/adding-an-email-address-to-your-github-account.md,broken liquid tags
 translations/ja-JP/content/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/about-your-personal-dashboard.md,broken liquid tags
 translations/ja-JP/content/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-the-default-branch-name-for-your-repositories.md,broken liquid tags
@@ -17,7 +17,6 @@ translations/ja-JP/content/actions/learn-github-actions/finding-and-customizing-
 translations/ja-JP/content/actions/managing-workflow-runs/removing-workflow-artifacts.md,broken liquid tags
 translations/ja-JP/content/actions/publishing-packages/about-packaging-with-github-actions.md,broken liquid tags
 translations/ja-JP/content/actions/quickstart.md,broken liquid tags
-translations/ja-JP/content/actions/using-github-hosted-runners/about-github-hosted-runners.md,broken liquid tags
 translations/ja-JP/content/actions/using-workflows/storing-workflow-data-as-artifacts.md,broken liquid tags
 translations/ja-JP/content/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance.md,broken liquid tags
 translations/ja-JP/content/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-secret-scanning-for-your-appliance.md,broken liquid tags
@@ -32,7 +31,6 @@ translations/ja-JP/content/admin/configuration/configuring-your-enterprise/site-
 translations/ja-JP/content/admin/enterprise-management/configuring-clustering/monitoring-cluster-nodes.md,Listed in localization-support#489
 translations/ja-JP/content/admin/enterprise-management/configuring-clustering/monitoring-cluster-nodes.md,rendering error
 translations/ja-JP/content/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/increasing-cpu-or-memory-resources.md,broken liquid tags
-translations/ja-JP/content/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrade-requirements.md,broken liquid tags
 translations/ja-JP/content/admin/github-actions/advanced-configuration-and-troubleshooting/index.md,broken liquid tags
 translations/ja-JP/content/admin/github-actions/advanced-configuration-and-troubleshooting/troubleshooting-github-actions-for-your-enterprise.md,broken liquid tags
 translations/ja-JP/content/admin/github-actions/enabling-github-actions-for-github-enterprise-server/index.md,broken liquid tags
@@ -59,7 +57,6 @@ translations/ja-JP/content/admin/packages/getting-started-with-github-packages-f
 translations/ja-JP/content/admin/packages/quickstart-for-configuring-your-minio-storage-bucket-for-github-packages.md,broken liquid tags
 translations/ja-JP/content/admin/policies/enforcing-policy-with-pre-receive-hooks/creating-a-pre-receive-hook-environment.md,Listed in localization-support#489
 translations/ja-JP/content/admin/policies/enforcing-policy-with-pre-receive-hooks/creating-a-pre-receive-hook-environment.md,rendering error
-translations/ja-JP/content/admin/policies/enforcing-policy-with-pre-receive-hooks/creating-a-pre-receive-hook-script.md,broken liquid tags
 translations/ja-JP/content/admin/policies/enforcing-policy-with-pre-receive-hooks/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance.md,Listed in localization-support#489
 translations/ja-JP/content/admin/policies/enforcing-policy-with-pre-receive-hooks/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance.md,rendering error
 translations/ja-JP/content/admin/user-management/managing-organizations-in-your-enterprise/creating-teams.md,broken liquid tags
@@ -167,7 +164,6 @@ translations/ja-JP/content/get-started/getting-started-with-git/updating-credent
 translations/ja-JP/content/get-started/learning-about-github/about-github-advanced-security.md,Listed in localization-support#489
 translations/ja-JP/content/get-started/learning-about-github/about-github-advanced-security.md,rendering error
 translations/ja-JP/content/get-started/privacy-on-github/managing-data-use-settings-for-your-private-repository.md,broken liquid tags
-translations/ja-JP/content/get-started/quickstart/git-and-github-learning-resources.md,broken liquid tags
 translations/ja-JP/content/get-started/using-github/github-mobile.md,broken liquid tags
 translations/ja-JP/content/get-started/writing-on-github/editing-and-sharing-content-with-gists/creating-gists.md,broken liquid tags
 translations/ja-JP/content/issues/tracking-your-work-with-issues/planning-and-tracking-work-for-your-team-or-project.md,broken liquid tags
@@ -250,7 +246,10 @@ translations/ja-JP/data/release-notes/enterprise-server/3-2/0.yml,broken liquid 
 translations/ja-JP/data/release-notes/enterprise-server/3-2/3.yml,broken liquid tags
 translations/ja-JP/data/release-notes/enterprise-server/3-3/0-rc1.yml,broken liquid tags
 translations/ja-JP/data/release-notes/enterprise-server/3-3/0.yml,broken liquid tags
+translations/ja-JP/data/release-notes/enterprise-server/3-4/0-rc1.yml,broken liquid tags
+translations/ja-JP/data/release-notes/enterprise-server/3-4/0.yml,broken liquid tags
 translations/ja-JP/data/release-notes/github-ae/2021-03/2021-03-03.yml,broken liquid tags
+translations/ja-JP/data/release-notes/github-ae/2021-06/2021-12-06.yml,broken liquid tags
 translations/ja-JP/data/reusables/actions/allow-specific-actions-intro.md,broken liquid tags
 translations/ja-JP/data/reusables/actions/disabling-github-actions.md,broken liquid tags
 translations/ja-JP/data/reusables/actions/enterprise-common-prereqs.md,broken liquid tags

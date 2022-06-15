@@ -26,9 +26,9 @@ YAMLデータは`middleware/contextualizers/release-notes.js`で処理されて�
 
 ### レイアウト
 
-The `context` object data is rendered by `components/release-notes`.
+`context`オブジェクトデータは`components/release-notes`によってレンダリングされます。
 
-The release notes page has a custom design with CSS in `stylesheets/release-notes.scss`.
+このリリースノートページは、`stylesheets/release-notes.scss`のCSSでカスタムデザインされています。
 
 ### スキーマ
 

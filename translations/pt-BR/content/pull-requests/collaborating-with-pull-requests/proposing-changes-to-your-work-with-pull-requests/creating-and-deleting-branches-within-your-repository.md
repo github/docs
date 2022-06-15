@@ -17,13 +17,30 @@ shortTitle: Criar & excluir branches
 ---
 
 ## Criar um branch
+You can create a branch in different ways on {% data variables.product.product_name %}.
 
+{% note %}
+
+**Note:** You can only create a branch in a repository to which you have push access.
+
+{% endnote %}
+
+### Creating a branch via the branches overview
 {% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.navigate-to-branches %}
+1. Click **New branch**. ![Screenshot of branches overview page with new branch button emphasized](/assets/images/help/branches/new-branch-button.png)
+2. In the dialog box, enter the branch name and optionally change the branch source.
+3. Click **Create branch**. ![Screenshot of branch creation modal with create branch button emphasized](/assets/images/help/branches/branch-creation-popup.png)
 
-1. Opcionalmente, se quiser criar um novo branch a partir de um branch diferente do branch padrão para o repositório, clique em {% octicon "git-branch" aria-label="The branch icon" %} **<em>NUMBER</em> branches** e escolha outro branch: ![Link de branches numa página de visão geral](/assets/images/help/branches/branches-link.png)
+### Creating a branch using the branch dropdown
+{% data reusables.repositories.navigate-to-repo %}
+1. Optionally, if you want to create the new branch from a branch other than the default branch of the repository, click {% octicon "git-branch" aria-label="The branch icon" %} **Branches** then choose another branch. ![Link de branches numa página de visão geral](/assets/images/help/branches/branches-overview-link.png)
 1. Clique no menu seletor de branch. ![menu seletor de branch](/assets/images/help/branch/branch-selection-dropdown.png)
 1. Digite um nome exclusivo para o novo branch e selecione **Create branch** (Criar branch). ![caixa de texto de criação de branch](/assets/images/help/branch/branch-creation-text-box.png)
-
+{% ifversion fpt or ghec or ghes > 3.4 %}
+### Criando um branch para um problema
+Você pode criar um branch para trabalhar em um problema diretamente da página de problemas e começar imediatamente. For more information, see "[Creating a branch to work on an issue](/issues/tracking-your-work-with-issues/creating-a-branch-for-an-issue)".
+{% endif %}
 ## Excluir um branch
 
 {% data reusables.pull_requests.automatically-delete-branches %}

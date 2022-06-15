@@ -37,7 +37,7 @@
     "hast-util-select": "^5.0.1",
     "hast-util-to-string": "^2.0.0",
     "hastscript": "^7.0.2",
-    "helmet": "^4.6.0",
+    "helmet": "^5.1.0",
     "highlight.js": "11.4.0",
     "highlightjs-curl": "^1.3.0",
     "highlightjs-graphql": "^1.0.2",
@@ -163,6 +163,7 @@
     "start-server-and-test": "^1.14.0",
     "strip-ansi": "^7.0.1",
     "supertest": "^6.2.2",
+    "tough-cookie": "4.0.0",
     "typescript": "^4.5.5"
   },
   "engines": {

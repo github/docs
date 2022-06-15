@@ -187,7 +187,7 @@ Travis CI から移行する場合は、{% data variables.product.prodname_actio
 
 ### シークレットを保存する
 
-{% data variables.product.prodname_actions %} を使用すると、シークレットを保存して、ジョブで参照できます。 {% data variables.product.prodname_actions %} Organization は、Organization のシークレットにアクセスできるリポジトリを制限できます。 Environment protection rules can require manual approval for a workflow to access environment secrets. For more information, see "[Encrypted secrets](/actions/reference/encrypted-secrets)."
+{% data variables.product.prodname_actions %} を使用すると、シークレットを保存して、ジョブで参照できます。 {% data variables.product.prodname_actions %} Organization は、Organization のシークレットにアクセスできるリポジトリを制限できます。 Environment protection rules can require manual approval for a workflow to access environment secrets. 詳しい情報については「[暗号化されたシークレット](/actions/reference/encrypted-secrets)」を参照してください。
 
 ### ジョブとワークフロー間でファイルを共有する
 
@@ -305,7 +305,7 @@ jobs:
 
 Travis CIと{% data variables.product.prodname_actions %}では、後で利用できるよう依存関係を手動でキャッシュできます。
 
-{% if actions-caching %}
+{% ifversion actions-caching %}
 
 以下の例は、それぞれのシステムでのキャッシュの構文を示します。
 

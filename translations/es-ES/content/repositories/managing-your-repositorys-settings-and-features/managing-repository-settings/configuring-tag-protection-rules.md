@@ -18,7 +18,7 @@ versions:
 
 Cuando agregas la regla de protección de etiquetas, se protegerán todas aquellas que empaten con el patrón proporcionado. Solo los usuarios con permisos de administrador o mantenedor en el repositorio podrán crear etiquetas protegidas y solo los usuarios con permisos administrativos en el repositorio podrán borrar las etiquetas protegidas. Para obtener más información, consulta la sección "[Roles de repositorio para una organización](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization#permissions-for-each-role)". {% data variables.product.prodname_github_apps %} requiere que el permiso de `Repository administration: write` modifique una etiqueta protegida.
 
-{% if custom-repository-roles %}
+{% ifversion custom-repository-roles %}
 Adicionalmente, puedes crear roles personalizados de repositorio para permitir que otros grupos de usuarios creen o borren etiquetas que empatan con las reglas de protección de etiqueta. Para obtener más información, consulta la sección "[Administrar los roles personalizados de repositorio en una organización](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)".{% endif %}
 
 {% data reusables.repositories.navigate-to-repo %}
