@@ -26,7 +26,7 @@ This guide will show you how to sign up for {% data variables.product.prodname_c
 Before you can start using {% data variables.product.prodname_copilot %}, you will need to set up a free trial or subscription.
 
 {% data reusables.user-settings.access_settings %}
-1. In the "Code, planning and automation" section of the sidebar, click **GitHub Copilot**.
+1. In the "Code, planning, and automation" section of the sidebar, click **GitHub Copilot**.
 2. On the {% data variables.product.prodname_copilot %} settings page, click **Start your free trial**. 
    ![Screenshot of GitHub Copilot settings with start your free trial button emphasized](/assets/images/help/copilot/copilot-settings-start-trial-button.png) 
 3. Choose whether you want to pay monthly or yearly, and click **Continue to get access to Copilot**.
