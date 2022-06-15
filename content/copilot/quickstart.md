@@ -30,7 +30,7 @@ Before you can start using {% data variables.product.prodname_copilot %}, you wi
 2. On the {% data variables.product.prodname_copilot %} settings page, click **Start your free trial**. 
    ![Screenshot of GitHub Copilot settings with start your free trial button emphasized](/assets/images/help/copilot/copilot-settings-start-trial-button.png) 
 3. Choose whether you want to pay monthly or yearly, and click **Continue to get access to Copilot**.
-    - If your personal account meets the criteria for a free {% data variables.product.prodname_copilot %} subscription, you will automatically be taken to step 6.
+    - If your personal account meets the criteria for a free {% data variables.product.prodname_copilot %} subscription instead of a trial, you will automatically be taken to step 6.
   ![Screenshot of trial setup with Continue to get access to Copilot button emphasized](/assets/images/help/copilot/copilot-billing-cycle.png)
 4. Confirm your payment details. 
 5. Select your preferences, then click **Save and get started**.
@@ -47,8 +47,8 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 1. If you have not previously authorized {% data variables.product.prodname_vscode %} in your {% data variables.product.prodname_dotcom %} account, you will be prompted to sign in to {% data variables.product.prodname_dotcom %} in {% data variables.product.prodname_vscode %}.
    - If you have previously authorized {% data variables.product.prodname_vscode %} in your {% data variables.product.prodname_dotcom %} account, {% data variables.product.prodname_copilot %} will be automatically authorized.
    ![Screen shot of {% data variables.product.prodname_vscode %} authorization screen](/assets/images/help/copilot/vsc-copilot-authorize.png)
-1. In your browser, {% data variables.product.prodname_dotcom %} will request the necessary permissions for {% data variables.product.prodname_copilot %}. To approve these permissions, click **Authorize {% data variables.product.prodname_vscode %}**. To refuse the permissions, click **Cancel**.
-1. In {% data variables.product.prodname_vscode %}, in the "{% data variables.product.prodname_vscode %}" dialogue box, to confirm the authentication, click **Open**. To cancel the authentication, click **Cancel**.
+1. In your browser, {% data variables.product.prodname_dotcom %} will request the necessary permissions for {% data variables.product.prodname_copilot %}. To approve these permissions, click **Authorize {% data variables.product.prodname_vscode %}**. 
+1. In {% data variables.product.prodname_vscode %}, in the "{% data variables.product.prodname_vscode %}" dialogue box, to confirm the authentication, click **Open**. 
 
 ## Getting your first suggestion
 
