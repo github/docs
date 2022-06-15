@@ -61,13 +61,13 @@ The following configuration options are available.
 
 | Option | Required | Usage |
 |------------------|-------------------------------|--------|
-| `fail_on_severity` | Optional | Defines the threshold for level of severity (`low`, `moderate`, `high`, `critical`).</br>The action will fail on any pull requests that introduce vulnerabilities of the specified severity level or higher. |
-| `allow_licenses` | Optional | Contains a list of allowed licenses. You can find the possible values for this parameter in the [Licenses](/rest/licenses) page of the API documentation.</br>The action will fail on pull requests that introduce dependencies with licenses that do not match the list.|
-| `deny_licenses` | Optional | Contains a list of prohibited licenses. You can find the possible values for this parameter in the [Licenses](/rest/licenses) page of the API documentation.</br>The action will fail on pull requests that introduce dependencies with licenses that match the list.|
+| `fail-on-severity` | Optional | Defines the threshold for level of severity (`low`, `moderate`, `high`, `critical`).</br>The action will fail on any pull requests that introduce vulnerabilities of the specified severity level or higher. |
+| `allow-licenses` | Optional | Contains a list of allowed licenses. You can find the possible values for this parameter in the [Licenses](/rest/licenses) page of the API documentation.</br>The action will fail on pull requests that introduce dependencies with licenses that do not match the list.|
+| `deny-licenses` | Optional | Contains a list of prohibited licenses. You can find the possible values for this parameter in the [Licenses](/rest/licenses) page of the API documentation.</br>The action will fail on pull requests that introduce dependencies with licenses that match the list.|
 
 {% tip %}
 
-**Tip:** The  `allow_licenses` and  `deny_licenses` options are mutually exclusive.
+**Tip:** The  `allow-licenses` and  `deny-licenses` options are mutually exclusive.
 
 {% endtip %}
 
@@ -90,15 +90,15 @@ jobs:
         uses: actions/dependency-review-action@v2
         with:
           # Possible values: "critical", "high", "moderate", "low" 
-          fail_on_severity: critical
-          # You can only can only include one of these two options: `allow_licenses` and `deny-licences`
+          fail-on-severity: critical
+          # You can only can only include one of these two options: `allow-licenses` and `deny-licences`
           # ([String]). Only allow these licenses (optional)
           # Possible values: Any `spdx_id` value(s) from https://docs.github.com/en/rest/licenses 
-          # allow_licenses: GPL-3.0, BSD-3-Clause, MIT
+          # allow-licenses: GPL-3.0, BSD-3-Clause, MIT
 
           # ([String]). Block the pull request on these licenses (optional)
           # Possible values: Any  `spdx_id` value(s) from https://docs.github.com/en/rest/licenses 
-          # deny_licenses: LGPL-2.0, BSD-2-Clause
+          # deny-licenses: LGPL-2.0, BSD-2-Clause
 ```
 
 For further details about the configuration options, see [`dependency-review-action`](https://github.com/actions/dependency-review-action#readme).
