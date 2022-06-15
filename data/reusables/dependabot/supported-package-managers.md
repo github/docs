@@ -24,7 +24,7 @@ pipenv         | `pip`            | <= 2021-05-29    | | **✓** | |
 pip-compile    | `pip`            | 6.1.0            | | **✓** | |
 poetry         | `pip`            | v1               | | **✓** | |{% ifversion fpt or ghec or ghes > 3.4 %}
 pub            | `pub`            | v2 <sup>[4]</sup> | | | |{% endif %}
-Terraform      | `terraform`      | >= 0.13, <= 1.0  | **✓** | **✓** | |
+Terraform      | `terraform`      | >= 0.13, <= 1.2.x  | **✓** | **✓** | |
 yarn           | `npm`            | v1               | **✓** | **✓** | |
 
 {% tip %}
