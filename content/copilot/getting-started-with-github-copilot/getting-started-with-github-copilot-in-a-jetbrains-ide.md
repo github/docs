@@ -9,7 +9,7 @@ topics:
   - Copilot
 ---
 
-## About {% data variables.product.prodname_copilot %} and JetBrains
+## About {% data variables.product.prodname_copilot %} and JetBrains IDEs
 
 {% data reusables.copilot.procedural-intro %}
 
