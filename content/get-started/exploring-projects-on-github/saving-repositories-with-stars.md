@@ -47,7 +47,6 @@ Starring a repository is a simple two-step process.
 
 **Note:** This will only work on public repositories and private repositories that you have access to
 
-{% endnote %}
 
 View a list of the users that have starred a repository by appending /stargazers to the end of a url of a repository.
 
