@@ -113,4 +113,4 @@ You can enable or disable {% data variables.product.prodname_copilot %} for all 
 ## Further reading
 
 - [The {% data variables.product.prodname_copilot %} website](https://copilot.github.com/)
-- [{% data variables.product.prodname_copilot %} JetBrains Plugin Licensing Information](/copilot/overview-of-github-copilot/about-github-copilot.md#github-copilot-licensing-information-for-jetbrains-plugin)
+- [{% data variables.product.prodname_copilot %} Licensing Information for JetBrains Plugin](/copilot/overview-of-github-copilot/about-github-copilot.md#github-copilot-licensing-information-for-jetbrains-plugin)
