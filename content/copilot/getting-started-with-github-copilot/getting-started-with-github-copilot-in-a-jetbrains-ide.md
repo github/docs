@@ -27,7 +27,7 @@ To use {% data variables.product.prodname_copilot %} in a JetBrains IDE, you mus
 1. At the top of the "Settings" dialog box, click **Marketplace**. In the search bar, search for **{% data variables.product.prodname_copilot %}** and click **Install**.
    ![Screenshot of Marketplace search](/assets/images/help/copilot/jetbrains-marketplace.png)
 1. After {% data variables.product.prodname_copilot %} is installed, click **Restart IDE**.
-1. Once your JetBrains IDE has restarted, in the **Tools** menu, under **{% data variables.product.prodname_copilot %}**, click **Login to {% data variables.product.prodname_dotcom %}**. 
+1. After your JetBrains IDE has restarted, click the **Tools** menu. Click **{% data variables.product.prodname_copilot %}**, then click **Login to {% data variables.product.prodname_dotcom %}**. 
     ![Screenshot of JetBrains tools menu](/assets/images/help/copilot/jetbrains-tools-menu.png)
 1. In the "Sign in to {% data variables.product.prodname_dotcom %}" dialogue box, to copy the device code and open the device activation window, click **Copy and Open**.
     ![Screenshot of device code copy and open](/assets/images/help/copilot/device-code-copy-and-open.png)
