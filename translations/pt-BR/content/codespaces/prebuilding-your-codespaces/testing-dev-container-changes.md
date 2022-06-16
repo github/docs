@@ -14,8 +14,6 @@ product: '{% data reusables.gated-features.codespaces %}'
 permissions: People with write permissions to a repository can create or edit the dev container configuration for a branch.
 ---
 
-{% data reusables.codespaces.prebuilds-beta-note %}
-
 Qualquer alteração que você fizer na configuração do contêiner de desenvolvimento para um branch pré-habilitado irá resultar na atualização para a configuração de código e o modelo de pré-compilação associado. Por isso, é importante testar tais alterações em um codespace de um branch de teste antes de fazer o commit de suas alterações em um branch do repositório que é ativamente usado. Isso garantirá que você não estará introduzindo alterações para a sua equipe.
 
 Para obter mais informações, consulte "[Introdução a contêineres de desenvolvimento](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)".
