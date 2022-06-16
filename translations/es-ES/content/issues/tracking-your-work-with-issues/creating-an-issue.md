@@ -153,7 +153,7 @@ Query parameter | Example
 `projects` | `https://github.com/octo-org/octo-repo/issues/new?title=Bug+fix&projects=octo-org/1` creates an issue with the title "Bug fix" and adds it to the organization's project board 1.
 `template` | `https://github.com/octo-org/octo-repo/issues/new?template=issue_template.md` creates an issue with a template in the issue body. The `template` query parameter works with templates stored in an `ISSUE_TEMPLATE` subdirectory within the root, `docs/` or `.github/` directory in a repository. For more information, see "[Using templates to encourage useful issues and pull requests](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)."
 
-{% if code-scanning-task-lists %}
+{% ifversion code-scanning-task-lists %}
 ## Creating an issue from a {% data variables.product.prodname_code_scanning %} alert
 
 {% data reusables.code-scanning.beta-alert-tracking-in-issues %}

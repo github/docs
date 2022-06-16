@@ -1,5 +1,5 @@
 {% note %}
 
-**Note:** Unlike other {% data variables.product.prodname_actions %} policy settings, there is no organization-level policy for setting the {% data variables.product.prodname_actions %} cache size. The enterprise policy is applied directly to repositories.
+**Observação:** Ao contrário de outras configurações de política de {% data variables.product.prodname_actions %}, não há política a nível da organização para definir o tamanho do cache de {% data variables.product.prodname_actions %}. A política da empresa é aplicada directamente aos repositórios.
 
 {% endnote %}

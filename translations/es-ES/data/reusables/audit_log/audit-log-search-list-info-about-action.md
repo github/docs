@@ -9,6 +9,6 @@ Cada entrada del registro de auditoría muestra información vigente acerca de u
 - La acción que se realizó
 - En qué país se realizó la acción
 - La fecha y hora en que ocurrió la acción
-{%- if enterprise-audit-log-ip-addresses %}
+{%- ifversion enterprise-audit-log-ip-addresses %}
 - Optionally, the source IP address for the user (actor) who performed the action
 {%- endif %}

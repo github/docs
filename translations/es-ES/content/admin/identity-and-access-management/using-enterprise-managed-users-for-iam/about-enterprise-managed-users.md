@@ -2,7 +2,6 @@
 title: Acerca de los Usuarios Administrados Empresariales
 shortTitle: Acerca de los usuarios administrados
 intro: 'Puedes administrar centralmente la identidad y el acceso para los miembros de tu empresa en {% data variables.product.prodname_dotcom %} desde tu proveedor de identidad.'
-product: '{% data reusables.gated-features.emus %}'
 redirect_from:
   - /early-access/github/articles/get-started-with-managed-users-for-your-enterprise
   - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users
@@ -21,19 +20,19 @@ topics:
 
 ## Acerca de {% data variables.product.prodname_emus %}
 
-Con {% data variables.product.prodname_emus %}, puedes controlar las cuentas de usuario de los miembros de tu empresa a través de tu proveedor de identidad (IdP). You can simplify authentication with SAML{% if oidc-for-emu %} or OIDC{% endif %} single sign-on (SSO) and provision, update, and deprovision user accounts for your enterprise members. Los usuarios que se asignen a la aplicación de {% data variables.product.prodname_emu_idp_application %} en tu IdP se aprovisionarán como cuentas de usuario nuevas en {% data variables.product.prodname_dotcom %} y se agregarán a tu empresa. Tú controlas los nombres de usuario, datos de perfil, membrecía de equipo y acceso al repositorio desde tu IdP.
+Con {% data variables.product.prodname_emus %}, puedes controlar las cuentas de usuario de los miembros de tu empresa a través de tu proveedor de identidad (IdP). Los usuarios que se asignen a la aplicación de {% data variables.product.prodname_emu_idp_application %} en tu IdP se aprovisionarán como cuentas de usuario nuevas en {% data variables.product.prodname_dotcom %} y se agregarán a tu empresa. You control usernames, profile data, team membership, and repository access for the user accounts from your IdP.
 
 En tu IdP, puedes dar a cada {% data variables.product.prodname_managed_user %} el rol de usuario, propietario de la empresa o gerente de facturación. {% data variables.product.prodname_managed_users_caps %} puede ser propietario de organizaciones dentro de tu empresa y puede agregar a otros {% data variables.product.prodname_managed_users %} a las organizaciones y equipos dentro de ella. Para obtener más información, consulta las secciones "[Roles en una empresa](/github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise/roles-in-an-enterprise)" y "[Acerca de las organizaciones](/organizations/collaborating-with-groups-in-organizations/about-organizations)".
 
-La membrecía de organización puede administrarse manualmente o actualizarse automáticamente conforme se agreguen usuarios de {% data variables.product.prodname_managed_users %} a los grupos de IdP que están conectados a los equipos dentro de la organización. Cuando se agrega un {% data variables.product.prodname_managed_user %} manualmente a una organización, el desasignarlo de la aplicación de {% data variables.product.prodname_emu_idp_application %} en tu IdP suspenderá al usuario pero no lo eliminará de la organización. Para obtener más información sobre cómo administrar las membrecías de equipo y de organización automáticamente, consulta la sección "[Administrar las membrecías de equipo con los grupos de proveedor de identidad](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/managing-team-memberships-with-identity-provider-groups)".
+Organization membership can be managed manually, or you can update membership automatically as {% data variables.product.prodname_managed_users %} are added to IdP groups that are connected to teams within the organization. Cuando se agrega un {% data variables.product.prodname_managed_user %} manualmente a una organización, el desasignarlo de la aplicación de {% data variables.product.prodname_emu_idp_application %} en tu IdP suspenderá al usuario pero no lo eliminará de la organización. Para obtener más información sobre cómo administrar las membrecías de equipo y de organización automáticamente, consulta la sección "[Administrar las membrecías de equipo con los grupos de proveedor de identidad](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/managing-team-memberships-with-identity-provider-groups)".
 
-{% if oidc-for-emu %}
+{% ifversion oidc-for-emu %}
 
 {% data reusables.enterprise-accounts.emu-cap-validates %} For more information, see "[About support for your IdP's Conditional Access Policy](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-support-for-your-idps-conditional-access-policy)."
 
 {% endif %}
 
-Puedes otorgar acceso a los {% data variables.product.prodname_managed_users %}, así como la habilidad de contribuir con los repositorios dentro de tu empresa, pero los {% data variables.product.prodname_managed_users %} no pueden crear contenido público ni colaborar con otros usuarios, organizaciones y empresas en el resto de {% data variables.product.prodname_dotcom %}. No se puede invitar a los {% data variables.product.prodname_managed_users %} que se aprovisionaron para tu empresa para que se unan a organizaciones o repositorios fuera de esta, ni se puede invitar a los {% data variables.product.prodname_managed_users %} a otras empresas. Los colaboradores externos no son compatibles con los {% data variables.product.prodname_emus %}.
+You can grant {% data variables.product.prodname_managed_users %} access to and the ability to contribute to repositories within your enterprise, but {% data variables.product.prodname_managed_users %} cannot create public content or collaborate with other users, organizations, and enterprises on the rest of {% data variables.product.prodname_dotcom %}. For more information, see "[Abilities and restrictions of {% data variables.product.prodname_managed_users %}](#abilities-and-restrictions-of-enterprise-managed-users)."
 
 El nombre de usuario de los {% data variables.product.prodname_managed_users %} de tu empresa y su información de perfil, tal como los nombres y direcciones de correo electrónico que se muestran, se configuran mediante tu IdP y no pueden cambiarlos los mismos usuarios. Para obtener más información, consulta la sección "[Nombres de usuario e información de perfil](#usernames-and-profile-information)".
 
@@ -43,10 +42,15 @@ Los propietarios de las empresas pueden auditar todas las acciones de los {% dat
 
 Para utilizar los {% data variables.product.prodname_emus %}, necesitas un tipo separado de cuenta empresarial con {% data variables.product.prodname_emus %} habilitados. Para obtener más información sobre cómo crear esta cuenta, consulta la sección "[Acerca de las empresas con usuarios administrados](#about-enterprises-with-managed-users)".
 
+{% note %}
+
+**Note:** There are multiple options for identity and access management with {% data variables.product.prodname_ghe_cloud %}, and {% data variables.product.prodname_emus %} is not the best solution for every customer. For more information about whether {% data variables.product.prodname_emus %} is right for your enterprise, see "[About authentication for your enterprise](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#identifying-the-best-authentication-method-for-your-enterprise)."
+
+{% endnote %}
 
 ## Soporte del proveedor de identidad
 
-{% data variables.product.prodname_emus %} supports the following IdPs{% if oidc-for-emu %} and authentication methods:
+{% data variables.product.prodname_emus %} supports the following IdPs{% ifversion oidc-for-emu %} and authentication methods:
 
 |                        | SAML                                          | OIDC (beta)                                   |
 | ---------------------- | --------------------------------------------- | --------------------------------------------- |
@@ -62,6 +66,8 @@ Para utilizar los {% data variables.product.prodname_emus %}, necesitas un tipo 
 
 Los {% data variables.product.prodname_managed_users_caps %} solo pueden colaborar en los repositorios privados e internos dentro de su empresa y con los repositorios que pertenecen a su cuenta de usuario. Los {% data variables.product.prodname_managed_users_caps %} tienen acceso de solo lectura al resto de la comunidad de {% data variables.product.prodname_dotcom %}. Estas restricciones de visibilidad y acceso para los usuarios, así como el contenido, aplican a todas las solicitudes, incluyendo a las de la API.
 
+* {% data variables.product.prodname_managed_users %} cannot be invited to organizations or repositories outside of the enterprise, nor can the {% data variables.product.prodname_managed_users %} be invited to other enterprises.
+* Los colaboradores externos no son compatibles con los {% data variables.product.prodname_emus %}.
 * Los {% data variables.product.prodname_managed_users_caps %} no pueden crear propuestas ni solicitudes de cambios, comentar o agregar reacciones, ni marcar como favoritos u observar o bifurcar repositorios fuera de la empresa.
 * {% data variables.product.prodname_managed_users_caps %} puede ver todos los repositorios públicos en {% data variables.product.prodname_dotcom_the_website %} pero no puede subir código a los repositorios fuera de la empresa.
 * Solo otros miembros de la empresa pueden ver a los {% data variables.product.prodname_managed_users_caps %} y al contenido que estos crean.
@@ -70,6 +76,7 @@ Los {% data variables.product.prodname_managed_users_caps %} solo pueden colabor
 * Los {% data variables.product.prodname_managed_users_caps %} no pueden instalar {% data variables.product.prodname_github_apps %} en sus cuentas de usuario.
 * Otros usuarios de {% data variables.product.prodname_dotcom %} no pueden ver, mencionar o invitar a {% data variables.product.prodname_managed_user %} para colaborar.
 * Los {% data variables.product.prodname_managed_users_caps %} solo pueden ser propietarios de repositorios privados y los {% data variables.product.prodname_managed_users %} solo pueden invitar a otros miembros de la empresa para que colaboren con sus propios repositorios.
+* {% data reusables.enterprise-accounts.emu-forks %}
 * Solo se pueden crear repositorios internos y privados en las organizaciones que pertenezcan a una {% data variables.product.prodname_emu_enterprise %}, dependiendo de los ajustes de visibilidad del repositorio o empresa.
 * {% data variables.product.prodname_managed_users_caps %} are limited in their use of {% data variables.product.prodname_pages %}. Para obtener más información, consulta la sección "[Acerca de {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#limitations-for-enterprise-managed-users)".
 
@@ -89,9 +96,9 @@ Before your developers can use {% data variables.product.prodname_ghe_cloud %} w
 
   {% endnote %}
 
-3. After you log in to your setup user, get started by configuring {% if oidc-for-emu %}how your members will authenticate. If you are using Azure Active Directory as your identity provider, you can choose between OpenID Connect (OIDC) and Security Assertion Markup Language (SAML). Both options provide a seamless sign-in experience for your members, but only OIDC includes support for Conditional Access Policies (CAP). If you are using Okta as your identity provider, you can use SAML to authenticate your members.{% else %}SAML SSO for your enterprise. For more information, see "[Configuring SAML single sign-on for Enterprise Managed Users](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-saml-single-sign-on-for-enterprise-managed-users)."{% endif %}
+3. After you log in to your setup user, get started by configuring {% ifversion oidc-for-emu %}how your members will authenticate. If you are using Azure Active Directory as your identity provider, you can choose between OpenID Connect (OIDC) and Security Assertion Markup Language (SAML). Both options provide a seamless sign-in experience for your members, but only OIDC includes support for Conditional Access Policies (CAP). If you are using Okta as your identity provider, you can use SAML to authenticate your members.{% else %}SAML SSO for your enterprise. For more information, see "[Configuring SAML single sign-on for Enterprise Managed Users](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-saml-single-sign-on-for-enterprise-managed-users)."{% endif %}
 
-  {% if oidc-for-emu %}
+  {% ifversion oidc-for-emu %}
 
   To get started, read the guide for your chosen authentication method.
 

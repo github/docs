@@ -1,4 +1,4 @@
-| Proveedor                 | Secreto compatible                                 | Secret type                                              |
+| Proveedor                 | Secreto compatible                                 | Tipo de secreto                                          |
 | ------------------------- | -------------------------------------------------- | -------------------------------------------------------- |
 | Adafruit IO               | Clave de IO de Adafruit                            | adafruit_io_key                                        |
 | Alibaba Cloud             | ID de Clave de Acceso a la Nube de Alibaba         | alibaba_cloud_access_key_id                          |
@@ -17,10 +17,10 @@
 | Checkout.com              | Clave secreta de productión de Checkout.com        | checkout_production_secret_key                         |
 | Clojars                   | Token de Despliegue de Clojars                     | clojars_deploy_token                                   |
 | Databricks                | Token de Acceso de Databricks                      | databricks_access_token                                |
-| DigitalOcean              | DigitalOcean Personal Access Token                 | digitalocean_personal_access_token                     |
-| DigitalOcean              | DigitalOcean OAuth Token                           | digitalocean_oauth_token                               |
-| DigitalOcean              | DigitalOcean Refresh Token                         | digitalocean_refresh_token                             |
-| DigitalOcean              | DigitalOcean System Token                          | digitalocean_system_token                              |
+| DigitalOcean              | Token de Acceso Personal de DigitalOcean           | digitalocean_personal_access_token                     |
+| DigitalOcean              | Token OAuth de DigitalOcean                        | digitalocean_oauth_token                               |
+| DigitalOcean              | Token de Actualización de DigitalOcean             | digitalocean_refresh_token                             |
+| DigitalOcean              | Token de Sistema de DigitalOcean                   | digitalocean_system_token                              |
 | Discord                   | Token de Bot de Discord                            | discord_bot_token                                      |
 | Doppler                   | Token Personal de Doppler                          | doppler_personal_token                                 |
 | Doppler                   | Token de Servicio de Doppler                       | doppler_service_token                                  |
@@ -60,16 +60,5 @@
 | PlanetScale               | Token de Servicio de PlanetScale                   | planetscale_service_token                              |
 | Postman                   | Clave de API de Postman                            | postman_api_key                                        |
 | Proctorio                 | Clave de Secreto de Proctorio                      | proctorio_secret_key                                   |
-| Samsara                   | Token de API de Samsara                            | samsara_api_token                                      |
-| Samsara                   | Token de Acceso de OAuth de Samsara                | samsara_oauth_access_token                             |
-| SendGrid                  | Clave de la API de SendGrid                        | sendgrid_api_key                                       |
-| Sendinblue                | Llave de la API de Sendinblue                      | sendinblue_api_key                                     |
-| Sendinblue                | Llave SMTP de Sendinblue                           | sendinblue_smtp_key                                    |
-| Shippo                    | Shippo Live API Token                              | shippo_live_api_token                                  |
-| Shopify                   | Secreto Compartid de la App de Shopify             | shopify_app_shared_secret                              |
-| Shopify                   | Token de Acceso de Shopify                         | shopify_access_token                                   |
-| Slack                     | Token de la API de Slack                           | slack_api_token                                        |
-| Stripe                    | Clave de Secreto Stripe Live                       | stripe_api_key                                         |
-| Tencent Cloud             | ID de Secreto de Tencent Cloud                     | tencent_cloud_secret_id                                |
-| Typeform                  | Token de acceso personal a Typeform                | typeform_personal_access_token                         |
-| WorkOS                    | WorkOS Production API Key                          | workos_production_api_key                              |
+{%- ifversion fpt or ghec or ghes > 3.5 or ghae-issue-7375 %}
+redirect.pizza | redirect.pizza API Token | redirect_pizza_api_token{% endif %} Samsara | Samsara API Token | samsara_api_token Samsara | Samsara OAuth Access Token | samsara_oauth_access_token SendGrid | SendGrid API Key | sendgrid_api_key Sendinblue | Sendinblue API Key | sendinblue_api_key Sendinblue | Sendinblue SMTP Key | sendinblue_smtp_key Shippo | Shippo Live API Token | shippo_live_api_token Shopify | Shopify App Shared Secret | shopify_app_shared_secret Shopify | Shopify Access Token | shopify_access_token Slack | Slack API Token | slack_api_token Stripe | Stripe Live API Secret Key | stripe_api_key Tencent Cloud | Tencent Cloud Secret ID | tencent_cloud_secret_id Typeform | Typeform Personal Access Token | typeform_personal_access_token WorkOS | WorkOS Production API Key | workos_production_api_key

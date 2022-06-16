@@ -2,4 +2,4 @@ Para identificar cualquier restricción con la simultaneidad o puesta en cola, p
 
 ![Captura de pantalla de una lista de jobs activos](/assets/images/help/settings/actions-runner-active-jobs.png)
 
-For more information, see "[Monitoring your current jobs](/actions/using-github-hosted-runners/monitoring-your-current-jobs)."
+Para obtener más información, consulta la sección "[Monitorear tus jobs actuales](/actions/using-github-hosted-runners/monitoring-your-current-jobs)".

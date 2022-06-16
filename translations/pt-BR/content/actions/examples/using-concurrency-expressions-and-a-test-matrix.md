@@ -341,7 +341,7 @@ jobs:
 </td>
 <td>
 
-Groups together all the jobs that run in the workflow file.
+Agrupa todos os trabalhos executados no arquivo do fluxo de trabalho.
 </td>
 </tr>
 <tr>
@@ -353,7 +353,7 @@ Groups together all the jobs that run in the workflow file.
 </td>
 <td>
 
-Defines a job with the ID `test` that is stored within the `jobs` key.
+Define uma trabalho com o ID "test" que é armazenado dentro da chave "jobs".
 </td>
 </tr>
 <tr>
@@ -365,7 +365,7 @@ Defines a job with the ID `test` that is stored within the `jobs` key.
 </td>
 <td>
 
-Configures the job to run on a {% data variables.product.prodname_dotcom %}-hosted runner or a self-hosted runner, depending on the repository running the workflow. In this example, the job will run on a self-hosted runner if the repository is named `docs-internal` and is within the `github` organization. If the repository doesn't match this path, then it will run on an `ubuntu-latest` runner hosted by {% data variables.product.prodname_dotcom %}. For more information on these options see "[Choosing the runner for a job](/actions/using-jobs/choosing-the-runner-for-a-job)."
+Configura o trabalho a ser executado em um executor hospedado em {% data variables.product.prodname_dotcom %} ou em um executor auto-hospedado, dependendo do repositório que executa o fluxo de trabalho. Neste exemplo, o trabalho será executado em um runner auto-hospedado se o repositório for denominado "docs-internal" e estiver dentro da organização "github". Se o repositório não corresponder a este caminho, então ele será executado em um executor "ubuntu-latest" hospedado por {% data variables.product.prodname_dotcom %}. Para obter mais informações sobre essas opções consulte "[Escolhendo o executor para um trabalho](/actions/using-jobs/choosing-the-runner-for-a-job)".
 </td>
 </tr>
 <tr>
@@ -377,7 +377,7 @@ Configures the job to run on a {% data variables.product.prodname_dotcom %}-host
 </td>
 <td>
 
-Sets the maximum number of minutes to let the job run before it is automatically canceled. For more information, see [`timeout-minutes`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idtimeout-minutes).
+Define o número máximo de minutos para deixar o trabalho ser executado antes de ser automaticamente cancelado. Para obter mais informações, consulte [`timeout-minutes`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idtimeout-minutes).
 </td>
 </tr>
 <tr>
@@ -388,7 +388,7 @@ Sets the maximum number of minutes to let the job run before it is automatically
 ```
 </td>
 <td>
-  This section defines the build matrix for your jobs.
+  Esta seção define a matriz de compilações para seus trabalhos.
 </td>
 </tr>
 <tr>
@@ -400,7 +400,7 @@ Sets the maximum number of minutes to let the job run before it is automatically
 </td>
 <td>
 
-Setting `fail-fast` to `false` prevents {% data variables.product.prodname_dotcom %} from cancelling all in-progress jobs if any matrix job fails.
+Definir "fail-fast" como "false" impede {% data variables.product.prodname_dotcom %} de cancelar todos os trabalhos em andamento se qualquer trabalho da matriz falhar.
 </td>
 </tr>
 <tr>
@@ -423,7 +423,7 @@ Setting `fail-fast` to `false` prevents {% data variables.product.prodname_dotco
 </td>
 <td>
 
-Creates a matrix named `test-group`, with an array of test groups. These values match the names of test groups that will be run by `npm test`.
+Cria uma matriz denominada "test-group", com uma matriz de grupos de teste. Esses valores correspondem aos nomes dos grupos de teste que serão executados pelo `npm test`.
 </td>
 </tr>
 <tr>
@@ -435,7 +435,7 @@ Creates a matrix named `test-group`, with an array of test groups. These values 
 </td>
 <td>
 
-Groups together all the steps that will run as part of the `test` job. Each job in a workflow has its own `steps` section.
+Agrupa todos os passos que serão executados como parte do trabalho `test`. Cada trabalho em um fluxo de trabalho tem sua própria seção "etapas".
 </td>
 </tr>
 <tr>
@@ -451,7 +451,7 @@ Groups together all the steps that will run as part of the `test` job. Each job 
 </td>
 <td>
 
-The `uses` keyword tells the job to retrieve the action named `actions/checkout`. Esta é uma ação que verifica seu repositório e o faz o download do runner, permitindo que você execute ações contra seu código (como, por exemplo, ferramentas de teste). Você deve usar a ação de checkout sempre que o fluxo de trabalho for executado no código do repositório ou você estiver usando uma ação definida no repositório. Some extra options are provided to the action using the `with` key.
+A palavra-chave "uses" diz para o trabalho recuperar a ação denominada "actions/checkout". Esta é uma ação que verifica seu repositório e o faz o download do runner, permitindo que você execute ações contra seu código (como, por exemplo, ferramentas de teste). Você deve usar a ação de checkout sempre que o fluxo de trabalho for executado no código do repositório ou você estiver usando uma ação definida no repositório. Algumas opções extras são fornecidas para a ação usando a tecla "with".
 </td>
 </tr>
 <tr>
@@ -491,7 +491,7 @@ The `uses` keyword tells the job to retrieve the action named `actions/checkout`
 </td>
 <td>
 
-If the current repository is the `github/docs-internal` repository, this step uses the `actions/github-script` action to run a script to check if there is a branch called `docs-early-access`.
+Se o repositório atual for o repositório `github/docs-internal`, essa etapa usará a ação `actions/github-script` para executar um script para verificar se existe um branch denominado `docs-early-access`.
 </td>
 </tr>
 <tr>
@@ -510,7 +510,7 @@ If the current repository is the `github/docs-internal` repository, this step us
 </td>
 <td>
 
-If the current repository is the `github/docs-internal` repository, this step checks out the branch from the `github/docs-early-access` that was identified in the previous step.
+Se o repositório atual for o repositório `github/docs-interno`, esta etapa irá verificar o branch do `github/docs-early-access` que foi identificado na etapa anterior.
 </tr>
 <tr>
 <td>
@@ -527,7 +527,7 @@ If the current repository is the `github/docs-internal` repository, this step ch
 </td>
 <td>
 
-If the current repository is the `github/docs-internal` repository, this step uses the `run` keyword to execute shell commands to move the `docs-early-access` repository's folders into the main repository's folders.
+Se o repositório atual for o repositório `github/docs-internl`, esta etapa usará a palavra-chave 'run' para executar comandos shell para mover pastas do repositório 'docs-early-access' para pastas do repositório principal.
 </td>
 </tr>
 <tr>
@@ -540,7 +540,7 @@ If the current repository is the `github/docs-internal` repository, this step us
 </td>
 <td>
 
-This step runs a command to check out LFS objects from the repository.
+Esta etapa executa um comando para conferir objetos do LFS do repositório.
 </td>
 </tr>
 <tr>
@@ -559,7 +559,7 @@ This step runs a command to check out LFS objects from the repository.
 </td>
 <td>
 
-This step uses the `trilom/file-changes-action` action to gather the files changed in the pull request, so they can be analyzed in the next step. This example is pinned to a specific version of the action, using the `a6ca26c14274c33b15e6499323aac178af06ad4b` SHA.
+Esta etapa usa a ação `trilom/file-changes-action` para reunir os arquivos alterados no pull request, para que possam ser analisados na próxima etapa. Este exemplo está fixado a uma versão específica da ação usando o SHA `a6ca26c14274c33b15e6499323aac178af06ad4b`.
 </td>
 </tr>
 <tr>
@@ -573,7 +573,7 @@ This step uses the `trilom/file-changes-action` action to gather the files chang
 </td>
 <td>
 
-This step runs a shell command that uses an output from the previous step to create a file containing the list of files changed in the pull request.
+Esta etapa executa um comando de shell que usa uma saída da etapa anterior para criar um arquivo que contém a lista de arquivos alterados no pull request.
 </td>
 </tr>
 <tr>
@@ -589,7 +589,7 @@ This step runs a shell command that uses an output from the previous step to cre
 </td>
 <td>
 
-This step uses the `actions/setup-node` action to install the specified version of the `node` software package on the runner, which gives you access to the `npm` command.
+Esta etapa usa a ação `actions/setup-node` para instalar a versão especificada do pacote do "node" de software no executor, que lhe dá acesso ao comando `npm`.
 </td>
 </tr>
 <tr>
@@ -602,7 +602,7 @@ This step uses the `actions/setup-node` action to install the specified version 
 </td>
 <td>
 
-This step runs the `npm ci` shell command to install the npm software packages for the project.
+Esta etapa executa o comando do shell `npm ci` para instalar os pacotes de software npm para o projeto.
 </td>
 </tr>
 <tr>
@@ -618,7 +618,7 @@ This step runs the `npm ci` shell command to install the npm software packages f
 </td>
 <td>
 
-This step uses the `actions/cache` action to cache the Next.js build, so that the workflow will attempt to retrieve a cache of the build, and not rebuild it from scratch every time. For more information, see "[Caching dependencies to speed up workflows](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."
+Este passo usa a ação 'actions/cache' para armazenar em cache o Next.js build, para que o fluxo de trabalho tente recuperar um cache da compilação e não recriá-lo do zero todas as vezes. Para obter mais informações, consulte "[Dependências de cache para acelerar fluxos de trabalho](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)".
 </td>
 </tr>
 <tr>
@@ -631,7 +631,7 @@ This step uses the `actions/cache` action to cache the Next.js build, so that th
 </td>
 <td>
 
-This step runs the build script.
+Esta etapa executa o script de compilação.
 </td>
 </tr>
 <tr>
@@ -647,7 +647,7 @@ This step runs the build script.
 </td>
 <td>
 
-This step runs the tests using `npm test`, and the test matrix provides a different value for {% raw %}`${{ matrix.test-group }}`{% endraw %} for each job in the matrix. It uses the `DIFF_FILE` environment variable to know which files have changed, and uses the `CHANGELOG_CACHE_FILE_PATH` environment variable for the changelog cache file.
+Essa etapa executa os testes usando `npm test` e a matriz de teste fornece um valor diferente para {% raw %}`${{ matrix.test-group }}`{% endraw %} para cada trabalho na matriz. Ela usa a variável de ambiente `DIFF_FILE` para saber quais arquivos foram alterados e usa a variável de ambiente `CHANGELOG_CACHE_FILE_PATH` para o arquivo de cache do registro de alterações.
 </td>
 </tr>
 </tbody>

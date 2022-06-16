@@ -101,7 +101,7 @@ Disponible en el resumen a nivel organizacional.
 | ------------------------- | ------------------------------------------------------------ |
 | <code>topic:<em>TOPIC-NAME</em></code> | Muestra los repositorios que se clasifican con *TOPIC-NAME*. |
 
-{% if security-overview-views %}
+{% ifversion security-overview-views %}
 
 ## Filtrar por gravedad
 
@@ -117,7 +117,7 @@ Disponible en las vistas de alertas del escaneo de código. Todas las alertas de
 | `severity:warning`  | Muestra alertas del {% data variables.product.prodname_code_scanning %} categorizadas como advertencias. |
 | `severity:note`     | Muestra alertas del {% data variables.product.prodname_code_scanning %} categorizadas como notas.        |
 
-{% if dependabot-alerts-vulnerable-calls %}
+{% ifversion dependabot-alerts-vulnerable-calls %}
 ## Filtrar por tipo de alerta del {% data variables.product.prodname_dependabot %}
 
 Disponible en las vistas de alerta del {% data variables.product.prodname_dependabot %}. Puedes filtrar la vista para mostrar las {% data variables.product.prodname_dependabot_alerts %} que están listas para arreglarse o donde la información adicional sobre la exposición se encuentre disponible. Puedes hacer clic en cualquier resultado para ver todos los detalles de esa alerta.

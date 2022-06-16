@@ -41,6 +41,6 @@ Para obter mais informações sobre bifurcações, consulte "[Sobre bifurcaçõe
 {% data reusables.repositories.owner-drop-down %}
 {% data reusables.repositories.repo-name %}
 {% data reusables.repositories.choose-repo-visibility %}
-6. Opcionalmente, para incluir a estrutura de diretório e arquivos de todos os branches no modelo, e não apenas o branch-padrão, selecione **Incluir todos os branches**. ![Include all branches checkbox](/assets/images/help/repository/include-all-branches.png)
+6. Opcionalmente, para incluir a estrutura de diretório e arquivos de todos os branches no modelo, e não apenas o branch-padrão, selecione **Incluir todos os branches**. ![Incluir caixa de seleção de branches](/assets/images/help/repository/include-all-branches.png)
 {% data reusables.repositories.select-marketplace-apps %}
 8. Clique em **Create repository from template** (Criar repositório a partir do modelo).

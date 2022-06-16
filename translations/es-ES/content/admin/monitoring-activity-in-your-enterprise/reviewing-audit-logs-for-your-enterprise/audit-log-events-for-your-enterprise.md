@@ -143,7 +143,7 @@ The scope of the events that appear in your enterprise's audit log depend on whe
 | `business.update_saml_provider_settings` | The SAML single sign-on provider settings for an enterprise were updated.
 {%- endif %}
 
-{%- if secret-scanning-audit-log-custom-patterns %}
+{%- ifversion secret-scanning-audit-log-custom-patterns %}
 ## `business_secret_scanning_custom_pattern` category actions
 
 | Acción | Descripción                                                                                                                                                                                                                                                                                                                          |
@@ -642,7 +642,7 @@ The scope of the events that appear in your enterprise's audit log depend on whe
 {%- ifversion fpt or ghec %}
 | `org.runner_group_visiblity_updated` | The visibility of a self-hosted runner group was updated via the REST API. Para obtener más información, consulta la sección "[Actualizar un grupo de ejecutores auto-hospedados para una organización](/rest/reference/actions#update-a-self-hosted-runner-group-for-an-organization)".
 {%- endif %}
-{%- if secret-scanning-audit-log-custom-patterns %}
+{%- ifversion secret-scanning-audit-log-custom-patterns %}
 | `org.secret_scanning_push_protection_disable` | An organization owner or administrator disabled push protection for secret scanning. Para obtener más información, consulta la sección "[Proteger las subidas de información con el escaneo de secretos](/enterprise-cloud@latest/code-security/secret-scanning/protecting-pushes-with-secret-scanning)". | `org.secret_scanning_push_protection_enable` | An organization owner or administrator enabled push protection for secret scanning.
 {%- endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
@@ -685,7 +685,7 @@ The scope of the events that appear in your enterprise's audit log depend on whe
 | `org_credential_authorization.revoke`                                                                                                                                                                     | An owner revoked authorized credentials. {% ifversion ghec %}For more information, see "[Viewing and managing your active SAML sessions](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization)."{% endif %}
 {%- endif %}
 
-{%- if secret-scanning-audit-log-custom-patterns %}
+{%- ifversion secret-scanning-audit-log-custom-patterns %}
 ## Acciones de la categoría `org_secret_scanning_custom_pattern`
 
 | Acción                                      | Descripción                                                                                                                                                                                                                                                                                                             |
@@ -903,21 +903,21 @@ The scope of the events that appear in your enterprise's audit log depend on whe
 
 ## acciones de la categoría `repo`
 
-| Acción                                                   | Descripción                                                                                                                                                                                                                                                               |
-| -------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `repo.access`                                            | La visbilidad de un repositorio cambió a privado{%- ifversion ghes %}, público,{% endif %} o interno.                                                                                                                                                                     |
-| `repo.actions_enabled`                                   | {% data variables.product.prodname_actions %} was enabled for a repository.                                                                                                                                                                                               |
-| `repo.add_member`                                        | Se agregó un colaborador a un repositorio.                                                                                                                                                                                                                                |
-| `repo.add_topic`                                         | A topic was added to a repository.                                                                                                                                                                                                                                        |
-| `repo.advanced_security_disabled`                        | {% data variables.product.prodname_GH_advanced_security %} was disabled for a repository.                                                                                                                                                                               |
-| `repo.advanced_security_enabled`                         | {% data variables.product.prodname_GH_advanced_security %} was enabled for a repository.                                                                                                                                                                                |
-| `repo.advanced_security_policy_selected_member_disabled` | A repository administrator prevented {% data variables.product.prodname_GH_advanced_security %} features from being enabled for a repository.                                                                                                                           |
-| `repo.advanced_security_policy_selected_member_enabled`  | A repository administrator allowed {% data variables.product.prodname_GH_advanced_security %} features to be enabled for a repository.                                                                                                                                  |
-| `repo.archived`                                          | Se archivó un repositorio. Para obtener más información, consulta la sección "[Archivar un repositorio de {% data variables.product.prodname_dotcom %}](/github/creating-cloning-and-archiving-repositories/archiving-a-github-repository)".                              |
-| `repo.code_scanning_analysis_deleted`                    | Code scanning analysis for a repository was deleted. For more information, see "[Delete a code scanning analysis from a repository](/rest/reference/code-scanning#delete-a-code-scanning-analysis-from-a-repository)."                                                    |
-| `repo.change_merge_setting`                              | Pull request merge options were changed for a repository.                                                                                                                                                                                                                 |
-| `repo.clear_actions_settings`                            | A repository administrator cleared {% data variables.product.prodname_actions %} policy settings for a repository.                                                                                                                                                        |
-| `repo.config`                                            | A repository administrator blocked force pushes. Para obtener más información, consulta [Bloquear los empujes forzados para un repositorio](/enterprise/{{ currentVersion }}/admin/guides/developer-workflow/blocking-force-pushes-to-a-repository/) para un repositorio. |
+| Acción                                                   | Descripción                                                                                                                                                                                                                                          |
+| -------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `repo.access`                                            | La visbilidad de un repositorio cambió a privado{%- ifversion ghes %}, público,{% endif %} o interno.                                                                                                                                                |
+| `repo.actions_enabled`                                   | {% data variables.product.prodname_actions %} was enabled for a repository.                                                                                                                                                                          |
+| `repo.add_member`                                        | Se agregó un colaborador a un repositorio.                                                                                                                                                                                                           |
+| `repo.add_topic`                                         | A topic was added to a repository.                                                                                                                                                                                                                   |
+| `repo.advanced_security_disabled`                        | {% data variables.product.prodname_GH_advanced_security %} was disabled for a repository.                                                                                                                                                          |
+| `repo.advanced_security_enabled`                         | {% data variables.product.prodname_GH_advanced_security %} was enabled for a repository.                                                                                                                                                           |
+| `repo.advanced_security_policy_selected_member_disabled` | A repository administrator prevented {% data variables.product.prodname_GH_advanced_security %} features from being enabled for a repository.                                                                                                      |
+| `repo.advanced_security_policy_selected_member_enabled`  | A repository administrator allowed {% data variables.product.prodname_GH_advanced_security %} features to be enabled for a repository.                                                                                                             |
+| `repo.archived`                                          | Se archivó un repositorio. Para obtener más información, consulta la sección "[Archivar un repositorio de {% data variables.product.prodname_dotcom %}](/github/creating-cloning-and-archiving-repositories/archiving-a-github-repository)".         |
+| `repo.code_scanning_analysis_deleted`                    | Code scanning analysis for a repository was deleted. For more information, see "[Delete a code scanning analysis from a repository](/rest/reference/code-scanning#delete-a-code-scanning-analysis-from-a-repository)."                               |
+| `repo.change_merge_setting`                              | Pull request merge options were changed for a repository.                                                                                                                                                                                            |
+| `repo.clear_actions_settings`                            | A repository administrator cleared {% data variables.product.prodname_actions %} policy settings for a repository.                                                                                                                                   |
+| `repo.config`                                            | A repository administrator blocked force pushes. Para obtener más información, consulta [Bloquear los empujes forzados para un repositorio](/enterprise/admin/guides/developer-workflow/blocking-force-pushes-to-a-repository/) para un repositorio. |
 {%- ifversion fpt or ghec %}
 | `repo.config.disable_collaborators_only` | The interaction limit for collaborators only was disabled. Para obtener más información, consulta "[Limitar las interacciones en tu repositorio](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)". | `repo.config.disable_contributors_only` | The interaction limit for prior contributors only was disabled in a repository. Para obtener más información, consulta "[Limitar las interacciones en tu repositorio](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)". | `repo.config.disable_sockpuppet_disallowed` | The interaction limit for existing users only was disabled in a repository. Para obtener más información, consulta "[Limitar las interacciones en tu repositorio](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)". | `repo.config.enable_collaborators_only` | The interaction limit for collaborators only was enabled in a repository. Users that are not collaborators or organization members were unable to interact with a repository for a set duration. Para obtener más información, consulta "[Limitar las interacciones en tu repositorio](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)". | `repo.config.enable_contributors_only` | The interaction limit for prior contributors only was enabled in a repository. Users that are not prior contributors, collaborators or organization members were unable to interact with a repository for a set duration. Para obtener más información, consulta "[Limitar las interacciones en tu repositorio](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)". | `repo.config.enable_sockpuppet_disallowed` | The interaction limit for existing users was enabled in a repository. New users aren't able to interact with a repository for a set duration. Existing users of the repository, contributors, collaborators or organization members are able to interact with a repository. Para obtener más información, consulta "[Limitar las interacciones en tu repositorio](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)".
 {%- endif %}
@@ -999,7 +999,7 @@ The scope of the events that appear in your enterprise's audit log depend on whe
 | `repository_secret_scanning.enable`  | A repository owner or administrator enabled secret scanning for a {% ifversion ghec %}private or internal {% endif %}repository.                                                                                                                                                  |
 {%- endif %}
 
-{%- if secret-scanning-audit-log-custom-patterns %}
+{%- ifversion secret-scanning-audit-log-custom-patterns %}
 
 ## Acciones de la categoría `repository_secret_scanning_custom_pattern`
 
@@ -1060,7 +1060,7 @@ The scope of the events that appear in your enterprise's audit log depend on whe
 | `restrict_notification_delivery.disable` | Email notification restrictions for an organization or enterprise were disabled. Para obtener más información, consulta las secciones "[Restringir las notificaciones de correo electrónico de tu organización](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/restricting-email-notifications-for-your-organization)" y "[Restringir las notificaciones de correo electrónico para tu empresa](/admin/policies/enforcing-policies-for-your-enterprise/restricting-email-notifications-for-your-enterprise)". |
 {%- endif %}
 
-{%- if custom-repository-roles %}
+{%- ifversion custom-repository-roles %}
 ## Acciones de la categoría `role`
 
 | Acción               | Descripción                                                                                                                                                                                                                                                                                                                  |
@@ -1078,7 +1078,7 @@ The scope of the events that appear in your enterprise's audit log depend on whe
 | `secret_scanning.disable` | An organization owner disabled secret scanning for all existing{% ifversion ghec %} private or internal{% endif %} repositories. Para obtener más información, consulta la sección "[Acerca del escaneo de secretos"](/github/administering-a-repository/about-secret-scanning). |
 | `secret_scanning.enable`  | An organization owner enabled secret scanning for all existing{% ifversion ghec %} private or internal{% endif %} repositories.                                                                                                                                                  |
 
-{% if secret-scanning-alert-audit-log %}
+{% ifversion secret-scanning-alert-audit-log %}
 ## Acciones de la categoría `secret_scanning_alert`
 
 | Acción                          | Descripción                                                                                                                                                                                                                                                                                                                                                |

@@ -2,8 +2,7 @@ import React, { useEffect } from 'react'
 import App from 'next/app'
 import type { AppProps, AppContext } from 'next/app'
 import Head from 'next/head'
-import { ThemeProvider, ThemeProviderProps } from '@primer/react'
-import { SSRProvider } from '@react-aria/ssr'
+import { ThemeProvider, ThemeProviderProps, SSRProvider } from '@primer/react'
 
 import '../stylesheets/index.scss'
 

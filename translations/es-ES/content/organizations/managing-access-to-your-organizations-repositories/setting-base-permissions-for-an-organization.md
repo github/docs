@@ -23,7 +23,7 @@ Puedes configurar permisos base que apliquen a todos los miembros de una organiz
 
 Si alguien con permisos administrativos en un repositorio de una organización otorga un nivel de acceso superior a un miembro para dicho repositorio, este nivel de acceso superior anulará el permiso base.
 
-{% if custom-repository-roles %}
+{% ifversion custom-repository-roles %}
 Si creaste un rol de repositorio personalizado con un rol heredado que tenga un acceso menor que los permisos base de tu organización, cualquier miembro que se haya asignado a ese rol tendrá los permisos base predeterminados de la organización en vez de los del rol heredado. Para obtener más información, consulta la sección "[Administrar los roles personalizados de repositorio en una organización](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)".
 {% endif %}
 
