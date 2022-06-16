@@ -95,11 +95,9 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 You can also use {% data variables.product.prodname_copilot %} to generate suggestions for APIs and frameworks. The following example uses {% data variables.product.prodname_copilot %} to create a simple Express server that returns the current time.
 
 {% data reusables.copilot.create-js-file %}
-1. In the JavaScript file, type the following comment and then press <kbd>Enter</kbd>.
+1. In the JavaScript file, type the following comment and then press <kbd>Enter</kbd>. {% data variables.product.prodname_copilot %} will suggest an implementation of the Express app.
    ```javascript{:copy}
    // Express server on port 3000
-   ```
-   {% data variables.product.prodname_copilot %} will suggest an implementation of the Express app.
 1. To accept each line, press <kbd>Tab</kbd>, then <kbd>Enter</kbd>.
 1. Type the following comment and then press <kbd>Enter</kbd>. {% data variables.product.prodname_copilot %} will suggest an implementation for the default handler. 
    ```javascript{:copy}
