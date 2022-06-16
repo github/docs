@@ -1,7 +1,7 @@
 ---
 title: Getting started with GitHub Copilot
 shortTitle: Get started with GitHub Copilot
-intro: 'ADD INTRO.'
+intro: 'You can start using {% data variables.product.prodname_copilot %} by installing the extension in your preferred environment.'
 versions:
   feature: 'copilot'
 topics:

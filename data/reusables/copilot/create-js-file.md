@@ -1,1 +1,1 @@
-1. Create a new JavaScript (_*.js_) file.
+1. In {% data variables.product.prodname_vscode %}, create a new JavaScript (_*.js_) file.
