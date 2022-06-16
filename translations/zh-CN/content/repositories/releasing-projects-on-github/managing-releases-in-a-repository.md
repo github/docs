@@ -53,15 +53,16 @@ shortTitle: 管理版本
 
    {% ifversion fpt or ghec or ghes > 3.2 or ghae-issue-4865 %}![选择分支](/assets/images/help/releases/releases-choose-branch.png)
    {% else %}![Releases tagged branch](/assets/images/enterprise/releases/releases-tag-branch.png){% endif %}
+{%- data reusables.releases.previous-release-tag %}
 6. 键入发行版的标题和说明。
    {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4972 %}
    如果您在描述中@提及任何 {% data variables.product.product_name %} 用户，则已发布的版本将包含**贡献者**部分，其中包含所有提及用户的头像列表。
    {%- endif %}
-   {% ifversion fpt or ghec %} 或者，您可以通过单击 **Auto-generate release notes（自动生成发行说明）**来自动生成发行说明。
-   {% endif %}
-   ![发行版说明](/assets/images/help/releases/releases_description_auto.png)
-7. （可选）要在发行版中包含二进制文件（例如已编译的程序），请在二进制文件框中拖放或手动选择文件。 ![通过发行版提供 DMG](/assets/images/help/releases/releases_adding_binary.gif)
-8. 要通知用户发行版本尚不可用于生产，可能不稳定，请选择 **This is a pre-release（这是预发布）**。 ![将版本标记为预发行版的复选框](/assets/images/help/releases/prerelease_checkbox.png)
+   {% ifversion fpt or ghec or ghes > 3.3 %} 或者，您也可以通过单击{% ifversion previous-release-tag %}**Generate release notes（生成发行说明）**{% else %}**Auto-generate release notes（自动生成发行说明）**{% endif %} 来自动生成发行说明。{% endif %}{% ifversion previous-release-tag %}
+   ![发行版说明](/assets/images/help/releases/releases_description_auto.png){% else %}
+![Releases description](/assets/images/enterprise/3.5/releases/releases_description_auto.png){% endif %}
+1. （可选）要在发行版中包含二进制文件（例如已编译的程序），请在二进制文件框中拖放或手动选择文件。 ![通过发行版提供 DMG](/assets/images/help/releases/releases_adding_binary.gif)
+2. 要通知用户发行版本尚不可用于生产，可能不稳定，请选择 **This is a pre-release（这是预发布）**。 ![将版本标记为预发行版的复选框](/assets/images/help/releases/prerelease_checkbox.png)
 {%- ifversion fpt or ghec %}
 1. （可选）如果在存储库中启用了 {% data variables.product.prodname_discussions %}，选择 **Create a discussion for this release（为此版本创建讨论）**，然后选择 **Category（类别）**下拉菜单，然后点击类别进行版本讨论。 ![用于创建发行版讨论和下拉菜单以选择类别的复选框](/assets/images/help/releases/create-release-discussion.png)
 {%- endif %}

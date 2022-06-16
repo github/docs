@@ -13,4 +13,4 @@ versions:
 
 ## About the Cache API
 
-The {% data variables.product.prodname_actions %} Cache API allows you to query and manage the {% data variables.product.prodname_actions %} cache for repositories. Para obtener más información, consulta la sección "[Almacenar las dependencias en caché para agilizar los flujos de trabajo](/actions/advanced-guides/caching-dependencies-to-speed-up-workflows#usage-limits-and-eviction-policy)".
+La API de caché de {% data variables.product.prodname_actions %} te permite consultar y administrar el caché de {% data variables.product.prodname_actions %} para los repositorios. Para obtener más información, consulta la sección "[Almacenar las dependencias en caché para agilizar los flujos de trabajo](/actions/advanced-guides/caching-dependencies-to-speed-up-workflows#usage-limits-and-eviction-policy)".

@@ -24,11 +24,11 @@ miniTocMaxHeadingLevel: 3
 
 Puedes habilitar {% data variables.product.prodname_actions %} para todos los repositorios en tu organización. {% data reusables.actions.enabled-actions-description %}Puedes inhabilitar {% data variables.product.prodname_actions %} para todos los repositorios en tu organización. {% data reusables.actions.disabled-actions-description %}
 
-Como alternativa, puedes habilitar las {% data variables.product.prodname_actions %} para todos los repositorios de tu organización, pero limitar las acciones {% if actions-workflow-policy %}y flujos de trabajo reutilizables{% endif %} que puede ejecutar un flujo de trabajo.
+Como alternativa, puedes habilitar las {% data variables.product.prodname_actions %} para todos los repositorios de tu organización, pero limitar las acciones {% ifversion actions-workflow-policy %}y flujos de trabajo reutilizables{% endif %} que puede ejecutar un flujo de trabajo.
 
 ## Administrar los permisos de {% data variables.product.prodname_actions %} para tu organización
 
-Puedes elegir inhabilitar las {% data variables.product.prodname_actions %} para todos los repositorios de tu organización o permitir únicamente aquellos específicos. También puedes limitar el uso de acciones públicas{% if actions-workflow-policy %} y flujos de trabajo reutilizables{% endif %} para que las personas utilicen únicamente las acciones {% if actions-workflow-policy %}y los flujos de trabajo reutilizables{% endif %} locales que existan en tu {% ifversion ghec or ghes or ghae %}empresa{% else %}organización{% endif %}.
+Puedes elegir inhabilitar las {% data variables.product.prodname_actions %} para todos los repositorios de tu organización o permitir únicamente aquellos específicos. También puedes limitar el uso de acciones públicas{% ifversion actions-workflow-policy %} y flujos de trabajo reutilizables{% endif %} para que las personas utilicen únicamente las acciones {% ifversion actions-workflow-policy %}y los flujos de trabajo reutilizables{% endif %} locales que existan en tu {% ifversion ghec or ghes or ghae %}empresa{% else %}organización{% endif %}.
 
 {% note %}
 
@@ -43,7 +43,7 @@ Puedes elegir inhabilitar las {% data variables.product.prodname_actions %} para
 
    {% indented_data_reference reusables.actions.actions-use-policy-settings spaces=3 %}
 
-   {% if actions-workflow-policy %}
+   {% ifversion actions-workflow-policy %}
    ![Configurar la política de acciones para esta organización](/assets/images/help/organizations/actions-policy-with-workflows.png)
    {%- else %}
    ![Configurar la política de acciones para esta organización](/assets/images/help/organizations/actions-policy.png)
@@ -55,9 +55,9 @@ Puedes elegir inhabilitar las {% data variables.product.prodname_actions %} para
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions-general %}
-1. Debajo de "Políticas", selecciona {% data reusables.actions.policy-label-for-select-actions-workflows %} y agrega tus acciones{% if actions-workflow-policy %} y flujos de trabajo reutilizables{% endif %} requeridos a la lista.
+1. Debajo de "Políticas", selecciona {% data reusables.actions.policy-label-for-select-actions-workflows %} y agrega tus acciones{% ifversion actions-workflow-policy %} y flujos de trabajo reutilizables{% endif %} requeridos a la lista.
 
-   {% if actions-workflow-policy %}
+   {% ifversion actions-workflow-policy %}
    ![Agrega acciones y flujos de trabajo reutilizables a la lista de elementos permitidos](/assets/images/help/organizations/actions-policy-allow-list-with-workflows.png)
    {%- elsif ghes %}
    ![Agregar acciones a la lista de elementos permitidos](/assets/images/help/organizations/actions-policy-allow-list.png)
@@ -109,7 +109,7 @@ Puedes configurar los permisos predeterminados para el `GITHUB_TOKEN` en la conf
 
 ### Configuring the default `GITHUB_TOKEN` permissions
 
-{% if allow-actions-to-approve-pr-with-ent-repo  %}
+{% ifversion allow-actions-to-approve-pr-with-ent-repo  %}
 Predeterminadamente, cuando creas una organización nueva, `GITHUB_TOKEN` solo tiene acceso de lectura para el alcance `contents`.
 {% endif %}
 
@@ -119,23 +119,23 @@ Predeterminadamente, cuando creas una organización nueva, `GITHUB_TOKEN` solo t
 {% data reusables.organizations.settings-sidebar-actions-general %}
 1. Debajo de "Permisos de flujo de trabajo", elige si quieres que el `GITHUB_TOKEN` tenga acceso de lectura y escritura para todos los alcances o solo acceso de lectura para el alcance `contents`.
 
-   ![Configurar los permisos del GITHUB_TOKEN para esta organización](/assets/images/help/settings/actions-workflow-permissions-organization{% if allow-actions-to-approve-pr %}-with-pr-{% if allow-actions-to-approve-pr-with-ent-repo %}creation-{% endif %}approval{% endif %}.png)
+   ![Configurar los permisos del GITHUB_TOKEN para esta organización](/assets/images/help/settings/actions-workflow-permissions-organization{% ifversion allow-actions-to-approve-pr %}-with-pr-{% ifversion allow-actions-to-approve-pr-with-ent-repo %}creation-{% endif %}approval{% endif %}.png)
 1. Da clic en **Guardar** para aplicar la configuración.
 
-{% if allow-actions-to-approve-pr %}
-### Preventing {% data variables.product.prodname_actions %} from {% if allow-actions-to-approve-pr-with-ent-repo %}creating or {% endif %}approving pull requests
+{% ifversion allow-actions-to-approve-pr %}
+### Preventing {% data variables.product.prodname_actions %} from {% ifversion allow-actions-to-approve-pr-with-ent-repo %}creating or {% endif %}approving pull requests
 
 {% data reusables.actions.workflow-pr-approval-permissions-intro %}
 
-Predeterminadamente, cuando creas una organización nueva, no se permite que los flujos de trabajo {% if allow-actions-to-approve-pr-with-ent-repo %}creen o {% endif %}aprueben las solicitudes de cambio.
+Predeterminadamente, cuando creas una organización nueva, no se permite que los flujos de trabajo {% ifversion allow-actions-to-approve-pr-with-ent-repo %}creen o {% endif %}aprueben las solicitudes de cambio.
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions-general %}
-1. Debajo de "Permisos de flujo de trabajo", utiliza el ajuste **Permitir que GitHub Actions {% if allow-actions-to-approve-pr-with-ent-repo %}creen y {% endif %}aprueben las solicitudes de cambios** para configurar si el `GITHUB_TOKEN` puede {% if allow-actions-to-approve-pr-with-ent-repo %}crear y {% endif %}aprobar las solicitudes de cambios.
+1. Debajo de "Permisos de flujo de trabajo", utiliza el ajuste **Permitir que GitHub Actions {% ifversion allow-actions-to-approve-pr-with-ent-repo %}creen y {% endif %}aprueben las solicitudes de cambios** para configurar si el `GITHUB_TOKEN` puede {% ifversion allow-actions-to-approve-pr-with-ent-repo %}crear y {% endif %}aprobar las solicitudes de cambios.
 
-   ![Configurar el permiso de aprobación de solicitudes de cambio del GITHUB_TOKEN para esta organización](/assets/images/help/settings/actions-workflow-permissions-organization{% if allow-actions-to-approve-pr %}-with-pr-{% if allow-actions-to-approve-pr-with-ent-repo %}creation-{% endif %}approval{% endif %}.png)
+   ![Configurar el permiso de aprobación de solicitudes de cambio del GITHUB_TOKEN para esta organización](/assets/images/help/settings/actions-workflow-permissions-organization{% ifversion allow-actions-to-approve-pr %}-with-pr-{% ifversion allow-actions-to-approve-pr-with-ent-repo %}creation-{% endif %}approval{% endif %}.png)
 1. Da clic en **Guardar** para aplicar la configuración.
 
 {% endif %}

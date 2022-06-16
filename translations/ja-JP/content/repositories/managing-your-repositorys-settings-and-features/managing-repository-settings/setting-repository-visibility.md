@@ -61,7 +61,7 @@ Members of an {% data variables.product.prodname_emu_enterprise %} can only set 
 {%- endif %}
 
 {%- ifversion ghes %}
-* 匿名の Git 読み取りアクセスは利用できなくなりました。 詳細は「[リポジトリに対する匿名 Git 読み取りアクセスを有効化する](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)」を参照してください。
+* 匿名の Git 読み取りアクセスは利用できなくなりました。 詳細は「[リポジトリに対する匿名 Git 読み取りアクセスを有効化する](/enterprise/user/articles/enabling-anonymous-git-read-access-for-a-repository)」を参照してください。
 {%- endif %}
 
 {% ifversion ghes or ghec or ghae %}

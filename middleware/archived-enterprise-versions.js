@@ -222,6 +222,7 @@ export default async function archivedEnterpriseVersions(req, res, next) {
   }
 
   for (const fallbackRedirect of getFallbackRedirects(req, requestedVersion) || []) {
+    const statsTags = [`path:${req.path}`, `fallback:${fallbackRedirect}`]
     const doGet = () =>
       got(getProxyPath(fallbackRedirect, requestedVersion), {
         throwHttpErrors: false,
@@ -235,8 +236,10 @@ export default async function archivedEnterpriseVersions(req, res, next) {
     ])()
     if (r.statusCode === 200) {
       cacheAggressively(res)
+      statsd.increment('middleware.trying_fallback_redirect_success', 1, statsTags)
       return res.redirect(redirectCode, fallbackRedirect)
     }
+    statsd.increment('middleware.trying_fallback_redirect_failure', 1, statsTags)
   }
 
   return next()

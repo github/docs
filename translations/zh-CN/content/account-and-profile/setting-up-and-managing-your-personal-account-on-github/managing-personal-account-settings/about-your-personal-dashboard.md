@@ -41,7 +41,7 @@ You can also find a list of your recently visited repositories, teams, and proje
 
 ## Staying updated with activity from the community
 
-{% if for-you-feed %}
+{% ifversion for-you-feed %}
 The main section of your dashboard has two activity feeds:
 
 - Following: Activity by people you follow and from repositories you watch.
@@ -68,7 +68,7 @@ You'll see updates in your news feed when a user you follow:
 
 For more information about following people and watching repositories, see "[Following people](/get-started/exploring-projects-on-github/following-people)" and "[Be social](/get-started/quickstart/be-social)."
 
-{% if for-you-feed %}
+{% ifversion for-you-feed %}
 ### For you feed
 
 {% note %}

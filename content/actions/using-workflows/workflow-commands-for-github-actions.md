@@ -110,7 +110,7 @@ The following table shows which toolkit functions are available within a workflo
 | `core.getInput`   | Accessible using environment variable `INPUT_{NAME}` |
 | `core.getState`   | Accessible using environment variable `STATE_{NAME}` |
 | `core.isDebug`    |  Accessible using environment variable `RUNNER_DEBUG` |
-{%- if actions-job-summaries %}
+{%- ifversion actions-job-summaries %}
 | `core.summary` | Accessible using environment variable `GITHUB_STEP_SUMMARY` |
 {%- endif %}
 | `core.saveState`  | `save-state` |
@@ -661,7 +661,7 @@ steps:
 
 {% endpowershell %}
 
-{% if actions-job-summaries %}
+{% ifversion actions-job-summaries %}
 
 ## Adding a job summary
 

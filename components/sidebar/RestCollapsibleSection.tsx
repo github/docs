@@ -7,7 +7,8 @@ import { ActionList } from '@primer/react'
 import { Link } from 'components/Link'
 import { ProductTreeNode } from 'components/context/MainContext'
 import { EventType, sendEvent } from 'components/lib/events'
-import { MiniTocItem, useRestContext } from 'components/context/RestContext'
+import { useRestContext } from 'components/context/RestContext'
+import type { MiniTocItem } from 'components/context/ArticleContext'
 import styles from './SidebarProduct.module.scss'
 
 type SectionProps = {

@@ -45,17 +45,14 @@ Você pode acessar contextos usando a sintaxe da expressão. Para obter mais inf
 | `matrix`         | `objeto` | Contém as propriedades da matriz definidas no fluxo de trabalho que se aplicam ao trabalho atual. Para obter mais informações, consulte o contexto [`matriz`](#matrix-context).    |
 | `needs`          | `objeto` | Contém os resultados de todos os trabalhos que são definidos como uma dependência do trabalho atual. Para obter mais informações, consulte o contexto [`needs`](#needs-context).   |
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4757 %}
-| `entradas` | `objeto` | Contém a entrada de um fluxo de trabalho reutilizável. Para obter mais informações, consulte o contexto [`entradas`](#inputs-context). |{% endif %}
+| `inputs` | `object` | Contains the inputs of a reusable {% ifversion actions-unified-inputs %}or manually triggered {% endif %}workflow. Para obter mais informações, consulte o contexto [`entradas`](#inputs-context). |{% endif %}
 
 Como parte de uma expressão, você pode acessar informações de contexto usando uma das duas sintaxes.
 
 - Sintaxe de índice: `github['sha']`;
 - Sintaxe de propriedade de desreferência: `github.sha`
 
-Para usar a sintaxe de propriedade de desreferência, o nome da propriedade deve:
-
-- começar com `a-Z` ou `_`;
-- ser seguido por `a-Z` `0-9` `-` ou `_`.
+Para usar a sintaxe de dereferência da propriedade, o nome da propriedade deve começar com uma letra ou `_` e conter apenas caracteres alfanuméricos, `-` ou `_`.
 
 Se você tentar desfazer uma propriedade inexistente, isso irá retornar uma string vazia.
 
@@ -192,8 +189,8 @@ O contexto `github` context contém informações sobre a execução do fluxo de
 | `github.event_path`        | `string` | O caminho para o arquivo no executor que contém a carga completa do webhook do evento.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | `github.graphql_url`       | `string` | A URL da API do GraphQL de {% data variables.product.prodname_dotcom %}.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | `github.head_ref`          | `string` | `head_ref` ou branch de origem da pull request em uma execução de fluxo de trabalho. Esta propriedade só está disponível quando o evento que aciona a execução de um fluxo de trabalho for `pull_request` ou `pull_request_target`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| `github.job`               | `string` | O [`job_id`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_id) do trabalho atual.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| `github.ref`               | `string` | Branch ou ref tag que acionou a execução do fluxo de trabalho. Para branches, este é o formato `refs/heads/<branch_name>` e, para tags, é `refs/tags/<tag_name>`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| `github.job`               | `string` | O [`job_id`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_id) do trabalho atual. <br /> Observação: Esta propriedade de contexto é definida pelo executor do Actions e só está disponível dentro da execução `etapas` de um trabalho. Caso contrário, o valor desta propriedade será `nulo`.                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `github.ref`               | `string` | {% data reusables.actions.ref-description %}
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5338 %}
 | `github.ref_name` | `string` | {% data reusables.actions.ref_name-description %} | | `github.ref_protected` | `string` | {% data reusables.actions.ref_protected-description %} | | `github.ref_type` | `string` | {% data reusables.actions.ref_type-description %}
 {%- endif %}
@@ -201,7 +198,7 @@ O contexto `github` context contém informações sobre a execução do fluxo de
 {%- ifversion fpt or ghec or ghes > 3.5 or ghae-issue-4722 %}
 | `github.run_attempt` | `string` | Um número exclusivo para cada tentativa de execução de um fluxo de trabalho específico em um repositório. Este número começa em 1 para a primeira tentativa de execução do fluxo de trabalho e aumenta a cada nova execução. |
 {%- endif %}
-| `github.server_url` | `string` | A URL do servidor do GitHub. Por exemplo: `https://github.com`. | | `github.sha` | `string` | O SHA do commit que acionou a execução do fluxo de trabalho. | | `github.token` | `string` | Um token para efetuar a autenticação em nome do aplicativo instalado no seu repositório. Isso é funcionalmente equivalente ao segredo `GITHUB_TOKEN`. Para obter mais informações, consulte "[Autenticação automática de tokens](/actions/security-guides/automatic-token-authentication)". | | `github.workflow` | `string` | O nome do fluxo de trabalho. Se o fluxo de trabalho não determina um `name` (nome), o valor desta propriedade é o caminho completo do arquivo do fluxo de trabalho no repositório. | | `github.workspace` | `string` | O diretório de trabalho padrão no executor para as etapas e a localidade padrão do seu repositório ao usar a ação [`checkout`](https://github.com/actions/checkout). |
+| `github.server_url` | `string` | A URL do servidor do GitHub. Por exemplo: `https://github.com`. | | `github.sha` | `string` | O SHA do commit que acionou a execução do fluxo de trabalho. | | `github.token` | `string` | Um token para efetuar a autenticação em nome do aplicativo instalado no seu repositório. Isso é funcionalmente equivalente ao segredo `GITHUB_TOKEN`. Para obter mais informações, consulte "[Autenticação automática de tokens](/actions/security-guides/automatic-token-authentication)".  <br /> Observação: Esta propriedade de contexto é definida pelo executor do Actions e só está disponível dentro da execução `etapas` de um trabalho. Caso contrário, o valor desta propriedade será `nulo`. | | `github.workflow` | `string` | O nome do fluxo de trabalho. Se o fluxo de trabalho não determina um `name` (nome), o valor desta propriedade é o caminho completo do arquivo do fluxo de trabalho no repositório. | | `github.workspace` | `string` | O diretório de trabalho padrão no executor para as etapas e a localidade padrão do seu repositório ao usar a ação [`checkout`](https://github.com/actions/checkout). |
 
 ### Exemplo de conteúdo do contexto `github`
 
@@ -453,7 +450,7 @@ O contexto do `executor` contém informações sobre o executor que está execut
 | ------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `runner`            | `objeto` | Esse contexto altera cada trabalho em uma execução de fluxo de trabalho. Este objeto contém todas as propriedades listadas abaixo.                              |
 | `runner.name`       | `string` | {% data reusables.actions.runner-name-description %}
-| `runner.os`         | `string` | {% data reusables.actions.runner-os-description %} |{% if actions-runner-arch-envvars %}
+| `runner.os`         | `string` | {% data reusables.actions.runner-os-description %} |{% ifversion actions-runner-arch-envvars %}
 | `runner.arch`       | `string` | {% data reusables.actions.runner-arch-description %} 
 {% endif %}
 | `runner.temp`       | `string` | {% data reusables.actions.runner-temp-directory-description %}
@@ -702,33 +699,32 @@ jobs:
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4757 %}
 ## Contexto `entradas`
 
-O contexto `entrada` contém propriedades de entrada passada para um fluxo de trabalho reutilizável. Os nomes e tipos de entrada são definidos na configuração do evento de [`workflow_call` ](/actions/learn-github-actions/events-that-trigger-workflows#workflow-reuse-events) de um fluxo de trabalhoreutilizável, e os valores de entrada são passados de [trabalhos de`.<job_id>.com`](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idwith) para um fluxo de trabalho externo que chama o fluxo de trabalho reutilizável.
+The `inputs` context contains input properties passed to a reusable workflow{% ifversion actions-unified-inputs %} or to a manually triggered workflow{% endif %}. {% ifversion actions-unified-inputs %}For reusable workflows, the{% else %}The{% endif %} input names and types are defined in the [`workflow_call` event configuration](/actions/learn-github-actions/events-that-trigger-workflows#workflow-reuse-events) of a reusable workflow, and the input values are passed from [`jobs.<job_id>.with`](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idwith) in an external workflow that calls the reusable workflow. {% ifversion actions-unified-inputs %}For manually triggered workflows, the inputs are defined in the [`workflow_dispatch` event configuration](/actions/learn-github-actions/events-that-trigger-workflows#workflow_dispatch) of a workflow.{% endif %}
 
-Não há propriedades padrão no contexto `entradas`, apenas aquelas definidas no arquivo de fluxo de trabalho reutilizável.
+There are no standard properties in the `inputs` context, only those which are defined in the workflow file.
 
 {% data reusables.actions.reusable-workflows-ghes-beta %}
 
-Para obter mais informações, consulte "[Reutilizando fluxos de trabalho](/actions/learn-github-actions/reusing-workflows)".
-
-| Nome da propriedade   | Tipo                               | Descrição                                                                                                                                                                                                                                                                     |
-| --------------------- | ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `inputs`              | `objeto`                           | Este contexto só está disponível em um [fluxo de trabalho reutilizável](/actions/learn-github-actions/reusing-workflows). Você pode acessar este contexto a partir de qualquer trabalho ou etapa em um fluxo de trabalho. Este objeto contém as propriedades listadas abaixo. |
-| `inputs.<name>` | `string` ou `número` ou `booleano` | Cada valor de entrada é passado de um fluxo de trabalho externo.                                                                                                                                                                                                              |
+| Nome da propriedade   | Tipo                               | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --------------------- | ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `inputs`              | `objeto`                           | This context is only available in a [reusable workflow](/actions/learn-github-actions/reusing-workflows){% ifversion actions-unified-inputs %} or in a workflow triggered by the [`workflow_dispatch` event](/actions/learn-github-actions/events-that-trigger-workflows#workflow_dispatch){% endif %}. Você pode acessar este contexto a partir de qualquer trabalho ou etapa em um fluxo de trabalho. Este objeto contém as propriedades listadas abaixo. |
+| `inputs.<name>` | `string` ou `número` ou `booleano` | Cada valor de entrada é passado de um fluxo de trabalho externo.                                                                                                                                                                                                                                                                                                                                                                                            |
 
 ### Exemplo de conteúdo do contexto `entradas`
 
-O conteúdo de exemplo das `entradas` contexto é de um trabalho em um fluxo de trabalho reutilizável que definiu as entradas de `build_id` e `deploy_target`.
+The following example contents of the `inputs` context is from a workflow that has defined the `build_id`, `deploy_target`, and `perform_deploy` inputs.
 
 ```yaml
 {
   "build_id": 123456768,
-  "deploy_target": "deployment_sys_1a"
+  "deploy_target": "deployment_sys_1a",
+  "perform_deploy": true
 }
 ```
 
-### Exemplo de uso do contexto `entradas`
+### Example usage of the `inputs` context in a reusable workflow
 
-Este exemplo de fluxo de trabalho reutilizável usa o contexto `entradas` para obter os valores das entradas `build_id` e `deploy_target` que foram passadas para o fluxo de trabalho reutilizável do fluxo de trabalho de chamadas.
+This example reusable workflow uses the `inputs` context to get the values of the `build_id`, `deploy_target`, and `perform_deploy` inputs that were passed to the reusable workflow from the caller workflow.
 
 {% raw %}
 ```yaml{:copy}
@@ -749,10 +745,42 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    if: ${{ inputs.perform_deploy == 'true' }}
+    if: ${{ inputs.perform_deploy }}
     steps:
       - name: Deploy build to target
         run: deploy --build ${{ inputs.build_id }} --target ${{ inputs.deploy_target }}
 ```
 {% endraw %}
+
+{% ifversion actions-unified-inputs %}
+### Example usage of the `inputs` context in a manually triggered workflow
+
+This example workflow triggered by a `workflow_dispatch` event uses the `inputs` context to get the values of the `build_id`, `deploy_target`, and `perform_deploy` inputs that were passed to the workflow.
+
+{% raw %}
+```yaml{:copy}
+on:
+  workflow_dispatch:
+    inputs:
+      build_id:
+        required: true
+        type: string
+      deploy_target:
+        required: true
+        type: string
+      perform_deploy:
+        required: true
+        type: boolean
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    if: ${{ inputs.perform_deploy }}
+    steps:
+      - name: Deploy build to target
+        run: deploy --build ${{ inputs.build_id }} --target ${{ inputs.deploy_target }}
+```
+{% endraw %}
+{% endif %}
+
 {% endif %}

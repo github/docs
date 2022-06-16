@@ -1,6 +1,7 @@
 ---
 title: Restaurando un repositorio eliminado
-intro: Los administradores de sitio pueden restablecer repositorios borrados para recuperar sus contenidos.
+intro: Puedes restablecer los repositorios borrados para recuperar su contenido.
+permissions: Enterprise owners can restore a deleted repository.
 versions:
   ghes: '*'
   ghae: '*'
@@ -11,9 +12,11 @@ topics:
 shortTitle: Restablecer un repositorio borrado
 ---
 
-Generalmente, si alguien elimina un repositorio, estará disponible en el disco por 90 días y se puede restablecer mediante el tablero de administración del sitio. A menos de que exista una orden de conservación por razones legales en curso para un usuario u organización, el repositorio se purgará y borrará para siempre después de 90 días.
-
 ## Acerca de la restauración de repositorios
+
+Generalmente, si alguien elimina un repositorio, estará disponible en el disco por 90 días y se puede restablecer mediante el tablero de administración del sitio. Para obtener más información, consulta la sección "[Tablero de administrador de sitio](/admin/configuration/configuring-your-enterprise/site-admin-dashboard)".
+
+A menos de que exista una orden de conservación por razones legales en curso para un usuario u organización, el repositorio se purgará y borrará para siempre después de 90 días.
 
 Si un repositorio fuera parte de una red de bifurcaciones cuando se borró, el repositorio restablecido se desprenderá de la red de bifurcación original.
 

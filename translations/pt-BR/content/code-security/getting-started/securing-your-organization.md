@@ -23,7 +23,7 @@ Este guia mostra como configurar os recursos de segurança de uma organização.
 
 ## Gerenciando o acesso à sua organização
 
-Você pode usar as funções para controlar as ações que as pessoas podem tomar na sua organização. {% if security-managers %}Por exemplo, você pode atribuir o papel de gerente de segurança a uma equipe para que possam gerenciar configurações de segurança em toda a sua organização, assim como acesso de leitura a todos os repositórios.{% endif %} Para obter mais informações, consulte "[Funçõesem uma organização](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)".
+Você pode usar as funções para controlar as ações que as pessoas podem tomar na sua organização. {% ifversion security-managers %}For example, you can assign the security manager role to a team to give them the ability to manage security settings across your organization, as well as read access to all repositories.{% endif %} For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
 
 {% ifversion fpt or ghes > 3.0 or ghec %}
 
@@ -138,7 +138,7 @@ Você pode visualizar e gerenciar alertas de funcionalidades de segurança para 
 {% ifversion fpt or ghec %}Se você tiver uma vulnerabilidade de segurança, você poderá criar uma consultoria de segurança para discutir em privado e corrigir a vulnerabilidade. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_security_advisories %}](/code-security/security-advisories/about-github-security-advisories)" e " "[Criar uma consultoria de segurança](/code-security/security-advisories/creating-a-security-advisory)".
 {% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghec or ghae %}{% ifversion ghes > 3.1 or ghec or ghae %}You{% elsif fpt %}Organizations that use {% data variables.product.prodname_ghe_cloud %}{% endif %} can view, filter, and sort security alerts for repositories owned by {% ifversion ghes > 3.1 or ghec or ghae %}your{% elsif fpt %}their{% endif %} organization in the security overview. For more information, see{% ifversion ghes or ghec or ghae %} "[About the security overview](/code-security/security-overview/about-the-security-overview)."{% elsif fpt %} "[About the security overview](/enterprise-cloud@latest/code-security/security-overview/about-the-security-overview)" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% endif %}{% endif %}
+{% ifversion fpt or ghes > 3.1 or ghec or ghae %}{% ifversion ghes > 3.1 or ghec or ghae %}Você{% elsif fpt %}As organizações que usam {% data variables.product.prodname_ghe_cloud %}{% endif %} podem visualizar, filtrar e ordenar alertas de seguranla para repositórios pertencentes à {% ifversion ghes > 3.1 or ghec or ghae %}sua{% elsif fpt %}their{% endif %} organização na visão geral de segurança. Para obter mais informações, consulte{% ifversion ghes or ghec or ghae %} "[Sobre a visão geral de segurança](/code-security/security-overview/about-the-security-overview).{% elsif fpt %} "[Sobre a visão geral de segurança](/enterprise-cloud@latest/code-security/security-overview/about-the-security-overview)" na documentação de {% data variables.product.prodname_ghe_cloud %} .{% endif %}{% endif %}
 
 
 {% ifversion ghec %}

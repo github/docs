@@ -966,6 +966,40 @@ GitHub Marketplace の購入に関連するアクティビティ。 {% data reus
 
 {{ webhookPayloadsForCurrentVersion.project_column.created }}
 
+{% ifversion project-beta-webhooks %}
+
+## projects_v2_item
+
+{% note %}
+
+**Note:** Webhook events for Projects (beta) are currently in beta and subject to change. To share feedback about Projects (beta) webhooks with {% data variables.product.product_name %}, see the [Projects (beta) webhook feedback discussion](https://github.com/github/feedback/discussions/17405).
+
+{% endnote %}
+
+Activity related to items in a Projects (beta) project. {% data reusables.webhooks.action_type_desc %} For more information, see "[About projects (beta)](/issues/trying-out-the-new-projects-experience/about-projects)."
+
+### 利用の可否
+
+- Organization webhook
+- {% data variables.product.prodname_github_apps %} with the `organization_projects` permission
+
+### webhook ペイロードオブジェクト
+
+| キー                 | 種類       | 説明                                                                                                                                                                                                                                                                                                                                                                                    |
+| ------------------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `action`           | `string` | The action that was performed on the project item. Can be one of `archived`, `converted`, `created`, `edited`, `restored`, `deleted`, or `reordered`.                                                                                                                                                                                                                                 |
+| `projects_v2_item` | `オブジェクト` | The project item itself. To find more information about the project item, you can use `node_id` (the node ID of the project item) and `project_node_id` (the node ID of the project) to query information in the GraphQL API. For more information, see "[Using the API to manage projects (beta)](/issues/trying-out-the-new-projects-experience/using-the-api-to-manage-projects)." |
+| `changes`          | `オブジェクト` | The changes to the project item.                                                                                                                                                                                                                                                                                                                                                      |
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
+
+### webhook ペイロードの例
+
+{{ webhookPayloadsForCurrentVersion.projects_v2_item.created }}
+
+{% endif %}
+
 ## public
 
 {% data reusables.webhooks.public_short_desc %}
@@ -1305,6 +1339,34 @@ The security advisory dataset also powers the GitHub {% data variables.product.p
 
 {% endif %}
 
+{% ifversion ghas-enablement-webhook %}
+
+## security_and_analysis
+
+Activity related to enabling or disabling code security and analysis features for a repository or organization.
+
+### 利用の可否
+
+- リポジトリ webhook
+- Organization webhook
+- リポジトリ管理者に少なくとも `read-only` アクセス権限がある{% data variables.product.prodname_github_apps %}
+
+### webhook ペイロードオブジェクト
+
+| キー        | 種類       | 説明                                                                     |
+| --------- | -------- | ---------------------------------------------------------------------- |
+| `changes` | `オブジェクト` | The changes that were made to the code security and analysis features. |
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
+
+### webhook ペイロードの例
+
+{{ webhookPayloadsForCurrentVersion.security_and_analysis }}
+
+{% endif %}
+
 {% ifversion fpt or ghec %}
 ## スポンサーシップ
 
@@ -1482,6 +1544,17 @@ The security advisory dataset also powers the GitHub {% data variables.product.p
 ### 利用の可否
 
 - この webhook を受信するには、{% data variables.product.prodname_github_apps %} に `contents` 権限が必要です。
+
+### webhook ペイロードオブジェクト
+
+| キー       | 種類       | 説明                                                                                                                     |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------------------- |
+| `inputs` | `オブジェクト` | Inputs to the workflow. Each key represents the name of the input while it's value represents the value of that input. |
+{% data reusables.webhooks.org_desc %}
+| `ref` | `string` | The branch ref from which the workflow was run. |
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.sender_desc %}
+| `workflow` | `string` | Relative path to the workflow file which contains the workflow. |
 
 ### webhook ペイロードの例
 

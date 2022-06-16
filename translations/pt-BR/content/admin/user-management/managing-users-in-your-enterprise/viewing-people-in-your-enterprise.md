@@ -23,33 +23,33 @@ Você pode ver todos os integrantes atuais da empresa e administradores da empre
 
 ## Visualizando os administradores corporativos
 
-Você pode visualizar todos os atuais proprietários da empresa{% ifversion ghec %} e gerentes de cobrança{% endif %} para a sua empresa.{% if enterprise-membership-view-improvements %} Você pode ver informações úteis sobre cada administrador{% ifversion ghec %} e filtrar a lista por função{% endif %}.{% endif %} Você pode encontrar uma pessoa específica pesquisando o nome de usuário ou nome de exibição.
+Você pode visualizar todos os atuais proprietários da empresa{% ifversion ghec %} e gerentes de cobrança{% endif %} para a sua empresa.{% ifversion enterprise-membership-view-improvements %} Você pode ver informações úteis sobre cada administrador{% ifversion ghec %} e filtrar a lista por função{% endif %}.{% endif %} Você pode encontrar uma pessoa específica pesquisando o nome de usuário ou nome de exibição.
 
 {% ifversion not ghae %}
-Você também pode remover um administrador. For more information. consulte "[convidando pessoas para gerenciar sua empresa](/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise#removing-an-enterprise-administrator-from-your-enterprise-account)".
+Você também pode remover um administrador. Para mais informações. consulte "[convidando pessoas para gerenciar sua empresa](/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise#removing-an-enterprise-administrator-from-your-enterprise-account)".
 {% endif %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
 {% data reusables.enterprise-accounts.administrators-tab %}
 
-## Visualizando integrantes {% if enterprise-membership-view-improvements %}{% else %}e colaboradores externos{% endif %}
+## Visualizando integrantes {% ifversion enterprise-membership-view-improvements %}{% else %}e colaboradores externos{% endif %}
 
-Você pode visualizar todos os integrantes atuais {% if enterprise-membership-view-improvements %}{% else %}ou colaboradores externos{% endif %} para a sua empresa. Você pode visualizar as informações úteis sobre cada conta e filtrar a lista de formas úteis, como por função. Ou localizar uma determinada pessoa procurando pelo nome de usuário ou o nome de exibição dela.
+Você pode visualizar todos os integrantes atuais {% ifversion enterprise-membership-view-improvements %}{% else %}ou colaboradores externos{% endif %} para a sua empresa. Você pode visualizar as informações úteis sobre cada conta e filtrar a lista de formas úteis, como por função. Ou localizar uma determinada pessoa procurando pelo nome de usuário ou o nome de exibição dela.
 
 Você pode ver mais informações sobre o acesso da pessoa à sua empresa como, por exemplo, as organizações às quais a pessoa pertence, clicando no nome da pessoa.
 
-{% if remove-enterprise-members %}
+{% ifversion remove-enterprise-members %}
 Você também pode remover qualquer integrante da empresa de todas as organizações pertencentes à empresa. Para obter mais informações, consulte "[Removendo um integrante da sua empresa](/admin/user-management/managing-users-in-your-enterprise/removing-a-member-from-your-enterprise)."
 {% endif %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.people-tab %}{% if enterprise-membership-view-improvements %}{% else %}
+{% data reusables.enterprise-accounts.people-tab %}{% ifversion enterprise-membership-view-improvements %}{% else %}
 1. Como alternativa, clique em **Outside collaborators** (Colaboradores externos) para exibir uma lista deles em vez de uma lista de integrantes.
 
    ![Guia de colaboradores externos na página de integrantes da empresa](/assets/images/help/business-accounts/outside-collaborators-tab.png){% endif %}
 
-{% if enterprise-membership-view-improvements %}
+{% ifversion enterprise-membership-view-improvements %}
 ## Visualizando colaboradores externos
 
 Você pode ver todos os colaboradores externos atuais da sua empresa. Você pode ver informações úteis sobre cada colaborador e filtrar a lista de formas úteis, por exemplo, por organização. Você pode encontrar um colaborador específico pesquisando o nome de usuário ou nome de exibição.
@@ -68,13 +68,13 @@ Você pode ver mais informações sobre o acesso da pessoa à sua empresa como, 
 {% ifversion ghec %}
 ## Visualizando convites pendentes
 
-You can see all the pending invitations to become members, administrators, or outside collaborators in your enterprise. É possível filtrar a lista de forma útil, por exemplo, por organização. Ou localizar uma determinada pessoa procurando pelo nome de usuário ou o nome de exibição dela.
+É possível ver todos os convites pendentes para se tornarem integrantes, administradores ou colaboradores externos na sua empresa. É possível filtrar a lista de forma útil, por exemplo, por organização. Ou localizar uma determinada pessoa procurando pelo nome de usuário ou o nome de exibição dela.
 
-In the list of pending members, for any individual account, you can cancel all invitations to join organizations owned by your enterprise. This does not cancel any invitations for that same person to become an enterprise administrator or outside collaborator.
+Na lista de integrantes pendentes, para qualquer conta individual, você pode cancelar todos os convites para participar de organizações pertencentes à sua empresa. Isto não cancela nenhum convite para que essa mesma pessoa se torne administrador corporativo ou colaborador externo.
 
 {% note %}
 
-**Note:** If an invitation was provisioned via SCIM, you must cancel the invitation via your identity provider (IdP) instead of on {% data variables.product.prodname_dotcom %}.
+**Observação:** Se um convite foi fornecido via SCIM, você deve cancelar o convite pelo seu provedor de identidade (IdP) em vez de {% data variables.product.prodname_dotcom %}.
 
 {% endnote %}
 
@@ -85,9 +85,9 @@ Se você usar {% data variables.product.prodname_vss_ghe %}, a lista de convites
 1. Em "Pessoas", clique em **Convites pendentes.**.
 
    ![Captura de tela da aba "Convites pendentes" na barra lateral](/assets/images/help/enterprises/pending-invitations-tab.png)
-1. Optionally, to cancel all invitations for an account to join organizations owned by your enterprise, to the right of the account, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **Cancel invitation**.
+1. Opcionalmente, para cancelar todos os convites de uma conta para participar de organizações pertencentes à sua empresa, à direita da conta, clique em {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} e depois clique em **Cancelar convite**.
 
-   ![Screenshot of the "Cancel invitation" button](/assets/images/help/enterprises/cancel-enterprise-member-invitation.png)
+   ![Captura de tela do botão "Cancelar convite"](/assets/images/help/enterprises/cancel-enterprise-member-invitation.png)
 1. Opcionalmente, para visualizar os convites pendentes para administradores corporativos ou colaboradores externos, em "Integrantes pendentes", clique em **Administradores** ou **Colaboradores externos**.
 
    ![Captura de tela das abas "Membros", "Administradores", e "Colaboradores externos"](/assets/images/help/enterprises/pending-invitations-type-tabs.png)
@@ -106,6 +106,17 @@ Se sua empresa usa {% data variables.product.prodname_emus %}, você também pod
 ## Exibir usuários inativos
 
 Você pode ver uma lista de todos os usuários desativados {% ifversion ghes or ghae %} que não foram suspensos e {% endif %}que não são administradores do site. {% data reusables.enterprise-accounts.dormant-user-activity-threshold %} Para obter mais informações, consulte "[Gerenciar usuários inativos](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users)".
+
+{% ifversion ghec or ghes > 3.1 %}
+## Visualizando os integrantes sem um endereço de e-mail de um domínio verificado
+
+Você pode visualizar uma lista de integrantes da sua empresa que não têm um endereço de e-mail a partir de um domínio verificado associado à sua conta de usuário em {% data variables.product.prodname_dotcom_the_website %}.
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.verified-domains-tab %}
+1. Em "Preferências de notificação", clique no link {% octicon "eye" aria-label="The github eye icon" %} **Exibir integrantes corporativos sem um e-mail de domínio aprovado ou verificado**.
+{% endif %}
 
 ## Leia mais
 

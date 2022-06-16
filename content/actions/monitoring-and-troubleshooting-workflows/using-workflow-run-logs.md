@@ -63,7 +63,7 @@ You can download the log files from your workflow run. You can also download a w
   ![Download logs drop-down menu](/assets/images/help/repository/download-logs-drop-down-updated-2.png)
   
 
-  {% if re-run-jobs %}
+  {% ifversion re-run-jobs %}
 
   {% note %}
 

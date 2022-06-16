@@ -42,6 +42,12 @@ Se sua organização não exigir certificados SSH, os integrantes poderão conti
 
 A cada emissão de certificado, você deve incluir uma extensão especificando para qual usuário do {% data variables.product.product_name %} é o certificado. Por exemplo, você pode usar o comando do OpenSSH `ssh-keygen` substituindo _KEY-IDENTITY_ por sua identidade chave e _USERNAME_ por um nome de usuário do {% data variables.product.product_name %}. O certificado que você gerar será autorizado a agir em nome desse usuário para qualquer um dos recursos da sua organização. Certifique-se de validar a identidade do usuário antes de emitir o certificado.
 
+{% note %}
+
+**Observação:** Você deve atualizar para o OpenSSH 7.6 ou posterior para usar esses comandos.
+
+{% endnote %}
+
 ```shell
 $ ssh-keygen -s ./ca-key -V '+1d' -I <em>KEY-IDENTITY</em> -O extension:login@{% data variables.product.product_url %}=<em>USERNAME</em> ./user-key.pub
 ```

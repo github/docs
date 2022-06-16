@@ -45,7 +45,7 @@ O gráfico de dependências inclui todas as dependências de um repositório det
 
 O gráfico de dependências identifica as dependências indiretas{% ifversion fpt or ghec %} explicitamente a partir de um arquivo de bloqueio ou verificando as dependências das suas dependências diretas. Para o gráfico mais confiável, você deve usar os arquivos de bloqueio (ou o equivalente deles), pois definem exatamente quais versões das dependências diretas e indiretas você usa atualmente. Se você usar arquivos de bloqueio, você também terá certeza de que todos os contribuidores do repositório usarão as mesmas versões, o que facilitará para você testar e depurar o código{% else %} dos arquivos de bloqueio{% endif %}.
 
-For more information on how {% data variables.product.product_name %} helps you understand the dependencies in your environment, see "[About supply chain security](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security)."
+Para obter mais informações sobre como {% data variables.product.product_name %} ajuda você a entender as dependências do seu ambiente, consulte "[Sobre a segurança da cadeia de suprimentos](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security)."
 
 {% ifversion fpt or ghec %}
 
@@ -66,35 +66,41 @@ Você pode usar o gráfico de dependências para:
 
 Os formatos recomendados definem explicitamente quais versões são usadas para todas as dependências diretas e indiretas. Se você usar esses formatos, seu gráfico de dependências será mais preciso. Ele também reflete a configuração da criação atual e permite que o gráfico de dependências relate vulnerabilidades em dependências diretas e indiretas.{% ifversion fpt or ghec %} As dependências indiretas, inferidas a partir de um arquivo de manifesto (ou equivalente), são excluídas das verificações de dependências vulneráveis.{% endif %}
 
-| Gerenciador de pacotes | Linguagem                        | Formatos recomendados                                  | Todos os formatos compatíveis                                             |
-| ---------------------- | -------------------------------- | ------------------------------------------------------ | ------------------------------------------------------------------------- |
-| Composer               | PHP                              | `composer.lock`                                        | `composer.json`, `composer.lock`                                          |
-| NuGet                  | .NET languages (C#, F#, VB), C++ | `.csproj`, `.vbproj`, `.nuspec`, `.vcxproj`, `.fsproj` | `.csproj`, `.vbproj`, `.nuspec`, `.vcxproj`, `.fsproj`, `packages.config` |
+| Gerenciador de pacotes | Linguagem | Formatos recomendados | Todos os formatos compatíveis |
+| ---------------------- | --------- | --------------------- | ----------------------------- |
+|                        |           |                       |                               |
 
-{%- if github-actions-in-dependency-graph %}
-| Fluxos de trabalho de {% data variables.product.prodname_actions %}
+{%- ifversion dependency-graph-rust-support %}
+| Cargo
 
-<sup>[1]</sup> | YAML | `.yml`, `.yaml` | `.yml`, `.yaml` |
+<sup>[*]</sup> | Rust | `Cargo.lock` | `Cargo.toml`, `Cargo.lock` | 
 {%- endif %}
-{%- ifversion fpt or ghes > 3.2 or ghae %}
-| Módulos do Go | Go | `go.sum` | `go.mod`, `go.sum` |
+| Composer             | PHP           | `composer.lock` | `composer.json`, `composer.lock` | | NuGet | .NET languages (C#, F#, VB), C++  |   `.csproj`, `.vbproj`, `.nuspec`, `.vcxproj`, `.fsproj` |  `.csproj`, `.vbproj`, `.nuspec`, `.vcxproj`, `.fsproj`, `packages.config` |
+{%- ifversion github-actions-in-dependency-graph %}
+| {% data variables.product.prodname_actions %} workflows<sup>[†]</sup> | YAML | `.yml`, `.yaml` | `.yml`, `.yaml` |
+{%- endif %}
+{%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
+| Go modules | Go | `go.sum` | `go.mod`, `go.sum` |
 {%- elsif ghes = 3.2 %}
-| Módulos do Go | Go | `go.mod` | `go.mod` |
+| Go modules | Go | `go.mod` | `go.mod` |
 {%- endif %}
-| Maven | Java, Scala |  `pom.xml`  | `pom.xml`  | | npm | JavaScript |            `package-lock.json` | `package-lock.json`, `package.json`| | pip             | Python                    | `requirements.txt`, `pipfile.lock` | `requirements.txt`, `pipfile`, `pipfile.lock`, `setup.py`{% if github-actions-in-dependency-graph %}<sup>[2]</sup>{% else %}<sup>[1]</sup>{% endif %}
+| Maven | Java, Scala |  `pom.xml`  | `pom.xml`  | | npm | JavaScript |            `package-lock.json` | `package-lock.json`, `package.json`| | pip             | Python                    | `requirements.txt`, `pipfile.lock` | `requirements.txt`, `pipfile`, `pipfile.lock`, `setup.py`<sup>[‡]</sup> |
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4752 %}
-| Python Poetry | Python                    | `poetry.lock` | `poetry.lock`, `pyproject.toml` |{% endif %} | RubyGems             | Ruby           | `Gemfile.lock` | `Gemfile.lock`, `Gemfile`, `*.gemspec` | | Yarn | JavaScript | `yarn.lock` | `package.json`, `yarn.lock` |
+| Python Poetry | Python                    | `poetry.lock` | `poetry.lock`, `pyproject.toml` |
+{%- endif %}
+| RubyGems             | Ruby           | `Gemfile.lock` | `Gemfile.lock`, `Gemfile`, `*.gemspec` | | Yarn | JavaScript | `yarn.lock` | `package.json`, `yarn.lock` |
 
-{% if github-actions-in-dependency-graph %}
-[1] Observe que os fluxos de trabalho de {% data variables.product.prodname_actions %} devem estar localizados no diretório `.github/workflows/` de um repositório para serem reconhecidos como manifestos. Todas as ações ou fluxos de trabalho referenciados que usam a sintaxe `jobs[*].steps[*].uses` or `jobs.<job_id>.uses` serão analisados como dependências. Para obter mais informações, consulte " Sintaxe de fluxo de trabalho[para o GitHub Actions](/actions/using-workflows/workflow-syntax-for-github-actions)".
-
-[2] Se você listar suas dependências do Python nas no arquivo `setup.py`, é possível que não possamos analisar e listar todas as dependências do seu projeto.
-
-{% else %}
-[1] Se você listar suas dependências do Python no arquivo `setup.py`, é possível que não possamos analisar e listar todas as dependências do seu projeto.
+{% ifversion dependency-graph-rust-support %}
+[*] For the initial release of Rust support, dependency graph does not have the metadata and mappings required to detect transitive dependencies. Dependency graph displays transitive dependencies, one level deep, when they are defined in a `Cargo.lock` file. {% data variables.product.prodname_dependabot_alerts %} and {% data variables.product.prodname_dependabot_security_updates %} are available for vulnerable dependencies defined in the `Cargo.lock` file.
 {% endif %}
 
-{% if github-actions-in-dependency-graph %}
+{% ifversion github-actions-in-dependency-graph %}
+[†] {% data variables.product.prodname_actions %} workflows must be located in the `.github/workflows/` directory of a repository to be recognized as manifests. Todas as ações ou fluxos de trabalho referenciados que usam a sintaxe `jobs[*].steps[*].uses` or `jobs.<job_id>.uses` serão analisados como dependências. Para obter mais informações, consulte "[Sintaxe de fluxo de trabalho para o {% data variables.product.prodname_actions %}](/actions/using-workflows/workflow-syntax-for-github-actions)".
+{% endif %}
+
+[‡] If you list your Python dependencies within a `setup.py` file, we may not be able to parse and list every dependency in your project.
+
+{% ifversion github-actions-in-dependency-graph %}
 {% note %}
 
 **Observação:** As dependências do fluxo de trabalho de {% data variables.product.prodname_actions %} são exibidas no gráfico de dependências para fins informativos. Os alertas de dependência não são atualmente compatíveis com os fluxos de trabalho de {% data variables.product.prodname_actions %}.

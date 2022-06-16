@@ -77,3 +77,9 @@ Organization オーナー、およびリポジトリにプッシュアクセス�
   >
   request-checks: true"
   ```
+
+{% ifversion fpt or ghec %}
+### Retention of status checks
+
+{% data reusables.pull_requests.retention-checks-data %}
+{% endif %}
