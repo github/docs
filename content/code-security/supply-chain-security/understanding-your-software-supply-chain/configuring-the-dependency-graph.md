@@ -25,7 +25,7 @@ For more information, see "[About the dependency graph](/code-security/supply-ch
 ## About configuring the dependency graph 
 To generate a dependency graph, {% data variables.product.product_name %} needs read-only access to the dependency manifest and lock files for a repository. The dependency graph is automatically generated for all public repositories and you can choose to enable it for private repositories. For more information on viewing the dependency graph, see "[Exploring the dependencies of a repository](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository)."
 
-{% ifversion dependency-submission-api %}{% data reusables.dependency-submission.dependency-submission-link %}{% endif %}
+{% data reusables.dependency-submission.dependency-submission-link %}
 {% endif %}
 
 {% ifversion ghes %} ## Enabling the dependency graph
