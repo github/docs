@@ -24,7 +24,7 @@ If you use a JetBrains IDE, you can view and incorporate suggestions from {% dat
 To use {% data variables.product.prodname_copilot %} in a JetBrains IDE, you must install the {% data variables.product.prodname_copilot %} extension.
 
 1. In your JetBrains IDE, under the **File** menu, click **Settings**.
-1. At the top of the "Settings" dialogue box, click **Marketplace**. In the search bar, search for **{% data variables.product.prodname_copilot %}** and click **Install**.
+1. At the top of the "Settings" dialog box, click **Marketplace**. In the search bar, search for **{% data variables.product.prodname_copilot %}** and click **Install**.
    ![Screenshot of Marketplace search](/assets/images/help/copilot/jetbrains-marketplace.png)
 1. After {% data variables.product.prodname_copilot %} is installed, click **Restart IDE**.
 1. Once your JetBrains IDE has restarted, in the **Tools** menu, under **{% data variables.product.prodname_copilot %}**, click **Login to {% data variables.product.prodname_dotcom %}**. 
