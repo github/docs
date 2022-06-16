@@ -40,7 +40,7 @@ If you don't want to use the default keyboard shortcuts in {% data variables.pro
 1. Under "Press shortcut keys", type the shorcut you want to assign to the command, then click **Assign**.
    ![Screenshot of the keyboard shortcut assignment](/assets/images/help/copilot/vs-rebind-shortcut.png)
 
-{% data reusables.copilot.enabling-and-disabling-vs %}
+{% data reusables.copilot.enabling-or-disabling-vs %}
 
 ## Configuring ReSharper for {% data variables.product.prodname_copilot %}
 

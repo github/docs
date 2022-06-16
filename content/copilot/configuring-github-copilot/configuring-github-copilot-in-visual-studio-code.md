@@ -77,7 +77,7 @@ If you don't want to use the default keyboard shortcuts in {% data variables.pro
 1. Type the keystrokes you want to use for the command, then press <kbd>Enter</kbd>/<kbd>Return</kbd>.
 ![Screenshot of Edit keyboard shortcut textbox](/assets/images/help/copilot/vsc-edit-shortcuts-textbox.png)
 
-{% data reusables.copilot.enabling-and-disabling-in-vsc %}
+{% data reusables.copilot.enabling-or-disabling-in-vsc %}
 
 ## Enabling or disabling inline suggestions
 
