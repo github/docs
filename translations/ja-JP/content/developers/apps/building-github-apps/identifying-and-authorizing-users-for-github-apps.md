@@ -159,7 +159,7 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 
 ## ユーザからサーバーへのリクエスト
 
-While most of your API インタラクションのほとんどは、サーバーからサーバーへのインストールアクセストークンを用いて行われますが、一部のエンドポイントでは、ユーザアクセストークンを使用し、API 経由でアクションを実行できます。 [GraphQL v4]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql) または [REST v3](/rest) エンドポイントを使用して、アプリケーションは次のリクエストを行うことができます。
+While most of your API インタラクションのほとんどは、サーバーからサーバーへのインストールアクセストークンを用いて行われますが、一部のエンドポイントでは、ユーザアクセストークンを使用し、API 経由でアクションを実行できます。 Your app can make the following requests using [GraphQL]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql) or [REST](/rest) endpoints.
 
 ### 対応しているエンドポイント
 
