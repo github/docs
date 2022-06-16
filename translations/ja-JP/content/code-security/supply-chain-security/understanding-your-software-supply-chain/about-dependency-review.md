@@ -50,11 +50,19 @@ redirect_from:
 
 {% data reusables.dependency-review.dependency-review-action-beta-note %}
 
-Dependency Review GitHub Actionをリポジトリで使って、Pull Requestに対する依存関係レビューを施行できます。 このアクションは、Pull Request中のパッケージバージョンの変更によってもたらされる依存関係の脆弱なバージョンをスキャンし、関連するセキュリティ脆弱性について警告してくれます。 これによって、Pull Requestで何が変更されるかが見えやすくなり、リポジトリに脆弱性が追加されることを避けやすくなります。 詳しい情報については[`dependency-review-action`](https://github.com/actions/dependency-review-action)を参照してください。
+The action is available for all {% ifversion fpt or ghec %}public repositories, as well as private {% endif %}repositories that have {% data variables.product.prodname_GH_advanced_security %} enabled.
+
+You can use the {% data variables.product.prodname_dependency_review_action %} in your repository to enforce dependency reviews on your pull requests. このアクションは、Pull Request中のパッケージバージョンの変更によってもたらされる依存関係の脆弱なバージョンをスキャンし、関連するセキュリティ脆弱性について警告してくれます。 これによって、Pull Requestで何が変更されるかが見えやすくなり、リポジトリに脆弱性が追加されることを避けやすくなります。 詳しい情報については[`dependency-review-action`](https://github.com/actions/dependency-review-action)を参照してください。
 
 ![依存関係レビューアクションの例](/assets/images/help/graphs/dependency-review-action.png)
 
-Dependency Review GitHub Actionのチェックは、脆弱性のあるパッケージを見つけると失敗しますが、リポジトリのオーナーがマージの前にチェックをパスすることを必須としている場合にのみ、そのPull Requestがマージされるのをブロックします。 詳しい情報については、「[保護されたブランチについて](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-status-checks-before-merging)」を参照してください。
+By default, the {% data variables.product.prodname_dependency_review_action %} check will fail if it discovers any vulnerable packages. A failed check blocks a pull request from being merged when the repository owner requires the dependency review check to pass. 詳しい情報については、「[保護されたブランチについて](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-status-checks-before-merging)」を参照してください。
 
 このアクションはDependency Review REST APIを使ってベースコミットとheadコミット間の依存関係の変化のdiffを取得します。 Dependency Review API を使って、リポジトリでの任意の2つのコミット間の脆弱性のデータを含む依存関係の変化のdiffを取ることができます。 詳しい情報については「[依存関係レビュー](/rest/reference/dependency-graph#dependency-review)」を参照してください。
+
+{% ifversion dependency-review-action-configuration %}
+You can configure the {% data variables.product.prodname_dependency_review_action %} to better suit your needs. For example, you can specify the severity level that will make the action fail, or set an allow or deny list for licenses to scan. For more information, see "[Configuring dependency review](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review#configuring-the-dependency-review-github-action)."
 {% endif %}
+
+{% endif %}
+

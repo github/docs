@@ -36,9 +36,14 @@ shortTitle: 查看依赖项更改
 依赖关系审核允许您“左移”。 您可以使用所提供的预测信息在易受攻击的依赖项进入生产之前捕获它们。 更多信息请参阅“[关于依赖项审查](/code-security/supply-chain-security/about-dependency-review)”。
 
 {% ifversion fpt or ghec or ghes > 3.5 or ghae-issue-6396 %}
-可以使用依赖项审查 GitHub 操作来帮助对存储库中的拉取请求强制实施依赖项审查。 更多信息请参阅“[依赖项审查实施](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review#dependency-review-enforcement)”。
+
+You can use the {% data variables.product.prodname_dependency_review_action %} to help enforce dependency reviews on pull requests in your repository. {% data reusables.dependency-review.dependency-review-action-overview %}
+
+{% ifversion dependency-review-action-configuration %}
+You can configure the {% data variables.product.prodname_dependency_review_action %} to better suit your needs by specifying the type of dependency vulnerability you wish to catch. For more information, see "[Configuring dependency review](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review#configuring-the-dependency-review-github-action)."
 {% endif %}
 
+{% endif %}
 ## 审查拉取请求中的依赖项
 
 {% data reusables.repositories.sidebar-pr %}

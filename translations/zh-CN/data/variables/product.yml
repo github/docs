@@ -45,6 +45,8 @@ prodname_classroom: 'GitHub 课堂'
 prodname_classroom_with_url: '[GitHub Classroom](https://classroom.github.com/login)'
 prodname_campus_program: 'GitHub 校园计划'
 prodname_student_pack: 'GitHub Student Developer Pack'
+prodname_global_campus: 'GitHub Global Campus'
+prodname_community_exchange: 'GitHub Community Exchange'
 #GitHub CLI
 prodname_cli: 'GitHub CLI'
 #GitHub Desktop
@@ -141,6 +143,7 @@ prodname_code_scanning_capc: '代码扫描'
 prodname_codeql_runner: 'CodeQL runner'
 prodname_advisory_database: 'GitHub Advisory Database'
 prodname_codeql_workflow: 'CodeQL 分析工作流程'
+prodname_dependency_review_action: 'Dependency Review GitHub Action'
 #Visual Studio
 prodname_vs: 'Visual Studio'
 prodname_vscode_shortname: 'VS 代码'

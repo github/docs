@@ -1,6 +1,6 @@
 ---
 title: 恢复已删除的仓库
-intro: You can restore deleted repositories to recover their contents.
+intro: 您可以恢复已删除的仓库来恢复其内容。
 permissions: Enterprise owners can restore a deleted repository.
 versions:
   ghes: '*'

@@ -57,4 +57,10 @@ SSH 接続をテストする前に、次のことを済ませておく必要が�
 
   {% endlinux %}
 
+   {% note %}
+
+   **Note:** The remote command should exit with code 1.
+
+   {% endnote %}
+
 4. 出力されたメッセージに、あなたのユーザ名が含まれていることを確認します。 「permission denied」メッセージを受け取った場合、「[Error: Permission denied (publickey)](/articles/error-permission-denied-publickey)」を参照してください。
