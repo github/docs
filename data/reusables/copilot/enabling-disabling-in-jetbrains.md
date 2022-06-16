@@ -1,4 +1,4 @@
-## Enabling and disabling {% data variables.product.prodname_copilot %}
+## Enabling or disabling {% data variables.product.prodname_copilot %}
 
 You can enable or disable {% data variables.product.prodname_copilot %} from within JetBrains. The {% data variables.product.prodname_copilot %} status icon in the bottom panel of the JetBrains window indicates whether {% data variables.product.prodname_copilot %} is enabled or disabled. When enabled, the icon is highlighted. When disabled, the icon is grayed out.
 

@@ -1,7 +1,7 @@
 ---
 title: Configuring GitHub Copilot
 shortTitle: Configure GitHub Copilot
-intro: 'ADD INTRO.'
+intro: 'You can enable, configure, or disable {% data variables.product.prodname_copilot %} in a supported IDE.'
 versions:
   feature: 'copilot'
 topics:
@@ -9,6 +9,6 @@ topics:
 children:
   - /configuring-github-copilot-in-visual-studio-code
   - /configuring-github-copilot-in-visual-studio
-  - /configuring-github-copilot-in-neovim
   - /configuring-github-copilot-in-a-jetbrains-ide
+  - /configuring-github-copilot-in-neovim
 ---

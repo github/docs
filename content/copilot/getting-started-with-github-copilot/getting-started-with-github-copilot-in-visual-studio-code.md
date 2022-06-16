@@ -105,7 +105,7 @@ You can also use {% data variables.product.prodname_copilot %} to generate sugge
    ```
 1. To accept each line, press <kbd>Tab</kbd>.
 
-{% data reusables.copilot.enabling-and-disabling-in-vsc %}
+{% data reusables.copilot.enabling-or-disabling-in-vsc %}
 
 ## Further reading
 
