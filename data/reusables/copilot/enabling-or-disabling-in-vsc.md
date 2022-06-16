@@ -1,4 +1,4 @@
-## Enabling and disabling {% data variables.product.prodname_copilot %}
+## Enabling or disabling {% data variables.product.prodname_copilot %}
 
 You can enable or disable {% data variables.product.prodname_copilot %} from within {% data variables.product.prodname_vscode %}. The {% data variables.product.prodname_copilot %} status icon in the bottom panel of the {% data variables.product.prodname_vscode %} window indicates whether {% data variables.product.prodname_copilot %} is enabled or disabled. When enabled, the background color of the icon will match the color of the status bar. When disabled, the background color of the icon will contrast with the color of the status bar.
 
