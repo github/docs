@@ -26,13 +26,11 @@ topics:
 {% data reusables.dependabot.beta-security-and-version-updates %}
 {% data reusables.dependabot.enterprise-enable-dependabot %}
 
-仓库的 {% data variables.product.prodname_dependabot_alerts %} 选项卡列出所有打开和关闭的 {% data variables.product.prodname_dependabot_alerts %}{% ifversion fpt or ghec or ghes > 3.2 %} 以及对应的 {% data variables.product.prodname_dependabot_security_updates %}{% endif %}。 可以{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5638 %} 按程序包、生态系统或清单筛选警报。 您还可以{% endif %} 对警报列表进行排序，单击特定警报以获取更多详细信息。 更多信息请参阅“[关于 {% data variables.product.prodname_dependabot_alerts %} 警报](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)”。
+仓库的 {% data variables.product.prodname_dependabot_alerts %} 选项卡列出所有打开和关闭的 {% data variables.product.prodname_dependabot_alerts %}{% ifversion fpt or ghec or ghes > 3.2 %} 以及对应的 {% data variables.product.prodname_dependabot_security_updates %}{% endif %}。 可以{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5638 %} 按程序包、生态系统或清单筛选警报。 您可以{% endif %} 对警报列表进行排序，单击特定警报以获取更多详细信息。 {% ifversion dependabot-bulk-alerts %}您还可以逐个关闭或重新打开警报，也可以一次选择多个警报。{% else %}您还可以关闭或重新打开警报。 {% endif %} 更多信息请参阅“[关于 {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)”。
 
 {% ifversion fpt or ghec or ghes > 3.2 %}
 您可以为使用 {% data variables.product.prodname_dependabot_alerts %} 和依赖关系图的任何仓库启用自动安全更新。 更多信息请参阅“[关于 {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates)“。
 {% endif %}
-
-{% data reusables.repositories.dependency-review %}
 
 {% ifversion fpt or ghec or ghes > 3.2 %}
 ## 关于仓库中有漏洞的依赖项的更新
@@ -70,18 +68,20 @@ topics:
 
 ![显示警报的并带有"有漏洞的调用"标签的警报详细信息页面屏幕截图](/assets/images/help/repository/review-calls-to-vulnerable-functions.png)
 
-更多信息请参阅下面的“[查看和修复有漏洞的依赖项](#reviewing-and-fixing-vulnerable-dependencies)”。
+更多信息请参阅下面的“[查看和修复警报](#reviewing-and-fixing-alerts)”。
 
 {% endif %}
 
-## 查看有漏洞的依赖项
+## 查看 {% data variables.product.prodname_dependabot_alerts %}
 
 {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5638 %}
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-dependabot-alerts %}
-1. （可选）若要筛选警报，请选择 **Repository（仓库）**、**Package（包）**、**Ecosystem（生态系统）**或 **Manifest（清单）**下拉菜单，然后单击要应用的筛选器。 您还可以在搜索栏中键入过滤条件。 例如 `ecosystem:npm` 或 `has:patch`。 要对警报进行排序，请选择 **Sort（排序）**下拉菜单，然后单击要作为排序依据的选项。 ![{% data variables.product.prodname_dependabot_alerts %} 选项卡中过滤器和排序菜单的屏幕截图](/assets/images/help/graphs/dependabot-alerts-filters.png)
-1. 单击要查看的警报。 ![在警报列表中选择的警报](/assets/images/help/graphs/click-alert-in-alerts-list-ungrouped.png)
+1. （可选）若要筛选警报，请选择 **Repository（仓库）**、**Package（包）**、**Ecosystem（生态系统）**或 **Manifest（清单）**下拉菜单，然后单击要应用的筛选器。 您还可以在搜索栏中键入过滤条件。 例如 `ecosystem:npm` 或 `has:patch`。 要对警报进行排序，请选择 **Sort（排序）**下拉菜单，然后单击要作为排序依据的选项。{% ifversion dependabot-bulk-alerts %} ![Screenshot of the filter and sort menus in the {% data variables.product.prodname_dependabot_alerts %} tab](/assets/images/help/graphs/dependabot-alerts-filters-checkbox.png){% else %}
+![Screenshot of the filter and sort menus in the {% data variables.product.prodname_dependabot_alerts %} tab](/assets/images/enterprise/3.5/dependabot/dependabot-alerts-filters.png){% endif %}
+2. 单击要查看的警报。{% ifversion dependabot-bulk-alerts %} ![Alert selected in list of alerts](/assets/images/help/graphs/click-alert-in-alerts-list-checkbox.png){% else %}
+![Alert selected in list of alerts](/assets/images/enterprise/3.5/dependabot/click-alert-in-alerts-list-ungrouped.png){% endif %}
 
 {% else %}
 {% data reusables.repositories.navigate-to-repo %}
@@ -90,7 +90,7 @@ topics:
 1. 单击您想要查看的警报。 ![在警报列表中选择的警报](/assets/images/help/graphs/click-alert-in-alerts-list.png)
 {% endif %}
 
-## 查看和修复有漏洞的依赖项
+## 查看和修复警报
 
 请务必确保所有依赖项都没有任何安全漏洞。 当 {% data variables.product.prodname_dependabot %} 发现依赖项中的漏洞时，应评估项目的暴露水平，并确定要采取哪些补救措施来保护应用程序。
 
@@ -106,7 +106,7 @@ topics:
 
 ### 修复有漏洞的依赖项
 
-1. 查看警报的详细信息。 更多信息请参阅“[查看有漏洞的依赖项](#viewing-vulnerable-dependencies)”（上文）。
+1. 查看警报的详细信息。 更多信息请参阅“[查看 {% data variables.product.prodname_dependabot_alerts %}](#viewing-dependabot-alerts)”（上文）。
 {% ifversion fpt or ghec or ghes > 3.2 %}
 1. 如果启用了 {% data variables.product.prodname_dependabot_security_updates %} ，则可能存在指向将修复依赖项的拉取请求的链接。 或者，可以单击警报详细信息页面顶部的 **创建 {% data variables.product.prodname_dependabot %} 安全更新**以创建拉取请求。 ![创建 {% data variables.product.prodname_dependabot %} 安全更新按钮](/assets/images/help/repository/create-dependabot-security-update-button-ungrouped.png)
 1. （可选）如果不使用 {% data variables.product.prodname_dependabot_security_updates %}，则可以使用页面上的信息来决定要升级到的依赖项版本，并创建拉取请求以将依赖项更新到安全版本。
@@ -119,22 +119,56 @@ topics:
    {% data variables.product.prodname_dependabot %} 提出的每个拉取请求都包含可用于控制 {% data variables.product.prodname_dependabot %} 的命令的相关信息。 更多信息请参阅“[管理依赖项更新的拉取请求](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands)”。
 {% endif %}
 
-### 忽略 {% data variables.product.prodname_dependabot_alerts %}
+## 忽略 {% data variables.product.prodname_dependabot_alerts %}
+
+{% tip %}
+
+**提示：** 您只能关闭打开的警报。
+{% endtip %}
 
 如果计划大量工作来升级依赖项，或者决定不需要修复警报，则可以忽略警报。 通过忽略已评估的警报，可以更轻松地在新警报出现时对其进行分类。
 
-1. 查看警报的详细信息。 更多信息请参阅“[查看有漏洞的依赖项](#viewing-vulnerable-dependencies)”（上文）。
+1. 查看警报的详细信息。 更多信息请参阅“[查看有漏洞的依赖项](#viewing-dependabot-alerts)”（上文）。
 1. 选择“Dismiss（忽略）”下拉列表，然后单击忽略警报的原因。{% ifversion reopen-dependabot-alerts %} 未修复的已忽略警报可以稍后重新打开。{% endif %} ![选择通过 "Dismiss（忽略）"下拉菜单忽略警报的原因](/assets/images/help/repository/dependabot-alert-dismiss-drop-down-ungrouped.png)
+{% ifversion dependabot-bulk-alerts %}
+
+### 一次忽略多个警报
+
+1. 查看打开的 {% data variables.product.prodname_dependabot_alerts %}。 更多信息请参阅“[查看 {% data variables.product.prodname_dependabot_alerts %}](/en/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#viewing-dependabot-alerts)”。
+2. （可选）通过选择下拉菜单，然后单击要应用的筛选器来筛选警报列表。 您还可以在搜索栏中键入过滤条件。
+3. 在每个警报标题的左侧，选择要忽略的警报。 ![突出显示了复选框的打开警报的屏幕截图](/assets/images/help/graphs/select-multiple-alerts.png)
+4. （可选）在警报列表的顶部，选择页面上的所有警报。 ![选择的所有已打开警报的屏幕截图](/assets/images/help/graphs/select-all-alerts.png)
+5. 选择“Dismiss alerts（忽略警报）”下拉列表，然后单击忽略警报的原因。 ![突出显示了“"忽略警报"下拉列表的已打开警报页面屏幕截图](/assets/images/help/graphs/dismiss-multiple-alerts.png)
+
+{% endif %}
 
 {% ifversion reopen-dependabot-alerts %}
 
 ## 查看和更新已关闭的警报
 
+{% tip %}
+
+**提示：** 您只能重新打开以前已忽略的警报。 无法重新打开已修复的已关闭警报。
+{% endtip %}
+
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-dependabot-alerts %}
-1. 要仅查看已关闭的警报，请单击 **Closed（已关闭）**。 ![显示"已关闭"选项的屏幕截图](/assets/images/help/repository/dependabot-alerts-closed.png)
-1. 单击要查看或更新的警报。 ![显示突出显示的 dependabot 警报的屏幕截图](/assets/images/help/repository/dependabot-alerts-select-closed-alert.png)
-2. （可选）如果警报已消除，并且您希望重新打开它，请单击 **Reopen（重新打开）**。 ![显示"重新打开"按钮的屏幕截图](/assets/images/help/repository/reopen-dismissed-alert.png)
+1. 要仅查看已关闭的警报，请单击 **Closed（已关闭）**。{% ifversion dependabot-bulk-alerts %} ![Screenshot showing the "Closed" option](/assets/images/help/repository/dependabot-alerts-closed-checkbox.png){% else %}
+![Screenshot showing the "Closed" option](/assets/images/help/repository/dependabot-alerts-closed.png){% endif %}
+1. 单击要查看或更新的警报。{% ifversion dependabot-bulk-alerts %} ![Screenshot showing a highlighted dependabot alert](/assets/images/help/repository/dependabot-alerts-select-closed-alert-checkbox.png){% else %}
+![Screenshot showing a highlighted dependabot alert](/assets/images/help/repository/dependabot-alerts-select-closed-alert.png){% endif %}
+2. （可选）如果警报已消除，并且您希望重新打开它，请单击 **Reopen（重新打开）**。 无法重新打开已修复的警报。 ![显示"重新打开"按钮的屏幕截图](/assets/images/help/repository/reopen-dismissed-alert.png)
+
+{% endif %}
+
+{% ifversion dependabot-bulk-alerts %}
+
+### 一次重新打开多个警报
+
+1. 查看关闭的 {% data variables.product.prodname_dependabot_alerts %}。 更多信息请参阅“[查看和更新关闭的警报](/en/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#viewing-and-updating-closed-alerts)”（上文）。
+2. 在每个警报标题的左侧，选择要重新打开的警报。 ![突出显示了复选框的已关闭警报的屏幕截图](/assets/images/help/repository/dependabot-alerts-open-checkbox.png)
+3. （可选）在警报列表的顶部，选择页面上所有已关闭的警报。 ![选中了所有警报的已关闭警报的屏幕截图](/assets/images/help/graphs/select-all-closed-alerts.png)
+4. 单击 **Reopen（重新打开）**以重新打开警报。 无法重新打开已修复的警报。 ![突出显示了"重新打开"按钮的已关闭警报的屏幕截图](/assets/images/help/graphs/reopen-multiple-alerts.png)
 
 {% endif %}

@@ -17,7 +17,7 @@ shortTitle: 恢复 HA 配置
 
 ## 关于高可用性配置的恢复
 
-如果故障转移是在计划内进行的，或者与设备的健康状态无关，则可以将之前的主设备用作新的副本设备。 如果故障转移与主设备的问题相关，则最好创建新的副本设备。 更多信息请参阅“[创建高可用性副本](/enterprise/{{ currentVersion }}/admin/guides/installation/creating-a-high-availability-replica/)”。
+如果故障转移是在计划内进行的，或者与设备的健康状态无关，则可以将之前的主设备用作新的副本设备。 如果故障转移与主设备的问题相关，则最好创建新的副本设备。 更多信息请参阅“[创建高可用性副本](/enterprise/admin/guides/installation/creating-a-high-availability-replica/)”。
 
 {% warning %}
 
