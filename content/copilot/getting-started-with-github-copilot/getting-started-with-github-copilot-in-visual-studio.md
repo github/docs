@@ -36,7 +36,7 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 1. Optionally, to check that {% data variables.product.prodname_copilot %} is installed and enabled, go back to **Manage Extensions**, click **Installed** to view your currently installed extensions, then click **{% data variables.product.prodname_copilot %}** to see status information.
   ![Screenshot of installed extensions in Visual Studio with GitHub Copilot emphasized](/assets/images/help/copilot/installed-copilot-extension-visual-studio.png)
 1. Open or create a new project in {% data variables.product.prodname_vs %}. 
-1. In the "Microsoft {% data variables.product.prodname_vs %}" dialogue box, to copy your device activation code, click **OK**.
+1. In the "Microsoft {% data variables.product.prodname_vs %}" dialog box, to copy your device activation code, click **OK**.
    ![Screenshot of the Microsoft {% data variables.product.prodname_vs %} dialogue box](/assets/images/help/copilot/vs-auth-dialogue.png)
 1. A device activation window will open in your browser. Press <kbd>Ctrl</kbd>+<kbd>V</kbd> to paste the device code and click **Continue**.
 1. {% data variables.product.prodname_dotcom %} will request the necessary permissions for {% data variables.product.prodname_copilot %}. To approve these permissions, click **Authorize {% data variables.product.prodname_copilot %} Plugin**. To refuse the permissions, click **Cancel**.
