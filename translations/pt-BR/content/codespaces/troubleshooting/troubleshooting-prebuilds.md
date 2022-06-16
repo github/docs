@@ -12,8 +12,6 @@ product: '{% data reusables.gated-features.codespaces %}'
 miniTocMaxHeadingLevel: 3
 ---
 
-{% data reusables.codespaces.prebuilds-beta-note %}
-
 Para obter mais informações sobre as pré-compilações de {% data variables.product.prodname_codespaces %}, consulte "[Pré-compilando os seus codespaces](/codespaces/prebuilding-your-codespaces)".
 
 ## Verificando se um código foi criado a partir de uma pré-compilação?
