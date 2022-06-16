@@ -29,7 +29,7 @@ To use {% data variables.product.prodname_copilot %} in a JetBrains IDE, you mus
 1. After {% data variables.product.prodname_copilot %} is installed, click **Restart IDE**.
 1. After your JetBrains IDE has restarted, click the **Tools** menu. Click **{% data variables.product.prodname_copilot %}**, then click **Login to {% data variables.product.prodname_dotcom %}**. 
     ![Screenshot of JetBrains tools menu](/assets/images/help/copilot/jetbrains-tools-menu.png)
-1. In the "Sign in to {% data variables.product.prodname_dotcom %}" dialogue box, to copy the device code and open the device activation window, click **Copy and Open**.
+1. In the "Sign in to {% data variables.product.prodname_dotcom %}" dialog box, to copy the device code and open the device activation window, click **Copy and Open**.
     ![Screenshot of device code copy and open](/assets/images/help/copilot/device-code-copy-and-open.png)
 1. A device activation window will open in your browser. Press <kbd>Ctrl</kbd>+<kbd>V</kbd> to paste the device code and click **Continue**.
 1. {% data variables.product.prodname_dotcom %} will request the necessary permissions for {% data variables.product.prodname_copilot %}. To approve these permissions, click **Authorize {% data variables.product.prodname_copilot %} Plugin** To refuse the permissions, click **Cancel**.
