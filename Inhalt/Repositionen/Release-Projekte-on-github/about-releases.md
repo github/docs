@@ -1,3 +1,4 @@
+[api-license-agreement.txt](https://github.com/github/docs/files/8915352/api-license-agreement.txt)
 ---
 title: About releases
 intro: 'You can create a release to package software, along with release notes and links to binary files, for other people to use.'
