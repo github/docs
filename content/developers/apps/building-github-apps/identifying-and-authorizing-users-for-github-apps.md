@@ -158,7 +158,7 @@ Because user-level permissions are granted on an individual user basis, you can 
 
 ## User-to-server requests
 
-While most of your API interaction should occur using your server-to-server installation access tokens, certain endpoints allow you to perform actions via the API using a user access token. Your app can make the following requests using [GraphQL v4]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql) or [REST v3](/rest) endpoints.
+While most of your API interaction should occur using your server-to-server installation access tokens, certain endpoints allow you to perform actions via the API using a user access token. Your app can make the following requests using [GraphQL]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql) or [REST](/rest) endpoints.
 
 ### Supported endpoints
 
