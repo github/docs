@@ -61,8 +61,8 @@ To use {% data variables.product.prodname_copilot %} in Neovim you must have Neo
 {% linux %}
 
 1. To use {% data variables.product.prodname_copilot %} in Neovim, install the {% data variables.product.prodname_copilot %} plugin. You can either install the plugin from a plugin manager or directly.
-   - You can install `github/copilot.vim` with a plugin manager, such as vim-plug or packer.nvim. For more information, see the [vim plug](https://github.com/junegunn/vim-plug) documentation, or the [packer.nvim](https://github.com/wbthomason/packer.nvim) documentation.
-   - Alternatively, you can install the {% data variables.product.prodname_copilot %} plugin directly into your Neovim config file by running the following command in the terminal:
+   - If you use a plugin manager like vim-plug or packer.nvim, use the plugin manager to install `github/copilot.vim`. For more information, see the documentation for the plugin manager. For example, you can see the documentation for [vim-plug](https://github.com/junegunn/vim-plug) or [packer.nvim](https://github.com/wbthomason/packer.nvim).
+    - To install the {% data variables.product.prodname_copilot %} plugin directly, you must know where Neovim stores plugins. To install the plugin, enter the following command in Git Bash.
 
       ```
       git clone https://github.com/github/copilot.vim \
