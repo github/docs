@@ -35,7 +35,7 @@ To use {% data variables.product.prodname_copilot %} in a JetBrains IDE, you mus
 
    - To paste the code in Windows or Linux, press <kbd>Ctrl</kbd>+<kbd>v</kbd>.
    - To paste the code in macOS, press <kbd>command</kbd>+<kbd>v</kbd>.
-1. {% data variables.product.prodname_dotcom %} will request the necessary permissions for {% data variables.product.prodname_copilot %}. To approve these permissions, click **Authorize {% data variables.product.prodname_copilot %} Plugin** To refuse the permissions, click **Cancel**.
+1. {% data variables.product.prodname_dotcom %} will request the necessary permissions for {% data variables.product.prodname_copilot %}. To approve these permissions, click **Authorize {% data variables.product.prodname_copilot %} Plugin**.
 1. After the permissions have been approved, your JetBrains IDE will show a confirmation. To begin using {% data variables.product.prodname_copilot %}, click **OK**.
    ![Screenshot of JetBrains IDE permissions confirmation](/assets/images/help/copilot/jetbrains-ide-confirmation.png)
    
