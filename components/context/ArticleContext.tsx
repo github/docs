@@ -8,8 +8,11 @@ export type LearningTrack = {
 }
 
 export type MiniTocItem = {
-  platform: string
-  contents: string
+  platform?: string
+  contents: {
+    href: string
+    title: string
+  }
   items?: MiniTocItem[]
 }
 
