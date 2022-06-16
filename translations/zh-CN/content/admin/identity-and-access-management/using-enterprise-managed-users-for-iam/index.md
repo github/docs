@@ -1,5 +1,5 @@
 ---
-title: Using Enterprise Managed Users for IAM
+title: 对 IAM 使用企业托管用户
 shortTitle: 企业托管用户
 product: '{% data reusables.gated-features.emus %}'
 intro: 您可以使用身份提供程序管理身份和访问权限，并预配只能参与您的企业的帐户。

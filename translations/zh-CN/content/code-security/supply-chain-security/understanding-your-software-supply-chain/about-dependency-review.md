@@ -50,11 +50,19 @@ redirect_from:
 
 {% data reusables.dependency-review.dependency-review-action-beta-note %}
 
-可以使用存储库中的依赖项审查 GitHub 操作对拉取请求强制执行依赖项审查。 该操作将扫描由拉取请求中的包版本更改是否引入有漏洞的依赖项版本，并向您示警相关的安全漏洞。 这便于您更好地了解拉取请求中发生的变化，并有助于防止将漏洞添加到存储库中。 更多信息请参阅 [`dependency-review-action`](https://github.com/actions/dependency-review-action)。
+The action is available for all {% ifversion fpt or ghec %}public repositories, as well as private {% endif %}repositories that have {% data variables.product.prodname_GH_advanced_security %} enabled.
+
+You can use the {% data variables.product.prodname_dependency_review_action %} in your repository to enforce dependency reviews on your pull requests. 该操作将扫描由拉取请求中的包版本更改是否引入有漏洞的依赖项版本，并向您示警相关的安全漏洞。 这便于您更好地了解拉取请求中发生的变化，并有助于防止将漏洞添加到存储库中。 更多信息请参阅 [`dependency-review-action`](https://github.com/actions/dependency-review-action)。
 
 ![依赖项审查操作示例](/assets/images/help/graphs/dependency-review-action.png)
 
-依赖项审查 GitHub 操作检查在发现任何易受攻击的包时会失败，但只有在存储库所有者要求在合并之前通过检查时，才会阻止合并拉取请求。 更多信息请参阅“[关于受保护分支](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-status-checks-before-merging)”。
+By default, the {% data variables.product.prodname_dependency_review_action %} check will fail if it discovers any vulnerable packages. A failed check blocks a pull request from being merged when the repository owner requires the dependency review check to pass. 更多信息请参阅“[关于受保护分支](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-status-checks-before-merging)”。
 
 该操作使用依赖项审查 REST API 来获取基本提交和头部提交之间的依赖项更改差异。 您可以使用依赖项审查 API 来获取存储库上任意两个提交之间的依赖项更改差异（包括漏洞数据）。 更多信息请参阅“[依赖项审查](/rest/reference/dependency-graph#dependency-review)”。
+
+{% ifversion dependency-review-action-configuration %}
+You can configure the {% data variables.product.prodname_dependency_review_action %} to better suit your needs. For example, you can specify the severity level that will make the action fail, or set an allow or deny list for licenses to scan. For more information, see "[Configuring dependency review](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review#configuring-the-dependency-review-github-action)."
 {% endif %}
+
+{% endif %}
+

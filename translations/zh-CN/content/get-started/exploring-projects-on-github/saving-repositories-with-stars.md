@@ -40,6 +40,16 @@ shortTitle: 保存有星标的仓库
 1. （可选）要取消先前已标星仓库的星标，请点击 **Unstar（取消星标）**。 ![解压仓库](/assets/images/help/stars/unstarring-a-repository.png)
 
 {% ifversion fpt or ghec %}
+
+## Viewing who has starred a repository
+
+
+You can view everyone who has starred a public repository or a private repository you have access to.
+
+
+To view everyone who has starred a repository, add `/stargazers` to the end of the URL of a repository. For example, to view stargazers for the github/docs repository, visit https://github.com/github/docs/stargazers.
+
+
 ## 使用列表组织带星标的存储库
 
 {% note %}
