@@ -40,6 +40,11 @@ on:
   push:
     branches:
       - main
+      
+# The API requires write permission on the repository to submit dependencies
+permissions:
+  contents: write
+
 # Envionment variables to configure Go and Go modules. Customize as necessary
 env:
   GOPROXY: '' # A Go Proxy server to be used
@@ -50,11 +55,13 @@ jobs:
     steps:
       - name: 'Checkout Repository'
         uses: {% data reusables.actions.action-checkout %}
+        
       - uses: {% data reusables.actions.action-setup-go %}
         with:
           go-version: ">=1.18.0"
+          
       - name: Run snapshot action
-        uses: @dsp-testing/go-snapshot-action
+        uses: @actions/go-dependency-submission@main
         with:
             # Required: Define the repo path to the go.mod file used by the
             # build target
