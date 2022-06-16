@@ -32,7 +32,7 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
    ![Screenshot of the Visual Studio toolbar](/assets/images/help/copilot/visual-studio-toolbar.png)
 1. In the "Manage Extensions" window, click **Visual Studio Marketplace**, search for the {% data variables.product.prodname_copilot %} extension, then click **Download**.
    ![Screenshot of GitHub Copilot extension for Visual Studio with the download button emphasized](/assets/images/help/copilot/install-copilot-extension-visual-studio.png)
-1. Close the "Manage Extensions" dialog, then exit and relaunch {% data variables.product.prodname_vs %}.
+1. Close the "Manage Extensions" window, then exit and relaunch {% data variables.product.prodname_vs %}.
 1. Optionally, to check that {% data variables.product.prodname_copilot %} is installed and enabled, go back to **Manage Extensions**, click **Installed** to view your currently installed extensions and click **{% data variables.product.prodname_copilot %}** to see status information.
   ![Screenshot of installed extensions in Visual Studio with GitHub Copilot emphasized](/assets/images/help/copilot/installed-copilot-extension-visual-studio.png)
 1. Open or create a new project in {% data variables.product.prodname_vs %}. 
