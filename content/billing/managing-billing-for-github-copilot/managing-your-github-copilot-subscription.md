@@ -14,7 +14,7 @@ shortTitle: Your Github Copilot subscription
 Before you can start using {% data variables.product.prodname_copilot %}, you will need to set up a free trial or subscription.
 
 {% data reusables.user-settings.access_settings %}
-1. In the "Code, planning and automation" section of the sidebar, click **GitHub Copilot**. <!--- add {% octicon "copilot" aria-label="The copilot icon" %} here, but it's giving errors at the moment. --->
+1. In the "Code, planning and automation" section of the sidebar, click **{% octicon "copilot" aria-label="The copilot icon" %} GitHub Copilot**.
 2. On the {% data variables.product.prodname_copilot %} settings page, click **Start your free trial**. 
    ![Screenshot of GitHub Copilot settings with start your free trial button emphasized](/assets/images/help/copilot/copilot-settings-start-trial-button.png) 
 3. Choose whether you want to pay monthly or yearly, and click **Continue to get access to Copilot**.
