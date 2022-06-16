@@ -55,7 +55,7 @@ This script runs once per day via a scheduled GitHub Action to check all links i
 
 ### [`check-for-node`](check-for-node)
 
-This script is run automatically when you run the server locally. It checks whether Node.js is installed.
+This script is run automatically when you run the server locally. It checks whether or not Node.js is installed.
 
 ---
 
