@@ -68,11 +68,11 @@ To use {% data variables.product.prodname_copilot %} in Neovim you must have Neo
       git clone https://github.com/github/copilot.vim \
       ~/.config/PATH/TO/YOUR/NEOVIM/CONFIG/FILE/copilot.vim
       ```
-1. To authenticate and invoke {% data variables.product.prodname_copilot %} run the following command in Neovim:
+1. To configure {% data variables.product.prodname_copilot %}, open Neovim and enter the following command.
 
-```
-:Copilot setup
- ```
+   ```
+   :Copilot setup
+   ```
 {% endlinux %}
 
 ## Learning to use {% data variables.product.prodname_copilot %} in Neovim
