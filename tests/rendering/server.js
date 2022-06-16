@@ -588,15 +588,6 @@ describe('server', () => {
   })
 
   describeViaActionsOnly('Early Access articles', () => {
-    // Test skipped because this test file is no longer able to
-    // change the `NODE_ENV` between tests because it depends on
-    // HTTP and not raw supertest.
-    // Idea: Move this one test somewhere into tests/unit/
-    test.skip('are not listed at /early-access in production', async () => {
-      const res = await get('/early-access', { followRedirects: true })
-      expect(res.statusCode).toBe(404)
-    })
-
     test('have noindex meta tags', async () => {
       const allPages = await loadPages()
       // This is what the earlyAccessContext middleware does to get a
