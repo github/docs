@@ -33,9 +33,9 @@ To use {% data variables.product.prodname_copilot %} in Neovim you must have Neo
      ```
 1. To configure {% data variables.product.prodname_copilot %}, open Neovim and enter the following command.
 
-```
-:Copilot setup
- ```
+   ```
+   :Copilot setup
+   ```
 
 {% endmac %}
 
