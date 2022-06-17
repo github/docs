@@ -1,4 +1,5 @@
-# Issue 6397
+# Reference: #6397
+# Documentation for dependency submission API (beta)
 versions:
   fpt: '*'
   ghec: '*'
