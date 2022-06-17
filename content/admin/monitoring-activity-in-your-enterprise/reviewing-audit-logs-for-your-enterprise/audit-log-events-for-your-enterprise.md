@@ -1227,6 +1227,13 @@ Action                        | Description
 | `secret_scanning_new_repos.enable` | An organization owner enabled secret scanning for all new{% ifversion ghec %} private or internal{% endif %} repositories.
 {%- endif %}
 
+{% ifversion secret-scanning-push-protection-bypasses %}
+## `secret_scanning_push_protection` category actions
+
+| Action | Description
+|--------|-------------
+| `bypass` | Triggered when a user bypasses the push protection on a secret detected by secret scanning. For more information, see "[Bypassing push protection for a secret](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#bypassing-push-protection-for-a-secret)."{% endif %}
+
 {%- ifversion ghec or ghes or ghae %}
 ## `security_key` category actions
 
