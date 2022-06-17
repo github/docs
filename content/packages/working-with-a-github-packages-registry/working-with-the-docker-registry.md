@@ -68,7 +68,7 @@ If your instance has subdomain isolation enabled:
 ```
 {% endraw %}
 {% ifversion ghes %}
-If your instance has subdomain isolation disabled:
+If your instance has subdomain isolation disabled: 
 
 {% raw %}
  ```shell
