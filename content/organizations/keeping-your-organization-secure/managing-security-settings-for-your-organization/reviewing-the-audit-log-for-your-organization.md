@@ -761,6 +761,14 @@ For more information, see "[Managing the publication of {% data variables.produc
 | `enable` | Triggered when an organization owner enables secret scanning for all new {% ifversion ghec %}private or internal {% endif %}repositories.
 {% endif %}
 
+{% ifversion secret-scanning-push-protection-bypasses %}
+### `secret_scanning_push_protection` category actions
+
+| Action | Description
+|------------------|-------------------
+| `bypass` | Triggered when a user bypasses the push protection on a secret detected by secret scanning. For more information, see "[Bypassing push protection for a secret](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#bypassing-push-protection-for-a-secret)."
+{% endif %}
+
 {% ifversion fpt or ghec %}
 ### `sponsors` category actions
 

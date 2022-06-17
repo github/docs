@@ -1343,7 +1343,7 @@ El conjunto de datos de asesoría de seguridad también impulsa las {% data vari
 
 ## security_and_analysis
 
-Activity related to enabling or disabling code security and analysis features for a repository or organization.
+Actividad relacionada con habilitar o inhabilitar la seguridad de código y características de seguridad para un repositorio u organización.
 
 ### Disponibilidad
 
@@ -1353,9 +1353,9 @@ Activity related to enabling or disabling code security and analysis features fo
 
 ### Objeto de carga útil del webhook
 
-| Clave     | Tipo     | Descripción                                                            |
-| --------- | -------- | ---------------------------------------------------------------------- |
-| `changes` | `objeto` | The changes that were made to the code security and analysis features. |
+| Clave     | Tipo     | Descripción                                                                          |
+| --------- | -------- | ------------------------------------------------------------------------------------ |
+| `changes` | `objeto` | Los cambios que se hicieron a la seguridad del código y características de análisis. |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}

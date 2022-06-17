@@ -124,6 +124,7 @@ translations/ja-JP/content/code-security/secret-scanning/protecting-pushes-with-
 translations/ja-JP/content/code-security/secret-scanning/secret-scanning-patterns.md,broken liquid tags
 translations/ja-JP/content/code-security/security-overview/about-the-security-overview.md,broken liquid tags
 translations/ja-JP/content/code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts.md,broken liquid tags
+translations/ja-JP/content/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review.md,broken liquid tags
 translations/ja-JP/content/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security.md,broken liquid tags
 translations/ja-JP/content/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph.md,Listed in localization-support#489
 translations/ja-JP/content/code-security/supply-chain-security/understanding-your-software-supply-chain/troubleshooting-the-dependency-graph.md,broken liquid tags
@@ -234,6 +235,7 @@ translations/ja-JP/data/release-notes/enterprise-server/3-1/19.yml,broken liquid
 translations/ja-JP/data/release-notes/enterprise-server/3-1/2.yml,broken liquid tags
 translations/ja-JP/data/release-notes/enterprise-server/3-1/20.yml,broken liquid tags
 translations/ja-JP/data/release-notes/enterprise-server/3-1/21.yml,broken liquid tags
+translations/ja-JP/data/release-notes/enterprise-server/3-1/22.yml,broken liquid tags
 translations/ja-JP/data/release-notes/enterprise-server/3-1/3.yml,broken liquid tags
 translations/ja-JP/data/release-notes/enterprise-server/3-1/4.yml,broken liquid tags
 translations/ja-JP/data/release-notes/enterprise-server/3-1/5.yml,broken liquid tags
