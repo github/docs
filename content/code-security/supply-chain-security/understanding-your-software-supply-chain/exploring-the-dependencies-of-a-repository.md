@@ -42,6 +42,10 @@ Enterprise owners can configure the dependency graph at an enterprise level. For
 {% ifversion fpt or ghec %}
 Dependencies are grouped by ecosystem. You can expand a dependency to view its dependencies.  Dependencies on private repositories, private packages, or unrecognized files are shown in plain text. If the package manager for the dependency is in a public repository, {% data variables.product.product_name %} will display a link to that repository.
 
+{% ifversion dependency-submission-api %}
+Dependencies submitted to a project using the Dependency submission API (beta), although also grouped by ecosystem, are shown separately from dependencies identified through manifest or lock files in the repository. These submitted dependencies appear in the dependency graph as "Snapshot dependencies" because they are submitted as a snapshot, or set, of dependencies. For more information on using the dependency submission API, see "[Using the Dependency submission API](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api)."
+{% endif %}
+
 If vulnerabilities have been detected in the repository, these are shown at the top of the view for users with access to {% data variables.product.prodname_dependabot_alerts %}.
 
 ![Dependencies graph](/assets/images/help/graphs/dependencies_graph.png)

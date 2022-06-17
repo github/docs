@@ -569,6 +569,8 @@
   "/rest/dependabot#delete-a-repository-secret": "/rest/dependabot/secrets#delete-a-repository-secret",
   "/rest/dependency-graph#get-a-diff-of-the-dependencies-between-commits": "/rest/dependency-graph/dependency-review#get-a-diff-of-the-dependencies-between-commits",
   "/rest/dependency-graph#dependency-review": "/rest/dependency-graph/dependency-review",
+  "/rest/dependency-graph#create-a-snapshot-of-dependencies-for-a-repository": "/rest/dependency-graph/dependency-submission#create-a-snapshot-of-dependencies-for-a-repository",
+  "/rest/dependency-graph#dependency-submission": "/rest/dependency-graph/dependency-submission",
   "/rest/deployments#deployments": "/rest/deployments/deployments",
   "/rest/deployments#statuses": "/rest/deployments/statuses",
   "/rest/repos#create-a-repository-dispatch-event": "/rest/repos/repos#create-a-repository-dispatch-event",

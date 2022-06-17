@@ -61,6 +61,7 @@ const PUBLIC_REPOS = new Set([
   'browser-support',
   'haikus-for-codespaces',
   'actions-oidc-gateway-example',
+  'dependency-submission-toolkit',
 ])
 
 const ALLOW_DOCS_PATHS = [
