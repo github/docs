@@ -479,12 +479,14 @@ describe('server', () => {
     })
 
     test('dotcom articles on dotcom have Enterprise Admin links with latest GHE version', async () => {
-      const $ = await getDOM('/en/articles/setting-up-a-trial-of-github-enterprise-server')
+      const $ = await getDOM(
+        '/en/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-self-hosted-runners-for-your-enterprise'
+      )
       // Note any links that might expressed in Markdown as '.../enterprise-server@latest/...'
       // becomes '.../enterprise-server@<VERSION>/...' when rendered out.
       expect(
         $(
-          `a[href="/en/enterprise-server@${enterpriseServerReleases.latest}/admin/installation/setting-up-a-github-enterprise-server-instance"]`
+          `a[href="/en/enterprise-server@${enterpriseServerReleases.latest}/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect"]`
         ).length
       ).toBe(2)
     })
@@ -804,9 +806,9 @@ describe('GitHub Enterprise URLs', () => {
 
   test('renders an Enterprise Admin category article', async () => {
     const $ = await getDOM(
-      `/en/enterprise/${enterpriseServerReleases.latest}/admin/installation/system-overview`
+      `/en/enterprise/${enterpriseServerReleases.latest}/admin/overview/about-github-enterprise-server`
     )
-    expect($.text()).toContain("your organization's private copy of GitHub")
+    expect($.text()).toContain('platform that you can host in a private environment')
   })
 
   test('renders an Enterprise Admin map topic', async () => {
