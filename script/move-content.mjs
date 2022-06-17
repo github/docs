@@ -11,7 +11,7 @@ import fs from 'fs'
 import path from 'path'
 import { execSync } from 'child_process'
 
-import program from 'commander'
+import { program } from 'commander'
 import chalk from 'chalk'
 import walk from 'walk-sync'
 import yaml from 'js-yaml'
