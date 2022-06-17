@@ -28,4 +28,4 @@ shortTitle: Set membership visibility
 {% data reusables.enterprise-accounts.options-tab %}
 3. [Default organization membership visibility] で、ドロップダウンメニューを使用して [**Private**] または [**Public**] をクリックします。 ![デフォルトの Organization のメンバーシップの可視性をパブリックあるいはプライベートに設定するオプションを持つドロップダウンメニュー](/assets/images/enterprise/site-admin-settings/default-organization-membership-visibility-drop-down-menu.png)
 4. メンバーがデフォルトからメンバーシップの可視性を変更できないようにするために、**Enforce on organization members（Organizationのメンバーに適用）**を選択することもできます。 ![Checkbox to enforce the default setting on all members](/assets/images/enterprise/site-admin-settings/enforce-default-org-membership-visibility-setting.png){% ifversion ghes %}
-5. 新しい可視性の設定をすべての既存メンバーに適用したい場合は、`ghe-org-membership-update`コマンドラインユーティリティを使ってください。 詳しい情報については、「[コマンドラインユーティリティ](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities#ghe-org-membership-update)」を参照してください。{% endif %}
+5. 新しい可視性の設定をすべての既存メンバーに適用したい場合は、`ghe-org-membership-update`コマンドラインユーティリティを使ってください。 詳しい情報については、「[コマンドラインユーティリティ](/enterprise/admin/guides/installation/command-line-utilities#ghe-org-membership-update)」を参照してください。{% endif %}

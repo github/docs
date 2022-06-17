@@ -23,7 +23,7 @@ shortTitle: Filtrando alertas
 
 ## Sobre a filtragem da visão geral de segurança
 
-Você pode usar filtros na visão geral de segurança para restringir seu foco baseado em uma série de fatores como, por exemplo, o nível de risco de alerta, tipo de alerta e habilitação do recurso. Existem filtros diferentes disponíveis, dependendo da visualização específica e da análise no nível da organização, da equipe ou do repositório.
+Você pode usar filtros na visão geral de segurança para restringir seu foco baseado em uma série de fatores como, por exemplo, o nível de risco de alerta, tipo de alerta e habilitação do recurso. Different filters are available depending on the specific view and whether your analysis is at the organization, team or repository level.
 
 ## Filtrar por repositório
 

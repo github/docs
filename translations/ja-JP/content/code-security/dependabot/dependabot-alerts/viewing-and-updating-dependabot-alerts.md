@@ -26,13 +26,11 @@ topics:
 {% data reusables.dependabot.beta-security-and-version-updates %}
 {% data reusables.dependabot.enterprise-enable-dependabot %}
 
-リポジトリの{% data variables.product.prodname_dependabot_alerts %}タブには、オープン及びクローズされたすべての{% data variables.product.prodname_dependabot_alerts %}{% ifversion fpt or ghec or ghes > 3.2 %}及び対応する{% data variables.product.prodname_dependabot_security_updates %}{% endif %}がリストされます。 {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5638 %}アラートはパッケージ、エコシステム、マニフェストでフィルタリングできます。 また、{% endif %}アラートのリストはソートでき、特定のアラートをクリックして詳細を見ていくことができます。 詳しい情報については「[{% data variables.product.prodname_dependabot_alerts %}について](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)」を参照してください。
+リポジトリの{% data variables.product.prodname_dependabot_alerts %}タブには、オープン及びクローズされたすべての{% data variables.product.prodname_dependabot_alerts %}{% ifversion fpt or ghec or ghes > 3.2 %}及び対応する{% data variables.product.prodname_dependabot_security_updates %}{% endif %}がリストされます。 {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5638 %}アラートはパッケージ、エコシステム、マニフェストでフィルタリングできます。 また、{% endif %}アラートのリストはソートでき、特定のアラートをクリックして詳細を見ていくことができます。 {% ifversion dependabot-bulk-alerts %}アラートを1つずつ、あるいは複数のアラートをまとめて選択して、却下したり再オープンしたりできます。{% else %}アラートを却下したり再オープンしたりもできます。 {% endif %} 詳しい情報については、「[{% data variables.product.prodname_dependabot_alerts %} について](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)」を参照してください。
 
 {% ifversion fpt or ghec or ghes > 3.2 %}
 {% data variables.product.prodname_dependabot_alerts %} と依存関係グラフを使用するリポジトリの自動セキュリティ更新を有効にすることができます。 詳しい情報については、「[{% data variables.product.prodname_dependabot_security_updates %} について](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates)」を参照してください。
 {% endif %}
-
-{% data reusables.repositories.dependency-review %}
 
 {% ifversion fpt or ghec or ghes > 3.2 %}
 ## リポジトリ内の脆弱性のある依存関係の更新について
@@ -70,18 +68,20 @@ topics:
 
 !["Vulnerable call"ラベルの付いたアラートのアラート詳細ページを表示しているスクリーンショット](/assets/images/help/repository/review-calls-to-vulnerable-functions.png)
 
-詳しい情報については以下の「[脆弱性のある依存関係のレビューと修正](#reviewing-and-fixing-vulnerable-dependencies)」を参照してください。
+詳しい情報については、下の「[アラートのレビューと修正](#reviewing-and-fixing-alerts)」を参照してください。
 
 {% endif %}
 
-## 脆弱性のある依存関係の表示
+## {% data variables.product.prodname_dependabot_alerts %}の表示
 
 {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5638 %}
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-dependabot-alerts %}
-1. あるいは、アラートをフィルタリングするには、**Repository（リポジトリ）**、**Package（パッケージ）**、**Ecosystem（エコシステム）**、**Manifest（マニフェスト）**ドロップダウンメニューを選択し、続いて適用したいフィルタをクリックしてください。 検索バーにフィルタを入力することもできます。 たとえば`ecosystem:npm`あるいは`has:patch`といったようにです。 アラートをソートするには**Sort（ソート）**ドロップダウンメニューを選択し、ソートに使いたい選択肢をクリックしてください。 ![{% data variables.product.prodname_dependabot_alerts %}タブ中のフィルタ及びソートメニューのスクリーンショット](/assets/images/help/graphs/dependabot-alerts-filters.png)
-1. 表示したいアラートをクリックしてください。 ![アラートリストで選択されたアラート](/assets/images/help/graphs/click-alert-in-alerts-list-ungrouped.png)
+1. あるいは、アラートをフィルタリングするには、**Repository（リポジトリ）**、**Package（パッケージ）**、**Ecosystem（エコシステム）**、**Manifest（マニフェスト）**ドロップダウンメニューを選択し、続いて適用したいフィルタをクリックしてください。 検索バーにフィルタを入力することもできます。 たとえば`ecosystem:npm`あるいは`has:patch`といったようにです。 アラートをソートするには、**Sort（ソート）**ドロップダウンメニューを選択し、ソートの基準の選択肢をクリックしてください。{% ifversion dependabot-bulk-alerts %} ![Screenshot of the filter and sort menus in the {% data variables.product.prodname_dependabot_alerts %} tab](/assets/images/help/graphs/dependabot-alerts-filters-checkbox.png){% else %}
+![Screenshot of the filter and sort menus in the {% data variables.product.prodname_dependabot_alerts %} tab](/assets/images/enterprise/3.5/dependabot/dependabot-alerts-filters.png){% endif %}
+2. 表示したいアラートをクリックしてください。{% ifversion dependabot-bulk-alerts %} ![Alert selected in list of alerts](/assets/images/help/graphs/click-alert-in-alerts-list-checkbox.png){% else %}
+![Alert selected in list of alerts](/assets/images/enterprise/3.5/dependabot/click-alert-in-alerts-list-ungrouped.png){% endif %}
 
 {% else %}
 {% data reusables.repositories.navigate-to-repo %}
@@ -90,7 +90,7 @@ topics:
 1. 表示したいアラートをクリックします。 ![アラートリストで選択されたアラート](/assets/images/help/graphs/click-alert-in-alerts-list.png)
 {% endif %}
 
-## 脆弱性のある依存関係のレビューと修正
+## アラートのレビューと修正
 
 すべての依存関係がセキュリティの弱点を確実に持たないようにすることが重要です。 {% data variables.product.prodname_dependabot %}が脆弱性を依存関係に見つけた場合、プロジェクトの露出のレベルを評価し、アプリケーションをセキュアにするための修復ステップを決定しなければなりません。
 
@@ -106,7 +106,7 @@ topics:
 
 ### 脆弱性のある依存関係の修復
 
-1. アラートの詳細を表示させます。 詳しい情報については上の「[脆弱性のある依存関係の表示](#viewing-vulnerable-dependencies)」を参照してください。
+1. アラートの詳細を表示させます。 詳しい情報については上の「[{% data variables.product.prodname_dependabot_alerts %}の表示](#viewing-dependabot-alerts)」を参照してください。
 {% ifversion fpt or ghec or ghes > 3.2 %}
 1. {% data variables.product.prodname_dependabot_security_updates %}を有効にしているなら、その依存関係を修復するPull Requestへのリンクがあるかもしれません。 あるいは、アラートの詳細ページの上部にある**Create {% data variables.product.prodname_dependabot %} security update**をクリックして、Pull Requestを作成することもできます。 ![{% data variables.product.prodname_dependabot %} セキュリティアップデートボタンを作成](/assets/images/help/repository/create-dependabot-security-update-button-ungrouped.png)
 1. あるいは、{% data variables.product.prodname_dependabot_security_updates %}を使っていないなら、ページにある情報を使ってアップグレードすべき依存関係のバージョンを判断し、セキュアなバージョンへ依存関係を更新するためのPull Requestを作成できます。
@@ -116,25 +116,59 @@ topics:
 1. 依存関係を更新して脆弱性を解決する準備ができたら、プルリクエストをマージしてください。
 
 {% ifversion fpt or ghec or ghes > 3.2 %}
-   {% data variables.product.prodname_dependabot %} によって発行される各プルリクエストには、{% data variables.product.prodname_dependabot %} の制御に使用できるコマンドの情報が含まれています。 詳しい情報については、「[依存関係の更新に関するプルリクエストを管理する](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands) 」を参照してください。
+   {% data variables.product.prodname_dependabot %}が発行したそれぞれのPull Requestには、{% data variables.product.prodname_dependabot %}の制御に利用できるコマンドに関する情報が含まれています。 詳しい情報については「[依存関係の更新のためのPull Requestの管理](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands)」を参照してください。
 {% endif %}
 
-### {% data variables.product.prodname_dependabot_alerts %}の却下
+## {% data variables.product.prodname_dependabot_alerts %}の却下
+
+{% tip %}
+
+**参考:** 却下できるのはオープンなアラートのみです。
+{% endtip %}
 
 依存関係のアップグレードのための広汎な作業をスケジュールしていたり、アラートを修正する必要はないと判断したりした場合、アラートを却下できます。 すでに評価済みのアラートを却下すると、新しいアラートが現れたときにトリアージしやすくなります。
 
-1. アラートの詳細を表示させます。 詳しい情報については上の「[脆弱性のある依存関係の表示](#viewing-vulnerable-dependencies)」を参照してください。
+1. アラートの詳細を表示させます。 詳しい情報については上の「[脆弱性のある依存関係の表示](#viewing-dependabot-alerts)」を参照してください。
 1. "Dismiss（却下）"ドロップダウンを選択し、アラートを却下する理由をクリックしてください。{% ifversion reopen-dependabot-alerts %}却下された未修正のアラートは、後で再度オープンできます。{% endif %} ![[Dismiss] ドロップダウンでアラートを却下する理由を選択する](/assets/images/help/repository/dependabot-alert-dismiss-drop-down-ungrouped.png)
+{% ifversion dependabot-bulk-alerts %}
+
+### 複数のアラートを一度に却下する
+
+1. オープンな{% data variables.product.prodname_dependabot_alerts %}を表示させます。 詳しい情報については「[{% data variables.product.prodname_dependabot_alerts %}の表示](/en/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#viewing-dependabot-alerts)」を参照してください。
+2. あるいは、ドロップダウンメニューを選択し、適用したいフィルタをクリックして、アラートのリストをフィルタリングしてください。 検索バーにフィルタを入力することもできます。
+3. それぞれのアラートのタイトルの左で、却下したいアラートを選択してください。 ![チェックボックスが強調されたオープンなアラートのスクリーンショット](/assets/images/help/graphs/select-multiple-alerts.png)
+4. あるいは、アラートのリストの上部で、ページ上のアラートをすべて選択してください。 ![すべてのオープンなアラートが選択されたスクリーンショット](/assets/images/help/graphs/select-all-alerts.png)
+5. "Dismiss alerts（アラートを却下）"ドロップダウンを選択し、アラートを却下する理由をクリックしてください。 !["Dismiss alerts"ドロップダウンが強調されたオープンなアラートページのスクリーンショット](/assets/images/help/graphs/dismiss-multiple-alerts.png)
+
+{% endif %}
 
 {% ifversion reopen-dependabot-alerts %}
 
 ## クローズされたアラートの表示と更新
 
+{% tip %}
+
+**参考:** 再オープンできるアラートは、以前に却下したものだけです。 既に修復済みのクローズされたアラートは、再オープンできません。
+{% endtip %}
+
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-dependabot-alerts %}
-1. クローズされたアラートを単に表示するには**Closed（クローズ済み）**をクリックしてください。 !["Closed"オプションを表示しているスクリーンショット](/assets/images/help/repository/dependabot-alerts-closed.png)
-1. 表示もしくは更新したいアラートをクリックしてください。 ![ハイライトされているdependabotアラートを表示しているスクリーンショット](/assets/images/help/repository/dependabot-alerts-select-closed-alert.png)
-2. あるいはアラートが却下されていて、再度オープンしたい場合は、**Reopen（再オープン）**をクリックしてください。 !["Reopen"ボタンを表示しているスクリーンショット](/assets/images/help/repository/reopen-dismissed-alert.png)
+1. クローズされたアラートを表示だけするなら、**Closed（クローズ済み）**をクリックしてください。{% ifversion dependabot-bulk-alerts %} ![Screenshot showing the "Closed" option](/assets/images/help/repository/dependabot-alerts-closed-checkbox.png){% else %}
+![Screenshot showing the "Closed" option](/assets/images/help/repository/dependabot-alerts-closed.png){% endif %}
+1. 表示もしくは更新したいアラートをクリックしてください。{% ifversion dependabot-bulk-alerts %} ![Screenshot showing a highlighted dependabot alert](/assets/images/help/repository/dependabot-alerts-select-closed-alert-checkbox.png){% else %}
+![Screenshot showing a highlighted dependabot alert](/assets/images/help/repository/dependabot-alerts-select-closed-alert.png){% endif %}
+2. あるいはアラートが却下されていて、再度オープンしたい場合は、**Reopen（再オープン）**をクリックしてください。 既に修正済みのアラートは再オープンできません。 !["Reopen"ボタンを表示しているスクリーンショット](/assets/images/help/repository/reopen-dismissed-alert.png)
+
+{% endif %}
+
+{% ifversion dependabot-bulk-alerts %}
+
+### 複数のアラートを一度に再オープンする
+
+1. クローズされた{% data variables.product.prodname_dependabot_alerts %}を表示してください。 詳しい情報については上の「[クローズされたアラートの表示と更新](/en/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#viewing-and-updating-closed-alerts)」を参照してください。
+2. それぞれのアラートのタイトルの左で、再オープンしたいアラートを選択してください。 ![チェックボックスが強調されたクローズ済みアラートのスクリーンショット](/assets/images/help/repository/dependabot-alerts-open-checkbox.png)
+3. あるいは、アラートのリストの上部で、ページ上のクローズされたアラートをすべて選択してください。 ![すべてのアラートが選択されたクローズ済みアラートのスクリーンショット](/assets/images/help/graphs/select-all-closed-alerts.png)
+4. ** Reopen（再オープン）**をクリックして、アラートを再オープンしてください。 既に修正済みのアラートは再オープンできません。 !["Reopen"ボタンが強調されたクローズ済みアラートのスクリーンショット](/assets/images/help/graphs/reopen-multiple-alerts.png)
 
 {% endif %}

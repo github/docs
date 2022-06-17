@@ -1339,6 +1339,34 @@ The security advisory dataset also powers the GitHub {% data variables.product.p
 
 {% endif %}
 
+{% ifversion ghas-enablement-webhook %}
+
+## security_and_analysis
+
+Activity related to enabling or disabling code security and analysis features for a repository or organization.
+
+### 利用の可否
+
+- リポジトリ webhook
+- Organization webhook
+- リポジトリ管理者に少なくとも `read-only` アクセス権限がある{% data variables.product.prodname_github_apps %}
+
+### webhook ペイロードオブジェクト
+
+| キー        | 種類       | 説明                                                                     |
+| --------- | -------- | ---------------------------------------------------------------------- |
+| `changes` | `オブジェクト` | The changes that were made to the code security and analysis features. |
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
+
+### webhook ペイロードの例
+
+{{ webhookPayloadsForCurrentVersion.security_and_analysis }}
+
+{% endif %}
+
 {% ifversion fpt or ghec %}
 ## スポンサーシップ
 

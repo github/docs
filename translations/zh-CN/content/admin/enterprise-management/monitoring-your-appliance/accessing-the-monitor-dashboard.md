@@ -27,7 +27,7 @@ shortTitle: 访问监控仪表板
 
 {% note %}
 
-**注**：由于通过持续集成 (CI) 或构建服务器定期轮询 {% data variables.product.product_location %} 会引发拒绝服务攻击，从而导致问题的出现，因此，建议使用 web 挂钩推送更新。 更多信息请参阅“[关于 web 挂钩](/enterprise/{{ currentVersion }}/user/articles/about-webhooks/)”。
+**注**：由于通过持续集成 (CI) 或构建服务器定期轮询 {% data variables.product.product_location %} 会引发拒绝服务攻击，从而导致问题的出现，因此，建议使用 web 挂钩推送更新。 更多信息请参阅“[关于 web 挂钩](/enterprise/user/articles/about-webhooks/)”。
 
 {% endnote %}
 
@@ -35,8 +35,8 @@ shortTitle: 访问监控仪表板
 
 | 问题         | 可能原因                  | 建议                                                                                                                                                                                                                                                                               |
 | ---------- | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| CPU 利用率高   | 在同一主机上运行的其他服务或程序争用 VM | 如有可能，请将其他服务或程序重新配置为占用较少的 CPU 资源。 要增加 VM 的总 CPU 资源，请参阅“[增加 CPU 或内存资源](/enterprise/{{ currentVersion }}/admin/guides/installation/increasing-cpu-or-memory-resources/)”。                                                                                                           |
-| 内存使用量高     | 在同一主机上运行的其他服务或程序争用 VM | 如有可能，请将其他服务或程序重新配置为占用较少内存。 要增加 VM 上可用的总内存大小，请参阅“[增加 CPU 或内存资源](/enterprise/{{ currentVersion }}/admin/guides/installation/increasing-cpu-or-memory-resources/)”。                                                                                                                 |
-| 可用磁盘空间小    | 较大的二进制或日志文件占用磁盘空间     | 如有可能，请在独立服务器上托管较大的二进制文件，并压缩或存档日志文件。 如有必要，请按“[增加存储容量](/enterprise/{{ currentVersion }}/admin/guides/installation/increasing-storage-capacity/)”中的步骤操作，为您的平台增加 VM 的磁盘空间。                                                                                                           |
+| CPU 利用率高   | 在同一主机上运行的其他服务或程序争用 VM | 如有可能，请将其他服务或程序重新配置为占用较少的 CPU 资源。 要增加 VM 的总 CPU 资源，请参阅“[增加 CPU 或内存资源](/enterprise/admin/guides/installation/increasing-cpu-or-memory-resources/)”。                                                                                                                                |
+| 内存使用量高     | 在同一主机上运行的其他服务或程序争用 VM | 如有可能，请将其他服务或程序重新配置为占用较少内存。 要增加 VM 上可用的总内存大小，请参阅“[增加 CPU 或内存资源](/enterprise/admin/guides/installation/increasing-cpu-or-memory-resources/)”。                                                                                                                                      |
+| 可用磁盘空间小    | 较大的二进制或日志文件占用磁盘空间     | 如有可能，请在独立服务器上托管较大的二进制文件，并压缩或存档日志文件。 如有必要，请按“[增加存储容量](/enterprise/admin/guides/installation/increasing-storage-capacity/)”中的步骤操作，为您的平台增加 VM 的磁盘空间。                                                                                                                                |
 | 响应时间较正常时间长 | 通常是上述问题之一造成的          | 确定并解决根本问题。 如果响应时间仍较长，请联系 {% data variables.contact.contact_ent_support %}。                                                                                                                                                                                                     |
 | 错误率提高      | 软件问题                  | 联系 {% data variables.contact.contact_ent_support %} 并附上支持包。 更多信息请参阅“[向 {% data variables.product.prodname_enterprise %} Support 提供数据](/enterprise/{{ currentVersion}}/admin/guides/enterprise-support/providing-data-to-github-support#creating-and-sharing-support-bundles)”。 |

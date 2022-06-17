@@ -1339,6 +1339,34 @@ El conjunto de datos de asesoría de seguridad también impulsa las {% data vari
 
 {% endif %}
 
+{% ifversion ghas-enablement-webhook %}
+
+## security_and_analysis
+
+Actividad relacionada con habilitar o inhabilitar la seguridad de código y características de seguridad para un repositorio u organización.
+
+### Disponibilidad
+
+- Webhooks de repositorio
+- Webhooks de organización
+- {% data variables.product.prodname_github_apps %} que tengan un acceso mínimo de `read-only` en la administración de repositorios
+
+### Objeto de carga útil del webhook
+
+| Clave     | Tipo     | Descripción                                                                          |
+| --------- | -------- | ------------------------------------------------------------------------------------ |
+| `changes` | `objeto` | Los cambios que se hicieron a la seguridad del código y características de análisis. |
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
+
+### Ejemplo de carga útil del webhook
+
+{{ webhookPayloadsForCurrentVersion.security_and_analysis }}
+
+{% endif %}
+
 {% ifversion fpt or ghec %}
 ## sponsorship
 

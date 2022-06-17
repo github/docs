@@ -66,7 +66,7 @@ Organization | `http(s)://pages.<hostname>/<organization>` | `http(s)://<hostnam
 Project site owned by personal account | `http(s)://pages.<hostname>/<username>/<repository>/` | `http(s)://<hostname>/pages/<username>/<repository>/`
 Project site owned by organization account | `http(s)://pages.<hostname>/<orgname>/<repository>/` | `http(s)://<hostname>/pages/<orgname>/<repository>/`
 
-For more information, see "[Enabling subdomain isolation](/enterprise/{{ currentVersion }}/admin/installation/enabling-subdomain-isolation)" or contact your site administrator.
+For more information, see "[Enabling subdomain isolation](/enterprise/admin/installation/enabling-subdomain-isolation)" or contact your site administrator.
 {% endif %}
 
 ## Publishing sources for {% data variables.product.prodname_pages %} sites

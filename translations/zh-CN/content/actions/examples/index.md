@@ -1,7 +1,7 @@
 ---
 title: 示例
 shortTitle: 示例
-intro: 'Example workflows that demonstrate the CI/CD features of {% data variables.product.prodname_actions %}.'
+intro: '演示 {% data variables.product.prodname_actions %} 的 CI/CD 功能的示例工作流程。'
 versions:
   fpt: '*'
   ghes: '*'
