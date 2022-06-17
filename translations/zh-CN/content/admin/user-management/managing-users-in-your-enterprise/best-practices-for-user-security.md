@@ -20,7 +20,7 @@ shortTitle: 用户安全最佳实践
 
 双重身份验证 (2FA) 是登录网站和服务的一种方法，需要使用密码以外的第二重因素来验证身份。 对于 {% data variables.product.prodname_ghe_server %}，第二重因素为用户智能手机上的应用程序生成的一次性验证码。 我们强烈建议要求您的用户在他们的帐户上启用双重身份验证。 使用双重身份验证时，只有用户的密码和智能手机同时被盗，他们的帐户才会遭到入侵。
 
-有关如何配置双重身份验证的更多信息，请参阅“[关于双重身份验证](/enterprise/{{ currentVersion }}/user/articles/about-two-factor-authentication)”。
+有关如何配置双重身份验证的更多信息，请参阅“[关于双重身份验证](/enterprise/user/articles/about-two-factor-authentication)”。
 {% endif %}
 
 ## 需要密码管理器

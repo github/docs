@@ -12,8 +12,6 @@ product: '{% data reusables.gated-features.codespaces %}'
 miniTocMaxHeadingLevel: 3
 ---
 
-{% data reusables.codespaces.prebuilds-beta-note %}
-
 有关 {% data variables.product.prodname_codespaces %} 预构建的详细信息，请参阅“[预构建代码空间](/codespaces/prebuilding-your-codespaces)”。
 
 ## 检查代码空间是否是从预构建创建的？

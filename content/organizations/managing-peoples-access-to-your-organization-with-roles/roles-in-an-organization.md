@@ -125,7 +125,7 @@ Some of the features listed below are limited to organizations using {% data var
 | Transfer repositories | **X** |  |  |   |  |
 | Purchase, install, manage billing for, and cancel {% data variables.product.prodname_marketplace %} apps | **X** |  |  |  |  |
 | List apps in {% data variables.product.prodname_marketplace %} | **X** |  |  |  |  |
-| Receive [{% data variables.product.prodname_dependabot_alerts %} about vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies) for all of an organization's repositories | **X** |  |  |  | **X** |
+| Receive [{% data variables.product.prodname_dependabot_alerts %} about insecure dependencies](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts) for all of an organization's repositories | **X** |  |  |  | **X** |
 | Manage {% data variables.product.prodname_dependabot_security_updates %} (see "[About {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)") | **X** |  |  |  | **X** |
 | [Manage the forking policy](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization) | **X** |  |  |  |  |
 | [Limit activity in public repositories in an organization](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-organization) | **X** |  |  |  |  |

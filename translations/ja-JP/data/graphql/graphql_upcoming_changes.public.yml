@@ -100,8 +100,8 @@ upcoming_changes:
     owner: cheshire137
   - 
     location: DependencyGraphDependency.packageLabel
-    description: '`packageLabel` will be removed. Use normalized `packageName` field instead.'
-    reason: '`packageLabel` will be removed.'
+    description: '`packageLabel`は削除されます。代わりに正規化された`packageName`フィールドを使用してください。'
+    reason: '`packageLabel`は削除されます。'
     date: '2022-10-01T00:00:00+00:00'
     criticality: 破壊的
     owner: github/dependency_graph
