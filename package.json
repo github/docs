@@ -17,7 +17,7 @@
     "accept-language-parser": "^1.5.0",
     "ajv": "^8.11.0",
     "ajv-formats": "^2.1.1",
-    "cheerio": "1.0.0-rc.10",
+    "cheerio": "^1.0.0-rc.11",
     "classnames": "^2.3.1",
     "connect-datadog": "0.0.9",
     "cookie-parser": "^1.4.6",
