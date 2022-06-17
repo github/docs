@@ -119,7 +119,7 @@ To filter notifications for specific activity on {% data variables.product.produ
 - `is:discussion`{% endif %}
 
 {% ifversion fpt or ghes or ghae or ghec %}
-For information about reducing noise from notifications for {% data variables.product.prodname_dependabot_alerts %}, see "[Configuring notifications for vulnerable dependencies](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies)."
+For information about reducing noise from notifications for {% data variables.product.prodname_dependabot_alerts %}, see "[Configuring notifications for {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts)."
 {% endif %}
 
 You can also use the `is:` query to describe how the notification was triaged.
@@ -175,7 +175,7 @@ For more information about {% data variables.product.prodname_dependabot %}, see
 
 {% ifversion ghes < 3.3 or ghae %}
 
-If you use {% data variables.product.prodname_dependabot %} to tell you about vulnerable dependencies, you can use and save these custom filters to show notifications for {% data variables.product.prodname_dependabot_alerts %}:
+If you use {% data variables.product.prodname_dependabot %} to tell you about insecure dependencies, you can use and save these custom filters to show notifications for {% data variables.product.prodname_dependabot_alerts %}:
 - `is:repository_vulnerability_alert` 
 - `reason:security_alert`
 
