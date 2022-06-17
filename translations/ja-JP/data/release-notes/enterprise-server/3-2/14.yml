@@ -1,0 +1,23 @@
+---
+date: '2022-06-09'
+sections:
+  security_fixes:
+    - パッケージは最新のセキュリティバージョンにアップデートされました。
+  bugs:
+    - '{% data variables.product.prodname_ghe_server %}の設定ファイル中のホスト名を検証する内部的なスクリプトが、ホスト名の文字列が"."（ピリオド）で始まっているとエラーを返します。'
+    - プライマリノードのホスト名が60文字以上の長さになっているHA構成において、MySQLの設定に失敗します。
+    - '`ghe-setup-network`コマンドに`--gateway`引数が追加され、コマンドラインを使ってネットワーク設定をする際にゲートウェイのアドレスを渡せるようになりました。'
+    - 削除された画像の添付ファイルは、`404 Not Found`エラーではなく`500 Internal Server Error`を返します。
+    - サイトアドミンのダッシュボードで報告される"maximum committers across entire instance（インスタンス全体での最大のコミッタ数）"の計算は正しくありませんでした。
+    - '{% data variables.product.prodname_enterprise_backup_utilities %}を試用した復元の実行時に、リポジトリレプリカの不正確なデータベースエントリによって、データベースが破損しました。'
+  changes:
+    - クラスタのSupport Bundleの生成時に、含めるメトリクスを最適化しました。
+    - Elasticsearchが有効な黄色のステータスを報告してきた場合のHA構成において、以前の修正で導入された変更が`ghe-repl-stop`コマンドをブロックし、レプリカの停止を妨げます。`ghe-repo-stop --force`を使用すれば、Elasticsearchのサービスが通常もしくは有効な黄色のステータスにある場合に、強制的にElasticsearchが停止されます。
+  known_issues:
+    - 新しくセットアップされたユーザを持たない{% data variables.product.prodname_ghe_server %}インスタンスで、攻撃者が最初の管理ユーザを作成できました。
+    - アップグレードの過程で、カスタムのファイアウォールのルールが削除されます。
+    - Git LFSが追跡するファイル[Webインターフェースからアップロードされたもの](https://github.com/blog/2105-upload-files-to-your-repositories)が、不正にリポジトリに直接追加されてしまいます。
+    - 同じリポジトリ内のファイルパスが255文字を超えるblobへのパーマリンクを含むIssueをクローズできませんでした。
+    - '{% data variables.product.prodname_github_connect %}で"Users can search GitHub.com（ユーザはGitHub.comの検索が可能）" が有効化されたとき、プライベート及びインターナルリポジトリのIssueが{% data variables.product.prodname_dotcom_the_website %}の検索結果に含まれません。'
+    - '{% data variables.product.prodname_registry %}のnpmレジストリは、メタデータのレスポンス中で時間の値を返さなくなります。これは、大きなパフォーマンス改善のために行われました。メタデータレスポンスの一部として時間の値を返すために必要なすべてのデータは保持し続け、既存のパフォーマンスの問題を解決した将来に、この値を返すことを再開します。'
+    - pre-receive フックの処理に固有のリソース制限によって、pre-receive フックに失敗するものが生じることがあります。

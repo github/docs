@@ -39,7 +39,8 @@ shortTitle: 筛选文件
 {% data reusables.repositories.sidebar-pr %}
 1. 在拉取请求列表中，单击要过滤的拉取请求。
 {% data reusables.repositories.changed-files %}
-1. 如果文件树处于隐藏状态，请单击 **Show file tree（显示文件树）**以显示文件树。
+
+1. 单击文件树中的文件可查看相应的文件差异 如果文件树处于隐藏状态，请单击 {% octicon "sidebar-collapse" aria-label="The sidebar collapse icon" %} 以显示文件树。
 
    {% note %}
 
@@ -47,7 +48,7 @@ shortTitle: 筛选文件
 
    {% endnote %}
 
-1. 单击文件树中的文件可查看相应的文件差异 ![拉取请求文件树](/assets/images/help/pull_requests/pr-file-tree.png)
+   ![Screenshot of filter changed files search box and file tree emphasized](/assets/images/help/repository/file-tree.png)
 1. 要按文件路径进行筛选，请在 **Filter changed files（筛选已更改的文件）**搜索框中输入部分或全部文件路径。 或者，使用文件筛选器下拉列表。 更多信息请参阅“[使用文件筛选器下拉列表](#using-the-file-filter-dropdown)”。
 
 {% endif %}

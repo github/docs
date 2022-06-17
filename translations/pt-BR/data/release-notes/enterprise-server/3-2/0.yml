@@ -220,5 +220,10 @@ sections:
           Dois eventos de webhook relacionados a aplicativos legados foram removidos: `integration_installation` e `integration_installation_repositories`. Em vez disso, você deveria estar ouvindo os eventos `installation` e `installation_repositories`.
         - |
           O ponto de extremidade a seguir da API REST foi removido: `POST /installations/{installation_id}/access_tokens`. Você deverá usar o namespaced equivalente `POST /app/installations/{installation_id}/access_tokens`.
+    - 
+      heading: Change to the format of authentication tokens affects GitHub Connect
+      notes:
+        - |
+          GitHub Connect will no longer work after June 3rd for instances running GitHub Enterprise Server 3.1 or older, due to the format of GitHub authentication tokens changing. To continue using GitHub Connect, upgrade to GitHub Enterprise Server 3.2 or later. For more information, see the [GitHub Blog](https://github.blog/2022-05-20-action-needed-by-github-connect-customers-using-ghes-3-1-and-older-to-adopt-new-authentication-token-format-updates/). [Updated: 2022-06-14]
   backups:
     - '{% data variables.product.prodname_ghe_server %} 3.2 exige pelo menos uma versão dos [Utilitários de Backup 3.2.0 do GitHub Enterprise](https://github.com/github/backup-utils) para [Backups Recuperação de Desastre](/enterprise-server@3.2/admin/configuration/configuring-backups-on-your-appliance).'

@@ -31,4 +31,4 @@ error: failed to push some refs to 'https://54.204.174.51/hodor/nope.git'
 
 ![失败预接收挂钩的错误消息](/assets/images/help/pull_requests/pre-receive-hook-failed-error.png)
 
-您的 {% data variables.product.product_name %} 站点管理员可以创建和删除组织或仓库的预接收挂钩，并可允许组织或仓库管理员启用或禁用预接收挂钩。 更多信息请参阅“[使用预接收挂钩来强制实施策略](/enterprise/{{ currentVersion }}/admin/guides/developer-workflow/using-pre-receive-hooks-to-enforce-policy)”。
+您的 {% data variables.product.product_name %} 站点管理员可以创建和删除组织或仓库的预接收挂钩，并可允许组织或仓库管理员启用或禁用预接收挂钩。 更多信息请参阅“[使用预接收挂钩来强制实施策略](/enterprise/admin/guides/developer-workflow/using-pre-receive-hooks-to-enforce-policy)”。

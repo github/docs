@@ -12,7 +12,7 @@ topics:
   - API
 ---
 
-您可以使用 REST API 或 GraphQL API 访问 GitHub 中的大多数对象（用户、议题、拉取请求等）。 您可以从 REST API 中找到许多对象的**全局节点 ID** ，并在 GraphQL 操作中使用这些 ID。 更多信息请参阅“[预览 GraphQL API v4 REST API v3 资源中的节点 ID](https://developer.github.com/changes/2017-12-19-graphql-node-id/)”。
+您可以使用 REST API 或 GraphQL API 访问 GitHub 中的大多数对象（用户、议题、拉取请求等）。 您可以从 REST API 中找到许多对象的**全局节点 ID** ，并在 GraphQL 操作中使用这些 ID。 For more information, see "[Preview GraphQL API Node IDs in REST API resources](https://developer.github.com/changes/2017-12-19-graphql-node-id/)."
 
 {% note %}
 
