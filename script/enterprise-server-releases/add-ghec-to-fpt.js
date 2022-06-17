@@ -11,7 +11,7 @@
 import fs from 'fs'
 import path from 'path'
 import walk from 'walk-sync'
-import program from 'commander'
+import { program } from 'commander'
 import { escapeRegExp } from 'lodash-es'
 import frontmatter from '../../lib/read-frontmatter.js'
 import { getLiquidConditionals } from '../helpers/get-liquid-conditionals.js'
