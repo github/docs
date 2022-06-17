@@ -116,29 +116,29 @@ topics:
 1. 依存関係を更新して脆弱性を解決する準備ができたら、プルリクエストをマージしてください。
 
 {% ifversion fpt or ghec or ghes > 3.2 %}
-   Each pull request raised by {% data variables.product.prodname_dependabot %} includes information on commands you can use to control {% data variables.product.prodname_dependabot %}. For more information, see "[Managing pull requests for dependency updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands)."
+   {% data variables.product.prodname_dependabot %}が発行したそれぞれのPull Requestには、{% data variables.product.prodname_dependabot %}の制御に利用できるコマンドに関する情報が含まれています。 詳しい情報については「[依存関係の更新のためのPull Requestの管理](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands)」を参照してください。
 {% endif %}
 
 ## {% data variables.product.prodname_dependabot_alerts %}の却下
 
 {% tip %}
 
-**Tip:** You can only dismiss open alerts.
+**参考:** 却下できるのはオープンなアラートのみです。
 {% endtip %}
 
 依存関係のアップグレードのための広汎な作業をスケジュールしていたり、アラートを修正する必要はないと判断したりした場合、アラートを却下できます。 すでに評価済みのアラートを却下すると、新しいアラートが現れたときにトリアージしやすくなります。
 
-1. アラートの詳細を表示させます。 For more information, see "[Viewing vulnerable dependencies](#viewing-dependabot-alerts)" (above).
-1. Select the "Dismiss" dropdown, and click a reason for dismissing the alert.{% ifversion reopen-dependabot-alerts %} Unfixed dismissed alerts can be reopened later.{% endif %} ![[Dismiss] ドロップダウンでアラートを却下する理由を選択する](/assets/images/help/repository/dependabot-alert-dismiss-drop-down-ungrouped.png)
+1. アラートの詳細を表示させます。 詳しい情報については上の「[脆弱性のある依存関係の表示](#viewing-dependabot-alerts)」を参照してください。
+1. "Dismiss（却下）"ドロップダウンを選択し、アラートを却下する理由をクリックしてください。{% ifversion reopen-dependabot-alerts %}却下された未修正のアラートは、後で再度オープンできます。{% endif %} ![[Dismiss] ドロップダウンでアラートを却下する理由を選択する](/assets/images/help/repository/dependabot-alert-dismiss-drop-down-ungrouped.png)
 {% ifversion dependabot-bulk-alerts %}
 
 ### 複数のアラートを一度に却下する
 
-1. View the open {% data variables.product.prodname_dependabot_alerts %}. For more information, see "[Viewing {% data variables.product.prodname_dependabot_alerts %}](/en/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#viewing-dependabot-alerts)".
-2. Optionally, filter the list of alerts by selecting a dropdown menu, then clicking the filter that you would like to apply. 検索バーにフィルタを入力することもできます。
-3. To the left of each alert title, select the alerts that you want to dismiss. ![Screenshot of open alerts with checkboxes emphasized](/assets/images/help/graphs/select-multiple-alerts.png)
-4. Optionally, at the top of the list of alerts, select all alerts on the page. ![Screenshot of all open alerts selected](/assets/images/help/graphs/select-all-alerts.png)
-5. Select the "Dismiss alerts" dropdown, and click a reason for dismissing the alerts. ![Screenshot of open alerts page with "Dismiss alerts" drop-down emphasized](/assets/images/help/graphs/dismiss-multiple-alerts.png)
+1. オープンな{% data variables.product.prodname_dependabot_alerts %}を表示させます。 詳しい情報については「[{% data variables.product.prodname_dependabot_alerts %}の表示](/en/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#viewing-dependabot-alerts)」を参照してください。
+2. あるいは、ドロップダウンメニューを選択し、適用したいフィルタをクリックして、アラートのリストをフィルタリングしてください。 検索バーにフィルタを入力することもできます。
+3. それぞれのアラートのタイトルの左で、却下したいアラートを選択してください。 ![チェックボックスが強調されたオープンなアラートのスクリーンショット](/assets/images/help/graphs/select-multiple-alerts.png)
+4. あるいは、アラートのリストの上部で、ページ上のアラートをすべて選択してください。 ![すべてのオープンなアラートが選択されたスクリーンショット](/assets/images/help/graphs/select-all-alerts.png)
+5. "Dismiss alerts（アラートを却下）"ドロップダウンを選択し、アラートを却下する理由をクリックしてください。 !["Dismiss alerts"ドロップダウンが強調されたオープンなアラートページのスクリーンショット](/assets/images/help/graphs/dismiss-multiple-alerts.png)
 
 {% endif %}
 
@@ -148,27 +148,27 @@ topics:
 
 {% tip %}
 
-**Tip:** You can only reopen alerts that have been previously dismissed. Closed alerts that have already been fixed cannot be reopened.
+**参考:** 再オープンできるアラートは、以前に却下したものだけです。 既に修復済みのクローズされたアラートは、再オープンできません。
 {% endtip %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-dependabot-alerts %}
-1. To just view closed alerts, click **Closed**.{% ifversion dependabot-bulk-alerts %} ![Screenshot showing the "Closed" option](/assets/images/help/repository/dependabot-alerts-closed-checkbox.png){% else %}
+1. クローズされたアラートを表示だけするなら、**Closed（クローズ済み）**をクリックしてください。{% ifversion dependabot-bulk-alerts %} ![Screenshot showing the "Closed" option](/assets/images/help/repository/dependabot-alerts-closed-checkbox.png){% else %}
 ![Screenshot showing the "Closed" option](/assets/images/help/repository/dependabot-alerts-closed.png){% endif %}
-1. Click the alert that you would like to view or update.{% ifversion dependabot-bulk-alerts %} ![Screenshot showing a highlighted dependabot alert](/assets/images/help/repository/dependabot-alerts-select-closed-alert-checkbox.png){% else %}
+1. 表示もしくは更新したいアラートをクリックしてください。{% ifversion dependabot-bulk-alerts %} ![Screenshot showing a highlighted dependabot alert](/assets/images/help/repository/dependabot-alerts-select-closed-alert-checkbox.png){% else %}
 ![Screenshot showing a highlighted dependabot alert](/assets/images/help/repository/dependabot-alerts-select-closed-alert.png){% endif %}
-2. あるいはアラートが却下されていて、再度オープンしたい場合は、**Reopen（再オープン）**をクリックしてください。 Alerts that have already been fixed cannot be reopened. !["Reopen"ボタンを表示しているスクリーンショット](/assets/images/help/repository/reopen-dismissed-alert.png)
+2. あるいはアラートが却下されていて、再度オープンしたい場合は、**Reopen（再オープン）**をクリックしてください。 既に修正済みのアラートは再オープンできません。 !["Reopen"ボタンを表示しているスクリーンショット](/assets/images/help/repository/reopen-dismissed-alert.png)
 
 {% endif %}
 
 {% ifversion dependabot-bulk-alerts %}
 
-### Reopening multiple alerts at once
+### 複数のアラートを一度に再オープンする
 
-1. View the closed {% data variables.product.prodname_dependabot_alerts %}. For more information, see "[Viewing and updating closed alerts](/en/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#viewing-and-updating-closed-alerts)" (above).
-2. To the left of each alert title, select the alerts that you want to reopen. ![Screenshot of closed alerts with checkboxes emphasized](/assets/images/help/repository/dependabot-alerts-open-checkbox.png)
-3. Optionally, at the top of the list of alerts, select all closed alerts on the page. ![Screenshot of closed alerts with all alerts selected](/assets/images/help/graphs/select-all-closed-alerts.png)
-4. Click **Reopen** to reopen the alerts. Alerts that have already been fixed cannot be reopened. ![Screenshot of closed alerts with "Reopen" button emphasized](/assets/images/help/graphs/reopen-multiple-alerts.png)
+1. クローズされた{% data variables.product.prodname_dependabot_alerts %}を表示してください。 詳しい情報については上の「[クローズされたアラートの表示と更新](/en/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#viewing-and-updating-closed-alerts)」を参照してください。
+2. それぞれのアラートのタイトルの左で、再オープンしたいアラートを選択してください。 ![チェックボックスが強調されたクローズ済みアラートのスクリーンショット](/assets/images/help/repository/dependabot-alerts-open-checkbox.png)
+3. あるいは、アラートのリストの上部で、ページ上のクローズされたアラートをすべて選択してください。 ![すべてのアラートが選択されたクローズ済みアラートのスクリーンショット](/assets/images/help/graphs/select-all-closed-alerts.png)
+4. ** Reopen（再オープン）**をクリックして、アラートを再オープンしてください。 既に修正済みのアラートは再オープンできません。 !["Reopen"ボタンが強調されたクローズ済みアラートのスクリーンショット](/assets/images/help/graphs/reopen-multiple-alerts.png)
 
 {% endif %}

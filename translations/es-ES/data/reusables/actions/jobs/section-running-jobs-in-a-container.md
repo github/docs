@@ -4,9 +4,14 @@ Si no configuras un `container`, todos los pasos se ejecutan directamente en el 
 
 ### Ejemplo: Ejecutar un job dentro de un contenedor
 
-```yaml
+```yaml{:copy}
+name: CI
+on:
+  push:
+    branches: [ main ]
 jobs:
-  my_job:
+  container-test-job:
+    runs-on: ubuntu-latest
     container:
       image: node:14.16
       env:
@@ -16,12 +21,16 @@ jobs:
       volumes:
         - my_docker_volume:/volume_mount
       options: --cpus 1
+    steps:
+      - name: Check for dockerenv file
+        run: (ls /.dockerenv && echo Found dockerenv) || (echo No dockerenv)
 ```
 
 Cuando solo especificas una imagen de contenedor, puedes omitir la palabra clave `image`.
 
 ```yaml
 jobs:
-  my_job:
+  container-test-job:
+    runs-on: ubuntu-latest
     container: node:14.16
 ```

@@ -10,12 +10,6 @@ topics:
 shortTitle: Remove member
 ---
 
-{% note %}
-
-**Note:** The ability to remove enterprise members is in beta and subject to change.
-
-{% endnote %}
-
 ## About removal of enterprise members
 
 When you remove an enterprise member from your enterprise, the member is removed from all organizations owned by your enterprise.

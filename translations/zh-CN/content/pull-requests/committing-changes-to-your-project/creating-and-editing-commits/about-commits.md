@@ -49,7 +49,7 @@ You can use the file tree to navigate between files in a commit.
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.navigate-to-commit-page %}
 1. 通过单击提交消息链接导航到提交。 ![强调提交消息链接的提交屏幕截图](/assets/images/help/commits/commit-message-link.png)
-1. 单击文件树中的文件可查看相应的文件差异 If the file tree is hidden, click {% octicon "sidebar-collapse" aria-label="The sidebar collapse icon" %} to display the file tree.
+1. 单击文件树中的文件可查看相应的文件差异 如果文件树处于隐藏状态，请单击 {% octicon "sidebar-collapse" aria-label="The sidebar collapse icon" %} 以显示文件树。
 
   {% note %}
 

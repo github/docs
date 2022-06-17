@@ -12,6 +12,7 @@ children:
   - /about-projects
   - /quickstart
   - /creating-a-project
+  - /migrating-your-project
   - /managing-iterations
   - /customizing-your-project-views
   - /filtering-projects
