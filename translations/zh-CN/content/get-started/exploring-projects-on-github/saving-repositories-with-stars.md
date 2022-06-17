@@ -40,6 +40,14 @@ shortTitle: 保存有星标的仓库
 1. （可选）要取消先前已标星仓库的星标，请点击 **Unstar（取消星标）**。 ![解压仓库](/assets/images/help/stars/unstarring-a-repository.png)
 
 {% ifversion fpt or ghec %}
+
+## 查看谁为存储库加了星标
+
+您可以查看已为您有权访问的公共存储库或私有存储库加星标的每个人。
+
+
+要查看已为存储库加星标的每个人，请将 `/stargazers` 添加到存储库 URL 的末尾。 例如，要查看 github/docs 存储库的标星者，请访问 https://github.com/github/docs/stargazers。
+
 ## 使用列表组织带星标的存储库
 
 {% note %}

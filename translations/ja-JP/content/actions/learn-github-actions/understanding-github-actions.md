@@ -86,14 +86,14 @@ You can write your own actions, or you can find actions to use in your workflows
 
 {% data reusables.actions.workflow-basic-example-and-explanation %}
 
+## More complex examples
+{% data reusables.actions.link-to-example-library %}
+
 ## 次のステップ
 
-{% data variables.product.prodname_actions %} について詳しくは、「[アクションの検索とカスタマイズ](/actions/learn-github-actions/finding-and-customizing-actions)」を参照してください。
-
+- {% data variables.product.prodname_actions %} について詳しくは、「[アクションの検索とカスタマイズ](/actions/learn-github-actions/finding-and-customizing-actions)」を参照してください。
 {% ifversion fpt or ghec or ghes %}
-
-To understand how billing works for {% data variables.product.prodname_actions %}, see "[About billing for {% data variables.product.prodname_actions %}](/actions/reference/usage-limits-billing-and-administration#about-billing-for-github-actions)".
-
+- To understand how billing works for {% data variables.product.prodname_actions %}, see "[About billing for {% data variables.product.prodname_actions %}](/actions/reference/usage-limits-billing-and-administration#about-billing-for-github-actions)".
 {% endif %}
 
 ## サポートへの連絡

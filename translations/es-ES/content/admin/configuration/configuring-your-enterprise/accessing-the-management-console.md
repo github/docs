@@ -55,4 +55,12 @@ La primera vez que accedas a la {% data variables.enterprise.management_console 
 
 Los bloqueos de la {% data variables.enterprise.management_console %} después de diez intentos de inicio de sesión fallidos se hacen en el transcurso de diez minutos. Debes esperar para que la pantalla de inicio de sesión se desbloquee automáticamente antes de intentar iniciar sesión nuevamente. La pantalla de inicio de sesión se desbloquea automáticamente siempre que el período de diez minutos previo contenga menos de diez intentos de inicio de sesión fallidos. El contador se reinicia después de que ocurra un inicio de sesión exitoso.
 
-Para desbloquear de inmediato la {% data variables.enterprise.management_console %}, utilice el comando `ghe-reactivate-admin-login` a través del shell administrativo. Para obtener más información, consulta "[Utilidades de la línea de comando](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities#ghe-reactivate-admin-login)" y "[Acceder al shell administrativo (SSH)](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-administrative-shell-ssh/)."
+Para desbloquear de inmediato la {% data variables.enterprise.management_console %}, utilice el comando `ghe-reactivate-admin-login` a través del shell administrativo. Para obtener más información, consulta "[Utilidades de la línea de comando](/enterprise/admin/guides/installation/command-line-utilities#ghe-reactivate-admin-login)" y "[Acceder al shell administrativo (SSH)](/enterprise/admin/guides/installation/accessing-the-administrative-shell-ssh/)."
+
+## Solucionar problemas en las conexiones fallidas a la {% data variables.enterprise.management_console %}
+
+Si no puedes conectar la {% data variables.enterprise.management_console %} en {% data variables.product.product_location %}, puedes revisar la siguiente información para solucionar el problema.
+
+### Error: "Your session has expired" para las conexiones a través de un balanceador de carga
+
+Si accedes a {% data variables.product.product_location %} a través de un balanceador de carga y las conexiones a la {% data variables.enterprise.management_console %} fallan con un mensaje de sesión vencida, podrías tener que reconfigurar tu balanceador de carga. Para obtener más información, consulta la sección "[Utilizar {% data variables.product.product_name %} con un balanceador de carga](/admin/configuration/configuring-network-settings/using-github-enterprise-server-with-a-load-balancer#error-your-session-has-expired-for-connections-to-the-management-console)".

@@ -26,7 +26,7 @@ Debes habilitar el modo privado si {% data variables.product.product_location %}
 
 {% data reusables.enterprise_installation.image-urls-viewable-warning %}
 
-Con el modo privado habilitado, puedes permitir que operaciones de Git sin autenticación (y cualquiera con acceso de red a {% data variables.product.product_location %}) lean un código de repositorio público de tu instancia con acceso de lectura anónimo de Git habilitado. Para obtener más información, consulta "[Permitir que los administradores habiliten el acceso de lectura anónimo de Git para los repositorios públicos](/enterprise/{{ currentVersion }}/admin/guides/user-management/allowing-admins-to-enable-anonymous-git-read-access-to-public-repositories)."
+Con el modo privado habilitado, puedes permitir que operaciones de Git sin autenticación (y cualquiera con acceso de red a {% data variables.product.product_location %}) lean un código de repositorio público de tu instancia con acceso de lectura anónimo de Git habilitado. Para obtener más información, consulta "[Permitir que los administradores habiliten el acceso de lectura anónimo de Git para los repositorios públicos](/enterprise/admin/guides/user-management/allowing-admins-to-enable-anonymous-git-read-access-to-public-repositories)."
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}

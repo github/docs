@@ -1,0 +1,7 @@
+---
+#Reference: #7070
+#Actions Runner Container Hooks
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghae: 'issue-7070'

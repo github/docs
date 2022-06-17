@@ -65,7 +65,14 @@ Windowsでは、ランナーサービスは**サービス**アプリケーショ
    sudo ./svc.sh install
    ```
 
+1. Alternatively, the command takes an optional `user` argument to install the service as a different user.
+
+  ```shell
+  ./svc.sh install <em>USERNAME</em>
+  ```
+
 {% endlinux %}
+
 {% mac %}
 
 ## サービスのインストール
@@ -77,12 +84,6 @@ Windowsでは、ランナーサービスは**サービス**アプリケーショ
    ./svc.sh install
    ```
 {% endmac %}
-
-The command takes an optional `user` argument to install the service as a different user.
-
-```shell
-./svc.sh install <em>USERNAME</em>
-```
 
 ## サービスの起動
 

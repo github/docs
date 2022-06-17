@@ -40,6 +40,16 @@ Favoritar um repositório é um processo simples de duas etapas.
 1. Opcionalmente, para desmarcar um repositório como favorito, clique em **Desmarcar como favorito**. ![Removendo um repositório dos favoritos](/assets/images/help/stars/unstarring-a-repository.png)
 
 {% ifversion fpt or ghec %}
+
+## Viewing who has starred a repository
+
+
+You can view everyone who has starred a public repository or a private repository you have access to.
+
+
+To view everyone who has starred a repository, add `/stargazers` to the end of the URL of a repository. For example, to view stargazers for the github/docs repository, visit https://github.com/github/docs/stargazers.
+
+
 ## Organizar repositórios favoritos com listas
 
 {% note %}

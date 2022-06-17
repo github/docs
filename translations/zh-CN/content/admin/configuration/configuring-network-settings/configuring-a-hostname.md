@@ -19,7 +19,7 @@ topics:
 
 {% data variables.enterprise.management_console %} 中的主机名设置应设置为合适的完全限定域名 (FQDN)，此域名可在互联网上或您的内部网络内解析。 例如，您的主机名设置可能是 `github.companyname.com。` Web 和 API 请求将自动重定向到 {% data variables.enterprise.management_console %} 中配置的主机名。
 
-配置主机名后，可以启用子域隔离以进一步提高 {% data variables.product.product_location %} 的安全性。 更多信息请参阅“[启用子域隔离](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-subdomain-isolation/)”。
+配置主机名后，可以启用子域隔离以进一步提高 {% data variables.product.product_location %} 的安全性。 更多信息请参阅“[启用子域隔离](/enterprise/admin/guides/installation/enabling-subdomain-isolation/)”。
 
 有关支持的主机名类型的详细信息，请参阅 [HTTP RFC 2.1 节](https://tools.ietf.org/html/rfc1123#section-2)。
 
@@ -33,4 +33,4 @@ topics:
 {% data reusables.enterprise_management_console.test-domain-settings-failure %}
 {% data reusables.enterprise_management_console.save-settings %}
 
-为了帮助缓解各种跨站点脚本漏洞，我们建议您在配置主机名后为 {% data variables.product.product_location %} 启用子域隔离。 更多信息请参阅“[启用子域隔离](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-subdomain-isolation/)”。
+为了帮助缓解各种跨站点脚本漏洞，我们建议您在配置主机名后为 {% data variables.product.product_location %} 启用子域隔离。 更多信息请参阅“[启用子域隔离](/enterprise/admin/guides/installation/enabling-subdomain-isolation/)”。

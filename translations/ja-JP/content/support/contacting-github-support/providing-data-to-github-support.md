@@ -68,7 +68,7 @@ SSHキーがすぐに利用できない場合、この方法が使えます。
 
 この方法は、{% data variables.enterprise.management_console %} にサインインせずに利用できます。
 
-[ghe-diagnostics](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities#ghe-diagnostics) コマンドラインユーティリティを使ってインスタンスの Diagnostics を取得してください。
+[ghe-diagnostics](/enterprise/admin/guides/installation/command-line-utilities#ghe-diagnostics) コマンドラインユーティリティを使ってインスタンスの Diagnostics を取得してください。
 
 ```shell
 $ ssh -p122 admin@<em>hostname</em> -- 'ghe-diagnostics' > diagnostics.txt
