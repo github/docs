@@ -26,7 +26,7 @@ Os fluxos de trabalho que seriam acionados usando `on: push` ou `on: pull_reques
 * `[skip actions]`
 * `[actions skip]`
 
-Alternatively, you can end the commit message with two empty lines followed by either:
+Como alternativa, você pode terminar a mensagem do commit com duas linhas vazias seguidas por:
 - `skip-checks:true`
 - `skip-checks: true`
 

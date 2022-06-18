@@ -11,6 +11,7 @@ topics:
 miniTocMaxHeadingLevel: 3
 children:
   - /dependency-review
+  - /dependency-submission
 redirect_from:
   - /rest/reference/dependency-graph
 ---

@@ -22,7 +22,7 @@ topics:
 
 ## Configurar o primeiro nó
 
-1. Conecte-se ao nó que será designado como principal no MySQL no `cluster.conf`. For more information, see "[About the cluster configuration file](/enterprise/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file)."
+1. Conecte-se ao nó que será designado como principal no MySQL no `cluster.conf`. Para obter mais informações, consulte "[Sobre o arquivo de configuração do cluster](/enterprise/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file)".
 2. No navegador, acesse `https://<ip address>:8443/setup/`.
 {% data reusables.enterprise_installation.upload-a-license-file %}
 {% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %}
@@ -30,7 +30,7 @@ topics:
 
 ## Inicializar o cluster
 
-Para inicializar o cluster, você precisa de um arquivo de configuração de cluster (`cluster.conf`). For more information, see "[About the cluster configuration file](/enterprise/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file)".
+Para inicializar o cluster, você precisa de um arquivo de configuração de cluster (`cluster.conf`). Para obter mais informações, consulte[Sobre o arquivo de configuração de cluster](/enterprise/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file)".
 
 1. Desde o primeiro nó configurado, execute `ghe-cluster-config-init`.  Essa ação inicializará o cluster caso haja nós no arquivo de configuração que não estão configurados.
 2. Execute `ghe-cluster-config-apply`. Fazer isso vai validar o arquivo `cluster.conf`, aplicar a configuração a cada arquivo de nó e ativar os serviços configurados em cada nó.
@@ -39,7 +39,7 @@ Para verificar o status de um cluster em execução, use o comando `ghe-cluster-
 
 ## Sobre o arquivo de configuração do cluster
 
-O arquivo de configuração do cluster (`cluster.conf`) define os nós no cluster e os serviços que cada nó executa. For more information, see "[About cluster nodes](/enterprise/admin/guides/clustering/about-cluster-nodes)."
+O arquivo de configuração do cluster (`cluster.conf`) define os nós no cluster e os serviços que cada nó executa. Para obter mais informações, consulte "[Sobre os nós do cluster](/enterprise/admin/guides/clustering/about-cluster-nodes)."
 
 O exemplo `cluster.conf` define um cluster com cinco nós.
 

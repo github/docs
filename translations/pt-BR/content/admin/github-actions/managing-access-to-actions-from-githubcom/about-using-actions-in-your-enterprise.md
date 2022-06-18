@@ -48,7 +48,7 @@ Cada ação é um repositório na organização de `ações`, e cada repositóri
 
 **Notas:**
 - Ao usar ações de configuração (como `actions/setup-LANGUAGE`) em {% data variables.product.product_name %} com executores auto-hospedados, você pode precisar configurar o armazenamento de ferramentas em executores que não possuem acesso à internet. Para obter mais informações, consulte "[Configurar o cache da ferramenta em executores auto-hospedados sem acesso à internet](/enterprise/admin/github-actions/setting-up-the-tool-cache-on-self-hosted-runners-without-internet-access)".
-- When {% data variables.product.product_name %} is updated, bundled actions are automatically replaced with default versions in the upgrade package.
+- Quando {% data variables.product.product_name %} é atualizado, as ações agrupadas são automaticamente substituídas pelas versões padrão do pacote de atualização.
 
 {% endnote %}
 
