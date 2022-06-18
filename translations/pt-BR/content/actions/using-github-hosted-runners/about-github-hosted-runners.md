@@ -189,6 +189,6 @@ O {% data variables.product.prodname_dotcom %} reserva o prefixo de caminho `/gi
 
 ## Leia mais
 - "[Gerenciando cobrança para {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)"
-- You can use a matrix strategy to run your jobs on multiple images. Para obter mais informações, consulte "[Usando uma matriz para seus trabalhos](/actions/using-jobs/using-a-matrix-for-your-jobs)".
+- Você pode usar uma estratégia matrix para executar seus trabalhos em várias imagens. Para obter mais informações, consulte "[Usando uma matriz para seus trabalhos](/actions/using-jobs/using-a-matrix-for-your-jobs)".
 
 {% endif %}

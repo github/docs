@@ -20,7 +20,7 @@ Com as APIs, você pode automatizar muitas tarefas administrativas. Veja alguns 
 
 {% ifversion ghes %}
 - Fazer alterações no {% data variables.enterprise.management_console %}. Para obter mais informações, consulte "[{% data variables.enterprise.management_console %}](/enterprise/user/rest/reference/enterprise-admin#management-console)."
-- Configurar a sincronização LDAP. For more information, see "[LDAP](/enterprise/user/rest/reference/enterprise-admin#ldap)."{% endif %}
+- Configurar a sincronização LDAP. Para obter mais informações, consulte "[LDAP](/enterprise/user/rest/reference/enterprise-admin#ldap)".{% endif %}
 - Colete estatísticas sobre sua empresa. Para obter mais informações, consulte " As[Estatísticas de Administrador](/rest/reference/enterprise-admin#admin-stats)".
 - Gerenciar sua conta corporativa. Para obter mais informações, consulte "[Contas corporativas](/graphql/guides/managing-enterprise-accounts)".
 

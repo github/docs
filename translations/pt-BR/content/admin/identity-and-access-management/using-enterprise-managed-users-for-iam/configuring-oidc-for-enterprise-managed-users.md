@@ -30,7 +30,7 @@ Se você atualmente usa SAML SSO para autenticação e prefere usar OIDC e se be
 
 O suporte para OIDC está em beta público e disponível para clientes que utilizam o Azure Active Directory (Azure AD).
 
-Each Azure AD tenant can support only one OIDC integration with {% data variables.product.prodname_emus %}. If you want to connect Azure AD to more than one enterprise on {% data variables.product.prodname_dotcom %}, use SAML instead. For more information, see "[Configuring SAML single sign-on for {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-saml-single-sign-on-for-enterprise-managed-users)."
+Cada inquilino do Azure AD pode suportar apenas uma integração do OIDC com {% data variables.product.prodname_emus %}. Se você quiser conectar Azure AD a mais de uma empresa em {% data variables.product.prodname_dotcom %}, use o SAML. Para obter mais informações, consulte "[Configurando o logon único SAML para {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-saml-single-sign-on-for-enterprise-managed-users)".
 
 ## Configurando o OIDC para usuários gerenciados por empresas
 

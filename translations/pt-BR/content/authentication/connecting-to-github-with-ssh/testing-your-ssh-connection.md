@@ -59,7 +59,7 @@ Quando você testar a conexão, precisará autenticar essa ação usando sua sen
 
    {% note %}
 
-   **Note:** The remote command should exit with code 1.
+   **Observação:** O comando remoto deve sair com o código 1.
 
    {% endnote %}
 

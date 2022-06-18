@@ -123,7 +123,7 @@ Por padrão, ao criar uma nova organização, `GITHUB_TOKEN` só tem acesso de l
 1. Clique em **Salvar** para aplicar as configurações.
 
 {% ifversion allow-actions-to-approve-pr %}
-### Preventing {% data variables.product.prodname_actions %} from {% ifversion allow-actions-to-approve-pr-with-ent-repo %}creating or {% endif %}approving pull requests
+### Impedindo que {% data variables.product.prodname_actions %} de {% ifversion allow-actions-to-approve-pr-with-ent-repo %}crie ou {% endif %}aprove pull requests
 
 {% data reusables.actions.workflow-pr-approval-permissions-intro %}
 
