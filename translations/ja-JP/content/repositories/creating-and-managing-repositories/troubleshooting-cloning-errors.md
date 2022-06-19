@@ -52,7 +52,7 @@ HTTPS エラーの例を次に示します:
 
 フェッチするリポジトリが {% data variables.product.product_location %} に存在する必要があります。また、URL では大文字と小文字が区別されます。
 
-コマンドラインを開き、`git remot -v` と入力して、ローカルリポジトリの URL を見つけることができます。
+コマンドラインを開き、`git remote -v` と入力して、ローカルリポジトリの URL を見つけることができます。
 
 ```shell
 $ git remote -v
