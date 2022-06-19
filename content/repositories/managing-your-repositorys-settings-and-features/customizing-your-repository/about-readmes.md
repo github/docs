@@ -30,7 +30,7 @@ A README is often the first item a visitor will see when visiting your repositor
 
 If you put your README file in your repository's hidden `.github`, root, or `docs` directory, {% data variables.product.product_name %} will recognize and automatically surface your README to repository visitors.
 
-If a repository contains more than one README file, then the file shown is chosen from locations in the following order: the `.github` directory, then the repository's root directory, and finally the `docs` directory.
+Suppose a repository contains more than one README file. In that case, the file shown is chosen from locations in the following order: the `.github` directory, then the repository's root directory, and finally the `docs` directory.
 
 ![Main page of the github/scientist repository and its README file](/assets/images/help/repository/repo-with-readme.png)
 
@@ -46,7 +46,7 @@ If a repository contains more than one README file, then the file shown is chose
 
 ## Auto-generated table of contents for README files
 
-For the rendered view of any Markdown file in a repository, including README files, {% data variables.product.product_name %} will automatically generate a table of contents based on section headings. You can view the table of contents for a README file by clicking the {% octicon "list-unordered" aria-label="The unordered list icon" %}  menu icon at the top left of the rendered page.
+The rendered view of any Markdown file in a repository (including README files, {% data variables.product.product_name %}) will automatically generate a table of contents based on section headings. You can view the table of contents for a README file by clicking the {% octicon "list-unordered" aria-label="The unordered list icon" %}  menu icon at the top left of the rendered page.
 
 ![README with automatically generated TOC](/assets/images/help/repository/readme-automatic-toc.png)
 
