@@ -32,7 +32,6 @@ The following scopes are recommended:
 
 
 ```
-repo
 repo:status
 repo_deployment{% ifversion not ghae %}
 public_repo{% endif %}
