@@ -97,11 +97,11 @@ The code, functions, and other output returned to you by GitHub Copilot are call
 
 _Acceptable Use_
 
-Your Code is subject to the GitHub [Acceptable Use Policies](https://docs.github.com/en/site-policy/acceptable-use-policies/github-acceptable-use-policies). For example, you may not prompt GitHub Copilot with content that is unlawful or otherwise prohibited by the GitHub Acceptable Use Policies on GitHub.com.
+Your Code is subject to the GitHub [Acceptable Use Policies](/site-policy/acceptable-use-policies/github-acceptable-use-policies). For example, you may not prompt GitHub Copilot with content that is unlawful or otherwise prohibited by the GitHub Acceptable Use Policies on GitHub.com.
 
 _Data_
 
-GitHub Copilot (i) may, depending on your preferred telemetry settings, collect snippets of Your Code, and (ii) will collect additional usage information through the IDE or editor tied to your Account. This may include personal data, as referenced in the [GitHub Privacy Statement](https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement). You can learn more about the collection and use of GitHub Copilot data in the [GitHub Copilot FAQ](https://github.com/features/copilot#faq-privacy).
+GitHub Copilot (i) may, depending on your preferred telemetry settings, collect snippets of Your Code, and (ii) will collect additional usage information through the IDE or editor tied to your Account. This may include personal data, as referenced in the [GitHub Privacy Statement](/site-policy/privacy-policies/github-privacy-statement). You can learn more about the collection and use of GitHub Copilot data in the [GitHub Copilot FAQ](https://github.com/features/copilot#faq-privacy).
 
 ## GitHub Enterprise Importer
 Importer is a framework for exporting data from other sources to be imported to the GitHub platform. Importer is provided “AS-IS”.
