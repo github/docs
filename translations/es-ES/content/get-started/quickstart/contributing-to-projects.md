@@ -81,7 +81,7 @@ gh repo fork <em>repository</em> --clone=true
 
 ## Hacer y subir cambios
 
-Puedes proceder y hacer algunos cambios al proyecto utilizando tu editor de texto favorito, como [Atom](https://atom.io). Podrías, por ejemplo, cambiar el texto en `index.html` para agregar tu nombre de usuario de GitHub.
+Go ahead and make a few changes to the project using your favorite text editor, like [Visual Studio Code](https://code.visualstudio.com). Podrías, por ejemplo, cambiar el texto en `index.html` para agregar tu nombre de usuario de GitHub.
 
 Cuando estés listo para enviar tus cambios, pruébalos y confírmalos. `git add .` le dice a Git que quieres incluir todos tus cambios en la siguiente confirmación. `git commit` toma una captura de estos cambios.
 

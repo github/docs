@@ -40,7 +40,7 @@ shortTitle: 筛选文件
 1. 在拉取请求列表中，单击要过滤的拉取请求。
 {% data reusables.repositories.changed-files %}
 
-1. 单击文件树中的文件可查看相应的文件差异 If the file tree is hidden, click {% octicon "sidebar-collapse" aria-label="The sidebar collapse icon" %} to display the file tree.
+1. 单击文件树中的文件可查看相应的文件差异 如果文件树处于隐藏状态，请单击 {% octicon "sidebar-collapse" aria-label="The sidebar collapse icon" %} 以显示文件树。
 
    {% note %}
 

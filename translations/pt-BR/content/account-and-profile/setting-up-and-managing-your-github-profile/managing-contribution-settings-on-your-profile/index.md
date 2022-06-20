@@ -1,5 +1,5 @@
 ---
-title: Managing contribution settings on your profile
+title: Gerenciando as configurações de contribuição no seu perfil
 intro: 'Suas contribuições são exibidas em seu perfil, incluindo commits, pull requests propostas e problemas abertos. Assim, as pessoas podem ver facilmente o trabalho que você fez.'
 redirect_from:
   - /articles/managing-contribution-graphs-on-your-profile
@@ -19,6 +19,6 @@ children:
   - /sending-enterprise-contributions-to-your-githubcom-profile
   - /why-are-my-contributions-not-showing-up-on-my-profile
   - /troubleshooting-commits-on-your-timeline
-shortTitle: Manage contribution settings
+shortTitle: Gerenciando as configurações de contribuição
 ---
 

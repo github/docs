@@ -86,7 +86,7 @@ Si quieres permitir respuestas de correo electrónico para las notificaciones, d
 
 ### Crea un Paquete de soporte
 
-If you cannot determine what is wrong from the displayed error message, you can download a [support bundle](/enterprise/admin/guides/enterprise-support/providing-data-to-github-support) containing the entire SMTP conversation between your mail server and {% data variables.product.prodname_ghe_server %}. Una vez que hayas descargado y extraído el paquete, verifica las entradas en *enterprise-manage-logs/unicorn.log* para toda la bitácora de conversaciones de SMTP y cualquier error relacionado.
+Si no puedes determinar lo que está mal desde el mensaje de error mostrado, puedes descargar un [paquete de soporte](/enterprise/admin/guides/enterprise-support/providing-data-to-github-support) que contiene toda la conversación SMTP entre tu servidor de correo y {% data variables.product.prodname_ghe_server %}. Una vez que hayas descargado y extraído el paquete, verifica las entradas en *enterprise-manage-logs/unicorn.log* para toda la bitácora de conversaciones de SMTP y cualquier error relacionado.
 
 El registro unicornio debería mostrar una transacción similar a la siguiente:
 

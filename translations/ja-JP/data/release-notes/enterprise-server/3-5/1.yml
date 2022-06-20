@@ -4,22 +4,22 @@ sections:
   security_fixes:
     - パッケージは最新のセキュリティバージョンにアップデートされました。
   bugs:
-    - An internal script to validate hostnames in the {% data variables.product.prodname_ghe_server %} configuration file would return an error if the hostname string started with a "." (period character).
-    - In HA configurations where the primary node's hostname was longer than 60 characters, MySQL would fail to be configured.
+    - '{% data variables.product.prodname_ghe_server %}の設定ファイル中のホスト名を検証する内部的なスクリプトが、ホスト名の文字列が"."（ピリオド）で始まっているとエラーを返します。'
+    - プライマリノードのホスト名が60文字以上の長さになっているHA構成において、MySQLの設定に失敗します。
     - When {% data variables.product.prodname_actions %} was enabled but TLS was disabled on {% data variables.product.prodname_ghe_server %} 3.4.1 and later, applying a configuration update would fail.
-    - The `--gateway` argument was added to the `ghe-setup-network` command, to allow passing the gateway address when configuring network settings using the command line.
+    - '`ghe-setup-network`コマンドに`--gateway`引数が追加され、コマンドラインを使ってネットワーク設定をする際にゲートウェイのアドレスを渡せるようになりました。'
     - 'The [{% data variables.product.prodname_GH_advanced_security %} billing API](/rest/enterprise-admin/billing#get-github-advanced-security-active-committers-for-an-enterprise) endpoints were not enabled and accessible.'
-    - Image attachments that were deleted would return a `500 Internal Server Error` instead of a `404 Not Found` error.
+    - 削除された画像の添付ファイルは、`404 Not Found`エラーではなく`500 Internal Server Error`を返します。
     - In environments configured with a repository cache server, the `ghe-repl-status` command incorrectly showed gists as being under-replicated.
     - The "Get a commit" and "Compare two commits" endpoints in the [Commit API](/rest/commits/commits) would return a `500` error if a file path in the diff contained an encoded and escaped unicode character.
-    - The calculation of "maximum committers across entire instance" reported in the site admin dashboard was incorrect.
-    - An incorrect database entry for repository replicas caused database corruption when performing a restore using {% data variables.product.prodname_enterprise_backup_utilities %}.
+    - サイトアドミンのダッシュボードで報告される"maximum committers across entire instance（インスタンス全体での最大のコミッタ数）"の計算は正しくありませんでした。
+    - '{% data variables.product.prodname_enterprise_backup_utilities %}を試用した復元の実行時に、リポジトリレプリカの不正確なデータベースエントリによって、データベースが破損しました。'
     - 'A {% data variables.product.prodname_github_app %} would not be able to subscribe to the [`secret_scanning_alert_location` webhook event](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#secret_scanning_alert_location) on an installation.'
     - The activity timeline for secret scanning alerts wasn't displayed.
     - Deleted repos were not purged after 90 days.
   changes:
-    - Optimised the inclusion of metrics when generating a cluster support bundle.
-    - In HA configurations where Elasticsearch reported a valid yellow status, changes introduced in a previous fix would block the `ghe-repl-stop` command and not allow replication to be stopped. Using `ghe-repo-stop --force` will now force Elasticsearch to stop when the service is in a normal or valid yellow status.
+    - クラスタのSupport Bundleの生成時に、含めるメトリクスを最適化しました。
+    - Elasticsearchが有効な黄色のステータスを報告してきた場合のHA構成において、以前の修正で導入された変更が`ghe-repl-stop`コマンドをブロックし、レプリカの停止を妨げます。`ghe-repo-stop --force`を使用すれば、Elasticsearchのサービスが通常もしくは有効な黄色のステータスにある場合に、強制的にElasticsearchが停止されます。
   known_issues:
     - 新しくセットアップされたユーザを持たない{% data variables.product.prodname_ghe_server %}インスタンスで、攻撃者が最初の管理ユーザを作成できました。
     - アップグレードの過程で、カスタムのファイアウォールのルールが削除されます。
