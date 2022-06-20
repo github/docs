@@ -63,3 +63,4 @@ The {% data variables.product.prodname_vscode_command_palette %} allows you to a
   ![Name of codespace](/assets/images/help/codespaces/click-name-codespace.png)
 
 Alternatively, you can see any active codespaces for a repository by navigating to that repository and selecting **{% octicon "code" aria-label="The code icon" %} Code**. The drop-down menu will display all active codespaces for a repository.
+developing-in-a-codespace.md
