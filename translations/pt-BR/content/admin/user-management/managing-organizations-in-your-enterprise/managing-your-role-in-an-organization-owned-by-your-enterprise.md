@@ -12,12 +12,6 @@ topics:
 shortTitle: Gerenciar as funções da sua organização
 ---
 
-{% note %}
-
-**Observação:** A habilidade dos proprietários da empresa de gerenciar sua função em uma organização que pertence à empresa está em fase beta e sujeita a alterações.
-
-{% endnote %}
-
 ## Sobre o gerenciamento de funções
 
 Você pode optar por participar de uma organização pertencente à sua empresa como integrante ou como proprietário da organização, mudar a sua função dentro da organização ou sair da organização.

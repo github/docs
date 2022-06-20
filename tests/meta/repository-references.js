@@ -62,6 +62,7 @@ const PUBLIC_REPOS = new Set([
   'haikus-for-codespaces',
   'actions-oidc-gateway-example',
   'copilot.vim',
+  'dependency-submission-toolkit',
 ])
 
 const ALLOW_DOCS_PATHS = [

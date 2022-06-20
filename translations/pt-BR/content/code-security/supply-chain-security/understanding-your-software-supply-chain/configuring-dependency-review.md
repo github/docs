@@ -49,12 +49,12 @@ A revisão de dependências está disponível quando o gráfico de dependências
 {% endif %}
 
 {% ifversion dependency-review-action-configuration %}
-## Configuring the {% data variables.product.prodname_dependency_review_action %}
+## Configurando o {% data variables.product.prodname_dependency_review_action %}
 
 {% data reusables.dependency-review.dependency-review-action-beta-note %}
 {% data reusables.dependency-review.dependency-review-action-overview %}
 
-The following configuration options are available.
+As seguintes opções de configuração estão disponíveis.
 
 | Opção              | Obrigatório | Uso                                                                                                                                                                                                                                                                       |
 | ------------------ | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
