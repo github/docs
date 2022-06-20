@@ -167,7 +167,7 @@ For more information, see "[Docker login](https://docs.docker.com/engine/referen
 
   {% endnote %}
 
-### Example publishing a Docker image
+##Example publishing a Docker image
 
 {% ifversion ghes %}
 These examples assume your instance has subdomain isolation enabled.
