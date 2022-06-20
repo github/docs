@@ -113,3 +113,4 @@ You can use the [Insiders Build of {% data variables.product.prodname_vscode_sho
 
    ![Clicking on "Insiders Build" in {% data variables.product.prodname_codespaces %}](/assets/images/help/codespaces/codespaces-insiders-vscode.png)
 3. Once selected, {% data variables.product.prodname_codespaces %} will continue to open in Insiders Version.
+using-codespaces-in-visual-studio-code.md
