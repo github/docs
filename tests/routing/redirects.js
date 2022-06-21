@@ -127,33 +127,38 @@ describe('redirects', () => {
     })
 
     test('homepage redirects to preferred language', async () => {
-      const res = await get('/', { headers: { 'Accept-Language': 'ja' } })
+      const res = await get('/', { headers: { 'Accept-Language': 'ja' }, followRedirects: false })
       expect(res.statusCode).toBe(302)
       expect(res.headers.location).toBe('/ja')
       expect(res.headers['cache-control']).toBe('private, no-store')
     })
+
     test('homepage redirects to preferred language by cookie', async () => {
       const res = await get('/', {
         headers: {
           Cookie: `${PREFERRED_LOCALE_COOKIE_NAME}=ja`,
           'Accept-Language': 'es', // note how this is going to be ignored
         },
+        followRedirects: false,
       })
       expect(res.statusCode).toBe(302)
       expect(res.headers.location).toBe('/ja')
       expect(res.headers['cache-control']).toBe('private, no-store')
     })
+
     test('homepage redirects to preferred language by cookie if valid', async () => {
       const res = await get('/', {
         headers: {
           Cookie: `${PREFERRED_LOCALE_COOKIE_NAME}=xy`,
           'Accept-Language': 'ja', // note how this is going to be ignored
         },
+        followRedirects: false,
       })
       expect(res.statusCode).toBe(302)
       expect(res.headers.location).toBe('/ja')
       expect(res.headers['cache-control']).toBe('private, no-store')
     })
+
     test('trailing slash on languaged homepage should permantently redirect', async () => {
       const res = await get('/en/')
       expect(res.statusCode).toBe(301)
@@ -162,6 +167,7 @@ describe('redirects', () => {
       expect(res.headers['cache-control']).toContain('public')
       expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
     })
+
     test('trailing slash with query string on languaged homepage should permantently redirect', async () => {
       const res = await get('/ja/?foo=bar&bar=foo')
       expect(res.statusCode).toBe(301)
@@ -228,6 +234,7 @@ describe('redirects', () => {
         headers: {
           'Accept-Language': 'ja',
         },
+        followRedirects: false,
       })
       expect(res.statusCode).toBe(302)
       const expected = `/ja${redirectTo}`
@@ -241,6 +248,7 @@ describe('redirects', () => {
           // None of these are recognized
           'Accept-Language': 'sv,fr,gr',
         },
+        followRedirects: false,
       })
       expect(res.statusCode).toBe(302)
       const expected = `/en${redirectTo}`
@@ -254,6 +262,7 @@ describe('redirects', () => {
           // Only the last one is recognized
           'Accept-Language': 'sv,ja',
         },
+        followRedirects: false,
       })
       expect(res.statusCode).toBe(302)
       const expected = `/ja${redirectTo}`
@@ -267,6 +276,7 @@ describe('redirects', () => {
           Cookie: `${PREFERRED_LOCALE_COOKIE_NAME}=ja`,
           'Accept-Language': 'es', // note how this is going to be ignored
         },
+        followRedirects: false,
       })
       // 302 because the redirect depended on cookie
       expect(res.statusCode).toBe(302)

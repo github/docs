@@ -613,7 +613,7 @@ describe('server', () => {
 
   describe('redirects', () => {
     test('redirects old articles to their English URL', async () => {
-      const res = await get('/articles/deleting-a-team')
+      const res = await get('/articles/deleting-a-team', { followRedirects: false })
       expect(res.statusCode).toBe(302)
       expect(res.headers['set-cookie']).toBeUndefined()
       // no cache control because a language prefix had to be injected
@@ -642,6 +642,7 @@ describe('server', () => {
             headers: {
               'accept-language': `${languageKey}`,
             },
+            followRedirects: false,
           })
           expect(res.statusCode).toBe(302)
           expect(res.headers.location).toBe(`/${languageKey}`)
@@ -661,6 +662,7 @@ describe('server', () => {
         headers: {
           'accept-language': 'ldfir;',
         },
+        followRedirects: false,
       })
 
       expect(res.statusCode).toBe(302)
@@ -675,6 +677,7 @@ describe('server', () => {
           // Tagalog: https://www.loc.gov/standards/iso639-2/php/langcodes_name.php?iso_639_1=tl
           'accept-language': 'tl',
         },
+        followRedirects: false,
       })
       expect(res.statusCode).toBe(302)
       expect(res.headers.location).toBe('/en')
