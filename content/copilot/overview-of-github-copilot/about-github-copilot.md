@@ -36,4 +36,4 @@ You are responsible for ensuring the security and quality of your code. We recom
 
 ## Further reading
 
-- "[{% data variables.product.company_short %} Terms for Additional Products and Features](/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)"
+- "[{% data variables.product.company_short %} Terms for Additional Products and Features](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)"
