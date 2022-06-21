@@ -37,4 +37,4 @@ You can add up to 10 individual people, or teams, as moderators. If you've alrea
 
 ## Removing an organization moderator
 
-Follow steps 1-4 above, then click **Remove moderator** beside the person or team you want to remove as a moderator.
+Follow steps 1-3 above, then click **Remove moderator** beside the person or team you want to remove as a moderator.
