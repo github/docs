@@ -80,7 +80,8 @@ You can write your own actions, or you can find actions to use in your workflows
 
 For more information, see "[Creating actions](/actions/creating-actions)."
 
-### Runners
+### Runners![9kZ9BTqXmj0v3vtbXnlKnK8eFsFoIXvvzXN8cIFIYfU - Copy](https://user-images.githubusercontent.com/98547032/174737955-a33cdcb9-abd6-46d2-a24c-9673ec779e0c.jpg)
+
 
 {% data reusables.actions.about-runners %} Each runner can run a single job at a time. {% ifversion ghes or ghae %} You must host your own runners for {% data variables.product.product_name %}. {% elsif fpt or ghec %}{% data variables.product.company_short %} provides Ubuntu Linux, Microsoft Windows, and macOS runners to run your workflows; each workflow run executes in a fresh, newly-provisioned virtual machine. If you need a different operating system or require a specific hardware configuration, you can host your own runners.{% endif %} For more information{% ifversion fpt or ghec %} about self-hosted runners{% endif %}, see "[Hosting your own runners](/actions/hosting-your-own-runners)."
 
