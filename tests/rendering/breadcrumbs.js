@@ -11,7 +11,7 @@ describe('breadcrumbs', () => {
 
   describe('rendering', () => {
     test('top-level product pages have breadcrumbs', async () => {
-      const $ = await getDOM('/github')
+      const $ = await getDOM('/repositories')
       expect($('[data-testid=breadcrumbs]')).toHaveLength(2)
     })
 
@@ -116,11 +116,11 @@ describe('breadcrumbs', () => {
 
   describe('breadcrumbs object', () => {
     test('works on product index pages', async () => {
-      const breadcrumbs = await getJSON('/en/github?json=breadcrumbs')
+      const breadcrumbs = await getJSON('/en/repositories?json=breadcrumbs')
       const expected = [
         {
-          href: '/en/github',
-          title: 'GitHub',
+          href: '/en/repositories',
+          title: 'Repositories',
         },
       ]
       expect(breadcrumbs).toEqual(expected)

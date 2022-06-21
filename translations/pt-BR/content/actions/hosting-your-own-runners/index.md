@@ -20,6 +20,7 @@ children:
   - /adding-self-hosted-runners
   - /autoscaling-with-self-hosted-runners
   - /running-scripts-before-or-after-a-job
+  - /customizing-the-containers-used-by-jobs
   - /configuring-the-self-hosted-runner-application-as-a-service
   - /using-a-proxy-server-with-self-hosted-runners
   - /using-labels-with-self-hosted-runners

@@ -9,7 +9,7 @@
 
 import fs from 'fs'
 import path from 'path'
-import program from 'commander'
+import { program } from 'commander'
 import readJsonFile from '../../lib/read-json-file.js'
 import { deprecated } from '../../lib/enterprise-server-releases.js'
 const DEVELOPER_REDIRECTS_FILEPATH = 'lib/redirects/static/developer.json'

@@ -63,7 +63,7 @@ describe('mini toc items', () => {
     `
     const tocItems = getMiniTocItems(html, 3)
     expect(tocItems.length).toBe(2)
-    expect(tocItems[0].items.length).toBe(0)
+    expect(tocItems[0].items).toBeUndefined()
   })
 
   test('handles deeply nested toc', async () => {

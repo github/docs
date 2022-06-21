@@ -53,7 +53,7 @@ Recomendamos que você reveja a lista de pontos finais de API de que você preci
 
 ### Projete para permanecer dentro dos limites de taxa da API
 
-Os aplicativos GitHub usam [regras móveis para limites de taxa](/apps/building-github-apps/understanding-rate-limits-for-github-apps/), que podem aumentar com base no número de repositórios e usuários da organização. Um aplicativo do GitHub também pode usar [solicitações condicionais](/rest/overview/resources-in-the-rest-api#conditional-requests) ou consolidar solicitações usando [GraphQL API V4]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql).
+Os aplicativos GitHub usam [regras móveis para limites de taxa](/apps/building-github-apps/understanding-rate-limits-for-github-apps/), que podem aumentar com base no número de repositórios e usuários da organização. A GitHub App can also make use of [conditional requests](/rest/overview/resources-in-the-rest-api#conditional-requests) or consolidate requests by using the [GraphQL API]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql).
 
 ### Cadastre um novo aplicativo GitHub
 
