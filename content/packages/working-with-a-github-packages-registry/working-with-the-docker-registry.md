@@ -244,7 +244,7 @@ $ docker pull docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME</em
 {% ifversion ghes %}
 If your instance has subdomain isolation enabled:
 {% endif %}
-```shell
+``shell
 $ docker pull docker.<em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME</em>
 ```
 {% ifversion ghes %}
