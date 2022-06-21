@@ -6,7 +6,7 @@ versions:
 type: how_to
 topics:
   - Copilot
-shortTitle: Your Github Copilot subscription
+shortTitle: Your GitHub Copilot subscription
 ---
 
 ## Setting up a trial of {% data variables.product.prodname_copilot %} 
