@@ -6,7 +6,7 @@ versions:
 topics:
   - Copilot
 shortTitle: About GitHub Copilot
----
+--
 
 ## About {% data variables.product.prodname_copilot %}
 
