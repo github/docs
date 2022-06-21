@@ -700,12 +700,6 @@ describe('server', () => {
   })
 
   describe('categories and map topics', () => {
-    test('adds links to categories on the dotcom homepage', async () => {
-      const $ = await getDOM('/en/github')
-      expect($('a[href="/en/github/copilot"]').length).toBe(1)
-      expect($('a[href="#copilot"]').length).toBe(0)
-    })
-
     test('adds links to map topics on a category homepage', async () => {
       const $ = await getDOM('/en/get-started/importing-your-projects-to-github')
       expect(
@@ -834,11 +828,6 @@ describe('GitHub Enterprise URLs', () => {
     expect(res.statusCode).toBe(200)
   })
 
-  test('renders Enterprise User homepage in Japanese', async () => {
-    const res = await get(`/ja/enterprise-server@${enterpriseServerReleases.latest}/github`)
-    expect(res.statusCode).toBe(200)
-  })
-
   test('renders Enterprise Admin homepage in Japanese', async () => {
     const res = await get(`/ja/enterprise-server@${enterpriseServerReleases.latest}/admin`)
     expect(res.statusCode).toBe(200)
@@ -846,11 +835,6 @@ describe('GitHub Enterprise URLs', () => {
 
   test('renders Enterprise homepage in Chinese', async () => {
     const res = await get(`/cn/enterprise-server@${enterpriseServerReleases.latest}`)
-    expect(res.statusCode).toBe(200)
-  })
-
-  test('renders Enterprise User homepage in Chinese', async () => {
-    const res = await get(`/cn/enterprise-server@${enterpriseServerReleases.latest}/github`)
     expect(res.statusCode).toBe(200)
   })
 
