@@ -27,7 +27,7 @@ shortTitle: 从另一个 VCS 导入
   ```shell
   $ git-import-rewrite --flavor hg --authors /<em>PATH</em>/<em>AUTHORS-MAP-FILE</em>.csv /<em>PATH</em>/<em>REPO-NAME</em>.git
   ```
-5. 如果您还没有创建，请[在 {% data variables.product.prodname_ghe_server %} 上创建新的空仓库](/enterprise/{{ currentVersion }}/user/articles/creating-a-new-repository)。
+5. 如果您还没有创建，请[在 {% data variables.product.prodname_ghe_server %} 上创建新的空仓库](/enterprise/user/articles/creating-a-new-repository)。
 {% data reusables.command_line.switching_directories_procedural %}
 7. 将导入的仓库推送到 {% data variables.product.prodname_ghe_server %}：
   ```shell
@@ -47,7 +47,7 @@ shortTitle: 从另一个 VCS 导入
   ```shell
   $ git-import-rewrite --flavor svn --authors /<em>PATH</em>/<em>AUTHORS-MAP-FILE</em>.csv /<em>PATH</em>/<em>REPO-NAME</em>.git
   ```
-5. 如果您还没有创建，请[在 {% data variables.product.prodname_ghe_server %} 上创建新的空仓库](/enterprise/{{ currentVersion }}/user/articles/creating-a-new-repository)。
+5. 如果您还没有创建，请[在 {% data variables.product.prodname_ghe_server %} 上创建新的空仓库](/enterprise/user/articles/creating-a-new-repository)。
 {% data reusables.command_line.switching_directories_procedural %}
 7. 将导入的仓库推送到 {% data variables.product.prodname_ghe_server %}：
   ```shell
@@ -67,7 +67,7 @@ shortTitle: 从另一个 VCS 导入
   ```shell
   $ git-import-rewrite --flavor tfs --authors /<em>PATH</em>/<em>AUTHORS-MAP-FILE</em>.csv /<em>PATH</em>/<em>REPO-NAME</em>.git
   ```
-5. 如果您还没有创建，请[在 {% data variables.product.prodname_ghe_server %} 上创建新的空仓库](/enterprise/{{ currentVersion }}/user/articles/creating-a-new-repository)。
+5. 如果您还没有创建，请[在 {% data variables.product.prodname_ghe_server %} 上创建新的空仓库](/enterprise/user/articles/creating-a-new-repository)。
 {% data reusables.command_line.switching_directories_procedural %}
 7. 将导入的仓库推送到 {% data variables.product.prodname_ghe_server %}：
   ```shell
@@ -76,4 +76,4 @@ shortTitle: 从另一个 VCS 导入
 
 ## 延伸阅读
 
-- "[命令行实用程序](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities/#import-and-export)"
+- "[命令行实用程序](/enterprise/admin/guides/installation/command-line-utilities/#import-and-export)"

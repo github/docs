@@ -22,3 +22,4 @@ shortTitle: For students
 ## 参考リンク
 
 - [教育者および研究者のための {% data variables.product.prodname_education %} について](/articles/about-github-education-for-educators-and-researchers)
+- 「[{% data variables.product.prodname_community_exchange %} について](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork/about-github-community-exchange)」

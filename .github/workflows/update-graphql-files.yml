@@ -34,9 +34,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
       - name: Setup Node
-        uses: actions/setup-node@1f8c6b94b26d0feae1e387ca63ccbdc44d27b561
+        uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048
         with:
-          node-version: 16.15.x
+          node-version: '16.15.0'
           cache: npm
       - name: Install Node.js dependencies
         run: npm ci
@@ -53,8 +53,11 @@ jobs:
           # Disable pre-commit hooks; they don't play nicely here
           HUSKY: '0'
         with:
-          # need to use a token with repo and workflow scopes for this step
-          token: ${{ secrets.GITHUB_TOKEN }}
+          # Need to use a token with repo and workflow scopes for this step.
+          # Token should be a PAT because actions performed with GITHUB_TOKEN
+          # don't trigger other workflows and this action force pushes updates
+          # from the default branch.
+          token: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
           commit-message: 'Action ran graphql script"update-files"'
           title: GraphQL schema update
           body:

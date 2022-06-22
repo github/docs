@@ -42,7 +42,7 @@ Para operações com base na web do Git, você pode definir seu endereço de e-m
 
 {% endif %}
 
-{% ifversion fpt or ghec %}Se você quiser manter seu endereço de e-mail pessoal, você poderá usar um endereço de e-mail `no-reply` de {% data variables.product.product_name %} como seu endereço de e-mail de commit. Para usar o endereço de e-mail `noreply` para commits cujo push é feito usando a linha de comando, use esse endereço de e-mail ao configurar o endereço de e-mail do commit no Git. Para usar o endereço `noreply` para operações do Git baseadas na web, configure o endereço de e-mail do commit no GitHub e selecione **Keep my email address private** (Manter meu endereço de e-mail privado).
+{% ifversion fpt or ghec %}Se você quiser manter seu endereço de e-mail pessoal, você poderá usar um endereço de e-mail `noreply` de {% data variables.product.product_name %} como seu endereço de e-mail de commit. Para usar o endereço de e-mail `noreply` para commits cujo push é feito usando a linha de comando, use esse endereço de e-mail ao configurar o endereço de e-mail do commit no Git. Para usar o endereço `noreply` para operações do Git baseadas na web, configure o endereço de e-mail do commit no GitHub e selecione **Keep my email address private** (Manter meu endereço de e-mail privado).
 
 Você também pode optar por bloquear os commits cujo push é feito usando a linha de comando que expõem seu endereço de e-mail pessoal. Para obter mais informações, consulte "[Bloquear pushes de linha de comando que mostrem endereços de e-mail pessoais](/articles/blocking-command-line-pushes-that-expose-your-personal-email-address)".{% endif %}
 
@@ -52,7 +52,7 @@ Para garantir que os commits sejam atribuídos a você e que apareçam no gráfi
 
 {% note %}
 
-**Observação:** Se você criou a sua conta em {% data variables.product.product_location %} _após_ julho de 2017, seu endereço de e-mail `no-reply` para {% data variables.product.product_name %} será um número de ID de 7 dígitos e seu nome de usuário no seguinte formato: <code><em>ID+nome de usuário</em>@users.noreply.github.com</code>. Se você criou sua conta em {% data variables.product.product_location %} _antes de_ 18 de julho de 2017, o seu endereço de e-mail `no-reply` de {% data variables.product.product_name %} será <code><em>nome de usuário</em>@users.noreply.github.com</code>. Você pode obter um endereço de e-mail `no-reply` baseado no ID para {% data variables.product.product_name %}, selecionando (ou desmarcando e selecionando) **Mantenha meu endereço de e-mail privado** nas suas configurações de e-mail.
+**Observação:** Se você criou a sua conta em {% data variables.product.product_location %} _após_ julho de 2017, seu endereço de e-mail `noreply` para {% data variables.product.product_name %} será um número de ID de 7 dígitos e seu nome de usuário no seguinte formato: <code><em>ID+nome de usuário</em>@users.noreply.github.com</code>. Se você criou sua conta em {% data variables.product.product_location %} _antes de_ 18 de julho de 2017, o seu endereço de e-mail `noreply` de {% data variables.product.product_name %} será <code><em>nome de usuário</em>@users.noreply.github.com</code>. Você pode obter um endereço de e-mail `noreply` baseado no ID para {% data variables.product.product_name %}, selecionando (ou desmarcando e selecionando) **Mantenha meu endereço de e-mail privado** nas suas configurações de e-mail.
 
 {% endnote %}
 

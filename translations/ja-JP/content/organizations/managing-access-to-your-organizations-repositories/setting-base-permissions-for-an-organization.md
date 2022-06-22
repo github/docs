@@ -23,7 +23,7 @@ Organization のリポジトリにアクセスするとき Organization の全�
 
 Organizationのリポジトリに対する管理者アクセスがあるユーザが、リポジトリに対してそれより高いレベルのアクセスを付与すると、基本レベルのアクセスは、付与された高いアクセスによってオーバーライドされます。
 
-{% if custom-repository-roles %}
+{% ifversion custom-repository-roles %}
 Organizationの基本権限よりも低いアクセスを持つ継承ロールを持つカスタムのリポジトリロールを作成すると、そのロールに割り当てられたメンバーは、継承されたロールではなくOrganizationの基本権限がデフォルトになります。 詳しい情報については「[Organizationのカスタムリポジトリロールの管理](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)」を参照してください。
 {% endif %}
 

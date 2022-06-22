@@ -157,42 +157,6 @@ jobs:
 ```
 {% endraw %}
 
-{% if actions-inherit-secrets-reusable-workflows %}
-
-#### `on.workflow_call.secrets.inherit`
-
-Use a a palavra-chave `herdar` para passar todos os segredos do fluxo de trabalho chamando para o fluxo de trabalho. Isso inclui todos os segredos aos quais o fluxo de trabalho da chamada tem acesso, nomeadamente organização, repositório e segredos de ambiente. A palavra-chave `herdar` pode ser usada para passar segredos por meio de repositórios dentro da mesma organização ou em organizações dentro da mesma empresa.
-
-#### Exemplo
-
-{% raw %}
-
-```yaml
-on:
-  workflow_dispatch:
-
-jobs:
-  pass-secrets-to-workflow:
-      uses: ./.github/workflows/called-workflow.yml
-      secrets: inherit
-```
-
-```yaml
-on:
-  workflow_call:
-
-jobs:
-  pass-secret-to-action:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Use a repo or org secret from the calling workflow.
-        uses: echo ${{ secrets.CALLING_WORKFLOW_SECRET }}
-```
-
-{% endraw %}
-
-{%endif%}
-
 #### `on.workflow_call.secrets.<secret_id>`
 
 Um identificador de string para associar ao segredo.
@@ -1027,6 +991,42 @@ jobs:
       access-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
 ```
 {% endraw %}
+
+{% ifversion actions-inherit-secrets-reusable-workflows %}
+
+### `jobs.<job_id>.secrets.inherit`
+
+Use a a palavra-chave `herdar` para passar todos os segredos do fluxo de trabalho chamando para o fluxo de trabalho. Isso inclui todos os segredos aos quais o fluxo de trabalho da chamada tem acesso, nomeadamente organização, repositório e segredos de ambiente. A palavra-chave `herdar` pode ser usada para passar segredos por meio de repositórios dentro da mesma organização ou em organizações dentro da mesma empresa.
+
+#### Exemplo
+
+{% raw %}
+
+```yaml
+on:
+  workflow_dispatch:
+
+jobs:
+  pass-secrets-to-workflow:
+    uses: ./.github/workflows/called-workflow.yml
+    secrets: inherit
+```
+
+```yaml
+on:
+  workflow_call:
+
+jobs:
+  pass-secret-to-action:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Use a repo or org secret from the calling workflow.
+        run: echo ${{ secrets.CALLING_WORKFLOW_SECRET }}
+```
+
+{% endraw %}
+
+{%endif%}
 
 ### `jobs.<job_id>.secrets.<secret_id>`
 

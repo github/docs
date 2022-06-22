@@ -81,7 +81,7 @@ Para obtener más información sobre cómo autenticarte en {% data variables.pro
 ### 4. Escribir en {% data variables.product.product_name %}
 Para que tus comunicaciones sean más claras y organizadas en propuestas y solicitudes de cambios, puedes utilizar el Lenguaje de Marcado Enriquecido de {% data variables.product.prodname_dotcom %} para formatearlas, el cual combina una sintaxis fácil de escribir y de leer con algunas funcionalidades personalizadas. Para obtener más información, consulta "[Acerca de la escritura y el formato en {% data variables.product.prodname_dotcom %}](/github/writing-on-github/about-writing-and-formatting-on-github)."
 
-Puedes aprender a utilizar el Lenguaje de Marcado Enriquecido de {% data variables.product.prodname_dotcom %} con el curso de [Comunícarse utilizando el Lenguaje de Marcado](https://lab.github.com/githubtraining/communicating-using-markdown)" que hay en {% data variables.product.prodname_learning %}.
+Puedes aprender el lenguaje de marcado enriquecido de {% data variables.product.prodname_dotcom %} con el curso de "[Comunícate utilizando el lenguaje de marcado](https://github.com/skills/communicate-using-markdown)" que está en {% data variables.product.prodname_learning %}.
 
 ### 5. Buscar en {% data variables.product.product_name %}
 Nuestra búsqueda integrada te permite encontrar lo que estás buscando de entre los muchos repositorios, usuarios y líneas de código que hay en {% data variables.product.product_name %}. Puedes buscar globalmente a través de todo {% data variables.product.product_name %} o limitar tu búsqueda a un repositorio u organización en particular. Para obtener más información sobre los tipos de búsqueda que puedes hacer en {% data variables.product.product_name %}, consulta la sección "[Acerca de buscar en {% data variables.product.prodname_dotcom %}](/github/searching-for-information-on-github/getting-started-with-searching-on-github/about-searching-on-github)".
@@ -187,7 +187,7 @@ Para obtener más información, consulta la sección "[Proteger tu cadena de sum
 {% data reusables.docs.you-can-read-docs-for-your-product %}
 
 ### 4. Aprender con {% data variables.product.prodname_learning %}
-{% data reusables.getting-started.learning-lab %}
+{% data reusables.getting-started.learning %}
 
 {% ifversion fpt or ghec %}
 ### 5. Apoyar a la comunidad de código abierto

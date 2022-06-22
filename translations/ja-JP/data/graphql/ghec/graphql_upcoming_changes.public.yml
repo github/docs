@@ -99,6 +99,20 @@ upcoming_changes:
     criticality: 破壊的
     owner: cheshire137
   - 
+    location: DependencyGraphDependency.packageLabel
+    description: '`packageLabel`は削除されます。代わりに正規化された`packageName`フィールドを使用してください。'
+    reason: '`packageLabel`は削除されます。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: github/dependency_graph
+  - 
+    location: RemovePullRequestFromMergeQueueInput.branch
+    description: '`branch`は削除されます。'
+    reason: PRはベースブランチのマージキューから削除され、引数`branch`はno-opになりました。
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: jhunschejones
+  - 
     location: UpdateProjectNextItemFieldInput.fieldWithSettingId
     description: '`fieldWithSettingId`は削除されます。代わりに`fieldConstraintId`を使用してください'
     reason: 名前の一貫性を向上させるためにfieldConstraintIdに名前を変更しました。

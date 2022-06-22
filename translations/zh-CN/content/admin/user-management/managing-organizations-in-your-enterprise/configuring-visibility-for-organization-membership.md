@@ -28,4 +28,4 @@ shortTitle: 设置成员资格可见性
 {% data reusables.enterprise-accounts.options-tab %}
 3. 在“Default organization membership visibility（默认组织成员可见性）”下，使用下拉菜单，然后单击 **Private（私密）**或 **Public（公开）**。 ![包含用于将默认组织成员关系可见性配置为公开或私密的选项的下拉菜单](/assets/images/enterprise/site-admin-settings/default-organization-membership-visibility-drop-down-menu.png)
 4. 或者，为了阻止成员将他们的成员关系可见性改为非默认值，也可以选择 **Enforce on organization members**。 ![Checkbox to enforce the default setting on all members](/assets/images/enterprise/site-admin-settings/enforce-default-org-membership-visibility-setting.png){% ifversion ghes %}
-5. 如果您想在所有现有成员中强制使用新的可见性设置，请使用 `ghe-org-membership-update` 命令行实用程序。 更多信息请参阅“[命令行实用程序](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities#ghe-org-membership-update)”。{% endif %}
+5. 如果您想在所有现有成员中强制使用新的可见性设置，请使用 `ghe-org-membership-update` 命令行实用程序。 更多信息请参阅“[命令行实用程序](/enterprise/admin/guides/installation/command-line-utilities#ghe-org-membership-update)”。{% endif %}

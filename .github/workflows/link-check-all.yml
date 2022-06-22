@@ -24,15 +24,15 @@ concurrency:
 
 jobs:
   check-links:
-    runs-on: ${{ fromJSON('["ubuntu-latest", "self-hosted"]')[github.repository == 'github/docs-internal'] }}
+    runs-on: ${{ fromJSON('["ubuntu-latest", "ubuntu-20.04-xl"]')[github.repository == 'github/docs-internal'] }}
     steps:
       - name: Checkout
         uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
 
       - name: Setup node
-        uses: actions/setup-node@1f8c6b94b26d0feae1e387ca63ccbdc44d27b561
+        uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048
         with:
-          node-version: 16.15.x
+          node-version: '16.15.0'
           cache: npm
 
       - name: Install
@@ -49,6 +49,9 @@ jobs:
         run: cat $HOME/files.json
 
       - name: Link check (warnings, changed files)
+        env:
+          # Don't care about CDN caching image URLs
+          DISABLE_REWRITE_ASSET_URLS: true
         run: |
           ./script/rendered-content-link-checker.mjs \
             --language en \
@@ -59,6 +62,9 @@ jobs:
             --list $HOME/files.json
 
       - name: Link check (critical, all files)
+        env:
+          # Don't care about CDN caching image URLs
+          DISABLE_REWRITE_ASSET_URLS: true
         run: |
           ./script/rendered-content-link-checker.mjs \
             --language en \

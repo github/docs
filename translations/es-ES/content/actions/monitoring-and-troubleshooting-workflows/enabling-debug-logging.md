@@ -22,9 +22,9 @@ Estas bitácoras extra se habilitan configurando los secretos en el repositorio 
 
 Para obtener más información sobre cómo establecer secretos, consulta la sección "[Crear y usar secretos cifrados](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
 
-{% if debug-reruns %}
+{% ifversion debug-reruns %}
 
-Additionally, anyone who has access to run a workflow can enable runner diagnostic logging and step debug logging for a workflow re-run. For more information, see "[Re-running workflows and jobs](/actions/managing-workflow-runs/re-running-workflows-and-jobs)."
+Adicionalmente, cualquiera que tenga acceso para ejecutar un flujo de trabajo puede habilitar el registro de diagnóstico de ejecutor y registro de depuración de pasos para una re-ejecución de flujo de trabajo. Para obtener más información, consulta la sección "[Re-ejecución de flujos de trabajo y jobs](/actions/managing-workflow-runs/re-running-workflows-and-jobs)".
 
  {% endif %}
 

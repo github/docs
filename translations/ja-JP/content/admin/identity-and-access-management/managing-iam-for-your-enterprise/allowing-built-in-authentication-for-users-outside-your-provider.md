@@ -20,7 +20,7 @@ shortTitle: Fallback authentication
 
 ## About built-in authentication for users outside your provider
 
-By default, when you enable external authentication for {% data variables.product.product_name %}, built-in authentication is disabled for your instance. For more information, see "[About authentication for your enterprise](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#external-authentication)."
+By default, when you enable external authentication for {% data variables.product.product_name %}, built-in authentication is disabled for your instance. 詳しい情報については「[Enterpriseでの認証について](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#external-authentication)」を参照してください。
 
 If you're unable to add specific accounts to your external authentication provider, such as accounts for contractors or machine users, you can configure fallback authentication. Fallback authentication allows built-in authentication for outside users and to access a fallback account if your authentication provider is unavailable.
 
@@ -28,7 +28,7 @@ If you configure built-in authentication and a person successfully authenticates
 
 {% warning %}
 
-**警告：**ビルトイン認証を無効化した場合、インスタンスへアクセスできなくなったユーザを個別にサスペンドしなければなりません。 詳しい情報については[ユーザのサスペンドとサスペンドの解除](/enterprise/{{ currentVersion }}/admin/guides/user-management/suspending-and-unsuspending-users)を参照してください。
+**警告：**ビルトイン認証を無効化した場合、インスタンスへアクセスできなくなったユーザを個別にサスペンドしなければなりません。 詳しい情報については[ユーザのサスペンドとサスペンドの解除](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users)を参照してください。
 
 {% endwarning %}
 

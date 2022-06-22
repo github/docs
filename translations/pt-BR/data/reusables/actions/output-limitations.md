@@ -1,1 +1,1 @@
-Outputs are Unicode strings, and can be a maximum of 1 MB. The total of all outputs in a workflow run can be a maximum of 50 MB.
+As saídas são strings de Unicode e podem ter, no máximo, 1 MB. O total de todas as saídas de uma execução de fluxo de trabalho pode ter, no máximo, 50 MB.

@@ -21,3 +21,4 @@ If you're a member of a FIRST robotics club, your mentor can apply for an educat
 ## Further reading
 
 - "[About {% data variables.product.prodname_education %} for educators and researchers](/articles/about-github-education-for-educators-and-researchers)"
+- "[About {% data variables.product.prodname_community_exchange %}](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork/about-github-community-exchange)"

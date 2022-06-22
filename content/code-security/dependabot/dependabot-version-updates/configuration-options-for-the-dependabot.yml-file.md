@@ -33,36 +33,13 @@ You must store this file in the `.github` directory of your repository. When you
 
 Any options that also affect security updates are used the next time a security alert triggers a pull request for a security update.  For more information, see "[Configuring {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-dependabot-security-updates)."
 
-The *dependabot.yml* file has two mandatory top-level keys: `version`, and `updates`. You can, optionally, include a top-level `registries` key{% ifversion fpt or ghec or ghes > 3.4 %} and/or a `enable-beta-ecosystems` key{% endif %}. The file must start with `version: 2`.
+The *dependabot.yml* file has two mandatory top-level keys: `version`, and `updates`. You can, optionally, include a top-level `registries` key{% ifversion ghes = 3.5 %} and/or a `enable-beta-ecosystems` key{% endif %}. The file must start with `version: 2`.
 
-## Configuration options for updates
+## Configuration options for the *dependabot.yml* file
 
 The top-level `updates` key is mandatory. You use it to configure how {% data variables.product.prodname_dependabot %} updates the versions or your project's dependencies. Each entry configures the update settings for a particular package manager. You can use the following options.
 
-| Option | Required | Description |
-|:---|:---:|:---|
-| [`package-ecosystem`](#package-ecosystem)                     | **X** | Package manager to use                |
-| [`directory`](#directory)                                     | **X** | Location of package manifests         |
-| [`schedule.interval`](#scheduleinterval)                      | **X** | How often to check for updates        |
-| [`allow`](#allow)                                             | | Customize which updates are allowed         |
-| [`assignees`](#assignees)                                     | | Assignees to set on pull requests           |
-| [`commit-message`](#commit-message)                           | | Commit message preferences                  |{% ifversion fpt or ghec or ghes > 3.4 %}
-| [`enable-beta-ecosystems`](#enable-beta-ecosystems)           | | Enable ecosystems that have beta-level support |{% endif %}
-| [`ignore`](#ignore)                                           | | Ignore certain dependencies or versions     |
-| [`insecure-external-code-execution`](#insecure-external-code-execution) | | Allow or deny code execution in manifest files |
-| [`labels`](#labels)                                           | | Labels to set on pull requests              |
-| [`milestone`](#milestone)                                     | | Milestone to set on pull requests           |
-| [`open-pull-requests-limit`](#open-pull-requests-limit)       | | Limit number of open pull requests for version updates|
-| [`pull-request-branch-name.separator`](#pull-request-branch-nameseparator) | | Change separator for pull request branch names |
-| [`rebase-strategy`](#rebase-strategy)                         | | Disable automatic rebasing                  |
-| [`registries`](#registries)                                   | | Private registries that {% data variables.product.prodname_dependabot %} can access|
-| [`reviewers`](#reviewers)                                     | | Reviewers to set on pull requests           |
-| [`schedule.day`](#scheduleday)                                | | Day of week to check for updates            |
-| [`schedule.time`](#scheduletime)                              | | Time of day to check for updates (hh:mm)    |
-| [`schedule.timezone`](#scheduletimezone)                      | | Timezone for time of day (zone identifier)  |
-| [`target-branch`](#target-branch)                             | | Branch to create pull requests against      |
-| [`vendor`](#vendor)                                           | | Update vendored or cached dependencies      |
-| [`versioning-strategy`](#versioning-strategy)                 | | How to update manifest version requirements |
+{% data reusables.dependabot.configuration-options %}
 
 These options fit broadly into the following categories.
 
@@ -303,6 +280,10 @@ updates:
       prefix-development: "pip dev"
       include: "scope"
 ```
+If you use the same configuration as in the example above, bumping the `requests` library in the `pip` development dependency group will generate a commit message of:
+
+   `pip dev: bump requests from 1.0.0 to 1.0.1`
+   
 ### `ignore`
 
 {% data reusables.dependabot.default-dependencies-allow-ignore %}
@@ -321,7 +302,7 @@ For more information about the `@dependabot ignore` commands, see "[Managing pul
 
 You can use the `ignore` option to customize which dependencies are updated. The `ignore` option supports the following options.
 
-- `dependency-name`—use to ignore updates for dependencies with matching names, optionally using `*` to match zero or more characters. For Java dependencies, the format of the `dependency-name` attribute is: `groupId:artifactId` (for example: `org.kohsuke:github-api`). {% if dependabot-grouped-dependencies %} To prevent {% data variables.product.prodname_dependabot %} from automatically updating TypeScript type definitions from DefinitelyTyped, use `@types/*`.{% endif %}
+- `dependency-name`—use to ignore updates for dependencies with matching names, optionally using `*` to match zero or more characters. For Java dependencies, the format of the `dependency-name` attribute is: `groupId:artifactId` (for example: `org.kohsuke:github-api`). {% ifversion dependabot-grouped-dependencies %} To prevent {% data variables.product.prodname_dependabot %} from automatically updating TypeScript type definitions from DefinitelyTyped, use `@types/*`.{% endif %}
 - `versions`—use to ignore specific versions or ranges of versions. If you want to define a range, use the standard pattern for the package manager (for example: `^1.0.0` for npm, or `~> 2.0` for Bundler).
 - `update-types`—use to ignore types of updates, such as semver `major`, `minor`, or `patch` updates on version updates (for example: `version-update:semver-patch` will ignore patch updates). You can combine this with `dependency-name: "*"` to ignore particular `update-types` for all dependencies. Currently, `version-update:semver-major`, `version-update:semver-minor`, and `version-update:semver-patch` are the only supported options. Security updates are unaffected by this setting.
 
@@ -995,8 +976,9 @@ By default, {% data variables.product.prodname_dependabot %} updates the depende
 
 version: 2
 enable-beta-ecosystems: true
-updates:
-  - package-ecosystem: "pub"
+updates:{% ifversion fpt or ghec or ghes > 3.5 %}
+  - package-ecosystem: "beta-ecosystem"{% else %}
+  - package-ecosystem: "pub"{% endif %}
     directory: "/"
     schedule:
       interval: "daily"

@@ -134,7 +134,7 @@ Aqui estão alguns exemplos para usar links relativos para exibir uma imagem.
 | -------------------------------------------------------------- | ---------------------------------------------------------------------- |
 | Em um arquivo `.md` no mesmo branch                            | `/assets/images/electrocat.png`                                        |
 | Em um arquivo `.md` em outro branch                            | `/../main/assets/images/electrocat.png`                                |
-| Em problemas, pull requests e comentários do repositório       | `../blob/main/assets/images/electrocat.png`                            |
+| Em problemas, pull requests e comentários do repositório       | `../blob/main/assets/images/electrocat.png?raw=true`                   |
 | Em um arquivo `.md` em outro repositório                       | `/../../../../github/docs/blob/main/assets/images/electrocat.png`      |
 | Em problemas, pull requests e comentários de outro repositório | `../../../github/docs/blob/main/assets/images/electrocat.png?raw=true` |
 
@@ -149,9 +149,9 @@ Para obter mais informações, consulte[Links relativos,](#relative-links)."
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5559 %}
 ### Especificando o tema para o qual uma imagem será exibida
 
-You can specify the theme an image is displayed for in Markdown by using the HTML `<picture>` element in combination with the `prefers-color-scheme` media feature. Nós distinguimos entre os modos de cores claro e escuro. Portanto, há duas opções disponíveis. Você pode usar essas opções para exibir imagens otimizadas para fundos escuros ou claros. Isso é particularmente útil para imagens PNG transparentes.
+Você pode especificar o tema para o qual uma imagem é exibida em Markdown usando o elemento HTML `<picture>` em combinação com o recurso de mídia de `prefers-color-scheme`. Nós distinguimos entre os modos de cores claro e escuro. Portanto, há duas opções disponíveis. Você pode usar essas opções para exibir imagens otimizadas para fundos escuros ou claros. Isso é particularmente útil para imagens PNG transparentes.
 
-For example, the following code displays a sun image for light themes and a moon for dark themes:
+Por exemplo, o código a seguir mostra uma imagem de sol para temas claros e uma lua para temas escuros:
 
 ```HTML
 <picture>
@@ -161,7 +161,7 @@ For example, the following code displays a sun image for light themes and a moon
 </picture>
 ```
 
-The old method of specifying images based on the theme, by using a fragment appended to the URL (`#gh-dark-mode-only` or `#gh-light-mode-only`), is deprecated and will be removed in favor of the new method described above.
+O método antigo de especificar as imagens baseado no tema, ao usar um fragmento anexado ao URL (`#gh-dark-mode-only` ou `#gh-light-mode-only`), está obsoleto e será removido a favor do novo método descrito acima.
 {% endif %}
 
 ## Listas
@@ -200,7 +200,7 @@ Para criar uma lista aninhada usando o editor web do {% data variables.product.p
 
 {% tip %}
 
-**Note**: In the web-based editor, you can indent or dedent one or more lines of text by first highlighting the desired lines and then using <kbd>Tab</kbd> or <kbd>Shift</kbd>+<kbd>Tab</kbd> respectively.
+**Nota**: No editor baseado na web, você pode colocar ou retirar uma ou mais linhas de texto primeiro destacando as linhas desejadas e, em seguida, usar <kbd>Tab</kbd> ou <kbd>Shift</kbd>+<kbd>Aba</kbd> respectivamente.
 
 {% endtip %}
 

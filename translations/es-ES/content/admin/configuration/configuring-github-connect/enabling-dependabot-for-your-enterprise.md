@@ -80,7 +80,7 @@ Antes de que puedas habilitar las {% data variables.product.prodname_dependabot_
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.github-connect-tab %}
-{%- if dependabot-updates-github-connect %}
+{%- ifversion dependabot-updates-github-connect %}
 1. Debajo de "{% data variables.product.prodname_dependabot %}", a la derecha de "Los usuarios pueden recibir alertas de vulnerabilidades para las dependencias de código libre", selecciona el menú desplegable y haz clic en **Habilitado sin notificaciones**. Opcionalmente, para habilitar las alertas con notificaciones, haz clic en **Habilitado con notificaciones**.
 
    ![Captura de pantalla del menú desplegable para habilitar el escaneo de repositorios en busca de vulnerabilidades](/assets/images/enterprise/site-admin-settings/dependabot-alerts-dropdown.png)
@@ -94,7 +94,7 @@ Antes de que puedas habilitar las {% data variables.product.prodname_dependabot_
 
    {% endtip %}
 
-{% if dependabot-updates-github-connect %}
+{% ifversion dependabot-updates-github-connect %}
 ## Habilitar {% data variables.product.prodname_dependabot_updates %}
 
 Después de que habilitas las {% data variables.product.prodname_dependabot_alerts %} para tu empresa, puedes habilitar las {% data variables.product.prodname_dependabot_updates %}.

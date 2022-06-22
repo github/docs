@@ -23,7 +23,7 @@ shortTitle: 筛选警报
 
 ## 关于筛选安全性概述
 
-可以使用安全概述中的筛选器，根据一系列因素（如警报风险级别、警报类型和功能启用）缩小关注范围。 根据特定视图以及是在组织、团队还是存储库级别进行分析，可以使用不同的筛选器。
+可以使用安全概述中的筛选器，根据一系列因素（如警报风险级别、警报类型和功能启用）缩小关注范围。 Different filters are available depending on the specific view and whether your analysis is at the organization, team or repository level.
 
 ## 按仓库过滤
 
@@ -101,7 +101,7 @@ shortTitle: 筛选警报
 | ------------------------- | ----------------------- |
 | <code>topic:<em>TOPIC-NAME</em></code> | 显示分类为 *TOPIC-NAME* 的仓库。 |
 
-{% if security-overview-views %}
+{% ifversion security-overview-views %}
 
 ## 按严重程度筛选
 
@@ -117,7 +117,7 @@ shortTitle: 筛选警报
 | `severity:warning`  | 显示分类为警告的 {% data variables.product.prodname_code_scanning %} 警报。 |
 | `severity:note`     | 显示分类为注释的 {% data variables.product.prodname_code_scanning %} 警报。 |
 
-{% if dependabot-alerts-vulnerable-calls %}
+{% ifversion dependabot-alerts-vulnerable-calls %}
 ## 按 {% data variables.product.prodname_dependabot %} 警报类型筛选
 
 在 {% data variables.product.prodname_dependabot %} 警报视图中可用。 您可以筛选视图以显示可以修复的 {% data variables.product.prodname_dependabot_alerts %}，或有关曝光的其他信息可用的位置。 可以单击任何结果以查看警报的完整详细信息。

@@ -1,5 +1,5 @@
 {% data reusables.actions.self-hosted-runner-configure-runner-group %}
-1. Modify your policy options.
+1. Modifica las opciones de tu política.
 
    {% ifversion not ghae %}
    {% warning %}

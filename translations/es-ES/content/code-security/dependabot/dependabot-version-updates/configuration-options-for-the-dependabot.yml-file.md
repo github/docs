@@ -35,35 +35,11 @@ Cualquier opción que también afecte las actualizaciones de seguridad se utiliz
 
 El archivo *dependabot.yml* tiene dos claves mandatorias de nivel superior: `version`, y `updates`. You can, optionally, include a top-level `registries` key{% ifversion fpt or ghec or ghes > 3.4 %} and/or a `enable-beta-ecosystems` key{% endif %}. El archivo debe comenzar con `version: 2`.
 
-## Opciones de configuración para las actualizaciones
+## Configuration options for the *dependabot.yml* file
 
 La clave `updates` de nivel superior es obligatoria. La utilizas para configurar la forma en que el {% data variables.product.prodname_dependabot %} actualiza las versiones o las dependencias de tu proyecto. Cada entrada configura los ajustes de actualización para un administrador de paquetes en particular. Puedes utilizar las siguientes opciones.
 
-| Opción                                                                     | Requerido | Descripción                                                                                        |
-|:-------------------------------------------------------------------------- |:---------:|:-------------------------------------------------------------------------------------------------- |
-| [`package-ecosystem`](#package-ecosystem)                                  |   **X**   | Administrador de paquetes a utilizar                                                               |
-| [`directorio`](#directory)                                                 |   **X**   | Ubicación de los manifiestos del paquete                                                           |
-| [`schedule.interval`](#scheduleinterval)                                   |   **X**   | Qué tan a menudo se revisará si hay actualizaciones                                                |
-| [`allow`](#allow)                                                          |           | Personalizar qué actualizaciones se permitirán                                                     |
-| [`asignatarios`](#assignees)                                               |           | Los asignados a configurar en las solicitudes de extracción                                        |
-| [`commit-message`](#commit-message)                                        |           | Commit message preferences                  |{% ifversion fpt or ghec or ghes > 3.4 %}
-| [`enable-beta-ecosystems`](#enable-beta-ecosystems)                        |           | Enable ecosystems that have beta-level support 
-{% endif %}
-| [`ignore`](#ignore)                                                        |           | Ignorar ciertas dependencias o versiones                                                           |
-| [`insecure-external-code-execution`](#insecure-external-code-execution)    |           | Permite o rechaza la ejecución de código en los archivos de manifiesto                             |
-| [`etiquetas`](#labels)                                                     |           | Las etiquetas a configurar en las solicitudes de extracción                                        |
-| [`hito`](#milestone)                                                       |           | Hito a configurar en las solicitudes de extracción                                                 |
-| [`open-pull-requests-limit`](#open-pull-requests-limit)                    |           | Limitar la cantidad de solicitudes de extracción abiertas para las actualizaciones de versión      |
-| [`pull-request-branch-name.separator`](#pull-request-branch-nameseparator) |           | Cambiar el separador para los nombres de rama de la solicitud de extracción                        |
-| [`rebase-strategy`](#rebase-strategy)                                      |           | Inhabilitar el rebase automático                                                                   |
-| [`registries`](#registries)                                                |           | Los registros privados a los que puede acceder el {% data variables.product.prodname_dependabot %}
-| [`revisores`](#reviewers)                                                  |           | Los revisores a configurar en las solicitudes de extracción                                        |
-| [`schedule.day`](#scheduleday)                                             |           | Día de la semana para revisar si hay actualizaciones                                               |
-| [`schedule.time`](#scheduletime)                                           |           | Hora del día para revisar si hay actualizaciones (hh:mm)                                           |
-| [`schedule.timezone`](#scheduletimezone)                                   |           | Huso horario para la hora del día (identificador de zona)                                          |
-| [`target-branch`](#target-branch)                                          |           | Rama contra la cual se creará la solicitud de extracción                                           |
-| [`vendor`](#vendor)                                                        |           | Actualiza las dependencias delegadas a proveedores o almacenadas en caché                          |
-| [`versioning-strategy`](#versioning-strategy)                              |           | Cómo actualizar los requisitos de la versión del manifiesto                                        |
+{% data reusables.dependabot.configuration-options %}
 
 Estas opciones caen a groso modo en las siguientes categorías.
 
@@ -304,6 +280,10 @@ updates:
       prefix-development: "pip dev"
       include: "scope"
 ```
+If you use the same configuration as in the example above, bumping the `requests` library in the `pip` development dependency group will generate a commit message of:
+
+   `pip dev: bump requests from 1.0.0 to 1.0.1`
+
 ### `ignore`
 
 {% data reusables.dependabot.default-dependencies-allow-ignore %}
@@ -322,7 +302,7 @@ Para obtener más información acerca de los comandos de `@dependabot ignore`, c
 
 Puedes utilizar la opción `ignore` para personalizar qué dependencias se actualizarán. La opción `ignore` es compatible con las siguientes opciones.
 
-- `dependency-name`—se utiliza para ignorar actualizaciones para las dependencias con nombres coincidentes, opcionalmente, utiliza `*` para empatar cero o más caracteres. Para las dependencias de Java, el formato del atributo `dependency-name` es: `groupId:artifactId` (por ejemplo: `org.kohsuke:github-api`). {% if dependabot-grouped-dependencies %} To prevent {% data variables.product.prodname_dependabot %} from automatically updating TypeScript type definitions from DefinitelyTyped, use `@types/*`.{% endif %}
+- `dependency-name`—se utiliza para ignorar actualizaciones para las dependencias con nombres coincidentes, opcionalmente, utiliza `*` para empatar cero o más caracteres. Para las dependencias de Java, el formato del atributo `dependency-name` es: `groupId:artifactId` (por ejemplo: `org.kohsuke:github-api`). {% ifversion dependabot-grouped-dependencies %} To prevent {% data variables.product.prodname_dependabot %} from automatically updating TypeScript type definitions from DefinitelyTyped, use `@types/*`.{% endif %}
 - `versions`—se utiliza para ignorar versiones o rangos específicos de las versiones. Si quieres definir un rango, utiliza el patrón estándar del administrador de paquetes (por ejemplo: `^1.0.0` para npm, o `~> 2.0` para Bundler).
 - `update-types`—Se utiliza para ignorar tipos de actualizaciones tales como las de tipo `major`, `minor`, o `patch` en actualizaciones de versión (por ejemplo: `version-update:semver-patch` ignorará las actualizaciones de parche). Puedes combinar esto con `dependency-name: "*"` para ignorar algún `update-types` en particular en todas las dependencias. Actualmente, `version-update:semver-major`, `version-update:semver-minor`, y `version-update:semver-patch` son las únicas opciones compatibles. Este ajuste no afectará a las actualizaciones de seguridad.
 

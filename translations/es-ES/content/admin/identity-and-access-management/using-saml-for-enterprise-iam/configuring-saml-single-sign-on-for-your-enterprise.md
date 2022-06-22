@@ -132,7 +132,7 @@ Puedes habilitar o inhabilitar la autenticación de SAML para {% data variables.
 
    ![Captura de pantalla de la casilla de verificación "Habilitar aserciones cifradas" dentro de la sección de "Autenticación"de la consola de administración](/assets/images/help/saml/management-console-enable-encrypted-assertions.png)
 {%- endif %}
-1. En el campo **URL de inicio de sesión único**, teclea la terminal HTTP o HTTPS en tu IdP para las solicitudes de inicio de sesión único. Este valor lo provee la configuración de tu IdP. Si el host solo se encuentra disponible en tu red interna, podrías necesitar [configurar {% data variables.product.product_location %} para utilizar servidores de nombres internos](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-dns-nameservers/).
+1. En el campo **URL de inicio de sesión único**, teclea la terminal HTTP o HTTPS en tu IdP para las solicitudes de inicio de sesión único. Este valor lo provee la configuración de tu IdP. Si el host solo se encuentra disponible en tu red interna, podrías necesitar [configurar {% data variables.product.product_location %} para utilizar servidores de nombres internos](/enterprise/admin/guides/installation/configuring-dns-nameservers/).
 
    ![Captura de pantalla del campo de texto para la URL de inicio de sesión único](/assets/images/enterprise/management-console/saml-single-sign-url.png)
 1. Opcionalmente, en el campo de **Emisor**, teclea el nombre del emisor SAML. Esto verifica la autenticidad de los mensajes que se envían a {% data variables.product.product_location %}.

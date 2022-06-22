@@ -111,7 +111,7 @@ La siguiente tabla muestra qué funciones del toolkit se encuentran disponibles 
 | `core.getInput`       | Accesible utilizando la variable de ambiente `INPUT_{NAME}` |
 | `core.getState`       | Accesible utilizando la variable de ambiente`STATE_{NAME}`  |
 | `core.isDebug`        | Accesible utilizando la variable de ambiente `RUNNER_DEBUG` |
-{%- if actions-job-summaries %}
+{%- ifversion actions-job-summaries %}
 | `core.summary` | Se puede acceder a este utilizando la variable de ambiente `GITHUB_STEP_SUMMARY` |
 {%- endif %}
 | `core.saveState`  | `save-state` | | `core.setCommandEcho` | `echo` | | `core.setFailed`  | Se utiliza como un atajo para `::error` y `exit 1` | | `core.setOutput`  | `set-output` | | `core.setSecret`  | `add-mask` | | `core.startGroup` | `group` | | `core.warning`    | `warning` |
@@ -656,7 +656,7 @@ steps:
 
 {% endpowershell %}
 
-{% if actions-job-summaries %}
+{% ifversion actions-job-summaries %}
 
 ## Agregar un resumen del job
 
@@ -680,7 +680,7 @@ Puedes configurar algo de lenguaje de marcado personalizado para cada job, para 
 
 Los resúmenes de jobs son compatibles con [el lenguaje de marcado enriquecido de {% data variables.product.prodname_dotcom %}](https://github.github.com/gfm/) y puedes agregar tu contenido de lenguaje de marcado para un paso al archivo de ambiente de `GITHUB_STEP_SUMMARY`. El `GITHUB_STEP_SUMMARY` es único para cada paso en un job. Para obtener más información sobre el archivo por paso al que referencia el `GITHUB_STEP_SUMMARY`, consulta la sección "[Archivos de ambiente](#environment-files)".
 
-Cuando finaliza un job, los resúmenes de todos los pasos en este se agrupan en un solo resumen de job y se muestran en la página de resumen de la ejecución de flujo de trabajo. If multiple jobs generate summaries, the job summaries are ordered by job completion time.
+Cuando finaliza un job, los resúmenes de todos los pasos en este se agrupan en un solo resumen de job y se muestran en la página de resumen de la ejecución de flujo de trabajo. Si varios jobs generan resúmenes, estos se ordenarán de acuerdo al tiempo de finalización de cada job.
 
 ### Ejemplo
 
@@ -700,11 +700,11 @@ echo "### Hello world! :rocket:" >> $GITHUB_STEP_SUMMARY
 
 {% endpowershell %}
 
-![Markdown summary example](/assets/images/actions-job-summary-simple-example.png)
+![Ejemplo de resumen en lenguaje de marcado](/assets/images/actions-job-summary-simple-example.png)
 
-### Multiline Markdown content
+### Contenido de lenguaje de marcado de línea múltiple
 
-For multiline Markdown content, you can use `>>` to continuously append content for the current step. With every append operation, a newline character is automatically added.
+Para el contenido de lenguaje de marcado de línea múltiple, puedes utilizar `>>` para anexar contenido para el paso actual contínuamente. Con cada operación de anexado, se agregará un carácter de línea nueva automáticamente.
 
 #### Ejemplo
 
@@ -736,9 +736,9 @@ For multiline Markdown content, you can use `>>` to continuously append content 
 
 {% endpowershell %}
 
-### Overwriting job summaries
+### Sobrescribir resúmenes de job
 
-To clear all content for the current step, you can use `>` to overwrite any previously added content.
+Para limpiar todo el contenido del paso actual, puedes utilizar `>` para sobrescribir cualquier contenido que se haya agregado previamente.
 
 #### Ejemplo
 
@@ -764,9 +764,9 @@ To clear all content for the current step, you can use `>` to overwrite any prev
 
 {% endpowershell %}
 
-### Removing job summaries
+### Eliminar los resúmenes de job
 
-To completely remove a summary for the current step, the file that `GITHUB_STEP_SUMMARY` references can be deleted.
+Para eliminar un resumen por completo para el paso actual, el archivo que referencia `GITHUB_STEP_SUMMARY` puede borrarse.
 
 #### Ejemplo
 
@@ -792,11 +792,11 @@ To completely remove a summary for the current step, the file that `GITHUB_STEP_
 
 {% endpowershell %}
 
-After a step has completed, job summaries are uploaded and subsequent steps cannot modify previously uploaded Markdown content. Summaries automatically mask any secrets that might have been added accidentally. If a job summary contains sensitive information that must be deleted, you can delete the entire workflow run to remove all its job summaries. For more information see "[Deleting a workflow run](/actions/managing-workflow-runs/deleting-a-workflow-run)."
+Después de que se complete un paso, se cargan los resúmenes de job y los pasos subsecuentes no pueden modificar el contenido de lenguaje de mrcado que se haya cargado previamente. Los resúmenes enmascaran automáticamente cualquier secreto que pudiera haberse agregado por accidente. Si un resumen de job contiene información sensible que debe borrarse, puedes borrar toda la ejecución de flujo de trabajo para eliminar todos sus resúmenes de job. Para obtener más información, consulta la sección "[Borrar una ejecución de flujo de trabajo](/actions/managing-workflow-runs/deleting-a-workflow-run)".
 
-### Step isolation and limits
+### Límites y aislamiento de pasos
 
-Job summaries are isolated between steps and each step is restricted to a maximum size of 1MiB. Isolation is enforced between steps so that potentially malformed Markdown from a single step cannot break Markdown rendering for subsequent steps. If more than 1MiB of content is added for a step, then the upload for the step will fail and an error annotation will be created. Upload failures for job summaries do not affect the overall status of a step or a job. A maximum of 20 job summaries from steps are displayed per job.
+Los resúmenes de datos se aíslan entre pasos y cada uno de ellos se restringe a un tamaño máximo de 1MiB. S requiere aislamiento entre los pasos para que el lenguaje de marcado potencialmente mal formado de un solo paso no interrumpa la representación del lenguaje de marcado para los pasos subsecuentes. Si se agrega más de 1 MiB de contenido para un paso, entonces la carga del paso fallará y se creará un error de anotación. Las fallas de carga de los resúmenes de jobs no afectan el estado general de un paso o job. Por cada job se muestran 20 resúmenes de job de los pasos.
 
 {% endif %}
 
@@ -833,7 +833,7 @@ echo "$HOME/.local/bin" >> $GITHUB_PATH
 
 {% powershell %}
 
-This example demonstrates how to add the user `$env:HOMEPATH/.local/bin` directory to `PATH`:
+Este ejemplo demuestra cómo agregar el directorio `$env:HOMEPATH/.local/bin` a `PATH`:
 
 ```pwsh{:copy}
 "$env:HOMEPATH/.local/bin" >> $env:GITHUB_PATH

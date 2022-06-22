@@ -29,7 +29,7 @@ on:
 Quando um padrão corresponde ao padrão `branches-ignore`, o fluxo de trabalho não será executado. Os padrões definidos em `branches` são avaliados com base no nome do ref do Git. Por exemplo, o fluxo de trabalho a seguir seria executado sempre que houver um evento `pull_request`, a menos que o pull request esteja apontando para:
 
 - Uma branch denominado `mona/octocat` (`refs/heads/mona/octocat`)
-- Uma branch cujo nome corresponde a `releases/**-alpha`, como `beta/3-alpha` (`refs/releases/beta/3-alpha`)
+- Uma branch cujo nome corresponda a `releases/**-alpha`, como `releases/beta/3-alpha` (`refs/heads/releases/beta/3-alpha`)
 
 ```yaml
 on:
@@ -51,7 +51,7 @@ A ordem de definição dos padrões é importante.
 - Um padrão negativo (precedido por `!`) depois de uma correspondência positiva excluirá o Git ref.
 - Um padrão positivo correspondente após uma correspondência negativa incluirá a Git ref novamente.
 
-The following workflow will run on `pull_request` events for pull requests that target `releases/10` or `releases/beta/mona`, but not for pull requests that target `releases/10-alpha` or `releases/beta/3-alpha` because the negative pattern `!releases/**-alpha` follows the positive pattern.
+O fluxo de trabalho a seguir será executado em eventos `pull_request` para pull requests que apontem para `releases/10` ou `releases/beta/mona`, mas não para pull requests que apontam para `releases/10-alpha` ou `releases/beta/3-alpha` porque o padrão negativo `!releases/**-alpha` segue o padrão positivo.
 
 ```yaml
 on:

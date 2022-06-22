@@ -77,7 +77,7 @@ Los miembros de tu empresa pueden aprender más sobre Git y sobre {% data variab
 Puedes leer la documentación que refleje las características disponibles en {% data variables.product.prodname_ghe_managed %}. Para obtener más información, consulta la sección "[Acerca de las versiones de {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs)".
 
 ### 2. Aprender con {% data variables.product.prodname_learning %}
-{% data reusables.getting-started.learning-lab-enterprise %}
+{% data reusables.getting-started.learning-enterprise %}
 
 ### 3. Trabajar con {% data variables.product.prodname_dotcom %} Enterprise Support
 {% data reusables.getting-started.contact-support-enterprise %}

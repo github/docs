@@ -8,7 +8,7 @@
 // [end-readme]
 
 import { execSync } from 'child_process'
-import program from 'commander'
+import { program } from 'commander'
 import fs from 'fs'
 
 // Set up supported linting check types and their corresponding commands.

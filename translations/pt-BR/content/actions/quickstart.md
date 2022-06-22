@@ -78,6 +78,9 @@ Fazer commit do arquivo de fluxo de trabalho para um branch em seu repositório 
 
 {% data reusables.actions.workflow-template-overview %}
 
+## Exemplos mais complexos
+{% data reusables.actions.link-to-example-library %}
+
 ## Próximas etapas
 
 O exemplo do fluxo de trabalho que você acabou de adicionar é executado cada vez que o código for enviado para o branch e mostra como {% data variables.product.prodname_actions %} pode funcionar com o conteúdo do seu repositório. Mas este é apenas o início do que você pode fazer com {% data variables.product.prodname_actions %}:
