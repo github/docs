@@ -42,7 +42,7 @@ You can check the current service status on the [Status Dashboard](https://www.g
 
 ## オプション 4: ローカルのコンテナ化された環境にリモートコンテナとDockerを使用する
 
-リポジトリに `devcontainer.json` がある場合は、Visual Studio Code の [Remote-Containers 機能拡張](https://code.visualstudio.com/docs/remote/containers#_quick-start-open-a-git-repository-or-github-pr-in-an-isolated-container-volume)を使用して、リポジトリのローカル開発コンテナをビルドしてアタッチすることを検討してください。 このオプションのセットアップ時間は、ローカル仕様と開発コンテナセットアップの複雑さによって異なります。
+If your repository has a `devcontainer.json`, consider using the [Remote-Containers extension](https://code.visualstudio.com/docs/remote/containers#_quick-start-open-a-git-repository-or-github-pr-in-an-isolated-container-volume) in {% data variables.product.prodname_vscode %} to build and attach to a local development container for your repository. このオプションのセットアップ時間は、ローカル仕様と開発コンテナセットアップの複雑さによって異なります。
 
 {% note %}
 

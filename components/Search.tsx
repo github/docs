@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef, ReactNode, RefObject } from 'react'
 import { useRouter } from 'next/router'
 import useSWR from 'swr'
 import cx from 'classnames'
-import { ActionList, DropdownMenu, Flash, Label, Overlay } from '@primer/react'
+import { ActionList, DropdownMenu, Flash, Label } from '@primer/react'
 import { ItemInput } from '@primer/react/lib/ActionList/List'
 
 import { useTranslation } from 'components/hooks/useTranslation'
@@ -287,8 +287,6 @@ function useDebounce<T>(value: T, delay?: number): [T, (value: T) => void] {
 
 function ShowSearchError({
   error,
-  isHeaderSearch,
-  isMobileSearch,
 }: {
   error: Error
   isHeaderSearch: boolean
@@ -296,10 +294,7 @@ function ShowSearchError({
 }) {
   const { t } = useTranslation('search')
   return (
-    <Flash
-      variant="danger"
-      sx={{ margin: isMobileSearch || isHeaderSearch ? '2rem 2rem 0 2em' : '1rem' }}
-    >
+    <Flash variant="danger" sx={{ margin: '2rem 2rem 0 2em' }}>
       <p>{t('search_error')}</p>
       {process.env.NODE_ENV === 'development' && (
         <p>
@@ -313,12 +308,9 @@ function ShowSearchError({
 }
 
 function ShowSearchResults({
-  anchorRef,
   isHeaderSearch,
-  isMobileSearch,
   isLoading,
   results,
-  closeSearch,
   debug,
   query,
 }: {
@@ -347,7 +339,7 @@ function ShowSearchResults({
   const versions = Array.from(latestVersions).map((version) => {
     return {
       title: allVersions[version].versionTitle,
-      version: version,
+      version,
     }
   })
 
@@ -490,49 +482,7 @@ function ShowSearchResults({
         />
       </div>
     )
-    // When there are search results, it doesn't matter if this is overlay or not.
-    return (
-      <div>
-        {!isHeaderSearch && !isMobileSearch ? (
-          <>
-            <Overlay
-              initialFocusRef={anchorRef}
-              returnFocusRef={anchorRef}
-              ignoreClickRefs={[anchorRef]}
-              onEscape={() => closeSearch()}
-              onClickOutside={() => closeSearch()}
-              aria-labelledby="title"
-              sx={
-                isHeaderSearch
-                  ? {
-                      background: 'none',
-                      boxShadow: 'none',
-                      position: 'static',
-                      overflowY: 'auto',
-                      maxHeight: '80vh',
-                      maxWidth: '96%',
-                      margin: '1.5em 2em 0 0.5em',
-                      scrollbarWidth: 'none',
-                    }
-                  : window.innerWidth < 1012
-                  ? {
-                      marginTop: '28rem',
-                      marginLeft: '5rem',
-                    }
-                  : {
-                      marginTop: '15rem',
-                      marginLeft: '5rem',
-                    }
-              }
-            >
-              {ActionListResults}
-            </Overlay>
-          </>
-        ) : (
-          ActionListResults
-        )}
-      </div>
-    )
+    return <div>{ActionListResults}</div>
   }
 
   // We have no results at all, but perhaps we're waiting.

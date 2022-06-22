@@ -13,6 +13,8 @@ redirect_from:
   - /rest/reference/licenses
 ---
 
+## About the Licenses API
+
 The Licenses API uses [the open source Ruby Gem Licensee](https://github.com/benbalter/licensee) to attempt to identify the project's license. Licensee matches the contents of a project's `LICENSE` file (if it exists) against a short list of known licenses. As a result, the API does not take into account the licenses of project dependencies or other means of documenting a project's license such as references to the license name in the documentation.
 
 If a license is matched, the license key and name returned conforms to the [SPDX specification](https://spdx.org/).

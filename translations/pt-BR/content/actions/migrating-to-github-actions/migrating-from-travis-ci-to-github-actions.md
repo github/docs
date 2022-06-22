@@ -59,9 +59,9 @@ O Travis CI pode usar `stages` para executar trabalhos em paralelo. Da mesma for
 
 O Travis CI e {% data variables.product.prodname_actions %} são compatíveis com selos de status, o que permite que você indique se uma criação está sendo aprovada ou falhando. Para obter mais informações, consulte ["Adicionar um selo de status de fluxo de trabalho ao seu repositório](/actions/managing-workflow-runs/adding-a-workflow-status-badge)".
 
-### Usar uma matriz de criação
+### Usando uma matriz
 
-O Travis CI e {% data variables.product.prodname_actions %} são compatíveis com uma matriz de criação, o que permite que você realize testes usando combinações de sistemas operacionais e pacotes de software. Para obter mais informações, consulte "[Usar uma matriz de criação](/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix)".
+O Travis CI e {% data variables.product.prodname_actions %} são compatíveis com uma matriz, o que permite que você realize testes usando combinações de sistemas operacionais e pacotes de software. Para obter mais informações, consulte "[Usando uma matriz para seus trabalhos](/actions/using-jobs/using-a-matrix-for-your-jobs)".
 
 Abaixo, há um exemplo de comparação da sintaxe para cada sistema:
 
@@ -208,7 +208,8 @@ Os trabalhos simultâneos e os tempos de execução do fluxo de trabalho em {% d
 ### Usar diferentes linguagens em {% data variables.product.prodname_actions %}
 
 Ao trabalhar com diferentes linguagens em {% data variables.product.prodname_actions %}, você pode criar uma etapa no seu trabalho para configurar as dependências da sua linguagem. Para obter mais informações sobre como trabalhar com uma linguagem em particular, consulte o guia específico:
-  - [Criar e testar Node.js ou Python](/actions/guides/building-and-testing-nodejs-or-python)
+  - [Criar e testar Node.js](/actions/guides/building-and-testing-nodejs)
+  - [Criar e testar o Python](/actions/guides/building-and-testing-python)
   - [Criar e testar PowerShell](/actions/guides/building-and-testing-powershell)
   - [Criar e estar o Java com o Maven](/actions/guides/building-and-testing-java-with-maven)
   - [Criar e estar o Java com o Gradle](/actions/guides/building-and-testing-java-with-gradle)
@@ -302,7 +303,11 @@ jobs:
 
 ## Memorizar dependências
 
-O Travis CI e {% data variables.product.prodname_actions %} permitem que você armazene as as dependências em cache manualmente para reutilização posterior. Esse exemplo demonstra a sintaxe do cache para cada sistema.
+O Travis CI e {% data variables.product.prodname_actions %} permitem que você armazene as as dependências em cache manualmente para reutilização posterior.
+
+{% ifversion actions-caching %}
+
+Esse exemplo demonstra a sintaxe do cache para cada sistema.
 
 <table>
 <tr>
@@ -337,7 +342,11 @@ cache: npm
 </tr>
 </table>
 
-O cache de {% data variables.product.prodname_actions %} só é aplicável para repositórios hospedados em {% data variables.product.prodname_dotcom_the_website %}. Para obter mais informações, consulte "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Memorizar dependências para acelerar fluxos de trabalho</a>".
+{% else %}
+
+{% data reusables.actions.caching-availability %}
+
+{% endif %}
 
 ## Exemplos de tarefas comuns
 

@@ -1,6 +1,6 @@
 ---
 title: 検索
-intro: The GitHub Search API lets you to search for the specific item efficiently.
+intro: 'Search APIを使うと、{% data variables.product.product_name %}上の特定のアイテムを検索できます。'
 versions:
   fpt: '*'
   ghes: '*'
@@ -12,6 +12,8 @@ miniTocMaxHeadingLevel: 3
 redirect_from:
   - /rest/reference/search
 ---
+
+## Search APIについて
 
 Search API は、見つけたい特定の項目を検索するために役立ちます。 たとえば、リポジトリ内のユーザや特定のファイルを見つけることができます。 Google で検索を実行するのと同じように考えてください。 Search API は、探している 1 つの結果 (または探しているいくつかの結果) を見つけるために役立つよう設計されています。 Google で検索する場合と同じように、ニーズに最も合う項目を見つけるため、検索結果を数ページ表示したい場合もあるでしょう。 こうしたニーズを満たすため、{% data variables.product.product_name %} Search API では**各検索につき 最大 1,000 件の結果**を提供します。
 
@@ -69,7 +71,7 @@ Search API は、以下のクエリをサポートしていません。
 
 ### アクセスエラーまたは検索結果の欠落
 
-You need to successfully authenticate and have access to the repositories in your search queries, otherwise, you'll see a `422 Unprocessable Entry` error with a "Validation Failed" message. たとえば、{% data variables.product.prodname_dotcom %} にサインインしたときにアクセスできないリソースをリクエストする `repo:`、`user:`、または `org:` 修飾子がクエリに含まれている場合、検索は失敗します。
+認証に成功しており、検索クエリ中のリポジトリにアクセスを持っていなければなりません。そうでない場合は、"Validation Failed"というメッセージとともに`422 Unprocessable Entry`が返されます。 たとえば、{% data variables.product.prodname_dotcom %} にサインインしたときにアクセスできないリソースをリクエストする `repo:`、`user:`、または `org:` 修飾子がクエリに含まれている場合、検索は失敗します。
 
 検索クエリで複数のリソースをリクエストする場合、レスポンスにはあなたがアクセスできるリソースのみが含まれ、返されないリソースを一覧表示するようなエラーメッセージは**表示されません**。
 

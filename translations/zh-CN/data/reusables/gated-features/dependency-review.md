@@ -1,13 +1,13 @@
 {%- ifversion fpt %}
-Dependency review is enabled on public repositories. Dependency review is also available in private repositories owned by organizations that use {% data variables.product.prodname_ghe_cloud %} and have a license for {% data variables.product.prodname_GH_advanced_security %}.
+在公共存储库上启用依赖项审查。 依赖项审查也可在使用 {% data variables.product.prodname_ghe_cloud %} 并有 {% data variables.product.prodname_GH_advanced_security %} 许可证的组织拥有的私有存储库中进行。
 
 {%- elsif ghec %}
-依赖项审查包含在公共存储库的 {% data variables.product.product_name %} 中。 To use dependency review in private repositories owned by organizations, you must have a license for {% data variables.product.prodname_GH_advanced_security %}.
+依赖项审查包含在公共存储库的 {% data variables.product.product_name %} 中。 要在组织拥有的私有存储库中使用依赖项审查，您必须具有 {% data variables.product.prodname_GH_advanced_security %} 许可证。
 
 {%- elsif ghes > 3.1 %}
-Dependency review is available for organization-owned repositories in {% data variables.product.product_name %}. This feature requires a license for {% data variables.product.prodname_GH_advanced_security %}.
+依赖项审查适用于 {% data variables.product.product_name %} 中的组织拥有的存储库。 此功能需要 {% data variables.product.prodname_GH_advanced_security %} 的许可证。
 
-{%- elsif ghae-issue-4864 %}
-Dependency review is available for organization-owned repositories in {% data variables.product.product_name %}. This is a {% data variables.product.prodname_GH_advanced_security %} feature (free during the beta release).
+{%- elsif ghae %}
+依赖项审查适用于 {% data variables.product.product_name %} 中的组织拥有的存储库。 这是一项 {% data variables.product.prodname_GH_advanced_security %} 功能（在测试版期间免费）。
 
 {%- endif %} {% data reusables.advanced-security.more-info-ghas %}

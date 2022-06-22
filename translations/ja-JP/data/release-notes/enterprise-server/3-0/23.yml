@@ -2,14 +2,14 @@
 date: '2022-01-18'
 sections:
   security_fixes:
-    - 'Packages have been updated to the latest security versions. In these updates, Log4j has been updated to version 2.17.1. Note: previous mitigations released in 3.3.1, 3.2.6, 3.1.14, and 3.0.22 are sufficient to address the impact of CVE-2021-44228, CVE-2021-45046, CVE-2021-45105, and CVE-2021-44832 in these versions of GitHub Enterprise Server.'
-    - Sanitize more secrets in the generated support bundles
+    - 'パッケージは最新のセキュリティバージョンに更新されました。これらの更新で、Log4jはバージョン2.17.1に更新されました。ノート: 3.3.1、3.2.6、3.1.14、3.0.22でリリースされた以前の緩和対応は、GitHub Enterprise ServerのこれらのバージョンにおけるCVE-2021-44228、CVE-2021-45046、CVE-2021-45105、CVE-2021-44832の影響に対応するには十分なものです。'
+    - 生成されるSupport Bundleでのより多くのシークレットのサニタイズ
     - パッケージは最新のセキュリティバージョンにアップデートされました。
   bugs:
-    - Running `ghe-config-apply` could sometimes fail because of permission issues in `/data/user/tmp/pages`.
-    - The save button in management console was unreachable by scrolling in lower resolution browsers.
-    - IOPS and Storage Traffic monitoring graphs were not updating after collectd version upgrade.
-    - Some webhook related jobs could generated large amount of logs.
+    - '`ghe-config-apply`を実行すると、`/data/user/tmp/pages`における権限の問題のために失敗することがあります。'
+    - 低解像度のブラウザで、スクロールしてもManagement ConsoleのSaveボタンに到達できませんでした。
+    - collectdのバージョンアップグレード後、IOPSとストレージトラフィックのモニタリンググラフが更新されませんでした。
+    - 一部のwebhookに関連するジョブが、大量のログを発生させることがありました。
   known_issues:
     - 新しくセットアップされたユーザを持たない{% data variables.product.prodname_ghe_server %}で、攻撃者が最初の管理ユーザを作成できました。
     - アップグレードの過程で、カスタムのファイアウォールのルールが削除されます。

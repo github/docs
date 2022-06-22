@@ -1,6 +1,7 @@
 ---
-title: Review Comments
-intro: Os comentários de revisão de pull request são comentários em uma parte do diff unificado feitos durante uma revisão de pull request.
+title: Comentários das revisões de pull request
+shortTitle: Comentários de revisão
+intro: ''
 versions:
   fpt: '*'
   ghes: '*'
@@ -12,7 +13,9 @@ miniTocMaxHeadingLevel: 3
 allowTitleToDifferFromFilename: true
 ---
 
-Comentários de commit e comentários de problemas são são diferentes dos comentários de revisão de pull request. Você aplica comentários de submissão diretamente para um commit e aplica comentários de problema sem fazer referência a uma parte do diff unificado. Para obter mais informações, consulte "[Criar um comentário de commit](/rest/reference/commits#create-a-commit-comment)" e "[Criar um comentário de problema](/rest/reference/issues#create-an-issue-comment)".
+## Sobre a API de revisão de pull request
+
+Os comentários de revisão de pull request são comentários em uma parte do diff unificado feitos durante uma revisão de pull request. Comentários de commit e comentários de problemas são são diferentes dos comentários de revisão de pull request. Você aplica comentários de submissão diretamente para um commit e aplica comentários de problema sem fazer referência a uma parte do diff unificado. Para obter mais informações, consulte "[Criar um comentário de commit](/rest/reference/commits#create-a-commit-comment)" e "[Criar um comentário de problema](/rest/reference/issues#create-an-issue-comment)".
 
 ### Tipos de mídia personalizados para comentários de revisão de pull request
 

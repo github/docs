@@ -25,7 +25,7 @@ We encourage you to [explicitly request this version via the `Accept` header](/r
 
 {% ifversion fpt or ghec %}
 
-For information about GitHub's GraphQL API, see the [v4 documentation]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql). For information about migrating to GraphQL, see "[Migrating from REST]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/guides/migrating-from-rest-to-graphql)."
+For information about GitHub's GraphQL API, see the [documentation]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql). For information about migrating to GraphQL, see "[Migrating from REST]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/guides/migrating-from-rest-to-graphql)."
 
 {% endif %}
 
@@ -133,7 +133,7 @@ You will be unable to authenticate using your OAuth2 key and secret while in pri
 
 {% ifversion fpt or ghec %}
 
-Read [more about unauthenticated rate limiting](#increasing-the-unauthenticated-rate-limit-for-oauth-applications).
+Read [more about unauthenticated rate limiting](#increasing-the-unauthenticated-rate-limit-for-oauth-apps).
 
 {% endif %}
 

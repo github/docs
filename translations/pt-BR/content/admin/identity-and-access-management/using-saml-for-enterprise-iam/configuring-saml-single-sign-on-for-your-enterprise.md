@@ -1,7 +1,7 @@
 ---
 title: Configurar o logon único SAML para sua empresa
 shortTitle: Configurar o SAML SSO
-intro: 'You can control and secure access to {% ifversion ghec %}resources like repositories, issues, and pull requests within your enterprise''s organizations{% elsif ghes %}{% data variables.product.product_location %}{% elsif ghae %}your enterprise on {% data variables.product.prodname_ghe_managed %}{% endif %} by {% ifversion ghec %}enforcing{% elsif ghes or ghae %}configuring{% endif %} SAML single sign-on (SSO) through your identity provider (IdP).'
+intro: 'Você pode controlar e proteger o acesso a recursos {% ifversion ghec %}, como repositórios, problemas e pull requests dentro das organizações da sua empresa{% elsif ghes %}{% data variables.product.product_location %}{% elsif ghae %}sua empresa em {% data variables.product.prodname_ghe_managed %}{% endif %}, {% ifversion ghec %}{% elsif ghes or ghae %}configurando{% endif %} o logon único SAML (SSO) através do seu provedor de identidade (IdP).'
 permissions: '{% ifversion ghes %}Site administrators{% elsif ghec or ghae %}Enterprise owners{% endif %} can configure SAML SSO for {% ifversion ghec or ghae %}an enterprise on {% data variables.product.product_name %}{% elsif ghes %}a {% data variables.product.product_name %} instance{% endif %}.'
 versions:
   ghec: '*'
@@ -65,7 +65,7 @@ Depois que um usuário efetua a autenticação com sucesso no seu IdP, a sessão
 
 ## Considerações de nome de usuário no SAML
 
-{% ifversion ghec %}If you use {% data variables.product.prodname_emus %}, {% endif %}{% data reusables.enterprise_user_management.consider-usernames-for-external-authentication %} For more information, see "[Username considerations for external authentication](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication)."
+{% ifversion ghec %}Se você usar {% data variables.product.prodname_emus %}, {% endif %}{% data reusables.enterprise_user_management.consider-usernames-for-external-authentication %} Para obter mais informações, consulte "[Considerações de nome de usuário para autenticação externa](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication)".
 
 ## Aplicar o logon único SAML para organizações na sua conta corporativa
 
@@ -97,7 +97,7 @@ Para obter informações mais detalhadas sobre como habilitar o SAML usando o Ok
 
 ## Configurando o SAML SSO
 
-Você pode habilitar ou desabilitar a autenticação do SAML para {% data variables.product.product_location %} ou você pode editar uma configuração existente. You can view and edit authentication settings for {% data variables.product.product_name %} in the management console. Para obter mais informações, consulte "[Acessando o console de gerenciamento](/admin/configuration/configuring-your-enterprise/accessing-the-management-console)".
+Você pode habilitar ou desabilitar a autenticação do SAML para {% data variables.product.product_location %} ou você pode editar uma configuração existente. Você pode ver e editar as configurações de autenticação para {% data variables.product.product_name %} no console de gerenciamento. Para obter mais informações, consulte "[Acessando o console de gerenciamento](/admin/configuration/configuring-your-enterprise/accessing-the-management-console)".
 
 {% note %}
 
@@ -132,7 +132,7 @@ Você pode habilitar ou desabilitar a autenticação do SAML para {% data variab
 
    ![Captura de tela da caixa de seleção "Habilitar declarações criptografadas" na seção de gerenciamento do console "Autenticação"](/assets/images/help/saml/management-console-enable-encrypted-assertions.png)
 {%- endif %}
-1. No campo **URL de logon único**, digite o ponto de extremidade de HTTP ou HTTPS no seu IdP para solicitações de logon único. Esse valor é fornecido pela configuração do IdP. Se o host estiver disponível apenas na sua rede interna, você pode precisar que [configure {% data variables.product.product_location %} para usar servidores de nomes internos](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-dns-nameservers/).
+1. No campo **URL de logon único**, digite o ponto de extremidade de HTTP ou HTTPS no seu IdP para solicitações de logon único. Esse valor é fornecido pela configuração do IdP. Se o host estiver disponível apenas na sua rede interna, você pode precisar que [configure {% data variables.product.product_location %} para usar servidores de nomes internos](/enterprise/admin/guides/installation/configuring-dns-nameservers/).
 
    ![Captura de tela do campo de texto para a URL de acesso único](/assets/images/enterprise/management-console/saml-single-sign-url.png)
 1. Como alternativa, no campo **emissor**, digite o nome do emissor do SAML. Fazer isso verifica a autenticidade das mensagens enviadas para {% data variables.product.product_location %}.
@@ -156,12 +156,12 @@ Você pode habilitar ou desabilitar a autenticação do SAML para {% data variab
 
 Os seguintes IdPs fornecem documentação sobre a configuração de do SAML SSO para {% data variables.product.product_name %}. Se seu IdP não estiver listado, entre em contato com seu IdP para solicitar suporte para {% data variables.product.product_name %}.
 
- | IdP      | Mais informações                                                                                                                                                                                                                                                 |
- |:-------- |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
- | Azure AD | "[Configuring authentication and provisioning for your enterprise using Azure AD](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad)" |
- | Okta     | "[Configuring authentication and provisioning for your enterprise using Okta](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/configuring-authentication-and-provisioning-for-your-enterprise-using-okta)"         |
+ | IdP      | Mais informações                                                                                                                                                                                                                                                   |
+ |:-------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+ | Azure AD | "[Configurando autenticação e provisionamento para a sua empresa usando o Azure AD](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad)" |
+ | Okta     | "[Configurando a autenticação e o provisionamento para sua empresa usando o Okta](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/configuring-authentication-and-provisioning-for-your-enterprise-using-okta)"       |
 
-During initialization for {% data variables.product.product_name %}, you must configure {% data variables.product.product_name %} as a SAML service provider (SP) on your IdP. Você deve inserir vários valores únicos no seu IdP para configurar {% data variables.product.product_name %} como um SP válido. For more information, see "[SAML configuration reference](/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference#saml-metadata)."
+Durante a inicialização de {% data variables.product.product_name %}, você deve configurar o {% data variables.product.product_name %} como um provedor de serviço SAML (SP) no seu IdP. Você deve inserir vários valores únicos no seu IdP para configurar {% data variables.product.product_name %} como um SP válido. Para obter mais informações, consulte "[Referência de configuração do SAML](/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference#saml-metadata)".
 
 ## Editar a configuração SAML SSO
 
@@ -219,10 +219,10 @@ Se os detalhes para o seu IdP forem alterados, você deverá editar a configura�
 ## Leia mais
 
 {%- ifversion ghec %}
-- "[Managing SAML single sign-on for your organization](/organizations/managing-saml-single-sign-on-for-your-organization)"
+- "[Gerenciando o logon único SAML para sua organização](/organizations/managing-saml-single-sign-on-for-your-organization)"
 {%- endif %}
 {%- ifversion ghes %}
-- "[Promoting or demoting a site administrator](/admin/user-management/managing-users-in-your-enterprise/promoting-or-demoting-a-site-administrator)"
+- "[Promovendo ou rebaixando um administrador do site](/admin/user-management/managing-users-in-your-enterprise/promoting-or-demoting-a-site-administrator)"
 {%- endif %}
 
 {% endif %}

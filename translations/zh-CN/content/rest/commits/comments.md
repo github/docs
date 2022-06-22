@@ -1,6 +1,6 @@
 ---
 title: 提交注释
-intro: ''
+intro: 提交评论 API 允许您创建和编辑与特定提交相关的评论。
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,6 +11,10 @@ topics:
 miniTocMaxHeadingLevel: 3
 allowTitleToDifferFromFilename: true
 ---
+
+## 关于提交评论 API
+
+提交评论 API 允许您创建和编辑与特定提交相关的评论。
 
 ### 提交评论的自定义媒体类型
 

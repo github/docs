@@ -68,7 +68,7 @@ topics:
 
 - {% data variables.product.prodname_code_scanning %} ワークフローから `autobuild` ステップを削除し、特定のビルドステップを追加します。 ワークフローの編集に関する詳しい情報は、「[{% data variables.product.prodname_code_scanning %} を設定する](/code-security/secure-coding/configuring-code-scanning#editing-a-code-scanning-workflow)」を参照してください。 `autobuild` ステップの置き換えに関する詳細は、「[コンパイル型言語の {% data variables.product.prodname_codeql %} ワークフローを設定する](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)」を参照してください。
 
-- ワークフローが解析する言語を明示的に指定していない場合、{% data variables.product.prodname_codeql %} はコードベースでサポートされている言語を暗黙的に検出します。 この設定では、コンパイル型言語である C/C++、C#、Java のうち、{% data variables.product.prodname_codeql %} はソースファイルの数が最も多い言語のみを解析します。 ワークフローを編集し、解析する言語を指定したビルドマトリクスを追加してください。 デフォルトの CodeQL 解析では、こうしたマトリクスを使用しています。
+- ワークフローが解析する言語を明示的に指定していない場合、{% data variables.product.prodname_codeql %} はコードベースでサポートされている言語を暗黙的に検出します。 この設定では、コンパイル型言語である C/C++、C#、Java のうち、{% data variables.product.prodname_codeql %} はソースファイルの数が最も多い言語のみを解析します。 ワークフローを編集し、解析する言語を指定したマトリクスを追加してください。 デフォルトの CodeQL 解析では、こうしたマトリクスを使用しています。
 
   以下はワークフローからの抜粋で、まず言語を指定するジョブ戦略におけるマトリクスの使用法を示し、次に「Initialize {% data variables.product.prodname_codeql %}」のステップで各言語を参照しています。
 
@@ -97,6 +97,8 @@ topics:
 ## ビルド中にコードが見つからない
 
 ワークフローでエラー `No source code was seen during the build` または `The process '/opt/hostedtoolcache/CodeQL/0.0.0-20200630/x64/codeql/codeql' failed with exit code 32` が発生した場合、{% data variables.product.prodname_codeql %} がコードを監視できなかったことを示しています。 このようなエラーが発生する理由として、次のようなものがあります。
+
+1. リポジトリには、{% data variables.product.prodname_codeql %}にサポートされている言語で書かれたソースコードは含まれていないかもしれません。 サポートされている言語のリストを確認し、{% data variables.product.prodname_codeql %}ワークフローを削除してください。 詳しい情報については「[CodeQLでのコードスキャンニングについて](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql#about-codeql)」を参照してください。
 
 1. 自動言語検出により、サポートされている言語が特定されたが、リポジトリにその言語の分析可能なコードがない。 一般的な例としては、言語検出サービスが `.h` や `.gyp` ファイルなどの特定のプログラミング言語に関連付けられたファイルを見つけたが、対応する実行可能コードがリポジトリに存在しない場合です。 この問題を解決するには、`language` マトリクスにある言語のリストを更新し、解析する言語を手動で定義します。 たとえば、次の設定では Go と JavaScript のみを分析します。
 
@@ -188,7 +190,7 @@ C/C++、C#、Go、Javaなどのコンパイル言語については、{% data va
 
 ### マトリックスビルドを使用して分析を並列化する
 
-デフォルトの {% data variables.product.prodname_codeql_workflow %} は言語のビルドマトリクスを使用しており、これにより各言語の解析が並列で実行される場合があります。 「Initialize CodeQL」ステップで解析する言語を直接指定している場合、各言語の解析は順次行われます。 複数の言語で解析を高速化するには、マトリクスを使用するようワークフローを変更してください。 詳しい情報については、上記「[コンパイル言語の自動ビルドの失敗](#automatic-build-for-a-compiled-language-fails)」にあるワークフローの抜粋を参照してください。
+デフォルトの {% data variables.product.prodname_codeql_workflow %} は言語のマトリクスを使用しており、これにより各言語の解析が並列で実行される場合があります。 「Initialize CodeQL」ステップで解析する言語を直接指定している場合、各言語の解析は順次行われます。 複数の言語で解析を高速化するには、マトリクスを使用するようワークフローを変更してください。 詳しい情報については、上記「[コンパイル言語の自動ビルドの失敗](#automatic-build-for-a-compiled-language-fails)」にあるワークフローの抜粋を参照してください。
 
 ### 1 つのワークフローで分析されるコードの量を減らす
 
@@ -208,7 +210,7 @@ C/C++、C#、Go、Javaなどのコンパイル言語については、{% data va
 
 デフォルトのクエリに加えて、追加のクエリもしくはクエリスイートを実行することもできます。 実行する追加のクエリスイートもしくは追加のクエリをワークフローが定義しているかは、`queries`要素を使って確認してください。 追加のクエリスイートもしくはクエリを無効化して、試してみることができます。 詳しい情報については、「[{% data variables.product.prodname_code_scanning %} を設定する](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#using-queries-in-ql-packs)」を参照してください。
 
-{% if codeql-ml-queries %}
+{% ifversion codeql-ml-queries %}
 {% note %}
 
 **ノート:** JavaScriptに対して`security-extended`もしくは`security-and-quality`クエリスイートを実行する場合、クエリの中には実験的な技術を使っているものがあります。 詳しい情報については「[Code scanningアラートについて](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-experimental-alerts)」を参照してください。
@@ -266,6 +268,15 @@ on:
 
 この種のマージコミットは{% data variables.product.prodname_dependabot %}によって作成されるので、このコミットで実行されるワークフローは読み取りのみの権限を持つことになります。 {% data variables.product.prodname_code_scanning %}と{% data variables.product.prodname_dependabot %}のセキュリティ更新またはバージョン更新をリポジトリで有効化した場合は、{% data variables.product.prodname_dependabot %}の`@dependabot squash and merge`コマンドは使わないことをおすすめします。 その代わりに、リポジトリで自動マージを有効化できます。 これは、すべての必須レビューが満たされ、ステータスチェックをパスしたら、Pyll Requestは自動的にマージされるということです。 自動マージの有効化に関する詳しい情報については「[Pull Requestの自動マージ](/github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request#enabling-auto-merge)」を参照してください。
 {% endif %}
+
+## エラー: "is not a .ql file, .qls file, a directory, or a query pack specification"
+
+CodeQLが名前付きクエリ、クエリスイート、あるいはクエリパックをワークフロー中のリクエストされた場所で見つけられなかった場合、このエラーが表示されます。 このエラーには、2つの一般的な原因があります。
+
+- ワークフロー中にタイプミスがある。
+- ワークフローがパスで参照しているリソースの名前が変更されたり、削除されたり、新しい場所に移動されたりしている。
+
+リソースの場所を確認したあと、ワークフローを更新して正しい場所を指定できます。 Goの分析で追加のクエリを実行する場合、ソースファイルの移動の影響を受けているかもしれません。 詳しい情報については、github/codeql-goリポジトリの[場所の移動のお知らせ:`github/codeql-go`は`github/codeql`に移動しました](https://github.com/github/codeql-go/issues/741)を参照してください。
 
 ## Warning: "git checkout HEAD^2 is no longer necessary"
 

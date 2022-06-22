@@ -5,43 +5,33 @@
 // Run this script to check if OpenAPI operations match versions in content/rest operations
 //
 // [end-readme]
-
 import fs from 'fs'
 import path from 'path'
-import { readFile, readdir } from 'fs/promises'
-import readFileAsync from '../../lib/readfile-async.js'
-import getOperations from './utils/get-operations.js'
-import frontmatter from '../../lib/read-frontmatter.js'
 import _ from 'lodash'
-import { supported } from '../../lib/enterprise-server-releases.js'
 
-const supportedVersions = supported.map(Number)
-const LOWEST_SUPPORTED_GHES_VERSION = Math.min(...supportedVersions)
-const HIGHEST_SUPPORTED_GHES_VERSION = Math.max(...supportedVersions)
+import frontmatter from '../../lib/read-frontmatter.js'
+import getApplicableVersions from '../../lib/get-applicable-versions.js'
+import { allVersions } from '../../lib/all-versions.js'
 
-const dereferencedPath = path.join(process.cwd(), 'lib/rest/static/dereferenced')
-const contentPath = path.join(process.cwd(), 'content/rest')
-const schemas = await readdir(dereferencedPath)
 const contentFiles = []
-const contentCheck = {}
-const openAPISchemaCheck = {}
-const dereferencedSchemas = {}
 
 export async function getDiffOpenAPIContentRest() {
+  const contentPath = path.join(process.cwd(), 'content/rest')
+
   // Recursively go through the content/rest directory and add all categories/subcategories to contentFiles
   throughDirectory(contentPath)
 
-  // Add version keys to contentCheck and dereferencedSchema objects
-  await addVersionKeys()
-
   // Creating the categories/subcategories based on the current content directory
-  await createCheckContentDirectory()
+  const checkContentDir = await createCheckContentDirectory(contentFiles)
 
   // Create categories/subcategories from OpenAPI Schemas
-  await createOpenAPISchemasCheck()
+  const openAPISchemaCheck = await createOpenAPISchemasCheck()
+
+  // One off edge case for secret-scanning Docs-content issue 6637
+  delete openAPISchemaCheck['free-pro-team@latest']['secret-scanning']
 
   // Get Differences between categories/subcategories from dereferenced schemas and the content/rest directory frontmatter versions
-  const differences = getDifferences(openAPISchemaCheck, contentCheck)
+  const differences = getDifferences(openAPISchemaCheck, checkContentDir)
   const errorMessages = {}
 
   if (Object.keys(differences).length > 0) {
@@ -50,107 +40,75 @@ export async function getDiffOpenAPIContentRest() {
       for (const category of differences[schemaName]) {
         if (!errorMessages[schemaName]) errorMessages[schemaName] = category
         errorMessages[schemaName][category] = {
-          contentDir: contentCheck[schemaName][category],
+          contentDir: checkContentDir[schemaName][category],
           openAPI: openAPISchemaCheck[schemaName][category],
         }
       }
     }
   }
+
   return errorMessages
 }
 
-async function addVersionKeys() {
-  for (const filename of schemas) {
-    const schema = JSON.parse(await readFile(path.join(dereferencedPath, filename)))
-    const key = filename.replace('.deref.json', '')
-    contentCheck[key] = {}
-    dereferencedSchemas[key] = schema
-  }
-  // GitHub Enterprise Cloud is just github.com bc it is not in the OpenAPI schema yet. Once it is, this should be updated
-  contentCheck['ghec.github.com'] = {}
-  dereferencedSchemas['ghec.github.com'] = dereferencedSchemas['api.github.com']
-}
-
 async function createOpenAPISchemasCheck() {
-  for (const [schemaName, schema] of Object.entries(dereferencedSchemas)) {
-    try {
-      const operationsByCategory = {}
-      // munge OpenAPI definitions object in an array of operations objects
-      const operations = await getOperations(schema)
-      // process each operation, asynchronously rendering markdown and stuff
-      await Promise.all(operations.map((operation) => operation.process()))
+  const schemasPath = path.join(process.cwd(), 'lib/rest/static/decorated')
+  const openAPICheck = Object.keys(allVersions).reduce((acc, val) => {
+    return { ...acc, [val]: [] }
+  }, {})
+  // ghec does not exist in the OpenAPI yet, so we'll copy over FPT to ghec
+  openAPICheck['enterprise-cloud@latest'] = []
 
-      // Remove any keys not needed in the decorated files
-      const decoratedOperations = operations.map(
-        ({
-          tags,
-          description,
-          serverUrl,
-          operationId,
-          categoryLabel,
-          subcategoryLabel,
-          contentType,
-          externalDocs,
-          ...props
-        }) => props
-      )
+  const schemas = fs.readdirSync(schemasPath)
 
-      const categories = [
-        ...new Set(decoratedOperations.map((operation) => operation.category)),
-      ].sort()
+  schemas.forEach((file) => {
+    const version = getVersion(file.replace('.json', ''))
+    const fileData = fs.readFileSync(path.join(schemasPath, file))
+    const fileSchema = JSON.parse(fileData.toString())
+    const categories = Object.keys(fileSchema).sort()
 
-      categories.forEach((category) => {
-        operationsByCategory[category] = {}
-        const categoryOperations = decoratedOperations.filter(
-          (operation) => operation.category === category
-        )
-        categoryOperations
-          .filter((operation) => !operation.subcategory)
-          .map((operation) => (operation.subcategory = operation.category))
+    for (const category of categories) {
+      const subcategories = Object.keys(fileSchema[category])
+      openAPICheck[version][category] = subcategories.sort()
 
-        const subcategories = [
-          ...new Set(categoryOperations.map((operation) => operation.subcategory)),
-        ].sort()
-        // the first item should be the item that has no subcategory
-        // e.g., when the subcategory = category
-        const firstItemIndex = subcategories.indexOf(category)
-        if (firstItemIndex > -1) {
-          const firstItem = subcategories.splice(firstItemIndex, 1)[0]
-          subcategories.unshift(firstItem)
-        }
-        operationsByCategory[category] = subcategories.sort()
-      })
-      openAPISchemaCheck[schemaName] = operationsByCategory
-      // One off edge case where secret-scanning should be removed from FPT. Docs Content #6637
-      delete openAPISchemaCheck['api.github.com']['secret-scanning']
-    } catch (error) {
-      console.error(error)
-      console.log('🐛 Whoops! Could not get operations by category!')
-      process.exit(1)
+      if (version === 'free-pro-team@latest') {
+        openAPICheck['enterprise-cloud@latest'][category] = [...subcategories.sort()]
+      }
     }
-  }
+  })
+
+  return openAPICheck
 }
 
-async function createCheckContentDirectory() {
+async function createCheckContentDirectory(contentFiles) {
+  const checkContent = Object.keys(allVersions).reduce((acc, val) => {
+    return { ...acc, [val]: [] }
+  }, {})
+
   for (const filename of contentFiles) {
-    const { data } = frontmatter(await readFileAsync(filename, 'utf8'))
+    const { data } = frontmatter(await fs.promises.readFile(filename, 'utf8'))
+    const applicableVersions = getApplicableVersions(data.versions, filename)
     const splitPath = filename.split('/')
     const subCategory = splitPath[splitPath.length - 1].replace('.md', '')
     const category =
       splitPath[splitPath.length - 2] === 'rest' ? subCategory : splitPath[splitPath.length - 2]
-    const versions = data.versions
 
-    for (const version in versions) {
-      const schemaNames = getSchemaName(version, versions[version])
-
-      for (const name of schemaNames) {
-        if (!contentCheck[name][category]) {
-          contentCheck[name][category] = [subCategory]
-        } else {
-          contentCheck[name][category].push(subCategory)
-        }
-        contentCheck[name][category].sort()
+    for (const version of applicableVersions) {
+      if (!checkContent[version][category]) {
+        checkContent[version][category] = [subCategory]
+      } else {
+        checkContent[version][category].push(subCategory)
       }
+      checkContent[version][category].sort()
+    }
+  }
+
+  return checkContent
+}
+
+function getVersion(curVersion) {
+  for (const version in allVersions) {
+    if (Object.values(allVersions[version]).indexOf(curVersion) > -1) {
+      return version
     }
   }
 }
@@ -163,57 +121,6 @@ function getDifferences(openAPISchemaCheck, contentCheck) {
   }
 
   return differences
-}
-
-function getSchemaName(version, versionValues) {
-  const versions = []
-  if (version === 'fpt') {
-    if (versionValues === '*') versions.push('api.github.com')
-  } else if (version === 'ghec') {
-    if (versionValues === '*') versions.push('ghec.github.com')
-  } else if (version === 'ghae') {
-    if (versionValues === '*') versions.push('github.ae')
-  } else if (version === 'ghes') {
-    if (versionValues === '*') {
-      for (const numVer of supported) {
-        versions.push('ghes-' + numVer)
-      }
-    } else {
-      let ver = ''
-      let includeVersion = false
-      let goUp
-      for (const char of versionValues) {
-        if ((char >= '0' && char <= '9') || char === '.') {
-          ver += char
-        } else if (char === '=') {
-          includeVersion = true
-        } else if (char === '>') {
-          goUp = true
-        } else if (char === '<') {
-          goUp = false
-        }
-      }
-      let numVersion = parseFloat(ver).toFixed(1)
-
-      if (!includeVersion) {
-        numVersion = goUp
-          ? (parseFloat(numVersion) + 0.1).toFixed(1)
-          : (parseFloat(numVersion) - 0.1).toFixed(1)
-      }
-
-      while (
-        numVersion <= HIGHEST_SUPPORTED_GHES_VERSION &&
-        numVersion >= LOWEST_SUPPORTED_GHES_VERSION
-      ) {
-        numVersion = parseFloat(numVersion).toFixed(1)
-        versions.push('ghes-' + numVersion)
-        numVersion = goUp
-          ? (parseFloat(numVersion) + 0.1).toFixed(1)
-          : (parseFloat(numVersion) - 0.1).toFixed(1)
-      }
-    }
-  }
-  return versions
 }
 
 function throughDirectory(directory) {

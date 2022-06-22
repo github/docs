@@ -12,8 +12,6 @@ product: '{% data reusables.gated-features.codespaces %}'
 miniTocMaxHeadingLevel: 3
 ---
 
-{% data reusables.codespaces.prebuilds-beta-note %}
-
 ## 检查、更改和删除预构建配置
 
 您为存储库配置的预构建是使用 {% data variables.product.prodname_actions %} 工作流程创建和更新的，由 {% data variables.product.prodname_codespaces %} 服务管理。
@@ -57,6 +55,19 @@ miniTocMaxHeadingLevel: 3
    ![下拉菜单中的“编辑”选项](/assets/images/help/codespaces/prebuilds-edit.png)
 
 1. 对预构建配置进行所需的更改，然后单击 **Update（更新）**。
+
+### 禁用预构建配置
+
+要暂停更新配置的预构建模板，可以禁用配置的工作流程运行。 为预构建配置禁用工作流程不会删除以前为该配置创建的任何预构建模板，因此，代码空间将继续从现有预构建模板生成。
+
+如果需要调查模板创建失败，则禁用工作流程运行预构建配置非常有用。
+
+1. 在存储库设置的 {% data variables.product.prodname_codespaces %} 页面上，单击要禁用的预构建配置右侧的省略号。
+1. 在下拉菜单中，单击 **Disable runs（禁用运行）**。
+
+   ![下拉菜单中的“Disable runs（禁用运行）”选项](/assets/images/help/codespaces/prebuilds-disable.png)
+
+1. 要确认是否要禁用此配置，请单击“ **OK（确定）**”。
 
 ### 删除预构建配置
 

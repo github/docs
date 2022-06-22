@@ -173,13 +173,12 @@ Issue およびPull Requestの検索用語により、次のことができま�
 {% endtip %}
 {% endif %}
 
-{% ifversion fpt or ghes or ghae or ghec %}
 Issueについては、以下も検索に利用できます。
 
-- クローズしているリファレンス`linked:pr`によってPull RequestにリンクされているIssueのフィルタリング
-{% endif %}
+- クローズしているリファレンス`linked:pr`によってPull RequestにリンクされているIssueのフィルタリング{% ifversion issue-close-reasons %}
+- `is:closed reason:complete`や`is:closed reason:"not planned"`といった、クローズされた理由によるIssueのフィルタリング{% endif %}
 
-Pull Requestについては、検索を利用して以下の操作もできます。
+プルリクエストについては、検索を利用して以下の操作もできます。
 - [ドラフト](/articles/about-pull-requests#draft-pull-requests)Pull Requestのフィルタリング: `is:draft`
 - まだ[レビュー](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)されていないPull Requestのフィルタリング: `state:open type:pr review:none`
 - マージされる前に[レビューを必要とする](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)Pull Requestのフィルタリング: `state:open type:pr review:required`
@@ -188,8 +187,8 @@ Pull Requestについては、検索を利用して以下の操作もできま�
 - [レビュー担当者](/articles/about-pull-request-reviews/)によるPull Requestのフィルタリング: `state:open type:pr reviewed-by:octocat`
 - [レビューを要求された](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/requesting-a-pull-request-review)特定のユーザーによるPull Requestのフィルタリング: `state:open type:pr review-requested:octocat`{% ifversion fpt or ghae-issue-5181 or ghes > 3.2 or ghec %}
 - 誰かから直接レビューを求められたPull Requestのフィルタリング:`state:open type:pr user-review-requested:@me`{% endif %}
-- レビューを要求されたチームによるPull Requestのフィルタリング: `state:open type:pr team-review-requested:github/atom`{% ifversion fpt or ghes or ghae or ghec %}
-- プルリクエストでクローズできるIssueにリンクされているPull Requestのフィルタリング: `linked:issue`{% endif %}
+- レビューを要求されたチームによるプルリクエストのフィルタリング: `state:open type:pr team-review-requested:github/atom`
+- プルリクエストでクローズできるIssueにリンクされているプルリクエストのフィルタリング: `linked:issue`
 
 ## Issue およびPull Requestをソートする
 
@@ -211,10 +210,9 @@ Pull Requestについては、検索を利用して以下の操作もできま�
 
 ソートの選択を解除するには、[**Sort**] > [**Newest**] をクリックします。
 
-
 ## フィルターを共有する
 
-一定の Issue およびPull Requestをフィルタリングする場合、ブラウザの URL は、次の表示にマッチするように自動的に更新されます。
+一定の Issue およびプルリクエストをフィルタリングする場合、ブラウザの URL は、次の表示にマッチするように自動的に更新されます。
 
 Issue が生成した URL は、どのユーザにも送れます。そして、あなたが見ているフィルタビューと同じフィルタで表示できます。
 

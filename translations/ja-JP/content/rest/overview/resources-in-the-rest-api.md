@@ -24,7 +24,7 @@ topics:
 
 {% ifversion fpt or ghec %}
 
-GitHub の GraphQL API についての情報は、[v4 ドキュメント]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql)を参照してください。 GraphQL への移行についての情報は、「[REST から移行する]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/guides/migrating-from-rest-to-graphql)」を参照してください。
+For information about GitHub's GraphQL API, see the [documentation]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql). GraphQL への移行についての情報は、「[REST から移行する]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/guides/migrating-from-rest-to-graphql)」を参照してください。
 
 {% endif %}
 
@@ -120,7 +120,7 @@ curl -u my_client_id:my_client_secret '{% data variables.product.api_url_pre %}/
 
 {% ifversion fpt or ghec %}
 
-[認証されていないレート制限の詳細](#increasing-the-unauthenticated-rate-limit-for-oauth-applications)をお読みください。
+[認証されていないレート制限の詳細](#increasing-the-unauthenticated-rate-limit-for-oauth-apps)をお読みください。
 
 {% endif %}
 

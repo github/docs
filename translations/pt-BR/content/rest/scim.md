@@ -1,6 +1,6 @@
 ---
 title: SCIM
-intro: You can control and manage your GitHub organization members access using SCIM API.
+intro: Você pode controlar e gerenciar o acesso dos integrantes da sua organização do GitHub usando a API de SCIM.
 versions:
   fpt: '*'
   ghec: '*'
@@ -11,6 +11,8 @@ redirect_from:
   - /rest/reference/scim
 ---
 
+## Sobre a API do SCIM
+
 ### Provisionamento de SCIM para Organizações
 
 A API do SCIM é usada pelos provedores de identidade (IdPs) habilitados pelo SCIM para automatizar o provisionamento de integrantes da organização de {% data variables.product.product_name %}. A {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API tem por base a versão 2.0 do [Padrão do SCIM](http://www.simplecloud.info/). O ponto de extremidade do SCIM do {% data variables.product.product_name %} que um IdP deve usar é: `{% data variables.product.api_url_code %}/scim/v2/organizations/{org}/`.
@@ -18,8 +20,8 @@ A API do SCIM é usada pelos provedores de identidade (IdPs) habilitados pelo SC
 {% note %}
 
 **Notas:**
-  - The SCIM API is available only for individual organizations that use [{% data variables.product.prodname_ghe_cloud %}](/billing/managing-billing-for-your-github-account/about-billing-for-github-accounts) with [SAML SSO](/rest/overview/other-authentication-methods#authenticating-for-saml-sso) enabled. For more information about SCIM, see "[About SCIM for organizations](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)."
-  - The SCIM API cannot be used with an enterprise account or with an {% data variables.product.prodname_emu_org %}.
+  - A API do SCIM está disponível apenas para organizações individuais que usam [{% data variables.product.prodname_ghe_cloud %}](/billing/managing-billing-for-your-github-account/about-billing-for-github-accounts) com [SAML SSO](/rest/overview/other-authentication-methods#authenticating-for-saml-sso) habilitado. Para obter mais informações sobre o SCIM, consulte "[Sobre o SCIM para as organizações](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)".
+  - A API SCIM não pode ser usada com uma conta corporativa ou com um {% data variables.product.prodname_emu_org %}.
 
 {% endnote %}
 

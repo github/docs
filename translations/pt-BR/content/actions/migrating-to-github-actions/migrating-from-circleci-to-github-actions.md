@@ -50,7 +50,7 @@ Tanto o CircleCI quanto o {% data variables.product.prodname_actions %} configur
 
 Tanto o CircleCI quanto o {% data variables.product.prodname_actions %} fornecem um mecanismo para reutilizar e compartilhar tarefas em um fluxo de trabalho. O CircleCI usa um conceito chamado orbs, escrito em YAML, para fornecer tarefas que as pessoas podem reutilizar em um fluxo de trabalho. O {% data variables.product.prodname_actions %} tem componentes potentes, reutilizáveis e flexíveis denominados ações, que você cria com arquivos JavaScript ou imagens Docker. Você pode criar ações gravando códigos personalizados que interajam com o seu repositório da maneira que você quiser, inclusive fazendo integrações com as APIs do {% data variables.product.product_name %} e qualquer API de terceiros disponível publicamente. Por exemplo, as ações podem publicar módulos npm, enviar alertas SMS quando problemas urgentes forem criados ou implantar códigos prontos para produção. Para obter mais informações, consulte "[Criar ações](/actions/creating-actions)".
 
-O CircleCI pode reutilizar partes dos fluxos de trabalho com âncoras e aliases YAML. O {% data variables.product.prodname_actions %} suporta a necessidade mais comum de reutilização usando matrizes de criação. Para obter mais informações sobre matrizes de criação, consulte "[Gerenciar fluxos de trabalho complexos](/actions/learn-github-actions/managing-complex-workflows/#using-a-build-matrix)".
+O CircleCI pode reutilizar partes dos fluxos de trabalho com âncoras e aliases YAML. {% data variables.product.prodname_actions %} é compatível com a necessidade mais comum de reutilização usando matrizes. Para obter mais informações sobre matrizes, consulte "[Usando uma matriz para seus trabalhos](/actions/using-jobs/using-a-matrix-for-your-jobs)."
 
 ## Usar imagens do Docker
 
@@ -81,6 +81,8 @@ Para obter mais informações, consulte "[Usar variáveis de ambiente](/actions/
 ## Armazenar em cache
 
 O CircleCI e o {% data variables.product.prodname_actions %} fornecem um método para armazenar arquivos de cache no arquivo de configuração manualmente.
+
+{% ifversion actions-caching %}
 
 Abaixo, há um exemplo da sintaxe para cada sistema.
 
@@ -119,7 +121,11 @@ GitHub Actions
 </tr>
 </table>
 
-O cache de {% data variables.product.prodname_actions %} só é aplicável para repositórios hospedados em {% data variables.product.prodname_dotcom_the_website %}. Para obter mais informações, consulte "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Memorizar dependências para acelerar fluxos de trabalho</a>".
+{% else %}
+
+{% data reusables.actions.caching-availability %}
+
+{% endif %}
 
 {% data variables.product.prodname_actions %} não tem o equivalente ao Docker Layer Caching (DLC) do CircleCI.
 

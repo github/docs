@@ -16,15 +16,15 @@ versions:
 shortTitle: Eventos que desencadenan flujos de trabajo
 ---
 
-## About events that trigger workflows
+## Acerca de los eventos que activan flujos de trabajo
 
-Los activadores de los flujos de trabajo son eventos que ocasionan que se ejecute un flujo de trabajo. For more information about how to use workflow triggers, see "[Triggering a workflow](/actions/using-workflows/triggering-a-workflow)."
+Los activadores de los flujos de trabajo son eventos que ocasionan que se ejecute un flujo de trabajo. Para obtener más información sobre cómo utilizar activadores de flujo de trabajo, consulta la sección "[Activar un flujo de trabajo](/actions/using-workflows/triggering-a-workflow)".
 
 ## Eventos disponibles
 
 Algunos eventos tienen tipos de actividad múltiple. Para ellos, puedes especificar qué tipos de actividad activarán una ejecución de flujo de trabajo. Para obtener más información sobre qué significa cada tipo de actividad, consulta la sección "[Cargas útiles y eventos de webhook](/developers/webhooks-and-events/webhook-events-and-payloads)". Nota que no todos los eventos de webhook activan flujos de trabajo.
 
-{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4968  %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae  %}
 ### `branch_protection_rule`
 
 | Carga del evento Webhook                                                                                                | Tipos de actividad                                     | `GITHUB_SHA`                                  | `GITHUB_REF`        |
@@ -686,7 +686,7 @@ on:
 
 #### Ejecutar tu flujo de trabajo cuando se fusiona una solicitud de cambios
 
-Cuando se fusiona una solicitud de cambios, esta se cierra automáticamente. To run a workflow when a pull request merges, use the `pull_request` `closed` event type along with a conditional that checks the `merged` value of the event. Por ejemplo, el siguiente flujo de trabajo se ejecutará cada que se cierre una solicitud de cambios. El job `if_merged` solo se ejecutará si la solicitud de cambios también se fusionó.
+Cuando se fusiona una solicitud de cambios, esta se cierra automáticamente. Para ejecutar un flujo de trabajo cuando se fusiona una solicitud de cambios, utiliza el tipo de evento `pull_request` `closed` junto con una condicional que verifique el valor `merged` del mismo. Por ejemplo, el siguiente flujo de trabajo se ejecutará cada que se cierre una solicitud de cambios. El job `if_merged` solo se ejecutará si la solicitud de cambios también se fusionó.
 
 ```yaml
 on:
@@ -1051,7 +1051,7 @@ on:
 
 {% endnote %}
 
-Ejecuta tu flujo de trabajo cuando ocurre una actividad de lanzamiento en tu repositorio. Para obtener más información sobre las API de lanzamiento, consulta la sección de "[Lanzamiento](/graphql/reference/objects#release)" en la documentación de la API de GraphQL o "[Lanzamientos](/rest/reference/repos#releases)" en la documentación de la API de REST.
+Ejecuta tu flujo de trabajo cuando ocurre una actividad de lanzamiento en tu repositorio. Para obtener más información sobre las API de lanzamiento, consulta la sección de "[Lanzamiento](/graphql/reference/objects#release)" en la documentación de la API de GraphQL o "[Lanzamientos](/rest/reference/releases)" en la documentación de la API de REST.
 
 Por ejemplo, puedes ejecutar un flujo de trabajo cuando un lanzamiento ha sido `publicado`.
 
@@ -1081,7 +1081,7 @@ on:
 
 {% note %}
 
-**Note:** The `event_type` value is limited to 100 characters.
+**Nota:** El valor `event_type` se limita a 100 caracteres.
 
 {% endnote %}
 
@@ -1250,12 +1250,13 @@ on: workflow_dispatch
 
 #### Proporcionar entradas
 
-Puedes configurar propiedades de entrada definidas personalmente, valores de entrada predeterminados y entradas requeridas para el evento directamente en tu flujo de trabajo. Cuando activas el evento, puedes proporcionar el `ref` y cualquier `inputs`. Cuando se ejecuta el flujod e trabajo, puedes acceder a los valores de entrada en el contexto de `github.event.inputs`. Para obtener más información, consulta "[Contextos](/actions/learn-github-actions/contexts)".
+Puedes configurar propiedades de entrada definidas personalmente, valores de entrada predeterminados y entradas requeridas para el evento directamente en tu flujo de trabajo. Cuando activas el evento, puedes proporcionar el `ref` y cualquier `inputs`. Cuando el flujo de trabajo se ejecuta, puedes acceder a los valores de entrada en el contexto {% ifversion actions-unified-inputs %}`inputs`{% else %}`github.event.inputs`{% endif %}. Para obtener más información, consulta "[Contextos](/actions/learn-github-actions/contexts)".
+
+{% data reusables.actions.inputs-vs-github-event-inputs %}
 
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5511 %}
-Este ejemplo define las entradas llamadas `logLevel`, `tags` y `environment`. Pasarás los valores para estas entradas al flujo de trabajo cuando lo ejecutes. Entonces, este flujo de trabajo imprime los valores en la bitácora, utilizando las propiedades de contexto `github.event.inputs.logLevel`, `github.event.inputs.tags` y `github.event.inputs.environment`.
+Este ejemplo define las entradas llamadas `logLevel`, `tags` y `environment`. Pasarás los valores para estas entradas al flujo de trabajo cuando lo ejecutes. Entonces, este flujo de trabajo imprime los valores en la bitácora, utilizando las propiedades de contexto {% ifversion actions-unified-inputs %}`inputs.logLevel`, `inputs.tags` y `inputs.environment`{% else %}`github.event.inputs.logLevel`, `github.event.inputs.tags` y `github.event.inputs.environment`{% endif %}.
 
-{% raw %}
 ```yaml
 on: 
   workflow_dispatch:
@@ -1287,11 +1288,10 @@ jobs:
           echo "Tags: $TAGS"
           echo "Environment: $ENVIRONMENT"
         env:
-          LEVEL: ${{ github.event.inputs.logLevel }}
-          TAGS: ${{ github.event.inputs.tags }}
-          ENVIRONMENT: ${{ github.event.inputs.environment }}
+          LEVEL: {% ifversion actions-unified-inputs %}{% raw %}${{ inputs.logLevel }}{% endraw %}{% else %}{% raw %}${{ github.event.inputs.logLevel }}{% endraw %}{% endif %}
+          TAGS: {% ifversion actions-unified-inputs %}{% raw %}${{ inputs.tags }}{% endraw %}{% else %}{% raw %}${{ github.event.inputs.tags }}{% endraw %}{% endif %}
+          ENVIRONMENT: {% ifversion actions-unified-inputs %}{% raw %}${{ inputs.environment }}{% endraw %}{% else %}{% raw %}${{ github.event.inputs.environment }}{% endraw %}{% endif %}
 ```
-{% endraw %}
 
 Si ejecutas este flujo de trabajo desde un buscador, debes ingresar los valores para las entradas requeridas manualmente antes de que dicho flujo se ejecute.
 
@@ -1306,7 +1306,7 @@ gh workflow run run-tests.yml -f logLevel=warning -f tags=false -f environment=s
 Para obtener más información, consulta la información del {% data variables.product.prodname_cli %} en la sección "[Ejecutar un flujo de trabajo manualmente](/actions/managing-workflow-runs/manually-running-a-workflow)".
 
 {% else %}
-Este ejemplo define las entradas `name` y `home` y las imprime utilizando los contextos `github.event.inputs.name` y `github.event.inputs.home`. Si no se proporciona un `home`, se imprime el valor predeterminado 'The Octoverse'.
+Este ejemplo define las entradas de `name` y `home` y las imprime utilizando los contextos de {% ifversion actions-unified-inputs %}`inputs.name` y `inputs.home`{% else %}`github.event.inputs.name` y `github.event.inputs.home`{% endif %}. Si no se proporciona un `home`, se imprime el valor predeterminado 'The Octoverse'.
 
 ```yaml
 name: Manually triggered workflow
@@ -1330,8 +1330,8 @@ jobs:
           echo Hello $NAME!
           echo -in $HOME
         env:
-          NAME: {% raw %}${{ github.event.inputs.name }}{% endraw %}
-          HOME: {% raw %}${{ github.event.inputs.home }}{% endraw %}
+          NAME: {% ifversion actions-unified-inputs %}{% raw %}${{ inputs.name }}{% endraw %}{% else %}{% raw %}${{ github.event.inputs.name }}{% endraw %}{% endif %}
+          HOME: {% ifversion actions-unified-inputs %}{% raw %}${{ github.event.inputs.home }}{% endraw %}{% else %}{% raw %}${{ github.event.inputs.home }}{% endraw %}{% endif %}
 ```
 {% endif %}
 
@@ -1343,7 +1343,7 @@ jobs:
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} The `requested` activity type does not occur when a workflow is re-run. Para obtener más información sobre cada tipo de actividad, consulta la sección "[Cargas útiles y eventos de webhook](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_run)". {% data reusables.developer-site.limit_workflow_to_activity_types %}
+**Nota**: {% data reusables.developer-site.multiple_activity_types %} El tipo de actividad `requested` no ocurre cuando se vuelve a ejecutar un flujo de trabajo. Para obtener más información sobre cada tipo de actividad, consulta la sección "[Cargas útiles y eventos de webhook](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_run)". {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 

@@ -1,6 +1,6 @@
 ---
 title: Pesquisar
-intro: The GitHub Search API lets you to search for the specific item efficiently.
+intro: 'A API de pesquisa permite que você procure itens específicos em {% data variables.product.product_name %}.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -12,6 +12,8 @@ miniTocMaxHeadingLevel: 3
 redirect_from:
   - /rest/reference/search
 ---
+
+## Sobre a API de pesquisa
 
 A API de pesquisa ajuda a pesquisar o item específico que você deseja encontrar. Por exemplo, você pode encontrar um usuário ou um arquivo específico em um repositório. Pense nisso da mesma forma que você pensa em realizar uma pesquisa no Google. Ele é projetado para ajudá-lo a encontrar o resultado que você está procurando (ou talvez os poucos resultados que você está procurando). Assim como pesquisar no Google, às vezes, você quer ver algumas páginas com resultados de pesquisa para que você possa encontrar o item que melhor atenda às suas necessidades. Para atender a essa necessidade, a API de pesquisa do {% data variables.product.product_name %} fornece **até 1.000 resultados para cada pesquisa**.
 

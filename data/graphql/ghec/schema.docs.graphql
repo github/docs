@@ -1360,12 +1360,14 @@ type AutoMergeRequest {
   authorEmail: String
 
   """
-  The commit message of the auto-merge request.
+  The commit message of the auto-merge request. If a merge queue is required by
+  the base branch, this value will be set by the merge queue when merging.
   """
   commitBody: String
 
   """
-  The commit title of the auto-merge request.
+  The commit title of the auto-merge request. If a merge queue is required by
+  the base branch, this value will be set by the merge queue when merging
   """
   commitHeadline: String
 
@@ -1380,7 +1382,8 @@ type AutoMergeRequest {
   enabledBy: Actor
 
   """
-  The merge method of the auto-merge request.
+  The merge method of the auto-merge request. If a merge queue is required by
+  the base branch, this value will be set by the merge queue when merging.
   """
   mergeMethod: PullRequestMergeMethod!
 
@@ -1745,7 +1748,7 @@ type Bot implements Actor & Node & UniformResourceLocatable {
 """
 Types which can be actors for `BranchActorAllowance` objects.
 """
-union BranchActorAllowanceActor = Team | User
+union BranchActorAllowanceActor = App | Team | User
 
 """
 A branch protection rule.
@@ -2114,16 +2117,16 @@ type BranchProtectionRuleEdge {
 }
 
 """
-A team or user who has the ability to bypass a force push requirement on a protected branch.
+A user, team, or app who has the ability to bypass a force push requirement on a protected branch.
 """
 type BypassForcePushAllowance implements Node {
   """
-  The actor that can dismiss.
+  The actor that can force push.
   """
   actor: BranchActorAllowanceActor
 
   """
-  Identifies the branch protection rule associated with the allowed user or team.
+  Identifies the branch protection rule associated with the allowed user, team, or app.
   """
   branchProtectionRule: BranchProtectionRule
   id: ID!
@@ -2170,16 +2173,16 @@ type BypassForcePushAllowanceEdge {
 }
 
 """
-A team or user who has the ability to bypass a pull request requirement on a protected branch.
+A user, team, or app who has the ability to bypass a pull request requirement on a protected branch.
 """
 type BypassPullRequestAllowance implements Node {
   """
-  The actor that can dismiss.
+  The actor that can bypass.
   """
   actor: BranchActorAllowanceActor
 
   """
-  Identifies the branch protection rule associated with the allowed user or team.
+  Identifies the branch protection rule associated with the allowed user, team, or app.
   """
   branchProtectionRule: BranchProtectionRule
   id: ID!
@@ -3515,6 +3518,11 @@ input CloseIssueInput {
   ID of the issue to be closed.
   """
   issueId: ID! @possibleTypes(concreteTypes: ["Issue"])
+
+  """
+  The reason the issue is to be closed.
+  """
+  stateReason: IssueClosedStateReason
 }
 
 """
@@ -3591,6 +3599,11 @@ type ClosedEvent implements Node & UniformResourceLocatable {
   The HTTP path for this closed event.
   """
   resourcePath: URI!
+
+  """
+  The reason the issue state was changed to closed.
+  """
+  stateReason: IssueStateReason
 
   """
   The HTTP URL for this closed event.
@@ -5621,12 +5634,12 @@ input CreateBranchProtectionRuleInput {
   blocksCreations: Boolean
 
   """
-  A list of User or Team IDs allowed to bypass force push targeting matching branches.
+  A list of User, Team, or App IDs allowed to bypass force push targeting matching branches.
   """
   bypassForcePushActorIds: [ID!]
 
   """
-  A list of User or Team IDs allowed to bypass pull requests targeting matching branches.
+  A list of User, Team, or App IDs allowed to bypass pull requests targeting matching branches.
   """
   bypassPullRequestActorIds: [ID!]
 
@@ -5651,7 +5664,7 @@ input CreateBranchProtectionRuleInput {
   pattern: String!
 
   """
-  A list of User, Team or App IDs allowed to push to matching branches.
+  A list of User, Team, or App IDs allowed to push to matching branches.
   """
   pushActorIds: [ID!]
 
@@ -5721,7 +5734,7 @@ input CreateBranchProtectionRuleInput {
   restrictsReviewDismissals: Boolean
 
   """
-  A list of User or Team IDs allowed to dismiss reviews on pull requests targeting matching branches.
+  A list of User, Team, or App IDs allowed to dismiss reviews on pull requests targeting matching branches.
   """
   reviewDismissalActorIds: [ID!]
 }
@@ -8054,6 +8067,9 @@ type DependencyGraphDependency @preview(toggledBy: "hawkgirl-preview") {
   The original name of the package, as it appears in the manifest.
   """
   packageLabel: String!
+    @deprecated(
+      reason: "`packageLabel` will be removed. Use normalized `packageName` field instead. Removal on 2022-10-01 UTC."
+    )
 
   """
   The dependency package manager
@@ -8161,6 +8177,11 @@ enum DependencyGraphEcosystem {
   Ruby gems hosted at RubyGems.org
   """
   RUBYGEMS
+
+  """
+  Rust crates
+  """
+  RUST
 }
 
 """
@@ -10085,12 +10106,12 @@ type DraftIssue implements Node {
   id: ID!
 
   """
-  The project that contains this draft issue.
+  The project (beta) that contains this draft issue.
   """
   project: ProjectNext!
 
   """
-  The project item that wraps this draft issue.
+  The project (beta) item that wraps this draft issue.
   """
   projectItem: ProjectNextItem!
 
@@ -10836,11 +10857,6 @@ type EnterpriseMemberEdge {
   cursor: String!
 
   """
-  Whether the user does not have a license for the enterprise.
-  """
-  isUnlicensed: Boolean! @deprecated(reason: "All members consume a license Removal on 2021-01-01 UTC.")
-
-  """
   The item at the end of the edge.
   """
   node: EnterpriseMember
@@ -11001,11 +11017,6 @@ type EnterpriseOutsideCollaboratorEdge {
   cursor: String!
 
   """
-  Whether the outside collaborator does not have a license for the enterprise.
-  """
-  isUnlicensed: Boolean! @deprecated(reason: "All outside collaborators consume a license Removal on 2021-01-01 UTC.")
-
-  """
   The item at the end of the edge.
   """
   node: User
@@ -11073,6 +11084,11 @@ type EnterpriseOwnerInfo {
     Ordering options for administrators returned from the connection.
     """
     orderBy: EnterpriseMemberOrder = {field: LOGIN, direction: ASC}
+
+    """
+    Only return members within the organizations with these logins
+    """
+    organizationLogins: [String!]
 
     """
     The search string to look for.
@@ -11691,6 +11707,11 @@ type EnterpriseOwnerInfo {
     first: Int
 
     """
+    Only return outside collaborators with this two-factor authentication status.
+    """
+    hasTwoFactorEnabled: Boolean = null
+
+    """
     Returns the last _n_ elements from the list.
     """
     last: Int
@@ -11704,6 +11725,11 @@ type EnterpriseOwnerInfo {
     Ordering options for outside collaborators returned from the connection.
     """
     orderBy: EnterpriseMemberOrder = {field: LOGIN, direction: ASC}
+
+    """
+    Only return outside collaborators within the organizations with these logins
+    """
+    organizationLogins: [String!]
 
     """
     The search string to look for.
@@ -11814,6 +11840,11 @@ type EnterpriseOwnerInfo {
     Returns the last _n_ elements from the list.
     """
     last: Int
+
+    """
+    Only return invitations within the organizations with these logins
+    """
+    organizationLogins: [String!]
 
     """
     The search string to look for.
@@ -12051,11 +12082,6 @@ type EnterprisePendingMemberInvitationEdge {
   A cursor for use in pagination.
   """
   cursor: String!
-
-  """
-  Whether the invitation has a license for the enterprise.
-  """
-  isUnlicensed: Boolean! @deprecated(reason: "All pending members consume a license Removal on 2020-07-01 UTC.")
 
   """
   The item at the end of the edge.
@@ -12795,12 +12821,12 @@ The possible roles for enterprise membership.
 """
 enum EnterpriseUserAccountMembershipRole {
   """
-  The user is a member of the enterprise membership.
+  The user is a member of an organization in the enterprise.
   """
   MEMBER
 
   """
-  The user is an owner of the enterprise membership.
+  The user is an owner of an organization in the enterprise.
   """
   OWNER
 }
@@ -12933,6 +12959,26 @@ type ExternalIdentity implements Node {
 }
 
 """
+An attribute for the External Identity attributes collection
+"""
+type ExternalIdentityAttribute {
+  """
+  The attribute metadata as JSON
+  """
+  metadata: String
+
+  """
+  The attribute name
+  """
+  name: String!
+
+  """
+  The attribute value
+  """
+  value: String!
+}
+
+"""
 The connection type for ExternalIdentity.
 """
 type ExternalIdentityConnection {
@@ -12976,6 +13022,11 @@ type ExternalIdentityEdge {
 SAML attributes for the External Identity
 """
 type ExternalIdentitySamlAttributes {
+  """
+  SAML Identity attributes
+  """
+  attributes: [ExternalIdentityAttribute!]!
+
   """
   The emails associated with the SAML identity
   """
@@ -13208,6 +13259,36 @@ enum FileViewedState {
   The file has been marked as viewed.
   """
   VIEWED
+}
+
+"""
+Autogenerated input type of FollowOrganization
+"""
+input FollowOrganizationInput {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  ID of the organization to follow.
+  """
+  organizationId: ID! @possibleTypes(concreteTypes: ["Organization"])
+}
+
+"""
+Autogenerated return type of FollowOrganization
+"""
+type FollowOrganizationPayload {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  The organization that was followed.
+  """
+  organization: Organization
 }
 
 """
@@ -14682,7 +14763,7 @@ union IpAllowListOwner = App | Enterprise | Organization
 """
 An Issue is a place to discuss ideas, enhancements, tasks, and bugs for a project.
 """
-type Issue implements Assignable & Closable & Comment & Labelable & Lockable & Node & ProjectNextOwner & ProjectV2Owner & Reactable & RepositoryNode & Subscribable & UniformResourceLocatable & Updatable & UpdatableComment {
+type Issue implements Assignable & Closable & Comment & Labelable & Lockable & Node & ProjectNextOwner & Reactable & RepositoryNode & Subscribable & UniformResourceLocatable & Updatable & UpdatableComment {
   """
   Reason that the conversation was locked.
   """
@@ -15075,6 +15156,11 @@ type Issue implements Assignable & Closable & Comment & Labelable & Lockable & N
   state: IssueState!
 
   """
+  Identifies the reason for the issue state.
+  """
+  stateReason: IssueStateReason
+
+  """
   A list of events, comments, commits, etc. associated with the issue.
   """
   timeline(
@@ -15279,6 +15365,21 @@ type Issue implements Assignable & Closable & Comment & Labelable & Lockable & N
   Identifies if the viewer is watching, not watching, or ignoring the subscribable entity.
   """
   viewerSubscription: SubscriptionState
+}
+
+"""
+The possible state reasons of a closed issue.
+"""
+enum IssueClosedStateReason {
+  """
+  An issue that has been closed as completed
+  """
+  COMPLETED
+
+  """
+  An issue that has been closed as not planned
+  """
+  NOT_PLANNED
 }
 
 """
@@ -15736,6 +15837,26 @@ enum IssueState {
   An issue that is still open
   """
   OPEN
+}
+
+"""
+The possible state reasons of an issue.
+"""
+enum IssueStateReason {
+  """
+  An issue that has been closed as completed
+  """
+  COMPLETED
+
+  """
+  An issue that has been closed as not planned
+  """
+  NOT_PLANNED
+
+  """
+  An issue that has been reopened
+  """
+  REOPENED
 }
 
 """
@@ -17893,9 +18014,19 @@ interface Migration {
   id: ID!
 
   """
+  The URL for the migration log (expires 1 day after migration completes).
+  """
+  migrationLogUrl: URI
+
+  """
   The Octoshift migration source.
   """
   migrationSource: MigrationSource!
+
+  """
+  The target repository name.
+  """
+  repositoryName: String!
 
   """
   The Octoshift migration source URL.
@@ -17970,6 +18101,11 @@ enum MigrationState {
   FAILED
 
   """
+  The Octoshift migration has invalid credentials.
+  """
+  FAILED_VALIDATION
+
+  """
   The Octoshift migration is in progress.
   """
   IN_PROGRESS
@@ -17978,6 +18114,11 @@ enum MigrationState {
   The Octoshift migration has not started.
   """
   NOT_STARTED
+
+  """
+  The Octoshift migration needs to have its credentials validated.
+  """
+  PENDING_VALIDATION
 
   """
   The Octoshift migration has been queued.
@@ -19288,6 +19429,16 @@ type Mutation {
   ): EnablePullRequestAutoMergePayload
 
   """
+  Follow an organization.
+  """
+  followOrganization(
+    """
+    Parameters for FollowOrganization
+    """
+    input: FollowOrganizationInput!
+  ): FollowOrganizationPayload
+
+  """
   Follow a user.
   """
   followUser(
@@ -19726,6 +19877,16 @@ type Mutation {
     """
     input: UnarchiveRepositoryInput!
   ): UnarchiveRepositoryPayload
+
+  """
+  Unfollow an organization.
+  """
+  unfollowOrganization(
+    """
+    Parameters for UnfollowOrganization
+    """
+    input: UnfollowOrganizationInput!
+  ): UnfollowOrganizationPayload
 
   """
   Unfollow a user.
@@ -20323,6 +20484,16 @@ type Mutation {
     """
     input: UpdateTeamReviewAssignmentInput!
   ): UpdateTeamReviewAssignmentPayload @preview(toggledBy: "stone-crop-preview")
+
+  """
+  Update team repository.
+  """
+  updateTeamsRepository(
+    """
+    Parameters for UpdateTeamsRepository
+    """
+    input: UpdateTeamsRepositoryInput!
+  ): UpdateTeamsRepositoryPayload
 
   """
   Replaces the repository's topics with the given topics.
@@ -23653,7 +23824,7 @@ type OrgUpdateMemberRepositoryInvitationPermissionAuditEntry implements AuditEnt
 """
 An account on GitHub, with one or more owners, that has repositories, members and teams.
 """
-type Organization implements Actor & MemberStatusable & Node & PackageOwner & ProfileOwner & ProjectNextOwner & ProjectOwner & ProjectV2Owner & RepositoryDiscussionAuthor & RepositoryDiscussionCommentAuthor & RepositoryOwner & Sponsorable & UniformResourceLocatable {
+type Organization implements Actor & MemberStatusable & Node & PackageOwner & ProfileOwner & ProjectNextOwner & ProjectOwner & RepositoryDiscussionAuthor & RepositoryDiscussionCommentAuthor & RepositoryOwner & Sponsorable & UniformResourceLocatable {
   """
   Determine if this repository owner has any items that can be pinned to their profile.
   """
@@ -24416,6 +24587,11 @@ type Organization implements Actor & MemberStatusable & Node & PackageOwner & Pr
     orderBy: RepositoryMigrationOrder = {field: CREATED_AT, direction: ASC}
 
     """
+    Filter repository migrations by repository name.
+    """
+    repositoryName: String
+
+    """
     Filter repository migrations by state.
     """
     state: MigrationState
@@ -24781,6 +24957,11 @@ type Organization implements Actor & MemberStatusable & Node & PackageOwner & Pr
   Viewer is an active member of this organization.
   """
   viewerIsAMember: Boolean!
+
+  """
+  Whether or not this Organization is followed by the viewer.
+  """
+  viewerIsFollowing: Boolean!
 
   """
   True if the viewer is sponsoring this user/organization.
@@ -25968,6 +26149,41 @@ type PageInfo {
   When paginating backwards, the cursor to continue.
   """
   startCursor: String
+}
+
+"""
+The possible types of patch statuses.
+"""
+enum PatchStatus {
+  """
+  The file was added. Git status 'A'.
+  """
+  ADDED
+
+  """
+  The file's type was changed. Git status 'T'.
+  """
+  CHANGED
+
+  """
+  The file was copied. Git status 'C'.
+  """
+  COPIED
+
+  """
+  The file was deleted. Git status 'D'.
+  """
+  DELETED
+
+  """
+  The file's contents were changed. Git status 'M'.
+  """
+  MODIFIED
+
+  """
+  The file was renamed. Git status 'R'.
+  """
+  RENAMED
 }
 
 """
@@ -27432,7 +27648,7 @@ type ProjectNext implements Closable & Node & Updatable {
   shortDescription: String
 
   """
-  The project's name. Falls back to "Untitled table" if blank.
+  The project's name.
   """
   title: String
 
@@ -28176,13 +28392,6 @@ enum ProjectTemplate {
 }
 
 """
-Represents an owner of a project (beta).
-"""
-interface ProjectV2Owner {
-  id: ID!
-}
-
-"""
 A view within a Project.
 """
 type ProjectView implements Node {
@@ -28206,6 +28415,31 @@ type ProjectView implements Node {
   """
   groupBy: [Int!]
   id: ID!
+
+  """
+  The view's filtered items.
+  """
+  items(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+  ): ProjectNextItemConnection!
 
   """
   The project view's layout.
@@ -28385,7 +28619,7 @@ type PublicKeyEdge {
 """
 A repository pull request.
 """
-type PullRequest implements Assignable & Closable & Comment & Labelable & Lockable & Node & ProjectNextOwner & ProjectV2Owner & Reactable & RepositoryNode & Subscribable & UniformResourceLocatable & Updatable & UpdatableComment {
+type PullRequest implements Assignable & Closable & Comment & Labelable & Lockable & Node & ProjectNextOwner & Reactable & RepositoryNode & Subscribable & UniformResourceLocatable & Updatable & UpdatableComment {
   """
   Reason that the conversation was locked.
   """
@@ -29355,6 +29589,11 @@ type PullRequestChangedFile {
   The number of additions to the file.
   """
   additions: Int!
+
+  """
+  How the file was changed in this PullRequest
+  """
+  changeType: PatchStatus!
 
   """
   The number of deletions to the file.
@@ -31129,7 +31368,7 @@ type Push implements Node {
 }
 
 """
-A team, user or app who has the ability to push to a protected branch.
+A team, user, or app who has the ability to push to a protected branch.
 """
 type PushAllowance implements Node {
   """
@@ -31138,7 +31377,7 @@ type PushAllowance implements Node {
   actor: PushAllowanceActor
 
   """
-  Identifies the branch protection rule associated with the allowed user or team.
+  Identifies the branch protection rule associated with the allowed user, team, or app.
   """
   branchProtectionRule: BranchProtectionRule
   id: ID!
@@ -31525,6 +31764,11 @@ type Query {
     before: String
 
     """
+    A list of classifications to filter advisories by.
+    """
+    classifications: [SecurityAdvisoryClassification!]
+
+    """
     Returns the first _n_ elements from the list.
     """
     first: Int
@@ -31578,6 +31822,11 @@ type Query {
     Returns the elements in the list that come before the specified cursor.
     """
     before: String
+
+    """
+    A list of advisory classifications to filter vulnerabilities by.
+    """
+    classifications: [SecurityAdvisoryClassification!]
 
     """
     An ecosystem to filter vulnerabilities by.
@@ -33423,6 +33672,11 @@ type ReopenedEvent implements Node {
   """
   createdAt: DateTime!
   id: ID!
+
+  """
+  The reason the issue state was changed to open.
+  """
+  stateReason: IssueStateReason
 }
 
 """
@@ -37040,6 +37294,11 @@ type Repository implements Node & PackageOwner & ProjectOwner & RepositoryInfo &
   squashMergeAllowed: Boolean!
 
   """
+  Whether a squash merge commit can use the pull request title as default.
+  """
+  squashPrTitleUsedAsDefault: Boolean!
+
+  """
   The SSH URL to clone this repository
   """
   sshUrl: GitSSHRemote!
@@ -37961,9 +38220,19 @@ type RepositoryMigration implements Migration & Node {
   id: ID!
 
   """
+  The URL for the migration log (expires 1 day after migration completes).
+  """
+  migrationLogUrl: URI
+
+  """
   The Octoshift migration source.
   """
   migrationSource: MigrationSource!
+
+  """
+  The target repository name.
+  """
+  repositoryName: String!
 
   """
   The Octoshift migration source URL.
@@ -38937,7 +39206,7 @@ type RestrictedContribution implements Contribution {
 }
 
 """
-A team or user who has the ability to dismiss a review on a protected branch.
+A user, team, or app who has the ability to dismiss a review on a protected branch.
 """
 type ReviewDismissalAllowance implements Node {
   """
@@ -38946,7 +39215,7 @@ type ReviewDismissalAllowance implements Node {
   actor: ReviewDismissalAllowanceActor
 
   """
-  Identifies the branch protection rule associated with the allowed user or team.
+  Identifies the branch protection rule associated with the allowed user, team, or app.
   """
   branchProtectionRule: BranchProtectionRule
   id: ID!
@@ -38955,7 +39224,7 @@ type ReviewDismissalAllowance implements Node {
 """
 Types that can be an actor.
 """
-union ReviewDismissalAllowanceActor = Team | User
+union ReviewDismissalAllowanceActor = App | Team | User
 
 """
 The connection type for ReviewDismissalAllowance.
@@ -39563,6 +39832,11 @@ A GitHub Security Advisory
 """
 type SecurityAdvisory implements Node {
   """
+  The classification of the advisory
+  """
+  classification: SecurityAdvisoryClassification!
+
+  """
   The CVSS associated with this advisory
   """
   cvss: CVSS!
@@ -39668,6 +39942,11 @@ type SecurityAdvisory implements Node {
     before: String
 
     """
+    A list of advisory classifications to filter vulnerabilities by.
+    """
+    classifications: [SecurityAdvisoryClassification!]
+
+    """
     An ecosystem to filter vulnerabilities by.
     """
     ecosystem: SecurityAdvisoryEcosystem
@@ -39702,6 +39981,21 @@ type SecurityAdvisory implements Node {
   When the advisory was withdrawn, if it has been withdrawn
   """
   withdrawnAt: DateTime
+}
+
+"""
+Classification of the advisory.
+"""
+enum SecurityAdvisoryClassification {
+  """
+  Classification of general advisories.
+  """
+  GENERAL
+
+  """
+  Classification of malware advisories.
+  """
+  MALWARE
 }
 
 """
@@ -41561,7 +41855,7 @@ input StartRepositoryMigrationInput {
   """
   The Octoshift migration source access token.
   """
-  accessToken: String
+  accessToken: String!
 
   """
   A unique identifier for the client performing the mutation.
@@ -44548,6 +44842,36 @@ type UnassignedEvent implements Node {
 }
 
 """
+Autogenerated input type of UnfollowOrganization
+"""
+input UnfollowOrganizationInput {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  ID of the organization to unfollow.
+  """
+  organizationId: ID! @possibleTypes(concreteTypes: ["Organization"])
+}
+
+"""
+Autogenerated return type of UnfollowOrganization
+"""
+type UnfollowOrganizationPayload {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  The organization that was unfollowed.
+  """
+  organization: Organization
+}
+
+"""
 Autogenerated input type of UnfollowUser
 """
 input UnfollowUserInput {
@@ -45067,12 +45391,12 @@ input UpdateBranchProtectionRuleInput {
   branchProtectionRuleId: ID! @possibleTypes(concreteTypes: ["BranchProtectionRule"])
 
   """
-  A list of User or Team IDs allowed to bypass force push targeting matching branches.
+  A list of User, Team, or App IDs allowed to bypass force push targeting matching branches.
   """
   bypassForcePushActorIds: [ID!]
 
   """
-  A list of User or Team IDs allowed to bypass pull requests targeting matching branches.
+  A list of User, Team, or App IDs allowed to bypass pull requests targeting matching branches.
   """
   bypassPullRequestActorIds: [ID!]
 
@@ -45097,7 +45421,7 @@ input UpdateBranchProtectionRuleInput {
   pattern: String
 
   """
-  A list of User, Team or App IDs allowed to push to matching branches.
+  A list of User, Team, or App IDs allowed to push to matching branches.
   """
   pushActorIds: [ID!]
 
@@ -45162,7 +45486,7 @@ input UpdateBranchProtectionRuleInput {
   restrictsReviewDismissals: Boolean
 
   """
-  A list of User or Team IDs allowed to dismiss reviews on pull requests targeting matching branches.
+  A list of User, Team, or App IDs allowed to dismiss reviews on pull requests targeting matching branches.
   """
   reviewDismissalActorIds: [ID!]
 }
@@ -47304,6 +47628,51 @@ type UpdateTeamReviewAssignmentPayload {
 }
 
 """
+Autogenerated input type of UpdateTeamsRepository
+"""
+input UpdateTeamsRepositoryInput {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  Permission that should be granted to the teams.
+  """
+  permission: RepositoryPermission!
+
+  """
+  Repository ID being granted access to.
+  """
+  repositoryId: ID! @possibleTypes(concreteTypes: ["Repository"])
+
+  """
+  A list of teams being granted access. Limit: 10
+  """
+  teamIds: [ID!]! @possibleTypes(concreteTypes: ["Team"])
+}
+
+"""
+Autogenerated return type of UpdateTeamsRepository
+"""
+type UpdateTeamsRepositoryPayload {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  The repository that was updated.
+  """
+  repository: Repository
+
+  """
+  The teams granted permission on the repository.
+  """
+  teams: [Team!]
+}
+
+"""
 Autogenerated input type of UpdateTopics
 """
 input UpdateTopicsInput {
@@ -47346,7 +47715,7 @@ type UpdateTopicsPayload {
 """
 A user is an individual's account on GitHub that owns repositories and can make new content.
 """
-type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectNextOwner & ProjectOwner & ProjectV2Owner & RepositoryDiscussionAuthor & RepositoryDiscussionCommentAuthor & RepositoryOwner & Sponsorable & UniformResourceLocatable {
+type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectNextOwner & ProjectOwner & RepositoryDiscussionAuthor & RepositoryDiscussionCommentAuthor & RepositoryOwner & Sponsorable & UniformResourceLocatable {
   """
   Determine if this repository owner has any items that can be pinned to their profile.
   """

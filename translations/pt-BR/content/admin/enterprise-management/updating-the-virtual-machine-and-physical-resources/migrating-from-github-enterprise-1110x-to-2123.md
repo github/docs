@@ -54,7 +54,7 @@ Para atualizar para a versão mais recente do {% data variables.product.prodname
 6. Cole a chave SSH de acesso ao host de backup em "Add new SSH key" (Adicionar nova chave SSH). ![Autorizar o backup](/assets/images/enterprise/migration/migration-authorize-backup-host.png)
 7. Clique em **Adicionar chave** e, em seguida, clique em **Continuar**.
 8. Copie o comando `ghe-restore` a ser executado no host do backup para migrar os dados para a nova instância. ![Iniciar a migração](/assets/images/enterprise/migration/migration-restore-start.png)
-9. Habilite o modo de manutenção na instância antiga e aguarde a conclusão de todos os processos ativos. Para obter mais informações, consulte "[Habilitar e programar o modo de manutenção](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)".
+9. Habilite o modo de manutenção na instância antiga e aguarde a conclusão de todos os processos ativos. Para obter mais informações, consulte "[Habilitar e programar o modo de manutenção](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode)".
 
   {% note %}
 
@@ -95,4 +95,4 @@ Para atualizar para a versão mais recente do {% data variables.product.prodname
   {% endnote %}
 
 15. Alterne o tráfego de rede do usuário da instância antiga para a nova instância usando a atribuição de endereço DNS ou IP.
-16. Atualize para a versão de patch mais recente da versão {{ currentVersion }}. Para obter mais informações, consulte "[Atualizar o {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/installation/upgrading-github-enterprise-server/)".
+16. Atualize para a versão mais recente do patch de {% data variables.product.prodname_ghe_server %}. Para obter mais informações, consulte "[Atualizar o {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/installation/upgrading-github-enterprise-server/)".

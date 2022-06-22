@@ -31,7 +31,7 @@ SARIF (Static Analysis Results Interchange Format) is an [OASIS Standard](https:
 
 To upload a SARIF file from a third-party static code analysis engine, you'll need to ensure that uploaded files use the SARIF 2.1.0 version. {% data variables.product.prodname_dotcom %} will parse the SARIF file and show alerts using the results in your repository as a part of the {% data variables.product.prodname_code_scanning %} experience. For more information, see "[Uploading a SARIF file to {% data variables.product.prodname_dotcom %}](/code-security/secure-coding/uploading-a-sarif-file-to-github)." For more information about the SARIF 2.1.0 JSON schema, see [`sarif-schema-2.1.0.json`](https://github.com/oasis-tcs/sarif-spec/blob/master/Documents/CommitteeSpecifications/2.1.0/sarif-schema-2.1.0.json).
 
-If you're using {% data variables.product.prodname_actions %} with the {% data variables.product.prodname_codeql_workflow %}{% if codeql-runner-supported %}, using the {% data variables.product.prodname_codeql_runner %},{% endif %} or using the {% data variables.product.prodname_codeql_cli %}, then the {% data variables.product.prodname_code_scanning %} results will automatically use the supported subset of SARIF 2.1.0. For more information, see "[Setting up {% data variables.product.prodname_code_scanning %} for a repository](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)"{% if codeql-runner-supported %}, "[Running {% data variables.product.prodname_codeql_runner %} in your CI system](/code-security/secure-coding/running-codeql-runner-in-your-ci-system)",{% endif %} or "[Installing CodeQL CLI in your CI system](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system)."
+If you're using {% data variables.product.prodname_actions %} with the {% data variables.product.prodname_codeql_workflow %}{% ifversion codeql-runner-supported %}, using the {% data variables.product.prodname_codeql_runner %},{% endif %} or using the {% data variables.product.prodname_codeql_cli %}, then the {% data variables.product.prodname_code_scanning %} results will automatically use the supported subset of SARIF 2.1.0. For more information, see "[Setting up {% data variables.product.prodname_code_scanning %} for a repository](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)"{% ifversion codeql-runner-supported %}, "[Running {% data variables.product.prodname_codeql_runner %} in your CI system](/code-security/secure-coding/running-codeql-runner-in-your-ci-system)",{% endif %} or "[Installing CodeQL CLI in your CI system](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system)."
 
 {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 You can upload multiple SARIF files for the same commit, and display the data from each file as {% data variables.product.prodname_code_scanning %} results. When you upload multiple SARIF files for a commit, you must indicate a "category" for each analysis. The way to specify a category varies according to the analysis method:
@@ -53,7 +53,7 @@ Each time the results of a new code scan are uploaded, the results are processed
 
 {% data variables.product.prodname_dotcom %} uses the `partialFingerprints` property in the OASIS standard to detect when two results are logically identical. For more information, see the "[partialFingerprints property](https://docs.oasis-open.org/sarif/sarif/v2.1.0/cs01/sarif-v2.1.0-cs01.html#_Toc16012611)" entry in the OASIS documentation.
 
-SARIF files created by the {% data variables.product.prodname_codeql_workflow %}, {% if codeql-runner-supported %}using the {% data variables.product.prodname_codeql_runner %}, {% endif %}or using the {% data variables.product.prodname_codeql_cli %} include fingerprint data. If you upload a SARIF file using the `upload-sarif` action and this data is missing, {% data variables.product.prodname_dotcom %} attempts to populate the `partialFingerprints` field from the source files. For more information about uploading results, see "[Uploading a SARIF file to {% data variables.product.prodname_dotcom %}](/code-security/secure-coding/uploading-a-sarif-file-to-github#uploading-a-code-scanning-analysis-with-github-actions)."
+SARIF files created by the {% data variables.product.prodname_codeql_workflow %}, {% ifversion codeql-runner-supported %}using the {% data variables.product.prodname_codeql_runner %}, {% endif %}or using the {% data variables.product.prodname_codeql_cli %} include fingerprint data. If you upload a SARIF file using the `upload-sarif` action and this data is missing, {% data variables.product.prodname_dotcom %} attempts to populate the `partialFingerprints` field from the source files. For more information about uploading results, see "[Uploading a SARIF file to {% data variables.product.prodname_dotcom %}](/code-security/secure-coding/uploading-a-sarif-file-to-github#uploading-a-code-scanning-analysis-with-github-actions)."
 
 If you upload a SARIF file without fingerprint data using the `/code-scanning/sarifs` API endpoint, the {% data variables.product.prodname_code_scanning %} alerts will be processed and displayed, but users may see duplicate alerts. To avoid seeing duplicate alerts, you should calculate fingerprint data and populate the `partialFingerprints` property before you upload the SARIF file. You may find the script that the `upload-sarif` action uses a helpful starting point: https://github.com/github/codeql-action/blob/main/src/fingerprints.ts. For more information about the API, see "[Upload an analysis as SARIF data](/rest/reference/code-scanning#upload-an-analysis-as-sarif-data)."
 
@@ -85,11 +85,18 @@ Any valid SARIF 2.1.0 output file can be uploaded, however, {% data variables.pr
 
 | Name | Description |
 |----|----|
-| `tool.driver.name` | **Required.** The name of the analysis tool. {% data variables.product.prodname_code_scanning_capc %} displays the name on {% data variables.product.prodname_dotcom %} to allow you to filter results by tool. |
-| `tool.driver.version` | **Optional.** The version of the analysis tool. {% data variables.product.prodname_code_scanning_capc %} uses the version number to track when results may have changed due to a tool version change rather than a change in the code being analyzed. If the SARIF file includes the `semanticVersion` field, `version` is not used by {% data variables.product.prodname_code_scanning %}. |
-| `tool.driver.semanticVersion` | **Optional.** The version of the analysis tool, specified by the Semantic Versioning 2.0 format. {% data variables.product.prodname_code_scanning_capc %} uses the version number to track when results may have changed due to a tool version change rather than a change in the code being analyzed. If the SARIF file includes the `semanticVersion` field, `version` is not used by {% data variables.product.prodname_code_scanning %}. For more information, see "[Semantic Versioning 2.0.0](https://semver.org/)" in the Semantic Versioning documentation. |
-| `tool.driver.rules[]` | **Required.** An array of `reportingDescriptor` objects that represent rules. The analysis tool uses rules to find problems in the code being analyzed. For more information, see the [`reportingDescriptor` object](#reportingdescriptor-object). |
+| `tool.driver` | **Required.** A `toolComponent` object that describes the analysis tool. For more information, see the [`toolComponent` object](#toolcomponent-object). |
+| `tool.extensions[]` | **Optional.** An array of `toolComponent` objects that represent any plugins or extensions used by the tool during analysis. For more information, see the [`toolComponent` object](#toolcomponent-object). |
 | `results[]` | **Required.** The results of the analysis tool. {% data variables.product.prodname_code_scanning_capc %} displays the results on {% data variables.product.prodname_dotcom %}. For more information, see the [`result` object](#result-object).
+
+### `toolComponent` object
+
+| Name | Description |
+|----|----|
+| `name` | **Required.** The name of the analysis tool. {% data variables.product.prodname_code_scanning_capc %} displays the name on {% data variables.product.prodname_dotcom %} to allow you to filter results by tool. |
+| `version` | **Optional.** The version of the analysis tool. {% data variables.product.prodname_code_scanning_capc %} uses the version number to track when results may have changed due to a tool version change rather than a change in the code being analyzed. If the SARIF file includes the `semanticVersion` field, `version` is not used by {% data variables.product.prodname_code_scanning %}. |
+| `semanticVersion` | **Optional.** The version of the analysis tool, specified by the Semantic Versioning 2.0 format. {% data variables.product.prodname_code_scanning_capc %} uses the version number to track when results may have changed due to a tool version change rather than a change in the code being analyzed. If the SARIF file includes the `semanticVersion` field, `version` is not used by {% data variables.product.prodname_code_scanning %}. For more information, see "[Semantic Versioning 2.0.0](https://semver.org/)" in the Semantic Versioning documentation. |
+| `rules[]` | **Required.** An array of `reportingDescriptor` objects that represent rules. The analysis tool uses rules to find problems in the code being analyzed. For more information, see the [`reportingDescriptor` object](#reportingdescriptor-object). |
 
 ### `reportingDescriptor` object
 
@@ -176,7 +183,7 @@ Use the category to distinguish between multiple analyses for the same tool or c
 - The run with an `id` of "my-analysis/tool1/" belongs to the category "my-analysis/tool1" but is not distinguished from other runs in that category.
 - The run whose `id` is "my-analysis for tool1 " has a unique identifier but cannot be inferred to belong to any category.
 
-For more information about the `runAutomationDetails` object and the `id` field, see [runAutomationDetails object](https://docs.oasis-open.org/sarif/sarif/v2.1.0/cs01/sarif-v2.1.0-cs01.html#_Toc16012479) in the OASIS documentation. 
+For more information about the `runAutomationDetails` object and the `id` field, see [runAutomationDetails object](https://docs.oasis-open.org/sarif/sarif/v2.1.0/cs01/sarif-v2.1.0-cs01.html#_Toc16012479) in the OASIS documentation.
 
 Note that the rest of the supported fields are ignored.
 
@@ -204,11 +211,12 @@ This SARIF output file has example values to show the minimum required propertie
               "id": "R01"
                       ...
               "properties" : {
-               "id" : "java/unsafe-deserialization",
-               "kind" : "path-problem",
-               "name" : "...",
-               "problem.severity" : "error",
-               "security-severity" : "9.8",
+                 "id" : "java/unsafe-deserialization",
+                 "kind" : "path-problem",
+                 "name" : "...",
+                 "problem.severity" : "error",
+                 "security-severity" : "9.8",
+               }
             }
           ]
         }
@@ -302,7 +310,7 @@ This SARIF output file has example values to show all supported SARIF properties
           ]
         }
       },
-      "automationDetails": { 
+      "automationDetails": {
         "id": "my-category/"
       },
       "results": [

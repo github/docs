@@ -1,6 +1,6 @@
 ---
 title: レート制限
-intro: Rate Limit APIを使うと、様々なREST APIの現在のレート制限のステータスをチェックできます。
+intro: Rate limit APIを使うと、様々なREST APIの現在のレート制限のステータスをチェックできます。
 versions:
   fpt: '*'
   ghes: '*'
@@ -12,6 +12,8 @@ miniTocMaxHeadingLevel: 3
 redirect_from:
   - /rest/reference/rate-limit
 ---
+
+## Rate limit APIについて
 
 REST API 概要ドキュメンテーションでは、[レート制限のルール](/rest/overview/resources-in-the-rest-api#rate-limiting)について説明しています。 以下で説明する Rate Limit API を使用して、現在のレート制限ステータスをいつでも確認できます。
 
@@ -29,4 +31,4 @@ Search APIは[カスタムのレート制限](/rest/reference/search#rate-limit)
 
 * `integration_manifest`オブジェクトは、[GitHub App Manifest コード変換](/apps/building-github-apps/creating-github-apps-from-a-manifest/#3-you-exchange-the-temporary-code-to-retrieve-the-app-configuration)エンドポイントに対するレート制限のステータスを提供します。
 
-For more information on the headers and values in the rate limit response, see "[Resources in the REST API](/rest/overview/resources-in-the-rest-api#rate-limit-http-headers)."
+レート制限レスポンス中のヘッダと値に関する詳しい情報については「[REST API中のリソース](/rest/overview/resources-in-the-rest-api#rate-limit-http-headers)」を参照してください。

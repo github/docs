@@ -24,7 +24,7 @@ shortTitle: 触发工作流程的事件
 
 某些事件具有多种活动类型。 对于这些事件，您可以指定将触发工作流程运行的活动类型。 有关每个活动类型的含义的详细信息，请参阅“[web 挂钩事件和有效负载](/developers/webhooks-and-events/webhook-events-and-payloads)”。 请注意，并非所有 web 挂钩事件都会触发工作流程。
 
-{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4968  %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae  %}
 ### `branch_protection_rule`
 
 | Web 挂钩事件有效负载                                                                                                            | 活动类型                                                   | `GITHUB_SHA` | `GITHUB_REF` |
@@ -1051,7 +1051,7 @@ on:
 
 {% endnote %}
 
-在存储库中发生发布活动时运行工作流程。 有关发行版 API 的信息，请参阅 GraphQL API 文档中的“[发行版](/graphql/reference/objects#release)”或 REST API 文档中的“[发行版](/rest/reference/repos#releases)”。
+在存储库中发生发布活动时运行工作流程。 有关发行版 API 的信息，请参阅 GraphQL API 文档中的“[发行版](/graphql/reference/objects#release)”或 REST API 文档中的“[发行版](/rest/reference/releases)”。
 
 例如，您可以在版本发布为 `published` 时运行工作流程。
 
@@ -1250,12 +1250,13 @@ on: workflow_dispatch
 
 #### 提供输入
 
-您可以直接在工作流程中配置事件的自定义输入属性、默认输入值和必要输入。 触发事件时，可以提供 `ref` 和任何 `inputs`。 当工作流程运行时，您可以访问 `github.event.inputs` 上下文中的输入值。 更多信息请参阅“[上下文](/actions/learn-github-actions/contexts)”。
+您可以直接在工作流程中配置事件的自定义输入属性、默认输入值和必要输入。 触发事件时，可以提供 `ref` 和任何 `inputs`。 在工作流程运行时，您可以访问 {% ifversion actions-unified-inputs %}`inputs`{% else %}`github.event.inputs`{% endif %} 上下文中的输入值。 更多信息请参阅“[上下文](/actions/learn-github-actions/contexts)”。
+
+{% data reusables.actions.inputs-vs-github-event-inputs %}
 
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5511 %}
-此示例定义了称为 `logLevel`、`tags` 和 `environment` 的输入。 在运行工作流程时，可以将这些输入的值传递给工作流程。 然后，此工作流程使用 `github.event.inputs.logLevel`、`github.event.inputs.tags` 和  `github.event.inputs.environment` 上下文属性，将值输出到日志中。
+此示例定义了称为 `logLevel`、`tags` 和 `environment` 的输入。 在运行工作流程时，可以将这些输入的值传递给工作流程。 然后，此工作流程使用 {% ifversion actions-unified-inputs %}`inputs.logLevel`、`inputs.tags` 和 `inputs.environment`{% else %}`github.event.inputs.logLevel`、`github.event.inputs.tags`）和 `github.event.inputs.environment`{% endif %} 上下文属性，将值打印到日志中。
 
-{% raw %}
 ```yaml
 on: 
   workflow_dispatch:
@@ -1287,11 +1288,10 @@ jobs:
           echo "Tags: $TAGS"
           echo "Environment: $ENVIRONMENT"
         env:
-          LEVEL: ${{ github.event.inputs.logLevel }}
-          TAGS: ${{ github.event.inputs.tags }}
-          ENVIRONMENT: ${{ github.event.inputs.environment }}
+          LEVEL: {% ifversion actions-unified-inputs %}{% raw %}${{ inputs.logLevel }}{% endraw %}{% else %}{% raw %}${{ github.event.inputs.logLevel }}{% endraw %}{% endif %}
+          TAGS: {% ifversion actions-unified-inputs %}{% raw %}${{ inputs.tags }}{% endraw %}{% else %}{% raw %}${{ github.event.inputs.tags }}{% endraw %}{% endif %}
+          ENVIRONMENT: {% ifversion actions-unified-inputs %}{% raw %}${{ inputs.environment }}{% endraw %}{% else %}{% raw %}${{ github.event.inputs.environment }}{% endraw %}{% endif %}
 ```
-{% endraw %}
 
 如果从浏览器运行此工作流程，则必须在工作流程运行之前手动输入所需输入的值。
 
@@ -1306,7 +1306,7 @@ gh workflow run run-tests.yml -f logLevel=warning -f tags=false -f environment=s
 更多信息请参阅“[手动运行工作流程](/actions/managing-workflow-runs/manually-running-a-workflow)”中的 {% data variables.product.prodname_cli %} 信息。
 
 {% else %}
-此示例定义了 `name` 和 `home` 输入，并使用 `github.event.inputs.name` 和 `github.event.inputs.home` 上下文打印。 如果未提供 `home` ，则打印默认值“The Octoverse”。
+此示例定义 `name` 和 `home` 输入，并使用 {% ifversion actions-unified-inputs %}`inputs.name` 和 `inputs.home`{% else %}`github.event.inputs.name` 和 `github.event.inputs.home`{% endif %} 上下文打印它们。 如果未提供 `home` ，则打印默认值“The Octoverse”。
 
 ```yaml
 name: Manually triggered workflow
@@ -1330,8 +1330,8 @@ jobs:
           echo Hello $NAME!
           echo -in $HOME
         env:
-          NAME: {% raw %}${{ github.event.inputs.name }}{% endraw %}
-          HOME: {% raw %}${{ github.event.inputs.home }}{% endraw %}
+          NAME: {% ifversion actions-unified-inputs %}{% raw %}${{ inputs.name }}{% endraw %}{% else %}{% raw %}${{ github.event.inputs.name }}{% endraw %}{% endif %}
+          HOME: {% ifversion actions-unified-inputs %}{% raw %}${{ github.event.inputs.home }}{% endraw %}{% else %}{% raw %}${{ github.event.inputs.home }}{% endraw %}{% endif %}
 ```
 {% endif %}
 

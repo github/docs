@@ -29,7 +29,7 @@ Organization-level roles are sets of permissions that can be assigned to individ
 
 You can assign individuals or teams to a variety of organization-level roles to control your members' access to your organization and its resources. For more details about the individual permissions included in each role, see "[Permissions for organization roles](#permissions-for-organization-roles)."
 
-{% if enterprise-owner-join-org %}
+{% ifversion enterprise-owner-join-org %}
 If your organization is owned by an enterprise account, enterprise owners can choose to join your organization with any role. For more information, see "[Managing your role in an organization owned by your enterprise](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)."
 {% endif %}
 
@@ -48,7 +48,7 @@ Billing managers are users who can manage the billing settings for your organiza
 
 {% endif %}
 
-{% if security-managers %}
+{% ifversion security-managers %}
 ### Security managers
 
 {% data reusables.organizations.security-manager-beta-note %}
@@ -139,7 +139,7 @@ Some of the features listed below are limited to organizations using {% data var
 | Enable team synchronization (see "[Managing team synchronization for your organization](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization)") | **X** |  |  |  |  |{% endif %}
 | Manage pull request reviews in the organization (see "[Managing pull request reviews in your organization](/organizations/managing-organization-settings/managing-pull-request-reviews-in-your-organization)") | **X** |  |  |  |  |
 
-{% elsif ghes > 3.2 or ghae-issue-4999 %}
+{% elsif ghes > 3.2 or ghae %}
 <!-- GHES 3.3+ and eventual GHAE release don't have the extra columns for Moderators and Billing managers. -->
 
 | Organization action | Owners | Members | Security managers |
@@ -181,7 +181,7 @@ Some of the features listed below are limited to organizations using {% data var
 | Convert organization members to [outside collaborators](#outside-collaborators) | **X** | |  |
 | [View people with access to an organization repository](/articles/viewing-people-with-access-to-your-repository) | **X** | |  |
 | [Export a list of people with access to an organization repository](/articles/viewing-people-with-access-to-your-repository/#exporting-a-list-of-people-with-access-to-your-repository) | **X** | |  |
-| Manage default labels (see "[Managing default labels for repositories in your organization](/articles/managing-default-labels-for-repositories-in-your-organization)") | **X** | |  |{% if pull-request-approval-limit %}
+| Manage default labels (see "[Managing default labels for repositories in your organization](/articles/managing-default-labels-for-repositories-in-your-organization)") | **X** | |  |{% ifversion pull-request-approval-limit %}
 | Manage pull request reviews in the organization (see "[Managing pull request reviews in your organization](/organizations/managing-organization-settings/managing-pull-request-reviews-in-your-organization)") | **X** |  | |  |{% endif %}
 {% ifversion ghae %}| Manage IP allow lists (see "[Restricting network traffic to your enterprise](/admin/configuration/restricting-network-traffic-to-your-enterprise)") | **X** | |  |{% endif %}
 

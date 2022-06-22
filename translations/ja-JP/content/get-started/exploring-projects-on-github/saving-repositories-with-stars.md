@@ -26,7 +26,7 @@ You can search, sort, and filter your starred repositories and topics on your {%
 Star を付けることで、リポジトリやトピックが後で見つけやすくなります。 {% data variables.explore.your_stars_page %} にアクセスすると、Star 付きのリポジトリとトピックを確認することができます。
 
 {% ifversion fpt or ghec %}
-リポジトリとトピックに Star を付けることで、{% data variables.product.product_name %} 上で類似のプロジェクトを見つけることができます。 When you star repositories or topics, {% data variables.product.product_name %} may recommend related content on your personal dashboard. For more information, see "[Finding ways to contribute to open source on {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)" and "[About your personal dashboard](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/about-your-personal-dashboard#staying-updated-with-activity-from-the-community)."
+リポジトリとトピックに Star を付けることで、{% data variables.product.product_name %} 上で類似のプロジェクトを見つけることができます。 When you star repositories or topics, {% data variables.product.product_name %} may recommend related content on your personal dashboard. For more information, see "[Finding ways to contribute to open source on {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)" and "[About your personal dashboard](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/about-your-personal-dashboard#staying-updated-with-activity-from-the-community)."
 {% endif %}
 
 リポジトリに Star を付けるということは、リポジトリメンテナに対してその作業についての感謝を示すことでもあります。 {% data variables.product.prodname_dotcom %} のリポジトリランキングの多くは、リポジトリに付けられた Star の数を考慮しています。 また、[Explore](https://github.com/explore) は、リポジトリに付けられた Star の数に基づいて、人気のあるリポジトリを表示しています。
@@ -40,6 +40,16 @@ Starring a repository is a simple two-step process.
 1. Optionally, to unstar a previously starred repository, click **Unstar**. ![Untarring a repository](/assets/images/help/stars/unstarring-a-repository.png)
 
 {% ifversion fpt or ghec %}
+
+## Viewing who has starred a repository
+
+
+You can view everyone who has starred a public repository or a private repository you have access to.
+
+
+To view everyone who has starred a repository, add `/stargazers` to the end of the URL of a repository. For example, to view stargazers for the github/docs repository, visit https://github.com/github/docs/stargazers.
+
+
 ## Organizing starred repositories with lists
 
 {% note %}

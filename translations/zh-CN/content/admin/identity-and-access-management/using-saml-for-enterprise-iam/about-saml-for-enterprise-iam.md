@@ -1,7 +1,7 @@
 ---
-title: About SAML for enterprise IAM
-shortTitle: About SAML for IAM
-intro: 'You can use SAML single sign-on (SSO) {% ifversion ghec or ghae %}and System for Cross-domain Identity Management (SCIM) {% endif %}to centrally manage access {% ifversion ghec %}to organizations owned by your enterprise on {% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}to {% data variables.product.product_location %}{% elsif ghae %}to {% data variables.product.product_location %}{% endif %}.'
+title: 关于企业 IAM 的 SAML
+shortTitle: 关于 IAM 的 SAML
+intro: '您可以使用 SAML 单点登录 (SSO) {% ifversion ghae %}和跨域身份管理系统 (SCIM) {% endif %}集中管理 {% ifversion ghec %}对企业在 {% data variables.product.prodname_dotcom_the_website %} 上拥有的组织{% elsif ghes %}对 {% data variables.product.product_location %}{% elsif ghae %}对 {% data variables.product.product_location %}{% endif %} 的访问。'
 versions:
   ghec: '*'
   ghes: '*'
@@ -24,13 +24,15 @@ redirect_from:
   - /admin/identity-and-access-management/using-saml-for-enterprise-iam/about-identity-and-access-management-for-your-enterprise
 ---
 
-## About SAML SSO for {% ifversion ghec or ghae %}your enterprise on {% endif %}{% ifversion ghec or ghes %}{% data variables.product.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %}
+## 关于 {% ifversion ghec or ghae %} {% endif %}{% ifversion ghec or ghes %}{% data variables.product.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %} 上企业的 SAML SSO
 
 {% ifversion ghec %}
 
-{% data reusables.saml.dotcom-saml-explanation %} {% data reusables.saml.about-saml-enterprise-accounts %} 更多信息请参阅“[为企业配置 SAML 单点登录](/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)”。
+如果您的企业成员在 {% data variables.product.product_location %} 上管理自己的用户帐户，则可以将 SAML 身份验证配置为企业或组织的额外访问限制。 {% data reusables.saml.dotcom-saml-explanation %}
 
-If your enterprise members manage their own personal accounts on {% data variables.product.product_location %}, you can configure SAML authentication as an additional access restriction for your enterprise or organization. Alternatively, you can provision and manage the accounts of your enterprise members on {% data variables.product.product_location %} by using an enterprise account with {% data variables.product.prodname_emus %} enabled. For more information, see "[About authentication for your enterprise](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#authentication-methods-for-github-enterprise-cloud)."
+{% data reusables.saml.about-saml-enterprise-accounts %} 更多信息请参阅“[配置企业的 SAML 单点登录](/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)”。
+
+或者，您可以使用 {% data variables.product.prodname_emus %} 来配置和管理企业成员的帐户。 为了帮助您确定 SAML SSO 或 {% data variables.product.prodname_emus %} 是否更适合您的企业，请参阅“[关于企业的身份验证](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#identifying-the-best-authentication-method-for-your-enterprise)”。
 
 {% data reusables.enterprise-accounts.about-recovery-codes %} 更多信息请参阅“[管理企业的恢复代码](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise)”。
 
@@ -38,27 +40,21 @@ If your enterprise members manage their own personal accounts on {% data variabl
 
 如果使用 Azure AD 作为 IDP，您可以使用团队同步来管理每个组织中的团队成员身份。 {% data reusables.identity-and-permissions.about-team-sync %} 更多信息请参阅“[管理企业帐户中组织的团队同步](/admin/authentication/managing-identity-and-access-for-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise)”。
 
-{% data reusables.saml.switching-from-org-to-enterprise %} 更多信息请参阅“[将 SAML 配置从组织切换到企业帐户](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account)”。
-
-## 关于 {% data variables.product.prodname_emus %}
-
-{% data reusables.enterprise-accounts.emu-short-summary %}
-
 {% note %}
 
-**Note:** You cannot use SCIM at the enterprise level unless your enterprise is enabled for {% data variables.product.prodname_emus %}.
+**注意：** 除非为企业启用了 {% data variables.product.prodname_emus %}，否则无法在企业级别使用 SCIM。
 
 {% endnote %}
 
-为 SAML 单点登录和用户预配配置 {% data variables.product.prodname_emus %} 涉及遵循与不使用 {% data variables.product.prodname_managed_users %} 的企业不同的流程。 如果您的企业使用 {% data variables.product.prodname_emus %}，请参阅“[为企业管理的用户配置 SAML 单点登录](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/configuring-saml-single-sign-on-for-enterprise-managed-users)”。
+{% data reusables.saml.switching-from-org-to-enterprise %} 更多信息请参阅“[将 SAML 配置从组织切换到企业帐户](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account)”。
 
 {% elsif ghes %}
 
 SAML SSO 允许人们通过外部系统验证和访问 {% data variables.product.product_location %} 以进行身份管理。
 
-SAML 是一种基于 XML 的身份验证和授权标准。 为 {% data variables.product.product_location %} 配置 SAML 时，用于身份验证的外部系统称为身份提供程序 (IdP)。 您的实例充当 SAML 服务提供商 (SP)。 For more information about the SAML standard, see [Security Assertion Markup Language](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) on Wikipedia.
+SAML 是一种基于 XML 的身份验证和授权标准。 为 {% data variables.product.product_location %} 配置 SAML 时，用于身份验证的外部系统称为身份提供程序 (IdP)。 您的实例充当 SAML 服务提供商 (SP)。 有关 SAML 标准的更多信息，请参阅维基百科上的[安全断言标记语言](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language)。
 
-For more information about the configuration of SAML SSO on {% data variables.product.product_name %}, see "[Configuring SAML single sign-on for your enterprise](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise)."
+有关 {% data variables.product.product_name %} 上 SAML SSO 配置的详细信息，请参阅“[为企业配置 SAML 单点登录](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise)”。
 
 {% data reusables.saml.saml-ghes-account-revocation %}
 

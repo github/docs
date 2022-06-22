@@ -11,7 +11,7 @@ topics:
 shortTitle: Personalizar perfil da organização
 ---
 
-{% if org-profile-pin-private %}
+{% ifversion org-profile-pin-private %}
 
 ## Sobre a página de perfil da sua organização
 
@@ -45,34 +45,34 @@ Você pode formatar o texto e incluir emoji, imagens e GIFs no README do perfil 
 
    ![Imagem do README público de uma organização](/assets/images/help/organizations/org_public_readme.png)
 
-{% if org-profile-pin-private %}
+{% ifversion org-profile-pin-private %}
 
-## Adding a member-only organization profile README
+## Adicionando um perfil README de organização somente apenas para membros
 
-1. If your organization does not already have a `.github-private` repository, create a public `.github-private` repository. This action can be performed by any user that has write access to that repository.
-2. In your organization's `.github-private` repository, create a `README.md` file in the `profile` folder.
-3. Faça o commit das alterações para o arquivo `README.md`. The content of the `README.md` will be displayed in the member view of your organization's profile.
+1. Se sua organização ainda não tiver um repositório `.github-private`, crie um repositório privado denominado `.github-private`.
+2. No repositório `.github-private` da sua organização, crie um arquivo `README.md` na pasta `perfil`.
+3. Faça o commit das alterações para o arquivo `README.md`. O conteúdo do `README.md` será exibido no modo de exibição do integrante do perfil da sua organização.
 
-   ![Image of an organization's private README](/assets/images/help/organizations/org_member_readme.png)
+   ![Imagem do README privado de uma organização](/assets/images/help/organizations/org_member_readme.png)
 
-## Pinning repositories to your organization's profile
+## Fixando repositórios no perfil da sua organização
 
-You can pin repositories that you want to feature, such as those that are frequently used, to your organization's profile page. To choose which repositories to pin to your organization's profile, you must be an organization owner or administrator.
+Você pode fixar repositórios que deseja destacar, como aqueles que são usados com frequência, na página de perfil da sua organização. Para escolher quais repositórios deseja fixar no perfil da sua organização, você deve ser proprietário ou administrador da organização.
 
-1. Navigate to your organization's profile page.
-2. In the right sidebar of the page in the {% octicon "eye" aria-label="The eye octicon" %} "View as" link, choose the **Public** or **Member** profile view from the dropdown menu.
+1. Acesse a página de perfil da sua organização.
+2. Na barra lateral direita da página no link {% octicon "eye" aria-label="The eye octicon" %} "Visualizar como" escolha o perfil **público** ou **integrante** no menu suspenso.
 
-   ![Image of the organization profile view dropdown](/assets/images/help/organizations/org_profile_view.png)
+   ![Imagem da lista de visualização de perfil da organização](/assets/images/help/organizations/org_profile_view.png)
 
-3. In the pinned repositories section, select **Customize pins**.
+3. Na seção de repositórios fixados, selecione **Personalizar fixação**.
 
-   ![Image of the customize pins link](/assets/images/help/organizations/customize_pins_link.png)
+   ![Imagem do link da fixação personalizada](/assets/images/help/organizations/customize_pins_link.png)
 
-   - If you haven't yet pinned any repositories to your organization's profile, you'll need to instead click **pin repositories** in the right sidebar of the profile page. ![Image of pin repositories link in right sidebar](/assets/images/help/organizations/pin_repositories_link.png)
+   - Se você ainda não fixou nenhum repositório no perfil da sua organização. você deverá clicar em **fixar repositórios** na barra lateral direita da página de perfil. ![Imagem do link dos repositórios fixados na barra lateral direita](/assets/images/help/organizations/pin_repositories_link.png)
 
-4. In the "Edit pinned repositories" dialog box, select a combination of up to six public, {% ifversion not fpt %}private, or internal{% else %}or private{% endif %} repositories to display.
+4. Na caixa de diálogo "Editar repositórios fixados", selecione uma combinação de até seis repositórios públicos, {% ifversion not fpt %}privados ou internos{% else %}ou{% endif %} privados a serem exibidos.
 
-   ![Image of pinned repo dialog](/assets/images/help/organizations/pinned_repo_dialog.png)
+   ![Imagem de diálogo de repositório fixado](/assets/images/help/organizations/pinned_repo_dialog.png)
 
 5. Clique em **Save pins** (Salvar itens fixos).
 

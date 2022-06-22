@@ -1,12 +1,12 @@
 ---
 title: Getting started with self-hosted runners for your enterprise
 shortTitle: Self-hosted runners
-intro: You can configure a runner machine for your enterprise so your developers can start automating workflows with {% data variables.product.prodname_actions %}.
+intro: 'You can configure a runner machine for your enterprise so your developers can start automating workflows with {% data variables.product.prodname_actions %}.'
 versions:
   ghec: '*'
   ghes: '*'
   ghae: '*'
-permissions: Enterprise owners can configure policies for {% data variables.product.prodname_actions %} and add self-hosted runners to the enterprise.
+permissions: 'Enterprise owners can configure policies for {% data variables.product.prodname_actions %} and add self-hosted runners to the enterprise.'
 type: quick_start
 topics:
   - Actions
@@ -28,11 +28,11 @@ Alternatively, you can use runner machines that {% data variables.product.compan
 
 This guide shows you how to apply a centralized management approach to self-hosted runners for {% data variables.product.prodname_actions %} in your enterprise. In the guide, you'll complete the following tasks.
 
-1. Configure a limited policy to restrict the actions{% if actions-workflow-policy %} and reusable workflows{% endif %} that can run within your enterprise
+1. Configure a limited policy to restrict the actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} that can run within your enterprise
 1. Deploy a self-hosted runner for your enterprise
 1. Create a group to manage access to the runners available to your enterprise
 1. Optionally, further restrict the repositories that can use the runner
-{%- ifversion ghec or ghae-issue-4462 or ghes > 3.2 %}
+{%- ifversion ghec or ghae or ghes > 3.2 %}
 1. Optionally, build custom tooling to automatically scale your self-hosted runners
 {% endif %}
 
@@ -48,7 +48,7 @@ After you finish the guide, {% ifversion ghec or ghae %}members of your enterpri
 
 ## 1. Configure policies for {% data variables.product.prodname_actions %}
 
-First, enable {% data variables.product.prodname_actions %} for all organizations, and configure a policy to restrict the actions{% if actions-workflow-policy %} and reusable workflows{% endif %} that can run {% ifversion ghec or ghae%}within your enterprise on {% data variables.product.product_name %}{% elsif ghes %}on {% data variables.product.product_location %}{% endif %}. Optionally, organization owners can further restrict these policies for each organization.
+First, enable {% data variables.product.prodname_actions %} for all organizations, and configure a policy to restrict the actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} that can run {% ifversion ghec or ghae%}within your enterprise on {% data variables.product.product_name %}{% elsif ghes %}on {% data variables.product.product_location %}{% endif %}. Optionally, organization owners can further restrict these policies for each organization.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
@@ -56,9 +56,9 @@ First, enable {% data variables.product.prodname_actions %} for all organization
 1. Under "Policies", select **Enable for all organizations**.
    
    ![Screenshot of "Enable for all organizations" policy for {% data variables.product.prodname_actions %}](/assets/images/help/settings/actions-policy-enable-for-all-organizations.png)
-1. Select {% data reusables.actions.policy-label-for-select-actions-workflows %} and **Allow actions created by GitHub** to allow local actions{% if actions-workflow-policy %} and reusable workflows{% endif %}, and actions created by {% data variables.product.company_short %}.
+1. Select {% data reusables.actions.policy-label-for-select-actions-workflows %} and **Allow actions created by GitHub** to allow local actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %}, and actions created by {% data variables.product.company_short %}.
 
-   {% if actions-workflow-policy %}
+   {% ifversion actions-workflow-policy %}
    ![Screenshot of "Allow select actions" and "Allow actions created by {% data variables.product.company_short %}" for {% data variables.product.prodname_actions %}](/assets/images/help/settings/actions-policy-allow-select-actions-and-actions-from-github-with-workflows.png)
    {%- else %}
    ![Screenshot of "Allow select actions" and "Allow actions created by {% data variables.product.company_short %}" for {% data variables.product.prodname_actions %}](/assets/images/help/settings/actions-policy-allow-select-actions-and-actions-from-github.png)
@@ -122,7 +122,7 @@ Optionally, organization owners can further restrict the access policy of the ru
 
 For more information, see "[Managing access to self-hosted runners using groups](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#changing-the-access-policy-of-a-self-hosted-runner-group)."
 
-{% ifversion ghec or ghae-issue-4462 or ghes > 3.2 %}
+{% ifversion ghec or ghae or ghes > 3.2 %}
 
 ## 5. Automatically scale your self-hosted runners
 
@@ -143,7 +143,7 @@ Optionally, you can build custom tooling to automatically scale the self-hosted 
    - "[Enabling automatic access to {% data variables.product.prodname_dotcom_the_website %} actions using {% data variables.product.prodname_github_connect %}](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect)"
    {%- elsif ghec %}
    - "Manually syncing actions from {% data variables.product.prodname_dotcom_the_website %}" in the [{% data variables.product.prodname_ghe_server %}](/enterprise-server@latest//admin/github-actions/managing-access-to-actions-from-githubcom/manually-syncing-actions-from-githubcom) or [{% data variables.product.prodname_ghe_managed %}](/github-ae@latest//admin/github-actions/managing-access-to-actions-from-githubcom/manually-syncing-actions-from-githubcom) documentation
-   - "Enabling automatic access to {% data variables.product.prodname_dotcom_the_website %} actions using {% data variables.product.prodname_github_connect %}" in the [{% data variables.product.prodname_ghe_server %}](/enterprise-server@latest//admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect) or [{% data variables.product.prodname_ghe_managed %}](/github-ae@latest//admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect) documentation
+   - "Enabling automatic access to {% data variables.product.prodname_dotcom_the_website %} actions using {% data variables.product.prodname_github_connect %}" in the [{% data variables.product.prodname_ghe_server %}](/enterprise-server@latest/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect) or [{% data variables.product.prodname_ghe_managed %}](/github-ae@latest//admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect) documentation
    {%- endif %}
 
 - You can customize the software available on your self-hosted runner machines, or configure your runners to run software similar to {% data variables.product.company_short %}-hosted runners{% ifversion ghes or ghae %} available for customers using {% data variables.product.prodname_dotcom_the_website %}{% endif %}. The software that powers runner machines for {% data variables.product.prodname_actions %} is open source. For more information, see the [`actions/runner`](https://github.com/actions/runner) and [`actions/virtual-environments`](https://github.com/actions/virtual-environments) repositories.

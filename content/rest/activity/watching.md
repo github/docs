@@ -1,6 +1,6 @@
 ---
 title: Watching
-intro: "Watching a repository registers the user to receive notifications on new discussions, as well as events in the user's activity feed."
+intro: "The Watching API lets users subscribe to notifications for activity in a repository."
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,4 +11,6 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-For simple repository bookmarks, see "[Repository starring](/rest/reference/activity#starring)."
+## About the Watching API
+
+The Watching API lets users subscribe to notifications for activity in a repository. To bookmark a repository instead, see "[Starring](/rest/reference/activity#starring)."

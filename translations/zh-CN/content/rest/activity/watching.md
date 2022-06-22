@@ -1,6 +1,6 @@
 ---
 title: 关注
-intro: 关注仓库会注册用户接收有关新讨论的通知以及用户活动馈送中的事件。
+intro: 关注 API 允许用户订阅存储库中活动的通知。
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,4 +11,6 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-有关简单的仓库书签制作，请参阅“[仓库标星](/rest/reference/activity#starring)”。
+## 关于关注 API
+
+关注 API 允许用户订阅存储库中活动的通知。 要改为将存储库添加为书签，请参阅“[星标](/rest/reference/activity#starring)”。

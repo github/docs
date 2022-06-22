@@ -28,7 +28,7 @@ A workflow must contain the following basic components:
 1. One or more _jobs_, each of which will execute on a _runner_ machine and run a series of one or more _steps_.
 1. Each step can either run a script that you define or run an action, which is a reusable extension that can simplify your workflow.
 
-For more information these basic components, see "[Understanding GitHub Actions](/actions/learn-github-actions/understanding-github-actions#the-components-of-github-actions)."
+For more information on these basic components, see "[Understanding GitHub Actions](/actions/learn-github-actions/understanding-github-actions#the-components-of-github-actions)."
 
 ![Workflow overview](/assets/images/help/images/overview-actions-simple.png)
 
@@ -105,9 +105,9 @@ jobs:
 
 For more information, see "[Defining prerequisite jobs](/actions/using-jobs/using-jobs-in-a-workflow#defining-prerequisite-jobs)."
 
-### Using a build matrix
+### Using a matrix
 
-You can use a build matrix if you want your workflow to run tests across multiple combinations of parameters, such as operating systems, platforms, and languages. The build matrix is created using the `strategy` keyword, which receives the build options as an array. For example, this build matrix will run the job multiple times, using different versions of Node.js:
+{% data reusables.actions.jobs.about-matrix-strategy %} The matrix is created using the `strategy` keyword, which receives the build options as an array. For example, this matrix will run the job multiple times, using different versions of Node.js:
 
 ```yaml
 jobs:
@@ -115,19 +115,19 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: [6, 8, 10]
+        node: [12, 14, 16]
     steps:
       - uses: {% data reusables.actions.action-setup-node %}
         with:
           node-version: {% raw %}${{ matrix.node }}{% endraw %}
 ```
 
-For more information, see "[Using a build matrix for your jobs](/actions/using-jobs/using-a-build-matrix-for-your-jobs)."
+For more information, see "[Using a matrix for your jobs](/actions/using-jobs/using-a-matrix-for-your-jobs)."
 
-{% ifversion fpt or ghec %}
+{% ifversion actions-caching %}
 ### Caching dependencies
 
-{% data variables.product.prodname_dotcom %}-hosted runners are started as fresh environments for each job, so if your jobs regularly reuse dependencies, you can consider caching these files to help improve performance. Once the cache is created, it is available to all workflows in the same repository.
+If your jobs regularly reuse dependencies, you can consider caching these files to help improve performance. Once the cache is created, it is available to all workflows in the same repository.
 
 This example demonstrates how to cache the ` ~/.npm` directory:
 

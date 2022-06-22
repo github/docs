@@ -1,6 +1,6 @@
 ---
 title: 公告
-intro: The Announcement API allows you to manage the global announcement banner in your enterprise.
+intro: 公告 API 允许您管理企业中的全局公告横幅。
 versions:
   ghes: '*'
   ghae: '*'

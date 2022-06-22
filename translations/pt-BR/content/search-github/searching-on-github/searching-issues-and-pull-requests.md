@@ -55,14 +55,11 @@ Para pesquisar problemas e pull requests em todos os repositórios de um usuári
 
 {% data reusables.pull_requests.large-search-workaround %}
 
-
 | Qualifier                 | Exemplo                                                                                                                                                                                                                                  |
 | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | <code>user:<em>USERNAME</em></code> | [**user:defunkt ubuntu**](https://github.com/search?q=user%3Adefunkt+ubuntu&type=Issues) identifica os problemas com a palavra "ubuntu" nos repositórios de @defunkt.                                                                    |
 | <code>org:<em>ORGNAME</em></code> | [**org:github**](https://github.com/search?q=org%3Agithub&type=Issues&utf8=%E2%9C%93) identifica os problemas nos repositórios da organização GitHub.                                                                                    |
 | <code>repo:<em>USERNAME/REPOSITORY</em></code> | [**repo:mozilla/shumway criado:<2012-03-01**](https://github.com/search?q=repo%3Amozilla%2Fshumway+created%3A%3C2012-03-01&type=Issues) corresponde a problemas do projeto shumway de @mozilla que foram criados antes de março de 2012. |
-
-
 
 ## Pesquisar por estado aberto ou fechado
 
@@ -74,6 +71,18 @@ Você pode filtrar somente problemas e pull requests abertos ou fechados usando 
 | `state:closed` | [**design state:closed in:body**](https://github.com/search?utf8=%E2%9C%93&q=design+state%3Aclosed+in%3Abody&type=Issues) identifica os problemas fechados com a palavra "design" no texto.                         |
 | `is:open`      | [**performance is:open is:issue**](https://github.com/search?q=performance+is%3Aopen+is%3Aissue&type=Issues) identifica os problemas abertos com a palavra "performance".                                           |
 | `is:closed`    | [**android is:closed**](https://github.com/search?utf8=%E2%9C%93&q=android+is%3Aclosed&type=) identifica os problemas e as pull requests fechados com a palavra "android".                                          |
+
+{% ifversion issue-close-reasons %}
+## Pesquisr o motivo pelo qual um problema foi fechado
+
+Você pode filtrar problemas com base no motivo indicado quando o problema foi fechado, usando o qualificador do `motivo`.
+
+| Qualifier              | Exemplo                                                                                                                                                                                                                               |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `reason:complete`      | [**libraries is:closed reason:complete**](https://github.com/search?q=libraries+is%3Aclosed+reason%3Acompleted&type=Issues) corresponde a problemas com a palavra "bibliotecas" que foram fechada como "concluídas".                  |
+| `reason:"not planned"` | [**libraries is:closed reason:"not planned"**](https://github.com/search?q=libraries+is%3Aclosed+reason%3A%22not+planned%22&type=Issues) corresponde a problemas com a palavra "bibliotecas" que foram fechada como "não planejadas". |
+
+{% endif %}
 
 ## Filtrar por visibilidade do repositório
 
@@ -133,17 +142,15 @@ Você pode usar o qualificador `involves` para encontrar problemas que envolvem 
 | <code>involves:<em>USERNAME</em></code> | **[involves:defunkt involves:jlord](https://github.com/search?q=involves%3Adefunkt+involves%3Ajlord&type=Issues)** corresponde problemas que envolvem @defunkt ou @jlord.                                     |
 |                           | [**NOT bootstrap in:body involves:mdo**](https://github.com/search?q=NOT+bootstrap+in%3Abody+involves%3Amdo&type=Issues) corresponde problemas que envolvem @mdo e não contêm a palavra "bootstrap" no texto. |
 
-{% ifversion fpt or ghes or ghae or ghec %}
 ## Procurar problema e pull requests vinculados
 Você pode restringir seus resultados para apenas incluir problemas vinculados a um pull request com uma referência ou pull requests que estão vinculados a um problema que o pull request pode fechar.
 
-| Qualifier       | Exemplo                                                                                                                                                                                                                                                                                   |
-| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `linked:pr`     | [**repo:desktop/desktop is:open linked:pr**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aopen+linked%3Apr) corresponde a problemas abertos no re repositório `desktop/desktop` vinculados a um pull request por uma referência fechada.                                     |
-| `linked:issue`  | [**repo:desktop/desktop is:closed linked:issue**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aclosed+linked%3Aissue) corresponde a pull requests fechados no repositório `desktop/desktop` vinculados a um problema que o pull request pode ter fechado.                    |
-| `-linked:pr`    | [**repo:desktop/desktop is:open -linked:pr**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aopen+-linked%3Apr) corresponde a problemas abertos no repositório `desktop/desktop` que não estão vinculados a um pull request por uma referência fechada.                        |
-| `-linked:issue` | [**repo:desktop/desktop is:open -linked:issue**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aopen+-linked%3Aissue) corresponde a pull requests abertos no repositório `desktop/desktop` que não estão vinculados a um problema que o pull request pode fechar. 
-{% endif %}
+| Qualifier       | Exemplo                                                                                                                                                                                                                                                                      |
+| --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `linked:pr`     | [**repo:desktop/desktop is:open linked:pr**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aopen+linked%3Apr) corresponde a problemas abertos no re repositório `desktop/desktop` vinculados a um pull request por uma referência fechada.                        |
+| `linked:issue`  | [**repo:desktop/desktop is:closed linked:issue**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aclosed+linked%3Aissue) corresponde a pull requests fechados no repositório `desktop/desktop` vinculados a um problema que o pull request pode ter fechado.       |
+| `-linked:pr`    | [**repo:desktop/desktop is:open -linked:pr**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aopen+-linked%3Apr) corresponde a problemas abertos no repositório `desktop/desktop` que não estão vinculados a um pull request por uma referência fechada.           |
+| `-linked:issue` | [**repo:desktop/desktop is:open -linked:issue**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aopen+-linked%3Aissue) corresponde a pull requests abertos no repositório `desktop/desktop` que não estão vinculados a um problema que o pull request pode fechar. |
 
 ## Pesquisar por etiqueta
 
@@ -182,7 +189,7 @@ Você pode filtrar pull requests com base no status dos commits. Isso é especia
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `status:pending` | [**language:go status:pending**](https://github.com/search?utf8=%E2%9C%93&q=language%3Ago+status%3Apending) identifica as pull requests abertas nos repositórios de Go com status pendente.                                                   |
 | `status:success` | [**is:open status:success finally in:body**](https://github.com/search?utf8=%E2%9C%93&q=is%3Aopen+status%3Asuccess+finally+in%3Abody&type=Issues) identifica as pull requests abertas com a palavra "finally" no texto com status de sucesso. |
-| `status:failure` | [**created:2015-05-01..2015-05-30 status:failure**](https://github.com/search?utf8=%E2%9C%93&q=created%3A2015-05-01..2015-05-30+status%3Afailure&type=Issues) identifica as pull requests abertas em maio de 2015 com status de falha.        |
+| `status:failure` | [**created:2015-05-01..2015-05-30 status:failure**](https://github.com/search?utf8=%E2%9C%93&q=created%3A2015-05-01..2015-05-30+status%3Afailure&type=Issues) identifica os pull requests abertos em maio de 2015 com status de falha.        |
 
 ## Pesquisar por SHA do commit
 
@@ -190,17 +197,17 @@ Se você souber o hash SHA de um commit, poderá usá-lo para pesquisar pull req
 
 | Qualifier                  | Exemplo                                                                                                                                                                                    |
 | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| <code><em>SHA</em></code> | [**e1109ab**](https://github.com/search?q=e1109ab&type=Issues) identifica as pull requests com um SHA de commit que começa com `e1109ab`.                                                  |
+| <code><em>SHA</em></code> | [**e1109ab**](https://github.com/search?q=e1109ab&type=Issues) identifica os pull requests com um SHA de commit que começa com `e1109ab`.                                                  |
 |                            | [**0eff326d6213c is:merged**](https://github.com/search?q=0eff326d+is%3Amerged&type=Issues) identifica as pull requests com merge que têm um SHA de commit que começa com `0eff326d6213c`. |
 
 ## Pesquisar por nome do branch
 
 Você pode filtrar pull requests com base no branch de origem (branch "head") ou no branch do merge (branch "base").
 
-| Qualifier                  | Exemplo                                                                                                                                                                                                                              |
-| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| <code>head:<em>HEAD_BRANCH</em></code> | [**head:change is:closed is:unmerged**](https://github.com/search?utf8=%E2%9C%93&q=head%3Achange+is%3Aclosed+is%3Aunmerged) identifica as pull requests abertas de branchs cujo nome começa com a palavra "change" e estão fechados. |
-| <code>base:<em>BASE_BRANCH</em></code> | [**base:gh-pages**](https://github.com/search?utf8=%E2%9C%93&q=base%3Agh-pages) identifica as pull requests que estão sendo incorporadas no branch `gh-pages`.                                                                       |
+| Qualifier                  | Exemplo                                                                                                                                                                                                                               |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>head:<em>HEAD_BRANCH</em></code> | [**head:change is:closed is:unmerged**](https://github.com/search?utf8=%E2%9C%93&q=head%3Achange+is%3Aclosed+is%3Aunmerged) identifica os pull requests abertos em branches cujo nome começa com a palavra "change" e estão fechados. |
+| <code>base:<em>BASE_BRANCH</em></code> | [**base:gh-pages**](https://github.com/search?utf8=%E2%9C%93&q=base%3Agh-pages) identifica os pull requests que estão sendo incorporados ao branch `gh-pages`.                                                                        |
 
 ## Pesquisar por linguagem
 
@@ -240,22 +247,25 @@ Você pode filtrar problemas e pull requests pelo número de reações usando o 
 ## Pesquisar por pull requests de rascunho
 Você pode filtrar por pull requests de rascunho. Para obter mais informações, consulte "[Sobre pull requests](/articles/about-pull-requests#draft-pull-requests)".
 
-| Qualificador        | Exemplo | ------------- | -------------{% ifversion fpt or ghes or ghae or ghec %} | `draft:true` | [**draft:true**](https://github.com/search?q=draft%3Atrue) corresponde pull requests em rascunho. | `draft:false` | [**draft:false**](https://github.com/search?q=draft%3Afalse) corresponde a pull requests prontos para revisão.{% else %} | `is:draft` | [**is:draft**](https://github.com/search?q=is%3Adraft) corresponde a rascunhos de pull requests.{% endif %}
+| Qualifier     | Exemplo                                                                                                                  |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| `draft:true`  | [**draft:true**](https://github.com/search?q=draft%3Atrue) identifica as pull requests de rascunho.                      |
+| `draft:false` | [**draft:false**](https://github.com/search?q=draft%3Afalse) corresponde a pull requests que estão prontos para revisão. |
 
 ## Pesquisar por status de revisão e revisor da pull request
 
-Você pode filtrar as pull requests com base no [status de revisão](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews) (_none_ (nenhuma), _required_ (obrigatória), _approved_ (aprovada) ou _changes requested_ (alterações solicitadas)), por revisor e por revisor solicitado.
+Você pode filtrar as pull requests com base no [status de revisão](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews) (_none_, _required_, _approved_ ou _changes requested_), por revisor e por revisor solicitado.
 
 | Qualifier                  | Exemplo                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `review:none`              | [**type:pr review:none**](https://github.com/search?utf8=%E2%9C%93&q=type%3Apr+review%3Anone&type=Issues) identifica as pull requests que não foram revisadas.                                                                                                                                                                                                                                                                                                                                                                                                                |
-| `review:required`          | [**type:pr review:required**](https://github.com/search?utf8=%E2%9C%93&q=type%3Apr+review%3Arequired&type=Issues) identifica as pull requests que exigem uma revisão antes do merge.                                                                                                                                                                                                                                                                                                                                                                                          |
-| `review:approved`          | [**type:pr review:approved**](https://github.com/search?utf8=%E2%9C%93&q=type%3Apr+review%3Aapproved&type=Issues) identifica as pull requests aprovadas por um revisor.                                                                                                                                                                                                                                                                                                                                                                                                       |
-| `review:changes_requested` | [**type:pr review:changes_requested**](https://github.com/search?utf8=%E2%9C%93&q=type%3Apr+review%3Achanges_requested&type=Issues) identifica as pull requests nas quais um revisor solicitou alterações.                                                                                                                                                                                                                                                                                                                                                                    |
-| <code>reviewed-by:<em>USERNAME</em></code> | [**type:pr reviewed-by:gjtorikian**](https://github.com/search?utf8=%E2%9C%93&q=type%3Apr+reviewed-by%3Agjtorikian&type=Issues) identifica as pull requests revisadas por uma pessoa específica.                                                                                                                                                                                                                                                                                                                                                                              |
-| <code>review-requested:<em>USERNAME</em></code> | [**type:pr review-requested:benbalter**](https://github.com/search?utf8=%E2%9C%93&q=type%3Apr+review-requested%3Abenbalter&type=Issues) identifica as pull requests nas quais uma pessoa específica foi solicitada para revisão. Os revisores solicitados deixam de ser relacionados nos resultados da pesquisa depois de revisarem uma pull request. Se a pessoa solicitada está em uma equipe solicitada para revisão, as solicitações de revisão para essa equipe também aparecerão nos resultados de pesqusa.{% ifversion fpt or ghae-issue-5181 or ghes > 3.2 or ghec %}
+| `review:none`              | [**type:pr review:none**](https://github.com/search?utf8=%E2%9C%93&q=type%3Apr+review%3Anone&type=Issues) identifica os pull requests que não foram revisadas.                                                                                                                                                                                                                                                                                                                                                                                                                |
+| `review:required`          | [**type:pr review:required**](https://github.com/search?utf8=%E2%9C%93&q=type%3Apr+review%3Arequired&type=Issues) identifica os pull requests que exigem uma revisão antes do merge.                                                                                                                                                                                                                                                                                                                                                                                          |
+| `review:approved`          | [**type:pr review:approved**](https://github.com/search?utf8=%E2%9C%93&q=type%3Apr+review%3Aapproved&type=Issues) corresponde aos pull requests aprovados por um revisor.                                                                                                                                                                                                                                                                                                                                                                                                     |
+| `review:changes_requested` | [**type:pr review:changes_requested**](https://github.com/search?utf8=%E2%9C%93&q=type%3Apr+review%3Achanges_requested&type=Issues) identifica os pull requests nos quais um revisor solicitou alterações.                                                                                                                                                                                                                                                                                                                                                                    |
+| <code>reviewed-by:<em>USERNAME</em></code> | [**type:pr reviewed-by:gjtorikian**](https://github.com/search?utf8=%E2%9C%93&q=type%3Apr+reviewed-by%3Agjtorikian&type=Issues) identifica os pull requests revisados por uma pessoa específica.                                                                                                                                                                                                                                                                                                                                                                              |
+| <code>review-requested:<em>USERNAME</em></code> | [**type:pr review-requested:benbalter**](https://github.com/search?utf8=%E2%9C%93&q=type%3Apr+review-requested%3Abenbalter&type=Issues) identifica os pull requests nas quais uma pessoa específica foi solicitada para revisão. Os revisores solicitados deixam de ser relacionados nos resultados da pesquisa depois de revisarem uma pull request. Se a pessoa solicitada está em uma equipe solicitada para revisão, as solicitações de revisão para essa equipe também aparecerão nos resultados de pesqusa.{% ifversion fpt or ghae-issue-5181 or ghes > 3.2 or ghec %}
 | <code>user-review-requested:@me</code> | [**type:pr user-review-requested:@me**](https://github.com/search?q=is%3Apr+user-review-requested%3A%40me+) corresponde a pull requests que foi solicitado diretamente que você revise.{% endif %}
-| <code>team-review-requested:<em>TEAMNAME</em></code> | [**type:pr team-review-requested:atom/design**](https://github.com/search?q=type%3Apr+team-review-requested%3Aatom%2Fdesign&type=Issues) identifica as pull requests que tem solicitações de revisão da equipe `atom/design`. Os revisores solicitados deixam de ser relacionados nos resultados da pesquisa depois de revisarem uma pull request.                                                                                                                                                                                                                            |
+| <code>team-review-requested:<em>TEAMNAME</em></code> | [**type:pr team-review-requested:atom/design**](https://github.com/search?q=type%3Apr+team-review-requested%3Aatom%2Fdesign&type=Issues) identifica os pull requests que tem solicitações de revisão da equipe `atom/design`. Os revisores solicitados deixam de ser relacionados nos resultados da pesquisa depois de revisarem uma pull request.                                                                                                                                                                                                                            |
 
 ## Pesquisar por data da criação ou da última atualização de um problema ou uma pull request
 
@@ -300,10 +310,10 @@ Esse qualificador usa a data como parâmetro. {% data reusables.time_date.date_f
 
 Você pode filtrar as pull requests com ou sem merge usando o qualificador `is`.
 
-| Qualifier     | Exemplo                                                                                                                                                               |
-| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `is:merged`   | [**bug is:pr is:merged**](https://github.com/search?utf8=%E2%9C%93&q=bugfix+is%3Apr+is%3Amerged&type=) identifica as pull requests com merge que têm a palavra "bug". |
-| `is:unmerged` | [**error is:unmerged**](https://github.com/search?utf8=%E2%9C%93&q=error+is%3Aunmerged&type=) identifica problemas e pull requests fechados com a palavra "error".    |
+| Qualifier     | Exemplo                                                                                                                                                                                                  |
+| ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `is:merged`   | [**bug is:pr is:merged**](https://github.com/search?utf8=%E2%9C%93&q=bugfix+is%3Apr+is%3Amerged&type=) identifica as pull requests com merge que têm a palavra "bug".                                    |
+| `is:unmerged` | [**erro é:unmerged**](https://github.com/search?utf8=%E2%9C%93&q=error+is%3Aunmerged&type=) corresponde os pull requests com a palavra "error" que ou estão abertos ou foram fechados sem ser mesclados. |
 
 ## Pesquisar com base no fato de o repositório estar arquivado
 

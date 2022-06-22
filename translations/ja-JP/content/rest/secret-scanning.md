@@ -1,6 +1,6 @@
 ---
-title: Secret Scanning
-intro: Use the Secret Scanning API to retrieve and update secret alerts from a repository.
+title: Secret scanning
+intro: Secret scanning APIを使うと、リポジトリからシークレットアラートの取得と更新ができます。
 versions:
   ghes: '*'
   ghae: '*'
@@ -14,10 +14,12 @@ redirect_from:
 
 {% data reusables.secret-scanning.api-beta %}
 
-The {% data variables.product.prodname_secret_scanning %} API lets you{% ifversion fpt or ghec or ghes > 3.1 or ghae %}:
+## Secret scanning APIについて
 
-- Enable or disable {% data variables.product.prodname_secret_scanning %}{% if secret-scanning-push-protection %} and push protection{% endif %} for a repository. For more information, see "[Repositories](/rest/reference/repos#update-a-repository)" and expand the "Properties of the `security_and_analysis` object" section in the REST API documentation.
-- Retrieve and update {% data variables.product.prodname_secret_scanning_GHAS %} alerts from a repository. For further details, see the sections below.
-{%- else %} retrieve and update {% data variables.product.prodname_secret_scanning %} alerts from a repository.{% endif %}
+{% data variables.product.prodname_secret_scanning %} APIを使うと{% ifversion fpt or ghec or ghes > 3.1 or ghae %}以下のことができます。
+
+- リポジトリの{% data variables.product.prodname_secret_scanning %}{% ifversion secret-scanning-push-protection %}及びプッシュ保護{% endif %}の有効化あるいは無効化。 詳しい情報については「[リポジトリ](/rest/repos/repos#update-a-repository)」を参照し、REST APIドキュメンテーションの「`security_and_analysis`のプロパティ」セクションを展開してください。
+- リポジトリからの{% data variables.product.prodname_secret_scanning_GHAS %}アラートの取得と更新。 詳細については以下のセクションを参照してください。
+{%- else %}リポジトリからの{% data variables.product.prodname_secret_scanning %}アラートの取得と更新ができます。{% endif %}
 
 {% data variables.product.prodname_secret_scanning %} の詳細については、「[{% data variables.product.prodname_secret_scanning %} について](/code-security/secret-security/about-secret-scanning)」を参照してください。

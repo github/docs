@@ -26,12 +26,6 @@ upcoming_changes:
     date: '2020-04-01T00:00:00+00:00'
     criticality: breaking
     owner: antn
-  - location: EnterprisePendingMemberInvitationEdge.isUnlicensed
-    description: '`isUnlicensed` will be removed.'
-    reason: All pending members consume a license
-    date: '2020-07-01T00:00:00+00:00'
-    criticality: breaking
-    owner: BrentWheeldon
   - location: Issue.timeline
     description: '`timeline` will be removed. Use Issue.timelineItems instead.'
     reason: '`timeline` will be removed'
@@ -50,18 +44,6 @@ upcoming_changes:
     date: '2020-10-01T00:00:00+00:00'
     criticality: breaking
     owner: nholden
-  - location: EnterpriseMemberEdge.isUnlicensed
-    description: '`isUnlicensed` will be removed.'
-    reason: All members consume a license
-    date: '2021-01-01T00:00:00+00:00'
-    criticality: breaking
-    owner: BrentWheeldon
-  - location: EnterpriseOutsideCollaboratorEdge.isUnlicensed
-    description: '`isUnlicensed` will be removed.'
-    reason: All outside collaborators consume a license
-    date: '2021-01-01T00:00:00+00:00'
-    criticality: breaking
-    owner: BrentWheeldon
   - location: MergeStateStatus.DRAFT
     description: '`DRAFT` will be removed. Use PullRequest.isDraft instead.'
     reason:
@@ -114,6 +96,22 @@ upcoming_changes:
     date: '2022-07-01T00:00:00+00:00'
     criticality: breaking
     owner: cheshire137
+  - location: DependencyGraphDependency.packageLabel
+    description:
+      '`packageLabel` will be removed. Use normalized `packageName` field
+      instead.'
+    reason: '`packageLabel` will be removed.'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/dependency_graph
+  - location: RemovePullRequestFromMergeQueueInput.branch
+    description: '`branch` will be removed.'
+    reason:
+      PRs are removed from the merge queue for the base branch, the `branch` argument
+      is now a no-op
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: jhunschejones
   - location: UpdateProjectNextItemFieldInput.fieldWithSettingId
     description: '`fieldWithSettingId` will be removed. Use `fieldConstraintId` instead'
     reason: Renamed to fieldConstraintId to improve naming consistency.

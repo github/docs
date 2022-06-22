@@ -23,7 +23,7 @@ miniTocMaxHeadingLevel: 3
 
 コンテキストは、ワークフローの実行、ランナーの環境、ジョブ、ステップに関する情報にアクセスする方法です。 Each context is an object that contains properties, which can be strings or other objects.
 
-{% data reusables.actions.context-contents %} For example, the `matrix` context is only populated for jobs in a [build matrix](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix).
+{% data reusables.actions.context-contents %} For example, the `matrix` context is only populated for jobs in a [matrix](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix).
 
 You can access contexts using the expression syntax. For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
 
@@ -45,17 +45,14 @@ You can access contexts using the expression syntax. For more information, see "
 | `matrix`   | `オブジェクト` | Contains the matrix properties defined in the workflow that apply to the current job. For more information, see [`matrix` context](#matrix-context). |
 | `needs`    | `オブジェクト` | Contains the outputs of all jobs that are defined as a dependency of the current job. 詳しい情報については[`needs`コンテキスト](#needs-context)を参照してください。            |
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4757 %}
-| `inputs` | `object` | Contains the inputs of a reusable workflow. For more information, see [`inputs` context](#inputs-context). |{% endif %}
+| `inputs` | `object` | Contains the inputs of a reusable {% ifversion actions-unified-inputs %}or manually triggered {% endif %}workflow. For more information, see [`inputs` context](#inputs-context). |{% endif %}
 
 As part of an expression, you can access context information using one of two syntaxes.
 
 - インデックス構文: `github['sha']`
 - プロパティ参照外しの構文: `github.sha`
 
-プロパティ参照外しの構文を使用するには、プロパティ名に次の条件が必要です。
-
-- `a-Z` または `_` で始まる。
-- `a-Z` 、`0-9`、 `-`、または`_`が続く。
+In order to use property dereference syntax, the property name must start with a letter or `_` and contain only alphanumeric characters, `-`, or `_`.
 
 If you attempt to dereference a non-existent property, it will evaluate to an empty string.
 
@@ -192,8 +189,8 @@ jobs:
 | `github.event_path`        | `string` | The path to the file on the runner that contains the full event webhook payload.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | `github.graphql_url`       | `string` | The URL of the {% data variables.product.prodname_dotcom %} GraphQL API.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | `github.head_ref`          | `string` | ワークフローの実行における `head_ref` またはPull Requestのソースブランチ。 このプロパティは、ワークフローの実行をトリガーするイベントが `pull_request` または `pull_request_target` のいずれかである場合にのみ使用できます。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| `github.job`               | `string` | 現在のジョブの[`job_id`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_id)。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| `github.ref`               | `string` | ワークフローの実行をトリガーしたブランチまたはタグ ref。 For branches this is the format  `refs/heads/<branch_name>`, and for tags it is `refs/tags/<tag_name>`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| `github.job`               | `string` | 現在のジョブの[`job_id`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_id)。 <br /> Note: This context property is set by the Actions runner, and is only available within the execution `steps` of a job. Otherwise, the value of this property will be `null`.                                                                                                                                                                                                                                                                                                                                                            |
+| `github.ref`               | `string` | {% data reusables.actions.ref-description %}
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5338 %}
 | `github.ref_name` | `string` | {% data reusables.actions.ref_name-description %} | | `github.ref_protected` | `string` | {% data reusables.actions.ref_protected-description %} | | `github.ref_type` | `string` | {% data reusables.actions.ref_type-description %}
 {%- endif %}
@@ -201,7 +198,7 @@ jobs:
 {%- ifversion fpt or ghec or ghes > 3.5 or ghae-issue-4722 %}
 | `github.run_attempt` | `string` | A unique number for each attempt of a particular workflow run in a repository. This number begins at 1 for the workflow run's first attempt, and increments with each re-run. |
 {%- endif %}
-| `github.server_url` | `string` | The URL of the GitHub server. たとえば、`https://github.com` などです。 | | `github.sha` | `string` | The commit SHA that triggered the workflow run. | | `github.token` | `string` | A token to authenticate on behalf of the GitHub App installed on your repository. これは機能的に`GITHUB_TOKEN`シークレットに等価です。 詳しい情報については「[自動トークン認証](/actions/security-guides/automatic-token-authentication)」を参照してください。 | | `github.workflow` | `string` | The name of the workflow. ワークフローファイルで `name` を指定していない場合、このプロパティの値は、リポジトリ内にあるワークフローファイルのフルパスになります。 | | `github.workspace` | `string` | The default working directory on the runner for steps, and the default location of your repository when using the [`checkout`](https://github.com/actions/checkout) action. |
+| `github.server_url` | `string` | The URL of the GitHub server. たとえば、`https://github.com` などです。 | | `github.sha` | `string` | The commit SHA that triggered the workflow run. | | `github.token` | `string` | A token to authenticate on behalf of the GitHub App installed on your repository. これは機能的に`GITHUB_TOKEN`シークレットに等価です。 詳しい情報については「[自動トークン認証](/actions/security-guides/automatic-token-authentication)」を参照してください。  <br /> Note: This context property is set by the Actions runner, and is only available within the execution `steps` of a job. Otherwise, the value of this property will be `null`. | | `github.workflow` | `string` | The name of the workflow. ワークフローファイルで `name` を指定していない場合、このプロパティの値は、リポジトリ内にあるワークフローファイルのフルパスになります。 | | `github.workspace` | `string` | The default working directory on the runner for steps, and the default location of your repository when using the [`checkout`](https://github.com/actions/checkout) action. |
 
 ### Example contents of the `github` context
 
@@ -453,7 +450,7 @@ jobs:
 | ------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `runner`            | `オブジェクト` | このコンテキストは、実行しているジョブごとに異なります。 This object contains all the properties listed below.                                                                              |
 | `runner.name`       | `string` | {% data reusables.actions.runner-name-description %}
-| `runner.os`         | `string` | {% data reusables.actions.runner-os-description %} |{% if actions-runner-arch-envvars %}
+| `runner.os`         | `string` | {% data reusables.actions.runner-os-description %} |{% ifversion actions-runner-arch-envvars %}
 | `runner.arch`       | `string` | {% data reusables.actions.runner-arch-description %} 
 {% endif %}
 | `runner.temp`       | `string` | {% data reusables.actions.runner-temp-directory-description %}
@@ -537,19 +534,19 @@ The following example contents of the `secrets` context shows the automatic `GIT
 
 ## `strategy` context
 
-For workflows with a build matrix, the `strategy` context contains information about the matrix execution strategy for the current job.
+For workflows with a matrix, the `strategy` context contains information about the matrix execution strategy for the current job.
 
-| プロパティ名                  | 種類       | 説明                                                                                                                                                                                                                                                            |
-| ----------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `strategy`              | `オブジェクト` | このコンテキストは、実行しているジョブごとに異なります。 You can access this context from any job or step in a workflow. This object contains all the properties listed below.                                                                                                            |
-| `strategy.fail-fast`    | `string` | When `true`, all in-progress jobs are canceled if any job in a build matrix fails. 詳細については、「[{% data variables.product.prodname_actions %}のワークフロー構文](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategyfail-fast)」を参照してください。 |
-| `strategy.job-index`    | `string` | The index of the current job in the build matrix. **Note:** This number is a zero-based number. The first job's index in the build matrix is `0`.                                                                                                             |
-| `strategy.job-total`    | `string` | The total number of jobs in the build matrix. **Note:** This number **is not** a zero-based number. For example, for a build matrix with four jobs, the value of `job-total` is `4`.                                                                          |
-| `strategy.max-parallel` | `string` | `matrix`ジョブ戦略を使用するとき、同時に実行できるジョブの最大数。 詳細については、「[{% data variables.product.prodname_actions %}のワークフロー構文](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymax-parallel)」を参照してください。                                           |
+| プロパティ名                  | 種類       | 説明                                                                                                                                                                                                                                                      |
+| ----------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `strategy`              | `オブジェクト` | このコンテキストは、実行しているジョブごとに異なります。 You can access this context from any job or step in a workflow. This object contains all the properties listed below.                                                                                                      |
+| `strategy.fail-fast`    | `string` | When `true`, all in-progress jobs are canceled if any job in a matrix fails. 詳細については、「[{% data variables.product.prodname_actions %}のワークフロー構文](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategyfail-fast)」を参照してください。 |
+| `strategy.job-index`    | `string` | The index of the current job in the matrix. **Note:** This number is a zero-based number. The first job's index in the matrix is `0`.                                                                                                                   |
+| `strategy.job-total`    | `string` | The total number of jobs in the matrix. **Note:** This number **is not** a zero-based number. For example, for a matrix with four jobs, the value of `job-total` is `4`.                                                                                |
+| `strategy.max-parallel` | `string` | `matrix`ジョブ戦略を使用するとき、同時に実行できるジョブの最大数。 詳細については、「[{% data variables.product.prodname_actions %}のワークフロー構文](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymax-parallel)」を参照してください。                                     |
 
 ### Example contents of the `strategy` context
 
-The following example contents of the `strategy` context is from a build matrix with four jobs, and is taken from the final job. Note the difference between the zero-based `job-index` number, and `job-total` which is not zero-based.
+The following example contents of the `strategy` context is from a matrix with four jobs, and is taken from the final job. Note the difference between the zero-based `job-index` number, and `job-total` which is not zero-based.
 
 ```yaml
 {
@@ -562,7 +559,7 @@ The following example contents of the `strategy` context is from a build matrix 
 
 ### Example usage of the `strategy` context
 
-This example workflow uses the `strategy.job-index` property to set a unique name for a log file for each job in a build matrix.
+This example workflow uses the `strategy.job-index` property to set a unique name for a log file for each job in a matrix.
 
 ```yaml{:copy}
 name: Test matrix
@@ -587,18 +584,18 @@ jobs:
 
 ## `matrix` context
 
-For workflows with a build matrix, the `matrix` context contains the matrix properties defined in the workflow file that apply to the current job. For example, if you configure a build matrix with the `os` and `node` keys, the `matrix` context object includes the `os` and `node` properties with the values that are being used for the current job.
+For workflows with a matrix, the `matrix` context contains the matrix properties defined in the workflow file that apply to the current job. For example, if you configure a matrix with the `os` and `node` keys, the `matrix` context object includes the `os` and `node` properties with the values that are being used for the current job.
 
 There are no standard properties in the `matrix` context, only those which are defined in the workflow file.
 
-| プロパティ名                         | 種類       | 説明                                                                                                                                                                                                                       |
-| ------------------------------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `matrix`                       | `オブジェクト` | This context is only available for jobs in a build matrix, and changes for each job in a workflow run. You can access this context from any job or step in a workflow. This object contains the properties listed below. |
-| `matrix.<property_name>` | `string` | The value of a matrix property.                                                                                                                                                                                          |
+| プロパティ名                         | 種類       | 説明                                                                                                                                                                                                                 |
+| ------------------------------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `matrix`                       | `オブジェクト` | This context is only available for jobs in a matrix, and changes for each job in a workflow run. You can access this context from any job or step in a workflow. This object contains the properties listed below. |
+| `matrix.<property_name>` | `string` | The value of a matrix property.                                                                                                                                                                                    |
 
 ### Example contents of the `matrix` context
 
-The following example contents of the `matrix` context is from a job in a build matrix that has the `os` and `node` matrix properties defined in the workflow. The job is executing the matrix combination of an `ubuntu-latest` OS and Node.js version `16`.
+The following example contents of the `matrix` context is from a job in a matrix that has the `os` and `node` matrix properties defined in the workflow. The job is executing the matrix combination of an `ubuntu-latest` OS and Node.js version `16`.
 
 ```yaml
 {
@@ -609,7 +606,7 @@ The following example contents of the `matrix` context is from a job in a build 
 
 ### Example usage of the `matrix` context
 
-This example workflow creates a build matrix with `os` and `node` keys. It uses the `matrix.os` property to set the runner type for each job, and uses the `matrix.node` property to set the Node.js version for each job.
+This example workflow creates a matrix with `os` and `node` keys. It uses the `matrix.os` property to set the runner type for each job, and uses the `matrix.node` property to set the Node.js version for each job.
 
 ```yaml{:copy}
 name: Test matrix
@@ -702,33 +699,32 @@ jobs:
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4757 %}
 ## `inputs` context
 
-The `inputs` context contains input properties passed to a reusable workflow. The input names and types are defined in the [`workflow_call` event configuration](/actions/learn-github-actions/events-that-trigger-workflows#workflow-reuse-events) of a reusable workflow, and the input values are passed from [`jobs.<job_id>.with`](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idwith) in an external workflow that calls the reusable workflow.
+The `inputs` context contains input properties passed to a reusable workflow{% ifversion actions-unified-inputs %} or to a manually triggered workflow{% endif %}. {% ifversion actions-unified-inputs %}For reusable workflows, the{% else %}The{% endif %} input names and types are defined in the [`workflow_call` event configuration](/actions/learn-github-actions/events-that-trigger-workflows#workflow-reuse-events) of a reusable workflow, and the input values are passed from [`jobs.<job_id>.with`](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idwith) in an external workflow that calls the reusable workflow. {% ifversion actions-unified-inputs %}For manually triggered workflows, the inputs are defined in the [`workflow_dispatch` event configuration](/actions/learn-github-actions/events-that-trigger-workflows#workflow_dispatch) of a workflow.{% endif %}
 
-There are no standard properties in the `inputs` context, only those which are defined in the reusable workflow file.
+There are no standard properties in the `inputs` context, only those which are defined in the workflow file.
 
 {% data reusables.actions.reusable-workflows-ghes-beta %}
 
-For more information, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)".
-
-| プロパティ名                | 種類                                | 説明                                                                                                                                                                                                                          |
-| --------------------- | --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `inputs`              | `オブジェクト`                          | This context is only available in a [reusable workflow](/actions/learn-github-actions/reusing-workflows). You can access this context from any job or step in a workflow. This object contains the properties listed below. |
-| `inputs.<name>` | `string` or `number` or `boolean` | Each input value passed from an external workflow.                                                                                                                                                                          |
+| プロパティ名                | 種類                                | 説明                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --------------------- | --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `inputs`              | `オブジェクト`                          | This context is only available in a [reusable workflow](/actions/learn-github-actions/reusing-workflows){% ifversion actions-unified-inputs %} or in a workflow triggered by the [`workflow_dispatch` event](/actions/learn-github-actions/events-that-trigger-workflows#workflow_dispatch){% endif %}. You can access this context from any job or step in a workflow. This object contains the properties listed below. |
+| `inputs.<name>` | `string` or `number` or `boolean` | Each input value passed from an external workflow.                                                                                                                                                                                                                                                                                                                                                                        |
 
 ### Example contents of the `inputs` context
 
-The following example contents of the `inputs` context is from a job in a reusable workflow that has defined the `build_id` and `deploy_target` inputs.
+The following example contents of the `inputs` context is from a workflow that has defined the `build_id`, `deploy_target`, and `perform_deploy` inputs.
 
 ```yaml
 {
   "build_id": 123456768,
-  "deploy_target": "deployment_sys_1a"
+  "deploy_target": "deployment_sys_1a",
+  "perform_deploy": true
 }
 ```
 
-### Example usage of the `inputs` context
+### Example usage of the `inputs` context in a reusable workflow
 
-This example reusable workflow uses the `inputs` context to get the values of the `build_id` and `deploy_target` inputs that were passed to the reusable workflow from the caller workflow.
+This example reusable workflow uses the `inputs` context to get the values of the `build_id`, `deploy_target`, and `perform_deploy` inputs that were passed to the reusable workflow from the caller workflow.
 
 {% raw %}
 ```yaml{:copy}
@@ -749,10 +745,42 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    if: ${{ inputs.perform_deploy == 'true' }}
+    if: ${{ inputs.perform_deploy }}
     steps:
       - name: Deploy build to target
         run: deploy --build ${{ inputs.build_id }} --target ${{ inputs.deploy_target }}
 ```
 {% endraw %}
+
+{% ifversion actions-unified-inputs %}
+### Example usage of the `inputs` context in a manually triggered workflow
+
+This example workflow triggered by a `workflow_dispatch` event uses the `inputs` context to get the values of the `build_id`, `deploy_target`, and `perform_deploy` inputs that were passed to the workflow.
+
+{% raw %}
+```yaml{:copy}
+on:
+  workflow_dispatch:
+    inputs:
+      build_id:
+        required: true
+        type: string
+      deploy_target:
+        required: true
+        type: string
+      perform_deploy:
+        required: true
+        type: boolean
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    if: ${{ inputs.perform_deploy }}
+    steps:
+      - name: Deploy build to target
+        run: deploy --build ${{ inputs.build_id }} --target ${{ inputs.deploy_target }}
+```
+{% endraw %}
+{% endif %}
+
 {% endif %}

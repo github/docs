@@ -1,6 +1,6 @@
 ---
 title: Notificaciones
-intro: ''
+intro: 'The Notifications API lets you manage {% data variables.product.product_name %} notifications.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,18 +11,9 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-Los usuarios reciben notificaciones para las conversaciones en los repositorios que observan, incluyendo:
+## About the Notifications API
 
-* Las de los informes de problemas y sus comentarios
-* Las de las solicitudes de extracción en sus comentarios
-* Las de los comentarios en cualquier confirmación
-
-También se envían notificaciones para las conversaciones en los repositorios sin observar cuando el usuario está involucrado, incluyendo:
-
-* **@menciones**
-* Asignaciones de informes de problemas
-* Confirmaciones que confirme o cree el usuario
-* Cualquier debate en el que el usuario participe activamente
+La API de notificaciones te permite administrar las notificaciones de {% data variables.product.product_name %}. For more information about notifications, see "[About notifications](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications)."
 
 Todas las llamadas de la API para notificaciones necesitan los alcances de la API para `notifications` o `repo`.  El hacerlo te dará acceso de solo lectura a algunos contenidos de informes de problemas y de confirmaciones. Aún necesitarás el alcance de `repo` para acceder a los informes de problemas y a las confirmaciones desde sus respectivas terminales.
 
@@ -44,11 +35,11 @@ $    -H "If-Modified-Since: Thu, 25 Oct 2012 15:16:27 GMT"
 > X-Poll-Interval: 60
 ```
 
-### Razones para obtener las notificaciones
+### About notification reasons
 
 Cuando recuperas respuestas de la API de Notificaciones, cada carga útil tiene una clave que se titula `reason`. Estas corresponden a los eventos que activan una notificación.
 
-Hay una lista potencial de `reason` para recibir una notificación:
+These are the potential `reason`s for receiving a notification:
 
 | Nombre de la razón | Descripción                                                                                                                                                                                                |
 | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

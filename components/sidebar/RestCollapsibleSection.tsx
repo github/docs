@@ -7,7 +7,8 @@ import { ActionList } from '@primer/react'
 import { Link } from 'components/Link'
 import { ProductTreeNode } from 'components/context/MainContext'
 import { EventType, sendEvent } from 'components/lib/events'
-import { MiniTocItem, useRestContext } from 'components/context/RestContext'
+import { useRestContext } from 'components/context/RestContext'
+import type { MiniTocItem } from 'components/context/ArticleContext'
 import styles from './SidebarProduct.module.scss'
 
 type SectionProps = {
@@ -29,6 +30,8 @@ export const RestCollapsibleSection = (props: SectionProps) => {
   const { routePath, defaultOpen, title, page, isStandaloneCategory } = props
   const [isOpen, setIsOpen] = useState(defaultOpen)
   const [currentAnchor, setCurrentAnchor] = useState('')
+  const [visibleAnchor, setVisibleAnchor] = useState('')
+
   const onToggle = (e: SyntheticEvent) => {
     const newIsOpen = (e.target as HTMLDetailsElement).open
     setIsOpen(newIsOpen)
@@ -37,6 +40,14 @@ export const RestCollapsibleSection = (props: SectionProps) => {
       navigate_label: `details ${newIsOpen ? 'open' : 'close'}: ${title}`,
     })
   }
+
+  const miniTocItems =
+    router.query.productId === 'rest' ||
+    // These pages need the Article Page mini tocs instead of the Rest Pages
+    router.asPath.includes('/rest/guides') ||
+    router.asPath.includes('/rest/overview')
+      ? []
+      : useRestContext().miniTocItems
 
   useEffect(() => {
     if (!currentAnchor) {
@@ -54,14 +65,36 @@ export const RestCollapsibleSection = (props: SectionProps) => {
     }
   }, [])
 
-  const miniTocItems =
-    router.query.productId === 'rest' ||
-    // These pages need the Article Page mini tocs instead of the Rest Pages
-    router.asPath.includes('/rest/guides') ||
-    router.asPath.includes('/rest/overview')
-      ? []
-      : useRestContext().miniTocItems
+  useEffect(() => {
+    if (!router.asPath.includes('guides') && !router.asPath.includes('overview')) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.target.id) {
+              const anchor = '#' + entry.target.id.split('--')[0]
+              if (entry.isIntersecting === true) setVisibleAnchor(anchor)
+            } else if (router.asPath.includes('#')) {
+              setVisibleAnchor('#' + router.asPath.split('#')[1])
+            } else {
+              setVisibleAnchor('')
+            }
+          })
+        },
+        { rootMargin: '0px 0px -85% 0px' }
+      )
+      // TODO: When we add the ## About the {title} API to each operation
+      // we can remove the h2 here
+      const headingsList = Array.from(document.querySelectorAll('h2, h3'))
 
+      headingsList.forEach((heading) => {
+        observer.observe(heading)
+      })
+
+      return () => {
+        observer.disconnect()
+      }
+    }
+  }, [miniTocItems])
   // This wrapper solves the issue of having standalone categories not
   // link to the new page. We want standalone categories to have links
   // just like maptopics/subcategories.
@@ -71,8 +104,7 @@ export const RestCollapsibleSection = (props: SectionProps) => {
   const renderRestAnchorLink = (miniTocItem: MiniTocItem) => {
     const miniTocAnchor = miniTocItem.contents.href
     const title = miniTocItem.contents.title
-    const isCurrent = currentAnchor === miniTocAnchor
-
+    const isCurrent = visibleAnchor === miniTocAnchor
     return {
       text: title,
       renderItem: () => (
@@ -96,6 +128,7 @@ export const RestCollapsibleSection = (props: SectionProps) => {
               'd-block pl-6 pr-5 py-1 no-underline width-full',
               isCurrent ? 'color-fg-accent' : 'color-fg-default'
             )}
+            onClick={() => setVisibleAnchor(miniTocAnchor)}
             href={miniTocAnchor}
           >
             {title}
@@ -117,7 +150,10 @@ export const RestCollapsibleSection = (props: SectionProps) => {
           )}
         >
           <div className="d-flex flex-justify-between">
-            <div className="pl-4 pr-1 py-2 f5 d-block flex-auto mr-3 color-fg-default no-underline text-bold">
+            <div
+              data-testid="rest-category"
+              className="pl-4 pr-1 py-2 f5 d-block flex-auto mr-3 color-fg-default no-underline text-bold"
+            >
               {title}
             </div>
             <span style={{ marginTop: 7 }} className="flex-shrink-0 pr-3">
@@ -132,7 +168,7 @@ export const RestCollapsibleSection = (props: SectionProps) => {
           {/* <!-- Render the maptopic level subcategory operation links e.g. --> */}
           <ul className="list-style-none position-relative">
             {page.childPages.length <= 0 ? (
-              <div data-testid="sidebar-article-group" className="pb-0">
+              <div className="pb-0">
                 {miniTocItems.length > 0 && (
                   <ActionList
                     {...{ as: 'ul' }}
@@ -159,12 +195,7 @@ export const RestCollapsibleSection = (props: SectionProps) => {
                         className="details-reset"
                       >
                         <summary>
-                          <div
-                            data-testid="sidebar-rest-subcategory"
-                            className={cx('pl-4 pr-5 py-2 no-underline')}
-                          >
-                            {childTitle}
-                          </div>
+                          <div className={cx('pl-4 pr-5 py-2 no-underline')}>{childTitle}</div>
                         </summary>
                         <div className="pb-0">
                           {miniTocItems.length > 0 && (
@@ -183,7 +214,7 @@ export const RestCollapsibleSection = (props: SectionProps) => {
                   // We're not on the current page so don't have any minitoc
                   // data so just render a link to the category page.
                   return (
-                    <li key={childTitle} data-testid="sidebar-article-group" className="pb-0">
+                    <li data-testid="rest-subcategory" key={childTitle} className="pb-0">
                       <Link
                         href={childPage.href}
                         className={cx(

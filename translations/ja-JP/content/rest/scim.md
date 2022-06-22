@@ -1,6 +1,6 @@
 ---
 title: SCIM
-intro: You can control and manage your GitHub organization members access using SCIM API.
+intro: GitHub Organizationのメンバーのアクセスを、SCIM APIを使って制御及び管理できます。
 versions:
   fpt: '*'
   ghec: '*'
@@ -11,15 +11,17 @@ redirect_from:
   - /rest/reference/scim
 ---
 
+## SCIM APIについて
+
 ### Organization 向け SCIM プロビジョニング
 
-SCIM API は SCIM を有効にしたアイデンティティプロバイダ (IdPs) で、{% data variables.product.product_name %} Organization メンバーシップのプロビジョニングを自動化するために用いられます。 The {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API is based on version 2.0 of the [SCIM standard](http://www.simplecloud.info/). IdP が使用するべき {% data variables.product.product_name %} SCIM エンドポイントは、`{% data variables.product.api_url_code %}/scim/v2/organizations/{org}/` です。
+SCIM API は SCIM を有効にしたアイデンティティプロバイダ (IdPs) で、{% data variables.product.product_name %} Organization メンバーシップのプロビジョニングを自動化するために用いられます。 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} APIは、[SCIM標準](http://www.simplecloud.info/)バージョン2に基づいています。 IdP が使用するべき {% data variables.product.product_name %} SCIM エンドポイントは、`{% data variables.product.api_url_code %}/scim/v2/organizations/{org}/` です。
 
 {% note %}
 
 **ノート:**
-  - The SCIM API is available only for individual organizations that use [{% data variables.product.prodname_ghe_cloud %}](/billing/managing-billing-for-your-github-account/about-billing-for-github-accounts) with [SAML SSO](/rest/overview/other-authentication-methods#authenticating-for-saml-sso) enabled. For more information about SCIM, see "[About SCIM for organizations](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)."
-  - The SCIM API cannot be used with an enterprise account or with an {% data variables.product.prodname_emu_org %}.
+  - SCIM APIは[SAML SSO](/rest/overview/other-authentication-methods#authenticating-for-saml-sso)が有効化された[{% data variables.product.prodname_ghe_cloud %}](/billing/managing-billing-for-your-github-account/about-billing-for-github-accounts)を利用する個々のOrganizationでのみ利用できます。 SCIMに関する詳しい情報については「[OrganizationのためのSCIMについて](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)」を参照してください。
+  - SCIM APIはEnterpriseアカウントで、あるいは{% data variables.product.prodname_emu_org %}と合わせて使うことはできません。
 
 {% endnote %}
 

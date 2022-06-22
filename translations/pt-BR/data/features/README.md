@@ -21,7 +21,7 @@ O formato e os valores permitidos são os mesmos que [frontmatter versions prope
 
 ### Condicionais de Liquid
 
-Agora você pode usar `{% if meow %} ... {% endif %}` nos arquivos de conteúdo! Observe que esta é a tag `if`, não a nova tag `ifversion`.
+Agora você pode usar `{% ifversion meow %} ... {% endif %}` nos arquivos de conteúdo!
 
 ### Frontmatter
 
@@ -45,7 +45,7 @@ versions:
 
 ## Aplicação de esquema
 
-The schema for validating the feature versioning lives in [`tests/helpers/schemas/feature-versions-schema.js`](/tests/helpers/schemas/feature-versions-schema.js) and is exercised by [`tests/linting/lint-files.js`](/tests/linting/lint-files.js).
+O esquema para validar a versão do recurso encontra-se em [`tests/helpers/schemas/feature-versions-schema.js`](/tests/helpers/schemas/feature-versions-schema.js) e é exercido por [`tests/linting/lint-versioning.js`](/tests/linting/lint-versioning.js).
 
 ## Script para remover tags de recursos
 

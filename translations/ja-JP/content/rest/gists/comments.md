@@ -1,6 +1,8 @@
 ---
-title: コメント
-intro: ''
+title: Gistコメント
+allowTitleToDifferFromFilename: true
+shortTitle: コメント
+intro: Gist comments APIを使うと、Gist上のコメントの表示と修正が行えます。
 versions:
   fpt: '*'
   ghes: '*'
@@ -10,6 +12,10 @@ topics:
   - API
 miniTocMaxHeadingLevel: 3
 ---
+
+## Gist comments APIについて
+
+Gist comments APIを使うと、Gist上のコメントの表示と修正が行えます。 Gistに関する詳しい情報については「[Gistとのコンテンツの編集と共有](/get-started/writing-on-github/editing-and-sharing-content-with-gists)」を参照してください。
 
 ### Gist コメントのカスタムメディアタイプ
 

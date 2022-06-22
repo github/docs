@@ -10,7 +10,7 @@
 import fs from 'fs'
 import path from 'path'
 import cheerio from 'cheerio'
-import program, { Option, InvalidArgumentError } from 'commander'
+import { program, Option, InvalidArgumentError } from 'commander'
 import chalk from 'chalk'
 
 import shortVersions from '../middleware/contextualizers/short-versions.js'
@@ -20,7 +20,6 @@ import getRedirect from '../lib/get-redirect.js'
 import warmServer from '../lib/warm-server.js'
 import renderContent from '../lib/render-content/index.js'
 import { deprecated } from '../lib/enterprise-server-releases.js'
-import readFileAsync from '../lib/readfile-async.js'
 
 const STATIC_PREFIXES = {
   assets: path.resolve('assets'),
@@ -116,7 +115,7 @@ async function main(opts, files) {
   }
 
   if (list) {
-    const fileList = JSON.parse(await readFileAsync(list))
+    const fileList = JSON.parse(await fs.promises.readFile(list))
     if (Array.isArray(fileList) && fileList.length > 0) {
       files = fileList
     } else {

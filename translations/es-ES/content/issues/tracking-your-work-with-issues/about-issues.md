@@ -22,6 +22,8 @@ topics:
 
 Las propuestas te permiten rastrear tu trabajo en {% data variables.product.company_short %}, donde sucede el desarrollo. Cuando mencionas una propuesta en otra propuesta o solicitud de cambios, la línea de tiempo de la propuesta refleja la referencia cruzada para que puedas rastrear el trabajo relacionado. Para indicar que el trabajo está en curso, puedes enlazar una propeusta a una solicitud de cambios. Cuando la solicitud de cambios se fusiona, la propuesta enlazada se cierra automáticamente.
 
+Para obtener más información sobre las palabras clave, consulta la sección "[enlazar una solicitud de cambios a una propuesta](/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword)".
+
 ## Crea propuestas rápidamente
 
 Las propuestas pueden crearse de varias formas, así que puedes elegir el método más conveniente para tu flujo de trabajo. Por ejemplo, puedes crear una propuesta desde un repositorio,{% ifversion fpt or ghec %} un elemento en una lista de tareas,{% endif %} una nota en un proyecto, un comentario en una propuesta o solicitud de cambios, una línea específica de código o una consulta de URL. También puedes crear una propuesta desde tu plataforma de elección: a través de la UI web, {% data variables.product.prodname_desktop %}, {% data variables.product.prodname_cli %}, las API de GraphQL y de REST o desde {% data variables.product.prodname_mobile %}. Para obtener más información, consulta la sección "[Crear una propuesta](/issues/tracking-your-work-with-issues/creating-issues/creating-an-issue)".
@@ -34,7 +36,7 @@ Para obtener más información sobre los proyectos, consulta las secciones {% if
 
 ## Mantente actualizado
 
-Para mantenerte actualizado sobre la mayoría de los comentarios recientes de una propuesta, puedes suscribirte a ella para recibir notificaciones sobre las confirmaciones más recientes. Para encontrar rápidamente los enlaces a los informes de problemas recientemente actualizados a los cuales te has suscrito, visita tu tablero. Para obtener más información, consulta la sección {% ifversion fpt or ghes or ghae or ghec %}"[Acerca de las notificaciones](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[Acerca de las notificaciónes](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}" y "[Acerca de tu tablero personal](/articles/about-your-personal-dashboard)".
+Para mantenerte actualizado sobre la mayoría de los comentarios recientes de una propuesta, puedes suscribirte a ella para recibir notificaciones sobre las confirmaciones más recientes. Para encontrar rápidamente los enlaces a los informes de problemas recientemente actualizados a los cuales te has suscrito, visita tu tablero. Para obtener más información, consulta la sección "[Acerca de las notificaciones](/github/managing-subscriptions-and-notifications-on-github/about-notifications)" y "[Acerca de tu tablero personal](/articles/about-your-personal-dashboard)".
 
 ## Administración de comunidad
 

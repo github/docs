@@ -1,6 +1,6 @@
 ---
 title: Marcar com uma estrela
-intro: Marcar o repositório como uma estrela é uma funcionalidade que permite aos usuários favoritar os repositórios.
+intro: A API favoritada permite que você marque um repositório.
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,7 +11,9 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-As estrelas são exibidas ao lado dos repositórios para mostrar um nível de interesse aproximado. As estrelas não têm efeito nas notificações ou no feed da atividade.
+## Sobre a API favoritada
+
+A API favoritada permite que você marque um repositório. As estrelas são exibidas ao lado dos repositórios para mostrar um nível de interesse aproximado. As estrelas não têm efeito nas notificações ou no feed da atividade. Para obter mais informações, consulte "[Salvar repositórios com estrelas](/get-started/exploring-projects-on-github/saving-repositories-with-stars)."
 
 ### Marcar como estrela vs. Inspecionar
 

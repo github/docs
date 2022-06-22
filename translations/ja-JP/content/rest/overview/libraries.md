@@ -24,12 +24,6 @@ topics:
   </div>
 </div>
 
-{% warning %}
-
-警告: 2021年の10月下旬の時点では、公式のOctokitライブラリはメンテナンスされていません。 詳しい情報については[octokit.jsリポジトリのこのディスカッション](https://github.com/octokit/octokit.js/discussions/620)を参照してください。
-
-{% endwarning %}
-
 # サードパーティライブラリ
 
 ### Clojure
@@ -42,7 +36,7 @@ topics:
 
 | ライブラリ名          | リポジトリ                                                                   |
 | --------------- | ----------------------------------------------------------------------- |
-| **github.dart** | [DirectMyFile/github.dart](https://github.com/DirectMyFile/github.dart) |
+| **github.dart** | [SpinlockLabs/github.dart](https://github.com/SpinlockLabs/github.dart) |
 
 ### Emacs Lisp
 
@@ -141,9 +135,10 @@ topics:
 
 ### Rust
 
-| ライブラリ名       | リポジトリ                                                         |
-| ------------ | ------------------------------------------------------------- |
-| **Octocrab** | [XAMPPRocky/octocrab](https://github.com/XAMPPRocky/octocrab) |
+| ライブラリ名       | リポジトリ                                                             |
+| ------------ | ----------------------------------------------------------------- |
+| **Octocrab** | [XAMPPRocky/octocrab](https://github.com/XAMPPRocky/octocrab)     |
+| **Octocat**  | [octocat-rs/octocat-rs](https://github.com/octocat-rs/octocat-rs) |
 
 ### Scala
 

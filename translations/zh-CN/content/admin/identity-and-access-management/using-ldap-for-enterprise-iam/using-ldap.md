@@ -11,7 +11,7 @@ redirect_from:
   - /admin/authentication/using-ldap
   - /enterprise/admin/authentication/authenticating-users-for-your-github-enterprise-server-instance/using-ldap
   - /admin/identity-and-access-management/authenticating-users-for-your-github-enterprise-server-instance/using-ldap
-intro: 'If you use Lightweight Directory Access Protocol (LDAP) to centralize access across applications, you can integrate {% data variables.product.product_name %} by configuring LDAP authentication for your instance.'
+intro: '如果您使用轻量级目录访问协议 (LDAP) 来集中访问应用程序，则可以通过为实例配置 LDAP 身份验证来集成 {% data variables.product.product_name %}。'
 versions:
   ghes: '*'
 type: how_to
@@ -22,11 +22,11 @@ topics:
   - Identity
 ---
 
-## About LDAP authentication for {% data variables.product.product_name %}
+## 关于 {% data variables.product.product_name %} 的 LDAP 身份验证
 
-LDAP is a popular application protocol for access and maintenance of directory information services, and is one of the most common protocols for integration of third-party software with large company user directories. For more information, see "[Lightweight Directory Access Protocol](https://en.wikipedia.org/wiki/Lightweight_Directory_Access_Protocol)" on Wikipedia.
+LDAP 是用于访问和维护目录信息服务的常用应用程序协议，是将第三方软件与大型公司用户目录集成的最常见协议之一。 更多信息请参阅维基百科上的“[轻量级目录访问协议](https://en.wikipedia.org/wiki/Lightweight_Directory_Access_Protocol)”。
 
-If you use an LDAP directory for centralized authentication, you can configure LDAP authentication for the people who use {% data variables.product.product_location %}.
+如果使用 LDAP 目录进行集中式身份验证，则可以为使用 {% data variables.product.product_location %} 的人员配置 LDAP 身份验证。
 
 {% data reusables.enterprise_user_management.built-in-authentication %}
 
@@ -43,7 +43,7 @@ If you use an LDAP directory for centralized authentication, you can configure L
 
 ## 使用 LDAP 时的用户名考量因素
 
-{% data reusables.enterprise_user_management.consider-usernames-for-external-authentication %} For more information, see "[Username considerations for external authentication](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication)."
+{% data reusables.enterprise_user_management.consider-usernames-for-external-authentication %} 更多信息请参阅“[外部身份验证的用户名注意事项](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication)”。
 
 ## 在 {% data variables.product.product_location %} 上配置 LDAP
 
@@ -113,7 +113,7 @@ If you use an LDAP directory for centralized authentication, you can configure L
 
 {% endnote %}
 
-借助 LDAP 同步，您可以将 {% data variables.product.prodname_ghe_server %} 用户和团队成员关系与建立的 LDAP 组同步。 这样，您可以在 LDAP 服务器中为用户建立基于角色的权限控制，而不用在 {% data variables.product.prodname_ghe_server %} 中手动建立。 更多信息请参阅“[创建团队](/enterprise/{{ currentVersion }}/admin/guides/user-management/creating-teams#creating-teams-with-ldap-sync-enabled)”。
+借助 LDAP 同步，您可以将 {% data variables.product.prodname_ghe_server %} 用户和团队成员关系与建立的 LDAP 组同步。 这样，您可以在 LDAP 服务器中为用户建立基于角色的权限控制，而不用在 {% data variables.product.prodname_ghe_server %} 中手动建立。 更多信息请参阅“[创建团队](/enterprise/admin/guides/user-management/creating-teams#creating-teams-with-ldap-sync-enabled)”。
 
 要启用 LDAP 同步，请在您的 LDAP 设置中选择 **Synchronize Emails（同步电子邮件）**、**Synchronize SSH Keys（同步 SSH 密钥）**或 **Synchronize GPG Keys（同步 GPG 密钥）**。
 
@@ -187,8 +187,8 @@ If you use an LDAP directory for centralized authentication, you can configure L
 除非[启用 LDAP 同步](#enabling-ldap-sync)，否则 LDAP 帐户的变更将不会自动与 {% data variables.product.prodname_ghe_server %} 同步。
 
 * 要使用新的 LDAP 管理员组，必须在 {% data variables.product.prodname_ghe_server %} 上手动升级和降级用户，以反映 LDAP 中的变更。
-* 要在 LDAP 管理员组中添加或移除 LDAP 帐户，请[在 {% data variables.product.prodname_ghe_server %} 上升级或降级帐户](/enterprise/{{ currentVersion }}/admin/guides/user-management/promoting-or-demoting-a-site-administrator)。
-* 要移除 LDAP 帐户，请[挂起 {% data variables.product.prodname_ghe_server %} 帐户](/enterprise/{{ currentVersion }}/admin/guides/user-management/suspending-and-unsuspending-users)。
+* 要在 LDAP 管理员组中添加或移除 LDAP 帐户，请[在 {% data variables.product.prodname_ghe_server %} 上升级或降级帐户](/enterprise/admin/guides/user-management/promoting-or-demoting-a-site-administrator)。
+* 要移除 LDAP 帐户，请[挂起 {% data variables.product.prodname_ghe_server %} 帐户](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users)。
 
 ### 手动同步 LDAP 帐户
 
@@ -200,10 +200,10 @@ If you use an LDAP directory for centralized authentication, you can configure L
 {% data reusables.enterprise_site_admin_settings.admin-tab %}
 5. 在“LDAP”下，单击 **Sync now**，使用您的 LDAP 服务器中的数据手动更新帐户。 ![LDAP Sync now 按钮](/assets/images/enterprise/site-admin-settings/ldap-sync-now-button.png)
 
-您也可以[使用 API 触发手动同步](/enterprise/{{ currentVersion }}/user/rest/reference/enterprise-admin#ldap)。
+您也可以[使用 API 触发手动同步](/enterprise/user/rest/reference/enterprise-admin#ldap)。
 
 ## 撤销 {% data variables.product.product_location %} 的权限
 
 如果[启用 LDAP 同步](#enabling-ldap-sync)，移除用户的 LDAP 凭据将在下一次同步操作后挂起他们的帐户。
 
-如果**未**启用 LDAP 同步，您必须在移除 LDAP 凭据后手动挂起 {% data variables.product.prodname_ghe_server %} 帐户。 更多信息请参阅“[挂起和取消挂起用户](/enterprise/{{ currentVersion }}/admin/guides/user-management/suspending-and-unsuspending-users)”。
+如果**未**启用 LDAP 同步，您必须在移除 LDAP 凭据后手动挂起 {% data variables.product.prodname_ghe_server %} 帐户。 更多信息请参阅“[挂起和取消挂起用户](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users)”。

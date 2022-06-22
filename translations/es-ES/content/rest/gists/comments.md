@@ -1,6 +1,8 @@
 ---
-title: Comentarios
-intro: ''
+title: Gist comments
+allowTitleToDifferFromFilename: true
+shortTitle: Comentarios
+intro: The Gist comments API lets you view and modify comments on a gist.
 versions:
   fpt: '*'
   ghes: '*'
@@ -10,6 +12,10 @@ topics:
   - API
 miniTocMaxHeadingLevel: 3
 ---
+
+## About the Gist comments API
+
+La API de comentarios de gists te permite ver y modificar los comentarios en un gist. Para obtener más información sobre los gists, consulta la sección "[Editar y compartir el contenido con los gists](/get-started/writing-on-github/editing-and-sharing-content-with-gists)".
 
 ### Tipos de medios personalizados para los comentarios de los Gists
 

@@ -3,7 +3,7 @@ title: 限制转发端口的可见性
 shortTitle: 限制端口可见性
 intro: 您可以对用户在从组织中的代码空间转发端口时可以选择的可见性选项设置约束。
 product: '{% data reusables.gated-features.codespaces %}'
-permissions: 'To manage access to port visibility constraints for the repositories in an organization, you must be an organization owner.'
+permissions: 'To manage access to port visibility constraints for the repositories in an organization, you must be an owner of the organization.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -40,9 +40,7 @@ topics:
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. 在边栏的“Code, planning, and automation（代码、规划和自动化）”部分中，选择 **{% octicon "codespaces" aria-label="The codespaces icon" %}{% data variables.product.prodname_codespaces %}**，然后单击 **Policies（策略）**。
-1. 在“Codespace policies（代码空间策略）”页面上，单击 **Create Policy（创建策略）**。
-1. 输入新策略的名称。
+{% data reusables.codespaces.codespaces-org-policies %}
 1. 单击 **Add constraint（添加约束）** ，然后选择 **Port visibility（端口可见性）**。
 
    ![为端口可见性添加约束](/assets/images/help/codespaces/add-constraint-dropdown-ports.png)
@@ -55,21 +53,12 @@ topics:
 
    ![选择端口可见性选项](/assets/images/help/codespaces/choose-port-visibility-options.png)
 
-1. 在“Change policy target（更改策略目标）”区域中，单击下拉按钮。
-1. 选择 **All repositories（所有存储库）** 或 **Selected repositories（选定的存储库）**，以确定此策略将应用于哪些存储库。
-1. 如果选择了 **Selected repositories（所选仓库）**：
-   1. 单击 {% octicon "gear" aria-label="The settings icon" %}。
-
-      ![编辑策略的设置](/assets/images/help/codespaces/policy-edit.png)
-
-   2. 选择要应用此策略的存储库。
-   3. 在存储库列表的底部，单击 **Select repositories（选择存储库）**。
-
-      ![为此策略选择存储库](/assets/images/help/codespaces/policy-select-repos.png)
-
-1. 单击 **Save（保存）**。
-
+{% data reusables.codespaces.codespaces-policy-targets %}
+1. 如果要向策略添加其他约束，请单击 **Add constraint（添加约束）** ，然后选择另一个约束。 有关其他约束的信息，请参阅“[限制对计算机类型的访问](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)”和“[限制空闲超时期限](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)”。
+1. 向策略添加完约束后，单击 **Save（保存）**。
 ## 编辑策略
+
+您可以编辑现有策略。 例如，您可能希望在策略中添加或删除约束。
 
 1. 显示“Codespace policies（代码空间策略）”页。 更多信息请参阅“[添加策略以限制端口可见性选项](#adding-a-policy-to-limit-the-port-visibility-options)”。
 1. 单击要编辑的策略的名称。

@@ -1,5 +1,5 @@
 ---
-title: Configuring Dependabot version updates
+title: Dependabotのバージョンアップデートの設定
 intro: '{% data variables.product.prodname_dependabot %} が使用するパッケージを自動的に更新するようにリポジトリを設定できます。'
 permissions: 'People with write permissions to a repository can enable or disable {% data variables.product.prodname_dependabot_version_updates %} for the repository.'
 redirect_from:
@@ -18,7 +18,7 @@ topics:
   - Repositories
   - Dependencies
   - Pull requests
-shortTitle: Configure version updates
+shortTitle: バージョンアップデートの設定
 ---
 
 <!--Marketing-LINK: From /features/security/software-supply-chain page "About version updates for dependencies".-->
@@ -35,7 +35,16 @@ shortTitle: Configure version updates
 
 ## {% data variables.product.prodname_dependabot_version_updates %} を有効化する
 
-{% data reusables.dependabot.create-dependabot-yml %} For information, see "[Configuration options for the dependabot.yml file](/github/administering-a-repository/configuration-options-for-dependency-updates)."
+設定ファイルの*dependabot.yml*をリポジトリにコミットすることによって、{% data variables.product.prodname_dependabot_version_updates %}を有効化します。
+{% ifversion dependabot-settings-update-37 %}設定ページでこの機能を有効化すると、GitHubは基本のファイルを作成します。このファイルは編集可能です。あるいは、任意のファイルエディタを使ってこのファイルを作成できます。
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.navigate-to-code-security-and-analysis %}
+1. "Code security and analysis（コードのセキュリティと分析）"の下、”{% data variables.product.prodname_dependabot_version_updates %}"の右側にある**Enable（有効化）**をクリックして基本の*dependabot.yml* 設定ファイルをリポジトリの`.github`ディレクトリで開いてください。
+{% else %}
+1. *dependabot.yml*設定ファイルをリポジトリの`.github`ディレクトリに作成してください。
+{% endif %}
 1. `version` を追加します。
 1. プライベートレジストリに依存関係がある場合、必要に応じて認証情報を含む `registries` セクションを追加します。
 1. `updates` セクションを追加し、{% data variables.product.prodname_dependabot %} に監視させるパッケージマネージャーごとにエントリを追加します。
@@ -44,6 +53,8 @@ shortTitle: Configure version updates
     - `directory`: マニフェストまたはその他の定義ファイルの場所を指定します。
     - `schedule.interval`: 新しいバージョンをチェックする頻度を指定します。
 {% data reusables.dependabot.check-in-dependabot-yml %}
+
+すべての設定オプションに関する情報については「[dependabot.ymlファイルの設定オプション](/github/administering-a-repository/configuration-options-for-dependency-updates)」を参照してください。
 
 ### *dependabot.yml*ファイルの例
 
@@ -88,7 +99,7 @@ updates:
 
 ## バージョン更新のステータスを確認する
 
-After you enable version updates, the **Dependabot** tab in the dependency graph for the repository is populated. このタブには、{% data variables.product.prodname_dependabot %} が監視するように設定されているパッケージマネージャーと、{% data variables.product.prodname_dependabot %} が最後に新しいバージョンをチェックした日時が表示されます。
+バージョンアップデートを有効にすると、リポジトリの依存関係グラフに**Dependabot** タブが展開されます。 このタブには、{% data variables.product.prodname_dependabot %} が監視するように設定されているパッケージマネージャーと、{% data variables.product.prodname_dependabot %} が最後に新しいバージョンをチェックした日時が表示されます。
 
 ![[Repository Insights] タブ、[Dependency graph]、[Dependabot] タブ](/assets/images/help/dependabot/dependabot-tab-view.png)
 
@@ -139,4 +150,4 @@ updates:
         update-types: ["version-update:semver-patch"]
 ```
 
-For more information about checking for existing ignore preferences, see "[Configuration options for the dependabot.yml file](/github/administering-a-repository/configuration-options-for-dependency-updates#ignore)."
+既存の無視設定の確認に関する詳しい情報については、「[依存関係のdependabot.ymlファイルの設定オプション](/github/administering-a-repository/configuration-options-for-dependency-updates#ignore)」を参照してください。

@@ -3,7 +3,7 @@ title: 了解您的软件供应链
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: issue-4864
+  ghae: '*'
   ghec: '*'
 topics:
   - Dependency graph

@@ -1,35 +1,35 @@
 ---
 date: '2021-12-06'
-friendlyDate: 'December 6, 2021'
-title: 'December 6, 2021'
-currentWeek: true
+friendlyDate: '2021 年 12 月 6 日'
+title: '2021 年 12 月 6 日'
+currentWeek: false
 sections:
   features:
     - 
       heading: '管理'
       notes:
         - |
-          Customers with active or trial subscriptions for {% data variables.product.product_name %} can now provision {% data variables.product.product_name %} resources from the [Azure Portal](https://portal.azure.com/signin/index/). Your Azure subscription must be feature-flagged to access {% data variables.product.product_name %} resources in the portal. Contact your account manager or {% data variables.contact.contact_enterprise_sales %} to validate your Azure subscription's eligibility. For more information, see "[Setting up a trial of {% data variables.product.prodname_ghe_managed %}](/get-started/signing-up-for-github/setting-up-a-trial-of-github-ae#deploying-github-ae-with-the-azure-portal)."
+          拥有 {% data variables.product.product_name %} 的有效或试用订阅的客户现在可以从 [Azure 门户](https://portal.azure.com/signin/index/) 预配 {% data variables.product.product_name %} 资源。Azure 订阅必须具有功能标记才能访问门户中的 {% data variables.product.product_name %} 资源。请联系客户经理或 {% data variables.contact.contact_enterprise_sales %} 以验证 Azure 订阅的资格。更多信息请参阅“[设置 {% data variables.product.prodname_ghe_managed %} 的试用版](/get-started/signing-up-for-github/setting-up-a-trial-of-github-ae#deploying-github-ae-with-the-azure-portal)”。
     - 
       heading: 'GitHub Actions'
       notes:
         - |
-          [GitHub Actions](https://github.com/features/actions) is now generally available for {% data variables.product.product_name %}. GitHub Actions is a powerful, flexible solution for CI/CD and workflow automation. For more information, see "[Introduction to GitHub Actions](/actions/learn-github-actions/introduction-to-github-actions)."
+          [GitHub Actions](https://github.com/features/actions) 现已正式发布，适用于 {% data variables.product.product_name %}。GitHub Actions 是一款功能强大、灵活的 CI/CD 和工作流程自动化解决方案。更多信息，请参阅“[GitHub Actions 简介](/actions/learn-github-actions/introduction-to-github-actions)”。
         - |
-          Self-hosted runners are the default type of runner system on {% data variables.product.product_name %}, and are now generally available for GitHub Actions. With self-hosted runners, you can manage your own machines or containers for the execution of GitHub Actions jobs. For more information, see "[About self-hosted runners](https://docs.github.com/en/github-ae@latest/actions/hosting-your-own-runners/about-self-hosted-runners)" and "[Adding self-hosted runners](/actions/hosting-your-own-runners/adding-self-hosted-runners)."
+          自托管运行器是 {% data variables.product.product_name %} 上的默认运行器系统类型，现在已正式可用于 GitHub Actions。使用自托管运行器，可以管理自己的计算机或容器，以执行 GitHub Actions 作业。更多信息请参阅“[关于自托管运行器](https://docs.github.com/en/github-ae@latest/actions/hosting-your-own-runners/about-self-hosted-runners)”和“[添加自托管运行器](/actions/hosting-your-own-runners/adding-self-hosted-runners)”。
         - |
-          Environments, environment protection rules, and environment secrets are now generally available for GitHub Actions on {% data variables.product.product_name %}. For more information, see "[Environments](/actions/reference/environments)."
+          环境、环境保护规则和环境机密现已正式发布，可用于 {% data variables.product.product_name %} 上的 GitHub Actions。更多信息请参阅“[[Environments]](/actions/reference/environments)”。
         - |
-          GitHub Actions can now generate a visual graph of your workflow on every run. With workflow visualization, you can achieve the following.
+          GitHub Actions 现在可以在每次运行时生成工作流程的可视化图形。通过工作流程可视化，您可以实现以下目标。
 
-          - View and understand complex workflows.
-          - Track progress of workflows in real-time.
-          - Troubleshoot runs quickly by easily accessing logs and jobs metadata.
-          - Monitor progress of deployment jobs and easily access deployment targets.
+          - 查看和了解复杂的工作流程。
+          - 实时跟踪工作流程的进度。
+          - 通过轻松访问日志和作业元数据，快速对运行进行故障排除。
+          - 监控部署作业的进度并轻松访问部署目标。
 
-          For more information, see "[Using the visualization graph](/actions/managing-workflow-runs/using-the-visualization-graph)."
+          更多信息请参阅“[使用可视化图](/actions/managing-workflow-runs/using-the-visualization-graph)”。
         - |
-          GitHub Actions now lets you control the permissions granted to the `GITHUB_TOKEN` secret. The `GITHUB_TOKEN` is an automatically generated secret that lets you make authenticated calls to the API for {% data variables.product.product_name %} in your workflow runs. GitHub Actions generates a new token for each job and expires the token when a job completes. The token has `write` permissions to a number of [API endpoints](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token) except in the case of pull requests from forks, which are always `read`. These new settings allow you to follow a principle of least privilege in your workflows. For more information, see "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow#modifying-the-permissions-for-the-github_token)."
+          GitHub Actions 现在允许您控制授予“GITHUB_TOKEN”密钥的权限。“GITHUB_TOKEN”是自动生成的密钥，可用于对 API 进行经过身份验证的调用，以用于工作流程运行中的 {% data variables.product.product_name %}。GitHub Actions 为每个作业生成一个新令牌，并在作业完成时使令牌过期。令牌对许多 [API 端点](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token) 具有“写入”权限，但来自复刻的拉取请求除外，这些请求始终是“读取”的。这些新设置允许您在工作流中遵循最小权限原则。更多信息请参阅“[工作流程中的身份验证](/actions/reference/authentication-in-a-workflow#modifying-the-permissions-for-the-github_token)”。
         - |
           GitHub 操作现在支持通过在您的提交消息中寻找一些常见的关键字，以跳过 `push` 和 `pull_request` 工作流程。
         - |
@@ -86,7 +86,7 @@ sections:
       heading: '议题和拉取请求'
       notes:
         - |
-          With the [latest version of Octicons](https://github.com/primer/octicons/releases), the states of issues and pull requests are now more visually distinct so you can scan status more easily. For more information, see [{% data variables.product.prodname_blog %}](https://github.blog/changelog/2021-06-08-new-issue-and-pull-request-state-icons/).
+          使用 [最新版本的 Octicons](https://github.com/primer/octicons/releases)，现在议题和拉取请求的状态在视觉上更加明显，因此您可以更轻松地扫描其状态。更多信息请参阅 [{% data variables.product.prodname_blog %}](https://github.blog/changelog/2021-06-08-new-issue-and-pull-request-state-icons/)。
         - |
           You can now see all pull request review comments in the **Files** tab for a pull request by selecting the  **Conversations** drop-down. You can also require that all pull request review comments are resolved before anyone merges the pull request. For more information, see "[About pull request reviews](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews#discovering-and-navigating-conversations)" and "[About protected branches](/github/administering-a-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-conversation-resolution-before-merging)." For more information about management of branch protection settings with the API, see "[Branches](/rest/reference/branches#get-branch-protection)" in the REST API documentation and "[Mutations](/graphql/reference/mutations#createbranchprotectionrule)" in the GraphQL API documentation.
         - |
@@ -100,9 +100,9 @@ sections:
         - |
           To prevent the merge of unexpected changes after you enable auto-merge for a pull request, auto-merge is now disabled automatically when new changes are pushed by a user without write access to the repository. Users without write access can still update the pull request with changes from the base branch when auto-merge is enabled. To prevent a malicious user from using a merge conflict to introduce unexpected changes to the pull request, {% data variables.product.product_name %} will disable auto-merge for the pull request if the update causes a merge conflict. For more information about auto-merge, see "[Automatically merging a pull request](/github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request)."
         - |
-          People with maintain access can now manage the repository-level "Allow auto-merge" setting. This setting, which is off by default, controls whether auto-merge is available on pull requests in the repository. Previously, only people with admin access could manage this setting. Additionally, this setting can now by controlled using the "[Create a repository](/rest/reference/repos#create-an-organization-repository)" and "[Update a repository](/rest/reference/repos#update-a-repository)" REST APIs. For more information, see "[Managing auto-merge for pull requests in your repository](/github/administering-a-repository/configuring-pull-request-merges/managing-auto-merge-for-pull-requests-in-your-repository)."
+          具有维护权限的人员现在可以管理存储库级别的“允许自动合并”设置。此设置（默认情况下处于关闭状态）控制自动合并是否可用于存储库中的拉取请求。以前，只有具有管理员权限的人员才能管理此设置。此外，现在可以通过使用“[创建存储库](/rest/reference/repos#create-an-organization-repository)" and "[Update a repository](/rest/reference/repos#update-a-repository)”REST API 来控制此设置。更多信息请参阅“[管理存储库中拉取请求的自动合并](/github/administering-a-repository/configuring-pull-request-merges/managing-auto-merge-for-pull-requests-in-your-repository)”。
         - |
-          The assignees selection for issues and pull requests now supports type ahead searching so you can find users in your organization faster. Additionally, search result rankings have been updated to prefer matches at the start of a person's username or profile name.
+          针对议题和拉取请求的受理人选择现在支持提前键入搜索，以便您可以更快地在组织中查找用户。此外，搜索结果排名已更新为首选用户的用户名或个人资料名称开头的匹配项。
     - 
       heading: '仓库'
       notes:

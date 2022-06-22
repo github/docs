@@ -21,7 +21,7 @@ topics:
 
 Esta guía te explica cómo utilizar las {% data variables.product.prodname_actions %} para compilar y desplegar un contenedor de Docker a [Azure App Service](https://azure.microsoft.com/services/app-service/).
 
-{% ifversion fpt or ghec or ghae-issue-4856 %}
+{% ifversion fpt or ghec or ghae-issue-4856 or ghes > 3.4 %}
 
 {% note %}
 
@@ -138,10 +138,10 @@ jobs:
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@0b651ed7546ecfc75024011f76944cb9b381ef1e
-          with:
-            app-name: {% raw %}${{ env.AZURE_WEBAPP_NAME }}{% endraw %}
-            publish-profile: {% raw %}${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}{% endraw %}
-            images: 'ghcr.io/{% raw %}${{ env.REPO }}{% endraw %}:{% raw %}${{ github.sha }}{% endraw %}'
+        with:
+          app-name: {% raw %}${{ env.AZURE_WEBAPP_NAME }}{% endraw %}
+          publish-profile: {% raw %}${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}{% endraw %}
+          images: 'ghcr.io/{% raw %}${{ env.REPO }}{% endraw %}:{% raw %}${{ github.sha }}{% endraw %}'
 ```
 
 ## Recursos adicionales

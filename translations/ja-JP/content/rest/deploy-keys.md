@@ -1,6 +1,6 @@
 ---
 title: デプロイキー
-intro: ''
+intro: Deploy keys APIを使うと、デプロイキーの生成と管理ができます。
 versions:
   fpt: '*'
   ghes: '*'
@@ -13,6 +13,8 @@ allowTitleToDifferFromFilename: true
 redirect_from:
   - /rest/reference/deploy_keys
 ---
+
+## Deploy keys APIについて
 
 {% data reusables.repositories.deploy-keys %}
 

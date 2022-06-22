@@ -28,7 +28,7 @@ A workflow must contain the following basic components:
 1. One or more _jobs_, each of which will execute on a _runner_ machine and run a series of one or more _steps_.
 1. Each step can either run a script that you define or run an action, which is a reusable extension that can simplify your workflow.
 
-For more information these basic components, see "[Understanding GitHub Actions](/actions/learn-github-actions/understanding-github-actions#the-components-of-github-actions)."
+For more information on these basic components, see "[Understanding GitHub Actions](/actions/learn-github-actions/understanding-github-actions#the-components-of-github-actions)."
 
 ![Resumen del flujo de trabajo](/assets/images/help/images/overview-actions-simple.png)
 
@@ -105,9 +105,9 @@ jobs:
 
 Para obtener más información, consulta la sección "[Definir los jobs de prerrequisito](/actions/using-jobs/using-jobs-in-a-workflow#defining-prerequisite-jobs)".
 
-### Utilizar una matriz de compilaciones
+### Utilizar una matriz
 
-You can use a build matrix if you want your workflow to run tests across multiple combinations of parameters, such as operating systems, platforms, and languages. La matriz de compilaciones se crea utilizando la palabra clave `strategy`, la cual recibe las opciones de compilación como un arreglo. Por ejemplo, esta matriz de compilaciones ejecutará el job varias veces, utilizando diferentes versiones de Node.js:
+{% data reusables.actions.jobs.about-matrix-strategy %} The matrix is created using the `strategy` keyword, which receives the build options as an array. For example, this matrix will run the job multiple times, using different versions of Node.js:
 
 ```yaml
 jobs:
@@ -115,19 +115,19 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: [6, 8, 10]
+        node: [12, 14, 16]
     steps:
       - uses: {% data reusables.actions.action-setup-node %}
         with:
           node-version: {% raw %}${{ matrix.node }}{% endraw %}
 ```
 
-Para obtener más información, consulte la sección "[Utilizar una matriz de compilación para tus jobs](/actions/using-jobs/using-a-build-matrix-for-your-jobs)".
+Para obtener más información, consulta la sección "[Utilizar una matriz para tus jobs](/actions/using-jobs/using-a-matrix-for-your-jobs)".
 
-{% ifversion fpt or ghec %}
+{% ifversion actions-caching %}
 ### Almacenar dependencias en caché
 
-Los ejecutores hospedados en {% data variables.product.prodname_dotcom %} se inician como ambientes nuevos para cada job, así que, si tus jobs utilizan dependencias a menudo, puedes considerar almacenar estos archivos en caché para ayudarles a mejorar el rendimiento. Una vez que se crea el caché, estará disponible para todos los flujos de trabajo en el mismo repositorio.
+If your jobs regularly reuse dependencies, you can consider caching these files to help improve performance. Una vez que se crea el caché, estará disponible para todos los flujos de trabajo en el mismo repositorio.
 
 Este ejemplo ilustra cómo almacenar el directorio `~/.npm` en el caché:
 

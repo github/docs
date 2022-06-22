@@ -29,13 +29,6 @@ upcoming_changes:
     criticality: breaking
     owner: antn
   - 
-    location: EnterprisePendingMemberInvitationEdge.isUnlicensed
-    description: '`isUnlicensed` será removido.'
-    reason: Todos os integrantes pendentes consomem uma licença
-    date: '2020-07-01T00:00:00+00:00'
-    criticality: breaking
-    owner: BrentWheeldon
-  - 
     location: Issue.timeline
     description: '`timeline` será removido. Use Issue.timelineItems em vez disso.'
     reason: '`timeline` será removido'
@@ -56,20 +49,6 @@ upcoming_changes:
     date: '2020-10-01T00:00:00+00:00'
     criticality: breaking
     owner: nholden
-  - 
-    location: EnterpriseMemberEdge.isUnlicensed
-    description: '`isUnlicensed` será removido.'
-    reason: Todos os integrantes consomem uma licença
-    date: '2021-01-01T00:00:00+00:00'
-    criticality: breaking
-    owner: BrentWheeldon
-  - 
-    location: EnterpriseOutsideCollaboratorEdge.isUnlicensed
-    description: '`isUnlicensed` será removido.'
-    reason: Todos os colaboradores externos consomem uma licença
-    date: '2021-01-01T00:00:00+00:00'
-    criticality: breaking
-    owner: BrentWheeldon
   - 
     location: MergeStateStatus.DRAFT
     description: 'O `DRAFT` será removido. Use PullRequest.isDraft.'
@@ -100,15 +79,15 @@ upcoming_changes:
     owner: colinshum
   - 
     location: AddPullRequestToMergeQueueInput.branch
-    description: '`branch` will be removed.'
-    reason: PRs are added to the merge queue for the base branch, the `branch` argument is now a no-op
+    description: '`branch` será removido.'
+    reason: Os PRs são adicionados à fila de merge para o branch base, o argumento `branch` agora é um no-op
     date: '2022-07-01T00:00:00+00:00'
     criticality: breaking
     owner: jhunschejones
   - 
     location: Enterprise.userAccounts
-    description: '`userAccounts` will be removed. Use the `Enterprise.members` field instead.'
-    reason: The `Enterprise.userAccounts` field is being removed.
+    description: '`userAccounts` será removido. Use o campo `Enterprise.members`.'
+    reason: O campo `Enterprise.userAccounts` está sendo removido.
     date: '2022-07-01T00:00:00+00:00'
     criticality: breaking
     owner: jdennes
@@ -120,9 +99,23 @@ upcoming_changes:
     criticality: breaking
     owner: cheshire137
   - 
+    location: DependencyGraphDependency.packageLabel
+    description: '`packageLabel` will be removed. Use normalized `packageName` field instead.'
+    reason: '`packageLabel` will be removed.'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/dependency_graph
+  - 
+    location: RemovePullRequestFromMergeQueueInput.branch
+    description: '`branch` será removido.'
+    reason: PRs are removed from the merge queue for the base branch, the `branch` argument is now a no-op
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: jhunschejones
+  - 
     location: UpdateProjectNextItemFieldInput.fieldWithSettingId
-    description: '`fieldWithSettingId` will be removed. Use `fieldConstraintId` instead'
-    reason: Renamed to fieldConstraintId to improve naming consistency.
+    description: '`fieldWithSettingId` será removido. Use `fieldConstraintId`'
+    reason: Renomeado para fieldConstraintId para melhorar a consistência de nomes.
     date: '2022-10-01T00:00:00+00:00'
     criticality: breaking
     owner: memex

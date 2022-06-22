@@ -9,7 +9,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: issue-4864
+  ghae: '*'
   ghec: '*'
 type: how_to
 topics:
@@ -31,14 +31,14 @@ topics:
 
 O {% data variables.product.prodname_dotcom %} gera e exibe dados de dependência de maneira diferente de outras ferramentas. Consequentemente, se você usou outra ferramenta para identificar dependências, quase certamente verá resultados diferentes. Considere o seguinte:
 
-*   {% data variables.product.prodname_advisory_database %} é uma das fontes de dados que {% data variables.product.prodname_dotcom %} usa para identificar dependências vulneráveis. É um banco de dados gratuito e curado com informações sobre vulnerabilidade para ecossistemas de pacote comum em {% data variables.product.prodname_dotcom %}. Inclui tanto dados relatados diretamente para {% data variables.product.prodname_dotcom %} de {% data variables.product.prodname_security_advisories %} quanto os feeds oficiais e as fontes comunitárias. Estes dados são revisados e curados por {% data variables.product.prodname_dotcom %} para garantir que informações falsas ou não acionáveis não sejam compartilhadas com a comunidade de desenvolvimento. {% data reusables.security-advisory.link-browsing-advisory-db %}
+*   {% data variables.product.prodname_advisory_database %} is one of the data sources that {% data variables.product.prodname_dotcom %} uses to identify vulnerable dependencies{% ifversion GH-advisory-db-supports-malware %} and malware{% endif %}. It's a free, curated database of security advisories for common package ecosystems on {% data variables.product.prodname_dotcom %}. Inclui tanto dados relatados diretamente para {% data variables.product.prodname_dotcom %} de {% data variables.product.prodname_security_advisories %} quanto os feeds oficiais e as fontes comunitárias. Estes dados são revisados e curados por {% data variables.product.prodname_dotcom %} para garantir que informações falsas ou não acionáveis não sejam compartilhadas com a comunidade de desenvolvimento. {% data reusables.security-advisory.link-browsing-advisory-db %}
 *   O gráfico de dependências analisa todos os arquivos conhecidos de manifesto de pacote no repositório de um usuário. Por exemplo, para o npm, ele irá analisar o arquivo _package-lock.json_. Ele constrói um gráfico de todas as dependências do repositório e dependências públicas. Isso acontece quando você habilita o gráfico de dependências e quando alguém faz push para o branch-padrão, e inclui commits que fazem alterações em um formato de manifesto compatível. Para obter mais informações, consulte "[Sobre o gráfico de dependências](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)" e "[Solucionando problemas no gráfico de dependências](/code-security/supply-chain-security/understanding-your-software-supply-chain/troubleshooting-the-dependency-graph)".
-*   {% data variables.product.prodname_dependabot %} verifica qualquer push, para o branch-padrão, que contém um arquivo de manifesto. Quando um novo registro de vulnerabilidade é adicionado, ele verifica todos os repositórios existentes e gera um alerta para cada repositório vulnerável. {% data variables.product.prodname_dependabot_alerts %} são agregados ao nível do repositório, em vez de criar um alerta por vulnerabilidade. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)".
+*   {% data variables.product.prodname_dependabot %} verifica qualquer push, para o branch-padrão, que contém um arquivo de manifesto. When a new advisory is added, it scans all existing repositories and generates an alert for each repository that is affected. {% data variables.product.prodname_dependabot_alerts %} are aggregated at the repository level, rather than creating one alert per advisory. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)".
 *   {% ifversion fpt or ghec or ghes > 3.2 %}{% data variables.product.prodname_dependabot_security_updates %} são acionados quando você recebe um alerta sobre uma dependência vulnerável no repositório. Sempre que possível, {% data variables.product.prodname_dependabot %} cria um pull request no repositório para atualizar a dependência vulnerável à versão mínima segura necessária para evitar a vulnerabilidade. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)" e "[Solução de problemas de {% data variables.product.prodname_dependabot %}](/github/managing-security-vulnerabilities/troubleshooting-dependabot-errors)".
 
-    {% endif %}{% data variables.product.prodname_dependabot %} não pesquisa repositórios com relação a dependências vulneráveis de uma programação, mas o faz quando algo muda. Por exemplo, aciona-se uma varredura quando uma nova dependência é adicionada ({% data variables.product.prodname_dotcom %} verifica isso em cada push), ou quando uma nova vulnerabilidade é adicionada ao banco de dados da consultoria{% ifversion ghes or ghae-issue-4864 %} e sincronizado com {% data variables.product.product_location %}{% endif %}. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies#detection-of-vulnerable-dependencies)".
+    {% endif %}{% data variables.product.prodname_dependabot %} doesn't scan repositories on a schedule, but rather when something changes. For example, a scan is triggered when a new dependency is added ({% data variables.product.prodname_dotcom %} checks for this on every push), or when a new advisory is added to the database{% ifversion ghes or ghae %} and synchronized to {% data variables.product.product_location %}{% endif %}. For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies#detection-of-insecure-dependencies)."
 
-## {% data variables.product.prodname_dependabot_alerts %} só está relacionado a dependências vulneráveis nos manifestos e arquivos de bloqueio?
+## Do {% data variables.product.prodname_dependabot_alerts %} only relate to insecure dependencies in manifests and lockfiles?
 
 Os {% data variables.product.prodname_dependabot_alerts %} aconselham você com relação a dependências que você deve atualizar, incluindo dependências transitivas, em que a versão pode ser determinada a partir de um manifesto ou de um arquivo de bloqueio. {% ifversion fpt or ghec or ghes > 3.2 %}{% data variables.product.prodname_dependabot_security_updates %} sugere apenas uma mudança em que {% data variables.product.prodname_dependabot %} pode "corrigir" diretamente a dependência, ou seja, quando são:
 * Dependências diretas, que são definidas explicitamente em um manifesto ou arquivo de bloqueio
@@ -46,17 +46,17 @@ Os {% data variables.product.prodname_dependabot_alerts %} aconselham você com 
 
 **Verifique**: A vulnerabilidade não detectada para um componente não especificado no manifesto ou no arquivo de bloqueio do repositório?
 
-## Por que não recebo alertas de vulnerabilidade em alguns ecossistemas?
+## Why don't I get {% data variables.product.prodname_dependabot_alerts %} for some ecosystems?
 
-O {% data variables.product.prodname_dotcom %} limita seu suporte a alertas de vulnerabilidade a um conjunto de ecossistemas onde podemos fornecer dados de alta qualidade e relevantes. As vulnerabilidades curadas no {% data variables.product.prodname_advisory_database %}, o gráfico de dependências, {% ifversion fpt or ghec %}{% data variables.product.prodname_dependabot %} atualizações de segurança, {% endif %}e  {% data variables.product.prodname_dependabot_alerts %} são fornecidos para vários ecossistemas, incluindo o Maven do Javaen, o npm do JavaScript e o Yarn, Nuget do .NET's, Pip Python, RubyGems e PHP Composer. Nós continuaremos a adicionar suporte para mais ecossistemas ao longo do tempo. Para uma visão geral dos ecossistemas de pacotes suportados por nós, consulte "[Sobre o gráfico de dependências](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems)".
+{% data variables.product.prodname_dependabot_alerts %} are supported for a set of ecosystems where we can provide high-quality, actionable data. Curated advisories in the {% data variables.product.prodname_advisory_database %}, the dependency graph, {% ifversion fpt or ghec %}{% data variables.product.prodname_dependabot %} security updates, {% endif %}and  {% data variables.product.prodname_dependabot_alerts %} are provided for several ecosystems, including Java’s Maven, JavaScript’s npm and Yarn, .NET’s NuGet, Python’s pip, Ruby's RubyGems, and PHP’s Composer. Nós continuaremos a adicionar suporte para mais ecossistemas ao longo do tempo. Para uma visão geral dos ecossistemas de pacotes suportados por nós, consulte "[Sobre o gráfico de dependências](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems)".
 
-Vale a pena observar que as consultorias de segurança de {% data variables.product.prodname_dotcom %} podem existir para outros ecossistemas. As informações em uma consultoria de segurança são fornecidas pelos mantenedores de um determinado repositório. Estes dados não são curados da mesma forma que as informações relativas aos ecossistemas suportados. {% ifversion fpt or ghec %}Para obter mais informações, consulte "[Sobre consultorias de segurança de {% data variables.product.prodname_dotcom %}](/github/managing-security-vulnerabilities/about-github-security-advisories){% endif %}
+It's worth noting that security advisories may exist for other ecosystems. The information in an unreviewed security advisory is provided by the maintainers of a particular repository. This data is not curated by {% data variables.product.prodname_dotcom %}. {% data reusables.security-advisory.link-browsing-advisory-db %}
 
 **Verificar**: A vulnerabilidade não capturada se aplica a um ecossistema não suportado?
 
 ## O {% data variables.product.prodname_dependabot %} gera alertas de vulnerabilidades que são conhecidas há muitos anos?
 
-O {% data variables.product.prodname_advisory_database %} foi lançado em novembro de 2019 e preencheu, inicialmente, a inclusão de informações de vulnerabilidade para os ecossistemas compatíveis a partir de 2017. Ao adicionar CVEs ao banco de dados, priorizamos a curadoria de CVEs mais recentes e CVEs que afetam versões mais recentes do software.
+The {% data variables.product.prodname_advisory_database %} was launched in November 2019, and initially back-filled to include advisories for security risks in the supported ecosystems, starting from 2017. Ao adicionar CVEs ao banco de dados, priorizamos a curadoria de CVEs mais recentes e CVEs que afetam versões mais recentes do software.
 
 Algumas informações sobre vulnerabilidades mais antigas estão disponíveis, especialmente quando estes CVEs estão particularmente disseminados. No entanto algumas vulnerabilidades antigas não estão incluídas no {% data variables.product.prodname_advisory_database %}. Se houver uma vulnerabilidade antiga específica que você precisar incluir no banco de dados, entre em contato com {% data variables.contact.contact_support %}.
 
@@ -69,7 +69,7 @@ Algumas ferramentas de terceiros usam dados de CVE não descurados que não são
 Uma vez que {% data variables.product.prodname_dependabot %} usa dados curados em {% data variables.product.prodname_advisory_database %}, o volume de alertas pode ser menor, mas os alertas que você recebe serão precisos e relevantes.
 
 {% ifversion fpt or ghec %}
-## Cada vulnerabilidade de dependência gera um alerta separado?
+## Does each insecure dependency generate a separate alert?
 
 Quando uma dependência tem várias vulnerabilidades, gera-se um alerta para cada vulnerabilidade no nível da consultoria mais manifesto.
 
@@ -84,10 +84,16 @@ A contagem de {% data variables.product.prodname_dependabot_alerts %} em {% data
 **Verifique**: Se houver discrepância no total que você está vendo, verifique se você não está comparando números de alerta com números de dependência. Também verifique se você está visualizando todos os alertas e não um subconjunto de alertas filtrados.
 {% endif %}
 
+{% ifversion fpt or ghec or ghes > 3.2 %}
+## Depende pode ignorar dependências específicas?
+
+Você pode configurar {% data variables.product.prodname_dependabot %} para ignorar dependências específicas no arquivo de configuração, o que irá impedir a segurança e atualizações de versão para essas dependências. Se você deseja usar apenas atualizações de segurança, você deverá substituir o comportamento padrão por um arquivo de configuração. Para obter mais informações, consulte "[Substituindo o comportamento padrão com um arquivo de configuração](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates#overriding-the-default-behavior-with-a-configuration-file)" para evitar que as atualizações da versão sejam ativadas. Para obter informações sobre como ignorar as dependências, consulte "[`ignorar`](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#ignore)"
+{% endif %}
+
 ## Leia mais
 
 - "[Sobre {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)"
-- "[Visualizando {% data variables.product.prodname_dependabot_alerts %} para dependências vulneráveis](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)"
+- "[Viewing and updatng {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)"
 - "[Gerenciar as configurações de segurança e análise para o seu repositório](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)"
 - "[Solucionando problemas do gráfico de dependências](/code-security/supply-chain-security/understanding-your-software-supply-chain/troubleshooting-the-dependency-graph)"{% ifversion fpt or ghec or ghes > 3.2 %}
 - "[Solucionar problemas de {% data variables.product.prodname_dependabot %}](/github/managing-security-vulnerabilities/troubleshooting-dependabot-errors)"{% endif %}

@@ -24,12 +24,6 @@ topics:
   </div>
 </div>
 
-{% warning %}
-
-Advertencia: Desde la segunda mitad de octubre del 2021, ya no se están manteniendo las librerías oficiales de Octokit. Para obtener más información, consulta [este debate en el repositorio de octokit.js](https://github.com/octokit/octokit.js/discussions/620).
-
-{% endwarning %}
-
 # Librería de terceros
 
 ### Clojure
@@ -42,7 +36,7 @@ Advertencia: Desde la segunda mitad de octubre del 2021, ya no se están manteni
 
 | Nombre de la librería | Repositorio                                                             |
 | --------------------- | ----------------------------------------------------------------------- |
-| **github.dart**       | [DirectMyFile/github.dart](https://github.com/DirectMyFile/github.dart) |
+| **github.dart**       | [SpinlockLabs/github.dart](https://github.com/SpinlockLabs/github.dart) |
 
 ### Emacs Lisp
 
@@ -141,9 +135,10 @@ Advertencia: Desde la segunda mitad de octubre del 2021, ya no se están manteni
 
 ### Rust
 
-| Nombre de la librería | Repositorio                                                   |
-| --------------------- | ------------------------------------------------------------- |
-| **Octocrab**          | [XAMPPRocky/octocrab](https://github.com/XAMPPRocky/octocrab) |
+| Nombre de la librería | Repositorio                                                       |
+| --------------------- | ----------------------------------------------------------------- |
+| **Octocrab**          | [XAMPPRocky/octocrab](https://github.com/XAMPPRocky/octocrab)     |
+| **Octocat**           | [octocat-rs/octocat-rs](https://github.com/octocat-rs/octocat-rs) |
 
 ### Scala
 

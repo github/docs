@@ -22,13 +22,6 @@ upcoming_changes:
     criticality: breaking
     owner: tambling
   - 
-    location: EnterprisePendingMemberInvitationEdge.isUnlicensed
-    description: 'Se eliminará a `isUnlicensed`.'
-    reason: Todos los miembros pendientes consumen una licencia
-    date: '2020-07-01T00:00:00+00:00'
-    criticality: breaking
-    owner: BrentWheeldon
-  - 
     location: Issue.timeline
     description: 'Se eliminará a `timeline`. Utiliza Issue.timelineItems en sustitución.'
     reason: 'Se eliminará a `timeline`'
@@ -42,20 +35,6 @@ upcoming_changes:
     date: '2020-10-01T00:00:00+00:00'
     criticality: breaking
     owner: mikesea
-  - 
-    location: EnterpriseMemberEdge.isUnlicensed
-    description: 'Se eliminará a `isUnlicensed`.'
-    reason: Todos los miembros consumen una licencia
-    date: '2021-01-01T00:00:00+00:00'
-    criticality: breaking
-    owner: BrentWheeldon
-  - 
-    location: EnterpriseOutsideCollaboratorEdge.isUnlicensed
-    description: 'Se eliminará a `isUnlicensed`.'
-    reason: Todos los colaboradores externos consumen una licencia
-    date: '2021-01-01T00:00:00+00:00'
-    criticality: breaking
-    owner: BrentWheeldon
   - 
     location: MergeStateStatus.DRAFT
     description: 'El `DRAFT` se eliminará. Utiliza PullRequest.isDraft en su lugar.'
@@ -98,3 +77,10 @@ upcoming_changes:
     date: '2022-07-01T00:00:00+00:00'
     criticality: breaking
     owner: jdennes
+  - 
+    location: RemovePullRequestFromMergeQueueInput.branch
+    description: 'Se eliminará la `branch`.'
+    reason: Las solicitudes de cambio se eliminan de la cola de fusión para la rama base, el argumento `branch` ahora es un no-op
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: jhunschejones

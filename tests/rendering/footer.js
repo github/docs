@@ -8,7 +8,7 @@ describe('footer', () => {
 
   describe('"contact us" link', () => {
     test('leads to support from articles', async () => {
-      const $ = await getDOM(`/en/${nonEnterpriseDefaultVersion}/github`)
+      const $ = await getDOM(`/en/${nonEnterpriseDefaultVersion}/issues`)
       expect($('a#contact-us').attr('href')).toBe('https://support.github.com/contact')
     })
 
@@ -20,7 +20,7 @@ describe('footer', () => {
 
   describe('"contact us" link with nextjs', () => {
     test('leads to support from articles', async () => {
-      const $ = await getDOM(`/en/${nonEnterpriseDefaultVersion}/github?nextjs=`)
+      const $ = await getDOM(`/en/${nonEnterpriseDefaultVersion}/issues?nextjs=`)
       expect($('a#contact-us').attr('href')).toBe('https://support.github.com/contact')
     })
   })

@@ -11,9 +11,13 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
+## Feeds APIについて
+
+利用できるフィードを見るには、[Get feeds](#get-feeds)操作を使います。 そして、フィードURLの1つにリクエストを送信することによって、フィードを取得できます。
+
 ### Atomフィードの取得例
 
-フィードをAtom形式で取得するには、`Accept`ヘッダ中で`application/atom+xml`タイプを指定しなければなりません。 以下は、GitHubセキュリティアドバイザリに対するAtomフィードの取得例です。
+Atom 形式のフィードを取得するには、`Accept` ヘッダで `application/atom+xml` タイプを指定する必要があります。 たとえば、GitHub のセキュリティアドバイザリの Atom フィードを取得するには、次のように記述します。
 
     curl -H "Accept: application/atom+xml" https://github.com/security-advisories
 
@@ -25,9 +29,12 @@ HTTP/2 200
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xml:lang="en-US">
+<feed xmlns="http://www.w3.org/2005/Atom" 
+xmlns:media="http://search.yahoo.com/mrss/" 
+xml:lang="en-US">
   <id>tag:github.com,2008:/security-advisories</id>
-  <link rel="self" type="application/atom+xml" href="https://github.com/security-advisories.atom"/>
+  <link rel="self" type="application/atom+xml" 
+  href="https://github.com/security-advisories.atom"/>
   <title>GitHub Security Advisory Feed</title>
   <author>
     <name>GitHub</name>
@@ -37,10 +44,18 @@ HTTP/2 200
       <id>tag:github.com,2008:GHSA-abcd-12ab-23cd</id>
       <published>2018-07-26T15:14:52Z</published>
       <updated>2019-01-14T19:34:52Z</updated>
-      <title type="html">[GHSA-abcd-12ab-23cd] Moderate severity vulnerability that affects Octoapp</title>
+      <title type="html">[GHSA-abcd-12ab-23cd] Moderate 
+      severity vulnerability that affects Octoapp</title>
         <category term="NPM"/>
       <content type="html">
-        &lt;p&gt;Octoapp node module before 4.17.5 suffers from a Modification of Assumed-Immutable Data (MAID) vulnerability via defaultsDeep, merge, and mergeWith functions, which allows a malicious user to modify the prototype of &quot;Object&quot; via &lt;strong&gt;proto&lt;/strong&gt;, causing the addition or modification of an existing property that will exist on all objects.&lt;/p&gt;
+        &lt;p&gt;Octoapp node module before 4.17.5 suffers 
+        from a Modification of Assumed-Immutable Data (MAID) 
+        vulnerability via defaultsDeep, merge, and mergeWith 
+        functions, which allows a malicious user to modify 
+        the prototype of &quot;Object&quot; via 
+        &lt;strong&gt;proto&lt;/strong&gt;, causing the 
+        addition or modification of an existing property 
+        that will exist on all objects.&lt;/p&gt;
           &lt;p&gt;&lt;strong&gt;Affected Packages&lt;/strong&gt;&lt;/p&gt;
 
   &lt;dl&gt;

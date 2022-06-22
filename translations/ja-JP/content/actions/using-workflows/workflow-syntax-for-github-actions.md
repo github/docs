@@ -331,7 +331,7 @@ steps:
 
 #### Example: Using status check functions
 
-`my backup step`は、ジョブの前のステップが失敗した場合にのみ実行されます。 For more information, see "[Expressions](/actions/learn-github-actions/expressions#job-status-check-functions)."
+`my backup step`は、ジョブの前のステップが失敗した場合にのみ実行されます。 For more information, see "[Expressions](/actions/learn-github-actions/expressions#status-check-functions)."
 
 ```yaml
 steps:
@@ -745,11 +745,39 @@ If the timeout exceeds the job execution time limit for the runner, the job will
 
 ## `jobs.<job_id>.strategy`
 
-{% data reusables.actions.jobs.section-using-a-build-matrix-for-your-jobs-strategy %}
+Use `jobs.<job_id>.strategy` to use a matrix strategy for your jobs. {% data reusables.actions.jobs.about-matrix-strategy %} For more information, see "[Using a matrix for your jobs](/actions/using-jobs/using-a-matrix-for-your-jobs)."
 
 ### `jobs.<job_id>.strategy.matrix`
 
-{% data reusables.actions.jobs.section-using-a-build-matrix-for-your-jobs-matrix %}
+{% data reusables.actions.jobs.using-matrix-strategy %}
+
+#### Example: Using a single-dimension matrix
+
+{% data reusables.actions.jobs.single-dimension-matrix %}
+
+#### Example: Using a multi-dimension matrix
+
+{% data reusables.actions.jobs.multi-dimension-matrix %}
+
+#### Example: Using contexts to create matrices
+
+{% data reusables.actions.jobs.matrix-from-context %}
+
+### `jobs.<job_id>.strategy.matrix.include`
+
+{% data reusables.actions.jobs.matrix-include %}
+
+#### Example: Expanding configurations
+
+{% data reusables.actions.jobs.matrix-expand-with-include %}
+
+#### Example: Adding configurations
+
+{% data reusables.actions.jobs.matrix-add-with-include %}
+
+### `jobs.<job_id>.strategy.matrix.exclude`
+
+{% data reusables.actions.jobs.matrix-exclude %}
 
 ### `jobs.<job_id>.strategy.fail-fast`
 
@@ -963,6 +991,42 @@ jobs:
       access-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
 ```
 {% endraw %}
+
+{% ifversion actions-inherit-secrets-reusable-workflows %}
+
+### `jobs.<job_id>.secrets.inherit`
+
+Use the `inherit` keyword to pass all the calling workflow's secrets to the called workflow. This includes all secrets the calling workflow has access to, namely organization, repository, and environment secrets. The `inherit` keyword can be used to pass secrets across repositories within the same organization, or across organizations within the same enterprise.
+
+#### サンプル
+
+{% raw %}
+
+```yaml
+on:
+  workflow_dispatch:
+
+jobs:
+  pass-secrets-to-workflow:
+    uses: ./.github/workflows/called-workflow.yml
+    secrets: inherit
+```
+
+```yaml
+on:
+  workflow_call:
+
+jobs:
+  pass-secret-to-action:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Use a repo or org secret from the calling workflow.
+        run: echo ${{ secrets.CALLING_WORKFLOW_SECRET }}
+```
+
+{% endraw %}
+
+{%endif%}
 
 ### `jobs.<job_id>.secrets.<secret_id>`
 

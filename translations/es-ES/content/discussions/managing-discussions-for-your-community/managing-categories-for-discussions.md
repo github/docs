@@ -43,7 +43,7 @@ Cada categoría debe tener un nombre único y un emoji distintivo, y se le puede
 
 Puedes editar una categoría para cambiar el emoji, título, descripción y formato de debate de la misma.
 
-1. On {% data variables.product.product_location %}, navigate to the main page of the repository or organization where you want to create a category.
+1. En {% data variables.product.product_location %}, navega a la página principal del repositorio u organización en donde quieres crear una categoría.
 {% data reusables.discussions.discussions-tab %}
 1. A la derecha de la categoría en la lista, da clic en {% octicon "pencil" aria-label="The pencil icon" %}. ![Botón de editar a la derecha de la categoría en la lista de categorías de un repositorio](/assets/images/help/discussions/click-edit-for-category.png)
 1. {% data reusables.discussions.edit-category-details %}
@@ -54,7 +54,7 @@ Puedes editar una categoría para cambiar el emoji, título, descripción y form
 
 Cuando borras una categoría, {% data variables.product.product_name %} enviará todos los debates en la categoría que se borró a una categoría existente que elijas.
 
-1. On {% data variables.product.product_location %}, navigate to the main page of the repository or organization where you want to create a category.
+1. En {% data variables.product.product_location %}, navega a la página principal del repositorio u organización en donde quieres crear una categoría.
 {% data reusables.discussions.discussions-tab %}
 1. A la derecha de la categoría en la lista, da clic en {% octicon "trash" aria-label="The trash icon" %}. ![Botón de cesto de basura a la derecha de la categoría en la lista de categorías de un repositorio](/assets/images/help/discussions/click-delete-for-category.png)
 1. Utiliza el menú desplegable y elige una categoría nueva para cualquier debate en la categoría que estás eliminando. ![Menú desplegable para elegir una categoría nueva cuando se borra una categoría existente](/assets/images/help/discussions/choose-new-category.png)

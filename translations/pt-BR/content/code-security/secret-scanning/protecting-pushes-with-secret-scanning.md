@@ -76,12 +76,39 @@ Se {% data variables.product.prodname_dotcom %} bloquear um segredo que você ac
 
 Se você confirmar que um segredo é real e pretender corrigi-lo mais tarde, você deverá procurar remediar o segredo o mais rápido possível. Por exemplo, você pode revogar o segredo e remover o segredo do histórico de commit do repositório. Para obter mais informações, consulte "[Removendo dados confidenciais de um repositório](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository)".
 
-Quando você permite que um segredo seja feito push é criado um alerta na guia "Segurança". O alerta está fechado e nenhuma notificação é enviada se você especificar que o segredo é um falso-positivo ou usado apenas nos testes. Se você especificar que o segredo é real e que você vai corrigi-lo mais tarde o alerta de segurança permanece aberto e as notificações são enviadas ao autor dos administradores de commit e repositório. Para obter mais informações, consulte "[Gerenciando alertas da digitalização do segredo](/code-security/secret-scanning/managing-alerts-from-secret-scanning)".
+{% data reusables.secret-scanning.push-protection-allow-secrets-alerts %}
 
 1. Acesse o URL retornado por {% data variables.product.prodname_dotcom %} quando seu push foi bloqueado. ![Captura de tela que mostra o formulário com opções para desbloquear o push de um segredo](/assets/images/help/repository/secret-scanning-unblock-form.png)
-2. Escolha a opção que melhor descreve por que você deve ser capaz de enviar por push o segredo.
-    - Se o segredo é usado apenas em testes e não apresenta nenhuma ameaça, clique em **É usado em testes**.
-    - Se a seqüência de caracteres detectada não é um segredo, clique **É um falso-´positivo**.
-    - Se o segredo é real mas você pretende corrigi-lo mais tarde, clique em **Eu vou corrigi-lo mais tarde**.
-3. Clique **Me permite enviar por push este segredo**.
-4. Tente novamente na linha de comando em três horas. Se não enviou por push em três horas, você terá de repetir este processo.
+{% data reusables.secret-scanning.push-protection-choose-allow-secret-options %}
+1. Clique **Me permite enviar por push este segredo**.
+2. Tente novamente na linha de comando em três horas. Se não enviou por push em três horas, você terá de repetir este processo.
+
+{% ifversion secret-scanning-push-protection-web-ui %}
+## Usando a digitalização de segredo como uma proteção de push da interface de usuário web
+
+Ao usar a interface de usuário web para tentar confirmar um segredo suportado para um repositório ou organização com digitalização de segredo como uma proteção de push habilitada {% data variables.product.prodname_dotcom %} bloqueará o commit. Você verá um banner no topo da página com informações sobre a localização do segredo, e o segredo também será sublinhado no arquivo para que você possa encontrá-lo facilmente.
+
+  ![Captura de tela que mostra o commit na interface de usuário da web bloqueado devido à proteção de push da digitalização de segredo](/assets/images/help/repository/secret-scanning-push-protection-web-ui-commit-blocked-banner.png)
+
+{% data variables.product.prodname_dotcom %} só exibirá um segredo detectado por vez na interface do usuário. Se um segredo específico já foi detectado no repositório e um alerta já existe, {% data variables.product.prodname_dotcom %} não bloqueará esse segredo.
+
+Você pode remover o segredo do arquivo usando a interface de usuário da web. Depois de remover o segredo, o banner no topo da página mudará e dirá que agora você pode fazeer commit das suas alterações.
+
+  ![Captura de tela que mostra o commit na interface de usuário da web, permitido após correção do segredo](/assets/images/help/repository/secret-scanning-push-protection-web-ui-commit-allowed.png)
+
+### Ignorando a proteção de push para um segredo
+
+Se {% data variables.product.prodname_dotcom %} bloquear um segredo que você acredita ser seguro enviar por push, você poderá permitir o segredo e especificar a razão pela qual ele deve ser permitido. Se você confirmar que um segredo é real e pretender corrigi-lo mais tarde, você deverá procurar remediar o segredo o mais rápido possível.
+
+{% data reusables.secret-scanning.push-protection-allow-secrets-alerts %}
+
+Se você confirmar que um segredo é real e pretender corrigi-lo mais tarde, você deverá procurar remediar o segredo o mais rápido possível.
+
+1. No banner que apareceu na parte suérior da página quando {% data variables.product.prodname_dotcom %} bloqueou o seu commit, clique em **Ignorar proteção**.
+{% data reusables.secret-scanning.push-protection-choose-allow-secret-options %}
+
+  ![Captura de tela que mostra o formulário com opções para desbloquear o push de um segredo](/assets/images/help/repository/secret-scanning-push-protection-web-ui-allow-secret-options.png)
+
+1. Clique **Permitir segredo**.
+
+{% endif %}
