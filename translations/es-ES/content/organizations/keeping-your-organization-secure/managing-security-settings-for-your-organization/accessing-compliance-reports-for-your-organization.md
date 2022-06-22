@@ -29,7 +29,7 @@ Puedes acceder a los reportes de cumplimiento de {% data variables.product.compa
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}
-1. Under "Compliance reports", to the right of the report you want to access, click {% octicon "download" aria-label="The Download icon" %} **Download** or {% octicon "link-external" aria-label="The external link icon" %} **View**.
+1. Debajo de "Reportes de cumplimiento", a la derecha del reporte al cuál quieres acceder, haz clic en {% octicon "download" aria-label="The Download icon" %} **Descargar** o en {% octicon "link-external" aria-label="The external link icon" %} **Ver**.
 
    {% data reusables.security.compliance-report-screenshot %}
 

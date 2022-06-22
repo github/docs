@@ -309,7 +309,7 @@ For more information, see "[Environment variables](/actions/reference/environmen
 
 GitLab CI/CD and {% data variables.product.prodname_actions %} provide a method in the configuration file to manually cache workflow files.
 
-{% if actions-caching %}
+{% ifversion actions-caching %}
 
 Below is an example of the syntax for each system:
 

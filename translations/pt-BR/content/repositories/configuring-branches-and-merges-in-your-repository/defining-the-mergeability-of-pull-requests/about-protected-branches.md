@@ -50,7 +50,7 @@ Para cada regra de proteção do branch, você pode escolher habilitar ou desabi
 {% ifversion fpt or ghec %}
 - [Exigir uma fila de fusão](#require-merge-queue)
 {% endif %}
-{%- if required-deployments %}
+{%- ifversion required-deployments %}
 - [Exige implantações para ter sucesso antes do merge](#require-deployments-to-succeed-before-merging)
 {%- endif %}
 - [Incluir administradores](#include-administrators)
@@ -164,7 +164,7 @@ Você pode habilitar as restrições do branch se seu repositório for proprieda
 
 Ao habilitar as restrições de branches, apenas usuários, equipes ou aplicativos com permissão podem fazer push para o branch protegido. Você pode visualizar e editar usuários, equipes ou aplicativos com acesso de push a um branch protegido nas configurações do branch protegido. Quando as verificações de status são necessárias, as pessoas, as equipes e os aplicativos que têm permissão para fazer push em um branch protegido ainda serão impedidos de realizar merge no branch quando a verificação necessária falhar. As pessoas, equipes, e aplicativos que têm permissão para fazer push em um branch protegido ainda precisarão criar um pull request quando forem necessários pull requests.
 
-{% if restrict-pushes-create-branch %}
+{% ifversion restrict-pushes-create-branch %}
 Opcionalmente, você pode aplicar as mesmas restrições à criação de branches que correspondam à regra. Por exemplo, se você criar uma regra que só permite a uma determinada equipe fazer push para quaisquer branches que contenham a palavra `versão`, somente os integrantes dessa equipe poderiam criar um novo branch que contém a palavra `versão`.
 {% endif %}
 
@@ -186,7 +186,7 @@ Por padrão, os blocks do {% data variables.product.product_name %} fazem push f
 
 Habilitar push forçado não irá substituir quaisquer outras regras de proteção de branch. Por exemplo, se um branch exigir um histórico de commit linear, você não poderá forçar commits a mesclar commits para esse branch.
 
-{% ifversion ghes or ghae %}Você não pode habilitar pushes forçados para um branch protegido se um administrador do site bloquear push forçados para todos os branches do seu repositório. Para obter mais informações, consulte "[Bloqueando push forçado para repositórios de propriedade de uma conta pessoal ou de organização](/enterprise/{{ currentVersion }}/admin/developer-workflow/blocking-force-pushes-to-repositories-owned-by-a-user-account-or-organization)."
+{% ifversion ghes or ghae %}Você não pode habilitar pushes forçados para um branch protegido se um administrador do site bloquear push forçados para todos os branches do seu repositório. Para obter mais informações, consulte "[Bloqueando push forçado para repositórios de propriedade de uma conta pessoal ou de organização](/enterprise/admin/developer-workflow/blocking-force-pushes-to-repositories-owned-by-a-user-account-or-organization)."
 
 Se um administrador do site bloquear pushes forçados apenas para o branch padrão, você ainda pode habilitar pushes forçados para qualquer outro branch protegido.{% endif %}
 

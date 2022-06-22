@@ -42,7 +42,7 @@ topics:
 
 从其他人的项目复刻创建公共仓库时，请确保包含许可文件以确定您希望与其他人共享项目。 更多信息请参阅 choosealicense.com 上的“[选择开源许可](https://choosealicense.com/)”。
 
-{% data reusables.open-source.open-source-guide-repositories %} {% data reusables.open-source.open-source-learning-lab %}
+{% data reusables.open-source.open-source-guide-repositories %} {% data reusables.open-source.open-source-learning %}
 
 {% endif %}
 
@@ -57,7 +57,7 @@ topics:
 您可能为了对上游或原始仓库提议更改而复刻项目。 在这种情况下，最好定期将您的复刻与上游仓库同步。 为此，您需要在命令行上使用 Git。 您可以使用刚才复刻的 [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) 仓库练习设置上游仓库。
 
 1. 在 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.product.product_location %}{% endif %} 上，导航到 [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) 存储库。
-2. 在页面的右上角，单击 **Fork（复刻）**。 ![复刻按钮](/assets/images/help/repository/fork_button.jpg)
+2. 在页面的右上角，单击 **Fork（复刻）**。 ![复刻按钮](/assets/images/help/repository/fork_button.png)
 
 {% endwebui %}
 
@@ -154,7 +154,7 @@ gh repo fork <em>repository</em> --clone=true
 
 6. 键入 `git remote add upstream`，然后粘贴您在第 3 步中复制的 URL 并按 **Enter** 键。 它将如下所示：
   ```shell
-  $ git remote add upstream https://{% data variables.command_line.codeblock %}/YOUR_USERNAME/Spoon-Knife.git
+  $ git remote add upstream https://{% data variables.command_line.codeblock %}/ORIGINAL_OWNER/Spoon-Knife.git
   ```
 
 7. 要验证为复刻指定的新上游仓库，请再次键入 `git remote -v`。 您应该看到复刻的 URL 为 `origin`，原始仓库的 URL 为 `upstream`。

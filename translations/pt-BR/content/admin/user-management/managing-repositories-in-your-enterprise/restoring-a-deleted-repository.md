@@ -1,6 +1,7 @@
 ---
 title: Restaurar um repositório excluído
-intro: Os administradores do site podem restaurar repositórios excluídos para recuperar seu conteúdo.
+intro: Você pode restaurar repositórios excluídos para recuperar o seu conteúdo.
+permissions: Enterprise owners can restore a deleted repository.
 versions:
   ghes: '*'
   ghae: '*'
@@ -11,9 +12,11 @@ topics:
 shortTitle: Restaurar um repositório excluído
 ---
 
-Geralmente, quando alguém exclui um repositório, ele continua disponível em disco por 90 dias e pode ser restaurado pelo painel de administração do site. A menos que uma retenção legal entre em vigor para o usuário ou organização, após 90 dias, o repositório será removido e excluído para sempre.
-
 ## Sobre a restauração do repositório
+
+Geralmente, quando alguém exclui um repositório, ele continua disponível em disco por 90 dias e pode ser restaurado pelo painel de administração do site. Para obter mais informações, consulte "[Painel de administração do site](/admin/configuration/configuring-your-enterprise/site-admin-dashboard)".
+
+A menos que uma retenção legal entre em vigor para o usuário ou organização, após 90 dias, o repositório será removido e excluído para sempre.
 
 Se um repositório fizesse parte de uma rede de bifurcação quando foi excluído, o repositório restaurado será separado da rede de bifurcação original.
 

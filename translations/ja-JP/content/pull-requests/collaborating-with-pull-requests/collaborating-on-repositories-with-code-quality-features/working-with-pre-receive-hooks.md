@@ -31,4 +31,4 @@ error: failed to push some refs to 'https://54.204.174.51/hodor/nope.git'
 
 ![失敗した pre-receive フックのエラーメッセージ](/assets/images/help/pull_requests/pre-receive-hook-failed-error.png)
 
-{% data variables.product.product_name %} サイト管理者は、Organization またはリポジトリの pre-receive フックを作成および削除することができます。また、Organization またはリポジトリ管理者は、pre-receive フックを有効または無効にすることができます。 詳細は「[ポリシーを強制するために pre-receive フックを使用する](/enterprise/{{ currentVersion }}/admin/guides/developer-workflow/using-pre-receive-hooks-to-enforce-policy)」を参照してください。
+{% data variables.product.product_name %} サイト管理者は、Organization またはリポジトリの pre-receive フックを作成および削除することができます。また、Organization またはリポジトリ管理者は、pre-receive フックを有効または無効にすることができます。 詳細は「[ポリシーを強制するために pre-receive フックを使用する](/enterprise/admin/guides/developer-workflow/using-pre-receive-hooks-to-enforce-policy)」を参照してください。

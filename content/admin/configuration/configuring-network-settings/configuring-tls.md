@@ -31,9 +31,9 @@ To allow users to use FIDO U2F for two-factor authentication, you must enable TL
 
 To use TLS in production, you must have a certificate in an unencrypted PEM format signed by a trusted certificate authority.
 
-Your certificate will also need Subject Alternative Names configured for the subdomains listed in "[Enabling subdomain isolation](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-subdomain-isolation#about-subdomain-isolation)" and will need to include the full certificate chain if it has been signed by an intermediate certificate authority. For more information, see "[Subject Alternative Name](http://en.wikipedia.org/wiki/SubjectAltName)" on Wikipedia.
+Your certificate will also need Subject Alternative Names configured for the subdomains listed in "[Enabling subdomain isolation](/enterprise/admin/guides/installation/enabling-subdomain-isolation#about-subdomain-isolation)" and will need to include the full certificate chain if it has been signed by an intermediate certificate authority. For more information, see "[Subject Alternative Name](http://en.wikipedia.org/wiki/SubjectAltName)" on Wikipedia.
 
-You can generate a certificate signing request (CSR) for your instance using the `ghe-ssl-generate-csr` command. For more information, see "[Command-line utilities](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities/#ghe-ssl-generate-csr)."
+You can generate a certificate signing request (CSR) for your instance using the `ghe-ssl-generate-csr` command. For more information, see "[Command-line utilities](/enterprise/admin/guides/installation/command-line-utilities/#ghe-ssl-generate-csr)."
 
 ## Uploading a custom TLS certificate
 
@@ -65,7 +65,7 @@ Let's Encrypt is a public certificate authority that issues free, automated TLS 
 
 When you enable automation of TLS certificate management using Let's Encrypt, {% data variables.product.product_location %} will contact the Let's Encrypt servers to obtain a certificate. To renew a certificate, Let's Encrypt servers must validate control of the configured domain name with inbound HTTP requests.
 
-You can also use the `ghe-ssl-acme` command line utility on {% data variables.product.product_location %} to automatically generate a Let's Encrypt certificate. For more information, see "[Command-line utilities](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities#ghe-ssl-acme)."
+You can also use the `ghe-ssl-acme` command line utility on {% data variables.product.product_location %} to automatically generate a Let's Encrypt certificate. For more information, see "[Command-line utilities](/enterprise/admin/guides/installation/command-line-utilities#ghe-ssl-acme)."
 
 ## Configuring TLS using Let's Encrypt
 

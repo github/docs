@@ -23,7 +23,7 @@ shortTitle: Configurar para organização
 
 Depois de receber um convite para sua organização ingressar no {% data variables.product.prodname_sponsors %}, você poderá concluir as etapas abaixo para se tornar uma organização patrocinada.
 
-To join {% data variables.product.prodname_sponsors %} as an individual contributor outside an organization, see "[Setting up {% data variables.product.prodname_sponsors %} for your personal account](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account)."
+Para se juntar ao {% data variables.product.prodname_sponsors %} como colaborador individual fora de uma organização, consulte "[Configurando o {% data variables.product.prodname_sponsors %} para sua conta pessoal](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account)."
 
 {% data reusables.sponsors.navigate-to-github-sponsors %}
 {% data reusables.sponsors.view-eligible-accounts %}

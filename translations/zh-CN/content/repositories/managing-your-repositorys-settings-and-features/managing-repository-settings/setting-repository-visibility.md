@@ -61,7 +61,7 @@ shortTitle: 仓库可见性
 {%- endif %}
 
 {%- ifversion ghes %}
-* 匿名 Git 读取权限不再可用。 更多信息请参阅“[为仓库启用匿名 Git 读取权限](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)。”
+* 匿名 Git 读取权限不再可用。 更多信息请参阅“[为仓库启用匿名 Git 读取权限](/enterprise/user/articles/enabling-anonymous-git-read-access-for-a-repository)。”
 {%- endif %}
 
 {% ifversion ghes or ghec or ghae %}

@@ -12,7 +12,7 @@ jobs:
 ```
 {% endraw %}
 
-{% if actions-inherit-secrets-reusable-workflows %}
+{% ifversion actions-inherit-secrets-reusable-workflows %}
 在同一组织或企业中调用可重用工作流程的工作流程可以使用 `inherit` 关键字来隐式传递机密。
 
 {% raw %}

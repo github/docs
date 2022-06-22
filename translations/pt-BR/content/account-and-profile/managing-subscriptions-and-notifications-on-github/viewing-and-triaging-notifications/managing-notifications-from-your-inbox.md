@@ -119,7 +119,7 @@ Para filtrar notificações para uma atividade específica no {% data variables.
 - `is:discussion`{% endif %}
 
 {% ifversion fpt or ghes or ghae or ghec %}
-Para informações sobre a redução de ruído de notificações para {% data variables.product.prodname_dependabot_alerts %}, consulte "[Configurar notificações para dependências vulneráveis](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies)".
+Para obter informações sobre a redução de ruído de notificações para {% data variables.product.prodname_dependabot_alerts %}, consulte "[Configurando notificações para {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts)".
 {% endif %}
 
 Você também pode usar a consulta `is:` para descrever como a notificação passou pela triagem.
@@ -175,7 +175,7 @@ Para obter mais informações sobre {% data variables.product.prodname_dependabo
 
 {% ifversion ghes < 3.3 or ghae %}
 
-Se você usar {% data variables.product.prodname_dependabot %} para falar sobre dependências vulneráveis, você pode usar e salvar esses filtros personalizados para mostrar notificações para {% data variables.product.prodname_dependabot_alerts %}:
+Se você usar {% data variables.product.prodname_dependabot %} para falar sobre dependências inseguras, você poderá usar e salvar esses filtros personalizados para mostrar notificações para {% data variables.product.prodname_dependabot_alerts %}:
 - `is:repository_vulnerability_alert`
 - `reason:security_alert`
 

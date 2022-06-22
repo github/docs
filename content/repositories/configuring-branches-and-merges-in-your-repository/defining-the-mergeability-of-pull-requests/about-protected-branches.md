@@ -49,7 +49,7 @@ For each branch protection rule, you can choose to enable or disable the followi
 {% ifversion fpt or ghec %}
 - [Require merge queue](#require-merge-queue)
 {% endif %}
-{%- if required-deployments %}
+{%- ifversion required-deployments %}
 - [Require deployments to succeed before merging](#require-deployments-to-succeed-before-merging)
 {%- endif %}
 - [Include administrators](#include-administrators)
@@ -163,7 +163,7 @@ You can enable branch restrictions if your repository is owned by an organizatio
 
 When you enable branch restrictions, only users, teams, or apps that have been given permission can push to the protected branch. You can view and edit the users, teams, or apps with push access to a protected branch in the protected branch's settings. When status checks are required, the people, teams, and apps that have permission to push to a protected branch will still be prevented from merging into the branch when the required checks fail. People, teams, and apps that have permission to push to a protected branch will still need to create a pull request when pull requests are required.
 
-{% if restrict-pushes-create-branch %}
+{% ifversion restrict-pushes-create-branch %}
 Optionally, you can apply the same restrictions to the creation of branches that match the rule. For example, if you create a rule that only allows a certain team to push to any branches that contain the word `release`, only members of that team would be able to create a new branch that contains the word `release`.
 {% endif %}
 
@@ -185,7 +185,7 @@ By default, {% data variables.product.product_name %} blocks force pushes on all
 
 Enabling force pushes will not override any other branch protection rules. For example, if a branch requires a linear commit history, you cannot force push merge commits to that branch.
 
-{% ifversion ghes or ghae %}You cannot enable force pushes for a protected branch if a site administrator has blocked force pushes to all branches in your repository. For more information, see "[Blocking force pushes to repositories owned by a personal account or organization](/enterprise/{{ currentVersion }}/admin/developer-workflow/blocking-force-pushes-to-repositories-owned-by-a-user-account-or-organization)."
+{% ifversion ghes or ghae %}You cannot enable force pushes for a protected branch if a site administrator has blocked force pushes to all branches in your repository. For more information, see "[Blocking force pushes to repositories owned by a personal account or organization](/enterprise/admin/developer-workflow/blocking-force-pushes-to-repositories-owned-by-a-user-account-or-organization)."
 
 If a site administrator has blocked force pushes to the default branch only, you can still enable force pushes for any other protected branch.{% endif %}
 

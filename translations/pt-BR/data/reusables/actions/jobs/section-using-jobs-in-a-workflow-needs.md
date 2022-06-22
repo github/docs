@@ -1,4 +1,4 @@
-Use as `jobs.<job_id>.needs` para identificar qualquer trabalho que deve ser concluído com sucesso antes deste trabalho ser executado. Esse código pode ser uma string ou array de strings. Se houver falha em um trabalho, todos os trabalhos que dependem dele serão ignorados, a menos que os trabalhos usem uma expressão condicional que faça o trabalho continuar.
+Use as `jobs.<job_id>.needs` para identificar qualquer trabalho que deve ser concluído com sucesso antes deste trabalho ser executado. Esse código pode ser uma string ou array de strings. Se houver falha em um trabalho, todos os trabalhos que dependem dele serão ignorados, a menos que os trabalhos usem uma expressão condicional que faça o trabalho continuar. Se uma execução contém uma série de trabalhos que precisam um do outro, uma falha aplica-se a todos os trabalhos da cadeia de dependência desde o momento da falha.
 
 #### Exemplo: Exigindo trabalhos dependentes com sucesso
 

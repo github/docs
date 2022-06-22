@@ -25,7 +25,7 @@ shortTitle: Visualizar o uso avançado de segurança
 
 {% data reusables.advanced-security.about-ghas-license-seats %} Para obter mais informações, consulte "[Sobre a cobrança do {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)".
 
-{% if ghas-committers-calculator %}
+{% ifversion ghas-committers-calculator %}
 Você pode calcular quantas estações adicionais serão usadas se você habilitar o {% data variables.product.prodname_GH_advanced_security %} para mais organizações e repositórios com o painel de administração do site. Para obter mais informações, consulte "[Painel de administração do site](/admin/configuration/configuring-your-enterprise/site-admin-dashboard#advanced-security-active-committers)".
 {% endif %}
 

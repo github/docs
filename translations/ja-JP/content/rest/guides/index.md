@@ -25,4 +25,4 @@ children:
   - /getting-started-with-the-checks-api
 ---
 
-ドキュメンテーションのこのセクションは、実際の{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} APIアプリケーションを立ち上げられるようにすることを意図したものです。 認証から結果の操作、結果を他のアプリケーションと組み合わせる方法に至るまで、必要な情報をすべて網羅しています。 ここに挙げる各チュートリアルにはプロジェクトがあり、各プロジェクトはパブリックの[platform-samples](https://github.com/github/platform-samples)に保存・文書化されます。 ![Octocat](/assets/images/electrocat.png)
+ドキュメンテーションのこのセクションは、実際の{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} APIアプリケーションを立ち上げられるようにすることを意図したものです。 結果を操作するための認証から、他のアプリケーションとの結果のインテグレーションまで、知る必要があることをすべて見ていきます。 すべてのチュートリアルにはプロジェクトが含まれ、各プロジェクトはパブリックの[platform-samples](https://github.com/github/platform-samples)に保存・文書化されます。 ![Octocat](/assets/images/electrocat.png)

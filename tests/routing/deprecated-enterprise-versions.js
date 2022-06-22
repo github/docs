@@ -104,6 +104,7 @@ describe('recently deprecated redirects', () => {
       headers: {
         Cookie: `${PREFERRED_LOCALE_COOKIE_NAME}=ja`,
       },
+      followRedirects: false,
     })
     expect(res.statusCode).toBe(302)
     expect(res.headers.location).toBe('/ja/enterprise-server@3.0')

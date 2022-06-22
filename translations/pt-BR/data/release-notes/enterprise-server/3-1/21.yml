@@ -2,24 +2,25 @@
 date: '2022-05-17'
 sections:
   security_fixes:
-    - '**MEDIUM:** A security issue in nginx resolver was identified, where an attacker who could forge UDP packets from the DNS server could cause 1-byte memory overwrite, resulting in worker process crashes or other potentially damaging impacts. The vulnerability has been assigned [CVE-2021-23017](https://nvd.nist.gov/vuln/detail/CVE-2021-23017).'
-    - Updated the `actions/checkout@v2` and `actions/checkout@v3` actions to address new vulnerabilities announced in the [Git security enforcement blog post](https://github.blog/2022-04-12-git-security-vulnerability-announced/).
+    - '**MÉDIO:** Identificou-se um problema de segurança no resolvedor do nginx, em que um invasor que poderia forjar pacotes UDP do servidor DNS pode fazer com que a memória de 1 byte seja sobrescrita, resultando em falhas no processo dos trabalhadores ou outros impactos potencialmente prejudiciais. A vulnerabilidade foi atribuída [CVE-2021-23017](https://nvd.nist.gov/vuln/detail/CVE-2021-23017).'
+    - Atualizadou as ações `actions/checkout@v2` e `actions/checkout@v3` para endereçar novas vulnerabilidades anunciadas na [postagem do blogue de aplicação de segurança do Git](https://github.blog/2022-04-12-git-security-vulnerability-announced ced/).
     - Os pacotes foram atualizados para as últimas versões de segurança.
   bugs:
-    - In some cluster topologies, the `ghe-cluster-status` command left behind empty directories in `/tmp`.
-    - SNMP incorrectly logged a high number of `Cannot statfs` error messages to syslog.
-    - For instances configured with SAML authentication and built-in fallback enabled, built-in users would get stuck in a “login” loop when attempting to sign in from the page generated after logging out.
-    - When using SAML encrypted assertions, some assertions were not correctly marking SSH keys as verified.
+    - Em algumas topologias de agrupamento, o comando `ghe-cluster-status` ignorou diretórios vazios em `/tmp`.
+    - O SNMP registrou incorretamente um número alto de mensagens de erro `Cannot statfs` para o syslog.
+    - Para instâncias configuradas com a autenticação SAML e o recurso interno habilitado, usuários integrados ficariam presos em um loop de "login" ao tentar efetuar o login a partir da página gerada após o logout.
+    - Ao usar declarações criptografadas do SAML, algumas afirmações não estavam marcando corretamente chaves SSH como verificada.
+    - 'The Releases page would return a 500 error when the repository has tags that contain non-ASCII characters. [Updated: 2022-06-10]'
   changes:
-    - In high availability configurations, clarify that the replication overview page in the Management Console only displays the current replication configuration, not the current replication status.
-    - When enabling {% data variables.product.prodname_registry %}, clarify that using a Shared Access Signature (SAS) token as connection string is not supported.
-    - Support bundles now include the row count of tables stored in MySQL.
+    - Nas configurações de alta disponibilidade, explique que a página de visão geral de replicação no Console de Gerenciamento exibe somente a configuração de replicação atual, não o status de replicação atual.
+    - Ao habilitar {% data variables.product.prodname_registry %}, explique que o uso de um token de Assinatura de Acesso Compartilhado (SAS) como string de conexão não é compatível.
+    - Pacotes de suporte agora incluem a contagem de linhas armazenadas no MySQL.
   known_issues:
     - O registro npm de {% data variables.product.prodname_registry %} não retorna mais o valor de tempo em respostas de metadados. Isso foi feito para permitir melhorias substanciais de desempenho. Continuamos a ter todos os dados necessários para devolver um valor de tempo como parte da resposta aos metadados e retomaremos o retorno desse valor no futuro, assim que tivermos resolvido os problemas de desempenho existentes.
     - Em uma instância de {% data variables.product.prodname_ghe_server %} recém-configurada sem usuários, um invasor pode criar o primeiro usuário administrador.
     - As regras de firewall personalizadas são removidas durante o processo de atualização.
     - Arquivos LFS do Git [enviados através da interface web](https://github.com/blog/2105-upload-files-to-your-repositories) são adicionados diretamente ao repositório e de forma incorreta.
     - Os problemas não podem ser fechados se contiverem um permalink para um blob no mesmo repositório, onde o caminho do arquivo blob's é maior que 255 caracteres.
-    - When "Users can search GitHub.com" is enabled with {% data variables.product.prodname_github_connect %}, issues in private and internal repositories are not included in {% data variables.product.prodname_dotcom_the_website %} search results.
+    - Quando "Usuários podem pesquisar pelo GitHub.com" está habilitado com {% data variables.product.prodname_github_connect %}, os problemas nos repositórios privados e internos não são incluídos nos resultados de pesquisa de {% data variables.product.prodname_dotcom_the_website %}.
     - Se o {% data variables.product.prodname_actions %} estiver habilitado para {% data variables.product.prodname_ghe_server %}, a desmontagem de um nó de réplica com `ghe-repl-teardown` será bem-sucedida, mas poderá retornar `ERROR:Running migrations`.
     - Os limites de recursos que são específicos para processamento de hooks pre-receive podem causar falha em alguns hooks pre-receive.

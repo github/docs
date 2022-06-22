@@ -19,7 +19,7 @@ shortTitle: GitHub Campus Program
 - Exclusive access to new features, GitHub Education-specific swag, and free developer tools from {% data variables.product.prodname_dotcom %} partners
 - Automated access to premium {% data variables.product.prodname_education %} features, like the {% data variables.product.prodname_student_pack %}
 
-To read about how GitHub is used by educators, see [GitHub Education stories.](https://education.github.com/stories)
+To read about how GitHub is used by educators, see [GitHub Education stories](https://education.github.com/stories).
 
 ## {% data variables.product.prodname_campus_program %} terms and conditions
 
@@ -32,7 +32,7 @@ To read about how GitHub is used by educators, see [GitHub Education stories.](h
 - New organizations in your enterprise are automatically added to your enterprise account. To add organizations that existed before your school joined the {% data variables.product.prodname_campus_program %}, please contact [GitHub Education Support](https://support.github.com/contact/education). For more information about administrating your enterprise, see the [enterprise administrators documentation](/admin). New organizations in your enterprise are automatically added to your enterprise account. To add organizations that existed before your school joined the {% data variables.product.prodname_campus_program %}, please contact GitHub Education Support. 
 
 
-To read more about {% data variables.product.prodname_dotcom %}'s privacy practices, see ["Global Privacy Practices"](/github/site-policy/global-privacy-practices)
+To read more about {% data variables.product.prodname_dotcom %}'s privacy practices, see "[Global Privacy Practices](/github/site-policy/global-privacy-practices)."
 
 ## {% data variables.product.prodname_campus_program %} Application Eligibility
 

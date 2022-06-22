@@ -73,7 +73,7 @@ Es posible que se requieran más recursos según su uso, como la actividad del u
   {% endnote %}
 
 4. Configura el valor `GHE_DATA_DIR` en la ubicación del sistema de archivos donde deseas almacenar las instantáneas de copia de seguridad.
-5. Abre la página de configuración de tu instancia primaria en `https://HOSTNAME/setup/settings` y agrega la clave SSH del host de copia de seguridad a la lista de claves SSH autorizadas. Para obtener más información, consulta [Acceder al shell administrativo (SSH)](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-administrative-shell-ssh/).
+5. Abre la página de configuración de tu instancia primaria en `https://HOSTNAME/setup/settings` y agrega la clave SSH del host de copia de seguridad a la lista de claves SSH autorizadas. Para obtener más información, consulta [Acceder al shell administrativo (SSH)](/enterprise/admin/guides/installation/accessing-the-administrative-shell-ssh/).
 6. Verifica la conectividad SSH con {% data variables.product.product_location %} con el comando `ghe-host-check`.
   ```shell
   $ bin/ghe-host-check        
@@ -130,7 +130,7 @@ $ ghe-restore -c 169.154.1.1
 > Visita https://169.154.1.1/setup/settings para revisar la configuración del aparato.
 ```
 
-{% if ip-exception-list %}
+{% ifversion ip-exception-list %}
 Opcionalmente, para validar la restauración, configura una lista de excepción de IP para permitir el acceso una lista de direcciones IP específicas. Para obtener más información, consulta la sección "[Validar los cambios en modo de mantenimiento utilizando la lista de excepción de IP](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode#validating-changes-in-maintenance-mode-using-the-ip-exception-list)".
 {% endif %}
 
