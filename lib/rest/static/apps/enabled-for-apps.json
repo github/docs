@@ -8,6 +8,12 @@
         "requestPath": "/enterprises/{enterprise}/actions/cache/usage"
       },
       {
+        "slug": "set-the-github-actions-oidc-custom-issuer-policy-for-an-enterprise",
+        "subcategory": "oidc",
+        "verb": "put",
+        "requestPath": "/enterprises/{enterprise}/actions/oidc/customization/issuer"
+      },
+      {
         "slug": "get-default-workflow-permissions-for-an-enterprise",
         "subcategory": "permissions",
         "verb": "get",
