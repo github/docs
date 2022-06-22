@@ -47,9 +47,7 @@ You should download the {% data variables.product.prodname_codeql %} bundle from
 {% ifversion ghes %}
 
 {% note %}
-{% ifversion ghes = 3.1 %}For {% data variables.product.prodname_ghe_server %} 3.1, we recommend {% data variables.product.prodname_codeql_cli %} version 2.6.3.{% endif %}
-{% ifversion ghes = 3.2 %}For {% data variables.product.prodname_ghe_server %} 3.2, we recommend {% data variables.product.prodname_codeql_cli %} version 2.6.3.{% endif %}
-{% ifversion ghes > 3.2 %}For {% data variables.product.prodname_ghe_server %} 3.3 and greater, we recommend {% data variables.product.prodname_codeql_cli %} version 2.7.6 or greater.{% endif %}
+For {% data variables.product.prodname_ghe_server %} {% data variables.product.ghes_version %}, we recommend {% data variables.product.prodname_codeql_cli %} version {% data variables.product.codeql_cli_ghes_recommended_version %}.{% endif %}
 {% endnote %}
 
 {% endif %}
