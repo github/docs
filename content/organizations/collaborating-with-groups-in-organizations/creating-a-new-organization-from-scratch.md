@@ -1,5 +1,5 @@
 ---
-title: Creating a new organization from scratch
+title: Creating a new organization from scratch😀
 intro: Create an organization to apply fine-grained access permissions to repositories.
 versions:
   fpt: '*'
