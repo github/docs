@@ -10,6 +10,14 @@
         "owner": "memex"
       },
       {
+        "location": "RepositoryVulnerabilityAlert.fixReason",
+        "description": "<p><code>fixReason</code> will be removed.</p>",
+        "reason": "<p>The <code>fixReason</code> field is being removed. You can still use <code>fixedAt</code> and <code>dismissReason</code>.</p>",
+        "date": "2022-10-01",
+        "criticality": "breaking",
+        "owner": "jamestran201"
+      },
+      {
         "location": "RemovePullRequestFromMergeQueueInput.branch",
         "description": "<p><code>branch</code> will be removed.</p>",
         "reason": "<p>PRs are removed from the merge queue for the base branch, the <code>branch</code> argument is now a no-op</p>",
@@ -166,6 +174,14 @@
         "date": "2022-10-01",
         "criticality": "breaking",
         "owner": "memex"
+      },
+      {
+        "location": "RepositoryVulnerabilityAlert.fixReason",
+        "description": "<p><code>fixReason</code> will be removed.</p>",
+        "reason": "<p>The <code>fixReason</code> field is being removed. You can still use <code>fixedAt</code> and <code>dismissReason</code>.</p>",
+        "date": "2022-10-01",
+        "criticality": "breaking",
+        "owner": "jamestran201"
       },
       {
         "location": "RemovePullRequestFromMergeQueueInput.branch",
@@ -1057,6 +1073,14 @@
   },
   "ghae": {
     "2022-10-01": [
+      {
+        "location": "RepositoryVulnerabilityAlert.fixReason",
+        "description": "<p><code>fixReason</code> will be removed.</p>",
+        "reason": "<p>The <code>fixReason</code> field is being removed. You can still use <code>fixedAt</code> and <code>dismissReason</code>.</p>",
+        "date": "2022-10-01",
+        "criticality": "breaking",
+        "owner": "jamestran201"
+      },
       {
         "location": "RemovePullRequestFromMergeQueueInput.branch",
         "description": "<p><code>branch</code> will be removed.</p>",
