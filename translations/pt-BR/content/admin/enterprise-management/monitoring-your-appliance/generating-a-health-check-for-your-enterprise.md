@@ -29,7 +29,7 @@ Uma verificação de integridade fornece as seguintes informações sobre {% dat
 - Análise de solicitações do Git, com detalhes sobre repositórios mais movimentados e usuários do Git
 - Análise das solicitações de API, incluindo os tempos mais movimentados, pontos de extremidade mais solicitados e as chamadas mais ativas
 
-If you want to generate a Health Check for {% data variables.product.prodname_ghe_cloud %}, contact {% data variables.contact.github_support %}. Para obter mais informações, consulte[Criando um tíquete de suporte](/support/contacting-github-support/creating-a-support-ticket)".
+Se você quiser gerar uma verificação de integridade para {% data variables.product.prodname_ghe_cloud %}, entre em contato com {% data variables.contact.github_support %}. Para obter mais informações, consulte[Criando um tíquete de suporte](/support/contacting-github-support/creating-a-support-ticket)".
 
 ## Gerando uma verificação de integridade
 

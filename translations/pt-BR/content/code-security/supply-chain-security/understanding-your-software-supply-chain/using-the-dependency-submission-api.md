@@ -1,7 +1,7 @@
 ---
-title: Using the Dependency submission API
-intro: 'You can use the Dependency submission API to submit dependencies for projects, such as the dependencies resolved when a project is built or compiled.'
-shortTitle: Dependency submission API
+title: Usando a API de envio de dependência
+intro: 'Você pode usar a API de submissão de dependência para enviar dependências para projetos, como as dependências resolvidas quando um projeto é criado ou compilado.'
+shortTitle: API de envio de dependência
 topics:
   - API
   - Dependency graph
@@ -17,19 +17,19 @@ versions:
 
 {% data reusables.dependency-submission.about-dependency-submission %}
 
-Dependencies are submitted to the dependency submission API in the form of a snapshot. A snapshot is a set of dependencies associated with a commit SHA and other metadata, that reflects the current state of your repository for a commit. For more information about the Dependency submission API, see the [Dependency submission REST API documentation](/rest/dependency-graph/dependency-submission).
+Dependencies are submitted to the dependency submission API in the form of a snapshot. A snapshot is a set of dependencies associated with a commit SHA and other metadata, that reflects the current state of your repository for a commit. Para obter mais informações sobre a API de envio de dependência, consulte a [a documentação da API de envio de dependência](/rest/dependency-graph/dependency-submission).
 
-## Submitting dependencies at build-time
+## Envio de dependências em tempo de compilação
 
-You can use the Dependency submission API in a {% data variables.product.prodname_actions %} workflow to submit dependencies for your project when your project is built.
+Você pode usar a API de envio de dependência em um fluxo de trabalho {% data variables.product.prodname_actions %} para enviar dependências para o seu projeto quando seu projeto for construído.
 
-### Using pre-made actions
+### Usando ações pré-criadas
 
-The simplest way to use the Dependency submission API is by adding a pre-made action to your repository that will gather and convert the list of dependencies to the required snapshot format and submit the list to the API. Actions that complete these steps for various ecosystems are available on {% data variables.product.prodname_marketplace %} and more actions will be created during the course of the beta and beyond. You can find links to the currently available actions in the table below:
+A maneira mais simples de usar a API de submissão de dependência é adicionando uma ação pré-criada ao seu repositório que reunirá e converterá a lista de dependências para o formato de instantâneo necessário e enviará a lista para a API. As ações que completam essas etapas para diversos ecossistemas estão disponíveis em {% data variables.product.prodname_marketplace %} e mais ações serão criadas durante do beta e posteriormente. Você pode encontrar links para as ações disponíveis na tabela abaixo:
 
-| Ecosystem | Ação                                                                            |
-| --------- | ------------------------------------------------------------------------------- |
-| Go        | [Go Dependency Submission](https://github.com/actions/go-dependency-submission) |
+| Ecossistema | Ação                                                                              |
+| ----------- | --------------------------------------------------------------------------------- |
+| Go          | [Envio de dependência do Go](https://github.com/actions/go-dependency-submission) |
 
 For example, the following [Go Dependency Submission](https://github.com/actions/go-dependency-submission) workflow calculates the dependencies for a Go build-target (a Go file with a `main` function) and submits the list to the Dependency Submission API.
 
@@ -75,7 +75,7 @@ jobs:
             go-build-target: go-example/cmd/octocat.go
 
 ```
-### Creating your own action
+### Criando sua própria ação
 
 Alternatively, you can write your own action to submit dependencies for your project at build-time. Your workflow should:
 
