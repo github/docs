@@ -39,14 +39,14 @@ Quando {% data variables.product.prodname_dependabot %} está impedido de criar 
 
 ![Vista de {% data variables.product.prodname_dependabot_alerts %} que mostra um link do pull request](/assets/images/help/dependabot/dependabot-alert-pr-link.png)
 
-There are several reasons why an alert may have no pull request link:
+Há várias razões pelas quais um alerta pode não ter link de um pull request:
 
-1. {% data variables.product.prodname_dependabot_security_updates %} are not enabled for the repository.
+1. {% data variables.product.prodname_dependabot_security_updates %} não estão habilitadas para o repositório.
 {% ifversion GH-advisory-db-supports-malware %}
-1. The alert is for malware and there is no secure version of the package.
+1. O alerta é para malware e não existe uma versão segura do pacote.
 {% endif %}
-1. The alert is for an indirect or transitive dependency that is not explicitly defined in a lock file.
-1. An error blocked {% data variables.product.prodname_dependabot %} from creating a pull request.
+1. O alerta é para uma dependência indireta ou transitória que não está explicitamente definida em um arquivo de bloqueio.
+1. Um erro impediu {% data variables.product.prodname_dependabot %} de criar um pull request.
 
 Se um erro impediu que {% data variables.product.prodname_dependabot %} criasse um pull request, você pode exibir os detalhes do erro clicando no alerta.
 

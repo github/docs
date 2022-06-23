@@ -1,6 +1,6 @@
 ---
 title: Sobre revisão de dependências
-intro: 'Dependency review lets you catch insecure dependencies before you introduce them to your environment, and provides information on license, dependents, and age of dependencies.'
+intro: 'A revisão de dependências permite que você capture dependências insegurasantes de introduzi-las no seu ambiente e fornece informações sobre licença, dependências e idade das dependências.'
 product: '{% data reusables.gated-features.dependency-review %}'
 shortTitle: Revisão de dependência
 versions:
