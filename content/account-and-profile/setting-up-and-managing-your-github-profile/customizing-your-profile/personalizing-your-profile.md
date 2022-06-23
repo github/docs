@@ -39,8 +39,8 @@ When you sign up for an account, {% data variables.product.product_name %} provi
 {% data reusables.user-settings.access_settings %}
 2. Under **Profile Picture**, click {% octicon "pencil" aria-label="The edit icon" %} **Edit**.
 ![Edit profile picture](/assets/images/help/profile/edit-profile-photo.png)
-3. Click **Upload a photo...**.
-![Update profile picture](/assets/images/help/profile/edit-profile-picture-options.png)
+3. Click **Upload a photo...**.{% ifversion not ghae %}
+![Update profile picture](/assets/images/help/profile/edit-profile-picture-options.png){% endif %}
 3. Crop your picture. When you're done, click **Set new profile picture**.
 	![Crop uploaded photo](/assets/images/help/profile/avatar_crop_and_save.png)
 
@@ -49,8 +49,8 @@ When you sign up for an account, {% data variables.product.product_name %} provi
 {% data reusables.user-settings.access_settings %}
 2. Under **Profile Picture**, click {% octicon "pencil" aria-label="The edit icon" %} **Edit**.
 ![Edit profile picture](/assets/images/help/profile/edit-profile-photo.png)
-3. To revert to your identicon, click **Remove photo**. If your email address is associated with a [Gravatar](https://en.gravatar.com/), you cannot revert to your identicon. Click **Revert to Gravatar** instead.
-![Update profile picture](/assets/images/help/profile/edit-profile-picture-options.png)
+3. To revert to your identicon, click **Remove photo**. {% ifversion not ghae %}If your email address is associated with a [Gravatar](https://en.gravatar.com/), you cannot revert to your identicon. Click **Revert to Gravatar** instead.
+![Update profile picture](/assets/images/help/profile/edit-profile-picture-options.png){% endif %}
 
 ## Changing your profile name
 
