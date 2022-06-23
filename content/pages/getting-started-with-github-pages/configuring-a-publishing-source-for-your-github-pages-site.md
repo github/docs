@@ -44,7 +44,7 @@ When you configure your site to publish with {% data variables.product.prodname_
 
 {% note %}
 
-**Note**: A `CNAME` file will be ignored unless your workflow takes this into account. For more information, see "[Managing a custom domain for your GitHub Pages site](/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-a-subdomain)."
+**Note**: A `CNAME` file will not automatically add or remove the custom domain unless unless you configure your workflow to use the `CNAME` file. For more information, see "[Managing a custom domain for your GitHub Pages site](/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-a-subdomain)." [todo The Actions team/tcbyrd is working on a workflow that we can use as an example for this.]
 
 {% endnote %}
 
