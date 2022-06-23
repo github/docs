@@ -32,7 +32,9 @@ $$\left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right) \
 
 ![Math expression as a block rendering](/assets/images/help/writing/math-expression-as-a-block-rendering.png)
 
-You can also create a fenced codeblock to display math using <code>\`\`\`math</code> syntax.  You do not need to use the `$$` delimiters.
+{% ifversion math-fenced-blocks %}
+
+Alternatively, you can use the <code>\`\`\`math</code> code block syntax to display a math expression as a block. With this syntax, you don't need to use `$$` delimiters.
 
 ````
 **Here is some math!**
@@ -44,6 +46,7 @@ You can also create a fenced codeblock to display math using <code>\`\`\`math</c
 
 ![Math expression in a fenced code block](/assets/images/help/writing/math-expression-as-a-fenced-code-block.png)
 
+{% endif %}
 
 ## Writing dollar signs in line with and within mathematical expressions
 
