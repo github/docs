@@ -19,24 +19,11 @@ shortTitle: Configure publishing source
 
 ## About publishing sources
 
-{% ifversion pages-custom-workflow %}
-
-You can publish your site when changes are pushed to a specific branch, or you can write a {% data variables.product.prodname_actions %} workflow to publish your site.
-
-If you do not need any control over the build process for your site, we recommend that you publish your site when changes are pushed to a specific branch. You can specify which branch and folder to use as your publishing source. The source branch can be any branch in your repository. The source folder can either be the root of the repository on the source branch (`/`) or a `/docs` folder on the source branch. Whenever changes are pushed to the source branch, the changes in the source folder will be published to your {% data variables.product.prodname_pages %} site.
-
-If you want to use a build process other than Jekyll or you do not want a dedicated branch to hold your compiled static files, we recommend that you write a {% data variables.product.prodname_actions %} workflow to publish your site. {% data variables.product.product_name %} provides starter workflows for common publishing scenarios to help you write your workflow.
-
-{% else %}
-
-You {% data variables.product.prodname_pages %} site will publish whenever changes are pushed to a specific branch.
-You can specify which branch and folder to use as your publishing source. The source branch can be any branch in your repository. The source folder can either be the root of the repository on the source branch (`/`) or a `/docs` folder on the source branch. Whenever changes are pushed to the source branch, the changes in the source folder will be deployed to your {% data variables.product.prodname_pages %} site.
-
-{% endif %}
-
-{% ifversion pages-custom-workflow %}
+{% data reusables.pages.pages-about-publishing-source %}
 
 {% data reusables.pages.private_pages_are_public_warning %}
+
+{% ifversion pages-custom-workflow %}
 
 ## Publishing with a custom {% data variables.product.prodname_actions %} workflow
 
