@@ -55,7 +55,7 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 1. In the JavaScript file, type the following function header. {% data variables.product.prodname_copilot %} will show you a suggestion.
   ```javascript{:copy}
   function calculateDaysBetweenDates(begin, end) {
-  ```
+  ``` 
 {% data reusables.copilot.see-alternative-suggestions %}
 
    | OS | See next suggestion | See previous suggestion |
