@@ -48,6 +48,8 @@ sections:
     - '{% data variables.product.prodname_registry %}のnpmレジストリは、メタデータのレスポンス中で時間の値を返さなくなります。これは、大きなパフォーマンス改善のために行われました。メタデータレスポンスの一部として時間の値を返すために必要なすべてのデータは保持し続け、既存のパフォーマンスの問題を解決した将来に、この値を返すことを再開します。'
     - pre-receive フックの処理に固有のリソース制限によって、pre-receive フックに失敗するものが生じることがあります。
     - |
+      After registering a self-hosted runner with the `--ephemeral` parameter on more than one level (for example, both enterprise and organization), the runner may get stuck in an idle state and require re-registration. [Updated: 2022-06-17]
+    - |
       SAMLの暗号化されたアサーションを{% data variables.product.prodname_ghe_server %} 3.4.0及び3.4.1で使用する場合、`SPSSODescriptor`内の新しいXML属性である`WantAssertionsEncrypted`にはSAMLメタデータの不正な属性が含まれます。このSAMLエンドポイントを利用するIdPは、SAMLメタデータのXMLスキーマの検証の際にエラーが生じることがあります。修正は次回のパッチリリースで提供されます。[2022年04月11日更新]
 
       この問題を回避するためには、以下の2つの方法のいずれかを取ることができます。
