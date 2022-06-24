@@ -1,7 +1,7 @@
 ---
-title: Configuring OIDC for Enterprise Managed Users
-shortTitle: OIDC for managed users
-intro: 'You can automatically manage access to your enterprise account on {% data variables.product.prodname_dotcom %} by configuring OpenID Connect (OIDC) single sign-on (SSO) and enable support for your IdP''s Conditional Access Policy (CAP).'
+title: Configurando o OIDC para usuários gerenciados por empresas
+shortTitle: OIDC para usuários gerenciados
+intro: 'Você pode gerenciar automaticamente o acesso à sua conta corporativa em {% data variables.product.prodname_dotcom %} configurando o Slogon único (SSO) do OpenID Connect (OIDC) e habilitar o suporte para a Política de Acesso Condicional (CAP) do seu IdP.'
 product: '{% data reusables.gated-features.emus %}'
 versions:
   feature: oidc-for-emu
@@ -14,34 +14,36 @@ topics:
 
 {% data reusables.enterprise-accounts.oidc-beta-notice %}
 
-## About OIDC for Enterprise Managed Users
+## Sobre o OIDC para usuários gerenciados pela empresa
 
-With {% data variables.product.prodname_emus %}, your enterprise uses your identity provider (IdP) to authenticate all members. You can use OpenID Connect (OIDC) to manage authentication for your {% data variables.product.prodname_emu_enterprise %}. Enabling OIDC SSO is a one-click setup process with certificates managed by {% data variables.product.prodname_dotcom %} and your IdP.
+Com {% data variables.product.prodname_emus %}, sua empresa usa seu provedor de identidade (IdP) para autenticar todos os integrantes. Você pode usar o OpenID Connect (OIDC) para gerenciar a autenticação para o seu {% data variables.product.prodname_emu_enterprise %}. A habilitação do SSO do OIDC é um processo de configuração de um clique com certificados gerenciados por {% data variables.product.prodname_dotcom %} e seu IdP.
 
-{% data reusables.enterprise-accounts.emu-cap-validates %} For more information, see "[About support for your IdP's Conditional Access Policy](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-support-for-your-idps-conditional-access-policy)."
+{% data reusables.enterprise-accounts.emu-cap-validates %} Para obter mais informações, consulte "[Sobre o suporte à política de acesso condicional do seu IdP](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-support-for-your-idps-conditional-access-policy)."
 
-You can adjust the lifetime of a session, and how often a {% data variables.product.prodname_managed_user %} needs to reauthenticate with your IdP, by changing the lifetime policy property of the ID tokens issued for {% data variables.product.prodname_dotcom %} from  your IdP. The default lifetime is one hour. For more information, see "[Configurable token lifetimes in the Microsoft identity platform](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-configurable-token-lifetimes)" in the Azure AD documentation.
+Você pode ajustar a vida útil de uma sessão e quantas vezes um {% data variables.product.prodname_managed_user %} precisa efetuar a autenticação novamente com seu IdP, alterando a propriedade da política vitalícia dos tokens de ID emitidos para {% data variables.product.prodname_dotcom %} a partir do seu IdP. A vida útil padrão é de uma hora. Para obter mais informações, consulte "[Vida útil do token configurável na plataforma de identidade Microsoft](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-configurable-token-lifetimes)" na documentação do Azure AD.
 
-If you currently use SAML SSO for authentication and would prefer to use OIDC and benefit from CAP support, you can follow a migration path. For more information, see "[Migrating from SAML to OIDC](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/migrating-from-saml-to-oidc)."
+Se você atualmente usa SAML SSO para autenticação e prefere usar OIDC e se beneficiar do suporte ao CAP, você pode seguir um caminho de migração. Para obter mais informações, consulte "[Migrando do SAML para o OIDC](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/migrating-from-saml-to-oidc)."
 
 {% data reusables.enterprise-accounts.oidc-gei-warning %}
 
 ## Suporte do provedor de identidade
 
-Support for OIDC is in public beta and available for customers using Azure Active Directory (Azure AD).
+O suporte para OIDC está em beta público e disponível para clientes que utilizam o Azure Active Directory (Azure AD).
 
-## Configuring OIDC for Enterprise Managed Users
+Cada inquilino do Azure AD pode suportar apenas uma integração do OIDC com {% data variables.product.prodname_emus %}. Se você quiser conectar Azure AD a mais de uma empresa em {% data variables.product.prodname_dotcom %}, use o SAML. Para obter mais informações, consulte "[Configurando o logon único SAML para {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-saml-single-sign-on-for-enterprise-managed-users)".
+
+## Configurando o OIDC para usuários gerenciados por empresas
 
 1. Efetue o login em {% data variables.product.prodname_dotcom_the_website %} como usuário de configuração da sua nova empresa com o nome de usuário **@<em>SHORT-CODE</em>_admin**.
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.security-tab %}
-1. Select **Require OIDC single sign-on**.  
-   ![Screenshot showing the "Require OIDC single sign-on" checkbox](/assets/images/help/enterprises/require-oidc.png)
-1. To continue setup and be redirected to Azure AD, click **Save**.
+1. Selecione **Exigir logon único do OIDC**.  
+   ![Captura de tela que mostra a caixa de seleção "Exige um logon único do OIDC"](/assets/images/help/enterprises/require-oidc.png)
+1. Para continuar a configuração e ser redirecionado para O Azure AD, clique em **Salvar**.
 {% data reusables.enterprise-accounts.emu-azure-admin-consent %}
 {% data reusables.enterprise-accounts.download-recovery-codes %}
 
 ## Habilitando o provisionamento
 
-After you enable OIDC SSO, enable provisioning. Para obter mais informações, consulte "[Configurando o provisionamento de SCIM para usuários gerenciados pela empresa](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users)".
+Depois que você habilitar o SSO do OIDC, habilite o provisionamento. Para obter mais informações, consulte "[Configurando o provisionamento de SCIM para usuários gerenciados pela empresa](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users)".

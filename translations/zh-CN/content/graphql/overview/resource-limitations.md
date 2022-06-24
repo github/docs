@@ -14,7 +14,7 @@ topics:
 
 ## 节点限制
 
-要通过[架构](/graphql/guides/introduction-to-graphql#schema)验证，所有 GraphQL API v4 [调用](/graphql/guides/forming-calls-with-graphql)都必须满足这些标准：
+要通过[架构](/graphql/guides/introduction-to-graphql#schema)验证，所有 GraphQL API [调用](/graphql/guides/forming-calls-with-graphql)都必须满足这些标准：
 
 * 客户端必须提供任何[连接](/graphql/guides/introduction-to-graphql#connection)上的 `first` 或 `last` 参数。
 * `first` 和 `last` 的值必须在 1 至 100 之间。
@@ -130,30 +130,30 @@ topics:
 
 ## 速率限制
 
-GraphQL API v4 限制不同于 REST API v3 的 [速率限制](/rest/overview/resources-in-the-rest-api#rate-limiting)。
+GraphQL API 的限制不同于 REST API [速率限制](/rest/overview/resources-in-the-rest-api#rate-limiting)。
 
 API 速率限制为什么不同？ 使用 [GraphQL](/graphql)，一个 GraphQL 调用可替换[多个 REST 调用](/graphql/guides/migrating-from-rest-to-graphql)。 单个复杂 GraphQL 调用可能相当于数千个 REST 请求。 虽然单个 GraphQL 调用远远低于 REST API v3 速率限制，但对 GitHub 的服务器来说，查询的计算成本可能同样高昂。
 
-要准确表示查询的服务器成本，GraphQL API v4 可根据标准分数量表计算调用的 **rate limit score（速率限制分数）**。 查询分数计入了父连接及其子连接上的第一个和最后一个参数。
+要准确表示查询的服务器成本，GraphQL API 可根据标准分数量表计算调用的 **rate limit score（速率限制分数）**。 查询分数计入了父连接及其子连接上的第一个和最后一个参数。
 
 * 计算公式利用父连接及其子连接上的 `first` 和 `last` 参数预计算 GitHub 系统上的潜在负载，如 MySQL、ElasticSearch 和 Git。
 * 每个连接都有自己的点值。 此点值与调用的其他点数相结合，计入总速率限制分数。
 
-GraphQL API v4 的速率限制为 **5,000 points per hour（每小时 5,000 点）**。
+GraphQL API 的速率限制为 **5,000 points per hour（每小时 5,000 点）**。
 
-请注意，每小时 5,000 点与每小时 5,000 个调用不同：GraphQL API v4 和 REST API v3 使用的速率限制不同。
+请注意，每小时 5,000 点与每小时 5,000 个调用不同：GraphQL API 和 REST API 使用的速率限制不同。
 
 {% note %}
 
-**注**：在我们观察开发者如何使用 GraphQL API v4 时，当前公式和速率限制可能会发生变化。
+**注**：在我们观察开发者如何使用 GraphQL API 时，当前公式和速率限制可能会发生变化。
 
 {% endnote %}
 
 ### 返回调用的速率限制状态
 
-使用 REST API v3，可以通过[检查](/rest/overview/resources-in-the-rest-api#rate-limiting)返回的 HTTP 标头查看速率限制状态。
+使用 REST API，可以通过[检查](/rest/overview/resources-in-the-rest-api#rate-limiting)返回的 HTTP 标头查看速率限制状态。
 
-使用 GraphQL API v4，可以通过查询 `rateLimit` 对象上的字段查看速率限制状态。
+使用 GraphQL API，可以通过查询 `rateLimit` 对象上的字段查看速率限制状态。
 
 ```graphql
 query {
@@ -186,7 +186,7 @@ query {
 
 {% note %}
 
-**注**：GraphQL API v4 的最低调用成本是 **1**，表示单个请求。
+**注**：GraphQL API 的最低调用成本是 **1**，表示单个请求。
 
 {% endnote %}
 

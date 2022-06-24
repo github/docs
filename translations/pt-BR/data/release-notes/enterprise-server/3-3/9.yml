@@ -1,0 +1,26 @@
+---
+date: '2022-06-09'
+sections:
+  security_fixes:
+    - Os pacotes foram atualizados para as últimas versões de segurança.
+  bugs:
+    - An internal script to validate hostnames in the {% data variables.product.prodname_ghe_server %} configuration file would return an error if the hostname string started with a "." (period character).
+    - In HA configurations where the primary node's hostname was longer than 60 characters, MySQL would fail to be configured
+    - The `--gateway` argument was added to the `ghe-setup-network` command, to allow passing the gateway address when configuring network settings using the command line.
+    - Image attachments that were deleted would return a `500 Internal Server Error` instead of a `404 Not Found` error.
+    - The calculation of "maximum committers across entire instance" reported in the site admin dashboard was incorrect.
+    - An incorrect database entry for repository replicas caused database corruption when performing a restore using {% data variables.product.prodname_enterprise_backup_utilities %}.
+  changes:
+    - Optimised the inclusion of metrics when generating a cluster support bundle.
+    - In HA configurations where Elasticsearch reported a valid yellow status, changes introduced in a previous fix would block the `ghe-repl-stop` command and not allow replication to be stopped. Using `ghe-repo-stop --force` will now force Elasticsearch to stop when the service is in a normal or valid yellow status.
+    - When using `ghe-migrator` or exporting from {% data variables.product.prodname_dotcom_the_website %}, migrations would fail to export pull request attachments.
+  known_issues:
+    - Após a atualização para {% data variables.product.prodname_ghe_server %} 3.3, {% data variables.product.prodname_actions %} pode não ser iniciado automaticamente. Para resolver esse problema, conecte-se ao dispositivo via SSH e execute o comando `ghe-actions-start`.
+    - Em uma instância de {% data variables.product.prodname_ghe_server %} recém-configurada sem usuários, um invasor pode criar o primeiro usuário administrador.
+    - As regras de firewall personalizadas são removidas durante o processo de atualização.
+    - Arquivos LFS do Git [enviados através da interface web](https://github.com/blog/2105-upload-files-to-your-repositories) são adicionados diretamente ao repositório e de forma incorreta.
+    - Os problemas não podem ser fechados se contiverem um permalink para um blob no mesmo repositório, onde o caminho do arquivo blob's é maior que 255 caracteres.
+    - Quando "Usuários podem pesquisar pelo GitHub.com" está habilitado com {% data variables.product.prodname_github_connect %}, os problemas nos repositórios privados e internos não são incluídos nos resultados de pesquisa de {% data variables.product.prodname_dotcom_the_website %}.
+    - O registro npm de {% data variables.product.prodname_registry %} não retorna mais o valor de tempo em respostas de metadados. Isso foi feito para permitir melhorias substanciais de desempenho. Continuamos a ter todos os dados necessários para devolver um valor de tempo como parte da resposta aos metadados e retomaremos o retorno desse valor no futuro, assim que tivermos resolvido os problemas de desempenho existentes.
+    - Os limites de recursos que são específicos para processamento de hooks pre-receive podem causar falha em alguns hooks pre-receive.
+    - 'As configurações de armazenamento de {% data variables.product.prodname_actions %} não podem ser validadas e salvas no {% data variables.enterprise.management_console %} quando "Forçar estilo de caminho" for selecionado e deverão ser definidas com a ferramenta de linha de comando `ghe-actions-precheck`.'

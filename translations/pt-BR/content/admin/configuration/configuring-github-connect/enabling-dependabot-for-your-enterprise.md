@@ -33,7 +33,7 @@ topics:
 
 {% data reusables.dependabot.dependabot-alerts-beta %}
 
-Com {% data variables.product.prodname_dependabot_alerts %}, {% data variables.product.prodname_dotcom %} identifica dependências vulneráveis nos repositórios e cria alertas em {% data variables.product.product_location %}, usando dados do {% data variables.product.prodname_advisory_database %} e o serviço gráfico de dependências.
+Com {% data variables.product.prodname_dependabot_alerts %}, {% data variables.product.prodname_dotcom %} identifica dependências inseguras nos repositórios e cria alertas em {% data variables.product.product_location %}, usando dados do {% data variables.product.prodname_advisory_database %} e o serviço gráfico de dependências.
 
 {% data reusables.repositories.tracks-vulnerabilities %}
 
@@ -80,7 +80,7 @@ Antes de poder habilitar {% data variables.product.prodname_dependabot_alerts %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.github-connect-tab %}
-{%- if dependabot-updates-github-connect %}
+{%- ifversion dependabot-updates-github-connect %}
 1. Em "{% data variables.product.prodname_dependabot %}", à direita de "Os usuários podem receber alertas de vulnerabilidade de dependências de código aberto", selecione o menu suspenso e clique em **Habilitado sem notificações**. Opcionalmente, para habilitar alertas com notificações, clique em **Habilitado com as notificações**.
 
    ![Captura de tela do menu suspenso para habilitar a digitalização de repositórios com relação a vulnerabilidades](/assets/images/enterprise/site-admin-settings/dependabot-alerts-dropdown.png)
@@ -94,7 +94,7 @@ Antes de poder habilitar {% data variables.product.prodname_dependabot_alerts %}
 
    {% endtip %}
 
-{% if dependabot-updates-github-connect %}
+{% ifversion dependabot-updates-github-connect %}
 ## Habilitar o {% data variables.product.prodname_dependabot_updates %}
 
 Após habilitar {% data variables.product.prodname_dependabot_alerts %} para a sua empresa, você poderá habilitar {% data variables.product.prodname_dependabot_updates %}.

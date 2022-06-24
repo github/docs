@@ -7,6 +7,7 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
+  ghae: '*'
 type: overview
 topics:
   - Dependabot
@@ -46,7 +47,7 @@ topics:
 
 ### 依存関係内の脆弱性の自動検出
 
-{% data variables.product.prodname_dependabot %}は、依存関係をモニタリングし、既知の脆弱性が含まれている場合に通知することによって助けてくれます。 {% ifversion fpt or ghec or ghes > 3.2 %}{% data variables.product.prodname_dependabot %}が依存関係をセキュアなバージョンに更新するのに必要なPull Requestを自動的に起こせるようにすることができます。{% endif %}詳しい情報については「[脆弱性のある依存関係に対するアラートについて](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies)」{% ifversion fpt or ghec or ghes > 3.2 %}及び「[Dependabotセキュリティアップデートについて](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates)」{% endif %}を参照してください。
+{% data variables.product.prodname_dependabot %}は、依存関係をモニタリングし、既知の脆弱性が含まれている場合に通知することによって助けてくれます。 {% ifversion fpt or ghec or ghes > 3.2 %}{% data variables.product.prodname_dependabot %}が依存関係をセキュアなバージョンに更新するのに必要なPull Requestを自動的に起こせるようにすることができます。{% endif %}詳しい情報については「[{% data variables.product.prodname_dependabot_alerts %}について](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)」{% ifversion fpt or ghec or ghes > 3.2 %}及び「[Dependabotセキュリティアップデートについて](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates)」{% endif %}を参照してください。
 
 ### 脆弱性のある依存関係からのリスクへの暴露の評価
 
@@ -80,7 +81,7 @@ Organizationが{% data variables.product.prodname_GH_advanced_security %}を使�
 多くのサービスプロバイダが発行したシークレットをチェックし、検出されたときには通知してくれるよう{% data variables.product.prodname_secret_scanning %}を設定できます。 リポジトリ、Organization、Entepriseのレベルで、追加のシークレットを検出するためのカスタムパターンを定義することもできます。 詳しい情報については「[Secret scanningについて](/code-security/secret-scanning/about-secret-scanning)」及び「[Secret scanningのパターン](/code-security/secret-scanning/secret-scanning-patterns)」を参照してください。
 {% endif %}
 
-{% ifversion fpt or ghec or ghes > 3.2 %}
+{% ifversion fpt or ghec or ghes > 3.2 or ghae %}
 ### {% data variables.product.product_name %}で使用するシークレットの安全なストレージ
 {% endif %}
 
@@ -88,8 +89,8 @@ Organizationが{% data variables.product.prodname_GH_advanced_security %}を使�
 コードに加えて、他の場所にあるシークレットを使う必要もあるでしょう。 たとえば、{% data variables.product.prodname_actions %}や{% data variables.product.prodname_dependabot %}や自分の{% data variables.product.prodname_codespaces %}開発環境を他のシステムと通信できるようにするためです。 シークレットの安全な保存と利用方法に関する詳しい情報については「[Actionsの暗号化されたシークレット](/actions/security-guides/encrypted-secrets)」、「[Dependabotのための暗号化されたシークレットの管理](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot)」、「[codespacesのための暗号化されたシークレットの管理](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)」を参照してください。
 {% endif %}
 
-{% ifversion ghes > 3.2 %}
-コードに加えて、他の場所にあるシークレットを使う必要もあるでしょう。 たとえば、{% data variables.product.prodname_actions %}ワークフローや{% data variables.product.prodname_dependabot %}を他のシステムと通信できるようにするためです。 シークレットの安全な保存と利用方法に関する詳しい情報については「[Actionsの暗号化されたシークレット](/actions/security-guides/encrypted-secrets)」、「[Dependabotのための暗号化されたシークレットの管理](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot)」を参照してください。
+{% ifversion ghes > 3.2 or ghae %}
+コードに加えて、他の場所にあるシークレットを使う必要もあるでしょう。 たとえば{% data variables.product.prodname_actions %}ワークフロー{% ifversion ghes %}あるいは{% data variables.product.prodname_dependabot %}{% endif %}が他のシステムと通信できるようにするためです。 シークレットの安全な保存と利用方法に関する詳しい情報については「[Actionsの暗号化されたシークレット](/actions/security-guides/encrypted-secrets)」{% ifversion ghes %}及び「[Dependabotのための暗号化されたシークレットの管理](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot)」{% else %}{% endif %}を参照してください。
 {% endif %}
 
 ## リポジトリからの脆弱性のあるコーディングパターンの排除

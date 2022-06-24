@@ -17,7 +17,7 @@
 {%- ifversion ghec or ghes or ghae %}
 | `business`  | Contains activities related to business settings for an enterprise.
 {%- endif %}
-{%- if secret-scanning-audit-log-custom-patterns %}
+{%- ifversion secret-scanning-audit-log-custom-patterns %}
 | `business_secret_scanning_custom_pattern` | Contains activities related to custom patterns for secret scanning in an enterprise.
 {%- endif %}
 | `checks`   | Contains activities related to check suites and runs.
@@ -29,7 +29,7 @@
 | `config_entry` |  Contains activities related to configuration settings. 这些事件仅在站点管理员审核日志中可见。
 {%- endif %}
 {%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
-| `dependabot_alerts`  | Contains organization-level configuration activities for {% data variables.product.prodname_dependabot_alerts %} in existing repositories. 更多信息请参阅“[关于易受攻击的依赖项的警报](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)”。 | `dependabot_alerts_new_repos`   | Contains organization-level configuration activities for  {% data variables.product.prodname_dependabot_alerts %} in new repositories created in the organization. | `dependabot_repository_access` | Contains activities related to which private repositories in an organization {% data variables.product.prodname_dependabot %} is allowed to access.
+| `dependabot_alerts`  | Contains organization-level configuration activities for {% data variables.product.prodname_dependabot_alerts %} in existing repositories. 更多信息请参阅“[关于 {% data variables.product.prodname_dependabot_alerts %} 警报](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)”。 | `dependabot_alerts_new_repos`   | Contains organization-level configuration activities for  {% data variables.product.prodname_dependabot_alerts %} in new repositories created in the organization. | `dependabot_repository_access` | Contains activities related to which private repositories in an organization {% data variables.product.prodname_dependabot %} is allowed to access.
 {%- endif %}
 {%- ifversion fpt or ghec or ghes > 3.2 %}
 | `dependabot_security_updates`   | Contains organization-level configuration activities for {% data variables.product.prodname_dependabot_security_updates %} in existing repositories. 更多信息请参阅“[配置 {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-dependabot-security-updates)。” | `dependabot_security_updates_new_repos` | Contains organization-level configuration activities for {% data variables.product.prodname_dependabot_security_updates %} for new repositories created in the organization.
@@ -75,7 +75,7 @@
 {%- ifversion ghec or ghes or ghae %}
 | `org_credential_authorization` | Contains activities related to authorizing credentials for use with SAML single sign-on.
 {%- endif %}
-{%- if secret-scanning-audit-log-custom-patterns %}
+{%- ifversion secret-scanning-audit-log-custom-patterns %}
 | `org_secret_scanning_custom_pattern` | Contains activities related to custom patterns for secret scanning in an organization. 更多信息请参阅“[定义机密扫描的自定义模式](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)”。 | `org.secret_scanning_push_protection` | Contains activities related to secret scanning custom patterns in an organization. 更多信息请参阅“[使用机密扫描保护推送](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)”。
 {%- endif %}
 | `organization_default_label` | Contains activities related to default labels for repositories in an organization.
@@ -110,14 +110,14 @@
 {%- ifversion ghec or ghes or ghae %}
 | `repository_secret_scanning`  | Contains repository-level activities related to secret scanning. 更多信息请参阅“[关于密钥扫描](/github/administering-a-repository/about-secret-scanning)”。
 {%- endif %}
-{%- if secret-scanning-audit-log-custom-patterns %}
-| `repository_secret_scanning_custom_pattern` | Contains activities related to secret scanning custom patterns in a repository. 更多信息请参阅“[定义机密扫描的自定义模式](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)”。 |{% endif %}{% if secret-scanning-audit-log-custom-patterns %}| | `repository_secret_scanning_push_protection` | Contains activities related to secret scanning custom patterns in a repository. 更多信息请参阅“[使用机密扫描保护推送](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)”。
+{%- ifversion secret-scanning-audit-log-custom-patterns %}
+| `repository_secret_scanning_custom_pattern` | Contains activities related to secret scanning custom patterns in a repository. 更多信息请参阅“[定义机密扫描的自定义模式](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)”。 |{% endif %}{% ifversion secret-scanning-audit-log-custom-patterns %}| | `repository_secret_scanning_push_protection` | Contains activities related to secret scanning custom patterns in a repository. 更多信息请参阅“[使用机密扫描保护推送](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)”。
 {%- endif %}
 {%- ifversion fpt or ghec %}
 | `repository_visibility_change` | Contains activities related to allowing organization members to change repository visibilities for the organization.
 {%- endif %}
 {%- ifversion fpt or ghec or ghes or ghae %}
-| `repository_vulnerability_alert`   | Contains activities related to [{% data variables.product.prodname_dependabot_alerts %} for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies).
+| `repository_vulnerability_alert`   | Contains activities related to [{% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts).
 {%- endif %}
 {%- ifversion fpt or ghec %}
 | `repository_vulnerability_alerts` | Contains repository-level configuration activities for {% data variables.product.prodname_dependabot_alerts %}. | `required_status_check` | Contains activities related to required status checks for protected branches.
@@ -125,7 +125,7 @@
 {%- ifversion ghec or ghes > 3.1 %}
 | `restrict_notification_delivery` | Contains activities related to the restriction of email notifications to approved or verified domains for an enterprise.
 {%- endif %}
-{%- if custom-repository-roles %}
+{%- ifversion custom-repository-roles %}
 | `role` | Contains activities related to [custom repository roles](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization).
 {%- endif %}
 {%- ifversion ghec or ghes or ghae %}

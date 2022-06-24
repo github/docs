@@ -8,6 +8,12 @@
         "requestPath": "/enterprises/{enterprise}/actions/cache/usage"
       },
       {
+        "slug": "set-the-github-actions-oidc-custom-issuer-policy-for-an-enterprise",
+        "subcategory": "oidc",
+        "verb": "put",
+        "requestPath": "/enterprises/{enterprise}/actions/oidc/customization/issuer"
+      },
+      {
         "slug": "get-default-workflow-permissions-for-an-enterprise",
         "subcategory": "permissions",
         "verb": "get",
@@ -1416,7 +1422,14 @@
         "requestPath": "/repos/{owner}/{repo}/dependabot/secrets/{secret_name}"
       }
     ],
-    "dependency-graph": [],
+    "dependency-graph": [
+      {
+        "slug": "create-a-snapshot-of-dependencies-for-a-repository",
+        "subcategory": "dependency-submission",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/dependency-graph/snapshots"
+      }
+    ],
     "deploy-keys": [
       {
         "slug": "list-deploy-keys",

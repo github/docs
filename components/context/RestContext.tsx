@@ -1,10 +1,5 @@
 import { createContext, useContext } from 'react'
-
-export type MiniTocItem = {
-  platform: string
-  contents: string & { title: string; href: string }
-  items?: MiniTocItem[]
-}
+import type { MiniTocItem } from 'components/context/ArticleContext'
 
 export type RestContextT = {
   title: string

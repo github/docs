@@ -26,7 +26,7 @@ topics:
 您可以编写自定义代码来创建操作，以您喜欢的方式与仓库交互，包括使用 {% data variables.product.prodname_dotcom %} 的 API 以及任何公开的第三方 API 进行交互。 例如，操作可以发布 npm 模块、在创建紧急议题时发送短信提醒，或者部署可用于生产的代码。
 
 {% ifversion fpt or ghec %}
-您可以编写自己的操作以用于工作流程，或者与 {% data variables.product.prodname_dotcom %} 社区共享您创建的操作。 要与每个人共享您创建的操作，您的仓库必须是公共的。 {% if internal-actions %}若要仅在企业内共享操作，存储库必须是内部的。{% endif %}
+您可以编写自己的操作以用于工作流程，或者与 {% data variables.product.prodname_dotcom %} 社区共享您创建的操作。 要与每个人共享您创建的操作，您的仓库必须是公共的。 {% ifversion internal-actions %}若要仅在企业内共享操作，存储库必须是内部的。{% endif %}
 {% endif %}
 
 操作可以直接在计算机或 Docker 容器中运行。 您可以定义操作的输入、输出和环境变量。

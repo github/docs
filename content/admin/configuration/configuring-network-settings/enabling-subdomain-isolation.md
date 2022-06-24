@@ -35,7 +35,7 @@ When subdomain isolation is enabled, {% data variables.product.prodname_ghe_serv
 | `http(s)://HOSTNAME/render/`      | `http(s)://render.HOSTNAME/`      |
 | `http(s)://HOSTNAME/reply/`       | `http(s)://reply.HOSTNAME/`       |
 | `http(s)://HOSTNAME/uploads/`     | `http(s)://uploads.HOSTNAME/`     | {% ifversion ghes %}
-| `https://HOSTNAME/_registry/docker/` | `http(s)://docker.HOSTNAME/`{% endif %}{% ifversion ghes %}
+| `https://HOSTNAME/` | `http(s)://docker.HOSTNAME/`{% endif %}{% ifversion ghes %}
 | `https://HOSTNAME/_registry/npm/` | `https://npm.HOSTNAME/`
 | `https://HOSTNAME/_registry/rubygems/` | `https://rubygems.HOSTNAME/`
 | `https://HOSTNAME/_registry/maven/` | `https://maven.HOSTNAME/`
@@ -48,13 +48,13 @@ When subdomain isolation is enabled, {% data variables.product.prodname_ghe_serv
 
 Before you enable subdomain isolation, you must configure your network settings for your new domain.
 
-- Specify a valid domain name as your hostname, instead of an IP address. For more information, see "[Configuring a hostname](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-a-hostname)."
+- Specify a valid domain name as your hostname, instead of an IP address. For more information, see "[Configuring a hostname](/enterprise/admin/guides/installation/configuring-a-hostname)."
 
 {% data reusables.enterprise_installation.changing-hostname-not-supported %}
 
 - Set up a wildcard Domain Name System (DNS) record or individual DNS records for the subdomains listed above. We recommend creating an A record for `*.HOSTNAME` that points to your server's IP address so you don't have to create multiple records for each subdomain.
 - Get a wildcard Transport Layer Security (TLS) certificate for `*.HOSTNAME` with a Subject Alternative Name (SAN) for both `HOSTNAME` and the wildcard domain `*.HOSTNAME`. For example, if your hostname is `github.octoinc.com`, get a certificate with the Common Name value set to `*.github.octoinc.com` and a SAN value set to both `github.octoinc.com` and `*.github.octoinc.com`.
-- Enable TLS on your appliance. For more information, see "[Configuring TLS](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-tls/)."
+- Enable TLS on your appliance. For more information, see "[Configuring TLS](/enterprise/admin/guides/installation/configuring-tls/)."
 
 ## Enabling subdomain isolation
 

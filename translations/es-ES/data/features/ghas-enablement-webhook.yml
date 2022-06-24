@@ -1,0 +1,7 @@
+---
+#docs-content 7314. GHAS enablement webhook
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.6'
+  ghae: 'issue-7314'

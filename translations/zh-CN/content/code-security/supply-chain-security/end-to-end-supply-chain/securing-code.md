@@ -7,6 +7,7 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
+  ghae: '*'
 type: overview
 topics:
   - Dependabot
@@ -46,7 +47,7 @@ topics:
 
 ### 自动检测依赖项中的漏洞
 
-{% data variables.product.prodname_dependabot %} 可以监控依赖项并在依赖项中包含已知漏洞时通知您。 {% ifversion fpt or ghec or ghes > 3.2 %}您甚至可以让 {% data variables.product.prodname_dependabot %} 自动提取拉取请求以将依赖项更新为安全版本。{% endif %} 更多信息请参阅“[关于漏洞依赖项的警报](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies)”{% ifversion fpt or ghec or ghes > 3.2 %} 和“[关于 Dependabot 安全更新](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates)”{% endif %}。
+{% data variables.product.prodname_dependabot %} 可以监控依赖项并在依赖项中包含已知漏洞时通知您。 {% ifversion fpt or ghec or ghes > 3.2 %}您甚至可以启用 {% data variables.product.prodname_dependabot %} 以自动引发将依赖项更新为安全版本的拉取请求。{% endif %} 更多信息请参阅[关于 {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts){% ifversion fpt or ghec or ghes > 3.2 %} 和[关于 Dependabot 安全更新](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates){% endif %}。
 
 ### 评估易有漏洞依赖项的风险暴露情况
 
@@ -80,7 +81,7 @@ topics:
 您可以配置 {% data variables.product.prodname_secret_scanning %} 以检查许多服务提供商颁发的机密，并在检测到任何提供程序时通知您。 您还可以定义自定义模式，以在存储库、组织或企业级别检测其他机密。 更多信息请参阅“[关于机密扫描](/code-security/secret-scanning/about-secret-scanning)”和“[机密扫描模式](/code-security/secret-scanning/secret-scanning-patterns)”。
 {% endif %}
 
-{% ifversion fpt or ghec or ghes > 3.2 %}
+{% ifversion fpt or ghec or ghes > 3.2 or ghae %}
 ### 安全存储您在 {% data variables.product.product_name %} 中使用的机密
 {% endif %}
 
@@ -88,8 +89,8 @@ topics:
 除了代码，您可能还需要在其他地方使用机密。 例如，允许 {% data variables.product.prodname_actions %} 工作流程、{% data variables.product.prodname_dependabot %} 或 {% data variables.product.prodname_codespaces %} 开发环境与其他系统进行通信。 有关如何安全地存储和使用机密的详细信息，请参阅“[Actions 中的加密机密](/actions/security-guides/encrypted-secrets)”、“[管理 Dependabot 的加密机密](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot)”和“[管理代码空间的加密机密](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)”。
 {% endif %}
 
-{% ifversion ghes > 3.2 %}
-除了代码，您可能还需要在其他地方使用机密。 例如，允许 {% data variables.product.prodname_actions %} 工作流程或 {% data variables.product.prodname_dependabot %} 与其他系统进行通信。 有关如何安全地存储和使用机密的详细信息，请参阅“[Actions 中的加密机密](/actions/security-guides/encrypted-secrets)”和“[管理 Dependabot 的加密机密](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot)” 。
+{% ifversion ghes > 3.2 or ghae %}
+除了代码，您可能还需要在其他地方使用机密。 例如，允许 {% data variables.product.prodname_actions %} 工作流程、{% ifversion ghes %} 或 {% data variables.product.prodname_dependabot %}{% endif %} 与其他系统进行通信。 有关如何安全地存储和使用机密的详细信息，请参阅“[Actions 中的加密机密](/actions/security-guides/encrypted-secrets){% ifversion ghes %}”和“[管理 Dependabot 的加密机密](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot)”。{% else %}”。{% endif %}
 {% endif %}
 
 ## 将有漏洞的编码模式排除在存储库之外

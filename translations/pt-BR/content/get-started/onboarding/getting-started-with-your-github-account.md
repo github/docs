@@ -81,7 +81,7 @@ Para obter mais informações sobre como efetuar a autenticação em {% data var
 ### 4. Escrevendo em {% data variables.product.product_name %}
 Para deixar sua comunicação clara e organizada nos problemas e pull requests, você pode usar o Markdown enriquecido {% data variables.product.prodname_dotcom %} para formatação, que combina uma sintaxe fácil de ler e fácil de escrever com algumas funcionalidades personalizadas. Para obter mais informações, consulte "[Sobre gravação e formatação no {% data variables.product.prodname_dotcom %}](/github/writing-on-github/about-writing-and-formatting-on-github)".
 
-Você pode aprender o Markdown enriquecido de {% data variables.product.prodname_dotcom %} com o curso "[Comunicando-se usando o Markdown](https://lab.github.com/githubtraining/communicating-using-markdown)" em {% data variables.product.prodname_learning %}.
+You can learn {% data variables.product.prodname_dotcom %} Flavored Markdown with the "[Communicate using Markdown](https://github.com/skills/communicate-using-markdown)" course on {% data variables.product.prodname_learning %}.
 
 ### 5. Pesquisando em {% data variables.product.product_name %}
 Nossa pesquisa integrada permite que você encontre o que você está procurando entre os muitos repositórios, usuários e linhas de código em {% data variables.product.product_name %}. Você pode pesquisar globalmente em todos os {% data variables.product.product_name %} ou limitar sua pesquisa a um repositório ou organização em particular. Para obter mais informações sobre os tipos de pesquisas que você pode fazer em {% data variables.product.product_name %}, consulte "[Sobre pesquisar no {% data variables.product.prodname_dotcom %}](/github/searching-for-information-on-github/getting-started-with-searching-on-github/about-searching-on-github)".
@@ -187,7 +187,7 @@ Para obter mais informações, consulte "[Protegendo a cadeia de suprimentos do 
 {% data reusables.docs.you-can-read-docs-for-your-product %}
 
 ### 4. Aprendendo com {% data variables.product.prodname_learning %}
-{% data reusables.getting-started.learning-lab %}
+{% data reusables.getting-started.learning %}
 
 {% ifversion fpt or ghec %}
 ### 5. Apoiar a comunidade de código aberto

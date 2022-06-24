@@ -1,0 +1,7 @@
+---
+#Reference: Issue #7061 Configuring the dependency review action - [Public Beta]
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.5'
+  ghae: 'issue-7061'

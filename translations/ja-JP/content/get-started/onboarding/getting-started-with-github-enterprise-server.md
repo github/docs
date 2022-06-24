@@ -14,7 +14,7 @@ This guide will walk you through setting up, configuring and managing {% data va
 
 {% data variables.product.company_short %} hosts {% data variables.product.prodname_ghe_cloud %}. You can deploy and host {% data variables.product.prodname_ghe_server %} in your own datacenter or a supported cloud provider.
 
-For an overview of how {% data variables.product.product_name %} works, see "[System overview](/admin/overview/system-overview)."
+{% data variables.product.product_name %} の詳細については、「[{% data variables.product.prodname_ghe_server %} について](/admin/overview/about-github-enterprise-server)」を参照してください。
 
 ## パート 1: {% data variables.product.product_name %} のインストール方法
 To get started with {% data variables.product.product_name %}, you will need to create your enterprise account, install the instance, use the Management Console for initial setup, configure your instance, and manage billing.
@@ -67,7 +67,7 @@ As an enterprise owner or administrator, you can manage settings on user, reposi
 ## Part 3: Building securely
 To increase the security of {% data variables.product.product_location %}, you can configure authentication for enterprise members, use tools and audit logging to stay in compliance, configure security and analysis features for your organizations, and optionally enable {% data variables.product.prodname_GH_advanced_security %}.
 ### 1. Authenticating enterprise members
-You can use {% data variables.product.product_name %}'s built-in authentication method, or you can choose between an external authentication provider, such as CAS, LDAP, or SAML, to integrate your existing accounts and centrally manage user access to {% data variables.product.product_location %}. For more information, see "[About authentication for your enterprise](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise)."
+You can use {% data variables.product.product_name %}'s built-in authentication method, or you can choose between an external authentication provider, such as CAS, LDAP, or SAML, to integrate your existing accounts and centrally manage user access to {% data variables.product.product_location %}. 詳しい情報については「[Enterpriseでの認証について](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise)」を参照してください。
 
 You can also require two-factor authentication for each of your organizations. For more information, see "[Requiring two factor authentication for an organization](/admin/user-management/managing-organizations-in-your-enterprise/requiring-two-factor-authentication-for-an-organization)."
 
@@ -120,7 +120,7 @@ Your enterprise members can learn more about Git and {% data variables.product.p
 You can read documentation that reflects the features available with {% data variables.product.prodname_ghe_server %}. For more information, see "[About versions of {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs)."
 
 ### 2. Learning with {% data variables.product.prodname_learning %}
-{% data reusables.getting-started.learning-lab-enterprise %}
+{% data reusables.getting-started.learning-enterprise %}
 
 ### 3. Working with {% data variables.product.prodname_dotcom %} Enterprise Support
 {% data reusables.getting-started.contact-support-enterprise %}

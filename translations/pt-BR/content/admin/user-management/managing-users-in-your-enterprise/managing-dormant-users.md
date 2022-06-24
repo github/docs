@@ -57,4 +57,12 @@ topics:
 {% data reusables.enterprise-accounts.enterprise-accounts-compliance-tab %}
 1. Para fazer o download do seu relatório de usuários inativos (beta) como um arquivo CSV, em "Outro", clique em {% octicon "download" aria-label="The Download icon" %} **Download**. ![Botão Baixar em "Outro" na página de conformidade](/assets/images/help/business-accounts/dormant-users-download-button.png)
 
+{% tip %}
+
+**Dica:** Para fins de avaliação do usuário inativo, a atividade do usuário tem escopo para incluir apenas a atividade do usuário associada a organizações, repositórios ou eventos de logon associados à empresa. Por exemplo, se um usuário comentou recentemente sobre um problema em um repositório público não associado à empresa, ele poderá ser considerado inativo. No entanto, se ele comentou recentemente sobre um problema em um repositório público associado a uma organização da sua empresa, ele não será considerado inativo e não aparecerá no relatório do de usuário inativo.
+
+No caso de eventos de logon na web, somente eventos de login por meio de um domínio SSO associado à sua empresa são consideradas atividade de usuário associada à empresa.
+
+{% endtip %}
+
 {% endif %}

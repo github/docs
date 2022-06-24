@@ -1,0 +1,1 @@
+1. Under **Email**, select the dropdown menu and click the email you'd like to use for your local Git configuration. ![The name field of the local Git configuration](/assets/images/help/desktop/local-config-email.png)

@@ -13,7 +13,7 @@ If you specify multiple activity types, only one of those event activity types n
 
 ```yaml
 on:
-  issue:
+  issues:
     types:
       - opened
       - labeled

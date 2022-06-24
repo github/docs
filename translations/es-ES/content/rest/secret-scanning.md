@@ -18,7 +18,7 @@ redirect_from:
 
 La API del {% data variables.product.prodname_secret_scanning %} te permite {% ifversion fpt or ghec or ghes > 3.1 or ghae %}:
 
-- Enable or disable {% data variables.product.prodname_secret_scanning %}{% if secret-scanning-push-protection %} and push protection{% endif %} for a repository. Para obtener más información, consulta la sección "[Repositorios](/rest/reference/repos#update-a-repository)" y expande la sección de "Propiedades del objeto `security_and_analysis`" en la documentación de la API de REST.
+- Enable or disable {% data variables.product.prodname_secret_scanning %}{% ifversion secret-scanning-push-protection %} and push protection{% endif %} for a repository. Para obtener más información, consulta la sección "[Repositorios](/rest/repos/repos#update-a-repository)" y expande la sección de "Propiedades del objeto `security_and_analysis`" en la documentación de la API de REST.
 - Retrieve and update {% data variables.product.prodname_secret_scanning_GHAS %} alerts from a repository. For further details, see the sections below.
 {%- else %} retrieve and update {% data variables.product.prodname_secret_scanning %} alerts from a repository.{% endif %}
 

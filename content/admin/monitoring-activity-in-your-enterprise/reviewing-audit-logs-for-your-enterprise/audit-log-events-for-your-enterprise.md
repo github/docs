@@ -157,7 +157,7 @@ The scope of the events that appear in your enterprise's audit log depend on whe
 | `business.update_saml_provider_settings` | The SAML single sign-on provider settings for an enterprise were updated.
 {%- endif %}
 
-{%- if secret-scanning-audit-log-custom-patterns %}
+{%- ifversion secret-scanning-audit-log-custom-patterns %}
 ## `business_secret_scanning_custom_pattern` category actions
 
 Action                        | Description
@@ -713,7 +713,7 @@ Action                        | Description
 {%- ifversion fpt or ghec %}
 | `org.runner_group_visiblity_updated` | The visibility of a self-hosted runner group was updated via the REST API. For more information, see "[Update a self-hosted runner group for an organization](/rest/reference/actions#update-a-self-hosted-runner-group-for-an-organization)."
 {%- endif %}
-{%- if secret-scanning-audit-log-custom-patterns %}
+{%- ifversion secret-scanning-audit-log-custom-patterns %}
 | `org.secret_scanning_push_protection_disable` | An organization owner or administrator disabled push protection for secret scanning. For more information, see "[Protecting pushes with secret scanning](/enterprise-cloud@latest/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
 | `org.secret_scanning_push_protection_enable` | An organization owner or administrator enabled push protection for secret scanning.
 {%- endif %}
@@ -762,7 +762,7 @@ Action                        | Description
 | `org_credential_authorization.revoke` | An owner revoked authorized credentials. {% ifversion ghec %}For more information, see "[Viewing and managing your active SAML sessions](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization)."{% endif %}
 {%- endif %}
 
-{%- if secret-scanning-audit-log-custom-patterns %}
+{%- ifversion secret-scanning-audit-log-custom-patterns %}
 ## `org_secret_scanning_custom_pattern` category actions
 
 | Action | Description
@@ -1010,7 +1010,7 @@ Action                        | Description
 | `repo.code_scanning_analysis_deleted` | Code scanning analysis for a repository was deleted. For more information, see "[Delete a code scanning analysis from a repository](/rest/reference/code-scanning#delete-a-code-scanning-analysis-from-a-repository)."
 | `repo.change_merge_setting` | Pull request merge options were changed for a repository.
 | `repo.clear_actions_settings` | A repository administrator cleared {% data variables.product.prodname_actions %} policy settings for a repository.
-| `repo.config`         | A repository administrator blocked force pushes. For more information, see [Blocking force pushes to a repository](/enterprise/{{ currentVersion }}/admin/guides/developer-workflow/blocking-force-pushes-to-a-repository/) to a repository.
+| `repo.config`         | A repository administrator blocked force pushes. For more information, see [Blocking force pushes to a repository](/enterprise/admin/guides/developer-workflow/blocking-force-pushes-to-a-repository/) to a repository.
 {%- ifversion fpt or ghec %}
 | `repo.config.disable_collaborators_only` | The interaction limit for collaborators only was disabled. For more information, see "[Limiting interactions in your repository](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)."
 | `repo.config.disable_contributors_only` | The interaction limit for prior contributors only was disabled in a repository. For more information, see "[Limiting interactions in your repository](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)."
@@ -1130,7 +1130,7 @@ Action                        | Description
 | `repository_secret_scanning.enable` | A repository owner or administrator enabled secret scanning for a {% ifversion ghec %}private or internal {% endif %}repository.
 {%- endif %}
 
-{%- if secret-scanning-audit-log-custom-patterns %}
+{%- ifversion secret-scanning-audit-log-custom-patterns %}
 
 ## `repository_secret_scanning_custom_pattern` category actions
 
@@ -1160,9 +1160,9 @@ Action                        | Description
 
 | Action | Description
 |--------|-------------
-| `repository_vulnerability_alert.create` | {% data variables.product.product_name %} created a {% data variables.product.prodname_dependabot %} alert for a repository that uses a vulnerable dependency. For more information, see "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)."
-| `repository_vulnerability_alert.dismiss` | An organization owner or repository administrator dismissed a {% data variables.product.prodname_dependabot %} alert about a vulnerable dependency.
-| `repository_vulnerability_alert.resolve` | Someone with write access to a repository pushed changes to update and resolve a vulnerability in a project dependency.
+| `repository_vulnerability_alert.create` | {% data variables.product.product_name %} created a {% data variables.product.prodname_dependabot %} alert for a repository that uses an insecure dependency. For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)."
+| `repository_vulnerability_alert.dismiss` | An organization owner or repository administrator dismissed a {% data variables.product.prodname_dependabot %} alert about a vulnerable dependency{% ifversion GH-advisory-db-supports-malware %} or malware{% endif %}.
+| `repository_vulnerability_alert.resolve` | Someone with write access to a repository pushed changes to update and resolve a {% data variables.product.prodname_dependabot %} alert in a project dependency.
 {%- endif %}
 
 {%- ifversion fpt or ghec %}
@@ -1170,7 +1170,7 @@ Action                        | Description
 
 | Action | Description
 |--------|-------------
-| `repository_vulnerability_alerts.authorized_users_teams` | An organization owner or repository administrator updated the list of people or teams authorized to receive {% data variables.product.prodname_dependabot_alerts %} for vulnerable dependencies in the repository. For more information, see "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)."
+| `repository_vulnerability_alerts.authorized_users_teams` | An organization owner or repository administrator updated the list of people or teams authorized to receive {% data variables.product.prodname_dependabot_alerts %} for the repository. For more information, see "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)."
 | `repository_vulnerability_alerts.disable` | A repository owner or repository administrator disabled {% data variables.product.prodname_dependabot_alerts %}.
 | `repository_vulnerability_alerts.enable` | A repository owner or repository administrator enabled {% data variables.product.prodname_dependabot_alerts %}.
 {%- endif %}
@@ -1191,7 +1191,7 @@ Action                        | Description
 | `restrict_notification_delivery.disable` | Email notification restrictions for an organization or enterprise were disabled. For more information, see "[Restricting email notifications for your organization](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/restricting-email-notifications-for-your-organization)" and "[Restricting email notifications for your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/restricting-email-notifications-for-your-enterprise)."
 {%- endif %}
 
-{%- if custom-repository-roles %}
+{%- ifversion custom-repository-roles %}
 ## `role` category actions
 
 | Action | Description
@@ -1209,7 +1209,7 @@ Action                        | Description
 | `secret_scanning.disable` | An organization owner disabled secret scanning for all existing{% ifversion ghec %} private or internal{% endif %} repositories. For more information, see "[About secret scanning](/github/administering-a-repository/about-secret-scanning)."
 | `secret_scanning.enable` | An organization owner enabled secret scanning for all existing{% ifversion ghec %} private or internal{% endif %} repositories.
 
-{% if secret-scanning-alert-audit-log %}
+{% ifversion secret-scanning-alert-audit-log %}
 ## `secret_scanning_alert` category actions
 
 | Action | Description
@@ -1226,6 +1226,13 @@ Action                        | Description
 | `secret_scanning_new_repos.disable` | An organization owner disabled secret scanning for all new{% ifversion ghec %} private or internal{% endif %} repositories. For more information, see "[About secret scanning](/github/administering-a-repository/about-secret-scanning)."
 | `secret_scanning_new_repos.enable` | An organization owner enabled secret scanning for all new{% ifversion ghec %} private or internal{% endif %} repositories.
 {%- endif %}
+
+{% ifversion secret-scanning-push-protection-bypasses %}
+## `secret_scanning_push_protection` category actions
+
+| Action | Description
+|--------|-------------
+| `bypass` | Triggered when a user bypasses the push protection on a secret detected by secret scanning. For more information, see "[Bypassing push protection for a secret](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#bypassing-push-protection-for-a-secret)."{% endif %}
 
 {%- ifversion ghec or ghes or ghae %}
 ## `security_key` category actions

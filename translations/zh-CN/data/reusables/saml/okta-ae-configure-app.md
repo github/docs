@@ -1,3 +1,3 @@
-1. Click on the {% data variables.product.prodname_ghe_managed %} app.
+1. 单击 {% data variables.product.prodname_ghe_managed %} 应用程序。
 
-  ![Configure app](/assets/images/help/saml/okta-ae-configure-app.png)
+  ![配置应用程序](/assets/images/help/saml/okta-ae-configure-app.png)

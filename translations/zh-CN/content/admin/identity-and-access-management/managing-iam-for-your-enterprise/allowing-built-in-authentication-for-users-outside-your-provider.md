@@ -28,7 +28,7 @@ shortTitle: 回退身份验证
 
 {% warning %}
 
-**警告**：如果您禁用内置身份验证，则必须单独挂起不应具有实例访问权限的任何用户。 更多信息请参阅“[挂起和取消挂起用户](/enterprise/{{ currentVersion }}/admin/guides/user-management/suspending-and-unsuspending-users)”。
+**警告**：如果您禁用内置身份验证，则必须单独挂起不应具有实例访问权限的任何用户。 更多信息请参阅“[挂起和取消挂起用户](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users)”。
 
 {% endwarning %}
 

@@ -6,7 +6,7 @@ import nonEnterpriseDefaultVersion from '../../lib/non-enterprise-default-versio
 describe('mobile-only products nav', () => {
   const cases = [
     // Note the unversioned homepage at `/` does not have a product selected in the mobile dropdown
-    ['/github', 'GitHub'],
+    ['/repositories', 'Repositories'],
     // Enterprise server
     ['/en/enterprise/admin', 'Enterprise administrators'],
     [
@@ -41,8 +41,8 @@ describe('products middleware', () => {
 
   test('adds res.context.currentProduct object', async () => {
     const currentProduct = await getJSON(
-      `/en/${nonEnterpriseDefaultVersion}/github?json=currentProduct`
+      `/en/${nonEnterpriseDefaultVersion}/actions?json=currentProduct`
     )
-    expect(currentProduct).toBe('github')
+    expect(currentProduct).toBe('actions')
   })
 })

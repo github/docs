@@ -99,6 +99,20 @@ upcoming_changes:
     criticality: 重大
     owner: cheshire137
   - 
+    location: DependencyGraphDependency.packageLabel
+    description: '`packageLabel` 将被删除。请使用规范化的 `packageName` 字段。'
+    reason: '`packageLabel` 将被删除。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 重大
+    owner: github/dependency_graph
+  - 
+    location: RemovePullRequestFromMergeQueueInput.branch
+    description: '`branch` 将被删除。'
+    reason: PR 将从基本分支的合并队列中删除，`branch` 参数现在是 no-op
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 重大
+    owner: jhunschejones
+  - 
     location: UpdateProjectNextItemFieldInput.fieldWithSettingId
     description: '`fieldWithSettingId` 将被删除。使用 `fieldConstraintId` 代替'
     reason: 重命名为 fieldConstraintId 以提高命名一致性。
