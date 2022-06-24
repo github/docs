@@ -3,13 +3,13 @@
 #
 #   rm lib/redirects/.redirects-cache.json
 
-# These urls are exceptions to the default versioning fallbacks (described in lib/all-versions.js).
+# These urls are exceptions to the versionless redirect fallbacks (described in lib/all-versions.js).
+# See the comment in lib/redirects/precompile.js for an explanation of these exceptions.
 # Originally shipped in pull #20947 on 10/15/21
 
 # "About Premium Support" is the combination of three older articles and is now versioned for GHEC and GHES. As it is still
 # linked from site policy and the UI, this ensures those version-less URLs redirect correctly.
 # Shipped in #23217
-
 /enterprise-cloud@latest/support/learning-about-github-support/about-github-premium-support
 - /admin/enterprise-support/about-github-premium-support-for-github-enterprise
 - /admin/enterprise-support/overview/about-github-premium-support-for-github-enterprise
@@ -19,7 +19,6 @@
 - /enterprise-server/admin/enterprise-support/about-support-for-advanced-security
 
 # FPT versioning was removed as part of github/docs-content#5166
-
 /rest/overview/resources-in-the-rest-api
 - /rest/overview/api-previews
 
