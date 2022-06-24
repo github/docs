@@ -2,8 +2,8 @@
 date: '2021-12-13'
 sections:
   security_fixes:
-    - '{% octicon "alert" aria-label="The alert icon" %} **Critical:** A remote code execution vulnerability in the Log4j library, identified as [CVE-2021-44228](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-44228), affected all versions of {% data variables.product.prodname_ghe_server %} prior to 3.3.1. The Log4j library is used in an open source service running on the {% data variables.product.prodname_ghe_server %} instance. This vulnerability was fixed in {% data variables.product.prodname_ghe_server %} versions 3.0.22, 3.1.14, 3.2.6, and 3.3.1.  For more information, please see [this post](https://github.blog/2021-12-13-githubs-response-to-log4j-vulnerability-cve-2021-44228/) on the GitHub Blog.'
-    - '**December 17, 2021 update**: The fixes in place for this release also mitigate [CVE-2021-45046](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45046), which was published after this release. No additional upgrade for {% data variables.product.prodname_ghe_server %} is required to mitigate both CVE-2021-44228 and CVE-2021-45046.'
+    - '{% octicon "alert" aria-label="The alert icon" %} **严重：** Log4j 库中的远程执行代码漏洞（标识为 [CVE-2021-44228](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-44228)）影响了 3.3.1 之前所有版本的 {% data variables.product.prodname_ghe_server %} 。Log4j 库用于在 {% data variables.product.prodname_ghe_server %} 实例上运行的开源服务中。此漏洞已在 {% data variables.product.prodname_ghe_server %} 版本 3.0.22、3.1.14、3.2.6 和 3.3.1 中修复。更多信息请参阅 GitHub博客上的[这篇文章](https://github.blog/2021-12-13-githubs-response-to-log4j-vulnerability-cve-2021-44228/)。'
+    - '**2021 年 12 月 17 日更新**：此版本的现有修补程序还缓解了在此版本之后发布的 [CVE-2021-45046](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45046)。无需对 {% data variables.product.prodname_ghe_server %} 进行额外升级即可缓解 CVE-2021-44228 和 CVE-2021-45046。'
   known_issues:
     - 在新建的没有任何用户的 {% data variables.product.prodname_ghe_server %} 上，攻击者可以创建第一个管理员用户。
     - 自定义防火墙规则在升级过程中被删除。

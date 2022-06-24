@@ -119,7 +119,7 @@ shortTitle: 从收件箱管理
 - `is:discussion`{% endif %}
 
 {% ifversion fpt or ghes or ghae or ghec %}
-有关减少 {% data variables.product.prodname_dependabot_alerts %} 通知干扰的信息，请参阅“[配置漏洞依赖项的通知](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies)”。
+有关减少 {% data variables.product.prodname_dependabot_alerts %} 通知的噪音的信息，请参阅“[配置 {% data variables.product.prodname_dependabot_alerts %} 通知](/code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts)”。
 {% endif %}
 
 您还可以使用 `is:` 查询来描述如何对通知进行分类。
@@ -175,7 +175,7 @@ shortTitle: 从收件箱管理
 
 {% ifversion ghes < 3.3 or ghae %}
 
-如果使用 {% data variables.product.prodname_dependabot %} 来告知易受攻击的依赖项，则可以使用并保存这些自定义筛选器来显示 {% data variables.product.prodname_dependabot_alerts %} 的通知：
+如果您使用 {% data variables.product.prodname_dependabot %} 来告诉您不安全的依赖项，则可以使用这些自定义过滤器来显示 {% data variables.product.prodname_dependabot_alerts %} 的通知：
 - `is:repository_vulnerability_alert`
 - `reason:security_alert`
 
