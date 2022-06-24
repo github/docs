@@ -180,15 +180,14 @@
 - /admin/authentication/managing-your-enterprise-users-with-your-identity-provider/configuring-saml-single-sign-on-for-enterprise-managed-users
 - /admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/configuring-saml-single-sign-on-for-enterprise-managed-users
 
-/enterprise-cloud@latest/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-scim-provisioning-for-enterprise-managed-users
-- /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/configuring-scim-provisioning-for-enterprise-managed-users
-- /admin/authentication/managing-your-enterprise-users-with-your-identity-provider/configuring-scim-provisioning-for-enterprise-managed-users
-- /admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/configuring-scim-provisioning-for-enterprise-managed-users
-
-/enterprise-cloud@latest/admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/configuring-scim-provisioning-for-enterprise-managed-users-with-okta
+/enterprise-cloud@latest/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-scim-provisioning-for-enterprise-managed-users-with-okta
 - /early-access/github/articles/configuring-provisioning-for-managed-users-with-okta
 - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/configuring-scim-provisioning-for-enterprise-managed-users-with-okta
 - /admin/authentication/managing-your-enterprise-users-with-your-identity-provider/configuring-scim-provisioning-for-enterprise-managed-users-with-okta
+
+/enterprise-cloud@latest/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-scim-provisioning-for-enterprise-managed-users
+- /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/configuring-scim-provisioning-for-enterprise-managed-users
+- /admin/authentication/managing-your-enterprise-users-with-your-identity-provider/configuring-scim-provisioning-for-enterprise-managed-users
 - /admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/configuring-scim-provisioning-for-enterprise-managed-users
 
 /enterprise-cloud@latest/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/managing-team-memberships-with-identity-provider-groups
@@ -408,19 +407,9 @@
 /enterprise-cloud@latest/support/learning-about-github-support/about-github-premium-support
 - /articles/about-github-premium-support
 - /articles/about-github-premium-support-for-github-enterprise-cloud
-- /admin/enterprise-support/about-github-premium-support-for-github-enterprise
 - /github/working-with-github-support/about-github-premium-support-for-github-enterprise-cloud
-- /admin/enterprise-support/overview/about-github-premium-support-for-github-enterprise
 - /support/about-github-support/about-github-premium-support
 - /support/learning-about-github-support/about-github-premium-support
-
-/enterprise-server@latest/support/learning-about-github-support/about-github-premium-support
-- /admin/enterprise-support/about-github-premium-support-for-github-enterprise-server
-- /admin/enterprise-support/overview/about-github-premium-support-for-github-enterprise-server
-
-/enterprise-server@latest/support/learning-about-github-support/about-github-support
-- /admin/enterprise-support/about-support-for-advanced-security
-- /enterprise-server/admin/enterprise-support/about-support-for-advanced-security
 
 # FPT versioning for these files was removed as part of github/docs-content#5642
 
@@ -508,11 +497,6 @@
 /enterprise-cloud@latest/rest/secret-scanning
 - /rest/reference/secret-scanning
 
-# FPT versioning was removed as part of github/docs-content#5166
-
-/rest/overview/resources-in-the-rest-api
-- /rest/overview/api-previews
-
 /enterprise-cloud@latest/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-your-organization
 - /organizations/collaborating-with-groups-in-organizations/viewing-insights-for-your-organization
 - /articles/viewing-insights-for-your-organization
@@ -531,9 +515,3 @@
 - /articles/enabling-githubcom-repository-search-in-github-enterprise-server
 - /github/searching-for-information-on-github/enabling-githubcom-repository-search-in-github-enterprise-server
 - /github/searching-for-information-on-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-in-github-enterprise-server
-- /enterprise-cloud@latest/search-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-from-your-private-enterprise-environment
-
-/enterprise-cloud@latest/organizations/managing-membership-in-your-organization/exporting-member-information-for-your-organization
-- /enterprise-server@3.3/organizations/managing-membership-in-your-organization/exporting-member-information-for-your-organization
-- /enterprise-server@3.4/organizations/managing-membership-in-your-organization/exporting-member-information-for-your-organization
-- /enterprise-server@3.5/organizations/managing-membership-in-your-organization/exporting-member-information-for-your-organization
