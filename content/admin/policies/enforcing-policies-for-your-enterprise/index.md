@@ -5,7 +5,6 @@ redirect_from:
   - /enterprise/admin/policies/enforcing-policies-for-your-enterprise
   - /articles/setting-policies-for-organizations-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise-account/setting-policies-for-organizations-in-your-enterprise-account
-  - /github/setting-up-and-managing-your-enterprise/setting-policies-for-organizations-in-your-enterprise-account
 versions:
   ghec: '*'
   ghes: '*'

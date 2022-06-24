@@ -29,3 +29,6 @@
 - /enterprise-server@3.3/organizations/managing-membership-in-your-organization/exporting-member-information-for-your-organization
 - /enterprise-server@3.4/organizations/managing-membership-in-your-organization/exporting-member-information-for-your-organization
 - /enterprise-server@3.5/organizations/managing-membership-in-your-organization/exporting-member-information-for-your-organization
+
+/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise
+- /github/setting-up-and-managing-your-enterprise/setting-policies-for-organizations-in-your-enterprise-account

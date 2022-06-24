@@ -3,8 +3,6 @@ title: Viewing the security overview
 intro: Navigate to the different views available in the security overview
 permissions: '{% data reusables.security-center.permissions %}'
 product: '{% data reusables.gated-features.security-center %}'
-redirect_from:
-  - /code-security/security-overview/viewing-the-security-overview
 versions:
   ghae: issue-5503
   ghes: '>3.1'
