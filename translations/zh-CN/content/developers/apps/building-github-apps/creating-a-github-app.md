@@ -46,7 +46,7 @@ topics:
 
 {% endif %}
 1. 默认情况下，为了提高应用程序的安全性，应用程序将使用过期用户授权令牌。 要选择不使用过期用户令牌，您必须取消选中“Expire user authorization tokens（过期用户授权令牌）”。 要了解有关设置刷新令牌流程和过期用户令牌的好处，请参阅“[刷新用户到服务器的访问令牌](/apps/building-github-apps/refreshing-user-to-server-access-tokens/)”。 ![在 GitHub 应用程序设置过程中选择加入过期用户令牌的选项](/assets/images/github-apps/expire-user-tokens-selection.png)
-1. 如果应用程序授权用户使用 OAuth 流程，您可以选择**在安装过程中请求用户授权 (OAuth)**，以允许用户在安装应用程序时授权它，从而省去一个步骤。 如果您选择此选项，则“设置 URL”将不可用，用户在安装应用程序后将被重定向到您的“用户授权回调 URL”。 更多信息请参阅“[在安装过程中授权用户](/apps/installing-github-apps/#authorizing-users-during-installation)”。 ![Request user authorization during installation](/assets/images/github-apps/github_apps_request_auth_upon_install.png){% if device-flow-is-opt-in %}
+1. 如果应用程序授权用户使用 OAuth 流程，您可以选择**在安装过程中请求用户授权 (OAuth)**，以允许用户在安装应用程序时授权它，从而省去一个步骤。 如果您选择此选项，则“设置 URL”将不可用，用户在安装应用程序后将被重定向到您的“用户授权回调 URL”。 更多信息请参阅“[在安装过程中授权用户](/apps/installing-github-apps/#authorizing-users-during-installation)”。 ![Request user authorization during installation](/assets/images/github-apps/github_apps_request_auth_upon_install.png){% ifversion device-flow-is-opt-in %}
 1. 如果您的 GitHub 应用程序将使用设备流来识别和授权用户，请单击 **Enable Device Flow（启用设备流）**。 有关设备流的更多信息，请参阅“[授权 OAuth 应用程序](/developers/apps/building-oauth-apps/authorizing-oauth-apps#device-flow)”。 ![Screenshot showing field for enabling device flow](/assets/images/oauth-apps/enable-device-flow.png){% endif %}
 1. 如果安装后需要附加设置，请添加一个“设置 URL”以便在用户安装应用程序后重定向他们。 ![GitHub 应用程序的设置 URL 字段 ](/assets/images/github-apps/github_apps_setup_url.png)
 

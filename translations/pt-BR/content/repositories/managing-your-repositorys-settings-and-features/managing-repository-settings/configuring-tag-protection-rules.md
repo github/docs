@@ -16,9 +16,9 @@ versions:
 
 {% endnote %}
 
-Quando você adiciona uma regra de proteção de tags, todas as tags que correspondem ao padrão fornecido serão protegidas. Somente usuários com permissões de administrador ou de manutenção no repositório poderão criar tags protegidas, e apenas usuários com permissões de administrador no repositório poderão excluir tags protegidas. Para obter mais informações, consulte "[Funções do repositório para uma organização](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization#permissions-for-each-role)". {% data variables.product.prodname_github_apps %} require the `Repository administration: write` permission to modify a protected tag.
+Quando você adiciona uma regra de proteção de tags, todas as tags que correspondem ao padrão fornecido serão protegidas. Somente usuários com permissões de administrador ou de manutenção no repositório poderão criar tags protegidas, e apenas usuários com permissões de administrador no repositório poderão excluir tags protegidas. Para obter mais informações, consulte "[Funções do repositório para uma organização](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization#permissions-for-each-role)". {% data variables.product.prodname_github_apps %} exige a permissão `Repository administration: write` para modificar uma tag protegida.
 
-{% if custom-repository-roles %}
+{% ifversion custom-repository-roles %}
 Além disso, você pode criar funções personalizadas de repositórios para permitir que outros grupos de usuários criem ou excluam tags que correspondem às regras de proteção de tags. Para obter mais informações, consulte "[Gerenciando funções de repositórios personalizados para uma organização](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)".{% endif %}
 
 {% data reusables.repositories.navigate-to-repo %}

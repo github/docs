@@ -25,7 +25,7 @@ Creating a "fork" is producing a personal copy of someone else's project. Forks 
 This tutorial uses [the Spoon-Knife project](https://github.com/octocat/Spoon-Knife), a test repository that's hosted on {% data variables.product.prodname_dotcom_the_website %} that lets you test the fork and pull request workflow.
 
 1. Navigate to the `Spoon-Knife` project at https://github.com/octocat/Spoon-Knife.
-2. Click **Fork**. ![[Fork] ボタン](/assets/images/help/repository/fork_button.jpg)
+2. Click **Fork**. ![[Fork] ボタン](/assets/images/help/repository/fork_button.png)
 1. {% data variables.product.product_name %} will take you to your copy (your fork) of the Spoon-Knife repository.
 
 ## Cloning a fork
@@ -81,7 +81,7 @@ gh repo fork <em>repository</em> --clone=true
 
 ## Making and pushing changes
 
-Go ahead and make a few changes to the project using your favorite text editor, like [Atom](https://atom.io). You could, for example, change the text in `index.html` to add your GitHub username.
+Go ahead and make a few changes to the project using your favorite text editor, like [Visual Studio Code](https://code.visualstudio.com). You could, for example, change the text in `index.html` to add your GitHub username.
 
 When you're ready to submit your changes, stage and commit your changes. `git add .` tells Git that you want to include all of your changes in the next commit. `git commit` takes a snapshot of those changes.
 

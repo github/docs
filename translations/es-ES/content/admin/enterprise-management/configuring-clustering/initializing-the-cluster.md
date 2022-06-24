@@ -17,12 +17,12 @@ topics:
 
 ## Instalar {% data variables.product.prodname_ghe_server %}
 
-1. En cada nodo de agrupación, suministra e instala {% data variables.product.prodname_ghe_server %}. Para obtener más información, consulta "[Configurar una instancia {% data variables.product.prodname_ghe_server %} ](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-github-enterprise-server-instance)."
+1. En cada nodo de agrupación, suministra e instala {% data variables.product.prodname_ghe_server %}. Para obtener más información, consulta "[Configurar una instancia del {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/installation/setting-up-a-github-enterprise-server-instance)."
 2. Mediante el shell administrativo o DHCP, configura **solo** la dirección IP de cada nodo. No configures los otros parámetros.
 
 ## Configurar el primer nodo
 
-1. Conèctate al nodo que se designarà como el primario de MySQL en la `cluster.conf`. Para obtener màs informaciòn, consulta la secciòn "[Acerca del archivo de configuraciòn de clùster](/enterprise/{{ currentVersion }}/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file)".
+1. Conèctate al nodo que se designarà como el primario de MySQL en la `cluster.conf`. Para obtener màs informaciòn, consulta la secciòn "[Acerca del archivo de configuraciòn de clùster](/enterprise/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file)".
 2. En tu navegador web, visita `https://<ip address>:8443/setup/`.
 {% data reusables.enterprise_installation.upload-a-license-file %}
 {% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %}
@@ -30,7 +30,7 @@ topics:
 
 ## Inicializar la agrupación
 
-Para inicializar la agrupación, necesitas un archivo de configuración de agrupación (`cluster.conf`). Para obtener màs informaciòn, consulta la secciòn "[Acerca del archivo de configuraciòn de clùster](/enterprise/{{ currentVersion }}/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file)".
+Para inicializar la agrupación, necesitas un archivo de configuración de agrupación (`cluster.conf`). Para obtener màs informaciòn, consulta la secciòn "[Acerca del archivo de configuraciòn de clùster](/enterprise/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file)".
 
 1. Desde el primer nodo que se configuró, ejecuta `ghe-cluster-config. init`.  De esta manera, se inicializará la agrupación si existen nodos en el archivo de configuración de la agrupación que no están configurados.
 2. Ejecuta `ghe-cluster-config-apply`. Esto validará el archivo `cluster.conf`, aplicará la configuración a cada archivo del nodo y traerá los servicios configurados en cada nodo.
@@ -39,7 +39,7 @@ Para comprobar el estado de una agrupación en funcionamiento, usa el comando `g
 
 ## Acerca del archivo de configuración de la agrupación
 
-El archivo de configuración de la agrupación (`cluster.conf`) define los nodos en la agrupación, y los servicios que ejecutan. Para obtener más información, consulta "[Acerca de los nodos de agrupación](/enterprise/{{ currentVersion }}/admin/guides/clustering/about-cluster-nodes)".
+El archivo de configuración de la agrupación (`cluster.conf`) define los nodos en la agrupación, y los servicios que ejecutan. Para obtener más información, consulta la sección "[Acerca de los nodos de clúster](/enterprise/admin/guides/clustering/about-cluster-nodes)".
 
 Este ejemplo `cluster.conf` define una agrupación con cinco nodos.
 

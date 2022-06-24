@@ -1,1 +1,1 @@
-github/codeql-action/upload-sarif@{% if actions-node16-action %}v2{% else %}v1{% endif %}
+github/codeql-action/upload-sarif@{% ifversion actions-node16-action %}v2{% else %}v1{% endif %}

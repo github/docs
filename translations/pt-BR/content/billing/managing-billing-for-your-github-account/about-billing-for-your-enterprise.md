@@ -45,7 +45,7 @@ Você pode ver seu uso atual no seu [Portal da conta do Azure](https://portal.az
 
 {% ifversion ghec %}
 
-{% data variables.product.company_short %} faz a cobrança mensal para o número total de membros da sua conta corporativa, bem como quaisquer serviços adicionais que você usar com {% data variables.product.prodname_ghe_cloud %}.
+{% data variables.product.company_short %} faz a cobrança mensal para o número total de estações licenciadas para sua organização ou conta corporativa, bem como todos os serviços adicionais que você utiliza com {% data variables.product.prodname_ghe_cloud %}, como minutos de {% data variables.product.prodname_actions %}. Para obter mais informações sobre a parte das estações licenciadas da sua conta, consulte "[Sobre o preço por usuário](/billing/managing-billing-for-your-github-account/about-per-user-pricing)".
 
 {% elsif ghes %}
 
@@ -53,7 +53,7 @@ Cada usuário em {% data variables.product.product_location %} consome uma esta�
 
 {% endif %}
 
-{% ifversion ghec %}For {% data variables.product.prodname_ghe_cloud %} customers with an enterprise account, {% data variables.product.company_short %} bills through your enterprise account on {% data variables.product.prodname_dotcom_the_website %}. For invoiced customers, each{% elsif ghes %}For invoiced {% data variables.product.prodname_enterprise %} customers, {% data variables.product.company_short %} bills through an enterprise account on {% data variables.product.prodname_dotcom_the_website %}. Each{% endif %} invoice includes a single bill charge for all of your paid {% data variables.product.prodname_dotcom_the_website %} services and any {% data variables.product.prodname_ghe_server %} instances. For more information about {% ifversion ghes %}licensing, usage, and invoices{% elsif ghec %}usage and invoices{% endif %}, see the following{% ifversion ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}.{% endif %}
+{% ifversion ghec %}Para clientes de {% data variables.product.prodname_ghe_cloud %} com uma conta corporativa, {% data variables.product.company_short %} contas por meio da sua conta corporativa em {% data variables.product.prodname_dotcom_the_website %}. Para os clientes faturados, cada{% elsif ghes %}Para {% data variables.product.prodname_enterprise %} clientes faturados, {% data variables.product.company_short %} fatura por meio de uma conta corporativa em {% data variables.product.prodname_dotcom_the_website %}. Cada{% endif %}atura inclui uma única cobrança de fatura para todos os seus serviços de {% data variables.product.prodname_dotcom_the_website %} pagos e as instâncias de qualquer instância de {% data variables.product.prodname_ghe_server %}. Para mais informações sobre {% ifversion ghes %} licenciamento, uso e faturas{% elsif ghec %}uso e faturas{% endif %}, consulte o seguinte{% ifversion ghes %} na documentação de {% data variables.product.prodname_ghe_cloud %}.{% else %}.{% endif %}
 
 {%- ifversion ghes %}
 - "[Sobre preços por usuário](/enterprise-cloud@latest/billing/managing-billing-for-your-github-account/about-per-user-pricing)"
@@ -64,40 +64,14 @@ Cada usuário em {% data variables.product.product_location %} consome uma esta�
 Os administradores da conta corporativa em {% data variables.product.prodname_dotcom_the_website %} podem acessar e gerenciar a cobrança da empresa. Para obter mais informações, consulte "[Funções em uma empresa]({% ifversion ghes %}/enterprise-cloud@latest{% endif %}/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise){% ifversion ghec %}".{% elsif ghes %}" na documentação de {% data variables.product.prodname_ghe_cloud %} .{% endif %}
 
 {% ifversion ghec %}
-
 {% data reusables.enterprise-accounts.billing-microsoft-ea-overview %} Para obter mais informações, consulte "[Conectando uma assinatura do Azure à sua empresa](/billing/managing-billing-for-your-github-account/connecting-an-azure-subscription-to-your-enterprise)".
-
 {% endif %}
 
 {% ifversion ghes %}
-
 {% data reusables.billing.ghes-with-no-enterprise-account %}
-
 {% endif %}
 
-{% ifversion ghec %}
-
-## Preços por usuário
-
-{% data variables.product.company_short %} cobra serviços consumidos em {% data variables.product.prodname_dotcom_the_website %}, cada usuário para implantações de {% data variables.product.prodname_ghe_server %} e cada integrante de organizações em {% data variables.product.prodname_ghe_cloud %}. Para obter mais informações sobre os preços por usuário, consulte "[Sobre o preço por usuário](/billing/managing-billing-for-your-github-account/about-per-user-pricing)".
-
-{% data reusables.billing.per-user-pricing-reference %}
-
-Para obter mais informações sobre funções, consulte "[Funções em uma empresa](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)" ou "[Funções em uma organização](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)".
-
-Para obter mais informações sobre colaboradores externos, consulte "[Adicionando colaboradores externos aos repositórios da organização](/organizations/managing-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization)".
-
 {% endif %}
-
-## Sobre a sincronização do uso da licença
-
-{% data reusables.enterprise.about-deployment-methods %}
-
-{% data reusables.enterprise-licensing.about-license-sync %} Para mais informações, consulte {% ifversion ghec %}"[Sincronizando o uso da licença entre {% data variables.product.prodname_ghe_server %} e {% data variables.product.prodname_ghe_cloud %}](/enterprise-server/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud)" na documentação de {% data variables.product.prodname_ghe_server %}.{% elsif ghes %}"[Sincronizando o uso da licença entre {% data variables.product.prodname_ghe_server %} e {% data variables.product.prodname_ghe_cloud %}](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud)."{% endif %}
-
-{% endif %}
-
 ## Leia mais
 
-- "[Sobre as contas corporativas](/admin/overview/about-enterprise-accounts)"{% ifversion ghec or ghes %}
-- "[Sobre licenças para o GitHub Enterprise](/billing/managing-your-license-for-github-enterprise/about-licenses-for-github-enterprise)"{% endif %}
+- "[Sobre contas corporativas](/admin/overview/about-enterprise-accounts)"

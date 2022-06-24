@@ -13,8 +13,6 @@ product: '{% data reusables.gated-features.codespaces %}'
 permissions: People with admin access to a repository can configure prebuilds for the repository.
 ---
 
-{% data reusables.codespaces.prebuilds-beta-note %}
-
 您可以为存储库的特定分支设置预构建配置。
 
 从启用了预构建的基础分支创建的任何分支通常也会在代码空间创建期间分配一个预构建。 如果分支上的开发容器与基本分支上的开发容器相同，则会出现这种情况。 这是因为具有相同开发容器配置的分支的大多数预构建配置都相同，因此开发人员也可以从这些分支上更快的代码空间创建时间中受益。 更多信息请参阅“[开发容器简介](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)”。
@@ -48,7 +46,15 @@ permissions: People with admin access to a repository can configure prebuilds fo
 
    {% endnote %}
 
-1. 选择要在其中设置预构建的区域。 开发人员必须位于您选择的区域中，才能从预构建创建代码空间。 或者，选择 **All regions（所有区域）**。
+1. 选择自动触发预构建模板更新的方式。
+
+   * **每次推送**（默认设置）- 使用此设置，每次推送到给定分支时，都会更新预构建配置。 这将确保从预构建模板生成的代码空间始终包含最新的代码空间配置，包括任何最近添加或更新的依赖项。
+   * **在配置更改时** - 使用此设置，每次更新给定存储库和分支的关联配置文件时，都会更新预构建配置。 这可确保在从预构建模板生成代码空间时使用对存储库的开发容器配置文件所做的更改。 更新预构建模板的 Actions 工作流程的运行频率较低，因此此选项将使用较少的 Actions 分钟数。 但是，此选项不保证代码空间始终包含最近添加或更新的依赖项，因此在创建代码空间后，可能必须手动添加或更新这些依赖项。
+   * **计划** - 使用此设置，您可以按照自己定义的自定义计划更新预构建配置。 This can reduce consumption of Actions minutes, however, with this option, codespaces may be created that do not use the latest dev container configuration changes.
+
+   ![预构建触发器选项](/assets/images/help/codespaces/prebuilds-triggers.png)
+
+1. Select **Reduce prebuild available to only specific regions** to limit access to your prebuilt image, then select which regions you want it available in. Developers can only create codespaces from a prebuild if they are located in a region you select. By default, your prebuilt image is available to all regions where codespaces is available and storage costs apply for each region.
 
    ![区域选择选项](/assets/images/help/codespaces/prebuilds-regions.png)
 
@@ -60,13 +66,17 @@ permissions: People with admin access to a repository can configure prebuilds fo
 
    {% endnote %}
 
-1. 选择自动触发预构建模板更新的方式。
+1. Set the number of prebuild template versions to be retained. You can input any number between 1 and 5. The default number of saved versions is 2, which means that only the latest template version and the previous version are saved.
 
-   * **每次推送**（默认设置）- 使用此设置，每次推送到给定分支时，都会更新预构建配置。 这将确保从预构建模板生成的代码空间始终包含最新的代码空间配置，包括任何最近添加或更新的依赖项。
-   * **在配置更改时** - 使用此设置，每次更新给定存储库和分支的关联配置文件时，都会更新预构建配置。 这可确保在从预构建模板生成代码空间时使用对存储库的开发容器配置文件所做的更改。 更新预构建模板的 Actions 工作流程的运行频率较低，因此此选项将使用较少的 Actions 分钟数。 但是，此选项不保证代码空间始终包含最近添加或更新的依赖项，因此在创建代码空间后，可能必须手动添加或更新这些依赖项。
-   * **计划** - 使用此设置，您可以按照自己定义的自定义计划更新预构建配置。 这可以减少 Actions 分钟数的消耗，并减少预构建因更新而不可用的时间。 但是，使用此选项，可以创建不使用最新开发容器配置更改的代码空间。
+   Depending on your prebuild trigger settings, your prebuild template could change with each push or on each dev container configuration change. Retaining older versions of prebuild templates enables you to create a prebuild from an older commit with a different dev container configuration than the current prebuild template. Since there is a storage cost associated with retaining prebuild template versions, you can choose the number of versions to be retained based on the needs of your team. For more information on billing, see "[About billing for {% data variables.product.prodname_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces#codespaces-pricing)."
 
-   ![预构建触发器选项](/assets/images/help/codespaces/prebuilds-triggers.png)
+   If you set the number of prebuild template versions to save to 1, {% data variables.product.prodname_codespaces %} will only save the latest version of the prebuild template and will delete the older version each time the template is updated. This means you will not get a prebuilt codespace if you go back to an older dev container configuration.
+
+   ![The prebuild template history setting](/assets/images/help/codespaces/prebuilds-template-history-setting.png)
+
+1. Add users or teams to notify when the prebuild workflow run fails for this configuration. You can begin typing a username, team name, or full name, then click the name once it appears to add them to the list. The users or teams you add will receive an email when prebuild failures occur, containing a link to the workflow run logs to help with further investigation.
+
+   ![The prebuild failure notification setting](/assets/images/help/codespaces/prebuilds-failure-notification-setting.png)
 
 1. 单击 **Create（创建）**。
 

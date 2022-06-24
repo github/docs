@@ -4,34 +4,30 @@ sections:
   security_fixes:
     - Os pacotes foram atualizados para as últimas versões de segurança.
   bugs:
-    - Resolved a regression that could lead to consistent failures to retrieve artifacts and download log archives for {% data variables.product.prodname_actions %}. In some circumstances we stopped resolving URLs for internal communications that used `localhost`, and instead incorrectly used the instance hostname.
-    - When a manifest file was deleted from a repository, the manifest would not be removed from the repository's "Dependency graph" page.
-    - Upgrading the nodes in a high availability pair with an upgrade package could cause Elasticsearch to enter an inconsistent state in some cases.
-    - Rotated log files with the extension `.backup` would accumulate in directories containing system logs.
-    - In some cluster topologies, the command line utilities `ghe-spokesctl` and `ghe-btop` failed to run.
-    - Elasticsearch indices could be duplicated during a package upgrade, due to an `elasticsearch-upgrade` service running multiple times in parallel.
-    - Repository cache servers could serve data from non-cache locations even when the data was available in the local cache location.
-    - When converting a user account to an organization, if the user account was an owner of the {% data variables.product.prodname_ghe_server %} enterprise account, the converted organization would incorrectly appear in the enterprise owner list.
-    - The `/stafftools/users/ip_addresses/:address` page responded with a `500 Internal Server Error` when attempting to display the page for an IPv6 address.
-    - Creating an impersonation OAuth token using the Enterprise Administration REST API resulted in an error when an integration matching the OAuth Application ID already existed.
+    - Resolvida uma regressão que poderia levar a falhas consistentes para recuperar artefatos e fazer o download dos arquivos de log para {% data variables.product.prodname_actions %}. Em algumas circunstâncias, paramos de resolver URLs para comunicações internas que usavam `localhost` e em vez disso usavam incorretamente o nome do host da instância.
+    - Quando um arquivo de manifesto foi excluído de um repositório, o manifesto não seria removido da página "Gráfico de dependência" do repositório.
+    - Atualizar os nós em um par de alta disponibilidade com um pacote de atualização pode fazer com que o Elasticsearch entre em um estado inconsistente em alguns casos.
+    - Arquivos de log rotacionados com o `.backup` da extensão seriam acumulados em diretórios que contêm logs de sistema.
+    - Em algumas topologias de cluster, os utilitários de linha de comando 'ghe-spokesctl' e 'ghe-btop' falharam em executar.
+    - Os índices de pesquisa do Elasticsearch podem ser duplicados durante uma atualização do pacote, devido a um serviço `elasticsearch-upgrade` em execução várias vezes em paralelo.
+    - Os servidores de cache do repositório podem servir dados de locais que não são do cache mesmo quando os dados estavam disponíveis no local do cache local.
+    - Ao converter a conta de um usuário em uma organização, se a conta de usuário era proprietáris da conta corporativa de {% data variables.product.prodname_ghe_server %}, a organização convertida apareceria incorretamente na lista de proprietários da empresa.
+    - A página `/stafftools/users/ip_addresses/:address` respondeu com uma mensagem `500 Internal Server Error` ao tentar exibir a página para um endereço IPv6.
+    - Criar um token OAuth de representação usando a API REST da Administração Enterprise resultou em um erro quando uma integração que corresponde ao ID do Aplicativo OAuth já existia.
   changes:
-    - Added support for replica domain names that are more than 63 characters.
-    - Configuration errors that halt a config apply run are now output to the terminal in addition to the configuration log.
-    - If {% data variables.product.prodname_GH_advanced_security %} features are enabled on your instance, the performance of background jobs has improved when processing batches for repository contributions.
+    - Adicionado suporte para nomes de domínio de replica com mais de 63 caracteres.
+    - Os erros de configuração que interrompem a execução de uma configuração aplicada agora são retornados para o terminal, além do log de configuração.
+    - Se as funcionalidades de {% data variables.product.prodname_GH_advanced_security %} estiverem habilitadas na sua instância, o desempenho de trabalhos em segundo plano melhorou ao processar lotes para contribuições no repositório.
   known_issues:
     - Em uma instância de {% data variables.product.prodname_ghe_server %} recém-configurada sem usuários, um invasor pode criar o primeiro usuário administrador.
     - As regras de firewall personalizadas são removidas durante o processo de atualização.
     - Arquivos LFS do Git [enviados através da interface web](https://github.com/blog/2105-upload-files-to-your-repositories) são adicionados diretamente ao repositório e de forma incorreta.
     - Os problemas não podem ser fechados se contiverem um permalink para um blob no mesmo repositório, onde o caminho do arquivo blob's é maior que 255 caracteres.
-    - When "Users can search GitHub.com" is enabled with {% data variables.product.prodname_github_connect %}, issues in private and internal repositories are not included in {% data variables.product.prodname_dotcom_the_website %} search results.
+    - Quando "Usuários podem pesquisar pelo GitHub.com" está habilitado com {% data variables.product.prodname_github_connect %}, os problemas nos repositórios privados e internos não são incluídos nos resultados de pesquisa de {% data variables.product.prodname_dotcom_the_website %}.
     - O registro npm de {% data variables.product.prodname_registry %} não retorna mais o valor de tempo em respostas de metadados. Isso foi feito para permitir melhorias substanciais de desempenho. Continuamos a ter todos os dados necessários para devolver um valor de tempo como parte da resposta aos metadados e retomaremos o retorno desse valor no futuro, assim que tivermos resolvido os problemas de desempenho existentes.
     - Os limites de recursos que são específicos para processamento de hooks pre-receive podem causar falha em alguns hooks pre-receive.
     - |
-      When using SAML encrypted assertions with {% data variables.product.prodname_ghe_server %} 3.4.0 and 3.4.1, a new XML attribute `WantAssertionsEncrypted` in the `SPSSODescriptor` contains an invalid attribute for SAML metadata. IdPs that consume this SAML metadata endpoint may encounter errors when validating the SAML metadata XML schema. A fix will be available in the next patch release. [Updated: 2022-04-11]
-
-      To work around this problem, you can take one of the two following actions.
-      - Reconfigure the IdP by uploading a static copy of the SAML metadata without the `WantAssertionsEncrypted` attribute.
-      - Copy the SAML metadata, remove `WantAssertionsEncrypted` attribute, host it on a web server, and reconfigure the IdP to point to that URL.
+      After registering a self-hosted runner with the `--ephemeral` parameter on more than one level (for example, both enterprise and organization), the runner may get stuck in an idle state and require re-registration. [Updated: 2022-06-17]
   deprecations:
     - 
       heading: Obsoletização do GitHub Enterprise Server 3.0
@@ -74,9 +70,9 @@ sections:
 
           Para iniciar uma tarefa de manutenção do repositório manualmente, acesse https://<hostname>/stafftools/repositórios/<owner>/<repository>/network` para cada repositório afetado e clique no botão Cronograma.
     - 
-      heading: Theme picker for GitHub Pages has been removed
+      heading: O seletor de temas para o GitHub Pages foi removido
       notes:
         - |
-          The theme picker for GitHub Pages has been removed from the Pages settings. For more information about configuration of themes for GitHub Pages, see "[Adding a theme to your GitHub Pages site using Jekyll](/pages/setting-up-a-github-pages-site-with-jekyll/adding-a-theme-to-your-github-pages-site-using-jekyll)."
+          O seletor de temas para o GitHub Pages foi removido das configurações de pagamento. Para obter mais informações sobre a configuração dos temas para o GitHub Pages, consulte "[Adicionando um tema ao site do GitHub Pages usando o Jekyll](/pages/setting-up-a-github-pages-site-with-jekyll/adding-a-theme-to-your-github-pages-site-using-jekyll)."
   backups:
     - '{% data variables.product.prodname_ghe_server %} 3.4 exige pelo menos [GitHub Enterprise Backup Utilities 3.4.0](https://github.com/github/backup-utils) para [Backups e recuperação de desastre](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance).'

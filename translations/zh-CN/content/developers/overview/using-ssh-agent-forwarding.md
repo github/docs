@@ -4,6 +4,7 @@ intro: 为简化向服务器的部署，您可以设置 SSH 代理转发以安�
 redirect_from:
   - /guides/using-ssh-agent-forwarding
   - /v3/guides/using-ssh-agent-forwarding
+  - /articles/using-ssh-agent-forwarding
 versions:
   fpt: '*'
   ghes: '*'

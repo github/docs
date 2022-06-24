@@ -169,17 +169,6 @@ describe('server', () => {
     expect($.res.statusCode).toBe(400)
   })
 
-  // see issue 12427
-  test('renders a 404 for leading slashes', async () => {
-    let $ = await getDOM('//foo.com/enterprise', { allow404: true })
-    expect($('h1').text()).toBe('Ooops!')
-    expect($.res.statusCode).toBe(404)
-
-    $ = await getDOM('///foo.com/enterprise', { allow404: true })
-    expect($('h1').text()).toBe('Ooops!')
-    expect($.res.statusCode).toBe(404)
-  })
-
   test('renders a 500 page when errors are thrown', async () => {
     const $ = await getDOM('/_500', { allow500s: true })
     expect($('h1').text()).toBe('Ooops!')
@@ -490,12 +479,14 @@ describe('server', () => {
     })
 
     test('dotcom articles on dotcom have Enterprise Admin links with latest GHE version', async () => {
-      const $ = await getDOM('/en/articles/setting-up-a-trial-of-github-enterprise-server')
+      const $ = await getDOM(
+        '/en/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-self-hosted-runners-for-your-enterprise'
+      )
       // Note any links that might expressed in Markdown as '.../enterprise-server@latest/...'
       // becomes '.../enterprise-server@<VERSION>/...' when rendered out.
       expect(
         $(
-          `a[href="/en/enterprise-server@${enterpriseServerReleases.latest}/admin/installation/setting-up-a-github-enterprise-server-instance"]`
+          `a[href="/en/enterprise-server@${enterpriseServerReleases.latest}/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect"]`
         ).length
       ).toBe(2)
     })
@@ -599,15 +590,6 @@ describe('server', () => {
   })
 
   describeViaActionsOnly('Early Access articles', () => {
-    // Test skipped because this test file is no longer able to
-    // change the `NODE_ENV` between tests because it depends on
-    // HTTP and not raw supertest.
-    // Idea: Move this one test somewhere into tests/unit/
-    test.skip('are not listed at /early-access in production', async () => {
-      const res = await get('/early-access', { followRedirects: true })
-      expect(res.statusCode).toBe(404)
-    })
-
     test('have noindex meta tags', async () => {
       const allPages = await loadPages()
       // This is what the earlyAccessContext middleware does to get a
@@ -631,7 +613,7 @@ describe('server', () => {
 
   describe('redirects', () => {
     test('redirects old articles to their English URL', async () => {
-      const res = await get('/articles/deleting-a-team')
+      const res = await get('/articles/deleting-a-team', { followRedirects: false })
       expect(res.statusCode).toBe(302)
       expect(res.headers['set-cookie']).toBeUndefined()
       // no cache control because a language prefix had to be injected
@@ -660,6 +642,7 @@ describe('server', () => {
             headers: {
               'accept-language': `${languageKey}`,
             },
+            followRedirects: false,
           })
           expect(res.statusCode).toBe(302)
           expect(res.headers.location).toBe(`/${languageKey}`)
@@ -679,6 +662,7 @@ describe('server', () => {
         headers: {
           'accept-language': 'ldfir;',
         },
+        followRedirects: false,
       })
 
       expect(res.statusCode).toBe(302)
@@ -693,6 +677,7 @@ describe('server', () => {
           // Tagalog: https://www.loc.gov/standards/iso639-2/php/langcodes_name.php?iso_639_1=tl
           'accept-language': 'tl',
         },
+        followRedirects: false,
       })
       expect(res.statusCode).toBe(302)
       expect(res.headers.location).toBe('/en')
@@ -715,23 +700,9 @@ describe('server', () => {
       expect(res.headers['cache-control']).toContain('public')
       expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
     })
-
-    test('redirects Desktop Classic paths to desktop.github.com', async () => {
-      const res = await get('/desktop-classic')
-      expect(res.statusCode).toBe(301)
-      expect(res.headers.location).toBe('https://desktop.github.com')
-      expect(res.headers['set-cookie']).toBeUndefined()
-      expect(res.headers['cache-control']).toBeUndefined()
-    })
   })
 
   describe('categories and map topics', () => {
-    test('adds links to categories on the dotcom homepage', async () => {
-      const $ = await getDOM('/en/github')
-      expect($('a[href="/en/github/copilot"]').length).toBe(1)
-      expect($('a[href="#copilot"]').length).toBe(0)
-    })
-
     test('adds links to map topics on a category homepage', async () => {
       const $ = await getDOM('/en/get-started/importing-your-projects-to-github')
       expect(
@@ -832,9 +803,9 @@ describe('GitHub Enterprise URLs', () => {
 
   test('renders an Enterprise Admin category article', async () => {
     const $ = await getDOM(
-      `/en/enterprise/${enterpriseServerReleases.latest}/admin/installation/system-overview`
+      `/en/enterprise/${enterpriseServerReleases.latest}/admin/overview/about-github-enterprise-server`
     )
-    expect($.text()).toContain("your organization's private copy of GitHub")
+    expect($.text()).toContain('platform that you can host in a private environment')
   })
 
   test('renders an Enterprise Admin map topic', async () => {
@@ -860,11 +831,6 @@ describe('GitHub Enterprise URLs', () => {
     expect(res.statusCode).toBe(200)
   })
 
-  test('renders Enterprise User homepage in Japanese', async () => {
-    const res = await get(`/ja/enterprise-server@${enterpriseServerReleases.latest}/github`)
-    expect(res.statusCode).toBe(200)
-  })
-
   test('renders Enterprise Admin homepage in Japanese', async () => {
     const res = await get(`/ja/enterprise-server@${enterpriseServerReleases.latest}/admin`)
     expect(res.statusCode).toBe(200)
@@ -872,11 +838,6 @@ describe('GitHub Enterprise URLs', () => {
 
   test('renders Enterprise homepage in Chinese', async () => {
     const res = await get(`/cn/enterprise-server@${enterpriseServerReleases.latest}`)
-    expect(res.statusCode).toBe(200)
-  })
-
-  test('renders Enterprise User homepage in Chinese', async () => {
-    const res = await get(`/cn/enterprise-server@${enterpriseServerReleases.latest}/github`)
     expect(res.statusCode).toBe(200)
   })
 

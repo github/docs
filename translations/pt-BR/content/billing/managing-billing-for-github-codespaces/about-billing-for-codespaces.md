@@ -42,7 +42,6 @@ Se você comprou {% data variables.product.prodname_enterprise %} por meio de um
 
 ### Cobrnça para pré-compilações de {% data variables.product.prodname_codespaces %}
 
-{% data reusables.codespaces.prebuilds-beta-note %}
 
 {% data reusables.codespaces.billing-for-prebuilds %}
 

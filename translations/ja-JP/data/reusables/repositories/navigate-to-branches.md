@@ -1,1 +1,1 @@
-1. ファイルのリストの上部で{% octicon "git-branch" aria-label="The branch icon" %} **<em>NUMBER</em> branches**をクリックしてください。 ![概要ページのブランチリンク](/assets/images/help/branches/branches-link.png)
+1. Above the list of files, click {% octicon "git-branch" aria-label="The branch icon" %} **Branches**. ![概要ページのブランチリンク](/assets/images/help/branches/branches-overview-link.png)

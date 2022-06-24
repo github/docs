@@ -2,29 +2,29 @@
 date: '2022-02-01'
 sections:
   security_fixes:
-    - '**MEDIUM**:  Secret Scanning API calls could return alerts for repositories outside the scope of the request.'
+    - '**中**: Secret Scanning APIの呼び出しは、リクエストのスコープ外のリポジトリに対するアラートを返すことがありました。'
     - パッケージは最新のセキュリティバージョンにアップデートされました。
   bugs:
     - '`nginx`が手動で再起動されるまで、MySQLのシークレットのローテーション後にPagesが利用できなくなります。'
-    - Migrations could fail when {% data variables.product.prodname_actions %} was enabled.
+    - '{% data variables.product.prodname_actions %}が有効化されていると、移行に失敗することがあります。'
     - ISO 8601の日付でメンテナンススケジュールを設定すると、タイムゾーンがUTCに変換されないことから実際にスケジュールされる時間が一致しません。
     - '`cloud-config.service`に関する誤ったエラーメッセージがコンソールに出力されます。'
     - '`ghe-cluster-each`を使ってホットパッチをインストールすると、バージョン番号が正しく更新されません。'
-    - Webhook table cleanup jobs could run simultaneously, causing resource contention and increasing job run time.
-    - When run from the primary, `ghe-repl-teardown` on a replica would not remove the replica from the MSSQL availability group.
-    - The ability to limit email-based notifications to users with emails on a verified or approved domain did not work correctly.
+    - webhookテーブルのクリーンアップジョブが同時に実行され、リソース競合とジョブの実行時間の増大を招くことがあります。
+    - プライマリから実行された場合、レプリカ上の`ghe-repl-teardown`はレプリカをMSSQLの可用性グループから削除しません。
+    - ユーザへのメールベースの通知を検証済みあるいは承認されたドメイン上のメールに制限する機能が正常に動作しませんでした。
     - CAS認証を使用し、"Reactivate suspended users"オプションが有効化されている場合、サスペンドされたユーザは自動的に際アクティベートされませんでした。
-    - A long-running database migration related to Security Alert settings could delay upgrade completion.
+    - 長時間実行されるセキュリティアラート関連のデータベースの移行が、アップグレードの完了を遅延させることがあります。
   changes:
     - GitHub Connectのデータ接続レコードに、アクティブ及び休眠ユーザ数と、設定された休眠期間が含まれるようになりました。
   known_issues:
-    - After upgrading to {% data variables.product.prodname_ghe_server %} 3.3, {% data variables.product.prodname_actions %} may fail to start automatically. To resolve this issue, connect to the appliance via SSH and run the `ghe-actions-start` command.
-    - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
+    - '{% data variables.product.prodname_ghe_server %} 3.3にアップグレード後、{% data variables.product.prodname_actions %}が自動起動に失敗することがあります。この問題を解決するためには、アプライアンスにSSHで接続し、`ghe-actions-start`コマンドを実行してください。'
+    - 新しくセットアップされたユーザを持たない{% data variables.product.prodname_ghe_server %}インスタンスで、攻撃者が最初の管理ユーザを作成できました。
     - アップグレードの過程で、カスタムのファイアウォールのルールが削除されます。
     - Git LFSが追跡するファイル[Webインターフェースからアップロードされたもの](https://github.com/blog/2105-upload-files-to-your-repositories)が、不正にリポジトリに直接追加されてしまいます。
     - 同じリポジトリ内のファイルパスが255文字を超えるblobへのパーマリンクを含むIssueをクローズできませんでした。
     - GitHub Connectで"Users can search GitHub.com"が有効化されている場合、GitHub.comの検索結果にプライベート及びインターナルリポジトリのIssueが含まれません。
     - '{% data variables.product.prodname_registry %}のnpmレジストリは、メタデータのレスポンス中で時間の値を返さなくなります。これは、大きなパフォーマンス改善のために行われました。メタデータレスポンスの一部として時間の値を返すために必要なすべてのデータは保持し続け、既存のパフォーマンスの問題を解決した将来に、この値を返すことを再開します。'
     - pre-receive フックの処理に固有のリソース制限によって、pre-receive フックに失敗するものが生じることがあります。
-    - '{% data variables.product.prodname_actions %} storage settings cannot be validated and saved in the {% data variables.enterprise.management_console %} when "Force Path Style" is selected, and must instead be configured with the `ghe-actions-precheck` command line utility.'
-    - '{% data variables.product.prodname_ghe_server %} 3.3 instances installed on Azure and provisioned with 32+ CPU cores would fail to launch, due to a bug present in the current Linux kernel. [Updated: 2022-04-08]'
+    - '{% data variables.product.prodname_actions %}のストレージ設定は、"Force Path Style（パススタイルの強制）"が選択されている場合、検証できず{% data variables.enterprise.management_console %}に保存できません。その代わりに、`ghe-actions-precheck`コマンドラインユーティリティで設定しなければなりません。'
+    - '現在のLinuxカーネルにあるバグのために、Azureにインストールされ、32以上のCPUコアをプロビジョニングされた{% data variables.product.prodname_ghe_server %} 3.3インスタンスが起動に失敗します。[更新:2022年04月08日]'

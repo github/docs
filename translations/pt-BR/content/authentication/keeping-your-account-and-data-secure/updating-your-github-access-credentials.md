@@ -24,7 +24,12 @@ shortTitle: Atualizar credenciais de acesso
 1. Para solicitar uma nova senha, acesse {% ifversion fpt or ghec %}https://{% data variables.product.product_url %}/password_reset{% else %}`https://{% data variables.product.product_url %}/password_reset`{% endif %}.
 2. Insira o endereço de e-mail associado à sua conta em {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} e, em seguida, clique em **em Enviar e-mail de redefinição de senha.** O e-mail será enviado para o endereço de e-mail de backup, se você tiver um configurado. ![Caixa de diálogo para solicitar e-mail de redefinição de senha](/assets/images/help/settings/password-recovery-email-request.png)
 3. Nós enviaremos por e-mail um link para você redefinir sua senha. Clique nele em até 3 horas após o recebimento do e-mail. Se você não receber o e-mail com o link, verifique sua pasta de spam.
-4. Se você tiver habilitado a autenticação de dois fatores, será solicitado que você crie suas credenciais de 2FA. Digite o seu código de autenticação ou um dos seus códigos de recuperação e clique em **Verificar**. Se você adicionou uma chave de segurança à sua conta, você pode inserir a chave e clicar em **Usar a chave de segurança** ao invés de digitar um código de autenticação. ![Instrução de autenticação de dois fatores](/assets/images/help/2fa/2fa-password-reset.png)
+4. Se você tiver habilitado a autenticação de dois fatores, será solicitado que você crie suas credenciais de 2FA:
+   * Se você tiver {% data variables.product.prodname_mobile %}, você receberá uma notificação push para verificar sua identidade. Abra a notificação push ou o aplicativo {% data variables.product.prodname_mobile %} e digite o código de dois dígitos mostrado na página de redefinição de senha no seu navegador. ![Autenticação de dois fatores {% data variables.product.prodname_mobile %}](/assets/images/help/2fa/2fa-mobile-challenge-password-reset.png)
+      * Para pular o uso do GitHub Mobile para verificar, clique em **Inserir a autenticação de dois fatores ou código de recuperação**. ![Instrução de autenticação de dois fatores no GitHub Mobile em {% data variables.product.product_name %} com "insira a autenticação de dois fatores ou o código de recuperação" destacado](/assets/images/help/2fa/2fa-github-mobile-password-reset.png)
+   * Digite o seu código de autenticação ou um dos seus códigos de recuperação e clique em **Verificar**. ![Instrução de autenticação de dois fatores](/assets/images/help/2fa/2fa-password-reset.png)
+     * Se você adicionou uma chave de segurança à sua conta, clique em **Use a chave de segurança** ao invés de digitar um código de autenticação.
+     * Se você configurou [{% data variables.product.prodname_mobile %}](https://github.com/mobile), clique em **Autenticar com o GitHub Mobile**.
 5. Digite uma nova senha, confirme a sua nova senha e clique em **Alterar senha**. Para ajudar a criar uma senha forte, consulte "[Criar uma senha forte](/articles/creating-a-strong-password)".
   {% ifversion fpt or ghec %}![Password recovery box](/assets/images/help/settings/password-recovery-page.png){% else %}
   ![Caixa para recuperar senha](/assets/images/enterprise/settings/password-recovery-page.png){% endif %}
@@ -57,7 +62,7 @@ Consulte "[Revisar integrações autorizadas](/articles/reviewing-your-authorize
 
 {% ifversion not ghae %}
 
-If you have reset your account password and would also like to trigger a sign-out from the {% data variables.product.prodname_mobile %} app, you can revoke your authorization of the "GitHub iOS" or "GitHub Android" OAuth App. This will sign out all instances of the {% data variables.product.prodname_mobile %} app associated with your account. Para obter mais informações, consulte "[Revisar integrações autorizadas](/authentication/keeping-your-account-and-data-secure/reviewing-your-authorized-integrations)".
+Se você redefiniu sua senha da conta e gostaria de acionar um logout do aplicativo de {% data variables.product.prodname_mobile %}, você pode revogar a sua autorização do aplicativo OAuth "GitHub iOS" ou "GitHub Android". Isso encerrará todas as instâncias do aplicativo de {% data variables.product.prodname_mobile %} associado à sua conta. Para obter mais informações, consulte "[Revisar integrações autorizadas](/authentication/keeping-your-account-and-data-secure/reviewing-your-authorized-integrations)".
 
 {% endif %}
 

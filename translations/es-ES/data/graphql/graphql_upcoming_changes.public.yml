@@ -99,6 +99,20 @@ upcoming_changes:
     criticality: breaking
     owner: cheshire137
   - 
+    location: DependencyGraphDependency.packageLabel
+    description: '`packageLabel` se eliminará. Utiliza el campo normalizado `packageName` en su lugar.'
+    reason: '`packageLabel` se eliminará.'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/dependency_graph
+  - 
+    location: RemovePullRequestFromMergeQueueInput.branch
+    description: 'Se eliminará la `branch`.'
+    reason: Las solicitudes de cambio se eliminan de la cola de fusión para la rama base, el argumento `branch` ahora es un no-op
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: jhunschejones
+  - 
     location: UpdateProjectNextItemFieldInput.fieldWithSettingId
     description: 'Se eliminará la `fieldWithSettingId`. Utilice `fieldConstraintId` en su lugr'
     reason: Se renombró como fieldConstraintId para mejorar la consistencia de los nombres.

@@ -2,57 +2,59 @@
 date: '2022-04-04'
 sections:
   security_fixes:
-    - 'MEDIUM: A path traversal vulnerability was identified in {% data variables.product.prodname_ghe_server %} Management Console that allowed the bypass of CSRF protections. This vulnerability affected all versions of {% data variables.product.prodname_ghe_server %} prior to 3.5 and was fixed in versions 3.1.19, 3.2.11, 3.3.6, 3.4.1. This vulnerability was reported via the {% data variables.product.prodname_dotcom %} Bug Bounty program and has been assigned CVE-2022-23732.'
-    - 'MEDIUM: An integer overflow vulnerability was identified in the 1.x branch and the 2.x branch of `yajil` which leads to subsequent heap memory corruption when dealing with large (~2GB) inputs. This vulnerability was reported internally and has been assigned CVE-2022-24795. '
-    - Support bundles could include sensitive files if {% data variables.product.prodname_actions %} was enabled.
+    - 'MÉDIO: Uma vulnerabilidade de travessia de caminho foi identificada em {% data variables.product.prodname_ghe_server %} Console de Gerenciamento que permitiu ignorar as proteções do CSRF. Esta vulnerabilidade afetou todas as versões de {% data variables.product.prodname_ghe_server %} antes anteriores à 3.5 e foi corrigida nas versões 3.1.19, 3.2.11, 3.3.6, 3.4.1. Essa vulnerabilidade foi reportada através do programa de compensação de erros de {% data variables.product.prodname_dotcom %} e recebeu o CVE-2022-23732.'
+    - 'MÉDIO: Foi identificada uma vulnerabilidade de sobrefluxo no branch 1.x e no branch 2.x do `yajil`, que leva à subsequente corrupção de memória heap ao lidar com entradas grandes (~2 GB). Esta vulnerabilidade foi relatada internamente e recebeu o CVE-2022-24795. '
+    - Os pacotes de suporte podem incluir arquivos sensíveis se {% data variables.product.prodname_actions %} foi habilitado.
     - Os pacotes foram atualizados para as últimas versões de segurança.
   bugs:
-    - A workflow run may not complete if it uses composite-actions.
-    - When enabling {% data variables.product.prodname_dependabot %}, an error caused some security advisories to temporarily read as no-longer applicable.
-    - Minio processes would have high CPU usage if an old configuration option was present after upgrading {% data variables.product.prodname_ghe_server %}.
-    - The options to enable `TLS 1.0` and `TLS 1.1` in the Privacy settings of the Management Console were shown, although removal of those protocol versions occurred in an earlier release.
-    - In a HA environment, configuring MSSQL replication could require additional manual steps after enabling {% data variables.product.prodname_actions %} for the first time.
-    - A subset of internal configuration files are more reliably updated after a hotpatch.
-    - The `ghe-run-migrations` script would sometimes fail to generate temporary certificate names correctly.
-    - Pre-receive hooks that used `gpg --import` timed out due to insufficient `syscall` privileges.
-    - In some cluster topologies, webhook delivery information was not available.
-    - The {% data variables.product.prodname_actions %} deployment graph would display an error when rendering a pending job.
-    - Elasticsearch health checks would not allow a yellow cluster status when running migrations.
-    - When using the [Migrations API](/rest/reference/migrations), queued export jobs were not processed.
-    - Repositories would display a non-functional Discussions tab in the web UI.
-    - Organizations created as a result of a user transforming their user account into an organization were not added to the global enterprise account.
-    - LDAP user sync jobs would fail when trying to sync GPG keys that had been synced previously.
-    - Links to inaccessible pages were removed.
-    - Some instances experienced high CPU usage due to large amounts unnecessary background jobs being queued.
-    - Empty repositories didnt sync correctly to cache servers.
-    - Adding a team as a reviewer to a pull request would sometimes show the incorrect number of members on that team.
-    - The remove team membership API endpoint would respond with an error when attempting to remove member externally managed via a SCIM Group.
-    - A large number of dormant users could cause a {% data variables.product.prodname_github_connect %} configuration to fail.
-    - The "Feature & beta enrollments" page in the Site admin web UI was incorrectly available.
-    - The "Site admin mode" link in the site footer did not change state when clicked.
+    - A execução de um fluxo de trabalho pode não ser concluída se usar ações compostas.
+    - Ao habilitar {% data variables.product.prodname_dependabot %}, um erro fez com que algumas consultorias de segurança fossem lidas temporariamente como não aplicáveis.
+    - os processos do Minio teriam alto uso de CPU se uma opção antiga de configuração estivesse presente após a atualização de {% data variables.product.prodname_ghe_server %}.
+    - As opções para habilitar `TLS 1.0` e `TLS 1. ` nas configurações de privacidade do Console de Gerenciamento foram mostradas, embora a remoção dessas versões de protocolo tenha ocorrido em uma versão anterior.
+    - Em um ambiente HA, a configuração da replicação do MSSQL pode exigir etapas manuais adicionais depois de habilitar {% data variables.product.prodname_actions %} pela primeira vez.
+    - Um subconjunto de arquivos de configuração interna são atualizados de forma mais confiável após um hotpatch.
+    - O script `ghe-run-migrations` às vezes falha ao gerar nomes de certificados temporários corretamente.
+    - Os hooks pre-receive que usavam `gpg --import` venceram devido a privilégios insuficientes de `syscall`.
+    - Em algumas topologias de cluster, as informações de entrega de webhook não estavam disponíveis.
+    - O gráfico de implantação de {% data variables.product.prodname_actions %} exibirá um erro ao interpretar um trabalho pendente.
+    - As verificações de integridade do Elasticsearch não permitiriam um estado de cçister amarelo ao realizar migrações.
+    - Ao usar a [API de migrações](/rest/referência/migrações), os trabalhos de exportação enfileirados não foram processados.
+    - Os repositórios exibiriam uma guia de discussões não funcionais na interface de usuário da web.
+    - As organizações criadas como resultado de um usuário transformar sua conta de usuário em uma organização não foram adicionadas à conta corporativa global.
+    - Os trabalhos de sincronização do usuário LDAP falhariam ao tentar sincronizar as chaves GPG que haviam sido sincronizadas anteriormente.
+    - Os links para páginas inacessíveis foram removidos.
+    - Algumas instâncias experimentaram um alto uso da CPU devido a grandes quantidades de trabalhos desnecessários em segundo plano que estão sendo enfileirados.
+    - Os repositórios vazios não sincronizaram corretamente para os servidores de cache.
+    - Adicionar uma equipe como revisora a um pull request às vezes poderia mostrar o número incorreto de integrantes dessa equipe.
+    - O ponto de extremidade da API de associação da equipe de remoção responderia com um erro ao tentar remover um integrante gerenciado externamente através de um grupo do SCIM.
+    - Um grande número de usuários inativos pode causar falha na configuração de {% data variables.product.prodname_github_connect %}.
+    - A página "Cadastros e recursos betaa" na interface de administração do site estava disponível de forma incorreta.
+    - O link "Modo de administrador do site" no rodapé não mudou de status quando quando clicado.
   changes:
-    - Memcached connection limits were increased to better accommodate large cluster topologies.
-    - The Dependency Graph API previously ran with a statically defined port.
-    - The default shard counts for cluster-related Elasticsearch shard settings have been updated.
-    - The [Migrations API](/rest/reference/migrations) now generates exports of repositories.
-    - When filtering enterprise members by organization role on the "People" page, the text for the dropdown menu items has been improved.
-    - The “Triage” and “Maintain” team roles are preserved during repository migrations.
-    - Using ghe-migrator or exporting from GitHub.com, an export would not include Pull Request attachments.
-    - Performance has been improved for web requests made by enterprise owners.
+    - Os limites de conexão Memcached foram aumentados para melhor acomodar as topologias de grandes clusters.
+    - A API do Gráfico de Dependência correu anteriormente com uma porta definida estaticamente.
+    - As contagens de fragmentos padrão para fragmentos do Elasticsearch relacionados ao clusters foram atualizadas.
+    - A [API de migrações](/rest/reference/migrações) agora gera exportações de repositórios.
+    - Ao filtrar os integrantes da empresa pela função da organização na página "Pessoas", o texto dos itens do menu suspenso foi melhorado.
+    - As funções da equipe "Triagem" e "Manutenção" são preservadas durante as migrações do repositório.
+    - Ao usar ghe-migrator ou exportando a partir do GitHub.com, uma exportação não incluiria anexos de pull request.
+    - O desempenho foi melhorado para solicitações da web feitas por proprietários das empresas.
   known_issues:
     - Em uma instância de {% data variables.product.prodname_ghe_server %} recém-configurada sem usuários, um invasor pode criar o primeiro usuário administrador.
     - As regras de firewall personalizadas são removidas durante o processo de atualização.
     - Arquivos LFS do Git [enviados através da interface web](https://github.com/blog/2105-upload-files-to-your-repositories) são adicionados diretamente ao repositório e de forma incorreta.
     - Os problemas não podem ser fechados se contiverem um permalink para um blob no mesmo repositório, onde o caminho do arquivo blob's é maior que 255 caracteres.
-    - When "Users can search GitHub.com" is enabled with {% data variables.product.prodname_github_connect %}, issues in private and internal repositories are not included in {% data variables.product.prodname_dotcom_the_website %} search results.
+    - Quando "Usuários podem pesquisar pelo GitHub.com" está habilitado com {% data variables.product.prodname_github_connect %}, os problemas nos repositórios privados e internos não são incluídos nos resultados de pesquisa de {% data variables.product.prodname_dotcom_the_website %}.
     - O registro npm de {% data variables.product.prodname_registry %} não retorna mais o valor de tempo em respostas de metadados. Isso foi feito para permitir melhorias substanciais de desempenho. Continuamos a ter todos os dados necessários para devolver um valor de tempo como parte da resposta aos metadados e retomaremos o retorno desse valor no futuro, assim que tivermos resolvido os problemas de desempenho existentes.
     - Os limites de recursos que são específicos para processamento de hooks pre-receive podem causar falha em alguns hooks pre-receive.
     - |
-      When using SAML encrypted assertions with {% data variables.product.prodname_ghe_server %} 3.4.0 and 3.4.1, a new XML attribute `WantAssertionsEncrypted` in the `SPSSODescriptor` contains an invalid attribute for SAML metadata. IdPs that consume this SAML metadata endpoint may encounter errors when validating the SAML metadata XML schema. A fix will be available in the next patch release. [Updated: 2022-04-11]
+      After registering a self-hosted runner with the `--ephemeral` parameter on more than one level (for example, both enterprise and organization), the runner may get stuck in an idle state and require re-registration. [Updated: 2022-06-17]
+    - |
+      Ao usar declarações criptografadas do SAML com {% data variables.product.prodname_ghe_server %} 3.4.0 e 3.4.1, um novo atributo do XML `WantAssertionsEncrypted` no `SPSSODescriptor` contém um atributo inválido para metadados do SAML. Os IdPs que consomem este ponto de extremidade de metadados do SAML podem encontrar erros ao validar o esquema XML de metadados SAML. Uma correção estará disponível na próxima atualização de atualização. [Atualizado: 2022-04-11]
 
-      To work around this problem, you can take one of the two following actions.
-      - Reconfigure the IdP by uploading a static copy of the SAML metadata without the `WantAssertionsEncrypted` attribute.
-      - Copy the SAML metadata, remove `WantAssertionsEncrypted` attribute, host it on a web server, and reconfigure the IdP to point to that URL.
+      Para contornar esse problema, você pode tomar uma das duas ações a seguir.
+      - Reconfigurar o IdP, fazendo o upload de uma cópia estática dos metadados do SAML sem o atributo `WantAssertionsEncrypted`.
+      - Copiar os metadados do SAML, remover o atributo `WantAssertionsEncrypted`, hospedá-lo em um servidor web e reconfigurar o IdP para apontar para esse URL.
   deprecations:
     - 
       heading: Obsoletização do GitHub Enterprise Server 3.0

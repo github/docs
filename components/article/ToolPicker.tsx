@@ -12,35 +12,10 @@ import { useArticleContext } from 'components/context/ArticleContext'
 // Nota bene: tool === application
 // Nota bene: picker === switcher
 
-const supportedTools = [
-  'cli',
-  'desktop',
-  'webui',
-  'curl',
-  'codespaces',
-  'vscode',
-  'importer_cli',
-  'graphql',
-  'powershell',
-  'bash',
-]
-const toolTitles = {
-  webui: 'Web browser',
-  cli: 'GitHub CLI',
-  curl: 'cURL',
-  desktop: 'Desktop',
-  codespaces: 'Codespaces',
-  vscode: 'Visual Studio Code',
-  importer_cli: 'GitHub Enterprise Importer CLI',
-  graphql: 'GraphQL API',
-  powershell: 'PowerShell',
-  bash: 'Bash',
-} as Record<string, string>
-
 // Imperatively modify article content to show only the selected tool
 // find all platform-specific *block* elements and hide or show as appropriate
 // example: {% webui %} block content {% endwebui %}
-function showToolSpecificContent(tool: string) {
+function showToolSpecificContent(tool: string, supportedTools: Array<string>) {
   const markdowns = Array.from(document.querySelectorAll<HTMLElement>('.extended-markdown'))
   markdowns
     .filter((el) => supportedTools.some((tool) => el.classList.contains(tool)))
@@ -77,7 +52,8 @@ type Props = {
 }
 export const ToolPicker = ({ variant = 'subnav' }: Props) => {
   const { asPath } = useRouter()
-  const { defaultTool, detectedTools } = useArticleContext()
+  // allTools comes from the ArticleContext which contains the list of tools available
+  const { defaultTool, detectedTools, allTools } = useArticleContext()
   const [currentTool, setCurrentTool] = useState(getDefaultTool(defaultTool, detectedTools))
 
   const sharedContainerProps = {
@@ -100,7 +76,7 @@ export const ToolPicker = ({ variant = 'subnav' }: Props) => {
   // Whenever the currentTool is changed, update the article content
   useEffect(() => {
     preserveAnchorNodePosition(document, () => {
-      showToolSpecificContent(currentTool)
+      showToolSpecificContent(currentTool, Object.keys(allTools))
     })
   }, [currentTool, asPath])
 
@@ -137,7 +113,7 @@ export const ToolPicker = ({ variant = 'subnav' }: Props) => {
               onClickTool(tool)
             }}
           >
-            {toolTitles[tool]}
+            {allTools[tool]}
           </UnderlineNav.Link>
         ))}
       </UnderlineNav>

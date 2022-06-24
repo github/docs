@@ -210,7 +210,7 @@ Predeterminadamente, existen tres suites de consultas principales disponibles pa
 
 Podrías estar ejecutando consultas o suites de consultas adicionales además de aquellas predeterminadas. Verifica si el flujo de trabajo define una consulta o suite de consultas adicionales a ejecutar utilizando el elemento `queries`. Puedes probar el inhabilitar la consulta o suite de consultas adicionales. Para obtener más información, consulta "[Configurar {% data variables.product.prodname_code_scanning %}](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#using-queries-in-ql-packs)".
 
-{% if codeql-ml-queries %}
+{% ifversion codeql-ml-queries %}
 {% note %}
 
 **Nota:** Si ejecutas la suite de consultas `security-extended` o `security-and-quality` para JavaScript, entonces algunas consultas utilizarán tecnología experimental. Para obtener más información, consulta la sección "[Acerca de las alertas del escaneo de código](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-experimental-alerts)".
@@ -268,6 +268,15 @@ Si el {% data variables.product.prodname_codeql_workflow %} aún falla en una co
 
 Este tipo de confirmación por fusión tiene como autor al {% data variables.product.prodname_dependabot %} y, por lo tanto, cualquier flujo de trabajo que se ejecute en la confirmación tendrá permisos de solo lectura. Si habilitaste las actualizaciones de seguridad o de versión del {% data variables.product.prodname_code_scanning %} y del {% data variables.product.prodname_dependabot %} en tu repositorio, te recomendamos que evites utilizar el comando `@dependabot squash and merge` del {% data variables.product.prodname_dependabot %}. En su lugar, puedes habilitar la fusión automática en tu repositorio. Esto significa que las solicitudes de cambio se fusionarán automáticamente cuando se cumplan todas las revisiones requeridas y cuando pasen todas las verificaciones de estado. Para obtener más información sobre cómo habilitar la fusión automática, consulta la sección "[Fusionar una solicitud de cambios automáticamente](/github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request#enabling-auto-merge)".
 {% endif %}
+
+## Error: "is not a .ql file, .qls file, a directory, or a query pack specification"
+
+Verás este error si CodeQL no puede encontrar la consulta, suite de consultas o paquete de consultas nombradas en la ubicación que se solicitó en el flujo de trabajo. Hay dos razones comunes para este error.
+
+- Hay un error tipográfico en el flujo de trabajo.
+- Un recurso al cual se refiere el flujo de trabajo por ruta se renombró, borró o movió a una ubicación nueva.
+
+Después de verificar la ubicación del recurso, puedes actualizar el flujo de trabajo para especificar la ubicación correcta. Si ejecutas consultas adicionales en el análisis de Go, puede que te haya afectado la reubicación de los archivos fuente. Para obtener más información, consulta la sección [Anuncio de reubicaicón: `github/codeql-go` se está migrando a `github/codeql`](https://github.com/github/codeql-go/issues/741) en el repositorio github/codeql-go.
 
 ## Warning: "git checkout HEAD^2 is no longer necessary"
 

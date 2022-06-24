@@ -4,6 +4,236 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "Type `AddDiscussionPollVoteInput` was added",
+          "Type `AddDiscussionPollVotePayload` was added",
+          "Type 'AddProjectV2DraftIssueInput' was added",
+          "Type 'AddProjectV2DraftIssuePayload' was added",
+          "Type 'AddProjectV2ItemByIdInput' was added",
+          "Type 'AddProjectV2ItemByIdPayload' was added",
+          "Type 'CreateProjectV2Input' was added",
+          "Type 'CreateProjectV2Payload' was added",
+          "Type 'DeleteProjectV2ItemInput' was added",
+          "Type 'DeleteProjectV2ItemPayload' was added",
+          "Type `DiscussionPoll` was added",
+          "Type `DiscussionPollOption` was added",
+          "Type `DiscussionPollOptionConnection` was added",
+          "Type `DiscussionPollOptionEdge` was added",
+          "Type `DiscussionPollOptionOrder` was added",
+          "Type `DiscussionPollOptionOrderField` was added",
+          "Type `OrganizationOrUser` was added",
+          "Type 'ProjectV2' was added",
+          "Type 'ProjectV2Connection' was added",
+          "Type 'ProjectV2Edge' was added",
+          "Type 'ProjectV2Field' was added",
+          "Type 'ProjectV2FieldCommon' was added",
+          "Type 'ProjectV2FieldConfiguration' was added",
+          "Type 'ProjectV2FieldConfigurationConnection' was added",
+          "Type 'ProjectV2FieldConfigurationEdge' was added",
+          "Type 'ProjectV2FieldConnection' was added",
+          "Type 'ProjectV2FieldEdge' was added",
+          "Type 'ProjectV2FieldType' was added",
+          "Type 'ProjectV2FieldValue' was added",
+          "Type 'ProjectV2Item' was added",
+          "Type 'ProjectV2ItemConnection' was added",
+          "Type 'ProjectV2ItemContent' was added",
+          "Type 'ProjectV2ItemEdge' was added",
+          "Type 'ProjectV2ItemFieldDateValue' was added",
+          "Type 'ProjectV2ItemFieldIterationValue' was added",
+          "Type 'ProjectV2ItemFieldLabelValue' was added",
+          "Type 'ProjectV2ItemFieldMilestoneValue' was added",
+          "Type 'ProjectV2ItemFieldNumberValue' was added",
+          "Type 'ProjectV2ItemFieldPullRequestValue' was added",
+          "Type 'ProjectV2ItemFieldRepositoryValue' was added",
+          "Type 'ProjectV2ItemFieldReviewerValue' was added",
+          "Type 'ProjectV2ItemFieldSingleSelectValue' was added",
+          "Type 'ProjectV2ItemFieldTextValue' was added",
+          "Type 'ProjectV2ItemFieldUserValue' was added",
+          "Type 'ProjectV2ItemFieldValue' was added",
+          "Type 'ProjectV2ItemFieldValueCommon' was added",
+          "Type 'ProjectV2ItemFieldValueConnection' was added",
+          "Type 'ProjectV2ItemFieldValueEdge' was added",
+          "Type 'ProjectV2ItemType' was added",
+          "Type 'ProjectV2IterationField' was added",
+          "Type 'ProjectV2IterationFieldConfiguration' was added",
+          "Type 'ProjectV2IterationFieldIteration' was added",
+          "Type 'ProjectV2Order' was added",
+          "Type 'ProjectV2OrderField' was added",
+          "Type 'ProjectV2Owner' was added",
+          "Type 'ProjectV2Recent' was added",
+          "Type 'ProjectV2SingleSelectField' was added",
+          "Type 'ProjectV2SingleSelectFieldOption' was added",
+          "Type 'ProjectV2SortBy' was added",
+          "Type 'ProjectV2SortByConnection' was added",
+          "Type 'ProjectV2SortByEdge' was added",
+          "Type 'ProjectV2View' was added",
+          "Type 'ProjectV2ViewConnection' was added",
+          "Type 'ProjectV2ViewEdge' was added",
+          "Type 'ProjectV2ViewLayout' was added",
+          "Type `RequestedReviewerConnection` was added",
+          "Type `RequestedReviewerEdge` was added",
+          "Type 'UpdateProjectV2DraftIssueInput' was added",
+          "Type 'UpdateProjectV2DraftIssuePayload' was added",
+          "Type 'UpdateProjectV2Input' was added",
+          "Type 'UpdateProjectV2ItemFieldValueInput' was added",
+          "Type 'UpdateProjectV2ItemFieldValuePayload' was added",
+          "Type 'UpdateProjectV2ItemPositionInput' was added",
+          "Type 'UpdateProjectV2ItemPositionPayload' was added",
+          "Type 'UpdateProjectV2Payload' was added",
+          "Field `poll` was added to object type `Discussion`",
+          "Field 'projectV2Items` was added to object type `DraftIssue'",
+          "Field 'projectsV2` was added to object type `DraftIssue'",
+          "`Issue` object implements 'ProjectV2Owner' interface",
+          "Field `projectItems` was added to object type `Issue`",
+          "Field 'projectV2` was added to object type `Issue'",
+          "Field 'projectsV2` was added to object type `Issue'",
+          "Field `addDiscussionPollVote` was added to object type `Mutation`",
+          "Field 'addProjectV2DraftIssue` was added to object type `Mutation'",
+          "Field 'addProjectV2ItemById` was added to object type `Mutation'",
+          "Field 'createProjectV2` was added to object type `Mutation'",
+          "Field 'deleteProjectV2Item` was added to object type `Mutation'",
+          "Field 'updateProjectV2` was added to object type `Mutation'",
+          "Field 'updateProjectV2DraftIssue` was added to object type `Mutation'",
+          "Field 'updateProjectV2ItemFieldValue` was added to object type `Mutation'",
+          "Field 'updateProjectV2ItemPosition` was added to object type `Mutation'",
+          "Enum value `SUSPENDED` was added to enum `OrgRemoveMemberAuditEntryMembershipType`",
+          "`Organization` object implements 'ProjectV2Owner' interface",
+          "`Organization` object implements 'ProjectV2Recent' interface",
+          "Field 'projectV2` was added to object type `Organization'",
+          "Field 'projectsV2` was added to object type `Organization'",
+          "Field `recentProjects` was added to object type `Organization`",
+          "`PullRequest` object implements 'ProjectV2Owner' interface",
+          "Field `projectItems` was added to object type `PullRequest`",
+          "Field 'projectV2` was added to object type `PullRequest'",
+          "Field 'projectsV2` was added to object type `PullRequest'",
+          "Field `viewerCanEditFiles` was added to object type `PullRequest`",
+          "`Repository` object implements 'ProjectV2Recent' interface",
+          "Field `allowUpdateBranch` was added to object type `Repository`",
+          "Field 'projectV2` was added to object type `Repository'",
+          "Field 'projectsV2` was added to object type `Repository'",
+          "Field `recentProjects` was added to object type `Repository`",
+          "`User` object implements 'ProjectV2Owner' interface",
+          "`User` object implements 'ProjectV2Recent' interface",
+          "Field 'projectV2` was added to object type `User'",
+          "Field 'projectsV2` was added to object type `User'",
+          "Field `recentProjects` was added to object type `User`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [
+      {
+        "title": "The following changes will be made to the schema:",
+        "changes": [
+          "On member `RepositoryVulnerabilityAlert.fixReason`:`fixReason` will be removed. **Effective 2022-10-01**."
+        ]
+      }
+    ],
+    "date": "2022-06-23"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": []
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [
+      {
+        "title": "The following changes will be made to the schema:",
+        "changes": [
+          "On member `DependencyGraphDependency.packageLabel`:`packageLabel` will be removed. Use normalized `packageName` field instead. **Effective 2022-10-01**."
+        ]
+      }
+    ],
+    "date": "2022-06-13"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Enum value `RUST` was added to enum `DependencyGraphEcosystem`",
+          "Field `squashPrTitleUsedAsDefault` was added to object type `Repository`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-06-10"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Type `SecurityAdvisoryClassification` was added",
+          "Type 'ProjectV2Owner' was removed",
+          "`Issue` object type no longer implements 'ProjectV2Owner' interface",
+          "`Organization` object type no longer implements 'ProjectV2Owner' interface",
+          "`PullRequest` object type no longer implements 'ProjectV2Owner' interface",
+          "Argument 'classifications: [SecurityAdvisoryClassification!]` added to field `Query.securityAdvisories'",
+          "Argument 'classifications: [SecurityAdvisoryClassification!]` added to field `Query.securityVulnerabilities'",
+          "Field `classification` was added to object type `SecurityAdvisory`",
+          "Argument 'classifications: [SecurityAdvisoryClassification!]` added to field `SecurityAdvisory.vulnerabilities'",
+          "`User` object type no longer implements 'ProjectV2Owner' interface"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-06-06"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Field `viewerIsFollowing` was added to object type `Organization`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-05-31"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Type `ExternalIdentityAttribute` was added",
+          "Type `IssueClosedStateReason` was added",
+          "Type `IssueStateReason` was added",
+          "Member `App` was added to Union type `BranchActorAllowanceActor`",
+          "Input field `stateReason` was added to input object type `CloseIssueInput`",
+          "Field `stateReason` was added to object type `ClosedEvent`",
+          "Field `attributes` was added to object type `ExternalIdentitySamlAttributes`",
+          "Field `stateReason` was added to object type `Issue`",
+          "Enum value 'FAILED_VALIDATION` was added to enum `MigrationState'",
+          "Enum value 'PENDING_VALIDATION` was added to enum `MigrationState'",
+          "Field `stateReason` was added to object type `ReopenedEvent`",
+          "Member `App` was added to Union type `ReviewDismissalAllowanceActor`",
+          "Input field `StartRepositoryMigrationInput.accessToken` changed type from `String` to `String!`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [
+      {
+        "title": "The following changes will be made to the schema:",
+        "changes": [
+          "On member `RemovePullRequestFromMergeQueueInput.branch`:`branch` will be removed. **Effective 2022-10-01**."
+        ]
+      }
+    ],
+    "date": "2022-05-29"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "Type `FollowOrganizationInput` was added",
           "Type `FollowOrganizationPayload` was added",
           "Type `UnfollowOrganizationInput` was added",

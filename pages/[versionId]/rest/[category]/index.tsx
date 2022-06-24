@@ -8,8 +8,8 @@ import {
   RestContext,
   RestContextT,
   getRestContextFromRequest,
-  MiniTocItem,
 } from 'components/context/RestContext'
+import type { MiniTocItem } from 'components/context/ArticleContext'
 import {
   getTocLandingContextFromRequest,
   TocItem,
@@ -40,9 +40,9 @@ export default function Category({
   return (
     <MainContext.Provider value={mainContext}>
       <RestContext.Provider value={restContext}>
-        {/* When the page is the rest product landing page, we don't want to 
+        {/* When the page is the rest product landing page, we don't want to
         render the rest-specific sidebar because toggling open the categories
-        won't have the minitoc items at that level. These are pages that have 
+        won't have the minitoc items at that level. These are pages that have
         category - subcategory - and operations */}
         {relativePath?.endsWith('index.md') ? (
           <TocLandingContext.Provider value={tocLandingContext}>
@@ -133,8 +133,8 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
       const fullPath = `/${context.locale}${versionPathSegment}rest/${context.params?.category}/${subCat}${miniTocAnchor}`
 
       restSubcategoryTocs.push({
-        fullPath: fullPath,
-        title: title,
+        fullPath,
+        title,
       })
     })
 

@@ -1,5 +1,5 @@
 ---
-title: GitHub Appeal and Reinstatement
+title: Recurso e Reposição do GitHub
 versions:
   fpt: '*'
 topics:
@@ -11,28 +11,28 @@ topics:
 
 Enquanto a maioria das interações entre indivíduos na comunidade do GitHub se enquadram em nossas Políticas de Uso Aceitáveis e Diretrizes da Comunidade. Âs vezes, ocorrem violações dessas políticas ocorrem. Quando ocorrem, a equipe do GitHub pode precisar tomar medidas de execução para resolver as violações. No entanto, em alguns casos, pode haver uma base para reverter uma medida de moderação tomada pelo pessoal do GitHub.
 
-## What are appeals and reinstatements?
+## O que são recursos e restabelecimentos?
 
-Both appeals and reinstatements arise in relation to disabling of content or restrictions to access an account.
+Os recursos e os restabelecimentos surgem em relação à desabilitação de conteúdo ou restrições para acessar uma conta.
 
-**Reinstatement**: The user wishes to regain access to their account or content and is willing to make any necessary changes to address the violation and must agree not to violate our terms going forward.
+**Restabelecimento**: O usuário deseja recuperar o acesso à sua conta ou conteúdo e está disposto a fazer quaisquer alterações necessárias referentes ao endereço da violação e deve concordar em não violar nossos termos de ali em diante.
 
-**Appeal**: The user disputes that a violation occurred and can provide additional information to show that a different decision should have been reached.
+**Recurso**: O usuário contesta uma violação e pode fornecer informações adicionais para mostrar que uma decisão diferente deveria ter sido tomada.
 
-## How this works
+## Como funciona
 
-If you seek reinstatement or wish to appeal an enforcement action, please fill out our [Appeal and Reinstatement form](https://support.github.com/contact/reinstatement).
+Se você procura a restabelecimento ou deseja recorrer de uma ação de execução, preencha nosso [formulário de recurso e restabelecimento](https://support.github.com/contact/reinstatement).
 
-GitHub staff will review the information provided in the form to determine whether there is sufficient information to warrant reinstatement or granting of an appeal.
+A equipe do GitHub irá revisar as informações fornecidas na forma para determinar se há informações suficientes para justificar o restabelecimento ou a concessão de um recurso.
 
-* **Reinstatement**: Where a user can agree to abide by our Acceptable Use Policies moving forward and has made the changes necessary to address the violation(s), we may choose to reinstate their account or content depending on the circumstances and severity of the initial violation.
+* **Restabelecimento**: Quando um usuário pode concordar em respeitar o nosso uso aceitável de políticas de ali em diante e fez as alterações necessárias para corrigir a(s) violação(ões), podemos optar por restabelecer a sua conta ou conteúdo dependendo das circunstâncias e gravidade da violação inicial.
 
-All legitimate reinstatement requests will be reviewed initially by GitHub staff and will be answered with a decision.
+Todos os pedidos legítimos de reintegração serão revisados inicialmente pela equipe do GitHub e serão respondidos com uma decisão.
 
-* **Appeal**: Where a user seeks to dispute a decision, they can use the form to explain their basis for disputing the decision and to provide any additional information regarding the alleged violation that they believe should have led to a different decision. If the information provided demonstrates that a different conclusion should have been reached, we may be able to grant an appeal.
+* **Recurso**: Quando um usuário procura contestar uma decisão, ele poderá utilizar a forma para explicar a sua base para contestar a decisão e fornecer qualquer informação adicional sobre a alegada violação que entendem dever ter conduzido a uma decisão diferente. Se as informações fornecidas demonstrarem que se deveria ter chegado a uma conclusão diferente, talvez possamos interpor um recurso.
 
-If the GitHub staff reviewer is the same person who made the initial determination and that staff member believes their initial conclusion was correct (and thus would be inclined to deny the appeal), a different member of GitHub’s staff will independently review the appeal. All legitimate appeals will be answered with a final decision.
+Se o revisor de equipe do GitHub for a mesma pessoa que determinou inicialmente e que o integrante da equipe acredita que sua conclusão inicial estava correta (e portanto teria a tendência a negar o recurso), um integrante diferente da equipe do GitHub irá revisar o recurso de forma independente. Todos os recursos legítimos serão respondidos com uma decisão final.
 
 ## Transparência
 
-We track appeals and reinstatements in our [transparency reports](https://github.blog/2022-01-27-2021-transparency-report/#Appeals_and_other_reinstatements).
+Acompanhamos os recursos e os restabelecimentos nos nossos [relatórios de transparência](https://github.blog/2022-01-27-2021-transparency-report/#Appeals_and_other_reinstatements).

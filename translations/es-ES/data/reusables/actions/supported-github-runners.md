@@ -36,7 +36,7 @@ Ubuntu 22.04
 <code>ubuntu-22.04</code>
 </td>
 <td>
-Ubuntu 22.04 is currently in public beta.
+Ubuntu 22.04 se encuentra actualmente en beta público.
 </td>
 </tr>
 <tr>
@@ -63,10 +63,7 @@ macOS Monterey 12
 </td>
 <td>
 <code>macos-12</code>
-</td>
-<td>
-macOS 12 is currently in public beta.
-</td>
+  </td>
 </tr>
 <tr>
 <td>

@@ -116,4 +116,5 @@ O {% data variables.product.prodname_ghe_cloud %} também inclui:
 
 Você pode configurar uma versão para avaliar o {% data variables.product.prodname_ghe_cloud %}. Para obter mais informações, consulte "<a href="/articles/setting-up-a-trial-of-github-enterprise-cloud" class="dotcom-only">Configurar uma versão de avaliação do {% data variables.product.prodname_ghe_cloud %}</a>".
 
-Para obter mais informações sobre hospedar sua própria instância do [{% data variables.product.prodname_ghe_server %}](https://enterprise.github.com), entre em contato com {% data variables.contact.contact_enterprise_sales %}. {% data reusables.enterprise_installation.request-a-trial %}
+For more information about hosting your own instance of {% data variables.product.prodname_ghe_server %}, including setting up a trial, see "[About {% data variables.product.prodname_ghe_server %}](/enterprise-server/admin/overview/about-github-enterprise-server)."
+

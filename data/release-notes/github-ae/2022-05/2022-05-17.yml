@@ -21,21 +21,21 @@ sections:
         - |
           GitHub Advanced Security now offers an organization-level view of the application security risks detected by code scanning, Dependabot, and secret scanning. The security overview shows the enablement status of security features on each repository, as well as the number of alerts detected.
 
-          In addition, the security overview lists all secret scanning alerts at the organization level. Similar views for Dependabot and code scanning alerts are coming in future releases. For more information, see "[About the security overview](/code-security/security-overview/about-the-security-overview)." <!-- ⚠️ Article will be available when we toggle content feature flags -->
+          In addition, the security overview lists all secret scanning alerts at the organization level. Similar views for Dependabot and code scanning alerts are coming in future releases. For more information, see "[About the security overview](/code-security/security-overview/about-the-security-overview)."
 
           ![Screenshot of security overview](/assets/images/enterprise/3.2/release-notes/security-overview-UI.png)
 
     - heading: 'Dependency graph'
       notes:
         - |
-          Dependency graph is now available on GitHub AE. The dependency graph helps you understand the open source software that you depend on by parsing the dependency manifests checked into repositories. For more information, see "[About the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)." <!-- ⚠️ Article will be available when we toggle content feature flags -->
+          Dependency graph is now available on GitHub AE. The dependency graph helps you understand the open source software that you depend on by parsing the dependency manifests checked into repositories. For more information, see "[About the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)."
 
     - heading: 'Dependabot alerts'
       notes:
         - |
-          Dependabot alerts can now notify you of vulnerabilities in your dependencies on GitHub AE. You can enable Dependabot alerts by enabling the dependency graph, enabling GitHub Connect, and syncing vulnerabilities from the GitHub Advisory Database. This feature is in beta and subject to change. For more information, see "[About alerts for vulnerable dependencies](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies)."
+          Dependabot alerts can now notify you of vulnerabilities in your dependencies on GitHub AE. You can enable Dependabot alerts by enabling the dependency graph, enabling GitHub Connect, and syncing vulnerabilities from the GitHub Advisory Database. This feature is in beta and subject to change. For more information, see "[About Dependabot alerts](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)."
 
-          After you enable Dependabot alerts, members of your organization will receive notifications any time a new vulnerability that affects their dependencies is added to the GitHub Advisory Database or a vulnerable dependency is added to their manifest. Members can customize notification settings. For more information, see "[Configuring notifications for vulnerable dependencies](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-notifications-for-vulnerable-dependencies)." <!-- ⚠️ Articles will be available when we toggle content feature flags -->
+          After you enable Dependabot alerts, members of your organization will receive notifications any time a new vulnerability that affects their dependencies is added to the GitHub Advisory Database or a vulnerable dependency is added to their manifest. Members can customize notification settings. For more information, see "[Configuring notifications for % data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts)." <!-- ⚠️ Articles will be available when we toggle content feature flags -->
 
     - heading: 'Security manager role for organizations'
       notes:
@@ -74,7 +74,7 @@ sections:
     - heading: 'Audit log accessible via REST API'
       notes:
         - |
-          You can now use the REST API to programmatically interface with the audit log. While audit log forwarding provides you with the ability to retain and analyze data with your own toolkit and determine patterns over time, the new REST API will help you perform limited analysis on events of note that have happened in recent history. For more information, see "[Reviewing the audit log for your organization](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization#using-the-rest-api)." <!-- ⚠️ Article will be available when we toggle content feature flags -->
+          You can now use the REST API to programmatically interface with the audit log. While audit log forwarding provides you with the ability to retain and analyze data with your own toolkit and determine patterns over time, the new REST API will help you perform limited analysis on events of note that have happened in recent history. For more information, see "[Reviewing the audit log for your organization](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization#using-the-rest-api)."
 
     - heading: 'Expiration dates for personal access tokens'
       notes:
@@ -135,7 +135,7 @@ sections:
     - heading: 'GitHub Actions'
       notes:
         - |
-          To mitigate insider man-in-the-middle attacks when using actions resolved through GitHub Connect to GitHub.com from GitHub AE, GitHub AE retires the actions namespace (`OWNER/NAME`) on use. Retiring the namespace prevents that namespace from being created in your enterprise, and ensures all workflows referencing the action will download it from GitHub.com. For more information, see "[Enabling automatic access to GitHub.com actions using GitHub Connect](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect#automatic-retirement-of-namespaces-for-actions-accessed-on-githubcom)." <!-- ⚠️ Section on page will be available when we toggle content feature flags -->
+          To mitigate insider man-in-the-middle attacks when using actions resolved through GitHub Connect to GitHub.com from GitHub AE, GitHub AE retires the actions namespace (`OWNER/NAME`) on use. Retiring the namespace prevents that namespace from being created in your enterprise, and ensures all workflows referencing the action will download it from GitHub.com. For more information, see "[Enabling automatic access to GitHub.com actions using GitHub Connect](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect#automatic-retirement-of-namespaces-for-actions-accessed-on-githubcom)."
 
         - |
           The audit log now includes additional events for GitHub Actions. GitHub AE now records audit log entries for the following events.
@@ -183,7 +183,7 @@ sections:
     - heading: 'Repositories'
       notes:
         - |
-          GitHub AE now includes enhanced support for _CITATION.cff_ files. _CITATION.cff_ files are plain text files with human- and machine-readable citation information. GitHub AE parses this information into convenient formats such as [APA](​​https://apastyle.apa.org) and [BibTeX](https://en.wikipedia.org/wiki/BibTeX) that can be copied by others. For more information, see "[About CITATION files](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-citation-files)." <!-- ⚠️ Article will be available when we toggle content feature flags -->
+          GitHub AE now includes enhanced support for _CITATION.cff_ files. _CITATION.cff_ files are plain text files with human- and machine-readable citation information. GitHub AE parses this information into convenient formats such as [APA](https://apastyle.apa.org) and [BibTeX](https://en.wikipedia.org/wiki/BibTeX) that can be copied by others. For more information, see "[About CITATION files](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-citation-files)."
 
         - |
           You can now add, delete, or view autolinks through the Repositories API's Autolinks endpoint. For more information, see "[Autolinked references and URLs](/get-started/writing-on-github/working-with-advanced-formatting/autolinked-references-and-urls)" and "[Repositories](/rest/reference/repos#autolinks)" in the REST API documentation.

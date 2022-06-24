@@ -27,7 +27,7 @@ shortTitle: Importar de outro VCS
   ```shell
   $ git-import-rewrite --flavor hg --authors /<em>PATH</em>/<em>AUTHORS-MAP-FILE</em>.csv /<em>PATH</em>/<em>REPO-NAME</em>.git
   ```
-5. Caso ainda não tenha feito isso, [crie um repositório vazio no {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/user/articles/creating-a-new-repository).
+5. Caso ainda não tenha feito isso, [crie um repositório vazio no {% data variables.product.prodname_ghe_server %}](/enterprise/user/articles/creating-a-new-repository).
 {% data reusables.command_line.switching_directories_procedural %}
 7. Faça push do repositório importado para o {% data variables.product.prodname_ghe_server %}:
   ```shell
@@ -47,7 +47,7 @@ shortTitle: Importar de outro VCS
   ```shell
   $ git-import-rewrite --flavor svn --authors /<em>PATH</em>/<em>AUTHORS-MAP-FILE</em>.csv /<em>PATH</em>/<em>REPO-NAME</em>.git
   ```
-5. Caso ainda não tenha feito isso, [crie um repositório vazio no {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/user/articles/creating-a-new-repository).
+5. Caso ainda não tenha feito isso, [crie um repositório vazio no {% data variables.product.prodname_ghe_server %}](/enterprise/user/articles/creating-a-new-repository).
 {% data reusables.command_line.switching_directories_procedural %}
 7. Faça push do repositório importado para o {% data variables.product.prodname_ghe_server %}:
   ```shell
@@ -67,7 +67,7 @@ shortTitle: Importar de outro VCS
   ```shell
   $ git-import-rewrite --flavor tfs --authors /<em>PATH</em>/<em>AUTHORS-MAP-FILE</em>.csv /<em>PATH</em>/<em>REPO-NAME</em>.git
   ```
-5. Caso ainda não tenha feito isso, [crie um repositório vazio no {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/user/articles/creating-a-new-repository).
+5. Caso ainda não tenha feito isso, [crie um repositório vazio no {% data variables.product.prodname_ghe_server %}](/enterprise/user/articles/creating-a-new-repository).
 {% data reusables.command_line.switching_directories_procedural %}
 7. Faça push do repositório importado para o {% data variables.product.prodname_ghe_server %}:
   ```shell
@@ -76,4 +76,4 @@ shortTitle: Importar de outro VCS
 
 ## Leia mais
 
-- "[Command-line-utilities](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities/#import-and-export)"
+- "[Command-line-utilities](/enterprise/admin/guides/installation/command-line-utilities/#import-and-export)"

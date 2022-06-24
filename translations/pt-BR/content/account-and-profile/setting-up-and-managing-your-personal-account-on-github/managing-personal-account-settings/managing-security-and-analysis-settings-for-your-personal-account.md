@@ -1,5 +1,5 @@
 ---
-title: Managing security and analysis settings for your personal account
+title: Gerenciar as configurações de segurança e análise para a sua conta pessoal
 intro: 'Você pode controlar recursos que protegem e analisam o código nos seus projetos no {% data variables.product.prodname_dotcom %}.'
 versions:
   fpt: '*'
