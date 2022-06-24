@@ -5,7 +5,7 @@
 # --------------------------------------------------------------------------------
 # BASE IMAGE
 # --------------------------------------------------------------------------------
-FROM node:16.2.0-alpine as base
+FROM node:16.9.1-alpine as base
 
 RUN apk add --no-cache make g++ git
 
@@ -61,7 +61,7 @@ RUN npm run build
 # MAIN IMAGE
 # --------------------------------------------------------------------------------
 
-FROM node:16.2.0-alpine as production
+FROM node:16.9.1-alpine as production
 
 # Let's make our home
 WORKDIR /usr/src/docs
