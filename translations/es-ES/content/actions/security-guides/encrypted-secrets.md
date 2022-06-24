@@ -7,6 +7,7 @@ redirect_from:
   - /actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets
   - /actions/configuring-and-managing-workflows/using-variables-and-secrets-in-a-workflow
   - /actions/reference/encrypted-secrets
+miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
   ghes: '*'
@@ -283,49 +284,64 @@ Un flujo de trabajo que se haya creado en un repositorio puede acceder a la sigu
 * Si se asigna acceso a más de 100 secretos de la organización para este repositorio, el flujo de trabajo solo puede utilizar los primeros 100 secretos de organización (que se almacenan por orden alfabético por nombre de secreto).
 * Todos los 100 secretos de ambiente.
 
-Los secretos tienen un tamaño máximo de 64 KB. Para usar secretos de un tamaño mayor a 64 KB, puedes almacenar los secretos cifrados en tu repositorio y guardar la contraseña de descifrado como un secreto en {% data variables.product.prodname_dotcom %}. Por ejemplo, puedes usar `gpg` para cifrar tus credenciales de manera local antes de verificar el archivo en tu repositorio en {% data variables.product.prodname_dotcom %}. Para obtener más información, consulta la página del manual "[gpg](https://www.gnupg.org/gph/de/manual/r1023.html)".
+Los secretos tienen un tamaño máximo de 64 KB. Para almacenar los secretos más grandes, consulta la solución alternativa "[Almacenar secretos grandes](#storing-large-secrets)" debajo.
+
+### Storing large secrets
+
+To use secrets that are larger than 64 KB, you can use a workaround to store encrypted secrets in your repository and save the decryption passphrase as a secret on {% data variables.product.prodname_dotcom %}. For example, you can use `gpg` to encrypt a file containing your secret locally before checking the encrypted file in to your repository on {% data variables.product.prodname_dotcom %}. Para obtener más información, consulta la página del manual "[gpg](https://www.gnupg.org/gph/de/manual/r1023.html)".
 
 {% warning %}
 
-**Advertencia**: Evita que tus secretos se impriman cuando se ejecute tu acción. Cuando usas esta solución, {% data variables.product.prodname_dotcom %} no redacta los secretos que están impresos en los registros.
+**Warning**: Be careful that your secrets do not get printed when your workflow runs. Cuando usas esta solución, {% data variables.product.prodname_dotcom %} no redacta los secretos que están impresos en los registros.
 
 {% endwarning %}
 
-1. Ejecuta el siguiente comando en tu terminal para cifrar el archivo `my_secret.json` usando `gpg` y el algoritmo de cifras AES256.
+1. Run the following command from your terminal to encrypt the file containing your secret using `gpg` and the AES256 cipher algorithm. In this example, `my_secret.json` is the file containing the secret.
 
- ``` shell
- $ gpg --symmetric --cipher-algo AES256 my_secret.json
- ```
+   ```bash
+   gpg --symmetric --cipher-algo AES256 my_secret.json
+   ```
 
 1. Se te pedirá que ingreses una contraseña. Recuerda la contraseña, porque deberás crear un nuevo secreto en {% data variables.product.prodname_dotcom %} que use esa contraseña como valor.
 
-1. Crear un nuevo secreto que contiene la frase de acceso. Por ejemplo, crea un nuevo secreto con el nombre `LARGE_SECRET_PASSPHRASE` y establece el valor del secreto para la contraseña que seleccionaste en el paso anterior.
+1. Crear un nuevo secreto que contiene la frase de acceso. For example, create a new secret with the name `LARGE_SECRET_PASSPHRASE` and set the value of the secret to the passphrase you used in the step above.
 
-1. Copia tu archivo cifrado en tu repositorio y confírmalo. En este ejemplo, el archivo cifrado es `my_secret.json.gpg`.
+1. Copy your encrypted file to a path in your repository and commit it. En este ejemplo, el archivo cifrado es `my_secret.json.gpg`.
 
-1. Crea un script shell para descifrar la contraseña. Guarda este archivo como `decrypt_secret.sh`.
+   {% warning %}
 
-  ``` shell
-  #!/bin/sh
+   **Warning**: Make sure to copy the encrypted `my_secret.json.gpg` file ending with the `.gpg` file extension, and **not** the unencrypted `my_secret.json` file.
 
-  # Decrypt the file
-  mkdir $HOME/secrets
-  # --batch to prevent interactive command
-  # --yes to assume "yes" for questions
-  gpg --quiet --batch --yes --decrypt --passphrase="$LARGE_SECRET_PASSPHRASE" \
-  --output $HOME/secrets/my_secret.json my_secret.json.gpg
-  ```
+   {% endwarning %}
+
+   ```bash
+   git add my_secret.json.gpg
+   git commit -m "Add new encrypted secret JSON file"
+   ```
+
+1. Create a shell script in your repository to decrypt the secret file. In this example, the script is named `decrypt_secret.sh`.
+
+   ```bash
+   #!/bin/sh
+
+   # Decrypt the file
+   mkdir $HOME/secrets
+   # --batch to prevent interactive command
+   # --yes to assume "yes" for questions
+   gpg --quiet --batch --yes --decrypt --passphrase="$LARGE_SECRET_PASSPHRASE" \
+   --output $HOME/secrets/my_secret.json my_secret.json.gpg
+   ```
 
 1. Asegúrate de que tu shell script sea ejecutable antes de verificarlo en tu repositorio.
 
-  ``` shell
-  $ chmod +x decrypt_secret.sh
-  $ git add decrypt_secret.sh
-  $ git commit -m "Add new decryption script"
-  $ git push
-  ```
+   ```bash
+   chmod +x decrypt_secret.sh
+   git add decrypt_secret.sh
+   git commit -m "Add new decryption script"
+   git push
+   ```
 
-1. En tu flujo de trabajo, usa un `step` para llamar al shell script y descifrar el secreto. Para tener una copia de tu repositorio en el entorno en el que se ejecuta tu flujo de trabajo, deberás usar la acción [`code>actions/checkout`](https://github.com/actions/checkout). Haz referencia a tu shell script usando el comando `run` relacionado con la raíz de tu repositorio.
+1. In your {% data variables.product.prodname_actions %} workflow, use a `step` to call the shell script and decrypt the secret. Para tener una copia de tu repositorio en el entorno en el que se ejecuta tu flujo de trabajo, deberás usar la acción [`code>actions/checkout`](https://github.com/actions/checkout). Haz referencia a tu shell script usando el comando `run` relacionado con la raíz de tu repositorio.
 
    ```yaml
    name: Workflows with large secrets
@@ -339,7 +355,7 @@ Los secretos tienen un tamaño máximo de 64 KB. Para usar secretos de un tamañ
        steps:
          - uses: {% data reusables.actions.action-checkout %}
          - name: Decrypt large secret
-           run: ./.github/scripts/decrypt_secret.sh
+           run: ./decrypt_secret.sh
            env:
              LARGE_SECRET_PASSPHRASE: {% raw %}${{ secrets.LARGE_SECRET_PASSPHRASE }}{% endraw %}
          # This command is just an example to show your secret being printed

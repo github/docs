@@ -39,7 +39,7 @@ Ni el HA ni el Clústering debe considerarse como un reemplazo de los respaldos 
 
 ## Supervisar
 
-Las características de disponibilidad, especialmente las que tienen conmutación automática como Agrupación, pueden enmascarar una falla dado que el servicio generalmente no se ve interrumpido cuando algo falla. Ya sea que esté usando HA o Agrupación, supervisar el estado de cada instancia es importante para que puedas estar al tanto cuando se produce una falla. For more information on monitoring, see "[Recommended alert thresholds](/enterprise/admin/guides/installation/recommended-alert-thresholds/)" and "[Monitoring cluster nodes](/enterprise/{{ currentVersion}}/admin/guides/clustering/monitoring-cluster-nodes/)."
+Las características de disponibilidad, especialmente las que tienen conmutación automática como Agrupación, pueden enmascarar una falla dado que el servicio generalmente no se ve interrumpido cuando algo falla. Ya sea que esté usando HA o Agrupación, supervisar el estado de cada instancia es importante para que puedas estar al tanto cuando se produce una falla. Para obtener más información sobre el monitoreo, consulta las secciones "[Umbrales de alerta recomendados](/enterprise/admin/guides/installation/recommended-alert-thresholds/)" y "[Monitorear los nodos de clúster](/enterprise/{{ currentVersion}}/admin/guides/clustering/monitoring-cluster-nodes/)".
 
 ## Leer más
 - Para obtener más información acerca del {% data variables.product.prodname_ghe_server %} Agrupamiento, visite la sección de "[Acerca del agrupamiento](/enterprise/{{ currentVersion}}/admin/guides/clustering/about-clustering/)."

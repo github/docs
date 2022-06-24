@@ -29,6 +29,8 @@ Una verificación de salud proporciona la siguiente información sobre {% data v
 - El análisis de la solicitud de Git, con los detalles sobre los usuarios de Git y repositorios más ocupados
 - El análisis de las solicitudes a la API, incluyendo los tiempos más ocupados, las terminales que se solicitan con más frecuencia y los llamadores más activos
 
+If you want to generate a Health Check for {% data variables.product.prodname_ghe_cloud %}, contact {% data variables.contact.github_support %}. Para obtener más información, consulta la sección "[Crear un ticket de soporte](/support/contacting-github-support/creating-a-support-ticket)".
+
 ## Generar una verificación de salud
 
 Antes de que puedas generar una verificación de salud, debes crear un paquete de compatibilidad. Para obtener más información, consulta "[Proporcionar datos a {% data variables.contact.github_support %}](/support/contacting-github-support/providing-data-to-github-support#creating-and-sharing-support-bundles)".

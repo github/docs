@@ -1,4 +1,4 @@
-| 提供者                       | 支持的密钥                                              | Secret type                                              |
+| 提供者                       | 支持的密钥                                              | 密钥类型                                                     |
 | ------------------------- | -------------------------------------------------- | -------------------------------------------------------- |
 | Adafruit IO               | Adafruit IO 密钥                                     | adafruit_io_key                                        |
 | Alibaba Cloud             | Alibaba 云访问密钥 ID                                   | alibaba_cloud_access_key_id                          |
@@ -17,10 +17,10 @@
 | Checkout.com              | Checkout.com 生产密钥                                  | checkout_production_secret_key                         |
 | Clojars                   | Clojars 部署令牌                                       | clojars_deploy_token                                   |
 | Databricks                | Databricks 访问令牌                                    | databricks_access_token                                |
-| DigitalOcean              | DigitalOcean Personal Access Token                 | digitalocean_personal_access_token                     |
-| DigitalOcean              | DigitalOcean OAuth Token                           | digitalocean_oauth_token                               |
-| DigitalOcean              | DigitalOcean Refresh Token                         | digitalocean_refresh_token                             |
-| DigitalOcean              | DigitalOcean System Token                          | digitalocean_system_token                              |
+| DigitalOcean              | DigitalOcean 个人访问令牌                                | digitalocean_personal_access_token                     |
+| DigitalOcean              | DigitalOcean OAuth 令牌                              | digitalocean_oauth_token                               |
+| DigitalOcean              | DigitalOcean 刷新令牌                                  | digitalocean_refresh_token                             |
+| DigitalOcean              | DigitalOcean 系统令牌                                  | digitalocean_system_token                              |
 | Discord                   | Discord 自动程序令牌                                     | discord_bot_token                                      |
 | Doppler                   | Doppler 个人令牌                                       | doppler_personal_token                                 |
 | Doppler                   | Doppler 服务令牌                                       | doppler_service_token                                  |

@@ -159,7 +159,7 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 
 ## 用户到服务器请求
 
-虽然大多数 API 交互应使用服务器到服务器安装访问令牌进行，但某些端点允许您使用用户访问令牌通过 API 执行操作。 Your app can make the following requests using [GraphQL]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql) or [REST](/rest) endpoints.
+虽然大多数 API 交互应使用服务器到服务器安装访问令牌进行，但某些端点允许您使用用户访问令牌通过 API 执行操作。 您的应用程序可以使用[GraphQL]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql) 或 [REST](/rest) 端点发出以下请求。
 
 ### 支持的端点
 

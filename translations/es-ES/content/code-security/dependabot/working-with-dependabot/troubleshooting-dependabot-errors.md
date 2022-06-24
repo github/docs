@@ -39,11 +39,14 @@ Cuando se bloquea al {% data variables.product.prodname_dependabot %} y no puede
 
 ![Vista de las {% data variables.product.prodname_dependabot_alerts %} que muestra un enlace a una solicitud de cambios](/assets/images/help/dependabot/dependabot-alert-pr-link.png)
 
-Hay tres razones por las cuales una alerta pudiera no tener un enlace a una solicitud de cambios:
+There are several reasons why an alert may have no pull request link:
 
-1. No se han habilitado las {% data variables.product.prodname_dependabot_security_updates %} en el repositorio.
-1. La alerta es para una dependencia transitoria o indirecta que no se definió explícitamente en un archivo de bloqueo.
-1. Un error bloqueó al {% data variables.product.prodname_dependabot %} y éste no puede crear una solicitud de cambios.
+1. {% data variables.product.prodname_dependabot_security_updates %} are not enabled for the repository.
+{% ifversion GH-advisory-db-supports-malware %}
+1. The alert is for malware and there is no secure version of the package.
+{% endif %}
+1. The alert is for an indirect or transitive dependency that is not explicitly defined in a lock file.
+1. An error blocked {% data variables.product.prodname_dependabot %} from creating a pull request.
 
 Si existe un error que bloqueó al {% data variables.product.prodname_dependabot %} y éste no puede crear una solicitud de cambios, puedes mostrar los detalles del error si das clic en la alerta.
 

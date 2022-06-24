@@ -1,1 +1,1 @@
-1. After you have successfully verified the endpoint, click **Save**.
+1. 成功验证端点后，单击 **Save（保存）**。
