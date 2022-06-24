@@ -2,6 +2,11 @@ In addition to all of the benefits of {% data variables.contact.enterprise_suppo
   - 我们的支持门户全天候提供英语书面支持
   - Phone support via callback request, in English, through our support portal 24 hours per day, 7 days per week
   - 保证初始响应时间的服务等级协议 (SLA)
+  - Escalation management
+    - The ability to escalate ticket progression in the {% data variables.contact.enterprise_portal %}
+    - A dedicated team of Incident Coordinators who orchestrate all necessary {% data variables.product.company_short %} parties to resolve urgent tickets
   - 高级内容访问权限
-  - Scheduled Health Checks
-  - Administration assistance hours ({% data variables.product.premium_plus_support_plan %} only)
+  - 运行状况检查
+  - Application upgrade assistance: Before you upgrade {% data variables.product.prodname_ghe_server %}, we review your upgrade plans, playbooks, and other documentation and answer questions specific to your environment ({% data variables.product.premium_plus_support_plan %} only)
+  - Cloud planning: Customer Success Managers and Customer Success Architects help you plan your journey to the cloud ({% data variables.product.premium_plus_support_plan %} only)
+  - Technical advisory hours ({% data variables.product.premium_plus_support_plan %} only)

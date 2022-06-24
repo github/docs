@@ -294,6 +294,13 @@ sections:
       It is now possible for GitHub Apps to upload release assets.
   changes:
     - |
+      Minimum requirements for root storage and memory increased for GitHub Enterprise Server 2.10 and 3.0, and are now enforced as of 3.5.0.
+
+        - In version 2.10, the minimum requirement for root storage increased from 80 GB to 200 GB. As of 3.5.0, system preflight checks will fail if the root storage is smaller than 80 GB.
+        - In version 3.0, the minimum requirement for memory increased to from 16 GB to 32 GB. As of 3.5.0, system preflight checks will fail if the system has less than 28 GB of memory.
+
+      For more information, see the minimum requirements for each supported deployment platform in "[Setting up a GitHub Enterprise Server instance](/enterprise-server/admin/installation/setting-up-a-github-enterprise-server-instance)." [Updated: 2022-06-20]
+    - |
       Para utilizar el flujo de autorización de dispositivos para las OAuth y GitHub Apps, debes habilitar la característica manualmente. Este cambio reduce la probabilidad de que se utilicen las apps en ataques de phishing contra los usuarios de GitHub Enterprise Server al asegurarse de que los integradores están consientes de los riesgos y toman decisiones conscientes para apoyar esta forma de autenticación. Si eres propietario o administras una OAuth App o GitHub App y quieres utilizar el flujo de dispositivos, puedes habilitarlo para tu app a través de la página de ajustes de la misma. Las terminales de la API de flujo de dispositivos responderán con el código de estado `400` a las apps que no hayan habilitado esta característica. Para obtener más información consulta la sección "[Autorizar las OAuth Apps](/developers/apps/building-oauth-apps/authorizing-oauth-apps#device-flow)".
     - |
       La página de alerta del escaneo de código ahora siempre muestra el estado de la alerta y la información de la rama predeterminada. Hay un panel nuevo de "Ramas afectadas" en la barra lateral, en donde puedes ver el estado de la alerta en otras ramas. Si la alerta no existe en tu rama predeterminada, la página de la alerta mostrará el estado de "In branch" o de "In pull request" para la ubicación en donde se haya visto dicha alerta por última vez. Esta mejora facilita entender el estado de las alertas que se hayan introducido en tu base de código. Para obtener más información, consulta la sección "[Acerca de las alertas del escaneo de código](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-alert-details)".
@@ -322,7 +329,7 @@ sections:
       heading: Change to the format of authentication tokens affects GitHub Connect
       notes:
         - |
-          GitHub Connect will no longer work after June 3rd for instances running GitHub Enterprise Server 3.1 or older, due to the format of GitHub authentication tokens changing. To continue using GitHub Connect, upgrade to GitHub Enterprise Server 3.2 or later. For more information, see the [GitHub Blog](https://github.blog/2022-05-20-action-needed-by-github-connect-customers-using-ghes-3-1-and-older-to-adopt-new-authentication-token-format-updates/). [Updated: 2022-06-14]
+          GitHub Connect ya no funcionará después del 3 de junio para las instancias que ejecuten GitHub Enterprise Server 3.1 o anterior, debido al cambio en el formato de los tokens de autenticación de GitHub. Para seguir utilizando GitHub Connect, mejora a GitHub Enterprise Server 3.2 o posterior. Para obtener más información, consulta el [Blog de GitHub](https://github.blog/2022-05-20-action-needed-by-github-connect-customers-using-ghes-3-1-and-older-to-adopt-new-authentication-token-format-updates/). [Actualizado: 2022-06-14]
     - 
       heading: CodeQL runner deprecated in favor of CodeQL CLI
       notes:
@@ -343,4 +350,4 @@ sections:
     - Los límites de recursos que son específicos para procesar ganchos de pre-recepción podrían ocasionar que fallen algunos ganchos de pre-recepción.
     - Actions services need to be restarted after restoring an appliance from a backup taken on a different host.
     - 'Deleted repositories will not be purged from disk automatically after the 90-day retention period ends. [Updated: 2022-06-08]'
-    - 'The Management Console cannot be accessed on an under-provisioned instance. [Updated: 2022-06-14]'
+    - 'Management Console may appear stuck on the _Starting_ screen after upgrading an under-provisioned instance to GitHub Enterprise Server 3.5. [Updated: 2022-06-20]'

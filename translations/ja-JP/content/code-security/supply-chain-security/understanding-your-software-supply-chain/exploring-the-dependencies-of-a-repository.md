@@ -42,14 +42,18 @@ Enterpriseのオーナーは、Enterpriseのレベルで依存関係グラフを
 {% ifversion fpt or ghec %}
 依存関係はエコシステム別にグループ化されます。 依存関係を拡張すると、その依存関係を表示できます。  プライベートリポジトリ、プライベートパッケージ、認識できないファイルの依存関係は、プレーンテキストで表示されます。 依存関係のパッケージマネージャがパブリックリポジトリ中にある場合、{% data variables.product.product_name %}はそのリポジトリへのリンクを表示します。
 
-リポジトリで脆弱性が検出された場合は、{% data variables.product.prodname_dependabot_alerts %}にアクセスできるユーザに、ビューの上部で表示されます。
+{% ifversion dependency-submission-api %}
+Dependency submission API（ベータ）を使ってプロジェクトにサブミットされた依存関係は、エコシステムでグループ化されてはいますが、リポジトリのマニフェストあるいはロックファイルから特定された依存関係とは独立して表示されます。 サブミットされたこれらの依存関係は、依存関係のスナップショットあるいはセットとしてサブミットされることから、"Snapshot dependencies（スナップショット依存関係）"として依存関係グラフに表示されます。 Dependency submission APIの利用に関する詳しい情報については「[Dependency submission APIの利用](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api)」を参照してください。
+{% endif %}
+
+リポジトリで脆弱性が検出された場合、それらは{% data variables.product.prodname_dependabot_alerts %}にアクセスできるユーザに、ビューの上部で表示されます。
 
 ![依存関係グラフ](/assets/images/help/graphs/dependencies_graph.png)
 
 {% endif %}
 
 {% ifversion ghes or ghae %}
-リポジトリのマニフェストもしくはロックファイルで指定されている直接あるいは間接の依存関係は、エコシステムでグループ化されてリストされます。 リポジトリで脆弱性が検出された場合は、{% data variables.product.prodname_dependabot_alerts %}にアクセスできるユーザに、ビューの上部で表示されます。
+リポジトリのマニフェストもしくはロックファイルで指定されている直接あるいは間接の依存関係は、エコシステムでグループ化されてリストされます。 リポジトリで脆弱性が検出された場合、それらは{% data variables.product.prodname_dependabot_alerts %}にアクセスできるユーザに、ビューの上部で表示されます。
 
 ![依存関係グラフ](/assets/images/help/graphs/dependencies_graph_server.png)
 
@@ -101,12 +105,12 @@ Enterpriseのオーナーは、Enterpriseのレベルで依存関係グラフを
 {% ifversion fpt or ghec %}
 ファイルのフォーマットが正しい場合は、大きさをチェックします。 あなたが {% data variables.product.prodname_enterprise %} ユーザでない限り、依存関係グラフは 1.5 MB を超える個々のマニフェストおよびロックファイルを無視します。 デフォルトでは、最大 20 個のマニフェストまたはロックファイルが処理されるので、リポジトリのサブディレクトリで依存関係を小さいファイルに分割することができます。{% endif %}
 
-マニフェストまたはロックファイルが処理されない場合、その依存関係は依存関係グラフから省略され、脆弱な依存関係はチェックされなくなります。
+マニフェストまたはロックファイルが処理されない場合、その依存関係は依存関係グラフから省略され、安全ではない依存関係はチェックされなくなります。
 
 ## 参考リンク
 
 - [依存関係グラフについて](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)
-- 「[脆弱性のある依存関係に対する{% data variables.product.prodname_dependabot_alerts %}の表示](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)」{% ifversion ghec %}
+- 「[{% data variables.product.prodname_dependabot_alerts %}の表示と更新](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)」{% ifversion ghec %}
 - 「[Organizationのインサイトの表示](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-your-organization)」{% endif %}{% ifversion fpt or ghec %}
 - [{% data variables.product.prodname_dotcom %}によるデータの利用と保護の方法の理解](/get-started/privacy-on-github)
 {% endif %}

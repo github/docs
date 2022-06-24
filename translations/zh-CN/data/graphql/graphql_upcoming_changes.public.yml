@@ -100,8 +100,8 @@ upcoming_changes:
     owner: cheshire137
   - 
     location: DependencyGraphDependency.packageLabel
-    description: '`packageLabel` will be removed. Use normalized `packageName` field instead.'
-    reason: '`packageLabel` will be removed.'
+    description: '`packageLabel` 将被删除。请使用规范化的 `packageName` 字段。'
+    reason: '`packageLabel` 将被删除。'
     date: '2022-10-01T00:00:00+00:00'
     criticality: 重大
     owner: github/dependency_graph

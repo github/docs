@@ -153,7 +153,7 @@ In this section, you can find the access required for security features, such as
 
 | Repository action | Read | Triage | Write | Maintain | Admin |
 |:---|:---:|:---:|:---:|:---:|:---:| {% ifversion fpt or ghes or ghae or ghec %}
-| Receive [{% data variables.product.prodname_dependabot_alerts %} for vulnerable dependencies](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies) in a repository | | | | | **X** |
+| Receive [{% data variables.product.prodname_dependabot_alerts %} for insecure dependencies](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies) in a repository | | | | | **X** |
 | [Dismiss {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/viewing-and-updating-vulnerable-dependencies-in-your-repository) | | | | | **X** |{% endif %}{% ifversion ghes or ghae or ghec %}<!--Not available for FPT-->
 | [Designate additional people or teams to receive security alerts](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts) | | | | | **X** |{% endif %}{% ifversion fpt or ghec %}
 | Create [security advisories](/code-security/security-advisories/about-github-security-advisories) | | | | | **X** |{% endif %}{% ifversion ghes or ghae or ghec %} <!--Not available for FPT-->
