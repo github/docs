@@ -310,6 +310,14 @@ Para obtener más información sobre cómo utilizar la API de REST para consulta
 
 {% endnote %}
 
+{% ifversion partial-reruns-with-reusable %}
+
+## Volver a ejecutar los flujos de trabajo y los jobs con flujos de trabajo reutilizables
+
+{% data reusables.actions.partial-reruns-with-reusable %}
+
+{% endif %}
+
 ## Pasos siguientes
 
 Para seguir aprendiendo sobre las {% data variables.product.prodname_actions %}, consulta la sección "[Eventos que activan flujos de trabajo](/actions/learn-github-actions/events-that-trigger-workflows)".

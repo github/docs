@@ -1,1 +1,1 @@
-The following workflow was created by the {% data variables.product.prodname_dotcom %} Docs Engineering team. To review the latest version of this file in the [`github/docs`](https://github.com/github/docs) repository, see 
+O fluxo de trabalho a seguir foi criado pela equipe de Engenharia de {% data variables.product.prodname_dotcom %} Para revisar a versão mais recente deste arquivo no repositório [`github/docs`](https://github.com/github/docs), consulte 

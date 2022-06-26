@@ -75,14 +75,8 @@ Antes de poder sincronizar a sua bifurcação com um repositório upstream, é n
   >  2 files changed, 7 insertions(+), 9 deletions(-)
   >  delete mode 100644 README
   >  create mode 100644 README.md
-  ``` If your local branch didn't have any unique commits, Git will instead perform a "fast-forward":
-  ```shell
-  $ git merge upstream/main
-  > Updating 34e91da..16c56ad
-  > Fast-forward
-  >  README.md                 |    5 +++--
-  >  1 file changed, 3 insertions(+), 2 deletions(-)
   ```
+
 
 {% tip %}
 

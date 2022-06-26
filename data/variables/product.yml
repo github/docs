@@ -57,6 +57,8 @@ prodname_classroom: 'GitHub Classroom'
 prodname_classroom_with_url: '[GitHub Classroom](https://classroom.github.com/login)'
 prodname_campus_program: 'GitHub Campus Program'
 prodname_student_pack: 'GitHub Student Developer Pack'
+prodname_global_campus: 'GitHub Global Campus'
+prodname_community_exchange: 'GitHub Community Exchange'
 
 # GitHub CLI
 prodname_cli: 'GitHub CLI'
@@ -179,6 +181,7 @@ prodname_code_scanning_capc: 'Code scanning'
 prodname_codeql_runner: 'CodeQL runner'
 prodname_advisory_database: 'GitHub Advisory Database'
 prodname_codeql_workflow: 'CodeQL analysis workflow'
+prodname_dependency_review_action: 'Dependency Review GitHub Action'
 
 # Visual Studio
 prodname_vs: 'Visual Studio'

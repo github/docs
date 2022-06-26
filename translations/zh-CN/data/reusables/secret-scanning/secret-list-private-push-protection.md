@@ -1,4 +1,4 @@
-| 提供者                       | 支持的密钥                                              | Secret type                                              |
+| 提供者                       | 支持的密钥                                              | 密钥类型                                                     |
 | ------------------------- | -------------------------------------------------- | -------------------------------------------------------- |
 | Adafruit IO               | Adafruit IO 密钥                                     | adafruit_io_key                                        |
 | Alibaba Cloud             | Alibaba 云访问密钥 ID                                   | alibaba_cloud_access_key_id                          |
@@ -17,10 +17,10 @@
 | Checkout.com              | Checkout.com 生产密钥                                  | checkout_production_secret_key                         |
 | Clojars                   | Clojars 部署令牌                                       | clojars_deploy_token                                   |
 | Databricks                | Databricks 访问令牌                                    | databricks_access_token                                |
-| DigitalOcean              | DigitalOcean Personal Access Token                 | digitalocean_personal_access_token                     |
-| DigitalOcean              | DigitalOcean OAuth Token                           | digitalocean_oauth_token                               |
-| DigitalOcean              | DigitalOcean Refresh Token                         | digitalocean_refresh_token                             |
-| DigitalOcean              | DigitalOcean System Token                          | digitalocean_system_token                              |
+| DigitalOcean              | DigitalOcean 个人访问令牌                                | digitalocean_personal_access_token                     |
+| DigitalOcean              | DigitalOcean OAuth 令牌                              | digitalocean_oauth_token                               |
+| DigitalOcean              | DigitalOcean 刷新令牌                                  | digitalocean_refresh_token                             |
+| DigitalOcean              | DigitalOcean 系统令牌                                  | digitalocean_system_token                              |
 | Discord                   | Discord 自动程序令牌                                     | discord_bot_token                                      |
 | Doppler                   | Doppler 个人令牌                                       | doppler_personal_token                                 |
 | Doppler                   | Doppler 服务令牌                                       | doppler_service_token                                  |
@@ -60,16 +60,5 @@
 | PlanetScale               | PlanetScale 服务令牌                                   | planetscale_service_token                              |
 | Postman                   | Postman API 密钥                                     | postman_api_key                                        |
 | Proctorio                 | Proctorio 密钥                                       | proctorio_secret_key                                   |
-| Samsara                   | Samsara API 令牌                                     | samsara_api_token                                      |
-| Samsara                   | Samsara OAuth 访问令牌                                 | samsara_oauth_access_token                             |
-| SendGrid                  | SendGrid API Key                                   | sendgrid_api_key                                       |
-| Sendinblue                | SendinBlue API 密钥                                  | sendinblue_api_key                                     |
-| Sendinblue                | SendinBlue SMTP 密钥                                 | sendinblue_smtp_key                                    |
-| Shippo                    | Shippo Live API Token                              | shippo_live_api_token                                  |
-| Shopify                   | Shopify App 共享密钥                                   | shopify_app_shared_secret                              |
-| Shopify                   | Shopify 访问令牌                                       | shopify_access_token                                   |
-| Slack                     | Slack API 令牌                                       | slack_api_token                                        |
-| Stripe                    | Stripe Live API 密钥                                 | stripe_api_key                                         |
-| Tencent Cloud             | 腾讯云密钥 ID                                           | tencent_cloud_secret_id                                |
-| Typeform                  | Typeform 个人访问令牌                                    | typeform_personal_access_token                         |
-| WorkOS                    | WorkOS Production API Key                          | workos_production_api_key                              |
+{%- ifversion fpt or ghec or ghes > 3.5 or ghae-issue-7375 %}
+redirect.pizza | redirect.pizza API Token | redirect_pizza_api_token{% endif %} Samsara | Samsara API Token | samsara_api_token Samsara | Samsara OAuth Access Token | samsara_oauth_access_token SendGrid | SendGrid API Key | sendgrid_api_key Sendinblue | Sendinblue API Key | sendinblue_api_key Sendinblue | Sendinblue SMTP Key | sendinblue_smtp_key Shippo | Shippo Live API Token | shippo_live_api_token Shopify | Shopify App Shared Secret | shopify_app_shared_secret Shopify | Shopify Access Token | shopify_access_token Slack | Slack API Token | slack_api_token Stripe | Stripe Live API Secret Key | stripe_api_key Tencent Cloud | Tencent Cloud Secret ID | tencent_cloud_secret_id Typeform | Typeform Personal Access Token | typeform_personal_access_token WorkOS | WorkOS Production API Key | workos_production_api_key

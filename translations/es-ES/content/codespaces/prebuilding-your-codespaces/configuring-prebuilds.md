@@ -13,8 +13,6 @@ product: '{% data reusables.gated-features.codespaces %}'
 permissions: People with admin access to a repository can configure prebuilds for the repository.
 ---
 
-{% data reusables.codespaces.prebuilds-beta-note %}
-
 Puedes ajustar una configuración de precompilación para una rama específica de tu repositorio.
 
 Habitualmente, a cualquier rama que se cree de una rama base con precompilación habilitada habitualmente también se le asignará una precompilación durante la creación del codespace. Esto es cierto si el contenedor dev en la rama es el mismo que en la rama base. Esto es porque la mayoría de las configuraciones de precompilación de las ramas con la misma configuración de contenedor dev son idénticas, así que los desarrolladores también pueden beneficiarse de tener tiempos más rápidos de creación de codespaces en dichas ramas. Para obtener más información, consulta la sección "[Introducción a los contenedores dev](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)".
@@ -48,7 +46,15 @@ Antes de que configures las precompilaciones para tu proyecto, se debe cumplir c
 
    {% endnote %}
 
-1. Elige las regiones en las que quieres configurar una precompilación. Los desarrolladores deben ubicarse en una región que selecciones para poder crear codespaces desde una precompilación. Como alternativa, selecciona **Todas las regiones**.
+1. Elige cómo quieres activar automáticamente las actualizaciones de la plantilla de precompilación.
+
+   * **Cada subida** (el ajuste predeterminado) - Con este ajuste, las configuraciones de precompilación se actualizarán en cada subida que se haga a la rama predeterminada. Esto garantizará que los codespaces que se generen de una plantilla de precompilación siempre contengan la configuración de codespace más reciente, incluyendo cualquier dependencia que se haya actualizado o agregado recientemente.
+   * **En el cambio de configuración** - Con este ajuste, as configuraciones de precompilación se actualizarán cada que lo hagan los archivos de configuración asociados para cada repositorio y rama en cuestión. Esto garantiza que los cambios a los archivos de configuración del contenedor dev para el repositorio se utilicen cuando se genera un codespace desde una plantilla de precompilación. El flujo de trabajo de acciones que actualiza la plantilla de precompilación se ejecutará con menor frecuencia, así que esta opción utilizará menos minutos de las acciones. Sin embargo, esta opción no garantiza que los cdespaces siempre incluyan dependencias recientemente actualizadas o agregadas, así que estas podrían tener que agregarse o actualizarse manualmente después de que un codespace se haya creado.
+   * **Programado** - Con este ajuste, puedes hacer que tus configuraciones de precompilación se actualicen en un itinerario personalizado que tú defines. This can reduce consumption of Actions minutes, however, with this option, codespaces may be created that do not use the latest dev container configuration changes.
+
+   ![Las opciones de activación de precompilación](/assets/images/help/codespaces/prebuilds-triggers.png)
+
+1. Select **Reduce prebuild available to only specific regions** to limit access to your prebuilt image, then select which regions you want it available in. Developers can only create codespaces from a prebuild if they are located in a region you select. By default, your prebuilt image is available to all regions where codespaces is available and storage costs apply for each region.
 
    ![Las opciones de selección de región](/assets/images/help/codespaces/prebuilds-regions.png)
 
@@ -60,13 +66,17 @@ Antes de que configures las precompilaciones para tu proyecto, se debe cumplir c
 
    {% endnote %}
 
-1. Elige cómo quieres activar automáticamente las actualizaciones de la plantilla de precompilación.
+1. Set the number of prebuild template versions to be retained. You can input any number between 1 and 5. The default number of saved versions is 2, which means that only the latest template version and the previous version are saved.
 
-   * **Cada subida** (el ajuste predeterminado) - Con este ajuste, las configuraciones de precompilación se actualizarán en cada subida que se haga a la rama predeterminada. Esto garantizará que los codespaces que se generen de una plantilla de precompilación siempre contengan la configuración de codespace más reciente, incluyendo cualquier dependencia que se haya actualizado o agregado recientemente.
-   * **En el cambio de configuración** - Con este ajuste, as configuraciones de precompilación se actualizarán cada que lo hagan los archivos de configuración asociados para cada repositorio y rama en cuestión. Esto garantiza que los cambios a los archivos de configuración del contenedor dev para el repositorio se utilicen cuando se genera un codespace desde una plantilla de precompilación. El flujo de trabajo de acciones que actualiza la plantilla de precompilación se ejecutará con menor frecuencia, así que esta opción utilizará menos minutos de las acciones. Sin embargo, esta opción no garantiza que los cdespaces siempre incluyan dependencias recientemente actualizadas o agregadas, así que estas podrían tener que agregarse o actualizarse manualmente después de que un codespace se haya creado.
-   * **Programado** - Con este ajuste, puedes hacer que tus configuraciones de precompilación se actualicen en un itinerario personalizado que tú defines. Esto puede reducir el consumo de minutos de acciones y también la cantidad de tiempo durante la cual las precompilaciones no están disponibles porque se están actualizando. Sin embargo, con esta opción, se podrían crear codespaces que no utilicen los cambios de configuración más recientes al contenedor dev.
+   Depending on your prebuild trigger settings, your prebuild template could change with each push or on each dev container configuration change. Retaining older versions of prebuild templates enables you to create a prebuild from an older commit with a different dev container configuration than the current prebuild template. Since there is a storage cost associated with retaining prebuild template versions, you can choose the number of versions to be retained based on the needs of your team. For more information on billing, see "[About billing for {% data variables.product.prodname_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces#codespaces-pricing)."
 
-   ![Las opciones de activación de precompilación](/assets/images/help/codespaces/prebuilds-triggers.png)
+   If you set the number of prebuild template versions to save to 1, {% data variables.product.prodname_codespaces %} will only save the latest version of the prebuild template and will delete the older version each time the template is updated. This means you will not get a prebuilt codespace if you go back to an older dev container configuration.
+
+   ![The prebuild template history setting](/assets/images/help/codespaces/prebuilds-template-history-setting.png)
+
+1. Add users or teams to notify when the prebuild workflow run fails for this configuration. You can begin typing a username, team name, or full name, then click the name once it appears to add them to the list. The users or teams you add will receive an email when prebuild failures occur, containing a link to the workflow run logs to help with further investigation.
+
+   ![The prebuild failure notification setting](/assets/images/help/codespaces/prebuilds-failure-notification-setting.png)
 
 1. Da clic en **Crear**.
 

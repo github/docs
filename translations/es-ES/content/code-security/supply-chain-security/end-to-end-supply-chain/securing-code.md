@@ -47,7 +47,7 @@ As a first step, you want to make a complete inventory of your dependencies. The
 
 ### Automatic detection of vulnerabilities in dependencies
 
-{% data variables.product.prodname_dependabot %} can help you by monitoring your dependencies and notifying you when they contain a known vulnerability. {% ifversion fpt or ghec or ghes > 3.2 %}Incluso puedes habilitar el {% data variables.product.prodname_dependabot %} para que levante solicitudes de cambio automáticamente, las cuales actualicen la dependencia a una versión segura.{% endif %} Para obtener más información, consulta las secciones "[Acerca de las alertas para las dependencias vulnerables](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies)"{% ifversion fpt or ghec or ghes > 3.2 %} y "[Acerca de las actualizaciones de seguridad del Dependabot](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates)"{% endif %}.
+{% data variables.product.prodname_dependabot %} can help you by monitoring your dependencies and notifying you when they contain a known vulnerability. {% ifversion fpt or ghec or ghes > 3.2 %}You can even enable {% data variables.product.prodname_dependabot %} to automatically raise pull requests that update the dependency to a secure version.{% endif %} For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)"{% ifversion fpt or ghec or ghes > 3.2 %} and "[About Dependabot security updates](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates)"{% endif %}.
 
 ### Assessment of exposure to risk from a vulnerable dependency
 
@@ -63,7 +63,7 @@ Code often needs to communicate with other systems over a network, and requires 
 
 {% note %}
 
-**Note:** {% data reusables.gated-features.secret-scanning-partner %}
+**Nota:** {% data reusables.gated-features.secret-scanning-partner %}
 
 {% endnote %}
 
@@ -76,7 +76,7 @@ Code often needs to communicate with other systems over a network, and requires 
 {% ifversion fpt %}
 {% data reusables.secret-scanning.fpt-GHAS-scans %}
 {% elsif ghec %}
-If your organization uses {% data variables.product.prodname_GH_advanced_security %}, you can enable {% data variables.product.prodname_secret_scanning_GHAS %} on any repository owned by the organization. También puedes definir patrones personalizados para detectar secretos adicionales a nivel de repositorio, organización o empresa. For more information, see "[About {% data variables.product.prodname_secret_scanning_GHAS %}](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-advacned-security)."
+If your organization uses {% data variables.product.prodname_GH_advanced_security %}, you can enable {% data variables.product.prodname_secret_scanning_GHAS %} on any repository owned by the organization. También puedes definir patrones personalizados para detectar secretos adicionales a nivel de repositorio, organización o empresa. Para obtener más información, consulta la sección "[Acerca del {% data variables.product.prodname_secret_scanning_GHAS %}](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-advacned-security)".
 {% else %}
 You can configure {% data variables.product.prodname_secret_scanning %} to check for secrets issued by many service providers and to notify you when any are detected. También puedes definir patrones personalizados para detectar secretos adicionales a nivel de repositorio, organización o empresa. For more information, see "[About secret scanning](/code-security/secret-scanning/about-secret-scanning)" and "[Secret scanning patterns](/code-security/secret-scanning/secret-scanning-patterns)."
 {% endif %}
@@ -97,7 +97,7 @@ Además de tu código, probablemente necesitarás utilizar secretos en otros lug
 
 {% note %}
 
-**Note:** {% data reusables.gated-features.code-scanning %}
+**Nota:** {% data reusables.gated-features.code-scanning %}
 
 {% endnote %}
 

@@ -39,11 +39,14 @@ topics:
 
 ![プルリクエストリンクを示す {% data variables.product.prodname_dependabot_alerts %} ビュー](/assets/images/help/dependabot/dependabot-alert-pr-link.png)
 
-アラートにプルリクエストリンクがない理由は 3 つあります。
+アラートにPull Requestリンクがない理由はいくつかあります。
 
 1. {% data variables.product.prodname_dependabot_security_updates %} がリポジトリに対して有効になっていない。
+{% ifversion GH-advisory-db-supports-malware %}
+1. アラートがマルウェアに対するものであり、そのパッケージのセキュアなバージョンがない。
+{% endif %}
 1. アラートが、ロックファイルで明示的に定義されていない間接的または推移的な依存関係に対するものである。
-1. エラーにより {% data variables.product.prodname_dependabot %} のプルリクエストの作成がブロックされました。
+1. エラーにより {% data variables.product.prodname_dependabot %} のプルリクエストの作成がブロックされた。
 
 エラーによって {% data variables.product.prodname_dependabot %} によるプルリクエストの作成がブロックされた場合は、アラートをクリックしてエラーの詳細を表示できます。
 

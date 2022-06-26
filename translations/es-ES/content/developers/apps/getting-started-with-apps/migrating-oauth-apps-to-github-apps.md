@@ -53,7 +53,7 @@ Te recomendamos revisar la lista de terminales de la API que necesitas tan pront
 
 ### Diseñar con apego a los límites de tasa de la API
 
-Las GitHub Apps utilizan [reglas móviles para los límites de tasa](/apps/building-github-apps/understanding-rate-limits-for-github-apps/), las cuales pueden incrementar con base en la cantidad de repositorios y usuarios de la organización. Una GitHub App también puede hacer uso de [solicitudes condicionales](/rest/overview/resources-in-the-rest-api#conditional-requests) o de solicitudes consolidadas si utiliza la [API de GraphQL V4]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql).
+Las GitHub Apps utilizan [reglas móviles para los límites de tasa](/apps/building-github-apps/understanding-rate-limits-for-github-apps/), las cuales pueden incrementar con base en la cantidad de repositorios y usuarios de la organización. Una GitHub App también puede utilizar [solicitudes condicionales](/rest/overview/resources-in-the-rest-api#conditional-requests) o consolidar solicitudes utilizando la [API de GraphQL]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql).
 
 ### Registrar una GitHub App nueva
 

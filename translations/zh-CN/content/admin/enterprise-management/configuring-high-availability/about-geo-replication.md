@@ -34,4 +34,4 @@ Geo-replication 不会增大 {% data variables.product.prodname_ghe_server %} �
 {% data reusables.enterprise_installation.monitoring-replicas %}
 
 ## 延伸阅读
-- “[创建 Geo-replication 副本](/enterprise/{{ currentVersion }}/admin/guides/installation/creating-a-high-availability-replica/#creating-geo-replication-replicas)”
+- “[创建 Geo-replication 副本](/enterprise/admin/guides/installation/creating-a-high-availability-replica/#creating-geo-replication-replicas)”

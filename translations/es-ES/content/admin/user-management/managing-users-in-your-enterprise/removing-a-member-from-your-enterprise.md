@@ -10,12 +10,6 @@ topics:
 shortTitle: Eliminar miembro
 ---
 
-{% note %}
-
-**Nota:** La capacidad de eliminar a miembros de las empresas se encuentra en beta y está sujeta a cambios.
-
-{% endnote %}
-
 ## Acerca de la eliminación de miembros de las empresas
 
 Cuando eliminas a un miembro de tu empresa, este se eliminará de todas las organizaciones que le pertenezcan a ella.

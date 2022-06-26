@@ -13,5 +13,5 @@
 
    请查看 Azure 文档以了解更多有关使用 [Azure CLI](https://docs.microsoft.com/cli/azure/) 的信息：
 
-   * For authentication, see "[Sign in with Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli)."
+   * 有关身份验证，请参阅“[使用 Azure CLI 登录](https://docs.microsoft.com/cli/azure/authenticate-azure-cli)”。
    * 如果需要创建新的资源组，请参阅“[az 组](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az_group_create)”。

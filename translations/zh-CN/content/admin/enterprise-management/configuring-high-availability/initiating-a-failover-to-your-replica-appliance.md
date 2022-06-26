@@ -50,7 +50,7 @@ shortTitle: 启动故障转移到设备
   ```
 5. 将 DNS 记录更新为指向副本的 IP 地址。 流量会在经过 TTL 周期后定向到副本。 如果您要使用负载均衡器，请务必将其配置为向副本发送流量。
 6. 通知用户他们可以恢复正常操作。
-7. 如有需要，请设置从新的主设备复制到现有设备和之前的主设备。 更多信息请参阅“[关于高可用性配置](/enterprise/{{ currentVersion }}/admin/guides/installation/about-high-availability-configuration/#utilities-for-replication-management)”。
+7. 如有需要，请设置从新的主设备复制到现有设备和之前的主设备。 更多信息请参阅“[关于高可用性配置](/enterprise/admin/guides/installation/about-high-availability-configuration/#utilities-for-replication-management)”。
 8. 您不打算在故障转移之前将复制设置为高可用性配置一部分的设备需由 UUID 从高可用性配置中删除。
     - 在以前的设备上，通过 `cat /data/user/common/uuid` 获取其 UUID。
       ```shell
@@ -63,4 +63,4 @@ shortTitle: 启动故障转移到设备
 
 ## 延伸阅读
 
-- "[用于复制管理的实用程序](/enterprise/{{ currentVersion }}/admin/guides/installation/about-high-availability-configuration/#utilities-for-replication-management)"
+- "[用于复制管理的实用程序](/enterprise/admin/guides/installation/about-high-availability-configuration/#utilities-for-replication-management)"

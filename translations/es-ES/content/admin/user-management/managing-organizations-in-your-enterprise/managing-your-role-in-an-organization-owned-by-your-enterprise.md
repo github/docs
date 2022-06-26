@@ -12,12 +12,6 @@ topics:
 shortTitle: Administrar tus roles organizacionales
 ---
 
-{% note %}
-
-**Nota:** La capacidad de los propietarios de empresas para administrar su rol en una organización que le pertenezca a su empresa está en beta y sujeta a cambios.
-
-{% endnote %}
-
 ## Acerca de la administración de roles
 
 Puedes elegir unirte a una organización que le pertenezca a tu empresa como miembro o como propietario de la organización, cambiar tu rol dentro de ella o salir de ella.

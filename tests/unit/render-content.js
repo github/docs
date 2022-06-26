@@ -249,7 +249,9 @@ $resourceGroupName = "octocat-testgroup"
     html = await renderContent(template)
     $ = cheerio.load(html, { xmlMode: true })
     expect($.html().includes('<pre><code class="hljs language-Powershell">')).toBeTruthy()
-    expect($.html().includes('<span class="hljs-variable">$resourceGroupName</span>')).toBeTruthy()
+    expect(
+      $.html().includes('<span class="hljs-variable">&#x24;resourceGroupName</span>')
+    ).toBeTruthy()
   })
 
   test('does not autoguess code block language', async () => {

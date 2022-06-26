@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import program from 'commander'
+import { program } from 'commander'
 import { execSync } from 'child_process'
 import { languageFiles, compareLiquidTags } from '../../lib/liquid-tags/tokens.js'
 import languages from '../../lib/languages.js'

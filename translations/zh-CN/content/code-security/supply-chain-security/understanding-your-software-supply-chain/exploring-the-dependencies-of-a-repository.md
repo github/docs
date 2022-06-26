@@ -42,6 +42,10 @@ shortTitle: 探索依赖项
 {% ifversion fpt or ghec %}
 依赖项按生态系统分组。 您可以展开依赖项以查看其依赖项。  私有仓库、私有包或无法识别文件上的依赖项以纯文本显示。 如果依赖项的包管理器位于公共存储库中，{% data variables.product.product_name %} 将显示指向该存储库的链接。
 
+{% ifversion dependency-submission-api %}
+使用依赖项提交 API（测试版）提交到项目的依赖项（尽管也按生态系统分组），但与通过存储库中的清单或锁定文件标识的依赖项分开显示。 这些提交的依赖项在依赖项图中显示为“快照依赖项”，因为它们是作为依赖项的快照或集合提交的。 有关使用依赖项提交 API 的详细信息，请参阅“[使用依赖项提交 API](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api)”。
+{% endif %}
+
 如果在仓库中检测到漏洞，这些漏洞将显示在视图顶部，供有权访问 {% data variables.product.prodname_dependabot_alerts %} 的用户查看。
 
 ![依赖关系图](/assets/images/help/graphs/dependencies_graph.png)
@@ -101,12 +105,12 @@ shortTitle: 探索依赖项
 {% ifversion fpt or ghec %}
 如果文件格式正确，请检查文件大小。 除非您是 {% data variables.product.prodname_enterprise %} 用户，否则依赖关系图将忽略超过 1.5 Mb 的单个清单和锁定文件。 默认情况下，每个仓库最多处理 20 个清单或锁定文件，因此您可以在仓库子目录中将依赖项拆分为较小的文件。{% endif %}
 
-如果清单或锁定文件未获处理，其依赖项将从依赖关系图中省略，而不能接受有漏洞依赖项的检查。
+如果清单或锁定文件未获处理，其依赖项将从依赖关系图中省略，而不能接受非安全依赖项的检查。
 
 ## 延伸阅读
 
 - “[关于依赖关系图](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)”
-- "[查看漏洞依赖项的 {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)"{% ifversion ghec %}
+- “[查看和更新 {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)”{% ifversion ghec %}
 - "[查看用于组织的洞见](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-your-organization)"{% endif %}{% ifversion fpt or ghec %}
 - "[了解 {% data variables.product.prodname_dotcom %} 如何使用和保护数据](/get-started/privacy-on-github)"
 {% endif %}

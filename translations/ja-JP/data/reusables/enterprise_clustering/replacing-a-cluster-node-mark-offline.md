@@ -1,4 +1,4 @@
-1. 障害が起きたノードをオフラインとしてマークするには、任意のノードで[クラスタ設定ファイル](/enterprise/{{ currentVersion }}/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file)（`cluster.conf`）のそのノードのセクションに`offline = true`というテキストを含めてください。
+1. 障害が起きたノードをオフラインとしてマークするには、任意のノードで[クラスタ設定ファイル](/enterprise/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file)（`cluster.conf`）のそのノードのセクションに`offline = true`というテキストを含めてください。
 
   たとえば以下の修正された `cluster.conf`は、 `ghe-data-node-3`ノードをオフラインとしてマークします。
 

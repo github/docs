@@ -21,7 +21,7 @@ topics:
 - [Understanding the example](#understanding-the-example)
 - [Pasos siguientes](#next-steps)
 
-## Example overview
+## Resumen de ejemplo
 
 {% data reusables.actions.example-workflow-intro-ci %} When this workflow is triggered, it tests your code using a matrix of test combinations with `npm test`.
 

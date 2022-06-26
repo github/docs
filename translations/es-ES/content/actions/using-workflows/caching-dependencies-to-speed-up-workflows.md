@@ -257,7 +257,7 @@ Por ejemplo, si una solicitud de cambios contiene una rama de `feature` y apunta
 
 ## Límites de uso y política de desalojo
 
-{% data variables.product.prodname_dotcom %} eliminará todas las entradas de caché a las que no se haya accedido en más de 7 días. No hay límite en la cantidad de cachés que puedes almacenar, pero el tamaño total de todos ellos en un repositorio se limita{% ifversion actions-cache-policy-apis %}. Predeterminadamente, el límite es de 10 GB por repositorio, pero este límite podría ser diferente dependiendo de las políticas que configuren tus propietarios de empresa o administradores de repositorio.{% else %} a 10 GB.{% endif %}
+{% data variables.product.prodname_dotcom %} eliminará todas las entradas de caché a las que no se haya accedido en más de 7 días. There is no limit on the number of caches you can store, but the total size of all caches in a repository is limited{% ifversion actions-cache-policy-apis %}. Predeterminadamente, el límite es de 10 GB por repositorio, pero este límite podría ser diferente dependiendo de las políticas que configuren tus propietarios de empresa o administradores de repositorio.{% else %} a 10 GB.{% endif %}
 
 {% data reusables.actions.cache-eviction-process %}
 

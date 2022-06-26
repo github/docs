@@ -1,2 +1,2 @@
-1. Under "{% data variables.product.prodname_secret_scanning_caps %}", under "Push protection", click **Enable all**. ![Screenshot showing how to enable push protection for {% data variables.product.prodname_secret_scanning %} for an organization](/assets/images/help/organizations/secret-scanning-enable-push-protection.png)
-1. Optionally, click "Automatically enable for private repositories added to {% data variables.product.prodname_secret_scanning %}."
+1. Em "{% data variables.product.prodname_secret_scanning_caps %}", em "Proteção push", clique em **Habilitar todos**. ![Captura de tela que mostra como habilitar a proteção push para {% data variables.product.prodname_secret_scanning %} para uma organização](/assets/images/help/organizations/secret-scanning-enable-push-protection.png)
+1. Opcionalmente, clique em "Habilitar automaticamente em repositórios privados adicionados ao {% data variables.product.prodname_secret_scanning %}."

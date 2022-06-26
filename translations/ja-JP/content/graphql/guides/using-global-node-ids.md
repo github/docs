@@ -12,7 +12,7 @@ topics:
   - API
 ---
 
-GitHubのほとんどのオブジェクト（ユーザ、Issue、プルリクエストなど）には、REST APIを使っても、GraphQL APIを使ってもアクセスできます。 REST API内から多くのオブジェクトの**グローバルノードID**を見つけ、それらのIDをGraphQLの操作で利用できます。 詳しい情報については「[REST API v3リソース内のGraphQL API v4ノードIDのプレビュー](https://developer.github.com/changes/2017-12-19-graphql-node-id/)」を参照してください。
+GitHubのほとんどのオブジェクト（ユーザ、Issue、プルリクエストなど）には、REST APIを使っても、GraphQL APIを使ってもアクセスできます。 REST API内から多くのオブジェクトの**グローバルノードID**を見つけ、それらのIDをGraphQLの操作で利用できます。 詳しい情報については「[REST APIリソース内のGraphQL APIノードIDのプレビュー](https://developer.github.com/changes/2017-12-19-graphql-node-id/)」を参照してください。
 
 {% note %}
 

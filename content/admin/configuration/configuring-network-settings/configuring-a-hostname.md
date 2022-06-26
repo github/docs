@@ -16,9 +16,9 @@ topics:
 ---
 If you configure a hostname instead of a hard-coded IP address, you will be able to change the physical hardware that {% data variables.product.product_location %} runs on without affecting users or client software.
 
-The hostname setting in the {% data variables.enterprise.management_console %} should be set to an appropriate fully qualified domain name (FQDN) which is resolvable on the internet or within your internal network. For example, your hostname setting could be `github.companyname.com.` Web and API requests will automatically redirect to the hostname configured in the {% data variables.enterprise.management_console %}.
+The hostname setting in the {% data variables.enterprise.management_console %} should be set to an appropriate fully qualified domain name (FQDN) which is resolvable on the internet or within your internal network. For example, your hostname setting could be `github.companyname.com.` Web and API requests will automatically redirect to the hostname configured in the {% data variables.enterprise.management_console %}. Note that `localhost` is not a valid hostname setting.
 
-After you configure a hostname, you can enable subdomain isolation to further increase the security of {% data variables.product.product_location %}. For more information, see "[Enabling subdomain isolation](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-subdomain-isolation/)."
+After you configure a hostname, you can enable subdomain isolation to further increase the security of {% data variables.product.product_location %}. For more information, see "[Enabling subdomain isolation](/enterprise/admin/guides/installation/enabling-subdomain-isolation/)."
 
 For more information on the supported hostname types, see [Section 2.1 of the HTTP RFC](https://tools.ietf.org/html/rfc1123#section-2).
 
@@ -34,4 +34,4 @@ For more information on the supported hostname types, see [Section 2.1 of the HT
 {% data reusables.enterprise_management_console.test-domain-settings-failure %}
 {% data reusables.enterprise_management_console.save-settings %}
 
-To help mitigate various cross-site scripting vulnerabilities, we recommend that you enable subdomain isolation for {% data variables.product.product_location %} after you configure a hostname. For more information, see "[Enabling subdomain isolation](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-subdomain-isolation/)."
+To help mitigate various cross-site scripting vulnerabilities, we recommend that you enable subdomain isolation for {% data variables.product.product_location %} after you configure a hostname. For more information, see "[Enabling subdomain isolation](/enterprise/admin/guides/installation/enabling-subdomain-isolation/)."

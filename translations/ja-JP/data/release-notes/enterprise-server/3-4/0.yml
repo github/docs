@@ -245,6 +245,8 @@ sections:
     - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.
     - Actions services needs to be restarted after restoring appliance from backup taken on a different host.
     - |
+      After registering a self-hosted runner with the `--ephemeral` parameter on more than one level (for example, both enterprise and organization), the runner may get stuck in an idle state and require re-registration. [Updated: 2022-06-17]
+    - |
       When using SAML encrypted assertions with {% data variables.product.prodname_ghe_server %} 3.4.0 and 3.4.1, a new XML attribute `WantAssertionsEncrypted` in the `SPSSODescriptor` contains an invalid attribute for SAML metadata. IdPs that consume this SAML metadata endpoint may encounter errors when validating the SAML metadata XML schema. A fix will be available in the next patch release. [Updated: 2022-04-11]
       
       To work around this problem, you can take one of the two following actions.
@@ -296,6 +298,12 @@ sections:
           Repositories which were not present and active before upgrading to {% data variables.product.prodname_ghe_server %} 3.3 may not perform optimally until a repository maintenance task is run and has successfully completed.
 
           To start a repository maintenance task manually, browse to `https://<hostname>/stafftools/repositories/<owner>/<repository>/network` for each affected repository and click the Schedule button.
+
+    - heading: Change to the format of authentication tokens affects GitHub Connect
+      notes:
+        # https://github.com/github/releases/issues/1235
+        - |
+          GitHub Connect will no longer work after June 3rd for instances running GitHub Enterprise Server 3.1 or older, due to the format of GitHub authentication tokens changing. For more information, see the [GitHub changelog](https://github.blog/2022-05-20-action-needed-by-github-connect-customers-using-ghes-3-1-and-older-to-adopt-new-authentication-token-format-updates/). [Updated: 2022-06-14]
 
   backups:
     - '{% data variables.product.prodname_ghe_server %} 3.4 requires at least [GitHub Enterprise Backup Utilities 3.4.0](https://github.com/github/backup-utils) for [Backups and Disaster Recovery](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance).'

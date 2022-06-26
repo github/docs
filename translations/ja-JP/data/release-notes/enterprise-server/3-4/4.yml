@@ -1,0 +1,36 @@
+---
+date: '2022-06-09'
+sections:
+  security_fixes:
+    - パッケージは最新のセキュリティバージョンにアップデートされました。
+  bugs:
+    - '{% data variables.product.prodname_ghe_server %}の設定ファイル中のホスト名を検証する内部的なスクリプトが、ホスト名の文字列が"."（ピリオド）で始まっているとエラーを返します。'
+    - プライマリノードのホスト名が60文字以上の長さになっているHA構成において、MySQLの設定に失敗します。
+    - When {% data variables.product.prodname_actions %} was enabled but TLS was disabled on {% data variables.product.prodname_ghe_server %} 3.4.1 and later, applying a configuration update would fail.
+    - '`ghe-setup-network`コマンドに`--gateway`引数が追加され、コマンドラインを使ってネットワーク設定をする際にゲートウェイのアドレスを渡せるようになりました。'
+    - 'The [{% data variables.product.prodname_GH_advanced_security %} billing API](/rest/enterprise-admin/billing#get-github-advanced-security-active-committers-for-an-enterprise) endpoints were not enabled and accessible.'
+    - 削除された画像の添付ファイルは、`404 Not Found`エラーではなく`500 Internal Server Error`を返します。
+    - In environments configured with a repository cache server, the `ghe-repl-status` command incorrectly showed gists as being under-replicated.
+    - The "Get a commit" and "Compare two commits" endpoints in the [Commit API](/rest/commits/commits) would return a `500` error if a file path in the diff contained an encoded and escaped unicode character.
+    - サイトアドミンのダッシュボードで報告される"maximum committers across entire instance（インスタンス全体での最大のコミッタ数）"の計算は正しくありませんでした。
+    - '{% data variables.product.prodname_enterprise_backup_utilities %}を試用した復元の実行時に、リポジトリレプリカの不正確なデータベースエントリによって、データベースが破損しました。'
+    - The activity timeline for secret scanning alerts wasn't displayed.
+  changes:
+    - クラスタのSupport Bundleの生成時に、含めるメトリクスを最適化しました。
+    - Elasticsearchが有効な黄色のステータスを報告してきた場合のHA構成において、以前の修正で導入された変更が`ghe-repl-stop`コマンドをブロックし、レプリカの停止を妨げます。`ghe-repo-stop --force`を使用すれば、Elasticsearchのサービスが通常もしくは有効な黄色のステータスにある場合に、強制的にElasticsearchが停止されます。
+  known_issues:
+    - 新しくセットアップされたユーザを持たない{% data variables.product.prodname_ghe_server %}インスタンスで、攻撃者が最初の管理ユーザを作成できました。
+    - アップグレードの過程で、カスタムのファイアウォールのルールが削除されます。
+    - Git LFSが追跡するファイル[Webインターフェースからアップロードされたもの](https://github.com/blog/2105-upload-files-to-your-repositories)が、不正にリポジトリに直接追加されてしまいます。
+    - 同じリポジトリ内のファイルパスが255文字を超えるblobへのパーマリンクを含むIssueをクローズできませんでした。
+    - '{% data variables.product.prodname_github_connect %}で"Users can search GitHub.com（ユーザはGitHub.comの検索が可能）" が有効化されたとき、プライベート及びインターナルリポジトリのIssueが{% data variables.product.prodname_dotcom_the_website %}の検索結果に含まれません。'
+    - '{% data variables.product.prodname_registry %}のnpmレジストリは、メタデータのレスポンス中で時間の値を返さなくなります。これは、大きなパフォーマンス改善のために行われました。メタデータレスポンスの一部として時間の値を返すために必要なすべてのデータは保持し続け、既存のパフォーマンスの問題を解決した将来に、この値を返すことを再開します。'
+    - pre-receive フックの処理に固有のリソース制限によって、pre-receive フックに失敗するものが生じることがあります。
+    - |
+      After registering a self-hosted runner with the `--ephemeral` parameter on more than one level (for example, both enterprise and organization), the runner may get stuck in an idle state and require re-registration. [Updated: 2022-06-17]
+    - |
+      SAMLの暗号化されたアサーションを{% data variables.product.prodname_ghe_server %} 3.4.0及び3.4.1で使用する場合、`SPSSODescriptor`内の新しいXML属性である`WantAssertionsEncrypted`にはSAMLメタデータの不正な属性が含まれます。このSAMLエンドポイントを利用するIdPは、SAMLメタデータのXMLスキーマの検証の際にエラーが生じることがあります。修正は次回のパッチリリースで提供されます。[2022年04月11日更新]
+
+      この問題を回避するためには、以下の2つの方法のいずれかを取ることができます。
+      - `WantAssertionsEncrypted`属性なしのSAMLメタデータの静的なコピーをアップロードして、IdPを再設定する。
+      - SAMLメタデータをコピーし、`WantAssertionsEncrypted`を削除し、それをWebサーバーでホストして、そのURLを指してIdPを再設定する。
