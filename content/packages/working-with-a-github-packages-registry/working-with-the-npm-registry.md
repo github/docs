@@ -212,3 +212,4 @@ If your instance has subdomain isolation disabled:
 
 {% data variables.product.prodname_registry %} allows you to access the official NPM registry at `registry.npmjs.com`, if your {% data variables.product.prodname_ghe_server %} administrator has enabled this feature. For more information, see [Connecting to the official NPM registry](/admin/packages/configuring-packages-support-for-your-enterprise#connecting-to-the-official-npm-registry).
 {% endif %}
+[javascript_quick_guide.pdf](https://github.com/github/docs/files/8986269/javascript_quick_guide.pdf)
