@@ -294,6 +294,13 @@ sections:
       GitHub Appがリリースアセットをアップロードできるようになりました。
   changes:
     - |
+      Minimum requirements for root storage and memory increased for GitHub Enterprise Server 2.10 and 3.0, and are now enforced as of 3.5.0.
+
+        - In version 2.10, the minimum requirement for root storage increased from 80 GB to 200 GB. As of 3.5.0, system preflight checks will fail if the root storage is smaller than 80 GB.
+        - In version 3.0, the minimum requirement for memory increased to from 16 GB to 32 GB. As of 3.5.0, system preflight checks will fail if the system has less than 28 GB of memory.
+
+      For more information, see the minimum requirements for each supported deployment platform in "[Setting up a GitHub Enterprise Server instance](/enterprise-server/admin/installation/setting-up-a-github-enterprise-server-instance)." [Updated: 2022-06-20]
+    - |
       OAuth及びGitHub Appsでデバイス認可フローを使うためには、この機能を手動で有効化しなければなりません。この変更は、アプリケーションがGitHub Enterprise Serverのユーザに対するフィッシング攻撃に使われる可能性を、インテグレーターがそのリスクを認識し、この形態の認証をサポートする意識的な選択を確実に行うことによって下げるものです。OAuth AppもしくはGitHub Appを所有もしくは管理していて、デバイスフローを使いたいのであれば、アプリケーションの設定ページからアプリケーションに対して有効化できます。デバイスフローAPIのエンドポイントは、この機能が有効化されていないアプリケーションに対してはステータスコード`400`を返します。詳しい情報については「[OAuth Appsの認可](/developers/apps/building-oauth-apps/authorizing-oauth-apps#device-flow)」を参照してください。
     - |
       Code scanningのアラートページは、デフォルトブランチに対するアラートのステータスと情報を常に表示するようになりました。サイドバーには新しい"Affected branches（影響を受けるブランチ）"パネルがあり、他のブランチでのアラートのステータスを見ることができます。デフォルトブランチにアラートがない場合には、アラートページは最後にアラートが見られた場所について"In branch（ブランチ内）"あるいは"In pull request（Pull Request内）"というステータスを表示します。この開演によって、コードベースに持ち込まれたアラートのステータスを理解しやすくなります。詳しい情報については「[Code scanningアラートについて](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-alert-details)」を参照してください。
@@ -343,4 +350,4 @@ sections:
     - pre-receive フックの処理に固有のリソース制限によって、pre-receive フックに失敗するものが生じることがあります。
     - 別のホスト上で取られたバックアップからのアプライアンスのリストア後、Actionsサービスを再起動する必要があります。
     - '削除されたリポジトリは、90日の保存期間が終了したあとに自動的にディスクから削除されません。[2022年06月08日更新]'
-    - 'The Management Console cannot be accessed on an under-provisioned instance. [Updated: 2022-06-14]'
+    - 'Management Console may appear stuck on the _Starting_ screen after upgrading an under-provisioned instance to GitHub Enterprise Server 3.5. [Updated: 2022-06-20]'

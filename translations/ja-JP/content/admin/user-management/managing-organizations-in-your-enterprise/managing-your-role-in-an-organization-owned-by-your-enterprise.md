@@ -12,12 +12,6 @@ topics:
 shortTitle: Manage your organization roles
 ---
 
-{% note %}
-
-**Note:** The ability for enterprise owners to manage their role in an organization owned by the enterprise is in beta and subject to change.
-
-{% endnote %}
-
 ## About role management
 
 You can choose to join an organization owned by your enterprise as a member or as an organization owner, change your role within the organization, or leave the organization.

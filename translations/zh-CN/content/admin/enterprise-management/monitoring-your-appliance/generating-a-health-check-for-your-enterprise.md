@@ -29,6 +29,8 @@ product: '{% data reusables.gated-features.generated-health-checks %}'
 - Git 请求分析，以及有关最繁忙的存储库和 Git 用户的详细信息
 - API 请求分析，包括最繁忙的时间、最常请求的终端节点和最活跃的调用方
 
+如果要为 {% data variables.product.prodname_ghe_cloud %} 生成运行状况检查，请联系 {% data variables.contact.github_support %}。 更多信息请参阅“[创建支持单](/support/contacting-github-support/creating-a-support-ticket)”。
+
 ## 生成运行状况检查
 
 在生成运行状况检查之前，您必须创建支持包。 更多信息请参阅“[将数据提供给 {% data variables.contact.github_support %}](/support/contacting-github-support/providing-data-to-github-support#creating-and-sharing-support-bundles)”。
