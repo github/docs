@@ -326,6 +326,24 @@
         "requestPath": "/repos/{owner}/{repo}/actions/cache/usage"
       },
       {
+        "slug": "list-github-actions-caches-for-a-repository",
+        "subcategory": "cache",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/actions/caches"
+      },
+      {
+        "slug": "delete-github-actions-caches-for-a-repository-using-a-cache-key",
+        "subcategory": "cache",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/actions/caches"
+      },
+      {
+        "slug": "delete-a-github-actions-cache-for-a-repository-using-a-cache-id",
+        "subcategory": "cache",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/actions/caches/{cache_id}"
+      },
+      {
         "slug": "get-a-job-for-a-workflow-run",
         "subcategory": "workflow-jobs",
         "verb": "get",
