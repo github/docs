@@ -125,7 +125,7 @@ In addition, your use of {% data variables.product.prodname_pages %} is subject 
   - Published {% data variables.product.prodname_pages %} sites may be no larger than 1 GB.
 {% ifversion fpt or ghec %}
   - {% data variables.product.prodname_pages %} sites have a *soft* bandwidth limit of 100 GB per month.
-  - {% data variables.product.prodname_pages %} sites have a *soft* limit of 10 builds per hour.]{% ifversion pages-custom-workflow %} This limit does not apply if you build and publish your site with a custom {% data variables.product.prodname_actions %} workflow {% endif %}
+  - {% data variables.product.prodname_pages %} sites have a *soft* limit of 10 builds per hour.{% ifversion pages-custom-workflow %} This limit does not apply if you build and publish your site with a custom {% data variables.product.prodname_actions %} workflow {% endif %}
 
 If your site exceeds these usage quotas, we may not be able to serve your site, or you may receive a polite email from {% data variables.contact.contact_support %} suggesting strategies for reducing your site's impact on our servers, including putting a third-party content distribution network (CDN) in front of your site, making use of other {% data variables.product.prodname_dotcom %} features such as releases, or moving to a different hosting service that might better fit your needs.
 
