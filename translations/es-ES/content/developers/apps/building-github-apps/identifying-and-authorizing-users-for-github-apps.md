@@ -159,7 +159,7 @@ Ya que los permisos a nivel de usuario se otorgan individualmente, puedes agrega
 
 ## Solicitudes de usuario a servidor
 
-Mientras que la mayoría de tu interacción con la API deberá darse utilizando tus tokens de acceso a la instalación de servidor a servidor, ciertas terminales te permiten llevar a cabo acciones a través de la API utilizando un token de acceso. Tu app puede hacer las siguientes solicitudes utilizando las terminales de [GraphQL v4]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql) o de [REST v3](/rest).
+Mientras que la mayoría de tu interacción con la API deberá darse utilizando tus tokens de acceso a la instalación de servidor a servidor, ciertas terminales te permiten llevar a cabo acciones a través de la API utilizando un token de acceso. Tu app puede hacer las siguientes solicitudes utilizando terminales de [GraphQL]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql) o de [REST](/rest).
 
 ### Terminales compatibles
 

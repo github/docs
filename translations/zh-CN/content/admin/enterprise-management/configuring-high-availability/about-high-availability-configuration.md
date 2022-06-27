@@ -30,7 +30,7 @@ shortTitle: 关于 HA 配置
 
 高可用性配置不适用于：
 
-  - **扩展**。 虽然可以使用 Geo-replication 将流量分布在不同地理位置，但写入性能受限于主设备的速度和可用性。 更多信息请参阅“[关于 Geo-replication](/enterprise/{{ currentVersion }}/admin/guides/installation/about-geo-replication/)”。{% ifversion ghes > 3.2 %}
+  - **扩展**。 虽然可以使用 Geo-replication 将流量分布在不同地理位置，但写入性能受限于主设备的速度和可用性。 更多信息请参阅“[关于 Geo-replication](/enterprise/admin/guides/installation/about-geo-replication/)”。{% ifversion ghes > 3.2 %}
   - **CI/CD 负载**。 如果您有大量在地理位置上远离主实例的 CI 客户端，则配置仓库缓存可能会使您受益匪浅。 更多信息请参阅“[关于仓库缓存](/admin/enterprise-management/caching-repositories/about-repository-caching)”。{% endif %}
   - **备份主设备**。 高可用性副本不会替代灾难恢复计划中的非现场备份。 某些形式的数据损坏或数据丢失可能会立即从主设备复制到副本。 为确保安全回滚到稳定的过去状态，必须通过历史快照执行定期备份。
   - **零停机时间升级**。 为避免受控升级场景下出现数据丢失和裂脑的状况，请先将主设备置于维护模式并等待所有写入操作完成，然后再对副本进行升级。
@@ -45,13 +45,13 @@ shortTitle: 关于 HA 配置
 
 在故障转移期间，必须将主设备置于维护模式，并将其 DNS 记录重定向到副本的 IP 地址。 将流量从主设备重新定向到副本所需的时间将取决于 TTL 配置以及更新 DNS 记录所需的时间。
 
-如果您要使用 Geo-replication，则必须配置 Geo DNS，将流量定向到距离最近的副本。 更多信息请参阅“[关于 Geo-replication](/enterprise/{{ currentVersion }}/admin/guides/installation/about-geo-replication/)”。
+如果您要使用 Geo-replication，则必须配置 Geo DNS，将流量定向到距离最近的副本。 更多信息请参阅“[关于 Geo-replication](/enterprise/admin/guides/installation/about-geo-replication/)”。
 
 ### 负载均衡器
 
 {% data reusables.enterprise_clustering.load_balancer_intro %} {% data reusables.enterprise_clustering.load_balancer_dns %}
 
-在故障转移期间，您必须将主设备置于维护模式。 您可以将负载均衡器配置为自动检测副本何时已升级为主设备，或者可能需要手动更改配置。 您必须先将副本手动升级为主设备，随后副本才能对用户流量作出响应。 更多信息请参阅“[结合使用 {% data variables.product.prodname_ghe_server %} 和负载均衡器](/enterprise/{{ currentVersion }}/admin/guides/installation/using-github-enterprise-server-with-a-load-balancer/)”。
+在故障转移期间，您必须将主设备置于维护模式。 您可以将负载均衡器配置为自动检测副本何时已升级为主设备，或者可能需要手动更改配置。 您必须先将副本手动升级为主设备，随后副本才能对用户流量作出响应。 更多信息请参阅“[结合使用 {% data variables.product.prodname_ghe_server %} 和负载均衡器](/enterprise/admin/guides/installation/using-github-enterprise-server-with-a-load-balancer/)”。
 
 {% data reusables.enterprise_installation.monitoring-replicas %}
 
@@ -187,5 +187,5 @@ Success: Replica has been promoted to primary and is now accepting requests.
 
 ## 延伸阅读
 
-- “[创建高可用性副本](/enterprise/{{ currentVersion }}/admin/guides/installation/creating-a-high-availability-replica)”
+- “[创建高可用性副本](/enterprise/admin/guides/installation/creating-a-high-availability-replica)”
 - "[网络端口](/admin/configuration/configuring-network-settings/network-ports)"

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import program from 'commander'
+import { program } from 'commander'
 import fs from 'fs'
 import languages from '../../lib/languages.js'
 

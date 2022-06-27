@@ -39,9 +39,12 @@ topics:
 
 ![{% data variables.product.prodname_dependabot_alerts %} 视图显示拉取请求链接](/assets/images/help/dependabot/dependabot-alert-pr-link.png)
 
-有三个原因可能导致警报中没有拉取请求链接：
+有几个原因可能导致警报中没有拉取请求链接：
 
 1. {% data variables.product.prodname_dependabot_security_updates %} 未对仓库启用。
+{% ifversion GH-advisory-db-supports-malware %}
+1. 警报针对恶意软件，并且没有安全版本的程序包。
+{% endif %}
 1. 警报针对未在锁文件中显式定义的间接或过渡依赖项。
 1. 某个错误阻止了 {% data variables.product.prodname_dependabot %} 创建拉取请求。
 

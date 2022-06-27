@@ -280,6 +280,10 @@ updates:
       prefix-development: "pip dev"
       include: "scope"
 ```
+上の例と同じ設定を使った場合、`pip`の依存関係グループ内の`requests`のバージョンを上げると、以下のようなコミットメッセージが生成されます。
+
+   `pip dev: bump requests from 1.0.0 to 1.0.1`
+
 ### `ignore`
 
 {% data reusables.dependabot.default-dependencies-allow-ignore %}

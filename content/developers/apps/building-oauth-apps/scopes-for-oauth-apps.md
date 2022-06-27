@@ -63,7 +63,9 @@ Name | Description
 **`user`** | Grants read/write access to profile info only.  Note that this scope includes `user:email` and `user:follow`.
 &emsp;`read:user`| Grants access to read a user's profile data.
 &emsp;`user:email`| Grants read access to a user's email addresses.
-&emsp;`user:follow`| Grants access to follow or unfollow other users.
+&emsp;`user:follow`| Grants access to follow or unfollow other users.{% ifversion projects-oauth-scope %}
+**`project`** | Grants read/write access to user and organization projects (beta).
+&emsp;`read:project`| Grants read only access to user and organization projects (beta).{% endif %}
 **`delete_repo`** | Grants access to delete adminable repositories.
 **`write:discussion`** | Allows read and write access for team discussions.
 &emsp;`read:discussion` | Allows read access for team discussions.

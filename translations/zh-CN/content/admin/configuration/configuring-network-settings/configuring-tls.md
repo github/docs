@@ -32,9 +32,9 @@ topics:
 
 要在生产中使用 TLS，您必须具有由可信证书颁发机构签名的未加密 PEM 格式的证书。
 
-您的证书还需要为“[启用子域隔离](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-subdomain-isolation#about-subdomain-isolation)”中列出的子域配置使用者可选名称，如果证书已由中间证书颁发机构签名，将需要包含完整的证书链。 更多信息请参阅 Wikipedia 上的“[使用者可选名称](http://en.wikipedia.org/wiki/SubjectAltName)”。
+您的证书还需要为“[启用子域隔离](/enterprise/admin/guides/installation/enabling-subdomain-isolation#about-subdomain-isolation)”中列出的子域配置使用者可选名称，如果证书已由中间证书颁发机构签名，将需要包含完整的证书链。 更多信息请参阅 Wikipedia 上的“[使用者可选名称](http://en.wikipedia.org/wiki/SubjectAltName)”。
 
-您可以使用 `ghe-ssl-generate-csr` 命令为实例生成证书签名请求 (CSR)。 更多信息请参阅“[命令行实用程序](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities/#ghe-ssl-generate-csr)”。
+您可以使用 `ghe-ssl-generate-csr` 命令为实例生成证书签名请求 (CSR)。 更多信息请参阅“[命令行实用程序](/enterprise/admin/guides/installation/command-line-utilities/#ghe-ssl-generate-csr)”。
 
 ## 上传自定义 TLS 证书
 
@@ -63,7 +63,7 @@ Let's Encrypt 是公共证书颁发机构，他们使用 ACME 协议颁发受浏
 
 在您启用通过 Let's Encrypt 自动进行 TLS 证书管理后，{% data variables.product.product_location %} 将与 Let's Encrypt 服务器通信，以获取证书。 要续订证书，Let's Encrypt 服务器必须通过入站 HTTP 请求验证已配置域名的控制。
 
-您还可以在 {% data variables.product.product_location %} 上使用 `ghe-ssl-acme` 命令行实用程序自动生成 Let's Encrypt 证书。 更多信息请参阅“[命令行实用程序](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities#ghe-ssl-acme)”。
+您还可以在 {% data variables.product.product_location %} 上使用 `ghe-ssl-acme` 命令行实用程序自动生成 Let's Encrypt 证书。 更多信息请参阅“[命令行实用程序](/enterprise/admin/guides/installation/command-line-utilities#ghe-ssl-acme)”。
 
 ## 使用 Let's Encrypt 配置 TLS
 

@@ -30,13 +30,6 @@ async function logException(error, req) {
 }
 
 export default async function handleError(error, req, res, next) {
-  // When you run tests that use things doing get() requests in
-  // our supertest handler, if something goes wrong anywhere in the app
-  // and its middlewares, you get a 500 but the error is never displayed
-  // anywhere. So this is why we log it additionally.
-  // Note, not using console.error() because it's arguably handled.
-  // Some tests might actually expect a 500 error.
-
   const responseDone = res.headersSent || req.aborted
 
   if (req.path.startsWith('/assets') || req.path.startsWith('/_next/static')) {

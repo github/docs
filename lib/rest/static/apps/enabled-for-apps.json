@@ -8,6 +8,12 @@
         "requestPath": "/enterprises/{enterprise}/actions/cache/usage"
       },
       {
+        "slug": "set-the-github-actions-oidc-custom-issuer-policy-for-an-enterprise",
+        "subcategory": "oidc",
+        "verb": "put",
+        "requestPath": "/enterprises/{enterprise}/actions/oidc/customization/issuer"
+      },
+      {
         "slug": "get-default-workflow-permissions-for-an-enterprise",
         "subcategory": "permissions",
         "verb": "get",
@@ -318,6 +324,24 @@
         "subcategory": "cache",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/actions/cache/usage"
+      },
+      {
+        "slug": "list-github-actions-caches-for-a-repository",
+        "subcategory": "cache",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/actions/caches"
+      },
+      {
+        "slug": "delete-github-actions-caches-for-a-repository-using-a-cache-key",
+        "subcategory": "cache",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/actions/caches"
+      },
+      {
+        "slug": "delete-a-github-actions-cache-for-a-repository-using-a-cache-id",
+        "subcategory": "cache",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/actions/caches/{cache_id}"
       },
       {
         "slug": "get-a-job-for-a-workflow-run",
@@ -1416,7 +1440,14 @@
         "requestPath": "/repos/{owner}/{repo}/dependabot/secrets/{secret_name}"
       }
     ],
-    "dependency-graph": [],
+    "dependency-graph": [
+      {
+        "slug": "create-a-snapshot-of-dependencies-for-a-repository",
+        "subcategory": "dependency-submission",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/dependency-graph/snapshots"
+      }
+    ],
     "deploy-keys": [
       {
         "slug": "list-deploy-keys",

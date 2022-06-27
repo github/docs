@@ -42,7 +42,6 @@ Si compraste {% data variables.product.prodname_enterprise %} mediante un Acuerd
 
 ### Facturación para las precompilaciones de los {% data variables.product.prodname_codespaces %}
 
-{% data reusables.codespaces.prebuilds-beta-note %}
 
 {% data reusables.codespaces.billing-for-prebuilds %}
 

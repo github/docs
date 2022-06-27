@@ -48,8 +48,8 @@ Para obtener más información, consulta la sección "[Crear flujos de trabajo i
 Un flujo de trabajo reutilizable puede utilizar otro de ellos si {% ifversion ghes or ghec or ghae %}alguna{% else %}cualquiera{% endif %} de las siguientes condiciones es verdadera:
 
 * Ambos flujos de trabajo están en el mismo repositorio.
-* The called workflow is stored in a public repository{% ifversion actions-workflow-policy %}, and your {% ifversion ghec %}enterprise{% else %}organization{% endif %} allows you to use public reusable workflows{% endif %}.{% ifversion ghes or ghec or ghae %}
-* El flujo de trabajo llamado se almacena en un repositorio interno y los ajustes de dicho repositorio permiten que se acceda a él. For more information, see {% ifversion internal-actions %}"[Sharing actions and workflows with your enterprise](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise){% else %}"[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-an-internal-repository){% endif %}."{% endif %}
+* El flujo de trabajo llamado se almacena en un repositorio público{% ifversion actions-workflow-policy %} y tu {% ifversion ghec %}empresa{% else %}organización{% endif %} te permite utilizar flujos de trabajo reutilizables y públicos{% endif %}.{% ifversion ghes or ghec or ghae %}
+* El flujo de trabajo llamado se almacena en un repositorio interno y los ajustes de dicho repositorio permiten que se acceda a él. Para obtener más información, consulta la sección {% ifversion internal-actions %}"[Compartir acciones y flujos de trabajo con tu empresa](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise){% else %}"[Administrar los ajustes de las {% data variables.product.prodname_actions %} en un repositorio](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-an-internal-repository){% endif %}".{% endif %}
 
 ## Utilizar ejecutores
 
@@ -310,8 +310,16 @@ Para obtener más información sobre cómo utilizar la API de REST para consulta
 
 {% endnote %}
 
+{% ifversion partial-reruns-with-reusable %}
+
+## Volver a ejecutar los flujos de trabajo y los jobs con flujos de trabajo reutilizables
+
+{% data reusables.actions.partial-reruns-with-reusable %}
+
+{% endif %}
+
 ## Pasos siguientes
 
 Para seguir aprendiendo sobre las {% data variables.product.prodname_actions %}, consulta la sección "[Eventos que activan flujos de trabajo](/actions/learn-github-actions/events-that-trigger-workflows)".
 
-{% ifversion restrict-groups-to-workflows %}You can standardize deployments by creating a self-hosted runner group that can only execute a specific reusable workflow. Para obtener más información, consulta la sección "[Administrar acceso a los ejecutores auto-hospedados utilizando grupos](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)".{% endif %}
+{% ifversion restrict-groups-to-workflows %}Puedes estandarizar los despliegues creando un grupo de ejecutores auto-hospedados que solo ejecute un flujo de trabajo reutilizable. Para obtener más información, consulta la sección "[Administrar acceso a los ejecutores auto-hospedados utilizando grupos](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)".{% endif %}

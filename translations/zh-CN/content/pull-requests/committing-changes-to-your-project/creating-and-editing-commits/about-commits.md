@@ -40,5 +40,27 @@ versions:
 
 ![强调提交标记的提交屏幕截图](/assets/images/help/commits/commit-tag-label.png)
 
+{% ifversion commit-tree-view %}
+
+## 使用文件树
+
+您可以使用文件树在提交中的文件之间导航。
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.navigate-to-commit-page %}
+1. 通过单击提交消息链接导航到提交。 ![强调提交消息链接的提交屏幕截图](/assets/images/help/commits/commit-message-link.png)
+1. 单击文件树中的文件可查看相应的文件差异 如果文件树处于隐藏状态，请单击 {% octicon "sidebar-collapse" aria-label="The sidebar collapse icon" %} 以显示文件树。
+
+  {% note %}
+
+  **注意**：如果您的屏幕太窄或提交仅包含一个文件，则不会显示文件树。
+
+  {% endnote %}
+
+  ![突出显示筛选器已更改文件搜索框和文件树的屏幕截图](/assets/images/help/repository/file-tree.png)
+1. 要按文件路径进行筛选，请在 **Filter changed files（筛选已更改的文件）**搜索框中输入部分或全部文件路径。
+
+{% endif %}
+
 ## 延伸阅读
 - {% data variables.product.prodname_desktop %} 上的“[提交和审查对项目的更改](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project#about-commits)”

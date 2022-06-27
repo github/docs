@@ -14,7 +14,7 @@ topics:
 
 ## Límite de nodo
 
-Para pasar la validación del [modelo](/graphql/guides/introduction-to-graphql#schema), todas las [llamadas](/graphql/guides/forming-calls-with-graphql) la API v4 de GraphQL deben cumplir con los siguientes estándares:
+Para pasar una validación de [modelo](/graphql/guides/introduction-to-graphql#schema), todos los [llamados](/graphql/guides/forming-calls-with-graphql) a la API de GraphQL deben cumplir con estos estándares:
 
 * Los clientes deben suministrar un argumento `first` o `last` en cualquier [conexión](/graphql/guides/introduction-to-graphql#connection).
 * Los valores de `first` y `last` deben estar dentro de 1-100.
@@ -130,30 +130,30 @@ Estos dos ejemplos te muestran cómo calcular los nodos totales en una llamada.
 
 ## Limite de tasa
 
-El límite de la API v4 de GraphQL es diferente a los [límites de tasa](/rest/overview/resources-in-the-rest-api#rate-limiting) de la API v3 de REST.
+El límite de la API de GraphQL es diferente de los [límites de tasa](/rest/overview/resources-in-the-rest-api#rate-limiting) de la API de REST.
 
 ¿Por qué son diferentes los límites de tasa de la API? Con [GraphQL](/graphql), una llamada de GraphQL puede reemplazar [varias llamadas de REST](/graphql/guides/migrating-from-rest-to-graphql). Una sola llamada compleja de GraphQL puede ser el equivalente a miles de solicitudes de REST. Si bien una sola llamada de GraphQL caería muy debajo del límite de tasa de la API de REST, la consulta podría ser igual de cara en términos de procesamiento para los servidores de GitHub.
 
-Para representar con precisión el costo de una consulta al servidor, la API v4 de GraphQL calcula la **puntuación de tasa límite** de una llamada con base en una escala de puntos normalizada. Los factores de puntuación de una consulta en argumentos "firs" y "last" en una conexión padre y sus hijos.
+Para representar con precisión el costo de servidor de una consulta, la API de GraphQL calcula la **puntuación del límite de tasa** de un llamado con base en la escala de puntos normalizada. Los factores de puntuación de una consulta en argumentos "firs" y "last" en una conexión padre y sus hijos.
 
 * La fórmula utiliza los argumentos `first` y `last` en una conexión padre y en sus hijos para pre-calcular la carga potencial en los sistemas de GitHub, tal como MySQL, ElasticSearch y Git.
 * Cada conexión nueva tiene su propio valor de puntos. Los puntos se combinan con otros puntos desde la llamada en una puntuación de tasa límite general.
 
-El límite de tasa de la API v4 de GraphQL es de **5,000 puntos por hora**.
+El límite de tasa de la API de GraphQL es de **5000 puntos por hora**.
 
-Nota que 5,000 puntos por hora no es lo mismo que 5,000 llamadas por hora: la API v4 de GraphQL y la API v3 de REST utilizan límites de tasa diferentes.
+Toma en cuenta que 5000 puntos por hora no es lo mismo que 5000 llamados por hora: la API de GraphQL y la de REST utilizan límites de tasa diferentes.
 
 {% note %}
 
-**Nota**: La fórmula y el límite de tasa actuales están sujetos a cambio mientras observamos cómo los desarrolladores utilizan la API v4 de GraphQL.
+**Nota**: La fórmula y límite de tasa actuales están sujetos a cambios conforme observamos cómo los desarrolladores utilizan la API de GraphQL.
 
 {% endnote %}
 
 ### Recuperar el estado de límite de tasa de una llamada
 
-Con la API v3 de REST, puedes revisar el estado de límite de tasa si [inspeccionas](/rest/overview/resources-in-the-rest-api#rate-limiting) los encabezados HTTP devueltos.
+Con la API de REST, puedes obtener el estado del límite de tasa si [inspeccionas](/rest/overview/resources-in-the-rest-api#rate-limiting) los encabezados HTTP devueltos.
 
-Con la API v4 de GraphQL, puedes revisar el estado de límite de tasa si consultas los campos en el objeto `rateLimit`:
+Con la API de GraphQL, puedes verificar el estado de límite de tasa consultando campos en el objeto `rateLimit`:
 
 ```graphql
 query {
@@ -186,7 +186,7 @@ Al consultar el objeto `rateLimit` se devuelve el puntaje de una llamada, pero e
 
 {% note %}
 
-**Nota**: El costo mínimo de una llamada a la API v4 de GraphQL es **1**, lo cual representa solo una solicitud.
+**Nota**: El costo mínimo de un llamado a la API de GraphQL es **1**, lo que representa una sola solicitud.
 
 {% endnote %}
 

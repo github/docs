@@ -19,7 +19,7 @@ Se configurar um nome de host em vez de um endereço IP codificado, você poder�
 
 A configuração do nome de host no {% data variables.enterprise.management_console %} deve ser definida como um nome de domínio totalmente qualificado (FQDN) que seja resolvido na internet ou dentro da sua rede interna. Por exemplo, a configuração do nome de host pode ser `github.companyname.com.`As solicitações da web e da API serão automaticamente redirecionadas para o nome de host configurado no {% data variables.enterprise.management_console %}.
 
-Depois de configurar um nome de host, você poderá habilitar o isolamento de subdomínio para aumentar ainda mais a segurança de {% data variables.product.product_location %}. Para obter mais informações, consulte "[Habilitar isolamento de subdomínio](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-subdomain-isolation/)".
+Depois de configurar um nome de host, você poderá habilitar o isolamento de subdomínio para aumentar ainda mais a segurança de {% data variables.product.product_location %}. Para obter mais informações, consulte "[Habilitar isolamento de subdomínio](/enterprise/admin/guides/installation/enabling-subdomain-isolation/)".
 
 Para obter mais informações sobre os tipos de nome de host compatíveis, consulte a [seção 2.1 do HTTP RFC](https://tools.ietf.org/html/rfc1123#section-2).
 
@@ -33,4 +33,4 @@ Para obter mais informações sobre os tipos de nome de host compatíveis, consu
 {% data reusables.enterprise_management_console.test-domain-settings-failure %}
 {% data reusables.enterprise_management_console.save-settings %}
 
-Para ajudar a mitigar várias vulnerabilidades de script entre sites, recomendamos que você habilite o isolamento de subdomínio para {% data variables.product.product_location %} depois de configurar um nome de host. Para obter mais informações, consulte "[Habilitar isolamento de subdomínio](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-subdomain-isolation/)".
+Para ajudar a mitigar várias vulnerabilidades de script entre sites, recomendamos que você habilite o isolamento de subdomínio para {% data variables.product.product_location %} depois de configurar um nome de host. Para obter mais informações, consulte "[Habilitar isolamento de subdomínio](/enterprise/admin/guides/installation/enabling-subdomain-isolation/)".

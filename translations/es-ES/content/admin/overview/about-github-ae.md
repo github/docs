@@ -11,9 +11,9 @@ topics:
 
 ## Acerca de {% data variables.product.prodname_ghe_managed %}
 
-{% data reusables.github-ae.github-ae-enables-you %}{% data variables.product.prodname_ghe_managed %} es completamente administrador, confiable y escalable, lo cual te permite acelerar la entrega sin sacrificar la administración de riesgos.
+{% data reusables.github-ae.github-ae-enables-you %} {% data variables.product.prodname_ghe_managed %} is fully managed, reliable, and scalable, allowing you to accelerate delivery while improving your risk and compliance posture.
 
-{% data variables.product.prodname_ghe_managed %} ofrece una plataforma de desarrollo que va desde la idea hasta la producción. Puedes incrementar la velocidad de desarrollo con las herramientas que los equipos conocen y adoran mientras mantienes el cumplimiento regulatorio y de la industria con controles de acceso y seguridad, automatización de flujos de trabajo y requerimiento de políticas únicos.
+{% data variables.product.prodname_ghe_managed %} ofrece una plataforma de desarrollo que va desde la idea hasta la producción. You can increase development velocity with the tools that teams know and love, while you maintain industry and regulatory compliance with security and access controls, workflow automation, and policy enforcement.
 
 ## Una nube de disponibilidad alta y escala planetaria
 
@@ -21,11 +21,13 @@ topics:
 
 ## Residencia de los datos
 
-Todos tus datos se almacenan dentro de la región geográfica de tu elección. Puedes apegarte a la GDPR y a los estándares de protección de datos globales manteniendo todos tus datos dentro de tu región de elección.
+Todos tus datos se almacenan dentro de la región geográfica de tu elección. You can comply with GDPR data residency requirements and global data protection standards by keeping all of your data within your chosen region.
 
 ## Cuentas aisladas
 
-Todas las cuentas de desarrollador se aislan por completo en {% data variables.product.prodname_ghe_managed %}. Puedes controlar las cuentas integralmente a través de tu proveedor de identidad, haciendo obligatorio el inicio de sesión único de SAML. El SCIM te permite garantizar que los empleados solo tengan acceso a los recursos que necesitan, de acuerdo como se define en tu sistema central de administración de identidades. Para obtener más información, consulta la sección "[Administrar el acceso y la identidad en tu empresa](/admin/authentication/managing-identity-and-access-for-your-enterprise)".
+By default, all developer accounts on {% data variables.product.product_name %} are fully isolated from other services, including products from {% data variables.product.company_short %}. You can control the accounts through your identity provider, with SAML single sign-on as mandatory. El SCIM te permite garantizar que los empleados solo tengan acceso a los recursos que necesitan, de acuerdo como se define en tu sistema central de administración de identidades. Para obtener más información, consulta la sección "[Administrar el acceso y la identidad en tu empresa](/admin/authentication/managing-identity-and-access-for-your-enterprise)".
+
+Optionally, enterprise owners can enable limited integration between {% data variables.product.product_name %} and {% data variables.product.prodname_dotcom_the_website %}. Para obtener más información, consulta "[Acerca de {% data variables.product.prodname_github_connect %}](/admin/configuration/configuring-github-connect/about-github-connect)."
 
 ## Acceso restringido a las redes
 

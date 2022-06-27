@@ -17,7 +17,7 @@ describe('sidebar', () => {
   beforeAll(async () => {
     ;[$homePage, $githubPage, $enterprisePage, $restPage] = await Promise.all([
       getDOM('/en'),
-      getDOM('/en/github'),
+      getDOM('/en/get-started'),
       getDOM('/en/enterprise/admin'),
       getDOM('/en/rest'),
     ])
@@ -34,7 +34,7 @@ describe('sidebar', () => {
     expect($githubPage('[data-testid=sidebar] [data-testid=sidebar-product]').length).toBe(1)
     expect(
       $githubPage('[data-testid=sidebar] [data-testid=sidebar-product] > a').text().trim()
-    ).toBe('GitHub')
+    ).toBe('Get started')
   })
 
   test('includes links to external products like the Atom, Electron, and CodeQL', async () => {

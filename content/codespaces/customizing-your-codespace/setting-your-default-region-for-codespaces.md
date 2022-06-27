@@ -1,5 +1,6 @@
 ---
 title: Setting your default region for Codespaces
+shortTitle: Set the default region
 intro: 'You can set your default region in the {% data variables.product.prodname_github_codespaces %} profile settings page to personalize where your data is held.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
@@ -9,7 +10,7 @@ redirect_from:
   - /codespaces/managing-your-codespaces/setting-your-default-region-for-codespaces
 topics:
   - Codespaces
-shortTitle: Set the default region
+type: how_to
 ---
 
 You can manually select the region that your codespaces will be created in, allowing you to meet stringent security and compliance requirements. By default, your region is set automatically, based on your location.
