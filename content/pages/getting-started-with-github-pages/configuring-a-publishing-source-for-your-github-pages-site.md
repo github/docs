@@ -23,50 +23,7 @@ shortTitle: Configure publishing source
 
 {% data reusables.pages.private_pages_are_public_warning %}
 
-{% ifversion pages-custom-workflow %}
-
-## Publishing with a custom {% data variables.product.prodname_actions %} workflow
-
-{% data reusables.pages.pages-custom-workflow-beta %}
-
-When you configure your site to publish with {% data variables.product.prodname_actions %}, {% data variables.product.product_name %} will suggest starter workflows for common publishing scenarios. The general flow of a workflow is to:
-
-1. Use the `actions/checkout` action to check out the repository contents.
-1. If required by your site, build any static site files.
-1. Use the `actions/upload-pages-artifact` action to upload the static files as an artifact.
-1. Use the `actions/deploy-pages` action to deploy the artifact.
-
-{% note %}
-
-**Note**: By default, the starter workflows use a deployment environment called `github-pages`. This environment has a protection rule that restricts what branches can be deployed to the environment. Although you can change the environment name or protection rules, this is not recommended. todo: dig more into this.
-
-{% endnote %}
-
-{% note %}
-
-**Note**: A `CNAME` file will not automatically add or remove the custom domain. Instead, you must configure the custom domain through your repository settings or through the API. For more information, see "[Managing a custom domain for your GitHub Pages site](/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-a-subdomain)" and "[the PAGES API reference documentation](/rest/pages#update-information-about-a-github-pages-site)."
-
-{% endnote %}
-
-To configure your site to publish with {% data variables.product.prodname_actions %}:
-
-{% data reusables.pages.navigate-site-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.pages.sidebar-pages %}
-1. Under **Build and deployment**, under **Source**, select **GitHub Actions**.
-1. {% data variables.product.product_name %} will suggest several starter workflows. If you already have a workflow to publish your site, you can skip this step. Otherwise, choose one of the options to create a {% data variables.product.prodname_actions %} workflow. For more information about {% data variables.product.prodname_actions %}, see "[{% data variables.product.prodname_actions %}](/actions)."
-
-   {% data variables.product.prodname_pages %} does not associate a specific workflow to the {% data variables.product.prodname_pages %} settings. However, the {% data variables.product.prodname_pages %} settings will link to the workflow run that most recently deployed your site.
-
-### Troubleshooting publishing with a custom {% data variables.product.prodname_actions %} workflow
-
-For information about how to troubleshoot your {% data variables.product.prodname_actions %} workflow, see "[About monitoring and troubleshooting](/actions/monitoring-and-troubleshooting-workflows/about-monitoring-and-troubleshooting)."
-
-{% endif %}
-
 ## Publishing from a branch
-
-todo: either delete these screenshots (and the image folders if not used elsewhere), or generate a separate version of each image. (Deleting the screenshots is ideal for maintainability)
 
 1. Make sure the branch you want to use as your publishing source already exists in your repository.
 {% data reusables.pages.navigate-site-repo %}
@@ -74,7 +31,7 @@ todo: either delete these screenshots (and the image folders if not used elsewhe
 {% data reusables.pages.sidebar-pages %}
 {% ifversion pages-custom-workflow %}
 1. Under **Build and deployment**, under **Source**, select **Deploy from a branch**.
-1. Under **Build and deployment**, under **Branch**,use the **None** or **Branch** drop-down menu and select a publishing source.
+1. Under **Build and deployment**, under **Branch**, use the **None** or **Branch** drop-down menu and select a publishing source.
   ![Drop-down menu to select a publishing source](/assets/images/help/pages/publishing-source-drop-down.png)
 {% else %}
 3. Under "{% data variables.product.prodname_pages %}", use the **None** or **Branch** drop-down menu and select a publishing source.
@@ -102,5 +59,46 @@ To find potential errors with either the build or deployment, you can check the 
 {% data reusables.pages.pages-builds-with-github-actions-public-beta %}
 
 {% endnote %}
+
+{% endif %}
+
+{% ifversion pages-custom-workflow %}
+
+## Publishing with a custom {% data variables.product.prodname_actions %} workflow
+
+{% data reusables.pages.pages-custom-workflow-beta %}
+
+When you configure your site to publish with {% data variables.product.prodname_actions %}, {% data variables.product.product_name %} will suggest starter workflows for common publishing scenarios. The general flow of a workflow is to:
+
+1. Use the [`actions/checkout`](https://github.com/actions/checkout) action to check out the repository contents.
+1. If required by your site, build any static site files.
+1. Use the [`actions/upload-pages-artifact`](https://github.com/actions/upload-pages-artifact) action to upload the static files as an artifact.
+1. Use the [`actions/deploy-pages`](https://github.com/actions/deploy-pages) action to deploy the artifact.
+
+{% note %}
+
+**Note**: By default, the starter workflows use a deployment environment called `github-pages`. This environment has a protection rule that restricts what branches can be deployed to the environment. Although you can change the environment name or protection rules, this is not recommended.
+
+{% endnote %}
+
+{% note %}
+
+**Note**: A `CNAME` file will not automatically add or remove the custom domain. Instead, you must configure the custom domain through your repository settings or through the API. For more information, see "[Managing a custom domain for your GitHub Pages site](/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-a-subdomain)" and [the PAGES API reference documentation](/rest/pages#update-information-about-a-github-pages-site).
+
+{% endnote %}
+
+To configure your site to publish with {% data variables.product.prodname_actions %}:
+
+{% data reusables.pages.navigate-site-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.pages.sidebar-pages %}
+1. Under **Build and deployment**, under **Source**, select **GitHub Actions**.
+1. {% data variables.product.product_name %} will suggest several starter workflows. If you already have a workflow to publish your site, you can skip this step. Otherwise, choose one of the options to create a {% data variables.product.prodname_actions %} workflow. For more information about {% data variables.product.prodname_actions %}, see "[{% data variables.product.prodname_actions %}](/actions)."
+
+   {% data variables.product.prodname_pages %} does not associate a specific workflow to the {% data variables.product.prodname_pages %} settings. However, the {% data variables.product.prodname_pages %} settings will link to the workflow run that most recently deployed your site.
+
+### Troubleshooting publishing with a custom {% data variables.product.prodname_actions %} workflow
+
+For information about how to troubleshoot your {% data variables.product.prodname_actions %} workflow, see "[About monitoring and troubleshooting](/actions/monitoring-and-troubleshooting-workflows/about-monitoring-and-troubleshooting)."
 
 {% endif %}
