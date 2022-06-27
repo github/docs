@@ -19,7 +19,7 @@ shortTitle: Jekyll build errors for Pages
 
 ## About Jekyll build errors
 
-{% ifversion pages-custom-workflow %}If you are publishing from a branch, sometimes{% elsif %}Sometimes,{% endif %} {% data variables.product.prodname_pages %} will not attempt to build your site after you push changes to your site's publishing source.{% ifversion fpt or ghec %}
+{% ifversion pages-custom-workflow %}If you are publishing from a branch, sometimes{% else %}Sometimes,{% endif %} {% data variables.product.prodname_pages %} will not attempt to build your site after you push changes to your site's publishing source.{% ifversion fpt or ghec %}
 - The person who pushed the changes hasn't verified their email address. For more information, see "[Verifying your email address](/articles/verifying-your-email-address)."{% endif %}
 - You're pushing with a deploy key. If you want to automate pushes to your site's repository, you can set up a machine user instead. For more information, see "[Managing deploy keys](/developers/overview/managing-deploy-keys#machine-users)."
 - You're using a CI service that isn't configured to build your publishing source. For example, Travis CI won't build the `gh-pages` branch unless you add the branch to a safe list. For more information, see "[Customizing the build](https://docs.travis-ci.com/user/customizing-the-build/#safelisting-or-blocklisting-branches)" on Travis CI, or your CI service's documentation.
@@ -57,12 +57,12 @@ We recommend testing your site locally, which allows you to see build error mess
 
 ## Viewing Jekyll build error messages in your pull request
 
-{% ifversion pages-custom-workflow %}If you are publishing from a branch, when{% elsif %}When{% endif %} you create a pull request to update your publishing source on {% data variables.product.product_name %}, you can see build error messages on the **Checks** tab of the pull request. For more information, see "[About status checks](/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks)."
+{% ifversion pages-custom-workflow %}If you are publishing from a branch, when{% else %}When{% endif %} you create a pull request to update your publishing source on {% data variables.product.product_name %}, you can see build error messages on the **Checks** tab of the pull request. For more information, see "[About status checks](/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks)."
 [todo: to get this info if you are deploying with actions, do you need to configure your workflow to run on PRs as well, but only execute the deploy step if the workflow was triggered by a push to main. should we add that to the starter workflows?]
 
 ## Viewing Jekyll build errors by email
 
-{% ifversion pages-custom-workflow %}If you are publishing from a branch, when{% elsif %}When{% endif %} you push changes to your publishing source on {% data variables.product.product_name %}, {% data variables.product.prodname_pages %} will attempt to build your site. If the build fails, you'll receive an email at your primary email address. You'll also receive emails for build warnings. {% data reusables.pages.build-failure-email-server %}
+{% ifversion pages-custom-workflow %}If you are publishing from a branch, when{% else %}When{% endif %} you push changes to your publishing source on {% data variables.product.product_name %}, {% data variables.product.prodname_pages %} will attempt to build your site. If the build fails, you'll receive an email at your primary email address. You'll also receive emails for build warnings. {% data reusables.pages.build-failure-email-server %}
 [todo: to get this info if you are deploying with actions, do you need to configure your workflow to run on PRs as well, but only execute the deploy step if the workflow was triggered by a push to main. should we add that to the starter workflows?]
 
 ## Viewing Jekyll build error messages in your pull request with a third-party CI service
