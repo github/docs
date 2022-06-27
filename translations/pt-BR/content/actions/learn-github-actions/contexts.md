@@ -45,7 +45,7 @@ Você pode acessar contextos usando a sintaxe da expressão. Para obter mais inf
 | `matrix`         | `objeto` | Contém as propriedades da matriz definidas no fluxo de trabalho que se aplicam ao trabalho atual. Para obter mais informações, consulte o contexto [`matriz`](#matrix-context).    |
 | `needs`          | `objeto` | Contém os resultados de todos os trabalhos que são definidos como uma dependência do trabalho atual. Para obter mais informações, consulte o contexto [`needs`](#needs-context).   |
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4757 %}
-| `inputs` | `object` | Contains the inputs of a reusable {% ifversion actions-unified-inputs %}or manually triggered {% endif %}workflow. Para obter mais informações, consulte o contexto [`entradas`](#inputs-context). |{% endif %}
+| `entradas` | `objeto` | Contém as entradas de {% ifversion actions-unified-inputs %} reutilizável ou um fluxo de travalho acionado {% endif %} manualmente. Para obter mais informações, consulte o contexto [`entradas`](#inputs-context). |{% endif %}
 
 Como parte de uma expressão, você pode acessar informações de contexto usando uma das duas sintaxes.
 
@@ -699,20 +699,23 @@ jobs:
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4757 %}
 ## Contexto `entradas`
 
-The `inputs` context contains input properties passed to a reusable workflow{% ifversion actions-unified-inputs %} or to a manually triggered workflow{% endif %}. {% ifversion actions-unified-inputs %}For reusable workflows, the{% else %}The{% endif %} input names and types are defined in the [`workflow_call` event configuration](/actions/learn-github-actions/events-that-trigger-workflows#workflow-reuse-events) of a reusable workflow, and the input values are passed from [`jobs.<job_id>.with`](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idwith) in an external workflow that calls the reusable workflow. {% ifversion actions-unified-inputs %}For manually triggered workflows, the inputs are defined in the [`workflow_dispatch` event configuration](/actions/learn-github-actions/events-that-trigger-workflows#workflow_dispatch) of a workflow.{% endif %}
+O contexto `entradas` contém propriedades de entrada passadas para um fluxo de trabalho reutilizável{% ifversion actions-unified-inputs %} ou para um fluxo de trabalho acionado manualmente{% endif %}. {% ifversion actions-unified-inputs %}Para fluxos de trabalho reutilizáveis, os{% else %}Os nomes e tipos de entrada{% endif %} são definidos na configuração do evento [`workflow_call` ](/actions/learn-github-actions/events-that-trigger-workflows#workflow-reuse-events) de um fluxo de trabalho reutilizável, e os valores de entrada são passados de [`trabalhos.<job_id>.com`](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idwith) em um fluxo de trabalho externo que chama o fluxo de trabalho reutilizável. {% ifversion actions-unified-inputs %}Para fluxos de trabalho acionados manualmente, as entradas são definidas na configuração do evento [`workflow_dispatch` ](/actions/learn-github-actions/events-that-trigger-workflows#workflow_dispatch) de um fluxo de trabalho.{% endif %}
 
-There are no standard properties in the `inputs` context, only those which are defined in the workflow file.
+Não há propriedades padrão no contexto `entradas`, apenas as que são definidas no arquivo do fluxo de trabalho.
 
 {% data reusables.actions.reusable-workflows-ghes-beta %}
 
-| Nome da propriedade   | Tipo                               | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| --------------------- | ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `inputs`              | `objeto`                           | This context is only available in a [reusable workflow](/actions/learn-github-actions/reusing-workflows){% ifversion actions-unified-inputs %} or in a workflow triggered by the [`workflow_dispatch` event](/actions/learn-github-actions/events-that-trigger-workflows#workflow_dispatch){% endif %}. Você pode acessar este contexto a partir de qualquer trabalho ou etapa em um fluxo de trabalho. Este objeto contém as propriedades listadas abaixo. |
-| `inputs.<name>` | `string` ou `número` ou `booleano` | Cada valor de entrada é passado de um fluxo de trabalho externo.                                                                                                                                                                                                                                                                                                                                                                                            |
+Este contexto só está disponível em um fluxo de trabalho [reutilizável](/actions/learn-github-actions/reusing-workflows){% ifversion actions-unified-inputs %} ou em um fluxo de trabalho acionado pelo</a>{% endif %} evento `workflow_dispatch`. Você pode acessar este contexto a partir de qualquer trabalho ou etapa em um fluxo de trabalho. Este objeto contém as propriedades listadas abaixo.</td> </tr> 
+
+</tbody> </table> 
+
+
 
 ### Exemplo de conteúdo do contexto `entradas`
 
-The following example contents of the `inputs` context is from a workflow that has defined the `build_id`, `deploy_target`, and `perform_deploy` inputs.
+O exemplo a seguir do contexto `entradas` é de um fluxo de trabalho que definiu as entradas `build_id`, `deploy_target` e `perform_deploy`.
+
+
 
 ```yaml
 {
@@ -722,11 +725,16 @@ The following example contents of the `inputs` context is from a workflow that h
 }
 ```
 
-### Example usage of the `inputs` context in a reusable workflow
 
-This example reusable workflow uses the `inputs` context to get the values of the `build_id`, `deploy_target`, and `perform_deploy` inputs that were passed to the reusable workflow from the caller workflow.
+
+
+### Exemplo de uso do contexto `entradas` em um fluxo de trabalho reutilizável
+
+Este exemplo de fluxo de trabalho reutilizável usa o contexto `entradas` para obter os valores das entradas `build_id`, `deploy_target` e `perform_deploy` que foram passadas para o fluxo de trabalho reutilizável do fluxo de trabalho de chamada.
 
 {% raw %}
+
+
 ```yaml{:copy}
 name: Reusable deploy workflow
 on:
@@ -750,14 +758,20 @@ jobs:
       - name: Deploy build to target
         run: deploy --build ${{ inputs.build_id }} --target ${{ inputs.deploy_target }}
 ```
+
+
 {% endraw %}
 
 {% ifversion actions-unified-inputs %}
-### Example usage of the `inputs` context in a manually triggered workflow
 
-This example workflow triggered by a `workflow_dispatch` event uses the `inputs` context to get the values of the `build_id`, `deploy_target`, and `perform_deploy` inputs that were passed to the workflow.
+
+### Exemplo de uso do contexto `entradas` em um fluxo de trabalho acionado manualmente
+
+Este exemplo de fluxo de trabalho acionado por um evento `workflow_dispatch` usa o contexto `entradas` para obter os valores das entradas `build_id`, `deploy_target` e `perform_deploy` que foram passadas para o fluxo de trabalho.
 
 {% raw %}
+
+
 ```yaml{:copy}
 on:
   workflow_dispatch:
@@ -780,7 +794,12 @@ jobs:
       - name: Deploy build to target
         run: deploy --build ${{ inputs.build_id }} --target ${{ inputs.deploy_target }}
 ```
+
+
 {% endraw %}
+
+
+
 {% endif %}
 
 {% endif %}

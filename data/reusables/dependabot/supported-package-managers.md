@@ -39,8 +39,11 @@ yarn           | `npm`            | v1               | **✓** | **✓** | |
 
 [3] {% data variables.product.prodname_dependabot %} doesn't run the NuGet CLI but does support most features up until version 4.8.
 
-{% ifversion fpt or ghec or ghes > 3.4 %}[4] `pub` support is currently in beta. Any known limitations are subject to change. Note that {% data variables.product.prodname_dependabot %}:
+{% ifversion fpt or ghec or ghes > 3.4 %}
+[4] {% ifversion ghes = 3.5 %}`pub` support is currently in beta. Any known limitations are subject to change. Note that {% data variables.product.prodname_dependabot %}:
    - Doesn't support updating git dependencies for `pub`. 
    - Won't perform an update when the version that it tries to update to is ignored, even if an earlier version is available.
 
-   For information about configuring your _dependabot.yml_ file for `pub`, see "[Enabling support for beta-level ecosystems](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#enable-beta-ecosystems)." {% endif %} 
+   For information about configuring your _dependabot.yml_ file for `pub`, see "[Enabling support for beta-level ecosystems](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#enable-beta-ecosystems)."
+   {%- else %}{% data variables.product.prodname_dependabot %} won't perform an update for `pub` when the version that it tries to update to is ignored, even if an earlier version is available.{% endif %}
+{% endif %} 

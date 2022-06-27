@@ -30,3 +30,4 @@ sections:
     - Os limites de recursos que são específicos para processamento de hooks pre-receive podem causar falha em alguns hooks pre-receive.
     - Os serviços de ações precisam ser reiniciados após a restauração de um dispositivo de um backup em um host diferente.
     - 'Deleted repositories will not be purged from disk automatically after the 90-day retention period ends. This issue is resolved in the 3.5.1 release. [Updated: 2022-06-10]'
+    - 'Management Console may appear stuck on the _Starting_ screen after upgrading an under-provisioned instance to GitHub Enterprise Server 3.5. [Updated: 2022-06-20]'

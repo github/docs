@@ -81,7 +81,7 @@ Os commits só são contados se forem feitos no branch-padrão ou no branch `gh-
 
 Se os commits estiverem em um branch que não seja `gh-pages` ou o padrão e você quiser que eles sejam contabilizados para suas contribuições, precisará seguir um destes procedimentos:
 - [Abrir uma pull request](/articles/creating-a-pull-request) para que ocorra o merge das alterações no branch `gh-pages` ou padrão.
-- [Change the default branch](/github/administering-a-repository/changing-the-default-branch) of the repository.
+- [Alterar o branch padrão](/github/administering-a-repository/changing-the-default-branch) do repositório.
 
 {% warning %}
 

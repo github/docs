@@ -23,7 +23,7 @@ shortTitle: アラートのフィルタリング
 
 ## セキュリティの概要のフィルタリングについて
 
-アラートのリスクレベル、アラートの種類、機能の有効化の状況といった様々な要素に基づいて焦点を絞り込むために、セキュリティの概要でフィルタを利用できます。 Different filters are available depending on the specific view and whether your analysis is at the organization, team or repository level.
+アラートのリスクレベル、アラートの種類、機能の有効化の状況といった様々な要素に基づいて焦点を絞り込むために、セキュリティの概要でフィルタを利用できます。 特定のビューや、分析がOrganization、Team、リポジトリのレベルなのかといったことに応じて、様々なフィルタが利用できます。
 
 ## リポジトリでフィルタリング
 

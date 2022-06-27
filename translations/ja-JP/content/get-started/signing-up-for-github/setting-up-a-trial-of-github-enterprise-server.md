@@ -17,7 +17,7 @@ shortTitle: Enterprise Server trial
 
 ## {% data variables.product.prodname_ghe_server %} のトライアルについて
 
-{% data variables.product.prodname_ghe_server %} を評価するための 45 日間トライアルをリクエストできます。 トライアルは仮想アプライアンスとしてインストールされ、オンプレミスまたはクラウドでのデプロイメントのオプションがあります。 サポートされている仮想化プラットフォームの一覧については「[GitHub Enterprise Server インスタンスをセットアップする](/enterprise-server@latest/admin/installation/setting-up-a-github-enterprise-server-instance)」を参照してください。
+{% data variables.product.prodname_ghe_server %} を評価するための 45 日間トライアルをリクエストできます。 トライアルは仮想アプライアンスとしてインストールされ、オンプレミスまたはクラウドでのデプロイメントのオプションがあります。 For more information about {% data variables.product.prodname_ghe_server %}, and for a list of supported virtualization platforms, see "[About {% data variables.product.prodname_ghe_server %}](/enterprise-server/admin/overview/about-github-enterprise-server)."
 
 {% ifversion ghes %}{% data variables.product.prodname_dependabot %}{% else %}現在、セキュリティ{% endif %}アラートと {% data variables.product.prodname_github_connect %} は {% data variables.product.prodname_ghe_server %} のトライアルでは利用できません。 これらの機能のデモについては、{% data variables.contact.contact_enterprise_sales %} にお問い合わせください。 For more information about these features, see "[About {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)" and "[Connecting your enterprise account to {% data variables.product.prodname_ghe_cloud %}](/enterprise-server@latest/admin/configuration/managing-connections-between-your-enterprise-accounts/connecting-your-enterprise-account-to-github-enterprise-cloud)."
 

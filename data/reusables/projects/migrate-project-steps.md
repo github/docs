@@ -5,4 +5,3 @@
   ![Screenshot showing migrate to beta option](/assets/images/help/issues/migrate-option.png)
 1. In the bottom right of the popup, click **Start migration**.
   ![Screenshot showing migrate to beta option](/assets/images/help/issues/migrate-start.png)
-1. When the migration is complete, the new migrated project will open in a new tab.

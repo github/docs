@@ -143,7 +143,7 @@ prodname_code_scanning_capc: 'Escaneo de código'
 prodname_codeql_runner: 'Ejecutor de CodeQL'
 prodname_advisory_database: 'GitHub Advisory Database'
 prodname_codeql_workflow: 'Flujo de trabajo de análisis de CodeQL'
-prodname_dependency_review_action: 'Dependency Review GitHub Action'
+prodname_dependency_review_action: 'GitHub Action de Revisión de Dependencias'
 #Visual Studio
 prodname_vs: 'Visual Studio'
 prodname_vscode_shortname: 'VS Code'

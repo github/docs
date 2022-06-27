@@ -23,7 +23,7 @@ shortTitle: 筛选警报
 
 ## 关于筛选安全性概述
 
-可以使用安全概述中的筛选器，根据一系列因素（如警报风险级别、警报类型和功能启用）缩小关注范围。 Different filters are available depending on the specific view and whether your analysis is at the organization, team or repository level.
+可以使用安全概述中的筛选器，根据一系列因素（如警报风险级别、警报类型和功能启用）缩小关注范围。 根据特定视图以及是在组织、团队还是存储库级别进行分析，可以使用不同的筛选器。
 
 ## 按仓库过滤
 

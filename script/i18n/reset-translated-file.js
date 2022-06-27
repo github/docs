@@ -17,7 +17,7 @@
 //
 // [end-readme]
 
-import program from 'commander'
+import { program } from 'commander'
 import { execSync } from 'child_process'
 import assert from 'assert'
 import fs from 'fs'

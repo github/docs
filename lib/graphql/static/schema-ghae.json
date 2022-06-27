@@ -5824,7 +5824,7 @@
       "kind": "mutations",
       "id": "updatepullrequestbranch",
       "href": "/graphql/reference/mutations#updatepullrequestbranch",
-      "description": "<p>Merge HEAD from upstream branch into pull request branch.</p>",
+      "description": "<p>Merge or Rebase HEAD from upstream branch into pull request branch.</p>",
       "inputFields": [
         {
           "name": "input",
@@ -36468,6 +36468,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "viewerCanEditFiles",
+          "description": "<p>Can the viewer edit files within this pull request.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "viewerCanEnableAutoMerge",
           "description": "<p>Whether or not the viewer can enable auto-merge.</p>",
           "type": "Boolean!",
@@ -44579,6 +44587,14 @@
       ],
       "fields": [
         {
+          "name": "allowUpdateBranch",
+          "description": "<p>Whether or not a pull request head branch that is behind its base branch can\nalways be updated even if it is not required to be up to date before merging.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "assignableUsers",
           "description": "<p>A list of users that can be assigned to issues in this repository.</p>",
           "type": "UserConnection!",
@@ -48188,7 +48204,9 @@
           "type": "String",
           "id": "string",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#string"
+          "href": "/graphql/reference/scalars#string",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The <code>fixReason</code> field is being removed. You can still use <code>fixedAt</code> and <code>dismissReason</code>. Removal on 2022-10-01 UTC.</p>"
         },
         {
           "name": "fixedAt",
@@ -61435,6 +61453,10 @@
         {
           "name": "OUTSIDE_COLLABORATOR",
           "description": "<p>An outside collaborator is a person who isn't explicitly a member of the\nOrganization, but who has Read, Write, or Admin permissions to one or more\nrepositories in the organization.</p>"
+        },
+        {
+          "name": "SUSPENDED",
+          "description": "<p>A suspended member.</p>"
         },
         {
           "name": "UNAFFILIATED",

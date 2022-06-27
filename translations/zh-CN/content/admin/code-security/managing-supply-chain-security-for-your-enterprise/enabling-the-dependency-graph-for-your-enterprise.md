@@ -16,7 +16,7 @@ topics:
 
 {% data reusables.dependabot.about-the-dependency-graph %}更多信息请参阅“[关于依赖关系图](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)”。
 
-为企业启用依赖关系图后，可以启用 {% data variables.product.prodname_dependabot %} 以检测存储库中易受攻击的依赖项{% ifversion ghes > 3.2 %}，并自动修复漏洞{% endif %}。 更多信息请参阅“[为企业启用 {% data variables.product.prodname_dependabot %}](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)”。
+为企业启用依赖关系图后，可以启用 {% data variables.product.prodname_dependabot %} 以检测存储库中非安全依赖项{% ifversion ghes > 3.2 %}，并自动修复漏洞{% endif %}。 更多信息请参阅“[为企业启用 {% data variables.product.prodname_dependabot %}](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)”。
 
 {% ifversion ghes > 3.1 %}
 您可以通过 {% data variables.enterprise.management_console %} 或管理 shell 启用依赖关系图。 我们建议您使用 {% data variables.enterprise.management_console %}，除非 {% data variables.product.product_location %} 使用集群。
