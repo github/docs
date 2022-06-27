@@ -58,12 +58,14 @@ We recommend testing your site locally, which allows you to see build error mess
 ## Viewing Jekyll build error messages in your pull request
 
 {% ifversion pages-custom-workflow %}If you are publishing from a branch, when{% else %}When{% endif %} you create a pull request to update your publishing source on {% data variables.product.product_name %}, you can see build error messages on the **Checks** tab of the pull request. For more information, see "[About status checks](/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks)."
-[todo: to get this info if you are deploying with actions, do you need to configure your workflow to run on PRs as well, but only execute the deploy step if the workflow was triggered by a push to main. should we add that to the starter workflows?]
+
+{% ifversion pages-custom-workflow %}If you are publishing with a custom {% data variables.product.prodname_actions %} workflow, in order to see build error messages in your pull request, you must configure your workflow to run on the `pull_request` trigger and to skip any deploy steps if the workflow was triggered by the `pull_request` event. For more information, see "[Events that trigger workflows](/actions/using-workflows/events-that-trigger-workflows#pull_request)" and "[Expressions](/actions/learn-github-actions/expressions)."{% endif %}
 
 ## Viewing Jekyll build errors by email
 
 {% ifversion pages-custom-workflow %}If you are publishing from a branch, when{% else %}When{% endif %} you push changes to your publishing source on {% data variables.product.product_name %}, {% data variables.product.prodname_pages %} will attempt to build your site. If the build fails, you'll receive an email at your primary email address. You'll also receive emails for build warnings. {% data reusables.pages.build-failure-email-server %}
-[todo: to get this info if you are deploying with actions, do you need to configure your workflow to run on PRs as well, but only execute the deploy step if the workflow was triggered by a push to main. should we add that to the starter workflows?]
+
+{% ifversion pages-custom-workflow %}If you are publishing with a custom {% data variables.product.prodname_actions %} workflow, in order to receive errors about build failures in your pull request, you must configure your workflow to run on the `pull_request` trigger and to skip any deploy steps if the workflow was triggered by the `pull_request` event. For more information, see "[Events that trigger workflows](/actions/using-workflows/events-that-trigger-workflows#pull_request)" and "[Expressions](/actions/learn-github-actions/expressions)."{% endif %}
 
 ## Viewing Jekyll build error messages in your pull request with a third-party CI service
 
@@ -83,4 +85,3 @@ You can configure a third-party service, such as [Travis CI](https://travis-ci.o
   script: "bundle exec jekyll build"
   ```
 3. You may need to activate your repository with the third-party testing service. For more information, see your testing service's documentation.
-[todo no applicable to the actions route?]
