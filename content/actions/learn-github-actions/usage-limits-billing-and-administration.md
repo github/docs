@@ -57,6 +57,12 @@ There are some limits on {% data variables.product.prodname_actions %} usage whe
   | Pro | 40 | 5 |
   | Team | 60 | 5 |
   | Enterprise | 180 | 50 |
+
+  {% note %}
+
+  **Note:** If required, customers on enterprise plans can request a higher limit for concurrent jobs. For more information, contact {% data variables.contact.contact_ent_support %} or your sales representative.
+
+  {% endnote %}
 - **Job matrix** - {% data reusables.actions.usage-matrix-limits %}
 {% data reusables.actions.usage-workflow-queue-limits %}
 
