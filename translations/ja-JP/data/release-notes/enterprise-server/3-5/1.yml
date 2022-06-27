@@ -30,3 +30,4 @@ sections:
     - pre-receive フックの処理に固有のリソース制限によって、pre-receive フックに失敗するものが生じることがあります。
     - 別のホスト上で取られたバックアップからのアプライアンスのリストア後、Actionsサービスを再起動する必要があります。
     - 'Deleted repositories will not be purged from disk automatically after the 90-day retention period ends. This issue is resolved in the 3.5.1 release. [Updated: 2022-06-10]'
+    - 'Management Console may appear stuck on the _Starting_ screen after upgrading an under-provisioned instance to GitHub Enterprise Server 3.5. [Updated: 2022-06-20]'
