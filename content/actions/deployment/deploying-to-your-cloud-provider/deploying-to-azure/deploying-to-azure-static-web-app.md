@@ -61,7 +61,7 @@ env:
   API_LOCATION: "api" # location of your api source code - optional
   APP_ARTIFACT_LOCATION: "build" # location of client code build output
 
-  on:
+on:
   push:
     branches:
       - main
@@ -78,6 +78,8 @@ jobs:
     if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
     runs-on: ubuntu-latest
     name: Build and Deploy
+    permissions: # content read permission is required for private repos
+      contents: read
     steps:
       - uses: {% data reusables.actions.action-checkout %}
         with:
