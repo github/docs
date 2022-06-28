@@ -47,6 +47,8 @@ To use {% data variables.product.prodname_copilot %} in Neovim you must have Neo
       ```
       git clone https://github.com/github/copilot.vim \
       ~/.config/PATH/TO/YOUR/NEOVIM/CONFIG/FILE/copilot.vim
+      ```
+
 1. To configure {% data variables.product.prodname_copilot %}, open Neovim and enter the following command.
 
    ```
@@ -59,16 +61,22 @@ To use {% data variables.product.prodname_copilot %} in Neovim you must have Neo
 {% linux %}
 
 {% data reusables.copilot.install-copilot-in-neovim %}
-    - To install the {% data variables.product.prodname_copilot %} plugin directly, you must know where Neovim stores plugins. To install the plugin, enter the following command in Git Bash.
+    - To install the {% data variables.product.prodname_copilot %} plugin with the builtin Neovim plugin manager, enter the following shell commands to clone the {% data variables.product.prodname_copilot %} release.
 
       ```
-      git clone https://github.com/github/copilot.vim \
-      ~/.config/PATH/TO/YOUR/NEOVIM/CONFIG/FILE/copilot.vim
+      mkdir -p .config/nvim/pack/github/start
+      git clone https://github.com/github/copilot.vim.git \
+             ~/.config/nvim/pack/github/start/copilot.vim
       ```
+1. Visit https://github.com/settings/copilot and complete the required steps.
 1. To configure {% data variables.product.prodname_copilot %}, open Neovim and enter the following command.
 
    ```
    :Copilot setup
+   ```
+1. Enable {% data variables.product.prodname_copilot %} in your Neovim configuration, or with the Neovim command.
+   ```
+   :Copilot enable
    ```
 {% endlinux %}
 
