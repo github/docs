@@ -65,7 +65,7 @@ To use {% data variables.product.prodname_copilot %} in Neovim you must have Neo
 
       ```
       mkdir -p ~/.config/nvim/pack/github/start
-      git clone https://github.com/github/copilot.vim.git \
+      git clone https://github.com/github/copilot.vim \
                ~/.config/nvim/pack/github/start/copilot.vim
       ```
 1. Visit https://github.com/settings/copilot and complete the required steps.
