@@ -24,7 +24,7 @@ Puedes ver y revocar la identidad vinculada de cada miembro, sesiones activas y 
 
 {% data reusables.saml.about-linked-identities %}
 
-Cuando esté disponible, la entrada incluirá datos de SCIM. Para obtener más información, consulta la sección "[Acerca de SCIM](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim)".
+Cuando esté disponible, la entrada incluirá datos de SCIM. Para obtener más información, consulta la sección "[SCIM para las organizaciones](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)".
 
 {% warning %}
 

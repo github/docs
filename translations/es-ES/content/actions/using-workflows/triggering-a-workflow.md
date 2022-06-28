@@ -20,14 +20,7 @@ miniTocMaxHeadingLevel: 3
 
 ## Acerca de los activadores de los flujos de trabajo
 
-Los activadores de los flujos de trabajo son eventos que ocasionan que se ejecute un flujo de trabajo. Estos eventos pueden ser:
-
-- Eventos que ocurren en el repositorio de tu flujo de trabajo
-- Eventos que ocurren fuera de {% data variables.product.product_name %} y activan un evento de `repository_dispatch` en {% data variables.product.product_name %}
-- Tiempos programados
-- Manual
-
-Por ejemplo, puedes configurar tu flujo de trabajo para que se ejecute cuando se realiza una subida a la rama predeterminada de tu repositorio, cuando se crea un lanzamiento o cuando se abre una propuesta.
+{% data reusables.actions.about-triggers %}
 
 Los activadores de los flujos de trabajo se definen con la clave `on`. Para obtener más información, consulta la sección "[Sintaxis del flujo de trabajo para las {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions#on)".
 

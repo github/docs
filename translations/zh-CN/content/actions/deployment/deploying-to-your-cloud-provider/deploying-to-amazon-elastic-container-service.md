@@ -26,7 +26,7 @@ shortTitle: 部署到 Amazon ECS
 
 在每次推送到 {% data variables.product.company_short %} 仓库中的 `main` 时，{% data variables.product.prodname_actions %} 工作流程将构建新的容器映像并将其推送到 Amazon ECR，然后将新的任务定义部署到 Amazon ECS。
 
-{% ifversion fpt or ghec or ghae-issue-4856 %}
+{% ifversion fpt or ghec or ghae-issue-4856 or ghes > 3.4 %}
 
 {% note %}
 

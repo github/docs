@@ -78,7 +78,7 @@ on:
 jobs:
   push_to_registry:
     name: Push Docker image to Docker Hub
-    runs-on: ubuntu-latest
+    runs-on: {% ifversion ghes %}[self-hosted]{% else %}ubuntu-latest{% endif %}
     steps:
       - name: Check out the repo
         uses: {% data reusables.actions.action-checkout %}
@@ -108,12 +108,16 @@ jobs:
 
 ## 发布映像到 {% data variables.product.prodname_registry %}
 
+{% ifversion ghes > 3.4 %}
+{% data reusables.package_registry.container-registry-ghes-beta %}
+{% endif %}
+
 {% data reusables.actions.release-trigger-workflow %}
 
 在下面的示例工作流程中，我们使用 Docker `login-action`{% ifversion fpt or ghec %}、`metadata-action`{% endif %} 和 `build-push-action` 操作构建 Docker 映像，如果构建成功，则将构建的映像推送到 {% data variables.product.prodname_registry %}。
 
 {% data variables.product.prodname_registry %} 需要的 `login-action` 选项包括：
-* `registry`：必须设置为 {% ifversion fpt or ghec %}`ghcr.io`{% else %}`docker.pkg.github.com`{% endif %}。
+* `registry`：必须设置为 {% ifversion fpt or ghec %}`ghcr.io`{% elsif ghes > 3.4 %}`{% data reusables.package_registry.container-registry-hostname %}`{% else %}`docker.pkg.github.com`{% endif %}。
 * `username`：您可以使用 {% raw %}`${{ github.actor }}`{% endraw %} 上下文自动使用触发工作流程运行的用户的用户名。 更多信息请参阅“[上下文](/actions/learn-github-actions/contexts#github-context)”。
 * `password`：您可以使用自动生成的 `GITHUB_TOKEN` 密码作为密码。 更多信息请参阅“[使用 GITHUB_TOKEN 验证身份](/actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token)”。
 
@@ -126,9 +130,13 @@ jobs:
 * `context`：将构建的上下文定义为位于指定路径中的文件集。{% endif %}
 * `push`：如果设置为 `true`，则映像在构建成功后将被推送到注册表。{% ifversion fpt or ghec %}
 * `tags` 和 `labels`：这些由 `metadata-action` 的输出填充。{% else %}
-* `tags`：必须设置为格式 `docker.pkg.github.com/OWNER/REPOSITORY/IMAGE_NAME:VERSION`。 例如，对于 `http://github.com/octo-org/octo-repo` 上名为 `octo-image` stored on {% data variables.product.prodname_dotcom %} 的映像，`tags` 选项应设置为 `docker.pkg.github.com/octo-org/octo-repo/octo-image:latest`。 您可以如下所示设置单个标记，或在列表中指定多个标记。{% endif %}
+* `tags`：必须以 {% ifversion ghes > 3.4 %}`{% data reusables.package_registry.container-registry-hostname %}/OWNER/REPOSITORY/IMAGE_NAME:VERSION` 格式设置。
 
-{% ifversion fpt or ghec %}
+   例如，对于存储在 `https://HOSTNAME/octo-org/octo-repo` 上 {% data variables.product.prodname_ghe_server %} 中的映像 `octo-image`，`tags` 选项应设置为 `{% data reusables.package_registry.container-registry-hostname %}/octo-org/octo-repo/octo-image:latest`{% else %}`docker.pkg.github.com/OWNER/REPOSITORY/IMAGE_NAME:VERSION`。
+
+   例如，对于存储在 `http://github.com/octo-org/octo-repo` 上 {% data variables.product.prodname_dotcom %} 中的映像 `octo-image`，`tags` 选项应设置为 `docker.pkg.github.com/octo-org/octo-repo/octo-image:latest`{% endif %}。 您可以如下所示设置单个标记，或在列表中指定多个标记。{% endif %}
+
+{% ifversion fpt or ghec or ghes > 3.4 %}
 {% data reusables.package_registry.publish-docker-image %}
 
 上述工作流程通过推送到“发行版”分支触发。 它会检出 GitHub 仓库，并使用 `login-action` 登录到 {% data variables.product.prodname_container_registry %}。 然后，它将提取 Docker 映像的标签和标记。 最后，它使用 `build-push-action` 操作来构建映像并在 {% data variables.product.prodname_container_registry %} 上发布。
@@ -170,10 +178,14 @@ jobs:
             {% ifversion ghae %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}{% raw %}/${{ github.repository }}/octo-image:${{ github.event.release.tag_name }}{% endraw %}
 ```
 
-上述工作流程检出 {% data variables.product.prodname_dotcom %} 仓库，使用 `login-action` 登录到注册表，然后使用 `build-push-action` 操作：基于仓库的 `Dockerfile` 构建 Docker 映像；将该映像推送到 Docker 注册表，然后提交 SHA 和发行版本应用为映像标记。
+上述工作流程检出 {% data variables.product.product_name %} 仓库，使用 `login-action` 登录到注册表，然后使用 `build-push-action` 操作：基于仓库的 `Dockerfile` 构建 Docker 映像；将该映像推送到 Docker 注册表，然后提交 SHA 和发行版本应用为映像标记。
 {% endif %}
 
 ## 发布映像到 Docker Hub 和 {% data variables.product.prodname_registry %}
+
+{% ifversion ghes > 3.4 %}
+{% data reusables.package_registry.container-registry-ghes-beta %}
+{% endif %}
 
 在单一工作流程中，您可以对每个注册表使用 `login-action` 和 `build-push-action`> 操作，以将 Docker 映像发布到多个注册表。
 
@@ -191,7 +203,7 @@ on:
 jobs:
   push_to_registries:
     name: Push Docker image to multiple registries
-    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
+    runs-on: {% ifversion ghes %}[self-hosted]{% else %}ubuntu-latest{% endif %}{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
     permissions:
       packages: write
       contents: read{% endif %}
@@ -205,10 +217,10 @@ jobs:
           username: {% raw %}${{ secrets.DOCKER_USERNAME }}{% endraw %}
           password: {% raw %}${{ secrets.DOCKER_PASSWORD }}{% endraw %}
 
-      - name: Log in to the {% ifversion fpt or ghec %}Container{% else %}Docker{% endif %} registry
+      - name: Log in to the {% ifversion fpt or ghec or ghes > 3.4 %}Container{% else %}Docker{% endif %} registry
         uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
         with:
-          registry: {% ifversion fpt or ghec %}ghcr.io{% elsif ghae %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}
+          registry: {% ifversion fpt or ghec %}ghcr.io{% elsif ghae %}docker.YOUR-HOSTNAME.com{% elsif ghes > 3.4 %}{% data reusables.package_registry.container-registry-hostname %}{% else %}docker.pkg.github.com{% endif %}
           username: {% raw %}${{ github.actor }}{% endraw %}
           password: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
 
@@ -218,7 +230,7 @@ jobs:
         with:
           images: |
             my-docker-hub-namespace/my-docker-hub-repository
-            {% ifversion fpt or ghec %}ghcr.io/{% raw %}${{ github.repository }}{% endraw %}{% elsif ghae %}{% raw %}docker.YOUR-HOSTNAME.com/${{ github.repository }}/my-image{% endraw %}{% else %}{% raw %}docker.pkg.github.com/${{ github.repository }}/my-image{% endraw %}{% endif %}
+            {% ifversion fpt or ghec or ghes > 3.4 %}{% data reusables.package_registry.container-registry-hostname %}/{% raw %}${{ github.repository }}{% endraw %}{% elsif ghae %}{% raw %}docker.YOUR-HOSTNAME.com/${{ github.repository }}/my-image{% endraw %}{% else %}{% raw %}docker.pkg.github.com/${{ github.repository }}/my-image{% endraw %}{% endif %}
 
       - name: Build and push Docker images
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
@@ -229,4 +241,4 @@ jobs:
           labels: {% raw %}${{ steps.meta.outputs.labels }}{% endraw %}
 ```
 
-上面的工作流程检出 {% data variables.product.prodname_dotcom %} 仓库，使用两次 `login-action` 操作登录两个注册表，然后使用 `metadata-action` 操作生成标记和标签。 然后，`build-pow-action` 操作构建并推送 Docker 映像到 Docker Hub 和 {% ifversion fpt or ghec %}{% data variables.product.prodname_container_registry %}{% else %}Docker 注册表{% endif %}。
+上面的工作流程检出 {% data variables.product.product_name %} 仓库，使用两次 `login-action` 操作登录两个注册表，然后使用 `metadata-action` 操作生成标记和标签。 然后，`build-pow-action` 操作构建并推送 Docker 映像到 Docker Hub 和 {% ifversion fpt or ghec or ghes > 3.4 %}{% data variables.product.prodname_container_registry %}{% else %}Docker 注册表{% endif %}。

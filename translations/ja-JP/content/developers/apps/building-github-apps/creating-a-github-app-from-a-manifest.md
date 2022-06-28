@@ -46,7 +46,7 @@ GitHub App Manifest フローを実装するには、以下の 3 つのステッ
 
 ### 1. GitHub にユーザをリダイレクトして新しい GitHub App を作成する
 
-新しい GitHub App を作成するためユーザをリダイレクトするには、ユーザアカウントが `https://github.com/settings/apps/new` に、または Organization アカウントが `https://github.com/organizations/ORGANIZATION/settings/apps/new` に `POST` リクエストをクリックして送信するための[リンクを指定](#examples)します。`ORGANIZATION` は、アプリケーションが作成される Organization アカウントの名前で置き換えてください。
+To redirect people to create a new GitHub App, [provide a link](#examples) for them to click that sends a `POST` request to `https://github.com/settings/apps/new` for a personal account or `https://github.com/organizations/ORGANIZATION/settings/apps/new` for an organization account, replacing `ORGANIZATION` with the name of the organization account where the app will be created.
 
 `manifest` と呼ばれるパラメータに、JSON エンコードされた文字列として [GitHub App Manifest パラメータ](#github-app-manifest-parameters)を含める必要があります。 セキュリティ強化のため、`state` [parameter](#parameters) を追加することもできます。
 
@@ -83,7 +83,7 @@ GitHub App Manifest フローを実装するには、以下の 3 つのステッ
 
 #### サンプル
 
-この例では、ウェブページ上にユーザアカウントに対して `POST` リクエストをトリガするボタンがあるフォームを使用します。
+This example uses a form on a web page with a button that triggers the `POST` request for a personal account:
 
 ```html
 <form action="https://github.com/settings/apps/new?state=abc123" method="post">

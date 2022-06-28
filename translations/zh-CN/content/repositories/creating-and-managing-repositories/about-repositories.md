@@ -26,10 +26,10 @@ topics:
 
 您可以通过选择仓库的可见性来限制谁可以访问仓库。 更多信息请参阅“[关于仓库可见性](#about-repository-visibility)”。
 
-对于用户拥有的仓库，您可以向其他人授予协作者访问权限，以便他们可以协作处理您的项目。 如果仓库归组织所有，您可以向组织成员授予访问权限，以便协作处理您的仓库。 更多信息请参阅“[用户帐户仓库的权限级别](/articles/permission-levels-for-a-user-account-repository/)”和“[组织的仓库角色](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)”。
+对于用户拥有的仓库，您可以向其他人授予协作者访问权限，以便他们可以协作处理您的项目。 如果仓库归组织所有，您可以向组织成员授予访问权限，以便协作处理您的仓库。 更多信息请参阅“[个人帐户仓库的权限级别](/articles/permission-levels-for-a-user-account-repository/)”和“[组织的仓库角色](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)”。
 
 {% ifversion fpt or ghec %}
-通过用户帐户和组织的 {% data variables.product.prodname_free_team %}，可与无限的协作者合作处理设置了完全功能的无限公共仓库，或者是设置了有限功能的无限私有仓库， 要获取对私有仓库的高级处理，您可以升级到 {% data variables.product.prodname_pro %}、{% data variables.product.prodname_team %} 或 {% data variables.product.prodname_ghe_cloud %}。 {% data reusables.gated-features.more-info %}
+通过个人帐户和组织的 {% data variables.product.prodname_free_team %}，可与无限的协作者合作处理设置了完全功能的无限公共仓库，或者是设置了有限功能的无限私有仓库， 要获取对私有仓库的高级处理，您可以升级到 {% data variables.product.prodname_pro %}、{% data variables.product.prodname_team %} 或 {% data variables.product.prodname_ghe_cloud %}。 {% data reusables.gated-features.more-info %}
 {% else %}
 每个人和组织都可拥有无限的仓库，并且可以邀请无限的协作者参与所有仓库。
 {% endif %}
@@ -52,7 +52,7 @@ topics:
 
 {% elsif ghae %}
 
-当您创建由您的用户帐户拥有的仓库时，仓库始终是私有的。 创建组织拥有的存储库时，可以选择将存储库设为私有或内部存储库。
+当您创建由您的个人帐户拥有的仓库时，仓库始终是私有的。 创建组织拥有的存储库时，可以选择将存储库设为私有或内部存储库。
 
 {% endif %}
 
@@ -90,7 +90,7 @@ topics:
 
 {% data reusables.repositories.internal-repo-default %}
 
-企业的任何成员都可以复刻企业中组织拥有的任何内部存储库。 复刻的存储库将属于成员的用户帐户，复刻的可见性将是私有的。 如果用户从企业拥有的所有组织中删除，该用户的内部仓库复刻也会自动删除。
+企业的任何成员都可以复刻企业中组织拥有的任何内部存储库。 复刻的存储库将属于成员的个人帐户，复刻的可见性将是私有的。 如果用户从企业拥有的所有组织中删除，该用户的内部仓库复刻也会自动删除。
 {% endif %}
 
 ## 限制查看仓库中的内容和差异

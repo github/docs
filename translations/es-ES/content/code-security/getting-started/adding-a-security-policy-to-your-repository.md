@@ -25,7 +25,7 @@ Para otorgar instrucciones a las personas sobre cómo reportar las vulnerabilida
 
 {% ifversion not ghae %}
 <!-- no public repos in GHAE -->
-Puedes crear una política de seguridad predeterminada para tu cuenta de usuario o de organización. Para obtener más información, consulta "[Crear un archivo de salud predeterminado para la comunidad](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
+Puedes crear una política de seguridad predeterminada para tu cuenta personal o de organización. Para obtener más información, consulta "[Crear un archivo de salud predeterminado para la comunidad](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
 {% endif %}
 
 {% tip %}

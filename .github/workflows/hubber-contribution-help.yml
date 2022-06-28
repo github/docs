@@ -41,7 +41,7 @@ jobs:
         run: |
           gh pr comment $PR --body "Thanks so much for opening this PR and contributing to GitHub Docs!
 
-          - When you're ready for the Docs team to review this PR, add the *ready-for-doc-review* label to your PR to the [Docs Content review board](https://github.com/orgs/github/memexes/901?layout=table&groupedBy%5BcolumnId%5D=11024). **Please factor in at least 72 hours for a review, even longer if this is a substantial change.**
+          - When you're ready for the Docs team to review this PR, add the *ready-for-doc-review* label to your PR, and it will be automatically added to the [Docs Content review board](https://github.com/orgs/github/memexes/901?layout=table&groupedBy%5BcolumnId%5D=11024). **Please factor in at least 72 hours for a review, even longer if this is a substantial change.**
           - If this is a major update to the docs, you might want to go back and open an [issue](https://github.com/github/docs-content/issues/new/choose) to ensure we've covered all areas of the docs in these updates. Not doing so may result in delays or inaccurate documentation."
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

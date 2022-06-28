@@ -331,7 +331,7 @@ steps:
 
 #### Exemplo: Usando funções de verificação de status
 
-A função `my backup step` (minha etapa de backup) somente é executada quando houver falha em uma etapa anterior do trabalho. Para obter mais informações, consulte "[Expressões](/actions/learn-github-actions/expressions#job-status-check-functions)".
+A função `my backup step` (minha etapa de backup) somente é executada quando houver falha em uma etapa anterior do trabalho. Para obter mais informações, consulte "[Expressões](/actions/learn-github-actions/expressions#status-check-functions)".
 
 ```yaml
 steps:
@@ -745,11 +745,39 @@ Se o tempo-limite exceder o tempo limite de execução do trabalho para o runner
 
 ## `jobs.<job_id>.strategy`
 
-{% data reusables.actions.jobs.section-using-a-build-matrix-for-your-jobs-strategy %}
+Use `trabalhos.<job_id>.strategy` para usar uma estratégia matriz para seus trabalhos. {% data reusables.actions.jobs.about-matrix-strategy %} Para obter mais informações, consulte "[Usando uma matriz para seus trabalhos "](/actions/using-jobs/using-a-matrix-for-your-jobs)".
 
 ### `jobs.<job_id>.strategy.matrix`
 
-{% data reusables.actions.jobs.section-using-a-build-matrix-for-your-jobs-matrix %}
+{% data reusables.actions.jobs.using-matrix-strategy %}
+
+#### Exemplo: Usando uma matriz de dimensão única
+
+{% data reusables.actions.jobs.single-dimension-matrix %}
+
+#### Exemplo: Usando uma matriz de múltiplas dimensões
+
+{% data reusables.actions.jobs.multi-dimension-matrix %}
+
+#### Exemplo: Usando contextos para criar matrizes
+
+{% data reusables.actions.jobs.matrix-from-context %}
+
+### `jobs.<job_id>.strategy.matrix.include`
+
+{% data reusables.actions.jobs.matrix-include %}
+
+#### Exemplo: Expandir configurações
+
+{% data reusables.actions.jobs.matrix-expand-with-include %}
+
+#### Exemplo: Adicionar configurações
+
+{% data reusables.actions.jobs.matrix-add-with-include %}
+
+### `jobs.<job_id>.strategy.matrix.exclude`
+
+{% data reusables.actions.jobs.matrix-exclude %}
 
 ### `jobs.<job_id>.strategy.fail-fast`
 
@@ -912,7 +940,7 @@ Opções adicionais de recursos do contêiner Docker. Para obter uma lista de op
 
 {% data reusables.actions.reusable-workflows-ghes-beta %}
 
-O local e a versão de um arquivo de fluxo de trabalho reutilizável para ser executado como job. {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6000 %}Use uma das seguintes sintaxes:{% endif %}
+O local e a versão de um arquivo de fluxo de trabalho reutilizável para ser executado como trabalho. {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6000 %}Use uma das seguintes sintaxes:{% endif %}
 
 {% data reusables.actions.reusable-workflow-calling-syntax %}
 
@@ -963,6 +991,42 @@ jobs:
       access-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
 ```
 {% endraw %}
+
+{% ifversion actions-inherit-secrets-reusable-workflows %}
+
+### `jobs.<job_id>.secrets.inherit`
+
+Use a a palavra-chave `herdar` para passar todos os segredos do fluxo de trabalho chamando para o fluxo de trabalho. Isso inclui todos os segredos aos quais o fluxo de trabalho da chamada tem acesso, nomeadamente organização, repositório e segredos de ambiente. A palavra-chave `herdar` pode ser usada para passar segredos por meio de repositórios dentro da mesma organização ou em organizações dentro da mesma empresa.
+
+#### Exemplo
+
+{% raw %}
+
+```yaml
+on:
+  workflow_dispatch:
+
+jobs:
+  pass-secrets-to-workflow:
+    uses: ./.github/workflows/called-workflow.yml
+    secrets: inherit
+```
+
+```yaml
+on:
+  workflow_call:
+
+jobs:
+  pass-secret-to-action:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Use a repo or org secret from the calling workflow.
+        run: echo ${{ secrets.CALLING_WORKFLOW_SECRET }}
+```
+
+{% endraw %}
+
+{%endif%}
 
 ### `jobs.<job_id>.secrets.<secret_id>`
 

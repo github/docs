@@ -6,7 +6,7 @@
 
 製品の学習トラックのデータは2カ所で定義されています:
 
-1. A simple array of learning track names is defined in the product guides index page frontmatter.
+1. 学習トラック名のシンプルな配列は、製品ガイドの索引ページの前付けで定義されています。
 
     たとえば`content/actions/guides/index.md`では以下のようになっています:
     ```
@@ -23,13 +23,13 @@
 
     たとえば`data/learning-tracks/actions.yml`では、コンテンツファイルの`learningTracks`配列の各アイテムは、`title`や`description`、`guides`リンクの配列といった追加データとともに表現されています。
 
-    One learning track in this YAML **per version** must be designated as a "featured" learning track via `featured_track: true`, which will set it to appear at the top of the product guides page. このプロパティがないと、テストは失敗します。
+    **バージョンごとに**このYAML中の1つの学習トラックを、`featured_track: true`を通じて「注目の」学習トラックとして指定する必要があります。これは、製品ガイドページの上部に表示されるように設定されます。 このプロパティがないと、テストは失敗します。
 
     `featured_track`プロパティは、シンプルな論理値（すなわち`featured_track: true`）もしくは、バージョン付けの宣言を含む文字列（ たとえば`featured_track: '{% ifversion fpt %}true{% else %}false{% endif %}'`）とすることができます。 バージョン付けを使用するなら、YMLファイルごとに複数の`featured_track`を持つことになりますが、必ず現在サポートされている各バージョンごとに1つだけがレンダリングされるようにしてください。 各バージョンに対して注目のリンクが1つより多くても少なくてもテストは失敗します。
 
 ## バージョン管理
 
-学習トラックのバージョン付けは、ページのレンダリングの時点で処理されます。 コードは[`lib/learning-tracks.js`](lib/learning-tracks.js)にあり、これは`page.render()`によって呼ばれます。 The processed learning tracks are then rendered by `components/guides`.
+学習トラックのバージョン付けは、ページのレンダリングの時点で処理されます。 コードは[`lib/learning-tracks.js`](lib/learning-tracks.js)にあり、これは`page.render()`によって呼ばれます。 そして処理された学習トラックは、`components/guides`によってレンダリングされます。
 
 ガイドのためのYAMLファイルのバージョン付けでLiquid条件文を使う必要は**ありません**。 現在のバージョンに適用される学習トラックのガイドだけが自動的にレンダリングされます。 現在のバージョンに属するガイドを持つトラックがない場合、その学習トラックのセクションはまったくレンダリングされません。
 

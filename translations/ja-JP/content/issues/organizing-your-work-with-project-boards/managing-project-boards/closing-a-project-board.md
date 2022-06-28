@@ -21,7 +21,7 @@ topics:
 
 プロジェクトボードを再びオープンする場合、自動化を*同期*するよう設定することができます。それにより、ボードに設定されている自動化設定に従ってボード上のカードのポジションが更新されます。 詳しい情報については、「[クローズされたプロジェクトボードを再びオープンする](/articles/reopening-a-closed-project-board)」や「[プロジェクトボードの自動化について](/articles/about-automation-for-project-boards)」を参照してください。
 
-1. リポジトリまたは Organization中にある、あるいはあなたのユーザアカウントが所有するプロジェクトボードの一覧に移動します。
+1. リポジトリもしくはOrganization内、あるいは個人アカウントが所有するプロジェクトボードのリストにアクセスしてください。
 2. プロジェクトリストで、クローズしたいプロジェクトボードの隣にある {% octicon "chevron-down" aria-label="The chevron icon" %}をクリックします。 ![プロジェクトボードの名前の右にある、V 字型のアイコン](/assets/images/help/projects/project-list-action-chevron.png)
 3. [**Close**] をクリックします。 ![プロジェクトボードのドロップダウンメニューにある [Close] アイテム](/assets/images/help/projects/close-project.png)
 

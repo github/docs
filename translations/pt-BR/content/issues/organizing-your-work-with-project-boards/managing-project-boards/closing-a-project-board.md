@@ -21,7 +21,7 @@ Quando você fecha um quadro de projeto, qualquer automação de fluxo de trabal
 
 Se você reabrir um quadro de projeto, existirá a opção de *sincronizar* a automação, o que atualiza a posição dos cartões no quadro de acordo com as configurações de automação definidas para o quadro. Para obter mais informações, consulte "[Reabrir um quadro de projeto fechado](/articles/reopening-a-closed-project-board)" ou "[Sobre automação para quadros de projeto](/articles/about-automation-for-project-boards)".
 
-1. Acesse a lista de quadros de projetos no seu repositório ou organização ou pertencente à sua conta de usuário.
+1. Acesse a lista de quadros de projetos no seu repositório ou organização ou pertencente à sua conta pessoal.
 2. Na lista de projetos, ao lado do quadro de projeto que deseja fechar, clique em {% octicon "chevron-down" aria-label="The chevron icon" %}. ![Ícone de divisa à direita do nome do quadro de projeto](/assets/images/help/projects/project-list-action-chevron.png)
 3. Clique em **Fechar**. ![Menu suspenso para fechar item no quadro de projeto](/assets/images/help/projects/close-project.png)
 

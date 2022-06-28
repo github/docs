@@ -15,8 +15,6 @@ hasExperimentalAlternative: true
 hidden: true
 ---
 
-
-
 ## はじめに
 
 このガイドでは、{% data variables.product.prodname_codespaces %} で C# (.NET) プロジェクトを設定する方法を説明します。 codespace でプロジェクトを開き、テンプレートから開発コンテナ設定を追加および変更する例を紹介します。
@@ -28,7 +26,7 @@ hidden: true
 
 ## ステップ 1: codespace でプロジェクトを開く
 
-1. Under the repository name, use the **{% octicon "code" aria-label="The code icon" %} Code** drop-down menu, and in the **Codespaces** tab, click {% octicon "plus" aria-label="The plus icon" %} **New codespace**.
+1. Under the repository name, use the **{% octicon "code" aria-label="The code icon" %} Code** drop-down menu, and in the **Codespaces** tab, click **Create codespace on main**.
 
   ![[New codespace] ボタン](/assets/images/help/codespaces/new-codespace-button.png)
 
@@ -36,22 +34,18 @@ hidden: true
 
 codespace を作成すると、プロジェクトは専用のリモート VM 上に作成されます。 デフォルト設定では、codespace のコンテナには、.NET を含む多くの言語とランタイムがあります。 また、git、wget、rsync、openssh、nano などの一般的なツールセットも含まれています。
 
-vCPU と RAM の量を調整したり、[ドットファイルを追加して環境をパーソナライズ](/codespaces/setting-up-your-codespace/personalizing-codespaces-for-your-account)したり、インストールされているツールやスクリプトを変更したりして、codespace をカスタマイズできます。
+{% data reusables.codespaces.customize-vcpus-and-ram %}
 
-{% data variables.product.prodname_codespaces %} は、`devcontainer.json` というファイルを使用して設定を保存します。 起動時に、{% data variables.product.prodname_codespaces %} はファイルを使用して、プロジェクトに必要となる可能性のあるツール、依存関係、またはその他のセットアップをインストールします。 For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)."
+## Step 2: Add a dev container configuration to your repository from a template
 
+The default development container, or "dev container," for {% data variables.product.prodname_github_codespaces %} comes with the latest .NET version and common tools preinstalled. However, we recommend that you configure your own dev container to include all of the tools and scripts that your project needs. これにより、リポジトリ内のすべての {% data variables.product.prodname_github_codespaces %} ユーザに対して完全に再現可能な環境を確保できます。
 
-## ステップ 2: テンプレートから codespace に開発コンテナを追加する
-
-デフォルトの Codespaces コンテナには、最新の .NET バージョンと一般的なツールがプリインストールされています。 ただし、カスタムコンテナを設定して、codespace 作成の一部として実行されるツールとスクリプトをプロジェクトのニーズに合わせて調整し、リポジトリ内のすべての {% data variables.product.prodname_codespaces %} ユーザに完全に再現可能な環境を確保することをお勧めします。
-
-カスタムコンテナを使用してプロジェクトを設定するには、`devcontainer.json` ファイルを使用して環境を定義する必要があります。 {% data variables.product.prodname_codespaces %} で、これをテンプレートから追加することも、独自に作成することもできます。 For more information on dev containers, see "[Introduction to dev containers ](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)."
-
+{% data reusables.codespaces.setup-custom-devcontainer %}
 
 {% data reusables.codespaces.command-palette-container %}
-2. この例では、**C# (.NET)** をクリックします。 追加機能が必要な場合は、C# (.NET) に固有の任意のコンテナ、または C# (.NET) や MSSQL などのツールの組み合わせを選択できます。 ![リストから C# (.NET) オプションの選択](/assets/images/help/codespaces/add-dotnet-prebuilt-container.png)
-3. .NET の推奨バージョンをクリックします。 ![.NET バージョンの選択](/assets/images/help/codespaces/add-dotnet-version.png)
-4. デフォルトのオプションを使用して、Node.js をカスタマイズに追加します。 ![Node.js の選択に追加](/assets/images/help/codespaces/dotnet-options.png)
+1. この例では、**C# (.NET)** をクリックします。 追加機能が必要な場合は、C# (.NET) に固有の任意のコンテナ、または C# (.NET) や MSSQL などのツールの組み合わせを選択できます。 ![リストから C# (.NET) オプションの選択](/assets/images/help/codespaces/add-dotnet-prebuilt-container.png)
+1. .NET の推奨バージョンをクリックします。 ![.NET バージョンの選択](/assets/images/help/codespaces/add-dotnet-version.png)
+1. デフォルトのオプションを使用して、Node.js をカスタマイズに追加します。 ![Node.js の選択に追加](/assets/images/help/codespaces/dotnet-options.png)
 {% data reusables.codespaces.rebuild-command %}
 
 ### 開発コンテナの構造
@@ -126,15 +120,15 @@ C# (.NET) 開発コンテナテンプレートを追加すると、次のファ�
 
 - **名前** - 開発コンテナには任意の名前を付けることができます。これはデフォルトです。
 - **ビルド** - ビルドプロパティです。
-  - **Dockerfile** - ビルドオブジェクトでは、Dockerfile は、これもまたテンプレートから追加された `dockerfile` への参照です。
-  - **Args**
+  - **dockerfile** - In the `build` object, `dockerfile` contains the path to the Dockerfile that was also added from the template.
+  - **args**
     - **バリアント**: このファイルには、使用する .NETCore バージョンであるビルド引数が1つだけ含まれています。
 - **設定** - これらは {% data variables.product.prodname_vscode %} 設定です。
-  - **Terminal.integrated.shell.linux** - ここでは bash がデフォルトですが、これを変更することで他のターミナルシェルを使用できます。
+  - **terminal.integrated.shell.linux** - While bash is the default here, you could use other terminal shells by modifying this.
 - **機能拡張** - これらはデフォルト設定で含まれている機能拡張です。
   - **ms-dotnettools.csharp** - Microsoft C# 機能拡張は、IntelliSense、linting、デバッグ、コードナビゲーション、コード形式、リファクタリング、変数エクスプローラ、テストエクスプローラなどの機能を含む、C# での開発に豊富なサポートを提供します。
 - **forwardPorts** - ここにリストされているポートはすべて自動的に転送されます。 For more information, see "[Forwarding ports in your codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)."
-- **postCreateCommand** - `dotnet restore` のように、Dockerfileで定義されていない codespace への到達後に何らかの操作を実行する場合は、ここで実行できます。
+- **postCreateCommand** - Use this to run commands that aren't defined in the Dockerfile, after your codespace is created.
 - **remoteUser** - デフォルト設定では、vscode ユーザとして実行していますが、オプションでこれを root に設定できます。
 
 #### Dockerfile
@@ -167,31 +161,33 @@ Dockerfile を使用して、コンテナレイヤーを追加し、コンテナ
 
 ## ステップ 3: devcontainer.json ファイルを変更する
 
-開発コンテナを追加し、すべての機能を基本的に理解したら、環境に合わせてコンテナを設定するための変更を加えます。 この例では、機能拡張をインストールし、codespace の起動時にプロジェクトの依存関係を復元するためのプロパティを追加します。
+With your dev container configuration added and a basic understanding of what everything does, you can now make changes to customize your environment further. この例では、コードスペースの起動時に拡張機能とプロジェクトの依存関係をインストールするためのプロパティを追加します。
 
-1. Explorer で `.devcontainer` フォルダを展開し、ツリーから `devcontainer.json` ファイルを選択して開きます。
+1. Explorer で、ツリーから `devcontainer.json` ファイルを選択して開きます。 表示するには、`.devcontainer` フォルダを展開する必要がある場合があります。
 
-  ![devcontainer.json file in the Explorer](/assets/images/help/codespaces/devcontainers-options.png)
+   ![devcontainer.json file in the Explorer](/assets/images/help/codespaces/devcontainers-options.png)
 
 2. `devcontainer.json` ファイルの `extensions` リストを更新し、プロジェクトでの作業に役立ついくつかの機能拡張を追加します。
 
-  ```json{:copy}
-  "extensions": [
+   ```json{:copy}
+   "extensions": [
           "ms-dotnettools.csharp",
           "streetsidesoftware.code-spell-checker",
       ],
-  ```
+   ```
 
 3. codespace 設定プロセスの一部として依存関係を復元するには、`postCreateCommand` のコメントを解除します。
 
-  ```json{:copy}
-  // コンテナの作成後にコマンドを実行するには、「postCreateCommand」を使用します。
-  "postCreateCommand": "dotnet restore",
-  ```
+   ```json{:copy}
+   // コンテナの作成後にコマンドを実行するには、「postCreateCommand」を使用します。
+   "postCreateCommand": "dotnet restore",
+   ```
+
+   {% data reusables.codespaces.more-info-devcontainer %}
 
 {% data reusables.codespaces.rebuild-command %}
 
-  codespace 内でリビルドすると、リポジトリに変更をコミットする前に、期待どおりに変更が動作します。 何らかの失敗があった場合、コンテナの調整を継続するためにリビルドできるリカバリコンテナを備えた codespace に配置されます。
+   {% data reusables.codespaces.rebuild-reason %}
 
 5. 「Code Spell Checker」機能拡張がインストールされていることを確認して、変更が正常に適用されたことを確認します。
 
@@ -205,7 +201,7 @@ Dockerfile を使用して、コンテナレイヤーを追加し、コンテナ
 
 2. プロジェクトが開始されると、プロジェクトが使用するポートに接続するためのプロンプトが表示されたトーストが右下隅に表示されます。
 
-  ![ポートフォワーディングトースト](/assets/images/help/codespaces/python-port-forwarding.png)
+   ![ポートフォワーディングトースト](/assets/images/help/codespaces/python-port-forwarding.png)
 
 ## ステップ 5: 変更をコミットする
 
@@ -215,6 +211,4 @@ Dockerfile を使用して、コンテナレイヤーを追加し、コンテナ
 
 これで、C# (.NET) で {% data variables.product.prodname_codespaces %} プロジェクトの開発を始める準備ができました。 より高度なシナリオ向けの追加のリソースは次のとおりです。
 
-- [{% data variables.product.prodname_codespaces %} の暗号化されたシークレットを管理する](/codespaces/working-with-your-codespace/managing-encrypted-secrets-for-codespaces)
-- [{% data variables.product.prodname_codespaces %} の GPG 検証を管理する](/codespaces/working-with-your-codespace/managing-gpg-verification-for-codespaces)
-- [Forwarding ports in your codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)
+{% data reusables.codespaces.next-steps-adding-devcontainer %}

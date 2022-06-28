@@ -29,7 +29,7 @@ shortTitle: 社区健康文件
 
 ## 支持的文件类型
 
-您可以在组织{% ifversion fpt or ghes or ghec %}或用户帐户{% endif %}中为以下社区健康文件创建默认内容：
+您可以在组织{% ifversion fpt or ghes or ghec %} 或个人帐户{% endif %} 中为以下社区健康文件创建默认内容：
 
 | 社区健康文件                                                                 | 描述                                                                                                                                                          |
 | ---------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |{% ifversion fpt or ghec %}
@@ -45,7 +45,7 @@ shortTitle: 社区健康文件
 ## 创建用于默认文件的仓库
 
 {% data reusables.repositories.create_new %}
-2. 使用 **Owner（所有者）** 下拉菜单选择要为其创建默认文件的组织{% ifversion fpt or ghes or ghec %} 或用户帐户{% endif %}。 ![所有者下拉菜单](/assets/images/help/repository/create-repository-owner.png)
+2. 使用 **Owner（所有者）** 下拉菜单选择要为其创建默认文件的组织{% ifversion fpt or ghes or ghec %} 或个人帐户{% endif %}。 ![所有者下拉菜单](/assets/images/help/repository/create-repository-owner.png)
 3. 键入 **.github** 作为仓库的名称，可选择键入说明。 ![创建仓库字段](/assets/images/help/repository/default-file-repository-name.png)
 4. 确保存储库状态设置为**公共**（默认文件的仓库不能是私有的）。 ![用于选择机密或公开状态的单选按钮](/assets/images/help/repository/create-repository-public-private.png)
 {% data reusables.repositories.initialize-with-readme %}

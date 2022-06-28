@@ -1,6 +1,6 @@
 ---
 title: Habilitar las GitHub Actions con la puerta de enlace de MinIO para el almacenamiento en NAS
-intro: 'Puedes habilitar a las {% data variables.product.prodname_actions %} en {% data variables.product.prodname_ghe_server %} y utilizar la puerta de enlace de MinIO para el almacenamiento en NAS para almacenar artefactos que generan las ejecuciones del flujo de trabajo.'
+intro: 'Puedes habilitar las {% data variables.product.prodname_actions %} en {% data variables.product.prodname_ghe_server %} y utilizar MinIO Gateway para almacenamiento de NAS para almacenar los datos que generan las ejecuciones de flujo de trabajo.'
 permissions: 'Site administrators can enable {% data variables.product.prodname_actions %} and configure enterprise settings.'
 versions:
   ghes: '*'
@@ -15,14 +15,14 @@ redirect_from:
 shortTitle: Puerta de enlace de MinIO para el almacenamiento en NAS
 ---
 
-## Prerrequisitos
+{% data reusables.actions.minio-gateways-removal %}
 
-{% data reusables.actions.enterprise-s3-support-warning %}
+## Prerrequisitos
 
 Antes de que habilites las {% data variables.product.prodname_actions %}, asegúrate de que has completado los siguientes pasos:
 
 * Para evitar la contención de recursos en el aplicativo, te recomendamos que hospedes a MinIO separado de {% data variables.product.product_location %}.
-* Crea tu bucket para almacenar los artefactos del flujo de trabajo. Para configurar tu bucket y clave de acceso, consulta la [Documentación de MinIO](https://docs.min.io/docs/minio-gateway-for-nas.html). {% indented_data_reference reusables.actions.enterprise-s3-permission spaces=2 %}
+* Crea tu bucket para almacenar datos de flujo de trabajo. Para configurar tu bucket y clave de acceso, consulta la [Documentación de MinIO](https://docs.min.io/docs/minio-gateway-for-nas.html). {% indented_data_reference reusables.actions.enterprise-s3-permission spaces=2 %}
 
 {% data reusables.actions.enterprise-common-prereqs %}
 

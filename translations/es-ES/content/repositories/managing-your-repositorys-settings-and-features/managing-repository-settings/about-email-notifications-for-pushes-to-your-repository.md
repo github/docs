@@ -31,7 +31,7 @@ Cada notificación por correo electrónico para una subida a un repositorio enum
 - Los archivos que fueron modificados como parte de la confirmación.
 - El mensaje de confirmación
 
-Puedes filtrar las notificaciones por correo electrónico que recibes para las inserciones en un repositorio. Para obtener más información, consulta la sección {% ifversion fpt or ghae or ghes or ghec %}"[Configurar notificaciones](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#filtering-email-notifications){% else %}"[Acerca de los mensajes de notificación por correo electrónico](/github/receiving-notifications-about-activity-on-github/about-email-notifications)". También puedes apagar las notificaciones por correo electrónico para las cargas de información. Para obtener más información, consulta la sección "[Escoger el método de entrega para las notificaciones](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications){% endif %}".
+Puedes filtrar las notificaciones por correo electrónico que recibes para las inserciones en un repositorio. Para obtener más información, consulta la sección "[Configurar notificaciones](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#filtering-email-notifications)".
 
 ## Habilitar las notificaciones por correo electrónico para las subidas de información en tu repositorio
 
@@ -43,10 +43,5 @@ Puedes filtrar las notificaciones por correo electrónico que recibes para las i
 7. Da clic en **Configurar notificaciones**. ![Botón de configurar notificaciones](/assets/images/help/settings/setup_notifications_settings.png)
 
 ## Leer más
-{% ifversion fpt or ghae or ghes or ghec %}
 - "[Acerca de las notificaciones](/github/managing-subscriptions-and-notifications-on-github/about-notifications)"
-{% else %}
-- "[Acerca de las notificaciones](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/about-notifications)"
-- "[Escoger el método de entrega para tus notificaciones](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications)"
-- "[Acerca de las notificaciones por correo electrónico](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/about-email-notifications)"
-- "[Acerca de las notificaciones web](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/about-web-notifications)"{% endif %}
+

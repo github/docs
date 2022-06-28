@@ -20,7 +20,7 @@ Você pode acessar os relatórios de conformidade de {% data variables.product.c
 
 {% note %}
 
-**Note:** To view compliance reports, your organization must use {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
+**Obserbação:** Para ver relatórios de conformidade, a sua organização deve usar {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
 
 {% endnote %}
 

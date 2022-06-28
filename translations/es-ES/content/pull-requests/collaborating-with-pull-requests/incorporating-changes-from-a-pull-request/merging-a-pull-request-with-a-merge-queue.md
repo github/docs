@@ -9,6 +9,7 @@ topics:
 shortTitle: Merge PR with merge queue
 redirect_from:
   - /pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/adding-a-pull-request-to-the-merge-queue
+  - /github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/adding-a-pull-request-to-the-merge-queue
 ---
 
 {% data reusables.pull_requests.merge-queue-beta %}
@@ -59,7 +60,7 @@ You can view the merge queue for a base branch in various places on {% data vari
 
   ![Ver la cola de fusión en la página de solicitudes de cambio](/assets/images/help/pull_requests/clock-icon-in-pull-request-list.png)
 
-- On the pull request page when merge queue is required for merging, scroll to the bottom of the timeline and click **the merge queue** link.
+- On the pull request page when merge queue is required for merging, scroll to the bottom of the timeline and click the **merge queue** link.
 
   ![Merge queue link on pull request](/assets/images/help/pull_requests/merge-queue-link.png)
 

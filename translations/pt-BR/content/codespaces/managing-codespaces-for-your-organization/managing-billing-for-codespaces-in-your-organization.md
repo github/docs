@@ -41,7 +41,7 @@ Você também pode limitar os usuários individuais que podem usar {% data varia
 
 ## Excluindo codespaces não utilizados
 
-Seus usuários podem excluir seus codespaces em https://github.com/codespaces e no Visual Studio Code. Para reduzir o tamanho de um codespace, os usuários podem excluir arquivos manualmente usando o terminal ou no Visual Studio Code.
+Seus usuários podem excluir seus codespaces em https://github.com/codespaces e de dentro de {% data variables.product.prodname_vscode %}. Para reduzir o tamanho de um codespace, os usuários podem excluir arquivos manualmente usando o terminal ou de dentro de {% data variables.product.prodname_vscode_shortname %}.
 
 {% note %}
 

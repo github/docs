@@ -71,6 +71,14 @@ Organizations that use {% data variables.product.prodname_ghe_cloud %} can confi
 
 {% data reusables.actions.permissions-statement-environment %}
 
+{% ifversion fpt or ghec %}
+{% note %}
+
+**Note:** To create an environment in a private repository, your organization must use {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
+
+{% endnote %}
+{% endif %}
+
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.actions.sidebar-environment %}

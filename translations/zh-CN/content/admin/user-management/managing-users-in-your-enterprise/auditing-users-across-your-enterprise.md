@@ -81,7 +81,7 @@ shortTitle: 审计用户
 
 ### 基于执行的操作搜索
 
-`action` 限定符可搜索特定事件（按类别组织）。 有关与这些类别相关的事件的信息，请参阅“[审核的操作](/admin/user-management/audited-actions)”。
+`action` 限定符可搜索特定事件（按类别组织）。 有关与这些类别相关的事件的信息，请参阅“[审核企业的日志事件](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)”。
 
 | 类别名称   | 描述                   |
 | ------ | -------------------- |
@@ -113,7 +113,7 @@ shortTitle: 审计用户
 
 `created` 限定符可根据事件发生的时间筛选操作。
 - 使用 `YYYY-MM-DD` 格式定义日期，即年后面是月份，之后是具体日期。
-- 日期支持[大于、小于和范围限定符](/enterprise/{{ currentVersion }}/user/articles/search-syntax)。 例如：
+- 日期支持[大于、小于和范围限定符](/enterprise/user/articles/search-syntax)。 例如：
   * `created:2014-07-08` 会找到在 2014 年 7 月 8 日发生的所有事件。
   * `created:>=2014-07-01` 会找到在 2014 年 7 月 8 日或之后发生的所有事件。
   * `created:<=2014-07-01` 会找到在 2014 年 7 月 8 日或之前发生的所有事件。

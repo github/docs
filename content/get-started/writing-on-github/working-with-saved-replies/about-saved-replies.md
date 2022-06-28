@@ -15,7 +15,7 @@ versions:
 
 Saved replies allow you to create a reusable response to issues and pull requests. Save time by creating a saved reply for the responses you use most frequently.
 
-Once you've added a saved reply, it can be used in both issues and pull requests. Saved replies are tied to your user account. Once they're created, you'll be able to use them across repositories and organizations.
+Once you've added a saved reply, it can be used in both issues and pull requests. Saved replies are tied to your personal account. Once they're created, you'll be able to use them across repositories and organizations.
 
 You can create a maximum of 100 saved replies. If you've reached the maximum limit, you can delete saved replies that you no longer use or edit existing saved replies.
 

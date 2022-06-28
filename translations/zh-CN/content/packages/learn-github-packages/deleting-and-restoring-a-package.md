@@ -181,7 +181,7 @@ HOSTNAME/graphql
 {% ifversion fpt or ghec %}
 要恢复已删除的包，您还必须满足以下权限要求之一：
   - 对于仓库范围的包：您必须对拥有删除的包的仓库具有管理员权限。{% ifversion fpt or ghec %}
-  - 对于用户帐户范围的包：您的用户帐户拥有已删除的包。
+  - 对于用户帐户范围的包：您的个人帐户拥有已删除的包。
   - 对于组织范围的包：您对拥有包的组织中删除的包具有管理员权限。{% endif %}
 {% endif %}
 
@@ -209,7 +209,7 @@ HOSTNAME/graphql
 
 ### 恢复用户帐户范围的包
 
-如果包在您的一个仓库中或范围限于您的用户帐，则您可以通过用户帐户设置恢复已删除的包。 更多信息请参阅“[必需权限](#required-permissions-to-delete-or-restore-a-package)”。
+如果包在您的一个仓库中或范围限于您的个人帐户，则您可以通过个人帐户设置恢复已删除的包。 更多信息请参阅“[必需权限](#required-permissions-to-delete-or-restore-a-package)”。
 
 {% data reusables.user-settings.access_settings %}
 2. 在左侧，单击 **Packages（包）**。

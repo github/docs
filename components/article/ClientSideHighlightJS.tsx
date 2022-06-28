@@ -26,7 +26,7 @@ const SUPPORTED_LANGUAGES = ['json', 'javascript', 'curl']
 //     </pre>
 //
 const CODE_ELEMENTS_PARENT_SELECTOR = '[data-highlight]'
-const CODE_SELECTOR = 'pre code'
+const CODE_SELECTOR = 'div code' || 'pre code'
 
 export default function ClientSideHighlightJS() {
   const { asPath } = useRouter()

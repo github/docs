@@ -48,9 +48,21 @@ shortTitle: 比较分支
 
   ![文件过滤器下拉菜单](/assets/images/help/pull_requests/file-filter-menu.png)
 
+## 差异不显示的原因
+- 您超过了文件或特定文件类型的总限制。 更多信息请参阅“[关于仓库](/repositories/creating-and-managing-repositories/about-repositories#limits-for-viewing-content-and-diffs-in-a-repository)”。
+- 您的文件与仓库的 *.gitattributes* 文件中的规则匹配，默认会阻止该文件显示。 更多信息请参阅“[自定义更改的文件在 GitHub 中如何显示](/articles/customizing-how-changed-files-appear-on-github)”。
+
 ## 三点和两点 Git 差异比较
 
-默认情况下，{% data variables.product.prodname_dotcom %} 上的拉取请求显示三点差异，或者比较主题分支的最近版本与其中使用基本分支最新同步主题分支的提交。
+`git diff` 命令有两种比较方法：两点 (`git diff A..B`) 和三点 (`git diff A...B`)。 默认情况下，{% data variables.product.prodname_dotcom %} 上的拉取请求显示三点差异。
+
+### 三点 Git 差异比较
+
+三点比较显示了两个分支（合并基数）的最新公共提交与主题分支的最新版本之间的差异。
+
+### 两点 Git 差异比较
+
+两点比较显示了基本分支的最新状态（例如 `main`）和主题分支的最新版本之间的差异。
 
 要在 {% data variables.product.prodname_dotcom %} 上查看两点差异比较中的两个 committish 参考，可以编辑仓库的“比较更改”页面的 URL。 更多信息请参阅 _Pro Git_ 书籍网站中的 ["committish" 的 Git 词汇](https://git-scm.com/docs/gitglossary#gitglossary-aiddefcommit-ishacommit-ishalsocommittish)。
 
@@ -62,9 +74,17 @@ shortTitle: 比较分支
 
 有关用于比较更改的 Git 命令的更多信息，请参阅 _Pro Git_ 书籍网站中的“[Git 差异选项](https://git-scm.com/docs/git-diff#git-diff-emgitdiffemltoptionsgtltcommitgtltcommitgt--ltpathgt82308203)”。
 
-## 差异不显示的原因
-- 您超过了文件或特定文件类型的总限制。 更多信息请参阅“[关于仓库](/repositories/creating-and-managing-repositories/about-repositories#limits-for-viewing-content-and-diffs-in-a-repository)”。
-- 您的文件与仓库的 *.gitattributes* 文件中的规则匹配，默认会阻止该文件显示。 更多信息请参阅“[自定义更改的文件在 GitHub 中如何显示](/articles/customizing-how-changed-files-appear-on-github)”。
+## 关于 {% data variables.product.prodname_dotcom %} 上的三点比较
+
+由于三点比较与合并基础进行比较，因此它侧重于“拉取请求引入的内容”。
+
+使用两点比较时，即使尚未对主题分支进行任何更改，差异也会在基本分支更新时更改。 此外，两点比较侧重于基本分支。 这意味着您添加的任何内容都会从基本分支中显示为缺失，就好像它是删除一样，反之亦然。 因此，主题分支引入的更改变得模棱两可。
+
+相反，通过使用三点比较来比较分支，如果更新了基本分支，则主题分支中的更改始终位于差异中，因为差异显示了自分支发散以来的所有更改。
+
+### 经常合并
+
+为避免混淆，请经常将基本分支（例如 `main`）合并到主题分支中。 通过合并基本分支，两点和三点比较显示的差异是相同的。 我们建议尽快合并拉取请求。 这会鼓励贡献者减小拉取请求，一般建议这样做。
 
 ## 延伸阅读
 

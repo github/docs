@@ -1,1 +1,1 @@
-1. Click the **Runner groups** tab.
+1. 单击 **Runner groups（运行器组）**选项卡。

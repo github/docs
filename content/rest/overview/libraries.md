@@ -24,12 +24,6 @@ topics:
   </div>
 </div>
 
-{% warning %}
-
-Warning: As of late October 2021, the offical Octokit libraries are not currently maintained.
-
-{% endwarning %}
-
 # Third-party libraries
 
 ### Clojure
@@ -42,7 +36,7 @@ Warning: As of late October 2021, the offical Octokit libraries are not currentl
 
 | Library name | Repository |
 |---|---|
-|**github.dart** | [DirectMyFile/github.dart](https://github.com/DirectMyFile/github.dart)|
+|**github.dart** | [SpinlockLabs/github.dart](https://github.com/SpinlockLabs/github.dart)|
 
 ### Emacs Lisp
 
@@ -144,6 +138,7 @@ Warning: As of late October 2021, the offical Octokit libraries are not currentl
 | Library name | Repository |
 |---|---|
 |**Octocrab**|[XAMPPRocky/octocrab](https://github.com/XAMPPRocky/octocrab)|
+|**Octocat**|[octocat-rs/octocat-rs](https://github.com/octocat-rs/octocat-rs)|
 
 ### Scala
 

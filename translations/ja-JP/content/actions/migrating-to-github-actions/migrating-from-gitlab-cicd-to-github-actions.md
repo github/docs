@@ -309,6 +309,8 @@ GitLab CI/CD および {% data variables.product.prodname_actions %} は、パ�
 
 GitLab CI/CD と {% data variables.product.prodname_actions %} では、設定ファイルにワークフローファイルを手動でキャッシュするためのメソッドがあります。
 
+{% ifversion actions-caching %}
+
 以下が、それぞれのシステムの構文の例です。
 
 <table class="d-block">
@@ -359,7 +361,11 @@ jobs:
 </tr>
 </table>
 
-{% data variables.product.prodname_actions %} キャッシュは、{% data variables.product.prodname_dotcom_the_website %} でホストされているリポジトリにのみ適用できます。 詳しい情報については、「<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">ワークフローを高速化するための依存関係のキャッシュ</a>」を参照してください。
+{% else %}
+
+{% data reusables.actions.caching-availability %}
+
+{% endif %}
 
 ## 成果物
 

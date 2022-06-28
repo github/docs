@@ -48,13 +48,17 @@ export function getLanguageCodeFromPath(path) {
   return languageKeys.includes(maybeLanguage) ? maybeLanguage : 'en'
 }
 
+export function getLanguageCodeFromHeader(req) {
+  const browserLanguages = parser.parse(req.headers['accept-language'])
+  return getUserLanguage(browserLanguages)
+}
+
 export default function detectLanguage(req, res, next) {
   req.language = getLanguageCodeFromPath(req.path)
   // Detecting browser language by user preference
   req.userLanguage = getUserLanguageFromCookie(req)
   if (!req.userLanguage) {
-    const browserLanguages = parser.parse(req.headers['accept-language'])
-    req.userLanguage = getUserLanguage(browserLanguages)
+    req.userLanguage = getLanguageCodeFromHeader(req)
   }
   return next()
 }

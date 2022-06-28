@@ -1,1 +1,0 @@
-Los usuarios interactuan con los repositorios al comentar, abrir informes de problemas y crear solicitudes de extracción. La API de interacciones permite a las personas con acceso de propietario o de administrador restringir la interacción con los repositorios públicos temporalmente a un tipo específico de usuario.

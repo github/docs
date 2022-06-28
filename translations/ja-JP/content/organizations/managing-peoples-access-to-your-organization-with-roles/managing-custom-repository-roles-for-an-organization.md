@@ -3,7 +3,7 @@ title: Organizationのカスタムリポジトリロールの管理
 intro: カスタムのリポジトリロールを作成することで、Organizationのリポジトリへのアクセスをより詳細に制御できます。
 permissions: Organization owners can manage custom repository roles.
 versions:
-  ghec: '*'
+  feature: custom-repository-roles
 topics:
   - Organizations
   - Teams
@@ -11,8 +11,6 @@ shortTitle: カスタムリポジトリロール
 redirect_from:
   - /early-access/github/articles/managing-custom-repository-roles-for-an-organization
 ---
-
-{% data reusables.pre-release-program.custom-roles-public-beta %}
 
 ## カスタムリポジトリロールについて
 
@@ -51,6 +49,17 @@ Organization内では、ロールをOrganization、Team、リポジトリのレ�
 
 継承されたロールにまだ含まれていない場合にのみ、追加の権限を選択できます。 たとえば、継承されたロールがリポジトリへの**Write**アクセスを提供しているなら、"Close a pull request"権限は継承されたロールに既に含まれています。
 
+{% ifversion ghec %}
+### Discussions
+
+- **Create a discussion category（ディスカッションカテゴリの作成）**: 新しいディスカッションカテゴリを作成できる。 詳しい情報については「[新しいディスカッションカテゴリの作成](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions#creating-a-category)」を参照してください。
+- **Edit a discussion category（ディスカッションカテゴリの編集）**: ディスカッションカテゴリを編集できる。 詳しい情報については「[ディスカッションカテゴリの編集](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions#editing-a-category)」を参照してください。
+- **Delete a discussion category（ディスカッションカテゴリの削除）**: ディスカッションカテゴリを削除できる。 詳しい情報については「[ディスカッションカテゴリの削除](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions#deleting-a-category)」を参照してください。
+- **Mark or unmark discussion answers（ディスカッションの回答のマークもしくはマーク解除）**: ディスカッションのカテゴリが回答を受け付ける藻のだった場合、ディスカッションの回答をマークできる。 詳しい情報については「[ディスカッション中のコメントを回答としてマークもしくはマーク解除する](/discussions/managing-discussions-for-your-community/moderating-discussions#marking-a-comment-as-an-answer)」を参照してください。
+- **Hide or unhide discussion comments（ディスカッションコメントの非表示もしくは非表示解除）**: ディスカッションのコメントを非表示あるいは非表示解除できる。  詳しい情報については、「[ ディスカッションをモデレートする](/communities/moderating-comments-and-conversations/managing-disruptive-comments#hiding-a-comment)」を参照してください。
+- **Convert issues to discussions（Issueをディスカッションに変換）**: Issueをディスカッションに変換できる。  詳しい情報については「[Issueのディスカッションへの変換](/discussions/managing-discussions-for-your-community/moderating-discussions#converting-an-issue-to-a-discussion)」を参照してください。
+{% endif %}
+
 ### IssueとPull Request
 
 - **Assign or remove a user（ユーザをアサインあるいは外す）**: ユーザをIssueあるいはPull Requestにアサインするか、ユーザをIssueあるいはPull Requestから外す。
@@ -63,7 +72,7 @@ Organization内では、ロールをOrganization、Team、リポジトリのレ�
 - **Delete an issue（Issueの削除）**
 - **Mark an issue as a duplicate（Issueを複製としてマーク）**
 
-### Pull Request
+### プルリクエスト
 
 - **Close a pull request（Pull Requestをクローズ）**
 - **Reopen a closed pull request（クローズされたPull Requestを再オープン）**
@@ -79,7 +88,9 @@ Organization内では、ロールをOrganization、Team、リポジトリのレ�
 - **Manage webhooks（webhookの管理）**: リポジトリにwebhookを追加。
 - **Manage deploy keys（デプロイキーを管理）**: リポジトリにデプロイキーを追加。
 - **Edit repository metadata（リポジトリのメタデータを編集）**: リポジトリの説明とともにリポジトリのトピックを更新。
-- **Set interaction limits（インタラクションの制限を設定）**: 自分のパブリックリポジトリで特定のユーザによるコメント、Issueのオープン、Pull Requestの作成を一時的に制限し、アクティビティの制限期間を施行。 詳しい情報については「[リポジトリでのインタラクションの制限](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)」を参照してください。
+{%- ifversion ghec %}
+- **Set interaction limits（インタラクションの制限を設定）**: 自分のパブリックリポジトリで特定のユーザによるコメント、Issueのオープン、Pull Requestの作成を一時的に制限し、アクティビティの制限期間を施行。 詳しい情報については「[リポジトリでの操作の制限](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)」を参照してください。
+{%- endif %}
 - **Set the social preview（ソーシャルプレビューの設定）**: リポジトリがリンクされたときにソーシャルメディア上に表示される識別画像をリポジトリに追加。 詳細は「[リポジトリのソーシャルメディア向けプレビューをカスタマイズする](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/customizing-your-repositorys-social-media-preview)」を参照してください。
 - **Push commits to protected branches（保護されたブランチにコミットをプッシュ）**: 保護されたブランチとしてマークされているブランチにプッシュ。
 - **Create protected tags（保護されたタグの作成）**: タグの保護ルールにマッチしたタグの作成。 詳しい情報については「[タグ保護ルールの設定](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-tag-protection-rules)」を参照してください。

@@ -1,10 +1,10 @@
 ---
 title: 筛选安全性概述中的警报
 intro: 使用筛选器查看特定类别的警报
-permissions: Organization owners and security managers can access the security overview for organizations. Members of a team can see the security overview for repositories that the team has admin privileges for.
+permissions: '{% data reusables.security-center.permissions %}'
 product: '{% data reusables.gated-features.security-center %}'
 versions:
-  ghae: issue-4554
+  ghae: '*'
   ghes: '>3.1'
   ghec: '*'
 type: how_to
@@ -17,7 +17,9 @@ topics:
 shortTitle: 筛选警报
 ---
 
+{% ifversion ghes < 3.5 or ghae %}
 {% data reusables.security-center.beta %}
+{% endif %}
 
 ## 关于筛选安全性概述
 
@@ -99,7 +101,7 @@ shortTitle: 筛选警报
 | ------------------------- | ----------------------- |
 | <code>topic:<em>TOPIC-NAME</em></code> | 显示分类为 *TOPIC-NAME* 的仓库。 |
 
-{% if security-overview-views %}
+{% ifversion security-overview-views %}
 
 ## 按严重程度筛选
 
@@ -115,16 +117,27 @@ shortTitle: 筛选警报
 | `severity:warning`  | 显示分类为警告的 {% data variables.product.prodname_code_scanning %} 警报。 |
 | `severity:note`     | 显示分类为注释的 {% data variables.product.prodname_code_scanning %} 警报。 |
 
+{% ifversion dependabot-alerts-vulnerable-calls %}
+## 按 {% data variables.product.prodname_dependabot %} 警报类型筛选
+
+在 {% data variables.product.prodname_dependabot %} 警报视图中可用。 您可以筛选视图以显示可以修复的 {% data variables.product.prodname_dependabot_alerts %}，或有关曝光的其他信息可用的位置。 可以单击任何结果以查看警报的完整详细信息。
+
+| 限定符                    | 描述                                                                                                                                                                                                                                                        |
+| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `has:patch`            | 显示 {% data variables.product.prodname_dependabot %} 警报，以显示已提供安全版本的漏洞。                                                                                                                                                                                     |
+| `has:vulnerable-calls` | 显示 {% data variables.product.prodname_dependabot %} 警报，其中至少检测到从存储库到易受攻击的函数的一次调用。 更多信息请参阅“[查看和更新 Dependabot 警报](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#about-the-detection-of-calls-to-vulnerable-functions)。” |
+{% endif %}
+
 {% endif %}
 
 ## 按机密类型筛选
 
 在机密扫描警报视图中可用。
 
-| 限定符                            | 描述                                                                                                                                                                           |
-| ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `secret-type:SERVICE_PROVIDER` | 显示指定机密和提供程序的警报。 更多信息请参阅“[{% data variables.product.prodname_secret_scanning_caps %} 模式](/code-security/secret-scanning/secret-scanning-patterns)”。                         |
-| `secret-type:CUSTOM-PATTERN`   | 显示与指定自定义模式匹配的机密的警报。 For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)." |
+| 限定符                            | 描述                                                                                                                                                   |
+| ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `secret-type:SERVICE_PROVIDER` | 显示指定机密和提供程序的警报。 更多信息请参阅“[{% data variables.product.prodname_secret_scanning_caps %} 模式](/code-security/secret-scanning/secret-scanning-patterns)”。 |
+| `secret-type:CUSTOM-PATTERN`   | 显示与指定自定义模式匹配的机密的警报。 更多信息请参阅“[定义机密扫描的自定义模式](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)”。                            |
 
 ## 按提供商筛选
 

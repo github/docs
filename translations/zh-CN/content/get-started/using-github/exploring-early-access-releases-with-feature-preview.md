@@ -1,6 +1,6 @@
 ---
 title: 通过功能预览提早了解发行版
-intro: 您可以使用功能预览查看测试版中可用的产品或功能，并为用户帐户启用或禁用每项功能。
+intro: 您可以使用功能预览查看测试版中可用的产品或功能，并为个人帐户启用或禁用每项功能。
 redirect_from:
   - /articles/exploring-early-access-releases-with-feature-preview
   - /github/getting-started-with-github/exploring-early-access-releases-with-feature-preview

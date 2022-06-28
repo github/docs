@@ -150,7 +150,7 @@ You can label a port to make the port more easily identifiable in a list.
 
 ## Adding a port to the codespace configuration
 
-You can add a forwarded port to the {% data variables.product.prodname_codespaces %} configuration for the repository, so the port will automatically be forwarded for all codespaces created from the repository. After you update the configuration, any previously created codespaces must be rebuilt for the change to apply. 詳しい情報については、「[プロジェクトの {% data variables.product.prodname_codespaces %} を設定する](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project#applying-changes-to-your-configuration)」を参照してください。
+You can add a forwarded port to the {% data variables.product.prodname_codespaces %} configuration for the repository, so the port will automatically be forwarded for all codespaces created from the repository. After you update the configuration, any previously created codespaces must be rebuilt for the change to apply. 詳しい情報については、「[プロジェクトの {% data variables.product.prodname_codespaces %} を設定する](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project#applying-configuration-changes-to-a-codespace)」を参照してください。
 
 `forwardPorts` プロパティで `.devcontainer.json` ファイルで転送ポートを手動で設定するか、codespace の [Ports] パネルを使用できます。
 

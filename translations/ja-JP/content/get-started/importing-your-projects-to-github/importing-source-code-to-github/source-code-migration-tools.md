@@ -22,7 +22,7 @@ We recommend using [GitHub Importer](/articles/about-github-importer) to import 
 
 ## Subversion からインポートする
 
-一般的な Subversion の環境では、複数のプロジェクトが単一のルートリポジトリに保管されます。 GitHub 上では、一般的に、それぞれのプロジェクトはユーザアカウントや Organization の別々の Git リポジトリにマップします。 次の場合、Subversion リポジトリのそれぞれの部分を別々の GitHub リポジトリにインポートすることをおすすめします。
+一般的な Subversion の環境では、複数のプロジェクトが単一のルートリポジトリに保管されます。 On GitHub, each of these projects will usually map to a separate Git repository for a personal account or organization. 次の場合、Subversion リポジトリのそれぞれの部分を別々の GitHub リポジトリにインポートすることをおすすめします。
 
 * コラボレーターが、他の部分とは別のプロジェクトの部分をチェックアウトまたはコミットする必要がある場合
 * それぞれの部分にアクセス許可を設定したい場合

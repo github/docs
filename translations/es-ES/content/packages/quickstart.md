@@ -21,7 +21,7 @@ En esta guía, crearás un flujo de trabajo de {% data variables.product.prodnam
 1. Crea un repositorio nuevo en {% data variables.product.prodname_dotcom %}, agregando el `.gitignore` para Node. Para obtener más información, consulta la sección "[Crear un repositorio nuevo](/github/creating-cloning-and-archiving-repositories/creating-a-new-repository)".
 2. Clona el repositorio en tu máquina local.
     ```shell
-    $ git clone https://{% ifversion ghae %}<em>YOUR-HOSTNAME</em>{% else %}github.com{% endif %}/<em>YOUR-USERNAME</em>/<em>YOUR-REPOSITORY</em>.git
+    $ git clone https://{% ifversion ghes or ghae %}<em>YOUR-HOSTNAME</em>{% else %}github.com{% endif %}/<em>YOUR-USERNAME</em>/<em>YOUR-REPOSITORY</em>.git
     $ cd <em>YOUR-REPOSITORY</em>
     ```
 3. Crea un archivo `index.js` y agrega una alerta básica que diga "Hello world!"
@@ -49,7 +49,7 @@ En esta guía, crearás un flujo de trabajo de {% data variables.product.prodnam
     $ git push
     ```
 6. Crea un directorio de `.github/workflows`. En este directorio, crea un archivo que se llame `release-package.yml`.
-7. Copia el siguiente contenido de YAML en el archivo `release-package.yml`{% ifversion ghae %}, reemplazando a `YOUR-HOSTNAME` con el nombre de tu empresa{% endif %}.
+7. Copia el siguiente contenido de YAML en el archivo `release-package.yml`{% ifversion ghes or ghae %}, reemplazando a `YOUR-HOSTNAME` con el nombre de tu empresa{% endif %}.
     ```yaml{:copy}
     name: Node.js Package
 
@@ -79,7 +79,7 @@ En esta guía, crearás un flujo de trabajo de {% data variables.product.prodnam
           - uses: {% data reusables.actions.action-setup-node %}
             with:
               node-version: 12
-              registry-url: {% ifversion ghae %}https://npm.YOUR-HOSTNAME.com/{% else %}https://npm.pkg.github.com/{% endif %}
+              registry-url: {% ifversion ghes or ghae %}https://npm.YOUR-HOSTNAME.com/{% else %}https://npm.pkg.github.com/{% endif %}
           - run: npm ci
           - run: npm publish
             env:

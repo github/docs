@@ -1,10 +1,10 @@
-You can set your project's description and README to share the purpose of your project, provide instructions on how to use the project, and include any relevant links.
+Puedes obtener la descripción y el README de tu proyecto para compartir su propósito, proporcionar instrucciones sobre cómo utilizarlo e incluir cualquier enlace relevante.
 
 {% data reusables.projects.project-settings %}
-1. To add a short description to your project, under "Add a description", type your description in the text box  and click **Save**.
-1. To update your project's README, under "README", type your content in the text box.
-   - You can format your README using Markdown. Para obtener más información, consulta "[Sintaxis de escritura y formato básicos](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)".
-   - To toggle between the text box and a preview of your changes, click {% octicon "eye" aria-label="The preview icon" %} or {% octicon "pencil" aria-label="The edit icon" %}.
-1. To save changes to your README, click **Save**.
+1. Para agregar una descripción corta de tu proyecto, debajo de "Agregar descripción", escribe la descripción en la caja de texto y haz clic en **Guardar**.
+1. Para actualizar el README de tu proyecto, debajo de "README", teclea tu contenido en la caja de texto.
+   - Puedes formatear tu README utilizando lenguaje de marcado. Para obtener más información, consulta "[Sintaxis de escritura y formato básicos](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)".
+   - Para alternar entre la caja de texto y una vista previa de tus cambios, haz clic en {% octicon "eye" aria-label="The preview icon" %} o en {% octicon "pencil" aria-label="The edit icon" %}.
+1. Para guardar los cambios en tu README, haz clic en **Ahorrar**.
 
-You can view and make quick changes to your project description and README by navigating to your project and clicking {% octicon "sidebar-expand" aria-label="The sidebar icon" %} in the top right.
+Puedes ver y hacer cambios rápidos a tu descripción de proyecto y archivo de README si navegas a tu proyecto y haces clic en {% octicon "sidebar-expand" aria-label="The sidebar icon" %} en la parte superior derecha.

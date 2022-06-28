@@ -64,7 +64,7 @@ shortTitle: 存储库之间的连接
 {% data reusables.repositories.accessing-repository-graphs %}
 3. 在左侧边栏中，单击 **Forks（复刻）**。 ![复刻选项卡](/assets/images/help/graphs/graphs-sidebar-forks-tab.png)
 
-{% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
+{% ifversion fpt or ghes or ghae or ghec %}
 ## 查看仓库的依赖项
 
 您可以使用依赖关系图来浏览仓库所依赖的代码。

@@ -23,7 +23,7 @@ For purposes of demonstration, we'll use:
 
 - An external account named **extuser**
 - An external Git host named `https://external-host.com`
-- A {% data variables.product.product_name %} personal user account named **ghuser**
+- A {% data variables.product.product_name %} personal account named **ghuser**
 - A repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} named **repo.git**
 
 {% endtip %}

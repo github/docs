@@ -15,7 +15,7 @@ topics:
 shortTitle: Converter integrante em colaborador
 ---
 
-## About conversion of organization members to outside collaborators
+## Sobre a conversão de integrantes da organização para colaboradores externos
 
 {% data reusables.organizations.owners-and-admins-can %} converter integrantes da organização em colaboradores externos.
 
@@ -38,7 +38,7 @@ Na conversão de um integrante da organização em um colaborador externo, os pr
 
 {% note %}
 
-**Note:** You may not be able to convert an organization member to an outside collaborator, if an organization owner{% ifversion not fpt %} or enterprise owner{% endif %} has restricted your ability to add outside collaborators.
+**Observaçãp:** Talvez você não consiga converter um integrante da organização em um colaborador externo, se um proprietário da organização{% ifversion not fpt %} ou proprietário da empresa{% endif %} restringiu sua capacidade de adicionar colaboradores externos.
 
 {% endnote %}
 

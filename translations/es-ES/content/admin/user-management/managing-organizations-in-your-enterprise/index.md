@@ -23,8 +23,6 @@ children:
   - /requiring-two-factor-authentication-for-an-organization
   - /creating-teams
   - /adding-people-to-teams
-  - /viewing-the-audit-logs-for-organizations-in-your-enterprise
-  - /streaming-the-audit-logs-for-organizations-in-your-enterprise-account
   - /managing-your-role-in-an-organization-owned-by-your-enterprise
   - /removing-users-from-teams-and-organizations
   - /removing-organizations-from-your-enterprise

@@ -1,4 +1,4 @@
-Provider | Supported secret | API slug
+Provider | Supported secret | Secret type
 --- | --- | ---
 Adafruit IO | Adafruit IO Key | adafruit_io_key
 Alibaba Cloud | Alibaba Cloud Access Key ID | alibaba_cloud_access_key_id
@@ -17,6 +17,10 @@ Azure | Azure DevOps Personal Access Token | azure_devops_personal_access_token
 Checkout.com | Checkout.com Production Secret Key | checkout_production_secret_key
 Clojars | Clojars Deploy Token | clojars_deploy_token
 Databricks | Databricks Access Token | databricks_access_token
+DigitalOcean | DigitalOcean Personal Access Token | digitalocean_personal_access_token
+DigitalOcean | DigitalOcean OAuth Token | digitalocean_oauth_token
+DigitalOcean | DigitalOcean Refresh Token | digitalocean_refresh_token
+DigitalOcean | DigitalOcean System Token | digitalocean_system_token
 Discord | Discord Bot Token | discord_bot_token
 Doppler | Doppler Personal Token | doppler_personal_token
 Doppler | Doppler Service Token | doppler_service_token
@@ -39,6 +43,9 @@ Google | Google Cloud Storage User Access Key ID | google_cloud_storage_user_acc
 Grafana | Grafana API Key | grafana_api_key
 Hubspot | Hubspot API Key | hubspot_api_key
 Intercom | Intercom Access Token | intercom_access_token
+{%- ifversion fpt or ghec or ghes > 3.6 or ghae-issue-7456 %}
+JFrog | JFrog Platform Access Token | jfrog_platform_access_token
+JFrog | JFrog Platform API Key | jfrog_platform_api_key{% endif %}
 Ionic | Ionic Personal Access Token | ionic_personal_access_token
 Ionic | Ionic Refresh Token | ionic_refresh_token
 Linear | Linear API Key | linear_api_key
@@ -56,6 +63,8 @@ PlanetScale | PlanetScale OAuth Token | planetscale_oauth_token
 PlanetScale | PlanetScale Service Token | planetscale_service_token
 Postman | Postman API Key | postman_api_key
 Proctorio | Proctorio Secret Key | proctorio_secret_key
+{%- ifversion fpt or ghec or ghes > 3.5 or ghae-issue-7375 %}
+redirect.pizza | redirect.pizza API Token | redirect_pizza_api_token{% endif %}
 Samsara | Samsara API Token | samsara_api_token
 Samsara | Samsara OAuth Access Token | samsara_oauth_access_token
 SendGrid | SendGrid API Key | sendgrid_api_key
@@ -65,7 +74,7 @@ Shippo | Shippo Live API Token | shippo_live_api_token
 Shopify | Shopify App Shared Secret | shopify_app_shared_secret
 Shopify | Shopify Access Token | shopify_access_token
 Slack | Slack API Token | slack_api_token
-Stripe | Stripe Live API Secret Key | stripe_live_secret_key
+Stripe | Stripe Live API Secret Key | stripe_api_key
 Tencent Cloud | Tencent Cloud Secret ID | tencent_cloud_secret_id
 Typeform | Typeform Personal Access Token | typeform_personal_access_token
 WorkOS | WorkOS Production API Key | workos_production_api_key

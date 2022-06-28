@@ -26,7 +26,7 @@ Os fluxos de instalação pública têm uma página inicial para permitir que ou
 
 ## Fluxo privado de instalação
 
-Os fluxos privados de instalação permitem que somente o proprietário de um aplicativo GitHub a instale. Informações limitadas sobre o GitHub App continuarão a existir em uma página pública, mas o botão **Instalar** só estará disponível para administradores da organização ou para a conta de usuário se o aplicativo GitHub for propriedade de uma conta individual. {% ifversion fpt or ghes > 3.1 or ghae or ghec %}Privado {% else %}Privado (também conhecido como interno){% endif %} Os aplicativos GitHub só podem ser instalados na conta de usuário ou de organização do proprietário.
+Os fluxos privados de instalação permitem que somente o proprietário de um aplicativo GitHub a instale. Informações limitadas sobre o GitHub App continuarão a existir em uma página pública, mas o botão **Instalar** só estará disponível para administradores da organização ou para a conta pessoal se o aplicativo GitHub for propriedade de uma conta individual. {% ifversion fpt or ghes > 3.1 or ghae or ghec %}Privado {% else %}Privado (também conhecido como interno){% endif %} Os aplicativos GitHub só podem ser instalados na conta de usuário ou de organização do proprietário.
 
 ## Alterar quem pode instalar seu aplicativo GitHub
 

@@ -1,6 +1,6 @@
 ---
 title: Explorar versiones de acceso anticipado con vista previa de la característica
-intro: Puedes usar la vista previa de las características para ver los productos o las características que están disponibles en beta y para activar o desactivar cada característica de tu cuenta de usuario.
+intro: Puedes usar la vista previa de las características para ver los productos o las características que están disponibles en beta y para activar o desactivar cada característica de tu cuenta personal.
 redirect_from:
   - /articles/exploring-early-access-releases-with-feature-preview
   - /github/getting-started-with-github/exploring-early-access-releases-with-feature-preview

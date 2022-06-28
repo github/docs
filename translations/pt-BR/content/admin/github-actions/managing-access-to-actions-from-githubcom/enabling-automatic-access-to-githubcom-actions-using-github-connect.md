@@ -45,7 +45,7 @@ Antes de permitir o acesso a todas as ações de {% data variables.product.prodn
 1. Em "Os usuários podem usar as ações do GitHub.com em execuções do fluxo de trabalho", use o menu suspenso e selecione **Habilitado**. ![Menu suspenso para ações do GitHub.com em execuções do fluxos de trabalho](/assets/images/enterprise/site-admin-settings/enable-marketplace-actions-drop-down-ae.png)
 1. {% data reusables.actions.enterprise-limit-actions-use %}
 
-{% ifversion ghes > 3.2 or ghae-issue-4815 %}
+{% ifversion ghes > 3.2 or ghae %}
 
 ## Retirada automática de namespaces para ações acessadas em {% data variables.product.prodname_dotcom_the_website %}
 

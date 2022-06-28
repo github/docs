@@ -40,5 +40,27 @@ If your commit is not on the default branch (`main`), the label will show the br
 
 ![Screenshot of commit with commit tag emphasized](/assets/images/help/commits/commit-tag-label.png)
 
+{% ifversion commit-tree-view %}
+
+## Using the file tree
+
+You can use the file tree to navigate between files in a commit.
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.navigate-to-commit-page %}
+1. コミットメッセージリンクをクリックしてコミットに移動します。 ![Screenshot of commit with commit message link emphasized](/assets/images/help/commits/commit-message-link.png)
+1. Click on a file in the file tree to view the corresponding file diff. If the file tree is hidden, click {% octicon "sidebar-collapse" aria-label="The sidebar collapse icon" %} to display the file tree.
+
+  {% note %}
+
+  **Note**: The file tree will not display if your screen width is too narrow or if the commit only includes one file.
+
+  {% endnote %}
+
+  ![Screenshot of filter changed files search box and file tree emphasized](/assets/images/help/repository/file-tree.png)
+1. To filter by file path, enter part or all of the file path in the **Filter changed files** search box.
+
+{% endif %}
+
 ## 参考リンク
 - 「[{% data variables.product.prodname_desktop %} でプロジェクトの変更をコミットしてレビューする](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project#about-commits)」

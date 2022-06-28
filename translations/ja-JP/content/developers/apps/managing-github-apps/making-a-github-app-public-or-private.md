@@ -26,7 +26,7 @@ shortTitle: アプリケーションの可視性を管理
 
 ## プライベートのインストールフロー
 
-プライベートインストールフローを利用すれば、GitHub Appのオーナーだけがそのアプリケーションをインストールできます。 そのGitHub Appに関する限定的な情報はパブリックなページに存在しますが、**インストール**ボタンはOrganizationの管理者もしくはGitHub Appが個人のアカウントによって所有されている場合はそのユーザアカウントからのみ利用できます。 {% ifversion fpt or ghes > 3.1 or ghae or ghec %}プライベート{% else %}プライベート (内部とも呼ぶ){% endif %}のGitHub Appは、ユーザ、もしくはオーナーのOrganizationアカウントにのみインストールできます。
+プライベートインストールフローを利用すれば、GitHub Appのオーナーだけがそのアプリケーションをインストールできます。 Limited information about the GitHub App will still exist on a public page, but the **Install** button will only be available to organization administrators or the personal account if the GitHub App is owned by an individual account. {% ifversion fpt or ghes > 3.1 or ghae or ghec %}プライベート{% else %}プライベート (内部とも呼ぶ){% endif %}のGitHub Appは、ユーザ、もしくはオーナーのOrganizationアカウントにのみインストールできます。
 
 ## GitHub Appをインストールできるユーザの変更
 

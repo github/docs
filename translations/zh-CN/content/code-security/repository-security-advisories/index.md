@@ -1,7 +1,7 @@
 ---
-title: Managing repository security advisories for vulnerabilities in your project
-shortTitle: Repository security advisories
-intro: 'Discuss, fix, and disclose security vulnerabilities in your repositories using repository security advisories.'
+title: 管理项目中漏洞的仓库安全通告
+shortTitle: 存储库安全通告
+intro: 使用仓库安全通告讨论、修正和披露您仓库中的安全漏洞。
 redirect_from:
   - /articles/managing-security-vulnerabilities-in-your-project
   - /github/managing-security-vulnerabilities/managing-security-vulnerabilities-in-your-project

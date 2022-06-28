@@ -17,9 +17,9 @@ topics:
 shortTitle: 查看使用情况
 ---
 
-## 查看用户帐户的 {% data variables.product.prodname_registry %} 使用情况
+## 查看个人帐户的 {% data variables.product.prodname_registry %} 使用情况
 
-任何人都可以查看自己用户帐户的 {% data variables.product.prodname_registry %} 使用情况。
+任何人都可以查看自己个人帐户的 {% data variables.product.prodname_registry %} 使用情况。
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.billing_plans %}
@@ -36,6 +36,7 @@ shortTitle: 查看使用情况
 {% data reusables.dotcom_billing.actions-packages-storage %}
 {% data reusables.dotcom_billing.actions-packages-report-download-org-account %}
 
+{% ifversion ghec %}
 ## 查看企业帐户的 {% data variables.product.prodname_registry %} 使用情况
 
 企业所有者和帐单管理员可查看企业帐户的 {% data variables.product.prodname_registry %} 使用情况。
@@ -52,3 +53,4 @@ shortTitle: 查看使用情况
 1. 在“{% data variables.product.prodname_registry %}”下，查看您的企业帐户中每个组织的数据传输使用详情。 ![数据传输使用详情](/assets/images/help/billing/packages-data-enterprise.png)
 {% data reusables.dotcom_billing.actions-packages-storage-enterprise-account %}
 {% data reusables.enterprise-accounts.actions-packages-report-download-enterprise-accounts %}
+{% endif %}

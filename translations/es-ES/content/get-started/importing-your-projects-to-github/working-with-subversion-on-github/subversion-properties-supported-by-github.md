@@ -12,15 +12,15 @@ versions:
 shortTitle: Propiedades compatibles con GitHub
 ---
 
-## Executable files (`svn:executable`)
+## Archivos ejecutables (`svn:executable`)
 
 Convertimos propiedades `svn:executable` al actualizar el modo archivo directamente antes de agregarlo al repositorio de Git.
 
-## MIME types (`svn:mime-type`)
+## Tipos de MIME (`svn:mime-type`)
 
 {% data variables.product.product_name %} internalmente rastrea las propiedades mime-type de los archivos y las confirmaciones que los agregaron.
 
-## Ignoring unversioned items (`svn:ignore`)
+## Ignorar los elementos sin versión (`svn:ignore`)
 
 Si has configurado que los archivos y los directorios se ignoren en Subversion, {% data variables.product.product_name %} los rastrearemos de manera interna. Los archivos ignorados por los clientes de Subversion son completamente distintos a las entradas en un archivo *.gitignore*.
 

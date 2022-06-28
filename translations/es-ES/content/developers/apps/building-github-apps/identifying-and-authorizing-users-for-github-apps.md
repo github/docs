@@ -127,7 +127,7 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 
 Este flujo de dispositivos te permite autorizar usuarios para una app sin encabezado, tal como una herramienta de CLI o un administrador de credenciales de Git.
 
-{% if device-flow-is-opt-in %}Antes de que puedas utilizar el flujo de dispositivos para identificar y autorizar usuarios, primero debes habilitarlo en los ajustes de tu app. Para obtener más información sobre cómo habilitar el flujo de dispositivos, consulta la sección "[Modificar una GitHub App](/developers/apps/managing-github-apps/modifying-a-github-app)". {% endif %}Para obtener más información sobre cómo autorizar usuarios utilizando el flujo de dispositivos, consulta la sección "[Autorizar las Apps de OAuth](/developers/apps/authorizing-oauth-apps#device-flow)".
+{% ifversion device-flow-is-opt-in %}Antes de que puedas utilizar el flujo de dispositivos para identificar y autorizar usuarios, primero debes habilitarlo en los ajustes de tu app. Para obtener más información sobre cómo habilitar el flujo de dispositivos, consulta la sección "[Modificar una GitHub App](/developers/apps/managing-github-apps/modifying-a-github-app)". {% endif %}Para obtener más información sobre cómo autorizar usuarios utilizando el flujo de dispositivos, consulta la sección "[Autorizar las Apps de OAuth](/developers/apps/authorizing-oauth-apps#device-flow)".
 
 ## Revisar a qué recursos de instalación puede acceder un usuario
 
@@ -149,7 +149,7 @@ Si un usuario revoca su autorización de una GitHub App, dicha app recibirá el 
 
 ## Permisos a nivel de usuario
 
-Puedes agregar permisos a nivel de usuario a tu GitHub App para acceder a los recursos del usuario, tales como correos electrónicos del usuario, los cuales otorgan los usuarios independientes como parte del [flujo de autorización del usuario](#identifying-users-on-your-site). Los permisos a nivel de usuario difieren de los [permisos a nivel de organización y de repositorio](/rest/reference/permissions-required-for-github-apps), los cuales se otorgan en el momento de la instalación en una cuenta de usuario o de organización.
+Puedes agregar permisos a nivel de usuario a tu GitHub App para acceder a los recursos del usuario, tales como correos electrónicos del usuario, los cuales otorgan los usuarios independientes como parte del [flujo de autorización del usuario](#identifying-users-on-your-site). Los permisos a nivel de usuario difieren de los [permisos a nivel de organización y de repositorio](/rest/reference/permissions-required-for-github-apps), los cuales se otorgan en el momento de la instalación en una cuenta personal o de organización.
 
 Puedes seleccionar los permisos a nivel de usuario desde dentro de la configuración de tu GitHub App en la sección de **Permisos de usuario** de la página de **Permisos & webhooks**. Para obtener más información sobre seleccionar permisos, consulta la sección [Editar los permisos de una GitHub App](/apps/managing-github-apps/editing-a-github-app-s-permissions/)".
 
@@ -159,7 +159,7 @@ Ya que los permisos a nivel de usuario se otorgan individualmente, puedes agrega
 
 ## Solicitudes de usuario a servidor
 
-Mientras que la mayoría de tu interacción con la API deberá darse utilizando tus tokens de acceso a la instalación de servidor a servidor, ciertas terminales te permiten llevar a cabo acciones a través de la API utilizando un token de acceso. Tu app puede hacer las siguientes solicitudes utilizando las terminales de [GraphQL v4]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql) o de [REST v3](/rest).
+Mientras que la mayoría de tu interacción con la API deberá darse utilizando tus tokens de acceso a la instalación de servidor a servidor, ciertas terminales te permiten llevar a cabo acciones a través de la API utilizando un token de acceso. Tu app puede hacer las siguientes solicitudes utilizando terminales de [GraphQL]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql) o de [REST](/rest).
 
 ### Terminales compatibles
 
@@ -239,8 +239,8 @@ Mientras que la mayoría de tu interacción con la API deberá darse utilizando 
 
 * [Listar los despliegues](/rest/reference/deployments#list-deployments)
 * [Crear un despliegue](/rest/reference/deployments#create-a-deployment)
-* [Obtener un despliegue](/rest/reference/deployments#get-a-deployment){% ifversion fpt or ghes or ghae or ghec %}
-* [Borrar un despliegue](/rest/reference/deployments#delete-a-deployment){% endif %}
+* [Obtén un despliegue](/rest/reference/deployments#get-a-deployment)
+* [Borra un despliegue](/rest/reference/deployments#delete-a-deployment)
 
 #### Eventos
 
@@ -422,14 +422,12 @@ Mientras que la mayoría de tu interacción con la API deberá darse utilizando 
 * [Eliminar el requerir los ganchos de pre-recepción para una organización](/enterprise/user/rest/reference/enterprise-admin#remove-pre-receive-hook-enforcement-for-an-organization)
 {% endif %}
 
-{% ifversion fpt or ghes or ghae or ghec %}
 #### Poyectos de Equipo de una Organización
 
 * [Listar los proyectos de equipo](/rest/reference/teams#list-team-projects)
 * [Verificar los permisos del equipo para un proyecto](/rest/reference/teams#check-team-permissions-for-a-project)
 * [Agregar o actualizar los permisos de un proyecto de equipo](/rest/reference/teams#add-or-update-team-project-permissions)
 * [Eliminar a un proyecto de un equipo](/rest/reference/teams#remove-a-project-from-a-team)
-{% endif %}
 
 #### Repositorios de Equipo de la Organización
 
@@ -575,7 +573,7 @@ Mientras que la mayoría de tu interacción con la API deberá darse utilizando 
 
 #### Reacciones
 
-{% ifversion fpt or ghes or ghae or ghec %}*[Borrar una reacción](/rest/reference/reactions#delete-a-reaction-legacy){% else %}*[Borrar una reacción](/rest/reference/reactions#delete-a-reaction){% endif %}
+* [Borra una reacción](/rest/reference/reactions)
 * [Listar las reacciones a un comentario de una confirmación](/rest/reference/reactions#list-reactions-for-a-commit-comment)
 * [Crear una reacción para el comentario de una confirmación](/rest/reference/reactions#create-reaction-for-a-commit-comment)
 * [Listar las reacciones de un informe de problemas](/rest/reference/reactions#list-reactions-for-an-issue)
@@ -587,13 +585,13 @@ Mientras que la mayoría de tu interacción con la API deberá darse utilizando 
 * [Listar las reacciones para un comentario de debate de equipo](/rest/reference/reactions#list-reactions-for-a-team-discussion-comment)
 * [Crear una reacción para un comentario de debate de equipo](/rest/reference/reactions#create-reaction-for-a-team-discussion-comment)
 * [Listar las reaciones a un debate de equipo](/rest/reference/reactions#list-reactions-for-a-team-discussion)
-* [Crear una reacción para un debate de equipo](/rest/reference/reactions#create-reaction-for-a-team-discussion){% ifversion fpt or ghes or ghae or ghec %}
+* [Crear una reacción para un debate de equipo](/rest/reference/reactions#create-reaction-for-a-team-discussion)
 * [Borrar la reacción a un comentario de una confirmación](/rest/reference/reactions#delete-a-commit-comment-reaction)
 * [Borrar la reacción a un comentario](/rest/reference/reactions#delete-an-issue-reaction)
 * [Borrar la reacción a un comentario de una confirmación](/rest/reference/reactions#delete-an-issue-comment-reaction)
 * [Borrar la reacción a un comentario de una solicitud de extracción](/rest/reference/reactions#delete-a-pull-request-comment-reaction)
 * [Borrar la reacción a un debate de equipo](/rest/reference/reactions#delete-team-discussion-reaction)
-* [Borrar la reacción a un comentario de un debate de equipo](/rest/reference/reactions#delete-team-discussion-comment-reaction){% endif %}
+* [Borrar una reacción a un comentario en un debate de equipo](/rest/reference/reactions#delete-team-discussion-comment-reaction)
 
 #### Repositorios
 
@@ -707,11 +705,9 @@ Mientras que la mayoría de tu interacción con la API deberá darse utilizando 
 * [Obtener el README de un repositorio](/rest/reference/repos#get-a-repository-readme)
 * [Obtener la licencia para un repositorio](/rest/reference/licenses#get-the-license-for-a-repository)
 
-{% ifversion fpt or ghes or ghae or ghec %}
 #### Envíos de Evento de un Repositorio
 
 * [Crear un evento de envío de un repositorio](/rest/reference/repos#create-a-repository-dispatch-event)
-{% endif %}
 
 #### Ganchos de Repositorio
 

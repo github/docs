@@ -15,20 +15,6 @@ upcoming_changes:
     criticality: 重大
     owner: tambling
   - 
-    location: EnterpriseBillingInfo.availableSeats
-    description: '`availableSeats` 将被删除。使用 EnterpriseBillingInfo.totalAvailableLicenses 代替。'
-    reason: '`availableSeats` 将被替换为 `totalAvailableLicenses`，以便更明确地表示要返回的值'
-    date: '2020-01-01T00:00:00+00:00'
-    criticality: 重大
-    owner: BlakeWilliams
-  - 
-    location: EnterpriseBillingInfo.seats
-    description: '`seats` 将被删除。使用 EnterpriseBillingInfo.totalLicenses 代替。'
-    reason: '`seats` 将被替换为 `totalLicenses`，以便更明确地表示要返回的值'
-    date: '2020-01-01T00:00:00+00:00'
-    criticality: 重大
-    owner: BlakeWilliams
-  - 
     location: UnassignedEvent.user
     description: '`user` 将被删除。使用 `assignee` 字段代替。'
     reason: 受理人现在可以作为人体模型。
@@ -42,13 +28,6 @@ upcoming_changes:
     date: '2020-04-01T00:00:00+00:00'
     criticality: 重大
     owner: antn
-  - 
-    location: EnterprisePendingMemberInvitationEdge.isUnlicensed
-    description: '`isUnlicensed` 将被删除。'
-    reason: 所有挂起的成员都会使用许可证
-    date: '2020-07-01T00:00:00+00:00'
-    criticality: 重大
-    owner: BrentWheeldon
   - 
     location: Issue.timeline
     description: '`timeline` 将被删除。使用 Issue.timelineItems 代替。'
@@ -71,20 +50,6 @@ upcoming_changes:
     criticality: 重大
     owner: nholden
   - 
-    location: EnterpriseMemberEdge.isUnlicensed
-    description: '`isUnlicensed` 将被删除。'
-    reason: 所有成员都会使用许可证
-    date: '2021-01-01T00:00:00+00:00'
-    criticality: 重大
-    owner: BrentWheeldon
-  - 
-    location: EnterpriseOutsideCollaboratorEdge.isUnlicensed
-    description: '`isUnlicensed` 将被删除。'
-    reason: 所有外部协作者使用许可证
-    date: '2021-01-01T00:00:00+00:00'
-    criticality: 重大
-    owner: BrentWheeldon
-  - 
     location: MergeStateStatus.DRAFT
     description: '`DRAFT` 将被删除。改为使用 PullRequest.isDraft。'
     reason: DRAFT 状态将从这个枚举中删除，应改用 `isDraft`
@@ -106,37 +71,51 @@ upcoming_changes:
     criticality: 重大
     owner: synthead
   - 
-    location: PullRequest.viewerCanOverrideMergeQueue
-    description: '`viewerCanOverrideMergeQueue` will be removed. Use PullRequest.viewerCanMergeAsAdmin instead.'
-    reason: '`viewer_can_override_merge_queue` will be removed'
-    date: '2022-04-01'
-    criticality: 重大
-    owner: cbeaman
-  - 
     location: Repository.defaultMergeQueue
-    description: '`defaultMergeQueue` will be removed. Use `Repository.mergeQueue` instead.'
-    reason: '`defaultMergeQueue` will be removed.'
+    description: '“defaultMergeQueue” 将被删除。请改用 “Repository.mergeQueue”。'
+    reason: '`defaultMergeQueue` 将被删除。'
     date: '2022-04-01'
     criticality: 重大
     owner: colinshum
   - 
     location: AddPullRequestToMergeQueueInput.branch
-    description: '`branch` will be removed.'
-    reason: PRs are added to the merge queue for the base branch, the `branch` argument is now a no-op
+    description: '`branch` 将被删除。'
+    reason: PR 被添加到基本分支的合并队列中，`branch` 参数现在是 no-op
     date: '2022-07-01T00:00:00+00:00'
     criticality: 重大
     owner: jhunschejones
   - 
     location: Enterprise.userAccounts
-    description: '`userAccounts` will be removed. Use the `Enterprise.members` field instead.'
-    reason: The `Enterprise.userAccounts` field is being removed.
+    description: '`userAccounts` 将被删除。使用 `Enterprise.members` 字段代替。'
+    reason: '`Enterprise.userAccounts` 字段被删除。'
     date: '2022-07-01T00:00:00+00:00'
     criticality: 重大
     owner: jdennes
   - 
     location: Query.sponsorables.dependencyEcosystem
-    description: '`dependencyEcosystem` will be removed. Use the ecosystem argument instead.'
-    reason: The type is switching from SecurityAdvisoryEcosystem to DependencyGraphEcosystem.
+    description: '`dependencyEcosystem` 将被删除。使用 ecosystem 参数代替。'
+    reason: 该类型是从 SecurityAdvisoryEcosystem 切换到 DependencyGraphEcosystem。
     date: '2022-07-01T00:00:00+00:00'
     criticality: 重大
     owner: cheshire137
+  - 
+    location: DependencyGraphDependency.packageLabel
+    description: '`packageLabel` 将被删除。请使用规范化的 `packageName` 字段。'
+    reason: '`packageLabel` 将被删除。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 重大
+    owner: github/dependency_graph
+  - 
+    location: RemovePullRequestFromMergeQueueInput.branch
+    description: '`branch` 将被删除。'
+    reason: PR 将从基本分支的合并队列中删除，`branch` 参数现在是 no-op
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 重大
+    owner: jhunschejones
+  - 
+    location: UpdateProjectNextItemFieldInput.fieldWithSettingId
+    description: '`fieldWithSettingId` 将被删除。使用 `fieldConstraintId` 代替'
+    reason: 重命名为 fieldConstraintId 以提高命名一致性。
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 重大
+    owner: memex

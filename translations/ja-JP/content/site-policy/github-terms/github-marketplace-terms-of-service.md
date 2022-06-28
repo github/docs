@@ -44,7 +44,7 @@ GitHub Marketplace (「Marketplace」) へようこそ！ また、こちらの�
 
 ## E. お客様のデータとGitHubのプライバシーポリシー
 
-**プライバシー。**「開発者製品」を選択または使用する際、「開発者製品」をお客様に提供するため、お客様のプライバシー設定に関わらず、GitHubは(「[GitHub のプライバシーについての声明](/articles/github-privacy-statement/)」の定義による) お客様の特定の「個人情報」を (かかる「個人情報」をお客様から受け取っている場合)「製品提供者」に対して共有する必要があります。 GitHub は、お客様が選択した「開発者製品」の要件に応じて、ユーザアカウント名、ID、プライマリメールアドレスといった最低限の情報から、プライベートデータの読み取りや変更を含む、リポジトリ内のコンテンツに対するアクセスなどに至るまで共有することができます。 お客様は OAuth を通じて権限を付与する際に、「開発者製品」が要求する権限のスコープを確認し、承認または拒否できます。
+**プライバシー。**「開発者製品」を選択または使用する際、「開発者製品」をお客様に提供するため、お客様のプライバシー設定に関わらず、GitHubは(「[GitHub のプライバシーについての声明](/articles/github-privacy-statement/)」の定義による) お客様の特定の「個人情報」を (かかる「個人情報」をお客様から受け取っている場合)「製品提供者」に対して共有する必要があります。 Depending on the requirements of the Developer Product you choose, GitHub may share as little as your account name, ID, and primary email address or as much as access to the content in your repositories, including the ability to read and modify your private data. お客様は OAuth を通じて権限を付与する際に、「開発者製品」が要求する権限のスコープを確認し、承認または拒否できます。
 
 「開発者製品」の使用を中止し、アカウント設定を通じてアクセスを取り消すと、「製品提供者」はお客様のアカウントにアクセスできなくなります。 「製品提供者」は、定められた期間内にシステムからお客様の「個人情報」を削除する責任を負います。 お客様のアカウントが正しく解約されたことを確認するため、「製品提供者」にご連絡ください。
 

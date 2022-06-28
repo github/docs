@@ -64,7 +64,7 @@ As bifurcações são listadas em ordem alfabética pelo nome de usuário da pes
 {% data reusables.repositories.accessing-repository-graphs %}
 3. Na barra lateral esquerda, clique em **Forks** (Bifurcações). ![Aba Forks (Bifurcações)](/assets/images/help/graphs/graphs-sidebar-forks-tab.png)
 
-{% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
+{% ifversion fpt or ghes or ghae or ghec %}
 ## Visualizar as dependências de um repositório
 
 Você pode usar o gráfico de dependências para explorar o código do qual seu repositório depende.

@@ -62,9 +62,9 @@ const SidebarContent = styled(Box)`
   @media (min-width: ${themeGet('breakpoints.3')}) {
     position: sticky;
     padding-top: ${themeGet('space.4')};
-    top: 4em;
-    max-height: 75vh;
+    top: 5em;
+    max-height: calc(100vh - 5em);
     overflow-y: auto;
-    padding-bottom: ${themeGet('space.4')};
+    padding-bottom: ${themeGet('space.6')} !important;
   }
 `

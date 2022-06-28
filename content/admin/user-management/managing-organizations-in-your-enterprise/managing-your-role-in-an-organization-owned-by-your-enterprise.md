@@ -12,32 +12,36 @@ topics:
 shortTitle: Manage your organization roles
 ---
 
-{% note %}
-
-**Note:** The ability for enterprise owners to manage their role in an organization owned by the enterprise is in beta and subject to change.
-
-{% endnote %}
-
 ## About role management
 
 You can choose to join an organization owned by your enterprise as a member or as an organization owner, change your role within the organization, or leave the organization.
 
+{% ifversion ghec %}
 {% warning %}
 
-**Warning**: If an organization uses SCIM to provision users, joining the organization this way could have unintended consequences. For more information, see "[About SCIM](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim)."
+**Warning**: If an organization uses SCIM to provision users, joining the organization this way could have unintended consequences. For more information, see "[About SCIM for organizations](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)."
 
 {% endwarning %}
+{% endif %}
+
+For information about managing other people's roles in an organization, see "[Managing membership in your organization](/organizations/managing-membership-in-your-organization)" and "[Managing people's access to your organization with roles](/organizations/managing-peoples-access-to-your-organization-with-roles)."
 
 ## Managing your role with the enterprise settings
 
 You can join an organization owned by your enterprise and manage your role within the organization, directly from the settings for your enterprise account.
 
+{% ifversion ghec %}
+
 If an organization enforces SAML single sign-on (SSO), you cannot use the enterprise settings to join the organization. Instead, you must join the organization using that organization's identity provider (IdP). Then, you can manage your role in your enterprise settings. For more information, see "[Joining an organization that enforces SAML SSO](#joining-an-organization-that-enforces-saml-sso)."
+
+{% endif %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 1. On the **Organizations** tab, to the right of the organization you want to manage your role in, select the {% octicon "gear" aria-label="The gear icon" %} dropdown menu and click the action you want to take.
 
    ![Screenshot of the dropdown menu for the gear icon for an organization](/assets/images/help/business-accounts/change-role-in-org.png)
+
+{% ifversion ghec %}
 
 ## Joining an organization that enforces SAML SSO
 
@@ -52,3 +56,5 @@ If an organization enforces SAML SSO, you cannot use the enterprise settings to 
     `https://github.com/orgs/ORGANIZATION/sso`
 
 After you've joined the organization, you can use the enterprise settings to manage your role in the organization, such as becoming an organization owner. For more information, see "[Managing your role with the enterprise settings](#managing-your-role-with-the-enterprise-settings)."
+
+{% endif %}

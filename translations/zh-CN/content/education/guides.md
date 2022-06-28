@@ -43,6 +43,6 @@ shortTitle: 指南
 
 参与社区，从 {% data variables.product.company_short %} 获得培训，并学习或教授新技能。
 
-- [{% data variables.product.prodname_education_community %}](https://education.github.community)
+- [{% data variables.product.prodname_education_community %}]({% data variables.product.prodname_education_forum_link %})
 - [关于 Campus Experts](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-campus-experts)
 - [关于 Campus Advisors](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-campus-advisors)

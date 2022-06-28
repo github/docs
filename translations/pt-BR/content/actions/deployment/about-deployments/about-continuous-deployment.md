@@ -31,7 +31,7 @@ Você pode configurar seu fluxo de trabalho do CD para ser executado quando ocor
 
 {% data variables.product.prodname_actions %} fornece funcionalidades que dão mais controle sobre implantações. Por exemplo, você pode usar ambientes para exigir aprovação para um trabalho prosseguir, restringir quais branches podem acionar um fluxo de trabalho, ou limitar o acesso a segredos. {% ifversion fpt or ghae or ghes > 3.1 or ghec %}Você pode usar a simultaneidade para limitar o pipeline do CD a um máximo de uma implantação em andamento e uma implantação pendente. {% endif %}Para obter mais informações sobre essas funcionalidades, consulte "[Implantando com GitHub Actions](/actions/deployment/deploying-with-github-actions)" e "[Usando ambientes para implantação](/actions/deployment/using-environments-for-deployment)".
 
-{% ifversion fpt or ghec or ghae-issue-4856 %}
+{% ifversion fpt or ghec or ghae-issue-4856 or ghes > 3.4 %}
 
 ## Usando o OpenID Connect para acessar os recursos da nuvem
 

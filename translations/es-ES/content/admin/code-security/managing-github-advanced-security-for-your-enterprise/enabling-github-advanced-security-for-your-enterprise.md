@@ -48,7 +48,7 @@ Para obtener orientación sobre cómo hacer un despliegue en fases de GitHub Adv
 
     - {% data variables.product.prodname_code_scanning_capc %}, consulta la sección "[Configurar el {% data variables.product.prodname_code_scanning %} para tu aplicativo](/admin/advanced-security/configuring-code-scanning-for-your-appliance#prerequisites-for-code-scanning)".
     - {% data variables.product.prodname_secret_scanning_caps %}, consulta la sección "[Configurar el {% data variables.product.prodname_secret_scanning %} para tu aplicativo](/admin/advanced-security/configuring-secret-scanning-for-your-appliance#prerequisites-for-secret-scanning)".{% endif %}
-    - {% data variables.product.prodname_dependabot %}, see "[Enabling {% data variables.product.prodname_dependabot %} for your enterprise](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."
+    - {% data variables.product.prodname_dependabot %}, consulta la sección "[Habilitar al {% data variables.product.prodname_dependabot %} para tu empresa](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)".
 
 ## Habilitar e inhabilitar las característcicas de la {% data variables.product.prodname_GH_advanced_security %}
 
@@ -82,7 +82,7 @@ Por ejemplo, puedes habilitar cualquier característica de {% data variables.pro
     ```shell
     ghe-config app.secret-scanning.enabled true
     ```
-    - To enable the dependency graph, enter the following {% ifversion ghes > 3.1 %}command{% else %}commands{% endif %}.
+    - Para habilitar la gráfica de dependencias, {% ifversion ghes > 3.1 %}ingresa el siguiente comando{% else %}ingresa los siguientes comandos{% endif %}.
     {% ifversion ghes > 3.1 %}```shell
     ghe-config app.dependency-graph.enabled true
     ```
@@ -101,7 +101,7 @@ Por ejemplo, puedes habilitar cualquier característica de {% data variables.pro
     ```shell
     ghe-config app.secret-scanning.enabled false
     ```
-    - To disable the dependency graph, enter the following {% ifversion ghes > 3.1 %}command{% else %}commands{% endif %}.
+    - Para inhabilitar la gráfica de dependencias, {% ifversion ghes > 3.1 %}ingresa el siguiente comando{% else %}ingresa los siguientes comandos{% endif %}.
     {% ifversion ghes > 3.1 %}```shell
     ghe-config app.dependency-graph.enabled false
     ```

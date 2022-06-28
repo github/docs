@@ -32,6 +32,8 @@ Si aún no puedes crear un codespace para un repositorio en donde esté disponib
 
 El propietario de un codespace tiene control total sobre este y solo él podrá borrarlo. No puedes borrar un codespace que otro usuario haya creado.
 
+Puedes borrar tus codespaces en el buscador, en {% data variables.product.prodname_vscode %} o utilizando el {% data variables.product.prodname_cli %}. El {% data variables.product.prodname_cli %} también te permite borrar codespaces por lotes. Para obtener más información, consulta la sección "[Borrar un codespace](/codespaces/developing-in-codespaces/deleting-a-codespace)."
+
 ## Almacenamiento de contenedores
 
 Cuando creas un codespace, este tiene una cantidad de almacenamiento finita y, con el tiempo, podría que necesites liberar espacio. Intenta ejecutar cualquiera de los comandos siguientes en la terminal de {% data variables.product.prodname_codespaces %} para liberar espacio de almacenamiento.
@@ -54,4 +56,4 @@ Algunas opciones más destructivas:
 Este codespace se ejecuta acutalmente en modo de recuperación debido a un error del contenedor.
 ```
 
-Revisa las bitácoras de creación, actualiza la configuración como lo requieras y ejecuta **Codespaces: Reconstruir Contenedor** en la {% data variables.product.prodname_vscode_command_palette %} para volver a intentarlo. Para obtener más información, consulta las secciones "[Bitácoras de codespaces](/codespaces/troubleshooting/codespaces-logs)" y "[Configurar {% data variables.product.prodname_codespaces %} en tu proyecto](/github/developing-online-with-codespaces/configuring-codespaces-for-your-project#apply-changes-to-your-configuration)".
+Revisa las bitácoras de creación, actualiza la configuración del contenedor dev conforme lo necesites y ejecuta **Codespaces: Rebuild Container** en la {% data variables.product.prodname_vscode_command_palette %} para reintentarlo. Para obtener más información, consulta las secciones "[Bitácoras de codespaces](/codespaces/troubleshooting/codespaces-logs)" y "[Configurar {% data variables.product.prodname_codespaces %} en tu proyecto](/github/developing-online-with-codespaces/configuring-codespaces-for-your-project#apply-changes-to-your-configuration)".

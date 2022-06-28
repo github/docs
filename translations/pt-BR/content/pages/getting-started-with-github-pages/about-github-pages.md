@@ -29,7 +29,7 @@ O {% data variables.product.prodname_pages %} é um serviço de hospedagem de si
 {% endif %}
 
 {% ifversion fpt or ghec %}
-{% data reusables.pages.about-private-publishing %} Para obter mais informações, consulte "[Alterar a visibilidade do seu site de {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site)."
+{% data reusables.pages.about-private-publishing %} Para obter mais informações, consulte "[Alterando a visibilidade do seu site de {% data variables.product.prodname_pages %}]({% ifversion fpt %}/enterprise-cloud@latest{% endif %}/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site){% ifversion fpt %}" na documentação de {% data variables.product.prodname_ghe_cloud %}.{% else %}{% endif %}
 {% endif %}
 
 Para começar, consulte "[Criar um site do {% data variables.product.prodname_pages %}](/articles/creating-a-github-pages-site)".
@@ -42,11 +42,11 @@ Os proprietários da organização podem desabilitar a publicação de sites do 
 
 Há três tipos de site do {% data variables.product.prodname_pages %}: projeto, usuário e organização. Os sites de projeto são conectados a um projeto específico hospedado no {% data variables.product.product_name %}, como uma biblioteca do JavaScript ou um conjunto de receitas. Os sites de usuário e organização estão conectados a uma conta específica em {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}.
 
-Para publicar um site de usuário, você deve criar um repositório pertencente à sua conta de usuário denominada {% ifversion fpt or ghec %}`<username>. ithub.io`{% else %}`<username>.<hostname>`{% endif %}. Para publicar um site de organização, você deve criar um repositório pertencente a uma organização que se chama {% ifversion fpt or ghec %}`<organization>.github.io`{% else %}`<organization>.<hostname>`{% endif %}. {% ifversion fpt or ghec %}A menos que você esteja usando um domínio personalizado, os sites de usuário e organização estarão disponíveis em `http(s)://<username>.github.io` ou `http(s)://<organization>.github.io`.{% elsif ghae %}Sites de usuário e organização estão disponíveis em `http(s)://pages.<hostname>/<username>` ou `http(s)://pages.<hostname>/<organization>`.{% endif %}
+Para publicar um site de usuário, você deve criar um repositório pertencente à sua conta pessoal denominada {% ifversion fpt or ghec %}`<username>. ithub.io`{% else %}`<username>.<hostname>`{% endif %}. Para publicar um site de organização, você deve criar um repositório pertencente a uma organização que se chama {% ifversion fpt or ghec %}`<organization>.github.io`{% else %}`<organization>.<hostname>`{% endif %}. {% ifversion fpt or ghec %}A menos que você esteja usando um domínio personalizado, os sites de usuário e organização estarão disponíveis em `http(s)://<username>.github.io` ou `http(s)://<organization>.github.io`.{% elsif ghae %}Sites de usuário e organização estão disponíveis em `http(s)://pages.<hostname>/<username>` ou `http(s)://pages.<hostname>/<organization>`.{% endif %}
 
 Os arquivos de origem de um site de projeto são armazenados no mesmo repositório que o respectivo projeto. {% ifversion fpt or ghec %}A menos que você esteja usando um domínio personalizado, os sites de projeto estão disponíveis em `http(s)://<username>.github.io/<repository>` ou `http(s)://<organization>.github.io/<repository>`.{% elsif ghae %}Os sites de projeto estão disponíveis em `http(s)://pages.<hostname>/<username>/<repository>/` ou `http(s)://pages.<hostname>/<organization>/<repository>/`.{% endif %}
 
-{% ifversion fpt or ghec %}
+{% ifversion ghec %}
 Se você publicar seu site em particularmente, a URL do seu site será diferente. Para obter mais informações, consulte "[Alterar a visibilidade do seu site de {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site)."
 {% endif %}
 
@@ -54,7 +54,7 @@ Se você publicar seu site em particularmente, a URL do seu site será diferente
 Para obter mais informações sobre como os domínios personalizados afetam o URL do seu site, consulte "[Sobre domínios personalizados e {% data variables.product.prodname_pages %}](/articles/about-custom-domains-and-github-pages)".
 {% endif %}
 
-Você só pode criar um site de usuário ou organização para cada conta em {% data variables.product.product_name %}. Os sites de projeto, sejam eles de uma conta de organização ou de usuário, são ilimitados.
+Você só pode criar um site de usuário ou organização para cada conta em {% data variables.product.product_name %}. Os sites de projeto, sejam eles de uma conta de organização ou pessoal , são ilimitados.
 
 {% ifversion ghes %}
 O URL onde o site estará disponível depende da habilitação do isolamento do subdomínio para o {% data variables.product.product_location %}.
@@ -64,9 +64,9 @@ O URL onde o site estará disponível depende da habilitação do isolamento do 
 |              |                                     |                                       |
  Usuário | 
 
-`http(s)://pages.<hostname>/<username>` | `http(s)://<hostname>/pages/<username>` | Organization | `http(s)://pages.<hostname>/<organization>` | `http(s)://<hostname>/pages/<organization>` | Site do projeto pertencente a uma conta do usuário | `http(s)://pages.<hostname>/<username>/<repository>/` | `http(s)://<hostname>/pages/<username>/<repository>/` Site do projeto pertencente a uma conta da organização | `http(s)://pages.<hostname>/<orgname>/<repository>/` | `http(s)://<hostname>/pages/<orgname>/<repository>/`
+`http(s)://pages.<hostname>/<username>` | `http(s)://<hostname>/pages/<username>` | Organização | `http(s)://pages.<hostname>/<organization>` | `http(s)://<hostname>/pages/<organization>` | Site do projeto pertencente à conta pessoal | `http(s)://pages.<hostname>/<username>/<repository>/` | `http(s)://<hostname>/pages/<username>/<repository>/` Site do projeto pertencente à conta da organização | `http(s)://pages.<hostname>/<orgname>/<repository>/` | `http(s)://<hostname>/pages/<orgname>/<repository>/`
 
-Para obter mais informações, consulte "[Habilitar isolamento de subdomínio](/enterprise/{{ currentVersion }}/admin/installation/enabling-subdomain-isolation)" ou entre em contato com o administrador do site.
+For more information, see "[Enabling subdomain isolation](/enterprise/admin/installation/enabling-subdomain-isolation)" or contact your site administrator.
 {% endif %}
 
 ## Publicar fontes para sites do {% data variables.product.prodname_pages %}
@@ -80,6 +80,16 @@ Se existir uma fonte de publicação padrão no repositório, o {% data variable
 Se você desejar manter os arquivos de origem do seu site em outro local, você poderá alterar a fonte de publicação do seu site. É possível publicar o site a partir de qualquer branch no repositório, a partir da raiz do repositório nesse branch, `/` ou a partir da pasta `/docs` nesse branch. Para obter mais informações, consulte "[Configurar uma fonte de publicação para seu site do {% data variables.product.prodname_pages %}](/articles/configuring-a-publishing-source-for-your-github-pages-site#choosing-a-publishing-source)".
 
 Se você escolher a pasta `/docs` de qualquer branch como a fonte de publicação, o {% data variables.product.prodname_pages %} lerá tudo a ser publicado no seu site{% ifversion fpt or ghec %}, inclusive o arquivo _CNAME_,{% endif %} na pasta `/docs`.{% ifversion fpt or ghec %} Por exemplo, quando você edita o domínio personalizado usando as configurações do {% data variables.product.prodname_pages %}, o domínio personalizado grava em `/docs/CNAME`. Para obter mais informações sobre arquivos _CNAME_, consulte "[Gerenciar um domínio personalizado para seu site do {% data variables.product.prodname_pages %}](/articles/managing-a-custom-domain-for-your-github-pages-site)".{% endif %}
+
+{% ifversion ghec %}
+## Limitações para {% data variables.product.prodname_emus %}
+Se você é um {% data variables.product.prodname_managed_user %}, seu uso de {% data variables.product.prodname_pages %} é limitado.
+
+  - Os sites de {% data variables.product.prodname_pages %} só podem ser publicados de repositórios pertencentes a organizações.
+  - Os sites de {% data variables.product.prodname_pages %} só são visíveis para os outros integrantes da empresa.
+
+Para obter mais informações sobre {% data variables.product.prodname_emus %}, consulte "[Sobre {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/about-enterprise-managed-users)".
+{% endif %}
 
 ## Geradores de site estáticos
 
@@ -127,5 +137,5 @@ Quando um site de {% data variables.product.prodname_pages %} é acessado, o end
 
 ## Leia mais
 
-- [{% data variables.product.prodname_pages %}](https://lab.github.com/githubtraining/github-pages) em {% data variables.product.prodname_learning %}
+- [{% data variables.product.prodname_pages %}](https://github.com/skills/github-pages) em {% data variables.product.prodname_learning %}
 - "[{% data variables.product.prodname_pages %}](/rest/reference/repos#pages)"

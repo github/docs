@@ -15,7 +15,7 @@ topics:
 shortTitle: Acerca de las organizaciones
 ---
 
-Para acceder a una organización, cada miembro debe iniciar sesión en su cuenta de usuario personal.
+Para acceder a una organización, cada miembro debe iniciar sesión en su propia cuenta personal.
 
 Los miembros de la organización pueden tener diferentes roles, como *propietario* o *gerente de facturación*:
 

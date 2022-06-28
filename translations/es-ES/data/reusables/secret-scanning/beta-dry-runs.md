@@ -1,6 +1,6 @@
 
 {% note %}
 
-**Note:** The dry run feature is currently in beta and subject to change.
+**Nota:** La característica de simulación se encuentra actualmente en beta y está sujeta a cambios.
 
 {% endnote %}

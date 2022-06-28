@@ -1,0 +1,1 @@
+Los propietarios de las organizaciones pueden restringir la capacidad para hacer que los puertos reenviados estén disponibles públicamente o dentro de la organización. Para obtener más información, consulta la sección "[restringir la visbilidad de los puertos reenviados](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)".

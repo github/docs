@@ -1,6 +1,6 @@
 ---
 title: GitHub Enterprise を設定する
-shortTitle: GitHub Enterprise を設定する
+shortTitle: Configure GitHub Enterprise
 intro: Organization のニーズに合わせて Enterprise を設定できます。
 redirect_from:
   - /enterprise/admin/configuration

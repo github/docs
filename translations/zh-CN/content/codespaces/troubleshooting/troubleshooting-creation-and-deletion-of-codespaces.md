@@ -32,6 +32,8 @@ shortTitle: 创建和删除
 
 代码空间的所有者对其拥有完全控制权限，只有他们才能删除其代码空间。 您不能删除由其他用户创建的代码间。
 
+您可以在浏览器中、{% data variables.product.prodname_vscode %}中或使用 {% data variables.product.prodname_cli %} 删除代码空间。 {% data variables.product.prodname_cli %} 还允许您批量删除代码空间。 更多信息请参阅“[删除代码空间](/codespaces/developing-in-codespaces/deleting-a-codespace)”。
+
 ## 容器存储
 
 创建代码空间时，存储量是有限的，随着时间的推移，可能需要释放空间。 尝试在 {% data variables.product.prodname_codespaces %} 终端中运行以下任一命令以释放存储空间。
@@ -54,4 +56,4 @@ shortTitle: 创建和删除
 由于容器错误，这个代码空间正在恢复模式中运行。
 ```
 
-查看创建日志，根据需要更新配置，并在 {% data variables.product.prodname_vscode_command_palette %} 中运行 **Codespaces: Rebuild Container** 以重试。 更多信息请参阅“[代码空间日志](/codespaces/troubleshooting/codespaces-logs)”和“[为项目配置 {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/configuring-codespaces-for-your-project#apply-changes-to-your-configuration)”。
+查看创建日志，根据需要更新开发容器配置，并在 {% data variables.product.prodname_vscode_command_palette %} 中运行 **Codespaces: Rebuild Container** 以重试。 更多信息请参阅“[代码空间日志](/codespaces/troubleshooting/codespaces-logs)”和“[为项目配置 {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/configuring-codespaces-for-your-project#apply-changes-to-your-configuration)”。

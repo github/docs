@@ -4,8 +4,7 @@ intro: You can use API previews to try out new features and provide feedback bef
 redirect_from:
   - /v3/previews
 versions:
-  ghes: '*'
-  ghae: '*'
+  ghes: '<3.4'
 topics:
   - API
 ---
@@ -51,15 +50,6 @@ Get a [list of events](/rest/reference/issues#timeline) for an issue or pull req
 
 {% endif %}
 
-{% ifversion ghes %}
-## Pre-receive environments
-
-Create, list, update, and delete environments for pre-receive hooks.
-
-**Custom media type:** `eye-scream-preview`
-**Announced:** [2015-07-29](/rest/reference/enterprise-admin#pre-receive-environments)
-{% endif %}
-
 {% ifversion ghes < 3.3 %}
 ## Projects
 
@@ -97,7 +87,7 @@ View all [codes of conduct](/rest/reference/codes-of-conduct) or get which code 
 
 {% endif %}
 
-{% ifversion ghae or ghes %}
+{% ifversion ghes < 3.3 %}
 
 ## Global webhooks
 
@@ -170,7 +160,7 @@ You can now provide more information in GitHub for URLs that link to registered 
 **Announced:** [2018-12-10](https://developer.github.com/changes/2018-12-10-content-attachments-api/)
 
 {% endif %}
-{% ifversion ghae or ghes < 3.3 %}
+{% ifversion ghes < 3.3 %}
 
 ## Enable and disable Pages
 

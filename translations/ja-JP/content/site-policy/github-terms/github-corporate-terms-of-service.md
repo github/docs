@@ -128,7 +128,7 @@ GitHub Enterprise Cloudに対するGitHubの四半期稼働保証時間は、[En
 お客様が「製品」を利用する際には、[「GitHub利用規程」](/articles/github-acceptable-use-policies)および[「GitHubコミュニティガイドライン」](/articles/github-community-guidelines)に従う必要があります。 お客様は、いかなる管轄区域内でも、違法、わいせつ、不快、または詐欺的なコンテンツまたは活動 (損害を与えたりそう標榜したりする、ネットワークまたはシステムの完全性またはセキュリティを妨害または侵害する、フィルタを回避する、迷惑・虐待的・虚偽的なメッセージ、ウイルスまたは有害なコードを送信する、あるいは第三者の権利を侵害するなど) の目的で「サービス」を使用してはなりません。
 
 ### 3. プライバシー
-「 [GitHubのプライバシーについての声明](/articles/github-privacy-statement)」および「[GitHubデータ保護契約](/github/site-policy/github-data-protection-agreement-non-enterprise-customers)」には、GitHubのプライバシーおよびデータ取り扱い、ならびに「お客様の個人データ」に関するGitHubの処理およびセキュリティに関する義務についての詳細が記載されています。 「サービス」からデータを収集する個人、団体、またはサービスは、特にユーザの個人情報 (「GitHub のプライバシーについての声明」に規定) の収集に関して、GitHubの プライバシーについての声明に従う必要があります。 お客様がGitHubから「ユーザ個人情報」を収集した場合、お客様は「外部ユーザ」が承認した目的にのみその個人情報を使用するものとします。 お客様は、かかる個人情報を合理的に保護するものとし、GitHubはGitHubまたは「外部ユーザ」からの苦情、削除要請、および連絡拒否の要請に速やかに対応するものとします。
+「 [GitHubのプライバシーについての声明](/articles/github-privacy-statement)」および「[GitHubデータ保護契約](/github/site-policy/github-data-protection-agreement-non-enterprise-customers)」には、GitHubのプライバシーおよびデータ取り扱い、ならびに「お客様の個人データ」に関するGitHubの処理およびセキュリティに関する義務についての詳細が記載されています。 「サービス」からデータを収集する個人、団体、またはサービスは、特にユーザの個人情報 (「GitHub のプライバシーについての声明」に規定) の収集に関して、GitHubの プライバシーについての声明に従う必要があります。 If Customer collects any personal information from GitHub, Customer will only use it for the purpose for which the External User has authorized it. お客様は、かかる個人情報を合理的に保護するものとし、GitHubはGitHubまたは「外部ユーザ」からの苦情、削除要請、および連絡拒否の要請に速やかに対応するものとします。
 
 ## D. コンテンツの責任、所有権、ライセンス権
 

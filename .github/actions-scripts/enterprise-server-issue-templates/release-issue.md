@@ -18,11 +18,8 @@ If you aren't comfortable going through the steps alone, sync up with a docs eng
     ```
     script/update-enterprise-dates.js
     ```
-- [ ] Create REST files based on previous version. For example `script/enterprise-server-releases/create-rest-files.js --oldVersion enterprise-server@3.2 --newVersion enterprise-server@3.3`:
+- [ ] Create REST files based on previous version. Copy the latest GHES version of the dereferenced file from `lib/rest/static/dereferenced` to a new file in the same directory for the new GHES release. Ex, `cp lib/rest/static/dereferenced/ghes-3.4.deref.json lib/rest/static/dereferenced/ghes-3.5.deref.json`. Then run `script/rest/updated-files.js --decorate-only` and check in the resulting files.
 
-  ```
-  script/enterprise-server-releases/create-rest-files.js --oldVersion <PLAN@RELEASE> --newVersion <PLAN@RELEASE>
-  ```
 - [ ] Create GraphQL files based on previous version:
 
   ```
@@ -113,20 +110,20 @@ This file should be automatically updated, but you can also run `script/update-e
 
 ### 🚢 🛳️ 🚢 Shipping the release branch
 
+- [ ] The megabranch creator should push the search index LFS objects for the public `github/docs` repo. The LFS objects were already pushed for the internal repo after the `sync-english-index-for-<PLAN@RELEASE>` was added to the megabranch. To push the LFS objects to the public repo:
+  1. First navigate to the [sync search indices workflow](https://github.com/github/docs-internal/actions/workflows/sync-search-indices.yml). 
+  2. Then, to run the workflow with parameters, click on `Run workflow` button. 
+  3. A modal will pop up where you will set the following inputs:
+     - Branch: The new `ghes-<RELEASE>-megabranch` version megabranch you're working on
+     - Version: `enterprise-server@<RELEASE>`
+     - Language: `en`
+  4. Run the job. The workflow job may fail on the first run—so retry the failed job if needed.
 - [ ] Remove `[DO NOT MERGE]` and other meta information from the PR title 😜.
 - [ ] The `github/docs-internal` repo is frozen, and the `Repo Freeze Check / Prevent merging during deployment freezes (pull_request_target)` test is expected to fail.
 
   Use admin permissions to ship the release branch with this failure. Make sure that the merge's commit title does not include anything like `[DO NOT MERGE]`, and remove all the branch's commit details from the merge's commit message except for the co-author list.
 - [ ] Do any required smoke tests listed in the opening post in the megabranch PR. You can monitor and check when the production deploy completed by viewing the [`docs-internal` deployments page](https://github.com/github/docs-internal/deployments).
 - [ ] Once smoke tests have passed, you can [unfreeze the repos](https://github.com/github/docs-content/blob/main/docs-content-docs/docs-content-workflows/freezing.md) and post an announcement in Slack.
-- [ ] After unfreezing, the megabranch creator should push the search index LFS objects for the public `github/docs` repo. The LFS objects were already pushed for the internal repo after the `sync-english-index-for-<PLAN@RELEASE>` was added to the megabranch. To push the LFS objects to the public repo:
-  1. First navigate to the [sync search indices workflow](https://github.com/github/docs-internal/actions/workflows/sync-search-indices.yml). 
-  2. Then, to run the workflow with parameters, click on `Run workflow` button. 
-  3. A modal will pop up where you will set the following inputs:
-     - Branch: The new version megabranch you're working on
-     - Version: `enterprise-server@<RELEASE>`
-     - Language: `en`
-  4. Run the job. The workflow job may fail on the first run—so retry the failed job if needed.
 - [ ] After unfreezing, alert the Ecosystem-API team in #ecosystem-api the docs freeze is finished/thawed and the release has shipped. 
   - [ ] You (or they) can now remove your blocking review on the auto-generated "Update OpenAPI Descriptions" PR in public REST API description (the `rest-api-descriptions` repo). (although it's likely newer PRs have been created since yours with the blocking review, in which case the Ecosystem-API team will close your PR and perform the next step on the most recent PR).
   - [ ] The Ecosystem-API team will merge the latest auto-generated "Update OpenAPI Descriptions" PR (which will contain the OpenAPI schema config that changed `published` to `true` for the release).

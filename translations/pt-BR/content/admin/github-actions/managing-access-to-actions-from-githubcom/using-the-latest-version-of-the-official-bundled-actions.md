@@ -42,7 +42,7 @@ Uma vez configurado {% data variables.product.prodname_github_connect %}, você 
 1. Configure o YAML do seu fluxo de trabalho para usar `{% data reusables.actions.action-checkout %}`.
 1. Cada vez que o seu fluxo de trabalho é executado, o executor usará a versão especificada `ações/checkout` de {% data variables.product.prodname_dotcom_the_website %}.
 
-   {% ifversion ghes > 3.2 or ghae-issue-4815 %}
+   {% ifversion ghes > 3.2 or ghae %}
    {% note %}
 
    **Nota:** A primeira vez que a ação `checkout` é usada a partir de {% data variables.product.prodname_dotcom_the_website %}, o namespace `actions/check-` é automaticamente desativado em {% data variables.product.product_location %}. Se você quiser reverter para uma cópia local da ação, primeiro você precisará remover o namespace da desativação. Para obter mais informações, consulte "[Desativação automática de namespaces para ações acessadas em {% data variables.product.prodname_dotcom_the_website%}](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect#automatic-retirement-of-namespaces-for-actions-accessed-on-githubcom)".

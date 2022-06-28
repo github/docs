@@ -28,11 +28,11 @@ GitHub anunció los siguientes cambios en sus planes y precios:
 
 ## ¿Cómo puedo mejorar mi plan?
 
-Para mejorar el plan de tu cuenta de usuario, consulta "[Mejorar tu suscripción de cuenta personal](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription#upgrading-your-personal-accounts-subscription)". Para mejorar el plan de tu organización, consulta "[Mejorar la suscripción de tu organización](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription#upgrading-your-organizations-subscription)".
+Para mejorar el plan de tu cuenta personal, consulta "[Mejorar tu suscripción de cuenta personal](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription#upgrading-your-personal-accounts-subscription)". Para mejorar el plan de tu organización, consulta "[Mejorar la suscripción de tu organización](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription#upgrading-your-organizations-subscription)".
 
 ## ¿Cómo puedo bajar mi plan?
 
-Para bajar el plan de tu cuenta de usuario, consulta "[Bajar la suscripción de tu cuenta de usuario](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription#downgrading-your-user-accounts-subscription)". Para bajar el plan de tu organización, consulta "[Bajar la suscripción de tu organización](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription#downgrading-your-organizations-subscription)".
+Para bajar de categoría el plan de tu cuenta personal, consulta la sección "[Bajar de categoría la suscripción de tu cuenta personal](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription#downgrading-your-personal-accounts-subscription)". Para bajar el plan de tu organización, consulta "[Bajar la suscripción de tu organización](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription#downgrading-your-organizations-subscription)".
 
 ## Si bajo de categoría desde GitHub Team o un plan tradicional hacia GitHub Free, ¿qué características perderé?
 - Revisores requeridos en repositorios privados

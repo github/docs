@@ -18,7 +18,7 @@ shortTitle: Solicitar um pacote de alunos
 Para se qualificar para o {% data variables.product.prodname_student_pack %}, você deve:
 - Estar atualmente matriculado em um curso superior ou curso que conceda um diploma, tal como ensino médio, ensino secundário, faculdade, universidade, educação domiciliar ou instituição de ensino similar
 - Ter um endereço de e-mail verificável concedido pela instituição de ensino ou fazer upload de documentos que comprovem seu status de estudante
-- Ter uma conta de usuário do [{% data variables.product.prodname_dotcom %}](/articles/signing-up-for-a-new-github-account)
+- Tenha uma [conta pessoal de {% data variables.product.prodname_dotcom %}](/articles/signing-up-for-a-new-github-account)
 - Ter pelo menos 13 anos
 
 Documentos que provam o seu estado atual do aluno incluem uma foto do seu ID da escola com a data atual de matrícula. cronograma de aula, histórico escolar e carta de verificação de afiliação ou inscrição.
@@ -27,7 +27,7 @@ Durante o período como estudante, pode ser que você seja solicitado a verifica
 
 {% note %}
 
-**Observação:** não é possível transferir descontos acadêmicos de uma conta para outra. Se você tiver mais de uma conta em que queira aplicar o desconto, considere [fazer merge](/articles/merging-multiple-user-accounts) das suas contas de usuários e [renomear](/articles/changing-your-github-username) a conta retida se desejado.
+**Observação:** não é possível transferir descontos acadêmicos de uma conta para outra. Se você tem mais de uma conta para aplicar o desconto a, considere fazer [merge](/articles/merging-multiple-user-accounts) das suas contas pessoais e [renomear](/articles/changing-your-github-username) a conta retida, se desejar.
 
 {% endnote %}
 

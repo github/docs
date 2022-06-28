@@ -1,5 +1,5 @@
 ---
-title: Configuring Dependabot version updates
+title: 配置 Dependabot 版本更新
 intro: '您可以配置仓库，以便 {% data variables.product.prodname_dependabot %} 自动更新您使用的包。'
 permissions: 'People with write permissions to a repository can enable or disable {% data variables.product.prodname_dependabot_version_updates %} for the repository.'
 redirect_from:
@@ -18,7 +18,7 @@ topics:
   - Repositories
   - Dependencies
   - Pull requests
-shortTitle: Configure version updates
+shortTitle: 配置版本更新
 ---
 
 <!--Marketing-LINK: From /features/security/software-supply-chain page "About version updates for dependencies".-->
@@ -35,7 +35,16 @@ shortTitle: Configure version updates
 
 ## 启用 {% data variables.product.prodname_dependabot_version_updates %}
 
-{% data reusables.dependabot.create-dependabot-yml %} For information, see "[Configuration options for the dependabot.yml file](/github/administering-a-repository/configuration-options-for-dependency-updates)."
+通过将 *dependabot.yml* 配置文件提交到仓库，可启用 {% data variables.product.prodname_dependabot_version_updates %}。
+{% ifversion dependabot-settings-update-37 %}如果在设置页面中启用该功能，GitHub 会创建一个可以编辑的基本文件，否则您可以使用任何文件编辑器创建该文件。
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.navigate-to-code-security-and-analysis %}
+1. 在“Code security and analysis（代码安全性和分析）”下的“{% data variables.product.prodname_dependabot_version_updates %}”右侧，单击 **Enable（启用）**以打开存储库的 `.github` 目录中的基本 *dependabot.yml* 配置文件。
+{% else %}
+1. 在存储库的 `.github` 目录中创建一个 *dependabot.yml* 配置文件。
+{% endif %}
 1. 添加 `version`。
 1. （可选）如果您在私人注册表中包含依赖项，请添加包含身份验证详细信息的 `registries` 部分。
 1. 添加 `updates` 部分，并输入您希望 {% data variables.product.prodname_dependabot %} 监控的每个包管理器的条目。
@@ -44,6 +53,8 @@ shortTitle: Configure version updates
     - `directory` 指定清单或其他定义文件的位置。
     - `schedule.interval` 指定检查新版本的频率。
 {% data reusables.dependabot.check-in-dependabot-yml %}
+
+有关所有配置选项的信息，请参阅“[dependabot.yml 文件的配置选项](/github/administering-a-repository/configuration-options-for-dependency-updates)”。
 
 ### 示例 *dependabot.yml* 文件
 
@@ -88,7 +99,7 @@ updates:
 
 ## 检查版本更新的状态
 
-After you enable version updates, the **Dependabot** tab in the dependency graph for the repository is populated. 此选项卡显示配置了哪些要监视的包管理器 {% data variables.product.prodname_dependabot %} 以及 {% data variables.product.prodname_dependabot %} 上次检查新版本的时间。
+启用版本更新后，将填充存储库的依赖关系图中的 **Dependabot** 选项卡。 此选项卡显示配置了哪些要监视的包管理器 {% data variables.product.prodname_dependabot %} 以及 {% data variables.product.prodname_dependabot %} 上次检查新版本的时间。
 
 ![仓库洞察选项卡，依赖关系图，Dependabot 选项卡](/assets/images/help/dependabot/dependabot-tab-view.png)
 
@@ -139,4 +150,4 @@ updates:
         update-types: ["version-update:semver-patch"]
 ```
 
-For more information about checking for existing ignore preferences, see "[Configuration options for the dependabot.yml file](/github/administering-a-repository/configuration-options-for-dependency-updates#ignore)."
+有关检查现有忽略首选项的详细信息，请参阅“[dependabot.yml 文件的配置选项](/github/administering-a-repository/configuration-options-for-dependency-updates#ignore)”。

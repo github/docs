@@ -61,22 +61,22 @@ Si el aislamiento de subdominios está inhabilitado en tu empresa, también debe
 
 {% ifversion ghes > 3.4 %}
 
-## Configuring {% data variables.product.prodname_pages %} response headers for your enterprise
+## Configurar los encabezados de respuesta de {% data variables.product.prodname_pages %} para tu empresa
 
-You can add or override response headers for {% data variables.product.prodname_pages %} sites hosted by {% data variables.product.product_location %}.
+Puedes agregar o sobrescribir los encabezados de respuesta para los sitios de {% data variables.product.prodname_pages %} que hospede {% data variables.product.product_location %}.
 
 {% warning %}
 
-**Warning:** Ensure that your response headers are properly configured before saving. Improper configurations may negatively impact the security of {% data variables.product.product_location %}.
+**Advertencia:** Asegúrate de que tus encabezados de respuesta se configuren adecuadamente antes de guardarlos. Las configuraciones inadecuadas podrían impactar negativamente la seguridad de {% data variables.product.product_location %}.
 
 {% endwarning %}
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.pages-tab %}
-1. Type the headers settings, then click **Add headers**.
-   - In the **Http Header Name** field, type the header name. The length of header name should less than 128 characters.
-   - In the **Http Header Value** field, type the header value. The length of header value should less than 300 characters. ![The {% data variables.product.prodname_pages %} response header name and value fields in the {% data variables.enterprise.management_console %}](/assets/images/enterprise/management-console/pages-override-header-section.png)
+1. Teclea los ajustes de los encabezados y luego haz clic en **Agregar encabezados**.
+   - En el campo **Nombre de encabezado http**, teclea el nombre del encabezado. La longitud del nombre del encabezado debe tener menos de 128 caracteres.
+   - En el campo de **Valor de encabezado http**, teclea el valor del encabezado. La longitud del valor del encabezado debe ser de menos de 300 caracteres. ![Los campos de nombre y valor del encabezado de respuesta de {% data variables.product.prodname_pages %} en la {% data variables.enterprise.management_console %}](/assets/images/enterprise/management-console/pages-override-header-section.png)
 {% data reusables.enterprise_management_console.save-settings %}
 
 {% endif %}

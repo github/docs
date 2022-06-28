@@ -1,7 +1,7 @@
 ---
 title: Ver el resumen de seguridad
 intro: Navegar a las diversas vistas disponibles en el resumen de seguridad
-permissions: Organization owners and security managers can access the security overview for organizations. Members of a team can see the security overview for repositories that the team has admin privileges for.
+permissions: '{% data reusables.security-center.permissions %}'
 product: '{% data reusables.gated-features.security-center %}'
 versions:
   ghae: issue-5503
@@ -17,7 +17,9 @@ topics:
 shortTitle: Ver el resumen de seguridad
 ---
 
+{% ifversion ghes < 3.5 or ghae %}
 {% data reusables.security-center.beta %}
+{% endif %}
 
 ## Visualizar el resumen de seguridad de una organización
 
@@ -25,8 +27,9 @@ shortTitle: Ver el resumen de seguridad
 {% data reusables.organizations.security-overview %}
 1. Para ver la información agregada sobre los tipos de alerta, haz clic en **Mostrar más**. ![Botón de mostrar más](/assets/images/help/organizations/security-overview-show-more-button.png)
 {% data reusables.organizations.filter-security-overview %}
-{% if security-overview-views %}
-1. Como alternativa y opción, utiliza la barra lateral a la izquierda para filtrar información por característica de seguridad. En cada página, puedes utilizar filtros que sean específicos para cada característica para refinar tu búsqueda. ![Captura de pantalla de la página específica del escaneo de código](/assets/images/help/organizations/security-overview-code-scanning-alerts.png)
+{% ifversion security-overview-views %}
+{% data reusables.organizations.security-overview-feature-specific-page %}
+  ![Captura de pantalla de la página específica del escaneo de código](/assets/images/help/organizations/security-overview-code-scanning-alerts.png)
 
 ## Visualizar las alertas en toda tu organización
 
@@ -39,7 +42,10 @@ shortTitle: Ver el resumen de seguridad
 ## Ver el resumen de seguridad de una empresa
 
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
-1. En la barra lateral izquierda, haz clic en {% octicon "shield" aria-label="The shield icon" %} **Seguridad**.
+1. En la barra lateral izquierda, haz clic en {% octicon "shield" aria-label="The shield icon" %} **Seguridad de código**.
+{% ifversion security-overview-feature-specific-alert-page %}
+{% data reusables.organizations.security-overview-feature-specific-page %}
+{% endif %}
 {% endif %}
 
 ## Visualizar las alertas para un repositorio

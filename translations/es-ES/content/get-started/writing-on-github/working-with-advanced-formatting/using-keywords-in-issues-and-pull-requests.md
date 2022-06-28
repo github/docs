@@ -6,8 +6,8 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-  redirect_from:
-    - /github/writing-on-github/working-with-advanced-formatting/using-keywords-in-issues-and-pull-requests
+redirect_from:
+  - /github/writing-on-github/working-with-advanced-formatting/using-keywords-in-issues-and-pull-requests
 topics:
   - Issues
   - Pull requests
@@ -15,7 +15,7 @@ topics:
 
 ## Vincular una solicitud de cambios a una propuesta
 
-Para enlazar una solicitud de cambios a una propuesta para{% ifversion fpt or ghes or ghae or ghec %} mostrar que una solución se encuentra en progreso y para{% endif %} cerrar la propuesta automáticamente cuando alguien fusiona la solicitud de cambios, teclea alguna de las siguientes palabras clave seguida de una referencia a la propuesta. Por ejemplo, `Closes #10` o `Fixes octo-org/octo-repo#100`.
+Para enlazar una solicitud de cambios a una propuesta y mostrar que una corrección está en curso y para cerrar esta propuesta automáticamente cuando alguien fusiona la solicitud de cambios, teclea una de las siguientes palabras clave seguido de una referencia a la propuesta. Por ejemplo, `Closes #10` o `Fixes octo-org/octo-repo#100`.
 
 * close
 * closes

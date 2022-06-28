@@ -46,7 +46,7 @@ Before enabling access to all actions from {% data variables.product.prodname_do
   ![Drop-down menu to actions from GitHub.com in workflows runs](/assets/images/enterprise/site-admin-settings/enable-marketplace-actions-drop-down-ae.png)
 1. {% data reusables.actions.enterprise-limit-actions-use %}
 
-{% ifversion ghes > 3.2 or ghae-issue-4815 %}
+{% ifversion ghes > 3.2 or ghae %}
 
 ## Automatic retirement of namespaces for actions accessed on {% data variables.product.prodname_dotcom_the_website %}
 

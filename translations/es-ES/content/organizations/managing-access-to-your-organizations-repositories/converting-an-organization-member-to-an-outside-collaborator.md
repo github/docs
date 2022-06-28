@@ -15,6 +15,8 @@ topics:
 shortTitle: Convert member to collaborator
 ---
 
+## About conversion of organization members to outside collaborators
+
 {% data reusables.organizations.owners-and-admins-can %} convert organization members into outside collaborators.
 
 {% data reusables.organizations.outside-collaborators-use-seats %} {% data reusables.organizations.outside_collaborator_forks %}
@@ -31,6 +33,14 @@ For more information, see "[Roles in an organization](/organizations/managing-pe
 We recommend reviewing the organization member's access to repositories to ensure their access is as you expect. For more information, see "[Managing an individual's access to an organization repository](/articles/managing-an-individual-s-access-to-an-organization-repository)."
 
 When you convert an organization member to an outside collaborator, their privileges as organization members are saved for three months so that you can restore their membership privileges if you{% ifversion fpt or ghec %} invite them to rejoin{% else %} add them back to{% endif %} your organization within that time frame. For more information, see "[Reinstating a former member of your organization](/articles/reinstating-a-former-member-of-your-organization)."
+
+## Converting an organization member to an outside collaborator
+
+{% note %}
+
+**Note:** You may not be able to convert an organization member to an outside collaborator, if an organization owner{% ifversion not fpt %} or enterprise owner{% endif %} has restricted your ability to add outside collaborators.
+
+{% endnote %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}

@@ -44,7 +44,7 @@ We support these files:
 * PNG (*.png*)
 * GIF (*.gif*)
 * JPEG (*.jpg*)
-{%- if svg-support %}
+{%- ifversion svg-support %}
 * SVG (*.svg*)
 {%- endif %}
 * Log files (*.log*)

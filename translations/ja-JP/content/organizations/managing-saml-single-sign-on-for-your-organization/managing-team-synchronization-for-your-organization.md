@@ -24,6 +24,8 @@ IdP と {% data variables.product.product_name %} の間で Team の同期を有
 
 {% data reusables.identity-and-permissions.about-team-sync %}
 
+{% data reusables.saml.ghec-only %}
+
 {% data reusables.identity-and-permissions.supported-idps-team-sync %}
 
 {% data reusables.identity-and-permissions.sync-team-with-idp-group %}

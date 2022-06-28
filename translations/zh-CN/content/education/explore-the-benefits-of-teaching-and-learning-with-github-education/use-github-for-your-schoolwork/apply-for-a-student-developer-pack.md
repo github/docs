@@ -18,7 +18,7 @@ shortTitle: 申请学生包
 要获得申请 {% data variables.product.prodname_student_pack %} 的资格，必须：
 - 现正攻读学位或文凭授予课程，如高中、初中、大专、大学、自主学习或类似教育机构
 - 具有学校发放的可验证电子邮件地址，或者上传能证明您目前学生身份的文档
-- 拥有 [{% data variables.product.prodname_dotcom %} 用户帐户](/articles/signing-up-for-a-new-github-account)
+- 拥有 [{% data variables.product.prodname_dotcom %} 个人帐户](/articles/signing-up-for-a-new-github-account)
 - 至少年满 13 岁
 
 证明您现任学生身份的文件包括具有当前注册日期的学校 ID 照片、班级课程表、成绩单以及附属关系或入学签到函。
@@ -27,7 +27,7 @@ shortTitle: 申请学生包
 
 {% note %}
 
-**注：**不能在不同帐户之间转让学生折扣。 如有多个帐户想申请折扣，请考虑[合并](/articles/merging-multiple-user-accounts)您的用户帐户并根据需要[重命名](/articles/changing-your-github-username)保留的帐户。
+**注：**不能在不同帐户之间转让学生折扣。 如有多个帐户想申请折扣，请考虑[合并](/articles/merging-multiple-user-accounts)您的个人帐户并根据需要[重命名](/articles/changing-your-github-username)保留的帐户。
 
 {% endnote %}
 

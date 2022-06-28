@@ -1,6 +1,6 @@
 ---
 title: Instalar el servidor de GitHub Enterprise en Azure
-intro: 'Para instalar {% data variables.product.prodname_ghe_server %} en Azure, debes implementar en una instancia de serie DS y usar almacenamiento Premium-LRS.'
+intro: 'Para instalar {% data variables.product.prodname_ghe_server %} en Azure, debes desplegar en una instancia optimizada en memoria que sea compatible con el almacenamiento premium.'
 redirect_from:
   - /enterprise/admin/guides/installation/installing-github-enterprise-on-azure
   - /enterprise/admin/installation/installing-github-enterprise-server-on-azure
@@ -30,7 +30,8 @@ Puedes implementar {% data variables.product.prodname_ghe_server %} en Azure mun
 
 ## Determinar el tipo de máquina virtual
 
-Antes de iniciar {% data variables.product.product_location %} en Azure, deberás determinar el tipo de máquina que mejor se adapte a las necesidades de tu organización. Para revisar los requisitos mínimos para {% data variables.product.product_name %}, consulta la sección "[Requisitos mínimos](#minimum-requirements)".
+Antes de iniciar {% data variables.product.product_location %} en Azure, deberás determinar el tipo de máquina que mejor se adapte a las necesidades de tu organización. Para obtener más información sobre las máquinas con memoria optimizada, consulta la sección "[tamaños de máquina virtual con memoria optimizada](https://docs.microsoft.com/en-gb/azure/virtual-machines/sizes-memory)" en la documentación de Microsoft Azure. Para revisar los requisitos mínimos de recursos para {% data variables.product.product_name %}, consulta la sección "[Requisitos mínimos](#minimum-requirements)".
+
 
 {% data reusables.enterprise_installation.warning-on-scaling %}
 

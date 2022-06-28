@@ -29,7 +29,7 @@ permissions: People with admin access to a repository can add an outside collabo
 {% endif %}
 
 {% ifversion ghes %}
-要将某人添加为仓库的外部协作者，此人必须在 {% data variables.product.product_location %} 上拥有用户帐户。 如果您的企业使用外部身份验证系统（如 SAML 或 LDAP），则要添加的人员必须通过该系统登录才能创建帐户。 如果此人无权访问身份验证系统，并且为您的企业启用了内置身份验证，则站点管理员可以为该人员创建用户帐户。 更多信息请参阅“[使用内置身份验证](/admin/authentication/authenticating-users-for-your-github-enterprise-server-instance/using-built-in-authentication#inviting-users)”。
+要将某人添加为仓库的外部协作者，此人必须在 {% data variables.product.product_location %} 上拥有个人帐户。 如果您的企业使用外部身份验证系统（如 SAML 或 LDAP），则要添加的人员必须通过该系统登录才能创建帐户。 如果此人无权访问身份验证系统，并且为您的企业启用了内置身份验证，则站点管理员可以为该人员创建帐户。 更多信息请参阅“[配置内置身份验证](/admin/identity-and-access-management/using-built-in-authentication/configuring-built-in-authentication)”。
 {% endif %}
 
 {% ifversion not ghae %}

@@ -1,6 +1,7 @@
 ---
 title: 削除したリポジトリの復元
-intro: 削除したリポジトリの一部を復元して、内容を回復することができます。
+intro: '{% ifversion ghes or ghae %}An enterprise owner{% elsif fpt or ghec %}You{% endif %} can restore some deleted repositories to recover their contents.'
+permissions: '{% ifversion ghes or ghae %}{% elsif fpt or ghec %}Anyone can restore deleted repositories that were owned by their own personal account. Organization owners can restore deleted repositories that were owned by the organization.{% endif %}'
 redirect_from:
   - /articles/restoring-a-deleted-repository
   - /github/administering-a-repository/restoring-a-deleted-repository
@@ -15,8 +16,11 @@ topics:
 shortTitle: Restore deleted repository
 ---
 
-{% ifversion fpt or ghec %}
-自分自身のアカウントで所有していて削除したリポジトリは、誰でも復元できます。 Organizationのオーナーは、そのOrganizationが所有していて削除したリポジトリを復元できます。
+{% ifversion ghes or ghae %}
+
+Usually, deleted repositories can be restored within 90 days by an enterprise owner{% ifversion ghes %} on {% data variables.product.product_location %}{% endif %}. 詳しい情報については、「[削除されたリポジトリを復元する](/admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository)」を参照してください。
+
+{% else %}
 
 ## リポジトリの復元について
 
@@ -28,7 +32,7 @@ shortTitle: Restore deleted repository
 
 リポジトリを復元しても、リリース添付ファイルやチーム権限は復元されません。 復元された Issue はラベル付けされません。
 
-## ユーザアカウントが所有していて削除したリポジトリを復元する
+## Restoring a deleted repository that was owned by a personal account
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.repo-tab %}
@@ -49,6 +53,4 @@ shortTitle: Restore deleted repository
 
 - 「[リポジトリを削除する](/articles/deleting-a-repository)」
 
-{% else %}
-Usually, deleted repositories can be restored within 90 days by a {% data variables.product.prodname_enterprise %} site administrator. 詳しい情報については、「[削除されたリポジトリを復元する](/admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository)」を参照してください。
 {% endif %}

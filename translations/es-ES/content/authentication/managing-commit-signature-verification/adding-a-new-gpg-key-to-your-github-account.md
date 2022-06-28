@@ -20,6 +20,8 @@ Antes de agregar una llave GPG nueva a tu cuenta de {% ifversion ghae %}{% data 
 - [Comprobado tus llaves GPG existentes](/articles/checking-for-existing-gpg-keys)
 - [Generado y copiado una nueva llave GPG](/articles/generating-a-new-gpg-key)
 
+Puedes agregar varias llaves públicas a tu cuenta de GitHub. Las confirmaciones que haya firmado cualquiera de las llaves privadas correspondientes se mostrarán como verificadas. Si eliminas una llave pública, cualquier confirmación que firme la llave privada correspondiente ya no se mostrará como verificada.
+
 {% data reusables.gpg.supported-gpg-key-algorithms %}
 
 Al verificar una firma, extraemos la firma e intentamos analizar sus id de llave. Complementamos los id de llave con las llaves cargadas a {% data variables.product.product_name %}. Hasta que cargues tu llave de GPG a {% data variables.product.product_name %}, no podemos verificar tus firmas.

@@ -1,0 +1,191 @@
+---
+date: '2022-05-17'
+friendlyDate: '17 de maio de 2022'
+title: '17 de maio de 2022'
+currentWeek: true
+sections:
+  features:
+    - 
+      heading: 'De modo geral, as funcionalidades de Segurança Avançada do GitHub estão disponíveis'
+      notes:
+        - |
+          De modo geral, a digitalização de código de segredo estão disponíveis para o GitHub AE. Para obter mais informações, consulte "[Sobre a digitalização de código](/code-security/code-scanning/automaticamente-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)" e "[Sobre a digitalização de segredo](/code-security/secret-scanning/about-secret-scanning)."
+        - |
+          De modo geral, os padrões personalizados para a digitalização de segredo estão disponíveis. Para obter mais informações, consulte "[Definindo padrões personalizados para a digitalização de segredo](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."
+    - 
+      heading: 'Exibir todos os códigos de verificação para um pull request'
+      notes:
+        - |
+          Agora você pode encontrar todos os alertas de digitalização de código associados ao seu pull request com o novo filtro de pull request na página de alertas de digitalização de código. A página de verificação de pull request mostra os alertas introduzidos em um pull request, mas não os alertas existentes no branch do pull request. O novo link "Ver todos os alertas de branches" na página de verificações direciona você para a página de alertas de digitalização de código com o filtro de pull request específico já aplicado, assim você poderá ver todos os alertas associados ao seu pull request. Isso pode ser útil para gerenciar muitos alertas e ver informações mais detalhadas para alertas individuais. Para obter mais informações, consulte "[Gerenciar os alertas da digitalização de código para o seu repositório](/code-security/code-scanning/automaticamente-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#filtering-code-scanning-alerts)."
+    - 
+      heading: 'Visão geral de segurança para organizações'
+      notes:
+        - |
+          O GitHub Advanced Security agora oferece uma visão a nível da organização dos riscos à segurança do aplicativo detectados pela digitalização de código, Dependabot e digitalização de segredo. A visão geral de segurança mostra o status de habilitação dos recursos de segurança em cada repositório, bem como o número de alertas detectados.
+
+          Além disso, a visão geral de segurança lista todos os alertas da digitalização de segurança no nível da organização. Vistas similares para alertas de varredura de Dependabot e código estão chegando em versões futuras. Para obter mais informações, consulte "[Sobre a visão geral de segurança](/code-security/security-overview/about-the-security-overview).
+
+          ![Captura de tela da visão geral de segurança](/assets/images/enterprise/3.2/release-notes/security-overview-UI.png)
+    - 
+      heading: 'Gráfico de dependências'
+      notes:
+        - |
+          O gráfico de dependências agora está disponível no GitHub AE. O gráfico de dependências ajuda você a entender o software de código aberto do qual você depende analisando os manifestos de dependências verificados nos repositórios. Para obter mais informações, consulte "[Sobre o gráfico de dependência](/code-security/supply chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)."
+    - 
+      heading: 'Alertas do Dependabot'
+      notes:
+        - |
+          Dependabot alerts can now notify you of vulnerabilities in your dependencies on GitHub AE. You can enable Dependabot alerts by enabling the dependency graph, enabling GitHub Connect, and syncing vulnerabilities from the GitHub Advisory Database. This feature is in beta and subject to change. For more information, see "[About Dependabot alerts](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)."
+
+          After you enable Dependabot alerts, members of your organization will receive notifications any time a new vulnerability that affects their dependencies is added to the GitHub Advisory Database or a vulnerable dependency is added to their manifest. Members can customize notification settings. For more information, see "[Configuring notifications for % data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts)." <!-- ⚠️ Articles will be available when we toggle content feature flags -->
+    - 
+      heading: 'Função de gerente de segurança para organizações'
+      notes:
+        - |
+          As organizações agora podem conceder permissões de equipes para gerenciar alertas de segurança e configurações em todos os seus repositórios. A função "gerente de segurança" pode ser aplicada a qualquer equipe e concede as seguintes permissões aos integrantes da equipe.
+
+          - Acesso de leitura em todos os repositórios na organização
+          - Acesso de gravação em todos os alertas de segurança na organização
+          - Acesso à guia de segurança a nível da organização
+          - Acesso de gravação às configurações de segurança no nível
+          da organização
+          - Acesso de gravação às configurações de segurança no nível do repositório
+
+          Para obter mais informações, consulte "[Gerenciando os gerentes de segurança na sua organização](https://docs. ithub.com/en/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)." <!-- ⚠️ O artigo estará disponível quando alternarmos os sinalizadores de recursos de conteúdo -->
+    - 
+      heading: 'Os executores efêmeros e webhooks que dimensionam automaticamente para o GitHub Actions'
+      notes:
+        - |
+          O GitHub AE agora é compatível com executores (um único trabalho) auto-hospedados e um novo [`workflow_job`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job) para facilitar o dimensionamento automático dos executores.
+
+          Os executores efêmeros são bons para ambientes autogerenciados, em que se exige que cada trabalho seja executado em uma imagem limpa. Quando um trabalho é executado, o GitHub AE cancela o registro automaticamente dos executores efêmeros, permitindo que você execute qualquer gerenciamento pós-trabalho.
+
+          Você pode combinar executores efêmeros com o novo webhook `workflow_job` para dimensionar automaticamente executors auto-hospedados em resposta às solicitações de trabalho do GitHub Actions.
+
+          Para obter mais informações, consulte "[Redimensionamento automático com executores auto-hospedados](/actions/hosting-your-own runners/autoscaling-with-autohosted-runners)" e "[Eventos e cargas de webhook](/developers/webhooks-and-events/webhook/webhook-events-and-payloads#workflow_job). <!-- ⚠️ O artigo estará disponível quando alternarmos as os sinalizadores dao recurso do conteúdo -->
+    - 
+      heading: 'Ações compostas para o GitHub Actions'
+      notes:
+        - |
+          Você pode reduzir a duplicação em seus fluxos de trabalho usando a composição para fazer referência a outras ações. Anteriormente, as ações escritas em YAML só podiam usar scripts. Para obter mais informações, consulte "[Criando uma ação composta](/actions/creating-actions/creating-a-composite-action)".
+    - 
+      heading: 'Novo escopo de token para gerenciamento de executores auto-hospedados'
+      notes:
+        - |
+          O gerenciamento de executores auto-hospedados no nível corporativo não exige mais usar tokens de acesso pessoal com o escopo `admin:enterprise`. Em vez disso, você pode usar o escopo `new manage_runners:enterprise` para restringir as permissões em seus tokens. Tokens com este escopo podem efetuar a autenticação em vários pontos de extremidade da API REST para gerenciar os executores auto-hospedados da sua empresa.
+    - 
+      heading: 'Log de auditoria acessível via API REST'
+      notes:
+        - |
+          Agora você pode usar a API REST para fazer uma interface programática com o log de auditoria. Embora o encaminhamento de registro de auditoria ofereça a você a capacidade de manter e analisar dados com seu próprio kit de ferramentas e determinar padrões ao longo do tempo, a nova API REST irá ajudar você a fazer uma análise limitada sobre eventos da nota que aconteceram recentemente. Para obter mais informações, consulte "[Revisando o log de auditoria da sua organização](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization#using-the-rest-api)."
+    - 
+      heading: 'Datas de vencimento para tokens de acesso pessoal'
+      notes:
+        - |
+          Agora você pode definir uma data de vencimento em tokens de acesso pessoais novos e existentes. O GitHub AE irá enviar-lhe um e-mail quando for hora de renovar um token que está prestes a vencer. Os tokens que expiraram podem ser regenerados, dando-lhe um token duplicado com as mesmas propriedades do original. Ao usar um token com a API do GitHub AE, você verá um novo cabeçalho, `GitHub-Authentication-Token-Expiration`, indicando a data de validade do token. Você pode usar isso em scripts, por exemplo, para registrar uma mensagem de aviso quando a data de validade se aproxima. Para obter mais informações, consulte "[Criando um token de acesso pessoal](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)" e "[Primeiros passos com a API REST](/rest/guides/getting-started-with-the-rest-api#using-personal-access-tokens)."
+    - 
+      heading: 'Exportar uma lista de pessoas com acesso a um repositório'
+      notes:
+        - |
+          Os proprietários da organização agora podem exportar uma lista das pessoas com acesso a um repositório em formato CSV. Para obter mais informações, consulte "[Visualizar pessoas com acesso ao seu repositório](/organizations/managing-access-to-your-organizations-repositories/viewing-people-with-access-to-your-repository#exporting-a-list-of-people-with-access-to-your-repository)."
+    - 
+      heading: 'Gestão melhorada das atividades de revisão de código'
+      notes:
+        - |
+          As novas configurações para gerenciar a revisão do código de atribuição de código ajudam a distribuir a análise de pull request de uma equipe entre os integrantes da equipe. Portanto os comentários não são da responsabilidade de apenas um ou dois integrantes da equipe.
+
+          - Os integrantes da equipe secundária: Limita a atividade apenas a integrantes diretos da equipe. Anteriormente, as solicitações de revisão de equipes podiam ser atribuídas a integrantes diretos da equipe ou integrantes de equipes secundárias.
+          - Contagem das solicitações existentes: Continua com a atribuição automática, mesmo que um ou mais integrantes da equipe já tenham sido solicitados. Anteriormente, um integrante da equipe já solicitado seria contado como um dos pedidos de revisão automáticos da equipe.
+          - Pedido de revisão de equipe: Mantém uma equipe atribuída para revisar mesmo que um ou mais integrantes sejam designados recentemente.
+
+          Para obter mais informações, consulte "[Gerenciando configurações de revisão de código para sua equipe](/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team)."
+    - 
+      heading: 'Novos temas'
+      notes:
+        - |
+          Dois novos temas estão disponíveis para a interface do usuário web do GitHub AE.
+
+          - Um tema de alto contraste escuro, com maior contraste entre o primeiro plano e os elementos de fundo
+          - Cor clara e escura, que troca de cores como vermelho e verde para laranja e azul
+
+          Para obter mais informações, consulte "[Gerenciando as configurações do seu tema](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-your-theme-settings)."
+    - 
+      heading: 'Melhorias de Markdown'
+      notes:
+        - |
+          You can now use footnote syntax in any Markdown field to reference relevant information without disrupting the flow of your prose. Footnotes are displayed as superscript links. Click a footnote to jump to the reference, displayed in a new section at the bottom of the document. For more information, see "[Basic writing and formatting syntax](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#footnotes)." <!-- ⚠️ Section on page will be available when we toggle content feature flags -->
+        - |
+          Agora você pode alternar entre a exibição de origem e a exibição interpretada do Markdown através da interface do usuário da web clicando no botão {% octicon "code" aria-label="The Code icon" %} para "Exibir o diff de origem" na parte superior de qualquer arquivo do Markdown. Anteriormente, você precisava usar a vista do último responsável para vincular a números de linha específicos na fonte de um arquivo Markdown.
+        - |
+          Agora você pode adicionar imagens e vídeos aos arquivos Markdown nos gists, colando-os no corpo do Markdown ou selecionando-os da caixa de diálogo na parte inferior do arquivo Markdown. Para obter informações sobre tipos de arquivos compatíveis, consulte "[Anexando arquivos](/github/writing-on-github/working-with-advanced-formatting/attaching-files)."
+        - |
+          O GitHub AE agora gera automaticamente uma tabela de conteúdos para Wikis, baseada em cabeçalhos.
+  changes:
+    - 
+      heading: 'Performance'
+      notes:
+        - |
+          As cargas e tarefas de página agora são significativamente mais rápidas para repositórios com muitas refs do Git.
+    - 
+      heading: 'Administração'
+      notes:
+        - |
+          O processo de representação do usuário foi aprimorado. Uma sessão de representação agora exige uma justificativa para a representação, as ações são registradas no log de auditoria como sendo realizadas como um usuário representado, e o usuário que estiver representado receberá uma notificação por e-mail de que ele foi representado pelo proprietário de uma empresa. Para obter mais informações, consulte "[Personificar um usuário](/admin/user-management/managing-users-in-your-enterprise/impersonating-a-user)."
+    - 
+      heading: 'GitHub Actions'
+      notes:
+        - |
+          Para mitigar ataques internos de intermediários ao usar ações resolvidas através do GitHub Connect para o GitHub.com a partir do GitHub AE, o GitHub AE desativa o namespace de ações (`OWNER/NAME`) em uso. A desativação do namespace impede que esse namespace seja criado em sua empresa e garante que todos os fluxos de trabalhos que fazem referência à ação irão fazer o download no GitHub.com. Para obter mais informações, consulte "[Habilitando o acesso automático para ações GitHub.com usando o GitHub Connect](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect#automatic-retirement-of-namespaces-for-actions-accessed-on-githubcom)."
+        - |
+          O log de auditoria agora inclui eventos adicionais para o GitHub Actions. O GitHub AE agora registra entradas de log de auditoria para os seguintes eventos.
+
+          - Um executor auto-hospedado é registrado ou removido.
+          - Um executor auto-hospedado é adicionado a um grupo de executores ou removido de um grupo de executores.
+          - Um grupo de executores foi criado ou removido.
+          - A execução de um fluxo de trabalho foi criada ou concluída.
+          - O trabalho de um fluxo de trabalho foi preparado. Importante, este log inclui a lista de segredos que foram fornecidos ao executor.
+
+          Para obter mais informações, consulte "[Fortalecimento de segurança para o GitHub Actions](/actions/security-guides/security-hardening-for-github-actions)".
+    - 
+      heading: 'Segurança Avançada GitHub'
+      notes:
+        - |
+          A digitalização de código agora irá mapear alertas identificados em fluxos de trabalho 'on:push' para aparecer em pull requests, quando possível. Os alertas exividos no pull request são aqueles identificados pela comparação da análise existente do cabeçalho do branch com a análise do branch de destino contra o qual você está fazendo o merge. Observe que se o commit de merge do pull request não for usado, é possível que os alertas sejam menos precisos quando comparados com a abordagem que usa gatilhos `on:pull_request`. Para obter mais informações, consulte "[Sobre a digitalização de código com o CodeQL](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql)."
+
+          Outros sistemas de CI/CD podem ser configurados exclusivamente para acionar um pipeline quando o código é enviado para um branch, ou mesmo exclusivamente para todos os commits. Sempre que um pipeline de análise é acionado e faz-se o upload dos resultados para a API do SARIF, a verificação de código tentará corresponder aos resultados da análise a um pull request aberto. Se um pull request aberto for encontrado, os resultados serão publicados como descrito acima. Para obter mais informações, consulte "[Fazendo o upload de um arquivo SARIF para o GitHub](/code-security/code-scanning/integrating-with-code-scanning/uploading-a-sarif-file-to-github)".
+        - |
+          O GitHub AE agora detecta segredos de provedores adicionais. Para obter mais informações, consulte "[Padrões de digitalização de segredo](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets)."
+    - 
+      heading: 'Pull requests'
+      notes:
+        - |
+          A linha do tempo e a barra lateral dos revisores agora indicam se uma solicitação de revisão foi automaticamente atribuída a um ou mais integrantes da equipe, porque essa equipe usa a atividade de código.
+
+          ![Captura de tela do indicador para a atividade automática de revisão de código](https://user-images.githubusercontent.com/2503052/134931920-409dea07-7a70-4557-b208-963357db7a0d.png)
+        - |
+          Agora você pode filtrar pesquisas de pull request para incluir apenas pull requests que se solicita que você revise diretamente, escolhendo **Aguardandosua revisão**. Para obter mais informações, consulte "[Pesquisando problemas e pull requests](https://docs.github.com/en/search-github/searching-on-github/searching-issues-and-pull-requests)".
+        - |
+          Se você especificar o nome exato de um branch ao usar o menu seletor do branch, o resultado agora será exibido na parte superior da lista de branches correspondentes. Anteriormente, as correspondências exatas de nomes de branch poderiam aparecer na parte inferior da lista.
+        - |
+          Ao visualizar um branch com um pull request aberto correspondente, o GitHub AE agora irá vincular diretamente ao pull request. Anteriormente, haveria uma instrução para contribuir usando a comparação do branch ou para abrir um novo pull request.
+        - |
+          Agora você pode clicar em um botão para copiar todo o conteúdo sem ser processado de um arquivo para a área de transferência. Anteriormente, você deveria abrir o arquivo sem processamento, selecionar todos e, em seguida, copiar. Para copiar o conteúdo de um arquivo, acesse o arquivo e clique em  na barra de ferramentas. Observe que este recurso está disponível apenas em alguns navegadores.
+        - |
+          Um aviso agora é exibido ao visualizar um arquivo que contém texto bidirecional do Unicode. O texto bidirecional Unicode pode ser interpretado ou compilado de forma diferente da que aparece na interface do usuário. Por exemplo, caracteres bidirecionais ocultos Unicode podem ser usados para trocar segmentos de texto em um arquivo. Para obter mais informações sobre a substituição desses caracteres, consulte o [registro de alterações do GitHub](https://github.blog/changelog/2021-10-31-warning-about-bidirectional-unicode-text/).
+    - 
+      heading: 'Repositórios'
+      notes:
+        - |
+          O GitHub AE agora inclui suporte aprimorado para arquivos _CITATION.cff_. Arquivos _CITATION.cff_ são arquivos de texto simples com informações de citação legíveis por humanos e máquinas. O GitHub AE analisa esta informação em formatos convenientes, como [APA](https://apastyle. pa.org) e [BibTeX](https://en.wikipedia.org/wiki/BibTeX) que podem ser copiados por outros. Para obter mais informações, consulte "[Sobre arquivos de CITATION](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-citation-files)."
+        - |
+          Agora você pode adicionar, excluir ou exibir links automáticos através do ponto de extremidade de links automáticos da API de repositórios. Para obter mais informações, consulte "[Referências e URLs autovinculados](/get-started/writing-on-github/working-with-advanced-formatting/autolinked-references-and-urls)" e "[Repositories](/rest/reference/repos#autolinks)" na documentação da API REST.
+    - 
+      heading: 'Versões'
+      notes:
+        - |
+          O componente de seleção de tags para versões GitHub agora é um menu suspenso em vez de um campo de texto. Para obter mais informações, consulte "[Gerenciando versões em um repositório](/repositórios/releasing-projects-on-github/managing-releases-in-a-repository#creating-a-release)."
+    - 
+      heading: 'markdown'
+      notes:
+        - |
+          Ao arrastar e soltar arquivos como imagens e vídeos para um editor de Markdown, o GitHub AE agora usa a localização do ponteiro do mouse em vez do cursor ao colocar o arquivo.

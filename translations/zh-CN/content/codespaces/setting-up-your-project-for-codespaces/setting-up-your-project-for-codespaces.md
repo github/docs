@@ -6,6 +6,7 @@ intro: '通过创建自定义开发容器，开始在 {% data variables.product.
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Codespaces

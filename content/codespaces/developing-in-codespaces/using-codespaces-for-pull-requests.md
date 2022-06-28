@@ -27,7 +27,7 @@ topics:
 
 2. In the list of pull requests, click the pull request you'd like to open in {% data variables.product.prodname_codespaces %}.
 3. On the right-hand side of your screen, click **{% octicon "code" aria-label="The code icon" %} Code**. 
-4. From the {% data variables.product.prodname_codespaces %} tab, click **New codespace**.
+4. In the {% data variables.product.prodname_codespaces %} tab, click **Create codespace on BRANCH**.
   ![Option to open PR in a codespace](/assets/images/help/codespaces/open-with-codespaces-pr.png)
 
 ## Reviewing a pull request in {% data variables.product.prodname_codespaces %}

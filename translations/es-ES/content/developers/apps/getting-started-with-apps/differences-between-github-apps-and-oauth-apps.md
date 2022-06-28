@@ -89,10 +89,11 @@ A diferencia de las apps de OAuth, las GitHub Apps tiene permisos específicos q
 
 ## Webhooks
 
-| GitHub Apps                                                                                                                                                           | OAuth Apps                                                                                                                                                                                      |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Predeterminadamente, las GitHub Apps tienen un solo webhook que recibe los eventos que se les ha configurado para recibir para cada repositorio al que tengan acceso. | Las Apps de OAuth solicitan el alcance de webhook para crear un webhook de repositorio para cada repositorio del cual necesiten recibir eventos.                                                |
-| Las GitHub Apps reciben algunos eventos a nivel organizacional con el permiso del miembro de la organización.                                                         | Las Apps de OAuth solicitan el alcance de webhook de la organización para crear un webhook de organización para cada organización de la cual necesiten recibir eventos de nivel organizacional. |
+| GitHub Apps                                                                                                                                                           | OAuth Apps                                                                                                                                                                                                   |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Predeterminadamente, las GitHub Apps tienen un solo webhook que recibe los eventos que se les ha configurado para recibir para cada repositorio al que tengan acceso. | Las Apps de OAuth solicitan el alcance de webhook para crear un webhook de repositorio para cada repositorio del cual necesiten recibir eventos.                                                             |
+| Las GitHub Apps reciben algunos eventos a nivel organizacional con el permiso del miembro de la organización.                                                         | Las Apps de OAuth solicitan el alcance de webhook de la organización para crear un webhook de organización para cada organización de la cual necesiten recibir eventos de nivel organizacional.              |
+| Los webhooks se inhabilitan automáticamente cuando se desinstala la GitHub App.                                                                                       | Los Webhooks no se inhabilitan automáticamente si se borra el token de acceso de una OAuth App y no hay forma de limpiarlos automáticamente. Tendrás que pedirles a los usuarios que hagan esto manualmente. |
 
 ## Acceso a Git
 
@@ -103,7 +104,7 @@ A diferencia de las apps de OAuth, las GitHub Apps tiene permisos específicos q
 
 ## Cuentas de máquina vs cuentas de bot
 
-Las cuentas de usuario de máquina son cuentas de usuario basadas en OAuth que segregan sistemas automatizados utilizando el sistema de usuarios de GitHub.
+Las cuentas de usuario máquina son cuentas personales basadas en OAuth que segregan a los sistemas automatizados utilizando l sistema del usuario de GitHub.
 
 Las cuentas de bot son específicas para las GitHub Apps y se crean en cada GitHub App.
 

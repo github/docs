@@ -31,16 +31,16 @@ shortTitle: サブスクリプションのダウングレード
 
 ## {% data variables.product.product_name %}プランのダウングレード
 
-ユーザアカウントまたはOrganizationのプランをダウングレードした場合、価格とアカウント機能の変更は次の請求日から有効になります。 有料のユーザアカウントまたはOrganizationのプランを変更しても、他の有料{% data variables.product.prodname_dotcom %} 機能のプランや支払いには影響しません。 詳細は「[アップグレードやダウングレードは支払い処理にどのように影響しますか?](/articles/how-does-upgrading-or-downgrading-affect-the-billing-process)」を参照してください。
+個人アカウントまたはOrganizationのプランをダウングレードした場合、価格とアカウント機能の変更は次の請求日から有効になります。 有料の個人アカウントまたはOrganizationのプランを変更しても、他の有料{% data variables.product.prodname_dotcom %} 機能のプランや支払いには影響しません。 詳細は「[アップグレードやダウングレードは支払い処理にどのように影響しますか?](/articles/how-does-upgrading-or-downgrading-affect-the-billing-process)」を参照してください。
 
-## ユーザアカウントのプランをダウングレードする
+## 個人アカウントのプランをダウングレードする
 
-ユーザアカウントを{% data variables.product.prodname_pro %}から{% data variables.product.prodname_free_user %}にダウングレードした場合、プライベートリポジトリでの高度なコードレビューツールにはアクセスできなくなります。 {% data reusables.gated-features.more-info %}
+個人アカウントを{% data variables.product.prodname_pro %}から{% data variables.product.prodname_free_user %}にダウングレードした場合、プライベートリポジトリでの高度なコードレビューツールにはアクセスできなくなります。 {% data reusables.gated-features.more-info %}
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.billing_plans %}
 1. "Current plan（現在のプラン）"の下で、**Edit（編集）**ドロップダウンを使い、**Downgrade to Free（Freeへのダウングレード）**をクリックしてください。 ![Downgrade to free button](/assets/images/help/billing/downgrade-to-free.png)
-5. 次回の請求日にユーザアカウントがアクセスできなくなる機能に関する情報を読み、[**I understand. Continue with downgrade**] をクリックします。 ![[Continue with downgrade] ボタン](/assets/images/help/billing/continue-with-downgrade.png)
+5. 次回の請求日に個人アカウントがアクセスできなくなる機能に関する情報を読み、[**I understand. Continue with downgrade**] をクリックします。 ![[Continue with downgrade] ボタン](/assets/images/help/billing/continue-with-downgrade.png)
 
 プライベートリポジトリに {% data variables.product.prodname_pages %} サイトを公開し、カスタムドメインを追加した場合、ドメイン乗っ取りのリスクを回避するため、{% data variables.product.prodname_pro %} から {% data variables.product.prodname_free_user %} にダウングレードする前に DNS レコードを削除または更新します。 詳しい情報については、「[{% data variables.product.prodname_pages %} サイト用のカスタムドメインを管理する](/articles/managing-a-custom-domain-for-your-github-pages-site)」を参照してください。
 

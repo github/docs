@@ -24,6 +24,7 @@ You can work with {% data variables.product.prodname_codespaces %} in the  {% da
 - [Delete a codespace](#delete-a-codespace)
 - [SSH into a codespace](#ssh-into-a-codespace)
 - [Open a codespace in {% data variables.product.prodname_vscode %}](#open-a-codespace-in-visual-studio-code)
+- [Open a codespace in JupyterLab](#open-a-codespace-in-jupyterlab)
 - [Copying a file to/from a codespace](#copy-a-file-tofrom-a-codespace)
 - [Modify ports in a codespace](#modify-ports-in-a-codespace)
 - [Access codespace logs](#access-codespace-logs)
@@ -112,6 +113,12 @@ gh codespace code -c <em>codespace-name</em>
 ```
 
 For more information, see "[Using {% data variables.product.prodname_codespaces %} in {% data variables.product.prodname_vscode %}](/codespaces/developing-in-codespaces/using-codespaces-in-visual-studio-code)."
+
+### Open a codespace in JupyterLab
+
+```shell
+gh codespace jupyter -c <em>codespace-name</em>
+```
 
 ### Copy a file to/from a codespace
 

@@ -22,7 +22,7 @@ shortTitle: 暗号化されたシークレット
 
 ## {% data variables.product.prodname_codespaces %} の暗号化されたシークレットについて
 
-コードスペースで使用するユーザアカウントに、暗号化されたシークレットを追加できます。 たとえば、次のような機密情報を暗号化されたシークレットとして保存しアクセスするとよいでしょう。
+You can add encrypted secrets to your personal account that you want to use in your codespaces. たとえば、次のような機密情報を暗号化されたシークレットとして保存しアクセスするとよいでしょう。
 
 - クラウドサービスへの個人アクセストークン
 - サービスプリンシパル

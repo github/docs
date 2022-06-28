@@ -31,7 +31,7 @@ From least access to most access, the roles for an organization repository are:
 
 {% ifversion fpt %}
 If your organization uses {% data variables.product.prodname_ghe_cloud %}, you can create custom repository roles. For more information, see "[Managing custom repository roles for an organization](/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)" in the {% data variables.product.prodname_ghe_cloud %} documentation.
-{% elsif ghec %}
+{% elsif ghec or ghes > 3.4 or ghae-issue-6271 %}
 You can create custom repository roles. For more information, see "[Managing custom repository roles for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)."
 {% endif %}
 
@@ -136,15 +136,15 @@ Some of the features listed below are limited to organizations using {% data var
 | Display a sponsor button (see "[Displaying a sponsor button in your repository](/articles/displaying-a-sponsor-button-in-your-repository)") | | | | | **X** |{% endif %}
 | Create autolink references to external resources, like Jira or Zendesk (see "[Configuring autolinks to reference external resources](/articles/configuring-autolinks-to-reference-external-resources)") | | | | | **X** |{% ifversion fpt or ghec %}
 | [Enable {% data variables.product.prodname_discussions %}](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository) in a repository | | | | **X** | **X** |
-| [Create and edit categories](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions-in-your-repository) for {% data variables.product.prodname_discussions %} | | | | **X** | **X** |
-| [Move a discussion to a different category](/discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository) | | | **X** | **X** | **X** |
-| [Transfer a discussion](/discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository) to a new repository| | | **X** | **X** | **X** |
-| [Manage pinned discussions](/discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository) | | | **X** | **X** | **X** |
-| [Convert issues to discussions in bulk](/discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository) | | | **X** | **X** | **X** |
+| [Create and edit categories](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions) for {% data variables.product.prodname_discussions %} | | | | **X** | **X** |
+| [Move a discussion to a different category](/discussions/managing-discussions-for-your-community/managing-discussions) | | | **X** | **X** | **X** |
+| [Transfer a discussion](/discussions/managing-discussions-for-your-community/managing-discussions) to a new repository| | | **X** | **X** | **X** |
+| [Manage pinned discussions](/discussions/managing-discussions-for-your-community/managing-discussions) | | | **X** | **X** | **X** |
+| [Convert issues to discussions in bulk](/discussions/managing-discussions-for-your-community/managing-discussions) | | | **X** | **X** | **X** |
 | [Lock and unlock discussions](/discussions/managing-discussions-for-your-community/moderating-discussions) | | **X** | **X** | **X** | **X** |
 | [Individually convert issues to discussions](/discussions/managing-discussions-for-your-community/moderating-discussions) | | **X** | **X** | **X** | **X** |
 | [Create new discussions and comment on existing discussions](/discussions/collaborating-with-your-community-using-discussions/participating-in-a-discussion) | **X** | **X** | **X** | **X** | **X** |
-| [Delete a discussion](/discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository#deleting-a-discussion) | | **X** | | **X** | **X** |{% endif %}{% ifversion fpt or ghec %}
+| [Delete a discussion](/discussions/managing-discussions-for-your-community/managing-discussions#deleting-a-discussion) | | **X** | | **X** | **X** |{% endif %}{% ifversion fpt or ghec %}
 | Create [codespaces](/codespaces/about-codespaces) | | | **X** | **X** | **X** |{% endif %}
 
 ### Access requirements for security features
@@ -152,18 +152,18 @@ Some of the features listed below are limited to organizations using {% data var
 In this section, you can find the access required for security features, such as {% data variables.product.prodname_advanced_security %} features.
 
 | Repository action | Read | Triage | Write | Maintain | Admin |
-|:---|:---:|:---:|:---:|:---:|:---:| {% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
-| Receive [{% data variables.product.prodname_dependabot_alerts %} for vulnerable dependencies](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies) in a repository | | | | | **X** |
-| [Dismiss {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/viewing-and-updating-vulnerable-dependencies-in-your-repository) | | | | | **X** |{% endif %}{% ifversion ghes or ghae-issue-4864 or ghec %}<!--Not available for FPT-->
+|:---|:---:|:---:|:---:|:---:|:---:| {% ifversion fpt or ghes or ghae or ghec %}
+| Receive [{% data variables.product.prodname_dependabot_alerts %} for insecure dependencies](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies) in a repository | | | | | **X** |
+| [Dismiss {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/viewing-and-updating-vulnerable-dependencies-in-your-repository) | | | | | **X** |{% endif %}{% ifversion ghes or ghae or ghec %}<!--Not available for FPT-->
 | [Designate additional people or teams to receive security alerts](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts) | | | | | **X** |{% endif %}{% ifversion fpt or ghec %}
 | Create [security advisories](/code-security/security-advisories/about-github-security-advisories) | | | | | **X** |{% endif %}{% ifversion ghes or ghae or ghec %} <!--Not available for FPT-->
 | Manage access to {% data variables.product.prodname_GH_advanced_security %} features (see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)") | | | | | **X** |{% endif %}{% ifversion fpt or ghec %}<!--Set at site-level for GHES and GHAE-->
-| [Enable the dependency graph](/code-security/supply-chain-security/exploring-the-dependencies-of-a-repository) for a private repository | | | | | **X** |{% endif %}{% ifversion ghes > 3.1 or ghae-issue-4864 or ghec %}
+| [Enable the dependency graph](/code-security/supply-chain-security/exploring-the-dependencies-of-a-repository) for a private repository | | | | | **X** |{% endif %}{% ifversion ghes > 3.1 or ghae or ghec %}
 | [View dependency reviews](/code-security/supply-chain-security/about-dependency-review) | **X** | **X** | **X** | **X** | **X** |{% endif %}
 | [View {% data variables.product.prodname_code_scanning %} alerts on pull requests](/github/finding-security-vulnerabilities-and-errors-in-your-code/triaging-code-scanning-alerts-in-pull-requests) | **X** | **X** | **X** | **X** | **X** |
 | [List, dismiss, and delete {% data variables.product.prodname_code_scanning %} alerts](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository) | | | **X** | **X** | **X** |
 | [View {% data variables.product.prodname_secret_scanning %} alerts in a repository](/github/administering-a-repository/managing-alerts-from-secret-scanning) | | | **X**{% ifversion not ghae %}<sup>[1]</sup>{% endif %} | **X**{% ifversion not ghae %}<sup>[1]</sup>{% endif %} | **X** |{% ifversion ghes or ghae or ghec %}<!--Not available for FPT-->
-| [Resolve, revoke, or re-open {% data variables.product.prodname_secret_scanning %} alerts](/github/administering-a-repository/managing-alerts-from-secret-scanning) | | | **X**{% ifversion not ghae %}<sup>[1]</sup>{% endif %} | **X**{% ifversion not ghae %}<sup>[1]</sup>{% endif %} | **X** |{% endif %}{% ifversion ghes or ghae-issue-4864 or ghec %}
+| [Resolve, revoke, or re-open {% data variables.product.prodname_secret_scanning %} alerts](/github/administering-a-repository/managing-alerts-from-secret-scanning) | | | **X**{% ifversion not ghae %}<sup>[1]</sup>{% endif %} | **X**{% ifversion not ghae %}<sup>[1]</sup>{% endif %} | **X** |{% endif %}{% ifversion ghes or ghae or ghec %}
 | [Designate additional people or teams to receive {% data variables.product.prodname_secret_scanning %} alerts](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts) in repositories | | | | | **X** |{% endif %}
 
 [1] Repository writers and maintainers can only see alert information for their own commits.

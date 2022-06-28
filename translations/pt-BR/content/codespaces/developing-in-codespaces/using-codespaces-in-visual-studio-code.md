@@ -20,17 +20,17 @@ shortTitle: Visual Studio Code
  
 ## Sobre {% data variables.product.prodname_codespaces %} em {% data variables.product.prodname_vscode %}
 
-Você pode usar sua instalação local de {% data variables.product.prodname_vscode %} para criar, gerenciar, trabalhar e excluir codespaces. Para usar {% data variables.product.prodname_codespaces %} em {% data variables.product.prodname_vscode %}, você deverá instalar a extensão de {% data variables.product.prodname_github_codespaces %}. Para obter mais informações sobre a configuração de codespaces em {% data variables.product.prodname_vscode %}, consulte "[pré-requisitos](#prerequisites)".
+Você pode usar sua instalação local de {% data variables.product.prodname_vscode %} para criar, gerenciar, trabalhar e excluir codespaces. Para usar {% data variables.product.prodname_codespaces %} em {% data variables.product.prodname_vscode_shortname %}, você deverá instalar a extensão de {% data variables.product.prodname_github_codespaces %}. Para obter mais informações sobre a configuração de codespaces em {% data variables.product.prodname_vscode_shortname %}, consulte "[pré-requisitos](#prerequisites)".
 
-Por padrão, se você criar um novo codespace em {% data variables.product.prodname_dotcom_the_website %}, ele será aberto no navegador. Se você preferir abrir qualquer codespace novo em {% data variables.product.prodname_vscode %} automaticamente, você pode definir seu editor padrão como {% data variables.product.prodname_vscode %}. Para obter mais informações, consulte "[Definindo seu editor padrão para {% data variables.product.prodname_codespaces %}](/codespaces/managing-your-codespaces/setting-your-default-editor-for-codespaces)".
+Por padrão, se você criar um novo codespace em {% data variables.product.prodname_dotcom_the_website %}, ele será aberto no navegador. Se você preferir abrir qualquer codespace novo em {% data variables.product.prodname_vscode_shortname %} automaticamente, você pode definir seu editor padrão como {% data variables.product.prodname_vscode_shortname %}. Para obter mais informações, consulte "[Definindo seu editor padrão para {% data variables.product.prodname_codespaces %}](/codespaces/managing-your-codespaces/setting-your-default-editor-for-codespaces)".
 
-Se você preferir trabalhar no navegador, mas deseja continuar usando suas extensões de {% data variables.product.prodname_vscode %} temas e atalhos existentes, você poderá ativar as Configurações Sincronizadas. Para obter mais informações, consulte "[Personalizar {% data variables.product.prodname_codespaces %} para sua conta](/codespaces/customizing-your-codespace/personalizing-codespaces-for-your-account#settings-sync)".
+Se você preferir trabalhar no navegador, mas deseja continuar usando suas extensões de {% data variables.product.prodname_vscode_shortname %} temas e atalhos existentes, você poderá ativar as Configurações Sincronizadas. Para obter mais informações, consulte "[Personalizar {% data variables.product.prodname_codespaces %} para sua conta](/codespaces/customizing-your-codespace/personalizing-codespaces-for-your-account#settings-sync)".
 
 ## Pré-requisitos
 
-Para desenvolver-se em uma plataforma de codespace diretamente em {% data variables.product.prodname_vscode %}, você deverá instalar e efetuar o login na extensão {% data variables.product.prodname_github_codespaces %} com as suas credenciais de {% data variables.product.product_name %}. A extensão de {% data variables.product.prodname_github_codespaces %} exige a versão de outubro de 2020 1.51 ou posterior de {% data variables.product.prodname_vscode %}.
+Para desenvolver-se em uma plataforma de codespace diretamente em {% data variables.product.prodname_vscode_shortname %}, você deverá instalar e efetuar o login na extensão {% data variables.product.prodname_github_codespaces %} com as suas credenciais de {% data variables.product.product_name %}. A extensão de {% data variables.product.prodname_github_codespaces %} exige a versão de outubro de 2020 1.51 ou posterior de {% data variables.product.prodname_vscode_shortname %}.
 
-Use o {% data variables.product.prodname_vs %} Marketplace para instalar a extensão [{% data variables.product.prodname_github_codespaces %}](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces). Para obter mais informações, consulte [Extensão do Marketplace](https://code.visualstudio.com/docs/editor/extension-gallery) na documentação do {% data variables.product.prodname_vscode %}.
+Use o {% data variables.product.prodname_vscode_marketplace %} para instalar a extensão [{% data variables.product.prodname_github_codespaces %}](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces). Para obter mais informações, consulte [Extensão do Marketplace](https://code.visualstudio.com/docs/editor/extension-gallery) na documentação do {% data variables.product.prodname_vscode_shortname %}.
 
 
 {% mac %}
@@ -40,8 +40,8 @@ Use o {% data variables.product.prodname_vs %} Marketplace para instalar a exten
 
    ![Registrar-se para visualizar {% data variables.product.prodname_codespaces %}](/assets/images/help/codespaces/sign-in-to-view-codespaces-vscode-mac.png)
 
-1. Para autorizar o {% data variables.product.prodname_vscode %} a acessar sua conta no {% data variables.product.product_name %}, clique em **Permitir**.
-1. Registre-se e, {% data variables.product.product_name %} para aprovar a extensão.
+2. Para autorizar o {% data variables.product.prodname_vscode_shortname %} a acessar sua conta no {% data variables.product.product_name %}, clique em **Permitir**.
+3. Registre-se e, {% data variables.product.product_name %} para aprovar a extensão.
 
 {% endmac %}
 
@@ -56,30 +56,28 @@ Use o {% data variables.product.prodname_vs %} Marketplace para instalar a exten
 
    ![Registrar-se para visualizar {% data variables.product.prodname_codespaces %}](/assets/images/help/codespaces/sign-in-to-view-codespaces-vscode.png)
 
-1. Para autorizar o {% data variables.product.prodname_vscode %} a acessar sua conta no {% data variables.product.product_name %}, clique em **Permitir**.
+1. Para autorizar o {% data variables.product.prodname_vscode_shortname %} a acessar sua conta no {% data variables.product.product_name %}, clique em **Permitir**.
 1. Registre-se e, {% data variables.product.product_name %} para aprovar a extensão.
 
 {% endwindows %}
 
-## Criar um codespace em {% data variables.product.prodname_vscode %}
+## Criar um codespace em {% data variables.product.prodname_vscode_shortname %}
 
 {% data reusables.codespaces.creating-a-codespace-in-vscode %}
 
-## Abrir um codespace em {% data variables.product.prodname_vscode %}
+## Abrir um codespace em {% data variables.product.prodname_vscode_shortname %}
 
 {% data reusables.codespaces.click-remote-explorer-icon-vscode %}
 1. Em "Codedespaces", clique no código que você deseja desenvolver.
 1. Clique no ícone Conectar-se ao Codespace.
 
-   ![Ícone de conectar-se a um Codespace em {% data variables.product.prodname_vscode %}](/assets/images/help/codespaces/click-connect-to-codespace-icon-vscode.png)
+   ![Ícone de conectar-se a um Codespace em {% data variables.product.prodname_vscode_shortname %}](/assets/images/help/codespaces/click-connect-to-codespace-icon-vscode.png)
 
-## Alterar o tipo da máquina em {% data variables.product.prodname_vscode %}
+## Alterar o tipo da máquina em {% data variables.product.prodname_vscode_shortname %}
 
-{% data reusables.codespaces.codespaces-machine-types %}
+{% data reusables.codespaces.codespaces-machine-types %} Você pode alterar o tipo de máquina do seu codespace a qualquer momento.
 
-Você pode alterar o tipo de máquina do seu codespace a qualquer momento.
-
-1. Em {% data variables.product.prodname_vscode %}, abra a Paleta de Comando (`shift comando P` / `shift control P`).
+1. Em {% data variables.product.prodname_vscode_shortname %}, abra a Paleta de Comando (`shift comando P` / `shift control P`).
 1. Pesquise e selecione "Codespaces: Alterar tipo de máquina."
 
    ![Pesquisar um branch para criar um novo {% data variables.product.prodname_codespaces %}](/assets/images/help/codespaces/vscode-change-machine-type-option.png)
@@ -90,7 +88,11 @@ Você pode alterar o tipo de máquina do seu codespace a qualquer momento.
 
 1. Escolha o tipo de máquina que você quer usar.
 
-   {% data reusables.codespaces.codespaces-machine-type-availability %}
+   {% note %}
+
+   **Observação**: {% data reusables.codespaces.codespaces-machine-type-availability %}
+
+   {% endnote %}
 
 1. Se o codespace estiver sendo executado, será exibida uma mensagem perguntando se você deseja reiniciar e reconectar-se ao seu codespace agora.
 
@@ -98,14 +100,13 @@ Você pode alterar o tipo de máquina do seu codespace a qualquer momento.
 
    Se você clicar em **Não**, ou se o código não estiver em execução, a alteração entrará em vigor na próxima vez que o codespace for reiniciado.
 
-## Excluir um codespace em {% data variables.product.prodname_vscode %}
+## Excluir um codespace em {% data variables.product.prodname_vscode_shortname %}
 
-{% data reusables.codespaces.click-remote-explorer-icon-vscode %}
 {% data reusables.codespaces.deleting-a-codespace-in-vscode %}
 
-## Alternando para a compilação de Insiders de {% data variables.product.prodname_vscode %}
+## Alternando para a compilação de Insiders de {% data variables.product.prodname_vscode_shortname %}
 
-Você pode usar o [Insiders Build do Visual Studio Code](https://code.visualstudio.com/docs/setup/setup-overview#_insiders-nightly-build) em {% data variables.product.prodname_codespaces %}.
+Você pode usar o [Compilação de Insiders de {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/setup/setup-overview#_insiders-nightly-build) dentro de {% data variables.product.prodname_codespaces %}.
 
 1. Na parte inferior esquerda da sua janela {% data variables.product.prodname_codespaces %}, selecione **Configurações de {% octicon "gear" aria-label="The settings icon" %}**.
 2. Na lista, selecione "Alternar para Versão de Insiders".

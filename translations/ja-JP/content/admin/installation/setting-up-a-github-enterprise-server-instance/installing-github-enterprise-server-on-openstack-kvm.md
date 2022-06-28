@@ -29,7 +29,7 @@ shortTitle: Install on OpenStack
 
 {% data reusables.enterprise_installation.download-license %}
 {% data reusables.enterprise_installation.download-appliance %}
-4. {% data variables.product.prodname_dotcom %}オンプレミスを選択し、続いて**OpenStack KVM (QCOW2)**をクリックしてください。
+4. Under "{% data variables.product.prodname_dotcom %} On-premises", select the "Select your hypervisor" dropdown menu and click **OpenStack KVM (QCOW2)**.
 5. **Download for OpenStack KVM (QCOW2)**をクリックしてください。
 
 ## {% data variables.product.prodname_ghe_server %} インスタンスを作成する

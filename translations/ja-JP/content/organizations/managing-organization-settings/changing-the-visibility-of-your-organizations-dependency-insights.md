@@ -1,12 +1,10 @@
 ---
 title: Organization dependency insights の可視性を変更する
 intro: Organization のメンバーが、Organization dependency insights を表示できるように設定できます。また、Organization のオーナーにのみ表示できるようにも設定できます。
-product: '{% data reusables.gated-features.org-insights %}'
 redirect_from:
   - /articles/changing-the-visibility-of-your-organizations-dependency-insights
   - /github/setting-up-and-managing-organizations-and-teams/changing-the-visibility-of-your-organizations-dependency-insights
 versions:
-  fpt: '*'
   ghec: '*'
 topics:
   - Organizations

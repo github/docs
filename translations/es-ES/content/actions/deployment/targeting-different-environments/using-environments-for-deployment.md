@@ -71,6 +71,14 @@ Los secretos que se almacenan en un ambiente sólo se encuentran disponibles par
 
 {% data reusables.actions.permissions-statement-environment %}
 
+{% ifversion fpt or ghec %}
+{% note %}
+
+**Nota:** Para crear un ambiente en un repositorio privado, tu organización debe utilizar {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
+
+{% endnote %}
+{% endif %}
+
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.actions.sidebar-environment %}

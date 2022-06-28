@@ -1,7 +1,7 @@
 ---
 title: 新しい GitHub アカウントへのサインアップ
 shortTitle: 新しい GitHub アカウントへのサインアップ
-intro: '{% data variables.product.company_short %} は、人々が協力して作業するチームのために個人および Organization のユーザアカウントを提供します。'
+intro: '{% data variables.product.company_short %} offers personal accounts for individuals and organizations for teams of people working together.'
 redirect_from:
   - /articles/signing-up-for-a-new-github-account
   - /github/getting-started-with-github/signing-up-for-a-new-github-account

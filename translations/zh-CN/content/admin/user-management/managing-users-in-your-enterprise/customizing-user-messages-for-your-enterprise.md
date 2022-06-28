@@ -72,7 +72,7 @@ topics:
 
 如果消息中包含 Markdown 复选框，则用户必须选中所有复选框才能忽略消息。 例如，如果您在必读消息中包含服务条款，您可以要求每个用户选中复选框以确认他们阅读了这些条款。
 
-每次用户看到必读消息时，都会创建审核日志事件。 该事件包括用户看到的消息的版本。 更多信息请参阅“[已审核操作](/admin/user-management/audited-actions)”。
+每次用户看到必读消息时，都会创建审核日志事件。 该事件包括用户看到的消息的版本。 更多信息请参阅“[审核企业的日志事件](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)”。
 
 {% note %}
 

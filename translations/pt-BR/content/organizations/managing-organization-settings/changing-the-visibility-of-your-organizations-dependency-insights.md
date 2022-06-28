@@ -1,12 +1,10 @@
 ---
 title: Alterar a visibilidade de informações de dependência da organização
 intro: Você pode permitir que todos os integrantes da organização exibam informações de dependência da sua organização ou limitar a exibição aos proprietários da organização.
-product: '{% data reusables.gated-features.org-insights %}'
 redirect_from:
   - /articles/changing-the-visibility-of-your-organizations-dependency-insights
   - /github/setting-up-and-managing-organizations-and-teams/changing-the-visibility-of-your-organizations-dependency-insights
 versions:
-  fpt: '*'
   ghec: '*'
 topics:
   - Organizations

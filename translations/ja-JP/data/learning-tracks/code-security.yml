@@ -2,7 +2,7 @@
 #Feature available only on dotcom
 security_advisories:
   title: 'セキュリティ脆弱性の修正及び開示'
-  description: 'Using repository security advisories to privately fix a reported vulnerability and get a CVE.'
+  description: 'リポジトリのセキュリティアドバイザリを使用して報告された脆弱性を非公開で修正し、CVEを取得してください。'
   featured_track: '{% ifversion fpt or ghec %}true{% else %}false{% endif %}'
   guides:
     - /code-security/repository-security-advisories/about-coordinated-disclosure-of-security-vulnerabilities
@@ -15,8 +15,8 @@ security_advisories:
     - /code-security/repository-security-advisories/removing-a-collaborator-from-a-repository-security-advisory
 #Feature available on dotcom and GHES 3.3+, so articles available on GHAE and earlier GHES hidden to hide the learning track
 dependabot_alerts:
-  title: '脆弱な依存関係に関する通知を取得'
-  description: '依存関係中の新しい脆弱性に対するアラートを発するようDependabotをセットアップしてください。'
+  title: 'Get notifications for insecure dependencies'
+  description: 'Set up Dependabot to alert you to new vulnerabilities{% ifversion GH-advisory-db-supports-malware %} or malware{% endif %} in your dependencies.'
   guides:
     - /code-security/dependabot/dependabot-alerts/about-dependabot-alerts
     - '{% ifversion fpt or ghec or ghes > 3.2 %}/github/administering-a-repository/managing-repository-settings/managing-security-and-analysis-settings-for-your-repository{% endif %}'
@@ -105,8 +105,8 @@ code_security_ci:
     - /code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/troubleshooting-codeql-runner-in-your-ci-system
 #Feature available in all versions
 end_to_end_supply_chain:
-  title: 'End-to-end supply chain'
-  description: 'How to think about securing your user accounts, your code, and your build process.'
+  title: 'エンドツーエンドサプライチェーン'
+  description: 'ユーザアカウント、コード、ビルドプロセスの保護に関する考え方。'
   guides:
     - /code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview
     - /code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts

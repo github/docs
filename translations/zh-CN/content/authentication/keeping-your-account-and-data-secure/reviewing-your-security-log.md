@@ -1,6 +1,6 @@
 ---
 title: 审查您的安全日志
-intro: 您可以查看用户帐户的安全日志，以更好地了解您执行的操作以及其他人执行的与您有关的操作。
+intro: 您可以查看个人帐户的安全日志，以更好地了解您执行的操作以及其他人执行的与您有关的操作。
 miniTocMaxHeadingLevel: 3
 redirect_from:
   - /articles/reviewing-your-security-log
@@ -28,15 +28,11 @@ shortTitle: 安全日志
 1. 在用户设置侧边栏中，单击 **Security log（安全日志）**。 ![安全日志选项卡](/assets/images/help/settings/audit-log-tab.png)
 {% endif %}
 
-{% ifversion fpt or ghae or ghes or ghec %}
 ## 搜索安全日志
 
 {% data reusables.audit_log.audit-log-search %}
 
 ### 基于执行的操作搜索
-{% else %}
-## 了解安全日志中的事件
-{% endif %}
 
 安全日志中列出的事件由您的操作触发。 操作分为以下几类：
 
@@ -87,7 +83,7 @@ shortTitle: 安全日志
 | `resume`                             | 恢复暂停的代码空间时触发。                                                                                                                                                     |
 | `delete`                             | 当您[删除代码空间](/github/developing-online-with-codespaces/deleting-a-codespace)时触发。                                                                                    |
 | `manage_access_and_security`         | 当您更新[代码空间可以访问的仓库时](/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces)触发。                                                      |
-| `trusted_repositories_access_update` | 当您更改用户帐户的 [{% data variables.product.prodname_codespaces %} 访问权限和安全设置](/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces)时触发。 |
+| `trusted_repositories_access_update` | 当您更改个人帐户的 [{% data variables.product.prodname_codespaces %} 访问权限和安全设置](/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces)时触发。 |
 
 ### `marketplace_agreement_signature` 类操作
 
@@ -109,10 +105,10 @@ shortTitle: 安全日志
 
 ### `oauth_authority` 类别操作
 
-| 操作        | 描述                                                                                                                                                                                                                                                                                                                               |
-| --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `create`  | 当您[授予 {% data variables.product.prodname_oauth_app %} 访问权限](/github/authenticating-to-github/keeping-your-account-and-data-secure/authorizing-oauth-apps)时触发。                                                                                                                                                                  |
-| `destroy` | 当您 [撤销 {% data variables.product.prodname_oauth_app %}对您帐户的访问](/articles/reviewing-your-authorized-integrations){% ifversion fpt or ghae-issue-4374 or ghes > 3.2 or ghec %} 时，以及当 [授权被吊销或过期](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation)时触发。{% else %}.{% endif %}
+| 操作        | 描述                                                                                                                                                                                                                                                                                                                    |
+| --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `create`  | 当您[授予 {% data variables.product.prodname_oauth_app %} 访问权限](/github/authenticating-to-github/keeping-your-account-and-data-secure/authorizing-oauth-apps)时触发。                                                                                                                                                       |
+| `destroy` | 当您 [撤销 {% data variables.product.prodname_oauth_app %}对您帐户的访问](/articles/reviewing-your-authorized-integrations){% ifversion fpt or ghae or ghes > 3.2 or ghec %} 时，以及当 [授权被吊销或过期](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation)时触发。{% else %}。{% endif %}
 
 {% ifversion fpt or ghec %}
 
@@ -159,13 +155,14 @@ shortTitle: 安全日志
 | `add_member`                          | 当 {% data variables.product.product_name %} 用户{% ifversion fpt or ghec %}[被邀请协作使用](/articles/inviting-collaborators-to-a-personal-repository){% else %}[被授权协作使用](/articles/inviting-collaborators-to-a-personal-repository){% endif %}仓库时触发。 |
 | `add_topic`                           | 当仓库所有者向仓库[添加主题](/articles/classifying-your-repository-with-topics)时触发。                                                                                                                                                                       |
 | `archived`                            | 当仓库所有者[存档仓库](/articles/about-archiving-repositories)时触发。{% ifversion ghes %}
-| `config.disable_anonymous_git_access` | 当公共仓库中[禁用匿名 Git 读取权限](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)时触发。                                                                                                                |
-| `config.enable_anonymous_git_access`  | 当公共仓库中[启用匿名 Git 读取权限](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)时触发。                                                                                                                |
-| `config.lock_anonymous_git_access`    | 当仓库的[匿名 Git 读取权限设置被锁定](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access)时触发。                                                                                           |
-| `config.unlock_anonymous_git_access`  | 当仓库的[匿名 Git 读取权限设置被解锁](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access)时触发。{% endif %}
+| `config.disable_anonymous_git_access` | 当公共仓库中[禁用匿名 Git 读取权限](/enterprise/user/articles/enabling-anonymous-git-read-access-for-a-repository)时触发。                                                                                                                                     |
+| `config.enable_anonymous_git_access`  | 当公共仓库中[启用匿名 Git 读取权限](/enterprise/user/articles/enabling-anonymous-git-read-access-for-a-repository)时触发。                                                                                                                                     |
+| `config.lock_anonymous_git_access`    | 当仓库的[匿名 Git 读取权限设置被锁定](/enterprise/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access)时触发。                                                                                                                |
+| `config.unlock_anonymous_git_access`  | 当仓库的[匿名 Git 读取权限设置被解锁](/enterprise/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access)时触发。{% endif %}
 | `create`                              | 在[创建新仓库](/articles/creating-a-new-repository)时触发。                                                                                                                                                                                            |
 | `destroy`                             | 当[仓库被删除](/articles/deleting-a-repository)时触发。{% ifversion fpt or ghec %}
 | `禁用`                                  | 当仓库被禁用（例如，因[资金不足](/articles/unlocking-a-locked-account)）时触发。{% endif %}{% ifversion fpt or ghec %}
+| `download_zip`                        | 在下载存储库的 ZIP 或 TAR 存档时触发。                                                                                                                                                                                                                     |
 | `启用`                                  | 在重新启用仓库时触发。{% endif %}
 | `remove_member`                       | 从[仓库中删除 {% data variables.product.product_name %} 用户的协作者身份](/articles/removing-a-collaborator-from-a-personal-repository)时触发。                                                                                                                |
 | `remove_topic`                        | 当仓库所有者从仓库中删除主题时触发。                                                                                                                                                                                                                           |
@@ -177,25 +174,25 @@ shortTitle: 安全日志
 {% ifversion fpt or ghec %}
 ### `sponsors` 类操作
 
-| 操作                                            | 描述                                                                                                                                                                                                                                                                                                              |
-| --------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `custom_amount_settings_change`               | 启用或禁用自定义金额时或更改建议的自定义金额时触发（请参阅“[管理您的赞助级别](/github/supporting-the-open-source-community-with-github-sponsors/managing-your-sponsorship-tiers)”）                                                                                                                                                                   |
-| `repo_funding_links_file_action`              | 更改仓库中的 FUNDING 文件时触发（请参阅“[在仓库中显示赞助按钮](/articles/displaying-a-sponsor-button-in-your-repository)”）                                                                                                                                                                                                               |
-| `sponsor_sponsorship_cancel`                  | 当您取消赞助时触发（请参阅“[降级赞助](/articles/downgrading-a-sponsorship)”）                                                                                                                                                                                                                                                     |
-| `sponsor_sponsorship_create`                  | 当您赞助帐户时触发（请参阅“[赞助开源贡献者](/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor)”）                                                                                                                                                                                                  |
-| `sponsor_sponsorship_payment_complete`        | 当您赞助一个帐户并且您的付款已经处理完毕后触发（请参阅“[赞助开源贡献者](/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor)”）                                                                                                                                                                                    |
-| `sponsor_sponsorship_preference_change`       | 当您更改是否接收被赞助开发者的电子邮件更新时触发（请参阅“[管理赞助](/sponsors/sponsoring-open-source-contributors/managing-your-sponsorship)”）                                                                                                                                                                                                  |
-| `sponsor_sponsorship_tier_change`             | 当您升级或降级赞助时触发（请参阅“[升级赞助](/articles/upgrading-a-sponsorship)”和“[降级赞助](/articles/downgrading-a-sponsorship)”）                                                                                                                                                                                                      |
-| `sponsored_developer_approve`                 | 当您的 {% data variables.product.prodname_sponsors %} 帐户被批准时触发（请参阅“[为您的用户帐户设置 {% data variables.product.prodname_sponsors %}](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account)”）                                                                         |
-| `sponsored_developer_create`                  | 当您的 {% data variables.product.prodname_sponsors %} 帐户创建时触发（请参阅“[为您的用户帐户设置 {% data variables.product.prodname_sponsors %}](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account)”）                                                                          |
-| `sponsored_developer_disable`                 | 帐户 {% data variables.product.prodname_sponsors %} 禁用时触发                                                                                                                                                                                                                                                         |
-| `sponsored_developer_redraft`                 | 当您的 {% data variables.product.prodname_sponsors %} 帐户从已批准状态恢复为草稿状态时触发                                                                                                                                                                                                                                           |
-| `sponsored_developer_profile_update`          | 在编辑您的被赞助开发者个人资料时触发（请参阅“[编辑 {% data variables.product.prodname_sponsors %} 的个人资料详细信息](/sponsors/receiving-sponsorships-through-github-sponsors/editing-your-profile-details-for-github-sponsors)”）                                                                                                               |
-| `sponsored_developer_request_approval`        | Triggered when you submit your application for {% data variables.product.prodname_sponsors %} for approval (see "[Setting up {% data variables.product.prodname_sponsors %} for your user account](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account)") |
-| `sponsored_developer_tier_description_update` | 当您更改赞助等级的说明时触发（请参阅“[管理赞助等级](/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-tiers)”）                                                                                                                                                                                         |
-| `sponsored_developer_update_newsletter_send`  | 当您向赞助者发送电子邮件更新时触发（请参阅“[联系赞助者](/sponsors/receiving-sponsorships-through-github-sponsors/contacting-your-sponsors)”）                                                                                                                                                                                              |
-| `waitlist_invite_sponsored_developer`         | 当您从等候名单被邀请加入 {% data variables.product.prodname_sponsors %} 时触发（请参阅“[为您的用户帐户设置 {% data variables.product.prodname_sponsors %}](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account)”）                                                                     |
-| `waitlist_join`                               | 当您加入成为被赞助开发者的等候名单时触发（请参阅“[为您的用户帐户设置 {% data variables.product.prodname_sponsors %}](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account)”）                                                                                                                |
+| 操作                                            | 描述                                                                                                                                                                                                                                              |
+| --------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `custom_amount_settings_change`               | 启用或禁用自定义金额时或更改建议的自定义金额时触发（请参阅“[管理您的赞助级别](/github/supporting-the-open-source-community-with-github-sponsors/managing-your-sponsorship-tiers)”）                                                                                                   |
+| `repo_funding_links_file_action`              | 更改仓库中的 FUNDING 文件时触发（请参阅“[在仓库中显示赞助按钮](/articles/displaying-a-sponsor-button-in-your-repository)”）                                                                                                                                               |
+| `sponsor_sponsorship_cancel`                  | 当您取消赞助时触发（请参阅“[降级赞助](/articles/downgrading-a-sponsorship)”）                                                                                                                                                                                     |
+| `sponsor_sponsorship_create`                  | 当您赞助帐户时触发（请参阅“[赞助开源贡献者](/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor)”）                                                                                                                                  |
+| `sponsor_sponsorship_payment_complete`        | 当您赞助一个帐户并且您的付款已经处理完毕后触发（请参阅“[赞助开源贡献者](/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor)”）                                                                                                                    |
+| `sponsor_sponsorship_preference_change`       | 当您更改是否接收被赞助开发者的电子邮件更新时触发（请参阅“[管理赞助](/sponsors/sponsoring-open-source-contributors/managing-your-sponsorship)”）                                                                                                                                  |
+| `sponsor_sponsorship_tier_change`             | 当您升级或降级赞助时触发（请参阅“[升级赞助](/articles/upgrading-a-sponsorship)”和“[降级赞助](/articles/downgrading-a-sponsorship)”）                                                                                                                                      |
+| `sponsored_developer_approve`                 | 当您的 {% data variables.product.prodname_sponsors %} 帐户被批准时触发（请参阅“[为您的个人帐户设置 {% data variables.product.prodname_sponsors %}](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account)”）     |
+| `sponsored_developer_create`                  | 当您的 {% data variables.product.prodname_sponsors %} 帐户创建时触发（请参阅“[为您的个人帐户设置 {% data variables.product.prodname_sponsors %}](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account)”）      |
+| `sponsored_developer_disable`                 | 帐户 {% data variables.product.prodname_sponsors %} 禁用时触发                                                                                                                                                                                         |
+| `sponsored_developer_redraft`                 | 当您的 {% data variables.product.prodname_sponsors %} 帐户从已批准状态恢复为草稿状态时触发                                                                                                                                                                           |
+| `sponsored_developer_profile_update`          | 在编辑您的被赞助开发者个人资料时触发（请参阅“[编辑 {% data variables.product.prodname_sponsors %} 的个人资料详细信息](/sponsors/receiving-sponsorships-through-github-sponsors/editing-your-profile-details-for-github-sponsors)”）                                               |
+| `sponsored_developer_request_approval`        | 在您提交 {% data variables.product.prodname_sponsors %} 申请以供审批时触发（请参阅“[为您的个人帐户设置 {% data variables.product.prodname_sponsors %}](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account)”）   |
+| `sponsored_developer_tier_description_update` | 当您更改赞助等级的说明时触发（请参阅“[管理赞助等级](/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-tiers)”）                                                                                                                         |
+| `sponsored_developer_update_newsletter_send`  | 当您向赞助者发送电子邮件更新时触发（请参阅“[联系赞助者](/sponsors/receiving-sponsorships-through-github-sponsors/contacting-your-sponsors)”）                                                                                                                              |
+| `waitlist_invite_sponsored_developer`         | 当您从等候名单被邀请加入 {% data variables.product.prodname_sponsors %} 时触发（请参阅“[为您的个人帐户设置 {% data variables.product.prodname_sponsors %}](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account)”） |
+| `waitlist_join`                               | 当您加入成为被赞助开发者的等候名单时触发（请参阅“[为您的个人帐户设置 {% data variables.product.prodname_sponsors %}](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account)”）                                            |
 {% endif %}
 
 {% ifversion fpt or ghec %}
@@ -203,11 +200,11 @@ shortTitle: 安全日志
 
 | 操作        | 描述                                                                                                                                                                |
 | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `accept`  | 当您接受继承邀请时触发（请参阅“[保持用户帐户仓库的所有权连续性](/github/setting-up-and-managing-your-github-user-account/maintaining-ownership-continuity-of-your-user-accounts-repositories)”） |
-| `cancel`  | 当您取消继承邀请时触发（请参阅“[保持用户帐户仓库的所有权连续性](/github/setting-up-and-managing-your-github-user-account/maintaining-ownership-continuity-of-your-user-accounts-repositories)”） |
-| `create`  | 当您创建继承邀请时触发（请参阅“[保持用户帐户仓库的所有权连续性](/github/setting-up-and-managing-your-github-user-account/maintaining-ownership-continuity-of-your-user-accounts-repositories)”） |
-| `decline` | 当您拒绝继承邀请时触发（请参阅“[保持用户帐户仓库的所有权连续性](/github/setting-up-and-managing-your-github-user-account/maintaining-ownership-continuity-of-your-user-accounts-repositories)”） |
-| `revoke`  | 当您撤销继承邀请时触发（请参阅“[保持用户帐户仓库的所有权连续性](/github/setting-up-and-managing-your-github-user-account/maintaining-ownership-continuity-of-your-user-accounts-repositories)”） |
+| `accept`  | 当您接受继承邀请时触发（请参阅“[保持个人帐户仓库的所有权连续性](/github/setting-up-and-managing-your-github-user-account/maintaining-ownership-continuity-of-your-user-accounts-repositories)”） |
+| `cancel`  | 当您取消继承邀请时触发（请参阅“[保持个人帐户仓库的所有权连续性](/github/setting-up-and-managing-your-github-user-account/maintaining-ownership-continuity-of-your-user-accounts-repositories)”） |
+| `create`  | 当您创建继承邀请时触发（请参阅“[保持个人帐户仓库的所有权连续性](/github/setting-up-and-managing-your-github-user-account/maintaining-ownership-continuity-of-your-user-accounts-repositories)”） |
+| `decline` | 当您拒绝继承邀请时触发（请参阅“[保持个人帐户仓库的所有权连续性](/github/setting-up-and-managing-your-github-user-account/maintaining-ownership-continuity-of-your-user-accounts-repositories)”） |
+| `revoke`  | 当您撤销继承邀请时触发（请参阅“[保持个人帐户仓库的所有权连续性](/github/setting-up-and-managing-your-github-user-account/maintaining-ownership-continuity-of-your-user-accounts-repositories)”） |
 {% endif %}
 
 {% ifversion ghes or ghae %}
@@ -240,9 +237,9 @@ shortTitle: 安全日志
 | ----------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
 | `add_email`                                                                                                                                     | 当您                                                                                                                            |
 | {% ifversion not ghae %}[添加新电子邮件地址](/articles/changing-your-primary-email-address){% else %}添加新电子邮件地址{% endif %}时触发。{% ifversion fpt or ghec %} |                                                                                                                               |
-| `codespaces_trusted_repo_access_granted`                                                                                                        | 当[允许您为存储库创建的代码空间访问您的用户帐户拥有的其他存储库](/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces)时触发。  |
-| `codespaces_trusted_repo_access_revoked`                                                                                                        | 当[不允许您为存储库创建的代码空间访问您的用户帐户拥有的其他存储库](/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces)时触发。 |{% endif %}
-| `create`                                                                                                                                        | 在创建新帐户时触发。{% ifversion not ghae %}
+| `codespaces_trusted_repo_access_granted`                                                                                                        | 当[允许您为存储库创建的代码空间访问您的个人帐户拥有的其他存储库](/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces)时触发。  |
+| `codespaces_trusted_repo_access_revoked`                                                                                                        | 当[不允许您为存储库创建的代码空间访问您的个人帐户拥有的其他存储库](/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces)时触发。 |{% endif %}
+| `create`                                                                                                                                        | 在创建新个人帐户时触发。{% ifversion not ghae %}
 | `change_password`                                                                                                                               | 当您更改密码时触发。                                                                                                                    |
 | `forgot_password`                                                                                                                               | 在您要求[重置密码](/articles/how-can-i-reset-my-password)时触发。{% endif %}
 | `hide_private_contributions_count`                                                                                                              | 当您[在个人资料中隐藏私有贡献](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)时触发。                              |

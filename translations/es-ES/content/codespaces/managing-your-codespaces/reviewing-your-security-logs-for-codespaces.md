@@ -16,7 +16,7 @@ topics:
 
 ## Acerca de las bitácoras de seguridad para los {% data variables.product.prodname_codespaces %}
 
-Cuando realizas una acción relacionada con {% data variables.product.prodname_codespaces %} en los repositorios que le pertenecen a tu cuenta de usuario, puedes revisar las acciones en la bitácora de seguridad. Para obtener más información sobre acceder a la bitácora, consulta la sección "[Revisar tu bitácora de seguridad](/github/authenticating-to-github/reviewing-your-security-log#accessing-your-security-log)".
+Cuando realizas una acción relacionada con los {% data variables.product.prodname_codespaces %} en los repositorios que pertenecen a tu cuenta personal, puedes revisar las acciones en la bitácora de seguridad. Para obtener más información sobre acceder a la bitácora, consulta la sección "[Revisar tu bitácora de seguridad](/github/authenticating-to-github/reviewing-your-security-log#accessing-your-security-log)".
 
 ![bitácora de seguridad con información sobre los codespaces](/assets/images/help/settings/codespaces-audit-log.png)
 

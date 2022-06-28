@@ -5,8 +5,6 @@ permissions: Organization owners can export member information for their organiz
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>=3.3'
-  ghae: issue-5146
 topics:
   - Organizations
   - Teams

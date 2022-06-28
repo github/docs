@@ -1,0 +1,1 @@
+如果在创建代码空间时选择使用 `.devcontainer/SUBDIRECTORY` 位置的 `devcontainer.json` 文件，则预构建不可用。 有关选择 `devcontainer.json` 文件的信息，请参阅“[创建代码空间](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)”。

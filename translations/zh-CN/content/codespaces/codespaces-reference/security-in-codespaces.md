@@ -34,7 +34,7 @@ shortTitle: 代码空间中的安全性
 
 ### 身份验证
 
-您可以使用 Web 浏览器或从 Visual Studio Code 连接到代码空间。 如果从 Visual Studio Code 进行连接，系统将提示您使用 {% data variables.product.product_name %} 进行身份验证。
+您可以使用 web 浏览器或从 {% data variables.product.prodname_vscode %} 连接至代码空间。 如果从 {% data variables.product.prodname_vscode_shortname %} 连接，系统将提示您向 {% data variables.product.product_name %} 验证。
 
 每次创建或重新启动代码空间时，都会为其分配一个具有自动到期期的新 {% data variables.product.company_short %} 令牌。 此时间段允许您在代码空间中工作，而无需在典型的工作日内重新进行身份验证，但降低了在停止使用代码空间时使连接保持打开状态的可能性。
 
@@ -55,6 +55,8 @@ shortTitle: 代码空间中的安全性
 ### 端口转发
 
 如果需要连接到在代码空间内运行的服务（如开发 Web 服务器），则可以配置端口转发以使该服务在互联网上可用。
+
+组织所有者可以限制公开或在组织内提供转发端口的能力。 更多信息请参阅“[限制转发端口的可见性](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)”。
 
 **私密转发端口**：可在互联网上访问，但只有代码空间创建者在向 {% data variables.product.product_name %} 验证后才可访问它们。
 
@@ -97,7 +99,9 @@ shortTitle: 代码空间中的安全性
 
 #### 了解存储库的 devcontainer.json 文件
 
-创建代码空间时，将从源存储库（如果存在）解析和应用 [devcontainer.json](https://code.visualstudio.com/docs/remote/devcontainerjson-reference)。  Devcontainer 包含强大的功能，例如安装第三方扩展和通过提供的 `postCreateCommand` 运行任意代码。
+创建代码空间时，如果找到存储库的 `devcontainer.json` 文件，则会对其进行分析并用于配置代码空间。 `devcontainer.json` 文件可以包含强大的功能，例如安装第三方扩展和运行 `postCreateCommand` 中提供的任意代码。
+
+更多信息请参阅“[开发容器简介](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)”。
 
 #### 通过功能授予访问权限
 
@@ -105,4 +109,4 @@ shortTitle: 代码空间中的安全性
 
 #### 使用扩展
 
-您安装的任何其他 {% data variables.product.prodname_vscode %} 扩展都可能带来更多风险。 为了帮助降低此风险，请确保仅安装受信任的扩展，并使它们始终保持最新。
+您安装的任何其他 {% data variables.product.prodname_vscode_shortname %} 扩展都可能带来更多风险。 为了帮助降低此风险，请确保仅安装受信任的扩展，并使它们始终保持最新。

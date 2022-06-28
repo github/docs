@@ -20,7 +20,7 @@ shortTitle: 了解计费
 
 ## 获取对 {% data variables.product.prodname_codespaces %} 的访问
 
-您组织的管理员可能会将 {% data variables.product.prodname_codespaces %} 的使用仅限于特定用户帐户。 要获得访问权限，您需要联系您的帐单管理员。 更多信息请参阅“[管理 Codespaces 的访问和安全性](/codespaces/managing-your-codespaces/managing-access-and-security-for-your-codespaces)”。
+您组织的管理员可能会将 {% data variables.product.prodname_codespaces %} 的使用仅限于特定个人帐户。 要获得访问权限，您需要联系您的帐单管理员。 更多信息请参阅“[管理 Codespaces 的访问和安全性](/codespaces/managing-your-codespaces/managing-access-and-security-for-your-codespaces)”。
 
 ## 使用 {% data variables.product.prodname_codespaces %} 的费用
 

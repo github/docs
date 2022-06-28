@@ -51,7 +51,7 @@ El {% data variables.product.prodname_registry %} te permite subir y extraer paq
 {% ifversion fpt or ghec %}
 ## Acerca de los permisos y el acceso de paquetes para el {% data variables.product.prodname_container_registry %}
 
-El {% data variables.product.prodname_container_registry %} (`ghcr.io`) permite a los usuarios crear y administrar contenedores como recursos independientes a nivel organizacional. Los contenedores pueden pertenecer a una organización o a una cuenta de usuario personal y puedes personalizar el acceso para cada uno de tus contenedores por aparte de los permisos del repositorio.
+El {% data variables.product.prodname_container_registry %} (`ghcr.io`) permite a los usuarios crear y administrar contenedores como recursos independientes a nivel organizacional. Los contenedores pueden pertenecerle a una cuenta personal o de organización y puedes personalizar el acceso a cada uno de ellos por separado desde los permisos de repositorio.
 
 Todos los flujos de trabajo que accedan al {% data variables.product.prodname_container_registry %} deben utilizar el `GITHUB_TOKEN` en vez de un token de acceso personal. Para obtener más información acerca de las mejores prácticas de seguridad, consulta la sección "[Fortalecimiento de seguridad para las GitHub Actions](/actions/learn-github-actions/security-hardening-for-github-actions#using-secrets)".
 

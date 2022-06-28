@@ -32,6 +32,8 @@ If you still cannot create a codespace for a repository where {% data variables.
 
 The owner of a codespace has full control over it and only they can delete their codespaces. You cannot delete a codespace created by another user.
 
+You can delete your codespaces in the browser, in {% data variables.product.prodname_vscode %}, or by using {% data variables.product.prodname_cli %}. {% data variables.product.prodname_cli %} also allows you to bulk delete codespaces. For more information, see "[Deleting a codespace](/codespaces/developing-in-codespaces/deleting-a-codespace)."
+
 ## Container storage
 
 codespace を作成すると、ストレージ容量に限りがあるため、時間の経過とともにスペースを解放する必要がある場合があります。 Try running any of the following commands in the {% data variables.product.prodname_codespaces %} terminal to free up storage space.
@@ -54,4 +56,4 @@ Some more destructive options:
 This codespace is currently running in recovery mode due to a container error.
 ```
 
-Review the creation logs, update the configuration as needed, and run **Codespaces: Rebuild Container** in the {% data variables.product.prodname_vscode_command_palette %} to retry. For more information, see " [Codespaces logs](/codespaces/troubleshooting/codespaces-logs)" and "[Configuring {% data variables.product.prodname_codespaces %} for your project](/github/developing-online-with-codespaces/configuring-codespaces-for-your-project#apply-changes-to-your-configuration)."
+Review the creation logs, update the dev container configuration as needed, and run **Codespaces: Rebuild Container** in the {% data variables.product.prodname_vscode_command_palette %} to retry. For more information, see " [Codespaces logs](/codespaces/troubleshooting/codespaces-logs)" and "[Configuring {% data variables.product.prodname_codespaces %} for your project](/github/developing-online-with-codespaces/configuring-codespaces-for-your-project#apply-changes-to-your-configuration)."

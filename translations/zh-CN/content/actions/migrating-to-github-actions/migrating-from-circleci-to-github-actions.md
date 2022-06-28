@@ -50,7 +50,7 @@ CircleCI 和 {% data variables.product.prodname_actions %} 在配置文件中使
 
 CircleCI 和 {% data variables.product.prodname_actions %} 都提供在工作流程中重复使用和共享任务的机制。 CircleCI 使用以 YAML 编写的概念 orbs 来提供人们可以在工作流程中重复使用的任务。 {% data variables.product.prodname_actions %} 具有强大而灵活的可重复使用的组件，称为“操作”，您可以使用 JavaScript 文件或 Docker 映像来构建操作。 您可以编写自定义代码来创建操作，以您喜欢的方式与仓库交互，包括使用 {% data variables.product.product_name %} 的 API 以及任何公开的第三方 API 进行交互。 例如，操作可以发布 npm 模块、在创建紧急议题时发送短信提醒，或者部署可用于生产的代码。 更多信息请参阅“[创建操作](/actions/creating-actions)”。
 
-CircleCI 可以使用 YAML 锚点和别名来重复使用工作流程的组件。 {% data variables.product.prodname_actions %} 支持对于重复使用构建矩阵的最常见需求。 有关构建矩阵的更多信息，请参阅“[管理复杂的工作流程](/actions/learn-github-actions/managing-complex-workflows/#using-a-build-matrix)”。
+CircleCI 可以使用 YAML 锚点和别名来重复使用工作流程的组件。 {% data variables.product.prodname_actions %} 使用矩阵支持对可重用性的最常见需求。 有关矩阵的详细信息，请参阅“[对作业使用矩阵](/actions/using-jobs/using-a-matrix-for-your-jobs)”。
 
 ## 使用 Docker 映像
 
@@ -81,6 +81,8 @@ CircleCI 和 {% data variables.product.prodname_actions %} 支持在配置文件
 ## 缓存
 
 CircleCI 和 {% data variables.product.prodname_actions %} 提供在配置文件中手动缓存文件的方法。
+
+{% ifversion actions-caching %}
 
 下面是每个系统的语法示例：
 
@@ -119,7 +121,11 @@ GitHub Actions
 </tr>
 </table>
 
-{% data variables.product.prodname_actions %} 缓存仅适用于 {% data variables.product.prodname_dotcom_the_website %} 托管的仓库。 更多信息请参阅“<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">缓存依赖项以加快工作流程</a>”。
+{% else %}
+
+{% data reusables.actions.caching-availability %}
+
+{% endif %}
 
 {% data variables.product.prodname_actions %} 没有 CircleCI 的 Docker 层缓存（或 DLC）的等效项。
 

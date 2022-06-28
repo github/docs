@@ -1,12 +1,10 @@
 ---
 title: 管理组织的 SSH 认证中心
 intro: 可在组织中添加或删除 SSH 认证中心。
-product: '{% data reusables.gated-features.ssh-certificate-authorities %}'
 redirect_from:
   - /articles/managing-your-organizations-ssh-certificate-authorities
   - /github/setting-up-and-managing-organizations-and-teams/managing-your-organizations-ssh-certificate-authorities
 versions:
-  fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
@@ -14,11 +12,12 @@ topics:
   - Organizations
   - Teams
 shortTitle: 管理 SSH 机构
+permissions: Organization owners can manage an organization's SSH certificate authorities (CA).
 ---
 
-组织所有者可以管理组织的 SSH 认证中心 (CA)。
-
 您可以通过向组织添加 SSH CA 来允许成员使用提供的 SSH 证书访问组织的仓库。 {% data reusables.organizations.can-require-ssh-cert %} 更多信息请参阅“[关于 SSH 认证中心](/articles/about-ssh-certificate-authorities)”。
+
+{% data reusables.organizations.ssh-ca-ghec-only %}
 
 {% data reusables.organizations.add-extension-to-cert %}
 

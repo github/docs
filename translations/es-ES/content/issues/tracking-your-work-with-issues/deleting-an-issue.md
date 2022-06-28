@@ -15,7 +15,7 @@ topics:
   - Pull requests
 ---
 
-Solo puedes eliminar una propuesta en un repositorio que sea propiedad de tu cuenta de usuario. No puedes eliminar una propuesta en un repositorio que sea propiedad de otra cuenta de usuario, aun si eres una colaborador de esa cuenta.
+Solo puedes borrar las propuestas en un repositorio que le pertenezca a tu cuenta personal. No puedes borrar propuestas en los repositorios que pertenezcan a otra cuenta personal, incluso si eres un colaborador en ella.
 
 Para eliminar una propuesta en un repositorio que sea propiedad de una organización, un propietario de la organización debe habilitar la eliminación de una propuesta para los repositorios de la organización, y tú debes tener permisos de propietario o de administración en ese repositorio. Para obtener más información, consulta la sección "[Permitir que se eliminen propuestas en tu organización](/articles/allowing-people-to-delete-issues-in-your-organization)" y "[Roles de repositorio para una organización](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)".
 

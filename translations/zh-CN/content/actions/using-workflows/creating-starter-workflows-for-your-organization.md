@@ -37,7 +37,7 @@ topics:
 {% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
 {% note %}
 
-**注意：**为避免入门工作流程之间的重复，您可以从工作流程中调用可重用工作流程。 这有助于使您的工作流程更易于维护。 For more information, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
+**注意：**为避免入门工作流程之间的重复，您可以从工作流程中调用可重用工作流程。 这有助于使您的工作流程更易于维护。 更多信息请参阅“[重用工作流程](/actions/learn-github-actions/reusing-workflows)”。
 
 {% endnote %}
 {% endif %}

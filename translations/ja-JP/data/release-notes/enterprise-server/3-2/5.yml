@@ -2,22 +2,22 @@
 date: '2021-12-07'
 sections:
   security_fixes:
-    - Support bundles could include sensitive files if they met a specific set of conditions.
-    - A UI misrepresentation vulnerability was identified in GitHub Enterprise Server that allowed more permissions to be granted during a GitHub App's user-authorization web flow than was displayed to the user during approval. This vulnerability affected all versions of GitHub Enterprise Server prior to 3.3 and was fixed in versions 3.2.5, 3.1.13, 3.0.21. This vulnerability was reported via the GitHub Bug Bounty program and has been assigned [CVE-2021-41598](https://www.cve.org/CVERecord?id=CVE-2021-41598).
-    - A remote code execution vulnerability was identified in GitHub Enterprise Server that could be exploited when building a GitHub Pages site. This vulnerability affected all versions of GitHub Enterprise Server prior to 3.3 and was fixed in versions 3.0.21, 3.1.13, 3.2.5. This vulnerability was reported via the GitHub Bug Bounty program and has been assigned [CVE-2021-41599](https://www.cve.org/CVERecord?id=CVE-2021-41599). Updated February 17, 2022.
+    - 特定の条件群が満たされる場合に、Support Bundleにセンシティブなファイルが含まれることがあります。
+    - 承認の際にユーザに表示される以上の権限が、GitHub Appのユーザ認証Webフローの間に付与されてしまうUIの表示ミスの脆弱性がGitHub Enterprise Serverで特定されました。この脆弱性は3.3以前のすべてのバージョンのGitHub Enterprise Serverに影響し、バージョン3.2.5、3.1.13、3.0.21で修正されました。この脆弱性はGitHub Bug Bountyプログラムを通じて報告され、[CVE-2021-41598](https://www.cve.org/CVERecord?id=CVE-2021-41598)が割り当てられました。
+    - GitHub Pagesのサイトをビルドする際に悪用されることがあるリモートコード実行の脆弱性が、GitHub Enterprise Serverで特定されました。この脆弱性は3.3以前のすべてのバージョンのGitHub Enterprise Serverに影響し、3.0.21、3.1.13、3.2.5で修正されました。この脆弱性はGitHub Bug Bountyプログラムを通じて報告され、[CVE-2021-41599]（https://www.cve.org/CVERecord?id=CVE-2021-41599）が割り当てられました。2022年2月17日更新。
   bugs:
-    - In some cases when Actions was not enabled, `ghe-support-bundle` reported an unexpected message `Unable to find MS SQL container.`
-    - Running `ghe-config-apply` could sometimes fail because of permission issues in `/data/user/tmp/pages`.
-    - A misconfiguration in the Management Console caused scheduling errors.
-    - Docker would hold log files open after a log rotation.
-    - Migrations could get stuck due to incorrect handling of `blob_path` values that are not UTF-8 compatible.
-    - GraphQL requests did not set the GITHUB_USER_IP variable in pre-receive hook environments.
-    - Pagination links on org audit logs would not persist query parameters.
-    - During a hotpatch, it was possible for duplicate hashes if a transition ran more than once.
+    - Actionsが有効化されていない場合に、一部のケースで`ghe-support-bundle`が予期しない`Unable to find MS SQL container`というメッセージを報告しました。
+    - '`ghe-config-apply`を実行すると、`/data/user/tmp/pages`における権限の問題のために失敗することがあります。'
+    - Management Consoleの設定ミスにより、スケジューリングのエラーが生じました。
+    - Dockerが、ログのローテーション後にログファイルをオープンしたまま保持します。
+    - UTF-8互換ではない`blob_path`の値の誤った処理のため、移行が止まってしまうことがあります。
+    - pre-receiveフック環境において、GraphQLのリクエストがGITHUB_USER_IP変数を設定しませんでした。
+    - OrgのAudit log上のページネーションのリンクが、クエリパラメータを保持しません。
+    - ホットパッチの際にトランザクションが複数回実行されると、ハッシュが重複する可能性があります。
   changes:
-    - Clarifies explanation of Actions path-style in documentation.
-    - Updates support contact URLs to use the current support site, support.github.com.
-    - Additional troubleshooting provided when running `ghe-mssql-diagnostic`.
+    - ドキュメンテーションでActionsのパススタイルの説明を明確化します。
+    - サポートの連絡先URLが現在のサポートサイトであるsupport.github.comを使うよう更新。
+    - '`ghe-mssql-diagnostic`を実行する際に、追加のトラブルシューティングが提供されます。'
   known_issues:
     - 新しくセットアップされたユーザを持たない{% data variables.product.prodname_ghe_server %}で、攻撃者が最初の管理ユーザを作成できました。
     - アップグレードの過程で、カスタムのファイアウォールのルールが削除されます。

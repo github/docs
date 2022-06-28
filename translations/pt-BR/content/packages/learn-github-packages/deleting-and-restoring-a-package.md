@@ -181,7 +181,7 @@ Por exemplo, se você tem um pacote de RubyGems excluído denominado `octo-packa
 {% ifversion fpt or ghec %}
 Para restaurar um pacote excluído, você também deve atender a um desses requisitos de permissão:
   - Para pacotes com escopo de repositório: Você tem permissões de administrador no repositório ao qual o pacote excluído pertence.{% ifversion fpt or ghec %}
-  - Para pacotes com escopo de conta de usuário: Sua conta de usuário é proprietária do pacote excluído.
+  - Para pacotes com escopo de conta de usuário: Sua conta pessoal é proprietária do pacote excluído.
   - Para os pacotes com escopo da organização: Você tem permissões de administrador para o pacote excluído na organização que é proprietário do pacote.{% endif %}
 {% endif %}
 
@@ -209,7 +209,7 @@ Para revisar quem pode restaurar um pacote em uma organização, consulte "[Perm
 
 ### Restaurar um pacote com escopo de conta de usuário
 
-Você pode restaurar um pacote excluído por meio das configurações da sua conta de usuário, se o pacote estiver em um de seus repositórios ou escopo para sua conta de usuário. Para obter mais informações, consulte "[Permissões necessárias](#required-permissions-to-delete-or-restore-a-package)".
+Você pode restaurar um pacote excluído por meio das configurações da sua conta pessoal, se o pacote estiver em um de seus repositórios ou escopo para sua conta pessoal. Para obter mais informações, consulte "[Permissões necessárias](#required-permissions-to-delete-or-restore-a-package)".
 
 {% data reusables.user-settings.access_settings %}
 2. À esquerda, clique em **Pacotes**.

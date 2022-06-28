@@ -19,48 +19,48 @@ shortTitle: 印度一次性付款
 印度储备银行 (RBI) 的一项新支付法规最近生效。 该法规对经常性在线交易提出了额外的要求，并阻止印度一些 {% data variables.product.company_short %} 客户进行定期付款。 对 {% data variables.product.product_name %} 上的任何定期交易使用印度颁布的付款方式的客户，可能会发现他们的付款被银行或发卡机构拒绝。 更多信息请参阅 [RBI 的新闻稿](https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=51353)。
 
 该法规适用于所有经常性交易，包括：
-- {% data variables.product.prodname_dotcom %} plan subscriptions (Pro, Team, Enterprise)
-- {% data variables.product.prodname_marketplace %} purchases
-- {% data variables.product.prodname_sponsors %} transactions
-- Git Large File Storage purchases
-- {% data variables.product.prodname_actions %}, {% data variables.product.prodname_registry %}, and {% data variables.product.prodname_codespaces %} consumption
+- {% data variables.product.prodname_dotcom %} 计划订阅（专业版、团队版、企业版）
+- {% data variables.product.prodname_marketplace %} 购买
+- {% data variables.product.prodname_sponsors %} 交易
+- Git Large File Storage 购买
+- {% data variables.product.prodname_actions %}、{% data variables.product.prodname_registry %} 和 {% data variables.product.prodname_codespaces %} 的使用
 
-In order to minimize disruption, recurring payments for our affected customers were paused on October 29th, 2021. Paid features and services have remained available to customers impacted by the RBI regulation.
+为了尽量减少中断，受影响客户的定期付款已于 2021 年 10 月 29 日暂停。 受 RBI 法规影响的客户仍然可以使用付费功能和服务。
 
-## About one-time payments on {% data variables.product.company_short %}
+## 关于 {% data variables.product.company_short %} 的一次性付款
 
-As we work with our payment gateway provider to meet the new requirements, we are providing a temporary one-time payment option for impacted customers in India. From February 15th 2022, {% data variables.product.company_short %} customers in India who have been affected by the new RBI regulation will be able to make one-time payments on their regular billing cycle cadence.
+随着我们与支付网关提供商合作以满足新要求，我们为印度受影响的客户提供临时的一次性付款选项。 从 2022 年 2 月 15 日起，受新 RBI 法规影响的印度 {% data variables.product.company_short %} 客户将能够按照其常规计费周期节奏进行一次性付款。
 
-### For customers on monthly billing
+### 对于按月计费的客户
 
-Customers on monthly billing plans will be able to make a one-time payment on the same day their billing cycle usually renews. For example, if you're usually billed on the 7th of each month, you will now be able to make a one-time payment from your account from the 7th of each month. Your first one-time payment will also include any accrued usage from October 2021 onwards.
+使用月度计费计划的客户将能够在其计费周期通常续订的同一天进行一次性付款。 例如，如果您通常在每月 7 日向您收费，那么现在可以从每月 7 日开始用您的帐户一次性付款。 您的首次一次性付款还将包括 2021 年 10 月起的任何累积使用量。
 
-If you are currently billed monthly, and would like to switch to yearly billing, you can reduce the frequency of your one-time payments. For more information, see "[Changing the duration of your billing cycle](/en/billing/managing-your-github-billing-settings/changing-the-duration-of-your-billing-cycle)."
+如果您目前按月计费，并希望切换到按年计费，则可以减少一次性付款的频率。 更多信息请参阅“[更改计费周期的持续时间](/en/billing/managing-your-github-billing-settings/changing-the-duration-of-your-billing-cycle)”。
 
-### For customers on yearly billing
+### 对于按年计费的客户
 
-If you are billed yearly, and your renewal date was between October 1st, 2021 and February 14th, 2022, you will be able to make a one-time payment for your annual subscriptions from February 15th. This initial payment will include the prorated outstanding cost of your subscription for the period since your previous billing cycle ended.
+如果您按年计费，并且您的续订日期在 2021 年 10 月 1 日至 2022 年 2 月 14 日之间，则从 2 月 15 日起，您可以一次性支付年度订阅费用。 此初始付款将包括自上一个结算周期结束以来按比例计算的订阅未付费用。
 
-If your billing cycle is due to renew after February 15th, we will attempt to take the recurring payment. If the payment attempt is declined, you will then be able to make a one-time payment through your account's billing page.
+如果您的结算周期将在 2 月 15 日之后续订，我们将尝试定期付款。 如果付款尝试被拒绝，您将能够通过帐户的结算页面进行一次性付款。
 
-In the meantime, we are actively working with our payment partners to restore recurring payments for impacted customers. For more information or questions, you can contact [GitHub Support](https://support.github.com/contact).
+与此同时，我们正在积极与我们的支付合作伙伴合作，为受影响的客户恢复经常性付款。 如需更多信息或有疑问，您可以联系 [GitHub 支持](https://support.github.com/contact)。
 
-### Impact to {% data variables.product.prodname_sponsors %}
+### 对 {% data variables.product.prodname_sponsors %} 的影响
 
-Existing sponsorships will remain in place during this period and maintainers will continue to be paid out as expected. Payments for the accrued sponsorship amounts from the funding account will be collected at the same time as other accrued charges.
+在此期间，现有的赞助将继续存在，维护者将继续按预期获得报酬。 从赞助帐户中支付的应计赞助金额将与其他应计费用同时收取。
 
-## Making a one-time payment for a GitHub subscription
+## 为 GitHub 订阅进行一次性付款
 
 {% note %}
 
-**Note**: Affected customers will receive an email notification with a link to their billing settings when payment is due. Two further reminder emails will be sent 7 and 14 days later if payment has not been made. After 14 days, paid features and services will be locked until payment is made.
+**注意**：付款到期时，受影响的客户将收到一封电子邮件通知，其中包含指向其结算设置的链接。 如果未付款，将在 7 天和 14 天后再发送两封提醒电子邮件。 14 天后，付费功能和服务将被锁定，直到付款为止。
 
 {% endnote %}
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.billing_plans %}
-3. At the top of the page, click **Pay now**. ![One-time payment pay now button](/assets/images/help/billing/pay-now-button.png)
-4. Review your billing and payment information. If you need to make an edit, click **Edit** next to the relevant section. Otherwise, click **Submit payment**. ![One-time payment summary](/assets/images/help/billing/payment-summary.png)
-5. Optionally, if you clicked **Edit**, make any necessary changes, and then click **Submit payment**. ![One-time payment edit summary](/assets/images/help/billing/payment-summary-edit.png)
-6. Once payment for the current billing cycle has been successfully made, the **Pay now** button on your "Billing & plans" page will be disabled until your next payment is due. ![One-time payment pay now button disabled](/assets/images/help/billing/pay-now-button-disabled.png)
+3. 在页面顶部，单击 **Pay now（立即付款）**。 ![一次性付款立即付款按钮](/assets/images/help/billing/pay-now-button.png)
+4. 查看您的帐单和付款信息。 如果您需要进行编辑，请点击相关部分旁边的 **Edit（编辑）**。 否则，请单击 **Submit payment（提交付款）**。 ![一次性付款摘要](/assets/images/help/billing/payment-summary.png)
+5. （可选）如果您单击了 **Edit（编辑）**，请进行任何必要的更改，然后单击 **Submit payment（提交付款）**。 ![一次性付款编辑摘要](/assets/images/help/billing/payment-summary-edit.png)
+6. 成功支付当前结算周期的款项后，“Billing & plans（结算和计划）”页面上的 **Pay now（立即付款）**按钮将被停用，直到您的下一次付款到期。 ![一次性付款立即付款按钮已禁用](/assets/images/help/billing/pay-now-button-disabled.png)
   

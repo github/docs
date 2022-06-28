@@ -8,6 +8,8 @@ versions:
 children:
   - /creating-an-issue-or-pull-request
   - /viewing-a-pull-request-in-github-desktop
+  - /viewing-and-re-running-checks-in-github-desktop
+  - /configuring-notifications-in-github-desktop
   - /changing-a-remotes-url-from-github-desktop
 shortTitle: 使用远程仓库
 ---

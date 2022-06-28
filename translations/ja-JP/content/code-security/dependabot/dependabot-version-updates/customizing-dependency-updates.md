@@ -35,7 +35,7 @@ shortTitle: 更新のカスタマイズ
 - `open-pull-requests-limit`: バージョン更新のオープンプルリクエストの最大数をデフォルトの 5 件から変更する
 - `target-branch`: デフォルトブランチではなく、特定のブランチを対象とするバージョン更新のプルリクエストを開く
 
-For more information about the configuration options, see "[Configuration options for the dependabot.yml file](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates)."
+設定オプションに関する詳しい情報については「[dependabot.ymlファイルの設定オプション](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates)」を参照してください。
 
 リポジトリ内の *dependabot.yml* ファイルを更新すると、{% data variables.product.prodname_dependabot %} は新しい設定で即座にチェックを実行します。 数分以内に、[**{% data variables.product.prodname_dependabot %}**] タブに更新された依存関係のリストが表示されます。リポジトリに多くの依存関係がある場合、表示までにさらに時間がかかることがあります。 バージョン更新に関する新しいプルリクエストが表示されることもあります。 詳しい情報については、「[バージョン更新用に設定された依存関係を一覧表示する](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/listing-dependencies-configured-for-version-updates) 」を参照してください。
 
@@ -140,4 +140,4 @@ updates:
 
 ## その他の例
 
-For more examples, see "[Configuration options for the dependabot.yml file](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates)."
+その他の例については「[dependabot.ymlファイルの設定オプション](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates)」を参照してください。

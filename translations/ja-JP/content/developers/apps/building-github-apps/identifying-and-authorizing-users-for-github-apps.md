@@ -127,7 +127,7 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 
 デバイスフローを使えば、CLIツールやGit認証情報マネージャーなどのヘッドレスアプリケーションのユーザを認可できます。
 
-{% if device-flow-is-opt-in %}Before you can use the device flow to identify and authorize users, you must first enable it in your app's settings. For more information on enabling device flow, see "[Modifying a GitHub App](/developers/apps/managing-github-apps/modifying-a-github-app)." {% endif %}For more information about authorizing users using the device flow, see "[Authorizing OAuth Apps](/developers/apps/authorizing-oauth-apps#device-flow)."
+{% ifversion device-flow-is-opt-in %}Before you can use the device flow to identify and authorize users, you must first enable it in your app's settings. For more information on enabling device flow, see "[Modifying a GitHub App](/developers/apps/managing-github-apps/modifying-a-github-app)." {% endif %}For more information about authorizing users using the device flow, see "[Authorizing OAuth Apps](/developers/apps/authorizing-oauth-apps#device-flow)."
 
 ## ユーザがアクセスできるインストールされたリソースの確認
 
@@ -149,7 +149,7 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 
 ## ユーザレベルの権限
 
-[ユーザ認可フロー](#identifying-users-on-your-site)の一環として、個々のユーザに付与されたユーザのメールなどのユーザが所有するリソースにアクセスできる、ユーザレベルの権限を GitHub App に付与できます。 ユーザレベルの権限は、Organization またはユーザアカウントにインストールされる際に付与される、[リポジトリおよび Organization レベルの権限](/rest/reference/permissions-required-for-github-apps)とは異なります。
+[ユーザ認可フロー](#identifying-users-on-your-site)の一環として、個々のユーザに付与されたユーザのメールなどのユーザが所有するリソースにアクセスできる、ユーザレベルの権限を GitHub App に付与できます。 User-level permissions differ from [repository and organization-level permissions](/rest/reference/permissions-required-for-github-apps), which are granted at the time of installation on an organization or personal account.
 
 ユーザレベルの権限は、[**Permissions & webhooks**] ページの [**User permissions**] セクションにある GitHub App の設定で選択できます。 権限の選択に関する詳しい情報については、「[GitHub Appの権限の編集](/apps/managing-github-apps/editing-a-github-app-s-permissions/)」を参照してください。
 
@@ -159,7 +159,7 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 
 ## ユーザからサーバーへのリクエスト
 
-While most of your API インタラクションのほとんどは、サーバーからサーバーへのインストールアクセストークンを用いて行われますが、一部のエンドポイントでは、ユーザアクセストークンを使用し、API 経由でアクションを実行できます。 [GraphQL v4]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql) または [REST v3](/rest) エンドポイントを使用して、アプリケーションは次のリクエストを行うことができます。
+While most of your API インタラクションのほとんどは、サーバーからサーバーへのインストールアクセストークンを用いて行われますが、一部のエンドポイントでは、ユーザアクセストークンを使用し、API 経由でアクションを実行できます。 Your app can make the following requests using [GraphQL]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql) or [REST](/rest) endpoints.
 
 ### 対応しているエンドポイント
 
@@ -239,8 +239,8 @@ While most of your API インタラクションのほとんどは、サーバー
 
 * [デプロイメントの一覧表示](/rest/reference/deployments#list-deployments)
 * [デプロイメントの作成](/rest/reference/deployments#create-a-deployment)
-* [Get a deployment](/rest/reference/deployments#get-a-deployment){% ifversion fpt or ghes or ghae or ghec %}
-* [デプロイメントの削除](/rest/reference/deployments#delete-a-deployment){% endif %}
+* [Get a deployment](/rest/reference/deployments#get-a-deployment)
+* [Delete a deployment](/rest/reference/deployments#delete-a-deployment)
 
 #### イベント
 
@@ -422,14 +422,12 @@ While most of your API インタラクションのほとんどは、サーバー
 * [Organizationのためのpre-receiveフックの強制の削除](/enterprise/user/rest/reference/enterprise-admin#remove-pre-receive-hook-enforcement-for-an-organization)
 {% endif %}
 
-{% ifversion fpt or ghes or ghae or ghec %}
 #### OrganizationのTeamのプロジェクト
 
 * [Teamプロジェクトの一覧表示](/rest/reference/teams#list-team-projects)
 * [プロジェクトのTeamの権限のチェック](/rest/reference/teams#check-team-permissions-for-a-project)
 * [Teamのプロジェクト権限の追加あるいは更新](/rest/reference/teams#add-or-update-team-project-permissions)
 * [Teamからのプロジェクトの削除](/rest/reference/teams#remove-a-project-from-a-team)
-{% endif %}
 
 #### OrganizationのTeamリポジトリ
 
@@ -575,7 +573,7 @@ While most of your API インタラクションのほとんどは、サーバー
 
 #### リアクション
 
-{% ifversion fpt or ghes or ghae or ghec %}* [リアクションの削除](/rest/reference/reactions#delete-a-reaction-legacy){% else %}* [リアクションの削除](/rest/reference/reactions#delete-a-reaction){% endif %}
+* [Delete a reaction](/rest/reference/reactions)
 * [コミットコメントへのリアクションの一覧表示](/rest/reference/reactions#list-reactions-for-a-commit-comment)
 * [コミットコメントへのリアクションの作成](/rest/reference/reactions#create-reaction-for-a-commit-comment)
 * [Issueへのリアクションの一覧表示](/rest/reference/reactions#list-reactions-for-an-issue)
@@ -587,13 +585,13 @@ While most of your API インタラクションのほとんどは、サーバー
 * [Teamディスカッションコメントへのリアクションの一覧表示](/rest/reference/reactions#list-reactions-for-a-team-discussion-comment)
 * [Teamディスカッションコメントへのリアクションの作成](/rest/reference/reactions#create-reaction-for-a-team-discussion-comment)
 * [Teamディスカッションへのリアクションの一覧表示](/rest/reference/reactions#list-reactions-for-a-team-discussion)
-* [Teamディスカッションへのリアクションの作成](/rest/reference/reactions#create-reaction-for-a-team-discussion){% ifversion fpt or ghes or ghae or ghec %}
+* [Create reaction for a team discussion](/rest/reference/reactions#create-reaction-for-a-team-discussion)
 * [コミットコメントへのリアクションの削除](/rest/reference/reactions#delete-a-commit-comment-reaction)
 * [Issueへのリアクションの削除](/rest/reference/reactions#delete-an-issue-reaction)
 * [コミットコメントへのリアクションの削除](/rest/reference/reactions#delete-an-issue-comment-reaction)
 * [Pull Requestのコメントへのリアクションの削除](/rest/reference/reactions#delete-a-pull-request-comment-reaction)
 * [Teamディスカッションへのリアクションの削除](/rest/reference/reactions#delete-team-discussion-reaction)
-* [Team ディスカッションのコメントへのリアクションの削除](/rest/reference/reactions#delete-team-discussion-comment-reaction){% endif %}
+* [Delete team discussion comment reaction](/rest/reference/reactions#delete-team-discussion-comment-reaction)
 
 #### リポジトリ
 
@@ -707,11 +705,9 @@ While most of your API インタラクションのほとんどは、サーバー
 * [リポジトリのREADMEの取得](/rest/reference/repos#get-a-repository-readme)
 * [リポジトリのライセンスの取得](/rest/reference/licenses#get-the-license-for-a-repository)
 
-{% ifversion fpt or ghes or ghae or ghec %}
 #### リポジトリのイベントのディスパッチ
 
 * [リポジトリディスパッチイベントの作成](/rest/reference/repos#create-a-repository-dispatch-event)
-{% endif %}
 
 #### リポジトリのフック
 

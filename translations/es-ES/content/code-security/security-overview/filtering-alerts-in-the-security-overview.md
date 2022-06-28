@@ -1,10 +1,10 @@
 ---
 title: Filtrar alertas en el resumen de seguridad
 intro: Utiliza filtros para ver categorías específicas de las alertas
-permissions: Organization owners and security managers can access the security overview for organizations. Members of a team can see the security overview for repositories that the team has admin privileges for.
+permissions: '{% data reusables.security-center.permissions %}'
 product: '{% data reusables.gated-features.security-center %}'
 versions:
-  ghae: issue-4554
+  ghae: '*'
   ghes: '>3.1'
   ghec: '*'
 type: how_to
@@ -17,11 +17,13 @@ topics:
 shortTitle: Filtrar alertas
 ---
 
+{% ifversion ghes < 3.5 or ghae %}
 {% data reusables.security-center.beta %}
+{% endif %}
 
 ## Acerca de filtrar el resumen de seguridad
 
-Puedes utilizar filtros en el resumen de seguridad para reducir tu enfoque con base en una serie de factores, como el nivel de riesgo de la alerta, el tipo de esta y la habilitación de características. Los diversos filtros se encuentran disponibles dependiendo de la vista específica y de si estás analizando a nivel de organización, de equipo o de repositorio.
+Puedes utilizar filtros en el resumen de seguridad para reducir tu enfoque con base en una serie de factores, como el nivel de riesgo de la alerta, el tipo de esta y la habilitación de características. Different filters are available depending on the specific view and whether your analysis is at the organization, team or repository level.
 
 ## Filtrar por repositorio
 
@@ -99,7 +101,7 @@ Disponible en el resumen a nivel organizacional.
 | ------------------------- | ------------------------------------------------------------ |
 | <code>topic:<em>TOPIC-NAME</em></code> | Muestra los repositorios que se clasifican con *TOPIC-NAME*. |
 
-{% if security-overview-views %}
+{% ifversion security-overview-views %}
 
 ## Filtrar por gravedad
 
@@ -115,16 +117,27 @@ Disponible en las vistas de alertas del escaneo de código. Todas las alertas de
 | `severity:warning`  | Muestra alertas del {% data variables.product.prodname_code_scanning %} categorizadas como advertencias. |
 | `severity:note`     | Muestra alertas del {% data variables.product.prodname_code_scanning %} categorizadas como notas.        |
 
+{% ifversion dependabot-alerts-vulnerable-calls %}
+## Filtrar por tipo de alerta del {% data variables.product.prodname_dependabot %}
+
+Disponible en las vistas de alerta del {% data variables.product.prodname_dependabot %}. Puedes filtrar la vista para mostrar las {% data variables.product.prodname_dependabot_alerts %} que están listas para arreglarse o donde la información adicional sobre la exposición se encuentre disponible. Puedes hacer clic en cualquier resultado para ver todos los detalles de esa alerta.
+
+| Qualifier              | Descripción                                                                                                                                                                                                                                                                                                                                                                                             |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `has:patch`            | Muestra alertas del {% data variables.product.prodname_dependabot %} para vulnerabilidades en donde una versión segura ya esté disponible.                                                                                                                                                                                                                                                              |
+| `has:vulnerable-calls` | Muestra alertas del {% data variables.product.prodname_dependabot %} en donde se detecta por lo menos una llamada del repositorio a una función vulnerable. Para obtener más información, consulta la sección "[Ver y actualizar las alertas del Dependabot](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#about-the-detection-of-calls-to-vulnerable-functions)". |
+{% endif %}
+
 {% endif %}
 
 ## Filtrar por tipos de secreto
 
 Disponible en las vistas de alerta del escaneo de secretos.
 
-| Qualifier                      | Descripción                                                                                                                                                                                                                                         |
-| ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `secret-type:SERVICE_PROVIDER` | Muestra alertas para el secreto y proveedor especificados. Para obtener más información, consulta la sección "[patrones de {% data variables.product.prodname_secret_scanning_caps %}](/code-security/secret-scanning/secret-scanning-patterns)". |
-| `secret-type:CUSTOM-PATTERN`   | Muestra alertas para los secretos que coinciden con el patrón personalizado específico. For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."    |
+| Qualifier                      | Descripción                                                                                                                                                                                                                                                                                 |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `secret-type:SERVICE_PROVIDER` | Muestra alertas para el secreto y proveedor especificados. Para obtener más información, consulta la sección "[patrones de {% data variables.product.prodname_secret_scanning_caps %}](/code-security/secret-scanning/secret-scanning-patterns)".                                         |
+| `secret-type:CUSTOM-PATTERN`   | Muestra alertas para los secretos que coinciden con el patrón personalizado específico. Para obtener más información, consulta la sección "[Definir los patrones personalizados para el escaneo de secretos](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)". |
 
 ## Filtrar por proveedor
 

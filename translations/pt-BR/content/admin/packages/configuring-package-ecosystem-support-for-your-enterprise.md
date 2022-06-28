@@ -1,6 +1,6 @@
 ---
 title: Configurar o suporte ao ecossistema de pacote para sua empresa
-intro: 'Você pode configurar {% data variables.product.prodname_registry %} para a sua empresa habilitando ou desabilitando globalmente os ecossistemas de pacotes individuais na sua empresa, incluindo Docker, RubyGems, npm, Apache Maven, Gradle ou NuGet. Conheça outros requisitos de configuração para dar suporte aos ecossistemas de pacote específicos.'
+intro: 'Você pode configurar {% data variables.product.prodname_registry %} para a sua empresa habilitando ou desabilitando globalmente os ecossistemas de pacotes individuais na sua empresa, incluindo {% ifversion ghes > 3.4 %}{% data variables.product.prodname_container_registry %}, {% endif %}Docker e npm. Conheça outros requisitos de configuração para dar suporte aos ecossistemas de pacote específicos.'
 redirect_from:
   - /enterprise/admin/packages/configuring-packages-support-for-your-enterprise
   - /admin/packages/configuring-packages-support-for-your-enterprise
@@ -23,7 +23,10 @@ Para evitar que novos pacotes sejam carregados, você pode definir um ecossistem
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_site_admin_settings.packages-tab %}
 1. Em "Alternância de ecossistema", para cada tipo de pacote, selecione **habilitado**, **somente leitura** ou **Desabilitado**.
-{% ifversion ghes > 3.1 %}
+   {%- ifversion ghes > 3.4 %}{% note -%}
+**Observação**: O isolamento de subdomínio deve estar habilitado para alternar as
+   opções de {% data variables.product.prodname_container_registry %}.
+   {%- endnote %}{%- endif %}{%- ifversion ghes > 3.1 %}
   ![Alternância de ecossistemas](/assets/images/enterprise/site-admin-settings/ecosystem-toggles.png){% else %}
 ![Ecosystem toggles](/assets/images/enterprise/3.1/site-admin-settings/ecosystem-toggles.png){% endif %}
 {% data reusables.enterprise_management_console.save-settings %}

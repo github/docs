@@ -15,8 +15,6 @@ hasExperimentalAlternative: true
 hidden: true
 ---
 
-
-
 ## 简介
 
 本指南介绍如何在 {% data variables.product.prodname_codespaces %} 中设置 C# (.NET) 项目。 它将演示在代码空间中打开项目以及从模板添加和修改开发容器配置的示例。
@@ -28,7 +26,7 @@ hidden: true
 
 ## 步骤 1：在代码空间中打开项目
 
-1. 在存储库名称下，使用 **{% octicon "code" aria-label="The code icon" %} 代码**下拉菜单，然后在**Codespaces（代码空间）**选项卡中，单击 {% octicon "plus" aria-label="The plus icon" %} **New codespace（新建代码空间）**。
+1. 在存储库名称下，使用 **{% octicon "code" aria-label="The code icon" %} 代码**下拉菜单，然后在**Codespaces（代码空间）**选项卡中，单击 **Create codespace on main（在主分支上创建代码空间）**。
 
   ![新建代码空间按钮](/assets/images/help/codespaces/new-codespace-button.png)
 
@@ -36,22 +34,18 @@ hidden: true
 
 创建代码空间时，您的项目是在专用于您的远程 VM 上创建的。 默认情况下，代码空间的容器具有多种语言和运行时，包括 .NET。 它还包括一套常见的工具，例如 git、wget、rsync、openssh 和 nano。
 
-您可以通过调整 vCPU 和 RAM 的数量、[添加 dotfiles 以个性化环境](/codespaces/setting-up-your-codespace/personalizing-codespaces-for-your-account)或者修改安装的工具和脚本来自定义代码空间。
+{% data reusables.codespaces.customize-vcpus-and-ram %}
 
-{% data variables.product.prodname_codespaces %} 使用名为 `devcontainer.json` 的文件来存储配置。 在启动时， {% data variables.product.prodname_codespaces %} 使用文件安装项目可能需要的任何工具、依赖项或其他设置。 更多信息请参阅“[开发容器简介](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)”。
+## 第 2 步：将开发容器配置从模板添加到存储库
 
+{% data variables.product.prodname_github_codespaces %} 的默认开发容器预安装了最新的 .NET 版本和常用工具。 但是，我们建议你配置自己的开发容器，以包含项目所需的所有工具和脚本。 这将确保仓库中的所有 {% data variables.product.prodname_github_codespaces %} 用户都拥有完全可复制的环境。
 
-## 步骤 2：从模板将开发容器添加到您的代码空间
-
-默认代码空间容器附带最新的 .NET 版本和预安装的常用工具。 但是，我们鼓励您设置自定义容器，以便根据项目的需求定制在代码空间创建过程中运行的工具和脚本，并确保为仓库中的所有 {% data variables.product.prodname_codespaces %} 用户提供完全可复制的环境。
-
-要使用自定义容器设置项目，您需要使用 `devcontainer.json` 文件来定义环境。 在 {% data variables.product.prodname_codespaces %} 中，您可以从模板添加它，也可以自己创建。 有关开发容器的详细信息，请参阅“[开发容器简介](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)”。
-
+{% data reusables.codespaces.setup-custom-devcontainer %}
 
 {% data reusables.codespaces.command-palette-container %}
-2. 对于此示例，单击 **C# (.NET)**。 如果需要其他功能，您可以选择任何特定于 C# (.NET) 或工具（如 C# (.NET) 和 MS SQL）组合的容器。 ![从列表中选择 C# (.NET) 选项](/assets/images/help/codespaces/add-dotnet-prebuilt-container.png)
-3. 单击推荐的 .NET 版本。 ![.NET 版本选择](/assets/images/help/codespaces/add-dotnet-version.png)
-4. 接受默认选项，将 Node.js 添加到您的自定义中。 ![添加 Node.js 选择](/assets/images/help/codespaces/dotnet-options.png)
+1. 对于此示例，单击 **C# (.NET)**。 如果需要其他功能，您可以选择任何特定于 C# (.NET) 或工具（如 C# (.NET) 和 MS SQL）组合的容器。 ![从列表中选择 C# (.NET) 选项](/assets/images/help/codespaces/add-dotnet-prebuilt-container.png)
+1. 单击推荐的 .NET 版本。 ![.NET 版本选择](/assets/images/help/codespaces/add-dotnet-version.png)
+1. 接受默认选项，将 Node.js 添加到您的自定义中。 ![添加 Node.js 选择](/assets/images/help/codespaces/dotnet-options.png)
 {% data reusables.codespaces.rebuild-command %}
 
 ### 开发容器的剖析
@@ -124,17 +118,17 @@ hidden: true
 }
 ```
 
-- **Name** - 您可以将开发容器命名为任何名称，这只是默认名称。
-- **Build** - 构建属性。
-  - **Dockerfile** - 在构建对象中，`dockerfile` 是对 Dockerfile 的引用，该文件也是从模板中添加的。
-  - **Args**
+- **name** - 您可以将开发容器命名为任何名称，这只是默认名称。
+- **build** - 构建属性。
+  - **dockerfile** - 在 `build` 对象中，`dockerfile` 包含也从模板添加的 Dockerfile 的路径。
+  - **args**
     - **Variant**：此文件仅包含一个构建参数，即我们要使用的 .NET Core 版本。
-- **Settings** - 它们是 {% data variables.product.prodname_vscode %} 设置。
-  - **Terminal.integrated.shell.linux** - 虽然 bash 是此处的默认设置，但您可以通过修改它来使用其他终端 shell。
-- **Extensions** - 它们是默认包含的扩展名。
+- **settings** - 它们是 {% data variables.product.prodname_vscode %} 设置。
+  - **terminal.integrated.shell.linux** - 虽然 bash 是这里的默认设置，但您可以通过修改它来使用其他终端 shell。
+- **extensions** - 它们是默认包含的扩展名。
   - **ms-dotnettools.csharp** - Microsoft C# 扩展为使用 C# 的开发提供丰富的支持，包括 IntelliSense、linting、调试、代码导航、代码格式化、重构、变量资源管理器、测试资源管理器等功能。
 - **forwardPorts** - 此处列出的任何端口都将自动转发。 更多信息请参阅“[在代码空间中转发端口](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)”。
-- **postCreateCommand** - 如果您要在进入 Dockerfile 中未定义的代码空间（例如 `dotnet restore`）后执行任何操作，您可以在此处执行。
+- **postCreateCommand** - 在创建代码空间后，使用此选项可运行 Docker 文件中未定义的命令。
 - **remoteUser** - 默认情况下，您以 vscode 用户身份运行，但您可以选择将其设置为 root。
 
 #### Dockerfile
@@ -167,31 +161,33 @@ RUN if [ "$INSTALL_AZURE_CLI" = "true" ]; then bash /tmp/library-scripts/azcli-d
 
 ## 步骤 3：修改 devcontainer.json 文件
 
-添加了开发容器并基本了解所有功能之后，您现在可以进行更改以针对您的环境进行配置。 在此示例中，您将在代码空间启动时添加属性以安装扩展和恢复项目依赖项。
+添加开发容器配置并基本了解所有内容的功能后，现在可以进行更改以进一步自定义环境。 在此示例中，您将在代码空间启动时添加属性以安装扩展和项目依赖项。
 
-1. 在 Explorer 中，展开 `.devcontainer` 文件夹，从树中选择 `devcontainer.json` 文件并打开它。
+1. 在 Explorer 中，从树中选择 `devcontainer.json` 文件来打开它。 您可能需要展开 `.devcontainer` 文件夹才能看到它。
 
-  ![Explorer 中的 devcontainer.json 文件](/assets/images/help/codespaces/devcontainers-options.png)
+   ![Explorer 中的 devcontainer.json 文件](/assets/images/help/codespaces/devcontainers-options.png)
 
 2. 更新 `devcontainer.json` 文件中的 `extensions` 列表，以添加一些在处理项目时有用的扩展。
 
-  ```json{:copy}
-  "extensions": [
+   ```json{:copy}
+   "extensions": [
           "ms-dotnettools.csharp",
           "streetsidesoftware.code-spell-checker",
       ],
-  ```
+   ```
 
 3. 取消注释 `postCreateCommand` 以便在代码空间设置过程中恢复依赖项。
 
-  ```json{:copy}
-  // Use 'postCreateCommand' to run commands after the container is created.
-  "postCreateCommand": "dotnet restore",
-  ```
+   ```json{:copy}
+   // Use 'postCreateCommand' to run commands after the container is created.
+   "postCreateCommand": "dotnet restore",
+   ```
+
+   {% data reusables.codespaces.more-info-devcontainer %}
 
 {% data reusables.codespaces.rebuild-command %}
 
-  在代码空间内进行重建可确保在将更改提交到仓库之前，更改能够按预期工作。 如果某些问题导致了故障，您将进入带有恢复容器的代码空间中，您可以从该容器进行重建以继续调整容器。
+   {% data reusables.codespaces.rebuild-reason %}
 
 5. 通过验证是否安装了 "Code Spell Checker" 扩展，检查更改是否成功应用。
 
@@ -205,7 +201,7 @@ RUN if [ "$INSTALL_AZURE_CLI" = "true" ]; then bash /tmp/library-scripts/azcli-d
 
 2. 项目启动时，您应该在右下角看到一个信息框，提示您连接到项目使用的端口。
 
-  ![端口转发信息框](/assets/images/help/codespaces/python-port-forwarding.png)
+   ![端口转发信息框](/assets/images/help/codespaces/python-port-forwarding.png)
 
 ## 步骤 5：提交更改
 
@@ -215,6 +211,4 @@ RUN if [ "$INSTALL_AZURE_CLI" = "true" ]; then bash /tmp/library-scripts/azcli-d
 
 现在，您应该准备开始在 {% data variables.product.prodname_codespaces %} 中开发您的 C# (.NET) 项目。 以下是用于更高级场景的一些额外资源。
 
-- [管理 {% data variables.product.prodname_codespaces %} 的加密密码](/codespaces/working-with-your-codespace/managing-encrypted-secrets-for-codespaces)
-- [管理 {% data variables.product.prodname_codespaces %} 的 GPG 验证](/codespaces/working-with-your-codespace/managing-gpg-verification-for-codespaces)
-- [代码空间中的转发端口](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)
+{% data reusables.codespaces.next-steps-adding-devcontainer %}

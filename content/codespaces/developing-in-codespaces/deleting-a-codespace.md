@@ -26,6 +26,7 @@ shortTitle: Delete a codespace
 
 {% endnote %}
 
+## Deleting a codespace
 
 {% webui %}
 
@@ -54,9 +55,46 @@ To delete a codespace use the `gh codespace delete` subcommand and then choose a
 gh codespace delete
 ```
 
-If you have unsaved changes, you'll be prompted to confirm deletion. You can use the `-f` flag to force deletion, avoiding this prompt.
+If you have unsaved changes, you'll be prompted to confirm deletion. You can use the `--force` flag to force deletion, avoiding this prompt.
 
 For more information about this command, see [the {% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_codespace_delete).
+
+{% endcli %}
+
+## Bulk deleting codespaces
+
+{% webui %}
+
+You can use {% data variables.product.prodname_cli %} to delete several or all of your codespaces with a single command. For more information, click the **{% data variables.product.prodname_cli %}** tab near the top of this page.
+
+{% endwebui %}
+
+{% vscode %}
+
+You can use {% data variables.product.prodname_cli %} to delete several or all of your codespaces with a single command. For more information, click the **{% data variables.product.prodname_cli %}** tab near the top of this page.
+
+{% endvscode %}
+
+
+{% cli %}
+
+You can delete several or all of your codespaces with a single command, using `gh codespace delete` followed by one of these flags:
+
+`--all` - Delete all of your codespaces.
+
+`--repo REPOSITORY` - Delete all of your codespaces for this repository. Or use together with the `--days` flag to filter by age of the codespace.
+
+`--days NUMBER` - Delete all of your codespaces that are older than the specified number of days. Can be used together with the `--repo` flag.
+
+By default you are prompted to confirm deletion of any codespaces that contain unsaved changes. You can use the `--force` flag to skip this confirmation. 
+
+### Example
+
+Delete all of the codespaces for the `octo-org/octo-repo` repository that you created more than 7 days ago.
+
+```
+gh cs delete --repo octo-org/octo-repo --days 7
+```
 
 {% endcli %}
 

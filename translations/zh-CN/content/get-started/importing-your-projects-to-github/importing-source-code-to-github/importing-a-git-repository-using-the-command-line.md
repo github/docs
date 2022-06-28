@@ -24,7 +24,7 @@ shortTitle: 本地导入仓库
 
 - 外部帐户 **extuser**
 - 外部 Git 主机 `https://external-host.com`
-- {% data variables.product.product_name %} 个人用户帐户 **ghuser**
+- {% data variables.product.product_name %} 个人帐户 **ghuser**
 - {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} 上名为 **repo.git** 的仓库
 
 {% endtip %}

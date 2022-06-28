@@ -78,6 +78,9 @@ shortTitle: 快速入门
 
 {% data reusables.actions.workflow-template-overview %}
 
+## 更复杂的示例
+{% data reusables.actions.link-to-example-library %}
+
 ## 后续步骤
 
 每次将代码推送到分支时，您刚刚添加的示例工作流程都会运行，并显示 {% data variables.product.prodname_actions %} 如何处理仓库的内容。 但是，这只是您可以对 {% data variables.product.prodname_actions %} 执行操作的开始：

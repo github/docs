@@ -33,7 +33,7 @@ shortTitle: Develop in a codespace
 4. Panels - This is where you can see output and debug information, as well as the default place for the integrated Terminal.
 5. Status Bar - This area provides you with useful information about your codespace and project. For example, the branch name, configured ports, and more.
 
-For more information on using {% data variables.product.prodname_vscode %}, see the [User Interface guide](https://code.visualstudio.com/docs/getstarted/userinterface) in the {% data variables.product.prodname_vscode %} documentation.
+For more information on using {% data variables.product.prodname_vscode_shortname %}, see the [User Interface guide](https://code.visualstudio.com/docs/getstarted/userinterface) in the {% data variables.product.prodname_vscode_shortname %} documentation.
 
 {% data reusables.codespaces.connect-to-codespace-from-vscode %}
 
@@ -54,7 +54,7 @@ For more information on using {% data variables.product.prodname_vscode %}, see 
 
 ### Using the {% data variables.product.prodname_vscode_command_palette %}
 
-The {% data variables.product.prodname_vscode_command_palette %} allows you to access and manage many features for {% data variables.product.prodname_codespaces %} and {% data variables.product.prodname_vscode %}. For more information, see "[Using the {% data variables.product.prodname_vscode_command_palette %} in {% data variables.product.prodname_codespaces %}](/codespaces/codespaces-reference/using-the-vs-code-command-palette-in-codespaces)."
+The {% data variables.product.prodname_vscode_command_palette %} allows you to access and manage many features for {% data variables.product.prodname_codespaces %} and {% data variables.product.prodname_vscode_shortname %}. For more information, see "[Using the {% data variables.product.prodname_vscode_command_palette_shortname %} in {% data variables.product.prodname_codespaces %}](/codespaces/codespaces-reference/using-the-vs-code-command-palette-in-codespaces)."
 
 ## Navigating to an existing codespace
 

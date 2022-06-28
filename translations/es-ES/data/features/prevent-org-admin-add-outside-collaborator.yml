@@ -1,0 +1,5 @@
+---
+versions:
+  ghec: '*'
+  ghes: '>=3.6'
+  ghae: 'issue-6336'

@@ -43,7 +43,7 @@ Para obter mais informações, consulte "[Configurar o controle de acesso e visi
 
 ## Sobre escopos e permissões para registros de pacotes
 
-Para usar ou gerenciar um pacote hospedado por um registro de pacotes, você deve usar um token com o escopo apropriado, e sua conta de usuário deve ter as permissões necessárias.
+Para usar ou gerenciar um pacote hospedado por um registro de pacotes, você deve usar um token com o escopo apropriado, e sua conta pessoal deve ter as permissões necessárias.
 
 Por exemplo:
 -  Para fazer o download e instalar pacotes de um repositório, seu token deve ter o escopo `read:packages` e sua conta de usuário deve ter permissão de leitura.

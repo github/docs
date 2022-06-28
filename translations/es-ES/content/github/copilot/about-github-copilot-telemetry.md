@@ -9,7 +9,7 @@ versions:
 
 ## Qué datos se recolectan
 
-Los datos que se recolectan se describen en los "[Términos de telemetría del {% data variables.product.prodname_copilot %}](/github/copilot/github-copilot-telemetry-terms)". Adicionalmente, la extensión/aditamento del {% data variables.product.prodname_copilot %} recopila la actividad de el Ambiente de Desarrollo Integrado (IDE) del usuario, ligado con una marca de tiempo y los metadatos que recopila el paquete de telemetría de extensión/aditamento. Cuando se utiliza con Visual Studio Code, IntelliJ, NeoVM u otros IDE, el {% data variables.product.prodname_copilot %} recopila los metadatos estándar que proporcionan dichos IDE.
+Los datos que se recolectan se describen en los "[Términos de telemetría del {% data variables.product.prodname_copilot %}](/github/copilot/github-copilot-telemetry-terms)". Adicionalmente, la extensión/aditamento del {% data variables.product.prodname_copilot %} recopila la actividad de el Ambiente de Desarrollo Integrado (IDE) del usuario, ligado con una marca de tiempo y los metadatos que recopila el paquete de telemetría de extensión/aditamento. Cuando se utiliza con {% data variables.product.prodname_vscode %}, IntelliJ, NeoVIM o con otro IDE, {% data variables.product.prodname_copilot %} recopila los metadatos estándar que proporcionan dichos IDE.
 
 ## Cómo {% data variables.product.company_short %} utiliza los datos
 

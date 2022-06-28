@@ -23,23 +23,24 @@ Antes de autenticar, {% data reusables.desktop.get-an-account %}
 {% data reusables.desktop.mac-select-desktop-menu %}
 {% data reusables.desktop.mac-select-accounts %}
 3. À direita de "{% data variables.product.prodname_dotcom_the_website %}," clique **Iniciar sessão**. ![Botão Sign In (Entrar) do GitHub](/assets/images/help/desktop/mac-sign-in-github.png)
-4. No painel "Entrar", clique em **Entrar usando seu navegador**. {% data variables.product.prodname_desktop %} abrirá seu navegador padrão. ![Link Sign in using your browser (Entrar via navegador)](/assets/images/help/desktop/sign-in-browser.png)
+{% data reusables.desktop.sign-in-browser %}
 
-  {% data reusables.user-settings.password-authentication-deprecation-desktop %}
 
 {% data reusables.desktop.authenticate-in-browser %}
 {% data reusables.desktop.2fa-in-browser %}
 7. Depois que o {% data variables.product.prodname_dotcom %} autenticar sua conta, siga as instruções para retornar a {% data variables.product.prodname_desktop %}.
 
-## Autenticando uma conta no {% data variables.product.prodname_enterprise %}
+## Autenticando uma conta no {% data variables.product.prodname_ghe_server %}
 
-{% data reusables.user-settings.password-authentication-deprecation-desktop %}
 
 {% data reusables.desktop.mac-select-desktop-menu %}
 {% data reusables.desktop.mac-select-accounts %}
 {% data reusables.desktop.choose-product-authenticate %}
-4. Para adicionar uma conta no {% data variables.product.prodname_enterprise %}, digite suas credenciais em "Endereço de servidor corporativo" e clique em **Continuar**. ![Botão Sign In (Entrar) do GitHub Enterprise](/assets/images/help/desktop/mac-sign-in-button-enterprise.png)
-{% data reusables.desktop.retrieve-2fa %}
+4. Para adicionar uma conta em {% data variables.product.product_location_enterprise %}, digite o URL para sua instância em "Endereço corporativo", depois clique em **Continuar**. ![Botão Sign In (Entrar) do GitHub Enterprise](/assets/images/help/desktop/mac-sign-in-button-enterprise.png)
+{% data reusables.desktop.sign-in-browser %}
+1. Para efetuar a autenticação na conta de {% data variables.product.product_location_enterprise %}, digite suas credenciais de conta e clique em **Efetuar login**. ![Botão de Sign In (Login) em {% data variables.product.prodname_ghe_server %} no navegador](/assets/images/help/desktop/enterprise-sign-in-button-browser.png)
+
+  Como alternativa, se você já estava conectado à conta {% data variables.product.product_location_enterprise %}, siga as instruções para retornar para {% data variables.product.prodname_desktop %} para concluir a autenticação.
 
 {% endmac %}
 
@@ -50,7 +51,7 @@ Antes de autenticar, {% data reusables.desktop.get-an-account %}
 {% data reusables.desktop.windows-choose-options %}
 {% data reusables.desktop.windows-select-accounts %}
 3. À direita do "GitHub.com", clique **Iniciar sessão**. ![Botão Sign In (Entrar) do GitHub](/assets/images/help/desktop/windows-sign-in-github.png)
-4. No painel Sign in (Entrar), clique em **Sign in using your browser** (Entrar via navegador). ![Link Sign in using your browser (Entrar via navegador)](/assets/images/help/desktop/sign-in-browser.png)
+{% data reusables.desktop.sign-in-browser %}
 
   {% data reusables.user-settings.password-authentication-deprecation-desktop %}
 
@@ -64,7 +65,7 @@ Antes de autenticar, {% data reusables.desktop.get-an-account %}
 {% data reusables.desktop.windows-choose-options %}
 {% data reusables.desktop.windows-select-accounts %}
 {% data reusables.desktop.choose-product-authenticate %}
-4. Para adicionar uma conta no {% data variables.product.prodname_enterprise %}, digite suas credenciais em "Endereço de servidor corporativo" e clique em **Continuar**. ![Botão Sign In (Entrar) do GitHub Enterprise](/assets/images/help/desktop/windows-sign-in-button-enterprise.png)
+4. Para adicionar uma conta de {% data variables.product.prodname_enterprise %}, digite suas credenciais em "Endereço corporativo" e, em seguida, clique em **Continuar**. ![Botão Sign In (Entrar) do GitHub Enterprise](/assets/images/help/desktop/windows-sign-in-button-enterprise.png)
 {% data reusables.desktop.retrieve-2fa %}
 
 {% endwindows %}

@@ -14,13 +14,13 @@ The most helpful contributors for the past 30 days are highlighted on the {% dat
 
 ## Step 1: Audit your {% data variables.product.prodname_discussions %} top contributors
 
-{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.discussions.navigate-to-repo-or-org %}
 {% data reusables.discussions.discussions-tab %}
-1. Compare the list of contributors with their access permissions to see who qualifies to moderate the discussion.
+1. Compare the list of contributors with their access permissions to the repository or, for organization discussions, to the source repository to see who qualifies to moderate the discussion.
 
 ## Step 2: Review permission levels for {% data variables.product.prodname_discussions %}
 
-People with triage permissions for a repository can help moderate a project's discussions by marking comments as answers, locking discussions that are not longer useful or are damaging to the community, and converting issues to discussions when an idea is still in the early stages of development. For more information, see "[Moderating discussions](/discussions/managing-discussions-for-your-community/moderating-discussions)."
+People with triage permissions for a repository can help moderate a repository's discussions by marking comments as answers, locking discussions that are not longer useful or are damaging to the community, and converting issues to discussions when an idea is still in the early stages of development. Similarly, people with triage permissions for the source repository for organization discussions can moderate the organization's discussions. For more information, see "[Moderating discussions](/discussions/managing-discussions-for-your-community/moderating-discussions)."
 
 For more information about repository permission levels and {% data variables.product.prodname_discussions %}, see "[Repository permissions levels for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization)."
 

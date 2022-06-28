@@ -1,8 +1,8 @@
-{% ifversion fpt or ghec %}
+{% ifversion fpt or ghec or ghes > 3.4 %}
 
-Para efetuar a autenticação em {% data variables.product.prodname_container_registry %} dentro de um fluxo de trabalho {% data variables.product.prodname_actions %}, use o `GITHUB_TOKEN` para obter a melhor segurança e experiência. Se seu fluxo de trabalho estiver usando um token de acesso pessoal (PAT) para efetuar a autenticação com `ghcr.io`, é altamente recomendável atualizar o seu fluxo de trabalho para usar o `GITHUB_TOKEN`.
+Para efetuar a autenticação em {% data variables.product.prodname_container_registry %} dentro de um fluxo de trabalho {% data variables.product.prodname_actions %}, use o `GITHUB_TOKEN` para obter a melhor segurança e experiência. If your workflow is using a personal access token (PAT) to authenticate to `{% data reusables.package_registry.container-registry-hostname %}`, then we highly recommend you update your workflow to use the `GITHUB_TOKEN`.
 
-Para orientação sobre como atualizar seus fluxos de trabalho que efetuam a autenticação em `ghcr.io` com um token de acesso pessoal, consulte "[Atualizar um fluxo de trabalho que acessa `ghcr.io`](/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions#upgrading-a-workflow-that-accesses-ghcrio)".
+{% ifversion fpt or ghec %}For guidance on updating your workflows that authenticate to `{% data reusables.package_registry.container-registry-hostname %}` with a personal access token, see "[Upgrading a workflow that accesses `ghcr.io`](/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions#upgrading-a-workflow-that-accesses-ghcrio)."{% endif %}
 
 Para obter mais informações sobre o `GITHUB_TOKEN`, consulte "[Autenticação em um fluxo de trabalho](/actions/reference/authentication-in-a-workflow#using-the-github_token-in-a-workflow)".
 

@@ -24,7 +24,7 @@ shortTitle: Import repo locally
 
 - 外部アカウント名 **extuser**
 - 外部 Git ホスト `https://external-host.com`
-- {% data variables.product.product_name %} の個人ユーザ アカウント **ghuser**
+- A {% data variables.product.product_name %} personal account named **ghuser**
 - A repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} named **repo.git**
 
 {% endtip %}

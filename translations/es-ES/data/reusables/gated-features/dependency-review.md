@@ -7,7 +7,7 @@ La revisión de dependencias se incluye en {% data variables.product.product_nam
 {%- elsif ghes > 3.1 %}
 La revisión de dependencias se encuentra disponible para los repositorios que pertenecen a las organizaciones en {% data variables.product.product_name %}. Esta característica requiere una licencia para la {% data variables.product.prodname_GH_advanced_security %}.
 
-{%- elsif ghae-issue-4864 %}
+{%- elsif ghae %}
 La revisión de dependencias se encuentra disponible para los repositorios que pertenecen a las organizaciones en {% data variables.product.product_name %}. Esta es una característica de la {% data variables.product.prodname_GH_advanced_security %} (gratuita durante el lanzamiento beta).
 
 {%- endif %} {% data reusables.advanced-security.more-info-ghas %}

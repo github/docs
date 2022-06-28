@@ -18,16 +18,16 @@ shortTitle: 使用 GitHub 导入工具
 
 {% endtip %}
 
-如果在导入时要将仓库中的提交匹配到作者的 GitHub 用户帐户，请确保在开始导入之前，仓库的每个贡献者都有 GitHub 帐户。
+如果在导入时要将仓库中的提交匹配到作者的 GitHub 用户帐户，请确保在开始导入之前，仓库的每个贡献者都有 GitHub 个人帐户。
 
 {% data reusables.repositories.repo-size-limit %}
 
 1. 在任何页面的右上角，单击 {% octicon "plus" aria-label="Plus symbol" %}，然后单击 **Import repository（导入仓库）**。 ![新仓库菜单中的导入仓库选项](/assets/images/help/importer/import-repository.png)
 2. 在 "Your old repository's clone URL"（您的旧仓库的克隆 URL）下，输入要导入的项目的 URL。 ![导入的仓库 URL 对应的文本字段](/assets/images/help/importer/import-url.png)
-3. 选择拥有仓库的用户帐户或组织，然后输入 GitHub 上帐户的名称。 ![仓库所有者菜单和仓库名称字段](/assets/images/help/importer/import-repo-owner-name.png)
+3. 选择拥有仓库的个人帐户或组织，然后输入 GitHub 上帐户的名称。 ![仓库所有者菜单和仓库名称字段](/assets/images/help/importer/import-repo-owner-name.png)
 4. 指定新仓库是*公共*还是*私有*。 更多信息请参阅“[设置仓库可见性](/articles/setting-repository-visibility)”。 ![公共或私有仓库单选按钮](/assets/images/help/importer/import-public-or-private.png)
 5. 检查您输入的信息，然后单击 **Begin import（开始导入）**。 ![开始导入按钮](/assets/images/help/importer/begin-import-button.png)
-6. 如果您的旧项目有密码保护，请输入该项目的登录信息，然后单击 **Submit（提交）**。 ![有密码保护项目的密码表单和提交按钮](/assets/images/help/importer/submit-old-credentials-importer.png)
+6. 如果旧项目需要凭据，请键入该项目的登录信息，然后单击 **Submit（提交）**。 如果在旧项目上为用户帐户启用了 SAML SSO 或 2FA，请在“Password（密码）”字段中输入具有存储库读取权限的个人访问令牌，而不是密码。 ![有密码保护项目的密码表单和提交按钮](/assets/images/help/importer/submit-old-credentials-importer.png)
 7. 如果有多个项目托管于旧项目的克隆 URL 上，请选择要导入的项目，然后单击 **Submit（提交）**。 ![要导入的项目列表和提交按钮](/assets/images/help/importer/choose-project-importer.png)
 8. 如果项目包含超过 100 MB 的大文件，请选择是否使用 [Git Large File Storage](/articles/versioning-large-files) 导入大文件，然后单击 **Continue（继续）**。 ![Git Large File Storage 菜单和继续按钮](/assets/images/help/importer/select-gitlfs-importer.png)
 

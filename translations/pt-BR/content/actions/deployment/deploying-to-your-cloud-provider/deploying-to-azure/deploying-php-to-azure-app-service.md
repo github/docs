@@ -19,7 +19,7 @@ topics:
 
 Este guia explica como usar {% data variables.product.prodname_actions %} para criar e implantar um projeto PHP no [Azure App Service](https://azure.microsoft.com/services/app-service/).
 
-{% ifversion fpt or ghec or ghae-issue-4856 %}
+{% ifversion fpt or ghec or ghae-issue-4856 or ghes > 3.4 %}
 
 {% note %}
 

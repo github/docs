@@ -1,6 +1,6 @@
 ---
-title: Managing suggestions to update pull request branches
-intro: You can give users the ability to always update a pull request branch when it is not up to date with the base branch.
+title: Administrar las sugerencias para actualizar las ramas de las solicitudes de cambios
+intro: Puedes darles a los usuarios la capacidad de que siempre puedan actualizar una rama de una solicitud de cambios cuando no esté actualizada con la rama base.
 versions:
   fpt: '*'
   ghes: '> 3.4'
@@ -8,16 +8,16 @@ versions:
   ghec: '*'
 topics:
   - Repositories
-shortTitle: Manage branch updates
+shortTitle: Administrar las actualizaciones de ramas
 permissions: People with maintainer permissions can enable or disable the setting to suggest updating pull request branches.
 ---
 
-## About suggestions to update a pull request branch
+## Acerca de las sugerencias para actualizar una rama de solicitud de cambios
 
-If you enable the setting to always suggest updating pull request branches in your repository, people with write permissions will always have the ability, on the pull request page, to update a pull request's head branch when it's not up to date with the base branch. When not enabled, the ability to update is only available when the base branch requires branches to be up to date before merging and the branch is not up to date. For more information, see "[Keeping your pull request in sync with the base branch](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/keeping-your-pull-request-in-sync-with-the-base-branch)."
+Si habilitas el ajuste para que siempre sugiera actualizar ramas de solicitudes de cambios en tu repositorio, las personas con permisos de escritura siempre podrán actualizar la rama de encabezado de una solicitud de cambios, en la página de dicha solicitud, cuando no esté actualizada con la rama base. Cuando no se habilita, esta capacidad de actualización solo estará disponible cuando la rama base requiera que las ramas estén actualizadas antes de la fusión y la rama no esté actualizada. Para obtener más información, consulta la sección "[Mantener tu solicitud de cambios sincronizada con la rama base](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/keeping-your-pull-request-in-sync-with-the-base-branch)".
 
-## Managing suggestions to update a pull request branch
+## Administrar las sugerencias para actualizar una rama de una solicitud de cambios
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-3. Under "Pull Requests", select or unselect **Always suggest updating pull request branches**. ![Checkbox to enable or disable always suggest updating branch](/assets/images/help/repository/always-suggest-updating-branches.png)
+3. Debajo de "Solicitudes de cambio", selecciona o deselecciona **Siempre sugerir actualizar las ramas de las solicitudes de cambio**. ![Casilla de verificación para habilitar o inhabilitar la opción de siempre sugerir actualizar la rama](/assets/images/help/repository/always-suggest-updating-branches.png)

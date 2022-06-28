@@ -44,7 +44,7 @@ topics:
 - Issue のクローズやプルリクエストのマージなどにより、スレッドの状態を変更した場合。
 - メンバーになっている Team が@メンションされていた場合。
 
-デフォルトで、作成したすべてのリポジトリと、ユーザアカウントが所有するすべてのリポジトリは、自動的に Watch されます。
+By default, you also automatically watch all repositories that you create and are owned by your personal account.
 
 自動的にサブスクライブしている会話をサブスクライブ解除するには、通知設定を変更するか、{% data variables.product.product_location %} のアクティビティを直接サブスクライブ解除または Watch 解除します。 詳しい情報については、「[サブスクリプションを管理する](/github/managing-subscriptions-and-notifications-on-github/managing-your-subscriptions)」を参照してください。
 

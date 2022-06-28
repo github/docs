@@ -21,7 +21,7 @@ Cuando cierras un tablero de proyecto, todas las automatizaciones del flujo de t
 
 Si vuelves a abrir un tablero de proyecto, tienes la opción de *sincronizar* la automatización, lo que actualiza la posición de las tarjetas en el tablero de acuerdo con los parámetros de automatización configurados para el tablero. Para obtener más información, consulta "[Volver a abrir un tablero de proyecto cerrado](/articles/reopening-a-closed-project-board)" o "[Acerca de la automatización de los tableros de proyectos](/articles/about-automation-for-project-boards)".
 
-1. Navega hasta la lista de tableros de proyectos en tu repositorio u organización o los que le pertenezcan a tu cuenta de usuario.
+1. Navega hasta la lista de tableros de proyecto en tu repositorio u organización o a los que le pertenezcan a tu cuenta personal.
 2. En la lista de proyectos, junto al tablero de proyectos que deseas cerrar, haz clic en {% octicon "chevron-down" aria-label="The chevron icon" %}. ![Icono de comillas angulares a la derecha del nombre del tablero de proyecto](/assets/images/help/projects/project-list-action-chevron.png)
 3. Da clic en **Cerrar**. ![Menú desplegable para cerrar elementos en el tablero de proyecto](/assets/images/help/projects/close-project.png)
 

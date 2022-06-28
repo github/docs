@@ -24,7 +24,7 @@ topics:
 
 {% ifversion fpt or ghec %}
 
-GitHub の GraphQL API についての情報は、[v4 ドキュメント]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql)を参照してください。 GraphQL への移行についての情報は、「[REST から移行する]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/guides/migrating-from-rest-to-graphql)」を参照してください。
+For information about GitHub's GraphQL API, see the [documentation]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql). GraphQL への移行についての情報は、「[REST から移行する]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/guides/migrating-from-rest-to-graphql)」を参照してください。
 
 {% endif %}
 
@@ -120,7 +120,7 @@ curl -u my_client_id:my_client_secret '{% data variables.product.api_url_pre %}/
 
 {% ifversion fpt or ghec %}
 
-[認証されていないレート制限の詳細](#increasing-the-unauthenticated-rate-limit-for-oauth-applications)をお読みください。
+[認証されていないレート制限の詳細](#increasing-the-unauthenticated-rate-limit-for-oauth-apps)をお読みください。
 
 {% endif %}
 
@@ -319,7 +319,7 @@ _この例は、読みやすいように改行されています。_
 
 {% data reusables.rest-api.always-check-your-limit %}
 
-### ユーザアカウントからのリクエスト
+### 個人アカウントからのリクエスト
 
 個人アクセストークンで認証された直接のAPIリクエストは、user-to-serverリクエストです。 OAuth AppあるいはGitHub Appは、ユーザが認可した後、user-to-serverリクエストをユーザの代わりに発行することもできます。 詳しい情報については「[個人アクセストークンの作成](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)」、「[OAuth Appの認可](/authentication/keeping-your-account-and-data-secure/authorizing-oauth-apps)」、「[GitHub Appの認可](/authentication/keeping-your-account-and-data-secure/authorizing-github-apps)」を参照してください。
 

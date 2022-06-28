@@ -23,7 +23,7 @@ shortTitle: Write & format on GitHub
 
 {% data variables.product.product_name %}のすべてのコメントフィールドには、テキストフォーマット用のツールバーが含まれており、Markdown の構文を学ばなくてもテキストをフォーマットできます。 太字や斜体といったスタイルなどの Markdown のフォーマットやヘッダ、リンク、リストの作成といったことに加えて、このツールバーには @メンション、タスクリスト、Issue およびプルリクエストへのリンクといった {% data variables.product.product_name %}固有の機能があります。
 
-{% if fixed-width-font-gfm-fields %}
+{% ifversion fixed-width-font-gfm-fields %}
 
 ## Enabling fixed-width fonts in the editor
 

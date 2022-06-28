@@ -1,0 +1,1 @@
+If the dependency graph is not available in your system, your enterprise owner can enable the dependency graph. 詳しい情報については「[Enterpriseでの依存関係グラフの有効化](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise)」を参照してください。

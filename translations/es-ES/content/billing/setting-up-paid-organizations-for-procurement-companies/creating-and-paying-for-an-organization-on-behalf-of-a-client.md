@@ -29,7 +29,7 @@ Antes de comenzar, asegúrate de saber lo siguiente:
 
 Usarás tu cuenta personal para configurar la organización. También necesitarás iniciar sesión en esta cuenta para renovar la suscripción de tu cliente o hacer cambios en ella en el futuro.
 
-Si ya posees una cuenta de usuario de {% data variables.product.prodname_dotcom %}, omite el [paso 2](#step-2-create-the-organization).
+Si ya tienes una cuenta personal en {% data variables.product.prodname_dotcom %}, pasa al [paso 2](#step-2-create-the-organization).
 
 1. Dirígete a la página [Unirse a GitHub](https://github.com/join).
 2. En "Crear tu cuenta personal", escribe tu nombre de usuario, dirección de correo electrónico y contraseña, y luego haz clic en **Crear una cuenta**. ![Crear el formulario de ingreso a una cuenta personal](/assets/images/help/billing/billing_create_your_personal_account_form.png)

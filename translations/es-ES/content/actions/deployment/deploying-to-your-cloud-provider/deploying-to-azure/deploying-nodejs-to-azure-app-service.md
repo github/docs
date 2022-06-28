@@ -25,7 +25,7 @@ topics:
 
 Esta guía explica cómo utilizar las {% data variables.product.prodname_actions %} para compilar, probar y desplegar un proyecto de Node.js a [Azure App Service](https://azure.microsoft.com/services/app-service/).
 
-{% ifversion fpt or ghec or ghae-issue-4856 %}
+{% ifversion fpt or ghec or ghae-issue-4856 or ghes > 3.4 %}
 
 {% note %}
 
@@ -134,4 +134,4 @@ Los siguientes recursos también pueden ser útiles:
 * Para encontrar el flujo de trabajo inicial original, consulta el archivo [`azure-webapps-node.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-webapps-node.yml) en el repositorio `starter-workflows` de {% data variables.product.prodname_actions %}.
 * La acción que se utilizó para desplegar la app web es la acción oficial [`Azure/webapps-deploy`](https://github.com/Azure/webapps-deploy) de Azure.
 * Para encontrar más ejemplos de flujos de trabajo de GitHub Actions que desplieguen a Azure, consulta el repositorio [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples).
-* La guía rápida de "[Crear una app web de Node.js en Azure](https://docs.microsoft.com/azure/app-service/quickstart-nodejs)" dentro de la documentación de la app web de Azure demuestra cómo utilizar VS Code con la [Extensión de Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice).
+* La guía de inicio rápido de "[Crear una app web con Node.js en Azure](https://docs.microsoft.com/azure/app-service/quickstart-nodejs)" en la documentación de la app web de Azure demuestra cómo se utiliza {% data variables.product.prodname_vscode %} con la [extensión de servicio de la app de Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice).

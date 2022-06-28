@@ -49,7 +49,7 @@ shortTitle: Pagesサイトへのテーマの追加
   ---
   ---
 
-  @import "{{ site.theme }}";
+  @import "{% raw %}{{ site.theme }}{% endraw %}";
   ```
 3. カスタム CSS または Sass (インポートファイルも含む) があれば `@import` 行の直後に追加します。
 

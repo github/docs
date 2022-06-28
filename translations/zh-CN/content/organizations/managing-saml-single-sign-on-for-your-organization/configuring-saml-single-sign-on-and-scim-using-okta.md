@@ -16,7 +16,9 @@ shortTitle: 使用 Octa 配置 SAML 和 SCIM
 
 通过将组织配置为将 SAML SSO 和 SCIM 与身份提供程序 (IdP) Okta 结合使用，您可以从一个中心界面控制对您 {% data variables.product.product_location %} 和其他 Web 应用程序上的组织的访问。
 
-SAML SSO 控制并保护对组织资源（如仓库、议题和拉取请求）的访问。 当您在 Okta 中进行更改时，SCIM 会自动添加、管理和删除成员对您在 {% data variables.product.product_location %} 上的组织的访问权限。 更多信息请参阅“[关于使用 SAML 单点登录管理身份和访问](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on)”和“[关于 SCIM](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim)”。
+{% data reusables.saml.ghec-only %}
+
+SAML SSO 控制并保护对组织资源（如仓库、议题和拉取请求）的访问。 当您在 Okta 中进行更改时，SCIM 会自动添加、管理和删除成员对您在 {% data variables.product.product_location %} 上的组织的访问权限。 更多信息请参阅“[关于使用 SAML 单点登录管理身份和访问](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on)”和“[关于组织的 SCIM](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)”。
 
 启用 SCIM 后，您在 Okta 中为其分配了 {% data variables.product.prodname_ghe_cloud %} 应用程序的任何用户都可以使用以下配置。
 
@@ -36,6 +38,12 @@ SAML SSO 控制并保护对组织资源（如仓库、议题和拉取请求）�
 1. 按照“如何配置 SAML 2.0”指南，使用登录 URL、发行机构 URL 和公共证书在 {% data variables.product.prodname_dotcom %} 上启用并测试 SAML SSO。 更多信息请参阅“[对组织启用并测试 SAML 单点登录](/organizations/managing-saml-single-sign-on-for-your-organization/enabling-and-testing-saml-single-sign-on-for-your-organization#enabling-and-testing-saml-single-sign-on-for-your-organization)”。
 
 ## 在 Okta 中使用 SCIM 配置访问配置
+
+{% data reusables.scim.dedicated-configuration-account %}
+
+1. 使用作为组织所有者且理想情况下仅用于 SCIM 配置的帐户登录到 {% data variables.product.prodname_dotcom_the_website %}。
+1. 要为组织创建活动的 SAML 会话，请导航到 `https://github.com/orgs/ORGANIZATION-NAME/sso`。 更多信息请参阅“[关于使用 SAML 单点登录进行身份验证](/authentication/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on#about-oauth-apps-github-apps-and-saml-sso)”。
+1. 导航到 Okta。
 {% data reusables.saml.okta-dashboard-click-applications %}
 {% data reusables.saml.okta-applications-click-ghec-application-label %}
 {% data reusables.saml.okta-provisioning-tab %}
@@ -45,12 +53,6 @@ SAML SSO 控制并保护对组织资源（如仓库、议题和拉取请求）�
 1. 在组织名称的右侧，单击 **Grant（授予）**。
 
   ![用于授权 Okta SCIM 集成访问组织的"Grant（授予）"按钮](/assets/images/help/saml/okta-scim-integration-grant-organization-access.png)
-
-  {% note %}
-
-  **注**：如果在列表中看不到您的组织，请在浏览器中访问 `https://github.com/orgs/ORGANIZATION-NAME/sso`，并使用 IdP 上的管理员帐户通过 SAML SSO 向您的组织验证身份。 例如，如果您的组织名称是 `octo-org`，则 URL 是 `https://github.com/orgs/octo-org/so`。 更多信息请参阅“[关于使用 SAML 单点登录进行身份验证](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)”。
-
-  {% endnote %}
 1. 单击 **Authorize OktaOAN（授权 OktaOAN）**。
 {% data reusables.saml.okta-save-provisioning %}
 {% data reusables.saml.okta-edit-provisioning %}
@@ -58,6 +60,5 @@ SAML SSO 控制并保护对组织资源（如仓库、议题和拉取请求）�
 ## 延伸阅读
 
 - “[使用 Okta 为企业帐户配置 SAML 单点登录](/enterprise-cloud@latest/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise-using-okta)”
-- "[管理组织的团队同步](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization#enabling-team-synchronization-for-okta)"
 - Okta 文档中的[了解 SAML](https://developer.okta.com/docs/concepts/saml/)
 - Okta 文档中的[了解 SCIM](https://developer.okta.com/docs/concepts/scim/)

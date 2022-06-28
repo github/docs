@@ -26,7 +26,7 @@ shortTitle: 移动 文件
 
 **提示**：
 
-- 如果尝试在您没有访问权限的仓库中移动文件，我们会将项目复刻到您的用户帐户，并在您提交更改后帮助您发送[拉取请求](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)到原仓库。
+- 如果尝试在您没有访问权限的仓库中移动文件，我们会将项目复刻到您的个人帐户，并在您提交更改后帮助您发送[拉取请求](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)到原仓库。
 - 有些文件（如图像）需要您从命令行移动它们。 更多信息请参阅“[使用命令行将文件移至新位置](/articles/moving-a-file-to-a-new-location-using-the-command-line)”。
 - {% data reusables.repositories.protected-branches-block-web-edits-uploads %}
 

@@ -2,10 +2,10 @@
 date: '2022-03-01'
 sections:
   security_fixes:
-    - "HIGH: An integer overflow vulnerability was identified in GitHub's markdown parser that could potentially lead to information leaks and RCE. This vulnerability was reported through the GitHub Bug Bounty program by Felix Wilhelm of Google's Project Zero and has been assigned CVE-2022-24724."
+    - "ALTO: Uma vulnerabilidade de sobrefluxo de inteiros foi identificada no analisador do markdown do GitHub que poderia potencialmente levar a vazamentos de informações e a RCE. Essa vulnerabilidade foi relatada através do programa de compensação de erros do GitHub por Felix Wilhelm do Projeto Zero do Google, e foi atribuída ao CVE-2022-24724."
   bugs:
-    - Upgrades could sometimes fail if a high-availability replica's clock was out of sync with the primary.
-    - 'OAuth Applications created after September 1st, 2020 were not able to use the [Check an Authorization](https://docs.github.com/en/enterprise-server@3.2/rest/reference/apps#check-an-authorization) API endpoint.'
+    - As atualizações às vezes poderiam falhar se o relógio da réplica de alta disponibilidade estivesse fora de sincronia com o primário.
+    - 'Os aplicativos OAuth criados após 1 de setembro, 2020 não conseguiram de usar o ponto de extremidade da API [Verificar uma autorização](https://docs.github.com/en/enterprise-server@3.2/rest/reference/apps#check-an-authorization).'
   known_issues:
     - Em uma instância de {% data variables.product.prodname_ghe_server %} recém-configurada sem usuários, um invasor pode criar o primeiro usuário administrador.
     - As regras de firewall personalizadas são removidas durante o processo de atualização.

@@ -26,7 +26,7 @@ Los flujos de las instalaciones públicas tienen una página de llegada para hab
 
 ## Flujo de instalación privada
 
-Los flujos de instalación privada permiten que solo el propietario de la GitHub App pueda instalarla. Aún así, existirá información limitada sobre la GitHub App en una página pública, pero el botón de **Instalar** solo estará disponible para los administradores de la organización o para la cuenta de usuario si dicha GitHub App le pertenece a una cuenta individual. Las GitHub Apps {% ifversion fpt or ghes > 3.1 or ghae or ghec %}privadas {% else %}privadas (también conocidas como internas){% endif %} solo pueden instalarse en la cuenta de usuario u organización del propietario.
+Los flujos de instalación privada permiten que solo el propietario de la GitHub App pueda instalarla. Aún así, existirá información limitada sobre la GitHub App en una página pública, pero el botón de **Instalar** solo estará disponible para los administradores de la organización o para la cuenta personal si dicha GitHub App le pertenece a una cuenta individual. Las GitHub Apps {% ifversion fpt or ghes > 3.1 or ghae or ghec %}privadas {% else %}privadas (también conocidas como internas){% endif %} solo pueden instalarse en la cuenta de usuario u organización del propietario.
 
 ## Cambiar el quién puede instalar tu GitHub App
 

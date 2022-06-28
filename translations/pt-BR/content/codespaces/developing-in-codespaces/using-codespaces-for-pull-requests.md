@@ -27,7 +27,7 @@ topics:
 
 2. Na lista de pull requests, clique no pull request que deseja abrir em {% data variables.product.prodname_codespaces %}.
 3. No lado direito da sua tela, clique em **Código de {% octicon "code" aria-label="The code icon" %}**.
-4. Na aba de {% data variables.product.prodname_codespaces %}, clique em **Novo codespace**. ![Opção para abrir RP em um codespace](/assets/images/help/codespaces/open-with-codespaces-pr.png)
+4. Na aba {% data variables.product.prodname_codespaces %}, clique em **Criar codespace no BRANCH**. ![Opção para abrir RP em um codespace](/assets/images/help/codespaces/open-with-codespaces-pr.png)
 
 ## Revendo um pull request em {% data variables.product.prodname_codespaces %}
 

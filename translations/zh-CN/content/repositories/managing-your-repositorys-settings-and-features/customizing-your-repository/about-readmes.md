@@ -29,7 +29,9 @@ topics:
 - 用户能从何处获取项目的帮助
 - 谁维护和参与项目
 
-如果将自述文件放在仓库的根目录 `docs` 或隐藏的目录 `.github` 中，{% data variables.product.product_name %} 将会识别您的自述文件并自动向仓库访问者显示。
+如果将自述文件放在仓库隐藏的 `.github` 目录、根目录或 `docs` 目录中，{% data variables.product.product_name %} 将会识别您的自述文件并自动向仓库访问者显示。
+
+如果仓库包含多个自述文件，则按以下顺序从位置中选择显示的文件：`.github` 目录，然后是仓库的根目录，最后是 `docs` 目录。
 
 ![Github/scientist 仓库的主页面及其自述文件](/assets/images/help/repository/repo-with-readme.png)
 

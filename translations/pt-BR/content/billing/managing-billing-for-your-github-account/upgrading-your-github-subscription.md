@@ -40,7 +40,7 @@ Ao atualizar a assinatura de uma conta, a atualização altera as funcionalidade
 
 ## Atualizar a assinatura da sua conta pessoal
 
-Você pode atualizar sua conta pessoal de {% data variables.product.prodname_free_user %} para {% data variables.product.prodname_pro %} para ter ferramentas avançadas de revisão de código em repositórios privados pertencentes à sua conta de usuário. A atualização de sua conta pessoal não afeta nenhuma organização que você possa gerenciar ou repositórios pertencentes a essas organizações. {% data reusables.gated-features.more-info %}
+Você pode atualizar sua conta pessoal de {% data variables.product.prodname_free_user %} para {% data variables.product.prodname_pro %} para ter ferramentas avançadas de revisão de código em repositórios privados pertencentes à sua conta pessoal. A atualização de sua conta pessoal não afeta nenhuma organização que você possa gerenciar ou repositórios pertencentes a essas organizações. {% data reusables.gated-features.more-info %}
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.billing_plans %}

@@ -41,7 +41,7 @@ topics:
 
 ## 删除未使用的代码空间
 
-您的用户可以在 https://github.com/codespaces 和 Visual Studio Code 中删除其代码空间。 要减小代码空间的大小，用户可以使用终端或从 Visual Studio Code 中手动删除文件。
+您的用户可以在 https://github.com/codespaces 中以及从 {% data variables.product.prodname_vscode %} 中删除代码空间。 要减小代码空间的大小，用户可以使用终端或从 {% data variables.product.prodname_vscode_shortname %} 中手动删除文件。
 
 {% note %}
 

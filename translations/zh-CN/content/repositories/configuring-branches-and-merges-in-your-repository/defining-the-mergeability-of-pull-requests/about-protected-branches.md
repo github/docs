@@ -50,6 +50,9 @@ topics:
 {% ifversion fpt or ghec %}
 - [需要合并队列](#require-merge-queue)
 {% endif %}
+{%- ifversion required-deployments %}
+- [要求部署在合并之前成功](#require-deployments-to-succeed-before-merging)
+{%- endif %}
 - [包括管理员](#include-administrators)
 - [限制谁可以推送到匹配的分支](#restrict-who-can-push-to-matching-branches)
 - [允许强制推送](#allow-force-pushes)
@@ -144,6 +147,11 @@ remote: error: Changes have been requested.
 {% data reusables.pull_requests.merge-queue-references %}
 
 {% endif %}
+
+### 要求部署在合并之前成功
+
+您可以要求先将更改成功部署到特定环境，然后才能合并分支。 例如，可以使用此规则确保在更改合并到默认分支之前，将更改成功部署到过渡环境。
+
 ### 包括管理员
 
 默认情况下，受保护分支规则不适用于对仓库具有管理员权限的人。 您可以启用此设置将管理员纳入受保护分支规则。
@@ -154,9 +162,13 @@ remote: error: Changes have been requested.
 如果您的仓库为使用 {% data variables.product.prodname_team %} 或 {% data variables.product.prodname_ghe_cloud %} 的组织所拥有，您可以启用分支限制。
 {% endif %}
 
-启用分支限制时，只有已授予权限的用户、团队或应用程序才能推送到受保护的分支。 您可以在受保护分支的设置中查看和编辑对受保护分支具有推送权限的用户、团队或应用程序。 当需要状态检查时，如果所需的检查失败，仍会阻止有权推送到受保护分支的人员、团队和应用合并。 当需要拉取请求时，有权推送到受保护分支的人员、团队和应用仍需要创建拉取请求。
+启用分支限制时，只有已授予权限的用户、团队或应用程序才能推送到受保护的分支。 您可以在受保护分支的设置中查看和编辑对受保护分支具有推送权限的用户、团队或应用程序。 当需要状态检查时，如果所需的检查失败，仍会阻止有权推送到受保护分支的人员、团队和应用合并到分支。 当需要拉取请求时，有权推送到受保护分支的人员、团队和应用仍需要创建拉取请求。
 
-您只能向对仓库具有 write 权限的用户、团队或已安装的 {% data variables.product.prodname_github_apps %} 授予推送到受保护分支的权限。 对仓库具有管理员权限的人员和应用程序始终能够推送到受保护分支。
+{% ifversion restrict-pushes-create-branch %}
+（可选）您可以对创建与规则匹配的分支应用相同的限制。 例如，如果创建的规则仅允许某个团队推送到包含 `release` 一词的任何分支，则只有该团队的成员才能创建包含 `release` 一词的新分支。
+{% endif %}
+
+您只能向具有存储库写入访问权限的用户、团队或已安装 {% data variables.product.prodname_github_apps %} 授予对受保护分支的推送访问权限，或授予创建匹配分支的权限。 对存储库具有管理员权限的人员和应用始终能够推送到受保护的分支或创建匹配的分支。
 
 ### 允许强制推送
 
@@ -174,7 +186,7 @@ remote: error: Changes have been requested.
 
 启用强制推送不会覆盖任何其他分支保护规则。 例如，如果分支需要线性提交历史记录，则无法强制推送合并提交到该分支。
 
-{% ifversion ghes or ghae %}如果站点管理员阻止了强制推送到仓库中的所有分支，则无法对受保护分支启用强制推送。 更多信息请参阅“[阻止强制推送到用户帐户或组织拥有的仓库](/enterprise/{{ currentVersion }}/admin/developer-workflow/blocking-force-pushes-to-repositories-owned-by-a-user-account-or-organization)”。
+{% ifversion ghes or ghae %}如果站点管理员阻止了强制推送到仓库中的所有分支，则无法对受保护分支启用强制推送。 更多信息请参阅“[阻止强制推送到个人帐户或组织拥有的仓库](/enterprise/admin/developer-workflow/blocking-force-pushes-to-repositories-owned-by-a-user-account-or-organization)”。
 
 如果站点管理员只阻止强制推送到默认分支，您仍然可以为任何其他受保护分支启用强制推送。{% endif %}
 

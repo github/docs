@@ -1,7 +1,6 @@
 ---
 title: Organizationのメール通知の制限
 intro: Organizationの情報が個人のメールアカウントに漏れてしまうことを避けるために、メンバーがOrganizationのアクティビティに関するメール通知を受信できるドメインを制限できます。
-product: '{% data reusables.gated-features.restrict-email-domain %}'
 permissions: Organization owners can restrict email notifications for an organization.
 redirect_from:
   - /articles/restricting-email-notifications-about-organization-activity-to-an-approved-email-domain
@@ -10,7 +9,6 @@ redirect_from:
   - /organizations/keeping-your-organization-secure/restricting-email-notifications-to-an-approved-domain
   - /organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization
 versions:
-  fpt: '*'
   ghes: '>=3.2'
   ghec: '*'
 type: how_to
@@ -26,7 +24,13 @@ shortTitle: メール通知の制限
 
 Organization で制限付きのメール通知が有効になっている場合、メンバーは Organization の検証済みあるいは承認済みドメインに関連付けられたメールアドレスのみを使用して、Organization のアクティビティに関するメール通知を受信できます。 詳しい情報については「[Organizationのドメインの検証もしくは承認](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)」を参照してください。
 
-{% data reusables.enterprise-accounts.approved-domains-beta-note %}
+{% ifversion ghec %}
+{% note %}
+
+**ノート:** メール通知を制限するには、Organizationは{% data variables.product.prodname_ghe_cloud %}を使っていなければなりません。 {% data reusables.enterprise.link-to-ghec-trial %}
+
+{% endnote %}
+{% endif %}
 
 {% data reusables.notifications.email-restrictions-verification %}
 

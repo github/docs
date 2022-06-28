@@ -10,7 +10,7 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Administrar la creación de debates
+shortTitle: Administrar los debates de repositorio
 ---
 
 
@@ -28,3 +28,4 @@ Predeterminadamente, los miembros de la organización que tengan acceso de lectu
 
 - "[Acerca de los debates](/discussions/collaborating-with-your-community-using-discussions/about-discussions)"
 - "[Administrar debates para tu comunidad](/discussions/managing-discussions-for-your-community)"
+- "[Habilitar o inhabilitar los debates de GitHub para una organización](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization)".

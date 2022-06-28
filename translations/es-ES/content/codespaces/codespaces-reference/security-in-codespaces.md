@@ -34,7 +34,7 @@ Cada codespace tiene su propia red virtual aislada. Utilizamos cortafuegos para 
 
 ### Autenticación
 
-Puedes conectarte a un codespace utilizando un buscador web o desde Visual Studio Code. Si te conectas desde Visual Studio Code, se te pedirá autenticarte con {% data variables.product.product_name %}.
+Puedes conectarte a un codespace utilizando un buscador web o desde {% data variables.product.prodname_vscode %}. Si te conectas desde {% data variables.product.prodname_vscode_shortname %}, se te pedirá autenticarte con {% data variables.product.product_name %}.
 
 Cada vez que se cree o reinicie un codespace, se le asignará un token de {% data variables.product.company_short %} nuevo con un periodo de vencimiento automático. Este periodo te permite trabajar en el codespace sin necesitar volver a autenticarte durante un día de trabajo habitual, pero reduce la oportunidad de que dejes la conexión abierta cuando dejas de utilizar el codespace.
 
@@ -55,6 +55,8 @@ Si necesitas permitir el acceso externo a los servicios que se ejecutan en un co
 ### Reenvío de puertos
 
 Si necesitas conectarte a un servicio (tal como un servidor web de desarrollo) que se ejecute en tu codespace, puedes configurar el reenvío de puertos para hacer que el servicio esté disponible en la internet.
+
+Los propietarios de las organizaciones pueden restringir la capacidad para hacer que los puertos reenviados estén disponibles públicamente o dentro de la organización. Para obtener más información, consulta la sección "[restringir la visbilidad de los puertos reenviados](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)".
 
 **Puertos reenviados de forma privada**: Son accesibles mediante el internet, pero solo el creador del codespace puede acceder a ellos después de autenticarse en {% data variables.product.product_name %}.
 
@@ -97,7 +99,9 @@ Existen algunas buenas prácticas adicionales y riesgos de los cuales debes esta
 
 #### Entender el archivo de devcontainer.json de un repositorio
 
-Cuando creas un codespace, el [devcontainer.json](https://code.visualstudio.com/docs/remote/devcontainerjson-reference) se interpreta y aplica desde el repositorio fuente, en caso de que exista.  El devcontainer contiene características poderosas, tales como instalar extensiones de terceros y ejecutar código arbitrario a través de un `postCreateCommand` suministrado.
+Cuando creas un codespace, si se encuentra un un archivo de `devcontainer.json` para tu repositorio, este se interpreta y utiliza para configurar tu codespace. El archivo `devcontainer.json` puede contener características poderosas, tales como instalar extensiones de terceros y ejecutar el código arbitrario que se suministra en un `postCreateCommand`.
+
+Para obtener más información, consulta la sección "[Introducción a los contenedores dev](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)".
 
 #### Otorgar acceso a través de características
 
@@ -105,4 +109,4 @@ Ciertas características de desarrollo pueden agregar riesgos a tu ambiente pote
 
 #### Utilizar extensiones
 
-Cualquier extensión adicional de {% data variables.product.prodname_vscode %} que hayas instalado puede introducir más riesgos potencialmente. Para ayudar a mitigar este riesgo, asegúrate de que solo instales extensiones confiables y de que siempre se mantengan actualizadas.
+Cualquier extensión adicional de {% data variables.product.prodname_vscode_shortname %} que hayas instalado puede introducir más riesgos potencialmente. Para ayudar a mitigar este riesgo, asegúrate de que solo instales extensiones confiables y de que siempre se mantengan actualizadas.

@@ -4,8 +4,7 @@ intro: Você pode usar pré-visualizações da API para testar novos recursos e 
 redirect_from:
   - /v3/previews
 versions:
-  ghes: '*'
-  ghae: '*'
+  ghes: <3.4
 topics:
   - API
 ---
@@ -47,14 +46,6 @@ Obter uma [lista de eventos](/rest/reference/issues#timeline) para um problema o
 
 {% endif %}
 
-{% ifversion ghes %}
-## Ambientes pre-receive
-
-Cria, lista, atualiza e exclui ambientes para hooks pre-receive.
-
-**Tipo de mídia personalizada:** `eye-scream-preview` **Anunciado em:** [2015-07-29](/rest/reference/enterprise-admin#pre-receive-environments)
-{% endif %}
-
 {% ifversion ghes < 3.3 %}
 ## Projetos
 
@@ -88,7 +79,7 @@ Veja todos os [códigos de conduta](/rest/reference/codes-of-conduct) ou obtenha
 
 {% endif %}
 
-{% ifversion ghae or ghes %}
+{% ifversion ghes < 3.3 %}
 
 ## Webhooks globais
 
@@ -154,7 +145,7 @@ Agora você pode fornecer mais informações no GitHub para URLs vinculadas a do
 **Tipos de mídia personalizada:** `corsair-preview` **Anunciado:** [2018-12-10](https://developer.github.com/changes/2018-12-10-content-attachments-api/)
 
 {% endif %}
-{% ifversion ghae or ghes < 3.3 %}
+{% ifversion ghes < 3.3 %}
 
 ## Habilitar e desabilitar páginas
 

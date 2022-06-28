@@ -25,7 +25,7 @@ topics:
 
 **提示**：
 
-- 如果您尝试在没有访问权限的仓库中重命名文件，我们会将项目复刻到您的用户帐户，并在您提交更改后帮助您发送[拉取请求](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)到原始仓库。
+- 如果您尝试在没有访问权限的仓库中重命名文件，我们会将项目复刻到您的个人帐户，并在您提交更改后帮助您发送[拉取请求](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)到原始仓库。
 - 通过 Web 界面创建的文件名只能包含字母数字字符和连字符 (`-`)。 要使用其他字符，请在本地创建和提交文件，然后将它们推送到仓库。
 - 有些文件（如图像）需要您从命令行重命名它们。 更多信息请参阅“[使用命令行重命名文件](/articles/renaming-a-file-using-the-command-line)”。
 

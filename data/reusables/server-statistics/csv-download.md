@@ -1,0 +1,2 @@
+4. To start your download, under "{% data variables.product.prodname_github_connect %}", click **Export**, then choose whether you want to download a JSON or CSV file.
+    ![Screenshot of export button under "Server Statistics" on the GitHub Connect page](/assets/images/help/server-statistics/export-button.png)

@@ -41,7 +41,7 @@ If the changes from the upstream repository cause conflict then the {% data vari
 ## Syncing a fork from the command line
 
 {% endif %}
-Before you can sync your fork with an upstream repository, you must [configure a remote that points to the upstream repository](/pull-requests/collaborating-with-pull-requests/working-with-forks/configuring-a-remote-for-a-fork) in Git.
+上流リポジトリとフォークを同期する前に、Git で[上流リポジトリをポイントするリモートの設定](/pull-requests/collaborating-with-pull-requests/working-with-forks/configuring-a-remote-for-a-fork)をする必要があります。
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. ワーキングディレクトリをローカルプロジェクトに変更します。
@@ -75,17 +75,11 @@ Before you can sync your fork with an upstream repository, you must [configure a
   >  2 files changed, 7 insertions(+), 9 deletions(-)
   >  delete mode 100644 README
   >  create mode 100644 README.md
-  ``` If your local branch didn't have any unique commits, Git will instead perform a "fast-forward":
-  ```shell
-  $ git merge upstream/main
-  > Updating 34e91da..16c56ad
-  > Fast-forward
-  >  README.md                 |    5 +++--
-  >  1 file changed, 3 insertions(+), 2 deletions(-)
   ```
+
 
 {% tip %}
 
-**Tip**: Syncing your fork only updates your local copy of the repository. {% data variables.product.product_location %} 上のフォークをアップデートするには、[変更をプッシュする](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)必要があります。
+**参考**: フォークの同期は、リポジトリのローカルコピーだけをアップデートします。 {% data variables.product.product_location %} 上のフォークをアップデートするには、[変更をプッシュする](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)必要があります。
 
 {% endtip %}

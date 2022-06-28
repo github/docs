@@ -19,4 +19,3 @@ redirect_from:
 
 您可以联系您的销售代表或[联系我们](https://support.github.com/contact/org-sponsors-waitlist)加入此测试计划。
 
-有关从公司担保人服务接收付款的信息，请参阅“[从公司赞助商接收付款](/sponsors/receiving-sponsorships-through-github-sponsors/sponsors-for-companies)”。

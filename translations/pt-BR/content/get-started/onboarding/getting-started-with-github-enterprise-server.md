@@ -14,7 +14,7 @@ Este guia irá ajudar você a configurar e gerenciar {% data variables.product.p
 
 {% data variables.product.company_short %} hospeda {% data variables.product.prodname_ghe_cloud %}. Você pode implantar e hospedar {% data variables.product.prodname_ghe_server %} no seu próprio centro de dados ou em um provedor da nuvem compatível.
 
-Para obter uma visão geral de como {% data variables.product.product_name %} funciona, consulte "[Visão geral do sistema](/admin/overview/system-overview)".
+Para obter mais informações sobre {% data variables.product.product_name %}, consulte "[Sobre {% data variables.product.prodname_ghe_server %}](/admin/overview/about-github-enterprise-server)."
 
 ## Parte 1: Instalar {% data variables.product.product_name %}
 Para começar com {% data variables.product.product_name %}, você deverá criar a conta corporativa, instalar a instância, usar o Console de Gerenciamento para configuração inicial, configurar a sua instância e gerenciar a cobrança.
@@ -67,12 +67,12 @@ Como proprietário corporativo ou administrador, você pode gerenciar configura�
 ## Parte 3: Criando com segurança
 Para aumentar a segurança de {% data variables.product.product_location %}, você pode configurar a autenticação para integrantes da empresa, usar ferramentas e registro de auditoria para manter a conformidade, configurar recursos de segurança e análise para as suas organizações e, opcionalmente, habilitar {% data variables.product.prodname_GH_advanced_security %}.
 ### 1. Efetuando a autenticação dos integrantes da empresa
-Você pode usar o método de autenticação interno do {% data variables.product.product_name %} ou você pode escolher entre um provedor de autenticação estabelecido como o CAS, LDAP, ou SAML, para integrar suas contas existentes e gerenciar centralmente o acesso do usuário a {% data variables.product.product_location %}. Para obter mais informações, consulte "[Autenticando usuários para {% data variables.product.product_location %}](/admin/authentication/authenticating-users-for-your-github-enterprise-server-instance)".
+Você pode usar o método de autenticação interno do {% data variables.product.product_name %} ou você pode escolher entre um provedor de autenticação externo como o CAS, LDAP ou SAML, para integrar suas contas existentes e gerenciar centralmente o acesso do usuário a {% data variables.product.product_location %}. Para obter mais informações, consulte "[Sobre a autenticação para sua empresa](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise)".
 
 Você também pode exigir autenticação de dois fatores para cada uma de suas organizações. Para obter mais informações, consulte "[Exigindo a autenticação de dois fatores para uma organização](/admin/user-management/managing-organizations-in-your-enterprise/requiring-two-factor-authentication-for-an-organization)".
 
 ### 2. Manter a conformidade
-Você pode implementar verificações de status necessárias e realizar verificações de commit para fazer cumprir os padrões de conformidade da sua organização e automatizar os fluxos de trabalho de conformidade. Você também pode usar o log de auditoria para sua organização revisar as ações executadas pela sua equipe. For more information, see "[Enforcing policy with pre-receive hooks](/admin/policies/enforcing-policy-with-pre-receive-hooks)" and "[About the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise)."
+Você pode implementar verificações de status necessárias e realizar verificações de commit para fazer cumprir os padrões de conformidade da sua organização e automatizar os fluxos de trabalho de conformidade. Você também pode usar o log de auditoria para sua organização revisar as ações executadas pela sua equipe. Para obter mais informações, consulte "[Aplicando a política de hooks pre-receive](/admin/policies/enforcing-policy-with-pre-receive-hooks)" e "[Sobre o log de auditoria da sua empresa](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise)".
 
 {% ifversion ghes %}
 ### 3. Configurar as funcionalidades de segurança para as suas organizações
@@ -120,7 +120,7 @@ Os membros da sua empresa podem aprender mais sobre o Git e {% data variables.pr
 Você pode ler a documentação que reflete as funcionalidades disponíveis com {% data variables.product.prodname_ghe_server %}. Para obter mais informações, consulte "[Sobre as versões do {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs)."
 
 ### 2. Aprendendo com {% data variables.product.prodname_learning %}
-{% data reusables.getting-started.learning-lab-enterprise %}
+{% data reusables.getting-started.learning-enterprise %}
 
 ### 3. Trabalhando com o Suporte do Enterprise de {% data variables.product.prodname_dotcom %}
 {% data reusables.getting-started.contact-support-enterprise %}

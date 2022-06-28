@@ -46,7 +46,7 @@ Tu cuenta personal puede ser propietaria de recursos tales como repositorios, pa
 {% endtip %}
 
 {% ifversion fpt or ghec %}
-La mayoría de las personas utilizarán una cuenta personal para todo su trabajo en {% data variables.product.prodname_dotcom_the_website %}, incluyendo tanto los proyectos de código abierto como el empleo pagado. Si actualmente utilizas más de una cuenta personal que hayas creado para ti mismo, te sugerimos combinar las cuentas. Para obtener más información, consulta "[Fusionar múltiples cuentas de usuario](/articles/merging-multiple-user-accounts)".
+La mayoría de las personas utilizarán una cuenta personal para todo su trabajo en {% data variables.product.prodname_dotcom_the_website %}, incluyendo tanto los proyectos de código abierto como el empleo pagado. Si actualmente utilizas más de una cuenta personal que hayas creado para ti mismo, te sugerimos combinar las cuentas. Para obtener más información, consulta la sección "[Fusionar cuentas personales múltiples](/articles/merging-multiple-user-accounts)".
 {% endif %}
 
 ## Cuentas de organización
@@ -57,7 +57,7 @@ Tal como las cuentas personales, las organizaciones pueden ser propietarias de r
 
 Se puede otorgar roles diferentes a las cuentas personales de una organización dentro de esta, lo cual otorga niveles diferentes de acceso a la organización y a sus datos. Todos los miembros pueden colaborar entre ellos en los repositorios y proyectos, pero solo los propietarios de organizaciones y administradores de seguridad pueden administrar la configuración de la organización y controlar el acceso a los datos de la organización con seguridad sofisticada y características administrativas. Para obtener más información, consulta las secciones "[Roles en una organización](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)" y "[Mantener tu organización segura](/organizations/keeping-your-organization-secure)".
 
-![Diagrama que muestra que los usuarios deben iniciar sesión en su cuenta de usuario personal para acceder a los recursos de una organización](/assets/images/help/overview/sign-in-pattern.png)
+![Diagrama que muestra que los usuarios deben iniciar sesión en su cuenta personal personal para acceder a los recursos de una organización](/assets/images/help/overview/sign-in-pattern.png)
 
 {% ifversion fpt or ghec %}
 Incluso si eres un miembro de una organización que utiliza el inicio de sesión único de SAML, aún podrás iniciar sesión en tu cuenta personal de {% data variables.product.prodname_dotcom_the_website %} y, dicha cuenta personal, se enlazará con tu identidad en el proveedor de identidad (IdP) de tu organización. Para obtener más información, consulta la sección "[Acerca de la autenticación con el inicio de sesión único de SAML](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on){% ifversion fpt %}" en la documentación de {% data variables.product.prodname_ghe_cloud %}{% else %}".{% endif %}

@@ -5,7 +5,7 @@ intro: 在一个位置查看、排序和过滤整个组织的安全警报。
 product: '{% data reusables.gated-features.security-center %}'
 versions:
   fpt: '*'
-  ghae: issue-4554
+  ghae: '*'
   ghes: '>3.1'
   ghec: '*'
 topics:

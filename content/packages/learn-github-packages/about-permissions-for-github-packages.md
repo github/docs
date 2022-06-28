@@ -43,7 +43,7 @@ For more information, see "[Configuring a package's access control and visibilit
 
 ## About scopes and permissions for package registries
 
-To use or manage a package hosted by a package registry, you must use a token with the appropriate scope, and your user account must have appropriate permissions.
+To use or manage a package hosted by a package registry, you must use a token with the appropriate scope, and your personal account must have appropriate permissions.
 
 For example:
 -  To download and install packages from a repository, your token must have the `read:packages` scope, and your user account must have read permission.

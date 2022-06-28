@@ -7,6 +7,7 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
+  ghae: '*'
 type: overview
 topics:
   - Organizations
@@ -31,11 +32,11 @@ A segurança da conta é fundamental para a segurança da sua cadeia de suprimen
 {% ifversion ghec %}
 Se você é proprietário de uma empresa ou organização, você pode configurar a autenticação centralizada com SAML. Embora você possa adicionar ou remover integrantes manualmente, é mais simples e mais seguro configurar um logon único (SSO) e SCIM entre {% data variables.product.product_name %} e seu provedor de identidade (IdP) SAML. Isso também simplifica o processo de autenticação para todos os integrantes da sua empresa.
 
-Você pode configurar a autenticação SAML para uma conta corporativa ou da organização. Com o SAML, você pode conceder acesso às contas pessoais dos integrantes da sua empresa ou organização no {% data variables.product.product_location %} por meio do seu IdP, ou você pode criar e controlar as contas que pertencem à sua empresa usando {% data variables.product.prodname_emus %}. Para obter mais informações, consulte "[Sobre identidade e gerenciamento de acesso com o logon único SAML](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on)".
+Você pode configurar a autenticação SAML para uma conta corporativa ou da organização. Com o SAML, você pode conceder acesso às contas pessoais dos integrantes da sua empresa ou organização no {% data variables.product.product_location %} por meio do seu IdP, ou você pode criar e controlar as contas que pertencem à sua empresa usando {% data variables.product.prodname_emus %}. Para obter mais informações, consulte "[Sobre a autenticação para sua empresa](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise)".
 
 Depois de configurar a autenticação do SAML, quando os integrantes solicitarem acesso aos seus recursos, eles serão direcionados para o seu fluxo de SSO para garantir que sejam reconhecidos pelo seu IdP. Se não forem reconhecidos, o seu pedido será recusado.
 
-Alguns IdPs são compatíveis com um protocolo denominado SCIM, que pode prover ou desprovisionar automaticamente o acesso em {% data variables.product.product_name %} quando você fizer alterações no seu IdP. Com o SCIM, você pode simplificar a administração à medida que a sua equipe cresce, e você pode revogar rapidamente o acesso às contas. O SCIM está disponível para organizações individuais em {% data variables.product.product_name %}, ou para empresas que usam {% data variables.product.prodname_emus %}. Para obter mais informações, consulte "[Sobre o SCIM](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim)".
+Alguns IdPs são compatíveis com um protocolo denominado SCIM, que pode prover ou desprovisionar automaticamente o acesso em {% data variables.product.product_name %} quando você fizer alterações no seu IdP. Com o SCIM, você pode simplificar a administração à medida que a sua equipe cresce, e você pode revogar rapidamente o acesso às contas. O SCIM está disponível para organizações individuais em {% data variables.product.product_name %}, ou para empresas que usam {% data variables.product.prodname_emus %}. Para obter mais informações, consulte "[Sobre SCIM para as organizações](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)".
 {% endif %}
 
 {% ifversion ghes %}
@@ -43,7 +44,7 @@ Se você é o administrador do site para {% data variables.product.product_locat
 
 Alguns métodos de autenticação também são compatíveis com a comunicação de informações adicionais para {% data variables.product.product_name %}, por exemplo, de quais grupos o usuário é integrante ou sincronizando chaves criptográficas para o usuário. Esta é uma excelente maneira de simplificar a sua administração à medida que a sua organização cresce.
 
-Para obter mais informações sobre esses métodos de autenticação, consulte "[Usando CAS](/admin/identity-and-access-management/authenticating-users-for-your-github-enterprise-server-instance/using-cas), "[Usando SAML](/admin/identity-and-access-management/authenticating-users-for-your-github-enterprise-server-instance/using-saml)" e "[Usando LDAP](/admin/identity-and-access-management/authenticating-users-for-your-github-enterprise-server-instance/using-ldap)."
+Para obter mais informações sobre os métodos de autenticação disponíveis para {% data variables.product.product_name %}, consulte "[Sobre a autenticação para sua empresa](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise)".
 {% endif %}
 
 ## Configurar autenticação de dois fatores
@@ -118,9 +119,9 @@ Se você for proprietário de uma organização, você poderá ver quais usuári
 
 ## Conectar a {% data variables.product.product_name %} usando chaves SSH
 
-Existem outras maneiras de interagir com {% data variables.product.product_name %} além de entrar no site. Muitas pessoas autorizam o código que enviam por push para {% data variables.product.prodname_dotcom %} com uma chave privada SSH. Para obter mais informações, consulte[Sobre SSH](/authentication/connecting-to-github-with-ssh/about-ssh)".
+Existem outras maneiras de interagir com {% data variables.product.product_name %} além de entrar no site{% ifversion ghae %} através do seu IdP{% endif %}. Muitas pessoas autorizam o código que enviam por push para {% data variables.product.prodname_dotcom %} com uma chave privada SSH. Para obter mais informações, consulte[Sobre SSH](/authentication/connecting-to-github-with-ssh/about-ssh)".
 
-Assim como a senha da sua conta, se um invasor conseguir obter a sua chave SSH privada, ele poderá se passar por você e enviar código malicioso para qualquer repositório ao qual você tenha acesso de gravação. Se você armazenar sua chave SSH privada em um disco, é uma boa ideia protegê-la com uma senha. Para obter mais informações, consulte "[Trabalhar com frases secretas da chave SSH](/authentication/connecting-to-github-with-ssh/working-with-ssh-key-passphrases)".
+Como {% ifversion ghae %}a senha da sua conta do IdP{% else %}a senha da sua conta{% endif %}, se um invasor conseguir obter sua chave SSH privada, ele poderá se passar por você e enviar código malicioso para qualquer repositório que você tenha acesso de escrita. Se você armazenar sua chave SSH privada em um disco, é uma boa ideia protegê-la com uma senha. Para obter mais informações, consulte "[Trabalhar com frases secretas da chave SSH](/authentication/connecting-to-github-with-ssh/working-with-ssh-key-passphrases)".
 
 Outra opção é gerar chaves SSH em uma chave de segurança de hardware. Você pode usar a mesma chave que você está usando no 2FA. É muito difícil comprometer as chaves de segurança de hardware remotamente, porque a chave SSH privada permanece no hardware e não pode ser acessada diretamente por meio do software. Para obter mais informações, consulte "[Gerando uma nova chave SSH para uma chave de segurança de hardware](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key-for-a-hardware-security-key)".
 

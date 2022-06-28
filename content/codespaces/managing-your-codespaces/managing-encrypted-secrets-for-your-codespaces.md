@@ -22,7 +22,7 @@ shortTitle: Encrypted secrets
 
 ## About encrypted secrets for {% data variables.product.prodname_codespaces %}
 
-You can add encrypted secrets to your user account that you want to use in your codespaces. For example, you may want to store and access the following sensitive information as encrypted secrets.
+You can add encrypted secrets to your personal account that you want to use in your codespaces. For example, you may want to store and access the following sensitive information as encrypted secrets.
 
 - Personal access tokens to cloud services
 - Service principals

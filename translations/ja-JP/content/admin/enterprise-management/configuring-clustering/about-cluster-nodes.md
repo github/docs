@@ -22,7 +22,7 @@ topics:
 |:----------------------------------------------------------------------------------------------:|:------:|:----------------:|
 |               `job-server`,<br/>`memcache-server`,<br/>`web-server`                | 14 GB  |       1 GB       |
 |              `consul-server`,<br/>`mysql-server`,<br/>`redis-server`               | 14 GB  |      10 GB       |
-| `git-server`,<br/>`metrics-server`,<br/>`pages-server`,<br/>`storage-server` |  7 GB  |      10 GB       |
+| `git-server`,<br/>`metrics-server`,<br/>`pages-server`,<br/>`storage-server` | 14 GB  |      10 GB       |
 |                                     `elasticsearch-server`                                     | 14 GB  |      10 GB       |
 
 ## クラスタリングに必要なサービス

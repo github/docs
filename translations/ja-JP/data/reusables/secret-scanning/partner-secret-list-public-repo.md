@@ -22,6 +22,10 @@
 | Contributed Systems       | Contributed Systems Credentials                     |
 | Databricks                | Databricks Access Token                             |
 | Datadog                   | Datadog API Key                                     |
+| DigitalOcean              | DigitalOcean Personal Access Token                  |
+| DigitalOcean              | DigitalOcean OAuth Token                            |
+| DigitalOcean              | DigitalOcean Refresh Token                          |
+| DigitalOcean              | DigitalOcean System Token                           |
 | Discord                   | Discord Bot Token                                   |
 | Doppler                   | Doppler Personal Token                              |
 | Doppler                   | Doppler Service Token                               |
@@ -49,6 +53,7 @@
 | Hubspot                   | Hubspot API Key                                     |
 | Ionic                     | Ionic Personal Access Token                         |
 | Ionic                     | Ionic Refresh Token                                 |
+| JD Cloud                  | JD Cloud Access Key                                 |
 | Linear                    | Linear API Key                                      |
 | Linear                    | Linear OAuth Access Token                           |
 | Mailchimp                 | Mailchimp API Key                                   |
@@ -72,6 +77,7 @@
 | Proctorio                 | Proctorio Secret Key                                |
 | Pulumi                    | Pulumi Access Token                                 |
 | PyPI                      | PyPI API Token                                      |
+| redirect.pizza            | redirect.pizza API Token                            |
 | RubyGems                  | RubyGems API Key                                    |
 | Samsara                   | Samsara API Token                                   |
 | Samsara                   | Samsara OAuth Access Token                          |

@@ -21,7 +21,7 @@ Neste guia, você criará um fluxo de trabalho de {% data variables.product.prod
 1. Crie um novo repositório em {% data variables.product.prodname_dotcom %}, adicionando o `.gitignore` ao Node. Para obter mais informações, consulte "[Criando um novo repositório](/github/creating-cloning-and-archiving-repositories/creating-a-new-repository)."
 2. Clone o repositório para a sua máquina local.
     ```shell
-    $ git clone https://{% ifversion ghae %}<em>YOUR-HOSTNAME</em>{% else %}github.com{% endif %}/<em>YOUR-USERNAME</em>/<em>YOUR-REPOSITORY</em>.git
+    $ git clone https://{% ifversion ghes or ghae %}<em>YOUR-HOSTNAME</em>{% else %}github.com{% endif %}/<em>YOUR-USERNAME</em>/<em>YOUR-REPOSITORY</em>.git
     $ cd <em>YOUR-REPOSITORY</em>
     ```
 3. Crie um arquivo `index.js` e adicione um alerta básico que diga "Hello world!"
@@ -49,7 +49,7 @@ Neste guia, você criará um fluxo de trabalho de {% data variables.product.prod
     $ git push
     ```
 6. Crie um diretório `.github/workflows`. Nesse diretório, crie um arquivo denominado `release-package.yml`.
-7. Copiar o conteúdo YAML a seguir no arquivo `release-package.yml`{% ifversion ghae %}, substituindo `YOUR-HOSTNAME` pelo nome da sua empresa{% endif %}.
+7. Copiar o conteúdo YAML a seguir no arquivo `release-package.yml`{% ifversion ghes or ghae %}, substituindo `YOUR-HOSTNAME` pelo nome da sua empresa{% endif %}.
     ```yaml{:copy}
     name: Node.js Package
 
@@ -79,7 +79,7 @@ Neste guia, você criará um fluxo de trabalho de {% data variables.product.prod
           - uses: {% data reusables.actions.action-setup-node %}
             with:
               node-version: 12
-              registry-url: {% ifversion ghae %}https://npm.YOUR-HOSTNAME.com/{% else %}https://npm.pkg.github.com/{% endif %}
+              registry-url: {% ifversion ghes or ghae %}https://npm.YOUR-HOSTNAME.com/{% else %}https://npm.pkg.github.com/{% endif %}
           - run: npm ci
           - run: npm publish
             env:

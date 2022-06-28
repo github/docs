@@ -14,11 +14,13 @@ shortTitle: SAMLシングルサインオンの施行
 
 ## OrganizationでのSAML SSOの施行について
 
-SAML SSOを有効化すると、{% data variables.product.prodname_dotcom %}は{% data variables.product.prodname_dotcom_the_website %}上のOrganizationのリソースにアクセスしたメンバーにIdPで認証を受けるように求めます。これは、そのIdP上のアイデンティティにメンバーのユーザアカウントをリンクします。 メンバーは、IdPで認証を受ける前に引き続きOrganizationのリソースにアクセスできます。
+SAML SSOを有効化すると、{% data variables.product.prodname_dotcom %}は{% data variables.product.prodname_dotcom_the_website %}上のOrganizationのリソースにアクセスしたメンバーにIdPで認証を受けるように求めます。これは、そのIdP上のアイデンティティにメンバーの個人アカウントをリンクします。 メンバーは、IdPで認証を受ける前に引き続きOrganizationのリソースにアクセスできます。
 
 ![Organizationへのアクセスに際してSAML SSOで承認を受けるよう求めるバナー](/assets/images/help/saml/sso-has-been-enabled.png)
 
 OrganizationでもSAML SSOを施行できます。 {% data reusables.saml.when-you-enforce %} この施行によって、IdP経由での認証を受けなかったメンバーや管理者は、Organizationから削除されます。 {% data variables.product.company_short %}は削除された各メンバーにメール通知を送信します。
+
+{% data reusables.saml.ghec-only %}
 
 {% data reusables.saml.removed-users-can-rejoin %} ユーザが3ヶ月以内にOrganizationに再参加すれば、ユーザのアクセス権限や設定はリストアされます。 詳しい情報については、「[Organization の以前のメンバーを回復する](/articles/reinstating-a-former-member-of-your-organization)」を参照してください。
 

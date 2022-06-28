@@ -89,4 +89,4 @@ end
 
 * **不建议**使用普通的 `==` 运算符。 像 [`secure_compare`][secure_compare] 这样的方法执行“恒定时间”字符串比较，这有助于减轻针对常规相等运算符的某些定时攻击。
 
-[secure_compare]: https://rubydoc.info/github/rack/rack/master/Rack/Utils:secure_compare
+[secure_compare]: https://rubydoc.info/github/rack/rack/main/Rack/Utils:secure_compare

@@ -21,12 +21,12 @@ Neste guia, você começará com {% data variables.product.product_name %}, insc
 
 ## Criando contas em {% data variables.product.product_name %}
 
-Primeiro, você precisará criar uma conta de usuário grátis em {% data variables.product.product_name %}.
+Primeiro, você precisará criar uma conta pessoal grátis em {% data variables.product.product_name %}.
 
 {% data reusables.accounts.create-account %}
-1. Siga as instruções para criar sua conta de usuário grátis.
+1. Siga as instruções para criar sua conta pessoal grátis.
 
-Depois de criar a sua conta de usuário, crie uma conta grátis de organização. Você usará esta conta da organização para criar e gerenciar salas de aula de {% data variables.product.prodname_classroom %}.
+Depois de criar a sua conta pessoal, crie uma conta grátis de organização. Você usará esta conta da organização para criar e gerenciar salas de aula de {% data variables.product.prodname_classroom %}.
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.organizations %}
@@ -55,10 +55,10 @@ Em seguida, você irá inscrever-se para receber descontos em serviços a partir
 
 ## Configurar {% data variables.product.prodname_classroom %}
 
-Com sua conta de usuário e conta de organização, você está pronto para dar os primeiros passos com {% data variables.product.prodname_classroom %}. {% data variables.product.prodname_classroom %} é grátis para usar. Você pode acompanhar e gerenciar as recomendações, avaliar o trabalho automaticamente e dar feedback aos seus alunos.
+Com sua conta pessoal e conta de organização, você está pronto para dar os primeiros passos com {% data variables.product.prodname_classroom %}. {% data variables.product.prodname_classroom %} é grátis para usar. Você pode acompanhar e gerenciar as recomendações, avaliar o trabalho automaticamente e dar feedback aos seus alunos.
 
 {% data reusables.classroom.sign-into-github-classroom %}
-1. Para autorizar {% data variables.product.prodname_classroom %} para acessar a sua conta de usuário em {% data variables.product.prodname_dotcom %}, revise as informações e, em seguida, clique em **Autorizar {% data variables.product.prodname_classroom %}**. ![Botão "Autorizar {% data variables.product.prodname_classroom %}" para a conta do usuário](/assets/images/help/classroom/setup-click-authorize-github-classroom.png)
+1. Para autorizar {% data variables.product.prodname_classroom %} para acessar a sua conta pessoal em {% data variables.product.prodname_dotcom %}, revise as informações e, em seguida, clique em **Autorizar {% data variables.product.prodname_classroom %}**. ![Botão "Autorizar {% data variables.product.prodname_classroom %}" para a conta pessoal](/assets/images/help/classroom/setup-click-authorize-github-classroom.png)
 1. Revise as informações. Para autorizar {% data variables.product.prodname_classroom %} a acessar sua conta de organização em {% data variables.product.prodname_dotcom %}, clique em **Conceder**. ![Botão "Conceder" para organização](/assets/images/help/classroom/setup-click-grant.png)
 
   {% tip %}

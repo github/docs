@@ -14,7 +14,7 @@ redirect_from:
   - /github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation
 ---
 
-When a token {% ifversion fpt or ghae-issue-4374 or ghes > 3.2 or ghec %}has expired or {% endif %} has been revoked, it can no longer be used to authenticate Git and API requests. It is not possible to restore an expired or revoked token, you or the application will need to create a new token.
+When a token {% ifversion fpt or ghae or ghes > 3.2 or ghec %}has expired or {% endif %} has been revoked, it can no longer be used to authenticate Git and API requests. It is not possible to restore an expired or revoked token, you or the application will need to create a new token.
 
 This article explains the possible reasons your {% data variables.product.product_name %} token might be revoked or expire.
 
@@ -24,7 +24,7 @@ This article explains the possible reasons your {% data variables.product.produc
 
 {% endnote %}
 
-{% ifversion fpt or ghae-issue-4374 or ghes > 3.2 or ghec %}
+{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
 ## Token revoked after reaching its expiration date
 
 When you create a personal access token, we recommend that you set an expiration for your token. Upon reaching your token's expiration date, the token is automatically revoked. 詳しい情報については、「[個人アクセストークンを作成する](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)」を参照してください。
@@ -53,6 +53,8 @@ Once an authorization is revoked, any tokens associated with the authorization w
 ## Token revoked by the {% data variables.product.prodname_oauth_app %}
 
 The owner of an {% data variables.product.prodname_oauth_app %} can revoke an account's authorization of their app, this will also revoke any tokens associated with the authorization. For more information about revoking authorizations of your OAuth app, see "[Delete an app authorization](/rest/reference/apps#delete-an-app-authorization)."
+
+{% data variables.product.prodname_oauth_app %} owners can also revoke individual tokens associated with an authorization. For more information about revoking individual tokens for your OAuth app, see "[Delete an app token](/rest/apps/oauth-applications#delete-an-app-token)".
 
 ## Token revoked due to excess of tokens for an {% data variables.product.prodname_oauth_app %} with the same scope
 

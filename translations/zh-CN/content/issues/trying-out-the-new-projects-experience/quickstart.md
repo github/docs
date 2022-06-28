@@ -142,7 +142,7 @@ topics:
 
 最后，添加内置工作流程，以便在将项添加到项目时状态设置为**待办事项** 。
 
-1. In your project, click {% octicon "workflow" aria-label="the workflow icon" %}.
+1. 在项目中，单击 {% octicon "workflow" aria-label="the workflow icon" %}。
 2. 在 **Default workflows（默认工作流程）**下，单击 **Item added to project（已添加到项目的项）**。
 3. 在 **When（何时）**旁边，确保同时选择 `issues（议题）`和 `pull requests（拉取请求）`。
 4. 在 **Set（设置）**旁边，选择 **Status:Todo（状态：待办事项）**。

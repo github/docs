@@ -127,7 +127,7 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 
 设备流程允许您授权用户使用无头应用程序，例如 CLI 工具或 Git 凭据管理器。
 
-{% if device-flow-is-opt-in %}在使用设备流识别和授权用户之前，必须先在应用的设置中启用它。 有关启用设备流的详细信息，请参阅“[修改 GitHub 应用程序](/developers/apps/managing-github-apps/modifying-a-github-app)”。 {% endif %}有关使用设备流程授权用户的更多信息，请参阅“[授权 OAuth 应用程序](/developers/apps/authorizing-oauth-apps#device-flow)”。
+{% ifversion device-flow-is-opt-in %}在使用设备流识别和授权用户之前，必须先在应用的设置中启用它。 有关启用设备流的详细信息，请参阅“[修改 GitHub 应用程序](/developers/apps/managing-github-apps/modifying-a-github-app)”。 {% endif %}有关使用设备流程授权用户的更多信息，请参阅“[授权 OAuth 应用程序](/developers/apps/authorizing-oauth-apps#device-flow)”。
 
 ## 检查用户可以访问哪些安装资源
 
@@ -149,7 +149,7 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 
 ## 用户级别的权限
 
-您可以向 GitHub 应用程序添加用户级别的权限，以访问用户电子邮件等用户资源，这些权限是单个用户在[用户授权流程](#identifying-users-on-your-site)中授予的。 用户级别的权限不同于[仓库和组织级别的权限](/rest/reference/permissions-required-for-github-apps)，后者是在组织或用户帐户上安装时授予的。
+您可以向 GitHub 应用程序添加用户级别的权限，以访问用户电子邮件等用户资源，这些权限是单个用户在[用户授权流程](#identifying-users-on-your-site)中授予的。 用户级别的权限不同于[仓库和组织级别的权限](/rest/reference/permissions-required-for-github-apps)，后者是在组织或个人帐户上安装时授予的。
 
 您可以在 **Permissions & webhooks（权限和 web 挂钩）**页面 **User permissions（用户权限）**部分的 GitHub 应用程序设置中选择用户级别的权限。 有关选择权限的更多信息，请参阅“[编辑 GitHub 应用程序的权限](/apps/managing-github-apps/editing-a-github-app-s-permissions/)”。
 
@@ -159,7 +159,7 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 
 ## 用户到服务器请求
 
-虽然大多数 API 交互应使用服务器到服务器安装访问令牌进行，但某些端点允许您使用用户访问令牌通过 API 执行操作。 您的应用程序可以使用[GraphQL v4]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql) 或 [REST v3](/rest) 端点发出以下请求。
+虽然大多数 API 交互应使用服务器到服务器安装访问令牌进行，但某些端点允许您使用用户访问令牌通过 API 执行操作。 您的应用程序可以使用[GraphQL]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql) 或 [REST](/rest) 端点发出以下请求。
 
 ### 支持的端点
 
@@ -239,8 +239,8 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 
 * [列出部署](/rest/reference/deployments#list-deployments)
 * [创建部署](/rest/reference/deployments#create-a-deployment)
-* [获取部署](/rest/reference/deployments#get-a-deployment){% ifversion fpt or ghes or ghae or ghec %}
-* [删除部署](/rest/reference/deployments#delete-a-deployment){% endif %}
+* [获取部署](/rest/reference/deployments#get-a-deployment)
+* [删除部署](/rest/reference/deployments#delete-a-deployment)
 
 #### 事件
 
@@ -422,14 +422,12 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 * [删除组织的预接收挂钩实施](/enterprise/user/rest/reference/enterprise-admin#remove-pre-receive-hook-enforcement-for-an-organization)
 {% endif %}
 
-{% ifversion fpt or ghes or ghae or ghec %}
 #### 组织团队项目
 
 * [列出团队项目](/rest/reference/teams#list-team-projects)
 * [检查项目的团队权限](/rest/reference/teams#check-team-permissions-for-a-project)
 * [添加或更新团队项目权限](/rest/reference/teams#add-or-update-team-project-permissions)
 * [从团队删除项目](/rest/reference/teams#remove-a-project-from-a-team)
-{% endif %}
 
 #### 组织团队仓库
 
@@ -575,7 +573,7 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 
 #### 反应
 
-{% ifversion fpt or ghes or ghae or ghec %}* [删除反应](/rest/reference/reactions#delete-a-reaction-legacy){% else %}* [删除反应](/rest/reference/reactions#delete-a-reaction){% endif %}
+* [删除反应](/rest/reference/reactions)
 * [列出提交注释的反应](/rest/reference/reactions#list-reactions-for-a-commit-comment)
 * [创建提交注释的反应](/rest/reference/reactions#create-reaction-for-a-commit-comment)
 * [列出议题的反应](/rest/reference/reactions#list-reactions-for-an-issue)
@@ -587,13 +585,13 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 * [列出团队讨论注释的反应](/rest/reference/reactions#list-reactions-for-a-team-discussion-comment)
 * [创建团队讨论注释的反应](/rest/reference/reactions#create-reaction-for-a-team-discussion-comment)
 * [列出团队讨论的反应](/rest/reference/reactions#list-reactions-for-a-team-discussion)
-* [创建团队讨论的反应](/rest/reference/reactions#create-reaction-for-a-team-discussion){% ifversion fpt or ghes or ghae or ghec %}
+* [为团队讨论创建反应](/rest/reference/reactions#create-reaction-for-a-team-discussion)
 * [删除提交注释反应](/rest/reference/reactions#delete-a-commit-comment-reaction)
 * [删除议题反应](/rest/reference/reactions#delete-an-issue-reaction)
 * [删除对提交注释的反应](/rest/reference/reactions#delete-an-issue-comment-reaction)
 * [删除拉取请求注释反应](/rest/reference/reactions#delete-a-pull-request-comment-reaction)
 * [删除团队讨论反应](/rest/reference/reactions#delete-team-discussion-reaction)
-* [删除团队讨论注释反应](/rest/reference/reactions#delete-team-discussion-comment-reaction){% endif %}
+* [删除团队讨论评论反应](/rest/reference/reactions#delete-team-discussion-comment-reaction)
 
 #### 仓库
 
@@ -707,11 +705,9 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 * [获取仓库自述文件](/rest/reference/repos#get-a-repository-readme)
 * [获取仓库许可](/rest/reference/licenses#get-the-license-for-a-repository)
 
-{% ifversion fpt or ghes or ghae or ghec %}
 #### 仓库事件调度
 
 * [创建仓库调度事件](/rest/reference/repos#create-a-repository-dispatch-event)
-{% endif %}
 
 #### 仓库挂钩
 

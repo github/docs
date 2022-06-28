@@ -19,7 +19,7 @@ shortTitle: 模拟用户
 
 对于每个模拟会话，您需要提供模拟的原因。 会话限制为一小时，您将拥有与被模拟用户相同的访问权限。
 
-在模拟会话期间执行的操作将记录为企业审核日志以及模拟用户的安全日志中的事件。 当模拟会话开始时，被模拟的人员将收到电子邮件通知。 更多信息请参阅“[已审核的操作](/admin/user-management/monitoring-activity-in-your-enterprise/audited-actions)”和“[查看安全日志](/authentication/keeping-your-account-and-data-secure/reviewing-your-security-log)”。
+在模拟会话期间执行的操作将记录为企业审核日志以及模拟用户的安全日志中的事件。 当模拟会话开始时，被模拟的人员将收到电子邮件通知。 更多信息请参阅“[审核企业的日志事件](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)”和“[查看安全日志](/authentication/keeping-your-account-and-data-secure/reviewing-your-security-log)”。
 
 ## 模拟用户
 

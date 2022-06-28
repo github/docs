@@ -29,7 +29,7 @@ Organozationのオーナーは、コラボレータを招待する機能を制�
 {% endif %}
 
 {% ifversion ghes %}
-リポジトリに外部コラボレータとして誰かを追加するには、その人は{% data variables.product.product_location %}上にユーザアカウントを持っていなければなりません。 EnterpriseがSAMLやLDAPのような外部の認証システムを使っているなら、アカウントを作成するためには追加したい人はそのシステムを通じてサインインしなければなりません。 その人がその認証システムにアクセスできず、Enterpriseではビルトイン認証が有効化されているなら、サイト管理者がその人にユーザアカウントを作成できます。 詳しい情報については「[ビルトイン認証の利用](/admin/authentication/authenticating-users-for-your-github-enterprise-server-instance/using-built-in-authentication#inviting-users)」を参照してください。
+リポジトリに外部コラボレータとして誰かを追加するには、その人は{% data variables.product.product_location %}上に個人アカウントを持っていなければなりません。 EnterpriseがSAMLやLDAPのような外部の認証システムを使っているなら、アカウントを作成するためには追加したい人はそのシステムを通じてサインインしなければなりません。 その人がその認証システムにアクセスできず、Enterpriseではビルトイン認証が有効化されているなら、サイト管理者がその人にアカウントを作成できます。 詳しい情報については、「[ビルトイン認証の設定](/admin/identity-and-access-management/using-built-in-authentication/configuring-built-in-authentication)」を参照してください。
 {% endif %}
 
 {% ifversion not ghae %}

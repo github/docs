@@ -76,5 +76,5 @@ topics:
 
 ## 延伸阅读
 
-* "[基本书写和格式语法](/articles/basic-writing-and-formatting-syntax)"{% if code-scanning-task-lists %}
+* "[基本书写和格式语法](/articles/basic-writing-and-formatting-syntax)"{% ifversion code-scanning-task-lists %}
 * "[使用任务列表跟踪议题中的 {% data variables.product.prodname_code_scanning %} 警报](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/tracking-code-scanning-alerts-in-issues-using-task-lists)"{% endif %}

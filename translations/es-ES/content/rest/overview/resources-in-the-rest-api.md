@@ -24,7 +24,7 @@ Predeterminadamente, todas las solicitudes a `{% data variables.product.api_url_
 
 {% ifversion fpt or ghec %}
 
-Para obtener más información acerca de la API de GraphQL de GitHub, consulta la [documentación de la V4]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql). Para obtener más información acerca de cómo migrarse a GraphQL, consulta la sección "[Migrarse desde REST]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/guides/migrating-from-rest-to-graphql)".
+Para obtener más información sobre la API de GraphQL de GitHub, consulta la [documentación]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql). Para obtener más información acerca de cómo migrarse a GraphQL, consulta la sección "[Migrarse desde REST]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/guides/migrating-from-rest-to-graphql)".
 
 {% endif %}
 
@@ -120,7 +120,7 @@ No podrás autenticarte utilizndo tu llave y secreto de OAuth2 si estás en modo
 
 {% ifversion fpt or ghec %}
 
-Lee [más acerca de limitar la tasa de no autenticación](#increasing-the-unauthenticated-rate-limit-for-oauth-applications).
+Lee [más acerca de limitar la tasa de no autenticación](#increasing-the-unauthenticated-rate-limit-for-oauth-apps).
 
 {% endif %}
 
@@ -320,7 +320,7 @@ Adicionalmente, la API de búsqueda tiene límites dedicados. Para obtener más 
 
 {% data reusables.rest-api.always-check-your-limit %}
 
-### Solicitudes de cuentas de usuario
+### Solicitudes de cuentas personales
 
 Las solicitudes directas de la API que autentiques con un token de acceso personal son de tipo usuario a servidor. Una App de OAuth o GitHub App también puede hacer una solicitud de usuario a servidor en tu nombre después de que la autorices para ello. Para obtener más información, consulta las secciones "[Crear un token de acceso personal](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)", "[Autorizar Apps de OAuth](/authentication/keeping-your-account-and-data-secure/authorizing-oauth-apps)" y [Autorizar GitHub Apps](/authentication/keeping-your-account-and-data-secure/authorizing-github-apps)".
 

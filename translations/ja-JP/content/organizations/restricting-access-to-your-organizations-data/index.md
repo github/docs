@@ -1,6 +1,6 @@
 ---
 title: Organization のデータへのアクセスを制限する
-intro: '{% data variables.product.prodname_oauth_app %} のアクセス制限により、Organization のオーナーは、信頼できないアプリが Organization のデータにアクセスすることを制限できます。 これにより、Organizationのメンバーは、Organizationのデータを安全に保ちながら、個人のユーザー アカウントで{% data variables.product.prodname_oauth_apps %}を使用できます。'
+intro: '{% data variables.product.prodname_oauth_app %} のアクセス制限により、Organization のオーナーは、信頼できないアプリが Organization のデータにアクセスすることを制限できます。 これにより、Organizationのメンバーは、Organizationのデータを安全に保ちながら、個人アカウントで{% data variables.product.prodname_oauth_apps %}を使用できます。'
 redirect_from:
   - /articles/restricting-access-to-your-organization-s-data
   - /articles/restricting-access-to-your-organizations-data

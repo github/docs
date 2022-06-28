@@ -1,5 +1,5 @@
 ---
-title: GitHub Data Protection Agreement
+title: GitHub 数据保护协议
 redirect_from:
   - /github/site-policy/github-data-protection-addendum
   - /github/site-policy-deprecated/github-data-protection-addendum
@@ -11,728 +11,728 @@ versions:
 
 ## 简介
 
-The parties agree that this GitHub Data Protection Agreement (“**DPA**”) sets forth their obligations with respect to the processing and security of Personal Data and, where explicitly stated in the DPA Terms, Customer Data in connection with the Online Services provided by GitHub, Inc. (“**GitHub**”). The DPA (including its Appendix and Attachments) is between GitHub and any customer receiving Online Services from GitHub based on the GitHub Customer Agreement (“**Customer**”), and is incorporated by reference into the GitHub Customer Agreement.
+双方同意，本《GitHub 数据保护协议》（“**DPA**”）规定了他们在个人数据的处理和安全方面的义务，并在 DPA 条款中明确规定的情况下，规定了与 GitHub, Inc.（“**GitHub**”）提供的在线服务相关的客户数据。 DPA（包括其附录和附件）是 GitHub 与根据 GitHub 客户协议从 GitHub 获取在线服务的任何客户（“**客户**”）之间的协议，并引用合并到 GitHub 客户协议。
 
-In the event of any conflict or inconsistency between the DPA Terms and any other terms in the GitHub Customer Agreement, the DPA Terms will prevail. The provisions of the DPA Terms supersede any conflicting provisions of the GitHub Privacy Statement that otherwise may apply to processing of Personal Data. For clarity, the Standard Contractual Clauses prevail over any other term of the DPA Terms.
+如果 DPA 条款与 GitHub 客户协议中的任何其他条款之间存在任何冲突或不一致，则以 DPA 条款为准。 DPA 条款的规定取代 GitHub 隐私声明中可能适用于个人数据处理的任何相互冲突的规定。 为清楚起见，标准合同条款优先于 DPA 条款的任何其他条款。
 
-### Applicable DPA Terms and Updates
+### 适用的 DPA 条款和更新
 
-#### Limits on Updates
+#### 更新限制
 
-When Customer renews or purchases a new subscription to an Online Service, the then-current DPA Terms will apply and will not change during the term of that new subscription for that Online Service.
+当客户续订或购买在线服务的新订阅时，届时现行的 DPA 条款将适用，并且在该在线服务的新订阅期限内不会更改。
 
-#### New Features, Supplements, or Related Software
+#### 新功能、补充或相关软件
 
-Notwithstanding the foregoing limits on updates, when GitHub introduces features, supplements or related software that are new (i.e., that were not previously included with the subscription), GitHub may provide terms or make updates to the DPA that apply to Customer’s use of those new features, supplements or related software. If those terms include any material adverse changes to the DPA Terms, GitHub will provide Customer a choice to use the new features, supplements, or related software, without loss of existing functionality of a generally available Online Service. If Customer does not use the new features, supplements, or related software, the corresponding new terms will not apply.
+尽管有上述更新限制，但当 GitHub 引入新功能、补充或相关软件（即以前未包含在订阅中的功能、补充或相关软件）时，GitHub 可能会向 DPA 提供适用于客户使用这些新功能、补充或相关软件的条款或更新。 如果这些条款包含对 DPA 条款的任何重大不利更改，GitHub 将为客户提供使用新功能、补充或相关软件的选择，而不会丢失正式发布的在线服务的现有功能。 如果客户不使用新功能、补充或相关软件，则相应的新条款将不适用。
 
-#### Government Regulation and Requirements
+#### 政府法规和要求
 
-Notwithstanding the foregoing limits on updates, GitHub may modify or terminate an Online Service in any country or jurisdiction where there is any current or future government requirement or obligation that (1) subjects GitHub to any regulation or requirement not generally applicable to businesses operating there, (2) presents a hardship for GitHub to continue operating the Online Service without modification, and/or (3) causes GitHub to believe the DPA Terms or the Online Service may conflict with any such requirement or obligation.
+尽管有上述更新限制，如果当前或将来有以下任何政府要求或义务，GitHub 可以在任何国家或司法管辖区修改或终止在线服务：(1) 使 GitHub 受到任何一般不适用于在该地运营的企业的法规或要求的约束，(2) GitHub 难以继续运营在线服务而不进行修改，和/或 (3) 导致 GitHub 认为 DPA 条款或在线服务可能与任何此类要求或义务相冲突。
 
-### Electronic Notices
+### 电子通知
 
-GitHub may provide Customer with information and notices about Online Services electronically, including via email, or through a web site that GitHub identifies. Notice is given as of the date it is made available by GitHub.
+GitHub 可能会以电子方式（包括通过电子邮件或 GitHub 识别的网站）向客户提供有关在线服务的信息和通知。 通知自 GitHub 提供之日起发出。
 
-### Prior Versions
+### 早期版本
 
-The DPA Terms provide terms for Online Services that are currently available. For earlier versions of the DPA Terms, Customer may contact its reseller or GitHub Account Manager.
+DPA 条款为当前可用的在线服务提供了条款。 对于早期版本的 DPA 条款，客户可以联系其经销商或 GitHub 客户经理。
 
 ## 定义
 
-Capitalized terms used but not defined in this DPA will have the meanings provided in the GitHub Customer Agreement. The following defined terms are used in this DPA:
+本 DPA 中使用但未定义的大写术语将具有 GitHub 客户协议中提供的含义。 本 DPA 中使用了以下定义的术语：
 
-“**CCPA**” means the California Consumer Privacy Act as set forth in Cal. 民事 Code §1798.100 et seq. and its implementing regulations.
+“**CCPA**”是指《加州 民事 法典第 1798.100 及其实施条例中所述的 California Consumer Privacy Act（加州消费者隐私法）。
 
-“**Customer Data**” means all data, including all text, sound, video, or image files, and software, that are provided to GitHub by, or on behalf of, Customer through use of the Online Service.
+“**客户数据**”是指由客户或代表客户通过使用在线服务提供给 GitHub 的所有数据，包括所有文本、声音、视频或图像文件以及软件。
 
-“**Data Protection Requirements**” means the GDPR, Local EU/EEA Data Protection Laws, CCPA, and any applicable laws, regulations, and other legal requirements relating to (a) privacy and data security; and (b) the use, collection, retention, storage, security, disclosure, transfer, disposal, and other processing of any Personal Data.
+“**数据保护要求**”是指 GDPR、当地欧盟/欧洲经济区数据保护法、CCPA 以及与 (a）隐私和数据安全；(b) 任何个人数据的使用、收集、保留、存储、安全、披露、转移、处置和其他处理有关的任何适用法律、法规和其他法律要求。
 
-“**Diagnostic Data**” means data collected or obtained by GitHub from software that is locally installed by Customer in connection with the Online Service. Diagnostic Data may also be referred to as telemetry. Diagnostic Data does not include Customer Data, Service Generated Data, or Professional Services Data.
+“**诊断数据**”是指 GitHub 从客户本地安装的与在线服务相关的软件收集或获取的数据。 诊断数据也可称为遥测数据。 诊断数据不包括客户数据、服务生成的数据或专业服务数据。
 
-“**DPA Terms**” means both the terms in this DPA and any Online Service-specific terms in the GitHub Customer Agreement that specifically supplement or modify the privacy and security terms in this DPA for a specific Online Service (or feature of an Online Service). In the event of any conflict or inconsistency between the DPA and such Online Service-specific terms, the Online Service-specific terms shall prevail as to the applicable Online Service (or feature of that Online Service).
+“**DPA 条款**”是指本 DPA 中的条款以及 GitHub 客户协议中专门针对特定在线服务（或在线服务的功能）补充或修改本 DPA 中隐私和安全条款的任何在线服务特定条款。 如果 DPA 与此类在线服务特定条款之间存在任何冲突或不一致，则以适用于在线服务（或该在线服务的功能）为准。
 
-“**GDPR**” means Regulation (EU) 2016/679 of the European Parliament and of the Council of 27 April 2016 on the protection of natural persons with regard to the processing of personal data and on the free movement of such data, and repealing Directive 95/46/EC (General Data Protection Regulation). In connection with the United Kingdom, “GDPR” means Regulation (EU) 2016/679 as transposed into national law of the United Kingdom by the UK European Union (Withdrawal) Act 2018 and amended by the UK Data Protection, Privacy and Electronic Communications (Amendments etc.) (EU Exit) Regulations 2019 (as may be amended from time to time).
+“**GDPR**”是指欧洲议会和理事会于 2016 年 4 月 27 日颁布的关于在个人数据处理和此类数据自由流动方面保护自然人的法规 (EU) 2016/679，并废除指令95/46/EC（通用数据保护条例）。 就英国而言，“GDPR”是指由《2018 年英国欧盟（退出）法》转入英国国家法律的法规 (EU) 2016/679，并由《2019 年英国数据保护、隐私和电子通信（修正案等） （退出欧盟）条例》修订（可能会不时修订）。
 
-“**Local EU/EEA Data Protection Laws**” means any subordinate legislation and regulation implementing the GDPR.
+“**当地欧盟/欧洲经济区数据保护法**”是指实施 GDPR 的任何从属立法和法规。
 
-“**GDPR Related Terms**” means the terms in <a href="#attachment3">Attachment 3</a>, under which GitHub makes binding commitments regarding its processing of Personal Data as required by Article 28 of the GDPR.
+“**GDPR 相关条款**”是指<a href="#attachment3">附件 3</a> 中的条款，根据这些条款，GitHub 对 GDPR 第 28 条要求处理个人数据做出具有约束力的承诺。
 
-“**GitHub Affiliate**” means any entity that directly or indirectly controls, is controlled by or is under common control with GitHub.
+“**GitHub 附属公司**”是指 GitHub 直接或间接控制、受 GitHub 控制或与 GitHub 共同控制的任何实体。
 
-“**GitHub Customer Agreement**” means the service or other agreement(s) entered into by Customer with GitHub for Online Services.
+“**GitHub 客户协议**”是指客户与 GitHub 签订的在线服务服务或其他协议。
 
-“**GitHub Privacy Statement**” means the GitHub privacy statement available at https://docs.github.com/en/github/site-policy/github-privacy-statement.
+“**GitHub 隐私声明**”是指 https://docs.github.com/en/github/site-policy/github-privacy-statement 提供的 GitHub 隐私声明。
 
-“**Online Service**” means any service or software provided by GitHub to Customer under the GitHub Customer Agreement agreed upon with Customer, including Previews, updates, patches, bug fixes, and technical support.
+“**在线服务**”是指 GitHub 根据与客户商定的 GitHub 客户协议向客户提供的任何服务或软件，包括预览、更新、补丁、错误修复和技术支持。
 
-“**Personal Data**” means any information relating to an identified or identifiable natural person. An identifiable natural person is one who can be identified, directly or indirectly, in particular by reference to an identifier such as a name, an identification number, location data, an online identifier or to one or more factors specific to the physical, physiological, genetic, mental, economic, cultural or social identity of that natural person.
+“**个人数据**”是指与已识别或可识别的自然人有关的任何信息。 可识别的自然人是指可以直接或间接识别的人，特别是通过参考诸如姓名，身份证号码、位置数据、在线标识符之类的标识符或特定于该自然人的身体、生理、遗传、精神、经济、文化或社会身份的一个或多个因素。
 
-“**Preview**” means Online Services provided for preview, evaluation, demonstration or trial purposes, or pre-release versions of the Online Services.
+“**预览版**”是指为预览、评估、演示或试用目的而提供的在线服务，或在线服务的预发布版本。
 
-“**Professional Services Data**” means all data, including all text, sound, video, image files or software, that are provided to GitHub, by or on behalf of a Customer (or that Customer authorizes GitHub to obtain from an Online Service) or otherwise obtained or processed by or on behalf of GitHub through an engagement with GitHub to obtain Professional Services. Professional Services Data includes Support Data.
+“**专业服务数据**”是指由客户或代表客户（或客户授权 GitHub 从在线服务获取）提供给 GitHub 的所有数据，包括所有文本、声音、视频、图像文件或软件，或者由 GitHub 或代表 GitHub 通过与 GitHub 合作获得或代表 GitHub 获得或处理以获得专业服务。 专业服务数据包括支持数据。
 
-“**Service Generated Data**” means data generated or derived by GitHub through the operation of an Online Service. Service Generated Data does not include Customer Data, Diagnostic Data, or Professional Services Data.
+“**服务生成的数据**”是指 GitHub 通过在线服务的操作生成或派生的数据。 服务生成的数据不包括客户数据、诊断数据或专业服务数据。
 
-“**Standard Contractual Clauses**” means either of the following sets of Standard Contractual Clauses, as applicable in the individual case to the transfer of personal data according to the section of this DPA entitled “Data Transfers and Location” below:
-- the Standard Contractual Clauses (MODULE TWO: Transfer controller to processor), dated 4 June 2021, for the transfer of personal data to third countries pursuant to Regulation (EU) 2016/679 of the European Parliament and of the Council, as described in Article 46 of the GDPR and approved by European Commission Implementing Decision (EU) 2021/91 (“Standard Contractual Clauses (EU/EEA)”). The Standard Contractual Clauses (EU/EEA) are set forth in <a href="#attachment1">Attachment 1</a>.
-- the Standard Contractual Clauses (Processors), dated 5 February 2010, for the transfer of personal data to processors established in third countries which do not ensure an adequate level of data protection, as described in Article 46 of the GDPR, approved by European Commission Decision 2010/87/EU and recognized by the regulatory or supervisory authorities of the United Kingdom for use in connection with data transfers from the United Kingdom (“Standard Contractual Clauses (UK)”). The Standard Contractual Clauses (UK) are set forth in <a href="#attachment2">Attachment 2</a>.
+“**标准合同条款**”是根据下面本 DPA 中“数据传输和位置”部分适用于个人情况、用于个人数据传输的标准合同条款之一：
+- 2021 年 6 月 4 日的标准合同条款（模块 2：从控制方转移到处理方），如 GDPR 第 46 条所述并经欧盟委员会执行决定 (EU) 2021/91 批准，用于根据欧洲议会和理事会的法规 (EU) 2016/679 将个人数据传输到第三国（“标准合同条款 (EU/EEA)”）。 <a href="#attachment1">附件1</a>所述的标准合同条款 (EU/EEA) 。
+- 2010 年 2 月 5 日的标准合同条款（处理方），如 GDPR 第 46 条所述，经欧盟委员会第 2010/87/EU 号决定批准，并经英国监管或监管机构认可用于从英国传输数据，用于将个人数据传输到在第三国成立的处理方，这些处理方无法确保足够程度的数据保护（“标准合同条款（英国）”）。 <a href="#attachment2">附件 2</a>所述的标准合同条款 (UK) 。
 
-“**Subprocessor**” means other processors used by GitHub to process Personal Data on behalf of Customer in connection with the Online Services, as described in Article 28 of the GDPR.
+“**子处理方**”是指 GitHub 用于代表客户处理与在线服务相关的个人数据的其他处理方，如 GDPR 第 28 条所述。
 
-“**Support Data**” means all data, including all text, sound, video, image files, or software, that are provided to GitHub by or on behalf of Customer (or that Customer authorizes GitHub to obtain from an Online Service) through an engagement with GitHub to obtain technical support for Online Services covered under this agreement. Support Data is a subset of Professional Services Data.
+“**支持数据**”是指客户或代表客户（或客户授权 GitHub 从在线服务获取）通过与 GitHub 接洽向 GitHub 提供的所有数据，包括所有文本、声音、视频、图像文件或软件，以获得本协议涵盖的在线服务的技术支持。 支持数据是专业服务数据的子集。
 
-Lower case terms used but not defined in this DPA, such as “personal data breach”, “processing”, “controller”, “processor”, “profiling”, “personal data”, and “data subject” will have the same meaning as set forth in Article 4 of the GDPR, irrespective of whether GDPR applies. The terms “data importer” and “data exporter” have the meanings given in the Standard Contractual Clauses.
+本 DPA 中使用但未定义的小写术语，例如“个人数据泄露”、“处理”、“控制方”、“处理方”、“分析”、“个人数据”和“数据主体”，无论 GDPR 是否适用，其含义均与 GDPR 第 4 条中规定的含义相同。 术语“数据导入者”和“数据导出者”具有标准合同条款中给出的含义。
 
-For clarity, and as detailed above, data defined as Customer Data, Diagnostic Data, Service Generated Data, and Professional Services Data may contain Personal Data. For illustrative purposes, please see the chart inserted below:
+为清楚起见，如上文所述，定义为客户数据、诊断数据、服务生成数据和专业服务数据的数据可能包含个人数据。 为便于说明，请参阅下面插入的图表：
 
 <center>
   <img width="622" alt="personal_data_types" src="https://user-images.githubusercontent.com/64100373/135369811-52b5a84a-6312-4efe-a94a-b02ab2dea8e2.png" />
 </center>
 
-Above is a visual representation of the data types defined in the DPA. All Personal Data is processed as a part of one of the other data types (all of which also include non-personal data). Support Data is a sub-set of Professional Services Data. Except where explicitly stated otherwise, the DPA Terms exclusively apply to Personal Data.
+以上是 DPA 中定义的数据类型的可视化表示形式。 所有个人数据都作为其他数据类型之一的一部分进行处理（所有这些数据类型也包括非个人数据）。 支持数据是专业服务数据的子集。 除非另有明确说明，否则 DPA 条款仅适用于个人数据。
 
-## General Terms
+## 一般条款
 
-### Compliance with Laws
+### 遵守法律
 
-GitHub will comply with all laws and regulations applicable to its provision of the Online Services, including security breach notification law and Data Protection Requirements. However, GitHub is not responsible for compliance with any laws or regulations applicable to Customer or Customer’s industry that are not generally applicable to information technology service providers. GitHub does not determine whether Customer Data includes information subject to any specific law or regulation. All Security Incidents are subject to the Security Incident Notification terms below.
+GitHub 将遵守适用于其提供在线服务的所有法律和法规，包括安全漏洞通知法律和数据保护要求。 但是，GitHub 不负责遵守适用于客户或客户所在行业且通常不适用于信息技术服务提供商的任何法律或法规。 GitHub 不确定客户数据是否包含受任何特定法律或法规约束的信息。 所有安全事件均受以下安全事件通知条款的约束。
 
-Customer must comply with all laws and regulations applicable to its use of Online Services, including laws related to biometric data, confidentiality of communications, and Data Protection Requirements. Customer is responsible for determining whether the Online Services are appropriate for storage and processing of information subject to any specific law or regulation and for using the Online Services in a manner consistent with Customer’s legal and regulatory obligations. Customer is responsible for responding to any request from a third party regarding Customer’s use of an Online Service, such as a request to take down content under the U.S. Digital Millennium Copyright Act or other applicable laws.
+客户必须遵守适用于其使用在线服务的所有法律和法规，包括与生物识别数据、通信机密性和数据保护要求相关的法律。 客户有责任确定在线服务是否适合于根据任何特定法律或法规存储和处理信息，以及以符合客户法律和监管义务的方式使用在线服务。 客户有责任响应第三方关于客户使用在线服务的任何请求，例如根据美国要求删除内容的请求。 《数码千年版权法》或其他适用法律。
 
 ## 数据保护
 
-Terms This section of the DPA includes the following subsections:
+条款 DPA 的此部分包括以下小节：
 - 作用域
-- Nature of Data Processing; Ownership
-- Disclosure of Processed Data
-- Processing of Personal Data; GDPR
-- Data Security
-- Security Incident Notification
-- Data Transfers and Location
-- Data Retention and Deletion
-- Processor Confidentiality Commitment
-- Notice and Controls on Use of Subprocessors
-- Educational Institutions
-- CJIS Customer Agreement, HIPAA Business Associate, Biometric Data
-- California Consumer Privacy Act (CCPA)
-- How to Contact GitHub
-- Appendix A – Security Measures
+- 数据处理的性质；所有权
+- 处理数据的披露
+- 个人数据的处理；GDPR
+- 数据安全
+- 安全事件通知
+- 数据传输和位置
+- 数据保留和删除
+- 处理方保密承诺
+- 关于使用子处理方的通知和控制
+- 教育机构
+- CJIS客户协议、HIPAA 业务伙伴、生物识别数据
+- 加州消费者隐私法案 (CCPA)
+- 如何联系 GitHub
+- 附录 A – 安全措施
 
 ### 作用域
 
-The DPA Terms apply to all Online Services.
+DPA 条款适用于所有在线服务。
 
-Previews may employ lesser or different privacy and security measures than those typically present in the Online Services. Unless otherwise noted, Customer should not use Previews to process Personal Data or other data that is subject to legal or regulatory compliance requirements. The following terms in this DPA do not apply to Previews: Processing of Personal Data; GDPR, Data Security, and California Consumer Privacy Act.
+预览版可能采用比在线服务中通常提供的隐私和安全措施更少或不同的隐私和安全措施。 除非另有说明，否则客户不应使用预览版来处理个人数据或受法律或法规遵从性要求约束的其他数据。 本 DPA 中的以下条款不适用于预览版：个人数据的处理；GDPR、数据安全和加州消费者隐私法案。
 
-### Nature of Data Processing; Ownership
+### 数据处理的性质；所有权
 
-Except as otherwise stated in the DPA Terms, GitHub will use and otherwise process Customer Data and Personal Data as described and subject to the limitations provided below (a) to provide Customer the Online Service in accordance with Customer’s documented instructions, and/or (b) for GitHub’s legitimate business operations incident to delivery of the Online Services to Customer. As between the parties, Customer retains all right, title and interest in and to Customer Data. GitHub acquires no rights in Customer Data other than the rights Customer grants to GitHub in this section. This paragraph does not affect GitHub’s rights in software or services GitHub licenses to Customer.
+除非 DPA 条款中另有规定，否则 GitHub 将按照所述使用和以其他方式处理客户数据和个人数据，并遵守以下规定的限制：(a) 根据客户记录的说明向客户提供在线服务，和/或 (b) 对于 GitHub 的合法业务运营事件，以便向客户提供在线服务。 在双方之间，客户保留客户数据的所有权利、所有权和利益。 GitHub 不会获得客户数据中的任何权利，除了在本节中授予 GitHub 的权利之外。 本段不影响 GitHub 向客户授予 GitHub 许可的软件或服务的权利。
 
-#### Processing to Provide Customer the Online Services
+#### 处理以向客户提供在线服务
 
-For purposes of this DPA, “to provide” an Online Service consists of:
-- Delivering functional capabilities as licensed, configured, and used by Customer and its users, including providing personalized user experiences;
-- Troubleshooting (e.g., preventing, detecting, and repairing problems); and
-- Ongoing improvement (e.g., installing the latest updates and making improvements to user productivity, reliability, efficacy, and security).
+就本 DPA 而言，“提供”在线服务包括：
+- 提供客户及其用户许可、配置和使用的功能，包括提供个性化的用户体验；
+- 故障排除（例如，预防、检测和修复问题）；和
+- 持续改进（例如，安装最新更新并改进用户工作效率、可靠性、有效性和安全性）。
 
-When providing Online Services, GitHub will use or otherwise process Personal Data only on Customer’s behalf and in accordance with Customer’s documented instructions.
+在提供在线服务时，GitHub 将仅代表客户并按照客户记录的指示使用或以其他方式处理个人数据。
 
-#### Processing for GitHub’s Legitimate Business Operations
+#### GitHub 合法业务运营的处理
 
-For purposes of this DPA, “GitHub’s legitimate business operations” consist of the following, each as incident to delivery of the Online Services to Customer: (1) billing and account management; (2) compensation (e.g., calculating employee commissions and partner incentives); (3) internal reporting and business modeling (e.g., forecasting, revenue, capacity planning, product strategy); (4) combatting fraud, abuse, cybercrime, or cyber-attacks that may affect GitHub or Online Services; (5) improving the core functionality of accessibility, privacy or energy-efficiency; (6) financial reporting and compliance with legal obligations (subject to the limitations on disclosure of Processed Data outlined below); (7) the creation or management of end user accounts and profiles by GitHub for individual users of Customer (except where Customer creates, manages or otherwise controls such end user accounts or profiles itself); and (8) other purposes pertaining to Personal Data not provided by Customer for storage in GitHub repositories or in connection with Professional Services.
+就本 DPA 而言，“GitHub 的合法业务运营”包括以下内容，每个内容都作为向客户交付在线服务的事件：(1) 计费和帐户管理；(2) 薪酬（例如，计算员工佣金和合作伙伴激励）；(3) 内部报告和业务建模（例如，预测、收入、产能规划、产品战略）;(4) 打击可能影响 GitHub 或在线服务的欺诈、滥用、网络犯罪或网络攻击；(5) 提高可访问性，隐私性或能源效率的核心功能；(6) 财务报告和遵守法律义务（受以下概述的处理数据披露的限制）；(7) GitHub 为客户个人用户创建或管理最终用户帐户和配置文件（除非客户创建、管理或以其他方式控制此类最终用户帐户或配置文件本身）；(8) 与客户提供的个人数据相关的其他目的，这些数据未用于存储在 GitHub 存储库中或与专业服务相关。
 
-When processing for GitHub’s legitimate business operations, GitHub will not use or otherwise process Personal Data for: (a) user profiling, (b) advertising or similar commercial purposes, (c) data selling or brokering, or (d) any other purpose, other than for the purposes set out in this section.
+在处理 GitHub 的合法业务运营时，GitHub 不会将个人数据用于以下目的：(a) 用户分析，(b) 广告或类似商业目的，(c) 数据销售或经纪，或 (d) 任何其他目的，但本节所述目的除外。
 
-### Disclosure of Processed Data
+### 处理数据的披露
 
-GitHub will not disclose or provide access to any Processed Data except: (1) as Customer directs; (2) as described in this DPA; or (3) as required by law. For purposes of this section, “Processed Data” means: (a) Customer Data; (b) Personal Data and (c) any other data processed by GitHub in connection with the Online Service that is Customer’s confidential information under the GitHub Customer Agreement. All processing of Processed Data is subject to GitHub’s obligation of confidentiality under the GitHub Customer Agreement.
+GitHub 不会披露或提供对任何已处理数据的访问权限，除非：(1) 根据客户的指示；(2) 如本 DPA 所述；或 (3) 根据法律要求。 就本节而言，“处理数据”是指：(a) 客户数据；(b) 个人数据和 (c) GitHub 处理的与在线服务相关的任何其他数据，这些数据是 GitHub 客户协议下客户的机密信息。 已处理数据的所有处理均受 GitHub 根据 GitHub 客户协议承担的保密义务的约束。
 
-GitHub will not disclose or provide access to any Processed Data to law enforcement unless required by law. If law enforcement contacts GitHub with a demand for Processed Data, GitHub will attempt to redirect the law enforcement agency to request that data directly from Customer. If compelled to disclose or provide access to any Processed Data to law enforcement, GitHub will promptly notify Customer and provide a copy of the demand, unless legally prohibited from doing so.
+除非法律要求，否则 GitHub 不会向执法部门披露或提供对任何已处理数据的访问权限。 如果执法部门联系 GitHub 要求处理数据，GitHub 将尝试重定向执法机构，以直接向客户请求该数据。 如果必须向执法部门披露或提供对任何已处理数据的访问权限，GitHub 将立即通知客户并提供要求的副本，除非法律禁止这样做。
 
-Upon receipt of any other third-party request for Processed Data, GitHub will promptly notify Customer unless prohibited by law. GitHub will reject the request unless required by law to comply. If the request is valid, GitHub will attempt to redirect the third party to request the data directly from Customer.
+在收到任何其他第三方对已处理数据的请求后，GitHub 将立即通知客户，除非法律禁止。 GitHub 将拒绝该请求，除非法律要求遵守。 如果请求有效，GitHub 将尝试重定向第三方以直接向客户请求数据。
 
-GitHub will not provide any third party: (a) direct, indirect, blanket, or unfettered access to Processed Data; (b) platform encryption keys used to secure Processed Data or the ability to break such encryption; or (c) access to Processed Data if GitHub is aware that the data is to be used for purposes other than those stated in the third party’s request.
+GitHub 不会向任何第三方提供：(a) 直接、间接、一揽子或不受限制地访问已处理数据；(b) 用于保护已处理数据的平台加密密钥或破解此类加密的能力；或 (c) 访问已处理的数据，如果 GitHub 知道该数据将用于第三方请求中所述目的以外的目的。
 
-In support of the above, GitHub may provide Customer’s basic contact information to the third party.
+为了支持上述内容，GitHub 可能会向第三方提供客户的基本联系信息。
 
-### Processing of Personal Data; GDPR
+### 个人数据的处理；GDPR
 
-All Personal Data processed by GitHub in connection with the Online Services is obtained as part of either Customer Data, Professional Services Data (including Support Data), Diagnostic Data, or Service Generated Data. Personal Data provided to GitHub by, or on behalf of, Customer through use of the Online Service is also Customer Data. Pseudonymized identifiers may be included in Diagnostic Data or Service Generated Data and are also Personal Data. Any Personal Data pseudonymized, or de-identified but not anonymized, or Personal Data derived from Personal Data is also Personal Data.
+GitHub 处理的与在线服务相关的所有个人数据均作为客户数据、专业服务数据（包括支持数据）、诊断数据或服务生成数据的一部分获取。 由客户或代表客户通过使用在线服务提供给 GitHub 的个人数据也是客户数据。 假名标识符可能包含在诊断数据或服务生成的数据中，也是个人数据。 任何假名化或去识别化但非匿名的个人数据，或从个人数据中得出的个人数据也是个人数据。
 
-To the extent GitHub is a processor or subprocessor of Personal Data subject to the GDPR, the GDPR Related Terms in <a href="#attachment3">Attachment 3</a> govern that processing and the parties also agree to the following terms in this sub-section (“Processing of Personal Data; GDPR”):
+如果 GitHub 是受 GDPR 约束的个人数据的处理方或子处理方，则<a href="#attachment3">附件 3 中的 GDPR 相关条款</a>管辖该处理，并且双方还同意本子节中的以下条款（“个人数据的处理；GDPR”）：
 
-#### Processor and Controller Roles and Responsibilities
+#### 处理方和控制方的角色和职责
 
-Customer and GitHub agree that Customer is the controller of Personal Data and GitHub is the processor of such data, except (a) when Customer acts as a processor of Personal Data, in which case GitHub is a subprocessor; or (b) as stated otherwise in the GitHub Customer Agreement or this DPA. When GitHub acts as the processor or subprocessor of Personal Data, it will process Personal Data only on Customer’s behalf and in accordance with documented instructions from Customer. Customer agrees that its GitHub Customer Agreement (including the DPA Terms and any applicable updates), along with the product documentation and Customer’s use and configuration of features in the Online Services, are Customer’s complete documented instructions to GitHub for the processing of Personal Data. Information on use and configuration of the Online Services can be found at https://docs.github.com or a successor location. Any additional or alternate instructions must be agreed to according to the process for amending Customer’s GitHub Customer Agreement. In any instance where the GDPR applies and Customer is a processor, Customer warrants to GitHub that Customer’s instructions, including appointment of GitHub as a processor or subprocessor, have been authorized by the relevant controller.
+客户和 GitHub 同意，客户是个人数据的控制方，GitHub 是此类数据的处理方，除非 (a) 当客户充当个人数据的处理方时，在这种情况下，GitHub 是子处理方；或 (b) GitHub 客户协议或本 DPA 中另有说明。 当 GitHub 充当个人数据的处理方或子处理方时，它将仅代表客户并按照客户记录的指示处理个人数据。 客户同意其 GitHub 客户协议（包括 DPA 条款和任何适用的更新）以及产品文档和客户对在线服务中功能的使用和配置，是客户向 GitHub 发出的用于处理个人数据的完整书面说明。 有关在线服务的使用和配置的信息，请访问 https://docs.github.com 或继任者的位置。 任何附加或替代说明必须根据修改客户的 GitHub 客户协议的过程达成一致。 在 GDPR 适用且客户是处理方的任何情况下，客户向 GitHub 保证客户的指示（包括指定 GitHub 为处理方或子处理方）已获得相关控制方的授权。
 
-To the extent GitHub uses or otherwise processes Personal Data subject to the GDPR for GitHub’s legitimate business operations incident to delivery of the Online Services to Customer, GitHub will comply with the obligations of an independent data controller under GDPR for such use. GitHub is accepting the added responsibilities of a data “controller” under the GDPR for processing in connection with its legitimate business operations to: (a) act consistent with regulatory requirements, to the extent required under the GDPR; and (b) provide increased transparency to Customers and confirm GitHub’s accountability for such processing. GitHub employs safeguards to protect Personal Data in processing, including those identified in this DPA and those contemplated in Article 6(4) of the GDPR. With respect to processing of Personal Data under this paragraph, GitHub makes the commitments set forth in the Standard Contractual Clauses set forth in <a href="#attachment1">Attachment 1</a> or <a href="#attachment2">Attachment 2</a> (as applicable); for those purposes, (i) any GitHub disclosure of Personal Data, as described in Annex III to <a href="#attachment1">Attachment 1</a> or Appendix 3 to <a href="#attachment2">Attachment 2</a> (as applicable), that has been transferred in connection with GitHub’s legitimate business operations is deemed a “Relevant Disclosure” and (ii) the commitments in Annex III to <a href="#attachment1">Attachment 1</a> or Appendix 3 to <a href="#attachment2">Attachment 2</a> (as applicable) apply to such Personal Data.
+如果 GitHub 使用或以其他方式处理受 GDPR 约束的个人数据，以便将 GitHub 的合法业务运营事件交付给客户，GitHub 将遵守 GDPR 规定的独立数据控制方对此类用途的义务。 GitHub 接受 GDPR 下数据“控制方”在处理与其合法业务运营相关的额外责任，以：(a) 在 GDPR 要求的范围内，按照法规要求行事； (b) 提高客户的透明度，并确认 GitHub 对此类处理的责任。 GitHub 采用保护措施来保护处理中的个人数据，包括本 DPA 中确定的个人数据以及 GDPR 第 6(4) 条中所述的个人数据。 关于根据本段下的个人数据处理，GitHub 做出<a href="#attachment1">附件 1</a> 或<a href="#attachment2">附件 2</a> （如适用）中所述标准合同条款中规定的承诺；出于这些目的，(i) 与 GitHub 的合法业务运营相关的任何 GitHub 披露个人数据（如 <a href="#attachment1">附件 1</a>的附录 III 或<a href="#attachment2">附件 2</a> 的附录 3（如适用）所述）被视为“相关披露”，以及 (ii) <a href="#attachment1">附件 1</a>的附录 III 或<a href="#attachment2">附件 2</a> 的附录 3（如适用）中的承诺适用于此类个人数据。
 
-#### Processing Details
+#### 处理详细信息
 
-The parties acknowledge and agree that:
+双方承认并同意：
 
-- **Subject Matter**. The subject-matter of the processing is limited to Personal Data within the scope of the section of this DPA entitled “Nature of Data Processing; Ownership” above and the GDPR.
-- **Duration of the Processing**. The duration of the processing shall be in accordance with Customer instructions and the terms of the DPA.
-- **Nature and Purpose of the Processing**. The nature and purpose of the processing shall be to provide the Online Service pursuant to Customer’s GitHub Customer Agreement and for GitHub’s legitimate business operations incident to delivery of the Online Service to Customer (as further described in the section of this DPA entitled “Nature of Data Processing; Ownership” above).
-- **Categories of Data**. The types of Personal Data processed by GitHub when providing the Online Service include: (i) Personal Data that Customer elects to include in Customer Data or Professional Services Data (including, without limitation, Support Data); and (ii) those expressly identified in Article 4 of the GDPR that may be contained in Diagnostic Data or Service Generated Data. The types of Personal Data that Customer elects to include in Customer Data or Professional Services Data (including, without limitation, Support Data) may be any categories of Personal Data identified in records maintained by Customer acting as controller pursuant to Article 30 of the GDPR, including the categories of Personal Data set forth in Annex I to <a href="#attachment1">Attachment 1</a> or Appendix 1 to <a href="#attachment2">Attachment 2</a> (as applicable).
-- Data Subjects. The categories of data subjects are Customer’s representatives and end users, such as employees, contractors, collaborators, and customers, and may include any other categories of data subjects as identified in records maintained by Customer acting as controller pursuant to Article 30 of the GDPR, including the categories of data subjects set forth in Annex I to <a href="#attachment1">Attachment 1</a> or Appendix 1 to <a href="#attachment2">Attachment 2</a> (as applicable).
+- **主题**。 处理的主题仅限于本 DPA 中上述“数据处理性质；所有权“和 GDPR 的范围内的个人数据。
+- **处理的持续时间**。 处理的持续时间应符合客户指示和 DPA 的条款。
+- **处理的性质和目的**。 处理的性质和目的应是根据客户的 GitHub 客户协议提供在线服务，并为 GitHub 的合法业务运营事件向客户提供在线服务（详情如本 DPA 中“数据处理性质；所有权”一节所述）。
+- **数据类别**。 GitHub 在提供在线服务时处理的个人数据类型包括：(i) 客户选择包含在客户数据或专业服务数据中的个人数据（包括但不限于支持数据）; (ii) GDPR 第 4 条中明确识别的可能包含在诊断数据或服务生成数据中的个人数据。 客户选择包含在客户数据或专业服务数据（包括但不限于支持数据）中的个人数据类型，可能是客户根据 GDPR 第 30 条作为控制方维护的记录中确定的任何类别的个人数据，包括 <a href="#attachment1">附件1</a> 附录 I 或<a href="#attachment2">附件 2</a> 附录 1（如适用）中所述的个人数据类别。
+- 数据主体。 数据主体的类别是客户的代表和最终用户，例如员工、承包商、协作者和客户，可能包括客户根据 GDPR 第 30 条作为控制方维护的记录中标识的任何其他类别的数据主体，包括<a href="#attachment1">附件 1</a> 附录 I 或<a href="#attachment2">附件 2</a> 附录 1（如适用）中所述的数据主体类别。
 
-#### Data Subject Rights; Assistance with Requests
+#### 数据主体权利；协助处理请求。
 
-GitHub will make available to Customer, in a manner consistent with the functionality of the Online Service and GitHub’s role as a processor of Personal Data of data subjects, the ability to fulfill data subject requests to exercise their rights under the GDPR. If GitHub receives a request from Customer’s data subject to exercise one or more of its rights under the GDPR in connection with an Online Service for which GitHub is a data processor or subprocessor, GitHub will redirect the data subject to make its request directly to Customer. Customer will be responsible for responding to any such request including, where necessary, by using the functionality of the Online Service. GitHub 应遵从客户的合理要求，以协助客户响应此类数据主体请求。
+GitHub 将以符合在线服务功能和 GitHub 作为数据主体个人数据处理者的角色的方式，向客户提供满足数据主体请求以行使其在 GDPR 下的权利的能力。 如果 GitHub 收到来自客户数据主体的请求，要求在 GDPR 下行使其与 GitHub 作为数据处理者或子处理者的在线服务相关的一项或多项权利，则 GitHub 将重定向数据主体以直接向客户提出请求。 客户将负责响应任何此类请求，包括在必要时使用在线服务的功能。 GitHub 应遵从客户的合理要求，以协助客户响应此类数据主体请求。
 
-#### Records of Processing Activities
+#### 处理活动记录
 
-To the extent the GDPR requires GitHub to collect and maintain records of certain information relating to Customer, Customer will, where requested, supply such information to GitHub and keep it accurate and up-to-date. GitHub may make any such information available to the supervisory authority if required by the GDPR.
+如果 GDPR 要求 GitHub 收集和维护与客户相关的某些信息的记录，则客户将在收到请求时向 GitHub 提供此类信息，并保持其准确性和最新性。 如果 GDPR 要求，GitHub 可能会向监管机构提供任何此类信息。
 
-### Data Security
+### 数据安全
 
-GitHub will implement and maintain appropriate technical and organizational measures and security safeguards against accidental or unlawful destruction, or loss, alteration, unauthorized disclosure of or access to, Customer Data and Personal Data processed by GitHub on behalf and in accordance with the documented instructions of Customer in connection with the Online Services. GitHub will regularly monitor compliance with these measures and safeguards and will continue to take appropriate steps throughout the term of the GitHub Customer Agreement. <a href="#appendixA">Appendix A – Security Safeguards</a> contains a description of the technical and organizational measures and security safeguards implemented by GitHub.
+GitHub 将实施和维护适当的技术和组织措施以及安全保障措施，以防止意外或非法破坏、丢失、更改、未经授权披露或访问 GitHub 代表客户处理的客户数据和个人数据，并按照客户与在线服务相关的书面指示进行处理。 GitHub 将定期监控这些措施和保障措施的遵守情况，并在 GitHub 客户协议的整个期限内继续采取适当措施。 <a href="#appendixA">附录 A – 安全保护措施</a> 包含对 GitHub 实施的技术和组织措施以及安全保护措施的描述。
 
-Customer is solely responsible for making an independent determination as to whether the technical and organizational measures and security safeguards for an Online Service meet Customer’s requirements, including any of its security obligations under applicable Data Protection Requirements. Customer acknowledges and agrees that (taking into account the state of the art, the costs of implementation, and the nature, scope, context and purposes of the processing of its Customer Data and Personal Data as well as the risk of varying likelihood and severity for the rights and freedoms of natural persons) the technical and organizational measures and security safeguards implemented and maintained by GitHub provide a level of security appropriate to the risk with respect to its Customer Data and Personal Data. Customer is responsible for implementing and maintaining privacy protections and security measures for components that Customer provides or controls.
+客户全权负责独立确定在线服务的技术和组织措施以及安全保障措施是否符合客户的要求，包括其在适用数据保护要求下的任何安全义务。 客户承认并同意（考虑现有技术、实施成本、处理其客户数据和个人数据的性质、范围、背景和目的，以及自然人权利和自由的不同可能性和严重性的风险），GitHub 对于其客户数据和个人数据实施和维护的技术、组织措施和安全保障措施提供了适合于风险的安全级别。 客户负责为客户提供或控制的组件实施和维护隐私保护和安全措施。
 
-GitHub will provide security compliance reporting such as external SOC1, type 2 and SOC2, type2 audit reports upon Customer request. Customer agrees that any information and audit rights granted by the applicable Data Protection Requirements (including, where applicable, Article 28(3)(h) of the GDPR) will be satisfied by these compliance reports, and will otherwise only arise to the extent that GitHub's provision of a compliance report does not provide sufficient information, or to the extent that Customer must respond to a regulatory or supervisory authority audit or investigation.
+GitHub 将根据客户要求提供安全合规性报告，例如外部 SOC1、类型 2 和 SOC2、类型 2 审计报告。 客户同意，适用的数据保护要求（包括 GDPR 第 28(3)(h) 条）授予的任何信息和审计权利将由这些合规性报告满足，并且仅在 GitHub 提供的合规性报告未提供足够信息的情况下，或者在客户必须响应监管或监管机构审计或调查的范围内出现。
 
-Should Customer be subject to a regulatory or supervisory authority audit or investigation or carry out an audit or investigation in response to a request by a regulatory or supervisory authority that requires participation from GitHub, and Customers’ obligations cannot reasonably be satisfied (where allowable by Customer’s regulators) through audit reports, documentation, or compliance information that GitHub makes generally available to its customers, then GitHub will promptly respond to Customer’s additional instructions and requests for information, in accordance with the following terms and conditions:
+如果客户受到监管或监督机构的审计或调查，或因应监管或监督机构的要求进行需要 GitHub 参与的审计或调查，并且无法通过 GitHub 通常向其客户提供的审计报告、文档或合规性信息合理地履行客户的义务（在客户监管机构允许的情况下）， 则 GitHub 将根据以下条款和条件及时响应客户的附加说明和信息请求：
 
-- GitHub will provide access to relevant knowledgeable personnel, documentation, and application software.
-- Customer and GitHub will mutually agree in a prior written agreement (email is acceptable) upon the scope, timing, duration, control and evidence requirements, provided that this requirement to agree will not permit GitHub to unreasonably delay its cooperation.
-- Customer must ensure its regulator’s use of an independent, accredited third-party audit firm, during regular business hours, with reasonable advance written notice to GitHub, and subject to reasonable confidentiality procedures. Neither Customer, its regulators, nor its regulators’ delegates shall have access to any data from GitHub’s other customers or to GitHub systems or facilities not involved in the Online Services.
-- Customer is responsible for all costs and fees related to GitHub’s cooperation with the regulatory audit of Customer, including all reasonable costs and fees for any and all time GitHub expends, in addition to the rates for services performed by GitHub.
-- If the report generated from GitHub’s cooperation with the regulatory audit of Customer includes any findings pertaining to GitHub, Customer will share such report, findings, and recommended actions with GitHub where allowed by Customer’s regulators.
+- GitHub 将提供对相关知识渊博的人员、文档和应用程序软件的访问。
+- 客户和 GitHub 将在事先的书面协议（电子邮件可接受）中就范围、时间、持续时间、控制和证据要求达成一致，前提是此同意要求不允许 GitHub 不合理地延迟其合作。
+- 客户必须确保其监管机构在正常工作时间内使用独立的、经认可的第三方审计公司，提前向 GitHub 发出合理的书面通知，并遵守合理的保密程序。 客户、其监管机构或其监管机构的代表均无权访问 GitHub 其他客户的任何数据，也无权访问未参与在线服务的 GitHub 系统或设施。
+- 客户负责与 GitHub 与客户监管审计合作相关的所有成本和费用，包括 GitHub 所花费的任何和所有时间的所有合理成本和费用，以及 GitHub 执行的服务费率。
+- 如果 GitHub 与客户监管审计合作生成的报告包含与 GitHub 相关的任何调查结果， 客户将在客户监管机构允许的情况下与 GitHub 共享此类报告、调查结果和建议的操作。
 
-### Security Incident Notification
+### 安全事件通知
 
-If GitHub becomes aware of a breach of security leading to the accidental or unlawful destruction, loss, alteration, unauthorized disclosure of, or access to Customer Data or Personal Data processed by GitHub on behalf and in accordance with the documented instructions of Customer in connection with the Online Services (each a "Security Incident"), GitHub will promptly and without undue delay (1) notify Customer of the Security Incident; (2) investigate the Security Incident and provide Customer with detailed information about the Security Incident; (3) take reasonable steps to mitigate the effects and to minimize any damage resulting from the Security Incident.
+如果 GitHub 知悉会导致客户数据或者 GitHub 代表客户并按照客户与在线服务相关的书面指示处理的个人数据意外或非法销毁、丢失、篡改、未授权披露或访问的安全违规（每个都是“安全事件”），GitHub 将及时 (1) 向客户通知安全事件；(2) 调查安全事件并向客户提供安全事件的详细信息；(3) 采取合理的措施减小影响，并尽可能减小安全事件造成的损害。
 
-Notification(s) of Security Incidents will be delivered to one or more of Customer's administrators by any means GitHub selects, including via email. It is Customer's sole responsibility to ensure it maintains accurate contact information with GitHub and that Customer's administrators monitor for and respond to any notifications. 客户独自负责履行事件通知法律下适用于客户的义务，并且履行与任何安全事件相关的任何第三方通知义务。
+安全事件通知将通过 GitHub 选择的方式（包括通过电子邮件）提交给客户的一个或多个管理员。 客户应自行负责确保其与 GitHub 保持准确的联系信息，确保客户的管理员监控并响应任何通知。 客户独自负责履行事件通知法律下适用于客户的义务，并且履行与任何安全事件相关的任何第三方通知义务。
 
-GitHub will make reasonable efforts to assist Customer in fulfilling Customer's obligation under GDPR Article 33 or other applicable law or regulations to notify the relevant regulatory or supervisory authority and individual data subjects about a Security Incident.
+GitHub 将尽合理努力协助客户履行 GDPR 第 33 条或其他适用法律或法规规定的客户义务，将安全事件通知相关监管或监管机构以及个人数据主体。
 
-GitHub’s notification of or response to a Security Incident under this section is not an acknowledgement by GitHub of any fault or liability with respect to the Security Incident.
+GitHub 根据本节通知或响应安全事件，并非 GitHub 承认与安全事件有关的任何过错或责任。
 
-Customer must notify GitHub promptly about any possible misuse of its accounts or authentication credentials or any Security Incident related to an Online Service.
+客户必须及时通知 GitHub 任何可能滥用其帐户或身份验证凭据的行为，或与在线服务相关的任何安全事件。
 
-### Data Transfers and Location
+### 数据传输和位置
 
-Personal Data that GitHub processes on behalf and in accordance with the documented instructions of Customer in connection with the Online Services may not be transferred to, or stored and processed in a geographic location except in accordance with the DPA Terms and the safeguards provided below in this section. Taking into account such safeguards, Customer appoints GitHub to transfer Personal Data to the United States or any other country in which GitHub or its Subprocessors operate and to store and process Personal Data to provide the Online Services, except as may be described elsewhere in these DPA Terms.
+GitHub 代表客户并按照客户与在线服务相关的书面指示处理的个人数据不得传输到某个地理位置，也不得在某个地理位置进行存储和处理，除非符合 DPA 条款和本节下面提供的保护措施。 考虑到此类保护措施，客户指定 GitHub 将个人数据传输到美国或 GitHub 或其子处理方运营的任何其他国家/地区，并存储和处理个人数据以提供在线服务，除非这些 DPA 条款中另有说明。
 
-All transfers of Personal Data out of the European Union, European Economic Area, or Switzerland to provide the Online Services shall be governed by the Standard Contractual Clauses (EU/EEA) in <a href="#attachment1">Attachment 1</a>. All transfers of Personal Data out of the United Kingdom to provide the Online Services shall be governed by the Standard Contractual Clauses (UK) in <a href="#attachment2">Attachment 2</a>. For the purposes of the Standard Contractual Clauses (UK) in <a href="#attachment2">Attachment 2</a>, references to the “European Union,” “EU,” “European Economic Area,” “EEA” or a “Member State” shall be interpreted to refer to the United Kingdom where reasonably necessary and appropriate to give full force and effect to the Standard Contractual Clauses (UK) with respect to transfers of Personal Data from the United Kingdom. This applies regardless of the fact that, effective January 31, 2020, the United Kingdom is no longer a Member State of the European Union or European Economic Area.
+所有为提供在线服务而将个人数据传输到欧盟、欧洲经济区或瑞士时，受<a href="#attachment1">附件 1</a> 中的标准合同条款 (EU/EEA) 的约束。 所有为提供在线服务而在英国境外传输个人数据的行为均应受<a href="#attachment2">附件 2</a> 中的标准合同条款 (UK) 的约束。 就<a href="#attachment2">附件 2</a>中的标准合同条款 (UK) 而言，对“欧盟”、“EU”、“欧洲经济区”、“EEA”或“成员国”的引用应被解释为在合理必要和适当的情况下指代英国，以使标准合同条款 (UK) 在从英国传输个人数据方面完全有效。 无论自 2020 年 1 月 31 日起，英国不再是欧盟或欧洲经济区的成员国，这都适用。
 
-GitHub will abide by the requirements of applicable European Union, European Economic Area, United Kingdom and Swiss data protection law, and other Data Protection Requirements, in each case regarding the transfer of Personal Data to recipients or jurisdictions outside such jurisdiction. All such transfers of Personal Data will, where applicable, be subject to appropriate safeguards as described in Article 46 of the GDPR and such transfers and safeguards will be documented according to Article 30(2) of the GDPR.
+在每种情况下，GitHub 将遵守适用的欧盟、欧洲经济区、英国和瑞士数据保护法以及其他数据保护要求，以将个人数据传输到此类司法管辖区以外的接收方或司法管辖区。 在适用的情况下，所有此类个人数据的传输都将受到 GDPR 第 46 条所述的适当保护措施的约束，并且此类传输和保护措施将根据 GDPR 第 30(2) 条进行记录。
 
-Subject to the safeguards described above, GitHub may transfer, store and otherwise process Personal Data to or in jurisdictions and geographic locations worldwide as it, subject to its sole discretion, considers reasonably necessary in connection with the Online Services.
+根据上述保护措施，GitHub 可能会自行决定将个人数据传输到全球司法管辖区和地理位置，并在其自行决定认为与在线服务相关的合理必要范围内传输、存储和以其他方式处理个人数据。
 
-### Data Retention and Deletion
+### 数据保留和删除
 
-Upon Customer's reasonable request, unless prohibited by law, GitHub will return or destroy all Customer Data and Personal Data processed by GitHub on behalf and in accordance with the documented instructions of Customer in connection with the Online Services at all locations where it is stored within 30 days of the request, provided that it is no longer needed for providing the Online Services or the purposes for which a data subject had authorized the processing of their Personal Data. GitHub may retain Customer Data or Personal Data to the extent required by the applicable Data Protection Requirements or other applicable law, and only to the extent and for such period as required by the applicable Data Protection Requirements or other applicable law, provided that GitHub will ensure that the Customer Data or Personal Data is processed only as necessary for the purpose specified in the applicable Data Protection Requirements or other applicable law and no other purpose, and the Customer Data or Personal Data remains protected by the Applicable Data Protection Requirements or other applicable law.
+根据客户的合理要求，除非法律禁止，否则 GitHub 将在请求后 30 天内，在存储在线服务的所有位置，代表 GitHub 并按照客户与在线服务相关的书面指示，在请求后 30 天内归还或销毁 GitHub 处理的所有客户数据和个人数据，前提是不再需要这些数据和个人数据来提供在线服务或数据主体已授权处理其个人数据。 GitHub 可能会在适用的数据保护要求或其他适用法律要求的范围内保留客户数据或个人数据，并且仅在适用的数据保护要求或其他适用法律要求的范围内和期限内保留，前提是 GitHub 将确保仅在必要时出于适用数据保护要求或其他适用法律和没有其他目的，并且客户数据或个人数据仍受适用的数据保护要求或其他适用法律的保护。
 
-### Processor Confidentiality Commitment
+### 处理方保密承诺
 
-GitHub will ensure that its personnel engaged in the processing of Customer Data and Personal Data on behalf of Customer in connection with the Online Services (i) will process such data only on instructions from Customer or as described in this DPA, and (ii) will be obligated to maintain the confidentiality and security of such data even after their engagement ends. GitHub shall provide periodic and mandatory data privacy and security training and awareness to its employees with access to Customer Data and Personal Data in accordance with applicable Data Protection Requirements or other applicable law and industry standards.
+GitHub 将确保其代表客户处理与在线服务相关的客户数据和个人数据的人员 (i) 将仅根据客户的指示或本 DPA 中所述处理此类数据，并且 (ii) 即使在其参与结束后，也有义务维护此类数据的机密性和安全性。 GitHub 应根据适用的数据保护要求或其他适用法律和行业标准，为其员工提供定期和强制性的数据隐私和安全培训以及意识，以访问客户数据和个人数据。
 
-### Notice and Controls on Use of Subprocessors
+### 关于使用子处理方的通知和控制
 
-GitHub may hire Subprocessors to provide certain limited or ancillary services on its behalf. Customer consents to this engagement and to GitHub Affiliates as Subprocessors. The above authorizations will constitute Customer’s prior written consent to the subcontracting by GitHub of the processing of Personal Data if such consent is required under applicable law, the Standard Contractual Clauses or the GDPR Related Terms.
+GitHub 可能会聘请子处理方代表其提供某些有限或辅助服务。 客户同意此参与，并同意 GitHub 附属公司作为子处理方。 上述授权将构成客户事先书面同意 GitHub 分包个人数据处理，前提是适用法律、标准合同条款或 GDPR 相关条款要求此类同意。
 
-GitHub is responsible for its Subprocessors’ compliance with GitHub’s obligations in this DPA. GitHub makes available information about Subprocessors on the GitHub website https://github.com/subprocessors (or a successor location). When engaging any Subprocessor, GitHub will ensure via a written contract that the Subprocessor may access and use Customer Data or Personal Data only to deliver the services GitHub has retained them to provide and is prohibited from using Customer Data or Personal Data for any other purpose. GitHub will ensure that Subprocessors are bound by written agreements that require them to provide at least the level of data protection required of GitHub by the DPA, including the limitations on disclosure of Personal Data. GitHub agrees to oversee the Subprocessors to ensure that these contractual obligations are met.
+GitHub 负责其子处理方遵守 GitHub 在本 DPA 中的义务。 GitHub 在 GitHub 网站 https://github.com/subprocessors（或后续位置）上提供有关子处理方的信息。 在聘用任何子处理方时，GitHub 将通过书面合同确保子处理方只能访问和使用客户数据或个人数据来提供 GitHub 聘请他们提供的服务，并且禁止将客户数据或个人数据用于任何其他目的。 GitHub 将确保子处理方受书面协议的约束，这些协议要求他们至少提供 DPA 要求的 GitHub 数据保护级别，包括对个人数据披露的限制。 GitHub 同意监督子处理方，以确保履行这些合同义务。
 
-From time to time, GitHub may engage new Subprocessors. GitHub will give Customer notice (by updating the website at https://github.com/github-subprocessors-list (or a successor location) and providing Customer with a mechanism to obtain notice of that update) of any new Subprocessor in advance of providing that Subprocessor with access to Customer Data. If GitHub engages a new Subprocessor for a new Online Service, GitHub will give Customer notice prior to availability of that Online Service.
+GitHub 可能会不时聘请新的子处理方。 在向任何新的子处理方提供访问客户数据的权限之前，GitHub 将会通知客户（通过更新网站 https://github.com/github-subprocessors-list 或后续位置），并且向客户提供获取任何新子处理方更新通知的机制。 如果 GitHub 为新的在线服务聘请了新的子处理方，GitHub 将在该在线服务可用之前通知客户。
 
-If Customer does not approve of a new Subprocessor, then Customer may terminate any subscription for the affected Online Service without penalty by providing, before the end of the relevant notice period, written notice of termination. Customer may also include an explanation of the grounds for non-approval together with the termination notice, in order to permit GitHub to re-evaluate any such new Subprocessor based on the applicable concerns. If the affected Online Service is part of a suite (or similar single purchase of services), then any termination will apply to the entire suite. After termination, GitHub will remove payment obligations for any subscriptions for the terminated Online Service from subsequent invoices to Customer or its reseller.
+如果客户不批准新的子处理方，则客户可以在相关通知期结束前提供书面终止通知，以终止对受影响的在线服务的任何订阅，而不会受到处罚。 客户还可以在终止通知中解释对未批准的原因，以便 GitHub 能够根据适用的问题重新评估任何此类新的子处理方。 如果受影响的在线服务是套件（或类似的单次购买服务）的一部分，则任何终止都将适用于整个套件。 终止后，GitHub 将从向客户或其经销商提供的后续发票中删除终止在线服务的任何订阅的付款义务。
 
-### Educational Institutions
-If Customer is an educational agency or institution subject to the regulations under the Family Educational Rights and Privacy Act, 20 U.S.C. § 1232g (FERPA), or similar state student or educational privacy laws (collectively “Educational Privacy Laws”), Customer shall not provide Personal Data covered by such Educational Privacy Laws to GitHub without obtaining GitHub’s prior, written and specific consent and entering into a separate agreement with GitHub governing the parties’ rights and obligations with respect to the processing of such Personal Data by GitHub in connection with the Online Services.
+### 教育机构
+如果客户是受《家庭教育权利和隐私法》、20 U.S.C. § 1232g (FERPA) 或类似州学生或教育隐私法（统称为“教育隐私法”）下法规约束的教育机构或机构，未经 GitHub 事先书面和具体同意并与 GitHub 签订单独的协议来管理各方在 GitHub 处理与在线服务相关的此类个人数据方面的权利和义务，客户不得向 GitHub 提供此类教育隐私法所涵盖的个人数据。
 
-Subject to the above, if Customer intends to provide to GitHub Personal Data covered by FERPA, the parties agree and acknowledge that, for the purposes of this DPA, GitHub is a “school official” with “legitimate educational interests” in the Personal Data, as those terms have been defined under FERPA and its implementing regulations. Customer understands that GitHub may possess limited or no contact information for Customer’s students and students’ parents. Consequently, Customer will be responsible for obtaining any student or parental consent for any end user’s use of the Online Services that may be required by applicable law and to convey notification on behalf of GitHub to students (or, with respect to a student under 18 years of age and not in attendance at a postsecondary institution, to the student’s parent) of any judicial order or lawfully-issued subpoena requiring the disclosure of Personal Data in GitHub’s possession as may be required under applicable law.
+根据上述规定，如果客户打算向 GitHub 提供 FERPA 所涵盖的个人数据，则双方同意并承认，就本 DPA 而言，GitHub 是“学校官员”，在个人数据中具有“合法的教育利益”，因为这些术语已根据 FERPA 及其实施法规进行了定义。 客户了解 GitHub 可能拥有有限或没有客户学生和学生家长的联系信息。 因此，客户将负责就任何最终用户使用适用法律可能要求的在线服务征得任何学生或家长的同意，并代表 GitHub 向学生（或者，对于未满 18 岁且未在高等教育机构就读的学生，向学生家长）通知要求根据适用法律的要求披露 GitHub 拥有的个人数据的任何司法命令或法律传票。
 
-### CJIS Customer Agreement, HIPAA Business Associate, Biometric Data
+### CJIS客户协议、HIPAA 业务伙伴、生物识别数据
 
-Except with GitHub’s prior, written and specific consent, Customer shall not provide to GitHub any Personal Data
+除非事先获得 GitHub 的书面和明确同意，否则客户不得向 GitHub 提供以下任何个人数据
 
-- relating to criminal convictions and offenses or Personal Data collected or otherwise processed by Customer subject to or in connection with FBI Criminal Justice Information Services or the related Security Policy.
-- constituting protected health information governed by the privacy, security, and breach notification rules issued by the United States Department of Health and Human Services, Parts 160 and 164 of Title 45 of the Code of Federal Regulations, established pursuant to the Health Insurance Portability and Accountability Act of 1996 (Public Law 104-191) or by state health or medical privacy laws.
-- collected as part of a clinical trial or other biomedical research study subject to, or conducted in accordance with, the Federal Policy for the Protection of Human Subjects (Common Rule).
-- covered by state, federal or foreign biometric privacy laws or otherwise constituting biometric information including information on an individual’s physical, physiological, biological or behavioral characteristics or information derived from such information that is used or intended to be used, singly or in combination with each other or with other information, to establish individual identity.
+- 与客户根据 FBI 刑事司法信息服务或相关安全政策收集或以其他方式处理的刑事定罪和违法行为或个人数据有关。
+- 构成受保护的健康信息，受美国卫生与公众服务部发布的隐私、安全和违规通知规则、《联邦法规》第 45 篇第 160 和 164 部分（根据 1996 年《健康保险流通与责任法案》（公法 104-191）或州健康或医疗隐私法建立）的约束。
+- 作为临床试验或其他生物医学研究的一部分收集，该研究受联邦人类受试者保护政策（共同规则）的约束或根据联邦保护政策（共同规则）进行。
+- 受州、联邦或外国生物识别隐私法的约束，或以其他方式构成生物识别信息，包括有关个人的身体、生理、生物或行为特征的信息，或从此类信息中得出的信息，这些信息单独使用或与其他信息结合使用来确定个人身份。
 
-### California Consumer Privacy Act (CCPA) / California Privacy Rights Act (CPRA)
+### 加州消费者隐私法案 (CCPA)/ 加州隐私权法案 (CPRA)
 
-If and to the extent GitHub is processing Personal Data on behalf and in accordance with the documented instructions of Customer within the scope of the CCPA, GitHub makes the following additional commitments to Customer. GitHub will process the Personal Data on behalf of Customer and will not
+如果 GitHub 代表客户并根据 CCPA 范围内的书面指示处理个人数据，则 GitHub 向客户做出以下额外承诺。 GitHub 将代表客户处理个人数据，而不会
 
-- sell the Personal Data as the term “selling” is defined in the CCPA. - share, rent, release, disclose, disseminate, make available, transfer or otherwise communicate orally, in writing or by electronic or other means, the Personal Data to a third party for cross-context behavioral advertising, whether or not for monetary or other valuable consideration, including transactions for cross-context behavioral advertising in which no money is exchanged.
-- retain, use or disclose the Personal Data for any purpose other than for the business purposes specified in the DPA Terms and the GitHub Customer Agreement, including retaining, using or disclosing the Personal Data for a commercial purpose other than the business purposes specified in the DPA Terms or the GitHub Customer Agreement, or as otherwise permitted by the CCPA.
-- retain, use or disclose the Personal Data outside of the direct business relationship with Customer.
-- combine the Personal Data with personal information that it receives from or on behalf of a third party or collects from California residents, except that GitHub may combine Personal Data to perform any business purpose as permitted by the CCPA or any regulations adopted or issued under the CCPA.
+- 出售个人数据，CCPA 中定义了“出售”一词。 - 以书面形式或电子或其他方式将个人数据以口头、书面或电子或其他方式共享、出租、发布、披露、传播、转让或以其他方式传达给第三方，以进行情景式行为广告，无论是否用于货币或其他有价约因，包括交易用于不交换资金的情景式行为广告。
+- 出于 DPA 条款和 GitHub 客户协议中指定的商业目的以外的任何目的保留、使用或披露个人数据，包括出于 DPA 条款或 GitHub 客户协议中指定的商业目的以外的商业目的，或 CCPA 允许的其他目的。
+- 在与客户的直接业务关系之外保留、使用或披露个人数据。
+- 将个人数据与其从第三方或代表第三方接收或从加利福尼亚州居民处收集的个人信息相结合，但 GitHub 可能会将个人数据组合在一起，以执行 CCPA 或 CCPA 通过或颁布的任何法规允许的任何业务目的。
 
-### How to Contact GitHub
+### 如何联系 GitHub
 
-If Customer believes that GitHub is not adhering to its privacy or security commitments, Customer may contact customer support or use GitHub’s Privacy web form, located at https://support.github.com/contact/privacy. GitHub’s mailing address is:
+如果客户认为 GitHub 未遵守其隐私或安全承诺，客户可以联系客户支持或使用 https://support.github.com/contact/privacy 上的 GitHub 隐私 Web 表单。 GitHub 的邮寄地址是：
 
 **GitHub Privacy** <br/> GitHub, Inc. <br/> 88 Colin P. Kelly Jr. Street <br/> San Francisco, California 94107 USA <br/>
 
-GitHub B.V. is GitHub’s data protection representative for the European Economic Area. The privacy representative of GitHub B.V. can be reached at the following address:
+GitHub B.V. 是 GitHub 在欧洲经济区的数据保护代表。 可以通过以下地址联系 GitHub B.V. 的隐私代表：
 
 **GitHub B.V.** <br/> Vijzelstraat 68-72 <br/> 1017 HL Amsterdam <br/> The Netherlands <br/>
 
-<p id="appendixA"><h1>Appendix A – Security Safeguards</h1></p>
+<p id="appendixA"><h1>附录 A – 安全保障</h1></p>
 
-GitHub has implemented and will maintain for Customer Data and Personal Data processed by GitHub on behalf and in accordance with the documented instructions of Customer in connection with GitHub services the following technical and organizational measures and security safeguards, which in conjunction with the security commitments in this DPA (including the GDPR Related Terms), are GitHub’s only responsibility with respect to the security of that data:
+GitHub 已实施并将维护 GitHub 代表客户处理的客户数据和个人数据，并且根据客户与 GitHub 服务相关的 书面指示，采取以下技术和组织措施以及安全保障措施，这些措施与本 DPA（包括 GDPR 相关条款）中的安全承诺相结合，是 GitHub 对该数据安全性的唯一责任：
 
-| Domain                                   | Practices                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| ---------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Organization of Information Security     | **Security Ownership**. GitHub has appointed one or more security officers responsible for coordinating and monitoring the security policies and procedures. <br/><br/> **Security Roles and Responsibilities**. GitHub personnel with access to Customer Data and Personal Data are subject to confidentiality obligations. <br/><br/> **Risk Management Program**. GitHub performs an annual risk assessment. <br/> GitHub retains its security documents pursuant to its retention requirements after they are no longer in effect. <br/><br/> **Vendor Management**. GitHub has a vendor risk assessment process, vendor contract clauses and additional data protection agreements with vendors.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| Asset Management                         | **Asset Inventory**. GitHub maintains an inventory of all media on which Customer Data and Personal Data is stored. Access to the inventories of such media is restricted to GitHub personnel authorized to have such access. <br/><br/> **Asset Handling** <br/> - GitHub classifies Customer Data and Personal Data to help identify it and to allow for access to it to be appropriately restricted. <br/> - GitHub communicates employee responsibility and accountability for data protection up to and including cause for termination. <br/> GitHub personnel must obtain GitHub authorization prior to remotely accessing Customer Data and Personal Data or processing Customer Data and Personal Data outside GitHub’s facilities.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| Human Resources Security                 | **Security Training**. GitHub requires all new hires to complete security and privacy awareness training as part of initial on-boarding. Participation in annual training is required for all employees to provide a baseline for security and privacy basics.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| Physical and Environmental Security      | **Physical Access to Facilities**. GitHub limits access to facilities where information systems that process Customer Data and Personal Data are located to identified authorized individuals. <br/><br/> **Physical Access to Components**. GitHub maintains records of the incoming and outgoing media containing Customer Data, including the kind of media, the authorized sender/recipients, date and time, the number of media and the types of Customer Data and Personal Data they contain. <br/><br/> **Protection from Disruptions**. GitHub uses a variety of industry standard systems to protect against loss of data due to power supply failure or line interference. <br/><br/> **Component Disposal**. GitHub uses industry standard processes to delete Customer Data and Personal Data when it is no longer needed.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| Communications and Operations Management | **Operational Policy**. GitHub maintains security documents describing its security measures and the relevant procedures and responsibilities of its personnel who have access to Customer Data. <br/><br/> **Data Recovery Procedures** <br/> - On an ongoing basis, but in no case less frequently than once a week (unless no Customer Data and Personal Data has been updated during that period), GitHub maintains multiple copies of Customer Data and Personal Data from which Customer Data and Personal Data can be recovered. <br/> - GitHub stores copies of Customer Data and Personal Data and data recovery procedures in a different place from where the primary computer equipment processing the Customer Data and Personal Data is located. <br/> - GitHub has specific procedures in place governing access to copies of Customer Data. <br/> - GitHub logs data restoration efforts, including the person responsible, the description of the restored data and where applicable, the person responsible and which data (if any) had to be input manually in the data recovery process. <br/><br/> **Malicious Software**. GitHub has threat detection controls to help identify and respond to anomalous or suspicious access to Customer Data, including malicious software originating from public networks. <br/><br/> **Data Beyond Boundaries** <br/> - GitHub encrypts, or enables Customer to encrypt, Customer Data and Personal Data that is transmitted over public networks. <br/> - GitHub restricts access to Customer Data and Personal Data in media leaving its facilities. <br/><br/> **Event Logging**. GitHub logs, or enables Customer to log, access and use of information systems containing Customer Data, registering the access ID, time, authorization granted or denied, and relevant activity.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| Access Control                           | **Access Policy**. GitHub maintains a record of security privileges of individuals having access to Customer Data. <br/><br/> **Access Authorization** <br/> - GitHub maintains and updates a record of personnel authorized to access GitHub systems that contain Customer Data. <br/> - GitHub identifies those personnel who may grant, alter or cancel authorized access to data and resources. <br/> - GitHub ensures that where more than one individual has access to systems containing Customer Data, the individuals have separate identifiers/log-ins where technically and architecturally feasible, and commercially reasonable. <br/><br/> **Least Privilege** <br/> - Technical support personnel are only permitted to have access to Customer Data and Personal Data when needed. <br/> - GitHub restricts access to Customer Data and Personal Data to only those individuals who require such access to perform their job function. GitHub employees are only granted access to production systems based on their role within the organization. <br/><br/> **Integrity and Confidentiality** <br/><br/> - GitHub instructs GitHub personnel to disable administrative sessions when computers are left unattended. <br/> - GitHub stores passwords such that they are encrypted or unintelligible while they are in force. <br/><br/> **Authentication** <br/> - GitHub uses industry standard practices to identify and authenticate users who attempt to access information systems. <br/> - Where authentication mechanisms are based solely on passwords, GitHub requires the password to be at least eight characters long. <br/> - GitHub ensures that de-activated or expired employee identifiers are not granted to other individuals. <br/> - GitHub monitors, or enables Customer to monitor, repeated attempts to gain access to the information system using an invalid password. <br/> - GitHub maintains industry standard procedures to deactivate passwords that have been corrupted or inadvertently disclosed. <br/> - GitHub uses industry standard password protection practices, including practices designed to maintain the confidentiality and integrity of passwords when they are assigned and distributed, and during storage. <br/><br/> **Network Design**. GitHub has controls to ensure no systems storing Customer Data and Personal Data are part of the same logical network used for GitHub business operations. |
-| Information Security Incident Management | **Incident Response Process** <br/> - GitHub maintains a record of security incidents with a description of the incidents, the time period, the consequences of the breach, the name of the reporter, and to whom the incident was reported, and details regarding the handling of the incident. <br/> - In the event that GitHub Security confirms or reasonably suspects that a GitHub.com customer is affected by a data breach, we will notify the customer without undue delay <br/> - GitHub tracks, or enables Customer to track, disclosures of Customer Data, including what data has been disclosed, to whom, and at what time. <br/><br/> **Service Monitoring**. GitHub employs a wide range of continuous monitoring solutions for preventing, detecting, and mitigating attacks to the site.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| Business Continuity Management           | - GitHub maintains emergency and contingency plans for the facilities in which GitHub information systems that process Customer Data and Personal Data are located. <br/> - GitHub’s redundant storage and its procedures for recovering data are designed to attempt to reconstruct Customer Data and Personal Data in its original or last-replicated state from before the time it was lost or destroyed.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| 领域       | 做法                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 信息安全组织   | **安全所有权**。 GitHub 已任命一名或多名安全官员负责协调和监控安全策略和程序。 <br/><br/> **安全角色和职责**。 有权访问客户数据和个人数据的 GitHub 人员受保密义务的约束。 <br/><br/> **风险管理计划**. GitHub 执行年度风险评估。 <br/> GitHub 在安全文档不再有效后，会根据其保留要求保留其安全文档。 <br/><br/> **供应商管理**。 GitHub 具有供应商风险评估流程、供应商合同条款以及与供应商签订的其他数据保护协议。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| 资产管理     | **资产库存**。 GitHub 维护存储客户数据和个人数据的所有媒体的清单。 对此类媒体库存的访问仅限于有权拥有此类访问权限的 GitHub 人员。 <br/><br/> **资产处理** <br/> - GitHub 对客户数据和个人数据进行分类，以帮助识别数据并允许对其进行适当限制。 <br/> - GitHub 传达员工对数据保护的责任和问责制，包括因此而被解雇。 <br/> GitHub 人员在远程访问客户数据和个人数据或在 GitHub 设施之外处理客户数据和个人数据之前，必须获得 GitHub 授权。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| 人力资源安全   | **安全培训**。 GitHub 要求所有新员工完成安全和隐私意识培训，作为初始入职的一部分。 所有员工都必须参加年度培训，以便为安全和隐私基础知识提供基线。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| 物理和环境安全  | **对设施的物理访问**。 GitHub 将处理客户数据和个人数据的信息系统所在设施的访问权限限制为指定的授权个人。 <br/><br/> **对组件的物理访问**. GitHub 维护包含客户数据的传入和传出媒体的记录，包括媒体类型、授权发件人/收件人、日期和时间、媒体数量以及其中包含的客户数据和个人数据的类型。 <br/><br/> **防破坏保护**。 GitHub 使用各种行业标准系统来防止电源故障或线路干扰导致数据丢失。 <br/><br/> **组件处置**。 GitHub 使用行业标准流程在不再需要时删除客户数据和个人数据。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| 通信和运营管理  | **运营政策**。 GitHub 维护安全文档，其中描述其安全措施以及有权访问客户数据的人员的相关程序和职责。 <br/><br/> **数据恢复程序** <br/> - GitHub 会持续进行，但频率不得低于每周一次（除非在此期间没有更新客户数据和个人数据），GitHub 会维护客户数据和个人数据的多个副本，从中可以恢复客户数据和个人数据。 <br/> - GitHub 将客户数据和个人数据的副本以及数据恢复过程，存储在与处理客户数据和个人数据的主计算机设备不同的位置。 <br/> - GitHub 制定了管理客户数据副本访问的特定程序。 <br/> - GitHub 记录数据恢复工作，包括负责人、还原数据的描述和（如适用）负责人，以及在数据恢复过程中必须手动输入的数据（如果有）。 <br/><br/> **恶意软件**。 GitHub 具有威胁检测控件，可帮助识别和响应对客户数据的异常或可疑访问，包括源自公共网络的恶意软件。 <br/><br/> **数据超越边界** <br/> - GitHub 加密或使客户能够加密通过公共网络传输的客户数据和个人数据。 <br/> - GitHub 限制访问离开其设施的媒体中的客户数据和个人数据。 <br/><br/> **事件日志记录**。 GitHub 记录或让客户记录、访问和使用包含客户数据的信息系统，注册访问 ID、时间、授予或拒绝的授权以及相关活动。                                                                                                                                                                                                                                                                                                                 |
+| 访问控制     | **访问策略**。 GitHub 维护有权访问客户数据的个人的安全权限记录。 <br/><br/> **访问授权** <br/> - GitHub 维护和更新有权访问包含客户数据的 GitHub 系统的人员的记录。 <br/> - GitHub 可识别可能授予、更改或取消对数据和资源的授权访问权限的人员。 <br/> - GitHub 确保在多个人有权访问包含客户数据的系统时，在技术和架构可行且商业上合理的前提下，这些个人具有单独的标识符/登录信息。 <br/><br/> **最小特权** <br/> - 仅允许技术支持人员在需要时访问客户数据和个人数据。 <br/> - GitHub 将对客户数据和个人数据的访问限制为仅需要此类访问权限以执行其工作职能的个人。 GitHub 员工仅根据其在组织中的角色被授予对生产系统的访问权限。 <br/><br/> **完整性和机密性** <br/><br/> - GitHub 指示 GitHub 人员在计算机无人值守时禁用管理会话。 <br/> - GitHub 存储密码，使其在生效时经过加密或无法理解。 <br/><br/> **身份验证** <br/> - GitHub 使用行业标准做法来识别和验证尝试访问信息系统的用户。 <br/> - 如果身份验证机制仅基于密码，则 GitHub 要求密码长度至少为八个字符。 <br/> - GitHub 确保不会将已停用或过期的员工标识符授予其他个人。 <br/> - GitHub 监控或让客户监控使用无效密码访问信息系统的重复尝试。 <br/> - GitHub 维护行业标准程序，以停用已损坏或无意中泄露的密码。 <br/> - GitHub 使用行业标准的密码保护实践，包括在分配和分发密码时以及存储期间维护密码的机密性和完整性的实践。 <br/><br/> **网络设计**。 GitHub 具有控制措施，可确保存储客户数据和个人数据的系统都不是用于 GitHub 业务运营的同一逻辑网络的一部分。 |
+| 信息安全事件管理 | **事件响应流程** <br/> - GitHub 维护安全事件的记录，其中包含事件描述、时间段、违规后果、报告者姓名、事件报告对象以及事件处理的详细信息。 <br/> - 如果 GitHub Security 确认或合理怀疑 GitHub.com 客户受到数据泄露的影响，我们将毫不拖延地通知客户 <br/> - GitHub 跟踪或使客户能够跟踪客户数据的披露，包括已向谁披露、向谁以及何时披露。 <br/><br/> **服务监控**。 GitHub 采用各种连续监控解决方案来预防、检测和缓解对站点的攻击。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| 业务连续性管理  | - GitHub 为处理客户数据和个人数据的 GitHub 信息系统所在的设施维护应急和临时计划。 <br/> - GitHub 的冗余存储及其恢复数据的过程旨在尝试在丢失或销毁之前以原始或上次复制状态重建客户数据和个人数据。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 
-<p id="attachment1"><h1>Attachment 1 - The Standard Contractual Clauses (EU/EEA)</h1></p>
+<p id="attachment1"><h1>附件 1 - 标准合同条款 (EU/EEA)</h1></p>
 
-### Controller to Processor
+### 控制方到处理方
 
-#### SECTION I
+#### 第一部分
 
-##### Clause 1
+##### 第 1 条
 
-**Purpose and scope**
+**目的和范围**
 
 <ol style="list-style-type:lower-alpha" class="no-styling">
-    <li>The purpose of these standard contractual clauses is to ensure compliance with the requirements of Regulation (EU) 2016/679 of the European Parliament and of the Council of 27 April 2016 on the protection of natural persons with regard to the processing of personal data and on the free movement of such data (General Data Protection Regulation) for the transfer of personal data to a third country.</li>
-    <li> The Parties: 
+    <li>这些标准合同条款的目的是确保符合 2016 年 4 月 27 日欧洲议会和理事会关于在处理个人数据方面保护自然人以及此类数据自由流动的要求（通用数据保护条例），以便将个人数据传输到第三国。</li>
+    <li> 缔约方： 
     <ol style="list-style-type:lower-roman" class="no-styling">
-        <li>the natural or legal person(s), public authority/ies, agency/ies or other body/ies (hereinafter ‘entity/ies’) transferring the personal data, as listed in Annex I.A (hereinafter each ‘data exporter’), and</li>
-        <li>the entity/ies in a third country receiving the personal data from the data exporter, directly or indirectly via another entity also Party to these Clauses, as listed in Annex I.A (hereinafter each ‘data importer’)</li>
+        <li>传输个人数据的自然人或法人、公共当局、机构或其他机构（以下简称“实体”），如附录 I.A 所列（以下简称“数据输出者”），以及</li>
+        <li>直接或通过另一个实体（也是这些条款的缔约方）从数据输出者接收个人数据、已同意这些标准合同条款（以下简称“条款”）</li>
     </ol>
-    have agreed to these standard contractual clauses (hereinafter: ‘Clauses’).</li>
-    <li>These Clauses apply with respect to the transfer of personal data as specified in Annex I.B.</li>
-    <li>The Appendix to these Clauses containing the Annexes referred to therein forms an integral part of these Clauses.</li>
+    的第三国实体，如附录 I. A 所列（以下简称“数据输入者”）。</li>
+    <li>这些条款适用于附录 I.B 中规定的个人数据传输。</li>
+    <li>这些条款的附录（包含附件）在此引用构成这些条款的组成部分。</li>
 </ol>
 
-##### Clause 2
+##### 第 2 条
 
-**Effect and invariability of the Clauses**
+**条款的效力和不变性**
 <ol style="list-style-type:lower-alpha" class="no-styling">
-    <li>These Clauses set out appropriate safeguards, including enforceable data subject rights and effective legal remedies, pursuant to Article 46(1) and Article 46(2)(c) of Regulation (EU) 2016/679 and, with respect to data transfers from controllers to processors and/or processors to processors, standard contractual clauses pursuant to Article 28(7) of Regulation (EU) 2016/679, provided they are not modified, except to select the appropriate Module(s) or to add or update information in the Appendix. This does not prevent the Parties from including the standard contractual clauses laid down in these Clauses in a wider contract and/or to add other clauses or additional safeguards, provided that they do not contradict, directly or indirectly, these Clauses or prejudice the fundamental rights or freedoms of data subjects.</li>
-    <li>These Clauses are without prejudice to obligations to which the data exporter is subject by virtue of Regulation (EU) 2016/679.</li>
+    <li>这些条款根据法规 (EU) 2016/679 第 46(1) 条和第 46(2)(c) 条，以及关于从控制方到处理方和/或处理方到处理方的数据传输，根据法规 (EU) 2016/679 第 28(7) 条，规定了适当的保障措施，包括可执行的数据主体权利和有效的法律补救措施， 前提是它们未被修改，除非选择适当的模块或在附录中添加或更新信息。 这并不妨碍双方将这些条款中规定的标准合同条款纳入更广泛的合同和/或添加其他条款或额外的保障措施，前提是它们不直接或间接地与这些条款相矛盾或损害数据主体的基本权利或自由。</li>
+    <li>这些条款不影响数据输出者根据法规 (EU) 2016/679 所承担的义务。</li>
 </ol>
 
-##### Clause 3
+##### 第 3 条
 
-**Third-party beneficiaries**
+**第三方受益人**
 
 <ol style="list-style-type:lower-alpha" class="no-styling">
-    <li>Data subjects may invoke and enforce these Clauses, as third-party beneficiaries, against the data exporter and/or data importer, with the following exceptions: </li>
+    <li>数据主体可以作为第三方受益人，针对数据输出者和/或数据输入者调用和执行这些条款，但以下情况除外： </li>
     <ol style="list-style-type:lower-roman" class="no-styling">
-        <li>Clause 1, Clause 2, Clause 3, Clause 6, Clause 7;</li>
-        <li>Clause 8.1(b), 8.9(a), (c), (d) and (e);</li>
-        <li>Clause 9(a), (c), (d) and (e);</li>
-        <li>Clause 12(a), (d) and (f);</li>
-        <li>Clause 13;</li>
-        <li>Clause 15.1(c), (d) and (e);</li>
-        <li>Clause 16(e);</li>
-        <li>Clause 18(a) and (b).</li>
+        <li>第 1 条、第 2 条、第 3 条、第 6 条、第 7 条；</li>
+        <li>第 8.1(b)、8.9(a)、(c)、(d) 和 (e) 条；</li>
+        <li>第 9(a)、(c)、(d) 和 (e) 条；</li>
+        <li>第 12(a)、(d) 和 (f) 条；</li>
+        <li>第 13 条；</li>
+        <li>第 15.1(c)、(d) 和 (e) 条；</li>
+        <li>第 16(e) 条；</li>
+        <li>第 18(a) 和 (b) 条。</li>
     </ol>
-    <li>Paragraph (a) is without prejudice to rights of data subjects under Regulation (EU) 2016/679.</li>
+    <li>(a) 款不损害数据主体根据法规 (EU) 2016/679 享有的权利。</li>
 </ol>
 
-##### Clause 4
+##### 第 4 条
 
-**Interpretation**
+**解释**
 
 <ol style="list-style-type:lower-alpha" class="no-styling">
-    <li>Where these Clauses use terms that are defined in Regulation (EU) 2016/679, those terms shall have the same meaning as in that Regulation.</li>
-    <li>These Clauses shall be read and interpreted in the light of the provisions of Regulation (EU) 2016/679.</li>
-    <li>These Clauses shall not be interpreted in a way that conflicts with rights and obligations provided for in Regulation (EU) 2016/679.</li>
+    <li>如果这些条款使用法规 (EU) 2016/679 中定义的术语，则这些术语应具有与该法规中相同的含义。</li>
+    <li>这些条款应根据法规 (EU) 2016/679 的规定进行阅读和解释。</li>
+    <li>这些条款的解释不应与法规 (EU) 2016/679 中规定的权利和义务相冲突。</li>
 </ol>
 
-##### Clause 5
+##### 第 5 条
 
-**Hierarchy**
+**等级**
 
-In the event of a contradiction between these Clauses and the provisions of related agreements between the Parties, existing at the time these Clauses are agreed or entered into thereafter, these Clauses shall prevail.
+如果在这些条款已经商定或之后签订时，这些条款与双方之间相关协议的规定之间存在矛盾，则应以这些条款为准。
 
-##### Clause 6
+##### 第 6 条
 
-**Description of the transfer(s)**
+**传输说明**
 
-The details of the transfer(s), and in particular the categories of personal data that are transferred and the purpose(s) for which they are transferred, are specified in Annex I.B.
+附录 I.B 说明了传输的详细信息，特别是传输的个人数据类别及其传输目的。
 
-##### Clause 7
+##### 第 7 条
 
-**Docking clause**
+**衔接条款**
 
 <ol style="list-style-type:lower-alpha" class="no-styling">
-    <li>An entity that is not a Party to these Clauses may, with the agreement of the Parties, accede to these Clauses at any time, either as a data exporter or as a data importer, by completing the Appendix and signing Annex I.A.</li>
-    <li>Once it has completed the Appendix and signed Annex I.A, the acceding entity shall become a Party to these Clauses and have the rights and obligations of a data exporter or data importer in accordance with its designation in Annex I.A.</li>
-    <li>The acceding entity shall have no rights or obligations arising under these Clauses from the period prior to becoming a Party.</li>
+    <li>非本条款缔约方的实体，经双方同意，可作为数据输出者或数据输入者，通过填写附录并签署附件 I.A 随时加入这些条款。</li>
+    <li>一旦完成附录并签署附件 I.A，加入实体应成为本条款的缔约方，并根据其在附件 I.A 中的指定享有数据输出者或数据输入者的权利和义务。</li>
+    <li>加入实体在成为缔约方之前的时期内，不享有本条款项下产生的任何权利或义务。</li>
 </ol>
 
-#### SECTION II – OBLIGATIONS OF THE PARTIES
+#### 第 II 节 – 缔约方的义务
 
-##### Clause 8
+##### 第 8 条
 
-**Data protection safeguards**
+**数据保护措施**
 
-The data exporter warrants that it has used reasonable efforts to determine that the data importer is able, through the implementation of appropriate technical and organisational measures, to satisfy its obligations under these Clauses.
+数据输出者保证其已尽合理努力确定数据输入者能够通过实施适当的技术和组织措施来履行其在本条款下的义务。
 
-**8.1 Instructions**
+**8.1 说明**
   <ol style="list-style-type:lower-alpha" class="no-styling">
-      <li>The data importer shall process the personal data only on documented instructions from the data exporter. The data exporter may give such instructions throughout the duration of the contract.</li>
-      <li>The data importer shall immediately inform the data exporter if it is unable to follow those instructions.</li>
+      <li>数据输入者应仅根据数据输出者的文件指示处理个人数据。 数据输出者可以在合同的整个期限内发出此类指示。</li>
+      <li>如果数据输入者无法遵循这些说明，应立即通知数据输出者。</li>
   </ol>
 
-**8.2 Purpose limitation**
+**8.2 目的限制**
 
-The data importer shall process the personal data only for the specific purpose(s) of the transfer, as set out in Annex I.B, unless on further instructions from the data exporter.
+数据输入者应仅出于附件 I.B 中规定的特定传输目的处理个人数据，除非数据输出者的进一步指示。
 
-**8.3 Transparency**
+**8.3 透明度**
 
-On request, the data exporter shall make a copy of these Clauses, including the Appendix as completed by the Parties, available to the data subject free of charge. To the extent necessary to protect business secrets or other confidential information, including the measures described in Annex II and personal data, the data exporter may redact part of the text of the Appendix to these Clauses prior to sharing a copy, but shall provide a meaningful summary where the data subject would otherwise not be able to understand the its content or exercise his/her rights. On request, the Parties shall provide the data subject with the reasons for the redactions, to the extent possible without revealing the redacted information. This Clause is without prejudice to the obligations of the data exporter under Articles 13 and 14 of Regulation (EU) 2016/679.
+在要求时，数据输出者应免费向数据主体提供这些条款的副本，包括双方填写的附录。 在保护商业秘密或其他机密信息（包括附件二中描述的措施和个人数据）所必需的范围内，数据输出者可以在共享副本之前编辑这些条款附录的部分文本，但应提供有意义的摘要，否则数据主体将无法理解其内容或行使其权利。 在要求时，双方应尽可能向数据主体提供编辑的原因，而不会泄露被编辑的信息。 本条款不影响数据输出者根据法规 (EU) 2016/679 第 13 条和第 14 条承担的义务。
 
-**8.4 Accuracy**
+**8.4 准确度**
 
-If the data importer becomes aware that the personal data it has received is inaccurate, or has become outdated, it shall inform the data exporter without undue delay. In this case, the data importer shall cooperate with the data exporter to erase or rectify the data.
+如果数据输入者知悉到其收到的个人数据不准确或已过时，则应立即通知数据输出者。 在这种情况下，数据输入者应与数据输出者合作删除或纠正数据。
 
-**8.5 Duration of processing and erasure or return of data**
+**8.5 处理和删除或返回数据的持续时间**
 
-Processing by the data importer shall only take place for the duration specified in Annex I.B. After the end of the provision of the processing services, the data importer shall, at the choice of the data exporter, delete all personal data processed on behalf of the data exporter and certify to the data exporter that it has done so, or return to the data exporter all personal data processed on its behalf and delete existing copies. Until the data is deleted or returned, the data importer shall continue to ensure compliance with these Clauses. In case of local laws applicable to the data importer that prohibit return or deletion of the personal data, the data importer warrants that it will continue to ensure compliance with these Clauses and will only process it to the extent and for as long as required under that local law. This is without prejudice to Clause 14, in particular the requirement for the data importer under Clause 14(e) to notify the data exporter throughout the duration of the contract if it has reason to believe that it is or has become subject to laws or practices not in line with the requirements under Clause 14(a).
+数据输入者的处理只能在附件 I.B 规定的期限内进行。 在提供处理服务结束后，数据输入者应根据数据输出者的选择，删除代表数据输出者处理的所有个人数据，并向数据输出者证明其已经这样做，或者将代表其处理的所有个人数据传回给数据输出者并删除现有副本。 在数据被删除或传回之前，数据输入者应继续确保遵守这些条款。 如果适用于数据输入者的当地法律禁止返回或删除个人数据，则数据输入者保证将继续确保遵守这些条款，并且只会在当地法律要求的范围内和时间内进行处理。 这不影响第 14 条，特别是第 14(e) 条规定的数据输入者在有理由相信数据输出者已经或已经受到不符合第 14(a) 条要求的法律或实践的约束时，在整个合同期限内通知数据输出者。
 
-**8.6 Security of processing**
+**8.6 处理的安全性**
 
 <ol style="list-style-type:lower-alpha" class="no-styling">
-    <li>The data importer and, during transmission, also the data exporter shall implement appropriate technical and organisational measures to ensure the security of the data, including protection against a breach of security leading to accidental or unlawful destruction, loss, alteration, unauthorised disclosure or access to that data (hereinafter ‘personal data breach’). In assessing the appropriate level of security, the Parties shall take due account of the state of the art, the costs of implementation, the nature, scope, context and purpose(s) of processing and the risks involved in the processing for the data subjects. The Parties shall in particular consider having recourse to encryption or pseudonymisation, including during transmission, where the purpose of processing can be fulfilled in that manner. In case of pseudonymisation, the additional information for attributing the personal data to a specific data subject shall, where possible, remain under the exclusive control of the data exporter. In complying with its obligations under this paragraph, the data importer shall at least implement the technical and organisational measures specified in Annex II. The data importer shall carry out regular checks to ensure that these measures continue to provide an appropriate level of security. </li>
-    <li>The data importer shall grant access to the personal data to members of its personnel only to the extent strictly necessary for the implementation, management and monitoring of the contract. It shall ensure that persons authorised to process the personal data have committed themselves to confidentiality or are under an appropriate statutory obligation of confidentiality. </li>
-    <li> In the event of a personal data breach concerning personal data processed by the data importer under these Clauses, the data importer shall take appropriate measures to address the breach, including measures to mitigate its adverse effects. The data importer shall also notify the data exporter without undue delay after having become aware of the breach. Such notification shall contain the details of a contact point where more information can be obtained, a description of the nature of the breach (including, where possible, categories and approximate number of data subjects and personal data records concerned), its likely consequences and the measures taken or proposed to address the breach including, where appropriate, measures to mitigate its possible adverse effects. Where, and in so far as, it is not possible to provide all information at the same time, the initial notification shall contain the information then available and further information shall, as it becomes available, subsequently be provided without undue delay. </li>
-    <li> The data importer shall cooperate with and assist the data exporter to enable the data exporter to comply with its obligations under Regulation (EU) 2016/679, in particular to notify the competent supervisory authority and the affected data subjects, taking into account the nature of processing and the information available to the data importer. </li>
+    <li>数据输入者以及在传输过程中的数据输出者应实施适当的技术和组织措施，以确保数据的安全性，包括防止安全漏洞导致意外或非法破坏、丢失、更改、未经授权的数据披露或访问（以下简称“个人数据泄露”）。 在评估适当的安全级别时，双方应适当考虑现有技术、实施成本、性质、范围、背景和目的以及数据主体处理所涉及的风险。 双方应特别考虑诉诸加密或假名化，包括在传输过程中（如果这种方式可以实现处理目的）。 在假名化的情况下，用于将个人数据归因于特定数据主体的附加信息应尽可能由数据输出者独家控制。 在遵守本款规定的义务时，数据输入者应至少实施附件 II 中规定的技术和组织措施。 数据输入者应定期进行检查，以确保这些措施继续提供适当的安全级别。 </li>
+    <li>数据输入者应仅在合同的实施、管理和监控所必需的范围内向其人员授予对个人数据的访问权限。 它应确保授权处理个人数据的人员已承诺保密或承担适当的法定保密义务。 </li>
+    <li> 如果数据输入者根据这些条款处理的个人数据发生个人数据泄露，数据输入者应采取适当措施解决违规行为，包括减轻其不利影响的措施。 数据输入者在意识到违规行为后，也应立即通知数据输出者。 此类通知应包含可以获得更多信息的联络点的详细信息，对违规行为性质的描述（在可能的情况下，包括数据主体和个人数据记录的类别和大致数量），其可能的后果以及为解决违规行为而采取或建议采取的措施，包括酌情减轻其可能的不利影响的措施。 如果不可能同时提供所有信息，则初始通知应载有当时可获得的信息，并在获得进一步信息后立即提供，不得无故拖延。 </li>
+    <li> 数据输入者应与数据输出者合作并协助数据输出者，使数据输出者能够遵守其根据法规 (EU) 2016/679 承担的义务，特别是通知主管监管机构和受影响的数据主体，同时考虑到处理的性质和数据输入者可获得的信息。 </li>
 </ol>
 
-**8.7 Sensitive data**
+**8.7 敏感数据**
 
-Where the transfer involves personal data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, or trade union membership, genetic data, or biometric data for the purpose of uniquely identifying a natural person, data concerning health or a person’s sex life or sexual orientation, or data relating to criminal convictions and offences (hereinafter ‘sensitive data’), the data importer shall apply the specific restrictions and/or additional safeguards described in Annex I.B.
+如果传输涉及揭示种族或民族血统、政治观点、宗教或哲学信仰或工会会员资格的个人数据、遗传数据或用于唯一识别自然人的生物特征数据、有关健康或个人性生活或性取向的数据，或与刑事定罪和犯罪有关的数据（以下简称“敏感数据”），则 数据输入者应适用附件 I.B 所述的具体限制和/或额外保障措施。
 
-**8.8 Onward transfers**
+**8.8 向外传输**
 
-The data importer shall only disclose the personal data to a third party on documented instructions from the data exporter. In addition, the data may only be disclosed to a third party located outside the European Union <sup><a href="#EEA">(1)</a></sup> (in the same country as the data importer or in another third country, hereinafter ‘onward transfer’) if the third party is or agrees to be bound by these Clauses, under the appropriate Module, or if:
+数据输入者应仅根据数据输出者的文件指示向第三方披露个人数据。 此外，若要披露给位于欧盟以外的第三方<sup><a href="#EEA">(1)</a></sup>（与数据输入者在同一国家/地区或在另一个第三国，以下简称“向外传输”），则仅在第三方同意遵守这些条款或者在适当模块下满足以下条件时才可传输：
 
 <ol style="list-style-type:lower-roman" class="no-styling">
-    <li>the onward transfer is to a country benefitting from an adequacy decision pursuant to Article 45 of Regulation (EU) 2016/679 that covers the onward transfer;</li>
-    <li>the third party otherwise ensures appropriate safeguards pursuant to Articles 46 or 47 Regulation of (EU) 2016/679 with respect to the processing in question;</li>
-    <li>the onward transfer is necessary for the establishment, exercise or defence of legal claims in the context of specific administrative, regulatory or judicial proceedings; or</li>
-    <li>the onward transfer is necessary in order to protect the vital interests of the data subject or of another natural person.</li></br>
-    Any onward transfer is subject to compliance by the data importer with all the other safeguards under these Clauses, in particular purpose limitation. 
+    <li>根据涵盖向外传输的法规 (EU) 2016/679 第 45 条受益于充分性决定的国家；</li>
+    <li>第三方根据 (EU) 2016/679 法规第 46 或 47 条，确保对相关处理采取适当的保障措施；</li>
+    <li>在特定的行政、监管或司法程序中，为了确立、行使或辩护法律索赔，必须进行向外传输；或</li>
+    <li>为了保护数据主体或其他自然人的切身利益而必须向外传输。</li></br>
+    任何向外传输数据输入者均须遵守这些条款下的所有其他保护措施，特别是目的限制。 
 </ol>
 
-**8.9 Documentation and compliance**
+**8.9 文档和合规性**
 
 <ol style="list-style-type:lower-alpha" class="no-styling">
-    <li>The data importer shall promptly and adequately deal with enquiries from the data exporter that relate to the processing under these Clauses.</li>
-    <li>The Parties shall be able to demonstrate compliance with these Clauses. In particular, the data importer shall keep appropriate documentation on the processing activities carried out on behalf of the data exporter.</li>
-    <li>The data importer shall make available to the data exporter all information necessary to demonstrate compliance with the obligations set out in these Clauses and at the data exporter’s request, allow for and contribute to audits of the processing activities covered by these Clauses, at reasonable intervals or if there are indications of non-compliance. In deciding on a review or audit, the data exporter may take into account relevant certifications held by the data importer.</li>
-    <li>The data exporter may choose to conduct the audit by itself or mandate an independent auditor. Audits may include inspections at the premises or physical facilities of the data importer and shall, where appropriate, be carried out with reasonable notice.</li>
-    <li>The Parties shall make the information referred to in paragraphs (b) and (c), including the results of any audits, available to the competent supervisory authority on request.</li>
+    <li>数据输入者应及时、充分地处理数据输出者提出的与本条款项下的处理有关的查询。</li>
+    <li>双方应能够证明遵守这些条款。 特别是，数据输入者应保留有关代表数据输出者进行的处理活动的适当文档。</li>
+    <li>数据输入者应向数据输出者提供证明遵守本条款中规定的义务所需的所有信息，并应数据输出者的要求，允许并协助以合理的间隔或在出现不合规迹象时对本条款所涵盖的处理活动进行审计。 在决定审查或审计时，数据输出者可能会考虑数据输入者持有的相关认证。</li>
+    <li>数据输出者可以选择自己进行审计或委托独立审计师。 审计可包括在数据输入者的房舍或有形设施进行检查，在适当时应在合理通知的情况下进行。</li>
+    <li>缔约双方应根据要求向主管监督机构提供 (b) 和 (c) 项所述的信息，包括任何审计的结果。</li>
 </ol>
 
-##### Clause 9
+##### 第 9 条
 
-**Use of sub-processors**
+**使用子处理方**
 
 <ol style="list-style-type:lower-alpha" class="no-styling">
-    <li>GENERAL WRITTEN AUTHORISATION The data importer has the data exporter’s general authorisation for the engagement of sub-processor(s) from an agreed list. The data importer shall specifically inform the data exporter in writing of any intended changes to that list through the addition or replacement of sub-processors at least 90 days in advance, thereby giving the data exporter sufficient time to be able to object to such changes prior to the engagement of the sub-processor(s). The data importer shall provide the data exporter with the information necessary to enable the data exporter to exercise its right to object.</li>
-    <li>Where the data importer engages a sub-processor to carry out specific processing activities (on behalf of the data exporter), it shall do so by way of a written contract that provides for, in substance, the same data protection obligations as those binding the data importer under these Clauses, including in terms of third-party beneficiary rights for data subjects.<sup><a href="#dsr_reqs">(2)</a></sup> The Parties agree that, by complying with this Clause, the data importer fulfils its obligations under Clause 8.8. The data importer shall ensure that the sub-processor complies with the obligations to which the data importer is subject pursuant to these Clauses.</li>
-    <li>The data importer shall provide, at the data exporter’s request, a copy of such a sub-processor agreement and any subsequent amendments to the data exporter. To the extent necessary to protect business secrets or other confidential information, including personal data, the data importer may redact the text of the agreement prior to sharing a copy.</li>
-    <li>The data importer shall remain fully responsible to the data exporter for the performance of the sub-processor’s obligations under its contract with the data importer. The data importer shall notify the data exporter of any failure by the sub-processor to fulfil its obligations under that contract.</li>
-    <li>The data importer shall agree a third-party beneficiary clause with the sub-processor whereby – in the event the data importer has factually disappeared, ceased to exist in law or has become insolvent – the data exporter shall have the right to terminate the sub-processor contract and to instruct the sub-processor to erase or return the personal data.</li>
+    <li>一般书面授权 数据输入者拥有数据输出者从商定列表中聘用子处理方的一般授权。 数据输入者应至少提前 90 天新增或替换子处理方，以书面形式明确通知数据输出者该列表的任何预期更改，从而使数据输出者有足够的时间在子处理方参与之前决定是否反对此类更改。 数据输入者应向数据输出者提供必要的信息，以使数据输出者能够行使其反对权。</li>
+    <li>如果数据输入者聘请子处理方（代表数据输出者）执行特定的处理活动，则应通过书面合同的方式进行，该合同实质上规定了与根据这些条款约束数据输入者的数据保护义务相同的数据保护义务，包括数据主体的第三方受益人权利。<sup><a href="#dsr_reqs">(2)</a></sup> 双方同意，通过遵守本条款，数据输入者履行了第 8.8 条规定的义务。 数据输入者应确保子处理方遵守数据输入者根据这些条款所承担的义务。</li>
+    <li>数据输入者需应数据输出者的要求，向数据输出者提供此类子处理方协议的副本以及任何后续修订。 在保护商业秘密或其他机密信息（包括个人数据）所必需的范围内，数据输入者可以在共享副本之前编辑协议文本。</li>
+    <li>数据输入者应继续对数据输出者承担全部责任，以履行子处理方根据其与数据输入者签订的合同所承担的义务。 数据输入者应将子处理方未能履行该合同规定的义务通知数据输出者。</li>
+    <li>数据输入者应与子处理方商定第三方受益人条款，如果数据输入者事实上已经消失、法律上不复存在或已经破产，则数据输出者应有权终止子处理方合同并指示子处理方删除或传回个人数据。</li>
 </ol>
 
-##### Clause 10
+##### 第 10 条
 
-**Data subject rights**
+**数据主体权利**
 
 <ol style="list-style-type:lower-alpha" class="no-styling">
-    <li>The data importer shall promptly notify the data exporter of any request it has received from a data subject. It shall not respond to that request itself unless it has been authorised to do so by the data exporter.</li>
-    <li>The data importer shall assist the data exporter in fulfilling its obligations to respond to data subjects’ requests for the exercise of their rights under Regulation (EU) 2016/679. In this regard, the Parties shall set out in Annex II the appropriate technical and organisational measures, taking into account the nature of the processing, by which the assistance shall be provided, as well as the scope and the extent of the assistance required.</li>
-    <li>In fulfilling its obligations under paragraphs (a) and (b), the data importer shall comply with the instructions from the data exporter.</li>
+    <li>数据输入者应将其从数据主体收到的任何请求及时通知数据输出者。 除非获得数据输出者的授权，否则数据输入者不得自行回应该请求。</li>
+    <li>数据输入者应协助数据输出者履行其义务，响应数据主体根据法规 (EU) 2016/679 行使其权利的请求。 在此方面，缔约双方应在附件 II 中列出适当的技术和组织措施，同时考虑到提供援助的处理性质，以及所需援助的范围和程度。</li>
+    <li>在履行 (a) 和 (b) 款规定的义务时，数据输入者应遵守数据输出者的指示。</li>
 </ol>
 
-##### Clause 11
+##### 第 11 条
 
-**Redress**
+**补救**
 
 <ol style="list-style-type:lower-alpha" class="no-styling">
-    <li>The data importer shall inform data subjects in a transparent and easily accessible format, through individual notice or on its website, of a contact point authorised to handle complaints. It shall deal promptly with any complaints it receives from a data subject.</li>
-    <li>In case of a dispute between a data subject and one of the Parties as regards compliance with these Clauses, that Party shall use its best efforts to resolve the issue amicably in a timely fashion. The Parties shall keep each other informed about such disputes and, where appropriate, cooperate in resolving them.</li>
-    <li>Where the data subject invokes a third-party beneficiary right pursuant to Clause 3, the data importer shall accept the decision of the data subject to:</li>
+    <li>数据输入者应通过个人通知或在其网站上以透明且易于访问的格式通知数据主体有权处理投诉的联系点。 它应及时处理从数据主体收到的任何投诉。</li>
+    <li>如果数据主体与其中一方之间就遵守这些条款发生争议，该方应尽最大努力及时友好地解决问题。 缔约双方应随时向对方通报此类争议，并在适当情况下合作解决这些争议。</li>
+    <li>如果数据主体根据第 3 条援引第三方受益人权利，则数据输入者应接受数据主体的决定：</li>
     <ol style="list-style-type:lower-roman" class="no-styling">
-        <li>lodge a complaint with the supervisory authority in the Member State of his/her habitual residence or place of work, or the competent supervisory authority pursuant to Clause 13;</li>
-        <li>refer the dispute to the competent courts within the meaning of Clause 18.</li>
+        <li>根据第 13 条，向其惯常居住地或工作地点的成员国的监督机构或主管监督机构提出投诉；</li>
+        <li>将争议提交第 18 条所指的主管法院。</li>
     </ol>
-    <li>The Parties accept that the data subject may be represented by a not-for-profit body, organisation or association under the conditions set out in Article 80(1) of Regulation (EU) 2016/679.</li>
-    <li>The data importer shall abide by a decision that is binding under the applicable EU or Member State law.</li>
-    <li>The data importer agrees that the choice made by the data subject will not prejudice his/her substantive and procedural rights to seek remedies in accordance with applicable laws.</li>
+    <li>双方接受数据主体可根据法规 (EU) 2016/679 第 80(1) 条规定的条件由非营利机构、组织或协会代表。</li>
+    <li>数据输入者应遵守根据适用的欧盟或成员国法律具有约束力的决定。</li>
+    <li>数据输入者同意，数据主体所做的选择不会损害他/她根据适用法律寻求补救措施的实质性和程序性权利。</li>
 </ol>
 
-##### Clause 12
+##### 第 12 条
 
-**Liability**
+**责任**
 
 <ol style="list-style-type:lower-alpha" class="no-styling">
-    <li>Each Party shall be liable to the other Party/ies for any damages it causes the other Party/ies by any breach of these Clauses.</li>
-    <li>The data importer shall be liable to the data subject, and the data subject shall be entitled to receive compensation, for any material or non-material damages the data importer or its sub-processor causes the data subject by breaching the third-party beneficiary rights under these Clauses.</li>
-    <li>Notwithstanding paragraph (b), the data exporter shall be liable to the data subject, and the data subject shall be entitled to receive compensation, for any material or non-material damages the data exporter or the data importer (or its sub-processor) causes the data subject by breaching the third-party beneficiary rights under these Clauses. This is without prejudice to the liability of the data exporter and, where the data exporter is a processor acting on behalf of a controller, to the liability of the controller under Regulation (EU) 2016/679 or Regulation (EU) 2018/1725, as applicable.</li>
-    <li>The Parties agree that if the data exporter is held liable under paragraph (c) for damages caused by the data importer (or its sub-processor), it shall be entitled to claim back from the data importer that part of the compensation corresponding to the data importer’s responsibility for the damage.</li>
-    <li>Where more than one Party is responsible for any damage caused to the data subject as a result of a breach of these Clauses, all responsible Parties shall be jointly and severally liable and the data subject is entitled to bring an action in court against any of these Parties.</li>
-    <li>The Parties agree that if one Party is held liable under paragraph (e), it shall be entitled to claim back from the other Party/ies that part of the compensation corresponding to its/their responsibility for the damage.</li>
-    <li>The data importer may not invoke the conduct of a sub-processor to avoid its own liability.</li>
+    <li>对于因违反这些条款而给另一方造成的任何损害，各方均应对另一方承担责任。</li>
+    <li>数据输入者应对数据主体负责，并且数据主体有权获得赔偿，因为数据输入者或其子处理方违反本条款下的第三方受益人权利而导致数据主体的任何重大或非物质损害。</li>
+    <li>尽管有 (b) 款的规定，数据输出者应对数据主体负责，并且数据主体有权获得赔偿，因为数据输出者或数据输入者（或其子处理方）违反本条款项下的第三方受益人权利而导致数据主体的任何重大或非重大损害。 这不影响数据输出者的责任，如果数据输出者是代表控制方行事的处理方，则不影响控制方根据法规 (EU) 2016/679 或法规 (EU) 2018/1725（如适用）承担的责任。</li>
+    <li>双方同意，如果数据输出者根据 (c) 款对数据输入者（或其子处理方）造成的损害承担责任，则其有权向数据输入者索回与数据输入者对损害的责任相对应的那部分赔偿。</li>
+    <li>如果不止一方对因违反这些条款而对数据主体造成的任何损害负责，则所有负责方均应承担连带责任，数据主体有权对其中任何一方提起诉讼。</li>
+    <li>缔约双方同意，如果一方根据 (e) 款承担责任，则其有权向另一方索回与其损害责任相对应的那部分赔偿。</li>
+    <li>数据输入者不得援引子处理方的行为来逃避其自身的责任。</li>
 </ol>
 
-##### Clause 13
+##### 第 13 条
 
-**Supervision**
+**监督**
 
 <ol style="list-style-type:lower-alpha" class="no-styling">
-    <li>[Where the data exporter is established in an EU Member State:] The supervisory authority with responsibility for ensuring compliance by the data exporter with Regulation (EU) 2016/679 as regards the data transfer, as indicated in Annex I.C, shall act as competent supervisory authority. <br/></br>
-    [Where the data exporter is not established in an EU Member State, but falls within the territorial scope of application of Regulation (EU) 2016/679 in accordance with its Article 3(2) and has appointed a representative pursuant to Article 27(1) of Regulation (EU) 2016/679:] The supervisory authority of the Member State in which the representative within the meaning of Article 27(1) of Regulation (EU) 2016/679 is established, as indicated in Annex I.C, shall act as competent supervisory authority.</br></br>
-    [Where the data exporter is not established in an EU Member State, but falls within the territorial scope of application of Regulation (EU) 2016/679 in accordance with its Article 3(2) without however having to appoint a representative pursuant to Article 27(2) of Regulation (EU) 2016/679:] The supervisory authority of one of the Member States in which the data subjects whose personal data is transferred under these Clauses in relation to the offering of goods or services to them, or whose behaviour is monitored, are located, as indicated in Annex I.C, shall act as competent supervisory authority.</li></br>    
-    <li> The data importer agrees to submit itself to the jurisdiction of and cooperate with the competent supervisory authority in any procedures aimed at ensuring compliance with these Clauses. In particular, the data importer agrees to respond to enquiries, submit to audits and comply with the measures adopted by the supervisory authority, including remedial and compensatory measures. It shall provide the supervisory authority with written confirmation that the necessary actions have been taken.</li>
+    <li>[如果数据输出者在欧盟成员国成立：]如附件 I.C 所示，负责确保数据输出者遵守有关数据传输的法规 (EU) 2016/679 的监管机构应作为主管监管机构。 <br/></br>
+    [如果数据输出者不是在欧盟成员国建立的，但根据其第 3(2) 条属于法规 (EU) 2016/679 的适用范围，并且已根据法规 (EU) 2016/679 第 27(1) 条任命了代表：]法规 (EU) 2016/679 第 27(1) 条所指的成员国的监管机构，如附件 I.C 所示，应作为主管监督机构。</br></br>
+    [如果数据输出者不是在欧盟成员国建立的，但根据其第 3(2) 条属于法规 (EU) 2016/679 的适用范围，但不必根据法规 (EU) 2016/679 第 27(2) 条指定代表：如附件 I.C 所示，因向数据主体提供商品或服务而根据本条款向传输其个人数据的数据主体或其行为受到监控的数据主体，所在的成员国之一的监管机构应作为主管监管机构。</li></br>    
+    <li> 数据输入者同意服从主管监管机构的管辖，并在任何旨在确保遵守这些条款的程序中与主管监管机构合作。 特别是，数据输入者同意回应查询，提交审计并遵守监管机构采取的措施，包括补救和补偿措施。 它应向监督机构提供书面确认，证明已采取必要行动。</li>
 </ol>
 
-#### SECTION III – LOCAL LAWS AND OBLIGATIONS IN CASE OF ACCESS BY PUBLIC AUTHORITIES
+#### 第 III 节 – 公共当局访问时的当地法律和义务
 
-##### Clause 14
+##### 第 14 条
 
-**Local laws and practices affecting compliance with the Clauses**
+**影响条款遵守情况的当地法律和惯例**
 
 <ol style="list-style-type:lower-alpha" class="no-styling">
-    <li>The Parties warrant that they have no reason to believe that the laws and practices in the third country of destination applicable to the processing of the personal data by the data importer, including any requirements to disclose personal data or measures authorising access by public authorities, prevent the data importer from fulfilling its obligations under these Clauses. This is based on the understanding that laws and practices that respect the essence of the fundamental rights and freedoms and do not exceed what is necessary and proportionate in a democratic society to safeguard one of the objectives listed in Article 23(1) of Regulation (EU) 2016/679, are not in contradiction with these Clauses.</li>
-    <li>The Parties declare that in providing the warranty in paragraph (a), they have taken due account in particular of the following elements:</li>
+    <li>双方保证，他们没有理由相信目的地第三国适用于数据输入者处理个人数据的法律和惯例，包括披露个人数据的任何要求或公共当局授权访问的措施，会阻止数据输入者履行其在这些条款下的义务。 这是基于这样的理解：尊重基本权利和自由的本质，并且不超过民主社会中维护 (EU) 2016/679 条例第 23(1) 条所列目标之一的必要及对应法律和实践与这些条款并不矛盾。</li>
+    <li>缔约双方声明，在提供 (a) 款中的保证时，他们特别适当考虑了以下要素：</li>
     <ol style="list-style-type:lower-roman" class="no-styling">
-        <li>the specific circumstances of the transfer, including the length of the processing chain, the number of actors involved and the transmission channels used; intended onward transfers; the type of recipient; the purpose of processing; the categories and format of the transferred personal data; the economic sector in which the transfer occurs; the storage location of the data transferred;</li>
-        <li>the laws and practices of the third country of destination– including those requiring the disclosure of data to public authorities or authorising access by such authorities – relevant in light of the specific circumstances of the transfer, and the applicable limitations and safeguards <sup><a href="#safeguards">(3)</a></sup>;</li>
-        <li>any relevant contractual, technical or organisational safeguards put in place to supplement the safeguards under these Clauses, including measures applied during transmission and to the processing of the personal data in the country of destination.</li>
+        <li>传输的具体情况，包括处理链的长度、涉及的行为者数量和使用的传输渠道；预期的向外传输；接收者的类型；处理的目的；传输的个人数据的类别和格式；发生转移的经济部门；所传输数据的存储位置；</li>
+        <li>第三目的地国的法律和惯例 - 包括要求向公共当局披露数据或授权这些当局访问的法律和惯例 - 与传输的具体情况以及适用的限制和保障措施有关 <sup><a href="#safeguards">(3)</a></sup>；</li>
+        <li>为补充这些条款下的保障措施而实施的任何相关合同、技术或组织保障措施，包括在传输期间和在目的地国家/地区处理个人数据时适用的措施。</li>
     </ol>
-    <li>The data importer warrants that, in carrying out the assessment under paragraph (b), it has made its best efforts to provide the data exporter with relevant information and agrees that it will continue to cooperate with the data exporter in ensuring compliance with these Clauses.</li>
-    <li>The Parties agree to document the assessment under paragraph (b) and make it available to the competent supervisory authority on request.</li>
-    <li>The data importer agrees to notify the data exporter promptly if, after having agreed to these Clauses and for the duration of the contract, it has reason to believe that it is or has become subject to laws or practices not in line with the requirements under paragraph (a), including following a change in the laws of the third country or a measure (such as a disclosure request) indicating an application of such laws in practice that is not in line with the requirements in paragraph (a).</li>
-    <li>Following a notification pursuant to paragraph (e), or if the data exporter otherwise has reason to believe that the data importer can no longer fulfil its obligations under these Clauses, the data exporter shall promptly identify appropriate measures (e.g. technical or organisational measures to ensure security and confidentiality) to be adopted by the data exporter and/or data importer to address the situation. The data exporter shall suspend the data transfer if it considers that no appropriate safeguards for such transfer can be ensured, or if instructed by the competent supervisory authority to do so. In this case, the data exporter shall be entitled to terminate the contract, insofar as it concerns the processing of personal data under these Clauses. If the contract involves more than two Parties, the data exporter may exercise this right to termination only with respect to the relevant Party, unless the Parties have agreed otherwise. Where the contract is terminated pursuant to this Clause, Clause 16(d) and (e) shall apply.</li>
+    <li>数据输入者保证，在进行 (b) 款规定的评估时，它已尽最大努力向数据输出者提供有关信息，并同意将继续与数据输出者合作，以确保遵守这些条款。</li>
+    <li>缔约双方同意将评估记录在 (b) 款下，并应要求提供给主管监督机构。</li>
+    <li>数据输入者同意，如果在同意这些条款后，数据输入者在合同期限内有理由相信其受到或变成受到不符合 (a) 款要求的法律或惯例的约束，包括在第三国法律发生变化或采取措施（例如披露请求）表明此类法律不符合 (a) 款要求的做法。</li>
+    <li>在根据 (e) 款发出通知后，或者如果数据输出者有理由相信数据输入者无法再履行本条款规定的义务，则数据输出者应立即确定数据输出者和/或数据输入者应采取的适当措施（例如，确保安全性和机密性的技术或组织措施），以解决这种情况。 如果数据输出者认为无法确保对数据传输采取适当的保护措施，或者主管监督机构指示这样做，则应暂停数据传输。 在这种情况下，数据输出者有权终止合同，只要它涉及根据这些条款处理个人数据。 如果合同涉及两个以上的缔约方，则数据输出者只能对相关缔约方行使此终止权，除非双方另有约定。 如果合同根据本条款终止，则第 16(d) 和 (e) 条适用。</li>
 </ol>
 
-##### Clause 15
+##### 第 15 条
 
-**Obligations of the data importer in case of access by public authorities**
+**数据输入者在公共当局访问时的义务**
 
-**15.1 Notification**
+**15.1 通知**
 
 <ol style="list-style-type:lower-alpha" class="no-styling">
-    <li>The data importer agrees to notify the data exporter and, where possible, the data subject promptly (if necessary with the help of the data exporter) if it:</li>
+    <li>如果数据输入者在以下情况下，同意立即通知数据输出者，并在可能的情况下及时通知数据主体（必要时借助数据输出者的帮助）：</li>
     <ol style="list-style-type:lower-roman" class="no-styling">
-        <li>receives a legally binding request from a public authority, including judicial authorities, under the laws of the country of destination for the disclosure of personal data transferred pursuant to these Clauses; such notification shall include information about the personal data requested, the requesting authority, the legal basis for the request and the response provided; or</li>
-        <li>becomes aware of any direct access by public authorities to personal data transferred pursuant to these Clauses in accordance with the laws of the country of destination; such notification shall include all information available to the importer.</li>
+        <li>根据目的地国家/地区的法律，收到公共机构（包括司法机构）提出的具有法律约束力的请求，要求披露根据这些条款传输的个人数据；此类通知应包括有关所请求的个人数据、请求机构、请求的法律依据以及所提供的回复的信息；或</li>
+        <li>知悉公共当局根据目的地国家/地区的法律直接访问根据这些条款传输的个人数据；该通知应包括输入者可获得的所有信息。</li>
     </ol>
-    <li>If the data importer is prohibited from notifying the data exporter and/or the data subject under the laws of the country of destination, the data importer agrees to use its best efforts to obtain a waiver of the prohibition, with a view to communicating as much information as possible, as soon as possible. The data importer agrees to document its best efforts in order to be able to demonstrate them on request of the data exporter.</li>
-    <li>Where permissible under the laws of the country of destination, the data importer agrees to provide the data exporter, at regular intervals for the duration of the contract, with as much relevant information as possible on the requests received (in particular, number of requests, type of data requested, requesting authority/ies, whether requests have been challenged and the outcome of such challenges, etc.). </li>
-    <li>The data importer agrees to preserve the information pursuant to paragraphs (a) to (c) for the duration of the contract and make it available to the competent supervisory authority on request.</li>
-    <li>Paragraphs (a) to (c) are without prejudice to the obligation of the data importer pursuant to Clause 14(e) and Clause 16 to inform the data exporter promptly where it is unable to comply with these Clauses.</li>
+    <li>如果根据目的地国家/地区的法律禁止数据输入者通知数据输出者和/或数据主体，则数据输入者同意尽最大努力获得禁令的豁免，以期尽快传达尽可能多的信息。 数据输入者同意记录其尽最大努力，以便能够根据数据输出者的要求展示它们。</li>
+    <li>在目的地国法律允许的情况下，数据输入者同意在合同期限内定期向数据输出者提供尽可能多的有关所收到请求的信息（特别是请求数量、请求的数据类型、请求的授权机构、请求是否受到质疑以及此类质疑的结果， 等等）。 </li>
+    <li>数据输入者同意在合同期限内根据 (a) 至 (c) 款保留信息，并根据要求将其提供给主管监督机构。</li>
+    <li>第 (a) 至 (c) 款不影响数据输入者根据第 14(e) 条和第 16 条所承担的义务，即在数据输出者无法遵守这些条款时立即通知数据输出者。</li>
 </ol>
 
-**15.2 Review of legality and data minimisation**
+**15.2 审查合法性和尽量减少数据**
 
 <ol style="list-style-type:lower-alpha" class="no-styling">
-    <li>The data importer agrees to review the legality of the request for disclosure, in particular whether it remains within the powers granted to the requesting public authority, and to challenge the request if, after careful assessment, it concludes that there are reasonable grounds to consider that the request is unlawful under the laws of the country of destination, applicable obligations under international law and principles of international comity. The data importer shall, under the same conditions, pursue possibilities of appeal. When challenging a request, the data importer shall seek interim measures with a view to suspending the effects of the request until the competent judicial authority has decided on its merits. It shall not disclose the personal data requested until required to do so under the applicable procedural rules. These requirements are without prejudice to the obligations of the data importer under Clause 14(e).</li>
-    <li>The data importer agrees to document its legal assessment and any challenge to the request for disclosure and, to the extent permissible under the laws of the country of destination, make the documentation available to the data exporter. It shall also make it available to the competent supervisory authority on request. </li>
-    <li>The data importer agrees to provide the minimum amount of information permissible when responding to a request for disclosure, based on a reasonable interpretation of the request.</li>
+    <li>数据输入者同意审查披露请求的合法性，特别是披露请求是否仍在授予请求公共当局的权力范围内，如果经过仔细评估后有合理的理由认为，根据目的地国的法律、 国际法和国际礼让原则规定的适用义务，该请求是非法的，则对请求提出质疑。 在相同条件下，数据输入者应寻求上诉的可能性。 在对请求提出质疑时，数据输入者应寻求采取临时措施，以期在主管司法当局就其案情作出决定之前，中止请求的效力。 在根据适用的程序规则要求之前，它不得披露所要求的个人数据。 这些要求不影响数据输入者根据第 14(e) 条所承担的义务。</li>
+    <li>数据输入者同意记录其法律评估和对披露请求的任何质疑，并在目的地国家/地区法律允许的范围内，向数据输出者提供文件。 它还应根据请求将其提供给主管监督机构。 </li>
+    <li>数据输入者同意在响应披露请求时，根据对请求的合理解释，提供允许的最小信息量。</li>
 </ol>
 
-#### SECTION IV – FINAL PROVISIONS
+#### 第 IV 部分 – 最终条款
 
-##### Clause 16
+##### 第 16 条
 
-**Non-compliance with the Clauses and termination**
+**不遵守条款和终止**
 
 <ol style="list-style-type:lower-alpha" class="no-styling">
-    <li>The data importer shall promptly inform the data exporter if it is unable to comply with these Clauses, for whatever reason.</li>
-    <li>In the event that the data importer is in breach of these Clauses or unable to comply with these Clauses, the data exporter shall suspend the transfer of personal data to the data importer until compliance is again ensured or the contract is terminated. This is without prejudice to Clause 14(f).</li>
-    <li>The data exporter shall be entitled to terminate the contract, insofar as it concerns the processing of personal data under these Clauses, where:</li>
+    <li>如果数据输入者因任何原因无法遵守这些条款，应立即通知数据输出者。</li>
+    <li>如果数据输入者违反这些条款或无法遵守这些条款，则数据输出者应暂停向数据输入者传输个人数据，直到再次确保合规或合同终止。 这不影响第 14(f) 条。</li>
+    <li>数据输出者有权终止合同，只要涉及根据这些条款处理个人数据，其中：</li>
     <ol style="list-style-type:lower-roman" class="no-styling">
-        <li> the data exporter has suspended the transfer of personal data to the data importer pursuant to paragraph (b) and compliance with these Clauses is not restored within a reasonable time and in any event within one month of suspension;</li>
-        <li> the data importer is in substantial or persistent breach of these Clauses; or</li>
-        <li> the data importer fails to comply with a binding decision of a competent court or supervisory authority regarding its obligations under these Clauses.</li>    
+        <li> 数据输出者已根据 (b) 款暂停向数据输入者传输个人数据，并且不会在合理的时间内以及暂停后的一个月内恢复对这些条款的遵守；</li>
+        <li> 数据输入者严重或持续违反这些条款；或</li>
+        <li> 数据输入者不遵守主管法院或监管机构关于其在本条款下的义务的具有约束力的决定。</li>    
     </ol></br>
-    In these cases, it shall inform the competent supervisory authority of such non-compliance. Where the contract involves more than two Parties, the data exporter may exercise this right to termination only with respect to the relevant Party, unless the Parties have agreed otherwise.
-    <li> Personal data that has been transferred prior to the termination of the contract pursuant to paragraph (c) shall at the choice of the data exporter immediately be returned to the data exporter or deleted in its entirety. The same shall apply to any copies of the data. The data importer shall certify the deletion of the data to the data exporter. Until the data is deleted or returned, the data importer shall continue to ensure compliance with these Clauses. In case of local laws applicable to the data importer that prohibit the return or deletion of the transferred personal data, the data importer warrants that it will continue to ensure compliance with these Clauses and will only process the data to the extent and for as long as required under that local law.</li>
-    <li> Either Party may revoke its agreement to be bound by these Clauses where (i) the European Commission adopts a decision pursuant to Article 45(3) of Regulation (EU) 2016/679 that covers the transfer of personal data to which these Clauses apply; or (ii) Regulation (EU) 2016/679 becomes part of the legal framework of the country to which the personal data is transferred. This is without prejudice to other obligations applying to the processing in question under Regulation (EU) 2016/679.</li>
+    在这些情况下，它应将这种不遵守情况通知主管监督机构。 如果合同涉及两个以上的缔约方，则数据输出者只能对相关缔约方行使此终止权，除非双方另有约定。
+    <li> 根据 (c) 款在合同终止之前传输的个人数据应由数据输出者选择立即传回给数据输出者或全部删除。 这同样适用于数据的任何副本。 数据输入者应向数据输出者证明数据已删除。 在数据被删除或传回之前，数据输入者应继续确保遵守这些条款。 如果适用于数据输入者的当地法律禁止返回或删除传输的个人数据，则数据输入者保证将继续确保遵守这些条款，并且只会在当地法律要求的范围内和时间内处理数据。</li>
+    <li> 在以下情况下，任何一方均可撤销其受这些条款约束的同意： (i) 欧盟委员会根据法规 (EU) 2016/679 第 45(3) 条通过决定，该决定涵盖本条款适用的个人数据的传输；或 (ii) 法规 (EU) 2016/679 成为个人数据被传输到的国家的法律框架一部分。 这并不影响法规 (EU) 2016/679 下适用于相关处理的其他义务。</li>
 </ol>
 
-##### Clause 17
+##### 第 17 条
 
-**Governing law**
+**管辖法律**
 
-These Clauses shall be governed by the law of one of the EU Member States, provided such law allows for third-party beneficiary rights. The Parties agree that this shall be the law of the Netherlands.
+这些条款受欧盟成员国之一的法律管辖，前提是该法律允许第三方受益人权利。 双方同意，这是荷兰的法律。
 
-##### Clause 18
+##### 第 18 条
 
-**Choice of forum and jurisdiction**
+**法院和管辖权的选择**
 
 <ol style="list-style-type:lower-alpha" class="no-styling">
-    <li>Any dispute arising from these Clauses shall be resolved by the courts of an EU Member State.</li>
-    <li>The Parties agree that those shall be the courts of the Netherlands.</li>
-    <li>A data subject may also bring legal proceedings against the data exporter and/or data importer before the courts of the Member State in which he/she has his/her habitual residence.</li>
-    <li>The Parties agree to submit themselves to the jurisdiction of such courts.</li>
+    <li>由这些条款引起的任何争议应由欧盟成员国的法院解决。</li>
+    <li>双方同意，这些法院应为荷兰法院。</li>
+    <li>数据主体还可以在他/她惯常居住的成员国的法院对数据输出者和/或数据输入者提起法律诉讼。</li>
+    <li>双方同意服从此类法院的管辖。</li>
 </ol>
 
-## ANNEX I
+## 附 件 I
 
-**to the Standard Contractual Clauses (EU/EEA)**
+**标准合同条款 (EU/EEA)**
 
-### A. LIST OF PARTIES
+### A. 缔约方清单
 
-**Data exporter(s)**: Customer is the data exporter</br> Name: see GitHub Customer Agreement</br> Address: see GitHub Customer Agreement</br> Contact person’s name, position and contact details: see GitHub Customer Agreement</br> Activities relevant to the data transferred under these Clauses:</br> The data exporter is a user of Online Services or Professional Services as defined in the DPA and GitHub Customer Agreement.</br> Signature and date: see GitHub Customer Agreement (the DPA and the Standard Contractual Clauses (EU/EEA) are incorporated into the GitHub Customer Agreement</br> Role (controller/processor): controller (unless otherwise agreed in the Customer Agreement). </br>
+**数据输出者**：客户是数据输出者</br> 姓名：请参阅 GitHub 客户协议</br> 地址：请参阅 GitHub 客户协议</br> 联系人的姓名、职位和联系方式：请参阅 GitHub 客户协议</br> 与根据以下条款传输的数据相关的活动：</br> 数据输出者是 DPA 和 GitHub 客户协议中定义的在线服务或专业服务的用户。</br> 签名和日期：请参阅 GitHub 客户协议（DPA 和标准合同条款 (EU/EEA) 已合并到 GitHub 客户协议中</br> 角色（控制方/处理方）：控制方（除非客户协议中另有约定）。 </br>
 
-**Data importer(s)**:</br> Name: GitHub, Inc.</br> Address: 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA</br> Contact person’s name, position and contact details: Frances Wiet, Head of Privacy, fwiet@github.com</br> Activities relevant to the data transferred under these Clauses:</br> GitHub, Inc. is a global producer of software and services </br> Signature and date: see GitHub Customer Agreement (the DPA and the Standard Contractual Clauses (EU/EEA) are incorporated into the GitHub Customer Agreement)</br> Role (controller/processor): processor or, depending on the agreements set forth in the Customer Agreement, subprocessor.
+**数据输入者**：</br> 姓名： GitHub, Inc.</br> 地址： 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA</br> 联系人姓名、职位和联系方式： Frances Wiet，隐私主管，fwiet@github.com</br> 根据这些条款传输的数据相关的活动：</br> GitHub, Inc. 是全球软件和服务生产商 </br> 签名和日期：请参阅 GitHub 客户协议（DPA 和标准合同条款 (EU/EEA) 已纳入 GitHub 客户协议）</br> 角色（控制方/处理方）：处理方或根据客户协议中的规定聘用的子处理方。
 
-### B. DESCRIPTION OF TRANSFER
+### B. 传输说明
 
-_Categories of data subjects whose personal data is transferred:_
+_传输其个人数据的数据主体的类别：_
 
-Data subjects include the data exporter’s representatives and end-users including employees, contractors, collaborators, and customers of the data exporter. Data subjects may also include individuals attempting to communicate or transfer personal data to users of the services provided by data importer. GitHub acknowledges that, depending on Customer’s use of the Online Service or Professional Services, Customer may elect to include personal data from any of the following types of data subjects in the personal data:
+数据主体是数据出口方的代表和最终用户，包括数据出口方的员工、承包商、协作者和客户。 数据主体还可能包括试图将个人数据传达或传输给数据输入者所提供服务的用户的个人。 GitHub 承认，根据客户对在线服务或专业服务的使用情况，客户可以选择在个人数据中包含来自以下任何类型的数据主体的个人数据：
 - 数据出口方的员工、承包商和临时工（现任、前任、未来）；
 - 数据出口方的协作者/联系人（自然人）或法律实体协作者/联系人的员工、承包商或临时工（现任、未来、前任）；
-- Users and other data subjects that are users of data exporter's services;
-- Partners, stakeholders or individuals who actively collaborate, communicate or otherwise interact with employees of the data exporter and/or use communication tools such as apps and websites provided by the data exporter.
+- 作为数据输出者服务的用户和其他数据主体;
+- 合作伙伴、利益相关者或与数据出口方的员工积极协作、交流或以其他方式互动的个人和/或使用数据出口方提供的应用程序和网站等沟通工具的个人。
 
-_Categories of personal data transferred:_
+_传输的个人数据类别：_
 
-The personal data transferred that is included in e-mail, documents and other data in an electronic form in the context of the Online Services or Professional Services. GitHub acknowledges that, depending on Customer’s use of the Online Service or Professional Services, Customer may elect to include personal data from any of the following categories in the personal data:
-- Basic personal data (for example place of birth, street name and house number (address), postal code, city of residence, country of residence, mobile phone number, first name, last name, initials, email address, gender, date of birth);
-- Authentication data (for example user name, password or PIN code, security question, audit trail);
-- Contact information (for example addresses, email, phone numbers, social media identifiers; emergency contact details);
-- Unique identification numbers and signatures (for example IP addresses, employee number, student number);
-- Pseudonymous identifiers;
-- Photos, video and audio;
-- Internet activity (for example browsing history, search history, reading and viewing activities);
-- Device identification (for example IMEI-number, SIM card number, MAC address);
-- Profiling (for example based on observed criminal or anti-social behavior or pseudonymous profiles based on visited URLs, click streams, browsing logs, IP-addresses, domains, apps installed, or profiles based on marketing preferences);
-- Special categories of data as voluntarily provided by data subjects (for example racial or ethnic origin, political opinions, religious or philosophical beliefs, trade union membership, genetic data, biometric data for the purpose of uniquely identifying a natural person, data concerning health, data concerning a natural person’s sex life or sexual orientation, or data relating to criminal convictions or offences); or
-- Any other personal data identified in Article 4 of the GDPR.
+在在线服务或专业服务的背景下，以电子形式包含在电子邮件、文档和其他数据中的传输的个人数据。 GitHub 承认，根据客户对在线服务或专业服务的使用情况，客户可以选择在个人数据中包含以下任何类别的个人数据：
+- 基本个人数据（例如出生地、街道名称和门牌号（地址）、邮政编码、居住城市、居住国、手机号码、名字、姓氏、姓名首字母缩写、电子邮件地址、性别、出生日期）;
+- 身份验证数据（例如用户名、密码或 PIN 码、安全问题、审计跟踪）;
+- 联系信息（例如地址、电子邮件、电话号码、社交媒体标识符；紧急联系方式）;
+- 唯一的标识号和签名（例如 IP 地址、员工编号、学生编号）;
+- 假名标识符；
+- 照片、视频和音频；
+- 互联网活动（例如浏览历史记录、搜索历史记录、阅读和查看活动）;
+- 设备标识（例如 IMEI 号码、SIM 卡号码、MAC 地址）;
+- 分析（例如，基于观察到的犯罪或反社会行为，或基于访问的 URL、点击流、浏览日志、IP 地址、域、安装的应用程序的假名个人资料，或基于营销偏好的个人资料）;
+- 数据主体自愿提供的特殊类别的数据（例如种族或民族血统、政治观点、宗教或哲学信仰、工会会员资格、遗传数据、用于唯一识别自然人的生物特征数据、有关健康的数据、有关自然人的性生活或性取向的数据，或与刑事定罪或犯罪有关的数据）；或
+- GDPR 第 4 条中确定的任何其他个人数据。
 
-_**Sensitive data** transferred (if applicable) and applied restrictions or safeguards that fully take into consideration the nature of the data and the risks involved, such as for instance strict purpose limitation, access restrictions (including access only for staff having followed specialised training), keeping a record of access to the data, restrictions for onward transfers or additional security measures:_ </br> GitHub does not request or otherwise ask for sensitive data and receives such data only if and when customers or data subjects decide to provide it.
+_**敏感数据**，传输（如适用）并应用充分考虑数据性质和所涉风险的限制或保障措施，例如严格的目的限制、访问限制（包括仅限经过专门培训的员工访问）、保留访问数据的记录， 对向外传输的限制或其他安全措施：_ </br> GitHub 不会请求或要求敏感数据，并且仅在客户或数据主体决定提供此类数据时才会接收这些数据。
 
-_**The frequency of the transfer** (e.g. whether the data is transferred on a one-off or continuous basis):_
+_**传输的频率**（例如，数据是一次性传输还是连续传输）：_
 
-Continuous as part of the Online Services or Professional Services.
+作为在线服务或专业服务的一部分持续存在。
 
-_**Nature of the processing:**_
+_**处理的性质：**_
 
-The personal data transferred will be subject to the following basic processing activities:
+传输的个人数据将受到以下基本处理活动的约束：
 <ol style="list-style-type:lower-alpha" class="no-styling">
-  <li><b>Duration and Object of Data Processing</b>. The duration of data processing shall be for the term designated under the applicable GitHub Customer Agreement between data exporter and the data importer. The objective of the data processing is the performance of Online Services and Professional Services.</li>
-  <li><b>Personal Data Access</b>. For the term designated under the applicable GitHub Customer Agreement, data importer will, at its election and as necessary under applicable law, either: (1) provide data exporter with the ability to correct, delete, or block personal data, or (2) make such corrections, deletions, or blockages on its behalf.</li>
-  <li><b>Data Exporter’s Instructions</b>. For Online Services and Professional Services, data importer will only act upon data exporter’s instructions. </li>
+  <li><b>数据处理的持续时间和对象 </b>。 数据处理的持续时间应为数据输出者和数据输入者之间适用的 GitHub 客户协议中指定的期限。 数据处理的目标是执行在线服务和专业服务。</li>
+  <li><b>个人数据访问</b>。 对于适用的 GitHub 客户协议指定的期限，数据输入者将根据其选择并根据适用法律的必要条件：(1) 向数据输出者提供更正、删除或阻止个人数据的能力，或 (2) 代表其进行此类更正、删除或阻止。</li>
+  <li><b>数据输出者的指示</b>。 对于在线服务和专业服务，数据输入者将严格按照数据输出者的指示执行操作。 </li>
 </ol>
 
-_Purpose(s) of the data transfer and further processing:_
+_数据传输和进一步处理的目的：_
 
-The scope and purpose of processing personal data is described in the “Processing of Personal Data; GDPR” section of the DPA. The data importer operates a global network of data centers and management/support facilities, and processing may take place in any jurisdiction where data importer or its sub-processors operate such facilities in accordance with the “Security Practices and Policies” section of the DPA.
+处理个人数据的范围和目的在本 DPA 的“个人数据的处理；GDPR“部分描述。 数据输入者运营数据中心和管理/支持设施的全球网络，可以在数据输入者或其子处理方根据 DPA 的“安全实践和政策”部分运营此类设施的任何司法管辖区进行处理。
 
-_The period for which the personal data will be retained, or, if that is not possible, the criteria used to determine that period:_
+_个人数据将被保留的期限，如果无法保留，则确定该期限所用的标准：_
 
-Upon expiration or termination of data exporter’s use of Online Services or Professional Services, it may extract personal data and data importer will delete personal data, each in accordance with the DPA Terms applicable to the agreement.
+在数据输出者使用在线服务或专业服务到期或终止后，它可能会提取个人数据，数据输入者将根据适用于本协议的 DPA 条款删除个人数据。
 
-_For transfers to (sub-) processors, also specify subject matter, nature and duration of the processing:_
+_对于向（子）处理方的传输，还要指定处理的主题、性质和持续时间：_
 
-In accordance with the DPA, the data importer may hire other companies to provide limited services on data importer’s behalf, such as providing customer support. Any such subcontractors will be permitted to obtain personal data only to deliver the services the data importer has retained them to provide, and they are prohibited from using personal data for any other purpose. Unless a particular subcontractor is replaced ahead of time, the processing will be for the term designated under the applicable GitHub Customer Agreement between data exporter and data importer.
+根据 DPA，数据输入者可以雇佣其他公司代表他们提供有限的服务，例如提供客户支持。 任何此类分包商将被允许获取个人数据，仅用于提供数据输入者委托他们提供的服务，并且禁止他们将个人数据用于任何其他目的。 除非提前更换特定的分包商，否则处理将按照数据导出者和数据导入者之间适用的 GitHub 客户协议指定的期限进行。
 
-### C. COMPETENT SUPERVISORY AUTHORITY
+### C. 主管监督机构
 
-_Identify the competent supervisory authority/ies in accordance with Clause 13:_
+_根据第 13 条确定主管监督机构：_
 
-The supervisory authority with responsibility for ensuring compliance by the data exporter with Regulation (EU) 2016/679.  
-## ANNEX II
+负责确保数据输出者遵守法规 (EU) 2016/679 的监管机构。  
+## 附 件 II
 
-**to the Standard Contractual Clauses (EU/EEA)**
+**标准合同条款 (EU/EEA)**
 
-**TECHNICAL AND ORGANISATIONAL MEASURES INCLUDING TECHNICAL AND ORGANISATIONAL MEASURES TO ENSURE THE SECURITY OF THE DATA**
+**技术和组织措施，包括确保数据安全的技术和组织措施**
 
-_Description of the technical and organisational measures implemented by the data importer(s) (including any relevant certifications) to ensure an appropriate level of security, taking into account the nature, scope, context and purpose of the processing, and the risks for the rights and freedoms of natural persons._
+_描述数据输入者为确保适当的安全级别而实施的技术和组织措施（包括任何相关认证），同时考虑到处理的性质、范围、背景和目的，以及自然人的权利和自由的风险。_
 
 <ol style="list-style-type:decimal" class="no-styling">
-    <li>Data Security Certifications. Data importer holds the following data security certifications:</li>
+    <li>数据安全证书。 数据输入者持有以下数据安全证书：</li>
     <ul>
-        <li>SOC 1, Type 2; </li>
-        <li>SOC 2, Type 2;</li>
-        <li>NIST, to the extent incorporated for FedRAMP Low-Impact / Tailored ATO.</li>
+        <li>SOC 1，类型 2； </li>
+        <li>SOC 2，类型 2；</li>
+        <li>NIST，在纳入 FedRAMP 低影响/定制 ATO 的范围内。</li>
     </ul>
-    <li>Personnel. Data importer’s personnel will not process personal data without authorization. Personnel are obligated to maintain the confidentiality of any such personal data and this obligation continues even after their engagement ends.</li>    
-    <li>Data Privacy Contact. The data privacy officer of the data importer can be reached at the following address: </br></br>
+    <li>人员。 未经授权，数据输入者的人员不会处理个人数据。 工作人员有义务对任何此类个人数据保密，即使在其约定结束后，此义务也将继续存在。</li>    
+    <li>数据隐私联系人。 可以通过以下地址联系数据输入者的数据隐私官：</br></br>
     GitHub, Inc.</br>
     Attn: Privacy</br>
     88 Colin P. Kelly Jr. Street </br>
     San Francisco, California 94107 USA <br></li></br>
-    <li>Technical and Organization Measures. The data importer has implemented and will maintain appropriate technical and organizational measures, internal controls, and information security routines intended to protect personal data, as defined in the Security Practices and Policies section of the DPA, against accidental loss, destruction, or alteration; unauthorized disclosure or access; or unlawful destruction as follows: The technical and organizational measures, internal controls, and information security routines set forth in the Data Security section of the DPA are hereby incorporated into this Annex II to Attachment 1 by this reference and are binding on the data importer as if they were set forth in this Annex 2 to Attachment 1 in their entirety.</li>
+    <li>技术和组织措施。 数据输入者已实施并将维护适当的技术和组织措施、内部控制和信息安全例程，旨在保护个人数据（如 DPA 的“安全实践和政策”部分中所定义）免遭意外丢失、破坏或更改；未经授权的披露或访问；或非法破坏，如下所示：DPA 数据安全部分规定的技术和组织措施，内部控制和信息安全程序在此通过此引用并入附件 1 的本附录 II，并且对数据输入者具有约束力，如同它们在附件 1 的本附录 2 中全部列出一样。</li>
 </ol>
 
-_For transfers to (sub-) processors, also describe the specific technical and organisational measures to be taken by the (sub-) processor to be able to provide assistance to the controller and, for transfers from a processor to a sub-processor, to the data exporter:_
+_对于向（子）处理方的传输，还描述了（子）处理方为能够向控制方提供帮助而采取的特定技术和组织措施，对于从处理方到子处理方的传输，则向数据输出者提供：_
 
-**Vendor management program - third-party risk program**
+**供应商管理计划 - 第三方风险计划**
 
-The data importer has a vendor risk assessment process, vendor contract clauses and additional data protection agreements with vendors. Vendors undergo reassessment when a new business use case is requested. The data importer’s vendor risk program is structured so all of data importer’s vendors' risk assessments are refreshed two years from the last review date.
+数据输入者具有供应商风险评估流程、供应商合同条款以及与供应商签订的其他数据保护协议。 当请求新的用例时，供应商将进行重新评估。 数据输入者的供应商风险计划是结构化的，因此所有数据输入者的供应商风险评估都会从上次审核日期起两年更新。
 
-Vendors deemed high risk, such as data center providers or other vendors storing or processing data in scope for the data importer’s regulatory or contractual requirements, undergo reassessment annually.
+被视为高风险的供应商，例如数据中心提供商或根据数据输入者的监管或合同要求在范围内存储或处理数据的其他供应商，每年都会进行重新评估。
 
-## ANNEX III
+## 附录 III
 
-**to the Standard Contractual Clauses (EU/EEA)**
+**标准合同条款 (EU/EEA)**
 
-**Additional Safeguards Addendum**
+**附加保障措施附录**
 
-By this Additional Safeguards Addendum to Standard Contractual Clauses (EU/EEA) (this “Addendum”), GitHub, Inc. (“GitHub”) provides additional safeguards to Customer and additional redress to the data subjects to whom Customer’s personal data relates.
+通过标准合同条款 (EU/EEA) 的附加保障措施附录（本“附录”），GitHub, Inc. (“GitHub”) 为客户提供了额外的保护措施，并为与客户个人数据相关的数据主体提供了额外的补救措施。
 
-This Addendum supplements and is made part of, but is not in variation or modification of, the Standard Contractual Clauses (EU/EEA).
+本附录是对标准合同条款 (EU/EEA) 的补充，并构成其一部分，但并非变更或修改。
 
 <ol style="list-style-type:decimal" class="no-styling">
-    <li><u><b>Challenges to Orders</b></u>. In addition to Clause 15.1 of the Standard Contractual Clauses (EU/EEA), in the event GitHub receives an order from any third party for compelled disclosure of any personal data that has been transferred under the Standard Contractual Clauses (EU/EEA), GitHub shall:</li>
+    <li><u><b>命令质询</b></u>。 除了标准合同条款 (EU/EEA) 第 15.1 条之外，如果 GitHub 收到任何第三方的订单，要求强制披露根据标准合同条款 (EU/EEA) 传输的任何个人数据，GitHub 应：</li>
     <ol style="list-style-type:lower-alpha" class="no-styling">
-        <li>use every reasonable effort to redirect the third party to request data directly from Customer;</li>
-        <li>promptly notify Customer, unless prohibited under the law applicable to the requesting third party, and, if prohibited from notifying Customer, use all lawful efforts to obtain the right to waive the prohibition in order to communicate as much information to Customer as soon as possible; and</li>
-        <li>use all lawful efforts to challenge the order for disclosure on the basis of any legal deficiencies under the laws of the requesting party or any relevant conflicts with the law of the European Union or applicable Member State law.</li>
+        <li>尽一切合理努力将第三方重定向到直接向客户请求数据；</li>
+        <li>及时通知客户，除非适用法律禁止给请求的第三方，如果禁止通知客户，请尽一切合法努力获得放弃禁令的权利，以便尽快向客户传达尽可能多的信息；和</li>
+        <li>根据请求方法律存在的任何法律缺陷或与欧盟法律或适用成员国法律的任何相关冲突，尽一切合法努力对披露令提出质询。</li>
     </ol></br>
-    For purpose of this section, lawful efforts do not include actions that would result in civil or criminal penalty such as contempt of court under the laws of the relevant jurisdiction. 
-    <li><u><b>Indemnification of Data Subjects</b></u>. Subject to Sections 3 and 4, GitHub shall indemnify a data subject for any material or non-material damage to the data subject caused by GitHub’s disclosure of personal data of the data subject that has been transferred under the Standard Contractual Clauses (EU/EEA) in response to an order from a non-EU/EEA government body or law enforcement agency (a “Relevant Disclosure”). Notwithstanding the foregoing, GitHub shall have no obligation to indemnify the data subject under this Section 2 to the extent the data subject has already received compensation for the same damage, whether from GitHub or otherwise.</li>
-    <li><u><b>Conditions of Indemnification</b></u>. Indemnification under Section 2 is conditional upon the data subject establishing, to GitHub’s reasonable satisfaction, that:</li>
+    就本节而言，合法努力不包括根据相关司法管辖区的法律可能导致民事或刑事处罚的行为，例如藐视法庭。 
+    <li><u><b>对数据主体的补偿</b></u>。 根据第 3 节和第 4 节的规定，GitHub 应赔偿数据主体因 GitHub 披露根据标准合同条款 (EU/EEA) 传输的数据主体的个人数据（“相关披露”）而对数据主体造成的任何重大或非重大损害。 尽管有上述规定，但在数据主体已从 GitHub 或其他方面获得相同损害的赔偿的范围内，GitHub 没有义务根据本第 2 节对数据主体进行赔偿。</li>
+    <li><u><b>补偿条件</b></u>。 第 2 节规定的补偿条件是数据主体在 GitHub 合理满意的情况下证明：</li>
     <ol style="list-style-type:lower-alpha" class="no-styling">
-        <li>GitHub engaged in a Relevant Disclosure;</li>
-        <li>the Relevant Disclosure was the basis of an official proceeding by the non-EU/EEA government body or law enforcement agency against the data subject; and</li>
-        <li>the Relevant Disclosure directly caused the data subject to suffer material or non-material damage.</li>
+        <li>GitHub 参与了相关披露；</li>
+        <li>相关披露是非 EU/EEA 政府机构或执法机构对数据主体提起正式诉讼的基础；以及</li>
+        <li>相关披露直接导致数据主体遭受重大或非物质损害。</li>
     </ol></br>
-    The data subject bears the burden of proof with respect to conditions a. though c.</br>
-    Notwithstanding the foregoing, GitHub shall have no obligation to indemnify the data subject under Section 2 if GitHub establishes that the Relevant Disclosure did not violate its obligations under Chapter V of the GDPR.</br>
-    <li><u><b>Scope of Damages</b></u>. Indemnification under Section 2 is limited to material and non-material damages as provided in the GDPR and excludes consequential damages and all other damages not resulting from GitHub’s infringement of the GDPR.</li>
-    <li><u><b>Exercise of Rights</b></u>. Rights granted to data subjects under this Addendum may be enforced by the data subject against GitHub irrespective of any restriction in Clauses 3 or 12 of the Standard Contractual Clauses (EU/EEA). The data subject may only bring a claim under this Addendum on an individual basis, and not part of a class, collective, group or representative action. Rights granted to data subjects under this Addendum are personal to the data subject and may not be assigned.</li>
-    <li><u><b>Notice of Change</b></u>. In addition to Clause 14 of the Standard Contractual Clauses (EU/EEA), GitHub agrees and warrants that it has no reason to believe that the legislation applicable to it or its sub-processors, including in any country to which personal data is transferred either by itself or through a sub-processor, prevents it from fulfilling the instructions received from the data exporter and its obligations under this Addendum or the Standard Contractual Clauses (EU/EEA) and that in the event of a change in this legislation which is likely to have a substantial adverse effect on the warranties and obligations provided by this Addendum or the Standard Contractual Clauses (EU/EEA), it will promptly notify the change to Customer as soon as it is aware, in which case Customer is entitled to suspend the transfer of data and/or terminate the contract.</li>
-    <li><u><b>Termination</b></u>. This Addendum shall automatically terminate if the European Commission, a competent Member State supervisory authority, or an EU or competent Member State court approves a different lawful transfer mechanism that would be applicable to the data transfers covered by the Standard Contractual Clauses (EU/EEA) (and if such mechanism applies only to some of the data transfers, this Addendum will terminate only with respect to those transfers) and that does not require the additional safeguards set forth in this Addendum.</li>
+    数据主体对条件 a. 至 c. 承担举证责任</br>
+    尽管有上述规定，但如果 GitHub 确定相关披露未违反其在 GDPR 第 V 章下的义务，则 GitHub 没有义务根据第 2 节对数据主体进行赔偿。</br>
+    <li><u><b>损害范围</b></u>。 第 2 节规定的赔偿仅限于 GDPR 中规定的物质和非物质损害，并排除间接损害以及并非因 GitHub 违反 GDPR 而造成的所有其他损害。</li>
+    <li><u><b>权利行使</b></u>。 根据本附录授予数据主体的权利可由数据主体针对 GitHub 强制执行，而不考虑标准合同条款 (EU/EEA) 第 3 条或第 12 条中的任何限制。 数据主体只能根据本附录以个人为基础提出索赔，而不能作为班级、集体、团体或代表诉讼的一部分。 根据本附录授予数据主体的权利是数据主体的个人权利，不得转让。</li>
+    <li><u><b>变更通知</b></u>。 除了标准合同条款 (EU/EEA) 第 14 条之外，GitHub 同意并保证，它没有理由相信适用于其或其子处理方的法律（包括在个人数据由其自身或通过子处理方传输到的任何国家/地区）阻止其履行从数据输出者收到的指示及其在本附录或标准合同条款 (EU/EEA) 下的义务，如果本法律发生变更，可能对本附录或标准合同条款 (EU/EEA) 提供的保证和义务产生重大不利影响，它将在意识到这一变更后立即通知客户，在这种情况下，客户有权暂停数据传输和/或终止合同。</li>
+    <li><u><b>终止</b></u>。 如果欧盟委员会、主管成员国监管机构或欧盟或主管成员国法院批准了适用于标准合同条款 (EU/EEA) 所涵盖的数据传输的不同合法传输机制（以及如果此类机制仅适用于某些数据传输，本附录仅因这些传输而终止），不需要本附录中规定的额外保障措施，则本附录将自动终止。</li>
 </ol>
 
-<p id="attachment2"><h1>Attachment 2 – The Standard Contractual Clauses (UK)</h1></p>
+<p id="attachment2"><h1>附件 2 – 标准合同条款（英国）</h1></p>
 
-Execution of the GitHub Customer Agreement by Customer includes execution of this Attachment 2, which is countersigned by GitHub, Inc.
+客户执行 GitHub 客户协议包括执行本附件 2，该附件 2 由 GitHub, Inc. 会签。
 
 在使用标准合同条款需要监管机构批准的国家/地区，除非客户获得了所需的监管机构批准，否则根据欧洲委员会 2010/87/EU（2010 年 2 月）的规定，客户不得根据标准合同条款确定从此类国家/地区出口数据的合法性。
 
-Beginning May 25, 2018 and thereafter, references to various Articles from the Directive 95/46/EC in the Standard Contractual Clauses below will be treated as references to the relevant and appropriate Articles in the GDPR.
+从 2018 年 5 月 25 日开始及之后，以下标准合同条款中对指令 95/46/EC 中各项条款的引用将被视为对 GDPR 中相关和适当条款的引用。
 
-For the purposes of Article 26(2) of Directive 95/46/EC for the transfer of personal data to processors established in third countries which do not ensure an adequate level of data protection, Customer (as data exporter) and GitHub, Inc. (as data importer, whose signature appears below), each a “party,” together “the parties,” have agreed on the following Contractual Clauses (the “Clauses” or “Standard Contractual Clauses”) in order to adduce adequate safeguards with respect to the protection of privacy and fundamental rights and freedoms of individuals for the transfer by the data exporter to the data importer of the personal data specified in Appendix 1.
+根据指令 95/46/EC 第 26(2) 条针对将个人数据转移给在无法确保充分数据保护级别的第三国设立的处理方之规定，客户（作为数据输出者）和 GitHub, Inc.（作为数据输入者，其签名见下文）每一方（合称为“双方”）都同意以下合同条款（以下简称“条款”或“标准合同条款”），以便在数据输出者将附录 1 中规定的个人数据传输到数据输入者时，为个人的隐私、基本权利和自由提供充分保障。
 
 ### 第 1 条：定义
 
 <ol style="list-style-type:lower-alpha" class="no-styling">
-    <li>'personal data', 'special categories of data', 'process/processing', 'controller', 'processor', 'data subject' and 'supervisory authority' shall have the same meaning as in Directive 95/46/EC of the European Parliament and of the Council of 24 October 1995 on the protection of individuals with regard to the processing of personal data and on the free movement of such data;</li>
-    <li>'the data exporter' means the controller who transfers the personal data;</li>
-    <li>'the data importer' means the processor who agrees to receive from the data exporter personal data intended for processing on his behalf after the transfer in accordance with his instructions and the terms of the Clauses and who is not subject to a third country's system ensuring adequate protection within the meaning of Article 25(1) of Directive 95/46/EC;</li>
-    <li>'the subprocessor' means any processor engaged by the data importer or by any other subprocessor of the data importer who agrees to receive from the data importer or from any other subprocessor of the data importer personal data exclusively intended for processing activities to be carried out on behalf of the data exporter after the transfer in accordance with his instructions, the terms of the Clauses and the terms of the written subcontract;</li>
-    <li>'the applicable data protection law' means the legislation protecting the fundamental rights and freedoms of individuals and, in particular, their right to privacy with respect to the processing of personal data applicable to a data controller in the Member State in which the data exporter is established;</li>
-    <li>'technical and organisational security measures' means those measures aimed at protecting personal data against accidental or unlawful destruction or accidental loss, alteration, unauthorised disclosure or access, in particular where the processing involves the transmission of data over a network, and against all other unlawful forms of processing.</li>
+    <li>“个人数据”、“特殊数据类别”、“处理”、“控制方”、“处理方”、“数据主体”和“监管机构”的含义应与 1995 年 10 月 24 日欧洲议会和理事会关于在个人数据处理和此类数据自由流动方面保护个人的第 95/46/EC 号指令相同；</li>
+    <li>“数据输出者”是指传输个人数据的控制方；</li>
+    <li>“数据输入者”是指从数据输出者接收个人数据，并在数据转移后，根据数据输出者的指示和条款规定代表其处理此类数据的处理方，并且不受第三国系统的约束，确保数据根据指令 95/46/EC 第 25(1) 条的规定得到充分保护。</li>
+    <li>“子处理方”是指数据输入者或数据输入者的任何其他子处理方雇佣的任何处理方，他们从数据输入者或数据输入者的任何其他子处理方接收个人数据，并在数据传输后，根据其指示、条款规定以及书面分包合同的条款代表其执行数据处理活动；</li>
+    <li>“适用的数据保护法”是指保护个人基本权利和自由的立法，尤其是保护个人在处理个人数据方面的隐私权，适用于数据输出者所在成员国的数据控制方；</li>
+    <li>“技术和组织安全措施”是指旨在保护个人数据不受意外或非法破坏或意外丢失、更改、未经授权披露或访问的措施，尤其是涉及网络数据传输的处理以及针对所有其他非法处理方式。</li>
 </ol>
 
 ### 第 2 条：转移细节
@@ -753,16 +753,16 @@ For the purposes of Article 26(2) of Directive 95/46/EC for the transfer of pers
 数据出口方同意并保证：
 
 <ol style="list-style-type:lower-alpha" class="no-styling">
-    <li>that the processing, including the transfer itself, of the personal data has been and will continue to be carried out in accordance with the relevant provisions of the applicable data protection law (and, where applicable, has been notified to the relevant authorities of the Member State where the data exporter is established) and does not violate the relevant provisions of that State;</li>
-    <li>that it has instructed and throughout the duration of the personal data processing services will instruct the data importer to process the personal data transferred only on the data exporter's behalf and in accordance with the applicable data protection law and the Clauses;</li>
-    <li>that the data importer will provide sufficient guarantees in respect of the technical and organisational security measures specified in Appendix 2 below;</li>
-    <li>that after assessment of the requirements of the applicable data protection law, the security measures are appropriate to protect personal data against accidental or unlawful destruction or accidental loss, alteration, unauthorised disclosure or access, in particular where the processing involves the transmission of data over a network, and against all other unlawful forms of processing, and that these measures ensure a level of security appropriate to the risks presented by the processing and the nature of the data to be protected having regard to the state of the art and the cost of their implementation;</li>
-    <li>that it will ensure compliance with the security measures;</li>
-    <li>that, if the transfer involves special categories of data, the data subject has been informed or will be informed before, or as soon as possible after, the transfer that its data could be transmitted to a third country not providing adequate protection within the meaning of Directive 95/46/EC;</li>
-    <li>to forward any notification received from the data importer or any subprocessor pursuant to Clause 5(b) and Clause 8(3) to the data protection supervisory authority if the data exporter decides to continue the transfer or to lift the suspension;</li>
-    <li>to make available to the data subjects upon request a copy of the Clauses, with the exception of Appendix 2, and a summary description of the security measures, as well as a copy of any contract for subprocessing services which has to be made in accordance with the Clauses, unless the Clauses or the contract contain commercial information, in which case it may remove such commercial information;</li>
-    <li>that, in the event of subprocessing, the processing activity is carried out in accordance with Clause 11 by a subprocessor providing at least the same level of protection for the personal data and the rights of data subject as the data importer under the Clauses; and</li>
-    <li>that it will ensure compliance with Clause 4(a) to (i).</li>
+    <li>个人数据的处理，包括数据传输过程，已经并将继续按照适用的数据保护法的相关规定进行（并且在适用的情况下通知数据输出者所在成员国的相关当局），并且不违反该国有关规定；</li>
+    <li>已指示并将在个人数据处理服务期间指示数据输入者，仅代表数据输出者并根据适用的数据保护法和本条款来处理所传输的个人数据；</li>
+    <li>数据输入者将为下文附录 2 中规定的技术和组织安全措施提供充分保证；</li>
+    <li>在评估了适用数据保护法的要求后，安全措施适用于保护个人数据，使其免受意外或非法破坏或意外丢失、更改、未经授权的披露或访问，尤其是涉及网络数据传输的处理以及针对所有其他非法处理方式，并在考虑到最新技术和实施成本的情况下，确保这些措施能够提供与处理所带来的风险和要保护数据的性质相适应的安全水平；</li>
+    <li>确保遵循安全措施；</li>
+    <li>如果数据传输涉及特殊类别的数据，则已经或将在传输之前或之后尽快告知数据主体，其数据可能被传输到指令 95/46/EC 所指的无法提供充分保护的第三国；</li>
+    <li>如果数据输出者决定继续传输或取消中止，则根据第 5(b) 和第 8(3) 条，将从数据输入者或任何子处理方收到的任何通知转发给数据保护监管机构；</li>
+    <li>应要求向数据主体提供条款副本（附录 2 除外）、安全措施概要说明，以及必须根据条款制定的任何子处理服务合同副本，除非条款或合同包含商业信息，在这种情况下，它可以删除这些商业信息；</li>
+    <li>在子处理的情况下，处理活动由子处理方根据第 11 条执行，对个人数据和数据主体的权利提供至少与本条款下数据输入者相同的保护级别；以及</li>
+    <li>确保遵守第 4(a) 至 (i) 条。</li>
 </ol>
 
 ### 第 5 条：数据进口方的义务
@@ -770,21 +770,21 @@ For the purposes of Article 26(2) of Directive 95/46/EC for the transfer of pers
 数据进口方同意并保证：
 
 <ol style="list-style-type:lower-alpha" class="no-styling">
-    <li>to process the personal data only on behalf of the data exporter and in compliance with its instructions and the Clauses; if it cannot provide such compliance for whatever reasons, it agrees to inform promptly the data exporter of its inability to comply, in which case the data exporter is entitled to suspend the transfer of data and/or terminate the contract; </li>
-    <li>that it has no reason to believe that the legislation applicable to it prevents it from fulfilling the instructions received from the data exporter and its obligations under the contract and that in the event of a change in this legislation which is likely to have a substantial adverse effect on the warranties and obligations provided by the Clauses, it will promptly notify the change to the data exporter as soon as it is aware, in which case the data exporter is entitled to suspend the transfer of data and/or terminate the contract;</li>
-    <li>that it has implemented the technical and organisational security measures specified in Appendix 2 before processing the personal data transferred;</li>
-    <li>that it will promptly notify the data exporter about:</li>
+    <li>只代表数据输出者并按照其指示和条款处理个人数据；如果出于任何原因无法提供此类遵循，则迅速将无法遵循的情况通知数据输出者， 在这种情况下，数据输出者有权中止数据传输和/或终止合同； </li>
+    <li>没有理由认为适用于它的法律会阻止它履行从数据输出者那里收到的指示和它在合同下的义务，如果该立法发生变化，可能对条款规定的保证和义务产生重大不利影响，则在知情后立即通知数据输出者，在这种情况下，数据输出者有权中止数据传输和/或终止合同；</li>
+    <li>在处理所传输的个人数据之前，已实施附录 2 中规定的技术和组织安全措施；</li>
+    <li>将以下情况迅速通知数据输出者：</li>
     <ol style="list-style-type:lower-roman" class="no-styling">
-        <li>any legally binding request for disclosure of the personal data by a law enforcement authority unless otherwise prohibited, such as a prohibition under criminal law to preserve the confidentiality of a law enforcement investigation,</li>
-        <li>any accidental or unauthorised access, and</li>
-        <li>any request received directly from the data subjects without responding to that request, unless it has been otherwise authorised to do so;</li>
+        <li>执法机关提出披露个人数据等任何具有法律约束力的要求，除非另有禁止，例如刑法禁止通知以保护执法调查的机密性，</li>
+        <li>任何意外或未经授权的访问，以及</li>
+        <li>直接从数据主体收到的任何请求，但不会对该请求作出回应，除非另有授权；</li>
     </ol>
-    <il>to deal promptly and properly with all inquiries from the data exporter relating to its processing of the personal data subject to the transfer and to abide by the advice of the supervisory authority with regard to the processing of the data transferred;</il>
-    <il>at the request of the data exporter to submit its data processing facilities for audit of the processing activities covered by the Clauses which shall be carried out by the data exporter or an inspection body composed of independent members and in possession of the required professional qualifications bound by a duty of confidentiality, selected by the data exporter, where applicable, in agreement with the supervisory authority;</il>
-    <li>to make available to the data subject upon request a copy of the Clauses, or any existing contract for subprocessing, unless the Clauses or contract contain commercial information, in which case it may remove such commercial information, with the exception of Appendix 2 which shall be replaced by a summary description of the security measures in those cases where the data subject is unable to obtain a copy from the data exporter; </li>
-    <li>that, in the event of subprocessing, it has previously informed the data exporter and obtained its prior written consent;</li>
-    <li>that the processing services by the subprocessor will be carried out in accordance with Clause 11; and</li>
-    <li>to send promptly a copy of any subprocessor agreement it concludes under the Clauses to the data exporter.</li>
+    <il>迅速妥善处理数据输出者就其处理所转移个人数据而提出的所有询问，并遵守监管机构关于处理所传输数据的建议；</il>
+    <il>应数据输出者的要求，提交其数据处理设施，以供审核本条款所涵盖的处理活动，此类审核应由数据输出者或由独立成员组成并拥有受保密义务约束的所需专业资格的检查机构进行，在适用的情况下，经监管机构同意，由数据输出者选择；</il>
+    <li>应要求向数据主体提供条款副本或任何现有的子处理合同，除非条款或合同包含商业信息，在这种情况下，可以删除此类商业信息，但附录 2 除外，在数据主体无法从数据输出者获得副本的情况下应替换为安全措施概要说明； </li>
+    <li>在子处理的情况下，事先通知数据输出者并获得其事先书面同意；</li>
+    <li>子处理方的处理服务将按照第 11 条的规定执行；以及</li>
+    <li>迅速将其根据本条款缔结的任何子处理方协议的副本发送给数据输出者。</li>
 </ol>
 
 ### 第 6 条：赔偿责任
@@ -792,8 +792,8 @@ For the purposes of Article 26(2) of Directive 95/46/EC for the transfer of pers
 <ol style="list-style-type:decimal" class="no-styling">
   <li>双方同意，因任何一方或再处理方违反第 3 条或第 11 条所述义务而遭受损害的任何数据主体，有权就所遭受的损害向数据出口方索取赔偿。</li>
 
-  <li>If a data subject is not able to bring a claim for compensation in accordance with paragraph 1 against the data exporter, arising out of a breach by the data importer or his subprocessor of any of their obligations referred to in Clause 3 or in Clause 11, because the data exporter has factually disappeared or ceased to exist in law or has become insolvent, the data importer agrees that the data subject may issue a claim against the data importer as if it were the data exporter, unless any successor entity has assumed the entire legal obligations of the data exporter by contract of by operation of law, in which case the data subject can enforce its rights against such entity.</br></br>
-  The data importer may not rely on a breach by a subprocessor of its obligations in order to avoid its own liabilities.</li>
+  <li>如果由于数据输入者或其子处理方违反第 3 条或第 11 条所述的任何义务，数据主体无法根据第 1 款向数据输出者提出索赔，其原因是数据输出者事实上已消失或在法律上不复存在或已破产，数据输入者同意，数据主体可以像向数据输出者索赔一样向数据输入者提出索赔，除非任何继承实体通过合同或法律实施承担了数据输出者的全部法律义务，在这种情况下，数据主体可以针对此类实体履行其权利。</br></br>
+  数据输入者不得以子处理方违反其义务为由而推卸自己的责任。</li>
 
   <li>如果由于再处理方违反第 3 条或第 11 条所述的任何义务，数据主体无法根据第 1 和第 2 款向数据出口方或数据进口方提出索赔，其原因是数据出口方和数据进口方均事实上已消失或在法律上不复存在或已破产，再处理方同意，数据主体可以像向数据出口方或数据进口方索赔一样，就再处理方在本条款下的处理业务向其提出索赔，除非任何继承实体通过合同或法律实施承担了数据出口方或数据进口方的全部法律义务，在这种情况下，数据主体可以针对此类实体履行其权利。 再处理方的赔偿责任应限于其在本条款下的处理业务。</li>
 </ol>
@@ -803,8 +803,8 @@ For the purposes of Article 26(2) of Directive 95/46/EC for the transfer of pers
 <ol style="list-style-type:decimal" class="no-styling">
     <li>数据进口方同意，如果数据主体援引第三方受益权和/或根据条款要求赔偿损失，数据进口方将接受数据主体的以下决定：</il>
     <ol style="list-style-type:lower-alpha" class="no-styling">
-        <li>to refer the dispute to mediation, by an independent person or, where applicable, by the supervisory authority;</il>
-        <li>to refer the dispute to the courts in the Member State in which the data exporter is established.</il>
+        <li>将争议交由独立人士调解，或在适用的情况下，由监管机构进行调解；</il>
+        <li>将争议提交给数据输出者所在成员国的法院处理。</il>
     </ol>
     <li>双方同意，数据主体的选择不影响其根据国内法或国际法的其他规定寻求补救的实质性或程序性权利。</il>
 </ol>
@@ -847,130 +847,130 @@ For the purposes of Article 26(2) of Directive 95/46/EC for the transfer of pers
   <li>数据进口方和再处理方保证，将应数据出口方和/或监管机构的要求，提交其数据处理设施以接受第 1 款所述的审核。</li>
 </ol>
 
-### Appendix 1 to the Standard Contractual Clauses (UK)
+### 标准合同条款附录 1（英国）
 
-**Data exporter**: Customer is the data exporter. The data exporter is a user of Online Services or Professional Services as defined in the DPA and GitHub Customer Agreement.
+**数据输出者**：客户是数据输出者。 数据输出者是 DPA 和 GitHub 客户协议中定义的在线服务或专业服务的用户。
 
-**Data importer**: The data importer is GitHub, Inc., a global producer of software and services.
+**数据输入者**：数据输入者是全球软件和服务生产商 GitHub, Inc.。
 
-**Data subjects**: Data subjects include the data exporter’s representatives and end-users including employees, contractors, collaborators, and customers of the data exporter. Data subjects may also include individuals attempting to communicate or transfer personal data to users of the services provided by data importer. GitHub acknowledges that, depending on Customer’s use of the Online Service or Professional Services, Customer may elect to include personal data from any of the following types of data subjects in the personal data:
+**数据主体**：数据主体是数据输出者的代表和最终用户，包括数据输出者的员工、承包商、协作者和客户。 数据主体还可能包括试图将个人数据传达或传输给数据输入者所提供服务的用户的个人。 GitHub 承认，根据客户对在线服务或专业服务的使用情况，客户可以选择在个人数据中包含来自以下任何类型的数据主体的个人数据：
 - 数据出口方的员工、承包商和临时工（现任、前任、未来）；
 - 数据出口方的协作者/联系人（自然人）或法律实体协作者/联系人的员工、承包商或临时工（现任、未来、前任）；
-- Users and other data subjects that are users of data exporter's services;
-- Partners, stakeholders or individuals who actively collaborate, communicate or otherwise interact with employees of the data exporter and/or use communication tools such as apps and websites provided by the data exporter.
+- 作为数据输出者服务的用户和其他数据主体;
+- 合作伙伴、利益相关者或与数据出口方的员工积极协作、交流或以其他方式互动的个人和/或使用数据出口方提供的应用程序和网站等沟通工具的个人。
 
-**Categories of data**: The personal data transferred that is included in e-mail, documents and other data in an electronic form in the context of the Online Services or Professional Services. GitHub acknowledges that, depending on Customer’s use of the Online Service or Professional Services, Customer may elect to include personal data from any of the following categories in the personal data:
-- Basic personal data (for example place of birth, street name and house number (address), postal code, city of residence, country of residence, mobile phone number, first name, last name, initials, email address, gender, date of birth);
-- Authentication data (for example user name, password or PIN code, security question, audit trail);
-- Contact information (for example addresses, email, phone numbers, social media identifiers; emergency contact details);
-- Unique identification numbers and signatures (for example IP addresses, employee number, student number);
-- Pseudonymous identifiers;
-- Photos, video and audio;
-- Internet activity (for example browsing history, search history, reading and viewing activities);
-- Device identification (for example IMEI-number, SIM card number, MAC address);
-- Profiling (for example based on observed criminal or anti-social behavior or pseudonymous profiles based on visited URLs, click streams, browsing logs, IP-addresses, domains, apps installed, or profiles based on marketing preferences);
-- Special categories of data as voluntarily provided by data subjects (for example racial or ethnic origin, political opinions, religious or philosophical beliefs, trade union membership, genetic data, biometric data for the purpose of uniquely identifying a natural person, data concerning health, data concerning a natural person’s sex life or sexual orientation, or data relating to criminal convictions or offences); or
-- Any other personal data identified in Article 4 of the GDPR.
+**数据类别**：在线服务或专业服务范围内，以电子形式包含在电子邮件、文档和其他数据中的所传输个人数据。 GitHub 承认，根据客户对在线服务或专业服务的使用情况，客户可以选择在个人数据中包含以下任何类别的个人数据：
+- 基本个人数据（例如出生地、街道名称和门牌号（地址）、邮政编码、居住城市、居住国、手机号码、名字、姓氏、姓名首字母缩写、电子邮件地址、性别、出生日期）;
+- 身份验证数据（例如用户名、密码或 PIN 码、安全问题、审计跟踪）;
+- 联系信息（例如地址、电子邮件、电话号码、社交媒体标识符；紧急联系方式）;
+- 唯一的标识号和签名（例如 IP 地址、员工编号、学生编号）;
+- 假名标识符；
+- 照片、视频和音频；
+- 互联网活动（例如浏览历史记录、搜索历史记录、阅读和查看活动）;
+- 设备标识（例如 IMEI 号码、SIM 卡号码、MAC 地址）;
+- 分析（例如，基于观察到的犯罪或反社会行为，或基于访问的 URL、点击流、浏览日志、IP 地址、域、安装的应用程序的假名个人资料，或基于营销偏好的个人资料）;
+- 数据主体自愿提供的特殊类别的数据（例如种族或民族血统、政治观点、宗教或哲学信仰、工会会员资格、遗传数据、用于唯一识别自然人的生物特征数据、有关健康的数据、有关自然人的性生活或性取向的数据，或与刑事定罪或犯罪有关的数据）；或
+- GDPR 第 4 条中确定的任何其他个人数据。
 
-**Processing operations**: The personal data transferred will be subject to the following basic processing activities:
+**处理操作**：传输的个人数据将受到以下基本处理活动的约束：
 
 <ol style="list-style-type:lower-alpha" class="no-styling">
-    <li><b>Duration and Object of Data Processing.</b> The duration of data processing shall be for the term designated under the applicable GitHub Customer Agreement between data exporter and data importer. The objective of the data processing is the performance of Online Services and Professional Services.</li>
-    <li><b>Scope and Purpose of Data Processing.</b> The scope and purpose of processing personal data is described in the “Processing of Personal Data; GDPR” section of the DPA. The data importer operates a global network of data centers and management/support facilities, and processing may take place in any jurisdiction where data importer or its sub-processors operate such facilities in accordance with the “Security Practices and Policies” section of the DPA.</li>
-    <li><b>Personal Data Access.</b> For the term designated under the applicable GitHub Customer Agreement data importer will at its election and as necessary under applicable law, either: (1) provide data exporter with the ability to correct, delete, or block personal data, or (2) make such corrections, deletions, or blockages on its behalf.</li>
-    <li><b>Data Exporter’s Instructions.</b> For Online Services and Professional Services, data importer will only act upon data exporter’s instructions as conveyed by GitHub.</li>
-    <li><b>Personal Data Deletion or Return.</b> Upon expiration or termination of data exporter’s use of Online Services or Professional Services, it may extract personal data and data importer will delete personal data, each in accordance with the DPA Terms applicable to the agreement.</li>
+    <li><b>数据处理的持续时间和对象。</b>数据处理的持续时间应为数据输出者和数据输入者之间适用的 GitHub 客户协议中指定的期限。 数据处理的目标是执行在线服务和专业服务。</li>
+    <li><b>数据处理的范围。</b>处理个人数据的范围和目的在本 DPA 的“个人数据的处理；GDPR“部分描述。 数据输入者运营数据中心和管理/支持设施的全球网络，可以在数据输入者或其子处理方根据 DPA 的“安全实践和政策”部分运营此类设施的任何司法管辖区进行处理。</li>
+    <li><b>个人数据访问。</b>对于适用的 GitHub 客户协议指定的期限，数据输入者将根据其选择并根据适用法律的必要条件：(1) 向数据输出者提供更正、删除或阻止个人数据的能力，或 (2) 代表其进行此类更正、删除或阻止。</li>
+    <li><b>数据输出者的指示。</b> 对于在线服务和专业服务，数据输入者严格按照 GitHub 传达的数据输出者的指示执行操作。</li>
+    <li><b>个人数据的删除或传回。</b>在数据输出者使用在线服务或专业服务到期或终止后，它可能会提取个人数据，数据输入者将根据适用于本协议的 DPA 条款删除个人数据。</li>
 </ol>
 
-**Subcontractors**: In accordance with the DPA, the data importer may hire other companies to provide limited services on data importer’s behalf, such as providing customer support. Any such subcontractors will be permitted to obtain personal data only to deliver the services the data importer has retained them to provide, and they are prohibited from using personal data for any other purpose.
+**分包商**：根据 DPA，数据进口方可以雇佣其他公司代表他们提供有限的服务，例如提供客户支持。 任何此类分包商将被允许获取个人数据，仅用于提供数据输入者委托他们提供的服务，并且禁止他们将个人数据用于任何其他目的。
 
-### Appendix 2 to the Standard Contractual Clauses (UK)
+### 标准合同条款附录 2（英国）
 
 数据进口方根据第 4(d) 和 5(c) 条实施的技术和组织安全措施的说明：
 
 <ol style="list-style-type:decimal" class="no-styling">
-  <li><b>Personnel.</b> Data importer’s personnel will not process personal data without authorization. Personnel are obligated to maintain the confidentiality of any such personal data and this obligation continues even after their engagement ends.</li>
+  <li><b>人员。</b>数据输入者的人员未经授权不得处理客户个人数据。 工作人员有义务对任何此类个人数据保密，即使在其约定结束后，此义务也将继续存在。</li>
 
-  <li><b>Data Privacy Contact.</b> The data privacy officer of the data importer can be reached at the following address:</br>
+  <li><b>数据隐私联系人。</b>数据输入者的数据隐私专员的联系地址如下：</br>
 GitHub, Inc.</br>
 Attn: Privacy</br>
 88 Colin P. Kelly Jr. Street</br>
 San Francisco, California 94107 USA</br></li>
 
-  <li><b>Technical and Organization Measures.</b> The data importer has implemented and will maintain appropriate technical and organizational measures, internal controls, and information security routines intended to protect personal data, as defined in the Security Practices and Policies section of the DPA, against accidental loss, destruction, or alteration; unauthorized disclosure or access; or unlawful destruction as follows: The technical and organizational measures, internal controls, and information security routines set forth in the Security Practices and Policies section of the DPA are hereby incorporated into this Appendix 2 by this reference and are binding on the data importer as if they were set forth in this Appendix 2 in their entirety.</li>
+  <li><b>技术和组织措施。</b> 数据输入者已实施并将维护适当的技术和组织措施、内部控制和信息安全例程，旨在保护个人数据（如 DPA 的“安全实践和政策”部分所定义）免遭意外丢失、破坏或更改；未经授权的披露或访问; 或非法销毁如下：DPA 的“安全实践和政策”部分中规定的技术和组织措施、内部控制和信息安全例程特此通过此引用并入本附录 2，并且对数据输入者具有约束力，就好像它们完全在本附录 2 中规定的那样。</li>
 </ol>
 
-### Appendix 3 to the Standard Contractual Clauses (UK)
+### 标准合同条款附录 3（英国）
 
-**Additional Safeguards Addendum**
+**附加保障措施附录**
 
-By this Additional Safeguards Addendum to Standard Contractual Clauses (UK) (this “Addendum”), GitHub, Inc. (“GitHub”) provides additional safeguards to Customer and additional redress to the data subjects to whom Customer’s personal data relates.
+通过标准合同条款（英国）的附加保障措施附录（本“附录”），GitHub, Inc. (“GitHub”) 为客户提供了额外的保护措施，并为与客户个人数据相关的数据主体提供了额外的补救措施。
 
-This Addendum supplements and is made part of, but is not in variation or modification of, the Standard Contractual Clauses (UK).
+本附录是对标准合同条款（英国）的补充，并构成其一部分，但并非变更或修改。
 
 <ol style="list-style-type:decimal" class="no-styling">
-    <li><u><b>Challenges to Orders</b></u>. In addition to Clause 5(d)(i) of the Standard Contractual Clauses (UK), in the event GitHub receives an order from any third party for compelled disclosure of any personal data that has been transferred under the Standard Contractual Clauses (UK), GitHub shall:</li>
+    <li><u><b>命令质询</b></u>。 除了标准合同条款（英国）第 5(d)(i) 条之外，如果 GitHub 收到任何第三方的订单，要求强制披露根据标准合同条款（英国）传输的任何个人数据，GitHub 应：</li>
     <ol style="list-style-type:lower-alpha" class="no-styling">
-        <li>use every reasonable effort to redirect the third party to request data directly from Customer;</li>
-        <li>promptly notify Customer, unless prohibited under the law applicable to the requesting third party, and, if prohibited from notifying Customer, use all lawful efforts to obtain the right to waive the prohibition in order to communicate as much information to Customer as soon as possible; and</li>
-        <li>use all lawful efforts to challenge the order for disclosure on the basis of any legal deficiencies under the laws of the requesting party or any relevant conflicts with the law of the European Union or applicable Member State law.</li>
+        <li>尽一切合理努力将第三方重定向到直接向客户请求数据；</li>
+        <li>及时通知客户，除非适用法律禁止给请求的第三方，如果禁止通知客户，请尽一切合法努力获得放弃禁令的权利，以便尽快向客户传达尽可能多的信息；和</li>
+        <li>根据请求方法律存在的任何法律缺陷或与欧盟法律或适用成员国法律的任何相关冲突，尽一切合法努力对披露令提出质询。</li>
     </ol></br>
-    For purpose of this section, lawful efforts do not include actions that would result in civil or criminal penalty such as contempt of court under the laws of the relevant jurisdiction. 
-    <li><u><b>Indemnification of Data Subjects</b></u>. Subject to Sections 3 and 4, GitHub shall indemnify a data subject for any material or non-material damage to the data subject caused by GitHub’s disclosure of personal data of the data subject that has been transferred under the Standard Contractual Clauses (UK) in response to an order from a non-EU/EEA government body or law enforcement agency (a “Relevant Disclosure”). Notwithstanding the foregoing, GitHub shall have no obligation to indemnify the data subject under this Section 2 to the extent the data subject has already received compensation for the same damage, whether from GitHub or otherwise.</li>
-    <li><u><b>Conditions of Indemnification</b></u>. Indemnification under Section 2 is conditional upon the data subject establishing, to GitHub’s reasonable satisfaction, that:</li>
+    就本节而言，合法努力不包括根据相关司法管辖区的法律可能导致民事或刑事处罚的行为，例如藐视法庭。 
+    <li><u><b>对数据主体的补偿</b></u>。 根据第 3 节和第 4 节的规定，GitHub 应赔偿数据主体因 GitHub 披露根据标准合同条款（英国）传输的数据主体的个人数据（“相关披露”）而对数据主体造成的任何重大或非重大损害。 尽管有上述规定，但在数据主体已从 GitHub 或其他方面获得相同损害的赔偿的范围内，GitHub 没有义务根据本第 2 节对数据主体进行赔偿。</li>
+    <li><u><b>补偿条件</b></u>。 第 2 节规定的补偿条件是数据主体在 GitHub 合理满意的情况下证明：</li>
     <ol style="list-style-type:lower-alpha" class="no-styling">
-        <li>GitHub engaged in a Relevant Disclosure;</li>
-        <li>the Relevant Disclosure was the basis of an official proceeding by the non-EU/EEA government body or law enforcement agency against the data subject; and</li>
-        <li>the Relevant Disclosure directly caused the data subject to suffer material or non-material damage.</li>
+        <li>GitHub 参与了相关披露；</li>
+        <li>相关披露是非 EU/EEA 政府机构或执法机构对数据主体提起正式诉讼的基础；以及</li>
+        <li>相关披露直接导致数据主体遭受重大或非物质损害。</li>
     </ol></br>
-    The data subject bears the burden of proof with respect to conditions a. though c.</br>
-    Notwithstanding the foregoing, GitHub shall have no obligation to indemnify the data subject under Section 2 if GitHub establishes that the Relevant Disclosure did not violate its obligations under Chapter V of the GDPR. 
-    <li><u><b>Scope of Damages</b></u>. Indemnification under Section 2 is limited to material and non-material damages as provided in the GDPR and excludes consequential damages and all other damages not resulting from GitHub’s infringement of the GDPR.</li>
-    <li><u><b>Exercise of Rights</b></u>. Rights granted to data subjects under this Addendum may be enforced by the data subject against GitHub irrespective of any restriction in Clauses 3 or 6 of the Standard Contractual Clauses (UK). The data subject may only bring a claim under this Addendum on an individual basis, and not part of a class, collective, group or representative action. Rights granted to data subjects under this Addendum are personal to the data subject and may not be assigned.</li>
-    <li><u><b>Notice of Change</b></u>. In addition to Clause 5(b) of the Standard Contractual Clauses (UK), GitHub agrees and warrants that it has no reason to believe that the legislation applicable to it or its sub-processors, including in any country to which personal data is transferred either by itself or through a sub-processor, prevents it from fulfilling the instructions received from the data exporter and its obligations under this Addendum or the Standard Contractual Clauses (UK) and that in the event of a change in this legislation which is likely to have a substantial adverse effect on the warranties and obligations provided by this Addendum or the Standard Contractual Clauses (UK), it will promptly notify the change to Customer as soon as it is aware, in which case Customer is entitled to suspend the transfer of data and/or terminate the contract.
-    <li><u><b>Termination</b></u>. This Addendum shall automatically terminate if the European Commission, a competent Member State supervisory authority, or an EU or competent Member State court approves a different lawful transfer mechanism that would be applicable to the data transfers covered by the Standard Contractual Clauses (UK) (and if such mechanism applies only to some of the data transfers, this Addendum will terminate only with respect to those transfers) and that does not require the additional safeguards set forth in this Addendum.</br></br>
-    Signing the Standard Contractual Clauses (UK), Appendix 1, Appendix 2 and 
+    数据主体对条件 a. 至 c. 承担举证责任</br>
+    尽管有上述规定，但如果 GitHub 确定相关披露未违反其在 GDPR 第 V 章下的义务，则 GitHub 没有义务根据第 2 节对数据主体进行赔偿。 
+    <li><u><b>损害范围</b></u>。 第 2 节规定的赔偿仅限于 GDPR 中规定的物质和非物质损害，并排除间接损害以及并非因 GitHub 违反 GDPR 而造成的所有其他损害。</li>
+    <li><u><b>权利行使</b></u>。 根据本附录授予数据主体的权利可由数据主体针对 GitHub 强制执行，而不考虑标准合同条款（英国）第 3 条或第 6 条中的任何限制。 数据主体只能根据本附录以个人为基础提出索赔，而不能作为班级、集体、团体或代表诉讼的一部分。 根据本附录授予数据主体的权利是数据主体的个人权利，不得转让。</li>
+    <li><u><b>变更通知</b></u>。 除了标准合同条款（英国）第 5(b) 条之外，GitHub 同意并保证，它没有理由相信适用于其或其子处理方的法律（包括在个人数据由其自身或通过子处理方传输到的任何国家/地区）阻止其履行从数据输出者收到的指示及其在本附录或标准合同条款（英国）下的义务，如果本法律发生变更，可能对本附录或标准合同条款（英国）提供的保证和义务产生重大不利影响，它将在意识到这一变更后立即通知客户，在这种情况下，客户有权暂停数据传输和/或终止合同。
+    <li><u><b>终止</b></u>。 如果欧盟委员会、主管成员国监管机构或欧盟或主管成员国法院批准了适用于标准合同条款（英国）所涵盖的数据传输的不同合法传输机制（以及如果此类机制仅适用于某些数据传输，本附录仅因这些传输而终止），不需要本附录中规定的额外保障措施，则本附录将自动终止。</br></br>
+    签署标准合同条款（英国）、附录 1、附录 2 和 
 </ol>
 
-<p id="attachment3"><h1>Attachment 3 – European Union General Data Protection Regulation Terms</h1></p>
+<p id="attachment3"><h1>附件 3 – 欧盟通用数据保护法规条款</h1></p>
 
-GitHub makes the commitments in these GDPR Related Terms, to all customers effective May 25, 2018. These commitments are binding upon GitHub with regard to Customer regardless of (1) the version of the GitHub Customer Agreement and DPA that is otherwise applicable to any given Online Services subscription or (2) any other agreement that references this attachment.
+GitHub 对这些 GDPR 相关条款中的承诺自 2018 年 5 月 25 日起生效。 这些承诺对 GitHub 具有约束力，无论 (1) 适用于任何给定在线服务订阅的 GitHub 客户协议和 DPA 版本，或 (2) 引用此附件的任何其他协议。
 
-For purposes of these GDPR Related Terms, Customer and GitHub agree that Customer is the controller of Personal Data and GitHub is the processor of such data, except when Customer acts as a processor of Personal Data, in which case GitHub is a subprocessor. These GDPR Related Terms apply to the processing of Personal Data, within the scope of the GDPR, by GitHub on behalf of Customer. These GDPR Related Terms do not limit or reduce any data protection commitments GitHub makes to Customer in the GitHub Customer Agreement or other agreement between GitHub and Customer. These GDPR Related Terms do not apply where GitHub is a controller of Personal Data.
+就这些 GDPR 相关条款而言，客户和 GitHub 同意客户是个人数据的控制方，GitHub 是此类数据的处理方，除非客户充当个人数据的处理方，在这种情况下，GitHub 是子处理方。 这些 GDPR 相关条款适用于 GitHub 代表客户在 GDPR 范围内处理个人数据。 这些 GDPR 相关条款不限制或减少 GitHub 在 GitHub 客户协议或 GitHub 与客户之间的其他协议中对客户做出的任何数据保护承诺。 这些 GDPR 相关条款不适用于 GitHub 是个人数据控制方的情况。
 
-**Relevant GDPR Obligations: Articles 28, 32, and 33**
+**相关 GDPR 义务：第 28、32 和 33 条**
 
 <ol style="list-style-type:decimal" class="no-styling">
-    <li>GitHub shall not engage another processor without prior specific or general written authorisation of Customer. In the case of general written authorisation, GitHub shall inform Customer of any intended changes concerning the addition or replacement of other processors, thereby giving Customer the opportunity to object to such changes. (Article 28(2))</li>
-    <li>Processing by GitHub shall be governed by these GDPR Related Terms under European Union (hereafter “Union”) or Member State law and are binding on GitHub with regard to Customer. The subject-matter and duration of the processing, the nature and purpose of the processing, the type of Personal Data, the categories of data subjects and the obligations and rights of the Customer are set forth in the Customer’s licensing agreement, including these GDPR Related Terms. In particular, GitHub shall:</li>
+    <li>未经客户事先明确或一般书面授权，GitHub 不得聘请其他处理方。 在一般书面授权的情况下，GitHub 应将有关添加或替换其他处理器的任何预期更改通知客户，从而使客户有机会反对此类更改。 （第 28(2) 条）</li>
+    <li>GitHub 的处理应受欧盟（以下简称“联盟”）或成员国法律下的这些 GDPR 相关条款的约束，并且对 GitHub 就客户具有约束力。 处理的主题和持续时间、处理的性质和目的、个人数据的类型、数据主体的类别以及客户的义务和权利均在客户的许可协议（包括这些 GDPR 相关条款）中规定。 特别是，GitHub 应：</li>
     <ol style="list-style-type:lower-alpha" class="no-styling">
-        <li>process the Personal Data only on documented instructions from Customer, including with regard to transfers of Personal Data to a third country or an international organisation, unless required to do so by Union or Member State law to which GitHub is subject; in such a case, GitHub shall inform Customer of that legal requirement before processing, unless that law prohibits such information on important grounds of public interest;</li>
-        <li>ensure that persons authorised to process the Personal Data have committed themselves to confidentiality or are under an appropriate statutory obligation of confidentiality;</li>
-        <li>take all measures required pursuant to Article 32 of the GDPR;</li>
-        <li>respect the conditions referred to in paragraphs 1 and 3 for engaging another processor;</li>
-        <li>taking into account the nature of the processing, assist Customer by appropriate technical and organisational measures, insofar as this is possible, for the fulfilment of the Customer’s obligation to respond to requests for exercising the data subject's rights laid down in Chapter III of the GDPR;</li>
-        <li>assist Customer in ensuring compliance with the obligations pursuant to Articles 32 to 36 of the GDPR, taking into account the nature of processing and the information available to GitHub;</li>
-        <li>at the choice of Customer, delete or return all the Personal Data to Customer after the end of the provision of services relating to processing, and delete existing copies unless Union or Member State law requires storage of the Personal Data;</li>
-        <li>make available to Customer all information necessary to demonstrate compliance with the obligations laid down in Article 28 of the GDPR and allow for and contribute to audits, including inspections, conducted by Customer or another auditor mandated by Customer.</li>
+        <li>仅根据客户书面指示处理个人数据，包括将个人数据传输到第三国或国际组织，除非管辖 GitHub 的联盟或成员国法律要求这样做；在这种情况下，GitHub 应在处理之前告知客户该法律要求，除非该法律以公共利益的重要理由禁止此类信息；</li>
+        <li>确保授权处理个人数据的人员已承诺保密或承担适当的法定保密义务。</li>
+        <li>根据 GDPR 第 32 条采取一切必要措施；</li>
+        <li>遵守第 1 和第 3 段所述的与另一处理方合作的条件；</li>
+        <li>考虑到处理的性质，尽可能通过适当的技术和组织措施协助客户，以履行客户对 GDPR 第 III 章中所述行使数据主体权利的请求做出回应的义务；</li>
+        <li>协助客户确保遵守 GDPR 第 32 至 36 条规定的义务，同时考虑到处理的性质和 GitHub 可获得的信息；</li>
+        <li>根据客户的选择，在与处理相关的服务结束后删除所有个人数据或将其传回给客户，并删除现有副本，除非联盟或成员国法律要求存储个人数据；</li>
+        <li>向客户提供所有必要的信息，以证明遵守 GDPR 第 28 条规定的义务，并允许并有助于客户或客户授权的其他审计员进行的审计，包括检查。</li>
     </ol></br>
-    GitHub shall immediately inform Customer if, in its opinion, an instruction infringes the GDPR or other Union or Member State data protection provisions. (Article 28(3))<br></br>
-    <li>Where GitHub engages another processor for carrying out specific processing activities on behalf of Customer, the same data protection obligations as set out in these GDPR Related Terms shall be imposed on that other processor by way of a contract or other legal act under Union or Member State law, in particular providing sufficient guarantees to implement appropriate technical and organisational measures in such a manner that the processing will meet the requirements of the GDPR. Where that other processor fails to fulfil its data protection obligations, GitHub shall remain fully liable to the Customer for the performance of that other processor's obligations. (Article 28(4))</li>
-    <li>Taking into account the state of the art, the costs of implementation and the nature, scope, context and purposes of processing as well as the risk of varying likelihood and severity for the rights and freedoms of natural persons, Customer and GitHub shall implement appropriate technical and organisational measures to ensure a level of security appropriate to the risk, including inter alia as appropriate:</li>
+    如果 GitHub 认为某项指示违反了 GDPR 或其他联盟或成员国的数据保护规定，应立即通知客户。 （第 28(3) 条）<br></br>
+    <li>如果 GitHub 聘请其他处理方代表客户执行特定处理活动，则应通过合同或联盟或成员国法律规定的其他法律行为，对该其他处理方施加与 GDPR 相关条款中规定的相同数据保护义务，特别是提供足够的保证，以实施适当的技术和组织措施，使处理符合 GDPR。 如果该其他处理方未能履行其数据保护义务，则 GitHub 仍应对客户履行该其他处理方的义务承担全部责任。 （第 28(4) 条）</li>
+    <li>考虑到现有技术、实施成本和处理的性质、范围、背景和目的，以及自然人权利和自由的不同可能性和严重性的风险，客户和 GitHub 应实施适当的技术和组织措施，以确保与风险相适应的安全级别，在适当时尤其包括：</li>
     <ol style="list-style-type:lower-alpha" class="no-styling">
-        <li>the pseudonymisation and encryption of Personal Data;</li>
-        <li>the ability to ensure the ongoing confidentiality, integrity, availability and resilience of processing systems and services;</li>
-        <li>the ability to restore the availability and access to Personal Data in a timely manner in the event of a physical or technical incident; and</li>
-        <li>a process for regularly testing, assessing and evaluating the effectiveness of technical and organisational measures for ensuring the security of the processing. (Article 32(1))</li>
+        <li>个人数据的假名化和加密；</li>
+        <li>确保处理系统和服务的持续机密性、完整性、可用性和弹性的能力；</li>
+        <li>在发生物理或技术事件时及时恢复个人数据的可用性和访问权限的能力；以及</li>
+        <li>定期测试、评估和评价技术和组织措施的有效性以确保处理安全性的过程。 （第 32(1) 条）</li>
     </ol>
-    <li>In assessing the appropriate level of security, account shall be taken of the risks that are presented by processing, in particular from accidental or unlawful destruction, loss, alteration, unauthorised disclosure of, or access to Personal Data transmitted, stored or otherwise processed (Article 32(2)).</li>
-    <li>Customer and GitHub shall take steps to ensure that any natural person acting under the authority of Customer or GitHub who has access to Personal Data does not process them except on instructions from Customer, unless he or she is required to do so by Union or Member State law (Article 32(4)).</li>
-    <li>GitHub shall notify Customer without undue delay after becoming aware of a Personal Data breach (Article 33(2)). Such notification will include that information a processor must provide to a controller under Article 33(3) to the extent such information is reasonably available to GitHub.</li>
+    <li>在评估适当的安全级别时，应考虑处理带来的风险，特别是意外或非法破坏、丢失、更改、未经授权披露或访问传输、存储或以其他方式处理的个人数据（第 32(2) 条）。</li>
+    <li>客户和 GitHub 应采取措施，确保任何在客户或有权访问个人数据的 GitHub 授权下行事的自然人不会处理这些数据（客户指示除外），除非联盟或成员国法律要求他或她这样做（第 32(4) 条）。</li>
+    <li>GitHub 应在发现个人数据泄露后立即通知客户（第 33(2) 条）。 此类通知将包括处理方必须根据第 33(3) 条向控制方提供的信息，前提是此类信息可供 GitHub 合理获取。</li>
 </ol>
 
 ---------------
 
-<p id="EEA">(1) The Agreement on the European Economic Area (EEA Agreement) provides for the extension of the European Union’s internal market to the three EEA States Iceland, Liechtenstein and Norway. The Union data protection legislation, including Regulation (EU) 2016/679, is covered by the EEA Agreement and has been incorporated into Annex XI thereto. Therefore, any disclosure by the data importer to a third party located in the EEA does not qualify as an onward transfer for the purpose of these Clauses.</p>
+<p id="EEA">(1)《欧洲经济区协定》（EEA 协定）规定将欧洲联盟的内部市场扩大到冰岛、列支敦士登和挪威这三个欧洲经济区国家。 欧盟数据保护立法，包括法规 (EU) 2016/679，受欧洲经济区协议的约束，并已纳入其附录 XI。 因此，就本条款而言，数据输入者向位于欧洲经济区的第三方披露的任何信息均不符合向外传输的条件。</p>
 
-<p id="dsr_reqs">(2) This requirement may be satisfied by the sub-processor acceding to these Clauses under the appropriate Module, in accordance with Clause 7. </p>
+<p id="dsr_reqs">(2) 根据第 7 条，在相应模块下加入这些条款的子处理方可以满足此要求。 </p>
 
-<p id="safeguards">(3) As regards the impact of such laws and practices on compliance with these Clauses, different elements may be considered as part of an overall assessment. Such elements may include relevant and documented practical experience with prior instances of requests for disclosure from public authorities, or the absence of such requests, covering a sufficiently representative time-frame. This refers in particular to internal records or other documentation, drawn up on a continuous basis in accordance with due diligence and certified at senior management level, provided that this information can be lawfully shared with third parties. Where this practical experience is relied upon to conclude that the data importer will not be prevented from complying with these Clauses, it needs to be supported by other relevant, objective elements, and it is for the Parties to consider carefully whether these elements together carry sufficient weight, in terms of their reliability and representativeness, to support this conclusion. In particular, the Parties have to take into account whether their practical experience is corroborated and not contradicted by publicly available or otherwise accessible, reliable information on the existence or absence of requests within the same sector and/or the application of the law in practice, such as case law and reports by independent oversight bodies.</p>
+<p id="safeguards">(3) 关于此类法律和惯例对遵守这些条款的影响，可将不同的要素视为总体评估的一部分。 这些要素可包括公共当局以前要求披露或没有此类请求的相关和有案可稽的实践经验，涵盖有充分代表性的时限。 这特别是指内部记录或其他文件，这些文件是根据尽职调查连续起草的，并在高级管理层经过认证，前提是这些信息可以合法地与第三方共享。 如果依靠这一实际经验得出数据输入者遵守这些条款的结论，则需要得到其他相关、客观要素的支持，缔约方应仔细考虑这些要素在可靠性和代表性方面是否具有足够的份量来支持这一结论。 特别是，缔约方必须考虑其实际经验是否得到证实，是否与关于同一部门内是否存在请求和/或实践中法律适用情况的公开可获得或以其他方式可获得的可靠信息相矛盾，例如判例法和独立监督机构的报告。</p>

@@ -22,8 +22,8 @@ Os scripts personalizados são automaticamente acionados quando uma variável de
 
 As linguagens de script a seguir são compatíveis:
 
-- **Bash**: Uses `bash` and can fallback to `sh`. É executado, executando `-e {pathtofile}`.
-- **PowerShell**: Uses `pwsh` and can fallback to `powershell`. Executes by running `-command \". '{pathtofile}'\"`.
+- **Bash**: Usa `bash` e pode retornar para `sh`. É executado, executando `-e {pathtofile}`.
+- **PowerShell**: Usa `pwsh` e pode retornar para `powershell`. Executa `-command \". '{pathtofile}'\"`.
 
 ## Escrevendo os scripts
 

@@ -99,25 +99,22 @@ Puedes utilizar el comando `set-output` en tu flujo de trabajo para configurar e
 
 La siguiente tabla muestra qué funciones del toolkit se encuentran disponibles dentro de un flujo de trabajo:
 
-| Funcion del Toolkit   | Comando equivalente del flujo de trabajo                              |
-| --------------------- | --------------------------------------------------------------------- |
-| `core.addPath`        | Accesible utilizando el archivo de ambiente `GITHUB_PATH`             |
-| `core.debug`          | `debug` |{% ifversion fpt or ghes > 3.2 or ghae-issue-4929 or ghec %}
+| Funcion del Toolkit   | Comando equivalente del flujo de trabajo                    |
+| --------------------- | ----------------------------------------------------------- |
+| `core.addPath`        | Accesible utilizando el archivo de ambiente `GITHUB_PATH`   |
+| `core.debug`          | `debug` |{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 | `core.notice`         | `notice` 
 {% endif %}
-| `core.error`          | `error`                                                               |
-| `core.endGroup`       | `endgroup`                                                            |
-| `core.exportVariable` | Accesible utilizando el archivo de ambiente `GITHUB_ENV`              |
-| `core.getInput`       | Accesible utilizando la variable de ambiente `INPUT_{NAME}`           |
-| `core.getState`       | Accesible utilizando la variable de ambiente`STATE_{NAME}`            |
-| `core.isDebug`        | Accesible utilizando la variable de ambiente `RUNNER_DEBUG`           |
-| `core.saveState`      | `save-state`                                                          |
-| `core.setCommandEcho` | `echo`                                                                |
-| `core.setFailed`      | Utilizada como un atajo para `::error` y `exit 1`                     |
-| `core.setOutput`      | `set-output`                                                          |
-| `core.setSecret`      | `add-mask`                                                            |
-| `core.startGroup`     | `grupo`                                                               |
-| `core.warning`        | `advertencia`                                                         |
+| `core.error`          | `error`                                                     |
+| `core.endGroup`       | `endgroup`                                                  |
+| `core.exportVariable` | Accesible utilizando el archivo de ambiente `GITHUB_ENV`    |
+| `core.getInput`       | Accesible utilizando la variable de ambiente `INPUT_{NAME}` |
+| `core.getState`       | Accesible utilizando la variable de ambiente`STATE_{NAME}`  |
+| `core.isDebug`        | Accesible utilizando la variable de ambiente `RUNNER_DEBUG` |
+{%- ifversion actions-job-summaries %}
+| `core.summary` | Se puede acceder a este utilizando la variable de ambiente `GITHUB_STEP_SUMMARY` |
+{%- endif %}
+| `core.saveState`  | `save-state` | | `core.setCommandEcho` | `echo` | | `core.setFailed`  | Se utiliza como un atajo para `::error` y `exit 1` | | `core.setOutput`  | `set-output` | | `core.setSecret`  | `add-mask` | | `core.startGroup` | `group` | | `core.warning`    | `warning` |
 
 ## Configurar un parámetro de salida
 
@@ -173,7 +170,7 @@ Write-Output "::debug::Set the Octocat variable"
 
 {% endpowershell %}
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4929 or ghec %}
+{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 
 ## Configurar un mensaje de aviso
 
@@ -233,7 +230,7 @@ Write-Output "::warning file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 
 ## Configurar un mensaje de error
 
-Crea un mensaje de error e imprime el mensaje en el registro {% data reusables.actions.message-annotation-explanation %}
+Crea un mensaje de error e imprime el mensaje en el registro. {% data reusables.actions.message-annotation-explanation %}
 
 ```{:copy}
 ::error file={name},line={line},endLine={endLine},title={title}::{message}
@@ -310,7 +307,7 @@ jobs:
 ::add-mask::{value}
 ```
 
-El enmascaramiento de un valor impide que una cadena o variable se imprima en el registro. Cada palabra enmascarada separada por un espacio en blanco se reemplaza con el carácter `*`. Puedes usar una variable de entorno o cadena para el `valor` de la máscara. When you mask a value, it is treated as a secret and will be redacted on the runner. For example, after you mask a value, you won't be able to set that value as an output.
+El enmascaramiento de un valor impide que una cadena o variable se imprima en el registro. Cada palabra enmascarada separada por un espacio en blanco se reemplaza con el carácter `*`. Puedes usar una variable de entorno o cadena para el `valor` de la máscara. Cuando enmascaras un valor, se le trata como un secreto y se redactará en el ejecutor. Por ejemplo, después de que enmascaras un valor, no podrás configurarlo como una salida.
 
 ### Ejemplo: Enmascarar una secuencia
 
@@ -368,7 +365,7 @@ jobs:
 
 ## Detener e iniciar comandos de flujo de trabajo
 
-Deja de procesar cualquier comando de flujo de trabajo. Este comando especial te permite registrar lo que sea sin ejecutar accidentalmente un comando de flujo de trabajo. Por ejemplo, podrías dejar de registrar para producir un script completo que tenga comentarios.
+Detiene el procesamiento de cualquier comando de flujo de trabajo. Este comando especial te permite registrar cualquier cosa sin ejecutar accidentalmente un comando de flujo de trabajo. Por ejemplo, podrías dejar de registrar para producir un script completo que tenga comentarios.
 
 ```{:copy}
 ::stop-commands::{endtoken}
@@ -563,14 +560,16 @@ echo "{environment_variable_name}={value}" >> $GITHUB_ENV
 {% powershell %}
 
 - Utilizar PowerShell versión 6 y superior:
-```pwsh{:copy}
-"{environment_variable_name}={value}" >> $env:GITHUB_ENV
-```
+
+  ```pwsh{:copy}
+  "{environment_variable_name}={value}" >> $env:GITHUB_ENV
+  ```
 
 - Utilizar PowerShell versión 5.1 e inferior:
-```powershell{:copy}
-"{environment_variable_name}={value}" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
-```
+
+  ```powershell{:copy}
+  "{environment_variable_name}={value}" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+  ```
 
 {% endpowershell %}
 
@@ -626,7 +625,7 @@ Para las secuencias de lìnea mùltiple, puedes utilizar un delimitador con la s
 
 #### Ejemplo
 
-This example uses `EOF` as a delimiter, and sets the `JSON_RESPONSE` environment variable to the value of the `curl` response.
+Este ejemplo utiliza `EOF` como un delimitador y configura la variable de ambiente `JSON_RESPONSE` al valor de la respuesta de `curl`.
 
 {% bash %}
 
@@ -657,6 +656,150 @@ steps:
 
 {% endpowershell %}
 
+{% ifversion actions-job-summaries %}
+
+## Agregar un resumen del job
+
+{% bash %}
+
+```bash{:copy}
+echo "{markdown content}" >> $GITHUB_STEP_SUMMARY
+```
+
+{% endbash %}
+
+{% powershell %}
+
+```pwsh{:copy}
+"{markdown content}" >> $env:GITHUB_STEP_SUMMARY
+```
+
+{% endpowershell %}
+
+Puedes configurar algo de lenguaje de marcado personalizado para cada job, para que se muestre en la página de resumen de una ejecución de flujo de trabajo. Puedes utilizar resúmenes de jobs para mostrar y agrupar contenido único, tal como resúmenes de resultados de prueba, para que quien sea que esté viendo dicho resultado de una ejecución de flujo de trabajo no necesite ir a las bitácoras para ver la información importante relacionada con la ejecución, tal como las fallas.
+
+Los resúmenes de jobs son compatibles con [el lenguaje de marcado enriquecido de {% data variables.product.prodname_dotcom %}](https://github.github.com/gfm/) y puedes agregar tu contenido de lenguaje de marcado para un paso al archivo de ambiente de `GITHUB_STEP_SUMMARY`. El `GITHUB_STEP_SUMMARY` es único para cada paso en un job. Para obtener más información sobre el archivo por paso al que referencia el `GITHUB_STEP_SUMMARY`, consulta la sección "[Archivos de ambiente](#environment-files)".
+
+Cuando finaliza un job, los resúmenes de todos los pasos en este se agrupan en un solo resumen de job y se muestran en la página de resumen de la ejecución de flujo de trabajo. Si varios jobs generan resúmenes, estos se ordenarán de acuerdo al tiempo de finalización de cada job.
+
+### Ejemplo
+
+{% bash %}
+
+```bash{:copy}
+echo "### Hello world! :rocket:" >> $GITHUB_STEP_SUMMARY
+```
+
+{% endbash %}
+
+{% powershell %}
+
+```pwsh{:copy}
+"### Hello world! :rocket:" >> $env:GITHUB_STEP_SUMMARY
+```
+
+{% endpowershell %}
+
+![Ejemplo de resumen en lenguaje de marcado](/assets/images/actions-job-summary-simple-example.png)
+
+### Contenido de lenguaje de marcado de línea múltiple
+
+Para el contenido de lenguaje de marcado de línea múltiple, puedes utilizar `>>` para anexar contenido para el paso actual contínuamente. Con cada operación de anexado, se agregará un carácter de línea nueva automáticamente.
+
+#### Ejemplo
+
+{% bash %}
+
+```yaml
+- name: Generate list using Markdown
+  run: |
+    echo "This is the lead in sentence for the list" >> $GITHUB_STEP_SUMMARY
+    echo "" >> $GITHUB_STEP_SUMMARY # this is a blank line
+    echo "- Lets add a bullet point" >> $GITHUB_STEP_SUMMARY
+    echo "- Lets add a second bullet point" >> $GITHUB_STEP_SUMMARY
+    echo "- How about a third one?" >> $GITHUB_STEP_SUMMARY
+```
+
+{% endbash %}
+
+{% powershell %}
+
+```yaml
+- name: Generate list using Markdown
+  run: |
+    "This is the lead in sentence for the list" >> $env:GITHUB_STEP_SUMMARY
+    "" >> $env:GITHUB_STEP_SUMMARY # this is a blank line
+    "- Lets add a bullet point" >> $env:GITHUB_STEP_SUMMARY
+    "- Lets add a second bullet point" >> $env:GITHUB_STEP_SUMMARY
+    "- How about a third one?" >> $env:GITHUB_STEP_SUMMARY
+```
+
+{% endpowershell %}
+
+### Sobrescribir resúmenes de job
+
+Para limpiar todo el contenido del paso actual, puedes utilizar `>` para sobrescribir cualquier contenido que se haya agregado previamente.
+
+#### Ejemplo
+
+{% bash %}
+
+```yaml
+- name: Overwrite Markdown
+  run: |
+    echo "Adding some Markdown content" >> $GITHUB_STEP_SUMMARY
+    echo "There was an error, we need to clear the previous Markdown with some new content." > $GITHUB_STEP_SUMMARY
+```
+
+{% endbash %}
+
+{% powershell %}
+
+```yaml
+- name: Overwrite Markdown
+  run: |
+    "Adding some Markdown content" >> $env:GITHUB_STEP_SUMMARY
+    "There was an error, we need to clear the previous Markdown with some new content." > $env:GITHUB_STEP_SUMMARY
+```
+
+{% endpowershell %}
+
+### Eliminar los resúmenes de job
+
+Para eliminar un resumen por completo para el paso actual, el archivo que referencia `GITHUB_STEP_SUMMARY` puede borrarse.
+
+#### Ejemplo
+
+{% bash %}
+
+```yaml
+- name: Delete all summary content
+  run: |
+    echo "Adding Markdown content that we want to remove before the step ends" >> $GITHUB_STEP_SUMMARY
+    rm $GITHUB_STEP_SUMMARY
+```
+
+{% endbash %}
+
+{% powershell %}
+
+```yaml
+- name: Delete all summary content
+  run: |
+    "Adding Markdown content that we want to remove before the step ends" >> $env:GITHUB_STEP_SUMMARY
+    rm $env:GITHUB_STEP_SUMMARY
+```
+
+{% endpowershell %}
+
+Después de que se complete un paso, se cargan los resúmenes de job y los pasos subsecuentes no pueden modificar el contenido de lenguaje de mrcado que se haya cargado previamente. Los resúmenes enmascaran automáticamente cualquier secreto que pudiera haberse agregado por accidente. Si un resumen de job contiene información sensible que debe borrarse, puedes borrar toda la ejecución de flujo de trabajo para eliminar todos sus resúmenes de job. Para obtener más información, consulta la sección "[Borrar una ejecución de flujo de trabajo](/actions/managing-workflow-runs/deleting-a-workflow-run)".
+
+### Límites y aislamiento de pasos
+
+Los resúmenes de datos se aíslan entre pasos y cada uno de ellos se restringe a un tamaño máximo de 1MiB. S requiere aislamiento entre los pasos para que el lenguaje de marcado potencialmente mal formado de un solo paso no interrumpa la representación del lenguaje de marcado para los pasos subsecuentes. Si se agrega más de 1 MiB de contenido para un paso, entonces la carga del paso fallará y se creará un error de anotación. Las fallas de carga de los resúmenes de jobs no afectan el estado general de un paso o job. Por cada job se muestran 20 resúmenes de job de los pasos.
+
+{% endif %}
+
 ## Agregar una ruta de sistema
 
 Antepone un directorio a la variable de sistema `PATH` y la hace disponible automáticamente para todas las acciones subsecuentes en el job actual; la acción que se está ejecutando actualmente no puede acceder a la variable de ruta actualizada. Para ver las rutas definidas actualmente para tu job, puedes utilizar `echo "$PATH"` en un paso o en una acción.
@@ -678,9 +821,9 @@ echo "{path}" >> $GITHUB_PATH
 
 ### Ejemplo
 
-Este ejemplo demuestra cómo agregar el directorio `$HOME/.local/bin` del usuario al `PATH`:
-
 {% bash %}
+
+Este ejemplo demuestra cómo agregar el directorio `$HOME/.local/bin` del usuario al `PATH`:
 
 ```bash{:copy}
 echo "$HOME/.local/bin" >> $GITHUB_PATH
@@ -688,10 +831,9 @@ echo "$HOME/.local/bin" >> $GITHUB_PATH
 
 {% endbash %}
 
-
-This example demonstrates how to add the user `$env:HOMEPATH/.local/bin` directory to `PATH`:
-
 {% powershell %}
+
+Este ejemplo demuestra cómo agregar el directorio `$env:HOMEPATH/.local/bin` a `PATH`:
 
 ```pwsh{:copy}
 "$env:HOMEPATH/.local/bin" >> $env:GITHUB_PATH

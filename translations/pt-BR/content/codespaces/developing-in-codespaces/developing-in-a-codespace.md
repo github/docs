@@ -33,7 +33,7 @@ shortTitle: Desenvolver em um codespace
 4. Painéis - É aqui que você pode visualizar as informações de saída e depuração, bem como o local padrão para o Terminal integrado.
 5. Barra de Status - Esta área fornece informações úteis sobre seu codespace e projeto. Por exemplo, o nome da agência, portas configuradas e muito mais.
 
-Para obter mais informações sobre como usar {% data variables.product.prodname_vscode %}, consulte o [Guia da Interface do Usuário](https://code.visualstudio.com/docs/getstarted/userinterface) na documentação de {% data variables.product.prodname_vscode %}
+Para obter mais informações sobre como usar {% data variables.product.prodname_vscode_shortname %}, consulte o [Guia da Interface do Usuário](https://code.visualstudio.com/docs/getstarted/userinterface) na documentação de {% data variables.product.prodname_vscode_shortname %}
 
 {% data reusables.codespaces.connect-to-codespace-from-vscode %}
 
@@ -54,7 +54,7 @@ Para obter mais informações sobre como usar {% data variables.product.prodname
 
 ### Usando o {% data variables.product.prodname_vscode_command_palette %}
 
-O {% data variables.product.prodname_vscode_command_palette %} permite que você acesse e gerencie muitas funcionalidades para {% data variables.product.prodname_codespaces %} e {% data variables.product.prodname_vscode %}. Para obter mais informações, consulte "[Usando o {% data variables.product.prodname_vscode_command_palette %} em {% data variables.product.prodname_codespaces %}](/codespaces/codespaces-reference/using-the-vs-code-command-palette-in-codespaces)".
+O {% data variables.product.prodname_vscode_command_palette %} permite que você acesse e gerencie muitas funcionalidades para {% data variables.product.prodname_codespaces %} e {% data variables.product.prodname_vscode_shortname %}. Para obter mais informações, consulte "[Usando o {% data variables.product.prodname_vscode_command_palette_shortname %} em {% data variables.product.prodname_codespaces %}](/codespaces/codespaces-reference/using-the-vs-code-command-palette-in-codespaces)".
 
 ## Acessar um codespace existente
 

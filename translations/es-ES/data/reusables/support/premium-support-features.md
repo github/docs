@@ -2,6 +2,11 @@ Adicionalmente a todos los beneficios de {% data variables.contact.enterprise_su
   - Soporte técnico por escrito, en inglés, a través del portal de soporte de 24 horas al día, 7 días a la semana.
   - Soporte vía telefónica a través de solicitud de devolución de llamada, en inglés, o mediante nuestro portal de soporte 24 horas al día, 7 días por semana
   - Un Acuerdo de nivel de servicio (SLA) con tiempos de respuesta iniciales garantizados.
+  - Escalation management
+    - The ability to escalate ticket progression in the {% data variables.contact.enterprise_portal %}
+    - A dedicated team of Incident Coordinators who orchestrate all necessary {% data variables.product.company_short %} parties to resolve urgent tickets
   - Acceso a contenido prémium.
-  - Verificaciones de salud programadas
-  - Horas de asistencia administrativa
+  - Health Checks
+  - Application upgrade assistance: Before you upgrade {% data variables.product.prodname_ghe_server %}, we review your upgrade plans, playbooks, and other documentation and answer questions specific to your environment ({% data variables.product.premium_plus_support_plan %} only)
+  - Cloud planning: Customer Success Managers and Customer Success Architects help you plan your journey to the cloud ({% data variables.product.premium_plus_support_plan %} only)
+  - Technical advisory hours ({% data variables.product.premium_plus_support_plan %} only)

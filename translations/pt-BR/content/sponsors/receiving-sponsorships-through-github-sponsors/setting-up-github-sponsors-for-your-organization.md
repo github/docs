@@ -23,7 +23,7 @@ shortTitle: Configurar para organização
 
 Depois de receber um convite para sua organização ingressar no {% data variables.product.prodname_sponsors %}, você poderá concluir as etapas abaixo para se tornar uma organização patrocinada.
 
-Para se juntar ao {% data variables.product.prodname_sponsors %} como colaborador individual fora de uma organização, consulte "[Configurando o {% data variables.product.prodname_sponsors %} para sua conta de usuário](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account)."
+Para se juntar ao {% data variables.product.prodname_sponsors %} como colaborador individual fora de uma organização, consulte "[Configurando o {% data variables.product.prodname_sponsors %} para sua conta pessoal](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account)."
 
 {% data reusables.sponsors.navigate-to-github-sponsors %}
 {% data reusables.sponsors.view-eligible-accounts %}
@@ -73,8 +73,6 @@ Para obter mais informações sobre como configurar o Stripe Connect usando o Op
 {% data reusables.sponsors.tax-form-information-org %}
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
-{% data reusables.sponsors.settings-tab %}
-{% data reusables.sponsors.country-of-residence %}
 {% data reusables.sponsors.overview-tab %}
 {% data reusables.sponsors.tax-form-link %}
 
@@ -90,5 +88,6 @@ Antes que sua organização possa se tornar uma organização patrocinada, você
 {% data reusables.sponsors.github-review-app %}
 
 ## Leia mais
+
 - [Sobre o {% data variables.product.prodname_sponsors %}](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)"
 - "[Recebendo patrocínio por meio de {% data variables.product.prodname_sponsors %}](/sponsors/receiving-sponsorships-through-github-sponsors)"

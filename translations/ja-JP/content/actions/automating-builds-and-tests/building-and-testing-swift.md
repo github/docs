@@ -65,7 +65,7 @@ jobs:
 
 ### 複数の Swift バージョンを使用する
 
-ビルドマトリックスで Swift の複数のバージョンを使用するようにジョブを設定できます。
+You can configure your job to use multiple versions of Swift in a matrix.
 
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}

@@ -3,7 +3,7 @@ title: 了解您的软件供应链
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: issue-4864
+  ghae: '*'
   ghec: '*'
 topics:
   - Dependency graph
@@ -13,7 +13,10 @@ shortTitle: 了解供应链
 children:
   - /about-supply-chain-security
   - /about-the-dependency-graph
+  - /configuring-the-dependency-graph
+  - /using-the-dependency-submission-api
   - /about-dependency-review
+  - /configuring-dependency-review
   - /exploring-the-dependencies-of-a-repository
   - /troubleshooting-the-dependency-graph
 ---

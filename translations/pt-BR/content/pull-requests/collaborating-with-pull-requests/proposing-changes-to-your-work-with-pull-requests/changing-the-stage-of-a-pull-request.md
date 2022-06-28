@@ -1,6 +1,6 @@
 ---
 title: Alterar o stage de uma pull request
-intro: 'Você pode marcar uma pull request de rascunho como pronta para revisão{% ifversion fpt or ghae or ghes or ghec %} ou converter uma pull request para rascunho{% endif %}.'
+intro: Você pode marcar um pull request como pronto para revisão ou converter um pull request em um rascunho.
 permissions: People with write permissions to a repository and pull request authors can change the stage of a pull request.
 product: '{% data reusables.gated-features.draft-prs %}'
 redirect_from:
@@ -22,19 +22,15 @@ shortTitle: Alterar o estado
 
 {% data reusables.pull_requests.mark-ready-review %}
 
-{% ifversion fpt or ghae or ghes or ghec %}
 {% tip %}
 
 **Dicas**: Você também pode marcar um pull request como pronto para revisão usando {% data variables.product.prodname_cli %}. Para obter mais informações, consulte "[`gh pr ready`](https://cli.github.com/manual/gh_pr_ready)na documentação de {% data variables.product.prodname_cli %}.
 
 {% endtip %}
-{% endif %}
 
 {% data reusables.repositories.sidebar-pr %}
 2. Na lista "Pull requests", clique na pull request que deseja marcar como pronta para revisão.
 3. Na caixa de merge, clique em **Pronto para revisar**. ![Botão Ready for review (Pronta para revisão)](/assets/images/help/pull_requests/ready-for-review-button.png)
-
-{% ifversion fpt or ghae or ghes or ghec %}
 
 ## Convertendo uma pull request em rascunho
 
@@ -44,8 +40,6 @@ Você pode converter uma pull request em rascunho a qualquer momento. Por exempl
 2. Na lista "Pull Requests", clique na pull request que deseja converter em rascunho.
 3. Na barra lateral direita, em "Revisores", clique em **Converter para rascunho**. ![Converter para link de rascunho](/assets/images/help/pull_requests/convert-to-draft-link.png)
 4. Clique em **Converter para rascunho**. ![Converter para confirmação de rascunho](/assets/images/help/pull_requests/convert-to-draft-dialog.png)
-
-{% endif %}
 
 ## Leia mais
 

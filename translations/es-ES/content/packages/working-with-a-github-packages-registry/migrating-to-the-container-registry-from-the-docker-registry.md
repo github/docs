@@ -30,7 +30,7 @@ Después de que migraste las imágenes al {% data variables.product.prodname_con
 El {% data variables.product.prodname_container_registry %} se optimiza para ser compatible con algunas de las necesidades únicas de los contenedores.
 
 Con el {% data variables.product.prodname_container_registry %} puedes:
-- Almacena imágenes de contenedor dentro de tu organización y cuenta de usuario o conéctalas a un repositorio.
+- Almacena las imágenes de contenedor dentro de cuenta personal y de organización o conéctalas a un repositorio.
 - Elige si quieres heredar permisos desde un repositorio o si quieres configurar permisos granulares independientemente de un repositorio.
 - Acceder a imágenes de contenedores públicos anónimamente.
 

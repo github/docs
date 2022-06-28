@@ -27,4 +27,4 @@ Existem diversos usos para a descrição da OpenAPI. Por exemplo, você pode:
 * Validar e testar uma integração da API REST de {% data variables.product.company_short %}.
 * Explorar e interagir com a API REST de {% data variables.product.product_name %}, usando ferramentas de terceiros, como Insomnia ou Postman.
 
-Por exemplo, {% data variables.product.company_short %} usa a descrição da OpenAPI do REST para gerar a [documentação de referência da API REST](/rest/reference) de {% data variables.product.product_name %}.
+Por exemplo, {% data variables.product.company_short %} usa a descrição da OpenAPI do REST para gerar a [documentação de referência da API REST](/rest) de {% data variables.product.product_name %}.

@@ -17,7 +17,7 @@ jobs:
   check_all_english_links:
     name: Check all links
     if: github.repository == 'github/docs-internal'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04-xl
     env:
       GITHUB_TOKEN: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
       FIRST_RESPONDER_PROJECT: Docs content first responder
@@ -25,23 +25,60 @@ jobs:
       REPORT_LABEL: broken link report
       REPORT_REPOSITORY: github/docs-content
     steps:
+      - name: Check that gh CLI is installed
+        run: gh --version
+
       - name: Check out repo's default branch
-        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
+        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
       - name: Setup Node
-        uses: actions/setup-node@1f8c6b94b26d0feae1e387ca63ccbdc44d27b561
+        uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048
         with:
-          node-version: 16.14.x
+          node-version: '16.15.0'
           cache: npm
-      - name: npm ci
+
+      - name: Install dependencies
         run: npm ci
+
       - name: Cache nextjs build
-        uses: actions/cache@937d24475381cd9c75ae6db12cb4e79714b926ed
+        uses: actions/cache@48af2dc4a9e8278b89d7fa154b955c30c6aaab09
         with:
           path: .next/cache
           key: ${{ runner.os }}-nextjs-${{ hashFiles('package*.json') }}
-      - name: npm run build
+
+      - name: Build server
         run: npm run build
+
+      - name: Start server in the background
+        env:
+          NODE_ENV: production
+          PORT: 4000
+          DISABLE_OVERLOAD_PROTECTION: true
+          DISABLE_RENDERING_CACHE: true
+          # We don't want or need the changelog entries in this context.
+          CHANGELOG_DISABLED: true
+          # The default is 10s. But because this runs overnight, we can
+          # be a lot more patient.
+          REQUEST_TIMEOUT: 20000
+          # Don't care about CDN caching image URLs
+          DISABLE_REWRITE_ASSET_URLS: true
+        run: |
+          node server.mjs > /tmp/stdout.log 2> /tmp/stderr.log &
+          sleep 6
+          curl --retry-connrefused --retry 5 -I http://localhost:4000/
+
+      - if: ${{ failure() }}
+        name: Debug server outputs on errors
+        run: |
+          echo "____STDOUT____"
+          cat /tmp/stdout.log
+          echo "____STDERR____"
+          cat /tmp/stderr.log
+
       - name: Run script
+        env:
+          # The default is 300 which works OK on a fast macbook pro
+          # but not so well in Actions.
+          LINKINATOR_CONCURRENCY: 100
         run: |
           script/check-english-links.js > broken_links.md
 
@@ -53,6 +90,11 @@ jobs:
       #
       # https://docs.github.com/actions/reference/context-and-expression-syntax-for-github-actions#job-status-check-functions
 
+      - uses: actions/upload-artifact@6673cd052c4cd6fcf4b4e6e60ea986c889389535
+        if: ${{ failure() }}
+        with:
+          name: broken_links
+          path: ./broken_links.md
       - if: ${{ failure() }}
         name: Get title for issue
         id: check
@@ -63,7 +105,6 @@ jobs:
         uses: peter-evans/create-issue-from-file@b4f9ee0a9d4abbfc6986601d9b1a4f8f8e74c77e
         with:
           token: ${{ env.GITHUB_TOKEN }}
-
           title: ${{ steps.check.outputs.title }}
           content-filepath: ./broken_links.md
           repository: ${{ env.REPORT_REPOSITORY }}
