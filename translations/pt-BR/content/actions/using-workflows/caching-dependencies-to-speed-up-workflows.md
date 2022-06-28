@@ -311,7 +311,7 @@ Por exemplo, se um pull request contiver um branch de `recurso` e tiver como alv
 
 ## Limites de uso e política de eliminação
 
-{% data variables.product.prodname_dotcom %} removerá todas as entradas da cache não acessadas há mais de 7 dias. There is no limit on the number of caches you can store, but the total size of all caches in a repository is limited{% ifversion actions-cache-policy-apis %}. Por padrão, o limite é 10 GB por repositório, mas este limite pode ser diferente dependendo das políticas definidas pelos proprietários da empresa ou administradores de repositório.{% else %} a 10 GB.{% endif %} 
+{% data variables.product.prodname_dotcom %} removerá todas as entradas da cache não acessadas há mais de 7 dias. Não há limite no número de caches que você pode armazenar, mas o tamanho total de todos os caches em um repositório é limitado{% ifversion actions-cache-policy-apis %}. Por padrão, o limite é 10 GB por repositório, mas este limite pode ser diferente dependendo das políticas definidas pelos proprietários da empresa ou administradores de repositório.{% else %} a 10 GB.{% endif %} 
 
 {% data reusables.actions.cache-eviction-process %}
 

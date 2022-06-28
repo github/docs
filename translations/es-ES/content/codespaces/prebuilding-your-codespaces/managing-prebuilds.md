@@ -12,8 +12,6 @@ product: '{% data reusables.gated-features.codespaces %}'
 miniTocMaxHeadingLevel: 3
 ---
 
-{% data reusables.codespaces.prebuilds-beta-note %}
-
 ## Verificar, cambiar y borrar tus configuraciones de precompilación
 
 Las precompilaciones que configuras para un repositorio se crean y actualizan utilizando un flujo de trabajo de {% data variables.product.prodname_actions %} que admistra el servicio de {% data variables.product.prodname_codespaces %}.

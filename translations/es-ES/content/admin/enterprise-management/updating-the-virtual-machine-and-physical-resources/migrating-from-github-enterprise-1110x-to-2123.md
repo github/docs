@@ -95,4 +95,4 @@ Para actualizar a la versión más reciente {% data variables.product.prodname_e
   {% endnote %}
 
 15. Cambia el tráfico de red de usuario desde la instancia anterior a la nueva instancia utilizando la asignación de DNS o la dirección IP.
-16. Upgrade to the latest patch release of {% data variables.product.prodname_ghe_server %}. Para obtener más información, consulta "[Actualizar {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/installation/upgrading-github-enterprise-server/)."
+16. Mejora al lanzamiento de parche más reciente de {% data variables.product.prodname_ghe_server %}. Para obtener más información, consulta "[Actualizar {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/installation/upgrading-github-enterprise-server/)."

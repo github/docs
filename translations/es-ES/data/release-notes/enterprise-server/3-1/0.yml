@@ -109,5 +109,8 @@ sections:
     - heading: 'Obsoletización del soporte para XenServer Hypervisor'
       notes:
         - 'Desde {% data variables.product.prodname_ghe_server %} 3.1, comenzaremos a descontinuar el soporte par Xen Hypervisor. La obsoletización completa está programada para {% data variables.product.prodname_ghe_server %} 3.3, siguiendo la ventana de obsoletización estándar de un año.'
+    - heading: 'Change to the format of authentication tokens affects GitHub Connect'
+      notes:
+        - "GitHub Connect ya no funcionará después del 3 de junio para las instancias que ejecuten GitHub Enterprise Server 3.1 o anterior, debido al cambio en el formato de los tokens de autenticación de GitHub. Para seguir utilizando GitHub Connect, mejora a GitHub Enterprise Server 3.2 o posterior. Para obtener más información, consulta el [Blog de GitHub](https://github.blog/2022-05-20-action-needed-by-github-connect-customers-using-ghes-3-1-and-older-to-adopt-new-authentication-token-format-updates/). [Actualizado: 2022-06-14]\n"
   backups:
     - '{% data variables.product.prodname_ghe_server %} 3.1 requiere por lo menos de una versión [3.1.0 de las Utilidades de Respaldo de GitHub Enterprise](https://github.com/github/backup-utils) para los [Respaldos y la Recuperación de Desastres](/enterprise-server@3.1/admin/configuration/configuring-backups-on-your-appliance).'

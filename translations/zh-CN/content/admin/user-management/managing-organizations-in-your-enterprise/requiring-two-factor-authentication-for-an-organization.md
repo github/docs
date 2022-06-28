@@ -24,19 +24,19 @@ shortTitle: 需要 2FA
 
 ## 强制执行双重身份验证的要求
 
-在可以要求组织成员和外部协作者使用双重身份验证之前，您必须为自己的个人帐户[启用双重身份验证](/enterprise/{{ currentVersion }}/user/articles/securing-your-account-with-two-factor-authentication-2fa/)。
+在可以要求组织成员和外部协作者使用双重身份验证之前，您必须为自己的个人帐户[启用双重身份验证](/enterprise/user/articles/securing-your-account-with-two-factor-authentication-2fa/)。
 
 {% warning %}
 
 **警告：**
 
-- 如果您要求双重身份验证，则不使用双重身份验证的成员和外部协作者（包括自动程序帐户）将从组织中移除，并失去对仓库的访问权限，包括他们的私有仓库分叉。 如果他们在被从组织移除的三个月内为个人帐户启用双重身份验证，您可以[恢复他们的访问权限和设置](/enterprise/{{ currentVersion }}/user/articles/reinstating-a-former-member-of-your-organization)。
+- 如果您要求双重身份验证，则不使用双重身份验证的成员和外部协作者（包括自动程序帐户）将从组织中移除，并失去对仓库的访问权限，包括他们的私有仓库分叉。 如果他们在被从组织移除的三个月内为个人帐户启用双重身份验证，您可以[恢复他们的访问权限和设置](/enterprise/user/articles/reinstating-a-former-member-of-your-organization)。
 - 如果需要双重身份验证，则禁用双重身份验证的组织成员或外部协作者将被自动从组织中移除。
 - 如果您是某个要求双重身份验证的组织的唯一所有者，则在不为组织禁用双重身份验证要求的情况下，您将无法为个人帐户禁用双重身份验证。
 
 {% endwarning %}
 
-在您要求使用双重身份验证之前，我们建议通知组织成员和外部协作者，并要求他们为帐户设置双重身份验证。 您可以在组织的 People 选项卡上[查看成员和外部协作者是否已使用双重身份验证](/enterprise/{{ currentVersion }}/user/articles/viewing-whether-users-in-your-organization-have-2fa-enabled)。
+在您要求使用双重身份验证之前，我们建议通知组织成员和外部协作者，并要求他们为帐户设置双重身份验证。 您可以在组织的 People 选项卡上[查看成员和外部协作者是否已使用双重身份验证](/enterprise/user/articles/viewing-whether-users-in-your-organization-have-2fa-enabled)。
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
@@ -46,7 +46,7 @@ shortTitle: 需要 2FA
 
 ## 查看从您的组织中删除的人员
 
-要查看在您要求双重身份验证时因为不合规而被从组织中自动移除的用户，您可以在搜索字段中使用 `reason:two_factor_requirement_non_compliance` [搜索审核日志](/enterprise/{{ currentVersion }}/admin/guides/installation/searching-the-audit-log/)。
+要查看在您要求双重身份验证时因为不合规而被从组织中自动移除的用户，您可以在搜索字段中使用 `reason:two_factor_requirement_non_compliance` [搜索审核日志](/enterprise/admin/guides/installation/searching-the-audit-log/)。
 
 {% data reusables.audit_log.octicon_icon %}
 {% data reusables.enterprise_site_admin_settings.access-settings %}
@@ -65,7 +65,7 @@ shortTitle: 需要 2FA
 
 ## 延伸阅读
 
-- "[查看组织中的用户是否已启用双重身份验证](/enterprise/{{ currentVersion }}/user/articles/viewing-whether-users-in-your-organization-have-2fa-enabled)"
-- "[使用双重身份验证 (2FA) 确保帐户的安全](/enterprise/{{ currentVersion }}/user/articles/securing-your-account-with-two-factor-authentication-2fa)"
-- "[恢复组织的前成员](/enterprise/{{ currentVersion }}/user/articles/reinstating-a-former-member-of-your-organization)"
-- "[恢复前外部协作者对您的组织的访问权限](/enterprise/{{ currentVersion }}/user/articles/reinstating-a-former-outside-collaborator-s-access-to-your-organization)"
+- "[查看组织中的用户是否已启用双重身份验证](/enterprise/user/articles/viewing-whether-users-in-your-organization-have-2fa-enabled)"
+- "[使用双重身份验证 (2FA) 确保帐户的安全](/enterprise/user/articles/securing-your-account-with-two-factor-authentication-2fa)"
+- "[恢复组织的前成员](/enterprise/user/articles/reinstating-a-former-member-of-your-organization)"
+- “[恢复前外部协作者对组织的访问权限](/enterprise/user/articles/reinstating-a-former-outside-collaborator-s-access-to-your-organization)”

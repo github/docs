@@ -41,6 +41,12 @@ You can integrate {% data variables.product.prodname_registry %} with {% ifversi
 
 You can view a package's README, as well as metadata such as licensing, download statistics, version history, and more on {% data variables.product.product_name %}. For more information, see "[Viewing packages](/packages/manage-packages/viewing-packages)."
 
+{% ifversion ghes %}
+
+For more information about the configuration of {% data variables.product.prodname_registry %} on {% data variables.product.product_name %}, see "[Getting started with {% data variables.product.prodname_registry %} for your enterprise](/admin/packages/getting-started-with-github-packages-for-your-enterprise)."
+
+{% endif %}
+
 ### Overview of package permissions and visibility
 
 |                    |        |

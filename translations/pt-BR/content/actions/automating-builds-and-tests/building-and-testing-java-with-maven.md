@@ -22,7 +22,7 @@ shortTitle: Criar & testar o Java com o Maven
 
 ## Introdução
 
-Este guia mostra como criar um fluxo de trabalho que realiza a integração contínua (CI) para o seu projeto Java usando a ferramenta de gerenciamento de projeto do software Maven. O fluxo de trabalho que você criar permitirá que você veja quando commits em um pull request gerarão falhas de criação ou de teste em comparação com o seu branch-padrão. Essa abordagem pode ajudar a garantir que seu código seja sempre saudável. You can extend your CI workflow to {% ifversion actions-caching %}cache files and{% endif %} upload artifacts from a workflow run.
+Este guia mostra como criar um fluxo de trabalho que realiza a integração contínua (CI) para o seu projeto Java usando a ferramenta de gerenciamento de projeto do software Maven. O fluxo de trabalho que você criar permitirá que você veja quando commits em um pull request gerarão falhas de criação ou de teste em comparação com o seu branch-padrão. Essa abordagem pode ajudar a garantir que seu código seja sempre saudável. Você pode estender seu fluxo de trabalho de CI para {% ifversion actions-caching %}arquivos de cache e{% endif %} fazer o upload de artefatos a partir da execução de um fluxo de trabalho.
 
 {% ifversion ghae %}
 {% data reusables.actions.self-hosted-runners-software %}
