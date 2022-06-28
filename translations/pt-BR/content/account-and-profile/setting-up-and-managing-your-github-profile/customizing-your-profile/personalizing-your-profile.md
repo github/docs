@@ -132,23 +132,23 @@ Ao participar de determinados programas, {% data variables.product.prodname_dotc
 
 {% ifversion fpt or ghec %}
 
-## Earning Achievements
+## Ganhando conquistas
 
-Achievements celebrate specific events and actions that happen on {% data variables.product.prodname_dotcom %}. They will appear as small badges listed in the sidebar of your profile. Clicking or hovering on an achievement will show a detailed view that hints at how the achievement was earned, with a short description and links to the contributing events. The event links will only be visible to users that have access to the repository or organization that the event took place in. Event links will appear inaccessible to all users without access.
+As conquistas comemoram eventos e ações específicos que acontecem em {% data variables.product.prodname_dotcom %}. Eles aparecerão como pequenos selos listados na barra lateral do seu perfil. Clicar ou passar o sobre uma conquista mostrará uma visão detalhada que indica como a conquista foi realizada com uma breve descrição e links para os eventos contribuintes. Os links do evento só serão visíveis para os usuários que têm acesso ao repositório ou organização em que o evento ocorreu. Os links de eventos parecerão inacessíveis para todos os usuários sem acesso.
 
-To stop private contributions from counting toward your Achievements, or to turn off Achievements entirely, see "[Showing your private contributions and Achievements on your profile](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)."
+Para parar contribuições privadas de contar para suas conquistas ou para desabilitar completamente as Conquistas, consulte "[Mostrando suas contribuições privadas e Conquistas no seu perfil](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)".
 
 {% note %}
 
-**Note:** This feature is currently in beta and subject to change.
+**Observação**: Este recurso está atualmente na versão beta e está sujeito a alterações.
 
 {% endnote %}
 
 {% endif %}
 
-## List of qualifying repositories for Mars 2020 Helicopter Contributor achievement
+## Lista de repositórios qualificados para a conquista de contribuidor Helicóptero de Marte de 2020
 
-If you authored any commit(s) present in the commit history for the listed tag of one or more of the repositories below, you'll receive the Mars 2020 Helicopter Contributor achievement on your profile. O commit da autoria tem que estar com um endereço de e-mail verificado associado à sua conta no momento em que {% data variables.product.prodname_dotcom %} determinou as contribuições elegíveis, para ser atribuído a você. Você pode ser o autor original ou [um dos coautores](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors) do commit. As alterações futuras em e-mails verificados não terão efeito no selo. Criamos a lista com base nas informações recebidas do Laboratório de Propulsão de Jato da NASA.
+Se você criou qualquer commit presente no histórico de commit da tag listada em um ou mais dos repositórios abaixo, você receberá a conquista do Contribuidor de Marte do Helicóptero 2020 no seu perfil. O commit da autoria tem que estar com um endereço de e-mail verificado associado à sua conta no momento em que {% data variables.product.prodname_dotcom %} determinou as contribuições elegíveis, para ser atribuído a você. Você pode ser o autor original ou [um dos coautores](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors) do commit. As alterações futuras em e-mails verificados não terão efeito no selo. Criamos a lista com base nas informações recebidas do Laboratório de Propulsão de Jato da NASA.
 
 | {% data variables.product.prodname_dotcom %} Repositório                      | Versão    | Tag                                                                                                        |
 | ----------------------------------------------------------------------------- | --------- | ---------------------------------------------------------------------------------------------------------- |

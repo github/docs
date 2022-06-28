@@ -59,7 +59,7 @@ Cuando pruebes tu conexión, tendrás que autenticar esta acción utilizando tu 
 
    {% note %}
 
-   **Note:** The remote command should exit with code 1.
+   **Nota:** El comando remoto deberá salir con el código 1.
 
    {% endnote %}
 
