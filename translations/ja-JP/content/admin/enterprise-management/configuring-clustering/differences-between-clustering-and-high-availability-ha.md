@@ -39,8 +39,8 @@ Neither HA nor Clustering should be considered a replacement for regular backups
 
 ## モニタリング
 
-可用性の機能、特にクラスタリングのように自動フェイルオーバーを持つものは、通常は何かが失敗してもサービスが破綻しないので、障害を覆い隠すことができます。 HAもしくはクラスタリングを利用する場合、障害が起きたことに気づけるよう、各インスタンスの健全性をモニタリングすることが重要です。 モニタリングに関する詳しい情報については、「[アラートの推奨閾値](/enterprise/{{ currentVersion }}/admin/guides/installation/recommended-alert-thresholds/)」および「[クラスタノードのモニタリング](/enterprise/{{ currentVersion}}/admin/guides/clustering/monitoring-cluster-nodes/)」を参照してください。
+可用性の機能、特にクラスタリングのように自動フェイルオーバーを持つものは、通常は何かが失敗してもサービスが破綻しないので、障害を覆い隠すことができます。 HAもしくはクラスタリングを利用する場合、障害が起きたことに気づけるよう、各インスタンスの健全性をモニタリングすることが重要です。 For more information on monitoring, see "[Recommended alert thresholds](/enterprise/admin/guides/installation/recommended-alert-thresholds/)" and "[Monitoring cluster nodes](/enterprise/{{ currentVersion}}/admin/guides/clustering/monitoring-cluster-nodes/)."
 
 ## 参考リンク
 - {% data variables.product.prodname_ghe_server %}のクラスタリングに関する詳しい情報については「[クラスタリングについて](/enterprise/{{ currentVersion}}/admin/guides/clustering/about-clustering/)」を参照してください。
-- HA についての詳しい情報は、「[High Availability 向けに {% data variables.product.prodname_ghe_server %} を設定する](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-github-enterprise-server-for-high-availability/)」を参照してください。
+- HA についての詳しい情報は、「[High Availability 向けに {% data variables.product.prodname_ghe_server %} を設定する](/enterprise/admin/guides/installation/configuring-github-enterprise-server-for-high-availability/)」を参照してください。

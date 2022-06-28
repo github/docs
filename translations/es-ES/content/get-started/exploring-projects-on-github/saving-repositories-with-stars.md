@@ -40,6 +40,16 @@ Marcar un repositorio como favorito es un proceso simple de dos pasos.
 1. Opcionalmente, para dejar de marcar un repositorio como favorito, haz clic en **Desmarcar como favorito**. ![Dejar de marcar a un repositorio como favorito](/assets/images/help/stars/unstarring-a-repository.png)
 
 {% ifversion fpt or ghec %}
+
+## Visualizar quién marcó un repositorio como favorito
+
+
+Puedes ver a cualquiera que haya marcado como favorito a un repositorio público o a uno privado al cual tengas acceso.
+
+
+Para ver a todo aquél que haya marcado un repositorio como favorito, agrega `/stargazers` al final de la URL de un repositorio. Por ejemplo, para ver a los seguidores de github/docs repository, visita https://github.com/github/docs/stargazers.
+
+
 ## Organizar los repositorios marcados como favoritos con las listas
 
 {% note %}

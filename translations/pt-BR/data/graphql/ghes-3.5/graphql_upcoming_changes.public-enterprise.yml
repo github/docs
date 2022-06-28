@@ -100,15 +100,15 @@ upcoming_changes:
     owner: colinshum
   - 
     location: AddPullRequestToMergeQueueInput.branch
-    description: '`branch` will be removed.'
-    reason: PRs are added to the merge queue for the base branch, the `branch` argument is now a no-op
+    description: '`branch` será removido.'
+    reason: Os PRs são adicionados à fila de merge para o branch base, o argumento `branch` agora é um no-op
     date: '2022-07-01T00:00:00+00:00'
     criticality: breaking
     owner: jhunschejones
   - 
     location: Enterprise.userAccounts
-    description: '`userAccounts` will be removed. Use the `Enterprise.members` field instead.'
-    reason: The `Enterprise.userAccounts` field is being removed.
+    description: '`userAccounts` será removido. Use o campo `Enterprise.members`.'
+    reason: O campo `Enterprise.userAccounts` está sendo removido.
     date: '2022-07-01T00:00:00+00:00'
     criticality: breaking
     owner: jdennes

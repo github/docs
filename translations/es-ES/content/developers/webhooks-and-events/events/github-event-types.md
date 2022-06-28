@@ -39,6 +39,14 @@ Los objetos de los eventos que se devuelven de las terminales de la API de Event
 | `repo.name`                              | El nombre del repositorio, el cual incluye también al nombre del propietario. Por ejemplo, `octocat/hello-world` es el nombre del repositorio `hello-world` que pertenece a la cuenta personal `octocat`. |
 | `repo.url`                               | La URL de la API de REST que se utiliza para recuperar el objeto del repositorio, el cual incluye información adicional sobre dicho repositorio.                                                          |
 | `payload`                                | El objeto de la carga útil del evento que es exclusivo para el tipo de evento. En el siguiente ejemplo puedes ver el tipo de evento para el objeto de `payload` de la API de eventos.                     |
+| `public`                                 | Si todos los usuarios pueden ver el evento.                                                                                                                                                               |
+| `created_at (creado en)`                 | La fecha y hora cuando se activó el evento. Se formatea de acuerdo con el ISO 8601.                                                                                                                       |
+| `org`                                    | La organización que eligió el actor para realizar la acción que activa el evento.<br />_La propiedad se muestra en el objeto del evento únicamente si es aplicable._                              |
+| `org.id`                                 | El identificador único de la organización.                                                                                                                                                                |
+| `org.login`                              | El nombre de la organización.                                                                                                                                                                             |
+| `org.gravatar_id`                        | El identificador único del perfil de Gravatar de la organización.                                                                                                                                         |
+| `org.url`                                | La URL de la API de REST para recuperar el objeto de la organización, el cual incluye información adicional de la organización.                                                                           |
+| `org.avatar_url`                         | La URL de la imagen del perfil de la organización.                                                                                                                                                        |
 
 ### Ejemplo con el objeto de evento WatchEvent
 

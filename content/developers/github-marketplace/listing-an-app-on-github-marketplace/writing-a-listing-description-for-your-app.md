@@ -166,7 +166,7 @@ You can add more information in the optional "Detailed description" field. You s
 
   ### Learn the skills you need
 
-  GitHub Learning Lab can help you learn how to use GitHub, communicate more effectively with Markdown, handle merge conflicts, and more.
+  GitHub Skills can help you learn how to use GitHub, communicate more effectively with Markdown, handle merge conflicts, and more.
 
 - Only capitalize proper nouns.
 

@@ -62,7 +62,7 @@ Puedes descargar los archivos de bitácora desde tu ejecución de flujo de traba
   ![Menú desplegable para descargar registros](/assets/images/help/repository/download-logs-drop-down-updated-2.png)
 
 
-  {% if re-run-jobs %}
+  {% ifversion re-run-jobs %}
 
   {% note %}
 

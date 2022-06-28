@@ -58,5 +58,5 @@ Você pode exportar suas transações de patrocínio por mês. {% data variables
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.your-sponsors-tab %}
-1. In the top-right, click {% octicon "download" aria-label="The download icon" %} **Export**. ![Botão de exportação](/assets/images/help/sponsors/export-all.png)
+1. Na parte superior direita, clique em {% octicon "download" aria-label="The download icon" %} **Exportar**. ![Botão de exportação](/assets/images/help/sponsors/export-all.png)
 1. Escolha um período de tempo e um formato para os dados que você gostaria de exportar e, em seguida, clique em **Iniciar a exportação**. ![Opções de Exportar dados](/assets/images/help/sponsors/export-your-sponsors.png)

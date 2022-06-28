@@ -1,7 +1,7 @@
 ---
 title: Sobre as pré-compilações de codespaces
 shortTitle: Sobre as pré-criações
-intro: As pré-criações de codespaces ajudam a acelerar a criação de novos codespaces.
+intro: Codespaces prebuilds help to speed up the creation of new codespaces for large or complex repositories.
 versions:
   fpt: '*'
   ghec: '*'
@@ -10,15 +10,13 @@ topics:
 product: '{% data reusables.gated-features.codespaces %}'
 ---
 
-{% data reusables.codespaces.prebuilds-beta-note %}
-
 ## Visão Geral
 
-A pré-construção de seus codespaces permite que você seja mais produtivo e tenha acesso ao seu codespace mais rápido, independentemente do tamanho e complexidade do seu projeto. Isso ocorre porque qualquer código-fonte, extensões de editor, dependências de projetos, comandos e configurações já foram baixadas, instaladas e aplicadas antes de criar um codespace para o seu projeto. Pense em uma pré-compilação como um modelo pronto para um codespace.
+Prebuilding your codespaces allows you to be more productive and access your codespace faster, particularly if your repository is large or complex and new codespaces currently take more than 2 minutes to start. Isso ocorre porque qualquer código-fonte, extensões de editor, dependências de projetos, comandos e configurações já foram baixadas, instaladas e aplicadas antes de criar um codespace para o seu projeto. Pense em uma pré-compilação como um modelo pronto para um codespace.
 
 Por padrão, sempre que você fizer alterações no repositório, {% data variables.product.prodname_codespaces %} irá usar {% data variables.product.prodname_actions %} para atualizar automaticamente suas pré-criações.
 
-Quando as pré-criações estiverem disponíveis para um branch específico de um repositório e para sua região, você verá a etiqueta "Pré-criação de {% octicon "zap" aria-label="The zap icon" %} pronto" na lista de opções de tipo de máquina ao criar um codespace. Para obter mais informações, consulte "[Criar um codespace](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)".
+Quando as pré-criações estiverem disponíveis para um branch específico de um repositório e para sua região, você verá a etiqueta "Pré-criação de {% octicon "zap" aria-label="The zap icon" %} pronto" na lista de opções de tipo de máquina ao criar um codespace. If a prebuild is still being created, you will see the "{% octicon "history" aria-label="The history icon" %} Prebuild in progress" label. Para obter mais informações, consulte "[Criar um codespace](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)".
 
 ![A caixa de diálogo para escolher um tipo de máquina](/assets/images/help/codespaces/choose-custom-machine-type.png)
 

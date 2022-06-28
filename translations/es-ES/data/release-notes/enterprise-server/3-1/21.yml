@@ -5,14 +5,15 @@ sections:
     - 'Se actualizaron las acciones `actions/checkout@v2` y `actions/checkout@v3` para abordar las vulnerabilidades nuevas que se anunciaron en la [Publicación del blog de refuerzo de seguridad de Git](https://github.blog/2022-04-12-git-security-vulnerability-announced/).'
     - 'Los paquetes se actualizaron a las últimas versiones de seguridad.'
   bugs:
-    - 'In some cluster topologies, the `ghe-cluster-status` command left behind empty directories in `/tmp`.'
-    - 'SNMP incorrectly logged a high number of `Cannot statfs` error messages to syslog.'
+    - 'En algunas topologías de clúster, el comando `ghe-cluster-status` dejó directorios vacíos en `/tmp`.'
+    - 'El SNMP registró una cantidad alta de mensajes de error de `Cannot statfs` incorrectamente en syslog.'
     - 'Para el caso de las instancias configuradas con la autenticación de SAML y con la recuperación de fallos integrada habilitada, los usuarios integrados se atoraron en un bucle de "inicio de sesión" al intentar iniciar sesión desde la página generada después de salir de sesión.'
-    - 'When using SAML encrypted assertions, some assertions were not correctly marking SSH keys as verified.'
+    - 'Al utilizar aserciones cifradas de SAML, algunas de ellas no estaban marcando correctamente a las llaves SSH como verificadas.'
+    - 'The Releases page would return a 500 error when the repository has tags that contain non-ASCII characters. [Updated: 2022-06-10]'
   changes:
     - 'En las configuraciones de disponibilidad alta, se aclara que la página de resumen de replicación en la consola de administración solo muestra la configuración de replicación actual y no el estado de replicación actual.'
     - 'When enabling {% data variables.product.prodname_registry %}, clarify that using a Shared Access Signature (SAS) token as connection string is not supported.'
-    - 'Support bundles now include the row count of tables stored in MySQL.'
+    - 'Los paquetes de soporte ahora incluyen el conteo de filas de las tablas que se almacenan en MySQL.'
   known_issues:
     - 'El registor de npm del {% data variables.product.prodname_registry %} ya no regresa un valor de tiempo en las respuestas de metadatos. Esto se hizo para permitir mejoras de rendimiento sustanciales. Seguimos teniendo todos los datos necesarios para devolver un valor de tiempo como parte de la respuesta de metadatos y terminaremos de devolver este valor ene l futuro una vez que hayamos resuelto los problemas de rendimiento existentes.'
     - 'En una instancia recién configurada de {% data variables.product.prodname_ghe_server %} sin ningún usuario, un atacante podría crear el primer usuario adminsitrador.'

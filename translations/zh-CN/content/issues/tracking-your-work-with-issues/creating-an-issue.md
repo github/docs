@@ -143,7 +143,7 @@ gh issue create --title "My new issue" --body "Here are more details." --assigne
 | `projects`  | `https://github.com/octo-org/octo-repo/issues/new?title=Bug+fix&projects=octo-org/1` 创建标题为 "Bug fix" 的议题并将其添加到组织的项目板 1。                                                                                                                                                     |
 | `模板`        | `https://github.com/octo-org/octo-repo/issues/new?template=issue_template.md` 使用模板在议题正文中创建议题。 `template` 查询参数支持仓库根目录 `docs/` 或 `.github/` 的 `ISSUE_TEMPLATE` 子目录中存储的模板。 更多信息请参阅“[使用模板鼓励有用的议题和拉取请求](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)”。 |
 
-{% if code-scanning-task-lists %}
+{% ifversion code-scanning-task-lists %}
 ## 从 {% data variables.product.prodname_code_scanning %} 警报创建议题
 
 {% data reusables.code-scanning.beta-alert-tracking-in-issues %}

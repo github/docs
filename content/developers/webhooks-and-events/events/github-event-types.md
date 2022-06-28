@@ -38,6 +38,14 @@ The event objects returned from the Events API endpoints have the same structure
 | `repo.name` | The name of the repository, which includes the owner and repository name. For example, `octocat/hello-world` is the name of the `hello-world` repository owned by the `octocat` personal account. |
 | `repo.url` | The REST API URL used to retrieve the repository object, which includes additional repository information. |
 | `payload` | The event payload object is unique to the event type. See the event type below for the event API `payload` object. |
+| `public` | Whether the event is visible to all users. |
+| `created_at` | The date and time when the event was triggered. It is formatted according to ISO 8601. |
+| `org` | The organization that was chosen by the actor to perform action that triggers the event.<br />_The property appears in the event object only if it is applicable._ |
+| `org.id` | The unique identifier for the organization. |
+| `org.login` | The name of the organization. |
+| `org.gravatar_id` | The unique identifier of the Gravatar profile for the organization. |
+| `org.url` | The REST API URL used to retrieve the organization object, which includes additional organization information. |
+| `org.avatar_url` | The URL of the organization's profile image. |
 
 ### Example WatchEvent event object
 

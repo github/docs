@@ -20,15 +20,15 @@ type: how_to
 
 ワークフローやその他の {% data variables.product.prodname_actions %} 機能を Team と共有する必要がある場合は、{% data variables.product.prodname_dotcom %} Organization 内でのコラボレーションを検討します。 Organization を使用すると、シークレット、成果物、およびセルフホストランナーを一元的に保存および管理できます。 You can also create starter workflows in the `.github` repository and share them with other users in your organization.
 
-## Sharing {% if internal-actions %}actions and {% endif %}workflows
+## Sharing {% ifversion internal-actions %}actions and {% endif %}workflows
 
-{% if internal-actions %}
+{% ifversion internal-actions %}
 You can share both individual actions and entire workflows with your organization, with or without publishing the actions or workflows publicly. You can reuse actions and workflows exactly by referencing them in your workflow file, and you can create starter workflows that provide templates for new workflows.
 {% else %}
 Your organization can share workflows by reusing the workflows exactly or by creating starter workflows that provide templates for new workflows.
 {% endif %}
 
-{% if internal-actions %}
+{% ifversion internal-actions %}
 ### Sharing actions with your enterprise
 
 {% data reusables.actions.internal-actions-summary %}

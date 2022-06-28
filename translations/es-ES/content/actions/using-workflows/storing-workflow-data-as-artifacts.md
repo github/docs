@@ -56,7 +56,7 @@ Para compartir datos entre puestos:
 
 Los pasos de un job comparten el mismo ambiente en la máquina ejecutora, pero se ejecutan en su propio proceso individual. Para pasar datos entre pasos en un trabajo, puedes usar entradas y salidas. Para obtener más información sobre entradas y salidas, consulta "[Sintaxis de metadatos para {% data variables.product.prodname_actions %}](/articles/metadata-syntax-for-github-actions)".
 
-{% if actions-caching %}
+{% ifversion actions-caching %}
 
 {% data reusables.actions.comparing-artifacts-caching %}
 

@@ -30,7 +30,7 @@ Organizationレベルのロールは、OrganizationやOrganizationのリポジ�
 
 個人やTeamに対して様々なOrganizationレベルのロールを付与して、Organization及びそのリソースに対するメンバーのアクセスを制御してもらうことができます。 各ロールに含まれる個々の権限に関する詳細については、「[Organizationロールの権限](#permissions-for-organization-roles)」を参照してください。
 
-{% if enterprise-owner-join-org %}
+{% ifversion enterprise-owner-join-org %}
 OrganizationがEnterpriseアカウントに所有されている場合、EnterpriseオーナーはOrganizationに任意のロールで参加できます。 詳しい情報については「[自身のEnterpriseが所有しているOrganization内での自分のロールの管理](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)」を参照してください。
 {% endif %}
 
@@ -49,7 +49,7 @@ Organizationオーナーは、Organizationに対する完全な管理アクセ�
 
 {% endif %}
 
-{% if security-managers %}
+{% ifversion security-managers %}
 ### セキュリティマネージャー
 
 {% data reusables.organizations.security-manager-beta-note %}
@@ -130,7 +130,7 @@ Organizationでの{% data variables.product.prodname_github_app %}マネージ�
 | リポジトリを移譲する                                                                                                                                                                                                                                                            | **X** |       |        |           |                             |
 | {% data variables.product.prodname_marketplace %} アプリケーションを購入、インストール、支払い管理、キャンセルする                                                                                                                                                                                    | **X** |       |        |           |                             |
 | {% data variables.product.prodname_marketplace %} のアプリケーションをリストする                                                                                                                                                                                                     | **X** |       |        |           |                             |
-| Organization のリポジトリすべてについて、脆弱な依存関係についての [{% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies) アラートを受け取る                                                                     | **X** |       |        |           |            **X**            |
+| Receive [{% data variables.product.prodname_dependabot_alerts %} about insecure dependencies](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts) for all of an organization's repositories                                                        | **X** |       |        |           |            **X**            |
 | {% data variables.product.prodname_dependabot_security_updates %} の管理 (「[{% data variables.product.prodname_dependabot_security_updates %} について](/github/managing-security-vulnerabilities/about-dependabot-security-updates)」を参照)                                | **X** |       |        |           |            **X**            |
 | [フォークポリシーの管理](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)                                                                                                                                                        | **X** |       |        |           |                             |
 | [Organization のパブリックリポジトリでのアクティビティを制限する](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-organization)                                                                                                                               | **X** |       |        |           |                             |
@@ -191,7 +191,7 @@ Organizationでの{% data variables.product.prodname_github_app %}マネージ�
 | Organization メンバーの[外部コラボレーター](#outside-collaborators)への変換                                                                                                                                                                                                             | **X** |       |                                              |
 | [Organization リポジトリへのアクセス権がある人を表示する](/articles/viewing-people-with-access-to-your-repository)                                                                                                                                                                         | **X** |       |                                              |
 | [Organization リポジトリへのアクセス権がある人のリストをエクスポートする](/articles/viewing-people-with-access-to-your-repository/#exporting-a-list-of-people-with-access-to-your-repository)                                                                                                      | **X** |       |                                              |
-| デフォルトラベルの管理 (「[Organization 内のリポジトリのためのデフォルトラベルを管理する](/articles/managing-default-labels-for-repositories-in-your-organization)」を参照)                                                                                                                                   | **X** |       |    |{% if pull-request-approval-limit %}
+| デフォルトラベルの管理 (「[Organization 内のリポジトリのためのデフォルトラベルを管理する](/articles/managing-default-labels-for-repositories-in-your-organization)」を参照)                                                                                                                                   | **X** |       | |{% ifversion pull-request-approval-limit %}
 | OrganizationのPull Requestレビューを管理（[OrganizationでのPull Requestのレビューの管理](/organizations/managing-organization-settings/managing-pull-request-reviews-in-your-organization)」を参照）                                                                                          | **X** |       |               |  
 {% endif %}
 {% ifversion ghae %}| IP許可リストの管理（「[Enterpriseへのネットワークトラフィックの制限](/admin/configuration/restricting-network-traffic-to-your-enterprise)」参照） | **X** | |  |{% endif %}

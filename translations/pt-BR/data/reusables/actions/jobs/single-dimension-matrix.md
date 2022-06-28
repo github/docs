@@ -1,6 +1,6 @@
-You can specify a single variable to create a single-dimension matrix.
+Você pode especificar uma variável única para criar uma matriz de dimensão única.
 
-For example, the following workflow defines the variable `version` with the values `[10, 12, 14]`. The workflow will run three jobs, one for each value in the variable. Each job will access the `version` value through the `matrix.version` context and pass the value as `node-version` to the `actions/setup-node` action.
+Por exemplo, o fluxo de trabalho a seguir define a variável `versão` com os valores `[10, 12, 14]`. O fluxo de trabalho irá executar três trabalhos, um por cada valor na variável. Cada trabalho terá acesso ao valor `versão` através do contexto da `matrix.version` e passar o valor como `node-version` para a ação `actions/setup-node`.
 
 ```yaml
 jobs:

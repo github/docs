@@ -1,4 +1,4 @@
-For example, this matrix will run 10 jobs, one for each combination of `os` and `version` in the matrix, plus a job for the `os` value of `windows-latest` and `version` value of `17`.
+Por exemplo, esta matriz gerará 10 trabalhos, um para cada combinação de `os` e `versão` na matriz, mais um trabalho para o valor de `os` de `windows-latest` e o valor da `versão` de `17`.
 
 ```yaml
 jobs:
@@ -12,7 +12,7 @@ jobs:
             version: 17
 ```
 
-If you don't specify any matrix variables, all configurations under `include` will run. For example, the following workflow would run two jobs, one for each `include` entry. This lets you take advantage of the matrix strategy without having a fully populated matrix.
+Se você não especificar nenhuma variável da matriz, todas as configurações em `incluir` serão executadas. Por exemplo, o seguinte fluxo de trabalho executaria dois trabalhos, um para cada entrada de `incluir`. Isso permite que você aproveite a estratégia da matriz sem ter uma matriz totalmente preenchida.
 
 ```yaml
 jobs:

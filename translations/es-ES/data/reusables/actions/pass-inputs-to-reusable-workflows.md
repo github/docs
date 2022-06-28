@@ -12,7 +12,7 @@ jobs:
 ```
 {% endraw %}
 
-{% if actions-inherit-secrets-reusable-workflows %}
+{% ifversion actions-inherit-secrets-reusable-workflows %}
 Los flujos de trabajo que llaman a los reutilizables en la misma organización o empresa pueden utilizar la palabra clave `inherit` para pasar los secretos de forma implícita.
 
 {% raw %}

@@ -74,3 +74,9 @@ Para criar um botão que possa solicitar ações adicionais do seu aplicativo, u
 Quando um usuário clica no botão, {% data variables.product.prodname_dotcom %} envia o webhook [`check_run.requested_action`](/webhooks/event-payloads/#check_run) para seu aplicativo. Quando o seu aplicativo recebe um evento de webhook de `check_run.requested_action`, ele pode procurar a chave `requested_action.identifier` na carga do webhook para determinar qual botão se clicou para executar a tarefa solicitada.
 
 Para obter um exemplo detalhado de como configurar as ações solicitadas com a API de verificações, consulte "[Criar testes de CI com a API de verificações](/apps/quickstart-guides/creating-ci-tests-with-the-checks-api/#part-2-creating-the-octo-rubocop-ci-test)."
+
+{% ifversion fpt or ghec %}
+## Retenção de dados de verificação
+
+{% data reusables.pull_requests.retention-checks-data %}
+{% endif %}

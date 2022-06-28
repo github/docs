@@ -54,11 +54,11 @@ Durante el beta de {% data variables.product.prodname_mobile %} con {% data vari
 
 ### Agregar, cambiar o cerrar sesión en las cuentas
 
-You can sign into mobile with a personal account on {% data variables.product.prodname_ghe_server %}. En la parte inferior de la app, deja presionado {% octicon "person" aria-label="The person icon" %} **Perfil**, y luego pulsa sobre {% octicon "plus" aria-label="The plus icon" %} **Agregar Cuenta Empresarial**. Sige las indicaciones para iniciar sesión.
+Puedes iniciar sesión en la versión móvil con una cuenta personal de {% data variables.product.prodname_ghe_server %}. En la parte inferior de la app, deja presionado {% octicon "person" aria-label="The person icon" %} **Perfil**, y luego pulsa sobre {% octicon "plus" aria-label="The plus icon" %} **Agregar Cuenta Empresarial**. Sige las indicaciones para iniciar sesión.
 
-After you sign into mobile with a personal account on {% data variables.product.prodname_ghe_server %}, you can switch between the account and your account on {% data variables.product.prodname_dotcom_the_website %}. En la parte inferior de la app, deja presionado {% octicon "person" aria-label="The person icon" %} **Perfil**, y luego pulsa sobre la cuenta a la que quieras cambiar.
+Después de que ingreses en la versión móvil con una cuenta personal de {% data variables.product.prodname_ghe_server %}, puedes cambiar entre esa cuenta y la de {% data variables.product.prodname_dotcom_the_website %}. En la parte inferior de la app, deja presionado {% octicon "person" aria-label="The person icon" %} **Perfil**, y luego pulsa sobre la cuenta a la que quieras cambiar.
 
-If you no longer need to access data for your personal account on {% data variables.product.prodname_ghe_server %} from {% data variables.product.prodname_mobile %}, you can sign out of the account. En la parte inferior de la app, deja presionado {% octicon "person" aria-label="The person icon" %} **Perfil**, desliza hacia la izquierda en la cuenta para salir de ella y luego pulsa en **Salir de sesión**.
+Si ya no necesitas acceder a los datos de tu cuenta personal de {% data variables.product.prodname_ghe_server %} desde {% data variables.product.prodname_mobile %}, puedes cerrar la sesión de la cuenta. En la parte inferior de la app, deja presionado {% octicon "person" aria-label="The person icon" %} **Perfil**, desliza hacia la izquierda en la cuenta para salir de ella y luego pulsa en **Salir de sesión**.
 
 ## Idiomas compatibles para {% data variables.product.prodname_mobile %}
 

@@ -14,8 +14,6 @@ product: '{% data reusables.gated-features.codespaces %}'
 permissions: People with write permissions to a repository can create or edit the dev container configuration for a branch.
 ---
 
-{% data reusables.codespaces.prebuilds-beta-note %}
-
 对启用了预构建的分支的开发容器配置所做任何更改，都将导致代码空间配置和关联的预构建模板更新。 因此，在将更改提交到当前使用的存储库分支之前，在代码空间中从测试分支测试此类更改非常重要。 这将确保您不会为团队引入破坏性更改。
 
 更多信息请参阅“[开发容器简介](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)”。

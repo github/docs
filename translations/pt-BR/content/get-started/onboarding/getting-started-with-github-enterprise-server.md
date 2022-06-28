@@ -14,7 +14,7 @@ Este guia irá ajudar você a configurar e gerenciar {% data variables.product.p
 
 {% data variables.product.company_short %} hospeda {% data variables.product.prodname_ghe_cloud %}. Você pode implantar e hospedar {% data variables.product.prodname_ghe_server %} no seu próprio centro de dados ou em um provedor da nuvem compatível.
 
-Para obter uma visão geral de como {% data variables.product.product_name %} funciona, consulte "[Visão geral do sistema](/admin/overview/system-overview)".
+Para obter mais informações sobre {% data variables.product.product_name %}, consulte "[Sobre {% data variables.product.prodname_ghe_server %}](/admin/overview/about-github-enterprise-server)."
 
 ## Parte 1: Instalar {% data variables.product.product_name %}
 Para começar com {% data variables.product.product_name %}, você deverá criar a conta corporativa, instalar a instância, usar o Console de Gerenciamento para configuração inicial, configurar a sua instância e gerenciar a cobrança.
@@ -120,7 +120,7 @@ Os membros da sua empresa podem aprender mais sobre o Git e {% data variables.pr
 Você pode ler a documentação que reflete as funcionalidades disponíveis com {% data variables.product.prodname_ghe_server %}. Para obter mais informações, consulte "[Sobre as versões do {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs)."
 
 ### 2. Aprendendo com {% data variables.product.prodname_learning %}
-{% data reusables.getting-started.learning-lab-enterprise %}
+{% data reusables.getting-started.learning-enterprise %}
 
 ### 3. Trabalhando com o Suporte do Enterprise de {% data variables.product.prodname_dotcom %}
 {% data reusables.getting-started.contact-support-enterprise %}

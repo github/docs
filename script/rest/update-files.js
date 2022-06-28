@@ -8,7 +8,7 @@
 
 import { stat, readFile, writeFile, readdir } from 'fs/promises'
 import path from 'path'
-import program from 'commander'
+import { program } from 'commander'
 import { execSync } from 'child_process'
 import mkdirp from 'mkdirp'
 import rimraf from 'rimraf'

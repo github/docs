@@ -91,7 +91,7 @@ On the alert page, you can see that the filepath is marked as library code (`Lib
 
 ![Code scanning library alert details](/assets/images/help/repository/code-scanning-library-alert-show.png)
 
-{% if codeql-ml-queries %}
+{% ifversion codeql-ml-queries %}
 
 ## About experimental alerts
 

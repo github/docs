@@ -309,7 +309,7 @@ Para obtener más información, consulta las secciones "[Variables de ambiente](
 
 La IC/EC de GitLab y las {% data variables.product.prodname_actions %} proporcionan un método en el archivo de configuración para guardar los archivos de flujo de trabajo manualmente en el caché.
 
-{% if actions-caching %}
+{% ifversion actions-caching %}
 
 Puedes encontrar un ejemplo de la sintaxis para cada sistema:
 

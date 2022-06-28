@@ -34,7 +34,10 @@ topics:
 
 {% note %}
 
-**注：**您可以为开源项目创建公共仓库。 创建公共仓库时，请确保包含[许可文件](https://choosealicense.com/)以确定您希望与其他人共享项目。 {% data reusables.open-source.open-source-guide-repositories %} {% data reusables.open-source.open-source-learning-lab %}
+**注意：**
+- 您可以为开源项目创建公共仓库。 创建公共仓库时，请确保包含[许可文件](https://choosealicense.com/)以确定您希望与其他人共享项目。 {% data reusables.open-source.open-source-guide-repositories %}
+- {% data reusables.open-source.open-source-learning %}
+- 您还可以将社区健康文件添加到存储库，以设置有关如何贡献、确保存储库安全等的准则。 更多信息请参阅“[创建默认社区健康文件](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)”。
 
 {% endnote %}
 

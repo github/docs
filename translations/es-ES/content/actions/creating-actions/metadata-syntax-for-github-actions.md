@@ -371,7 +371,7 @@ runs:
 
 #### `runs.steps[*].continue-on-error`
 
-**Optional**  Prevents the action from failing when a step fails. Set to `true` to allow the action to pass when this step fails.
+**Opcional** Impide que la acción falle cuando falla un paso. Se configura en `true` para permitir que la acción pase cuando falla este paso.
 
 ## `runs` para las acciones de contenedores de Docker
 

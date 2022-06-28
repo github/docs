@@ -14,7 +14,7 @@ topics:
 
 ## Limite de nó
 
-Para passar a validação do [esquema](/graphql/guides/introduction-to-graphql#schema), todas as [chamadas ](/graphql/guides/forming-calls-with-graphql) da API v4 do GraphQL devem atender a esses padrões:
+To pass [schema](/graphql/guides/introduction-to-graphql#schema) validation, all GraphQL API [calls](/graphql/guides/forming-calls-with-graphql) must meet these standards:
 
 * Os clientes devem fornecer um `primeiro` ou `último` argumento [conexão](/graphql/guides/introduction-to-graphql#connection).
 * Os valores de `primeiro` e `último` devem ser entre 1 e 100.
@@ -130,30 +130,30 @@ Estes dois exemplos mostram como calcular os nós totais em uma chamada.
 
 ## Limite de taxa
 
-O [limite de taxas](/rest/overview/resources-in-the-rest-api#rate-limiting) do GraphQL API v4 é diferente dos limites de taxa do REST API v3.
+The GraphQL API limit is different from the REST API's [rate limits](/rest/overview/resources-in-the-rest-api#rate-limiting).
 
 Por que os limites de taxa de API são diferentes? Com o [GraphQL](/graphql), uma chamada do GraphQL pode substituir [várias chamadas de REST](/graphql/guides/migrating-from-rest-to-graphql). Uma chamada única e complexa do GraphQL poderia ser o equivalente a milhares de solicitações de REST. Embora uma única chamada GraphQL fique bem abaixo do limite de taxa de API REST, a consulta pode ser muito cara para os servidores do GitHub calcularem.
 
-Para representar com precisão o custo de servidor de uma consulta, a API v4 do GraphQL calcula a **pontuação de um limite de taxa** de uma chamada com base em uma escala normalizada de pontos. Os fatores de pontuação de uma consulta no primeiro e último argumentos em uma conexão principal e suas conexões auxiliares.
+To accurately represent the server cost of a query, the GraphQL API calculates a call's **rate limit score** based on a normalized scale of points. Os fatores de pontuação de uma consulta no primeiro e último argumentos em uma conexão principal e suas conexões auxiliares.
 
 * A fórmula usa argumentos `primeiros` e `último` na conexão principal e nas conexões secundárias para pré-calcular o potencial de carga nos sistemas do GitHub, como MySQL, ElasticSearch e Git.
 * Cada nova conexão tem o seu valor próprio de pontos. Os pontos são combinados com outros pontos da chamada para uma pontuação de limite de taxa geral.
 
-O limite de taxa de câmbio da API v4 do GraphQL é **5.000 pontos por hora**.
+The GraphQL API rate limit is **5,000 points per hour**.
 
-Observe que 5.000 pontos por hora não é o mesmo que 5.000 chamadas por hora: a API v4 do GraphQL e a API v3 de REST usam diferentes limites de taxa.
+Note that 5,000 points per hour is not the same as 5,000 calls per hour: the GraphQL API and REST API use different rate limits.
 
 {% note %}
 
-**Observação**: A fórmula atual e o limite de taxa estão sujeitos a alterações à medida que observamos como os desenvolvedores usam a API v4 do GraphQL.
+**Note**: The current formula and rate limit are subject to change as we observe how developers use the GraphQL API.
 
 {% endnote %}
 
 ### Retornar o status de limite da chamada
 
-Com a API REST v3, você pode verificar o status do limite de taxa [inspecionando](/rest/overview/resources-in-the-rest-api#rate-limiting) os cabeçalhos HTTP retornados.
+With the REST API, you can check the rate limit status by [inspecting](/rest/overview/resources-in-the-rest-api#rate-limiting) the returned HTTP headers.
 
-Com o GraphQL API v4, você pode verificar o status do limite de taxa consultando campos no objeto `rateLimit`:
+With the GraphQL API, you can check the rate limit status by querying fields on the `rateLimit` object:
 
 ```graphql
 query {
@@ -186,7 +186,7 @@ Consultar o objeto `rateLimit` retorna a pontuação de uma chamada, mas executa
 
 {% note %}
 
-**Observação**: O custo mínimo de uma chamada para a API v4 do GraphQL é **1**, o que representa uma única solicitação.
+**Note**: The minimum cost of a call to the GraphQL API is **1**, representing a single request.
 
 {% endnote %}
 

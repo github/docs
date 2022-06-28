@@ -19,7 +19,7 @@ topics:
 
 {% data variables.product.prodname_ghe_server %} está compuesto por un conjunto de servicios. En una agrupación, estos servicios se ejecutan en múltiples nodos y las solicitudes son un balanceador de carga entre ellos. Los cambios se almacenan automáticamente con copias redundantes en nodos separados. La mayoría de los servicios son pares iguales con otras instancias del mismo servicio. Las excepciones a esto son los servicios `mysql-server` and `redis-server`. Estos operan con un solo nodo _principal_ o más nodos _réplica_.
 
-Aprende más sobre los [servicios requeridos para los agrupamientos](/enterprise/{{ currentVersion }}/admin/enterprise-management/about-cluster-nodes#services-required-for-clustering).
+Aprende más sobre los [servicios requeridos para los agrupamientos](/enterprise/admin/enterprise-management/about-cluster-nodes#services-required-for-clustering).
 
 ## ¿Es adecuada la agrupación para mi organización?
 
@@ -27,7 +27,7 @@ Aprende más sobre los [servicios requeridos para los agrupamientos](/enterprise
 
 {% data variables.product.prodname_ghe_server %} requiere una baja latencia entre los nodos y no está hecho para redundancia en todas las ubicaciones geográficas.
 
-La agrupación brinda redundancia, pero no pretende reemplazar una configuración de Alta disponibilidad. Para obtener más información, consulta [Configuración de alta disponibilidad](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-github-enterprise-server-for-high-availability). Una configuración de conmutación primaria/secundaria es mucho más simple que la agrupación y permitirá satisfacer las necesidades de muchas organizaciones. Para obtener más información, consulta [Diferencias entre agrupación y alta disponibilidad](/enterprise/{{ currentVersion }}/admin/guides/clustering/differences-between-clustering-and-high-availability-ha/).
+La agrupación brinda redundancia, pero no pretende reemplazar una configuración de Alta disponibilidad. Para obtener más información, consulta [Configuración de alta disponibilidad](/enterprise/admin/guides/installation/configuring-github-enterprise-server-for-high-availability). Una configuración de conmutación primaria/secundaria es mucho más simple que la agrupación y permitirá satisfacer las necesidades de muchas organizaciones. Para obtener más información, consulta [Diferencias entre agrupación y alta disponibilidad](/enterprise/admin/guides/clustering/differences-between-clustering-and-high-availability-ha/).
 
 {% data reusables.package_registry.packages-cluster-support %}
 

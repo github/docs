@@ -31,7 +31,7 @@ Si tu organización utiliza {% data variables.product.prodname_ghe_cloud %}, tam
 
 {% endif %}
 
-{% if enterprise-owners-visible-for-org-members %}
+{% ifversion enterprise-owners-visible-for-org-members %}
 ## Ver a los propietarios de la empresa y sus roles en la organización
 
 Si una cuenta empresarial administra tu organización, entonces puedes ver a los propietarios de la empresa que administran los ajustes de facturación y las políticas de todas las organizaciones de esta. Para obtener más información sobre las cuentas empresariales, consulta la sección "[Tipos de cuenta de {% data variables.product.prodname_dotcom %}](/get-started/learning-about-github/types-of-github-accounts)".
@@ -50,7 +50,7 @@ También puedes ver si un propietario de empresa tiene un rol específico en la 
 | Propietario de empresa  | Propietario de organización                      | Puede configurar los ajustes de la organización y administrar el acceso a los recursos de la misma mediante equipos, etc.                                     |
 | Propietario de empresa  | Miembro de la organización                       | Puede acceder a los recursos y contenido de la organización, tales como repositorios, sin acceder a los ajustes de la misma.                                  |
 
-Para revisar todos los roles en una organización, consulta la sección "[Roles en una organización](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)". {% if custom-repository-roles %} Los miembros de la organización también pueden tener roles personalizados para un repositorio específico. Para obtener más información, consulta la sección "[Administrar los roles personalizados de repositorio en una organización](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)".{% endif %}
+Para revisar todos los roles en una organización, consulta la sección "[Roles en una organización](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)". {% ifversion custom-repository-roles %} Los miembros de la organización también pueden tener roles personalizados para un repositorio específico. Para obtener más información, consulta la sección "[Administrar los roles personalizados de repositorio en una organización](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)".{% endif %}
 
 Para obtener más información sobre el rol de propietario de empresa, consulta la sección "[Roles en una empresa](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise#enterprise-owner)".
 

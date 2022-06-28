@@ -25,7 +25,7 @@ const cheerioCache = new QuickLRU({
   // Don't use arrow function so we can access `this`.
   onEviction: function onEviction() {
     const { heapUsed } = process.memoryUsage()
-    statsd.gauge('rendering_cache_cheerio', heapUsed, [`size:${this.size}`])
+    statsd.gauge('middleware.rendering_cache_cheerio', heapUsed, [`size:${this.size}`])
   },
 })
 
@@ -34,7 +34,7 @@ const gzipCache = new QuickLRU({
   // Don't use arrow function so we can access `this`.
   onEviction: function onEviction() {
     const { heapUsed } = process.memoryUsage()
-    statsd.gauge('rendering_cache_gzip', heapUsed, [`size:${gzipCache.size}`])
+    statsd.gauge('middleware.rendering_cache_gzip', heapUsed, [`size:${gzipCache.size}`])
   },
 })
 

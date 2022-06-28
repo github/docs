@@ -37,6 +37,11 @@ Os commits e tags têm o seguinte status de verificação, dependendo se você h
 | **Não verificado**        | O commit foi assinado, mas não foi possível verificar a assinatura. |
 | Sem status de verificação | O commit não foi assinado.                                          |
 
+### Verificação de assinatura para rebase e merge
+{% data reusables.pull_requests.rebase_and_merge_verification %}
+
+Para obter mais informações, consulte "[Fazendo rebase e merge dos seus commits](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/about-merge-methods-on-github#rebasing-and-merging-your-commits)."
+
 ### Status com modo vigilante habilitado
 
 {% data reusables.identity-and-permissions.vigilant-mode-verification-statuses %}

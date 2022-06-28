@@ -29,6 +29,8 @@ A Health Check provides the following information about {% data variables.produc
 - Analysis of Git requests, with details about the busiest repositories and Git users 
 - Analysis of API requests, including the busiest times, most frequently requested endpoints, and most active callers
 
+If you want to generate a Health Check for {% data variables.product.prodname_ghe_cloud %}, contact {% data variables.contact.github_support %}. For more information, see "[Creating a support ticket](/support/contacting-github-support/creating-a-support-ticket)."
+
 ## Generating a Health Check
 
 Before you can generate a Health Check, you must create a support bundle. For more information, see "[Providing data to {% data variables.contact.github_support %}](/support/contacting-github-support/providing-data-to-github-support#creating-and-sharing-support-bundles)."

@@ -1,6 +1,6 @@
 ---
 title: 配置 Dependabot 警报
-intro: '启用 {% data variables.product.prodname_dependabot_alerts %}，以便在其中一个依赖项中发现新漏洞时收到通知。'
+intro: 'Enable {% data variables.product.prodname_dependabot_alerts %} to be generated when a new vulnerable dependency {% ifversion GH-advisory-db-supports-malware %}or malware {% endif %}is found in one of your repositories.'
 shortTitle: 配置 Dependabot 警报
 versions:
   fpt: '*'
@@ -17,11 +17,11 @@ topics:
   - Repositories
 ---
 
-## 关于有漏洞依赖项的 {% data variables.product.prodname_dependabot_alerts %}
+## About {% data variables.product.prodname_dependabot_alerts %} for vulnerable dependencies{% ifversion GH-advisory-db-supports-malware %} and malware{% endif %}
 
 {% data reusables.repositories.a-vulnerability-is %}
 
-Dependabot 执行扫描以检测有漏洞的依赖项，并在将新漏洞添加到 GitHub Advisory 数据库或存储库更改的依赖关系图时发送 Dependabot 警报。 更多信息请参阅“[关于 {% data variables.product.prodname_dependabot_alerts %} 警报](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)”。
+{% data variables.product.prodname_dependabot %} scans code when a new advisory is added to the {% data variables.product.prodname_advisory_database %} or the dependency graph for a repository changes. When vulnerable dependencies{% ifversion GH-advisory-db-supports-malware %} or malware{% endif %} are detected, {% data variables.product.prodname_dependabot_alerts %} are generated. 更多信息请参阅“[关于 {% data variables.product.prodname_dependabot_alerts %} 警报](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)”。
 
 您可以对以下项启用或禁用 {% data variables.product.prodname_dependabot_alerts %}：
 * 您的个人帐户
@@ -59,7 +59,7 @@ Dependabot 执行扫描以检测有漏洞的依赖项，并在将新漏洞添加
 
 {% ifversion fpt or ghec %}您可以管理公共、私有或内部存储库的 {% data variables.product.prodname_dependabot_alerts %}。
 
-默认情况下，我们会向受影响仓库中具有管理员权限的人员通知有关新的 {% data variables.product.prodname_dependabot_alerts %}。 {% data variables.product.product_name %} 从不公开披露在任何仓库中发现的漏洞。 您也可以将 {% data variables.product.prodname_dependabot_alerts %} 设为对操作您拥有或具有管理员权限的仓库的其他人或团队可见。
+默认情况下，我们会向受影响仓库中具有管理员权限的人员通知有关新的 {% data variables.product.prodname_dependabot_alerts %}。 {% data variables.product.product_name %} never publicly discloses insecure dependencies for any repository. 您也可以将 {% data variables.product.prodname_dependabot_alerts %} 设为对操作您拥有或具有管理员权限的仓库的其他人或团队可见。
 
 {% data reusables.security.security-and-analysis-features-enable-read-only %}
 
@@ -68,8 +68,8 @@ Dependabot 执行扫描以检测有漏洞的依赖项，并在将新漏洞添加
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
-1. 在“Code security and analysis（代码安全性和分析）”下，单击 {% data variables.product.prodname_dependabot_alerts %} 右侧的 **Disable（禁用）**或 **Enable（启用）**。 ![对 Dependabot 警报强调显示"禁用"按钮的"配置安全性和分析"功能的屏幕截图](/assets/images/help/dependabot/dependabot-alerts-disable-or-enable-fpt-private.png)
- {% endif %}{% ifversion ghes or ghae %}
+1. 在“Code security and analysis（代码安全和分析）”下，在 {% data variables.product.prodname_dependabot_alerts %} 的右侧，单击 **Enable（启用）**以启用警报，或单击 **Disable（禁用）**禁用警报。 !["代码安全性和分析" “部分的屏幕截图，其中包含用于启用 {% data variables.product.prodname_dependabot_security_updates %}按钮](/assets/images/help/repository/security-and-analysis-disable-or-enable-fpt-private.png)
+{% endif %}{% ifversion ghes or ghae %}
 
 您的企业所有者可以启用或禁用存储库的 {% data variables.product.prodname_dependabot_alerts %}。 更多信息请参阅“[为企业启用 Dependabot](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)”。
 {% endif %}

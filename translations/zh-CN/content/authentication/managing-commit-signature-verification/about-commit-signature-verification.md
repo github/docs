@@ -36,6 +36,11 @@ Commits and tags have the following verification statuses, depending on whether 
 | **Unverified** | The commit is signed but the signature could not be verified.
 | No verification status | The commit is not signed.
 
+### Signature verification for rebase and merge
+{% data reusables.pull_requests.rebase_and_merge_verification %}
+
+For more information, see "[Rebasing and merging your commits](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/about-merge-methods-on-github#rebasing-and-merging-your-commits)."
+
 ### Statuses with vigilant mode enabled
 
 {% data reusables.identity-and-permissions.vigilant-mode-verification-statuses %}

@@ -77,3 +77,10 @@ upcoming_changes:
     date: '2022-07-01T00:00:00+00:00'
     criticality: 破壊的
     owner: jdennes
+  - 
+    location: RemovePullRequestFromMergeQueueInput.branch
+    description: '`branch`は削除されます。'
+    reason: PRはベースブランチのマージキューから削除され、引数`branch`はno-opになりました。
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: jhunschejones

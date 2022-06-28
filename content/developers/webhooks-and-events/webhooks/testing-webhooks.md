@@ -4,6 +4,7 @@ intro: 'Review your webhook deliveries on {% data variables.product.prodname_dot
 redirect_from:
   - /webhooks/testing
   - /developers/webhooks-and-events/testing-webhooks
+  - /articles/testing-webhooks
 versions:
   fpt: '*'
   ghes: '*'

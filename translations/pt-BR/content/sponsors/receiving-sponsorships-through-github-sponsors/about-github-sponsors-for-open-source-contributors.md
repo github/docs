@@ -16,7 +16,7 @@ shortTitle: Contribuidores de código aberto
 
 ## Ingressar no {% data variables.product.prodname_sponsors %}
 
-{% data reusables.sponsors.you-can-be-a-sponsored-developer %} For more information, see "[Setting up {% data variables.product.prodname_sponsors %} for your personal account](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account)."
+{% data reusables.sponsors.you-can-be-a-sponsored-developer %} Para obter mais informações, consulte "[Configurando o {% data variables.product.prodname_sponsors %} para sua conta pessoal](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account)."
 
 {% data reusables.sponsors.you-can-be-a-sponsored-organization %} Para mais informações, consulte "[Configurando o {% data variables.product.prodname_sponsors %} para a sua organização](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)."
 
@@ -28,7 +28,7 @@ Você pode definir uma meta para seus patrocínios. Para obter mais informaçõe
 
 ## Níveis de patrocínio
 
-{% data reusables.sponsors.tier-details %} For more information, see "[Setting up {% data variables.product.prodname_sponsors %} for your personal account](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account)," "[Setting up {% data variables.product.prodname_sponsors %} for your organization](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization), and "[Managing your sponsorship tiers](/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-tiers)."
+{% data reusables.sponsors.tier-details %} Para obter mais informações, consulte "[Configurando {% data variables.product.prodname_sponsors %} para a sua conta pessoal](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account), "[Configurando {% data variables.product.prodname_sponsors %} para sua organização](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization) e "[Gerenciando as camadas do seu patrocínio](/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-tiers)."
 
 É melhor criar uma série de diferentes opções de patrocínio, incluindo camadas mensais e únicas, para facilitar o apoio de qualquer pessoa ao seu trabalho. Em particular, os pagamentos únicos permitem que as pessoas recompensem os seus esforços sem se preocuparem se as suas finanças irão acomodar um calendário de pagamentos regular.
 
