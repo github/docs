@@ -1,12 +1,13 @@
 ---
-title: Buscar vulnerabilidades de seguridad en la Base de Datos de Asesorías de GitHub
-intro: 'La {% data variables.product.prodname_advisory_database %} te permite buscar vulnerabilidades que afecten proyectos de código abierto, ya sea manualmente o por coincidencia exacta, en {% data variables.product.company_short %}.'
+title: Browsing security advisories in the GitHub Advisory Database
+intro: 'You can browse the {% data variables.product.prodname_advisory_database %} to find advisories for security risks in open source projects that are hosted on {% data variables.product.company_short %}.'
 shortTitle: Buscar en la Base de Datos de Asesorías
 miniTocMaxHeadingLevel: 3
 redirect_from:
   - /github/managing-security-vulnerabilities/browsing-security-vulnerabilities-in-the-github-advisory-database
   - /code-security/supply-chain-security/browsing-security-vulnerabilities-in-the-github-advisory-database
   - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/browsing-security-vulnerabilities-in-the-github-advisory-database
+  - /code-security/dependabot/dependabot-alerts/browsing-security-vulnerabilities-in-the-github-advisory-database
 versions:
   fpt: '*'
   ghec: '*'
@@ -21,33 +22,50 @@ topics:
 
 <!--Marketing-LINK: From /features/security/software-supply-chain page "Browsing security vulnerabilities in the GitHub Advisory Database".-->
 
-## Acerca de las vulnerabilidades de seguridad
-
-{% data reusables.repositories.a-vulnerability-is %}
-
 ## Acerca de {% data variables.product.prodname_advisory_database %}
 
-La {% data variables.product.prodname_advisory_database %} contiene una lista de vulnerabilidades de seguridad conocidas, agrupadas en dos categorías: asesorías que revisó {% data variables.product.company_short %} y asesorías sin revisar.
+The {% data variables.product.prodname_advisory_database %} contains a list of known security vulnerabilities and malware, grouped in two categories: {% data variables.product.company_short %}-reviewed advisories and unreviewed advisories.
 
 {% data reusables.repositories.tracks-vulnerabilities %}
 
-### Acerca de las asesorías que revisa {% data variables.product.company_short %}
+## About types of security advisories
 
-Las asesorías que revisa {% data variables.product.company_short %} son vulnerabilidades de seguridad que se mapearon a paquetes que rastrea la gráfica de dependencias de {% data variables.product.company_short %}.
+{% data reusables.advisory-database.beta-malware-advisories %}
 
-Revisamos la validez de cada asesoría cuidadosamente. Cada asesoría que revisa {% data variables.product.company_short %} tiene una descripción completa y contiene información tanto del ecosistema como del paquete.
+Each advisory in the {% data variables.product.prodname_advisory_database %} is for a vulnerability in open source projects or for malicious open source software.
 
-Si habilitas las {% data variables.product.prodname_dependabot_alerts %} para tus repositorios, se te notifica automáticamente cuando una asesoría que revisa {% data variables.product.company_short %} afecta a los paquetes de los que dependes. Para obtener más información, consulta la sección "[Acerca de las {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)".
+{% data reusables.repositories.a-vulnerability-is %} Vulnerabilities in code are usually introduced by accident and fixed soon after they are discovered. You should update your code to use the fixed version of the dependency as soon as it is available.
 
-### Acerca de las asesorías sin revisar
+In contrast, malicious software, or malware, is code that is intentionally designed to perform unwanted or harmful functions. The malware may target hardware, software, confidential data, or users of any application that uses the malware. You need to remove the malware from your project and find an alternative, more secure replacement for the dependency.
+
+### {% data variables.product.company_short %}-reviewed advisories
+
+{% data variables.product.company_short %}-reviewed advisories are security vulnerabilities or malware that have been mapped to packages in ecosystems we support. We carefully review each advisory for validity and ensure that they have a full description, and contain both ecosystem and package information.
+
+Generally, we name our supported ecosystems after the software programming language's associated package registry. We review advisories if they are for a vulnerability in a package that comes from a supported registry.
+
+- Composer (registry: https://packagist.org/)
+- Go (registry: https://pkg.go.dev/)
+- Maven (registry: https://repo1.maven.org/maven2/org/)
+- npm (registry: https://www.npmjs.com/)
+- NuGet (registry: https://www.nuget.org/)
+- pip (registry: https://pypi.org/)
+- RubyGems (registry: https://rubygems.org/)
+- Rust (registry: https://crates.io/)
+
+If you have a suggestion for a new ecosystem we should support, please open an [issue](https://github.com/github/advisory-database/issues) for discussion.
+
+If you enable {% data variables.product.prodname_dependabot_alerts %} for your repositories, you are automatically notified when a new {% data variables.product.company_short %}-reviewed advisory reports a vulnerability or malware for a package you depend on. Para obtener más información, consulta la sección "[Acerca de las {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)".
+
+### Unreviewed advisories
 
 Las asesorías sin revisar son vulnerabilidades de seguridad que publicamos automáticamente en la {% data variables.product.prodname_advisory_database %}, directamente desde la fuente de la Base de Datos Nacional de Vulnerabilidades.
 
 El {% data variables.product.prodname_dependabot %} no crea {% data variables.product.prodname_dependabot_alerts %} para las asesorías sin revisar, ya que este tipo de asesoría no se revisa en su validez o finalización.
 
-## Acerca de las asesorías de seguridad
+## About information in security advisories
 
-Cada asesoría de seguridad contiene información sobre la vulnerabilidad, la cual puede incluir la descripción, severidad, paquete afectado, ecosistema del paquete, versiones afectadas y versiones parchadas, impacto e información opcional, tal como referencias, soluciones alternas y créditos. Adicionalmente, las asesorías de la National Vulnerability Database contiene un enlace al registro de CVE, en donde puedes leer más sobre los detalles de la vulnerabilidad, su puntuación de CVSS y su nivel de severidad cualitativo. Para obtener más información, consulta la "[National Vulnerability Database](https://nvd.nist.gov/)" del Instituto Nacional de Estándares y Tecnología.
+Each security advisory contains information about the vulnerability or malware, which may include the description, severity, affected package, package ecosystem, affected versions and patched versions, impact, and optional information such as references, workarounds, and credits. Adicionalmente, las asesorías de la National Vulnerability Database contiene un enlace al registro de CVE, en donde puedes leer más sobre los detalles de la vulnerabilidad, su puntuación de CVSS y su nivel de severidad cualitativo. Para obtener más información, consulta la "[National Vulnerability Database](https://nvd.nist.gov/)" del Instituto Nacional de Estándares y Tecnología.
 
 El nivel de gravedad es uno de cuatro niveles posibles que se definen en el [Sistema de clasificación de vulnerabilidades comunes (CVSS), Sección 5](https://www.first.org/cvss/specification-document)".
 - Bajo
@@ -68,11 +86,12 @@ La {% data variables.product.prodname_advisory_database %} utiliza los niveles d
    **Tip:** Puedes utilizar la barra lateral a la izquierda para explorar las asesorías que revisa {% data variables.product.company_short %} y aquellas sin revisar, por separado.
 
    {% endtip %}
-3. Da clic en cualquier asesoría para ver los detalles.
+3. Da clic en cualquier asesoría para ver los detalles. By default, you will see {% data variables.product.company_short %}-reviewed advisories for security vulnerabilities. To show malware advisories, use `type:malware` in the search bar.
+
 
 {% note %}
 
-También se puede acceder a la base de datos utilizando la API de GraphQL. Para obtener más información, consulta la sección "[evento de webhook de `security_advisory`](/webhooks/event-payloads/#security_advisory)".
+También se puede acceder a la base de datos utilizando la API de GraphQL. By default, queries will return {% data variables.product.company_short %}-reviewed advisories for security vulnerabilities unless you specify `type:malware`. Para obtener más información, consulta la sección "[evento de webhook de `security_advisory`](/webhooks/event-payloads/#security_advisory)".
 
 {% endnote %}
 
@@ -89,7 +108,8 @@ Puedes buscar la base de datos y utilizar los calificadores para definir más tu
 
 | Qualifier             | Ejemplo                                                                                                                                                                             |
 | --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `type:reviewed`       | [**type:reviewed**](https://github.com/advisories?query=type%3Areviewed) mostrará las asesorías que revisa {% data variables.product.company_short %}.                              |
+| `type:reviewed`       | [**type:reviewed**](https://github.com/advisories?query=type%3Areviewed) will show {% data variables.product.company_short %}-reviewed advisories for security vulnerabilities.     |
+| `type:malware`        | [**type:malware**](https://github.com/advisories?query=type%3Amalware) will show {% data variables.product.company_short %}-reviewed advisories for malware.                        |
 | `type:unreviewed`     | [**type:unreviewed**](https://github.com/advisories?query=type%3Aunreviewed) mostrará las asesorías sin revisar.                                                                    |
 | `GHSA-ID`             | [**GHSA-49wp-qq6x-g2rf**](https://github.com/advisories?query=GHSA-49wp-qq6x-g2rf) mostrará la asesoría con esta ID de {% data variables.product.prodname_advisory_database %}.   |
 | `CVE-ID`              | [**CVE-2020-28482**](https://github.com/advisories?query=CVE-2020-28482) mostrará la asesoría con este número de ID de CVE.                                                         |
@@ -108,13 +128,13 @@ Puedes buscar la base de datos y utilizar los calificadores para definir más tu
 
 ## Visualizar tus repositorios vulnerables
 
-Para cualquier asesoría que revise {% data variables.product.company_short %} en la {% data variables.product.prodname_advisory_database %}, puedes ver cuáles de tus repositorios se ven afectados por esa vulnerabilidad de seguridad. Para ver un repositorio vulnerable, debes tener acceso a las {% data variables.product.prodname_dependabot_alerts %} de este. Para obtener más información, consulta la sección "[Acerca de las {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies#access-to-dependabot-alerts)".
+For any {% data variables.product.company_short %}-reviewed advisory in the {% data variables.product.prodname_advisory_database %}, you can see which of your repositories are affected by that security vulnerability or malware. Para ver un repositorio vulnerable, debes tener acceso a las {% data variables.product.prodname_dependabot_alerts %} de este. Para obtener más información, consulta la sección "[Acerca de las {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies#access-to-dependabot-alerts)".
 
 1. Navega hasta https://github.com/advisories.
 2. Haz clic en una asesoría.
 3. En la parte superior de la página de la asesoría, haz clic en **Alertas del dependabot**. ![Las alertas del dependabot](/assets/images/help/security/advisory-database-dependabot-alerts.png)
 4. Opcionalmente, para filtrar la lista, utiliza la barra de búsqueda o los menús desplegables. El menú desplegable de "Organización" te permite filtrar las {% data variables.product.prodname_dependabot_alerts %} por propietario (organización o usuario). ![Barra de búsqueda y menús desplegables para filtrar alertas](/assets/images/help/security/advisory-database-dependabot-alerts-filters.png)
-5. Para obtener más detalles de la vulnerabilidad y para encontrar consejos sobre cómo arreglar el repositorio vulnerable, da clic en el nombre del repositorio.
+5. For more details about the advisory, and for advice on how to fix the vulnerable repository, click the repository name.
 
 ## Leer más
 

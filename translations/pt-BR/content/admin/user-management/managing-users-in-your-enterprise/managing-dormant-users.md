@@ -59,9 +59,9 @@ topics:
 
 {% tip %}
 
-**Tip:** For the purposes of assessing user dormancy, user activity is scoped to include only user activity associated with organizations, repositories, or sign-on events that are associated with the enterprise. For example, if a user has recently commented on an issue in a public repository not associated with the enterprise, they may be considered dormant. However, if they have recently commented on an issue in a public repository associated with an organization in your enterprise, they will not be considered dormant and will not appear in the Dormant User report.
+**Dica:** Para fins de avaliação do usuário inativo, a atividade do usuário tem escopo para incluir apenas a atividade do usuário associada a organizações, repositórios ou eventos de logon associados à empresa. Por exemplo, se um usuário comentou recentemente sobre um problema em um repositório público não associado à empresa, ele poderá ser considerado inativo. No entanto, se ele comentou recentemente sobre um problema em um repositório público associado a uma organização da sua empresa, ele não será considerado inativo e não aparecerá no relatório do de usuário inativo.
 
-In the case of web sign-on events, only sign-on events through via an SSO domain associated with your enterprise are considered user activity associated with the enterprise.
+No caso de eventos de logon na web, somente eventos de login por meio de um domínio SSO associado à sua empresa são consideradas atividade de usuário associada à empresa.
 
 {% endtip %}
 

@@ -41,13 +41,13 @@ Marcar un repositorio como favorito es un proceso simple de dos pasos.
 
 {% ifversion fpt or ghec %}
 
-## Viewing who has starred a repository
+## Visualizar quién marcó un repositorio como favorito
 
 
-You can view everyone who has starred a public repository or a private repository you have access to.
+Puedes ver a cualquiera que haya marcado como favorito a un repositorio público o a uno privado al cual tengas acceso.
 
 
-To view everyone who has starred a repository, add `/stargazers` to the end of the URL of a repository. For example, to view stargazers for the github/docs repository, visit https://github.com/github/docs/stargazers.
+Para ver a todo aquél que haya marcado un repositorio como favorito, agrega `/stargazers` al final de la URL de un repositorio. Por ejemplo, para ver a los seguidores de github/docs repository, visita https://github.com/github/docs/stargazers.
 
 
 ## Organizar los repositorios marcados como favoritos con las listas
