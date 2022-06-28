@@ -23,7 +23,7 @@ children:
   - /telling-git-about-your-signing-key
   - /associating-an-email-with-your-gpg-key
   - /signing-commits
-  - /signing-tags
+  - /signing-tags TY
 shortTitle: Verify commit signatures
 ---
 
