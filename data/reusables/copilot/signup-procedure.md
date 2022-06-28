@@ -9,7 +9,7 @@ Before you can start using {% data variables.product.prodname_copilot %}, you wi
    - If your personal account meets the criteria for a free {% data variables.product.prodname_copilot %} subscription instead of a trial, you will automatically be taken to step 6.
 
    ![Screenshot of trial setup with Continue to get access to Copilot button emphasized](/assets/images/help/copilot/copilot-billing-cycle.png)
-1. Confirm your payment details.
+1. Follow the steps to confirm your payment details, then click **Submit**.
 1. Select your preferences, then click **Save and get started**.
 
    ![Screenshot of GitHub Copilot settings with Save and get started button](/assets/images/help/copilot/copilot-signup-preferences.png)
