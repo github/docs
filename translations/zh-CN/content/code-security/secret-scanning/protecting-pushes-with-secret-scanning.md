@@ -83,7 +83,7 @@ shortTitle: 推送保护
 1. 单击 **Allow me to push this secret（允许我推送此机密）**。
 2. 在三小时内重新尝试在命令行上推送。 如果您在三小时内没有推送，则需要重复此过程。
 
-{% if secret-scanning-push-protection-web-ui %}
+{% ifversion secret-scanning-push-protection-web-ui %}
 ## 使用密钥扫描作为 Web UI 的推送保护
 
 当您使用 Web UI 尝试将受支持的密钥提交到启用了机密扫描作为推送保护的存储库或组织时，{% data variables.product.prodname_dotcom %} 将阻止提交。 您将在页面顶部看到一个横幅，其中包含有关密钥位置的信息，并且密钥也将在文件中加下划线，以便您可以轻松找到它。

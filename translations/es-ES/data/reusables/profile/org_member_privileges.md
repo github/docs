@@ -1,1 +1,1 @@
-3. Under "Access", click **Member privileges**. ![Screenshot of the member privileges tab](/assets/images/help/organizations/member-privileges.png) 
+3. Debajo de "Acceso", haz clic en **Privilegios de miembro**. ![Captura de pantalla de la pestaña de privilegios de miembro](/assets/images/help/organizations/member-privileges.png) 

@@ -22,7 +22,7 @@ shortTitle: 配置 Git LFS
 
 {% tip %}
 
-**注：**尝试向 {% data variables.product.product_name %} 推送大文件之前，请确保在您的企业上启用了 {% data variables.large_files.product_name_short %}。 更多信息请参阅“[在 GitHub Enterprise Server 上配置 Git Large File Storage](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-git-large-file-storage-on-github-enterprise-server/)”。
+**注：**尝试向 {% data variables.product.product_name %} 推送大文件之前，请确保在您的企业上启用了 {% data variables.large_files.product_name_short %}。 更多信息请参阅“[在 GitHub Enterprise Server 上配置 Git Large File Storage](/enterprise/admin/guides/installation/configuring-git-large-file-storage-on-github-enterprise-server/)”。
 
 {% endtip %}
 

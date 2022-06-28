@@ -295,5 +295,11 @@ sections:
 
           To start a repository maintenance task manually, browse to `https://<hostname>/stafftools/repositories/<owner>/<repository>/network` for each affected repository and click the **Schedule** button.
 
+    - heading: Change to the format of authentication tokens affects GitHub Connect
+      notes:
+        # https://github.com/github/releases/issues/1235
+        - |
+          GitHub Connect will no longer work after June 3rd for instances running GitHub Enterprise Server 3.1 or older, due to the format of GitHub authentication tokens changing. To continue using GitHub Connect, upgrade to GitHub Enterprise Server 3.2 or later. For more information, see the [GitHub Blog](https://github.blog/2022-05-20-action-needed-by-github-connect-customers-using-ghes-3-1-and-older-to-adopt-new-authentication-token-format-updates/). [Updated: 2022-06-14]
+
   backups:
     - '{% data variables.product.prodname_ghe_server %} 3.3 requires at least [GitHub Enterprise Backup Utilities 3.3.0](https://github.com/github/backup-utils) for [Backups and Disaster Recovery](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance).'

@@ -112,7 +112,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       # You can use PyPy versions in python-version.
-      # For example, {% if actions-node16-action %}pypy-2.7 and pypy-3.8{% else %}pypy2 and pypy3{% endif %}
+      # For example, {% ifversion actions-node16-action %}pypy-2.7 and pypy-3.8{% else %}pypy2 and pypy3{% endif %}
       matrix:
         python-version: ["2.7", "3.6", "3.7", "3.8", "3.9"]
 
@@ -173,7 +173,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        python-version: ["3.6", "3.7", "3.8", "3.9", {% if actions-node16-action %}pypy-2.7, pypy-3.8{% else %}pypy2, pypy3{% endif %}]
+        python-version: ["3.6", "3.7", "3.8", "3.9", {% ifversion actions-node16-action %}pypy-2.7, pypy-3.8{% else %}pypy2, pypy3{% endif %}]
         exclude:
           - os: macos-latest
             python-version: "3.6"
@@ -195,7 +195,7 @@ We recommend using `setup-python` to configure the version of Python used in you
 
 {% data variables.product.prodname_dotcom %}-hosted runners have the pip package manager installed. You can use pip to install dependencies from the PyPI package registry before building and testing your code. For example, the YAML below installs or upgrades the `pip` package installer and the `setuptools` and `wheel` packages.
 
-{% if actions-caching %}You can also cache dependencies to speed up your workflow. For more information, see "[Caching dependencies to speed up workflows](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."{% endif %}
+{% ifversion actions-caching %}You can also cache dependencies to speed up your workflow. For more information, see "[Caching dependencies to speed up workflows](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."{% endif %}
 
 ```yaml{:copy}
 steps:
@@ -225,7 +225,7 @@ steps:
     pip install -r requirements.txt
 ```
 
-{% if actions-caching %}
+{% ifversion actions-caching %}
 
 ### Caching Dependencies
 

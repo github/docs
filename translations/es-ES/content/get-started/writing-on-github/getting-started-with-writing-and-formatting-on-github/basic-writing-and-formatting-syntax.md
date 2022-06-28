@@ -134,7 +134,7 @@ Aquí tienes algunos ejemplos para utilizar enlaces relativos para mostrar una i
 | ----------------------------------------------------------------------- | ---------------------------------------------------------------------- |
 | En un archivo `.md` en la misma rama                                    | `/assets/images/electrocat.png`                                        |
 | En un archivo `.md` en otra rama                                        | `/../main/assets/images/electrocat.png`                                |
-| En propuestas, solicitudes de cambio y comentarios del repositorio      | `../blob/main/assets/images/electrocat.png`                            |
+| En propuestas, solicitudes de cambio y comentarios del repositorio      | `../blob/main/assets/images/electrocat.png?raw=true`                   |
 | En un archivo `.md` en otro repositorio                                 | `/../../../../github/docs/blob/main/assets/images/electrocat.png`      |
 | En propuestas, solicitudes de cambios y comentarios de otro repositorio | `../../../github/docs/blob/main/assets/images/electrocat.png?raw=true` |
 
@@ -149,9 +149,9 @@ Para obtener más información, consulta la sección "[Enlaces relativos](#relat
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5559 %}
 ### Especificar un tema en el que se muestra una imagen
 
-You can specify the theme an image is displayed for in Markdown by using the HTML `<picture>` element in combination with the `prefers-color-scheme` media feature. Distinguimos entre modos de color oscuro y claro, así que existen dos opciones disponibles. Puedes utilizar estas opciones para mostrar imágenes optimizadas para los fondos claros u oscuros. Esto es especialmente útil para las imágenes PNG transparentes.
+Puedes especificar el tema para el cual se muestra una imagen en el lenguaje de marcado si utilizas el elemento HTML `<picture>` combinado con la característica de medios `prefers-color-scheme`. Distinguimos entre modos de color oscuro y claro, así que existen dos opciones disponibles. Puedes utilizar estas opciones para mostrar imágenes optimizadas para los fondos claros u oscuros. Esto es especialmente útil para las imágenes PNG transparentes.
 
-For example, the following code displays a sun image for light themes and a moon for dark themes:
+Por ejemplo, el siguiente código muestra una imagen de un sol para los temas claros y una luna para los oscuros:
 
 ```HTML
 <picture>
@@ -161,7 +161,7 @@ For example, the following code displays a sun image for light themes and a moon
 </picture>
 ```
 
-The old method of specifying images based on the theme, by using a fragment appended to the URL (`#gh-dark-mode-only` or `#gh-light-mode-only`), is deprecated and will be removed in favor of the new method described above.
+El método antiguo para especificar las imágenes con base en el tema, que es utilizando un fragmento anexo a la URL (`#gh-dark-mode-only` o `#gh-light-mode-only`), será obsoleto y se eliminará para favorecer al método nuevo que se menciona anteriormente.
 {% endif %}
 
 ## Listas

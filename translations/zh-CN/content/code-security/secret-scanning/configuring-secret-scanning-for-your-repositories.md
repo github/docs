@@ -34,7 +34,7 @@ shortTitle: 配置密钥扫描
    {% elsif ghes or ghae %}![Enable {% data variables.product.prodname_GH_advanced_security %} for your repository](/assets/images/enterprise/3.1/help/repository/enable-ghas.png){% endif %}
 5. 查看启用 {% data variables.product.prodname_advanced_security %} 的影响，然后点击 **对仓库启用 {% data variables.product.prodname_GH_advanced_security %}**。
 6. 当您启用 {% data variables.product.prodname_advanced_security %} 时，{% data variables.product.prodname_secret_scanning %} 可能会因为组织的设置而自动启用。 如果 "{% data variables.product.prodname_secret_scanning_caps %}" 显示 **Enable（启用）**按钮，则您仍需通过单击 **Enable（启用）**来启用 {% data variables.product.prodname_secret_scanning %}。 如果您看到 **Disable（禁用）**按钮，则表明 {% data variables.product.prodname_secret_scanning %} 已启用。 ![为仓库启用 {% data variables.product.prodname_secret_scanning %}](/assets/images/help/repository/enable-secret-scanning-dotcom.png)
-{% if secret-scanning-push-protection %}
+{% ifversion secret-scanning-push-protection %}
 7. （可选）如果要启用推送保护，请单击“Push protection（推送保护）”右侧的 **Enable（启用）** 。 {% data reusables.secret-scanning.push-protection-overview %} 更多信息请参阅“[使用 {% data variables.product.prodname_secret_scanning %} 保护推送](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)”。 ![为存储库启用推送保护](/assets/images/help/repository/secret-scanning-enable-push-protection.png)
 {% endif %}
 {% ifversion ghae %}

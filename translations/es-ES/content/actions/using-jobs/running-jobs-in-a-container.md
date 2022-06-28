@@ -1,7 +1,7 @@
 ---
 title: Ejecutar trabajos en un contenedor
 shortTitle: Ejecutar trabajos en un contenedor
-intro: Use a container to run the steps in a job.
+intro: Utiliza un contenedor para ejecutar los pasos de un job.
 versions:
   fpt: '*'
   ghes: '*'

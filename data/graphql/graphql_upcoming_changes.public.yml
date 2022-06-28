@@ -96,9 +96,1635 @@ upcoming_changes:
     date: '2022-07-01T00:00:00+00:00'
     criticality: breaking
     owner: cheshire137
+  - location: AddProjectDraftIssueInput.assigneeIds
+    description:
+      '`assigneeIds` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: AddProjectDraftIssueInput.body
+    description:
+      '`body` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: AddProjectDraftIssueInput.projectId
+    description:
+      '`projectId` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: AddProjectDraftIssueInput.title
+    description:
+      '`title` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: AddProjectDraftIssuePayload.projectNextItem
+    description:
+      '`projectNextItem` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: AddProjectNextItemInput.contentId
+    description:
+      '`contentId` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: AddProjectNextItemInput.projectId
+    description:
+      '`projectId` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: AddProjectNextItemPayload.projectNextItem
+    description:
+      '`projectNextItem` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: DeleteProjectNextItemInput.itemId
+    description:
+      '`itemId` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: DeleteProjectNextItemInput.projectId
+    description:
+      '`projectId` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: DeleteProjectNextItemPayload.deletedItemId
+    description:
+      '`deletedItemId` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: DependencyGraphDependency.packageLabel
+    description:
+      '`packageLabel` will be removed. Use normalized `packageName` field
+      instead.'
+    reason: '`packageLabel` will be removed.'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/dependency_graph
+  - location: Issue.projectNext
+    description:
+      '`projectNext` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: Issue.projectsNext
+    description:
+      '`projectsNext` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: LockMergeQueueInput.branch
+    description: '`branch` will be removed.'
+    reason:
+      The merge queue is locked for the repository's default branch, the `branch`
+      argument is now a no-op
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: jhunschejones
+  - location: MergeLockedMergeGroupInput.branch
+    description: '`branch` will be removed.'
+    reason:
+      Changes are merged into the repository's default branch, the `branch` argument
+      is now a no-op
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: jhunschejones
+  - location: Mutation.addProjectDraftIssue
+    description:
+      '`addProjectDraftIssue` will be removed. Follow the ProjectV2 guide
+      at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: Mutation.addProjectNextItem
+    description:
+      '`addProjectNextItem` will be removed. Follow the ProjectV2 guide at
+      https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: Mutation.deleteProjectNextItem
+    description:
+      '`deleteProjectNextItem` will be removed. Follow the ProjectV2 guide
+      at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: Mutation.updateProjectDraftIssue
+    description:
+      '`updateProjectDraftIssue` will be removed. Follow the ProjectV2 guide
+      at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: Mutation.updateProjectNext
+    description:
+      '`updateProjectNext` will be removed. Follow the ProjectV2 guide at
+      https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: Mutation.updateProjectNextItemField
+    description:
+      '`updateProjectNextItemField` will be removed. Follow the ProjectV2
+      guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: Organization.projectNext
+    description:
+      '`projectNext` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: Organization.projectsNext
+    description:
+      '`projectsNext` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: Organization.recentProjectsNext
+    description:
+      '`recentProjectsNext` will be removed. Follow the ProjectV2 guide at
+      https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNext.closed
+    description:
+      '`closed` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNext.createdAt
+    description:
+      '`createdAt` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNext.creator
+    description:
+      '`creator` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNext.databaseId
+    description:
+      '`databaseId` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNext.defaultView
+    description:
+      '`defaultView` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNext.description
+    description:
+      '`description` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNext.fieldConstraints
+    description:
+      '`fieldConstraints` will be removed. Follow the ProjectV2 guide at
+      https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNext.fields
+    description:
+      '`fields` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNext.items
+    description:
+      '`items` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNext.number
+    description:
+      '`number` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNext.owner
+    description:
+      '`owner` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNext.public
+    description:
+      '`public` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNext.repositories
+    description:
+      '`repositories` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNext.resourcePath
+    description:
+      '`resourcePath` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNext.shortDescription
+    description:
+      '`shortDescription` will be removed. Follow the ProjectV2 guide at
+      https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNext.title
+    description:
+      '`title` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNext.updatedAt
+    description:
+      '`updatedAt` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNext.url
+    description:
+      '`url` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNext.views
+    description:
+      '`views` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextField.createdAt
+    description:
+      '`createdAt` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextField.dataType
+    description:
+      '`dataType` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextField.databaseId
+    description:
+      '`databaseId` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextField.name
+    description:
+      '`name` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextField.project
+    description:
+      '`project` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextField.settings
+    description:
+      '`settings` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextField.updatedAt
+    description:
+      '`updatedAt` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextFieldCommon.createdAt
+    description:
+      '`createdAt` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextFieldCommon.dataType
+    description:
+      '`dataType` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextFieldCommon.databaseId
+    description:
+      '`databaseId` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextFieldCommon.id
+    description:
+      '`id` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextFieldCommon.name
+    description:
+      '`name` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextFieldCommon.project
+    description:
+      '`project` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextFieldCommon.settings
+    description:
+      '`settings` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextFieldCommon.updatedAt
+    description:
+      '`updatedAt` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextFieldType.ASSIGNEES
+    description:
+      '`ASSIGNEES` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextFieldType.DATE
+    description:
+      '`DATE` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextFieldType.ITERATION
+    description:
+      '`ITERATION` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextFieldType.LABELS
+    description:
+      '`LABELS` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextFieldType.LINKED_PULL_REQUESTS
+    description:
+      '`LINKED_PULL_REQUESTS` will be removed. Follow the ProjectV2 guide
+      at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextFieldType.MILESTONE
+    description:
+      '`MILESTONE` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextFieldType.NUMBER
+    description:
+      '`NUMBER` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextFieldType.REPOSITORY
+    description:
+      '`REPOSITORY` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextFieldType.REVIEWERS
+    description:
+      '`REVIEWERS` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextFieldType.SINGLE_SELECT
+    description:
+      '`SINGLE_SELECT` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextFieldType.TEXT
+    description:
+      '`TEXT` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextFieldType.TITLE
+    description:
+      '`TITLE` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextFieldType.TRACKS
+    description:
+      '`TRACKS` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextItem.content
+    description:
+      '`content` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextItem.createdAt
+    description:
+      '`createdAt` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextItem.creator
+    description:
+      '`creator` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextItem.databaseId
+    description:
+      '`databaseId` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextItem.fieldValues
+    description:
+      '`fieldValues` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextItem.isArchived
+    description:
+      '`isArchived` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextItem.project
+    description:
+      '`project` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextItem.title
+    description:
+      '`title` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextItem.type
+    description:
+      '`type` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextItem.updatedAt
+    description:
+      '`updatedAt` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextItemFieldValue.createdAt
+    description:
+      '`createdAt` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextItemFieldValue.creator
+    description:
+      '`creator` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextItemFieldValue.databaseId
+    description:
+      '`databaseId` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextItemFieldValue.projectField
+    description:
+      '`projectField` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextItemFieldValue.projectFieldConstraint
+    description:
+      '`projectFieldConstraint` will be removed. Follow the ProjectV2 guide
+      at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextItemFieldValue.projectItem
+    description:
+      '`projectItem` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextItemFieldValue.updatedAt
+    description:
+      '`updatedAt` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextItemFieldValue.value
+    description:
+      '`value` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextIterationField.configuration
+    description:
+      '`configuration` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextIterationField.createdAt
+    description:
+      '`createdAt` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextIterationField.dataType
+    description:
+      '`dataType` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextIterationField.databaseId
+    description:
+      '`databaseId` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextIterationField.name
+    description:
+      '`name` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextIterationField.project
+    description:
+      '`project` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextIterationField.settings
+    description:
+      '`settings` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextIterationField.updatedAt
+    description:
+      '`updatedAt` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextIterationFieldConfiguration.completedIterations
+    description:
+      '`completedIterations` will be removed. Follow the ProjectV2 guide
+      at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextIterationFieldConfiguration.duration
+    description:
+      '`duration` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextIterationFieldConfiguration.iterations
+    description:
+      '`iterations` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextIterationFieldConfiguration.startDay
+    description:
+      '`startDay` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextIterationFieldIteration.duration
+    description:
+      '`duration` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextIterationFieldIteration.id
+    description:
+      '`id` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextIterationFieldIteration.startDate
+    description:
+      '`startDate` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextIterationFieldIteration.title
+    description:
+      '`title` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextIterationFieldIteration.titleHTML
+    description:
+      '`titleHtml` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextOrderField.CREATED_AT
+    description:
+      '`CREATED_AT` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextOrderField.NUMBER
+    description:
+      '`NUMBER` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextOrderField.TITLE
+    description:
+      '`TITLE` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextOrderField.UPDATED_AT
+    description:
+      '`UPDATED_AT` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextOwner.projectNext
+    description:
+      '`projectNext` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextOwner.projectsNext
+    description:
+      '`projectsNext` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextRecent.recentProjectsNext
+    description:
+      '`recentProjectsNext` will be removed. Follow the ProjectV2 guide at
+      https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextSingleSelectField.createdAt
+    description:
+      '`createdAt` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextSingleSelectField.dataType
+    description:
+      '`dataType` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextSingleSelectField.databaseId
+    description:
+      '`databaseId` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextSingleSelectField.name
+    description:
+      '`name` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextSingleSelectField.options
+    description:
+      '`options` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextSingleSelectField.project
+    description:
+      '`project` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextSingleSelectField.settings
+    description:
+      '`settings` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextSingleSelectField.updatedAt
+    description:
+      '`updatedAt` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextSingleSelectFieldOption.id
+    description:
+      '`id` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextSingleSelectFieldOption.name
+    description:
+      '`name` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextSingleSelectFieldOption.nameHTML
+    description:
+      '`nameHtml` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectView.createdAt
+    description:
+      '`createdAt` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectView.databaseId
+    description:
+      '`databaseId` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectView.filter
+    description:
+      '`filter` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectView.groupBy
+    description:
+      '`groupBy` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectView.items
+    description:
+      '`items` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectView.layout
+    description:
+      '`layout` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectView.name
+    description:
+      '`name` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectView.number
+    description:
+      '`number` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectView.project
+    description:
+      '`project` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectView.sortBy
+    description:
+      '`sortBy` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectView.updatedAt
+    description:
+      '`updatedAt` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectView.verticalGroupBy
+    description:
+      '`verticalGroupBy` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectView.visibleFields
+    description:
+      '`visibleFields` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: PullRequest.projectNext
+    description:
+      '`projectNext` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: PullRequest.projectNextItems
+    description:
+      '`projectNextItems` will be removed. Follow the ProjectV2 guide at
+      https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: PullRequest.projectsNext
+    description:
+      '`projectsNext` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: RemovePullRequestFromMergeQueueInput.branch
+    description: '`branch` will be removed.'
+    reason:
+      PRs are removed from the merge queue for the base branch, the `branch` argument
+      is now a no-op
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: jhunschejones
+  - location: Repository.projectNext
+    description:
+      '`projectNext` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: Repository.projectsNext
+    description:
+      '`projectsNext` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: Repository.recentProjectsNext
+    description:
+      '`recentProjectsNext` will be removed. Follow the ProjectV2 guide at
+      https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: RepositoryVulnerabilityAlert.fixReason
+    description: '`fixReason` will be removed.'
+    reason:
+      The `fixReason` field is being removed. You can still use `fixedAt` and
+      `dismissReason`.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: jamestran201
+  - location: UnlockAndResetMergeGroupInput.branch
+    description: '`branch` will be removed.'
+    reason:
+      The current merge group for the repository's default branch, the `branch`
+      argument is now a no-op
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: jhunschejones
+  - location: UpdateProjectNextInput.closed
+    description:
+      '`closed` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: UpdateProjectNextInput.description
+    description:
+      '`description` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: UpdateProjectNextInput.projectId
+    description:
+      '`projectId` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: UpdateProjectNextInput.public
+    description:
+      '`public` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: UpdateProjectNextInput.shortDescription
+    description:
+      '`shortDescription` will be removed. Follow the ProjectV2 guide at
+      https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: UpdateProjectNextInput.title
+    description:
+      '`title` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: UpdateProjectNextItemFieldInput.fieldConstraintId
+    description:
+      '`fieldConstraintId` will be removed. Follow the ProjectV2 guide at
+      https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: UpdateProjectNextItemFieldInput.fieldId
+    description:
+      '`fieldId` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
   - location: UpdateProjectNextItemFieldInput.fieldWithSettingId
     description: '`fieldWithSettingId` will be removed. Use `fieldConstraintId` instead'
     reason: Renamed to fieldConstraintId to improve naming consistency.
     date: '2022-10-01T00:00:00+00:00'
     criticality: breaking
     owner: memex
+  - location: UpdateProjectNextItemFieldInput.itemId
+    description:
+      '`itemId` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: UpdateProjectNextItemFieldInput.value
+    description:
+      '`value` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: UpdateProjectNextItemFieldPayload.projectNextItem
+    description:
+      '`projectNextItem` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: UpdateProjectNextPayload.projectNext
+    description:
+      '`projectNext` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: User.projectNext
+    description:
+      '`projectNext` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: User.projectsNext
+    description:
+      '`projectsNext` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: User.recentProjectsNext
+    description:
+      '`recentProjectsNext` will be removed. Follow the ProjectV2 guide at
+      https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar

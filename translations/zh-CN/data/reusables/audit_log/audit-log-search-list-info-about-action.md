@@ -9,3 +9,6 @@ The name for each audit log entry is composed of the `action` object or category
 - 执行的操作内容
 - 发生操作的国家/地区
 - 操作发生的日期和时间
+{%- ifversion enterprise-audit-log-ip-addresses %}
+- Optionally, the source IP address for the user (actor) who performed the action
+{%- endif %}

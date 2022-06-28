@@ -163,7 +163,7 @@ Puedes agregar algunas de las características más comunes seleccionándolas cu
 
    ![The select additional features menu during container configuration](/assets/images/help/codespaces/select-additional-features.png)
 
-1. Para aplicar los cambios, en la esquina inferior derecha de la pantalla, haz clic en **Reconstruir ahora**. For more information about rebuilding your container, see "[Applying changes to your configuration](#applying-configuration-changes-to-a-codespace)."
+1. Para aplicar los cambios, en la esquina inferior derecha de la pantalla, haz clic en **Reconstruir ahora**. Para obtener más información sobre cómo reconstruir tu contenedor, consulta la sección "[Aplicar los cambios a tu configuración](#applying-configuration-changes-to-a-codespace)".
 
    !["Codespaces: Reconstruir contenedor" en la paleta de comandos](/assets/images/help/codespaces/rebuild-prompt.png)
 

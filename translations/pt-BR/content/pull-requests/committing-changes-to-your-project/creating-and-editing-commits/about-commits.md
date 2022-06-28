@@ -40,5 +40,27 @@ Assim que o commit estiver no branch padrão, todas as tags que contêm o commit
 
 ![Captura de tela do commit com a tag do commit destacado](/assets/images/help/commits/commit-tag-label.png)
 
+{% ifversion commit-tree-view %}
+
+## Usando a árvore de arquivos
+
+You can use the file tree to navigate between files in a commit.
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.navigate-to-commit-page %}
+1. Navegue até o commit clicando no link da mensagem do commit. ![Captura de tela do commit com o link da mensagem do commit destacado](/assets/images/help/commits/commit-message-link.png)
+1. Clique em um arquivo na árvore de arquivos para ver o diff do arquivo correspondente. If the file tree is hidden, click {% octicon "sidebar-collapse" aria-label="The sidebar collapse icon" %} to display the file tree.
+
+  {% note %}
+
+  **Note**: The file tree will not display if your screen width is too narrow or if the commit only includes one file.
+
+  {% endnote %}
+
+  ![Screenshot of filter changed files search box and file tree emphasized](/assets/images/help/repository/file-tree.png)
+1. Para filtrar por caminho do arquivo, digite parte ou todo o caminho do arquivo na caixa de pesquisa **Filtrar arquivos alterados**.
+
+{% endif %}
+
 ## Leia mais
 - "[Fazer commit e revisar alterações no seu projeto](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project#about-commits)" em {% data variables.product.prodname_desktop %}

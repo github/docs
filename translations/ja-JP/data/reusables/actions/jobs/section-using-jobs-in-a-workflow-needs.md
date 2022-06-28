@@ -1,4 +1,4 @@
-Use `jobs.<job_id>.needs` to identify any jobs that must complete successfully before this job will run. 文字列型または文字列の配列です。 1つのジョブが失敗した場合、失敗したジョブを続行するような条件式を使用していない限り、そのジョブを必要としている他のジョブはすべてスキップされます。
+Use `jobs.<job_id>.needs` to identify any jobs that must complete successfully before this job will run. 文字列型または文字列の配列です。 1つのジョブが失敗した場合、失敗したジョブを続行するような条件式を使用していない限り、そのジョブを必要としている他のジョブはすべてスキップされます。 If a run contains a series of jobs that need each other, a failure applies to all jobs in the dependency chain from the point of failure onwards.
 
 #### Example: Requiring successful dependent jobs
 

@@ -24,12 +24,6 @@ topics:
   </div>
 </div>
 
-{% warning %}
-
-Aviso: A partir de fim de Outubro de 2021, as bibliotecas oficiais do Octokit não serão mantidas atualmente. Para obter mais informações, consulte [Esta discussão no repositório do octokit.js](https://github.com/octokit/octokit.js/discussions/620).
-
-{% endwarning %}
-
 # Bibliotecas de terceiros
 
 ### Clojure

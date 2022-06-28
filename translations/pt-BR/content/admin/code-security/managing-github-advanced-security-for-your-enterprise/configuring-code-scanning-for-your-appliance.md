@@ -76,7 +76,7 @@ Se você não quiser usar {% data variables.product.prodname_actions %}, você d
 
 O {% data variables.product.prodname_codeql_cli %} é uma ferramenta de linha de comando que você usa para analisar bases de código em qualquer máquina, incluindo um sistema de CI/CD de terceiros. Para obter mais informações, consulte "[Instalando a CLI do CodeQL no seu sistema de CI](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system)."
 
-{% if codeql-runner-supported %}
+{% ifversion codeql-runner-supported %}
 
 ## Executar {% data variables.product.prodname_code_scanning %} usando o {% data variables.product.prodname_codeql_runner %}
 

@@ -42,7 +42,6 @@ Microsoft Enterprise Agreement を通じて {% data variables.product.prodname_e
 
 ### {% data variables.product.prodname_codespaces %}プレビルドに対する支払い
 
-{% data reusables.codespaces.prebuilds-beta-note %}
 
 {% data reusables.codespaces.billing-for-prebuilds %}
 

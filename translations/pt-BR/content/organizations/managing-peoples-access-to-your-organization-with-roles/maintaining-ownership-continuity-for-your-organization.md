@@ -31,7 +31,7 @@ Os proprietários da organização têm pleno acesso administrativo à organiza�
 
 {% endnote %}
 
-{% if enterprise-owner-join-org %}
+{% ifversion enterprise-owner-join-org %}
 Se sua organização é propriedade de uma conta corporativa, qualquer proprietário corporativo pode fazer de si mesmo um proprietário de sua organização. Para obter mais informações, consulte "[Gerenciando sua função em uma organização pertencente à sua empresa](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)".
 {% endif %}
 

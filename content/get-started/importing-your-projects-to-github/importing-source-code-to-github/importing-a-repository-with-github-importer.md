@@ -31,7 +31,8 @@ If you'd like to match the commits in your repository to the authors' GitHub per
 ![Public or private repository radio buttons](/assets/images/help/importer/import-public-or-private.png)
 5. Review the information you entered, then click **Begin import**.
 ![Begin import button](/assets/images/help/importer/begin-import-button.png)
-6. If your old project was protected by a password, type your login information for that project, then click **Submit**.
+6. If your old project requires credentials, type your login information for that project, then click **Submit**. 
+If SAML SSO or 2FA are enabled for your user account on the old project, enter a personal access token with repository read permissions in the "Password" field instead of your password.
 ![Password form and Submit button for password-protected project](/assets/images/help/importer/submit-old-credentials-importer.png)
 7. If there are multiple projects hosted at your old project's clone URL, choose the project you'd like to import, then click **Submit**.
 ![List of projects to import and Submit button](/assets/images/help/importer/choose-project-importer.png)

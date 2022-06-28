@@ -46,6 +46,9 @@ translations/pt-BR/data/release-notes/enterprise-server/2-20/15.yml,Listed in lo
 translations/pt-BR/data/release-notes/enterprise-server/2-21/6.yml,Listed in localization-support#489
 translations/pt-BR/data/reusables/accounts/create-account.md,broken liquid tags
 translations/pt-BR/data/reusables/actions/enterprise-marketplace-actions.md,broken liquid tags
+translations/pt-BR/data/reusables/actions/settings-ui/settings-actions-general.md,broken liquid tags
+translations/pt-BR/data/reusables/actions/settings-ui/settings-actions-runner-groups.md,broken liquid tags
+translations/pt-BR/data/reusables/actions/settings-ui/settings-actions-runners.md,broken liquid tags
 translations/pt-BR/data/reusables/apps/deprecating_auth_with_query_parameters.md,Listed in localization-support#489
 translations/pt-BR/data/reusables/code-scanning/edit-workflow.md,broken liquid tags
 translations/pt-BR/data/reusables/dashboard/access-org-dashboard.md,broken liquid tags

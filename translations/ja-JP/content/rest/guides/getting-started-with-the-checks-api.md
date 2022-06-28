@@ -74,3 +74,9 @@ Check Runs APIを使用するには、GitHub Appは`checks:write`権限が必要
 ユーザがボタンをクリックすると、{% data variables.product.prodname_dotcom %}は[`check_run.requested_action` webhook](/webhooks/event-payloads/#check_run)をアプリケーションに送信します。 アプリケーションが`check_run.requested_action` webhookイベントを受信すると、webhookペイロードから`requested_action.identifier`キーを探し、どのボタンがクリックされたかを判断してリクエストされたタスクを実行することができます。
 
 Checks APIで必要なアクションを設定する方法の詳しい例については、「[Checks APIでCIテストを作成する](/apps/quickstart-guides/creating-ci-tests-with-the-checks-api/#part-2-creating-the-octo-rubocop-ci-test)」を参照してください。
+
+{% ifversion fpt or ghec %}
+## チェックデータの保持
+
+{% data reusables.pull_requests.retention-checks-data %}
+{% endif %}

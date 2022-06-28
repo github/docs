@@ -9,6 +9,7 @@ children:
   - /about-github-hosted-runners
   - /monitoring-your-current-jobs
   - /customizing-github-hosted-runners
+  - /connecting-to-a-private-network
 shortTitle: 使用 GitHub 托管的运行器
 ---
 

@@ -24,7 +24,7 @@ topics:
 
 在工作流程中使用的操作可以定义于：
 
-- 与工作流程文件相同的仓库{% if internal-actions %}
+- 与工作流程文件相同的仓库{% ifversion internal-actions %}
 - 在同一企业帐户中被配置为允许访问工作流程的内部仓库{% endif %}
 - 任何公共仓库
 - Docker Hub 上发布的 Docker 容器图像
@@ -107,7 +107,7 @@ jobs:
 
 如果在与工作流程文件不同的仓库中定义了某个操作，则可以在工作流程文件中使用 `{owner}/{repo}@{ref}` 语法引用该操作。
 
-该操作必须存储在公共仓库{% if internal-actions %} 或配置为允许访问工作流程的内部仓库中。 更多信息请参阅“[与您的企业分享操作和工作流程](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)。”{% else %}。{% endif %}
+该操作必须存储在公共仓库{% ifversion internal-actions %} 或配置为允许访问工作流程的内部仓库中。 更多信息请参阅“[与您的企业分享操作和工作流程](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)。”{% else %}。{% endif %}
 
 ```yaml
 jobs:

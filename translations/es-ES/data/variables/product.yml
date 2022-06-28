@@ -34,6 +34,8 @@ prodname_enterprise_backup_utilities: 'Utilidades de respaldo del servidor de Gi
 prodname_github_connect: 'GitHub Connect'
 prodname_unified_contributions: 'contribuciones unificadas'
 prodname_unified_search: 'búsqueda unificada'
+#GitHub Enterprise migration tool
+prodname_importer_proper_name: 'Importador de GitHub Enterprise'
 #GitHub Education
 prodname_education: 'GitHub Education'
 prodname_education_community: 'Education Community'
@@ -43,6 +45,8 @@ prodname_classroom: 'GitHub Classroom'
 prodname_classroom_with_url: '[GitHub Classroom](https://classroom.github.com/login)'
 prodname_campus_program: 'Programa del Campus de GitHub'
 prodname_student_pack: 'Paquete de desarrollo para estudiantes de GitHub'
+prodname_global_campus: 'GitHub Global Campus'
+prodname_community_exchange: 'GitHub Community Exchange'
 #GitHub CLI
 prodname_cli: 'CLI de GitHub'
 #GitHub Desktop
@@ -79,10 +83,11 @@ prodname_debug: 'Depuración de GitHub'
 prodname_discussions: 'GitHub Discussions'
 #GitHub Enterprise Managed Users
 prodname_emu_idp_application: 'Usuario Administrado de GitHub Enterprise'
+prodname_emu_idp_oidc_application: 'Usuario Administrado de GitHub Enterprise (OIDC)'
 prodname_emus: 'Usuarios Administrados de Enterprise'
-prodname_managed_user: 'usuario administrado'
-prodname_managed_users: 'usuarios administrados'
-prodname_managed_users_caps: 'Usuarios administrados'
+prodname_managed_user: 'cuenta de usuario administrado'
+prodname_managed_users: 'cuentas de usuarios adminsitrados'
+prodname_managed_users_caps: 'Cuentas de usuarios administrados'
 prodname_emu_enterprise: 'empresa con usuarios administrados'
 prodname_emu_org: 'organización con usuarios administrados'
 #GitHub Issues
@@ -102,12 +107,12 @@ prodname_advanced_security: 'Advanced Security'
 prodname_codespaces: 'Codespaces'
 prodname_github_codespaces: 'Acerca de GitHub Codespaces'
 prodname_serverless: 'editor basado en la web'
-#GitHub resources: blog, jobs, Learning Lab
+#GitHub resources: blog, jobs, skills
 prodname_gcf: 'Soporte de la Comunidad de GitHub'
 prodname_blog: 'el blog de GitHub'
 prodname_jobs: 'Empleos GitHub'
-prodname_learning: 'Laboratorio de aprendizaje de GitHub'
-prodname_learning_link: 'https://lab.github.com/'
+prodname_learning: 'Habilidades de GitHub'
+prodname_learning_link: 'https://skills.github.com/'
 prodname_roadmap: 'Itinerario público de GitHub'
 prodname_roadmap_link: 'https://github.com/github/roadmap#github-public-roadmap'
 #GitHub support
@@ -138,10 +143,12 @@ prodname_code_scanning_capc: 'Escaneo de código'
 prodname_codeql_runner: 'Ejecutor de CodeQL'
 prodname_advisory_database: 'GitHub Advisory Database'
 prodname_codeql_workflow: 'Flujo de trabajo de análisis de CodeQL'
+prodname_dependency_review_action: 'GitHub Action de Revisión de Dependencias'
 #Visual Studio
 prodname_vs: 'Visual Studio'
 prodname_vscode_shortname: 'VS Code'
 prodname_vscode: 'Visual Studio Code'
+prodname_vs_subscriber: 'Suscriptor de {% data variables.product.prodname_vs %}'
 prodname_vss_ghe: 'Suscripciones a Visual Studio con GitHub Enterprise'
 prodname_vss_admin_portal_with_url: 'el [portal de admnistrador para las suscripciones de Visual Studio](https://visualstudio.microsoft.com/subscriptions-administration/)'
 prodname_vscode_command_palette_shortname: 'Paleta de Comandos de VS Code'
@@ -163,7 +170,7 @@ prodname_copilot_short: 'Copilot'
 #Command Palette
 prodname_command_palette: 'Paleta de Comandos de GitHub'
 #Server Statistics
-prodname_server_statistics: 'Server Statistics'
+prodname_server_statistics: 'Estadísticas del servidor'
 #Links
 product_url: >-
   {% ifversion fpt or ghec %}github.com{% else %}[hostname]{% endif %}

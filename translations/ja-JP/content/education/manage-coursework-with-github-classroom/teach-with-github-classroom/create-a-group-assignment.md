@@ -143,7 +143,7 @@ The assignment overview page displays information about your assignment acceptan
 
 ## 次のステップ
 
-- 課題を作成し、学生がTeamを編成した後、TeamメンバーはGitと{% data variables.product.product_name %}の機能を使用して課題を開始できます。 学生はリポジトリのクローン、コミットのプッシュ、ブランチの管理、プルリクエストの作成およびレビュー、マージコンフリクトへの対処、およびIssueの変更に関するディスカッションが可能です。 あなたもTeamも、リポジトリのコミット履歴をレビューできます。 For more information, see "[Getting started with {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github)," "[Repositories](/repositories)," "[Using Git](/github/getting-started-with-github/using-git)," and "[Collaborating with issues and pull requests](/github/collaborating-with-issues-and-pull-requests)," and the free course on [managing merge conflicts](https://lab.github.com/githubtraining/managing-merge-conflicts) from {% data variables.product.prodname_learning %}.
+- 課題を作成し、学生がTeamを編成した後、TeamメンバーはGitと{% data variables.product.product_name %}の機能を使用して課題を開始できます。 学生はリポジトリのクローン、コミットのプッシュ、ブランチの管理、プルリクエストの作成およびレビュー、マージコンフリクトへの対処、およびIssueの変更に関するディスカッションが可能です。 あなたもTeamも、リポジトリのコミット履歴をレビューできます。 For more information, see "[Getting started with {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github)," "[Repositories](/repositories)," "[Using Git](/github/getting-started-with-github/using-git)," and "[Collaborating with issues and pull requests](/github/collaborating-with-issues-and-pull-requests)," and the free course on [resolving merge conflicts](https://github.com/skills/resolve-merge-conflicts) from {% data variables.product.prodname_learning %}.
 
 - 課題を完了したチームがある場合は、そのリポジトリにあるファイルをレビューできます。また、チームがどのように協力したかをより深く理解するため、リポジトリの履歴や視覚化されたデータを確認できます。 詳しい情報については、「[リポジトリデータをグラフで可視化する](/github/visualizing-repository-data-with-graphs)」を参照してください。
 

@@ -17,7 +17,9 @@ communityRedirect:
 
 ## About automatically generated release notes
 
-Automatically generated release notes provide an automated alternative to manually writing release notes for your {% data variables.product.prodname_dotcom %} releases. With automatically generated release notes, you can quickly generate an overview of the contents of a release. You can also customize your automated release notes, using labels to create custom categories to organize pull requests you want to include, and exclude certain labels and users from appearing in the output.
+Automatically generated release notes provide an automated alternative to manually writing release notes for your {% data variables.product.prodname_dotcom %} releases. With automatically generated release notes, you can quickly generate an overview of the contents of a release. Automatically generated release notes include a list of merged pull requests, a list of contributors to the release, and a link to a full changelog.
+
+You can also customize your automated release notes, using labels to create custom categories to organize pull requests you want to include, and exclude certain labels and users from appearing in the output.
 
 ## Creating automatically generated release notes for a new release
 
@@ -37,14 +39,16 @@ Automatically generated release notes provide an automated alternative to manual
   {% ifversion fpt or ghec %}![Choose a branch](/assets/images/help/releases/releases-choose-branch.png)
   {% else %}![Releases tagged branch](/assets/images/enterprise/releases/releases-tag-branch.png)
   {% endif %}
-7. To the top right of the description text box, click **Auto-generate release notes**.
-  ![Auto-generate release notes](/assets/images/help/releases/auto-generate-release-notes.png)
+{%- data reusables.releases.previous-release-tag %}
+7. To the top right of the description text box, click {% ifversion previous-release-tag %}**Generate release notes**{% else %}**Auto-generate release notes**{% endif %}.{% ifversion previous-release-tag %}
+  ![Generate release notes](/assets/images/help/releases/generate-release-notes.png){% else %}
+  ![Auto-generate release notes](/assets/images/enterprise/3.5/releases/auto-generate-release-notes.png){% endif %}
 8. Check the generated notes to ensure they include all (and only) the information you want to include.
 9. Optionally, to include binary files such as compiled programs in your release, drag and drop or manually select files in the binaries box.
    ![Providing a DMG with the Release](/assets/images/help/releases/releases_adding_binary.gif)
 10. To notify users that the release is not ready for production and may be unstable, select **This is a pre-release**.
    ![Checkbox to mark a release as prerelease](/assets/images/help/releases/prerelease_checkbox.png)
-{%- ifversion fpt %}
+{%- ifversion fpt or ghec %}
 11. Optionally, select **Create a discussion for this release**, then select the **Category** drop-down menu and click a category for the release discussion.
   ![Checkbox to create a release discussion and drop-down menu to choose a category](/assets/images/help/releases/create-release-discussion.png)
 {%- endif %}

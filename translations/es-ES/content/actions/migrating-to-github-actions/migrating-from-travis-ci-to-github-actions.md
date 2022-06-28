@@ -305,7 +305,7 @@ jobs:
 
 Travis CI y {% data variables.product.prodname_actions %} te permiten guardar dependencias en caché manualmente para reutilizarlas posteriormente.
 
-{% if actions-caching %}
+{% ifversion actions-caching %}
 
 Este ejemplo ilustra la sintaxis de caché para cada sistema.
 

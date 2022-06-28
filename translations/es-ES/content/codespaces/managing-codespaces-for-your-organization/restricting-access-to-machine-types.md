@@ -57,11 +57,11 @@ Si agregas una política a nivel organizacional, deberías configurarla en la el
    ![Editar la restricción de tipo de máquina](/assets/images/help/codespaces/edit-machine-constraint.png)
 
 {% data reusables.codespaces.codespaces-policy-targets %}
-1. If you want to add another constraint to the policy, click **Add constraint** and choose another constraint. Para obtener más información sobre otras restricciones, consulta las secciones "[Restringir la visibilidad de los puertos reenviados](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)" y "[Restringir el periodo de tiempo de inactividad](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)".
-1. After you have finished adding constraints to your policy, click **Save**.
+1. Si quieres agregar otra restricción a la política, haz clic en **Agregar restricción** y elige otra de ellas. Para obtener más información sobre otras restricciones, consulta las secciones "[Restringir la visibilidad de los puertos reenviados](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)" y "[Restringir el periodo de tiempo de inactividad](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)".
+1. Después de terminar de agregar restricciones a tu política, haz clic en **Guardar**.
 ## Editar una política
 
-You can edit an existing policy. For example, you may want to add or remove constraints to or from a policy.
+You can edit an existing policy. Por ejemplo, puede que quieras agregar o eliminar restricciones hacia o desde una política.
 
 1. Muestra la página de "Políticas del Codespace". Para obtener más información, consulta la sección "[Agregar una política para limitar los tipos de máquina disponibles](#adding-a-policy-to-limit-the-available-machine-types)".
 1. Haz clic en el nombre de la política que quieres editar.

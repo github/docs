@@ -6,6 +6,5 @@ versions:
 children:
   - /about-github-copilot-telemetry
   - /github-copilot-telemetry-terms
-  - /research-recitation
 ---
 

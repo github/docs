@@ -14,7 +14,7 @@ allowTitleToDifferFromFilename: true
 
 ## About the commit comments API
 
-The Commit comments API lets you create and edit comments that relate to specific commits.
+La API de comentarios de confirmaciones te permite crear y editar los comentarios que se relacionan con confirmaciones específicas.
 
 ### Tipos de medios personalizados para los comentarios de las confirmaciones
 

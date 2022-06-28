@@ -23,7 +23,7 @@ shortTitle: 在 GitHub 上编写和格式化
 
 {% data variables.product.product_name %} 上的每个评论字段都包含文本格式工具栏，用于格式化文本，而无需了解 Markdown 语法。 除了 Markdown 格式（如粗体和斜体样式）和创建标题、链接及列表等之外，工具栏还包括 {% data variables.product.product_name %} 特定的功能，如 @提及、任务列表以及链接到议题和拉取请求。
 
-{% if fixed-width-font-gfm-fields %}
+{% ifversion fixed-width-font-gfm-fields %}
 
 ## 在编辑器中启用固定宽度字体
 

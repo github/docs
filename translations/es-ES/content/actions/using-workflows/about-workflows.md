@@ -124,7 +124,7 @@ jobs:
 
 Para obtener más información, consulta la sección "[Utilizar una matriz para tus jobs](/actions/using-jobs/using-a-matrix-for-your-jobs)".
 
-{% if actions-caching %}
+{% ifversion actions-caching %}
 ### Almacenar dependencias en caché
 
 If your jobs regularly reuse dependencies, you can consider caching these files to help improve performance. Una vez que se crea el caché, estará disponible para todos los flujos de trabajo en el mismo repositorio.

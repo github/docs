@@ -22,3 +22,4 @@ Se você for integrante de um clube de robótica FIRST, seu mentor poderá solic
 ## Leia mais
 
 - "[Sobre o {% data variables.product.prodname_education %} para educadores e pesquisadores](/articles/about-github-education-for-educators-and-researchers)"
+- "[Sobre {% data variables.product.prodname_community_exchange %}](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork/about-github-community-exchange)"

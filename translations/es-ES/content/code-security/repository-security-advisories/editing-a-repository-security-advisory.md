@@ -1,6 +1,6 @@
 ---
-title: Editing a repository security advisory
-intro: You can edit the metadata and description for a repository security advisory if you need to update details or correct errors.
+title: Editar una asesoría de seguridad de un repositorio
+intro: Puedes editar los metadatos y la descripción de una asesoría de seguridad de un repositorio si necesitas actualizar los detalles o corregir los errores en la misma.
 redirect_from:
   - /github/managing-security-vulnerabilities/editing-a-security-advisory
   - /code-security/security-advisories/editing-a-security-advisory
@@ -11,10 +11,10 @@ type: how_to
 topics:
   - Security advisories
   - Vulnerabilities
-shortTitle: Edit repository advisories
+shortTitle: Editar las asesorías de los repositorios
 ---
 
-People with admin permissions to a repository security advisory can edit the security advisory.
+Las personas con permisos de administrador en una asesoría de seguridad de un repositorio pueden editarla.
 
 {% data reusables.security-advisory.repository-level-advisory-note %}
 

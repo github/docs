@@ -26,7 +26,9 @@ Los flujos de trabajo que comúnmente se activarían utilizando `on: push` o `on
 * `[skip actions]`
 * `[actions skip]`
 
-Como alternativa, puedes finalizar el mensaje de confirmación con dos líneas vacías seguidas de ya sea `skip-checks: true` o `skip-checks:true`.
+Como alternativa, puedes finalizar el mensaje de confirmación con dos líneas vacías seguidas de ya sea:
+- `skip-checks:true`
+- `skip-checks: true`
 
 No podrás fusionar la solicitud de cambios si tu repositorio se cofiguró para requerir que las verificaciones específicas pasen primero. Para permitir que la solicitud de cambios se fusione, puedes subir una confirmación nueva a la solicitud de cambios sin la instrucción de salto en el mensaje de confirmación.
 

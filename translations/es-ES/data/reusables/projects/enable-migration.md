@@ -1,0 +1,1 @@
+1. Enable "Project migration" in feature preview. Para obtener más información, consulta la sección [Explorar los lanzamientos de acceso adelantado con vista previa de características](/get-started/using-github/exploring-early-access-releases-with-feature-preview)".

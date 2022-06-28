@@ -25,7 +25,7 @@ Para utilizar las {% data variables.product.prodname_dependabot_updates %} en {%
 
 ## Prerrequisitos
 
-{% if dependabot-updates-github-connect %}
+{% ifversion dependabot-updates-github-connect %}
 El configurar los ejecutores auto-hospedados es solo un paso en medio del proceso para habilitar las {% data variables.product.prodname_dependabot_updates %}. Hay varios pasos que debes seguir antes de estos, incluyendo el configurar a {% data variables.product.product_location %} para utilizar {% data variables.product.prodname_actions %} con ejecutores auto-hospedados. Para obtener más información, consulta la sección "[Habilitar la {% data variables.product.prodname_dependabot %} en tu empresa](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)".
 {% else %}
 Antes de que configures los ejecutores auto-hospedados para {% data variables.product.prodname_dependabot_updates %}, debes:

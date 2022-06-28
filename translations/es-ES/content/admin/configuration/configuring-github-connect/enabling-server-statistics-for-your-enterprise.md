@@ -7,7 +7,7 @@ redirect_from:
   - /early-access/github/analyze-how-your-team-works-with-server-statistics/about-server-statistics/enabling-server-statistics
 topics:
   - Enterprise
-shortTitle: Server Statistics
+shortTitle: Estadísticas del servidor
 ---
 
 {% data reusables.server-statistics.release-phase %}

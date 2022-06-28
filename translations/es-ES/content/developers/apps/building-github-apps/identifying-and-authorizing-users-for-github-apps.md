@@ -127,7 +127,7 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 
 Este flujo de dispositivos te permite autorizar usuarios para una app sin encabezado, tal como una herramienta de CLI o un administrador de credenciales de Git.
 
-{% if device-flow-is-opt-in %}Antes de que puedas utilizar el flujo de dispositivos para identificar y autorizar usuarios, primero debes habilitarlo en los ajustes de tu app. Para obtener más información sobre cómo habilitar el flujo de dispositivos, consulta la sección "[Modificar una GitHub App](/developers/apps/managing-github-apps/modifying-a-github-app)". {% endif %}Para obtener más información sobre cómo autorizar usuarios utilizando el flujo de dispositivos, consulta la sección "[Autorizar las Apps de OAuth](/developers/apps/authorizing-oauth-apps#device-flow)".
+{% ifversion device-flow-is-opt-in %}Antes de que puedas utilizar el flujo de dispositivos para identificar y autorizar usuarios, primero debes habilitarlo en los ajustes de tu app. Para obtener más información sobre cómo habilitar el flujo de dispositivos, consulta la sección "[Modificar una GitHub App](/developers/apps/managing-github-apps/modifying-a-github-app)". {% endif %}Para obtener más información sobre cómo autorizar usuarios utilizando el flujo de dispositivos, consulta la sección "[Autorizar las Apps de OAuth](/developers/apps/authorizing-oauth-apps#device-flow)".
 
 ## Revisar a qué recursos de instalación puede acceder un usuario
 
@@ -159,7 +159,7 @@ Ya que los permisos a nivel de usuario se otorgan individualmente, puedes agrega
 
 ## Solicitudes de usuario a servidor
 
-Mientras que la mayoría de tu interacción con la API deberá darse utilizando tus tokens de acceso a la instalación de servidor a servidor, ciertas terminales te permiten llevar a cabo acciones a través de la API utilizando un token de acceso. Tu app puede hacer las siguientes solicitudes utilizando las terminales de [GraphQL v4]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql) o de [REST v3](/rest).
+Mientras que la mayoría de tu interacción con la API deberá darse utilizando tus tokens de acceso a la instalación de servidor a servidor, ciertas terminales te permiten llevar a cabo acciones a través de la API utilizando un token de acceso. Tu app puede hacer las siguientes solicitudes utilizando terminales de [GraphQL]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql) o de [REST](/rest).
 
 ### Terminales compatibles
 

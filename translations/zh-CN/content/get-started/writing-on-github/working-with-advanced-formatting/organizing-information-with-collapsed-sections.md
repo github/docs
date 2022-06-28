@@ -6,8 +6,8 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-  redirect_from:
-    - /github/writing-on-github/working-with-advanced-formatting/organizing-information-with-collapsed-sections
+redirect_from:
+  - /github/writing-on-github/working-with-advanced-formatting/organizing-information-with-collapsed-sections
 shortTitle: 折叠部分
 ---
 
@@ -17,17 +17,23 @@ shortTitle: 折叠部分
 
 `<details>` 块中的任何 Markdown 都将折叠，直到读者单击 {% octicon "triangle-right" aria-label="The right triange icon" %} 以展开详细信息。 在 `<details>` 块中，使用 `<summary>` 标记在 {% octicon "triangle-right" aria-label="The right triange icon" %} 右侧创建一个标签。
 
-```markdown
+````markdown
 <details><summary>CLICK ME</summary>
+
+
 <p>
 
 #### We can hide anything, even code!
 
-    ```ruby
-      puts "Hello World"
-    ```
+```ruby
+   puts "Hello World"
+```
 
-</details> ```</p>
+</p>
+
+
+</details>
+````
 
 默认情况下，Markdown 将折叠。
 

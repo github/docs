@@ -42,7 +42,7 @@ Para obter mais informações sobre a aplicação dos princípios de código abe
 
 Ao criar um repositório público a partir de uma bifurcação do projeto de outra pessoa, confirme que incluiu um arquivo de licença que estabelece como você quer que seu projeto seja compartilhado com outros. Para obter mais informações, consulte [Escolha uma licença de código aberto](https://choosealicense.com/)" em choosealicense.com.
 
-{% data reusables.open-source.open-source-guide-repositories %} {% data reusables.open-source.open-source-learning-lab %}
+{% data reusables.open-source.open-source-guide-repositories %} {% data reusables.open-source.open-source-learning %}
 
 {% endif %}
 
@@ -57,7 +57,7 @@ Se ainda não o fez, primeiro [configure o Git](/articles/set-up-git). Lembre-se
 Você pode bifurcar um projeto para propor alterações no repositório upstream ou original. Nesse caso, uma boa prática é sincronizar regularmente sua bifurcação com o repositório upstream. Para isso, é necessário usar Git na linha de comando. Você pode praticar configurando o repositório upstream com o mesmo repositório [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) que você acabou de bifurcar.
 
 1. Em {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.product.product_location %}{% endif %}, acesse o repositório [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife).
-2. No canto superior direito da página, clique em **Fork** (Bifurcação). ![Botão Fork (Bifurcação)](/assets/images/help/repository/fork_button.jpg)
+2. No canto superior direito da página, clique em **Fork** (Bifurcação). ![Botão Fork (Bifurcação)](/assets/images/help/repository/fork_button.png)
 
 {% endwebui %}
 
@@ -154,7 +154,7 @@ Ao bifurcar um projeto para propor mudanças no repositório original, é possí
 
 6. Digite `git remote add upstream`, cole o URL que você copiou na etapa 3 e pressione **Enter**. Ficará assim:
   ```shell
-  $ git remote add upstream https://{% data variables.command_line.codeblock %}/YOUR_USERNAME/Spoon-Knife.git
+  $ git remote add upstream https://{% data variables.command_line.codeblock %}/ORIGINAL_OWNER/Spoon-Knife.git
   ```
 
 7. Para verificar o novo repositório upstream que você especificou para sua bifurcação, digite novamente `git remote -v`. Você deverá visualizar a URL da sua bifurcação como `origin` (origem) e a URL do repositório original como `upstream`.

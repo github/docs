@@ -1,0 +1,7 @@
+---
+#Reference: Issue #6964 Support for Rust manifest parsing in Dependency graph
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.5'
+  ghae: 'issue-6964'

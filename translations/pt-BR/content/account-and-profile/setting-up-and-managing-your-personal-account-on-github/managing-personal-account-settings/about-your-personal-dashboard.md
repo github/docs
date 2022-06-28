@@ -42,7 +42,7 @@ Também é possível encontrar uma lista de seus repositórios, equipes e quadro
 
 ## Permanecer atualizado com as atividades da comunidade
 
-{% if for-you-feed %}
+{% ifversion for-you-feed %}
 A seção principal do seu painel tem dois feeds de atividades:
 
 - Seguindo: Atividades de pessoas que você segue e dos repositórios que você inspeciona.
@@ -69,7 +69,7 @@ Atualizações serão exibidas no feed de notícias quando um usuário que você
 
 Para obter mais informações sobre as seguir pessoas e inspecionar repositórios, consulte "[Seguindo as pessoas](/get-started/exploring-projects-on-github/following-people)" e "[Ser social](/get-started/quickstart/be-social)".
 
-{% if for-you-feed %}
+{% ifversion for-you-feed %}
 ### Para o feed
 
 {% note %}

@@ -13,8 +13,6 @@ product: '{% data reusables.gated-features.codespaces %}'
 permissions: People with admin access to a repository can configure prebuilds for the repository.
 ---
 
-{% data reusables.codespaces.prebuilds-beta-note %}
-
 You can set up a prebuild configuration for a specific branch of your repository.
 
 Any branch created from a prebuild-enabled base branch will typically also get assigned a prebuild during codespace creation. This is true if the dev container on the branch is the same as on the base branch. This is because the majority of the prebuild configuration for branches with the same dev container configuration are identical, so developers can benefit from faster codespace creation times on those branches also. For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)."
@@ -38,7 +36,7 @@ Before you can configure prebuilds for your project the following must be true:
 
    ![The 'Set up prebuilds' button](/assets/images/help/codespaces/prebuilds-set-up.png)
 
-1. Choose the branch for which you want to set up a prebuild. 
+1. Choose the branch for which you want to set up a prebuild.
 
    ![The Branch drop-down menu](/assets/images/help/codespaces/prebuilds-choose-branch.png)
 
@@ -48,7 +46,15 @@ Before you can configure prebuilds for your project the following must be true:
 
    {% endnote %}
 
-1. Choose the regions in which you want to set up a prebuild. Developers must be located in a region you select to be able to create codespaces from a prebuild. Alternatively, select **All regions**.
+1. Choose how you want to automatically trigger updates of the prebuild template.
+
+   * **Every push** (the default setting) - With this setting, prebuild configurations will be updated on every push made to the given branch. This will ensure that codespaces generated from a prebuild template always contain the latest codespace configuration, including any recently added or updated dependencies.
+   * **On configuration change** - With this setting, prebuild configurations will be updated every time associated configuration files for a given repo and branch are updated. This ensures that changes to the dev container configuration files for the repository are used when a codespace is generated from a prebuild template. The Actions workflow that updates the prebuild template will run less often, so this option will use fewer Actions minutes. However, this option will not guarantee that codespaces always include recently added or updated dependencies, so these may have to be added or updated manually after a codespace has been created.
+   * **Scheduled** - With this setting, you can have your prebuild configurations update on a custom schedule that's defined by you. This can reduce consumption of Actions minutes, however, with this option, codespaces may be created that do not use the latest dev container configuration changes.
+
+   ![The prebuild trigger options](/assets/images/help/codespaces/prebuilds-triggers.png)
+
+1. Select **Reduce prebuild available to only specific regions** to limit access to your prebuilt image, then select which regions you want it available in. Developers can only create codespaces from a prebuild if they are located in a region you select. By default, your prebuilt image is available to all regions where codespaces is available and storage costs apply for each region.
 
    ![The region selection options](/assets/images/help/codespaces/prebuilds-regions.png)
 
@@ -60,13 +66,17 @@ Before you can configure prebuilds for your project the following must be true:
 
    {% endnote %}
 
-1. Choose how you want to automatically trigger updates of the prebuild template.
+1. Set the number of prebuild template versions to be retained. You can input any number between 1 and 5. The default number of saved versions is 2, which means that only the latest template version and the previous version are saved.
 
-   * **Every push** (the default setting) - With this setting, prebuild configurations will be updated on every push made to the given branch. This will ensure that codespaces generated from a prebuild template always contain the latest codespace configuration, including any recently added or updated dependencies.
-   * **On configuration change** - With this setting, prebuild configurations will be updated every time associated configuration files for a given repo and branch are updated. This ensures that changes to the dev container configuration files for the repository are used when a codespace is generated from a prebuild template. The Actions workflow that updates the prebuild template will run less often, so this option will use fewer Actions minutes. However, this option will not guarantee that codespaces always include recently added or updated dependencies, so these may have to be added or updated manually after a codespace has been created.
-   * **Scheduled** - With this setting, you can have your prebuild configurations update on a custom schedule that's defined by you. This can reduce consumption of Actions minutes, and reduce the amount of time during which prebuilds are unavailable because they are being updated. However, with this option, codespaces may be created that do not use the latest dev container configuration changes.
+   Depending on your prebuild trigger settings, your prebuild template could change with each push or on each dev container configuration change. Retaining older versions of prebuild templates enables you to create a prebuild from an older commit with a different dev container configuration than the current prebuild template. Since there is a storage cost associated with retaining prebuild template versions, you can choose the number of versions to be retained based on the needs of your team. For more information on billing, see "[About billing for {% data variables.product.prodname_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces#codespaces-pricing)."
 
-   ![The prebuild trigger options](/assets/images/help/codespaces/prebuilds-triggers.png)
+   If you set the number of prebuild template versions to save to 1, {% data variables.product.prodname_codespaces %} will only save the latest version of the prebuild template and will delete the older version each time the template is updated. This means you will not get a prebuilt codespace if you go back to an older dev container configuration.
+
+   ![The prebuild template history setting](/assets/images/help/codespaces/prebuilds-template-history-setting.png)
+
+1. Add users or teams to notify when the prebuild workflow run fails for this configuration. You can begin typing a username, team name, or full name, then click the name once it appears to add them to the list. The users or teams you add will receive an email when prebuild failures occur, containing a link to the workflow run logs to help with further investigation.
+
+   ![The prebuild failure notification setting](/assets/images/help/codespaces/prebuilds-failure-notification-setting.png)
 
 1. Click **Create**.
 
