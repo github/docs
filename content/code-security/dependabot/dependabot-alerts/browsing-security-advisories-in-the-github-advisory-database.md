@@ -44,6 +44,7 @@ In contrast, malicious software, or malware, is code that is intentionally desig
 Generally, we name our supported ecosystems after the software programming language's associated package registry. We review advisories if they are for a vulnerability in a package that comes from a supported registry.
 
 - Composer (registry: https://packagist.org/)
+- Erlang (registry: https://hex.pm/)
 - Go (registry: https://pkg.go.dev/)
 - Maven (registry: https://repo1.maven.org/maven2/org/)
 - npm (registry: https://www.npmjs.com/)
