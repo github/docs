@@ -27,7 +27,7 @@ shortTitle: Ver visão geral de segurança
 {% data reusables.organizations.security-overview %}
 1. Para visualizar informações agregadas sobre tipos de alertas, clique em **Mostrar mais**. ![Botão mostrar mais](/assets/images/help/organizations/security-overview-show-more-button.png)
 {% data reusables.organizations.filter-security-overview %}
-{% if security-overview-views %}
+{% ifversion security-overview-views %}
 {% data reusables.organizations.security-overview-feature-specific-page %}
   ![Captura de tela da página de digitalização específica do código](/assets/images/help/organizations/security-overview-code-scanning-alerts.png)
 
@@ -43,7 +43,7 @@ shortTitle: Ver visão geral de segurança
 
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
 1. Na barra lateral esquerda, clique em {% octicon "shield" aria-label="The shield icon" %} **Código de Segurança**.
-{% if security-overview-feature-specific-alert-page %}
+{% ifversion security-overview-feature-specific-alert-page %}
 {% data reusables.organizations.security-overview-feature-specific-page %}
 {% endif %}
 {% endif %}

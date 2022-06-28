@@ -29,7 +29,7 @@ Organization-level roles are sets of permissions that can be assigned to individ
 
 You can assign individuals or teams to a variety of organization-level roles to control your members' access to your organization and its resources. For more details about the individual permissions included in each role, see "[Permissions for organization roles](#permissions-for-organization-roles)."
 
-{% if enterprise-owner-join-org %}
+{% ifversion enterprise-owner-join-org %}
 If your organization is owned by an enterprise account, enterprise owners can choose to join your organization with any role. For more information, see "[Managing your role in an organization owned by your enterprise](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)."
 {% endif %}
 
@@ -48,7 +48,7 @@ Billing managers are users who can manage the billing settings for your organiza
 
 {% endif %}
 
-{% if security-managers %}
+{% ifversion security-managers %}
 ### Security managers
 
 {% data reusables.organizations.security-manager-beta-note %}
@@ -125,7 +125,7 @@ Some of the features listed below are limited to organizations using {% data var
 | Transfer repositories | **X** |  |  |   |  |
 | Purchase, install, manage billing for, and cancel {% data variables.product.prodname_marketplace %} apps | **X** |  |  |  |  |
 | List apps in {% data variables.product.prodname_marketplace %} | **X** |  |  |  |  |
-| Receive [{% data variables.product.prodname_dependabot_alerts %} about vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies) for all of an organization's repositories | **X** |  |  |  | **X** |
+| Receive [{% data variables.product.prodname_dependabot_alerts %} about insecure dependencies](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts) for all of an organization's repositories | **X** |  |  |  | **X** |
 | Manage {% data variables.product.prodname_dependabot_security_updates %} (see "[About {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)") | **X** |  |  |  | **X** |
 | [Manage the forking policy](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization) | **X** |  |  |  |  |
 | [Limit activity in public repositories in an organization](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-organization) | **X** |  |  |  |  |
@@ -181,7 +181,7 @@ Some of the features listed below are limited to organizations using {% data var
 | Convert organization members to [outside collaborators](#outside-collaborators) | **X** | |  |
 | [View people with access to an organization repository](/articles/viewing-people-with-access-to-your-repository) | **X** | |  |
 | [Export a list of people with access to an organization repository](/articles/viewing-people-with-access-to-your-repository/#exporting-a-list-of-people-with-access-to-your-repository) | **X** | |  |
-| Manage default labels (see "[Managing default labels for repositories in your organization](/articles/managing-default-labels-for-repositories-in-your-organization)") | **X** | |  |{% if pull-request-approval-limit %}
+| Manage default labels (see "[Managing default labels for repositories in your organization](/articles/managing-default-labels-for-repositories-in-your-organization)") | **X** | |  |{% ifversion pull-request-approval-limit %}
 | Manage pull request reviews in the organization (see "[Managing pull request reviews in your organization](/organizations/managing-organization-settings/managing-pull-request-reviews-in-your-organization)") | **X** |  | |  |{% endif %}
 {% ifversion ghae %}| Manage IP allow lists (see "[Restricting network traffic to your enterprise](/admin/configuration/restricting-network-traffic-to-your-enterprise)") | **X** | |  |{% endif %}
 

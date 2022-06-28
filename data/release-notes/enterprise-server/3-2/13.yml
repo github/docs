@@ -11,6 +11,7 @@ sections:
     - Videos uploaded to issue comments would not be rendered properly.
     - When using SAML encrypted assertions, some assertions were not correctly marking SSH keys as verified.
     - When using `ghe-migrator`, a migration would fail to import video file attachments in issues and pull requests.
+    - 'The Releases page would return a 500 error when the repository has tags that contain non-ASCII characters. [Updated: 2022-06-10]'
   changes:
     - In high availability configurations, clarify that the replication overview page in the Management Console only displays the current replication configuration, not the current replication status.
     - When enabling {% data variables.product.prodname_registry %}, clarify that using a Shared Access Signature (SAS) token as connection string is not currently supported.

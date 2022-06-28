@@ -308,7 +308,7 @@ Your specified category will not overwrite the details of the `runAutomationDeta
 
 {% data reusables.code-scanning.run-additional-queries %}
 
-{% if codeql-packs %}
+{% ifversion codeql-packs %}
 ### Using {% data variables.product.prodname_codeql %} query packs
 
 {% data reusables.code-scanning.beta-codeql-packs-cli %}
@@ -346,27 +346,27 @@ You can also specify query suites in the value of `queries`. Query suites are co
 
 {% data reusables.code-scanning.codeql-query-suites-explanation %}
 
-{% if codeql-packs %}
+{% ifversion codeql-packs %}
 ### Working with custom configuration files
 {% endif %}
 
-If you also use a configuration file for custom settings, any additional {% if codeql-packs %}packs or {% endif %}queries specified in your workflow are used instead of those specified in the configuration file. If you want to run the combined set of additional {% if codeql-packs %}packs or {% endif %}queries, prefix the value of {% if codeql-packs %}`packs` or {% endif %}`queries` in the workflow with the `+` symbol. For more information, see "[Using a custom configuration file](#using-a-custom-configuration-file)."
+If you also use a configuration file for custom settings, any additional {% ifversion codeql-packs %}packs or {% endif %}queries specified in your workflow are used instead of those specified in the configuration file. If you want to run the combined set of additional {% ifversion codeql-packs %}packs or {% endif %}queries, prefix the value of {% ifversion codeql-packs %}`packs` or {% endif %}`queries` in the workflow with the `+` symbol. For more information, see "[Using a custom configuration file](#using-a-custom-configuration-file)."
 
-In the following example, the `+` symbol ensures that the specified additional {% if codeql-packs %}packs and {% endif %}queries are used together with any specified in the referenced configuration file.
+In the following example, the `+` symbol ensures that the specified additional {% ifversion codeql-packs %}packs and {% endif %}queries are used together with any specified in the referenced configuration file.
 
 ``` yaml
 - uses: {% data reusables.actions.action-codeql-action-init %}
   with:
     config-file: ./.github/codeql/codeql-config.yml
     queries: +security-and-quality,octo-org/python-qlpack/show_ifs.ql@main
-    {%- if codeql-packs %}
+    {%- ifversion codeql-packs %}
     packs: +scope/pack1,scope/pack2@v1.2.3
     {%- endif %}
 ```
 
 ## Using a custom configuration file
 
-A custom configuration file is an alternative way to specify additional {% if codeql-packs %}packs and {% endif %}queries to run. You can also use the file to disable the default queries and to specify which directories to scan during analysis.
+A custom configuration file is an alternative way to specify additional {% ifversion codeql-packs %}packs and {% endif %}queries to run. You can also use the file to disable the default queries and to specify which directories to scan during analysis.
 
 In the workflow file, use the `config-file` parameter of the `init` action to specify the path to the configuration file you want to use. This example loads the configuration file _./.github/codeql/codeql-config.yml_.
 
@@ -388,7 +388,7 @@ If the configuration file is located in an external private repository, use the 
 
 The settings in the configuration file are written in YAML format.
 
-{% if codeql-packs %}
+{% ifversion codeql-packs %}
 ### Specifying {% data variables.product.prodname_codeql %} query packs
 
 {% data reusables.code-scanning.beta-codeql-packs-cli %}

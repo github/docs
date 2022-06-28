@@ -23,7 +23,7 @@ También puedes interactuar con otros usuarios en las solicitudes de extracción
 
 Cada campo de comentario en {% data variables.product.product_name %} contiene una barra de herramientas de formato de texto, lo que te permite dar formato a tu texto sin tener que aprender la sintáxis de Markdown. Además del formato de Markdown como la negrita y la cursiva y crear encabezados, enlaces y listados, la barra de herramientas incluye características específicas de {% data variables.product.product_name %}, como las @menciones, los listados de tareas y los enlaces a propuestas y solicitudes de extracción.
 
-{% if fixed-width-font-gfm-fields %}
+{% ifversion fixed-width-font-gfm-fields %}
 
 ## Habilitar fuentes de ancho fijo en el editor
 

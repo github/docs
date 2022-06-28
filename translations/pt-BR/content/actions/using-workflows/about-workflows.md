@@ -124,7 +124,7 @@ jobs:
 
 Para obter mais informações, consulte "[Usando uma matriz para seus trabalhos](/actions/using-jobs/using-a-matrix-for-your-jobs)".
 
-{% if actions-caching %}
+{% ifversion actions-caching %}
 ### Memorizar dependências
 
 Se seus trabalhos reutilizam dependências regularmente, você pode considerar armazenar em cache esses arquivos para ajudar a melhorar o desempenho. Após a criação do armazenamento em cache, ele fica disponível para todos os fluxos de trabalho no mesmo repositório.

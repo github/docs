@@ -72,13 +72,11 @@ const cacheAggressively = (res) => {
 // Our own timeout, in ./middleware/timeout.js defaults to 10 seconds.
 // So there's no point in trying more attempts than 3 because it would
 // just timeout on the 10s. (i.e. 1000 + 2000 + 4000 + 8000 > 10,000)
-const retryConfiguration = {
-  limit: 3,
-}
+const retryConfiguration = { limit: 3 }
 // According to our Datadog metrics, the *average* time for the
 // the 'archive_enterprise_proxy' metric is ~70ms (excluding spikes)
 // which much less than 500ms.
-const timeoutConfiguration = 500
+const timeoutConfiguration = { response: 500 }
 
 async function getRemoteJSON(url, config) {
   if (_getRemoteJSONCache.has(url)) {
@@ -121,7 +119,7 @@ export default async function archivedEnterpriseVersions(req, res, next) {
       // useful because it caches so well.
       // And, as of 2021 that `redirects.json` is 10MB so it's more likely
       // to time out.
-      timeout: 1000,
+      timeout: { response: 1000 },
     })
     const [language, withoutLanguage] = splitPathByLanguage(req.path, req.context.userLanguage)
     const newRedirectTo = redirectJson[withoutLanguage]
@@ -182,7 +180,7 @@ export default async function archivedEnterpriseVersions(req, res, next) {
       // useful because it caches so well.
       // And, as of 2021 that `redirects.json` is 10MB so it's more likely
       // to time out.
-      timeout: 1000,
+      timeout: { response: 1000 },
     })
 
     // make redirects found via redirects.json redirect with a 301
@@ -222,6 +220,7 @@ export default async function archivedEnterpriseVersions(req, res, next) {
   }
 
   for (const fallbackRedirect of getFallbackRedirects(req, requestedVersion) || []) {
+    const statsTags = [`path:${req.path}`, `fallback:${fallbackRedirect}`]
     const doGet = () =>
       got(getProxyPath(fallbackRedirect, requestedVersion), {
         throwHttpErrors: false,
@@ -235,8 +234,10 @@ export default async function archivedEnterpriseVersions(req, res, next) {
     ])()
     if (r.statusCode === 200) {
       cacheAggressively(res)
+      statsd.increment('middleware.trying_fallback_redirect_success', 1, statsTags)
       return res.redirect(redirectCode, fallbackRedirect)
     }
+    statsd.increment('middleware.trying_fallback_redirect_failure', 1, statsTags)
   }
 
   return next()

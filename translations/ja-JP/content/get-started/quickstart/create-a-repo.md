@@ -34,7 +34,10 @@ topics:
 
 {% note %}
 
-**メモ:** オープンソースプロジェクトのパブリックリポジトリを作成できます。 パブリックリポジトリを作成する際は、他のユーザにどのようにプロジェクトを共有してほしいのかを定義する[ライセンスファイル](https://choosealicense.com/)を含めるようにしてください。 {% data reusables.open-source.open-source-guide-repositories %} {% data reusables.open-source.open-source-learning-lab %}
+**ノート:**
+- You can create public repositories for an open source project. パブリックリポジトリを作成する際は、他のユーザにどのようにプロジェクトを共有してほしいのかを定義する[ライセンスファイル](https://choosealicense.com/)を含めるようにしてください。 {% data reusables.open-source.open-source-guide-repositories %}
+- {% data reusables.open-source.open-source-learning %}
+- You can also add community health files to your repositories, to set guidelines on how to contribute, keep your repositories safe, and much more. 詳しい情報については「[デフォルトのコミュニティ健全性ファイルを作成する](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)」を参照してください。
 
 {% endnote %}
 

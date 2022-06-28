@@ -24,8 +24,15 @@ shortTitle: Update access credentials
 2. Enter the email address associated with your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, then click **Send password reset email.** The email will be sent to the backup email address if you have one configured.
   ![Password reset email request dialog](/assets/images/help/settings/password-recovery-email-request.png)
 3. We'll email you a link that will allow you to reset your password. You must click on this link within 3 hours of receiving the email. If you didn't receive an email from us, make sure to check your spam folder.
-4. If you have enabled two-factor authentication, you will be prompted for your 2FA credentials. Type your authentication code or one of your recovery codes and click **Verify**. If you have added a security key to your account, you can insert the key and click **Use security key** instead of typing an authentication code.
-  ![Two-factor authentication prompt](/assets/images/help/2fa/2fa-password-reset.png)
+4. If you have enabled two-factor authentication, you will be prompted for your 2FA credentials:
+   * If you have {% data variables.product.prodname_mobile %}, you will be sent a push notification to verify your identity. Open the push notification or the {% data variables.product.prodname_mobile %} app and enter the two-digit code shown to you on the password reset page in your browser.
+   ![Two-factor {% data variables.product.prodname_mobile %} authentication prompt](/assets/images/help/2fa/2fa-mobile-challenge-password-reset.png)
+      * To skip using GitHub Mobile to verify, click **Enter two-factor authentication or recovery code**.
+      ![Two-factor GitHub Mobile authentication prompt on {% data variables.product.product_name %} with "Enter two-factor authentication or recovery code" highlighted](/assets/images/help/2fa/2fa-github-mobile-password-reset.png)
+   * Type your authentication code or one of your recovery codes and click **Verify**.
+      ![Two-factor authentication prompt](/assets/images/help/2fa/2fa-password-reset.png)
+     * If you have added a security key to your account, click **Use security key** instead of typing an authentication code.
+     * If you have set up [{% data variables.product.prodname_mobile %}](https://github.com/mobile), click **Authenticate with GitHub Mobile** instead.
 5. Type a new password, confirm your new password, and click **Change password**. For help creating a strong password, see "[Creating a strong password](/articles/creating-a-strong-password)."
   {% ifversion fpt or ghec %}![Password recovery box](/assets/images/help/settings/password-recovery-page.png){% else %}
   ![Password recovery box](/assets/images/enterprise/settings/password-recovery-page.png){% endif %}

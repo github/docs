@@ -3,7 +3,6 @@ import path from 'path'
 import { expect, jest } from '@jest/globals'
 
 import '../../lib/feature-flags.js'
-import readFileAsync from '../../lib/readfile-async.js'
 import getApplicableVersions from '../../lib/get-applicable-versions.js'
 import frontmatter from '../../lib/read-frontmatter.js'
 import { getDOM } from '../helpers/e2etest.js'
@@ -18,7 +17,7 @@ describe('sidebar', () => {
   beforeAll(async () => {
     ;[$homePage, $githubPage, $enterprisePage, $restPage] = await Promise.all([
       getDOM('/en'),
-      getDOM('/en/github'),
+      getDOM('/en/get-started'),
       getDOM('/en/enterprise/admin'),
       getDOM('/en/rest'),
     ])
@@ -35,7 +34,7 @@ describe('sidebar', () => {
     expect($githubPage('[data-testid=sidebar] [data-testid=sidebar-product]').length).toBe(1)
     expect(
       $githubPage('[data-testid=sidebar] [data-testid=sidebar-product] > a').text().trim()
-    ).toBe('GitHub')
+    ).toBe('Get started')
   })
 
   test('includes links to external products like the Atom, Electron, and CodeQL', async () => {
@@ -124,7 +123,7 @@ describe('sidebar', () => {
     // Create a ContentCheck object that has all the categories/subcategories and get the title from frontmatter
     async function createContentCheckDirectory() {
       for (const filename of contentFiles) {
-        const { data } = frontmatter(await readFileAsync(filename, 'utf8'))
+        const { data } = frontmatter(await fs.promises.readFile(filename, 'utf8'))
         const applicableVersions = getApplicableVersions(data.versions, filename)
         const splitPath = filename.split('/')
         let category = ''

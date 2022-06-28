@@ -14,7 +14,9 @@ versions:
 topics:
   - Pull requests
 ---
-You can only delete issues in a repository owned by your personal account. You cannot delete issues in a repository owned by another personal account, even if you are a collaborator there.
+The ability to delete issues depends on whether the repository is owned by your personal account or an organization:
+- You can only delete issues in a repository owned by your personal account.
+- You cannot delete issues in a repository owned by an organization or another personal account, even if you are a collaborator there.
 
 To delete an issue in a repository owned by an organization, an organization owner must enable deleting an issue for the organization's repositories, and you must have admin or owner permissions in the repository. For more information, see "[Allowing people to delete issues in your organization](/articles/allowing-people-to-delete-issues-in-your-organization)" and "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
 

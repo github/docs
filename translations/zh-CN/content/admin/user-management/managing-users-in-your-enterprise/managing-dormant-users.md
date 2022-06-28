@@ -57,4 +57,12 @@ topics:
 {% data reusables.enterprise-accounts.enterprise-accounts-compliance-tab %}
 1. 要将休眠用户（测试版）报告下载为 CSV 文件，请在“Other（其他）”下点击 {% octicon "download" aria-label="The Download icon" %} **Download（下载）**。 ![Compliance（合规）页面上"Other（其他）"下的 Download（下载）按钮](/assets/images/help/business-accounts/dormant-users-download-button.png)
 
+{% tip %}
+
+**提示：** 为了评估用户休眠，用户活动的范围仅限于与与企业关联的组织、存储库或登录事件关联的用户活动。 例如，如果用户最近在与企业无关的公共存储库中对某个议题进行了评论，则可能会将其视为休眠状态。 但是，如果他们最近在与企业中的组织关联的公共存储库中对某个议题进行了评论，则不会将其视为休眠状态，也不会出现在“休眠用户”报告中。
+
+对于 Web 登录事件，只有通过与企业关联的 SSO 域进行的登录事件才被视为与企业关联的用户活动。
+
+{% endtip %}
+
 {% endif %}

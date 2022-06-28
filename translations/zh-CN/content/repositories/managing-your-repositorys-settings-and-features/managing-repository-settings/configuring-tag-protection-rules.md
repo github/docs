@@ -18,7 +18,7 @@ versions:
 
 添加标记保护规则时，与提供的模式匹配的所有标记都将受到保护。 只有具有存储库中管理员或维护权限的用户才能创建受保护的标记，并且只有具有存储库管理员权限的用户才能删除受保护的标记。 更多信息请参阅“[组织的仓库角色](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization#permissions-for-each-role)”。 {% data variables.product.prodname_github_apps %} 需要`存储库管理：写入`权限才能修改受保护的标记。
 
-{% if custom-repository-roles %}
+{% ifversion custom-repository-roles %}
 此外，您还可以创建自定义存储库角色，以允许其他用户组创建或删除与标记保护规则匹配的标记。 更多信息请参阅“[管理组织的自定义仓库角色](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)”。{% endif %}
 
 {% data reusables.repositories.navigate-to-repo %}

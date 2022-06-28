@@ -76,7 +76,7 @@ Check Runs APIを使用するには、GitHub Appは`checks:write`権限が必要
 Checks APIで必要なアクションを設定する方法の詳しい例については、「[Checks APIでCIテストを作成する](/apps/quickstart-guides/creating-ci-tests-with-the-checks-api/#part-2-creating-the-octo-rubocop-ci-test)」を参照してください。
 
 {% ifversion fpt or ghec %}
-## Retention of checks data
+## チェックデータの保持
 
 {% data reusables.pull_requests.retention-checks-data %}
 {% endif %}

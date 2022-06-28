@@ -1,7 +1,7 @@
 ---
 title: Acceder a tu cuenta empresarial si no está disponible tu proveedor de identidad
 shortTitle: Acceder a tu cuenta empresarial
-intro: 'Puedes iniciar sesión en {% data variables.product.product_name %}, incluso si no está disponible tu proveedor de identidad, si omites el inicio de sesión único (SSO) de SAML con un código de recuperación.'
+intro: 'You can sign into {% data variables.product.product_name %} even if your identity provider is unavailable by bypassing single sign-on (SSO) with a recovery code.'
 versions:
   ghec: '*'
 type: how_to
@@ -13,9 +13,9 @@ topics:
 permissions: Enterprise owners can use a recovery code to access an enterprise account.
 ---
 
-Puedes utilizar un código de recuperación para acceder a tu cuenta empresarial cuando un error de configuración de SAML o un problema con tu proveedor de identidad (IdP) impida que utilices el SSO de SAML.
+You can use a recovery code to access your enterprise account when a authentication configuration error or an issue with your identity provider (IdP) prevents you from using SSO.
 
-Para poder acceder a tu cuenta empresarial de esta forma, debes haber descargado previamente y almacenado los códigos de recuperación de tu empresa. Para obtener más información, consulta la sección "[Descargar los códigos de recuperación del inicio de sesión único de SAML de tu cuenta empresarial](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/downloading-your-enterprise-accounts-saml-single-sign-on-recovery-codes)".
+Para poder acceder a tu cuenta empresarial de esta forma, debes haber descargado previamente y almacenado los códigos de recuperación de tu empresa. For more information, see "[Downloading your enterprise account's single sign-on recovery codes](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/downloading-your-enterprise-accounts-single-sign-on-recovery-codes)."
 
 {% data reusables.saml.recovery-code-caveats %}
 

@@ -68,7 +68,7 @@ Você pode usar esse método se não tiver sua chave SSH disponível no momento.
 
 Você pode usar esse método sem entrar no {% data variables.enterprise.management_console %}.
 
-Use o utilitário da linha de comando [ghe-diagnostics](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities#ghe-diagnostics) para recuperar o diagnóstico da sua instância.
+Use o utilitário da linha de comando [ghe-diagnostics](/enterprise/admin/guides/installation/command-line-utilities#ghe-diagnostics) para recuperar o diagnóstico da sua instância.
 
 ```shell
 $ ssh -p122 admin@<em>hostname</em> -- 'ghe-diagnostics' > diagnostics.txt

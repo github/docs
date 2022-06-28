@@ -20,7 +20,7 @@ Para configurar las {% data variables.product.prodname_actions %}, debes proporc
 
 {% endif %}
 
-El espacio disponible en el sistema de archivos raíz será de 50% del tamaño total en disco. Puedes redimensionar el disco raíz de tu instancia si creas una instancia nueva o si utilizas una instancia existente. Para obtener más información, consulta las secciones "[Resumen del sistema](/enterprise/admin/guides/installation/system-overview#storage-architecture)" y "[Incrementar la capacidad de almacenamiento](/enterprise/{{ currentVersion }}/admin/guides/installation/increasing-storage-capacity)".
+El espacio disponible en el sistema de archivos raíz será de 50% del tamaño total en disco. Puedes redimensionar el disco raíz de tu instancia si creas una instancia nueva o si utilizas una instancia existente. Para obtener más información, consulta las secciones "[Resumen del sistema](/enterprise/admin/guides/installation/system-overview#storage-architecture)" y "[Incrementar la capacidad de almacenamiento](/enterprise/admin/guides/installation/increasing-storage-capacity)".
 
 ### CPU y memoria
 

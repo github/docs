@@ -26,7 +26,7 @@ topics:
 Você pode criar ações gravando códigos personalizados que interajam com o seu repositório da maneira que você quiser, inclusive fazendo integrações com as APIs do {% data variables.product.prodname_dotcom %} e qualquer API de terceiros disponível publicamente. Por exemplo, as ações podem publicar módulos npm, enviar alertas SMS quando problemas urgentes forem criados ou implantar códigos prontos para produção.
 
 {% ifversion fpt or ghec %}
-É possível gravar suas próprias ações para uso no fluxo de trabalho ou compartilhar as ações que você compilar com a comunidade do {% data variables.product.prodname_dotcom %}. Para compartilhar as ações que você criou com todas as pessoas, seu repositório deve ser público. {% if internal-actions %}Para compartilhar ações apenas dentro da sua empresa, seu repositório deve ser interno.{% endif %}
+É possível gravar suas próprias ações para uso no fluxo de trabalho ou compartilhar as ações que você compilar com a comunidade do {% data variables.product.prodname_dotcom %}. Para compartilhar as ações que você criou com todas as pessoas, seu repositório deve ser público. {% ifversion internal-actions %}Para compartilhar ações apenas dentro da sua empresa, seu repositório deve ser interno.{% endif %}
 {% endif %}
 
 As ações podem ser executadas diretamente em uma máquina ou em um contêiner Docker. É possível definir as entradas, saídas e variáveis do ambiente de uma ação.

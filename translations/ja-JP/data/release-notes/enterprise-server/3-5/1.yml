@@ -1,0 +1,33 @@
+---
+date: '2022-06-09'
+sections:
+  security_fixes:
+    - パッケージは最新のセキュリティバージョンにアップデートされました。
+  bugs:
+    - '{% data variables.product.prodname_ghe_server %}の設定ファイル中のホスト名を検証する内部的なスクリプトが、ホスト名の文字列が"."（ピリオド）で始まっているとエラーを返します。'
+    - プライマリノードのホスト名が60文字以上の長さになっているHA構成において、MySQLの設定に失敗します。
+    - When {% data variables.product.prodname_actions %} was enabled but TLS was disabled on {% data variables.product.prodname_ghe_server %} 3.4.1 and later, applying a configuration update would fail.
+    - '`ghe-setup-network`コマンドに`--gateway`引数が追加され、コマンドラインを使ってネットワーク設定をする際にゲートウェイのアドレスを渡せるようになりました。'
+    - 'The [{% data variables.product.prodname_GH_advanced_security %} billing API](/rest/enterprise-admin/billing#get-github-advanced-security-active-committers-for-an-enterprise) endpoints were not enabled and accessible.'
+    - 削除された画像の添付ファイルは、`404 Not Found`エラーではなく`500 Internal Server Error`を返します。
+    - In environments configured with a repository cache server, the `ghe-repl-status` command incorrectly showed gists as being under-replicated.
+    - The "Get a commit" and "Compare two commits" endpoints in the [Commit API](/rest/commits/commits) would return a `500` error if a file path in the diff contained an encoded and escaped unicode character.
+    - サイトアドミンのダッシュボードで報告される"maximum committers across entire instance（インスタンス全体での最大のコミッタ数）"の計算は正しくありませんでした。
+    - '{% data variables.product.prodname_enterprise_backup_utilities %}を試用した復元の実行時に、リポジトリレプリカの不正確なデータベースエントリによって、データベースが破損しました。'
+    - 'A {% data variables.product.prodname_github_app %} would not be able to subscribe to the [`secret_scanning_alert_location` webhook event](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#secret_scanning_alert_location) on an installation.'
+    - The activity timeline for secret scanning alerts wasn't displayed.
+    - Deleted repos were not purged after 90 days.
+  changes:
+    - クラスタのSupport Bundleの生成時に、含めるメトリクスを最適化しました。
+    - Elasticsearchが有効な黄色のステータスを報告してきた場合のHA構成において、以前の修正で導入された変更が`ghe-repl-stop`コマンドをブロックし、レプリカの停止を妨げます。`ghe-repo-stop --force`を使用すれば、Elasticsearchのサービスが通常もしくは有効な黄色のステータスにある場合に、強制的にElasticsearchが停止されます。
+  known_issues:
+    - 新しくセットアップされたユーザを持たない{% data variables.product.prodname_ghe_server %}インスタンスで、攻撃者が最初の管理ユーザを作成できました。
+    - アップグレードの過程で、カスタムのファイアウォールのルールが削除されます。
+    - Git LFSが追跡するファイル[Webインターフェースからアップロードされたもの](https://github.com/blog/2105-upload-files-to-your-repositories)が、不正にリポジトリに直接追加されてしまいます。
+    - 同じリポジトリ内のファイルパスが255文字を超えるblobへのパーマリンクを含むIssueをクローズできませんでした。
+    - GitHub Connectで"Users can search GitHub.com"が有効化されている場合、GitHub.comの検索結果にプライベート及びインターナルリポジトリのIssueが含まれません。
+    - '{% data variables.product.prodname_registry %}のnpmレジストリは、メタデータのレスポンス中で時間の値を返さなくなります。これは、大きなパフォーマンス改善のために行われました。メタデータレスポンスの一部として時間の値を返すために必要なすべてのデータは保持し続け、既存のパフォーマンスの問題を解決した将来に、この値を返すことを再開します。'
+    - pre-receive フックの処理に固有のリソース制限によって、pre-receive フックに失敗するものが生じることがあります。
+    - 別のホスト上で取られたバックアップからのアプライアンスのリストア後、Actionsサービスを再起動する必要があります。
+    - 'Deleted repositories will not be purged from disk automatically after the 90-day retention period ends. This issue is resolved in the 3.5.1 release. [Updated: 2022-06-10]'
+    - 'Management Console may appear stuck on the _Starting_ screen after upgrading an under-provisioned instance to GitHub Enterprise Server 3.5. [Updated: 2022-06-20]'

@@ -40,7 +40,7 @@ shortTitle: 大文件
 
 {% endnote %}
 
-{% ifversion ghes %}默认情况下， {% endif %}{% data variables.product.product_name %} 阻止超过 {% data variables.large_files.max_github_size %} 的推送。 {% ifversion ghes %}但站点管理员可为您的 {% data variables.product.product_location %} 配置不同的限制。  更多信息请参阅“[设置 Git 推送限制](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-git-push-limits)”。{% endif %}
+{% ifversion ghes %}默认情况下， {% endif %}{% data variables.product.product_name %} 阻止超过 {% data variables.large_files.max_github_size %} 的推送。 {% ifversion ghes %}但站点管理员可为您的 {% data variables.product.product_location %} 配置不同的限制。  更多信息请参阅“[设置 Git 推送限制](/enterprise/admin/guides/installation/setting-git-push-limits)”。{% endif %}
 
 要跟踪超出此限制的文件，必须使用 {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %})。 更多信息请参阅“[关于 {% data variables.large_files.product_name_long %}](/repositories/working-with-files/managing-large-files/about-git-large-file-storage)”。
 

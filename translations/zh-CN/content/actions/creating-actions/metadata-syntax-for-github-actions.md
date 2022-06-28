@@ -110,7 +110,7 @@ outputs:
 
 ## 用于复合操作的 `outputs`
 
-**Optional** `outputs` use the same parameters as `outputs.<output_id>` and `outputs.<output_id>.description` (see "[`outputs` for Docker container and JavaScript actions](#outputs-for-docker-container-and-javascript-actions)"), but also includes the `value` token.
+**可选** `outputs` 使用与 `outputs.<output_id>` 及 `outputs.<output_id>.description` 相同的参数（请参阅“用于 Docker 容器和 JavaScript 操作的 [`outputs`](#outputs-for-docker-container-and-javascript-actions)”），但也包括 `value` 令牌。
 
 {% data reusables.actions.output-limitations %}
 
@@ -371,7 +371,7 @@ runs:
 
 #### `runs.steps[*].continue-on-error`
 
-**Optional**  Prevents the action from failing when a step fails. Set to `true` to allow the action to pass when this step fails.
+**可选**  防止在步骤失败时操作失败。 设置为 `true` 以允许在此步骤失败时通过操作。
 
 ## 用于 Docker 容器操作的 `runs`
 

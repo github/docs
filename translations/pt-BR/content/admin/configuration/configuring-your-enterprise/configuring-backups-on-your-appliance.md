@@ -73,7 +73,7 @@ Podem ser necessários mais recursos dependendo do uso, como atividade do usuár
   {% endnote %}
 
 4. Defina o valor `GHE_DATA_DIR` no local do arquivo do sistema onde você deseja arquivar os instantâneos de backup.
-5. Abra a página das configurações da instância primária em `https://HOSTNAME/setup/settings` e adicione a chave SSH do host de backup à lista de chaves SSH autorizadas. Para obter mais informações, consulte [Acessar o shell administrativo (SSH)](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-administrative-shell-ssh/).
+5. Abra a página das configurações da instância primária em `https://HOSTNAME/setup/settings` e adicione a chave SSH do host de backup à lista de chaves SSH autorizadas. Para obter mais informações, consulte [Acessar o shell administrativo (SSH)](/enterprise/admin/guides/installation/accessing-the-administrative-shell-ssh/).
 6. Verifique a conectividade SSH com a {% data variables.product.product_location %} usando o comando `ghe-host-check`.
   ```shell
   $ bin/ghe-host-check        
@@ -130,7 +130,7 @@ $ ghe-restore -c 169.154.1.1
 > Acesse https://169.154.1.1/setup/settings para revisar a configuração do appliance.
 ```
 
-{% if ip-exception-list %}
+{% ifversion ip-exception-list %}
 Opcionalmente, para validar a restauração, configure uma lista de exceções IP para permitir o acesso a uma lista especificada de endereços IP. Para obter mais informações, consulte "[Validando as alterações no modo de manutenção usando a lista de exceção de IP](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode#validating-changes-in-maintenance-mode-using-the-ip-exception-list)".
 {% endif %}
 

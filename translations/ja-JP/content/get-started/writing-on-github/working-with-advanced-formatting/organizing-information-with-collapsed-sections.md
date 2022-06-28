@@ -6,8 +6,8 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-  redirect_from:
-    - /github/writing-on-github/working-with-advanced-formatting/organizing-information-with-collapsed-sections
+redirect_from:
+  - /github/writing-on-github/working-with-advanced-formatting/organizing-information-with-collapsed-sections
 shortTitle: Collapsed sections
 ---
 
@@ -17,17 +17,23 @@ You can temporarily obscure sections of your Markdown by creating a collapsed se
 
 Any Markdown within the `<details>` block will be collapsed until the reader clicks {% octicon "triangle-right" aria-label="The right triange icon" %} to expand the details. Within the `<details>` block, use the `<summary>` tag to create a label to the right of {% octicon "triangle-right" aria-label="The right triange icon" %}.
 
-```markdown
+````markdown
 <details><summary>CLICK ME</summary>
+
+
 <p>
 
 #### We can hide anything, even code!
 
-    ```ruby
-      puts "Hello World"
-    ```
+```ruby
+   puts "Hello World"
+```
 
-</details> ```</p>
+</p>
+
+
+</details>
+````
 
 The Markdown will be collapsed by default.
 

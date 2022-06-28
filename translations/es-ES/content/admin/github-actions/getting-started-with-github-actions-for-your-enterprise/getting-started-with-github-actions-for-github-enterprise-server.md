@@ -26,7 +26,7 @@ Este artículo explica cómo los administradores de sitio pueden habilitar {% da
 
 {% data reusables.enterprise.upgrade-ghes-for-actions %}
 
-{% data reusables.actions.ghes-actions-not-enabled-by-default %} Necesitarás determinar si tu instancia tiene recursos de CPU y memoria adecuados para manejar la carga de {% data variables.product.prodname_actions %} sin causar una pérdida de rendimiento e incrementar esos recursos posiblemente. También necesitarás decidir qué proveedor de almacenamiento utilizarás para el almacenamiento de blobs que se requiere para almacenar los artefactos{% if actions-caching %} y cachés{% endif %} que se generan con las ejecuciones de trabajo. Entonces, habilitarás las {% data variables.product.prodname_actions %} para tu empresa, administrarás los permisos de acceso y agregarás los ejecutores auto-hospedados para ejecutar los flujos de trabajo.
+{% data reusables.actions.ghes-actions-not-enabled-by-default %} Necesitarás determinar si tu instancia tiene recursos de CPU y memoria adecuados para manejar la carga de {% data variables.product.prodname_actions %} sin causar una pérdida de rendimiento e incrementar esos recursos posiblemente. También necesitarás decidir qué proveedor de almacenamiento utilizarás para el almacenamiento de blobs que se requiere para almacenar los artefactos{% ifversion actions-caching %} y cachés{% endif %} que se generan con las ejecuciones de trabajo. Entonces, habilitarás las {% data variables.product.prodname_actions %} para tu empresa, administrarás los permisos de acceso y agregarás los ejecutores auto-hospedados para ejecutar los flujos de trabajo.
 
 {% data reusables.actions.introducing-enterprise %}
 
@@ -119,7 +119,7 @@ Opcionalmente, puedes limitar el consumo de recursos en {% data variables.produc
 
 Para habilitar {% data variables.product.prodname_actions %} en {% data variables.product.prodname_ghe_server %}, debes tener acceso al almacenamiento externo de blobs.
 
-{% data variables.product.prodname_actions %} utiliza el almacenamiento de blobs para almacenar los datos que generan las ejecuciones de flujo de trabajo, tales como las bitácoras de flujos de trabajo{% if actions-caching %}, los cachés{% endif %} y los artefactos de compilación que suben los usuarios. La cantidad de almacenamiento requerida dependerá de tu uso de {% data variables.product.prodname_actions %}. Sólo se admite una sola configuración de almacenamiento externo y no puedes utilizar varios proveedores de almacenamiento al mismo tiempo.
+{% data variables.product.prodname_actions %} utiliza el almacenamiento de blobs para almacenar los datos que generan las ejecuciones de flujo de trabajo, tales como las bitácoras de flujos de trabajo{% ifversion actions-caching %}, los cachés{% endif %} y los artefactos de compilación que suben los usuarios. La cantidad de almacenamiento requerida dependerá de tu uso de {% data variables.product.prodname_actions %}. Sólo se admite una sola configuración de almacenamiento externo y no puedes utilizar varios proveedores de almacenamiento al mismo tiempo.
 
 {% data variables.product.prodname_actions %} es compatible con estos proveedores de almacenamiento:
 

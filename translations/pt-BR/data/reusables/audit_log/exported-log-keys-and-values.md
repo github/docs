@@ -1,4 +1,4 @@
-After you export the log, you'll see the following keys and values in the resulting file.
+Após exportar o log, você verá as seguintes chaves e valores no arquivo resultante.
 
 | Tecla                         | Valor de exemplo                                                                             |
 | ----------------------------- | -------------------------------------------------------------------------------------------- |

@@ -49,6 +49,6 @@ topics:
    **注：**与 {% data variables.product.prodname_github_apps %} 不同，OAuth 应用程序不能有多个回调 URL。
 
    {% endnote %}
-{% endif %}{% if device-flow-is-opt-in %}
+{% endif %}{% ifversion device-flow-is-opt-in %}
 1. 如果您的 OAuth 应用将使用设备流来识别和授权用户，请单击 **Enable Device Flow（启用设备流）**。 有关设备流的更多信息，请参阅“[授权 OAuth 应用程序](/developers/apps/building-oauth-apps/authorizing-oauth-apps#device-flow)”。 ![Screenshot showing field for enabling device flow](/assets/images/oauth-apps/enable-device-flow.png){% endif %}
 2.  单击 **Register application（注册应用程序）**。 ![注册应用程序的按钮](/assets/images/oauth-apps/oauth_apps_register_application.png)

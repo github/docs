@@ -5,7 +5,7 @@ sections:
     - "ALTA: Se identificó una vulnerabilidad de desbordamiento de integrales en el analizador de lenguaje de marcado de GitHub, la cual pudo haber ocasionado fugas de información potenciales y RCE. Esta vulnerabilidad la reportó Felix Wilhelm, del proyecto Zero de Google, mediante el programa de Recompensas por Errores de GitHub y se le asignó el CVE-2022-24724."
   bugs:
     - Las mejoras fallaron algunas veces si el reloj de una réplica de disponibilidad alta se desincronizó con el primario.
-    - 'OAuth Applications created after September 1st, 2020 were not able to use the [Check an Authorization](https://docs.github.com/en/enterprise-server@3.3/rest/reference/apps#check-an-authorization) API endpoint.'
+    - 'Las aplicaciones de OAuth que se crearon después del 1 de septiembre de 2020 no pudieron utilizar la terminal de la API de [Verificar una autorización](https://docs.github.com/en/enterprise-server@3.3/rest/reference/apps#check-an-authorization).'
   known_issues:
     - Después de haber actualizado a {% data variables.product.prodname_ghe_server %} 3.3, podría que las {% data variables.product.prodname_actions %} no inicien automáticamente. Para resolver este problema, conéctate al aplicativo a través de SSH y ejecuta el comando `ghe-actions-start`.
     - En una instancia recién configurada de {% data variables.product.prodname_ghe_server %} sin ningún usuario, un atacante podría crear el primer usuario adminsitrador.

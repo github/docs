@@ -1,6 +1,6 @@
 コードをスキャンするために{% data variables.product.prodname_codeql %}を使う場合、{% data variables.product.prodname_codeql %}分析エンジンはコードからデータベースを生成し、それに対してクエリを実行します。 {% data variables.product.prodname_codeql %}の分析はデフォルトのクエリセットを使いますが、デフォルトのクエリに加えてもっと多くのクエリを実行するよう指定することもできます。
 
-{% if codeql-packs %}
+{% ifversion codeql-packs %}
 You can run extra queries if they are part of a
 {% data variables.product.prodname_codeql %} pack (beta) published to the {% data variables.product.company_short %} {% data variables.product.prodname_container_registry %} or a {% data variables.product.prodname_ql %} pack stored in a repository. For more information, see "[About {% data variables.product.prodname_code_scanning %} with {% data variables.product.prodname_codeql %}](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql#about-codeql-queries)."
 

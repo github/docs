@@ -15,7 +15,7 @@ Windows Server 2022
 <code>windows-latest</code> ou <code>windows-2022</code>
 </td>
 <td>
-The <code>windows-latest</code> label currently uses the Windows Server 2022 runner image.
+O rótulo <code>windows-latest</code> usa atualmente a imagem do executor do Windows Server 2022.
 </td>
 </tr>
 <tr>
@@ -36,7 +36,7 @@ Ubuntu 22.04
 <code>ubuntu-22.04</code>
 </td>
 <td>
-Ubuntu 22.04 is currently in public beta.
+O Ubuntu 22,04 está atualmente em beta público.
 </td>
 </tr>
 <tr>
@@ -63,10 +63,7 @@ macOS Monterey 12
 </td>
 <td>
 <code>macos-12</code>
-</td>
-<td>
-macOS 12 is currently in public beta.
-</td>
+  </td>
 </tr>
 <tr>
 <td>
@@ -76,7 +73,7 @@ macOS Big Sur 11
 <code>macos-latest</code> or <code>macos-11</code>
 </td>
 <td>
-The <code>macos-latest</code> label currently uses the macOS 11 runner image.
+A etiqueta <code>macos-latest</code> usa a imagem do executor macOS 11 atualmente.
 </td>
 </tr>
 <tr>
@@ -94,12 +91,12 @@ macOS Catalina 10.15
 
 {% note %}
 
-**Note:** The `-latest` virtual environments are the latest stable images that {% data variables.product.prodname_dotcom %} provides, and might not be the most recent version of the operating system available from the operating system vendor.
+**Observação:** Os `-últimos` ambientes virtuais são as últimas imagens estáveis que {% data variables.product.prodname_dotcom %} fornece, e podem não ser a versão mais recente do sistema operacional disponível no fornecedor do sistema operacional.
 
 {% endnote %}
 
 {% warning %}
 
-<b>Note:</b> Beta and Deprecated Images are provided "as-is", "with all faults" and "as available" and are excluded from the service level agreement and warranty. Beta Images may not be covered by customer support.
+<b>Observação:</b> Imagens Beta e Depreciadas são fornecidas "como se apresentam", "com todas as falhas" e "como disponível" e são excluídas da garantia e do contrato de nível de serviço. Imagens Beta podem não estar cobertas pelo suporte ao cliente.
 
 {% endwarning %}

@@ -143,7 +143,7 @@ Se você criar uma URL inválida usando parâmetros de consulta, ou se você nã
 | `projetos`            | `https://github.com/octo-org/octo-repo/issues/new?title=Bug+fix&projects=octo-org/1` cria um problema com o título "Correção de erro" e o adiciona ao quadro de projeto 1 da organização.                                                                                                                                                                                                                                                                                                       |
 | `modelo`              | `https://github.com/octo-org/octo-repo/issues/new?template=issue_template.md` cria um problema com um modelo no texto do problema. O parâmetro de consulta `template` funciona com modelos armazenados em um subdiretório `ISSUE_TEMPLATE` dentro da raiz, `docs/` ou diretório do `.github/` em um repositório. Para obter mais informações, consulte "[Usar modelos para incentivar problemas úteis e pull requests](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)". |
 
-{% if code-scanning-task-lists %}
+{% ifversion code-scanning-task-lists %}
 ## Criando uma issue de um alerta de {% data variables.product.prodname_code_scanning %}
 
 {% data reusables.code-scanning.beta-alert-tracking-in-issues %}

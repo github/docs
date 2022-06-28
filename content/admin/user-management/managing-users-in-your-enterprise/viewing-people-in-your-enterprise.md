@@ -23,7 +23,7 @@ You can see all current enterprise members and enterprise administrators{% ifver
 
 ## Viewing enterprise administrators
 
-You can view all the current enterprise owners{% ifversion ghec %} and billing managers{% endif %} for your enterprise.{% if enterprise-membership-view-improvements %} You can see useful information about each administrator{% ifversion ghec %} and filter the list by role{% endif %}.{% endif %} You can find a specific person by searching for their username or display name.
+You can view all the current enterprise owners{% ifversion ghec %} and billing managers{% endif %} for your enterprise.{% ifversion enterprise-membership-view-improvements %} You can see useful information about each administrator{% ifversion ghec %} and filter the list by role{% endif %}.{% endif %} You can find a specific person by searching for their username or display name.
 
 {% ifversion not ghae %}
 You can also remove an administrator. For more information. see "[Inviting people to manage your enterprise](/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise#removing-an-enterprise-administrator-from-your-enterprise-account)."
@@ -33,23 +33,23 @@ You can also remove an administrator. For more information. see "[Inviting peopl
 {% data reusables.enterprise-accounts.people-tab %}
 {% data reusables.enterprise-accounts.administrators-tab %}
 
-## Viewing members {% if enterprise-membership-view-improvements %}{% else %}and outside collaborators{% endif %}
+## Viewing members {% ifversion enterprise-membership-view-improvements %}{% else %}and outside collaborators{% endif %}
 
-You can see all the current members {% if enterprise-membership-view-improvements %}{% else %}or outside collaborators{% endif %} for your enterprise. You can see useful information about each account and filter the list in useful ways, such as by role. You can find a specific person by searching for their username or display name.
+You can see all the current members {% ifversion enterprise-membership-view-improvements %}{% else %}or outside collaborators{% endif %} for your enterprise. You can see useful information about each account and filter the list in useful ways, such as by role. You can find a specific person by searching for their username or display name.
 
 You can view more information about the person's access to your enterprise, such as the organizations the person belongs to, by clicking on the person's name.
 
-{% if remove-enterprise-members %}
+{% ifversion remove-enterprise-members %}
 You can also remove any enterprise member from all organizations owned by the enterprise. For more information, see "[Removing a member from your enterprise](/admin/user-management/managing-users-in-your-enterprise/removing-a-member-from-your-enterprise)."
 {% endif %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.people-tab %}{% if enterprise-membership-view-improvements %}{% else %}
+{% data reusables.enterprise-accounts.people-tab %}{% ifversion enterprise-membership-view-improvements %}{% else %}
 1. Optionally, to view a list of outside collaborators rather than the list of members, click **Outside collaborators**.
 
    ![Outside collaborators tab on the enterprise members page](/assets/images/help/business-accounts/outside-collaborators-tab.png){% endif %}
 
-{% if enterprise-membership-view-improvements %}
+{% ifversion enterprise-membership-view-improvements %}
 ## Viewing outside collaborators
 
 You can see all the current outside collaborators for your enterprise. You can see useful information about each collaborator and filter the list in useful ways, such as by organization. You can find a specific collaborator by searching for their username or display name.
