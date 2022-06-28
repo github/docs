@@ -30,9 +30,10 @@ shortTitle: Configure publishing source
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.sidebar-pages %}
 {% ifversion pages-custom-workflow %}
-1. Under **Build and deployment**, under **Source**, select **Deploy from a branch**.
-1. Under **Build and deployment**, under **Branch**, use the **None** or **Branch** drop-down menu and select a publishing source.
-  ![Drop-down menu to select a publishing source](/assets/images/help/pages/publishing-source-drop-down.png)
+1. Under "Build and deployment", under "Source", select **Deploy from a branch**.
+1. Under "Build and deployment", under "Branch", use the **None** or **Branch** drop-down menu and select a publishing source.
+
+   ![Drop-down menu to select a publishing source](/assets/images/help/pages/publishing-source-drop-down.png)
 {% else %}
 3. Under "{% data variables.product.prodname_pages %}", use the **None** or **Branch** drop-down menu and select a publishing source.
   ![Drop-down menu to select a publishing source](/assets/images/help/pages/publishing-source-drop-down.png)
@@ -83,7 +84,7 @@ When you configure your site to publish with {% data variables.product.prodname_
 
 {% note %}
 
-**Note**: A `CNAME` file will not automatically add or remove the custom domain. Instead, you must configure the custom domain through your repository settings or through the API. For more information, see "[Managing a custom domain for your GitHub Pages site](/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-a-subdomain)" and [the PAGES API reference documentation](/rest/pages#update-information-about-a-github-pages-site).
+**Note**: A `CNAME` file in your repository file does not automatically add or remove a custom domain. Instead, you must configure the custom domain through your repository settings or through the API. For more information, see "[Managing a custom domain for your GitHub Pages site](/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-a-subdomain)" and the [Pages API reference documentation](/rest/pages#update-information-about-a-github-pages-site).
 
 {% endnote %}
 
@@ -92,7 +93,7 @@ To configure your site to publish with {% data variables.product.prodname_action
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.sidebar-pages %}
-1. Under **Build and deployment**, under **Source**, select **GitHub Actions**.
+1. Under "Build and deployment", under "Source", select **GitHub Actions**.
 1. {% data variables.product.product_name %} will suggest several starter workflows. If you already have a workflow to publish your site, you can skip this step. Otherwise, choose one of the options to create a {% data variables.product.prodname_actions %} workflow. For more information about {% data variables.product.prodname_actions %}, see "[{% data variables.product.prodname_actions %}](/actions)."
 
    {% data variables.product.prodname_pages %} does not associate a specific workflow to the {% data variables.product.prodname_pages %} settings. However, the {% data variables.product.prodname_pages %} settings will link to the workflow run that most recently deployed your site.
