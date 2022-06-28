@@ -19,7 +19,7 @@ miniTocMaxHeadingLevel: 3
 
 This tutorial teaches you {% data variables.product.product_name %} essentials like repositories, branches, commits, and pull requests. You'll create your own Hello World repository and learn {% data variables.product.product_name %}'s pull request workflow, a popular way to create and review code.
 
-In this quickstart guide, you will:
+In this quickstart guide, you will :- 
 
 * Create and use a repository
 * Start and manage a new branch
