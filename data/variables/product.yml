@@ -84,11 +84,6 @@ prodname_codeql_cli: 'CodeQL CLI'
 # Update this whenever a new enterprise version of CodeQL is being prepared.
 codeql_cli_ghes_recommended_version: >-
   {% ifversion ghes < 3.3 %}2.6.3{% elsif ghes < 3.5 %}2.7.6{% elsif ghes = 3.5 %}2.8.5{% elsif ghes = 3.6 %}2.9.4{% endif %}
-# The template system does not currently support injecting the GHES version
-# into the text, so we have a hardcoded list here.
-# Update this whenever a new GHES version is being prepared.
-ghes_version: >-
-  {% ifversion ghes = 3.1 %}3.1{% elsif ghes = 3.2 %}3.2{% elsif ghes = 3.3 %}3.3{% elsif ghes = 3.4 %}3.4{% elsif ghes = 3.5 %}3.5{% elsif ghes = 3.6 %}3.6{% endif %}
 
 # Apps, GitHub Marketplace, and integrations
 prodname_marketplace: 'GitHub Marketplace'
