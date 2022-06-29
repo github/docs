@@ -48,7 +48,7 @@ shortTitle: 筛选文件
 
    {% endnote %}
 
-   ![Screenshot of filter changed files search box and file tree emphasized](/assets/images/help/repository/file-tree.png)
+   ![突出显示筛选器已更改文件搜索框和文件树的屏幕截图](/assets/images/help/repository/file-tree.png)
 1. 要按文件路径进行筛选，请在 **Filter changed files（筛选已更改的文件）**搜索框中输入部分或全部文件路径。 或者，使用文件筛选器下拉列表。 更多信息请参阅“[使用文件筛选器下拉列表](#using-the-file-filter-dropdown)”。
 
 {% endif %}

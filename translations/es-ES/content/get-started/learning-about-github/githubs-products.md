@@ -116,4 +116,5 @@ Adicionalmente a las características disponibles con {% data variables.product.
 
 Puedes configurar una prueba para evaluar {% data variables.product.prodname_ghe_cloud %}. Para obtener más información, consulta "<a href="/articles/setting-up-a-trial-of-github-enterprise-cloud" class="dotcom-only">Configurar una prueba de {% data variables.product.prodname_ghe_cloud %}</a>".
 
-Para obtener más información acerca de hospedar tu propia instancia de [{% data variables.product.prodname_ghe_server %}](https://enterprise.github.com), contacta a {% data variables.contact.contact_enterprise_sales %}. {% data reusables.enterprise_installation.request-a-trial %}
+Para obtener más información sobre cómo hospedar tu propia instancia de {% data variables.product.prodname_ghe_server %}, incluyendo la configuración de un periodo de prueba, consulta la sección "[Acerca de {% data variables.product.prodname_ghe_server %}](/enterprise-server/admin/overview/about-github-enterprise-server)".
+

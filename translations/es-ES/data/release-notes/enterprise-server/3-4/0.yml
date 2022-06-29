@@ -153,6 +153,8 @@ sections:
     - Los límites de recursos que son específicos para procesar ganchos de pre-recepción podrían ocasionar que fallen algunos ganchos de pre-recepción.
     - Los servicios de las acciones necesitan reiniciarse después de restablecer el aplicativo de un respaldo que se llevó a un host diferente.
     - |
+      After registering a self-hosted runner with the `--ephemeral` parameter on more than one level (for example, both enterprise and organization), the runner may get stuck in an idle state and require re-registration. [Updated: 2022-06-17]
+    - |
       Cuando utilizas las aserciones cifradas con {% data variables.product.prodname_ghe_server %} 3.4.0 y 3.4.1, un atributo nuevo de XML `WantAssertionsEncrypted` en el `SPSSODescriptor` contiene un atributo inválido para los metadatos de SAML. Los IdP que consumen esta terminal de metadatos de SAML podrían encontrar errores al validar el modelo XML de los metadatos de SAML. Habrá una corrección disponible en el siguiente lanzamiento de parche. [Actualizado: 2022-04-11]
 
       Para darle una solución a este problema, puedes tomar una de las dos acciones siguientes.

@@ -16,7 +16,7 @@ topics:
 ---
 If you configure a hostname instead of a hard-coded IP address, you will be able to change the physical hardware that {% data variables.product.product_location %} runs on without affecting users or client software.
 
-The hostname setting in the {% data variables.enterprise.management_console %} should be set to an appropriate fully qualified domain name (FQDN) which is resolvable on the internet or within your internal network. For example, your hostname setting could be `github.companyname.com.` Web and API requests will automatically redirect to the hostname configured in the {% data variables.enterprise.management_console %}.
+The hostname setting in the {% data variables.enterprise.management_console %} should be set to an appropriate fully qualified domain name (FQDN) which is resolvable on the internet or within your internal network. For example, your hostname setting could be `github.companyname.com.` Web and API requests will automatically redirect to the hostname configured in the {% data variables.enterprise.management_console %}. Note that `localhost` is not a valid hostname setting.
 
 After you configure a hostname, you can enable subdomain isolation to further increase the security of {% data variables.product.product_location %}. For more information, see "[Enabling subdomain isolation](/enterprise/admin/guides/installation/enabling-subdomain-isolation/)."
 

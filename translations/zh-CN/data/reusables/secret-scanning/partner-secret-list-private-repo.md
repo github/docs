@@ -1,4 +1,4 @@
-| 提供者         | 支持的密钥          | Secret type       |
+| 提供者         | 支持的密钥          | 密钥类型              |
 | ----------- | -------------- | ----------------- |
 | Adafruit IO | Adafruit IO 密钥 | adafruit_io_key |
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}

@@ -35,6 +35,8 @@ Your certificate will also need Subject Alternative Names configured for the sub
 
 You can generate a certificate signing request (CSR) for your instance using the `ghe-ssl-generate-csr` command. For more information, see "[Command-line utilities](/enterprise/admin/guides/installation/command-line-utilities/#ghe-ssl-generate-csr)."
 
+Your key must be an RSA key and must not have a passphrase. For more information, see "[Removing the passphrase from your key file](/admin/guides/installation/troubleshooting-ssl-errors#removing-the-passphrase-from-your-key-file)".
+
 ## Uploading a custom TLS certificate
 
 {% data reusables.enterprise_site_admin_settings.tls-downtime %}
@@ -50,11 +52,6 @@ You can generate a certificate signing request (CSR) for your instance using the
 6. Under "Unencrypted key", click **Choose File** to choose an RSA key (in PEM format) to install. This file will usually have a *.key* extension.
   ![Button to find TLS key file](/assets/images/enterprise/management-console/install-tls-key.png)
 
-  {% warning %}
-
-  **Warning**: Your key must be an RSA key and must not have a passphrase. For more information, see "[Removing the passphrase from your key file](/admin/guides/installation/troubleshooting-ssl-errors#removing-the-passphrase-from-your-key-file)".
-
-  {% endwarning %}
 {% data reusables.enterprise_management_console.save-settings %}
 
 ## About Let's Encrypt support

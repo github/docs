@@ -43,6 +43,9 @@ Google | Google Cloud Storage User Access Key ID | google_cloud_storage_user_acc
 Grafana | Grafana API Key | grafana_api_key
 Hubspot | Hubspot API Key | hubspot_api_key
 Intercom | Intercom Access Token | intercom_access_token
+{%- ifversion fpt or ghec or ghes > 3.6 or ghae-issue-7456 %}
+JFrog | JFrog Platform Access Token | jfrog_platform_access_token
+JFrog | JFrog Platform API Key | jfrog_platform_api_key{% endif %}
 Ionic | Ionic Personal Access Token | ionic_personal_access_token
 Ionic | Ionic Refresh Token | ionic_refresh_token
 Linear | Linear API Key | linear_api_key
