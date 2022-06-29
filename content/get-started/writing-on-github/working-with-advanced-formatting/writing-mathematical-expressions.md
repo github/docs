@@ -18,6 +18,9 @@ To include a math expression inline with your text, delimit the expression with 
 This sentence uses `$` delimiters to show math inline:  $\sqrt{3x-1}+(1+x)^2$
 ```
 
+Do not put more than one inline math expression in a line. We do a greedy match on each line to
+get the matching `$`. One day we will figure out how to use https://perldoc.perl.org/perlre. Don't even think about writing an inline expression involing more than one line.
+
 ![Inline math markdown rendering](/assets/images/help/writing/inline-math-markdown-rendering.png)
 
 ## Writing expressions as blocks
