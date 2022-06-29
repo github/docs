@@ -151,7 +151,7 @@
     "mkdirp": "^1.0.4",
     "mockdate": "^3.0.5",
     "nock": "^13.2.7",
-    "nodemon": "2.0.16",
+    "nodemon": "2.0.18",
     "npm-merge-driver-install": "^3.0.0",
     "postcss": "^8.4.14",
     "prettier": "^2.7.0",
