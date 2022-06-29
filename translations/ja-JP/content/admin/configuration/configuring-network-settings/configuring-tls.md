@@ -36,6 +36,8 @@ SSL が有効な場合、{% data variables.product.prodname_ghe_server %} アプ
 
 `ghe-ssl-generate-csr` コマンドを使用すれば、インスタンス用の証明書署名要求 (CSR) を生成できます。 詳しい情報については、「[コマンドラインユーティリティ](/enterprise/admin/guides/installation/command-line-utilities/#ghe-ssl-generate-csr)」を参照してください。
 
+Your key must be an RSA key and must not have a passphrase. 詳しい情報については"[キーファイルからのパスフレーズの除去](/admin/guides/installation/troubleshooting-ssl-errors#removing-the-passphrase-from-your-key-file)"を参照してください。
+
 ## カスタムのTLS証明書のアップロード
 
 {% data reusables.enterprise_site_admin_settings.tls-downtime %}
@@ -48,11 +50,6 @@ SSL が有効な場合、{% data variables.product.prodname_ghe_server %} アプ
 5. "Certificate（証明書）"の下で**Choose File（ファイルの選択）**をクリックし、インストールしたいTLS証明書もしくは証明書チェーン（PEMフォーマット）を選択してください。 このファイルは通常、*.pem*、*.crt*、*.cer* といった拡張子を持ちます。 ![TLS 証明書ファイルを見つけるためのボタン](/assets/images/enterprise/management-console/install-tls-certificate.png)
 6. Under "Unencrypted key", click **Choose File** to choose an RSA key (in PEM format) to install. このファイルは通常*.key*という拡張子を持ちます。 ![TLS鍵ファイルを見つけるためのボタン](/assets/images/enterprise/management-console/install-tls-key.png)
 
-  {% warning %}
-
-  **Warning**: Your key must be an RSA key and must not have a passphrase. 詳しい情報については"[キーファイルからのパスフレーズの除去](/admin/guides/installation/troubleshooting-ssl-errors#removing-the-passphrase-from-your-key-file)"を参照してください。
-
-  {% endwarning %}
 {% data reusables.enterprise_management_console.save-settings %}
 
 ## Let's Encryptのサポートについて
