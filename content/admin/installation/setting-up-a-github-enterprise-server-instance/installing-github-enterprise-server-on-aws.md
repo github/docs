@@ -114,6 +114,8 @@ In the AWS CLI, launch an EC2 instance using your AMI and the security group you
 
 **Note:** At this time {% data variables.product.prodname_ghe_server %} does not support the use of the Amazon IDMSv2 Metadata API.
 
+{% endnote %}
+
 ```shell
 aws ec2 run-instances \
   --security-group-ids <em>SECURITY_GROUP_ID</em> \
