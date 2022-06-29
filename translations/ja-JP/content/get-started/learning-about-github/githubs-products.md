@@ -116,4 +116,5 @@ Organizationの{% data variables.product.prodname_free_team %}で利用できる
 
 {% data variables.product.prodname_ghe_cloud %} を評価するためのトライアルを設定できます。 詳しい情報については、「<a href="/articles/setting-up-a-trial-of-github-enterprise-cloud" class="dotcom-only">{% data variables.product.prodname_ghe_cloud %} のトライアルを設定する</a>」を参照してください。
 
-[{% data variables.product.prodname_ghe_server %}](https://enterprise.github.com)の独自インスタンスのホストに関する詳しい情報については、{% data variables.contact.contact_enterprise_sales %}に連絡してください。 {% data reusables.enterprise_installation.request-a-trial %}
+For more information about hosting your own instance of {% data variables.product.prodname_ghe_server %}, including setting up a trial, see "[About {% data variables.product.prodname_ghe_server %}](/enterprise-server/admin/overview/about-github-enterprise-server)."
+

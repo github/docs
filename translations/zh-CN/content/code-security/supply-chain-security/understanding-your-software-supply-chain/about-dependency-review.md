@@ -1,6 +1,6 @@
 ---
 title: About dependency review
-intro: 'Dependency review lets you catch vulnerable dependencies before you introduce them to your environment, and provides information on license, dependents, and age of dependencies.'
+intro: 'Dependency review lets you catch insecure dependencies before you introduce them to your environment, and provides information on license, dependents, and age of dependencies.'
 product: '{% data reusables.gated-features.dependency-review %}'
 shortTitle: Dependency review
 versions:
@@ -62,7 +62,6 @@ The action uses the Dependency Review REST API to get the diff of dependency cha
 
 {% ifversion dependency-review-action-configuration %}
 You can configure the {% data variables.product.prodname_dependency_review_action %} to better suit your needs. For example, you can specify the severity level that will make the action fail, or set an allow or deny list for licenses to scan. For more information, see "[Configuring dependency review](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review#configuring-the-dependency-review-github-action)." 
-
 {% endif %}
 
 {% endif %}

@@ -33,7 +33,7 @@ topics:
 
 {% data reusables.dependabot.dependabot-alerts-beta %}
 
-With {% data variables.product.prodname_dependabot_alerts %}, {% data variables.product.prodname_dotcom %} identifies vulnerable dependencies in repositories and creates alerts on {% data variables.product.product_location %}, using data from the {% data variables.product.prodname_advisory_database %} and the dependency graph service.
+With {% data variables.product.prodname_dependabot_alerts %}, {% data variables.product.prodname_dotcom %} identifies insecure dependencies in repositories and creates alerts on {% data variables.product.product_location %}, using data from the {% data variables.product.prodname_advisory_database %} and the dependency graph service.
 
 {% data reusables.repositories.tracks-vulnerabilities %}
 
