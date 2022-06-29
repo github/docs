@@ -24,14 +24,15 @@ Para incluir bifurcações nos resultados da pesquisa, você precisará adiciona
 
 ## Pesquisar por nome do repositório, descrição ou conteúdo do arquivo README
 
-Com o qualificador `in`, você pode restringir a pesquisa ao nome do repositório, descrição do repositório, conteúdo do arquivo README ou qualquer combinação desses itens. Quando você omite esse qualificador, somente o nome e a descrição do repositório são pesquisados.
+With the `in` qualifier you can restrict your search to the repository name, repository description, repository topics, contents of the README file, or any combination of these. When you omit this qualifier, only the repository name, description, and topics are searched.
 
 | Qualifier         | Exemplo                                                                                                                                                                                       |
 | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `in:name`         | [**jquery in:name**](https://github.com/search?q=jquery+in%3Aname&type=Repositories) corresponde aos repositórios com "jquery" no nome do respositório.                                       |
 | `in:description`  | [**jquery in:name,description**](https://github.com/search?q=jquery+in%3Aname%2Cdescription&type=Repositories) corresponde aos repositórios com "jquery" no nome ou descrição do repositório. |
+| `in:topics`       | [**jquery in:topics**](https://github.com/search?q=jquery+in%3Atopics&type=Repositories) matches repositories labeled with "jquery" as a topic.                                               |
 | `in:readme`       | [**jquery em:readme**](https://github.com/search?q=jquery+in%3Areadme&type=Repositories) corresponde aos repositórios que mencionam "jquery" no arquivo README do repositório.                |
-| `repo:owner/name` | [**repo:octocat/hello-world**](https://github.com/search?q=repo%3Aoctocat%2Fhello-world) identifica um nome de repositório específico.                                                        |
+| `repo:owner/name` | [**repo:octocat/hello-world**](https://github.com/search?q=repo%3Aoctocat%2Fhello-world) matches a specific repository name.                                                                  |
 
 ## Pesquisar com base no conteúdo do repositório
 

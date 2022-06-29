@@ -1,5 +1,6 @@
 ---
 title: Definindo seu editor padrão para os codespaces
+shortTitle: Definir o editor padrão
 intro: 'Você pode definir seu editor padrão para {% data variables.product.prodname_codespaces %} na sua página de configurações pessoais.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
@@ -9,7 +10,7 @@ redirect_from:
   - /codespaces/managing-your-codespaces/setting-your-default-editor-for-codespaces
 topics:
   - Codespaces
-shortTitle: Definir o editor padrão
+type: how_to
 ---
 
 Na página de configurações você pode definir sua preferência de editor para que todos os codespaces sejam abertos automaticamente em {% data variables.product.prodname_vscode %} para a web ou em {% data variables.product.prodname_vscode %} para aplicativos de desktop.

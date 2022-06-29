@@ -32,7 +32,7 @@ You are responsible for ensuring the security and quality of your code. We recom
 
 ## {% data variables.product.prodname_copilot %} Licensing Information for JetBrains Plugin
 
-{% data variables.product.prodname_dotcom %}, Inc. is the licensor of the JetBrains plugin. The end user license agreement for this plugin is the [{% data variables.product.prodname_dotcom %} Terms of Service](/free-pro-team@latest/site-policy/github-terms-of-service) and use of this plugin is subject to those terms. JetBrains has no responsibility or liability in connection with the plugin or such agreement. By using the plugin, you agree to the foregoing terms.
+{% data variables.product.prodname_dotcom %}, Inc. is the licensor of the JetBrains plugin. The end user license agreement for this plugin is the [{% data variables.product.prodname_dotcom %} Terms for Additional Products and Features](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot) and use of this plugin is subject to those terms. JetBrains has no responsibility or liability in connection with the plugin or such agreement. By using the plugin, you agree to the foregoing terms.
 
 ## Further reading
 
