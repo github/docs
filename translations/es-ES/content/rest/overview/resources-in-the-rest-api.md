@@ -24,7 +24,7 @@ Predeterminadamente, todas las solicitudes a `{% data variables.product.api_url_
 
 {% ifversion fpt or ghec %}
 
-For information about GitHub's GraphQL API, see the [documentation]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql). Para obtener más información acerca de cómo migrarse a GraphQL, consulta la sección "[Migrarse desde REST]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/guides/migrating-from-rest-to-graphql)".
+Para obtener más información sobre la API de GraphQL de GitHub, consulta la [documentación]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql). Para obtener más información acerca de cómo migrarse a GraphQL, consulta la sección "[Migrarse desde REST]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/guides/migrating-from-rest-to-graphql)".
 
 {% endif %}
 

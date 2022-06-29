@@ -15,7 +15,7 @@ topics:
   - Repositories
   - Dependencies
 children:
-  - /browsing-security-vulnerabilities-in-the-github-advisory-database
+  - /browsing-security-advisories-in-the-github-advisory-database
   - /editing-security-advisories-in-the-github-advisory-database
   - /about-dependabot-alerts
   - /configuring-dependabot-alerts

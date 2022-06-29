@@ -14,7 +14,7 @@ topics:
 
 ## ノードの制限
 
-To pass [schema](/graphql/guides/introduction-to-graphql#schema) validation, all GraphQL API [calls](/graphql/guides/forming-calls-with-graphql) must meet these standards:
+[スキーマ](/graphql/guides/introduction-to-graphql#schema)検証をパスするためには、すべてのGraphQL APIの[呼び出し](/graphql/guides/forming-calls-with-graphql)が以下の標準を満す必要があります。
 
 * クライアントはすべての[コネクション](/graphql/guides/introduction-to-graphql#connection)で引数として`first`もしくは`last`を渡さなければなりません。
 * `first`及び`last`の値は1から100の間でなければなりません。
@@ -130,7 +130,7 @@ To pass [schema](/graphql/guides/introduction-to-graphql#schema) validation, all
 
 ## レート制限
 
-The GraphQL API limit is different from the REST API's [rate limits](/rest/overview/resources-in-the-rest-api#rate-limiting).
+GraphQL APIの制限は、REST APIの[レート制限](/rest/overview/resources-in-the-rest-api#rate-limiting)とは異なります。
 
 APIのレート制限が異なっているのはなぜでしょうか？ [GraphQL](/graphql)では、一つのGraphQLの呼び出しで[複数のRESTの呼び出し](/graphql/guides/migrating-from-rest-to-graphql)を置き換えることができます。 単一の複雑なGraphQLの呼び出しが、数千のRESTリクエストと等価なこともあります。 単一の GraphQL 呼び出しは REST API レート制限を大幅に下回りますが、クエリはGitHub のサーバーが演算するのと同等の負荷になる可能性があります。
 

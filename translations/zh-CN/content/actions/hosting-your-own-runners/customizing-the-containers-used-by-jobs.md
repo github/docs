@@ -1,11 +1,11 @@
 ---
-title: Customizing the containers used by jobs
-intro: You can customize how your self-hosted runner invokes a container for a job.
+title: 自定义作业使用的容器
+intro: 您可以自定义自托管运行器调用作业容器的方式。
 versions:
   feature: container-hooks
 type: reference
 miniTocMaxHeadingLevel: 4
-shortTitle: Customize containers used by jobs
+shortTitle: 自定义作业使用的容器
 ---
 
 {% note %}
@@ -14,79 +14,79 @@ shortTitle: Customize containers used by jobs
 
 {% endnote %}
 
-## About container customization
+## 关于容器自定义
 
-{% data variables.product.prodname_actions %} allows you to run a job within a container, using the `container:` statement in your workflow file. For more information, see "[Running jobs in a container](/actions/using-jobs/running-jobs-in-a-container)." To process container-based jobs, the self-hosted runner creates a container for each job.
+{% data variables.product.prodname_actions %} 允许您在工作流程文件中使用 `container:` 语句运行容器内的作业。 更多信息请参阅“[在容器中运行作业](/actions/using-jobs/running-jobs-in-a-container)”。 为处理基于容器的作业，自托管运行器会为每个作业创建一个容器。
 
-{% data variables.product.prodname_actions %} supports commands that let you customize the way your containers are created by the self-hosted runner. For example, you can use these commands to manage the containers through Kubernetes or Podman, and you can also customize the `docker run` or `docker create` commands used to invoke the container. The customization commands are run by a script, which is automatically triggered when a specific environment variable is set on the runner. For more information, see "[Triggering the customization script](#triggering-the-customization-script)" below.
+{% data variables.product.prodname_actions %} 支持命令，这些命令允许你自定义自托管运行器创建容器的方式。 例如，您可以使用这些命令通过 Kubernetes 或 Podman 管理容器，还可以自定义 `docker run` 或 `docker create` 命令。 自定义命令由脚本运行，当在运行器上设置特定环境变量时，将自动触发脚本。 更多信息请参阅下面的“[触发自定义脚本](#triggering-the-customization-script)”。
 
-This customization is only available for Linux-based self-hosted runners, and root user access is not required.
+此自定义仅适用于基于 Linux 的自托管运行器，并且不需要 root 用户访问权限。
 
-## Container customization commands
+## 容器自定义命令
 
-{% data variables.product.prodname_actions %} includes the following commands for container customization:
+{% data variables.product.prodname_actions %} 包括以下用于容器自定义的命令：
 
-- [`prepare_job`](/actions/hosting-your-own-runners/customizing-the-containers-used-by-jobs#prepare_job): Called when a job is started.
-- [`cleanup_job`](/actions/hosting-your-own-runners/customizing-the-containers-used-by-jobs#cleanup_job): Called at the end of a job.
-- [`run_container_step`](/actions/hosting-your-own-runners/customizing-the-containers-used-by-jobs#run_container_step): Called once for each container action in the job.
-- [`run_script_step`](/actions/hosting-your-own-runners/customizing-the-containers-used-by-jobs#run_script_step): Runs any step that is not a container action.
+- [`prepare_job`](/actions/hosting-your-own-runners/customizing-the-containers-used-by-jobs#prepare_job)：在作业启动时调用。
+- [`cleanup_job`](/actions/hosting-your-own-runners/customizing-the-containers-used-by-jobs#cleanup_job)：在作业结束时调用。
+- [`run_container_step`](/actions/hosting-your-own-runners/customizing-the-containers-used-by-jobs#run_container_step)：为作业中的每个容器操作调用一次。
+- [`run_script_step`](/actions/hosting-your-own-runners/customizing-the-containers-used-by-jobs#run_script_step)：运行任何不是容器操作的步骤。
 
-Each of these customization commands must be defined in its own JSON file. The file name must match the command name, with the extension `.json`. For example, the `prepare_job` command is defined in `prepare_job.json`. These JSON files will then be run together on the self-hosted runner, as part of the main `index.js` script. This process is described in more detail in "[Generating the customization script](#generating-the-customization-script)."
+这些自定义命令中的每一个都必须在其自己的 JSON 文件中定义。 文件名必须与命令名称匹配，扩展名为 `.json`。 例如，`prepare_job` 命令在 `prepare_job.json` 中定义。 然后，这些 JSON 文件将作为主 `index.js` 脚本的一部分在自托管运行器上一起运行。 此过程在“[生成自定义脚本](#generating-the-customization-script)”中有更详细的描述。
 
-These commands also include configuration arguments, explained below in more detail.
+这些命令还包括配置参数，下面将更详细地介绍这些参数。
 
 ### `prepare_job`
 
-The `prepare_job` command is called when a job is started. {% data variables.product.prodname_actions %} passes in any job or service containers the job has. This command will be called if you have any service or job containers in the job.
+启动作业时调用 `prepare_job` 命令。 {% data variables.product.prodname_actions %} 传入作业具有的任何作业或服务容器。 如果作业中有任何服务或作业容器，则将调用此命令。
 
-{% data variables.product.prodname_actions %} assumes that you will do the following tasks in the `prepare_job` command:
+{% data variables.product.prodname_actions %} 假定您将在 `prepare_job` 命令中执行以下任务：
 
-- Prune anything from previous jobs, if needed.
-- Create a network, if needed.
-- Pull the job and service containers.
-- Start the job container.
-- Start the service containers.
-- Write to the response file any information that {% data variables.product.prodname_actions %} will need:
-  - Required: State whether the container is an `alpine` linux container (using the `isAlpine` boolean).
-  - Optional: Any context fields you want to set on the job context, otherwise they will be unavailable for users to use. For more information, see "[`job` context](/actions/learn-github-actions/contexts#job-context)."
-- Return `0` when the health checks have succeeded and the job/service containers are started.
+- 如果需要，修剪以前作业中的任何内容。
+- 如果需要，创建网络。
+- 拉取作业和服务容器。
+- 启动作业容器。
+- 启动服务容器。
+- 将 {% data variables.product.prodname_actions %} 所需的任何信息写入响应文件：
+  - 必需：说明容器是否为 `alpine` linux 容器（使用 `isAlpine` 布尔值）。
+  - 可选：要在作业上下文中设置的任何上下文字段，否则用户将无法使用它们。 更多信息请参阅“[`job` 上下文](/actions/learn-github-actions/contexts#job-context)”。
+- 运行状况检查成功且作业/服务容器启动时，返回 `0`。
 
 #### 参数
 
-- `jobContainer`: **Optional**. An object containing information about the specified job container.
-  - `image`: **Required**. A string containing the Docker image.
-  - `workingDirectory`: **Required**. A string containing the absolute path of the working directory.
-  - `createOptions`: **Optional**. The optional _create_ options specified in the YAML. For more information, see "[Example: Running a job within a container](/actions/using-jobs/running-jobs-in-a-container#example-running-a-job-within-a-container)."
-  - `environmentVariables`: **Optional**. Sets a map of key environment variables.
-  - `userMountVolumes`: **Optional**. An array of user mount volumes set in the YAML. For more information, see "[Example: Running a job within a container](/actions/using-jobs/running-jobs-in-a-container#example-running-a-job-within-a-container)."
-    - `sourceVolumePath`: **Required**. The source path to the volume that will be mounted into the Docker container.
-    - `targetVolumePath`: **Required**. The target path to the volume that will be mounted into the Docker container.
-    - `readOnly`: **Required**. Determines whether or not the mount should be read-only.
-  - `systemMountVolumes`: **Required**. An array of mounts to mount into the container, same fields as above.
-    - `sourceVolumePath`: **Required**. The source path to the volume that will be mounted into the Docker container.
-    - `targetVolumePath`: **Required**. The target path to the volume that will be mounted into the Docker container.
-    - `readOnly`: **Required**. Determines whether or not the mount should be read-only.
-  - `注册表` **Optional**. The Docker registry credentials for a private container registry.
-    - `username`: **Optional**. The username of the registry account.
-    - `password`: **Optional**. The password to the registry account.
-    - `serverUrl`: **Optional**. The registry URL.
-  - `portMappings`: **Optional**. A key value hash of _source:target_ ports to map into the container.
-- `services`: **Optional**. An array of service containers to spin up.
-  - `contextName`: **Required**. The name of the service in the Job context.
-  - `image`: **Required**. A string containing the Docker image.
-  - `createOptions`: **Optional**. The optional _create_ options specified in the  YAML. For more information, see "[Example: Running a job within a container](/actions/using-jobs/running-jobs-in-a-container#example-running-a-job-within-a-container)."
-  - `environmentVariables`: **Optional**. Sets a map of key environment variables.
-  - `userMountVolumes`: **Optional**. An array of mounts to mount into the container, same fields as above.
-    - `sourceVolumePath`: **Required**. The source path to the volume that will be mounted into the Docker container.
-    - `targetVolumePath`: **Required**. The target path to the volume that will be mounted into the Docker container.
-    - `readOnly`: **Required**. Determines whether or not the mount should be read-only.
-  - `注册表` **Optional**. The Docker registry credentials for the private container registry.
-    - `username`: **Optional**. The username of the registry account.
-    - `password`: **Optional**. The password to the registry account.
-    - `serverUrl`: **Optional**. The registry URL.
-  - `portMappings`: **Optional**. A key value hash of _source:target_ ports to map into the container.
+- `jobContainer`：**可选**。 包含指定作业容器信息的对象。
+  - `image`：**必需**。 包含 Docker 映像的字符串。
+  - `workingDirectory`：**必需**。 包含工作目录绝对路径的字符串。
+  - `createOptions`：**可选**。 可选的 _create_ 选项在 YAML 中指定。 更多信息请参阅“[示例：在容器运行作业](/actions/using-jobs/running-jobs-in-a-container#example-running-a-job-within-a-container)”。
+  - `environmentVariables`：**可选**。 设置关键环境变量的映射。
+  - `userMountVolumes`：**可选**。 在 YAML 中设置的用户装入卷的数组。 更多信息请参阅“[示例：在容器运行作业](/actions/using-jobs/running-jobs-in-a-container#example-running-a-job-within-a-container)”。
+    - `sourceVolumePath`：**必需**。 将装载到 Docker 容器中的卷的源路径。
+    - `targetVolumePath`：**必需**。 将装载到 Docker 容器中的卷的目标路径。
+    - `readOnly`：**必需**。 确定装载是否应为只读。
+  - `systemMountVolumes`：**必需**。 要装载到容器中的装载数组，字段与上述字段相同。
+    - `sourceVolumePath`：**必需**。 将装载到 Docker 容器中的卷的源路径。
+    - `targetVolumePath`：**必需**。 将装载到 Docker 容器中的卷的目标路径。
+    - `readOnly`：**必需**。 确定装载是否应为只读。
+  - `注册表` **可选**。 专用容器注册表的 Docker 注册表凭据。
+    - `username`：**可选**。 注册表帐户的用户名。
+    - `password`：**可选**。 注册表帐户的密码。
+    - `serverUrl`：**可选**。 注册表 URL。
+  - `portMappings`：**可选**。 要映射到容器的 _source:target_ 端口的键值哈希。
+- `services`：**可选**。 要启动的服务容器数组。
+  - `contextName`：**必需**。 作业上下文中服务的名称。
+  - `image`：**必需**。 包含 Docker 映像的字符串。
+  - `createOptions`：**可选**。 可选的 _create_ 选项在 YAML 中指定。 更多信息请参阅“[示例：在容器运行作业](/actions/using-jobs/running-jobs-in-a-container#example-running-a-job-within-a-container)”。
+  - `environmentVariables`：**可选**。 设置关键环境变量的映射。
+  - `userMountVolumes`：**可选**。 要装载到容器中的装载数组，字段与上述字段相同。
+    - `sourceVolumePath`：**必需**。 将装载到 Docker 容器中的卷的源路径。
+    - `targetVolumePath`：**必需**。 将装载到 Docker 容器中的卷的目标路径。
+    - `readOnly`：**必需**。 确定装载是否应为只读。
+  - `注册表` **可选**。 专用容器注册表的 Docker 注册表凭据。
+    - `username`：**可选**。 注册表帐户的用户名。
+    - `password`：**可选**。 注册表帐户的密码。
+    - `serverUrl`：**可选**。 注册表 URL。
+  - `portMappings`：**可选**。 要映射到容器的 _source:target_ 端口的键值哈希。
 
-#### Example input
+#### 示例输入
 
 ```json{:copy}
 {
@@ -171,9 +171,9 @@ The `prepare_job` command is called when a job is started. {% data variables.pro
 }
 ```
 
-#### Example output
+#### 示例输出
 
-This example output is the contents of the `responseFile` defined in the input above.
+此示例输出是上面输入中定义的 `responseFile` 内容。
 
 ```json{:copy}
 {
@@ -205,19 +205,19 @@ This example output is the contents of the `responseFile` defined in the input a
 
 ### `cleanup_job`
 
-The `cleanup_job` command is called at the end of a job. {% data variables.product.prodname_actions %} assumes that you will do the following tasks in the `cleanup_job` command:
+`cleanup_job` 命令在作业结束时调用。 {% data variables.product.prodname_actions %} 假定您将在 `cleanup_job` 命令中执行以下任务：
 
-- Stop any running service or job containers (or the equivalent pod).
-- Stop the network (if one exists).
-- Delete any job or service containers (or the equivalent pod).
-- Delete the network (if one exists).
-- Cleanup anything else that was created for the job.
+- 停止任何正在运行的服务或作业容器（或等效 Pod）。
+- 停止网络（如果存在）。
+- 删除任何作业或服务容器（或等效的 Pod）。
+- 删除网络（如果存在）。
+- 清除为作业创建的任何其他内容。
 
 #### 参数
 
-No arguments are provided for `cleanup_job`.
+没有为 `cleanup_job` 提供任何参数。
 
-#### Example input
+#### 示例输入
 
 ```json{:copy}
 {
@@ -234,46 +234,46 @@ No arguments are provided for `cleanup_job`.
 }
 ```
 
-#### Example output
+#### 示例输出
 
-No output is expected for `cleanup_job`.
+没有 `cleanup_job` 的预期输出。
 
 ### `run_container_step`
 
-The `run_container_step` command is called once for each container action in your job. {% data variables.product.prodname_actions %} assumes that you will do the following tasks in the `run_container_step` command:
+`run_container_step` 命令为作业中的每个容器操作调用一次。 {% data variables.product.prodname_actions %} 假定您将在 `run_container_step` 命令中执行以下任务：
 
-- Pull or build the required container (or fail if you cannot).
-- Run the container action and return the exit code of the container.
-- Stream any step logs output to stdout and stderr.
-- Cleanup the container after it executes.
+- 拉取或构建所需的容器（如果无法拉取或构建，则失败）。
+- 运行容器操作并返回容器的退出代码。
+- 将任何步骤日志输出流式传输到 stdout 和 stderr。
+- 执行容器后清理容器。
 
 #### 参数
 
-- `image`: **Optional**. A string containing the docker image. Otherwise a dockerfile must be provided.
-- `dockerfile`: **Optional**. A string containing the path to the dockerfile, otherwise an image must be provided.
-- `entryPointArgs`: **Optional**. A list containing the entry point args.
-- `entryPoint`: **Optional**. The container entry point to use if the default image entrypoint should be overwritten.
-- `workingDirectory`: **Required**. A string containing the absolute path of the working directory.
-- `createOptions`: **Optional**. The optional _create_ options specified in the YAML. For more information, see "[Example: Running a job within a container](/actions/using-jobs/running-jobs-in-a-container#example-running-a-job-within-a-container)."
-- `environmentVariables`: **Optional**. Sets a map of key environment variables.
-- `prependPath`: **Optional**. An array of additional paths to prepend to the `$PATH` variable.
-- `userMountVolumes`: **Optional**. an array of user mount volumes set in the YAML. For more information, see "[Example: Running a job within a container](/actions/using-jobs/running-jobs-in-a-container#example-running-a-job-within-a-container)."
-  - `sourceVolumePath`: **Required**. The source path to the volume that will be mounted into the Docker container.
-  - `targetVolumePath`: **Required**. The target path to the volume that will be mounted into the Docker container.
-  - `readOnly`: **Required**. Determines whether or not the mount should be read-only.
-- `systemMountVolumes`: **Required**. An array of mounts to mount into the container, using the same fields as above.
-  - `sourceVolumePath`: **Required**. The source path to the volume that will be mounted into the Docker container.
-  - `targetVolumePath`: **Required**. The target path to the volume that will be mounted into the Docker container.
-  - `readOnly`: **Required**. Determines whether or not the mount should be read-only.
-- `注册表` **Optional**. The Docker registry credentials for a private container registry.
-  - `username`: **Optional**. The username of the registry account.
-  - `password`: **Optional**. The password to the registry account.
-  - `serverUrl`: **Optional**. The registry URL.
-- `portMappings`: **Optional**. A key value hash of the _source:target_ ports to map into the container.
+- `image`：**可选**。 包含 Docker 映像的字符串。 否则，必须提供 dockerfile。
+- `dockerfile`：**可选**。 包含 docker 文件路径的字符串，否则必须提供映像。
+- `entryPointArgs`：**可选**。 包含入口点参数的列表。
+- `entryPoint`：**可选**。 应覆盖默认映像入口点时使用的容器入口点。
+- `workingDirectory`：**必需**。 包含工作目录绝对路径的字符串。
+- `createOptions`：**可选**。 可选的 _create_ 选项在 YAML 中指定。 更多信息请参阅“[示例：在容器运行作业](/actions/using-jobs/running-jobs-in-a-container#example-running-a-job-within-a-container)”。
+- `environmentVariables`：**可选**。 设置关键环境变量的映射。
+- `prependPath`：**可选**。 要附加到 `$PATH` 变量前面的其他路径的数组。
+- `userMountVolumes`：**可选**。 在 YAML 中设置的用户装入卷的数组。 更多信息请参阅“[示例：在容器运行作业](/actions/using-jobs/running-jobs-in-a-container#example-running-a-job-within-a-container)”。
+  - `sourceVolumePath`：**必需**。 将装载到 Docker 容器中的卷的源路径。
+  - `targetVolumePath`：**必需**。 将装载到 Docker 容器中的卷的目标路径。
+  - `readOnly`：**必需**。 确定装载是否应为只读。
+- `systemMountVolumes`：**必需**。 要装载到容器中的装载数组，用与上述字段相同的字段。
+  - `sourceVolumePath`：**必需**。 将装载到 Docker 容器中的卷的源路径。
+  - `targetVolumePath`：**必需**。 将装载到 Docker 容器中的卷的目标路径。
+  - `readOnly`：**必需**。 确定装载是否应为只读。
+- `注册表` **可选**。 专用容器注册表的 Docker 注册表凭据。
+  - `username`：**可选**。 注册表帐户的用户名。
+  - `password`：**可选**。 注册表帐户的密码。
+  - `serverUrl`：**可选**。 注册表 URL。
+- `portMappings`：**可选**。 要映射到容器的 _source:target_ 端口的键值哈希。
 
-#### Example input for image
+#### 映像的示例输入
 
-If you're using a Docker image, you can specify the image name in the `"image":` parameter.
+如果您使用的是 Docker 映像，则可以在 `"image":` 参数中指定映像名称。
 
 ```json{:copy}
 {
@@ -347,9 +347,9 @@ If you're using a Docker image, you can specify the image name in the `"image":`
 }
 ```
 
-#### Example input for Dockerfile
+#### Dockerfile 的示例输入
 
-If your container is defined by a Dockerfile, this example demonstrates how to specify the path to a `Dockerfile` in your input, using the `"dockerfile":` parameter.
+如果您的容器由 Dockerfile 定义，此示例演示如何使用 `"dockerfile":` 参数在输入中指定 `Dockerfile` 的路径。
 
 ```json{:copy}
 {
@@ -423,26 +423,26 @@ If your container is defined by a Dockerfile, this example demonstrates how to s
 }
 ```
 
-#### Example output
+#### 示例输出
 
-No output is expected for `run_container_step`.
+没有 `run_container_step` 的预期输出。
 
 ### `run_script_step`
 
-{% data variables.product.prodname_actions %} assumes that you will do the following tasks:
+{% data variables.product.prodname_actions %} 假定您将执行以下任务：
 
-- Invoke the provided script inside the job container and return the exit code.
-- Stream any step log output to stdout and stderr.
+- 调用作业容器内提供的脚本并返回退出代码。
+- 将任何步骤日志输出流式传输到 stdout 和 stderr。
 
 #### 参数
 
-- `entryPointArgs`: **Optional**. A list containing the entry point arguments.
-- `entryPoint`: **Optional**. The container entry point to use if the default image entrypoint should be overwritten.
-- `prependPath`: **Optional**. An array of additional paths to prepend to the `$PATH` variable.
-- `workingDirectory`: **Required**. A string containing the absolute path of the working directory.
-- `environmentVariables`: **Optional**. Sets a map of key environment variables.
+- `entryPointArgs`：**可选**。 包含入口点参数的列表。
+- `entryPoint`：**可选**。 应覆盖默认映像入口点时使用的容器入口点。
+- `prependPath`：**可选**。 要附加到 `$PATH` 变量前面的其他路径的数组。
+- `workingDirectory`：**必需**。 包含工作目录绝对路径的字符串。
+- `environmentVariables`：**可选**。 设置关键环境变量的映射。
 
-#### Example input
+#### 示例输入
 
 ```json{:copy}
 {
@@ -467,63 +467,63 @@ No output is expected for `run_container_step`.
 }
 ```
 
-#### Example output
+#### 示例输出
 
-No output is expected for `run_script_step`.
+没有 `run_script_step` 的预期输出。
 
-## Generating the customization script
+## 生成自定义脚本
 
-{% data variables.product.prodname_dotcom %} has created an example repository that demonstrates how to generate customization scripts for Docker and Kubernetes.
+{% data variables.product.prodname_dotcom %} 创建了一个示例存储库，演示如何为 Docker 和 Kubernetes 生成自定义脚本。
 
 {% note %}
 
-**Note:** The resulting scripts are available for testing purposes, and you will need to determine whether they are appropriate for your requirements.
+**注意：**生成的脚本可用于测试目的，您需要确定它们是否适合您的要求。
 
 {% endnote %}
 
-1. Clone the [actions/runner-container-hooks](https://github.com/actions/runner-container-hooks) repository to your self-hosted runner.
+1. 将 [actions/runner-container-hooks](https://github.com/actions/runner-container-hooks) 存储库克隆到自托管运行器。
 
-1. The `examples/` directory contains some existing customization commands, each with its own JSON file. You can review these examples and use them as a starting point for your own customization commands.
+1. `examples/` 目录包含一些现有的自定义命令，每个命令都有自己的 JSON 文件。 您可以查看这些示例，并将它们用作您自己的自定义命令的起点。
 
    - `prepare_job.json`
    - `run_script_step.json`
    - `run_container_step.json`
 
-1. Build the npm packages. These commands generate the `index.js` files inside `packages/docker/dist` and `packages/k8s/dist`.
+1. 构建 npm 软件包。 这些命令在 `packages/docker/dist` 和 `packages/k8s/dist` 中生成 `index.js` 文件。
 
    ```shell
    npm install && npm run bootstrap && npm run build-all
    ```
 
-When the resulting `index.js` is triggered by {% data variables.product.prodname_actions %}, it will run the customization commands defined in the JSON files. To trigger the `index.js`, you will need to add it your `ACTIONS_RUNNER_REQUIRE_JOB_CONTAINER` environment variable, as described in the next section.
+当生成的 `index.js` 由 {% data variables.product.prodname_actions %} 触发时，它将运行 JSON 文件中定义的自定义命令。 要触发 `index.js`，您需要将其添加到 `ACTIONS_RUNNER_REQUIRE_JOB_CONTAINER` 环境变量中，如下一节所述。
 
-## Triggering the customization script
+## 触发自定义脚本
 
-The custom script must be located on the runner, but should not be stored in the self-hosted runner application directory. 这些脚本在执行运行器服务的服务帐户的安全上下文中执行。
+自定义脚本必须位于运行器上，但不应存储在自托管运行器应用程序目录中。 这些脚本在执行运行器服务的服务帐户的安全上下文中执行。
 
 {% note %}
 
-**Note**: The triggered script is processed synchronously, so it will block job execution while running.
+**注意**：触发的脚本是同步处理的，因此在运行时会阻止作业执行。
 
 {% endnote %}
 
-The script is automatically executed when the runner has the following environment variable containing an absolute path to the script:
+当运行器具有以下包含脚本绝对路径的环境变量时，将自动执行该脚本：
 
-- `ACTIONS_RUNNER_CONTAINER_HOOK`: The script defined in this environment variable is triggered when a job has been assigned to a runner, but before the job starts running.
+- `ACTIONS_RUNNER_CONTAINER_HOOK`：当作业已分配给运行器时，但在作业开始运行之前，将触发此环境变量中定义的脚本。
 
-To set this environment variable, you can either add it to the operating system, or add it to a file named `.env` within the self-hosted runner application directory. For example, the following `.env` entry will have the runner automatically run the script at `/Users/octocat/runner/index.js` before each container-based job runs:
+要设置此环境变量，可以将其添加到操作系统，也可以将其添加到自托管运行器应用程序目录中名为 `.env` 的文件中。 例如，以下 `.env` 条目将让运行器在每个基于容器的作业运行之前，在 `/Users/octocat/runner/index.js` 上自动运行脚本：
 
 ```bash
 ACTIONS_RUNNER_CONTAINER_HOOK=/Users/octocat/runner/index.js
 ```
 
-If you want to ensure that your job always runs inside a container, and subsequently always applies your container customizations, you can set the `ACTIONS_RUNNER_REQUIRE_JOB_CONTAINER` variable on the self hosted runner to `true`. This will fail jobs that do not specify a job container.
+如果要确保作业始终在容器内运行，并随后始终应用容器自定义项，则可以将自托管运行器上的 `ACTIONS_RUNNER_REQUIRE_JOB_CONTAINER` 变量设置为 `true`。 这将使未指定作业容器的作业失败。
 
 ## 疑难解答
 
 ### 无超时设置
 
-There is currently no timeout setting available for the script executed by `ACTIONS_RUNNER_CONTAINER_HOOK`. 因此，您可以考虑向脚本添加超时处理。
+当前没有可用于由 `ACTIONS_RUNNER_CONTAINER_HOOK` 执行的脚本的超时设置。 因此，您可以考虑向脚本添加超时处理。
 
 ### 查看工作流程运行日志
 

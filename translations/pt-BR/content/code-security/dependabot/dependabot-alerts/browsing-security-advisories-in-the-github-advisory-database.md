@@ -1,6 +1,6 @@
 ---
-title: Browsing security advisories in the GitHub Advisory Database
-intro: 'You can browse the {% data variables.product.prodname_advisory_database %} to find advisories for security risks in open source projects that are hosted on {% data variables.product.company_short %}.'
+title: Pesquisando consultorias de segurança no banco de dados consultivo do GitHub
+intro: 'Você pode fazer uma pesquisa em {% data variables.product.prodname_advisory_database %} para encontrar consultorias para risco de segurança sobre projetos de código aberto hospedados em {% data variables.product.company_short %}.'
 shortTitle: Procurar banco de dados consultivo
 miniTocMaxHeadingLevel: 3
 redirect_from:
@@ -24,27 +24,28 @@ topics:
 
 ## Sobre o {% data variables.product.prodname_advisory_database %}
 
-The {% data variables.product.prodname_advisory_database %} contains a list of known security vulnerabilities and malware, grouped in two categories: {% data variables.product.company_short %}-reviewed advisories and unreviewed advisories.
+O {% data variables.product.prodname_advisory_database %} contém uma lista de vulnerabilidades e malware de segurança conhecidas, agrupadas em duas categorias: consultorias revisadas por {% data variables.product.company_short %} e consultorias não revisadas.
 
 {% data reusables.repositories.tracks-vulnerabilities %}
 
-## About types of security advisories
+## Sobre tipos de consultorias de segurança
 
 {% data reusables.advisory-database.beta-malware-advisories %}
 
-Each advisory in the {% data variables.product.prodname_advisory_database %} is for a vulnerability in open source projects or for malicious open source software.
+Cada consultoria na {% data variables.product.prodname_advisory_database %} é para uma vulnerabilidade em projetos de código aberto ou para softwares de código aberto maliciosos.
 
-{% data reusables.repositories.a-vulnerability-is %} Vulnerabilities in code are usually introduced by accident and fixed soon after they are discovered. You should update your code to use the fixed version of the dependency as soon as it is available.
+{% data reusables.repositories.a-vulnerability-is %} De modo geral, as vulnerabilidades no código são introduzidas por acidente e corrigidas logo após serem descobertas. Você deve atualizar seu código para usar a versão fixa da dependência assim que estiver disponível.
 
-In contrast, malicious software, or malware, is code that is intentionally designed to perform unwanted or harmful functions. The malware may target hardware, software, confidential data, or users of any application that uses the malware. You need to remove the malware from your project and find an alternative, more secure replacement for the dependency.
+Em contraste, o software malicioso, ou malware, é um código projetado intencionalmente para executar funções indesejadas ou nocivas. O malware pode apontar para hardware, software, dados confidenciais ou usuários de qualquer aplicativo que usar o malware. Você precisa remover o malware do seu projeto e encontrar uma alternativa mais segura para a dependência.
 
-### {% data variables.product.company_short %}-reviewed advisories
+### Consultorias revisadas por {% data variables.product.company_short %}
 
-{% data variables.product.company_short %}-reviewed advisories are security vulnerabilities or malware that have been mapped to packages in ecosystems we support. We carefully review each advisory for validity and ensure that they have a full description, and contain both ecosystem and package information.
+As consultorias revisadas por {% data variables.product.company_short %} são vulnerabilidades de segurança ou malware que foram mapeados para pacotes nos ecossistemas que suportamos. Analisamos cuidadosamente cada consultoria com relação à validade e nos asseguramos de que elas tenham uma descrição completa e contenham tanto o ecossistema como as informações sobre pacotes.
 
-Generally, we name our supported ecosystems after the software programming language's associated package registry. We review advisories if they are for a vulnerability in a package that comes from a supported registry.
+Geralmente, nós nomeamos nossos ecossistemas compatíveis após o registro do pacote associado à linguagem de programação de software. Nós revisamos as consultorias se eças não forem para uma vulnerabilidade em um pacote que vem de um registro compatível.
 
-- Composer (registry: https://packagist.org/)
+- Compositor (registro: https://packagist.org/)
+- Erlang (registry: https://hex.pm/)
 - Go (registry: https://pkg.go.dev/)
 - Maven (registry: https://repo1.maven.org/maven2/org/)
 - npm (registry: https://www.npmjs.com/)
@@ -53,19 +54,19 @@ Generally, we name our supported ecosystems after the software programming langu
 - RubyGems (registry: https://rubygems.org/)
 - Rust (registry: https://crates.io/)
 
-If you have a suggestion for a new ecosystem we should support, please open an [issue](https://github.com/github/advisory-database/issues) for discussion.
+Se você tem uma sugestão para um novo ecossistema com o qual devemos ter compatibilidade, abra um problema de [](https://github.com/github/advisory-database/issues) para discussão.
 
-If you enable {% data variables.product.prodname_dependabot_alerts %} for your repositories, you are automatically notified when a new {% data variables.product.company_short %}-reviewed advisory reports a vulnerability or malware for a package you depend on. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)".
+Se você habilitar {% data variables.product.prodname_dependabot_alerts %} para seus repositórios, você será notificado automaticamente quando uma nova consultoria revisada por {% data variables.product.company_short %} relatar uma vulnerabilidade ou malware de um pacote de que você depende. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)".
 
-### Unreviewed advisories
+### Consultorias não revisadas
 
 As consultorias não revisadas são vulnerabilidades de segurança que publicamos automaticamente no {% data variables.product.prodname_advisory_database %}, diretamente do feed de Dados de Vulnerabilidade Nacional.
 
 {% data variables.product.prodname_dependabot %} não cria {% data variables.product.prodname_dependabot_alerts %} para consultorias não revisadas, pois esse tipo de consultoria não é verificado com relação à validade ou integralidade.
 
-## About information in security advisories
+## Sobre informações em consultorias de segurança
 
-Each security advisory contains information about the vulnerability or malware, which may include the description, severity, affected package, package ecosystem, affected versions and patched versions, impact, and optional information such as references, workarounds, and credits. Além disso, a consultoria da lista de Bancos de Vulnerabilidade Nacional contêm um link para o registro CVE, onde você pode ler mais detalhes sobre a vulnerabilidade, suas pontuações CVSS e seu nível de gravidade qualitativa. Para obter mais informações, consulte a "[Base de Dados de Vulnerabilidade Nacional](https://nvd.nist.gov/)" do Instituto Nacional de Padrões e Tecnologia.
+Cada consultoria de segurança contém informações sobre a vulnerabilidade ou malware, que pode incluir a descrição, gravidade, pacote afetado. ecossistema de pacote, versões afetadas e versões de patch, impacto e informações opcionais como, por exemplo, referências, soluções alternativas e créditos. Além disso, a consultoria da lista de Bancos de Vulnerabilidade Nacional contêm um link para o registro CVE, onde você pode ler mais detalhes sobre a vulnerabilidade, suas pontuações CVSS e seu nível de gravidade qualitativa. Para obter mais informações, consulte a "[Base de Dados de Vulnerabilidade Nacional](https://nvd.nist.gov/)" do Instituto Nacional de Padrões e Tecnologia.
 
 O nível de gravidade é um dos quatro níveis possíveis definidos no [ Sistema de Pontuação de vulnerabilidade Comum (CVSS), Seção 5](https://www.first.org/cvss/specification-document)".
 - Baixo
@@ -86,12 +87,12 @@ O {% data variables.product.prodname_advisory_database %} usa os níveis de CVSS
    **Dica:** Você pode usar a barra lateral à esquerda para explorar as consultorias revisadas por {% data variables.product.company_short %} e as consultorias não revisadas separadamente.
 
    {% endtip %}
-3. Clique em qualquer consultoria para visualizar as informações. By default, you will see {% data variables.product.company_short %}-reviewed advisories for security vulnerabilities. To show malware advisories, use `type:malware` in the search bar.
+3. Clique em qualquer consultoria para visualizar as informações. Por padrão, você verá consultorias revisadas por {% data variables.product.company_short %} para vulnerabilidades de segurança. Para mostrar as consultorias de malware, use `type:malware` na barra de pesquisa.
 
 
 {% note %}
 
-O banco de dados também pode ser acessado usando a API do GraphQL. By default, queries will return {% data variables.product.company_short %}-reviewed advisories for security vulnerabilities unless you specify `type:malware`. Para obter mais informações, consulte "[ evento de webhook `security_advisory`](/webhooks/event-payloads/#security_advisory)."
+O banco de dados também pode ser acessado usando a API do GraphQL. Por padrão, as consultas retornarão consultorias revisadas por {% data variables.product.company_short %} para vulnerabilidades de segurança, a menos que você especifique `type:malware`. Para obter mais informações, consulte "[ evento de webhook `security_advisory`](/webhooks/event-payloads/#security_advisory)."
 
 {% endnote %}
 
@@ -106,35 +107,35 @@ Você pode procurar no banco de dados e usar qualificadores para limitar sua bus
 
 {% data reusables.search.date_gt_lt %}
 
-| Qualifier             | Exemplo                                                                                                                                                                          |
-| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `type:reviewed`       | [**type:reviewed**](https://github.com/advisories?query=type%3Areviewed) will show {% data variables.product.company_short %}-reviewed advisories for security vulnerabilities.  |
-| `type:malware`        | [**type:malware**](https://github.com/advisories?query=type%3Amalware) will show {% data variables.product.company_short %}-reviewed advisories for malware.                     |
-| `type:unreviewed`     | [**type:unreviewed**](https://github.com/advisories?query=type%3Aunreviewed) mostrará as consultorias não revisadas.                                                             |
-| `GHSA-ID`             | [**GHSA-49wp-qq6x-g2rf**](https://github.com/advisories?query=GHSA-49wp-qq6x-g2rf) mostrará a consultoria com o ID de {% data variables.product.prodname_advisory_database %}. |
-| `CVE-ID`              | [**CVE-2020-28482**](https://github.com/advisories?query=CVE-2020-28482) mostrará a consultoria com este ID de CVE.                                                              |
-| `ecosystem:ECOSYSTEM` | [**ecosystem:npm**](https://github.com/advisories?utf8=%E2%9C%93&query=ecosystem%3Anpm) mostrará apenas as consultorias que afetam os pacotes NPM.                               |
-| `severity:LEVEL`      | [**severity:high**](https://github.com/advisories?utf8=%E2%9C%93&query=severity%3Ahigh) mostrará apenas as consultorias com um alto nível de gravidade.                          |
-| `affects:LIBRARY`     | [**affects:lodash**](https://github.com/advisories?utf8=%E2%9C%93&query=affects%3Alodash) mostrará apenas as consultorias que afetam a biblioteca de lodash.                     |
-| `cwe:ID`              | [**cwe:352**](https://github.com/advisories?query=cwe%3A352) mostrará apenas as consultorias com este número de CWE.                                                             |
-| `credit:USERNAME`     | [**credit:octocat**](https://github.com/advisories?query=credit%3Aoctocat) mostrará apenas as consultorias creditadas na conta de usuário "octocat".                             |
-| `sort:created-asc`    | [**sort:created-asc**](https://github.com/advisories?utf8=%E2%9C%93&query=sort%3Acreated-asc) classificará os resultados, mostrando as consultorias mais antigas primeiro.       |
-| `sort:created-desc`   | [**sort:created-desc**](https://github.com/advisories?utf8=%E2%9C%93&query=sort%3Acreated-desc) classificará os resultados mostrando as consultorias mais novas primeiro.        |
-| `sort:updated-asc`    | [**sort:updated-asc**](https://github.com/advisories?utf8=%E2%9C%93&query=sort%3Aupdated-asc) classificará os resultados, mostrando os menos atualizados primeiro.               |
-| `sort:updated-desc`   | [**sort:updated-desc**](https://github.com/advisories?utf8=%E2%9C%93&query=sort%3Aupdated-desc) classificará os resultados, mostrando os mais atualizados primeiro.              |
-| `is:withdrawn`        | [**is:withdrawn**](https://github.com/advisories?utf8=%E2%9C%93&query=is%3Awithdrawn) mostrará apenas as consultorias que foram retiradas.                                       |
-| `created:YYYY-MM-DD`  | [**created:2021-01-13**](https://github.com/advisories?utf8=%E2%9C%93&query=created%3A2021-01-13) mostrará apenas as consultorias criadas nessa data.                            |
-| `updated:YYYY-MM-DD`  | [**updated:2021-01-13**](https://github.com/advisories?utf8=%E2%9C%93&query=updated%3A2021-01-13) mostrará somente as consultorias atualizadas nesta data.                       |
+| Qualifier             | Exemplo                                                                                                                                                                                       |
+| --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `type:reviewed`       | [**type:reviewed**](https://github.com/advisories?query=type%3Areviewed) mostrará as consultorias revisadas por {% data variables.product.company_short %} para vulerabilidades de segurança. |
+| `type:malware`        | [**tipo:malware**](https://github.com/advisories?query=type%3Amalware) mostrará as consultorias revisadas por {% data variables.product.company_short %} para malware.                        |
+| `type:unreviewed`     | [**type:unreviewed**](https://github.com/advisories?query=type%3Aunreviewed) mostrará as consultorias não revisadas.                                                                          |
+| `GHSA-ID`             | [**GHSA-49wp-qq6x-g2rf**](https://github.com/advisories?query=GHSA-49wp-qq6x-g2rf) mostrará a consultoria com o ID de {% data variables.product.prodname_advisory_database %}.              |
+| `CVE-ID`              | [**CVE-2020-28482**](https://github.com/advisories?query=CVE-2020-28482) mostrará a consultoria com este ID de CVE.                                                                           |
+| `ecosystem:ECOSYSTEM` | [**ecosystem:npm**](https://github.com/advisories?utf8=%E2%9C%93&query=ecosystem%3Anpm) mostrará apenas as consultorias que afetam os pacotes NPM.                                            |
+| `severity:LEVEL`      | [**severity:high**](https://github.com/advisories?utf8=%E2%9C%93&query=severity%3Ahigh) mostrará apenas as consultorias com um alto nível de gravidade.                                       |
+| `affects:LIBRARY`     | [**affects:lodash**](https://github.com/advisories?utf8=%E2%9C%93&query=affects%3Alodash) mostrará apenas as consultorias que afetam a biblioteca de lodash.                                  |
+| `cwe:ID`              | [**cwe:352**](https://github.com/advisories?query=cwe%3A352) mostrará apenas as consultorias com este número de CWE.                                                                          |
+| `credit:USERNAME`     | [**credit:octocat**](https://github.com/advisories?query=credit%3Aoctocat) mostrará apenas as consultorias creditadas na conta de usuário "octocat".                                          |
+| `sort:created-asc`    | [**sort:created-asc**](https://github.com/advisories?utf8=%E2%9C%93&query=sort%3Acreated-asc) classificará os resultados, mostrando as consultorias mais antigas primeiro.                    |
+| `sort:created-desc`   | [**sort:created-desc**](https://github.com/advisories?utf8=%E2%9C%93&query=sort%3Acreated-desc) classificará os resultados mostrando as consultorias mais novas primeiro.                     |
+| `sort:updated-asc`    | [**sort:updated-asc**](https://github.com/advisories?utf8=%E2%9C%93&query=sort%3Aupdated-asc) classificará os resultados, mostrando os menos atualizados primeiro.                            |
+| `sort:updated-desc`   | [**sort:updated-desc**](https://github.com/advisories?utf8=%E2%9C%93&query=sort%3Aupdated-desc) classificará os resultados, mostrando os mais atualizados primeiro.                           |
+| `is:withdrawn`        | [**is:withdrawn**](https://github.com/advisories?utf8=%E2%9C%93&query=is%3Awithdrawn) mostrará apenas as consultorias que foram retiradas.                                                    |
+| `created:YYYY-MM-DD`  | [**created:2021-01-13**](https://github.com/advisories?utf8=%E2%9C%93&query=created%3A2021-01-13) mostrará apenas as consultorias criadas nessa data.                                         |
+| `updated:YYYY-MM-DD`  | [**updated:2021-01-13**](https://github.com/advisories?utf8=%E2%9C%93&query=updated%3A2021-01-13) mostrará somente as consultorias atualizadas nesta data.                                    |
 
 ## Visualizar seus repositórios vulneráveis
 
-For any {% data variables.product.company_short %}-reviewed advisory in the {% data variables.product.prodname_advisory_database %}, you can see which of your repositories are affected by that security vulnerability or malware. Para ver um repositório vulnerável, você deve ter acesso a {% data variables.product.prodname_dependabot_alerts %} para esse repositório. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies#access-to-dependabot-alerts)".
+Para qualquer consultoria revisada por {% data variables.product.company_short %} no {% data variables.product.prodname_advisory_database %}, você pode ver qual dos seus repositórios são afetados por essa vulnerabilidade de segurança ou malwware. Para ver um repositório vulnerável, você deve ter acesso a {% data variables.product.prodname_dependabot_alerts %} para esse repositório. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies#access-to-dependabot-alerts)".
 
 1. Navegue até https://github.com/advisories.
 2. Clique em uma consultoria.
 3. Na parte superior da página da consultoria, clique em **Alertas do dependabot**. ![Alertas do Dependabot](/assets/images/help/security/advisory-database-dependabot-alerts.png)
 4. Opcionalmente, para filtrar a lista, use a barra de pesquisa ou os menus suspensos. O menu suspenso "Organização" permite filtrar {% data variables.product.prodname_dependabot_alerts %} por proprietário (organização ou usuário). ![Barra de pesquisa e menus suspensos para filtrar alertas](/assets/images/help/security/advisory-database-dependabot-alerts-filters.png)
-5. For more details about the advisory, and for advice on how to fix the vulnerable repository, click the repository name.
+5. Para mais detalhes sobre a vulnerabilidade e para aconselhamento sobre como corrigir o repositório vulnerável clique no nome do repositório.
 
 ## Leia mais
 

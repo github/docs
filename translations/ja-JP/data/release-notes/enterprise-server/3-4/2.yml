@@ -26,6 +26,8 @@ sections:
     - '{% data variables.product.prodname_github_connect %}で"Users can search GitHub.com（ユーザはGitHub.comの検索が可能）" が有効化されたとき、プライベート及びインターナルリポジトリのIssueが{% data variables.product.prodname_dotcom_the_website %}の検索結果に含まれません。'
     - '{% data variables.product.prodname_registry %}のnpmレジストリは、メタデータのレスポンス中で時間の値を返さなくなります。これは、大きなパフォーマンス改善のために行われました。メタデータレスポンスの一部として時間の値を返すために必要なすべてのデータは保持し続け、既存のパフォーマンスの問題を解決した将来に、この値を返すことを再開します。'
     - pre-receive フックの処理に固有のリソース制限によって、pre-receive フックに失敗するものが生じることがあります。
+    - |
+      After registering a self-hosted runner with the `--ephemeral` parameter on more than one level (for example, both enterprise and organization), the runner may get stuck in an idle state and require re-registration. [Updated: 2022-06-17]
   deprecations:
     - 
       heading: GitHub Enterprise Server 3.0の非推奨化

@@ -48,6 +48,7 @@ children:
   - /managing-billing-for-github-actions
   - /managing-billing-for-github-codespaces
   - /managing-billing-for-github-packages
+  - /managing-billing-for-github-copilot
   - /managing-billing-for-github-advanced-security
   - /managing-billing-for-github-sponsors
   - /managing-billing-for-github-marketplace-apps
