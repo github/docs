@@ -23,8 +23,9 @@ If you use a JetBrains IDE, you can view and incorporate suggestions from {% dat
 
 To use {% data variables.product.prodname_copilot %} in a JetBrains IDE, you must install the {% data variables.product.prodname_copilot %} extension. The following procedure will guide you through installation of the {% data variables.product.prodname_copilot %} plugin in IntelliJ IDEA. Steps to install the plugin in another supported IDE may differ.
 
-1. In your JetBrains IDE, under the **File** menu, click **Settings**.
-1. At the top of the "Settings" dialog box, click **Marketplace**. In the search bar, search for **{% data variables.product.prodname_copilot %}** and click **Install**.
+1. In your JetBrains IDE, under the **File** menu for Windows or under the name of your IDE for Mac (**PyCharm** for example), click **Settings** for Windows or **Preferences** for Mac.
+2. On the left-side menu, find and click on **Plugins**.
+3. At the top of the **Settings/Preferences** dialog box, click **Marketplace**. In the search bar, search for **{% data variables.product.prodname_copilot %}** and click **Install**.
    ![Screenshot of Marketplace search](/assets/images/help/copilot/jetbrains-marketplace.png)
 1. After {% data variables.product.prodname_copilot %} is installed, click **Restart IDE**.
 1. After your JetBrains IDE has restarted, click the **Tools** menu. Click **{% data variables.product.prodname_copilot %}**, then click **Login to {% data variables.product.prodname_dotcom %}**. 
