@@ -57085,6 +57085,16 @@
               }
             },
             {
+              "name": "dependencyScopes",
+              "description": "<p>Filter by the scope of the alert's dependency.</p>",
+              "type": {
+                "name": "[RepositoryVulnerabilityAlertDependencyScope!]",
+                "id": "repositoryvulnerabilityalertdependencyscope",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#repositoryvulnerabilityalertdependencyscope"
+              }
+            },
+            {
               "name": "first",
               "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
               "type": {
@@ -58272,6 +58282,14 @@
           "id": "dependabotupdate",
           "kind": "objects",
           "href": "/graphql/reference/objects#dependabotupdate"
+        },
+        {
+          "name": "dependencyScope",
+          "description": "<p>The scope of an alert's dependency.</p>",
+          "type": "RepositoryVulnerabilityAlertDependencyScope",
+          "id": "repositoryvulnerabilityalertdependencyscope",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#repositoryvulnerabilityalertdependencyscope"
         },
         {
           "name": "dismissReason",
@@ -76753,6 +76771,23 @@
       ]
     },
     {
+      "name": "RepositoryVulnerabilityAlertDependencyScope",
+      "kind": "enums",
+      "id": "repositoryvulnerabilityalertdependencyscope",
+      "href": "/graphql/reference/enums#repositoryvulnerabilityalertdependencyscope",
+      "description": "<p>The possible scopes of an alert's dependency.</p>",
+      "values": [
+        {
+          "name": "DEVELOPMENT",
+          "description": "<p>A dependency that is only used in development.</p>"
+        },
+        {
+          "name": "RUNTIME",
+          "description": "<p>A dependency that is leveraged during application runtime.</p>"
+        }
+      ]
+    },
+    {
       "name": "RepositoryVulnerabilityAlertState",
       "kind": "enums",
       "id": "repositoryvulnerabilityalertstate",
@@ -76938,6 +76973,10 @@
         {
           "name": "COMPOSER",
           "description": "<p>PHP packages hosted at packagist.org.</p>"
+        },
+        {
+          "name": "ERLANG",
+          "description": "<p>Erlang/Elixir packages hosted at hex.pm.</p>"
         },
         {
           "name": "GO",
