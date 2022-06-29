@@ -1,30 +1,30 @@
 ---
-title: About GitHub Community Exchange
-intro: 'As a student, learn the skills you need to contribute to open source projects and grow your own portfolio, with {% data variables.product.prodname_community_exchange %}.'
+title: Sobre o GitHub Community Exchange
+intro: 'Como estudante, aprenda as habilidades que você precisa para contribuir para projetos de código aberto e faça crescer o seu próprio portfólio, com {% data variables.product.prodname_community_exchange %}.'
 versions:
   fpt: '*'
-shortTitle: Community Exchange
+shortTitle: Intercâmbio da comunidade
 ---
 
 ## Sobre {% data variables.product.prodname_community_exchange %}
 
-{% data variables.product.prodname_community_exchange %} is a student community within the {% data variables.product.prodname_global_campus %} portal. As a student, it's a place where you can get exposure for your project and discover other student repositories in need of collaborators and maintainers.
+{% data variables.product.prodname_community_exchange %} é uma comunidade estudantil dentro do portal de {% data variables.product.prodname_global_campus %}. Como estudante, é um lugar onde você pode obter exposição para o seu projeto e descobrir outros repositórios estudantis que precisam de colaboradores e mantenedores.
 
-![Screenshot of Community Exchange page](/assets/images/help/education/community-exchange-page.png)
+![Captura de tela da página de da Community Exchange](/assets/images/help/education/community-exchange-page.png)
 
-You can help your peers learn open source skills, become a project maintainer, and grow your {% data variables.product.prodname_dotcom %} portfolio and network within a safe and verified community platform.
+Você pode ajudar seus pares a aprender habilidades de código aberto, tornar-se um mantenedor de projetos e aumentar seu portfólio e rede de {% data variables.product.prodname_dotcom %} dentro de uma plataforma comunitária segura e verificada.
 
-{% data variables.product.prodname_community_exchange %} allows you to:
-- Discover student created repositories
-- Star repositories of interest
-- Submit a repository in need of collaborators
-- Submit a repository to teach new skills
-- Manage your repository submissions
+{% data variables.product.prodname_community_exchange %} permite que você:
+- Descubra repositórios criados por estudantes
+- Favorite repositórios do seu interesse
+- Envie um repositório que precise de colaboradores
+- Envie um repositório para ensinar novas habilidades
+- Gerencie seus envios de repositórios
 
-To access {% data variables.product.prodname_community_exchange %}, visit your {% data variables.product.prodname_global_campus %} dashboard at https://education.github.com.
+Para acessar {% data variables.product.prodname_community_exchange %}, acesse seu painel de {% data variables.product.prodname_global_campus %} em https://education.github.com.
 
-If you're a student or faculty member at an accredited educational institution, you can apply for {% data variables.product.prodname_education %} benefits, which includes access to {% data variables.product.prodname_community_exchange %} within {% data variables.product.prodname_global_campus %}.
+Se você é um aluno ou integrante do corpo docente de uma instituição de ensino credenciada, você pode solicitar benefícios de {% data variables.product.prodname_education %}, o que inclui acesso a {% data variables.product.prodname_community_exchange %} dentro de {% data variables.product.prodname_global_campus %}.
 
-- If you’re a student and you haven't joined {% data variables.product.prodname_education %} yet, apply using the [student application form](https://education.github.com/discount_requests/student_application). For more information, see "[About GitHub Education for students](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork/about-github-education-for-students)."
+- Se você é um estudante e ainda não participou de {% data variables.product.prodname_education %} , inscreva-se usando o [formulário de inscrição do aluno](https://education.github.com/discount_requests/student_application). Para obter mais informações, consulte "[Sobre o GitHub Education para alunos](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork/about-github-education-for-students)."
 
-- If you’re an educator and you haven't joined {% data variables.product.prodname_education %} yet, apply using the [teacher application form](https://education.github.com/discount_requests/teacher_application). For more information, see "[About GitHub Education for educators](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-in-your-classroom-and-research/apply-for-an-educator-or-researcher-discount)."
+- Se você é um educador e ainda não se participou de {% data variables.product.prodname_education %}, inscreva-se usando o [formulário de candidatura do professor](https://education.github.com/discount_requests/teacher_application). Para obter mais informações, consulte "[Sobre o GitHub Education para educadores](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-in-your-classroom-and-research/apply-for-an-educator-or-researcher-discount)".
