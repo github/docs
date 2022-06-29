@@ -1,5 +1,6 @@
 ---
 title: Personalizar os codespaces para a sua conta
+shortTitle: Personalize seus codespaces
 intro: 'Você pode personalizar {% data variables.product.prodname_codespaces %} usando um repositório `dotfiles` em {% data variables.product.product_name %} ou usando Configurações de Sincronização.'
 redirect_from:
   - /github/developing-online-with-github-codespaces/personalizing-github-codespaces-for-your-account
@@ -14,7 +15,6 @@ topics:
   - Set up
   - Fundamentals
 product: '{% data reusables.gated-features.codespaces %}'
-shortTitle: Personalize seus codespaces
 ---
 
 

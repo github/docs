@@ -32,19 +32,28 @@ $$\left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right) \
 
 ![Expressão matemática como uma renderização de bloco](/assets/images/help/writing/math-expression-as-a-block-rendering.png)
 
+{% ifversion math-fenced-blocks %}
+
+Alternatively, you can use the <code>\`\`\`math</code> code block syntax to display a math expression as a block. With this syntax, you don't need to use `$$` delimiters.
+
+````
+**Here is some math!**
+
+```math
+\sqrt{3}
+```
+````
+![Math expression in a fenced code block](/assets/images/help/writing/math-expression-as-a-fenced-code-block.png)
+{% endif %}
 ## Como escrever sinais de dólar de acordo com e dentro de expressões matemáticas
-
 Para exibir um sinal de dólar como um caractere na mesma linha que uma expressão matemática, você deve escapar do não delimitador `$` para garantir que a linha seja renderizada corretamente.
-
-  - Dentro de uma expressão matemática, adicione um símbolo `\` antes do símbolo explícito `$`.
+- Dentro de uma expressão matemática, adicione um símbolo `\` antes do símbolo explícito `$`.
 
   ```
   Essa expressão usa `\$` para mostrar um sinal do dólar: $\sqrt{\$4}$
   ```
-
-  ![Sinal do dólar com expressão matemática](/assets/images/help/writing/dollar-sign-within-math-expression.png)
-
-  - Fora de uma expressão matemática, mas na mesma linha, use tags de span em torno do `$ ` explícito.
+![Sinal do dólar com expressão matemática](/assets/images/help/writing/dollar-sign-within-math-expression.png)
+- Fora de uma expressão matemática, mas na mesma linha, use tags de span em torno do `$ ` explícito.
 
   ```
   Para dividir <span>$</span>100 pela metade, calculamos $100/2$
