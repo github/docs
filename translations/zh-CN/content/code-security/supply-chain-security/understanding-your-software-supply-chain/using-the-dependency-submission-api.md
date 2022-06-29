@@ -1,7 +1,7 @@
 ---
-title: Using the Dependency submission API
-intro: 'You can use the Dependency submission API to submit dependencies for projects, such as the dependencies resolved when a project is built or compiled.'
-shortTitle: Dependency submission API
+title: 使用依赖项提交 API
+intro: 可以使用依赖项提交 API 提交项目的依赖项，例如在生成或编译项目时解析的依赖项。
+shortTitle: 依赖项提交 API
 topics:
   - API
   - Dependency graph
@@ -13,25 +13,25 @@ versions:
 
 {% data reusables.dependency-submission.dependency-submission-api-beta %}
 
-## About the Dependency submission API
+## 关于依赖项提交 API
 
 {% data reusables.dependency-submission.about-dependency-submission %}
 
-Dependencies are submitted to the dependency submission API in the form of a snapshot. A snapshot is a set of dependencies associated with a commit SHA and other metadata, that reflects the current state of your repository for a commit. For more information about the Dependency submission API, see the [Dependency submission REST API documentation](/rest/dependency-graph/dependency-submission).
+依赖项以快照的形式提交到依赖项提交 API。 快照是一组与提交 SHA 和其他元数据关联的依赖项，它反映了提交存储库的当前状态。 有关依赖项提交 API 的详细信息，请参阅[依赖项提交 REST API 文档](/rest/dependency-graph/dependency-submission)。
 
-## Submitting dependencies at build-time
+## 在构建时提交依赖项
 
-You can use the Dependency submission API in a {% data variables.product.prodname_actions %} workflow to submit dependencies for your project when your project is built.
+可以在 {% data variables.product.prodname_actions %} 工作流程中使用依赖项提交 API，以便在生成项目时提交项目的依赖项。
 
-### Using pre-made actions
+### 使用预制操作
 
-The simplest way to use the Dependency submission API is by adding a pre-made action to your repository that will gather and convert the list of dependencies to the required snapshot format and submit the list to the API. Actions that complete these steps for various ecosystems are available on {% data variables.product.prodname_marketplace %} and more actions will be created during the course of the beta and beyond. You can find links to the currently available actions in the table below:
+使用依赖项提交 API 的最简单方法是向存储库添加一个预制操作，该操作将收集依赖项列表并将其转换为所需的快照格式，并将列表提交到 API。 {% data variables.product.prodname_marketplace %} 上提供了针对各种生态系统完成这些步骤的操作，并且在测试期间及以后将创建更多操作。 您可以在下表中找到指向当前可用操作的链接：
 
-| Ecosystem | 操作                                                                              |
-| --------- | ------------------------------------------------------------------------------- |
-| Go        | [Go Dependency Submission](https://github.com/actions/go-dependency-submission) |
+| 生态系统 | 操作                                                              |
+| ---- | --------------------------------------------------------------- |
+| Go   | [Go 依赖项提交](https://github.com/actions/go-dependency-submission) |
 
-For example, the following [Go Dependency Submission](https://github.com/actions/go-dependency-submission) workflow calculates the dependencies for a Go build-target (a Go file with a `main` function) and submits the list to the Dependency Submission API.
+例如，以下 [Go 依赖项提交](https://github.com/actions/go-dependency-submission)工作流程计算 Go 构建目标（具有 `main` 函数的 Go 文件）的依赖项，并将列表提交到依赖项提交 API。
 
 ```yaml
 
@@ -75,12 +75,12 @@ jobs:
             go-build-target: go-example/cmd/octocat.go
 
 ```
-### Creating your own action
+### 创建自己的操作
 
-Alternatively, you can write your own action to submit dependencies for your project at build-time. Your workflow should:
+或者，您可以编写自己的操作，以便在构建时提交项目的依赖项。 您的工作流程应该：
 
-  1. Generate a list of dependencies for your project.
-  2. Translate the list of dependencies into the snapshot format accepted by the Dependency submission API. For more information about the format, see the body parameters for the "Create a repository snapshot" API operation in the [Dependency submission REST API documentation](/rest/dependency-graph/dependency-submission).
-  3. Submit the formatted list of dependencies to the Dependency submission API.
+  1. 为项目生成依赖项列表。
+  2. 将依赖项列表转换为依赖项提交 API 接受的快照格式。 有关格式的详细信息，请参阅 [依赖项提交 REST API 文档](/rest/dependency-graph/dependency-submission)中的“创建存储库快照”API 操作正文参数。
+  3. 将格式化的依赖项列表提交到依赖项提交 API。
 
-{% data variables.product.product_name %} maintains the [Dependency Submission Toolkit](https://github.com/github/dependency-submission-toolkit), a TypeScript library to help you build your own GitHub Action for submitting dependencies to the Dependency submission API. For more information about writing an action, see "[Creating actions](/actions/creating-actions)".
+{% data variables.product.product_name %} 维护 [Dependency Submit Toolkit](https://github.com/github/dependency-submission-toolkit)，这是一个 TypeScript 库，可帮助您构建自己的 GitHub Action，用于将依赖项提交到 Dependency 提交 API。 有关编写操作的详细信息，请参阅“[创建操作](/actions/creating-actions)”。

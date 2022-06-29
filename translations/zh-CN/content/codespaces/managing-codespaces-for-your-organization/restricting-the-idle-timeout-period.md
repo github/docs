@@ -18,7 +18,7 @@ topics:
 
 {% data variables.product.prodname_dotcom %} 用户的个人设置允许他们为其创建的代码空间定义自己的超时期限。 这可能比默认的 30 分钟长。 更多信息请参阅“[设置代码空间的超时期限](/codespaces/customizing-your-codespace/setting-your-timeout-period-for-codespaces)”。
 
-作为组织所有者，您可能希望为组织拥有的代码空间配置最长空闲超时期限的约束。 这可以帮助您限制与代码空间相关的成本，这些代码空间在长时间处于非活动状态后会超时。 您可以为组织拥有的所有代码空间或特定存储库的代码空间设置最大超时。
+作为组织所有者，您可能希望为为组织拥有的存储库创建的代码空间的最大空闲超时期限配置限制。 这可以帮助您限制与代码空间相关的成本，这些代码空间在长时间处于非活动状态后会超时。 您可以为组织拥有的所有存储库的代码空间或特定存储库的代码空间设置最大超时。
 
 {% note %}
 
@@ -55,11 +55,11 @@ topics:
 
 1. 输入代码空间在超时之前可以保持非活动状态的最大分钟数，然后单击 **Save（保存）**。
 
-   ![选择端口可见性选项](/assets/images/help/codespaces/maximum-minutes-timeout.png)
+   ![设置最大超时（以分钟为单位）](/assets/images/help/codespaces/maximum-minutes-timeout.png)
 
 {% data reusables.codespaces.codespaces-policy-targets %}
-1. 如果要向策略添加其他约束，请单击 **Add constraint（添加约束）** ，然后选择另一个约束。 有关其他约束的信息，请参阅“[限制对计算机类型的访问](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)”和“[限制转发端口的可见性](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)”。
-1. 向策略添加完约束后，单击 **Save（保存）**。
+1. 如果要向策略添加其他约束，请单击 **Add constraint（添加约束）** ，然后选择另一个约束。 有关其他约束的信息，请参阅“[限制对计算机类型的访问](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)”、“[限制转发端口的可见性](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)”和“[限制代码空间的保留期](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)”。
+1. After you've finished adding constraints to your policy, click **Save**.
 
 该策略将应用于创建的所有新代码空间，在现有代码空间下次启动时也会应用于它们。
 

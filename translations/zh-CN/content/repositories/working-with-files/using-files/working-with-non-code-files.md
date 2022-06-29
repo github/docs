@@ -245,6 +245,7 @@ GitHub 支持呈现 PDF 文档。
 
 {% data variables.product.product_name %} 上的地图使用 [Leaflet.js](http://leafletjs.com)，并且支持 [geoJSON 规格](http://www.geojson.org/geojson-spec.html)中列出的所有几何类型（Point、LineString、Polygon、MultiPoint、MultiLineString、MultiPolygon 和 GeometryCollection）。 TopoJSON 文件类型应为 "Topology"（拓扑），并且遵守 [topoJSON 规格](https://github.com/mbostock/topojson/wiki/Specification)。
 
+{% ifversion geoJSON-with-MapBox %}
 ### 样式功能
 
 您可以传递 geoJSON 对象属性中的其他元数据，自定义功能显示的方式，例如指定特定的颜色或添加描述性图标。 选项包括：
@@ -259,6 +260,7 @@ GitHub 支持呈现 PDF 文档。
 * `fill-opacity` - 多边形内部的不透明度 (0.0-1.0)
 
 更多信息请参阅[开放简单样式规格 1.1.0 版](https://github.com/mapbox/simplestyle-spec/tree/master/1.1.0)。
+{% endif %}
 
 ### 在其他位置嵌入您的地图
 
@@ -308,8 +310,12 @@ GitHub 支持呈现 PDF 文档。
 
 ### 延伸阅读
 
+{% ifversion geoJSON-with-MapBox %}
 * [Leaflet.js 文档](https://leafletjs.com/)
 * [MapBox marker-styling 文档](http://www.mapbox.com/developers/simplestyle/)
+{%- else %}
+* [Azure Maps 文档](https://docs.microsoft.com/en-us/azure/azure-maps/)
+{%- endif %}
 * [TopoJSON Wiki](https://github.com/mbostock/topojson/wiki)
 
 ## 在 {% data variables.product.prodname_dotcom %} 上使用 Jupyter Notebook 文件
