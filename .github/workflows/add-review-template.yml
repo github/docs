@@ -20,7 +20,7 @@ jobs:
 
     steps:
       - name: Download the template file
-        uses: Bhacaz/checkout-files@c8f01756bfd894ba746d5bf48205e19000b0742b
+        uses: Bhacaz/checkout-files@e3e34e7daef91a5f237485bb88a260aee4be29dd
         with:
           files: .github/review-template.md
           token: ${{ secrets.GITHUB_TOKEN }}
