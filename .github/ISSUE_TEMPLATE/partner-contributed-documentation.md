@@ -1,10 +1,11 @@
 ---
 name: Partner-owned product documentation
-about: Initiate a set of tasks to be completed by a GitHub partner wishing to document how their product works with GitHub
+about: Initiate a set of tasks to be completed by a GitHub partner wishing to document
+  how their product works with GitHub
 title: ''
-labels:
-- partner
+labels: ''
 assignees: ''
+
 ---
 
 <!--
