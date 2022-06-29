@@ -23,8 +23,8 @@ shortTitle: Configurar gráfico de dependências
 Para obter mais informações, consulte "[Sobre o gráfico de dependência](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)".
 
 {% ifversion fpt or ghec %}
-## About configuring the dependency graph
-To generate a dependency graph, {% data variables.product.product_name %} needs read-only access to the dependency manifest and lock files for a repository. O gráfico de dependências é gerado automaticamente para todos os repositórios públicos e você pode optar por habilitá-lo para repositórios privados. Para obter mais informações sobre a visualização do gráfico de dependências, consulte "[Explorando as dependências de um repositório](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository)".
+## Sobre a configuração do gráfico de dependência
+Para gerar um gráfico de dependência, {% data variables.product.product_name %} precisa de acesso somente leitura ao manifesto de dependência e arquivos de bloqueio para um repositório. O gráfico de dependências é gerado automaticamente para todos os repositórios públicos e você pode optar por habilitá-lo para repositórios privados. Para obter mais informações sobre a visualização do gráfico de dependências, consulte "[Explorando as dependências de um repositório](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository)".
 
 {% data reusables.dependency-submission.dependency-submission-link %}
 {% endif %}
@@ -46,5 +46,5 @@ Quando o gráfico de dependências é ativado pela primeira vez, todos manifesto
 ## Leia mais
 
 {% ifversion ghec %}- "[Visualizando insights para sua organização](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-your-organization)"{% endif %}
-- "[Viewing and updatng {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)"
+- "[Visualizando e atualizando {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)"
 - "[Solução de problemas na detecção de dependências vulneráveis](/github/managing-security-vulnerabilities/troubleshooting-the-detection-of-vulnerable-dependencies)"

@@ -45,6 +45,7 @@ As consultorias revisadas por {% data variables.product.company_short %} são vu
 Geralmente, nós nomeamos nossos ecossistemas compatíveis após o registro do pacote associado à linguagem de programação de software. Nós revisamos as consultorias se eças não forem para uma vulnerabilidade em um pacote que vem de um registro compatível.
 
 - Compositor (registro: https://packagist.org/)
+- Erlang (registry: https://hex.pm/)
 - Go (registry: https://pkg.go.dev/)
 - Maven (registry: https://repo1.maven.org/maven2/org/)
 - npm (registry: https://www.npmjs.com/)
