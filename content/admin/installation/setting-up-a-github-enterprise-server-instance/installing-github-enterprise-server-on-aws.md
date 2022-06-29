@@ -110,6 +110,10 @@ To create the instance, you'll need to launch an EC2 instance with your {% data 
 
 In the AWS CLI, launch an EC2 instance using your AMI and the security group you created. Attach a new block device to use as a storage volume for your instance data, and configure the size based on your user license count. For more information, see "[run-instances](http://docs.aws.amazon.com/cli/latest/reference/ec2/run-instances.html)" in the AWS documentation.
 
+{% note %}
+
+**Note:** At this time {% data variables.product.prodname_ghe_server %} does not support the use of the Amazon IDMSv2 Metadata API.
+
 ```shell
 aws ec2 run-instances \
   --security-group-ids <em>SECURITY_GROUP_ID</em> \
