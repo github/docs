@@ -30,7 +30,7 @@ shortTitle: 个性化
 
 **注意{% ifversion ghec %}s{% endif %}**：{% ifversion ghec %}
 
-* {% endif %}头像应为 1 MB 以下的 PNG、JPG 或 GIF 文件。 为获取质量最佳的渲染，建议图像的像素保持在大约 500 x 500 像素。
+* {% endif %}您的头像应为 PNG、JPG 或 GIF 文件，并且其大小必须小于 1 MB 且小于 3000 x 3000 像素。 为获取质量最佳的渲染，建议图像的像素保持在大约 500 x 500 像素。
 {% ifversion ghec %}* {% data variables.product.prodname_emus %} 不支持 Gravatar 头像。{% endif %}
 
 {% endnote %}
@@ -39,14 +39,14 @@ shortTitle: 个性化
 
 {% data reusables.user-settings.access_settings %}
 2. 在 **Profile Picture（头像）**下，单击 {% octicon "pencil" aria-label="The edit icon" %} **Edit（编辑）**。 ![编辑头像](/assets/images/help/profile/edit-profile-photo.png)
-3. 单击 **Upload a photo...（上传图片...）**。 ![更新头像](/assets/images/help/profile/edit-profile-picture-options.png)
+3. 单击 **Upload a photo...（上传照片...）**。{% ifversion not ghae %} ![Update profile picture](/assets/images/help/profile/edit-profile-picture-options.png){% endif %}
 3. 裁剪图片。 完成后，单击 **Set new profile picture（设置新头像）**。 ![裁剪上传的照片](/assets/images/help/profile/avatar_crop_and_save.png)
 
 ### 将头像重置为默认肖像
 
 {% data reusables.user-settings.access_settings %}
 2. 在 **Profile Picture（头像）**下，单击 {% octicon "pencil" aria-label="The edit icon" %} **Edit（编辑）**。 ![编辑头像](/assets/images/help/profile/edit-profile-photo.png)
-3. 要还原为默认肖像，请单击 **Remove photo（删除照片）**。 如果您的电子邮件地址与[个人全球统一标识](https://en.gravatar.com/)关联，则无法还原到默认肖像。 此时请单击 **Revert to Gravatar（还原到个人全球统一标识）**。 ![更新头像](/assets/images/help/profile/edit-profile-picture-options.png)
+3. 要还原为默认肖像，请单击 **Remove photo（删除照片）**。 {% ifversion not ghae %}如果您的电子邮件地址与[个人全球统一标识](https://en.gravatar.com/)关联，则无法还原到默认肖像。 此时请单击 **Revert to Gravatar（还原到个人全球统一标识）**。 ![Update profile picture](/assets/images/help/profile/edit-profile-picture-options.png){% endif %}
 
 ## 更改个人资料名称
 

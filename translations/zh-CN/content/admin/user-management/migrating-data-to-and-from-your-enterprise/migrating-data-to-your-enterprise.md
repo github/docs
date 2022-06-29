@@ -129,7 +129,7 @@ $ ghe-migrator audit -s failed_import,failed_map,failed_rename,failed_merge -g <
 
 ### 从 {% data variables.product.prodname_dotcom_the_website %} 上的组织解锁仓库
 
-要在 {% data variables.product.prodname_dotcom_the_website %} 组织中解锁仓库，您需要向<a href="/rest/reference/migrations#unlock-an-organization-repository" class="dotcom-only">迁移解锁端点</a>发送 `DELETE` 请求。 您需要：
+要在 {% data variables.product.prodname_dotcom_the_website %} 组织中解锁仓库，您需要向[迁移解锁端点](/free-pro-team@latest/rest/reference/migrations#unlock-an-organization-repository)发送 `DELETE` 请求。 您需要：
   * 身份验证的访问令牌
   * 迁移的唯一 `id`
   * 要解锁的仓库的名称

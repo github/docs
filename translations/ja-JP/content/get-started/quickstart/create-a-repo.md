@@ -22,7 +22,7 @@ topics:
 
 {% ifversion fpt or ghec %}
 
-オープンソースプロジェクトを含む、さまざまなプロジェクトを {% data variables.product.prodname_dotcom %} リポジトリに保存できます。 With open source projects, you can share code to make better, more reliable software. You can use repositories to collaborate with others and track your work. For more information, see "[About repositories](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-repositories)." To learn more about open source projects, visit [OpenSource.org](http://opensource.org/about).
+オープンソースプロジェクトを含む、さまざまなプロジェクトを {% data variables.product.prodname_dotcom %} リポジトリに保存できます。 With open source projects, you can share code to make better, more reliable software. You can use repositories to collaborate with others and track your work. For more information, see "[About repositories](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-repositories)." To learn more about open source projects, visit [OpenSource.org](https://opensource.org/about).
 
 {% elsif ghes or ghae %}
 

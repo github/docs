@@ -129,7 +129,7 @@ Depois que sua migração for aplicada à sua instância de destino e você tive
 
 ### Desbloquear repositórios de uma organização no {% data variables.product.prodname_dotcom_the_website %}
 
-Para desbloquear repositórios em uma organização do {% data variables.product.prodname_dotcom_the_website %}, você enviará uma solicitação `DELETE` para o <a href="/rest/reference/migrations#unlock-an-organization-repository" class="dotcom-only">ponto de extremidade de desbloqueio da migração</a>. Você precisará do seguinte:
+Para desbloquear repositórios em uma organização do {% data variables.product.prodname_dotcom_the_website %}, você enviará uma solicitação `DELETE` para o [ponto de extremidade de desbloqueio da migração](/free-pro-team@latest/rest/reference/migrations#unlock-an-organization-repository). Você precisará do seguinte:
   * Token de acesso para autenticação.
   * `id` exclusivo da migração;
   * Nome do repositório a ser desbloqueado.

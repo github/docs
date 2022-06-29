@@ -1,5 +1,6 @@
 ---
 title: Definindo seu período de tempo limite para os codespaces.
+shortTitle: Definir o tempo limite
 intro: 'Você pode definir seu tempo limite padrão para {% data variables.product.prodname_codespaces %} na sua página de configurações pessoais.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
@@ -7,7 +8,7 @@ versions:
   ghec: '*'
 topics:
   - Codespaces
-shortTitle: Definir o tempo limite
+type: how_to
 ---
 
 Um codespace irá parar de funcionar após um período de inatividade. Você pode especificar a duração deste período de tempo limite. A configuração atualizada será aplicada a qualquer código recém-criado.
@@ -22,7 +23,7 @@ Algumas organizações podem ter uma política máxima de tempo ocioso. Se a pol
 
 {% webui %}
 
-## Definir seu tempo limite padrão
+## Setting your default timeout period
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.codespaces-tab %}
@@ -32,7 +33,7 @@ Algumas organizações podem ter uma política máxima de tempo ocioso. Se a pol
 
 {% cli %}
 
-## Definindo seu período de tempo limite
+## Setting the timeout period for a codespace
 
 {% data reusables.cli.cli-learn-more %}
 
@@ -45,3 +46,11 @@ gh codespace create --idle-timeout 90m
 Se você não especificar um período de tempo limite ao criar um codespace, será usado o período de tempo limite padrão. Para informações sobre como definir um período de tempo limite padrão, clique na aba "Navegador da Web" nesta página. Você não pode especificar um período de tempo padrão para {% data variables.product.prodname_cli %}.
 
 {% endcli %}
+
+{% vscode %}
+
+## Setting a timeout period
+
+You can set your default timeout period in your web browser, on {% data variables.product.prodname_dotcom_the_website %}. Alternatively, if you use {% data variables.product.prodname_cli %} to create a codespace you can set a timeout period for that particular codespace. For more information, click the appropriate tab above.
+
+{% endvscode %}

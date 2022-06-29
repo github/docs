@@ -294,12 +294,13 @@ sections:
       GitHub Appがリリースアセットをアップロードできるようになりました。
   changes:
     - |
-      Minimum requirements for root storage and memory increased for GitHub Enterprise Server 2.10 and 3.0, and are now enforced as of 3.5.0.
+      ルートストレージとメモリの最小要件はGitHub Enterprise Server 2.10と3.0で増加され、3.5.0で強制されました。
 
-        - In version 2.10, the minimum requirement for root storage increased from 80 GB to 200 GB. As of 3.5.0, system preflight checks will fail if the root storage is smaller than 80 GB.
-        - In version 3.0, the minimum requirement for memory increased to from 16 GB to 32 GB. As of 3.5.0, system preflight checks will fail if the system has less than 28 GB of memory.
+      - バージョン2.10では、ルートストレージの最小要件は80GBから200GBに増やされました。3.5.0では、システムのプリフライトチェックはルートストレージが80GB未満の場合失敗します。
 
-      For more information, see the minimum requirements for each supported deployment platform in "[Setting up a GitHub Enterprise Server instance](/enterprise-server/admin/installation/setting-up-a-github-enterprise-server-instance)." [Updated: 2022-06-20]
+      - バージョン3.0では、メモリの最小要件が16GBから32GBに増やされました。3.5.0では、システムのプリフライトチェックはシステムが28GB未満のメモリしか持っていない場合失敗します。
+
+      詳しい情報については、「[GitHub Enterprise Serverインスタンスのセットアップ](/admin/installation/setting-up-a-github-enterprise-server-instance)」中のサポートされている各デプロイメントプラットフォームに対する最小要件を参照してください。[更新: 2022年6月20日]
     - |
       OAuth及びGitHub Appsでデバイス認可フローを使うためには、この機能を手動で有効化しなければなりません。この変更は、アプリケーションがGitHub Enterprise Serverのユーザに対するフィッシング攻撃に使われる可能性を、インテグレーターがそのリスクを認識し、この形態の認証をサポートする意識的な選択を確実に行うことによって下げるものです。OAuth AppもしくはGitHub Appを所有もしくは管理していて、デバイスフローを使いたいのであれば、アプリケーションの設定ページからアプリケーションに対して有効化できます。デバイスフローAPIのエンドポイントは、この機能が有効化されていないアプリケーションに対してはステータスコード`400`を返します。詳しい情報については「[OAuth Appsの認可](/developers/apps/building-oauth-apps/authorizing-oauth-apps#device-flow)」を参照してください。
     - |
@@ -326,10 +327,10 @@ sections:
       MinIOは、2022年6月1日からのMinIO Gatewaysの廃止をアナウンスしました。MinIO Gateway for NASは、引き続きGitHub Actions及びGitHub Packagesのサポート対象ストレージプロバイダの1つであり続けますが、MinIOからのサポートとバグ修正を利用し続けるために、MinIO LTSサポートへの移行をおすすめします。レート制限に関する詳しい情報については「[minio/minioリポジトリでのGCS、Azure、HDFS用のMinIO Gatewayの予定された廃止](https://github.com/minio/minio/issues/14331)」を参照してください。
   deprecations:
     - 
-      heading: Change to the format of authentication tokens affects GitHub Connect
+      heading: 認証トークンのフォーマット変更によるGitHub Connectへの影響
       notes:
         - |
-          GitHub Connect will no longer work after June 3rd for instances running GitHub Enterprise Server 3.1 or older, due to the format of GitHub authentication tokens changing. To continue using GitHub Connect, upgrade to GitHub Enterprise Server 3.2 or later. For more information, see the [GitHub Blog](https://github.blog/2022-05-20-action-needed-by-github-connect-customers-using-ghes-3-1-and-older-to-adopt-new-authentication-token-format-updates/). [Updated: 2022-06-14]
+          GitHub認証トークンのフォーマット変更により、GitHub Enterprise Server 3.1以前を動作させているインスタンスでは、6月3日以降GitHub Connectは動作しなくなります。GitHub Connectを使い続けるには、GitHub Enterprise Server 3.2以降にアップグレードしてください。詳しい情報については[GitHub Blog](https://github.blog/2022-05-20-action-needed-by-github-connect-customers-using-ghes-3-1-and-older-to-adopt-new-authentication-token-format-updates/)を参照してください。[更新: 2022年6月14日]
     - 
       heading: CodeQL runnerはCodeQL CLIを代替として非推奨になりました
       notes:
@@ -350,4 +351,4 @@ sections:
     - pre-receive フックの処理に固有のリソース制限によって、pre-receive フックに失敗するものが生じることがあります。
     - 別のホスト上で取られたバックアップからのアプライアンスのリストア後、Actionsサービスを再起動する必要があります。
     - '削除されたリポジトリは、90日の保存期間が終了したあとに自動的にディスクから削除されません。[2022年06月08日更新]'
-    - 'Management Console may appear stuck on the _Starting_ screen after upgrading an under-provisioned instance to GitHub Enterprise Server 3.5. [Updated: 2022-06-20]'
+    - '十分にプロビジョニングされていないインスタンスをGitHub Enterprise Server 3.5にアップグレードしたあと、Management Consoleはが_Starting_ screenで停止することがあります。[更新: 2022年6月20日]'
