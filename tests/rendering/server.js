@@ -14,7 +14,7 @@ const activeProducts = Object.values(productMap).filter(
   (product) => !product.wip && !product.hidden
 )
 
-jest.useFakeTimers('legacy')
+jest.useFakeTimers({ legacyFakeTimers: true })
 
 describe('server', () => {
   jest.setTimeout(60 * 1000)
@@ -613,7 +613,7 @@ describe('server', () => {
 
   describe('redirects', () => {
     test('redirects old articles to their English URL', async () => {
-      const res = await get('/articles/deleting-a-team')
+      const res = await get('/articles/deleting-a-team', { followRedirects: false })
       expect(res.statusCode).toBe(302)
       expect(res.headers['set-cookie']).toBeUndefined()
       // no cache control because a language prefix had to be injected
@@ -642,6 +642,7 @@ describe('server', () => {
             headers: {
               'accept-language': `${languageKey}`,
             },
+            followRedirects: false,
           })
           expect(res.statusCode).toBe(302)
           expect(res.headers.location).toBe(`/${languageKey}`)
@@ -661,6 +662,7 @@ describe('server', () => {
         headers: {
           'accept-language': 'ldfir;',
         },
+        followRedirects: false,
       })
 
       expect(res.statusCode).toBe(302)
@@ -675,6 +677,7 @@ describe('server', () => {
           // Tagalog: https://www.loc.gov/standards/iso639-2/php/langcodes_name.php?iso_639_1=tl
           'accept-language': 'tl',
         },
+        followRedirects: false,
       })
       expect(res.statusCode).toBe(302)
       expect(res.headers.location).toBe('/en')
@@ -700,12 +703,6 @@ describe('server', () => {
   })
 
   describe('categories and map topics', () => {
-    test('adds links to categories on the dotcom homepage', async () => {
-      const $ = await getDOM('/en/github')
-      expect($('a[href="/en/github/copilot"]').length).toBe(1)
-      expect($('a[href="#copilot"]').length).toBe(0)
-    })
-
     test('adds links to map topics on a category homepage', async () => {
       const $ = await getDOM('/en/get-started/importing-your-projects-to-github')
       expect(
@@ -834,11 +831,6 @@ describe('GitHub Enterprise URLs', () => {
     expect(res.statusCode).toBe(200)
   })
 
-  test('renders Enterprise User homepage in Japanese', async () => {
-    const res = await get(`/ja/enterprise-server@${enterpriseServerReleases.latest}/github`)
-    expect(res.statusCode).toBe(200)
-  })
-
   test('renders Enterprise Admin homepage in Japanese', async () => {
     const res = await get(`/ja/enterprise-server@${enterpriseServerReleases.latest}/admin`)
     expect(res.statusCode).toBe(200)
@@ -846,11 +838,6 @@ describe('GitHub Enterprise URLs', () => {
 
   test('renders Enterprise homepage in Chinese', async () => {
     const res = await get(`/cn/enterprise-server@${enterpriseServerReleases.latest}`)
-    expect(res.statusCode).toBe(200)
-  })
-
-  test('renders Enterprise User homepage in Chinese', async () => {
-    const res = await get(`/cn/enterprise-server@${enterpriseServerReleases.latest}/github`)
     expect(res.statusCode).toBe(200)
   })
 

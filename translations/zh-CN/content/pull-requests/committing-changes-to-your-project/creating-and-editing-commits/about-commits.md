@@ -44,7 +44,7 @@ versions:
 
 ## 使用文件树
 
-You can use the file tree to navigate between files in a commit.
+您可以使用文件树在提交中的文件之间导航。
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.navigate-to-commit-page %}
@@ -53,11 +53,11 @@ You can use the file tree to navigate between files in a commit.
 
   {% note %}
 
-  **Note**: The file tree will not display if your screen width is too narrow or if the commit only includes one file.
+  **注意**：如果您的屏幕太窄或提交仅包含一个文件，则不会显示文件树。
 
   {% endnote %}
 
-  ![Screenshot of filter changed files search box and file tree emphasized](/assets/images/help/repository/file-tree.png)
+  ![突出显示筛选器已更改文件搜索框和文件树的屏幕截图](/assets/images/help/repository/file-tree.png)
 1. 要按文件路径进行筛选，请在 **Filter changed files（筛选已更改的文件）**搜索框中输入部分或全部文件路径。
 
 {% endif %}

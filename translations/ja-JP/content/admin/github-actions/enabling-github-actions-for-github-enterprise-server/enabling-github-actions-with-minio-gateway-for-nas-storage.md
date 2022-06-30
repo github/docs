@@ -22,7 +22,7 @@ shortTitle: MinIO Gateway for NAS storage
 {% data variables.product.prodname_actions %} を有効化する前に、次のステップを完了していることを確認してください。
 
 * アプライアンスでのリソースの競合を回避するために、MinIO を {% data variables.product.product_location %} とは別にホストすることをお勧めします。
-* Create your bucket for storing workflow data. バケットとアクセスキーを設定するには、[MinIO のドキュメント](https://docs.min.io/docs/minio-gateway-for-nas.html)を参照してください。 {% indented_data_reference reusables.actions.enterprise-s3-permission spaces=2 %}
+* Create your bucket for storing workflow data. {% indented_data_reference reusables.actions.enterprise-s3-permission spaces=2 %}
 
 {% data reusables.actions.enterprise-common-prereqs %}
 
@@ -38,7 +38,7 @@ shortTitle: MinIO Gateway for NAS storage
 
    * **AWS Service URL**: MinIO サービスへの URL。 たとえば、`https://my-minio.example:9000` などです。
    * **AWS S3 Bucket**: S3 バケットの名前。
-   * **AWS S3 Access Key** および **AWS S3 Secret Key**: MinIO インスタンスに使用される `MINIO_ACCESS_KEY` および `MINIO_SECRET_KEY`。 詳しい情報については、[MinIO のドキュメント](https://docs.min.io/docs/minio-gateway-for-nas.html)を参照してください。
+   * **AWS S3 Access Key** および **AWS S3 Secret Key**: MinIO インスタンスに使用される `MINIO_ACCESS_KEY` および `MINIO_SECRET_KEY`。
 
    ![Amazon S3 ストレージを選択するためのラジオボタンと MinIO 設定のフィールド](/assets/images/enterprise/management-console/actions-minio-s3-storage.png)
 1. [Artifact & Log Storage] で [**Force path style**] を選択します。 ![[Force path style] チェックボックス](/assets/images/enterprise/management-console/actions-minio-force-path-style.png)

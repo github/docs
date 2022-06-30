@@ -25,7 +25,7 @@ La siguiente tabla muestra, para cada administrador de paquetes:
 | poetry                     | `pip`            | v1                              |                           |       **✓**        | |{% ifversion fpt or ghec or ghes > 3.4 %}
 | pub                        | `pub`            | v2 <sup>[4]</sup>               |                           |                    |                
 {% endif %}
-| Terraform                  | `terraform`      | >= 0.13, <= 1.0                 |           **✓**           |       **✓**        |                                            |
+| Terraform                  | `terraform`      | >= 0.13, <= 1.2.x               |           **✓**           |       **✓**        |                                            |
 | yarn                       | `npm`            | v1                              |           **✓**           |       **✓**        |                                            |
 
 {% tip %}
@@ -40,8 +40,12 @@ La siguiente tabla muestra, para cada administrador de paquetes:
 
 [3] El {% data variables.product.prodname_dependabot %} no ejecuta el CLI de NuGet pero sí es compatible con la mayoría de las características hasta la versión 4.8.
 
-{% ifversion fpt or ghec or ghes > 3.4 %}[4] la compatibilidad para `pub` se encuentra actualmente en beta. Cualquier limitación conocida está sujeta a cambios. Toma en cuenta que el {% data variables.product.prodname_dependabot %}:
+{% ifversion fpt or ghec or ghes > 3.4 %}
+[4]
+{% ifversion ghes = 3.5 %} La compatibilidad para `pub` se encuentra actualmente en beta. Cualquier limitación conocida está sujeta a cambios. Toma en cuenta que el {% data variables.product.prodname_dependabot %}:
    - No es compatible con la actualización de dependencias para `pub`.
    - No realizará una actualización cuando la versión que intenta actualizar se ignora, incluso si hay una versión anterior disponible.
 
-   Para obtener más información sobre cómo configurar tu archivo _dependabot.yml_ para `pub`, consulta la sección "[Habilitar la compatibilidad para los ecosistemas de nivel beta](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#enable-beta-ecosystems)". {% endif %} 
+   Para obtener más información sobre cómo configurar tu archivo _dependabot.yml_ para `pub`, consulta la sección "[Habilitar la compatibilidad para los ecosistemas de nivel beta](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#enable-beta-ecosystems)".
+   {%- else %}El {% data variables.product.prodname_dependabot %} no realizará una actualización para `pub` cuando la versión a la que intenta actualizarse se ignora, incluso si exista una versión anterior disponible.{% endif %}
+{% endif %} 

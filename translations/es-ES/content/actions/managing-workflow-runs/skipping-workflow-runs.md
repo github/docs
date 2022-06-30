@@ -26,7 +26,7 @@ Los flujos de trabajo que comúnmente se activarían utilizando `on: push` o `on
 * `[skip actions]`
 * `[actions skip]`
 
-Alternatively, you can end the commit message with two empty lines followed by either:
+Como alternativa, puedes finalizar el mensaje de confirmación con dos líneas vacías seguidas de ya sea:
 - `skip-checks:true`
 - `skip-checks: true`
 

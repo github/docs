@@ -1,9 +1,9 @@
 
-When using the `workflow_run` event, you can specify what branches the triggering workflow must run on in order to trigger your workflow.
+使用 `workflow_run` 事件时，可以指定触发工作流程必须在哪些分支上运行才能触发工作流程。
 
-The `branches` and `branches-ignore` filters accept glob patterns that use characters like `*`, `**`, `+`, `?`, `!` and others to match more than one branch name. If a name contains any of these characters and you want a literal match, you need to *escape* each of these special characters with `\`. 有关 glob 模式的更多信息，请参阅“[过滤器模式备忘清单](/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)”。
+`branches` 和 `branches-ignore` 筛选器接受使用 `*`、`**`、`+`、`?`、`!` 等字符的 glob 模式来匹配多个分支名称。 如果名称包含其中任一字符，而您想要逐字匹配，则需要使用 `\` *转义*每个特殊字符。 有关 glob 模式的更多信息，请参阅“[过滤器模式备忘清单](/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)”。
 
-For example, a workflow with the following trigger will only run when the workflow named `Build` runs on a branch whose name starts with `releases/`:
+例如，仅当名为 `Build` 的工作流程在名称以 `releases/` 开头的分支上运行时，具有以下触发器的工作流程才会运行：
 
 ```yaml
 on:

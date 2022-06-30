@@ -202,4 +202,4 @@ To learn more about {% data variables.product.prodname_dotcom %}-hosted runner l
 
 ### 環境の使用
 
-You can configure environments with protection rules and secrets to control the execution of jobs in a workflow. ワークフロー内の各ジョブは、1つの環境を参照できます。 この環境を参照するとジョブがランナーに送信される前に、環境に設定された保護ルールをパスしなければなりません。 For more information, see "[Using environments for deployment](/actions/deployment/using-environments-for-deployment)."
+You can configure environments with protection rules and secrets to control the execution of jobs in a workflow. ワークフロー内の各ジョブは、1つの環境を参照できます。 この環境を参照するとジョブがランナーに送信される前に、環境に設定された保護ルールをパスしなければなりません。 詳しい情報については「[デプロイメントの環境の利用](/actions/deployment/using-environments-for-deployment)」を参照してください。

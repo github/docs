@@ -280,7 +280,7 @@ _Tráfico_
 - [`GET /repos/:owner/:repo/commits/:sha/check-suites`](/rest/reference/checks#list-check-suites-for-a-git-reference) (:read)
 
 {% ifversion fpt or ghec %}
-### Permission on "codespaces"
+### Permisos sobre los "codespaces"
 
 - [`GET /repos/:owner/:repo/codespaces/machines`](/rest/reference/codespaces#list-available-machine-types-for-a-repository)
 {% endif %}

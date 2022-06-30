@@ -2,7 +2,7 @@ import { jest } from '@jest/globals'
 import { latest, oldestSupported } from '../../lib/enterprise-server-releases.js'
 import languages from '../../lib/languages.js'
 
-jest.useFakeTimers('legacy')
+jest.useFakeTimers({ legacyFakeTimers: true })
 
 /* global page, browser */
 describe('homepage', () => {

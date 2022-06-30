@@ -22,7 +22,7 @@ topics:
 
 {% ifversion fpt or ghec %}
 
-Puedes almacenar distintos proyectos en los repositorios de {% data variables.product.prodname_dotcom %}, incluso proyectos de código abierto. Con los proyectos de código abierto, puedes compartir código para hacer software mejor y más confiable. Puedes utilizar los repositorios para colaborar con otros y rastrear tu trabajo. Para obtener más información, consulta la sección "[Acerca de los repositorios](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-repositories)". Para aprender más sobre los proyectos de código abierto, visita [OpenSource.org](http://opensource.org/about).
+Puedes almacenar distintos proyectos en los repositorios de {% data variables.product.prodname_dotcom %}, incluso proyectos de código abierto. Con los proyectos de código abierto, puedes compartir código para hacer software mejor y más confiable. Puedes utilizar los repositorios para colaborar con otros y rastrear tu trabajo. Para obtener más información, consulta la sección "[Acerca de los repositorios](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-repositories)". Para aprender más sobre los proyectos de código abierto, visita [OpenSource.org](https://opensource.org/about).
 
 {% elsif ghes or ghae %}
 
