@@ -70,7 +70,7 @@ The retention period constraint is only applied to codespaces when they are crea
 
 ## 删除策略
 
-You can delete a policy at any time. Deleting a policy has no effect on existing codespaces.
+您可以随时删除策略。 删除策略对现有代码空间没有影响。
 
 1. 显示“Codespace policies（代码空间策略）”页。 For more information, see "[Adding a policy to set a maximum codespace retention period](#adding-a-policy-to-set-a-maximum-codespace-retention-period)."
 1. 单击要删除的策略右侧的删除按钮。
