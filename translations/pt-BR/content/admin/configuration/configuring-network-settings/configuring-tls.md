@@ -36,6 +36,8 @@ Seu certificado também precisará de nomes alternativos da entidade (SAN, Subje
 
 Você pode gerar uma solicitação de assinatura de certificado (CSR, Certificate Signing Request) para sua instância usando o comando `ghe-ssl-generate-csr`. Para obter mais informações, consulte "[Utilitários de linha de comando](/enterprise/admin/guides/installation/command-line-utilities/#ghe-ssl-generate-csr)".
 
+Your key must be an RSA key and must not have a passphrase. Para obter mais informações, consulte "[Remover a frase secreta de um arquivo de chave](/admin/guides/installation/troubleshooting-ssl-errors#removing-the-passphrase-from-your-key-file)".
+
 ## Fazer upload de um certificado TLS personalizado
 
 {% data reusables.enterprise_site_admin_settings.tls-downtime %}
@@ -48,11 +50,6 @@ Você pode gerar uma solicitação de assinatura de certificado (CSR, Certificat
 5. Em "Certificate" (Certificado), clique em **Choose File** (Escolher arquivo) para escolher um certificado TLS ou uma cadeia de certificados (no formato PEM) para instalação. Em geral, esse arquivo tem extensão *.pem*, *.crt* ou *.cer*. ![Botão para localizar arquivo de certificado TLS](/assets/images/enterprise/management-console/install-tls-certificate.png)
 6. Em "Chave não criptografada", clique em **Escolher Arquivo** para escolher uma chave RSA (no formato PEM) para ser instalada. Em geral, esse arquivo tem extensão *.key*. ![Botão para localizar arquivo de chave TLS](/assets/images/enterprise/management-console/install-tls-key.png)
 
-  {% warning %}
-
-  **Aviso**: Sua chave deve ser uma chave RSA e não deve ter uma frase secreta. Para obter mais informações, consulte "[Remover a frase secreta de um arquivo de chave](/admin/guides/installation/troubleshooting-ssl-errors#removing-the-passphrase-from-your-key-file)".
-
-  {% endwarning %}
 {% data reusables.enterprise_management_console.save-settings %}
 
 ## Sobre o suporte Let's Encrypt

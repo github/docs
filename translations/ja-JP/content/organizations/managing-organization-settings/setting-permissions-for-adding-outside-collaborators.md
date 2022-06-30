@@ -25,7 +25,7 @@ shortTitle: コラボレータポリシーの設定
 {% endnote %}
 {% endif %}
 
-{% ifversion ghec %}OrganizationがEnterpriseアカウントによって所有されているなら、{% else %}{% endif %}EnterpriseのオーナーがEnterpriseのレベルでポリシーを設定している場合、Organiationのこの設定はできないかもしれません。 詳しい情報については「[Enterpriseでのリポジトリ間りぽシリーの施行]{% ifversion ghec %}(/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-inviting-collaborators-to-repositories)」{% else %}(/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-inviting-outside-collaborators-to-repositories)」{% endif %}を参照してください。
+{% ifversion ghec %}OrganizationがEnterpriseアカウントによって所有されているなら、{% else %}{% endif %}EnterpriseのオーナーがEnterpriseのレベルでポリシーを設定している場合、Organiationのこの設定はできないかもしれません。 詳しい情報については「[Enterpriseでのリポジトリ管理ポリシーの施行]{% ifversion ghec %}(/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-inviting-collaborators-to-repositories)」{% else %}(/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-inviting-outside-collaborators-to-repositories)」{% endif %}を参照してください。
 
 {% data reusables.organizations.outside-collaborators-use-seats %}
 

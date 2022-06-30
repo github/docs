@@ -43,22 +43,7 @@
 | Grafana                   | Grafana API 密钥                                     | grafana_api_key                                        |
 | Hubspot                   | Hubspot API 密钥                                     | hubspot_api_key                                        |
 | Intercom                  | Intercom 访问令牌                                      | intercom_access_token                                  |
-| Ionic                     | Ionic 个人访问令牌                                       | ionic_personal_access_token                            |
-| Ionic                     | Ionic 刷新令牌                                         | ionic_refresh_token                                    |
-| 线性                        | 线性 API 密钥                                          | linear_api_key                                         |
-| 线性                        | 线性 OAuth 访问令牌                                      | linear_oauth_access_token                              |
-| Midtrans                  | Midtrans Production Server Key                     | midtrans_production_server_key                         |
-| New Relic                 | New Relic Personal API Key                         | new_relic_personal_api_key                           |
-| New Relic                 | New Relic REST API Key                             | new_relic_rest_api_key                               |
-| New Relic                 | New Relic Insights Query Key                       | new_relic_insights_query_key                         |
-| npm                       | npm 访问令牌                                           | npm_access_token                                       |
-| NuGet                     | NuGet API 密钥                                       | nuget_api_key                                          |
-| Onfido                    | Onfido Live API Token                              | onfido_live_api_token                                  |
-| OpenAI                    | OpenAI API 密钥                                      | openai_api_key                                         |
-| PlanetScale               | Planetscale 数据库密码                                  | planetscale_database_password                          |
-| PlanetScale               | Planetscale OAuth 令牌                               | planetscale_oauth_token                                |
-| PlanetScale               | PlanetScale 服务令牌                                   | planetscale_service_token                              |
-| Postman                   | Postman API 密钥                                     | postman_api_key                                        |
-| Proctorio                 | Proctorio 密钥                                       | proctorio_secret_key                                   |
+{%- ifversion fpt or ghec or ghes > 3.6 or ghae-issue-7456 %}
+JFrog | JFrog Platform Access Token | jfrog_platform_access_token JFrog | JFrog Platform API Key | jfrog_platform_api_key{% endif %} Ionic | Ionic Personal Access Token | ionic_personal_access_token Ionic | Ionic Refresh Token | ionic_refresh_token Linear | Linear API Key | linear_api_key Linear | Linear OAuth Access Token | linear_oauth_access_token Midtrans | Midtrans Production Server Key | midtrans_production_server_key New Relic | New Relic Personal API Key | new_relic_personal_api_key New Relic | New Relic REST API Key | new_relic_rest_api_key New Relic | New Relic Insights Query Key | new_relic_insights_query_key npm | npm Access Token | npm_access_token NuGet | NuGet API Key | nuget_api_key Onfido | Onfido Live API Token | onfido_live_api_token OpenAI | OpenAI API Key | openai_api_key PlanetScale | PlanetScale Database Password | planetscale_database_password PlanetScale | PlanetScale OAuth Token | planetscale_oauth_token PlanetScale | PlanetScale Service Token | planetscale_service_token Postman | Postman API Key | postman_api_key Proctorio | Proctorio Secret Key | proctorio_secret_key
 {%- ifversion fpt or ghec or ghes > 3.5 or ghae-issue-7375 %}
 redirect.pizza | redirect.pizza API Token | redirect_pizza_api_token{% endif %} Samsara | Samsara API Token | samsara_api_token Samsara | Samsara OAuth Access Token | samsara_oauth_access_token SendGrid | SendGrid API Key | sendgrid_api_key Sendinblue | Sendinblue API Key | sendinblue_api_key Sendinblue | Sendinblue SMTP Key | sendinblue_smtp_key Shippo | Shippo Live API Token | shippo_live_api_token Shopify | Shopify App Shared Secret | shopify_app_shared_secret Shopify | Shopify Access Token | shopify_access_token Slack | Slack API Token | slack_api_token Stripe | Stripe Live API Secret Key | stripe_api_key Tencent Cloud | Tencent Cloud Secret ID | tencent_cloud_secret_id Typeform | Typeform Personal Access Token | typeform_personal_access_token WorkOS | WorkOS Production API Key | workos_production_api_key

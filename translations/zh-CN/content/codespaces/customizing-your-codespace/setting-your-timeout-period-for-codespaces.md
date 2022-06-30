@@ -1,5 +1,6 @@
 ---
 title: 设置 Codespaces 超时时间
+shortTitle: 设置超时
 intro: '您可以在个人设置页面中设置 {% data variables.product.prodname_codespaces %} 的默认超时。'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
@@ -7,7 +8,7 @@ versions:
   ghec: '*'
 topics:
   - Codespaces
-shortTitle: 设置超时
+type: how_to
 ---
 
 代码空间将在一段时间不活动后停止运行。 您可以指定此超时期限的长度。 更新后的设置将应用于任何新创建的代码空间。
@@ -22,7 +23,7 @@ shortTitle: 设置超时
 
 {% webui %}
 
-## 设置默认超时
+## 设置默认超时期
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.codespaces-tab %}
@@ -32,7 +33,7 @@ shortTitle: 设置超时
 
 {% cli %}
 
-## 设置超时期限
+## 设置代码空间的超时期限
 
 {% data reusables.cli.cli-learn-more %}
 
@@ -45,3 +46,11 @@ gh codespace create --idle-timeout 90m
 如果在创建代码空间时未指定超时期限，则将使用默认超时期限。 有关设置默认超时期限的信息，请单击此页面上的“Web browser（Web 浏览器）”选项卡。 您当前无法通过 {% data variables.product.prodname_cli %} 指定默认超时期限。
 
 {% endcli %}
+
+{% vscode %}
+
+## 设置超时期
+
+您可以通过 Web 浏览器在 {% data variables.product.prodname_dotcom_the_website %} 上设置默认超时期限。 或者，如果使用 {% data variables.product.prodname_cli %} 创建代码空间，则可以为该特定代码空间设置超时期限。 有关详细信息，请单击上面的相应选项卡。
+
+{% endvscode %}

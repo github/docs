@@ -18,6 +18,12 @@ topics:
   - Licensing
 ---
 
+{% ifversion ghec %}
+{% data reusables.enterprise-accounts.dormant-user-release-phase %}
+{% endif %}
+
+## 关于休眠用户
+
 {% data reusables.enterprise-accounts.dormant-user-activity %}
 
 {% ifversion ghes or ghae%}
@@ -48,9 +54,6 @@ topics:
 {% endif %}
 
 {% ifversion ghec %}
-
-{% data reusables.enterprise-accounts.dormant-user-release-phase %}
-
 ## 从企业帐户下载休眠用户报告
 
 {% data reusables.enterprise-accounts.access-enterprise %}
