@@ -8,5 +8,4 @@ In addition to all of the benefits of {% data variables.contact.enterprise_suppo
   - プレミアムコンテンツへのアクセス
   - Health Checks
   - Application upgrade assistance: Before you upgrade {% data variables.product.prodname_ghe_server %}, we review your upgrade plans, playbooks, and other documentation and answer questions specific to your environment ({% data variables.product.premium_plus_support_plan %} only)
-  - Cloud planning: Customer Success Managers and Customer Success Architects help you plan your journey to the cloud ({% data variables.product.premium_plus_support_plan %} only)
   - Technical advisory hours ({% data variables.product.premium_plus_support_plan %} only)

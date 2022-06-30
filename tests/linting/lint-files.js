@@ -22,7 +22,7 @@ import { jest } from '@jest/globals'
 import { getDiffFiles } from '../helpers/diff-files.js'
 import loadSiteData from '../../lib/site-data.js'
 
-jest.useFakeTimers('legacy')
+jest.useFakeTimers({ legacyFakeTimers: true })
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const enterpriseServerVersions = Object.keys(allVersions).filter((v) =>

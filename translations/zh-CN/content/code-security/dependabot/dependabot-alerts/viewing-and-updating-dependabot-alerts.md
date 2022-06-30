@@ -1,6 +1,6 @@
 ---
 title: 查看和更新 Dependabot 警报
-intro: 'If {% data variables.product.product_name %} discovers insecure dependencies in your project, you can view details on the Dependabot alerts tab of your repository. Then, you can update your project to resolve or dismiss the alert.'
+intro: '如果 {% data variables.product.product_name %} 发现项目中存在不安全的依赖项，您可以在仓库的 Dependabot 警报选项卡中查看详细信息。 然后，您可以更新项目以解决或忽略警报。'
 redirect_from:
   - /articles/viewing-and-updating-vulnerable-dependencies-in-your-repository
   - /github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository
@@ -35,11 +35,11 @@ topics:
 {% ifversion fpt or ghec or ghes > 3.2 %}
 ## 关于仓库中有漏洞的依赖项的更新
 
-{% data variables.product.product_name %} generates {% data variables.product.prodname_dependabot_alerts %} when we detect that your codebase is using dependencies with known security risks. 对于启用了 {% data variables.product.prodname_dependabot_security_updates %} 的仓库，当 {% data variables.product.product_name %} 在默认分支中检测到有漏洞的依赖项时，{% data variables.product.prodname_dependabot %} 会创建拉取请求来修复它。 拉取请求会将依赖项升级到避免漏洞所需的最低安全版本。
+{% data variables.product.product_name %} 在检测到您的代码库正在使用具有已知安全风险的依赖项时会生成 {% data variables.product.prodname_dependabot_alerts %}。 对于启用了 {% data variables.product.prodname_dependabot_security_updates %} 的仓库，当 {% data variables.product.product_name %} 在默认分支中检测到有漏洞的依赖项时，{% data variables.product.prodname_dependabot %} 会创建拉取请求来修复它。 拉取请求会将依赖项升级到避免漏洞所需的最低安全版本。
 
 {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5638 %}您可以使用 {% data variables.product.prodname_dependabot_alerts %} 选项卡中的下拉菜单对 {% data variables.product.prodname_dependabot_alerts %} 进行排序和过滤，也可以在搜索栏中键入过滤条件作为`键:值`对。 可用的过滤器包括仓库（例如 `repo:my-repository`）、包（例如 `package:django`）、生态系统（例如 `ecosystem:npm`）、清单（例如 `manifest:webwolf/pom.xml`）、状态（例如 `is:open`）以及公告是否有补丁（例如 `has: patch`）。
 
-Each {% data variables.product.prodname_dependabot %} alert has a unique numeric identifier and the {% data variables.product.prodname_dependabot_alerts %} tab lists an alert for every detected vulnerability{% ifversion GH-advisory-db-supports-malware %} or malware{% endif %}. 旧版 {% data variables.product.prodname_dependabot_alerts %} 按依赖项对漏洞进行分组，并为每个依赖项生成一个警报。 如果导航到旧版 {% data variables.product.prodname_dependabot %} 警报，则会将您重定向到为该包筛选的 {% data variables.product.prodname_dependabot_alerts %} 选项卡。 {% endif %}
+每个 {% data variables.product.prodname_dependabot %} 警报都有一个唯一的数字标识符，{% data variables.product.prodname_dependabot_alerts %} 选项卡列出了每个检测到的漏洞{% ifversion GH-advisory-db-supports-malware %}或恶意软件{% endif %}的警报。 旧版 {% data variables.product.prodname_dependabot_alerts %} 按依赖项对漏洞进行分组，并为每个依赖项生成一个警报。 如果导航到旧版 {% data variables.product.prodname_dependabot %} 警报，则会将您重定向到为该包筛选的 {% data variables.product.prodname_dependabot_alerts %} 选项卡。 {% endif %}
 {% endif %}
 
 {% ifversion dependabot-alerts-vulnerable-calls %}
