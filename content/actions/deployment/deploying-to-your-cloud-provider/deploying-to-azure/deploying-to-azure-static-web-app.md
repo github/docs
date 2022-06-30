@@ -72,14 +72,13 @@ on:
 
 permissions:
   issues: write
+  contents: read
 
 jobs:
   build_and_deploy:
     if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
     runs-on: ubuntu-latest
     name: Build and Deploy
-    permissions: # content read permission is required for private repos
-      contents: read
     steps:
       - uses: {% data reusables.actions.action-checkout %}
         with:
