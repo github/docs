@@ -29,7 +29,7 @@ Awesome! We'd love to have you be part of the program. Here’s how you can spre
 
 ## Ready to join the GitHub Developer Program?</h3>
 
-Membership is open to individual developers and companies who have:
+Üyelik, aşağıdaki özelliklere sahip bireysel geliştiricilere ve şirketlere açıktır:
 
 * An integration in production or development using the GitHub API.
 * An email address where GitHub users can contact you for support.
