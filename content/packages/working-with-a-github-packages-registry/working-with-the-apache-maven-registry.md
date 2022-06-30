@@ -188,6 +188,7 @@ To install an Apache Maven package from {% data variables.product.prodname_regis
   $ mvn install
   ```
 
+
 ## Further reading
 
 - "[Working with the Gradle registry](/packages/working-with-a-github-packages-registry/working-with-the-gradle-registry)"{% ifversion fpt or ghec or ghes > 3.1 or ghae %}
