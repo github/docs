@@ -38,6 +38,7 @@ shortTitle: Configure default editor
 - [RStudio](https://rstudio.com/)
 - [Nova](https://nova.app/)
 - [Android Studio](https://developer.android.com/studio)
+- [Aptana Studio](http://www.aptana.com/)
 
 {% endmac %}
 
@@ -62,6 +63,7 @@ shortTitle: Configure default editor
 - [Brackets](http://brackets.io/)
 - [Notepad++](https://notepad-plus-plus.org/)
 - [RStudio](https://rstudio.com/)
+- [Aptana Studio](http://www.aptana.com/)
 
 {% endwindows %}
 

@@ -1,6 +1,6 @@
-You can specify a single variable to create a single-dimension matrix.
+1つの変数を指定して、1次元のマトリックスを作成できます。
 
-For example, the following workflow defines the variable `version` with the values `[10, 12, 14]`. The workflow will run three jobs, one for each value in the variable. Each job will access the `version` value through the `matrix.version` context and pass the value as `node-version` to the `actions/setup-node` action.
+たとえば、以下のワークフローは変数`version`に`[10, 12, 14]`という値を定義しています。 このワークフローは、変数中のそれぞれの値に対して1つずつ、3つのジョブを実行します。 それぞれのジョブは`version`の値に`matrix.version`コンテキストを通じてアクセスし、その値を`node-version`として`actions/setup-node`アクションに渡します。
 
 ```yaml
 jobs:
