@@ -61,4 +61,4 @@ Projects (beta) is a new, customizable version of projects. For more information
 
 ## Sharing feedback
 
-You can share your feedback about projects (beta) with {% data variables.product.company_short %}. To join the conversation, see [the feedback discussion](https://github.com/github/feedback/discussions/categories/issues-feedback).
+You can share your feedback about projects (beta) with {% data variables.product.company_short %}. To join the conversation, see [the feedback discussion](https://github.com/github-community/community/discussions/categories/issues-feedback).
