@@ -47,6 +47,10 @@ En una ventana amplia de buscador, la palabra "Enterprise" seguiría inmediatame
 
 ![Captura de pantalla de la barra de dirección y el encabezado de {% data variables.product.prodname_ghe_server %} en un buscador](/assets/images/help/docs/header-ghes.png)
 
+Puedes ver la versión de {% data variables.product.prodname_ghe_server %} que estás utilizando al pie de cualquier página.
+
+![Captura de pantalla del pie de página de {% data variables.product.prodname_ghe_server %}, con la versión resaltada](/assets/images/help/docs/ghes-version-in-footer.png)
+
 ### {% data variables.product.prodname_ghe_managed %}
 
 Si accedes a {% data variables.product.prodname_dotcom %} a través de `https://*.githubenterprise.com`, `https://*.github.us`, o `https://*.ghe.com`, estás utilizando {% data variables.product.prodname_ghe_managed %}.
