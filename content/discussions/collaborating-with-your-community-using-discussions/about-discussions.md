@@ -64,7 +64,7 @@ You can spotlight discussions that contain important, useful, or exemplary conve
 
 ## Sharing feedback
 
-You can share your feedback about {% data variables.product.prodname_discussions %} with {% data variables.product.company_short %}. To join the conversation, see [`github-community/community`](https://github.com/github-community/community/discussions?discussions_q=category%3A%22Discussions+Feedback%22).
+You can share your feedback about {% data variables.product.prodname_discussions %} with {% data variables.product.company_short %}. To join the conversation, see [`github-community/community`](https://github.com/github-community/community/discussions/categories/discussions).
 
 ## Further reading
 
