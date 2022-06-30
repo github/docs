@@ -1,6 +1,6 @@
 ---
-title: Using insights with projects (beta)
-intro: You can view and customize charts that are built from your project's data.
+title: Utilizar perspectivas con los proyectos (beta)
+intro: Puedes ver y personalizar las gráficas que se crean a partir de los datos de tu proyecto.
 allowTitleToDifferFromFilename: true
 miniTocMaxHeadingLevel: 2
 versions:
@@ -13,7 +13,7 @@ topics:
 
 {% data reusables.projects.insights-alpha %}
 
-## About insights
+## Acerca de las perspectivas
 
 Puedes utilizar las perspectivas para ver y personalizar los gráficos que utilizan los elementos que se agregaron a tu proyecto, como los datos fuente. El gráfico predeterminado de "Burn up" muestra el estado del elemento contra el tiempo, lo cual te permite visualizar el progreso y notar patrones a lo largo del tiempo.
 

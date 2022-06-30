@@ -16,7 +16,7 @@ topics:
 
 {% data reusables.dependabot.about-the-dependency-graph %} Para obtener más información, consulta la sección "[Acerca de la gráfica de dependencias](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)"
 
-Después de que habilites la gráfica de dependencias para tu empresa, puedes habilitar el {% data variables.product.prodname_dependabot %} para detectar las dependencias vulnerables en tu repositorio{% ifversion ghes > 3.2 %} y corregir las vulnerabilidades automáticamente{% endif %}. Para obtener más información, consulta la sección "[Habilitar la {% data variables.product.prodname_dependabot %} en tu empresa](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)".
+Después de que habilitas la gráfica de dependencias para tu empresa, puedes habilitar el {% data variables.product.prodname_dependabot %} para que detecte dependencias inseguras en tu repositorio{% ifversion ghes > 3.2 %} y corrija las vulnerabilidades automáticamente{% endif %}. Para obtener más información, consulta la sección "[Habilitar la {% data variables.product.prodname_dependabot %} en tu empresa](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)".
 
 {% ifversion ghes > 3.1 %}
 Puedes habilitar la gráfica de dependencias a través de la {% data variables.enterprise.management_console %} o del shell administrativo. Te recomendamos utilizar la {% data variables.enterprise.management_console %} a menos de que {% data variables.product.product_location %} utilice clústering.

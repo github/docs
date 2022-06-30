@@ -13,7 +13,7 @@ Se você especificar vários tipos de atividades, apenas um desses tipos de ativ
 
 ```yaml
 on:
-  issue:
+  issues:
     types:
       - opened
       - labeled

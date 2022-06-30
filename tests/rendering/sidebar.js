@@ -8,7 +8,7 @@ import frontmatter from '../../lib/read-frontmatter.js'
 import { getDOM } from '../helpers/e2etest.js'
 import { allVersions } from '../../lib/all-versions.js'
 
-jest.useFakeTimers('legacy')
+jest.useFakeTimers({ legacyFakeTimers: true })
 
 describe('sidebar', () => {
   jest.setTimeout(3 * 60 * 1000)

@@ -82,14 +82,14 @@ prodname_debug: 'GitHub デバッグ'
 #GitHub Discussions
 prodname_discussions: 'GitHub Discussions'
 #GitHub Enterprise Managed Users
-prodname_emu_idp_application: 'GitHub Enterpriseで管理されているユーザ'
-prodname_emu_idp_oidc_application: 'GitHub Enterpriseで管理されているユーザ（OIDC）'
-prodname_emus: 'Entepriseで管理されているユーザ'
+prodname_emu_idp_application: 'GitHub Enterprise Managed User'
+prodname_emu_idp_oidc_application: 'GitHub Enterprise Managed User(OIDC)'
+prodname_emus: 'Enterprise Managed Users'
 prodname_managed_user: '管理されているユーザアカウント'
-prodname_managed_users: '管理されているユーザアカウント'
-prodname_managed_users_caps: '管理されているユーザアカウント'
-prodname_emu_enterprise: '管理されたユーザを持つEnterprise'
-prodname_emu_org: '管理されたユーザを持つOrganization'
+prodname_managed_users: 'managed userアカウント'
+prodname_managed_users_caps: 'Managed userアカウント'
+prodname_emu_enterprise: 'managed usersを持つEnterprise'
+prodname_emu_org: 'managed usersを持つOrganization'
 #GitHub Issues
 prodname_github_issues: 'GitHubのIssue'
 #GitHub Packages
