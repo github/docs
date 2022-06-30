@@ -1013,7 +1013,7 @@ on:
 
 Runs your workflow when activity related to {% data variables.product.prodname_registry %} occurs in your repository. For more information, see "[{% data variables.product.prodname_registry %} Documentation](/packages)."
 
-For example, you can run a workflow when a package has been `published`.
+For example, you can run a workflow when a new package version has been `published`.
 
 ```yaml
 on:

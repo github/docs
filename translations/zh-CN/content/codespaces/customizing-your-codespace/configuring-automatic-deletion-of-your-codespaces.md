@@ -1,6 +1,6 @@
 ---
-title: Configuring automatic deletion of your codespaces
-shortTitle: Configure automatic deletion
+title: 配置代码空间的自动删除
+shortTitle: 配置自动删除
 intro: 'Unused codespaces are automatically deleted. You can choose how long your stopped codespaces are retained, up to a maximum of 30 days.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:

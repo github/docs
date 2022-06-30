@@ -37,14 +37,19 @@ But there are various advantages too:
 - You don't need to configure any firewalls, or modify the routing of your private network.
 - The API gateway is stateless, and so it scales horizontally to handle high availability and high throughput.
 
-For more information, see [a reference implementation of an API Gateway](https://github.com/github/actions-oidc-gateway-example) (note that this requires customization for your use case and is not ready-to-run as-is), and "[About security hardening with OpenID Connect](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)".
+Para obtener más información, consulta </a>una implementación de referencia de una puerta de enlace de API
+
+ (toma en cuenta que esto requiere cierto grado de personalización para tu caso de uso y no está lista para ejecutarse por sí misma) y la sección "[Acerca del fortalecimiento de seguridad con OpenID Connect](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)". </p> 
+
 {% endif %}
+
+
 
 ### Using WireGuard to create a network overlay
 
 If you don't want to maintain separate infrastructure for an API Gateway, you can create an overlay network between your runner and a service in your private network, by running WireGuard in both places.
 
-There are various disadvantages to this approach:
+There are various disadvantages to this approach: 
 
 - To reach WireGuard running on your private service, you will need a well-known IP address and port that your workflow can reference: this can either be a public IP address and port, a port mapping on a network gateway, or a service that dynamically updates DNS.
 - WireGuard doesn't handle NAT traversal out of the box, so you'll need to identify a way to provide this service.
@@ -53,18 +58,24 @@ There are various disadvantages to this approach:
 
 There are some advantages too, as you can run WireGuard on an existing server so you don't have to maintain separate infrastructure, and it's well supported on {% data variables.product.prodname_dotcom %}-hosted runners.
 
+
+
 ### Example: Configuring WireGuard
 
 This example workflow configures WireGuard to connect to a private service.
 
 For this example, the WireGuard instance running in the private network has this configuration:
+
 - Overlay network IP address of `192.168.1.1`
 - Public IP address and port of `1.2.3.4:56789`
 - Public key `examplepubkey1234...`
 
 The WireGuard instance in the {% data variables.product.prodname_actions %} runner has this configuration:
+
 - Overlay network IP address of `192.168.1.2`
 - Private key stores as an {% data variables.product.prodname_actions %} secret under `WIREGUARD_PRIVATE_KEY`
+
+
 
 ```yaml
 name: WireGuard example
@@ -91,7 +102,10 @@ jobs:
       - run: curl -vvv http://192.168.1.1
 ```
 
+
 For more information, see [WireGuard's Quick Start](https://www.wireguard.com/quickstart/), as well as "[Encrypted Secrets](/actions/security-guides/encrypted-secrets)" for how to securely store keys.
+
+
 
 ### Using Tailscale to create a network overlay
 

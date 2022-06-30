@@ -14,7 +14,7 @@ shortTitle: Troubleshoot license usage
 
 ## About unexpected license usage
 
-If the number of consumed licenses for your enterprise is unexpected, you can review your consumed license report to audit your license usage across all your enterprise deployments and subscriptions. If you find errors, you can try troubleshooting steps. For more information about viewing your license usage, see "[Viewing license usage for GitHub Enterprise](/billing/managing-your-license-for-github-enterprise/viewing-license-usage-for-github-enterprise)" and "[Viewing the subscription and usage for your enterprise account](/billing/managing-billing-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account)."
+If the number of consumed licenses for your enterprise is unexpected, you can review your consumed license report to audit your license usage across all your enterprise deployments and subscriptions. If you find errors, you can try troubleshooting steps. Para obtener más información sobre cómo ver tu uso de licencia, consulta la sección "[Ver el uso de licencia para GitHub Enterprise](/billing/managing-your-license-for-github-enterprise/viewing-license-usage-for-github-enterprise)" y "[Ver la suscripción y el uso de tu cuenta empresarial](/billing/managing-billing-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account)".
 
 For privacy reasons, enterprise owners cannot directly access the details of user accounts.
 
@@ -67,7 +67,7 @@ There are two especially common reasons for inaccurate or incorrect license seat
 - The email addresses associated with a user do not match across your enterprise deployments and subscriptions.
 - An email address for a user was recently updated or verified to correct a mismatch, but a license sync job hasn't run since the update was made.
 
-When attempting to match users across enterprises, {% data variables.product.company_short %} identifies individuals by the verified email addresses associated with their {% data variables.product.prodname_dotcom_the_website %} account, and the primary email address associated with their {% data variables.product.prodname_ghe_server %} account and/or the email address assigned to the {% data variables.product.prodname_vs_subscriber %}.
+Cuando se intenta coincidir con usuarios a lo largo de las empresas, {% data variables.product.company_short %} identifica a los individuos mediante las direcciones de correo electrónico verificadas y asociadas con sus cuentas de {% data variables.product.prodname_dotcom_the_website %} y mediante la dirección de correo electrónico asociada con su cuenta de {% data variables.product.prodname_ghe_server %}o aquella asignada al {% data variables.product.prodname_vs_subscriber %}.
 
 Your license usage is recalculated shortly after each license sync is performed. You can view the timestamp of the last license sync job, and, if a job hasn't run since an email address was updated or verified, to resolve an issue with your consumed license report you can manually trigger one. For more information, see "[Syncing license usage between GitHub Enterprise Server and GitHub Enterprise Cloud](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud)."
 

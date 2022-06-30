@@ -17,6 +17,13 @@ topics:
   - Enterprise
   - Licensing
 ---
+
+{% ifversion ghec %}
+{% data reusables.enterprise-accounts.dormant-user-release-phase %}
+{% endif %}
+
+## About dormant users
+
 {% data reusables.enterprise-accounts.dormant-user-activity %}
 
 {% ifversion ghes or ghae%}
@@ -52,9 +59,6 @@ topics:
 {% endif %}
 
 {% ifversion ghec %}
-
-{% data reusables.enterprise-accounts.dormant-user-release-phase %}
-
 ## Downloading the dormant users report from your enterprise account
 
 {% data reusables.enterprise-accounts.access-enterprise %}

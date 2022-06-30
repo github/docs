@@ -46,7 +46,7 @@ The Migrations API is currently in a preview period, which means that the endpoi
       ```shell
       curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" \
       -X POST \
-      -H "Accept: application/vnd.github.v3+json" \
+      -H "Accept: application/vnd.github+json" \
       -d'{"lock_repositories":true,"repositories":["<em>orgname</em>/<em>reponame</em>", "<em>orgname</em>/<em>reponame</em>"]}' \
       https://api.github.com/orgs/<em>orgname</em>/migrations
       ```
@@ -60,7 +60,7 @@ The Migrations API is currently in a preview period, which means that the endpoi
     * The unique `id` of the migration:
       ```shell
       curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" \
-      -H "Accept: application/vnd.github.v3+json" \
+      -H "Accept: application/vnd.github+json" \
       https://api.github.com/orgs/<em>orgname</em>/migrations/<em>id</em>
       ```
 
@@ -75,7 +75,7 @@ The Migrations API is currently in a preview period, which means that the endpoi
     * The unique `id` of the migration:
       ```shell
       curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" \
-      -H "Accept: application/vnd.github.v3+json" \
+      -H "Accept: application/vnd.github+json" \
       -L -o migration_archive.tar.gz \
       https://api.github.com/orgs/<em>orgname</em>/migrations/<em>id</em>/archive
       ```
@@ -86,7 +86,7 @@ The Migrations API is currently in a preview period, which means that the endpoi
       ```shell
       curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" \
       -X DELETE \
-      -H "Accept: application/vnd.github.v3+json" \
+      -H "Accept: application/vnd.github+json" \
       https://api.github.com/orgs/<em>orgname</em>/migrations/<em>id</em>/archive
       ```
 {% data reusables.enterprise_migrations.ready-to-import-migrations %}
