@@ -23,6 +23,6 @@ Los mantenedores con acceso de escritura en un repositorio pueden utilizar el si
 {% data reusables.repositories.choose-pr-review %}
 {% data reusables.repositories.changed-files %}
 1. Inspecciona los cambios propuestos en la solicitud de cambios y asegúrate de que estés de acuerdo para ejecutar tus flujos de trabajo en la rama de la solicitud de cambios. Debes estar especialmente alerta para notar cualquier cambio propuesto en el directorio `.github/workflows/` que afecte a los archivos de flujo de trabajo.
-1. Si no estás de acuerdo en ejecutar los flujos de trabajo en la rama de la solicitud de cambios, regresa a la {% octicon "comment-discussion" aria-label="The discussion icon" %} pestaña de **Conversación** y, debajo de "Flujo(s) de trabajo esperando aprobación", haz clic en **Aprobar y ejecutar**.
+1. Si estás de acuerdo en ejecutar los flujos de trabajo en la rama de la solicitud de cambios, regresa a la {% octicon "comment-discussion" aria-label="The discussion icon" %} pestaña de **Conversación** y, debajo de "Flujo(s) de trabajo esperando aprobación", haz clic en **Aprobar y ejecutar**.
 
    ![Aprueba y ejecuta flujos de trabajo](/assets/images/help/pull_requests/actions-approve-and-run-workflows-from-fork.png)
