@@ -1,10 +1,10 @@
-You can control how job failures are handled with `jobs.<job_id>.strategy.fail-fast` and `jobs.<job_id>.continue-on-error`.
+`jobs.<job_id>.strategy.fail-fast` and `jobs.<job_id>.continue-on-error`で、ジョブの失敗をどのように扱うかを制御できます。
 
-`jobs.<job_id>.strategy.fail-fast` applies to the entire matrix. If `jobs.<job_id>.strategy.fail-fast` is set to `true`, {% data variables.product.product_name %} will cancel all in-progress and queued jobs in the matrix if any job in the matrix fails. This property defaults to `true`.
+`jobs.<job_id>.strategy.fail-fast`はマトリックス全体に適用されます。 `jobs.<job_id>.strategy.fail-fast`が`true`に設定されていると、{% data variables.product.product_name %}はマトリックス内のいずれかのジョブが失敗した場合、マトリックスの進行中及びキューイングされたすべてのジョブをキャンセルします。 この属性のデフォルトは`true`です。
 
-`jobs.<job_id>.continue-on-error` applies to a single job. If `jobs.<job_id>.continue-on-error` is `true`, other jobs in the matrix will continue running even if the job with `jobs.<job_id>.continue-on-error: true` fails.
+`jobs.<job_id>.continue-on-error`は単一のジョブに適用されます。 `jobs.<job_id>.continue-on-error`が`true`の場合、`jobs.<job_id>.continue-on-error: true`を指定されたジョブが失敗したとしても、マトリックス内の他のジョブは実行を継続します。
 
-You can use `jobs.<job_id>.strategy.fail-fast` and `jobs.<job_id>.continue-on-error` together. For example, the following workflow will start four jobs. For each job, `continue-on-error` is determined by the value of `matrix.experimental`. If any of the jobs with `continue-on-error: false` fail, all jobs that are in progress or queued will be cancelled. If the job with `continue-on-error: true` fails, the other jobs will not be affected.
+`jobs.<job_id>.strategy.fail-fast`と`jobs.<job_id>.continue-on-error`は合わせて利用できます。 たとえば、以下のワークフローは4つのジョブを開始します。 それぞれのジョブにおいて、`continue-on-error`は`matrix.experimental`の値によって決定されます。 `continue-on-error: false`を指定されたいずれかのジョブが失敗すると、進行中もしくはキューイングされたすべてのジョブはキャンセルされます。 `continue-on-error: true`を指定されたジョブが失敗しても、他のジョブは影響を受けません。
 
 
 ```yaml

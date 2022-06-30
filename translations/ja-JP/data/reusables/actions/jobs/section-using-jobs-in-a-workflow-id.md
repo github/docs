@@ -1,8 +1,8 @@
-Use `jobs.<job_id>` to give your job a unique identifier. `job_id`キーは文字列型で、その値はジョブの設定データのマップとなるものです。 `<job_id>`は、`jobs`オブジェクトごとに一意の文字列に置き換える必要があります。 `<job_id>`は、英字または`_`で始める必要があり、英数字と`-`、`_`しか使用できません。
+`jobs.<job_id>`を使い、ジョブに一意の識別子を与えてください。 `job_id`キーは文字列型で、その値はジョブの設定データのマップとなるものです。 `<job_id>`は、`jobs`オブジェクトごとに一意の文字列に置き換える必要があります。 `<job_id>`は、英字または`_`で始める必要があり、英数字と`-`、`_`しか使用できません。
 
-#### Example: Creating jobs
+#### 例: ジョブの作成
 
-In this example, two jobs have been created, and their `job_id` values are `my_first_job` and `my_second_job`.
+この例では2つのジョブが作成されており、その`job_id`の値は`my_first_job`と`my_second_job`です。
 
 ```yaml
 jobs:

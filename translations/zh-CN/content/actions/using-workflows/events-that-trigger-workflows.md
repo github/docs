@@ -921,6 +921,12 @@ on:
   push
 ```
 
+{% note %}
+
+**注意**：当 `push` web 挂钩事件触发工作流程运行时，操作 UI 的“推送者”字段显示推送者的帐户，而不是作者或提交者的帐户。 但是，如果使用带有部署密钥的 SSH 身份验证将更改推送到存储库，则“推送者”字段将是存储库管理员，他在将部署密钥添加到存储库时对其进行了验证。
+
+{% endnote %}
+
 #### 仅在推送到特定分支时运行工作流程
 
 您可以使用 `branches` 或 `branches-ignore` 筛选器，将工作流程配置为仅在推送特定分支时运行。 更多信息请参阅“[GitHub Actions 的工作流程语法](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushbranchestagsbranches-ignoretags-ignore)”。

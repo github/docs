@@ -30,7 +30,7 @@ shortTitle: Personalize
 
 **Note{% ifversion ghec %}s{% endif %}**: {% ifversion ghec %}
 
-* {% endif %}Your profile picture should be a PNG, JPG, or GIF file under 1 MB in size. 最高の画質をもたらすには、画像を 500 × 500 ピクセルに収めることを推奨します。
+* {% endif %}Your profile picture should be a PNG, JPG, or GIF file, and it must be less than 1 MB in size and smaller than 3000 by 3000 pixels. 最高の画質をもたらすには、画像を 500 × 500 ピクセルに収めることを推奨します。
 {% ifversion ghec %}* Gravatar profile pictures are not supported with {% data variables.product.prodname_emus %}.{% endif %}
 
 {% endnote %}
@@ -39,14 +39,14 @@ shortTitle: Personalize
 
 {% data reusables.user-settings.access_settings %}
 2. [**Profile Picture**] で {% octicon "pencil" aria-label="The edit icon" %} [**Edit**] をクリックします。 ![プロフィール画像を編集](/assets/images/help/profile/edit-profile-photo.png)
-3. [**Upload a photo...**] をクリックします。 ![プロフィール画像の更新](/assets/images/help/profile/edit-profile-picture-options.png)
+3. Click **Upload a photo...**.{% ifversion not ghae %} ![Update profile picture](/assets/images/help/profile/edit-profile-picture-options.png){% endif %}
 3. 画像をクロッピングします。 作業を終えたら [**Set new profile picture**] をクリックします。 ![アップロードされた画像をクロッピングする](/assets/images/help/profile/avatar_crop_and_save.png)
 
 ### プロフィール画像をアイデンティコンへリセットする
 
 {% data reusables.user-settings.access_settings %}
 2. [**Profile Picture**] で {% octicon "pencil" aria-label="The edit icon" %} [**Edit**] をクリックします。 ![プロフィール画像を編集](/assets/images/help/profile/edit-profile-photo.png)
-3. アイデンティコンに戻すには、[**Remove photo**] をクリックします。 メールアドレスが [Gravatar](https://en.gravatar.com/) に関連付けられている場合、アイデンティコンに戻すことはできません。 その場合は、代わりに [**Revert to Gravatar**] をクリックします。 ![プロフィール画像の更新](/assets/images/help/profile/edit-profile-picture-options.png)
+3. アイデンティコンに戻すには、[**Remove photo**] をクリックします。 {% ifversion not ghae %}If your email address is associated with a [Gravatar](https://en.gravatar.com/), you cannot revert to your identicon. その場合は、代わりに [**Revert to Gravatar**] をクリックします。 ![Update profile picture](/assets/images/help/profile/edit-profile-picture-options.png){% endif %}
 
 ## プロフィール名を変更する
 
