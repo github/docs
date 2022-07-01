@@ -14,7 +14,7 @@ topics:
 
 {% data reusables.support.zendesk-old-tickets %}
 
-You can use the [GitHub Support Portal](https://support.github.com/) to view current and past support tickets and respond to {% data variables.contact.github_support %}. {% ifversion ghec or ghes or ghae %}After 120 days, resolved tickets move to the archived tickets view.{% endif %}
+You can use the [GitHub Support Portal](https://support.github.com/) to view current and past support tickets and respond to {% data variables.contact.github_support %}. After 120 days, resolved tickets are archived{% ifversion ghec or ghes or ghae %}, and archived tickets can only be viewed for enterprise accounts.{% endif %}
 
 {% ifversion ghes or ghec %}
 {% data reusables.enterprise-accounts.support-entitlements %}
@@ -35,6 +35,7 @@ You can only view archived tickets for an enterprise account.
 {% data reusables.support.navigate-to-my-tickets %}
 1. Select the **My Tickets** drop-down menu and click the name of the enterprise account. 
 
+   {% data reusables.support.entitlements-note %}
    ![Screenshot of the "My Tickets" dropdown menu.](/assets/images/help/support/ticket-context.png)
 1. Under the "My tickets" table, click **View archived tickets**.
 
