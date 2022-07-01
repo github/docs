@@ -14,7 +14,7 @@ topics:
 
 {% data reusables.support.zendesk-old-tickets %}
 
-You can use the [GitHub Support Portal](https://support.github.com/) to view current and past support tickets and respond to {% data variables.contact.github_support %}. After 120 days, resolved tickets are archived{% ifversion ghec or ghes or ghae %}, and archived tickets can only be viewed for enterprise accounts.{% endif %}
+You can use the [GitHub Support Portal](https://support.github.com/) to view current and past support tickets and respond to {% data variables.contact.github_support %}. After 120 days, resolved tickets are archived{% ifversion ghec or ghes or ghae %}, and archived tickets can only be viewed for enterprise accounts{% endif %}.
 
 {% ifversion ghes or ghec %}
 {% data reusables.enterprise-accounts.support-entitlements %}
