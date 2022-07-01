@@ -29,7 +29,7 @@ To create codespaces with custom permissions defined, you must use one of the fo
 
 ## Setting additional repository permissions
 
-1. You configure repository permissions for {% data variables.product.prodname_github_codespaces %} in the `devcontainer.json` file. If your repository does not already contain a `devcontainer.json` file, add one now. For more information, "[Add a dev container to your project](/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces)."
+1. You configure repository permissions for {% data variables.product.prodname_codespaces %} in the `devcontainer.json` file. If your repository does not already contain a `devcontainer.json` file, add one now. For more information, "[Add a dev container to your project](/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces)."
 
 1. Edit the `devcontainer.json` file, adding the repository name and permissions needed to the `repositories` object:
 
@@ -105,7 +105,7 @@ To create codespaces with custom permissions defined, you must use one of the fo
 
 ## Authorizing requested permissions
 
-If additional repository permissions are defined in the `devcontainer.json` file, you will be prompted to review and optionally authorize the permissions when you create a codespace for this repository. When you authorize permissions for a repository, {% data variables.product.prodname_github_codespaces %} will not re-prompt you unless the set of requested permissions has changed for the repository.
+If additional repository permissions are defined in the `devcontainer.json` file, you will be prompted to review and optionally authorize the permissions when you create a codespace for this repository. When you authorize permissions for a repository, {% data variables.product.prodname_codespaces %} will not re-prompt you unless the set of requested permissions has changed for the repository.
 
 ![The requested permissions page](/assets/images/help/codespaces/codespaces-accept-permissions.png)
 

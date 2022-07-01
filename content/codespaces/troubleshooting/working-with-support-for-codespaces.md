@@ -1,6 +1,6 @@
 ---
-title: Working with support for Codespaces
-intro: 'Tips on getting the best help from support for {% data variables.product.prodname_codespaces %}.'
+title: Working with support for GitHub Codespaces
+intro: 'Tips on getting the best help from support for {% data variables.product.prodname_github_codespaces %}.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
