@@ -1,4 +1,4 @@
-{% data reusables.support-navigate-to-my-tickets %}
+{% data reusables.support.navigate-to-my-tickets %}
 1. Optionally, to view tickets associated with an organization or enterprise account, select the **My Tickets** drop-down menu and click the name of the organization or enterprise account. 
 
   You must have an enterprise support entitlement to view tickets associated with an organization or enterprise account. For more information, see "[Managing support entitlements for your enterprise](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise)."

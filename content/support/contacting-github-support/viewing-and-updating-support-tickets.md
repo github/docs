@@ -32,7 +32,7 @@ You can use the [GitHub Support Portal](https://support.github.com/) to view cur
 
 You can only view archived tickets for an enterprise account.
 
-{% data reusables.support-navigate-to-my-tickets %}
+{% data reusables.support.navigate-to-my-tickets %}
 1. Select the **My Tickets** drop-down menu and click the name of the enterprise account. 
 
    ![Screenshot of the "My Tickets" dropdown menu.](/assets/images/help/support/ticket-context.png)
