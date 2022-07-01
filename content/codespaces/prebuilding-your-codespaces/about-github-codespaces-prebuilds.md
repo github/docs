@@ -1,11 +1,7 @@
 ---
 title: About GitHub Codespaces prebuilds
 shortTitle: About prebuilds
-<<<<<<< HEAD:content/codespaces/prebuilding-your-codespaces/about-github-codespaces-prebuilds.md
-intro: GitHub Codespaces prebuilds help to speed up the creation of new codespaces.
-=======
 intro: Codespaces prebuilds help to speed up the creation of new codespaces for large or complex repositories.
->>>>>>> main:content/codespaces/prebuilding-your-codespaces/about-codespaces-prebuilds.md
 versions:
   fpt: '*'
   ghec: '*'

@@ -1,25 +1,14 @@
 ---
-<<<<<<< HEAD:content/codespaces/customizing-your-codespace/setting-your-timeout-period-for-github-codespaces.md
-title: Setting your timeout period for GitHub Codespaces
-intro: 'You can set your default timeout for {% data variables.product.prodname_github_codespaces %} in your personal settings page.'
-=======
 title: Setting your timeout period for Codespaces
 shortTitle: Set the timeout
 intro: 'You can set your default timeout for {% data variables.product.prodname_codespaces %} in your personal settings page.'
->>>>>>> main:content/codespaces/customizing-your-codespace/setting-your-timeout-period-for-codespaces.md
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
   ghec: '*'
 topics:
   - Codespaces
-<<<<<<< HEAD:content/codespaces/customizing-your-codespace/setting-your-timeout-period-for-github-codespaces.md
-shortTitle: Set the timeout
-redirect_from:
-  - /codespaces/customizing-your-codespace/setting-your-timeout-period-for-codespaces
-=======
 type: how_to
->>>>>>> main:content/codespaces/customizing-your-codespace/setting-your-timeout-period-for-codespaces.md
 ---
 
 A codespace will stop running after a period of inactivity. You can specify the length of this timeout period. The updated setting will apply to any newly created codespace.
