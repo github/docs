@@ -308,7 +308,7 @@ jobs:
 
       # Download the previously built "app.tar"
       - name: Download build artifact
-        uses: dawidd6/action-download-artifact@af92a8455a59214b7b932932f2662fdefbd78126
+        uses: dawidd6/action-download-artifact@6765a42d86407a3d532749069ac03705ad82ebc6
         with:
           workflow: ${{ github.event.workflow_run.workflow_id }}
           run_id: ${{ env.BUILD_ACTIONS_RUN_ID }}
