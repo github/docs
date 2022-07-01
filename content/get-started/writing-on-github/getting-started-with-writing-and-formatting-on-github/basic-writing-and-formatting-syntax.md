@@ -89,7 +89,7 @@ For more information, see "[Creating and highlighting code blocks](/articles/cre
 
 ## Supported color models
 
-You can call out color within a sentence with single backticks. A supported color model within backticks will display a visualization of the color.
+In issues, pull requests, and discussions, you can call out colors within a sentence by using backticks. A supported color model within backticks will display a visualization of the color.
 
 ```markdown
 The background color should be `#ffffff` for light mode and `#0d1117` for dark mode.
@@ -107,7 +107,10 @@ Here are the currently supported color models.
 
 {% note %}
 
-**Note:** A supported color model cannot have any leading or trailing spaces within the backticks.
+**Notes:**
+
+- A supported color model cannot have any leading or trailing spaces within the backticks.
+- The visualization of the color is only supported in issues, pull requests, and discussions.
 
 {% endnote %}
 
