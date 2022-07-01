@@ -14,7 +14,7 @@ shortTitle: Dotfiles
 If your codespace fails to pick up configuration settings from dotfiles, you should work through the following debugging steps.
 
 1. Make sure your dotfiles repository is public. If you have secrets or sensitive data you want to use in your codespace, use [Codespace secrets](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces) instead of private dotfiles.
-2. Enable dotfiles by checking "Automatically install dotfiles" in [your personal Codespaces settings](https://github.com/settings/codespaces).
+2. Enable dotfiles by selecting **Automatically install dotfiles** in [your personal Codespaces settings](https://github.com/settings/codespaces).
 ![codespaces-dotfiles-setting](https://user-images.githubusercontent.com/1014482/176512385-4f2ca981-c57c-41db-bcd6-1d9b60f7285e.png)
 3. Check `/workspaces/.codespaces/.persistedshare/dotfiles` to see if your dotfiles were cloned.
     - If your dotfiles were cloned, try manually re-running your install script to verify that it is executable.
