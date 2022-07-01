@@ -14,7 +14,7 @@ import { fileURLToPath } from 'url'
 import path from 'path'
 import fs from 'fs'
 import { LinkChecker } from 'linkinator'
-import program from 'commander'
+import { program } from 'commander'
 import { pull, uniq } from 'lodash-es'
 import rimraf from 'rimraf'
 import mkdirp from 'mkdirp'
@@ -42,6 +42,8 @@ const DISPLAY_MAX_LENGTH = parseInt(process.env.DISPLAY_MAX_LENGTH || '30000', 1
 
 // Links with these codes may or may not really be broken.
 const retryStatusCodes = [429, 503, 'Invalid']
+
+const LINKINATOR_CONCURRENCY = parseInt(process.env.LINKINATOR_CONCURRENCY || '300')
 
 program
   .description('Check all links in the English docs.')
@@ -73,7 +75,7 @@ const enterpriseReleasesToSkip = new RegExp(`${root}.+?[/@](${deprecated.join('|
 
 const config = {
   path: program.opts().path || englishRoot,
-  concurrency: 300,
+  concurrency: LINKINATOR_CONCURRENCY,
   // If this is a dry run, turn off recursion.
   recurse: !program.opts().dryRun,
   silent: true,

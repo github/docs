@@ -8,7 +8,7 @@
 // [end-readme]
 
 import fs from 'fs'
-import program from 'commander'
+import { program } from 'commander'
 import frontmatter from '../../lib/read-frontmatter.js'
 import removeLiquidStatements from '../../script/helpers/remove-liquid-statements.js'
 import removeDeprecatedFrontmatter from '../../script/helpers/remove-deprecated-frontmatter.js'

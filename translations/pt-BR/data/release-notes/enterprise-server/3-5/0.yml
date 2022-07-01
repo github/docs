@@ -293,6 +293,13 @@ sections:
       Agora é possível para o aplicativo GitHub Apps upload de ativos de versão.
   changes:
     - |
+      Minimum requirements for root storage and memory increased for GitHub Enterprise Server 2.10 and 3.0, and are now enforced as of 3.5.0.
+
+        - In version 2.10, the minimum requirement for root storage increased from 80 GB to 200 GB. As of 3.5.0, system preflight checks will fail if the root storage is smaller than 80 GB.
+        - In version 3.0, the minimum requirement for memory increased to from 16 GB to 32 GB. As of 3.5.0, system preflight checks will fail if the system has less than 28 GB of memory.
+
+      For more information, see the minimum requirements for each supported deployment platform in "[Setting up a GitHub Enterprise Server instance](/admin/installation/setting-up-a-github-enterprise-server-instance)." [Updated: 2022-06-20]
+    - |
       Para usar o fluxo de autorização do dispositivo para os aplicativos OAuth e GitHub, você deve habilitar o recurso manualmente. Essa alteração reduz a probabilidade de aplicativos serem usados em ataques de phishing contra usuários do GitHub Enterprise Server, garantindo que os integradores estejam cientes dos riscos e fazendo uma escolha consciente para apoiar essa forma de autenticação. Se você possui ou gerencia um aplicativo OAuth ou GitHub e quer usar o fluxo do dispositivo, você pode habilitá-lo para seu aplicativo através da página de configurações do aplicativo. Os pontos de extremidade da API do dispositivo responderão com o código de status `400` aos aplicativos que não habilitaram este recurso. Para obter mais informações, consulte "[Autorizando aplicativos OAuth](/developers/apps/building-oauth-apps/authorizing-oauth-apps#device-flow)".
     - |
       A página de alerta de digitalização de código agora sempre mostra o status de alerta e informações para o branch padrão. Há um novo painel de "Branches afetados" na barra lateral onde você pode ver o status do alerta em outros branches. Se o alerta não existir na branch padrão, a página de alerta mostrará o status como "Sem branch" ou "Em pull request" para o local onde o alerta foi visto pela última vez. Esta melhoria facilita a compreensão do status dos alertas que foram introduzidos na sua base de código. Para obter mais informações, consulte "[Sobre a digitalização de código](/code-security/code-scanning/automaticamente, scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-alert-details).
@@ -318,10 +325,10 @@ sections:
       O MinIO anunciou a remoção do MinIO Gateway iniciando em 1 de Junho de 2022. Embora o Gateway MinIO para o NAS continue sendo um dos provedores de armazenamento compatíveis com o Github Actions e Github Packages, recomendamos transferir para o suporte do MinIO LTS para utilizar suporte e correções de erros do MinIO. Para obter mais informações sobre limites de taxa, consulte "[Remoção Agendada do MinIO Gateway para GCS, Azure, HDFS no repositório minio/minio](https://github.com/minio/minio/issues/14331)."
   deprecations:
     - 
-      heading: Alterar o formato de autenticação de tokens
+      heading: Change to the format of authentication tokens affects GitHub Connect
       notes:
         - |
-          O GitHub Connect não funcionará mais após 3 de junho para instâncias em excecução no GitHub Enterprise Server 3.1 ou anterior devido à alteração no formato dos tokens de autenticação do GitHub. Para obter mais informações, consulte o [registro de alterações do GitHub changelog](https://github.blog/changelog/2021-03-31-authentication-token-format-updates-are-generally-available/).
+          GitHub Connect will no longer work after June 3rd for instances running GitHub Enterprise Server 3.1 or older, due to the format of GitHub authentication tokens changing. To continue using GitHub Connect, upgrade to GitHub Enterprise Server 3.2 or later. For more information, see the [GitHub Blog](https://github.blog/2022-05-20-action-needed-by-github-connect-customers-using-ghes-3-1-and-older-to-adopt-new-authentication-token-format-updates/). [Updated: 2022-06-14]
     - 
       heading: Executor do CodeQL descontinuado em detrimento da CLI do CodeQL
       notes:
@@ -342,3 +349,4 @@ sections:
     - Os limites de recursos que são específicos para processamento de hooks pre-receive podem causar falha em alguns hooks pre-receive.
     - Os serviços de ações precisam ser reiniciados após a restauração de um dispositivo de um backup em um host diferente.
     - 'Deleted repositories will not be purged from disk automatically after the 90-day retention period ends. [Updated: 2022-06-08]'
+    - 'Management Console may appear stuck on the _Starting_ screen after upgrading an under-provisioned instance to GitHub Enterprise Server 3.5. [Updated: 2022-06-20]'

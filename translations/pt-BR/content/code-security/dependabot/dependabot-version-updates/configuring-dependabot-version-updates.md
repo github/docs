@@ -36,7 +36,7 @@ Você habilita {% data variables.product.prodname_dependabot_version_updates %},
 ## Habilitar {% data variables.product.prodname_dependabot_version_updates %}
 
 Você habilita {% data variables.product.prodname_dependabot_version_updates %} enviando um arquivo de configuração de *dependabot.yml* para o seu repositório.
-{% ifversion dependabot-settings-update-37 %}If you enable the feature in your settings page, GitHub creates a basic file which you can edit, otherwise you can create the file using any file editor.
+{% ifversion dependabot-settings-update-37 %}Se você habilitar o recurso na sua página de configurações, o GitHub criará um arquivo básico que você pode editar, caso contrário você pode criar o arquivo usando qualquer editor de arquivo.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}

@@ -9,9 +9,7 @@ import abort from './abort.js'
 import timeout from './timeout.js'
 import morgan from 'morgan'
 import datadog from './connect-datadog.js'
-import cors from './cors.js'
-import helmet from 'helmet'
-import csp from './csp.js'
+import helmet from './helmet.js'
 import cookieParser from './cookie-parser.js'
 import csrf from './csrf.js'
 import handleCsrfErrors from './handle-csrf-errors.js'
@@ -208,17 +206,7 @@ export default function (app) {
   app.use(instrument(handleNextDataPath, './handle-next-data-path'))
 
   // *** Security ***
-  app.use(cors)
-  app.use(
-    helmet({
-      // Override referrerPolicy to match the browser's default: "strict-origin-when-cross-origin".
-      // Helmet now defaults to "no-referrer", which is a problem for our archived assets proxying.
-      referrerPolicy: {
-        policy: 'strict-origin-when-cross-origin',
-      },
-    })
-  )
-  app.use(csp) // Must come after helmet
+  app.use(helmet)
   app.use(cookieParser) // Must come before csrf
   app.use(express.json()) // Must come before csrf
 

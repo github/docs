@@ -1,5 +1,6 @@
 import cheerio from 'cheerio'
 import got from 'got'
+import { omitBy, isUndefined } from 'lodash-es'
 
 export async function get(
   route,
@@ -16,14 +17,18 @@ export async function get(
   const fn = got[method]
   if (!fn || typeof fn !== 'function') throw new Error(`No method function for '${method}'`)
   const absURL = `http://localhost:4000${route}`
-  const res = await fn(absURL, {
-    body: opts.body,
-    headers: opts.headers,
-    retry: { limit: 0 },
-    cookieJar: opts.cookieJar,
-    throwHttpErrors: false,
-    followRedirect: opts.followAllRedirects || opts.followRedirects,
-  })
+  const xopts = omitBy(
+    {
+      body: opts.body,
+      headers: opts.headers,
+      retry: { limit: 0 },
+      cookieJar: opts.cookieJar,
+      throwHttpErrors: false,
+      followRedirect: opts.followAllRedirects || opts.followRedirects,
+    },
+    isUndefined
+  )
+  const res = await fn(absURL, xopts)
   // follow all redirects, or just follow one
   if (opts.followAllRedirects && [301, 302].includes(res.status)) {
     // res = await get(res.headers.location, opts)

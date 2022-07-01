@@ -31,7 +31,7 @@ shortTitle: Export data from GitHub.com
 
 {% data reusables.enterprise_migrations.fork-persistence %}
 
-To export repository data from {% data variables.product.prodname_dotcom_the_website %}, use <a href="/rest/reference/migrations" class="dotcom-only">the Migrations API</a>.
+To export repository data from {% data variables.product.prodname_dotcom_the_website %}, use [the Migrations API](/free-pro-team@latest/rest/reference/migrations).
 
 The Migrations API is currently in a preview period, which means that the endpoints and parameters may change in the future. 
 ## Generating a migration archive
@@ -40,9 +40,9 @@ The Migrations API is currently in a preview period, which means that the endpoi
 
 1. Notify members of your organization that you'll be performing a migration. The export can take several minutes, depending on the number of repositories being exported. The full migration including import may take several hours so we recommend doing a trial run in order to determine how long the full process will take. For more information, see "[About Migrations](/enterprise/admin/migrations/about-migrations#types-of-migrations)."
 
-2. Start a migration by sending a `POST` request to <a href="/rest/reference/migrations#start-an-organization-migration" class="dotcom-only">the migration endpoint</a>. You'll need:
+2. Start a migration by sending a `POST` request to [the migration endpoint](/free-pro-team@latest/rest/reference/migrations#start-an-organization-migration). You'll need:
     * Your access token for authentication.
-    * A [list of the repositories](/rest/reference/repos#list-organization-repositories) you want to migrate:
+    * A [list of the repositories](/free-pro-team@latest/rest/reference/repos#list-organization-repositories) you want to migrate:
       ```shell
       curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" \
       -X POST \
@@ -55,7 +55,7 @@ The Migrations API is currently in a preview period, which means that the endpoi
 
   This request returns a unique `id` which represents your migration. You'll need it for subsequent calls to the Migrations API.
 
-3. Send a `GET` request to <a href="/rest/reference/migrations#get-an-organization-migration-status" class="dotcom-only">the migration status endpoint</a> to fetch the status of a migration. You'll need:
+3. Send a `GET` request to [the migration status endpoint](/free-pro-team@latest/rest/reference/migrations#get-an-organization-migration-status) to fetch the status of a migration. You'll need:
     * Your access token for authentication.
     * The unique `id` of the migration:
       ```shell
@@ -70,7 +70,7 @@ The Migrations API is currently in a preview period, which means that the endpoi
     * `exported`, which means the migration finished successfully.
     * `failed`, which means the migration failed.
 
-4. After your migration has exported, download the migration archive by sending a `GET` request to <a href="/rest/reference/migrations#download-an-organization-migration-archive" class="dotcom-only">the migration download endpoint</a>. You'll need:
+4. After your migration has exported, download the migration archive by sending a `GET` request to [the migration download endpoint](/free-pro-team@latest/rest/reference/migrations#download-an-organization-migration-archive). You'll need:
     * Your access token for authentication.
     * The unique `id` of the migration:
       ```shell
@@ -80,7 +80,7 @@ The Migrations API is currently in a preview period, which means that the endpoi
       https://api.github.com/orgs/<em>orgname</em>/migrations/<em>id</em>/archive
       ```
 
-5. The migration archive is automatically deleted after seven days. If you would prefer to delete it sooner, you can send a `DELETE` request to <a href="/rest/reference/migrations#delete-an-organization-migration-archive" class="dotcom-only">the migration archive delete endpoint</a>. You'll need:
+5. The migration archive is automatically deleted after seven days. If you would prefer to delete it sooner, you can send a `DELETE` request to [the migration archive delete endpoint](/free-pro-team@latest/free-pro-team@latest/rest/reference/migrations#delete-an-organization-migration-archive). You'll need:
     * Your access token for authentication.
     * The unique `id` of the migration:
       ```shell

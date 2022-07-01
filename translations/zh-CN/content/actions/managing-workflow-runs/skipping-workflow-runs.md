@@ -26,7 +26,7 @@ shortTitle: 跳过工作流程运行
 * `[skip actions]`
 * `[actions skip]`
 
-Alternatively, you can end the commit message with two empty lines followed by either:
+或者，您可以用两个空行后跟以下任一行结束提交消息：
 - `skip-checks:true`
 - `skip-checks: true`
 

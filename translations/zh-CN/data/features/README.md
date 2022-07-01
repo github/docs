@@ -21,7 +21,7 @@ versions:
 
 ### 液体条件
 
-现在您可以在内容文件中使用 `{% if meow %} ... {% endif %}`！ 请注意，这是 `if` 标记，而不是新的 `ifversion` 标记。
+现在您可以在内容文件中使用 `{% ifversion meow %} ... {% endif %}`！
 
 ### 前辅文
 
@@ -45,7 +45,7 @@ versions:
 
 ## 架构执行
 
-验证功能版本管理的架构位于 [`tests/helpers/schemas/feature-versions-schema.js`](/tests/helpers/schemas/feature-versions-schema.js) 中，通过 [`tests/linting/lint-files.js`](/tests/linting/lint-files.js) 执行。
+验证功能版本管理的架构位于 [`tests/helpers/schemas/feature-versions-schema.js`](/tests/helpers/schemas/feature-versions-schema.js) 中，通过 [`tests/linting/lint-versioning.js`](/tests/linting/lint-versioning.js) 执行。
 
 ## 删除功能标签的脚本
 

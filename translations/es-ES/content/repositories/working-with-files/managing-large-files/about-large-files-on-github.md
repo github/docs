@@ -40,7 +40,7 @@ shortTitle: Archivos grandes
 
 {% endnote %}
 
-{% ifversion ghes %}Predeterminadamente, {% endif %}{% data variables.product.product_name %} bloquea las subidas que excedan {% data variables.large_files.max_github_size %}. {% ifversion ghes %}Sin embargo, un administrador de sitio puede configurar un límite diferente para {% data variables.product.product_location %}.  Para obtener más información, consulta la sección "[Configurar los límites de subida de Git](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-git-push-limits)".{% endif %}
+{% ifversion ghes %}Predeterminadamente, {% endif %}{% data variables.product.product_name %} bloquea las subidas que excedan {% data variables.large_files.max_github_size %}. {% ifversion ghes %}Sin embargo, un administrador de sitio puede configurar un límite diferente para {% data variables.product.product_location %}.  Para obtener más información, consulta la sección "[Configurar los límites de subida de Git](/enterprise/admin/guides/installation/setting-git-push-limits)".{% endif %}
 
 Para rastrear archivos que sobrepasen este límite, debes utilizar {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}). Para obtener más información, consulta la sección "[Acerca de {% data variables.large_files.product_name_long %}](/repositories/working-with-files/managing-large-files/about-git-large-file-storage)".
 

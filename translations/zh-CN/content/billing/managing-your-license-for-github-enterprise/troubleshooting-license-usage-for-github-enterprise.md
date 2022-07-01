@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting license usage for GitHub Enterprise
-intro: You can troubleshoot license usage for your enterprise by auditing license reports.
+intro: 'You can troubleshoot license usage for your enterprise by auditing license reports.'
 permissions: 'Enterprise owners can review license usage for {% data variables.product.prodname_enterprise %}.'
 versions:
   ghec: '*'
@@ -26,20 +26,20 @@ For privacy reasons, enterprise owners cannot directly access the details of use
 
 ## Fields in the consumed license files
 
-The {% data variables.product.prodname_dotcom_the_website %} license usage report and {% data variables.product.prodname_ghe_server %} exported license usage file include a variety of fields to help you troubleshoot license usage for your enterprise.
+The {% data variables.product.prodname_dotcom_the_website %} license usage report and {% data variables.product.prodname_ghe_server %} exported license usage file include a variety of fields to help you troubleshoot license usage for your enterprise. 
 ### {% data variables.product.prodname_dotcom_the_website %} license usage report (CSV file)
 
 The license usage report for your enterprise is a CSV file that contains the following information about members of your enterprise. Some fields are specific to your {% data variables.product.prodname_ghe_cloud %} (GHEC) deployment, {% data variables.product.prodname_ghe_server %} (GHES) connected environments, or your {% data variables.product.prodname_vs %} subscriptions (VSS) with GitHub Enterprise.
 
-| 字段              | 描述                                                                                                                                                                                                                                                                                    |
-| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 名称              | First and last name for the user's account on GHEC.                                                                                                                                                                                                                                   |
-| Handle or email | GHEC username, or the email address associated with the user's account on GHES.                                                                                                                                                                                                       |
-| Profile link    | Link to the {% data variables.product.prodname_dotcom_the_website %} profile page for the user's account on GHEC.                                                                                                                                                                   |
-| License type    | Can be one of: `Visual Studio subscription` or `Enterprise`.                                                                                                                                                                                                                          |
-| License status  | Identifies if a user account on {% data variables.product.prodname_dotcom_the_website %} successfully matched either a {% data variables.product.prodname_vs_subscriber %} or GHES user.<br><br>Can be one of: `Matched`, `Pending Invitation`, `Server Only`, blank. |
-| Member roles    | For each of the organizations the user belongs to on GHEC, the organization name and the person's role in that organization (`Owner` or `Member`) separated by a colon<br><br>Each organization is delimited by a comma.                                                  |
-| 企业角色            | Can be one of: `Owner` or `Member`.                                                                                                                                                                                                                                                   |
+| Field | Description
+| ----- | -----------
+| Name | First and last name for the user's account on GHEC.
+| Handle or email | GHEC username, or the email address associated with the user's account on GHES.
+| Profile link | Link to the {% data variables.product.prodname_dotcom_the_website %} profile page for the user's account on GHEC.
+| License type | Can be one of: `Visual Studio subscription` or `Enterprise`.
+| License status | Identifies if a user account on {% data variables.product.prodname_dotcom_the_website %} successfully matched either a {% data variables.product.prodname_vs_subscriber %} or GHES user.<br><br>Can be one of: `Matched`, `Pending Invitation`, `Server Only`, blank.
+| Member roles | For each of the organizations the user belongs to on GHEC, the organization name and the person's role in that organization (`Owner` or `Member`) separated by a colon<br><br>Each organization is delimited by a comma.
+| Enterprise role | Can be one of: `Owner` or `Member`.
 
 {% data variables.product.prodname_vs_subscriber %}s who are not yet members of at least one organization in your enterprise will be included in the report with a pending invitation status, and will be missing values for the "Name" or "Profile link" field.
 
@@ -47,15 +47,15 @@ The license usage report for your enterprise is a CSV file that contains the fol
 
 Your {% data variables.product.prodname_ghe_server %} license usage is a JSON file that is typically used when performing a manual sync of user licenses between {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %} deployments. The file contains the following information specific to your {% data variables.product.prodname_ghe_server %} environment.
 
-| 字段         | 描述                                                                                                                                                                                             |
-| ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 功能         | The {% data variables.product.prodname_github_connect %} features that are enabled on your {% data variables.product.prodname_ghe_server %} instance, and the date and time of enablement. |
-| Host name  | The hostname of your {% data variables.product.prodname_ghe_server %} instance.                                                                                                              |
-| HTTP only  | Whether Transport Layer Security (TLS) is enabled and configured on your {% data variables.product.prodname_ghe_server %} instance. Can be one of: `True` or `False`.                        |
-| 许可         | {% data variables.product.prodname_ghe_server %} 许可的哈希.                                                                                                                                      |
-| Public key | {% data variables.product.prodname_ghe_server %} 许可的公钥部分.                                                                                                                                    |
-| Server ID  | UUID generated for your {% data variables.product.prodname_ghe_server %} instance.                                                                                                           |
-| 版本         | The version of your {% data variables.product.prodname_ghe_server %} instance.                                                                                                               |
+| Field | Description
+| ----- | -----------
+| Features | The {% data variables.product.prodname_github_connect %} features that are enabled on your {% data variables.product.prodname_ghe_server %} instance, and the date and time of enablement.
+| Host name | The hostname of your {% data variables.product.prodname_ghe_server %} instance.
+| HTTP only | Whether Transport Layer Security (TLS) is enabled and configured on your {% data variables.product.prodname_ghe_server %} instance. Can be one of: `True` or `False`. 
+| License | A hash of your {% data variables.product.prodname_ghe_server %} license.
+| Public key | The public key portion of your {% data variables.product.prodname_ghe_server %} license.
+| Server ID | UUID generated for your {% data variables.product.prodname_ghe_server %} instance.
+| Version | The version of your {% data variables.product.prodname_ghe_server %} instance.
 
 ## Troubleshooting consumed licenses
 
@@ -72,7 +72,7 @@ When attempting to match users across enterprises, {% data variables.product.com
 Your license usage is recalculated shortly after each license sync is performed. You can view the timestamp of the last license sync job, and, if a job hasn't run since an email address was updated or verified, to resolve an issue with your consumed license report you can manually trigger one. For more information, see "[Syncing license usage between GitHub Enterprise Server and GitHub Enterprise Cloud](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud)."
 
 {% ifversion ghec or ghes > 3.1 %}
-If your enterprise uses verified domains, review the list of enterprise members who do not have an email address from a verified domain associated with their {% data variables.product.prodname_dotcom_the_website %} account. Often, these are the users who erroneously consume more than one licensed seat. 更多信息请参阅“[查看来自已验证域的电子邮件地址的成员](/admin/user-management/managing-users-in-your-enterprise/viewing-people-in-your-enterprise#viewing-members-without-an-email-address-from-a-verified-domain)”。
+If your enterprise uses verified domains, review the list of enterprise members who do not have an email address from a verified domain associated with their {% data variables.product.prodname_dotcom_the_website %} account. Often, these are the users who erroneously consume more than one licensed seat. For more information, see "[Viewing members without an email address from a verified domain](/admin/user-management/managing-users-in-your-enterprise/viewing-people-in-your-enterprise#viewing-members-without-an-email-address-from-a-verified-domain)."
 {% endif %}
 
 {% note %}

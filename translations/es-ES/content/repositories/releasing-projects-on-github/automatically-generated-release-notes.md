@@ -17,7 +17,7 @@ communityRedirect:
 
 ## Acerca de las notas de lanzamiento generadas automáticamente
 
-Las notas de lanzamiento generadas automáticamente proporcionan una alternativa de automatización para escribir notas de lanzamiento manualmente para tus lanzamientos de {% data variables.product.prodname_dotcom %}. Con las notas de lanzamiento generadas automáticamente, puedes generar rápidamente un resumen del contenido de un lanzamiento. Automatically generated release notes include a list of merged pull requests, a list of contributors to the release, and a link to a full changelog.
+Las notas de lanzamiento generadas automáticamente proporcionan una alternativa de automatización para escribir notas de lanzamiento manualmente para tus lanzamientos de {% data variables.product.prodname_dotcom %}. Con las notas de lanzamiento generadas automáticamente, puedes generar rápidamente un resumen del contenido de un lanzamiento. Las notas de lanzamiento generadas automáticamente incluyen una lista de solicitudes de cambio fusionadas, una lista de contribuyentes al lanzamiento y un enlace a una bitácora de cambios completa.
 
 También puedes personalizar tus notas de lanzamiento automatizadas, utilizando etiquetas para crear categorías personalizadas para organizar las solicitudes de cambio que quieras incluir y excluyendo ciertas etiquetas y usuarios para que no aparezcan en la salida.
 
@@ -38,8 +38,7 @@ También puedes personalizar tus notas de lanzamiento automatizadas, utilizando 
   {% else %}![Rama de lanzamientos con etiquetas](/assets/images/enterprise/releases/releases-tag-branch.png)
   {% endif %}
 {%- data reusables.releases.previous-release-tag %}
-7. To the top right of the description text box, click {% ifversion previous-release-tag %}**Generate release notes**{% else %}**Auto-generate release notes**{% endif %}.{% ifversion previous-release-tag %} ![Generate release notes](/assets/images/help/releases/generate-release-notes.png){% else %}
-![Auto-generate release notes](/assets/images/enterprise/3.5/releases/auto-generate-release-notes.png){% endif %}
+7. En la esquina derecha de la caja de texto de descripción, haz clic en {% ifversion previous-release-tag %}**Generar notas de lanzamiento**{% else %}**Auto generar notas de lanzamiento**{% endif %}.{% ifversion previous-release-tag %}![Generate release notes](/assets/images/help/releases/generate-release-notes.png){% else %}![Auto-generate release notes](/assets/images/enterprise/3.5/releases/auto-generate-release-notes.png){% endif %}
 8. Verifica las notas generadas para garantizar que incluyan toda (y únicamente) la información que quieras incluir.
 9. Opcionalmente, para incluir los archivos binarios tales como programas compilados en tu lanzamiento, arrastra y suelta o selecciona manualmente los archivos en la caja de binarios. ![Proporcionar un DMG con el lanzamiento](/assets/images/help/releases/releases_adding_binary.gif)
 10. Para notificar a los usuarios que el lanzamiento no está listo para producción y puede ser inestable, selecciona **Esto es un pre-lanzamiento**. ![Casilla de verificación para marcar un lanzamiento como prelanzamiento](/assets/images/help/releases/prerelease_checkbox.png)

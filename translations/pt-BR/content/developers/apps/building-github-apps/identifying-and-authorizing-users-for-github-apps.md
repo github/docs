@@ -159,7 +159,7 @@ Como as permissões de nível de usuário são concedidas em uma base de usuári
 
 ## Solicitações de usuário para servidor
 
-Embora a maior parte da interação da sua API deva ocorrer usando os tokens de acesso de servidor para servidor, certos pontos de extremidade permitem que você execute ações por meio da API usando um token de acesso do usuário. Seu aplicativo pode fazer as seguintes solicitações usando pontos de extremidade do [GraphQL v4]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql) ou [REST v3](/rest).
+Embora a maior parte da interação da sua API deva ocorrer usando os tokens de acesso de servidor para servidor, certos pontos de extremidade permitem que você execute ações por meio da API usando um token de acesso do usuário. Seu aplicativo pode fazer as seguintes solicitações usando pontos de extremidade do [GraphQL]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql) ou [REST](/rest).
 
 ### Pontos de extremidade compatíveis
 

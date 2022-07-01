@@ -8,8 +8,8 @@ import {
   RestContext,
   RestContextT,
   getRestContextFromRequest,
-  MiniTocItem,
 } from 'components/context/RestContext'
+import type { MiniTocItem } from 'components/context/ArticleContext'
 import {
   getTocLandingContextFromRequest,
   TocItem,

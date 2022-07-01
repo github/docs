@@ -1,4 +1,4 @@
-1. Para marcar el nodo que falló fuera de línea, en cualquier nodo, modifica el [archivo de configuración de agrupación](/enterprise/{{ currentVersion }}/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file) (`cluster.conf`) en la sección de nodo correspondiente para incluir el texto `offline = true`.
+1. Para marcar el nodo que falló fuera de línea, en cualquier nodo, modifica el [archivo de configuración de agrupación](/enterprise/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file) (`cluster.conf`) en la sección de nodo correspondiente para incluir el texto `offline = true`.
 
   Por ejemplo, este archivo `cluster.conf` modificado marcará el nodo `ghe-data-node-3` como fuera de línea:
 
