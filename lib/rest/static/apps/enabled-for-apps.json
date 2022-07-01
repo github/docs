@@ -584,12 +584,6 @@
         "requestPath": "/repos/{owner}/{repo}/actions/runs/{run_id}/pending_deployments"
       },
       {
-        "slug": "review-pending-deployments-for-a-workflow-run",
-        "subcategory": "workflow-runs",
-        "verb": "post",
-        "requestPath": "/repos/{owner}/{repo}/actions/runs/{run_id}/pending_deployments"
-      },
-      {
         "slug": "re-run-failed-jobs-from-a-workflow-run",
         "subcategory": "workflow-runs",
         "verb": "post",
@@ -7141,12 +7135,6 @@
         "requestPath": "/repos/{owner}/{repo}/actions/runs/{run_id}/pending_deployments"
       },
       {
-        "slug": "review-pending-deployments-for-a-workflow-run",
-        "subcategory": "workflow-runs",
-        "verb": "post",
-        "requestPath": "/repos/{owner}/{repo}/actions/runs/{run_id}/pending_deployments"
-      },
-      {
         "slug": "list-repository-secrets",
         "subcategory": "secrets",
         "verb": "get",
@@ -10208,12 +10196,6 @@
         "slug": "get-pending-deployments-for-a-workflow-run",
         "subcategory": "workflow-runs",
         "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/actions/runs/{run_id}/pending_deployments"
-      },
-      {
-        "slug": "review-pending-deployments-for-a-workflow-run",
-        "subcategory": "workflow-runs",
-        "verb": "post",
         "requestPath": "/repos/{owner}/{repo}/actions/runs/{run_id}/pending_deployments"
       },
       {
@@ -13398,12 +13380,6 @@
         "slug": "get-pending-deployments-for-a-workflow-run",
         "subcategory": "workflow-runs",
         "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/actions/runs/{run_id}/pending_deployments"
-      },
-      {
-        "slug": "review-pending-deployments-for-a-workflow-run",
-        "subcategory": "workflow-runs",
-        "verb": "post",
         "requestPath": "/repos/{owner}/{repo}/actions/runs/{run_id}/pending_deployments"
       },
       {
@@ -16785,12 +16761,6 @@
         "slug": "get-pending-deployments-for-a-workflow-run",
         "subcategory": "workflow-runs",
         "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/actions/runs/{run_id}/pending_deployments"
-      },
-      {
-        "slug": "review-pending-deployments-for-a-workflow-run",
-        "subcategory": "workflow-runs",
-        "verb": "post",
         "requestPath": "/repos/{owner}/{repo}/actions/runs/{run_id}/pending_deployments"
       },
       {
