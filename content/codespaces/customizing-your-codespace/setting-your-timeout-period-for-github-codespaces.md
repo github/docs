@@ -9,6 +9,8 @@ versions:
 topics:
   - Codespaces
 type: how_to
+redirect_from:
+  - /codespaces/customizing-your-codespace/setting-your-timeout-period-for-codespaces
 ---
 
 A codespace will stop running after a period of inactivity. You can specify the length of this timeout period. The updated setting will apply to any newly created codespace.

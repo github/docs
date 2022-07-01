@@ -14,7 +14,7 @@ children:
   - /changing-the-machine-type-for-your-codespace
   - /setting-your-default-editor-for-github-codespaces
   - /setting-your-default-region-for-github-codespaces
-  - /setting-your-timeout-period-for-codespaces
+  - /setting-your-timeout-period-for-github-codespaces
   - /configuring-automatic-deletion-of-your-codespaces
 ---
  
