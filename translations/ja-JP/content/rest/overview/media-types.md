@@ -26,11 +26,11 @@ API がサポートする最も基本的なメディアタイプは次のとお�
 
 {% note %}
 
-**Note:** In the past, we recommended including `v3` in your `Accept` header. This is no longer required and will have no impact on your API requests.
+**ノート:** 以前は`Accept`ヘッダに`v3`を含めることをおすすめしていました。 これは必要ではなくなっており、APIリクエストに影響を及ぼしません。
 
 {% endnote %}
 
-If you're specifying a property (such as full/raw/etc defined below), put it after `github`:
+プロパティ（以下で定義されているfull/raw/etcなど）を指定している場合、それは`github`のあとに置いてください:
 
     application/vnd.github.raw+json
 

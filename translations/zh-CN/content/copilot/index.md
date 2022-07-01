@@ -1,7 +1,7 @@
 ---
 title: GitHub Copilot
 shortTitle: GitHub Copilot
-intro: 'You can use {% data variables.product.prodname_copilot %} to get autocomplete-style suggestions from an AI pair programmer as you code.'
+intro: '您可以使用 {% data variables.product.prodname_copilot %} 在编写代码时从 AI 对程序员处获取自动完成样式的建议。'
 redirect_from:
   - /github/copilot
 changelog:
