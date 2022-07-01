@@ -9,6 +9,8 @@ type: reference
 topics:
   - Codespaces
 shortTitle: Working with support
+redirect_from:
+  - /codespaces/troubleshooting/working-with-support-for-codespaces
 ---
 
 Before support can help you with problems with codespaces, you need to know the name of the codespace and its codespaces ID (identifier). In addition, support may ask you to share some logs with them. For more information, see "[Codespaces logs](/codespaces/troubleshooting/codespaces-logs)" and "[About GitHub Support](/github/working-with-github-support/about-github-support)."
