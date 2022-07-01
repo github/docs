@@ -1,1 +1,1 @@
-| Triggering a workflow to run automatically: | [`push`](/actions/using-workflows/events-that-trigger-workflows#push) |
+| Acionando um fluxo de trabalho para funcionar automaticamente: | [`push`](/actions/using-workflows/events-that-trigger-workflows#push) |

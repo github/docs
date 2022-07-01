@@ -62,10 +62,10 @@ topics:
    $ ghe-repl-setup <em>PRIMARY IP</em>
    ```
 
-1. 为存储库缓存设置 `cache_location`，将 *CACHE-LOCATION* 替换为字母数字标识符，例如部署缓存的区域。
+1. 为存储库缓存设置 `cache_location`，将 *CACHE-LOCATION* 替换为字母数字标识符，例如部署缓存的区域。 还要为此缓存设置数据中心名称；新缓存将尝试从同一数据中心中的另一个缓存设定种子。
 
    ```shell
-   $ ghe-repl-node --cache <em>CACHE-LOCATION</em>
+   $ ghe-repl-node --cache <em>CACHE-LOCATION</em> --datacenter <em>REPLICA-DC-NAME</em>
    ```
 
 {% data reusables.enterprise_installation.replication-command %}

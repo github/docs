@@ -72,7 +72,7 @@ More resources may be required depending on your usage, such as user activity an
   {% endnote %}
 
 4. Set the `GHE_DATA_DIR` value to the filesystem location where you want to store backup snapshots.
-5. Open your primary instance's settings page at `https://HOSTNAME/setup/settings` and add the backup host's SSH key to the list of authorized SSH keys. For more information, see [Accessing the administrative shell (SSH)](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-administrative-shell-ssh/).
+5. Open your primary instance's settings page at `https://HOSTNAME/setup/settings` and add the backup host's SSH key to the list of authorized SSH keys. For more information, see [Accessing the administrative shell (SSH)](/enterprise/admin/guides/installation/accessing-the-administrative-shell-ssh/).
 6. Verify SSH connectivity with {% data variables.product.product_location %} with the `ghe-host-check` command.
   ```shell
   $ bin/ghe-host-check		  

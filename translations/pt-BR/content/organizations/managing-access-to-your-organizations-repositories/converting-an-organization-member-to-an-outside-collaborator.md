@@ -1,6 +1,7 @@
 ---
 title: Converter um integrante da organização em colaborador externo
-intro: 'Se um integrante atual da organização precisar de acesso apenas a determinados repositórios, como consultores ou funcionários temporários, você poderá convertê-lo em um *colaborador externo*.'
+intro: 'If a current member of your organization only needs access to certain repositories, such as consultants or temporary employees, you can convert them to an outside collaborator.'
+permissions: Organization owners can convert an organization member to an outside collaborator.
 redirect_from:
   - /articles/converting-an-organization-member-to-an-outside-collaborator
   - /github/setting-up-and-managing-organizations-and-teams/converting-an-organization-member-to-an-outside-collaborator
@@ -17,7 +18,9 @@ shortTitle: Converter integrante em colaborador
 
 ## Sobre a conversão de integrantes da organização para colaboradores externos
 
-{% data reusables.organizations.owners-and-admins-can %} converter integrantes da organização em colaboradores externos.
+You can convert a member of an organization to an outside collaborator. Para obter mais informações sobre colaboradores externos, consulte "[Adicionando colaboradores externos aos repositórios da organização](/organizations/managing-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization)".
+
+{% ifversion fpt or ghec %}If the organization is owned by an enterprise, converting{% elsif ghes or ghae %}Converting{% endif %} an organization member to an outside collaborator may be restricted. For more information, see "[Enforcing repository management policies in your enterprise]({% ifversion fpt %}/enterprise-cloud@latest{% endif %}/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-inviting-{% ifversion fpt or ghec %}outside-{% endif %}collaborators-to-repositories){% ifversion ghec or ghes or ghae %}."{% elsif fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% endif %}
 
 {% data reusables.organizations.outside-collaborators-use-seats %} {% data reusables.organizations.outside_collaborator_forks %}
 
@@ -32,7 +35,7 @@ Para obter mais informações, consulte "[Funções em uma organização](/organ
 
 Recomendamos rever o acesso dos membros da organização aos repositórios para garantir que seu o acesso seja como você espera. Para obter mais informações, consulte "[Gerenciar o acesso de um indivíduo ao repositório de uma organização](/articles/managing-an-individual-s-access-to-an-organization-repository)".
 
-Na conversão de um integrante da organização em um colaborador externo, os privilégios dele como integrante da organização ficam salvos por três meses para que seja possível restaurar os privilégios de associação se você{% ifversion fpt or ghec %}convidá-lo para reingressar{% else %} adicioná-lo de volta{% endif %} na organização dentro desse período. Para obter mais informações, consulte "[Restabelecer ex-integrantes da organização](/articles/reinstating-a-former-member-of-your-organization)".
+When you convert an organization member to an outside collaborator, their privileges as organization members are saved for three months so that you can restore their membership privileges if you{% ifversion fpt or ghec %} invite them to rejoin{% else %} add them back to{% endif %} your organization within that time frame. Para obter mais informações, consulte "[Restabelecer ex-integrantes da organização](/articles/reinstating-a-former-member-of-your-organization)".
 
 ## Converter um integrante da organização em colaborador externo
 

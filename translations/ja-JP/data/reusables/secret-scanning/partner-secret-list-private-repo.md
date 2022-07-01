@@ -147,6 +147,8 @@ Plivo | Plivo Auth ID | plivo_auth_id{% endif %}
 Plivo | Plivo Auth Token | plivo_auth_token{% endif %} Postman | Postman API Key | postman_api_key Proctorio | Proctorio Consumer Key | proctorio_consumer_key Proctorio | Proctorio Linkage Key | proctorio_linkage_key Proctorio | Proctorio Registration Key | proctorio_registration_key Proctorio | Proctorio Secret Key | proctorio_secret_key Pulumi | Pulumi Access Token | pulumi_access_token
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
 PyPI | PyPI API Token | pypi_api_token{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.5 or ghae-issue-7375 %}
+redirect.pizza | redirect.pizza API Token | redirect_pizza_api_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
 RubyGems | RubyGems API Key | rubygems_api_key{% endif %} Samsara | Samsara API Token | samsara_api_token Samsara | Samsara OAuth Access Token | samsara_oauth_access_token
 {%- ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6944 %}

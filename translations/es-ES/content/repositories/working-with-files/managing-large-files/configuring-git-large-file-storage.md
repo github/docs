@@ -22,7 +22,7 @@ Si hay archivos existentes en tu repositorio con los que te gustaría usar {% da
 
 {% tip %}
 
-**Nota:** Antes de que intentes subir un archivo grande a {% data variables.product.product_name %}, asegúrate de haber habilitado {% data variables.large_files.product_name_short %} en tu empresa. Para obtener más información, consulta "[Configurar almacenamiento de archivos Git de gran tamaño en GitHub Enterprise Server](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-git-large-file-storage-on-github-enterprise-server/)".
+**Nota:** Antes de que intentes subir un archivo grande a {% data variables.product.product_name %}, asegúrate de haber habilitado {% data variables.large_files.product_name_short %} en tu empresa. Para obtener más información, consulta "[Configurar almacenamiento de archivos Git de gran tamaño en GitHub Enterprise Server](/enterprise/admin/guides/installation/configuring-git-large-file-storage-on-github-enterprise-server/)".
 
 {% endtip %}
 

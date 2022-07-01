@@ -43,7 +43,7 @@ Anyone with write permission to a repository can set up {% data variables.produc
 
    {% ifversion actions-starter-template-ui %}![Configure this workflow](/assets/images/help/settings/actions-create-starter-workflow-updated-ui.png){% else %}![Set up this workflow](/assets/images/help/settings/actions-create-starter-workflow.png){% endif %}
 1. If the starter workflow contains comments detailing additional setup steps, follow these steps. Many of the starter workflow have corresponding guides. For more information, see the [{% data variables.product.prodname_actions %} guides](/actions/guides).
-1. Some starter workflows use secrets. For example, {% raw %}`${{ secrets.npm_token }}`{% endraw %}. If the starter workflow uses a secret, store the value described in the secret name as a secret in your repository. For more information, see "[Encrypted secrets](/actions/reference/encrypted-secrets)."
+1. Some starter workflows use secrets. For example, {% raw %}`${{ secrets.npm_token }}`{% endraw %}. If the starter workflow uses a secret, store the value described in the secret name as a secret in your repository. 詳しい情報については「[暗号化されたシークレット](/actions/reference/encrypted-secrets)」を参照してください。
 1. Optionally, make additional changes. For example, you might want to change the value of `on` to change when the workflow runs.
 1. [**Start commit**] をクリックします。
 1. Write a commit message and decide whether to commit directly to the default branch or to open a pull request.

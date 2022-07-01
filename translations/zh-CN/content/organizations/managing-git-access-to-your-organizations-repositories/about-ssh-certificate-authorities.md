@@ -44,7 +44,7 @@ SSH 证书是一种机制：一个 SSH 密钥对另一个 SSH 密钥签名。 �
 
 {% note %}
 
-**Note:** You must update to OpenSSH 7.6 or later to use these commands.
+**注意：** 您必须更新到 OpenSSH 7.6 或更高版本才能使用这些命令。
 
 {% endnote %}
 

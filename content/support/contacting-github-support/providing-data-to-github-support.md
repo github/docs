@@ -68,7 +68,7 @@ You can use this method if you don't have your SSH key readily available.
 
 You can use this method without signing into the {% data variables.enterprise.management_console %}.
 
-Use the [ghe-diagnostics](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities#ghe-diagnostics) command-line utility to retrieve the diagnostics for your instance.
+Use the [ghe-diagnostics](/enterprise/admin/guides/installation/command-line-utilities#ghe-diagnostics) command-line utility to retrieve the diagnostics for your instance.
 
 ```shell
 $ ssh -p122 admin@<em>hostname</em> -- 'ghe-diagnostics' > diagnostics.txt

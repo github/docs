@@ -129,7 +129,7 @@ $ ghe-migrator audit -s failed_import,failed_map,failed_rename,failed_merge -g <
 
 ### {% data variables.product.prodname_dotcom_the_website %} で Organization からリポジトリのロックを解除する
 
-{% data variables.product.prodname_dotcom_the_website %} Organization のリポジトリをアンロックするには、`DELETE` リクエストを<a href="/rest/reference/migrations#unlock-an-organization-repository" class="dotcom-only">移行アンロックエンドポイント</a>に送信します。 以下が必要です:
+{% data variables.product.prodname_dotcom_the_website %} Organization のリポジトリをアンロックするには、`DELETE` リクエストを[移行アンロックエンドポイント](/free-pro-team@latest/rest/reference/migrations#unlock-an-organization-repository)に送信します。 以下が必要です:
   * 認証のためのアクセストークン
   * 移行のユニーク`id`
   * アンロックするリポジトリの名前

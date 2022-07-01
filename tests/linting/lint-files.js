@@ -22,7 +22,7 @@ import { jest } from '@jest/globals'
 import { getDiffFiles } from '../helpers/diff-files.js'
 import loadSiteData from '../../lib/site-data.js'
 
-jest.useFakeTimers('legacy')
+jest.useFakeTimers({ legacyFakeTimers: true })
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const enterpriseServerVersions = Object.keys(allVersions).filter((v) =>
@@ -410,15 +410,13 @@ describe('lint markdown content', () => {
       isEarlyAccess,
       isSitePolicy,
       hasExperimentalAlternative,
-      frontmatterErrors,
       frontmatterData
 
     beforeAll(async () => {
       const fileContents = await fs.readFile(markdownAbsPath, 'utf8')
-      const { data, content: bodyContent, errors } = frontmatter(fileContents)
+      const { data, content: bodyContent } = frontmatter(fileContents)
 
       content = bodyContent
-      frontmatterErrors = errors
       frontmatterData = data
       ast = fromMarkdown(content)
       isHidden = data.hidden === true
@@ -611,13 +609,6 @@ describe('lint markdown content', () => {
     })
 
     if (!markdownRelPath.includes('data/reusables')) {
-      test('contains valid frontmatter', () => {
-        const errorMessage = frontmatterErrors
-          .map((error) => `- [${error.property}]: ${error.actual}, ${error.message}`)
-          .join('\n')
-        expect(frontmatterErrors.length, errorMessage).toBe(0)
-      })
-
       test('frontmatter contains valid liquid', async () => {
         const fmKeysWithLiquid = ['title', 'shortTitle', 'intro', 'product', 'permission'].filter(
           (key) => Boolean(frontmatterData[key])

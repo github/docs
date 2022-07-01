@@ -20,7 +20,7 @@ To configure {% data variables.product.prodname_actions %}, you must provide ext
 
 {% endif %}
 
-The available space on the root filesystem will be 50% of the total disk size. Você pode redimensionar o disco raiz da sua instância criando uma nova instância ou usando uma instância existente. For more information, see "[System overview](/enterprise/admin/guides/installation/system-overview#storage-architecture)" and "[Increasing storage capacity](/enterprise/{{ currentVersion }}/admin/guides/installation/increasing-storage-capacity)."
+The available space on the root filesystem will be 50% of the total disk size. Você pode redimensionar o disco raiz da sua instância criando uma nova instância ou usando uma instância existente. For more information, see "[System overview](/enterprise/admin/guides/installation/system-overview#storage-architecture)" and "[Increasing storage capacity](/enterprise/admin/guides/installation/increasing-storage-capacity)."
 
 ### CPU e memória
 

@@ -6,6 +6,6 @@
 [このプロジェクトへのコントリビューションガイドライン](docs/CONTRIBUTING.md)
 ```
 
-{% data variables.product.product_name %}は相対リンクあるいは画像パスを、現在のブランチに基づいて変換するので、リンクやパスは常にうまく働きます。 `./`や`../`といった相対リンクのオペランドはすべて利用できます。
+{% data variables.product.product_name %}は相対リンクあるいは画像パスを、現在のブランチに基づいて変換するので、リンクやパスは常にうまく働きます。 The path of the link will be relative to the current file. Links starting with `/` will be relative to the repository root. `./`や`../`といった相対リンクのオペランドはすべて利用できます。
 
 相対リンクは、リポジトリをクローンするユーザにも扱いやすいです。 絶対リンクはリポジトリのクローンではうまく働かないかもしれません。リポジトリ内の他のファイルを参照するには、相対リンクを使うことをおすすめします。

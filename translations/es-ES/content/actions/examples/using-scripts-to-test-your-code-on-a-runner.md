@@ -7,7 +7,6 @@ versions:
   ghes: '> 3.1'
   ghae: '*'
   ghec: '*'
-showMiniToc: false
 type: how_to
 topics:
   - Workflows
@@ -15,21 +14,15 @@ topics:
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-- [Example overview](#example-overview)
-- [Features used in this example](#features-used-in-this-example)
-- [Ejemplo de flujo de trabajo](#example-workflow)
-- [Understanding the example](#understanding-the-example)
-- [Pasos siguientes](#next-steps)
+## Resumen de ejemplo
 
-## Example overview
-
-{% data reusables.actions.example-workflow-intro-ci %} When this workflow is triggered, it automatically runs a script that checks whether the {% data variables.product.prodname_dotcom %} Docs site has any broken links.
+{% data reusables.actions.example-workflow-intro-ci %} Cuando se activa este flujo de trabajo, este ejecuta automáticamente un script que verifica si el sitio de {% data variables.product.prodname_dotcom %} Docs tiene enlaces rotos.
 
 {% data reusables.actions.example-diagram-intro %}
 
-![Overview diagram of workflow steps](/assets/images/help/images/overview-actions-using-scripts-ci-example.png)
+![Diagrama de resumen de los pasos del flujo de trabajo](/assets/images/help/images/overview-actions-using-scripts-ci-example.png)
 
-## Features used in this example
+## Características utilizadas en este ejemplo
 
 {% data reusables.actions.example-table-intro %}
 
@@ -52,7 +45,7 @@ topics:
 
 {% data reusables.actions.note-understanding-example %}
 
-<table style="width:350px">
+<table style="table-layout: fixed;">
 <thead>
   <tr>
     <th style="width:100%"></th>
@@ -136,15 +129,15 @@ jobs:
 </tbody>
 </table>
 
-## Understanding the example
+## Cómo entender el ejemplo
 
 {% data reusables.actions.example-explanation-table-intro %}
 
-<table style="width:350px">
+<table style="table-layout: fixed;">
 <thead>
   <tr>
     <th style="width:60%"><b>Código</b></th>
-    <th style="width:40%"><b>Explanation</b></th>
+    <th style="width:40%"><b>Explicación</b></th>
   </tr>
 </thead>
 <tbody>
@@ -181,7 +174,7 @@ The `on` keyword lets you define the events that trigger when the workflow is ru
 </td>
 <td>
 
-Add the `workflow_dispatch` event if you want to be able to manually run this workflow from the UI. For more information, see [`workflow_dispatch`](/actions/using-workflows/events-that-trigger-workflows#workflow_dispatch).
+Add the `workflow_dispatch` event if you want to be able to manually run this workflow from the UI. Para obtener más información, consulta [`workflow_dispatch`](/actions/using-workflows/events-that-trigger-workflows#workflow_dispatch).
 </td>
 </tr>
 <tr>
@@ -221,7 +214,7 @@ permissions:
 </td>
 <td>
 
-Modifies the default permissions granted to `GITHUB_TOKEN`. This will vary depending on the needs of your workflow. For more information, see "[Assigning permissions to jobs](/actions/using-jobs/assigning-permissions-to-jobs)."
+Modifica los permisos predeterminados que se otorgan al `GITHUB_TOKEN`. Esto variará dependiendo de las necesidades de tu flujo de trabajo. Para obtener más información, consulta la sección "[Asignar permisos a los jobs](/actions/using-jobs/assigning-permissions-to-jobs)".
 </td>
 </tr>
 <tr>
@@ -260,7 +253,7 @@ jobs:
 </td>
 <td>
 
-Groups together all the jobs that run in the workflow file.
+Agrupa todos los jobs que se ejecutan en el archivo de flujo de trabajo.
 </td>
 </tr>
 <tr>
@@ -311,7 +304,7 @@ Groups together all the steps that will run as part of the `check-links` job. Ea
 </td>
 <td>
 
-The `uses` keyword tells the job to retrieve the action named `actions/checkout`. Esta es una acción que revisa tu repositorio y lo descarga al ejecutor, lo que te permite ejecutar acciones contra tu código (tales como las herramientas de prueba). Debes utilizar la acción de verificación cada que tu flujo de trabajo se ejecute contra el código del repositorio o cada que estés utilizando una acción definida en el repositorio.
+La palabra clave `uses` le indica al job recuperar la acción llamada `actions/checkout`. Esta es una acción que revisa tu repositorio y lo descarga al ejecutor, lo que te permite ejecutar acciones contra tu código (tales como las herramientas de prueba). Debes utilizar la acción de verificación cada que tu flujo de trabajo se ejecute contra el código del repositorio o cada que estés utilizando una acción definida en el repositorio.
 </td>
 </tr>
 <tr>
@@ -341,7 +334,7 @@ This step uses the `actions/setup-node` action to install the specified version 
 </td>
 <td>
 
-The `run` keyword tells the job to execute a command on the runner. In this case, `npm ci` is used to install the npm software packages for the project.
+La palabra clave `run` le indica al job ejecutar un comando en el ejecutor. In this case, `npm ci` is used to install the npm software packages for the project.
 </td>
 </tr>
 

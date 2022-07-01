@@ -26,7 +26,7 @@ shortTitle: Manage releases
 You can create new releases with release notes, @mentions of contributors, and links to binary files, as well as edit or delete existing releases.
 
 {% ifversion fpt or ghec %}
-{% data variables.product.prodname_marketplace %} の特定のリリースからのアクションを公開することもできます。 詳しい情報については、「<a href="/actions/creating-actions/publishing-actions-in-github-marketplace" class="dotcom-only">アクションを {% data variables.product.prodname_marketplace %} で公開する</a>」を参照してください。
+特定のリリースのアクションを {% data variables.product.prodname_marketplace %} で公開することもできます。 詳しい情報については、「[アクションを {% data variables.product.prodname_marketplace %} で公開する](/actions/creating-actions/publishing-actions-in-github-marketplace)」を参照してください。
 
 {% data variables.large_files.product_name_long %}（{% data variables.large_files.product_name_short %}）オブジェクトを、{% data variables.product.product_name %} がリリースごとに作成する ZIP ファイルと tarball に含めるかどうかを選択できます。 詳しい情報については、「[リポジトリのアーカイブ内の {% data variables.large_files.product_name_short %} オブジェクトを管理する](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)」を参照してください。
 {% endif %}
@@ -53,15 +53,16 @@ You can create new releases with release notes, @mentions of contributors, and l
 
    {% ifversion fpt or ghec or ghes > 3.2 or ghae-issue-4865 %}![Choose a branch](/assets/images/help/releases/releases-choose-branch.png)
    {% else %}![Releases tagged branch](/assets/images/enterprise/releases/releases-tag-branch.png){% endif %}
+{%- data reusables.releases.previous-release-tag %}
 6. リリースのタイトルと説明を入力します。
    {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4972 %}
    If you @mention any {% data variables.product.product_name %} users in the description, the published release will include a **Contributors** section with an avatar list of all the mentioned users.
    {%- endif %}
-   {% ifversion fpt or ghec %} Alternatively, you can automatically generate your release notes by clicking **Auto-generate release notes**.
-   {% endif %}
-   ![リリースの説明](/assets/images/help/releases/releases_description_auto.png)
-7. オプションで、コンパイルされたプログラムなどのバイナリファイルをリリースに含めるには、ドラッグアンドドロップするかバイナリボックスで手動で選択します。 ![リリースに DMG ファイルを含める](/assets/images/help/releases/releases_adding_binary.gif)
-8. リリースが不安定であり、運用準備ができていないことをユーザに通知するには、[**This is a pre-release**] を選択します。 ![リリースをプレリリースとしてマークするチェックボックス](/assets/images/help/releases/prerelease_checkbox.png)
+   {% ifversion fpt or ghec or ghes > 3.3 %} Alternatively, you can automatically generate your release notes by clicking {% ifversion previous-release-tag %}**Generate release notes**{% else %}**Auto-generate release notes**{% endif %}.{% endif %}{% ifversion previous-release-tag %}
+   ![リリースの説明](/assets/images/help/releases/releases_description_auto.png){% else %}
+![Releases description](/assets/images/enterprise/3.5/releases/releases_description_auto.png){% endif %}
+1. オプションで、コンパイルされたプログラムなどのバイナリファイルをリリースに含めるには、ドラッグアンドドロップするかバイナリボックスで手動で選択します。 ![リリースに DMG ファイルを含める](/assets/images/help/releases/releases_adding_binary.gif)
+2. リリースが不安定であり、運用準備ができていないことをユーザに通知するには、[**This is a pre-release**] を選択します。 ![リリースをプレリリースとしてマークするチェックボックス](/assets/images/help/releases/prerelease_checkbox.png)
 {%- ifversion fpt or ghec %}
 1. Optionally, if {% data variables.product.prodname_discussions %} are enabled in the repository, select **Create a discussion for this release**, then select the **Category** drop-down menu and click a category for the release discussion. ![リリースディスカッションを作成するためのチェックボックスと、カテゴリを選択するドロップダウンメニュー](/assets/images/help/releases/create-release-discussion.png)
 {%- endif %}

@@ -77,4 +77,10 @@ shortTitle: 查看文件和跟踪文件更改
 git blame --ignore-revs-file .git-blame-ignore-revs
 ```
 
+您还可以配置本地 git，使其始终忽略该文件中的 revs：
+
+```shell
+git config blame.ignoreRevsFile .git-blame-ignore-revs
+```
+
 {% endif %}

@@ -27,7 +27,7 @@ Os grupos no seu IdP podem ser usados para gerenciar a participação de equipe 
 
 Antes de configurar o provisionamento para {% data variables.product.prodname_emus %}, você deve configurar o logon único SAML{% ifversion oidc-for-emu %} ou OIDC{% endif %}. {% ifversion oidc-for-emu %}
 
-- Para obter mais informações sobre a configuração do OIDC, consulte "[Configurando OIDC para usuários gerenciados por empresas](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-oidc-for-enterprise-managed-users)"
+- Para obter mais informações sobre a configuração do OIDC, consulte "[Configurando OIDC para usuários gerenciados por empresas](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-oidc-for-enterprise-managed-users)"
 - {% endif %}Para obter informações sobre a configuração do SAML, consulte "[Configurando o login único do SAML para usuários gerenciados por empresas](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-saml-single-sign-on-for-enterprise-managed-users).".
 
 ## Criar um token de acesso pessoal
@@ -60,9 +60,9 @@ Depois de criar seu token de acesso pessoal e armazená-lo com segurança, você
 
 Para configurar o provisionamento, siga o link apropriado da tabela abaixo.
 
-| Provedor de identidade | Método SSO | Mais informações                                                                                                                                                                                                                                                           |
-| ---------------------- | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |{% ifversion oidc-for-emu %}
-| Azure AD               | OIDC       | [Tutorial: Configure o GitHub Enterprise Managed User (OIDC) para o provisionamento automático do usuário](https://docs.microsoft.com/azure/active-directory/saas-apps/github-enterprise-managed-user-oidc-provisioning-tutorial) na documentação do Azure AD 
+| Provedor de identidade       | Método SSO | Mais informações                                                                                                                                                                                                                                                           |
+| ---------------------------- | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |{% ifversion oidc-for-emu %}
+| Azure AD                     | OIDC       | [Tutorial: Configure o GitHub Enterprise Managed User (OIDC) para o provisionamento automático do usuário](https://docs.microsoft.com/azure/active-directory/saas-apps/github-enterprise-managed-user-oidc-provisioning-tutorial) na documentação do Azure AD 
 {% endif %}
-| Azure AD               | SAML       | [Tutorial: Configure o GitHub Enterprise Managed User para o provisionamento automático do usuário](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/github-enterprise-managed-user-provisioning-tutorial) na documentação do Azure AD                    |
-| Okta                   | SAML       | [Configurando o provisionamento do SCIM para usuários gerenciados pela empresa com Okta](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users-with-okta)                            |
+| Azure AD                     | SAML       | [Tutorial: Configure o GitHub Enterprise Managed User para o provisionamento automático do usuário](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/github-enterprise-managed-user-provisioning-tutorial) na documentação do Azure AD                    |
+| Okta                         | SAML       | [Configurando o provisionamento do SCIM para usuários gerenciados pela empresa com Okta](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users-with-okta)                            |

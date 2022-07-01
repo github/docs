@@ -15,7 +15,9 @@ topics:
   - Pull requests
 ---
 
-仅可删除个人帐户拥有的仓库中的议题。 无法删除其他个人帐户拥有仓库中的议题，即使是该帐户的协作者也一样。
+删除议题的能力取决于存储库是由您的个人帐户还是由组织拥有：
+- 仅可删除个人帐户拥有的仓库中的议题。
+- 无法删除组织或其他个人帐户拥有的仓库中的议题，即使是该帐户的协作者也一样。
 
 如需删除组织拥有仓库中的议题，组织所有者必须启用删除组织仓库的议题，并且您必须拥有该仓库的管理员或所有者权限。 更多信息请参阅“[允许人员删除组织中的议题](/articles/allowing-people-to-delete-issues-in-your-organization)”和“[组织的仓库角色](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)”。
 

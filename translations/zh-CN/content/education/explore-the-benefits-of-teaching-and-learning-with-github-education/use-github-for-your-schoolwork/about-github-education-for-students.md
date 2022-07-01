@@ -22,3 +22,4 @@ shortTitle: 适合学生
 ## 延伸阅读
 
 - "[关于教育者和研究人员版 {% data variables.product.prodname_education %}](/articles/about-github-education-for-educators-and-researchers)"
+- "[关于 {% data variables.product.prodname_community_exchange %}](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork/about-github-community-exchange)"

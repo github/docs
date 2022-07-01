@@ -23,6 +23,6 @@ Em agosto de 2012, [mudamos a forma como a inspeção funciona](https://github.c
 
 Existe um tipo de mídia personalizado com suporte para a API REST estrelada. Ao usar este tipo de mídia personalizada, você receberá uma resposta com a propriedade do registro de tempo `starred_at`, que indica o tempo que a estrela foi criada. A resposta também tem uma segunda propriedade que inclui o recurso retornado quando o tipo de mídia personalizado não está incluído. A propriedade que contém o recurso será `usuário` ou `repositório`.
 
-    application/vnd.github.v3.star+json
+    application/vnd.github.star+json
 
 Para obter mais informações sobre os tipos de mídia, consulte "[Tipos de mídia personalizados](/rest/overview/media-types)".

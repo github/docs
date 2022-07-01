@@ -17,7 +17,9 @@ communityRedirect:
 
 ## 关于自动生成的发行说明
 
-自动生成的发行说明为 {% data variables.product.prodname_dotcom %} 发行版手动编写发行说明提供了一种自动替代方法。 使用自动生成的发行说明，您可以快速生成发行版内容的概览。 您还可以自定义自动发行说明，使用标签创建自定义类别来组织要包含的拉取请求，并排除某些标签和用户不出现在输出中。
+自动生成的发行说明为 {% data variables.product.prodname_dotcom %} 发行版手动编写发行说明提供了一种自动替代方法。 使用自动生成的发行说明，您可以快速生成发行版内容的概览。 自动生成的发行说明包括合并的拉取请求列表、版本贡献者列表以及指向完整更改日志的链接。
+
+您还可以自定义自动发行说明，使用标签创建自定义类别来组织要包含的拉取请求，并排除某些标签和用户不出现在输出中。
 
 ## 为新版本创建自动生成的发行说明
 
@@ -35,7 +37,9 @@ communityRedirect:
   {% ifversion fpt or ghec %}![选择分支](/assets/images/help/releases/releases-choose-branch.png)
   {% else %}![发行版标记分支](/assets/images/enterprise/releases/releases-tag-branch.png)
   {% endif %}
-7. 在说明文本框的右上角，单击 **Auto-generate release notes（自动生成发行说明）**。 ![自动生成发行说明](/assets/images/help/releases/auto-generate-release-notes.png)
+{%- data reusables.releases.previous-release-tag %}
+7. 在说明文本框的右上角，单击{% ifversion previous-release-tag %}**Generate release notes（生成发行说明）**{% else %}**Auto-generate release notes（自动生成发行说明）**{% endif %}。{% ifversion previous-release-tag %} ![Generate release notes](/assets/images/help/releases/generate-release-notes.png){% else %}
+![Auto-generate release notes](/assets/images/enterprise/3.5/releases/auto-generate-release-notes.png){% endif %}
 8. 检查生成的注释，确保它们包含所有（且仅有）您要包含的信息。
 9. （可选）要在发行版中包含二进制文件（例如已编译的程序），请在二进制文件框中拖放或手动选择文件。 ![通过发行版提供 DMG](/assets/images/help/releases/releases_adding_binary.gif)
 10. 要通知用户发行版本尚不可用于生产，可能不稳定，请选择 **This is a pre-release（这是预发布）**。 ![将版本标记为预发行版的复选框](/assets/images/help/releases/prerelease_checkbox.png)

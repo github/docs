@@ -6,7 +6,7 @@ sections:
     - 'Los paquetes se actualizaron a las últimas versiones de seguridad.'
   bugs:
     - 'En algunas topologías de clúster, el comando `ghe-cluster-status` dejó directorios vacíos en `/tmp`.'
-    - 'SNMP incorrectly logged a high number of `Cannot statfs` error messages to syslog'
+    - 'El SNMP registró una cantidad alta de mensajes de error de `Cannot statfs` incorrectamente en syslog'
     - 'Para el caso de las instancias configuradas con la autenticación de SAML y con la recuperación de fallos integrada habilitada, los usuarios integrados se atoraron en un bucle de "inicio de sesión" al intentar iniciar sesión desde la página generada después de salir de sesión.'
     - 'Attempts to view the `git fsck` output from the `/stafftools/repositories/:owner/:repo/disk` page would fail with a `500 Internal Server Error`.'
     - 'Al utilizar aserciones cifradas de SAML, algunas de ellas no estaban marcando correctamente a las llaves SSH como verificadas.'
@@ -14,6 +14,7 @@ sections:
     - 'When using the file finder on a repository page, typing the backspace key within the search field would result in search results being listed multiple times and cause rendering problems.'
     - 'When using GitHub Enterprise Importer to import a repository, some issues would fail to import due to incorrectly configured project timeline events.'
     - 'Al utilizar `ghe-migrator`, una migración falló en importar los archivos de video adjuntos en las propuestas y solicitudes de cambios.'
+    - 'The Releases page would return a 500 error when the repository has tags that contain non-ASCII characters. [Updated: 2022-06-10]'
   changes:
     - 'En las configuraciones de disponibilidad alta, se aclara que la página de resumen de replicación en la consola de administración solo muestra la configuración de replicación actual y no el estado de replicación actual.'
     - 'Cuando habilites el {% data variables.product.prodname_registry %}, aclara que, actualmente, no hay compatibilidad con utilizar el token de Firma de Acceso Compartida (SAS, por sus siglas en inglés) como secuencia de conexión.'

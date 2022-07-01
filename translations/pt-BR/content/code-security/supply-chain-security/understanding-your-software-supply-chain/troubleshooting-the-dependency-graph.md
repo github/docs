@@ -22,15 +22,19 @@ topics:
 
 ## O gráfico de dependências só encontra dependências nos manifestos e nos arquivos de bloquei?
 
-O gráfico de dependências inclui informações sobre dependências explicitamente declaradas em seu ambiente. Ou seja, dependências que são especificadas em um manifesto ou um arquivo de bloqueio. O gráfico de dependências, geralmente, também inclui dependências transitivas, mesmo quando não são especificadas em um arquivo de travamento analisando as dependências das dependências em um arquivo de manifesto.
+O gráfico de dependência {% ifversion dependency-submission-api %}{% endif %} automaticamente inclui informações sobre dependências que são explicitamente declaradas em seu ambiente. Ou seja, dependências que são especificadas em um manifesto ou um arquivo de bloqueio. O gráfico de dependências, geralmente, também inclui dependências transitivas, mesmo quando não são especificadas em um arquivo de travamento analisando as dependências das dependências em um arquivo de manifesto.
 
-O gráfico de dependências não inclui dependências de "soltas". Dependências "soltas" são arquivos individuais copiados de outra fonte e verificados no repositório diretamente ou dentro de um arquivo (como um arquivo ZIP ou JAR), em vez de ser referenciadas pelo manifesto ou arquivo de bloqueio do gerenciador de pacotes.
+O gráfico de dependência não {% ifversion dependency-submission-api %}{% endif %} inclui dependências "soltas" automaticamente. Dependências "soltas" são arquivos individuais copiados de outra fonte e verificados no repositório diretamente ou dentro de um arquivo (como um arquivo ZIP ou JAR), em vez de ser referenciadas pelo manifesto ou arquivo de bloqueio do gerenciador de pacotes.
+
+{% ifversion dependency-submission-api %}No entanto, você pode usar a API (beta) de envio de dependência para adicionar dependências ao gráfico de dependência de um projeto, mesmo que as dependências não sejam declaradas em um arquivo manifesto ou de bloqueio, como dependências resolvidas quando um projeto é construído. O gráfico de dependência exibirá as dependências submetidas agrupadas pelo ecossistema, mas separadamente das dependências analisadas dos arquivos manifestos ou de bloqueio. Para obter mais informações sobre a API de envio de dependência, consulte "[Usando a API de envio de dependência](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api)"{% endif %}
 
 **Verificação**: A dependência ausente para um componente que não está especificado no manifesto ou arquivo de bloqueio do repositório?
 
 ## O gráfico de dependências detecta dependências especificadas usando variáveis?
 
-O gráfico de dependências analisa como são carregados para {% data variables.product.prodname_dotcom %}. O gráfico de dependência não tem acesso ao ambiente de construção do projeto. Portanto, ele não pode resolver variáveis usadas dentro dos manifestos. Se você usar variáveis dentro de um manifesto para especificar o nome, ou mais comumente, a versão de uma dependência, essa dependência não será incluída no gráfico de dependências.
+O gráfico de dependências analisa como são carregados para {% data variables.product.prodname_dotcom %}. O gráfico de dependência não tem acesso ao ambiente de construção do projeto. Portanto, ele não pode resolver variáveis usadas dentro dos manifestos. Se você usar variáveis dentro de um manifesto para especificar o nome, ou mais comumente a versão de uma dependência, essa dependência não {% ifversion dependency-submission-api %}{% endif %} serrá incluída automaticamente no gráfico de dependência.
+
+{% ifversion dependency-submission-api %}No entanto, você pode usar a API (beta) de envio de dependência para adicionar dependências ao gráfico de dependência de um projeto, mesmo que as dependências só sejam resolvidas quando um projeto é construído. Para obter mais informações sobre a API de envio de dependência, consulte "[Usando a API de envio de dependência](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api)"{% endif %}
 
 **Verifique**: A dependência ausente é declarada no manifesto usando uma variável para seu nome ou versão?
 

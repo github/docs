@@ -55,7 +55,7 @@ A primeira vez que você acessar o {% data variables.enterprise.management_conso
 
 O {% data variables.enterprise.management_console %} trava após dez tentativas de login com falha em um período de dez minutos. Antes de tentar novamente, aguarde o desbloqueio automático da tela de login, que ocorrerá após um período de dez minutos. A contagem é redefinida depois do login bem-sucedido.
 
-Para bloquear o {% data variables.enterprise.management_console %} imediatamente, use o comando `ghe-reactivate-admin-login` pelo shell administrativo. Para obter mais informações, consulte "[Utilitários da linha de comando](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities#ghe-reactivate-admin-login)" e "[Acessar o shell administrativo (SSH)](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-administrative-shell-ssh/)".
+Para bloquear o {% data variables.enterprise.management_console %} imediatamente, use o comando `ghe-reactivate-admin-login` pelo shell administrativo. Para obter mais informações, consulte "[Utilitários da linha de comando](/enterprise/admin/guides/installation/command-line-utilities#ghe-reactivate-admin-login)" e "[Acessar o shell administrativo (SSH)](/enterprise/admin/guides/installation/accessing-the-administrative-shell-ssh/)".
 
 ## Solucionando problemas de conexões com falha para {% data variables.enterprise.management_console %}
 

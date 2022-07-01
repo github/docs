@@ -29,11 +29,11 @@ miniTocMaxHeadingLevel: 3
 
 É possível habilitar o {% data variables.product.prodname_actions %} para seu repositório. {% data reusables.actions.enabled-actions-description %} Você pode desabilitar {% data variables.product.prodname_actions %} para o seu repositório completamente. {% data reusables.actions.disabled-actions-description %}
 
-Como alternativa, você pode habilitar {% data variables.product.prodname_actions %} em seu repositório, mas limitar as ações {% ifversion actions-workflow-policy %} e fluxos de trabalho reutilizáveis{% endif %} que um fluxo de trabalho pode ser executado.
+Alternatively, you can enable {% data variables.product.prodname_actions %} in your repository but limit the actions {% ifversion actions-workflow-policy %}and reusable workflows{% endif %} a workflow can run.
 
 ## Gerenciando as permissões do {% data variables.product.prodname_actions %} para o seu repositório
 
-Você pode desabilitar {% data variables.product.prodname_actions %} para um repositório ou definir uma política que configura quais ações{% ifversion actions-workflow-policy %} e fluxos de trabalho reutilizáveis{% endif %} podem ser usados no repositório.
+You can disable {% data variables.product.prodname_actions %} for a repository, or set a policy that configures which actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} can be used in the repository.
 
 {% note %}
 
@@ -147,7 +147,7 @@ Por padrão, ao cria um novo repositório na sua conta pessoal, os fluxos de tra
 
 Os integrantes da sua empresa podem usar repositórios internos para trabalhar em projetos sem compartilhar informações publicamente. Para obter informações, consulte "[Sobre repositórios](/repositories/creating-and-managing-repositories/about-repositories#about-internal-repositories)".
 
-É possível usar os passos abaixo para configurar se as ações {% ifversion internal-actions%}e os {% endif %}fluxos de trabalho em um repositório interno podem ser acessados de fora do repositório.{% ifversion internal-actions %} Para obter mais informações, consulte "[Compartilhando ações e fluxos de trabalho com sua empresa](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)". Como alternativa, você pode usar a API REST para definir ou obter detalhes sobre o nível de acesso. Para obter mais informações, consulte "[Obtenha o nível de acesso para fluxos de trabalho fora do repositório](/rest/reference/actions#get-the-level-of-access-for-workflows-outside-of-the-repository#get-the-level-of-access-for-workflows-outside-of-the-repository)" e "[Defina o nível de acesso para fluxos de trabalho fora do repositório](/rest/reference/actions#get-the-level-of-access-for-workflows-outside-of-the-repository#set-the-level-of-access-for-workflows-outside-of-the-repository)"{% endif %}
+You can use the steps below to configure whether {% ifversion internal-actions%}actions and {% endif %}workflows in an internal repository can be accessed from outside the repository.{% ifversion internal-actions %} For more information, see "[Sharing actions and workflows with your enterprise](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)." Como alternativa, você pode usar a API REST para definir ou obter detalhes sobre o nível de acesso. Para obter mais informações, consulte "[Obtenha o nível de acesso para fluxos de trabalho fora do repositório](/rest/reference/actions#get-the-level-of-access-for-workflows-outside-of-the-repository#get-the-level-of-access-for-workflows-outside-of-the-repository)" e "[Defina o nível de acesso para fluxos de trabalho fora do repositório](/rest/reference/actions#get-the-level-of-access-for-workflows-outside-of-the-repository#set-the-level-of-access-for-workflows-outside-of-the-repository)"{% endif %}
 
 1. No {% data variables.product.prodname_dotcom %}, acesse a página principal do repositório interno.
 1. No nome do repositório, clique em {% octicon "gear" aria-label="The gear icon" %} **Configurações**.

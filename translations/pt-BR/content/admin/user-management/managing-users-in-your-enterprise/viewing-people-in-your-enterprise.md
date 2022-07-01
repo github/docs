@@ -26,7 +26,7 @@ Você pode ver todos os integrantes atuais da empresa e administradores da empre
 Você pode visualizar todos os atuais proprietários da empresa{% ifversion ghec %} e gerentes de cobrança{% endif %} para a sua empresa.{% ifversion enterprise-membership-view-improvements %} Você pode ver informações úteis sobre cada administrador{% ifversion ghec %} e filtrar a lista por função{% endif %}.{% endif %} Você pode encontrar uma pessoa específica pesquisando o nome de usuário ou nome de exibição.
 
 {% ifversion not ghae %}
-Você também pode remover um administrador. For more information. consulte "[convidando pessoas para gerenciar sua empresa](/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise#removing-an-enterprise-administrator-from-your-enterprise-account)".
+Você também pode remover um administrador. Para mais informações. consulte "[convidando pessoas para gerenciar sua empresa](/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise#removing-an-enterprise-administrator-from-your-enterprise-account)".
 {% endif %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}

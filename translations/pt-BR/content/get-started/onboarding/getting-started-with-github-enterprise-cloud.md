@@ -206,7 +206,7 @@ Os integrantes da sua organização ou empresa podem usar os recursos de aprendi
 Você pode ler a documentação que reflete as funcionalidades disponíveis com {% data variables.product.prodname_ghe_cloud %}. Para obter mais informações, consulte "[Sobre as versões do {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs)."
 
 ### 2. Aprendendo com {% data variables.product.prodname_learning %}
-Os integrantes da sua organização ou empresa podem aprender novas habilidades realizando projetos divertidos e realistas no seu repositório do GitHub com [{% data variables.product.prodname_learning %}](https://skills.github.com/). Each course is a hands-on lesson created by the GitHub community and taught by a friendly bot.
+Os integrantes da sua organização ou empresa podem aprender novas habilidades realizando projetos divertidos e realistas no seu repositório do GitHub com [{% data variables.product.prodname_learning %}](https://skills.github.com/). Cada curso é uma lição prática criada pela comunidade do GitHub e ensinada por um bot intuitivo.
 
 Para obter mais informações, consulte "[Git e recursos de aprendizado de {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/quickstart/git-and-github-learning-resources). "
 ### 3. Apoiar a comunidade de código aberto
