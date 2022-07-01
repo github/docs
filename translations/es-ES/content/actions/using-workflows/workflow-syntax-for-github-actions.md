@@ -992,7 +992,7 @@ jobs:
 ```
 {% endraw %}
 
-{% if actions-inherit-secrets-reusable-workflows %}
+{% ifversion actions-inherit-secrets-reusable-workflows %}
 
 ### `jobs.<job_id>.secrets.inherit`
 

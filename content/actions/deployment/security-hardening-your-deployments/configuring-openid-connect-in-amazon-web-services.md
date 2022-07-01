@@ -43,7 +43,7 @@ Edit the trust relationship to add the `sub` field to the validation conditions.
 
 ```json{:copy}
 "Condition": {
-  "ForAllValues:StringEquals": {
+  "StringEquals": {
     "{% ifversion ghes %}HOSTNAME/_services/token{% else %}token.actions.githubusercontent.com{% endif %}:aud": "sts.amazonaws.com",
     "{% ifversion ghes %}HOSTNAME/_services/token{% else %}token.actions.githubusercontent.com{% endif %}:sub": "repo:octo-org/octo-repo:ref:refs/heads/octo-branch"
   }

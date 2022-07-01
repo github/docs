@@ -324,9 +324,9 @@ etapas:
     if: {% raw %}${{ failure() }}{% endraw %}
 ```
 
-#### failure with conditions
+#### falha com as condições
 
-You can include extra conditions for a step to run after a failure, but you must still include `failure()` to override the default status check of `success()` that is automatically applied to `if` conditions that don't contain a status check function.
+Você pode incluir condições extras para uma etapa a ser executada após uma falha, mas você ainda deve incluir `failure()` para substituir a verificação de status padrão de `sucess()` que é automaticamente aplicada a condições `se` que não contenham uma função de verificação de status.
 
 ##### Exemplo
 

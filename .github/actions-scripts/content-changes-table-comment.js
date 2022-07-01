@@ -20,6 +20,11 @@ if (!APP_URL) {
   throw new Error(`APP_URL environment variable not set`)
 }
 
+// the max size of the comment (in bytes)
+// the action we use to post the comment caps out at about 144kb
+// see docs-engineering#1849 for more info
+const MAX_COMMENT_SIZE = 125000
+
 const PROD_URL = 'https://docs.github.com'
 const octokit = github.getOctokit(GITHUB_TOKEN)
 
@@ -131,5 +136,25 @@ const lines = await Promise.all(
     return `| ${contentCell} | ${previewCell} | ${prodCell} | ${note} |`
   })
 )
-markdownTable += lines.join('\n')
+
+// this section limits the size of the comment
+const cappedLines = []
+let underMax = true
+
+lines.reduce((previous, current, index, array) => {
+  if (underMax) {
+    if (previous + current.length > MAX_COMMENT_SIZE) {
+      underMax = false
+      cappedLines.push('**Note** There are more changes in this PR than we can show.')
+      return previous
+    }
+
+    cappedLines.push(array[index])
+    return previous + current.length
+  }
+  return previous
+}, markdownTable.length)
+
+markdownTable += cappedLines.join('\n')
+
 setOutput('changesTable', markdownTable)

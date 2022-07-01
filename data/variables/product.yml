@@ -57,6 +57,8 @@ prodname_classroom: 'GitHub Classroom'
 prodname_classroom_with_url: '[GitHub Classroom](https://classroom.github.com/login)'
 prodname_campus_program: 'GitHub Campus Program'
 prodname_student_pack: 'GitHub Student Developer Pack'
+prodname_global_campus: 'GitHub Global Campus'
+prodname_community_exchange: 'GitHub Community Exchange'
 
 # GitHub CLI
 prodname_cli: 'GitHub CLI'
@@ -136,12 +138,12 @@ prodname_codespaces: 'Codespaces'
 prodname_github_codespaces: 'GitHub Codespaces'
 prodname_serverless: 'web-based editor'
 
-# GitHub resources: blog, jobs, Learning Lab
+# GitHub resources: blog, jobs, skills
 prodname_gcf: 'GitHub Community Support'
 prodname_blog: 'the GitHub Blog'
 prodname_jobs: 'GitHub Jobs'
-prodname_learning: 'GitHub Learning Lab'
-prodname_learning_link: 'https://lab.github.com/'
+prodname_learning: 'GitHub Skills'
+prodname_learning_link: 'https://skills.github.com/'
 prodname_roadmap: 'GitHub public roadmap'
 prodname_roadmap_link: 'https://github.com/github/roadmap#github-public-roadmap'
 
@@ -179,6 +181,7 @@ prodname_code_scanning_capc: 'Code scanning'
 prodname_codeql_runner: 'CodeQL runner'
 prodname_advisory_database: 'GitHub Advisory Database'
 prodname_codeql_workflow: 'CodeQL analysis workflow'
+prodname_dependency_review_action: 'Dependency Review GitHub Action'
 
 # Visual Studio
 prodname_vs: 'Visual Studio'

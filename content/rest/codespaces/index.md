@@ -10,6 +10,7 @@ topics:
 miniTocMaxHeadingLevel: 3
 children:
   - /codespaces
+  - /organizations
   - /machines
   - /repository-secrets
   - /secrets

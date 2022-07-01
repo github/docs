@@ -1,6 +1,6 @@
 ---
 title: Usar o GitHub Enterprise Server com balanceador de carga
-intro: 'Use a load balancer in front of a single {% data variables.product.prodname_ghe_server %} instance or a pair of instances in a High Availability configuration.'
+intro: 'Use um balanceador de carga na frente de uma única instância de {% data variables.product.prodname_ghe_server %} ou um par de instâncias em uma configuração de alta disponibilidade.'
 redirect_from:
   - /enterprise/admin/guides/installation/using-github-enterprise-with-a-load-balancer
   - /enterprise/admin/installation/using-github-enterprise-server-with-a-load-balancer
@@ -35,7 +35,7 @@ Como as conexões do cliente com o {% data variables.product.prodname_ghe_server
 
 ### Habilitar o suporte de protocolo PROXY na {% data variables.product.product_location %}
 
-We strongly recommend enabling PROXY protocol support for both your instance and the load balancer. Use as instruções do fornecedor para habilitar o protocolo PROXY no balanceador de carga. Para obter mais informações, consulte a [documentação do protocolo PROXY](http://www.haproxy.org/download/1.8/doc/proxy-protocol.txt).
+É altamente recomendável habilitar o suporte ao protocolo PROXY tanto para sua instância quanto para o balanceamento de carga. Use as instruções do fornecedor para habilitar o protocolo PROXY no balanceador de carga. Para obter mais informações, consulte a [documentação do protocolo PROXY](http://www.haproxy.org/download/1.8/doc/proxy-protocol.txt).
 
 {% data reusables.enterprise_installation.proxy-incompatible-with-aws-nlbs %}
 
@@ -53,7 +53,7 @@ We strongly recommend enabling PROXY protocol support for both your instance and
 
 {% warning %}
 
-**Warning**: If you configure `X-Forwarded-For` support on {% data variables.product.product_location %} and load balancer, you may not be able to connect to the {% data variables.enterprise.management_console %}. For more information, see "[Error: "Your session has expired" for connections to the {% data variables.enterprise.management_console %}](/admin/configuration/configuring-network-settings/using-github-enterprise-server-with-a-load-balancer#error-your-session-has-expired-for-connections-to-the-management-console)."
+**Aviso**: Se você configurar o suporte de `X-Forwarded-For` no balanceador de carga de {% data variables.product.product_location %}, talvez você não consiga se conectar ao {% data variables.enterprise.management_console %}. Para obter mais informações, consulte "[Erro: "Sua sessão venceu" para conexões com o {% data variables.enterprise.management_console %}](/admin/configuration/configuring-network-settings/using-github-enterprise-server-with-a-load-balancer#error-your-session-has-expired-for-connections-to-the-management-console)".
 
 {% endwarning %}
 
@@ -67,28 +67,28 @@ We strongly recommend enabling PROXY protocol support for both your instance and
 
 ## Configurar verificações de integridade
 
-As verificações de integridade permitem que um balanceador de carga pare de enviar tráfego para um nó que não responde em caso de falha na verificação pré-configurada do nó em questão. If the instance is offline due to maintenance or unexpected failure, the load balancer can display a status page. Em configurações de alta disponibilidade (HA), é possível usar balanceadores de carga como parte da estratégia de failover. No entanto, não há suporte para failover automático de pares de HA. You must manually promote the replica instance before it will begin serving requests. Para obter mais informações, consulte "[Configurar o {% data variables.product.prodname_ghe_server %} para alta disponibilidade](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-github-enterprise-server-for-high-availability/)".
+As verificações de integridade permitem que um balanceador de carga pare de enviar tráfego para um nó que não responde em caso de falha na verificação pré-configurada do nó em questão. Se a instância estiver off-line devido a manutenção ou falha inesperada, o balanceador de carga poderá exibir uma página de status. Em configurações de alta disponibilidade (HA), é possível usar balanceadores de carga como parte da estratégia de failover. No entanto, não há suporte para failover automático de pares de HA. Você deve promover manualmente a instância da réplica antes que ela comece a atender a pedidos. Para obter mais informações, consulte "[Configurar o {% data variables.product.prodname_ghe_server %} para alta disponibilidade](/enterprise/admin/guides/installation/configuring-github-enterprise-server-for-high-availability/)".
 
 {% data reusables.enterprise_clustering.health_checks %}
 {% data reusables.enterprise_site_admin_settings.maintenance-mode-status %}
 
-## Troubleshooting connectivity through a load balancer
+## Solucionando problemas de conectividade através de um balanceador de carga
 
-If you cannot connect to services on {% data variables.product.product_location %} through a load balancer, you can review the following information to troubleshoot the problem.
+Se você não puder se conectar aos serviços em {% data variables.product.product_location %} através de um balanceador de carga, você poderá revisar as seguintes informações para solucionar o problema.
 
 {% note %}
 
-**Note**: Always test changes to your network infrastructure and instance configuration in a staging environment. Para obter mais informações, consulte "[Configurar instância de preparo](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance)".
+**Observação**: Sempre teste alterações na sua infraestrutura de rede e configuração de instância em um ambiente de preparo. Para obter mais informações, consulte "[Configurar instância de preparo](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance)".
 
 {% endnote %}
 
-### Error: "Your session has expired" for connections to the {% data variables.enterprise.management_console %}
+### Erro: "Sua sessão venceu" para conexões com o {% data variables.enterprise.management_console %}
 
-If you enable support for the `X-Forwarded-For` header on your instance and load balancer, you may not be able to access your instance's {% data variables.enterprise.management_console %}. For more information about the {% data variables.enterprise.management_console %} and ports required for connections, see "[Accessing the management console](/admin/configuration/configuring-your-enterprise/accessing-the-management-console)" and "[Network ports](/admin/configuration/configuring-network-settings/network-ports)."
+Se você habilitar o suporte para o header `X-Forwarded-For` na sua instância no balanceamento de carga, talvez você não consiga acessar sua instância de {% data variables.enterprise.management_console %}. Para obter mais informações sobre o {% data variables.enterprise.management_console %} e as portas necessárias para conexões, consulte "[Acessando o console de gerenciamento](/admin/configuration/configuring-your-enterprise/accessing-the-management-console)" e "[Portas de rede](/admin/configuration/configuring-network-settings/network-ports)".
 
-If {% data variables.product.product_location %} indicates that your session has expired when you connect to the {% data variables.enterprise.management_console %} through a load balancer, try one of the following configurations on your load balancer.
+Se {% data variables.product.product_location %} indica que a sua sessão venceu quando você se conectou ao {% data variables.enterprise.management_console %} através de um balanceador de carga, experimente uma das seguintes configurações no seu balanceador de carga.
 
-- Disable `X-Forwarded-For` headers for connections to your instance on ports 8080 and 8443.
-- Configure your load balancer to operate on Layer 4, and use the PROXY protocol instead of `X-Forwarded-For` for passthrough of client IP addresses. For more information, see "[Enabling PROXY protocol support on {% data variables.product.product_location %} ](#enabling-proxy-protocol-support-on-your-github-enterprise-server-instance)."
+- Desabilite os headers `X-Forwarded-For` para conexões para sua instância nas portas 8080 e 8443.
+- Configure o seu balanceador de carga para ser operado no Layer 4 e use o protocolo PROXY em vez de `X-Forwarded-For` para passagem de endereços IP do cliente. Para obter mais informações, consulte "[Habilitando o suporte ao protocolo PROXY em {% data variables.product.product_location %} ](#enabling-proxy-protocol-support-on-your-github-enterprise-server-instance)."
 
-For more information, refer to the documentation for your load balancer.
+Para obter mais informações, consulte a documentação do seu balanceador de carga.

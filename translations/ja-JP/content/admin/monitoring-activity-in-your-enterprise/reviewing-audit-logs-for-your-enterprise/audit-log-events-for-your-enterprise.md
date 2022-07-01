@@ -22,8 +22,18 @@ topics:
   - Security
 ---
 
+{% ifversion ghec%}
+## About audit log events for your enterprise
+
+The scope of the events that appear in your enterprise's audit log depend on whether your enterprise uses {% data variables.product.prodname_emus %}. {% data variables.product.prodname_emus %}に関する詳しい情報については「[{% data variables.product.prodname_emus %}について](/admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/about-enterprise-managed-users)」を参照してください。
+
+- If your enterprise does not use {% data variables.product.prodname_emus %}, the audit log only includes events related to the enterprise account and the organizations within the enterprise account, which are listed in this article.
+- If your enterprise uses {% data variables.product.prodname_emus %}, the audit log also includes user events for {% data variables.product.prodname_managed_users %}, such as each time the user logs in to {% data variables.product.product_name %}. For a list of these events, see "[Reviewing your security log](/authentication/keeping-your-account-and-data-secure/reviewing-your-security-log#security-log-actions)."
+{% endif %}
+
+
 {%- ifversion fpt or ghec %}
-### `account` カテゴリアクション
+## `account` カテゴリアクション
 
 | アクション                                 | 説明                                                                                                                                                                                                                                                       |
 | ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -34,7 +44,7 @@ topics:
 {%- endif %}
 
 {%- ifversion fpt or ghec %}
-### `advisory_credit` カテゴリアクション
+## `advisory_credit` カテゴリアクション
 
 | アクション                     | 説明                                                                                                                                                                 |
 | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -44,14 +54,14 @@ topics:
 | `advisory_credit.destroy` | The administrator of a security advisory removed someone from the credit section.                                                                                  |
 {%- endif %}
 
-### `artifact` category actions
+## `artifact` category actions
 
 | アクション              | 説明                                            |
 | ------------------ | --------------------------------------------- |
 | `artifact.destroy` | A workflow run artifact was manually deleted. |
 
 {%- ifversion ghec %}
-### `audit_log_streaming` category actions
+## `audit_log_streaming` category actions
 
 | アクション                         | 説明                                                                                                                  |
 | ----------------------------- | ------------------------------------------------------------------------------------------------------------------- |
@@ -62,7 +72,7 @@ topics:
 {%- endif %}
 
 {%- ifversion fpt or ghec %}
-### `billing` カテゴリアクション
+## `billing` カテゴリアクション
 
 | アクション                         | 説明                                                                                                                                                                                                        |
 | ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -70,7 +80,7 @@ topics:
 | `billing.change_email`        | An organization's billing email address changed. 詳細は「[支払い請求先メールアドレスを設定する](/billing/managing-your-github-billing-settings/setting-your-billing-email)」を参照してください。                                           |
 {%- endif %}
 
-### `business`カテゴリアクション
+## `business`カテゴリアクション
 
 | アクション                | 説明                                                                                                   |
 | -------------------- | ---------------------------------------------------------------------------------------------------- |
@@ -133,8 +143,8 @@ topics:
 | `business.update_saml_provider_settings` | The SAML single sign-on provider settings for an enterprise were updated.
 {%- endif %}
 
-{%- if secret-scanning-audit-log-custom-patterns %}
-### `business_secret_scanning_custom_pattern` category actions
+{%- ifversion secret-scanning-audit-log-custom-patterns %}
+## `business_secret_scanning_custom_pattern` category actions
 
 | アクション | 説明                                                                                                                                                                                                                                                                                                                                   |
 | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -143,7 +153,7 @@ topics:
 |       | `business_secret_scanning_custom_pattern.update` | Changes to an enterprise-level custom pattern are saved for secret scanning.                                                                                                                                                                                                      |
 {%- endif %}
 
-### `checks` category actions
+## `checks` category actions
 
 | アクション                          | 説明                                                                                                                                                                                                                                                      |
 | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -154,7 +164,7 @@ topics:
 {%- endif %}
 
 {%- ifversion fpt or ghec %}
-### `codespaces` カテゴリアクション
+## `codespaces` カテゴリアクション
 
 | アクション                                          | 説明                                                                                                                                                                                                                              |
 | ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -170,7 +180,7 @@ topics:
 {%- endif %}
 
 {%- ifversion fpt or ghec %}
-### `commit_comment` category actions
+## `commit_comment` category actions
 
 | アクション                    | 説明                            |
 | ------------------------ | ----------------------------- |
@@ -179,7 +189,7 @@ topics:
 {%- endif %}
 
 {%- ifversion ghes %}
-### `config_entry` category actions
+## `config_entry` category actions
 
 | アクション                  | 説明                                                                                                                                                                                                                                                                                                                                                                                                        |
 | ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -189,21 +199,21 @@ topics:
 {%- endif %}
 
 {%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
-### `dependabot_alerts` カテゴリアクション
+## `dependabot_alerts` カテゴリアクション
 
 | アクション                       | 説明                                                                                                                                                                                                                                                                                                                                                                                             |
 | --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `dependabot_alerts.disable` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} disabled {% data variables.product.prodname_dependabot_alerts %} for all existing {% ifversion fpt or ghec %}private {% endif %}repositories. 詳しい情報については「[Organizatonのためのセキュリティ及び分析設定の管理](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)」を参照してください。 |
 | `dependabot_alerts.enable`  | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} enabled {% data variables.product.prodname_dependabot_alerts %} for all existing {% ifversion fpt or ghec %}private {% endif %}repositories.                                                                                                                                                                        |
 
-### `dependabot_alerts_new_repos` カテゴリアクション
+## `dependabot_alerts_new_repos` カテゴリアクション
 
 | アクション                                 | 説明                                                                                                                                                                                                                                                                                                                                                                                        |
 | ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `dependabot_alerts_new_repos.disable` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} disabled {% data variables.product.prodname_dependabot_alerts %} for all new {% ifversion fpt or ghec %}private {% endif %}repositories. 詳しい情報については「[Organizatonのためのセキュリティ及び分析設定の管理](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)」を参照してください。 |
 | `dependabot_alerts_new_repos.enable`  | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} enabled {% data variables.product.prodname_dependabot_alerts %} for all new {% ifversion fpt or ghec %}private {% endif %}repositories.                                                                                                                                                                        |
 
-### `dependabot_repository_access`category actions
+## `dependabot_repository_access`category actions
 
 | アクション                                               | 説明                                                                                              |
 | --------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
@@ -211,14 +221,14 @@ topics:
 {%- endif %}
 
 {%- ifversion fpt or ghec or ghes > 3.2 %}
-### `dependabot_security_updates` カテゴリアクション
+## `dependabot_security_updates` カテゴリアクション
 
 | アクション                                 | 説明                                                                                                                                                                                                                                                                                                                                                         |
 | ------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `dependabot_security_updates.disable` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} disabled {% data variables.product.prodname_dependabot_security_updates %} for all existing repositories. 詳しい情報については「[Organizatonのためのセキュリティ及び分析設定の管理](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)」を参照してください。 |
 | `dependabot_security_updates.enable`  | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} enabled {% data variables.product.prodname_dependabot_security_updates %} for all existing repositories.                                                                                                                                                                        |
 
-### `dependabot_security_updates_new_repos` カテゴリアクション
+## `dependabot_security_updates_new_repos` カテゴリアクション
 
 | アクション                                           | 説明                                                                                                                                                                                                                                                                                                                                                    |
 | ----------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -227,14 +237,14 @@ topics:
 {%- endif %}
 
 {%- ifversion fpt or ghec or ghes or ghae %}
-### `dependency_graph` カテゴリアクション
+## `dependency_graph` カテゴリアクション
 
 | アクション                      | 説明                                                                                                                                                                                                                                                                                                          |
 | -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `dependency_graph.disable` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} disabled the dependency graph for all existing repositories. 詳しい情報については「[Organizatonのためのセキュリティ及び分析設定の管理](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)」を参照してください。 |
 | `dependency_graph.enable`  | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} enabled the dependency graph for all existing repositories.                                                                                                                                                                        |
 
-### `dependency_graph_new_repos` カテゴリアクション
+## `dependency_graph_new_repos` カテゴリアクション
 
 | アクション                                | 説明                                                                                                                                                                                                                                                                                                     |
 | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -243,27 +253,27 @@ topics:
 {%- endif %}
 
 {%- ifversion fpt or ghec %}
-### `discussion` category actions
+## `discussion` category actions
 
 | アクション                | 説明                             |
 | -------------------- | ------------------------------ |
 | `discussion.destroy` | A team discussion was deleted. |
 
-### `discussion_comment` category actions
+## `discussion_comment` category actions
 
 | アクション                        | 説明                                                                                                                                                     |
 | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `discussion_comment.destroy` | A [comment on a team discussion post was deleted](/communities/moderating-comments-and-conversations/managing-disruptive-comments#deleting-a-comment). |
 | `discussion_comment.update`  | A [comment on a team discussion post was edited](/communities/moderating-comments-and-conversations/managing-disruptive-comments#editing-a-comment).   |
 
-### `discussion_post` カテゴリアクション
+## `discussion_post` カテゴリアクション
 
 | アクション                     | 説明                                                                                                                       |
 | ------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
 | `discussion_post.destroy` | A [team discussion post was deleted](/organizations/collaborating-with-your-team/editing-or-deleting-a-team-discussion). |
 | `discussion_post.update`  | A [team discussion post was edited](/organizations/collaborating-with-your-team/editing-or-deleting-a-team-discussion).  |
 
-### `discussion_post_reply` カテゴリアクション
+## `discussion_post_reply` カテゴリアクション
 
 | アクション                           | 説明                                                                                                                                                   |
 | ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -272,7 +282,7 @@ topics:
 {%- endif %}
 
 {%- ifversion ghec or ghes %}
-### `dotcom_connection` category actions
+## `dotcom_connection` category actions
 
 | アクション                                    | 説明                                                                                                                                                      |
 | ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -283,7 +293,7 @@ topics:
 | `dotcom_connection.upload_usage_metrics` | {% data variables.product.prodname_ghe_server %} usage metrics were uploaded to {% data variables.product.prodname_dotcom_the_website %}.           |
 {%- endif %}
 
-### `enterprise` カテゴリアクション
+## `enterprise` カテゴリアクション
 
 | アクション                                            | 説明                                                                                                                                                                                                                                                                                                                                                                                                            |
 | ------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -311,7 +321,7 @@ topics:
 {%- endif %}
 
 {%- ifversion ghec %}
-### `enterprise_domain` category actions
+## `enterprise_domain` category actions
 
 | アクション                       | 説明                                                                                                                                                                                                                                                                                      |
 | --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -320,7 +330,7 @@ topics:
 | `enterprise_domain.destroy` | An enterprise domain was removed from an enterprise. For more information, see "[Removing an approved or verified domain](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise#removing-an-approved-or-verified-domain)."               |
 | `enterprise_domain.verify`  | An enterprise domain was verified for an enterprise. For more information, see "[Verifying a domain for your enterprise account](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise#verifying-a-domain-for-your-enterprise-account)." |
 
-### `enterprise_installation` category actions
+## `enterprise_installation` category actions
 
 | アクション                                   | 説明                                                                                                                                                                                     |
 | --------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -330,7 +340,7 @@ topics:
 {%- endif %}
 
 {%- ifversion fpt or ghec %}
-### `environment` カテゴリアクション
+## `environment` カテゴリアクション
 
 | アクション                                | 説明                                                                                                                                                                                                                                                                                    |
 | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -344,7 +354,7 @@ topics:
 {%- endif %}
 
 {%- ifversion ghae %}
-### `external_group`カテゴリアクション
+## `external_group`カテゴリアクション
 
 | アクション                      | 説明                                                                                                                                                                                                                                                                                                  |
 | -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -354,7 +364,7 @@ topics:
 | `external_group.unlink`    | An Okta group was unmapped from a {% data variables.product.prodname_ghe_managed %} team. For more information, see "[Mapping Okta groups to teams](/admin/identity-and-access-management/configuring-authentication-and-provisioning-with-your-identity-provider/mapping-okta-groups-to-teams)." |
 | `external_group.update`    | An Okta group's settings were updated. For more information, see "[Mapping Okta groups to teams](/admin/identity-and-access-management/configuring-authentication-and-provisioning-with-your-identity-provider/mapping-okta-groups-to-teams)."                                                      |
 
-### `external_identity`カテゴリアクション
+## `external_identity`カテゴリアクション
 | アクション                           | 説明                                                                                                                                                                                                                                                                                                                                                          |
 | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `external_identity.deprovision` | A user was removed from an Okta group and was subsequently deprovisioned from {% data variables.product.prodname_ghe_managed %}. For more information, see "[Mapping Okta groups to teams](/admin/identity-and-access-management/configuring-authentication-and-provisioning-with-your-identity-provider/mapping-okta-groups-to-teams)."                  |
@@ -362,7 +372,7 @@ topics:
 | `external_identity.update`      | An Okta user's settings were updated. For more information, see "[Mapping Okta groups to teams](/admin/identity-and-access-management/configuring-authentication-and-provisioning-with-your-identity-provider/mapping-okta-groups-to-teams)."                                                                                                               |
 {%- endif %}
 
-### `gist` category actions
+## `gist` category actions
 
 | アクション                    | 説明                                   |
 | ------------------------ | ------------------------------------ |
@@ -371,7 +381,7 @@ topics:
 | `gist.visibility_change` | The visibility of a gist is changed. |
 
 {% ifversion ghec or ghes > 3.4 or ghae-issue-6724 %}
-### `git` カテゴリアクション
+## `git` カテゴリアクション
 
 | アクション       | 説明                                      |
 | ----------- | --------------------------------------- |
@@ -380,7 +390,7 @@ topics:
 | `git.push`  | Changes were pushed to a repository.    |
 {% endif %}
 
-### `hook` カテゴリアクション
+## `hook` カテゴリアクション
 
 | アクション | 説明 |
 | ----- | -- |
@@ -390,7 +400,7 @@ topics:
 {%- endif %}
 | `hook.config_changed`             | A hook's configuration was changed. | `hook.create`                     | A new hook was added. | `hook.destroy`                    | A hook was deleted. | `hook.events_changed`             | A hook's configured events were changed.
 
-### `integration` category actions
+## `integration` category actions
 
 | アクション                              | 説明                                                                                       |
 | ---------------------------------- | ---------------------------------------------------------------------------------------- |
@@ -403,7 +413,7 @@ topics:
 | `integration.revoke_all_tokens`    | All user tokens for an integration were requested to be revoked.                         |
 | `integration.revoke_tokens`        | Token(s) for an integration were revoked.                                                |
 
-### `integration_installation`category actions
+## `integration_installation`category actions
 
 | アクション                                            | 説明                                              |
 | ------------------------------------------------ | ----------------------------------------------- |
@@ -417,7 +427,7 @@ topics:
 {%- endif %}
 | `integration_installation.version_updated` | Permissions for an integration were updated.
 
-### `integration_installation_request` カテゴリアクション
+## `integration_installation_request` カテゴリアクション
 
 | アクション                                     | 説明                                                                                                                                                                        |
 | ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -425,7 +435,7 @@ topics:
 | `integration_installation_request.close`  | A request to install an integration for use in an enterprise or organization was either approved or denied by an owner, or canceled by the member who opened the request. |
 
 {%- ifversion ghec or ghae %}
-### `ip_allow_list`カテゴリアクション
+## `ip_allow_list`カテゴリアクション
 
 | アクション                                      | 説明                                                                                      |
 | ------------------------------------------ | --------------------------------------------------------------------------------------- |
@@ -434,7 +444,7 @@ topics:
 | `ip_allow_list.disable`                    | IP 許可リストが無効化されました。                                                                      |
 | `ip_allow_list.disable_for_installed_apps` | インストールされている {% data variables.product.prodname_github_apps %} に対して IP 許可リストが無効化されました。 |
 
-### `ip_allow_list_entry`カテゴリアクション
+## `ip_allow_list_entry`カテゴリアクション
 
 | アクション                         | 説明                          |
 | ----------------------------- | --------------------------- |
@@ -443,7 +453,7 @@ topics:
 | `ip_allow_list_entry.destroy` | IP アドレスが IP 許可リストから削除されました。 |
 {%- endif %}
 
-### `issue` カテゴリアクション
+## `issue` カテゴリアクション
 
 | アクション            | 説明                                                                                                                                                                        |
 | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -452,7 +462,7 @@ topics:
 | `issue.transfer` | An issue was transferred to another repository. 詳細は「[他のリポジトリへ Issue を移譲する](/issues/tracking-your-work-with-issues/transferring-an-issue-to-another-repository)」を参照してください。 |
 | `issue.unpinned` | An issue was unpinned from a repository. 詳細は「[Issue をリポジトリにピン止めする](/issues/tracking-your-work-with-issues/pinning-an-issue-to-your-repository)」を参照してください。                 |
 
-### `issue_comment` category actions
+## `issue_comment` category actions
 
 | アクション                    | 説明                                                     |
 | ------------------------ | ------------------------------------------------------ |
@@ -461,7 +471,7 @@ topics:
 | `issue_comment.unpinned` | A comment on an issue was unpinned from a repository.  |
 | `issue_comment.update`   | Issue （最初以外）のコメントが変更されました。                             |
 
-### `issues` category actions
+## `issues` category actions
 
 | アクション                           | 説明                                                                                                                                                                                                                                                                                                                                                                                           |
 | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -470,13 +480,13 @@ topics:
 | `issues.deletes_policy_cleared` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} cleared the policy setting for allowing members to delete issues in an enterprise. For more information, see "[Enforcing a policy for deleting issues](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-deleting-issues)." |
 
 {%- ifversion fpt or ghec %}
-### `marketplace_agreement_signature` カテゴリアクション
+## `marketplace_agreement_signature` カテゴリアクション
 
 | アクション                                    | 説明                                                                                                                    |
 | ---------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
 | `marketplace_agreement_signature.create` | A user signed the {% data variables.product.prodname_marketplace %} Developer Agreement on behalf of an organization. |
 
-### `marketplace_listing` カテゴリアクション
+## `marketplace_listing` カテゴリアクション
 
 | アクション                                 | 説明                                                                                                    |
 | ------------------------------------- | ----------------------------------------------------------------------------------------------------- |
@@ -488,21 +498,21 @@ topics:
 | `marketplace_listing.reject`          | A listing was not accepted for inclusion in {% data variables.product.prodname_marketplace %}.        |
 {%- endif %}
 
-### `members_can_create_pages` カテゴリアクション
+## `members_can_create_pages` カテゴリアクション
 
 | アクション                              | 説明                                                                                                                                                                                                                                                                                                                                                                                                            |
 | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `members_can_create_pages.disable` | The ability for members to publish {% data variables.product.prodname_pages %} was disabled. Members cannot publish {% data variables.product.prodname_pages %} in an organization. For more information, see "[Managing the publication of GitHub Pages sites for your organization](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)." |
 | `members_can_create_pages.enable`  | The ability for members to publish {% data variables.product.prodname_pages %} was enabled. Members can publish {% data variables.product.prodname_pages %} in an organization. For more information, see "[Managing the publication of GitHub Pages sites for your organization](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)."     |
 
-### `members_can_create_private_pages` category actions
+## `members_can_create_private_pages` category actions
 
 | アクション                                      | 説明                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | ------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `members_can_create_private_pages.disable` | The ability for members to publish private {% data variables.product.prodname_pages %} was disabled. Members cannot publish private {% data variables.product.prodname_pages %} in an organization. For more information, see "[Managing the publication of GitHub Pages sites for your organization](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)." |
 | `members_can_create_private_pages.enable`  | The ability for members to publish private {% data variables.product.prodname_pages %} was enabled. Members can publish private {% data variables.product.prodname_pages %} in an organization. For more information, see "[Managing the publication of GitHub Pages sites for your organization](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)."     |
 
-### `members_can_create_public_pages` category actions
+## `members_can_create_public_pages` category actions
 
 | アクション                                     | 説明                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | ----------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -510,7 +520,7 @@ topics:
 | `members_can_create_public_pages.enable`  | The ability for members to publish public {% data variables.product.prodname_pages %} was enabled. Members can publish public {% data variables.product.prodname_pages %} in an organization. For more information, see "[Managing the publication of GitHub Pages sites for your organization](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)."     |
 
 {%- ifversion ghec or ghes or ghae %}
-### `members_can_delete_repos` category actions
+## `members_can_delete_repos` category actions
 
 | アクション                              | 説明                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -518,7 +528,7 @@ topics:
 | `members_can_delete_repos.disable` | The ability for enterprise members to delete repositories was disabled. Members cannot delete or transfer repositories in any organizations in an enterprise. For more information, see "[Enforcing a policy for repository deletion and transfer](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-repository-deletion-and-transfer)."                       |
 | `members_can_delete_repos.enable`  | The ability for enterprise members to delete repositories was enabled. Members can delete or transfer repositories in any organizations in an enterprise. For more information, see "[Enforcing a policy for repository deletion and transfer](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-repository-deletion-and-transfer)."                           |
 
-### `members_can_view_dependency_insights` category actions
+## `members_can_view_dependency_insights` category actions
 
 | アクション                                          | 説明                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | ---------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -526,7 +536,7 @@ topics:
 | `members_can_view_dependency_insights.disable` | The ability for enterprise members to view dependency insights was disabled. Members cannot view dependency insights in any organizations in an enterprise.{% ifversion ghec %} For more information, see "[Enforcing a policy for visibility of dependency insights](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-dependency-insights-in-your-enterprise)."{% endif %}
 | `members_can_view_dependency_insights.enable`  | The ability for enterprise members to view dependency insights was enabled. Members can view dependency insights in any organizations in an enterprise.{% ifversion ghec %} For more information, see "[Enforcing a policy for visibility of dependency insights](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-dependency-insights-in-your-enterprise)."{% endif %}
 
-### `migration` category actions
+## `migration` category actions
 
 | アクション                    | 説明                                                                                                                                                                                                                                                                                                             |
 | ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -535,7 +545,7 @@ topics:
 | `migration.download`     | A migration file for transferring data from a *source* location (such as a {% data variables.product.prodname_dotcom_the_website %} organization or a {% data variables.product.prodname_ghe_server %} instance) to a *target* {% data variables.product.prodname_ghe_server %} instance was downloaded. |
 {%- endif %}
 
-### `oauth_access` カテゴリアクション
+## `oauth_access` カテゴリアクション
 
 | アクション | 説明 |
 | ----- | -- |
@@ -544,7 +554,7 @@ topics:
 
 `oauth_access.create`   | An [OAuth access token][] was generated for a user account. 詳しい情報については、「[個人アクセストークンを作成する](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)」を参照してください。 `oauth_access.destroy`  | An [OAuth access token][] was deleted from a user account.
 
-### `oauth_application` カテゴリアクション
+## `oauth_application` カテゴリアクション
 
 | アクション                       | 説明                                                                       |
 | --------------------------- | ------------------------------------------------------------------------ |
@@ -563,7 +573,7 @@ topics:
 {%- endif %}
 
 {%- ifversion fpt or ghec %}
-### `oauth_authorization` category actions
+## `oauth_authorization` category actions
 
 | アクション                         | 説明                                                                                                                                                                           |
 | ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -572,7 +582,7 @@ topics:
 | `oauth_authorization.update`  | An authorization for an OAuth application was updated. 詳しい情報については、「[OAuth App を認証する](/authentication/keeping-your-account-and-data-secure/authorizing-oauth-apps)」を参照してください。 |
 {%- endif %}
 
-### `org` カテゴリアクション
+## `org` カテゴリアクション
 
 | アクション                                                                                                                                                                                                                                                                                     | 説明                                                                        |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
@@ -632,7 +642,7 @@ topics:
 {%- ifversion fpt or ghec %}
 | `org.runner_group_visiblity_updated` | The visibility of a self-hosted runner group was updated via the REST API. For more information, see "[Update a self-hosted runner group for an organization](/rest/reference/actions#update-a-self-hosted-runner-group-for-an-organization)."
 {%- endif %}
-{%- if secret-scanning-audit-log-custom-patterns %}
+{%- ifversion secret-scanning-audit-log-custom-patterns %}
 | `org.secret_scanning_push_protection_disable` | An organization owner or administrator disabled push protection for secret scanning. 詳しい情報については「[Secret scanningでのプッシュの保護](/enterprise-cloud@latest/code-security/secret-scanning/protecting-pushes-with-secret-scanning)」を参照してください。 | `org.secret_scanning_push_protection_enable` | An organization owner or administrator enabled push protection for secret scanning.
 {%- endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
@@ -664,7 +674,7 @@ topics:
 {%- endif %}
 
 {%- ifversion ghec or ghes or ghae %}
-### `org_credential_authorization` カテゴリアクション
+## `org_credential_authorization` カテゴリアクション
 
 | アクション                                                                                                                                                                  | 説明                                                                                                                                                                                                                                                                                                  |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -675,8 +685,8 @@ topics:
 | `org_credential_authorization.revoke`                                                                                                                                  | An owner revoked authorized credentials. {% ifversion ghec %}For more information, see "[Viewing and managing your active SAML sessions](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization)."{% endif %}
 {%- endif %}
 
-{%- if secret-scanning-audit-log-custom-patterns %}
-### `org_secret_scanning_custom_pattern`カテゴリアクション
+{%- ifversion secret-scanning-audit-log-custom-patterns %}
+## `org_secret_scanning_custom_pattern`カテゴリアクション
 
 | アクション                                       | 説明                                                                                                                                                                                                                                                   |
 | ------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -685,7 +695,7 @@ topics:
 | `org_secret_scanning_custom_pattern.update` | Changes to a custom pattern are saved for secret scanning in an organization. 詳しい情報については「[Secret scanningのカスタムパターンの定義](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#editing-a-custom-pattern)」を参照してください。              |
 {%- endif %}
 
-### `organization_default_label` category actions
+## `organization_default_label` category actions
 
 | アクション                                | 説明                                                                                                                                                                                                                                                             |
 | ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -694,7 +704,7 @@ topics:
 | `organization_default_label.destroy` | A default label for repositories in an organization was deleted. For more information, see "[Deleting a default label](/organizations/managing-organization-settings/managing-default-labels-for-repositories-in-your-organization#deleting-a-default-label)." |
 
 {%- ifversion fpt or ghec or ghes > 3.1 %}
-### `organization_domain` category actions
+## `organization_domain` category actions
 
 | アクション                         | 説明                                                                                                                                                                                                                                                                           |
 | ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -703,7 +713,7 @@ topics:
 | `organization_domain.destroy` | An enterprise domain was removed from an organization. For more information, see "[Removing an approved or verified domain](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization#removing-an-approved-or-verified-domain)."   |
 | `organization_domain.verify`  | An enterprise domain was verified for an organization. For more information, see "[Verifying a domain for your organization](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization#verifying-a-domain-for-your-organization)." |
 
-### `organization_projects_change` category actions
+## `organization_projects_change` category actions
 
 | アクション                                  | 説明                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | -------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -713,7 +723,7 @@ topics:
 {%- endif %}
 
 {%- ifversion fpt or ghec or ghes > 3.0 or ghae %}
-### `packages` カテゴリアクション
+## `packages` カテゴリアクション
 
 | アクション                                | 説明                                                                                                                                                                                                                                |
 | ------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -731,7 +741,7 @@ topics:
 {%- endif %}
 
 {%- ifversion fpt or ghec %}
-### `pages_protected_domain` category actions
+## `pages_protected_domain` category actions
 
 | アクション                           | 説明                                                                                                                                                                                                                                                                                                         |
 | ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -739,7 +749,7 @@ topics:
 | `pages_protected_domain.delete` | A {% data variables.product.prodname_pages %} verified domain was deleted from an organization or enterprise. 詳しい情報については「[{% data variables.product.prodname_pages %}のカスタムドメインの検証](/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages)」を参照してください。 |
 | `pages_protected_domain.verify` | A {% data variables.product.prodname_pages %} domain was verified for an organization or enterprise. 詳しい情報については「[{% data variables.product.prodname_pages %}のカスタムドメインの検証](/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages)」を参照してください。          |
 
-### `payment_method` カテゴリアクション
+## `payment_method` カテゴリアクション
 
 | アクション                   | 説明                                                                           |
 | ----------------------- | ---------------------------------------------------------------------------- |
@@ -747,7 +757,7 @@ topics:
 | `payment_method.remove` | A payment method was removed.                                                |
 | `payment_method.update` | An existing payment method was updated.                                      |
 
-### `prebuild_configuration` category actions
+## `prebuild_configuration` category actions
 
 | アクション                                  | 説明                                                                                                                                                                                                                                                         |
 | -------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -758,7 +768,7 @@ topics:
 {%- endif %}
 
 {%- ifversion ghes %}
-### `pre_receive_environment` category actions
+## `pre_receive_environment` category actions
 
 | アクション                              | 説明                                                                                                                                                                                                                     |
 | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -767,7 +777,7 @@ topics:
 | `pre_receive_environment.download` | A pre-receive hook environment was downloaded. For more information, see "[Creating a pre-receive hook environment](/admin/policies/enforcing-policy-with-pre-receive-hooks/creating-a-pre-receive-hook-environment)." |
 | `pre_receive_environment.update`   | A pre-receive hook environment was updated. For more information, see "[Creating a pre-receive hook environment](/admin/policies/enforcing-policy-with-pre-receive-hooks/creating-a-pre-receive-hook-environment)."    |
 
-### `pre_receive_hook` category actions
+## `pre_receive_hook` category actions
 
 | アクション                            | 説明                                                                                                                                                                                                                                                                                                                                                                                       |
 | -------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -779,7 +789,7 @@ topics:
 | `pre_receive_hook.warned_push`   | A pre-receive hook warned about a push.                                                                                                                                                                                                                                                                                                                                                  |
 {%- endif %}
 
-### `private_repository_forking` category actions
+## `private_repository_forking` category actions
 
 | アクション                                | 説明                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -788,46 +798,46 @@ topics:
 | `private_repository_forking.enable`  | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} enabled the policy setting for allowing forks of private and internal repositories, for a repository, organization or enterprise. Private and internal repositories are always allowed to be forked. For more information, see "[Managing the forking policy for your repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-forking-policy-for-your-repository), "[Managing the forking policy for your organization](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization) and for enterprises "[Enforcing a policy for forking private or internal repositories](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-forking-private-or-internal-repositories)."  |
 
 {%- ifversion fpt or ghec %}
-### `profile_picture` カテゴリアクション
+## `profile_picture` カテゴリアクション
 
 | アクション                    | 説明                             |
 | ------------------------ | ------------------------------ |
 | `profile_picture.update` | A profile picture was updated. |
 {%- endif %}
 
-### `project` カテゴリアクション
+## `project` カテゴリアクション
 
 | アクション                            | 説明                                                                                                                                                                                                                                                                                                                                                                      |
 | -------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `project.access`                 | A project board visibility was changed. For more information, see "[Changing project board visibility](/issues/organizing-your-work-with-project-boards/managing-project-boards/changing-project-board-visibility)."                                                                                                                                                    |
-| `project.close`                  | A project board was closed. For more information, see "[Closing a project board](/issues/organizing-your-work-with-project-boards/managing-project-boards/closing-a-project-board)."                                                                                                                                                                                    |
-| `project.create`                 | A project board was created. For more information, see "[Creating a project board](/issues/organizing-your-work-with-project-boards/managing-project-boards/creating-a-project-board)."                                                                                                                                                                                 |
+| `project.access`                 | A project board visibility was changed. 詳細は「[プロジェクトボードの可視性を変更する](/issues/organizing-your-work-with-project-boards/managing-project-boards/changing-project-board-visibility)」を参照してください。                                                                                                                                                                                 |
+| `project.close`                  | A project board was closed. 詳しい情報については[プロジェクトボードのクローズ](/issues/organizing-your-work-with-project-boards/managing-project-boards/closing-a-project-board)を参照してください。                                                                                                                                                                                                      |
+| `project.create`                 | A project board was created. 詳しい情報については[プロジェクトボードの作成](/issues/organizing-your-work-with-project-boards/managing-project-boards/creating-a-project-board)を参照してください。                                                                                                                                                                                                      |
 | `project.delete`                 | A project board was deleted. For more information, see "[Deleting a project board](/issues/organizing-your-work-with-project-boards/managing-project-boards/deleting-a-project-board)."                                                                                                                                                                                 |
-| `project.link`                   | A repository was linked to a project board. For more information, see "[Linking a repository to a project board](/issues/organizing-your-work-with-project-boards/managing-project-boards/linking-a-repository-to-a-project-board)."                                                                                                                                    |
+| `project.link`                   | A repository was linked to a project board. 詳しい情報については、「[リポジトリをプロジェクトボードにリンクする](/issues/organizing-your-work-with-project-boards/managing-project-boards/linking-a-repository-to-a-project-board)」を参照してください。                                                                                                                                                            |
 | `project.open`                   | A project board was reopened. For more information, see "[Reopening a closed project board](/issues/organizing-your-work-with-project-boards/managing-project-boards/reopening-a-closed-project-board)."                                                                                                                                                                |
 | `project.rename`                 | A project board was renamed. For more information, see "[Editing a project board](/issues/organizing-your-work-with-project-boards/managing-project-boards/editing-a-project-board)."                                                                                                                                                                                   |
-| `project.unlink`                 | A repository was unlinked from a project board. For more information, see "[Linking a repository to a project board](/issues/organizing-your-work-with-project-boards/managing-project-boards/linking-a-repository-to-a-project-board)."                                                                                                                                |
-| `project.update_org_permission`  | The project's base-level permission for all organization members was changed or removed. For more information, see "[Managing access to a project board for organization members](/organizations/managing-access-to-your-organizations-project-boards/managing-access-to-a-project-board-for-organization-members)."                                                    |
+| `project.unlink`                 | A repository was unlinked from a project board. 詳しい情報については、「[リポジトリをプロジェクトボードにリンクする](/issues/organizing-your-work-with-project-boards/managing-project-boards/linking-a-repository-to-a-project-board)」を参照してください。                                                                                                                                                        |
+| `project.update_org_permission`  | The project's base-level permission for all organization members was changed or removed. 詳細は「[Organization メンバーのプロジェクトボードへのアクセスを管理する](/organizations/managing-access-to-your-organizations-project-boards/managing-access-to-a-project-board-for-organization-members)」を参照してください。                                                                                       |
 | `project.update_team_permission` | A team's project board permission level was changed or when a team was added or removed from a project board. For more information, see "[Managing team access to an organization project board](/organizations/managing-access-to-your-organizations-project-boards/managing-team-access-to-an-organization-project-board)."                                           |
 | `project.update_user_permission` | An organization member or outside collaborator was added to or removed from a project board or had their permission level changed. For more information, see "[Managing an individual’s access to an organization project board](/organizations/managing-access-to-your-organizations-project-boards/managing-an-individuals-access-to-an-organization-project-board)." |
 
 {%- ifversion fpt or ghec %}
-### `project_field` category actions
+## `project_field` category actions
 
-| アクション                  | 説明                                                                                                                                                                                |
-| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `project_field.create` | A field was created in a project board. For more information, see "[Creating a project (beta)](/issues/trying-out-the-new-projects-experience/creating-a-project#adding-fields)." |
-| `project_field.delete` | A field was deleted in a project board. For more information, see "[Creating a project (beta)](/issues/trying-out-the-new-projects-experience/creating-a-project#adding-fields)." |
+| アクション                  | 説明                                                                                                                                                              |
+| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `project_field.create` | A field was created in a project board. 詳しい情報については「[プロジェクト（ベータ）の作成](/issues/trying-out-the-new-projects-experience/creating-a-project#adding-fields)」を参照してください。 |
+| `project_field.delete` | A field was deleted in a project board. 詳しい情報については「[プロジェクト（ベータ）の作成](/issues/trying-out-the-new-projects-experience/creating-a-project#adding-fields)」を参照してください。 |
 
-### `project_view` category actions
+## `project_view` category actions
 
-| アクション                 | 説明                                                                                                                                                                                                                 |
-| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `project_view.create` | A view was created in a project board. For more information, see "[Customizing your project (beta) views](/issues/trying-out-the-new-projects-experience/customizing-your-project-views#creating-a-project-view)." |
-| `project_view.delete` | A view was deleted in a project board. For more information, see "[Customizing your project (beta) views](/issues/trying-out-the-new-projects-experience/customizing-your-project-views#deleting-a-saved-view)."   |
+| アクション                 | 説明                                                                                                                                                                                           |
+| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `project_view.create` | A view was created in a project board. 詳しい情報については「[プロジェクト（ベータ）のビューのカスタマイズ](/issues/trying-out-the-new-projects-experience/customizing-your-project-views#creating-a-project-view)」を参照してください。 |
+| `project_view.delete` | A view was deleted in a project board. 詳しい情報については「[プロジェクト（ベータ）のビューのカスタマイズ](/issues/trying-out-the-new-projects-experience/customizing-your-project-views#deleting-a-saved-view)」を参照してください。   |
 {%- endif %}
 
-### `protected_branch` カテゴリアクション
+## `protected_branch` カテゴリアクション
 
 | アクション                                    | 説明                                                                     |
 | ---------------------------------------- | ---------------------------------------------------------------------- |
@@ -843,38 +853,38 @@ topics:
 {%- endif %}
 | `protected_branch.update_pull_request_reviews_enforcement_level` | Enforcement of required pull request reviews was updated on a branch. `0`（無効化）、`1`（非管理者）、`2`（全員）のいずれか。 | `protected_branch.update_require_code_owner_review` | Enforcement of required code owner review was updated on a branch. | `protected_branch.update_required_approving_review_count` | Enforcement of the required number of approvals before merging was updated on a branch. | `protected_branch.update_required_status_checks_enforcement_level` | Enforcement of required status checks was updated on a branch. | `protected_branch.update_signature_requirement_enforcement_level` | Enforcement of required commit signing was updated on a branch. | `protected_branch.update_strict_required_status_checks_policy` | Enforcement of required status checks was updated on a branch. | `protected_branch.update_name` | A branch name pattern was updated for a branch.
 
-### `public_key` カテゴリアクション
+## `public_key` カテゴリアクション
 
-| アクション                               | 説明                                                                                               |
-| ----------------------------------- | ------------------------------------------------------------------------------------------------ |
-| `public_key.create`                 | An SSH key was [added][add key] to a user account or a [deploy key][] was added to a repository. |
-| `public_key.delete`                 | An SSH key was removed from a user account or a [deploy key][] was removed from a repository.    |
-| `public_key.update`                 | A user account's SSH key or a repository's [deploy key][] was updated.                           |
-| `public_key.unverification_failure` | A user account's SSH key or a repository's [deploy key][] was unable to be unverified.           |
-| `public_key.unverify`               | A user account's SSH key or a repository's [deploy key][] was unverified.                        |
-| `public_key.verification_failure`   | A user account's SSH key or a repository's [deploy key][] was unable to be verified.             |
-| `public_key.verify`                 | A user account's SSH key or a repository's [deploy key][] was verified.                          |
+| アクション                               | 説明                                                                                     |
+| ----------------------------------- | -------------------------------------------------------------------------------------- |
+| `public_key.create`                 | SSHキーがユーザアカウントに[追加][add key]されたか[デプロイキー][]がリポジトリに追加されました。                              |
+| `public_key.delete`                 | SSHキーがユーザアカウントから削除されたか[デプロイキー][]がリポジトリから削除されました。                                       |
+| `public_key.update`                 | ユーザアカウントの SSH キーまたはリポジトリの[デプロイキー][]が更新されました。                                           |
+| `public_key.unverification_failure` | A user account's SSH key or a repository's [deploy key][] was unable to be unverified. |
+| `public_key.unverify`               | A user account's SSH key or a repository's [deploy key][] was unverified.              |
+| `public_key.verification_failure`   | A user account's SSH key or a repository's [deploy key][] was unable to be verified.   |
+| `public_key.verify`                 | A user account's SSH key or a repository's [deploy key][] was verified.                |
 
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
-### `pull_request`カテゴリのアクション
+## `pull_request`カテゴリのアクション
 
-| アクション                                | 説明                                                                                                                                                                                                                                                                                 |
-| ------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `pull_request.close`                 | A pull request was closed without being merged. For more information, see "[Closing a pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/closing-a-pull-request)."                                                            |
-| `pull_request.converted_to_draft`    | A pull request was converted to a draft. For more information, see "[Changing the stage of a pull request](/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request#converting-a-pull-request-to-a-draft)." |
-| `pull_request.create`                | A pull request was created. 詳しい情報については[プルリクエストの作成](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)を参照してください。                                                                                            |
-| `pull_request.create_review_request` | A review was requested on a pull request. 詳しい情報については、「[プルリクエストレビューについて](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)」を参照してください。                                                                                  |
-| `pull_request.in_progress`           | A pull request was marked as in progress.                                                                                                                                                                                                                                          |
-| `pull_request.indirect_merge`        | A pull request was considered merged because the pull request's commits were merged into the target branch.                                                                                                                                                                        |
-| `pull_request.merge`                 | A pull request was merged. 詳しい情報については[プルリクエストのマージ](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)を参照してください。                                                                                                     |
-| `pull_request.ready_for_review`      | A pull request was marked as ready for review. 詳しい情報については、「[プルリクエストのステージを変更する](/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request#marking-a-pull-request-as-ready-for-review)」を参照してください。              |
-| `pull_request.remove_review_request` | A review request was removed from a pull request. 詳しい情報については、「[プルリクエストレビューについて](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)」を参照してください。                                                                          |
-| `pull_request.reopen`                | A pull request was reopened after previously being closed.                                                                                                                                                                                                                         |
-| `pull_request_review.delete`         | A review on a pull request was deleted.                                                                                                                                                                                                                                            |
-| `pull_request_review.dismiss`        | A review on a pull request was dismissed. 詳しい情報については[プルリクエストレビューの却下](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)を参照してください。                                                                                |
-| `pull_request_review.submit`         | A review was submitted for a pull request. 詳しい情報については、「[プルリクエストレビューについて](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)」を参照してください。                                                                                 |
+| アクション                                | 説明                                                                                                                                                                                                                                                                    |
+| ------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `pull_request.close`                 | A pull request was closed without being merged. For more information, see "[Closing a pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/closing-a-pull-request)."                                               |
+| `pull_request.converted_to_draft`    | A pull request was converted to a draft. 詳しい情報については、「[プルリクエストのステージを変更する](/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request#converting-a-pull-request-to-a-draft)」を参照してください。             |
+| `pull_request.create`                | A pull request was created. 詳しい情報については[プルリクエストの作成](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)を参照してください。                                                                               |
+| `pull_request.create_review_request` | A review was requested on a pull request. 詳しい情報については、「[プルリクエストレビューについて](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)」を参照してください。                                                                     |
+| `pull_request.in_progress`           | A pull request was marked as in progress.                                                                                                                                                                                                                             |
+| `pull_request.indirect_merge`        | A pull request was considered merged because the pull request's commits were merged into the target branch.                                                                                                                                                           |
+| `pull_request.merge`                 | A pull request was merged. 詳しい情報については[プルリクエストのマージ](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)を参照してください。                                                                                        |
+| `pull_request.ready_for_review`      | A pull request was marked as ready for review. 詳しい情報については、「[プルリクエストのステージを変更する](/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request#marking-a-pull-request-as-ready-for-review)」を参照してください。 |
+| `pull_request.remove_review_request` | A review request was removed from a pull request. 詳しい情報については、「[プルリクエストレビューについて](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)」を参照してください。                                                             |
+| `pull_request.reopen`                | A pull request was reopened after previously being closed.                                                                                                                                                                                                            |
+| `pull_request_review.delete`         | A review on a pull request was deleted.                                                                                                                                                                                                                               |
+| `pull_request_review.dismiss`        | A review on a pull request was dismissed. 詳しい情報については[プルリクエストレビューの却下](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)を参照してください。                                                                   |
+| `pull_request_review.submit`         | A review was submitted for a pull request. 詳しい情報については、「[プルリクエストレビューについて](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)」を参照してください。                                                                    |
 
-### `pull_request_review`カテゴリのアクション
+## `pull_request_review`カテゴリのアクション
 
 | アクション                         | 説明                                                                                                                                                                                                                                                      |
 | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -882,7 +892,7 @@ topics:
 | `pull_request_review.dismiss` | A review on a pull request was dismissed. 詳しい情報については[プルリクエストレビューの却下](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)を参照してください。                                                     |
 | `pull_request_review.submit`  | A review on a pull request was submitted. For more information, see "[Submitting your review](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request#submitting-your-review)." |
 
-### `pull_request_review_comment`カテゴリのアクション
+## `pull_request_review_comment`カテゴリのアクション
 
 | アクション                                | 説明                                                                                                                                                                                                    |
 | ------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -891,7 +901,7 @@ topics:
 | `pull_request_review_comment.update` | A review comment on a pull request was changed.                                                                                                                                                       |
 {%- endif %}
 
-### `repo` カテゴリアクション
+## `repo` カテゴリアクション
 
 | アクション                                                    | 説明                                                                                                                                                                                                                     |
 | -------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -907,7 +917,7 @@ topics:
 | `repo.code_scanning_analysis_deleted`                    | Code scanning analysis for a repository was deleted. For more information, see "[Delete a code scanning analysis from a repository](/rest/reference/code-scanning#delete-a-code-scanning-analysis-from-a-repository)." |
 | `repo.change_merge_setting`                              | Pull request merge options were changed for a repository.                                                                                                                                                              |
 | `repo.clear_actions_settings`                            | A repository administrator cleared {% data variables.product.prodname_actions %} policy settings for a repository.                                                                                                     |
-| `repo.config`                                            | A repository administrator blocked force pushes. 詳しくは、 [リポジトリへのフォースプッシュのブロック](/enterprise/{{ currentVersion }}/admin/guides/developer-workflow/blocking-force-pushes-to-a-repository/)を参照してください。                       |
+| `repo.config`                                            | A repository administrator blocked force pushes. 詳しくは、 [リポジトリへのフォースプッシュのブロック](/enterprise/admin/guides/developer-workflow/blocking-force-pushes-to-a-repository/)を参照してください。                                            |
 {%- ifversion fpt or ghec %}
 | `repo.config.disable_collaborators_only` | The interaction limit for collaborators only was disabled. 詳しい情報については「[リポジトリでの操作の制限](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)」を参照してください。 | `repo.config.disable_contributors_only` | The interaction limit for prior contributors only was disabled in a repository. 詳しい情報については「[リポジトリでの操作の制限](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)」を参照してください。 | `repo.config.disable_sockpuppet_disallowed` | The interaction limit for existing users only was disabled in a repository. 詳しい情報については「[リポジトリでの操作の制限](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)」を参照してください。 | `repo.config.enable_collaborators_only` | The interaction limit for collaborators only was enabled in a repository. Users that are not collaborators or organization members were unable to interact with a repository for a set duration. 詳しい情報については「[リポジトリでの操作の制限](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)」を参照してください。 | `repo.config.enable_contributors_only` | The interaction limit for prior contributors only was enabled in a repository. Users that are not prior contributors, collaborators or organization members were unable to interact with a repository for a set duration. 詳しい情報については「[リポジトリでの操作の制限](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)」を参照してください。 | `repo.config.enable_sockpuppet_disallowed` | The interaction limit for existing users was enabled in a repository. New users aren't able to interact with a repository for a set duration. Existing users of the repository, contributors, collaborators or organization members are able to interact with a repository. 詳しい情報については「[リポジトリでの操作の制限](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)」を参照してください。
 {%- endif %}
@@ -929,7 +939,7 @@ topics:
 | `repo.staff_unlock` | An enterprise administrator or GitHub staff (with permission from a repository administrator) temporarily unlocked the repository. | `repo.transfer` | A user accepted a request to receive a transferred repository. | `repo.transfer_outgoing` | A repository was transferred to another repository network. | `repo.transfer_start` | A user sent a request to transfer a repository to another user or organization. | `repo.unarchived` | A repository was unarchived. 詳しい情報については、「[{% data variables.product.prodname_dotcom %} のリポジトリをアーカイブする](/github/creating-cloning-and-archiving-repositories/archiving-a-github-repository)」を参照してください。 | `repo.update_actions_settings` | A repository administrator changed {% data variables.product.prodname_actions %} policy settings for a repository. | `repo.update_actions_secret` | A {% data variables.product.prodname_actions %} secret was updated. | `repo.update_actions_access_settings` | The setting to control how a repository was used by {% data variables.product.prodname_actions %} workflows in other repositories was changed. | `repo.update_default_branch` | The default branch for a repository was changed. | `repo.update_integration_secret` | A {% data variables.product.prodname_dependabot %} or {% data variables.product.prodname_codespaces %} integration secret was updated for a repository. | `repo.update_member` | A user's permission to a repository was changed.
 
 {%- ifversion fpt or ghec %}
-### `repository_advisory` カテゴリアクション
+## `repository_advisory` カテゴリアクション
 
 | アクション                                  | 説明                                                                                                                                                                                                      |
 | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -942,14 +952,14 @@ topics:
 | `repository_advisory.reopen`           | Someone reopened as draft security advisory.                                                                                                                                                            |
 | `repository_advisory.update`           | Someone edited a draft or published security advisory.                                                                                                                                                  |
 
-### `repository_content_analysis`カテゴリアクション
+## `repository_content_analysis`カテゴリアクション
 
 | アクション                                 | 説明                                                                                                                                                                                              |
 | ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `repository_content_analysis.enable`  | An organization owner or repository administrator [enabled data use settings for a private repository](/get-started/privacy-on-github/managing-data-use-settings-for-your-private-repository).  |
 | `repository_content_analysis.disable` | An organization owner or repository administrator [disabled data use settings for a private repository](/get-started/privacy-on-github/managing-data-use-settings-for-your-private-repository). |
 
-### `repository_dependency_graph` カテゴリアクション
+## `repository_dependency_graph` カテゴリアクション
 
 | アクション                                 | 説明                                                                                                                                                                                                           |
 | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -957,14 +967,14 @@ topics:
 | `repository_dependency_graph.enable`  | A repository owner or administrator enabled the dependency graph for a private repository.                                                                                                                   |
 {%- endif %}
 
-### `repository_image` category actions
+## `repository_image` category actions
 
 | アクション                      | 説明                                               |
 | -------------------------- | ------------------------------------------------ |
 | `repository_image.create`  | An image to represent a repository was uploaded. |
 | `repository_image.destroy` | An image to represent a repository was deleted.  |
 
-### `repository_invitation` category actions
+## `repository_invitation` category actions
 
 | アクション                          | 説明                                               |
 | ------------------------------ | ------------------------------------------------ |
@@ -972,7 +982,7 @@ topics:
 | `repository_invitation.create` | An invitation to join a repository was sent.     |
 | `repository_invitation.reject` | An invitation to join a repository was canceled. |
 
-### `repository_projects_change` category actions
+## `repository_projects_change` category actions
 
 | アクション                                | 説明                                                                                                                                                                                                                                                                                                                                                                             |
 | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -981,7 +991,7 @@ topics:
 | `repository_projects_change.enable`  | Repository projects were enabled for a repository, all repositories in an organization, or all organizations in an enterprise.                                                                                                                                                                                                                                                 |
 
 {%- ifversion ghec or ghes or ghae %}
-### `repository_secret_scanning` カテゴリアクション
+## `repository_secret_scanning` カテゴリアクション
 
 | アクション                                | 説明                                                                                                                                                                                                                                    |
 | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -989,9 +999,9 @@ topics:
 | `repository_secret_scanning.enable`  | A repository owner or administrator enabled secret scanning for a {% ifversion ghec %}private or internal {% endif %}repository.                                                                                                      |
 {%- endif %}
 
-{%- if secret-scanning-audit-log-custom-patterns %}
+{%- ifversion secret-scanning-audit-log-custom-patterns %}
 
-### `repository_secret_scanning_custom_pattern`カテゴリアクション
+## `repository_secret_scanning_custom_pattern`カテゴリアクション
 
 | アクション                                              | 説明                                                                                                                                                                                                                                             |
 | -------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -999,14 +1009,14 @@ topics:
 | `repository_secret_scanning_custom_pattern.delete` | A custom pattern is removed from secret scanning in a repository. 詳しい情報については「[Secret scanningのカスタムパターンの定義](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#removing-a-custom-pattern)」を参照してください。                   |
 | `repository_secret_scanning_custom_pattern.update` | Changes to a custom pattern are saved for secret scanning in a repository. 詳しい情報については「[Secret scanningのカスタムパターンの定義](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#editing-a-custom-pattern)」を参照してください。           |
 
-### `repository_secret_scanning_push_protection`カテゴリアクション
+## `repository_secret_scanning_push_protection`カテゴリアクション
 
 | アクション                                                | 説明                                                                                                                                                                                                      |
 | ---------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `repository_secret_scanning_push_protection.disable` | A repository owner or administrator  disabled secret scanning for a repository. 詳しい情報については「[Secret scanningでのプッシュの保護](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)」を参照してください。 |
 | `repository_secret_scanning_push_protection.enable`  | A repository owner or administrator  enabled secret scanning for a repository. 詳しい情報については「[Secret scanningでのプッシュの保護](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)」を参照してください。  |
 {%- endif %}
-### `repository_visibility_change` category actions
+## `repository_visibility_change` category actions
 
 | アクション                                  | 説明                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | -------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1015,26 +1025,26 @@ topics:
 | `repository_visibility_change.enable`  | The ability for enterprise members to update a repository's visibility was enabled. Members are able to change repository visibilities in an organization, or all organizations in an enterprise.                                                                                                                                                                                                                                                                                                                                                                 |
 
 {%- ifversion fpt or ghec or ghes or ghae %}
-### `repository_vulnerability_alert` カテゴリアクション
+## `repository_vulnerability_alert` カテゴリアクション
 
-| アクション                                    | 説明                                                                                                                                                                                                                                                                                                   |
-| ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `repository_vulnerability_alert.create`  | {% data variables.product.product_name %} created a {% data variables.product.prodname_dependabot %} alert for a repository that uses a vulnerable dependency. 詳しい情報については、「[脆弱性のある依存関係に対するアラートについて](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)」を参照してください。 |
-| `repository_vulnerability_alert.dismiss` | An organization owner or repository administrator dismissed a {% data variables.product.prodname_dependabot %} alert about a vulnerable dependency.                                                                                                                                                  |
-| `repository_vulnerability_alert.resolve` | Someone with write access to a repository pushed changes to update and resolve a vulnerability in a project dependency.                                                                                                                                                                              |
+| アクション                                    | 説明                                                                                                                                                                                                                                                                                                                         |
+| ---------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `repository_vulnerability_alert.create`  | {% data variables.product.product_name %} created a {% data variables.product.prodname_dependabot %} alert for a repository that uses an insecure dependency. 詳しい情報については「[{% data variables.product.prodname_dependabot_alerts %}について](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)」を参照してください。 |
+| `repository_vulnerability_alert.dismiss` | An organization owner or repository administrator dismissed a {% data variables.product.prodname_dependabot %} alert about a vulnerable dependency{% ifversion GH-advisory-db-supports-malware %} or malware{% endif %}.                                                                                                   |
+| `repository_vulnerability_alert.resolve` | Someone with write access to a repository pushed changes to update and resolve a {% data variables.product.prodname_dependabot %} alert in a project dependency.                                                                                                                                                           |
 {%- endif %}
 
 {%- ifversion fpt or ghec %}
-### `repository_vulnerability_alerts` カテゴリアクション
+## `repository_vulnerability_alerts` カテゴリアクション
 
-| アクション                                                    | 説明                                                                                                                                                                                                                                                                                                                                                                                                     |
-| -------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `repository_vulnerability_alerts.authorized_users_teams` | An organization owner or repository administrator updated the list of people or teams authorized to receive {% data variables.product.prodname_dependabot_alerts %} for vulnerable dependencies in the repository. 詳しい情報については「[リポジトリのセキュリティ及び分析の設定の管理](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)」を参照してください。 |
-| `repository_vulnerability_alerts.disable`                | A repository owner or repository administrator disabled {% data variables.product.prodname_dependabot_alerts %}.                                                                                                                                                                                                                                                                                     |
-| `repository_vulnerability_alerts.enable`                 | A repository owner or repository administrator enabled {% data variables.product.prodname_dependabot_alerts %}.                                                                                                                                                                                                                                                                                      |
+| アクション                                                    | 説明                                                                                                                                                                                                                                                                                                                                                                          |
+| -------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `repository_vulnerability_alerts.authorized_users_teams` | An organization owner or repository administrator updated the list of people or teams authorized to receive {% data variables.product.prodname_dependabot_alerts %} for the repository. 詳しい情報については「[リポジトリのセキュリティ及び分析の設定の管理](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)」を参照してください。 |
+| `repository_vulnerability_alerts.disable`                | A repository owner or repository administrator disabled {% data variables.product.prodname_dependabot_alerts %}.                                                                                                                                                                                                                                                          |
+| `repository_vulnerability_alerts.enable`                 | A repository owner or repository administrator enabled {% data variables.product.prodname_dependabot_alerts %}.                                                                                                                                                                                                                                                           |
 {%- endif %}
 
-### `required_status_check` category actions
+## `required_status_check` category actions
 
 | アクション                           | 説明                                                                                                                                                                                                                                                                                                                     |
 | ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1042,7 +1052,7 @@ topics:
 | `required_status_check.destroy` | A status check was no longer marked as required for a protected branch. For more information, see "[Require status checks before merging](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-status-checks-before-merging)." |
 
 {%- ifversion ghec or ghes > 3.1 %}
-### `restrict_notification_delivery` category actions
+## `restrict_notification_delivery` category actions
 
 | アクション                                    | 説明                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | ---------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1050,8 +1060,8 @@ topics:
 | `restrict_notification_delivery.disable` | Email notification restrictions for an organization or enterprise were disabled. For more information, see "[Restricting email notifications for your organization](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/restricting-email-notifications-for-your-organization)" and "[Restricting email notifications for your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/restricting-email-notifications-for-your-enterprise)." |
 {%- endif %}
 
-{%- if custom-repository-roles %}
-### `role`カテゴリアクション
+{%- ifversion custom-repository-roles %}
+## `role`カテゴリアクション
 
 | アクション     | 説明                                                                                                                                                                                                                                                 |
 | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1061,15 +1071,15 @@ topics:
 {%- endif %}
 
 {%- ifversion ghec or ghes or ghae %}
-### `secret_scanning` カテゴリアクション
+## `secret_scanning` カテゴリアクション
 
 | アクション                     | 説明                                                                                                                                                                                                                                   |
 | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `secret_scanning.disable` | An organization owner disabled secret scanning for all existing{% ifversion ghec %} private or internal{% endif %} repositories. 詳しい情報については、「[シークレットスキャニングについて](/github/administering-a-repository/about-secret-scanning)」を参照してください。 |
 | `secret_scanning.enable`  | An organization owner enabled secret scanning for all existing{% ifversion ghec %} private or internal{% endif %} repositories.                                                                                                      |
 
-{% if secret-scanning-alert-audit-log %}
-### `secret_scanning_alert`カテゴリアクション
+{% ifversion secret-scanning-alert-audit-log %}
+## `secret_scanning_alert`カテゴリアクション
 
 | アクション                           | 説明                                                                                                                                                                                                                                                                                                             |
 | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1078,7 +1088,7 @@ topics:
 | `secret_scanning_alert.resolve` | A user resolved a {% data variables.product.prodname_secret_scanning %} alert.                                                                                                                                                                                                                               |
 {% endif %}
 
-### `secret_scanning_new_repos` カテゴリアクション
+## `secret_scanning_new_repos` カテゴリアクション
 
 | アクション                               | 説明                                                                                                                                                                                                                              |
 | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1086,8 +1096,15 @@ topics:
 | `secret_scanning_new_repos.enable`  | An organization owner enabled secret scanning for all new{% ifversion ghec %} private or internal{% endif %} repositories.                                                                                                      |
 {%- endif %}
 
+{% ifversion secret-scanning-push-protection-bypasses %}
+## `secret_scanning_push_protection`カテゴリアクション
+
+| アクション    | 説明                                                                                                                                                                                                                                                           |
+| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `bypass` | ユーザがSecret scanningによって検出されたシークレットに対するプッシュ保護をバイパスするとトリガーされます。 For more information, see "[Bypassing push protection for a secret](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#bypassing-push-protection-for-a-secret)."{% endif %}
+
 {%- ifversion ghec or ghes or ghae %}
-### `security_key` category actions
+## `security_key` category actions
 
 | アクション                   | 説明                                            |
 | ----------------------- | --------------------------------------------- |
@@ -1096,7 +1113,7 @@ topics:
 {%- endif %}
 
 {%- ifversion fpt or ghec %}
-### `sponsors` カテゴリアクション
+## `sponsors` カテゴリアクション
 
 | アクション                                                  | 説明                                                                                                                                                                                                                                                                                                                      |
 | ------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1122,14 +1139,14 @@ topics:
 {%- endif %}
 
 {%- ifversion ghec or ghes or ghae %}
-### `ssh_certificate_authority` category actions
+## `ssh_certificate_authority` category actions
 
 | アクション                               | 説明                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `ssh_certificate_authority.create`  | An SSH certificate authority for an organization or enterprise was created. For more information, see "[Managing your organization's SSH certificate authorities](/organizations/managing-git-access-to-your-organizations-repositories/managing-your-organizations-ssh-certificate-authorities)" and "[Managing SSH certificate authorities for your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-ssh-certificate-authorities-for-your-enterprise)." |
 | `ssh_certificate_authority.destroy` | An SSH certificate authority for an organization or enterprise was deleted. For more information, see "[Managing your organization's SSH certificate authorities](/organizations/managing-git-access-to-your-organizations-repositories/managing-your-organizations-ssh-certificate-authorities)" and "[Managing SSH certificate authorities for your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-ssh-certificate-authorities-for-your-enterprise)." |
 
-### `ssh_certificate_requirement` category actions
+## `ssh_certificate_requirement` category actions
 
 | アクション                                 | 説明                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1137,7 +1154,7 @@ topics:
 | `ssh_certificate_requirement.disable` | The requirement for members to use SSH certificates to access an organization resources was disabled. For more information, see "[Managing your organization's SSH certificate authorities](/organizations/managing-git-access-to-your-organizations-repositories/managing-your-organizations-ssh-certificate-authorities)" and "[Managing SSH certificate authorities for your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-ssh-certificate-authorities-for-your-enterprise)." |
 {%- endif %}
 
-### `staff` category actions
+## `staff` category actions
 
 | アクション                | 説明                                                                                                                                                               |
 | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1159,7 +1176,7 @@ topics:
 | `staff.view_audit_log` | A site administrator viewed the site admin audit log.
 {%- endif %}
 
-### `team` カテゴリアクション
+## `team` カテゴリアクション
 
 | アクション                     | 説明                                                                                                                                                                                                                                       |
 | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1175,16 +1192,16 @@ topics:
 {%- endif %}
 | `team.remove_member` | A member of an organization was removed from a team. For more information, see "[Removing organization members from a team](/organizations/organizing-members-into-teams/removing-organization-members-from-a-team)." | `team.remove_repository` | A repository was no longer under a team's control. | `team.rename` | A team's name was changed. | `team.update_permission` | A team's access was changed. | `team.update_repository_permission` | A team's permission to a repository was changed.
 
-### `team_discussions` カテゴリアクション
+## `team_discussions` カテゴリアクション
 
-| アクション                      | 説明                                                                                                                                                                                                                          |
-| -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `team_discussions.clear`   | An organization owner cleared the setting to allow team discussions for an organization or enterprise.                                                                                                                      |
-| `team_discussions.disable` | An organization owner disabled team discussions for an organization. 詳しい情報については [Organization の Team ディスカッションの無効化](/organizations/organizing-members-into-teams/disabling-team-discussions-for-your-organization)を参照してください。 |
-| `team_discussions.enable`  | An organization owner enabled team discussions for an organization.                                                                                                                                                         |
+| アクション                      | 説明                                                                                                                                                                                                                                                  |
+| -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `team_discussions.clear`   | An organization owner cleared the setting to allow team discussions for an organization or enterprise.                                                                                                                                              |
+| `team_discussions.disable` | An organization owner disabled team discussions for an organization. For more information, see "[Disabling team discussions for your organization](/organizations/organizing-members-into-teams/disabling-team-discussions-for-your-organization)." |
+| `team_discussions.enable`  | An organization owner enabled team discussions for an organization.                                                                                                                                                                                 |
 
 {%- ifversion ghec %}
-### `team_sync_tenant` category actions
+## `team_sync_tenant` category actions
 
 | アクション                                      | 説明                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | ------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1194,7 +1211,7 @@ topics:
 {%- endif %}
 
 {%- ifversion fpt or ghes %}
-### `two_factor_authentication` カテゴリアクション
+## `two_factor_authentication` カテゴリアクション
 
 | アクション                                                   | 説明                                                                         |
 | ------------------------------------------------------- | -------------------------------------------------------------------------- |
@@ -1207,7 +1224,7 @@ topics:
 {%- endif %}
 
 {%- ifversion fpt or ghes or ghae %}
-### `user` カテゴリアクション
+## `user` カテゴリアクション
 
 | アクション                               | 説明                                                                                                                                                                              |
 | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1234,7 +1251,7 @@ topics:
 {%- endif %}
 
 {%- ifversion ghec or ghes %}
-### `user_license` category actions
+## `user_license` category actions
 
 | アクション                  | 説明                                                           |
 | ---------------------- | ------------------------------------------------------------ |
@@ -1244,7 +1261,7 @@ topics:
 {%- endif %}
 
 {% ifversion fpt or ghec or ghes > 3.1 or ghae %}
-### `workflows` カテゴリアクション
+## `workflows` カテゴリアクション
 
 {% data reusables.audit_log.audit-log-events-workflows %}
 {%- endif %}
@@ -1254,6 +1271,7 @@ topics:
   [OAuth application]: /guides/basics-of-authentication/#registering-your-app
 
   [add key]: /authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account
+  [デプロイキー]: /developers/overview/managing-deploy-keys#deploy-keys
   [deploy key]: /developers/overview/managing-deploy-keys#deploy-keys
 
   [2fa]: /authentication/securing-your-account-with-two-factor-authentication-2fa/about-two-factor-authentication

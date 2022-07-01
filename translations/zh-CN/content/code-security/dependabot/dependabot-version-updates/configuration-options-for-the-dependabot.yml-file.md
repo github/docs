@@ -33,9 +33,9 @@ shortTitle: 配置 dependabot.yml
 
 下次安全警报触发安全更新的拉取请求时将使用所有同时影响安全更新的选项。  更多信息请参阅“[配置 {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-dependabot-security-updates)。”
 
-*dependabot.yml* 文件有两个必需的顶级密钥：`version` 和 `updates`。 您可以选择包括顶级 `registries` 密钥{% ifversion fpt or ghec or ghes > 3.4 %} 和/或 `enable-beta-ecosystems` 密钥{% endif %}。 该文件必须以 `version: 2` 开头。
+*dependabot.yml* 文件有两个必需的顶级密钥：`version` 和 `updates`。 您可以选择包括顶级 `registries` 密钥{% ifversion ghes = 3.5 %} 和/或 `enable-beta-ecosystems` 密钥{% endif %}。 该文件必须以 `version: 2` 开头。
 
-## Configuration options for the *dependabot.yml* file
+## *dependabot.yml* 文件的配置选项
 
 顶级 `updates` 密钥是必需的。 您使用它来配置 {% data variables.product.prodname_dependabot %} 如何更新版本或项目的依赖项。 每个条目都为特定的包管理器配置更新设置。 您可以使用以下选项。
 
@@ -57,7 +57,7 @@ shortTitle: 配置 dependabot.yml
 
 仅对默认分支上有漏洞的包清单提出安全更新。 如果为同一分支设置配置选项（不使用 `target-branch` 时为 true），并为有漏洞的清单指定 `package-ecosystem` 和 `directory`，则安全更新的拉取请求使用相关选项。
 
-一般而言，安全更新会使用影响拉取请求的任何配置选项，例如添加元数据或改变其行为。 For more information about security updates, see "[Configuring {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-dependabot-security-updates)."
+一般而言，安全更新会使用影响拉取请求的任何配置选项，例如添加元数据或改变其行为。 有关安全更新的更多信息，请参阅“[配置 {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-dependabot-security-updates)”。
 
 {% endnote %}
 
@@ -280,6 +280,10 @@ updates:
       prefix-development: "pip dev"
       include: "scope"
 ```
+如果使用与上述示例中相同的配置，则在 `pip` 开发依赖项组中刷入 `requests` 库将生成以下提交消息：
+
+   `pip dev: bump requests from 1.0.0 to 1.0.1`
+
 ### `ignore`
 
 {% data reusables.dependabot.default-dependencies-allow-ignore %}
@@ -292,13 +296,13 @@ updates:
 
 您可以搜索仓库中是否有 `"@dependabot ignore" in:comments`，以检查仓库是否存储了 `ignore` 首选项。 如果您希望取消忽略以这种方式忽略的依赖项，请重新打开拉取请求。
 
-For more information about the `@dependabot ignore` commands, see "[Managing pull requests for dependency updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands)."
+有关 `@dependabot ignore` 命令的更多信息，请参阅“[管理依赖关系更新的拉取请求](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands)”。
 
 #### 指定要忽略的依赖项和版本
 
 可以使用 `ignore` 选项自定义更新哪些依赖项。 `ignore` 选项支持以下选项。
 
-- `dependency-name`—用于忽略名称匹配的依赖项，可以选择使用 `*` 来匹配零个或更多字符。 对于 Java 依赖项，`dependency-name` 属性的格式为：`groupId:artifactId`（例如：`org.kohsuke:github-api`）。 {% if dependabot-grouped-dependencies %} 要防止 {% data variables.product.prodname_dependabot %} 从 DefinitelyTyped 自动更新 TypeScript 类型定义，请使用 `@types/*`。{% endif %}
+- `dependency-name`—用于忽略名称匹配的依赖项，可以选择使用 `*` 来匹配零个或更多字符。 对于 Java 依赖项，`dependency-name` 属性的格式为：`groupId:artifactId`（例如：`org.kohsuke:github-api`）。 {% ifversion dependabot-grouped-dependencies %} 要防止 {% data variables.product.prodname_dependabot %} 从 DefinitelyTyped 自动更新 TypeScript 类型定义，请使用 `@types/*`。{% endif %}
 - `versions`—用于忽略特定版本或版本范围。 如果要定义范围，请使用包管理器的标准模式（例如：对 npm 使用 `^1.0.0`，对 Bundler 使用 `~> 2.0`）。
 - `update-types`—用于忽略更新类型，如关于版本更新的 semver `major`、`minor` 或 `patch` 更新（例如：`version-update:semver-patch` 将忽略补丁更新）。 您可以将此与 `dependency-name: "*"` 结合，以忽略所有依赖项的特定 `update-types`。 目前，`version-update:semver-major`、`version-update:semver-minor` 和 `version-update:semver-patch` 是唯一支持的选项。 安全更新不受此设置的影响。
 
@@ -971,8 +975,9 @@ registries:
 
 version: 2
 enable-beta-ecosystems: true
-updates:
-  - package-ecosystem: "pub"
+updates:{% ifversion fpt or ghec or ghes > 3.5 %}
+  - package-ecosystem: "beta-ecosystem"{% else %}
+  - package-ecosystem: "pub"{% endif %}
     directory: "/"
     schedule:
       interval: "daily"

@@ -42,7 +42,6 @@ topics:
 
 ### {% data variables.product.prodname_codespaces %} 预构建的计费
 
-{% data reusables.codespaces.prebuilds-beta-note %}
 
 {% data reusables.codespaces.billing-for-prebuilds %}
 

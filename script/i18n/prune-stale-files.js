@@ -2,7 +2,7 @@
 import fs from 'fs'
 import path from 'path'
 import walk from 'walk-sync'
-import program from 'commander'
+import { program } from 'commander'
 import languages from '../../lib/languages.js'
 
 program

@@ -1,1 +1,1 @@
-| Preventing a job from running unless specific conditions are met: | [`if`](/actions/using-jobs/using-conditions-to-control-job-execution)|
+| Impedindo que um trabalho seja executado a menos que condições específicas sejam atendidas: | [`se`](/actions/using-jobs/using-conditions-to-control-job-execution)|

@@ -33,9 +33,9 @@ Você deve armazenar este arquivo no diretório `.github` do seu repositório. A
 
 Quaisquer opções que também afetem as atualizações de segurança são usadas na próxima vez que um alerta de segurança acionar um pull request para uma atualização de segurança.  Para obter mais informações, consulte "[Configurando {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-dependabot-security-updates)."
 
-O arquivo *dependabot.yml* tem duas chaves obrigatórias de nível superior: `versão`e `atualizações`. Você pode, opcionalmente, incluir uma chave `registros` de nível superior {% ifversion fpt or ghec or ghes > 3.4 %} e/ou uma chave `enable-beta-ecosystem` key{% endif %}. O arquivo deve começar com a `versão: 2`.
+O arquivo *dependabot.yml* tem duas chaves obrigatórias de nível superior: `versão`e `atualizações`. You can, optionally, include a top-level `registries` key{% ifversion ghes = 3.5 %} and/or a `enable-beta-ecosystems` key{% endif %}. O arquivo deve começar com a `versão: 2`.
 
-## Configuration options for the *dependabot.yml* file
+## Opções de configuração para o arquivo *dependabot.yml*
 
 A chave `atualizações` de nível superior é obrigatória. Você a utiliza para configurar como {% data variables.product.prodname_dependabot %} atualiza as versões ou as dependências do seu projeto. Cada entrada configura as configurações de atualização para um gerenciador de pacotes específico. Você pode usar o seguinte opções.
 
@@ -280,6 +280,10 @@ updates:
       prefix-development: "pip dev"
       include: "scope"
 ```
+If you use the same configuration as in the example above, bumping the `requests` library in the `pip` development dependency group will generate a commit message of:
+
+   `pip dev: bump requests from 1.0.0 to 1.0.1`
+
 ### `ignore`
 
 {% data reusables.dependabot.default-dependencies-allow-ignore %}
@@ -298,7 +302,7 @@ Para obter mais informações sobre os comandos `@dependabot ignore`, consulte [
 
 Você pode usar a opção `ignore` para personalizar quais dependências são atualizadas. A opção `ignore` suporta as seguintes opções.
 
-- `dependency-name`—use para ignorar atualizações para dependências com nomes correspondentes, opcionalmente usando `*` para corresponder a zero ou mais caracteres. Para dependências do Java, o formato do atributo `dependency-name` é: `groupId:artifactId` (por exemplo: `org.kohsuke:github-api`). {% if dependabot-grouped-dependencies %} Para evitar que {% data variables.product.prodname_dependabot %} atualize automaticamente as definições do tipo TypeScript a partir de DefinitelyType, use `@types/*`.{% endif %}
+- `dependency-name`—use para ignorar atualizações para dependências com nomes correspondentes, opcionalmente usando `*` para corresponder a zero ou mais caracteres. Para dependências do Java, o formato do atributo `dependency-name` é: `groupId:artifactId` (por exemplo: `org.kohsuke:github-api`). {% ifversion dependabot-grouped-dependencies %} Para evitar que {% data variables.product.prodname_dependabot %} atualize automaticamente as definições do tipo TypeScript a partir de DefinitelyType, use `@types/*`.{% endif %}
 - `versions`—use para ignorar versões específicas ou intervalos de versões. Se você deseja definir um intervalo, use o padrão pattern para o gerenciador de pacotes (por exemplo: `^1.0.0` para npm, ou `~> 2.0` para o Bundler).
 - `update-types`—use para ignorar tipos de atualizações, como semver `major`, `minor` ou `atualizações de atualização de versão` (por exemplo: `version-update:semver-patch` ignorará atualizações de patch). Você pode combinar isso com a `dependency-name: "*"` para ignorar em `update-types` específicos para todas as dependências. Atualmente, `version-update:semver-major`, `version-update:semver-minor` e `version-update:semver-patch` são as únicas opções compatíveis. As atualizações de segurança não afetadas por esta configuração.
 
@@ -971,8 +975,9 @@ Por padrão, {% data variables.product.prodname_dependabot %} atualiza os manife
 
 version: 2
 enable-beta-ecosystems: true
-updates:
-  - package-ecosystem: "pub"
+updates:{% ifversion fpt or ghec or ghes > 3.5 %}
+  - package-ecosystem: "beta-ecosystem"{% else %}
+  - package-ecosystem: "pub"{% endif %}
     directory: "/"
     schedule:
       interval: "daily"

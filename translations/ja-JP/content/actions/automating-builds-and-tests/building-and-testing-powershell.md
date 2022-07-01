@@ -104,7 +104,7 @@ jobs:
 
 {% endnote %}
 
-{% if actions-caching %}You can also cache dependencies to speed up your workflow. For more information, see "[Caching dependencies to speed up workflows](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."{% endif %}
+{% ifversion actions-caching %}You can also cache dependencies to speed up your workflow. For more information, see "[Caching dependencies to speed up workflows](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."{% endif %}
 
 たとえば以下のジョブは、`SqlServer`及び`PSScriptAnalyzer`モジュールをインストールします。
 
@@ -128,7 +128,7 @@ jobs:
 
 {% endnote %}
 
-{% if actions-caching %}
+{% ifversion actions-caching %}
 
 ### 依存関係のキャッシング
 

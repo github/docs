@@ -127,7 +127,7 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 
 O fluxo de dispositivos permite que você autorize usuários para um aplicativo sem cabeçalho, como uma ferramenta de CLI ou um gerenciador de credenciais do Git.
 
-{% if device-flow-is-opt-in %}Antes de poder usar usar o fluxo do dispositivo para identificar e autorizar usuários, primeiro você deve habilitá-lo nas configurações do aplicativo. Para obter mais informações sobre como habilitar o fluxo do dispositivo, consulte "[Modificando um aplicativo GitHub](/developers/apps/managing-github-apps/modifying-a-github-app)". {% endif %}Para obter mais informações sobre autorização de usuários que usam o fluxo do dispositivo, consulte "[Autorizar aplicativos OAuth](/developers/apps/authorizing-oauth-apps#device-flow)."
+{% ifversion device-flow-is-opt-in %}Antes de poder usar usar o fluxo do dispositivo para identificar e autorizar usuários, primeiro você deve habilitá-lo nas configurações do aplicativo. Para obter mais informações sobre como habilitar o fluxo do dispositivo, consulte "[Modificando um aplicativo GitHub](/developers/apps/managing-github-apps/modifying-a-github-app)". {% endif %}Para obter mais informações sobre autorização de usuários que usam o fluxo do dispositivo, consulte "[Autorizar aplicativos OAuth](/developers/apps/authorizing-oauth-apps#device-flow)."
 
 ## Verifique quais recursos de instalação um usuário pode acessar
 
@@ -159,7 +159,7 @@ Como as permissões de nível de usuário são concedidas em uma base de usuári
 
 ## Solicitações de usuário para servidor
 
-Embora a maior parte da interação da sua API deva ocorrer usando os tokens de acesso de servidor para servidor, certos pontos de extremidade permitem que você execute ações por meio da API usando um token de acesso do usuário. Seu aplicativo pode fazer as seguintes solicitações usando pontos de extremidade do [GraphQL v4]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql) ou [REST v3](/rest).
+Embora a maior parte da interação da sua API deva ocorrer usando os tokens de acesso de servidor para servidor, certos pontos de extremidade permitem que você execute ações por meio da API usando um token de acesso do usuário. Seu aplicativo pode fazer as seguintes solicitações usando pontos de extremidade do [GraphQL]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql) ou [REST](/rest).
 
 ### Pontos de extremidade compatíveis
 

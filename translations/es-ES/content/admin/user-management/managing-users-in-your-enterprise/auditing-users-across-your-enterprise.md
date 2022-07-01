@@ -112,7 +112,7 @@ The `country` qualifier filters actions by the originating country.
 
 The `created` qualifier filters actions by the time they occurred.
 - Define dates using the format of `YYYY-MM-DD`--that's year, followed by month, followed by day.
-- Dates support [greater than, less than, and range qualifiers](/enterprise/{{ currentVersion }}/user/articles/search-syntax). For example:
+- Dates support [greater than, less than, and range qualifiers](/enterprise/user/articles/search-syntax). For example:
   * `created:2014-07-08` finds all events that occurred on July 8th, 2014.
   * `created:>=2014-07-01` finds all events that occurred on or after July 8th, 2014.
   * `created:<=2014-07-01` finds all events that occurred on or before July 8th, 2014.

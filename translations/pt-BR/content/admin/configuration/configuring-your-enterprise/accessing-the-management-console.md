@@ -55,12 +55,12 @@ A primeira vez que você acessar o {% data variables.enterprise.management_conso
 
 O {% data variables.enterprise.management_console %} trava após dez tentativas de login com falha em um período de dez minutos. Antes de tentar novamente, aguarde o desbloqueio automático da tela de login, que ocorrerá após um período de dez minutos. A contagem é redefinida depois do login bem-sucedido.
 
-Para bloquear o {% data variables.enterprise.management_console %} imediatamente, use o comando `ghe-reactivate-admin-login` pelo shell administrativo. Para obter mais informações, consulte "[Utilitários da linha de comando](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities#ghe-reactivate-admin-login)" e "[Acessar o shell administrativo (SSH)](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-administrative-shell-ssh/)".
+Para bloquear o {% data variables.enterprise.management_console %} imediatamente, use o comando `ghe-reactivate-admin-login` pelo shell administrativo. Para obter mais informações, consulte "[Utilitários da linha de comando](/enterprise/admin/guides/installation/command-line-utilities#ghe-reactivate-admin-login)" e "[Acessar o shell administrativo (SSH)](/enterprise/admin/guides/installation/accessing-the-administrative-shell-ssh/)".
 
-## Troubleshooting failed connections to the {% data variables.enterprise.management_console %}
+## Solucionando problemas de conexões com falha para {% data variables.enterprise.management_console %}
 
-If you cannot connect to the {% data variables.enterprise.management_console %} on {% data variables.product.product_location %}, you can review the following information to troubleshoot the problem.
+Se você não conseguir se conectar ao {% data variables.enterprise.management_console %} em {% data variables.product.product_location %}, você poderé revisar as seguintes informações para solucionar o problema.
 
-### Error: "Your session has expired" for connections through a load balancer
+### Erro: "Sua sessão expirou" para conexões através de um balanceador de carga
 
-If you access {% data variables.product.product_location %} through a load balancer and connections to the {% data variables.enterprise.management_console %} fail with a message that your session has expired, you may need to reconfigure your load balancer. Para obter mais informações, consulte "[Usar o {% data variables.product.product_name %} com balanceador de carga](/admin/configuration/configuring-network-settings/using-github-enterprise-server-with-a-load-balancer#error-your-session-has-expired-for-connections-to-the-management-console)".
+Se você acessar {% data variables.product.product_location %} através de um balanceador de carga e ocorrer uma falha nas conexões para o {% data variables.enterprise.management_console %} com uma mensagem de que a sua sessão expirou, talvez você precise reconfigurar seu balanceamento de carga. Para obter mais informações, consulte "[Usar o {% data variables.product.product_name %} com balanceador de carga](/admin/configuration/configuring-network-settings/using-github-enterprise-server-with-a-load-balancer#error-your-session-has-expired-for-connections-to-the-management-console)".

@@ -1,15 +1,15 @@
 {% ifversion fpt %}
-1. Navigate to the main page of the organization where your self-hosted runner is registered.
+1. Acesse a página principal da organização onde o executor auto-hospedado está registrado.
 2. Clique em {% octicon "gear" aria-label="The Settings gear" %} **Configurações**.
 {% data reusables.organizations.settings-sidebar-actions-runners %}
 {% elsif ghec or ghes or ghae %}
 1. Navegue por onde seu runner auto-hospedado está registrado:
-   * **In an organization**: navigate to the main page and click {% octicon "gear" aria-label="The Settings gear" %} **Settings**.
+   * **Em uma organização**: Acesse a página principal e clique em {% octicon "gear" aria-label="The Settings gear" %} **Configurações**.
    * **Se estiver usando um executor de nível corporativo**:
 
 {% indented_data_reference reusables.enterprise-accounts.access-enterprise spaces=5 %}
 1. Navegue até as configurações {% data variables.product.prodname_actions %}:
-   * **In an organization**:
+   * **Em uma organização**:
 
 {% indented_data_reference reusables.actions.settings-ui.settings-actions-runners spaces=5 %}
    * **Se estiver usando um executor de nível corporativo**:

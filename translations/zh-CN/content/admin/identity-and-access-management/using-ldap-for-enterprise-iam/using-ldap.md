@@ -113,7 +113,7 @@ LDAP 是用于访问和维护目录信息服务的常用应用程序协议，是
 
 {% endnote %}
 
-借助 LDAP 同步，您可以将 {% data variables.product.prodname_ghe_server %} 用户和团队成员关系与建立的 LDAP 组同步。 这样，您可以在 LDAP 服务器中为用户建立基于角色的权限控制，而不用在 {% data variables.product.prodname_ghe_server %} 中手动建立。 更多信息请参阅“[创建团队](/enterprise/{{ currentVersion }}/admin/guides/user-management/creating-teams#creating-teams-with-ldap-sync-enabled)”。
+借助 LDAP 同步，您可以将 {% data variables.product.prodname_ghe_server %} 用户和团队成员关系与建立的 LDAP 组同步。 这样，您可以在 LDAP 服务器中为用户建立基于角色的权限控制，而不用在 {% data variables.product.prodname_ghe_server %} 中手动建立。 更多信息请参阅“[创建团队](/enterprise/admin/guides/user-management/creating-teams#creating-teams-with-ldap-sync-enabled)”。
 
 要启用 LDAP 同步，请在您的 LDAP 设置中选择 **Synchronize Emails（同步电子邮件）**、**Synchronize SSH Keys（同步 SSH 密钥）**或 **Synchronize GPG Keys（同步 GPG 密钥）**。
 
@@ -187,8 +187,8 @@ LDAP 是用于访问和维护目录信息服务的常用应用程序协议，是
 除非[启用 LDAP 同步](#enabling-ldap-sync)，否则 LDAP 帐户的变更将不会自动与 {% data variables.product.prodname_ghe_server %} 同步。
 
 * 要使用新的 LDAP 管理员组，必须在 {% data variables.product.prodname_ghe_server %} 上手动升级和降级用户，以反映 LDAP 中的变更。
-* 要在 LDAP 管理员组中添加或移除 LDAP 帐户，请[在 {% data variables.product.prodname_ghe_server %} 上升级或降级帐户](/enterprise/{{ currentVersion }}/admin/guides/user-management/promoting-or-demoting-a-site-administrator)。
-* 要移除 LDAP 帐户，请[挂起 {% data variables.product.prodname_ghe_server %} 帐户](/enterprise/{{ currentVersion }}/admin/guides/user-management/suspending-and-unsuspending-users)。
+* 要在 LDAP 管理员组中添加或移除 LDAP 帐户，请[在 {% data variables.product.prodname_ghe_server %} 上升级或降级帐户](/enterprise/admin/guides/user-management/promoting-or-demoting-a-site-administrator)。
+* 要移除 LDAP 帐户，请[挂起 {% data variables.product.prodname_ghe_server %} 帐户](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users)。
 
 ### 手动同步 LDAP 帐户
 
@@ -200,10 +200,10 @@ LDAP 是用于访问和维护目录信息服务的常用应用程序协议，是
 {% data reusables.enterprise_site_admin_settings.admin-tab %}
 5. 在“LDAP”下，单击 **Sync now**，使用您的 LDAP 服务器中的数据手动更新帐户。 ![LDAP Sync now 按钮](/assets/images/enterprise/site-admin-settings/ldap-sync-now-button.png)
 
-您也可以[使用 API 触发手动同步](/enterprise/{{ currentVersion }}/user/rest/reference/enterprise-admin#ldap)。
+您也可以[使用 API 触发手动同步](/enterprise/user/rest/reference/enterprise-admin#ldap)。
 
 ## 撤销 {% data variables.product.product_location %} 的权限
 
 如果[启用 LDAP 同步](#enabling-ldap-sync)，移除用户的 LDAP 凭据将在下一次同步操作后挂起他们的帐户。
 
-如果**未**启用 LDAP 同步，您必须在移除 LDAP 凭据后手动挂起 {% data variables.product.prodname_ghe_server %} 帐户。 更多信息请参阅“[挂起和取消挂起用户](/enterprise/{{ currentVersion }}/admin/guides/user-management/suspending-and-unsuspending-users)”。
+如果**未**启用 LDAP 同步，您必须在移除 LDAP 凭据后手动挂起 {% data variables.product.prodname_ghe_server %} 帐户。 更多信息请参阅“[挂起和取消挂起用户](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users)”。

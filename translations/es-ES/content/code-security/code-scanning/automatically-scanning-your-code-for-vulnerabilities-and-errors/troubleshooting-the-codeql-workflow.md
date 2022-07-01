@@ -210,7 +210,7 @@ Predeterminadamente, existen tres suites de consultas principales disponibles pa
 
 Podrías estar ejecutando consultas o suites de consultas adicionales además de aquellas predeterminadas. Verifica si el flujo de trabajo define una consulta o suite de consultas adicionales a ejecutar utilizando el elemento `queries`. Puedes probar el inhabilitar la consulta o suite de consultas adicionales. Para obtener más información, consulta "[Configurar {% data variables.product.prodname_code_scanning %}](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#using-queries-in-ql-packs)".
 
-{% if codeql-ml-queries %}
+{% ifversion codeql-ml-queries %}
 {% note %}
 
 **Nota:** Si ejecutas la suite de consultas `security-extended` o `security-and-quality` para JavaScript, entonces algunas consultas utilizarán tecnología experimental. Para obtener más información, consulta la sección "[Acerca de las alertas del escaneo de código](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-experimental-alerts)".

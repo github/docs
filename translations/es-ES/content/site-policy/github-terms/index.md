@@ -1,5 +1,5 @@
 ---
-title: GitHub Terms
+title: Términos de GitHub
 versions:
   fpt: '*'
 topics:

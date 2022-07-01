@@ -17,13 +17,31 @@ shortTitle: Create & delete branches
 ---
 
 ## ブランチの作成
+You can create a branch in different ways on {% data variables.product.product_name %}.
 
+{% note %}
+
+**Note:** You can only create a branch in a repository to which you have push access.
+
+{% endnote %}
+
+### Creating a branch via the branches overview
 {% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.navigate-to-branches %}
+1. Click **New branch**. ![Screenshot of branches overview page with new branch button emphasized](/assets/images/help/branches/new-branch-button.png)
+2. In the dialog box, enter the branch name and optionally change the branch source.  
+   If the repository is a fork, you also have the option to select the upstream repository as the branch source. ![Screenshot of branch creation modal for a fork with branch source emphasized](/assets/images/help/branches/branch-creation-popup-branch-source.png)
+3. Click **Create branch**. ![Screenshot of branch creation modal with create branch button emphasized](/assets/images/help/branches/branch-creation-popup-button.png)
 
-1. 必要に応じて、リポジトリのデフォルトブランチ以外のブランチから新しいブランチを作成する場合は、[{% octicon "git-branch" aria-label="The branch icon" %} **<em>NUMBER</em> branches**] をクリックし、別のブランチを選択します。 ![概要ページのブランチリンク](/assets/images/help/branches/branches-link.png)
+### Creating a branch using the branch dropdown
+{% data reusables.repositories.navigate-to-repo %}
+1. Optionally, if you want to create the new branch from a branch other than the default branch of the repository, click {% octicon "git-branch" aria-label="The branch icon" %} **Branches** then choose another branch. ![概要ページのブランチリンク](/assets/images/help/branches/branches-overview-link.png)
 1. ブランチセレクタメニューをクリックします。 ![ブランチセレクタメニュー](/assets/images/help/branch/branch-selection-dropdown.png)
 1. 新しいブランチに、一意の名前を入力して、[**Create branch**] を選択します。 ![ブランチ作成のテキストボックス](/assets/images/help/branch/branch-creation-text-box.png)
-
+{% ifversion fpt or ghec or ghes > 3.4 %}
+### Issueのためのブランチの作成
+直接Issueのページから作業のためのブランチを作成し、すぐに作業を開始できます。 For more information, see "[Creating a branch to work on an issue](/issues/tracking-your-work-with-issues/creating-a-branch-for-an-issue)".
+{% endif %}
 ## ブランチの削除
 
 {% data reusables.pull_requests.automatically-delete-branches %}

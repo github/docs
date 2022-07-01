@@ -1,0 +1,7 @@
+# Reference: #6397
+# Documentation for dependency submission API (beta)
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.6'
+  ghae: 'issue-6397'

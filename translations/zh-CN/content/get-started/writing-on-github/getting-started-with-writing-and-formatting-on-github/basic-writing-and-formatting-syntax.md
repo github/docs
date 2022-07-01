@@ -134,7 +134,7 @@ git commit
 | ------------------ | ---------------------------------------------------------------------- |
 | 在同一个分支上的 `.md` 文件中 | `/assets/images/electrocat.png`                                        |
 | 在另一个分支的 `.md` 文件中  | `/../main/assets/images/electrocat.png`                                |
-| 在仓库的议题、拉取请求和评论中    | `../blob/main/assets/images/electrocat.png`                            |
+| 在仓库的议题、拉取请求和评论中    | `../blob/main/assets/images/electrocat.png?raw=true`                   |
 | 在另一个仓库的 `.md` 文件中  | `/../../../../github/docs/blob/main/assets/images/electrocat.png`      |
 | 在另一个仓库的议题、拉取请求和评论中 | `../../../github/docs/blob/main/assets/images/electrocat.png?raw=true` |
 
@@ -149,9 +149,9 @@ git commit
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5559 %}
 ### 指定图像显示的主题
 
-You can specify the theme an image is displayed for in Markdown by using the HTML `<picture>` element in combination with the `prefers-color-scheme` media feature. 我们区分浅色和深色模式，因此有两个选项可用。 您可以使用这些选项显示针对深色或浅色背景优化的图像。 这对于透明的 PNG 图像特别有用。
+您可以通过将 HTML `<picture>` 元素与 `prefers-color-scheme` 媒体功能结合使用来指定在 Markdown 中显示图像的主题。 我们区分浅色和深色模式，因此有两个选项可用。 您可以使用这些选项显示针对深色或浅色背景优化的图像。 这对于透明的 PNG 图像特别有用。
 
-For example, the following code displays a sun image for light themes and a moon for dark themes:
+例如，下面的代码为浅色主题显示一个太阳图像，为深色主题显示一个月亮：
 
 ```HTML
 <picture>

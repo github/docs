@@ -4,6 +4,7 @@ intro: 'Para simplificar los despliegues en un servidor, puedes configurar el re
 redirect_from:
   - /guides/using-ssh-agent-forwarding
   - /v3/guides/using-ssh-agent-forwarding
+  - /articles/using-ssh-agent-forwarding
 versions:
   fpt: '*'
   ghes: '*'

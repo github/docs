@@ -19,11 +19,11 @@ versions:
 
 在 {% data variables.product.prodname_dotcom %} 中输入 <kbd>?</kbd> 可弹出一个对话框，列出可用于该页面的键盘快捷键。 您可以使用这些键盘快捷键对站点执行操作，而无需使用鼠标导航。
 
-{% if keyboard-shortcut-accessibility-setting %}
+{% ifversion keyboard-shortcut-accessibility-setting %}
 您可以在辅助功能设置中禁用字符键快捷键，同时仍允许使用修饰键的快捷键。 更多信息请参阅“[管理辅助功能设置](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-accessibility-settings)”。{% endif %}
 
 下面是一些可用键盘快捷键的列表。
-{% if command-palette %}
+{% ifversion command-palette %}
 {% data variables.product.prodname_command_palette %} 还可让您快速访问各种操作，而无需记住键盘快捷键。 更多信息请参阅“[{% data variables.product.prodname_command_palette %}](/get-started/using-github/github-command-palette)”。{% endif %}
 
 ## 站点快捷键
@@ -34,7 +34,7 @@ versions:
 | <kbd>G</kbd> <kbd>N</kbd>   | 转到您的通知。 更多信息请参阅“[关于通知](/github/managing-subscriptions-and-notifications-on-github/about-notifications)”。                                                  |
 | <kbd>Esc</kbd>              | 当聚焦于用户、议题或拉取请求悬停卡时，关闭悬停卡并重新聚焦于悬停卡所在的元素                                                                                                                    |
 
-{% if command-palette %}
+{% ifversion command-palette %}
 
 <kbd>Command</kbd>+<kbd>K</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>K</kbd> (Windows/Linux) | 打开 {% data variables.product.prodname_command_palette %}。 如果要编辑 Markdown 文本，请使用 <kbd>Command</kbd>+<kbd>Option</kbd>+<kbd>K</kbd> 或 <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>K</kbd>打开命令面板。 更多信息请参阅“[{% data variables.product.prodname_command_palette %}](/get-started/using-github/github-command-palette)”。{% endif %}
 

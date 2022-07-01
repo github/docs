@@ -1,0 +1,1 @@
+When your enterprise uses OIDC SSO, {% data variables.product.prodname_dotcom %} will automatically use your IdP's conditional access policy (CAP) IP conditions to validate user interactions with {% data variables.product.prodname_dotcom %}, when members change IP addresses, and each time a personal access token or SSH key is used.

@@ -22,7 +22,7 @@ shortTitle: Crear & probar con Java & Gradle
 
 ## Introducción
 
-Esta guía te muestra cómo crear un flujo de trabajo que realiza la integración continua (CI) para tu proyecto Java usando el sistema de construcción Gradle. El flujo de trabajo que creas te permitirá ver cuándo las confirmaciones de una solicitud de extracción causan la construcción o las fallas de prueba en tu rama por defecto; este enfoque puede ayudar a garantizar que tu código siempre sea correcto. Puedes extender tu flujo de trabajo de IC para {% if actions-caching %}guardar archivos en caché y{% endif %} cargar los artefactos desde una ejecución de flujo de trabajo.
+Esta guía te muestra cómo crear un flujo de trabajo que realiza la integración continua (CI) para tu proyecto Java usando el sistema de construcción Gradle. El flujo de trabajo que creas te permitirá ver cuándo las confirmaciones de una solicitud de extracción causan la construcción o las fallas de prueba en tu rama por defecto; este enfoque puede ayudar a garantizar que tu código siempre sea correcto. Puedes extender tu flujo de IC a {% ifversion actions-caching %}los archivos de caché y{% endif %} cargar artefactos desde una ejecución de grupo de trabajo.
 
 {% ifversion ghae %}
 {% data reusables.actions.self-hosted-runners-software %}
@@ -69,7 +69,7 @@ jobs:
       - name: Validate Gradle wrapper
         uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
       - name: Build with Gradle
-        uses: gradle/gradle-build-action@0d13054264b0bb894ded474f08ebb30921341cee
+        uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
         with:
           arguments: build
 ```
@@ -105,12 +105,12 @@ steps:
   - name: Validate Gradle wrapper
     uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
   - name: Run the Gradle package task
-    uses: gradle/gradle-build-action@0d13054264b0bb894ded474f08ebb30921341cee
+    uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
     with:
       arguments: -b ci.gradle package
 ```
 
-{% if actions-caching %}
+{% ifversion actions-caching %}
 
 ## Almacenar dependencias en caché
 
@@ -136,7 +136,7 @@ steps:
   - name: Validate Gradle wrapper
     uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
   - name: Build with Gradle
-    uses: gradle/gradle-build-action@0d13054264b0bb894ded474f08ebb30921341cee
+    uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
     with:
       arguments: build
   - uses: {% data reusables.actions.action-upload-artifact %}

@@ -1,6 +1,6 @@
 ---
 title: Pesquisar
-intro: 'The Search API lets you to search for specific items on {% data variables.product.product_name %}.'
+intro: 'A API de pesquisa permite que você procure itens específicos em {% data variables.product.product_name %}.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -13,7 +13,7 @@ redirect_from:
   - /rest/reference/search
 ---
 
-## About the Search API
+## Sobre a API de pesquisa
 
 A API de pesquisa ajuda a pesquisar o item específico que você deseja encontrar. Por exemplo, você pode encontrar um usuário ou um arquivo específico em um repositório. Pense nisso da mesma forma que você pensa em realizar uma pesquisa no Google. Ele é projetado para ajudá-lo a encontrar o resultado que você está procurando (ou talvez os poucos resultados que você está procurando). Assim como pesquisar no Google, às vezes, você quer ver algumas páginas com resultados de pesquisa para que você possa encontrar o item que melhor atenda às suas necessidades. Para atender a essa necessidade, a API de pesquisa do {% data variables.product.product_name %} fornece **até 1.000 resultados para cada pesquisa**.
 
@@ -88,7 +88,7 @@ As solicitações podem optar por receber esses fragmentos de texto na resposta,
 Para obter esses metadados nos resultados da sua pesquisa, especifique o tipo de mídia de `text-match` no seu cabeçalho `Aceitar`.
 
 ```shell
-application/vnd.github.v3.text-match+json
+application/vnd.github.text-match+json
 ```
 
 Ao fornecer o tipo de mídia `text-match`, você receberá uma chave extra na carga do JSON denominada `text_matches`, que fornece informações sobre a posição dos seus termos de pesquisa dentro do texto e da `propriedade` que inclui o termo de pesquisa. Dentro do array `text_match`, cada objeto inclui os atributos a seguir:
@@ -106,7 +106,7 @@ Ao fornecer o tipo de mídia `text-match`, você receberá uma chave extra na ca
 Se usarmos cURL e o [exemplo de pesquisa de problemas](#search-issues-and-pull-requests) acima, nossa solicitação de API seria da seguinte forma:
 
 ``` shell
-curl -H 'Accept: application/vnd.github.v3.text-match+json' \
+curl -H 'Accept: application/vnd.github.text-match+json' \
 '{% data variables.product.api_url_pre %}/search/issues?q=windows+label:bug+language:python+state:open&sort=created&order=asc'
 ```
 

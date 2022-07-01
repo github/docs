@@ -210,7 +210,7 @@ C/C++、C#、Go、Javaなどのコンパイル言語については、{% data va
 
 デフォルトのクエリに加えて、追加のクエリもしくはクエリスイートを実行することもできます。 実行する追加のクエリスイートもしくは追加のクエリをワークフローが定義しているかは、`queries`要素を使って確認してください。 追加のクエリスイートもしくはクエリを無効化して、試してみることができます。 詳しい情報については、「[{% data variables.product.prodname_code_scanning %} を設定する](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#using-queries-in-ql-packs)」を参照してください。
 
-{% if codeql-ml-queries %}
+{% ifversion codeql-ml-queries %}
 {% note %}
 
 **ノート:** JavaScriptに対して`security-extended`もしくは`security-and-quality`クエリスイートを実行する場合、クエリの中には実験的な技術を使っているものがあります。 詳しい情報については「[Code scanningアラートについて](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-experimental-alerts)」を参照してください。

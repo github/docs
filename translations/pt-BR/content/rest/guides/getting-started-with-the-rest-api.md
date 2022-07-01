@@ -101,10 +101,7 @@ $ curl -i https://api.github.com/users/defunkt
 
 Há algumas partes interessantes nos cabeçalhos da resposta. Como esperado, o `Content-Type` é `application/json`.
 
-Qualquer cabeçalho que começar com `X -` é um cabeçalho personalizado e não está incluído nas especificações de HTTP. Por exemplo:
-
-* `X-GitHub-Media-Type` tem um valor de `github.v3`. Isso nos permite saber o [tipo de mídia][media types] para a resposta. Tipos de mídia nos ajudaram a criar uma versão da nossa saída na API v3. Vamos falar mais sobre isso mais adiante.
-* Anote os cabeçalhos `X-RateLimit-Limit` e `X-RateLimit-Remaining`. Este par de cabeçalhos indica [quantas solicitações um cliente pode fazer][rate-limiting] em um período de tempo consecutivo (geralmente, uma hora) e quantas dessas solicitações o cliente já gastou.
+Qualquer cabeçalho que começar com `X -` é um cabeçalho personalizado e não está incluído nas especificações de HTTP. For example, take note of the `X-RateLimit-Limit` and `X-RateLimit-Remaining` headers. Este par de cabeçalhos indica [quantas solicitações um cliente pode fazer][rate-limiting] em um período de tempo consecutivo (geralmente, uma hora) e quantas dessas solicitações o cliente já gastou.
 
 ## Autenticação
 
@@ -242,11 +239,11 @@ precisamos `POST` alguns JSON que contém informações e opções de configura�
 
 ```shell
 $ curl -i -H "Authorization: token {% ifversion fpt or ghes > 3.1 or ghae or ghec %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
-    -d '{ \
-        "name": "blog", \
-        "auto_init": true, \
-        "private": true, \
-        "gitignore_template": "nanoc" \
+    -d '{
+        "name": "blog",
+        "auto_init": true,
+        "private": true,
+        "gitignore_template": "nanoc"
       }' \
     {% data variables.product.api_url_pre %}/user/repos
 ```
@@ -400,7 +397,6 @@ Continue aprendendo com o próximo guia da API [Princípios básicos da autentic
 
 [wrappers]: /libraries/
 [curl]: http://curl.haxx.se/
-[media types]: /rest/overview/media-types
 [oauth]: /apps/building-integrations/setting-up-and-registering-oauth-apps/
 [webflow]: /apps/building-oauth-apps/authorizing-oauth-apps/
 [scopes]: /apps/building-oauth-apps/understanding-scopes-for-oauth-apps/

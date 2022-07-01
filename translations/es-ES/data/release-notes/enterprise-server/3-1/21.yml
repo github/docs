@@ -9,6 +9,7 @@ sections:
     - 'El SNMP registró una cantidad alta de mensajes de error de `Cannot statfs` incorrectamente en syslog.'
     - 'Para el caso de las instancias configuradas con la autenticación de SAML y con la recuperación de fallos integrada habilitada, los usuarios integrados se atoraron en un bucle de "inicio de sesión" al intentar iniciar sesión desde la página generada después de salir de sesión.'
     - 'Al utilizar aserciones cifradas de SAML, algunas de ellas no estaban marcando correctamente a las llaves SSH como verificadas.'
+    - 'The Releases page would return a 500 error when the repository has tags that contain non-ASCII characters. [Updated: 2022-06-10]'
   changes:
     - 'En las configuraciones de disponibilidad alta, se aclara que la página de resumen de replicación en la consola de administración solo muestra la configuración de replicación actual y no el estado de replicación actual.'
     - 'When enabling {% data variables.product.prodname_registry %}, clarify that using a Shared Access Signature (SAS) token as connection string is not supported.'

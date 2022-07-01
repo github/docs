@@ -108,12 +108,7 @@ There are a few interesting bits in the response headers. As expected, the
 `Content-Type` is `application/json`.
 
 Any headers beginning with `X-` are custom headers, and are not included in the
-HTTP spec. For example:
-
-* `X-GitHub-Media-Type` has a value of `github.v3`. This lets us know the [media type][media types]
-for the response. Media types have helped us version our output in API v3. We'll
-talk more about that later.
-* Take note of the `X-RateLimit-Limit` and `X-RateLimit-Remaining` headers. This
+HTTP spec. For example, take note of the `X-RateLimit-Limit` and `X-RateLimit-Remaining` headers. This
 pair of headers indicate [how many requests a client can make][rate-limiting] in
 a rolling time period (typically an hour) and how many of those requests the
 client has already spent.
@@ -275,11 +270,11 @@ we need to `POST` some JSON containing the details and configuration options.
 
 ```shell
 $ curl -i -H "Authorization: token {% ifversion fpt or ghes > 3.1 or ghae or ghec %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
-    -d '{ \
-        "name": "blog", \
-        "auto_init": true, \
-        "private": true, \
-        "gitignore_template": "nanoc" \
+    -d '{
+        "name": "blog",
+        "auto_init": true,
+        "private": true,
+        "gitignore_template": "nanoc"
       }' \
     {% data variables.product.api_url_pre %}/user/repos
 ```

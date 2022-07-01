@@ -24,32 +24,13 @@ Las ejecuciones de flujo de trabajo a menudo reutilizan las mismas salidas o dep
 
 Para almacenar las dependencias en caché para un job, puedes utilizar la {% data variables.product.prodname_dotcom %}acción de [cache`` de ](https://github.com/actions/cache). La acción crea y restablece un caché identificado con una llave única. Como alternativa, si estás almacenando los siguientes administradores de paquetes en caché, el utilizar sus acciones respectivas de setup-* requiere de una configuración mínima y creará y restablecerá los cachés de dependencia para ti.
 
-<table>
-<thead>
-  <tr>
-    <th>Administradores de paquetes</th>
-    <th>acción de setup-* para almacenar en caché</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td>npm, yarn, pnpm</td>
-    <td><a href="https://github.com/actions/setup-node#caching-global-packages-data">setup-node</a></td>
-  </tr>
-  <tr>
-    <td>pip, pipenv, poetry</td>
-    <td><a href="https://github.com/actions/setup-python#caching-packages-dependencies">setup-python</a></td>
-  </tr>
-  <tr>
-    <td>gradle, maven</td>
-    <td><a href="https://github.com/actions/setup-java#caching-packages-dependencies">setup-java</a></td>
-  </tr>
-  <tr>
-    <td>ruby gems</td>
-    <td><a href="https://github.com/ruby/setup-ruby#caching-bundle-install-automatically">setup-ruby</a></td>
-  </tr>
-</tbody>
-</table>
+| Administradores de paquetes | acción de setup-* para almacenar en caché                                                  |
+| --------------------------- | ------------------------------------------------------------------------------------------ |
+| npm, Yarn, pnpm             | [setup-node](https://github.com/actions/setup-node#caching-global-packages-data)           |
+| pip, pipenv, Poetry         | [setup-python](https://github.com/actions/setup-python#caching-packages-dependencies)      |
+| Gradle, Maven               | [setup-java](https://github.com/actions/setup-java#caching-packages-dependencies)          |
+| RubyGems                    | [setup-ruby](https://github.com/ruby/setup-ruby#caching-bundle-install-automatically)      |
+| Go `go.sum`                 | [setup-go](https://github.com/actions/setup-go#caching-dependency-files-and-build-outputs) |
 
 {% warning %}
 
@@ -257,18 +238,18 @@ Por ejemplo, si una solicitud de cambios contiene una rama de `feature` y apunta
 
 ## Límites de uso y política de desalojo
 
-{% data variables.product.prodname_dotcom %} eliminará todas las entradas de caché a las que no se haya accedido en más de 7 días. No hay límite en la cantidad de cachés que puedes almacenar, pero el tamaño total de todos ellos en un repositorio se limita{% if actions-cache-policy-apis %}. Predeterminadamente, el límite es de 10 GB por repositorio, pero este límite podría ser diferente dependiendo de las políticas que configuren tus propietarios de empresa o administradores de repositorio.{% else %} a 10 GB.{% endif %}
+{% data variables.product.prodname_dotcom %} eliminará todas las entradas de caché a las que no se haya accedido en más de 7 días. No hay límite en la cantidad de cachés que puedes almacenar, pero el tamaño total de todos ellos en un repositorio se limita{% ifversion actions-cache-policy-apis %}. Predeterminadamente, el límite es de 10 GB por repositorio, pero este límite podría ser diferente dependiendo de las políticas que configuren tus propietarios de empresa o administradores de repositorio.{% else %} a 10 GB.{% endif %}
 
 {% data reusables.actions.cache-eviction-process %}
 
-{% if actions-cache-policy-apis %}
+{% ifversion actions-cache-policy-apis %}
 Para obtener más información sobre cómo cambiar las políticas del límite de tamaño del caché del repositorio, consulta las secciones "[Requerir políticas para las {% data variables.product.prodname_actions %} de tu empresa](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-cache-storage-in-your-enterprise)" y "[Administrar los ajustes de las {% data variables.product.prodname_actions %} de un repositorio](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-cache-storage-for-a-repository)".
 {% endif %}
 
-{% if actions-cache-management %}
+{% ifversion actions-cache-management %}
 
 ## Administrar los cachés
 
-Puedes utilizar la API de REST de {% data variables.product.product_name %} para administrar tus cachés. En la actualidad, puedes utilizar la API para ver tu uso de caché y esperamos tener más funcionalidades en las siguientes actualizaciones. Para obtener más información, consulta la sección "[Acciones](/rest/reference/actions#cache)" en la documentación de la API de REST.
+Puedes utilizar la API de REST de {% data variables.product.product_name %} para administrar tus cachés. {% ifversion actions-cache-list-delete-apis %}You can use the API to list and delete cache entries, and see your cache usage.{% elsif actions-cache-management %}At present, you can use the API to see your cache usage, with more functionality expected in future updates.{% endif %} For more information, see the "[{% data variables.product.prodname_actions %} Cache](/rest/actions/cache)" REST API documentation.
 
 {% endif %}

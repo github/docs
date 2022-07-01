@@ -42,4 +42,10 @@ module.exports = {
 
   // https://nextjs.org/docs/api-reference/next.config.js/compression
   compress: false,
+
+  // ETags break stale content serving from the CDN. When a response has
+  // an ETag, the CDN attempts to revalidate the content in the background.
+  // This causes problems with serving stale content, since upon revalidating
+  // the CDN marks the cached content as "fresh".
+  generateEtags: false,
 }

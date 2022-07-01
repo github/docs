@@ -24,7 +24,7 @@ topics:
 
 {% ifversion fpt or ghec %}
 
-GitHub の GraphQL API についての情報は、[v4 ドキュメント]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql)を参照してください。 GraphQL への移行についての情報は、「[REST から移行する]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/guides/migrating-from-rest-to-graphql)」を参照してください。
+GitHub の GraphQL API についての情報は、[ドキュメント]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql)を参照してください。 GraphQL への移行についての情報は、「[REST から移行する]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/guides/migrating-from-rest-to-graphql)」を参照してください。
 
 {% endif %}
 

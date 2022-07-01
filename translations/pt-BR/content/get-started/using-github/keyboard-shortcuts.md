@@ -19,11 +19,11 @@ versions:
 
 Digitar <kbd>?</kbd> no {% data variables.product.prodname_dotcom %} exibe uma caixa de diálogo que lista os atalhos de teclado disponíveis para essa página. Você pode usar esses atalhos de teclado para executar ações no site sem precisar usar o mouse para navegar.
 
-{% if keyboard-shortcut-accessibility-setting %}
+{% ifversion keyboard-shortcut-accessibility-setting %}
 É possível desabilitar os atalhos de teclas de caractere, ao mesmo tempo em que permite que os atalhos que usam teclas modificadoras, nas suas configurações de acessibilidade. Para obter mais informações, consulte "[Gerenciar configurações de acessibilidade](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-accessibility-settings)".{% endif %}
 
 Veja abaixo uma lista dos atalhos de teclado disponíveis.
-{% if command-palette %}
+{% ifversion command-palette %}
 O {% data variables.product.prodname_command_palette %} também fornece acesso rápido a uma ampla gama de ações, sem a necessidade de lembrar os atalhos de teclado. Para obter mais informações, consulte "[{% data variables.product.prodname_command_palette %}](/get-started/using-github/github-command-palette)".{% endif %}
 
 ## Atalhos para o site
@@ -34,7 +34,7 @@ O {% data variables.product.prodname_command_palette %} também fornece acesso r
 | <kbd>G</kbd> <kbd>N</kbd>    | Vai para suas notificações. Para obter mais informações, consulte "[Sobre notificações](/github/managing-subscriptions-and-notifications-on-github/about-notifications)".                                                  |
 | <kbd>Esc</kbd>               | Quando direcionado a um hovercard de usuário, problema ou pull request, fecha o hovercard e redireciona para o elemento no qual o hovercard está                                                                           |
 
-{% if command-palette %}
+{% ifversion command-palette %}
 
 <kbd>Command</kbd>+<kbd>K</kbd> (Mac) ou </br> <kbd>Ctrl</kbd>+<kbd>K</kbd> (Windows/Linux) | Abre o {% data variables.product.prodname_command_palette %}. Se você estiver editanto o texto de markdown, abra a paleta de comando com <kbd>Command</kbd>+<kbd>Opção</kbd>+<kbd>K</kbd> ou <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>K</kbd>. Para obter mais informações, consulte "[{% data variables.product.prodname_command_palette %}](/get-started/using-github/github-command-palette)".{% endif %}
 

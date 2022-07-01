@@ -101,10 +101,7 @@ $ curl -i https://api.github.com/users/defunkt
 
 Hay algunas partes interesantes en los encabezados de la respuesta. Como lo esperábamos, el `Content-Type` es `application/json`.
 
-Cualquier encabezado que comience como `X` se refiere a un encabezado personalizado, y no se incluirá en la especificación de HTTPS. Por ejemplo:
-
-* `X-GitHub-Media-Type` tiene un valor de `github.v3`. Esto nos permite saber el [tipo de medios][media types] para la respuesta. Los tipos de medios nos han ayudado a versionar nuestra salida en la API v3. Hablaremos más sobre esto después.
-* Toma nota de los encabezados `X-RateLimit-Limit` y `X-RateLimit-Remaining`. Este par de encabezados indican [cuántas solicitudes puede hacer un cliente][rate-limiting] en un periodo continuo (habitualmente, una hora) y cuántas de ellas ya ha gastado el cliente.
+Cualquier encabezado que comience como `X` se refiere a un encabezado personalizado, y no se incluirá en la especificación de HTTPS. For example, take note of the `X-RateLimit-Limit` and `X-RateLimit-Remaining` headers. Este par de encabezados indican [cuántas solicitudes puede hacer un cliente][rate-limiting] en un periodo continuo (habitualmente, una hora) y cuántas de ellas ya ha gastado el cliente.
 
 ## Autenticación
 
@@ -242,11 +239,11 @@ necesitamos hacer `POST` en algunos JSON que contengan los detalles y las opcion
 
 ```shell
 $ curl -i -H "Authorization: token {% ifversion fpt or ghes > 3.1 or ghae or ghec %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
-    -d '{ \
-        "name": "blog", \
-        "auto_init": true, \
-        "private": true, \
-        "gitignore_template": "nanoc" \
+    -d '{
+        "name": "blog",
+        "auto_init": true,
+        "private": true,
+        "gitignore_template": "nanoc"
       }' \
     {% data variables.product.api_url_pre %}/user/repos
 ```
@@ -400,7 +397,6 @@ Sigue aprendiendo con la siguiente guía de la API ¡[Fundamentos de la Autentic
 
 [wrappers]: /libraries/
 [curl]: http://curl.haxx.se/
-[media types]: /rest/overview/media-types
 [oauth]: /apps/building-integrations/setting-up-and-registering-oauth-apps/
 [webflow]: /apps/building-oauth-apps/authorizing-oauth-apps/
 [scopes]: /apps/building-oauth-apps/understanding-scopes-for-oauth-apps/

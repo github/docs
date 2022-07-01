@@ -50,7 +50,7 @@ El tiempo requerido para la tolerancia de fallos depende de cuánto le tome para
   ```
 5. Actualiza el registro de DNS para que apunte a la dirección IP de la réplica. El tráfico es direccionado a la réplica después de que transcurra el período TTL. Si estás utilizando un balanceador de carga, asegúrate de que esté configurado para enviar el tráfico a la réplica.
 6. Notifica a los usuarios que pueden retomar las operaciones normales.
-7. Si se desea, configura una replicación desde el aparato principal nuevo al aparato existente y el principal anterior. Para obtener más información, consulta "[Acerca de la configuración de alta disponibilidad](/enterprise/{{ currentVersion }}/admin/guides/installation/about-high-availability-configuration/#utilities-for-replication-management)."
+7. Si se desea, configura una replicación desde el aparato principal nuevo al aparato existente y el principal anterior. Para obtener más información, consulta "[Acerca de la configuración de alta disponibilidad](/enterprise/admin/guides/installation/about-high-availability-configuration/#utilities-for-replication-management)."
 8. Los aplicativos en los que no pretendas configurar la replicación que eran parte de la configuración de disponibilidad alta antes de la recuperación del fallo deberán eliminarse de dicha configuración de disponibilidad alta a través de UUID.
     - Para los aplicativos anteriores, obtén su UUID a través de `cat /data/user/common/uuid`.
       ```shell
@@ -63,4 +63,4 @@ El tiempo requerido para la tolerancia de fallos depende de cuánto le tome para
 
 ## Leer más
 
-- "[Utilidades para la gestión de replicaciones](/enterprise/{{ currentVersion }}/admin/guides/installation/about-high-availability-configuration/#utilities-for-replication-management)"
+- "[Utilidades para la gestión de replicaciones](/enterprise/admin/guides/installation/about-high-availability-configuration/#utilities-for-replication-management)"

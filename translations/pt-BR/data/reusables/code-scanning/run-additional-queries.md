@@ -1,6 +1,6 @@
 Ao usar {% data variables.product.prodname_codeql %} para fazer a varredura do código, o mecanismo de análise de {% data variables.product.prodname_codeql %} gera um banco de dados do código e executa consultas no mesmo. A análise de {% data variables.product.prodname_codeql %} usa um conjunto-padrão de consultas, mas você pode especificar outras consultas a serem executadas, além das consultas-padrão.
 
-{% if codeql-packs %}
+{% ifversion codeql-packs %}
 You can run extra queries if they are part of a
 {% data variables.product.prodname_codeql %} pack (beta) published to the {% data variables.product.company_short %} {% data variables.product.prodname_container_registry %} or a {% data variables.product.prodname_ql %} pack stored in a repository. For more information, see "[About {% data variables.product.prodname_code_scanning %} with {% data variables.product.prodname_codeql %}](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql#about-codeql-queries)."
 

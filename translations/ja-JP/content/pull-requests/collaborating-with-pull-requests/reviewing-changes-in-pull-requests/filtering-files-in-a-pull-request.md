@@ -1,6 +1,6 @@
 ---
 title: プルリクエスト内のファイルをフィルタリングする
-intro: 'To help you quickly review changes in a large pull request, you can filter changed files{% if pr-tree-view %} or use the file tree to navigate between files{% endif %}.'
+intro: 'To help you quickly review changes in a large pull request, you can filter changed files{% ifversion pr-tree-view %} or use the file tree to navigate between files{% endif %}.'
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/reviewing-changes-in-pull-requests/filtering-files-in-a-pull-request
   - /articles/filtering-files-in-a-pull-request-by-file-type
@@ -17,7 +17,7 @@ topics:
 shortTitle: Filter files
 ---
 
-You can filter files in a pull request by file extension type, such as `.html` or `.js`, lack of an extension, code ownership, or dotfiles.{% if pr-tree-view %} You can also use the file tree to filter by file path, navigate between files, or see a high level view of the changed files.{% endif %}
+You can filter files in a pull request by file extension type, such as `.html` or `.js`, lack of an extension, code ownership, or dotfiles.{% ifversion pr-tree-view %} You can also use the file tree to filter by file path, navigate between files, or see a high level view of the changed files.{% endif %}
 
 ## Using the file filter dropdown
 
@@ -33,13 +33,14 @@ You can filter files in a pull request by file extension type, such as `.html` o
 4. [File filter] ドロップダウンメニュードロップダウンメニュー使って、目的のフィルタを選択、選択解除、またはクリックします。 ![プルリクエスト diff の上のファイルのフィルタオプション](/assets/images/help/pull_requests/file-filter-option.png)
 5. オプションで、フィルタの選択をクリアするには、 [**Files changed**] タブの下で [**Clear**] をクリックします。 ![ファイルのフィルタの選択のクリア](/assets/images/help/pull_requests/clear-file-filter.png)
 
-{% if pr-tree-view %}
+{% ifversion pr-tree-view %}
 ## Using the file tree
 
 {% data reusables.repositories.sidebar-pr %}
 1. プルリクエストのリストで、フィルタしたいプルリクエストをクリックします。
 {% data reusables.repositories.changed-files %}
-1. If the file tree is hidden, click **Show file tree** to display the file tree.
+
+1. Click on a file in the file tree to view the corresponding file diff. If the file tree is hidden, click {% octicon "sidebar-collapse" aria-label="The sidebar collapse icon" %} to display the file tree.
 
    {% note %}
 
@@ -47,7 +48,7 @@ You can filter files in a pull request by file extension type, such as `.html` o
 
    {% endnote %}
 
-1. Click on a file in the file tree to view the corresponding file diff. ![Pull request file tree](/assets/images/help/pull_requests/pr-file-tree.png)
+   ![Screenshot of filter changed files search box and file tree emphasized](/assets/images/help/repository/file-tree.png)
 1. To filter by file path, enter part or all of the file path in the **Filter changed files** search box. Alternatively, use the file filter dropdown. For more information, see "[Using the file filter dropdown](#using-the-file-filter-dropdown)."
 
 {% endif %}

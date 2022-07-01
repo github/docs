@@ -33,7 +33,7 @@ shortTitle: dependabot.ymlの設定
 
 セキュリティアップデートに影響するオプションは、次にセキュリティアラートがセキュリティアップデートのためのプルリクエストをトリガーするときにも使用されます。  詳しい情報については、「[{% data variables.product.prodname_dependabot_security_updates %} を設定する](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-dependabot-security-updates)」を参照してください。
 
-*dependabot.yml* ファイルには、必須の最上位キーに `version` と `updates` の 2 つがあります。 あるいは、トップレベルの`registries`キー{% ifversion fpt or ghec or ghes > 3.4 %}や`enable-beta-ecosystems`キー{% endif %}を含めることができます。 ファイルは、`version: 2` で始まる必要があります。
+*dependabot.yml* ファイルには、必須の最上位キーに `version` と `updates` の 2 つがあります。 あるいは、トップレベルの`registries`キー{% ifversion ghes = 3.5 %}や`enable-beta-ecosystems`キー{% endif %}を含めることができます。 ファイルは、`version: 2` で始まる必要があります。
 
 ## *dependabot.yml*ファイルの設定オプション
 
@@ -280,6 +280,10 @@ updates:
       prefix-development: "pip dev"
       include: "scope"
 ```
+上の例と同じ設定を使った場合、`pip`の依存関係グループ内の`requests`のバージョンを上げると、以下のようなコミットメッセージが生成されます。
+
+   `pip dev: bump requests from 1.0.0 to 1.0.1`
+
 ### `ignore`
 
 {% data reusables.dependabot.default-dependencies-allow-ignore %}
@@ -298,7 +302,7 @@ updates:
 
 `ignore` オプションを使用して、更新する依存関係をカスタマイズできます。 `ignore` オプションは、次のオプションに対応しています。
 
-- `dependency-name`: 名前が一致する依存関係の更新を無視するために使用し、必要に応じて `*` を使用して 0 文字以上の文字と一致させます。 Javaの依存関係については、`dependency-name`属性のフォーマットは`groupId:artifactId`です（たとえば`org.kohsuke:github-api`）。 {% if dependabot-grouped-dependencies %} {% data variables.product.prodname_dependabot %} がDefinitelyTypedからTypeScriptの型定義を自動的に更新しないようにするには、`@types/*`を使ってください。{% endif %}
+- `dependency-name`: 名前が一致する依存関係の更新を無視するために使用し、必要に応じて `*` を使用して 0 文字以上の文字と一致させます。 Javaの依存関係については、`dependency-name`属性のフォーマットは`groupId:artifactId`です（たとえば`org.kohsuke:github-api`）。 {% ifversion dependabot-grouped-dependencies %} {% data variables.product.prodname_dependabot %} がDefinitelyTypedからTypeScriptの型定義を自動的に更新しないようにするには、`@types/*`を使ってください。{% endif %}
 - `versions`: 特定のバージョンまたはバージョンの範囲を無視するために使用します。 範囲を定義する場合は、パッケージマネージャーの標準パターンを使用します（例: npm の場合は `^1.0.0`、Bundler の場合は `~> 2.0`）。
 - `update-types` - バージョン更新におけるsemverの`major`、`minor`、`patch`更新といった更新の種類を無視するために使います。（たとえば`version-update:semver-patch`でパッチアップデートが無視されます）。 これを`code>dependency-name: "*"`と組み合わせて、特定の`update-types`をすべての依存関係で無視できます。 現時点では、サポートされているオプションは`version-update:semver-major`、`version-update:semver-minor`、`version-update:semver-patch`のみです。 セキュリティの更新はこの設定には影響されません。
 
@@ -970,8 +974,9 @@ registries:
 
 version: 2
 enable-beta-ecosystems: true
-updates:
-  - package-ecosystem: "pub"
+updates:{% ifversion fpt or ghec or ghes > 3.5 %}
+  - package-ecosystem: "beta-ecosystem"{% else %}
+  - package-ecosystem: "pub"{% endif %}
     directory: "/"
     schedule:
       interval: "daily"

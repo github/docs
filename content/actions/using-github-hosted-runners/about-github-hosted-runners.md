@@ -88,13 +88,13 @@ While the job runs, the logs and output can be viewed in the {% data variables.p
 
 Hardware specification for Windows and Linux virtual machines:
 - 2-core CPU
-- 7 GB of RAM memory
-- 14 GB of SSD disk space
+- 7 GB of RAM
+- 14 GB of SSD space
 
 Hardware specification for macOS virtual machines:
 - 3-core CPU
-- 14 GB of RAM memory
-- 14 GB of SSD disk space
+- 14 GB of RAM
+- 14 GB of SSD space
 
 {% data reusables.actions.supported-github-runners %}
 
@@ -189,11 +189,8 @@ Actions that run in Docker containers have static directories under the `/github
 - `/github/workspace` - {% data reusables.repositories.action-root-user-required %}
 - `/github/workflow`
 
-{% ifversion fpt or ghec %}
-
 ## Further reading
 - "[Managing billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)"
-
-{% endif %}
+- You can use a matrix strategy to run your jobs on multiple images. For more information, see "[Using a matrix for your jobs](/actions/using-jobs/using-a-matrix-for-your-jobs)."
 
 {% endif %}

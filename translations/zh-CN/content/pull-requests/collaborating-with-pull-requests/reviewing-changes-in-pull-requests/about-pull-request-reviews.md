@@ -20,7 +20,7 @@ shortTitle: 关于 PR 审查
 
 打开拉取请求后，具有*读取*权限的任何人都可以查看该拉取请求提议的更改并进行评论。 您也可以建议对代码行的具体更改，作者可直接从拉取请求应用这些更改。 更多信息请参阅“[审查拉取请求中提议的更改](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)”。
 
-{% if pull-request-approval-limit %}{% data reusables.pull_requests.code-review-limits %}{% endif %}
+{% ifversion pull-request-approval-limit %}{% data reusables.pull_requests.code-review-limits %}{% endif %}
 
 仓库所有者和协作者可向具体的个人申请拉取请求审查。 组织成员也可向具有仓库读取权限的团队申请拉取请求审查。 更多信息请参阅“[申请拉取请求审查](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/requesting-a-pull-request-review)”。 您可以指定要在整个团队的位置自动分配的团队成员子集。 更多信息请参阅“[管理团队的代码审查设置](/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team)”。
 

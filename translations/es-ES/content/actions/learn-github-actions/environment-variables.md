@@ -143,7 +143,7 @@ We strongly recommend that actions use environment variables to access the files
 | `GITHUB_HEAD_REF` | The head ref or source branch of the pull request in a workflow run. This property is only set when the event that triggers a workflow run is either `pull_request` or `pull_request_target`. For example, `feature-branch-1`. |
 | `GITHUB_JOB` | The [job_id](/actions/reference/workflow-syntax-for-github-actions#jobsjob_id) of the current job. For example, `greeting_job`. |
 | `GITHUB_PATH` | The path on the runner to the file that sets system `PATH` variables from workflow commands. This file is unique to the current step and changes for each step in a job.  For example, `/home/runner/work/_temp/_runner_file_commands/add_path_899b9445-ad4a-400c-aa89-249f18632cf5`. For more information, see "[Workflow commands for {% data variables.product.prodname_actions %}](/actions/using-workflows/workflow-commands-for-github-actions#adding-a-system-path)." |
-| `GITHUB_REF` | The branch or tag ref that triggered the workflow run. For branches this is the format `refs/heads/<branch_name>`, for tags it is `refs/tags/<tag_name>`, and for pull requests it is `refs/pull/<pr_number>/merge`. This variable is only set if a branch or tag is available for the event type. For example, `refs/heads/feature-branch-1`. |
+| `GITHUB_REF` | {% data reusables.actions.ref-description %} |
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5338 %}
 | `GITHUB_REF_NAME` | {% data reusables.actions.ref_name-description %} For example, `feature-branch-1`.|
 | `GITHUB_REF_PROTECTED` | {% data reusables.actions.ref_protected-description %} |
@@ -157,12 +157,12 @@ We strongly recommend that actions use environment variables to access the files
 | `GITHUB_RUN_NUMBER` | {% data reusables.actions.run_number_description %} For example, `3`. |
 | `GITHUB_SERVER_URL`| The URL of the {% data variables.product.product_name %} server. For example: `https://{% data variables.product.product_url %}`.
 | `GITHUB_SHA` | The commit SHA that triggered the workflow. The value of this commit SHA depends on the event that triggered the workflow. For more information, see [Events that trigger workflows](/actions/using-workflows/events-that-trigger-workflows). For example, `ffac537e6cbbf934b08745a378932722df287a53`. |
-{%- if actions-job-summaries %}
+{%- ifversion actions-job-summaries %}
 | `GITHUB_STEP_SUMMARY` | The path on the runner to the file that contains job summaries from workflow commands. This file is unique to the current step and changes for each step in a job. For example, `/home/rob/runner/_layout/_work/_temp/_runner_file_commands/step_summary_1cb22d7f-5663-41a8-9ffc-13472605c76c`. For more information, see "[Workflow commands for {% data variables.product.prodname_actions %}](/actions/using-workflows/workflow-commands-for-github-actions#adding-a-job-summary)." |
 {%- endif %}
 | `GITHUB_WORKFLOW` | The name of the workflow. For example, `My test workflow`. If the workflow file doesn't specify a `name`, the value of this variable is the full path of the workflow file in the repository. |
 | `GITHUB_WORKSPACE` | The default working directory on the runner for steps, and the default location of your repository when using the [`checkout`](https://github.com/actions/checkout) action. For example, `/home/runner/work/my-repo-name/my-repo-name`. |
-{%- if actions-runner-arch-envvars %}
+{%- ifversion actions-runner-arch-envvars %}
 | `RUNNER_ARCH` | {% data reusables.actions.runner-arch-description %}
 {%- endif %} |
 | `RUNNER_NAME` | {% data reusables.actions.runner-name-description %} For example, `Hosted Agent` |

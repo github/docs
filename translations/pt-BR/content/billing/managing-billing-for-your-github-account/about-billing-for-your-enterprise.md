@@ -45,7 +45,7 @@ Você pode ver seu uso atual no seu [Portal da conta do Azure](https://portal.az
 
 {% ifversion ghec %}
 
-{% data variables.product.company_short %} bills monthly for the total number of licensed seats for your organization or enterprise account, as well as any additional services you use with {% data variables.product.prodname_ghe_cloud %}, such as {% data variables.product.prodname_actions %} minutes. For more information about the licensed seats portion of your bill, see "[About per-user pricing](/billing/managing-billing-for-your-github-account/about-per-user-pricing)."
+{% data variables.product.company_short %} faz a cobrança mensal para o número total de estações licenciadas para sua organização ou conta corporativa, bem como todos os serviços adicionais que você utiliza com {% data variables.product.prodname_ghe_cloud %}, como minutos de {% data variables.product.prodname_actions %}. Para obter mais informações sobre a parte das estações licenciadas da sua conta, consulte "[Sobre o preço por usuário](/billing/managing-billing-for-your-github-account/about-per-user-pricing)".
 
 {% elsif ghes %}
 

@@ -22,7 +22,7 @@ topics:
 
 {% ifversion fpt or ghec %}
 
-Você pode armazenar vários projetos nos repositórios do {% data variables.product.prodname_dotcom %}, incluindo projetos de código aberto. Com projetos de código aberto, você pode compartilhar código para tornar o software melhor e mais confiável. Você pode usar repositórios para colaborar com outras pessoas e acompanhar seu trabalho. Para obter mais informações, consulte "[Sobre repositórios](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-repositories)". Para saber mais sobre projetos de código aberto, acesse [OpenSource.org](http://opensource.org/about).
+Você pode armazenar vários projetos nos repositórios do {% data variables.product.prodname_dotcom %}, incluindo projetos de código aberto. Com projetos de código aberto, você pode compartilhar código para tornar o software melhor e mais confiável. Você pode usar repositórios para colaborar com outras pessoas e acompanhar seu trabalho. Para obter mais informações, consulte "[Sobre repositórios](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-repositories)". Para saber mais sobre projetos de código aberto, acesse [OpenSource.org](https://opensource.org/about).
 
 {% elsif ghes or ghae %}
 
@@ -34,7 +34,10 @@ Você pode armazenar uma série de projetos em repositórios de {% data variable
 
 {% note %}
 
-**Observação:** você pode criar repositórios públicos para um projeto de código aberto. Ao criar um repositório público, certifique-se de incluir um [arquivo de licença](https://choosealicense.com/) que determina como deseja que seu projeto seja compartilhado com outras pessoas. {% data reusables.open-source.open-source-guide-repositories %} {% data reusables.open-source.open-source-learning-lab %}
+**Notas:**
+- Você pode criar repositórios públicos para um projeto de código aberto. Ao criar um repositório público, certifique-se de incluir um [arquivo de licença](https://choosealicense.com/) que determina como deseja que seu projeto seja compartilhado com outras pessoas. {% data reusables.open-source.open-source-guide-repositories %}
+- {% data reusables.open-source.open-source-learning %}
+- Você também pode adicionar arquivos de saúde da comunidade aos seus repositórios, para definir diretrizes sobre como contribuir, manter seus repositórios seguros e muito mais. Para obter mais informações, consulte "[Criando um arquivo padrão de integridade da comunidade](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
 
 {% endnote %}
 

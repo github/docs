@@ -966,30 +966,30 @@ Atividade relacionada a {% data variables.product.prodname_registry %}. {% data 
 
 {{ webhookPayloadsForCurrentVersion.project_column.created }}
 
-{% if project-beta-webhooks %}
+{% ifversion project-beta-webhooks %}
 
 ## projects_v2_item
 
 {% note %}
 
-**Note:** Webhook events for Projects (beta) are currently in beta and subject to change. To share feedback about Projects (beta) webhooks with {% data variables.product.product_name %}, see the [Projects (beta) webhook feedback discussion](https://github.com/github/feedback/discussions/17405).
+**Observação:** Os eventos de Webhook para Projetos (beta) estão atualmente no beta e sujeitos a alterações. Para compartilhar feedback sobre webhooks de projetos (beta) com {% data variables.product.product_name %}, veja os [Webhooks de projetos (beta) de feedback](https://github.com/github/feedback/discussions/17405).
 
 {% endnote %}
 
-Activity related to items in a Projects (beta) project. {% data reusables.webhooks.action_type_desc %} For more information, see "[About projects (beta)](/issues/trying-out-the-new-projects-experience/about-projects)."
+Atividade relacionada aos itens em um projeto (beta) {% data reusables.webhooks.action_type_desc %} Para obter mais informações, consulte "[Sobre projetos (beta)](/issues/trying-out-the-new-projects-experience/about-projects).
 
 ### Disponibilidade
 
 - Webhooks da organização
-- {% data variables.product.prodname_github_apps %} with the `organization_projects` permission
+- {% data variables.product.prodname_github_apps %} com a permissão de `organization_projects`
 
 ### Objeto da carga do webhook
 
-| Tecla              | Tipo     | Descrição                                                                                                                                                                                                                                                                                                                                                                             |
-| ------------------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Ação`             | `string` | The action that was performed on the project item. Can be one of `archived`, `converted`, `created`, `edited`, `restored`, `deleted`, or `reordered`.                                                                                                                                                                                                                                 |
-| `projects_v2_item` | `objeto` | The project item itself. To find more information about the project item, you can use `node_id` (the node ID of the project item) and `project_node_id` (the node ID of the project) to query information in the GraphQL API. For more information, see "[Using the API to manage projects (beta)](/issues/trying-out-the-new-projects-experience/using-the-api-to-manage-projects)." |
-| `alterações`       | `objeto` | The changes to the project item.                                                                                                                                                                                                                                                                                                                                                      |
+| Tecla              | Tipo     | Descrição                                                                                                                                                                                                                                                                                                                                                                                    |
+| ------------------ | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Ação`             | `string` | A ação que foi executada no item do projeto. Pode ser: `archived`, `converted`, `created`, `edited`, `restored`, `deleted` ou `reordered`.                                                                                                                                                                                                                                                   |
+| `projects_v2_item` | `objeto` | O item do projeto em si. Para encontrar mais informações sobre o item do projeto, você pode usar `node_id` (o ID do nó do item do projeto) e `project_node_id` (o ID do nó do projeto) para consultar informações na API do GraphQL. For more information, see "[Using the API to manage projects (beta)](/issues/trying-out-the-new-projects-experience/using-the-api-to-manage-projects)." |
+| `alterações`       | `objeto` | As alterações no item do projeto.                                                                                                                                                                                                                                                                                                                                                            |
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
 {% data reusables.webhooks.sender_desc %}
@@ -1336,6 +1336,34 @@ O conjunto de dados consultivos de segurança também alimentam o GitHub {% data
 ### Exemplo de carga de webhook
 
 {{ webhookPayloadsForCurrentVersion.security_advisory.published }}
+
+{% endif %}
+
+{% ifversion ghas-enablement-webhook %}
+
+## security_and_analysis
+
+Atividade relacionada à habilitação ou desabilitação de recursos de segurança e análise de código para um repositório ou organização.
+
+### Disponibilidade
+
+- Webhooks do repositório
+- Webhooks da organização
+- {% data variables.product.prodname_github_apps %} com pelo menos acesso `somente leitura` na administração de repositórios
+
+### Objeto da carga do webhook
+
+| Tecla        | Tipo     | Descrição                                                                            |
+| ------------ | -------- | ------------------------------------------------------------------------------------ |
+| `alterações` | `objeto` | As alterações que foram feitas nas funcionalidades de segurança e análise do código. |
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
+
+### Exemplo de carga de webhook
+
+{{ webhookPayloadsForCurrentVersion.security_and_analysis }}
 
 {% endif %}
 

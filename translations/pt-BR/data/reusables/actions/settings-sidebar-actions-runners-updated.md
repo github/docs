@@ -1,1 +1,1 @@
-1. In the left sidebar, under "Actions", click **Runners**.
+1. Na barra lateral esquerda, em "Ações", clique em **Executores**.

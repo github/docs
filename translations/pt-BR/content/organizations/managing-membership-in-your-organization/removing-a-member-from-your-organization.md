@@ -63,5 +63,5 @@ Para auxiliar a transição e garantir a exclusão das informações confidencia
 
 ## Leia mais
 
-- "[Removendo integrantes da organização de uma equipe](/articles/removing-organization-members-from-a-team)"{% if remove-enterprise-members %}
+- "[Removendo integrantes da organização de uma equipe](/articles/removing-organization-members-from-a-team)"{% ifversion remove-enterprise-members %}
 - "[Removendo um integrante da sua empresa](/admin/user-management/managing-users-in-your-enterprise/removing-a-member-from-your-enterprise)"{% endif %}

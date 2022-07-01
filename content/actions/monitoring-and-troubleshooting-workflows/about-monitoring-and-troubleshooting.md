@@ -15,7 +15,7 @@ miniTocMaxHeadingLevel: 3
 
 ## Monitoring your workflows 
 
-{% if github-runner-dashboard %}
+{% ifversion github-runner-dashboard %}
 ### Monitoring your current jobs in your organization or enterprise
 
 {% data reusables.actions.github-hosted-runners-check-concurrency %}
