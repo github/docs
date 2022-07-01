@@ -1,7 +1,7 @@
 import { fileURLToPath } from 'url'
 import path from 'path'
 import { isPlainObject } from 'lodash-es'
-import { expect, jest, test } from '@jest/globals'
+import { describe, expect, jest, test } from '@jest/globals'
 
 import enterpriseServerReleases from '../../lib/enterprise-server-releases.js'
 import Page from '../../lib/page.js'
@@ -561,6 +561,55 @@ describe('redirects', () => {
       )
       expect(res.statusCode).toBe(301)
       expect(res.headers.location).toBe(japaneseDesktopGuides)
+    })
+  })
+
+  // These tests exists because of issue #1960
+  describe('rest reference redirects with default product', () => {
+    test('rest subcategory with fpt in URL', async () => {
+      for (const category of [
+        'migrations',
+        'actions',
+        'activity',
+        'apps',
+        'billing',
+        'checks',
+        'codes-of-conduct',
+        'code-scanning',
+        'codespaces',
+        'emojis',
+        'gists',
+        'git',
+        'gitignore',
+        'interactions',
+        'issues',
+        'licenses',
+        'markdown',
+        'meta',
+        'orgs',
+        'projects',
+        'pulls',
+        'rate-limit',
+        'reactions',
+        'repos',
+        'scim',
+        'search',
+        'teams',
+        'users',
+      ]) {
+        // Without language prefix
+        {
+          const res = await get(`/free-pro-team@latest/rest/reference/${category}`)
+          expect(res.statusCode).toBe(302)
+          expect(res.headers.location).toBe(`/en/rest/${category}`)
+        }
+        // With language prefix
+        {
+          const res = await get(`/en/free-pro-team@latest/rest/reference/${category}`)
+          expect(res.statusCode).toBe(301)
+          expect(res.headers.location).toBe(`/en/rest/${category}`)
+        }
+      }
     })
   })
 })
